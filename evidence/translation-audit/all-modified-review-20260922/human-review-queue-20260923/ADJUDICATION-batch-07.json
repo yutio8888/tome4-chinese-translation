@@ -1,0 +1,973 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "batch_id": "batch-07",
+ "packet_sha256": "94867ca7fd0bed17b0e2b0cf1ef75e793a34de41643860ed433ff5f5f15a26be",
+ "verify_clean": true,
+ "verify_problems": [],
+ "record_count": 44,
+ "verdict_counts": {
+  "accepted": 44
+ },
+ "model_disposition_counts": {
+  "fix": 35,
+  "no_change": 9
+ },
+ "rejected_model_claims": [
+  {
+   "entry_id": "entry-00244",
+   "claim": "去掉 ` area effect` 的前导空格造成中文拼接缺陷",
+   "verdict": "rejected",
+   "reason": "模型主张补回空格。固定源码 MapEffects.lua:23 为 `dam_def.name .. _t\" area effect\"` 直接拼接，补空格会显示「火焰 范围效果」，反证模型建议有害。"
+  },
+  {
+   "entry_id": "entry-00221",
+   "claim": "「离开地图」构成明显误译",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码 Game.lua:926-936 的 can_change_level 阻止任何换层/换区域，「离开地图」覆盖该限制，功能含义正确；level/zone 统一译法属跨条目策略，非本条缺陷。"
+  },
+  {
+   "entry_id": "entry-00345",
+   "claim": "「使这次攻击发生偏斜」弱化招架，应改「招架」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码确认招架成功挡住攻击，现译保留防御成功含义，属文风偏好，不构成缺陷。"
+  },
+  {
+   "entry_id": "entry-00185",
+   "claim": "方括号内多空格",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。用户策略明确纯静态排版不算缺陷；方括号不属「括号不一致」策略范围。"
+  },
+  {
+   "entry_id": "entry-00254",
+   "claim": "「最大 50%」与同组「最大40%」排版不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；仅为数字前空格差异，属纯静态排版，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00419",
+   "claim": "「超过1500点」与同组「超过 600 点」空格不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；纯静态排版差异，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00428",
+   "claim": "三扇传送门句式与同系列不平行",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；条件、数量、机制均正确，句式平行属文风偏好。"
+  },
+  {
+   "entry_id": "entry-00334",
+   "claim": "「杀死」应为「击杀」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；日志在敌人 on_die 中输出，「杀死」与触发事实一致，击杀仅为界面习惯差异。"
+  },
+  {
+   "entry_id": "entry-00434",
+   "claim": "「珠宝匠托付」应改为更贴近源码关系",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；Master Jeweler 对应珠宝匠，译文为可接受意译，任务名已增补，无缺陷。"
+  },
+  {
+   "entry_id": "entry-00393",
+   "claim": "复合后缀外层半角括号",
+   "verdict": "rejected_on_entry",
+   "reason": "本条 entry-00393 本身已是全角；模型所指的半角外层括号实际出现在 entry-00395–00400（同一 hrq-00046 行的其他载体），已按 bracket_fullwidth 修复那些载体。"
+  },
+  {
+   "entry_id": "entry-00184",
+   "claim": "「勇敢的向前」语病、段间缺空行",
+   "verdict": "accepted_upstream",
+   "reason": "缺陷成立，但主工作区 HEAD 11b3e963 已修（已核逐字）。按 SPEC 规则不在本 worktree 重复修改，记 defer；不接受在本分支重复改。"
+  }
+ ],
+ "records": [
+  {
+   "queue_id": "hrq-00252",
+   "entry_id": "entry-01536",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21483,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "四个占位符顺序正确；blindness resistance 对应 blind_immune，目盲免疫合理；damage_affinity 对应亲和，无术语证据要求改吸收。normal light 的最强反证是通常光源可指灯具，但源码比较 self.lite 与 radiance_aura，并不限于灯具，故改为常规光照。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/celestial/radiance.lua",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；四个占位符顺序正确；blindness resistance 对应 blind_immune，目盲免疫合理；damage_affinity 对应亲和，无术语证据要求改吸收。normal light 的最强反证是通常光源可指灯具，但源码比较 self.lite 与 radiance_aura，并不限于灯具，故改为常规光照。",
+   "applied": true,
+   "old_target": "你的体内充满了阳光，即使身处黑暗之中，身体也会永久发出半径 %d 的光芒。\n\t\t你的眼睛和身体适应了光明，获得 %d%% 目盲免疫，%d%% 光系抗性和 %d%% 光系伤害亲和。\n\t\t光照超过你的灯具时取代之，不与灯具叠加光照。\n\t\t",
+   "new_target": "你的体内充满了阳光，即使身处黑暗之中，身体也会永久发出半径 %d 的光芒。\n\t\t你的眼睛和身体适应了光明，获得 %d%% 目盲免疫，%d%% 光系抗性和 %d%% 光系伤害亲和。\n\t\t如果该光照半径大于你通常的光照半径，就会取代后者，两者不会叠加。\n\t\t",
+   "section": "mod-tome/data/talents/celestial/radiance.lua",
+   "source": "You are so infused with sunlight that your body glows permanently in radius %d, even in dark places.\n\t\tYour vision and body adapt to this glow, giving you %d%% blindness resistance, %d%% light resistance, and %d%% light affinity.\n\t\tThe light radius overrides your normal light if it is bigger (it does not stack).\n\t\t"
+  },
+  {
+   "queue_id": "hrq-00253",
+   "entry_id": "entry-01543",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21610,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "固定源码 logPlayer 用感叹号，现译忠实保留；术语快照中的句号不是本条日志的强制标点。两者差异不影响机制。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/celestial/twilight.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；固定源码 logPlayer 用感叹号，现译忠实保留；术语快照中的句号不是本条日志的强制标点。两者差异不影响机制。",
+   "applied": false,
+   "old_target": "没有足够的空间召唤！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/celestial/twilight.lua",
+   "source": "Not enough space to summon!"
+  },
+  {
+   "queue_id": "hrq-00254",
+   "entry_id": "entry-01554",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21815,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "两个占位符正确。守卫此时只射一箭，“灵矢伤害降低”与当前行为等价；末句虽有前文“射击”可供承接，仍将具体 Shoot 天赋泛化为任意远程攻击，故恢复天赋名。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/chronomancy/bow-threading.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；两个占位符正确。守卫此时只射一箭，“灵矢伤害降低”与当前行为等价；末句虽有前文“射击”可供承接，仍将具体 Shoot 天赋泛化为任意远程攻击，故恢复天赋名。",
+   "applied": true,
+   "old_target": "发射一支灵矢造成 %d%% 武器伤害，并且根据可用空间，召唤最多两个守卫，各自发射一枚灵矢然后回到他们自己的时间线中。\n\t\t守卫处在现实位面之外，灵矢的伤害减少 %d%%，但能够穿过友好目标。同时，你发射的所有来自射击或者其他技能的箭矢，都可以穿透友军并且不会造成伤害。\n\n\t\t激活螺旋灵弓技能可以自由切换到你的弓（必须装备在副武器栏位上）。此外，当你使用远程攻击时也会触发这个效果。",
+   "new_target": "发射一支灵矢造成 %d%% 武器伤害，并且根据可用空间，召唤最多两个守卫，各自发射一枚灵矢然后回到他们自己的时间线中。\n\t\t守卫处在现实位面之外，灵矢的伤害减少 %d%%，但能够穿过友好目标。同时，你发射的所有来自射击或者其他技能的箭矢，都可以穿透友军并且不会造成伤害。\n\n\t\t激活螺旋灵弓技能可以自由切换到你的弓（必须装备在副武器栏位上）。此外，当你使用射击天赋时也会触发这个效果。",
+   "section": "mod-tome/data/talents/chronomancy/bow-threading.lua",
+   "source": "Fire an arrow for %d%% weapon damage and call up to 2 wardens, depending on available space, that will each fire a single arrow before returning to their timelines.\n\t\tThe wardens are out of phase with normal reality and deal %d%% less damage but shoot through friendly targets. All your arrows, including arrows from Shoot and other talents, now phase through friendly targets without causing them harm.\n\t\t\n\t\tBow Threading talents will freely swap to your bow when activated if you have one in your secondary slot. You may use the Shoot talent in a similar manner."
+  },
+  {
+   "queue_id": "hrq-00255",
+   "entry_id": "entry-01544",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 21621,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "源码存在第二座跃迁门和 Jumpgate: Teleport 子技能，单个 %d 是其有效距离，现译正确。此行交叉引用的 Shoot 泛化及守卫伤害是 entry-01554 的 claim，不适用于本条，已在该修订单独裁决。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/celestial/twilight.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；源码存在第二座跃迁门和 Jumpgate: Teleport 子技能，单个 %d 是其有效距离，现译正确。此行交叉引用的 Shoot 泛化及守卫伤害是 entry-01554 的 claim，不适用于本条，已在该修订单独裁决。",
+   "applied": false,
+   "old_target": "在你当前位置创造第二个暗影跃迁之门。只要你维持本法术，便可使用「跃迁之门II：传送」立即传送至该跃迁之门，只要你在其 %d 码范围内。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/celestial/twilight.lua",
+   "source": "Create a second shadow jumpgate at your location. As long as you sustain this spell, you can use 'Jumpgate: Teleport' to instantly travel to the jumpgate, as long as you are within %d tiles of it."
+  },
+  {
+   "queue_id": "hrq-00256",
+   "entry_id": "entry-01557",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21879,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原文是编织命运之丝，现译加“你的”并丢失 threads 意象；补全意象。Spin Fate 叠加命运之丝的模型举例未由本修订证明，不以它为依据。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/chronomancy/chronomancer.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文是编织命运之丝，现译加“你的”并丢失 threads 意象；补全意象。Spin Fate 叠加命运之丝的模型举例未由本修订证明，不以它为依据。",
+   "applied": true,
+   "old_target": "编织你的命运。",
+   "new_target": "编织命运之丝。",
+   "section": "mod-tome/data/talents/chronomancy/chronomancer.lua",
+   "source": "Weave the threads of fate."
+  },
+  {
+   "queue_id": "hrq-00257",
+   "entry_id": "entry-01563",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21913,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "三个占位符及次序正确；释放与逗号之间的两个空格使标点邻接错误，删除该局部多余空格。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/chronomancy/chronomancy.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；三个占位符及次序正确；释放与逗号之间的两个空格使标点邻接错误，删除该局部多余空格。",
+   "applied": true,
+   "old_target": "选择一个只会影响你并且不需要选中目标的非固定冷却时间主动法术。当你受到伤害并使生命值降低到 %d%% 以下时，自动释放这个技能。\n\t\t即使选择的技能处于冷却状态也可以释放  ，并且不消耗回合或资源，技能等级取意外术与所选法术两者中较低的一方。\n\t\t这个效果每 %d 回合只能触发一次，并且在伤害结算之后生效。\n\n\t\t当前选择技能：%s",
+   "new_target": "选择一个只会影响你并且不需要选中目标的非固定冷却时间主动法术。当你受到伤害并使生命值降低到 %d%% 以下时，自动释放这个技能。\n\t\t即使选择的技能处于冷却状态也可以释放，并且不消耗回合或资源，技能等级取意外术与所选法术两者中较低的一方。\n\t\t这个效果每 %d 回合只能触发一次，并且在伤害结算之后生效。\n\n\t\t当前选择技能：%s",
+   "section": "mod-tome/data/talents/chronomancy/chronomancy.lua",
+   "source": "Choose an activatable spell that affects only you, does not require a target, and does not have a fixed cooldown.  When you take damage that reduces your life below %d%% the spell will automatically cast.\n\t\tThis spell will cast even if it is currently on cooldown, will not consume a turn or resources, and uses the talent level of Contingency or its own, whichever is lower.\n\t\tThis effect can only occur once every %d turns and takes place after the damage is resolved.\n\n\t\tCurrent Contingency Spell: %s"
+  },
+  {
+   "queue_id": "hrq-00258",
+   "entry_id": "entry-01565",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21925,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "全文已说明三种未来与死亡后回溯，是可用反证；但 point when you first cast 明确是首次施法时刻，“地方”误指空间地点，故修正。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/chronomancy/chronomancy.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；全文已说明三种未来与死亡后回溯，是可用反证；但 point when you first cast 明确是首次施法时刻，“地方”误指空间地点，故修正。",
+   "applied": true,
+   "old_target": "你窥视三种可能的未来，允许你分别进行探索 %d 回合。当效果结束，你选择三者之一成为你的现在。\n\t\t如果你学会了深谋远虑，当你使用命运螺旋时，将获得额外的闪避和无视暴击伤害几率（数值等于深谋远虑的奖励）。\n\t\t这个法术会使时间线分裂。当此技能激活的时候，使用其他分裂时间线的技能将会失败。\n\t\t如果你在任何一条时间线上死亡，你将使时间线回到你使用技能的地方，并且技能效果结束。\n\t\t这个技能每个楼层只能使用一次。",
+   "new_target": "你窥视三种可能的未来，允许你分别进行探索 %d 回合。当效果结束，你选择三者之一成为你的现在。\n\t\t如果你学会了深谋远虑，当你使用命运螺旋时，将获得额外的闪避和无视暴击伤害几率（数值等于深谋远虑的奖励）。\n\t\t这个法术会使时间线分裂。当此技能激活的时候，使用其他分裂时间线的技能将会失败。\n\t\t如果你在任何一条时间线上死亡，你将使时间线回到你首次施放技能的时刻，并且技能效果结束。\n\t\t这个技能每个楼层只能使用一次。",
+   "section": "mod-tome/data/talents/chronomancy/chronomancy.lua",
+   "source": "You peer into three possible futures, allowing you to explore each for %d turns.  When the effect expires, you'll choose which of the three futures becomes your present.\n\t\tIf you know Foresight you'll gain additional defense and chance to shrug off critical hits (equal to your Foresight values) while See the Threads is active.\n\t\tThis spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.\n\t\tIf you die in any thread you'll revert the timeline to the point when you first cast the spell and the effect will end.\n\t\tThis spell may only be used once per zone level."
+  },
+  {
+   "queue_id": "hrq-00259",
+   "entry_id": "entry-01576",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 22025,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "全部数值占位符正确；“码”是此处格距的惯用单位补充，没有改变半径与伤害，属表达选择。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/chronomancy/gravity.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；全部数值占位符正确；“码”是此处格距的惯用单位补充，没有改变半径与伤害，属表达选择。",
+   "applied": false,
+   "old_target": "在半径 %d 码的锥形范围内释放一股爆炸性的重力冲击波，造成 %0.2f 物理（重力）伤害并击退范围内目标。\n\t\t被击飞至墙上或其他单位的目标受到额外 25%% 伤害，并对被击中的单位造成 25%% 伤害。\n\t\t离你越近的目标将会被击飞得更远。受法术强度影响，伤害按比例加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/chronomancy/gravity.lua",
+   "source": "Sends out a blast wave of gravity in a radius %d cone, dealing %0.2f base physical (gravity) damage and knocking back targets caught in the area.\n\t\tTargets knocked into walls or other targets take 25%% additional damage and deal 25%% damage to targets they're knocked into.\n\t\tCloser targets will be knocked back further and the damage will scale with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00260",
+   "entry_id": "entry-01586",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 22102,
+   "source_tag": "talent name",
+   "model_disposition": "fix",
+   "model_reason": "普通词可译纪元是最强反证，但术语库将同名天赋及实体 Epoch 明列为 core preferred“亚伯契”，故采用专名。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/chronomancy/induced-phenomena.lua",
+    "terminology/society.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；普通词可译纪元是最强反证，但术语库将同名天赋及实体 Epoch 明列为 core preferred“亚伯契”，故采用专名。",
+   "applied": true,
+   "old_target": "纪元",
+   "new_target": "亚伯契",
+   "section": "mod-tome/data/talents/chronomancy/induced-phenomena.lua",
+   "source": "Epoch"
+  },
+  {
+   "queue_id": "hrq-00261",
+   "entry_id": "entry-01588",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 22122,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "护甲、震慑与流血抵抗及占位符已正确，唯首句省略 weave matter 的具体动作和技能名呼应，故补回。Magic 译“魔力值”能理解；对齐现有属性译名“魔力”，并不将 existing 视为强制术语。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/chronomancy/matter.lua",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；护甲、震慑与流血抵抗及占位符已正确，唯首句省略 weave matter 的具体动作和技能名呼应，故补回。Magic 译“魔力值”能理解；对齐现有属性译名“魔力”，并不将 existing 视为强制术语。",
+   "applied": true,
+   "old_target": "你的血肉被改变，对伤害的抗性提高。激活时增加 %d 护甲，%d%% 震慑免疫，%d%% 流血免疫。\n\t\t护甲加成受魔力值加成。",
+   "new_target": "将物质编织进你的血肉，对伤害的抗性提高。激活时增加 %d 护甲，%d%% 震慑免疫，%d%% 流血免疫。\n\t\t护甲加成受魔力加成。",
+   "section": "mod-tome/data/talents/chronomancy/matter.lua",
+   "source": "Weave matter into your flesh, becoming incredibly resilient to damage.  While active you gain %d armour, %d%% resistance to stunning, and %d%% resistance to cuts.\n\t\tThe bonus to armour will scale with your Magic."
+  },
+  {
+   "queue_id": "hrq-00262",
+   "entry_id": "entry-01605",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 22286,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "前两句已建立地雷主体，所以末句省略“时空地雷的”不构成漏译；temporal (warp) 的扭曲子类型却无处承接，补全角括号限定。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/chronomancy/spacetime-folding.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；前两句已建立地雷主体，所以末句省略“时空地雷的”不构成漏译；temporal (warp) 的扭曲子类型却无处承接，补全角括号限定。",
+   "applied": true,
+   "old_target": "在半径 1 的范围里埋设地雷，将敌人传送远离你身边并造成 %0.2f 物理和 %0.2f 时空伤害。\n\t\t地雷是隐藏的陷阱（%d 侦查强度 %d 解除强度基于魔法），持续 %d 回合。\n\t\t伤害受法术强度加成。",
+   "new_target": "在半径 1 的范围里埋设地雷，将敌人传送远离你身边并造成 %0.2f 物理和 %0.2f 时空（扭曲）伤害。\n\t\t地雷是隐藏的陷阱（%d 侦查强度 %d 解除强度基于魔法），持续 %d 回合。\n\t\t伤害受法术强度加成。",
+   "section": "mod-tome/data/talents/chronomancy/spacetime-folding.lua",
+   "source": "Lay Warp Mines in a radius of 1 that teleport enemies away from you and inflict %0.2f physical and %0.2f temporal (warp) damage.\n\t\tThe mines are hidden traps (%d detection and %d disarm power based on your Magic) and last for %d turns.\n\t\tThe damage caused by your Warp Mines will improve with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00263",
+   "entry_id": "entry-01617",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 22388,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "占位符正确；“时空增效”可泛指 spellbound，但源码四项同句且另三项均译“时空绑定效果”，现译造成同一机制术语分叉，故统一。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/chronomancy/spellbinding.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；占位符正确；“时空增效”可泛指 spellbound，但源码四项同句且另三项均译“时空绑定效果”，现译造成同一机制术语分叉，故统一。",
+   "applied": true,
+   "old_target": "将选定时空法术的持续时间延长 %d%%。\n\t\t每个法术同时只能通过一种方式获得时空增效。\n\t\t\n\t\t当前延展法术：%s",
+   "new_target": "将选定时空法术的持续时间延长 %d%%。\n\t\t每个法术同时只能附加一种时空绑定效果。\n\t\t\n\t\t当前延展法术：%s",
+   "section": "mod-tome/data/talents/chronomancy/spellbinding.lua",
+   "source": "Extends the duration of the selected chronomancy spell by %d%%.\n\t\tEach spell can only be spellbound in one way at a time.\n\t\t\n\t\tCurrent Extended Spell: %s"
+  },
+  {
+   "queue_id": "hrq-00264",
+   "entry_id": "entry-01625",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 22512,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "占位符及百分号正确。首句召唤暗示激活，却未明确 Upon activation，补“激活时”；“你猎犬”缺“的”。“%d 回合内”可指该计时结束，不单独改为“后”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/chronomancy/temporal-hounds.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；占位符及百分号正确。首句召唤暗示激活，却未明确 Upon activation，补“激活时”；“你猎犬”缺“的”。“%d 回合内”可指该计时结束，不单独改为“后”。",
+   "applied": true,
+   "old_target": "召唤一条时空猎犬。\n\t\t每隔 %d 回合召唤另一条时空猎犬，直至最多 3 条。\n\t\t当一条猎犬死去时，你将在 %d 回合内召唤一条新的猎犬。\n\t\t你猎犬继承你的伤害加成，有 %d%% 物理和 %d%% 时空抗性，对传送效果免疫。\n\t\t猎犬将拥有 %d 力量，%d 敏捷，%d 体质，%d 魔法，%d 意志和 %d 灵巧，基于你的魔法。",
+   "new_target": "激活时召唤一条时空猎犬。\n\t\t每隔 %d 回合召唤另一条时空猎犬，直至最多 3 条。\n\t\t当一条猎犬死去时，你将在 %d 回合内召唤一条新的猎犬。\n\t\t你的猎犬继承你的伤害加成，有 %d%% 物理和 %d%% 时空抗性，对传送效果免疫。\n\t\t猎犬将拥有 %d 力量，%d 敏捷，%d 体质，%d 魔法，%d 意志和 %d 灵巧，基于你的魔法。",
+   "section": "mod-tome/data/talents/chronomancy/temporal-hounds.lua",
+   "source": "Upon activation summon a Temporal Hound.  Every %d turns another hound will be summoned, up to a maximum of three hounds. If a hound dies you'll summon a new hound in %d turns.  \n\t\tYour hounds inherit your increased damage percent, have %d%% physical resistance and %d%% temporal resistance, and are immune to teleportation effects.\n\t\tHounds will get, %d Strength, %d Dexterity, %d Constitution, %d Magic, %d Willpower, and %d Cunning, based on your Magic stat."
+  },
+  {
+   "queue_id": "hrq-00265",
+   "entry_id": "entry-01659",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 22839,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "三个占位符数量、顺序正确，格距用“码”成立；“%d 码球形范围”缺 radius 关系，补“半径”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/corruptions/plague.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；三个占位符数量、顺序正确，格距用“码”成立；“%d 码球形范围”缺 radius 关系，补“半径”。",
+   "applied": true,
+   "old_target": "所有 %d 码球形范围内感染疾病的敌人进入僵硬状态，震慑它们 %d 回合并立即爆发 %d%% 剩余所有疾病伤害。",
+   "new_target": "半径 %d 码的球形范围内所有感染疾病的敌人进入僵硬状态，震慑它们 %d 回合并立即爆发 %d%% 剩余所有疾病伤害。",
+   "section": "mod-tome/data/talents/corruptions/plague.lua",
+   "source": "All your foes within a radius %d ball infected with a disease enter a cataleptic state, stunning them for %d turns and dealing %d%% of all remaining disease damage instantly."
+  },
+  {
+   "queue_id": "hrq-00266",
+   "entry_id": "entry-01661",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 22895,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "占位符正确；源码第五个未被文本消费的参数不应硬塞进译文。实体名及生成日志均称 carrion worm mass 为“腐肉虫群”，现译“腐尸蠕虫”族内不一致，故对齐。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/corruptions/rot.lua",
+    "terminology/creatures.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；占位符正确；源码第五个未被文本消费的参数不应硬塞进译文。实体名及生成日志均称 carrion worm mass 为“腐肉虫群”，现译“腐尸蠕虫”族内不一致，故对齐。",
+   "applied": true,
+   "old_target": "你的身体已经腐败，增加 %d%% 枯萎和酸性抗性，%d%% 枯萎伤害亲和。\n\t\t每当你受到大于最大生命值 15%% 的伤害时，该伤害将减少 %d%%，同时在相邻的格子生成一团腐尸蠕虫，攻击你的敌人 5 回合。\n\t\t无论来源为何，你同时最多只能拥有 5 只蠕虫。\n\t\t蠕虫死亡时将爆炸，产生半径 2 的枯萎毒池，持续 5 回合，每回合造成 %0.2f 枯萎伤害，并按该伤害的 33%% 治疗你。",
+   "new_target": "你的身体已经腐败，增加 %d%% 枯萎和酸性抗性，%d%% 枯萎伤害亲和。\n\t\t每当你受到大于最大生命值 15%% 的伤害时，该伤害将减少 %d%%，同时在相邻的格子生成一团腐肉虫群，攻击你的敌人 5 回合。\n\t\t无论来源为何，你同时最多只能拥有 5 只蠕虫。\n\t\t腐肉虫群死亡时将爆炸，产生半径 2 的枯萎毒池，持续 5 回合，每回合造成 %0.2f 枯萎伤害，并按该伤害的 33%% 治疗你。",
+   "section": "mod-tome/data/talents/corruptions/rot.lua",
+   "source": "Your body has become a mass of living corruption, increasing your blight and acid resistance by %d%% and blight affinity by %d%%.\nOn taking damage greater than 15%% of your maximum health, the damage will be reduced by %d%% and a carrion worm mass will burst forth onto a nearby tile, attacking your foes for 5 turns.\nYou can never have more than 5 worms active from any source at a time.\nWhen a carrion worm dies it will explode into a radius 2 pool of blight for 5 turns, dealing %0.2f blight damage each turn and healing you for 33%% of that amount."
+  },
+  {
+   "queue_id": "hrq-00267",
+   "entry_id": "entry-01689",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 23218,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "烟雾弹概括投掷易挥发液体产生烟云，阻挡视线和降低视野已表达；本条模型结论仅排版或风格，没有确认的机制缺陷。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/artifice.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；烟雾弹概括投掷易挥发液体产生烟云，阻挡视线和降低视野已表达；本条模型结论仅排版或风格，没有确认的机制缺陷。",
+   "applied": false,
+   "old_target": "扔出烟雾弹，产生半径 %d 的烟雾，持续 %d 回合。烟雾阻挡视野，所有烟雾中的敌人视野下降 %d。\n\t\t使用该技能不解除潜行。被烟雾影响的生物不能阻止你潜行。\n\t\t#YELLOW#准备于：%s#LAST#",
+   "new_target": null,
+   "section": "mod-tome/data/talents/cunning/artifice.lua",
+   "source": "Throw a vial of volatile liquid that explodes in a radius %d cloud of smoke lasting %d turns.  The smoke blocks line of sight, and enemies within will have their vision range reduced by %d.\n\t\tUse of this talent will not break stealth, and creatures affected by the smokes can never prevent you from activating stealth, even if their proximity would normally forbid it.\n\t\t#YELLOW#Prepared with: %s#LAST#"
+  },
+  {
+   "queue_id": "hrq-00268",
+   "entry_id": "entry-01700",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 23246,
+   "source_tag": "logSeen",
+   "model_disposition": "no_change",
+   "model_reason": "固定源码三个 %s 依次为主体、反身代词、方向；现译保持次序和钩爪移动动作。贴字空格属静态排版。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/artifice.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；固定源码三个 %s 依次为主体、反身代词、方向；现译保持次序和钩爪移动动作。贴字空格属静态排版。",
+   "applied": false,
+   "old_target": "%s使用钩爪来拉动%s向%s！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/cunning/artifice.lua",
+   "source": "%s uses a grappling hook to pull %s %s!"
+  },
+  {
+   "queue_id": "hrq-00269",
+   "entry_id": "entry-01703",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 23255,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "同技能完整 info 的流血和中毒效果解释现译词语来源，是最强反证；但本条 short_info 明确列 PHYSICAL 与 NATURE 伤害，现译用“流血”“自然毒素”丢失伤害类型，改回物理和自然。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/artifice.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；同技能完整 info 的流血和中毒效果解释现译词语来源，是最强反证；但本条 short_info 明确列 PHYSICAL 与 NATURE 伤害，现译用“流血”“自然毒素”丢失伤害类型，改回物理和自然。",
+   "applied": true,
+   "old_target": "被钩爪击中的生物受到 %d%% 徒手伤害，在 4 回合内受到 %0.2f 流血伤害和 %0.2f 自然毒素伤害。",
+   "new_target": "被钩爪击中的生物受到 %d%% 徒手伤害，在 4 回合内受到 %0.2f 物理伤害和 %0.2f 自然伤害。",
+   "section": "mod-tome/data/talents/cunning/artifice.lua",
+   "source": "Your grappling hook deals %d%% unarmed damage when it hits, plus a further %0.2f physical and %0.2f nature damage over 4 turns."
+  },
+  {
+   "queue_id": "hrq-00270",
+   "entry_id": "entry-01706",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 23297,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "本行五个报告观察中的本条仅是 Called Shots 首句泛化；后文已有“精准射击系”可帮助读者推断，但首句仍从具体技能系缩成射击，补“精准”。三个占位符和机制数值正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/called-shots.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；本行五个报告观察中的本条仅是 Called Shots 首句泛化；后文已有“精准射击系”可帮助读者推断，但首句仍从具体技能系缩成射击，补“精准”。三个占位符和机制数值正确。",
+   "applied": true,
+   "old_target": "你对射击的掌握程度无与伦比。你的精准射击系技能获得 %d%% 额外暴击几率和 %d%% 额外暴击伤害。\n\t\t在第 3 级时，所有精准射击系技能冷却时间降低两回合。\n\t\t在第 5 级时，你的精准射击技能获得 %d%% 物理抗性穿透。",
+   "new_target": "你对精准射击的掌握程度无与伦比。你的精准射击系技能获得 %d%% 额外暴击几率和 %d%% 额外暴击伤害。\n\t\t在第 3 级时，所有精准射击系技能冷却时间降低两回合。\n\t\t在第 5 级时，你的精准射击技能获得 %d%% 物理抗性穿透。",
+   "section": "mod-tome/data/talents/cunning/called-shots.lua",
+   "source": "Your mastery of called shots is unparalleled. and you gain %d%% bonus critical chance and %d%% critical damage with your Called Shots Talents. At rank 3 the cooldowns of all of your Called Shots Talents are reduced by 2 each. At rank 5 you gain %d%% Physical resistance penetration with all Called Shot attacks."
+  },
+  {
+   "queue_id": "hrq-00270",
+   "entry_id": "entry-01709",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 23310,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "本行五个报告观察中的本条是已知陷阱集合；技能树语境可提示含义，但“学会制造各种功能的陷阱”把集合改为学习制造行为，并虚增功能限定，故改。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/cunning.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；本行五个报告观察中的本条是已知陷阱集合；技能树语境可提示含义，但“学会制造各种功能的陷阱”把集合改为学习制造行为，并虚增功能限定，故改。",
+   "applied": true,
+   "old_target": "学会制造各种功能的陷阱。",
+   "new_target": "已掌握的陷阱合集。",
+   "section": "mod-tome/data/talents/cunning/cunning.lua",
+   "source": "Collection of known traps."
+  },
+  {
+   "queue_id": "hrq-00270",
+   "entry_id": "entry-01711",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 23313,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "本行五个报告观察中的本条与陷阱合集平行；类别语境不足以支持“制造各种不同毒素”的动作，原文是已知毒素集合，故改。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/cunning.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；本行五个报告观察中的本条与陷阱合集平行；类别语境不足以支持“制造各种不同毒素”的动作，原文是已知毒素集合，故改。",
+   "applied": true,
+   "old_target": "制造各种不同毒素。",
+   "new_target": "已掌握的毒素合集。",
+   "section": "mod-tome/data/talents/cunning/cunning.lua",
+   "source": "Collection of known poisons."
+  },
+  {
+   "queue_id": "hrq-00270",
+   "entry_id": "entry-01718",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 23329,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "本行五个报告观察中的本条漏 cunning；Artifice 类别名可暗示精巧工具，却不能代替说明中的限定，故补“精巧”，保留制造和使用。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/cunning.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；本行五个报告观察中的本条漏 cunning；Artifice 类别名可暗示精巧工具，却不能代替说明中的限定，故补“精巧”，保留制造和使用。",
+   "applied": true,
+   "old_target": "制造并使用工具。",
+   "new_target": "制造并使用精巧工具。",
+   "section": "mod-tome/data/talents/cunning/cunning.lua",
+   "source": "Create and use cunning tools."
+  },
+  {
+   "queue_id": "hrq-00270",
+   "entry_id": "entry-01727",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 23437,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "本行五个报告观察中的本条只涉及 Deadly Poison 称谓；同一 poisons.lua 相邻四项均为“致命毒素”，本条“致命剧毒”造成同族分叉，故统一；%d%% 正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/poisons.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；本行五个报告观察中的本条只涉及 Deadly Poison 称谓；同一 poisons.lua 相邻四项均为“致命毒素”，本条“致命剧毒”造成同族分叉，故统一；%d%% 正确。",
+   "applied": true,
+   "old_target": "为你的致命剧毒加入麻痹成分，使该毒素令目标造成的所有伤害降低 %d%%。",
+   "new_target": "为你的致命毒素加入麻痹成分，使该毒素令目标造成的所有伤害降低 %d%%。",
+   "section": "mod-tome/data/talents/cunning/poisons.lua",
+   "source": "Enhances your Deadly Poison with a numbing agent, causing the poison to reduce all damage the target deals by %d%%."
+  },
+  {
+   "queue_id": "hrq-00271",
+   "entry_id": "entry-01732",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 23449,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "现译保留自然伤害、持续和石化，是最强反证；但把持续增强写成独立武器涂毒，漏施加致命毒素时的触发、土系毒素和第二个 %d 的每回合伤害单位。补齐并统一“回合”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/poisons.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；现译保留自然伤害、持续和石化，是最强反证；但把持续增强写成独立武器涂毒，漏施加致命毒素时的触发、土系毒素和第二个 %d 的每回合伤害单位。补齐并统一“回合”。",
+   "applied": true,
+   "old_target": "在你的武器上涂上石化毒素，额外造成每轮 %d 点自然伤害（可叠加至 %d），持续 %d 回合。\n\t\t%d 回合后或者毒素效果结束后（几率小于100%%，请参见效果介绍），目标将被石化 %d 回合。\n\t\t受灵巧影响，伤害按比例加成。",
+   "new_target": "以石化成分强化你的致命毒素。每当你施加致命毒素时，目标还会受到一种土系毒素，每回合造成 %d 点自然伤害（可叠加至每回合 %d 点伤害），持续 %d 回合。\n\t\t%d 回合后或者毒素效果结束后（几率小于100%%，请参见效果介绍），目标将被石化 %d 回合。\n\t\t受灵巧影响，伤害按比例加成。",
+   "section": "mod-tome/data/talents/cunning/poisons.lua",
+   "source": "Enhance your Deadly Poison with a stoning agent.  Whenever you apply Deadly Poison, you afflict your target with an additional earth-based poison that inflicts %d nature damage per turn (stacking up to %d damage per turn) for %d turns.\n\t\tAfter either %d turns or the poison has run its course (<100%% chance, see effect description), the target will be turned to stone for %d turns.\n\t\tThe damage scales with your Cunning."
+  },
+  {
+   "queue_id": "hrq-00272",
+   "entry_id": "entry-01740",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 23519,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "源码 xs 非空时自带前导空格，%d %s 会运行时双空格；删除固定空格。any non-instant, non-movement action 包含普通行动，现译“技能”过窄，改为行动。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/stealth.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源码 xs 非空时自带前导空格，%d %s 会运行时双空格；删除固定空格。any non-instant, non-movement action 包含普通行动，现译“技能”过窄，改为行动。",
+   "applied": true,
+   "old_target": "进入潜行模式（潜行点数 %d，基于灵巧），让你更难被侦测到。\n\t\t如果成功（每回合都重新检查），敌人将不会知道你在哪里，或者根本不会注意到你。\n\t\t潜行将光照半径减小至 0，增加3点夜视能力，并且不能在装备重甲或板甲时使用。\n\t\t如果敌人在半径 %d %s 内，你不能进入潜行。\n\t\t除非特别说明，任何非瞬间非移动技能均会打破潜行。\n\n\t\t即使不知道你位置的敌人，仍然会猜测你可能在的位置。\n\t\t潜行时，敌人无法彼此分享有关你所在位置的信息，并且会延迟向盟友通报你的存在。",
+   "new_target": "进入潜行模式（潜行点数 %d，基于灵巧），让你更难被侦测到。\n\t\t如果成功（每回合都重新检查），敌人将不会知道你在哪里，或者根本不会注意到你。\n\t\t潜行将光照半径减小至 0，增加3点夜视能力，并且不能在装备重甲或板甲时使用。\n\t\t如果敌人在半径 %d%s 内，你不能进入潜行。\n\t\t除非特别说明，任何非瞬间、非移动的行动均会打破潜行。\n\n\t\t即使不知道你位置的敌人，仍然会猜测你可能在的位置。\n\t\t潜行时，敌人无法彼此分享有关你所在位置的信息，并且会延迟向盟友通报你的存在。",
+   "section": "mod-tome/data/talents/cunning/stealth.lua",
+   "source": "Enters stealth mode (power %d, based on Cunning), making you harder to detect.\n\t\tIf successful (re-checked each turn), enemies will not know exactly where you are, or may not notice you at all.\n\t\tStealth reduces your light radius to 0, increases your infravision by 3, and will not work with heavy or massive armours.\n\t\tYou cannot enter stealth if there are foes in sight within range %d%s.\n\t\tAny non-instant, non-movement action will break stealth if not otherwise specified.\n\n\t\tEnemies uncertain of your location will still make educated guesses at it.\n\t\tWhile stealthed, enemies cannot share information about your location with each other and will be delayed in telling their allies that you exist at all."
+  },
+  {
+   "queue_id": "hrq-00273",
+   "entry_id": "entry-01742",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 23557,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "“能力增加 %d”已表达 +%d 的数值方向，省略加号不丢机制；power 由“能力”承接，补显性字样仅属措辞选择。三个数值占位符正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/survival.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“能力增加 %d”已表达 +%d 的数值方向，省略加号不丢机制；power 由“能力”承接，补显性字样仅属措辞选择。三个数值占位符正确。",
+   "applied": false,
+   "old_target": "你注意到他人注意不到的细节，甚至能在阴影区域“看到”怪物，%d 码半径范围。\n\t\t注意此能力不属于心灵感应，仍然受到视野的限制。\n\t\t同时你的细致观察使你侦察潜行和隐身的能力增加 %d，使你发现周围的陷阱的能力增加 %d。\n\t\t上述侦测能力均受灵巧加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/cunning/survival.lua",
+   "source": "You notice the small things others do not notice, allowing you to \"see\" creatures in a %d radius even outside of light radius.\n\t\tThis is not telepathy, however, and it is still limited to line of sight.\n\t\tAlso, your attention to detail increases stealth detection and invisibility detection by %d, and you gain the ability to detect traps (+%d detect 'power').\n\t\tThe detection abilities improve with Cunning."
+  },
+  {
+   "queue_id": "hrq-00274",
+   "entry_id": "entry-01751",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 23647,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "此 Tier 用于陷阱精通要求，不是装备材质等级；格式参数和颜色标签保持，改“阶级”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/traps.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；此 Tier 用于陷阱精通要求，不是装备材质等级；格式参数和颜色标签保持，改“阶级”。",
+   "applied": true,
+   "old_target": "%s材质等级 %d：%s#LAST#\n%s",
+   "new_target": "%s阶级 %d：%s#LAST#\n%s",
+   "section": "mod-tome/data/talents/cunning/traps.lua",
+   "source": "%sTier %d: %s#LAST#\n%s"
+  },
+  {
+   "queue_id": "hrq-00275",
+   "entry_id": "entry-01767",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 23757,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "冰冻气体上下文已暗示寒冷伤害，是最强反证；但第二段独立的每回合 cold 类型未显性呈现，补寒冷以完整传达机制，所有占位符不变。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cunning/traps.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；冰冻气体上下文已暗示寒冷伤害，是最强反证；但第二段独立的每回合 cold 类型未显性呈现，补寒冷以完整传达机制，所有占位符不变。",
+   "applied": true,
+   "old_target": "放置一个陷阱，激活后产生半径 2 的冰冻气体，造成 %0.2f 寒冷伤害并定身 3 回合。\n\t\t冰冻气体持续 5 回合，每回合造成 %0.2f 伤害，有 25%% 几率冻结。\n\t\t该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s",
+   "new_target": "放置一个陷阱，激活后产生半径 2 的冰冻气体，造成 %0.2f 寒冷伤害并定身 3 回合。\n\t\t冰冻气体持续 5 回合，每回合造成 %0.2f 寒冷伤害，有 25%% 几率冻结。\n\t\t该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s",
+   "section": "mod-tome/data/talents/cunning/traps.lua",
+   "source": "Lay a trap that explodes into a radius 2 cloud of freezing vapour when triggered.  Foes take %0.2f cold damage and are pinned for 3 turns.\n\t\tThe freezing vapour persists for 5 turns, dealing %0.2f cold damage each turn to foes with a 25%% chance to freeze.\n\t\tThis trap can use a primed trigger and a high level lure can trigger it.%s"
+  },
+  {
+   "queue_id": "hrq-00276",
+   "entry_id": "entry-01785",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24033,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "邻近 next victim 导致串文只是推测；原句 Each day、weary body、begin the unending hunt 分别被改成无时无刻、不知疲倦、狩猎下个目标，其中疲惫被反译，三处按源码修正。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/cursed.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；邻近 next victim 导致串文只是推测；原句 Each day、weary body、begin the unending hunt 分别被改成无时无刻、不知疲倦、狩猎下个目标，其中疲惫被反译，三处按源码修正。",
+   "applied": true,
+   "old_target": "你不知疲倦无时无刻狩猎你的下一个目标。",
+   "new_target": "每天，你拖起疲惫的身躯，开始无尽的狩猎。",
+   "section": "mod-tome/data/talents/cursed/cursed.lua",
+   "source": "Each day, you lift your weary body and begin the unending hunt."
+  },
+  {
+   "queue_id": "hrq-00277",
+   "entry_id": "entry-01788",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24039,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "诅咒系 hate 为正式资源，译“愤怒”脱离术语库 preferred“仇恨值”体系；此处用“仇恨”表达情绪与资源。has grown within 是内心积聚，不是突发激增。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/cursed.lua",
+    "terminology/resources.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；诅咒系 hate 为正式资源，译“愤怒”脱离术语库 preferred“仇恨值”体系；此处用“仇恨”表达情绪与资源。has grown within 是内心积聚，不是突发激增。",
+   "applied": true,
+   "old_target": "释放你内心激增的愤怒。",
+   "new_target": "释放你内心积聚的仇恨。",
+   "section": "mod-tome/data/talents/cursed/cursed.lua",
+   "source": "Let loose the hate that has grown within."
+  },
+  {
+   "queue_id": "hrq-00278",
+   "entry_id": "entry-01798",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24093,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "“吸取”省略 sustenance 的显性宾语，但同系语境和“只能从敌人身上”已传达对象限制，未造成机制误解；养分、力量、精华没有唯一依据，补词属文风。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/dark-sustenance.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“吸取”省略 sustenance 的显性宾语，但同系语境和“只能从敌人身上”已传达对象限制，未造成机制误解；养分、力量、精华没有唯一依据，补词属文风。",
+   "applied": false,
+   "old_target": "你只能从敌人身上吸取！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/cursed/dark-sustenance.lua",
+   "source": "You can only gain sustenance from your foes!"
+  },
+  {
+   "queue_id": "hrq-00279",
+   "entry_id": "entry-01803",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24129,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "%d、25%%、+%d%% 数量和顺序正确。darkness 直译黑暗并非错类，但同系与既有 damage type 用“暗影”，对齐；anything 的实际目标可为非人 Actor，“人”过窄，改目标。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/darkness.lua",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；%d、25%%、+%d%% 数量和顺序正确。darkness 直译黑暗并非错类，但同系与既有 damage type 用“暗影”，对齐；anything 的实际目标可为非人 Actor，“人”过窄，改目标。",
+   "applied": true,
+   "old_target": "向敌人发射一股灼热的黑暗能量，造成 %d 点黑暗伤害。黑暗能量有 25%% 概率致盲目标 3 回合并使它们丢失当前目标。\n\t\t\t如果你掌握黑暗之雾技能，会在射线范围内留下短暂的黑暗尾迹，其伤害等同于黑暗之雾的伤害。\n\t\t\t伤害受精神强度加成。你对任何进入黑暗之雾的人造成 +%d%% 伤害。",
+   "new_target": "向敌人发射一股灼热的黑暗能量，造成 %d 点暗影伤害。黑暗能量有 25%% 概率致盲目标 3 回合并使它们丢失当前目标。\n\t\t\t如果你掌握黑暗之雾技能，会在射线范围内留下短暂的黑暗尾迹，其伤害等同于黑暗之雾的伤害。\n\t\t\t伤害受精神强度加成。你对任何进入黑暗之雾的目标造成 +%d%% 伤害。",
+   "section": "mod-tome/data/talents/cursed/darkness.lua",
+   "source": "Sends a torrent of searing darkness through your foes, doing %d darkness damage. There is a 25%% chance the rushing darkness will blind them for 3 turns and cause them to lose track of their target.\n\t\tIf you know the Creeping Darkness talent, a short-lived trail of darkness is left in the beam's wake. Its damage is identical to that of Creeping Darkness's.\n\t\tThe damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark."
+  },
+  {
+   "queue_id": "hrq-00280",
+   "entry_id": "entry-01804",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24135,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "三个参数正确；前文“敌人”不使末句 anything 限于人形，译“人”过窄；与 entry-01803 同步改“目标”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/darkness.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；三个参数正确；前文“敌人”不使末句 anything 限于人形，译“人”过窄；与 entry-01803 同步改“目标”。",
+   "applied": true,
+   "old_target": "召唤黑暗触手攻击某个敌人，持续12回合。当黑暗触手移动时，黑暗之雾会跟随蔓延。\n\t\t\t被触手抓住的敌人会被定身 %d 回合并被黑暗笼罩，每回合黑暗会造成 %0.2f 点伤害。\n\t\t\t伤害受精神强度加成。你对任何进入黑暗之雾的人造成 +%d%% 伤害。",
+   "new_target": "召唤黑暗触手攻击某个敌人，持续12回合。当黑暗触手移动时，黑暗之雾会跟随蔓延。\n\t\t\t被触手抓住的敌人会被定身 %d 回合并被黑暗笼罩，每回合黑暗会造成 %0.2f 点伤害。\n\t\t\t伤害受精神强度加成。你对任何进入黑暗之雾的目标造成 +%d%% 伤害。",
+   "section": "mod-tome/data/talents/cursed/darkness.lua",
+   "source": "Spawn tendrils of darkness to pursue a single target for up to 12 turns, leaving behind a trail of creeping darkness as they move. Targets seized by the tendrils are pinned for %d turns and shrouded in darkness. The darkness deals %0.2f damage per turn to those within.\n\t\tThe damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark."
+  },
+  {
+   "queue_id": "hrq-00281",
+   "entry_id": "entry-01807",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24168,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "两个占位符对应移动速度和双持 Defense，互斥冷却及增益已正确。hate 在风味句中形容行动动机，“杀意”可承接语境；无证据要求此处必须显示资源名。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/endless-hunt.lua",
+    "terminology/resources.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；两个占位符对应移动速度和双持 Defense，互斥冷却及增益已正确。hate 在风味句中形容行动动机，“杀意”可承接语境；无证据要求此处必须显示资源名。",
+   "applied": false,
+   "old_target": "让杀意激发你敏捷的身手，提高你 %d%% 移动速度。不顾一切的移动会带给你厄运（-3 幸运）。\n\t\t分裂攻击、无所畏惧和杀意涌动不能同时开启，并且激活其中一个也会使另外两个进入冷却。\n\t\t双持武器时，杀意涌动还会提高你 %d 的闪避。\n\t\t移动速度和双持时的闪避增益受意志加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/cursed/endless-hunt.lua",
+   "source": "Let hate fuel your movements. While active, you gain %d%% movement speed. The recklessness of your movement brings you bad luck (Luck -3).\n\t\tCleave, Repel and Surge cannot be active simultaneously, and activating one will place the others in cooldown.\n\t\tSustaining Surge while Dual Wielding grants %d additional Defense.\n\t\tMovement speed and dual-wielding Defense both increase with the Willpower stat."
+  },
+  {
+   "queue_id": "hrq-00282",
+   "entry_id": "entry-01820",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24317,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "源码 getLightResist 返回 -15，直接代入 lose %d；若机械译失去会形成失去 -15%。现译“变化 %d%%”代入负值正确，另两个占位符也对应暗影抗性亲和及每阴影全抗。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/one-with-shadows.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；源码 getLightResist 返回 -15，直接代入 lose %d；若机械译失去会形成失去 -15%。现译“变化 %d%%”代入负值正确，另两个占位符也对应暗影抗性亲和及每阴影全抗。",
+   "applied": false,
+   "old_target": "你与阴影之间的共鸣，使彼此的界限逐渐模糊。\n\t\t你的光系伤害抗性变化 %d%%，并获得 %d%% 暗影伤害抗性和伤害亲和。你的队伍里每有一个阴影，就获得 %0.2f%% 所有伤害抗性。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/cursed/one-with-shadows.lua",
+   "source": "You empathy with your shadows causes the line between you and your shadows to blur.\n\t\tYou lose %d%% light resistance, but gain %d%% darkness resistance and affinity. You also gain %0.2f%% all resistance for each shadow in your party."
+  },
+  {
+   "queue_id": "hrq-00283",
+   "entry_id": "entry-01823",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24366,
+   "source_tag": "logPlayer",
+   "model_disposition": "fix",
+   "model_reason": "地面选点的半径零及可移动检查证明此处要选目的坐标；“目标”虽可泛指位置，却可能误导为选生物，改“转移目的地”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/primal-magic.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；地面选点的半径零及可移动检查证明此处要选目的坐标；“目标”虽可泛指位置，却可能误导为选生物，改“转移目的地”。",
+   "applied": true,
+   "old_target": "选择一个转移目标…",
+   "new_target": "选择位移目的地…",
+   "section": "mod-tome/data/talents/cursed/primal-magic.lua",
+   "source": "Selects a displacement location..."
+  },
+  {
+   "queue_id": "hrq-00284",
+   "entry_id": "entry-01835",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24511,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "“技能激活时”已表达持续状态，但“可以召唤 %d 个”未传达自动持续补充和 up to 数量上限，改“持续召唤至多”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/shadows.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“技能激活时”已表达持续状态，但“可以召唤 %d 个”未传达自动持续补充和 up to 数量上限，改“持续召唤至多”。",
+   "applied": true,
+   "old_target": "当此技能激活时，你可以召唤 %d 个等级 %d 的阴影帮助你战斗。每个阴影需消耗 5 点仇恨值召唤。\n\t\t阴影是脆弱的战士，它们能够：使用奥术重组治疗自己（等级 %d），使用闪电突袭攻击敌人（等级 %d），使用相位之门进行传送。\n\t\t阴影无视主人对它们造成的 %d%% 伤害。",
+   "new_target": "当此技能激活时，你会持续召唤至多 %d 个等级 %d 的阴影帮助你战斗。每个阴影需消耗 5 点仇恨值召唤。\n\t\t阴影是脆弱的战士，它们能够：使用奥术重组治疗自己（等级 %d），使用闪电突袭攻击敌人（等级 %d），使用相位之门进行传送。\n\t\t阴影无视主人对它们造成的 %d%% 伤害。",
+   "section": "mod-tome/data/talents/cursed/shadows.lua",
+   "source": "While this ability is active, you will continually call up to %d level %d shadows to aid you in battle. Each shadow costs 5 hate to summon. Shadows are weak combatants that can: Use Arcane Reconstruction to heal themselves (level %d), Blindside their opponents (level %d), and Phase Door from place to place.\n\t\tShadows ignore %d%% of the damage dealt to them by their master."
+  },
+  {
+   "queue_id": "hrq-00285",
+   "entry_id": "entry-01838",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24528,
+   "source_tag": "logCombat",
+   "model_disposition": "fix",
+   "model_reason": "固定源码该日志在敌对进攻分支，现译与防守日志完全相同；单看“集中”尚不构成机制误译，但两个冻结日志应区别且“被集中”动作主体不明，改为阴影向目标集中。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/shadows.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；固定源码该日志在敌对进攻分支，现译与防守日志完全相同；单看“集中”尚不构成机制误译，但两个冻结日志应区别且“被集中”动作主体不明，改为阴影向目标集中。",
+   "applied": true,
+   "old_target": "#PINK#阴影被集中至 #Target#！",
+   "new_target": "#PINK#阴影向 #Target# 集中！",
+   "section": "mod-tome/data/talents/cursed/shadows.lua",
+   "source": "#PINK#The shadows converge on #Target#!"
+  },
+  {
+   "queue_id": "hrq-00286",
+   "entry_id": "entry-01839",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24530,
+   "source_tag": "logCombat",
+   "model_disposition": "fix",
+   "model_reason": "固定源码该日志在友方防守分支，form around 表示围绕目标形成阵势；现译“集中至”丢失环绕且与进攻日志相同，两条均在冻结范围，改为在周围列阵。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/cursed/shadows.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；固定源码该日志在友方防守分支，form around 表示围绕目标形成阵势；现译“集中至”丢失环绕且与进攻日志相同，两条均在冻结范围，改为在周围列阵。",
+   "applied": true,
+   "old_target": "#PINK#阴影被集中至 #Target#！",
+   "new_target": "#PINK#阴影在 #Target# 周围列阵！",
+   "section": "mod-tome/data/talents/cursed/shadows.lua",
+   "source": "#PINK#The shadows form around #Target#!"
+  },
+  {
+   "queue_id": "hrq-00287",
+   "entry_id": "entry-01851",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24737,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "源码造成酸性伤害，另有可能触发缴械；英文 can disarm 未列数值，现译“酸性缴械伤害”错误合并伤害类型和非必然控制。恢复条件关系，不擅加概率。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/corrosive-blades.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源码造成酸性伤害，另有可能触发缴械；英文 can disarm 未列数值，现译“酸性缴械伤害”错误合并伤害类型和非必然控制。恢复条件关系，不擅加概率。",
+   "applied": true,
+   "old_target": "在你的心灵利刃里充填酸性能量，延展攻击范围，形成一道射线，造成 %0.1f 点酸性缴械伤害。\n\t\t伤害受精神强度加成。",
+   "new_target": "在你的心灵利刃里充填酸性能量，延展攻击范围，形成一道射线，造成 %0.1f 点酸性伤害，并可能使目标缴械。\n\t\t伤害受精神强度加成。",
+   "section": "mod-tome/data/talents/gifts/corrosive-blades.lua",
+   "source": "Channel acid through your psiblades, extending their reach to create a beam doing %0.1f Acid damage (which can disarm them).\n\t\tThe damage increases with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00288",
+   "entry_id": "entry-01861",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24890,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "源码效果是每回合降低 Equilibrium；英文 restore 指资源状态恢复，现译“回复失衡值”可能被读成增加，故明确降低，不能以字面翻译否认机制歧义。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/eyals-fury.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源码效果是每回合降低 Equilibrium；英文 restore 指资源状态恢复，现译“回复失衡值”可能被读成增加，故明确降低，不能以字面翻译否认机制歧义。",
+   "applied": true,
+   "old_target": "你对自然的虔诚让你的身体更亲近自然世界，对非自然力量也更具抵抗力。\n\t\t你获得 %d 点法术豁免，%0.1f%% 奥术抗性，以及 %0.1f%% 自然伤害亲和。\n\t\t由于你和奥术力量对抗，每次你受到法术伤害时，你每回合回复 %0.1f 点失衡值，持续 %d 回合。\n\t\t效果受精神强度加成。",
+   "new_target": "你对自然的虔诚让你的身体更亲近自然世界，对非自然力量也更具抵抗力。\n\t\t你获得 %d 点法术豁免，%0.1f%% 奥术抗性，以及 %0.1f%% 自然伤害亲和。\n\t\t由于你和奥术力量对抗，每次你受到法术伤害时，你每回合降低 %0.1f 点失衡值，持续 %d 回合。\n\t\t效果受精神强度加成。",
+   "section": "mod-tome/data/talents/gifts/eyals-fury.lua",
+   "source": "Your devotion to nature has made your body more attuned to the natural world and resistant to unnatural energies.\n\t\tYou gain %d Spell save, %0.1f%% Arcane resistance, and %0.1f%% Nature damage affinity.\n\t\tYou defy arcane forces, so that any time you take damage from a spell, you restore %0.1f Equilibrium each turn for %d turns.\n\t\tThe effects increase with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00289",
+   "entry_id": "entry-01868",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24956,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "后句最大生命和回复数值提供强化作用的上下文反证；但 fungi 是真菌而非孢子，“有治疗作用的”仍未覆盖最大生命值加成，故改“有强化作用的真菌”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/fungus.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；后句最大生命和回复数值提供强化作用的上下文反证；但 fungi 是真菌而非孢子，“有治疗作用的”仍未覆盖最大生命值加成，故改“有强化作用的真菌”。",
+   "applied": true,
+   "old_target": "使你自身周围环绕无数微不可见、有治疗作用的孢子。\n\t\t你获得 %d 最大生命值，%d 生命回复。\n\t\t效果受意志值加成。",
+   "new_target": "使你自身周围环绕无数微不可见、有强化作用的真菌。\n\t\t你获得 %d 最大生命值，%d 生命回复。\n\t\t效果受意志值加成。",
+   "section": "mod-tome/data/talents/gifts/fungus.lua",
+   "source": "Surround yourself with a myriad of tiny, nearly invisible, reinforcing fungi.\n\t\tYou gain %d maximum life and %d life regeneration.\n\t\tThe effects will increase with your Willpower."
+  },
+  {
+   "queue_id": "hrq-00290",
+   "entry_id": "entry-01870",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 24969,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "原译“最多获得 2 个回合”提示上限，是部分反证；源码限制储存回合能量，过量治疗不计入却完全缺失，补齐并将 fungus 与同节真菌一致。四行变五行是静态拆行，本轮保持换行序列。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/fungus.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原译“最多获得 2 个回合”提示上限，是部分反证；源码限制储存回合能量，过量治疗不计入却完全缺失，补齐并将 fungus 与同节真菌一致。四行变五行是静态拆行，本轮保持换行序列。",
+   "applied": true,
+   "old_target": "你的孢子可以追溯到创世纪元，你可以传承来自远古的天赋。\n\t\t每当你获得一个非回复的治疗效果，每治疗 100 点生命值，你获得 %0.1f%% 个回合。\n\t\t这一效果最多获得 2 个回合。\n\t\t同时，每当你受到回复作用时，每回合你的失衡值将会减少 %0.1f。\n\t\t增益回合受精神强度加成。",
+   "new_target": "你的真菌可以追溯到创世纪元，你可以传承来自远古的天赋。\n\t\t每当你获得一个非回复的治疗效果，每治疗 100 点生命值，你获得 %0.1f%% 个回合。\n\t\t这一效果最多储存 2 个回合的能量，过量治疗不计入。\n\t\t同时，每当你受到回复作用时，每回合你的失衡值将会减少 %0.1f。\n\t\t增益回合受精神强度加成。",
+   "section": "mod-tome/data/talents/gifts/fungus.lua",
+   "source": "Your fungus reaches into the primordial ages of the world, granting you ancient instincts.\n\t\tEach time you receive non-regeneration healing you gain %0.1f%% of a turn per 100 life healed.  This effect can't add energy past 2 stored turns and overhealing is not counted.\n\t\tAlso, regeneration effects on you will decrease your equilibrium by %0.1f each turn.\n\t\tThe turn gain increases with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00291",
+   "entry_id": "entry-01891",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 25019,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "完整句没有其他词承接 natural；“粘液”未表达自然产生这一限定，补“天然”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/gifts/gifts.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；完整句没有其他词承接 natural；“粘液”未表达自然产生这一限定，补“天然”。",
+   "applied": true,
+   "old_target": "用粘液覆盖地面。",
+   "new_target": "用天然粘液覆盖地面。",
+   "section": "mod-tome/data/talents/gifts/gifts.lua",
+   "source": "Cover the floor with natural mucus."
+  }
+ ]
+}

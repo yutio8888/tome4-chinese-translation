@@ -1,0 +1,349 @@
+已完成全 40 条复核及 181 项匿名观察裁决。确认缺陷与未决项分别编号；仅有措辞建议的条目记为 OK。
+
+下表证据缩写：`L`＝冻结 `lore/demon.lua`，`Q`＝`quests/start-ashes.lua`，`B`＝`black-magic.lua`，`R`＝`brutality.lua`，`S`＝`demon-seeds.lua`，`T`＝`demonic-pact.lua`，`E`＝获准补充的 `timed_effects.lua`。完整路径与版本见文末。**这些 DLC 文件均为哈希冻结快照，源码 commit 和目标版本适用性未固定。**
+
+| entry-ID | 判定 | canonical D／P 编号或依据 |
+|---|---|---|
+| entry-03373 | ISSUE | D01–D05 |
+| entry-03374 | ISSUE | D06–D15 |
+| entry-03375 | ISSUE | D16–D17 |
+| entry-03376 | OK | 工作／生活关系仍在；比较表达仅建议 |
+| entry-03377 | ISSUE | D18 |
+| entry-03378 | ISSUE | D19–D28 |
+| entry-03379 | ISSUE | D29–D35 |
+| entry-03380 | ISSUE | D36–D39 |
+| entry-03381 | PENDING | P01–P02；遮蔽残片不能唯一补全 |
+| entry-03382 | ISSUE | D40–D43 |
+| entry-03383 | ISSUE | D44 |
+| entry-03384 | ISSUE | D45–D47 |
+| entry-03385 | OK | L:433；标题指称一致 |
+| entry-03386 | OK | L:434–437；留言、署名及标记完整 |
+| entry-03387 | OK | L:443；与正文名称一致 |
+| entry-03388 | ISSUE | D48–D57 |
+| entry-03389 | ISSUE | D58–D61 |
+| entry-03390 | OK | L:477；标题指称一致 |
+| entry-03391 | ISSUE | D62–D63 |
+| entry-03392 | ISSUE | D64–D67 |
+| entry-03393 | ISSUE | D68 |
+| entry-03394 | ISSUE | D69–D73 |
+| entry-03395 | ISSUE | D74–D78；摧毁水晶的先后要求由同界面保留 |
+| entry-03396 | PENDING | P03；断句仅建议 |
+| entry-03397 | OK | R:47–59；两击、吸血与命中回活力对应 |
+| entry-03398 | OK | R:101–113；抵抗日志对象与参数对应 |
+| entry-03399 | ISSUE | D79 |
+| entry-03400 | OK | S:249–270；充能量及参数正确，量词仅建议 |
+| entry-03401 | OK | S:271、289；护盾及 50% 反射对应 |
+| entry-03402 | OK | S:701–710、E:639–643；增益方向可辨，措辞／术语仅建议 |
+| entry-03403 | PENDING | P04 |
+| entry-03404 | OK | S:840–849、E:998–999；自身全类型亲和，措辞仅建议 |
+| entry-03405 | OK | S:858–869；四种邪术、等级、每回合限制对应 |
+| entry-03406 | OK | S:878–889；几率、四种诅咒、等级与回合限制对应 |
+| entry-03407 | PENDING | P05 |
+| entry-03408 | OK | T:330–339；名称、当前／最大生命、等级顺序正确 |
+| entry-03409 | OK | T:410–423；恶魔种子对象描述对应 |
+| entry-03410 | OK | T:426；状态字符串正确消费 |
+| entry-03411 | OK | T:330–339、426；死亡与不可召唤分支对应 |
+| entry-03412 | PENDING | P06；新增上游日志疑点 |
+
+以下 D 均为**相对冻结英文的译文新增偏差**，不代表本次翻译修改才引入；没有使用历史审核状态判定其来源。纯文本缺陷由冻结原文及上下文确认，不把 DLC 快照当成已固定目标版本。
+
+| D-ID | entry-ID | 内容、归因及源码／语境证据 |
+|---|---|---|
+| D01 | entry-03373 | 保留双手使用能力变成实际“使用双手作战”。L:302 对照火魔婴失去手部功能，L:309 描述保留能力，未限定战斗用途。 |
+| D02 | entry-03373 | “开展秘密行动”的用途被改成“藏身根据地”。L:309 列举海洋基地用途。 |
+| D03 | entry-03373 | “scouts and servants”变成“使者”，侦察与服务职责丢失。L:309，末尾收集情报不能补全这两种身份。 |
+| D04 | entry-03373 | 纪念贡献、牺牲语境中的“pay tribute”被限定为奉上实体礼物。L:309 后接勿遗忘牺牲及功绩。 |
+| D05 | entry-03373 | 不宜在己方本土进行的实验，变成对“土壤”危险的实验。L:309，`perform on our own soil`限定实验地点。 |
+| D06 | entry-03374 | 抵御埃亚尔大军、坚守前线变成在埃亚尔“边界”奋战，新增地理边界并丢失敌对对象。L:316。 |
+| D07 | entry-03374 | 扩充武备而研究法术变成“学习兵工厂新的魔法”，用途关系变成所属关系。L:316。 |
+| D08 | entry-03374 | 从零制造构装体变成“学习新的构架体”，制造动作及从零开始的信息丢失。L:316。 |
+| D09 | entry-03374 | **独立补充：**`towering creations`的高大造物信息未保留；译文仅说三种材料融为一体、制造恐惧。L:316。 |
+| D10 | entry-03374 | 出生时护甲用螺栓固定于皮肤，变成普通“身着护甲”。L:316。 |
+| D11 | entry-03374 | 夸塞魔虽多为血肉却近乎机器的性质丢失。“钢铁般的纪律”描述纪律，不能替代身体性质。L:316。 |
+| D12 | entry-03374 | 制造时强化肌肉的信息丢失。“强大的近战能力”不是肌肉改造的同义描述。L:316。 |
+| D13 | entry-03374 | 保留来源种族聪明头脑的信息丢失。L:316 的`without losing the clever minds`。 |
+| D14 | entry-03374 | `As eager as they are brilliant`中热忱与聪慧并重的评价丢失；结尾普遍谈热情不能替代此处个体特征。L:316。 |
+| D15 | entry-03374 | **独立补充：**`capable in combat`变成“强大的近战能力”，额外限定近战。L:316。 |
+| D16 | entry-03375 | 好斗／攻击性比较变成杀伤力比较。L:342；同样好斗而生存率更高的对比因此改变。 |
+| D17 | entry-03375 | **独立补充：**冲向敌人时制造恐惧变成“面对敌人时”，冲锋动作丢失。L:342 的`when charging at the enemy`。 |
+| D18 | entry-03377 | 对夏·图尔诡诈设计意图的评价丢失，改成“绝妙的例子”。L:356，`devious designs ... had in mind`评价设计用心。 |
+| D19 | entry-03378 | 对观众最直观易懂变成最熟悉，并新增有人不知道组别繁多的叙述。L:370。 |
+| D20 | entry-03378 | 能耗分组标准中的最高额度／上限未保留。L:370 的`maximum amount`。 |
+| D21 | entry-03378 | 难以穿行的柱林变成未交代柱子结构的迷宫。L:370 的`forest of pillars`。 |
+| D22 | entry-03378 | 高能量组变成“最高能量”的组别，组别范围收窄。L:370。 |
+| D23 | entry-03378 | 参赛者通常非自然出生、通常由团队制造，变成无条件的群体描述。L:370 的`typically`、`usually`。 |
+| D24 | entry-03378 | 非常规出生的参赛者被额外描述为“天才”。L:370 没有此身份评价。 |
+| D25 | entry-03378 | 间接战斗组表现尚可变成“相当出色”，评价等级提高。L:370。 |
+| D26 | entry-03378 | 可持续承担的能量投入变成绝对耗能“很少”。L:370。 |
+| D27 | entry-03378 | 成为军事骨干的量产就绪前提丢失；“成批到达”属于部署，不能补回生产条件。L:370。 |
+| D28 | entry-03378 | 毁灭前经历短暂恐惧变成瞬间歼灭，恐惧体验及先后过程丢失。L:370。 |
+| D29 | entry-03379 | 原文唯一视为夸大的“无限”被译成最合适的形容，意义反转。L:377。 |
+| D30 | entry-03379 | 无法投入时间精力制造装备变成“或许没有足够”时间精力，确定限制变成推测。L:377。 |
+| D31 | entry-03379 | 制造改造体的能量效率变成“能量燃率”，制造阶段限定丢失。L:377。 |
+| D32 | entry-03379 | 加热至可加工、锤打成形被改为熔炼、导入模具，新增工艺并遗漏明确锤打过程。L:377，后接每次挥锤产出装备。 |
+| D33 | entry-03379 | 原文未指定金属为“魔钢”；祝福附魔不等于指定材质。L:377。 |
+| D34 | entry-03379 | 每锤产出数件可用装备变成数个装备零件。L:377 的`pieces of usable equipment`。 |
+| D35 | entry-03379 | **独立补充：**危急时派遣巨人是可靠选项，变成“只有”此时才派遣，新增排他派遣条件。L:377。 |
+| D36 | entry-03380 | 多个联系人／联络渠道变成“多次接触”，人员网络被改为接触次数；后文列举人员尚在，并非全部渠道信息消失。L:384。 |
+| D37 | entry-03380 | 目前持续采取的尽量保存俘虏措施，变成“曾经试图”长期保存，叙述时态改变。L:384 的`We try to preserve`。 |
+| D38 | entry-03380 | 最终受致命伤变成“当场惨死”，新增立即死亡时点。L:384；后续利用`fallen`者不证明此前当场死亡。 |
+| D39 | entry-03380 | 被操纵后认定同胞是折磨者，变成仅认作“敌人”，复仇错认的具体内容丢失。L:384。 |
+| D40 | entry-03382 | “偶尔”出现变成“经常”。L:404 的`occasionally`。 |
+| D41 | entry-03382 | 传送门放出幽魂变成门旁徘徊，发生动作和来源关系改变。L:404。 |
+| D42 | entry-03382 | 被扭曲至疯狂变成“几近疯狂”。L:404 的`warped to insanity`。 |
+| D43 | entry-03382 | 带有灰烬气味变成实体灰烬环绕。L:404 的`smelling of ... ashes`。 |
+| D44 | entry-03383 | 逆向研究传送门技术变成反向驱动设备。L:414，前文明确讨论研究及量产传送能力。 |
+| D45 | entry-03384 | 几乎所有精华被汲取变成“每一丝……汲取殆尽”，删除近似限定。L:421。 |
+| D46 | entry-03384 | 神经重接现象的罕见频率丢失，而内出血“常见”仍在，原有频率对比改变。L:421。 |
+| D47 | entry-03384 | **独立补充：**俘虏被规律送达变成“一批又一批”，仅保留重复而未保留规律性。L:421 的`with great regularity`。 |
+| D48 | entry-03388 | 介绍博物学者功绩、失踪的铭文变成博物学者本人讲述，新增叙述者身份。L:444–446。 |
+| D49 | entry-03388 | 勉强／刚刚脱离封建制变成还没脱离。L:448。 |
+| D50 | entry-03388 | 农民变成难民。L:450；灾难背景不自动证明难民身份。 |
+| D51 | entry-03388 | 生命危险时才反击变成届时逃跑，行动选择改变。L:452。 |
+| D52 | entry-03388 | 恶魔理由有偏差与叙述者判定对方罪有应得，被重排成“他们的理由是”后面的引文，论断归属改变。L:458。 |
+| D53 | entry-03388 | 假设即使想阻止入侵也无能为力，变成确实“很想”阻止。L:458；L:460 仍宣称协助毁灭世界。 |
+| D54 | entry-03388 | 重生出神经末梢更多的眼睛变成把眼球放到神经更密集的位置。L:458。 |
+| D55 | entry-03388 | 近乎等量快乐变成等量快乐，许诺程度被说满。L:458。 |
+| D56 | entry-03388 | 出生前数千年间持续有人接受交易，变成“诞生千年之前”的时点描述，期间信息丢失。L:460；不据此强定中文“千年”恰为一千年。 |
+| D57 | entry-03388 | **独立补充：**越来越接近恢复爱人健康变成“尽可能”恢复，已经取得的渐进成果变成努力目标。L:456。 |
+| D58 | entry-03389 | 才智获得亲自、热情认可变成精神受指引，关系性质改变。L:471。 |
+| D59 | entry-03389 | 同段同一 Urh’Rok 首次为“乌尔洛克”，后文为“乌鲁洛克”；直接共指的名称不一致。L:471、context.lua:380。 |
+| D60 | entry-03389 | “锦标赛”误写成“竞标赛”，赛事名词变为竞标。L:471；同段开头已用锦标赛。 |
+| D61 | entry-03389 | 剩余可用力量本就很少这一限定丢失；抽取其中很大部分不能表达剩余总量少。L:471 的`the little energy`。 |
+| D62 | entry-03391 | 完好传送门变成未使用过的传送门，状态变成使用历史。L:478。 |
+| D63 | entry-03391 | 不愿让其他受试者承受失败后果变成其他实验危险，受试对象及亲自冒险动机丢失。L:478。 |
+| D64 | entry-03392 | 从自身机体生成种子变成在构造中留下种子，生产行为变成留存。L:485 后续继续谈生产能力。 |
+| D65 | entry-03392 | `prototype`译成“原形”，原型样品变成本来面目。L:485。 |
+| D66 | entry-03392 | 早期小规模战斗必须具有决定性的限定丢失。L:485 的`decisive early skirmishes`。 |
+| D67 | entry-03392 | 正文“洛格罗斯”与同一雕像标题“罗格洛斯”不一致。L:484–485、context.lua:384–385。 |
+| D68 | entry-03393 | 对危险生物的`put down`处死／消灭措施变成压制。L:492，以可控个体为例外的处置语境明确。 |
+| D69 | entry-03394 | 碎块大小可预测的性质丢失。L:499 的`predictably-sized chunks`；不单凭“大块”另判尺寸错误。 |
+| D70 | entry-03394 | 逆向研究以利用法术保护部队变成反制法术，技术目的改变。L:499。 |
+| D71 | entry-03394 | 护盾导致的物理解体变成军队“溃散”。L:499，后续石质身体被撕碎说明此处语义。 |
+| D72 | entry-03394 | 设计预期的落地重组变成已完成事实，与后文尚未启动重组直接冲突。L:499 的完整设计—失败说明。 |
+| D73 | entry-03394 | 石质身体过于坚固变成“太过顽固”，物理性质变成性情评价。L:499。 |
+| D74 | entry-03395 | 世界之间的虚空位置被缩成单纯虚空。Q:23。 |
+| D75 | entry-03395 | **独立补充：**受控制时认同恶魔“正义复仇”的主观框架丢失，变成复仇入侵。Q:23，与Q:27恢复神智形成对照。 |
+| D76 | entry-03395 | **独立补充：**研究如何造成最大痛苦变成如何造成更大痛苦，最高程度变成一般增量。Q:25。 |
+| D77 | entry-03395 | 恢复意识期间平台分离的事件变成醒来发现平台已分离的状态。Q:27 的两个并列过程。 |
+| D78 | entry-03395 | 旧记忆涌入变成“渐渐涌来”，恢复速度改变。Q:27 的`flood your mind`。 |
+| D79 | entry-03399 | 酸池以施法者为中心的信息丢失；“包括自己”只限定受伤对象。S:230；快照实现S:214–217明确使用`self.x,self.y`。 |
+
+| O-ID | 状态 | 命中 D-ID | 具体证据与理由 |
+|---|---|---|---|
+| O001 | confirmed | D01 | L:302、309对照失去／保留手部功能；不是明确的双手作战描述。 |
+| O002 | confirmed | D02、D03 | L:309分别列秘密行动用途及侦察、服务职责，应拆分。 |
+| O003 | confirmed | D02 | L:309的秘密行动被改成藏身。 |
+| O004 | confirmed | D03 | L:309身份明确为scouts、servants，非使者。 |
+| O005 | confirmed | D04 | L:309以勿忘牺牲、贡献解释致敬，未规定赠礼。 |
+| O006 | confirmed | D02、D03 | 后文情报贡献不能补回两处独立信息。L:309。 |
+| O007 | confirmed | D03 | L:309职责改变。 |
+| O008 | confirmed | D04 | 确认新增具体赠礼；不采纳“完全背离全部逻辑”的程度评价。L:309。 |
+| O009 | confirmed | D05 | `on our own soil`是地点，中文改成土壤受害对象。L:309。 |
+| O010 | confirmed | D04 | L:309的纪念、敬意语境支持此义。 |
+| O011 | confirmed | D01 | 保留能力变成实际战斗用途是信息变化，不能仅因轻微降为建议。 |
+| O012 | confirmed | D06 | L:316是抵御埃亚尔大军，未给埃亚尔地理边界。 |
+| O013 | confirmed | D08 | L:316明确making、from scratch。 |
+| O014 | confirmed | D06 | 对象与地点变化合并为同一前线描述缺陷。L:316。 |
+| O015 | confirmed | D11、D12、D13 | 身体性质、肌肉强化、智力保留分别缺失。L:316。 |
+| O016 | confirmed | D11、D12、D13、D14 | 被省去的连续语句承载多项独立信息，分项登记。L:316。 |
+| O017 | mixed | D07 | confirmed：武备用途变成兵工厂所属；advisory：study单独译“学习”未必错误。L:316。 |
+| O018 | confirmed | D07 | arsenal不是此处法术所属的实体兵工厂。L:316。 |
+| O019 | confirmed | D10 | L:316明确装甲固定于皮肤，不只是穿戴。 |
+| O020 | confirmed | D08 | 制造动作与从零开始确实缺失，无须强制术语才能成立。L:316。 |
+| O021 | confirmed | D08 | 三类工作对比明确区分研究与制造。L:316。 |
+| O022 | confirmed | D10 | “出生就身着”没有表达螺栓固定。L:316。 |
+| O023 | mixed | D11、D12、D13、D14 | confirmed：四项遗漏；refuted：“纪律”全属新增，原文已有well-disciplined。“钢铁般”仅修辞。 |
+| O024 | advisory | — | 同族不同表述可辨，未有强制统一这些叙事词形的冻结规则。 |
+| O025 | confirmed | D11、D12、D13 | L:316明确制造结果及智力保留，不能由战斗能力替代。 |
+| O026 | confirmed | D16 | aggressive比较攻击性，不是伤害能力。L:342。 |
+| O027 | confirmed | D16 | 确认词义变化；无须另断言泰坦数值伤害必然更高。L:342。 |
+| O028 | confirmed | D16 | 体型力量说明不能使两种性质等价。L:342。 |
+| O029 | confirmed | D16 | 同样好斗却更易生存的对比改变。L:342。 |
+| O030 | refuted | — | 完整译文还写“一起工作或者生活”；“生活中陪伴”不排除共事，不能按截句认定遗漏。L:349。 |
+| O031 | advisory | — | “比野兽”在已称其为负重野兽的上下文可指一般野兽；“尽数”较生硬。L:349。 |
+| O032 | refuted | — | 文中仍明确其为野兽；与一般野兽比较不构成排除自身类别的断言。L:349。 |
+| O033 | advisory | — | 本段评价失去伙伴的情感代价，“最大”没有另立牺牲数量或规模指标；可收紧措辞。L:349。 |
+| O034 | confirmed | D18 | L:356设计用心的诡诈评价未保留。 |
+| O035 | confirmed | D18 | 确认态度信息丢失；“绝妙例子”也不能补回devious。L:356。 |
+| O036 | confirmed | D18 | 与O034、O035同一评价偏差。L:356。 |
+| O037 | advisory | — | 明确主语仍是米诺陶；泛称“长角的兽人”不自动断言Orc种族，existing亦非强制改名。 |
+| O038 | confirmed | D24 | L:370没有“天才”身份。 |
+| O039 | confirmed | D20、D21 | 能耗上限与柱林结构是独立缺陷。L:370。 |
+| O040 | mixed | D28 | confirmed：短暂恐惧及其时序丢失；advisory：强大、成批部署部分可由前文承接，不全部算独立新增事实。 |
+| O041 | confirmed | D25 | adequately与相当出色评价等级不同。L:370。 |
+| O042 | confirmed | D26 | sustainable不等于绝对投入少。L:370。 |
+| O043 | confirmed | D28 | 灭亡前的恐惧体验不能由“瞬间歼灭”保留。L:370。 |
+| O044 | confirmed | D19 | 直观程度变成熟悉程度。L:370。 |
+| O045 | confirmed | D19 | 观众易懂与参赛分组复杂的对照改变。L:370。 |
+| O046 | mixed | D20 | confirmed：maximum丢失；refuted：必然排除出生本身，“从出生开始”可包含起点，证据不足以另计。 |
+| O047 | confirmed | D20 | 能耗上限未表达。L:370。 |
+| O048 | confirmed | D21 | 柱林结构未保留。L:370。 |
+| O049 | mixed | D21 | confirmed：柱林变迷宫；refuted：源码明确为“石”柱，原文未规定材质。L:370。 |
+| O050 | confirmed | D22、D23、D24 | 高／最高、通常限定、天才增译分别登记。L:370。 |
+| O051 | confirmed | D25 | L:370的尚可被提高为出色。 |
+| O052 | confirmed | D25 | 评价变化削弱正面战场优势的对照。L:370。 |
+| O053 | confirmed | D26 | 能承担的投入被改为很少投入。L:370。 |
+| O054 | confirmed | D28 | 叙事体验与时序确实丢失，保留歼灭主干不足以免责。 |
+| O055 | confirmed | D26 | 与O042、O053同义归并。L:370。 |
+| O056 | confirmed | D27 | 量产就绪前提不能由成批抵达替代。L:370。 |
+| O057 | confirmed | D28 | 先恐惧、后毁灭的信息丢失。L:370。 |
+| O058 | confirmed | D32、D33 | 锤打工艺改变与魔钢材质增译分别确认。L:377。 |
+| O059 | confirmed | D34 | usable equipment是可用装备，非仅零件。L:377。 |
+| O060 | confirmed | D29 | 原文将infinite列为夸大，中文反而推荐此形容。L:377。 |
+| O061 | confirmed | D31 | creation明确限定制造阶段。L:377。 |
+| O062 | confirmed | D32、D34 | 工艺与产物分别归并。L:377。 |
+| O063 | confirmed | D30 | 确定不能变成或许不足。L:377。 |
+| O064 | mixed | D31 | confirmed：制造能效丢失；advisory：“一定”未给出额外具体幅度，不单列缺陷。 |
+| O065 | confirmed | D29 | 无限的例外条件被反转。L:377。 |
+| O066 | confirmed | D32 | 确认明确工序被替换；不需要把一切模具工艺与锤锻视为绝对不兼容。 |
+| O067 | confirmed | D30 | 与O063同一情态变化。L:377。 |
+| O068 | confirmed | D34 | “pieces of equipment”被误拆为装备零件。L:377。 |
+| O069 | confirmed | D31 | 未保留制造效率。L:377。 |
+| O070 | confirmed | D32、D33 | 工艺改变及材质增译，分项登记。L:377。 |
+| O071 | confirmed | D34 | 可用成品变部件。L:377。 |
+| O072 | confirmed | D38 | 致命伤不等于当场死亡。L:384。 |
+| O073 | confirmed | D39 | 错认的具体身份是折磨者，敌人过于宽泛。L:384。 |
+| O074 | confirmed | D36 | 人员网络变接触次数仍有偏差；后文列表保留，不认定人员信息全失。L:384。 |
+| O075 | confirmed | D37、D38、D39 | 三处具体变化均可证，主线仍在不能统一降为建议。L:384。 |
+| O076 | confirmed | D36 | 确认contacts词义改变；“渠道全部丢失”的说法过强，列表仍在。L:384。 |
+| O077 | confirmed | D38 | 原文后续使用fallen不支持新增“当场”。L:384。 |
+| O078 | confirmed | D39 | 重定向复仇后把同胞认作折磨者的信息丢失。L:384。 |
+| O079 | pending | — | P01：可见的是arness，前缀被遮蔽；harness合理但非唯一可证明补全。L:393。 |
+| O080 | pending | — | P02：making ... valuable addition是重建假设，遮蔽部分不能据此视为完整原文。L:393。 |
+| O081 | pending | — | P01；颜色、字体标记序列已独立核对一致，格式无已证缺陷。 |
+| O082 | pending | — | P02；两段残片不足以证明唯一主宾关系，无法确认整句重构错误。L:393。 |
+| O083 | pending | — | P01；保留可辨方向原则成立，但此处方向本身仍受缺失前缀影响。 |
+| O084 | confirmed | D40、D41 | L:404直接证明叙事频率和动作改变；不据此宣称已验证实际刷怪程序。 |
+| O085 | confirmed | D40、D41 | 偶尔放出与经常徘徊分别改变频率、动作。L:404。 |
+| O086 | confirmed | D40、D41 | 与O085同义归并。L:404。 |
+| O087 | confirmed | D42、D43 | 疯狂程度及灰烬气味两项信息独立变化。L:404。 |
+| O088 | confirmed | D40、D41 | 发生频率和来源动作均被改写。L:404。 |
+| O089 | confirmed | D42 | insanity与几近疯狂不同。L:404。 |
+| O090 | confirmed | D43 | 嗅觉特征变成实体环绕。L:404。 |
+| O091 | mixed | D44 | confirmed：逆向研究变反向驱动；advisory：上下文已说明工艺品承载传送能力，不必认作纯装饰物。 |
+| O092 | confirmed | D44 | 研究方法与设备反向运行不同。L:414。 |
+| O093 | confirmed | D44 | L:414原文可独立证明，无须以另一条正确译法作为权威。 |
+| O094 | advisory | — | “工艺品”未必排除魔法用途，后句保留赋予军队传送能力；可改善用词。L:414。 |
+| O095 | advisory | — | 破折号不一致不改变信息或参数。 |
+| O096 | confirmed | D44 | 技术研究语境支持逆向解析。L:414。 |
+| O097 | confirmed | D46 | 神经重接的罕见程度丢失。L:421。 |
+| O098 | confirmed | D45 | nearly删除造成程度变化；不额外假定精华与死亡间精确机制。L:421。 |
+| O099 | confirmed | D46 | 保留常见、遗漏罕见，频率对比受损。L:421。 |
+| O100 | advisory | — | 莎西凯希／莎西·凯希仅间隔号差异，指称不变。context.lua:315。 |
+| O101 | confirmed | D46 | 与O097、O099同义归并。L:421。 |
+| O102 | mixed | D51 | confirmed：反击变逃跑；refuted：lash out必然是“痛下杀手”，原句未保证致死。L:452。 |
+| O103 | confirmed | D54 | 重生眼睛及新增末梢变成移动眼球。L:458。 |
+| O104 | confirmed | D49 | barely escaped仍表示已经脱离。L:448。 |
+| O105 | confirmed | D50 | peasants不是refugees。L:450。 |
+| O106 | confirmed | D51 | 克制反击的条件变成逃跑条件。L:452。 |
+| O107 | confirmed | D53 | 假设愿望被改成实际愿望。L:458。 |
+| O108 | confirmed | D54 | growing back是再生，非放回。L:458。 |
+| O109 | confirmed | D48 | 铭文谈其事迹不等于本人讲述事迹、失踪。L:444–446。 |
+| O110 | confirmed | D49 | 刚／勉强脱离变成尚未脱离。L:448。 |
+| O111 | confirmed | D49 | 与O104、O110同义归并。L:448。 |
+| O112 | mixed | D50 | confirmed：农民变难民；refuted：愤怒全部丢失，译文后句仍说伪装“激怒了他们”。 |
+| O113 | confirmed | D50 | 灾难不能补证难民身份。L:450。 |
+| O114 | confirmed | D51 | 前句“本可以反击”不能补回后句被改成的逃跑选择。L:452。 |
+| O115 | confirmed | D51 | 不同的行动选择，非修辞替换。L:452。 |
+| O116 | confirmed | D52 | 中文“理由是”领起引文，改变理由与叙述者判决的结构。L:458。 |
+| O117 | advisory | — | “只有在那时”可作当时终于出手的笨拙强调；未明说仅使用一次，后文继续汲取亦限制此解读。L:454–456。 |
+| O118 | confirmed | D53 | 假设让步被改成事实让步；L:460的立场也不支持“很想阻止”。 |
+| O119 | confirmed | D53 | 人物动机变化确认。L:458、460。 |
+| O120 | confirmed | D54 | 再生动作及神经末梢变化均被改写。L:458。 |
+| O121 | confirmed | D54 | 与O103、O108、O120同义归并。L:458。 |
+| O122 | confirmed | D56 | 确认数千年期间变之前时点；不要求把中文千年理解为精确一千年。L:460。 |
+| O123 | confirmed | D55 | nearly-equal的近似限定丢失。L:458。 |
+| O124 | confirmed | D55 | 同一许诺程度变化。L:458。 |
+| O125 | advisory | — | 两种军队称呼在上下文共指；痛苦也由同段明确保留，不因可悲单词另判全部痛苦丢失。 |
+| O126 | advisory | — | existing类别译名不强制覆盖此叙事语境，记一致性建议。 |
+| O127 | confirmed | D58 | 才智被认可变成精神被引导。L:471；不额外认定中文声称神接管意志。 |
+| O128 | confirmed | D59、D60 | 同段专名不一致与锦／竞错字分别登记。 |
+| O129 | confirmed | D58 | approval与指引不是同一关系。L:471。 |
+| O130 | confirmed | D58 | 直接、热情认可的信息未保留。L:471。 |
+| O131 | confirmed | D59 | 同条共指及邻近标题提供局部一致性证据。L:470–471、context.lua:380。 |
+| O132 | confirmed | D60 | 竞标与锦标词义不同；同段赛事语境明确。L:471。 |
+| O133 | confirmed | D58 | 与O127、O129、O130同义归并。 |
+| O134 | mixed | D61 | confirmed：剩余能量很少丢失；advisory：物理耐受生硬；摆脱“控制”在获救语境不另判事实错误。L:471。 |
+| O135 | confirmed | D63 | 其他受试者被改成其他实验，无私动机改变。L:478。 |
+| O136 | confirmed | D62 | 完好与未使用是不同属性。L:478。 |
+| O137 | confirmed | D63 | 风险承受者的信息丢失。L:478。 |
+| O138 | confirmed | D62 | 与O136同义归并。L:478。 |
+| O139 | confirmed | D63 | 末句赞扬奉献与亲自承担风险呼应。L:478。 |
+| O140 | mixed | D62 | confirmed：未使用替代完好；advisory：“早已”在他人与其行动对比中不另计独立事实错误。 |
+| O141 | confirmed | D63 | 对象及动机改变确认。L:478。 |
+| O142 | confirmed | D64 | L:485足以证明生成行为；T:276仅是同名种子配置，不能单独证明生成机制。 |
+| O143 | confirmed | D65 | 原型样品误为原形。L:485。 |
+| O144 | confirmed | D64 | 生成变留存；不将“不断”升级为额外数值频率断言。L:485。 |
+| O145 | confirmed | D64 | 后文生产能力讨论支持生产语义。L:485。 |
+| O146 | confirmed | D66 | decisive条件丢失。L:485。 |
+| O147 | confirmed | D67 | 同一雕像标题与正文拼写不一致。L:484–485、context.lua:384–385。 |
+| O148 | confirmed | D65 | 与O143同义归并。L:485。 |
+| O149 | confirmed | D68 | 生物处置语境中的put down未由压制表达。L:492。 |
+| O150 | confirmed | D68 | 可控例外与危险失控个体的对照支持消灭之义。L:492。 |
+| O151 | mixed | D68 | confirmed：处置措施改变；refuted：中文必然声称一律，紧接“不过，有一个样本”仍明确给出例外。 |
+| O152 | advisory | — | “纯粹魔法生物”可作类别描述，未明确承诺精确100%组成；它／他混用仅编辑建议。L:492。 |
+| O153 | confirmed | D70、D71 | 逆向研究与物理解体分别被改写。L:499。 |
+| O154 | confirmed | D72 | 完整设计—失败上下文表明重组尚未发生。L:499。 |
+| O155 | confirmed | D70 | 目的为利用法术保护军队，非抵消法术。L:499。 |
+| O156 | mixed | D69 | confirmed：大小可预测性丢失；refuted：chunks译大块必然新增错误尺寸，词本身容许较大块状物。 |
+| O157 | confirmed | D72 | 设计目标变成既成事实。L:499。 |
+| O158 | mixed | D69 | confirmed：predictably丢失；refuted：单凭大块即可证明尺寸错误。L:499。 |
+| O159 | confirmed | D70 | 逆向研究变反制，方法目的不同。L:499。 |
+| O160 | confirmed | D73 | 石质躯体的坚固程度被写成顽固性情。L:499。 |
+| O161 | confirmed | D72 | 独立完成式断言与尚未重组构成中文矛盾。L:499。 |
+| O162 | confirmed | D70 | 与O155、O159同义归并。L:499。 |
+| O163 | confirmed | D71 | 此处disintegration为穿盾时解体，非军队败散。L:499。 |
+| O164 | confirmed | D73 | 原因属性变化有具体信息后果，不仅是不自然。L:499。 |
+| O165 | confirmed | D74 | 世界间位置关系在任务其余说明中亦未补回。Q:23。 |
+| O166 | refuted | — | Q:38在未摧毁水晶时同界面显示“离开前”要求，context.lua:410完整译出；其他分支中水晶已毁。 |
+| O167 | mixed | D77、D78 | confirmed：分离事件、记忆速度改变；advisory：局部灼热省略，前文燃烧大陆仍在；handler译主人有邻近语境支持。 |
+| O168 | advisory | — | 缺逗号影响流畅度，但隐形与全部伤害转换仍可辨。B:146–149。 |
+| O169 | advisory | — | 两个%d消费正确；100%%为转义字面量，“所有”保留全部转换。B:149、E:1014–1015。 |
+| O170 | pending | — | P03：E:1016–1017赋1，固定Combat消费者加1；DLC目标版本适用性未定。 |
+| O171 | mixed | — | advisory：断句；pending：最高值严格相等的机制结论见P03；层数持续、转换及参数对应已核实。 |
+| O172 | confirmed | D79 | 原文明确around you；自身也受伤不等同于酸池中心。S:214–217、230。 |
+| O173 | confirmed | D79 | 快照没有选中心，而直接使用施法者坐标；增益由S:225、E:568–570对应。 |
+| O174 | advisory | — | 次作为充能量词欠自然，但p.charges数值及用途选择完整。S:249–271。 |
+| O175 | advisory | — | “力量和魔法增加10%格挡值”可读为两项属性的增量，未明确说属性使格挡提高；S:704、E:640–642不支持必然反向解读。 |
+| O176 | advisory | — | 明确是属性语境，魔力更清楚；但冻结Magic记录为existing，未提供强制命名或面板冲突证据，不能自动升级缺陷。 |
+| O177 | advisory | — | STAT_MAG核验了属性对象，未证明中文“魔法”必然指另一种收益；existing记录只能支持用词建议。 |
+| O178 | pending | — | P04：固定DEMONFIRE有例外；补充E:67–78找到实际状态定义，仍缺目标组合及施加路径闭合。 |
+| O179 | advisory | — | “全体”生硬，但主语是自身，没有明确的队伍增益承诺。S:843、E:999。 |
+| O180 | advisory | — | 自身damage_affinity.all证据成立；不按existing要求强制改名。 |
+| O181 | pending | — | P05：疾病timeout→BLIGHT→默认projector→受伤回调的路径成立；目标DLC版本仍未固定。 |
+
+未决项单列如下：
+
+- **P01｜entry-03381｜可能的翻译新增偏差。** `L:393`只显示`arness their fear and suspici`。补成 *harness* 很合理，但被遮蔽的前缀也使解除、利用方向不能唯一确定。需要获准的未遮蔽文本或等价作者语境，才能确认“卸下”是否反义。
+- **P02｜entry-03381｜可能的翻译新增偏差。** `king them a val`及`tion to our intel-gathering camps`不足以唯一证明完整的 *making them a valuable addition*。不能用重建句中的隐藏信息判定中文遗漏；需要完整原文。
+- **P03｜entry-03396｜沿袭上游。** `E:1016–1017`写入两个`auto_highest_* = 1`；固定本体`Combat.lua:2339、2376`返回所求最高值再加该属性值。已证明这组代码存在“最高值加1”的行为，不宜笼统说所有条件下都严格等于最高值。DLC快照与目标版本对应关系待确认。
+- **P04｜entry-03403｜沿袭上游。** 固定本体`damage_types.lua:2600–2604`仅治疗具有`demon`且没有`fiery_torment`的目标。额外核验发现`E:67–78`确实定义该效果并写入`fiery_torment=1`，因此不是只有一个无来源字段；仍未闭合施加技能到目标恶魔的完整可达路径，DLC目标版本也未固定。
+- **P05｜entry-03407｜沿袭上游。** `S:1227–1235`没有持续伤害排除条件；固定本体`magical.lua:2253–2255`疾病每回合调用BLIGHT，`damage_types.lua:892–895`进入默认projector，`:536–537`调用受伤回调。`from_disease`没有在这段路径排除此回调。已证存在持续疾病伤害触发路径，目标DLC版本适用性待确认。
+- **P06｜entry-03412｜独立补充、沿袭上游。** `T:481–485`匹配同种、同槽位种子时不要求新等级更高；`:440`取当前与新等级最大值，`:536`更新后，`:555`仍统一打印“increasing its level”。因此快照存在维持原等级却声称提升的路径；治疗调用`:467`仍在。需确认目标版本适用性，不能计为中文独有错误。
+
+主要分歧按完整语境处理：没有把“兽人”“工艺品”“全体”“魔法”各自解释成排他的种族、物品或机制承诺；没有凭`existing`条目强制改名。相反，明确的动作、条件、时序及叙事信息变化，即使玩家能猜到，也保留为缺陷。D09、D15、D17、D35、D47、D57、D75、D76及P06为独立检查补充；D61则由原列“仅建议”的观察升级确认。
+
+实际读取范围如下，路径中的缩写均在此展开：
+
+- 冻结包根目录  
+  `P = /home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/experiments/abc20-g06-20260923`。  
+  读取了 [ADJUDICATION-INPUT.md](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/experiments/abc20-g06-20260923/ADJUDICATION-INPUT.md)、`P/INPUT.md`、`P/entries.json`、`P/context.lua`、`P/source-access.json`。
+- 六个组内源码文件，全部SHA-256与清单一致：  
+  `P/sources/dlc/ashes-urhrok/tome-ashes-urhrok/data/lore/demon.lua`；  
+  `P/sources/dlc/ashes-urhrok/tome-ashes-urhrok/data/quests/start-ashes.lua`；  
+  `P/sources/dlc/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/black-magic.lua`；  
+  `P/sources/dlc/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/brutality.lua`；  
+  `P/sources/dlc/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua`；  
+  `P/sources/dlc/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua`。
+- 获准补充源码根目录  
+  `A = /home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/experiments/abc20-20260923/sources/ashes-urhrok`。  
+  读取`A/tome-ashes-urhrok/data/timed_effects.lua`，由已读技能的四个效果符号引入；哈希为`eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d`，匹配。  
+  读取`A/tome-ashes-urhrok/superload/mod/class/Actor.lua`，沿技能Actor方法核对DLC覆盖；哈希为`aac9ea24be23ed228353cad42b119ba56e83cdf9cc7333484ff98a0d440db346`，匹配。
+- 本体只使用`git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:<path>`：  
+  `game/modules/tome/class/Actor.lua`，由受伤回调、吸血及Actor方法引入；  
+  `game/modules/tome/class/interface/Combat.lua`，由Actor明确require及最高加成消费者引入；  
+  `game/modules/tome/data/damage_types.lua`，由DEMONFIRE、BLIGHT及伤害转换引入；  
+  `game/modules/tome/data/timed_effects/magical.lua`，由三种疾病效果符号引入。
+
+全40条的ID、原译文、`args_order`、`special`已对照；实际格式化参数顺序和颜色／字体标记序列一致。没有读取身份映射、原始报告、STATE或其他轮答案，没有修改仓库、创建临时文件或子agent。首次读取因沙箱挂载初始化失败未执行，随后只读调用成功。以上为审核裁决，不作生产完成声明。

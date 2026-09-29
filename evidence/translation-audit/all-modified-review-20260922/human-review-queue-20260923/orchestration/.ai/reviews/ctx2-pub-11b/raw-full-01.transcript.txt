@@ -1,0 +1,43 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=c1cb3b9e76a4e35180f8af3c407830aa2395874b2c54c0d3e9ac5128e40adbb9；input_path=.ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json") as f: data = json.load(f) print("Candidate identity in file:", data.get("candidate_identity")) payload =...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json") as f: data = json.load(f) payload = data["payload"] print("=== TRANSLATION SNAPSHOT ===") for item in pa...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json") as f: data = json.load(f) payload = data["payload"] for item in payload["translation_snapshot"]: print(f...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json") as f: data = json.load(f) payload = data["payload"] for item in payload["translation_snapshot"]: key = i...
+[Shell] git log -1 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] find . -name "misc.lua"
+[Shell] cat i18n/manifest.json
+[Shell] ls -la i18n/
+[Shell] ls -la i18n/versions/
+[Shell] python3 -m json.tool i18n/versions/tome-1.7.6.json | head -n 30
+[Shell] git -C ../t-engine4 log -1 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] find /home/paseo -maxdepth 4 -name "t-engine4" -o -name "*tome*" 2>/dev/null
+[Shell] ls -la /workspace
+[Shell] git -C /workspace/t-engine4 log -1 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua | grep -n "Loremaster Greynot" -A 40
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json") as f: data = json.load(f) for item in data["payload"]["translation_snapshot"]: print("==================...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json") as f: data = json.load(f) for item in data["payload"]["translation_snapshot"]: if item["revision_key"] =...
+[Shell] grep -rn "ogre" /workspace/t-engine4/game/modules/tome/data/talents/
+[Shell] sed -n '1070,1170p' /workspace/t-engine4/game/modules/tome/data/talents/misc/races.lua
+[Shell] grep -rn "inscriptions" terminology/
+[Shell] grep -rn "Allure Wars" /workspace/t-engine4/game/modules/tome/data/
+[Shell] grep -rn "Allure Wars" -A 2 -B 2 /workspace/tome4-chinese-translation/
+[Shell] sed -n '34505,34525p' /workspace/tome4-chinese-translation/mod-tome.lua
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json") as f: data = json.load(f) for item in data["payload"]["translation_snapshot"]: if item["revision_key"] =...
+[Shell] grep -rn "Age of Haze" /workspace/tome4-chinese-translation/
+[Shell] grep -rn "crucible" /workspace/tome4-chinese-translation/
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json") as f: data = json.load(f) for item in data["payload"]["translation_snapshot"]: if item["revision_key"] =...
+[Shell] grep -rn "Daikara Pass" /workspace/tome4-chinese-translation/
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json") as f: d = json.load(f) for item in d["payload"]["translation_snapshot"]: print("KEY:", item["revision_ke...
+[Shell] grep -rn "Conclave" /workspace/tome4-chinese-translation/ | head -n 30
+[Shell] grep -rni "conclave" terminology/
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11b/CONTEXTUAL-ENVELOPE-full-01.json") as f: d = json.load(f) for item in d["payload"]["translation_snapshot"]: print(item["revision_key"], len...
+[Shell] grep -rn "crucible" /workspace/t-engine4/game/modules/tome/
+[Shell] python3 -c ' import json output = { "contract": "translation_contextual_v2", "candidate_identity": "c1cb3b9e76a4e35180f8af3c407830aa2395874b2c54c0d3e9ac5128e40adbb9", "verdicts": [ { "revision_key"...
+[Compacted]
+[Compacted]
+{"contract":"translation_contextual_v2","candidate_identity":"c1cb3b9e76a4e35180f8af3c407830aa2395874b2c54c0d3e9ac5128e40adbb9","verdicts":[{"revision_key":"entry-01302","verdict":"ISSUE","observation":"【组件=tome；公开源码路径=game/modules/tome/data/lore/misc.lua；固定commit=624a67329fe2ad440c5b344785a9c73fcf22ae63；行号=461；关联源码=game/modules/tome/data/talents/misc/races.lua:1120】第4段存在术语层级混淆与机制语境断裂：1. 原文“Their inscriptions are as crucial to their well-being and structural integrity as any internal organ”中，“inscriptions”是涵盖符文（runes）与纹身（infusions）的技能与生理机制上位概念，标准术语为“刻印”；译文误译为下位概念“符文”（“他们身上的符文”），导致与后半句伊格兰斯净化其奥术“符文”（runes）及推导其天生“纹身”（natural infusions）同样关键的逻辑链条脱节。2. 同段后文“regimen of runic inscription and herbal infusions”将“regimen”（规程/方案）误译为“复杂的整体”（“铭刻一套包含各种符文和纹身的复杂的整体”），且“unaltered”被狭义化译作“没有符文的状态”（忽略了刻印改造）。"},{"revision_key":"entry-01306","verdict":"OK"},{"revision_key":"entry-01308","verdict":"ISSUE","observation":"【组件=tome；公开源码路径=game/modules/tome/data/lore/misc.lua；固定commit=624a67329fe2ad440c5b344785a9c73fcf22ae63；行号=503】第3段末句存在显著语义曲解：1. 原文“have been noted to show interactions of limited intelligence and to commune well in groups”描述巨人群体“据观察展现出有限智慧水平的互动，且在群体中交流良好”（commune 为交流、沟通），译文望文生义曲解为“但是却向我们揭示了有限智慧的运用和团结一致的精神”，捏造了原文完全不存在的“团结一致的精神”，并将客观手札观察“have been noted to show”改写为主观感叹“向我们揭示了”。2. 同句前半句“developed culture”在对比原始心智的语境下指“发达文化/成熟文化”，译文误译为价值观判断的“优越文化”。"}]}

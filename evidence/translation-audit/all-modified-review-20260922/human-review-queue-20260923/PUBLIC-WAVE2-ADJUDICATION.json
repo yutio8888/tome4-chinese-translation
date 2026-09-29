@@ -1,0 +1,112 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "wave": "public wave 2 (ctx2-pub-04a, ctx2-pub-07a; 36 revisions)",
+ "adjudicated_at": "2026-09-24",
+ "method": "ORCHESTRATOR independent verification against the frozen source at the pinned commit and in-repo usage",
+ "confirmed": [
+  {
+   "revision_key": "entry-00492",
+   "bundle": "ctx2-pub-04a",
+   "class": "completeness + fidelity",
+   "issue": "Whether a pit-fighter, a boxer, or just an amateur practitioner, the Brawler's skills are still handy today. renders as 无论是一个职业拳手还是个业余的门外汉，格斗技能…",
+   "decision": "confirmed",
+   "authority": [
+    "fixed commit 624a6732 game/modules/tome/data/birth/classes/warrior.lua:341-344 (desc) — three distinct callings, and the Brawler is a named subclass",
+    "terminology/classes.tsv:23 Brawler=格斗家 (T.GAME.CLASS, existing)",
+    "pit-fighter is dropped; amateur practitioner (业余习练者) became 门外汉, which inverts the meaning; the Brawler's skills became the generic 格斗技能"
+   ],
+   "carriers": [
+    "mod-tome.lua"
+   ]
+  },
+  {
+   "revision_key": "entry-00560",
+   "bundle": "ctx2-pub-04a",
+   "class": "cross-entry consistency",
+   "issue": "the alchemist's own word brew is rendered 药剂, the word the Brotherhood uses for elixir",
+   "decision": "confirmed",
+   "authority": [
+    "fixed commit 624a6732 game/modules/tome/data/chats/alchemist-last-hope.lua:146-149 and :161-164 — the speaker insists on brew and corrects himself to elixir",
+    "mod-tome.lua:4116 renders the sibling node as 配药…改口叫“药剂”; mod-tome.lua:4121 contrasts 佳酿 against 药剂",
+    "using 药剂 for brew erases the brew/elixir contrast the dialogue turns on"
+   ],
+   "carriers": [
+    "mod-tome.lua"
+   ]
+  },
+  {
+   "revision_key": "entry-00579",
+   "bundle": "ctx2-pub-04a",
+   "class": "fidelity (proper group name)",
+   "issue": "Sorcerers? I have never heard of them. renders the capitalised group name as the common noun 法师",
+   "decision": "confirmed",
+   "authority": [
+    "fixed commit 624a6732 game/modules/tome/data/chats/gates-of-morning-main.lua:222-229 and :231-238",
+    "game/modules/tome/data/quests/charred-scar.lua:33,37,72,74 — the orcs shout 'The Sorcerers have departed!', i.e. a specific group",
+    "mod-tome.lua:20180-20181 render that same group as 巫师; 法师 is the generic caster noun and makes Aeryn's line contradict the Sunwall"
+   ],
+   "carriers": [
+    "mod-tome.lua"
+   ]
+  },
+  {
+   "revision_key": "entry-00581",
+   "bundle": "ctx2-pub-04a",
+   "class": "fidelity (proper group name)",
+   "issue": "same group name in the charred-scar-fail node",
+   "decision": "confirmed",
+   "authority": [
+    "identical to entry-00579"
+   ],
+   "carriers": [
+    "mod-tome.lua"
+   ]
+  },
+  {
+   "revision_key": "entry-00984",
+   "bundle": "ctx2-pub-07a",
+   "class": "fidelity",
+   "issue": "an other place became 那个地方 and old Sher'Tul places of power became the singular 某处…力量之地",
+   "decision": "confirmed",
+   "authority": [
+    "fixed commit 624a6732 game/modules/tome/data/general/objects/quest-artifacts.lua:378 and :441 — 'transported to an other place' is a different place, not the place named in the first sentence",
+    "the target's 那个地方 asserts the destination is the place just named, inverting the sentence"
+   ],
+   "carriers": [
+    "mod-tome.lua"
+   ]
+  },
+  {
+   "revision_key": "entry-00873",
+   "bundle": "ctx2-pub-07a",
+   "class": "fidelity (ego name)",
+   "issue": "the ego restorative is rendered 振奋 (rousing), although the ego raises healing_factor and life_regen",
+   "decision": "confirmed, rendering choice pending user decision",
+   "authority": [
+    "fixed commit 624a6732 game/modules/tome/data/general/objects/egos/cloak.lua:193-205 and boots.lua:204 (healing_factor, life_regen)",
+    "mod-tome.lua:9763 renders rejuvenating as 回复的 and :9859 renders invigorating as 精力充沛的, so 振奋 collides with invigorating rather than restoring",
+    "the same English string has 4 carriers in 2 workset revisions (entry-00866 in ctx2-pub-06a, entry-00873 in ctx2-pub-07a)"
+   ],
+   "carriers": [
+    "mod-tome.lua:9857",
+    "mod-tome.lua:9858",
+    "mod-tome.lua:9972",
+    "mod-tome.lua:9973"
+   ],
+   "open_question": "a new terminology entry (restorative => ?) and a family-wide rendering are needed; registering a high-reuse term is a user decision"
+  }
+ ],
+ "pending": [],
+ "advisory": [],
+ "summary": {
+  "findings": 6,
+  "confirmed": 6,
+  "pending": 0,
+  "advisory": 0,
+  "entries": 6,
+  "needs_user_decision": [
+   "entry-00873 (restorative rendering + terminology registration)"
+  ]
+ }
+}

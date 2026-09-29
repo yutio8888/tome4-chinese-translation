@@ -1,0 +1,68 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=82f0c67e680cf05a8b263ab3d393396e09b50da61f425d406458375452323a72；input_path=.ai/task/ctx2-pub-17a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-17a/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-17a/CONTEXTUAL-ENVELOPE-full-01.json') as f: d = json.load(f) print('Keys count:', len(d['payload']['ordered_revision_keys'])) print('Keys:', d...
+[Shell] find . -name "gifts.lua" -o -name "ooze.lua" -o -name "inscriptions.lua"
+[Shell] git rev-parse HEAD
+[Shell] find . -maxdepth 2 -name "*manifest*" -o -name "tome*"
+[Shell] grep -rn "624a67329fe2ad440c5b344785a9c73fcf22ae63" .
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-17a/CONTEXTUAL-ENVELOPE-full-01.json') as f: d = json.load(f) payload = d['payload'] keys = payload['ordered_revision_keys'] ts_map = {item['re...
+[Shell] git -C /workspace/t-engine4 grep -n "Unleash nature" game/modules/tome/data/talents/gifts/gifts.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "Your body is more like that of an ooze, you can split" game/modules/tome/data/talents/gifts/malleable-body.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/malleable-body.lua | sed -n '20,60p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/mindstar-mastery.lua | grep -n -C 20 "Leaves Tide"
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/mindstar-mastery.lua | sed -n '130,160p'
+[Shell] git -C /workspace/t-engine4 grep -n -A 20 "DamageType.LEAVES =" game/modules/tome/data/damage_types.lua
+[Shell] git -C /workspace/t-engine4 grep -n "LEAVES" game/modules/tome/data/damage_types.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | sed -n '3575,3605p'
+[Shell] git -C /workspace/t-engine4 grep -n "EFF_LEAVES_COVER" game/modules/tome/data/timed_effects/
+[Shell] git -C /workspace/t-engine4 grep -n "LEAVES_COVER" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '2200,2225p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/mucus.lua | grep -n -C 15 "Mucus Oozes last"
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/mucus.lua | sed -n '190,245p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/ooze.lua | grep -n -C 15 "Your body is more like that of an ooze"
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/ooze.lua | grep -n -C 20 "Indiscernible Anatomy"
+[Shell] git -C /workspace/t-engine4 grep -n "ignore_direct_crits" game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | sed -n '125,155p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/dialogs/CharacterSheet.lua | sed -n '1115,1130p'
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "TOOLTIP_CRIT_SHRUG" game/modules/tome/dialogs/CharacterSheet.lua
+[Shell] git -C /workspace/t-engine4 grep -n "TOOLTIP_CRIT_SHRUG =" game/modules/tome/dialogs/CharacterSheet.lua
+[Shell] git -C /workspace/t-engine4 grep -n "TOOLTIP_CRIT_SHRUG" game/modules/tome/dialogs/CharacterSheet.lua
+[Shell] git -C /workspace/t-engine4 grep -n "TOOLTIP_CRIT_SHRUG" game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/TooltipsData.lua | sed -n '318,335p'
+[Shell] grep -n "shrug off" mod-tome.lua
+[Shell] sed -n '25315,25325p' mod-tome.lua; echo "---"; sed -n '28880,28890p' mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 15 "You gain %d%% Nature resistance" game/modules/tome/data/talents/gifts/oozing-blades.lua
+[Shell] git -C /workspace/t-engine4 grep -n "storm drake" game/modules/tome/data/talents/gifts/
+[Shell] grep -n "storm drake" mod-tome.lua
+[Shell] grep -rn "newline" docs/
+[Shell] grep -rn "newline" tools/
+[Shell] git -C . grep -n -C 10 "newlines" tools/i18nlib/quality.py
+[Shell] git -C . grep -n -C 10 "newline" tools/i18nlib/lint.py
+[Shell] git -C /workspace/t-engine4 grep -n -C 20 "Summon a Fire Drake" game/modules/tome/data/talents/gifts/summon-distance.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "Spray forth a glob" game/modules/tome/data/talents/gifts/venom-drake.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 25 "Bites the target for %d%% weapon damage" game/modules/tome/data/talents/misc/horrors.lua
+[Shell] git -C /workspace/t-engine4 grep -n "name = \"FRENZY\"" game/modules/tome/data/timed_effects/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | sed -n '1745,1765p'
+[Shell] git -C /workspace/t-engine4 grep -n -C 20 "Summon a storm of swirling blades" game/modules/tome/data/talents/misc/horrors.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "die at -%d; dur %d; cd %d" game/modules/tome/data/talents/misc/inscriptions.lua
+[Shell] grep -n "die at" mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "Activate the rune to teleport up to" game/modules/tome/data/talents/misc/inscriptions.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "Activate the infusion to endure even the most grievous" game/modules/tome/data/talents/misc/inscriptions.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 20 "beam down to the surface" game/modules/tome/data/talents/misc/misc.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "rushes out, claws sharp and ready" game/modules/tome/data/talents/misc/npcs.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 20 "Start to sever the lifeline of the target" game/modules/tome/data/talents/misc/npcs.lua
+[Shell] grep -n "Oozing Blades" mod-tome.lua
+[Shell] grep -n "oozing blades" mod-tome.lua
+[Shell] grep -n "corrosive blades" mod-tome.lua
+[Shell] grep -n -C 5 "你的粘液有了自己的感知" mod-tome.lua
+[Shell] grep -rn "哔" mod-tome.lua
+[Shell] python3 -c " import json candidate_identity = '82f0c67e680cf05a8b263ab3d393396e09b50da61f425d406458375452323a72' with open('.ai/task/ctx2-pub-17a/CONTEXTUAL-ENVELOPE-full-01.json') as f: env = json...
+[Shell] python3 -c " import json candidate_identity = '82f0c67e680cf05a8b263ab3d393396e09b50da61f425d406458375452323a72' with open('.ai/task/ctx2-pub-17a/CONTEXTUAL-ENVELOPE-full-01.json') as f: env = json...
+[Compacted]
+[Compacted]
+{"contract":"translation_contextual_v2","candidate_identity":"82f0c67e680cf05a8b263ab3d393396e09b50da61f425d406458375452323a72","verdicts":[{"revision_key":"entry-01895","verdict":"OK"},{"revision_key":"entry-01899","verdict":"OK"},{"revision_key":"entry-01905","verdict":"OK"},{"revision_key":"entry-01911","verdict":"OK"},{"revision_key":"entry-01913","verdict":"OK"},{"revision_key":"entry-01917","verdict":"OK"},{"revision_key":"entry-01919","verdict":"OK"},{"revision_key":"entry-01924","verdict":"OK"},{"revision_key":"entry-01945","verdict":"OK"},{"revision_key":"entry-01970","verdict":"OK"},{"revision_key":"entry-01976","verdict":"ISSUE","observation":"tome horrors.lua:149 击中流血目标触发 target:setEffect(target.EFF_FRENZY, ...)，对应 timed_effects/mental.lua:1746 之 EFF_FRENZY（subtype={frenzy=true, speed=true}）。术语表明确规范 frenzy => 狂乱 [T.GAME.EFFECT/effect subtype/existing/global]；且同机制在 npcs.lua（挖掘魔狂乱）中译作“陷入狂乱……狂乱使其全局速度提高”。此处译文将 into a frenzy 及 The frenzy 译为“狂热状态”，偏离 effect subtype 术语规范且跨条不一致。固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63，game/modules/tome/data/talents/misc/horrors.lua。"},{"revision_key":"entry-01980","verdict":"OK"},{"revision_key":"entry-01989","verdict":"OK"},{"revision_key":"entry-01994","verdict":"OK"},{"revision_key":"entry-02000","verdict":"OK"},{"revision_key":"entry-02004","verdict":"OK"},{"revision_key":"entry-02015","verdict":"OK"},{"revision_key":"entry-02022","verdict":"OK"}]}

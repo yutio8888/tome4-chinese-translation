@@ -2,7 +2,7 @@
 section "tome-possessors/data/achievements/possessors.lua"
 
 t("Bill Kill!", "比尔杀死！", "achievement name")
-t("Kill your own Doomed Shade in the body of Bill.", "使用比尔的身体杀死你自己的被诅咒的影子。", "_t")
+t("Kill your own Doomed Shade in the body of Bill.", "附身于比尔时，杀死你自己的末日使者之影。", "_t")
 t("Unneshasshhary Kryl'ty", "相爱相杀", "achievement name")
 t("Kill Kryl'Feijan with the body of Shasshhiy'Kaish, or vice-versa.", "使用克里尔·费扬的身体杀死莎西·凯希，或者使用莎西·凯希的身体杀死克里尔·费扬。", "_t")
 t("Unneshasshhary Kryl'ty (Redux)", "相爱相杀（重复）", "achievement name")
@@ -56,9 +56,9 @@ t("Psionic Block", "灵能格挡", "talent name")
 t([[You concentrate to create a psionic block field all around you for 5 turns.
 		While the effect holds all damage against you have a %d%% chance to be fully ignored.
 		When damage is cancelled you instinctively make a retaliation mind strike against the source, dealing %0.2f mind damage. (The retaliation may only happen 2 times per turn.)
-		]], [[创造一个持续 5 回合的灵能盾牌围绕你。
+		]], [[创造一个持续 5 回合的灵能格挡力场围绕你。
 		技能生效时有 %d%% 几率会无视伤害。
-		如果伤害被无视，你会对目标进行反击，造成 %0.2f 精神伤害。（每回合最多 2 次）
+		如果伤害被无视，你会对伤害来源进行反击，造成 %0.2f 精神伤害。（每回合最多 2 次）
 		]], "tformat")
 
 ------------------------------------------------
@@ -118,8 +118,8 @@ t([[Your mere presence is a blight in your foes minds. Using this link you are a
 t("Spectral Dash", "幽灵冲锋", "talent name")
 t([[For a brief moment your whole body becomes etheral and you dash into a nearby creature and all those in straight line behind it (in range %d).
 		You reappear on the other side, with %d more psi and having dealt %0.2f mind damage to your targets.
-		]], [[短暂的一瞬间，你的整个身体变得飘渺，你对附近一个生物进行一次直线冲锋 (范围 %d)。
-		你再次出现在另一边，获得 %d 灵能值并对目标造成 %0.2f 精神伤害。
+		]], [[短暂的一瞬间，你的整个身体变得飘渺，你向附近一个生物及其身后直线上的所有生物冲去（范围 %d）。
+		你再次出现在另一边，获得 %d 灵能值并对这些目标造成 %0.2f 精神伤害。
 		]], "tformat")
 t("Writhing Psionic Mass", "扭动灵能团", "talent name")
 t([[Your physical form is but a mere extension of your mind, you can bend it at will for %d turns.
@@ -271,7 +271,7 @@ t([[You point your ghastly finger at a foe affected by Ghastly Wail and send a p
 		The target will take %d%% of the life it already lost as mind damage.
 		On targets of rank boss or higher the damage is limited to %d.
 		If the target dies from the Finger and is of a type you can already absorb it is directly absorbed into your bodies reserve.
-		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[用手指对受到恐怖嚎叫效果影响的敌人射出一道冲击波。
+		If you do not have two mindstars equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[用可怕的手指指向受到恐怖嚎叫效果影响的敌人，发送一道灵能脉冲令其直接受死。
 		目标将受到相当于其已损失生命值 %d%% 的精神伤害。
 		对 boss 或者更高阶级的目标伤害最高为 %d。
 		如果目标死于死亡一指，且其类型是你已经可以吸收的，则直接吸收到你的身体储备中。
@@ -354,7 +354,7 @@ t([[As long as you have at least a stack of Sadist whenever you take damage you 
 t("Radiate Agony", "痛苦辐射", "talent name")
 t("You need a Sadist stack to use this talent.", "你需要有一层虐待狂效果才能使用这一技能。", "logPlayer")
 t([[As long as you have at least a stack of Sadist you can radiate agony to all those you see in radius %d with 80%% or lower life left.
-		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时，你可以将自己的痛苦分享给半径 %d 内所有可见的、生命值 80%% 或更低的敌人。
+		For 5 turns their mind will be so focused on their own pain that they will deal %d%% less damage to you.]], [[当你至少有一层虐待狂效果时，你可以向半径 %d 内所有可见的、生命值 80%% 或更低的敌人散播痛苦。
 		持续 5 回合，他们的头脑将如此专注于自己的痛苦，对你的伤害减少 %d%%。]], "tformat")
 t("Torture Mind", "精神拷打", "talent name")
 t([[As long as you have at least a stack of Sadist you can mentally lash out at a target, sending horrible images to its mind.

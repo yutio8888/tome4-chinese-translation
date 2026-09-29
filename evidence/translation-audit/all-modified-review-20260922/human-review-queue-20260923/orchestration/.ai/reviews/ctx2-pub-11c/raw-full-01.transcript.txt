@@ -1,0 +1,57 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=8df05c9b0d7d445130d3dfc495e566b4e36d00636e1100c90f5c401a29d65bb2；input_path=.ai/task/ctx2-pub-11c/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-11c/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11c/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) print("Candidate identity in file:", data.get("candidat...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11c/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] print("--- BRIEFING ---") pri...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11c/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f: data = json.load(f) payload = data["payload"] print("--- TERMINOLOGY SNAPSH...
+[Shell] git rev-parse 624a67329fe2ad440c5b344785a9c73fcf22ae63 2>/dev/null || echo "not in current repo"
+[Shell] git show -s --oneline 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] python3 -c ' import json, os if os.path.exists("i18n/manifest.json"): with open("i18n/manifest.json") as f: print(json.load(f)) '
+[Shell] ls -la i18n/ tools/
+[Shell] ls -la i18n/versions/
+[Shell] python3 -c ' import json with open("i18n/versions/tome-1.7.6.json") as f: v = json.load(f) print(json.dumps({k: v[k] for k in v if k != "files"}, indent=2)) '
+[Shell] ls -la ../t-engine4 2>/dev/null || echo "not in ../t-engine4"
+[Shell] env | grep -i -E "tome|engine"
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Shell] python3 -c ' path = "/workspace/t-engine4/game/modules/tome/data/lore/misc.lua" with open(path, "r", encoding="utf-8") as f: content = f.read() print("File length:", len(content)) '
+[Shell] python3 -c ' import re with open("game/modules/tome/data/lore/misc.lua" if False else "/workspace/t-engine4/game/modules/tome/data/lore/misc.lua") as f: text = f.read() # find around dragons m = re...
+[Shell] grep -rn "Daikara" terminology/ 2>/dev/null
+[Shell] ls terminology/
+[Shell] python3 -c ' import glob for path in glob.glob("terminology/*.tsv"): with open(path) as f: for line in f: if any(k in line.lower() for k in ["daikara", "wyrmic", "allure", "faeros", "galsamae", "ze...
+[Shell] python3 -c ' import glob for path in glob.glob("terminology/*.tsv"): with open(path) as f: for line in f: if any(k in line.lower() for k in ["greigu", "faeros", "highfin", "kestin", "graverobber"])...
+[Shell] find . -maxdepth 3 -not -path '*/.*'
+[Shell] python3 -c ' import re with open("mod-tome.lua", "r", encoding="utf-8") as f: text = f.read() for k in ["How to Summon a Phoenix", "Eden", "Kestin Highfin", "Zemekkys", "Warden-Master Galsamae", "T...
+[Shell] python3 -c ' path = "/workspace/t-engine4/game/modules/tome/data/lore/misc.lua" with open(path, "r", encoding="utf-8") as f: src = f.read() import json with open(".ai/task/ctx2-pub-11c/CONTEXTUAL-E...
+[Shell] python3 -c ' path = "/workspace/t-engine4/game/modules/tome/data/lore/misc.lua" with open(path, "r", encoding="utf-8") as f: lines = f.readlines() import json with open(".ai/task/ctx2-pub-11c/CONTE...
+[Shell] python3 -c ' with open("/workspace/t-engine4/game/modules/tome/data/lore/misc.lua") as f: lines = f.readlines() for i in range(565, 620): print(lines[i], end="") '
+[Shell] python3 -c ' with open("/workspace/t-engine4/game/modules/tome/data/lore/misc.lua") as f: lines = f.readlines() for i in range(620, 640): print(lines[i], end="") '
+[Shell] python3 -c ' with open("mod-tome.lua") as f: text = f.read() import re matches = re.findall(r".{0,40}Eden.{0,40}", text) for m in matches: print(m) '
+[Shell] grep -rn -i "faeros" terminology/ mod-tome.lua 2>/dev/null
+[Shell] grep -rn "fire wyrm saliva" mod-tome.lua 2>/dev/null
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11c/CONTEXTUAL-ENVELOPE-full-01.json") as f: env = json.load(f) for item in env["payload"]["translation_snapshot"]: if item["revision_key"] == ...
+[Shell] python3 -B tools/i18n lint
+[Shell] python3 -c ' with open("/workspace/t-engine4/game/modules/tome/data/lore/misc.lua") as f: lines = f.readlines() for i in range(695, 725): print(lines[i], end="") '
+[Shell] python3 -c ' import os, re def search(dirpath): for root, dirs, files in os.walk(dirpath): for f in files: if f.endswith((".lua", ".tsv", ".json")): p = os.path.join(root, f) try: with open(p, "r",...
+[Shell] grep -rn "Greigu" /workspace/t-engine4/game/ 2>/dev/null
+[Shell] grep -rn "Zemekkys" /workspace/t-engine4/game/modules/tome/ 2>/dev/null
+[Shell] grep -rn "Zemekkys" terminology/ mod-tome.lua 2>/dev/null
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11c/CONTEXTUAL-ENVELOPE-full-01.json") as f: env = json.load(f) for item in env["payload"]["translation_snapshot"]: if item["revision_key"] == ...
+[Shell] python3 -c ' with open("mod-tome.lua") as f: text = f.read() pos = text.find("加尔萨麦") if pos != -1: print(repr(text[pos-40:pos+40])) '
+[Shell] python3 -c ' with open("mod-tome.lua") as f: text = f.read() pos = text.find("一会儿谢") if pos != -1: print(repr(text[pos-20:pos+60])) '
+[Shell] grep -rn "storm dragon" /workspace/t-engine4/game/ 2>/dev/null
+[Shell] python3 -c ' with open("mod-tome.lua") as f: text = f.read() import re for m in re.finditer(r"t\(\"([^\"]*(?:storm|ice|fire|sand)\s*(?:drake|wyrm|dragon)[^\"]*)\",\s*\"([^\"]*)\"", text, re.IGNOREC...
+[Shell] grep -rn "newline" docs/ AGENTS.md 2>/dev/null
+[Shell] python3 -c ' with open("tools/i18nlib/lint.py") as f: text = f.read() import re pos = text.find("newline") while pos != -1: print(text[max(0, pos-100):min(len(text), pos+200)]) print("="*40) pos = ...
+[Shell] grep -rn "newline" tools/i18nlib/ 2>/dev/null
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-11c/CONTEXTUAL-ENVELOPE-full-01.json") as f: env = json.load(f) for item in env["payload"]["translation_snapshot"]: k = item["revision_key"] s ...
+[Shell] python3 -c ' with open("/workspace/t-engine4/game/modules/tome/data/lore/misc.lua") as f: text = f.read() pos = text.find("Welcome to Point Zero") print(repr(text[pos:pos+300])) '
+[Shell] python3 -c ' with open("tools/contextual_result_check.py") as f: print(f.read()[:2000]) '
+[Shell] python3 -c ' with open("tools/contextual_result_check.py") as f: text = f.read() pos = text.find("def validate_result") if pos != -1: print(text[pos:pos+2500]) else: print(text[2000:4500]) '
+[Shell] python3 -c ' import json import subprocess from tools.contextual_result_check import validate_result with open(".ai/task/ctx2-pub-11c/CONTEXTUAL-ENVELOPE-full-01.json", "r", encoding="utf-8") as f:...
+[Compacted]
+[Compacted]
+[Shell] python3 -c ' import json from tools.contextual_result_check import validate_result_bytes with open(".ai/task/ctx2-pub-11c/CONTEXTUAL-ENVELOPE-full-01.json", "rb") as f: envelope_bytes = f.read() re...
+{"candidate_identity":"8df05c9b0d7d445130d3dfc495e566b4e36d00636e1100c90f5c401a29d65bb2","contract":"translation_contextual_v2","verdicts":[{"revision_key":"entry-01310","verdict":"OK"},{"revision_key":"entry-01312","verdict":"OK"},{"revision_key":"entry-01313","verdict":"OK"},{"revision_key":"entry-01314","verdict":"OK"},{"revision_key":"entry-01315","verdict":"OK"},{"revision_key":"entry-01316","verdict":"OK"},{"revision_key":"entry-01317","verdict":"OK"},{"observation":"核验固定版本公开源码（组件=tome，固定源码路径=game/modules/tome/data/lore/misc.lua，commit=624a67329fe2ad440c5b344785a9c73fcf22ae63，行 731-733）：源码倒数第二段结尾为“Thank me later.\\n\\n[i]-Galsamae[/i]\\n\\nPS:...”，译文将“Thank me later.”误译为“一会儿谢。”，歪曲了口语祈使表达“回头再谢我吧 / 以后再谢我”的语境语义，且在署名“[i]-加尔萨麦[/i]”前丢失一个换行（原文为双换行分段，译文遗漏空行变成单换行，致使全文换行数 14 与 13 不一致）。","revision_key":"entry-01318","verdict":"ISSUE"}]}

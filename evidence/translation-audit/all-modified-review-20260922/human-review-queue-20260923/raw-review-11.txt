@@ -1,0 +1,388 @@
+[User] # REVIEWER briefing — 已应用译文改动的独立逐条复核（review packet 11）
+
+身份：`role=reviewer`，只读。**不得修改、创建、删除任何文件**，不得 stage／commit。
+
+任务：对 packet 中每一项已应用的译文改动**逐条独立复核**，判断该改动是否正确、是否引入新问题。
+这是与 executor（裁决）路线**并行**的复核路线；你只看冻结输入，不看 executor 的自述理由。
+
+## 唯一输入
+
+`.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-11.json`
+
+该文件每项含：`entry_id`／`queue_id`／`file`／`line`／`source_tag`／`source`（英文原文）／
+`old_target`（改动前）／`new_target`（改动后）。
+
+## 可读取的证据（只读）
+
+1. 上表 packet 文件。
+2. 固定版本公开源码：commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`，仓库 `/workspace/t-engine4`，
+   读取方式 `git -C /workspace/t-engine4 show <commit>:<path>`。
+   路径映射：`mod-tome/`→`game/modules/tome/`；`mod-boot/`→`game/engines/default/modules/boot/`；
+   `engine/`→`game/engines/default/engine/`。
+3. 术语库：`terminology/*.tsv`（按 source 查询 `source`／`target`／`category`／`source_tag`／
+   `status`／`scope`／`notes`）。
+4. 本仓译文文件（用于核对同族一致性）：`mod-tome.lua`、`engine.lua`、`mod-boot.lua`。
+
+## 复核判据（每项必须走完）
+
+1. `new_target` 是否忠实 `source` 的语义、机制、数量、时序、条件与主体？
+2. 与固定版本源码的实际行为是否一致（有需要时读源码调用链）？
+3. 是否违反术语库 `preferred` 条目？与同节／同族既有译法是否一致？
+4. 占位符（`%s` `%d` `%%` `%0.2f` 等）、颜色码／markup（`#GOLD#` `#{italic}#` 等）、
+   换行序列是否完好？
+5. **本次改动是否引入新问题**——特别是：是否只改了本项而留下同族其他载体不一致？
+   是否把原本正确的表达改坏？
+6. 若 `old_target` 本来就正确、改动属于偏好而非缺陷，必须明确指出。
+
+## 输出格式（严格 JSON，不要 Markdown 围栏）
+
+```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 11,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-00105",
+      "verdict": "ok",
+      "observation": "简短说明；无问题时填 OK",
+      "evidence": ["terminology/tech.tsv:3 Donator=捐赠者"],
+      "new_issue_introduced": false
+    }
+  ]
+}
+```
+
+字段约束：
+
+- `verdict` 只能是 `ok`／`issue`／`unclear`。
+  - `ok`：改动正确且未引入新问题。
+  - `issue`：改动有实质缺陷（语义／机制／术语／不变量错误，或引入新的不一致）。
+  - `unclear`：证据不足，无法判定。
+- `observation` 必须非空。`ok` 时填 `OK`，否则给出具体缺陷与最强反证。
+- `evidence` 必须非空数组（`ok` 时可空数组），每条为可核验路径（源码 `game/...` 或
+  `terminology/...`），不得只写模型共识。
+- `new_issue_introduced`：布尔，仅当 `issue` 且正是本次改动新引入时填 true。
+- 必须**逐条覆盖 packet 的全部 20 项**，顺序与 packet 一致，不得遗漏或多出。
+- 不得输出 severity、修复建议或额外字段。
+
+## 完成后
+
+直接返回上述 JSON。不要写任何文件，不要创建子 agent。
+[Thought] Beginning the review process for packet 11, focusing on translation changes within the provided JSON file. The task involves item-by-item analysis to determine the correctness of each change and identify any new issues introduced. The "read-only" constraint is noted, emphasizing the review-only role.
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-11.json
+[Shell] git -C /workspace/t-engine4 rev-parse --verify 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] There are twenty items to review within the commit, each identified by an entry number and line number in the `mod-tome.lua` file. The initial approach will be to examine each item sequentially, starting with entry-01709.
+[Shell] rg -n "Collection of known traps" /workspace/t-engine4/game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/cunning.lua
+[Thought] Examining the file reveals the definition of new talent types, specifically "cunning/traps" and "cunning/poisons-effects". The structure suggests these are intended to be randomly assigned talents with a descriptive name and collection of known items. The pattern indicates further exploration is needed to understand all available cunning-based talents, specifically artifice.
+[Shell] rg -i "Collection of known" terminology/
+[Shell] rg -n "已掌握的" mod-tome.lua
+[Thought] Observed that the descriptions for "cunning/traps" and "cunning/poisons-effects" are consistent across the data entries. This suggests a symmetrical relationship between the trap and poison collection talents. The game data structure likely uses these as lookup keys for descriptions.
+[Shell] rg -i "artifice" terminology/
+[Shell] rg -n "artifice" mod-tome.lua
+[Thought] The code defines "cunning tools." The previous version lacked the "cunning" descriptor, and the updated version reflects that addition. This suggests a refinement in the description to emphasize the strategic or tactical nature of the tools. This refinement clarifies the intended function or category.
+[Shell] rg -i "Deadly Poison" terminology/
+[Shell] rg -n "Deadly Poison" mod-tome.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/poisons.lua | grep -A 10 'newTalent.*T_NUMBING_POISON'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/poisons.lua | grep -n "Enhances your Deadly Poison with a numbing"
+[Thought] The analysis confirms that `poisons.lua`, specifically line 429, modifies the `Deadly Poison` talent, as indicated by the successful verdict for entry-01727. Proceeding to entry-01732, the focus shifts to `mod-tome.lua` and a related talent enhancement description; the description seems related to `Deadly Poison` with a "stoning agent".
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/poisons.lua | grep -n -A 20 "Enhance your Deadly Poison with a stoning agent"
+[Thought] The old translation seems incomplete, omitting the crucial phrase "Enhance your Deadly Poison with a stoning agent." This suggests a possible misunderstanding of the original text's intent. The translation accurately describes the effect of the agent but missed the enhancement aspect.
+
+
+The previous translation failed to render "Deadly Poison" consistently; it's translated into "致命毒素". The stacking damage was also incomplete; the full phrase "每回合 %d 点伤害" is required. Placeholders like `%d` and `%%`, as well as the newlines, must be preserved in the correct positions. Cunning has to be correctly translated as "灵巧" (standard translation).
+
+I'm thinking through how to approach this.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/stealth.lua | grep -n -C 5 "foes in sight within range"
+[Shell] rg -n "%sTier %d: %s#LAST#" /workspace/t-engine4/game/modules/tome/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/traps.lua | sed -n '645,660p'
+[Shell] rg -i "\btier\b" terminology/
+[Shell] rg -i "阶级|等阶|材质等级" terminology/
+[Shell] rg -n "tier %d|Tier %d" mod-tome.lua
+[Thought] The translation of "up to tier %d" to "最高阶级 %d" is confirmed in line 23634. Formatting for trap descriptions uses "阶级" (tier) in line 23647, reflecting the same term used in the translated string. This consistent use suggests a unified approach to describing trap levels.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cunning/traps.lua | grep -n -A 10 "cloud of freezing vapour"
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/cursed.lua
+[Thought] Identified two new talent types within the "cursed" category: "endless-hunt" and "rampage". These are configured as randomizable talents. Their descriptions hint at gameplay mechanics related to daily hunts and unrestrained aggression, respectively.
+[Shell] rg -i "\bhate\b" terminology/
+[Thought] The terminology file confirms "仇恨" (Hate) is the preferred translation, replacing the previous "愤怒". This aligns with the game's core resource terminology for cursed classes, and is consistent with the evidence from the data file. The new translation is correct based on the preferred term.
+[Shell] rg -i "darkness" terminology/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/darkness.lua | grep -n -C 5 "Sends a torrent of searing darkness"
+[Shell] rg -n "function.*damDesc" /workspace/t-engine4/game/
+[Thought] The function `damDesc` generates damage descriptions; the format currently uses English. The `%d` placeholder represents the damage number, and "darkness damage" indicates the damage type. The corresponding Chinese format is `%d 点暗影伤害`. Adjusting the text further, "anything that has entered your creeping dark" needs translation to "任何进入黑暗之雾的目标." Old text instances use `%d 点黑暗伤害` and `进入黑暗之雾的人`.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/darkness.lua | grep -n -C 5 "Spawn tendrils of darkness to pursue"
+[Shell] rg -n "Selects a displacement location" /workspace/t-engine4/game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/primal-magic.lua | sed -n '110,130p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/primal-magic.lua | sed -n '100,115p'
+[Shell] rg -n 't\("Displace"' mod-tome.lua
+[Thought] "位移" is the correct translation for "Displace," matching the talent's name perfectly. Using "位移目的地" aligns with the talent's intended meaning, whereas the alternative "转移目标" is inaccurate.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/shadows.lua | grep -n -A 10 "While this ability is active, you will continually call"
+[Thought] Call Shadows is a sustained ability that summons shadows in battle. Each turn, the system checks for sufficient "hate" and shadow count to automatically summon shadows up to a maximum limit. The old target's description likely refers to summoning a specific number of shadows.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/shadows.lua | grep -n -C 10 "The shadows converge on"
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/shadows.lua | sed -n '661,680p'
+[Thought] The original translation's passive voice obscured the distinct actions of the two branches: attack and defense. The "converge" and "form" actions needed distinct, active verbs. The new translations must accurately reflect the differing combat actions.
+[Shell] rg -n "Channel acid through your psiblades" /workspace/t-engine4/game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/corrosive-blades.lua | sed -n '30,60p'
+[Thought] The code indicates acid damage with a disarm effect. The description correctly reflects acid damage, but the old translation uses "acid disarm damage", which is misleading because disarm is an effect, not a damage type. The translation should accurately reflect that acid damage is applied, potentially resulting in disarm.
+[Shell] rg -i "equilibrium" terminology/
+[Shell] rg -n "Your devotion to nature has made your body" /workspace/t-engine4/game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/eyals-fury.lua | sed -n '40,85p'
+[Shell] rg -n "EFF_NATURE_REPLENISHMENT" /workspace/t-engine4/game/
+[Shell] rg -n "newEffect.*NATURE_REPLENISHMENT" /workspace/t-engine4/game/
+[Shell] rg -n "NATURE_REPLENISHMENT" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '2870,2890p'
+[Shell] rg -n "失衡值" mod-tome.lua
+[Thought] Line 37308's translation uses "降低 (jiang di)", meaning "decrease" or "reduce", for "restores equilibrium". This suggests a potential inconsistency or error in the translation. The term "Nature's Defiance" in line 24890 uses "restore" Equilibrium each turn, indicating that the intended function is a healing effect. This inconsistency must be addressed.
+[Shell] rg -n "Surround yourself with a myriad of tiny" /workspace/t-engine4/game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/fungus.lua | sed -n '25,75p'
+[Shell] rg -n 't\("fungus",.*"talent type"\)' mod-tome.lua
+[Thought] Analyzing talent entry 01870, categorized as "真菌". The description suggests a mechanic related to gaining a portion of a turn upon receiving non-regeneration healing. The source code location is identified within "mod-tome.lua" at line 24969.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/gifts/fungus.lua | sed -n '75,105p'
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 11,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-01709",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cunning/cunning.lua:24"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01711",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cunning/cunning.lua:26"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01718",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cunning/cunning.lua:34"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01727",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cunning/poisons.lua:429"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01732",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cunning/poisons.lua:636"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01740",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cunning/stealth.lua:148"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01751",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cunning/traps.lua:654"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01767",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cunning/traps.lua:1550"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01785",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cursed/cursed.lua:25"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01788",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/resources.tsv:Hate",
+        "game/modules/tome/data/talents/cursed/cursed.lua:28"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01803",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/combat.tsv:darkness",
+        "game/modules/tome/data/talents/cursed/darkness.lua:435"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01804",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cursed/darkness.lua:478"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01823",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cursed/primal-magic.lua:116",
+        "mod-tome.lua:24365"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01835",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cursed/shadows.lua:468"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01838",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cursed/shadows.lua:651"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01839",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cursed/shadows.lua:669"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01851",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/gifts/corrosive-blades.lua:52"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01861",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/gifts/eyals-fury.lua:76",
+        "game/modules/tome/data/timed_effects/physical.lua:2886"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01868",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/gifts/fungus.lua:38"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01870",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/gifts/fungus.lua:101"
+      ],
+      "new_issue_introduced": false
+    }
+  ]
+}
+[Thought] The fungus grants ancient instincts and provides turn gain based on non-regeneration healing received, capped at two stored turns. Regeneration decreases equilibrium each turn. The turn gain is influenced by Mindpower.
+
+
+The term "fungus" is now accurately translated to "真菌" to align with talent categorization. The original phrasing of turn gain's cap was ambiguous. It's refined to reflect the actual energy storage limit and exclude overhealing from the calculation, consistent with the code's implementation.
+
+
+The healing calculation accurately reflects the code: only effective healing contributes, excluding overhealing. The placeholders and newline characters are also preserved correctly. Thoroughly checking all items to ensure no subtle issues were introduced.
+
+
+Evidence can be provided even for "ok" verdicts by referencing verifiable paths. Analysis now proceeds with Items 1 and 2, confirming each item's "ok" status against its corresponding code location. Initial assessment indicates each entry aligns with the expected format, with verifiable evidence.
+
+
+"精巧工具" precisely translates "cunning tools" within the context of the artifice talent. The change from "剧毒" to "毒素" for "Deadly Poison" is consistent with other instances, maintaining terminology consistency. Item 5's translation appears complete and accurate. Further review is planned to confirm the preservation of all nuances.
+
+
+The previous translation erroneously described applying the effect to weapons; the mechanics clearly indicate an enhancement to the Deadly Poison talent. The new translation reflects this accurate distinction, closely aligning with the source's meaning and the game's implemented mechanics. Line breaks, placeholders, and the percentage notation are correctly positioned. Item 6: entry-01740 is now under evaluation.
+
+
+潜行模式现在正确地 translates "stealth mode". Checking the parameter-based stealth detection mechanics, and the range restrictions on initiating stealth are verified. The effects on light radius, infravision, and armor restrictions are confirmed and verified. Examining the actions that break stealth, and the enemy information-sharing delays is next.
+
+
+潜行模式 now accurately addresses stealth mode restrictions, including armor, range, and action limitations. The format string correction from `%d %s` to `%d%s` and the clarification of "non-instant, non-moving actions" are confirmed, ensuring mechanics are precisely represented. The associated evidence path is verified.
+
+Item 7's translation of "材质等级" (material level) to "阶级" (tier) is correct, given the talent context and existing game terminology consistency. The game data context indicates traps, not material items; the old term was therefore incorrect. The updated phrasing aligns with the trap tier and existing data. Item 8 is under evaluation now.
+
+
+"寒冷" is added to the translation of the trap's damage description, aligning with the source text. This is confirmed by verifying the code location.
+
+The translation of Item 9, addressing the hunt, is improved to accurately reflect the source, correcting the reversal of meaning in the original.
+
+Item 10's translation for "hate" is updated to be "仇恨", reflecting a more accurate and consistent term.
+
+
+Confirmed "仇恨" as the correct translation, consistent with the terminology file and code. The assessment of Item 11 starts. The translation now uses "暗影伤害" for "darkness damage" based on the combat terminology file. Corrected "人" to "目标" for more precise target specification.
+
+
+Corrected "anything" in Item 12 to "target," aligning it with Item 13 and other similar entries within the same file. The modification preserves the original mechanics while ensuring consistency in the translated text. The associated evidence path is verified. Item 13 analysis begins.
+
+
+Item 13's translation is evaluated, with a focus on "Displace." The updated translation "选择位移目的地" precisely reflects the action of selecting a teleport location, as indicated by the associated code and talent description.
+
+Item 14 is now under analysis; it describes a summoning ability. The placeholders, line breaks, and percentage notation are examined for accuracy. Further evaluation will confirm the correct mapping of all mechanics, including "仇恨" (hate), ability levels, and shadow actions.
+
+
+Added "持续" and "至多" to Item 14's description for accuracy and completeness, based on the referenced code. Item 15's translation corrected passive voice; the new phrasing emphasizes active movement toward the target. Item 16's repeated text from the previous item was corrected, and the new translation distinguishes the intended defensive formation of shadows. Item 17 is under analysis.
+
+
+The phrase "酸性缴械伤害" is nonsensical; the effect should be split into acid damage and a separate disarm effect. Item 18 translation's comparison starts now.
+The new translation accurately separates damage and disarm. Item 18's source text addresses resistance and recovery mechanics which need verification.
+The spell save, arcane resistance, and nature damage affinity components from the original source text are being checked.
+The equilibrium restoration and mindpower scaling are now verified, ensuring correct implementation.
+
+
+"降低 %0.1f 点失衡值" accurately reflects the benefit of reducing equilibrium, confirming alignment with the game's mechanics. The associated code locations are verified. Item 19's translation of "reinforcing fungi" to "有强化作用的真菌" is correct and consistent. The associated file is verified.
+
+
+"真菌" accurately reflects "fungus" based on previous translations and file references. The new translation clarifies the energy storage cap and excludes overhealing. Verifying against the relevant code, the translation now reflects the intended meaning precisely.

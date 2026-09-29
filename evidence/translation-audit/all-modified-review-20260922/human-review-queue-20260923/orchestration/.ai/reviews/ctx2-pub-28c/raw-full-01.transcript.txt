@@ -1,0 +1,68 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=0a869a952965ebd80c64a42f6082b3ec48163df3bc03a22986ad5d4fe7fc54b9；input_path=.ai/task/ctx2-pub-28c/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Thought] **Reviewing Task Instructions**
+
+I'm currently reviewing the task instructions for a readonly review of `translation_contextual_v2`. I am focused on understanding the specific criteria for identifying issues in the revision, which involves semantic, mechanistic, terminological, relational, or cross-item consistency problems. The input candidate identity is `0a869a`, and I'm ensuring I only flag issues that have clear supporting evidence.
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-28c/CONTEXTUAL-ENVELOPE-full-01.json
+{"contract":"translation_contextual_v2","candidate_identity":"0a869a952965ebd80c64a42f6082b3ec48163df3bc03a22986ad5d4fe7fc54b9","verdicts":[{"revision_key":"scope17:mod-tome.lua:18119","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:19407","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:19408","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:20290","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:38485","verdict":"OK"},{"revision_key":"scope17:mod-tome.lua:39386","verdict":"OK"}]}
+[Thought] **Analyzing Revisions Meticulously**
+
+I'm now carefully reviewing each of the six revisions within `CONTEXTUAL-ENVELOPE-full-01.json`. I'm also considering cross-referencing the fixed-version public source files mentioned in `bounded_context` or the terminology used, but I'm being very careful to avoid any restricted directories, such as those related to AI tasks, reviews, or previously found results. I must wait, however.
+
+
+**Investigating Bounded Context**
+
+I'm now diving into the source files linked within the `bounded_context` of `CONTEXTUAL-ENVELOPE-full-01.json`. Specifically, I am interested in `scope17:mod-tome.lua:18119` and the associated `mod-tome/data/lore/misc.lua` file. This source file gives context, and introduces the Sher'Tul. I am looking for links to fixed paths, and fixed terms, such as what the elves knew.
+
+
+**Considering Sher'Tul's Influence**
+
+I'm now focusing on the Sher'Tul's dominance, and the farportals. I'm noting the halfling's discovery of the farportals and the Shaloren's disastrous attempt to control them. This incident is crucial. I am considering the implications of their physical forms and the limited evidence available about their appearance based on architectural remains.
+
+
+**Exploring Sher'Tul's Demise**
+
+I'm now focusing on the Sher'Tul's physical characteristics, specifically their likely height and limb proportions based on artifact analysis. The cause of their extinction remains elusive; the popular theory about internal magical conflict, along with Garybald's demonic influence theory, are being weighed. Their fate is shrouded in mystery. Some even suggest they're not truly gone, and are hiding, or have departed.
+
+
+**Summarizing Explorer's Discoveries**
+
+I'm now focusing on summarizing the discoveries of the explorer Davode Okkaten, who has been missing for months. I am highlighting the key points, such as the Sher'Tul's existence during the Chaotic Age, over ten millennia ago. I am taking note of the elven accounts, and the physical evidence of their civilization, including the submerged ruins. Finally, I'm considering the farportals and their discovery by halflings. The tragedy of the Shaloren's failed attempt to control these farportals has been noted.
+
+
+**Considering Their Demise**
+
+I'm now further exploring the Sher'Tul's downfall and physical traits. I'm focusing on their sudden, violent demise, theorizing it involved their own power. I am reviewing the fact that no artwork or records detail their appearance; however, the architectural remains imply human-like characteristics. I'm considering Okkaten's conclusions about their height and slender limbs. Various theories persist about their extinction, but the truth remains elusive. I am focusing on their possible use of arcane energy and demonic influence.
+
+
+**Verifying Terminology Accuracy**
+
+I've just finished a thorough terminology check, cross-referencing English terms with their translated equivalents within `scope17:mod-tome.lua:18119`.  All key terms, including "Sher'Tul", "Maj'Eyal", "farportals", "halfling", and others, have been verified for accuracy, naturalness, and consistency across their entries. No semantic distortions, mechanism errors, or inconsistencies were found. Now I will move to the next file.
+
+
+
+**Confirming Localization Accuracy**
+
+I'm now carefully examining the translation of phrases related to Sher'Tul and farportals within `scope17:mod-tome.lua:19408` and the `失落的远行传送门` entry. I've confirmed that "Sher'Tul" consistently translates to "夏·图尔" and "farportal" to "远行传送门." I'm ensuring no semantic drift or translation errors exist. I've verified the placeholder `%s` is preserved correctly as well, maintaining the integrity of the original text.
+
+
+**Validating Contextual Consistency**
+
+I'm now cross-referencing terminology within the `high-peak.lua` file. I'm verifying the accuracy of translations, focusing on the key phrases. I'm happy to report that all key translations align with established terminology, including "farportal" as "远行传送门", and "The Way" as "维网." I'm also now confirming consistency. All translations remain accurate and contextually sound. I am now proceeding to the next file, ensuring consistent terminology.
+
+
+**Analyzing Farportal Translations**
+
+I am now meticulously analyzing the translation of "Farportal: Charred Scar" in `grids.lua` and its contextual sentences, confirming accurate and consistent translations, as "Farportal" renders as "远行传送门" and "Charred Scar" is accurately translated as "灼烧之痕." I am now progressing to examine the npc data and "Farportal" translation.
+
+
+**Examining Lithfengel's Context**
+
+I'm now focused on a new file: `scope17:mod-tome.lua:39386`. I'm verifying the translation accuracy of phrases related to Lithfengel, a demon attracted to farportals. I've confirmed "demon" translates to "恶魔" and "farportal" is rendered as "远行传送门", which is consistent with the established terminology. I am ensuring that the description of the demon is translated accurately and idiomatically. Specifically, I am cross-referencing `decay and atrophy` to `枯萎和衰竭` and `A beast of blight!` to `这只瘟神！`.
+
+
+**Verifying Verdict Format**
+
+I'm now focusing on formatting the output based on Section 6, verifying all the parameters are met. I am double checking that the keys in the JSON are correctly ordered. The necessary fields are correctly set, with "contract", "candidate_identity", and "verdicts." Each revision_key in "verdicts" is also validated against its corresponding "OK" value. Now that I confirm the format, I am ready to close this task.

@@ -1,0 +1,1865 @@
+{
+  "primary_eligibility": {
+    "opus": true,
+    "sol": true,
+    "gemini": true
+  },
+  "protocol": "v3_temp_allowed_b097",
+  "reference_status": "provisional_model_adjudicated_not_human_gold",
+  "reference_report": "reports/adjudication-01.md",
+  "claim_counting_rule": "SCORING-RULES.md",
+  "entries": [
+    {
+      "entry_id": "entry-03252",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "CreateItem.lua:286 `findObject` 日志，8个参数顺序和颜色标记都保持一致",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "参数与物品位置吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "8处占位符与颜色标记保持一致，语义与参数消费正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03253",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "DebugMain.lua:128-148，`e:die(game.player,…)` 由玩家击杀，与“替玩家将其击杀（给予经验…）”一致",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "击杀归于玩家",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "调试弹窗操作与击杀/移除分支后果表述准确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03254",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "Endgamify.lua:179，`file` 和 `ret` 两个参数及换行保留",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "文件与错误信息吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "日志占位符、颜色标记及换行格式完整一致",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03255",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D01"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D01"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O003",
+              "claim_id": "C01",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D01"
+                ],
+                "rationale": "**confirmed**：“曲线图”被称为“表”。**advisory**：“属性”可泛指技能参数，不能据此另立对象错误。技能树系数有 ActorTalents.lua:941–944、Actor.lua:5091–5097支持。"
+              }
+            }
+          ],
+          "raw_table_note": "C01",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D01"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O001",
+              "claim_id": "C01",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D01"
+                ],
+                "rationale": "PlotTalent.lua:114–137、149–159实际绘制并显示曲线，不是属性表。"
+              }
+            }
+          ],
+          "raw_table_note": "C01：把曲线图称为属性表",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "技能系数 mastery 术语准确，占位符格式正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03256",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "PlotTalent.lua:37，Textbox 标题",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "技能等级标签可对应 TL",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "技能等级缩写 TL 展开准确，保留尾随空格",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03257",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:37，“第%s行”对应行号",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "文件与行号吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "调试帮助来源行号占位符与格式匹配无误",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03258",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D02"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D02"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O008"
+          ],
+          "observations": [
+            {
+              "id": "O007",
+              "claim_id": "C02",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D02"
+                ],
+                "rationale": "控件焦点／选中回调支持其核心观察；不将其扩大为“只能用鼠标触发”。"
+              }
+            },
+            {
+              "id": "O008",
+              "claim_id": "C03",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "RandomActor.lua:74、141及冻结上下文足以对应“基础过滤器／基础筛选器”。"
+              }
+            }
+          ],
+          "raw_table_note": "C02（存在问题）；C03（仅建议）",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D02"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O005",
+              "claim_id": "C02",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D02"
+                ],
+                "rationale": "RandomActor.lua:94、177、284–287明确将预览关联于具体控件。"
+              }
+            }
+          ],
+          "raw_table_note": "C02：遗漏悬停对象",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O004"
+          ],
+          "observations": [
+            {
+              "id": "O004",
+              "claim_id": "C01",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "同段及基础输入框均可明确对应同一筛选器；同义词不统一未改变功能。"
+              }
+            }
+          ],
+          "raw_table_note": "C01",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03259",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:86",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "基础角色状态吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "基础角色展示标签及占位符准确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03260",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:100",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "基础角色日志吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "日志前置空格与占位符匹配无误",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03261",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:129",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "清除动作吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "清除基础角色日志前置空格与格式正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03262",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:141，Textbox 标题",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "基础筛选器标签吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "控件标题及尾随空格保持一致",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03263",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D03"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O011",
+            "O012"
+          ],
+          "observations": [
+            {
+              "id": "O011",
+              "claim_id": "C04",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D03"
+                ],
+                "rationale": "**confirmed**：源码存在自动回退、中文带可选意味。**refuted**：“只有措辞差异、没有信息损失”的结论；保留“如果需要”不能替代执行行为。"
+              }
+            },
+            {
+              "id": "O012",
+              "claim_id": "C05",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "Boss 的大小写及空格未改变所指数据或转换对象。"
+              }
+            }
+          ],
+          "raw_table_note": "C04、C05",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D03"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O010",
+              "claim_id": "C03",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D03"
+                ],
+                "rationale": "缺少基础角色时无需另一次用户选择，代码直接调用 `makeEntity`。"
+              }
+            }
+          ],
+          "raw_table_note": "C03：随机角色回退的确定性丢失",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "角色转换描述准确，颜色标记匹配",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03264",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:169",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "Boss 角色状态吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "Boss角色展示标签及占位符匹配正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03265",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:210",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "Boss 数据标签吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "控件标题及尾随空格保持一致",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03266",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:330",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "无效筛选器日志吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "筛选器错误日志占位符匹配无误",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03267",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:343",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "生成失败日志吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "角色生成失败日志占位符匹配无误",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03268",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O014"
+          ],
+          "observations": [
+            {
+              "id": "O014",
+              "claim_id": "C06",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "同 O013；当前文本保有明确的前指词，属于参数摆放不够顺畅。"
+              }
+            }
+          ],
+          "raw_table_note": "C06",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "筛选器与错误参数吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "异常回溯日志两处占位符与换行一致",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03269",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:369",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "无效 Boss 数据日志吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "随机Boss数据错误日志格式正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03270",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D04"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomActor.lua:383 忠实于原文；原文说“base actor”，实际是 boss 生成失败的分支，属上游措辞问题。但 GameState.lua `createRandomBoss` 只有一个 `return b`（`b = base:clone()`），所以这条日志在固定 commit 下不可达，玩家看不到",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D04"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O016",
+              "claim_id": "C04",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D04"
+                ],
+                "rationale": "基础角色获取与 Boss 转换是先后两步，日志误指前一步。"
+              }
+            }
+          ],
+          "raw_table_note": "C04：沿袭上游的角色对象误述",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D04"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O015",
+              "claim_id": "C02",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D04"
+                ],
+                "rationale": "RandomActor.lua:360、374–383显示该分支属于 Boss 转换阶段；错误沿袭英文。"
+              }
+            }
+          ],
+          "raw_table_note": "C02",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03271",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D05"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D05"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O021",
+              "claim_id": "C07",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D05"
+                ],
+                "rationale": "与 RandomActor 的“第%s行”语境一致；根本证据仍为返回值实现。"
+              }
+            }
+          ],
+          "raw_table_note": "C07",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D05"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O019",
+              "claim_id": "C05",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D05"
+                ],
+                "rationale": "“行数”改变了该位置数值的含义。"
+              }
+            }
+          ],
+          "raw_table_note": "C05：行号误作行数",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D05"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O018",
+              "claim_id": "C03",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D05"
+                ],
+                "rationale": "RandomObject.lua:44–55与 DebugConsole.lua:495闭合参数链，值为定义行号。"
+              }
+            }
+          ],
+          "raw_table_note": "C03",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03272",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D06",
+        "D07"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D06",
+            "D07"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O026"
+          ],
+          "observations": [
+            {
+              "id": "O024",
+              "claim_id": "C08",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D07"
+                ],
+                "rationale": "原文的并列来源有两层实现支持；“处理”过宽不单独计数。"
+              }
+            },
+            {
+              "id": "O025",
+              "claim_id": "C09",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D06"
+                ],
+                "rationale": "RandomObject.lua:475、509–512、531形成帮助选择和显示链。"
+              }
+            },
+            {
+              "id": "O026",
+              "claim_id": "C10",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "同一段“使用的角色／工作角色”仍指同一对象，未造成对象切换。"
+              }
+            }
+          ],
+          "raw_table_note": "C08、C09（存在问题）；C10（仅建议）",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D06"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O022",
+              "claim_id": "C06",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D06"
+                ],
+                "rationale": "F1 根据当前 `help_display`显示帮助，中文遗漏动态上下文信息。"
+              }
+            }
+          ],
+          "raw_table_note": "C06：遗漏帮助随当前控件变化",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "多行调试说明排版完整，控制标签与换行一致",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03273",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:174",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "随机筛选器作用吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "随机筛选器说明文本与标记匹配准确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03274",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:240",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "随机筛选器标签吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "控件标题及尾随空格保持一致",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03275",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:310",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "基础筛选器标签吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "控件标题及尾随空格保持一致",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03276",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:327",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "解析器选择标签吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "下拉说明标签及尾随空格保持一致",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03277",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:387",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "随机神器数据标签吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "控件标题及尾随空格保持一致",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03278",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:422，uid 和 name 的参数顺序保留",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "工作角色及参数吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "按钮文本两处占位符匹配正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03279",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:426",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "玩家标记可正确拼接",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "按钮更新文本三处占位符匹配正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03280",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:426 作为 %s 拼接，前导空格保留",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "玩家标记吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "玩家标签前置空格与着色标记一致",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03281",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:587",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "解析器生成日志吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "解析器生成日志前置空格与格式正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03282",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O028"
+          ],
+          "observations": [
+            {
+              "id": "O028",
+              "claim_id": "C11",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "无解析器时首参数为空，额外空格不影响信息或参数消费。"
+              }
+            }
+          ],
+          "raw_table_note": "C11",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O027"
+          ],
+          "observations": [
+            {
+              "id": "O027",
+              "claim_id": "C07",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "RandomObject.lua:598分别传入解析器括注和物品名；主要问题是语序。"
+              }
+            }
+          ],
+          "raw_table_note": "C07：动态括注使语序稍拗口",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "两处占位符拼接逻辑正确，参数消费正常",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03283",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:598，内层 tformat 片段",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "解析器括注吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "解析器说明前置空格与占位符正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03284",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:601",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "随机物品生成失败吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "随机物品生成失败日志格式正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03285",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D08"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D08"
+          ],
+          "refuted_claims": [
+            "O030.refuted_component"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O030",
+              "claim_id": "C12",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D08"
+                ],
+                "rationale": "**confirmed**：筛选器字段与“错误”的附着关系造成歧义。**refuted**：“该筛选器完全没有所指”；RandomObject.lua:240–249提供当前筛选器输入语境，但这未恢复括号字段的明确标签。"
+              }
+            }
+          ],
+          "raw_table_note": "C12",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "筛选器与错误参数吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "随机物品报错日志两处占位符与换行匹配",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03286",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:621",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "基础物品生成失败吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "基础物品生成失败日志格式正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03287",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D09"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D09"
+          ],
+          "refuted_claims": [
+            "O032.refuted_component"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O032",
+              "claim_id": "C13",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D09"
+                ],
+                "rationale": "**confirmed**：同 D09 的字段归属问题。**refuted**：“该筛选器没有所指”；基础筛选器控件在 RandomObject.lua:310–321明确存在。"
+              }
+            }
+          ],
+          "raw_table_note": "C13",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "筛选器与错误参数吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "基础物品报错日志两处占位符与换行匹配",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03288",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:645",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "随机神器生成失败吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "随机神器生成失败日志格式正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03289",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O034"
+          ],
+          "observations": [
+            {
+              "id": "O034",
+              "claim_id": "C14",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "与 O033 合并为同一措辞建议，不计确认缺陷。"
+              }
+            }
+          ],
+          "raw_table_note": "C14",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O033"
+          ],
+          "observations": [
+            {
+              "id": "O033",
+              "claim_id": "C08",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "RandomObject.lua:667–692表明这是解析器接收／加入物品阶段；“接受”生硬但未改变阶段或参数。观察所附读取声明不作为证据。"
+              }
+            }
+          ],
+          "raw_table_note": "C08：“接受物品”略显生硬",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "解析器报错日志两处占位符与换行匹配",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03290",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "RandomObject.lua:706，%d 用于整数坐标 x、y",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "角色身份及坐标吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "工作角色设置日志4处占位符与坐标格式正确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03291",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "SummonCreature.lua:104",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "无待放置角色的条件吻合",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "待放置角色日志语义准确",
+          "source_report": "reports/gemini-01.md"
+        }
+      }
+    }
+  ]
+}

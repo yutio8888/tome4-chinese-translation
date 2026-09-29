@@ -1,0 +1,160 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=232ae36184741435634ebfda438dcd0d6967e718a406f7268ca25eb2a32c76be；input_path=.ai/task/ctx2-dlc-05/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Thought] Analyzing the provided input and context, the goal is an independent review of a translation, specified by an identity and input file. The review will be performed using contextual information. The process will be read-only, preventing any modifications.
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-dlc-05/CONTEXTUAL-ENVELOPE-full-01.json
+[Thought] The provided candidate identity from the request payload verifies successfully against the user's input. Proceeding to meticulously examine the sequence of revisions, noting the initial ten revision keys for analysis.
+[Shell] ls -la
+[Shell] find /home/paseo -maxdepth 3 -type d
+[Shell] ls -la /workspace
+[Shell] ls -la /workspace/tome4-dlcs
+[Shell] find /workspace -name "*possessor*"
+[Shell] ls -la /workspace/tome4-dlcs/orcs
+[Shell] find /workspace -type d -name "*possessor*"
+[Shell] find /workspace/t-engine4 -name "*possessor*" -o -name "*psionic*"
+[Shell] find / -name "ravenous-mind.lua" 2>/dev/null
+[Shell] find / -name "*tome-possessors*" 2>/dev/null
+[Shell] unzip -l /workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa
+[Shell] ls -la /workspace/tome4-dlcs/orcs/tome-orcs
+[Thought] The `fixed_source_identity` indicates a specific snapshot, but the briefing notes that the source code for DLC components is unfixed. The documentation emphasizes the need to record components, source paths, and fixed commits, or clearly mark them as "to be confirmed" if unfixed. This discrepancy requires further investigation to ensure proper versioning and dependency tracking.
+[Shell] grep -n -C 10 "surrounded by a toxic cloud" /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Shell] sed -n '1410,1470p' /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Shell] sed -n '1465,1520p' /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Thought] `EFF_MIASMA`'s `callbackOnHit` function activates only if the source isn't null, has turn processing, lacks a weapon type, and hasn't already triggered the miasma effect. It sets the `miasma` flag and projects acid damage. The associated text indicates the effect represents toxic chemical influence.
+
+
+The target text's phrasing "每回合第一次被带有武器类型的近战或远程攻击命中时" (first weapon attack per turn) clarifies the acid damage trigger, absent from `entry-04054`. It's essential to determine if this addition is acceptable or considered an alteration. The original English source contains a minor typo: "cloud or radius %d" implying "cloud of radius %d". This typo doesn't affect the core meaning. Examining if `entry-04055`'s clarification aligns with intent is crucial.
+[Shell] sed -n '1520,1570p' /workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua
+[Thought] The code appears to handle the `DEATH_FROM_ABOVE` effect, removing it under certain conditions, specifically when not related to `rocket_barrage`. Further code seems to be binding a hotkey, potentially for the `SEEKER_WARHEAD` talent, and associating it with another talent, `ROCKET_BARR`. The logic suggests a connection between talents, effects, and hotkey bindings.
+[Shell] grep -rn "T_ROCKET_BARRAGE" /workspace/tome4-dlcs/orcs/tome-orcs
+[Shell] grep -rn "ROCKET_BARRAGE" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents
+[Shell] grep -rn "SEEKER_WARHEAD" /workspace/tome4-dlcs/orcs/tome-orcs/data/talents
+[Shell] sed -n '140,215p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/artillery.lua
+[Thought] Analyzing the `info` function within `artillery.lua` for the "Death From Above" talent reveals its functionality: launching the user into the air for three turns, followed by a rocket barrage dealing steamgun damage as fire in a radius of two. Additionally, the talent grants movement speed, evasion, and re-usability, and seems to have restrictions to usage of other talents.
+
+
+The Chinese translation of "Death From Above" accurately reflects the game mechanics described in `artillery.lua`, while the English version's wording in `physical.lua` may be inaccurate regarding automatic rocket launches. This appears to be a fidelity issue between the source code and its English description, rather than a translation error. Re-reading the task description clarifies the objective is to report only issues of semantic, mechanic, terminology, relations or cross-item inconsistencies.
+
+
+The task requires prioritizing fixed commit source code for game mechanics verification when discrepancies exist between descriptions. The English description in `entry-04056` suggests a per-turn rocket barrage, but the actual mechanics need confirmation against the specified commit.  Checking for evidence in the targeted codebase to confirm if the English description is literally correct.
+
+
+Examining `entry-04056`, the initial English description misrepresents the game mechanic, but the Chinese translation appears correct, aligning with the actual talent's behavior based on identified source code. The next step involves thorough checking of the remaining entries to identify any similar discrepancies. Analyzing `entry-04054` reveals no apparent semantic, terminology, or mechanism inconsistencies between the source and target strings, or any format specifier discrepancies.
+[Shell] grep -rn "affinity" terminology/
+[Shell] grep -n "affinity" /workspace/tome4-dlcs/orcs/tome-orcs/data/tinkers/therapeutics.lua
+[Thought] The English text describes a potent salve that removes negative magical effects and provides a fiery aura with fire, light, and lightning affinities. The Chinese translation accurately conveys these aspects: the salve's cleansing ability, the fiery aura, and the elemental affinities, including the need for a medical injector implant.
+[Shell] sed -n '50,68p' /workspace/tome4-dlcs/orcs/tome-orcs/data/tinkers/therapeutics.lua
+[Shell] grep -n -C 5 "Prodigy Points" /workspace/tome4-dlcs/orcs/tome-orcs/data/zones/slumbering-caves/objects.lua
+[Thought] The Amulet's light strengthens the user. This effect is observed and confirmed. The associated Prodigy Points are incremented.
+[Shell] grep -rn "Access to physics" /workspace/tome4-dlcs/orcs/tome-orcs
+[Shell] grep -rn "technomancer" /workspace/tome4-dlcs/orcs/tome-orcs/data/
+[Shell] sed -n '120,170p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/uber/mag.lua
+[Shell] grep -n -C 5 "physics" tome-orcs.lua
+[Thought] Realization dawns: the combination of arcane understanding and engineering knowledge leads to a breakthrough. This synthesis unlocks a new class evolution path, specifically the technomancer for archmages. The key is the integration of occult practices with technological principles.
+[Shell] grep -n -C 5 "technomancy" tome-orcs.lua
+[Thought] The `tome-orcs.lua` file defines talent types, including "放电" (galvanic), "寒岩" (terrene), and "玄机" (occult) technomancy. An entry describes "玄机" technomancy as using a high-speed steam chainsaw and arcane/temporal powers. The entry for "放电" is incomplete.
+[Shell] grep -n -C 10 "the experimenting tinker" /workspace/tome4-dlcs/orcs/tome-orcs/overload/mod/class/OrcCampaign.lua
+[Shell] grep -n "the lost" mod-tome.lua | head -n 30
+[Shell] sed -n '50,120p' /workspace/tome4-dlcs/orcs/tome-orcs/overload/mod/class/interface/PartyTinker.lua
+[Shell] sed -n '120,170p' /workspace/tome4-dlcs/orcs/tome-orcs/overload/mod/class/interface/PartyTinker.lua
+[Shell] sed -n '170,200p' /workspace/tome4-dlcs/orcs/tome-orcs/overload/mod/class/interface/PartyTinker.lua
+[Shell] grep -n -C 5 "Created tinker" tome-orcs.lua
+[Shell] grep -rn "蒸汽工具" terminology/
+[Shell] grep -rn "\btinker\b" terminology/
+[Shell] grep -rn "Tinker" terminology/
+[Shell] grep -rn "schematic" terminology/
+[Shell] grep -rn "Chief Councilor Tantalos" /workspace/tome4-dlcs/orcs/tome-orcs
+[Shell] grep -n -C 5 "Chief Councilor Tantalos" tome-orcs.lua
+[Shell] sed -n '8330,8360p' tome-orcs.lua
+[Shell] cat /workspace/tome4-dlcs/orcs/tome-orcs/superload/mod/dialogs/debug/DebugMain.lua
+[Thought] Observed that `DebugMain.lua` contains a single menu entry. Noticed that unrelated dialogue strings appear under a seemingly associated section within another file. The dialogue string inclusion stems from string extraction and merging processes, placing the new strings after the original entry. The placement discrepancy is inconsequential based on current context.
+
+
+Analyzing dialogue `entry-04115` reveals a discussion about geothermal energy and the risks associated with extracting it from a location inhabited by orcs. The councilor's skepticism towards mining equipment and interest in the orcs' motivations suggests a strategy of indirect engagement. This implies potential gameplay elements related to resource acquisition through non-conventional means, potentially involving espionage or negotiation rather than direct confrontation.
+[Shell] sed -n '2758,2820p' tome-orcs.lua
+[Thought] The translation in line 2758 focuses on a shift in topic to geothermal energy, deemphasizing the prior discussion as unimportant. The subsequent response highlights underlying dissatisfaction and potential conflict regarding the Kruuk Orcs, suggesting limited direct intervention but possible support.
+
+
+The speaker dismisses the agenda as irrelevant, prioritizing a personal solution and disregarding prior concerns. The councilor emphasizes public desire for steam over alternative solutions involving potentially undesirable groups or methods. There's an assertion that further discussion is unnecessary, indicating a fixed viewpoint.
+[Shell] unzip -p /workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa data/achievements/possessors.lua
+[Shell] unzip -p /workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa hooks/load.lua
+[Shell] unzip -p /workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa overload/mod/class/PossessorsDLC.lua
+[Shell] unzip -p /workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa superload/mod/class/Actor.lua
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: for name in z.namelist(): if name.endswith('.lua'...
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: lines = z.read('data/timed_effects.lua').decode('...
+[Shell] grep -rn "is_player_doomed_shade" /workspace/t-engine4/
+[Shell] sed -n '75,100p' /workspace/t-engine4/tmp/tome-mcp-validation/sessions/s3-supplement-01/runtime/game/modules/tome/data/zones/shadow-crypt/npcs.lua
+[Shell] grep -n "Doomed Shade" mod-tome.lua
+[Thought] The code uses the string "Doomed Shade of %s" for NPC naming but it is not localized via a translation function, which is unusual. This inconsistency requires further investigation. The target language translation also includes the phrase "末日使者之影", implying a potential difference in the original phrasing, which could mean either "Doomed Shade" or "Doomed Envoy Shade" depending on the context.
+
+
+Considering "Doomed Shade" translation, the terminology snapshot supports translating it as "末日使者之影," aligning with the `Doomed` class mechanics which are based on Hate and Shadows. Examination of `entry-04116` confirms this translation's accuracy in the context "Kill your own Doomed Shade in the body of Bill," translated to "附身于比尔时，杀死你自己的末日使者之影。"
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: lines = z.read('data/talents/psionic/battle-psion...
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: lines = z.read('data/talents/psionic/battle-psion...
+[Thought] `Psionic Block` translates to `灵能格挡`. Now examining the effect data for `entry-04123`. The effect provides a chance to ignore incoming damage for five turns, with a retaliation mind strike upon successful damage cancellation. The retaliation is limited to two times per turn.
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: lines = z.read('data/timed_effects.lua').decode('...
+[Thought] Analyzing the `callbackOnTakeDamage` function to understand how damage is processed. The code checks a chance-based effect and a psionic block condition, potentially negating the damage. Further investigation is needed to determine the conditions under which damage is actually applied and the return value implications in different scenarios. It also seems that the source of the attack is checked and if it is invalid, it may not do anything.
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: for name in z.namelist(): if name.endswith('.lua'...
+[Thought] `data/talents/psionic/psychic-blows.lua` includes `Force Shield`; however, further investigation into related entries is necessary. Relevant entries to examine are `entry-04129`, `entry-04137`, `entry-04141`, and a specific location within `scope17:tome-orcs.lua`. The context for `entry-04129` lies within `tome-possessors.lua` pertaining to "deep-horror."
+
+
+Analyzing translations and identifying key phrases to understand the function of new abilities. It appears one ability allows stealing a talent from a target for a duration, with limitations on talent type and level. Another grants resistance and critical hit avoidance, while also removing physical or mental effects.
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: lines = z.read('data/talents/psionic/deep-horror....
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: lines = z.read('data/talents/psionic/deep-horror....
+[Thought] The action involves a short-range ethereal dash through a creature and others in a line. The effect includes reappearing on the other side, gaining psi, and dealing mind damage to all targets.
+
+
+The extracted text describes an action that grants a specified amount of psi and deals mind damage, with number formats matching the provided terminology. The context suggests this is a psionic ability with potential interactions related to enemy ranks and absorption mechanics, and an automatic equipment switch if not properly equipped. This confirms the ability and its parameters, suggesting a direct link between the parsed data and the identified game mechanics.
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: lines = z.read('data/talents/psionic/psionic-mena...
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: lines = z.read('data/talents/psionic/psionic-mena...
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: lines = z.read('data/talents/psionic/psionic-mena...
+[Thought] The "Ghastly Finger" ability's damage is calculated as a percentage of lost life, but caps against boss-ranked foes. If the target dies from this ability and is absorbable, the essence is directly absorbed. This action requires the agent to have two mindstars.
+
+
+It appears the target translation is missing descriptive elements from the source sentence, specifically "ghastly" and the specific mechanism of the psionic impulse. The target describes a generic "impulse" instead of the "tell it to simply die" aspect. The translation's use of "手指" (finger) is correct for "ghastly finger," however. The fourth line accurately reflects essence absorption upon death. The dual wielding condition is triggered when mindstars are in the off-hand, noting the incompatibility with psiblades.
+[Shell] python3 -c " import zipfile with zipfile.ZipFile('/workspace/t-engine4/tmp/worktrees/yron-profile-20260912/game/addons/tome-possessors.teaa') as z: lines = z.read('data/talents/psionic/ravenous-min...
+[Thought] With at least one stack of a specific effect, an ability can be used. This ability radiates agony to visible enemies within a radius, provided their life is at or below a certain percentage. The effect lasts for a number of turns, impairing the enemies' ability to deal damage due to mental distraction from their own pain.
+[Shell] grep -n -C 5 "Last Hope in Maj'Eyal" /workspace/tome4-dlcs/orcs/tome-orcs/data/zones/gates-of-morning/grids.lua
+[Thought] Analyzing terminology and comparing translations. "Last Hope" translates to "最后的希望," marked as a place. "Maj'Eyal" translates to "马基·埃亚尔," the preferred world name. Examining the target text, it describes a portal for long-distance travel, potentially requiring external items, with bidirectional status unknown.
+[Shell] grep -rn "Psyshot" /workspace/tome4-dlcs/orcs/tome-orcs/data/
+[Shell] sed -n '195,245p' /workspace/tome4-dlcs/orcs/tome-orcs/data/birth/classes/tinker.lua
+[Thought] Line 229 indicates a setting related to "steamtech/dread" with a `false` value and a 0.3 probability. The `unlock-tinker_psyshot.lua` file lists four class features: project mindstar attacks with each bullet, inspire dread, manipulate air around victims, and psionic gestalt with steam generators. These features appear to correspond to a talent category.
+[Shell] cat /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/dread.lua
+[Shell] grep -n -C 5 't("dread",' tome-orcs.lua
+[Shell] grep -n -C 5 "inspire dread" tome-orcs.lua
+[Thought] "Inspire dread" appears in multiple contexts, suggesting a possible terminology conflict, because the terminology snapshot defines `- fear =>`. Need to determine if "dread" and "fear" are being used interchangeably within this system's lexicon.
+
+
+The talent type "dread" correctly maps to "惊骇" in the talent category. The use of "Inspire dread" as a verb phrase in the class feature summary from another document does not seem to directly conflict, as it aligns with the talent concept. Additional terms within that document, such as "灵能射手" and "灵晶", also match expected terminology. It is necessary to verify all 17 items from all source materials carefully.
+
+
+Examining the translation for "experimenting tinker," it appears "实验的工匠" is the intended meaning, but context suggests the character is "lost". The term "lost tinker" translates to "迷路的工匠". The character's description supports the idea of someone actively experimenting and being lost. The "experimenting tinker" could be the NPC.
+
+
+The core game uses "lost" as a prefix for escort NPCs. The NPC's dialogue indicates experimentation with steam technology. The NPC's name, "experimenting tinker," aligns with her character's experimentation and being lost. "实验的工匠" translates to "experimenting tinker," but could be improved for natural language.
+[Shell] head -n 30 /workspace/tome4-dlcs/orcs/tome-orcs/data/general/objects/tinker.lua
+[Thought] Observed "tinker" entries consistently link to "steamtech" subtypes and items used for equipment, like salves or tools. A translation for "tinker" is identified. Finally, the log entry suggests a creation event associated with "tinker" entities.
+[Shell] grep -n 't("tinker"' tome-orcs.lua
+[Thought] Investigating the "tinker" entity across multiple files. Identified that "tinker" is used as an entity type, name, and keyword within `tome-orcs.lua`. Also noted that `tinker` is defined as a craftable item with type "tinker" and subtype "steamtech." Examining the Tinker creation logic, looking at where "Created tinker" is logged in `PartyTinker.lua`.
+[Shell] git log -S "蒸汽工具" --oneline
+[Shell] grep -rn "插件" terminology/
+[Shell] head -n 50 TERMINOLOGY.md
+[Thought] The terminology document specifies that strict matching shouldn't force new standards, and context verification is crucial, not just word form hits. Observing the "tinker" to "蒸汽工具" mapping further suggests that "tinker" specifically represents a "entity type" in the game context. This confirms that even if a term matches, the broader context and potential to enforce a standard should be carefully evaluated.
+
+
+`tinker` has `status: existing` and is an `entity type`, confirmed by its current translation as "蒸汽工具". "Created tinker: %s" in game logs consistently translates to "创造插件：%s" / "制造插件：%s", and it doesn't conflict with the `schematic` preferred terminology, using "配方". The previous analysis of `entry-04137` is now pending a thorough re-read.
+[Shell] grep -n -C 5 "ghastly finger" tome-possessors.lua
+[Thought] Initial focus is on line 270 of `tome-possessors.lua`, specifically `entry-04137`, which is flagged as a definite issue. To ensure thoroughness, all 17 entries require precise examination to identify and confirm any other existing problems. Starting with `entry-04054`, the goal is to carefully assess each entry's data.
+[Shell] grep -n -C 10 "psionic block field" tome-possessors.lua
+[Shell] grep -n -C 5 "Force Shield" tome-possessors.lua
+[Shell] grep -n -C 3 "against the source" mod-tome.lua
+[Shell] grep -n "对攻击者" mod-tome.lua
+[Thought] Examining `mod-tome.lua` and `entry-04123` reveals consistent themes of retaliation against attackers and defensive psionic abilities across both English and Chinese translations. The `entry-04123` file requires closer examination. The phrase "灵能盾牌围绕你" clearly corresponds to "psionic block field." Is there an issue with `entry-04123`? The last line of the entry seems incomplete, requiring further inspection.
+
+
+The Chinese translation uses "灵能盾牌" (psionic shield) for "psionic block field," which is inaccurate; "格挡力场" (block field) is the correct term. The phrase "对目标进行反击" (strike back at the target) could be misleading as it could refer to either the attacker or target of the retaliation. This discrepancy and the prior observation point to a potential issue within `entry-04123`.
+[Shell] python3 -c ' import json candidate_identity = "232ae36184741435634ebfda438dcd0d6967e718a406f7268ca25eb2a32c76be" frozen_keys = [ "entry-04054", "entry-04055", "entry-04056", "entry-04066", "entry-0...
+[Shell] python3 -B tools/paseo_contract_check.py
+{"contract":"translation_contextual_v2","candidate_identity":"232ae36184741435634ebfda438dcd0d6967e718a406f7268ca25eb2a32c76be","verdicts":[{"revision_key":"entry-04054","verdict":"OK"},{"revision_key":"entry-04055","verdict":"OK"},{"revision_key":"entry-04056","verdict":"OK"},{"revision_key":"entry-04066","verdict":"OK"},{"revision_key":"entry-04088","verdict":"OK"},{"revision_key":"entry-04092","verdict":"OK"},{"revision_key":"entry-04101","verdict":"OK"},{"revision_key":"entry-04106","verdict":"OK"},{"revision_key":"entry-04109","verdict":"OK"},{"revision_key":"entry-04110","verdict":"OK"},{"revision_key":"entry-04115","verdict":"OK"},{"revision_key":"entry-04116","verdict":"OK"},{"revision_key":"entry-04123","verdict":"ISSUE","observation":"【语义/机制/术语】组件=possessors；公开源码路径=tome-possessors/data/talents/psionic/battle-psionics.lua:273-275，tome-possessors/data/timed_effects.lua:555-561；固定commit=来源未固定（DLC 源码未固定，标为证据不足但机制可核验）。原文字面“create a psionic block field all around you”被译为“创造一个持续 5 回合的灵能盾牌围绕你”，将格挡力场（block field）误译为盾牌（shield），与技能名“Psionic Block”（灵能格挡）以及该技能限制装备单手武器+灵晶（非持盾）存在机制与术语冲突；且“against the source”被译为“对目标进行反击”，按 callbackOnTakeDamage 机制，反击伤害直接作用于伤害来源实体（src），而非玩家当前选定目标（target）。"},{"revision_key":"entry-04129","verdict":"OK"},{"revision_key":"entry-04137","verdict":"ISSUE","observation":"【语义/机制缺失】组件=possessors；公开源码路径=tome-possessors/data/talents/psionic/psionic-menace.lua:240-244；固定commit=来源未固定（DLC 源码未固定，标为证据不足但机制可核验）。原文字面“You point your ghastly finger at a foe affected by Ghastly Wail and send a psionic impulse to tell it to simply die.”被粗略译为“用手指对受到恐怖嚎叫效果影响的敌人射出一道冲击波。”，存在严重语义偏差与漏译：1. 原文“send a psionic impulse to tell it to simply die”（发送一道灵能脉冲令其直接受死）被错译为“射出一道冲击波”，机制上该技能是对单体心智直接结算精神伤害，不存在冲击波（shockwave）机制或弹道；2. 漏译“ghastly”（可怕的/阴森的），且丢弃了该技能“向目标心智传达死亡指令”的核心机制描述。"},{"revision_key":"entry-04141","verdict":"OK"},{"revision_key":"scope17:tome-orcs.lua:6936","verdict":"OK"}]}

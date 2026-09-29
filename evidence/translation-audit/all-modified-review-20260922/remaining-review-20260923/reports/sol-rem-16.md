@@ -1,0 +1,60 @@
+---
+
+# rem-16 只读交叉审核报告
+
+20 条已逐条核对。7 项原疑点中，**C02、C04 为 confirmed**，其余 5 项为 advisory；未发现新增疑点。未修改文件。
+
+| entry-ID | 判定 | 依据 |
+|---|---|---|
+| entry-04012 | 未发现问题 | “Aiming!”译义准确 |
+| entry-04014 | 仅建议 | C01 |
+| entry-04015 | 存在问题 | C02：“立即结束”超过源码保证 |
+| entry-04016 | 未发现问题 | “放电柱”及换行完整 |
+| entry-04017 | 未发现问题 | “超速”与相邻状态名一致，效果完整 |
+| entry-04018 | 仅建议 | C03 |
+| entry-04019 | 存在问题 | C04：遗漏命中触发与爆炸位置 |
+| entry-04020 | 未发现问题 | 药剂名称与动态标记正确 |
+| entry-04021 | 未发现问题 | 亲和类型、数值完整 |
+| entry-04022 | 仅建议 | C05 |
+| entry-04023 | 仅建议 | C06 |
+| entry-04024 | 未发现问题 | 语义完整；末尾空格为静态格式 |
+| entry-04025 | 未发现问题 | 拼接内容和数值对应 |
+| entry-04026 | 未发现问题 | 实体名与颜色标记正确 |
+| entry-04027 | 未发现问题 | 三个参数依次为幼虫名、宿主名、可选后缀 |
+| entry-04028 | 仅建议 | C07 |
+| entry-04029 | 未发现问题 | 拖拽方向与源码一致 |
+| entry-04030 | 未发现问题 | “叠加次数”对应 `eff.stacks` |
+| entry-04032 | 未发现问题 | 状态解除含义完整 |
+| entry-04033 | 未发现问题 | 状态日志含义完整 |
+
+### C01 | entry-04014 | advisory
+
+原译“目标被化学药剂注射”略生硬，且“药剂”似乎成了施动者。最强等价读法是将其理解为“目标被注射了化学药剂”；三类豁免降低的含义没有偏差。建议仅作语序润色。[快照](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6269)、[冻结源码](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/other.lua:518)。
+
+### C02 | entry-04015 | confirmed
+
+原译增加“生命值回满时立即结束该模式”。**回满后解除**有源码依据；等价反证是 `on_timeout` 确实在 `self.life == self.max_life` 时移除效果。但检查发生在角色的定时效果处理阶段，并非生命值变化当刻；“立即”给出了源码未保证的时序。建议改为“生命值回满后结束该模式”。[快照](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6272)、[DLC 效果](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/other.lua:538)、固定 engine `game/engines/default/engine/interface/ActorTemporaryEffects.lua:76–110`。三个占位符顺序无误。
+
+### C03 | entry-04018 | advisory
+
+原译“%d%% 概率击退，%d%% 概率震慑”省略了 *When striking*。最强等价读法是：句首已限定为射出的子弹，玩家可自然理解为击中时判定；源码也仅在命中挂钩中执行。补上“命中时”可更明确，现译不构成实质错译。[快照](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6318)、[效果文案](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua:95)、[命中处理](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/superload/mod/class/interface/Archery.lua:60)。
+
+### C04 | entry-04019 | confirmed
+
+原译“对 2 码范围内的敌人造成 %d 火焰伤害”保留了范围和伤害，却未说明**子弹命中目标后**才爆炸、范围以**命中目标**为中心。最强等价读法是玩家从“子弹处于爆炸状态”推知会在命中时爆炸，但现句仍未交代爆炸位置。建议写明“命中目标时爆炸（半径 2）”。[快照](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6320)、[效果文案](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua:105)、[命中与目标坐标](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/superload/mod/class/interface/Archery.lua:60)。
+
+### C05 | entry-04022 | advisory
+
+原译“烈火光环”与该句英文 *frost aura* 字面不同。等价反证更强：同一效果名为 `FIERY_SALVE`，赋予火焰、光系、闪电亲和；相邻道具说明也写 *fiery aura*。这是有证据支持的上游文案修正，不判中文错译。[快照](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6346)、[关联道具说明](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6780)、[冻结源码](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua:181)。
+
+### C06 | entry-04023 | advisory
+
+原译“静水光环”与该句英文 *frost aura* 字面不同。等价反证是效果名 `WATER_SALVE`、水子类型、枯萎／精神／酸性亲和，以及相邻道具说明的 *water aura*；可判为上游文案沿用错误的合理修正。[快照](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6352)、[关联道具说明](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6784)、[冻结源码](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua:205)。
+
+### C07 | entry-04028 | advisory
+
+原译“飞回主人的方向”将 *its source* 具体化为“主人”。最强等价读法是玩家能据战斗语境将“主人”理解为飞锯施加者；源码中的目标确为 `eff.src`，故方向未译反。“施加者处”更准确，也避免将施加者与所有者混同。[快照](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6404)、[冻结源码](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/physical.lua:445)。
+
+**完整疑点映射：** C01→entry-04014 advisory；C02→entry-04015 confirmed；C03→entry-04018 advisory；C04→entry-04019 confirmed；C05→entry-04022 advisory；C06→entry-04023 advisory；C07→entry-04028 advisory。新增疑点：无。
+
+**读取与版本限制：** 读取了指定入口、其引用的 `RULES.md`、`rem-16.md`、`gemini-rem-16.md`、`source-access.json`、`terms.json`，以及本批相关的 `snapshots/tome-orcs.lua`；核对了登记的 orcs `other.lua`、`physical.lua`、`bullets-mastery.lua`、`Archery.lua`，四者 SHA256 均与 `source-access.json` 一致。C02 另核对固定 engine commit `624a67329fe2ad440c5b344785a9c73fcf22ae63` 的 `ActorTemporaryEffects.lua`。orcs DLC 仅固定这些文件的快照哈希，**未固定 DLC 仓库 commit 或目标 1.7.4 版本**；上述机制结论适用于所读冻结源码，不能据此声称已核验正式 1.7.4 发行行为。

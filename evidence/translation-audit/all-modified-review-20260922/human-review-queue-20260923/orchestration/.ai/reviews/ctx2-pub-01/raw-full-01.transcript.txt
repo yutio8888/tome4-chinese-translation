@@ -1,0 +1,170 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=8ecce5498324f51ee08aac927f33d11489c87ad05eee5e99eae9ea01dcf6d40b；input_path=.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) print('Envelope keys:', list(data.keys())) print('Candid...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] print('rendered_briefing:', pa...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] print('type of terminology_sna...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] print('type of translation_sna...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] ordered_keys = payload['ordere...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] bounded = payload.get('bounded...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] for i, b in enumerate(payload....
+[Shell] git status
+[Shell] git rev-parse HEAD
+[Shell] git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] ls -la
+[Shell] git remote -v
+[Shell] find . -maxdepth 3 -name "*manifest*"
+[Shell] rg "624a67329fe2ad440c5b344785a9c73fcf22ae63"
+[Shell] ls -la /workspace/t-engine4
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Shell] ls -la /workspace
+[Thought] Considering all `.ai/task/`, `.ai/reviews/`, and previous findings are forbidden. The review requires checking the input path's frozen revision for issues related to semantics, mechanisms, terminology, relationships, or cross-item consistency. Review must follow the guidelines detailed in section seven, and the validation should only include the first and last byte.
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] ordered_keys = payload['ordere...
+[Shell] git -C /workspace/t-engine4 grep -n "disable all connectivity" game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/modules/boot/dialogs/FirstRun.lua | sed -n '40,90p'
+[Thought] Entry-00105 and entry-00139, sourced from different Lua files but having the same "FirstRun" dialog text, warrant further investigation. The identical source and target imply a potential code duplication or a shared configuration issue. Analyzing the warning's content reveals a critical change related to network connectivity disabling.
+[Shell] git -C /workspace/t-engine4 grep -n "disable_all_connectivity" game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/dialogs/GameOptions.lua | sed -n '670,700p'
+[Thought] The game option "Disable all connectivity" is confirmed in `GameOptions.lua`. Examination of `FirstRun.lua` reveals that disabling the option can be re-enabled later. Further investigation in `FirstRun.lua` reveals the pop-up text and button labels associated with this option confirm the option's purpose.
+
+
+"Disable all!" activates `disable_all_connectivity`, setting it to true (enabled). The phrasing "If you disable this option, you can always re-activate it..." requires careful interpretation. Does "this option" refer to the setting or connectivity? The Chinese translation and the original source indicate the intention is to disable all network requests, confirming "this option" refers to connectivity. Re-activation will likely involve the setting being set to "no".
+
+
+Terminology discrepancies are present; specifically, "Writhing One" is translated inconsistently as both "扭动者" and "蜿蜒怪人". This requires immediate investigation across all relevant entries and source code. A complete review against the terminology snapshot is necessary to identify and correct all violations.
+[Shell] python3 -c " import json, re with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] ordered_keys = payload['or...
+[Thought] The system is about to disable all network connectivity. This action will impact player profiles, preventing logins and registration. It will also affect the character vault, preventing uploads.
+[Shell] git -C /workspace/t-engine4 grep -n "function.*yesnoLongPopup" game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/engine/ui/Dialog.lua | sed -n '169,200p'
+[Thought] Examined the UI element's behavior; the "Disable all!" option's logic leads to disabling all connectivity features. The code confirms this: the negative response to the prompt triggers the connectivity disable function. The text associated with this option suggests that it should only be chosen as a last resort.
+[Shell] rg "Disable all connectivity" *.lua
+[Shell] rg "Doomelf|Doomelves|魔化精灵" tome-ashes-urhrok.lua
+[Shell] rg "demonic strength|恶魔之力" tome-ashes-urhrok.lua
+[Shell] rg "Tinker system|tinker system|嵌件系统|蒸汽工具" tome-orcs.lua
+[Shell] rg "嵌件" .
+[Shell] rg -i "tinker" terminology/
+[Thought] The `terminology/items.tsv` file defines "tinker" as "蒸汽工具" (steam tool) with the entity type `T.GAME.ENTITY` specifically for the Embers of Rage DLC. Examining `terminology_snapshot` reveals a dual definition; one as "工匠系" (craftsman class) and another as "蒸汽工具". Checking `tome-orcs.lua` confirms the consistent usage of "蒸汽工具" for all instances of "tinker". This suggests that, within this context, "tinker" should consistently be translated as "蒸汽工具".
+[Shell] rg "Embers of Rage" terminology/
+[Thought] The term "tinker" translates to "蒸汽工具" in the "Embers of Rage" context. Investigating entry-00111 and entry-00145 to ensure consistency with this translation is crucial. The description indicates a medical salve system tied to the "tinker" system, replacing another system, which requires careful review.
+[Shell] rg "Writhing One" terminology/
+[Shell] rg "蜿蜒怪人" tome-cults.lua
+[Thought] "蜿蜒怪人" and "扭动者" appear to be inconsistent translations of "Writhing One." This needs correction. An additional term, "Nethergames," requires translation as well.
+[Shell] git -C /workspace/t-engine4 grep -i "nethergame" game/ || echo "not in core"
+[Shell] rg -i "nethergate" /workspace/tome4-dlcs/ 2>/dev/null || rg -i "nethergate" .
+[Shell] rg "nethergate|彼世之门|虚空之门" tome-cults.lua
+[Shell] rg "Cultist of Entropy|熵教徒" terminology/
+[Shell] rg -i "frenzy" /workspace/tome4-dlcs/cults/tome-cults/ 2>/dev/null
+[Thought] The terminology snapshot distinguishes "frenzy" as "狂乱" for effect subtypes, but the locale file translates "Frenzy" as "狂热" for talent names. This suggests a potential translation inconsistency. Examining text entries reveals that "frenzy" might refer to either talent name "狂热" or effect subtype "狂乱," requiring careful context-based translation.
+[Shell] git -C /workspace/t-engine4 grep -n "Following build order" game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '830,910p'
+[Thought] Observed the system following a build order to increase a specific statistic. The process also includes learning talent categories and individual talents according to the build order. Translation confirms the intended action: adhering to the specified sequence to increment stats.
+
+
+Examined the translation strings and compared them with the original English and the core language file. Noticed potential inconsistencies in punctuation and terminology, specifically regarding "talent category" versus "talent tree." The build order name is correctly inserted, but the formatting requires further scrutiny to ensure consistency across languages. Concluded the placeholder usage itself is correct but the specific wording needs to be checked.
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] t = payload['translation_snaps...
+[Shell] git -C /workspace/t-engine4 grep -n "level 50" game/modules/tome/class/Actor.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '3965,3985p'
+[Shell] git -C /workspace/t-engine4 grep -n "Welcome to level" game/
+[Thought] The target string seems to have an added period at the end of the Chinese translation. Further investigation is needed regarding what values are being passed into the string formatters. The `%d` placeholder corresponds to the game level (an integer), and `%s` represents the player's capitalized name.
+[Shell] git -C /workspace/t-engine4 grep -n "warps space-time to equip" game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '4510,4555p'
+[Thought] The code snippet logs different messages based on the `message` variable's value within the `quickSwitchWeapons` function of `Actor.lua`. Specifically, if `message` is equal to "warden", a distinct log message is generated, indicating that a space-time warp is used for weapon equipping. This "warden" message seems specifically tied to Chronomancer or Temporal Warden characters.
+[Shell] git -C /workspace/t-engine4 grep -n "You do not have enough %s to use %s" game/
+[Shell] git -C /workspace/t-engine4 grep -n "but fumbles" game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n '7790,7820p'
+[Shell] rg "#Source# deflects the projectile" *.lua
+[Shell] rg "to the %s!" *.lua
+[Thought] The agent's action depends on the `dir` variable. If a direction is determined, the agent successfully deflects the projectile, moving it east (or a similar direction). However, if `dir` is invalid (no deviation), the agent fumbles the deflection. The Chinese output includes a leading comma.
+[Shell] git -C /workspace/t-engine4 grep -n "function.*logCombat" game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | sed -n '2839,2855p'
+[Shell] git -C /workspace/t-engine4 grep -n "lost defiler" game/
+[Shell] rg -i "defiler" terminology/
+[Shell] rg "Corruptor|Reaver" terminology/
+[Thought] Observed a translation inconsistency: "lost defiler" was incorrectly translated as a corrupted entity in an older file. The correct translation, "迷路的堕落者", is present in another file, and used in the target. This indicates a prior error confusing `Defiler` and `Corruptor` in an older localization.
+[Shell] git -C /workspace/t-engine4 grep -n "without your own body" game/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Game.lua | sed -n '910,945p'
+[Shell] git -C /workspace/t-engine4 grep -n "can_change_level" game/
+[Thought] The agent is likely experiencing restrictions related to level changes after a "kill". Several possibilities are being explored: psionic projection, possession, and golemancy, as each might have unique rules about the main body's presence for level transitions. The error message indicates level changing requires the agent's "own body", prompting further investigation into the meaning of "change level" within the game context and the relevant code segment.
+
+
+"Change level" might be incorrectly translated as "leave zone" in line 926, potentially conflating a level within a zone with the zone itself. Observing line 921's translation of "change level" as "离开该层" (leave this floor) suggests this is the correct interpretation. This indicates a restriction on changing *floors* after a kill, not necessarily leaving the entire zone.
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] t = payload['translation_snaps...
+[Shell] python3 -c " import json with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='utf-8') as f: data = json.load(f) payload = data['payload'] t = payload['translation_snaps...
+[Thought] The dictionaries contain a `revision_key` and have matching `source` and `target` values. The observed contexts suggest a pattern across both core and mod boot modules, specifically within dialog-related sections. This points towards potential shared configuration or initialization logic.
+
+
+The identified duplicate strings across `engine.lua` and `mod-boot.lua` are expected. This is due to the T-Engine4 architecture where engine components and mod components have separate copies, respectively, located in different directories. Consequently, `engine.lua` contains the engine copy and `mod-boot.lua` contains the boot module copy. Further investigation requires examination of all entries to verify consistency and identify any potential semantic or mechanical issues.
+
+
+All network requests are about to be disabled. This includes blocking player profile logins and registrations. Character and item vaults will become inaccessible, preventing saving or retrieving characters/items online.
+In-game chat will be disabled as it depends on server connection, as will purchaser/donator benefits that depend on an online profile check. Addon downloading and installation will be manual, with no version checks available and Discord Rich Presence will be unavailable.
+
+
+Entry-00105 and entry-00139 regarding purchaser/donator benefits and reactivation through game options appear semantically sound. Terminology ("捐赠者") is consistent.
+[Shell] rg "Armed with flame magic" .
+[Shell] rg "嵌件" tome-orcs.lua || echo "none"
+[Thought] Directly translating "tinker" as "嵌件" is incorrect. The `tome-orcs.lua` file uses "蒸汽工具" for all instances of "tinker," and this is consistent with the provided terminology entry. Adopting "嵌件" introduces a direct contradiction with established terminology and usage.
+[Shell] rg "余烬" terminology/
+[Shell] rg -C 3 "level 50#WHITE#, congratulations" mod-tome.lua
+[Shell] git show HEAD:mod-tome.lua | grep -A 10 "level 50#WHITE#, congratulations"
+[Shell] git -C /workspace/t-engine4 grep -A 8 "level 50#WHITE#, congratulations" game/modules/tome/data/locales/zh_hans.lua
+[Thought] Observed a newline discrepancy mirroring the upstream issue. In a specific display context, double newlines trigger paragraph breaks, while single newlines within text zones wrap without spacing. This behavior raises a question about whether a newline usage invariant is being violated.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Game.lua | sed -n '918,940p'
+[Thought] The code checks two conditions before allowing level or zone changes. The first condition prevents changing levels if a player lacks the ability to do so, providing an error message. The second condition similarly blocks zone changes if the player is restricted.
+
+
+The current translation conflates "change level" with "leave the zone"; these are distinct game mechanics. The phrase "change level" refers to moving within an area (e.g., floors), not leaving the entire zone/map. This impacts how the translation conveys game restrictions, specifically concerning body ownership during level transitions. The correct translation of the level change message should emphasize that a body is required to change levels, not to leave the zone.
+[Shell] rg "change level" mod-tome.lua
+[Thought] The game logic includes a restriction on immediately changing levels after a kill. The English message "You may not change level so soon after a kill..." is translated into Chinese as "...你现在不能离开该层！". The function `changeLevelCheck` appears to enforce this constraint, preventing level changes after recent combat.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/mentalism.lua | sed -n '150,170p'
+[Shell] rg "Characters vault|Characters Vault|角色仓库|角色备份" terminology/ || echo "none"
+[Thought] The proposed translations appear accurate and maintain the original meaning without introducing inconsistencies. However, further assessment is needed regarding the target term `entry`. The translations above seem appropriate based on the context.
+
+
+Analysis of `entry-00144` confirms the existing translation aligns with the term's established usage and context as a descriptive phrase for character abilities. The translation's consistency with existing entries in the codebase is verified. Further examination of related entries is underway to rule out hidden issues or inconsistencies.
+
+
+Confirmed the translation of "build order" as "加点顺序" accurately reflects its meaning in the context of auto-leveling in ToME4. Verified the placeholder usage within log messages and other entries. Proceeding to analyze specific "entry" candidates to identify potential issues.
+
+
+The "tinker" term's established translation is "蒸汽工具", confirmed by the terminology snapshot and consistent usage within the Embers of Rage DLC. The current translation of "Tinker system" and "crafted tinkers" deviates from this established term. This inconsistency must be corrected to maintain consistent terminology across the project.
+
+
+The translation of "Writhing Ones" as "扭动者" violates established terminology which consistently renders it as "蜿蜒怪人." This discrepancy requires correction across relevant entries. Also, observed a missing line break in the translation of a dialog pop-up. The original code has a paragraph break that is not reflected in the translation.
+
+
+The translation of "it granted you" to "你可以得到" changes the tense from a completed action to a potential one, creating a semantic shift.  An investigation is warranted, re-examining `entry-00184` due to the importance of Tier 1 invariants like newline characters.  The code restricts level changes during astral projection, a fact that the translation of "change level" as "leave map" obscures.
+
+
+Identified a critical discrepancy: the translation omits the restriction on level changes during astral projection. The original clearly indicates level change is tied to the character's physical body, which is missing in the translation. This constitutes a significant semantic alteration. Also, the term "generic talent points" translation needs verification.
+
+"嵌件系统" and "嵌件" are incorrect translations for "Tinker system" and "tinkers," respectively. The established terminology is "蒸汽工具" for both in Embers of Rage. In addition, "扭动者" should be corrected to "蜿蜒怪人" to align with established terminology.
+
+Therefore, `entry-00221`, `entry-00111`, `entry-00145`, `entry-00112`, and `entry-00146` have now been confirmed as issues. These entries require precise line number and code citations.
+[Shell] python3 -c " import json candidate_identity = '8ecce5498324f51ee08aac927f33d11489c87ad05eee5e99eae9ea01dcf6d40b' with open('.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json', 'r', encoding='ut...
+[Shell] python3 -B tools/paseo_contract_check.py
+[Shell] find tests/ tools/ -name "*review*"
+[Shell] cat tests/i18n/fixtures/paseo_state_v2/contextual_v2/review-final-full.json
+[Shell] cat tests/i18n/fixtures/paseo_state_v2/contextual_v2/.ai/reviews/fixture-contextual-v2/raw-final-full.txt
+[Shell] rg "translation_contextual_v2" tools/
+[Read] tools/contextual_result_check.py
+[Read] tools/contextual_result_check.py
+[Thought] The validation process involves JSON serialization of the result. Specifically, I'm verifying the result is canonicalizable to prevent unexpected issues downstream. If an error during JSON encoding occurs, it indicates a problem with the result's format, thus raising a specific error to prevent further issues. This encoding step ensures data integrity and compatibility.
+[Shell] python3 -c " import json import subprocess envelope_path = '.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json' with open(envelope_path, 'r', encoding='utf-8') as f: env = json.load(f) cid = env...
+[Shell] rm -f /tmp/test_review_out.txt
+[Thought] Verifying the candidate identity and contract type is correct. Examining the verdict entries, noting that the count matches expectations, and checking the order of the keys. Identifying entries marked as "ISSUE" for further investigation.
+
+
+Investigating the "ISSUE" entries, focusing on inconsistent terminology in translation. Identified that "tinker" should be "蒸汽工具" and "Writhing One" should be "蜿蜒怪人", per established terminology guidelines. The translations in the problematic entries diverge from these established terms, leading to the identified "ISSUE".
+
+
+The "Writhing One" translation is inconsistent, specifically violating established terminology. A source identified the term as "蜿蜒怪人" and a specific DLC uses this, but the translation renders it as "扭动者". Another entry's translation of a dialog box is missing a line break and incorrectly changes the tense of "it granted you" to a potential future "you may get". A third entry misinterprets `change level` as `leave zone`, and thus incorrectly translates restrictions on level changes.
+[Shell] python3 -c " import json candidate_identity = '8ecce5498324f51ee08aac927f33d11489c87ad05eee5e99eae9ea01dcf6d40b' verdicts = [ {'revision_key': 'entry-00105', 'verdict': 'OK'}, {'revision_key': 'ent...
+[Shell] python3 -c " import json, subprocess s = '''{\"contract\":\"translation_contextual_v2\",\"candidate_identity\":\"8ecce5498324f51ee08aac927f33d11489c87ad05eee5e99eae9ea01dcf6d40b\",\"verdicts\":[{\"...
+[Shell] python3 -c " import json, subprocess envelope_path = '.ai/task/ctx2-pub-01/CONTEXTUAL-ENVELOPE-full-01.json' with open(envelope_path, 'r', encoding='utf-8') as f: env = json.load(f) cid = env['cand...
+[Shell] python3 -c " with open('/tmp/test_check.txt', 'rb') as f: b = f.read() print('Length in bytes:', len(b)) print('First byte:', b[0:1]) print('Last byte:', b[-1:]) assert b[0:1] == b'{' assert b[-1:]...
+[Shell] rm -f /tmp/test_check.txt
+{"candidate_identity":"8ecce5498324f51ee08aac927f33d11489c87ad05eee5e99eae9ea01dcf6d40b","contract":"translation_contextual_v2","verdicts":[{"revision_key":"entry-00105","verdict":"OK"},{"revision_key":"entry-00110","verdict":"OK"},{"revision_key":"entry-00144","verdict":"OK"},{"observation":"engine game/engines/default/engine/modules/boot/dialogs/MainMenu.lua @624a67329fe2ad440c5b344785a9c73fcf22ae63；术语快照明确规定「tinker => 蒸汽工具 [T.GAME.ENTITY/entity type/existing/dlc] 注：Embers of Rage 实体类型」；DLC tome-orcs（公开源码来源未固定）及 tome-orcs.lua 全面统一使用“蒸汽工具”（如 t(\"tinkers\", \"蒸汽工具\")，无“嵌件”用法）。译文将 Tinker system、crafted tinkers 译为「嵌件系统」、「强大的嵌件」，偏离既定术语，与 DLC 译文不一致。","revision_key":"entry-00111","verdict":"ISSUE"},{"observation":"boot game/engines/default/modules/boot/dialogs/MainMenu.lua @624a67329fe2ad440c5b344785a9c73fcf22ae63；术语快照明确规定「tinker => 蒸汽工具 [T.GAME.ENTITY/entity type/existing/dlc] 注：Embers of Rage 实体类型」；DLC tome-orcs（公开源码来源未固定）及 tome-orcs.lua 全面统一使用“蒸汽工具”（如 t(\"tinkers\", \"蒸汽工具\")，无“嵌件”用法）。译文将 Tinker system、crafted tinkers 译为「嵌件系统」、「强大的嵌件」，偏离既定术语，与 DLC 译文不一致。","revision_key":"entry-00145","verdict":"ISSUE"},{"observation":"engine game/engines/default/engine/modules/boot/dialogs/MainMenu.lua @624a67329fe2ad440c5b344785a9c73fcf22ae63；术语快照明确规定「Writhing One => 蜿蜒怪人 [T.GAME.CLASS/birth descriptor name/existing/dlc] 注：Cults of Entropy 职业」；DLC tome-cults（公开源码来源未固定）及 tome-cults.lua（tome-cults/data/birth/classes/demented.lua）均统一为“蜿蜒怪人”。译文将 New class: Writhing Ones 译为「新职业：扭动者」，违反既定职业术语。","revision_key":"entry-00112","verdict":"ISSUE"},{"observation":"boot game/engines/default/modules/boot/dialogs/MainMenu.lua @624a67329fe2ad440c5b344785a9c73fcf22ae63；术语快照明确规定「Writhing One => 蜿蜒怪人 [T.GAME.CLASS/birth descriptor name/existing/dlc] 注：Cults of Entropy 职业」；DLC tome-cults（公开源码来源未固定）及 tome-cults.lua（tome-cults/data/birth/classes/demented.lua）均统一为“蜿蜒怪人”。译文将 New class: Writhing Ones 译为「新职业：扭动者」，违反既定职业术语。","revision_key":"entry-00146","verdict":"ISSUE"},{"revision_key":"entry-00139","verdict":"OK"},{"revision_key":"entry-00164","verdict":"OK"},{"revision_key":"entry-00165","verdict":"OK"},{"revision_key":"entry-00166","verdict":"OK"},{"observation":"tome game/modules/tome/class/Actor.lua @624a67329fe2ad440c5b344785a9c73fcf22ae63 L3974 Dialog:simpleLongPopup 弹窗正文；源码第一句与第二句之间存在段落空行「\\n\\n」，译文丢失换行仅保留单个「\\n」，违反换行不变量；且 L3970-3972 在弹窗前已直接赋予点数，原文「it granted you」为完成事实，译文「你可以得到」转为未完成可能，存在时态与机制偏离。","revision_key":"entry-00184","verdict":"ISSUE"},{"revision_key":"entry-00185","verdict":"OK"},{"revision_key":"entry-00191","verdict":"OK"},{"revision_key":"entry-00195","verdict":"OK"},{"revision_key":"entry-00198","verdict":"OK"},{"revision_key":"entry-00216","verdict":"OK"},{"observation":"tome game/modules/tome/class/Game.lua @624a67329fe2ad440c5b344785a9c73fcf22ae63 L925-931 changeLevelCheck；L925 检定 not self.player.can_change_level 时提示「You may not change level without your own body!」，对应灵能投射（mentalism.lua L154）等离体状态下无法切换楼层；同函数 L929 检定 not can_change_zone 时才提示「You may not leave the zone with this character!」（离开地图）。译文将 change level 误译为「离开地图」，混淆了 level（楼层）与 zone（区域/地图）机制，且改变了离体禁换层的否定限制语义。","revision_key":"entry-00221","verdict":"ISSUE"}]}

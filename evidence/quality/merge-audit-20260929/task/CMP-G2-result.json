@@ -1,0 +1,171 @@
+{
+ "group": 2,
+ "results": [
+  {
+   "id": "C05",
+   "choice": "MERGE",
+   "base": "DEV",
+   "port": [
+    {
+     "en": "tap into the power of the Sher’Tul farportals",
+     "zh_from_other": "夏·图尔远行传送门",
+     "reason": "按 2026-09 裁决 farportal＝远行传送门；主线版写成「夏·图尔传送门」"
+    },
+    {
+     "en": "an experiment on the Sher’Tul farportal to the east of here",
+     "zh_from_other": "夏·图尔远行传送门",
+     "reason": "同一裁决；分支版在此处已用远行传送门"
+    }
+   ],
+   "defects": [
+    "farportal 两处写成「传送门」，需按裁决改（上面已列出要移植的内容）",
+    "「your alliance is worth a dozen lesser kings」译成「比一群小国王的支持更为重要」，「a dozen」的量感被弱化（轻微）"
+   ],
+   "evidence": "elvala.lua 源文 44 个换行：主线版 44 个一致；分支版沿用 base 的 46 个，把源文第 6、8 段拆成多行，违反换行不变量。主线版另修正了 relics/遗迹、approached the citadel、burn foes、mock bow、Nargol regents have provided、Very well 等多处误译"
+  },
+  {
+   "id": "C13",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "misc.lua 创世 lore：分支版漏译或误译 ashames/me、not a single element…essence of truth、look at the rest of dwarven society、creatures separate from himself、feelings of entitlement…stem from this、unlock the powers…affinity to works of elder brethren；主线版逐句对应。主线第 0 段省去「半身人」不影响语义（叙述者即半身人）"
+  },
+  {
+   "id": "C14",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "misc.lua 龙族 lore：主线版修正了 over 40'（超过）、Daikara Pass（隘口及周边山脉）、newly matured drakes（刚成年的龙）、subtle（精明，分支版作「狡猾」）、the idea of classifying（分支版多出「我」）"
+  },
+  {
+   "id": "C23",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "gifts/ooze.lua info：只有主线版完整译出 very resilient 和「not coming through your shared link」（分支版作「非均摊」，含义不清），且完整保留 may split、line of sight、限制条件、so long as active 与全部占位符"
+  },
+  {
+   "id": "C28",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "techniques/dualweapon.lua：分支版第二行漏译「This allows you to attack with your mainhand weapon」的句式；主线版完整译出 shift of momentum、in place of offhand 和 This allows you"
+  },
+  {
+   "id": "C31",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "uber/cun.lua:238 在移除 Telos 碎片后记录 logSeen \"%s assembles %s!\"，意为组装出物品；两版语义相同，主线版「组装出」更简洁"
+  },
+  {
+   "id": "C36",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "timed_effects/other.lua:3336 原文为 reflects teleportation magic；两版都已译为「反射」，主线版更贴合原文的 magic/here"
+  },
+  {
+   "id": "C39",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs world-artifacts.lua：两版都有 burst of shrapnel、cone from the target、radius 4、steampower，语义相同；主线版数字两侧留空格的格式统一"
+  },
+  {
+   "id": "C44",
+   "choice": "MERGE",
+   "base": "DEV",
+   "port": [
+    {
+     "en": "quit your murmuring right now",
+     "zh_from_other": "你们现在就别私下议论了",
+     "reason": "murmuring 意为私下议论而非抱怨；这封信写给多名下属，应作「你们」"
+    }
+   ],
+   "defects": [
+    "「你现在就别抱怨这些了」误译 murmuring，人称也不对（已列入移植）"
+   ],
+   "evidence": "tome-orcs lore/misc.lua：主线版已修正「死于 Anomaly 之手」的结构，分支版在该处表达较弱；主线版保留了 murmuring 的错误"
+  },
+  {
+   "id": "C47",
+   "choice": "BR",
+   "base": "BR",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs lore/palace-fumes.lua:49-52：原文主语为 Councilor Tantalos、unlike 从句是插入语；主线版「坦塔洛斯议员，不像…窝囊废。他知道…」断句错成句号；分支版修正为一句，其余文字与主线相同。VOTE FISTICUFFS 两版都译作「请投肉搏战」"
+  },
+  {
+   "id": "C50",
+   "choice": "BR",
+   "base": "BR",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs talents/celestial/reflection.lua:55-72：用 atan2(ly-y, lx-x) 计算新方向，使投射物背离扭曲中心、向外偏转，与分支版「转向外侧」一致；主线版「调转方向、背离而去」没有参照点，读起来像原路折返，且「目标格…其中」把作用范围缩成单格（实际遍历 tg.radius 内的格子）"
+  },
+  {
+   "id": "C55",
+   "choice": "MERGE",
+   "base": "DEV",
+   "port": [
+    {
+     "en": "it will bounce towards the next closest foe",
+     "zh_from_other": "都会按与第一个目标的距离由近及远弹向下一个敌人",
+     "reason": "实现中目标列表按与首个目标的距离 dist 排序，并逐个 table.remove(1)；主线版「下一个最近的敌人」容易被理解为离当前弹射点最近"
+    }
+   ],
+   "defects": [
+    "弹射对象的选择方式描述不准（已列入移植）"
+   ],
+   "evidence": "tome-orcs talents/steam/gunslinging.lua:220-231 以 core.fov.distance(x,y,actor) 计算与首个目标的距离，≤5 格，table.sort(target_list,\"dist\")；:196-204 未命中且不是阻挡地形时终止。主线版补回 incredible trick shots 与「或直到未命中」，分支版把 trick shots 泛化成「子弹」"
+  },
+  {
+   "id": "C56",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs talents/steam/mechstar.lua:77-81 中 %d = getTalentRadius(mt)*2，两版都把它放在「两倍」之后，均正确；分支版把「每多一名受害者治疗减半」拆成单独一行，改变了原文行结构，主线版保持 4 行与原文一致"
+  },
+  {
+   "id": "C60",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs talents/steam/other.lua:1341-1343 续行缩进为两个 TAB；主线版用 \\t\\t，分支版和 base 用全角空格「　　」，缩进与原文不一致"
+  },
+  {
+   "id": "C61",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs talents/steam/other.lua:1603-1606 续行有两个 TAB，主线版一致，分支版无缩进且句末缺标点；两版都有 up to（最多/至多）和 it is the ammo"
+  },
+  {
+   "id": "C66",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs talents/uber/mag.lua：原文在 robe 段与 bold 段之间有空行，只有主线版保留；主线版还补回 (A.P.E.)，并准确译出 As soon as…need to craft…to benefit from all the powers，分支版该句沿用 base 的意译"
+  },
+  {
+   "id": "C69",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs timed_effects/physical.lua：主线版完整译出 combustive、When striking their target 与 radius 2；分支版把爆炸范围说成「周围 2 码的敌人」，并漏掉 combustive"
+  }
+ ]
+}

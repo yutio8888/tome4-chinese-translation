@@ -1,0 +1,167 @@
+{
+ "group": 1,
+ "results": [
+  {
+   "id": "C01",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "t-engine4@624a673 game/modules/tome/data/chats/alchemist-hermit.lua:367 ENJOY/THE LONGER YOU WAIT…SMOKING CRATER AND ONE TRULY IRATE HALFLING；主线版译出了 ENJOY（尽情享用）和 TRULY，分支版用「喝吧」且漏了 truly"
+  },
+  {
+   "id": "C06",
+   "choice": "MERGE",
+   "base": "BR",
+   "port": [
+    {
+     "en": "The numbers killed are beyond count. … the terror that followed claimed far more.",
+     "zh_from_other": "死亡人数无法计数。……而随后的恐怖事件又夺走了更多生命。",
+     "reason": "claimed far more 指夺走更多生命；分支沿用的「受难者」「造成了更大的毁灭」偏离原文"
+    },
+    {
+     "en": "I took Linaniil straight to the healing grounds in the palace and gave her to the doctors",
+     "zh_from_other": "我把莱娜尼尔直接带到王宫的治疗场所，将她交给医生，",
+     "reason": "分支版漏了 straight"
+    },
+    {
+     "en": "of toying with terrible powers beyond our control",
+     "zh_from_other": "玩弄我们无法控制的可怕力量",
+     "reason": "分支版沿用「操纵超越想象的可怕力量」，误译 beyond our control"
+    }
+   ],
+   "defects": [],
+   "evidence": "t-engine4@624a673 game/modules/tome/data/lore/elvala.lua:350（numbers killed）、:380（toying with / seek you out in Elvala / could not fight back）；分支版补上了主线缺失的内容：white stone cracking、lay weeping…the one life I cared about、relapse/scared、during brief periods of waking、strictest instructions、seek you out in Elvala、If this human's tale、What few made it through…I took on、a bath of blood to wash over my sins、furtive secrecy，并修正了「失落地」和句号误用"
+  },
+  {
+   "id": "C09",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "t-engine4@624a673 game/modules/tome/data/lore/misc.lua:~770-779；主线版正确译出了 not ready for the rites of lichdom、open and unattended、trivial and in possession of my master、acquire a new phylactery、left to fester a mold infection…infused itself；分支版只改了 trivial 和 Ruby 两处，其余沿用基底旧错"
+  },
+  {
+   "id": "C18",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "t-engine4@624a673 game/modules/tome/data/talents/cunning/stealth.lua:145-153，stealthDetection:24-37 只统计半径内、未致盲且视野中有自己（act.fov.actors[self]）的敌对单位，与主线版「能看见你的敌人」一致；主线版还补译了 not know exactly / may not notice / educated guesses"
+  },
+  {
+   "id": "C19",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "t-engine4@624a673 game/modules/tome/data/talents/cursed/cursed.lua；两版仅「身躯/身体」一字之差，都忠实"
+  },
+  {
+   "id": "C20",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "t-engine4@624a673 game/modules/tome/data/talents/cursed/darkness.lua:477；主线版译出了 pursue a single target、up to 12 turns、leaving behind a trail、your creeping dark，行结构也与原文的两行和 \\t\\t 缩进一致；分支版仍是基底的三行结构，漏了 pursue/up to"
+  },
+  {
+   "id": "C33",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "t-engine4@624a673 game/modules/tome/data/texts/tutorial/done.lua:20；原文句中没有换行，主线版去掉了基底句中多余的断行；分支版保留了错误断行，只把括号改成全角"
+  },
+  {
+   "id": "C37",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/chats/destructicus.lua:74（来源未固定）；主线版译出了 scrying panel、panel goes dark as a…multicolored blast fills your vision、genocide、anyone else who may be watching，并去掉了原文没有的多余换行；分支版的「导弹到达了目的地，巨大的爆炸堵塞了……」和额外换行仍沿用基底"
+  },
+  {
+   "id": "C38",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/chats/john-surrender.lua:102（来源未固定）；两版都译出了 alive and broken，等价"
+  },
+  {
+   "id": "C40",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/general/objects/world-artifacts.lua:2090（来源未固定）；两版语义都正确，主线版保留了原文的单引号，「附有一张便笺」更贴近 attached note"
+  },
+  {
+   "id": "C45",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/lore/misc.lua:74（来源未固定）；主线版译出了 hard to find a spare spot、disperse、common point of convergence、bearer's consent、do the enchantments ourselves、barely made a profit；分支版仍沿用基底误译「差点把老本都给赔光了」和漏译"
+  },
+  {
+   "id": "C46",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/lore/palace-fumes.lua:34（来源未固定）；主线版修正了 ill temper（一时气恼）和 unlikely to disappoint，Marshall 前后统一为队长；分支版的改动（正式推荐、不超过一个月）主线版都已具备"
+  },
+  {
+   "id": "C54",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [
+    "两版都漏译了 In one motion（一个动作内完成）"
+   ],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/talents/steam/gunslinging.lua:85（来源未固定）；两版都补上了双持蒸汽枪、定身例外和装填，主线版另有 up to（最多）"
+  },
+  {
+   "id": "C57",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua:359（来源未固定）；主线版保留了原文的换行和 \\t\\t\\t，ranged melee 译为「远程发动的近战攻击」；分支版把两行合为一行"
+  },
+  {
+   "id": "C58",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua:910（来源未固定）；主线版把第二行缩进恢复为 \\t\\t，分支版仍是基底的全角空格；语义两版等价"
+  },
+  {
+   "id": "C59",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua:1771（来源未固定）；主线版恢复了各行的 \\t\\t 缩进和句号，完整译出 as it is the ammo；分支版缺缩进"
+  },
+  {
+   "id": "C63",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua:1690（来源未固定）；主线版恢复了 \\t\\t 缩进和句号，语义完整；分支版缺缩进"
+  },
+  {
+   "id": "C68",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua:603（来源未固定）；两版都译出了 somehow 和 falling，等价"
+  }
+ ]
+}

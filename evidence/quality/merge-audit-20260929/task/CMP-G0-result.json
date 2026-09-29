@@ -1,0 +1,157 @@
+{
+ "group": 0,
+ "results": [
+  {
+   "id": "C02",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "t-engine4@624a673 game/modules/tome/data/general/objects/world-artifacts.lua:3642 tformat(target:getName(), o.use_talent.name)；两版语序与占位符都正确，主线“汲取”对应 taps，更贴原文"
+  },
+  {
+   "id": "C04",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "ingredients.lua 原文 'Where does the eel stop and the tail start? ... The last ten inches or so'；主线完整保留设问句和“左右”，分支仍是底版的意译"
+  },
+  {
+   "id": "C07",
+   "choice": "MERGE",
+   "base": "BR",
+   "port": [
+    {
+     "en": "If ye were leader then ye could stop this.  But then I would have to hate ye.",
+     "zh_from_other": "“如果你是领袖，你就能阻止这一切；但那样的话，我就不得不恨你。”",
+     "reason": "分支未改此段，仍是底版的“可能会阻止”“或许会一辈子恨你”，情态和语义都偏离原文"
+    },
+    {
+     "en": "It was like the whole tower was separate from the earth, some strange thing of the stars that had dropped from the skies and lay sleeping beneath the soil.",
+     "zh_from_other": "这简直就像整座塔都与大地分离，是某种来自群星的奇异之物，从天空坠落后沉睡在泥土之下。",
+     "reason": "分支只改了错字，仍保留底版杜撰的“在天空中漂浮／某种力量让它坠落”，漏译 thing of the stars"
+    },
+    {
+     "en": "Some years earlier our people had solved the invisible runes ... Light sparked and shone from every surface, and the walls seemed to hum with energy. ... a raised dais forty feet in diameter and crackling with energy upon which slowly spun a cloud of stars.",
+     "zh_from_other": "若干年前，我们的族人破解了遗迹上不可见的符文……每个表面都闪耀着光芒，就连墙壁似乎也随着能量嗡嗡作响……一个直径四十英尺、噼啪涌动着能量的高台，其上缓缓旋转着一片星云。",
+     "reason": "分支未改此段：把 our people 译成“魔法师”，漏译 Light sparked and shone from every surface，星云旋转的描述也有误"
+    }
+   ],
+   "defects": [
+    "第77段 'all carved out of flickering orange fire' 三版均漏译"
+   ],
+   "evidence": "t-engine4@624a673 game/modules/tome/data/lore/elvala.lua 对应段落5/7/9/19/21/31/35/41/61/63/71/77/83：分支已按原文修正（naked form、Expecting someone else?、took off east、I wonder、sparks reflecting、know what we're doing、I'm afraid your sword...）；段落25/53/55只有主线修正"
+  },
+  {
+   "id": "C17",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "poisons.lua 原文 numbing agent；两版只差“麻痹／麻木成分”，主线“麻木”更贴原文 numbing，都没有机制错误"
+  },
+  {
+   "id": "C21",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "cursed/shadows.lua 原文 'continually call up to %d'：两版都补上了“至多”，主线“持续自动补充”也表达了 continually，且 'costs 5 hate to summon' 译得更准确"
+  },
+  {
+   "id": "C24",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "t-engine4@624a673 psionic/discharge.lua:69-80：额外飞弹上限为 min(p.overcharge, getTargetCount)，且从 tgts_oc 中 table.remove，每个目标至多 1 枚；:104-107：channel 与射程提升写在同一句。主线准确保留了 may、射程提升和移动中断；分支仍按底版拆句，且“每个目标每超出”的说法与实现不符"
+  },
+  {
+   "id": "C32",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "uber/str.lua 原文：主线用裁决译名 Eyal＝埃亚尔（去掉了“大陆”），补译 '50% of all damage you deal'、'whenever your Weapon of Light hits'、'all foes'、'Will you bind yourself'，缩进恢复为源串的制表符；分支仍是底版的空格缩进与漏译"
+  },
+  {
+   "id": "C34",
+   "choice": "MERGE",
+   "base": "DEV",
+   "port": [
+    {
+     "en": "A 3-wide beam of pure thaumic energy that can never be resisted.",
+     "zh_from_other": "这道宽度为3的纯粹奇术能量射线永远无法被抵抗。",
+     "reason": "主线漏了 beam，分支补回“射线”"
+    }
+   ],
+   "defects": [],
+   "evidence": "unlock-mage_thaumaturgist.lua 原文；裁决 Flame＝火焰术（2026-09-23），只有主线用了这个译名，分支仍是“火球术”，与裁决冲突"
+  },
+  {
+   "id": "C35",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "timed_effects/floor.lua 原文 '(Only living creatures benefit.)'：两版都已修正底版的“不死族”，语义相同"
+  },
+  {
+   "id": "C41",
+   "choice": "BR",
+   "base": "BR",
+   "port": [],
+   "defects": [],
+   "evidence": "/workspace/tome4-dlcs/orcs/tome-orcs/data/general/objects/world-artifacts.lua:1081-1090：special_on_hit 在命中后 charge+1，满 3 时才设 o.combat.physcrit=100，因此暴击生效于第三次命中之后的下一次攻击。分支按实现描述，主线“每第三次命中必定暴击”与实现不符（DLC 来源未固定）"
+  },
+  {
+   "id": "C42",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs/data/lore/gem.lua 原文 'Grunts, squishing, slashing'：主线改为“闷哼声，挤压声，劈砍声”，分支仍是底版错译的“撞击声…破碎声”；'first farportal off this continent / tinies' 两版等价（DLC 来源未固定）"
+  },
+  {
+   "id": "C48",
+   "choice": "BR",
+   "base": "BR",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs/data/lore/palace-fumes.lua 第13行原文 'DESTRUCTICUS, IMPOLITE PENETRATOR OF-'：主线“无礼的天空”是凭空错译，分支“无礼的贯穿者”正确；第11/15行两版等价（Kaltor＝卡托尔，'what it's capable of' 两版都按单数处理）（DLC 来源未固定）"
+  },
+  {
+   "id": "C51",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs/data/talents/steam/automated-butchery.lua 原文：主线补译 'override all security measures'、'of most of your steamtech talents'、'In addition'，并写明减半的是 steam regeneration；分支仍是底版的“超频模式”，漏掉 most"
+  },
+  {
+   "id": "C53",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs/data/talents/steam/engineering.lua 原文 'being a master tinker requires taking risks; yours are more calculated than others'：主线保留 tinker（工匠）及 risks 与 calculated 的对应，分支的“技艺大师”丢了 tinker"
+  },
+  {
+   "id": "C64",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "tome-orcs/data/talents/steam/sawmaiming.lua 原文：主线忠实译出 'narrow cone of radius 4' 和 flavor 'The marvels of technology, now at the service of true butchery!'；分支把 radius 译成“码”，flavor 仍是底版的意译"
+  },
+  {
+   "id": "C65",
+   "choice": "DEV",
+   "base": "DEV",
+   "port": [],
+   "defects": [],
+   "evidence": "裁决 Mind Drone(s)＝精神无人机（2026-09-28）：分支仍用“精神雄蜂”，与裁决冲突；主线已按裁决改名，并译出 latch on / bore into its skull"
+  }
+ ]
+}

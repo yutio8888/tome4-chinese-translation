@@ -1,0 +1,47 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=5a831695c9bf2de63779af1b588e22d965ca5c4f3d1d7b3f39410dab8552785b；input_path=.ai/task/ctx2-pub-13a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-13a/CONTEXTUAL-ENVELOPE-full-01.json
+[Read] game/modules/tome/data/quests/high-peak.lua
+[Shell] find . -maxdepth 3 -name "*high-peak*"
+[Shell] git status
+[Shell] git remote -v; ls -la; cat i18n/manifest.json 2>/dev/null || cat manifest.json 2>/dev/null
+[Shell] ls -la i18n/
+[Shell] ls -la i18n/versions/
+[Shell] git log -1 624a67329fe2ad440c5b344785a9c73fcf22ae63 2>&1
+[Read] i18n/versions/tome-1.7.6.json
+[Shell] echo "ENV: $TOME_ENGINE_ROOT"; ls -la "$TOME_ENGINE_ROOT" 2>/dev/null || ls -la ../t-engine4 2>/dev/null
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/high-peak.lua
+[Shell] grep -n "orb of command\|Orbs of Command\|Orb of Command" mod-tome.lua 2>/dev/null
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/kryl-feijan-escape.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/love-melinda.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/master-jeweler.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/ring-of-blood.lua
+[Shell] grep -n "Till the Blood Runs Clear" mod-tome.lua 2>/dev/null
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/staff-absorption.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/start-dwarf.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/start-undead.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/starter-zones.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/strange-new-world.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/temple-of-creation.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/tutorial.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/west-portal.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/west-portal.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/quests/wild-wild-east.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Read] /workspace/t-engine4/game/modules/tome/data/talents/celestial/chants.lua
+[Shell] grep -n "Chant of Resistance" mod-tome.lua 2>/dev/null
+[Read] mod-tome.lua
+[Shell] grep -n "bend.*will" mod-tome.lua 2>/dev/null
+[Shell] grep -n "armour hardiness\|armor hardiness" mod-tome.lua 2>/dev/null
+[Shell] grep -n "3 or more spaces away" mod-tome.lua 2>/dev/null
+[Shell] sed -n '20998,21010p' mod-tome.lua
+[Shell] python3 -c ' import json data = { "contract": "translation_contextual_v2", "candidate_identity": "5a831695c9bf2de63779af1b588e22d965ca5c4f3d1d7b3f39410dab8552785b", "verdicts": [ { "revision_key": ...
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-13a/CONTEXTUAL-ENVELOPE-full-01.json") as f: env = json.load(f) keys = env["payload"]["ordered_revision_keys"] our_keys = ["entry-01409","entry...
+[Shell] python3 -c ' import json data = { "contract": "translation_contextual_v2", "candidate_identity": "5a831695c9bf2de63779af1b588e22d965ca5c4f3d1d7b3f39410dab8552785b", "verdicts": [ { "revision_key": ...
+{"contract":"translation_contextual_v2","candidate_identity":"5a831695c9bf2de63779af1b588e22d965ca5c4f3d1d7b3f39410dab8552785b","verdicts":[{"revision_key":"entry-01409","verdict":"ISSUE","observation":"【组件】tome【公开源码路径】game/modules/tome/data/quests/high-peak.lua【固定commit】624a67329fe2ad440c5b344785a9c73fcf22ae63【行号】27【源码与语境证据】源码为 desc[#desc+1] = _t\"Seek the Sorcerers and stop them before they bend the world to their will.\"。英文中“bend ... to one's will”为固定成语习语，意为“迫使/使……顺从自己的意志”（同仓库其他语境如 data/lore/necromancer-primer.lua 均译为“使其屈从于我的意志”），且“before they...”为明确的时间条件从句（在他们使世界屈服于其意志之前阻止他们）。现有译文“找到那些妄图扭曲这个世界的法师并阻止他们”将成语字面曲解为“扭曲世界”，完全遗漏了“to their will”（意志），并擅增“妄图”将时间紧急条件从句弱化为修饰“法师”的定语从句，严重歪曲原意与剧情危机紧迫性。"},{"revision_key":"entry-01410","verdict":"OK"},{"revision_key":"entry-01424","verdict":"OK"},{"revision_key":"entry-01432","verdict":"OK"},{"revision_key":"entry-01438","verdict":"OK"},{"revision_key":"entry-01450","verdict":"OK"},{"revision_key":"entry-01462","verdict":"OK"},{"revision_key":"entry-01463","verdict":"OK"},{"revision_key":"entry-01464","verdict":"OK"},{"revision_key":"entry-01468","verdict":"OK"},{"revision_key":"entry-01474","verdict":"OK"},{"revision_key":"entry-01479","verdict":"OK"},{"revision_key":"entry-01482","verdict":"OK"},{"revision_key":"entry-01486","verdict":"OK"},{"revision_key":"entry-01491","verdict":"OK"},{"revision_key":"entry-01496","verdict":"OK"},{"revision_key":"entry-01498","verdict":"OK"},{"revision_key":"entry-01508","verdict":"OK"}]}

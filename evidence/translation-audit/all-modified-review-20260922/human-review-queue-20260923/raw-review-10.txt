@@ -1,0 +1,397 @@
+[User] # REVIEWER briefing — 已应用译文改动的独立逐条复核（review packet 10）
+
+身份：`role=reviewer`，只读。**不得修改、创建、删除任何文件**，不得 stage／commit。
+
+任务：对 packet 中每一项已应用的译文改动**逐条独立复核**，判断该改动是否正确、是否引入新问题。
+这是与 executor（裁决）路线**并行**的复核路线；你只看冻结输入，不看 executor 的自述理由。
+
+## 唯一输入
+
+`.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-10.json`
+
+该文件每项含：`entry_id`／`queue_id`／`file`／`line`／`source_tag`／`source`（英文原文）／
+`old_target`（改动前）／`new_target`（改动后）。
+
+## 可读取的证据（只读）
+
+1. 上表 packet 文件。
+2. 固定版本公开源码：commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`，仓库 `/workspace/t-engine4`，
+   读取方式 `git -C /workspace/t-engine4 show <commit>:<path>`。
+   路径映射：`mod-tome/`→`game/modules/tome/`；`mod-boot/`→`game/engines/default/modules/boot/`；
+   `engine/`→`game/engines/default/engine/`。
+3. 术语库：`terminology/*.tsv`（按 source 查询 `source`／`target`／`category`／`source_tag`／
+   `status`／`scope`／`notes`）。
+4. 本仓译文文件（用于核对同族一致性）：`mod-tome.lua`、`engine.lua`、`mod-boot.lua`。
+
+## 复核判据（每项必须走完）
+
+1. `new_target` 是否忠实 `source` 的语义、机制、数量、时序、条件与主体？
+2. 与固定版本源码的实际行为是否一致（有需要时读源码调用链）？
+3. 是否违反术语库 `preferred` 条目？与同节／同族既有译法是否一致？
+4. 占位符（`%s` `%d` `%%` `%0.2f` 等）、颜色码／markup（`#GOLD#` `#{italic}#` 等）、
+   换行序列是否完好？
+5. **本次改动是否引入新问题**——特别是：是否只改了本项而留下同族其他载体不一致？
+   是否把原本正确的表达改坏？
+6. 若 `old_target` 本来就正确、改动属于偏好而非缺陷，必须明确指出。
+
+## 输出格式（严格 JSON，不要 Markdown 围栏）
+
+```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 10,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-00105",
+      "verdict": "ok",
+      "observation": "简短说明；无问题时填 OK",
+      "evidence": ["terminology/tech.tsv:3 Donator=捐赠者"],
+      "new_issue_introduced": false
+    }
+  ]
+}
+```
+
+字段约束：
+
+- `verdict` 只能是 `ok`／`issue`／`unclear`。
+  - `ok`：改动正确且未引入新问题。
+  - `issue`：改动有实质缺陷（语义／机制／术语／不变量错误，或引入新的不一致）。
+  - `unclear`：证据不足，无法判定。
+- `observation` 必须非空。`ok` 时填 `OK`，否则给出具体缺陷与最强反证。
+- `evidence` 必须非空数组（`ok` 时可空数组），每条为可核验路径（源码 `game/...` 或
+  `terminology/...`），不得只写模型共识。
+- `new_issue_introduced`：布尔，仅当 `issue` 且正是本次改动新引入时填 true。
+- 必须**逐条覆盖 packet 的全部 20 项**，顺序与 packet 一致，不得遗漏或多出。
+- 不得输出 severity、修复建议或额外字段。
+
+## 完成后
+
+直接返回上述 JSON。不要写任何文件，不要创建子 agent。
+[Thought] Beginning item-by-item review of the translation changes. The focus is ensuring the `new_target` accurately reflects the meaning and context of the `source`, including all details such as numbers, timing, and conditions. Consistency across the translation is also a key check.
+[Read]
+[Thought] Commencing a detailed review of the twenty items within packet ten, ensuring each is thoroughly assessed. The established role dictates read-only access, precluding any modification activities during this parallel examination. The strict JSON output format will be adhered to, including the specified fields: contract, packet number, reviewer, and items with associated verdicts.
+[Shell] git -C /workspace/t-engine4 grep -n "There must be a way to go into the far east" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] grep -i "Golbug" terminology/*.tsv || true grep -i "Far East" terminology/*.tsv || true
+[Shell] rg -i "Golbug" terminology/ || true rg -i "Far East" terminology/ || true rg -i "东方" terminology/ || true rg -i "远东" terminology/ || true
+[Thought] The lair of Golbug likely holds a path to the far east. Exploration of this unknown territory could reveal valuable clues. The goal is to locate this path and begin investigating the far east.
+
+
+Revised wording ensures accuracy. The translation of the quest objective is now consistent, reflecting the core directive to find a path within the lair and explore the far east for clues. The action sequence is corrected for logical flow.
+[Shell] git -C /workspace/t-engine4 grep -n "Your skill at Chanting now extends the cloak of light" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/chants.lua | sed -n '340,410p'
+[Shell] git -C /workspace/t-engine4 grep -n "doCure" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/chants.lua
+[Thought] Examining the "Chant" abilities reveals they all call a "doCure" function with a specific type ("mental," "physical," "magical"). The "doCure" function targets cross-tier debuffs of a matching type, curing them. Subsequently, it removes a limited number of remaining debuffs of that type.
+[Shell] rg "cross-tier|cross tier|越层" terminology/ || true
+[Shell] rg "Chant of Resistance" terminology/ || true rg "Chant of Fortress" terminology/ || true rg "Chant of Fortitude" terminology/ || true
+[Shell] rg '"Chant of Resistance"' mod-tome.lua || true rg '"Chant of Fortress"' mod-tome.lua || true rg '"Chant of Fortitude"' mod-tome.lua || true
+[Thought] The talent description uses a formatted string, likely for displaying damage calculations. The parameters within the string represent damage scaling based on lost health. The phrase "up to %d" suggests a damage cap, which is important for understanding the mechanic's limits.
+[Shell] git -C /workspace/t-engine4 grep -n "Your weapon attacks burn with righteous fury" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] The text describes a two-handed weapon attack that deals weapon damage and reduces the light resistance of enemies within radius 2 upon a successful hit. The format string uses percentage placeholders for damage and resistance reduction. The goal is to verify that the format aligns with the intended effect.
+
+
+The format string compares the old and new targets, identifying a space and comma change. The placeholders for numerical values remain unchanged. Item 4 is verified as correct after correction.
+
+Next, I need to check item 5 to find any similar issues.
+[Shell] git -C /workspace/t-engine4 grep -n "Infuse your two handed weapon with light while spinning around" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/crusader.lua | sed -n '140,185p'
+[Shell] git -C /workspace/t-engine4 grep -n "EFF_FLASH_SHIELD" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "FLASH_SHIELD" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '165,190p'
+[Shell] git -C /workspace/t-engine4 grep -n "You are so infused with sunlight that your body glows permanently" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/radiance.lua | sed -n '1,50p'
+[Thought] The original translation's "your normal light" is incorrectly narrowed to "lantern." "Normal light" encompasses base actor light and other sources like infravision, not solely light items. The new translation will accurately reflect that a larger light radius overwrites, not stacks with, all existing light sources.
+[Shell] rg '"Shoot"' terminology/ || true
+[Shell] rg -n 't\("Shoot", "[^"]*", "talent name"\)' mod-tome.lua || true
+[Shell] git -C /workspace/t-engine4 grep -n "Weave the threads of fate" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/chronomancy/fate-weaving.lua | head -n 40
+[Shell] rg "Fate Weaving" terminology/ || true rg '"Fate Weaving"' mod-tome.lua || true
+[Thought] "命运编织" is the accurate translation of "Fate Weaving." The description specifies "Weave the threads of fate." The original translation "编织你的命运" omits "threads of." The revised translation "编织命运之丝" accurately captures the "threads of fate" as "命运之丝," a fitting term in Chinese mythology/fantasy. This aligns with the context and is accurate.
+
+
+The core logic remains the same. The difference highlights a minor adjustment to the sentence structure for clarity in the translated version; a connecting word has been added. The meaning and technical constraints of the effect are unchanged.
+
+
+The effect allows exploring three possible futures for a specified number of turns, choosing one as the present afterward. It grants defensive bonuses based on "Foresight" while active. It prevents the use of other timeline-splitting effects and reverts the timeline upon death in any branch, ending the effect; this spell can be used only once per zone level.
+[Shell] rg '"See the Threads"' mod-tome.lua || true rg '"See the Threads"' terminology/ || true
+[Thought] Confirmed the translation of "See the Threads" as "命运螺旋" in the specified file. Verified the updated translation for "revert the timeline to the point when you first cast the spell" as "你首次施放技能的时刻", confirming accuracy for "the point when..." and "first cast". Placeholder `%d` remains intact. Item 11 is confirmed as "ok".
+[Shell] git -C /workspace/t-engine4 grep -n '"Epoch"' 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/chronomancy/induced-phenomena.lua | sed -n '270,305p'
+[Shell] git -C /workspace/t-engine4 grep "name =" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/chronomancy/induced-phenomena.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/paradox-plane/npcs.lua | sed -n '20,40p'
+[Shell] sed -n '22095,22115p' mod-tome.lua
+[Shell] git log -S "亚伯契" -p -2 mod-tome.lua
+[Thought] The term "Epoch" is being used as a common noun, with "亚伯契" being an arbitrary transliteration treating it as a name. This occurs in three contexts: a chronomancy-related talent, a temporal element boss in a paradox-plane, and the bow "Epoch's Curve" whose description emphasizes time and renewal, suggesting the theme is time-based, not specific to a person.
+[Shell] git log -n 5 --oneline mod-tome.lua
+[Shell] git show a3292224 -- mod-tome.lua | grep -C 5 "Epoch" || true
+[Shell] git log -n 1 a3292224
+[Shell] rg -i "Epoch" terminology/ || true rg "亚伯契" terminology/ || true rg "纪元" terminology/ || true
+[Shell] grep "Epoch" terminology/society.tsv
+[Shell] rg -n '"Epoch"' mod-tome.lua
+[Shell] rg -n "Epoch's Curve" mod-tome.lua
+[Shell] git log -S "亚伯契" -p terminology/society.tsv
+[Thought] The `terminology/society.tsv` file designates "Epoch" as preferred, not to be translated to the general term "纪元". An earlier commit attempted this translation, but adjudication in batch-07 revealed the preferred status, requiring the original term.
+
+
+The review of batch-07 confirmed that "Epoch" should be transcribed and not translated, correcting a prior change. This impacts `entry-01586` associated with talent Epoch. Criterion 3 and 5 are most relevant to understanding this change and its scope, because the original change may have introduced inconsistencies if the translation was only partially applied.
+[Shell] python3 -B tools/i18n audit_terminology || true
+[Shell] python3 -B tools/i18n lint
+[Shell] ls -la .ai/task/human-review-adjudication-20260923/
+[Shell] rg -C 5 "hrq-00260" .ai/task/human-review-adjudication-20260923/BATCH-07-DISPOSITIONS.json
+[Thought] Initial analysis suggested a common translation for "Epoch" was appropriate, but the terminology database designates "亚伯契" as the preferred, core translation for both a similarly named talent and an entity. The database preference overrides the initial translation choice. Consequently, "亚伯契" is selected as the correct term.
+[Shell] git -C /workspace/t-engine4 grep -n "Weave matter into your flesh" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] Analyzing the text regarding a defensive ability, focusing on its effects and scaling. The ability grants armor, stun resistance, and cut resistance while active. The armor bonus is specifically influenced by the character's magic stat.
+
+
+Examining the text related to a teleportation trap, focusing on the damage types. Observed that "temporal" damage is now explicitly "时空（扭曲）" ("time-space (warp)"), thus confirming the proper translation. The translation for "Magic" remains consistent, and the placeholder formatting is preserved.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/chronomancy/spellbinding.lua | grep -n "spellbound in one way"
+[Shell] rg -n "Each spell can only be spellbound in one way" mod-tome.lua -C 2
+[Shell] sed -n '22380,22415p' mod-tome.lua
+[Thought] Observed that all four related talents consistently use the same phrasing now. The change in the specified file aligns it with the established pattern. This achieves 100% consistency across the associated talents. Placeholders are preserved.
+
+
+The translation discrepancy is minor; the updated target uses a more active phrasing for summoning ("upon activation" vs. "summon"). The rest of the content remains identical, maintaining the functional description of the ability.
+[Shell] rg "carrion worm|腐肉虫|腐尸蠕虫" terminology/ || true rg '"carrion worm mass"' mod-tome.lua || true
+[Shell] git -C /workspace/t-engine4 grep -n "Your grappling hook deals %d%% unarmed damage" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "Your mastery of called shots is unparalleled" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git log -n 3 -p --stat .ai/task/human-review-adjudication-20260923/ | head -n 100
+[Shell] rg "applied-change-review-v1" .ai/task/human-review-adjudication-20260923/ || true
+[Shell] head -n 60 .ai/task/human-review-adjudication-20260923/build_review_ledger.py
+[Shell] python3 -c " import json with open('evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/REVIEW-LEDGER.json') as f: data = json.load(f) for e in data['entries'][:5]: ...
+[Shell] python3 -c " import json with open('evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/REVIEW-LEDGER.json') as f: data = json.load(f) print(list(data.keys())[:10]) "
+[Shell] python3 -c " import json with open('evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/REVIEW-LEDGER.json') as f: data = json.load(f) for it in data['items'][:5]: p...
+[Thought] `evidence` provides context even for "ok" verdicts, referencing specific file locations. The user prompt defines constraints on the `verdict` field, which are "ok", "issue", or "unclear". Now recall those restrictions.
+
+
+The provided evidence seems sufficient to confirm the described Chant behavior; the talent definition specifies the light radius increase and debuff curing. No new issues appear to have been introduced based on this entry.
+
+
+These entries describe weapon-based talents, focusing on damage output and debuffs. The provided evidence from the game data appears to accurately reflect the documented talent behaviors. No inconsistencies or new issues were identified based on the provided descriptions and evidence.
+
+
+This entry confirms the talent description related to the Crusader's abilities, specifically the light infusion and spinning attack. The provided data appears to be consistent with the documented functionality, including damage values and the shield effect. No problems detected.
+
+The entry for the Radiance talent accurately reflects the described light-based effects, including blindness resistance, light resistance, and affinity, as well as the light radius. The evidence from the relevant game file supports these properties.
+
+The final talent describes a ranged attack and the summoning of wardens. The description is verified as accurate based on the associated code and game logic. No issues are identified.
+
+
+The descriptions of these talents, referencing bow threading and the chronomancer's abilities, are consistent with the associated game data. The provided evidence supports the described effects and functionalities. No discrepancies or new issues have been identified within these entries.
+
+
+This Chronomancy talent's effect, including timeline splitting and Foresight interaction, matches the description and corresponding game data. No issues are detected based on the provided data and talent details.
+
+The "Epoch" term definition aligns with terminology and talent data, consistent across game modules. Verified no new problems with the term's associated uses.
+
+This talent description detailing armor, stunning resistance, and cut resistance bonuses is supported by the referenced game code data. No inconsistencies were identified in these talent properties.
+
+
+Examined the provided descriptions of Chronomancy talents, evaluating each against the provided data file references. Confirmed the first talent creates Warp Mines with teleportation and damage effects, with properties affected by the caster's Magic and Spellpower.
+
+Verified the second talent extends the duration of Chronomancy spells; checked that only one spell can be extended at a time. The final talent details the Temporal Hound summoning mechanics, and its resistance and damage characteristics, matching against the provided evidence. No introduced issues.
+
+
+Confirmed Temporal Hounds strength and other characteristics are derived from the character's Magic stat, matching the description and evidence from the talent definition.
+
+Analyzed the "Plague" talent; its effects, including the cataleptic state, stunning duration, and instant disease damage, are confirmed by the data.
+
+Verified the "Rot" talent description is accurate. The code supports the resistance buffs, carrion worm summoning, damage reduction, and worm/blight interactions.
+[Shell] git -C /workspace/t-engine4 grep -n "There must be a way to go into the far east" 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/wild-wild-east.lua git -C /workspace/t-engin...
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 10,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-01498",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/quests/wild-wild-east.lua:26"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01509",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/celestial/chants.lua:386"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01514",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/celestial/combat.lua:217"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01516",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/celestial/crusader.lua:59"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01517",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/celestial/crusader.lua:123"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01518",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/celestial/crusader.lua:176",
+        "game/modules/tome/data/timed_effects/other.lua:171"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01536",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/celestial/radiance.lua:41"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01554",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/chronomancy/bow-threading.lua:120"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01557",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/chronomancy/chronomancer.lua:41"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01563",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/chronomancy/chronomancy.lua:155"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01565",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/chronomancy/chronomancy.lua:206"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01586",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/society.tsv:29",
+        "game/modules/tome/data/talents/chronomancy/induced-phenomena.lua:281"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01588",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/chronomancy/matter.lua:151"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01605",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/chronomancy/spacetime-folding.lua:201"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01617",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/chronomancy/spellbinding.lua:88"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01625",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/chronomancy/temporal-hounds.lua:235"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01659",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/corruptions/plague.lua:251"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01661",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/corruptions/rot.lua:220",
+        "terminology/creatures.tsv:20"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01703",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cunning/artifice.lua:816"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-01706",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/talents/cunning/called-shots.lua:236"
+      ],
+      "new_issue_introduced": false
+    }
+  ]
+}
+[Thought] ```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 10,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-"
+}
+```

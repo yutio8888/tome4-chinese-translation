@@ -1,0 +1,356 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "counts": {
+  "execute": 8,
+  "needs_user_decision": 8,
+  "record_only": 3,
+  "text_to_be_drafted_by_model": 14,
+  "pending_user_decision": 8
+ },
+ "execute": [
+  {
+   "entry_id": "entry-01984",
+   "kind": "dead_key_delete",
+   "file": "mod-tome.lua",
+   "line": 25923,
+   "authority": "user policy: dead keys are deleted",
+   "evidence": "fixed source horrors.lua:671 is 'for 15 turns'; frozen 'for 10 turns' no longer exists; live twin is entry-01986",
+   "text_needed": false,
+   "what_must_change": "no text needed: the call is a dead key and must be deleted"
+  },
+  {
+   "entry_id": "entry-01988",
+   "kind": "dead_key_delete",
+   "file": "mod-tome.lua",
+   "line": 25973,
+   "authority": "user policy: dead keys are deleted",
+   "evidence": "fixed source inscriptions.lua:247 adds 'to a maximum of 100%%'; frozen English lacks it; live twin is entry-02000",
+   "text_needed": false,
+   "what_must_change": "no text needed: the call is a dead key and must be deleted"
+  },
+  {
+   "entry_id": "entry-00730",
+   "kind": "family_alignment",
+   "twins": [
+    "entry-02906"
+   ],
+   "file": "mod-tome.lua",
+   "authority": "same-source runtime key shared by two carriers; fidelity fix for the dropped 'all'",
+   "evidence": "8265 and 37898 carry the identical source+key; the frozen target drops 'all'",
+   "text_needed": true,
+   "what_must_change": "both carriers must restore the dropped quantifier 'all' and stay byte-identical to each other"
+  },
+  {
+   "entry_id": "entry-01290",
+   "kind": "family_alignment",
+   "twins": [
+    "entry-03323"
+   ],
+   "file": "mod-tome.lua",
+   "authority": "in-repo precedent entry-01300 in the same section renders Cataclysm as 大灾变; Spellblaze is 魔法大爆炸",
+   "evidence": "01290/03323 say 大爆炸 for Cataclysm, colliding with Spellblaze",
+   "text_needed": true,
+   "what_must_change": "both carriers must use the Cataclysm term that the same section already uses at entry-01300, without colliding with the Spellblaze term; the spellhunter word must match the in-repo guide title form"
+  },
+  {
+   "entry_id": "entry-02982",
+   "kind": "family_alignment",
+   "file": "mod-tome.lua",
+   "line": 38735,
+   "authority": "terminology: entry-03070 records Farportal -> 远行传送门 (mod-tome.lua:39798); 远行传送门 appears 61x in mod-tome.lua",
+   "evidence": "The 'A farportal is a way...' family has 11 carriers and is split 2:2 between 传送门是… (02962, 02982) and 远行传送门能让人… (03116, 04073). The term entry Farportal=远行传送门 decides the direction.",
+   "text_needed": true,
+   "what_must_change": "the frozen carrier must use the farportal family term recorded in terminology/items.tsv:37, matching the other nine carriers of the same English string"
+  },
+  {
+   "entry_id": "entry-02791",
+   "kind": "family_alignment",
+   "file": "mod-tome.lua",
+   "line": 36742,
+   "authority": "same-section 36741 renders the same damage-sharing as 时空复制体",
+   "evidence": "'fugue clone' has no terminology entry; 36741 says 时空复制体, 36742 says 时空克隆",
+   "text_needed": true,
+   "what_must_change": "the frozen line must match the same-section line 36741 for the fugue-clone wording"
+  },
+  {
+   "entry_id": "entry-03149",
+   "kind": "family_alignment",
+   "twins": [
+    "entry-03150"
+   ],
+   "file": "mod-tome.lua",
+   "authority": "in-repo talent name 27003 Shove=击退攻击; 40780 启蒙符文：冲撞",
+   "evidence": "40781/40782 say 推挤 while the talent name and 32976-32993 say 击退攻击",
+   "text_needed": true,
+   "what_must_change": "both affected lines must match the in-repo talent name for Shove"
+  },
+  {
+   "entry_id": "entry-02212",
+   "kind": "family_alignment",
+   "file": "mod-tome.lua",
+   "line": 28848,
+   "authority": "terminology/talents.tsv:117 Flame=火球术 (in-repo talent name); 31621/34349 already call it 火球术",
+   "evidence": "28848 says 火焰 while the same talent is 火球术 elsewhere",
+   "text_needed": true,
+   "what_must_change": "the talent name must match the terminology entry and the two in-repo references to the same talent"
+  }
+ ],
+ "needs_user_decision": [
+  {
+   "entry_id": "entry-00216",
+   "question": "Defiler 作为人物称谓怎么译？",
+   "options": [
+    "迷路的堕落者",
+    "迷路的堕落系法师",
+    "保留 迷路的腐化者"
+   ],
+   "why": "术语库 Defiler=堕落系 是类别名(existing)，无人物称谓的 preferred 条目",
+   "text_needed": true
+  },
+  {
+   "entry_id": "entry-00634",
+   "question": "stabbed 属 2026-09-16 你裁定冻结的 PHYSICAL death_message 词表；是否解冻该词表？",
+   "options": [
+    "维持冻结(不改)",
+    "解冻并整族重审"
+   ],
+   "why": "按归属处置的既有决定",
+   "text_needed": true
+  },
+  {
+   "entry_id": "entry-00646",
+   "question": "manaburn arcane 术语登记：保留源码依据的「奥术法力燃烧」，还是回退术语库的「法力燃烧」？",
+   "options": [
+    "保留奥术法力燃烧并登记术语",
+    "回退 法力燃烧"
+   ],
+   "why": "existing 术语不强制，两种都需改 terminology/；与 entry-00653 必须同向",
+   "text_needed": true
+  },
+  {
+   "entry_id": "entry-00653",
+   "question": "同上（必须与 00646 同向）",
+   "options": [],
+   "why": "同源伤害类型对",
+   "text_needed": true
+  },
+  {
+   "entry_id": "entry-01262",
+   "question": "Raymond Gaustadnes 的完整译名？",
+   "options": [
+    "加斯塔德内斯",
+    "加斯塔德尼斯",
+    "保留 加斯塔德"
+   ],
+   "why": "无官方读音与 terminology 条目",
+   "text_needed": true
+  },
+  {
+   "entry_id": "entry-02456",
+   "question": "corruption knowledge 用「堕落」还是「枯萎」？",
+   "options": [
+    "堕落（与技能名 堕落之壳 一致）",
+    "枯萎（与 BLIGHT 解锁机制一致）"
+   ],
+   "why": "terminology corruption=堕落 仅 existing 且 source_tag 为 talent category",
+   "text_needed": true
+  },
+  {
+   "entry_id": "entry-02850",
+   "question": "该片段被 args_order={2,1} 重排进句中，无法自带句末标点；接受缺标点吗？",
+   "options": [
+    "接受（片段在句中）",
+    "重构宿主串"
+   ],
+   "why": "宿主串在冻结外，改 args_order 被禁止",
+   "text_needed": true
+  },
+  {
+   "entry_id": "entry-04115",
+   "question": "该 debug 对话框有多项 confirmed 错译（This IS relevant 被译反等）；是否修？",
+   "options": [
+    "修 confirmed 项",
+    "debug 文本不动"
+   ],
+   "why": "debug 专用对话框，未确认是否在范围内",
+   "text_needed": true
+  }
+ ],
+ "record_only": [
+  {
+   "entry_id": "entry-00184",
+   "reason": "主工作区已修，合并即生效",
+   "text_needed": false
+  },
+  {
+   "entry_id": "entry-00492",
+   "reason": "主工作区已修，合并即生效",
+   "text_needed": false
+  },
+  {
+   "entry_id": "entry-02067",
+   "reason": "固定源码 races.lua:692 的 tformat 实参顺序与英文相反，属上游缺陷；改中文语序会在上游修正后反向出错",
+   "text_needed": false
+  }
+ ],
+ "instruction": "This plan states only WHAT must change and the authority for it. It deliberately contains no proposed Chinese target text; the reviewer model drafts that text.",
+ "text_provenance_rule": "本文件的 authority/evidence 字段为**引用仓内既有译名或术语库记录**（用于指明对齐目标），不是主代理拟定的新译文。任何新 target 文本一律由 reviewer 模型（Gemini 3.8 Flash）拟定；本文件不含 main agent 撰写的目标串。",
+ "user_decisions": {
+  "decided_at": "2026-09-24T04:00:00Z",
+  "verbatim": "manaburn arcane保留奥术法力燃烧并登记；death_message词表暂不解冻；其他B项同意进行修改。A组flame暂不修改。C组暂不修改",
+  "resolved": {
+   "entry-00646": {
+    "decision": "keep_target_register_terminology",
+    "note": "保留现译「奥术法力燃烧」，并在 terminology/ 登记该译名"
+   },
+   "entry-00653": {
+    "decision": "keep_target_register_terminology",
+    "note": "同 00646，保留现译并随术语登记"
+   },
+   "entry-00634": {
+    "decision": "no_change",
+    "note": "death_message 词表暂不解冻，维持现状"
+   },
+   "entry-00216": {
+    "decision": "modify"
+   },
+   "entry-01262": {
+    "decision": "modify"
+   },
+   "entry-02456": {
+    "decision": "modify"
+   },
+   "entry-02850": {
+    "decision": "modify"
+   },
+   "entry-04115": {
+    "decision": "modify"
+   },
+   "entry-02212": {
+    "decision": "skip",
+    "note": "A 组 flame 暂不修改"
+   },
+   "entry-00184": {
+    "decision": "no_change"
+   },
+   "entry-00492": {
+    "decision": "no_change"
+   },
+   "entry-02067": {
+    "decision": "no_change"
+   }
+  }
+ },
+ "execution_order": {
+  "delete_dead_keys": [
+   "entry-01984",
+   "entry-01988"
+  ],
+  "family_alignment_text_from_model": [
+   "entry-00730",
+   "entry-01290",
+   "entry-02982",
+   "entry-02791",
+   "entry-03149"
+  ],
+  "user_approved_change_text_from_model": [
+   "entry-00216",
+   "entry-01262",
+   "entry-02456",
+   "entry-02850",
+   "entry-04115"
+  ],
+  "keep_and_register_terminology": [
+   "entry-00646",
+   "entry-00653"
+  ],
+  "no_change": [
+   "entry-00634",
+   "entry-02212",
+   "entry-00184",
+   "entry-00492",
+   "entry-02067"
+  ]
+ },
+ "evidence_corrections": [
+  {
+   "entry_id": "entry-02982",
+   "was": "claimed 9 of 10 carriers already aligned",
+   "now": "family is split 2:2; direction is decided by the term entry Farportal=远行传送门 (entry-03070)",
+   "corrected_at": "2026-09-24T04:10:00Z"
+  }
+ ],
+ "carrier_corrections": [
+  {
+   "entry_id": "entry-00730",
+   "finding": "2 carriers with byte-identical source",
+   "carriers": [
+    "mod-tome.lua:8265 (mod-tome/data/general/npcs/horror.lua)",
+    "mod-tome.lua:37898 (mod-tome/data/zones/arena/npcs.lua)"
+   ],
+   "constraint": "byte-identical target required"
+  },
+  {
+   "entry_id": "entry-01290",
+   "finding": "near-twin: sources differ only by a leading space (\\n\\nCornacs vs \\n\\n Cornacs)",
+   "carriers": [
+    "mod-tome.lua:17978 (lore/misc.lua)",
+    "mod-tome.lua:43240 (load.lua, entry-03323)"
+   ],
+   "constraint": "align wording (both defects identical); not a strict same-key twin"
+  },
+  {
+   "entry_id": "entry-03149",
+   "finding": "two affected lines with DIFFERENT sources; entry-03150 is unrelated (Mana Gale)",
+   "carriers": [
+    "mod-tome.lua:40781 'Teaches the player \\'Shove\\'.'",
+    "mod-tome.lua:40782 '#VIOLET#You have learned the talent Shove.' (not in inventory; unmodified in the 09-22 review)"
+   ],
+   "constraint": "both must use the in-repo talent name; they are different sentences, NOT byte-identical"
+  }
+ ],
+ "carrier_corrections_note": "这些更正来自本轮 ORCHESTRATOR 逐载体扫描，纠正了先前请求包中不准确的孪生描述。后续拟稿与核验以本字段为准。",
+ "orchestrator_corrections_20260924": [
+  {
+   "entry_id": "entry-02982",
+   "type": "evidence_reversed",
+   "was": "A5 approved to align to 远行传送门 on the claim that 9/10 carriers already used it",
+   "now": "INVERTED: 11 carriers total, 9 use 传送门是 and only 2 use 远行传送门 (mod-tome.lua:40331, tome-orcs.lua:6936). The main worktree shows the same 9:1. Aligning this carrier would go AGAINST the majority.",
+   "action": "HELD — no edit. Needs a family-unification decision (change 1 carrier / change 9 carriers / change the 2 outliers / leave)."
+  },
+  {
+   "entry_id": "entry-01984",
+   "type": "scope_recheck",
+   "was": "A1 approved as a 失效键 deletion",
+   "now": "NOT the user-defined 失效键: that policy covers keys inside a '-- old translated text' comment block (the only such block is mod-tome.lua:1131). These are ACTIVE t() calls. The official locale (zh_hans.lua:25855, 25905) still carries the OLD key and the canonical deliberately carries BOTH old and new. Deleting is a structural edit outside the SPEC surface and raises the official_only delta.",
+   "action": "HELD — no edit. Needs explicit authorisation."
+  },
+  {
+   "entry_id": "entry-01988",
+   "type": "scope_recheck",
+   "was": "A2 approved as a 失效键 deletion",
+   "now": "same as entry-01984",
+   "action": "HELD — no edit."
+  },
+  {
+   "entry_id": "entry-02850",
+   "type": "outcome",
+   "was": "B7 approved for modification",
+   "now": "the drafting model concluded no change is needed: the fragment is spliced mid-sentence via args_order={2,1} and correctly carries no sentence-final punctuation; the current text already reads correctly",
+   "action": "recorded as no_change"
+  },
+  {
+   "entry_id": "entry-03323",
+   "type": "carrier_precision",
+   "now": "near-twin of entry-01290 (English differs only by a leading space after \\n\\n). Only the two term defects are applied; the leading space is preserved per the static-typography policy",
+   "action": "edited with the space preserved"
+  },
+  {
+   "entry_id": "entry-03149",
+   "type": "carrier_precision",
+   "now": "two affected lines (40781, 40782) with DIFFERENT source strings; entry-03150 is unrelated (Mana Gale). Rune name 40780 uses 冲撞 (rune names have their own vocabulary) and is left untouched",
+   "action": "both lines aligned to the talent name 击退攻击"
+  }
+ ]
+}

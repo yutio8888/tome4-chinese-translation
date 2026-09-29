@@ -1,0 +1,279 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=d4776ec828437ce6c065564d599d520127f3db2e42dd846040d1e67d5843b750；input_path=.ai/task/ctx2-pub-23a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Thought] Root element structure appears rigid, requiring exactly three keys: a contract identifier, a candidate identity, and a verdicts array. The provided candidate identity must be validated against the input. The verdicts array structure must adhere to a specific order linked to revision keys.
+[Read] .ai/task/ctx2-pub-23a/CONTEXTUAL-ENVELOPE-full-01.json
+[Thought] Examining the ordered revision keys, there are 17 entries to consider. The next step involves re-evaluating the current ruleset.
+[Shell] git rev-parse HEAD
+[Shell] ls -la
+[Shell] find . -name "*manifest*"
+[Shell] git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] grep -rn "624a67329fe2ad440c5b344785a9c73fcf22ae63" .
+[Shell] ls -la /workspace/t-engine4
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Thought] Initial assessment requires comprehensive analysis of 17 revisions. This will involve cross-referencing source and target translations with terminology and bounded context definitions. The source code within the specified commit will also be examined for any potential context-specific errors. Potential issues include semantic inconsistencies, mechanical flaws, terminology inaccuracies, and structural problems in markup or placeholders.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/message-last-hope.lua
+[Thought] The message indicates the staff left at Last Hope was stolen by orcs. Captured orc mentioned "masters" in the Far East and "Golbug". This suggests potential new actors and geographical direction. Further investigation is needed to ascertain the significance of "Golbug" and the "masters".
+
+
+The orc's statement implies Golbug, a warmaster in Reknor, is involved in sending a "package" through a portal. This suggests Golbug is a key figure and the portal's location is critical. The urgency of the situation necessitates immediate investigation of Golbug and the portal.
+
+
+The King's message uses "报告" which seems appropriate for a report to a player. The original message's structure and urgency are maintained in the translation. The key action item remains investigating Golbug and the portal, as this is the core of the King's directive, and it directly relates to the missing artifact.
+
+
+The translation of "报告" is likely correct; it fits the context of delivering information to the adventurer. Checking other entries confirms "报告" aligns with the urgent and significant nature of the message. Examining surrounding entries like `entry-02521` and `entry-02522` confirms the context around Golbug and the portal is consistent. The phrase "leading a raid to send a 'package' through a portal" is consistent across multiple translations.
+
+
+The King of the Allied Kingdoms, Tolak, is likely the sender of the message. The translation of "Allied Kingdoms" to "联合王国" and "Last Hope" to "最后的希望" is confirmed. An extra newline character in `entry-02522` introduces a minor text formatting discrepancy, but the paragraph structure remains intact.
+[Shell] grep -n -C 5 "一份报告极其重要" mod-tome.lua
+[Shell] grep -n "托拉克" mod-tome.lua
+[Shell] sed -n '32340,32400p' mod-tome.lua
+[Thought] Systematically reviewing the `translation_snapshot` entries against source materials is necessary. Initial focus is `entry-02521`. The entry describes a stolen staff following an ambush.
+
+
+The King's message, concerning the stolen staff, requires immediate investigation due to the orc's testimony regarding a "package" and a portal. "报告" (report) appears in the translation, but a quick scan suggests the word is a valid, if slightly unusual, way to refer to this communication. The critical task is to locate either Golbug or the portal to prevent delivery of the "package."
+
+
+Translation accuracy is critical, so terminology verification is underway to ensure consistent and correct mapping of key terms like "warmaster" and "Allied Kingdoms." No factual errors or broken tags detected, and whitespace differences appear negligible. The immediate goal is to understand the scope and implications of "package" delivery, confirming the translation accuracy of all key terms and phrases for the ongoing investigation.
+
+
+This new entry reiterates the urgency surrounding the stolen staff and orcish involvement, confirming the initial assessment. The captured orc's information about Golbug and the portal provides a concrete direction for investigation. The focus shifts to locating Golbug or the portal as a priority to intercept the "package."
+
+
+The King's message details a powerful staff and orcish activity, confirming the urgency of the situation.  Analyzing the translated text reveals the staff's power to absorb energy, increasing the stakes if it falls into enemy hands.  The critical path now lies in locating either the orc warmaster, Golbug, or the portal to prevent the "package" transfer.
+
+
+Analysis reveals no substantive change from entry-02521 to entry-02522 regarding the key narrative elements, confirming the initial interpretation. Identified a new entry to review, entry-02523, which does not appear to be directly relevant to the core investigation, but I will continue reviewing for completeness.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/tutorial/done.lua
+[Thought] Confirmed the translation of "Escape" key to "Esc 键" or "Escape" in Chinese. Verified other text translations within the specified entry; the translation of "troll" to "巨魔" aligns with the established entity mapping. All translations reviewed appear correct.
+[Shell] grep -rn "Category talent" .
+[Thought] Character progression in ToME4 hinges on level advancement, capped at 50. Each level grants stat points and class talent points, enhancing character attributes and abilities respectively. The initial focus is on understanding the game's mechanics governing character growth.
+
+
+The game grants distinct talent points for class abilities (increasing on level multiples of five), generic talents (awarded on non-multiples of five levels), and category talents to unlock or enhance talent categories. Experience accumulation, through defeating similarly leveled enemies, dictates level progression, which then triggers point allocation for character improvement. The 'p' key or right-click context menu accesses the level-up interface for point distribution.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/tutorial/stats/stats7.lua
+[Thought] Examining the terminology associated with `entry-02530`, noting specific game-related terms and their corresponding translations. Initial assessment involves identifying and categorizing terms like "archmage," "Flameshock," and "Spellpower" within the game context. This process includes recognizing core game concepts such as "Combat stats" and "fire resistance."
+
+
+Combat stats range from one to one hundred, with twenty-point intervals marked by color-coded tiers corresponding to gear quality indicators. These intervals are designated as tiers.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/tutorial/stats-scale/scale3.lua
+[Thought] Combat statistics range from one to one hundred, with color-coding applied in intervals of twenty. The colors match those used in the inventory text for indicating gear quality, so the color may indicate combat quality.
+These intervals of twenty can be considered as tiers.
+
+
+I'm thinking through how to approach this.
+
+
+The task involves investigating timed effects by intentionally triggering them. The game terminology has been validated: "精灵" for "elf," and "持续效果" for "timed effects". The instruction to examine the effects' tooltips is confirmed.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/unlock-afflicted_cursed.lua
+[Shell] grep -rn "Gloom" terminology/
+[Shell] grep -rn "t(\"Gloom\"," mod-tome.lua
+[Thought] The "Gloom" talent is accurately translated as "黑暗光环". "Ben Cruthdar" translates to "本·克鲁塞达尔". "Hate" translates to "仇恨值", which is consistent with the ToME4 game's cursed resource terminology. `entry-02541` is consistent with these translations.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/unlock-campaign_arena.lua
+[Thought] `The Arena` translates to 竞技场; "tactics" translates to 战斗策略 in this context. "Pure hack and slash MAYHEM!" becomes "尽情砍杀吧！". The translation focuses on conveying the game's core concept, the arena, and the action-oriented nature of the combat.
+
+
+Class descriptions require attention to nuance, noting that Corruptors derive their power from dark magic and life force ("vim"). The translation aims to capture this class's essence as spellcasters employing corrupting magics, highlighting the unique gameplay feature of siphoning "vim" for abilities. Further, I am focusing on conveying the power-oriented nature and the potential for both selfish and evil motivations.
+[Shell] grep -rn "Fearscape" terminology/ mod-tome.lua | head -30
+[Shell] sed -n '33825,33860p' mod-tome.lua
+[Thought] The game introduces a "Madness" mode. This mode significantly increases zone and creature talent levels. Rare creatures become more frequent, and random bosses with randomized talents will now appear.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/unlock-difficulty_madness.lua
+[Thought] Examining difficulty terminology, "Madness" translates to "绝望" or "绝望模式". The bounded context confirms the translation: "Madness -> 绝望". Further context clarifies that "Madness" achievements are earned when playing in "Roguelike" or "Adventure" permadeath modes; the target confirms the translation: `如果同时在永久死亡模式或冒险模式下游玩，玩家可以获得绝望难度`.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/unlock-divine_anorithil.lua
+[Thought] The term "Anorithil" translates to "星月术士" (Star-Moon Sorcerer), likely a game class or birth descriptor. "Far East" corresponds to "远东大陆" (Far East Continent). "Orc Pride" is equivalent to "兽人部落" (Orcish Tribe), representing a faction. "Elves and Humans" becomes "精灵和人类" (Elves and Humans). "Light and darkness meet" translates to "光明与黑暗交汇的地方" (Where light and darkness meet). "Sun Chants and Moon Hymns" are included.
+
+
+Sun Paladins appear to be a new character class, heavy melee fighters with sun-based magic, drawing power from "positive energy" which is consumed and replenished by their abilities. Their class features involve ranged attacks, chants, weapon channeling, and shield-based defense. Their description highlights a battle against a faction known as the "Orc Pride" in a region called the "Far East".
+
+
+Examining the translation of "trained in special magic to focus the powers of the Sun," the phrase "施展他们的特殊能力" (to use their special ability) seems added, derived from "powers of the Sun". The original source describes "special magic to focus the powers" which then implies the ability to use that focused power. The final description of the class mentions use of "positive energy" to perform special abilities; the translation is consistent.
+
+
+The phrase "Paragons of all that is good, they are nonetheless terrible in their battle against the Pride" translates to "他们是一切善的典范，但在与兽人部落的战斗中依然可怕。" The terminology mappings are consistent with previous entries. The translation of the abilities highlights the use of "正能量" ("positive energy") by Sun Paladins to perform their special abilities.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/unlock-mage_necromancer.lua
+[Shell] grep -rn "t(\"darkness\"," mod-tome.lua
+[Thought] Observed that "darkness" translates to "暗影" across damage type, talent type, and effect subtype, as confirmed by the terminology snapshot. "Ice" translates to "寒冰" in the damage type category within the terminology snapshot. The target of entry-02565 includes casting "darkness" and "ice" infused spells, which confirms the relevance of their translations.
+
+
+Examined the translation of "darkness" and "ice" in the target phrase, noting a discrepancy with the terminology snapshot and confirmed usage as damage types. The original translation should be adjusted to adhere to the existing terminology by using "暗影" and "寒冰" respectively, instead of "黑暗" and "冰系".
+
+Checked entry-02568, and will check entry-02569 next.
+
+
+Examining the structure and naming conventions of talents in the source to ensure consistency. Observed that the source uses a structured format for talent descriptions, including a talent name and a description. Will adapt the talent names in the target accordingly, ensuring they align with the established format.
+[Shell] grep -rn "t(\"Nova\"," mod-tome.lua
+[Shell] grep -rn "t(\"Shock\"," mod-tome.lua; grep -rn "t(\"Hurricane\"," mod-tome.lua; grep -rn "t(\"Tempest\"," mod-tome.lua
+[Shell] grep -rn "t(\"Air\"," mod-tome.lua
+[Shell] grep -rn "air" mod-tome.lua | grep "talent type"
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/storm.lua | grep -A 30 "newTalent.*T_HURRICANE"
+[Shell] find /workspace/t-engine4/game/modules/tome -name "*storm*"
+[Shell] head -n 50 /workspace/t-engine4/game/modules/tome/data/talents/spells/storm.lua
+[Shell] grep -n -A 40 "name = \"Hurricane\"" /workspace/t-engine4/game/modules/tome/data/talents/spells/storm.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/texts/unlock-mage_thaumaturgist.lua
+[Thought] The successful boss encounter, using exclusively beam spells, indicates a strong grasp of their mechanics. This mastery has unlocked the "High Thaumaturgist" class evolution for Archmages. This upgrade grants the "Wide Beams" ability, permanently enhancing several beam spells to a 3-wide configuration. It also provides access to the "Thaumaturgy" spell category, implying a shift in strategic options.
+
+
+The "Thaumaturgy" spell category introduces new tactical possibilities, including duplicating beam spells with an orb, weaving non-beam spells into beam casts, and free movement after casting beams. The "Elemental Array Burst" represents a powerful, guaranteed-hit, beam spell. This suggests a focus on area-of-effect damage and mobility within beam-focused builds.
+[Shell] grep -rn "Ice Shards" mod-tome.lua
+[Shell] grep -rn "Pulverizing Auger" mod-tome.lua
+[Shell] grep -rn "Orb of Thaumaturgy" mod-tome.lua; grep -rn "Multicaster" mod-tome.lua; grep -rn "Slipstream" mod-tome.lua; grep -rn "Elemental Array Burst" mod-tome.lua
+[Thought] Confirmed that the talent names are correctly translated. Examined the description of "Elemental Array Burst" to verify its details. Further investigation is required to analyze the final segment.
+
+
+The translation of "prodigies" to "觉醒技" is confirmed as the standard and accurate ToME4 translation. "Class evolutions" translates correctly to "职业进阶." The provided text accurately reflects the meaning of class advancement abilities.
+
+
+The message details a captured orc's information about a war leader, Golbug, sending a "package" through a portal. This implies an urgent situation requiring investigation of Golbug and the portal location. The sender is identified as Tolak, the King of the Allied Kingdoms, adding further credibility and urgency to the matter.
+
+
+Golbug, a warmaster in Reknor, is leading a raid to transport a "package" through a portal. The captured orc mentioned a "Master" from the far east. This is linked to the urgent need to investigate Golbug and the portal, as it concerns a powerful staff.
+
+
+Investigating the discrepancy of an extra newline in the target translation seems insignificant. Re-examining prior entries reveals no immediate issues, but the "package" and the staff's power warrant focused investigation. The terminology snapshot confirms accurate translations.
+
+
+A comprehensive terminology snapshot clarifies key terms, including "undead" as "亡灵." This establishes a foundational lexicon for accurate translation within the game context. This confirms the terms for powers, class, races and spells.
+[Shell] git -C /workspace/t-engine4 grep -rn "High Thaumaturgist" game/modules/tome/
+[Shell] sed -n '480,520p' /workspace/t-engine4/game/modules/tome/data/talents/uber/mag.lua
+[Thought] The "Madness" difficulty modifier is active, indicating substantial increases to zone levels and creature talent levels. This suggests a significant escalation in the game's challenge compared to the "Insane" mode. Rare creature occurrences are also significantly altered, implying a change in game mechanics related to these specific creatures.
+[Shell] git -C /workspace/t-engine4 grep -rn "Randomly all foes in a radius will get a feeling" game/
+[Shell] sed -n '270,300p' /workspace/t-engine4/game/modules/tome/data/birth/descriptors.lua
+[Shell] grep -i "undead" terminology/*
+[Thought] Terminology defines "undead" as an entity type and talent category, translating to "亡灵." "Undead" is also categorized as a race with the translation "不死族." A "Lich" is a specific form of "undead" race with the translation "巫妖."
+
+
+The initial translation of "undead minions" as "不死随从" appears incorrect because "undead" is an entity type, which is consistently translated to "亡灵." Revising this translation, along with the subsequent usage of "黑暗" for "darkness" and "冰系" for "ice," requires further investigation. Examination of previous entries (Anorithil entry 02557) suggests "阴影" is more contextually appropriate for "shadows".
+[Shell] grep -rn "\"spell/darkness\"" /workspace/t-engine4/game/modules/tome/data/talents/spells/; grep -rn "\"spell/ice\"" /workspace/t-engine4/game/modules/tome/data/talents/spells/
+[Shell] grep -rn "t(\"ice\"," mod-tome.lua
+[Thought] Examining the codebase, instances of "ice" consistently translate to "寒冰" across various attributes like damage type and subtypes. Similarly, "darkness" corresponds to "暗影" in equivalent contexts. This consistency suggests a clear, established mapping between English and the respective translated terms within the game's terminology.
+
+
+The translation of "darkness" in `entry-02565` incorrectly used "黑暗" instead of the established "暗影." "Ice" was also mistranslated as "冰系" instead of "寒冰."  "Undead" was incorrectly translated as "不死" instead of the established "亡灵" in the same entry. The analysis will continue by systematically examining other entries to verify and apply these corrections.
+[Shell] grep -rn "t(\"hate\"," mod-tome.lua; grep -rn "t(\"Hate\"," mod-tome.lua
+[Thought] The term "hate" translates to "仇恨值." Need to verify the interpretation; examining entry `entry-02552` for additional context on related concepts. The entry details the Corruptor, who, although using dark magic, may not be inherently evil, raising questions about motivations beyond simple negativity.
+[Shell] grep -rn "Grand Corruptor" mod-tome.lua
+[Thought] The Grand Corruptor's death was unexpected, preventing direct instruction.  Knowledge of corruption now resides within, enabling the acquisition of related powers. This newfound understanding allows for the creation of new characters with the "Corruptor" class.
+
+
+The previous conclusion focused on the "Corruptor" class unlock, tied to interaction with the Grand Corruptor. A separate entry exists, requiring review. This other entry introduces a "Madness" mode.
+[Shell] grep -rn "t(\"Roguelike\"," mod-tome.lua; grep -rn "Roguelike" mod-tome.lua | grep "permadeath"
+[Thought] The term "永久死亡模式" (permadeath mode) appears to be the standard translation for "Roguelike" mode in the game, based on matching lines. This confirms "永久死亡模式或冒险模式" as the correct translation for the relevant phrase. Reviewing the target entry is needed to apply the correct terminology.
+[Shell] sed -n '34260,34310p' mod-tome.lua
+[Shell] sed -n '34320,34360p' mod-tome.lua
+[Thought] Focusing on `entry-02565` again, the text describes necromancy as a forbidden and dark art, linked to a period of great suffering and chaos. This suggests that necromancy is associated with destruction and terror, arising during a time of widespread devastation.
+
+
+The text highlights the conflicting views of necromancers, considered fallen by some, misunderstood practitioners by themselves, yet wielding significant power. Necromancers are defined as dark spellcasters seeking eternal life, utilizing spells of darkness and ice, summoning undead minions, and ultimately striving for Lichdom. The concept of mana slowly replenishing for spellcasting is also introduced.
+
+
+The provided text contrasts the views of those who condemn necromancers with the necromancers' self-perception. The core mechanics of a necromancer class involve dark and ice magic, undead summoning, and minion sacrifice, with the ultimate goal of achieving lichdom. Mana regeneration is a shared mechanic for all spellcasters.
+
+
+The terminology snapshot identifies relevant terms for translation accuracy checks.  Discrepancies were found in `entry-02565` for "darkness," "ice," and "undead."  The analysis now expands to verify the consistency of all terms across the remaining entries.  The term "Sun Paladin" is found to be consistently translated in `entry-02559`.
+
+
+Analysis now focuses on verifying translation consistency for the identified terms across multiple entries, specifically `Anorithil`, `Cursed`, `Corruptor`, and `Necromancer`.  Initial observation suggests full match translations for `Anorithil` ("星月术士") in `entry-02557`, as well as `Cursed` ("被诅咒者") in `entry-02541` and `Corruptor` ("腐化者") in `entry-02552`, and `Necromancer` ("死灵法师") in `entry-02565`. This strengthens the initial translation quality assessment.
+
+
+Consistency checks now extend to the terms: `Archmage`, `physical`, `fire`, `lightning`, and `blight`. The initial results show consistent translations: "元素法师" for `Archmage`, "物理" for `physical`, "火焰" for `fire`, "闪电" for `lightning`, and "枯萎" for `blight`. This expands the scope of translation quality verification.
+
+Further review shows a potential inconsistency for `light`. It is translated as "光与火" (light and fire) in conjunction with Sun, but "光明" (light) in `entry-02557`, warranting further investigation to clarify usage.
+
+
+Examining "light" and "darkness" translations, "光" and "光明" seem narrative, while "光系" and "暗影" are gameplay-related, needing consistent application. "Darkness" presents a clear inconsistency; it translates as "黑暗" in `entry-02565` but should be "暗影" based on the damage type context. "Ice" has a similar conflict between "冰系" and "寒冰"; `entry-02565` should use "寒冰" as the more accurate translation based on its usage. The translation of "stun" as "震慑" appears consistent, and "arcane" is consistently translated as "奥术". "Mind" is found to be translated as "精神".
+
+
+"震慑" (stun), "眩晕" (daze), "护盾" (shield), "治疗" (heal), "抵抗" (resistance), "诅咒" (curse), "疾病" (disease), and "恶魔" (demon) exhibit consistent, high-quality translations across their occurrences. "亡灵" is preferred over "不死" in `entry-02565` to align with the standard. "精灵" (elf) and "兽人" (orc) are also confirmed as consistent. The translation "恐惧" (fear) is consistently used when Fear is mentioned, except for "Fearscape" which is translated to "恶魔空间."
+
+
+The analysis now expands to include `orc`, `troll`, `Human`, `Lich`, `weapon`, `staff`, `The Arena`, `Gates of Morning`, and `Last Hope`. Translations appear consistent: "兽人" (orc), "巨魔" (troll), "人类" (Human), "巫妖" (Lich), "武器" (weapon), "法杖" (staff), "竞技场" (The Arena), "晨曦之门" (Gates of Morning), and "最后的希望" (Last Hope). This verification confirms each term's consistent use across the respective entries.
+
+
+Translation checks now extend to new terms. "法力值" consistently matches "mana." "活力值" accurately translates "Vim". "兽人部落" is confirmed for "Orc Pride," and "联合王国" for "Allied Kingdoms." "职业" is a consistent translation for "class," and "法术" is consistent for "spell". "奥术射线" is good for "Manathrust", "火球术" matches "Flame," and "火焰冲击" is a suitable translation for "Flameshock spell" and finally "闪电术" for "Lightning". The translations for "darkness" ("黑暗" vs "暗影"), "ice" ("冰系" vs "寒冰"), and "undead" ("不死" vs "亡灵") in `entry-02565` will be verified against the new data and previously made notes.
+
+
+Identified discrepancies in `entry-02565` for "darkness," "ice," and "undead" translations. The correct translations should be "暗影," "寒冰," and "亡灵," respectively, based on gameplay context and established terminology. Analysis now extends to `entry-02521` and `entry-02522` to confirm translation accuracy across the broader dataset, focusing on the quality of the terms used.
+
+
+Examined the translation of "leading a raid" across multiple entries. Found a discrepancy between "带领一场袭击" and "与高尔布格会面". Further investigation into the game's code, specifically the Last Hope message, suggests a potential link between a raid and Golbug. Determined that "带领" may be an accurate translation in the context of leading an attack, rather than a meeting.
+
+
+The game's narrative structure involves two distinct scenarios based on a delivery flag, each revealing a plot to send a "package" through a portal orchestrated by Golbug.  The first scenario describes the staff delivery followed by an Orc raid, while the second follows a patrol's encounter with Ukruk's group. Both narratives confirm the package's portal destination.  The reasoning must now incorporate `entry-02524`.
+
+
+The character's capabilities in ToME4 are determined by their level, with a maximum level of 50. Each level grants increased health and other energy values.  Leveling also provides different point types for character improvement.
+
+Attribute points improve the six primary attributes: Strength, Dexterity, Magic, Willpower, Cunning, and Constitution, with three points gained per level. Class talent points are awarded each level, with an extra point every five levels. Generic talent points are awarded on levels that are not multiples of five. Category talent points enhance skill tree mastery or unlock new skill trees. Experience is gained from killing appropriately leveled hostile creatures. Pressing 'p' or right-clicking and selecting 'Levelup' opens the level-up screen.
+
+
+The phrase "技能树解锁点" accurately reflects the function of "Category talent points," which are used to improve skill tree mastery or unlock new skill trees. The six primary stats are also accurately translated: "力量" (Strength), "敏捷" (Dexterity), "魔力" (Magic), "意志" (Willpower), "灵巧" (Cunning), and "体质" (Constitution). The analysis proceeds to `entry-02530`.
+
+
+The translations for "Spellpower" and "Physical save" are accurate as "法术强度" and "物理豁免," respectively. The comparison of Spellpower and Physical save to determine stun success is consistent across the source and target.
+
+
+Verified the accuracy of combat stat mechanics. Identified the combat stat's range (1-100) and color-coded tiers based on intervals of twenty, confirming color correspondence with inventory gear quality. The term "tier" is now consistently translated as "层级."  Checked the accurate color mapping for combat stat tiers. Tier 1 (1-20) corresponds to grey, Tier 2 (21-40) to white, Tier 3 (41-60) to green, Tier 4 (61-80) to blue, and Tier 5 (81-100) to purple.
+
+
+Examined `entry-02538`; the description of timed effects and the method for examining them through inflicted spells are accurately translated. Evaluated `entry-02541` which details the Cursed unlock, and all associated terms, including "Gloom" and "hate," were translated correctly. Confirmed `entry-02545`'s Arena unlock blurb, noting "The Arena" and "hack and slash MAYHEM!" were accurately translated.
+
+Assessed `entry-02552`, the Corruptor unlock blurb, confirming accurate translations for "Corruptor," "diseases," "Hex and curse," "demon plane," and "vim." Reviewed `entry-02555`'s Madness difficulty unlock blurb; translation of "Insane," "Madness," and level increases appear accurate.
+
+
+"永久死亡模式或冒险模式" accurately translates "uelike or Adventure permadeath mode." Translations for `entry-02557`, `entry-02559`, `entry-02568`, and `entry-02570` are also accurate. The review now returns to `entry-02565`. The analysis will now examine the text.
+
+
+The text describes the Necromancer class, specializing in dark and ice magic, undead summoning, and minion sacrifice, with lichdom as the ultimate goal. The game uses mana for spellcasting, which regenerates over time. The terms "darkness," "ice," and "undead" were translated inconsistently. "黑暗" should be "暗影," "冰系" should be "寒冰", and "不死" should be "亡灵" based on gameplay context.
+
+
+Verified the preferred translations for "darkness" as "暗影", "ice" as "寒冰", and "undead" as "亡灵" through code inspection across damage types, talents, and entity definitions, specifically in `unlock-mage_necromancer.lua` and related data files. The analysis now proceeds to systematically update `entry-02565` and any other problematic entries to fix these terms.
+
+
+Checked `entry-02521` for translation issues. The term "leading a raid" may require closer inspection due to a potential nuance. Reviewed `entry-02522` and confirmed no immediate critical issues, however, identified no significant new translation challenges. The ongoing consistency check continues, targeting the broader dataset.
+
+
+The message's core details are extracted: a powerful 法杖 is sought, potentially in the hands of the 兽人. An captured orc mentioned masters in 远东大陆, specifically 高尔布格, 战争领主 in 瑞库纳, who intends to send a "package" through a 传送门. The urgency is to investigate 高尔布格 or the 传送门.
+
+
+An captured orc, part of Ukruk's group, mentioned masters on the Far East continent. The war-leader Golbug in Reknor, apparently, plans to send a package through a portal. Investigating Golbug or the portal is now critical.
+
+
+The tutorial's conclusion instructs users to access the game menu with the Escape key to review key bindings, noting the initial availability of a limited number of races and classes, and encouraging exploration to unlock more. The tutorial's advice to save and exit to create a new character signifies the successful completion.
+
+
+Each character's power in ToME4 hinges on their level, capped at 50, granting increased health and resources. Leveling offers distinct points: Stat points for primary attributes, Class talent points tied to the core class, Generic talent points providing general utility, and Category talent points improving skill mastery or unlocking trees. Experience, gained by defeating equally leveled enemies, drives level progression. The level-up screen is accessed via 'p' or right-clicking the character.
+
+
+Character leveling mechanics are defined.  Generic talent points are awarded each level, except on levels divisible by five, which award class talent points and category talent points are obtained every fifth level. Experience gained from killing similarly leveled creatures results in leveling. The player can access the level-up interface via 'p' or right-clicking and selecting 'Levelup'. Confirmed all key terms are translated correctly in `entry-02538`.
+
+
+Confirmed accurate translations for terms in `entry-02538`, including "timed effects", "elves", and "tooltip".  Verified accurate translations in `entry-02541` for "Cursed," "Gloom," "stunning," and "hate."  In `entry-02545`, "The Arena" was correctly translated. Also confirmed accurate translations for `entry-02552`, including "Corruptor," related keywords, and "vim." Confirmed the translations in `entry-02555` of "Insane," "Madness," and "Roguelike or Adventure permadeath mode." Accurate translations were confirmed for `entry-02557`, including "Anorithil", "Orc Pride", "Elves and Humans".
+
+
+Confirmed the Sun Paladin entry; all tags matched. Identified translation discrepancies in the Necromancer class unlock for "darkness," "ice," and "undead." "黑暗," "冰系," and "不死" violate the terminology snapshot and should be "暗影," "寒冰," and "亡灵" respectively. The source code confirms these preferred translations. The Tempest unlock is now being analyzed.
+
+
+Checked translations for skills and talents, confirming accuracy in `entry-02570`. Verified compliance with documentation, re-reading section 7 of the specified document. Confirmed the observation requirements for the translation review process, including component, source code path, commit, and evidence details.
+
+
+Identified potential translation errors within `entry-02570`. The phrase `#LIGHT_GREEN#High Thaumaturgist class evolution#WHITE#` needs verification against its target translation. The review will now compare this blurb to the format established in other unlock descriptions such as `entry-02541`, `entry-02552`, and `entry-02557` to assess consistency.
+[Shell] grep -rn -i "category point" terminology/
+[Shell] grep -rn -i "category" terminology/
+[Thought] Verifying the observation text format in `entry-02565` against section 7, ensuring inclusion of component details, source path, commit/snapshot, and key call data. The format of the `observation` field is currently being checked against existing fixtures for consistency, such as the example in the "grok" test.
+
+
+The "生命之戒" translation requires verification against the source file (`data/general/objects/world-artifacts.lua`), ensuring "Growth" is correctly rendered.  The `tome Backlash` description requires confirming that it accurately reflects the mind damage and the relevant `DamageType.MIND` calculation within `Actor.lua`. The target entry `entry-02565` requires validating the observed translation inconsistencies in the class features text for the Mage/Necromancer unlock, specifically regarding the terms darkness, ice, and undead. The component, source path, commit, and key call details must be precisely extracted from the provided text for inclusion in `entry-02565`.
+
+
+Confirmed the structure of `entry-02565` and `OK` entries. Verified the expected JSON structure outlined in section 6, specifically key presence and content requirements for "OK" and "ISSUE" verdicts.  Cross-referenced the requirements with the provided data.
+[Shell] python3 -c ' import json candidate_identity = "d4776ec828437ce6c065564d599d520127f3db2e42dd846040d1e67d5843b750" frozen_keys = [ "entry-02521", "entry-02522", "entry-02523", "entry-02524", "entry-0...
+[Shell] python3 -B -c ' from tools.i18nlib.contextual_v2 import parse_contextual_v2_result import json raw = """{"contract":"translation_contextual_v2","candidate_identity":"d4776ec828437ce6c065564d599d520...
+[Shell] grep -rn "parse_.*contextual" tools/ tests/
+[Shell] grep -rn "translation_contextual_v2" tools/
+[Shell] python3 -B -c ' from tools.contextual_result_check import validate_contextual_result import json raw = """{"contract":"translation_contextual_v2","candidate_identity":"d4776ec828437ce6c065564d599d5...
+[Shell] grep -n "def " tools/contextual_result_check.py
+[Shell] python3 -B -c ' from tools.contextual_result_check import validate_result_bytes raw = """{"contract":"translation_contextual_v2","candidate_identity":"d4776ec828437ce6c065564d599d520127f3db2e42dd84...
+{"contract":"translation_contextual_v2","candidate_identity":"d4776ec828437ce6c065564d599d520127f3db2e42dd846040d1e67d5843b750","verdicts":[{"revision_key":"entry-02521","verdict":"OK"},{"revision_key":"entry-02522","verdict":"OK"},{"revision_key":"entry-02523","verdict":"OK"},{"revision_key":"entry-02524","verdict":"OK"},{"revision_key":"entry-02530","verdict":"OK"},{"revision_key":"entry-02533","verdict":"OK"},{"revision_key":"entry-02534","verdict":"OK"},{"revision_key":"entry-02538","verdict":"OK"},{"revision_key":"entry-02541","verdict":"OK"},{"revision_key":"entry-02545","verdict":"OK"},{"revision_key":"entry-02552","verdict":"OK"},{"revision_key":"entry-02555","verdict":"OK"},{"revision_key":"entry-02557","verdict":"OK"},{"revision_key":"entry-02559","verdict":"OK"},{"revision_key":"entry-02565","verdict":"ISSUE","observation":"tome unlock-mage_necromancer.lua（game/modules/tome/data/texts/unlock-mage_necromancer.lua，commit 624a67329fe2ad440c5b344785a9c73fcf22ae63）：Class features 原文为「- Cast darkness and ice infused spells to destroy your foes」与「- Summon an army of undead minions to do your bidding」。死灵法师施法类型与元素伤害为暗影（darkness）与寒冰（ice，见 game/modules/tome/data/damage_types.lua 与 game/modules/tome/data/talents/spells/ice.lua），召唤随从类型为亡灵（undead）。译文作「施放黑暗和冰系魔法」与「召唤一支不死随从大军」，偏离术语 darkness=>暗影、ice=>寒冰与 undead=>亡灵。"},{"revision_key":"entry-02568","verdict":"OK"},{"revision_key":"entry-02570","verdict":"OK"}]}

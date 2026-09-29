@@ -1,0 +1,112 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "wave": "public wave 1 (ctx2-pub-01/02/03, 54 revisions)",
+ "adjudicated_at": "2026-09-24",
+ "method": "ORCHESTRATOR independent verification against the frozen source, the terminology library and in-repo usage; the reviewer's severity is not taken as fact",
+ "confirmed": [
+  {
+   "revision_key": "entry-00111",
+   "bundle": "ctx2-pub-01",
+   "class": "terminology",
+   "issue": "the Embers of Rage menu renders the Tinker system / crafted tinkers as 嵌件",
+   "decision": "confirmed",
+   "authority": [
+    "terminology/items.tsv:24 tinker=蒸汽工具 (T.GAME.ENTITY, entity type, existing, Embers of Rage 实体类型)",
+    "tome-orcs.lua:1145/1235/1809 t(\"tinker\", \"蒸汽工具\", \"entity type\"/\"entity name\")",
+    "tome-orcs.lua:681 t(\"tinkers\", \"蒸汽工具\", \"_t\"); 10 in-repo uses of 蒸汽工具 vs 2 of 嵌件"
+   ],
+   "carriers": [
+    "engine.lua:1815"
+   ],
+   "scope_note": "the sibling Alchemy menu string (engine.lua:1816 药剂系统…#嵌件系统) belongs to a different revision outside the frozen workset; it is recorded as a follow-up, not edited here"
+  },
+  {
+   "revision_key": "entry-00145",
+   "bundle": "ctx2-pub-01",
+   "class": "terminology",
+   "issue": "same Embers of Rage menu text in the boot module carrier",
+   "decision": "confirmed",
+   "authority": [
+    "identical to entry-00111"
+   ],
+   "carriers": [
+    "mod-boot.lua:403"
+   ],
+   "scope_note": "same sibling note as entry-00111 (mod-boot.lua:404)"
+  },
+  {
+   "revision_key": "entry-00112",
+   "bundle": "ctx2-pub-01",
+   "class": "terminology",
+   "issue": "the Forgotten Cults menu renders New class: Writhing Ones as 扭动者",
+   "decision": "confirmed",
+   "authority": [
+    "terminology/classes.tsv:43 Writhing One=蜿蜒怪人 (birth descriptor name, existing, Cults of Entropy 职业)",
+    "tome-cults.lua:4972 要想开始你半恐魔的旅程，请选择#LIGHT_GREEN#蜿蜒怪人 — the only other in-repo carrier uses 蜿蜒怪人"
+   ],
+   "carriers": [
+    "engine.lua:1837"
+   ]
+  },
+  {
+   "revision_key": "entry-00146",
+   "bundle": "ctx2-pub-01",
+   "class": "terminology",
+   "issue": "same Forgotten Cults menu text in the boot module carrier",
+   "decision": "confirmed",
+   "authority": [
+    "identical to entry-00112"
+   ],
+   "carriers": [
+    "mod-boot.lua:425"
+   ]
+  },
+  {
+   "revision_key": "entry-00184",
+   "bundle": "ctx2-pub-01",
+   "class": "newline invariant + fidelity",
+   "issue": "the blank line between the congratulations sentence and the second paragraph is lost (\\n\\n collapsed to \\n) and it granted you became 你可以得到",
+   "decision": "confirmed",
+   "authority": [
+    "fixed commit 624a6732 game/modules/tome/class/Actor.lua:3968-3974 — unused_stats/talents/generics are granted before Dialog:simpleLongPopup, so the English is a completed fact",
+    "source contains 3 \\n, the target 2"
+   ],
+   "carriers": [
+    "mod-tome.lua"
+   ]
+  },
+  {
+   "revision_key": "entry-00221",
+   "bundle": "ctx2-pub-01",
+   "class": "fidelity (mechanic)",
+   "issue": "You may not change level without your own body! is rendered 你只能用自己的身体离开地图！, confusing change level (楼层) with leave the zone (区域) and reversing the restriction",
+   "decision": "confirmed",
+   "authority": [
+    "fixed commit 624a6732 game/modules/tome/class/Game.lua changeLevelCheck: not self.player.can_change_level → 'You may not change level without your own body!'; the separate 'You may not leave the zone with this character!' belongs to not can_change_zone"
+   ],
+   "carriers": [
+    "mod-tome.lua"
+   ]
+  }
+ ],
+ "pending": [],
+ "advisory": [],
+ "summary": {
+  "findings": 6,
+  "confirmed": 6,
+  "pending": 0,
+  "advisory": 0,
+  "entries": 6
+ },
+ "corrections": [
+  {
+   "corrected_at": "2026-09-25T00:20:00Z",
+   "by": "ORCHESTRATOR (scope-22 byte-exact re-verification)",
+   "entry_id": "entry-00111/entry-00145",
+   "was": "the sibling Alchemy menu string (engine.lua:1816/modboot.lua:404) belongs to a different revision outside the frozen workset",
+   "now": "all four 嵌件 occurrences are inside the SAME t() string as entry-00111/entry-00145 (the Tinker system line and the Salves line); they are part of the frozen revision and were fixed in scope-22",
+   "action": "scope_note superseded; both carriers fixed"
+  }
+ ]
+}

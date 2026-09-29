@@ -1,0 +1,904 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "batch_id": "batch-06",
+ "packet_sha256": "ebfa6fbaeb8651c3e9d2c28081c071e5616f6f04b64840e3b8614b4b5df68837",
+ "verify_clean": true,
+ "verify_problems": [],
+ "record_count": 40,
+ "verdict_counts": {
+  "accepted": 40
+ },
+ "model_disposition_counts": {
+  "fix": 27,
+  "no_change": 13
+ },
+ "rejected_model_claims": [
+  {
+   "entry_id": "entry-00244",
+   "claim": "去掉 ` area effect` 的前导空格造成中文拼接缺陷",
+   "verdict": "rejected",
+   "reason": "模型主张补回空格。固定源码 MapEffects.lua:23 为 `dam_def.name .. _t\" area effect\"` 直接拼接，补空格会显示「火焰 范围效果」，反证模型建议有害。"
+  },
+  {
+   "entry_id": "entry-00221",
+   "claim": "「离开地图」构成明显误译",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码 Game.lua:926-936 的 can_change_level 阻止任何换层/换区域，「离开地图」覆盖该限制，功能含义正确；level/zone 统一译法属跨条目策略，非本条缺陷。"
+  },
+  {
+   "entry_id": "entry-00345",
+   "claim": "「使这次攻击发生偏斜」弱化招架，应改「招架」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码确认招架成功挡住攻击，现译保留防御成功含义，属文风偏好，不构成缺陷。"
+  },
+  {
+   "entry_id": "entry-00185",
+   "claim": "方括号内多空格",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。用户策略明确纯静态排版不算缺陷；方括号不属「括号不一致」策略范围。"
+  },
+  {
+   "entry_id": "entry-00254",
+   "claim": "「最大 50%」与同组「最大40%」排版不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；仅为数字前空格差异，属纯静态排版，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00419",
+   "claim": "「超过1500点」与同组「超过 600 点」空格不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；纯静态排版差异，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00428",
+   "claim": "三扇传送门句式与同系列不平行",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；条件、数量、机制均正确，句式平行属文风偏好。"
+  },
+  {
+   "entry_id": "entry-00334",
+   "claim": "「杀死」应为「击杀」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；日志在敌人 on_die 中输出，「杀死」与触发事实一致，击杀仅为界面习惯差异。"
+  },
+  {
+   "entry_id": "entry-00434",
+   "claim": "「珠宝匠托付」应改为更贴近源码关系",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；Master Jeweler 对应珠宝匠，译文为可接受意译，任务名已增补，无缺陷。"
+  },
+  {
+   "entry_id": "entry-00393",
+   "claim": "复合后缀外层半角括号",
+   "verdict": "rejected_on_entry",
+   "reason": "本条 entry-00393 本身已是全角；模型所指的半角外层括号实际出现在 entry-00395–00400（同一 hrq-00046 行的其他载体），已按 bracket_fullwidth 修复那些载体。"
+  },
+  {
+   "entry_id": "entry-00184",
+   "claim": "「勇敢的向前」语病、段间缺空行",
+   "verdict": "accepted_upstream",
+   "reason": "缺陷成立，但主工作区 HEAD 11b3e963 已修（已核逐字）。按 SPEC 规则不在本 worktree 重复修改，记 defer；不接受在本分支重复改。"
+  }
+ ],
+ "records": [
+  {
+   "queue_id": "hrq-00212",
+   "entry_id": "entry-01333",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 19365,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "按用户提示整段重译。最强反证：petty gods 按术语库 preferred 已译“伪神”，保留；但 fled before his glory 是逃散而非“慑服”，方向相反；made the Sun from his breath 是以气息造出太阳，现译“深呼吸后把太阳举起”丢了创造；All that this light touches shall be mine 的所有权宣告被改成“即我所至”；his might surpassed all else 是力量胜过一切，而非“震慑众人”。四项 claim 全部成立，整句重译，保留斜体标签与伪神。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/shertul.lua",
+    "terminology/narrative.tsv (petty gods=伪神, preferred)"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；按用户提示整段重译。最强反证：petty gods 按术语库 preferred 已译“伪神”，保留；但 fled before his glory 是逃散而非“慑服”，方向相反；made the Sun from his breath 是以气息造出太阳，现译“深呼吸后把太阳举起”丢了创造；All that this light touches shall be mine 的所有权宣告被改成“即我所至”；his might surpas",
+   "applied": true,
+   "old_target": "#{italic}#但阿马克泰尔来了，他的勇武震慑了众人，伪神们慑服于他的荣耀。他深呼吸后把太阳高举到了世界之上，说：“阳光所至，即我所至，这光芒将照亮全世界。”#{normal}#",
+   "new_target": "#{italic}#但阿马克泰尔来了，他的力量胜过一切，伪神们在他的荣耀面前纷纷逃散。他以自己的气息造出太阳，将其高举于世界之上，说道：“凡此光所照之处，皆归我所有；此光必将照耀整个世界。”#{normal}#",
+   "section": "mod-tome/data/lore/shertul.lua",
+   "source": "#{italic}#'But AMAKTHEL came, and his might surpassed all else, and the petty gods fled before his glory. And he made the Sun from his breath and held it above the world and said, \"All that this light touches shall be mine, and this light shall touch all the world.'#{normal}#"
+  },
+  {
+   "queue_id": "hrq-00213",
+   "entry_id": "entry-01334",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 19370,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "外层直引号换成中文双引号只是引文呈现方式，异语音节、内部半角双引号与斜体标签全部保留；嵌套引号体例属 advisory，用户提示不升级为正确性问题。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/shertul.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；外层直引号换成中文双引号只是引文呈现方式，异语音节、内部半角双引号与斜体标签全部保留；嵌套引号体例属 advisory，用户提示不升级为正确性问题。",
+   "applied": false,
+   "old_target": "不明意义的文字：#{italic}#“Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"”#{normal}#",
+   "new_target": null,
+   "section": "mod-tome/data/lore/shertul.lua",
+   "source": "which you do not understand: #{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#"
+  },
+  {
+   "queue_id": "hrq-00214",
+   "entry_id": "entry-01347",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 19639,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "源文首段与第二段之间为单换行，译文多一个空行；这是纯静态分段差异，内容无增减，且本批禁止改变换行序列；先例 hrq-00209 同样不改。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/sunwall.lua",
+    "evidence/translation-audit/all-modified-review-20260922/human-review-queue-20260923/ADJUDICATION-batch-05.md (hrq-00209)"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；源文首段与第二段之间为单换行，译文多一个空行；这是纯静态分段差异，内容无增减，且本批禁止改变换行序列；先例 hrq-00209 同样不改。",
+   "applied": false,
+   "old_target": "博学者温罗提在此。我受命撰写一部太阳堡垒官方史。这本笔记将记录我四处旅行、采访众人的过程。如果你正在读它，那你要么是我的资助人（再次感谢您，先生！），要么是个偷看者（滚出我的日记！），要么是发现我尸体的人。若是最后一种，请把它带给太阳堡垒城的弗洛萨斯领主领取酬谢，告诉我的妻子我是怎么死的，再告诉孩子们我爱他们。\n\n闲话到此，我将从调查精灵及其与太阳堡垒的联系开始这项工作。考虑到精灵的寿命和他们热衷于铭记自身历史的性情，他们应该是较容易采访的种族之一。当然，如今这里的精灵已经不像过去那么多了。\n……\n然而不幸的是，当地精灵也不愿向我讲述他们的历史，说他们没有早期时代的记录。不过我听说，有位名叫桑切尔的人很乐意帮忙。唯一的问题是，他人在一座庞大兽人营地的另一边，所以我需要一名护卫协助。到时候再看吧。我可听说过有关那些冒险者护卫的传闻……",
+   "new_target": null,
+   "section": "mod-tome/data/lore/sunwall.lua",
+   "source": "Loremaster Verutir here. I have been assigned to write an official chronicle of the history of the Sunwall. This will be my notebook as I interview people and travel from place to place. If you are reading this, you are either my patron (thanks again, sir!), a sneak (get out of my journal!), or the finder of my corpse. If the last, please take this to Lord Forosyth of the town of the Sunwall for a reward, tell my wife how I died, and tell the kids that I love them.\nWith that said I shall be starting this project by investigating the Elves and their connection to the Sunwall. They should be one of the easier races to interview considering their life expectancy and their penchant for remembering their own history. Of course, there aren't as many of them around as there used to be.\n...\nUnfortunately though, our local Elves are also unwilling to talk to me about their history, saying they do not have records of the earlier times. However, there is a fellow Thanchir who I hear would be happy to help. The only problem is that he lies on the other side of a huge encampment of orcs, so I will need an escort to help me. We will see how that goes. I have heard things about those adventurer escorts ..."
+  },
+  {
+   "queue_id": "hrq-00215",
+   "entry_id": "entry-01382",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20175,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "现译确实漏掉 A few Sun Paladins made it there with you（是随你一同赶到的几名太阳骑士），且 hold the line at the cost of their lives 被压成“顶在最前线用生命帮你”。补出“与你一同赶到”并按原文拆句；Sun Paladin 按术语库“太阳骑士”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/charred-scar.lua",
+    "terminology/classes.tsv (Sun Paladin=太阳骑士)"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；现译确实漏掉 A few Sun Paladins made it there with you（是随你一同赶到的几名太阳骑士），且 hold the line at the cost of their lives 被压成“顶在最前线用生命帮你”。补出“与你一同赶到”并按原文拆句；Sun Paladin 按术语库“太阳骑士”。",
+   "applied": true,
+   "old_target": "火山受到了兽人的攻击，一些太阳骑士正顶在最前线用他们的生命来帮助你争取一些时间。",
+   "new_target": "火山正遭到兽人的攻击。几名太阳骑士与你一同赶到了这里，他们将不惜牺牲生命坚守防线，为你争取一些时间。",
+   "section": "mod-tome/data/quests/charred-scar.lua",
+   "source": "The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time."
+  },
+  {
+   "queue_id": "hrq-00216",
+   "entry_id": "entry-01384",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20177,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“来的太晚”补语应用“得”，属语法修正，改为“来得太晚”。the sorcerers 指前文要阻止的施法者，“那些法师”已是定指，不构成误译。称谓一致性 claim：本节 logPlayer 两条用“巫师们”，但 high-peak 节与全库 Sorcerers 为 巫师10／法师9 并存，术语库无条目；统一属跨批次策略，未授权，本条不改名。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/charred-scar.lua",
+    "mod-tome.lua:20180-20181 (巫师们), mod-tome.lua:20264,20267 (法师)"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“来的太晚”补语应用“得”，属语法修正，改为“来得太晚”。the sorcerers 指前文要阻止的施法者，“那些法师”已是定指，不构成误译。称谓一致性 claim：本节 logPlayer 两条用“巫师们”，但 high-peak 节与全库 Sorcerers 为 巫师10／法师9 并存，术语库无条目；统一属跨批次策略，未授权，本条不改名。",
+   "applied": true,
+   "old_target": "你来的太晚了，这里的能量已经被吸干，而那些法师已经离开了。",
+   "new_target": "你来得太晚了，这里的能量已经被吸干，而那些法师已经离开了。",
+   "section": "mod-tome/data/quests/charred-scar.lua",
+   "source": "You arrived too late. The place has been drained of its power and the sorcerers have left."
+  },
+  {
+   "queue_id": "hrq-00217",
+   "entry_id": "entry-01385",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20178,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "go back to the Far East 是返回，现译“到达”丢失返回方向，改“返回”；*MUST* 在源串中用星号强调，现译无强调，按源串保留星号“*必须*”。远东大陆沿用本仓既有译法。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/charred-scar.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；go back to the Far East 是返回，现译“到达”丢失返回方向，改“返回”；*MUST* 在源串中用星号强调，现译无强调，按源串保留星号“*必须*”。远东大陆沿用本仓既有译法。",
+   "applied": true,
+   "old_target": "使用传送门到达远东大陆，你必须阻止他们，不惜一切代价。",
+   "new_target": "使用传送门返回远东大陆，你*必须*阻止他们，不惜一切代价。",
+   "section": "mod-tome/data/quests/charred-scar.lua",
+   "source": "Use the portal to go back to the Far East. You *MUST* stop them, no matter the cost."
+  },
+  {
+   "queue_id": "hrq-00218",
+   "entry_id": "entry-01386",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20179,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "departed 为离开，现译“被驱散”把自行离开改成被动驱散，与同节日志“巫师们已经离开”也矛盾；“终于”无原文依据。改为“及时赶到并打断了仪式，法师们已经离去”。称谓沿用本条原“法师”，统一问题同 hrq-00216。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/charred-scar.lua",
+    "mod-tome.lua:20180"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；departed 为离开，现译“被驱散”把自行离开改成被动驱散，与同节日志“巫师们已经离开”也矛盾；“终于”无原文依据。改为“及时赶到并打断了仪式，法师们已经离去”。称谓沿用本条原“法师”，统一问题同 hrq-00216。",
+   "applied": true,
+   "old_target": "你终于及时赶来阻止了仪式，法师们被驱散了。",
+   "new_target": "你及时赶到并打断了仪式，法师们已经离去。",
+   "section": "mod-tome/data/quests/charred-scar.lua",
+   "source": "You arrived in time and interrupted the ritual. The sorcerers have departed."
+  },
+  {
+   "queue_id": "hrq-00219",
+   "entry_id": "entry-01389",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20192,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原文句末为句号，“～。”是凭空加入的语气符号且叠用标点，删“～”。整体语域 advisory 不在本条处理。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/deep-bellow.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文句末为句号，“～。”是凭空加入的语气符号且叠用标点，删“～”。整体语域 advisory 不在本条处理。",
+   "applied": true,
+   "old_target": "你从瑞库纳逃了出来，你觉得你的心脏狂跳不止，你对财富和力量的渴望增加了十倍～。",
+   "new_target": "你从瑞库纳逃了出来，你觉得你的心脏狂跳不止，你对财富和力量的渴望增加了十倍。",
+   "section": "mod-tome/data/quests/deep-bellow.lua",
+   "source": "Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold."
+  },
+  {
+   "queue_id": "hrq-00220",
+   "entry_id": "entry-01391",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20194,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "from time to time 是“不时”，现译“不断有”强化频率，属 fidelity 偏差，改“仍不时有”；“已被尘封已久”重复“已”属语病，一并改为“已被尘封许久”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/deep-bellow.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；from time to time 是“不时”，现译“不断有”强化频率，属 fidelity 偏差，改“仍不时有”；“已被尘封已久”重复“已”属语病，一并改为“已被尘封许久”。",
+   "applied": true,
+   "old_target": "那里已被尘封已久，但是还是不断有冒险者前去寻找财宝。",
+   "new_target": "那里已被尘封许久，但仍不时有冒险者前去寻找财宝。",
+   "section": "mod-tome/data/quests/deep-bellow.lua",
+   "source": "It has been long sealed away but still, from time to time adventurers go there looking for wealth."
+  },
+  {
+   "queue_id": "hrq-00221",
+   "entry_id": "entry-01392",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20195,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "You are great 是肯定，“比较”弱化程度，删除；同句重写时“牛 X”这一粗俗俚语不合任务日志语域，替换为“你很了不起”。None…has come back yet 的 yet 补“至今”，现译“活着回来”增加的“活着”一并去掉。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/deep-bellow.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；You are great 是肯定，“比较”弱化程度，删除；同句重写时“牛 X”这一粗俗俚语不合任务日志语域，替换为“你很了不起”。None…has come back yet 的 yet 补“至今”，现译“活着回来”增加的“活着”一并去掉。",
+   "applied": true,
+   "old_target": "据你所知没有一个人能活着回来，不过你从瑞库纳幸存了下来，你比较牛 X。",
+   "new_target": "据你所知，至今还没有人回来过，不过你毕竟从瑞库纳幸存了下来。你很了不起。",
+   "section": "mod-tome/data/quests/deep-bellow.lua",
+   "source": "None that you know of has come back yet, but you did survive Reknor. You are great."
+  },
+  {
+   "queue_id": "hrq-00222",
+   "entry_id": "entry-01400",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20216,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "swapped the orb for a false one 是掉包成假货，现译“换了个错的水晶球”未表达蓄意伪造，改“用一个假水晶球掉了包”。demonic plane 改“恶魔位面”的 claim 驳回：术语库无条目，本仓“恶魔空间”28 处、“恶魔位面”2 处，现译顺势对齐为主流“恶魔空间”，不另立新译名。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/east-portal.lua",
+    "mod-tome.lua (恶魔空间×28)"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；swapped the orb for a false one 是掉包成假货，现译“换了个错的水晶球”未表达蓄意伪造，改“用一个假水晶球掉了包”。demonic plane 改“恶魔位面”的 claim 驳回：术语库无条目，本仓“恶魔空间”28 处、“恶魔位面”2 处，现译顺势对齐为主流“恶魔空间”，不另立新译名。",
+   "applied": true,
+   "old_target": "泰恩把你耍了！他换了个错的水晶球给你，把你传送到了恶魔的空间，找到出口回去找他算账！",
+   "new_target": "泰恩把你耍了！他用一个假水晶球掉了包，把你传送到了恶魔空间。找到出口，回去找他算账！",
+   "section": "mod-tome/data/quests/east-portal.lua",
+   "source": "Tannen has tricked you! He swapped the orb for a false one that brought you to a demonic plane. Find the exit, and get revenge!"
+  },
+  {
+   "queue_id": "hrq-00223",
+   "entry_id": "entry-01408",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20263,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "Orc Pride 术语库为“兽人部落”，本仓同名其余 5 处均为“兽人部落”，“兽人军团”造成同族不一致；vanquished the masters 是击败各部落首领（同文件其余处也写 defeated the Sorcerers），“征服”不合，改“击败了兽人部落的首领们”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/high-peak.lua",
+    "terminology/society.tsv (Orc Pride=兽人部落)"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；Orc Pride 术语库为“兽人部落”，本仓同名其余 5 处均为“兽人部落”，“兽人军团”造成同族不一致；vanquished the masters 是击败各部落首领（同文件其余处也写 defeated the Sorcerers），“征服”不合，改“击败了兽人部落的首领们”。",
+   "applied": true,
+   "old_target": "你征服了兽人军团的最高领袖，现在你必须向这个世界最危险的地方挺进：巅峰。",
+   "new_target": "你击败了兽人部落的首领们，现在你必须向这个世界最危险的地方挺进：巅峰。",
+   "section": "mod-tome/data/quests/high-peak.lua",
+   "source": "You have vanquished the masters of the Orc Pride. Now you must venture inside the most dangerous place of this world: the High Peak."
+  },
+  {
+   "queue_id": "hrq-00224",
+   "entry_id": "entry-01409",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20264,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "bend the world to their will 是让世界屈从其意志，“妄图扭曲这个世界”侧重不同但仍表达了威胁世界的图谋；模型自标 advisory，用户提示为文风取舍，不构成一级缺陷。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/high-peak.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；bend the world to their will 是让世界屈从其意志，“妄图扭曲这个世界”侧重不同但仍表达了威胁世界的图谋；模型自标 advisory，用户提示为文风取舍，不构成一级缺陷。",
+   "applied": false,
+   "old_target": "找到那些妄图扭曲这个世界的法师并阻止他们。",
+   "new_target": null,
+   "section": "mod-tome/data/quests/high-peak.lua",
+   "source": "Seek the Sorcerers and stop them before they bend the world to their will."
+  },
+  {
+   "queue_id": "hrq-00225",
+   "entry_id": "entry-01410",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20265,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "the peak 指巅峰（High Peak）这座山峰，“塔顶”错译地点，改“峰顶”；orbs of command 在本仓实体名一律“指令水晶球”（mod-tome.lua:11613-11620、20477），现译“指令水晶”缺“球”造成同族不一致，补齐。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/high-peak.lua",
+    "mod-tome.lua:11613 (orb of command=指令水晶球)"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；the peak 指巅峰（High Peak）这座山峰，“塔顶”错译地点，改“峰顶”；orbs of command 在本仓实体名一律“指令水晶球”（mod-tome.lua:11613-11620、20477），现译“指令水晶”缺“球”造成同族不一致，补齐。",
+   "applied": true,
+   "old_target": "想要进去的话，你必须找到那四个指令水晶来移除塔顶的防护罩。",
+   "new_target": "想要进去的话，你必须找到那四个指令水晶球来移除峰顶的防护罩。",
+   "section": "mod-tome/data/quests/high-peak.lua",
+   "source": "To enter, you will need the four orbs of command to remove the shield over the peak."
+  },
+  {
+   "queue_id": "hrq-00226",
+   "entry_id": "entry-01424",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20357,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "现译“没能成功地将她护送出地宫”缺主谓语 protect her，且把失败对象从“保护”改成“护送到位”；改为“你没能在护送她离开这个地宫时保护好她”。crypt 保持同节“地宫”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/kryl-feijan-escape.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；现译“没能成功地将她护送出地宫”缺主谓语 protect her，且把失败对象从“保护”改成“护送到位”；改为“你没能在护送她离开这个地宫时保护好她”。crypt 保持同节“地宫”。",
+   "applied": true,
+   "old_target": "你没能成功地将她护送出这个地宫。",
+   "new_target": "你没能在护送她离开这个地宫时保护好她。",
+   "section": "mod-tome/data/quests/kryl-feijan-escape.lua",
+   "source": "You failed to protect her when escorting her out of the crypt."
+  },
+  {
+   "queue_id": "hrq-00227",
+   "entry_id": "entry-01432",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20426,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“目的从句实质误译”的 claim 驳回：so she can come and go freely 的含义现译已表达。“他让”是“好让”的错字，同时引入原文未有的性别代词；按错字改为“好让她能够自由来去”，不做实质改写。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/love-melinda.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“目的从句实质误译”的 claim 驳回：so she can come and go freely 的含义现译已表达。“他让”是“好让”的错字，同时引入原文未有的性别代词；按错字改为“好让她能够自由来去”，不做实质改写。",
+   "applied": true,
+   "old_target": "堡垒之影为她建造了一个传送门，他让她能够自由来去。",
+   "new_target": "堡垒之影为她建造了一个传送门，好让她能够自由来去。",
+   "section": "mod-tome/data/quests/love-melinda.lua",
+   "source": "The Fortress Shadow has established a portal for her so she can come and go freely."
+  },
+  {
+   "queue_id": "hrq-00228",
+   "entry_id": "entry-01438",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20463,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "gems 在同节日志译“宝石的力量”（mod-tome.lua:20466），本条“珠宝”造成同节不一致且不准确；ancient tome 的“古老典籍”被弱化为“旧书”。改“你发现了一本关于宝石的古籍”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/master-jeweler.lua",
+    "mod-tome.lua:20466"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；gems 在同节日志译“宝石的力量”（mod-tome.lua:20466），本条“珠宝”造成同节不一致且不准确；ancient tome 的“古老典籍”被弱化为“旧书”。改“你发现了一本关于宝石的古籍”。",
+   "applied": true,
+   "old_target": "你发现一本关于珠宝的旧书。",
+   "new_target": "你发现了一本关于宝石的古籍。",
+   "section": "mod-tome/data/quests/master-jeweler.lua",
+   "source": "You found an ancient tome about gems."
+  },
+  {
+   "queue_id": "hrq-00229",
+   "entry_id": "entry-01450",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20566,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "任务名 Till the Blood Runs Clear 的确切引申义（战至血尽／冲洗至血色褪去）无源码或设定证据可定；现译“直到鲜血流清”是保守直译，未与同节任何内容矛盾。直译感属二级 advisory；pending claim 缺证据，不据以改名。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/ring-of-blood.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；任务名 Till the Blood Runs Clear 的确切引申义（战至血尽／冲洗至血色褪去）无源码或设定证据可定；现译“直到鲜血流清”是保守直译，未与同节任何内容矛盾。直译感属二级 advisory；pending claim 缺证据，不据以改名。",
+   "applied": false,
+   "old_target": "直到鲜血流清",
+   "new_target": null,
+   "section": "mod-tome/data/quests/ring-of-blood.lua",
+   "source": "Till the Blood Runs Clear"
+  },
+  {
+   "queue_id": "hrq-00230",
+   "entry_id": "entry-01462",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20631,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“一队兽人小队”量词与名词重复，属语病修正；对齐同节孪生分支 mod-tome.lua:20633 句式“当你走出恐惧王座时，你遭到一队兽人伏击”，ambushed 也由“偷袭”改“伏击”与同节一致。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/staff-absorption.lua",
+    "mod-tome.lua:20633"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“一队兽人小队”量词与名词重复，属语病修正；对齐同节孪生分支 mod-tome.lua:20633 句式“当你走出恐惧王座时，你遭到一队兽人伏击”，ambushed 也由“偷袭”改“伏击”与同节一致。",
+   "applied": true,
+   "old_target": "当你走出恐惧王座的时候你受到了一队兽人小队的偷袭。",
+   "new_target": "当你走出恐惧王座时，你遭到一队兽人伏击。",
+   "section": "mod-tome/data/quests/staff-absorption.lua",
+   "source": "On your way out of the Dreadfell you were ambushed by a band of orcs."
+  },
+  {
+   "queue_id": "hrq-00231",
+   "entry_id": "entry-01463",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20634,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "They asked about the staff 是兽人向你问起法杖，现译“从你那里得知了法杖的消息”颠倒信息流向，并与同源分支后句 You told them nothing（mod-tome.lua:20636“你什么也没告诉他们”）矛盾；该键在源码第 32、36 行两个分支共用。对齐同节 20632“他们问起了法杖的事”，改为“他们问起了法杖的事，并把它从你手中抢走了”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/staff-absorption.lua lines 29,32,36-37",
+    "mod-tome.lua:20632,20636"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；They asked about the staff 是兽人向你问起法杖，现译“从你那里得知了法杖的消息”颠倒信息流向，并与同源分支后句 You told them nothing（mod-tome.lua:20636“你什么也没告诉他们”）矛盾；该键在源码第 32、36 行两个分支共用。对齐同节 20632“他们问起了法杖的事”，改为“他们问起了法杖的事，并把它从你手中抢走了”。",
+   "applied": true,
+   "old_target": "他们从你那里得知了法杖的消息，把法杖抢走了。",
+   "new_target": "他们问起了法杖的事，并把它从你手中抢走了。",
+   "section": "mod-tome/data/quests/staff-absorption.lua",
+   "source": "They asked about the staff and stole it from you."
+  },
+  {
+   "queue_id": "hrq-00232",
+   "entry_id": "entry-01464",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20637,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "“辐射出的力量和危险”仅有直译感，力量、危险与不敢使用均已表达；模型自标 advisory，属二级文风。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/staff-absorption.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“辐射出的力量和危险”仅有直译感，力量、危险与不敢使用均已表达；模型自标 advisory，属二级文风。",
+   "applied": false,
+   "old_target": "在他的尸体上，你发现了一根奇怪的法杖，它辐射出的力量和危险使你不敢使用它。",
+   "new_target": null,
+   "section": "mod-tome/data/quests/staff-absorption.lua",
+   "source": "In its remains, you found a strange staff. It radiates power and danger and you dare not use it yourself."
+  },
+  {
+   "queue_id": "hrq-00233",
+   "entry_id": "entry-01468",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20691,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "源码前一句是你和诺尔甘须赶回钢铁议会报信，Let nothing stop you 是“别让任何东西阻挡你”；现译加入“不惜一切代价”和“冲出去”两层原文没有的含义，后者还把回国报信改成突围。改为忠实版。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/start-dwarf.lua lines 25-26"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源码前一句是你和诺尔甘须赶回钢铁议会报信，Let nothing stop you 是“别让任何东西阻挡你”；现译加入“不惜一切代价”和“冲出去”两层原文没有的含义，后者还把回国报信改成突围。改为忠实版。",
+   "applied": true,
+   "old_target": "不惜一切代价冲出去。",
+   "new_target": "别让任何东西阻挡你。",
+   "section": "mod-tome/data/quests/start-dwarf.lua",
+   "source": "Let nothing stop you."
+  },
+  {
+   "queue_id": "hrq-00234",
+   "entry_id": "entry-01474",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20754,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "carve a place for yourself in the world 是在世上为自己谋得一席之地，现译“找到属于自己的栖息地”缩成找住处，且丢了 try 与 in the world；改译并按原文两句断句。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/start-undead.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；carve a place for yourself in the world 是在世上为自己谋得一席之地，现译“找到属于自己的栖息地”缩成找住处，且丢了 try 与 in the world；改译并按原文两句断句。",
+   "applied": true,
+   "old_target": "不过，复活仪式似乎出了点问题，你保留了自己的意识，你必须离开这个黑暗地方并找到属于自己的栖息地。",
+   "new_target": "不过，复活仪式似乎出了点问题，你保留了自己的意识。你必须离开这个黑暗的地方，设法在这个世界上为自己谋得一席之地。",
+   "section": "mod-tome/data/quests/start-undead.lua",
+   "source": "However, the ritual failed in some way and you retain your own mind. You need to get out of this dark place and try to carve a place for yourself in the world."
+  },
+  {
+   "queue_id": "hrq-00235",
+   "entry_id": "entry-01479",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20781,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "far west 是遥远的西面，“远一点的西面”弱化距离；只改该短语，保留同节“在德斯镇……是……”句式。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/starter-zones.lua",
+    "terminology/places.tsv (derth=德斯镇)"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；far west 是遥远的西面，“远一点的西面”弱化距离；只改该短语，保留同节“在德斯镇……是……”句式。",
+   "applied": true,
+   "old_target": "在德斯镇远一点的西面，靠近海岸的地方是沙虫巢穴。",
+   "new_target": "在德斯镇遥远的西面，靠近海岸的地方是沙虫巢穴。",
+   "section": "mod-tome/data/quests/starter-zones.lua",
+   "source": "The Sandworm Lair is to the far west of Derth, near the sea."
+  },
+  {
+   "queue_id": "hrq-00236",
+   "entry_id": "entry-01482",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20800,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "最强反证：同节前一条（mod-tome.lua:20799）已写“你经由远行传送门抵达了一处山洞”，本句紧接其后，Upon arrival 的时间承接已由上下文表达；模型自标 advisory，不构成漏译。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/strange-new-world.lua",
+    "mod-tome.lua:20799"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；最强反证：同节前一条（mod-tome.lua:20799）已写“你经由远行传送门抵达了一处山洞”，本句紧接其后，Upon arrival 的时间承接已由上下文表达；模型自标 advisory，不构成漏译。",
+   "applied": false,
+   "old_target": "你碰到了一个精灵在和一个兽人战斗。",
+   "new_target": null,
+   "section": "mod-tome/data/quests/strange-new-world.lua",
+   "source": "Upon arrival you met an Elf and an orc fighting."
+  },
+  {
+   "queue_id": "hrq-00237",
+   "entry_id": "entry-01486",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20813,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "his side of the story 是萨拉苏尔一方的说法，与前条乌克勒姆斯维奇的指控对立，决定谁堕落正依赖这一对立；“关于他的故事”丢了立场含义。只改该短语，问号保留原文问句。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/temple-of-creation.lua",
+    "mod-tome.lua:20812"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；his side of the story 是萨拉苏尔一方的说法，与前条乌克勒姆斯维奇的指控对立，决定谁堕落正依赖这一对立；“关于他的故事”丢了立场含义。只改该短语，问号保留原文问句。",
+   "applied": true,
+   "old_target": "萨拉苏尔告诉了你关于他的故事，你现在必须决定：到底谁才是真正的堕落者？",
+   "new_target": "萨拉苏尔向你讲述了他这一方的说法，你现在必须决定：到底谁才是真正的堕落者？",
+   "section": "mod-tome/data/quests/temple-of-creation.lua",
+   "source": "Slasul told you his side of the story. Now you must decide: which of them is corrupt?"
+  },
+  {
+   "queue_id": "hrq-00238",
+   "entry_id": "entry-01491",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20857,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "randomly attacks villagers 是随机袭击，现译“肆意屠杀村民的凶手”把袭击强化为屠杀并加了“凶手”定性，属 fidelity 偏差；改为“那头会随机袭击村民的孤狼”。Lone Wolf 按术语库 preferred“孤狼”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/tutorial.lua",
+    "terminology/creatures.tsv (Lone Wolf=孤狼, preferred)"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；randomly attacks villagers 是随机袭击，现译“肆意屠杀村民的凶手”把袭击强化为屠杀并加了“凶手”定性，属 fidelity 偏差；改为“那头会随机袭击村民的孤狼”。Lone Wolf 按术语库 preferred“孤狼”。",
+   "applied": true,
+   "old_target": "你必须进入森林的中心地带并杀死孤狼——那个肆意屠杀村民的凶手。",
+   "new_target": "你必须深入森林的中心地带，杀死那头会随机袭击村民的孤狼。",
+   "section": "mod-tome/data/quests/tutorial.lua",
+   "source": "You must venture in the heart of the forest and kill the Lone Wolf, who randomly attacks villagers."
+  },
+  {
+   "queue_id": "hrq-00239",
+   "entry_id": "entry-01496",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20882,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "源码 west-portal.lua:74-80 在放置传送门地形（makeEntityByName cportal）后输出此日志，传送门此时已建成可用，“传送门已经开启”与场景一致；模型已将 claim 标 refuted。Zemekkys 沿用同节“泽梅基斯”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/west-portal.lua lines 74-80"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；源码 west-portal.lua:74-80 在放置传送门地形（makeEntityByName cportal）后输出此日志，传送门此时已建成可用，“传送门已经开启”与场景一致；模型已将 claim 标 refuted。Zemekkys 沿用同节“泽梅基斯”。",
+   "applied": false,
+   "old_target": "#VIOLET#泽梅基斯说道：“传送门已经开启！”",
+   "new_target": null,
+   "section": "mod-tome/data/quests/west-portal.lua",
+   "source": "#VIOLET#Zemekkys says: 'The portal is done!'"
+  },
+  {
+   "queue_id": "hrq-00240",
+   "entry_id": "entry-01498",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 20894,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原文顺序是找到路（Find it）→ 探索远东 → 寻找线索（looking for clues 修饰 explore），现译把“寻找线索”提到找路之前，动作关系颠倒；同句 far east 被译成“远东大陆”与“遥远的东方”两个称呼。按原文顺序重排并统一为“远东大陆”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/wild-wild-east.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文顺序是找到路（Find it）→ 探索远东 → 寻找线索（looking for clues 修饰 explore），现译把“寻找线索”提到找路之前，动作关系颠倒；同句 far east 被译成“远东大陆”与“遥远的东方”两个称呼。按原文顺序重排并统一为“远东大陆”。",
+   "applied": true,
+   "old_target": "在高尔布格巢穴内肯定有一条通往远东大陆的路，去寻找线索并找到它，然后探索那未知而遥远的东方。",
+   "new_target": "在高尔布格的巢穴内肯定有一条通往远东大陆的路。找到它，然后探索那片未知的远东大陆，寻找线索。",
+   "section": "mod-tome/data/quests/wild-wild-east.lua",
+   "source": "There must be a way to go into the far east from the lair of Golbug. Find it and explore the unknown far east, looking for clues."
+  },
+  {
+   "queue_id": "hrq-00241",
+   "entry_id": "entry-01508",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21014,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "8 个占位符数量、类型、顺序正确；标点与斜杠前空格不统一属纯静态排版，模型自标 advisory，按用户策略不整理。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/chants.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；8 个占位符数量、类型、顺序正确；标点与斜杠前空格不统一属纯静态排版，模型自标 advisory，按用户策略不整理。",
+   "applied": false,
+   "old_target": "你学会了三种防御赞歌，以此咏唱对太阳的赞颂：\n\t\t\t坚韧赞歌：增加 %d 精神豁免，%d%% 最大生命值\n\t\t\t堡垒赞歌：增加 %d 物理豁免，%d%% 物理抗性，%d 护甲，15%% 护甲强度\n\t\t\t元素赞歌：增加 %d 法术豁免，%d%% 火焰 /寒冷 /闪电 /酸性抗性，减少三格外敌人对你造成的伤害 %d%%。\n\t\t\t你同时只能激活一种赞歌。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/celestial/chants.lua",
+   "source": "You have learned to sing the praises of the Sun, in the form of three defensive Chants.\n\t\t\tChant of Fortitude: Increases your mental save by %d and maximum life by %d%%.\n\t\t\tChant of Fortress: Increases your physical save by %d, your physical resistance by %d%%, your armour by %d and your armour hardiness by 15%%.\n\t\t\tChant of Resistance: Increases you spell save by %d, your fire/cold/lightning/acid resistances by %d%% and reduces all damage that comes from distant enemies (3 spaces or more) by %d%%.\n\t\t\tYou may only have one Chant active at a time."
+  },
+  {
+   "queue_id": "hrq-00242",
+   "entry_id": "entry-01509",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21029,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "占位符 claim 成立无需改。机制 claim 经源码核实：Chant Adept.doCure 只对 e.type == type 且 subtype[\"cross tier\"] 的效果全部移除，其余同类型负面效果 rng.tableRemove 随机移除最多 cures 个。现译列出三种越层效果并说“解除自身的越层效果”，读作全部解除；“额外解除 %d 项”也缺随机与“至多”。改为“解除所有相应类型的越层效果（……或……），并随机解除至多 %d 项”。英文 all cross-tier 与实现不符，译文贴合实现。Gemini 的 refuted claim 不影响结论。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/chants.lua lines 344-380"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；占位符 claim 成立无需改。机制 claim 经源码核实：Chant Adept.doCure 只对 e.type == type 且 subtype[\"cross tier\"] 的效果全部移除，其余同类型负面效果 rng.tableRemove 随机移除最多 cures 个。现译列出三种越层效果并说“解除自身的越层效果”，读作全部解除；“额外解除 %d 项”也缺随机与“至多”。改为“解除所有相应类型的越层效果（……或……），并随机",
+   "applied": true,
+   "old_target": "咏唱赞歌的娴熟技艺让光明得以扩散，增加 %d 光照半径。\n\t\t每次你咏唱新的赞歌时，你将解除自身的越层效果（失去平衡、法术冲击和思维封锁），并额外解除 %d 项相应类型的负面状态。\n\t\t坚韧赞歌：解除精神负面状态\n\t\t堡垒赞歌：解除物理负面状态\n\t\t元素赞歌：解除魔法负面状态。",
+   "new_target": "咏唱赞歌的娴熟技艺让光明得以扩散，增加 %d 光照半径。\n\t\t每次你咏唱新的赞歌时，你将解除所有相应类型的越层效果（失去平衡、法术冲击或思维封锁），并随机解除至多 %d 项相应类型的负面状态。\n\t\t坚韧赞歌：解除精神负面状态\n\t\t堡垒赞歌：解除物理负面状态\n\t\t元素赞歌：解除魔法负面状态。",
+   "section": "mod-tome/data/talents/celestial/chants.lua",
+   "source": "Your skill at Chanting now extends the cloak of light, increasing your light radius by %d.\n\t\tAlso, when you start a new Chant, you will be cured of all cross-tier effects and cured of up to %d debuffs.\n\t\tChant of Fortitude cures mental effects.\n\t\tChant of Fortress cures physical effects.\n\t\tChant of Resistance cures magical effects."
+  },
+  {
+   "queue_id": "hrq-00243",
+   "entry_id": "entry-01510",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21053,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "半径、伤害、持续时间三个 %d 顺序正确；最后一句另起一行属纯静态排版，且本批禁止改变换行序列。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/circles.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；半径、伤害、持续时间三个 %d 顺序正确；最后一句另起一行属纯静态排版，且本批禁止改变换行序列。",
+   "applied": false,
+   "old_target": "在你的脚下制造一个 %d 码半径范围的法阵，当你在法阵内，它会使你免疫沉默效果，并沉默进入此范围的其他所有生物，对其造成 %d 光系伤害。\n\t\t法阵持续 %d 回合。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/celestial/circles.lua",
+   "source": "Creates a circle of radius %d at your feet; the circle protects you from silence effects while you remain in its radius while silencing and dealing %d light damage to everyone else who enters. The circle lasts %d turns."
+  },
+  {
+   "queue_id": "hrq-00244",
+   "entry_id": "entry-01512",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21076,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "%0.1f 与 %d 对齐；“护盾至少持续 2 回合”一句在冻结英文源串中本就不存在，不是译文遗漏，不能凭其他版本补入。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/combat.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；%0.1f 与 %d 对齐；“护盾至少持续 2 回合”一句在冻结英文源串中本就不存在，不是译文遗漏，不能凭其他版本补入。",
+   "applied": false,
+   "old_target": "使你的武器充满太阳能量，每次近战命中造成 %0.1f 光系伤害。\n\t\t如果你同时打开了临时伤害护盾，每回合一次，你的近战攻击命中可以增加护盾 %d 强度。\n\t\t伤害和护盾加成受法术强度加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/celestial/combat.lua",
+   "source": "Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\n\t\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d once per turn.\n\t\tThe damage dealt and shield bonus will increase with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00245",
+   "entry_id": "entry-01514",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21091,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "四个占位符含义与顺序正确。首行原文 (up to %d, Current: %d). 带括号和句号，现译“至多 %d 点，当前 %d 点”后缺句末标点，属标点修正；按原文补全角括号与句号，additional 补“额外”。换行保持不变。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/combat.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；四个占位符含义与顺序正确。首行原文 (up to %d, Current: %d). 带括号和句号，现译“至多 %d 点，当前 %d 点”后缺句末标点，属标点修正；按原文补全角括号与句号，additional 补“额外”。换行保持不变。",
+   "applied": true,
+   "old_target": "你使用武器攻击时，造成相当于 %d%% 你已损失的生命值的火焰伤害，至多 %d 点，当前 %d 点\n\t\t然后令目标进入殉难状态，受到 %d%% 自己造成的伤害，持续 4 回合。\n\t\t每回合最多触发一次额外伤害。",
+   "new_target": "你使用武器攻击时，造成相当于 %d%% 你已损失的生命值的额外火焰伤害（至多 %d 点，当前 %d 点）。\n\t\t然后令目标进入殉难状态，受到 %d%% 自己造成的伤害，持续 4 回合。\n\t\t每回合最多触发一次额外伤害。",
+   "section": "mod-tome/data/talents/celestial/combat.lua",
+   "source": "Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP as additional Fire damage (up to %d, Current:  %d).\n\t\tTargets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.\n\t\tThe bonus damage can only occur once per turn."
+  },
+  {
+   "queue_id": "hrq-00246",
+   "entry_id": "entry-01516",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21110,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "三个 %d%% 对应正确。“%d%% , 持续”在中文句中用了半角逗号，属标点错误，改全角“，”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/crusader.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；三个 %d%% 对应正确。“%d%% , 持续”在中文句中用了半角逗号，属标点错误，改全角“，”。",
+   "applied": true,
+   "old_target": "你用双手武器攻击敌人，造成 %d%% 武器伤害。\n\t\t如果攻击命中，半径 2 以内的敌人光系抗性下降 %d%%，伤害下降 %d%% , 持续 5 回合。",
+   "new_target": "你用双手武器攻击敌人，造成 %d%% 武器伤害。\n\t\t如果攻击命中，半径 2 以内的敌人光系抗性下降 %d%%，伤害下降 %d%%，持续 5 回合。",
+   "section": "mod-tome/data/talents/celestial/crusader.lua",
+   "source": "You strike your foe with your two handed weapon, dealing %d%% weapon damage.\n\t\tIf the attack hits, all foes in radius 2 will have their light resistance reduced by %d%% and their damage reduced by %d%% for 5 turns."
+  },
+  {
+   "queue_id": "hrq-00247",
+   "entry_id": "entry-01517",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21116,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "四个占位符正确。“%d%% , 同时”半角逗号改全角“，”。“灼烧痕迹”未点名 EFF_LIGHTBURN 状态名属 advisory：源码第 119 行确实施加 LIGHTBURN，但现译已表达持续伤害与减甲机制，状态命名一致性需另核效果名译法，不在本条改。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/crusader.lua line 119"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；四个占位符正确。“%d%% , 同时”半角逗号改全角“，”。“灼烧痕迹”未点名 EFF_LIGHTBURN 状态名属 advisory：源码第 119 行确实施加 LIGHTBURN，但现译已表达持续伤害与减甲机制，状态命名一致性需另核效果名译法，不在本条改。",
+   "applied": true,
+   "old_target": "当装备双手武器时，你的暴击率增加 %d%% , 同时你的近战暴击会引发光明之力，增加 %d%% 物理和光系伤害加成，最多叠加 3 次。\n\t\t同时，你的近战暴击会在目标身上留下灼烧痕迹，5 回合内造成 %0.2f 光系伤害，同时减少 %d 护甲。\n\t\t伤害受法强加成。",
+   "new_target": "当装备双手武器时，你的暴击率增加 %d%%，同时你的近战暴击会引发光明之力，增加 %d%% 物理和光系伤害加成，最多叠加 3 次。\n\t\t同时，你的近战暴击会在目标身上留下灼烧痕迹，5 回合内造成 %0.2f 光系伤害，同时减少 %d 护甲。\n\t\t伤害受法强加成。",
+   "section": "mod-tome/data/talents/celestial/crusader.lua",
+   "source": "While wielding a two handed weapon, your critical strike chance is increased by %d%%, and your melee criticals instill you with righteous strength, increasing all physical and light damage you deal by %d%%, stacking up to 3 times.\n\t\tIn addition, your melee critical strikes leave a lasting lightburn on the target, dealing %0.2f light damage over 5 turns and reducing opponents armour by %d.\n\t\tThe damage increases with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00248",
+   "entry_id": "entry-01518",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21122,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "两个 %d%% 对应正确；两行合并为一行属排版 advisory 不改。源码第 168 行施加 EFF_FLASH_SHIELD，timed_effects/other.lua 中效果为 cancel_damage_chance=100，即 1 回合免疫所有伤害；现译“吸收 1 回合内的所有攻击”把对象从伤害缩成攻击（非攻击伤害如持续伤害也被免疫），改为“免疫 1 回合内的所有伤害”。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/crusader.lua line 168",
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua FLASH_SHIELD"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；两个 %d%% 对应正确；两行合并为一行属排版 advisory 不改。源码第 168 行施加 EFF_FLASH_SHIELD，timed_effects/other.lua 中效果为 cancel_damage_chance=100，即 1 回合免疫所有伤害；现译“吸收 1 回合内的所有攻击”把对象从伤害缩成攻击（非攻击伤害如持续伤害也被免疫），改为“免疫 1 回合内的所有伤害”。",
+   "applied": true,
+   "old_target": "旋转一周，同时将光明之力充满武器。\n\t\t半径 1 以内的敌人将受到 %d%% 武器伤害，同时半径 2 以内的敌人将受到 %d%% 光系武器伤害。\n\t\t技能等级 4 或以上时，在旋转时你会制造一层护盾，吸收 1 回合内的所有攻击。",
+   "new_target": "旋转一周，同时将光明之力充满武器。\n\t\t半径 1 以内的敌人将受到 %d%% 武器伤害，同时半径 2 以内的敌人将受到 %d%% 光系武器伤害。\n\t\t技能等级 4 或以上时，在旋转时你会制造一层护盾，免疫 1 回合内的所有伤害。",
+   "section": "mod-tome/data/talents/celestial/crusader.lua",
+   "source": "Infuse your two handed weapon with light while spinning around.\n\t\tAll creatures in radius one take %d%% weapon damage.\n\t\tIn addition while spinning your weapon shines so much it deals %d%% light weapon damage to all foes in radius 2.\n\t\tAt level 4 your spinning blade creates a shield that blocks all damage for 1 turn."
+  },
+  {
+   "queue_id": "hrq-00249",
+   "entry_id": "entry-01528",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21308,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "五个占位符与颜色码正确；末行补句号、补“圣印”后缀是可接受整理，未改变机制。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/glyphs.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；五个占位符与颜色码正确；末行补句号、补“圣印”后缀是可接受整理，未改变机制。",
+   "applied": false,
+   "old_target": "激发所有圣印，10格内所有上方站着敌人的圣印将被触发。\n\t\t技能等级2时，该效果触发的圣印将在地面遗留能量，在 %d 回合内持续造成伤害。\n\t\t#ffd700#日光圣印#LAST#：%0.2f 光系伤害。\n\t\t#7f7f7f#月光圣印#LAST#：%0.2f 暗影伤害。\n\t\t#9D9DC9#暮光圣印#LAST#：%0.2f 光系和 %0.2f 暗影伤害。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/celestial/glyphs.lua",
+   "source": "Destabilize your glyphs, triggering every glyph in radius 10 with an enemy standing on it.\n\t\tAt talent level 2 glyphs triggered this way will leave a residue of themselves on the ground, dealing damage each turn for %d turns.\n\t\t#ffd700#Sunlight#LAST#:  %0.2f light damage.\n\t\t#7f7f7f#Moonlight#LAST#:  %0.2f darkness damage.\n\t\t#9D9DC9#Twilight#LAST#:  %0.2f light and %0.2f darkness damage"
+  },
+  {
+   "queue_id": "hrq-00250",
+   "entry_id": "entry-01531",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21343,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "否定句改写为必要条件句语义等价；源码 guardian.lua:202 在无盾时输出此日志。Crusade 在同节 talent name 译“十字军打击”（mod-tome.lua:21342），本条一致。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/guardian.lua lines 183-203",
+    "mod-tome.lua:21342"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；否定句改写为必要条件句语义等价；源码 guardian.lua:202 在无盾时输出此日志。Crusade 在同节 talent name 译“十字军打击”（mod-tome.lua:21342），本条一致。",
+   "applied": false,
+   "old_target": "使用十字军打击必须使用盾牌！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/celestial/guardian.lua",
+   "source": "You cannot use Crusade without a shield!"
+  },
+  {
+   "queue_id": "hrq-00251",
+   "entry_id": "entry-01534",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 21433,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "源码 damage_types.lua HEALING_POWER：治疗、无护盾则建护盾否则累加、dur=max(2,dur)、延长 20 次后 removeEffect，与现译一致；英文末行无句号而中文补句号属可接受整理。",
+   "model_evidence": [
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua HEALING_POWER",
+    "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/celestial/light.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；源码 damage_types.lua HEALING_POWER：治疗、无护盾则建护盾否则累加、dur=max(2,dur)、延长 20 次后 removeEffect，与现译一致；英文末行无句号而中文补句号属可接受整理。",
+   "applied": false,
+   "old_target": "阳光倾泻在你周围 %d 码范围内，每回合治疗所有单位 %0.2f 生命值，给予其等量的护盾，并增加此范围内所有人 %d%% 治疗效果。此效果持续 %d 回合。\n\t\t如果已经存在护盾，则护盾将会增加等量数值，如果护盾持续时间不足 2 回合，会延长至 2 回合。\n\t\t当同一个护盾被刷新 20 次后，将会因为不稳定而破碎。\n\t\t它同时会照亮此区域。\n\t\t治疗量受魔力值加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/celestial/light.lua",
+   "source": "A magical zone of Sunlight appears around you, healing and shielding all within a radius of %d for %0.2f per turn and increasing healing effects on everyone within by %d%%. The effect lasts for %d turns.\n\t\tExisting damage shields will be added to instead of overwritten and have their duration set to 2 if it isn't higher.\n\t\tIf the same shield is refreshed 20 times it will become unstable and explode, removing it.\n\t\tIt also lights up the affected area.\n\t\tThe amount healed will increase with the Magic stat"
+  }
+ ]
+}

@@ -1,0 +1,275 @@
+| 完整entry-ID | 四类判定 | claim编号或简短依据 |
+|---|---|---|
+| entry-03413 | 存在问题 | C01：遗漏特殊种子规则中的“恶魔”限定 |
+| entry-03414 | 未发现问题 | 召唤空间不足的提示准确；术语快照中的 logSeen 不强制覆盖本条 logPlayer |
+| entry-03415 | 未发现问题 | 选择传送位置的操作提示准确 |
+| entry-03416 | 存在问题 | C02、C03；另有待确认 C04 |
+| entry-03417 | 未发现问题 | 法术强度、活力上限及当前活力伤害加成对应正确 |
+| entry-03418 | 未发现问题 | 近战反伤、减伤上限及活力消耗与已读实现相符 |
+| entry-03419 | 存在问题 | C05：遗漏乘法叠加规则 |
+| entry-03420 | 未发现问题 | “所有伤害”等价表达 100% 转化；参数顺序正确 |
+| entry-03421 | 未发现问题 | 固定增加 10 与按总护甲比例增加的含义保留 |
+| entry-03422 | 待确认 | C06：英文及译文的 5 回合与快照赋值 10 不一致 |
+| entry-03423 | 未发现问题 | 法术失败日志准确 |
+| entry-03424 | 待确认 | C07：英文 3 回合、译文及快照赋值 4 回合 |
+| entry-03425 | 待确认 | C08：“所有负面状态”与快照的排除条件不一致 |
+| entry-03426 | 未发现问题 | 锥形范围、持续伤害、恶魔治疗与力量加成表达相符 |
+| entry-03427 | 未发现问题 | 恢复生命、伤害分摊及自身直接损失生命的区别保留 |
+| entry-03428 | 未发现问题 | 第一次选取的是承受原始伤害的源生物 |
+| entry-03429 | 未发现问题 | 第二次选取链接受害者的提示准确 |
+| entry-03430 | 存在问题 | C09：伤害复制被表达为由另一生物承担 |
+| entry-03431 | 存在问题 | C10：回血触发条件缺失；另有待确认 C11 |
+| entry-03432 | 未发现问题 | 名称后缀符合死亡后复起为恶魔尸傀的语境 |
+| entry-03433 | 存在问题 | C12：遗漏成功近战命中的限定 |
+| entry-03434 | 未发现问题 | 命中条件、抗性降低、结束结算及伤害累积关系正确 |
+| entry-03435 | 未发现问题 | 忠实表达该日志的双手武器与移动条件 |
+| entry-03436 | 未发现问题 | 强化项目及参数顺序正确；歼灭挥斩的范围实际用作锥形半径 |
+| entry-03437 | 存在问题 | C13：遗漏可指定传送落点的信息 |
+| entry-03438 | 存在问题 | C14：遗漏重置对象是冷却时间；另有待确认 C15、C16 |
+| entry-03439 | 未发现问题 | 武器附魔事件及目标标记保留 |
+| entry-03440 | 存在问题 | C17：武器的威胁变化变成角色整体危险度变化 |
+| entry-03441 | 存在问题 | C18：燃烧语义变成闪光语义 |
+| entry-03442 | 未发现问题 | 符合永恒折磨触发后的日志语境 |
+| entry-03443 | 未发现问题 | 准确表达灵魂燃烧导致的伤害 |
+| entry-03444 | 未发现问题 | 死亡触发、施法者及获得种子的概率对应正确 |
+| entry-03445 | 未发现问题 | 酸性抗性与伤害亲和的参数对应正确 |
+| entry-03446 | 未发现问题 | 共享痛苦的日志含义、双方标记及颜色标记保留 |
+| entry-03447 | 待确认 | C19：译文包含死亡阈值的等号，消费逻辑在等于阈值时判死 |
+| entry-03448 | 未发现问题 | 显示参数确为当前叠层数，并随充能消耗递减 |
+| entry-03449 | 未发现问题 | 40% 火焰亲和及降低 15% 枯萎抗性对应正确 |
+| entry-03450 | 未发现问题 | 生物死亡触发饮血者的条件准确 |
+| entry-03451 | 未发现问题 | “伤害亲和”符合效果类型语境；existing 不构成强制改名要求 |
+| entry-03452 | 未发现问题 | 全体伤害亲和及其数值表达准确 |
+
+以下用 `D/` 表示本包 `sources/dlc/ashes-urhrok/tome-ashes-urhrok/`，用 `E/` 表示本体仓库固定提交中的文件。所有 DLC 证据均来自哈希匹配的公开快照，**DLC 源码仓库及 commit 未固定**；本体提交不替代 DLC 版本证明。标为“存在问题”的项目确认的是冻结文本中直接可证的语义差异，机制证据仅作补充；依赖目标 DLC 版本才能定论的项目单列“待确认”。
+
+### C01 | entry-03413 | 存在问题
+
+原文：“Implanting a seed into **unique demons**”；译文：“植入**史诗生物（Unique）**的体内”。
+
+译文保留了 Unique，却遗漏“恶魔”这一生物类型限定，将特殊种子规则的适用对象扩大为史诗生物。后面的“有对应的恶魔种子”不能替代原文明示的宿主类型条件。
+
+证据：`D/data/talents/corruptions/demonic-pact.lua:364–369`，`createSeed` 仅在 `host.type == "demon"` 时优先按宿主名称选择种类；其他宿主走随机种类分支。文本遗漏已证实，快照对目标版本的适用性未固定。
+
+### C02 | entry-03416 | 存在问题
+
+原文：“within … **up to %d grids**”；译文：“传到 **%d 码外**的一个位置”。
+
+“至多”的距离上限被表达成指定距离之外，改变了传送范围信息。“误差 %d”描述落点散布，不能补回最大距离的含义。
+
+证据：`D/data/talents/corruptions/demonic-pact.lua:855–875`，第一个显示参数用于目标选择的 `range`，第二个用于 `teleportRandom` 的散布半径；`:891–895` 给出对应格式参数。
+
+### C03 | entry-03416 | 存在问题
+
+原文：“a random demon **from your seeds**”；译文：“随机召唤一个恶魔”。
+
+译文遗漏随机选择的来源集合。末段说明施法需要装备种子，但没有说明召唤对象来自这些种子；“存在种子才能施法”与“从种子中的恶魔随机选择”是不同的信息。
+
+证据：`D/data/talents/corruptions/demonic-pact.lua:326–343` 的 `availableDemonSeed` 构造可用种子列表；`:851` 获取该列表，`:879–882` 从列表随机取出恶魔并召唤。
+
+### C04 | entry-03416 | 待确认
+
+原文：“there is a chance the spell will fizzle”；译文：“有一定几率失败”。
+
+快照中，视线外触发该分支后会退回以自身为中心的随机传送，随后仍继续尝试召唤，并非直接终止技能。
+
+证据：`D/data/talents/corruptions/demonic-pact.lua:867–882`，失败分支重设 `x, y, rad`，然后继续执行 `teleportRandom`；该分支的日志也明确包含“works randomly”。
+
+这是英文与译文共同存在的描述缺口。快照行为可证，但尚缺目标 DLC 版本与该快照一致的证明，不能确认为目标版本的翻译新增错误。
+
+### C05 | entry-03419 | 存在问题
+
+原文：“stacks **multiplicatively**”；译文：“能叠加至最多 %d 层”。
+
+译文仅保留层数上限，遗漏叠加算法。这会影响玩家对多层亲和数值的理解，不属于措辞偏好。
+
+证据：`D/data/timed_effects.lua:805、813–820`，每层将剩余比例乘以 `0.92`，再计算 `100 × (1 − 剩余比例)`。例如快照中两层为 15.36%，并非直接相加的 16%。乘法限定在冻结英文中也明确存在。
+
+### C06 | entry-03422 | 待确认
+
+原文：“for **5 turns**”；译文：“**5 回合**内”。
+
+快照的格挡反击回调传给诅咒效果的基础持续时间为 10。
+
+证据：`D/data/talents/corruptions/doom-shield.lua:177–185`，`on_cs` 调用 `setEffect(...EFF_CURSE_IMPOTENCE, 10, ...)`；`E/game/modules/tome/data/timed_effects/magical.lua:949–964` 确认该效果降低所有伤害。持续时间还会进入 `Actor:on_set_temporary_effect` 的豁免处理，不能把基础赋值 10 简化为所有目标必定持续 10 回合。
+
+这是沿袭英文的数值差异。尚缺固定目标 DLC 版本证明。
+
+### C07 | entry-03424 | 待确认
+
+原文：“for the next **3 turns**”；译文：“在 **4 回合**内觉察”。
+
+不能仅按英文数字判译文错误。快照明确调用 `setEffect(self.EFF_SENSE, 4, ...)`。
+
+证据：`D/data/talents/corruptions/fearfire.lua:74–78`；`E/game/modules/tome/data/timed_effects/physical.lua:952–972` 的 `SENSE` 将参数用于生物感知；`E/game/engines/default/engine/interface/ActorTemporaryEffects.lua:117–131` 将传入持续时间写入效果。
+
+译文与快照赋值一致，英文与快照不一致。尚缺目标 DLC 版本对应关系，故保留待确认，不计作已证实错误。
+
+### C08 | entry-03425 | 待确认
+
+原文：“Removes **all detrimental effects**”；译文：“移除**所有负面状态**”。
+
+快照有明确排除条件：仅清除 `status == "detrimental"`、`type ~= "other"` 且不是 `"cross tier"` 的效果。
+
+证据：`D/data/talents/corruptions/fearfire.lua:104–117`，清除过滤函数决定哪些效果计入 `cleansed`，之后再按清除数量计算自灼伤害。译文的总伤害、7 回合及瞬发部分未发现差异。
+
+范围过宽沿袭英文。目标版本是否采用这一过滤实现仍待确认。
+
+### C09 | entry-03430 | 存在问题
+
+原文：“the source creature takes damage **the victim takes %d%% of the damage**”；译文：“**%d%% 伤害由牺牲生物承受**”。
+
+“由……承受”把另一生物描述成原伤害的承担者，容易形成分担或转移关系；原文及冻结邻近状态说明描述的是原目标受伤后，另一目标也受到额外伤害。两者对源生物是否减伤的含义不同。
+
+证据：`D/data/timed_effects.lua:708` 明写 “will **also** be done”；`:715–731` 计算 `cb.value × eff.power / 100` 后对受害者调用 `takeHit`，没有扣减源生物的 `cb.value`。固定本体 `E/game/modules/tome/class/Actor.lua:3013–3014` 消费该回调值。
+
+### C10 | entry-03431 | 存在问题
+
+原文：“damage this foe **in melee while it bleeds**”；译文：“每次你**攻击被恶魔角刺穿的目标**时”。
+
+译文遗漏近战、实际造成伤害，以及仍处于流血效果期间这些触发限定，将回血条件扩大为对曾被刺穿目标的攻击。
+
+证据：`D/data/timed_effects.lua:683–686` 的 `callbackOnMeleeHit` 检查伤害为正且攻击来源等于效果来源后才治疗；效果存在期间才有该回调。`E/game/modules/tome/class/interface/Combat.lua:643` 在近战命中流程中调用它。
+
+### C11 | entry-03431 | 待确认
+
+原文：“only happen **once per turn**”；译文：“**每回合至多 1 次**”。
+
+已读快照的治疗回调没有每回合次数检查；每次符合条件的近战命中都会调用治疗。
+
+证据：`D/data/timed_effects.lua:683–692`；固定本体 `E/game/modules/tome/class/interface/Combat.lua:643` 的调用点，以及 `E/game/modules/tome/class/Actor.lua:6049–6075` 的回调登记关系。
+
+这是译文沿袭英文的限制，与所读实现不一致。尚缺目标 DLC 版本及对应加载组合的证明，保留待确认。
+
+### C12 | entry-03433 | 存在问题
+
+原文：“Your **successful melee hits**”；译文：“你的**攻击**能够惊吓目标”，并称“每次攻击会刷新”。
+
+译文遗漏“近战”和“成功命中”，扩大了叠加及刷新的触发条件。法术攻击、远程攻击或未命中的攻击不能从原文获得同样承诺。
+
+证据：`D/data/talents/corruptions/oppression.lua:72–81`，仅通过 `callbackOnMeleeAttack` 进入，随后明确以 `if not hitted then return end` 排除未命中。
+
+### C13 | entry-03437 | 存在问题
+
+原文：“teleporting you to a **specific location** up to %d spaces away”；译文：“**传送半径 %d**”。
+
+译文只留下距离，没有表达可指定落点这一玩家操作信息。它没有让读者区分定点传送与范围内随机传送。
+
+证据：`D/data/talents/misc/races.lua:55–68`，技能读取玩家选择的坐标，检查距离和空位后，调用 `teleportRandom(x, y, 0)`；散布半径为零。遗漏在冻结文本中直接可证。
+
+### C14 | entry-03438 | 存在问题
+
+原文：“the **cooldowns** of Haste of the Doomed and Pitiless are reset”；译文：“重置种族**技能**‘末日加速’与种族技能‘无情’”。
+
+译文遗漏被重置的是冷却时间，改变了动作对象。“技能重置”需要读者自行补出冷却含义，未完整表达原文明确说明的信息。
+
+证据：`D/data/talents/misc/races.lua:133–134`，分别对两个技能调用 `alterTalentCoolingdown(..., -1000)`。两个技能的名称与冻结语境一致，问题不在专名。
+
+### C15 | entry-03438 | 待确认
+
+原文：“any … damage … triggers a darkness explosion”；译文：“每当你造成……伤害时……产生一次暗影爆炸”。
+
+快照另有“该次伤害没有杀死目标”的条件：目标死亡时直接返回，不触发爆炸。
+
+证据：`D/data/timed_effects.lua:1050–1058`，首个条件包含 `dead`；只有通过该检查才执行暗影范围伤害。
+
+这个条件在英文与译文中均未说明，属于共同遗漏的机制疑点；尚缺目标 DLC 版本证明。
+
+### C16 | entry-03438 | 待确认
+
+原文：“damage … **above %d**”；译文：“造成**超过 %d 点**……伤害”。
+
+快照仅在 `val < eff.threshold` 时排除，因此恰好等于阈值、且满足其他条件的伤害也可继续触发。英文与译文均表达严格大于。
+
+证据：`D/data/timed_effects.lua:1051–1058`；显示阈值由 `D/data/talents/misc/races.lua:127、156` 提供。
+
+这是边界条件疑点，沿袭英文；目标 DLC 版本适用性仍待确认。
+
+### C17 | entry-03440 | 存在问题
+
+原文：“#Target#'s **weapon** looks less threatening”；译文：“#Target#的**危险度**看起来降低了”。
+
+武器这一所属对象被遗漏，武器威胁减弱变成角色整体危险度降低。
+
+证据：`D/data/timed_effects.lua:44–56`，该句是 `DEMON_BLADE` 的失去效果日志；对应获得效果日志明确描述给武器附加恶魔之火。属于文本与语境直接可证的对象变化。
+
+### C18 | entry-03441 | 存在问题
+
+原文：“no longer **blazing**”；译文：“不再**闪耀**”。
+
+语境中的 blazing 指火焰燃烧，译文只表达光亮消失，丢失燃烧信息。英文存在多余的 `'s`，但这不改变火焰语境。
+
+证据：`D/data/timed_effects.lua:156–178`，同一字符串分别用于 `RAGING_FLAMES` 和 `CURSED_FLAMES` 的结束日志；相邻获得效果日志分别说明武器涌出火焰和目标被吞噬性火焰包围。不能统一解释为普通闪光效果。
+
+### C19 | entry-03447 | 待确认
+
+原文：“Will not die **until %d life**”；译文：“生命值**不低于 %d** 时不会死亡”。
+
+译文明确把等于阈值包括在安全范围中，而固定本体的受伤结算在 `life <= die_at` 时进入死亡处理。
+
+证据：`D/data/timed_effects.lua:805、822、830–831` 将显示的负生命值与 `die_at` 加值联系起来；`E/game/modules/tome/class/interface/ActorLife.lua:49–56` 使用 `<=` 判定。
+
+固定本体的比较符已核验。由于显示参数及效果设置来自未固定版本的 DLC 快照，对目标运行组合的结论仍待确认；不能把“不低于”当作已经得到机制支持。
+
+实际读取范围与版本：
+
+设包路径 `P` 为：
+
+`/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/experiments/abc20-g07-20260923`
+
+读取了以下冻结输入：
+
+- `P/INPUT.md`
+- `P/entries.json`
+- `P/context.lua`
+- `P/source-access.json`
+
+读取并核对了以下 13 个包内源码文件，SHA-256 全部与 `source-access.json` 一致。共同前缀为 `P/sources/dlc/ashes-urhrok/tome-ashes-urhrok/`：
+
+```text
+data/talents/corruptions/demonic-pact.lua
+data/talents/corruptions/demonic-strength.lua
+data/talents/corruptions/doom-covenant.lua
+data/talents/corruptions/doom-shield.lua
+data/talents/corruptions/fearfire.lua
+data/talents/corruptions/heart-of-fire.lua
+data/talents/corruptions/infernal-combat.lua
+data/talents/corruptions/npcs.lua
+data/talents/corruptions/oppression.lua
+data/talents/corruptions/torture.lua
+data/talents/corruptions/wrath.lua
+data/talents/misc/races.lua
+data/timed_effects.lua
+```
+
+额外读取了白名单中的以下 DLC 文件，哈希均匹配。共同前缀为：
+
+`/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/experiments/abc20-20260923/sources/ashes-urhrok/`
+
+| 额外路径 | 已读调用或符号来源 |
+|---|---|
+| `tome-ashes-urhrok/superload/mod/class/Actor.lua` | `demonic-strength.lua` 设置的 `demonblood_def` 等属性，核查 Actor 消费扩展；该文件内未找到对应消费点 |
+| `tome-ashes-urhrok/superload/mod/class/interface/Combat.lua` | `doom-shield.lua` 的 `Hardened Core.armor` 与 `spellpower`，核查属性计算调用 |
+| `tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua` | 已读 `DEMON_SEED_BLACKICE` 与 `EFF_BLACKICE`，核查充能生成及消耗 |
+| `tome-ashes-urhrok/hooks/load.lua` | 已读 `demonblood_def`、`DEMONFIRE`、`fiery_torment`，核查加载钩子是否补充消费逻辑；未找到这些符号 |
+
+本体仅通过 `git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:<path>` 读取以下单文件：
+
+| 固定提交内路径 | 调用链来源 |
+|---|---|
+| `game/modules/tome/class/Actor.lua` | Actor 扩展的 `loadPrevious`、伤害回调及效果设置 |
+| `game/modules/tome/class/interface/ActorLife.lua` | Actor 明确 require 的生命结算接口 |
+| `game/engines/default/engine/interface/ActorLife.lua` | 上述接口 require 的基类 |
+| `game/engines/default/engine/interface/ActorTemporaryEffects.lua` | Actor require、`setEffect` 与 `timedEffects` |
+| `game/modules/tome/class/interface/Combat.lua` | Combat 扩展及 `callbackOnMeleeHit`、`on_melee_hit` |
+| `game/modules/tome/data/damage_types.lua` | 已读 `DEMONFIRE`、`demonblood_dam`、`demonblood_def` |
+| `game/modules/tome/data/timed_effects/magical.lua` | `EFF_CURSE_IMPOTENCE`，并查找 `EFF_SENSE` |
+| `game/modules/tome/data/timed_effects/mental.lua` | 查找已读调用中的 `EFF_SENSE`，未找到定义 |
+| `game/modules/tome/data/timed_effects/other.lua` | 查找已读调用中的 `EFF_SENSE`，未找到定义 |
+| `game/modules/tome/data/timed_effects/physical.lua` | 找到并核验 `EFF_SENSE` 定义 |
+
+曾尝试读取该固定提交中的 `engine/interface/ActorLife.lua`，路径不存在，未取得内容；随后按实际引擎目录读取上述基类文件。
+
+共覆盖 **40 条：存在问题 10 条、待确认 4 条、仅建议 0 条、未发现问题 26 条**。部分“存在问题”条目另含已单列的待确认 claim。40 条原译文与 `entries.json` 一致；消费占位符顺序、命名标记及空的 `args_order`／`special` 未发现异常，百分号的等价表达和合法换行未计作缺陷。
+
+未发现读取越界；未读取其他报告、当前译文文件、其他语言答案或生产结论，未创建子 agent，未修改仓库，未创建临时文件。未核验的目标 DLC 版本适用性已保留在待确认项中。本输出仅为独立审核观察，不作生产完成声明。

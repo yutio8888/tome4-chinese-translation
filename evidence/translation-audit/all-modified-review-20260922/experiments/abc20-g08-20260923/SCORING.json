@@ -1,0 +1,2563 @@
+{
+  "primary_eligibility": {
+    "opus": true,
+    "sol": true,
+    "gemini": true
+  },
+  "protocol": "v3_temp_allowed_g08",
+  "reference_status": "provisional_model_adjudicated_not_human_gold",
+  "reference_report": "reports/adjudication-01.md",
+  "claim_counting_rule": "SCORING-RULES.md",
+  "entries": [
+    {
+      "entry_id": "entry-03453",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "与 timed_effects.lua:1054 logPlayer 的 %s 对应；颜色标记保留",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "`%s` 的指向及爆炸位置相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "日志参数占位符与颜色标记完整无损，战斗提示语义准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03454",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D01",
+        "D02"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O001"
+          ],
+          "observations": [
+            {
+              "id": "O001",
+              "claim_id": "C01",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D01"
+                ],
+                "rationale": "手臂计数已改变，不能认定事实全部保留；“扒手”联想及 Nope 的语气处理仅 advisory。见 `A/.../searing-halls/npcs.lua:73`。"
+              }
+            }
+          ],
+          "raw_table_note": "C01",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D01",
+            "D02"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O002",
+              "claim_id": "C01",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D01"
+                ],
+                "rationale": "实体身体描述明确为 arms；“手”改变部位。"
+              }
+            },
+            {
+              "id": "O006",
+              "claim_id": "C02",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D02"
+                ],
+                "rationale": "`mutilate` 的身体残毁结果没有被一般切割完整表达。"
+              }
+            }
+          ],
+          "raw_table_note": "C01、C02：身体部位及伤害程度",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [],
+          "refuted_claims": [
+            "O004"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O004",
+            "O005"
+          ],
+          "observations": [
+            {
+              "id": "O004",
+              "claim_id": "C01",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "Nope 重复否定并制造语气；“不是娱乐，而是实验”保留命题，未发现独立事实遗漏。不能将 Nope 固定解释为“才怪”。"
+              }
+            },
+            {
+              "id": "O005",
+              "claim_id": "C02",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D01"
+                ],
+                "rationale": "部位区别 confirmed；“扒手”联想 advisory。“只属偏好”的总判断不成立。"
+              }
+            }
+          ],
+          "raw_table_note": "C01（漏译句末独立确认短句 Nope.）、C02（肢体解剖措辞偏好建议）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03455",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14",
+        "D15",
+        "D16"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D03",
+            "D04",
+            "D05",
+            "D07",
+            "D13",
+            "D14",
+            "D15"
+          ],
+          "refuted_claims": [
+            "O030"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O030",
+            "O035"
+          ],
+          "observations": [
+            {
+              "id": "O008",
+              "claim_id": "C02",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D03"
+                ],
+                "rationale": "冻结 preferred 世界专名记录明确淘汰旧称；语境适用。"
+              }
+            },
+            {
+              "id": "O012",
+              "claim_id": "C03",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D04"
+                ],
+                "rationale": "内部一致性问题成立；不扩大为全局定名。"
+              }
+            },
+            {
+              "id": "O016",
+              "claim_id": "C04",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D05"
+                ],
+                "rationale": "与 O013 同义，归并。"
+              }
+            },
+            {
+              "id": "O020",
+              "claim_id": "C05",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D07"
+                ],
+                "rationale": "生存目的遗漏 confirmed；敌群信息已在该段“削弱敌群”中出现，未另确认整体群体定位遗漏。"
+              }
+            },
+            {
+              "id": "O023",
+              "claim_id": "C06",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D13"
+                ],
+                "rationale": "disposable → 易碎 confirmed；persistent health 的具体机制解释 pending，见 P01。"
+              }
+            },
+            {
+              "id": "O027",
+              "claim_id": "C07",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D14"
+                ],
+                "rationale": "especially well 的人群筛选条件丢失。"
+              }
+            },
+            {
+              "id": "O030",
+              "claim_id": "C08",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "unsteady in combat 不必指物理站立失衡；`A+/.../races.lua:183–206` 的效果、冷却干扰也不支持必然“站不稳”。现译较泛，但不能据此认定平衡机制误译。"
+              }
+            },
+            {
+              "id": "O033",
+              "claim_id": "C09",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D15"
+                ],
+                "rationale": "乌鲁洛克势力与其敌人的所属关系 confirmed；metaphorical 的明确化仅 advisory，理由同 O031。"
+              }
+            },
+            {
+              "id": "O035",
+              "claim_id": "C10",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D09",
+                  "D10"
+                ],
+                "rationale": "类别、队伍信息遗漏 confirmed，不需要强制术语；宣传语“会想要”及它／他属于 advisory。"
+              }
+            }
+          ],
+          "raw_table_note": "C02–C09 存在问题；C10 建议",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D04",
+            "D05",
+            "D06",
+            "D08",
+            "D09",
+            "D10",
+            "D11"
+          ],
+          "refuted_claims": [
+            "O017",
+            "O037"
+          ],
+          "pending_claims": [
+            "O036"
+          ],
+          "advisory_claims": [
+            "O017",
+            "O037"
+          ],
+          "observations": [
+            {
+              "id": "O009",
+              "claim_id": "C03",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D04"
+                ],
+                "rationale": "`A/init.lua:28、33` 同一专名两译；依据为条目内部指代。"
+              }
+            },
+            {
+              "id": "O013",
+              "claim_id": "C04",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D05"
+                ],
+                "rationale": "审视、探查被换成明确破坏；`A/init.lua:28`。"
+              }
+            },
+            {
+              "id": "O017",
+              "claim_id": "C05",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "`A/init.lua:28` 的奴隶、玩物、受折磨语境允许以“拷问”表现虐待；不能必然解释为新增审讯取供机制。更宽泛措辞可作建议。"
+              }
+            },
+            {
+              "id": "O021",
+              "claim_id": "C06",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D06"
+                ],
+                "rationale": "与 O010 同义。"
+              }
+            },
+            {
+              "id": "O025",
+              "claim_id": "C07",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D08"
+                ],
+                "rationale": "demon-cursed 的诅咒关系没有保留。"
+              }
+            },
+            {
+              "id": "O028",
+              "claim_id": "C08",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D09",
+                  "D10"
+                ],
+                "rationale": "与 O018 同义；具体实体名称也有快照支持。"
+              }
+            },
+            {
+              "id": "O032",
+              "claim_id": "C09",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D11"
+                ],
+                "rationale": "连续投射方式没有保留；不判伤害类型变更。"
+              }
+            },
+            {
+              "id": "O036",
+              "claim_id": "C10",
+              "original_assertion": "PENDING",
+              "adjudication": {
+                "status": "pending",
+                "defects": [],
+                "rationale": "P01。此次已补足对象选取和再召唤链；剩余缺口为 DLC 目标版本适用性。"
+              }
+            },
+            {
+              "id": "O037",
+              "claim_id": "C11",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "同 O031；完整成就界面语境仍保留比喻性展示。"
+              }
+            }
+          ],
+          "raw_table_note": "C03–C09、C11；另有待确认 C10",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D03",
+            "D04",
+            "D05",
+            "D09",
+            "D11"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O011",
+              "claim_id": "C03",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D03"
+                ],
+                "rationale": "与 O008 同一术语缺陷。"
+              }
+            },
+            {
+              "id": "O015",
+              "claim_id": "C04",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D09",
+                  "D11"
+                ],
+                "rationale": "类别泛化、投射方式遗漏 confirmed；“Imp 恒为小鬼”的强制术语说法无依据；“风筝”无证；防御配合并未全部丢失。"
+              }
+            },
+            {
+              "id": "O019",
+              "claim_id": "C05",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D04"
+                ],
+                "rationale": "内部两译 confirmed；existing 的 fearscape 记录并非强制统一“恶魔空间”的依据。"
+              }
+            },
+            {
+              "id": "O022",
+              "claim_id": "C06",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D05"
+                ],
+                "rationale": "scrutiny 被改为破坏 confirmed；“仅凭窥视与法术试探”“尚未全面突破”的额外细节并非该句全部明示，不采信。"
+              }
+            }
+          ],
+          "raw_table_note": "C03（Maj'Eyal 违规使用被取代旧称）、C04（Fire Imps 误译火焰恶魔）、C05（Fearscape 译名自相矛盾）、C06（scrutiny 误译破坏）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03456",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D17",
+        "D18",
+        "D19",
+        "D20",
+        "D21",
+        "D22"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D17",
+            "D20",
+            "D21"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O042"
+          ],
+          "observations": [
+            {
+              "id": "O039",
+              "claim_id": "C11",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D20",
+                  "D21"
+                ],
+                "rationale": "增加醒来前提，并将分裂过程改成事后发现的状态。"
+              }
+            },
+            {
+              "id": "O041",
+              "claim_id": "C12",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D17"
+                ],
+                "rationale": "世界之间的空间限定未译。"
+              }
+            },
+            {
+              "id": "O042",
+              "claim_id": "C13",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D18"
+                ],
+                "rationale": "最高程度变比较程度 confirmed；带引号“主人”属于语境允许的表达，不构成另一缺陷。"
+              }
+            }
+          ],
+          "raw_table_note": "C11、C12 存在问题；C13 建议",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D19"
+          ],
+          "refuted_claims": [
+            "O040"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O040",
+              "claim_id": "C12",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "refuted",
+                "defects": [],
+                "rationale": "“主人”带引号；`A/init.lua:28` 已明确奴隶、玩物关系，开场又是受控制参与实验。不能脱离语境认定凭空新增所有权关系。"
+              }
+            },
+            {
+              "id": "O043",
+              "claim_id": "C13",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D19"
+                ],
+                "rationale": "附近落地致死不等于明确直接砸中；中文增加致死方式限定。"
+              }
+            }
+          ],
+          "raw_table_note": "C12、C13：看管关系及陨石致死方式",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "序幕文本流畅通顺，格式标记与 @name@ 占位符完好",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03457",
+      "reference_status": "PENDING",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "PENDING",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [
+            "O044"
+          ],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O044",
+              "claim_id": "C14",
+              "original_assertion": "PENDING",
+              "adjudication": {
+                "status": "pending",
+                "defects": [],
+                "rationale": "P02。existing Corruptor 不能强制改名；固定本体及 DLC 快照还显示 Defiler 大类与 Corruptor 子职业的区别，不能只核一个中文名称。"
+              }
+            }
+          ],
+          "raw_table_note": "C14",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "解锁标题在本组语境下可理解",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "母系（Corruptor）与子职业（Demonologist）层级关系符合中文界面惯例，标记完整",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03458",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D23"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D23"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [
+            "O054",
+            "O055"
+          ],
+          "advisory_claims": [
+            "O056"
+          ],
+          "observations": [
+            {
+              "id": "O052",
+              "claim_id": "C15",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D23"
+                ],
+                "rationale": "与 O045 同义。"
+              }
+            },
+            {
+              "id": "O054",
+              "claim_id": "C16",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "pending",
+                "defects": [],
+                "rationale": "与 O047 同一 P04；源文远程定位与职业语境存在冲突。"
+              }
+            },
+            {
+              "id": "O055",
+              "claim_id": "C17",
+              "original_assertion": "PENDING",
+              "adjudication": {
+                "status": "pending",
+                "defects": [],
+                "rationale": "P03。需核对实际大类／子职业指代和显示映射；不是 existing 术语违例。"
+              }
+            },
+            {
+              "id": "O056",
+              "claim_id": "C18",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "系／者、种子两称及“注射”可改善一致性；役使已由“控制”表达，分段保留信息结构。"
+              }
+            }
+          ],
+          "raw_table_note": "C15、C16 存在问题；C17 待确认；C18 建议",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D23"
+          ],
+          "refuted_claims": [
+            "O051",
+            "O053"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O050",
+              "claim_id": "C14",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D23"
+                ],
+                "rationale": "与 O045 同义。"
+              }
+            },
+            {
+              "id": "O051",
+              "claim_id": "C15",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "refuted",
+                "defects": [],
+                "rationale": "本段已将对象界定为施法职业；`A+/.../corruptions.lua:21–36` 的相关能力类别也标记 is_spell。未证“法术”在此排除了某项应包含的活力能力。"
+              }
+            },
+            {
+              "id": "O053",
+              "claim_id": "C16",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "refuted",
+                "defects": [],
+                "rationale": "连续战斗语境中的“你的目标”可指被攻击敌人，并未宣称所有非敌对对象均可供抽取；不能仅凭一个名词判定机制范围扩大。绝对资源说明另见 P05。"
+              }
+            }
+          ],
+          "raw_table_note": "C14–C16：教派、能力范围及对象",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D23"
+          ],
+          "refuted_claims": [
+            "O046"
+          ],
+          "pending_claims": [
+            "O047"
+          ],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O045",
+              "claim_id": "C07",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D23"
+                ],
+                "rationale": "cults 是组织，译文改成仪式并丢失建立行为。"
+              }
+            },
+            {
+              "id": "O046",
+              "claim_id": "C08",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "refuted",
+                "defects": [],
+                "rationale": "“召唤并控制”已表达役使关系；`A+/.../corruptions.lua:22` 的 “do your bidding” 支持该语境。不能把 binding 固定解释成另一项契约操作。"
+              }
+            },
+            {
+              "id": "O047",
+              "claim_id": "C09",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "pending",
+                "defects": [],
+                "rationale": "P04。远程词确实未译，但 `A+/data/birth/corrupted.lua:118` 明示恶魔使者为近战者；不能绕过上游职业指代问题直接确认修复方向。"
+              }
+            }
+          ],
+          "raw_table_note": "C07（created dark cults 严重曲解为黑暗仪式）、C08（to do your binding 漏译）、C09（ranged 远程定位词遗漏）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03459",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "标记保留；Doomelf＝魔化精灵，与术语一致",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "种族名相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "种族解锁标题格式与专名规范，无遗漏",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03460",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D24",
+        "D25",
+        "D26"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D24",
+            "D25",
+            "D26"
+          ],
+          "refuted_claims": [
+            "O064.refuted_component"
+          ],
+          "pending_claims": [
+            "O066",
+            "O067"
+          ],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O063",
+              "claim_id": "C19",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D25"
+                ],
+                "rationale": "解锁结果变化成立；但不采纳“玩家完全读不出新种族解锁”这一绝对推断。"
+              }
+            },
+            {
+              "id": "O064",
+              "claim_id": "C20",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D24"
+                ],
+                "rationale": "施放瞬发与位移瞬间的区别 confirmed；必须出现核心技能专名的主张 refuted；“加速”是否误导实际技能机制 pending（P06）。"
+              }
+            },
+            {
+              "id": "O065",
+              "claim_id": "C21",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D26"
+                ],
+                "rationale": "与 O061 同义。"
+              }
+            },
+            {
+              "id": "O066",
+              "claim_id": "C22",
+              "original_assertion": "PENDING",
+              "adjudication": {
+                "status": "refuted",
+                "defects": [],
+                "rationale": "此次获准读取的 `A+/data/lore/demon.lua:448、450、458` 说明三位探险者调查埃亚尔与灾变、恶魔对埃亚尔的归因失实。“有关埃亚尔大陆”有背景支持。"
+              }
+            },
+            {
+              "id": "O067",
+              "claim_id": "C23",
+              "original_assertion": "PENDING",
+              "adjudication": {
+                "status": "pending",
+                "defects": [],
+                "rationale": "P07。`A+/.../races.lua:183–195` 实际改动 `p.dur`，快照支持“延长／缩短”；目标 DLC 版本适用性仍待确认。"
+              }
+            }
+          ],
+          "raw_table_note": "C19、C20、C21 存在问题；C22、C23 待确认",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D25",
+            "D26"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O061",
+              "claim_id": "C17",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D26"
+                ],
+                "rationale": "将烈火另列为磨砺原因，原句没有该因果。"
+              }
+            },
+            {
+              "id": "O062",
+              "claim_id": "C18",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D25"
+                ],
+                "rationale": "与 O058 同义。"
+              }
+            }
+          ],
+          "raw_table_note": "C17、C18：增添烈火、改变解锁结果",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D24",
+            "D25"
+          ],
+          "refuted_claims": [
+            "O057.refuted_component"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O057",
+              "claim_id": "C10",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D24"
+                ],
+                "rationale": "瞬发施放信息遗漏 confirmed；目标版本无加速增益的判断 pending（P06）；强制使用核心技能名“相位之门” refuted，快照对应技能为 Haste of the Doomed。"
+              }
+            },
+            {
+              "id": "O058",
+              "claim_id": "C11",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D25"
+                ],
+                "rationale": "创建角色资格改成种族产生，解锁结果的叙述对象改变。"
+              }
+            }
+          ],
+          "raw_table_note": "C10（Instant cast phase door 误译为使用加速技能）、C11（解锁角色资格说明被文学化转写丢失）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03461",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "DemonologistsDLC.lua:57 compare_fields 标签；尾随空格保留",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "装备属性标签相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "属性比较前缀与尾随空格完整，强度术语使用准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03462",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "成就描述 all.lua:46；中文用条件式表述可以接受",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "成就条件相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "成就描述准确完整，标点匹配",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03463",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "与 demented.lua:82 数值一致",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "属性及数值相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "力量/敏捷/体质三项基础属性名称与加值完全匹配",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03464",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O070"
+          ],
+          "observations": [
+            {
+              "id": "O070",
+              "claim_id": "C24",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "`context.lua:404、407、412、414` 同组使用“魔法”；不扩大为全库术语策略。"
+              }
+            }
+          ],
+          "raw_table_note": "C24",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "属性及数值相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [],
+          "refuted_claims": [
+            "O068"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O068"
+          ],
+          "observations": [
+            {
+              "id": "O068",
+              "claim_id": "C12",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "六属性语境和 `mag=3` 对应明确；Magic 记录为 existing，不能认定强制“魔力”规范违例。"
+              }
+            }
+          ],
+          "raw_table_note": "C12（核心战斗属性 Magic 违背术语规范误译为魔法）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03465",
+      "reference_status": "PENDING",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "与 demented.lua:84/122 一致（life_rating=3）",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "忠实对应冻结英文及数值",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "每等级生命加值与格式标记准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03466",
+      "reference_status": "PENDING",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "与 demented.lua:137/175 一致（life_rating=-4）",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "忠实对应冻结英文及数值",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "每等级生命加值负值与格式标记准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03467",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "与 drem.lua:32/37 的 inc_stats 一致",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "属性及数值相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "力量/敏捷/体质三项基础属性名称与加值完全匹配",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03468",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O075"
+          ],
+          "observations": [
+            {
+              "id": "O075",
+              "claim_id": "C25",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "与 O070 同类意见，独立覆盖该条。"
+              }
+            }
+          ],
+          "raw_table_note": "C25",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "属性及数值相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [],
+          "refuted_claims": [
+            "O073"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O073"
+          ],
+          "observations": [
+            {
+              "id": "O073",
+              "claim_id": "C13",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "与 O068 同理；`C/data/birth/drem.lua:31–37` 的属性身份、数值未变。"
+              }
+            }
+          ],
+          "raw_table_note": "C13（核心战斗属性 Magic 违背术语规范误译为魔法）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03469",
+      "reference_status": "PENDING",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "drem.lua:34/51 life_rating=12",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "忠实对应冻结英文及数值",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "基础生命加值与格式标记准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03470",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "drem.lua:35/56 experience=1.12",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "百分比相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "经验惩罚比例与格式标记准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03471",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "与 krog.lua:32/38 一致",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "属性及数值相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "力量/敏捷/体质三项基础属性名称与加值完全匹配",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03472",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O079"
+          ],
+          "observations": [
+            {
+              "id": "O079",
+              "claim_id": "C26",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "与 O070 同类意见，独立覆盖该条。"
+              }
+            }
+          ],
+          "raw_table_note": "C26",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "属性及数值相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [],
+          "refuted_claims": [
+            "O077"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O077"
+          ],
+          "observations": [
+            {
+              "id": "O077",
+              "claim_id": "C14",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "与 O068 同理；`C/data/birth/krog.lua:31–38` 中负号、属性对象正确。"
+              }
+            }
+          ],
+          "raw_table_note": "C14（核心战斗属性 Magic 违背术语规范误译为魔法）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03473",
+      "reference_status": "PENDING",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "krog.lua:34/55 life_rating=13",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "忠实对应冻结英文及数值",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "基础生命加值与格式标记准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03474",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "krog.lua:35/63 experience=1.15",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "百分比相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "经验惩罚比例与格式标记准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03475",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D27"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O084"
+          ],
+          "observations": [
+            {
+              "id": "O084",
+              "claim_id": "C27",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D27"
+                ],
+                "rationale": "突然感的遗漏 confirmed；潜力措辞 advisory。“语境基本一致”不足以消除明示突发感的损失。"
+              }
+            }
+          ],
+          "raw_table_note": "C27",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O082"
+          ],
+          "observations": [
+            {
+              "id": "O082",
+              "claim_id": "C19",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "该观察针对潜力重心：上下文为提供属性增益，未出现具体成长机制承诺。未借用它没有指出的 D27。"
+              }
+            }
+          ],
+          "raw_table_note": "C19：成长潜力的措辞",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D27"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O081",
+              "claim_id": "C15",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D27"
+                ],
+                "rationale": "suddenly 的突发感遗漏 confirmed；“成长潜力／潜能增长”在赠予属性的回应中仅 advisory。不能由该聊天节点证明属性已即时结算。"
+              }
+            }
+          ],
+          "raw_table_note": "C15（漏译时序副词 suddenly 且句意产生偏离）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03476",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O085"
+          ],
+          "observations": [
+            {
+              "id": "O085",
+              "claim_id": "C28",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "`C/.../godfeaster-malyu-escaped.lua:79–82` 的拒绝、祝愿均保留，主要是语气差别。"
+              }
+            }
+          ],
+          "raw_table_note": "C28",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "对话意图相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "对话口吻自然贴切，语意完整",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03477",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O086"
+          ],
+          "observations": [
+            {
+              "id": "O086",
+              "claim_id": "C29",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "`C/.../godfeaster-malyu.lua:29–33` 问是否有人，增补只是明确 YES 的指代；可直接视为无问题。"
+              }
+            }
+          ],
+          "raw_table_note": "C29",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "回答符合前后对话",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "紧密呼应上文对话语境，口语应答自然准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03478",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D28"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "digestive-sack.lua:108，物品掉出",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D28"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O087",
+              "claim_id": "C20",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D28"
+                ],
+                "rationale": "滚出变成掉出；`C/.../digestive-sack.lua:108`。"
+              }
+            }
+          ],
+          "raw_table_note": "C20：滚出变为掉出",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "事件日志语义准确，颜色标记无损",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03479",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D29"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D29"
+          ],
+          "refuted_claims": [
+            "O092.refuted_component"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O092",
+              "claim_id": "C30",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D29"
+                ],
+                "rationale": "冲出→掉落 confirmed；“中文会读成残骸、丢失活敌提示”的推断 refuted，“敌人”并未被译成尸体。"
+              }
+            }
+          ],
+          "raw_table_note": "C30",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D29"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O090",
+              "claim_id": "C21",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D29"
+                ],
+                "rationale": "同 D29。"
+              }
+            }
+          ],
+          "raw_table_note": "C21：冲出变为掉出",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O089"
+          ],
+          "observations": [
+            {
+              "id": "O089",
+              "claim_id": "C16",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D29"
+                ],
+                "rationale": "所指出的冲出→掉落属于动作信息变化，不能仅因出现事实保留便降为修辞建议。"
+              }
+            }
+          ],
+          "raw_table_note": "C16（burst out 译为掉了出来，动词表现力较弱建议优化）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03480",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "digestive-sack.lua:139，开袋时 30% 概率触发疾病",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "烟雾及触发时点相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "事件日志语义准确，颜色标记无损",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03481",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D30"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "space-dwarf-ship.lua:63，已搜刮后的弹窗",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D30"
+          ],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O094",
+              "claim_id": "C22",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D30"
+                ],
+                "rationale": "文本差异成立；`C/.../space-dwarf-ship.lua:62–71` 佐证已取得物品。机制版本限制不阻断这项文本判断。"
+              }
+            }
+          ],
+          "raw_table_note": "C22：搜得可用物变为找遍东西",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O093"
+          ],
+          "observations": [
+            {
+              "id": "O093",
+              "claim_id": "C17",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "confirmed",
+                "defects": [
+                  "D30"
+                ],
+                "rationale": "不仅搭配生硬：scavenged 的已取得结果缺失。不能因玩家可能理解为已搜完而降为建议。"
+              }
+            }
+          ],
+          "raw_table_note": "C17（找遍了搜刮对象措辞略显翻译腔建议润色）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03482",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "fonts.lua:58-59 unused_prodigies+1；%s＝self:getName()",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "点数、参数及标记相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "觉醒点加值与占位符匹配正确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03483",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "fonts.lua:61-62 unused_talents_types+1",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "点数、参数及标记相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "技能树解锁点加值与占位符匹配正确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03484",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "fonts.lua:64-65 unused_talents+1",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "点数、参数及标记相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "职业技能点加值与占位符匹配正确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03485",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "fonts.lua:67-68 unused_generics+1",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "点数、参数及标记相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "通用技能点加值与占位符匹配正确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03486",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "fonts.lua:70-71 unused_stats+3",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "点数、参数及标记相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "属性点加值与占位符匹配正确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03487",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "fortress-multiverse.lua:41，条件不满足时的 bignews 提示",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "控制球无响应的意思相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "标点与排版规范，信息完整",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03488",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O096"
+          ],
+          "observations": [
+            {
+              "id": "O096",
+              "claim_id": "C32",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "`C/.../godfeaster.lua:135` 完整对应；“你觉得”是自然等价表达，可直接视为无问题。"
+              }
+            }
+          ],
+          "raw_table_note": "C32",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "门的状态和玩家判断相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "密室门交互提示清晰准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03489",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O097"
+          ],
+          "observations": [
+            {
+              "id": "O097",
+              "claim_id": "C33",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "独立核对 `C/.../maggot.lua:136`，同 O096。"
+              }
+            }
+          ],
+          "raw_table_note": "C33",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "门的状态和玩家判断相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "密室门交互提示清晰准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03490",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "ADVISORY",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O098"
+          ],
+          "observations": [
+            {
+              "id": "O098",
+              "claim_id": "C34",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "独立核对 `C/.../slimy_godfeaster.lua:135`，同 O096。"
+              }
+            }
+          ],
+          "raw_table_note": "C34",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "门的状态和玩家判断相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "密室门交互提示清晰准确",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03491",
+      "reference_status": "ISSUE",
+      "reference_defects": [
+        "D31"
+      ],
+      "arms": {
+        "opus": {
+          "verdict": "PENDING",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [
+            "O101"
+          ],
+          "advisory_claims": [],
+          "observations": [
+            {
+              "id": "O101",
+              "claim_id": "C31",
+              "original_assertion": "PENDING",
+              "adjudication": {
+                "status": "refuted",
+                "defects": [],
+                "rationale": "大写本身不能建立必须逐字采用某个中文正式名的要求；已读蛆虫内部地图与细胞描述支持该所指，不保留仅因缺正式译名而产生的疑点。"
+              }
+            }
+          ],
+          "raw_table_note": "C31",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "防御细胞的描述相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "ISSUE",
+          "confirmed_defects": [
+            "D31"
+          ],
+          "refuted_claims": [
+            "O099.refuted_component"
+          ],
+          "pending_claims": [],
+          "advisory_claims": [
+            "O100"
+          ],
+          "observations": [
+            {
+              "id": "O099",
+              "claim_id": "C18",
+              "original_assertion": "ISSUE",
+              "adjudication": {
+                "status": "mixed",
+                "defects": [
+                  "D31"
+                ],
+                "rationale": "渗液状态遗漏 confirmed；“绿泥”为凭空实体称谓的断言 refuted，`BASE_NPC_BLOB`、绿色和黏团语境支持这种形态描写；判断句改写合法。"
+              }
+            },
+            {
+              "id": "O100",
+              "claim_id": "C19",
+              "original_assertion": "ADVISORY",
+              "adjudication": {
+                "status": "advisory",
+                "defects": [],
+                "rationale": "maggot 记录是 existing 实体子类型，不是强制专名；“巨大”未证明改变所指。仅可提一致性建议。"
+              }
+            }
+          ],
+          "raw_table_note": "C18（漏译状态修饰词 oozing 且臆造“这团绿泥”实体描述）、C19（专名偏离建议）",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    },
+    {
+      "entry_id": "entry-03492",
+      "reference_status": "OK",
+      "reference_defects": [],
+      "arms": {
+        "opus": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "blobs.lua:67，mastocytic feeder 描述",
+          "source_report": "reports/opus-01.md"
+        },
+        "sol": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "攻击细胞的行动与目的相符",
+          "source_report": "reports/sol-01.md"
+        },
+        "gemini": {
+          "verdict": "OK",
+          "confirmed_defects": [],
+          "refuted_claims": [],
+          "pending_claims": [],
+          "advisory_claims": [],
+          "observations": [],
+          "raw_table_note": "攻击细胞机制与组织特征描述准确，语序顺畅",
+          "source_report": "reports/gemini-02.md"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=d64cd1b4c3d3727832025e6de1ac7df37cf232383a508d1aabde32a5406c3ab0；input_path=.ai/task/ctx2-pub-10b/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-10b/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua | grep -n "Weisman" -C 5
+[Shell] git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git status; git remote -v
+[Shell] ls -ld /home/paseo/tome* ../* /tmp/tome* 2>/dev/null; cat i18n/manifest.json
+[Shell] find . -name "*manifest*" -o -name "doctor.py"
+[Shell] python3 -B tools/i18n --help
+[Shell] python3 -B tools/i18n doctor
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63 --stat
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua | grep -n "Weisman" -C 5
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua | sed -n '170,290p'
+[Shell] grep -rn "adventurer-letter" /workspace/t-engine4/game/modules/tome/
+[Shell] grep -rn "adventurer" /workspace/t-engine4/game/modules/tome/data/zones/deep-bellow/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/deep-bellow/npcs.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/misc.lua | grep "Alor" -C 2
+[Shell] git -C /workspace/t-engine4 grep -i "ways of the arts"
+[Shell] git grep "艺术之道"
+[Shell] git grep "The Abomination"
+[Shell] python3 -c ' import json candidate_identity = "d64cd1b4c3d3727832025e6de1ac7df37cf232383a508d1aabde32a5406c3ab0" obs_01275 = ( "组件=tome; 固定源码路径=game/modules/tome/data/lore/misc.lua; 固定commit=624a67...
+[Shell] python3 -c ' import json candidate_identity = "d64cd1b4c3d3727832025e6de1ac7df37cf232383a508d1aabde32a5406c3ab0" obs_01275 = ( "组件=tome; 公开源码路径=game/modules/tome/data/lore/misc.lua; 固定commit=624a67...
+{"contract":"translation_contextual_v2","candidate_identity":"d64cd1b4c3d3727832025e6de1ac7df37cf232383a508d1aabde32a5406c3ab0","verdicts":[{"revision_key":"entry-01275","verdict":"ISSUE","observation":"组件=tome; 公开源码路径=game/modules/tome/data/lore/misc.lua; 固定commit=624a67329fe2ad440c5b344785a9c73fcf22ae63; 行号=131,137。语义错误：1) 131行“How can creation itself tolerate such an aberration?!”中“creation itself”指天地万物/受造界本身，与前文 nature 并列，译文误译为“造物主本身”，混淆了受造界与创世者；2) 137行“It may have taken your eye, but think of what else it could have taken.”为劝勉罗尔夫保住性命的完整宾语从句（想想它本还会夺走什么），译文以省略号残缺截断为“但想想最坏的情况下它本会夺走……”，丢失原句劝慰含义。"},{"revision_key":"entry-01277","verdict":"OK"},{"revision_key":"entry-01278","verdict":"OK"},{"revision_key":"entry-01280","verdict":"OK"},{"revision_key":"entry-01282","verdict":"ISSUE","observation":"组件=tome; 公开源码路径=game/modules/tome/data/lore/misc.lua; 固定commit=624a67329fe2ad440c5b344785a9c73fcf22ae63; 行号=263-267。严重语义错误：原文“No, clearly other gods were responsible, lesser gods than our own which copied his grand design. But with fudging fingers and inelegant touches the works of their design were clearly far inferior to the subtleties and perfection which crafted us.”语境为半身人哲学家斯迈森论证种族神学起源，指其他种族是由拙劣的低等神祇仿造半身人神明而创制出的次等造物（“the works of their design”指低等神明设计出的产物/其他种族，“fudging fingers”指神祇笨拙的手笔）。译文误译为“只要通过对比我们和他们手工制作的“艺术品”就可以看出，他们是多么的粗糙不堪，而我们是多么的完美”，凭空编造出凡人“手工制作的‘艺术品’”并错置对比主体，完全曲解了神学文献论辩；且漏译“which copied his grand design”。"}]}

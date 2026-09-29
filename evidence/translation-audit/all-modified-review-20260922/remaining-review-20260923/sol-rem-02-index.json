@@ -1,0 +1,81 @@
+{
+  "entries": [],
+  "claims": [
+    {
+      "claim_id": "C01",
+      "entry_id": "entry-03799",
+      "reported_status": "advisory",
+      "original_text": "### C01 | entry-03799 | advisory\n\n原译“火箭靴有%d%%几率失败”。该物品名为 *Anti-Gravity Boots*，英文用“These boots”指代它；另有名为 `%s rocket boots` 的工匠插件。风味描述确实说这双鞋靠火箭升空，因此“火箭靴”有语境依据，但会与插件名称混淆。建议改为“这双靴子有%d%%几率无法正常运作”。证据：快照 1381、1490–1499；兽人源码 142–151、174；`tinkers/mechanical.lua` 29–32。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-02.md",
+      "line": 5
+    },
+    {
+      "claim_id": "C02",
+      "entry_id": "entry-03801",
+      "reported_status": "confirmed",
+      "original_text": "### C02 | entry-03801 | confirmed\n\n原译“并导致目标被致残毒素（%d%%行动失败几率）”在“被致残毒素”后缺少谓语，未完整表达 *afflicts the target with crippling poison*；可推知“感染”之意，但句子本身残缺。改为“并使目标感染致残毒素”即可。`{1,2,3,5,4}` 的占位符重排正确，不属于此问题。证据：快照 1509；兽人源码 275–280、290–299。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-02.md",
+      "line": 9
+    },
+    {
+      "claim_id": "C03",
+      "entry_id": "entry-03807",
+      "reported_status": "advisory",
+      "original_text": "### C03 | entry-03807 | advisory\n\n原译“冷却时间：%d 回合”。源码传入 `maxp - self.power`，数值是当前剩余回合；“冷却时间”也可作笼统状态标签，因此属于精度建议。建议“冷却中：%d 回合”。证据：快照 1551–1553；兽人源码 579–582。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-02.md",
+      "line": 13
+    },
+    {
+      "claim_id": "C04",
+      "entry_id": "entry-03809",
+      "reported_status": "advisory",
+      "original_text": "### C04 | entry-03809 | advisory\n\n原译“通过魔法和探针从天空引导……”。*airborne probes* 的“升空”属性没有直接落在“探针”上；但“从天空引导”保留了空中方位，读者仍可能理解为空中探针。可改“通过魔法和空中探针……”。证据：快照 1558–1561；兽人源码 641–646。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-02.md",
+      "line": 17
+    },
+    {
+      "claim_id": "C05",
+      "entry_id": "entry-03811",
+      "reported_status": "confirmed",
+      "original_text": "### C05 | entry-03811 | confirmed\n\n原译“释放榴弹，在半径4锥形范围内……”把 *shrapnel*（弹片）译成榴弹，并漏掉 *from the target*。源码以目标坐标设置锥形起点，遗漏会影响范围理解。建议“从目标处向外迸射弹片，在半径4的锥形范围内……”。证据：快照 1566–1569；兽人源码 714–720。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-02.md",
+      "line": 21
+    },
+    {
+      "claim_id": "C06",
+      "entry_id": "entry-03815",
+      "reported_status": "confirmed",
+      "original_text": "### C06 | entry-03815 | confirmed\n\n原译“第三下攻击必定暴击”缺少 *every* 的循环含义，且 *hit* 比“攻击”更明确地限定命中。装备效果的“第三下”可被读作每轮第三下，但也可读作仅首次第三下；建议写“每累计命中三次，下一次攻击获得暴击加成”。源码计数归零证明循环存在；其触发时序另见 N01，不能据此断言“第三次命中当次必暴击”。证据：快照 1611–1613；兽人源码 1081–1090。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-02.md",
+      "line": 25
+    },
+    {
+      "claim_id": "C07",
+      "entry_id": "entry-03823",
+      "reported_status": "confirmed",
+      "original_text": "### C07 | entry-03823 | confirmed\n\n原译“我将我的心血之作分离”将 *spilt*（洒出）处理成了“分离”，改变了与 *heartsblood*、*bled dry* 呼应的流血意象。“心血之作”可作意译，但不能使“spilt”变为“分离”。建议按“洒出／流尽心血”重译该句。证据：快照 1739–1746；兽人源码 2082–2091。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-02.md",
+      "line": 29
+    },
+    {
+      "claim_id": "C08",
+      "entry_id": "entry-03827",
+      "reported_status": "advisory",
+      "original_text": "### C08 | entry-03827 | advisory\n\n原译“这玩意到底怎么用？”偏向询问使用方法；*How do these even work?* 结合漆黑护目镜的描述，更像惊讶其如何起作用。“怎么用”在口语中也可能泛指如何运作，故保留为建议。可改“这东西到底怎么起作用？”证据：快照 1789–1792；兽人源码 2387–2396。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-02.md",
+      "line": 33
+    },
+    {
+      "claim_id": "N01",
+      "entry_id": "entry-03815",
+      "reported_status": "upstream",
+      "literal_status": "原文与源码机制不一致，非中文新增错译。** Golden Gun 的 `special_on_hit` 在命中后的处理阶段才累计计数；第三次计数时将 `physcrit` 设为 100 并清零。弓射流程先计算暴击，再调用该效果，因此源码支持的是为后续攻击设置暴击率，而非英文所说“每第三次命中当次必定暴击”。此外，效果调用受目标存活条件限制。证据：兽人源码 1081–1090；固定引擎 commit `624a673` 的 `game/modules/tome/class/interface/Archery.lua` 377、548–556。",
+      "entry_mapping_basis": "explicit C06 cross-reference",
+      "original_text": "**N01｜原文与源码机制不一致，非中文新增错译。** Golden Gun 的 `special_on_hit` 在命中后的处理阶段才累计计数；第三次计数时将 `physcrit` 设为 100 并清零。弓射流程先计算暴击，再调用该效果，因此源码支持的是为后续攻击设置暴击率，而非英文所说“每第三次命中当次必定暴击”。此外，效果调用受目标存活条件限制。证据：兽人源码 1081–1090；固定引擎 commit `624a673` 的 `game/modules/tome/class/interface/Archery.lua` 377、548–556。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-02.md",
+      "line": 39
+    }
+  ],
+  "report_sha256": "ed3969ce5ce78280e3df6061b343a5b0583b168b593a0e65828f855a8991f21c",
+  "coverage_validated": true
+}

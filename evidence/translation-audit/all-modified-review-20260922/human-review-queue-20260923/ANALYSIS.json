@@ -1,0 +1,160 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "campaign_note": "Executor-completion analysis and scoring. Mechanical metrics live in SCORECARD.json; this file carries the ORCHESTRATOR's judgement with its evidence.",
+ "dispatches": [
+  {
+   "dispatch_id": "executor-01",
+   "batch_id": "batch-01",
+   "model": "claude-opus-5-5",
+   "thinking": "medium",
+   "freeze_revision": 1,
+   "score": 3.5,
+   "score_scale": "0-5, 3 = meets baseline for a bounded adjudication batch",
+   "strengths": [
+    "All 40 rows dispositioned in packet order; coverage complete.",
+    "27 applied fixes with no placeholder, colour-code, newline or scope violation (independently re-derived from git pre-image bytes).",
+    "Found and reasoned about the strongest counter-argument per item before deciding, and wrote it into `reason`.",
+    "Correctly refused several model claims that batch-01's own cross-review had raised (e.g. rejected the 'add back the leading space' advice for entry-00244 by citing MapEffects.lua string concatenation).",
+    "Self-reported its out-of-scope findings (unstaged sibling carriers, the trailing Western full stop at entry-00288) rather than silently widening scope."
+   ],
+   "weaknesses": [
+    "Accepted the freeze at face value: it did not notice that a queue row can cover several carrier entries, so carrying the accepted decision to the boot twin was left undone and it only noted the twins as an 'outside the frozen set' remark.",
+    "Applied the bracket policy only to flagged rows; it did not generalise the standing user policy to the other carriers of the same decision row (entry-00395..00400)."
+   ],
+   "verdict": "Acceptable but incomplete. The individual decisions were sound; the batch was not actually finished, because the freeze it was given under-specified the carrier set.",
+   "root_cause_class": "orchestrator_freeze_defect_not_executor_fault",
+   "root_cause_detail": "The packet froze row primaries only. The executor explicitly flagged the stale twins in its report, which is the behaviour that made the defect detectable. This run is therefore not scored as an executor error; it is scored as a partial delivery under a defective input.",
+   "superseded_by": "executor-02"
+  },
+  {
+   "dispatch_id": "executor-02",
+   "batch_id": "batch-01",
+   "model": "claude-opus-5-5",
+   "thinking": "medium",
+   "freeze_revision": 2,
+   "score": 4.5,
+   "score_scale": "0-5, 3 = meets baseline for a bounded adjudication batch",
+   "strengths": [
+    "Preserved all 27 previously verified fixes byte-for-byte instead of re-deriving them; no regression.",
+    "Brought the three true twins (entry-00144/00145/00146) to byte-identical parity with their main carriers, and confirmed parity with a script rather than by eye.",
+    "Applied the standing bracket policy to the six difficulty-suffix carriers it had previously left alone, changing only the outer bracket characters.",
+    "Correctly classified entry-00394 (already full-width) as no_change rather than manufacturing a change.",
+    "Rewrote four stale `reason` strings whose text claimed the twin was 'outside the frozen set', keeping the record honest after the freeze changed - without touching the corresponding targets."
+   ],
+   "weaknesses": [
+    "Nothing material found. The only imperfection is cosmetic: its report described the twin test as 'identical' for entry-00394..00400, which are distinct sources sharing one decision row rather than byte-twins; the ORCHESTRATOR's own recheck had to distinguish these two notions."
+   ],
+   "verdict": "Strong. Scoped, idempotent, and honest about the correction.",
+   "root_cause_class": "none",
+   "root_cause_detail": ""
+  },
+  {
+   "dispatch_id": "executor-03",
+   "batch_id": "batch-02",
+   "model": "claude-opus-5-5",
+   "thinking": "medium",
+   "freeze_revision": 1,
+   "score": 4.5,
+   "score_scale": "0-5, 3 = meets baseline for a bounded adjudication batch",
+   "strengths": [
+    "All 41 revisions dispositioned; 27 fixes with no invariant, scope or binding violation.",
+    "Traced multiple claims to real source rather than to the model cross-labels: e.g. confirmed the 2026-09-16 user decision that froze the PHYSICAL death_message family (damage_types.lua:778) and used it to defer entry-00634 by attribution rather than by merit - exactly the campaign's rule.",
+    "Rejected the '增译' claim for entry-00646/00653 by reading the tdesc (arcane resource burn), then deferred on the terminology-registration question it is not authorised to decide.",
+    "Refused the terminology snapshot for entry-00522 (Ghoulish Leap) after checking the in-game talent name, and instead reported the terminology record as stale - correct direction of the correction.",
+    "Kept the linked pair entry-00579/00581 in step, and split the gender variants entry-00604/00605 into two consistent dispositions.",
+    "Restored a main-workspace-already-fixed row (entry-00492) to its frozen value rather than leaving a divergent edit behind, and reported the restore."
+   ],
+   "weaknesses": [
+    "entry-00652 was changed to '奥术法力蠕虫' to match a pattern whose two sibling entries it simultaneously deferred as unauthorised terminology decisions. The change is defensible on internal-consistency grounds, but it advances a term decision the same batch declared undecidable, so it may need to be revisited together with 00646/00653.",
+    "entry-00560 changed the item name to the in-game name '堕落印记：清除' while rewriting the sentence. The name is independently verifiable, but it is a second change class bundled into one fix, making the row harder to audit."
+   ],
+   "verdict": "Strong, with two rows whose coupling should be re-examined if the manaburn terminology decision lands.",
+   "root_cause_class": "minor_scope_coupling",
+   "root_cause_detail": "Two rows couple a verifiable text fix with a downstream terminology consequence. Not a defect in itself; recorded so the eventual terminology decision can find them."
+  }
+ ],
+ "campaign_totals": {
+  "batches_completed": 2,
+  "rows_decided": 80,
+  "frozen_revisions": 91,
+  "applied_changes": 63,
+  "verify_clean_dispatches": 3,
+  "verify_failed_dispatches": 0,
+  "targets_left_stale_by_freeze_defect": 10,
+  "targets_repaired_in_correction_run": 9,
+  "executor_attributable_defects": 0
+ },
+ "freeze_defects_found_by_orchestrator": [
+  {
+   "defect": "A queue row can cover multiple carrier entries of the same text (engine.lua and mod-boot.lua twins, or the difficulty-suffix family sharing one row).",
+   "impact": "Freezing row primaries only produced real inconsistency: engine.lua was fixed while its boot twin kept the old wording.",
+   "detected_by": "ORCHESTRATOR independent verification, comparing the applied diff against the inventory carrier groups - not by the executor.",
+   "resolution": "Re-froze batch-01 as carrier-complete (40 rows -> 50 revisions) and dispatched a correction run.",
+   "prevention": "build_adjudication_packet.py now freezes every carrier of a row by default; future batches inherit the fix."
+  },
+  {
+   "defect": "check_worktree_targets.py keyed calls by (section, source), which collides when one source has two source_tags (entry-00298 logPlayer / entry-00299 tformat).",
+   "impact": "Two revisions were reported as unmatched in the first verification run, risking a false 'carrier missing' conclusion.",
+   "detected_by": "ORCHESTRATOR, by reading the actual lines and seeing the two tags.",
+   "resolution": "Verifier now keys by (section, source, source_tag); both entries then verified clean.",
+   "prevention": "The same keying is used in build_contextual_envelope.py and verify_batch.py."
+  }
+ ],
+ "deferred_items_pending_user": [
+  {
+   "item": "manaburn arcane / item manaburn arcane terminology registration",
+   "entries": ["entry-00646", "entry-00653", "entry-00652 (coupled)"],
+   "question": "Keep the source-faithful '奥术法力燃烧', or revert to the terminology entry '法力燃烧'? Either requires editing terminology/ or accepting drift.",
+   "evidence": "terminology/combat.tsv:26; damage_types.lua:2267-2281, 3559-3572"
+  },
+  {
+   "item": "Defiler as a person's title",
+   "entries": ["entry-00216"],
+   "question": "How to nominalise '堕落系' for an individual NPC? No preferred entry exists.",
+   "evidence": "terminology/classes.tsv:27 (Defiler=堕落系, existing); EscortRewards.lua:171-177"
+  },
+  {
+   "item": "Writhing One and Nethergate naming",
+   "entries": ["entry-00112", "entry-00146"],
+   "question": "Adopt 蜿蜒怪人 for Writhing One, and decide a registered form for Nethergate.",
+   "evidence": "terminology/classes.tsv:43 (existing)"
+  },
+  {
+   "item": "Sorcerers singular name",
+   "entries": ["entry-00579", "entry-00581"],
+   "question": "Current corpus disagrees: 巫师 (achievements) / 法师 (quests) / 魔法师 (sorcerer-end).",
+   "evidence": "mod-tome.lua:2756-2786, 20264-20271, 6206/6220"
+  },
+  {
+   "item": "level vs zone wording",
+   "entries": ["entry-00221", "entry-00223"],
+   "question": "Unify '层'/'地图' across the changeLevelCheck messages?",
+   "evidence": "Game.lua:926-936"
+  },
+  {
+   "item": "death_message family expansion",
+   "entries": ["entry-00634 and the frozen family"],
+   "question": "Family already frozen pending by the user on 2026-09-16; needs an explicit unfreeze to process.",
+   "evidence": "damage_types.lua:778; production-review-v2-lite and quality adjudication records"
+  },
+  {
+   "item": "stale terminology records",
+   "entries": ["talents.tsv:106 Ghoulish Leap"],
+   "question": "The record says 定向跳跃 but the in-game name is 食尸鬼跳跃; terminology/ needs calibration.",
+   "evidence": "mod-tome.lua:31850, 37645"
+  },
+  {
+   "item": "trailing Western full stop at entry-00288",
+   "entries": ["entry-00288"],
+   "question": "Source appends _t\".\" which is untranslated; the row now ends with a bare '.'. Fixing it needs the '.' entry, outside this batch's freeze.",
+   "evidence": "Object.lua:2305-2307; mod-tome.lua:1038 and 5366 are both dead keys"
+  },
+  {
+   "item": "female pronoun 'her' at entry-00344",
+   "entries": ["entry-00344"],
+   "question": "'用她盾牌' remains for female characters because _t\"her\" is shared with him_her.",
+   "evidence": "Combat.lua:466; utils.lua:939-944; engine.lua her/his/its entries"
+  }
+ ]
+}

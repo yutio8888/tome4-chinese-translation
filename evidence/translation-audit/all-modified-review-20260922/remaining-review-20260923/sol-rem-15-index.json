@@ -1,0 +1,63 @@
+{
+  "entries": [],
+  "claims": [
+    {
+      "claim_id": "C01",
+      "entry_id": "entry-03990",
+      "reported_status": "advisory",
+      "original_text": "### C01 | entry-03990 | advisory\n\n原译“你（或任何其他目标）”中，“目标”容易指向承受效果的生物；原文 `any others` 指其他施加方。**等价读法**是该词位于“尝试施加”的主语位置，读者仍可理解为行动方，因此保留为澄清建议。冻结源码在受效果生物身上联动判定，未限定某个施加者：[Combat.lua:29](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/superload/mod/class/interface/Combat.lua:29>)；译文见 [快照:5951](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:5951)。建议用“其他人”或“其他来源”。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-15.md",
+      "line": 28
+    },
+    {
+      "claim_id": "C02",
+      "entry_id": "entry-03996",
+      "reported_status": "confirmed",
+      "original_text": "### C02 | entry-03996 | confirmed\n\n原译“其受到的法术伤害”遗漏 `you deal to it`，将触发来源扩大。**等价反证**不成立：冻结源码明确要求伤害来源为装置召唤者，且来自法术：[mag.lua:25](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/uber/mag.lua:25>)；原文和译文见 [快照:6002](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6002)。建议补“你对其造成的”。\n\n同一源码的运行计算为 **130%**，而此条英文 NPC 描述及其中文均写 **160%**（[mag.lua:34](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/uber/mag.lua:34>)、[mag.lua:82](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/uber/mag.lua:82>)）。这是英文描述与冻结行为的差异，**不计为中文新增错译**。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-15.md",
+      "line": 32
+    },
+    {
+      "claim_id": "C03",
+      "entry_id": "entry-03997",
+      "reported_status": "confirmed",
+      "original_text": "### C03 | entry-03997 | confirmed\n\n**C03.1** 原译“当你装备长袍的时候”把“将奥术发电机装入长袍”改成玩家穿上长袍。末段“装备在长袍中”提供部分线索，但不能消除本句的动作和前提偏差。装置限定衣物槽位：[electricity.lua:101](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/tinkers/electricity.lua:101>)；原译见 [快照:6031](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6031)。\n\n**C03.2** 原译“蒸汽等级”将当前蒸汽量写成等级。**等价反证**不成立：法强公式直接读取 `getSteam()`，不是技能等级：[other.lua:1912](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/other.lua:1912>)。建议分别改为“装入长袍后”“当前蒸汽量”。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-15.md",
+      "line": 38
+    },
+    {
+      "claim_id": "C04",
+      "entry_id": "entry-04000",
+      "reported_status": "advisory",
+      "original_text": "### C04 | entry-04000 | advisory\n\n原译“启动时会增加 20%% 疲劳”可能被读成仅在启动瞬间发生；原文 `while active` 指开启期间。**等价读法**是“启动时”也可指从启动起持续生效，故列澄清建议。源码将疲劳作为持续技能的临时属性：[wil.lua:20](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/uber/wil.lua:20>)；译文见 [快照:6060](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6060)。建议写“开启期间”。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-15.md",
+      "line": 44
+    },
+    {
+      "claim_id": "C05",
+      "entry_id": "entry-04001",
+      "reported_status": "advisory",
+      "original_text": "### C05 | entry-04001 | advisory\n\n原译“蒸汽回复 +6”“体力回复 + 4”省去原文两处 `/turn`。**等价读法**是“回复”属性本身按回合结算，数值与效果未变；补“每回合”可让单位更清楚。“+ 4”的空格仅属格式。源码属性见 [floor.lua:42](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/floor.lua:42>)；原译见 [快照:6074](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6074)。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-15.md",
+      "line": 48
+    },
+    {
+      "claim_id": "C06",
+      "entry_id": "entry-04008",
+      "reported_status": "confirmed",
+      "original_text": "### C06 | entry-04008 | confirmed\n\n原译“精神雄蜂飞入”只表达移动，遗漏 `bores into` 的钻入动作。**等价反证**不成立：相关技能说明将“飞向目标”与“附着并钻入头骨”写为先后两个动作：[thoughts-of-iron.lua:103](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/steam/thoughts-of-iron.lua:103>)；状态获得日志见 [mental.lua:85](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/timed_effects/mental.lua:85>)。建议用“钻入”。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-15.md",
+      "line": 52
+    },
+    {
+      "claim_id": "N01",
+      "entry_id": "entry-03997",
+      "reported_status": "confirmed",
+      "original_text": "### N01 | entry-03997 | confirmed\n\n首句原译“精通于蒸汽科技”把原文 `dabble in steam technology` 的涉猎、尝试程度提升为精通，是独立的叙事意义偏差。**等价反证**是职业最终可能熟练运用科技，但不能覆盖此句明确的程度用词。原文见 [mag.lua:193](</home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/talents/uber/mag.lua:193>)，译文见 [快照:6033](/home/paseo/.paseo/worktrees/2p1pqszt/translation-spotcheck-20260921/evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/snapshots/tome-orcs.lua:6033)。建议用“涉猎蒸汽科技”。",
+      "source": "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/reports/sol-rem-15.md",
+      "line": 56
+    }
+  ],
+  "report_sha256": "ed42c0474e7900796e5358bc4b40ca2cbaaa337d9a277daf1457970e9145fd43",
+  "coverage_validated": true
+}

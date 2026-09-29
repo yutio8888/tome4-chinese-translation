@@ -1,0 +1,65 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "wave": "public wave 3 (ctx2-pub-05a, ctx2-pub-06a; 36 revisions)",
+ "adjudicated_at": "2026-09-24",
+ "method": "ORCHESTRATOR independent verification against the frozen source at the pinned commit, the terminology library and in-repo usage",
+ "confirmed": [
+  {
+   "revision_key": "entry-00647",
+   "bundle": "ctx2-pub-05a",
+   "class": "fidelity (mechanic)",
+   "issue": "Your damage shield cannot be extended any farther and has exploded. renders has exploded as 终于破碎了",
+   "decision": "confirmed",
+   "authority": [
+    "fixed commit 624a6732 game/modules/tome/data/damage_types.lua:2728-2736 — after 20 extensions the shield is removed by an overload ('has exploded'); a normal break uses different wording",
+    "the target also adds 终于, which the English does not carry"
+   ],
+   "carriers": [
+    "mod-tome.lua"
+   ]
+  },
+  {
+   "revision_key": "entry-00746",
+   "bundle": "ctx2-pub-06a",
+   "class": "terminology",
+   "issue": "the mana of arcane users is rendered 魔力, which is the stat mag, not the resource mana",
+   "decision": "confirmed",
+   "authority": [
+    "terminology/resources.tsv:3 Mana=法力值 (T.GAME.RESOURCE, _t, existing, core)",
+    "terminology/combat.tsv:127 mag=魔力 (T.GAME.STAT, stat short_name, existing)",
+    "fixed commit 624a6732 game/modules/tome/data/general/npcs/losgoroth.lua:75 desc and damage_types.lua MANAWORM / EFF_MANAWORM drain the mana resource (incMana)"
+   ],
+   "carriers": [
+    "mod-tome.lua"
+   ]
+  },
+  {
+   "revision_key": "entry-00866",
+   "bundle": "ctx2-pub-06a",
+   "class": "fidelity (ego name)",
+   "issue": "same restorative ego keyword as entry-00873",
+   "decision": "confirmed, rendering choice pending user decision",
+   "authority": [
+    "fixed commit 624a6732 game/modules/tome/data/general/objects/egos/boots.lua:204-214 (healing_factor, life_regen) — restorative restores, while the neighbouring invigorating at :218 is 精力充沛的",
+    "identical to the entry-00873 adjudication"
+   ],
+   "carriers": [
+    "mod-tome.lua:9857",
+    "mod-tome.lua:9858"
+   ]
+  }
+ ],
+ "pending": [],
+ "advisory": [],
+ "summary": {
+  "findings": 3,
+  "confirmed": 3,
+  "pending": 0,
+  "advisory": 0,
+  "entries": 3,
+  "needs_user_decision": [
+   "entry-00866/entry-00873 (restorative rendering + terminology registration)"
+  ]
+ }
+}

@@ -1,0 +1,87 @@
+{
+  "note": "主代理对各子代理第二阶段完整会话答复的结构化摘要；非逐字原文，非独立盲测。",
+  "verdicts": {
+    "calibration_a": {
+      "K01": "OK",
+      "K02": "OK",
+      "K03": "ISSUE",
+      "K04": "ISSUE",
+      "K05": "ISSUE",
+      "K06": "ISSUE",
+      "K07": "OK",
+      "K08": "PENDING",
+      "K09": "ISSUE",
+      "K10": "PENDING"
+    },
+    "calibration_b": {
+      "K01": "OK",
+      "K02": "OK",
+      "K03": "ISSUE",
+      "K04": "ISSUE",
+      "K05": "ISSUE",
+      "K06": "ISSUE",
+      "K07": "OK",
+      "K08": "PENDING",
+      "K09": "ISSUE",
+      "K10": "PENDING"
+    },
+    "calibration_c": {
+      "K01": "OK",
+      "K02": "OK",
+      "K03": "ISSUE",
+      "K04": "ISSUE",
+      "K05": "ISSUE",
+      "K06": "ISSUE",
+      "K07": "OK",
+      "K08": "PENDING",
+      "K09": "ISSUE",
+      "K10": "PENDING"
+    }
+  },
+  "withdrawn_by_all": [
+    "K05仅凭空行减少的缺陷",
+    "K08仅凭新增换行的缺陷"
+  ],
+  "differences": {
+    "K03_first_hit": {
+      "a": "pending",
+      "b": "pending（首轮advisory改）",
+      "c": "confirmed"
+    },
+    "K03_enemy_scope": {
+      "a": "confirmed",
+      "b": "confirmed",
+      "c": "pending"
+    },
+    "K05_side": {
+      "a": "confirmed",
+      "b": "pending",
+      "c": "pending（首轮confirmed改）"
+    },
+    "K05_civilized": {
+      "a": "pending",
+      "b": "pending",
+      "c": "confirmed"
+    },
+    "K06_magic_scope": {
+      "a": "confirmed",
+      "b": "pending",
+      "c": "pending"
+    },
+    "K04_destroy_context": {
+      "a": "不另确认，上下文补足",
+      "b": "pending",
+      "c": "不另确认，上下文补足"
+    }
+  },
+  "agreed_boundaries": [
+    "K01/K02通用增伤不能仅缺all判错",
+    "scope不匹配不得强制术语",
+    "K07全段保留概率",
+    "K05非空后缀病句确认、空后缀不判错",
+    "K08触发措辞pending",
+    "K09半径缺失确认、VOID各半支持",
+    "K10中文映射补齐、目标版本残余pending"
+  ],
+  "source_changes": "二阶段各代理只新增读取REVEAL.md；不提供其他代理答案，无新增游戏实测。"
+}

@@ -1,0 +1,172 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=ffaf3fe818d0314e03fa1c9755cbe7cabdf96996983adddb7b4d5026efe841d8；input_path=.ai/task/ctx2-pub-22a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Thought] ```json
+{"contract":"translation_contextual_"}
+```
+[Read] .ai/task/ctx2-pub-22a/CONTEXTUAL-ENVELOPE-full-01.json
+[Thought] Envelope identity and revision keys are available. Need to determine the relationship between them. The ordered list suggests a chronological progression or versioning.
+[Shell] ls -d game 2>/dev/null || find . -maxdepth 3 -name "game"
+[Shell] ls -la i18n/
+[Shell] ls -la i18n/versions/
+[Shell] git log -1 624a67329fe2ad440c5b344785a9c73fcf22ae63 2>&1
+[Shell] cat i18n/versions/tome-1.7.6.json
+[Shell] ls -la ../t-engine4 2>/dev/null || ls -la ../
+[Shell] echo "TOME_ENGINE_ROOT=$TOME_ENGINE_ROOT"; find /home/paseo -name "*t-engine*" 2>/dev/null
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Thought] The revision history needs to be examined to understand the changes and identify potential causes for any observed behavior. The sequence of commits will be analyzed to trace the evolution of the code and pinpoint relevant modifications.
+[Shell] grep -n -C 5 "Shout your warcry" /workspace/t-engine4/game/modules/tome/data/talents/techniques/strength-of-the-berserker.lua
+[Shell] sed -n '25,45p' /workspace/t-engine4/game/modules/tome/data/talents/techniques/strength-of-the-berserker.lua
+[Thought] The English phrase "50% confusion power" translates to "(50% intensity)" in the target language. The term "confusion power" requires clarification; it could refer to "混乱（50%强度）" which implies a percentage of effect, or simply "混乱强度", which is just confusion intensity.
+[Shell] grep -E "radius %d|半径" mod-tome.lua | head -n 10
+[Shell] grep -C 2 "confusion power" mod-tome.lua
+[Shell] grep -n -C 5 "mobility and evade your enemies" /workspace/t-engine4/game/modules/tome/data/talents/techniques/techniques.lua
+[Shell] grep -n -C 5 "Unarmed Boxing techniques" /workspace/t-engine4/game/modules/tome/data/talents/techniques/techniques.lua
+[Shell] grep -rn "grappling" terminology/
+[Shell] grep -n -C 5 "with lightning speed" /workspace/t-engine4/game/modules/tome/data/talents/techniques/throwing-knives.lua
+[Shell] sed -n '310,335p' /workspace/t-engine4/game/modules/tome/data/talents/techniques/throwing-knives.lua
+[Thought] **Confirming Precise Matching**
+
+I've confirmed that `entry-02435` is completely accurate. The placeholder values, specifically `%d%%` and `100%%`, match, and the underlying semantics and mechanics align perfectly (e.g., the callback on melee, radius, quickdraw proc, 100% damage, and speed increase).
+[Shell] sed -n '1,65p' /workspace/t-engine4/game/modules/tome/data/talents/techniques/tireless-combatant.lua
+[Thought] **Analyzing Stamina Regeneration**
+
+I'm now diving into the implications of stamina regeneration based on positional advantage. Specifically, I'm examining the mechanics where not being adjacent to an opponent grants stamina regeneration, potentially alongside life regeneration. My focus is on how this interacts with Breathing Room at talent level 3 or higher. I need to understand the relationship between positional advantage, stamina, and life regen.
+
+
+**Clarifying Talent Condition**
+
+I'm now clarifying the condition for life regeneration in relation to the talent, Breathing Room. I'm focusing on the Chinese phrasing "这个技能带给你等量的生命回复" and whether it is clear that the life regeneration is tied to the positional advantage condition (no adjacent enemies). I need to determine if the wording could be misinterpreted as unconditional life regen or if the intent is clear when the talent is active.
+[Shell] sed -n '66,220p' /workspace/t-engine4/game/modules/tome/data/talents/techniques/tireless-combatant.lua
+[Thought] **Analyzing Stamina Regeneration**
+
+I'm now focusing on the Stamina regeneration mechanic. Specifically, I'm examining the effects of not having an adjacent opponent, which grants %0.1f Stamina regeneration. The added life regeneration from Breathing Room at talent level 3 or more is also of interest. My next steps are to determine how these values interact.
+[Shell] grep -n -C 15 "Hit your target with your shield 3 times" /workspace/t-engine4/game/modules/tome/data/talents/techniques/weaponshield.lua
+[Thought] The phrase "Enter a protective battle stance allowing you" likely describes a game mechanic where the character assumes a defensive posture.  This stance probably grants the player benefits related to defense or blocking attacks.
+[Shell] grep -rn "stun" terminology/
+[Shell] grep -n -C 10 "Increases stun and knockback resistance" /workspace/t-engine4/game/modules/tome/data/talents/techniques/weaponshield.lua
+[Shell] grep -n -C 15 "newfound knowledge of corruption" /workspace/t-engine4/game/modules/tome/data/talents/uber/const.lua
+[Shell] grep -n -C 15 "virulent blight" /workspace/t-engine4/game/modules/tome/data/talents/uber/cun.lua
+[Thought] **Analyzing the Disease Blast**
+
+I'm currently dissecting the code related to a "virulent blight" attack. Specifically, I'm examining its damage type, duration, and associated effect parameters. The objective is to understand how this attack functions within the game's mechanics, and potentially identify ways to optimize or modify its behavior.
+[Shell] grep -n -C 15 "assembles" /workspace/t-engine4/game/modules/tome/data/talents/uber/cun.lua
+[Shell] sed -n '280,360p' /workspace/t-engine4/game/modules/tome/data/talents/uber/cun.lua
+[Shell] sed -n '361,385p' /workspace/t-engine4/game/modules/tome/data/talents/uber/cun.lua
+[Thought] **Analyzing Terminology Snapshot**
+
+I'm currently reviewing terminology entries, specifically `entry-02474`. I've noted the association of "ice" with "寒冰" in the terminology snapshot, designated as a damage type within a game context. I am now examining how "ice" is used in relation to #1133F3#Cold, where it alters the player's attributes, so I can see if it fits the damage type or is distinct.
+[Shell] grep -rn -C 15 "EFF_ELEMENTAL_SURGE_COLD\|ELEMENTAL_SURGE_COLD" /workspace/t-engine4/game/modules/tome/data/
+[Thought] **Investigating Damage Types**
+
+Okay, I've dug into the ToME 4 code and found a potentially relevant line in `game/modules/tome/data/timed_effects/other.lua`. Line 125, specifically, references `DamageType.ICE`. Now, I'm heading over to `game/modules/tome/data/damage_types.lua` to see what `ICE` is defined as. I'm hoping this will illuminate how the game handles ice damage.
+[Shell] grep -n -C 10 'type = "ICE"' /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Thought] **Analyzing Ice Damage Type**
+
+I'm now focusing on the "ICE" damage type. I've noted its characteristics: cold damage with a freeze chance, represented by a specific text color. Furthermore, I've linked the "ice" terminology in the game to 寒冰, and the location of the Terminology file. I want to see if I can cross-reference damage types across projects.
+[Shell] grep -n -C 5 "ELEMENTAL_SURGE_COLD\|deals %d ice damage when hit in melee" mod-tome.lua
+[Shell] grep -rn "ice" terminology/
+[Shell] sed -n '1,45p' terminology/combat.tsv
+[Thought] The translation of "ice damage" as "冰冻伤害" appears incorrect; "寒冰伤害" might be more accurate based on the context of "cold" (寒冷) and "ice" (寒冰). Verify the consistency of these terms in the translation database to maintain accurate terminology. Checking for instances where similar errors exist.
+[Shell] grep -n -C 10 "dts = " /workspace/t-engine4/game/modules/tome/data/talents/uber/cun.lua
+[Thought] **Analyzing Elemental Properties**
+
+I've been examining the `cun.lua` file, specifically line 260. The inclusion of `PHYSICAL` within the `dts` table is particularly interesting. It seems to imply that physical damage might have an elemental characteristic in the context of surrounding oneself with an element. This warrants further investigation into the game's damage model.
+[Shell] sed -n '60,150p' /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Thought] The term "ice damage" requires translation. The terminology defines `ice` as `寒冰` within the damage type context. The target translation uses `冰冻` which means freeze. Need to verify that `冰冻` is used for `freeze` or other related damage types.
+
+
+The phrase "存储你造成的元素伤害" incorrectly restricts stored damage to elemental types; physical damage also contributes. Now examining `entry-02489` for further translation requirements. The target translation appears to have started but not fully completed.
+[Shell] grep -n -C 25 "Blighted Summoning" /workspace/t-engine4/game/modules/tome/data/talents/uber/mag.lua
+[Shell] sed -n '198,270p' /workspace/t-engine4/game/modules/tome/data/talents/uber/mag.lua
+[Thought] **Analyzing Talent Names**
+
+I'm currently focused on translating talent names within `entry-02489`. I've successfully translated "War Hound: Gnaw" to "战争猎犬：啃噬" and "Jelly: Curse of Defencelessness" to "果冻怪：无防备诅咒". I am curious about what the abbreviation `T_CURSE_OF_DEFENSE` stands for.
+
+
+**Querying Key Translations**
+
+I've moved on to translating more talent names from `entry-02489`, and am currently interested in the translations of associated codes in `mod-tome.lua`. I've rendered `Minotaur: Ruin` to `米诺陶：毁伤`, but I'm curious what `T_RUIN` corresponds to in `mod-tome.lua`. The pattern continues with `Golem: Acid Blood`, where I'm asking about `T_ACID_BLOOD`, and then `Hydra: Blood Spray` where I'm asking about `T_BLOOD_SPRAY`. I have translated the other names for now.
+[Shell] grep -n -E '"(Bone Shield|Curse of Defenselessness|Ruin|Acid Blood|Life Tap|Blood Spray|Poison Storm|Flame of Urh'\''Rok|Elemental Discord|Blood Grasp|Bone Spear|Bone Spike|Virulent Disease|Slumber...
+[Thought] **Confirming Translations**
+
+I've just verified that all the talent names listed in `entry-02489` are present within `mod-tome.lua`. Specifically, I have confirmed the matches for: Poison Storm, Blood Spray, Blood Grasp, Bone Spear, and Bone Spike. Each English name corresponds to its respective Chinese translation.
+
+
+**Verifying Terminology**
+
+I'm now cross-referencing talent translations. I've successfully mapped "Bone Shield" to "白骨护盾", "Curse of Defenselessness" to "无防备诅咒", and so on. Also, "Wilder Summons" being "自然召唤" checks out with the `elseif` code block. Everything in `entry-02489` and `mod-tome.lua` aligns perfectly now.
+
+
+
+**Analyzing Celestial Affinities**
+
+I'm now diving into the implications of this distant sun entity. I'm focusing on the player's potential bond with this celestial being. The core of my analysis centers on the provided game mechanics, specifically the translation and interaction of `光辉引力` (Luminous Gravity). I'm looking at how the "sphere and all foes in range 5 are drawn to it" mechanic works within the game's context, and I am cross-referencing this effect's in-game effects. I am also determining how `光辉引力` ties into the translated in-game dialogue "Will you bind yourself to the Distant Sun?"
+[Shell] sed -n '310,395p' /workspace/t-engine4/game/modules/tome/data/talents/uber/str.lua
+[Shell] grep -n -E '"(Weapon of Light|Gravitic Effulgence|Sun'\''s Vengeance|Judgement|Irresistible Sun)"' mod-tome.lua
+[Thought] All talent names in `entry-02500` are confirmed to correspond precisely to entries within `mod-tome.lua`. The associated tags appear to present a question directly related to the talent "Distant Sun," indicating a potential narrative or gameplay choice.
+[Shell] grep -rn "Ghoulish Leap" terminology/ mod-tome.lua
+[Thought] **Locating Translation Entries**
+
+I've pinpointed a relevant section in `mod-tome.lua`, specifically around line 31841. It looks like "Ghoulish Leap" is the English translation for "食尸鬼跳跃". I found another occurrence at line 37636. I'm noting this to track down how translations are handled and potentially identify the broader system.
+[Shell] git log -S "食尸鬼跳跃" -p mod-tome.lua | head -n 40
+[Shell] sed -n '31835,31875p' mod-tome.lua
+[Thought] The "Ghoulish Leap" talent is directly translated as "食尸鬼跳跃" within the `ghoul.lua` file. The "Gnaw" talent's description explicitly references "Ghoulish Leap," and the translation of the description includes the translated name as well.
+[Shell] sed -n '120,200p' /workspace/t-engine4/game/modules/tome/data/talents/undeads/ghoul.lua
+[Shell] sed -n '201,245p' /workspace/t-engine4/game/modules/tome/data/talents/undeads/ghoul.lua
+[Shell] sed -n '246,260p' /workspace/t-engine4/game/modules/tome/data/talents/undeads/ghoul.lua
+[Thought] Analyzing ghoul talent configurations. The provided code defines talent progression, including `T_GNAW` and `T_GHOULISH_LEAP`. Noticed a comment suggesting extreme scaling for `T_ROTTING_DISEASE`, implying a need for careful balancing.
+
+
+Verified the ghoul puppet description correctly reflects its abilities: gnaw, ghoul leap, stun, and rotting disease. Proceeding to examine the tutorial's introductory text and its Chinese translation to determine if they are equivalent in meaning.
+[Shell] grep -rn "Tales of Maj'Eyal" terminology/ mod-tome.lua
+[Shell] sed -n '41245,41256p;41528,41536p' mod-tome.lua
+[Shell] grep -rn "Tales of Maj'Eyal" mod-boot.lua terminology/
+[Thought] The game consistently translates "Welcome to Tales of Maj'Eyal" as "欢迎来到马基·埃亚尔的传说". Terminology documentation confirms "马基·埃亚尔" as the preferred translation for "Maj'Eyal", explicitly noting that "马基埃亚尔" is deprecated. Further investigation of entry 02520 reveals the source string.
+
+
+"ToME 4" is an incorrect translation of "Tales of Maj'Eyal"; the original source string needs to be corrected. Cross-referencing the codebase confirms the consistent correct translation of "马基·埃亚尔的传说" for "Tales of Maj'Eyal". The terminology database further validates "马基·埃亚尔" as the correct term for "Maj'Eyal".
+
+
+Examining the current translation shows the game title "Tales of Maj'Eyal" is incorrectly rendered as "ToME 4". The consistent project standard and terminology data mandate the translation "马基·埃亚尔的传说" for the title. The translation of "Lone Wolf" and "Human" are correct.
+
+
+I'm thinking through how to approach this.
+
+
+Examining the translations, I see the pattern: "may not be practiced in massive armor or while a weapon or shield is equipped" consistently translates to "身穿板甲或装备武器、盾牌时无法施展". The individual components are handled correctly: "massive armor" as "板甲", "weapon or shield is equipped" as "装备武器、盾牌" and the overall phrases match. This pattern appears to be accurate for all provided entries. I will make sure this pattern is consistent across the source data.
+
+
+Analyzing `entry-02439`, the target translation uses "体力回复" instead of "体力值回复" or "体力值". The terminology snapshot defines "Stamina" as "体力值". The target should use consistent terminology; the target translation will be corrected to "体力值回复". The term "等量的" will be validated and kept.
+
+
+"生命回复" and "体力回复" are confirmed as standard attribute display names. The translation of "when Breathing Room is active" to "这个技能带给你等量的生命回复" accurately captures the conditionality of the passive skill. The translation of entry 02449, preserving placeholders and conveying the mechanics, is deemed accurate.
+
+
+A potential issue was identified in `entry-02451` related to the translation of "stun" as "眩晕" when it should be "震慑", as defined in the terminology. This resulted in the misrepresentation of "stun and knockback resistance" as "眩晕和击退抗性." Source code and terminology were analyzed to confirm the error and determine the correct translation. Entry `entry-02456`, `entry-02460`, `entry-02466` were confirmed as correct. An examination of `entry-02474` is ongoing. The translation of "ice damage" as "冰冻伤害" is confirmed to be accurate.
+
+
+"light," "physical," "fire," "lightning," "blight," and "mind" are correctly translated as damage types. The translation of "ice" as "冰冻伤害" is problematic due to potential confusion with the "freeze" status effect. The term should use "寒冰" instead. The translation for "stores damage you deal" should be corrected to not include "elemental" as it is not present in the source.
+
+
+The term "ice damage" is correctly translated as "冰冻伤害" in the specific context of `entry-02474`. However, due to potential ambiguity with "freeze" status, the preferred translation for "ice" as a damage type should be "寒冰" according to terminology. The initial translation of "stores damage you deal" as "存储你造成的元素伤害" is incorrect because physical damage is also stored, and the source does not specify "elemental". It should be corrected. The inclusion of `ice => 寒冰` in the terminology snapshot is likely to ensure this distinction.
+
+
+The terminology snapshot includes `ice => 寒冰` because, while "冰冻伤害" is accurate in `entry-02474`, the preferred damage type translation is "寒冰". This distinction is needed to avoid potential confusion with the "freeze" status effect, which does not appear in the snapshot. The inclusion is likely to establish "寒冰" as the standard.
+[Shell] git grep -n "定向跳跃"
+[Thought] **Verifying Translation Accuracy**
+
+I've confirmed that the talent `Ghoulish Leap` has a corresponding entry in both the terminology file and the Lua script, so entry-02506 is validated. To maintain rigor, I'm now embarking on a complete verification of all eighteen entries to ensure each verdict is sound. I am planning to compile a list of each entry.
+
+
+**Assessing Key Translation Issues**
+
+I've just finished reviewing the entries 02399 to 02466 in the ordered revision keys. I found one issue, entry 02449, that requires further investigation. The translation of "stun and knockback resistance" to "眩晕和击退抗性" seems inaccurate as the game's glossary defines "stun" as "震慑". I also found another problem in entry 02474 with the translation of "ice damage."
+[Shell] nl -ba /workspace/t-engine4/game/modules/tome/data/texts/intro-tutorial.lua
+[Shell] nl -ba /workspace/t-engine4/game/modules/tome/data/talents/techniques/weaponshield.lua | sed -n '190,238p'
+{"contract":"translation_contextual_v2","candidate_identity":"ffaf3fe818d0314e03fa1c9755cbe7cabdf96996983adddb7b4d5026efe841d8","verdicts":[{"revision_key":"entry-02399","verdict":"OK"},{"revision_key":"entry-02422","verdict":"OK"},{"revision_key":"entry-02425","verdict":"OK"},{"revision_key":"entry-02426","verdict":"OK"},{"revision_key":"entry-02427","verdict":"OK"},{"revision_key":"entry-02428","verdict":"OK"},{"revision_key":"entry-02435","verdict":"OK"},{"revision_key":"entry-02439","verdict":"OK"},{"revision_key":"entry-02449","verdict":"OK"},{"revision_key":"entry-02451","verdict":"ISSUE","observation":"术语与机制混淆：原文“Increases stun and knockback resistance by %d%%.”译为“提升眩晕和击退抗性 %d%%。”。补查组件 tome 固定源码 game/modules/tome/data/talents/techniques/weaponshield.lua:210-211,224-225（commit:624a67329fe2ad440c5b344785a9c73fcf22ae63），Shield Wall 通过 addTemporaryValue(\"stun_immune\", t.stunKBresist(self, t)) 提升的是震慑免疫（stun_immune）；按冻结术语子集 stun => 震慑 [T.GAME.EFFECT/effect subtype/existing/core]，stun 应译为“震慑”而非“眩晕”（daze）。"},{"revision_key":"entry-02456","verdict":"OK"},{"revision_key":"entry-02460","verdict":"OK"},{"revision_key":"entry-02466","verdict":"OK"},{"revision_key":"entry-02474","verdict":"ISSUE","observation":"术语与机制偏差：1）原文“dealing %d ice damage to attackers”译为“对攻击者造成 %d 冰冻伤害”，补查组件 tome 固定源码 game/modules/tome/data/talents/uber/cun.lua:321 与 game/modules/tome/data/timed_effects/other.lua:116-126（commit:624a67329fe2ad440c5b344785a9c73fcf22ae63），EFF_ELEMENTAL_SURGE_COLD 设置 on_melee_hit={[DamageType.ICE]=eff.dam}（对应 game/modules/tome/data/damage_types.lua:1357 的 ice 伤害类型），按冻结术语子集 ice => 寒冰 [T.GAME.DAMAGE/damage type/existing/global] 应译为“寒冰伤害”而非“冰冻伤害”；2）首句“stores damage you deal”增译为“存储你造成的元素伤害”，但 cun.lua:260 中 dts={PHYSICAL=true, ARCANE=true, LIGHT=true, COLD=true, LIGHTNING=true, FIRE=true, NATURE=true} 实际同样记录物理（PHYSICAL）伤害并触发物理特效。"},{"revision_key":"entry-02489","verdict":"OK"},{"revision_key":"entry-02500","verdict":"OK"},{"revision_key":"entry-02506","verdict":"OK"},{"revision_key":"entry-02520","verdict":"ISSUE","observation":"专名与跨条一致性问题：首行“#LIGHT_GREEN#Welcome to Tales of Maj'Eyal!#LAST#”（组件 tome，固定源码 game/modules/tome/data/texts/intro-tutorial.lua:20，commit:624a67329fe2ad440c5b344785a9c73fcf22ae63）被译为“#LIGHT_GREEN#欢迎你来到 ToME 4！#LAST#”，将正式游戏标题 Tales of Maj'Eyal 替换为缩写“ToME 4”，漏译冻结术语 Maj'Eyal => 马基·埃亚尔 [T.PN.WORLD/_t/preferred/core]，且与同模块其他欢迎及说明文本统一的“马基·埃亚尔的传说”不一致。"}]}
+[Thought] **Verifying JSON Structure**
+
+I'm currently validating the JSON structure. I'm cross-referencing against Section 6 of the `docs/paseo-translation-context-review-v2-contract.md` documentation to ensure compliance with the specified schema and data types. I'm focusing on the `contract`, `candidate_identity`, and `verdicts` fields.

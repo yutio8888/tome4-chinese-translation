@@ -1,0 +1,67 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=9b29e77a79a2eb632293acf81fc4b9c0f24e25d9ca71f8ccb9841a27fd9c7216；input_path=.ai/task/ctx2-pub-18a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-18a/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] git rev-parse HEAD
+[Shell] git cat-file -t 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] find . -maxdepth 3 -name "npcs.lua" -o -name "objects.lua"
+[Shell] python3 -B tools/i18n doctor
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Shell] rg -n -C 5 "Engulfs your hands" /workspace/t-engine4/game/modules/tome/data/talents/misc/npcs.lua
+[Shell] rg -n -C 5 "Calls forth a powerful beam of lightning" /workspace/t-engine4/game/modules/tome/data/talents/misc/npcs.lua
+[Shell] rg -n -C 5 "A punch to the body" /workspace/t-engine4/game/modules/tome/data/talents/misc/npcs.lua
+[Shell] rg -n -C 5 "When gaining a combo point" /workspace/t-engine4/game/modules/tome/data/talents/misc/npcs.lua
+[Shell] rg -n -C 5 "Superior cunning and training" /workspace/t-engine4/game/modules/tome/data/talents/misc/npcs.lua
+[Shell] rg -n -C 5 "Each time one of your foes bites the dust" /workspace/t-engine4/game/modules/tome/data/talents/misc/npcs.lua
+[Shell] rg -n "bites the dust"
+[Shell] rg -n "bites the dust" /tmp/pi-bash-96eaea84d3679469.log || head -n 30 /tmp/pi-bash-96eaea84d3679469.log
+[Shell] rg -g "*.lua" "bites the dust" .
+[Shell] rg -n -C 5 "without dual wielding" /workspace/t-engine4/game/modules/tome/data/talents/misc/npcs.lua
+[Shell] rg -n -C 5 "Creates a circle of radius" /workspace/t-engine4/game/modules/tome/data/talents/misc/npcs.lua
+[Shell] rg -n -C 10 "Raise your dagger into blocking position" /workspace/t-engine4/game/modules/tome/data/talents/misc/objects.lua
+[Shell] sed -n '650,665p' /workspace/t-engine4/game/modules/tome/data/talents/misc/objects.lua
+[Shell] sed -n '635,655p' /workspace/t-engine4/game/modules/tome/data/talents/misc/objects.lua
+[Shell] rg -n -C 5 "EFF_BLOCKING" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] rg -n "EFF_BLOCKING" /workspace/t-engine4/game/modules/tome/
+[Shell] sed -n '405,420p' /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Shell] rg -n "newEffect.*EFF_BLOCKING" /workspace/t-engine4/game/modules/tome/
+[Shell] rg -n "BLOCKING" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] sed -n '2305,2360p' /workspace/t-engine4/game/modules/tome/data/timed_effects/physical.lua
+[Shell] sed -n '620,645p' /workspace/t-engine4/game/modules/tome/data/talents/misc/objects.lua
+[Shell] rg -n -C 5 "EFF_COUNTERSTRIKE" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] sed -n '2310,2330p' /workspace/t-engine4/game/modules/tome/data/timed_effects/physical.lua
+[Shell] sed -n '2365,2395p' /workspace/t-engine4/game/modules/tome/data/timed_effects/physical.lua
+[Shell] rg -n -C 5 "info = function\(self, t\)" /workspace/t-engine4/game/modules/tome/data/talents/misc/objects.lua
+[Shell] sed -n '324,345p' /workspace/t-engine4/game/modules/tome/data/talents/misc/objects.lua
+[Shell] rg -n -C 10 "Halflings have always been" /workspace/t-engine4/game/modules/tome/data/talents/misc/races.lua
+[Shell] sed -n '600,622p' /workspace/t-engine4/game/modules/tome/data/talents/misc/races.lua
+[Shell] rg -n "T_MILITANT_MIND" /workspace/t-engine4/game/modules/tome/
+[Shell] rg -n -C 5 "EFF_MILITANT_MIND" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] rg -n "MILITANT_MIND" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] sed -n '766,785p' /workspace/t-engine4/game/modules/tome/data/timed_effects/other.lua
+[Shell] rg -n -C 10 "Orcs have been the prey" /workspace/t-engine4/game/modules/tome/data/talents/misc/races.lua
+[Shell] rg -n -C 10 "Surround yourself with a forcefield" /workspace/t-engine4/game/modules/tome/data/talents/psionic/absorption.lua
+[Shell] rg -n -C 10 "Unleash your subconscious" /workspace/t-engine4/game/modules/tome/data/talents/psionic/discharge.lua
+[Shell] rg -n "Sunder Mind" /workspace/t-engine4/game/modules/tome/data/talents/
+[Shell] rg -n "Sunder Mind" mod-tome.lua
+[Shell] rg -n -C 10 "Crush your enemy with your Dream Hammer" /workspace/t-engine4/game/modules/tome/data/talents/psionic/dream-smith.lua
+[Shell] rg -n -C 10 "Use Feedback to replenish yourself" /workspace/t-engine4/game/modules/tome/data/talents/psionic/feedback.lua
+[Shell] rg -n -C 15 "resonant frequencies of your psionic focus" /workspace/t-engine4/game/modules/tome/data/talents/psionic/finer-energy-manipulations.lua
+[Shell] rg -n "T_RESONANT_FOCUS" /workspace/t-engine4/game/modules/tome/
+[Shell] sed -n '230,265p' /workspace/t-engine4/game/modules/tome/data/talents/psionic/other.lua
+[Shell] rg -n -C 3 "Raise your dagger into blocking position" mod-tome.lua
+[Shell] rg -n -C 5 "Raise your shield into blocking position" mod-tome.lua
+[Shell] rg -n "defaultProjector" /workspace/t-engine4/game/modules/tome/class/interface/Combat.lua
+[Shell] rg -n "DamageType" /workspace/t-engine4/game/modules/tome/class/interface/Combat.lua
+[Shell] rg -n "扑街" .
+[Shell] rg -n "扑街" mod-tome.lua
+[Shell] rg -n "Physical Power, Physical Save" mod-tome.lua
+[Shell] rg -n -C 10 "psionic channel" /workspace/t-engine4/game/modules/tome/data/talents/psionic/discharge.lua
+[Shell] rg -n -C 5 "T_MIND_STORM" /workspace/t-engine4/game/modules/tome/data/talents/psionic/psychic-assault.lua
+[Shell] head -n 50 TERMINOLOGY.md
+[Shell] python3 -B -c ' import json candidate_identity = "9b29e77a79a2eb632293acf81fc4b9c0f24e25d9ca71f8ccb9841a27fd9c7216" with open(".ai/task/ctx2-pub-18a/CONTEXTUAL-ENVELOPE-full-01.json") as f: env = j...
+[Shell] python3 -B -c ' import json candidate_identity = "9b29e77a79a2eb632293acf81fc4b9c0f24e25d9ca71f8ccb9841a27fd9c7216" with open(".ai/task/ctx2-pub-18a/CONTEXTUAL-ENVELOPE-full-01.json") as f: env = j...
+[Shell] python3 -B -c ' import json candidate_identity = "9b29e77a79a2eb632293acf81fc4b9c0f24e25d9ca71f8ccb9841a27fd9c7216" with open(".ai/task/ctx2-pub-18a/CONTEXTUAL-ENVELOPE-full-01.json") as f: env = j...
+{"contract":"translation_contextual_v2","candidate_identity":"9b29e77a79a2eb632293acf81fc4b9c0f24e25d9ca71f8ccb9841a27fd9c7216","verdicts":[{"revision_key":"entry-02023","verdict":"OK"},{"revision_key":"entry-02024","verdict":"OK"},{"revision_key":"entry-02025","verdict":"OK"},{"revision_key":"entry-02026","verdict":"OK"},{"revision_key":"entry-02027","verdict":"OK"},{"revision_key":"entry-02028","verdict":"ISSUE","observation":"语体与语义偏离：英文原文\"Each time one of your foes bites the dust\"中\"bites the dust\"为习惯用语（意为倒下/阵亡），对应固定源码（组件tome，公开源码路径game/modules/tome/data/talents/misc/npcs.lua:2434-2440，固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63）的Bloodrage技能在on_kill钩子触发增益。译文使用戏谑及方言俚语粗俗色彩的\"扑街\"（\"每当你让一个敌人扑街\"），严重违背游戏正统奇幻语境，破坏全库击杀描述的跨条一致性，且将敌人倒下的不及物句式曲解为使动；建议改为\"每当一名敌人倒下\"或\"每当你击杀一个敌人\"。"},{"revision_key":"entry-02032","verdict":"OK"},{"revision_key":"entry-02043","verdict":"OK"},{"revision_key":"entry-02050","verdict":"OK"},{"revision_key":"entry-02058","verdict":"OK"},{"revision_key":"entry-02066","verdict":"OK"},{"revision_key":"entry-02067","verdict":"OK"},{"revision_key":"entry-02069","verdict":"OK"},{"revision_key":"entry-02074","verdict":"OK"},{"revision_key":"entry-02081","verdict":"OK"},{"revision_key":"entry-02097","verdict":"OK"},{"revision_key":"entry-02103","verdict":"OK"},{"revision_key":"entry-02106","verdict":"OK"}]}

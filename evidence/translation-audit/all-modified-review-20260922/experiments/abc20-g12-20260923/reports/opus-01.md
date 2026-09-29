@@ -1,0 +1,152 @@
+40 条已全部复核完毕：10 条存在问题，3 条仅建议，没有待确认，其余 27 条未发现问题。以下是审核观察，不是真值；不宣称 DONE_VERIFIED。仓库和冻结输入未做任何修改。
+
+| 完整entry-ID | 四类判定 | claim编号或简短依据 |
+|---|---|---|
+| entry-03613 | 未发现问题 | 护盾量、持续时间和重新触发条件都与 void.lua:152-176 的 nullmail_recharge 逻辑一致 |
+| entry-03614 | 存在问题 | C01（问题）；C02（建议） |
+| entry-03615 | 未发现问题 | 实际恢复的是虚空之星计数（void.lua:313-317），「void shards」只是上游措辞 |
+| entry-03616 | 存在问题 | C03 |
+| entry-03617 | 未发现问题 | args_order [2,1] 让半径和伤害各自对上正确参数；「主人死亡」与 misc.lua:47-49 一致 |
+| entry-03618 | 未发现问题 | 专名与同段 context 一致 |
+| entry-03619 | 未发现问题 | 语义正确 |
+| entry-03620 | 存在问题 | C04 |
+| entry-03621 | 未发现问题 | 语义正确 |
+| entry-03622 | 存在问题 | C05 |
+| entry-03623 | 仅建议 | C06 |
+| entry-03624 | 存在问题 | C07 |
+| entry-03625 | 未发现问题 | 术语行只适用于 logSeen，本条是 logPlayer；两者只差句末标点 |
+| entry-03626 | 未发现问题 | 两行对调，但占位符都在同一行、顺序不变，属于等价重排 |
+| entry-03627 | 未发现问题 | 与 KROG_WRATH（timed_effects.lua:1945-1953）一致 |
+| entry-03628 | 未发现问题 | 标记完整 |
+| entry-03629 | 未发现问题 | args_order [1,3,2,4,5,6] 让各数值与 %s 参数对应正确；机制与 races.lua:224-296 一致 |
+| entry-03630 | 存在问题 | C08（问题）；C09（建议） |
+| entry-03631 | 未发现问题 | 语义正确 |
+| entry-03632 | 未发现问题 | 译文忠实；「几率」的参数在代码里实际没被读取，属于上游问题，不计入 |
+| entry-03633 | 存在问题 | C10、C11 |
+| entry-03634 | 未发现问题 | 语义正确 |
+| entry-03635 | 未发现问题 | 语义正确 |
+| entry-03636 | 未发现问题 | 语义正确 |
+| entry-03637 | 未发现问题 | 与状态名「黏稠触须」一致 |
+| entry-03638 | 未发现问题 | 语义正确 |
+| entry-03639 | 未发现问题 | 「缠绕」符合 preferred 术语 |
+| entry-03640 | 存在问题 | C12 |
+| entry-03641 | 未发现问题 | 语义正确 |
+| entry-03642 | 未发现问题 | 占位符和语义正确 |
+| entry-03643 | 仅建议 | C13 |
+| entry-03644 | 未发现问题 | 标记完整 |
+| entry-03645 | 存在问题 | C14 |
+| entry-03646 | 存在问题 | C15 |
+| entry-03647 | 未发现问题 | 与 PROPHECY_OF_RUIN（timed_effects.lua:947-989）一致 |
+| entry-03648 | 未发现问题 | #Source# 与 #target# 的方向与 delayedLogMessage(self, eff.source)（timed_effects.lua:1071）一致 |
+| entry-03649 | 未发现问题 | 语义正确 |
+| entry-03650 | 仅建议 | C16 |
+| entry-03651 | 未发现问题 | 译文补充的机制与 FATEBREAKER（timed_effects.lua:1716-1733）一致；「代替它死亡」沿袭上游措辞 |
+| entry-03652 | 未发现问题 | 专名一致 |
+
+所有来源均为 DLC cults 快照：仓库和 commit 未固定，只有文件哈希已核对一致（下称「未固定」）。凡依赖机制的结论，仍需确认它是否适用于目标版本。
+
+### C01 | entry-03614 | 存在问题
+- **原文与译文：** 原文是「it will **attempt to** daze enemies…」，译文是「每半回合对 %d 码范围内敌人施加眩晕2回合」。
+- **问题：** 译文删掉了「attempt」，把一次需要过判定的尝试写成了必定生效。
+- **源码证据：**
+  - `void.lua:243-247`：on_act 投射 `MESMERIZE`，并带上 `apply_power`。
+  - 由这次调用引入的 `tome-cults/data/damage_types.lua:105-116`：只在 `target:canBe("stun")` 成立时才施加 `EFF_DAZED`，并且带 `apply_power` 豁免对抗。免疫或豁免成功的目标不会被眩晕。
+- **状态：** confirmed，来源未固定。
+
+### C02 | entry-03614 | 仅建议
+- 「%d%% all resist」译作「全体抗性」。术语表里「全部抗性」那一行是 `_t` 面板标签，本条是 tformat，不属于明确适用的术语要求，只是用词统一方面的偏好。
+
+### C03 | entry-03616 | 存在问题
+- **原文与译文：** 原文是「, but is currently disabled due to non-empty offhand」，译文是「，由于副手非空，该技能暂时被禁用」。
+- **问题：** 原文的主语是外层句子里的「Your tentacle hand」（context 中译作「你的触手之手当前具有以下属性%s：」）。译文把被禁用的对象改成了「该技能」，作用对象错了。
+- **源码证据：**
+  - `writhing-body.lua:32-41`：`canTentacleCombat` 为假时，只让 `getTentacleCombat` 返回 nil，也就是只停用触手战斗属性。
+  - `writhing-body.lua:64`：这句只在触手属性描述后作为后缀插入。
+  - 该文件里没有任何代码据此停用整个技能。
+- **状态：** confirmed，来源未固定。
+
+### C04 | entry-03620 | 存在问题
+- **原文与译文：** 原文是「Increases global speed by %d%%」，译文是「增加 %d%% 整体速度」。
+- **问题：** 术语快照中 global speed 的 tformat 行是 preferred「全局速度」，并注明「不写作'整体速度'或'全体速度'」，明确适用于本条。
+- **源码证据：** `timed_effects.lua:2219` 的 TWISTED_SPEED 修改的是 `global_speed_add`，确实是全局速度。
+- **状态：** confirmed。
+
+### C05 | entry-03622 | 存在问题
+- **原文与译文：** 原文是「#Source# **expertly** hurls a pebble at #target#!」，译文是「#Source#朝#target#投掷鹅卵石！」。
+- **问题：** 「expertly」（娴熟地）这个修饰被完全删掉，丢失了一项语义信息。它属于风味文本，不影响机制。
+- **源码证据：** `misc.lua:325`。
+- **状态：** confirmed，轻微。
+
+### C06 | entry-03623 | 仅建议
+- 「coated in dark blight」译作「被黑暗和枯萎力量覆盖」，把一个修饰短语拆成了两种力量。这只是风味描述：伤害类型已由第二行的「暗影伤害」准确给出（`timed_effects.lua:95`），所以只算措辞偏好。
+- 其余部分与 `races.lua:57-71` 一致：每回合只触发一次、要求可见、距离不超过 2、有上限、全部抗性（`timed_effects.lua:109`）。
+
+### C07 | entry-03624 | 存在问题
+- **原文与译文：** 原文是「resist **mind tricks**」，译文是「抵抗精神冲击」。
+- **问题：** 「把戏、诡计」被改成了「冲击」，语义信息被改写。本技能实际提供的是精神豁免和混乱免疫（`races.lua:90-93`），针对的是心智操控类效果，不是冲击类伤害。
+- **状态：** confirmed，轻微。
+
+### C08 | entry-03630 | 存在问题
+- **原文与译文：** 原文是「You were created by **ziguranth**…」，译文是「你被**伊格**制造的唯一理由」。
+- **问题：** 术语快照中 Ziguranth 是 preferred「伊格兰斯」（教团），Zigur 才是「伊格」（地点），并注明「两者不得互换」。这里指的是教团，却用了地名；同段 entry-03629 用的就是「伊格兰斯」。
+- **源码证据：** `races.lua:361`。
+- **状态：** confirmed。
+
+### C09 | entry-03630 | 仅建议
+- 「你被…制造的唯一理由：对魔法作战！」句式生硬，但信息没有丢失，只是自然度问题。
+
+### C10 | entry-03633 | 存在问题
+- **原文与译文：** 原文是「Increases global speed by %d%%」，译文是「整体速度增加 %d%%」。
+- **问题：** 与 C04 相同，违反 tformat 的 global speed preferred 术语。
+- **源码证据：** `races.lua:424` 修改的是 `global_speed_add`。
+- **状态：** confirmed。
+
+### C11 | entry-03633 | 存在问题
+- **原文与译文：** 原文是「your body reacts faster **and better** to aggressions」，译文是「你的身体全凭本能行动，反应速度更快」。
+- **问题：** 译文删掉了「and better」，又新增了原文没有的「全凭本能行动」，语义信息有增有减。属于风味文本，不影响机制。
+- **状态：** confirmed，轻微。
+
+### C12 | entry-03640 | 存在问题
+- **原文与译文：** 原文是「Terrified of the horror duo **attacking them**」，译文是「因两只恐魔的**现身**而惊恐」。
+- **问题：** 惊恐的起因从「正在攻击他们」改成了「现身」，事实被改写。同一效果的 on_gain／on_lose 日志（`timed_effects.lua:281-282`）也都写的是「horrors attacking him」。
+- **状态：** confirmed。
+
+### C13 | entry-03643 | 仅建议
+- 「the pain of its victim」译作「牺牲者的痛苦」，省略了所属的「its」，而且「牺牲者」与「受害者」色彩略有不同。
+- INNER_TENTACLES（`timed_effects.lua:465-486`）是吸血类增益，语境已能表明是它造成伤害的对象，信息没有实质丢失，只算措辞偏好。
+
+### C14 | entry-03645 | 存在问题
+- **原文与译文：** 原文是「Target **briefly saw** what True Horror means, deeply scaring it」，译文是「目标被真正的恐惧吓倒」。
+- **问题：** 「短暂瞥见」这层信息被删掉了。它正对应效果名 Glimpse of True Horror（context 中译作「一瞥真惧」）。
+- **源码证据：** `timed_effects.lua:556-557`。数值部分正确，由 `talent_fail_chance`（:565）实现。
+- **状态：** confirmed，轻微。
+
+### C15 | entry-03646 | 存在问题
+- **原文与译文：** 原文是「…temporal damage from Dark Whispers and **Hideous Visions**」，译文是「从黑暗低语和**失智冲击**中受到…」。
+- **问题：** Hideous Visions 在同一 section 的效果名译作「惊骇幻象」（context.lua 与 `timed_effects.lua:759-761`）。「失智冲击」与之不符，玩家无法把它对应到所指的效果或技能。
+- **源码证据：** 引用关系见 `timed_effects.lua:743-748`，那里通过 `T_HIDEOUS_VISIONS`／`EFF_HIDEOUS_VISIONS` 调用该效果。
+- **状态：** confirmed。
+- **上游问题（不计入）：** 额外的时空伤害实际只在 Dark Whispers 的 on_timeout 中结算（:751-755）。
+
+### C16 | entry-03650 | 仅建议
+- 同一句里「defense」和「avoid all damage」都译作「闪避」，前后两次「闪避」含义不同。
+- 占位符、数值和条件都正确：FORTUNE 在 stacks > 6 时才使用这条描述（`timed_effects.lua:1600-1602`），闪避所有伤害由 `cancel_damage_chance` 实现（:1637）。只算措辞偏好。
+
+## 读取范围与越界说明
+- **本实验目录（只读）：** `experiments/abc20-g12-20260923/` 下的 INPUT.md、entries.json、context.lua、source-access.json，以及 sources 下列在 sections 中的 5 个文件：
+  - `sources/dlc/cults/tome-cults/data/talents/demented/void.lua`
+  - `sources/dlc/cults/tome-cults/data/talents/demented/writhing-body.lua`
+  - `sources/dlc/cults/tome-cults/data/talents/misc/misc.lua`
+  - `sources/dlc/cults/tome-cults/data/talents/misc/races.lua`
+  - `sources/dlc/cults/tome-cults/data/timed_effects.lua`
+- **哈希核对：** 这 5 个文件的 sha256 与 files_sha256 逐一一致。
+- **额外 DLC 源码：** 只读了一个文件，即 `experiments/abc20-20260923/sources/cults/tome-cults/data/damage_types.lua`。
+  - 它在 dlc_additional_sources 中列明，sha256 为 6ec5f165…992c，与记录一致。
+  - 引入原因：`void.lua:246` 调用了 `engine.DamageType.MESMERIZE`。
+- **本体源码：** 只执行过一次
+  `git -C /workspace/t-engine4 show 624a673…:game/modules/tome/data/damage_types.lua | grep MESMERIZE`，
+  目的是确认 MESMERIZE 是否由本体定义。结果无匹配，之后没有使用本体的任何内容。
+- **来源固定情况：** DLC cults 的来源未固定，没有套用本体 commit；unavailable_components 为空。
+- **未读取的材料：** 实验目录里的 BASELINE、SPEC、STATE、PLAN、SCOPE、SCORING、raw、reports 等其他文件，其他模型的输出，当前的翻译文件，以及 DLC 的 locales。
+- **临时目录：** 创建过 `/tmp/abc20-g12-20260923-mvt_429n`，没有写入任何文件，已删除。
+- **越界：** 无。

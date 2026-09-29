@@ -1,0 +1,34 @@
+{
+  "task_id": "modified-translation-spotcheck-20260921",
+  "format": "host-curated natural-language review under explicit user override",
+  "candidate_identity": "560816a413ecd6421a0f274a31ee1075c0fb4527674efb642f5899ec15e5d1c2",
+  "sample_count": 11,
+  "reviewer_clear_count": 10,
+  "reviewer_flagged_entry_count": 1,
+  "confirmed_count": 0,
+  "pending_count": 0,
+  "optional_human_review_entry_count": 1,
+  "claims": [
+    {
+      "id": "spot-06-crit",
+      "status": "advisory",
+      "disposition": "refuted",
+      "human_review_required": false,
+      "reason": "ooze.lua:256–269 supplies ignore_direct_crits; damage_types.lua:130–154 proportionally reduces crit multiplier excess over 1, not a probability roll. Current target is supported."
+    },
+    {
+      "id": "spot-06-wounds",
+      "status": "advisory",
+      "disposition": "refuted",
+      "human_review_required": false,
+      "reason": "ooze.lua:262 sets cut_immune; terminology/combat.tsv:54 cut=流血. wound/effect subtype is not the runtime property here; terminology cannot override source."
+    },
+    {
+      "id": "spot-06-blindness",
+      "status": "advisory",
+      "disposition": "optional_human_consistency_review",
+      "human_review_required": false,
+      "reason": "目盲 and 致盲 refer to the same blind_immune mechanic. Existing term blind=致盲 has source_tag effect subtype and status existing, not a mandatory replacement of all prose. Both phrases occur in current translations. Optional wording consistency only; this phrase already existed before this repair."
+    }
+  ]
+}

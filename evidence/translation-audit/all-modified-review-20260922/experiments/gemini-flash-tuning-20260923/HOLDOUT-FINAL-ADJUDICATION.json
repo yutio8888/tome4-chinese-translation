@@ -1,0 +1,51 @@
+{
+  "at": "2026-09-23T10:14:52.772902+00:00",
+  "reference_changed": false,
+  "new_confirmed": [],
+  "full_negative_review": "HOLDOUT-COMMON-NEGATIVE-RECHECK.json",
+  "final_pair": {
+    "F11-r2": "No candidates; all 24 entries OK. Correct assigned input and P1/cards reads confirmed.",
+    "F00-r2": [
+      {
+        "claim": "C01",
+        "reference": "Q11",
+        "decision": "unsupported confirmed",
+        "reason": "超脱视线可覆盖墙体遮挡；明确穿墙属于表达澄清。源码能穿墙不证明译文排除了穿墙。"
+      },
+      {
+        "claim": "C02",
+        "reference": "Q14",
+        "decision": "unsupported confirmed",
+        "reason": "完整近战语境不足证明中文新增了造成伤害才盾击的条件。代码独立调用盾击的事实保留，不能代替中文读法判定。"
+      },
+      {
+        "claim": "C03",
+        "reference": [
+          "Q01",
+          "Q02"
+        ],
+        "decision": "supported observations, model advisory",
+        "reason": "模型发现了目光/指向以及守卫姿态信息变化，但没有确认为缺陷；候选覆盖单独计2。"
+      },
+      {
+        "claim": "C04",
+        "reference": "Q06",
+        "decision": "unresolved, model advisory",
+        "reason": "英文报酬/商品流向本身含混，保留冻结pending，不计TP/FP。"
+      }
+    ]
+  },
+  "citation_manual_check": {
+    "run": "holdout-F00-r2",
+    "claims": [
+      "C01",
+      "C02"
+    ],
+    "result": "Two code quotations fail literal/line checks because multiline source was compressed and location differs. Matching EFF_SENSE and shield attack implementations exist in the frozen files; do not characterize them as invented implementation.",
+    "files": [
+      "sources/orcs/tome-orcs/data/talents/psionic/gestalt.lua",
+      "sources/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua"
+    ]
+  },
+  "reference_limit": "Host-adjudicated provisional standard; no model consensus substituted for human judgment."
+}

@@ -1,0 +1,1137 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "batch_id": "batch-01",
+ "packet_sha256": "181a8ecbd88da134a8318f740770ad0016a1c6f7cf0d0e8dd79060aa6a242470",
+ "verify_clean": true,
+ "verify_problems": [],
+ "record_count": 50,
+ "verdict_counts": {
+  "accepted": 35,
+  "accepted_policy": 13,
+  "deferred": 2
+ },
+ "model_disposition_counts": {
+  "defer": 2,
+  "fix": 36,
+  "no_change": 11,
+  "refuted": 1
+ },
+ "rejected_model_claims": [
+  {
+   "entry_id": "entry-00244",
+   "claim": "去掉 ` area effect` 的前导空格造成中文拼接缺陷",
+   "verdict": "rejected",
+   "reason": "模型主张补回空格。固定源码 MapEffects.lua:23 为 `dam_def.name .. _t\" area effect\"` 直接拼接，补空格会显示「火焰 范围效果」，反证模型建议有害。"
+  },
+  {
+   "entry_id": "entry-00221",
+   "claim": "「离开地图」构成明显误译",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码 Game.lua:926-936 的 can_change_level 阻止任何换层/换区域，「离开地图」覆盖该限制，功能含义正确；level/zone 统一译法属跨条目策略，非本条缺陷。"
+  },
+  {
+   "entry_id": "entry-00345",
+   "claim": "「使这次攻击发生偏斜」弱化招架，应改「招架」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码确认招架成功挡住攻击，现译保留防御成功含义，属文风偏好，不构成缺陷。"
+  },
+  {
+   "entry_id": "entry-00185",
+   "claim": "方括号内多空格",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。用户策略明确纯静态排版不算缺陷；方括号不属「括号不一致」策略范围。"
+  },
+  {
+   "entry_id": "entry-00254",
+   "claim": "「最大 50%」与同组「最大40%」排版不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；仅为数字前空格差异，属纯静态排版，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00419",
+   "claim": "「超过1500点」与同组「超过 600 点」空格不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；纯静态排版差异，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00428",
+   "claim": "三扇传送门句式与同系列不平行",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；条件、数量、机制均正确，句式平行属文风偏好。"
+  },
+  {
+   "entry_id": "entry-00334",
+   "claim": "「杀死」应为「击杀」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；日志在敌人 on_die 中输出，「杀死」与触发事实一致，击杀仅为界面习惯差异。"
+  },
+  {
+   "entry_id": "entry-00434",
+   "claim": "「珠宝匠托付」应改为更贴近源码关系",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；Master Jeweler 对应珠宝匠，译文为可接受意译，任务名已增补，无缺陷。"
+  },
+  {
+   "entry_id": "entry-00393",
+   "claim": "复合后缀外层半角括号",
+   "verdict": "rejected_on_entry",
+   "reason": "本条 entry-00393 本身已是全角；模型所指的半角外层括号实际出现在 entry-00395–00400（同一 hrq-00046 行的其他载体），已按 bracket_fullwidth 修复那些载体。"
+  },
+  {
+   "entry_id": "entry-00184",
+   "claim": "「勇敢的向前」语病、段间缺空行",
+   "verdict": "accepted_upstream",
+   "reason": "缺陷成立，但主工作区 HEAD 11b3e963 已修（已核逐字）。按 SPEC 规则不在本 worktree 重复修改，记 defer；不接受在本分支重复改。"
+  }
+ ],
+ "records": [
+  {
+   "queue_id": "hrq-00012",
+   "entry_id": "entry-00105",
+   "is_row_primary": true,
+   "file": "engine.lua",
+   "line": 1697,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "最强反证：首行无句号属标题式短句也可读，但其后各行均有句末标点，首行作为完整陈述缺句号属标点错误（用户策略：标点错误修正）。“捐助者”违反 preferred 术语 Donator→捐赠者（用户裁决 hrq-00010 已同样处理 entry-00094）。改为首行补“。”，两处“捐助者”改“捐赠者”。同一源串在 mod-boot.lua（entry-00139，本批已同改）及 mod-tome.lua:41827 另有载体，后者不在冻结集合。",
+   "model_evidence": [
+    "terminology/tech.tsv:3 Donator=捐赠者 preferred",
+    "HUMAN-DECISIONS.jsonl hrq-00010",
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/modules/boot/dialogs/FirstRun.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "首行缺句末标点成立；两处捐助者违反 preferred Donator→捐赠者。",
+   "applied": true,
+   "old_target": "即将禁止所有网络请求\n包括但不仅限于：\n- 用户信息：不能登录或者注册。\n- 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。\n- 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。\n- 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。\n- 购买者/捐助者福利：基础游戏免费，公平发放捐助者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。\n- 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。\n- 插件版本检查：插件将不再检查新版本。\n- Discord：如果你是 Discord 用户，此设置也会禁用 Rich Presence 集成。\n- 游戏内新闻：主菜单将不再显示游戏更新信息。\n\n#{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已，推荐你不要打开它，这会让你失去很多好用的功能和一些游戏体验。#{normal}#\n\n关闭后，可以通过游戏设置菜单的在线选项卡打开。",
+   "new_target": "即将禁止所有网络请求。\n包括但不仅限于：\n- 用户信息：不能登录或者注册。\n- 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。\n- 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。\n- 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。\n- 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。\n- 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。\n- 插件版本检查：插件将不再检查新版本。\n- Discord：如果你是 Discord 用户，此设置也会禁用 Rich Presence 集成。\n- 游戏内新闻：主菜单将不再显示游戏更新信息。\n\n#{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已，推荐你不要打开它，这会让你失去很多好用的功能和一些游戏体验。#{normal}#\n\n关闭后，可以通过游戏设置菜单的在线选项卡打开。",
+   "section": "engine/modules/boot/dialogs/FirstRun.lua",
+   "source": "You are about to disable all connectivity to the network.\nThis includes, but is not limited to:\n- Player profiles: You will not be able to login, register\n- Characters vault: You will not be able to upload any character to the online vault to show your glory\n- Item's Vault: You will not be able to access the online item's vault, this includes both storing and retrieving items.\n- Ingame chat: The ingame chat requires to connect to the server to talk to other players, this will not be possible.\n- Purchaser / Donator benefits: The base game being free, the only way to give donators their bonuses fairly is to check their online profile. This will thus be disabled.\n- Easy addons downloading & installation: You will not be able to see ingame the list of available addons, nor to one-click install them. You may still do so manually.\n- Version checks: Addons will not be checked for new versions.\n- Discord: If you are a Discord user, Rich Presence integration will also be disabled by this setting.\n- Ingame game news: The main menu will stop showing you info about new updates to the game.\n\n#{bold}##CRIMSON#This is an extremely restrictive setting. It is recommended you only activate it if you have no other choice as it will remove many fun and acclaimed features.#{normal}#\n\nIf you disable this option you can always re-activate it in the Online category of the Game Options menu later on."
+  },
+  {
+   "queue_id": "hrq-00013",
+   "entry_id": "entry-00110",
+   "is_row_primary": true,
+   "file": "engine.lua",
+   "line": 1779,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "Maj'Eyal 的 preferred 译名为“马基·埃亚尔”（2026-08-25 维护者裁定，“马基埃亚尔”已被取代）；同批 entry-00112 已用间隔号。无反证。仅改该专名。孪生载体 mod-boot.lua:364 entry-00144 已同步为逐字节相同的 target。",
+   "model_evidence": [
+    "terminology/places.tsv:46 Maj'Eyal=马基·埃亚尔 preferred",
+    "HUMAN-DECISIONS 术语 Maj'Eyal→马基·埃亚尔"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "Maj'Eyal 有 preferred 条目（马基·埃亚尔），无反证。",
+   "applied": true,
+   "old_target": "#{bold}##GOLD#乌鲁洛克之烬 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#很多马基埃亚尔的居民都曾经听说过“恶魔”的名字，它们是一群似乎凭空出现的暴虐生物，无论走到哪里都会带来痛苦和毁灭。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#新职业：#WHITE# 毁灭使者。他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。\n#LIGHT_UMBER#新职业：#WHITE# 恶魔使者。这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！\n#LIGHT_UMBER#新种族：#WHITE# 魔化精灵。那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。\n#LIGHT_UMBER#更多新神器、新手札、新地图、新事件……#WHITE# 体验恶魔的欢愉吧！\n\n",
+   "new_target": "#{bold}##GOLD#乌鲁洛克之烬 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#很多马基·埃亚尔的居民都曾经听说过“恶魔”的名字，它们是一群似乎凭空出现的暴虐生物，无论走到哪里都会带来痛苦和毁灭。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#新职业：#WHITE# 毁灭使者。他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。\n#LIGHT_UMBER#新职业：#WHITE# 恶魔使者。这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！\n#LIGHT_UMBER#新种族：#WHITE# 魔化精灵。那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。\n#LIGHT_UMBER#更多新神器、新手札、新地图、新事件……#WHITE# 体验恶魔的欢愉吧！\n\n",
+   "section": "engine/modules/boot/dialogs/MainMenu.lua",
+   "source": "#{bold}##GOLD#Ashes of Urh'Rok - Expansion#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#Many in Maj'Eyal have heard of \"demons\", sadistic creatures who appear seemingly from nowhere, leaving a trail of suffering and destruction wherever they go.#{normal}##LAST#\n\n#{bold}#Features#{normal}#:\n#LIGHT_UMBER#New class:#WHITE# Doombringers. These avatars of demonic destruction charge into battle with massive two-handed weapons, cutting swaths of firey devastation through hordes of opponents. Armed with flame magic and demonic strength, they delight in fighting against overwhelming odds\n#LIGHT_UMBER#New class:#WHITE# Demonologists. Bearing a shield and the magic of the Spellblaze itself, these melee-fighting casters can grow demonic seeds from their fallen enemies. Imbue these seeds onto your items to gain a wide array of new talents and passive benefits, and summon the demons within them to fight!\n#LIGHT_UMBER#New race:#WHITE# Doomelves. Shalore who've taken to the demonic alterations especially well, corrupting their typical abilities into a darker form.\n#LIGHT_UMBER#New artifacts, lore, zones, events...#WHITE# For your demonic delight!\n\n"
+  },
+  {
+   "queue_id": "hrq-00013",
+   "entry_id": "entry-00144",
+   "is_row_primary": false,
+   "file": "mod-boot.lua",
+   "line": 364,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "孪生载体（同一英文 source 的 boot 组件记录），应用 hrq-00013 已接受决策：“马基埃亚尔”→“马基·埃亚尔”；修改后 target 与主载体 engine.lua:1786 entry-00110 逐字节相同。",
+   "model_evidence": [
+    "terminology/places.tsv:46 Maj'Eyal=马基·埃亚尔 preferred",
+    "HUMAN-DECISIONS 术语 Maj'Eyal→马基·埃亚尔",
+    "主载体 entry-00110 已接受决策"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "孪生载体，应用 hrq-00013 已接受决策；改后与主载体逐字节一致。",
+   "applied": true,
+   "old_target": "#{bold}##GOLD#乌鲁洛克之烬 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#很多马基埃亚尔的居民都曾经听说过“恶魔”的名字，它们是一群似乎凭空出现的暴虐生物，无论走到哪里都会带来痛苦和毁灭。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#新职业：#WHITE# 毁灭使者。他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。\n#LIGHT_UMBER#新职业：#WHITE# 恶魔使者。这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！\n#LIGHT_UMBER#新种族：#WHITE# 魔化精灵。那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。\n#LIGHT_UMBER#更多新神器、新手札、新地图、新事件……#WHITE# 体验恶魔的欢愉吧！\n\n",
+   "new_target": "#{bold}##GOLD#乌鲁洛克之烬 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#很多马基·埃亚尔的居民都曾经听说过“恶魔”的名字，它们是一群似乎凭空出现的暴虐生物，无论走到哪里都会带来痛苦和毁灭。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#新职业：#WHITE# 毁灭使者。他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。\n#LIGHT_UMBER#新职业：#WHITE# 恶魔使者。这些近战施法者手拿盾牌，掌握魔法大爆炸本身的力量，可以从倒下的敌人身上培育出恶魔种子。将这些恶魔种子附魔到你的物品里，可以获得各种全新的技能和被动的能力，并召唤种子里的恶魔来加入战斗！\n#LIGHT_UMBER#新种族：#WHITE# 魔化精灵。那些被恶魔的力量所改变的永恒精灵，他们的种族能力被腐化成了黑暗的形态。\n#LIGHT_UMBER#更多新神器、新手札、新地图、新事件……#WHITE# 体验恶魔的欢愉吧！\n\n",
+   "section": "mod-boot/dialogs/MainMenu.lua",
+   "source": "#{bold}##GOLD#Ashes of Urh'Rok - Expansion#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#Many in Maj'Eyal have heard of \"demons\", sadistic creatures who appear seemingly from nowhere, leaving a trail of suffering and destruction wherever they go.#{normal}##LAST#\n\n#{bold}#Features#{normal}#:\n#LIGHT_UMBER#New class:#WHITE# Doombringers. These avatars of demonic destruction charge into battle with massive two-handed weapons, cutting swaths of firey devastation through hordes of opponents. Armed with flame magic and demonic strength, they delight in fighting against overwhelming odds\n#LIGHT_UMBER#New class:#WHITE# Demonologists. Bearing a shield and the magic of the Spellblaze itself, these melee-fighting casters can grow demonic seeds from their fallen enemies. Imbue these seeds onto your items to gain a wide array of new talents and passive benefits, and summon the demons within them to fight!\n#LIGHT_UMBER#New race:#WHITE# Doomelves. Shalore who've taken to the demonic alterations especially well, corrupting their typical abilities into a darker form.\n#LIGHT_UMBER#New artifacts, lore, zones, events...#WHITE# For your demonic delight!\n\n"
+  },
+  {
+   "queue_id": "hrq-00014",
+   "entry_id": "entry-00111",
+   "is_row_primary": true,
+   "file": "engine.lua",
+   "line": 1800,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "“西方灾星”违反 preferred Scourge from the West→西方天灾（notes 明确不写作“灾星”）；Psyshots 译“念力射手”与术语库及用户裁决 Psyshot→灵能射手不一致。模型所称“DLC 统一”不作依据，依据为术语库与用户裁决。两处“西方灾星”改“西方天灾”，“念力射手”改“灵能射手”。孪生载体 mod-boot.lua:385 entry-00145 已同步为逐字节相同的 target。",
+   "model_evidence": [
+    "terminology/society.tsv:34 Scourge from the West=西方天灾 preferred",
+    "terminology/classes.tsv:46 Psyshot=灵能射手",
+    "HUMAN-DECISIONS 术语 Psyshot→灵能射手 / Scourge from the West→西方天灾"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "Scourge from the West 与 Psyshot 均有术语条目，模型所称 DLC 一致性不作依据。",
+   "applied": true,
+   "old_target": "#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方灾星”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！\n#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，念力射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！\n#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方灾星”的人所带来的灾难中拯救出来。\n#LIGHT_UMBER#嵌件系统：#WHITE# 合成强大的嵌件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的嵌件。\n#LIGHT_UMBER#药剂系统：#WHITE# 在嵌件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！\n\n",
+   "new_target": "#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！\n#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！\n#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。\n#LIGHT_UMBER#嵌件系统：#WHITE# 合成强大的嵌件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的嵌件。\n#LIGHT_UMBER#药剂系统：#WHITE# 在嵌件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！\n\n",
+   "section": "engine/modules/boot/dialogs/MainMenu.lua",
+   "source": "#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#One year has passed since the one the Orcs call the \"Scourge from the West\" came and single-handedly crushed the Orc Prides of Grushnak, Vor, Gorbat, and Rak'Shor.  The Allied Kingdoms, now linked by farportal to their distant, long-lost Sunwall allies, have helped them conquer most of Var'Eyal.  The few remnants of the ravaged Prides are caged...  but one Pride remains.#{normal}##LAST#\n\n#{bold}#Features#{normal}#:\n#LIGHT_UMBER#A whole new campaign:#WHITE# Set one year after the events of the main game, the final destiny of the Orc Prides is up to you. Discover the Far East like you never knew it. \n#LIGHT_UMBER#New classes:#WHITE# Sawbutchers, Gunslingers, Psyshots, Annihilators and Technomanchers. Harness the power of steam to power deadly contraptions to lay waste to all those that oppose the Pride!  \n#LIGHT_UMBER#New races:#WHITE# Orcs, Yetis, Whitehooves. Discover the orcs and their unlikely 'allies' as you try to save your Pride from the disasters caused by the one you call 'The Scourge from the West'.\n#LIGHT_UMBER#Tinker system:#WHITE# Augment your items with powerful crafted tinkers. Attach rockets to your boots, gripping systems to your gloves and many more.\n#LIGHT_UMBER#Salves:#WHITE# Bound to the tinker system, create powerful medical salves to inject into your skin, replacing the infusions§runes system.\n#LIGHT_UMBER#A ton#WHITE# of artifacts, lore, zones, events... \n\n"
+  },
+  {
+   "queue_id": "hrq-00014",
+   "entry_id": "entry-00145",
+   "is_row_primary": false,
+   "file": "mod-boot.lua",
+   "line": 385,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "孪生载体（同一英文 source 的 boot 组件记录），应用 hrq-00014 已接受决策：两处“西方灾星”→“西方天灾”，“念力射手”→“灵能射手”；修改后 target 与主载体 engine.lua entry-00111 逐字节相同。",
+   "model_evidence": [
+    "terminology/society.tsv:34 Scourge from the West=西方天灾 preferred",
+    "terminology/classes.tsv:46 Psyshot=灵能射手",
+    "HUMAN-DECISIONS 术语 Psyshot→灵能射手 / Scourge from the West→西方天灾",
+    "主载体 entry-00111 已接受决策"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "孪生载体，应用 hrq-00014 已接受决策；改后与主载体逐字节一致。",
+   "applied": true,
+   "old_target": "#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方灾星”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！\n#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，念力射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！\n#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方灾星”的人所带来的灾难中拯救出来。\n#LIGHT_UMBER#嵌件系统：#WHITE# 合成强大的嵌件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的嵌件。\n#LIGHT_UMBER#药剂系统：#WHITE# 在嵌件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！\n\n",
+   "new_target": "#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！\n#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！\n#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。\n#LIGHT_UMBER#嵌件系统：#WHITE# 合成强大的嵌件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的嵌件。\n#LIGHT_UMBER#药剂系统：#WHITE# 在嵌件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！\n\n",
+   "section": "mod-boot/dialogs/MainMenu.lua",
+   "source": "#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#One year has passed since the one the Orcs call the \"Scourge from the West\" came and single-handedly crushed the Orc Prides of Grushnak, Vor, Gorbat, and Rak'Shor.  The Allied Kingdoms, now linked by farportal to their distant, long-lost Sunwall allies, have helped them conquer most of Var'Eyal.  The few remnants of the ravaged Prides are caged...  but one Pride remains.#{normal}##LAST#\n\n#{bold}#Features#{normal}#:\n#LIGHT_UMBER#A whole new campaign:#WHITE# Set one year after the events of the main game, the final destiny of the Orc Prides is up to you. Discover the Far East like you never knew it. \n#LIGHT_UMBER#New classes:#WHITE# Sawbutchers, Gunslingers, Psyshots, Annihilators and Technomanchers. Harness the power of steam to power deadly contraptions to lay waste to all those that oppose the Pride!  \n#LIGHT_UMBER#New races:#WHITE# Orcs, Yetis, Whitehooves. Discover the orcs and their unlikely 'allies' as you try to save your Pride from the disasters caused by the one you call 'The Scourge from the West'.\n#LIGHT_UMBER#Tinker system:#WHITE# Augment your items with powerful crafted tinkers. Attach rockets to your boots, gripping systems to your gloves and many more.\n#LIGHT_UMBER#Salves:#WHITE# Bound to the tinker system, create powerful medical salves to inject into your skin, replacing the infusions§runes system.\n#LIGHT_UMBER#A ton#WHITE# of artifacts, lore, zones, events... \n\n"
+  },
+  {
+   "queue_id": "hrq-00015",
+   "entry_id": "entry-00112",
+   "is_row_primary": true,
+   "file": "engine.lua",
+   "line": 1823,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "仅落实用户 standing policy bracket_fullwidth：半角“(不要问我你是怎么*进来*的)”改为全角括号。其余疑点未改：Writhing Ones“扭动者”与术语库“蜿蜒怪人”仅为 existing（非 preferred），不构成强制；Nethergames→“彼世之门”正式译名未在术语库登记；两者属未授权的术语决定，保留现状待用户裁定。“瘟疫之穴”按 human_hint 不改。孪生载体 mod-boot.lua:408 entry-00146 已同步为逐字节相同的 target。",
+   "model_evidence": [
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth",
+    "terminology/classes.tsv:43 Writhing One=蜿蜒怪人 existing"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "仅落实 bracket_fullwidth；扭动者/彼世之门属未授权术语决定，保留。",
+   "applied": true,
+   "old_target": "#{bold}##GOLD#禁忌邪教 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，神智也部分失常，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#新职业：#WHITE# 扭动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？\n#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。\n#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。\n#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。\n#LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路(不要问我你是怎么*进来*的)，探索神秘的出口，以及更多奇异的，充满触手的地图！\n#LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！\n#LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、事件……\n\n",
+   "new_target": "#{bold}##GOLD#禁忌邪教 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，神智也部分失常，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#新职业：#WHITE# 扭动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？\n#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。\n#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。\n#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。\n#LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路（不要问我你是怎么*进来*的），探索神秘的出口，以及更多奇异的，充满触手的地图！\n#LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！\n#LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、事件……\n\n",
+   "section": "engine/modules/boot/dialogs/MainMenu.lua",
+   "source": "#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#Not all adventurers seek fortune, not all that defend the world have good deeds in mind. Lately the number of sightings of horrors have grown tremendously. People wander off the beaten paths only to be found years later, horribly mutated and partly insane, if they are found at all. It is becoming evident something is stirring deep below Maj'Eyal. That something is you.#{normal}##LAST#\n\n#{bold}#Features#{normal}#:\n#LIGHT_UMBER#New class:#WHITE# Writhing Ones. Give in to the corrupting forces and turn yourself gradually into an horror, summon horrors to do your bidding, shed your skin and melt your face to assault your foes. With your arm already turned into a tentacle, what creature can stop you?\n#LIGHT_UMBER#New class:#WHITE# Cultists of Entropy. Using its insanity and control of entropic forces to unravel the normal laws of physic this caster class can turn healing into attacks and call upon the forces of the void to reduce its foes to dust.\n#LIGHT_UMBER#New race:#WHITE# Drems. A corrupt subrace of dwarves, that somehow managed to keep a shred of sanity to not fully devolve into mindless horrors. They can enter a frenzy and even learn to summon horrors.\n#LIGHT_UMBER#New race:#WHITE# Krogs. Ogres transformed by the very thing that should kill them. Their powerful attacks can stun their foes and they are so strong they can dual wield any one handed weapons.\n#LIGHT_UMBER#Many new zones:#WHITE# Explore the Scourge Pits, fight your way out of a giant worm (don't ask how you get *in*), discover the wonders of the Occult Egress and many more strange and tentacle-filled zones!\n#LIGHT_UMBER#New horrors:#WHITE# You liked radiant horrors? You'll love searing horrors! And Nethergames. And Entropic Shards. And ... more\n#LIGHT_UMBER#Sick of your own head:#WHITE#  Replace it with a nice cozy horror!\n#LIGHT_UMBER#A ton#WHITE# of artifacts, lore, events... \n\n"
+  },
+  {
+   "queue_id": "hrq-00015",
+   "entry_id": "entry-00146",
+   "is_row_primary": false,
+   "file": "mod-boot.lua",
+   "line": 408,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "孪生载体（同一英文 source 的 boot 组件记录），应用 hrq-00015 已接受决策（bracket_fullwidth）：“(不要问我你是怎么*进来*的)”改为全角括号；其余疑点同主载体保留待裁定。修改后 target 与主载体 engine.lua entry-00112 逐字节相同。",
+   "model_evidence": [
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth",
+    "terminology/classes.tsv:43 Writhing One=蜿蜒怪人 existing",
+    "主载体 entry-00112 已接受决策"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "孪生载体，应用 hrq-00015 的 bracket_fullwidth 决策；改后与主载体逐字节一致。",
+   "applied": true,
+   "old_target": "#{bold}##GOLD#禁忌邪教 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，神智也部分失常，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#新职业：#WHITE# 扭动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？\n#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。\n#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。\n#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。\n#LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路(不要问我你是怎么*进来*的)，探索神秘的出口，以及更多奇异的，充满触手的地图！\n#LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！\n#LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、事件……\n\n",
+   "new_target": "#{bold}##GOLD#禁忌邪教 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，神智也部分失常，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#新职业：#WHITE# 扭动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？\n#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。\n#LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。\n#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。\n#LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路（不要问我你是怎么*进来*的），探索神秘的出口，以及更多奇异的，充满触手的地图！\n#LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！\n#LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、事件……\n\n",
+   "section": "mod-boot/dialogs/MainMenu.lua",
+   "source": "#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#Not all adventurers seek fortune, not all that defend the world have good deeds in mind. Lately the number of sightings of horrors have grown tremendously. People wander off the beaten paths only to be found years later, horribly mutated and partly insane, if they are found at all. It is becoming evident something is stirring deep below Maj'Eyal. That something is you.#{normal}##LAST#\n\n#{bold}#Features#{normal}#:\n#LIGHT_UMBER#New class:#WHITE# Writhing Ones. Give in to the corrupting forces and turn yourself gradually into an horror, summon horrors to do your bidding, shed your skin and melt your face to assault your foes. With your arm already turned into a tentacle, what creature can stop you?\n#LIGHT_UMBER#New class:#WHITE# Cultists of Entropy. Using its insanity and control of entropic forces to unravel the normal laws of physic this caster class can turn healing into attacks and call upon the forces of the void to reduce its foes to dust.\n#LIGHT_UMBER#New race:#WHITE# Drems. A corrupt subrace of dwarves, that somehow managed to keep a shred of sanity to not fully devolve into mindless horrors. They can enter a frenzy and even learn to summon horrors.\n#LIGHT_UMBER#New race:#WHITE# Krogs. Ogres transformed by the very thing that should kill them. Their powerful attacks can stun their foes and they are so strong they can dual wield any one handed weapons.\n#LIGHT_UMBER#Many new zones:#WHITE# Explore the Scourge Pits, fight your way out of a giant worm (don't ask how you get *in*), discover the wonders of the Occult Egress and many more strange and tentacle-filled zones!\n#LIGHT_UMBER#New horrors:#WHITE# You liked radiant horrors? You'll love searing horrors! And Nethergames. And Entropic Shards. And ... more\n#LIGHT_UMBER#Sick of your own head:#WHITE#  Replace it with a nice cozy horror!\n#LIGHT_UMBER#A ton#WHITE# of artifacts, lore, events... \n\n"
+  },
+  {
+   "queue_id": "hrq-00016",
+   "entry_id": "entry-00139",
+   "is_row_primary": true,
+   "file": "mod-boot.lua",
+   "line": 282,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "与 entry-00105 为同一 boot FirstRun 文本的另一载体，同改以免两载体分歧：首行补“。”，“捐助者”改 preferred“捐赠者”。advisory“角色备份”缩窄 Characters vault：后文已补出“保存角色信息…用来分享”，非实质误译，不改。",
+   "model_evidence": [
+    "terminology/tech.tsv:3 Donator=捐赠者 preferred",
+    "HUMAN-DECISIONS.jsonl hrq-00010",
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/modules/boot/dialogs/FirstRun.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "与 entry-00105 同源同文本的 boot 载体，同改避免分歧。",
+   "applied": true,
+   "old_target": "即将禁止所有网络请求\n包括但不仅限于：\n- 用户信息：不能登录或者注册。\n- 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。\n- 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。\n- 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。\n- 购买者/捐助者福利：基础游戏免费，公平发放捐助者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。\n- 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。\n- 插件版本检查：插件将不再检查新版本。\n- Discord：如果你是 Discord 用户，此设置也会禁用 Rich Presence 集成。\n- 游戏内新闻：主菜单将不再显示游戏更新信息。\n\n#{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已，推荐你不要打开它，这会让你失去很多好用的功能和一些游戏体验。#{normal}#\n\n关闭后，可以通过游戏设置菜单的在线选项卡打开。",
+   "new_target": "即将禁止所有网络请求。\n包括但不仅限于：\n- 用户信息：不能登录或者注册。\n- 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。\n- 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。\n- 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。\n- 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。\n- 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。\n- 插件版本检查：插件将不再检查新版本。\n- Discord：如果你是 Discord 用户，此设置也会禁用 Rich Presence 集成。\n- 游戏内新闻：主菜单将不再显示游戏更新信息。\n\n#{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已，推荐你不要打开它，这会让你失去很多好用的功能和一些游戏体验。#{normal}#\n\n关闭后，可以通过游戏设置菜单的在线选项卡打开。",
+   "section": "mod-boot/dialogs/FirstRun.lua",
+   "source": "You are about to disable all connectivity to the network.\nThis includes, but is not limited to:\n- Player profiles: You will not be able to login, register\n- Characters vault: You will not be able to upload any character to the online vault to show your glory\n- Item's Vault: You will not be able to access the online item's vault, this includes both storing and retrieving items.\n- Ingame chat: The ingame chat requires to connect to the server to talk to other players, this will not be possible.\n- Purchaser / Donator benefits: The base game being free, the only way to give donators their bonuses fairly is to check their online profile. This will thus be disabled.\n- Easy addons downloading & installation: You will not be able to see ingame the list of available addons, nor to one-click install them. You may still do so manually.\n- Version checks: Addons will not be checked for new versions.\n- Discord: If you are a Discord user, Rich Presence integration will also be disabled by this setting.\n- Ingame game news: The main menu will stop showing you info about new updates to the game.\n\n#{bold}##CRIMSON#This is an extremely restrictive setting. It is recommended you only activate it if you have no other choice as it will remove many fun and acclaimed features.#{normal}#\n\nIf you disable this option you can always re-activate it in the Online category of the Game Options menu later on."
+  },
+  {
+   "queue_id": "hrq-00017",
+   "entry_id": "entry-00164",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 103,
+   "source_tag": "log",
+   "model_disposition": "fix",
+   "model_reason": "颜色码与两个 %s 顺序正确（反证成立部分不改）。中文句中半角分号“;”属标点错误（用户策略：标点错误修正），改为全角“；”，与 00165/00166 同组一致。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua",
+    "HUMAN-DECISIONS 标点错误修正策略"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "组内半角分号与同组全角不一致，属标点修正。",
+   "applied": true,
+   "old_target": "#VIOLET#遵循加点顺序%s;增加一点%s。",
+   "new_target": "#VIOLET#遵循加点顺序%s；增加一点%s。",
+   "section": "mod-tome/class/Actor.lua",
+   "source": "#VIOLET#Following build order %s; increasing %s by 1."
+  },
+  {
+   "queue_id": "hrq-00018",
+   "entry_id": "entry-00165",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 104,
+   "source_tag": "log",
+   "model_disposition": "fix",
+   "model_reason": "同 00164：半角分号改全角“；”。“技能树”对应 talent category 为本译本通行说法，术语库无 preferred 冲突，不改。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua",
+    "HUMAN-DECISIONS 标点错误修正策略"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "同上；技能树译法无 preferred 冲突，不改。",
+   "applied": true,
+   "old_target": "#VIOLET#遵循加点顺序%s;学会技能树%s。",
+   "new_target": "#VIOLET#遵循加点顺序%s；学会技能树%s。",
+   "section": "mod-tome/class/Actor.lua",
+   "source": "#VIOLET#Following build order %s; learning talent category %s."
+  },
+  {
+   "queue_id": "hrq-00019",
+   "entry_id": "entry-00166",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 105,
+   "source_tag": "log",
+   "model_disposition": "fix",
+   "model_reason": "同 00164：半角分号改全角“；”。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua",
+    "HUMAN-DECISIONS 标点错误修正策略"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "同上。",
+   "applied": true,
+   "old_target": "#VIOLET#遵循加点顺序%s;学会技能%s。",
+   "new_target": "#VIOLET#遵循加点顺序%s；学会技能%s。",
+   "section": "mod-tome/class/Actor.lua",
+   "source": "#VIOLET#Following build order %s; learning talent %s."
+  },
+  {
+   "queue_id": "hrq-00020",
+   "entry_id": "entry-00184",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 225,
+   "source_tag": "_t",
+   "model_disposition": "defer",
+   "model_reason": "主工作区 /workspace/tome4-chinese-translation（HEAD 11b3e963）已修为：“你达到了#LIGHT_GREEN#等级 50#WHITE#，祝贺你！\\n\\n这个等级很特殊，…通用技能点。\\n现在，勇敢地向前并取得胜利吧！”——已恢复段间空行、改“勇敢地”、去掉增译“最终”。已逐字复核，按 SPEC 规则 8 defer，待合并后生效，不在本 worktree 重复修改。",
+   "model_evidence": [
+    "/workspace/tome4-chinese-translation/mod-tome.lua:225-230 (HEAD 11b3e963)",
+    "SPEC 冻结判据 8"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "主工作区 HEAD 11b3e963 已修（恢复空行、勇敢地、去增译）；本 worktree 不改，待合并。",
+   "applied": false,
+   "old_target": "你达到了#LIGHT_GREEN#等级 50#WHITE#，祝贺你！\n这个等级很特殊，你可以得到额外的#LIGHT_GREEN#10#WHITE#点属性点，#LIGHT_GREEN#3#WHITE#点职业技能点和#LIGHT_GREEN#3#WHITE#点通用技能点。\n现在，勇敢的向前并取得最终的胜利吧！",
+   "new_target": null,
+   "section": "mod-tome/class/Actor.lua",
+   "source": "You have achieved #LIGHT_GREEN#level 50#WHITE#, congratulations!\n\nThis level is special, it granted you #LIGHT_GREEN#10#WHITE# more stat points, #LIGHT_GREEN#3#WHITE# more class talent points and #LIGHT_GREEN#3#WHITE# more generic talent points.\nNow go forward boldly and triumph!"
+  },
+  {
+   "queue_id": "hrq-00021",
+   "entry_id": "entry-00185",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 232,
+   "source_tag": "log",
+   "model_disposition": "no_change",
+   "model_reason": "方括号内多空格“[ %s ]”属纯静态排版，用户策略明确不算缺陷；方括号本身不涉及全角/半角括号不一致策略。占位符与颜色码正确。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua",
+    "HUMAN-DECISIONS 纯静态排版不整理"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "方括号内空格属纯静态排版，按用户策略不算缺陷；不改。",
+   "applied": false,
+   "old_target": "#00ffff#欢迎来到等级 %d [ %s ]。",
+   "new_target": null,
+   "section": "mod-tome/class/Actor.lua",
+   "source": "#00ffff#Welcome to level %d [%s]."
+  },
+  {
+   "queue_id": "hrq-00022",
+   "entry_id": "entry-00191",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 249,
+   "source_tag": "logSeen",
+   "model_disposition": "fix",
+   "model_reason": "源码 Actor.lua:4530 logSeen \"%s warps space-time to equip: %s.\"；space-time 为“时空”，译“扭曲空间”漏掉时间维度（fidelity）。术语库另有 Spacetime→时空 系列用法。改“扭曲时空”，其余不动。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua:4530",
+    "terminology/places.tsv:15 Spacetime Tear=时空裂口"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "固定源码 Actor.lua:4530 为 space-time，漏译时间维度属实。",
+   "applied": true,
+   "old_target": "%s扭曲空间，切换武器至：%s。",
+   "new_target": "%s扭曲时空，切换武器至：%s。",
+   "section": "mod-tome/class/Actor.lua",
+   "source": "%s warps space-time to equip: %s."
+  },
+  {
+   "queue_id": "hrq-00023",
+   "entry_id": "entry-00195",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 277,
+   "source_tag": "logPlayer",
+   "model_disposition": "fix",
+   "model_reason": "源码 Actor.lua:5857 参数为 res_def.name, ab.name，顺序正确。“施展：%s”把动宾用冒号隔断属语法缺陷（二级，cycle 1 可修）。改为“你没有足够的%s来施展%s。”，占位符顺序不变。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua:5857"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "源码 Actor.lua:5857 参数为资源名与技能名；原译冒号割裂动宾，语序缺陷成立。",
+   "applied": true,
+   "old_target": "你没有足够的%s施展：%s。",
+   "new_target": "你没有足够的%s来施展%s。",
+   "section": "mod-tome/class/Actor.lua",
+   "source": "You do not have enough %s to use %s."
+  },
+  {
+   "queue_id": "hrq-00024",
+   "entry_id": "entry-00198",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 353,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "已核实母句：Actor.lua:7805 dir=_t\"but fumbles!\" 拼入 logCombat \"#Source# deflects the projectile from #Target# %s\"，母句冻结译文为 mod-tome.lua:355“#Source#偏移来自#Target#的抛射物%s”，展开为“…的抛射物但是失败了！”，缺转折停顿。母句不在冻结集合，故在片段首加“，”：“，但是失败了！”。另一分支 \"to the %s!\"→“到%s！”不受影响。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua:7805",
+    "mod-tome.lua:355 #Source#偏移来自#Target#的抛射物%s"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "已核母句 Actor.lua:7805 logCombat 拼接，缺停顿属实；片段首加逗号修好拼接。",
+   "applied": true,
+   "old_target": "但是失败了！",
+   "new_target": "，但是失败了！",
+   "section": "mod-tome/class/Actor.lua",
+   "source": "but fumbles!"
+  },
+  {
+   "queue_id": "hrq-00025",
+   "entry_id": "entry-00216",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 403,
+   "source_tag": "_t",
+   "model_disposition": "defer",
+   "model_reason": "EscortRewards.lua:174-177：该护送 NPC 挂在 defiler 奖励组（classes={\"Corruptor\",\"Reaver\"} 是可获奖励的玩家职业，非 NPC 随机职业），NPC 自身为法杖施法者、带 Curse of Impotence。Defiler 是职业大系（术语库“堕落系”，existing，类别名），“腐化者”=Corruptor 子职业，确有收窄；但人物称谓如何名词化“堕落系”无 preferred 条目，属未授权术语决定，defer 待用户裁定。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/EscortRewards.lua:172-178",
+    "terminology/classes.tsv:27 Defiler=堕落系 existing",
+    "terminology/classes.tsv:13 Corruptor=腐化者"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "术语库 Defiler=堕落系（existing）；人物称谓名词化无 preferred，属未授权术语决定。",
+   "applied": false,
+   "old_target": "%s，迷路的腐化者",
+   "new_target": null,
+   "section": "mod-tome/class/EscortRewards.lua",
+   "source": "%s, the lost defiler"
+  },
+  {
+   "queue_id": "hrq-00026",
+   "entry_id": "entry-00221",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 469,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "Game.lua:925-928 changeLevelCheck 中 can_change_level 检查阻止任何换层/换区域，“离开地图”覆盖该限制，玩家收到的约束含义正确；level/zone 的统一译法（层/地图）是跨条目策略决定，术语库无 preferred，不在本条单独改。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Game.lua:918-938"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "源码 Game.lua:926-936 分列 level 与 zone；原译未区分，但统一译法属跨条目策略，本条不改。",
+   "applied": false,
+   "old_target": "#LIGHT_RED#你只能用自己的身体离开地图！",
+   "new_target": null,
+   "section": "mod-tome/class/Game.lua",
+   "source": "#LIGHT_RED#You may not change level without your own body!"
+  },
+  {
+   "queue_id": "hrq-00027",
+   "entry_id": "entry-00223",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 471,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "Game.lua:933-935：EFF_PARADOX_CLONE/IMMINENT_PARADOX_CLONE 阻止 changeLevelCheck，不限定楼梯；“你不能离开地图以求逃避命运！”功能含义正确，与 00221 共用 level 术语决定，不单独改。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Game.lua:933-935"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "源码确认由 EFF_PARADOX_CLONE 触发、不限楼梯；离开地图功能含义正确。",
+   "applied": false,
+   "old_target": "#LIGHT_RED#你不能离开地图以求逃避命运！",
+   "new_target": null,
+   "section": "mod-tome/class/Game.lua",
+   "source": "#LIGHT_RED#You cannot escape your fate by leaving the level!"
+  },
+  {
+   "queue_id": "hrq-00028",
+   "entry_id": "entry-00226",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 501,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "飘字 Game.lua:1756 (\"Kill (%d)!\"):tformat(dams.total)；“杀死”不改变含义（“击杀”仅偏好，不改）。按 standing policy bracket_fullwidth 将“杀死 (%d)！”改为“杀死（%d）！”。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Game.lua:1756",
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "击杀仅偏好差异不改；括号全角化落实 bracket_fullwidth。",
+   "applied": true,
+   "old_target": "杀死 (%d)！",
+   "new_target": "杀死（%d）！",
+   "section": "mod-tome/class/Game.lua",
+   "source": "Kill (%d)!"
+  },
+  {
+   "queue_id": "hrq-00029",
+   "entry_id": "entry-00231",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 510,
+   "source_tag": "log",
+   "model_disposition": "fix",
+   "model_reason": "Game.lua:2211 参数为 actor:getName()、compassDirection 结果、\"\" 或 \" - offscreen\"；Map.lua:1508-1518 compassDirection 返回 _t(dir)，engine.lua 中方向词译为“北面/东北面/…”，原模板“%s方”展开成“北面方”，确为缺陷；另括号前后各一“！”。改为“当有敌人在视野里时，你不能自动探索（%s位于%s%s）！”，去重感叹号、括号全角化，占位符顺序不变。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Game.lua:2211",
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/engine/Map.lua:1508-1518",
+    "engine.lua:83 north=北面"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "已核 Map.lua:1508-1518 compassDirection 返回 _t(dir)，engine.lua 译北面；%s方 与重复感叹号属实。",
+   "applied": true,
+   "old_target": "当有敌人在视野里时，你不能自动探索！(%s 在 %s方%s)！",
+   "new_target": "当有敌人在视野里时，你不能自动探索（%s位于%s%s）！",
+   "section": "mod-tome/class/Game.lua",
+   "source": "You may not auto-explore with enemies in sight (%s to the %s%s)!"
+  },
+  {
+   "queue_id": "hrq-00030",
+   "entry_id": "entry-00244",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 674,
+   "source_tag": "_t",
+   "model_disposition": "refuted",
+   "model_reason": "MapEffects.lua:23 name = dam_def.name .. _t\" area effect\"；本条及 \"area effect\" 均译“范围效果”，中文拼接为“火焰范围效果”，无需前导空格，补空格反而变“火焰 范围效果”。疑点被源码拼接方式反证。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/MapEffects.lua:23",
+    "mod-tome.lua:675 area effect=范围效果"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "源码 MapEffects.lua:23 直接字符串拼接，前导空格会被中文吸收；补空格反而错误。",
+   "applied": false,
+   "old_target": "范围效果",
+   "new_target": null,
+   "section": "mod-tome/class/MapEffects.lua",
+   "source": " area effect"
+  },
+  {
+   "queue_id": "hrq-00031",
+   "entry_id": "entry-00247",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 719,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "Object.lua:464 (\"%s, %d apr, %s element\"):tformat(power, apr, DamageType name)。element 译“伤害”显示为“火焰 伤害”，自然且不致误解，advisory 不改。同一串内首个分隔符为半角“,”、第二个为全角“，”，属标点不一致，改为“%s，%d 护甲穿透，%s 伤害”。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua:464",
+    "HUMAN-DECISIONS 标点错误修正策略"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "同一串内首个半角逗号与第二个全角逗号不一致，属标点修正。",
+   "applied": true,
+   "old_target": "%s, %d 护甲穿透，%s 伤害",
+   "new_target": "%s，%d 护甲穿透，%s 伤害",
+   "section": "mod-tome/class/Object.lua",
+   "source": "%s, %d apr, %s element"
+  },
+  {
+   "queue_id": "hrq-00032",
+   "entry_id": "entry-00254",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 737,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "“护甲穿透（最大 50%）”括号已全角；与同组“最大40%”的差异仅为数字前空格，属纯静态排版，用户策略不整理。数值与含义正确。",
+   "model_evidence": [
+    "HUMAN-DECISIONS 纯静态排版不整理"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "括号已全角，仅数字前空格差异，属静态排版，不改。",
+   "applied": false,
+   "old_target": " 护甲穿透（最大 50%）",
+   "new_target": null,
+   "section": "mod-tome/class/Object.lua",
+   "source": " APR (max 50%)"
+  },
+  {
+   "queue_id": "hrq-00033",
+   "entry_id": "entry-00284",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 986,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "Object.lua:2127/2134 参数为技能名、几率、等级，顺序正确；语序偏紧属 advisory 不改。按 bracket_fullwidth 策略将“ (%d%% 几率等级 %d)”改为“（%d%% 几率等级 %d）”，与句首“技能（法术）”括号统一。同族 nature 条目（Object.lua:2147/2154）不在冻结集合，仍为半角，需后续同步。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua:2127",
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "语序偏紧为 advisory 不改；括号全角化落实 bracket_fullwidth。",
+   "applied": true,
+   "old_target": "技能（法术）命中后释放：%s (%d%% 几率等级 %d)。",
+   "new_target": "技能（法术）命中后释放：%s（%d%% 几率等级 %d）。",
+   "section": "mod-tome/class/Object.lua",
+   "source": "Talent on hit(spell): %s (%d%% chance level %d)."
+  },
+  {
+   "queue_id": "hrq-00034",
+   "entry_id": "entry-00286",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 988,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "Object.lua:2167/2174 mindpower 分组由技能 is_mind 判定，“精神”正确，不改为“精神强度”。同 00284 按 bracket_fullwidth 将半角括号统一为全角。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua:2167",
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "已核 Object.lua:2167 由 is_mind 判定，精神正确；括号全角化落实策略。",
+   "applied": true,
+   "old_target": "技能（精神）命中后释放：%s (%d%% 几率等级 %d)。",
+   "new_target": "技能（精神）命中后释放：%s（%d%% 几率等级 %d）。",
+   "section": "mod-tome/class/Object.lua",
+   "source": "Talent on hit(mindpower): %s (%d%% chance level %d)."
+  },
+  {
+   "queue_id": "hrq-00035",
+   "entry_id": "entry-00288",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1031,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "Object.lua:2305-2307：desc:merge(本串) 后再 desc:add(_t\".\")；\".\" 在各译文文件中均未翻译为“。”（tome-orcs/tome-cults 为 \".\"→\".\"，mod-tome 无条目），故现状显示“…%s。.”双句点。_t\".\" 不在冻结集合，只能去掉本串末尾“。”，显示为单个句点“…为 XXX.”。残留西文句点需在 Object.lua 的 \".\" 条目（新增/非冻结）处理，列为未解决项。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua:2305-2307"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "已核 Object.lua:2305-2307 追加 _t\".\"；去掉串尾句号消除 。. 重复，残留西文句点属未冻结条目。",
+   "applied": true,
+   "old_target": "这个物品的外观被改变为 %s。",
+   "new_target": "这个物品的外观被改变为 %s",
+   "section": "mod-tome/class/Object.lua",
+   "source": "This object's appearance was changed to %s"
+  },
+  {
+   "queue_id": "hrq-00036",
+   "entry_id": "entry-00298",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1115,
+   "source_tag": "logPlayer",
+   "model_disposition": "fix",
+   "model_reason": "Object.lua:199 (\"Your antimagic disrupts %s.\"):tformat(物品名) 为 forbid_arcane 阻止使用奥术物品的失败理由，“反魔法技能打断了”额外引入“技能”并把物品当成被打断对象。改“你的反魔法干扰了 %s。”。本条 logPlayer 载体在固定版本无直接消费者（活动载体为 00299 tformat），同改以免同源双载体分歧，不删除。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua:196-200"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "已核 Object.lua:196-200 forbid_arcane 路径；原译引入技能并把物品当被拦对象，属误译。",
+   "applied": true,
+   "old_target": "你的反魔法技能打断了 %s。",
+   "new_target": "你的反魔法干扰了 %s。",
+   "section": "mod-tome/class/Player.lua",
+   "source": "Your antimagic disrupts %s."
+  },
+  {
+   "queue_id": "hrq-00037",
+   "entry_id": "entry-00299",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1116,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "活动 tformat 载体（Object.lua:199）。同 00298：改“你的反魔法干扰了 %s。”，忠实 disrupts 且不引入“技能”。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua:199"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "同上，且本条为活动 tformat 载体。",
+   "applied": true,
+   "old_target": "你的反魔法技能打断了 %s。",
+   "new_target": "你的反魔法干扰了 %s。",
+   "section": "mod-tome/class/Player.lua",
+   "source": "Your antimagic disrupts %s."
+  },
+  {
+   "queue_id": "hrq-00038",
+   "entry_id": "entry-00318",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1223,
+   "source_tag": "log",
+   "model_disposition": "fix",
+   "model_reason": "Trap.lua:271-288：avoid 片段 \"simply ignore/carefully avoid/somehow avoid/dodge\" 译文已带“了”（mod-tome.lua:1219-1222），模板“你%s了一个陷阱”造成“避开了了”。仅 \"ignore\"→“无视”不带“了”，去掉后为“你无视一个陷阱”，仍通顺，与 NPC 分支模板“%s%s%s。”一致。改“#CADET_BLUE#你%s一个陷阱（%s）。”，并按 bracket_fullwidth 全角化。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Trap.lua:271-288",
+    "mod-tome.lua:1218-1222 avoid 片段译文",
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "已核 Trap.lua:271-288 片段已含「了」；去掉模板「了」后 ignore→你无视一个陷阱 仍通顺。",
+   "applied": true,
+   "old_target": "#CADET_BLUE#你%s了一个陷阱(%s)。",
+   "new_target": "#CADET_BLUE#你%s一个陷阱（%s）。",
+   "section": "mod-tome/class/Trap.lua",
+   "source": "#CADET_BLUE#You %s a trap (%s)."
+  },
+  {
+   "queue_id": "hrq-00039",
+   "entry_id": "entry-00334",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1295,
+   "source_tag": "log",
+   "model_disposition": "no_change",
+   "model_reason": "日志在敌人 on_die 中输出，“杀死”与触发一致；“击败”仅为措辞偏好，无机制误译。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/generator/actor/Arena.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "on_die 触发与「杀死」一致，击败仅为偏好，不改。",
+   "applied": false,
+   "old_target": "#YELLOW#你杀死了一名老练的敌人！",
+   "new_target": null,
+   "section": "mod-tome/class/generator/actor/Arena.lua",
+   "source": "#YELLOW#You defeat an experienced enemy!"
+  },
+  {
+   "queue_id": "hrq-00040",
+   "entry_id": "entry-00344",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1379,
+   "source_tag": "logSeen",
+   "model_disposition": "fix",
+   "model_reason": "Combat.lua:466 第二参数为 string.his_her(target)；engine/utils.lua:939-944 返回 _t\"his\"/_t\"its\"/_t\"her\"，译为“他的”/“它的”/“她”（engine.lua:1405-1407）。男性/无性别时“%s的盾牌”展开为“他的的盾牌”。删占位符后的“的”，与 00345 双持条“用%s双持武器”一致。残留：女性时为“用她盾牌”，因 _t\"her\" 被 him_her 共用无法在本条修正，列未解决项。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua:466",
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/engine/utils.lua:939-944",
+    "engine.lua:1405-1407"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "已核 Combat.lua:466 用 his_her；engine.lua 译他的/它的，删占位符后「的」修好叠词。",
+   "applied": true,
+   "old_target": "#ORCHID#%s用%s的盾牌机智地偏转了这次攻击！#LAST#",
+   "new_target": "#ORCHID#%s用%s盾牌机智地偏转了这次攻击！#LAST#",
+   "section": "mod-tome/class/interface/Combat.lua",
+   "source": "#ORCHID#%s cleverly deflects the attack with %s shield!#LAST#"
+  },
+  {
+   "queue_id": "hrq-00041",
+   "entry_id": "entry-00345",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1380,
+   "source_tag": "logSeen",
+   "model_disposition": "no_change",
+   "model_reason": "Combat.lua:482 模板无额外“的”，不叠词；“使这次攻击发生偏斜”保留防御成功含义，“招架”仅为文风建议（advisory），不改。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua:482"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "双持条无叠词、招架语义保留，偏斜仅文风建议，不改。",
+   "applied": false,
+   "old_target": "#ORCHID#%s用%s双持武器使这次攻击发生偏斜！#LAST#",
+   "new_target": null,
+   "section": "mod-tome/class/interface/Combat.lua",
+   "source": "#ORCHID#%s parries the attack with %s dual weapons!#LAST#"
+  },
+  {
+   "queue_id": "hrq-00042",
+   "entry_id": "entry-00354",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1428,
+   "source_tag": "log",
+   "model_disposition": "fix",
+   "model_reason": "PartyIngredients 日志占位符与机制正确，去空格不成问题（不改措辞）。按 bracket_fullwidth 将数量括号“(%d)”改全角“（%d）”。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/PartyIngredients.lua",
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "占位符与机制正确；括号全角化落实 bracket_fullwidth。",
+   "applied": true,
+   "old_target": "你搜集了一个新的材料：#LIGHT_GREEN#%s%s(%d)#WHITE#。",
+   "new_target": "你搜集了一个新的材料：#LIGHT_GREEN#%s%s（%d）#WHITE#。",
+   "section": "mod-tome/class/interface/PartyIngredients.lua",
+   "source": "You collect a new ingredient: #LIGHT_GREEN#%s%s (%d)#WHITE#."
+  },
+  {
+   "queue_id": "hrq-00043",
+   "entry_id": "entry-00368",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1579,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "源文 \"Equilibrium reflects your standing in the grand balance of nature and how easily you can access Wild Gifts. The closer it is to 0 the more in-balance you are.\"；译“失衡值是你保持自然平衡的能力”把失衡值说成能力，暗示越高越好，与后句“越接近 0 越平衡”方向相反（fidelity）。首句改为“失衡值反映了你在自然大平衡中所处的状态，以及你使用野性系技能的难易程度。”，其余行不动。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/TooltipsData.lua",
+    "terminology/resources.tsv:4 Equilibrium=失衡值"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "原文指失衡值状态与施法难易，原译说成「能力」与越接近 0 越平衡相反，方向性错误成立。",
+   "applied": true,
+   "old_target": "#GOLD#失衡值#LAST#\n失衡值是你保持自然平衡的能力，决定了你使用野性系技能的难易程度。\n失衡值越接近于0你破坏自然平衡的量越少。\n当你的失衡值过高时，你使用野性系技能时可能会失败。\n",
+   "new_target": "#GOLD#失衡值#LAST#\n失衡值反映了你在自然大平衡中所处的状态，以及你使用野性系技能的难易程度。\n失衡值越接近于0你破坏自然平衡的量越少。\n当你的失衡值过高时，你使用野性系技能时可能会失败。\n",
+   "section": "mod-tome/class/interface/TooltipsData.lua",
+   "source": "#GOLD#Equilibrium#LAST#\nEquilibrium reflects your standing in the grand balance of nature and how easily you can access Wild Gifts.\nThe closer it is to 0 the more in-balance you are.\nBeing too far out of balance may cause your Wild Gifts to fail when called upon.\n"
+  },
+  {
+   "queue_id": "hrq-00044",
+   "entry_id": "entry-00373",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1689,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "源文 \"passive talents permanently alter the user\"；译“给玩家带来改变”把对象从技能使用者（含 NPC）换成玩家（fidelity），且“永久性的”状语误用“的”。改为“它会以某种方式永久地改变技能的使用者。”，其余行不动。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/TooltipsData.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "原文为 the user（技能使用者，含 NPC），原译改成「玩家」改变对象，属实。",
+   "applied": true,
+   "old_target": "#GOLD#被动技能#LAST#\n当你学会被动技能之后，它会以某种方式永久性的给玩家带来改变。\n这些效果始终存在，通常不会被解除或移除，但是有些特殊效果可能会抵消或消除它们。\n有关技能的详细信息，请参阅技能的提示框。",
+   "new_target": "#GOLD#被动技能#LAST#\n当你学会被动技能之后，它会以某种方式永久地改变技能的使用者。\n这些效果始终存在，通常不会被解除或移除，但是有些特殊效果可能会抵消或消除它们。\n有关技能的详细信息，请参阅技能的提示框。",
+   "section": "mod-tome/class/interface/TooltipsData.lua",
+   "source": "#GOLD#Passive Talents#LAST#\nWhen learned, passive talents permanently alter the user in some way.\nThe effects are always present and are usually not dispellable or removable, though other effects may counteract or negate them.\nSpecific information on each talent appears its tooltip."
+  },
+  {
+   "queue_id": "hrq-00045",
+   "entry_id": "entry-00374",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 1772,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "这是基础属性 Magic 的提示；术语库 Magic（stat name, global）=魔力，同组其他属性提示标题均用属性名（力量/敏捷/体质/意志/灵巧）。标题与属性代称“魔法”改“魔力”；“魔法能量”“魔法物品”指魔法概念，保留。",
+   "model_evidence": [
+    "terminology/combat.tsv:120 Magic=魔力 stat name",
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/TooltipsData.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "术语库 Magic=魔力（stat name）；属性提示标题须用属性名，改魔力。",
+   "applied": true,
+   "old_target": "#GOLD#魔法#LAST#\n魔法属性影响你驾驭魔法能量的能力，提升魔法可以提高你的法术强度，提升法术豁免，并提高法术和其他魔法物品的效果。\n",
+   "new_target": "#GOLD#魔力#LAST#\n魔力属性影响你驾驭魔法能量的能力，提升魔力可以提高你的法术强度，提升法术豁免，并提高法术和其他魔法物品的效果。\n",
+   "section": "mod-tome/class/interface/TooltipsData.lua",
+   "source": "#GOLD#Magic#LAST#\nMagic defines your character's ability to manipulate the magical energy of the world. It increases your Spellpower, Spell Save, and the effect of spells and other magic items.\n"
+  },
+  {
+   "queue_id": "hrq-00046",
+   "entry_id": "entry-00393",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 2281,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "已符合 bracket_fullwidth：“%s（永久死亡模式）”已为全角括号，模式含义与占位符正确。同行其余载体 entry-00395–00400 已按 bracket_fullwidth 改外层括号。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/WorldAchievements.lua"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "已为全角括号，符合 bracket_fullwidth；不改。",
+   "applied": false,
+   "old_target": "%s（永久死亡模式）",
+   "new_target": null,
+   "section": "mod-tome/class/interface/WorldAchievements.lua",
+   "source": "%s (Roguelike)"
+  },
+  {
+   "queue_id": "hrq-00046",
+   "entry_id": "entry-00394",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 2282,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "已符合 bracket_fullwidth：“%s（探索模式）”已为全角括号，占位符与含义正确。",
+   "model_evidence": [
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "已为全角括号，符合 bracket_fullwidth；不改。",
+   "applied": false,
+   "old_target": "%s（探索模式）",
+   "new_target": null,
+   "section": "mod-tome/class/interface/WorldAchievements.lua",
+   "source": "%s (Exploration mode)"
+  },
+  {
+   "queue_id": "hrq-00046",
+   "entry_id": "entry-00395",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 2283,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "落实用户 standing policy bracket_fullwidth：仅将外层半角括号改为全角，内层括号、难度名、%s 与标点不变。",
+   "model_evidence": [
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth",
+    "hrq-00046 entry_ids 覆盖 entry-00393–entry-00400"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "外层半角括号，按 bracket_fullwidth 全角化。",
+   "applied": true,
+   "old_target": "%s (噩梦难度（冒险模式）)",
+   "new_target": "%s（噩梦难度（冒险模式））",
+   "section": "mod-tome/class/interface/WorldAchievements.lua",
+   "source": "%s (Nightmare (Adventure) difficulty)"
+  },
+  {
+   "queue_id": "hrq-00046",
+   "entry_id": "entry-00396",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 2284,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "落实用户 standing policy bracket_fullwidth：仅将外层半角括号改为全角，内层括号、难度名、%s 与标点不变。",
+   "model_evidence": [
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth",
+    "hrq-00046 entry_ids 覆盖 entry-00393–entry-00400"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "同 hrq-00046 决策行；外层半角括号全角化。",
+   "applied": true,
+   "old_target": "%s (噩梦难度（永久死亡模式）)",
+   "new_target": "%s（噩梦难度（永久死亡模式））",
+   "section": "mod-tome/class/interface/WorldAchievements.lua",
+   "source": "%s (Nightmare (Roguelike) difficulty)"
+  },
+  {
+   "queue_id": "hrq-00046",
+   "entry_id": "entry-00397",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 2285,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "落实用户 standing policy bracket_fullwidth：仅将外层半角括号改为全角，内层括号、难度名、%s 与标点不变。",
+   "model_evidence": [
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth",
+    "hrq-00046 entry_ids 覆盖 entry-00393–entry-00400"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "同 hrq-00046 决策行；外层半角括号全角化。",
+   "applied": true,
+   "old_target": "%s (疯狂难度（冒险模式）)",
+   "new_target": "%s（疯狂难度（冒险模式））",
+   "section": "mod-tome/class/interface/WorldAchievements.lua",
+   "source": "%s (Insane (Adventure) difficulty)"
+  },
+  {
+   "queue_id": "hrq-00046",
+   "entry_id": "entry-00398",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 2286,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "落实用户 standing policy bracket_fullwidth：仅将外层半角括号改为全角，内层括号、难度名、%s 与标点不变。",
+   "model_evidence": [
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth",
+    "hrq-00046 entry_ids 覆盖 entry-00393–entry-00400"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "同 hrq-00046 决策行；外层半角括号全角化。",
+   "applied": true,
+   "old_target": "%s (疯狂难度（永久死亡模式）)",
+   "new_target": "%s（疯狂难度（永久死亡模式））",
+   "section": "mod-tome/class/interface/WorldAchievements.lua",
+   "source": "%s (Insane (Roguelike) difficulty)"
+  },
+  {
+   "queue_id": "hrq-00046",
+   "entry_id": "entry-00399",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 2287,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "落实用户 standing policy bracket_fullwidth：仅将外层半角括号改为全角，内层括号、难度名、%s 与标点不变。",
+   "model_evidence": [
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth",
+    "hrq-00046 entry_ids 覆盖 entry-00393–entry-00400"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "同 hrq-00046 决策行；外层半角括号全角化。",
+   "applied": true,
+   "old_target": "%s (绝望难度（冒险模式）)",
+   "new_target": "%s（绝望难度（冒险模式））",
+   "section": "mod-tome/class/interface/WorldAchievements.lua",
+   "source": "%s (Madness (Adventure) difficulty)"
+  },
+  {
+   "queue_id": "hrq-00046",
+   "entry_id": "entry-00400",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 2288,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "落实用户 standing policy bracket_fullwidth：仅将外层半角括号改为全角，内层括号、难度名、%s 与标点不变。",
+   "model_evidence": [
+    "HUMAN-DECISIONS.jsonl policy bracket_fullwidth",
+    "hrq-00046 entry_ids 覆盖 entry-00393–entry-00400"
+   ],
+   "orchestrator_verdict": "accepted_policy",
+   "orchestrator_rationale": "同 hrq-00046 决策行；外层半角括号全角化。",
+   "applied": true,
+   "old_target": "%s (绝望难度（永久死亡模式）)",
+   "new_target": "%s（绝望难度（永久死亡模式））",
+   "section": "mod-tome/class/interface/WorldAchievements.lua",
+   "source": "%s (Madness (Roguelike) difficulty)"
+  },
+  {
+   "queue_id": "hrq-00047",
+   "entry_id": "entry-00419",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 2646,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "数值 1500 与“超过”正确；与同组“超过 600 点”的空格差异属纯静态排版，不整理。",
+   "model_evidence": [
+    "HUMAN-DECISIONS 纯静态排版不整理"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "数值与含义正确，空格差异属静态排版，不改。",
+   "applied": false,
+   "old_target": "在一次攻击中造成超过1500点伤害。",
+   "new_target": null,
+   "section": "mod-tome/data/achievements/kills.lua",
+   "source": "Did over 1500 damage in one attack."
+  },
+  {
+   "queue_id": "hrq-00048",
+   "entry_id": "entry-00423",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 2694,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "kills.lua:265-275 AVOID_DEATH 只在特定免死路径触发（Actor.lua:2882、cursed/one-with-shadows.lua:172、uber/mag.lua:347），源文限定 life-saving talent；译“使用技能”泛化为任意技能（completeness）。改“借助保命技能避免死亡50次。”",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/achievements/kills.lua:265-275",
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua:2882"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "已核 kills.lua:265-275 AVOID_DEATH 绑定 life-saving talent；原译泛化为任意技能，completeness 缺陷成立。",
+   "applied": true,
+   "old_target": "使用技能躲避50次死亡。",
+   "new_target": "借助保命技能避免死亡50次。",
+   "section": "mod-tome/data/achievements/kills.lua",
+   "source": "Avoid death 50 times with a life-saving talent."
+  },
+  {
+   "queue_id": "hrq-00049",
+   "entry_id": "entry-00428",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 2784,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "“关闭3扇召唤传送门”“与两名巫师交战”条件与数量正确；与同系列句式不平行仅为 advisory 文风差异。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/achievements/quests.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "条件与数量正确，句式不平行仅 advisory，不改。",
+   "applied": false,
+   "old_target": "在关闭3扇召唤传送门的情况下，与两名巫师交战。",
+   "new_target": null,
+   "section": "mod-tome/data/achievements/quests.lua",
+   "source": "Fought the two Sorcerers and closed three invocation portals."
+  },
+  {
+   "queue_id": "hrq-00050",
+   "entry_id": "entry-00429",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 2788,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "源文 \"without ever setting foot on Maj'Eyal\"；“旧大陆”把专名泛化，且 preferred 译名为“马基·埃亚尔”。改“在从未踏足马基·埃亚尔的情况下通关游戏。”",
+   "model_evidence": [
+    "terminology/places.tsv:46 Maj'Eyal=马基·埃亚尔 preferred",
+    "HUMAN-DECISIONS 术语 Maj'Eyal→马基·埃亚尔"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "Maj'Eyal 有 preferred 条目；旧大陆把专名泛化，属实。",
+   "applied": true,
+   "old_target": "在没有去过旧大陆的情况下通关游戏。",
+   "new_target": "在从未踏足马基·埃亚尔的情况下通关游戏。",
+   "section": "mod-tome/data/achievements/quests.lua",
+   "source": "Win the game without ever setting foot on Maj'Eyal."
+  },
+  {
+   "queue_id": "hrq-00051",
+   "entry_id": "entry-00434",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 2804,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "master-jeweler 任务正式名 \"Lost Knowledge\" 在 mod-tome.lua:20462 译为“遗失的知识”，增补任务名与现有译名一致；“与利米尔一同完成”忠实 with Limmir。“珠宝匠托付”对应 Master Jeweler，属可接受意译，不改。",
+   "model_evidence": [
+    "commit:624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/quests/master-jeweler.lua",
+    "mod-tome.lua:20462 Lost Knowledge=遗失的知识"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "任务名 Lost Knowledge 与本仓 mod-tome.lua 既有译名一致；增补有助于检索，不改。",
+   "applied": false,
+   "old_target": "与利米尔一同完成了珠宝匠托付的任务“遗失的知识”。",
+   "new_target": null,
+   "section": "mod-tome/data/achievements/quests.lua",
+   "source": "Completed the Master Jeweler quest with Limmir."
+  }
+ ]
+}

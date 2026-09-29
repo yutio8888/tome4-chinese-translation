@@ -1,0 +1,109 @@
+{
+  "date": "2026-09-23",
+  "head_at_start": "d7de55c8c09de988be4e6cf291267f6adf96993b",
+  "scope_changes": [
+    {
+      "file": "terminology/combat.tsv",
+      "line": 135,
+      "source": "global speed",
+      "source_tag": "_t",
+      "before": "core",
+      "after": "global"
+    },
+    {
+      "file": "terminology/combat.tsv",
+      "line": 136,
+      "source": "global speed",
+      "source_tag": "tformat",
+      "before": "core",
+      "after": "global"
+    },
+    {
+      "file": "terminology/combat.tsv",
+      "line": 140,
+      "source": "Physical Power",
+      "source_tag": "tformat",
+      "before": "core",
+      "after": "global"
+    }
+  ],
+  "changed_preexisting_files": [
+    "TERMINOLOGY.md",
+    "docs/agent-workflow.md",
+    "terminology/combat.tsv"
+  ],
+  "baseline_guard_count": 2085,
+  "frozen_experiment_files_unchanged": 2061,
+  "translation_files_unchanged": {
+    "engine.lua": "4c99a9cc81de665ec684de18b091d786028eae399fc3abe7550404dd46c6caf9",
+    "mod-boot.lua": "bc098dacf601c3b36be66943024990cc72fe0b38077f1365c05be9ba256d8923",
+    "mod-tome.lua": "0faec6664b8b83caea1dea9a50b67bad76f3fdf3a35b2ef102ad463a2f74f2af",
+    "mod-example.lua": "392bc2b09fc816eb4d100a62a9e22ed7925d4fe98b15c1adc29389fabfcb1c61",
+    "mod-example_realtime.lua": "4cf1bb84f5c731d55973851bb35009d49a6b343b332cb49eaf0e1c1947ac7bf8",
+    "tome-addon-dev.lua": "9838b385766352cb1b3233b4b24fb7856ab3600535e1153d0258d4b3c8c0e2cf",
+    "tome-ashes-urhrok.lua": "d2aa043ab318367dd59abead809796fc9767a716a408fb06d1c4ba930b716c89",
+    "tome-cults.lua": "687d53275f064bf59afa798f5f8de56dfd1dcc127eb714a2e8edbf7675b6906e",
+    "tome-items-vault.lua": "24805e94c8232f9bded609ce57624a7007cc23bdb9d3f1adc68f14e61b7cb11a",
+    "tome-orcs.lua": "7f580ee6708104d89cdf7c19fab8e055f39128002992a48b633a5365639da66f",
+    "tome-possessors.lua": "3098f2fffd5cfb6a7b80b17a89ed1d4df32caa63cfdf6d4bcb9f88545ec8392b"
+  },
+  "checks": {
+    "doctor": "PASS; pre-edit; known DLC unpinned notices",
+    "strict_lint": {
+      "translations": 30308,
+      "errors": 0,
+      "warnings": 0
+    },
+    "static_audit": {
+      "rows": 722,
+      "blocking": 0,
+      "advisory": 16,
+      "finding_sections_identical_to_baseline": true
+    },
+    "dynamic_audit": {
+      "translations": 30308,
+      "unused": 71,
+      "mismatch": 2,
+      "candidates": 5,
+      "multi": 35,
+      "mismatch_details_identical_to_baseline": true,
+      "existing_mismatches": [
+        {
+          "line": 197,
+          "source": "Air",
+          "target": "空气",
+          "category": "T.GAME.RESOURCE",
+          "tag": "_t",
+          "scope": "core",
+          "found_targets": [
+            "空气量"
+          ]
+        },
+        {
+          "line": 202,
+          "source": "draining physical",
+          "target": "生命汲取",
+          "category": "T.GAME.DAMAGE",
+          "tag": "damage type",
+          "scope": "core",
+          "found_targets": [
+            "物理汲取"
+          ]
+        }
+      ],
+      "note": "Exact-source audit does not flag phrase terms embedded in longer texts; bounded scan and host review independently found 13 new-scope mismatches."
+    },
+    "domain_audit": {
+      "unmapped": 0,
+      "advisory": 6,
+      "identical_to_baseline": true
+    },
+    "contract_check": "PASS: 10 active documents; 4 live versions; 16 clause declarations",
+    "git_diff_check": "PASS: tracked diff and all three new evidence files checked; no whitespace diagnostics"
+  },
+  "modified_input_hashes": {
+    "TERMINOLOGY.md": "f949c468765743ab1b7cfd0e7156a2c54d5e2b1450bb48b4fd054517b3595f68",
+    "docs/agent-workflow.md": "f2cf9f6517905c916f365b2ebe3b391782de06cc95355b394a08a2e711e9252e",
+    "terminology/combat.tsv": "e4c8b5ba6de4668cdcc26e5f14366f4092543760f6ca94c0e53b33208aae80f2"
+  }
+}

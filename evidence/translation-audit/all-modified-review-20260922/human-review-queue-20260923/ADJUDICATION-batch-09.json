@@ -1,0 +1,1009 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "batch_id": "batch-09",
+ "packet_sha256": "69a4eed889d294040db0348dbe91e99f5cdd1a8f64af60acab35b42ba3698499",
+ "verify_clean": true,
+ "verify_problems": [],
+ "record_count": 43,
+ "verdict_counts": {
+  "accepted": 42,
+  "deferred": 1
+ },
+ "model_disposition_counts": {
+  "defer": 1,
+  "fix": 23,
+  "no_change": 19
+ },
+ "rejected_model_claims": [
+  {
+   "entry_id": "entry-00244",
+   "claim": "去掉 ` area effect` 的前导空格造成中文拼接缺陷",
+   "verdict": "rejected",
+   "reason": "模型主张补回空格。固定源码 MapEffects.lua:23 为 `dam_def.name .. _t\" area effect\"` 直接拼接，补空格会显示「火焰 范围效果」，反证模型建议有害。"
+  },
+  {
+   "entry_id": "entry-00221",
+   "claim": "「离开地图」构成明显误译",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码 Game.lua:926-936 的 can_change_level 阻止任何换层/换区域，「离开地图」覆盖该限制，功能含义正确；level/zone 统一译法属跨条目策略，非本条缺陷。"
+  },
+  {
+   "entry_id": "entry-00345",
+   "claim": "「使这次攻击发生偏斜」弱化招架，应改「招架」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码确认招架成功挡住攻击，现译保留防御成功含义，属文风偏好，不构成缺陷。"
+  },
+  {
+   "entry_id": "entry-00185",
+   "claim": "方括号内多空格",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。用户策略明确纯静态排版不算缺陷；方括号不属「括号不一致」策略范围。"
+  },
+  {
+   "entry_id": "entry-00254",
+   "claim": "「最大 50%」与同组「最大40%」排版不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；仅为数字前空格差异，属纯静态排版，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00419",
+   "claim": "「超过1500点」与同组「超过 600 点」空格不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；纯静态排版差异，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00428",
+   "claim": "三扇传送门句式与同系列不平行",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；条件、数量、机制均正确，句式平行属文风偏好。"
+  },
+  {
+   "entry_id": "entry-00334",
+   "claim": "「杀死」应为「击杀」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；日志在敌人 on_die 中输出，「杀死」与触发事实一致，击杀仅为界面习惯差异。"
+  },
+  {
+   "entry_id": "entry-00434",
+   "claim": "「珠宝匠托付」应改为更贴近源码关系",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；Master Jeweler 对应珠宝匠，译文为可接受意译，任务名已增补，无缺陷。"
+  },
+  {
+   "entry_id": "entry-00393",
+   "claim": "复合后缀外层半角括号",
+   "verdict": "rejected_on_entry",
+   "reason": "本条 entry-00393 本身已是全角；模型所指的半角外层括号实际出现在 entry-00395–00400（同一 hrq-00046 行的其他载体），已按 bracket_fullwidth 修复那些载体。"
+  },
+  {
+   "entry_id": "entry-00184",
+   "claim": "「勇敢的向前」语病、段间缺空行",
+   "verdict": "accepted_upstream",
+   "reason": "缺陷成立，但主工作区 HEAD 11b3e963 已修（已核逐字）。按 SPEC 规则不在本 worktree 重复修改，记 defer；不接受在本分支重复改。"
+  }
+ ],
+ "records": [
+  {
+   "queue_id": "hrq-00332",
+   "entry_id": "entry-02110",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27521,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "原句最后的“最大能量吸收量”可指护盾吸伤上限；源码 absorbLimit 实为每回合从该护盾取得的能量上限。统一为“灵能值”并明确取得上限；模型对具体消费链的额外归因不作为依据，三个占位符不变。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/mental-discipline.lua",
+    "mod-tome.lua:27521"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原句最后的“最大能量吸收量”可指护盾吸伤上限；源码 absorbLimit 实为每回合从该护盾取得的能量上限。统一为“灵能值”并明确取得上限；模型对具体消费链的额外归因不作为依据，三个占位符不变。",
+   "applied": true,
+   "old_target": "你增加了在灵能值吸收方面的知识。所有护盾的冷却时间减少 %d 回合。护盾额外增加灵能值所需伤害值减少 %0.1f，每个护盾的最大能量吸收量增加 %0.1f 每回合。",
+   "new_target": "你增加了在灵能值吸收方面的知识。所有护盾的冷却时间减少 %d 回合。护盾额外增加灵能值所需伤害值减少 %0.1f，每个护盾每回合可获得的灵能值上限增加 %0.1f。",
+   "section": "mod-tome/data/talents/psionic/mental-discipline.lua",
+   "source": "Your expertise in the art of energy absorption grows. Shield cooldowns are all reduced by %d turns, the amount of damage absorption required to gain a point of energy is reduced by %0.1f, and the maximum energy you can gain from each shield is increased by %0.1f per turn."
+  },
+  {
+   "queue_id": "hrq-00333",
+   "entry_id": "entry-02113",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27540,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "后句“最多一共（净化和免疫）能影响 %d 种”已限定前句“所有”的实际配额，完整句段没有承诺无条件清除全部效果；%d 对应共享的 getRemoveCount，孤立截取前句不足以确认缺陷。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/mentalism.lua",
+    "mod-tome.lua:27540"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；后句“最多一共（净化和免疫）能影响 %d 种”已限定前句“所有”的实际配额，完整句段没有承诺无条件清除全部效果；%d 对应共享的 getRemoveCount，孤立截取前句不足以确认缺陷。",
+   "applied": false,
+   "old_target": "净化你当前所有的精神状态，并在接下来的 6 回合内免疫新增的精神状态。最多一共（净化和免疫）能影响 %d 种精神状态。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/psionic/mentalism.lua",
+   "source": "Clears your mind of current mental effects, and blocks additional ones over 6 turns.  At most, %d mental effects will be affected."
+  },
+  {
+   "queue_id": "hrq-00334",
+   "entry_id": "entry-02115",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27545,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "源码判定 ghost subtype，现译“鬼魂”没有错认对象；英文括号移为“注”仍明确仅精神通道造成精神伤害，三个占位符保持原序。“ghost=幽灵”仅为 existing 术语，不强制改名。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/mentalism.lua",
+    "mod-tome.lua:27545",
+    "terminology/creatures.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；源码判定 ghost subtype，现译“鬼魂”没有错认对象；英文括号移为“注”仍明确仅精神通道造成精神伤害，三个占位符保持原序。“ghost=幽灵”仅为 existing 术语，不强制改名。",
+   "applied": false,
+   "old_target": "激活此技能可以使你的灵魂出窍，持续 %d 回合。在此效果下，你处于隐形状态（+%d 强度），并且可以看到隐形和潜行单位（+%d 侦查强度），还可以穿过墙体，并且无需呼吸。\n\t\t你受到的所有伤害都会与身体共享，当你处于此形态下你只能对“鬼魂”类怪物造成伤害，或者通过激活一种精神通道来造成伤害。\n\t\t注：后一种情况下只能造成精神伤害。\n\t\t要回到你的身体里，只需释放灵魂体的控制即可。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/psionic/mentalism.lua",
+   "source": "Activate to project your mind from your body for %d turns.  In this state you're invisible (+%d power), can see invisible and stealthed creatures (+%d detection power), can move through walls, and do not need air to survive.\n\t\tAll damage you suffer is shared with your physical body, and while in this form you may only deal damage to 'ghosts' or through an active mind link (mind damage only in the second case.)\n\t\tTo return to your body, simply release control of the projection."
+  },
+  {
+   "queue_id": "hrq-00335",
+   "entry_id": "entry-02125",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27629,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "固定源码英文说明本身将 Accuracy/damage 的对应次序写反，译文忠实承接英文，不能把上游失准归为中文新增错误；四个 %d 与两个 %0.1f%% 对应 info 参数。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/other.lua",
+    "mod-tome.lua:27629"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；固定源码英文说明本身将 Accuracy/damage 的对应次序写反，译文忠实承接英文，不能把上游失准归为中文新增错误；四个 %d 与两个 %0.1f%% 对应 info 参数。",
+   "applied": false,
+   "old_target": "念动远程武器使用意志和灵巧来分别代替力量和敏捷，以决定命中和伤害。\n\t\t\t战斗属性：\n\t\t\t范围：%d\n\t\t\t命中：%d\n\t\t\t伤害：%d\n\t\t\t护甲穿透：%d\n\t\t\t暴击率：%0.1f%%\n\t\t\t攻击速度：%0.1f%%",
+   "new_target": null,
+   "section": "mod-tome/data/talents/psionic/other.lua",
+   "source": "The telekinetically-wielded ranged weapon uses Willpower in place of Strength, and Cunning in place of Dexterity, to determine Accuracy and damage respectively.\n\t\t\tCombat stats:\n\t\t\tRange: %d\n\t\t\tAccuracy: %d\n\t\t\tDamage: %d\n\t\t\tAPR: %d\n\t\t\tCrit: %0.1f%%\n\t\t\tSpeed: %0.1f%%"
+  },
+  {
+   "queue_id": "hrq-00336",
+   "entry_id": "entry-02128",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27692,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "完整句段已说明关闭光环会释放跳跃电能，“发射射线”仍错称投射形态；改为“不释放这股电能”。LIGHTNING_DAZE 对应眩晕且与 preferred daze 一致，全部占位符及 50%% 不变。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/projection.lua",
+    "mod-tome.lua:27692",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；完整句段已说明关闭光环会释放跳跃电能，“发射射线”仍错称投射形态；改为“不释放这股电能”。LIGHTNING_DAZE 对应眩晕且与 preferred daze 一致，全部占位符及 50%% 不变。",
+   "applied": true,
+   "old_target": "将你周围的空气充满噼啪响的电能。\n\t\t如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有相邻的敌人造成 %0.1f 的闪电伤害，每个生物消耗 %0.1f 能量。\n\t\t如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的闪电伤害，每次攻击消耗 %0.1f 能量。\n\t\t当关闭该技能时，如果你拥有最少 %d 点能量，巨大的电能会释放为在最多 %d 个邻近目标间跳跃的闪电，对每个目标造成至多 %0.1f 的闪电伤害，且 50%% 的概率令他们眩晕。\n\t\t#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#\n\t\t如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。\n\t\t你同时只能激活两种此类光环。",
+   "new_target": "将你周围的空气充满噼啪响的电能。\n\t\t如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有相邻的敌人造成 %0.1f 的闪电伤害，每个生物消耗 %0.1f 能量。\n\t\t如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的闪电伤害，每次攻击消耗 %0.1f 能量。\n\t\t当关闭该技能时，如果你拥有最少 %d 点能量，巨大的电能会释放为在最多 %d 个邻近目标间跳跃的闪电，对每个目标造成至多 %0.1f 的闪电伤害，且 50%% 的概率令他们眩晕。\n\t\t#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#\n\t\t如果要关闭光环且不释放这股电能，关闭它并选择你自己为目标。伤害随着精神强度而增长。\n\t\t你同时只能激活两种此类光环。",
+   "section": "mod-tome/data/talents/psionic/projection.lua",
+   "source": "Fills the air around you with crackling energy.\n\t\tIf you have a gem or mindstar in your psionically wielded slot, this will do %0.1f Lightning damage to all adjacent enemies, costing %0.1f energy per creature. \n\t\tIf you have a conventional weapon in your psionically wielded slot, this will add %0.1f Lightning damage to all your weapon hits, costing %0.1f energy per hit.\n\t\tWhen deactivated, if you have at least %d energy, a massive spike of electrical energy jumps between up to %d nearby targets, doing up to %0.1f Lightning damage to each with a 50%% chance of dazing them.\n\t\t#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#\n\t\tTo turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.\n\t\tYou can only have two of these auras active at once."
+  },
+  {
+   "queue_id": "hrq-00337",
+   "entry_id": "entry-02141",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27826,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "原文断言心灵感知范围之外无物存在，现译“没有任何事物能逃脱……感知”表达同一全称关系；精神力量的措辞属风味意译，未发现可核实的机制或叙事关系遗漏。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/psionic.lua",
+    "mod-tome.lua:27826"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；原文断言心灵感知范围之外无物存在，现译“没有任何事物能逃脱……感知”表达同一全称关系；精神力量的措辞属风味意译，未发现可核实的机制或叙事关系遗漏。",
+   "applied": false,
+   "old_target": "没有任何事物能逃脱精神力量的感知。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/psionic/psionic.lua",
+   "source": "Nothing exists outside the minds ability to perceive it."
+  },
+  {
+   "queue_id": "hrq-00338",
+   "entry_id": "entry-02148",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27892,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "同文件实体名、日志和同段三次指代均指 dream projection，现译“梦境守卫”与“梦境投影”不一致；改用同节实体名。“可叠加”有 brainlock 逐次施加语境支持，不改变占位符。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/slumber.lua",
+    "mod-tome.lua:27892"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；同文件实体名、日志和同段三次指代均指 dream projection，现译“梦境守卫”与“梦境投影”不一致；改用同节实体名。“可叠加”有 brainlock 逐次施加语境支持，不改变占位符。",
+   "applied": true,
+   "old_target": "进入某个睡眠状态目标的梦境中，持续 %d 回合。当你位于梦境空间中时，你将会遇到目标无敌的睡眠形态，每 2 回合它会制造出 1 个梦境守卫来保护它的心灵。\n\t\t除非目标激活了清晰梦境，否则梦境守卫造成的伤害比本体低 50%%。\n\t\t当梦境空间的效果结束时，你每摧毁一个梦境守卫，目标生命值会减少 10%%，并且受到持续 1 回合的思维封锁效果（可叠加）。\n\t\t在梦境空间中时，你的伤害会提高 %d%%。\n\t\t伤害增益受精神强度加成。",
+   "new_target": "进入某个睡眠状态目标的梦境中，持续 %d 回合。当你位于梦境空间中时，你将会遇到目标无敌的睡眠形态，每 2 回合它会制造出 1 个梦境投影来保护它的心灵。\n\t\t除非目标激活了清晰梦境，否则梦境投影造成的伤害比本体低 50%%。\n\t\t当梦境空间的效果结束时，你每摧毁一个梦境投影，目标生命值会减少 10%%，并且受到持续 1 回合的思维封锁效果（可叠加）。\n\t\t在梦境空间中时，你的伤害会提高 %d%%。\n\t\t伤害增益受精神强度加成。",
+   "section": "mod-tome/data/talents/psionic/slumber.lua",
+   "source": "Enter a sleeping target's dreams for %d turns.  While in the Dreamscape, you'll encounter the target's invulnerable sleeping form as well as dream projections that it will spawn every other turn to defend its mind.\n\t\tProjections inflict 50%% less damage than the original, unless the target has Lucid Dreamer active.\n\t\tWhen the Dreamscape ends, for each projection destroyed, the target's life will be reduced by 10%% and it will be brainlocked for one turn.\n\t\tIn the Dreamscape, your damage will be improved by %d%%.\n\t\tThe damage bonus will improve with your Mindpower."
+  },
+  {
+   "queue_id": "hrq-00339",
+   "entry_id": "entry-02149",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27906,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "原文和 getPsiDamageResist 均将人物等级减伤与剩余部分的技能等级减伤连续计算，现译只并列列数；补足“剩余部分再”关系，并把 global speed 明确为全局速度。源码 onTickEnd 用属性减 10 计算增补，故保留基数说明；占位符不变，第二行补句号。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/solipsism.lua",
+    "mod-tome.lua:27906"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文和 getPsiDamageResist 均将人物等级减伤与剩余部分的技能等级减伤连续计算，现译只并列列数；补足“剩余部分再”关系，并把 global speed 明确为全局速度。源码 onTickEnd 用属性减 10 计算增补，故保留基数说明；占位符不变，第二行补句号。",
+   "applied": true,
+   "old_target": "你相信你的心灵是世间万物的中心。\n\t\t每级永久性增加你 5 点灵能值，并减少你 50%% 的生命成长（影响升级时的生命增益，但只在学习此技能时永久影响一次）\n\t\t同时你学会用心灵来承受伤害，转化 %d%% 生命削减为灵能值削减，并且 %d%% 的治疗值和回复值会转化为灵能值的增长。\n\t\t转化成的灵能值削减将进一步被减少 %0.1f%% （%0.1f%% 来自于人物等级，%0.1f%% 来自于技能等级。）\n\t\t学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。\n\t\t学习此技能时，你的唯我临界点会增加 20 %%（当前 %d%%），你的灵能值每低于这个临界点 1 %%，你的所有速度减少 1 %%。",
+   "new_target": "你相信你的心灵是世间万物的中心。\n\t\t每级永久性增加你 5 点灵能值，并减少你 50%% 的生命成长（影响升级时的生命增益，但只在学习此技能时永久影响一次）。\n\t\t同时你学会用心灵来承受伤害，转化 %d%% 生命削减为灵能值削减，并且 %d%% 的治疗值和回复值会转化为灵能值的增长。\n\t\t转化成的灵能值削减将进一步被减少 %0.1f%% （%0.1f%% 来自于人物等级，剩余部分再受技能等级提供的 %0.1f%% 减免。）\n\t\t学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。\n\t\t学习此技能时，你的唯我临界点会增加 20 %%（当前 %d%%），你的灵能值每低于这个临界点 1 %%，你的全局速度减少 1 %%。",
+   "section": "mod-tome/data/talents/psionic/solipsism.lua",
+   "source": "You believe that your mind is the center of everything.  Permanently increases the amount of psi you gain per level by 5 and reduces your life rating (affects life at level up) by 50%% (one time only adjustment).\n\t\tYou also have learned to overcome damage with your mind alone, and convert %d%% of all damage you receive into Psi damage and %d%% of your healing and life regen now recovers Psi instead of life.\n\t\tConverted Psi damage you take will be further reduced by %0.1f%% (%0.1f%% from character level with the remainder further reduced by %0.1f%% from talent level).\n\t\tThe first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.\n\t\tThe first talent point also increases your solipsism threshold by 20%% (currently %d%%), reducing your global speed by 1%% for each percentage your current Psi falls below this threshold."
+  },
+  {
+   "queue_id": "hrq-00340",
+   "entry_id": "entry-02150",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27917,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "三个 %d%% 的对应关系正确；“基础值 10”来自同族 onTickEnd 对属性减 10 的计算，负体质的反向影响亦由算式直接推出。100 %% 和 10 %% 只是数字空格差异，按纯静态排版策略不改。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/solipsism.lua",
+    "mod-tome.lua:27917"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；三个 %d%% 的对应关系正确；“基础值 10”来自同族 onTickEnd 对属性减 10 的计算，负体质的反向影响亦由算式直接推出。100 %% 和 10 %% 只是数字空格差异，按纯静态排版策略不改。",
+   "applied": false,
+   "old_target": "你现在使用 %d%% 精神豁免值来替代 %d%% 物理和法术豁免（即 100 %%时精神豁免完全替代所有豁免）。\n\t\t学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。\n\t\t学习此技能也会增加你 10 %%唯我临界点（当前 %d%%）。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/psionic/solipsism.lua",
+   "source": "You now substitute %d%% of your Mental Save for %d%% of your Physical and Spell Saves throws (so at 100%%, you would effectively use mental save for all saving throw rolls).\n\t\tThe first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.\n\t\tLearning this talent also increases your solipsism threshold by 10%% (currently %d%%)."
+  },
+  {
+   "queue_id": "hrq-00341",
+   "entry_id": "entry-02153",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 27929,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "占位符正确，“基础值 10”有属性减 10 的代码依据；“鉴定”是技能检定用词错误，且现句遗漏只有检定成功才减伤的条件，改明成功条件并用“检定”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/psionic/solipsism.lua",
+    "mod-tome.lua:27929"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；占位符正确，“基础值 10”有属性减 10 的代码依据；“鉴定”是技能检定用词错误，且现句遗漏只有检定成功才减伤的条件，改明成功条件并用“检定”。",
+   "applied": true,
+   "old_target": "每当你受到伤害时，你会使用 %d%% 精神豁免来鉴定。鉴定时精神豁免可能暴击，至少减少 50%% 的伤害。\n\t\t学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。\n\t\t学习此技能也会增加你 10 %%唯我临界点（当前 %d%%）。",
+   "new_target": "每当你受到伤害时，你会使用 %d%% 精神豁免进行检定。检定成功时可能暴击，且至少减少 50%% 的伤害。\n\t\t学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。\n\t\t学习此技能也会增加你 10 %%唯我临界点（当前 %d%%）。",
+   "section": "mod-tome/data/talents/psionic/solipsism.lua",
+   "source": "Each time you take damage, you roll %d%% of your mental save against it.  A successful saving throw can crit and will reduce the damage by at least 50%%.\n\t\tThe first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.\n\t\tThe first talent point also increases your solipsism threshold by 10%% (currently %d%%)."
+  },
+  {
+   "queue_id": "hrq-00342",
+   "entry_id": "entry-02181",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 28344,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "抗性在游戏里以百分比计，译文为 %d 加转义百分号明确单位，未改变 tformat 的 %d 占位符；原文数值单位省略不足以证明译文增补错误，静态格式也不单独整理。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/animus.lua",
+    "mod-tome.lua:28344"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；抗性在游戏里以百分比计，译文为 %d 加转义百分号明确单位，未改变 tformat 的 %d 占位符；原文数值单位省略不足以证明译文增补错误，静态格式也不单独整理。",
+   "applied": false,
+   "old_target": "你从掌握的灵魂中持续汲取力量，根据当前灵魂数量获得以下效果：\n\t\t2 个以上：你的每回合法力值恢复速度增加 %0.1f。\n\t\t5 个以上：你的法术强度增加 %d。\n\t\t8 个以上：你的全体伤害抗性增加 %d%%。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/spells/animus.lua",
+   "source": "You draw constant power from the souls you hold within your grasp.\n\t\tIf you hold at least 2, your mana regeneration is increased by %0.1f per turn.\n\t\tIf you hold at least 5, your spellpower is increased by %d.\n\t\tIf you hold at least 8, all your resistances are increased by %d."
+  },
+  {
+   "queue_id": "hrq-00343",
+   "entry_id": "entry-02187",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 28406,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "源码选择目标生物并未限于“怪物或被护送者”，括注过度缩窄可选对象；删除括注。两处 %d 及目标区域半径保留。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/conveyance.lua",
+    "mod-tome.lua:28406"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源码选择目标生物并未限于“怪物或被护送者”，括注过度缩窄可选对象；删除括注。两处 %d 及目标区域半径保留。",
+   "applied": true,
+   "old_target": "在 %d 码范围内随机传送你自己。\n\t\t在等级 4 时，你可以传送指定生物（怪物或被护送者）。\n\t\t在等级 5 时，你可以选择传送位置（半径 %d）。\n\t\t如果目标位置不在你的视线里，则法术有可能失败，变为随机传送。\n\t\t影响范围受法术强度加成。",
+   "new_target": "在 %d 码范围内随机传送你自己。\n\t\t在等级 4 时，你可以传送指定生物。\n\t\t在等级 5 时，你可以选择传送位置（半径 %d）。\n\t\t如果目标位置不在你的视线里，则法术有可能失败，变为随机传送。\n\t\t影响范围受法术强度加成。",
+   "section": "mod-tome/data/talents/spells/conveyance.lua",
+   "source": "Teleports you randomly within a small range of up to %d grids.\n\t\tAt level 4, it allows you to specify which creature to teleport.\n\t\tAt level 5, it allows you to choose the target area (radius %d).\n\t\tIf the target area is not in line of sight, there is a chance the spell will partially fail and teleport the target randomly.\n\t\tThe range will increase with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00344",
+   "entry_id": "entry-02189",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 28417,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "源码同样不把可选生物限定为怪物或被护送者，删除该括注；minimum range 是随机传送下限，现译“最小半径”在此随机目标区域语境可理解为距离下限，证据不足以按模型主张单独改写。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/conveyance.lua",
+    "mod-tome.lua:28417"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源码同样不把可选生物限定为怪物或被护送者，删除该括注；minimum range 是随机传送下限，现译“最小半径”在此随机目标区域语境可理解为距离下限，证据不足以按模型主张单独改写。",
+   "applied": true,
+   "old_target": "在 %d 码范围内随机传送。\n\t\t在等级 4 时，你可以传送指定生物（怪物或被护送者）。\n\t\t在等级 5 时，你可以选择传送位置（半径 %d）。\n\t\t如果目标位置不在你的视线里，则法术有可能失败，变为随机传送。\n\t\t随机传送的最小半径为 %d。\n\t\t影响范围受法术强度加成。",
+   "new_target": "在 %d 码范围内随机传送。\n\t\t在等级 4 时，你可以传送指定生物。\n\t\t在等级 5 时，你可以选择传送位置（半径 %d）。\n\t\t如果目标位置不在你的视线里，则法术有可能失败，变为随机传送。\n\t\t随机传送的最小半径为 %d。\n\t\t影响范围受法术强度加成。",
+   "section": "mod-tome/data/talents/spells/conveyance.lua",
+   "source": "Teleports you randomly within a large range (%d).\n\t\tAt level 4, it allows you to specify which creature to teleport.\n\t\tAt level 5, it allows you to choose the target area (radius %d).\n\t\tIf the target area is not in line of sight, there is a chance the spell will partially fail and teleport the target randomly.\n\t\tRandom teleports have a minimum range of %d.\n\t\tThe range will increase with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00345",
+   "entry_id": "entry-02191",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 28437,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "概率穿越的 prob_travel 是移动遇到实体障碍时穿到另一侧，现译“击中”容易误作攻击触发；改为“移动碰到”，其余传送距离和不稳定回合关系已表达。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/conveyance.lua",
+    "mod-tome.lua:28437"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；概率穿越的 prob_travel 是移动遇到实体障碍时穿到另一侧，现译“击中”容易误作攻击触发；改为“移动碰到”，其余传送距离和不稳定回合关系已表达。",
+   "applied": true,
+   "old_target": "当你击中一个固体表面时，此法术撕碎概率法则，令你瞬间出现在另一面。\n\t\t传送最大距离为 %d 码。\n\t\t成功穿越后，你会陷入不稳定状态，在相当于穿越码数 %d%% 的回合内无法再次穿越。\n\t\t传送距离受法术强度加成。",
+   "new_target": "当你移动碰到固体障碍时，此法术撕碎概率法则，令你瞬间出现在另一面。\n\t\t传送最大距离为 %d 码。\n\t\t成功穿越后，你会陷入不稳定状态，在相当于穿越码数 %d%% 的回合内无法再次穿越。\n\t\t传送距离受法术强度加成。",
+   "section": "mod-tome/data/talents/spells/conveyance.lua",
+   "source": "When you hit a solid surface, this spell tears down the laws of probability to make you instantly appear on the other side.\n\t\tTeleports up to %d grids.\n\t\tAfter a successful probability travel you are left unstable, unable to do it again for a number of turns equal to %d%% of the number of tiles you blinked through.\n\t\tThe range will improve with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00346",
+   "entry_id": "entry-02192",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 28450,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "“最大 %d 回合”不能补足每个负面效果各延长一回合的关系；现译“降低……25%% 1回合”会误示固定持续。补“每个负面效果持续 1 回合”，保留最大值和全部占位符。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/death.lua",
+    "mod-tome.lua:28450"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；“最大 %d 回合”不能补足每个负面效果各延长一回合的关系；现译“降低……25%% 1回合”会误示固定持续。补“每个负面效果持续 1 回合”，保留最大值和全部占位符。",
+   "applied": true,
+   "old_target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%% 1回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果：%0.2f 伤害\n\t\t- 5 个效果：%0.2f 伤害\n\t\t- 10 个效果：%0.2f 伤害\n\t\t- 15 个效果：%0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+   "new_target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果：%0.2f 伤害\n\t\t- 5 个效果：%0.2f 伤害\n\t\t- 10 个效果：%0.2f 伤害\n\t\t- 15 个效果：%0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+   "section": "mod-tome/data/talents/spells/death.lua",
+   "source": "Press your advantage when your foes are starting to crumble.\n\t\tFor every detrimental effect on the target you deals %0.2f frostdusk damage (with diminishing returns) and reduce its global speed by 25%% for one turn per effect (up to a maximum of %d).\n\t\tThe diminishing returns on damage bonus works this way:\n\t\t- 2 effects: %0.2f\n\t\t- 5 effects: %0.2f\n\t\t- 10 effects: %0.2f\n\t\t- 15 effects: %0.2f\n\t\tAnd so on...\n\t\tDamage increases with your Spellpower.\n\t\t"
+  },
+  {
+   "queue_id": "hrq-00347",
+   "entry_id": "entry-02207",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 28713,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "“获得 %d%% 个额外回合”虽不够自然，仍表示按回合比例返还时间；20%% 最大生命阈值和其余参数均已表达，属二级措辞意见。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/energy-alchemy.lua",
+    "mod-tome.lua:28713"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“获得 %d%% 个额外回合”虽不够自然，仍表示按回合比例返还时间；20%% 最大生命阈值和其余参数均已表达，属二级措辞意见。",
+   "applied": false,
+   "old_target": "将闪电能量填充到身体中，增加 %d%% 移动速度。\n\t\t每回合半径 %d 内的一个敌人将会被闪电击中，造成 %0.1f 点闪电伤害。\n\t\t另外，对你的伤害会激活你。\n\t\t每次你的回合开始时，如果自上个回合以来你损失了至少 %d 点生命（20%% 最大生命值），你将获得 %d%% 个额外回合。\n\t\t上述效果均随法术强度提升。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/spells/energy-alchemy.lua",
+   "source": "Infuse your body with lightning energy, bolstering your movement speed by +%d%%.\n\t\tEach turn, a foe within range %d will be struck by lightning and be dealt %0.1f Lightning damage.\n\t\tIn addition, damage to your health will energize you.\n\t\tAt the start of each turn in which you have lost at least %d life (20%% of your maximum life) since your last turn, you will gain %d%% of a turn.\n\t\tThe effects increase with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00348",
+   "entry_id": "entry-02210",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 28797,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "首句明确保护对象含你、傀儡和其他友方；第二句“它”承接该保护，译文缩为“你”遗漏受保护对象。源码爆炸在五级保护使友方伤害归零后提前返回，模型所引 target 排除行不在本版本可见逻辑中，不采纳其归因。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/explosives.lua",
+    "mod-tome.lua:28797"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；首句明确保护对象含你、傀儡和其他友方；第二句“它”承接该保护，译文缩为“你”遗漏受保护对象。源码爆炸在五级保护使友方伤害归零后提前返回，模型所引 target 排除行不在本版本可见逻辑中，不采纳其归因。",
+   "applied": true,
+   "old_target": "提高你、你的傀儡和其他友好生物对自己炸弹 %d%% 的元素伤害抗性，并增加 %d%% 对外界元素伤害（火焰、寒冷、闪电和酸性）的抗性。\n\t\t在技能等级 5 时它同时会保护你免疫你的炸弹所带来的特殊效果。",
+   "new_target": "提高你、你的傀儡和其他友好生物对自己炸弹 %d%% 的元素伤害抗性，并增加 %d%% 对外界元素伤害（火焰、寒冷、闪电和酸性）的抗性。\n\t\t在技能等级 5 时，它还会保护你、你的傀儡和其他友好生物免受你的炸弹所带来的特殊效果。",
+   "section": "mod-tome/data/talents/spells/explosives.lua",
+   "source": "Grants %d%% protection to you, your golem and other friendly creatures against the elemental damage of your own bombs, and against external elemental damage (fire, cold, lightning and acid) by %d%%.\n\t\tAt talent level 5 it also protects against all side effects of your bombs."
+  },
+  {
+   "queue_id": "hrq-00349",
+   "entry_id": "entry-02212",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 28848,
+   "source_tag": "talent name",
+   "model_disposition": "defer",
+   "model_reason": "Flame→火球术只是 existing 术语，不是强制译名；本文件 Burning Wake（entry-02285，冻结外）称同一技能“火焰”，奇术师说明则称“火球术”。单改本技能名会制造同族不一致，需将 entry-02285 等引用纳入统一决策后处理；本次不改。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/fire.lua",
+    "mod-tome.lua:28848",
+    "terminology/talents.tsv"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "Flame→火球术只是 existing 术语，不是强制译名；本文件 Burning Wake（entry-02285，冻结外）称同一技能“火焰”，奇术师说明则称“火球术”。单改本技能名会制造同族不一致，需将 entry-02285 等引用纳入统一决策后处理；本次不改。",
+   "applied": false,
+   "old_target": "火焰",
+   "new_target": null,
+   "section": "mod-tome/data/talents/spells/fire.lua",
+   "source": "Flame"
+  },
+  {
+   "queue_id": "hrq-00350",
+   "entry_id": "entry-02227",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29143,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "源码对非亡灵敌人施加 dazed，preferred daze=眩晕；现译“茫然”与效果身份和术语不符，改为“眩晕”，其他条件与参数保留。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/master-necromancer.lua",
+    "mod-tome.lua:29143",
+    "terminology/combat.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源码对非亡灵敌人施加 dazed，preferred daze=眩晕；现译“茫然”与效果身份和术语不符，改为“眩晕”，其他条件与参数保留。",
+   "applied": true,
+   "old_target": "在你的光环中放出一股不死能量。\n\t\t范围内所有随从获得 25%% 速度，持续 %d 回合。\n\t\t所有非食尸鬼的随从被治疗 %d%%。\n\t\t如果你掌握陵墓召唤技能，到下一个免费食尸鬼的时间降低 %d。\n\t\t如果你掌握夺命尸爆或腐烂液化技能，这些效果的持续时间延长 %d。\n\t\t范围内所有非不死生物的敌人都会被茫然 %d 回合。\n\t\t此外，你的所有随从（在学会该法术后制造的）获得额外被动生命回复。",
+   "new_target": "在你的光环中放出一股不死能量。\n\t\t范围内所有随从获得 25%% 速度，持续 %d 回合。\n\t\t所有非食尸鬼的随从被治疗 %d%%。\n\t\t如果你掌握陵墓召唤技能，到下一个免费食尸鬼的时间降低 %d。\n\t\t如果你掌握夺命尸爆或腐烂液化技能，这些效果的持续时间延长 %d。\n\t\t范围内所有非不死生物的敌人都会被眩晕 %d 回合。\n\t\t此外，你的所有随从（在学会该法术后制造的）获得额外被动生命回复。",
+   "section": "mod-tome/data/talents/spells/master-necromancer.lua",
+   "source": "Sends out a surge of undeath energies into your aura.\n\t\tAll minions inside gain 25%% speed for %d turns\n\t\tAll non-ghoul minions are healed by %d%%.\n\t\tIf you know Call of the Mausoleum, the time remaining to the next free ghoul is reduced by %d.\n\t\tif you know Corpse Explosion or Putrescent Liquefaction the duration of those effects are increased by %d.\n\t\tAll non-undead foes caught inside are dazed for %d turns.\n\t\tIn addition all your minions (created after you learn this spell) have a passive health regeneration."
+  },
+  {
+   "queue_id": "hrq-00351",
+   "entry_id": "entry-02252",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29537,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原文 incinerate 明确是焚毁，现译“打击”只表达一般攻击；前后无句段补足燃烧结果，改为“焚毁”，保持风暴主体。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/spells.lua",
+    "mod-tome.lua:29537",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-071-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文 incinerate 明确是焚毁，现译“打击”只表达一般攻击；前后无句段补足燃烧结果，改为“焚毁”，保持风暴主体。",
+   "applied": true,
+   "old_target": "使用风暴的力量打击你的目标。",
+   "new_target": "使用风暴的力量焚毁你的敌人。",
+   "section": "mod-tome/data/talents/spells/spells.lua",
+   "source": "Harness the power of the storm to incinerate your foes."
+  },
+  {
+   "queue_id": "hrq-00352",
+   "entry_id": "entry-02258",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29549,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "原文 and 并列更快旅行与追踪他人，现译“或者”误示互斥；同时“更快的旅行”在动词结构中误用“的”，改成“更快地旅行并追踪他人”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/spells.lua",
+    "mod-tome.lua:29549",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-071-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文 and 并列更快旅行与追踪他人，现译“或者”误示互斥；同时“更快的旅行”在动词结构中误用“的”，改成“更快地旅行并追踪他人”。",
+   "applied": true,
+   "old_target": "学习传送，使你能更快的旅行或者追踪目标。",
+   "new_target": "学习传送，使你能更快地旅行并追踪他人。",
+   "section": "mod-tome/data/talents/spells/spells.lua",
+   "source": "Conveyance is the school of travel. It allows you to travel faster and to track others."
+  },
+  {
+   "queue_id": "hrq-00353",
+   "entry_id": "entry-02259",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29551,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "“可以使……能”虽显重复，但感知周围与搜寻隐藏事物两个作用均已表达，属于二级行文润色；报告没有指出一级语义或运行时缺陷。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/spells.lua",
+    "mod-tome.lua:29551",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-071-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；“可以使……能”虽显重复，但感知周围与搜寻隐藏事物两个作用均已表达，属于二级行文润色；报告没有指出一级语义或运行时缺陷。",
+   "applied": false,
+   "old_target": "侦查技能可以使施放者能侦查周围环境，搜寻隐藏的东西。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/spells/spells.lua",
+   "source": "Divination allows the caster to sense its surroundings, and find hidden things."
+  },
+  {
+   "queue_id": "hrq-00354",
+   "entry_id": "entry-02265",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29638,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "译文“该技能”在技能使用提示中有清楚指代，法杖前置条件完整；省略 Blunt Thrust 专名仅降低日志独立辨识度，属风格建议。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/staff-combat.lua",
+    "mod-tome.lua:29638"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；译文“该技能”在技能使用提示中有清楚指代，法杖前置条件完整；省略 Blunt Thrust 专名仅降低日志独立辨识度，属风格建议。",
+   "applied": false,
+   "old_target": "你需要一把法杖来施展该技能！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/spells/staff-combat.lua",
+   "source": "You cannot use Blunt Thrust without a staff weapon!"
+  },
+  {
+   "queue_id": "hrq-00355",
+   "entry_id": "entry-02267",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29640,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "固定源码以 is_melee/attackTargetWith 执行近战攻击，melee damage 不是泛称近程；改“近战伤害”。第二句缺句号属标点错误，补“。”；震慑、必中与占位符保留。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/staff-combat.lua",
+    "mod-tome.lua:29640"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；固定源码以 is_melee/attackTargetWith 执行近战攻击，melee damage 不是泛称近程；改“近战伤害”。第二句缺句号属标点错误，补“。”；震慑、必中与占位符保留。",
+   "applied": true,
+   "old_target": "挥动法杖对目标造成 %d%% 近程伤害并震慑目标 %d 回合。\n\t\t震慑概率受法术强度加成\n\t\t在等级 5 时，此攻击必中。",
+   "new_target": "挥动法杖对目标造成 %d%% 近战伤害并震慑目标 %d 回合。\n\t\t震慑概率受法术强度加成。\n\t\t在等级 5 时，此攻击必中。",
+   "section": "mod-tome/data/talents/spells/staff-combat.lua",
+   "source": "Hit a target for %d%% melee damage and stun it for %d turns.\n\t\tStun chance will improve with Spellpower.\n\t\tAt level 5, this attack cannot miss."
+  },
+  {
+   "queue_id": "hrq-00356",
+   "entry_id": "entry-02269",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29662,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "日志两个 %s 依次为装备和宝石，语义顺序正确；“安装”可描述将宝石置入装备，本技能内“附魔”与“镶嵌”也并存，暂无唯一规范词，改一条不能建立一致性。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/stone-alchemy.lua",
+    "mod-tome.lua:29662"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；日志两个 %s 依次为装备和宝石，语义顺序正确；“安装”可描述将宝石置入装备，本技能内“附魔”与“镶嵌”也并存，暂无唯一规范词，改一条不能建立一致性。",
+   "applied": false,
+   "old_target": "你在 %s 上安装了 %s。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/spells/stone-alchemy.lua",
+   "source": "You imbue your %s with %s."
+  },
+  {
+   "queue_id": "hrq-00357",
+   "entry_id": "entry-02273",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29694,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "原文区分不能主动移动与强制位移终止持续，现译“任何移动”漏掉后者限定；“土壤相关影响”丢失大地亲和含义；冷却“回合数：%d%%”误把百分比说成回合数。修正这三项，保留现有换行及五个参数。源码 never_move 只直接证实不能主动移动，模型所列击退、传送等一概终止的推断不采纳。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/stone.lua",
+    "mod-tome.lua:29694"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文区分不能主动移动与强制位移终止持续，现译“任何移动”漏掉后者限定；“土壤相关影响”丢失大地亲和含义；冷却“回合数：%d%%”误把百分比说成回合数。修正这三项，保留现有换行及五个参数。源码 never_move 只直接证实不能主动移动，模型所列击退、传送等一概终止的推断不采纳。",
+   "applied": true,
+   "old_target": "你将自己扎根于土壤并使你的肉体融入石头。\n\t\t当此技能被激活时你不能移动并且任何移动会打断此技能效果。\n\t\t当此技能激活时，受你的石化形态和土壤相关影响，会产生以下效果：\n\t\t* 减少岩石飞弹、粉碎钻击、地震和山崩地裂冷却时间回合数：%d%%\n\t\t* 获得 %d%% 火焰抗性，%d%% 闪电抗性，%d%% 酸性抗性和 %d%% 震慑抵抗。\n\t\t受法术强度影响，抗性按比例加成。",
+   "new_target": "你将自己扎根于土壤并使你的肉体融入石头。\n\t\t当此技能被激活时你不能移动并且任何强制位移都会结束此技能效果。\n\t\t当此技能激活时，你的石化形态和与大地的亲和会产生以下效果：\n\t\t* 岩石飞弹、粉碎钻击、地震和山崩地裂的冷却时间减少 %d%%\n\t\t* 获得 %d%% 火焰抗性，%d%% 闪电抗性，%d%% 酸性抗性和 %d%% 震慑抵抗。\n\t\t受法术强度影响，抗性按比例加成。",
+   "section": "mod-tome/data/talents/spells/stone.lua",
+   "source": "You root yourself into the earth, and transform your flesh into stone.  While this spell is sustained, you may not move, and any forced movement will end the effect.\n\t\tYour stone form and your affinity with the earth while the spell is active has the following effects:\n\t\t* Reduces the cooldown of Earthen Missiles, Pulverizing Auger, Earthquake, and Mudslide by %d%%.\n\t\t* Grants %d%% Fire Resistance, %d%% Lightning Resistance, %d%% Acid Resistance, and %d%% Stun Resistance.\n\t\tResistances scale with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00358",
+   "entry_id": "entry-02277",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29743,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "段落合并只是静态排版，不调整换行；但原译省略伤害送往未来与时间回复力场两个概念，且“时间屏障”违反 preferred Time Shield=时间盾。补足时空关系并统一术语，两个 %d 和 10%% 仍对应原值。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/temporal.lua",
+    "mod-tome.lua:29743",
+    "terminology/talents.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；段落合并只是静态排版，不调整换行；但原译省略伤害送往未来与时间回复力场两个概念，且“时间屏障”违反 preferred Time Shield=时间盾。补足时空关系并统一术语，两个 %d 和 10%% 仍对应原值。",
+   "applied": true,
+   "old_target": "这个复杂的法术在施法者周围立刻制造一个时间屏障，吸收你受到的伤害。\n\t\t一旦达到最大伤害吸收值（%d）或持续时间（%d 回合）结束，存储的能量会治疗你，持续 5 回合，每回合回复总吸收伤害的 10%%（强化护盾技能会影响该系数）。\n\t\t最大吸收值受法术强度加成。",
+   "new_target": "这个复杂的法术在施法者周围立刻制造一个时间盾，阻止你受到的伤害并将其送往未来。\n\t\t一旦达到最大伤害吸收值（%d）或持续时间（%d 回合）结束，储存的伤害会以时间回复力场的形式返还，持续 5 回合，每回合回复总吸收伤害的 10%%（强化护盾技能会影响该系数）。\n\t\t最大吸收值受法术强度加成。",
+   "section": "mod-tome/data/talents/spells/temporal.lua",
+   "source": "This intricate spell instantly erects a time shield around the caster, preventing any incoming damage and sending it forward in time.\n\t\tOnce either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns).\n\t\tEach turn the restoration field is active, you get healed for 10%% of the absorbed damage (Aegis Shielding talent affects the percentage).\n\t\tThe shield's max absorption will increase with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00359",
+   "entry_id": "entry-02278",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29750,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "新增段落换行属纯静态排版且冻结条件禁止改换行序列；源码无敌、目标时间停止、冷却和资源不回复均已由现译表达，唯一 %d 正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/temporal.lua",
+    "mod-tome.lua:29750"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；新增段落换行属纯静态排版且冻结条件禁止改换行序列；源码无敌、目标时间停止、冷却和资源不回复均已由现译表达，唯一 %d 正确。",
+   "applied": false,
+   "old_target": "将目标从时光的流动中移出，持续 %d 回合。\n\t\t在此状态下，目标不能动作也不能被伤害。\n\t\t对于目标来说，时间是静止的，技能无法冷却，也没有能量回复……\n\t\t持续时间受法术强度加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/spells/temporal.lua",
+   "source": "Removes the target from the flow of time for %d turns. In this state, the target can neither act nor be harmed.\n\t\tTime does not pass at all for the target, no talents will cooldown, no resources will regen, and so forth.\n\t\tThe duration will increase with your Spellpower."
+  },
+  {
+   "queue_id": "hrq-00360",
+   "entry_id": "entry-02280",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29790,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "补述法力充足时扣法力补满充能、否则解除持续有 callbackOnActBase 支持；首句省略 residual energies 是风味意象，后句仍明确射线施法后的免费移动，%d 和段落正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/spells/thaumaturgy.lua",
+    "mod-tome.lua:29790"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；补述法力充足时扣法力补满充能、否则解除持续有 callbackOnActBase 支持；首句省略 residual energies 是风味意象，后句仍明确射线施法后的免费移动，%d 和段落正确。",
+   "applied": false,
+   "old_target": "你将奥术力量编织于双脚，可以使用射线类法术来进行免费移动。\n\t\t每当你释放一个射线类法术，你可以立刻移动一次，不需要消耗时间。\n\t\t这一法术有 %d 次充能。当充能耗尽时，这一法术将会解除持续。\n\t\t若你在尚有剩余充能时脱离战斗，则在脱离战斗 10 回合后，只要法力充足便会消耗法力补满充能，否则解除持续。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/spells/thaumaturgy.lua",
+   "source": "By weaving arcane triggers around you feet you can use the residual energies of your beam spells for free movement.\n\t\tEach time you cast a beam spell you can move right afterwards without spending a turn.\n\t\tThis spell has %d charges. Once all charges are spent it unsustains.\n\t\tIf you exit combat with some charges left it will after 10 turn regenerates its charges, if you have enough mana."
+  },
+  {
+   "queue_id": "hrq-00361",
+   "entry_id": "entry-02290",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 29932,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "末句拆行是纯静态排版；三处占位符顺序与命中、物理强度、震慑及定身抵抗一致，不改换行序列。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/2hweapon.lua",
+    "mod-tome.lua:29932"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；末句拆行是纯静态排版；三处占位符顺序与命中、物理强度、震慑及定身抵抗一致，不改换行序列。",
+   "applied": false,
+   "old_target": "进入狂暴的战斗状态，以减少 10 点闪避和 10 点护甲的代价增加 %d 点命中和 %d 点物理强度。\n\t\t开启狂暴时你无人能挡，增加 %d%% 震慑和定身抵抗。\n\t\t命中受敏捷值加成；\n\t\t物理强度受力量值加成。",
+   "new_target": null,
+   "section": "mod-tome/data/talents/techniques/2hweapon.lua",
+   "source": "You enter an aggressive battle stance, increasing Accuracy by %d and Physical Power by %d, at the cost of -10 Defense and -10 Armour.\n\t\tWhile berserking, you are nearly unstoppable, granting you %d%% stun and pinning resistance.\n\t\tThe Accuracy bonus increases with your Dexterity, and the Physical Power bonus with your Strength."
+  },
+  {
+   "queue_id": "hrq-00362",
+   "entry_id": "entry-02303",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 30008,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "术语 Tumble 虽为 existing，但本文件同技能名和日志均用“翻筋斗”，本句“翻滚”造成同族名称不一致；改为“翻筋斗”。等级 3/5 拆段仅排版，参数和数值保持正确。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/acrobatics.lua",
+    "mod-tome.lua:30008",
+    "terminology/talents.tsv"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；术语 Tumble 虽为 existing，但本文件同技能名和日志均用“翻筋斗”，本句“翻滚”造成同族名称不一致；改为“翻筋斗”。等级 3/5 拆段仅排版，参数和数值保持正确。",
+   "applied": true,
+   "old_target": "你使用杂耍系技能更加得心应手，降低撑杆跳、翻滚和受训反应的冷却时间 %d 回合，降低技能的体力消耗 %0.1f。\n\t\t在等级 3 时，每当受训反应触发，你获得 10%% 的全局速度 1 回合。\n\t\t在等级 5 时，速度加成变为 20%%，持续 2 回合。",
+   "new_target": "你使用杂耍系技能更加得心应手，降低撑杆跳、翻筋斗和受训反应的冷却时间 %d 回合，降低技能的体力消耗 %0.1f。\n\t\t在等级 3 时，每当受训反应触发，你获得 10%% 的全局速度 1 回合。\n\t\t在等级 5 时，速度加成变为 20%%，持续 2 回合。",
+   "section": "mod-tome/data/talents/techniques/acrobatics.lua",
+   "source": "You gain greater facility with your acrobatic moves, lowering the cooldowns of Vault, Tumble, and Trained Reactions by %d, and their stamina costs by %0.1f.\n\t\tAt Rank 3 you also gain 10%% global speed for 1 turn after Trained Reactions activates. At rank 5 this speed bonus improves to 20%% and lasts for 2 turns."
+  },
+  {
+   "queue_id": "hrq-00363",
+   "entry_id": "entry-02306",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 30039,
+   "source_tag": "logPlayer",
+   "model_disposition": "fix",
+   "model_reason": "原文 Rapid Fire 是固定源码对 Rapid Shot 的旧称，译文“这个技能”避免错误专名；但生效的 on_pre_use 调用 archerPreUse(...,\"sling\")，弓并不能满足前置。改为只需投石索，驳回模型“弓或投石索限制准确”的判断。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/agility.lua",
+    "mod-tome.lua:30039"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；原文 Rapid Fire 是固定源码对 Rapid Shot 的旧称，译文“这个技能”避免错误专名；但生效的 on_pre_use 调用 archerPreUse(...,\"sling\")，弓并不能满足前置。改为只需投石索，驳回模型“弓或投石索限制准确”的判断。",
+   "applied": true,
+   "old_target": "你需要一把弓或者投石索来施放这个技能！",
+   "new_target": "你需要装备投石索才能使用这个技能！",
+   "section": "mod-tome/data/talents/techniques/agility.lua",
+   "source": "You cannot use Rapid Fire without a bow or sling!"
+  },
+  {
+   "queue_id": "hrq-00364",
+   "entry_id": "entry-02312",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 30077,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "源码仅对指定目标发射一发，沿途敌人不是追加受击对象；“穿透目标以外单位”既未限定你与目标之间，也可能误示穿透伤害。改为“越过你与目标之间的其他敌人”，%d%% 和命中加成不变。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/archery.lua",
+    "mod-tome.lua:30077",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-073-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；源码仅对指定目标发射一发，沿途敌人不是追加受击对象；“穿透目标以外单位”既未限定你与目标之间，也可能误示穿透伤害。改为“越过你与目标之间的其他敌人”，%d%% 和命中加成不变。",
+   "applied": true,
+   "old_target": "瞄准目标头部发射穿透性弹药，造成 %d%% 武器伤害。\n此次攻击额外获得 100 命中，且能穿透目标以外单位。\n只能对被标记的单位使用，命中时消耗该标记。",
+   "new_target": "瞄准目标头部发射穿透性弹药，造成 %d%% 武器伤害。\n此次攻击额外获得 100 命中，且能越过你与目标之间的其他敌人。\n只能对被标记的单位使用，命中时消耗该标记。",
+   "section": "mod-tome/data/talents/techniques/archery.lua",
+   "source": "Fire a precise shot dealing %d%% weapon damage, with 100 increased accuracy. This shot will bypass other enemies between you and your target.\nOnly usable against marked targets, and consumes the mark on hit."
+  },
+  {
+   "queue_id": "hrq-00365",
+   "entry_id": "entry-02319",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 30115,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "双持限制已完整表达，技能使用语境能指认“这个技能”；省略 Coup de Grace 专名仅是日志独立辨识度偏好。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/assassination.lua",
+    "mod-tome.lua:30115"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；双持限制已完整表达，技能使用语境能指认“这个技能”；省略 Coup de Grace 专名仅是日志独立辨识度偏好。",
+   "applied": false,
+   "old_target": "你需要双持武器来施展这个技能！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/techniques/assassination.lua",
+   "source": "You cannot use Coup de Grace without dual wielding!"
+  },
+  {
+   "queue_id": "hrq-00366",
+   "entry_id": "entry-02326",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 30194,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "第二行“（但不会小于 0%%）”后没有句末句号，下一行已另起完整句，属明确标点遗漏；物理抗性下限与两个占位符均正确，补标点即可。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/bloodthirst.lua",
+    "mod-tome.lua:30194",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-073-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；第二行“（但不会小于 0%%）”后没有句末句号，下一行已另起完整句，属明确标点遗漏；物理抗性下限与两个占位符均正确，补标点即可。",
+   "applied": true,
+   "old_target": "你沉醉于撕裂伤口的兴奋中，增加 %d 物理强度。\n\t\t同时，每次你让敌人流血时，它的物理抗性下降 %d%% （但不会小于 0%%）\n\t\t物理强度加成受力量影响。",
+   "new_target": "你沉醉于撕裂伤口的兴奋中，增加 %d 物理强度。\n\t\t同时，每次你让敌人流血时，它的物理抗性下降 %d%% （但不会小于 0%%）。\n\t\t物理强度加成受力量影响。",
+   "section": "mod-tome/data/talents/techniques/bloodthirst.lua",
+   "source": "You delight in the inflicting of wounds, providing %d physical power.\n\t\tIn addition when you make a creature bleed its physical damage resistance is reduced by %d%% (but never below 0%%).\n\t\tPhysical power depends on your Strength stat."
+  },
+  {
+   "queue_id": "hrq-00367",
+   "entry_id": "entry-02327",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 30200,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "固定源码该技能名为 Unstoppable，本文件 talent name 与状态名均译“势不可挡”，现说明“无双状态”无法对应同一技能；改为“势不可挡激活期间”。数值、不能使用物品和治疗条件已表达。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/bloodthirst.lua",
+    "mod-tome.lua:30200",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-073-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；固定源码该技能名为 Unstoppable，本文件 talent name 与状态名均译“势不可挡”，现说明“无双状态”无法对应同一技能；改为“势不可挡激活期间”。数值、不能使用物品和治疗条件已表达。",
+   "applied": true,
+   "old_target": "你进入疯狂战斗状态 %d 回合。\n\t\t在这段时间内你不能使用物品，并且治疗无效，此时你的生命值无法低于 1 点。\n\t\t状态期间你每杀死一个敌人，都会在状态结束时回复 %d%% 最大生命值。\n\t\t当进入无双状态时，由于你失去了死亡的威胁，狂战之怒不能提供暴击加成。",
+   "new_target": "你进入疯狂战斗状态 %d 回合。\n\t\t在这段时间内你不能使用物品，并且治疗无效，此时你的生命值无法低于 1 点。\n\t\t状态期间你每杀死一个敌人，都会在状态结束时回复 %d%% 最大生命值。\n\t\t势不可挡激活期间，由于你失去了死亡的威胁，狂战之怒不能提供暴击加成。",
+   "section": "mod-tome/data/talents/techniques/bloodthirst.lua",
+   "source": "You enter a battle frenzy for %d turns. During that time, you can not use items, healing has no effect, and your health cannot drop below 1.\n\t\tAt the end of the frenzy, you regain %d%% of your health per foe slain during the frenzy.\n\t\tWhile Unstoppable is active, Berserker Rage critical bonus is disabled as you lose the thrill of the risk of death."
+  },
+  {
+   "queue_id": "hrq-00368",
+   "entry_id": "entry-02337",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 30288,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "固定源码两次 heavy mail armour 指同一 heavy 装备子类，本段却先写“重甲”后写“锁甲”；本文件 heavy entity subtype 与同段前句均采用“重甲”，将后一处统一为“重甲”，保持 massive plate=板甲 及占位符不变。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/combat-training.lua",
+    "mod-tome.lua:30288",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-073-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；固定源码两次 heavy mail armour 指同一 heavy 装备子类，本段却先写“重甲”后写“锁甲”；本文件 heavy entity subtype 与同段前句均采用“重甲”，将后一处统一为“重甲”，保持 massive plate=板甲 及占位符不变。",
+   "applied": true,
+   "old_target": "你使用防具来偏转攻击和保护重要部位的能力加强了。\n\t\t根据现有防具，提高 %d 护甲值和 %d%% 护甲强度，并减少 %d%% 近战和远程攻击的暴击几率。\n\t\t（这项技能只对重甲或板甲提供加成。）\n\t\t在等级 1 时，能使你装备锁甲、金属手套、头盔和重靴。\n\t\t在等级 2 时，能使你装备盾牌。\n\t\t在等级 3 时，能使你装备板甲。\n\t\t%s",
+   "new_target": "你使用防具来偏转攻击和保护重要部位的能力加强了。\n\t\t根据现有防具，提高 %d 护甲值和 %d%% 护甲强度，并减少 %d%% 近战和远程攻击的暴击几率。\n\t\t（这项技能只对重甲或板甲提供加成。）\n\t\t在等级 1 时，能使你装备重甲、金属手套、头盔和重靴。\n\t\t在等级 2 时，能使你装备盾牌。\n\t\t在等级 3 时，能使你装备板甲。\n\t\t%s",
+   "section": "mod-tome/data/talents/techniques/combat-training.lua",
+   "source": "You become better at using your armour to deflect blows and protect your vital areas. Increases Armour value by %d, Armour hardiness by %d%%, and reduces the chance melee or ranged attacks critically hit you by %d%% with your current body armour.\n\t\t(This talent only provides bonuses for heavy mail or massive plate armour.)\n\t\tAt level 1, it allows you to wear heavy mail armour, gauntlets, helms, and heavy boots.\n\t\tAt level 2, it allows you to wear shields.\n\t\tAt level 3, it allows you to wear massive plate armour.\n\t\t%s"
+  },
+  {
+   "queue_id": "hrq-00369",
+   "entry_id": "entry-02343",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 30369,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "manage contact 的失败条件在源码中仍是必须双持，现译已提供玩家所需操作；省略具象说法仅文风偏好，同一族后备提示均用“这个技能”。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/dualweapon.lua",
+    "mod-tome.lua:30369",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-073-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；manage contact 的失败条件在源码中仍是必须双持，现译已提供玩家所需操作；省略具象说法仅文风偏好，同一族后备提示均用“这个技能”。",
+   "applied": false,
+   "old_target": "你只有在双持状态下才能使用这个技能！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/techniques/dualweapon.lua",
+   "source": "You must dual wield to manage contact with your target!"
+  },
+  {
+   "queue_id": "hrq-00369",
+   "entry_id": "entry-02344",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 30377,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "双持前置条件明确，Offhand Jab 专名虽未写出但技能界面可提供指代；这是日志辨识度的风格建议，现译未改变操作条件。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/dualweapon.lua",
+    "mod-tome.lua:30377",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-073-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；双持前置条件明确，Offhand Jab 专名虽未写出但技能界面可提供指代；这是日志辨识度的风格建议，现译未改变操作条件。",
+   "applied": false,
+   "old_target": "你只有在双持状态下才能使用这个技能！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/techniques/dualweapon.lua",
+   "source": "You must dual wield to perform an Offhand Jab!"
+  },
+  {
+   "queue_id": "hrq-00369",
+   "entry_id": "entry-02346",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 30386,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "双持前置条件明确，Dual Strike 专名虽未写出但技能界面可提供指代；这是日志辨识度的风格建议，现译未改变操作条件。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/dualweapon.lua",
+    "mod-tome.lua:30386",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-073-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；双持前置条件明确，Dual Strike 专名虽未写出但技能界面可提供指代；这是日志辨识度的风格建议，现译未改变操作条件。",
+   "applied": false,
+   "old_target": "你只有在双持状态下才能使用这个技能！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/techniques/dualweapon.lua",
+   "source": "You cannot use Dual Strike without dual wielding!"
+  },
+  {
+   "queue_id": "hrq-00369",
+   "entry_id": "entry-02347",
+   "is_row_primary": false,
+   "file": "mod-tome.lua",
+   "line": 30393,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "双持前置条件明确，Flurry 专名虽未写出但技能界面可提供指代；这是日志辨识度的风格建议，现译未改变操作条件。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/dualweapon.lua",
+    "mod-tome.lua:30393",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-073-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；双持前置条件明确，Flurry 专名虽未写出但技能界面可提供指代；这是日志辨识度的风格建议，现译未改变操作条件。",
+   "applied": false,
+   "old_target": "你只有在双持状态下才能使用这个技能！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/techniques/dualweapon.lua",
+   "source": "You cannot use Flurry without dual wielding!"
+  },
+  {
+   "queue_id": "hrq-00370",
+   "entry_id": "entry-02345",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 30379,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "完整句段虽已给主手加徒手两次攻击，仍未说明徒手攻击取代常规副手攻击；源码 action 与 info 同时确认这一替代关系。将其补在首句，四个占位符及混乱条件保留。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/dualweapon.lua",
+    "mod-tome.lua:30379",
+    "evidence/translation-audit/all-modified-review-20260922/reports/sol-073-01.md"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；完整句段虽已给主手加徒手两次攻击，仍未说明徒手攻击取代常规副手攻击；源码 action 与 info 同时确认这一替代关系。将其补在首句，四个占位符及混乱条件保留。",
+   "applied": true,
+   "old_target": "你迅速移动，用徒手攻击敌人。\n\t\t造成 %d%% 主手武器伤害，%d%% 徒手伤害。\n\t\t若徒手攻击命中，敌人将被混乱（%d%% 强度）%d 回合。\n\t\t混乱几率受命中加成。",
+   "new_target": "你迅速转移重心，以出其不意的徒手攻击取代通常的副手攻击。\n\t\t造成 %d%% 主手武器伤害，%d%% 徒手伤害。\n\t\t若徒手攻击命中，敌人将被混乱（%d%% 强度）%d 回合。\n\t\t混乱几率受命中加成。",
+   "section": "mod-tome/data/talents/techniques/dualweapon.lua",
+   "source": "With a quick shift of your momentum, you execute a surprise unarmed strike in place of your normal offhand attack.\n\t\tThis allows you to attack with your mainhand weapon for %d%% damage and unarmed for %d%% damage.  If the unarmed attack hits, the target is confused (%d%% power) for %d turns.\n\t\tThe chance to confuse increases with your Accuracy."
+  },
+  {
+   "queue_id": "hrq-00371",
+   "entry_id": "entry-02352",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 30431,
+   "source_tag": "logPlayer",
+   "model_disposition": "no_change",
+   "model_reason": "双持前置条件完整，“这个技能”在 Lunge 技能使用界面有明确指代；省略技能专名仅属日志风格偏好。",
+   "model_evidence": [
+    "game/modules/tome/data/talents/techniques/duelist.lua",
+    "mod-tome.lua:30431"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；双持前置条件完整，“这个技能”在 Lunge 技能使用界面有明确指代；省略技能专名仅属日志风格偏好。",
+   "applied": false,
+   "old_target": "你需要双持武器来施展这个技能！",
+   "new_target": null,
+   "section": "mod-tome/data/talents/techniques/duelist.lua",
+   "source": "You cannot use Lunge without dual wielding!"
+  }
+ ]
+}

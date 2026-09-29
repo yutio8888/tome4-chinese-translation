@@ -1,0 +1,75 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=d984d8afc01f39c63ae1590371bc34cd79aa17457e11edfa5b60f27ac10a915c；input_path=.ai/task/ctx2-pub-16a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-16a/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] git log -1 624a67329fe2ad440c5b344785a9c73fcf22ae63 --stat 2>&1
+[Shell] ls -la i18n/
+[Shell] ls -la i18n/versions/
+[Shell] python3 -B -c "import json; v = json.load(open('i18n/versions/tome-1.7.6.json')); print(v.keys()); print(v.get('components', {}))"
+[Shell] python3 -B -c "import json; v = json.load(open('i18n/versions/tome-1.7.6.json')); print(v.get('repositories'))"
+[Shell] git -C ../t-engine4 status 2>&1
+[Shell] env | grep -i tome
+[Shell] git -C /workspace/t-engine4 log -1 624a67329fe2ad440c5b344785a9c73fcf22ae63 --stat
+[Shell] git -C /workspace/t-engine4 grep -n "Tier %d" game/modules/tome/data/talents/cunning/traps.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "freezing vapour" game/modules/tome/data/talents/cunning/traps.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "Each day, you lift your weary body" game/modules/tome/data/talents/cursed/cursed.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "You can only gain sustenance" game/modules/tome/data/talents/cursed/dark-sustenance.lua
+[Shell] git -C /workspace/t-engine4 grep -rn "gain sustenance" game/
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "Sends a torrent of searing darkness" game/modules/tome/data/talents/cursed/darkness.lua
+[Shell] git -C /workspace/t-engine4 grep -n -A 35 'name = "Dark Tendrils"' game/modules/tome/data/talents/cursed/darkness.lua
+[Shell] git -C /workspace/t-engine4 sed -n '473,485p' game/modules/tome/data/talents/cursed/darkness.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/talents/cursed/darkness.lua').readlines(); print(''.join(lines[472:485]))"
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "Surge" game/modules/tome/data/talents/cursed/endless-hunt.lua
+[Shell] python3 -B -c " with open('/workspace/tome4-chn-mod/data/locales/zh_hans.lua') as f: text = f.read() import re for m in re.finditer(r't\((\"[^\"]+\"),\s*(\"[^\"]+\"),\s*\"talent name\"\)', text): s...
+[Shell] git -C /workspace/t-engine4 grep -n 'name = "Cleave"' game/
+[Shell] git -C /workspace/t-engine4 grep -n 'name = "Repel"' game/
+[Shell] git -C /workspace/t-engine4 grep -n -E 't\("(Cleave|Repel|Surge)"' game/modules/tome/data/locales/zh_hans.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 20 "You empathy with your shadows" game/modules/tome/data/talents/cursed/one-with-shadows.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/talents/cursed/one-with-shadows.lua').readlines(); print(''.join(lines[35:68]))"
+[Shell] git -C /workspace/t-engine4 grep -rn "damage affinity" game/modules/tome/data/locales/zh_hans.lua
+[Shell] grep -rn "affinity" terminology/
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "Selects a displacement location" game/modules/tome/data/talents/cursed/primal-magic.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "While this ability is active" game/modules/tome/data/talents/cursed/shadows.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "converge on" game/modules/tome/data/talents/cursed/shadows.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/talents/cursed/shadows.lua').readlines(); print(''.join(lines[660:675]))"
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "Channel acid through your psiblades" game/modules/tome/data/talents/gifts/corrosive-blades.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 20 "restore %0.1f Equilibrium" game/modules/tome/data/talents/gifts/eyals-fury.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 "EFF_NATURE_REPLENISHMENT" game/modules/tome/data/timed_effects/mental.lua
+[Shell] git -C /workspace/t-engine4 grep -rn "NATURE_REPLENISHMENT" game/modules/tome/data/timed_effects/
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/timed_effects/physical.lua').readlines(); print(''.join(lines[2872:2895]))"
+[Shell] git -C /workspace/t-engine4 grep -n -C 25 "Ancestral Life" game/modules/tome/data/talents/gifts/fungus.lua
+[Shell] git -C /workspace/t-engine4 grep -rn "T_ANCESTRAL_LIFE" game/modules/tome/
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/timed_effects/physical.lua').readlines(); print(''.join(lines[198:215]))"
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "Cover the floor with natural mucus" game/modules/tome/data/talents/gifts/gifts.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 10 'name = "Creeping Darkness"' game/modules/tome/data/talents/cursed/darkness.lua
+[Shell] git -C /workspace/t-engine4 grep -n -C 5 "primed trigger" game/modules/tome/data/talents/cunning/traps.lua
+[Shell] git -C /workspace/t-engine4 grep -n "This trap can use a primed trigger and a high level lure can trigger it" game/modules/tome/data/locales/zh_hans.lua
+[Shell] git -C /workspace/t-engine4 sed -n '23688,23696p' game/modules/tome/data/locales/zh_hans.lua 2>&1
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[23688:23700]))"
+[Shell] git -C /workspace/t-engine4 grep -n -A 20 "createDarkTendrils" game/modules/tome/data/talents/cursed/darkness.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/talents/cursed/darkness.lua').readlines(); print(''.join(lines[43:75]))"
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/talents/cursed/darkness.lua').readlines(); print(''.join(lines[75:105]))"
+[Shell] git -C /workspace/t-engine4 grep -rn "fuel" game/modules/tome/data/locales/zh_hans.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[24100:24115]))"
+[Shell] grep -n "construct" .ai/task/ctx2-pub-16a/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] git -C /workspace/t-engine4 grep -n "empathy with your shadows" game/modules/tome/data/locales/zh_hans.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[24250:24260]))"
+[Shell] git -C /workspace/t-engine4 grep -n "Tier %d" game/modules/tome/data/locales/zh_hans.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[23575:23585]))"
+[Shell] git -C /workspace/t-engine4 grep -n "Sends a torrent of searing darkness" game/modules/tome/data/locales/zh_hans.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[24059:24075]))"
+[Shell] git -C /workspace/t-engine4 grep -n "While this ability is active, you will continually call up to" game/modules/tome/data/locales/zh_hans.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[24444:24456]))"
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[24470:24485]))"
+[Shell] git -C /workspace/t-engine4 grep -n "The shadows converge" game/modules/tome/data/locales/zh_hans.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[24458:24470]))"
+[Shell] git -C /workspace/t-engine4 grep -n "Channel acid through your psiblades" game/modules/tome/data/locales/zh_hans.lua
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[24670:24685]))"
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[24823:24835]))"
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[24890:24905]))"
+[Shell] python3 -c "lines = open('/workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua').readlines(); print(''.join(lines[24905:24920]))"
+[Shell] git -C /workspace/t-engine4 grep -n "Cover the floor with natural mucus" game/modules/tome/data/locales/zh_hans.lua
+[Shell] python3 -B -c " import json candidate_identity = 'd984d8afc01f39c63ae1590371bc34cd79aa17457e11edfa5b60f27ac10a915c' keys = [ 'entry-01751', 'entry-01767', 'entry-01785', 'entry-01788', 'entry-01798...
+{"contract":"translation_contextual_v2","candidate_identity":"d984d8afc01f39c63ae1590371bc34cd79aa17457e11edfa5b60f27ac10a915c","verdicts":[{"revision_key":"entry-01751","verdict":"OK"},{"revision_key":"entry-01767","verdict":"OK"},{"revision_key":"entry-01785","verdict":"OK"},{"revision_key":"entry-01788","verdict":"OK"},{"revision_key":"entry-01798","verdict":"OK"},{"revision_key":"entry-01803","verdict":"OK"},{"revision_key":"entry-01804","verdict":"OK"},{"revision_key":"entry-01807","verdict":"OK"},{"revision_key":"entry-01820","verdict":"OK"},{"revision_key":"entry-01823","verdict":"OK"},{"revision_key":"entry-01835","verdict":"OK"},{"revision_key":"entry-01838","verdict":"OK"},{"revision_key":"entry-01839","verdict":"OK"},{"revision_key":"entry-01851","verdict":"OK"},{"revision_key":"entry-01861","verdict":"OK"},{"revision_key":"entry-01868","verdict":"OK"},{"revision_key":"entry-01870","verdict":"OK"},{"revision_key":"entry-01891","verdict":"OK"}]}

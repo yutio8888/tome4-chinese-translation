@@ -1,0 +1,41 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=1bc9f885a6030baa384dd13ce7cc3f6b8a21a2d726be847d4f7c22fef09b3f8e；input_path=.ai/task/ctx2-pub-09i/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-09i/CONTEXTUAL-ENVELOPE-full-01.json
+[Shell] git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/lore/fun.lua
+[Shell] git log -1 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] find . -maxdepth 3 -name "*manifest*" -o -name "*lore*"
+[Shell] find . -name "mod-tome.lua"
+[Shell] git remote -v
+[Shell] find /home/paseo -maxdepth 3 -type d -name "*tome*"
+[Shell] ls -la /workspace/t-engine4
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Shell] git -C /workspace/t-engine4 grep -n "An undead hunter" game/modules/tome/data/lore/
+[Shell] sed -n '210,250p' /workspace/t-engine4/game/modules/tome/data/lore/fun.lua
+[Shell] ls terminology/
+[Shell] grep -i -E "wight|toknor|mirvenia|daikara|bone giant|dread|aslabor" terminology/*.tsv
+[Shell] grep -i "Toknor" mod-tome.lua
+[Shell] grep -n "An undead hunter's guide" mod-tome.lua
+[Shell] sed -n '15875,15950p' mod-tome.lua
+[Shell] sed -n '15950,16050p' mod-tome.lua
+[Shell] grep -n -C 5 "An undead hunter's guide" mod-tome.lua
+[Shell] grep -i "spirit" terminology/*.tsv
+[Shell] git -C /workspace/t-engine4 grep -rn "lore/fun.lua" game/modules/tome/
+[Shell] sed -n '15509,15530p' /workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua
+[Shell] grep -n "An undead hunter" /workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua
+[Shell] sed -n '15806,15950p' /workspace/t-engine4/game/modules/tome/data/locales/zh_hans.lua
+[Shell] git -C /workspace/t-engine4 grep -rn 'subtype = "ghost"' game/modules/tome/data/
+[Shell] git -C /workspace/t-engine4 grep -E "newEntity\{|name =" game/modules/tome/data/general/npcs/ghost.lua
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-09i/CONTEXTUAL-ENVELOPE-full-01.json") as f: d = json.load(f) item = d["payload"]["translation_snapshot"][0] s = item["source"] t = item["targe...
+[Shell] python3 -B tools/i18n lint
+[Shell] python3 -c ' import json with open(".ai/task/ctx2-pub-09i/CONTEXTUAL-ENVELOPE-full-01.json") as f: d = json.load(f) item = d["payload"]["translation_snapshot"][0] s = item["source"] t = item["targe...
+[Shell] git -C /workspace/t-engine4 grep -rn "wight" game/modules/tome/data/general/npcs/
+[Shell] git -C /workspace/t-engine4 grep -A 15 "BASE_NPC_WIGHT" game/modules/tome/data/general/npcs/wight.lua
+[Shell] python3 -c ' import json candidate_identity = "1bc9f885a6030baa384dd13ce7cc3f6b8a21a2d726be847d4f7c22fef09b3f8e" obs = ( "核验组件tome，公开源码路径game/modules/tome/data/lore/fun.lua（固定commit:624a67329fe2ad4...
+[Shell] git grep -rn "translation_contextual_v2" tools/ tests/
+[Read] tools/contextual_result_check.py
+[Read] tools/contextual_result_check.py
+[Shell] python3 -c ' import json import subprocess import tempfile from pathlib import Path candidate_identity = "1bc9f885a6030baa384dd13ce7cc3f6b8a21a2d726be847d4f7c22fef09b3f8e" obs = ( "核验组件tome，公开源码路径g...
+{"contract":"translation_contextual_v2","candidate_identity":"1bc9f885a6030baa384dd13ce7cc3f6b8a21a2d726be847d4f7c22fef09b3f8e","verdicts":[{"revision_key":"entry-01228","verdict":"ISSUE","observation":"核验组件tome，公开源码路径game/modules/tome/data/lore/fun.lua（固定commit:624a67329fe2ad440c5b344785a9c73fcf22ae63，第217-308行）：1. 第2节骷髅（第241-243行）：“often looking so fragile that a stiff breeze could break them apart”被译为“搞得一副弱柳扶风的样子”，漏译“stiff breeze could break them apart”（脆弱得一阵强风就能将其吹散架）的核心语义，且“弱柳扶风”语体失调；前句“What guide to the undead would be complete without mentioning the humble skeleton?”被添加粗俗口语译作“那还算个屁指南”，并将“humble”译为“最常见的”。2. 第3节尸妖（第255-257行）：“tell of a peculiar sense of exhaustion when in close proximity to them”被译为“述说只要靠近这种诡异的生物”，漏译主句关键宾语“a peculiar sense of exhaustion”（奇特的力竭/衰竭感），且误将“peculiar”附会为“诡异的生物”，遗漏了靠近尸妖时产生虚脱感的重要描述。3. 第7节巫妖（第305-307行）：“be a dear and write a guide for me”中口语惯用祈请短语“be a dear”（行行好/劳驾）被字面直译为“亲爱的请你一定要为我写一篇指南”，在粗豪老战士第一人称叙述中语体失真。"}]}

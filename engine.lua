@@ -999,8 +999,8 @@ t("#GOLD##{bold}#OpenGL Shaders: Advanced#WHITE##{normal}#", "#GOLD##{bold}#Open
 t([[Activates distorting shaders.
 This option allows for distortion effects (like spell effects doing a visual distortion, ...). Disabling it can improve performance.
 
-#LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[开启扭曲着色器效果，
-这个选项可以激活一些扭曲视频特效（例如会造成视觉扭曲的法术）
+#LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[开启扭曲着色器效果。
+这个选项可以激活一些扭曲视频特效（例如会造成视觉扭曲的法术）。
 关闭它可以提升运行速度。
 
 #LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#]], "_t")
@@ -1038,7 +1038,7 @@ Note: This value will automatically revert after ten seconds if not confirmed by
 
 默认原点：(0,0)。
 
-注意：如果用户在十秒后不进行确认，这一数值将会自动恢复原值#WHITE#]], "_t")
+注意：如果用户在十秒内未确认，这一数值将会自动恢复原值。#WHITE#]], "_t")
 t("#GOLD##{bold}#Requested Window Position#WHITE##{normal}#", "#GOLD##{bold}#设置窗口位置#WHITE##{normal}#", "_t")
 t("Window Origin: X-Coordinate", "窗口原点：X坐标", "_t")
 t("Enter the x-coordinate", "输入X坐标", "_t")
@@ -1210,7 +1210,7 @@ t("cannot use currently due to an other worn object", "由于目前穿戴的其�
 t("%s is not wearable.", "%s无法装备。", "logSeen")
 t("%s can not wear %s.", "%s不能装备%s。", "logSeen")
 t("%s can not wear (%s): %s (%s).", "%s无法装备（%s）：%s（%s）。", "logSeen")
-t("%s wears: %s.", "%s 装备了：%s。", "logSeen")
+t("%s wears: %s.", "%s装备了：%s。", "logSeen")
 t("%s wears (offslot): %s.", "%s副手装备了：%s。", "logSeen")
 t("%s wears (replacing %s): %s.", "%s装备（替换%s）了：%s。", "logSeen")
 t("%s can not wear: %s.", "%s不能装备%s。", "logSeen")
@@ -1235,7 +1235,7 @@ t("%s %s %s.", "%s%s%s。", "logSeen")
 t("deactivates", "关闭了", "_t")
 t("activates", "启用了", "_t")
 t("%s uses %s.", "%s使用了%s。", "logSeen")
-t("not enough stat: %s", "属性点不足：%s", "tformat")
+t("not enough stat: %s", "属性不足：%s", "tformat")
 t("not enough levels", "等级不足", "_t")
 t("missing dependency", "未满足前置条件", "_t")
 t("is not %s", "不是%s", "tformat")
@@ -1269,7 +1269,7 @@ section "engine/engine/interface/ObjectActivable.lua"
 
 t("It can be used to %s, with %d charges out of %d.", "可以用于 %s，剩余 %d 次充能，共 %d 次。", "tformat")
 t("It can be used to %s, costing %d power out of %d/%d.", "可以用于 %s，消耗 %d 点能量（当前 %d/%d）。", "tformat")
-t("It can be used to activate talent: %s (level %d).", "可以用于激活技能：%s (等级 %d)。", "tformat")
+t("It can be used to activate talent: %s (level %d).", "可以用于激活技能：%s（等级 %d）。", "tformat")
 t("It can be used to activate talent: %s (level %d), costing %d power out of %d/%d.", "可以用于激活技能：%s（等级 %d），消耗 %d 点能量（当前 %d/%d）。", "tformat")
 t("%s is still recharging.", "%s 还在充能。", "logPlayer")
 t("%s can not be used anymore.", "%s 无法再继续使用了。", "logPlayer")
@@ -1429,7 +1429,7 @@ Now go and have some fun!]], [[#GOLD#马基·埃亚尔的传说#WHITE# 是主游
 
 请记住，在大部分Roguelike游戏里，角色的死亡都是永久的，请小心！
 
-玩的开心！]], "_t")
+玩得开心！]], "_t")
 t("Upgrade to 1.0.5", "升级到 v1.0.5 版本", "_t")
 t([[The way the engine manages saving has been reworked for v1.0.5.
 
@@ -1463,7 +1463,7 @@ Check out the following folder on your computer:
 %s
 %s
 ]], [[糟糕！好像你安装了多份同一个插件/DLC。
-这种情况不被支持的，会引发很多BUG。请你移除掉多余的文件。
+这种情况不受支持，会引发很多BUG。请你移除掉多余的文件。
 
 插件名称：#YELLOW#%s#LAST#
 
@@ -1499,8 +1499,8 @@ This is all optional, you are not forced to use this feature at all, but the dev
 * 记录你的击杀数量，死亡次数，以及玩得最多的职业…
 * 用有趣的统计数据帮你打磨自己的游戏风格
 * 在游戏里直接安装官方扩展包和第三方插件，免去手动安装的麻烦
-* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/赞助者独享权益
-* 帮助游戏开发者调整游戏平衡，让这个游戏变得更好。
+* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/捐赠者独享权益
+* 帮助游戏开发者调整游戏平衡，让这个游戏变得更好
 
 你也会获得一个 #LIGHT_BLUE#https://te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
 这一切都是可选的，你可以自愿使用或者关闭这些功能。如果你愿意开启它们，开发者会感谢你的，因为这会让平衡调整变得更简单。]], "_t")
@@ -1708,13 +1708,13 @@ This includes, but is not limited to:
 
 #{bold}##CRIMSON#This is an extremely restrictive setting. It is recommended you only activate it if you have no other choice as it will remove many fun and acclaimed features.#{normal}#
 
-If you disable this option you can always re-activate it in the Online category of the Game Options menu later on.]], [[即将禁止所有网络请求
+If you disable this option you can always re-activate it in the Online category of the Game Options menu later on.]], [[即将禁止所有网络请求。
 包括但不仅限于：
 - 用户信息：不能登录或者注册。
 - 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。
 - 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。
 - 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
-- 购买者/捐助者福利：基础游戏免费，公平发放捐助者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
+- 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
 - 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
 - 插件版本检查：插件将不再检查新版本。
 - Discord：如果你是 Discord 用户，此设置也会禁用 Rich Presence 集成。
@@ -1786,7 +1786,7 @@ t([[#{bold}##GOLD#Ashes of Urh'Rok - Expansion#LAST##{normal}#
 #LIGHT_UMBER#New artifacts, lore, zones, events...#WHITE# For your demonic delight!
 
 ]], [[#{bold}##GOLD#乌鲁洛克之烬 - 游戏扩展包#LAST##{normal}#
-#{italic}##ANTIQUE_WHITE#很多马基埃亚尔的居民都曾经听说过“恶魔”的名字，它们是一群似乎凭空出现的暴虐生物，无论走到哪里都会带来痛苦和毁灭。#{normal}##LAST#
+#{italic}##ANTIQUE_WHITE#很多马基·埃亚尔的居民都曾经听说过“恶魔”的名字，它们是一群似乎凭空出现的暴虐生物，无论走到哪里都会带来痛苦和毁灭。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#新职业：#WHITE# 毁灭使者。他们是恶魔毁灭力量的化身，手拿双手武器加入战斗，将敌人化为一片火海。他们的手中掌握着火焰的魔法和恶魔的力量，在与势不可挡的敌人战斗中寻求欢愉。
@@ -1809,14 +1809,14 @@ t([[#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#
 #LIGHT_UMBER#A ton#WHITE# of artifacts, lore, zones, events... 
 
 ]], [[#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#
-#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方灾星”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
+#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！
-#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，念力射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！
-#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方灾星”的人所带来的灾难中拯救出来。
-#LIGHT_UMBER#嵌件系统：#WHITE# 合成强大的嵌件，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的嵌件。
-#LIGHT_UMBER#药剂系统：#WHITE# 在嵌件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。
+#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！
+#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。
+#LIGHT_UMBER#蒸汽工具系统：#WHITE# 合成强大的蒸汽工具，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的蒸汽工具。
+#LIGHT_UMBER#药剂系统：#WHITE# 在蒸汽工具系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。
 #LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！
 
 ]], "_t")
@@ -1837,11 +1837,11 @@ t([[#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#
 #{italic}##ANTIQUE_WHITE#不是所有的冒险者都在寻求财富，也不是所有保卫世界的人都心存善念。最近，恐魔在大陆上出现的次数急剧增加。不断有人在偏僻的小路上失踪，有时几年后才被人发现，身体却遭受了恐怖的变异，神智也部分失常，也有时候再也无法寻到踪迹。很明显，在马基·埃亚尔的大地深处，有某种东西正在暗中活动。那种东西——就是你。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
-#LIGHT_UMBER#新职业：#WHITE# 扭动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
+#LIGHT_UMBER#新职业：#WHITE# 蠕动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
 #LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
 #LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
 #LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
-#LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路(不要问我你是怎么*进来*的)，探索神秘的出口，以及更多奇异的，充满触手的地图！
+#LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路（不要问我你是怎么*进来*的），探索神秘的出口，以及更多奇异的，充满触手的地图！
 #LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！
 #LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！
 #LIGHT_UMBER#大量#WHITE# 全新神器、手札、事件……

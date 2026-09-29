@@ -1,0 +1,424 @@
+[User] # REVIEWER briefing — 已应用译文改动的独立逐条复核（review packet 16）
+
+身份：`role=reviewer`，只读。**不得修改、创建、删除任何文件**，不得 stage／commit。
+
+任务：对 packet 中每一项已应用的译文改动**逐条独立复核**，判断该改动是否正确、是否引入新问题。
+这是与 executor（裁决）路线**并行**的复核路线；你只看冻结输入，不看 executor 的自述理由。
+
+## 唯一输入
+
+`.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-16.json`
+
+该文件每项含：`entry_id`／`queue_id`／`file`／`line`／`source_tag`／`source`（英文原文）／
+`old_target`（改动前）／`new_target`（改动后）。
+
+## 可读取的证据（只读）
+
+1. 上表 packet 文件。
+2. 固定版本公开源码：commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`，仓库 `/workspace/t-engine4`，
+   读取方式 `git -C /workspace/t-engine4 show <commit>:<path>`。
+   路径映射：`mod-tome/`→`game/modules/tome/`；`mod-boot/`→`game/engines/default/modules/boot/`；
+   `engine/`→`game/engines/default/engine/`。
+3. 术语库：`terminology/*.tsv`（按 source 查询 `source`／`target`／`category`／`source_tag`／
+   `status`／`scope`／`notes`）。
+4. 本仓译文文件（用于核对同族一致性）：`mod-tome.lua`、`engine.lua`、`mod-boot.lua`。
+
+## 复核判据（每项必须走完）
+
+1. `new_target` 是否忠实 `source` 的语义、机制、数量、时序、条件与主体？
+2. 与固定版本源码的实际行为是否一致（有需要时读源码调用链）？
+3. 是否违反术语库 `preferred` 条目？与同节／同族既有译法是否一致？
+4. 占位符（`%s` `%d` `%%` `%0.2f` 等）、颜色码／markup（`#GOLD#` `#{italic}#` 等）、
+   换行序列是否完好？
+5. **本次改动是否引入新问题**——特别是：是否只改了本项而留下同族其他载体不一致？
+   是否把原本正确的表达改坏？
+6. 若 `old_target` 本来就正确、改动属于偏好而非缺陷，必须明确指出。
+
+## 输出格式（严格 JSON，不要 Markdown 围栏）
+
+```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 16,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-00105",
+      "verdict": "ok",
+      "observation": "简短说明；无问题时填 OK",
+      "evidence": ["terminology/tech.tsv:3 Donator=捐赠者"],
+      "new_issue_introduced": false
+    }
+  ]
+}
+```
+
+字段约束：
+
+- `verdict` 只能是 `ok`／`issue`／`unclear`。
+  - `ok`：改动正确且未引入新问题。
+  - `issue`：改动有实质缺陷（语义／机制／术语／不变量错误，或引入新的不一致）。
+  - `unclear`：证据不足，无法判定。
+- `observation` 必须非空。`ok` 时填 `OK`，否则给出具体缺陷与最强反证。
+- `evidence` 必须非空数组（`ok` 时可空数组），每条为可核验路径（源码 `game/...` 或
+  `terminology/...`），不得只写模型共识。
+- `new_issue_introduced`：布尔，仅当 `issue` 且正是本次改动新引入时填 true。
+- 必须**逐条覆盖 packet 的全部 20 项**，顺序与 packet 一致，不得遗漏或多出。
+- 不得输出 severity、修复建议或额外字段。
+
+## 完成后
+
+直接返回上述 JSON。不要写任何文件，不要创建子 agent。
+[Read]
+[Thought] Examining each item, the first involves a translation of "ghoul rot," which changes from a disease to a form of corruption. The second item addresses warding, shifting from absorbing an attack to gaining protection. Further items require individual assessment.
+
+
+The "gloom" effect now explicitly states talents cool down at half the speed while the target is stunned. "Taints" are now referred to as "污印" and their cooldown increases with usage. The "lifeline" is being "severed" instead of "harvested." The "shroud" description includes a more vivid metaphor of it being a burden, affecting damage dealt.
+
+
+Analyzing the "Visions" section reveals several effects. The mental save carries a chance of being reduced upon testing. Powers increase physical resistance and luck/willpower at different tiers. A harrowing aura retaliates against detrimental effects, dealing mind and darkness damage.
+
+A "Nightmare" effect has a chance to trigger on damage, inflicting a radius-based effect with various detrimental outcomes. The chance of triggering grows on being struck, then fades with time.
+
+
+Powers now provide specific bonuses: physical resistance, luck, willpower, and a harrowing aura that retaliates with mind and shadow damage. The "Harrows" effect translates to "折磨" (torment) in the target language.
+
+A power level grants a "Nightmare" effect, triggering a radius-based debuff with varied negative impacts upon taking damage. This effect's chance to trigger increases upon being struck and then declines over time. Negative consequence "Lost Fortune" seems to reduce gold found, while higher tiers introduce effects regarding avoided traps, evasion and a damage bonus to kill opponents.
+
+
+"Missed Opportunity" effects now include a dodge chance bonus for allies. The "Doom's End" effect now specifies a damage increase if the target is killed with the improved damage.
+
+"Zone-wide effect" shows a translation change from "cold damage" to "寒冷伤害" and "cold resistance" to "寒冷抗性". The "suffocating" effect now indicates a loss based on maximum life.
+
+"Brought back from your repreive!" is translated to "你从避难所回来了！"
+
+
+Examining the "Zone-wide effect" translations, "magic" is changed to "魔力", while "accuracy" and "stealth power" remain consistent. The Spellblaze effect's translation remains largely the same with the "干扰传送法术" changed to "会反射传送法术". The drowsy effect translation clarifies the sleep state as "陷入梦境中的沉睡状态".
+[Shell] python3 -c " import json with open('.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-16.json') as f: data = json.load(f) for item in data['items']: print(f\"{item['entry_id']} | L{item['li...
+[Shell] python3 -c " import subprocess, json with open('.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-16.json') as f: data = json.load(f) for item in data['items']: src = item['source'] # searc...
+[Shell] python3 -c " import subprocess, json with open('.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-16.json') as f: data = json.load(f) for item in data['items']: src = item['source'] search_...
+[Shell] sed -n '37420,37440p' mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Ravage" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/timed_effects/physical.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '2525,2555p'
+[Thought] The code snippet generates a description of a damage effect. It includes a variable `ravaged` that describes if the target is losing a physical effect turn. The Chinese translation clarifies the meaning of "losing one physical effect turn" as "每回合失去一个物理效果并". This confirms the description includes the loss of a physical effect.
+
+
+The parameter order must be adjusted when translating the damage description to Chinese, using `{2,1}`. If the target is being ravaged each turn, the correct Chinese output becomes "目标被疯狂扭曲，每回合受到 %0.2f 物理伤害". The alternative, when the target loses an effect turn, the result is "目标被疯狂扭曲，每回合失去一个物理效果并受到 %0.2f 物理伤害".
+[Shell] python3 -c " import subprocess def grep_term(q): res = subprocess.run(['git', 'grep', '-i', q, 'terminology/'], capture_output=True, text=True) print(res.stdout) grep_term('ghoul rot') grep_term('g...
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/magical.lua | sed -n '2430,2450p'
+[Shell] grep -n -C 5 "ghoul rot" mod-tome.lua
+[Shell] git grep -i "ghoul rot" mod-tome.lua
+[Thought] Consistent translation of `Ghoul Rot` to `尸鬼腐蚀` is observed across entries, with a correction made for an inconsistent previous translation. The `new_target` translation is verified as consistent with the established standard and the `#Target#` token preservation is noted. Verdict is `ok`.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/magical.lua | sed -n '2515,2545p'
+[Shell] git grep -i "ward" terminology/
+[Shell] sed -n '35340,35360p' mod-tome.lua
+[Shell] git grep -i "cooldown" terminology/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | sed -n '340,365p'
+[Thought] `half_talents_cooldown` appears to implement a stunned effect, halving talent cooldown rate; talents take twice as long to cool down. The target language's combat terminology translates "cooldown" to "冷却," matching the game's `CD` abbreviation to `冷却`.  This aligns with the description `在震慑时技能冷却所需时间翻倍`.
+[Shell] git grep -i "taint" terminology/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '345,360p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '790,810p'
+[Shell] git grep -i "Sever Lifeline" mod-tome.lua
+[Shell] sed -n '36500,36515p' mod-tome.lua
+[Thought] The previous translation used "reaped/harvested" in past tense, which didn't capture the ongoing nature of the action. The target's lifeline is actively being severed. "Is being severed" needed to be reflected in the current tense with a correct verb. Using "切断" (cut/sever) with "正被" (is being) is accurate for the context.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '1385,1405p'
+[Thought] The original translation of the target description lacked a key descriptive clause. The English source conveys that the shroud "seems to hang upon it like a heavy burden," which was entirely omitted in the old target. The revised target restores this imagery, while the numerical placeholder remains intact.
+
+
+Examining the data reveals a timed effect description with multiple power levels. The original entry requires a comparison and possible translation revision. The data also presents numbered powers with specific effects related to mental saves, resistances, and damage output.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '1465,1520p'
+[Shell] git grep -i "Plagued by Visions" mod-tome.lua
+[Thought] "幻象缠身" (plagued by visions) is the most accurate translation for the passive penalty condition, representing the state of being plagued. The placeholders and tags in the source string are unchanged. Verification confirms the string's integrity.
+
+
+The ability "Harrow" translates to "折磨" (torment/afflict) based on prior examples. The log message reflects this ability's activation. Therefore, the translation "折磨" is more accurate and consistent with existing translations.
+
+
+The previous translation's verb usage was inconsistent with the power's name and description, which employed "Harrow" and "harrowing aura". The translation updated the format for consistency, maintaining all placeholders and markup. Entry-02764 is verified as "ok" following the update.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '1695,1720p'
+[Shell] git grep -i "cold" terminology/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '2290,2305p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '2630,2655p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '2655,2675p'
+[Thought] The code `takeHit` function calculates damage as a percentage of `max_life`, which corresponds to "total life". The previous phrasing used for the effect was ambiguous because it didn't explicitly use "total life", potentially leading to misinterpretation. Reformulating the effect description to clarify this is necessary.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '2880,2900p'
+[Shell] git grep -i "magic" terminology/
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '3210,3230p'
+[Thought] Examination of the effect activation reveals that the intended stat is `[Stats.STAT_MAG]`, corresponding to `魔力` (Magic). The previous entry incorrectly used `魔法` instead. This discrepancy has been corrected, confirming the validity of the change.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '3330,3360p'
+[Thought] The zone's effects include a teleportation disruption warning. The original translation incorrectly interpreted "reflects" as "interferes." The accurate meaning is a direct reflection or counteraction of teleportation magic.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | sed -n '3350,3385p'
+[Shell] git -C /workspace/t-engine4 grep -n "ZONE_AURA_CALDERA" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/noxious-caldera/zone.lua
+[Thought] When the turn counter is negative, Caldera triggers a function that immediately switches the game level to the "dreams" zone. This implies a direct transition to a dream sequence. Initial observation confirms this is the mechanism for dream state initiation.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '1235,1260p'
+[Shell] git grep -n -C 5 "for the next kill" mod-tome.lua
+[Thought] Examining the target preparation string, noting the placeholder `%s` suggests a dynamic element. The translations for "to escape" and "for the next kill" will likely fill this placeholder, indicating a state of being prepared for action. This confirms the initial understanding of the target's readiness.
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '2100,2125p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '2080,2105p'
+[Thought] Analyzing the provided code snippet, the `CURSED_WOUND` effect centers on a target ("self") who gains, loses, or merges with the effect. The `on_merge` function suggests the effect might be stacking or reapplying. The `self` parameter within each function, and the `game.logSeen` calls, pinpoint the target's status as the key focus of this effect.
+
+
+Examining the phrase translations, "cursed wound" consistently translates to "诅咒伤口".  The "re-opened" concept translates better to "再次裂开" or "重新裂开" than the old target's "再次遭受" (suffered again), which is passive. Entry-02849 appears to focus on "each turn" in various contexts.
+[Shell] git grep 't("each turn."'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '2875,2900p'
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | sed -n '3040,3065p'
+[Thought] The previous translation of "stands strong" missed the idiomatic meaning. "十分强大" ("is very powerful") is not an adequate equivalent. The phrase implies resilience and resistance. A better translation would be "目标屹立不倒，全体抗性提高 %0.1f" (The target stands firm, increasing all resistances by %0.1f). This captures the intended nuance more accurately.
+
+
+The comma was corrected to a Chinese comma, and the placeholders were preserved. A systematic check of all items begins to ensure consistency. The first item's translation for "ghoul rot" is confirmed to be consistent with established terminology and effect names.
+
+
+Examining Item 2, the previous translation incorrectly implied absorption instead of warding. The new translation accurately reflects the effect of gaining protection. Item 3 shows the consistent application of "cooldown" as "冷却" and accurately describes the talent cooldown slowdown. Item 4's translation will need evaluation for consistency of terminology related to "taints" and "recharge".
+
+
+The previous translation of "stands strong" missed the idiomatic meaning. "十分强大" ("is very powerful") is not an adequate equivalent. The phrase implies resilience and resistance. A better translation would be "目标屹立不倒，全体抗性提高 %0.1f" (The target stands firm, increasing all resistances by %0.1f). This captures the intended nuance more accurately.
+
+The comma was corrected to a Chinese comma, and the placeholders were preserved. A systematic check of all items begins to ensure consistency. The first item's translation for "ghoul rot" is confirmed to be consistent with established terminology and effect names.
+
+Examining Item 2, the previous translation incorrectly implied absorption instead of warding. The new translation accurately reflects the effect of gaining protection. Item 3 shows the consistent application of "cooldown" as "冷却" and accurately describes the talent cooldown slowdown. Item 4's translation will need evaluation for consistency of terminology related to "taints" and "recharge".
+
+The terminology for "taints" requires using the preferred term "污印", correcting the previous translation of talent descriptions. "Severed" is more accurate than "harvested" for describing the severing of a lifeline. The missing descriptive clause in Item 6 was restored to the translation.
+
+
+"Plagued by Visions" is correctly translated as "幻象缠身". The term "折磨" is consistently applied, replacing "惊扰" for "Harrow". The description for "Lost Fortune" seems accurate, and the phrase "失败的努力" seems apt for "Misplaced Endeavours". The item's placeholders and markup are still preserved.
+
+
+The previous translation of "努力都会失败" has been updated to "你身边的人所做的事开始失败" for greater accuracy. The damage increase description was also improved for natural language.
+
+Item 10's terminology for "cold" has been changed from "寒冰" to "寒冷" to align with established usage.
+
+Item 11's translation was updated to include the phrase "按最大生命值" for clarity and accuracy.
+
+
+The phrase "percent of your total life" is consistently translated to "最大生命值的一定比例". Item 12's translation correctly addresses the missing subject and awkward passive voice. In item 13, the stat "magic" is updated to "魔力" to align with established combat terminology, confirming the code uses the correct stat identifier. Item 14's translation of "reflects teleportation magic" is updated to "会反射传送法术" for improved accuracy.
+
+
+"陷入梦境中的沉睡状态" accurately reflects the original phrase "fall into a dreaming sleep state," correcting the previous, less precise translation. The updated sentence structure using "#Target#正在做准备（%s）！" fixes the grammatical error in the original phrase, properly handling placeholder insertion for diverse actions. The translation "诅咒伤口再次裂开！" is more accurate and contextually relevant for the refresh log message associated with "re-opened a cursed wound." Added punctuation and handled the minor grammatical adjustment.
+
+
+The previous translation of "stands strong" missed the idiomatic meaning. "十分强大" ("is very powerful") is not an adequate equivalent. The phrase implies resilience and resistance. A better translation would be "目标屹立不倒，全体抗性提高 %0.1f" (The target stands firm, increasing all resistances by %0.1f). This captures the intended nuance more accurately.
+
+The comma was corrected to a Chinese comma, and the placeholders were preserved. A systematic check of all items begins to ensure consistency. The first item's translation for "ghoul rot" is confirmed to be consistent with established terminology and effect names.
+
+Examining Item 2, the previous translation incorrectly implied absorption instead of warding. The new translation accurately reflects the effect of gaining protection. Item 3 shows the consistent application of "cooldown" as "冷却" and accurately describes the talent cooldown slowdown. Item 4's translation will need evaluation for consistency of terminology related to "taints" and "recharge".
+
+The previous translation of "stands strong" missed the idiomatic meaning. "十分强大" ("is very powerful") is not an adequate equivalent. The phrase implies resilience and resistance. A better translation would be "目标屹立不倒，全体抗性提高 %0.1f" (The target stands firm, increasing all resistances by %0.1f). This captures the intended nuance more accurately.
+
+The comma was corrected to a Chinese comma, and the placeholders were preserved. A systematic check of all items begins to ensure consistency. The first item's translation for "ghoul rot" is confirmed to be consistent with established terminology and effect names.
+
+Examining Item 2, the previous translation incorrectly implied absorption instead of warding. The new translation accurately reflects the effect of gaining protection. Item 3 shows the consistent application of "cooldown" as "冷却" and accurately describes the talent cooldown slowdown. Item 4's translation will need evaluation for consistency of terminology related to "taints" and "recharge".
+
+The terminology for "taints" requires using the preferred term "污印", correcting the previous translation of talent descriptions. "Severed" is more accurate than "harvested" for describing the severing of a lifeline. The missing descriptive clause in Item 6 was restored to the translation.
+
+"Plagued by Visions" is correctly translated as "幻象缠身". The term "折磨" is consistently applied, replacing "惊扰" for "Harrow". The description for "Lost Fortune" seems accurate, and the phrase "失败的努力" seems apt for "Misplaced Endeavours". The item's placeholders and markup are still preserved.
+
+The previous translation of "努力都会失败" has been updated to "你身边的人所做的事开始失败" for greater accuracy. The damage increase description was also improved for natural language.
+
+Item 10's terminology for "cold" has been changed from "寒冰" to "寒冷" to align with established usage.
+
+Item 11's translation was updated to include the phrase "按最大生命值" for clarity and accuracy.
+
+The phrase "percent of your total life" is consistently translated to "最大生命值的一定比例". Item 12's translation correctly addresses the missing subject and awkward passive voice. In item 13, the stat "magic" is updated to "魔力" to align with established combat terminology, confirming the code uses the correct stat identifier. Item 14's translation of "reflects teleportation magic" is updated to "会反射传送法术" for improved accuracy.
+
+"陷入梦境中的沉睡状态" accurately reflects the original phrase "fall into a dreaming sleep state," correcting the previous, less precise translation. The updated sentence structure using "#Target#正在做准备（%s）！" fixes the grammatical error in the original phrase, properly handling placeholder insertion for diverse actions. The translation "诅咒伤口再次裂开！" is more accurate and contextually relevant for the refresh log message associated with "re-opened a cursed wound." Added punctuation and handled the minor grammatical adjustment.
+
+The trailing period was removed from the "ravaged" translation to avoid a broken sentence structure. The translation for "defiantly reasserts" was restored to the source material's idiomatic intent. The translation of "stands strong" was confirmed, resolving the prior issue. All 20 verdicts are initially confirmed as "ok". A further review of each item is initiated to eliminate potential errors.
+[Shell] python3 -c " import json review_data = { \"contract\": \"applied-change-review-v1\", \"packet_number\": 16, \"reviewer\": \"pi/cliproxyapi/gemini-3.8-flash-high\", \"items\": [ { \"entry_id\": \"en...
+[Shell] git status
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 16,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-02637",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/magical.lua:2442",
+        "mod-tome.lua:35328"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02638",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/magical.lua:2527"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02694",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/combat.tsv:cooldown=冷却",
+        "game/modules/tome/data/timed_effects/mental.lua:348"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02740",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/talents.tsv:taints=污印",
+        "game/modules/tome/data/timed_effects/other.lua:351"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02747",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/other.lua:799"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02759",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/other.lua:1392"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02763",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/other.lua:1477"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02764",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/other.lua:1532",
+        "mod-tome.lua:36582"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02765",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/other.lua:1699"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02775",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/combat.tsv:cold=寒冷",
+        "game/modules/tome/data/timed_effects/other.lua:2297"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02789",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/other.lua:2635",
+        "game/modules/tome/data/timed_effects/other.lua:2658"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02790",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/other.lua:2890"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02798",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "terminology/combat.tsv:Magic=魔力",
+        "game/modules/tome/data/timed_effects/other.lua:3222"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02805",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/other.lua:3336"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02806",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/other.lua:3354"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02830",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/physical.lua:1242",
+        "mod-tome.lua:37193"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02846",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/physical.lua:2112"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02849",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/physical.lua:2530",
+        "mod-tome.lua:37433"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02856",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/physical.lua:2881"
+      ],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02858",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [
+        "game/modules/tome/data/timed_effects/physical.lua:3045"
+      ],
+      "new_issue_introduced": false
+    }
+  ]
+}

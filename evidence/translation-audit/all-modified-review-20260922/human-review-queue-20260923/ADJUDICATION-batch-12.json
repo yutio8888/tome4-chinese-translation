@@ -1,0 +1,913 @@
+{
+ "schema_version": 1,
+ "task_id": "human-review-adjudication-20260923",
+ "batch_id": "batch-12",
+ "packet_sha256": "2bb01f112eb875fcdb4b8bba1019221f71697073d8bb274da870a55498597f5f",
+ "verify_clean": true,
+ "verify_problems": [],
+ "record_count": 39,
+ "verdict_counts": {
+  "accepted": 36,
+  "deferred": 3
+ },
+ "model_disposition_counts": {
+  "defer": 3,
+  "fix": 24,
+  "no_change": 12
+ },
+ "rejected_model_claims": [
+  {
+   "entry_id": "entry-00244",
+   "claim": "去掉 ` area effect` 的前导空格造成中文拼接缺陷",
+   "verdict": "rejected",
+   "reason": "模型主张补回空格。固定源码 MapEffects.lua:23 为 `dam_def.name .. _t\" area effect\"` 直接拼接，补空格会显示「火焰 范围效果」，反证模型建议有害。"
+  },
+  {
+   "entry_id": "entry-00221",
+   "claim": "「离开地图」构成明显误译",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码 Game.lua:926-936 的 can_change_level 阻止任何换层/换区域，「离开地图」覆盖该限制，功能含义正确；level/zone 统一译法属跨条目策略，非本条缺陷。"
+  },
+  {
+   "entry_id": "entry-00345",
+   "claim": "「使这次攻击发生偏斜」弱化招架，应改「招架」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。源码确认招架成功挡住攻击，现译保留防御成功含义，属文风偏好，不构成缺陷。"
+  },
+  {
+   "entry_id": "entry-00185",
+   "claim": "方括号内多空格",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory。用户策略明确纯静态排版不算缺陷；方括号不属「括号不一致」策略范围。"
+  },
+  {
+   "entry_id": "entry-00254",
+   "claim": "「最大 50%」与同组「最大40%」排版不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；仅为数字前空格差异，属纯静态排版，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00419",
+   "claim": "「超过1500点」与同组「超过 600 点」空格不一致",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；纯静态排版差异，按用户策略不整理。"
+  },
+  {
+   "entry_id": "entry-00428",
+   "claim": "三扇传送门句式与同系列不平行",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；条件、数量、机制均正确，句式平行属文风偏好。"
+  },
+  {
+   "entry_id": "entry-00334",
+   "claim": "「杀死」应为「击杀」",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；日志在敌人 on_die 中输出，「杀死」与触发事实一致，击杀仅为界面习惯差异。"
+  },
+  {
+   "entry_id": "entry-00434",
+   "claim": "「珠宝匠托付」应改为更贴近源码关系",
+   "verdict": "rejected",
+   "reason": "模型自标 advisory；Master Jeweler 对应珠宝匠，译文为可接受意译，任务名已增补，无缺陷。"
+  },
+  {
+   "entry_id": "entry-00393",
+   "claim": "复合后缀外层半角括号",
+   "verdict": "rejected_on_entry",
+   "reason": "本条 entry-00393 本身已是全角；模型所指的半角外层括号实际出现在 entry-00395–00400（同一 hrq-00046 行的其他载体），已按 bracket_fullwidth 修复那些载体。"
+  },
+  {
+   "entry_id": "entry-00184",
+   "claim": "「勇敢的向前」语病、段间缺空行",
+   "verdict": "accepted_upstream",
+   "reason": "缺陷成立，但主工作区 HEAD 11b3e963 已修（已核逐字）。按 SPEC 规则不在本 worktree 重复修改，记 defer；不接受在本分支重复改。"
+  }
+ ],
+ "records": [
+  {
+   "queue_id": "hrq-00452",
+   "entry_id": "entry-02849",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 37431,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳：宿主 physical.lua:2531-2533 为 (\"...taking %0.2f physical damage %s\"):tformat(eff.dam, ravaged)，本地化宿主 mod-tome.lua:37433 以 {2,1} 把片段置于“受到”之前，自带句号使界面显示“目标被疯狂扭曲，每回合。受到 X 物理伤害”，句中断句是客观拼接缺陷。删去片段句号即修复；句末句号应由宿主模板（冻结外 mod-tome.lua:37433）统一承担，见 entry-02850 的 defer。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua:2528-2534",
+    "mod-tome.lua:37431-37433"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：宿主 physical.lua:2531-2533 为 (\"...taking %0.2f physical damage %s\"):tformat(eff.dam, ravaged)，本地化宿主 mod-tome.lua:37433 以 {2,1} 把片段置于“受到”之前，自带句号使界面显示“目标被疯狂扭曲，每回合。受到 X 物理伤害”，句中断句是客观拼接缺陷。删去片段句号即修复；句末句号应由宿主模板（冻结外 mod-tome.",
+   "applied": true,
+   "old_target": "每回合。",
+   "new_target": "每回合",
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source": "each turn."
+  },
+  {
+   "queue_id": "hrq-00453",
+   "entry_id": "entry-02850",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 37432,
+   "source_tag": "_t",
+   "model_disposition": "defer",
+   "model_reason": "逐条回应：①“无依据加入每回合”refuted 同意驳回——on_timeout（physical.lua:2541-2566）每回合执行一次 dispel，“每回合”符合实现且原文 turn 即此义；②未涵盖维持战技 advisory 驳回——英文原文亦只说 physical effect，译文忠于原文，扩写属上游文本问题；③缺句末标点成立，但本片段被宿主以 {2,1} 重排到句中（mod-tome.lua:37433），片段不能自带句号，正确修法是给冻结外宿主 target 末尾补“。”，按判据 7 记 defer（目标：mod-tome.lua:37433 “The target is being ravaged by distortion…” 的 target）；④“前置从句设计导致 02849 错误”refuted 同意驳回，02849 直接原因是自带句号，已在 02849 修复。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua:2528-2566",
+    "mod-tome.lua:37432-37433"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "逐条回应：①“无依据加入每回合”refuted 同意驳回——on_timeout（physical.lua:2541-2566）每回合执行一次 dispel，“每回合”符合实现且原文 turn 即此义；②未涵盖维持战技 advisory 驳回——英文原文亦只说 physical effect，译文忠于原文，扩写属上游文本问题；③缺句末标点成立，但本片段被宿主以 {2,1} 重排到句中（mod-tome.lua:37433），片段不能自带",
+   "applied": false,
+   "old_target": "每回合失去一个物理效果并",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source": "and is losing one physical effect turn."
+  },
+  {
+   "queue_id": "hrq-00454",
+   "entry_id": "entry-02856",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 37514,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "采纳 defiantly 漏译：physical.lua:2881 on_gain 原文带 defiantly，补“倔强地”。Gemini“语序顺畅”判断驳回，但 %s 由 string.his_her 提供（engine utils.lua:939-944），zh 下 his→“他的”、its→“它的”、her→“她”（engine.lua:1405-1407，her 与宾格共用键无“的”），任何把 %s 挪到“与自然的联系”前的重排都会在某一性别下产生“他的与自然的…”病句，故保持 %s 位置不动，仅补语气；her 键缺“的”属共享键问题，不在本条扩改。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua:2881",
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/engine/utils.lua:939-944",
+    "engine.lua:1405-1407"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳 defiantly 漏译：physical.lua:2881 on_gain 原文带 defiantly，补“倔强地”。Gemini“语序顺畅”判断驳回，但 %s 由 string.his_her 提供（engine utils.lua:939-944），zh 下 his→“他的”、its→“它的”、her→“她”（engine.lua:1405-1407，her 与宾格共用键无“的”），任何把 %s 挪到“与自然的联系”前的重排",
+   "applied": true,
+   "old_target": "#Target#重新和自然建立%s联系！",
+   "new_target": "#Target#倔强地重新和自然建立%s联系！",
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source": "#Target# defiantly reasserts %s connection to nature!"
+  },
+  {
+   "queue_id": "hrq-00455",
+   "entry_id": "entry-02858",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 37532,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "采纳：physical.lua:3045 原文 stands strong 指挺立不倒，“十分强大”语义偏移；两个 %0.1f%% 依次对应全体抗性与抗性上限，顺序无误保持；半角逗号改全角。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua:3045-3047"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：physical.lua:3045 原文 stands strong 指挺立不倒，“十分强大”语义偏移；两个 %0.1f%% 依次对应全体抗性与抗性上限，顺序无误保持；半角逗号改全角。",
+   "applied": true,
+   "old_target": "目标十分强大，增加全体抗性 %0.1f%%, 全体抗性上限 %0.1f%%。",
+   "new_target": "目标屹立不倒，全体抗性提高 %0.1f%%，全体抗性上限提高 %0.1f%%。",
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source": "The target stands strong, increasing all resistances by %0.1f%% and resistance caps by %0.1f%%."
+  },
+  {
+   "queue_id": "hrq-00456",
+   "entry_id": "entry-02866",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 37558,
+   "source_tag": "logSeen",
+   "model_disposition": "fix",
+   "model_reason": "采纳：同效果 PARASITIC_LEECHES 名称与描述均译“寄生水蛭”（mod-tome.lua:37553-37557），本条“寄生虫”同族不一致；Some 在源码中对应脱落的一堆水蛭（physical.lua:3190-3200,3210-3223），补“一些”；%s 为角色名，“从%s身上脱落”更准确。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua:3180-3224",
+    "mod-tome.lua:37553-37558"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：同效果 PARASITIC_LEECHES 名称与描述均译“寄生水蛭”（mod-tome.lua:37553-37557），本条“寄生虫”同族不一致；Some 在源码中对应脱落的一堆水蛭（physical.lua:3190-3200,3210-3223），补“一些”；%s 为角色名，“从%s身上脱落”更准确。",
+   "applied": true,
+   "old_target": "寄生虫从%s处脱落！",
+   "new_target": "一些寄生水蛭从%s身上脱落！",
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source": "Some leeches drop off %s!"
+  },
+  {
+   "queue_id": "hrq-00457",
+   "entry_id": "entry-02891",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 37712,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "advisory 驳回：#OLIVE_DRAB# 后空格源自英文原文，属纯静态排版，按用户策略不整理；两个 %s 与 #LAST# 结构完好（physical.lua:4174）。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua:4174"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；advisory 驳回：#OLIVE_DRAB# 后空格源自英文原文，属纯静态排版，按用户策略不整理；两个 %s 与 #LAST# 结构完好（physical.lua:4174）。",
+   "applied": false,
+   "old_target": "#Target##OLIVE_DRAB# 不再和%s%s#LAST#伤害共鸣！",
+   "new_target": null,
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source": "#Target##OLIVE_DRAB# no longer resonates with %s%s#LAST# damage!"
+  },
+  {
+   "queue_id": "hrq-00458",
+   "entry_id": "entry-02921",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 37978,
+   "source_tag": "log",
+   "model_disposition": "fix",
+   "model_reason": "采纳：arena/zone.lua:405 game.log 四项奖励同构，现译前三处半角“! ”末处全角“！”，同一中文句中标点混用属标点错误，统一为全角“！”（去掉仅为半角惯例而加的空格）；13 个 %s 与颜色参数顺序不变。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/arena/zone.lua:402-405"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：arena/zone.lua:405 game.log 四项奖励同构，现译前三处半角“! ”末处全角“！”，同一中文句中标点混用属标点错误，统一为全角“！”（去掉仅为半角惯例而加的空格）；13 个 %s 与颜色参数顺序不变。",
+   "applied": true,
+   "old_target": "%s全清奖励：%s%s%s! 分数奖励：%s%s%s! 危险度奖励：%s%s%s! 级别奖励：%s%s%s！",
+   "new_target": "%s全清奖励：%s%s%s！分数奖励：%s%s%s！危险度奖励：%s%s%s！级别奖励：%s%s%s！",
+   "section": "mod-tome/data/zones/arena/zone.lua",
+   "source": "%sClear bonus: %s%s%s! Score bonus: %s%s%s! Danger bonus: %s%s%s! Rank bonus: %s%s%s!"
+  },
+  {
+   "queue_id": "hrq-00459",
+   "entry_id": "entry-02927",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 38083,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "采纳：charred-scar/npcs.lua:107 doEmote 以玩家名填 %s；“去吧%s!”半角叹号与后半全角混用，改“去吧，%s！”（补呼语逗号），%s 位置功能不变。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/charred-scar/npcs.lua:104-107"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：charred-scar/npcs.lua:107 doEmote 以玩家名填 %s；“去吧%s!”半角叹号与后半全角混用，改“去吧，%s！”（补呼语逗号），%s 位置功能不变。",
+   "applied": true,
+   "old_target": "去吧%s!我们会坚守防线！",
+   "new_target": "去吧，%s！我们会坚守防线！",
+   "section": "mod-tome/data/zones/charred-scar/npcs.lua",
+   "source": "Go %s! We will hold the line!"
+  },
+  {
+   "queue_id": "hrq-00460",
+   "entry_id": "entry-02929",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 38122,
+   "source_tag": "entity name",
+   "model_disposition": "fix",
+   "model_reason": "采纳：conclave-vault/npcs.lua:62-63 同实体描述为 huge mass of deformed flesh，本仓描述译“这团巨大的畸形血肉”（mod-tome.lua:38123）；“碎肉”（本仓用于 gore/guts）与一整团活体血肉形态不符，改“肉团”；degenerated→“退化的”保留。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/conclave-vault/npcs.lua:61-63",
+    "mod-tome.lua:38122-38123"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：conclave-vault/npcs.lua:62-63 同实体描述为 huge mass of deformed flesh，本仓描述译“这团巨大的畸形血肉”（mod-tome.lua:38123）；“碎肉”（本仓用于 gore/guts）与一整团活体血肉形态不符，改“肉团”；degenerated→“退化的”保留。",
+   "applied": true,
+   "old_target": "退化的食人魔碎肉",
+   "new_target": "退化的食人魔肉团",
+   "section": "mod-tome/data/zones/conclave-vault/npcs.lua",
+   "source": "degenerated ogric mass"
+  },
+  {
+   "queue_id": "hrq-00461",
+   "entry_id": "entry-02937",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 38228,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "advisory 驳回：BOOM! 为 daikara 火山喷发弹窗标题，“火山喷发！”与紧随正文一致，仅损拟声感，属文风，非缺陷。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/daikara/zone.lua",
+    "mod-tome.lua:38228-38229"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；advisory 驳回：BOOM! 为 daikara 火山喷发弹窗标题，“火山喷发！”与紧随正文一致，仅损拟声感，属文风，非缺陷。",
+   "applied": false,
+   "old_target": "火山喷发！",
+   "new_target": null,
+   "section": "mod-tome/data/zones/daikara/zone.lua",
+   "source": "BOOM!"
+  },
+  {
+   "queue_id": "hrq-00462",
+   "entry_id": "entry-02957",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 38422,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳：现译“??？”两半角一全角混用属标点错误。本仓其余 ??? 条目均保持半角（mod-tome.lua:20245、36919、42833），统一为半角“???”以与原文及族内一致。",
+   "model_evidence": [
+    "mod-tome.lua:38422",
+    "mod-tome.lua:20245",
+    "mod-tome.lua:36919",
+    "mod-tome.lua:42833"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：现译“??？”两半角一全角混用属标点错误。本仓其余 ??? 条目均保持半角（mod-tome.lua:20245、36919、42833），统一为半角“???”以与原文及族内一致。",
+   "applied": true,
+   "old_target": "梦境 ??？",
+   "new_target": "梦境 ???",
+   "section": "mod-tome/data/zones/dreams/zone.lua",
+   "source": "Dream ???"
+  },
+  {
+   "queue_id": "hrq-00463",
+   "entry_id": "entry-02967",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 38557,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳：PAIN GIVING SUBMODULES 为“施加痛苦的子模块”，“痛苦强化”把施痛改成强化，语义偏移且丢 sub-；改“致痛子模块”。纯喊话无机制影响。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/golem-graveyard/npcs.lua",
+    "mod-tome.lua:38557"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：PAIN GIVING SUBMODULES 为“施加痛苦的子模块”，“痛苦强化”把施痛改成强化，语义偏移且丢 sub-；改“致痛子模块”。纯喊话无机制影响。",
+   "applied": true,
+   "old_target": "启动痛苦强化模组！",
+   "new_target": "启动致痛子模块！",
+   "section": "mod-tome/data/zones/golem-graveyard/npcs.lua",
+   "source": "ACTIVATING PAIN GIVING SUBMODULES!"
+  },
+  {
+   "queue_id": "hrq-00464",
+   "entry_id": "entry-02973",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 38568,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳：原文 managed to deal a crippling blow by killing their leader，现译只剩“使首领走向死亡”，漏掉对兽人的重创这一结果；补“给了对方沉重一击”，并把“使…走向死亡”改为直接的“杀死了”。首行与 \\n 保持不变；Garkul、Age of Pyre 沿用本仓译名。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/golem-graveyard/objects.lua",
+    "mod-tome.lua:38568-38569",
+    "terminology/talents.tsv:102"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：原文 managed to deal a crippling blow by killing their leader，现译只剩“使首领走向死亡”，漏掉对兽人的重创这一结果；补“给了对方沉重一击”，并把“使…走向死亡”改为直接的“杀死了”。首行与 \\n 保持不变；Garkul、Age of Pyre 沿用本仓译名。",
+   "applied": true,
+   "old_target": "传奇巨型傀儡阿塔玛森的红宝石眼睛之一。\n据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但是它也成功地使对方的首领吞噬者加库尔走向死亡。",
+   "new_target": "传奇巨型傀儡阿塔玛森的红宝石眼睛之一。\n据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但它仍杀死了兽人的首领吞噬者加库尔，给了对方沉重一击。",
+   "section": "mod-tome/data/zones/golem-graveyard/objects.lua",
+   "source": "One of the ruby eyes of the legendary giant golem Atamathon.\nIt is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed, it managed to deal a crippling blow by killing their leader, Garkul the Devourer."
+  },
+  {
+   "queue_id": "hrq-00465",
+   "entry_id": "entry-02982",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 38735,
+   "source_tag": "_t",
+   "model_disposition": "defer",
+   "model_reason": "专名不一致成立但不可单改：原文 A farportal is a way… 这一描述族在本仓约 10 处（mod-tome.lua:38072、38486、38725、38730、38735、39362、39720、39793、40331、tome-orcs.lua:6936）统一以“传送门是…”起句，仅改本条会制造族内不一致，按判据 7 记 defer，需整族统一为“远行传送门”。连续“似乎”advisory 驳回：源自原文 seems/seemingly，非忠实度错误。",
+   "model_evidence": [
+    "mod-tome.lua:38723-38737",
+    "mod-tome.lua:38072",
+    "mod-tome.lua:40331",
+    "tome-orcs.lua:6936"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "专名不一致成立但不可单改：原文 A farportal is a way… 这一描述族在本仓约 10 处（mod-tome.lua:38072、38486、38725、38730、38735、39362、39720、39793、40331、tome-orcs.lua:6936）统一以“传送门是…”起句，仅改本条会制造族内不一致，按判据 7 记 defer，需整族统一为“远行传送门”。连续“似乎”advisory 驳回：源自原文 seem",
+   "applied": false,
+   "old_target": "传送门是可以在眨眼间将你传送出很远距离的工具。它们通常需要一件关键道具来激活。你不知道这道门是否为双向的。\n这道门似乎通向未知之地，似乎为世外之地，你不太敢使用它。",
+   "new_target": null,
+   "section": "mod-tome/data/zones/high-peak/grids.lua",
+   "source": "A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.\nThis one seems to go to an unknown place, seemingly out of this world. You dare not use it."
+  },
+  {
+   "queue_id": "hrq-00466",
+   "entry_id": "entry-03023",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 39312,
+   "source_tag": "entity name",
+   "model_disposition": "fix",
+   "model_reason": "采纳：terminology/society.tsv:30 Epoch→亚伯契 为 preferred（T.PN.PERSON，注明同名天赋与神器 Epoch's Curve 均沿用音译，不按“纪元”处理），必须采用；同仓天赋名 mod-tome.lua:22102 已为“亚伯契”。",
+   "model_evidence": [
+    "terminology/society.tsv:30",
+    "mod-tome.lua:22102",
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/paradox-plane/npcs.lua"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：terminology/society.tsv:30 Epoch→亚伯契 为 preferred（T.PN.PERSON，注明同名天赋与神器 Epoch's Curve 均沿用音译，不按“纪元”处理），必须采用；同仓天赋名 mod-tome.lua:22102 已为“亚伯契”。",
+   "applied": true,
+   "old_target": "纪元",
+   "new_target": "亚伯契",
+   "section": "mod-tome/data/zones/paradox-plane/npcs.lua",
+   "source": "Epoch"
+  },
+  {
+   "queue_id": "hrq-00467",
+   "entry_id": "entry-03025",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 39318,
+   "source_tag": "entity name",
+   "model_disposition": "fix",
+   "model_reason": "采纳：同 society.tsv:30 preferred 注释点名 Epoch's Curve 沿用音译，“纪元之弧”违反 preferred。改“亚伯契之弧”，只替换专名、保留现译“之弧”，“的弧线/之弧”措辞属文风。",
+   "model_evidence": [
+    "terminology/society.tsv:30",
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/paradox-plane/objects.lua:30"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：同 society.tsv:30 preferred 注释点名 Epoch's Curve 沿用音译，“纪元之弧”违反 preferred。改“亚伯契之弧”，只替换专名、保留现译“之弧”，“的弧线/之弧”措辞属文风。",
+   "applied": true,
+   "old_target": "纪元之弧",
+   "new_target": "亚伯契之弧",
+   "section": "mod-tome/data/zones/paradox-plane/objects.lua",
+   "source": "Epoch's Curve"
+  },
+  {
+   "queue_id": "hrq-00468",
+   "entry_id": "entry-03027",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 39320,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳：描述正文复述神器名，必须与 entry-03025 同步为“亚伯契之弧”，否则名称与说明不一致；其余正文不动。",
+   "model_evidence": [
+    "terminology/society.tsv:30",
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/paradox-plane/objects.lua:30-32"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：描述正文复述神器名，必须与 entry-03025 同步为“亚伯契之弧”，否则名称与说明不一致；其余正文不动。",
+   "applied": true,
+   "old_target": "在纪元之弧失踪前，它已经世世代代服务于守卫，在守卫之间辗转相传多年。\n根据传说，它是用魔法大爆炸后第一棵抽芽的白蜡树苗制成，拥有时空和恢复的力量。",
+   "new_target": "在亚伯契之弧失踪前，它已经世世代代服务于守卫，在守卫之间辗转相传多年。\n根据传说，它是用魔法大爆炸后第一棵抽芽的白蜡树苗制成，拥有时空和恢复的力量。",
+   "section": "mod-tome/data/zones/paradox-plane/objects.lua",
+   "source": "Epoch's Curve has served the Wardens for generations and was passed from Warden to Warden for many years before being lost.\nAccording to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal."
+  },
+  {
+   "queue_id": "hrq-00469",
+   "entry_id": "entry-03058",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 39725,
+   "source_tag": "log",
+   "model_disposition": "fix",
+   "model_reason": "两条 claim 均采纳：shertul-fortress/grids.lua:120-124 传送至 Caldizar 堡垒，原文 strangely familiar；后续 shertul-fortress-caldizar/zone.lua:74 又写“熟悉却又不同”，strangely 是铺垫的反差，现译只剩“熟悉”漏掉。补“莫名”→“一个莫名熟悉的地方”；hrq-00469（漏译）与 hrq-00470（弱化反差）以同一处修改回应。颜色码、省略号不变。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/shertul-fortress/grids.lua:120-125",
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/shertul-fortress-caldizar/zone.lua:74"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；两条 claim 均采纳：shertul-fortress/grids.lua:120-124 传送至 Caldizar 堡垒，原文 strangely familiar；后续 shertul-fortress-caldizar/zone.lua:74 又写“熟悉却又不同”，strangely 是铺垫的反差，现译只剩“熟悉”漏掉。补“莫名”→“一个莫名熟悉的地方”；hrq-00469（漏译）与 hrq-00470（弱化反差）以同一处修改",
+   "applied": true,
+   "old_target": "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个熟悉的地方，在另一个远行传送门旁边……",
+   "new_target": "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个莫名熟悉的地方，在另一个远行传送门旁边……",
+   "section": "mod-tome/data/zones/shertul-fortress/grids.lua",
+   "source": "#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal..."
+  },
+  {
+   "queue_id": "hrq-00471",
+   "entry_id": "entry-03092",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 40038,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳：同 section mod-tome.lua:40037、40046、40048 均将 Telos 译“泰勒斯”，本仓“泰勒斯”共 18 处；本条“泰勒”同节专名不一致，改“泰勒斯”。“旧日的力量之所”保留。",
+   "model_evidence": [
+    "mod-tome.lua:40037-40048"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：同 section mod-tome.lua:40037、40046、40048 均将 Telos 译“泰勒斯”，本仓“泰勒斯”共 18 处；本条“泰勒”同节专名不一致，改“泰勒斯”。“旧日的力量之所”保留。",
+   "applied": true,
+   "old_target": "所有人都认为泰勒已经形神俱灭了，但现在看起来他似乎仍徘徊在他旧日的力量之所。",
+   "new_target": "所有人都认为泰勒斯已经形神俱灭了，但现在看起来他似乎仍徘徊在他旧日的力量之所。",
+   "section": "mod-tome/data/zones/telmur/npcs.lua",
+   "source": "Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power."
+  },
+  {
+   "queue_id": "hrq-00472",
+   "entry_id": "entry-03112",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 40275,
+   "source_tag": "entity name",
+   "model_disposition": "no_change",
+   "model_reason": "驳回：terminology/places.tsv:7 Swordsmith→长剑铁匠铺 仅为 existing，不强制改名；本仓 mod-tome.lua 5 处与 tome-cults.lua 2 处 Swordsmith 实体名全部统一为“铸剑铺”，单改本条反而制造不一致。",
+   "model_evidence": [
+    "terminology/places.tsv:7",
+    "mod-tome.lua:40275",
+    "tome-cults.lua:4483"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；驳回：terminology/places.tsv:7 Swordsmith→长剑铁匠铺 仅为 existing，不强制改名；本仓 mod-tome.lua 5 处与 tome-cults.lua 2 处 Swordsmith 实体名全部统一为“铸剑铺”，单改本条反而制造不一致。",
+   "applied": false,
+   "old_target": "铸剑铺",
+   "new_target": null,
+   "section": "mod-tome/data/zones/town-derth/traps.lua",
+   "source": "Swordsmith"
+  },
+  {
+   "queue_id": "hrq-00473",
+   "entry_id": "entry-03114",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 40313,
+   "source_tag": "entity name",
+   "model_disposition": "no_change",
+   "model_reason": "驳回：同 entry-03112，术语为 existing 不强制，“铸剑铺”全库统一，单改会制造不一致。",
+   "model_evidence": [
+    "terminology/places.tsv:7",
+    "mod-tome.lua:40313"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；驳回：同 entry-03112，术语为 existing 不强制，“铸剑铺”全库统一，单改会制造不一致。",
+   "applied": false,
+   "old_target": "铸剑铺",
+   "new_target": null,
+   "section": "mod-tome/data/zones/town-elvala/traps.lua",
+   "source": "Swordsmith"
+  },
+  {
+   "queue_id": "hrq-00474",
+   "entry_id": "entry-03118",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 40361,
+   "source_tag": "entity name",
+   "model_disposition": "no_change",
+   "model_reason": "细微观察同意保留：店名为字面招牌（实售纹身，源码 store 绑定），“萨拉的草药浸剂店”直译招牌，与 mod-tome.lua:40509、tome-orcs.lua:6994 同名店一致；无术语条目，不改。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/town-gates-of-morning/traps.lua",
+    "mod-tome.lua:40509",
+    "tome-orcs.lua:6994"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；细微观察同意保留：店名为字面招牌（实售纹身，源码 store 绑定），“萨拉的草药浸剂店”直译招牌，与 mod-tome.lua:40509、tome-orcs.lua:6994 同名店一致；无术语条目，不改。",
+   "applied": false,
+   "old_target": "萨拉的草药浸剂店",
+   "new_target": null,
+   "section": "mod-tome/data/zones/town-gates-of-morning/traps.lua",
+   "source": "Sarah's Herbal Infusions"
+  },
+  {
+   "queue_id": "hrq-00475",
+   "entry_id": "entry-03122",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 40403,
+   "source_tag": "entity name",
+   "model_disposition": "no_change",
+   "model_reason": "驳回：同 entry-03112，术语为 existing 不强制，“铸剑铺”全库统一。",
+   "model_evidence": [
+    "terminology/places.tsv:7",
+    "mod-tome.lua:40403"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；驳回：同 entry-03112，术语为 existing 不强制，“铸剑铺”全库统一。",
+   "applied": false,
+   "old_target": "铸剑铺",
+   "new_target": null,
+   "section": "mod-tome/data/zones/town-irkkk/traps.lua",
+   "source": "Swordsmith"
+  },
+  {
+   "queue_id": "hrq-00476",
+   "entry_id": "entry-03129",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 40509,
+   "source_tag": "entity name",
+   "model_disposition": "no_change",
+   "model_reason": "细微观察同意保留：同 entry-03118，招牌直译且与同名店一致。",
+   "model_evidence": [
+    "t-engine4@624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/town-last-hope/traps.lua",
+    "mod-tome.lua:40361"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；细微观察同意保留：同 entry-03118，招牌直译且与同名店一致。",
+   "applied": false,
+   "old_target": "萨拉的草药浸剂店",
+   "new_target": null,
+   "section": "mod-tome/data/zones/town-last-hope/traps.lua",
+   "source": "Sarah's Herbal Infusions"
+  },
+  {
+   "queue_id": "hrq-00477",
+   "entry_id": "entry-03137",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 40586,
+   "source_tag": "entity name",
+   "model_disposition": "no_change",
+   "model_reason": "细微观察同意保留：“铸剑铺”全库 7 处统一，术语仅 existing。",
+   "model_evidence": [
+    "terminology/places.tsv:7",
+    "mod-tome.lua:40586"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；细微观察同意保留：“铸剑铺”全库 7 处统一，术语仅 existing。",
+   "applied": false,
+   "old_target": "铸剑铺",
+   "new_target": null,
+   "section": "mod-tome/data/zones/town-point-zero/traps.lua",
+   "source": "Swordsmith"
+  },
+  {
+   "queue_id": "hrq-00478",
+   "entry_id": "entry-03139",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 40618,
+   "source_tag": "entity name",
+   "model_disposition": "no_change",
+   "model_reason": "细微观察同意保留：同 entry-03137。",
+   "model_evidence": [
+    "terminology/places.tsv:7",
+    "mod-tome.lua:40618"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；细微观察同意保留：同 entry-03137。",
+   "applied": false,
+   "old_target": "铸剑铺",
+   "new_target": null,
+   "section": "mod-tome/data/zones/town-shatur/traps.lua",
+   "source": "Swordsmith"
+  },
+  {
+   "queue_id": "hrq-00479",
+   "entry_id": "entry-03149",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 40781,
+   "source_tag": "_t",
+   "model_disposition": "defer",
+   "model_reason": "本条“推挤”与相邻日志 mod-tome.lua:40782“你学会了技能推挤”一致，但与冻结外技能名 mod-tome.lua:27003 “击退攻击”及符文名 40780“启蒙符文：冲撞”三处不一致；无术语条目，单改本条会破坏与日志的一致。记 defer，需统一 27003/40780/40781/40782 的 Shove 译名。句号与引号已正确。",
+   "model_evidence": [
+    "mod-tome.lua:27003",
+    "mod-tome.lua:40780-40782"
+   ],
+   "orchestrator_verdict": "deferred",
+   "orchestrator_rationale": "本条“推挤”与相邻日志 mod-tome.lua:40782“你学会了技能推挤”一致，但与冻结外技能名 mod-tome.lua:27003 “击退攻击”及符文名 40780“启蒙符文：冲撞”三处不一致；无术语条目，单改本条会破坏与日志的一致。记 defer，需统一 27003/40780/40781/40782 的 Shove 译名。句号与引号已正确。",
+   "applied": false,
+   "old_target": "可习得技能“推挤”。",
+   "new_target": null,
+   "section": "mod-tome/data/zones/tutorial-combat-stats/grids.lua",
+   "source": "Teaches the player 'Shove'."
+  },
+  {
+   "queue_id": "hrq-00480",
+   "entry_id": "entry-03167",
+   "is_row_primary": true,
+   "file": "mod-tome.lua",
+   "line": 41138,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳：原文 ruled by King Tolak，现译漏“国王”头衔；同节 mod-tome.lua:41146、41148 两条首都描述均为“……的首都，由……统治”句式，改“联合王国首都，由托拉克国王统治”，同时去掉与族内不一致的括号。",
+   "model_evidence": [
+    "mod-tome.lua:41138-41148"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳：原文 ruled by King Tolak，现译漏“国王”头衔；同节 mod-tome.lua:41146、41148 两条首都描述均为“……的首都，由……统治”句式，改“联合王国首都，由托拉克国王统治”，同时去掉与族内不一致的括号。",
+   "applied": true,
+   "old_target": "联合王国首都（托拉克统治）",
+   "new_target": "联合王国首都，由托拉克国王统治",
+   "section": "mod-tome/data/zones/wilderness/grids.lua",
+   "source": "Capital city of the Allied Kingdoms ruled by King Tolak"
+  },
+  {
+   "queue_id": "hrq-00481",
+   "entry_id": "entry-03735",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 350,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳（来源未固定）：destructicus.lua:44-50 已写面板显示飞船内部，73 行原文并列“透过窗户看见导弹远去”与“在探知面板上看见它迎面冲向画面和惊恐乘客”两视角；现译合成窗外远眺并漏 on the scrying panel。改为“你透过窗户看见导弹离你远去，同时又在面板上看见它迎面冲向画面，冲向那些惊恐的乘客。”，“面板”沿用同 chat 上文译法；其余段落、颜色与 #{italic}# 标记不动。",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/chats/destructicus.lua:44-50,73-76",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json",
+    "tome-orcs.lua:333-350"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳（来源未固定）：destructicus.lua:44-50 已写面板显示飞船内部，73 行原文并列“透过窗户看见导弹远去”与“在探知面板上看见它迎面冲向画面和惊恐乘客”两视角；现译合成窗外远眺并漏 on the scrying panel。改为“你透过窗户看见导弹离你远去，同时又在面板上看见它迎面冲向画面，冲向那些惊恐的乘客。”，“面板”沿用同 chat 上文译法；其余段落、颜色与 #{italic}# 标记不动。",
+   "applied": true,
+   "old_target": "#LIGHT_GREEN#*让蒸汽巨人们逃离太过危险 - 你不能允许他们这样简单的离开，然后将来某日再实现其图谋，消灭你的部落。你按下#{italic}#\"上一名目标\"#{normal}# 按钮，朝飞船开火。一阵巨大的轰鸣声和一道强烈的火光闪过，你从窗户里看见导弹朝目标飞去，飞向你视线远处，拥挤的飞船里惊恐的乘客那边。\n\n导弹到达了目的地，巨大的爆炸堵塞了你透过窗户的视线，面板随之变暗。\n\n蒸汽巨人消失了。\n\n弹头的次级装药引爆，燃烧的残骸坠入大海，这场持续的烟火盛宴成为大陆上所有兽人，甚至所有能看到这一盛景的生物的信号：\n这就是所有试图消灭兽人的种族的命运。千年的压制、欺凌和屠杀被终结了：你的人民再也不会沦落如斯。\n\n无法摆脱的念头自你脑后升腾，你现在明白了太阳骑士的感受，明白了图库纳国王的感受，明白了半身人的感受，明白了所有曾对兽人施以暴行的人的感受。\n随它哀诉去吧————但你的人民终于安全了。*#WHITE#",
+   "new_target": "#LIGHT_GREEN#*让蒸汽巨人们逃离太过危险 - 你不能允许他们这样简单的离开，然后将来某日再实现其图谋，消灭你的部落。你按下#{italic}#\"上一名目标\"#{normal}# 按钮，朝飞船开火。一阵巨大的轰鸣声和一道强烈的火光闪过，你透过窗户看见导弹离你远去，同时又在面板上看见它迎面冲向画面，冲向那些惊恐的乘客。\n\n导弹到达了目的地，巨大的爆炸堵塞了你透过窗户的视线，面板随之变暗。\n\n蒸汽巨人消失了。\n\n弹头的次级装药引爆，燃烧的残骸坠入大海，这场持续的烟火盛宴成为大陆上所有兽人，甚至所有能看到这一盛景的生物的信号：\n这就是所有试图消灭兽人的种族的命运。千年的压制、欺凌和屠杀被终结了：你的人民再也不会沦落如斯。\n\n无法摆脱的念头自你脑后升腾，你现在明白了太阳骑士的感受，明白了图库纳国王的感受，明白了半身人的感受，明白了所有曾对兽人施以暴行的人的感受。\n随它哀诉去吧————但你的人民终于安全了。*#WHITE#",
+   "section": "tome-orcs/data/chats/destructicus.lua",
+   "source": "#LIGHT_GREEN#*The Steam Giants are too great a threat to allow their escape - you will not have them simply return someday to finish what they attempted, and wipe out your Pride.  You press the #{italic}#\"PREVIOUS TARGET\"#{normal}# button, and fire on the airship.  There is a great roar and a flash of flame; you see its missile flying away from you through the window, as you see it racing towards your view, and the terrified passengers, on the scrying panel.\n\nIt reaches its mark, and the panel goes dark as a tremendous, multicolored blast fills your vision through the window.\n \nThe Steam Giants are no more.\n \nThe secondary charges from the warhead detonate, as burning debris falls into the sea, and the ongoing display serves as a signal to all the Orcs of Var'Eyal, and anyone else who may be watching: This is the fate of all who would try to eradicate the Orcs.  The previous millennia of oppression, genocide, and bullying are over: your people will never be pushed around like this again.\n \nA nagging thought in the back of your head insists that you now know how the Sun Paladins felt, how King Toknor felt, how the halflings felt, how everyone that has always committed such atrocities against the Orcs felt.  It can keep whining all it wants - your people are finally safe.*#WHITE#"
+  },
+  {
+   "queue_id": "hrq-00482",
+   "entry_id": "entry-03738",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 410,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳（来源未固定）：john-surrender.lua:97-103 选项原文 alive and broken，现译漏 broken；改“一个活着却已崩溃的你对我更有用”，不限定具体折磨方式；颜色码与方括号不变。",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/chats/john-surrender.lua:97-103",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳（来源未固定）：john-surrender.lua:97-103 选项原文 alive and broken，现译漏 broken；改“一个活着却已崩溃的你对我更有用”，不限定具体折磨方式；颜色码与方括号不变。",
+   "applied": true,
+   "old_target": "#LIGHT_GREEN#[将他绑定到戒指上]#WHITE# 不，你活着对我更有用！",
+   "new_target": "#LIGHT_GREEN#[将他绑定到戒指上]#WHITE# 不，一个活着却已崩溃的你对我更有用！",
+   "section": "tome-orcs/data/chats/john-surrender.lua",
+   "source": "#LIGHT_GREEN#[bind him to the ring]#WHITE# No, you are more useful alive and broken to me!"
+  },
+  {
+   "queue_id": "hrq-00483",
+   "entry_id": "entry-03741",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 426,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "advisory 部分采纳（来源未固定，john-worldmap.lua:25-33）：原文 Give it back! DIE!，“拿出来”未表达“归还”且“受死吧！！”多出一个叹号（冗余标点）；改“还给我！受死吧！”。其余标记、@playername@ 与前文不动。",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/chats/john-worldmap.lua:25-33",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；advisory 部分采纳（来源未固定，john-worldmap.lua:25-33）：原文 Give it back! DIE!，“拿出来”未表达“归还”且“受死吧！！”多出一个叹号（冗余标点）；改“还给我！受死吧！”。其余标记、@playername@ 与前文不动。",
+   "applied": true,
+   "old_target": "#LIGHT_GREEN#*当你靠近时，你认出了那是前哨站首领约翰。但他身边环绕着可怕的黑暗，你能感受到他的仇恨令空气结晶。*#WHITE#\n@playername@ 你这个残忍的畜生！#{bold}#你杀了她！你这条残忍的狗！#{normal}#\n你 #{italic}#竟敢#{normal}# 带着她的戒指作为战利品！我能感觉到它在你身上。拿出来，受死吧！！",
+   "new_target": "#LIGHT_GREEN#*当你靠近时，你认出了那是前哨站首领约翰。但他身边环绕着可怕的黑暗，你能感受到他的仇恨令空气结晶。*#WHITE#\n@playername@ 你这个残忍的畜生！#{bold}#你杀了她！你这条残忍的狗！#{normal}#\n你 #{italic}#竟敢#{normal}# 带着她的戒指作为战利品！我能感觉到它在你身上。还给我！受死吧！",
+   "section": "tome-orcs/data/chats/john-worldmap.lua",
+   "source": "#LIGHT_GREEN#*As you approach you recognize Outpost Leader John. But there is a kind of terrible darkness, you can feel his hatred crystallize the air.*#WHITE#\n@playername@. You malevolent creature! #{bold}#YOU KILLED HER! YOU MURDEROUS DOG!#{normal}#\nYou #{italic}#dare#{normal}# carry her ring around like a trophy! I can feel it on you. Give it back! DIE!"
+  },
+  {
+   "queue_id": "hrq-00484",
+   "entry_id": "entry-03747",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 467,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "advisory 驳回（来源未固定，kaltor-shop.lua:24-31、40-45、66-69）：选项含看货、攻击、不购物，“你要做什么呢？”可覆盖，措辞不改。另修中文句中半角“@playername@! ”为全角“！”（标点错误）；海报内引号与 markup 不动。",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/chats/kaltor-shop.lua:24-31,40-45,66-69",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；advisory 驳回（来源未固定，kaltor-shop.lua:24-31、40-45、66-69）：选项含看货、攻击、不购物，“你要做什么呢？”可覆盖，措辞不改。另修中文句中半角“@playername@! ”为全角“！”（标点错误）；海报内引号与 markup 不动。",
+   "applied": true,
+   "old_target": "欢迎回来，@playername@! 来看看这个，顾客们？这位可怕而野蛮的战斗大师也对我的产品印象深刻，现在他又回来买东西了！\n#LIGHT_GREEN#*他指向墙上贴着的新海报，上面是你的脸和一行大字 #{bold}#\"卡托尔：破坏者的选择！\"#{normal}#*#WHITE#\n\n那么，你要做什么呢？",
+   "new_target": "欢迎回来，@playername@！来看看这个，顾客们？这位可怕而野蛮的战斗大师也对我的产品印象深刻，现在他又回来买东西了！\n#LIGHT_GREEN#*他指向墙上贴着的新海报，上面是你的脸和一行大字 #{bold}#\"卡托尔：破坏者的选择！\"#{normal}#*#WHITE#\n\n那么，你要做什么呢？",
+   "section": "tome-orcs/data/chats/kaltor-shop.lua",
+   "source": "Welcome back, @playername@!  You see this, customers?  This fearsome, savage master of battle was so impressed by my products that he came back for more!\n#LIGHT_GREEN#*He points to a new poster on the wall next to him, showing your face and the caption #{bold}#\"KALTOR: THE CHOICE OF DESTROYERS!\"#{normal}#*#WHITE#\n\nSo, what'll it be?"
+  },
+  {
+   "queue_id": "hrq-00485",
+   "entry_id": "entry-03748",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 474,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳（来源未固定，kaltor-shop.lua:48-51）：bird's-eye view 与 front-row seat 对比远观与近处目睹，现译“坐在椅子上”丢失 front-row；改“我宁愿在上面鸟瞰你要做的事情，也不想坐在前排近距离观赏”。\\t、颜色码与 @playername@ 不变。",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/chats/kaltor-shop.lua:48-51",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳（来源未固定，kaltor-shop.lua:48-51）：bird's-eye view 与 front-row seat 对比远观与近处目睹，现译“坐在椅子上”丢失 front-row；改“我宁愿在上面鸟瞰你要做的事情，也不想坐在前排近距离观赏”。\\t、颜色码与 @playername@ 不变。",
+   "applied": true,
+   "old_target": "#LIGHT_GREEN#*卡托尔忙着打包货物；他将箱子递给一个工人带到后门，然后转过头和你说话。*#WHITE#\n\t快点吧，@playername@。不是我粗鲁，但现在有一艘我的飞船在外面，我更想站在上面鸟瞰你要做的事情，而不是坐在椅子上。",
+   "new_target": "#LIGHT_GREEN#*卡托尔忙着打包货物；他将箱子递给一个工人带到后门，然后转过头和你说话。*#WHITE#\n\t快点吧，@playername@。不是我粗鲁，但现在有一艘我的飞船在外面，我宁愿在上面鸟瞰你要做的事情，也不想坐在前排近距离观赏。",
+   "section": "tome-orcs/data/chats/kaltor-shop.lua",
+   "source": "#LIGHT_GREEN#*Kaltor is busy packing some of his goods away in crates; he hands one to a worker, carrying it out the back door, before turning to you.*#WHITE#\n\tMake it quick, @playername@. Not to be rude, but there's a private airship out there with my name on it, and I'd rather have a bird's-eye view of what you're about to do than a front-row seat."
+  },
+  {
+   "queue_id": "hrq-00486",
+   "entry_id": "entry-03772",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 957,
+   "source_tag": "entity name",
+   "model_disposition": "no_change",
+   "model_reason": "advisory 驳回（来源未固定，sunwall-mage.lua:114-131）：“魔术师”在奇幻语境可泛指施法者，未误指职业或机制；无术语条目，改名属命名风格。",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/npcs/sunwall-mage.lua:114-131",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；advisory 驳回（来源未固定，sunwall-mage.lua:114-131）：“魔术师”在奇幻语境可泛指施法者，未误指职业或机制；无术语条目，改名属命名风格。",
+   "applied": false,
+   "old_target": "星空魔术师",
+   "new_target": null,
+   "section": "tome-orcs/data/general/npcs/sunwall-mage.lua",
+   "source": "astral conjurer"
+  },
+  {
+   "queue_id": "hrq-00487",
+   "entry_id": "entry-03799",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 1499,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "采纳（来源未固定，world-artifacts.lua:142-151,174）：“These boots”指本物品 Anti-Gravity Boots（本仓译“反重力鞋”，描述用“这套鞋子”），“火箭靴”与工匠插件名“%s 火箭靴”（tome-orcs.lua:1381）冲突易误指；fail to operate properly 亦非单纯“失败”。改“这套鞋子有%d%%几率无法正常运作（随灵巧降低）。”",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua:142-174",
+    "tome-orcs.lua:1381",
+    "tome-orcs.lua:1490-1499",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳（来源未固定，world-artifacts.lua:142-151,174）：“These boots”指本物品 Anti-Gravity Boots（本仓译“反重力鞋”，描述用“这套鞋子”），“火箭靴”与工匠插件名“%s 火箭靴”（tome-orcs.lua:1381）冲突易误指；fail to operate properly 亦非单纯“失败”。改“这套鞋子有%d%%几率无法正常运作（随灵巧降低）。”",
+   "applied": true,
+   "old_target": "火箭靴有%d%%几率失败（随灵巧降低）。",
+   "new_target": "这套鞋子有%d%%几率无法正常运作（随灵巧降低）。",
+   "section": "tome-orcs/data/general/objects/world-artifacts.lua",
+   "source": "These boots have a %d%% chance to fail to operate properly (reduced by Cunning)."
+  },
+  {
+   "queue_id": "hrq-00488",
+   "entry_id": "entry-03801",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 1509,
+   "source_tag": "tformat",
+   "model_disposition": "fix",
+   "model_reason": "采纳（来源未固定，world-artifacts.lua:275-280）：“导致目标被致残毒素”缺谓语，改“使目标感染致残毒素”；args_order {1,2,3,5,4} 与 tformat(range, damage/dur, fail, damage, dur) 对应正确，不动。",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua:275-299",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳（来源未固定，world-artifacts.lua:275-280）：“导致目标被致残毒素”缺谓语，改“使目标感染致残毒素”；args_order {1,2,3,5,4} 与 tformat(range, damage/dur, fail, damage, dur) 对应正确，不动。",
+   "applied": true,
+   "old_target": "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并导致目标被致残毒素（%d%% 行动失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）",
+   "new_target": "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并使目标感染致残毒素（%d%% 行动失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）",
+   "section": "tome-orcs/data/general/objects/world-artifacts.lua",
+   "source": "fire a poisonous bolt out to range %d that deals %d nature damage and afflicts the target with crippling poison (%d%% fail chance) that deals %d addition nature damage over %d turns (damage based on Cunning)"
+  },
+  {
+   "queue_id": "hrq-00489",
+   "entry_id": "entry-03807",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 1551,
+   "source_tag": "tformat",
+   "model_disposition": "no_change",
+   "model_reason": "advisory 驳回（来源未固定，world-artifacts.lua:579-582）：传入 maxp - self.power 为剩余回合，“冷却时间：%d 回合”作状态标签可接受，“冷却中”属精度偏好；括号在本条内一致，不整理。",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua:579-582",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；advisory 驳回（来源未固定，world-artifacts.lua:579-582）：传入 maxp - self.power 为剩余回合，“冷却时间：%d 回合”作状态标签可接受，“冷却中”属精度偏好；括号在本条内一致，不整理。",
+   "applied": false,
+   "old_target": "(冷却时间：%d 回合)",
+   "new_target": null,
+   "section": "tome-orcs/data/general/objects/world-artifacts.lua",
+   "source": "(cooling down: %d turns)"
+  },
+  {
+   "queue_id": "hrq-00490",
+   "entry_id": "entry-03809",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 1560,
+   "source_tag": "_t",
+   "model_disposition": "no_change",
+   "model_reason": "advisory 驳回（来源未固定，world-artifacts.lua:641-646）：“从天空引导”已保留空中方位，airborne 未丢失语义，“空中探针”属措辞偏好。",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua:641-646",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "无需修改；advisory 驳回（来源未固定，world-artifacts.lua:641-646）：“从天空引导”已保留空中方位，airborne 未丢失语义，“空中探针”属措辞偏好。",
+   "applied": false,
+   "old_target": "这些弹药通过魔法和探针从天空引导强力的闪电冲击你的目标，灼烧目标及周边的单位！",
+   "new_target": null,
+   "section": "tome-orcs/data/general/objects/world-artifacts.lua",
+   "source": "Through a combination of magic and airborne probes, these shots incite powerful bolts of lightning to strike your target from above, frying them and those around them!"
+  },
+  {
+   "queue_id": "hrq-00491",
+   "entry_id": "entry-03811",
+   "is_row_primary": true,
+   "file": "tome-orcs.lua",
+   "line": 1569,
+   "source_tag": "_t",
+   "model_disposition": "fix",
+   "model_reason": "采纳（来源未固定，world-artifacts.lua:714-720）：tg 以 start_x/start_y=target 为锥形起点，原文 from the target 漏译影响范围理解；shrapnel 为弹片而非“榴弹”。改“从目标处向外迸射弹片，在半径4的锥形范围内…”。",
+   "model_evidence": [
+    "（来源未固定）.artifacts/i18n/all-modified-review-20260922/sources/orcs/tome-orcs/data/general/objects/world-artifacts.lua:714-720",
+    "evidence/translation-audit/all-modified-review-20260922/remaining-review-20260923/source-access.json"
+   ],
+   "orchestrator_verdict": "accepted",
+   "orchestrator_rationale": "独立核验通过；采纳（来源未固定，world-artifacts.lua:714-720）：tg 以 start_x/start_y=target 为锥形起点，原文 from the target 漏译影响范围理解；shrapnel 为弹片而非“榴弹”。改“从目标处向外迸射弹片，在半径4的锥形范围内…”。",
+   "applied": true,
+   "old_target": "释放榴弹，在半径4锥形范围内造成等于蒸汽强度的物理伤害。",
+   "new_target": "从目标处向外迸射弹片，在半径4的锥形范围内造成等于蒸汽强度的物理伤害。",
+   "section": "tome-orcs/data/general/objects/world-artifacts.lua",
+   "source": "Release a burst of shrapnel, dealing physical damage equal to your steampower in a cone from the target of radius 4."
+  }
+ ]
+}

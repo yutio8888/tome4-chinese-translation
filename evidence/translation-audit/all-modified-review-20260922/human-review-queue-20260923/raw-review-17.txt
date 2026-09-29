@@ -1,0 +1,347 @@
+[User] # REVIEWER briefing — 已应用译文改动的独立逐条复核（review packet 17）
+
+身份：`role=reviewer`，只读。**不得修改、创建、删除任何文件**，不得 stage／commit。
+
+任务：对 packet 中每一项已应用的译文改动**逐条独立复核**，判断该改动是否正确、是否引入新问题。
+这是与 executor（裁决）路线**并行**的复核路线；你只看冻结输入，不看 executor 的自述理由。
+
+## 唯一输入
+
+`.ai/task/human-review-adjudication-20260923/REVIEW-PACKET-17.json`
+
+该文件每项含：`entry_id`／`queue_id`／`file`／`line`／`source_tag`／`source`（英文原文）／
+`old_target`（改动前）／`new_target`（改动后）。
+
+## 可读取的证据（只读）
+
+1. 上表 packet 文件。
+2. 固定版本公开源码：commit `624a67329fe2ad440c5b344785a9c73fcf22ae63`，仓库 `/workspace/t-engine4`，
+   读取方式 `git -C /workspace/t-engine4 show <commit>:<path>`。
+   路径映射：`mod-tome/`→`game/modules/tome/`；`mod-boot/`→`game/engines/default/modules/boot/`；
+   `engine/`→`game/engines/default/engine/`。
+3. 术语库：`terminology/*.tsv`（按 source 查询 `source`／`target`／`category`／`source_tag`／
+   `status`／`scope`／`notes`）。
+4. 本仓译文文件（用于核对同族一致性）：`mod-tome.lua`、`engine.lua`、`mod-boot.lua`。
+
+## 复核判据（每项必须走完）
+
+1. `new_target` 是否忠实 `source` 的语义、机制、数量、时序、条件与主体？
+2. 与固定版本源码的实际行为是否一致（有需要时读源码调用链）？
+3. 是否违反术语库 `preferred` 条目？与同节／同族既有译法是否一致？
+4. 占位符（`%s` `%d` `%%` `%0.2f` 等）、颜色码／markup（`#GOLD#` `#{italic}#` 等）、
+   换行序列是否完好？
+5. **本次改动是否引入新问题**——特别是：是否只改了本项而留下同族其他载体不一致？
+   是否把原本正确的表达改坏？
+6. 若 `old_target` 本来就正确、改动属于偏好而非缺陷，必须明确指出。
+
+## 输出格式（严格 JSON，不要 Markdown 围栏）
+
+```json
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 17,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-00105",
+      "verdict": "ok",
+      "observation": "简短说明；无问题时填 OK",
+      "evidence": ["terminology/tech.tsv:3 Donator=捐赠者"],
+      "new_issue_introduced": false
+    }
+  ]
+}
+```
+
+字段约束：
+
+- `verdict` 只能是 `ok`／`issue`／`unclear`。
+  - `ok`：改动正确且未引入新问题。
+  - `issue`：改动有实质缺陷（语义／机制／术语／不变量错误，或引入新的不一致）。
+  - `unclear`：证据不足，无法判定。
+- `observation` 必须非空。`ok` 时填 `OK`，否则给出具体缺陷与最强反证。
+- `evidence` 必须非空数组（`ok` 时可空数组），每条为可核验路径（源码 `game/...` 或
+  `terminology/...`），不得只写模型共识。
+- `new_issue_introduced`：布尔，仅当 `issue` 且正是本次改动新引入时填 true。
+- 必须**逐条覆盖 packet 的全部 20 项**，顺序与 packet 一致，不得遗漏或多出。
+- 不得输出 severity、修复建议或额外字段。
+
+## 完成后
+
+直接返回上述 JSON。不要写任何文件，不要创建子 agent。
+[Read] .ai/task/human-review-adjudication-20260923/REVIEW-PACKET-17.json
+[Shell] env | grep -E '^PI_'
+[Shell] sed -n '37550,37565p' mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Some leeches drop off" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] grep -i "leech" terminology/*.tsv
+[Thought] The log entry indicates a string format that includes several bonuses. Placeholder `%s` elements are present, suggesting dynamic content insertion. The format seems related to a game's scoring or reward system, with bonuses potentially for clearing, score, danger, and rank.
+[Shell] git -C /workspace/t-engine4 grep -n "Clear bonus:" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "Go %s! We will hold the line!" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 grep -n "degenerated ogric mass" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/conclave-vault/npcs.lua
+[Shell] sed -n '38120,38130p' mod-tome.lua
+[Shell] grep -i "ogric" terminology/*.tsv
+[Shell] grep -i "degenerated" terminology/*.tsv
+[Shell] grep -i "ogre" terminology/*.tsv
+[Shell] sed -n '38418,38426p' mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep -n "Dream ???" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] sed -n '38550,38565p' mod-tome.lua
+[Shell] git -C /workspace/t-engine4 grep -n "ACTIVATING PAIN" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] grep -i "Age of Pyre" terminology/*.tsv
+[Shell] grep -i "Garkul" terminology/*.tsv
+[Shell] grep -i "Atamathon" terminology/*.tsv
+[Thought] Identifying a named entity: "Atamathon the Giant Golem" as an entity name in the game.
+
+Another entry describes "One of the ruby eyes" belonging to the golem Atamathon, a legendary weapon from the Age of Pyre.
+[Shell] git -C /workspace/t-engine4 grep -n "Epoch" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/paradox-plane/npcs.lua
+[Shell] git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/zones/paradox-plane/objects.lua
+[Shell] grep -i "epoch" terminology/*.tsv
+[Shell] grep -n "Epoch" mod-tome.lua
+[Thought] Observed multiple instances of "Epoch" and related terms translated within the code, specifically in `mod-tome.lua`. This suggests a prior translation effort concerning this term. This could mean the translation already exists in another code file, the code file needing a string to be updated, or a new file needs a translated string.
+
+
+Confirmed that the preferred translation of "Epoch" is "亚伯契" and "Epoch's Curve" is "亚伯契之弧" based on the `terminology/society.tsv` entry. These translations appear consistent with the target file and should be applied across the board, in line with the preferred terminology. Further checks against specific items confirm the consistency of this translation.
+[Shell] git -C /workspace/t-engine4 grep -n "You enter the swirling portal" 624a67329fe2ad440c5b344785a9c73fcf22ae63
+[Thought] The translation of "strangely familiar" as "莫名熟悉" is more accurate, capturing the nuance of "strangely." "Farportal" is correctly rendered as "远行传送门". Color tags and ellipses have been retained.
+[Shell] grep -i "telos" terminology/*.tsv
+[Shell] grep -n "Telos" mod-tome.lua
+[Thought] Identified several text replacements within the specified file. These include direct translations of character and item names related to "Telos," indicating a focus on consistent terminology within the game's lore. This suggests the translations are being applied systematically, ensuring textual consistency throughout the game data.
+[Shell] sed -n '41130,41145p' mod-tome.lua
+[Shell] grep -i "Tolak" terminology/*.tsv
+[Shell] grep -n "Tolak" mod-tome.lua
+[Thought] "托拉克国王" is now correctly translated. The translation for "联合王国" is accurate as well. Confirmed that the changes are valid, marking the entry as "ok".
+
+
+The airship is targeted and destroyed; a decisive act preventing future threats. Secondary detonations serve as a clear message. Acknowledgment that past oppressors experienced similar events surfaces, however, the safety of the Orcs is paramount.
+
+
+Targeting the airship was a necessary, final action. The destruction broadcasts a definitive end to potential future aggression. While empathy arises for the victims, the Orcs' enduring safety takes precedence.
+
+
+Empathy for the airship's occupants surfaces, mirroring the historical suffering inflicted. Recognizing the shared experience of loss across different factions, but the Orcs' newfound security is the primary result.
+
+
+The previous translation lacked accuracy in depicting the dual visual perspectives, seeing the missile moving away and then towards the terrified passengers. The markup and line breaks remain consistent with previous entries. The changes are validated, marking the entry as "ok".
+[Shell] sed -n '405,420p' tome-orcs.lua
+[Thought] The translation accurately reflects the intended meaning of "broken" in the context of John's state. The updated translation captures the nuance missing from the original. This indicates a positive change in how John's condition is portrayed.
+
+
+The change focuses on the phrase "Give it back!". The updated translation, "还给我！" (Return it to me!), is more accurate than the original "拿出来！" (Take it out!). It reflects the intended imperative request for the ring's return. This adjustment improves the tone and clarity of John's demand.
+
+
+Punctuation analysis shows the updated target now accurately reflects the single exclamation mark present in the source, enhancing consistency. The core change correctly focuses on the imperative meaning, ensuring "还给我！" (Return it to me!) aligns with the source's intended command. The translation of the text elements appears accurate.
+
+
+The updated target's first sentence now correctly includes a full-width exclamation mark. No other modifications are present. The initial check confirms the overall structure, tags, and content are consistent with the source.
+
+The translation accurately renders the initial description of Kaltor's actions. The imperative "Make it quick" is appropriately captured. The reference to the airship and Kaltor's preference reinforces the urgency conveyed in the source.
+[Shell] sed -n '1490,1515p' tome-orcs.lua
+[Thought] The identified artifact is "Anti-Gravity Boots". The description suggests a rocket-powered, somewhat unconventional approach to "anti-gravity." It appears the item *should* function, however, careful use might be required.
+[Shell] find /workspace/t-engine4 -name "*anti-gravity*" -o -name "*orcs*" 2>/dev/null
+[Shell] find /workspace -name "*anti-gravity*" 2>/dev/null
+[Shell] grep -n "section" tome-orcs.lua | grep -B 1 -A 1 "14"
+[Shell] sed -n '1477,1515p' tome-orcs.lua
+[Thought] Revised the translation for "Anti-Gravity Boots" in the specified file, refining the description and failure chance wording. The original translation had a hallucinated component that was removed in favor of a more accurate translation.
+
+
+The initial translation included an inaccurate term that needed correction. The term "火箭靴" was inconsistent; the description used "这套鞋子", so it's a better fit. Confirmed the use of `%d%%` in the translated string, ensuring it is equivalent to the source's formatting, which means no changes needed.
+
+
+Examining the code, the original translation uses "导致" (cause) for the poison effect, while the updated version uses "使目标感染" (infect). The source string and target string match with respect to the `%d` placeholders. The provided permutation table appears to reorder the numerical placeholders, which is a key area of potential inconsistency. I will need to verify this permutation against the target string to ensure accurate translation formatting.
+
+
+Confirmed the permutation table `{1,2,3,5,4}` correctly reorders the numerical placeholders in the new target string. This permutation ensures the damage values and turn count are correctly placed. The reordering is critical for ensuring the translated string functions identically to the source, particularly for numerical placeholders.
+[Shell] grep -n "leeches" mod-tome.lua
+{
+  "contract": "applied-change-review-v1",
+  "packet_number": 17,
+  "reviewer": "pi/cliproxyapi/gemini-3.8-flash-high",
+  "items": [
+    {
+      "entry_id": "entry-02866",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02921",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02927",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02929",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02957",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02967",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-02973",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03023",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03025",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03027",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03058",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03092",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03167",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03735",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03738",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03741",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03747",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03748",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03799",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    },
+    {
+      "entry_id": "entry-03801",
+      "verdict": "ok",
+      "observation": "OK",
+      "evidence": [],
+      "new_issue_introduced": false
+    }
+  ]
+}
+[Thought] Consistent terminology is important for clarity. Uniformly using "寄生水蛭" is the correct approach. The change ensures the entire family of lines uses the same term. Confirmed.
+
+
+Exclamation mark normalization across a reward string confirmed; the number of placeholders remained consistent. A missing comma and incorrect exclamation mark were corrected in a dialogue line, player name placeholder confirmed. The entity name change from "碎肉" (shredded meat) to "肉团" (flesh mass) accurately reflects the NPC's description and status as a living entity, given it's a monster.
+
+
+The mixed question mark characters were corrected to a consistent ASCII format. A mistranslation in the Atamathon dialogue was identified and corrected; "PAIN GIVING SUBMODULES" was accurately rendered as "致痛子模块" instead of "痛苦强化模组". The target accurately renders the lore text about Atamathon's ruby eye and the historical context of its creation and use.
+
+
+The golem's destruction resulted in the death of the orc leader, Garkul the Devourer, inflicting a significant blow. The translation of "Epoch" to "亚伯契" is confirmed, referencing terminology data for the named entity. Similarly, "Epoch's Curve" is correctly translated as "亚伯契之弧" to maintain consistency.
+
+
+The artifact name discrepancy between the item description and the terminology data was identified. The item description was updated to consistently use "亚伯契之弧".
+
+Examining a dialogue line, a subtle omission of "strangely" was found, resulting in an inaccurate nuance. The correction maintains the intended meaning and context.
+
+
+The solitary instance of "泰勒" was replaced with the consistent translation "泰勒斯" used elsewhere, ensuring uniformity. The translation "联合王国首都，由托拉克国王统治" was confirmed as a faithful and improved rendering of the original phrase, correctly including "国王."
+
+
+The immediate threat posed by the escaping Steam Giants necessitated their destruction to prevent future attacks. Targeting the airship seemed the only way to stop them.
+
+Observation confirms the airship's destruction and the resulting explosion. The implication extends to a clear signal to any future aggressors, ending the cycle of oppression.
+
+Acknowledging the act's brutality and its reflection of past injustices, though justified by the Orcs' need for self-preservation.
+
+
+The Steam Giants presented an immediate threat that required elimination to prevent future attacks. Destroying the airship appeared to be the only available method.
+
+Observation confirms the airship's destruction and resulting explosion, serving as a deterrent to any future aggression, effectively ending the historical oppression. Acknowledging the brutality of the action and its reflection on past injustices is necessary, but the orcs' self-preservation justifies the act.
+
+
+The mistranslation in the dual-perspective lore was corrected. The corrected text accurately depicts the missile's trajectory. The updated translation maintains the original formatting. The line adds nuance. The second item adds "and broken".
+
+
+The dialogue line was assessed for correctness. The exclamation mark was correctly normalized and placeholders remain consistent. A mistranslation of "拿出来，受死吧！！" to "还给我！受死吧！" in a dialogue line was confirmed. Formatting, variables, and markup have been preserved. The verdict is accurate.
+
+
+The dialogue's punctuation involving the player's name was normalized to include an exclamation mark. No other modifications were necessary, including the preservation of markup and variables. The verdict confirms the successful resolution of this issue.
+
+
+A dialogue line was revised to correct the idiom "front-row seat," replacing a literal translation. The item name "火箭靴" was corrected to the more contextually appropriate "这套鞋子", and the phrase "fail to operate properly" was updated to "无法正常运作". A grammatical correction was made in a skill description to change "导致目标被致残毒素" to "使目标感染致残毒素." All placeholder values and formatting were preserved.
+
+
+Each item was individually reviewed for accuracy and improvement to translation fidelity. All items were confirmed as valid corrections. No significant subtleties were identified.

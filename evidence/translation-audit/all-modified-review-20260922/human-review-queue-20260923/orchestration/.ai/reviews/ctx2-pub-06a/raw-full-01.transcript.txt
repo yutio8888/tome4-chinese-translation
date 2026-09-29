@@ -1,0 +1,200 @@
+[User] 任务：审核 input_path 全部冻结 revision；仅报有证据的语义、机制、术语、关系或跨条一致性问题；否则判 OK。
+输入：candidate_identity=af268c61b58bcc1496d3e56c04b70dcd0c88d76616ebd159d4ba323e9f355d00；input_path=.ai/task/ctx2-pub-06a/CONTEXTUAL-ENVELOPE-full-01.json。全程只读；可读输入、引用内容及 docs/paseo-translation-context-review-v2-contract.md 第六、七节；可沿调用链补查固定版本的相关公开源码；禁读其他 .ai/task/、.ai/reviews/ 和先前 finding。
+输出：仅返回第六节单一紧凑 JSON；按冻结顺序覆盖全部 revision 并回显 identity；补查依据按第七节记录；首字节{、末字节}，无其他文字、Markdown 或围栏。
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] docs/paseo-translation-context-review-v2-contract.md
+[Read] .ai/task/ctx2-pub-06a/CONTEXTUAL-ENVELOPE-full-01.json
+[Thought] Inspecting the ordered revision keys, there are 18 entries. The fixed source identity is from a specific commit.
+[Shell] ls -la game/modules/tome/data/general/npcs/horror.lua 2>/dev/null || find . -maxdepth 4 -name "horror.lua"
+[Shell] ls -la
+[Shell] git config -l || cat .git
+[Shell] ls -la i18n
+[Read] i18n/policy.json
+[Shell] ls -la i18n/versions
+[Read] i18n/versions/tome-1.7.6.json
+[Shell] ls -la ../
+[Shell] env | grep -i tome || true
+[Shell] git -C /workspace/t-engine4 rev-parse HEAD
+[Thought] Examining the contract and the input, the focus is on a `fixed_source_identity`. This suggests the task involves resolving or validating an identity. The pinned upstream source code and sections 6 & 7 of the contract provide the necessary context. The task requires understanding how this `fixed_source_identity` functions within the broader system.
+[Shell] grep -n -C 5 "carrion worm mass has spawned" /workspace/t-engine4/game/modules/tome/data/general/npcs/horror.lua
+[Shell] sed -n '90,115p' /workspace/t-engine4/game/modules/tome/data/general/npcs/horror.lua
+[Shell] sed -n '60,89p' /workspace/t-engine4/game/modules/tome/data/general/npcs/horror.lua
+[Shell] grep -rn "carrion worm" /workspace/t-engine4/game/modules/tome/data/talents/corruptions/
+[Thought] `worm_rot`'s effect description indicates a carrion worm mass spawns after five turns if the rot isn't cleared. Examining `horror.lua`, I see a call to `spawn_carrion_worm` tied to a talent ID likely representing `worm_rot`. The log message confirms the intent to spawn a worm mass, validating the connection between the rot and the creature's appearance.
+[Shell] grep -n -C 5 "all its eyes fall to the ground" /workspace/t-engine4/game/modules/tome/data/general/npcs/horror.lua
+[Thought] The code snippet's translation appears correct; the meaning and formatting are preserved, including the `%s` placeholder. Validation confirms there are no apparent issues.
+[Shell] grep -n -C 5 "lamprey-like horror" /workspace/t-engine4/game/modules/tome/data/general/npcs/horror.lua
+[Shell] grep -n -C 5 "Having thought to discover life eternal" /workspace/t-engine4/game/modules/tome/data/general/npcs/lich.lua
+[Shell] grep -n -C 5 "Manaworms are losgoroth" /workspace/t-engine4/game/modules/tome/data/general/npcs/losgoroth.lua
+[Thought] Manaworms are losgoroth, creatures that consume the mana of arcane users. Proximity to a spellcaster triggers their parasitic behavior, latching on to drain mana. The term "arcane" translates to "奥术" and "mana" translates to "法力值".
+[Shell] sed -n '80,120p' /workspace/t-engine4/game/modules/tome/data/general/npcs/losgoroth.lua
+[Shell] grep -n -C 10 "MANAWORM" /workspace/t-engine4/game/modules/tome/data/damage_types.lua
+[Shell] grep -n -C 10 "EFF_MANAWORM" /workspace/t-engine4/game/modules/tome/data/timed_effects/magical.lua
+[Shell] grep -rn "EFF_MANAWORM" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] grep -rn "EFF_MANAWORM" /workspace/t-engine4/
+[Shell] grep -rn "MANAWORM" /workspace/t-engine4/game/modules/tome/data/timed_effects/
+[Shell] sed -n '1785,1810p' /workspace/t-engine4/game/modules/tome/data/timed_effects/magical.lua
+[Thought] The effect description correctly identifies mana drain and arcane damage conversion. The mana drain implementation reduces target's mana pool and deals arcane damage. Further investigation needed to understand the `DamageType.MANAWORM` conditional; if the target lacks a mana pool, a log message is generated, suggesting a specific handling path for mana-less targets.
+[Shell] grep -rn "mana" terminology/
+[Shell] grep -rn "Mana" terminology/ || true
+[Shell] grep -rn "魔力" terminology/ || true
+[Thought] `Magic` translates to `魔力` as a stat, with `mag` being its short name. The term `Mana` translates to `法力值`, representing a resource. Examining the provided source, it describes how "Manaworms" interact with and drain "mana".
+[Shell] grep -n -C 10 "propped high by a thick serpent's tail" /workspace/t-engine4/game/modules/tome/data/general/npcs/naga.lua
+[Thought] Initial assessment: The target describes a tall humanoid figure. Focus is on its imposing stature.
+
+
+A monstrous figure is described, supported by a thick serpentine tail where legs should be. The upper body is humanoid, with bulging muscles beneath tight armor, and large hands gripping a sharp trident. Its menacing gaze fixates, reminiscent of a wolf eyeing unsuspecting prey.
+
+
+The translation of "swing a weapon" is "挥击," but it appears to be missing a direct translation of "weapon." The term "armor" translates to "护甲" in the terminology snapshot, which differs from the direct translation of "old armor" as "旧盔甲" in this context. It seems there's a need to evaluate if using "护甲" would be more accurate.
+[Shell] grep -rn "humanoid" terminology/
+[Shell] grep -n -C 5 "It is a humanoid with an aura of power" /workspace/t-engine4/game/modules/tome/data/general/npcs/vampire.lua
+[Shell] sed -n '20,40p' /workspace/t-engine4/game/modules/tome/data/general/npcs/vampire.lua
+[Shell] grep -n -C 5 "corrosive venom drake hatchling" /workspace/t-engine4/game/modules/tome/data/general/npcs/venom-drake.lua
+[Thought] The semicolon in the source text corresponds to a period in the Chinese translation. This suggests a straightforward structural equivalence. The terminology "venom drake hatchling" appears directly translatable, suggesting a terminological match.
+[Shell] grep -n -C 5 "stone limb of the Rotting Titan" /workspace/t-engine4/game/modules/tome/data/general/objects/boss-artifacts-far-east.lua
+[Shell] grep -n -C 10 "knock away other creatures" /workspace/t-engine4/game/modules/tome/data/general/objects/boss-artifacts-far-east.lua
+[Thought] The code at line 513 constructs a damage description string. Examining the direct translation of this string suggests it presents a melee attack with knockback effect. The goal now is to determine the context where this string is used to pinpoint the exact functionality.
+[Shell] grep -rn "use_power\.name" /workspace/t-engine4/game/
+[Shell] sed -n '2205,2230p' /workspace/t-engine4/game/modules/tome/class/Object.lua
+[Shell] grep -n -C 2 "It can be used to %s" mod-tome.lua engine.lua || true
+[Shell] grep -n "knock away other creatures" mod-tome.lua
+[Thought] Analyzing a function call related to creature interaction and damage, specifically a "knock away" effect. Further investigation requires examining related entries, specifically entries 804 and 805, to understand the context and mechanics. Entry 804 seems to be a description of a specific entity.
+
+
+Placeholders in the source and target strings of entry-00805 are identical. There's a likely typo in the source string: a stray parenthesis after `%d` in "radius %d)". The Chinese translation correctly omits the unmatched parenthesis. The use of "each" in English is properly reflected in the Chinese translation.
+[Shell] grep -n -C 10 "These blackened boots" /workspace/t-engine4/game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua
+[Shell] grep -rn -i "deep bellow" terminology/ /workspace/t-engine4/game/
+[Shell] grep -rn "Deep Bellow" terminology/ mod-tome.lua
+[Thought] "深渊咆哮" is the consistent translation for "The Deep Bellow." Examining entry-00820 confirms this translation is accurate within its context. Observing that "The Warped Boots" drops from "The Mouth" (the boss associated with "The Deep Bellow") implies a connection; verification is needed.
+[Shell] grep -n -C 5 "vial of yellow fluid" /workspace/t-engine4/game/modules/tome/data/general/objects/brotherhood-artifacts.lua
+[Shell] grep -n -C 10 "exercising your core talents" /workspace/t-engine4/game/modules/tome/data/general/objects/brotherhood-artifacts.lua
+[Thought] The "Elixir of Focus" grants two class talent points upon use. Examining the code, the item's `use_simple` function correctly increments the player's `unused_talents` variable, which suggests that the implementation is correct. The logging messages confirm the expected behavior and transformation upon use.
+[Shell] grep -n -C 10 "resists the grasping vines" /workspace/t-engine4/game/modules/tome/data/general/objects/egos/ammo.lua
+[Shell] sed -n '480,505p' /workspace/t-engine4/game/modules/tome/data/general/objects/egos/ammo.lua
+[Thought] Analyzing a potential "grasping" ability. The context suggests a chance to generate binding vines that inflict nature damage and immobilize the target. This ability is being translated to another language; the core mechanic remains the same.
+
+
+The Chinese translation uses "抵抗了藤蔓的抓握" (resisted the vines' grasp), which, while grammatically correct and semantically clear, might be subtly different from "resists the grasping vines" in the English source. However, the underlying mechanic is immobility, and both wordings accurately reflect the effect, so this difference is likely not a critical issue. Entry 18 is also being reviewed for related context.
+[Shell] grep -n -C 10 "restorative" /workspace/t-engine4/game/modules/tome/data/general/objects/egos/boots.lua
+[Shell] sed -n '215,245p' /workspace/t-engine4/game/modules/tome/data/general/objects/egos/boots.lua
+[Shell] grep -n -C 5 "restorative" mod-tome.lua
+[Shell] sed -n '9960,9980p' mod-tome.lua
+[Shell] grep -rn -C 5 "resilient" /workspace/t-engine4/game/modules/tome/data/general/objects/egos/
+[Shell] grep -rn -C 5 "restorative" /workspace/t-engine4/game/modules/tome/data/general/objects/egos/cloak.lua
+[Shell] sed -n '195,205p' /workspace/t-engine4/game/modules/tome/data/general/objects/egos/cloak.lua
+[Shell] grep -rn -i "restorative" terminology/ || true
+[Shell] grep -rn "振奋" terminology/ || true
+[Thought] A review of all entries is necessary to identify potential issues beyond the immediate context. Entry-00728 is the starting point for this systematic check. Each of the eighteen entries will be examined individually to ensure comprehensive coverage.
+[Shell] sed -n '55,85p' /workspace/t-engine4/game/modules/tome/data/talents/corruptions/rot.lua
+[Shell] grep -rn "腐肉虫群" terminology/ mod-tome.lua
+[Thought] The terminology entry for "carrion worm mass" is correctly translated as "腐肉虫群". The translation of "spawned" as "孵化" in the log message also appears to be accurate. There are no immediate violations detected.
+
+
+Examining the translation of "spawned" as "孵化" in context; it's likely correct given the worms' nature. Reviewing entry-00746, discrepancies in terminology are apparent. The term "Mana" is a resource, while "Magic" is a stat within the game's mechanics. The source text utilizes "mana" for both "feed on" and "draining," which corresponds to the game's "法力值" and not "魔力".
+
+
+Analyzing entry-00746 reveals a critical inconsistency: "Mana" (法力值) is incorrectly translated as "Magic" (魔力), creating a terminology and mechanical conflict within the description. The entry correctly translates "Manaworm" as "法力蠕虫" but then mistranslates "feed on the mana" and "draining mana" as "魔力" which is incorrect. Entry 00780 is under review to check for similar issues. The term "humanoid" is correctly translated as "类人生物."
+[Shell] grep -rn "类人生物" mod-tome.lua
+[Shell] grep -rn 't("humanoid"' mod-tome.lua
+[Thought] Observed that "humanoid" consistently translates to "人形生物" in ToME. This is confirmed by the `terminology_snapshot`. Encountered a target sentence using "类人生物," which seems inconsistent. Must verify if "类人生物" and "人形生物" are interchangeable or if a nuance is being missed.
+[Shell] cat TERMINOLOGY.md
+[Thought] The system records the same English term separately under different labels, suggesting a need for semantic refinement. The `T.GAME.ENTITY` tag is semantically subdivided into item, creature, or location categories. The example entry's translation, particularly the use of `类人生物` (humanoid creature), raises a potential issue regarding its accuracy or consistency with the intended classification.
+
+
+Investigating the usage of "humanoid" translation, specifically `类人生物` versus `人形生物`, based on differing examples. The goal is to determine if this is an objective error or an acceptable variation in translation. Examining other entries to identify similar patterns. Further analysis of entry-00866 and its translation of "restorative" as "振奋" is required.
+
+
+Examining the "restorative" ego in the code, the assigned keyword "振奋" (invigorate/inspire) seems semantically mismatched with its effects: healing and life regeneration. Considering the "invigorating" ego, which is correctly translated with "精力" (energy/vigor), the current translation of "restorative" requires reevaluation. The translation for "restorative" should probably have "恢复/治疗/滋" because it's linked with healing_factor and life_regen.
+
+
+The translation of "restorative" as "振奋" is confirmed to be inconsistent with its function in the game, which is linked to healing and regeneration effects, contradicting its semantic meaning. Further investigation into other translations of "restoration" and "restore" confirms that the preferred translations "恢复", "回复", and "滋补" accurately reflect the intended meaning of healing and restoration, which leads to a severe semantic mistranslation of `restorative` as `振奋`. The incorrect translation is found in `mod-tome.lua` and entry-00866. Re-examining of other entries is not necessary because the issue has been isolated.
+
+
+Analyzing potential translation errors, specifically focusing on "feed on the mana of arcane users." Observing the game mechanic, the effect drains "Mana" (法力值), a resource, not "Magic" (魔力), a primary stat. Noticed a translation inconsistency where "mana" is translated as "魔力" within the same sentence, despite the established translation of the creature as "法力蠕虫" (Manaworms), leading to a confusing mix of resource and stat. Determined the translation of "mana" should consistently be 法力 or 法力值 to maintain semantic accuracy.
+[Shell] grep -n -C 10 "The forces binding this skeleton together" /workspace/t-engine4/game/modules/tome/data/general/npcs/skeleton.lua
+[Thought] The description indicates the skeleton warrior can wield a shield and weapon, implying both hands are functional. The `resolvers.equip` function attempts to equip a greatsword, automatically meeting a requirement. However, this is an incomplete thought, suggesting the need to verify that it correctly handles both weapon and shield compatibility given the description's implication of functional hands.
+
+
+The original text's implication of "weapon" for a greatsword conflicts with the understanding of it being a 2H weapon, but the lore is the upstream source. The translation "持盾挥击" aligns with the description's implied functionality.  Investigating entry-00780, the translation of "humanoid" to "类人生物" is consistent with the terminology snapshot, given the source tag. Examining the translation of "power" is necessary, considering whether "强度" or "能量" is more correct within the given context.
+
+
+Examining the terminology file, the "humanoid" translation in entry-00780 is valid, given the `entity type` source tag and context, since both "类人生物" and "人形生物" are accurate translations. Checking entry-00843, the source text indicates the elixir improves one's "capacity for exercising your core talents". This requires further investigation to determine if the target translation accurately reflects the intended meaning.
+
+
+Analyzing the translation of the elixir's effect, focusing on potential gameplay misunderstanding and terminology consistency.  Checked terminology snapshot for relevant terms; none found. Examined entry-00852 and code for "pin" effect, finding no issues. Further review of all translation entries underway.
+
+
+All the reviewed translations from the source text appear accurate and consistent with the terminology snapshot and semantic understanding, for the provided entries. No issues were found regarding terminology or placeholders; punctuation and color tags are also consistent.
+
+
+Examining entry-00746, the source describes "manaworms" feeding on "mana" from "arcane users". The target translation uses "法力" (mana) for "mana", "魔力" (magic) for "arcane", which aligns with the game's internal terminology for these concepts. "法力蠕虫" is the expected translation for "manaworm".
+
+
+Examining the effect description for the "manaworm," the code drains "mana," a specific resource (法力值), not "magic" (魔力), which the translation incorrectly uses. This terminology conflict appears in both the effect description and the entity name translation, causing potential confusion with the primary stat "magic". Entry-00746 requires correction to use "法力" consistently. Entry-00752's translation of "armour" to "护甲" is consistent and accurate.
+
+
+Examined entry-00763; the translation of "ice elemental" is accurate based on terminology and semantics. The translation of entry-00768's description of skeleton's ability to wield a shield and weapon matches the semantic implications. Entry-00781's description of "drake hatchling" and entry-00804's translation of "flesh" also align with the understanding.
+
+
+Checked the translation of the effect description, confirming correct terminology and matching placeholder formats; semantics are accurate. Verified the translation of "Deep Bellow" against the zone translation and lore, confirming consistency. Checked the translation of "vial of yellow fluid"; it appears accurate.
+
+The color code and semantics of the elixir description translation also match. The placeholder translation for "%s" is valid. The translation of "restorative" to "振奋" aligns with its usage in the provided data file, confirming its semantic accuracy as an entity keyword.
+
+
+The provided ego definition grants healing and life regeneration, contradicting the "振奋" translation, which implies invigoration. This constitutes a semantic error. Identified and flagged a mistranslation of "restorative" in the data file. The translation should reflect healing/restoration, not invigoration. Re-verifying previously checked entries (00805, 00843, 00780, 00768, 00728). Entry 00728 reveals potential English typo in placeholder usage: "from %s' wounds!" might produce incorrect grammar when formatted.
+
+
+Translations in entries 00728, 00730, 00731, 00733, 00740 are accurate and consistent with the terminology snapshot.  Entry 00746's translation of "mana" to "魔力" is semantically correct in the source text, but must be checked for consistency with the code's internal use of "法力".
+
+
+The code explicitly uses "mana" (法力值), a resource, while the translation incorrectly uses "magic" (魔力), the primary stat. This translation error will cause conceptual confusion.  The translation of "manaworm" ("法力蠕虫") in the same context further highlights this inconsistency. Entry-00746 requires correction to use 法力. Entry 00752's translation is consistent.
+
+
+Examined entry-00763; "ice elemental" translation ("寒冰元素生物") accurately reflects terminology and context. Entry-00768's translation accurately conveys the description of the skeleton's ability to wield a shield and weapon. Entry-00780 translation of "humanoid" is correct. Verified the accuracy of entries 00781 and 00804's translations based on the source texts' semantic context. Entry 00805 also matched and confirmed correct placeholder handling.
+
+
+Re-examined entries 00728, 00730, 00731, 00733, 00740, 00746, 00752, 00763, 00768, 00780, 00781, 00804, 00805, 00820, 00840, 00843, and 00852, focusing on terminology consistency. Found an inconsistency in entry 00746, where the translation uses "魔力" (magic) instead of "法力" (mana), which is used by the code. The translation of "restorative" in 00866 should reflect healing/restoration. Entry 00728's translation requires checking regarding potential placeholder grammar issues.
+
+
+Translations for "carrion worm mass" ("腐肉虫群") consistently reflect the intended meaning across different contexts, including its spawning from wounds. No semantic conflicts were identified in the provided entries. Entry 00728's placeholder format ("from %s' wounds!") appears potentially grammatically incorrect when formatted.
+
+
+Entry 00746 requires updating to reflect the distinction between the "mana" resource (法力值) and the "magic" stat (魔力), based on ToME's internal terminology. The source's description of feeding on "mana" requires translating that to "法力". The entity description of "manaworm" ("法力蠕虫") requires using "法力". The translation for "restorative" in 00866 should be checked, based on the ego translation semantics. Entry 00728 requires examining for possible placeholder grammatical issues, due to incorrect formatting.
+
+
+Examining entry-00746, the translation correctly uses "法力" for "manaworm" initially, but inconsistently switches to "魔力" for "mana" in the effect description, creating a terminology conflict. Entry 00746's translation must be corrected to maintain consistent use of "法力". Entry 00752's translation of "armour" to "护甲" is consistent and accurate. Entry-00763 is accurate.
+
+The description in entry 00768's translation accurately reflects the implication that the skeleton can use a shield and a weapon. Entries 00781 and 00804's translations are accurate. Placeholders and terminology in the effect description are valid and consistent. The translation of "Deep Bellow" aligns with the lore. The translation of "vial of yellow fluid" and the placeholder "%s" are also valid.
+
+The translation of "restorative" ("振奋") presents a semantic error, as the definition is related to healing, not invigoration. Entry 00728's placeholder format ("from %s' wounds!") appears potentially grammatically incorrect. Entries 00728, 00730, 00731, 00733, and 00740's translations are accurate. The translation of "mana" to "魔力" in entry 00746 is semantically accurate but inconsistent with code usage.
+
+The code uses "法力值" (mana), while the translation incorrectly uses "魔力" (magic), so this requires correction. This translation error is present in entry 00746. Entries 00752 and 00763 translations are consistent. Entries 00768, 00780, 00781, and 00804's translations are accurate and correct. Entry 00805 is valid and consistent.
+
+Re-examining several entries, the inconsistency in entry 00746 persists; "魔力" is used instead of "法力," as required by the code. "Restorative" in entry 00866 must reflect healing/restoration. Entry 00728 requires checking for potential grammar issues in the placeholder. "Carrion worm mass" translations are accurate.
+
+Entry 00746 needs updating to reflect the difference between "法力值" (mana) and "魔力" (magic). "Restorative" in entry 00866 requires re-examination based on ego definition. Entry 00728 requires inspection for formatting errors.
+
+
+The "restorative" translation in entry-00866 presents a semantic issue, deviating from its true definition. The code provides healing and regeneration; however, the translation implies invigoration. This discrepancy has been identified and flagged for correction. Additionally, a potential grammatical error exists in entry 00728's placeholder. Entry 00746 requires updating to reflect the difference between "mana" (法力值) and "magic" (魔力).
+
+
+The "restorative" ego in entry-00866 grants healing and life regeneration. However, the existing translation ("振奋") implies invigoration. This constitutes a semantic error because the translation doesn't accurately reflect the intended effect in the code, which focuses on healing.
+
+
+Confirmed that the key order and expected output formats for OK and ISSUE entries are correct. Identified an ISSUE for `entry-00746`.
+[Shell] python3 -c ' import json candidate_identity = "af268c61b58bcc1496d3e56c04b70dcd0c88d76616ebd159d4ba323e9f355d00" envelope = json.load(open(".ai/task/ctx2-pub-06a/CONTEXTUAL-ENVELOPE-full-01.json"))...
+[Thought] Analyzing `entry-00746`, the component "tome" is associated with specific code paths related to `losgoroth.lua`, damage types (`MANAWORM`), and timed effects (`EFF_MANAWORM`). The call chain suggests a link from damage calculation to timed effects applied to the NPC. Version control data indicates a fixed commit, which provides context.
+
+
+The "MANAWORM" damage type triggers a mana-draining effect ("EFF_MANAWORM") using `self:incMana(-dam)`, targeting the "Mana" resource, not the "Magic" stat. The translation incorrectly uses "Magic" for "Mana," causing a terminology conflict within the sentence. "Restorative" on boots increases healing and life regeneration; the translation of this effect as "振奋" is a semantic misinterpretation that conflates the healing effect with an invigorating one.
+[Shell] python3 -c ' import json candidate_identity = "af268c61b58bcc1496d3e56c04b70dcd0c88d76616ebd159d4ba323e9f355d00" envelope = json.load(open(".ai/task/ctx2-pub-06a/CONTEXTUAL-ENVELOPE-full-01.json"))...
+[Shell] ls -la tools/*paseo* tools/*contract* 2>/dev/null || true
+[Shell] grep -rn "translation_contextual_v2" tools/
+[Read] tools/contextual_result_check.py
+[Read] tools/contextual_result_check.py
+[Thought] The validation process demands that the `raw_output` strictly adheres to a specific compact JSON format. This format is crucial; any deviation, including trailing bytes or differing encodings, triggers a `ContractError`. The `raw_output` must be the result of encoding the validated data using UTF-8, with specific JSON parameters (`ensure_ascii=False`, custom separators, and forbidding `NaN`).
+[Shell] python3 -c ' import json, subprocess candidate_identity = "af268c61b58bcc1496d3e56c04b70dcd0c88d76616ebd159d4ba323e9f355d00" envelope = json.load(open(".ai/task/ctx2-pub-06a/CONTEXTUAL-ENVELOPE-ful...
+[Thought] All 18 revisions were thoroughly checked, leading to identification of two issues supported by specific evidence. The issues involve semantic inaccuracies where "feed on the mana" and "draining mana away" are translated as "魔力." These issues have been isolated, validating the review's scope.
+[Shell] python3 -c ' import json candidate_identity = "af268c61b58bcc1496d3e56c04b70dcd0c88d76616ebd159d4ba323e9f355d00" envelope = json.load(open(".ai/task/ctx2-pub-06a/CONTEXTUAL-ENVELOPE-full-01.json"))...
+{"contract":"translation_contextual_v2","candidate_identity":"af268c61b58bcc1496d3e56c04b70dcd0c88d76616ebd159d4ba323e9f355d00","verdicts":[{"revision_key":"entry-00728","verdict":"OK"},{"revision_key":"entry-00730","verdict":"OK"},{"revision_key":"entry-00731","verdict":"OK"},{"revision_key":"entry-00733","verdict":"OK"},{"revision_key":"entry-00740","verdict":"OK"},{"revision_key":"entry-00746","verdict":"ISSUE","observation":"组件: tome；公开源码路径: game/modules/tome/data/general/npcs/losgoroth.lua (lines 72-81)；调用链: game/modules/tome/data/damage_types.lua (lines 3314-3333, DamageType.MANAWORM), game/modules/tome/data/timed_effects/magical.lua (lines 1785-1801, EFF_MANAWORM)；固定commit: 624a67329fe2ad440c5b344785a9c73fcf22ae63。法力蠕虫的攻击机制通过 DamageType.MANAWORM 触发 EFF_MANAWORM 效果，每回合执行 self:incMana(-dam) 扣减目标的法力值资源（且要求 knowTalent(target.T_MANA_POOL)，否则提示 has no mana to burn），属于法力资源（Mana）扣减而非魔力属性（Magic/mag）削减。术语子集明确规定 Mana => 法力值 [T.GAME.RESOURCE/_t/existing/core]、mag => 魔力 [T.GAME.STAT/stat short_name/existing/global]。译文将 feed on the mana 与 draining mana away 均译为“魔力”（“以奥术使用者的魔力为食”、“吸干对方的魔力”），将法力值（Mana）混淆为魔力属性（Magic），且与同句开头的“法力蠕虫”（Manaworms）产生条内术语矛盾。"},{"revision_key":"entry-00752","verdict":"OK"},{"revision_key":"entry-00763","verdict":"OK"},{"revision_key":"entry-00768","verdict":"OK"},{"revision_key":"entry-00780","verdict":"OK"},{"revision_key":"entry-00781","verdict":"OK"},{"revision_key":"entry-00804","verdict":"OK"},{"revision_key":"entry-00805","verdict":"OK"},{"revision_key":"entry-00820","verdict":"OK"},{"revision_key":"entry-00840","verdict":"OK"},{"revision_key":"entry-00843","verdict":"OK"},{"revision_key":"entry-00852","verdict":"OK"},{"revision_key":"entry-00866","verdict":"ISSUE","observation":"组件: tome；公开源码路径: game/modules/tome/data/general/objects/egos/boots.lua (lines 202-214)；固定commit: 624a67329fe2ad440c5b344785a9c73fcf22ae63。boots.lua 中 restorative 词缀（name = \"restorative \", keywords = {restorative=true}）的机制效果为提升 healing_factor（治疗系数）和 life_regen（生命回复），语义为促进康复、生命恢复（“恢复/复原”）；而其相邻词缀（lines 217-230）invigorating （keywords = {['invigor.']=true}）提供体力和移速等加成，已译为“精力充沛的/精力”。译文将 restorative 作为 entity keyword 译为“振奋”，属于语义误译，偏离了词缀的生命恢复机制，且与振奋/精力类效果产生混淆。"}]}
