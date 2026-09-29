@@ -1,0 +1,72 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [
+    {
+      "revision_key": "633abbce6ac879017b0da775aff14b4de73f52f32c8b315e95bdc41d70da6e7a",
+      "source": "Your antimagic disrupts %s.",
+      "target": "你的反魔法干扰了 %s。",
+      "disposition": "advisory",
+      "note": "freeze 报 MISS：目录把该 tformat 条目归到 section mod-tome/class/Player.lua，但固定 commit 624a6732 的 Player.lua 已不含该字面量。上游 5f7e8cb9a3（canUseObject 调整）把它移到了 game/modules/tome/class/Object.lua:199，写作 (\"Your antimagic disrupts %s.\"):tformat(...)，源串与 tag 不变，运行时仍按字面量命中本译文，所以不是死键，只是 section 过期。surface lane-000-2 判 OK，宿主核对译文与占位符无误。本批记 done、不做 host-block；section 归属迁移（以及同 section 下 logPlayer 旧行 mod-tome.lua:1116）留作目录维护事项。"
+    }
+  ],
+  "slide_check": "all 7 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "3977a0fcaaccd9b500bf707632a311f53acea58c0c790677acf45bba67660bb6",
+      "stage": "surface",
+      "observation": "原文“A few fireballs at the vial”是朝瓶子发射火球，译文“往瓶子里放几个小火球”误作将火球放入瓶内。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a6732 game/modules/tome/data/lore/misc.lua:669-685（How to Summon a Phoenix）：A few fireballs at the vial can do the trick if they're stubborn 是朝药瓶打几发火球加热助溶，译文“就往瓶子里放几个小火球”把动作改成往瓶内放入，还多了“小”。忠实度缺陷，确认。修复建议：“如果难以溶解，朝瓶子打几发火球就能解决。”"
+    },
+    {
+      "revision_key": "3fbeca0974583c843d096fff5ed1ea65bd55949400e471eb30a6a72f5bf70c36",
+      "stage": "surface",
+      "observation": "原文说娜迦制作“weapons and armour”，译文只写“珠宝和武器”，遗漏盔甲。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit misc.lua:497-505 娜迦段：they decorate themselves in jewellry and craft weapons and armour from materials found on the sea-bed, such as supple mail…。译文“用海底找到的材料做成珠宝和武器装备自己，例如用鲨鱼皮制成的柔软锁甲”漏了 armour，还把“以珠宝装饰自己”并进“用海底材料做成”，导致后文的锁甲例子没有对应项。此外，contextual 复核在同条巨魔段又指出两处（misc.lua:499）：(1) “Kezrak and Moltep, or stone and forest trolls as they are colloquially known”意为“也就是俗称的岩石巨魔与森林巨魔”，译文“因为这更加通俗地为人所知”误作因果；(2) “a thick, solid hide which bears the appearance of coal or granite”，译文“厚厚的煤黑色或花岗岩状的外观”丢了主语“外皮”。确认，按整段修复。修复建议：巨魔段改为“……科兹拉克和马提普，也就是俗称的岩石巨魔和森林巨魔。……有着极为发达的肌肉力量，外皮厚实坚硬，看上去就像煤块或花岗岩。”；娜迦段改为：“但是他们会用珠宝装饰自己，并用海底找到的材料打造武器和盔甲，例如用层层厚鲨鱼皮制成的柔软锁甲。”"
+    },
+    {
+      "revision_key": "43bb145b7a2c09c6aab82558ffd8723d9509c9c8a6825988ea190c09f05a38b2",
+      "stage": "surface",
+      "observation": "原文“come to grips with this strange environment”指开始理解或适应环境，译文“眼睛渐渐习惯这幅奇怪的场景”误作视觉适应。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "misc.lua:624-628 梦境入侵 lore：come to grips with this strange environment 意为开始适应并理解这个奇怪的环境，译文“当你的眼睛渐渐习惯这幅奇怪的场景时”把它具体化为视觉适应。前文正写到眼前离奇的景象，语境通顺，也不涉及机制，属二级措辞，记 advisory。"
+    },
+    {
+      "revision_key": "48484bd69e8dc02dd5a93458860703c6a93ac9571142f5d3c4bf177e2a4f22c2",
+      "stage": "surface",
+      "observation": "原文是以“)”开头、末尾留空格且未结束的句段；译文删除了“)”，并添加句号，可能破坏前后句段的拼接。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit boss-artifacts-far-east.lua:513 use_power.name 返回该串，由 Object.lua 的“It can be used to %s.”等模板嵌入；本库模板译作“它可以用于%s。”（mod-tome.lua:1004）和“可以用于 %s，剩余 %d 次充能……”（:991）。译文末尾自带“。”，显示时会出现“（基于力量）。。”或“。，”的重复标点，属于运行时显示缺陷。源串中的“)”是上游笔误（没有配对的左括号），译文省去它不影响拼接。确认。修复：删去末尾“。”，其余不变。"
+    },
+    {
+      "revision_key": "4b3491d1633ae0f4195e34de775888e1b5d58b1819e11ed51f9e9347bbc86617",
+      "stage": "surface",
+      "observation": "原文末尾有换行，译文末尾没有；原文“Tolak the Fair”也未称托拉克为王，译文“公正之王托拉克”增添了王的头衔。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit misc.lua:388-397 半身人 lore 长括号正文以“Tolak the Fair.\\n]]”结束，源文末尾有一个 LF，译文以“托拉克。”结束，少了末尾换行，违反换行不变量。确认，修复时在末尾补一个 \\n。观察中关于“公正之王”的部分驳回：Tolak the Fair 是最后的希望国王托拉克，本库统一译为“公正之王托拉克”（mod-tome.lua 多处，含雕像名与对话），属于既有专名。"
+    },
+    {
+      "revision_key": "66376abb91852d2fd95852a5270035cb24f4c40c010587a2fca22637c6c5a8d9",
+      "stage": "surface",
+      "observation": "原文 Chant of Resistance 对应译文“元素赞歌”；冻结输入没有术语条目正文，无法确认这是否为既定译名。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "chants.lua:386-390 Chant of Resistance 在本库的技能名是 mod-tome.lua:20989 t(\"Chant of Resistance\", \"元素赞歌\", \"talent name\")，info 中的“元素赞歌”与技能名一致。驳回。"
+    },
+    {
+      "revision_key": "71970bfdd55272a285b994eea42dfc31e60038b40a51aa298966b194e756c5cf",
+      "stage": "surface",
+      "observation": "原文从“How did we survive?”到“waking thoughts.”为同一段，译文在其中额外插入两处空行，段落格式与原文不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit misc.lua:129-138 罗尔夫致威斯曼的信：源文从“How did we survive?”到“waking thoughts.”是同一段，前后各以 \\n\\n 分隔。译文在“离我而去。”和“那些东西。”之后各多插入一个 \\n\\n，把一段拆成三段，段落结构与原文不一致（换行不变量）。确认。修复：删去这两处多余的 \\n\\n，把三段合回一段，正文不变。"
+    }
+  ]
+}

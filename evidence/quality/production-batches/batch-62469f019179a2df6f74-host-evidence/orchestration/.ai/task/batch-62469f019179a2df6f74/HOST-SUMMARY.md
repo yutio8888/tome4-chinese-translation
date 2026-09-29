@@ -1,0 +1,3 @@
+第365批：冻结80条（全部主游戏），逐条按 manifest 固定 engine commit 624a673 核验80/80；其中 633abbce6a 的字面量已由上游移到 class/Object.lua:199，目录 section 过期（见宿主补充观察）。surface 一组 4 条 lane（各 20 条，全部主游戏），共 7 个 ISSUE；各 lane 只读或解析自身 envelope 与契约，未创建 Paseo 终端。freeze 报 1 条 section 过期的 MISS（Your antimagic disrupts %s.，现位于 class/Object.lua:199），记为宿主补充观察。contextual 一个 run：contextual-000（7 条 deep）首轮通过，6 OK、1 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决8个观察：{'confirmed': 6, 'advisory': 1, 'refuted': 1}；预计75条完成、5条待修复。新增 5 条修复 revision：3977a0fcaa 召唤凤凰卷轴“往瓶子里放小火球”、3fbeca0974 野蛮种族 lore（巨魔俗称、外皮、娜迦漏盔甲）、48484bd69e 远东神器 use_power 名末尾多余句号、4b3491d163 半身人 lore 末尾缺 LF、71970bfdd5 罗尔夫信件多拆两段。“元素赞歌”“公正之王托拉克”均为本库既有译名，相关观察驳回；梦境 lore come to grips 记 advisory；Your antimagic disrupts 目录 section 过期，留作目录维护。修复窗口53积压为9，未达20。
