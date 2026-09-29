@@ -1,0 +1,18 @@
+{
+  "title": "W55 execute-02 fix r0",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w55-20260929 第 1 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w55-20260929/SPEC.md、SCOPE.json、WORKSET.json、SOURCE-ANCHORS.json 与 ADJUDICATION-R0.json。只修 ADJUDICATION-R0 中 status=confirmed 的一条：beb0369eb8（mod-tome.lua，section mod-tome/data/damage_types.lua，t(\"mauled\", …, \"_t\")）把 target“被撕咬致残”改为“被撕碎”。其他 6 条及文件其他记录不动；不改术语库。仅你是任务内容写入者，可写这条 target，并在 evidence/quality/repair-window-55-20260929/IMPLEMENTATION.md、VALIDATION.json 追加本轮记录。主游戏源码只从 /workspace/t-engine4 固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 用 git show 取证，禁止从 /、/workspace 或无关目录搜索。不新增行尾空白。运行有界验证（LuaJIT 加载 mod-tome.lua：相对 SCOPE 基线仍恰 7 条 target 变动；git diff --check；strict lint），回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w55-20260929",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

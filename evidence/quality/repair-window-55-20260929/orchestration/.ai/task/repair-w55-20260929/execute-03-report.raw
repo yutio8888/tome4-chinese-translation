@@ -1,0 +1,27 @@
+第 2 轮修复已完成。
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:26803)：仅重排 `546a6e96d9` 的换行/TAB，措辞不变。
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-55-20260929/IMPLEMENTATION.md)：已追加本轮记录。
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-55-20260929/VALIDATION.json)：已追加 cycle 2 回执，JSON 解析通过。
+
+前后文本：
+
+```text
+旧：
+激活你的一部分内在魔力，用它来驱动你的能力。
+\t\t在接下来 %d 回合中，所有主动技能的使用都不消耗资源。
+\t\t你的资源仍须足以启动技能，失败率等仍照常生效。
+
+新：
+激活你的一部分内在魔力，用它来驱动你的能力。在接下来 %d 回合中，所有主动技能的使用都不消耗资源。
+\t\t你的资源仍须足以启动技能，失败率等仍照常生效。
+\t\t
+```
+
+验证结果：
+
+- LuaJIT/LocaleLoader：通过；相对基线仍恰有 7 条 target 变化，0 个非 target 字段变化。
+- target repr：`'激活你的一部分内在魔力，用它来驱动你的能力。在接下来 %d 回合中，所有主动技能的使用都不消耗资源。\n\t\t你的资源仍须足以启动技能，失败率等仍照常生效。\n\t\t'`
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过，无输出。
+- 其他 6 条、术语库及 `.ai/task` 均未修改；未 stage、commit、push，未创建 agent。

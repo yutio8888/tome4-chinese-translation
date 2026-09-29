@@ -1,0 +1,28 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "publication-01",
+      "status": "PASS",
+      "tool_calls": 13,
+      "native_calls_sha256": "68316f91365a21d4182fc88ae70b4e4f0ced4907c520f6d2d423f3d264b6336d",
+      "writes": [
+        "evidence/quality/repair-window-55-20260929/orchestration/* (145 pack files, SHA verified)",
+        "evidence/quality/repair-window-55-20260929/orchestration-pack-manifest.json",
+        "evidence/quality/repair-window-55-20260929/publication/* (attachments)",
+        "evidence/quality/repair-window-55-20260929/PUBLICATION.md",
+        "evidence/production-review-v2-lite/catalog/* and i18n/quality/production-review-v2-lite/* (exact copies)",
+        "evidence/production-review-v2-lite/migrations/9035e3de….json (exact copy)",
+        "handoff.md"
+      ],
+      "notes": [
+        "handoff: exactly five places updated as scoped (update line 3, section-one window line, item 1 successor count and template references, item 2 first line from HANDOFF-ITEM2.txt, window 56 backlog line); the 第370批计时 line and items 3, 4 and 5 preserved verbatim; host reviewed the git diff of handoff.md",
+        "native tool scan: 13 calls, 1 flagged: rm of its own /tmp/install_repair_w55_publication.py copy helper (escalated, no repository effect); host scripts in /tmp untouched",
+        "host ran archive-intent by hand: wd_exec_done aborted on the non-numeric dispatch id before that step (same as window 54)",
+        "pending-user-review.md untouched; catalog: only entries.jsonl and manifest.json changed bytes"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ]
+}

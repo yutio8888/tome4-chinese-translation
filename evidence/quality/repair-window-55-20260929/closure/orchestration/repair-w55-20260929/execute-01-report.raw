@@ -1,0 +1,30 @@
+已完成 `repair-w55-20260929`，严格遵守 Paseo EXECUTOR 单写者边界。
+
+修改 [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua) 中 7 个 target：
+
+- `burnt`：`烧焦的` → `被烧焦`
+- `cosmeticed`：`外观` → `被‘美化’`
+- `mauled`：`被殴打` → `被撕咬致残`
+- `timewarped`：`被时空隔断` → `被时间扭曲`
+- `psyched`：`过度兴奋` → `被心灵摧毁`
+- 高等人类之绽放效果：`目标使用技能时不再消耗能量。` → `目标使用技能时不消耗资源。`
+- 技能 info 整体替换为：
+  `激活你的一部分内在魔力，用它来驱动你的能力。`
+  `在接下来 %d 回合中，所有主动技能的使用都不消耗资源。`
+  `你的资源仍须足以启动技能，失败率等仍照常生效。`
+
+验证结果：
+
+- LuaJIT：22,989 条记录、21,688 条翻译；恰好 7 个 target 改动，非 target 变化 0
+- 精确匹配 SOURCE-CLAIMS：7/7
+- 占位符、LF/TAB、行尾空白：7/7 通过
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors、0 warnings
+- `git diff --check`：通过
+- 固定 commit 的三个源码文件哈希均匹配 SOURCE-ANCHORS
+
+证据已写入：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-55-20260929/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-55-20260929/VALIDATION.json)
+
+未改观察：用户裁决保留的其他诙谐死亡描述均保持原样；`/workspace/t-engine4` 当前 HEAD 不同于固定 commit，但全部取证均显式使用 `git show 624a673…`。没有其他未解决疑点。未 stage、commit、push，未创建 agent，也未修改 `.ai/task/`。

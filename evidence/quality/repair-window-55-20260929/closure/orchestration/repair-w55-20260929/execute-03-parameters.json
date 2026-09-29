@@ -1,0 +1,18 @@
+{
+  "title": "W55 execute-03 fix r1",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w55-20260929 第 2 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w55-20260929/SPEC.md、SCOPE.json、WORKSET.json、SOURCE-ANCHORS.json 与 ADJUDICATION-R1.json。只修 ADJUDICATION-R1 中 status=confirmed 的一条：546a6e96d9（mod-tome.lua，高等人类之绽放技能 info，t([[Activate some of your inner magic…]], [[…]], \"tformat\")），措辞不变，只按固定源码 races.lua:155-157 的行结构重排：前两句合为第一行，“你的资源仍须足以启动技能，失败率等仍照常生效。”为第二行，其后再接一个换行与两个 TAB，然后紧接 ]]。即 target 等于 Lua 字符串“激活你的一部分内在魔力，用它来驱动你的能力。在接下来 %d 回合中，所有主动技能的使用都不消耗资源。\\n\\t\\t你的资源仍须足以启动技能，失败率等仍照常生效。\\n\\t\\t”（\\n 为换行、\\t 为 TAB）。本条覆盖 SPEC 中“保持现有行结构”的说明。其他 6 条及文件其他记录不动；不改术语库。仅你是任务内容写入者，可写这条 target，并在 evidence/quality/repair-window-55-20260929/IMPLEMENTATION.md、VALIDATION.json 追加本轮记录。主游戏源码只从 /workspace/t-engine4 固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 用 git show 取证，禁止从 /、/workspace 或无关目录搜索。不得产生行尾空白（末尾两个 TAB 后紧接 ]] 不算行尾空白）。运行有界验证（LuaJIT 加载 mod-tome.lua：相对 SCOPE 基线仍恰 7 条 target 变动，并打印本条 target 的 repr；git diff --check；strict lint），回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w55-20260929",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-03",
+    "paseo.parent-agent-id": "199ce530-b4af-437a-b431-c374c0219a8d"
+  },
+  "notifyOnFinish": true
+}

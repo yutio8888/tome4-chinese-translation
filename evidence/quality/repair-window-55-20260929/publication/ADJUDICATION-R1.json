@@ -1,0 +1,20 @@
+{
+ "cycle": 1,
+ "stage": "RE_REVIEW",
+ "accepted_dispatch_id": "r1a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 6,
+ "raw_issue_count": 1,
+ "decision": "one tier-1 newline-structure finding confirmed (546a6e96d9); the window set the wording but kept the old line layout, which does not match the source; fix in execute-03, then RE_REVIEW(2,1).",
+ "findings": [
+  {
+   "revision_key": "546a6e96d9a4963931cdace25ab51024f000a60dd3709b5b8f6ef58a75a4d598",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "newline",
+   "origin": "reviewer r1a1",
+   "reason": "固定 commit 624a673 game/modules/tome/data/talents/misc/races.lua:155-157：info 第一行含前两句（Activate…abilities.  For the next %d turns…resource cost.），第二行（\\n\\t\\t 后）是资源限制句，末尾再有 \\n\\t\\t 后紧接 ]]。现译把前两句拆成两行、末句放第三行且无结尾 \\n\\t\\t，行结构与源文不符（setup 时宿主误把旧译行结构当作要保留的结构）。措辞不变，只按源文重排：target 改为“激活你的一部分内在魔力，用它来驱动你的能力。在接下来 %d 回合中，所有主动技能的使用都不消耗资源。\\n\\t\\t你的资源仍须足以启动技能，失败率等仍照常生效。\\n\\t\\t”（两个 LF、四个 TAB，与源文一致；末尾 \\t\\t 后紧接 ]]，不构成行尾空白）。"
+  }
+ ],
+ "advisories": []
+}

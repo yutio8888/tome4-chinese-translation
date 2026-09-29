@@ -1,0 +1,44 @@
+{
+  "dispatch_id": "r2a1",
+  "native_session": "01a0ecf2-0f05-7b33-ba6f-5e47f151c888",
+  "native_path": "/home/paseo/.codex/sessions/2026/09/29/rollout-2026-09-29T11-34-41-01a0ecf2-0f05-7b33-ba6f-5e47f151c888.jsonl",
+  "native_sha256": "1318f1fd637fadd329888131b592d9799fd377c5fa95646185a9deaf10b51529",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0db8cf37c9634ff0016abba25704b487d283b8d8b3df35d3f1",
+      "status": "completed",
+      "call_id": "call_c3vFEX4vzWHnaj08UsgUHI2a",
+      "name": "exec",
+      "input": "const r=await Promise.allSettled([tools.exec_command({cmd:\"cat .ai/task/repair-w55-20260929/CONTEXTUAL-ENVELOPE-r2a1.json\",workdir:\"/workspace/tome4-chinese-translation\",max_output_tokens:18000}),tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",workdir:\"/workspace/tome4-chinese-translation\",max_output_tokens:16000})]); for (const x of r) text(x);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ecf2-0f43-7b63-bb92-bd4aff7000cf",
+        "create_time": 1790681685.405245
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0db8cf37c9634ff0016abba25af69c87d2bfab245b14a97b68",
+      "status": "completed",
+      "call_id": "call_Dy6eYjVlGLgOhsNa3mJ66BAW",
+      "name": "exec",
+      "input": "const x=ALL_TOOLS.filter(x=>/file|read|shell|python/.test(x.name+\" \"+x.description)).map(x=>({name:x.name,description:x.description.slice(0,120)})); text(x);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ecf2-0f43-7b63-bb92-bd4aff7000cf",
+        "create_time": 1790681689.627154
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0db8cf37c9634ff0016abba25e141c87d28c4505570e985166",
+      "status": "completed",
+      "call_id": "call_0iecERLg86UdmzP2TDOCe7Bl",
+      "name": "exec",
+      "input": "const r=await tools.exec_command({cmd:\"cat .ai/task/repair-w55-20260929/CONTEXTUAL-ENVELOPE-r2a1.json docs/paseo-translation-context-review-v2-contract.md\",workdir:\"/workspace/tome4-chinese-translation\",sandbox_permissions:\"require_escalated\",justification:\"May I read the exact frozen review envelope and its contract? The default sandbox failed to initialize.\",max_output_tokens:30000}); text(r);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ecf2-0f43-7b63-bb92-bd4aff7000cf",
+        "create_time": 1790681692.359245
+      }
+    }
+  ]
+}

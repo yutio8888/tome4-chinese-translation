@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w55-20260929",
+  "role": "executor",
+  "validated_at_utc": "2026-09-29T11:33:05Z",
+  "baseline_commit": "2928cfc6feab4be6d81084622c14ca64f02a573e",
+  "inputs": {
+    "workset_sha256": "ea61fde9e404700793a8b77c8637a4a72ea9f2b0365904760b7ab226b301f094",
+    "source_anchors_sha256": "892ae60eb5997ac20a57ac361de22877cdc5163c4c73b5b85f6f7b7eed2bcd7b",
+    "source_claims_sha256": "8d814220dba80b828cdd16116d091b60a08a074c4fbf02340bac0b1529a3fb7d",
+    "baseline_records_sha256": "3406ab763a84253f4ade4725a13d0a2a40e9ad988fde2649f9d6480be76c97fd",
+    "term_snapshot_sha256": "fac978e6305e65755d5ec77364fac77476e2958c7c0ab6fab84879cc8d401b37"
+  },
+  "candidate": {
+    "path": "mod-tome.lua",
+    "sha256": "5d2cc80f9a1e7bcaab6636a857fe6fbb1423c7e556dba370568b796154b554b9",
+    "diff_sha256": "32d07199a1568b26118a97fea182d22da0f88f3d9f81bff078eb4250d6f20139",
+    "semantic_record_count": 22989,
+    "translation_count": 21688,
+    "target_changes": 7,
+    "non_target_field_changes": 0
+  },
+  "source_anchor_check": {
+    "repository": "/workspace/t-engine4",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "retrieval": "git show <fixed_commit>:<path>",
+    "queries": 7,
+    "files": [
+      {
+        "path": "game/modules/tome/data/damage_types.lua",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479"
+      },
+      {
+        "path": "game/modules/tome/data/talents/misc/races.lua",
+        "sha256": "958b207fd24723fa3b1613c62048b19012df2e24e9b82152eb1ef2485a88aed1"
+      },
+      {
+        "path": "game/modules/tome/data/timed_effects/other.lua",
+        "sha256": "0ebac2cda64f72fb4e94460bac4560b2b541db31e392aa521cc2caccf44818f7"
+      }
+    ],
+    "file_hash_mismatches": 0,
+    "status": "pass"
+  },
+  "changes": [
+    {
+      "entry_revision_identity": "0146e9d1630436f384afa08a4e2723aefa9a2bef68c0e4e78ffcc6e0d02cdb0d",
+      "source": "burnt",
+      "before": "烧焦的",
+      "after": "被烧焦"
+    },
+    {
+      "entry_revision_identity": "35aeb59a10094706ef999ddcb167591f715f5182a270c223a147809b64ad1e76",
+      "source": "psyched",
+      "before": "过度兴奋",
+      "after": "被心灵摧毁"
+    },
+    {
+      "entry_revision_identity": "546a6e96d9a4963931cdace25ab51024f000a60dd3709b5b8f6ef58a75a4d598",
+      "source": "Activate some of your inner magic, using it to power your abilities.  For the next %d turns all active talents will be used without resource cost.\n\t\tYour resources must still be high enough to initially power the talent and failure rates (etc.) still apply.\n\t\t",
+      "before": "激活你的内在潜力，以提高你的能力。\n\t\t在接下来 %d 回合中可无消耗使用技能。\n\t\t你的能量值仍需要满足使用这些技能的最低能量需求，且技能仍有几率会失败。",
+      "after": "激活你的一部分内在魔力，用它来驱动你的能力。在接下来 %d 回合中，所有主动技能的使用都不消耗资源。\n\t\t你的资源仍须足以启动技能，失败率等仍照常生效。\n\t\t"
+    },
+    {
+      "entry_revision_identity": "5c0fcda68e5b81f8851033370bb989914e6aedbc4bca63f0d836f57b55bcb225",
+      "source": "cosmeticed",
+      "before": "外观",
+      "after": "被‘美化’"
+    },
+    {
+      "entry_revision_identity": "93aa427360bdea3fd48f6a9117f4ee5abbfbcf7aadafb981e1d6ee39e6744f82",
+      "source": "timewarped",
+      "before": "被时空隔断",
+      "after": "被时间扭曲"
+    },
+    {
+      "entry_revision_identity": "beb0369eb88fb92ab1d659c3bf5c162d5f83242502010fe5fce7a223c9f11165",
+      "source": "mauled",
+      "before": "被殴打",
+      "after": "被撕碎"
+    },
+    {
+      "entry_revision_identity": "e923d2b8d0b9da723ca5a9accc6bdaec2314e3b10deeea0fd4d8dd258ff711fe",
+      "source": "The target is using talents without consuming resources.",
+      "before": "目标使用技能时不再消耗能量。",
+      "after": "目标使用技能时不消耗资源。"
+    }
+  ],
+  "checks": [
+    {
+      "name": "luajit_semantic_baseline_comparison",
+      "command": "LocaleLoader(LuaRuntime(load_manifest())) comparing git show HEAD:mod-tome.lua with mod-tome.lua",
+      "exit_code": 0,
+      "result": "22989 records and 21688 translations on both sides; exactly 7 changed targets; exact WORKSET and adjudicated target match; 0 non-target field changes"
+    },
+    {
+      "name": "placeholder_and_line_structure",
+      "command": "LuaJIT-loaded 7-record placeholder and preimage LF/TAB comparison",
+      "exit_code": 0,
+      "result": "7/7 passed; info retains one %d and now matches fixed-source layout: two LF, leading TAB depths [0,2,2], final LF+TAB+TAB inside the Lua long string; git diff --check reports no line-end whitespace"
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "name": "worktree_whitespace",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "pass"
+    }
+  ],
+  "repair_rounds": [
+    {
+      "cycle": 1,
+      "adjudication": ".ai/task/repair-w55-20260929/ADJUDICATION-R0.json",
+      "confirmed_revision_keys": [
+        "beb0369eb88fb92ab1d659c3bf5c162d5f83242502010fe5fce7a223c9f11165"
+      ],
+      "change": {
+        "source": "mauled",
+        "source_tag": "_t",
+        "before": "被撕咬致残",
+        "after": "被撕碎"
+      },
+      "unchanged_other_workset_entries": 6,
+      "checks": {
+        "luajit_semantic_baseline_comparison": "pass: 22989 records and 21688 translations on both sides; exactly 7 target changes; 0 non-target changes; exact WORKSET match; invariants 7/7",
+        "strict_lint": "pass: Checked 30308 translations: 0 errors, 0 warnings",
+        "git_diff_check": "pass: no output"
+      },
+      "validated_at_utc": "2026-09-29T11:27:32Z"
+    },
+    {
+      "cycle": 2,
+      "adjudication": ".ai/task/repair-w55-20260929/ADJUDICATION-R1.json",
+      "confirmed_revision_keys": [
+        "546a6e96d9a4963931cdace25ab51024f000a60dd3709b5b8f6ef58a75a4d598"
+      ],
+      "change": {
+        "source_tag": "tformat",
+        "before": "激活你的一部分内在魔力，用它来驱动你的能力。\n\t\t在接下来 %d 回合中，所有主动技能的使用都不消耗资源。\n\t\t你的资源仍须足以启动技能，失败率等仍照常生效。",
+        "after": "激活你的一部分内在魔力，用它来驱动你的能力。在接下来 %d 回合中，所有主动技能的使用都不消耗资源。\n\t\t你的资源仍须足以启动技能，失败率等仍照常生效。\n\t\t"
+      },
+      "unchanged_other_workset_entries": 6,
+      "checks": {
+        "luajit_semantic_baseline_comparison": "pass: 22989 records on both sides; exactly 7 target changes; 0 non-target changes; exact WORKSET match; selected target repr matched expected fixed-source layout",
+        "selected_target_repr": "'激活你的一部分内在魔力，用它来驱动你的能力。在接下来 %d 回合中，所有主动技能的使用都不消耗资源。\\n\\t\\t你的资源仍须足以启动技能，失败率等仍照常生效。\\n\\t\\t'",
+        "strict_lint": "pass: Checked 30308 translations: 0 errors, 0 warnings",
+        "git_diff_check": "pass: no output"
+      },
+      "validated_at_utc": "2026-09-29T11:33:05Z"
+    }
+  ],
+  "observations_not_modified": [
+    "Other humorous death_message translations were retained by explicit user ruling and are outside this repair scope.",
+    "The /workspace/t-engine4 checkout HEAD differs from the fixed source commit; every source read used git show with the fixed commit object."
+  ],
+  "unresolved_findings": []
+}
