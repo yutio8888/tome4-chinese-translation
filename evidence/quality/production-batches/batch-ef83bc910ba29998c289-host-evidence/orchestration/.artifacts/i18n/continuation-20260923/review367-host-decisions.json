@@ -1,0 +1,50 @@
+{
+ "workset": "evidence/quality/production-batches/batch-ef83bc910ba29998c289-source-workset.json",
+ "decisions": {
+  "b1a0626035|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit game/modules/tome/data/talents/spells/spells.lua:36 是 conveyance 技能类别的说明（类别名“传送”，mod-tome.lua:29534）：Conveyance is the school of travel. It allows you to travel faster and to track others。译文“学习传送，使你能更快地旅行并追踪他人。”漏掉了“是旅行的法术学派”这层定义，改成了祈使句，同段的时空说明（“操控时间的法术学派。”）则保留了学派定义。属完整性缺陷，确认。修复建议：“传送是旅行的法术学派，能让你更快地旅行并追踪他人。”"
+  },
+  "cc1c4c11c1|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "damage_types.lua:3243-3260 “draining physical”是 DEVOUR_LIFE 伤害类型的显示名：以 PHYSICAL 投射伤害，并按实际伤害治疗施放者。译文“生命汲取”点出了吸取生命的效果，但没有体现“物理”属性；同族 draining blight 译作“枯萎吸收/生命吸取”，同样以效果命名。这是伤害类型命名口径的问题，不是错译，也不影响机制。记 advisory，留待伤害类型名统一时一并考虑。"
+  },
+  "ce3265a475|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit timed_effects/other.lua:3354-3363 该区域效果实际调用 effectTemporaryValue(eff, \"sleep_immune\", -0.2)，改的是 sleep_immune 属性。本库把 *_immune 属性统一译作“免疫”（mod-tome.lua:861 “Sleep immunity: ”=“睡眠免疫：”，与角色面板一致），译文“-20% 睡眠免疫”贴合实现与面板用语。驳回。"
+  },
+  "d1f59f1254|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit high-peak/grids.lua:33-34 源文第二行 This one seems to go to the Far East. 行首无空格，译文“\\n 这道门似乎通向远东。”行首多一个空格（与第364批 2f0162776a 钢铁王座传送门同类）。确认。修复：删去该空格。"
+  },
+  "d734dd95bd|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "world-artifacts.lua:1197 神器描述中的“these dwarven-steel gauntlets”。本库 gauntlets 类装备统一译作“臂铠”（mod-tome.lua:11116 铁臂铠、:11118 矮人钢臂铠、:11120 沃瑞钽臂铠、:9371 细孔臂铠），译文“矮人钢臂铠”与基础物品名一致，是既有译名，不是部位错误。驳回。"
+  },
+  "bbd9969016|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit celestial/radiance.lua:37 实现为 talentTemporaryValue(p, \"blind_immune\", …)，修改的是 blind_immune 属性。本库把 *_immune 统一译作“免疫”，与角色面板一致，译文“%d%% 目盲免疫”贴合实现。驳回。"
+  },
+  "c532d7cc96|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit spells/death.lua:55 实现为 target:setEffect(target.EFF_RIGOR_MORTIS, util.bound(nb, 1, t:_getMax(self)), {power=0.25,…})，减速 25% 的持续回合数等于负面效果数（上限 %d）。译文“降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）”说的正是减速效果按负面效果数、每个 1 回合计时，与实现一致；observation 误读了句子结构。驳回。"
+  },
+  "e5f4a107fe|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit techniques/archery.lua:416-486：该 info 属于技能 Headshot（name = \"Headshot\"，本库 mod-tome.lua:30062 “爆头”）。译文“瞄准目标头部”与技能名、技能设定一致，并非无据限定；穿透／越过其他敌人的机制也在下一句如实写出（“能越过你与目标之间的其他敌人”），命中 +100、标记限制都完整。驳回。"
+  },
+  "e5f4a107fe|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit techniques/archery.lua:463-481（Headshot）：target = {type = \"hit\"}，action 用 archeryAcquireTargets(tg, {one_shot=true, x=target.x, y=target.y}) 只取指定目标一发，archeryShoot(targets, t, {type=\"hit\", speed=200}, {mult=dam, atk=100})，是单体命中、越过中间敌人，并非贯穿多个单位的弹药。译文首句“发射穿透性弹药”容易让人以为会贯穿伤害路径上的敌人，而且删掉了 precise。确认。“瞄准目标头部”与技能名“爆头”一致，可以保留（surface 对此的指控已驳回）。修复建议：首句改为“瞄准目标头部进行一次精准射击，造成 %d%% 武器伤害。”，后两句不变。"
+  }
+ }
+}

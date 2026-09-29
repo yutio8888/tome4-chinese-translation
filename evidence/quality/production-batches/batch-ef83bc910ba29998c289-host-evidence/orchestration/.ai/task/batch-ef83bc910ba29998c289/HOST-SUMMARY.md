@@ -1,0 +1,3 @@
+第367批：冻结80条（全部主游戏），逐条按 manifest 固定 engine commit 624a673 核验80/80；其中 eac1a2f40e 为已登记死键（section load.lua，源串段首多前导空格，全部代码文件均无此字面量），按先例 host-block 放行。surface 一组 4 条 lane（各 20 条，全部主游戏），共 8 个 ISSUE；各 lane 只读或解析自身 envelope 与契约，未创建 Paseo 终端。freeze 报 1 条 MISS：人类种族 lore 在 section load.lua 下的已登记死键（段首多前导空格），按先例 host-block。contextual 一个 run：contextual-000（8 条 deep）首轮通过，7 OK、1 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决9个观察：{'confirmed': 3, 'refuted': 5, 'advisory': 1}；预计76条完成、3条待修复。新增 3 条修复 revision：b1a0626035 传送学派说明漏“旅行的法术学派”、d1f59f1254 高峰远东传送门说明行首多余空格、e5f4a107fe 爆头 info 首句“穿透性弹药”误导为贯穿（改“进行一次精准射击”）。睡眠免疫、目盲免疫（*_immune 属性）、臂铠（gauntlets 既有译名）、尸僵减速持续回合、爆头“瞄准头部”均按源码与本库译名驳回；draining physical 伤害类型名未体现“物理”记 advisory。修复窗口53积压为12，未达20。
