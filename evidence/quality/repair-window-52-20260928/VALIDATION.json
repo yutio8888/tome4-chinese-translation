@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w52-20260928",
+  "role": "executor",
+  "baseline_commit": "a415a68c2200ebd070af816723bce72bd0b0051b",
+  "inputs": {
+    "workset_sha256": "7283ac5b2b5a0004dcd706f5fdf7cc5c4eeaf9526b9e0b7662e5dec66e84d2f1",
+    "source_anchors_sha256": "1e3ca9e42652c18cc0042859fd27d1f3cfdf8a802c7b8a253ab3f57d04be0d06",
+    "source_claims_sha256": "13e7341fdfeb0a37220eccc7984293c6c678f3eca758621308e3006cf81d1ff7",
+    "baseline_records_sha256": "8c1aabb18460278dcb579d624caa404587a041e3196f735a0922522aeed2024e",
+    "term_snapshot_sha256": "37b43b33f9c816d4d3fd3c856e295f3159d644914bf7f9fe012b135c4c8921f1"
+  },
+  "outputs": [
+    {
+      "path": "mod-tome.lua",
+      "sha256": "a94477b75e33f35e53da17b4b0d6d5f150aeab7cfcb95d4c66740f8c10e79d61"
+    },
+    {
+      "path": "tome-orcs.lua",
+      "sha256": "1c918a02ea80e93facdfdcf8aed63a9c99ca03da728d1938d6f4362239fe4274"
+    },
+    {
+      "path": "terminology/narrative.tsv",
+      "sha256": "2d242ed58b1353c3502d93629a6216f96a7628be29f52c3bf3bdec46bbd2f2dc"
+    }
+  ],
+  "source_anchor_checks": {
+    "status": "pass",
+    "main_game_repository": "/workspace/t-engine4",
+    "main_game_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "main_game_source_repository_commit_pinned": true,
+    "dlc_source_repository_commit_pinned": false,
+    "checked_dlc_file_count": 1,
+    "dlc_file_sha256": "0f33aa795edeebd717c42cb2ec844eb8e8aebdefbd906c1f79f697a254de33ef",
+    "literal_sources_match": true
+  },
+  "semantic_load_and_diff": {
+    "loader": "tools.i18nlib.locale_model.LocaleLoader",
+    "files": [
+      {
+        "path": "mod-tome.lua",
+        "baseline_record_count": 22989,
+        "current_record_count": 22989,
+        "changed_target_count": 3
+      },
+      {
+        "path": "tome-orcs.lua",
+        "baseline_record_count": 4202,
+        "current_record_count": 4202,
+        "changed_target_count": 1
+      }
+    ],
+    "changed_target_count": 4,
+    "expected_target_count": 4,
+    "non_target_field_change_count": 0,
+    "other_records_unchanged": true,
+    "newline_checks_pass": true,
+    "tab_structure_unchanged": true,
+    "placeholder_and_markup_checks_pass": true,
+    "changed_revision_keys": [
+      "1e5fe478f997b272f918abdbf055e6a69309c775233db496ea2c950ecd3036d4",
+      "5d156a408b328fb4ee71362e824d7c55e3d637adcaee7ddfa48d78ad60b5125b",
+      "b5e754f6ab21f411ab0981f3073c35b99c14253e5d2ecc0918b8eefed522a866",
+      "d58b645c3b53da5208b315668b080d03b61f3a4575fb09f315b2fb412f0e6d58"
+    ]
+  },
+  "commands": [
+    {
+      "command": "LuaJIT semantic load and baseline comparison for mod-tome.lua and tome-orcs.lua",
+      "exit_code": 0,
+      "result": "exactly 4 target changes; all other records and non-target fields unchanged"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no output"
+    }
+  ],
+  "residual_findings": [
+    {
+      "revision_key": "8b977dd836",
+      "status": "advisory",
+      "text": "The explicitly excluded Archmage wording remains unchanged, as required by the SPEC."
+    }
+  ],
+  "unresolved_in_scope_findings": [],
+  "staged": false,
+  "committed": false,
+  "pushed": false
+}

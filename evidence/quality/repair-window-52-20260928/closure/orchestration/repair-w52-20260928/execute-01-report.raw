@@ -1,0 +1,39 @@
+已完成 `repair-w52-20260928` 定向修复，未修改 `.ai/task`，未 stage、commit、push 或创建 agent。
+
+逐条改动：
+
+- 术语 `sunwall observatory`
+  - 前：`太阳堡垒瞭望台` / `existing` / 空 notes
+  - 后：`太阳堡垒观星台` / `preferred` / SPEC 指定 notes
+
+- `1e5fe478...`
+  - 前：`以牺牲自己，为遥远的太阳打开传送门，灼烧并毁灭整个世界的方式，"通关"ToME。`
+  - 后：`以牺牲自己、为你的主上遥远的太阳打开传送门，任其焚烧并吞噬整个世界的方式，"通关"ToME。`
+
+- `5d156a40...`
+  - 前：`关闭虚空传送门并让自己被艾琳杀死，以防止疯狂的太阳烧毁整个世界，通关ToME。`
+  - 后：`关闭虚空传送门并让自己被艾琳杀死，以阻止你那疯狂的太阳主上在一道灼目的闪光中焚毁世界，通关ToME。`
+
+- `b5e754f6...`
+  - 前：`太阳堡垒瞭望台`
+  - 后：`太阳堡垒观星台`
+
+- `d58b645c...`
+  - 前：`虽然你最终屈服了，思维消散，被疯狂的太阳烧成灰烬。但世界被拯救了。`
+  - 后：`虽然你在这场搏斗中倒下了，你的心智却早已被你那疯狂的太阳主上烧成灰烬。但世界得救了。`
+
+验证结果：
+
+- 固定主游戏 commit 和指定 Orcs checkout 源码取证：通过。
+- LuaJIT 语义加载：`mod-tome.lua` 22,989 条、`tome-orcs.lua` 4,202 条；恰好 4 个 target 改动，其他记录及非 target 字段不变。
+- LF、TAB、placeholder、markup 不变量：通过。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- 暂存区为空。
+
+证据已写入：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-52-20260928/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-52-20260928/VALIDATION.json)
+
+有界上下文内未发现新的未改疑点；SPEC 明确排除的 Archmage／“元素法师”内容保持不变。
