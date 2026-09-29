@@ -392,3 +392,19 @@
 46. 审核 254 的其他观察（见上文“审核 254 的其他观察”）
    - `e923d2b8d0` 高等人类之绽放效果描述“不再消耗能量”：固定 commit `data/talents/misc/races.lua:116-` 遍历 `resources_def` 全部资源，“能量”窄化了 resources；同技能 info（`546a6e96d9`）“你的能量值仍需要满足……最低能量需求”同样窄化。
    - **已裁决（2026-09-29，用户）**：两条的“能量”改为“资源”，排入修复窗口 55；盗贼诗标题 `rogues do it from behind`＝“盗贼在你身后”与 SPELLSHOCKED 长描述省略 temporarily 两项保持不改，关闭。
+
+## 2026-09-29 只读排查 25 条 blocked 后的裁决
+
+47. 9 条名称类 pending（`aeae08fe72` Toxic Death、`b01c3be48a` Armour Configuration、`4a03387e26`/`b06ed2a53c` ` of thunder`／`thunder`、`af860be636` Twist the Knife、`b05f9ea51b` Harass Prey、`b2d7feea6e` Knowledge of the Way、`bab5f2f954` Cursed Bolt、`b46f9f2834` Eldritch Pearl、`ad393c549e` 等 the Sorcerers 称呼）
+   - 源码：固定 commit 624a6732 各技能 info（`talents/cunning/poisons.lua`、`spells/golem.lua`、`cunning/dirty.lua`、`cursed/endless-hunt.lua`、`misc/races.lua`、`cursed/advanced-shadowmancy.lua`）、`zones/temple-of-creation/objects.lua`、`general/objects/egos/armor.lua`；Sorcerers 见 `chats/sorcerer-end.lua`、`quests/high-peak.lua` 等及公开 Orcs DLC `tome-orcs/data/lore/pocket-time.lua`、`data/birth/worlds.lua`（Orcs 来源仓库与 commit 未固定）。
+   - 宿主核对：Armour Configuration 原报与 Armor Training 同名的冲突已过时（Armor Training 实为 Heavy Armour Training＝重甲训练），但思维形态：盾战士 info（`f37f2d4a4a`）仍把 Armor Training 写作“护甲掌握”，按 `psionic/thought-forms.lua:219` 的 `T_ARMOUR_TRAINING` 应为“重甲训练”，一并修。
+   - 裁决途径：用户 2026-09-29 指定名称按 Gemini 定；Gemini 3.8 Flash 三次派发均报 antigravity 认证错误未建出 agent，用户改选三方讨论（gpt-6-astra／opus-5-5／grok-4.7，同一份实测底稿）按多数裁决。
+   - **已裁决（2026-09-29，三方多数）**：Armour Configuration→“护甲改装”（3/3）；` of thunder`→“雷霆之”、关键词 thunder→“雷霆”（3/3）；Twist the Knife→“伤口拧刀”（2/3）；Harass Prey→“袭扰猎物”（2/3）；Knowledge of the Way→“维网之识”（2/3）；Cursed Bolt→“诅咒之箭”（3/3）；Eldritch Pearl→“骇异珍珠”（3/3，沿用 creatures.tsv eldritch＝骇异 preferred）；the Sorcerers（远东最终首领二人组）统一为“巫师”（3/3），泛指的 sorcerers（黄昏纪邪恶术者等）不在此列。双向冲突检查：上述译名在全库均未被他词占用；“雷霆”仅在一条 lightning 叙述句中出现，不涉词缀。
+   - **仍 pending**：Toxic Death 三方各给一名（剧毒之死／死亡传毒／毒亡扩散），全不一致，保持待修复，待 Gemini 可用后再定。
+
+48. `b63b2d6946` 等 shertul lore 的 petty gods＝“伪神”
+   - 现状：`terminology/narrative.tsv:43` petty gods＝伪神（preferred，注明是阿马克泰尔叙事中的贬称）；审核认为“伪”是源文所无的价值判断。
+   - **已裁决（2026-09-29，用户）**：保持“伪神”，审核意见驳回。
+
+49. `942d0dd6bc` 伊格兰斯 NPC killer_message “and burned on a pyre”（`general/npcs/ziguranth.lua:29`，经 `class/interface/PartyDeath.lua:94` 接在死亡描述末尾）
+   - **已裁决（2026-09-29，用户）**：“并被绑在火刑柱上烧死”改为“并被送上火刑堆焚烧”，去掉原文没有的“绑”“柱”。
