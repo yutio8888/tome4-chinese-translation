@@ -1,0 +1,145 @@
+{
+  "batch_id": "batch-eb93936e38c73186d222",
+  "observations": 14,
+  "observation_dispositions": {
+    "confirmed": 2,
+    "refuted": 6,
+    "advisory": 6
+  },
+  "repair_revision_keys": [
+    "2822ed0142e25ad3d61be2eaf672c8f62b7a09dcfa94a8c60d795e5b2d1e30b0",
+    "e2c9218ea95a18baa45059280337170935967edba71fca669c1529a01f214b26"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 78,
+    "repair_required": 2,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "2822ed0142e25ad3d61be2eaf672c8f62b7a09dcfa94a8c60d795e5b2d1e30b0",
+      "stage": "surface",
+      "observation": "副歌中反复出现的“you're a guard now”译为“嘿，我，现为守卫”，将原文第二人称的守卫改成第一人称，改变了所指人物。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/lore/age-allure.lua:282/297/302/323 副歌“Hey, now, you're a guard now, stand vigil in the tanks”是对听者（第二人称）说的，与上一行“you're a healer”并列。译文四处都作“嘿，我，现为守卫，进入休眠仓，保持警戒。”，把被点名当守卫的“你”改成了“我”，改变了所指人物。contextual（Opus 5.5）判 OK，宿主按源文独立确认。修复：四处“嘿，我，现为守卫”→“嘿，你，现为守卫”，其余不变。"
+    },
+    {
+      "revision_key": "219be9e3f82597cfa40545f046e92daa40fa906d9f2560b715120658b922dc91",
+      "stage": "surface",
+      "observation": "末句原文“Implanting a seed into unique demons”限定为 unique 恶魔，译文“将种子植入恶魔体内”遗漏 unique 限定，扩大了该句适用范围。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes DLC tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua（来源未固定）createSeed 第 364 行 `if host.type == \"demon\" then kind = host.name`：只要宿主是恶魔就给对应类型种子，不检查 unique。英文“unique demons”与实现不符，现译贴合实现（指南 6.3，窗口57 r0a1/r1a1 同条已两次驳回），不改。"
+    },
+    {
+      "revision_key": "913d7afe257f0845eb5028d81a9d4ec7853f2009c25f5b302837ec4ed73efbe4",
+      "stage": "surface",
+      "observation": "原文承诺痛苦最多持续“a couple of weeks”（两周），译文“最多只要几周的时间”将明确的两周上限泛化为几周。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Ashes DLC data/lore/demon.lua:458（来源未固定）“after a maximum of a couple of weeks”：a couple of 在口语中泛指“几个、两三个”，并非精确的“两周”；“最多只要几周的时间”保留了“至多”的上限与短期含义。contextual（Opus 5.5）同判 OK。驳回。"
+    },
+    {
+      "revision_key": "6f090c073e8ae7b122483d545b9c2d04b879c8e8b104dd1f108c2bfe9f7b02f9",
+      "stage": "surface",
+      "observation": "原文“run inside Elvala's walls”指跑进埃尔瓦拉城墙以内，译文“跑进埃尔瓦拉的墙里”误成进入墙体内部。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults DLC data/lore/fay-willows.lua:547（来源未固定）“began to run inside Elvala's walls”指跑进城墙以内。“跑进埃尔瓦拉的墙里”在上下文（食人魔穿过隧道进城）中可理解为进城，但字面易读作墙体内部，写作“城墙内”更准确。二级措辞，contextual 判 OK，记 advisory。"
+    },
+    {
+      "revision_key": "b6af69c97dd2f01bf968e0dace9860a4b77699d22197683793e6cfbd420c8fef",
+      "stage": "surface",
+      "observation": "原文“but they slipped up”承接只有少数人知道计划名称、平民却喊出该名称的线索，指幕后者不慎露出破绽；译为“但他们失手了”变成行动失败，丢失了将军据此识破秘密行动的含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults DLC fay-willows.lua:171（来源未固定）“Someone told those human commoners that we were responsible, but they slipped up”：slip up＝不慎出错。“他们失手了”在汉语中正有“一时疏忽出了差错”之义，紧接“我看得出有人在进行秘密行动”，将军据此识破的逻辑完整保留。contextual 同判 OK。驳回。"
+    },
+    {
+      "revision_key": "bada221b73950f3f6b2979934cf0d1832301a1eff4ef9615a37f881f3b1b2dd7",
+      "stage": "surface",
+      "observation": "原文木材由其他自然精灵加工（“used to fashion staves or bows by other skilled thaloren”），译文“用来给其他……自然精灵，制作……”将加工者译成了接受制作服务的人，改变了动作关系。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults DLC fay-willows.lua:32（来源未固定）“used to fashion staves or bows by other skilled thaloren”：由附近其他工匠加工成木杖或弓出售。“用来给其他……自然精灵，制作……”中“给”可读作“供／让”，也可误读为受益者，存在歧义但不改变情节。二级措辞，contextual 判 OK，记 advisory。"
+    },
+    {
+      "revision_key": "cf132fa96ea5743276f4c32bd1386453339eb2d691c3089727586af2fe5ffea0",
+      "stage": "surface",
+      "observation": "“I had truly hit a nerve within the halfling”描述言语触怒半身人，紧接着半身人愤怒出拳；译文“我真的戳到了那个半身人的弱点”将触怒误译为发现或击中弱点。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Cults DLC fay-willows.lua:322 一带（来源未固定）“I had truly hit a nerve within the halfling”：戳中对方敏感处、令其恼怒。“我真的戳到了那个半身人的弱点”表达的正是说中痛处，紧接半身人愤怒动手，语义连贯。contextual 同判 OK。驳回。"
+    },
+    {
+      "revision_key": "e2c9218ea95a18baa45059280337170935967edba71fca669c1529a01f214b26",
+      "stage": "surface",
+      "observation": "“ordered the mages to form a firing line”指命令法师排成射击队列；译文“命令法师们组成一条火线”把人员阵形误译为火线。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Cults DLC fay-willows.lua:673（来源未固定）“ordered the mages to form a firing line”：“组成一条火线”可理解为布成火力线，不致误解，属二级措辞，记 advisory；本条另有 contextual 确认的一级误译，一并按整句对照修复时可顺带改为“排成射击队列”。"
+    },
+    {
+      "revision_key": "143c963fcbea89d8f3100de2c93c255161e51e4f5e5bad914efdf69b8ed750dd",
+      "stage": "surface",
+      "observation": "帕拉奎的原文“if we had let Pendor's inflexible, time-dependent plan sit and--”指让潘多尔那套依赖时机的计划搁置等待，译文“假如让潘多尔做主，用那个不灵活，依靠时机的方案”变成让潘多尔主导并采用方案，改变了比较条件。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs DLC data/lore/palace-fumes.lua:125（来源未固定）帕拉奎被打断的话“if we had let Pendor's inflexible, time-dependent plan sit and--”：指听任潘多尔那套依赖时机的计划搁着等待。“假如让潘多尔做主，用那个不灵活，依靠时机的方案——”把“搁置等待”改说成“按他的方案来”，两者都指向采纳潘多尔的路线，句子又在此被打断，不改变对话结论。contextual 两轮均判 OK，记 advisory。"
+    },
+    {
+      "revision_key": "5f9d2969e760b356c3b4024ae4d5833c4a0ecd4afffe163eb756a5e14b2bc1de",
+      "stage": "surface",
+      "observation": "原文“that foolhardy assassination attempt”明确为暗杀企图，译文“那场鲁莽的暗杀”遗漏 attempt，未保留企图这一事件限定。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开 Orcs DLC data/lore/primal-forest.lua:92（来源未固定）“that foolhardy assassination attempt”：“那场鲁莽的暗杀”未写出“企图／未遂”。汉语“暗杀”本身不断言得手，叙事语境也未因此改变，属二级省略；contextual 两轮均判 OK，记 advisory。"
+    },
+    {
+      "revision_key": "653b98d0232acc1ea6a1b7acce20047da9ddd73b46eba440dbd70e1d450e44b1",
+      "stage": "surface",
+      "observation": "原文两处 <?=Lore.pocket_time_winner.hisher?> 和“the challenge <?=Lore.pocket_time_winner.heshe?> craved”中的 <?=Lore.pocket_time_winner.heshe?> 未在译文保留；译文又在“站在了巅峰之上”前新增一处 <?=Lore.pocket_time_winner.himher?>。冻结文本可见模板占位符数量变化，但输入不足以判断这些代词省略或增补是否影响运行。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开 Orcs DLC data/lore/pocket-time.lua:23/35-38（来源未固定）为 Lore.pocket_time_winner 同时定义 himher/heshe/hisher 等字段，lore 为 template=true，模板片段在运行时按表达式求值。译文为适应汉语代词调整了使用哪些代词字段及其位置，所用字段全部存在、表达式有效，不影响运行；中文不需要逐一对应英文每个代词。contextual 两轮均判 OK。驳回。"
+    },
+    {
+      "revision_key": "828d1b1fd2d0293dedd2bcd6139e21ad722c3f31ab8bb9bc651ab2388b920068",
+      "stage": "surface",
+      "observation": "末段原文“gave a lengthy speech before officially resigning”明确先演讲、后正式辞职；译文“在从议会正式辞职时做了一个不短的演讲”改为辞职时，未保留 before 的先后关系。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "本条位于 tome-orcs/superload/mod/dialogs/debug/DebugMain.lua section，而公开 Orcs DLC 该 superload 文件并无此文本；生效的同内容行在 data/lore/palace-fumes.lua:96/112（来源未固定），属第368批已登记的 DebugMain 死键。生效副本已译作“在正式辞去议会职务前发表了一篇长篇演讲”，before 的先后关系正确。死键副本措辞差异不影响运行，按第368批先例记 advisory。另：palace-fumes:96 “weapons to rival our own”两处译作“能威胁我们的武器”，与“足以匹敌我们自己的武器”有细微偏差，记 advisory。"
+    },
+    {
+      "revision_key": "219be9e3f82597cfa40545f046e92daa40fa906d9f2560b715120658b922dc91",
+      "stage": "contextual",
+      "observation": "末句漏掉限定词 unique：源文（tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua 第700行，来源未固定，文件 sha256 5fc8f608…）为 \"Implanting a seed into unique demons, if successful, will always try to grant a seed of that type\"，只适用于独特（unique）恶魔；译文「如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子」把适用范围扩大到所有恶魔，改变了机制描述。建议补回「独特」限定，并与本条 Unique 等级的译法保持一致。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "同 surface 行：demonic-pact.lua（来源未固定）createSeed 第 364 行只判 host.type == \"demon\"，不检查 unique；上游英文与实现不符，现译贴合实现（指南 6.3），不改。"
+    },
+    {
+      "revision_key": "e2c9218ea95a18baa45059280337170935967edba71fca669c1529a01f214b26",
+      "stage": "contextual",
+      "observation": "末段 \"leaving the rest of us to fend off the encroaching undead horde\" 译为「抵御入侵的不死部落」：此处 horde 指成群涌来的亡灵大军，并非部族/部落，「部落」属误译，应作「步步逼近的亡灵大军／不死生物群」一类。另同条倒数第四段 \"a small force of the skeletons moved to take over the gates and allow for the rest of the undead outside to get in\" 译为「一小队骷髅冲了进来，接管城门」：这些骷髅已在城垛上、是转去夺取城门以放外面的亡灵进城，「冲了进来」把移动方向误写成从外入内，与后文「让外面的其他不死生物进入」矛盾。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Cults DLC data/lore/fay-willows.lua:671/677 一带（来源未固定）。①“leaving the rest of us to fend off the encroaching undead horde”：horde 指成群涌来的亡灵大军，译作“抵御入侵的不死部落”把大军误为部族；②“Having lost control of the battlements, a small force of the skeletons moved to take over the gates and allow for the rest of the undead outside to get in”：这些骷髅已在城垛上，是转去夺取城门放外面的亡灵进城，“一小队骷髅冲了进来，接管城门”把移动方向写成从外入内，与后半句矛盾。确认。修复：“一小队骷髅冲了进来，接管城门”→“一小队骷髅转而去夺取城门”；“抵御入侵的不死部落”→“抵御步步逼近的亡灵大军”；可顺带“组成一条火线”→“排成射击队列”。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (16 lanes: surface-000 engine+main game 33 in 9/8/8/8; surface-001 Ashes 6 in 2/2/1/1; surface-002 Cults 24 in 6x4; surface-003 Orcs 17 in 5/4/4/4)",
+    "contextual": "claude/claude-opus-5-5 (four runs: contextual-000 main game 1, -001 Ashes 2, -002 Cults 5 accepted on the first pass; -003 Orcs 4 first attempt full-003 invalid (prose before JSON), fresh retry full-004 attempt 2 accepted; 12 entries)"
+  },
+  "notes": [
+    "Surface screening: 16 lanes of codex/gpt-6.1-sol (thinking medium, auto-review) in four component groups, 68 OK / 12 ISSUE; every lane only read or parsed its own envelope and the contract (44 exec calls, no writes, no Paseo terminals). Two archive_agent calls were issued in the same tool batch as the harvest command, but the journal shows archive-intent recorded before archivedAt in both cases.",
+    "Contextual review: claude/claude-opus-5-5 over 12 deep entries in four runs. Runs 000-002 passed on the first attempt; run 003 attempt 1 (full-003) put a prose sentence before the JSON and was rejected as not one strict JSON value, then archived and retried as full-004 (attempt 2, retry_of full-003), which was accepted. Totals 10 OK / 2 ISSUE; all runs only read their own envelope, the contract and their own tool-result files.",
+    "Freeze reported 3 MISS entries: two mod-tome/load.lua-section rows whose literal lives in data/lore/misc.lua (the effective duplicate rows, reviewed as before) and the Orcs DebugMain dead key already recorded in batch 368; all were reviewed normally.",
+    "Mixed batch: 1 engine entry and 32 main-game entries were verified against the manifest-pinned engine commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 (29 matched the literal in the recorded file; 2 load.lua-section duplicates whose literal lives in data/lore/misc.lua reviewed as effective rows per precedent); 6 Ashes, 24 Cults and 17 Orcs entries matched the public DLC source file SHA in the workset (1 Orcs DebugMain dead key reviewed and recorded advisory per batch 368), with the DLC repositories and commits unpinned.",
+    "2 confirmed repair revisions raise the window 58 backlog from 0 to 2; below the 20 threshold, so no window opens."
+  ]
+}
