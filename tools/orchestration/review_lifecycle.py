@@ -767,7 +767,15 @@ NATIVE_MAX_LINES = 10000
 # Record dialects verified against real archived sessions; any other version fails closed.
 # 0.156.0 / 2.1.280 verified on batch 254 (four Codex surface lanes, one Claude contextual);
 # 2.1.284 verified on batch 369 (two archived Claude contextual sessions, each ending in cost-state).
-CODEX_NATIVE_VERSIONS = ('0.153.0', '0.156.0')
+# 0.159.1 verified on repair window 57 (one EXECUTOR session): same record dialect, but the
+# environment bootstrap user message drops <recommended_plugins> (now in the developer message).
+CODEX_NATIVE_VERSIONS = ('0.153.0', '0.156.0', '0.159.1')
+_CODEX_BOOTSTRAP_V153 = ('<recommended_plugins>\n', '# AGENTS.md instructions for ', '<environment_context>\n')
+CODEX_BOOTSTRAP_BLOCKS = {
+    '0.153.0': _CODEX_BOOTSTRAP_V153,
+    '0.156.0': _CODEX_BOOTSTRAP_V153,
+    '0.159.1': ('# AGENTS.md instructions for ', '<environment_context>\n'),
+}
 CLAUDE_NATIVE_VERSIONS = ('2.1.259', '2.1.280', '2.1.284')
 
 
@@ -894,9 +902,10 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_succ
         prompt_index = users[-1]
         if len(users) == 2:
             boot = records[users[0]]['payload'].get('content')
-            require(start < users[0] < context and isinstance(boot, list) and len(boot) == 3,
+            prefixes = CODEX_BOOTSTRAP_BLOCKS[version]
+            require(start < users[0] < context and isinstance(boot, list) and len(boot) == len(prefixes),
                     'unknown Codex bootstrap')
-            for block, prefix in zip(boot, ('<recommended_plugins>\n', '# AGENTS.md instructions for ', '<environment_context>\n')):
+            for block, prefix in zip(boot, prefixes):
                 require(isinstance(block, dict) and block.get('type') == 'input_text'
                         and isinstance(block.get('text'), str) and block['text'].startswith(prefix),
                         'unknown Codex bootstrap block')

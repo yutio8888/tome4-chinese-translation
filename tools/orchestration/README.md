@@ -149,7 +149,7 @@ python3 -B tools/orchestration/review_lifecycle.py harvest children.json "$KEY" 
   --capture terminal.json --raw "native-export/$TASK/$DISPATCH/terminal.raw" --outdir raw-diagnostics --notified
 ```
 
-只支持已实际核验的 **Codex 0.153.0／0.156.0** 与 **Claude Code 2.1.259／2.1.280／2.1.284** 结构（白名单见 `CODEX_NATIVE_VERSIONS`／`CLAUDE_NATIVE_VERSIONS`；Claude 会话内版本必须一致，2.1.280 归档后末尾追加的单条 `cost-state` 仅在最后一行被接受）。入口先核对已登记
+只支持已实际核验的 **Codex 0.153.0／0.156.0／0.159.1** 与 **Claude Code 2.1.259／2.1.280／2.1.284** 结构（白名单见 `CODEX_NATIVE_VERSIONS`／`CLAUDE_NATIVE_VERSIONS`；Claude 会话内版本必须一致，2.1.280 归档后末尾追加的单条 `cost-state` 仅在最后一行被接受；Codex 0.159.1 的环境引导消息只有 AGENTS.md 与 environment_context 两段，按版本分别校验）。入口先核对已登记
 STATE/journal direct child、通知、完整终态、root/workspace/parent/role/purpose/labels、首次
 provider/session 和冻结创建 prompt SHA；同层与 persistence/runtimeInfo/metadata 的身份冲突拒绝。
 新 create intent 保存 prompt SHA；缺少该冻结字段的旧 journal 不自动补写，应走纯解析审计。

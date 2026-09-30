@@ -843,7 +843,11 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
         with self.assertRaisesRegex(life.LifecycleError, 'truncated'):
             self.j.reconcile_absent(self.j.key(row), path)
 
-    def native_records(self, provider, text, *, prompt='frozen prompt', cwd='/fixture'):
+    CODEX_BOOT_TEXT = {'<recommended_plugins>\n': '<recommended_plugins>\nfixture</recommended_plugins>',
+                       '# AGENTS.md instructions for ': None,
+                       '<environment_context>\n': '<environment_context>\nfixture</environment_context>'}
+
+    def native_records(self, provider, text, *, prompt='frozen prompt', cwd='/fixture', codex_version='0.153.0'):
         """Synthetic versioned shapes; no real session, prompts, IDs or thinking."""
         if provider == 'codex':
             def record(kind, **payload):
@@ -852,12 +856,11 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
                 return record('response_item', type='message', role=role, id=role + '-message',
                               content=[dict(type='input_text' if role == 'user' else 'output_text', text=text)],
                               internal_chat_message_metadata_passthrough=dict(turn_id='turn'), **fields)
-            rows = [record('session_meta', id='session', session_id='session', cwd=cwd, cli_version='0.153.0'),
+            boot = [dict(type='input_text', text=self.CODEX_BOOT_TEXT[prefix] or prefix + cwd)
+                    for prefix in life.CODEX_BOOTSTRAP_BLOCKS[codex_version]]
+            rows = [record('session_meta', id='session', session_id='session', cwd=cwd, cli_version=codex_version),
                     record('event_msg', type='task_started', turn_id='turn'),
-                    record('response_item', type='message', id='bootstrap', role='user', content=[
-                        dict(type='input_text', text='<recommended_plugins>\nfixture</recommended_plugins>'),
-                        dict(type='input_text', text='# AGENTS.md instructions for ' + cwd),
-                        dict(type='input_text', text='<environment_context>\nfixture</environment_context>')]),
+                    record('response_item', type='message', id='bootstrap', role='user', content=boot),
                     record('turn_context', turn_id='turn', cwd=cwd), message('user', prompt),
                     message('assistant', '{"earlier":"valid JSON is not final"}', phase='commentary'),
                     record('response_item', type='custom_tool_call_output', output='{"tool":"not final"}'),
@@ -936,17 +939,22 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
 
     def test_native_accepts_each_verified_version_and_rejects_others(self):
         for version in life.CODEX_NATIVE_VERSIONS:
-            rows = self.native_records('codex', '{}')
-            rows[0]['payload']['cli_version'] = version
+            rows = self.native_records('codex', '{}', codex_version=version)
             raw, proof = self.parse_native('codex', rows)
             self.assertEqual((raw, proof['version']), (b'{}', version))
+        # Each Codex version accepts only its own verified bootstrap shape.
+        for version, other in (('0.156.0', '0.159.1'), ('0.159.1', '0.156.0')):
+            rows = self.native_records('codex', '{}', codex_version=other)
+            rows[0]['payload']['cli_version'] = version
+            with self.subTest(bootstrap=version), self.assertRaisesRegex(life.LifecycleError, 'bootstrap'):
+                self.parse_native('codex', rows)
         for version in life.CLAUDE_NATIVE_VERSIONS:
             rows = self.native_records('claude', '{}')
             for r in rows:
                 if 'version' in r: r['version'] = version
             raw, proof = self.parse_native('claude', rows)
             self.assertEqual((raw, proof['version']), (b'{}', version))
-        for version in ('0.155.0', '0.157.0', '', None, ['0.156.0']):
+        for version in ('0.155.0', '0.157.0', '0.159.0', '0.160.0', '', None, ['0.156.0']):
             rows = self.native_records('codex', '{}')
             rows[0]['payload']['cli_version'] = version
             with self.subTest(codex=version), self.assertRaises(life.LifecycleError):
