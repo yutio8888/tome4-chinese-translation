@@ -1000,8 +1000,7 @@ t([[Activates distorting shaders.
 This option allows for distortion effects (like spell effects doing a visual distortion, ...). Disabling it can improve performance.
 
 #LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[开启扭曲着色器效果。
-这个选项可以激活一些扭曲视频特效（例如会造成视觉扭曲的法术）。
-关闭它可以提升运行速度。
+这个选项可以激活一些扭曲视频特效（例如会造成视觉扭曲的法术）。关闭它可以提升运行速度。
 
 #LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#]], "_t")
 t("#GOLD##{bold}#OpenGL Shaders: Distortions#WHITE##{normal}#", "#GOLD##{bold}#OpenGL 着色器：扭曲#WHITE##{normal}#", "_t")

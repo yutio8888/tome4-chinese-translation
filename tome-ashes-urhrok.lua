@@ -417,11 +417,11 @@ That said, given that <?=player:he_she()?> has increased dramatically in power s
 Above all else, remember: despite <?=player:his_her()?> brute strength, this is a pitiful, inferior Eyalite who lucked <?=player:his_her()?> way into obtaining some of our superior power.  <?=player:he_she():capitalize()?> does not know how to use it properly, and does not have the countless years of experience with it that we do.  We have numbers, familiarity, tactics, and the blessing of Urh'Rok himself.  Treat this like a drill; if we stay calm and focused, it is unlikely we will see any casualties.
 ]], [[有关<?=player.name?>的战术简报：
 
-这个狡猾的小 <?=_t(player.descriptor.subrace, "birth descriptor name")?> 目前是我们的眼中钉、肉中刺。我们已经加固了结界，以更好地防范让<?=player:his_her()?>得以逃脱的那种意外陨石撞击。然而，由于<?=player:he_she()?>在<?=player:his_her()?>逃跑路上砸坏了水晶，我们无法直接跟踪到<?=player:his_her()?>当前的位置。无妨——我们烙在<?=player:him_her()?>身上的烙印与印记仍让我们能监测作用于<?=player:him_her()?>身上的魔法能量信号。我们的占卜师注意到，似乎有某种特定的模式在传送<?=player:him_her()?>，可能源自夏·图尔人。我们也发出了自己的信号来拦截它，并将其重定向到我们的平台。在那里，<?=player:he_she()?>将被稳妥关押，因<?=player:his_her()?>违抗而受罚，然后再次接触启蒙石板，以恢复<?=player:his_her()?>奴役状态。
+这个狡猾的小 <?=_t(player.descriptor.subrace, "birth descriptor name")?> 目前是我们的眼中钉、肉中刺。我们已经加固了结界，以更好地防范促成<?=player:his_her()?>逃脱的那种意外陨石撞击。然而，由于<?=player:he_she()?>在<?=player:his_her()?>逃跑路上砸坏了水晶，我们无法直接跟踪到<?=player:his_her()?>当前的位置。无妨——我们烙在<?=player:him_her()?>身上的烙印与印记仍让我们能监测作用于<?=player:him_her()?>身上的魔法能量信号。我们的占卜师注意到，似乎有某种特定的模式在传送<?=player:him_her()?>，可能源自夏·图尔人。我们也发出了自己的信号来拦截它，并将其重定向到我们的平台。在那里，<?=player:he_she()?>将被稳妥关押，因<?=player:his_her()?>违抗而受罚，然后再次接触启蒙石板，以恢复<?=player:his_her()?>奴役状态。
 
 话虽如此，<?=player:he_she()?>的实力自<?=player:his_her()?>逃脱以来已大幅增长，我们务必要牢记正确的战术。长期曝露在我们的改造魔法之下，<?=player:he_she()?>在近战格斗中表现令人生畏。如果我们无法在<?=player:his_her()?>到来前及时布下针对该魔法的防护，<?=player:he_she()?>若得不到妥善应对，可能会对我们的部队造成极大的损伤。我们在任何情况下都绝不能让<?=player:him_her()?>在我们后方横冲直撞；此外，如果我们仅仅是把<?=player:him_her()?>引诱到一条狭窄走廊，在<?=player:he_she()?>冲破我们的阻碍之前，我们将无法集中足够火力。正确的方法应当是，派出一支由玛诺陶（或其他获准部署的高阶近战战斗者）支援的小型侧翼部队，把<?=player:him_her()?>逼入空旷地带，那里有由夸塞魔支援的小劣魔前线保护的施法炮兵。我们可能会损失这些前线士兵，但在<?=player:him_her()?>一路挥砍着杀穿他们、打通<?=player:his_her()?>前进道路的这段时间里，我们的法术足以将<?=player:him_her()?>剥皮拆骨，打得浑身颤抖。
 
-最重要的是：请记住，尽管<?=player:his_her()?>有一身蛮力，这不过是一个可怜而下等的埃亚尔人，只是凭<?=player:his_her()?>运气侥幸获得了我们部分更高等的力量。<?=player:he_she():capitalize()?>不懂得如何正确运用它，也没有我们这样运用它的无数年经验。我们有人数优势，熟悉这股力量，懂得战术，还有乌鲁洛克大人的祝福。把这当作一次演习；只要我们保持冷静和专注，就不太可能出现任何伤亡。
+最重要的是：请记住，尽管<?=player:his_her()?>蛮力惊人，这不过是一个可怜而下等的埃亚尔人，只是凭<?=player:his_her()?>运气侥幸获得了我们部分更高等的力量。<?=player:he_she():capitalize()?>不懂得如何正确运用它，也没有我们这样运用它的无数年经验。我们有人数优势，熟悉这股力量，懂得战术，还有乌鲁洛克大人的祝福。把这当作一次演习；只要我们保持冷静和专注，就不太可能出现任何伤亡。
 ]], "_t")
 t("orbital base: battle plan (demonologist)", "轨道基地：战斗计划（恶魔使者）", "_t")
 t([[Engagement Briefing on <?=player.name?>:
@@ -470,7 +470,7 @@ Above all else, remember: despite <?=player:his_her()?> enhancements, this is a 
 
 这一切意味着什么？只要击伤<?=player:him_her()?>，等<?=player:him_her()?>试图传送逃跑，再把<?=player:him_her()?>堵到角落里，痛揍<?=player:him_her()?>直到<?=player:he_she()?>再也动不了。就是这么简单。只需把这一步纳入我们应付<?=string.a_an(_t(player.descriptor.subclass, "birth descriptor name"):lower())?>的标准方法，并记住：如果<?=player:he_she()?>消失在暗影中，不要破坏阵型，我们很快就能收拾完这个烂摊子。
 
-最重要的是，务必记住：尽管有<?=player:his_her()?>受到的强化，这也只是一个可怜、低劣的埃亚尔人，只凭<?=player:his_her()?>好运才获得了我们的一部分优越力量。<?=player:he_she():capitalize()?>不知道如何正确运用它，也没有我们无数年的使用经验。我们拥有数量、对其的了如指掌、战术，以及乌鲁洛克本人的祝福。把这当作一次演练；只要保持冷静与专注，我们就不太可能出现伤亡。
+最重要的是，务必记住：尽管<?=player:his_her()?>身体经过了强化，也只是一个可怜、低劣的埃亚尔人，只凭<?=player:his_her()?>好运才获得了我们的一部分优越力量。<?=player:he_she():capitalize()?>不知道如何正确运用它，也没有我们无数年的使用经验。我们拥有数量、对其的了如指掌、战术，以及乌鲁洛克本人的祝福。把这当作一次演练；只要保持冷静与专注，我们就不太可能出现伤亡。
 
 ]], "_t")
 t("orbital base: battle info", "轨道基地：战斗情报", "_t")
@@ -627,7 +627,7 @@ Eyal is doomed to perish in screaming agony.  Wouldn't you at least like a good-
 
 我带着他仅存的精华逃跑到安全的地方，然后开始一个接一个地夺走埃亚尔人的精华，延长我的寿命，离让他恢复健康越来越近。我猜想乌尔罗格也在这么做，捕食水手，然后是娜迦。我们失去了联系，但是一些海上的恐怖传说让我相信他还活着。维持克里尔·费扬的生存消耗了许多能量，再过不久，独行的旅人已经不足以使他的状况稳定。我需要其他人为我工作，收集牺牲品，并在物尽其用之后奉献生命。也正是在那时，我得知了恶魔空间正在逼近，并且想出了一个给埃亚尔人的提议。
 
-总有一天，乌鲁洛克的军团将对埃亚尔展开侵略。你们都会遭受难以想象的痛苦。你们许多人都会死去。当然不是所有人都这么幸运，剩下那些会成为他们无尽狂怒的靶子，他们会一直折磨你直到时间的尽头。他们的理由不尽准确，但别搞错了：他们为你们安排的命运是你们罪有应得。即便我想阻止，我和宇宙中的任何事物也都没法阻止他们的侵略。恐怕只有乌鲁洛克本人的话语才能阻止这一切——而这看起来也不太现实。如果你们能帮助我，并且服从我的命令，让我感到满意，我可以保证你们两件事：第一，你无法避免的可悲命运将会以死亡终结，最多只要几周的时间，哪怕玛·洛克的军队也无法在我汲取你们的生命精华之后撤销这个行动。第二，在你们感到痛苦之前，你们会感到几乎同等的快乐。通过魔法，我可以让自己变成各种形态，制造各种各样的幻象，按你们的喜好操纵你们的感官。你们最疯狂最不现实的梦想将会成真。等待痛苦到来的时间将会变得令人愉悦，让你的之前的人生黯然失色。如果你们觉得不屑于这种享乐主义，那么我最近招纳的有心灵能力方面天赋的仆从值得考虑，他们可以改变你们的记忆。当“恶魔们”将酸液滴入你的眼球，再让它们长回来，并长出更多神经末梢，于是你会感到更加剧烈的痛苦。如果这时，你产生了你在为拯救埃亚尔而无私的奉献生命，并且你的爱人孩子不会承受如此痛苦的幻觉，你会不会感觉这一切更加容易忍耐了呢。
+总有一天，乌鲁洛克的军团将对埃亚尔展开侵略。你们都会遭受难以想象的痛苦。你们许多人都会死去。当然不是所有人都这么幸运，剩下那些会成为他们无尽狂怒的靶子，他们会一直折磨你直到时间的尽头。他们的理由不尽准确，但别搞错了：他们为你们安排的命运是你们罪有应得。即便我想阻止，我和宇宙中的任何事物也都没法阻止他们的侵略。恐怕只有乌鲁洛克本人的话语才能阻止这一切——而这看起来也不太现实。如果你们能帮助我，并且服从我的命令，让我感到满意，我可以保证你们两件事：第一，你无法避免的可悲命运将会以死亡终结，最多只要几周的时间，哪怕玛·洛克的军队也无法在我汲取你们的生命精华之后撤销这个行动。第二，在你们感到痛苦之前，你们会感到几乎同等的快乐。通过魔法，我可以让自己变成各种形态，制造各种各样的幻象，按你们的喜好操纵你们的感官。你们最疯狂最不现实的梦想将会成真。等待痛苦到来的时间将会变得令人愉悦，让你们过往可悲人生中的每一刻都黯然失色。如果你们觉得不屑于这种享乐主义，那么我最近招纳的有心灵能力方面天赋的仆从值得考虑，他们可以改变你们的记忆。当“恶魔们”将酸液滴入你的眼球，再让它们长回来，并长出更多神经末梢，于是你会感到更加剧烈的痛苦。如果这时，你产生了你在为拯救埃亚尔而无私地奉献生命，并且你的爱人孩子不会承受如此痛苦的幻觉，你会不会感觉这一切更加容易忍耐了呢？
 
 早在你们出生之前的数千年间，已有数不清的人接受了这个提议，我积累了足够的精华将克里尔·费扬保存在一个稳定的“种子”之中。一旦将它种在合适的牺牲品之中放任生长，他将以更加强大的姿态重返埃亚尔。我们两人将会用尽所有手段来加速你们可悲世界的应得的末日。理论上，任何有灵性的血肉之躯都可以作为种子的容器。但是我想要一个会被怀念的人，杀死他可以让我爱人重生的第一步给这个世界带来巨大的不幸。如果你接受我的提议，就卸下武装只身前往克里尔·费扬地宫，与你的埃亚尔同胞一起为我效劳。如果你能给我的爱人带来一个合适的容器……嗯，那将会得到某种特殊的、一对一的照顾，怎么样？
 
@@ -1005,7 +1005,7 @@ t([[Strike a blow with your weapon for %d%% blight damage.
 		如果你的背包或装备上已经有了同类的恶魔种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d%% 生命值，若已死亡则会复活。
 
 		技能等级越高，可获得的恶魔种类越强大。
-		如果成功将种子植入唯一恶魔，系统总会尝试给予该类型的种子（若有）。]], "tformat")
+		如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。]], "tformat")
 t("Bind Demon", "恶魔结合", "talent name")
 t("Summon demon", "召唤恶魔", "_t")
 t("Which seed to use:", "使用哪个恶魔种子：", "_t")
@@ -1136,7 +1136,7 @@ t([[You infuse your shield with the energies of Urh'Rok, bringing about a magica
 		At level 3 if a damage dealt is at least twice as high you have %d%% chance to also remove a physical detrimental effect. This effect can only happen once per turn.
 		This spell disabled automatically on rest or run.
 		#{bold}#Activating the shield takes no time but de-activating it does.#{normal}#
-		The damage increases with spellpower.]], [[你的盾牌充满了乌鲁洛克的能量，带来一层魔法护盾：在 3 回合内，你受到的所有伤害的最初几点（基于你的盾牌格挡值）将转化为治疗。此效果可以叠加。
+		The damage increases with spellpower.]], [[你的盾牌充满了乌鲁洛克的能量，带来一层魔法护盾：你受到的每次伤害中，最初的几点（基于你的盾牌格挡值）会转化为在 3 回合内生效的治疗。此效果可以叠加。
 		治疗量等于 5 + %d%% 格挡值（当前 %d 点）。
 		技能等级 3 时，如果伤害在治疗量两倍以上，有 %d%% 几率额外移除一个物理负面效果。此效果每回合只能触发一次。
 		在休息和跑步时，该技能自动终止。
@@ -1189,7 +1189,7 @@ t("Burning Sacrifice", "燃烧献祭", "talent name")
 t([[Whenever you kill a burning enemy, you will instantly deal a melee attack against a random adjacant enemy at %d%% power. 
 		Additionally, Incinerating Blows will always trigger on this attack (or your next attack), dealing %d%% of its normal damage to all enemies hit and stunning, ignoring the cooldown.
 		This can only trigger once every 5 turns.]], [[每次你击杀一个燃烧的敌对生物时，会立刻对一个随机相邻敌对生物进行一次攻击，造成 %d%% 武器伤害。
-		另外，焚尽强击必定被此效果触发（或者下一次攻击），对所有击中的敌对生物造成 %d%% 正常伤害并使其眩晕，无视冷却时间。
+		另外，焚尽强击必定被此效果触发（或者下一次攻击），对所有击中的敌对生物造成 %d%% 正常伤害并使其震慑，无视冷却时间。
 		此效果每 5 回合才能触发一次。]], "tformat")
 t("Fiery Aegis", "火焰守护", "talent name")
 t([[Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.

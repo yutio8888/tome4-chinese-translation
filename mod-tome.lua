@@ -2774,7 +2774,7 @@ t("\"Won\" ToME by sacrificing yourself for your patron Distant Sun, opening a p
 t("Last Instant of Sanity", "理智，在最后一刻", "achievement name")
 t("Won ToME by closing the Void portal and letting yourself be killed by Aeryn to prevent your mad patron sun from burning the world in a searing flash.", "关闭虚空传送门并让自己被艾琳杀死，以阻止你那疯狂的太阳主上在一道灼目的闪光中焚毁世界，通关ToME。", "_t")
 t("They Came Back For Eyal", "他们为埃亚尔而归", "achievement name")
-t("Won ToME thanks to a Sher'tul stopping you at the last moment from opening a portal to your mad patron sun.", "感谢夏·图尔人在最后一刻阻止了你开启通往你那疯狂的太阳主上的传送门，通关ToME。", "_t")
+t("Won ToME thanks to a Sher'tul stopping you at the last moment from opening a portal to your mad patron sun.", "多亏一名夏·图尔人在最后一刻阻止你开启通往你那疯狂的太阳主上的传送门，你才得以通关ToME。", "_t")
 t("Tactical master", "战术大师", "achievement name")
 t("Fought the two Sorcerers without closing any invocation portals.", "在不关闭传送门的情况下，杀死2名巫师。", "_t")
 t("Portal destroyer", "传送门毁灭者", "achievement name")
@@ -8185,7 +8185,7 @@ t("It is an unlife of power almost unequaled. An affront to existence, its very 
 t("banshee", "哀嚎女妖", "entity name")
 t("It is a ghostly woman's form that wails mournfully.", "一个发出凄惨尖叫的女妖。", "_t")
 t("ruin banshee", "毁灭女妖", "entity name")
-t("A vengeful, screaming soul given form with the breath of Urh'Rok himself. The vapors of the Fearscape seep from its dimension-bending form, withering and searing.", "乌鲁洛克的吐息中诞生，不断嚎叫的复仇之魂。恶魔空间的气息不断从她次元扭曲的身体中渗出，令周围的一切枯萎、焦灼。", "_t")
+t("A vengeful, screaming soul given form with the breath of Urh'Rok himself. The vapors of the Fearscape seep from its dimension-bending form, withering and searing.", "由乌鲁洛克亲自吐息赋予形体、不断尖啸的复仇之魂。恶魔空间的气息不断从她次元扭曲的身体中渗出，令周围的一切枯萎、焦灼。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/ghoul.lua"
@@ -11595,7 +11595,7 @@ t("Staff of Absorption", "吸能法杖", "entity name")
 t("staff", "法杖", "entity combat talented")
 t("dark runed staff", "黑暗符文法杖", "_t")
 t([[Carved with runes of power, this staff seems to have been made long ago, yet it bears no signs of tarnish.
-Light around it seems to dim and you can feel its tremendous power simply by touching it.]], "杖身铭刻着力量符文，这根法杖似乎是很久以前制造的，虽然它毫无侵蚀的痕迹。\n它周围的光线会变得暗淡，当你触摸它时可以感受到惊人的魔力。", "_t")
+Light around it seems to dim and you can feel its tremendous power simply by touching it.]], "杖身铭刻着力量符文，这根法杖似乎是很久以前制造的，却毫无侵蚀的痕迹。\n它周围的光线会变得暗淡，当你触摸它时可以感受到惊人的魔力。", "_t")
 t("absorb energies", "吸收能量", "_t")
 t("This power seems too much to wield; you fear it might absorb YOU.", "这件装备的力量太强大了，你害怕它会把你吸收进去。", "logPlayer")
 t("You cannot bring yourself to drop the %s", "你无法丢弃 %s", "logPlayer")
@@ -12273,7 +12273,7 @@ t("When Elmio Panason, captain of the Vanguard, first sought shelter for his shi
 t("Glows brightly in the light of dawn.", "在黎明下闪耀光芒。", "_t")
 t("Scorched Boots", "烧焦的长靴", "entity name")
 t("pair of blackened boots", "一双熏黑的靴子", "_t")
-t("The master blood mage Ru'Khan was the first orc to experiment with the power of the Sher'Tul farportals in the Age of Pyre.  However, that first experiment was not particularly successful, and after the explosion of energy all that could be found of Ru'Khan was a pair of scorched boots.", "血魔导师鲁·克汉是烈火纪第一个使用夏·图尔远行传送门进行试验的兽人。试验不是很成功，能量爆炸后，只剩下了一双烧焦的靴子。", "_t")
+t("The master blood mage Ru'Khan was the first orc to experiment with the power of the Sher'Tul farportals in the Age of Pyre.  However, that first experiment was not particularly successful, and after the explosion of energy all that could be found of Ru'Khan was a pair of scorched boots.", "血魔导师鲁·克汉是烈火纪第一个使用夏·图尔远行传送门进行试验的兽人。不过第一次试验并不成功，能量爆炸之后，鲁·克汉只剩下了一双烧焦的靴子。", "_t")
 t("Goedalath Rock", "高达勒斯之石", "entity name")
 t("demonic", "恶魔", "entity subtype")
 t("unearthly black stone", "神秘的黑色石头", "_t")
@@ -14138,7 +14138,7 @@ But we won't age sleeping in these ruins#{normal}#
 但他们的傀儡可不同意。
 水晶球已经看到了战争的火焰。
 
-他们离我们所处的地方越来越近。
+我们藏身之处上方的土层越来越薄。
 他们的斥候已经发现我们，并把我们全都围困在此。
 我们炸毁了隧道——现在是背水一战，
 在孔克雷夫找到我们之前，给入侵者来点好看。
@@ -14154,9 +14154,9 @@ But we won't age sleeping in these ruins#{normal}#
 但我们在废墟中沉睡不老。
 
 有人问我们是否已经完成了一切，遗憾的是
-虽然我们做的一切感到骄傲，
+虽然我为我们在这里所做的一切感到骄傲，
 我们还没有准备完全。
-但别气馁，等到我们迎来复兴的那一天，
+但已相差无几，算不上半途而废，
 食人魔一族必将震撼整个埃亚尔！
 
 看吧，这一天最终总会来到。
@@ -14672,13 +14672,13 @@ Neira was the first to respond, and there was colour in her cheeks and emotion i
 
 The room went quiet, and I could see Ephinias was silently fuming.  He was not accustomed to such open criticism.  Then Linaniil began to speak, and her voice was low and cool, yet all ears hung on her words.  “Many have been the works of pride over the years that have arisen in splendour.  Whence have come our great artworks, our grand cities, or the arcane weavings that shape our societies?  No meekness be found in their crafting.  There be no shame in acting out of pride, and we gain nothing from misplaced humility.  Too long have the powers of the Sher’Tul been left untapped by fearful and timid hearts.”  I could see then her eyes light up with excitement.  “Think of the glories we could unlock!  This war with the orcs would be but the beginning.  Great benefit could be brought to us all.  To leave these powers buried would be a crime, I say.”
 
-Turthel paused reflectively before nodding his head slowly, and it was clear that Linaniil’s words aligned better with his own thoughts.  “Very well,” he slowly announced, looking directly at Ephinias.  “We are with you.”  Neira stayed silent with brooding concern, but a flash of satisfaction crossed her sister’s eyes.]], [[#{italic}# 来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆 #{normal}#
+Turthel paused reflectively before nodding his head slowly, and it was clear that Linaniil’s words aligned better with his own thoughts.  “Very well,” he slowly announced, looking directly at Ephinias.  “We are with you.”  Neira stayed silent with brooding concern, but a flash of satisfaction crossed her sister’s eyes.]], [[#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#
 
 #{bold}#第一章：命运之会#{normal}#
 
 这个故事始于厄流纪，那时我还年轻，青春与衰老的观念仍然困扰着我们的族人。这只是无数故事中的一个；那个时代，各族都经历了数不清的悲剧与壮举。我只能讲述自己的故事、自己的悲剧，以及那些披着英雄外衣的愚行；这一切都围绕着那股撼动世界、改写历史的伟力交织展开：魔法大爆炸。
 
-第一次遇见莱娜尼尔时，我们正准备举行一场特殊的会议，我们的领袖伊菲尼亚斯与卡库罗尔的首领谈话。我还记得那个体型庞大的人类男子是怎样昂首迈入我们的城门，众人纷纷注视着他宽阔的腰身、蓬乱的头发、一身皮毛衣裳和骄傲的步伐。他身处我们这些身材纤细的精灵之中，显得多么格格不入……有些同伴把他视为野人，但我从他冰霜般的眼睛里看到了强大的力量。他来自于人类种族中勇敢坚强的一支，那是曾居住于埃亚尔北方的一群人，据说他们是从北方那永冬的天空里闪烁的绿色火焰里汲取了力量。他的名字是特塞尔，几个世纪以来，大地上或雪原上都未曾有过他这样的人。他的右手带着卡库罗尔之戒，光彩耀人的黄金戒指上镶嵌着闪亮的红宝石，这是他的地位象征——他领导着全马基·埃亚尔大陆最伟大的人类法师联盟。
+第一次遇见莱娜尼尔时，我们正准备举行一场特殊的会议，我们的领袖伊菲尼亚斯与卡库罗尔的首领谈话。我还记得那个体型庞大的人类男子是怎样昂首迈入我们的城门，众人纷纷注视着他宽阔的腰身、蓬乱的头发、一身皮毛衣裳和骄傲的步伐。他身处我们这些身材纤细的精灵之中，显得多么格格不入……有些同伴把他视为野人，但我从他冰霜般的眼睛里看到了强大的力量。他来自于人类种族中勇敢坚强的一支，那是曾居住于埃亚尔北方的一群人，据说他们是从北方那永冬的天空里闪烁的绿色火焰里汲取了力量。他的名字是特塞尔，几个世纪以来，大地上或雪原上都未曾有过他这样的人。他的右手戴着卡库罗尔之戒，光彩耀人的黄金戒指上镶嵌着闪亮的红宝石，这是他的地位象征——他领导着全马基·埃亚尔大陆最伟大的人类法师联盟。
 
 走在他身前的，是和他一起来的一对双胞胎，他的女儿们，莱娜尼尔与尼耶拉。她们的相貌别无二致，但我立刻发现她们的性格迥然不同。她们的发色同样深红，蓄着同样的长发，在阳光下露出同样苍白的皮肤。尽管同样身着丝绸长袍，尼耶拉的长袍是橙色与金黄，莱娜尼尔却是深蓝与银白。尼耶拉性格开朗，声音愉快，讨论着一路上走过埃尔瓦拉庭院时见到的美好事物。而莱娜尼尔安静文雅，面色严肃，冷静地分析计算她见到的一切。不过，在她那冷若寒霜的外表下，我能看到一团火焰——不，不仅仅是火，那是一团正在燃烧的火光，一团散发光和热的激情，正被压抑着，等待着释放。当一行人走近城堡时，有那么一会儿，我们彼此眼神相触，短短的一瞬间，我看到了她野性的灵魂和激烈的思绪，那是不可征服的坚定意志与精神力量。那一刻，我停止了呼吸。
 
@@ -14762,7 +14762,7 @@ Seeing their numbers quickly dwindling the orcs began to flee, but I phased to b
  
 Linaniil and I stood facing each other, panting with sudden exhaustion as the adrenaline of the fight left us.  “I lost count,” I said between breaths, “of who slew more…”  She grinned coyly at me, sweat trickling down her face.  Minor cuts and burns left her robe in tatters, with one shoulder strap hanging loose.  Her glistening chest heaved up and down with each breath, and her deep eyes looked at me with naked intensity.
  
-She strode forward then, and grabbing me roughly by my hauberk she pulled my lips to hers.  The kiss was hot and fierce, and as she bit my lower lip the course of blood in battle came back to me afresh.  I kissed her again and grabbed her body, pulling her tight to me, our lips locked.  She tore lustfully at my remaining armour, flinging it to the ground, and I slid off her silken clothes, till we were left bare beneath the stars.  Then against a rocky outcrop we pressed against each other, still gasping and sweating from the fight.  There with blazing passion flesh met flesh and our hot moans rose into the cold night sky.]], [[#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆 #{normal}#
+She strode forward then, and grabbing me roughly by my hauberk she pulled my lips to hers.  The kiss was hot and fierce, and as she bit my lower lip the course of blood in battle came back to me afresh.  I kissed her again and grabbed her body, pulling her tight to me, our lips locked.  She tore lustfully at my remaining armour, flinging it to the ground, and I slid off her silken clothes, till we were left bare beneath the stars.  Then against a rocky outcrop we pressed against each other, still gasping and sweating from the fight.  There with blazing passion flesh met flesh and our hot moans rose into the cold night sky.]], [[#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#
 
 #{bold}#第二章：难忘之夜#{normal}#
 
@@ -14780,7 +14780,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “是啊，”她的目光在我赤裸的身体上缓缓游移，上下打量，似乎对眼前的景色颇为享受，“还是说你不够男人？”
 
-“对于精灵族来说这还真是个怪问题，我的女士。不过，我可以在此保证，只需要我一个人也可以亲手干掉那些兽人。如果你真的想要一同前行的话，我可能没法确保您的安全。”
+“对于精灵族来说这还真是个怪问题，我的女士。不过，我可以在此保证，只需要我一个人也可以亲手干掉那些兽人。如果你真的想要一同前行的话，我可能没法确保你的安全。”
 
 她的笑声如同水晶泠泠碰撞般清脆。“那真是太好了！来，拿上你的金属棍子，让我们来看看谁更能撑得住。”我微笑着点头，走进武器库，匆匆套上金属护胫、锁子甲、胸甲和钢制护手。莱娜尼尔不耐烦地咂舌道，“你非得穿上这堆废铜烂铁不可吗？”
 
@@ -14792,9 +14792,7 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 我们在零散的云层间疾飞，沉默了二十分钟，莱娜尼尔才开始下降。低矮群山之间点缀着营地的篝火；随着我们飞近，兽人的吟唱声渐渐清晰。“我们该怎么接近他们？”我高声问道，想知道这位女魔法师准备采取什么战术。
 
-“直冲进去。”话音刚落，她骤然加速，飞到兽人营地正上方，落在他们中间。我咒骂一声，急忙追上，在她身旁落地并拔出斩月剑；兽人惊怒地起身，纷纷抓起武器。当一圈黑沉沉的刀剑、长矛和戟将我们团团围住时，莱娜尼尔转向我，露出狂野的笑容。
-
-“舞会开始了。”
+“直冲进去。”话音刚落，她骤然加速，飞到兽人营地正上方，落在他们中间。我咒骂一声，急忙追上，在她身旁落地并拔出斩月剑；兽人惊怒地起身，纷纷抓起武器。当一圈黑沉沉的刀剑、长矛和戟将我们团团围住时，莱娜尼尔转向我，露出狂野的笑容。“舞会开始了。”
 
 一道紫色的奥术能量从她的右手指尖射出，而她左手高举法杖，杖端如同火炬般被炽焰所缠绕。随着剑刃高举，一团团火焰从我的剑刃上腾跃而起，在我面前呈弧形喷发出来，迅速击倒了最前排的兽人，爆裂的冲击波向他身后的部队席卷而去。我紧逼而前，以咆哮的炽热之风迫退身前的兽人。他们的武器纷纷脱手落地，只能抬手遮挡脸面；我怀着满意的微笑冲上前去，正要斩下他们的头颅。可就在挥剑之际，一团火焰自背后将我击倒。转身望去，只见莱娜尼尔站在熊熊烈火之中，双臂向前伸展，烈焰应之而动。“对你来说是不是有些太热了呢，艾伦尼恩先生？”在她的谈笑之间，周围的兽人纷纷被烈焰吞噬，转瞬便灰飞烟灭。
 
@@ -14896,7 +14894,7 @@ Then the chanting stopped and the image disappeared, and I could hear beside me 
  
 I had no words to respond, and only nodded softly, still in awe of what I had seen.  Neira seemed the same, and I could see her now staring at the farportal with the same eager eyes as her sister.  She was converted.
  
-Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured with unease.]], [[#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#
+Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured with unease.]], [[#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#
 
 #{bold}#第三章：远行传送门#{normal}#
 
@@ -14920,7 +14918,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 搭上上衣的搭扣，我有些遗憾地摇了摇头。“坦率地说，我并不信任这些遗迹的力量。是的，我们永恒精灵的确有着强大的魔法实力。然而，我们渺小的知识比起那些夏·图尔人实在是相距甚远，以至于我们甚至无法理解他们所遗留下来的物件究竟有什么意义。在这一意义上，我的想法更接近你的孪生姐妹尼耶拉。我们应该用稳健的脚步前行，妥善而审慎地使用那些我们所能掌握的能力，而不是猛然把我们的野心扩展到这种庞大的实验之上。”
 
-莱娜尼尔凝望着我，用调笑一般的语调柔声说道，“如果你是领袖，你就能阻止这一切；但那样的话，我就不得不恨你。”
+莱娜尼尔凝望着我，深色的眼眸中带着一丝戏谑：“如果你是领袖，你就能阻止这一切；但那样的话，我就不得不恨你。”
 
 我露出了浅浅的微笑。“嘛，那还真是一件可怕而又危险的事情。”当我更衣完成时，莱娜尼尔仍然在床上休息，眉间若有所思。“我必须要前去了解远行传送门那边工作的最新进展了。如果你乐意的话，请务必和我一同前去。”
 
@@ -14950,9 +14948,9 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 已发现的夏·图尔遗迹中，鲜有能与埃尔瓦拉附近那一处的宏伟相提并论的。我们的人民花了几个世纪来悉心研究它，调动的工程量庞大无匹深入地下，却又如此小心地不曾损坏和扰乱任何遗迹中的古物。这个遗迹的核心被称为水晶塔。从地面上向下看，我们只能看到巨大的方块，在泥土被清理之后显露出来是比大理石更加光滑的白色石板。继续往下挖掘，白色石板似乎无穷无尽，其表面也没有任何能够给出说明的雕刻和标记，直到半英里后我们找到了它的底部，没有地基那样的设施。这简直就像整座塔都与大地分离，是某种来自群星的奇异之物，从天空坠落后沉睡在泥土之下。
 
-若干年前，我们的族人破解了遗迹上不可见的符文，终于叩开了遗迹的大门。遗迹内，壮观的水晶大厅以庄严而又优美的几何图案有规律的排布着。每个表面都闪耀着光芒，就连墙壁似乎也随着能量嗡嗡作响。许多甬道和通路都只能通过飞行才能到达，而其顶端是一个足以容纳整个埃尔瓦拉宫殿的巨大房间。在它的中央是远行传送门，一个直径四十英尺、噼啪涌动着能量的高台，其上缓缓旋转着一片星云。那是何等美丽而可畏，迷人而恐怖的壮观景象。永恒精灵们根本无法理解它工作的真正原理。即使通过小心的实验我们有办法操纵它所具有的能量，我们也永远无法真正知悉到底是什么力量驱动着它。
+若干年前，我们的族人破解了遗迹上不可见的符文，终于叩开了遗迹的大门。遗迹内，壮观的水晶大厅以庄严而又优美的几何图案有规律地排布着。每个表面都闪耀着光芒，就连墙壁似乎也随着能量嗡嗡作响。许多甬道和通路都只能通过飞行才能到达，而其顶端是一个足以容纳整个埃尔瓦拉宫殿的巨大房间。在它的中央是远行传送门，一个直径四十英尺、噼啪涌动着能量的高台，其上缓缓旋转着一片星云。那是何等美丽而可畏，迷人而恐怖的壮观景象。永恒精灵们根本无法理解它工作的真正原理。即使通过小心的实验我们有办法操纵它所具有的能量，我们也永远无法真正知悉到底是什么力量驱动着它。
 
-我和尼耶拉下到塔底，四周笼罩在已发掘遗迹的冰冷阴影中。穿过白色方形入口时，我向卫兵微微点头，尼耶拉则惊奇地睁大了眼睛。这座闪光的大厅的确足够吸引眼球，但是里面空无一物的情景不禁令人感到孤单。我试着去构想许久之前，当这里仍然被夏·图尔人所充满的情景。“为什么夏·图尔人灭亡了呢？”漫步于水晶大厅，我轻声向尼耶拉问出了那个或许问过许多次的问题。
+我和尼耶拉下到塔底，四周笼罩在已发掘遗迹的冰冷阴影中。穿过白色方形入口时，我向卫兵微微点头，尼耶拉则惊奇地睁大了眼睛。这座闪光的大厅的确足够吸引眼球，但是里面空无一物的情景不禁令人感到孤单。我试着去构想许久之前，当这里仍然被夏·图尔人所充满的情景。“为什么夏·图尔人灭亡了呢？”漫步于水晶大厅，我低声问道——这是此前许多人都问过的问题。
 
 尼耶拉听言微笑起来。“这当然是个谜啦！不过，我的母亲曾经告诉我，夏·图尔人在一场宏大的内战中走向了灭亡，他们所使用的魔法超乎我们任何人的想象。”
 
@@ -14968,17 +14966,17 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 “啊，啊，当然是的，”他有些鄙夷地挥了挥手。“那么不用说，这位小姐是来确认我们清楚自己在做什么的吧？”
 
-尼耶拉的微笑令人无法判断她到底是否是在生气。“能够亲眼见证你们有关遗迹能量的强大能力和丰富技巧将会是我无上的荣幸，伊菲尼亚斯大人。”
+即便尼耶拉觉得受了冒犯，她也掩饰得很好。“能够亲眼见证你们有关遗迹能量的强大能力和丰富技巧将会是我无上的荣幸，伊菲尼亚斯大人。”
 
 国王微笑着点了点头，回身叫来了他的副官。“准备地形演示，使用锐火束。”他回身向我们说道。“我向你们展示的可不只是技巧和能力，而是从精微到庞大的一切细节。现在请二位稍候片刻，我去与他们会合。”
 
-他与其他两名研究院高阶法师一起走到远行传送门面前，互相遥望，四周传来一阵阵和谐的低吟。渐渐地，远行传送门迸出的火花似乎开始闪烁起红光。几分钟后，他们的低吟音调渐渐升高，变成了无比默契的轻声吟唱，然而始终保持在完美的协调之中。紧接着，他们高举手中的法杖，远行传送门上方浮现出一幅由火焰构成的影像。在它的悉心雕刻中，慢慢形成了一幅清晰的画卷，呈现出我和尼耶拉两人的图像。所有的特征都如此明晰，所有的动作都精巧符合，下至最小的细节都清晰可辨，简直如同站在一面巨大而澄澈的明镜之前。
+他与其他两名研究院高阶法师一起走到远行传送门面前，相对而立，齐声低吟起来。渐渐地，远行传送门迸出的火花似乎开始闪烁起红光。几分钟后，他们的低吟音调渐渐升高，变成了无比默契的轻声吟唱，然而始终保持在完美的协调之中。紧接着，他们高举手中的法杖，远行传送门上方浮现出一幅由火焰构成的影像。我和尼耶拉都惊叹不已，因为那分明是我们自己的影像：我们正抬头仰望，就像在照镜子一般。我们的面容与动作都清晰可辨，连最微小的细节也不例外，全由摇曳的橙色火焰雕琢而成。
 
-紧接着，随着吟唱的歌声越来越大，影像中的视野也愈发宽广，从中呈现出我们身边的远行传送门和周围围绕着的众多法师。视野飞腾而上，眼前所见的东西越来越小，最终化为宏伟大厅内的一个小点。紧接着，画面被一个白色的方形取代，周围是挖掘直入地底的痕迹，显然我们的视野正处于水晶塔的正上方。随着聚焦范围越来越大，大地奔腾而过，西部埃尔瓦拉市的房屋隐约可见。伴随着吟诵之声，我们看到了奔腾的大海，看到了西北的层峦叠嶂。我们看到了整片大陆的全景，北部寒风笼罩的高原被冰雪所覆盖，包围着的海洋似乎无穷无尽，大陆上闪烁着无数的白色小点，如同繁星一般。咏唱达到了高潮，我们从宇宙俯瞰到了埃亚尔星球的全景，在火焰的缭绕中悬浮于半空之中，慢慢转动。
+紧接着，随着吟唱的歌声越来越大，影像中的视野也愈发宽广，从中呈现出我们身边的远行传送门和周围围绕着的众多法师。视野飞腾而上，直到我们在宽阔的大厅中只剩几个小点。紧接着，画面被一个白色的方形取代，周围是挖掘直入地底的痕迹，显然我们的视野正处于水晶塔的正上方。随着聚焦范围越来越大，大地奔腾而过，西部埃尔瓦拉市的房屋隐约可见。伴随着吟诵之声，我们看到了奔腾的大海，看到了西北的层峦叠嶂。我们看到了整片大陆的全景，北部寒风笼罩的高原被冰雪所覆盖，包围着的海洋似乎无穷无尽，大陆上闪烁着无数的白色小点，如同繁星一般。咏唱达到了高潮，我们面前悬浮着整个埃亚尔的影像——一个悬在半空的火焰之球，正缓缓转动。
 
-然后咏唱停止了，先前的图像瞬间消失得无影无踪。我似乎听到尼耶拉因为刚才令人窒息的壮观景象而喘不过气来。
+然后咏唱停止了，先前的图像瞬间消失得无影无踪。我听到身旁的尼耶拉猛地吸了一口气，仿佛这几分钟里她一直不敢呼吸。
 
-“你现在看到了吗？”伊菲尼亚斯陛下大笑着。“我们可以全方位操纵这个远行传送门的所有能量，无论是最小的细节还是最大的范围，一切尽在掌握之中。还有，你看到地图上所标注的那些白点吗？这是世界上其他的远行传送门，而我们的这个传送门可以与它们中的任何一个链接。经过精心的操纵和悉心的控制，我们可以协调他们全部的能量，并用来实现我们的愿望。恐怕你的剑根本无法与之相比，艾伦尼恩。”
+“你现在看到了吗？”伊菲尼亚斯陛下大笑着。“我们可以全方位操纵这个远行传送门的所有能量，无论是最小的细节还是最大的范围，一切尽在掌握之中。还有，你看到地图上所标注的那些白点吗？这是世界上其他的远行传送门，而我们的这个传送门可以与它们中的任何一个链接。经过精心的操纵和悉心的控制，我们可以协调它们全部的能量，并用来实现我们的愿望。恐怕你的剑根本无法与之相比，艾伦尼恩。”
 
 我仍然被我刚才所见到的奇景所震惊，无话可说，只能微微点头。尼耶拉似乎也产生了一样的想法，以和她的孪生姐妹一样的热切眼神望着这座远行传送门。是的，她的想法被改变了。
 
@@ -15036,7 +15034,7 @@ She drew close then, a sudden flush of worry in her face.  “It were just a dre
  
 We parted then, and I began the lonely ride back to my own troops.  My heart was now pounding like a deafening war drum, whilst the words of Neira still echoed round my head.  They stirred up a memory in me of a dream I myself had that morning, but that had laid dormant in my mind till then.  I was lying in my bed, and floating above me was a shape of light and air, like the figure of a creature I had never seen before.  It had long tentacles for arms, and billowing robes fluttered about it slowly.  Where it should have a head there was only a small bump, but I could tell it was focused on me.  It stretched out a long tentacle towards me, as if it were warding against a dark and dangerous threat.  A feeling came over me of terrible foreboding, the looming portent of a doom like no other the world had ever seen.  As the tip of the tentacle neared my brow everything went black.
 
-Was it a dream?  Some strange foretelling?  Or could it have been a true apparition, something trying to give me a direct warning?  But I had no time for such thoughts.  The time of the Spellblaze was nearly upon us, and there could be no room for doubt.  I spurred my horse on to my fate.]], [[#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#
+Was it a dream?  Some strange foretelling?  Or could it have been a true apparition, something trying to give me a direct warning?  But I had no time for such thoughts.  The time of the Spellblaze was nearly upon us, and there could be no room for doubt.  I spurred my horse on to my fate.]], [[#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#
 
 #{bold}#第四章：黎明将至#{normal}#
 
@@ -15054,7 +15052,7 @@ Was it a dream?  Some strange foretelling?  Or could it have been a true apparit
 
 当我到达卡库罗尔的营地，莱娜尼尔亲自出来迎接我。她看到我时笑容温暖，但我从她眼中看得出，真正令她兴奋的是今日即将发生的大事。“只剩几个小时了，”她像个等不及的孩子般低声说道，“一定会精彩极了！”
 
-我走进卡库罗尔的大帐，在里面看到了尼耶拉和其他高阶法师与来自人类诸王国的代表。我知道特塞尔不会亲自前来，因为他要和他的人民呆在一起。这并不是因为懦弱和衰老让他远离前线。实际上，据说自从他的爱妻被兽人所杀之后，他便不得不克制自己、避免投入战斗，以防止他的仇恨夺去他的理智，让他在暴怒中不分敌我地大开杀戒。然而，众所周知，他有时仍会独自走遍北方的冻土，所到之处总伴随着震耳欲聋的狂怒风暴。兽人们只要听到特塞尔，北之暴风的名字就会闻风丧胆。
+我走进卡库罗尔的大帐，在里面看到了尼耶拉和其他高阶法师与来自人类诸王国的代表。我知道特塞尔不会亲自前来，因为他留在北方的城中，与他的人民在一起。这并不是因为懦弱和衰老让他远离前线。实际上，据说自从他的爱妻被兽人所杀之后，他便不得不克制自己、避免投入战斗，以防止他的仇恨夺去他的理智，让他在暴怒中不分敌我地大开杀戒。然而，众所周知，他有时仍会独自走遍北方的冻土，所到之处总伴随着震耳欲聋的狂怒风暴。兽人们只要听到特塞尔，北之暴风的名字就会闻风丧胆。
 
 尼耶拉和莱娜尼尔指挥着卡库罗尔的部队，从那些大法师凝重的表情可以看出他们为这一天可能发生的一切做好了准备。然而，尼耶拉却面带忧色，眼中流露出明显的疑虑。
 
@@ -15082,7 +15080,7 @@ Was it a dream?  Some strange foretelling?  Or could it have been a true apparit
 
 她向我走近，一瞬间的忧虑从她的脸上闪过。“这只是个梦，对吧？”这时我才看出，在她所有的故作勇敢与玩笑之下，她其实怕得要命；她凝视着我的双眼，手指颤抖，渴望得到安慰。
 
-“这只是一个梦而已，”我撒了一个小小的谎，却不知道，这个谎言的代价即使用我的一生也无法赔付。“一切都会好起来的。”我亲昵地拉住她，轻轻拥抱住她纤弱的身躯，她用力抱紧我，还在微微颤抖之中。
+“这只是一个梦而已，”我撒了谎，而为了这个谎言，我已付出了全部的身心与灵魂。“一切都会好起来的。”我亲昵地拉住她，轻轻拥抱住她纤弱的身躯，她用力抱紧我，还在微微颤抖之中。
 
 “谢谢你，艾伦尼恩。”她悄然说道。她仰起脸吻了我。这是我和她所经历的最柔软，最细腻的一个吻，也是我和她的最后一个吻。
 
@@ -15126,7 +15124,7 @@ Her clothes had been mostly burned off, her hair half turned to ash, and blood w
 
 I began to cast what healing spells I could on Linaniil, but I could tell it was not enough, and my weakened powers could not hope to save her.  I began to cry openly, thinking of all I had lost this day, all that had gone so terribly wrong.  Hope had turned to crisis, and the cruelty of fate was far too much for me to bear.  Cradling my dying love’s head in my lap I turned my face to the sky and screamed.  Torment was in my cracked voice, and I raged against all the injustice of life and the futility of war, surrounded on all sides by blood and bones and ashes.  They had once been souls and lives with hopes and dreams, now all cast away like dust in the wind, and I lamented their deaths and my despair.
 
-But mine was just one voice, one torment, a single note in the great cacophony that spread across the continent.  Millions of lives lost and shattered, millions of voices raised in anguish and torture and suffering, as the devastation continued over all Maj’Eyal from the ultimate force of destruction, the Spellblaze.]], [[#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#
+But mine was just one voice, one torment, a single note in the great cacophony that spread across the continent.  Millions of lives lost and shattered, millions of voices raised in anguish and torture and suffering, as the devastation continued over all Maj’Eyal from the ultimate force of destruction, the Spellblaze.]], [[#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#
 
 #{bold}#第五章：魔法大爆炸之日#{normal}#
 
@@ -15142,7 +15140,7 @@ But mine was just one voice, one torment, a single note in the great cacophony t
 
 沉默。我们的声音一齐消失，一股可怕而压抑的沉寂席卷了整个战场。我们每个人都感觉到了——我们的种族与魔法之流是如此契合。那就像肺里的空气被骤然抽空，又像脚下的大地突然消失。我们所有的法力通道都不见了，骤然改变，奥术能量远在一切触及之外。呻吟与低语声开始响起，法师们在突如其来的绝望中抱住了头。我看到我的侍从在他的马鞍上摇摇欲坠，无法控制地呕吐起来，我的军旗也从他的手中滑落。其他人纷纷倒在地上，在剧痛中挣扎。我用尽意志强忍着排山倒海般的偏头痛，视野中只剩下一块块模糊不清的景象。我试图控制自己，寻找新的法力通道。
 
-但是，一定有什么东西出错了，那是多么可怕的错误。整个埃亚尔的魔法流动突然发生了巨大的变化，就像河流突然偏离了自己的河道一样荒谬。现在，我不得不和我经受多年的魔法训练所抗争。我过去一直依赖着那些已知的魔法流动，然而现在我却必须奋力寻找新的能量源。我用尽全力，把自己仅存的力量试图用于启动侦查系魔法，在那一刻，我发现的一切让我深深感到震惊。
+但是，一定有什么东西出错了，那是多么可怕的错误。整个埃亚尔的魔法流动突然发生了巨大的变化，就像河流突然偏离了自己的河道一样荒谬。究竟是什么导致了这一切？现在，我不得不和我经受多年的魔法训练所抗争。我过去一直依赖着那些已知的魔法流动，然而现在我却必须奋力寻找新的能量源。我用尽全力，把自己仅存的力量试图用于启动侦查系魔法，在那一刻，我发现的一切让我深深感到震惊。
 
 兽人看到我们混乱不堪的样子，下令全军突击。然而我的注意力很快从兽人所在的东面转移到了西面，试图望向埃尔瓦拉和我们的领袖用来操纵夏·图尔远行传送门的水晶塔。然而，我感觉水晶塔已经消失——它向内坍缩、碎入大地，一股白热的火焰浪潮正从那里扩散开来。兽人几乎没有遇到抵抗便杀入我们的军队，武器撕裂精灵兵士，但他们很快便遭遇了远为强大的毁灭性能量浪潮。
 
@@ -15154,9 +15152,9 @@ But mine was just one voice, one torment, a single note in the great cacophony t
 
 我不知道，我是怎么在这样恐怖的灾难中幸存的。巨大的冲击力无数次让我几乎失去意识，然而不知是什么样的韧性让我坚持集中注意力，不让自己的防护盾被攻击打破。灾难的景象渐渐在视野中变得模糊，我不知道包裹我的这个小小泡泡是否仍然在这片充满火与血的空气中浮动，还是已经坠入了撕裂的大地中无人知晓的无尽深渊。在经过了对我来说如同一个世纪一样漫长的痛苦折磨之后，一阵阵的冲击波终于停止了。我发现我独自躺在一片被撕裂烧灼的大地上，空气中弥漫着酷热。
 
-我挣扎着站起来，环顾四周，只看到四面八方的荒凉景象。蒸汽和烟雾从地面的裂缝中涌出，四周只剩下散落的血肉，残肢和灰烬。周围没有看到任何一个幸存者。我茫然失神，绝望地意识到：不久前站在这里的数十万人中，只剩下我一个幸存者。无论是朋友还是战友，无论是导师还是学生，无论是我从未认识的人还是我曾经非常接近的人——一切都逝去了。当我想到莱娜尼尔的时候，一股剧烈的痛苦刺穿了我的心房。她是不会死的，对吧？
+我挣扎着站起来，环顾四周，只看到四面八方的荒凉景象。蒸汽和烟雾从地面的裂缝中涌出，四周只剩下散落的血肉，残肢和灰烬。周围没有看到任何一个幸存者。我茫然失神，绝望地意识到：不久前站在这里的数十万人中，只剩下我一个幸存者。无论是朋友还是战友，无论是导师还是学生，无论是我从未认识的人还是与我无比亲近的人——一切都逝去了。当我想到莱娜尼尔的时候，一股剧烈的痛苦刺穿了我的心房。她是不会死的，对吧？
 
-我咬紧牙关，召唤了用于悬浮的能量，随着我的身体慢慢升起，周围被摧残的万物景象慢慢进入我的眼中。我慢慢地向东北方向前进，四周尽是满目疮痍。四周焚烧的血肉的气息环绕着我，我竭尽全力试图抓住仅存的一丝理智，然而周围尽是超越我的想象的恐怖景象，废土中无尽的寂静比我听到的最为震耳欲聋的声音更加摧残着我的精神。最终，我找到了卡库罗尔军队曾经驻守的地方仅存的遗迹，在无尽的废土中，我试图寻找仅存的生命的迹象。最终，我发现了一些微弱的信号，那是多么微弱的一丝生命，顺着那个线索，我最终找到了她。
+我咬紧牙关，召唤了用于悬浮的能量，随着我的身体慢慢升起，我开始在这片面目全非的大地上辨明方向。我慢慢地向东北方向前进，四周尽是满目疮痍。四周焚烧的血肉的气息环绕着我，我竭尽全力试图抓住仅存的一丝理智，然而周围尽是超越我的想象的恐怖景象，废土中无尽的寂静比我听到的最为震耳欲聋的声音更加摧残着我的精神。最终，我找到了卡库罗尔军队曾经驻守的地方仅存的遗迹，在无尽的废土中，我试图寻找仅存的生命的迹象。最终，我发现了一些微弱的信号，那是多么微弱的一丝生命，顺着那个线索，我最终找到了她。
 
 她的衣服几乎全部被烧毁，她的长发一半被烧成了灰烬，鲜血不断从她全身的烧伤处渗出。她的身上还残留着微弱的护盾能量，然而当我跪下，把手放在她身上的时候，那个护盾就消失了。她微弱地呼吸着，呢喃着“尼耶拉”的声音，然后很快陷入了无意识之中。她还活着，但是已经奄奄一息。我向四周望去，没有任何她的孪生姐妹的迹象，也没有任何卡库罗尔的士兵。四周只剩下烧焦的血肉和骨骼化成的焦炭，昭示着魔法大爆炸带来的毁灭。
 
@@ -15229,11 +15227,11 @@ The ceremony was organised in under an hour, and I was anointed leader of the Gr
 The first waves of the storm of hate came the next day.  Human peasants and farmers, ordinary workers armed poorly, their looted swords and spears badly wielded.  I stood alone at our gates as they approached, Mooncutter in my hand.  When the first few charged at me I thrust the blade into the soil and tore a great chasm in the earth, and our mages summoned forth mists and smoke that rose from the ground and began to surround our whole city.  As the peasants stumbled in confusion archers started firing from our walls.  What few made it through the smoke and arrows I took on, tearing Mooncutter through their flesh with little resistance.  Their blood gushed out in the gallons, drenching our ground, staining my skin.  It was like a warm shower over my boiling emotions, a bath of blood to wash over my sins.
 
 The Shroud of Elvala was begun, as our whole city was wreathed in cloud and smoke.  Our shield, our mask, our hiding.  It would last for centuries, the only dealings with the outside world being in furtive secrecy.
-]], [[#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#
+]], [[#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#
 
 #{bold}#第六章：被改变的埃亚尔#{normal}#
 
-或许，我们永远不会知道当天到底发生了什么。魔法大爆炸后幸存下来的夏·图尔遗迹，自此几乎无人敢碰——这一教训对人们来说已经足够深刻了。我们唯一知道的是，不管伊菲尼亚斯曾经拥有多么精妙和平衡的控制，在那一刻，他们失控了。在他们连接到其他传送门的一瞬间，微小的不平衡迅速被回响，共振，放大，瞬间失去了控制。在不到一秒钟的时间里，水晶塔中的远行传送门向内坍缩，杀死了其中所有人，并压垮四周的大地。随后，夏·图尔遗迹中的能量化作耀眼白光爆发，将空气化为火焰，将大地化为废墟。大火迅速向东袭来，用它势不可挡的毁灭力量将我们战场上的一切全部摧毁，然后直接席卷向自然精灵的领地。夏特尔的远古森林纷纷被连根拔起，从此，那片大地被永远诅咒。
+或许，我们永远不会知道当天到底发生了什么。魔法大爆炸后幸存下来的夏·图尔遗迹，自此几乎无人敢碰——这一教训对人们来说已经足够深刻了。我们唯一知道的是，不管伊菲尼亚斯和他的法师们曾经拥有多么精妙和平衡的控制，在那一刻，他们失控了。在他们连接到其他传送门的一瞬间，微小的不平衡迅速被回响，共振，放大，瞬间失去了控制。在不到一秒钟的时间里，水晶塔中的远行传送门向内坍缩，杀死了其中所有人，并压垮四周的大地。随后，夏·图尔遗迹中的能量化作耀眼白光爆发，将空气化为火焰，将大地化为废墟。大火迅速向东袭来，用它势不可挡的毁灭力量将我们战场上的一切全部摧毁，然后直接席卷向自然精灵的领地。夏特尔的远古森林纷纷被连根拔起，从此，那片大地被永远诅咒。
 
 同时，在马基·埃亚尔的其他远行传送门都纷纷爆发，白色石材纷纷碎裂，大量的能量向外涌出。西部科纳克人王国的土地迅速化为了沙漠，矮人大厅科尔赫克倒塌了，中部的平原隆起成为山脉，中间形成了纳尔湖。在南部，远古高塔德拉斐尔倒塌了，周围的森林化为被永远灼热的岩浆和黑石覆盖的焦土。在遥远的东方，纳鲁精灵所拥有的，整个马基·埃亚尔最大的传送门，被一场剧烈的地震所吞噬。剧烈的地震吞噬了周围数英里内的一切，沸水喷涌而出，填满了地震留下的巨大空腔。
 
@@ -15255,9 +15253,9 @@ The Shroud of Elvala was begun, as our whole city was wreathed in cloud and smok
 
 我把莱娜尼尔直接带到王宫的治疗场所，将她交给医生，并下达了最严格的指令。医院里现在已经满是受伤的灾民，他们对我的指令没有半点疑虑，立刻使用药剂和治疗性的法术处理了她的伤口。
 
-正当我静静地看着她时，一群人吵吵嚷嚷地冲了进来。我认出他们的头领是佩里萨，王廷中的高级官员。在她身边的是一位年长的人类，他立即走向莱娜尼尔躺在的地方。
+正当我静静地看着她时，一群人吵吵嚷嚷地冲了进来。我认出他们的头领是佩里萨，王廷中的高级官员。在她身边的是一位年长的人类，他立即走向莱娜尼尔躺着的地方。
 
-“艾伦尼恩将军！”佩里萨大喊道，“我听说你在这里，真是难以置信。感谢命运之线！现在是严峻的时刻，我们必须马上谈谈。”
+“艾伦尼恩将军！”佩里萨大喊道，“我听说你在这里，真是难以置信。感谢命运之线，让你回到了我们身边！现在是严峻的时刻，我们必须马上谈谈。”
 
 但我没有理她，我看到那个人类轻碰了莱娜尼尔的手，她的眼睛缓缓张开。“崔岚？”她低声呢喃道。
 
@@ -15328,7 +15326,7 @@ Linaniil stood for a while staring at the black cave.  Fear radiated from her fa
 
 She marched forwards and I followed, until we came right up to the shadowed opening.  Linaniil hesitated a moment, staring into the blackness, before finally stepping inside and being swallowed from sight.  I could feel it then, the sensation that something ancient lay in this place.  My skin tingled and my arcane attunement felt on fire.  This dark cave held some mysterious force, secluded from all knowledge since the oldest days of Eyal.  There was something here that could change the destiny of the world.
 
-I took a deep breath and stepped forwards.]], [[#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#
+I took a deep breath and stepped forwards.]], [[#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#
 
 #{bold}#第七章：进入黑暗#{normal}#
 
@@ -15354,7 +15352,7 @@ I took a deep breath and stepped forwards.]], [[#{italic}#来自 艾伦尼恩·�
 
 她走向窗台，再一次背对着我，直到我穿上斯莱特锁甲，拿起我的剑。当她注意到我已经准备好了的时候，她向外飞去，而我也紧随其后。
 
-我们在空中呼啸而过，以极快的速度向北飞行。望向我们脚下所飞过的大地的痕迹，随着我们向北方越走越远，气候越来越冷。在一片沉默中，时间缓缓流逝，我们飞越白雪皑皑的苔原。我们掠过了白色和灰色的平原，到达了一片低山丘陵。莱娜尼尔在这里减速并下降，我也紧随在她的身后。我们在山脚下的一个黑暗的洞口前停了下来。
+我们在空中呼啸而过，以极快的速度向北飞行。大地在我们脚下飞掠而过，随着我们向北方越走越远，气候越来越冷。在一片沉默中，时间缓缓流逝，我们飞越白雪皑皑的苔原。我们掠过了白色和灰色的平原，到达了一片低山丘陵。莱娜尼尔在这里减速并下降，我也紧随在她的身后。我们在山脚下的一个黑暗的洞口前停了下来。
 
 莱娜尼尔站在这里，凝望着眼前黑色的山洞。她的脸上散发着些许恐惧，但她的眼睛充满意志和决心。“它在这里，”她用坚定的口气平静地说道。我循着她的目光，试图猜测这个遥远的地方包含着什么秘密，但我没有察觉到任何特别之处。
 
@@ -15458,7 +15456,7 @@ I dug through the ice and rocks and found still some trace of the dead god Queko
 
 We stood apart from the others then, not engaging in war, finding a new respect for life.  It was not till Garkul the Devourer assaulted our gates in the Age of Pyre that we ever had cause for large scale war again, and I rode out to face him in combat.
 
-But ah, that is another tale, one indeed of many tales, in the long and rich history of the Tales of Maj’Eyal...]], [[#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#
+But ah, that is another tale, one indeed of many tales, in the long and rich history of the Tales of Maj’Eyal...]], [[#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#
 
 #{bold}#第八章：禁忌#{normal}#
 
@@ -15528,9 +15526,9 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 我向莱娜尼尔的身体靠近，同时切下了一个有尖刺的怪物的脑袋，然后用一道火墙阻隔了剩下的怪物。她看上去就像死了一样，没有任何活动和呼吸的迹象，但是我没有时间仔细检查了。那个由光与触手构成的生物毫无阻碍地穿过了我所造出的火墙，我让电火花沿剑身奔流，将剑从这怪物的正中向上劈开。它射出一道光芒穿透了我的身体，我咳出血来，但我奋力将我的剑刃刺入更深，往里面灌注了一道奥术能量，将那个怪物炸了个粉碎。更多长着尖刺的怪物冲了过来，我迈动步伐，在左侧格挡和切开它们的同时，向着右侧射出了一团团火焰。
 
-那团蠕虫团穿透了墙壁，伴随着它的是另外两个金色恐魔，还有一个来自黑暗与噩梦的魔物。我能看到，还有更多的恐魔在朝我们涌来。当那道光线射向我的时候，我打开了一个能量护盾，然后向他们发射了霜冻之球。一个发光的怪物倒下了，而另一个的行动则被减缓了。那个黑暗的东西也走了过来，那团蠕虫团则紧随其后。我把我的剑划过地面，将热能传导到地面上，把地上的石头化为了灼热的岩浆。那个黑暗的存在朝我接近过来，我能感受到它的身上散发出致死的寒意。我拼命地砍向它，而它则把它的触手如同长矛一般直射过来，准备吸走我的力量。我怒吼一声，让一道火焰沿剑刃奔涌而下，将它炸得四分五裂。那些蠕虫踩着岩浆直冲过来，它们中的大部分都被烧成了灰烬，但它们整体的速度没有丝毫减弱。我调整了握剑的手势，准备以轻捷的挥砍将它们挡在攻击范围之外。然而就在这时，一束光线击中了我的大腿，我单膝跪地，发出痛苦的尖叫。那团蠕虫团继续冲向我，我试图用剑刺入蠕虫团的中央，但蠕虫很快爬遍了我的手臂，用他们酸性的牙齿啃噬着我的血肉，接近我的脖子。我用左臂施法，向它们覆下一层火焰，连同尖叫的蠕虫一起灼伤了自己的手臂。虫群微微退开了，但那个发光的生物从另一侧接近了我，它的触手闪耀着光辉的能量。三个长着刺的恐魔围绕在它的后面。我的右臂严重烧伤，我的左腿也受了伤，我的锁甲已经满目疮痍，而我的法力也已经快要消耗光了。但我决心咬牙坚持——在这场战斗中我无路可逃。我紧握手中的剑，冲向那团蠕虫团。
+那团蠕虫团穿透了墙壁，伴随着它的是另外两个发光的恐魔，还有一个来自黑暗与噩梦的魔物。我能看到，还有更多的恐魔在朝我们涌来。当那道光线射向我的时候，我打开了一个能量护盾，然后向他们发射了霜冻之球。一个发光的怪物倒下了，而另一个的行动则被减缓了。那个黑暗的东西也走了过来，那团蠕虫团则紧随其后。我把我的剑划过地面，将热能传导到地面上，把地上的石头化为了灼热的岩浆。那个黑暗的存在绕过岩浆，朝我接近过来，我能感受到它的身上散发出致死的寒意。我拼命地砍向它，而它则将长矛般的肢体反刺向我的胸口，仿佛要吸走我全身的力量。我怒吼一声，让一道火焰沿剑刃奔涌而下，将它炸得四分五裂。那些蠕虫踩着岩浆直冲过来，它们中的大部分都被烧成了灰烬，但它们整体的速度没有丝毫减弱。我调整了握剑的手势，准备以轻捷的挥砍将它们挡在攻击范围之外。然而就在这时，一束光线击中了我的大腿，我单膝跪地，发出痛苦的尖叫。那团蠕虫团继续冲向我，我试图用剑刺入蠕虫团的中央，但蠕虫很快爬遍了我的手臂，用他们酸性的牙齿啃噬着我的血肉，接近我的脖子。我用左臂施法，向它们覆下一层火焰，连同尖叫的蠕虫一起灼伤了自己的手臂。虫群微微退开了，但那个发光的生物从另一侧接近了我，它的触手闪耀着光辉的能量。三个长着刺的恐魔围绕在它的后面。我的右臂严重烧伤，我的左腿也受了伤，我的锁甲已经满目疮痍，而我的法力也已经快要消耗光了。但我决心咬牙坚持——在这场战斗中我无路可逃。我紧握手中的剑，冲向那团蠕虫团。
 
-然而，它却在我的面前炸成了一团火焰。一股强大力量的波动席卷了整个山洞，火焰在周围炸开，将其他的恐魔化为了灰烬，甚至连那些发光的存在也不例外——当火焰把它烧尽时，它发出一声低沉的哀鸣。我喘息着，不知道这股强大的烈焰到底从哪里来，直到我回头看到了莱娜尼尔的身影。她正屹立在我的面前，长袍已经被烈焰烧毁。火焰在她的身旁起舞，她的眼睛放射出明亮的光芒。她的身边散发着灼热的气息。我手中紧握着我的长剑，不知道这到底是我知道的那个莱娜尼尔，还是因为她和已死之神的融合中产生的另一种存在。
+然而，它却在我的面前炸成了一团火焰。一股强大力量的波动席卷了整个山洞，火焰在周围炸开，将其他的恐魔化为了灰烬，甚至连那些发光的存在也不例外——当火焰把它烧尽时，它发出一声低沉的哀鸣。我喘息着，不知道这股强大的烈焰到底从哪里来，直到我回头看到了莱娜尼尔的身影。她正屹立在我的面前，长袍已经被烈焰烧毁。火焰在她的肌肤上上下跃动，她的眼睛放射出明亮的光芒。她的身边散发着灼热的气息。我手中紧握着我的长剑，不知道这到底是我知道的那个莱娜尼尔，还是因为她和已死之神的融合中产生的另一种存在。
 
 她突然笑了，那笑声刺耳而陌生。“我真是个傻瓜，”她像自言自语般说道，“我带你来，是为了万一必要时由你阻止我。可现在……如今我的力量已远远超过你。你根本没有希望与我抗衡！”她低低发出一声，介于笑与叹息之间。“啊，不过你不必担心。我还是我。大体上吧。我历经痛苦与牺牲，终于获得了我渴望的力量，也是我需要的力量。”
 
@@ -15546,7 +15544,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 “不过现在，再见了，艾伦尼恩。”她说着，身体慢慢飞向空中，然后加快了速度，消失在了我的视线当中。
 
-我躺在冰冷的石头上，休息了一段时间，慢慢地愈合伤口并恢复力量。我回顾了自傍晚以来的事件，回顾了马基·埃亚尔所有种族所经历的磨难。战争，疾病和死亡威胁着我们的每一个人。莱娜尼尔现在超越了这一切吗？永生不死的滋味又会给她什么样的影响呢？
+我躺在冰冷的石头上，休息了一段时间，慢慢地愈合伤口并恢复力量。我回顾了自昨晚以来发生的一切，回顾了马基·埃亚尔所有种族所经历的磨难。战争，疾病和死亡威胁着我们的每一个人。莱娜尼尔现在超越了这一切吗？永生不死的滋味又会给她什么样的影响呢？
 
 然后，我想到了有关我们种族的前途。在过去的岁月，我们曾经追求永生的力量。我们古代的领袖曾经多么为此着迷，但那都是出于虚荣，骄傲和对死亡的恐惧。如果我们的种族都能获得永生的恩赐，那么结果又会怎么样呢？永恒的生命会把我们从外部世界的冲突和战争隔绝。它会给我们一种新的视野，超越其他种族琐碎而骄傲的无止境的争执。
 
@@ -15962,7 +15960,7 @@ As to how to actually destroy one? Well, tell you what. If you manage to defeat 
 
 哪本不死生物指南能不提不起眼的骷髅？这些死者的骨头咔哒作响，看起来脆弱得仿佛一阵强风就能吹散，但从许多方面来说，它们都远比自己的食尸鬼表亲危险。
 
-因为骷髅身上通常不会有那么多累赘腐肉，死灵法师得以全身心的投入对骷髅战斗能力的授予，同时由于战士们生前所用的武器几乎和他们的骨头一样经久耐用，我们遇到的骷髅兵通常都持有武器，有时甚至身披铠甲。何况骷髅对我们的威胁并不仅仅是近身战：死去的弓箭手会再度拿起弓；虽然更为困难，有些死灵法师甚至能让死去的法师重获魔法力量。
+因为骷髅身上通常不会有那么多累赘腐肉，死灵法师得以全身心地投入对骷髅战斗能力的授予，同时由于战士们生前所用的武器几乎和他们的骨头一样经久耐用，我们遇到的骷髅兵通常都持有武器，有时甚至身披铠甲。何况骷髅对我们的威胁并不仅仅是近身战：死去的弓箭手会再度拿起弓；虽然更为困难，有些死灵法师甚至能让死去的法师重获魔法力量。
 
 不少冒险者在面对骷髅时都疑惑不解——如何摧毁一个早已死得不能再死的骷髅。对于这些冒险者，我只想说：鼓起勇气吧。骷髅的身躯越是残破不全，维持其复苏所需的力量就越大。因为大多数的死灵法师都将骷髅视为最低等的奴隶，只要几下重击，就能轻易驱散它们的主人在创造它们时投入的那点微薄心力。
 
@@ -16673,8 +16671,7 @@ I've found myself an old shield that in spite of a few dents seems serviceable e
 
 Diamonds are my favourite, so sparkly.]], [[啊哈，我总算找到了占据这邪恶地牢的可憎不死族！谢天谢地，那个骷髅蠢货根本不是我的对手！不过我想，它没有双臂大概也帮了点忙……
 
-我在这找到了一面老旧的盾牌，它虽有几处凹痕但仍堪用。这里有些老鼠特别大，给它们一个强力的盾击能在我用剑切开它们脖子前阻止它们带毒的撕咬。
-我还发现了一些宝石——看来我得继续四处搜寻更多宝石。必须申明的是，这肯定不是出于任何贪念，只是因为我崇高的任务需要我收集更多的资源，好打败这里和故乡的强大邪恶势力！
+我在这找到了一面老旧的盾牌，它虽有几处凹痕但仍堪用。这里有些老鼠特别大，给它们一个强力的盾击能在我用剑切开它们脖子前阻止它们带毒的撕咬。我还发现了一些宝石——看来我得继续四处搜寻更多宝石。必须申明的是，这肯定不是出于任何贪念，只是因为我崇高的任务需要我收集更多的资源，好打败这里和故乡的强大邪恶势力！
 
 我最喜欢钻石了，一闪一闪亮晶晶。]], "_t")
 t([[This place is infested! I've found a lot of skeletons now, and unfortunately most of them have borne a full set of limbs. However, my holy quest cannot be denied! Plus I got a really great sword off one of the blighters, I can chop anything up easily now!
@@ -17634,13 +17631,9 @@ Weisman]], [[亲爱的弑蚁者罗尔夫，
 
 哈！你克服了何等的艰难险阻！先别提巨龙与恶魔，这下我们有了一位战胜了蚂蚁的英雄！我真该用最快速度将你这英雄事迹传到最后的希望，也许那里的人会为你的壮举准备一场隆重的庆典！
 
-我希望你听懂了我之前话语中的讽刺，不过对一个连虫子都对付不了的人，我显然也指望不了太多。
+我希望你听懂了我之前话语中的讽刺，不过对一个连虫子都对付不了的人，我显然也指望不了太多。请允许在下与你分享这一则真正冒险家必备的野兽知识吧。我一路向南，当某天晚上我途经一条废弃的山道，我正满脑子想着第二天将会遇到的刺激冒险与惊人的宝藏时，突然一道冲天的亮光几乎闪瞎了我的双眼！在这光芒之下，我的四周亮如白昼，便是此时我看见了它。
 
-请允许在下与你分享这一则真正冒险家必备的野兽知识吧。我一路向南，当某天晚上我途径一条废弃的山道，我正满脑子想着第二天将会遇到的刺激冒险与惊人的宝藏时，突然一道冲天的亮光几乎闪瞎了我的双眼！在这光芒之下，我的四周亮如白昼，便是此时我看见了它。
-
-真是难以言喻的壮丽景象！它扇动着烈焰之翼，所过之处空气本身都嘶嘶作响、余烟袅袅。
-
-我惊讶地看到它停在几码之外的岩石上。它立足的岩石亦在那灼人的高热下扭曲变形。就在此时，我总算明白了成为一名冒险家的真正意义，我们这个世界上，总还有更多令人惊叹、令人震撼的事物。
+真是难以言喻的壮丽景象！它扇动着烈焰之翼，所过之处空气本身都嘶嘶作响、余烟袅袅。我惊讶地看到它停在几码之外的岩石上。它立足的岩石亦在那灼人的高热下扭曲变形。就在那一刻，罗尔夫，我总算明白了成为一名冒险家的真正意义，我们这个世界上，总还有更多令人惊叹、令人震撼的事物。
 
 希望你能从我的经验里学到些什么。
 威斯曼]], "_t")
@@ -18030,9 +18023,9 @@ They deal with other races seldom, preferring to keep a low profile, and most of
 
 永恒精灵（又称 Shalore，字面意为“优雅的兄弟姐妹”）通常身高6英尺2英寸左右，有着阳光般灿烂的头发和蓝色或紫色的眼睛。他们身材苗条，体格轻盈，更以精神智慧而非体格强健著称。他们以迅捷的移动速度和轻快的步伐而闻名。但是最值得注意的是他们的魔法亲和力，这一点其他任何种族中都是无法相提并论的，同时他们还拥有强大的意志。
 
-很久以前，永恒精灵们便学会了魔法的运用，而这点也一直延续至今。虽然其他种族认为魔法充满了巨大的威胁，永恒精灵们却热爱着它，并且广泛运用于整个社会。不过，在他们与其他种族交流时，他们仍小心地隐藏魔法。永恒精灵正是发动魔法大爆炸的元凶，虽然他们很快便设法让此事被人遗忘，但是归咎于他们的记忆却深埋于许多人心中。在黄昏纪的魔法狩猎期间，他们紧闭城门并用一层薄雾笼罩着整片区域，偶尔悄悄地溜出来。许多世纪后他们才为世人所接受，但是大家对他们仍心存猜忌。
+很久以前，永恒精灵们便学会了魔法的运用，而这点也一直延续至今。虽然其他种族认为魔法充满了巨大的威胁，永恒精灵们却热爱着它，并且广泛运用于整个社会。不过，在他们与其他种族交流时，他们仍小心地隐藏魔法。永恒精灵正是发动魔法大爆炸的元凶，虽然他们巴不得此事早被遗忘，但是归咎于他们的记忆却深埋于许多人心中。在黄昏纪的魔法狩猎期间，他们紧闭城门并用一层薄雾笼罩着整片区域，偶尔悄悄地溜出来。许多世纪后他们才为世人所接受，但是大家对他们仍心存猜忌。
 
-他们的首都在埃尔瓦拉，西南半岛地区，其他地方则很少见到他们居住。他们有着很长的寿命，并且他们在魔法上的造诣允许他们无限延长他们的寿命。其中最年长的那些不死者组成了由精灵王艾伦尼恩·加威尔为首的长老会。永恒精灵对死亡尤为痴迷，相传过去的国王为自己建造了奢华的坟墓并在里面研究肉身保存与亡灵法术。当然，永恒精灵们是矢口否认的。
+他们的首都在埃尔瓦拉，西南半岛地区，其他地方则很少见到他们居住。他们有着很长的寿命，并且他们在魔法上的造诣允许他们无限延长他们的寿命。其中最年长的那些永生者组成了由精灵王艾伦尼恩·加威尔为首的长老会。永恒精灵对死亡尤为痴迷，相传过去的国王为自己建造了奢华的坟墓并在里面研究肉身保存与亡灵法术。当然，永恒精灵们是矢口否认的。
 
 他们很少与其他种族直接往来，一直过着低调的生活，大部分的贸易是通过半身人中间人来完成的。少数符文师和附魔师有时会前往其他主要城市做生意，另外还有一些莽撞的年轻人去更远的地方闯荡。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 5 - Thaloren", "博学者格雷诺特关于种族的调查——第五章——自然精灵", "_t")
@@ -18128,13 +18121,13 @@ Nagas were once believed to be mere myth, but reliable reports and even the capt
 
 The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]], [[任何完整的著述都少不了至少简要提及那些肆虐于我们世界的野蛮种族。他们没有任何值得一提的文明社会，一般来说也不具备高等思维或文化，但是对于那些热衷于分析低等智慧生物的人而言，他们仍然值得研究。
 
-巨魔主要分为两大类——科兹拉克和马提普，也就是俗称的岩石巨魔和森林巨魔。岩石巨魔生活于东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着极为发达的肌肉力量，外皮厚实坚硬，看上去就像煤块或花岗岩。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们比山地同类有着更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪末期，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
+巨魔主要分为两大类——科兹拉克和马提普，也就是俗称的岩石巨魔和森林巨魔。岩石巨魔生活于东北部的山脉地区，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着极为发达的肌肉力量，外皮厚实坚硬，看上去就像煤块或花岗岩。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名昭著。他们比山地同类有着更为发达的言语能力，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。据测量，他们在出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们一开始被认为仅比野兽好一点，然而在烈火纪末期，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
 
-巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来就像是具有浮肿面部特征和更长、摆动着的四肢的放大人类。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变的具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者袭击聚居地，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的发达文化和语言，但据观察会表现出有限智慧的互动，并能在群体中良好地交流。
+巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来有点像巨大而畸形的人类，面部浮肿或变形，四肢更长且摆荡不定。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以鹿和羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者他们的后辈受到威胁时才会变得具有攻击性。有报道称，巨人们有时会从山上下来，抢夺牧场的家畜或者袭击聚居地，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的发达文化和语言，但据观察会表现出有限智慧的互动，并能在群体中良好地交流。
 
 娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和苗条的身段，但是下半身却极像一只巨蛇的尾巴。他们在陆地上身高约6英尺，而尾巴还要再长出好几英尺。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。近几百年才有关于他们的记载，而且只是近来人们才开始认为他们不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用珠宝装饰自己，并用海底找到的材料打造武器和盔甲，例如用层层厚鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但迄今为止，与他们沟通都被证明是不可能的。现在还不知道他们是否有复杂的语言，但是他们目前的对外回复只是极端的暴力，并且东海的渔民们经常要提防碰上这些邪恶的生物。
 
-恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，他们是由某种魔法仪式召唤而来，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论得到了永恒精灵魔导师们一些研究的支持，该理论似乎表明恶魔来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常流着泛蓝的血液，血肉与皮肤呈金属质感，往往会与我们的空气产生奇异反应——有些燃起火焰，有些释放出可怕的酸液或喷吐出黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
+恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，某些魔法仪式可以召唤他们，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论得到了永恒精灵魔导师们一些研究的支持，该理论似乎表明恶魔来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常流着泛蓝的血液，血肉与皮肤呈金属质感，往往会与我们的空气产生奇异反应——有些燃起火焰，有些释放出可怕的酸液或喷吐出黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 11 - Dragons", "博学者格雷诺特关于种族的调查——第十一章——龙族", "_t")
 t([[The common man may scoff at the idea of classifying dragons as an intelligent race, but experienced wyrmics know otherwise. Dragons are incredibly long-lived creatures, with some known to survive for thousands of years. Though in their early life they are of a bestial nature, as they advance through the centuries they gain an ever keener and more developed intellect. The eldest of wyrms are sometimes considered the most subtle and intelligent of creatures in Maj'Eyal, capable of telepathic communication and advanced mental abilities, and wyrmics speak of them with the highest reverence.
 
@@ -18271,7 +18264,7 @@ Now to Nature you are dust"]], [[厄流纪崛起一位大法师
 
 当作物死于干旱和枯萎
 孩童也染上疾病
-巫师在夜里偷偷的潜入
+可怖的巫师在夜里偷偷地潜入
 来掠夺他想要的一切
 
 但是来了一位英雄，他手持宝剑
@@ -18284,10 +18277,10 @@ Now to Nature you are dust"]], [[厄流纪崛起一位大法师
 我不会屈服于可怕的魔法
 我将结束这邪恶的统治”
 
-于是他骑着一匹骏马
-向巫师的巢穴前进
-幽暗的洞穴吞噬着一切
-他却凛然不惧
+于是他骑着一匹纯白骏马
+向术士的巢穴前进
+那阴湿的居所满是黑暗罪行
+他却勇敢无畏地踏入其中
 
 战斗之激烈难以想象
 那是剑与魔法的火花
@@ -18296,7 +18289,7 @@ Now to Nature you are dust"]], [[厄流纪崛起一位大法师
 
 一束纯净的奥术射线
 撕裂了护甲与盾牌
-但他仍坚定信念
+但他身躯无恙、依然坚定
 英雄永不屈服
 
 刀光划过了巫师的衣袍
@@ -20659,7 +20652,7 @@ t([[The Abashed Expanse is a part of Eyal torn apart by the Spellblaze and throw
 ]], [[次元浮岛曾是埃亚尔的一部分，在魔法大爆炸中被撕裂并抛入星辰之间的虚空。
 ]], "_t")
 t([[It has recently begun to destabilize, threatening to crash onto Eyal, destroying everything in its path.
-]], [[它现在变的越来越不稳定，有与埃亚尔发生碰撞的危险，这将会摧毁一切它所碰到的东西。
+]], [[它最近开始变得不稳定，有与埃亚尔发生碰撞的危险，这将会摧毁一切它所碰到的东西。
 ]], "_t")
 t([[You have entered it and must now stabilize three wormholes by firing any spell at them.
 ]], [[你已经进入了那里，现在必须对三个虫洞施法以稳定它们。
@@ -21111,8 +21104,9 @@ t("Flash of the Blade", "闪光之刃", "talent name")
 t([[Infuse your two handed weapon with light while spinning around.
 		All creatures in radius one take %d%% weapon damage.
 		In addition while spinning your weapon shines so much it deals %d%% light weapon damage to all foes in radius 2.
-		At level 4 your spinning blade creates a shield that blocks all damage for 1 turn.]], [[旋转一周，同时将光明之力充满武器。
-		半径 1 以内的敌人将受到 %d%% 武器伤害，同时半径 2 以内的敌人将受到 %d%% 光系武器伤害。
+		At level 4 your spinning blade creates a shield that blocks all damage for 1 turn.]], [[旋转一周，同时将光明之力注入你的双手武器。
+		半径 1 以内的所有生物将受到 %d%% 武器伤害。
+		此外，旋转时你的武器光芒四射，对半径 2 以内的所有敌人造成 %d%% 光系武器伤害。
 		技能等级 4 或以上时，在旋转时你会制造一层护盾，免疫 1 回合内的所有伤害。]], "tformat")
 
 ------------------------------------------------
@@ -22500,11 +22494,9 @@ t("temporal-hound", "时空猎犬", "_t")
 t("Temporal Hounds", "时空猎犬", "talent name")
 t([[Upon activation summon a Temporal Hound.  Every %d turns another hound will be summoned, up to a maximum of three hounds. If a hound dies you'll summon a new hound in %d turns.  
 		Your hounds inherit your increased damage percent, have %d%% physical resistance and %d%% temporal resistance, and are immune to teleportation effects.
-		Hounds will get, %d Strength, %d Dexterity, %d Constitution, %d Magic, %d Willpower, and %d Cunning, based on your Magic stat.]], [[激活时召唤一条时空猎犬。
-		每隔 %d 回合召唤另一条时空猎犬，直至最多 3 条。
-		当一条猎犬死去时，你将在 %d 回合内召唤一条新的猎犬。
+		Hounds will get, %d Strength, %d Dexterity, %d Constitution, %d Magic, %d Willpower, and %d Cunning, based on your Magic stat.]], [[激活时召唤一条时空猎犬。每隔 %d 回合召唤另一条时空猎犬，直至最多 3 条。当一条猎犬死去时，你将在 %d 回合后召唤一条新的猎犬。
 		你的猎犬继承你的伤害加成，有 %d%% 物理和 %d%% 时空抗性，对传送效果免疫。
-		猎犬将拥有 %d 力量，%d 敏捷，%d 体质，%d 魔法，%d 意志和 %d 灵巧，基于你的魔法。]], "tformat")
+		猎犬将拥有 %d 力量，%d 敏捷，%d 体质，%d 魔力，%d 意志和 %d 灵巧，基于你的魔力。]], "tformat")
 t("Command Hounds: Blink", "闪烁命令", "talent name")
 t("Temporal Hounds must be sustained to cast this spell.", "必须开启时空猎犬来使用该技能。", "logPlayer")
 t("You do not have line of sight.", "你没有视线。", "logPlayer")
@@ -23283,9 +23275,7 @@ t([[Fire three shots in quick succession at a vulnerable point on the target (us
 		这些射击将会穿过你和目标间的其他敌人。
 		受命中影响，震慑几率增加。]], "tformat")
 t("Sling Sniper", "投石大师", "talent name")
-t("Your mastery of called shots is unparalleled. and you gain %d%% bonus critical chance and %d%% critical damage with your Called Shots Talents. At rank 3 the cooldowns of all of your Called Shots Talents are reduced by 2 each. At rank 5 you gain %d%% Physical resistance penetration with all Called Shot attacks.", [[你对精准射击的掌握程度无与伦比。你的精准射击系技能获得 %d%% 额外暴击几率和 %d%% 额外暴击伤害。
-		在第 3 级时，所有精准射击系技能冷却时间降低两回合。
-		在第 5 级时，你的精准射击技能获得 %d%% 物理抗性穿透。]], "tformat")
+t("Your mastery of called shots is unparalleled. and you gain %d%% bonus critical chance and %d%% critical damage with your Called Shots Talents. At rank 3 the cooldowns of all of your Called Shots Talents are reduced by 2 each. At rank 5 you gain %d%% Physical resistance penetration with all Called Shot attacks.", [[你对精准射击的掌握程度无与伦比。你的精准射击系技能获得 %d%% 额外暴击几率和 %d%% 额外暴击伤害。在第 3 级时，所有精准射击系技能冷却时间降低两回合。在第 5 级时，你的所有精准射击攻击获得 %d%% 物理抗性穿透。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cunning/cunning.lua"
@@ -23377,7 +23367,7 @@ t("%s resists the vile poison!", "%s抵抗了邪恶毒素！", "logSeen")
 t([[Learn how to coat your melee weapons, throwing knives, sling and bow ammo with poison, giving your attacks a %d%% chance to poison the target for %d nature damage per turn for %d turns. Every application of the poison stacks, up to a maximum of %d nature damage per turn.
 		The damage scales with your Cunning.]], [[学会如何在近战武器、飞刀、弹药上涂毒，命中后有 %d%% 几率使目标中毒，每回合受到 %d 自然伤害，持续 %d 回合。毒素效果可以叠加至 %d 伤害每回合。
 		伤害受灵巧加成。]], "tformat")
-t("Toxic Death", "致命毒素", "talent name")
+t("Toxic Death", "剧毒之死", "talent name")
 t("#GREEN#Poison bursts out of %s's corpse!", "#GREEN#毒素从%s的尸体中爆发出来！", "logSeen")
 t("When you kill a creature, all of your poisons affecting it will spread to foes in a radius of %d.", "当你杀死一个生物时，你施加在其身上的所有毒素都会传播至半径 %d 内的敌人。", "tformat")
 t("Vile Poisons", "邪恶毒素", "talent name")
@@ -26477,8 +26467,7 @@ t([[When gaining a combo point, you have a %d%% chance to gain an extra combo po
 t("Steady Mind", "冷静思维", "talent name")
 t([[Superior cunning and training allows you to outthink and outwit your opponents' physical and mental assaults.  Increases Defense by %d and Mental Save by %d.
 		The Defense bonus will scale with your Dexterity, and the save bonus with your Cunning.]], [[卓越的灵巧与训练使你能以智取胜，看穿并化解对手的肉体和精神攻击。增加 %d 近身闪避和 %d 精神豁免。
-		受敏捷影响，闪避按比例加成；
-		受灵巧影响，精神豁免按比例加成。]], "tformat")
+		受敏捷影响，闪避按比例加成；受灵巧影响，精神豁免按比例加成。]], "tformat")
 t("Maim", "伤残", "talent name")
 t([[Grapples the target and inflicts %0.2f physical damage. If the target is already grappled, the target will be maimed as well, reducing damage by %d and global speed by 30%% for %d turns.
 		The grapple effects will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.]], [[抓取目标并给予其 %0.2f 物理伤害。
@@ -29622,7 +29611,7 @@ t("You cannot use Blunt Thrust without a staff weapon!", "你需要一把法杖�
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
 t([[Hit a target for %d%% melee damage and stun it for %d turns.
 		Stun chance will improve with Spellpower.
-		At level 5, this attack cannot miss.]], [[以法杖击打目标，造成 %d%% 近程伤害并震慑目标 %d 回合。
+		At level 5, this attack cannot miss.]], [[以法杖击打目标，造成 %d%% 近战伤害并震慑目标 %d 回合。
 		震慑概率受法术强度加成。
 		在等级 5 时，此攻击必中。]], "tformat")
 
@@ -30007,7 +29996,7 @@ t("You require a shield to use this talent.", "你需要一面盾牌来施展这
 t("%s resists the daze!", "%s抵抗了眩晕！", "logSeen")
 t([[Leap onto an adjacent target with your shield, striking them for %d%% damage and dazing them for 2 turns, then using them as a springboard to leap to a tile within range %d.
 The shield bash will use Dexterity instead of Strength for the shield's bonus damage.
-At talent level 5, you will immediately enter a blocking stance on landing.]], [[持盾跃向相邻目标，造成 %d%% 伤害并眩晕 2 回合，之后将其做为跳板跃向 %d 格内的空地。
+At talent level 5, you will immediately enter a blocking stance on landing.]], [[持盾跃向相邻目标，造成 %d%% 伤害并眩晕 2 回合，之后将其作为跳板跃向 %d 格内的空地。
 盾袭将使用敏捷代替力量决定盾牌的属性伤害加成。
 技能等级 5 时，你将在落地后立刻进入格挡状态。]], "tformat")
 t("Bull Shot", "冲锋射击", "talent name")
@@ -30020,7 +30009,7 @@ t([[You rush toward your foe, readying your shot. If you reach the enemy, you re
 		每次你移动时，该技能的冷却时间减少 1 回合。
 		该技能需要投石索。]], "tformat")
 t("Rapid Shot", "速射姿态", "talent name")
-t("You cannot use Rapid Fire without a bow or sling!", "你需要装备投石索才能使用速射姿态！", "logPlayer")
+t("You cannot use Rapid Fire without a bow or sling!", "你需要装备弓或投石索才能使用速射姿态！", "logPlayer")
 t([[Enter a fluid, mobile shooting stance that excels at close combat. Your ranged attack speed is increased by %d%% and each time you shoot you gain %d%% increased movement speed for 2 turns.
 Ranged attacks against targets will also grant you up to %d%% of a turn. This is 100%% effective against targets within 3 tiles, and decreases by 20%% for each tile beyond that (to 0%% at 8 tiles). This cannot occur more than once per turn.
 Requires a sling to use.]], [[进入流畅灵活的射击姿势，擅长近距离射击。你的远程攻击速度增加 %d%%，每次射击令你在两回合内移动速度增加 %d%%。
@@ -31325,19 +31314,19 @@ t([[Surround yourself with an elemental aura that stores damage you deal.
 
 		Each effect can only happen once per 10 player turns.  This does not count as a typical cooldown.
 		The damage and some effect powers increase with your Cunning and the threshold with your level.
-		%s]], [[你被元素光环笼罩，存储你造成的元素伤害。
-		当你积累的某类伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 码，并对你自己附加以下的附加效果：
+		%s]], [[你被元素光环笼罩，存储你造成的伤害。
+		当你积累的某类伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 码，并使你获得以下效果之一：
 
-		物理：清除 1 个物理负面特效并给予 2 回合物理负面特效豁免。
-		#PURPLE#奥术：#LAST# 增加你的精神和施法速度 30%%，持续 3 回合。
-		#LIGHT_RED#火焰：#LAST# 增加你所造成的所有伤害 %d%%，持续 3 回合。
-		#1133F3#寒冷：#LAST# 将你的皮肤变成冰，增加护甲 %d，对攻击者造成 %d 寒冰伤害，持续 3 回合。
-		#ROYAL_BLUE#闪电：#LAST# 你的移动速度提升 %d%%，持续 2 回合。
-		#YELLOW#光系：#LAST# 技能冷却时间减少 20%%，持续 3 回合。
-		#LIGHT_GREEN#自然：#LAST# 清除 1 个魔法负面特效并给予 2 回合魔法负面特效豁免。
+		物理：		清除 1 个物理负面特效并给予 2 回合物理负面状态免疫。
+		#PURPLE#奥术：#LAST#		增加你的精神和施法速度 30%%，持续 3 回合。
+		#LIGHT_RED#火焰：#LAST#		增加你所造成的所有伤害 %d%%，持续 3 回合。
+		#1133F3#寒冷：#LAST#		将你的皮肤变成冰，增加护甲 %d，对攻击者造成 %d 寒冰伤害，持续 3 回合。
+		#ROYAL_BLUE#闪电：#LAST#	你的移动速度提升 %d%%，持续 2 回合。
+		#YELLOW#光系：#LAST#		技能冷却时间减少 20%%，持续 3 回合。
+		#LIGHT_GREEN#自然：#LAST#		清除 1 个魔法负面特效并给予 2 回合魔法负面状态免疫。
 
 		同种效果最多每 10 回合触发一次。这不是普通的技能冷却。
-		伤害和效果强度受灵巧值加成，伤害阈值受等级加成。
+		伤害和部分效果强度受灵巧值加成，伤害阈值受等级加成。
 		%s]], "tformat")
 t("All physical criticals reduce the remaining cooldown of a random technique or cunning talent by 2.", "所有的物理暴击减少随机的 1 个冷却中的格斗或灵巧系技能 2 回合冷却时间。", "_t")
 t("All spell criticals reduce the remaining cooldown of a random spell/corruption/celestial/chronomancy talent by 2.", "所有的法术暴击减少随机的 1 个冷却中的法术/ 堕落/ 天空/时空系技能 2 回合冷却时间。", "_t")
@@ -34564,7 +34553,7 @@ Talents:
 - #YELLOW# 邪恶毒素：#WHITE# 学会调制新的危险而可怕的毒素，将其涂在武器或弹药上，使敌人中毒。
 - #YELLOW# 毒素爆发：#WHITE# 发动一次可怕的攻击，目标身上的中毒效果越多，造成的自然伤害越高。
 - #YELLOW# 强化毒素：#WHITE# 让你的毒素变得更加致命、起效更快。
-- #YELLOW# 致命毒素：#WHITE# 将有毒的“快乐”分享给敌人的朋友们！
+- #YELLOW# 剧毒之死：#WHITE# 将有毒的“快乐”分享给敌人的朋友们！
 ]], "_t")
 
 ------------------------------------------------
@@ -43231,11 +43220,11 @@ t([[I begin my writings with a study of the humans, currently the most populous 
 
  科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后的希望一带，这种现象尤为明显。
 
- 肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大灾变将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、注能物工匠或龙战士猎手行走于世。
+ 肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大灾变将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身工匠或龙战士猎手行走于世。
 
- 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为魔法猎手的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在血缘疏远的后裔身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
+ 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为魔法猎手的首要目标。然而，人们仍能找到他们的些许痕迹——火红的头发以及生有雀斑的皮肤，仍常常出现在血缘疏远的后裔身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
 
- 高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝色或灰色的眼睛。大多数学者都是高等人类，贵族阶层也大多由他们占据。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商是厄流纪时期秘法会法师们的实验成果，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与低等血统通婚则为世所不齿。
+ 高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝色或灰色的眼睛。大多数学者都是高等人类，贵族阶层也大多由他们占据。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商源于厄流纪时期古老的孔克雷夫所主导的奥术实验，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与低等血统通婚则为世所不齿。
 
  在烈火纪，勇者图库纳国王统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。]], "_t")
 t([[No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect.
@@ -43250,11 +43239,11 @@ t([[No text would be complete without at least a brief note of some of the more 
 
  巨魔主要分为两大类——科兹拉克和马提普，俗称岩石巨魔和森林巨魔。岩石巨魔盘踞于东北部的许多山脉，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着极其发达的肌肉和厚实坚固、外观如煤炭或花岗岩的皮肤。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们的言语能力比居于山地的同族更发达，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。他们出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们过去被认为仅比野兽好一点，然而在烈火纪末期，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
 
- 巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来像体形巨大而畸形的人类，面部肿胀，摆动的四肢也长得多。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以野鹿和山羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者幼崽受到威胁时才会变的具有攻击性。有报道称，巨人们有时会来到低地，偷走农场动物或者袭击聚落，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的成熟文化和语言，但有记载表明他们会展现出有限的智慧，也擅长在群体中交流。
+ 巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来像体形巨大而畸形的人类，面部肿胀，摆动的四肢也长得多。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以野鹿和山羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者幼崽受到威胁时才会变得具有攻击性。有报道称，巨人们有时会来到低地，偷走农场动物或者袭击聚落，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的成熟文化和语言，但有记载表明他们会展现出有限的智慧，也擅长在群体中交流。
 
  娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和极为瘦削的身材，但是下半身却极像一只巨蛇的尾巴。他们在陆地上大约身高6英尺，而他们的尾巴还要向后延伸数英尺。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。有关他们的记载只见于近几百年，而且直到最近人们才开始认为这些记载不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用珠宝装饰自己，并用海底找到的材料制作武器和护甲，例如用多层厚鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是迄今为止，与他们沟通已被证明是不可能的。现在还不知道他们是否有复杂的语言，但到目前为止，他们对遇到的人只会以极端暴力回应，东部的渔民们也时刻提防着碰上这些凶恶的生物。
 
- 恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，某些魔法仪式可以召唤他们，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论得到了永恒精灵魔导师们某些研究的支持，该理论认为恶魔们似乎来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常有偏蓝的血液和金属般的血肉，这些部位常会与我们的空气发生奇异反应——有的被火焰环绕，有的释放可怕的酸液或喷吐黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现的更加稀少了。]], "_t")
+ 恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，某些魔法仪式可以召唤他们，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论得到了永恒精灵魔导师们某些研究的支持，该理论认为恶魔们似乎来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常有偏蓝的血液和金属般的血肉，这些部位常会与我们的空气发生奇异反应——有的被火焰环绕，有的释放可怕的酸液或喷吐黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现得更加稀少了。]], "_t")
 t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.
 
  Dwarves are around 5' tall, with generally brown or grey hair. They are usually stocky and muscular, and known to be very resistant to any physical suffering. Their females can be hard to distinguish from their males, but can usually be identified by the beads braided into their beards. All dwarves are highly proud of their beards, and take immaculate care of them. The greatest insult to a dwarf is to belittle his beard, and the greatest sign of suffering in a dwarf is for him to tear at his beard.

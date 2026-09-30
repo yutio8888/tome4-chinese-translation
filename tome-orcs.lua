@@ -276,7 +276,7 @@ t("On the isolated Clork Peninsula lies the fifth pride: Kruk's Pride; unseen an
 t("Yet not all is great there either, the Sunwall offensive has set up an outpost blocking the way to the mainland.", "不幸的是，太阳堡垒建立了前哨站阻断了通向大陆的道路。", "_t")
 t("But the worst threat comes from the peninsula itself, the main inhabitants are not the orcs, but the Atmos Tribe.", "然而，最大的威胁来自半岛本身。半岛上的主要居民并非兽人，而是气之部族。", "_t")
 t("A civilization of steam giants whose mastery of steamtech makes them incredible foes.", "蒸汽巨人的文明掌控蒸汽科技，他们是无比强大的敌人。", "_t")
-t("Play an orc, prove your worth! Use steamtech against the giants, reclaim the far east and free it from Sunwall scum!", "用兽人种族进行游戏，证明你的价值！使用蒸汽科技对抗巨人，回到远东，并将其从太阳堡垒手中夺回！", "_t")
+t("Play an orc, prove your worth! Use steamtech against the giants, reclaim the far east and free it from Sunwall scum!", "用兽人种族进行游戏，证明你的价值！使用蒸汽科技对抗巨人，收复远东，将它从太阳堡垒的渣滓手中解放出来！", "_t")
 t("Craft your own steamsaws, rocket boots, steam powered armours, and all kind of steamy technology!", "制造自己的蒸汽链锯，火箭靴，蒸汽护甲，以及其他各式各样的蒸汽科技！", "_t")
 t("This is your destiny! For Garkul's Legacy, for the Glory of the Pride!", "这是你的天命！为了加库尔的遗产，为了部落的荣耀！", "_t")
 
@@ -455,7 +455,7 @@ t("No need for shopping now.", "现在不需要购物。", "_t")
 t([[#LIGHT_GREEN#*A well-dressed giant stands in front of you, covered in expensive jewelry; judging from the poorly-fastened clasp on his necklace, you can assume he acquired it all fairly recently.  He grins as he leans down over the counter to get a good view of you.*#WHITE#
 Ah, welcome, @playername@! #LIGHT_GREEN#*he yells in a voice loud enough to catch the attention of all in the shop, as he lifts his head to look around.*#WHITE# Yes, you heard me right, @playername@! The very same one who's been running rampant through the Vaporous Emporium is coming to ME for armaments! I don't think I could've asked for a stronger endorsement! #LIGHT_GREEN#*He looks back down to you, leaning over the counter to point out a glass display case loaded with exotic weaponry and armor.*#WHITE#
 Well, I'm not one to turn down anyone with gold, and seeing as you've already made me rich, I'll even give you a discount, down to my pre-attack prices. #LIGHT_GREEN#*He leans in uncomfortably close, staring you in the eyes.* #WHITE#Or, if you came to do here what you did in the Emporium... #LIGHT_GREEN#*He directs his glare toward the multiple well-armed guards staring at you and standing still on the sides of the room.*#WHITE# I'm sure my #{italic}#emergency safety measures#{normal}# would just #{italic}#love#{normal}# an opportunity to try out their shiny new toys.]], [[#LIGHT_GREEN#*一名衣着讲究的巨人站在你面前，戴满昂贵的珠宝；从他松垮的项链扣上看，你猜测他是最近才拿到的。他微笑着从柜台往下看，注视着你。*#WHITE#
-哦，欢迎，@playername@! #LIGHT_GREEN#*他的声音大的让店里所有人都听见，同时他抬起头张望四周。*#WHITE# 是的，听见了么，@playername@！就是那个在蒸汽商场猖獗无比的家伙，他到我这来买装备了！我认为不会有比这更好的宣传了！#LIGHT_GREEN#*他转过头看你，指出一个玻璃展台，那上面装满异种武器和护甲。*#WHITE#
+哦，欢迎，@playername@! #LIGHT_GREEN#*他的声音大得让店里所有人都听见，同时他抬起头张望四周。*#WHITE# 是的，听见了么，@playername@！就是那个在蒸汽商场猖獗无比的家伙，他到我这来买装备了！我认为不会有比这更好的宣传了！#LIGHT_GREEN#*他转过头看你，指出一个玻璃展台，那上面装满异种武器和护甲。*#WHITE#
 好吧，我不会拒绝任何带着钱过来的人，同时你也已经让我富裕不少了。我甚至还能给你打个折，降到进攻前的价格。#LIGHT_GREEN#*他靠得过近，让你感觉不太舒服。他直视着你的眼睛。*#WHITE#或者，如果你来这里是想重演你在蒸汽商场干的事情……#LIGHT_GREEN#*他把凌厉的目光转向房间两侧那些装备精良、正盯着你且纹丝不动的警卫。*#WHITE#我相信我的#{italic}#紧急安全措施#{normal}#一定#{italic}#非常乐意#{normal}#找机会试试他们闪亮的新玩具。]], "_t")
 t([[Welcome back, @playername@!  You see this, customers?  This fearsome, savage master of battle was so impressed by my products that he came back for more!
 #LIGHT_GREEN#*He points to a new poster on the wall next to him, showing your face and the caption #{bold}#"KALTOR: THE CHOICE OF DESTROYERS!"#{normal}#*#WHITE#
@@ -463,7 +463,7 @@ t([[Welcome back, @playername@!  You see this, customers?  This fearsome, savage
 So, what'll it be?]], [[欢迎回来，@playername@！来看看这个，顾客们？这位可怕而野蛮的战斗大师也对我的产品印象深刻，现在他又回来买东西了！
 #LIGHT_GREEN#*他指向墙上贴着的新海报，上面是你的脸和一行大字 #{bold}#"卡托尔：破坏者的选择！"#{normal}#*#WHITE#
 
-那么，你要做什么呢？]], "_t")
+那么，这次想买点什么？]], "_t")
 t([[#LIGHT_GREEN#*Kaltor is busy packing some of his goods away in crates; he hands one to a worker, carrying it out the back door, before turning to you.*#WHITE#
 	Make it quick, @playername@. Not to be rude, but there's a private airship out there with my name on it, and I'd rather have a bird's-eye view of what you're about to do than a front-row seat.]], [[#LIGHT_GREEN#*卡托尔忙着打包货物；他将箱子递给一个工人带到后门，然后转过头和你说话。*#WHITE#
 	快点吧，@playername@。不是我粗鲁，但现在有一艘我的飞船在外面，我宁愿在上面鸟瞰你要做的事情，也不想坐在前排近距离观赏。]], "_t")
@@ -1943,7 +1943,7 @@ t([[DISCIPLINARY REPORT:
 -阿短，偷窃个人用量的矮人麦酒。十一鞭刑。
 -大拳，偷窃商业用量的食人魔白兰地。五十鞭刑，减薪。
 -召唤师扔狗者，致另一船员毁容。免除惩罚。[i]注：经认定属意外[/i]
--潮之托尔格，过失令一友方船只沉没，一千鞭刑，五天之内完成。[i]注：需要绑在船底拖行，但是我们需要一切能用的上的水术士！[/i]
+-潮之托尔格，过失令一友方船只沉没，一千鞭刑，五天之内完成。[i]注：本应绑在船底拖行，但是我们需要一切能用得上的水术士！[/i]
 -上尉葡萄弹，不当使用加农炮。三十鞭刑以及降职。
 -拉果女士，贪污战利品销售利润。三十鞭刑，降职做惩罚性杂务。
 -鬼祟，不遵守命令。十鞭刑。
@@ -2107,7 +2107,7 @@ Don't make the same mistake twice!  Purchase the #{italic}#LIL SURPRISE#{normal}
 I'm sure you have your doubts as to the efficacy of my lovingly-made armaments; for a free demonstration of the quality and effectiveness of my goods, you are invited to try to take them by force.  I dare you - and that includes the City Guard, should they have any delusions about confiscating them for the public good.  The public has dug their own grave, and I will not pull them up simply out of charity; after all, they have offered me no such charity in the past.
  
 #{italic}#[An address is listed at the bottom of this poster.  You could attempt to raid this store, if you wanted, but the owner's armed to the teeth - it's unlikely it'll be worth the risk.]#{normal}#
-]], [[卡托尔的军火、护甲和军用杂货店
+]], [[卡托尔的枪械、护甲及其他军用杂货
 现已
 重新开业！
 
@@ -2117,7 +2117,7 @@ I'm sure you have your doubts as to the efficacy of my lovingly-made armaments; 
 
 你们如今看出我这些绝妙的自卫装置有多么必要了吗？你们明白我为什么如此殚精竭虑、孜孜不倦地制作这些奇特精妙的装置了吗？要是你们当初肯付我开的价——那仅仅是它们实际价值的一小部分——它们本可以拯救无数性命。那些没用的城市守卫看明白了吗？他们本该购买我最新的改良型号，例如#{italic}#精良的自动装填式兽人驱逐装置#{normal}#（仅售 600 金币！马上购买！保护你的家人！），而不是仗着我的产品经久耐用，把我最初那批产品凑合着用了十多年。
 
-别再犯第二次错误了！只需 150 金币就能买下#{italic}#小小大惊喜#{normal}#！什么？你连这个入门价都付不起？那你就该趁我还在生产时买下它！不想被绿皮小野蛮人扯出肠子吧？我给#{italic}#增压防挥砍战斗服#{normal}#定的原价 700 金币简直是白送——如果你现在想要一件，我相信你至少愿意为自己的命付 3800 金币。它利用你自己的排气孔为藏在关节中的微型马达供能，兼具无与伦比的坚固与灵活；保证抵御那些野蛮人施加的任何伤害，又绝不会拖慢你的脚步！看到周围那些死去的守卫了吗？看到他们不顾我的苦苦劝告，根本没穿#{italic}#增压防挥砍战斗服#{normal}#了吗？别让你或你所爱的人落得同样下场！
+别再犯第二次错误了！只需 150 金币就能买下#{italic}#小小大惊喜#{normal}#！什么？你连这个入门价都付不起？那你就该趁我还在生产时买下它！不想被绿皮小野蛮人扯出肠子吧？我给#{italic}#压力强化型防斩击作战服#{normal}#定的原价 700 金币简直是白送——如果你现在想要一件，我相信你至少愿意为自己的命付 3800 金币。它利用你自己的排气孔为藏在关节中的微型马达供能，兼具无与伦比的坚固与灵活；保证抵御那些野蛮人施加的任何伤害，又绝不会拖慢你的脚步！看到周围那些死去的守卫了吗？看到他们不顾我的苦苦劝告，根本没穿#{italic}#压力强化型防斩击作战服#{normal}#了吗？别让你或你所爱的人落得同样下场！
 
 我相信你对我精心制作的武器是否有效心存疑虑；若想免费见识我的商品有多么优质、多么有效，欢迎试着用武力来抢。我等着你——城市守卫也一样，假如他们妄想以公共利益为由没收这些商品。公众是自掘坟墓，我可不会只出于善心就把他们拉出来；毕竟，他们过去也从未对我施舍过这种善心。
 
@@ -2422,7 +2422,7 @@ He was not our only necromancer, but the idea was still nearly unthinkable...  u
 
 We reluctantly agreed, and he prepared the spells and potions needed to keep us mostly as we were, but bereft of life.  Preserved, strong, even feeling and smelling when most liches could not..  but still cut off from Nature's gifts entirely, and still incapable of bearing young.  This generation would not age to death, but it would nonetheless be our last.  He volunteered to be the last one, only instructing another of us on how to convert him once all of us had been treated...  Whether it was because the infection had more time to fester within him, or because of what he suffered through in his sister's tent, Nektosh has never really been the same since then.
 
-In a cruel twist of fate, we found what would have been paradise not long after our escape - the Mana Caves, laden with magic, but we only needed a tenth of it now as we did alive.  Nonetheless, it has been our home ever since...  most soft-feet would have raided the caverns and wiped us out like common vermin, but the Kruk Pride treated us with respect and dignity that perhaps no minotaur OR undead creature has received before (let alone the combination).  We are still a reclusive people, and our current state gives us even fewer reasons to need trade with them...  but they are the closest thing we have ever had to friends, and I suspect that right now, we are that to them as well.]], [[我们米诺陶一族并没有强大的野心和复杂的欲望。我们既不想成为世界的领头羊，也不想将领土扩张到整个世界，更不想建造庞大的机器和伟大的帝国。我们唯一的愿望，仅仅只是在这个世界上生活下去而已，然而，这个残酷的世界却不给我们任何活路。我们不知道这些他们对我们的敌意究竟是从哪里来的…如果要我猜的话，恐怕在那些软脚族的眼里，我们只是住进他们储藏室和军械库的害虫而已。我们天生被强大的魔法所吸引，尤其是那些强大神器中蕴含的魔法力量。在漫长岁月的迫害中，我们也形成了一种同样强烈的本能，驱使我们前往地下的安全之处（尽管，这当然只是我的猜测）。如果周围的空气中有足够的魔力，我们就可以吸收这种力量，无需饮食，也不用前去危险的地面。实际上，在这样的环境下，我们甚至可能不会变老。大多数找到安全栖息地的米诺陶部族——那里充盈了魔法，充满了狭窄黑暗的漫长通道，让软脚族不会大举深入——发现自己不需要合作才能生存之后，渐渐回归了本能，失去了理性；在多年中，只有意志让我们与众不同，然而这份意志也在渐渐淡去。某种意义上，也许后来发生在我们身上的事，真的算是一种祝福。
+In a cruel twist of fate, we found what would have been paradise not long after our escape - the Mana Caves, laden with magic, but we only needed a tenth of it now as we did alive.  Nonetheless, it has been our home ever since...  most soft-feet would have raided the caverns and wiped us out like common vermin, but the Kruk Pride treated us with respect and dignity that perhaps no minotaur OR undead creature has received before (let alone the combination).  We are still a reclusive people, and our current state gives us even fewer reasons to need trade with them...  but they are the closest thing we have ever had to friends, and I suspect that right now, we are that to them as well.]], [[我们米诺陶一族并没有强大的野心和复杂的欲望。我们既不想成为世界的领头羊，也不想将领土扩张到整个世界，更不想建造庞大的机器和伟大的帝国。我们唯一的愿望，仅仅只是在这个世界上生活下去而已，然而，这个残酷的世界却不给我们任何活路。我们说不清他们对我们的敌意究竟是从何处、又是如何开始的…如果要我猜的话，恐怕在那些软脚族的眼里，我们只是住进他们储藏室和军械库的害虫而已。我们天生被强大的魔法所吸引，尤其是那些强大神器中蕴含的魔法力量。在漫长岁月的迫害中，我们也形成了一种同样强烈的本能，驱使我们前往地下的安全之处（尽管，这当然只是我的猜测）。如果周围的空气中有足够的魔力，我们就可以吸收这种力量，无需饮食，也不用前去危险的地面。实际上，在这样的环境下，我们甚至可能不会变老。大多数找到安全栖息地的米诺陶部族——那里充盈了魔法，充满了狭窄黑暗的漫长通道，让软脚族不会大举深入——发现自己不需要合作才能生存之后，渐渐回归了本能，失去了理性；在多年中，只有意志让我们与众不同，然而这份意志也在渐渐淡去。某种意义上，也许后来发生在我们身上的事，真的算是一种祝福。
 
 我不知道那是多久以前，当时我们并没有记录自己的历史，而之后的我们则面临了生存的紧迫危机。总之，在某一天，当我们穿行在无尽的洞穴和隧道组成的迷宫之中，我们感受到了一个新的家园，那是比我们过去所感受到的一切更加美好的乐土。那里的魔法…真是太美妙了！它…好吧，我知道你们的语言里没有可以这样形容的词汇，也许“尝起来”会是一个比较合适的比喻…和我们过去所吸收的一切能量都不同。那份魔力丰盛而充盈，深深浸入我们的疲惫的身躯之中。我们完全不需要停下休息，这种力量让我们始终精神焕发…所以，我们在这份力量的吸引之下，顺着长长的通道继续走向大地的深处，不知道走过了多长的距离。恐怕，我们甚至在地下走过了整片大陆，甚至更长的距离。我们欣喜雀跃，对尽头等待着我们的到底是什么充满了期待。
 
@@ -2627,11 +2627,11 @@ Alas, I was not able to study them for long enough to learn more than this.  Kas
 
 蒸汽巨人看起来与人类惊人地相似，他们身高8-10英尺，身材稍显矮胖，这与岱卡拉那些瘦高但出人意料地强壮的巨人形成了鲜明的对比。他们最具标志性的外貌特征是他们身上的蒸汽，这就是他们被命名为蒸汽巨人的原因——他们的皮肤上有许多毛孔和通风口，可以从中排出高压的蒸汽。他们可以对排气的行为进行有限的主动控制；在休息的时候，这些毛孔和通风口通常几乎看不见，只能依稀看到轻柔的薄雾，或者干脆什么也看不到。但是，他们也可以主动封闭或扩张排气口，放出一股气流或一团高压蒸汽，这样的场景看起来颇为令人不安。
 
-他们相当巧妙地想到了使用这股蒸汽来驱动和操纵各种各样的金属装置的方法。尽管这些巨人们最早的文字记录被偶然的火灾和其他的灾害摧毁了，他们声称，最早的“蒸汽科技”只是一种简单的哨子。在此之后，他们发明了使用加压蒸汽清洁物体表面的方法，然后逐渐发明了一系列越来越复杂的装置。原理上，使用炉子来加热水也可以产生蒸汽，达到类似的效果，不过这种需要操作者仔细关注、控制蒸汽，而这一切对于蒸汽巨人来说都如同呼吸一样简单。或许，正是因为这种直观的感觉，让他们可以如此轻松地用蒸汽实现这样多的东西。
+他们相当巧妙地想到了使用这股蒸汽来驱动和操纵各种各样的金属装置的方法。尽管这些巨人们最早的文字记录被偶然的火灾和其他的灾害摧毁了，他们声称，最早的“蒸汽科技”只是一种简单的哨子。在此之后，他们发明了使用加压蒸汽清洁物体表面的方法，然后逐渐发明了一系列越来越复杂的装置。原理上，使用炉子来加热水也可以产生蒸汽，达到类似的效果，不过这种方法需要操作者仔细关注、控制蒸汽，而这一切对于蒸汽巨人来说都如同呼吸一样简单。或许，正是因为这种直观的感觉，让他们可以如此轻松地用蒸汽实现这样多的东西。
 
-气之部族的蒸汽巨人在克拉克山脉中藏匿了几个世纪；幸运的是，他们从未受到魔法大爆炸的影响，考虑到他们的生存环境如此集中，人口又是这么稀少，这样的灾害恐怕会完全灭绝他们。他们尽力将与其他种族之间的互动降低到最低限度。按照卡西罗斯议长的说法，这是因为他们既害怕外部世界可能对它们造成的威胁，也害怕他们轻率的介入可能会给外面世界的人带来怎样的影响，但按照我从其他气之部族的人的说法，他们只是觉得那些“下等种族”又粗野又令人不快而已。（考虑到直到不久之前，他们唯一的邻居就是兽人，我完全可以理解他们的这种看法）
+气之部族的蒸汽巨人在克拉克山脉中藏匿了几个世纪；幸运的是，他们从未受到魔法大爆炸的影响，考虑到他们的生存环境如此集中，人口又是这么稀少，这样的灾害恐怕会完全灭绝他们。他们尽力将与其他种族之间的互动降低到最低限度。按照卡西罗斯议长的说法，这是因为他们既害怕外部世界可能对他们造成的威胁，也害怕他们轻率的介入可能会给外面世界的人带来怎样的影响，但与我交谈过的其他气之部族人大多声称，他们只是觉得那些“下等种族”又粗野又令人不快而已。（考虑到直到不久之前，他们唯一的邻居就是兽人，我完全可以理解他们的这种看法）
 
-按照卡西罗斯的说法，尽管和外界的隔绝给了他们社会发展所需要的和平空间，这同时也助长了他们社会中倡导诡辩，脱离现实的思想。因此，他最近开始了和太阳堡垒与联合王国之间的开放贸易，希望能给他的族人带来一些看待问题的全新视角。由于我只有短暂停留在这里的机会，并没有时间能够深入分析他们的社会。因此，我唯一能够注意到的，他们社会中的深层因素，就是他们将身体健壮看的和对智慧的追求同样重要。也许这是因为，他们的蒸汽科技的力量，不仅可以来源于精巧高效的设计，也可以来自于能够从排气孔中喷出更多蒸汽的，强大的肉体力量。因此，他们的政府，是通过某种由民主体制和血腥竞技结合而成的制度选拔出来的（除了国王特拉格拉玛统治的短暂时期，卡西罗斯只告诉我，“这件事对所有相关人员来说都是相当尴尬的”）。尽管我不知道这是否反映了气之部族人的某种重要品质，我觉得我还有必要特别提一句，他们还掌握着酿造我所尝过的最好的苦艾酒的技术。
+按照卡西罗斯的说法，尽管和外界的隔绝给了他们社会发展所需要的和平空间，这同时也助长了他们社会中倡导诡辩，脱离现实的思想。因此，他最近开始了和太阳堡垒与联合王国之间的开放贸易，希望能给他的族人带来一些看待问题的全新视角。由于我只有短暂停留在这里的机会，并没有时间能够深入分析他们的社会。因此，我唯一能够注意到的，他们社会中的深层因素，就是他们将身体健壮看得和对智慧的追求同样重要。也许这是因为，他们的蒸汽科技的力量，不仅可以来源于精巧高效的设计，也可以来自于能够从排气孔中喷出更多蒸汽的，强大的肉体力量。因此，他们的政府，是通过某种由民主体制和血腥竞技结合而成的制度选拔出来的（除了国王特拉格拉玛统治的短暂时期，卡西罗斯只告诉我，“这件事对所有相关人员来说都是相当尴尬的”）。尽管我不知道这是否反映了气之部族人的某种重要品质，我觉得我还有必要特别提一句，他们还掌握着酿造我所尝过的最好的苦艾酒的技术。
 
 唉，我没有机会研究他们足够长的时间，所以我的发现只有这些了。卡西罗斯告诉我，他不能再陪我了，因为他和马基·埃亚尔的英雄之间已经安排好了一场聚会——好像是有关使用探索用远行传送门来进行垃圾清理？不管怎样，尽管我们和气之部族之间的大部分接触，仍是通过从飞艇上投下的构装体进行的，我们很快就会获得和更多他们面对面接触的机会。也许，未来还会有除了我之外的来访者，被许可亲自访问他们美丽的城市。他们在粉碎克鲁克叛乱，以及阻止他们的领袖强占[b]焚灭号，无耻的天空肆虐者[/b]中所作出的贡献，已经向我们证明，他们将会是我们未来一段时间中当之无愧的盟友。]], "_t")
 t("Scholar Graynot's Assessment of the Species, Chapter 83: Wei...", "博学者格雷诺特关于人种的调查——第八十三章——Wei……", "_t")
@@ -2658,7 +2658,7 @@ We held strong when the other Prides came for us, and we were fighting with weap
 
 The Atmos, however, did not see the dire circumstances we were in.  They did not see the threat we faced, and I doubt that even if the Grand Architect of the Pride had told them what she knew, they would have listened.  All they saw was their tools of creation being used to destroy, their beautiful inventions being used for something so monstrous, their darling clever "children" causing bloody carnage on a scale hundreds of times greater than they'd ever seen.  They denounced us, and those who had begun to mingle with us promptly retreated back to the mountains.  We were no longer welcome using their technology, and perhaps not even living near their mountains.
 
-We will miss their company, their ancient wisdom, and their cautious kindness.  We will not miss their squeamish ignorance and pompous self-righteousness.]], [[我们的部落从来没有受到其他人的尊重。我们是加库尔军队的支柱，是补给的运送者、道路的建设者、照料伤者的治疗师——这些角色都是支持同胞在激烈战斗中光荣作战所必需的……唉，但这一切只让其他部落勉强承认我们不可或缺，勉强掩饰他们对我们这些“懦夫”和“弱者”的鄙夷。只要有机会，加库尔便会替我们出头，因此在他战败前，他们的偏见都无关紧要。然而不幸的是，联合王国开始击退我们、进攻我们在马基·埃亚尔建造的要塞城镇后，众人却怪罪我们没把城镇造得足以抵挡所有进攻者。“他们到底有什么用？”拉克·肖曾问道，“就算躲在我们身后，他们也还是造不出任何有用的东西！”后来真相揭晓：我们当时的领袖曾在联合王国的一座要塞拖住敌军，用投石机把古代纳格尔傀儡抛进人类军阵，为部落大多数妇女和儿童撤回瓦·埃亚尔争取时间。对我们的指控便从怯懦变成了自私和背叛。我们对此保持沉默，希望在重建瓦·埃亚尔的兽人城镇时改变他们的看法，希望他们住进本部落搭建的屋顶下、喝着本部落挖出的井水时能明白道理；一时间，这似乎奏效了。我们与其他部落保持距离，在大陆偏远的一角建立自己的家园，只派小队外出从事小规模修缮与建设。我们建造的城墙足以阻止太阳堡垒军队轻易越过，看来这就够了。
+We will miss their company, their ancient wisdom, and their cautious kindness.  We will not miss their squeamish ignorance and pompous self-righteousness.]], [[我们的部落从来没有受到其他人的尊重。我们是加库尔军队的支柱，是补给的运送者、道路的建设者、照料伤者的治疗师——这些角色都是支持同胞在激烈战斗中光荣作战所必需的……唉，但这一切只让其他部落勉强承认我们不可或缺，勉强掩饰他们对我们这些“懦夫”和“弱者”的鄙夷。只要有机会，加库尔便会替我们出头，因此在他战败前，他们的偏见都无关紧要。然而不幸的是，联合王国开始击退我们、进攻我们在马基·埃亚尔建造的要塞城镇后，众人却怪罪我们没把城镇造得足以抵挡所有进攻者。“他们到底有什么用？”拉克·肖曾问道，“就算躲在我们身后，他们也还是造不出任何有用的东西！”后来真相揭晓：我们当时的领袖曾据守一座兽人要塞拖住联合王国大军，用投石机把古代纳格尔傀儡抛进人类军阵，为部落大多数妇女和儿童撤回瓦·埃亚尔争取时间。对我们的指控便从怯懦变成了自私和背叛。我们对此保持沉默，希望在重建瓦·埃亚尔的兽人城镇时改变他们的看法，希望他们住进本部落搭建的屋顶下、喝着本部落挖出的井水时能明白道理；一时间，这似乎奏效了。我们与其他部落保持距离，在大陆偏远的一角建立自己的家园，只派小队外出从事小规模修缮与建设。我们建造的城墙足以阻止太阳堡垒军队轻易越过，看来这就够了。
 
 唉，这份接纳既没有加深，也没能长久。一个命运攸关的夜晚，大工匠克鲁克与其他部落首领会面后飞奔回来，说我们必须立刻离开，妇女先走。直到今天，我们仍不完全清楚是什么令她如此恐慌……她只告诉我们，如果知道自己究竟在逃避什么，我们就再也不会想与其他部落和平相处，而将来某一天也许会需要这份和平。接下来的几天里，我们迅速搭起一座通往克拉克半岛的桥，一边施工，一边不断回头戒备其他部落。最后一名兽人过桥的当晚，克鲁克用燃烧箭点燃了桥。隔着遥远的海岸，我们只能看见那些被我们险险甩开的追兵手中的火把。
 
@@ -2697,7 +2697,7 @@ v9.8 uses the "Crumbling Divide" map, providing a barrier that eliminates the po
 
 The consumer edition of this game, v6.0, has won countless awards for its engaging and challenging play, with special attention given to the diverse array of viable strategies and skills tested by it.  Both sides agreed it was a fair game in the Marshall's election, as v1.0; v9.8 is unlikely to disappoint as a method of selecting our next leader.  Vote for [i]Automobiles and Automatons v9.8[/i] this year, and you will not be let down by its winner.]], [[游戏志愿者局的请愿：
 
-又一次，我们面临着选举议长的比赛了。这是政府中最有名望的职位，但也别忘了它可以说是最复杂的职位，承担着我们人民命运的最大责任。一个议长不仅需要谨慎而理性的远见，也需要在短期内解决紧急事态的急智；并且，他或她必须明白这些决定的先例以及非预期后果，行动既不冒进也不出于一时气恼。否则，这样的领袖会像是一个醉鬼拿着玻璃瓶那样，轻率地对待我们的人民和军队，而不关心那武器是否会破碎。他或她必须能创造性地解决问题，同时包容外界的建议，还要做一个知人者，能选出他或她身边最具价值的人才，以及一个说客，能说服这些人去做他们最适合的工作……可以说，成为议长需要很多精神上的技能。因此，这个竞赛必须要考验所有这些技能。
+又一次，我们面临着为议长竞赛选定比赛项目的选举了。这是政府中最有名望的职位，但也别忘了它可以说是最复杂的职位，承担着我们人民命运的最大责任。一个议长不仅需要谨慎而理性的远见，也需要在短期内解决紧急事态的急智；并且，他或她必须明白这些决定的先例以及非预期后果，行动既不冒进也不出于一时气恼。否则，这样的领袖会像是一个醉鬼拿着玻璃瓶那样，轻率地对待我们的人民和军队，而不关心那武器是否会破碎。他或她必须能创造性地解决问题，同时包容外界的建议，还要做一个知人者，能选出他或她身边最具价值的人才，以及一个说客，能说服这些人去做他们最适合的工作……可以说，成为议长需要很多精神上的技能。因此，这个竞赛必须要考验所有这些技能。
 
 这次选举，我们正式推荐桌面游戏[i]汽车与机器人第9.8版[/i]，一款去年曾用于选出城市卫兵队长的游戏的改良版。它基于“石油朋克”的科幻设定，或许会被认为与现实不符而被人忽略，但它有着它严谨的内部规则，会迫使其玩家学习新的环境并掌握它，就像我们的领袖们也必须愿意从正在进行的事件中学习并迅速适应它们；并且，由于这个游戏已经推出了一年，有无数关于游戏策略的书已经被出版，玩这个游戏也能测试候选人的长时记忆，因为我们的领袖必须得以史为鉴知兴衰。9.8版本的规则和之前的版本略有不同，但却并非完全不同。这样，那些策略书籍仅仅是部分准确的，就像我们祖先的智慧只能反映他们所处的时代，而不是面临巨变的今日。
 
@@ -2739,7 +2739,7 @@ I intend to trust the only advice our ancestors gave us in the Official Historie
 
 你们还记得，在正史中我们第一次与那些下等种族接触时的记载吗？上面写着，它们是一群有趣又快活的人，是我们的朋友和同伴。我们那时可真是天真啊……但是当我们的祖先们看清了他们的真实本性、看到他们能做出何等残暴的事之后，便把这些行径详尽地记录了下来。然而他们没有明确地告诉我们不要信任兽人。他们没有直接告诉我们这个种族是要远离的害虫，或是一个要消灭的祸害，或是一个可悲的、堕落的活例证，提醒我们让那些下等种族使用我们的发明创造只会导致悲剧。祖先们只是把他们学到的记录下来，让后人对照自己的观察结果，得出自己的结论————这是我们的祖父母辈以不幸的个人经验而体会到的。即使他们悲伤着，感觉到被背叛，即使思绪万千，对下等种族的野蛮感到震怒又哀怜，当时那些负责记录事件的议员们，没有一个抒发个人观点。或许，假如他们愿意表达这种观点，我们可能会处于一个更好的处境，不会再重复他们轻信的错误，不过无论如何，他们仍然保持了公正的记述。
 
-再往前追溯，祖先们谈论过与我们今日的远亲风暴部族。尽管这些纪录中描述了我们与他们紧张的关系，对他们粗野举动的记述却是完全实事求是的。而且，记录中还提到了关于他们先进冶金技术的论述，以及其他和他们合作获得的好处。尽管一场巨大的火风暴后，他们至今流亡于马基·埃亚尔的群山中，让与他们打交道的想法不太可能实现，但如果我们一旦有机会与他们交易，正史还是提供了一个可靠的指示，至少，也能告诉我们他们[i]曾经[/i]如何。
+再往前追溯，祖先们谈论过我们与今日的远亲——风暴部族——之间的关系。尽管这些纪录中描述了我们与他们紧张的关系，对他们粗野举动的记述却是完全实事求是的。而且，记录中还提到了关于他们先进冶金技术的论述，以及其他和他们合作获得的好处。尽管一场巨大的火风暴后，他们至今流亡于马基·埃亚尔的群山中，让与他们打交道的想法不太可能实现，但如果我们一旦有机会与他们交易，正史还是提供了一个可靠的指示，至少，也能告诉我们他们[i]曾经[/i]如何。
 
 这样的例子还有许多；正史一直以来都是冷静而不偏不倚的，是做决定的一个可靠标尺。前人们从来不让个人的偏见影响他们的纪录。这一纪录的诚实也从来未在狂热的政治运动中妥协。在这些文字中，没有一个章节可以被论定为某个优势政党的主观臆断，或是受某个陈腐的哲学思潮影响的胡言乱语。
 
@@ -2801,9 +2801,9 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 坦塔洛斯：“那就更好了！还有……卡西罗斯，我想让[i]你[/i]告诉我人民最在意什么。我敢肯定，你身上的伤痕一定能提醒你，公民们的意志是什么，对吧？”
 
-卡西罗斯：[这一表述被视作过分的亵渎，以4比2的投票，通过从记录中删除。]
+卡西罗斯：[这一发言被认为言辞过于粗鄙，经4比2投票表决从记录中删除。]
 
-坦塔洛斯：“真是不成体统的发言啊！只是你不能接受群众想要回他们的蒸汽。比起想要那些肮脏的小绿皮在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你[/i]的方法做事，更想要蒸汽。所以！这决定了我们从这方案里获益良多，决定了我们有或能取得实施这一计划的手段，也决定了这是选民们想要的。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”
+坦塔洛斯：“真是不成体统的发言啊！只是你不能接受群众想要回他们的蒸汽。比起想要那些肮脏的小绿皮在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你[/i]的方法做事，更想要蒸汽。所以！兹认定我们能从中获益良多，认定我们拥有或能够取得实施这一计划的手段，也认定这正是选民之所愿。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”
 
 [此时，卡西罗斯议员在正式辞去议会职务前发表了一篇长篇演讲。演讲被另一个文件记载。] ]], "_t")
 t("excerpts from a Council meeting transcript (2)", "一个议会文字记录片段 (2)", "_t")
@@ -2845,13 +2845,13 @@ TANTALOS: "The meeting has been adjourned.  You should be training our necropsyc
 
 纳沙尔：“是吗，我在听到那个消息时也告诉你了要取消攻击————忠诚者的魔杖作为火力支援工具太珍贵了，我们进攻的时候绝对离不了它。但不，帕拉奎非要坚持当即出发————”
 
-帕拉奎：“我眼前的景象不会作假。那是前进最好的方法。我们那时的成功几率虽然低，还是强于假如让潘多尔做主，用那个不灵活，依靠时机的方案————”
+帕拉奎：“我的预见不会作假。那是前进最好的方法。我们那时的成功几率虽然低，还是强于假如让潘多尔做主，用那个不灵活，依靠时机的方案————”
 
 潘多尔：“你再说一句看看，你这个恋雪人————[……]”
 
 [……]
 
-记录下“潘多尔议员不知道什么是优良的设备，除非亲自射到或者刺到他脸上”的表述的动议以3比1的投票通过，议员坦塔洛斯弃权。
+记录下“就算优良的设备当面射中或者刺中潘多尔议员的脸，他也认不出那是好设备”的表述的动议以3比1的投票通过，议员坦塔洛斯弃权。
 
 记录下“托马克议员的长袍闻起来有苦艾酒和流浪汉的味道”的表述的动议以3比1的投票通过，议员坦塔洛斯弃权。
 
@@ -2990,9 +2990,9 @@ Once upon a time, a great spirit put down its pen and closed its notebook, sighi
 
 从前，有个可怕的恶棍，一个食人魔收割者叫做<?=Lore.pocket_time_winner.name?>，他发现自己为魔法大爆炸影响的山洞中被污染的晶体结构着迷。他首先在夜深人静之时淹死了一个最后的希望的守卫，偷走了她的附魔戒指，然后在大陆上一路留下他毁灭的轨迹，吸取着被他双手斧砍死或被他的长剑穿透的对手的力量，在造成一场场死亡的同时变得更强大。他参与了大腐化者的事业来袭击伊格，来确保没人能阻止他的奥术瘟疫散播，之后把沙虫女皇之心带到魔法大爆炸污染的土地上，来把它的自然祝福腐化成一种枯萎的苦难力量。他对一个邪教献祭少女来召唤他们的恶魔主人袖手旁观，这样他能亲自杀死它。他一想到前往远东，亲眼看着四支兽人大军溃散流血、肿块和疮遍布他们的皮肤、生命缓慢地从眼中流失，就垂涎不已。沃尔部落最好的战士对于他劫掠兵器库而无可奈何，但一个瘸腿而病弱的兽人堵在封印的门前求他别打开；他只是大笑，走向门，踩过兽人的头，在靴子下碾碎，之后把门踢倒，突然感觉到他的骨甲在一群无可言喻地强大的七彩巨龙的吐息风暴中解体。即使是<?=Lore.pocket_time_winner.name?>也知道什么时候该从战斗中逃跑，在激活“相位之门”符文的同时握紧了拳头；当刺眼的闪光消失时，他发现自己几英寸外就是————
 
-从前，有个魔化精灵叫<?=Lore.pocket_time_winner.name?>，由于一个好运天降的落星从恶魔的心灵控制中解脱，出发去用她新得到的力量来从她被困住的轨道地狱中逃脱。那些调查员和切割者是被设计来折磨囚徒，他们对于近身战斗来说过于脆弱，在她的烈火之刃面前，几乎就像是那些未被转变的，除了文书工作外没什么技能的红宝石之子那样轻松倒下，很快，她开始感觉她体内被灌注的恶魔魔法说不定已让她接近无敌。当一个恶魔雕像呼唤她时，她除了想吸收更多力量外没想别的，根本没注意到雕像召唤了一个乌鲁洛克的精英卫兵————
+从前，有个魔化精灵叫<?=Lore.pocket_time_winner.name?>，由于一个好运天降的落星从恶魔的心灵控制中解脱，出发去用她新得到的力量来从她被困住的轨道地狱中逃脱。那些调查员和切割者是被设计来折磨囚徒，他们对于近身战斗来说过于脆弱，在她的烈火之刃面前，几乎就像是那些未被转变的，除了文书工作外没什么技能的红宝石之子那样轻松倒下，很快，她开始感觉她体内被灌注的恶魔魔法说不定已让她接近无敌。当一个恶魔雕像呼唤她时，她毫不犹豫地试着吸收它更多的力量，根本没注意到雕像召唤了一个乌鲁洛克的精英卫兵————
 
-从前，有个永恒精灵冒险者叫<?=Lore.pocket_time_winner.name?>，他对于自己在做什么非常确信。他学会了一套相当不寻常的能力————了不起的空手武术天赋，一种能在双手仍空着时于空中挥动法杖的心灵潜能，用拳击触发的石系魔法来用暴风般的石弹来击退敌人们————一旦他在这些方面都有了一些实战经验，他开始秒杀所有遇到的敌人……直到他遇到了异形触手。战斗非常激烈，不一会儿，双方都在死亡的边缘上，位于要塞前厅的两端；冒险者知道他没法冲上前近距离解决那野兽，因此他取而代之地向它发射了一双石弹。然而，当石弹从手中离开时，他感到坚硬的骨爪紧紧环绕腰、腿和后背，以一种无可理喻的速度把他拖入异形触手的手掌心。或许<?=Lore.pocket_time_winner.name?>可能会在接下来的近身拳击中活下来，但他被拖动的速度快于石弹的飞行，现在他发现自己处在这些石制投射物和他们原来的目标之间————
+从前，有个永恒精灵冒险者叫<?=Lore.pocket_time_winner.name?>，他对于自己在做什么非常确信。他学会了一套相当不寻常的能力————了不起的空手武术天赋，一种能在双手仍空着时于空中挥动法杖的心灵潜能，用拳击触发的石系魔法来用冰雹般的石弹轰击敌人————一旦他在这些方面都有了一些实战经验，他开始秒杀所有遇到的敌人……直到他遇到了异形触手。战斗非常激烈，不一会儿，双方都在死亡的边缘上，位于要塞前厅的两端；冒险者知道他没法冲上前近距离解决那野兽，因此他取而代之地向它发射了一双石弹。然而，当石弹从手中离开时，他感到坚硬的骨爪紧紧环绕腰、腿和后背，以一种无可理喻的速度把他拖入异形触手的手掌心。或许<?=Lore.pocket_time_winner.name?>可能会在接下来的近身拳击中活下来，但他被拖动的速度快于石弹的飞行，现在他发现自己处在这些石制投射物和它们原来的目标之间————
 
 从前，一个伟大的灵魂放下了它的笔，合上了它的笔记本，沮丧地叹气。]], "_t")
 t("a telepathic message <The Tale of Maj'Eyal>", "心灵传讯《马基埃亚尔的传说》", "_t")
@@ -3054,9 +3054,9 @@ Of course, a character like that can't simply be thrown away.  The story may be 
 
 [b]<?=player.name?>[/b], you crave the thrill and tension of a close fight as much as <?=Lore.pocket_time_winner.heshe?> does.  I owe this opportunity to you in life, and the Scourge from the West in <?=Lore.pocket_time_winner.hisher?> legend; all I ask in return is that the two of you give me a battle that the people of Eyal will sing songs about.]], [[<? Lore.init_pocket_time_data() ?>从前，有一个叫做艾德隆的灵魂，比埃亚尔的一切都要古老。有人称之为救世主，是秩序和正义的使者；也有人称之为黑暗之神，传播恐怖以自娱自乐。这样的凡人分类，是无可救药地不足以描述一个几乎和时间一样古老的存在那不可思议的长远动机的……但是，如果你亲自问它的话，它会自称是一个讲故事的人。
 
-不管这个故事是只存在于它的脑海里，还是反映在整个珊德拉星系之中，没有人知道——但是，艾德隆的故事里需要英雄，一直都是这样。今天，它所需要的英雄是一位战斗的大师，一位从吞噬者加库尔的时代以来就未曾出现的大师。它考虑了几个不同的人选，认定其中许多都不合格，有些在原谅几处失误后或许勉强称职，而最终被选中的只有一个。被它所选中的主角战胜了摆在<?=Lore.pocket_time_winner.himher?>面前的一切挑战，有时举重若轻，有时艰难取胜，也有的时候则透过运气勉强通过。但最终，<?=Lore.pocket_time_winner.himher?>站在了巅峰之上，<? if Lore.pocket_time_winner.sacrifice then ?>通过牺牲<?=Lore.pocket_time_winner.himher?>的生命来关闭了巫师们的远行传送门<? end ?>，从而把埃亚尔从其所面临的最大的威胁面前解救出来。
+不管这个故事是只存在于它的脑海里，还是反映在整个珊德拉星系之中，没有人知道——但是，艾德隆的故事里需要英雄，一直都是这样。今天，它所需要的英雄是一位战斗的大师，一位从吞噬者加库尔的时代以来就未曾出现的大师。它考虑了几个不同的人选，认定其中许多都不合格，有些在原谅几处失误后或许勉强称职，而最终被选中的只有一个。被它所选中的主角战胜了摆在<?=Lore.pocket_time_winner.himher?>面前的一切挑战，有时举重若轻，有时艰难取胜，也有的时候则透过运气勉强通过。但最终，<?=Lore.pocket_time_winner.himher?>站在了巅峰之上，<? if Lore.pocket_time_winner.sacrifice then ?>通过牺牲<?=Lore.pocket_time_winner.himher?>的生命来关闭了巫师们的远行传送门，<? end ?>从而把埃亚尔从其所面临的最大的威胁面前解救出来。
 <? if not Lore.pocket_time_winner.sacrifice then ?>
-之后呢？在战斗胜利之后，这位为战斗而生的大师就无事可做了。<?=Lore.pocket_time_winner.HeShe?> 本可以找到更加强大的敌人，但<?=Lore.pocket_time_winner.heshe?>可能找到的对手要么根本不值一战，要么会直接危害埃亚尔的居民，都不会给故事增添任何内容。艾德隆也可以安排一个强大到足以最终消灭<?=Lore.pocket_time_winner.himher?>的敌人，但这又是什么样的结局呢？最终，艾德隆决定遵循<?=Lore.pocket_time_winner.heshe?>的意愿，让这位英雄从此退休……无论<?=Lore.pocket_time_winner.heshe?>选择深入无尽地下城，走向必然的毁灭，去挑战像阿塔玛森或是莱娜尼尔这样几乎不可能击败的恐怖敌人，还是就此在夏·图尔堡垒中度过余生。无论是哪一种，这个故事都结束了，<?=Lore.pocket_time_winner.name?>的故事就此走到了尽头。<? end ?>
+之后呢？在战斗胜利之后，这位为战斗而生的大师就无事可做了。<?=Lore.pocket_time_winner.HeShe?> 本可以找到更加强大的敌人，但<?=Lore.pocket_time_winner.heshe?>可能找到的对手要么根本不值一战，要么会直接危害埃亚尔的居民，都不会给故事增添任何内容。艾德隆也可以安排一个强大到足以最终消灭<?=Lore.pocket_time_winner.himher?>的敌人，但这又是什么样的结局呢？最终，艾德隆决定遵循<?=Lore.pocket_time_winner.heshe?>的意愿，让这位英雄从此退休……无论<?=Lore.pocket_time_winner.heshe?>是选择深入无尽地下城、走向必然的毁灭，是尝试去击杀像阿塔玛森或莱娜尼尔这样不可能战胜的敌人，还是就此在重新夺回的夏·图尔堡垒中度过余生。无论是哪一种，这个故事都结束了，<?=Lore.pocket_time_winner.name?>的故事就此走到了尽头。<? end ?>
 
 当然，这样的角色不能简单地被抛弃。故事可能已经结束了，但它可以一次又一次地被讲述。这样一来，每有一个愿意听故事的，就会出现一位马基·埃亚尔的英雄。每个人都听到了故事，并且对它的想象与下一个略有不同。即使是讲故事的人，也会为马基·埃亚尔的英雄设想更多的场景，总是在想——我是否能给这第一位战士找到一位势均力敌的对手呢？我是否正欠<?=Lore.pocket_time_winner.himher?>一个奖赏，一场真正能够让<?=Lore.pocket_time_winner.heshe?>兴奋地参与的战斗，一个<?=Lore.pocket_time_winner.himher?>渴望已久的终极挑战呢？这样的战斗，难道不值得记述下来吗？因此，它将<?=Lore.pocket_time_winner.name?>记在心里，承诺每当它找到或创造出配得上<?=Lore.pocket_time_winner.himher?>的威胁时，都会想起<?=Lore.pocket_time_winner.himher?>。
 
@@ -3181,7 +3181,7 @@ In the meantime, paying off Stone Warden trainers and buying enough mindstars an
 
 所以，老班底也许已经被涌入的自然精灵、年轻人，以及更多重视热爱自然胜过憎恨魔法的人淹没了。我不明白这有什么问题——让自然更加强大，也会让它更有能力抵御魔法可能造成的伤害。我们让支持自然胜过魔法的理念挺过了联合王国与晨曦之门的条约、对伊格的袭击，以及对伊格兰斯巡逻队的攻击。我们把自己塑造成一个无私、慈善、为众人福祉而工作的组织；这份声誉带来的公信力，远胜过去那群疯狂狂热分子的公众形象。
 
-也许最重要的是，如今修复者的人数比上个世纪的伊格兰斯成员[i]多得多[/i]。这些盟友将帮助我们以前所未有的程度支持自然；我们也开始自愿开设传统反魔训练课程，让他们进一步完善我们对付叛离法师的技巧。如果奥术魔法再次造成灾难，这些盟友会团结在我们身后，与我们一道保卫自然、抵御威胁……而且，谁知道呢，也许我们确实能够教会法师保持合理的克制，而不必把他们全部消灭。无论可能性多低，我都会继续留意实现这一点的办法。
+也许最重要的是，如今修复者的人数比上个世纪的伊格兰斯成员[i]多得多[/i]。这些盟友将帮助我们以前所未有的程度支持自然；我们也开始开设自愿参加的传统反魔训练课程，让他们进一步完善我们对付不法法师的技巧。如果奥术魔法再次造成灾难，这些盟友会团结在我们身后，与我们一道保卫自然、抵御威胁……而且，谁知道呢，也许我们确实能够教会法师保持合理的克制，而不必把他们全部消灭。无论可能性多低，我都会继续留意实现这一点的办法。
 
 与此同时，付钱给岩石守卫训练师，再为新成员购买足够的灵晶和草本纹身，代价并不便宜。我并不为自己支付账单的手段感到自豪，也完全清楚一旦被人看见会给组织造成什么后果，但这是我经历过最快、最容易赚到的钱。专注十分钟，再花几小时重新恢复失衡值，我便能种出足够的鼓舞之花，支付整整一周的开销。]], "_t")
 
@@ -3209,7 +3209,7 @@ t("a very old journal (3)", "非常古老的日志 (3)", "_t")
 t([[I don't like automatons.  Machines that operate by themselves, with no personal input...  why, they don't require any skill or ability to operate!  You need only rely on what someone else has done by inventing it!  Mark my words, our dependence on these things will be the death of us, making us weak in body and mind...  but I must admit, they have gotten the job done.  Only a few days after we brought in these arachnoid contraptions, they excavated enough of the offending cavern (and presumably purged enough of whatever pollutant was down there) that living workers are once again willing to work in the nearby areas.  I don't care if it was superstition or what, because we're going to make quota for this month - those caves had a lot of vents to work with!
 
 Still not sure why the Council confiscated the cargo from the third machine we sent down there, but whatever.  Those uppity do-nothings can keep the gold or jewels or whatever was in there.
-]], [[我不喜欢自动机械。那些机器居然可以自己行动，不需要人的干涉……哼，这根本不需要任何操纵的技巧和能力！你只需要依赖那些发明它的人所做的事情就可以了！说实话，过分依赖这种东西肯定会给我们带来末日，这会让我们的身体和精神都变得虚弱……但我必须承认，它们确实完成了任务。在我们带回来这些机械蜘蛛之后，没过几天，它们就把那个惹麻烦的洞穴挖开了足够大的一片（大概也把底下不知什么污染物清掉了不少），活着的工人们又愿意到附近一带干活了。我才不在乎这是不是迷信，因为我们还要完成这个月的任务呢——这些洞穴里有着这么多我们所需要的地热口！
+]], [[我不喜欢自动机械。那些机器居然可以自己行动，不需要人的干涉……哼，这根本不需要任何操纵的技巧和能力！你只需要依赖那些发明它的人所做的事情就可以了！说实话，过分依赖这种东西肯定会给我们带来末日，这会让我们的身体和精神都变得虚弱……但我必须承认，它们确实完成了任务。在我们带回来这些机械蜘蛛之后，没过几天，它们就把那个惹麻烦的洞穴挖开了足够大的一片（大概也把底下不知什么污染物清掉了不少），活着的工人们又愿意到附近一带干活了。我才不在乎这是不是迷信，因为我们这个月能完成指标了——那些洞穴里有好多地热口可以利用！
 
 我到现在还是不明白，为什么议会要没收我们派下去的第三台机器带回来的货物，但是管他呢。不管里面是什么黄金珠宝，就让那些高高在上的废物拿去玩吧。
 ]], "_t")
@@ -3224,9 +3224,9 @@ t("a journal (2)", "一份日志 (2)", "_t")
 t([[Great #CRIMSON#AMAKTHEL#LAST#, forgive me, for I could not prevent the actions of my brethren.  I tried.  We tried.  When they spoke of committing the Great Sin, we argued ferociously, until Caldizar and his apostates did it before we could react in time.  We did our best to avenge this foul deed, and used the Magic of Creativity on as many as we could, blessing them with new forms, and blessing ourselves such that we could do battle with their fortresses; alas, it was nonetheless a war we eventually lost, for what chance did we have against weaponry, power, and mercilessness to which even You fell?  Please, Your Brilliance, understand that we did everything we could.  
 
 Our planet lay in ruins, with even the apostates abandoning Eyal for other worlds.  Every one of Your followers fought to our deaths...  except me, coward that I was in those days.  Now, I am all that remains, along with the apostates we blessed with Your magic.  I will not beg for Your forgiveness; as an inventor You are concerned with results over words, and I will prove to You that my moment of weakness will soon have a wondrous result.  With the sinful apostates gone, You will have the time to secure this world for Yourself, purging the creations of the lesser gods...  and preparing to exact justice on the sinners when they return.  
-]], [[伟大的#CRIMSON#阿马克泰尔#LAST#，请原谅我，我没能阻止我的同胞犯下的恶行。我尽力了。我们尽力了。当它们提出那项沉重的罪行的时候，我们激烈争辩，然而凯尔帝勒和他的背教者们在我们还没来得及反应之前抢先犯下了滔天大罪。我们尽最大的努力为他们的恶行复仇，对尽可能多的人施以创造魔法，赋予他们新的形态，也转化了我们自己，这样我们才能和他们的堡垒抗衡。尽管如此，我们仍然在这场没有希望的战争中失败了，我们怎样才能抗衡他们那连你都无法战胜的强大武器、火力以及残忍？伟大的神，请明白我们已经尽力了。
+]], [[伟大的#CRIMSON#阿马克泰尔#LAST#，请原谅我，我没能阻止我的同胞犯下的恶行。我尽力了。我们尽力了。当他们提出那项沉重的罪行的时候，我们激烈争辩，然而凯尔帝勒和他的背教者们在我们还没来得及反应之前抢先犯下了滔天大罪。我们尽最大的努力为他们的恶行复仇，对尽可能多的人施以创造魔法，赋予他们新的形态，也转化了我们自己，这样我们才能和他们的堡垒抗衡。尽管如此，我们仍然在这场没有希望的战争中失败了，我们怎样才能抗衡他们那连你都无法战胜的强大武器、火力以及残忍？伟大的神，请明白我们已经尽力了。
 
-我们的星球化为了废墟，连背教者也离开了埃亚尔，前往了其他世界。你的每一位追随者都战斗到死……只有我，那些日子里我是个懦夫。现在，我们一族只剩下我，还有那些被我们使用你的魔法祝福的背教者们。我不会乞求你的原谅；你是一位发明者，你关心的是结果而非言辞，我会亲自向你证明，我那一时的软弱很快就会带来一个美好的结果。那些犯下罪行的背教者已经离开了，你将终于有机会亲自夺回这个世界，清除那些劣等神祇的低劣造物……并且准备好对那些罪人实施正义的制裁。
+我们的星球化为了废墟，连背教者也离开了埃亚尔，前往了其他世界。你的每一位追随者都战斗到死……只有我，那些日子里我是个懦夫。现在，我们一族只剩下我，还有那些被我们使用你的魔法祝福的背教者们。我不会乞求你的原谅；你是一位发明者，你关心的是结果而非言辞，我会亲自向你证明，我那一时的软弱很快就会带来一个美好的结果。那些犯下罪行的背教者已经离开了，你将终于有机会亲自夺回这个世界，清除那些劣等神祇的低劣造物……并且准备好在那些罪人归来之时对其实施正义的制裁。
 ]], "_t")
 t("a journal (3)", "一份日志 (3)", "_t")
 t([[The work continues, and soon all shall know the name of their new god.  Even handling the one Hand that I have makes me weep for the sins of my brothers, and yet eager to see their work undone...  The bowels of Eyal shall be the forge in which You will be remade, the newly-drained magma channels above shall be its fire.
@@ -4123,7 +4123,7 @@ t([[You fire an incredibly potent shot at an enemy, doing %d%% damage and dazing
 t("Surekill", "一击必杀", "talent name")
 t([[You fire an exceptionally lethal shot at an enemy, doing %d%% damage.
 Damage dealt by this talent is increased by half your critical multiplier, if doing so would kill the target.]], [[你向一个敌人射出一发无比致命的子弹，造成 %d%% 伤害。
-如果能杀死敌人，那么伤害会提升你暴击伤害系数的一半。]], "tformat")
+若如此提升后足以杀死目标，本技能造成的伤害将提高你暴击伤害系数的一半。]], "tformat")
 t("Rocket Smash", "火箭重击", "talent name")
 t("@Source@ rockets forward!", "@Source@使用火箭突进向前！", "_t")
 t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")
@@ -4258,8 +4258,8 @@ t([[Temporarily expand your mind to force your Gestalt upon your foes in a radiu
 		Your own powers will be increased in return by the drained amount (reduced for each additional foe).
 		In addition for 5 turns you can sense creatures beyond your sight, even through walls in radius %d.
 		The effects improve with your Mindpower.]], [[暂时延伸你的心灵以使你的格式塔笼罩你周围半径 5 码内的敌人，最多可影响 %d 个敌人。
-		格式塔会吸收每个被影响敌人的力量（物理强度，精神强度，法术强度，蒸汽强度）%d 点，持续 5 回合。
-		你自身的力量会增加所吸取的数额（每多吸收一个额外的敌人，效果都会衰减）。
+		格式塔会吸收每个被影响敌人的各项强度（物理强度，精神强度，法术强度，蒸汽强度）%d 点，持续 5 回合。
+		你自身的各项强度会增加所吸取的数额（每多吸收一个额外的敌人，效果都会衰减）。
 		除此之外，在 5 回合内，你可以感知半径 %d 码内视野之外的生物，即使隔着墙壁也不例外。
 		效果受精神强度加成。]], "tformat")
 
@@ -4563,7 +4563,7 @@ t("Explosive Saw", "爆炸飞锯", "talent name")
 t([[You send a saw mounted on an automated steam propulsor to assault a foe, dealing %0.2f physical damage each turn for 4 turns and silencing it.
 		At the end of the duration, the saw explodes for %0.2f fire damage and flies back, pulling the target up to %d tiles towards you.
 		The damage will increase with your Steampower.]], [[你用自动蒸汽弹射器向敌人发射一把链锯，每回合造成 %0.2f 物理伤害，并沉默敌人，持续 4 回合。
-		持续时间结束后，链锯爆炸，造成 %0.2f 的火焰伤害并飞回，将目标向你的位置拉扯 %d 格。
+		持续时间结束后，链锯爆炸，造成 %0.2f 的火焰伤害并飞回，将目标向你的位置拉扯至多 %d 格。
 		伤害受蒸汽强度加成。]], "tformat")
 t("Mow Down", "肢解", "talent name")
 t([[When you kill a foe with a melee strike you quickly throw some of their remains in your steam engine, instantly regenerating %d steam.
@@ -7845,7 +7845,7 @@ For the Pride, for Garkul's legacy !
 你曾是骄傲却日渐凋零的兽人一员。
 
 纵观历史，你的种族一直遭到他族憎恨、猎杀和无情屠戮；兽人自己也犯下了许多暴行，造成无数毁灭。
-如今兽人已濒临灭绝。你们在瓦·埃亚尔的所有据点，不是被太阳堡垒摧毁，就是毁于你们称作#{italic}#西方灾星#{normal}#的那个人之手。
+如今兽人已濒临灭绝。你们在瓦·埃亚尔的所有据点，不是被太阳堡垒摧毁，就是毁于你们称作#{italic}#西方天灾#{normal}#的那个人之手。
 大陆上的四大部落无一幸存；它们全部覆灭，只有极少数成员成功逃脱。
 
 驻守克拉克半岛的克鲁克部落是唯一仍然屹立的部落，但还能坚持多久？
@@ -7880,17 +7880,17 @@ For the orcs, for Garkul's legacy !
 你是骄傲但逐渐凋零的兽人一族的成员。
 
 在历史的长河中，你的种族被人所憎恨、捕杀并残忍地杀害。你的种族也曾犯下许多暴行，造成无数破坏。
-但是现在，兽人已经到了灭绝的边缘。你们在瓦·埃亚尔所有的据点不是被太阳堡垒摧毁，就是被你们称作#{italic}#西方灾星#{normal}#的那个人摧毁。
+但是现在，兽人已经到了灭绝的边缘。你们在瓦·埃亚尔所有的据点不是被太阳堡垒摧毁，就是被你们称作#{italic}#西方天灾#{normal}#的那个人摧毁。
 大陆上的四个部落不复存在。他们已经全部被击败，很少有成员有机会能够逃离。
 
-只有克拉克半岛的克鲁克部族依然挺立，但是他们还能坚持多久？
+只有克拉克半岛的克鲁克部落依然挺立，但是他们还能坚持多久？
 太阳堡垒的前哨站堵住了通往大陆的道路，而半岛本身则居住着一个先进而好斗的巨人种族，掌握着蒸汽科技。
 
 现在，巨人从山脉中挖出了一条直通克鲁克的隧道，正从中涌出，要在克鲁克的大部分军队离开时一劳永逸地终结这个部落。
 必须不惜一切代价阻止他们；如果克鲁克沦陷，兽人种族也将随之灭亡。
 
 你从仓库中拿出一个炸弹，现在你必须进入隧道并在弱点引爆它使隧道崩溃。
-为了部落，为了加库尔的遗产！
+为了兽人，为了加库尔的遗产！
 ]], "_t")
 
 ------------------------------------------------
@@ -7937,9 +7937,9 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 职业特性：#YELLOW#
 - 科技法术：玄机系——使用高速旋转的蒸汽链锯切裂现实，用奥术和时空的力量撕碎敌人。
 - 科技法术：放电系——使用放电柱，链接出死亡的领域，用火焰和闪电的力量烧毁敌人。
-- 科技法术：寒岩系——创造和控制蜘蛛机器人虫群，用水和土的力量伤害并削弱敌人。
+- 科技法术：寒岩系——制造并控制微型蜘蛛机器人虫群，用水和土的力量伤害并削弱敌人。
 - 奥术发电机：施放法术会制造蒸汽，蒸汽会提升法术强度。
-- 获得物理学和化学技术：所有科技法师都掌握创造插件的技术。
+- 获得物理学和化学技术：所有科技法师都掌握制作插件的基础技术。
 #WHITE#
 
 职业进阶是一种觉醒技，它们可以给予你新的方法来强化你的职业。只有相关的职业才能看到它们。
@@ -8395,8 +8395,8 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 坦塔洛斯：“那就更好了！还有……卡西罗斯，我想让[i]你[/i]告诉我人民最在意什么。我敢肯定，你身上的伤痕一定能提醒你，公民们的意志是什么，对吧？”
 
-卡西罗斯：[这一表述被视作过分的亵渎，以4比2的投票，通过从记录中削除。]
+卡西罗斯：[这一发言因言辞过于粗鄙，以4比2的投票，通过从记录中削除。]
 
-坦塔洛斯：“真是不成体统的发言啊！只是你们不能接受群众想要回他们的蒸汽。比起想要那些肮脏的小绿人们在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你们[/i]的方法做事，更想要蒸汽。所以！这决定了我们从这方案里获益良多，决定了我们有或能找到解决困难的方式，也决定了这是选民们想要的。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”
+坦塔洛斯：“真是不成体统的发言啊！只是你不能接受群众想要回他们的蒸汽。比起想要那些肮脏的小绿人们在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你[/i]的方法做事，更想要蒸汽。所以！兹认定我们能从中获益良多，认定我们拥有或能够取得执行此事的手段，也认定这正是选民之所愿。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”
 
 [同时，卡西罗斯议员也在从议会正式辞职时做了一个不短的演讲。演讲被另一个文件记载。] ]], "_t")
