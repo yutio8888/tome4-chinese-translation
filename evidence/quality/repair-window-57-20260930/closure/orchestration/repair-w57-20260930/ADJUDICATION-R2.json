@@ -1,0 +1,25 @@
+{
+ "cycle": 2,
+ "stage": "RE_REVIEW",
+ "accepted_dispatch_id": "r2a2",
+ "invalid_attempts": [
+  {
+   "dispatch_id": "r2a1",
+   "reason": "native Codex session contains a compacted record (context compaction); the native parser rejects it by design, output not harvested; archived and confirmed, fresh retry r2a2"
+  }
+ ],
+ "raw_ok_count": 86,
+ "raw_issue_count": 1,
+ "decision": "no confirmed finding: the single observation is refuted per the 2026-09-27 maintainer ruling on upstream text that contradicts the implementation. Converged; proceed to FINAL_REVIEW(2,3).",
+ "findings": [
+  {
+   "revision_key": "4889bdf15d90812edef0595bd765f7efcf89571880bcd3b2d482094ac37efb7c",
+   "status": "refuted",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r2a2",
+   "reason": "末句“伤害受法术强度加成”逐字对应上游英文 “The damage increases with spellpower.”（Ashes DLC doom-shield.lua:84，来源未固定）。实现中 Osmosis Shield 不造成伤害，英文是上游遗留错误；维护者 2026-09-27 对同类情形（pending-user-review 第19项 BLOODCASTING）裁定“保持忠实原文”。本窗口也未改动这一句，不改。"
+  }
+ ],
+ "advisories": []
+}

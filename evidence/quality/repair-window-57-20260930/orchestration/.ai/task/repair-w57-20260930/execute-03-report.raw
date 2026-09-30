@@ -1,0 +1,20 @@
+已完成第 2 轮修复，仅修改 5 个 confirmed target：
+
+- `1614976c01`：“大议会会议厅”→“最高议会会议厅”
+- `3e135c03b7`：两处“大议会”→“最高议会”；“女附魔师”→“女巫”
+- `9b9f522ee3`：“埃尔瓦拉大议会领袖”→“埃尔瓦拉最高议会领袖”
+- `23e4d42cdb`：“为了部落……”→“为了兽人……”
+- `f17a4945ae`：决议句改为“兹认定……”
+- `intro-orc-yeti.lua` 的相同句保持不变。
+
+记录已追加至 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-57-20260930/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-57-20260930/VALIDATION.json)。
+
+验证结果：
+
+- 五个文件经 LocaleLoader/LuaJIT 加载：相对基线仍恰好 87 个 WORKSET target 变动，分布 `1/32/6/24/24`
+- source、source_tag、args_order、special 及非 target 记录均未改变
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings
+- `git diff --check`：通过
+- evidence JSON：有效
+- evidence 未跟踪文件空白检查：无诊断
+- 未修改 `.ai/task` 或术语库；未 stage、commit、push，也未创建 agent。

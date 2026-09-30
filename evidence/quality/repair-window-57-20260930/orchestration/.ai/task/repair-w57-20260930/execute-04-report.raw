@@ -1,0 +1,25 @@
+第 3 轮修复已完成，共对 8 条 confirmed target 逐字应用 18 项 replacement：
+
+- `01aa8dc56e`：三种结局并列及“重新夺回的夏·图尔堡垒”
+- `2df8a382c9`：两处“魔法”→“魔力”
+- `3358ca54b7`：恢复真实换行并补全武器发光描述
+- `5b02c21525`：修正“效果之一”、7 处真实 TAB 对齐及“部分效果”
+- `81725ede54`：改为“某些魔法仪式可以召唤他们”
+- `9785f1fb51`：“金色恐魔”→“发光的恐魔”
+- `eac1a2f40e`：修正孔克雷夫奥术实验及“纹身工匠”
+- `d6caf43dd1`：歌词改为“但已相差无几，算不上半途而废”
+
+译文位于 [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:14159) 和 [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:3059)。完整前后片段已追加至 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-57-20260930/IMPLEMENTATION.md:305)，结构化结果见 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-57-20260930/VALIDATION.json:201)。
+
+验证结果：
+
+- LuaJIT 成功加载五个文件。
+- 相对基线仍恰为 87 条 target 变动：`1 / 32 / 6 / 24 / 24`。
+- 8 条新 target 均精确等于冻结旧 target 依次应用 replacements 的结果。
+- 其余 79 条 target、所有非 target 字段和记录均未改变。
+- `5b860e23f3` 保持不变。
+- strict lint：30,308 条，0 errors，0 warnings。
+- `git diff --check`：无诊断。
+- evidence JSON 有效，两个未跟踪 evidence 文件均无空白诊断。
+
+未修改术语库或 `.ai/task`，未 stage、commit、push，也未创建 agent。无计划偏差或未解决问题。

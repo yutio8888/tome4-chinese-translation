@@ -1,0 +1,18 @@
+{
+  "title": "W57 execute-02 fix cycle 1",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w57-20260930 第 1 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w57-20260930/SPEC.md、SCOPE.json、WORKSET.json、SOURCE-ANCHORS.json 与 ADJUDICATION-R0.json。只修 ADJUDICATION-R0 中 status=confirmed 的两条：(1) 1e08bd6f92（tome-orcs.lua，section tome-orcs/superload/mod/dialogs/debug/DebugMain.lua，蒸汽议会记录）坦塔洛斯最后一段中“只是你们不能接受群众想要回他们的蒸汽”改为“只是你不能接受群众想要回他们的蒸汽”，“比起想要以[i]你们[/i]的方法做事”改为“比起想要以[i]你[/i]的方法做事”；(2) 23e4d42cdb（tome-orcs.lua，section tome-orcs/overload/data/texts/intro-orc.lua）“只有克拉克半岛的克鲁克部族依然挺立”中“克鲁克部族”改为“克鲁克部落”。这两条其余文字、markup、段落与空行一律不动；6a70ae5200 已驳回，不改。其他 85 条及文件其他记录不动；不改术语库。仅你是任务内容写入者，可写这两条 target，并在 evidence/quality/repair-window-57-20260930/IMPLEMENTATION.md、VALIDATION.json 追加本轮记录。Orcs 源码只在 SOURCE-ANCHORS 给出的 checkout 下按条目路径读取；禁止从 /、/workspace 或无关目录搜索。LF/TAB 结构与现译逐行一致，不新增行尾空白。运行有界验证（LuaJIT 加载五个文件：相对 SCOPE 基线仍恰 87 条 target 变动；git diff --check；strict lint），回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w57-20260930",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}

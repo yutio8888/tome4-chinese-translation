@@ -1,0 +1,173 @@
+{
+ "cycle": 2,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f2a3",
+ "attempt": 3,
+ "invalid_attempts": [],
+ "raw_ok_count": 79,
+ "raw_issue_count": 8,
+ "decision": "FINAL failed: seven observations confirmed, one refuted (tinker naming), plus one host-confirmed song line (d6caf43dd1). Fix all eight entries in execute-04 with the exact replacements listed, then RE_REVIEW(3,1) and FINAL_REVIEW(3,2).",
+ "findings": [
+  {
+   "revision_key": "01aa8dc56eaa88c617b68ad2b292caa510e9e0169e86843699eb258fdff9b738",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer f2a3",
+   "reason": "公开 Orcs DLC pocket-time.lua（来源未固定）whether 句并列三种结局：深入无尽地下城走向必然的毁灭、尝试击杀阿塔玛森与莱娜尼尔这类不可能战胜的敌人、或在重新夺回（reclaimed）的夏·图尔堡垒安度余生；现译把前两项并成一件事，并丢了 reclaimed。",
+   "replacements": [
+    {
+     "old": "选择深入无尽地下城，走向必然的毁灭，去挑战像阿塔玛森或是莱娜尼尔这样几乎不可能击败的恐怖敌人，还是就此在夏·图尔堡垒中度过余生。",
+     "new": "是选择深入无尽地下城、走向必然的毁灭，是尝试去击杀像阿塔玛森或莱娜尼尔这样不可能战胜的敌人，还是就此在重新夺回的夏·图尔堡垒中度过余生。"
+    }
+   ]
+  },
+  {
+   "revision_key": "2df8a382c9444ee30e8243d237473584971b63222a990578ff55b943e456fe2b",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer f2a3",
+   "reason": "固定 commit 624a673 chronomancy/temporal-hounds.lua 属性列表绑定 incStats.mag；本库 stat name Magic＝“魔力”（mod-tome.lua t(\"Magic\",\"魔力\",\"stat name\")，terminology/combat.tsv:122），同句其余属性均用属性名。两处“魔法”改“魔力”。",
+   "replacements": [
+    {
+     "old": "%d 魔法，%d 意志",
+     "new": "%d 魔力，%d 意志"
+    },
+    {
+     "old": "基于你的魔法。",
+     "new": "基于你的魔力。"
+    }
+   ]
+  },
+  {
+   "revision_key": "3358ca54b7e2473348e93f516c8c1c759dd06eb9c1fbf3915d33f5b92dd32980",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer f2a3",
+   "reason": "固定 commit 624a673 celestial/crusader.lua info 原文 4 行（3 个 LF），现译把第 2、3 行并成一行（2 个 LF），换行不变量不符；按原文拆回，并补出 while spinning your weapon shines so much 的描述。",
+   "replacements": [
+    {
+     "old": "半径 1 以内的所有生物将受到 %d%% 武器伤害，同时半径 2 以内的敌人将受到 %d%% 光系武器伤害。",
+     "new": "半径 1 以内的所有生物将受到 %d%% 武器伤害。\n\t\t此外，旋转时你的武器光芒四射，对半径 2 以内的所有敌人造成 %d%% 光系武器伤害。"
+    }
+   ]
+  },
+  {
+   "revision_key": "5b02c215259ab029994e045091a08a3184d50134f165878cfa33c2ef75e2fc27",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer f2a3",
+   "reason": "固定 commit 624a673 uber/cun.lua 原文效果表每个标签后以 TAB 对齐（闪电为单 TAB），现译删去全部行内 TAB；另“附加以下的附加效果”漏 one of（callbackOnDealDamage 按伤害类型只给一种效果），“伤害和效果强度”漏 some（getFire/getLight 为定值，仅部分效果随灵巧缩放）。",
+   "replacements": [
+    {
+     "old": "并对你自己附加以下的附加效果：",
+     "new": "并使你获得以下效果之一："
+    },
+    {
+     "old": "物理：清除",
+     "new": "物理：\t\t清除"
+    },
+    {
+     "old": "#PURPLE#奥术：#LAST# 增加",
+     "new": "#PURPLE#奥术：#LAST#\t\t增加"
+    },
+    {
+     "old": "#LIGHT_RED#火焰：#LAST# 增加",
+     "new": "#LIGHT_RED#火焰：#LAST#\t\t增加"
+    },
+    {
+     "old": "#1133F3#寒冷：#LAST# 将",
+     "new": "#1133F3#寒冷：#LAST#\t\t将"
+    },
+    {
+     "old": "#ROYAL_BLUE#闪电：#LAST# 你的",
+     "new": "#ROYAL_BLUE#闪电：#LAST#\t你的"
+    },
+    {
+     "old": "#YELLOW#光系：#LAST# 技能",
+     "new": "#YELLOW#光系：#LAST#\t\t技能"
+    },
+    {
+     "old": "#LIGHT_GREEN#自然：#LAST# 清除",
+     "new": "#LIGHT_GREEN#自然：#LAST#\t\t清除"
+    },
+    {
+     "old": "伤害和效果强度受灵巧值加成",
+     "new": "伤害和部分效果强度受灵巧值加成"
+    }
+   ]
+  },
+  {
+   "revision_key": "81725ede54a43c363a80f328646f9f9e90abb8462acb0a774290c4e49f0fbfc3",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer f2a3",
+   "reason": "固定 commit 624a673 lore 原文 “It is known that they can be summoned by certain magical rites”：可以被仪式召唤，现译“他们是由某种魔法仪式召唤而来”把可能性改成来源断言（删限定词）；同段在 load.lua 载体（47f875351d）已作“某些魔法仪式可以召唤他们”。",
+   "replacements": [
+    {
+     "old": "众所周知，他们是由某种魔法仪式召唤而来，",
+     "new": "众所周知，某些魔法仪式可以召唤他们，"
+    }
+   ]
+  },
+  {
+   "revision_key": "9785f1fb51e01839e972ab50ae5b1d2ad4b14187e83842a685531d793c67213f",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer f2a3",
+   "reason": "固定 commit 624a673 elvala.lua 原文 “two more luminous horrors”：luminous＝发光，本章同类一律作“发光的生物/怪物”，“金色”无据。",
+   "replacements": [
+    {
+     "old": "另外两个金色恐魔",
+     "new": "另外两个发光的恐魔"
+    }
+   ]
+  },
+  {
+   "revision_key": "eac1a2f40ecef55b2cc7c610001f4d535e0f5913286311fbaed3048ef264b719",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer f2a3",
+   "reason": "固定 commit 624a673 lore/misc.lua:380 “arcane experiments instigated by the ancient Conclave during the Age of Allure”：Conclave 全库作“孔克雷夫”（44 处），“秘法会”仅此一处；“infusion crafters”中 infusion 本库物品义为“纹身”（terminology/talents.tsv:9），“注能物工匠”改“纹身工匠”。",
+   "replacements": [
+    {
+     "old": "高等人类的高智商是厄流纪时期秘法会法师们的实验成果",
+     "new": "高等人类的高智商源于厄流纪时期古老的孔克雷夫所主导的奥术实验"
+    },
+    {
+     "old": "注能物工匠",
+     "new": "纹身工匠"
+    }
+   ]
+  },
+  {
+   "revision_key": "d6caf43dd1b521ff4dd5ad1ef14370a85566cb34f2a5b142ede78eb11a678026",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "host",
+   "reason": "宿主追加（r2a1 无效输出中的线索，宿主按原文核实）：固定 commit 624a673 age-allure.lua 歌词 “We weren't done yet with this project, / but we're close enough where this isn't neglect”：虽未完工但已接近，不算失职；现译“但别气馁，等到我们迎来复兴的那一天”改变了语义并添加原文没有的未来复兴。",
+   "replacements": [
+    {
+     "old": "但别气馁，等到我们迎来复兴的那一天，",
+     "new": "但已相差无几，算不上半途而废，"
+    }
+   ]
+  },
+  {
+   "revision_key": "5b860e23f322d2494654420165805ad3814ddaa398ab62a8185e4dcf4c7d8d8b",
+   "status": "refuted",
+   "tier": 1,
+   "category": "terminology",
+   "origin": "reviewer f2a3",
+   "reason": "tinkers 译“插件”是 Orcs DLC 本库的既有通行译法：Tinkers→插件、Supercharge Tinkers→插件超频、unknown tinker→未知插件、Created tinker→创造插件、询问哪里可以学习插件制作等；术语库 tinker＝蒸汽工具 仅为 existing，无约束力。统一 tinker 译名属于跨条术语决策，不在本窗口。"
+  }
+ ],
+ "advisories": []
+}

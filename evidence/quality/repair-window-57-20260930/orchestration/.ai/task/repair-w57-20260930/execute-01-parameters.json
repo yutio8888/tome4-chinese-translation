@@ -1,0 +1,18 @@
+{
+  "title": "W57 execute-01 implement",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w57-20260930。先读 .ai/roles/executor.md 与 .ai/task/repair-w57-20260930/SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-ANCHORS.json、SOURCE-CLAIMS.json、BASELINE-records.json、TERM-SNAPSHOT.json，以及 TERMINOLOGY.md 使用规则。本窗口定向修改 WORKSET 的 87 个 target（engine.lua、mod-tome.lua、tome-cults.lua、tome-orcs.lua、tome-ashes-urhrok.lua）：83 条按 SOURCE-CLAIMS 中已确认的问题逐项修正（claim 给出「现译片段 → 新片段」，按其意思写入，只做衔接所需的最小调整）；Elvala 回忆录 8 章首行统一为 #{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#；Toxic Death 技能名改“剧毒之死”，解锁列表那一行的名称同步，致命毒素（Deadly Poison）不动；两处 Orcs 开场白“西方灾星”改“西方天灾”。每条只改 claim 点名的片段，其余措辞一律不动；claim 里没有的问题即使看到也只报告不改。仅你是任务内容写入者，只改这 87 个 target，并写 evidence/quality/repair-window-57-20260930/ 下的 IMPLEMENTATION.md、VALIDATION.json；不改术语库。主游戏与引擎源码只从 /workspace/t-engine4 固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 用 git show 取证；DLC 源码只在 SOURCE-ANCHORS 给出的 checkout 下按条目路径读取；禁止从 /、/workspace 或无关目录搜索。占位符、<?...?> 模板片段与 markup 与现译一致；LF/TAB 结构除 claim 明确要求删除的多余换行／空行外与现译逐行一致，修正后应与原文一致；不新增行尾空白。运行有界验证（LuaJIT 加载五个文件，恰 87 条 target 变动且其他记录不变、strict lint、git diff --check），回报逐条改动（条目 key 与改动片段前后文本）、命令结果和发现但未改的疑点；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w57-20260930",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}

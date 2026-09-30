@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-29（第372批已 finalize，窗口57积压 3 条，用户要求暂停；审核队列已耗尽）
+更新时间：2026-09-30（修复窗口57已完成、待宿主证据提交与推送；下一步审核窗口57的 87 个 successor，第373批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -10,13 +10,11 @@
 
 ## 一、当前状态
 
-- **暂停中**：用户在第372批收口后要求“暂停在这里”。当前无 active batch，无在跑的子 agent，HEAD 与
-  `origin/develop` 一致。恢复前先等用户指示。
+- 2026-09-30：用户恢复工作，要求用 Gemini 3.8 Flash 快速复核 09-21 以来修改过的 1190 条译文（证据提交 `c4728694`，确认 83 条），随后“请合并修复”开窗口57。是否连续审核第373批以当前会话指示为准。
 - 审核已闭合至第 **372** 批（`batch-c9ca70f29bc203b33050`）：29 条，29 done / 0 repair_required。
   窗口56 的 29 个 successor（引擎 1、主游戏 25、Orcs 3）：surface 两组 5 lane，2 个 ISSUE 驳回；contextual 一个 run 首轮通过。窗口57积压 3。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `d4ad8a4297d7e881d78880d48fede53a848049b7` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **56**：blocked 排查后裁决的 29 条已修复（译文 `ff45cbd8`，证据 `6e53ac01`），
-  其 29 个 successor 已在第372批审完。
+- 修复窗口已闭合至 **57**：快速复核确认的 83 条与积压 4 条（Toxic Death→剧毒之死及解锁列表、两条 Orcs 开场白 西方天灾）已修复；译文提交 `95b566f8`；migration `f312e80b…` 的 87 个 successor（引擎 1、主游戏 32、Ashes 6、Cults 24、Orcs 24）须重新审核，不继承旧 revision 的 done 状态。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
   - 10 条死键／冻结 MISS（上游改串未重生 locale key 等，已 host-block 登记，不动）；
@@ -45,20 +43,18 @@
   scratch，仓库与工作区写入仍违规。
 - 2026-09-27：纯名称类 pending 先双向查冲突，再由 Gemini 3.8 Flash 裁决并报告；非名称类仍逐条问用户。
   antigravity 认证失败时改用 Paseo 的 `pi/cpa/gemini-3.8-flash-high` 通道（2026-09-29 实测可用）。
-- 审核模型：surface `codex/gpt-6-sol`（medium，auto-review），contextual `claude/claude-opus-5-5`（medium，auto）；
+- 审核模型：surface `codex/gpt-6.1-sol`（medium，auto-review），contextual `claude/claude-opus-5-5`（medium，auto）；
   修复 EXECUTOR `codex/gpt-5.6-sol`；修复窗口 FINAL 用 Claude Opus 5.5。
-- 2026-09-29：第372批后用户要求暂停。恢复需用户明确指示。
+- 2026-09-30：用户指示此后凡用 GPT-6-Sol 处一律改用 `codex/gpt-6.1-sol`（显式 thinking medium）；Codex 0.159.1 原生会话已纳入 harvest 白名单（`88e29cf9`）。
 
 ## 三、下一步
 
-1. 继续审核第 **373** 批：当前队列没有可审条目，第373批只会在窗口57（或后续窗口）发布 successor 后出现。
+1. 继续审核第 **373** 批起：窗口57的 87 个 successor（引擎 1、主游戏 32、Ashes 6、Cults 24、Orcs 24，混合来源批）。
    届时用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句）；
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
-2. 窗口 57 尚未开启，等用户决定（积压不足 20，队列已耗尽，按规则须询问）。模板为窗口56：
-   `setup_window56.py`（已支持 engine.lua）＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、
-   `.artifacts/i18n/repair-w56-20260929/wd.sh`、`check_siblings.py`；`w56-tr.sh`、`w56-close.sh`、`r372.sh`、`close372*.sh`、`handoff_gen_v2.py` 等宿主辅助脚本已从 `/tmp`
-   转存到 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore），使用前复制回 `/tmp`。
-   窗口 57 积压 **3** 条（窗口56后重新计数，范围外项不计入，主游戏 1、Orcs 2）：`aeae08fe72` Toxic Death→剧毒之死（Gemini 裁定）；`23e4d42cdb`、`4220402439` Orcs 开场白“西方灾星”→西方天灾（society.tsv:34 preferred）；第372批 无新增；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+2. 窗口 57 已完成（Gemini 3.8 Flash 快速复核 09-21 以来修改的 1190 条，Opus 5.5 交叉核验确认 83 条，加积压 4 条共 87 条）：Grand Council 统一为最高议会（含 Elvala 回忆录 8 章首行）、Toxic Death→剧毒之死、Orcs 开场白 西方天灾 等。复审路径：execute-01 → REVIEW r0a1 2 确认 → execute-02 → RE r1a1 2 驳回 → FINAL f1a1 5 确认 → execute-03 → RE r2a1 会话压缩无效、r2a2 1 驳回 → FINAL f2a3 7 确认＋宿主补 1 → execute-04 → RE r3a1 2 确认 → execute-05 → FINAL f4a1（Opus 5.5）87/87，cycle 4 收敛；门禁 17/17。
+   模板为窗口57：`.artifacts/i18n/repair-w57-20260930/setup_window57.py`（新增 RELOC：literal 实际不在 claim 路径时按条目改指真实文件）＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`wd.sh`、`check_siblings.py`；宿主辅助脚本 `w57-tr.sh` 等在 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore）。
+   教训：FINAL 给出确认项时，宿主把逐字替换写进裁决（old→new），EXECUTOR 照抄可一次通过；Codex 会话压缩（compacted）的 reviewer 输出按设计无效，归档后 fresh retry。窗口 58 积压 **0** 条。
    第372批计时（实测，投影缓存 on）：start 145.0 s；adjudication chain（含 17 项门禁）179.1 s；finalize 149.0 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。

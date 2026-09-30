@@ -1,0 +1,20 @@
+已完成 `repair-w57-20260930`：
+
+- 修改 5 个 Lua 文件中的恰好 87 个冻结 target：`1 / 32 / 6 / 24 / 24`。
+- 83 条确认问题、8 个 Elvala 标题、Toxic Death 两处及 Orcs 开场白两处均已处理。
+- `Deadly Poison` 仍为“致命毒素”。
+- 其他翻译记录及 `source`、`source_tag`、`args_order`、`special` 均未变化。
+- 未修改术语库、`.ai/task`，未 stage、commit、push，也未创建 agent。
+- 未发现 claim 之外的疑点。
+
+逐条 key 与片段前后文本见 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-57-20260930/IMPLEMENTATION.md)。完整验证记录见 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-57-20260930/VALIDATION.json)。
+
+验证全部通过：
+
+- LuaJIT 加载五文件，共 31,459 条记录。
+- 恰好 87 条 target 改变，其余记录不变。
+- strict lint：30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- evidence JSON 与空白检查：通过。
+
+两处约束裁决已记录：`88f2…` 保留原 `his_her()` 模板；`2df8…` 未加入 claim 建议的行尾空格，以满足“不新增行尾空白”。用户原有的 `docs/README.md` 等无关改动均保持不动。

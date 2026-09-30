@@ -1,0 +1,319 @@
+{
+  "task_id": "repair-w57-20260930",
+  "baseline_commit": "c47286947351bd290128ba59f8b1c7c278df54b2",
+  "status": "pass",
+  "scope": {
+    "expected_changed_targets": 87,
+    "actual_changed_targets": 87,
+    "other_records_unchanged": true,
+    "files": {
+      "engine.lua": {
+        "loaded_records": 1169,
+        "changed_targets": 1
+      },
+      "mod-tome.lua": {
+        "loaded_records": 22989,
+        "changed_targets": 32
+      },
+      "tome-ashes-urhrok.lua": {
+        "loaded_records": 900,
+        "changed_targets": 6
+      },
+      "tome-cults.lua": {
+        "loaded_records": 2199,
+        "changed_targets": 24
+      },
+      "tome-orcs.lua": {
+        "loaded_records": 4202,
+        "changed_targets": 24
+      }
+    }
+  },
+  "invariants": {
+    "source_unchanged": true,
+    "source_tag_unchanged": true,
+    "args_order_unchanged": true,
+    "special_unchanged": true,
+    "non_target_records_unchanged": true,
+    "placeholder_markup_template_checks": "pass (strict lint: 0 errors, 0 warnings)",
+    "newline_tab_checks": "pass (strict lint plus record-level target comparison)",
+    "trailing_whitespace": "pass"
+  },
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1; only expected source-unpinned warnings for three DLCs"
+    },
+    {
+      "command": "python3 -B .tmp_repair_w57.py validate",
+      "exit_code": 0,
+      "result": "five files loaded through LocaleLoader/LuaJIT; 87 target records changed and every other record/field unchanged"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "artifact": ".artifacts/i18n/runs/20260930T112345.398036Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no diagnostics"
+    },
+    {
+      "command": "git diff --cached --check",
+      "exit_code": 0,
+      "result": "no diagnostics"
+    },
+    {
+      "command": "git diff --no-index --check -- /dev/null evidence/quality/repair-window-57-20260930/IMPLEMENTATION.md",
+      "exit_code": 1,
+      "result": "expected no-index difference exit; no whitespace diagnostics"
+    },
+    {
+      "command": "git diff --no-index --check -- /dev/null evidence/quality/repair-window-57-20260930/VALIDATION.json",
+      "exit_code": 1,
+      "result": "expected no-index difference exit; no whitespace diagnostics"
+    }
+  ],
+  "bounded_decisions": [
+    {
+      "key": "88f2b538a682bc46556b524f27e57805a6a3d0d54f4ac07510008a1aae0c1326",
+      "decision": "Preserved <?=player:his_her()?> and repaired surrounding Chinese, because this window requires template fragments to remain unchanged."
+    },
+    {
+      "key": "2df8a382c9444ee30e8243d237473584971b63222a990578ff55b943e456fe2b",
+      "decision": "Did not retain two suggested spaces at the joined line end, because this window forbids new trailing whitespace."
+    }
+  ],
+  "repair_rounds": [
+    {
+      "round": 1,
+      "adjudication": ".ai/task/repair-w57-20260930/ADJUDICATION-R0.json",
+      "status": "pass",
+      "changed_revision_keys": [
+        "1e08bd6f928813836838f4c6807e37ef52bfeeb43952823401ca3d1c9addc7ec",
+        "23e4d42cdbd3387c0eafa86d0972ff9a42f45cdf2b80f44ab1124f257eef0466"
+      ],
+      "refuted_unchanged_revision_keys": [
+        "6a70ae520078af678cd0042a48ad81e0dfda943aaf612c576756572715e11ece"
+      ],
+      "before_after": [
+        {
+          "revision_key": "1e08bd6f928813836838f4c6807e37ef52bfeeb43952823401ca3d1c9addc7ec",
+          "before": [
+            "只是你们不能接受群众想要回他们的蒸汽",
+            "比起想要以[i]你们[/i]的方法做事"
+          ],
+          "after": [
+            "只是你不能接受群众想要回他们的蒸汽",
+            "比起想要以[i]你[/i]的方法做事"
+          ]
+        },
+        {
+          "revision_key": "23e4d42cdbd3387c0eafa86d0972ff9a42f45cdf2b80f44ab1124f257eef0466",
+          "before": [
+            "只有克拉克半岛的克鲁克部族依然挺立"
+          ],
+          "after": [
+            "只有克拉克半岛的克鲁克部落依然挺立"
+          ]
+        }
+      ],
+      "checks": [
+        {
+          "command": "bounded inline LocaleLoader/LuaJIT comparison against c47286947351bd290128ba59f8b1c7c278df54b2 for all five scoped files",
+          "exit_code": 0,
+          "result": "exactly 87 changed targets (engine.lua 1; mod-tome.lua 32; tome-ashes-urhrok.lua 6; tome-cults.lua 24; tome-orcs.lua 24), exact WORKSET match, no non-target record/field changes, round-1 fragments present, and round-1 LF/TAB counts unchanged"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings",
+          "artifact": ".artifacts/i18n/runs/20260930T145704.955368Z-2-lint/lint.json"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no diagnostics"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "adjudication": ".ai/task/repair-w57-20260930/ADJUDICATION-F1.json",
+      "status": "pass",
+      "changed_revision_keys": [
+        "1614976c01918fe7f9330d9d39f27c634a08a5936f4a4e55053a488b5a4bb177",
+        "3e135c03b75aca60e09622cb45dc58a56b7cfbdfbddbf7aa6bd31d6a6019139c",
+        "9b9f522ee365e6d8afd53ea167bf869fcc6c32b9d4028d2115df594bf547e601",
+        "23e4d42cdbd3387c0eafa86d0972ff9a42f45cdf2b80f44ab1124f257eef0466",
+        "f17a4945ae6c58b6ea673b0e0317a0f1835d266659d464ce8f24f0b4da8eb3a0"
+      ],
+      "before_after": [
+        {
+          "revision_key": "1614976c01918fe7f9330d9d39f27c634a08a5936f4a4e55053a488b5a4bb177",
+          "before": ["是我在大议会会议厅看到的同一套"],
+          "after": ["是我在最高议会会议厅看到的同一套"]
+        },
+        {
+          "revision_key": "3e135c03b75aca60e09622cb45dc58a56b7cfbdfbddbf7aa6bd31d6a6019139c",
+          "before": ["曾向大议会请愿", "大议会同意了请求", "那位女附魔师"],
+          "after": ["曾向最高议会请愿", "最高议会同意了请求", "那位女巫"]
+        },
+        {
+          "revision_key": "9b9f522ee365e6d8afd53ea167bf869fcc6c32b9d4028d2115df594bf547e601",
+          "before": ["埃尔瓦拉大议会领袖"],
+          "after": ["埃尔瓦拉最高议会领袖"]
+        },
+        {
+          "revision_key": "23e4d42cdbd3387c0eafa86d0972ff9a42f45cdf2b80f44ab1124f257eef0466",
+          "before": ["为了部落，为了加库尔的遗产！"],
+          "after": ["为了兽人，为了加库尔的遗产！"]
+        },
+        {
+          "revision_key": "f17a4945ae6c58b6ea673b0e0317a0f1835d266659d464ce8f24f0b4da8eb3a0",
+          "before": ["这决定了我们从这方案里获益良多，决定了我们有或能取得实施这一计划的手段，也决定了这是选民们想要的。"],
+          "after": ["兹认定我们能从中获益良多，认定我们拥有或能够取得实施这一计划的手段，也认定这正是选民之所愿。"]
+        }
+      ],
+      "checks": [
+        {
+          "command": "python3 -B /tmp/validate_repair_w57.py",
+          "exit_code": 0,
+          "result": "five scoped files loaded through LocaleLoader/LuaJIT; exactly 87 changed targets (engine.lua 1; mod-tome.lua 32; tome-ashes-urhrok.lua 6; tome-cults.lua 24; tome-orcs.lua 24), exact WORKSET match, source/source_tag/args_order/special unchanged, and no non-target record changes"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings",
+          "artifact": ".artifacts/i18n/runs/20260930T153053.130263Z-2-lint/lint.json"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no diagnostics"
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "adjudication": ".ai/task/repair-w57-20260930/ADJUDICATION-F2.json",
+      "status": "pass",
+      "changed_revision_keys": [
+        "01aa8dc56eaa88c617b68ad2b292caa510e9e0169e86843699eb258fdff9b738",
+        "2df8a382c9444ee30e8243d237473584971b63222a990578ff55b943e456fe2b",
+        "3358ca54b7e2473348e93f516c8c1c759dd06eb9c1fbf3915d33f5b92dd32980",
+        "5b02c215259ab029994e045091a08a3184d50134f165878cfa33c2ef75e2fc27",
+        "81725ede54a43c363a80f328646f9f9e90abb8462acb0a774290c4e49f0fbfc3",
+        "9785f1fb51e01839e972ab50ae5b1d2ad4b14187e83842a685531d793c67213f",
+        "d6caf43dd1b521ff4dd5ad1ef14370a85566cb34f2a5b142ede78eb11a678026",
+        "eac1a2f40ecef55b2cc7c610001f4d535e0f5913286311fbaed3048ef264b719"
+      ],
+      "refuted_unchanged_revision_keys": [
+        "5b860e23f322d2494654420165805ad3814ddaa398ab62a8185e4dcf4c7d8d8b"
+      ],
+      "before_after": [
+        {
+          "revision_key": "01aa8dc56eaa88c617b68ad2b292caa510e9e0169e86843699eb258fdff9b738",
+          "before": ["选择深入无尽地下城，走向必然的毁灭，去挑战像阿塔玛森或是莱娜尼尔这样几乎不可能击败的恐怖敌人，还是就此在夏·图尔堡垒中度过余生。"],
+          "after": ["是选择深入无尽地下城、走向必然的毁灭，是尝试去击杀像阿塔玛森或莱娜尼尔这样不可能战胜的敌人，还是就此在重新夺回的夏·图尔堡垒中度过余生。"]
+        },
+        {
+          "revision_key": "2df8a382c9444ee30e8243d237473584971b63222a990578ff55b943e456fe2b",
+          "before": ["%d 魔法，%d 意志", "基于你的魔法。"],
+          "after": ["%d 魔力，%d 意志", "基于你的魔力。"]
+        },
+        {
+          "revision_key": "3358ca54b7e2473348e93f516c8c1c759dd06eb9c1fbf3915d33f5b92dd32980",
+          "before": ["半径 1 以内的所有生物将受到 %d%% 武器伤害，同时半径 2 以内的敌人将受到 %d%% 光系武器伤害。"],
+          "after": ["半径 1 以内的所有生物将受到 %d%% 武器伤害。\n\t\t此外，旋转时你的武器光芒四射，对半径 2 以内的所有敌人造成 %d%% 光系武器伤害。"]
+        },
+        {
+          "revision_key": "5b02c215259ab029994e045091a08a3184d50134f165878cfa33c2ef75e2fc27",
+          "before": ["并对你自己附加以下的附加效果：", "物理：清除", "#PURPLE#奥术：#LAST# 增加", "#LIGHT_RED#火焰：#LAST# 增加", "#1133F3#寒冷：#LAST# 将", "#ROYAL_BLUE#闪电：#LAST# 你的", "#YELLOW#光系：#LAST# 技能", "#LIGHT_GREEN#自然：#LAST# 清除", "伤害和效果强度受灵巧值加成"],
+          "after": ["并使你获得以下效果之一：", "物理：\t\t清除", "#PURPLE#奥术：#LAST#\t\t增加", "#LIGHT_RED#火焰：#LAST#\t\t增加", "#1133F3#寒冷：#LAST#\t\t将", "#ROYAL_BLUE#闪电：#LAST#\t你的", "#YELLOW#光系：#LAST#\t\t技能", "#LIGHT_GREEN#自然：#LAST#\t\t清除", "伤害和部分效果强度受灵巧值加成"]
+        },
+        {
+          "revision_key": "81725ede54a43c363a80f328646f9f9e90abb8462acb0a774290c4e49f0fbfc3",
+          "before": ["众所周知，他们是由某种魔法仪式召唤而来，"],
+          "after": ["众所周知，某些魔法仪式可以召唤他们，"]
+        },
+        {
+          "revision_key": "9785f1fb51e01839e972ab50ae5b1d2ad4b14187e83842a685531d793c67213f",
+          "before": ["另外两个金色恐魔"],
+          "after": ["另外两个发光的恐魔"]
+        },
+        {
+          "revision_key": "eac1a2f40ecef55b2cc7c610001f4d535e0f5913286311fbaed3048ef264b719",
+          "before": ["高等人类的高智商是厄流纪时期秘法会法师们的实验成果", "注能物工匠"],
+          "after": ["高等人类的高智商源于厄流纪时期古老的孔克雷夫所主导的奥术实验", "纹身工匠"]
+        },
+        {
+          "revision_key": "d6caf43dd1b521ff4dd5ad1ef14370a85566cb34f2a5b142ede78eb11a678026",
+          "before": ["但别气馁，等到我们迎来复兴的那一天，"],
+          "after": ["但已相差无几，算不上半途而废，"]
+        }
+      ],
+      "checks": [
+        {
+          "command": "bounded inline LocaleLoader/LuaJIT comparison against c47286947351bd290128ba59f8b1c7c278df54b2 and frozen FINAL_REVIEW payload for all five scoped files",
+          "exit_code": 0,
+          "result": "five scoped files loaded; exactly 87 changed targets (engine.lua 1; mod-tome.lua 32; tome-ashes-urhrok.lua 6; tome-cults.lua 24; tome-orcs.lua 24), exact WORKSET match, no non-target record/field changes, eight round-3 targets exactly equal sequential replacement results, 79 other targets unchanged, and refuted key unchanged"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings",
+          "artifact": ".artifacts/i18n/runs/20260930T164029.268888Z-2-lint/lint.json"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no diagnostics"
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "adjudication": ".ai/task/repair-w57-20260930/ADJUDICATION-R3.json",
+      "status": "pass",
+      "changed_revision_keys": [
+        "493790101d6aa85fb612336c0e16b8712872c164b4c3474ea8e597632c546e9c",
+        "d6caf43dd1b521ff4dd5ad1ef14370a85566cb34f2a5b142ede78eb11a678026"
+      ],
+      "before_after": [
+        {
+          "revision_key": "493790101d6aa85fb612336c0e16b8712872c164b4c3474ea8e597632c546e9c",
+          "before": ["对付叛离法师的技巧"],
+          "after": ["对付不法法师的技巧"]
+        },
+        {
+          "revision_key": "d6caf43dd1b521ff4dd5ad1ef14370a85566cb34f2a5b142ede78eb11a678026",
+          "before": ["他们离我们所处的地方越来越近。"],
+          "after": ["我们藏身之处上方的土层越来越薄。"]
+        }
+      ],
+      "checks": [
+        {
+          "command": "python3 -B /tmp/validate_repair_w57_r4.py",
+          "exit_code": 0,
+          "result": "five scoped files loaded through LocaleLoader/LuaJIT; exactly 87 changed targets (engine.lua 1; mod-tome.lua 32; tome-ashes-urhrok.lua 6; tome-cults.lua 24; tome-orcs.lua 24), exact WORKSET match, source/source_tag/args_order/special unchanged, no non-target record changes, each old round-4 fragment absent, and each new fragment present exactly once in its target"
+        },
+        {
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "Checked 30308 translations: 0 errors, 0 warnings",
+          "artifact": ".artifacts/i18n/runs/20260930T170340.594878Z-2-lint/lint.json"
+        },
+        {
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "no diagnostics"
+        }
+      ]
+    }
+  ],
+  "out_of_scope_suspicions": []
+}

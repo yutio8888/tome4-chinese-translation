@@ -1,0 +1,36 @@
+{
+ "cycle": 0,
+ "stage": "REVIEW",
+ "accepted_dispatch_id": "r0a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 84,
+ "raw_issue_count": 3,
+ "decision": "two findings confirmed (1e08bd6f92 pronoun, 23e4d42cdb faction name); 6a70ae5200 refuted against the DLC implementation. Fix both in execute-02, then RE_REVIEW(1,1).",
+ "findings": [
+  {
+   "revision_key": "1e08bd6f928813836838f4c6807e37ef52bfeeb43952823401ca3d1c9addc7ec",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r0a1",
+   "reason": "公开 Orcs DLC tome-orcs/data/lore/palace-fumes.lua（来源未固定）蒸汽议会记录：坦塔洛斯刚点名卡西罗斯（“Kasyros, I'm going to let [i]you[/i] tell me…”，译“卡西罗斯，我想让[i]你[/i]……”），随后“All because you can't accept…more than they want [i]your[/i] way of doing things”仍是对卡西罗斯一人说的。现译“你们不能接受”“以[i]你们[/i]的方法”把对象扩成多人。改为“只是你不能接受群众想要回他们的蒸汽”“比起想要以[i]你[/i]的方法做事”，其余不动。"
+  },
+  {
+   "revision_key": "23e4d42cdbd3387c0eafa86d0972ff9a42f45cdf2b80f44ab1124f257eef0466",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "terminology",
+   "origin": "reviewer r0a1",
+   "reason": "阵营 Kruk Pride 在术语库 society.tsv:8 为“克鲁克部落”，tome-orcs.lua 中 28 处作“克鲁克部落”；同候选的另一段开场白 4220402439 也作“克鲁克部落”。本条“只有克拉克半岛的克鲁克部族依然挺立”改为“克鲁克部落”，其余不动。"
+  },
+  {
+   "revision_key": "6a70ae520078af678cd0042a48ad81e0dfda943aaf612c576756572715e11ece",
+   "status": "refuted",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r0a1",
+   "reason": "公开 Ashes DLC tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua（来源未固定）createSeed 第 364–366 行：`if host.type == \"demon\" then kind = host.name`，只要宿主是恶魔且有对应种子就给该类型种子，不检查 unique。英文“unique demons”与实现不符，现译“植入恶魔体内……与该恶魔同类型的种子”贴合实现（源码为最终判定依据），不改。"
+  }
+ ],
+ "advisories": []
+}

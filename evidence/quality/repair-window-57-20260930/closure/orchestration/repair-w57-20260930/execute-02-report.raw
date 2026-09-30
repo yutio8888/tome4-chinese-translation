@@ -1,0 +1,17 @@
+第 1 轮修复已完成。
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:8400)
+  - “只是你们不能接受……”→“只是你不能接受……”
+  - “以[i]你们[/i]的方法”→“以[i]你[/i]的方法”
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:7886)
+  - “克鲁克部族”→“克鲁克部落”
+- `6a70ae5200` 未改；其余文字、markup、段落及术语库未动。
+- 已追加 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-57-20260930/IMPLEMENTATION.md:277) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-57-20260930/VALIDATION.json:90)。
+
+验证结果：
+
+- LuaJIT/LocaleLoader 五文件加载通过：相对基线恰有 87 个冻结 target 变化，分布 `1/32/6/24/24`；其他记录及字段不变。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- Evidence JSON 有效，两个未跟踪 evidence 文件无空白诊断。
+- 未 stage、commit、push；未修改 `.ai/task`。

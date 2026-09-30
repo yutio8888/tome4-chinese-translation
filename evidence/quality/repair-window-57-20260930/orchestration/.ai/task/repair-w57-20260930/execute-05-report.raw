@@ -1,0 +1,19 @@
+第 4 轮修复已完成，仅修改指定内容：
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua:3184)  
+  `对付叛离法师的技巧` → `对付不法法师的技巧`
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:14141)  
+  `他们离我们所处的地方越来越近。` → `我们藏身之处上方的土层越来越薄。`
+
+本轮记录已追加至 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-57-20260930/IMPLEMENTATION.md:337) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-57-20260930/VALIDATION.json)。
+
+验证结果：
+
+- 五个文件经 LuaJIT/LocaleLoader 加载成功。
+- 相对基线仍恰有 87 个 target 变动：`1/32/6/24/24`。
+- WORKSET 精确匹配，非目标记录及 `source/source_tag/args_order/special` 未变。
+- 两个旧片段均已消失，新片段在对应 target 中各出现一次。
+- strict lint：30,308 条译文，0 errors，0 warnings。
+- `git diff --check`：通过，无诊断。
+- evidence JSON 有效，未跟踪文件无空白问题。
+- `.ai/task` 未修改；没有 stage、commit 或 push。

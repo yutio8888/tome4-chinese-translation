@@ -1,0 +1,28 @@
+{
+ "cycle": 1,
+ "stage": "RE_REVIEW",
+ "accepted_dispatch_id": "r1a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 85,
+ "raw_issue_count": 2,
+ "decision": "no confirmed finding: both observations refuted (6a70ae5200 again against the DLC implementation; 01aa8dc56e pre-existing, runtime-valid Chinese pronoun template placement). Converged; proceed to FINAL_REVIEW(1,1).",
+ "findings": [
+  {
+   "revision_key": "6a70ae520078af678cd0042a48ad81e0dfda943aaf612c576756572715e11ece",
+   "status": "refuted",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r1a1",
+   "reason": "同 ADJUDICATION-R0：公开 Ashes DLC demonic-pact.lua（来源未固定）createSeed 第 364–366 行只判断 host.type == \"demon\" 即取 host.name 对应种子，不检查 unique；上游英文与实现不符，现译贴合实现（指南 6.3），不改。"
+  },
+  {
+   "revision_key": "01aa8dc56eaa88c617b68ad2b292caa510e9e0169e86843699eb258fdff9b738",
+   "status": "refuted",
+   "tier": 1,
+   "category": "placeholder",
+   "origin": "reviewer r1a1",
+   "reason": "所指 <?…?> 代词模板差异是本窗口之前就存在的（基线与现译的模板多重集相同，本窗口未改动这些位置），不是修复引入。中文按语序省略物主代词（“度过余生”“传说中的西方天灾”）与主语（“渴望已久的终极挑战”），并在“最终，<?=…himher?>站在了巅峰之上”补出主语；himher 与 heshe 在本库都渲染为“他/她”，每个模板都是同一对象上的合法表达式，strict lint 0 警告，运行时与语义均无问题。"
+  }
+ ],
+ "advisories": []
+}

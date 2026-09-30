@@ -1,0 +1,344 @@
+# repair-w57-20260930 implementation
+
+- Baseline: `c47286947351bd290128ba59f8b1c7c278df54b2`
+- Scope: 87 frozen targets across `engine.lua`, `mod-tome.lua`, `tome-ashes-urhrok.lua`, `tome-cults.lua`, and `tome-orcs.lua`
+- Target counts: engine.lua 1; mod-tome.lua 32; tome-ashes-urhrok.lua 6; tome-cults.lua 24; tome-orcs.lua 24
+- Terminology data: unchanged
+- Out-of-scope suspicions found but not changed: none
+
+## Bounded implementation notes
+
+- Elvala memoir heading was normalized in all eight frozen Elvala targets.
+- `88f2b538…`: retained the frozen `<?=player:his_her()?>` template fragment and changed only its surrounding Chinese to “尽管…身体经过了强化”, satisfying the claim without changing the template.
+- `2df8a382…`: removed the two claim-directed extra line breaks and changed “回合内” to “回合后”; did not add the suggested end-of-line spaces because the window explicitly forbids new trailing whitespace.
+- Toxic Death was renamed to “剧毒之死” in the talent-name target and its unlock-list target only. Deadly Poison remains “致命毒素”.
+- The two frozen Orc intro targets now use “西方天灾”.
+
+## Per-target changes
+
+- `009de7475bee8bd2dce715e45adeb8f6ce670f24acc7e21ec6005b774d822668` — `mod-tome.lua` — `mod-tome/data/lore/elvala.lua`
+  - "#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#" → "#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#"
+  - "望向我们脚下所飞过的大地的痕迹，" → "大地在我们脚下飞掠而过，"
+- `014455dc3110247b81b842fbaa78b6bb340f3b998e586de5b28cfcbaade933d7` — `tome-orcs.lua` — `tome-orcs/data/talents/steam/automated-butchery.lua`
+  - "将目标向你的位置拉扯 %d 格" → "将目标向你的位置拉扯至多 %d 格"
+- `01aa8dc56eaa88c617b68ad2b292caa510e9e0169e86843699eb258fdff9b738` — `tome-orcs.lua` — `tome-orcs/data/lore/pocket-time.lua`
+  - "远行传送门<? end ?>，从而把埃亚尔" → "远行传送门，<? end ?>从而把埃亚尔"
+- `08f27a5a9d51ba669bde9fe70a447b65e9240c332821162506ae0a7b13c1479d` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "如果你跟着我，我可以带你去埃尔瓦拉。他们把自己与外界隔绝了，但我可以把你带到永恒精灵的土地里，在那里，你会安全的。" → "如果你们跟着我，我可以带你们去埃尔瓦拉。他们把自己与外界隔绝了，但我可以把你们带到永恒精灵的土地里，在那里，你们会安全的。"
+  - "“如果不去那里，你还能去哪里生存呢？”" → "“如果不去那里，你们还能去哪里生存呢？”"
+  - "因为那些俘虏你的狂热者在四处施展暴行，他们无法帮助外部世界。不过，我知道他们对自己所做的一切深感忏悔。我相信，如果你去他们那里，他们一定会给你提供庇护所。如果你无处可去，那就让我带你去他们那里寻求庇护吧。" → "因为那些俘虏你们的狂热者在四处施展暴行，他们无法帮助外部世界。不过，我知道他们对自己所做的一切深感忏悔。我相信，如果你们去他们那里，他们一定会给你们提供庇护所。如果你们无处可去，那就让我带你们去他们那里寻求庇护吧。"
+  - "虽然我现在并非把它用于这个用途”那个食人魔" → "虽然我现在并非把它用于这个用途。”那个食人魔"
+- `128d2f6ed8f4de5f42085a638b8b159c7859fe55df982bd64e03e536b6a9f008` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "希望更多地了解他们自己造成的破坏，以及它会给埃亚尔留下什么影响。" → "希望更多地了解它们造成的破坏，以及这些破坏会给埃亚尔留下什么影响。"
+- `14a9421d21650f1d6d6a29067f87de9bf693db76745eb67c33f082d6ae4bce21` — `tome-orcs.lua` — `tome-orcs/data/lore/quarry.lua`
+  - "因为我们还要完成这个月的任务呢——这些洞穴里有着这么多我们所需要的地热口！" → "因为我们这个月能完成指标了——那些洞穴里有好多地热口可以利用！"
+- `1614976c01918fe7f9330d9d39f27c634a08a5936f4a4e55053a488b5a4bb177` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "以及艾伦尼恩的领导之下保卫了埃尔瓦拉" → "以及艾伦尼恩最终重振士气的领导之下保卫了埃尔瓦拉"
+  - "其中一个骨巨人走上前来，试图把我打倒" → "其中一个骨巨人（我姑且这么称呼它们）走上前来，试图把我打倒"
+  - "注意到一个年轻的食人魔站了起来" → "注意到一个年轻的食人魔走上前来"
+  - "卫兵们！把你的精力集中在" → "守军们！把你们的精力集中在"
+  - "那个永恒精灵抓住了机会，他迅速跳入附近的下一个骨巨人身上，也毫不费力地将它击倒。" → "那个永恒精灵毫不停顿，迅速扑向附近的下一个骨巨人，也毫不费力地将它击倒。"
+- `16e00f8444028843ed0d99794f26368c08badbb9a61f1a60194b926dfbe70ec7` — `mod-tome.lua` — `mod-tome/data/talents/misc/npcs.lua`
+  - "受敏捷影响，闪避按比例加成；\n\t\t受灵巧影响，精神豁免按比例加成。" → "受敏捷影响，闪避按比例加成；受灵巧影响，精神豁免按比例加成。"
+- `1959008079862926324df5f50ed6329f7c14bb6cbd45e22be712939591211c0b` — `tome-cults.lua` — `tome-cults/data/lore/zones.lua`
+  - "一头幼龙傲然挺立在那团触须之中" → "一头巨龙傲然挺立在那团触须之中"
+  - "幼龙，这一大自然最骄傲的生灵之一" → "这头巨龙，这一大自然最骄傲的生灵之一"
+- `1e08bd6f928813836838f4c6807e37ef52bfeeb43952823401ca3d1c9addc7ec` — `tome-orcs.lua` — `tome-orcs/superload/mod/dialogs/debug/DebugMain.lua`
+  - "所以！这决定了我们从这方案里获益良多，决定了我们有或能找到解决困难的方式，也决定了这是选民们想要的。" → "所以！兹认定我们能从中获益良多，认定我们拥有或能够取得执行此事的手段，也认定这正是选民之所愿。"
+  - "这一表述被视作过分的亵渎" → "这一发言因言辞过于粗鄙"
+- `23e4d42cdbd3387c0eafa86d0972ff9a42f45cdf2b80f44ab1124f257eef0466` — `tome-orcs.lua` — `tome-orcs/overload/data/texts/intro-orc.lua`
+  - "西方灾星" → "西方天灾"
+- `2df8a382c9444ee30e8243d237473584971b63222a990578ff55b943e456fe2b` — `mod-tome.lua` — `mod-tome/data/talents/chronomancy/temporal-hounds.lua`
+  - "激活时召唤一条时空猎犬。\n\t\t每隔 %d 回合召唤另一条时空猎犬，直至最多 3 条。\n\t\t当一条猎犬死去时，你将在 %d 回合内召唤一条新的猎犬。" → "激活时召唤一条时空猎犬。每隔 %d 回合召唤另一条时空猎犬，直至最多 3 条。当一条猎犬死去时，你将在 %d 回合后召唤一条新的猎犬。"
+- `2ef9d64bddef650991b92c565f0040a236ff7a19da8c1b799c511b60271d5b32` — `tome-orcs.lua` — `tome-orcs/data/lore/slumbering-caves.lua`
+  - "并且准备好对那些罪人实施正义的制裁" → "并且准备好在那些罪人归来之时对其实施正义的制裁"
+  - "当它们提出" → "当他们提出"
+- `2f6cc2e3ca864be3e5ee2d7f04a703af2a7324c945a432621d53d7f0aade360f` — `mod-tome.lua` — `mod-tome/data/lore/elvala.lua`
+  - "#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#" → "#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#"
+  - "就像河流突然偏离了自己的河道一样荒谬。现在，" → "就像河流突然偏离了自己的河道一样荒谬。究竟是什么导致了这一切？现在，"
+  - "随着我的身体慢慢升起，周围被摧残的万物景象慢慢进入我的眼中。" → "随着我的身体慢慢升起，我开始在这片面目全非的大地上辨明方向。"
+  - "还是我曾经非常接近的人" → "还是与我无比亲近的人"
+- `3358ca54b7e2473348e93f516c8c1c759dd06eb9c1fbf3915d33f5b92dd32980` — `mod-tome.lua` — `mod-tome/data/talents/celestial/crusader.lua`
+  - "同时将光明之力充满武器。" → "同时将光明之力注入你的双手武器。"
+  - "半径 1 以内的敌人将受到 %d%% 武器伤害，" → "半径 1 以内的所有生物将受到 %d%% 武器伤害，"
+- `35d6560206a0b967974aecd4190bb71b0cf2ab4c6867f640a3b1a7f15c568281` — `engine.lua` — `engine/engine/dialogs/VideoOptions.lua`
+  - "这个选项可以激活一些扭曲视频特效（例如会造成视觉扭曲的法术）。\n关闭它可以提升运行速度。" → "这个选项可以激活一些扭曲视频特效（例如会造成视觉扭曲的法术）。关闭它可以提升运行速度。"
+- `389e561fdba48aed88689062ceddd7d3084399730e971a46fd537c030689025b` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "那些你从边远居民点救出的永恒精灵，它们中间许多人" → "那些你从边远居民点救出的永恒精灵，他们中间许多人"
+- `3de78ce9cefc1cd2e73027576fcf92ec85b4ea59ef892f12f58f06b18136eebe` — `tome-ashes-urhrok.lua` — `tome-ashes-urhrok/data/lore/demon.lua`
+  - "以更好地防范让<?=player:his_her()?>得以逃脱的那种意外陨石撞击" → "以更好地防范促成<?=player:his_her()?>逃脱的那种意外陨石撞击"
+  - "尽管<?=player:his_her()?>有一身蛮力" → "尽管<?=player:his_her()?>蛮力惊人"
+- `3e135c03b75aca60e09622cb45dc58a56b7cfbdfbddbf7aa6bd31d6a6019139c` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "在内心深处，我能感觉到自己对抗那些试图爬到地表的狂热分子时折磨我的冲动，如今又在侵扰我。" → "在内心深处，我能感觉到当初与狂热分子交战时折磨我的那些冲动，此刻正挣扎着要浮出表面。"
+- `40a3ba88ad7703e008224751e71fa1355378b3b0d49c1bf97a8e02824b020ee1` — `mod-tome.lua` — `mod-tome/data/lore/misc.lua`
+  - "当某天晚上我途径一条废弃的山道" → "当某天晚上我途经一条废弃的山道"
+  - "我显然也指望不了太多。\n\n请允许在下" → "我显然也指望不了太多。请允许在下"
+  - "余烟袅袅。\n\n我惊讶地看到" → "余烟袅袅。我惊讶地看到"
+  - "就在此时，我总算明白了" → "就在那一刻，罗尔夫，我总算明白了"
+- `4220402439d5c9f1bc03680a0ca53939aae7442d78b7a384fcbb87e8402996e3` — `tome-orcs.lua` — `tome-orcs/overload/data/texts/intro-orc-yeti.lua`
+  - "西方灾星" → "西方天灾"
+- `4407f0336c01a196aec6a48db7ff2d7bd1359e7ffd15e7445dad84a4f6a4f20a` — `mod-tome.lua` — `mod-tome/data/lore/misc.lua`
+  - "虽然他们很快便设法让此事被人遗忘，但是归咎于他们的记忆却深埋于许多人心中" → "虽然他们巴不得此事早被遗忘，但是归咎于他们的记忆却深埋于许多人心中"
+  - "其中最年长的那些不死者" → "其中最年长的那些永生者"
+- `47d2f161653e50b3c07edc940393ad7f6688243361e80aa55511eff8bc018a44` — `mod-tome.lua` — `mod-tome/data/talents/cunning/called-shots.lua`
+  - "额外暴击伤害。\n\t\t在第 3 级时，所有精准射击系技能冷却时间降低两回合。\n\t\t在第 5 级时，你的精准射击技能获得 %d%% 物理抗性穿透。" → "额外暴击伤害。在第 3 级时，所有精准射击系技能冷却时间降低两回合。在第 5 级时，你的所有精准射击攻击获得 %d%% 物理抗性穿透。"
+- `47f875351d3c8fdf5c6a2732f72c4f92ceaba4416f3722e79f9ae0d06d42c7f8` — `mod-tome.lua` — `mod-tome/load.lua`
+  - "才会变的具有攻击性" → "才会变得具有攻击性"
+  - "出现的更加稀少了" → "出现得更加稀少了"
+- `4882672432a16f24ca2651166b7f13e15a5d994d38045c33d66bdf6cfa617a46` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "想要穿越他们简直就是在自杀" → "想要穿越它们简直就是在自杀"
+  - "那些狂热份子不是一伙的" → "那些狂热分子不是一伙的"
+  - "我们被他们用铁链拷住" → "我们被他们用铁链铐住"
+- `4889bdf15d90812edef0595bd765f7efcf89571880bcd3b2d482094ac37efb7c` — `tome-ashes-urhrok.lua` — `tome-ashes-urhrok/data/talents/corruptions/doom-shield.lua`
+  - "带来一层魔法护盾：在 3 回合内，你受到的所有伤害的最初几点（基于你的盾牌格挡值）将转化为治疗。" → "带来一层魔法护盾：你受到的每次伤害中，最初的几点（基于你的盾牌格挡值）会转化为在 3 回合内生效的治疗。"
+- `493790101d6aa85fb612336c0e16b8712872c164b4c3474ea8e597632c546e9c` — `tome-orcs.lua` — `tome-orcs/data/lore/primal-forest.lua`
+  - "我们也开始自愿开设传统反魔训练课程" → "我们也开始开设自愿参加的传统反魔训练课程"
+- `4c149cf62b6922ed3e794eea7cff9a3e04b685566260d90662b23681f538f0cf` — `mod-tome.lua` — `mod-tome/data/achievements/quests.lua`
+  - "感谢夏·图尔人在最后一刻阻止了你开启通往你那疯狂的太阳主上的传送门，通关ToME。" → "多亏一名夏·图尔人在最后一刻阻止你开启通往你那疯狂的太阳主上的传送门，你才得以通关ToME。"
+- `4c6883c395eb22a2645db9aba522dd6b364bd7547562856f8ce4bc25ee67b9e4` — `tome-cults.lua` — `tome-cults/data/lore/kroshkkur.lua`
+  - "这把剑与他在角斗场里用的宝剑有着独到的相似。" → "这把剑与他在角斗场里用的名剑极为相似。"
+- `4fd2ddbd76675d13ce9ec9f0ac27d551d7d054d64d2d81ce4e4388a662953747` — `mod-tome.lua` — `mod-tome/data/talents/techniques/agility.lua`
+  - "你需要装备投石索才能使用速射姿态！" → "你需要装备弓或投石索才能使用速射姿态！"
+- `54a5e47157ad1185e147cef972030f3712513e0e7a2c3e200405168e0560e842` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "在我的头顶上，我所照料的所有树木开始发出刺耳的颜色。" → "在我的头顶上，我所照料的所有树木的树冠骤然迸发出一片杂乱刺目、令人作呕的色彩。"
+- `5b02c215259ab029994e045091a08a3184d50134f165878cfa33c2ef75e2fc27` — `mod-tome.lua` — `mod-tome/data/talents/uber/cun.lua`
+  - "并给予 2 回合物理负面特效豁免" → "并给予 2 回合物理负面状态免疫"
+  - "并给予 2 回合魔法负面特效豁免" → "并给予 2 回合魔法负面状态免疫"
+  - "存储你造成的元素伤害。" → "存储你造成的伤害。"
+- `5b20348142d19473f62bddb122c2936f81b54ef4656f697b00f6b410b7ecabeb` — `mod-tome.lua` — `mod-tome/data/lore/kor-pul.lua`
+  - "阻止它们带毒的撕咬。\n我还发现了一些宝石" → "阻止它们带毒的撕咬。我还发现了一些宝石"
+- `5b860e23f322d2494654420165805ad3814ddaa398ab62a8185e4dcf4c7d8d8b` — `tome-orcs.lua` — `tome-orcs/overload/data/texts/unlock-mage_technomancer.lua`
+  - "创造和控制蜘蛛机器人虫群" → "制造并控制微型蜘蛛机器人虫群"
+  - "所有科技法师都掌握创造插件的技术。" → "所有科技法师都掌握制作插件的基础技术。"
+- `5e02ad4cfe45b20073fd6773a1340d21c8dd25b7ed3b9faf7f6047782ba41ba2` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "在我开始毫不留情地挥舞斧头时，我的情绪完全笼罩了我。" → "当我开始毫不留情地挥舞斧头、根本不在乎砍中了什么时，我的情绪完全笼罩了我。"
+- `6326febbb099036d6c1c572b2b59fbcea4b30253aa7354f06479f2eb51caf95e` — `tome-orcs.lua` — `tome-orcs/data/lore/dominion-port.lua`
+  - "[i]注：需要绑在船底拖行，但是我们需要一切能用的上的水术士！[/i]" → "[i]注：本应绑在船底拖行，但是我们需要一切能用得上的水术士！[/i]"
+- `6a70ae520078af678cd0042a48ad81e0dfda943aaf612c576756572715e11ece` — `tome-ashes-urhrok.lua` — `tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua`
+  - "如果成功将种子植入唯一恶魔，系统总会尝试给予该类型的种子（若有）。" → "如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。"
+- `6b8a9930f922bc627c1fdcbdff95bc0c69a416daf9e61084f4baae219b1ce297` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "；讽刺的是，这是我很久以前离开自然精灵土地的最初原因。" → "；考虑到我很久以前离开自然精灵土地的最初原因，其中的讽刺意味我再清楚不过了。"
+  - "没有一个食人魔谈论你在那场战斗是怎样战斗的，" → "没有一个食人魔愿意多谈你在那场战斗中的表现，"
+- `6d82231f321027e80b7af84e46af6eea0e08f0f0b7b6019a66bb72b9dde18f4d` — `tome-cults.lua` — `tome-cults/data/general/objects/world-artifacts.lua`
+  - "直到最后一个敌人倒下之前，克罗格都会用这把剑坚持战斗。" → "每一次挥砍，克罗格都会竭力坚持下去，直到敌人终于倒下。"
+- `7d1af5b025991cb16773001c1417c6cccf2a7dd9b1b7d5dae288efb05c5484df` — `mod-tome.lua` — `mod-tome/data/lore/elvala.lua`
+  - "#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#" → "#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#"
+  - "他立即走向莱娜尼尔躺在的地方。" → "他立即走向莱娜尼尔躺着的地方。"
+  - "感谢命运之线！" → "感谢命运之线，让你回到了我们身边！"
+  - "不管伊菲尼亚斯曾经拥有多么精妙和平衡的控制" → "不管伊菲尼亚斯和他的法师们曾经拥有多么精妙和平衡的控制"
+- `7e4e2e0ab825633f5479d412178d95e066207aa0a4c5143bcb714a3b4c2b6b42` — `mod-tome.lua` — `mod-tome/data/general/npcs/ghost.lua`
+  - "乌鲁洛克的吐息中诞生，不断嚎叫的复仇之魂。" → "由乌鲁洛克亲自吐息赋予形体、不断尖啸的复仇之魂。"
+- `7f63fb535c563d2fd1761186dc9b65768a52951553fac70494c78ba7627cdebd` — `tome-orcs.lua` — `tome-orcs/data/lore/orcs.lua`
+  - "我们当时的领袖曾在联合王国的一座要塞拖住敌军" → "我们当时的领袖曾据守一座兽人要塞拖住联合王国大军"
+- `80010511d3706e1d08251f6678e26fe5d8fe8adc7f3f0d631fe0f54ece52f376` — `tome-orcs.lua` — `tome-orcs/data/talents/psionic/gestalt.lua`
+  - "格式塔会吸收每个被影响敌人的力量（物理强度，精神强度，法术强度，蒸汽强度）%d 点" → "格式塔会吸收每个被影响敌人的各项强度（物理强度，精神强度，法术强度，蒸汽强度）%d 点"
+  - "你自身的力量会增加所吸取的数额" → "你自身的各项强度会增加所吸取的数额"
+- `81725ede54a43c363a80f328646f9f9e90abb8462acb0a774290c4e49f0fbfc3` — `mod-tome.lua` — `mod-tome/data/lore/misc.lua`
+  - "尤为臭名卓著" → "尤为臭名昭著"
+  - "才会变的具有攻击性" → "才会变得具有攻击性"
+  - "他们看起来就像是具有浮肿面部特征和更长、摆动着的四肢的放大人类。" → "他们看起来有点像巨大而畸形的人类，面部浮肿或变形，四肢更长且摆荡不定。"
+- `88f2b538a682bc46556b524f27e57805a6a3d0d54f4ac07510008a1aae0c1326` — `tome-ashes-urhrok.lua` — `tome-ashes-urhrok/data/lore/demon.lua`
+  - "尽管有<?=player:his_her()?>受到的强化，这也只是一个可怜、低劣的埃亚尔人" → "尽管<?=player:his_her()?>身体经过了强化，也只是一个可怜、低劣的埃亚尔人"
+- `8a1ae3f7376a1ecd35d6a5ff119dac5b868aa8fd4bf9be11266c6213ec94519b` — `tome-orcs.lua` — `tome-orcs/data/lore/palace-fumes.lua`
+  - "潘多尔议员不知道什么是优良的设备，除非亲自射到或者刺到他脸上" → "就算优良的设备当面射中或者刺中潘多尔议员的脸，他也认不出那是好设备"
+  - "我眼前的景象不会作假。" → "我的预见不会作假。"
+- `8c823065ec805fd91e21166df64760d2d96ec583f3601ad6edf1f6e4fc72ea98` — `mod-tome.lua` — `mod-tome/data/lore/elvala.lua`
+  - "#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆 #{normal}#" → "#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#"
+  - "莱娜尼尔转向我，露出狂野的笑容。\n\n“舞会开始了。”" → "莱娜尼尔转向我，露出狂野的笑容。“舞会开始了。”"
+  - "我可能没法确保您的安全。" → "我可能没法确保你的安全。"
+- `8c9efdc9905495f39f9fed1ff22f707a1fbc43839662b5ed19bcb6a8f3b5c5db` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "为了还击，我又向前推了一把" → "为了还击，我再次向前逼近"
+  - "但它的攻击变得缓慢，" → "但它的攻击变得缓慢且容易看穿，"
+  - "我成功的躲开了它们" → "我成功地躲开了它们"
+- `8d91e42000215873fe016451ff85994cdd6bbaf6a0de67ca0224bd76eddd11e4` — `mod-tome.lua` — `mod-tome/data/lore/elvala.lua`
+  - "#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#" → "#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#"
+  - "莱娜尼尔凝望着我，用调笑一般的语调柔声说道，" → "莱娜尼尔凝望着我，深色的眼眸中带着一丝戏谑："
+  - "我轻声向尼耶拉问出了那个或许问过许多次的问题" → "我低声问道——这是此前许多人都问过的问题"
+  - "尼耶拉的微笑令人无法判断她到底是否是在生气。" → "即便尼耶拉觉得受了冒犯，她也掩饰得很好。"
+  - "互相遥望，四周传来一阵阵和谐的低吟" → "相对而立，齐声低吟起来"
+  - "在它的悉心雕刻中，慢慢形成了一幅清晰的画卷，呈现出我和尼耶拉两人的图像。所有的特征都如此明晰，所有的动作都精巧符合，下至最小的细节都清晰可辨，简直如同站在一面巨大而澄澈的明镜之前。" → "我和尼耶拉都惊叹不已，因为那分明是我们自己的影像：我们正抬头仰望，就像在照镜子一般。我们的面容与动作都清晰可辨，连最微小的细节也不例外，全由摇曳的橙色火焰雕琢而成。"
+  - "眼前所见的东西越来越小，最终化为宏伟大厅内的一个小点" → "直到我们在宽阔的大厅中只剩几个小点"
+  - "我们从宇宙俯瞰到了埃亚尔星球的全景，在火焰的缭绕中悬浮于半空之中，慢慢转动" → "我们面前悬浮着整个埃亚尔的影像——一个悬在半空的火焰之球，正缓缓转动"
+  - "我似乎听到尼耶拉因为刚才令人窒息的壮观景象而喘不过气来。" → "我听到身旁的尼耶拉猛地吸了一口气，仿佛这几分钟里她一直不敢呼吸。"
+  - "有规律的排布着" → "有规律地排布着"
+  - "协调他们全部的能量" → "协调它们全部的能量"
+- `9328fbd695b074c1bbec18d06be09643129db87b06f5004d939cc35e02fc8a0f` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "自然精灵真的是‘这么落后’吗”我露出了冷冰冰的表情，她立即回答道，" → "自然精灵真的是‘这么落后’吗？”我露出了冷冰冰的表情，她立刻察觉到了，随后回答道，"
+  - "我看你恢复得不错，你确实很坚强。" → "我看你恢复得不错，你这个自然精灵确实很坚强。"
+  - "或许，你也可以解释一下，为什么你也要花这么长时间才能痊愈？" → "或许，你也可以顺便解释一下，你究竟为什么要花这么长时间才能痊愈？"
+- `95eaa37609911e7edae379670c43cfffd76152fd9ea7b8bfaecc7024cc07e6ee` — `tome-cults.lua` — `tome-cults/data/lore/dremwarves.lua`
+  - "我们徘徊到那些还有更多管子的房间里面。" → "我们走进这个房间的后部，那里还有更多的管子。"
+  - "我也可以死得其所。" → "我也可以死而无憾。"
+- `9785f1fb51e01839e972ab50ae5b1d2ad4b14187e83842a685531d793c67213f` — `mod-tome.lua` — `mod-tome/data/lore/elvala.lua`
+  - "#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#" → "#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#"
+  - "那个黑暗的存在朝我接近过来" → "那个黑暗的存在绕过岩浆，朝我接近过来"
+  - "而它则把它的触手如同长矛一般直射过来" → "而它则将长矛般的肢体反刺向我的胸口"
+  - "准备吸走我的力量" → "仿佛要吸走我全身的力量"
+  - "火焰在她的身旁起舞" → "火焰在她的肌肤上上下跃动"
+  - "我回顾了自傍晚以来的事件" → "我回顾了自昨晚以来发生的一切"
+- `9b9f522ee365e6d8afd53ea167bf869fcc6c32b9d4028d2115df594bf547e601` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "我不会放过和你其中一个自然精灵见面的机会。" → "我可不会错过亲眼见一见你们自然精灵的机会。"
+  - "这样的惩罚对于它们已经足够了" → "这样的惩罚对于他们已经足够了"
+- `a331e08b18158edf45720635ae5b2ee001a9f03d7e03546315d75a78513a8930` — `tome-orcs.lua` — `tome-orcs/data/chats/kaltor-shop.lua`
+  - "那么，你要做什么呢？" → "那么，这次想买点什么？"
+- `a61ae376da5d2b3688017b23f080d6739687b1ebee14b26fc8c54094bb710569` — `mod-tome.lua` — `mod-tome/data/talents/techniques/agility.lua`
+  - "将其做为跳板" → "将其作为跳板"
+- `a881c7f5ee63b8f0f3730caa6f72c05d838e113708be3244707ea7d161e801b6` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "恢复到巅峰状态”听到我的名字" → "恢复到巅峰状态。”听到我的名字"
+  - "对于那个时候我受到的其他治疗效果也是这样。" → "片刻之后我受到的额外治疗也是如此。"
+  - "艾伦尼恩就示意我跟着他们走" → "艾伦尼恩就示意我跟上"
+  - "将剑举过头顶，有力地挥舞着。" → "将剑举过头顶，猛力劈下。"
+  - "当我重新站起来的时候，我走出了那个被我砸穿的墙洞" → "等我辨清方向后，我走出了那个我被震飞时撞穿的墙洞"
+- `aeae08fe72f0df556613ecf4bdb75089b67ea934947a5aa1e05271fa3106b95c` — `mod-tome.lua` — `mod-tome/data/talents/cunning/poisons.lua`
+  - "致命毒素" → "剧毒之死"
+- `b065869e443dad15341d7d028d1dbc945954be79b30289752d0850f9d49194d8` — `mod-tome.lua` — `mod-tome/data/talents/spells/staff-combat.lua`
+  - "造成 %d%% 近程伤害" → "造成 %d%% 近战伤害"
+- `b1cfc95bc6b3334123d32bf8861789fa72a1d0e2a185266c5830511ed6e206d9` — `tome-cults.lua` — `tome-cults/overload/data/texts/unlock-demented_cultist_entropy.lua`
+  - "但他们错了" → "但他们错了。"
+  - "使用远程法术攻击" → "使用远程法术攻击。"
+- `b2c49cf4b7d289981bfaf4535d1e7b2637b897fbe915004db7745f5813f13407` — `tome-orcs.lua` — `tome-orcs/data/lore/palace-fumes.lua`
+  - "祖先们谈论过与我们今日的远亲风暴部族。" → "祖先们谈论过我们与今日的远亲——风暴部族——之间的关系。"
+- `b88a057bd30813747caa47de4995c37caec58302146262ad7401fb59923a3223` — `mod-tome.lua` — `mod-tome/data/lore/fun.lua`
+  - "死灵法师得以全身心的投入" → "死灵法师得以全身心地投入"
+- `c1ebee2aae2872bb6bd524028c759112851c8f3f6b4e3cf293ed1cfca3251ce7` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "我看不到他们带着的攻城梯，" → "我没看到他们带着任何攻城梯，"
+  - "骷髅爬起来，来到城垛上，" → "骷髅纷纷攀爬上来，登上了城垛，"
+- `c2317880aee0033dc93e47c583b0f8a1a48b2d29c16f164d767b97e3459af97c` — `tome-orcs.lua` — `tome-orcs/data/lore/krimbul.lua`
+  - "我们不知道这些他们对我们的敌意究竟是从哪里来的…" → "我们说不清他们对我们的敌意究竟是从何处、又是如何开始的…"
+- `c4e7c8a84c85bec4a87a1fd315cc754d300ca9ae22b14cead575376dc6862abd` — `mod-tome.lua` — `mod-tome/data/lore/misc.lua`
+  - "于是他骑着一匹骏马\n向巫师的巢穴前进" → "于是他骑着一匹纯白骏马\n向术士的巢穴前进"
+  - "幽暗的洞穴吞噬着一切" → "那阴湿的居所满是黑暗罪行"
+  - "他却凛然不惧" → "他却勇敢无畏地踏入其中"
+  - "但他仍坚定信念" → "但他身躯无恙、依然坚定"
+  - "巫师在夜里偷偷的潜入" → "可怖的巫师在夜里偷偷地潜入"
+- `c9c5d37557100bd611d5cf12fd931931c128b5fc60f935b3510ad86a315c85ad` — `tome-orcs.lua` — `tome-orcs/data/birth/worlds.lua`
+  - "回到远东，并将其从太阳堡垒手中夺回！" → "收复远东，将它从太阳堡垒的渣滓手中解放出来！"
+- `cbaa60d9653a79a6671fc5c3a0df5963bbb2d6244a79492898a9570aa668c790` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "“你不是真的想饶了她吗？" → "“你不会当真想饶了她吧？"
+  - "是和魔法一伙的！”，人类的语气" → "是和魔法一伙的！”人类的语气"
+- `ceaba514e4d765ca1fbb669ed9d7574b229c18cdc45c20c9ccef7d9645976ae0` — `mod-tome.lua` — `mod-tome/data/lore/elvala.lua`
+  - "#{italic}# 来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆 #{normal}#" → "#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#"
+  - "他的右手带着卡库罗尔之戒" → "他的右手戴着卡库罗尔之戒"
+- `d071df068b37f1e1d90915fadd65e2da808ac87efc2c621b73d095ee012aa652` — `mod-tome.lua` — `mod-tome/data/texts/unlock-rogue_poisons.lua`
+  - "- #YELLOW# 致命毒素：#WHITE#" → "- #YELLOW# 剧毒之死：#WHITE#"
+- `d589f311dcb22b62a1e3198f786fd65f7975c21ff43bc3f4e4f5069a5d0fc254` — `mod-tome.lua` — `mod-tome/data/general/objects/world-artifacts-far-east.lua`
+  - "试验不是很成功，能量爆炸后，只剩下了一双烧焦的靴子。" → "不过第一次试验并不成功，能量爆炸之后，鲁·克汉只剩下了一双烧焦的靴子。"
+- `d6caf43dd1b521ff4dd5ad1ef14370a85566cb34f2a5b142ede78eb11a678026` — `mod-tome.lua` — `mod-tome/data/lore/age-allure.lua`
+  - "虽然我们做的一切感到骄傲，" → "虽然我为我们在这里所做的一切感到骄傲，"
+- `da455b68e3e68729403b8c4cf2716976d4cd3afe5e6077e37780781c01bca431` — `mod-tome.lua` — `mod-tome/data/general/objects/quest-artifacts.lua`
+  - "这根法杖似乎是很久以前制造的，虽然它毫无侵蚀的痕迹。" → "这根法杖似乎是很久以前制造的，却毫无侵蚀的痕迹。"
+- `ddceb8365ff798773a0d50d5ca73bef94cc43eb933c99e1764a540704ce724c6` — `tome-orcs.lua` — `tome-orcs/data/talents/misc/objects.lua`
+  - "如果能杀死敌人，那么伤害会提升你暴击伤害系数的一半。" → "若如此提升后足以杀死目标，本技能造成的伤害将提高你暴击伤害系数的一半。"
+- `de404fc8f800fe4189382f06bfa44fedbdb814b1cf7ecd4a6a8b802a0dd32b95` — `tome-ashes-urhrok.lua` — `tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua`
+  - "对所有击中的敌对生物造成 %d%% 正常伤害并使其眩晕" → "对所有击中的敌对生物造成 %d%% 正常伤害并使其震慑"
+- `e227bd8224d344bff0aeb06ef8f5cb10591ec11578aebaa80a4b24d0f68ba3d8` — `tome-orcs.lua` — `tome-orcs/data/chats/kaltor-shop.lua`
+  - "他的声音大的让店里所有人都听见" → "他的声音大得让店里所有人都听见"
+- `e477473bc4d2dcf68269c3739f76423157ec10b81b12ce8e7b954d376da304c1` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "给我上一趟符文理论的课" → "给我上一堂符文理论的课"
+  - "……在这里……埃尔瓦拉”我前面的警卫" → "……在这里……埃尔瓦拉。”我前面的警卫"
+- `e641c357db555b0ca4625ec99054a18790be28f0784379d6a3ec78d95c03ce5d` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "我瞥了一眼身体" → "我瞥了一眼那具尸体"
+  - "终于，我有机会仔细观察这只动物。" → "终于，我有机会仔细观察这个生物。"
+- `ea523d9b0378a7d849933d8a8ff7457974dcbbe0f3c587e4dc83991fbc651275` — `tome-ashes-urhrok.lua` — `tome-ashes-urhrok/data/lore/demon.lua`
+  - "让你的之前的人生黯然失色" → "让你们过往可悲人生中的每一刻都黯然失色"
+  - "而无私的奉献生命" → "而无私地奉献生命"
+  - "你会不会感觉这一切更加容易忍耐了呢。" → "你会不会感觉这一切更加容易忍耐了呢？"
+- `eac1a2f40ecef55b2cc7c610001f4d535e0f5913286311fbaed3048ef264b719` — `mod-tome.lua` — `mod-tome/load.lua`
+  - "不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在血缘疏远的后裔身上。" → "然而，人们仍能找到他们的些许痕迹——火红的头发以及生有雀斑的皮肤，仍常常出现在血缘疏远的后裔身上。"
+- `eb6974474d38798933341b9a26e1eb8534f4f007fff23f22b1693575de508b45` — `tome-orcs.lua` — `tome-orcs/data/lore/pocket-time.lua`
+  - "她除了想吸收更多力量外没想别的" → "她毫不犹豫地试着吸收它更多的力量"
+  - "用暴风般的石弹来击退敌人们" → "用冰雹般的石弹轰击敌人"
+  - "处在这些石制投射物和他们原来的目标之间" → "处在这些石制投射物和它们原来的目标之间"
+- `ee16102a8545c69402e52bc062ed4128fa816c2ac20de2623e20fb4733146d2a` — `tome-orcs.lua` — `tome-orcs/data/lore/misc.lua`
+  - "不过这种需要操作者仔细关注、控制蒸汽" → "不过这种方法需要操作者仔细关注、控制蒸汽"
+  - "但按照我从其他气之部族的人的说法，他们只是觉得" → "但与我交谈过的其他气之部族人大多声称，他们只是觉得"
+  - "外部世界可能对它们造成的威胁" → "外部世界可能对他们造成的威胁"
+  - "将身体健壮看的和对智慧的追求同样重要" → "将身体健壮看得和对智慧的追求同样重要"
+- `f17a4945ae6c58b6ea673b0e0317a0f1835d266659d464ce8f24f0b4da8eb3a0` — `tome-orcs.lua` — `tome-orcs/data/lore/palace-fumes.lua`
+  - "[这一表述被视作过分的亵渎，以4比2的投票，通过从记录中删除。]" → "[这一发言被认为言辞过于粗鄙，经4比2投票表决从记录中删除。]"
+- `f216e4dbbe84ac87652f829bcf037cd1cdb79a699b30cf23eaa90cda957935a8` — `mod-tome.lua` — `mod-tome/data/lore/elvala.lua`
+  - "#{italic}#来自 艾伦尼恩·加威尔 ——时任埃尔瓦拉最高议会的领袖——的回忆#{normal}#" → "#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#"
+  - "因为他要和他的人民呆在一起" → "因为他留在北方的城中，与他的人民在一起"
+  - "我撒了一个小小的谎，却不知道，这个谎言的代价即使用我的一生也无法赔付。" → "我撒了谎，而为了这个谎言，我已付出了全部的身心与灵魂。"
+- `f4122d1e732dab56b152ede1442df2f9f583ee868b557ee4df7ef033493e0176` — `tome-orcs.lua` — `tome-orcs/data/lore/palace-fumes.lua`
+  - "又一次，我们面临着选举议长的比赛了。" → "又一次，我们面临着为议长竞赛选定比赛项目的选举了。"
+- `f93d2b91ef3ac722322131da1ce05586e1c2051939b4f0bd13a48f2dd7f49856` — `mod-tome.lua` — `mod-tome/data/quests/start-archmage.lua`
+  - "它现在变的越来越不稳定，" → "它最近开始变得不稳定，"
+- `faa94923fd2d49709895033899d3aefd322948386100640ce4e870191a0edce2` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "随后，信使微笑的看着我" → "随后，信使微笑地看着我"
+  - "他的每一句话都恶毒的攻击“法师们”" → "他的每一句话都恶毒地攻击“法师们”"
+- `fc846f533648cfd928bc4fdc6bd661659355befd1258f2f7c3e497ae91279d91` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "结果也被推到在地上被打得遍体鳞伤" → "结果被推倒在地，打得遍体鳞伤"
+  - "卫兵们花了几分钟才集合起来，难民们继续在里面捣毁大量的市场。" → "卫兵们花了几分钟才集合起来，在此期间，难民们继续肆意破坏，市场很大一部分都被捣毁了。"
+- `ff2028feea76418d6053a9c5d8c45c30fab7c2521aa8a8cf65e87550964966da` — `tome-orcs.lua` — `tome-orcs/data/lore/emporium.lua`
+  - "卡托尔的军火、护甲和军用杂货店" → "卡托尔的枪械、护甲及其他军用杂货"
+  - "#{italic}#增压防挥砍战斗服#{normal}#" → "#{italic}#压力强化型防斩击作战服#{normal}#" (occurrences: 2)
+
+## Repair round 1 (ADJUDICATION-R0)
+
+- `1e08bd6f928813836838f4c6807e37ef52bfeeb43952823401ca3d1c9addc7ec` — `tome-orcs.lua` — `tome-orcs/superload/mod/dialogs/debug/DebugMain.lua`
+  - "只是你们不能接受群众想要回他们的蒸汽" → "只是你不能接受群众想要回他们的蒸汽"
+  - "比起想要以[i]你们[/i]的方法做事" → "比起想要以[i]你[/i]的方法做事"
+- `23e4d42cdbd3387c0eafa86d0972ff9a42f45cdf2b80f44ab1124f257eef0466` — `tome-orcs.lua` — `tome-orcs/overload/data/texts/intro-orc.lua`
+  - "只有克拉克半岛的克鲁克部族依然挺立" → "只有克拉克半岛的克鲁克部落依然挺立"
+- `6a70ae520078af678cd0042a48ad81e0dfda943aaf612c576756572715e11ece` was refuted in `ADJUDICATION-R0.json`; no round-1 change was made.
+- All other target text, markup, paragraph/LF/TAB structure, and terminology data were left unchanged in this round.
+- Validation passed: five files loaded through LocaleLoader/LuaJIT; the baseline comparison still found exactly 87 frozen target changes (1/32/6/24/24) and no non-target record or field changes; strict lint reported 30,308 translations with 0 errors and 0 warnings; `git diff --check` produced no diagnostics.
+
+## Repair round 2 (ADJUDICATION-F1)
+
+- `1614976c01918fe7f9330d9d39f27c634a08a5936f4a4e55053a488b5a4bb177` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "是我在大议会会议厅看到的同一套" → "是我在最高议会会议厅看到的同一套"
+- `3e135c03b75aca60e09622cb45dc58a56b7cfbdfbddbf7aa6bd31d6a6019139c` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "曾向大议会请愿" → "曾向最高议会请愿"
+  - "大议会同意了请求" → "最高议会同意了请求"
+  - "那位女附魔师" → "那位女巫"
+- `9b9f522ee365e6d8afd53ea167bf869fcc6c32b9d4028d2115df594bf547e601` — `tome-cults.lua` — `tome-cults/data/lore/fay-willows.lua`
+  - "埃尔瓦拉大议会领袖" → "埃尔瓦拉最高议会领袖"
+- `23e4d42cdbd3387c0eafa86d0972ff9a42f45cdf2b80f44ab1124f257eef0466` — `tome-orcs.lua` — `tome-orcs/overload/data/texts/intro-orc.lua`
+  - "为了部落，为了加库尔的遗产！" → "为了兽人，为了加库尔的遗产！"
+- `f17a4945ae6c58b6ea673b0e0317a0f1835d266659d464ce8f24f0b4da8eb3a0` — `tome-orcs.lua` — `tome-orcs/data/lore/palace-fumes.lua`
+  - "这决定了我们从这方案里获益良多，决定了我们有或能取得实施这一计划的手段，也决定了这是选民们想要的。" → "兹认定我们能从中获益良多，认定我们拥有或能够取得实施这一计划的手段，也认定这正是选民之所愿。"
+- `intro-orc-yeti.lua` 中相同的“为了部落”句不属于本 finding，保持不变。其他 target、其他记录、markup、段落、LF/TAB 结构和术语数据均未改动。
+- Validation passed: five scoped files loaded through LocaleLoader/LuaJIT; comparison with `c47286947351bd290128ba59f8b1c7c278df54b2` still found exactly 87 WORKSET target changes (1/32/6/24/24), with source/source_tag/args_order/special and every non-target record unchanged. Strict lint checked 30,308 translations with 0 errors and 0 warnings; `git diff --check` produced no diagnostics.
+
+## Repair round 3 (ADJUDICATION-F2)
+
+- `01aa8dc56eaa88c617b68ad2b292caa510e9e0169e86843699eb258fdff9b738` — `tome-orcs.lua` — `tome-orcs/data/lore/pocket-time.lua`
+  - "选择深入无尽地下城，走向必然的毁灭，去挑战像阿塔玛森或是莱娜尼尔这样几乎不可能击败的恐怖敌人，还是就此在夏·图尔堡垒中度过余生。" → "是选择深入无尽地下城、走向必然的毁灭，是尝试去击杀像阿塔玛森或莱娜尼尔这样不可能战胜的敌人，还是就此在重新夺回的夏·图尔堡垒中度过余生。"
+- `2df8a382c9444ee30e8243d237473584971b63222a990578ff55b943e456fe2b` — `mod-tome.lua` — `mod-tome/data/talents/chronomancy/temporal-hounds.lua`
+  - "%d 魔法，%d 意志" → "%d 魔力，%d 意志"
+  - "基于你的魔法。" → "基于你的魔力。"
+- `3358ca54b7e2473348e93f516c8c1c759dd06eb9c1fbf3915d33f5b92dd32980` — `mod-tome.lua` — `mod-tome/data/talents/celestial/crusader.lua`
+  - "半径 1 以内的所有生物将受到 %d%% 武器伤害，同时半径 2 以内的敌人将受到 %d%% 光系武器伤害。" → "半径 1 以内的所有生物将受到 %d%% 武器伤害。\n\t\t此外，旋转时你的武器光芒四射，对半径 2 以内的所有敌人造成 %d%% 光系武器伤害。"
+- `5b02c215259ab029994e045091a08a3184d50134f165878cfa33c2ef75e2fc27` — `mod-tome.lua` — `mod-tome/data/talents/uber/cun.lua`
+  - "并对你自己附加以下的附加效果：" → "并使你获得以下效果之一："
+  - "物理：清除" → "物理：\t\t清除"
+  - "#PURPLE#奥术：#LAST# 增加" → "#PURPLE#奥术：#LAST#\t\t增加"
+  - "#LIGHT_RED#火焰：#LAST# 增加" → "#LIGHT_RED#火焰：#LAST#\t\t增加"
+  - "#1133F3#寒冷：#LAST# 将" → "#1133F3#寒冷：#LAST#\t\t将"
+  - "#ROYAL_BLUE#闪电：#LAST# 你的" → "#ROYAL_BLUE#闪电：#LAST#\t你的"
+  - "#YELLOW#光系：#LAST# 技能" → "#YELLOW#光系：#LAST#\t\t技能"
+  - "#LIGHT_GREEN#自然：#LAST# 清除" → "#LIGHT_GREEN#自然：#LAST#\t\t清除"
+  - "伤害和效果强度受灵巧值加成" → "伤害和部分效果强度受灵巧值加成"
+- `81725ede54a43c363a80f328646f9f9e90abb8462acb0a774290c4e49f0fbfc3` — `mod-tome.lua` — `mod-tome/data/lore/misc.lua`
+  - "众所周知，他们是由某种魔法仪式召唤而来，" → "众所周知，某些魔法仪式可以召唤他们，"
+- `9785f1fb51e01839e972ab50ae5b1d2ad4b14187e83842a685531d793c67213f` — `mod-tome.lua` — `mod-tome/data/lore/elvala.lua`
+  - "另外两个金色恐魔" → "另外两个发光的恐魔"
+- `eac1a2f40ecef55b2cc7c610001f4d535e0f5913286311fbaed3048ef264b719` — `mod-tome.lua` — `mod-tome/load.lua`
+  - "高等人类的高智商是厄流纪时期秘法会法师们的实验成果" → "高等人类的高智商源于厄流纪时期古老的孔克雷夫所主导的奥术实验"
+  - "注能物工匠" → "纹身工匠"
+- `d6caf43dd1b521ff4dd5ad1ef14370a85566cb34f2a5b142ede78eb11a678026` — `mod-tome.lua` — `mod-tome/data/lore/age-allure.lua`
+  - "但别气馁，等到我们迎来复兴的那一天，" → "但已相差无几，算不上半途而废，"
+- `5b860e23f322d2494654420165805ad3814ddaa398ab62a8185e4dcf4c7d8d8b` was refuted in `ADJUDICATION-F2.json`; no round-3 change was made.
+- All 18 replacements were applied literally and sequentially within the eight frozen targets. The inserted LF and TAB characters are real characters in the Lua long strings. The other 79 WORKSET targets, all non-target records and fields, and terminology data were left unchanged in this round.
+- Validation passed: five scoped files loaded through LocaleLoader/LuaJIT; comparison with `c47286947351bd290128ba59f8b1c7c278df54b2` still found exactly 87 WORKSET target changes (1/32/6/24/24); each of the eight targets exactly matched its frozen FINAL_REVIEW target after sequential replacements; strict lint checked 30,308 translations with 0 errors and 0 warnings; `git diff --check` produced no diagnostics.
+
+## Repair round 4 (ADJUDICATION-R3)
+
+- `493790101d6aa85fb612336c0e16b8712872c164b4c3474ea8e597632c546e9c` — `tome-orcs.lua` — `tome-orcs/data/lore/primal-forest.lua`
+  - "对付叛离法师的技巧" → "对付不法法师的技巧"
+- `d6caf43dd1b521ff4dd5ad1ef14370a85566cb34f2a5b142ede78eb11a678026` — `mod-tome.lua` — `mod-tome/data/lore/age-allure.lua`
+  - "他们离我们所处的地方越来越近。" → "我们藏身之处上方的土层越来越薄。"
+- Each old fragment occurred exactly once in its current target before replacement. No other target text, record, file content, LF/TAB structure, or terminology data was changed in this round.
+- Validation passed: all five scoped files loaded through LocaleLoader/LuaJIT; comparison with `c47286947351bd290128ba59f8b1c7c278df54b2` still found exactly 87 WORKSET target changes (1/32/6/24/24), with source/source_tag/args_order/special and all non-target records unchanged. Each round-4 old fragment is absent and each new fragment occurs exactly once in its target. Strict lint checked 30,308 translations with 0 errors and 0 warnings; `git diff --check` produced no diagnostics.
