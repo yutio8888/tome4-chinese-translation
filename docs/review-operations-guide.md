@@ -18,9 +18,9 @@
 | 项 | 现行设定 | 出处 |
 | --- | --- | --- |
 | 编排者 | 主代理任 ORCHESTRATOR：范围、裁决、验证、提交与推送 | AGENTS.md |
-| surface 筛查 | `codex/gpt-6-sol`，thinking `medium`，mode `auto-review`，每批 4 条 lane × 20 条 | 用户 2026-09-23 |
+| surface 筛查 | `codex/gpt-6.1-sol`，thinking `medium`（显式传），mode `auto-review`，每批 4 条 lane × 20 条 | 用户 2026-09-23；2026-09-30 由 gpt-6-sol 换为 gpt-6.1-sol |
 | contextual 复核 | `claude/claude-opus-5-5`，thinking `medium`，mode `auto`，full-000 只复核 surface 标出的条目 | 用户 2026-09-23 |
-| 修复 EXECUTOR | `codex/gpt-5.6-sol`，`auto-review`，`medium`；REVIEW 用 gpt-6-sol，FINAL 用 opus-5-5 | 同上 |
+| 修复 EXECUTOR | `codex/gpt-5.6-sol`，`auto-review`，`medium`；REVIEW 用 gpt-6.1-sol，FINAL 用 opus-5-5 | 同上 |
 | 连续运行 | 审核批次逐批自动推进，不必逐批确认；每批完全收口后 push | 用户 2026-09-19 / 09-23 |
 | 修复节奏 | **攒批**：确认的修复先记入积压，累计 ≥20 条再开一个合并修复窗口（取代旧 1:1 交替） | 用户 2026-09-24 |
 | 修复轮次 | 修复窗口 `max_cycles` 默认 5，STATE 同时写 `max_cycles_user_authorized=true` | 用户 2026-09-25 |
@@ -116,7 +116,7 @@ python3 $C/timed_command.py $C/reviewN-surface-export python3 -B tools/i18n prod
 python3 -B tools/orchestration/stage_surface.py $B --out $C/reviewN-surface-plan.json
 python3 -B tools/orchestration/dispatch_surface.py $C/reviewN-surface-plan.json $C/reviewN-surface-children.json \
   --emit $C/reviewN-surface-emit.json --select-transport mcp \
-  --provider codex/gpt-6-sol --thinking medium --mode auto-review
+  --provider codex/gpt-6.1-sol --thinking medium --mode auto-review
 ```
 
 批次关闭后若要紧接开新批，可用 `run_batch_steps.py rollover-chain --limit 80`，
@@ -210,10 +210,10 @@ bash /tmp/closeN.sh                    # evidence commit → finalize → 回执
 1. `run_repair_steps.py preflight`：每个来源批次一个 `--batch-id` + `--output`（一次最多 3 个，
    超过就分次跑到不同输出），保留各自 workset 与 provenance。preflight 之后若有提交，必须重跑。
 2. 建有界 IMPLEMENT 任务（`.ai/task/repair-wNN-<日期>/`）：SPEC 显式列出来源 batch、去重后的 revision
-   与获准的同族附属范围；由 `setup_windowNN_task.py` 生成（以上一窗口为模板；现行模板为窗口56，已支持 `engine.lua`）。
+   与获准的同族附属范围；由 `setup_windowNN_task.py` 生成（以上一窗口为模板；现行模板为窗口57，已支持 `engine.lua`；claim 路径下找不到 literal 的条目用 `RELOC` 改指实际文件）。
    setup 后先跑 `check_siblings.py` 查同一 runtime key 的跨组件兄弟。
 3. EXECUTOR 派发（prompt 文件不带尾换行）→ harvest → 原生工具审计 → 归档确认。
-4. `REVIEW`（gpt-6-sol）→ 宿主裁决；有 confirmed 就进入 `FIX`（同一 cycle 的全部 confirmed 合并成一次
+4. `REVIEW`（gpt-6.1-sol）→ 宿主裁决；有 confirmed 就进入 `FIX`（同一 cycle 的全部 confirmed 合并成一次
    EXECUTOR 派发）→ `FINAL_REVIEW`（opus-5-5）。v2 的 FINAL 里出现任何 ISSUE（即使宿主判 advisory）都算失败，
    必须回到 `RE_REVIEW`，不能 FINAL→FINAL，否则 DONE 永远不过。
 5. 完整门禁（`tools/ci-gates.sh`，17 项含严格构建）→ `VALIDATE` → 译文提交。

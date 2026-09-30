@@ -54,7 +54,8 @@
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
 2. 窗口 57 已完成（Gemini 3.8 Flash 快速复核 09-21 以来修改的 1190 条，Opus 5.5 交叉核验确认 83 条，加积压 4 条共 87 条）：Grand Council 统一为最高议会（含 Elvala 回忆录 8 章首行）、Toxic Death→剧毒之死、Orcs 开场白 西方天灾 等。复审路径：execute-01 → REVIEW r0a1 2 确认 → execute-02 → RE r1a1 2 驳回 → FINAL f1a1 5 确认 → execute-03 → RE r2a1 会话压缩无效、r2a2 1 驳回 → FINAL f2a3 7 确认＋宿主补 1 → execute-04 → RE r3a1 2 确认 → execute-05 → FINAL f4a1（Opus 5.5）87/87，cycle 4 收敛；门禁 17/17。
    模板为窗口57：`.artifacts/i18n/repair-w57-20260930/setup_window57.py`（新增 RELOC：literal 实际不在 claim 路径时按条目改指真实文件）＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`wd.sh`、`check_siblings.py`；宿主辅助脚本 `w57-tr.sh` 等在 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore）。
-   教训：FINAL 给出确认项时，宿主把逐字替换写进裁决（old→new），EXECUTOR 照抄可一次通过；Codex 会话压缩（compacted）的 reviewer 输出按设计无效，归档后 fresh retry。窗口 58 积压 **0** 条。
+   教训：FINAL 给出确认项时，宿主把逐字替换写进裁决（old→new），EXECUTOR 照抄可一次通过；Codex 会话压缩（compacted）的 reviewer 输出按设计无效，归档后 fresh retry。
+   窗口 58 积压 **0** 条（窗口57后重新计数）：队列中已无 repair_required 条目；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
    第372批计时（实测，投影缓存 on）：start 145.0 s；adjudication chain（含 17 项门禁）179.1 s；finalize 149.0 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。
