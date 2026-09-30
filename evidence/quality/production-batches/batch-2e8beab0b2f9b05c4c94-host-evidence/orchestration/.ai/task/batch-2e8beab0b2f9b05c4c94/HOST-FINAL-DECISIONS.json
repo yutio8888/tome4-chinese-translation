@@ -1,0 +1,46 @@
+{
+  "batch_id": "batch-2e8beab0b2f9b05c4c94",
+  "observations": 2,
+  "observation_dispositions": {
+    "confirmed": 2
+  },
+  "repair_revision_keys": [
+    "cc6d1a5034ef0a29fd00222ed3d95df63125db3f7784febbe1270fe331b14359"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 6,
+    "repair_required": 1,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "cc6d1a5034ef0a29fd00222ed3d95df63125db3f7784febbe1270fe331b14359",
+      "stage": "surface",
+      "observation": "原文“enough practice to master a few of these”指练习到掌握其中几项能力，译文“在这些方面都有了一些实战经验”改成全部方面且遗漏掌握能力的程度；“effortlessly destroying any foe”译为“秒杀所有遇到的敌人”，额外加入瞬间击杀的含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开 Orcs DLC tome-orcs/data/lore/pocket-time.lua:63（来源未固定）“once he had enough practice to master a few of these, he started effortlessly destroying any foe he faced”：练到足以精通其中几项。译文“一旦他在这些方面都有了一些实战经验”丢了 master（精通），又把 a few（其中几项）改成“都”（全部），改变了人物能力的描述。确认。修复：→“一旦他练到足以精通其中几项”。“秒杀所有遇到的敌人”是 effortlessly destroying 的口语化表达，保留。"
+    },
+    {
+      "revision_key": "cc6d1a5034ef0a29fd00222ed3d95df63125db3f7784febbe1270fe331b14359",
+      "stage": "contextual",
+      "observation": "语义偏移（tome-orcs/data/lore/pocket-time.lua，来源未固定，冻结快照第55、63行）：(1) 第63行 'once he had enough practice to master a few of these' 译为「一旦他在这些方面都有了一些实战经验」，丢了 master（精通），并把 a few（其中几项）改成了「都」（全部），宜作「一旦他练到足以精通其中几项」；(2) 第55行 'she finally faced The Master head-on' 的主语是她、动作是正面迎战，译文「她终于见到了吸血鬼领主迎面而来」把动作转给了对方，宜作「她终于与领主正面交锋」一类；同段 'swearing incomprehensibly about unfairness' 的「咒骂」义被弱化为「发表了一番……费解的话」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "同条 pocket-time.lua:55（来源未固定）另一段：①“she finally faced The Master head-on, when a skeletal warrior struck her from behind”主语是她、动作是正面迎战领主，译文“她终于见到了吸血鬼领主迎面而来。”把动作转给了对方，确认，修复为“她终于与吸血鬼领主正面交锋。”；②“swearing incomprehensibly about unfairness”弱化为“发表了一番关于不公平的费解的话”，属二级措辞，可随整句对照一并改为“含糊不清地咒骂了一通不公平”。与 surface 行合并为一次修复。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes of 2/2/2/1)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 full-000, accepted on the first pass; 1 entries)"
+  },
+  "notes": [
+    "Surface screening: 4 lanes of codex/gpt-6.1-sol (thinking medium, auto-review), 6 OK / 1 ISSUE; every lane only read its own envelope and the contract (4 exec calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 1 deep entry, accepted on the first pass (1 ISSUE); it only read its own envelope, the contract and its own tool-result file.",
+    "The queue is exhausted after this batch: all 87 successors of repair window 57 have been reviewed in batches 373 and 374.",
+    "All 7 Orcs entries matched the public DLC source file SHA in the workset (freeze matched 7/7), with the DLC repository and commit unpinned.",
+    "1 confirmed repair revisions raise the window 58 backlog from 2 to 3; below the 20 threshold, so no window opens."
+  ]
+}
