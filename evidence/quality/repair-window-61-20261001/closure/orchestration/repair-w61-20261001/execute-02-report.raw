@@ -1,0 +1,24 @@
+已完成第 1 轮 5 处定向修复：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)
+  - “并被血淋淋地涂抹在花岗岩墙壁上” → “并将其血淋淋地涂抹在花岗岩墙壁上”
+  - “，只剩一块焦炭被送往他的主人那里作为信物” → “并只把一块焦炭作为信物送到了他的主人那里”
+  - “你使用魔法取代你的力量属性进行计算” → “你使用魔力取代你的力量属性进行计算”
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua)
+  - “并被吸收到了那个肮脏的东西体内” → “并将其吸收到了那个肮脏的东西体内”
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua)
+  - “之后，你停留在相位外 5 回合，” → “之后，你进入“脱离现实”状态 5 回合，”
+  - 首行“以至于脱离空间”保持不变。
+
+验证结果：
+
+- LuaJIT 加载 baseline 与当前三份译文成功：
+  - `mod-tome.lua`：22,989 条记录
+  - `tome-ashes-urhrok.lua`：900 条记录
+  - `tome-cults.lua`：2,199 条记录
+  - 相对 baseline 恰有 22 条 target 变化、4 条既有 `args_order` 变化；其余运行时字段不变。
+- 本轮 5 个旧片段均已消失，5 个新片段均精确存在。
+- `git diff --check`：通过，无输出。
+- `python3 -B tools/i18n lint --strict`：通过，检查 30,308 条译文，0 errors、0 warnings。
+- `.ai/task`、术语库、`args_order` 未修改；暂存区为空。
+- 未创建 agent，未 stage、commit 或 push。无计划偏差和未解决问题。

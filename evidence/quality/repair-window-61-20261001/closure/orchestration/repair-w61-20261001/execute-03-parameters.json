@@ -1,0 +1,18 @@
+{
+  "title": "W61 execute-03",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w61-20261001 第 2 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w61-20261001/SPEC.md、SCOPE.json、WORKSET.json 与 ADJUDICATION-F1.json。只按 ADJUDICATION-F1 中 1 条 confirmed 修改：56b7b501eb（tome-ashes-urhrok.lua，苦痛链接 Link of Pain 技能说明）target 中三处“牺牲生物”改为“受害者”，即“源生物与牺牲生物间”→“源生物与受害者间”、“牺牲生物也会受到该伤害的 %d%%”→“受害者也会受到该伤害的 %d%%”、“当牺牲生物因此效果死亡时”→“当受害者因此效果死亡时”；其余文字、占位符、%%、换行与缩进一律不动。不得修改该文件其他记录（包括效果说明“当目标受伤害时，牺牲生物也会承受 %d%% 的伤害。”，它不在本窗口范围）及其他条目；不改术语库、args_order。可更新 evidence/quality/repair-window-61-20261001/ 下的修复证据。禁止从 /、/workspace 或无关目录搜索。运行有界验证：LuaJIT 加载三个译文文件，相对 .ai/task/repair-w61-20261001/baseline 仍恰 22 条 target 变动且本轮只改上述一条；git diff --check；python3 -B tools/i18n lint --strict。回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w61-20261001",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-03",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}

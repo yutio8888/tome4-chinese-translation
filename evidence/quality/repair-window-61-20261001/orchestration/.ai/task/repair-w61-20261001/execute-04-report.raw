@@ -1,0 +1,17 @@
+已完成第 3 轮两处修复，仅修改 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:3208)：
+
+- `微弱的心灵护盾` → `微弱的灵能力场`
+- `并将其吸收到了那个肮脏的东西体内` → `并将其吸进了自己那肮脏的躯体`
+
+验证结果：
+
+- LuaJIT 加载三个译文文件：通过
+  - `mod-tome.lua`：17 条 target、4 条 args_order 变化
+  - `tome-ashes-urhrok.lua`：2 条 target 变化
+  - `tome-cults.lua`：3 条 target 变化
+  - 合计仍恰为 22 条 target、4 条 args_order 变化
+- 本轮替换核验：恰 2 处
+- `git diff --check`：通过
+- `python3 -B tools/i18n lint --strict`：30,308 条译文，0 errors，0 warnings
+- 未修改 `.ai/task`、术语库或 evidence；未 stage、commit、push，未创建 agent
+- 计划偏差及未解决问题：无

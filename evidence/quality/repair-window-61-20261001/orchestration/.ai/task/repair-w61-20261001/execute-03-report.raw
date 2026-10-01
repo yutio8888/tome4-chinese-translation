@@ -1,0 +1,27 @@
+已完成第 2 轮定向修复，仅修改 [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:1227) 条目 `56b7b501eb`。
+
+修改前：
+
+```text
+使用恶魔之力，你在源生物与牺牲生物间构造痛苦链接，持续 %d 回合。
+		每次源生物受到伤害时，牺牲生物也会受到该伤害的 %d%%。
+		当牺牲生物因此效果死亡时，你将获得能量，减少所有技能冷却时间 1 回合。
+```
+
+修改后：
+
+```text
+使用恶魔之力，你在源生物与受害者间构造痛苦链接，持续 %d 回合。
+		每次源生物受到伤害时，受害者也会受到该伤害的 %d%%。
+		当受害者因此效果死亡时，你将获得能量，减少所有技能冷却时间 1 回合。
+```
+
+验证结果：
+
+- LuaJIT 加载当前及 baseline 的三个译文文件：通过。
+- 相对 baseline：恰好 22 条 target 变动、4 条既定 args_order 变动、其他语义字段 0 变动。
+- 相对 F1 冻结候选：本轮仅 `56b7b501eb` 一条 target 变化。
+- `git diff --check`：通过，无输出。
+- `python3 -B tools/i18n lint --strict`：通过，检查 30,308 条译文，0 errors、0 warnings。
+- 窗口外效果说明“当目标受伤害时，牺牲生物也会承受……”保持不变。
+- 未修改 `.ai/task`、术语库或 evidence；未 stage、commit、push。无计划偏差或未解决问题。

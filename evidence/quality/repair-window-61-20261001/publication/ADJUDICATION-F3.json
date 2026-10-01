@@ -1,0 +1,20 @@
+{
+ "cycle": 3,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f3a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 21,
+ "raw_issue_count": 1,
+ "decision": "FINAL failed with 1 confirmed tier-1 runtime-composition finding (Mutated Hand stats line). One EXECUTOR fix (execute-05), then RE_REVIEW(4,1) and FINAL_REVIEW(4,2) (max_cycles 5).",
+ "findings": [
+  {
+   "revision_key": "074d7c0b7e919740e833eabc6cef88869e1ebe11c926ad40da9b3ac4ea45548e",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "runtime",
+   "origin": "reviewer f3a2",
+   "reason": "Cults 公开源码（来源未固定）tome-cults/data/talents/demented/tentacles.lua:78-80：“Your tentacle hand currently has these stats%s:” 的 %s 在副手为空时填空串，副手非空时填 _t\", #CRIMSON# but is currently disabled due to non-empty offhand#WHITE#\"（tome-cults.lua:3212 译“，#CRIMSON#由于副手非空，该技能暂时被禁用#WHITE#”）。现译“你的触手当前属性为 %s :”渲染为“你的触手当前属性为 ，由于副手非空，该技能暂时被禁用 :”，禁用说明被读成属性值，拼接不通。本条在本窗口已改，按整句修复。修复：“你的触手当前属性为 %s :”→“你的触手当前属性%s：”（两种取值分别渲染为“你的触手当前属性：”与“你的触手当前属性，由于副手非空，该技能暂时被禁用：”），其余文字、占位符、空行与缩进不变。"
+  }
+ ],
+ "advisories": []
+}

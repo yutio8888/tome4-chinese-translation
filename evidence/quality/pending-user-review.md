@@ -417,7 +417,9 @@
 50. killer_message 全族（59 条）的主语
    - 源码：英文为“…was battered to death by {killer} and {phrase}”，phrase 的承受者是玩家；译文长句式把 phrase 接在“杀死他（她）的是{killer}”之后（`mod-tome.lua:1413`），“并被送上火刑堆焚烧”等被动短语读作凶手被烧。
    - 建议选项：保持现状 / 全族改为以凶手为主语的主动句（如“，并将其送上火刑堆焚烧”）/ 重排长句式把 phrase 移到“而死”之后（但 `, who …` 两条与自杀短语依赖紧跟凶手，需另行改写）。属跨批次措辞策略。
+   - **已裁决（2026-10-01，用户）**：采用 B，killer_message 全族改为以凶手为主语的主动句。窗口61 已按此改完 `17a76d1b3e`（Subject Z）、`5fa2c1c3c1`（Fyrk）、`ef3eefd58d`（The Amalgamation，吸进自身），`d798b563aa`、`7f5e27e174` 原本即以凶手为主语；其余排入修复窗口62。
 
 51. Dreadfell `and offered to his/her dark Master`（`zones/dreadfell/npcs.lua:218,290,366`，3 条，现译“黑暗主人”）
    - 源码：三名 Dreadfell 首领侍奉的即恐惧王座之主 The Master；`terminology/society.tsv:52` The Master＝领主（preferred，2026-09-16 裁决）。
    - 建议选项：保持“黑暗主人” / 改“黑暗领主”。属术语决定。
+   - **已裁决（2026-10-01，用户）**：采用 B，三条改为“黑暗领主”，排入修复窗口62。

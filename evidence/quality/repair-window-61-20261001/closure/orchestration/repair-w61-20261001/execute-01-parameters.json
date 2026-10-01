@@ -1,0 +1,18 @@
+{
+  "title": "W61 execute-01",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w61-20261001。先读 .ai/roles/executor.md、.ai/task/repair-w61-20261001/SPEC.md、SCOPE.json、WORKSET.json 与 SOURCE-CLAIMS.json。仅你是任务内容写入者。本窗口不改术语库。按 SOURCE-CLAIMS 定向修改 22 个 target（mod-tome.lua 17、tome-ashes-urhrok.lua 2、tome-cults.lua 3），每条只改点名片段，其余字不动：(1) 9 条审核确认项与 9987aef53c 按各自 claim 的“修复：”替换；074d7c0b7e 另按原文在“你的触手当前属性为 %s :”之前补回空行（\\n\\n\\t\\t），LF 数与原文一致。(2) 四个死亡句式 ab25e27abc、abf9674633、49f7781bff、7cba41f15f 按 claim 写入整句 target，并把 t() 第 4 参数 args_order 写成 claim 给出的 Lua 表（如 t(\"…\", \"…\", \"tformat\", {1,2,3,4,10,9,5,6,7,8})），参照 mod-tome.lua 现有带 args_order 的条目格式；译文第 i 个占位符取原文第 args_order[i] 个参数，%d 必须对应原文 %d。(3) 八条死亡拼接短语（4ddf91a568、d798b563aa、7f5e27e174、ef3eefd58d、5fa2c1c3c1、17a76d1b3e、efaf9b0f43、0aba4d5ba2）按 claim 改句尾标点、连接或词语。其他条目 LF/TAB 结构不变，不新增行尾空白；保留占位符、%%、markup 与 source_tag。可在 evidence/quality/repair-window-61-20261001/ 写 IMPLEMENTATION.md、VALIDATION.json。禁止从 /、/workspace 或无关目录搜索。运行有界验证：LuaJIT 加载三个译文文件，相对 .ai/task/repair-w61-20261001/baseline 恰 22 条 target 变动、仅上述 4 条 args_order 变动、其他记录不变；按 args_order 用 string.format 渲染四个句式各一例；git diff --check；python3 -B tools/i18n lint --strict。回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w61-20261001",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}

@@ -1,0 +1,18 @@
+{
+  "title": "W61 execute-02",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w61-20261001 第 1 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w61-20261001/SPEC.md、SCOPE.json、WORKSET.json 与 ADJUDICATION-R0.json。只按 ADJUDICATION-R0 中 5 条 confirmed 做以下逐字替换，每处只替换引号内片段，其余文字、markup、段落与空行一律不动：(1) 17a76d1b3e（mod-tome.lua，halfling-ruins killer_message）整条 target“并被血淋淋地涂抹在花岗岩墙壁上”→“并将其血淋淋地涂抹在花岗岩墙壁上”；(2) ef3eefd58d（tome-cults.lua，dremshor-tunnel killer_message）整条 target“并被吸收到了那个肮脏的东西体内”→“并将其吸收到了那个肮脏的东西体内”；(3) 5fa2c1c3c1（mod-tome.lua，charred-scar killer_message）整条 target“，只剩一块焦炭被送往他的主人那里作为信物”→“并只把一块焦炭作为信物送到了他的主人那里”；(4) de48fb09ea（mod-tome.lua，意志之力 Strength of Purpose）“你使用魔法取代你的力量属性进行计算”→“你使用魔力取代你的力量属性进行计算”；(5) b028c0ed3b（tome-ashes-urhrok.lua，末日加速 Haste of the Doomed）“之后，你停留在相位外 5 回合，”→“之后，你进入“脱离现实”状态 5 回合，”，首行“以至于脱离空间”不改。其他条目及文件其他记录不动；不改术语库、args_order。可更新 evidence/quality/repair-window-61-20261001/ 下的修复证据。禁止从 /、/workspace 或无关目录搜索。运行有界验证：LuaJIT 加载三个译文文件，相对 .ai/task/repair-w61-20261001/baseline 仍恰 22 条 target 变动且本轮只多出上述 5 处改动；git diff --check；python3 -B tools/i18n lint --strict。回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w61-20261001",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}

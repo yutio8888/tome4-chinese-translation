@@ -1,0 +1,25 @@
+已完成第 4 轮定向修复，仅修改 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:3210)。
+
+前后文本：
+
+```text
+你的触手当前属性为 %s :
+→
+你的触手当前属性%s：
+```
+
+验证结果：
+
+- 本轮字节级比较：仅上述一处替换。
+- 禁用片段、两个 `%s`、`%%`、markup、空行及 TAB 均未改动。
+- LuaJIT 加载三份译文成功：
+  - `mod-tome.lua`：17 条 target 变化
+  - `tome-ashes-urhrok.lua`：2 条
+  - `tome-cults.lua`：3 条
+  - 合计恰为 22 条；既有 4 条 `args_order` 变化未变。
+- `string.format` 渲染：
+  - `你的触手当前属性：`
+  - `你的触手当前属性，#CRIMSON#由于副手非空，该技能暂时被禁用#WHITE#：`
+- `git diff --check`：通过。
+- `python3 -B tools/i18n lint --strict`：检查 30,308 条译文，`0 errors, 0 warnings`。
+- 未修改 `.ai/task`、术语库或证据；未 stage、commit、push。

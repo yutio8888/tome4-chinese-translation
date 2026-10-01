@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-10-01（第380批已 finalize，窗口61积压 9 条，继续审核第381批）
+更新时间：2026-10-01（修复窗口61已完成、待宿主证据提交与推送；下一步开修复窗口62）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -14,16 +14,17 @@
 - 2026-10-01：审核队列耗尽、积压 3 条，用户选择“开小窗口修这 3 条”，开窗口58。
 - 2026-10-01：第376批后按维护者要求暂停；用户“先补术语库”（`8e2fae4e`，181 行），三方讨论改为 gpt-6-astra／opus-5-5／gemini-3.8-flash，同意统一 21 个名称并开窗口59；裁定 Phoenix＝凤凰、“恢复失衡值”保留不改。
 - 2026-10-01：用户裁定 deeprock 技能树改“深岩”（Deeprock Form 保持“深岩形态”），并要求一并修复 Korbek 实验笔记标题等非阻断问题，开窗口60。
+- 2026-10-01：审核队列清空后，用户要求系统性分析死亡信息表（`cd2d0d7e`）；同意把 12 条句式与拼接缺陷并入积压，开窗口61；随后裁定 pending #50（killer_message 改凶手主语）与 #51（dark Master→黑暗领主）均采用 B，排入窗口62。
 - 审核已闭合至第 **380** 批（`batch-1c8107aa6a8d3b70ae53`）：38 条，38 done / 0 repair_required。
   全 Orcs，审核队列余下的全部 38 条：补空格 successor 31 条＋窗口59 successor 6 条＋窗口58 successor 1 条：surface 一组 35 OK / 3 ISSUE，无补空格误报；contextual 首轮通过（3 OK）。无新增确认，窗口61积压仍为 9（另宿主补充 1 条）；审核队列已清空。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `922c3ca265bf78170098fd76c5c74b67c9851513` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **60**：窗口59（44 条＋21 行术语，译文 `e6dce581`）与窗口60（deeprock 技能树改“深岩”、Mountainhewn 两处“深岩形态”、Korbek 实验笔记标题 4 条，译文 `d62fe6ff`，migration `8bdc639e…`）均已修复；两窗口的 46 个 successor（窗口59 的 40 条＋窗口60 的 6 条；主游戏 35、Cults 1、Orcs 10）须重新审核，不继承旧 revision 的 done 状态。
+- 修复窗口已闭合至 **61**：窗口60（译文 `d62fe6ff`）与窗口61（第377–379批确认 9 条＋Blindside 补充＋死亡信息表分析 12 条，译文 `276e8b2d`，migration `70e37de3…`）均已修复；窗口61 的 22 个 successor 须重新审核，不继承旧 revision 的 done 状态（窗口59/60 的 successor 已于第375–380批审完）。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
   - 10 条死键／冻结 MISS（上游改串未重生 locale key 等，已 host-block 登记，不动）；
   - 5 条按裁决保留现译、但工具没有“不改”收口路径（含 petty gods `b63b2d6946`、cleaved `922c0f9665`）；
   - 1 条 Toxic Death `aeae08fe72`，已裁定改名，列入窗口57积压。
-- 待用户集中审阅的争议条目：[`pending-user-review.md`](evidence/quality/pending-user-review.md) 共 49 项，**全部已裁决**，
+- 待用户集中审阅的争议条目：[`pending-user-review.md`](evidence/quality/pending-user-review.md) 共 51 项，**全部已裁决**，
   无未决项。
 
 | 批次 | batch id | 结果 | surface（gpt-6-sol） | contextual（opus-5-5） | 裁决 |
@@ -60,13 +61,13 @@
 
 ## 三、下一步
 
-1. 审核队列已清空：第380批审完最后 38 条（全 Orcs：补空格 successor 31、窗口59 successor 6、窗口58 successor 1），补空格维护的 successor 已全部审完（第375–380批 surface 均无补空格误报）。下一步待用户决定：以现有积压 9 条（未达 20 条阈值）开修复窗口61，或暂停。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
+1. 下一步开修复窗口62（用户 2026-10-01 裁决 pending #50 B／#51 B，见第 2 项积压），推送后审核窗口61、62 的 successor。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
    届时用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句）；
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
-2. 窗口 60 已完成（6 条＋2 行术语，均为主游戏；用户 2026-10-01 两项裁决）：技能树 deeprock“深岩形态”→“深岩”，技能 Deeprock Form 保持“深岩形态”，Mountainhewn 说明中两处指该形态的措辞统一为“深岩形态”（首句“处于深岩形态时”，FINAL 补出）；Korbek 实验笔记 part one–four 正文标题“：一”等→“，第一部分”等，与物品名一致。术语库新增 deeprock＝深岩，Deeprock Form 改 preferred；门禁 03 钉死的术语行数与 TERMINOLOGY.md talents 计数随之改为 916／348。复审路径：execute-01 → REVIEW r0a1 6 OK → FINAL f0a2 1 确认（首句“当你进入深岩元素形态时”）→ execute-02 → RE r1a1 6 OK → FINAL f1a2（Opus 5.5）6/6，cycle 1 收敛；execute-03 同步计数；门禁 17/17。
-   窗口 59 已完成（44 条＋21 行术语，译文 `e6dce581`、证据 `281ad0ef`），详见其 PUBLICATION.md；模板沿用窗口59/60：`.artifacts/i18n/repair-w60-20261001/setup_window60.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`＋`TERM-EDITS.json`（支持 insert_before 插入）、`wd.sh`、`check_siblings.py`、`verify_translation_diff.py`；宿主辅助脚本 `w60-tr.sh` 等在 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore）。新增术语行会改变门禁 03 钉死的行数，开窗时就要把 tests/i18n/test_toolchain_static_audit.py 与 TERMINOLOGY.md 计数纳入 SCOPE。
-   advisory carry_forward：无（Korbek 标题已修；“恢复失衡值”用户裁定保留）。窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
-   窗口 61 积压 **9** 条（窗口60后重新计数，主游戏 5、Ashes 2、Cults 2）：第377批 `8efa510a7a` 飞刀投掷“基础伤害”→“实际伤害”、`a2147f96a9` 赞歌入门“三格外”→“距离三格及以上”（另宿主补充 `9987aef53c` 永恒毁灭“背后偷袭”→“闪电突袭”，不计入积压数）；第378批 `b19b6b1d34` 恐惧加深“被你灌注恐惧的目标”→“你试图施加恐惧的目标”、`bc2f66a5e1` 即爆陷阱说明阶级／准备方式／陷阱列表标题／启动机关统一、`de48fb09ea` 意志之力“以上加成会取代而非叠加”；第379批 `56b7b501eb` 苦痛链接“伤害由牺牲生物承受”→“牺牲生物也会受到该伤害的 %d%%”、`b028c0ed3b` 末日加速“传送半径 %d”→“传送至 %d 码内的指定位置”、`074d7c0b7e` 异变之手“目标同侧的其他单位”→“目标两侧的敌人”并补空行、`fc1ebcae01` 共享疯狂“获得一个纹身位”→“永久获得一个刻印位”；第380批 无新增；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+2. 窗口 61 已完成（22 条：主游戏 17、Ashes 2、Cults 3）：第377–379批确认 9 条＋第377批宿主补充 Blindside＝闪电突袭 1 条＋2026-10-01 死亡信息表分析 12 条。死亡公告四个句式经 args_order 改为“在{区域}第{N}层…而死，杀死他（她）的是…”（特殊句式“在{区域}第{N}层{消息}”），消除“，，”“。，”、短句式 killer_message 夹在“被…杀死”中与“…而死 死在N层”；拼接短语去句尾标点、补连接，三条 killer_message 按 pending #50 B 改为凶手主语（Subject Z、Fyrk、The Amalgamation“吸进了自己那肮脏的躯体”），reknor 单复数/时态、“他自己牺牲自己”、艾德隆句尾句号一并修。复审中另确认：意志之力“魔力”（stat）、末日加速“脱离现实”、苦痛链接 victim＝受害者、异变之手“灵能力场”与属性行“你的触手当前属性%s：”（副手非空时的禁用说明拼接）。复审路径：execute-01 → REVIEW r0a1 4 ISSUE（4 确认＋同族 1）→ execute-02 → RE r1a1 22 OK → FINAL f1a2 1 确认 → execute-03 → RE r2a1 OK → FINAL f2a2 2 确认 → execute-04 → RE r3a1 OK → FINAL f3a2 1 确认 → execute-05 → RE r4a1 OK → FINAL f4a2（Opus 5.5）22/22，cycle 4 收敛（max_cycles 5）；门禁 17/17。
+   模板：`.artifacts/i18n/repair-w61-20261001/`（make_claims.py、setup_window61.py 支持 batch 来源与 synth 混合；verify_translation_diff.py 的 ARGS 集合允许指定条目改 args_order 并校验置换与 %d 类型；freeze_review.py 对带 args_order 的条目在 context 末尾附 ` args_order={…}` 令牌，否则 preflight 失败）；宿主辅助脚本 `w61-tr.sh` 等在 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore）。
+   advisory carry_forward：Ashes 苦痛链接效果说明（EFF_LINK_OF_PAIN long_desc）“牺牲生物”→“受害者”，排入窗口62。窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
+   窗口 62 积压 **约 55** 条（估算，开窗 setup 时实测；用户 2026-10-01 裁决）：pending #50 B killer_message 全族改凶手主语（主游戏＋DLC 59 个唯一串，窗口61 已处理 5 个）、pending #51 B dreadfell dark Master 3 条→“黑暗领主”；另宿主补充 Link of Pain 效果说明 1 条；依据见 `evidence/quality/pending-user-review.md` 第50、51项与窗口61 `publication/ADJUDICATION-F1.json`。
    第380批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）165.6 s；finalize 143.2 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。

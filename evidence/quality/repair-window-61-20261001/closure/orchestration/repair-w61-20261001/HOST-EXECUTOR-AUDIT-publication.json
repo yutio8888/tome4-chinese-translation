@@ -1,0 +1,28 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "publication-01",
+      "status": "PASS",
+      "tool_calls": 7,
+      "native_calls_sha256": "c1f1a58a593e2d00fe6cde17202e206334f0a9ae098090f4fe9ffe6a1a8bc160",
+      "writes": [
+        "evidence/quality/repair-window-61-20261001/orchestration/* (246 pack files, SHA verified)",
+        "evidence/quality/repair-window-61-20261001/orchestration-pack-manifest.json",
+        "evidence/quality/repair-window-61-20261001/publication/* (25 attachments)",
+        "evidence/quality/repair-window-61-20261001/PUBLICATION.md",
+        "evidence/production-review-v2-lite/catalog/* and i18n/quality/production-review-v2-lite/* (exact copies)",
+        "evidence/production-review-v2-lite/migrations/70e37de3….json (exact copy)",
+        "handoff.md"
+      ],
+      "notes": [
+        "handoff: exactly six places updated as scoped (update line 3, inserted 2026-10-01 line, section-one window line, pending count 49->51, item 1 substring, item 2 replaced by HANDOFF-ITEM2.txt); 第380批计时 line, item 3 and section four preserved verbatim; host reviewed the git diff of handoff.md",
+        "native tool scan: 7 calls, 2 flagged = false positives (rm inside Unicode-escaped Deeprock Form text of the handoff model); one /tmp scratch copy of handoff",
+        "host ran harvest and archive-intent by hand: wd_exec_done does not accept the non-numeric dispatch id (same as windows 54-60)",
+        "docs/README.md carries another session uncommitted edit; untouched and never staged; the pending-user-review.md rulings on items 50/51 were written by the host, not the child"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ]
+}

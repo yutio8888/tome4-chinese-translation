@@ -1,0 +1,27 @@
+{
+ "cycle": 1,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f1a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 21,
+ "raw_issue_count": 1,
+ "decision": "FINAL failed with 1 confirmed tier-1 terminology finding (Link of Pain victim). One EXECUTOR fix (execute-03), then RE_REVIEW(2,1) and FINAL_REVIEW(2,2). The effect long_desc outside the workset that also says 牺牲生物 is carried forward to window 62.",
+ "findings": [
+  {
+   "revision_key": "56b7b501ebbaac94c74fd082e2b8d865727dbcf12fd7f2a4c3805021cd877d70",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "terminology",
+   "origin": "reviewer f1a2",
+   "reason": "Ashes 公开源码（来源未固定）tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua:112-135 苦痛链接先提示 “Select the source:” 再提示 “Select the victim:”（tome-ashes-urhrok.lua:1226 译“选择受害者：”），并把该目标作为 victim 传给 EFF_LINK_OF_PAIN；说明 :133-135 的 victim 三处指同一目标。本条说明把 victim 译成“牺牲生物”，与玩家刚看到的选择提示“受害者”不一致，且“牺牲”易误读为己方献祭单位；同 DLC 其他 victim 亦作“受害者”（tome-ashes-urhrok.lua:1272、1341、1621）。本条在本窗口已改，按整条统一。修复：本条 target 中三处“牺牲生物”→“受害者”（“源生物与牺牲生物间”→“源生物与受害者间”；“牺牲生物也会受到”→“受害者也会受到”；“当牺牲生物因此效果死亡时”→“当受害者因此效果死亡时”），其余不变。"
+  }
+ ],
+ "advisories": [
+  {
+   "revision_key": null,
+   "status": "advisory",
+   "carry_forward": "window 62",
+   "reason": "同一效果 EFF_LINK_OF_PAIN 的 long_desc（tome-ashes-urhrok/data/timed_effects.lua:708，tome-ashes-urhrok.lua:1582）“当目标受伤害时，牺牲生物也会承受 %d%% 的伤害。”同样把 victim 作“牺牲生物”，不在本窗口 workset，排入窗口62 统一为“受害者”。"
+  }
+ ]
+}

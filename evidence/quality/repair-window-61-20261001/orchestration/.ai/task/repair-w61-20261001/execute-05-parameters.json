@@ -1,0 +1,18 @@
+{
+  "title": "W61 execute-05",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w61-20261001 第 4 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w61-20261001/SPEC.md、SCOPE.json、WORKSET.json 与 ADJUDICATION-F3.json。只按 ADJUDICATION-F3 中 1 条 confirmed 修改：074d7c0b7e（tome-cults.lua，异变之手 Mutated Hand）中“你的触手当前属性为 %s :”→“你的触手当前属性%s：”（去掉“为”及 %s 两侧空格，半角冒号改全角“：”）；其余文字、两个 %s、%%、markup、空行与行首 TAB 一律不动。其他条目及文件其他记录（包括 “，#CRIMSON#由于副手非空，该技能暂时被禁用#WHITE#” 片段）不动；不改术语库、args_order。可更新 evidence/quality/repair-window-61-20261001/ 下的修复证据。禁止从 /、/workspace 或无关目录搜索。运行有界验证：LuaJIT 加载三个译文文件，相对 .ai/task/repair-w61-20261001/baseline 仍恰 22 条 target 变动且本轮只改上述一处；用 string.format 渲染本条最后两行各一例（第 4 个参数分别取空串与上述禁用片段的译文）；git diff --check；python3 -B tools/i18n lint --strict。回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w61-20261001",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-05",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}
