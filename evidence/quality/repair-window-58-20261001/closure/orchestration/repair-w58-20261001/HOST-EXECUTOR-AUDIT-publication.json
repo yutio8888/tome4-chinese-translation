@@ -1,0 +1,29 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "publication-01",
+      "status": "PASS",
+      "tool_calls": 9,
+      "native_calls_sha256": "18a776821854b517643ceeaf4a2f3af8324c5146b72f34935d135999e46358e8",
+      "writes": [
+        "evidence/quality/repair-window-58-20261001/orchestration/* (151 pack files, SHA verified)",
+        "evidence/quality/repair-window-58-20261001/orchestration-pack-manifest.json",
+        "evidence/quality/repair-window-58-20261001/publication/* (attachments)",
+        "evidence/quality/repair-window-58-20261001/PUBLICATION.md",
+        "evidence/production-review-v2-lite/catalog/* and i18n/quality/production-review-v2-lite/* (exact copies)",
+        "evidence/production-review-v2-lite/migrations/2f023eaf….json (exact copy)",
+        "handoff.md"
+      ],
+      "notes": [
+        "handoff: exactly five places updated as scoped (update line 3, inserted 2026-10-01 line, section-one window line, item 1 first line, item 2 replaced by HANDOFF-ITEM2.txt); 第374批计时 line, item 3 and section four preserved verbatim; host reviewed the git diff of handoff.md",
+        "host then edited handoff update line and item 1 after the child finished to record the user 2026-10-01 decision (placeholder-spacing sweep before batch 375); handoff.md is not part of the pack",
+        "native tool scan: 9 calls, 0 flagged",
+        "host ran archive-intent by hand: wd_exec_done aborted on the non-numeric dispatch id before that step (same as windows 54-57)",
+        "docs/README.md carries another session uncommitted edit; untouched and never staged; catalog: only entries.jsonl and manifest.json changed bytes"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ]
+}

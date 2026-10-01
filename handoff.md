@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-09-30（第374批已 finalize，窗口58积压 3 条，继续审核第375批）
+更新时间：2026-10-01（修复窗口58已完成并推送；下一步先做技能说明占位符补空格清理，再审核第375批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -11,10 +11,11 @@
 ## 一、当前状态
 
 - 2026-09-30：用户恢复工作，要求用 Gemini 3.8 Flash 快速复核 09-21 以来修改过的 1190 条译文（证据提交 `c4728694`，确认 83 条），随后“请合并修复”开窗口57。是否连续审核第373批以当前会话指示为准。
+- 2026-10-01：审核队列耗尽、积压 3 条，用户选择“开小窗口修这 3 条”，开窗口58。
 - 审核已闭合至第 **374** 批（`batch-2e8beab0b2f9b05c4c94`）：7 条，6 done / 1 repair_required。
   窗口57 余下的 7 个 Orcs successor：surface 一组 4 lane（gpt-6.1-sol）1 个 ISSUE；contextual 首轮通过。确认 1 条（cc6d1a5034 pocket-time），窗口58积压 3。审核队列已耗尽。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `3586d9485e80b5736f4d6fd7c8c2199d398ad758` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **57**：快速复核确认的 83 条与积压 4 条（Toxic Death→剧毒之死及解锁列表、两条 Orcs 开场白 西方天灾）已修复；译文提交 `95b566f8`；migration `f312e80b…` 的 87 个 successor（引擎 1、主游戏 32、Ashes 6、Cults 24、Orcs 24）须重新审核，不继承旧 revision 的 done 状态。
+- 修复窗口已闭合至 **58**：第373、374批确认的 3 条（age-allure 副歌人称、fay-willows 夺取城门／亡灵大军／射击队列／步调一致、pocket-time 两段）已修复；译文提交 `54c307a7`；migration `2f023eaf…` 的 3 个 successor（主游戏 1、Cults 1、Orcs 1）须重新审核，不继承旧 revision 的 done 状态。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
   - 10 条死键／冻结 MISS（上游改串未重生 locale key 等，已 host-block 登记，不动）；
@@ -51,13 +52,13 @@
 
 ## 三、下一步
 
-1. 继续审核第 **375** 批：审核队列已耗尽（窗口57 的 87 个 successor 已在第373–374批审完）；窗口58积压不足 20，按规则须询问用户开小窗口还是暂停。
+1. **先做技能说明占位符补空格清理窗口**（用户 2026-10-01 指示，规则“最小必要”：升级预览 `tokenize(" ()[],")` 只按 ASCII 空格/半角括号/逗号切分，占位符所在片段连带汉字时在占位符与相邻字符之间补一个空格；只粘标点、不连汉字的如「%d%%。」不动；talents 段 tformat 约 481 条 678 处）。之后审核第 **375** 批：窗口58的 3 个 successor（主游戏 1、Cults 1、Orcs 1，混合来源批）连同清理窗口的 successor；积压按窗口59重新计数。
    届时用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句）；
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
-2. 窗口 57 已完成（Gemini 3.8 Flash 快速复核 09-21 以来修改的 1190 条，Opus 5.5 交叉核验确认 83 条，加积压 4 条共 87 条）：Grand Council 统一为最高议会（含 Elvala 回忆录 8 章首行）、Toxic Death→剧毒之死、Orcs 开场白 西方天灾 等。复审路径：execute-01 → REVIEW r0a1 2 确认 → execute-02 → RE r1a1 2 驳回 → FINAL f1a1 5 确认 → execute-03 → RE r2a1 会话压缩无效、r2a2 1 驳回 → FINAL f2a3 7 确认＋宿主补 1 → execute-04 → RE r3a1 2 确认 → execute-05 → FINAL f4a1（Opus 5.5）87/87，cycle 4 收敛；门禁 17/17。
-   模板为窗口57：`.artifacts/i18n/repair-w57-20260930/setup_window57.py`（新增 RELOC：literal 实际不在 claim 路径时按条目改指真实文件）＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`wd.sh`、`check_siblings.py`；宿主辅助脚本 `w57-tr.sh` 等在 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore）。
-   教训：FINAL 给出确认项时，宿主把逐字替换写进裁决（old→new），EXECUTOR 照抄可一次通过；Codex 会话压缩（compacted）的 reviewer 输出按设计无效，归档后 fresh retry。
-   窗口 58 积压 **3** 条（窗口57后重新计数，主游戏 1、Cults 1、Orcs 1）：第373批 `2822ed0142` age-allure 歌词“嘿，我，现为守卫”→你（4 处）、`e2c9218ea9` fay-willows 骷髅“冲了进来”→转而去夺取城门、“不死部落”→步步逼近的亡灵大军；第374批 `cc6d1a5034` pocket-time“在这些方面都有了一些实战经验”→精通其中几项、“见到了吸血鬼领主迎面而来”→与吸血鬼领主正面交锋；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+2. 窗口 58 已完成（第373、374批确认的 3 条）：age-allure 副歌“嘿，我，现为守卫”→你（4 处）；fay-willows 骷髅转而去夺取城门、步步逼近的亡灵大军、排成射击队列，以及 FINAL 补出的两处 lockstep“步调一致”；pocket-time 精通其中几项、与吸血鬼领主正面交锋、含糊不清地咒骂了一通不公平。复审路径：execute-01 → REVIEW r0a1 3 ISSUE 全不采纳（1 驳回、2 advisory）→ FINAL f0a2 1 确认（lockstep）→ execute-02 → RE r1a1 1 advisory → FINAL f1a2 越界 grep ashes-urhrok 拒收 → f1a3（Opus 5.5）3/3，cycle 1 收敛；门禁 17/17。
+   模板为窗口58：`.artifacts/i18n/repair-w58-20261001/setup_window58.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`wd.sh`、`check_siblings.py`（须传 WORKSET 路径）；宿主辅助脚本 `w58-tr.sh` 等在 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore）。setup 后要手设 STATE.candidate_author_agent_id，freeze_review.py 简报条数“审N条”要按窗口改。
+   advisory carry_forward：`2822ed0142` 食人魔化歌（All Star 戏仿）多句押韵意译偏离原文（stasis、“until we say it's ogre”、the years'll start coming），整首重译属歌词策略，successor 审核时再评估；`e2c9218ea9` 已在本窗口修复 lockstep。
+   窗口 59 积压 **0** 条。
    第374批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）170.1 s；finalize 145.2 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。

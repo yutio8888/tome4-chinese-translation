@@ -1,0 +1,18 @@
+{
+  "title": "W58 execute-01 implement",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w58-20261001。先读 .ai/roles/executor.md 与 .ai/task/repair-w58-20261001/SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、SOURCE-ANCHORS.json、SOURCE-CLAIMS.json、BASELINE-records.json、TERM-SNAPSHOT.json，以及 TERMINOLOGY.md 使用规则。本窗口定向修改 WORKSET 的 3 个 target（mod-tome.lua、tome-cults.lua、tome-orcs.lua），按 SOURCE-CLAIMS 中已确认的问题逐项修正（claim 给出「现译片段 → 新片段」，按其意思写入，只做衔接所需的最小调整）：2822ed0142 副歌四处“嘿，我，现为守卫”改“嘿，你，现为守卫”；e2c9218ea9 三处片段；cc6d1a5034 三处片段。每条只改 claim 点名的片段，其余措辞一律不动；claim 里没有的问题即使看到也只报告不改。仅你是任务内容写入者，只改这 3 个 target，并写 evidence/quality/repair-window-58-20261001/ 下的 IMPLEMENTATION.md、VALIDATION.json；不改术语库。主游戏源码只从 /workspace/t-engine4 固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 用 git show 取证；DLC 源码只在 SOURCE-ANCHORS 给出的 checkout 下按条目路径读取；禁止从 /、/workspace 或无关目录搜索。占位符、<?...?> 模板片段、[i]/[/i] 与 #{italic}# 等 markup 与现译一致；LF/TAB 结构与现译逐行一致；不新增行尾空白。运行有界验证（LuaJIT 加载三个文件，恰 3 条 target 变动且其他记录不变、strict lint、git diff --check），回报逐条改动（条目 key 与改动片段前后文本）、命令结果和发现但未改的疑点；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w58-20261001",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}

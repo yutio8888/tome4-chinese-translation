@@ -1,0 +1,18 @@
+{
+  "title": "W58 execute-02 fix",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w58-20261001 第 1 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w58-20261001/SPEC.md、SCOPE.json、WORKSET.json 与 ADJUDICATION-F0.json。只按 ADJUDICATION-F0 中 1 条 confirmed 做以下逐字替换，每处只替换引号内片段，其余文字、markup、段落与空行一律不动：e2c9218ea9（tome-cults.lua，fay-willows）①“他们高举盾牌，一步一步地向墙走去。”→“他们高举盾牌，步调一致地缓缓向城墙逼近。”；②“很快，不死族开始组织自己，然后朝着我们的方向移动。”→“很快，不死族开始组织自己，然后步调一致地朝我们的方向推进。”。其他条目及文件其他记录不动；不改术语库。仅你是任务内容写入者，可写这 1 条 target，并在 evidence/quality/repair-window-58-20261001/IMPLEMENTATION.md、VALIDATION.json 追加本轮记录。禁止从 /、/workspace 或无关目录搜索。LF/TAB 结构不变，不新增行尾空白。运行有界验证（LuaJIT 加载三个文件：相对 SCOPE 基线仍恰 3 条 target 变动；git diff --check；strict lint），回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w58-20261001",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}

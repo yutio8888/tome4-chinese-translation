@@ -1,0 +1,20 @@
+{
+ "cycle": 0,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f0a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 2,
+ "raw_issue_count": 1,
+ "decision": "FINAL failed with one ISSUE; e2c9218ea9 lockstep omission confirmed (independently raised by r0a1 and f0a2, upgraded from the R0 advisory). Fix in execute-02, then RE_REVIEW(1,1) and FINAL_REVIEW(1,2).",
+ "findings": [
+  {
+   "revision_key": "e2c9218ea95a18baa45059280337170935967edba71fca669c1529a01f214b26",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "completeness",
+   "origin": "reviewer f0a2 (also r0a1)",
+   "reason": "公开 Cults DLC tome-cults/data/lore/fay-willows.lua:663、675（来源未固定）：①“Holding their shields high above them, they moved within lockstep of each other, and slowly made their approach towards the wall.”现译“他们高举盾牌，一步一步地向墙走去。”把 lockstep（彼此步伐整齐划一）误作“一步一步”，并漏了 slowly；②“Quickly the undead began to organize themselves before moving lockstep with each other in our direction.”现译“很快，不死族开始组织自己，然后朝着我们的方向移动。”漏 lockstep。首段强调亡灵“以预定方式完美行动”，两处是呼应该主题的描写。修复：①→“他们高举盾牌，步调一致地缓缓向城墙逼近。”；②→“很快，不死族开始组织自己，然后步调一致地朝我们的方向推进。”其余不变。"
+  }
+ ],
+ "advisories": []
+}

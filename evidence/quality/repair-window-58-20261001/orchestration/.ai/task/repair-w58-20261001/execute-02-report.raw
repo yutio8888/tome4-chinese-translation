@@ -1,0 +1,20 @@
+已完成第 1 轮修复。
+
+变更：
+
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:1905)
+  - “他们高举盾牌，一步一步地向墙走去。”
+  - →“他们高举盾牌，步调一致地缓缓向城墙逼近。”
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:1917)
+  - “很快，不死族开始组织自己，然后朝着我们的方向移动。”
+  - →“很快，不死族开始组织自己，然后步调一致地朝我们的方向推进。”
+- 已追加 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-58-20261001/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-58-20261001/VALIDATION.json) 本轮记录。
+
+验证结果：
+
+- LuaJIT 加载三个文件：通过；29,390 条记录中仍恰有 3 条 WORKSET target 变动，其他 29,387 条不变。
+- 反向还原本轮两处替换后，`tome-cults.lua` SHA-256 精确恢复为修复前哈希，确认本轮仅改两处片段。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings。
+- `git diff --check`：通过。
+- Evidence JSON、空白及 LF/TAB 结构检查：通过。
+- 未改术语库或 `.ai/task`；未 stage、commit、push，也未创建 agent。

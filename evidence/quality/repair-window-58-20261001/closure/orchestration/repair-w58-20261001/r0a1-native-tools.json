@@ -1,0 +1,68 @@
+{
+  "dispatch_id": "r0a1",
+  "native_session": "01a0f4d1-4c54-7a50-9ce3-8420b480a03b",
+  "native_path": "/home/paseo/.codex/sessions/2026/10/01/rollout-2026-10-01T00-15-52-01a0f4d1-4c54-7a50-9ce3-8420b480a03b.jsonl",
+  "native_sha256": "d67b39de7f03474973555c39ffdba252cc0f7e935519621f511d1db689debf6d",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_01e8a405a0daf891016abda642aa0487d1923a08355bcca269",
+      "status": "completed",
+      "call_id": "call_4Izc7C9zVcAziBsFmEznkCbz",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/task/repair-w58-20261001/CONTEXTUAL-ENVELOPE-r0a1.json\",\"max_output_tokens\":18000}));text(await tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",\"max_output_tokens\":24000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0f4d1-4ca8-7b12-b5a1-bca553f8e9ef",
+        "create_time": 1790813757.297828
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_01e8a405a0daf891016abda648bdac87d185cd2956ae62339f",
+      "status": "completed",
+      "call_id": "call_ug5Y1PjCH7YRf9o7TE1MAKHy",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json,hashlib\\np=json.load(open('.ai/task/repair-w58-20261001/CONTEXTUAL-ENVELOPE-r0a1.json'))\\nprint('HASH',hashlib.sha256(json.dumps(p['payload'],ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest())\\nfor i,x in enumerate(p['payload']['translation_snapshot']):\\n print('\\\\nENTRY',i,json.dumps(x,ensure_ascii=False,indent=2))\\nPY\",\"max_output_tokens\":16000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0f4d1-4ca8-7b12-b5a1-bca553f8e9ef",
+        "create_time": 1790813765.988957
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_01e8a405a0daf891016abda6533b9c87d1a98c63e2eb35a7b3",
+      "status": "completed",
+      "call_id": "call_dkWqlcCR4zLuW3BCa6vojijP",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\np=json.load(open('.ai/task/repair-w58-20261001/CONTEXTUAL-ENVELOPE-r0a1.json'))['payload']\\nt=json.loads(p['terminology_snapshot'])\\nfor r in t['records']: print(r['record'])\\nPY\",\"max_output_tokens\":6500}));text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport hashlib,subprocess\\nitems=[('/workspace/t-engine4','game/modules/tome/data/lore/age-allure.lua',259,330),('/workspace/tome4-dlcs/orcs','data/lore/pocket-time.lua',45,65),('/workspace/tome4-dlcs/cults','data/lore/fay-willows.lua',659,677)]\\nfor root,path,a,b in items:\\n if root.endswith('t-engine4'): data=subprocess.check_output(['git','-C',root,'show','624a67329fe2ad440c5b344785a9c73fcf22ae63:'+path])\\n else: data=open(root+'/'+path,'rb').read()\\n print(root+'/'+path,hashlib.sha256(data).hexdigest())\\n for i,line in enumerate(data.decode().splitlines(),1):\\n  if a<=i<=b: print(str(i)+': '+line)\\nPY\",\"max_output_tokens\":9000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0f4d1-4ca8-7b12-b5a1-bca553f8e9ef",
+        "create_time": 1790813773.366029
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_01e8a405a0daf891016abda66198e887d18c4d7bf1572a1eb4",
+      "status": "completed",
+      "call_id": "call_t1cvPyqEfMUMuUeMrIewuPKz",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"ls /workspace/tome4-dlcs/orcs /workspace/tome4-dlcs/cults\",\"max_output_tokens\":1500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0f4d1-4ca8-7b12-b5a1-bca553f8e9ef",
+        "create_time": 1790813789.494128
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_01e8a405a0daf891016abda665218087d1b61a1ee26e668a39",
+      "status": "completed",
+      "call_id": "call_I1enmqXdSGC2anzDBvUNdefI",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport hashlib\\nfor path,a,b in [('/workspace/tome4-dlcs/orcs/tome-orcs/data/lore/pocket-time.lua',45,65),('/workspace/tome4-dlcs/cults/tome-cults/data/lore/fay-willows.lua',659,677)]:\\n data=open(path,'rb').read(); print(path,hashlib.sha256(data).hexdigest())\\n for i,line in enumerate(data.decode().splitlines(),1):\\n  if a<=i<=b: print(str(i)+': '+line)\\nPY\",\"max_output_tokens\":6500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0f4d1-4ca8-7b12-b5a1-bca553f8e9ef",
+        "create_time": 1790813795.313962
+      }
+    }
+  ]
+}

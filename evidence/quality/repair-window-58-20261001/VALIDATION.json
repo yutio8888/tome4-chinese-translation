@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w58-20261001",
+  "role": "executor",
+  "base_revision": "12376f4bfd991734907d9d2afa08bc7fba0abb0f",
+  "validated_at_utc": "2026-10-01T00:12:39Z",
+  "translation_files": {
+    "mod-tome.lua": {
+      "sha256": "5d01ffc33ffccf92843868d552e3aa72438bb671f41156449f3661ff5d5f9b4f",
+      "records": 22989,
+      "translations": 21688,
+      "diff_insertions": 4,
+      "diff_deletions": 4
+    },
+    "tome-cults.lua": {
+      "sha256": "f04deaf0cb02247b9530a529cbae144a4286e97698641b14471aa0d20480ca56",
+      "records": 2199,
+      "translations": 2043,
+      "diff_insertions": 3,
+      "diff_deletions": 3
+    },
+    "tome-orcs.lua": {
+      "sha256": "5a52db03d82c6d4e4c0def8230e7a07307073413159ad1d65f6c2c5c196640d1",
+      "records": 4202,
+      "translations": 3904,
+      "diff_insertions": 2,
+      "diff_deletions": 2
+    }
+  },
+  "source_anchors": {
+    "tome": {
+      "repository": "/workspace/t-engine4",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "path": "game/modules/tome/data/lore/age-allure.lua",
+      "method": "git show",
+      "result": "passed"
+    },
+    "cults": {
+      "path": "/workspace/tome4-dlcs/cults/tome-cults/data/lore/fay-willows.lua",
+      "sha256": "05a3f93c9f5cd5baf52429155fcd4a09b6045ef45fbf3472562d55f5da0e4c6f",
+      "repository_commit_pinned": false,
+      "result": "passed"
+    },
+    "orcs": {
+      "path": "/workspace/tome4-dlcs/orcs/tome-orcs/data/lore/pocket-time.lua",
+      "sha256": "a5f2acd61ec4a5ac80bdd6ae7481d6ec55d8973e496a273e19a922ed7f2782ab",
+      "repository_commit_pinned": false,
+      "result": "passed"
+    }
+  },
+  "changed_revisions": [
+    "2822ed0142e25ad3d61be2eaf672c8f62b7a09dcfa94a8c60d795e5b2d1e30b0",
+    "e2c9218ea95a18baa45059280337170935967edba71fca669c1529a01f214b26",
+    "cc6d1a5034ef0a29fd00222ed3d95df63125db3f7784febbe1270fe331b14359"
+  ],
+  "checks": [
+    {
+      "name": "i18n_doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "passed",
+      "details": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1; expected source-unpinned warnings for ashes-urhrok, cults, and orcs"
+    },
+    {
+      "name": "luajit_exact_target_diff",
+      "command": "bounded inline verifier using manifest LuaJIT LocaleLoader against base revision, WORKSET.json, and BASELINE-records.json",
+      "exit_code": 0,
+      "result": "passed",
+      "details": {
+        "files_loaded": [
+          "mod-tome.lua",
+          "tome-cults.lua",
+          "tome-orcs.lua"
+        ],
+        "records_total": 29390,
+        "changed_targets": 3,
+        "changed_set_exact": true,
+        "other_records_unchanged": 29387,
+        "non_target_fields_unchanged": true,
+        "lf_tab_blank_terminal_invariants": true,
+        "placeholder_markup_template_invariants": true,
+        "claim_fragments_exact": true
+      }
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "passed",
+      "details": {
+        "translations_checked": 30308,
+        "errors": 0,
+        "warnings": 0,
+        "report": ".artifacts/i18n/runs/20261001T001225.880921Z-3-lint/lint.json"
+      }
+    },
+    {
+      "name": "git_diff_check",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed",
+      "details": "no output"
+    },
+    {
+      "name": "untracked_evidence_whitespace",
+      "command": "git diff --no-index --check -- /dev/null <evidence-file> for IMPLEMENTATION.md and VALIDATION.json",
+      "exit_code": 1,
+      "result": "passed",
+      "details": "no whitespace diagnostics; exit 1 is the expected no-index difference status"
+    },
+    {
+      "name": "validation_json_parse",
+      "command": "jq -e . evidence/quality/repair-window-58-20261001/VALIDATION.json",
+      "exit_code": 0,
+      "result": "passed"
+    }
+  ],
+  "repair_cycles": [
+    {
+      "cycle": 1,
+      "dispatch": "execute-02",
+      "validated_at_utc": "2026-10-01T00:23:05Z",
+      "adjudication": ".ai/task/repair-w58-20261001/ADJUDICATION-F0.json",
+      "confirmed_revision": "e2c9218ea95a18baa45059280337170935967edba71fca669c1529a01f214b26",
+      "replacement_pairs": [
+        {
+          "before": "他们高举盾牌，一步一步地向墙走去。",
+          "after": "他们高举盾牌，步调一致地缓缓向城墙逼近。"
+        },
+        {
+          "before": "很快，不死族开始组织自己，然后朝着我们的方向移动。",
+          "after": "很快，不死族开始组织自己，然后步调一致地朝我们的方向推进。"
+        }
+      ],
+      "translation_sha256": {
+        "mod-tome.lua": "5d01ffc33ffccf92843868d552e3aa72438bb671f41156449f3661ff5d5f9b4f",
+        "tome-cults.lua": "0139aeb8133309cfad2104ea2dc47aaf79b978672b365f524fbec8ed76cd405e",
+        "tome-orcs.lua": "5a52db03d82c6d4e4c0def8230e7a07307073413159ad1d65f6c2c5c196640d1"
+      },
+      "checks": [
+        {
+          "name": "luajit_exact_target_diff",
+          "command": "python3 -B /tmp/repair_w58_verify.py",
+          "exit_code": 0,
+          "result": "passed",
+          "details": {
+            "files_loaded": [
+              "mod-tome.lua",
+              "tome-cults.lua",
+              "tome-orcs.lua"
+            ],
+            "records_total": 29390,
+            "changed_targets": 3,
+            "changed_set_exact": true,
+            "other_records_unchanged": 29387,
+            "non_target_fields_unchanged": true,
+            "lf_tab_blank_terminal_invariants": true,
+            "placeholder_markup_template_invariants": true,
+            "cycle_1_fragments_exact": true,
+            "cycle_1_inverse_preimage_sha256_exact": true,
+            "cycle_1_preimage_sha256": "f04deaf0cb02247b9530a529cbae144a4286e97698641b14471aa0d20480ca56"
+          }
+        },
+        {
+          "name": "git_diff_check",
+          "command": "git diff --check",
+          "exit_code": 0,
+          "result": "passed",
+          "details": "no output"
+        },
+        {
+          "name": "strict_lint",
+          "command": "python3 -B tools/i18n lint --strict",
+          "exit_code": 0,
+          "result": "passed",
+          "details": {
+            "translations_checked": 30308,
+            "errors": 0,
+            "warnings": 0,
+            "report": ".artifacts/i18n/runs/20261001T002244.702377Z-2-lint/lint.json"
+          }
+        }
+      ],
+      "out_of_scope_actions": {
+        "staged": false,
+        "committed": false,
+        "pushed": false,
+        "agent_created": false,
+        "task_records_modified": false,
+        "terminology_modified": false
+      }
+    }
+  ],
+  "out_of_scope_observations": [
+    "Adjacent cc6d1a5034 target text renders 'a pair of earthen missiles' as '一双石弹'; SOURCE-CLAIMS did not authorize changing it.",
+    "Adjacent cc6d1a5034 target text renders 'Weirdling Beast' as '异形触手'; entity-name/terminology verification is outside this repair claim."
+  ],
+  "out_of_scope_actions": {
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "agent_created": false,
+    "task_records_modified": false,
+    "terminology_modified": false
+  },
+  "remaining_responsibilities": [
+    "The Cults and Orcs public-source repository and commit identities remain unpinned; only the frozen file SHA-256 values were verified.",
+    "Independent review, final 17-item gates, task closure, commit, and push remain host responsibilities."
+  ]
+}
