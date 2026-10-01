@@ -1579,7 +1579,7 @@ t("#Target# stops bleeding darkness.", "#Target#的黑暗伤口愈合了。", "_
 t("-Demonic Cut", "-恶魔伤口", "_t")
 t("ritual", "仪式", "effect subtype")
 t("Link of Pain", "苦痛链接", "_t")
-t("When this target is damaged %d%% of the damage will also be done to an other victim.", "当目标受伤害时，牺牲生物也会承受 %d%% 的伤害。", "tformat")
+t("When this target is damaged %d%% of the damage will also be done to an other victim.", "当目标受伤害时，另一名受害者也会承受 %d%% 的伤害。", "tformat")
 t("#Target# is linked through pain.", "#Target#建立了苦痛链接。", "_t")
 t("+Link of Pain", "+苦痛链接", "_t")
 t("#Target# link of pain disappears.", "#Target#的苦痛链接解除了。", "_t")
@@ -1673,7 +1673,7 @@ t("A small, heavily armoured demon, rushing toward you.", "一只装备了重甲
 t("Rogroth, Eater of Souls", "罗格洛斯，灵魂吞噬者", "entity name")
 t("major", "大恶魔", "entity subtype")
 t("Fire and blight arcane surges randomly appear on this spider-like dark metallic skin. There are no definite head but a single huge mouth onto its body.", "火焰与枯萎的奥术涌动随机出现在这蜘蛛般的深色金属皮肤上。它没有明确的头部，只有一个位于身体上的巨大嘴巴。", "_t")
-t("and raised as a demonic husk", "并以恶魔尸傀的形式重生", "_t")
+t("and raised as a demonic husk", "并将其复生为恶魔尸傀", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/zones/anteroom-agony/objects.lua"
@@ -1722,7 +1722,7 @@ t("This demon is dedicated to #{italic}#extracting#{normal}# information from #{
 t("Planar Controller", "空间控制者", "entity name")
 t("major", "大恶魔", "entity subtype")
 t("A huge demon towers above you, it is obviously in control of all the portals in the nearby Fearscape area.", "一个巨大的恶魔高耸在你面前，显然控制着附近恶魔空间区域内的所有传送门。", "_t")
-t("and teleported to Mal'Rok for more experiments", "并被传送到玛·洛克，作为进一步的实验对象", "_t")
+t("and teleported to Mal'Rok for more experiments", "并将其传送到玛·洛克，作为进一步的实验对象", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/zones/searing-halls/objects.lua"

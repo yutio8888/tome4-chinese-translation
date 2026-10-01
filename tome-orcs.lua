@@ -7311,7 +7311,7 @@ t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Maltoth the Mad", "疯狂者马尔托斯", "entity name")
 t("This wretched human seems stuck in temporal flux.", "这个可怜的人似乎在时间的洪流中被困住了。", "_t")
-t("and dispersed across the timelines", "并被分散到各个世界线", "_t")
+t("and dispersed across the timelines", "并将其分散到各个世界线", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/pocket-time/zone.lua"

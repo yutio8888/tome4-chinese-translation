@@ -4133,7 +4133,7 @@ section "tome-cults/data/zones/ft-horrors/npcs.lua"
 
 t("The One That Writes", "写故事的东西", "entity name")
 t("Even as this creature focuses its attention on you, many of its tentacles are preoccupied with writing letters onto sheets of strange, wispy parchment. With every word it finishes, the environment around you changes its shape, objects become more defined and patches of ground appear to be more detailed. You don't want to know the ending it has planned for your story.", "即使这个生物把注意力集中在你身上，它的许多触手仍忙于在一张张奇怪而纤细的羊皮纸上书写文字。每写完一个字，你周围的环境就会改变形状，物体变得更加清晰，地面也出现更多细节。你不会想知道它为你的故事安排了什么结局。", "_t")
-t("and written off the story", "并被从故事里移除了", "_t")
+t("and written off the story", "并将其从故事里抹去", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/zones/ft-horrors/objects.lua"
@@ -4207,7 +4207,7 @@ t("minotaur mindscrew", "米诺陶心灵拧转者", "entity name")
 t("A belligerent minotaur with a frightening amount of mind powers, and armed with a hammer and a pack of huge rocks.", "这个好战的米诺陶拥有骇人的精神力量，手持一把锤子，还带着一大包巨石。", "_t")
 t("The Glass Golem", "玻璃傀儡", "entity name")
 t("A huge golem-like construct made entirely out of glass. It seems to be the custodian of the whole castle and likely the key to those nice looking chests around the throne.", "这是一个完全由玻璃制成的巨大傀儡造物。它似乎是整座城堡的看守者，也很可能是打开王座周围那些漂亮宝箱的关键。", "_t")
-t("and turned into glass", "并被变成了玻璃", "_t")
+t("and turned into glass", "并将其变成了玻璃", "_t")
 t("#AQUAMARINE#As the Glass Golem's life dwindles too low it teleports to its throne to heal!", "#AQUAMARINE#当玻璃傀儡的生命下降到一定程度，它传送到了自己的宝座来治疗！", "say")
 t("#AQUAMARINE#As the Glass Golem's life dwindles too low it rushes toward its throne to heal!", "#AQUAMARINE#当玻璃傀儡的生命下降到一定程度，它冲向了自己的宝座来治疗！", "say")
 t("#AQUAMARINE#As the Glass Golem's life dwindles too low it rushes toward its throne but hits a glass wall instead!", "#AQUAMARINE#当玻璃傀儡的生命下降到一定程度，它冲向了自己的宝座，结果撞到了玻璃墙！", "say")
@@ -4314,7 +4314,7 @@ section "tome-cults/data/zones/ft-yaech/npcs.lua"
 
 t("The One That Writes", "写故事的东西", "entity name")
 t("A strange creature sporting 7 formless tentacles each with some kind of pen attached. It is ever focused on its book and does not seem to notice you, yet you can feel its hatred and hostility towards you.", "一只奇怪的生物，长着七条无定形的触手，每条触手上都绑着某种笔。它始终专注地盯着自己的书，似乎没有注意到你，但你却能感受到它对你的仇恨与敌意。", "_t")
-t("and written off the story", "并被从故事里移除了", "_t")
+t("and written off the story", "并将其从故事里抹去", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/zones/ft-yaech/zone.lua"
@@ -4398,7 +4398,7 @@ section "tome-cults/data/zones/necromancers-ruins/npcs.lua"
 
 t("Chanting Necromancer", "念咒的死灵法师", "entity name")
 t("A grim looking necromancer vampire. It seems to be draining the krogs of their life force for some nefarious purpose.", "一个冷酷的吸血鬼死灵法师。他似乎正在吸取克罗格的生命能量来用于某种邪恶的目的。", "_t")
-t("and raised to serve", "并被复活成他的死灵仆从", "_t")
+t("and raised to serve", "并将其复活以供驱使", "_t")
 t("Grand Necromancer", "大死灵法师", "entity name")
 t("You can hardly believe your eyes, standing in from of you as the grand master of the necromancers is a lich.", "你不敢相信你的眼睛，在你面前死灵法师们的领袖竟然是一个巫妖。", "_t")
 t("giant", "巨人", "entity type")
@@ -4452,7 +4452,7 @@ t("dragon", "龙", "entity type")
 t("scourge", "天灾", "entity subtype")
 t("Kroltar the Scourge", "天灾巨龙库洛塔", "entity name")
 t("Kroltar, the mightiest fire wyrm to have ever walked Eyal. It was said that a group of dwarves had slain him, but something has taken up residence in the once proud creature's body, reanimating it into a twisted new lifeform.", "库洛塔，埃亚尔历史上最为伟大的火龙。传说矮人远征队杀死了他，不过另外一些东西似乎占据了这个曾经骄傲的巨龙的躯体，让它重新变成一种新的扭曲的生命形态。", "_t")
-t("and fed to the corrupt writhing tentacles", "并被喂给了腐化的扭动触手", "_t")
+t("and fed to the corrupt writhing tentacles", "并将其喂给了腐化的扭动触手", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/zones/scourged-pits/objects.lua"

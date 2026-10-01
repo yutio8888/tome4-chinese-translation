@@ -7251,7 +7251,7 @@ t("disrupted monolith", "被干扰的符文巨石", "_t")
 t("Something the cultists are doing is coming. Beware.", "邪教徒在做的事情将要到来。小心。", "_t")
 t("The cultist's soul seems to be absorbed by the strange stone he was guarding. You feel like something is about to happen...", "邪教徒的灵魂似乎被其守卫的奇异石头所吸收。你感觉似乎要出大事了……", "_t")
 t("This demon would be very attractive if not for the hovering crown of flames, the three tails and sharp claws. As you watch her you can almost feel pain digging in your flesh. She wants you to suffer.", "不看她那盘旋在头上的火焰王冠、三条小尾巴以及那锋利的爪子，这只恶魔仍然充满了奇异的魅惑。当你看着她时，你感觉痛苦像利刃一样，深入骨髓。她想让你受苦。", "_t")
-t("and used for her perverted desires", "并被用于她的变态欲望", "_t")
+t("and used for her perverted desires", "并将其用于满足她的变态欲望", "_t")
 t("Crown of Burning Pain", "燃烧痛苦之冠", "_t")
 t("burning crown", "燃烧王冠", "_t")
 t("This crown of pure flames possesses a myriad of small molten rocks floating wildly above it. Each can be removed to throw as a true meteor.", "这顶由纯粹火焰所打造的王冠上漂浮着许多小小的熔融石块，每个都可以用意念扔出，化作一块真实的陨石砸向大地。", "_t")
@@ -8857,7 +8857,7 @@ t("The spell fizzles!", "法术失败了！", "logSeen")
 t("%s resists the swap!", "%s抵抗了时空交换！", "logSeen")
 t("elemental", "元素生物", "entity type")
 t("temporal", "时空", "entity subtype")
-t("and lost outside time", "并在时间之外迷失", "_t")
+t("and lost outside time", "并使其迷失在时间之外", "_t")
 t("telugoroth", "泰鲁戈洛斯", "entity name")
 t("A temporal elemental, rarely encountered except by those who travel through time itself.  Its blurred form constantly shifts before your eyes.", "一只时间元素，除了亲身穿越时间的人之外很少有人遇到。它模糊的形态在你眼前不断变幻。", "_t")
 t("greater telugoroth", "强化泰鲁戈洛斯", "entity name")
@@ -9044,7 +9044,7 @@ section "mod-tome/data/general/npcs/ziguranth.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("and burned on a pyre", "并被送上火刑堆焚烧", "_t")
+t("and burned on a pyre", "并将其送上火刑堆焚烧", "_t")
 t("ziguranth warrior", "伊格兰斯战士", "entity name")
 t("dwarf", "矮人", "entity subtype")
 t("A Ziguranth warrior, clad in heavy armour.", "一位身穿重甲的伊格兰斯战士。", "_t")
@@ -37730,7 +37730,7 @@ section "mod-tome/data/zones/abashed-expanse/npcs.lua"
 
 t("Spacial Disturbance", "空间扰动", "entity name")
 t("A hole in the fabric of space, it seems to be the source of the expanse instability.", "空间结构上的一个孔洞，它似乎是此地空间不稳定的根源。", "_t")
-t("and folded out of existence", "并从时空中被抹杀", "_t")
+t("and folded out of existence", "并将其从时空中抹杀", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/abashed-expanse/objects.lua"
@@ -37756,7 +37756,7 @@ t("undead", "亡灵", "entity type")
 t("mummy", "木乃伊", "entity subtype")
 t("Greater Mummy Lord", "巨型木乃伊领主", "entity name")
 t("The wrappings of this mummy radiate with so much power it feels like wind is blowing from them.", "这只木乃伊身上所缠绕的裹尸布散发着巨大的能量，似乎它的能量改变了空气的流动。", "_t")
-t("and raised as a soulless shuffling mummy", "并成为了一具没有灵魂的木乃伊", "_t")
+t("and raised as a soulless shuffling mummy", "并将其复活为一具没有灵魂、步履蹒跚的木乃伊", "_t")
 t("ancient elven mummy", "远古精灵木乃伊", "entity name")
 t("An animated corpse in mummy wrappings.", "一具缠绕着裹尸布的活化尸体。", "_t")
 t("animated mummy wrappings", "蠕动的裹尸布", "entity name")
@@ -37799,7 +37799,7 @@ section "mod-tome/data/zones/ardhungol/npcs.lua"
 
 t("Ungolë", "温格勒", "entity name")
 t("A huge spider, shrouded in darkness, her red glowing eyes darting to fix on you. She looks hungry.", "一只被黑暗围绕的巨大蜘蛛，她用血红的眼睛盯着你。她看起来很饥渴。", "_t")
-t("and devoured alongside a Sun Paladin", "并和那位太阳骑士一起葬身蛛腹", "_t")
+t("and devoured alongside a Sun Paladin", "并将其与那位太阳骑士一同吞噬", "_t")
 t("Sun Paladin Rashim", "太阳骑士拉希姆", "_t")
 t("xhaiak", "哉阿克", "entity subtype")
 t("xhaiak arachnomancer", "哉阿克蛛网术士", "entity name")
@@ -38092,7 +38092,7 @@ t("ogre sentry", "食人魔哨兵", "entity name")
 t("This greatsword-wielding ogre looks at you with contempt and hatred.", "这个挥舞着大剑的食人魔用带着鄙视和仇恨的眼神凝视着你。", "_t")
 t("Healer Astelrid", "孔克雷夫治疗师亚斯特莉", "entity name")
 t("An enormous ogre, clad in a tattered set of robes with an officer's badge.  She clutches a healer's staff, wrapped in casting plaster and scalpels for use as a massive spiked club.", "一个巨大的食人魔，身上穿着的破烂长袍上是一枚亮闪闪的官员徽章。她用手抓住一把治疗用的法杖，被石膏浇铸并裹挟着手术刀，用作一个巨大的狼牙棒。", "_t")
-t("and spliced for experiments", "并被拼接用于实验", "_t")
+t("and spliced for experiments", "并将其拼接用于实验", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/conclave-vault/objects.lua"
@@ -38124,7 +38124,7 @@ section "mod-tome/data/zones/crypt-kryl-feijan/npcs.lua"
 
 t("Kryl-Feijan", "克里尔·费扬", "entity name")
 t("This huge demon is covered in darkness. The ripped flesh of its \"mother\" still hangs from its sharp claws.", "这只巨大的恶魔被黑暗所包围。它的“母亲”的碎肉仍悬挂在它的利爪上。", "_t")
-t("and devoured as a demonic breakfast", "并被恶魔当作早餐吞噬", "_t")
+t("and devoured as a demonic breakfast", "并将其当作恶魔早餐吞噬", "_t")
 t("Melinda", "梅琳达", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
@@ -38171,7 +38171,7 @@ t("dragon", "龙", "entity type")
 t("ice", "寒冰", "entity subtype")
 t("Rantha the Worm", "巨龙兰莎", "entity name")
 t("Claws and teeth. Ice and death. Dragons are not all extinct it seems...", "尖牙利齿，冰冷致命。似乎龙族并没有完全灭绝……", "_t")
-t("and fed to the hatchlings", "并被喂给了幼龙们分食", "_t")
+t("and fed to the hatchlings", "并将其喂给幼龙们分食", "_t")
 t("I have heard there is a dragon hunter in the Daikara that is unhappy about the wyrm being already dead.", "我听说有一名弑龙者来到了岱卡拉，他对于这里栖息的巨龙已经被干掉这件事沮丧不已。", "_t")
 t("fire", "火焰", "entity subtype")
 t("Varsha the Writhing", "蜷曲的瓦莎", "entity name")
@@ -38205,7 +38205,7 @@ section "mod-tome/data/zones/deep-bellow/npcs.lua"
 
 t("The Mouth", "大嘴怪", "entity name")
 t("\"From bellow, it devours.\"", "“来自深渊，吞噬四方。”", "_t")
-t("and revived as a screeching drem bat", "并复活成为一只尖啸着的德瑞姆蝙蝠", "_t")
+t("and revived as a screeching drem bat", "并将其复活为一只尖啸的德瑞姆蝙蝠", "_t")
 t("#CRIMSON#%s seems invulnerable, there must be an other way to kill it!", "#CRIMSON#%s 似乎无懈可击，一定有什么其他方法可以杀死它！", "logSeen")
 t("I have heard a dwarf whispering about some abomination in the deep bellow.", "我听到有个矮人正悄悄谈论着关于在深渊咆哮出现的憎恶。", "_t")
 t("slimy crawler", "泥泞爬行怪", "entity name")
@@ -38290,7 +38290,7 @@ t("undead", "亡灵", "entity type")
 t("vampire", "吸血鬼", "entity subtype")
 t("The Master", "领主", "entity name")
 t("A terrifying vampiric figure of power, with flowing robes and an intense aura of fright.  His cold, sinewy flesh seems to cling to this world through greed and malice, and his eyes betray a strength of mind beyond any puny mortal.  All nearby are utterly subservient to his will, though he stands aloof from them, as if to say he needs not the pathetic meddling of minions to help him overcome his foes.  Your eyes are drawn to a dark staff in his hands which seems to suck the very life from the air around it.  It looks ancient and dangerous and terrible, and the sight of it fills you with fervent desire.", "一个拥有强大力量的可怕吸血鬼，他的长袍无风自动，周身环绕着恐惧光环。他冰冷而精瘦的肉体似乎全凭贪婪与恶意才得以留驻人间，他的眼神透露出远超凡俗之辈的强大意志。周围所有生物都完全服从于他的意志，尽管如此，他仍对他们保持超然疏离，就好像他不需要这些废物来御敌一样。你的目光被他手里的黑色法杖所吸引，这根法杖似乎在不断的吸取周围的活力。它看起来古老、危险而可怕，看到它的瞬间，你心底的欲望被彻底点燃了。", "_t")
-t("and raised as his tortured undead thrall", "并作为他的不死仆从永受折磨", "_t")
+t("and raised as his tortured undead thrall", "并将其复活为他饱受折磨的不死奴仆", "_t")
 t("It has been months since the hero cleansed the Dreadfell, yet rumours are growing: evil is back.", "自从英雄肃清了恐惧王座后已经过去数个月了，但是仍然流传着谣言：有一股恶势力重新掌握了那里。", "_t")
 t("skeleton", "骷髅", "entity subtype")
 t("Pale Drake", "苍白德瑞克", "entity name")
@@ -38299,13 +38299,13 @@ t("ghoul", "食尸鬼", "entity subtype")
 t("Borfast the Broken", "扭曲的波法斯特", "entity name")
 t([[Thick skin hangs loosely from this short, shambling form. Tufts of hair sticking out from its chin give evidence of a once magnificent dwarven beard. Half its face seems to have been seared in acid at some point, the flesh melted away from the skull and an eyeball drooping low from its socket. There is a unique sadness to its eyes, and a slump of resignation to its gait.
 What proud hero of renown was this before he was condemned to such a terrible fate?]], "在你面前的是一只身形矮小、步履蹒跚的怪物，松垂的厚皮松松垮垮地挂在身上。从它下巴伸出的一簇簇毛发，昭示着它曾经拥有过一副壮丽的矮人胡须。看起来他的半边脸曾经被硫酸泼过，血肉从他的脸部脱落，其中一只眼睛从它的眼窝中掉了出来。他的独眼有一种莫名的悲伤，透露着深深的无奈。如此威风的英雄人物怎会落得如此下场？", "_t")
-t("and offered to his dark Master", "并被献祭给他的黑暗主人", "_t")
+t("and offered to his dark Master", "并将其献祭给他的黑暗领主", "_t")
 t("ghost", "幽灵", "entity subtype")
 t("Aletta Soultorn", "阿蕾塔·苏尔顿", "entity name")
 t([[What once must have been an enchantingly beautiful Higher woman now looks to be a ghost of utter despair. Her thin, elegant form ripples gently in the air, whilst her tattered robes seem oddly still. The ghost's face looks jittery and pained whilst her wild, glowing eyes move rapidly back and forth in their sockets.
 Now and then she seems to see something and her jaw pulls back, her whole face splitting apart as she shrieks an unholy cry of pain and torment.]], [[这位曾经想必美得摄人心魄的高等人类女子，如今看上去只是一只彻底绝望的幽灵。她瘦弱而优雅的身躯在空中轻轻荡漾，破烂的长袍却诡异地纹丝不动。她的脸上满是抽搐与痛苦，狂乱而发亮的眼睛在眼眶里飞快地来回转动。
 有时她会看到一些东西，她的下巴会突然收缩，分裂的脸部会发出一阵充满痛苦和折磨的哀嚎。]], "_t")
-t("and offered to her dark Master", "并被献祭给她的黑暗主人", "_t")
+t("and offered to her dark Master", "并将其献祭给她的黑暗领主", "_t")
 t("Filio Flightfond", "菲里奥·弗莱特冯德", "entity name")
 t([[A short, furtive-looking skeleton with padded feet. He moves quickly and silently, and seems to meld into the shadows with ease. In one hand he holds a sling, and the other a short dagger.
 There is a cunning air to his hollow skull, and his empty sockets reveal nothing of what tricks and tactics he has planned.]], [[一个矮小的、鬼鬼祟祟的骷髅，它的脚上裹着软垫。他迅捷而隐蔽，并且擅长融入黑暗。一只手拿着投石索，另一只手则拿着一柄匕首。
@@ -38560,7 +38560,7 @@ section "mod-tome/data/zones/gorbat-pride/npcs.lua"
 
 t("Gorbat, Supreme Wyrmic of the Pride", "部落至高龙战士加伯特", "entity name")
 t("An orc with scaly skin, claws and a pair of small wings on his back.", "一只皮肤布满鳞片的兽人，长有利爪，背生一对小翅膀。", "_t")
-t("and fed to the hatchlings", "并被喂给了幼龙们分食", "_t")
+t("and fed to the hatchlings", "并将其喂给幼龙们分食", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/gorbat-pride/objects.lua"
@@ -38596,7 +38596,7 @@ section "mod-tome/data/zones/grushnak-pride/npcs.lua"
 
 t("Grushnak, Battlemaster of the Pride", "部落战斗大师格鲁希纳克", "entity name")
 t("An old orc, covered in battle scars, he looks fierce and very, very, dangerous.", "一只浑身都是伤疤的年老兽人，他看起来异常的凶残和危险。", "_t")
-t("and mounted on the barracks wall", "并被钉在军营墙上示众", "_t")
+t("and mounted on the barracks wall", "并将其钉在军营墙上示众", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/grushnak-pride/objects.lua"
@@ -38671,12 +38671,12 @@ t("slumbering ", "沉眠的", "_t")
 t("dozing ", "瞌睡的", "_t")
 t("The Withering Thing", "凋零之物", "entity name")
 t("This deformed beast might have been a wolf before, but now it is just... terrible.", "这只畸形的巨兽之前或许是头狼，不过现在……它很可怕。", "_t")
-t("and corrupted into a pile of writhing worms", "并被腐化成了一堆蠕动的虫子", "_t")
+t("and corrupted into a pile of writhing worms", "并将其腐化成了一堆蠕动的虫子", "_t")
 t("horror", "恐魔", "entity type")
 t("eldritch", "骇异", "entity subtype")
 t("The Dreaming One", "沉梦者", "entity name")
 t("This strange globe of blue light seems to be alive and asleep. Nothing about it moves, yet you can feel the crushing power of its dreams assaulting your mind.", "这个奇怪的发光球体似乎是活的，而且正在熟睡。不过，尽管它还没有移动，你已经感受到它梦境的力量在冲击自己的精神。", "_t")
-t("and absorbed into nightmares forever", "并被困于永恒的噩梦中", "_t")
+t("and absorbed into nightmares forever", "并将其永远吸入了噩梦之中", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/heart-gloom/zone.lua"
@@ -38908,10 +38908,10 @@ t("Companion Archer", "同伴弓手", "entity name")
 t("This elf is a companion of Berethh. He's dressed in light armor and wields a bow.", "这个精灵弓手是贝里斯的同伴。他身穿皮甲，手拿长弓。", "_t")
 t("Kyless", "凯勒斯", "entity name")
 t("This is Kyless, your old friend. He seems dirtier than you recall and a good bit more dangerous.", "这是凯勒斯，你的老朋友。他比你的记忆中更加蓬头垢面，也更加危险。", "_t")
-t("and fed to his corrupted dogs", "并被喂给他堕落的恶犬", "_t")
+t("and fed to his corrupted dogs", "并将其喂给了他堕落的恶犬", "_t")
 t("Berethh", "贝里斯", "entity name")
 t("This is Berethh, your old friend. He is dressed in well-worn leather and skillfully wields a bow. There is something noble about the way he carries himself but his expression carries no emotion.", "这是贝里斯，你的老朋友。他穿着磨损的皮甲，熟练地使用着长弓。他举止高贵，但脸上毫无表情。", "_t")
-t("and quickly burned in a pyre", "并被迅速放在火葬柴堆上烧掉", "_t")
+t("and quickly burned in a pyre", "并迅速将其放在火葬柴堆上烧掉", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/keepsake-meadow/objects.lua"
@@ -39090,13 +39090,13 @@ t("horror", "恐魔", "entity type")
 t("corrupted", "腐化", "entity subtype")
 t("Horned Horror", "长角恐魔", "entity name")
 t("Some horrible power has twisted this brutish minotaur into something altogether more terrifying. Huge tentacles undulate from its back as it clenches and unclenches its powerful fists.", "某种可怕的力量将这个野蛮的米诺陶扭曲成了更加恐怖的东西。巨大的触手从它背上起伏翻涌，它同时握紧又松开有力的拳头。", "_t")
-t("and revived as a mindless horror", "并作为一只无思想的恐魔复活", "_t")
+t("and revived as a mindless horror", "并将其复活为一只无心智的恐魔", "_t")
 t("Have you hard about the patrol that disappeared in the maze in the west?", "你有听说过有一支巡逻队在西边迷宫附近失踪了吗？", "_t")
 t("giant", "巨人", "entity type")
 t("minotaur", "米诺陶", "entity subtype")
 t("Minotaur of the Labyrinth", "迷宫的米诺陶", "entity name")
 t("A fearsome bull-headed monster, he swings a mighty axe as he curses all who defy him.", "一只可怕的牛头怪物，他挥舞着巨斧，诅咒所有胆敢违抗他的人。", "_t")
-t("and hung on a wall-spike", "并被挂在墙上的长钉上", "_t")
+t("and hung on a wall-spike", "并将其挂在墙上的长钉上", "_t")
 t("Nimisil", "尼米希尔", "entity name")
 t("Covered by eerie luminescent growths and protuberances, this spider now haunts the maze's silent passageways.", "这只蜘蛛覆盖着诡异的发光增生和瘤状突起，如今出没于迷宫寂静的通道中。", "_t")
 
@@ -39118,7 +39118,7 @@ section "mod-tome/data/zones/murgol-lair/npcs.lua"
 
 t("Murgol, the Yaech Lord", "夺魂魔领主穆格尔", "entity name")
 t("You can feel the psionic waves of power come from this yaech.", "你可以在这只夺魂魔身上感受到庞大的灵能。", "_t")
-t("and flushed out to sea", "并被扔进海里", "_t")
+t("and flushed out to sea", "并将其冲进了大海", "_t")
 t("humanoid", "人形生物", "entity type")
 t("naga", "娜迦", "entity subtype")
 t("naga tidewarden", "娜迦潮汐守卫", "entity name")
@@ -39128,7 +39128,7 @@ t("naga nereid", "娜迦海卫", "entity name")
 t("Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.", "一双绿色的眼睛从缕缕金色长发后凝视着你，那长发如波浪般垂落在光洁苍白的肌肤上。你的目光被裸露的肌肤吸引，但再往下看，就会见到黑色的鳞片一路延伸，化作长长的蛇尾。她一动，发丝分开，露出一张清瘦而美丽的脸庞，颧骨高耸，双唇丰润。然而，纵使这奇异生灵如此诱人，那蛇一般的尾巴带来的恐惧仍让你脊背发凉。", "_t")
 t("Lady Nashva the Streambender", "激流盘旋者纳纱瓦女士", "entity name")
 t("Water circles slowly on the ground around this naga's tail. Her dark tail is coiled tight, making her look short, but her calm and confident stare assure you that she will not be easily overcome. As the water begins to rise around her the air starts to shimmer, and you feel her dark eyes are penetrating into you deeper than is comfortable.", "水流缓慢的围绕着这位娜迦的尾巴旋转。她黑色的尾巴蜷缩起来，使她看起来较为矮小，但是她沉着而自信的眼神让你确信她不是轻易就能被击败的。当周围的水位开始上涨，空气开始闪烁微光，你感到她漆黑的目光洞穿了你，让你很不自在。", "_t")
-t("and brought back to Vargh for experimentations", "并被带去瓦尔弗成为实验对象", "_t")
+t("and brought back to Vargh for experimentations", "并将其带回瓦尔弗做实验", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/murgol-lair/zone.lua"
@@ -39143,10 +39143,10 @@ t("Norgos, the Frozen", "冰冻者诺尔格斯", "entity name")
 t([[This ancient bear long guarded the western side of the forest, but as of late he started growing mad, attacking even the Thaloren.
 It seems to have fallen prey to the shivgoroth invading the area. Dead and frozen, it seems like a statue, animated by the elementals.]], [[这只远古巨熊一直守护着西边的丛林，但是不知何时他变的疯狂并到处攻击自然精灵们。
 它似乎已经成为了进入这片领地的寒冰元素的牺牲品，死去并且冻结，就像一座雕塑，被元素能量所支配。]], "_t")
-t("and was turned into icicles", "并被冻成冰柱", "_t")
+t("and was turned into icicles", "并将其冻成了冰柱", "_t")
 t("Norgos, the Guardian", "守护者诺尔格斯", "entity name")
 t("This ancient bear long guarded the western side of the forest, but as of late he started growing mad, attacking even the Thaloren.", "这只远古巨熊一直守护着西边的丛林，但是不知何时他变的疯狂并到处攻击自然精灵们。", "_t")
-t("and was feasted upon by wolves", "并被群狼分食", "_t")
+t("and was feasted upon by wolves", "并任由群狼分食其尸", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/norgos-lair/zone.lua"
@@ -39169,7 +39169,7 @@ t("humanoid", "人形生物", "entity type")
 t("thalore", "自然精灵", "entity subtype")
 t("Mindworm", "心灵蠕虫", "entity name")
 t("This tall Thalore's eyes are lost in the distance; you can sense that he barely sees you.", "这位高大的自然精灵目光望向远方；你能感觉到他几乎没看见你。", "_t")
-t("and mind-probed", "并被读心", "_t")
+t("and mind-probed", "并读取了其心灵", "_t")
 t("Fumes", "烟雾", "_t")
 t("As Mindworm dies you can feel the fumes getting less poisonous for your mind.", "当心灵蠕虫倒下时，弥漫的烟气似乎不再侵袭你的心灵了。", "_t")
 
@@ -39206,12 +39206,12 @@ t("giant", "巨人", "entity type")
 t("crystal", "水晶", "entity subtype")
 t("Shardskin", "水晶树精", "entity name")
 t("This crystalline structure seems to be filled with a malevolent aura. Through the crystal surface you can still see the remains of what once was a huge tree.", "这个水晶一样的生物内部似乎充满了邪恶能量，透过水晶表面，你似乎还能看到里面曾是树的部分。", "_t")
-t("and integrated into the crystaline structure", "并被它的水晶结构所吸收", "_t")
+t("and integrated into the crystaline structure", "并将其融入了自身的水晶结构", "_t")
 t("Have you heard, the old forest seems to have been claimed by a new evil!", "你有听说过吗，古老森林似乎已经被一股新的邪恶势力占据了！", "_t")
 t("treant", "树人", "entity subtype")
 t("Wrathroot", "狂怒树精", "entity name")
 t("The ancient grey willow tree, ruler of the Old Forest. He despises trespassers in his territory.", "这棵古老的灰色柳树，古老森林的统治者。他蔑视一切闯入他领地的入侵者。", "_t")
-t("and digested by treants", "并被树人们化为养分", "_t")
+t("and digested by treants", "并让树人们将其化为养分", "_t")
 t("cute little bunny", "可爱的小白兔", "entity name")
 t("It looks at you with cute little eyes before jumping at you with razor sharp teeth.", "它用无辜的眼神看着你，随即用剃刀般锋利的牙齿扑向你。", "_t")
 t("(how pathetic)", "（真可怜！）", "_t")
@@ -39244,7 +39244,7 @@ t("orc mother", "兽人母体", "entity name")
 t([[This giant, bloated form towers above you. Mucus and slime ooze from every orifice, dripping onto the cavern floor. Orc children fight over the right to feed from her distended teats whilst small babies are regularly emerge from folds of flesh. The sight and the smell make you retch.
 Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]], "这个巨大臃肿的身影耸立在你面前。粘液和脓液从它身上的每个孔洞渗出，滴落在洞穴的地面上。兽人幼崽们争抢着吸奶的权利，婴儿从它的肉褶中出生，眼前的景象和气味令人作呕。\n站在你面前的是一只跟龙差不多体型的怪物。浮肿的皮肤隆起成厚厚的褶皱，粗大的毛孔渗出粘稠的液体。上百个垂挂的乳头喂养着一群争吵打斗的年轻兽人——只有最强壮的才能获得宝贵的营养变得更强，弱小的只能在发霉的地面上枯萎。在这只庞然大物的顶端是一颗枯萎的头颅，覆着一头蓬乱纠结的长发。茫然的眼神中混合着悲伤与痛苦，但当它们锁定你时，便转为愤怒，这张脸因护崽的强烈渴望而扭曲。", "_t")
 t("Orc Greatmother", "巨型兽人母体", "entity name")
-t("and given to the children as a plaything", "并成为孩子们的玩具", "_t")
+t("and given to the children as a plaything", "并将其交给孩子们当玩具", "_t")
 t("#PURPLE#As the orc greatmother falls you realize you have dealt a crippling blow to the orcs.", "#PURPLE#当兽人母体倒下时你意识到你对兽人部落造成了致命的打击。", "log")
 
 ------------------------------------------------
@@ -39296,7 +39296,7 @@ section "mod-tome/data/zones/rak-shor-pride/npcs.lua"
 
 t("Rak'shor, Grand Necromancer of the Pride", "部落死灵大法师拉克·肖", "entity name")
 t("An old orc, wearing black robes. He commands his undead armies to destroy you.", "一只穿着黑色长袍的年老兽人。他命令不死大军攻击你。", "_t")
-t("and raised as a malformed servant", "并复活作为一个畸形的仆从", "_t")
+t("and raised as a malformed servant", "并将其复活为一个畸形的仆从", "_t")
 t("Rotting Titan", "腐烂泰坦", "entity name")
 t("This gigantic mass of flesh and stone moves slowly, the ground rumbling with each step it takes. Its body seems to constantly pulsate and reform. Massive stones at the end of each limb form massive blunt weapons.", "这个由血肉与岩石构成的巨大躯体行动缓慢，每走一步都使大地为之震颤。它的身体看起来在不断地颤动和重塑。每条肢体末端的巨石构成了强大的钝器。", "_t")
 t("The ground shakes as %s steps!", "当 %s前进时，大地在震动！", "logSeen")
@@ -39412,7 +39412,7 @@ t("humanoid", "人形生物", "entity type")
 t("shalore", "永恒精灵", "entity subtype")
 t("Rhaloren Inquisitor", "罗兰精灵检察官", "entity name")
 t("This tall elf rushes at you, wielding both her greatsword and magical spells.", "这位高大的精灵冲向你，同时带来她锋利的大剑和魔法的怒吼。", "_t")
-t("and hung from the rafters", "并被挂在椽子上", "_t")
+t("and hung from the rafters", "并将其挂在了椽子上", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/rhaloren-camp/objects.lua"
@@ -39549,7 +39549,7 @@ t("and left to rot", "并任其腐烂", "_t")
 t(".. yes I tell you! The old ruins of Kor'Pul are still haunted!", "…是的，我告诉你！卡·普尔的古老废墟仍然闹鬼！", "_t")
 t("The Possessed", "幽灵附体的强盗头目", "entity name")
 t("He is the leader of a gang of bandits that killed the Shade of Kor'Pul, however it is obvious the Shade was merely displaced. It is now possessing the corpse of his killer.", "这是那伙杀死暗影骷髅的强盗的头目，但显然暗影骷髅上的灵魂并没有这么甘心离去，曾经不可一世的强盗头目也只是被其附体的行尸走肉罢了。", "_t")
-t("and used as a new host", "并被作为新的宿主", "_t")
+t("and used as a new host", "并将其作为新的宿主", "_t")
 t("ghost", "幽灵", "entity subtype")
 t("Kor's Fury", "卡·普尔之怒", "entity name")
 t("The Shade's colossal will keeps it anchored to this world, now as a vengeful, insane spirit.", "暗影的巨大意志使它锚定在这个世界上，如今它是一个充满复仇与疯狂的灵魂。", "_t")
@@ -39577,7 +39577,7 @@ Maybe following it is the only way to move around here...]], "这只沙虫似乎
 t("huge sandworm burrower", "巨型沙虫挖掘者", "entity name")
 t("Sandworm Queen", "沙虫女皇", "entity name")
 t("Before you stands the queen of the sandworms. Massive and bloated, she slithers toward you, calling for her offspring!", "在你面前站着的是沙虫女皇。她庞大而臃肿，蜿蜒蠕行着向你逼近，同时还在召唤自己的子孙！", "_t")
-t("and swallowed whole", "并被整个吞下", "_t")
+t("and swallowed whole", "并将其整个吞下", "_t")
 t("Rumbling...", "轰隆隆…", "_t")
 t("The ground shakes.  Something very large is stirring in the distance.", "大地震颤起来，远处好像有一个巨大的东西正搅动着大地。", "_t")
 t("Did you hear? Something seems to have devoured all the last sandworms!", "你听说了吗？有什么东西把所有剩下的沙虫都吞噬了！", "_t")
@@ -39631,7 +39631,7 @@ section "mod-tome/data/zones/scintillating-caves/npcs.lua"
 
 t("Spellblaze Crystal", "魔法大爆炸水晶", "entity name")
 t("A formation of purple crystal. It seems strangely aware.", "一种紫色水晶。它有着奇特的意识。", "_t")
-t("and vaporised into nothingness", "并蒸发成虚无", "_t")
+t("and vaporised into nothingness", "并将其蒸发成虚无", "_t")
 t("I heard that some old crystals are nearly alive now in the scintillating caves.", "我听说闪光洞穴里的一些古老水晶几乎活了过来。", "_t")
 t("Spellblaze Simulacrum", "魔法大爆炸幻象", "entity name")
 t("A formation of purple crystal, but where the others could only be described as polyhedral, this construct seems to strangely resemble... you, if you were much, much larger.", "一种紫色水晶，如果其他水晶可以被定义为多面体的话，那么这个水晶只能说……和你一样，如果你大个几倍的话。", "_t")
@@ -39717,7 +39717,7 @@ section "mod-tome/data/zones/shertul-fortress/npcs.lua"
 
 t("Weirdling Beast", "异形触手", "entity name")
 t("A roughly humanoid creature, with tentacle-like appendages in the place of arms and legs. You gasp in horror as you notice it has no head. Putrid warts form quickly on its skin and explode as quickly.", "一只大致呈人形的生物，四肢的位置长着触须般的附肢。当你发现它没有头时，倒吸了一口凉气。腐臭的肉疣在它皮肤上迅速鼓起，又迅速炸开。", "_t")
-t("and slowly consumed", "并被慢慢消化", "_t")
+t("and slowly consumed", "并将其慢慢消化", "_t")
 t("#LIGHT_RED#As the Weirdling beast falls it shrieks one last time and the door behind it shatters and explodes, revealing the room behind it. The stair up vanishes!", "#LIGHT_RED#随着怪诞野兽的倒下，它发出了最后一声尖叫。它身后的门被炸开，里面出现了一个房间，楼梯消失了！", "log")
 t("Teleportation portal to the Sher'Tul Fortress", "通向夏·图尔堡垒的传送阵", "_t")
 t("Sher'Tul", "夏·图尔", "entity subtype")
@@ -39802,7 +39802,7 @@ t("naga nereid", "娜迦海卫", "entity name")
 t("Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.", "一双绿色的眼睛从缕缕金色长发后凝视着你，那长发如波浪般垂落在光洁苍白的肌肤上。你的目光被裸露的肌肤吸引，但再往下看，就会见到黑色的鳞片一路延伸，化作长长的蛇尾。她一动，发丝分开，露出一张清瘦而美丽的脸庞，颧骨高耸，双唇丰润。然而，纵使这奇异生灵如此诱人，那蛇一般的尾巴带来的恐惧仍让你脊背发凉。", "_t")
 t("Lady Zoisla the Tidebringer", "潮汐使者佐西拉夫人", "entity name")
 t("Water circles slowly on the ground around this naga's tail, some droplets leaping up now and then as if they are impatient to do their mistress' bidding. Her dark tail is coiled tight, making her look short, but her calm and confident stare assure you that she will not be easily overcome. As the water begins to rise around her the air starts to shimmer, and you feel her dark eyes are penetrating into you deeper than is comfortable.", "水流缓慢地围绕着这位娜迦的尾巴旋转，有些水珠不时跃起，似乎迫不及待要执行主人的命令。她黑色的尾巴蜷缩起来，使她看起来较为矮小，但是她沉着而自信的眼神让你确信她不是轻易就能被击败的。当周围的水位开始上涨，空气开始闪烁微光，你感到她漆黑的目光洞穿了你，让你很不自在。", "_t")
-t("and brought back to Vargh for experimentation", "并被带去瓦尔弗成为实验对象", "_t")
+t("and brought back to Vargh for experimentation", "并将其带回瓦尔弗做实验", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/slazish-fen/objects.lua"
@@ -39879,7 +39879,7 @@ t("giant", "巨人", "entity type")
 t("troll", "巨魔", "entity subtype")
 t("Corrupted Oozemancer", "被污染的软泥使", "entity name")
 t("This blight-ridden troll was once a proud defender of Nature. His corruption is spreading, eating away at the forest around him.", "这个被枯萎能量污染的巨魔曾经是大自然骄傲的守护者。他身上的污染正在扩散，吞噬了他周围的森林。", "_t")
-t("and dissolved into acidic ooze", "并溶解为酸性的淤泥", "_t")
+t("and dissolved into acidic ooze", "并将其溶解为酸性的淤泥", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/sludgenest/zone.lua"
@@ -39957,7 +39957,7 @@ t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Tannen", "泰恩", "entity name")
 t("The traitor has been revealed, and he does not intend to let you escape to tell the tale.", "叛徒的真面目已被揭露，他并不打算让你逃脱去讲述这个故事。", "_t")
-t("and was neither found nor heard from again", "并且既未被找到也再无音讯", "_t")
+t("and was neither found nor heard from again", "并使其从此下落不明、杳无音讯", "_t")
 t("construct", "构装体", "entity type")
 t("golem", "傀儡", "entity subtype")
 t("Drolem", "龙傀儡", "entity name")
@@ -40000,7 +40000,7 @@ t("undead", "亡灵", "entity type")
 t("ghost", "幽灵", "entity subtype")
 t("The Shade of Telos", "泰勒斯之影", "entity name")
 t("Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power.", "所有人都认为泰勒斯已经形神俱灭了，但现在看起来他似乎仍徘徊在他旧日的力量之所。", "_t")
-t("and was savagely mutilated, a show of his rage towards all living things", "并被残忍肢解，作为他对所有生物的无尽怒火的体现", "_t")
+t("and was savagely mutilated, a show of his rage towards all living things", "并将其残忍肢解，以此宣泄他对一切生灵的怒火", "_t")
 t("Back and there again", "归而复往", "_t")
 t("As the shade dissipates, you see no sign of the text entitled \"Inverted and Reverted Probabilistic Fields\". You should go back to Tannen.", "当阴影消退，你没有找到任何《反转与复原概率场》标题的文本。你必须回到泰恩那。", "_t")
 
@@ -40025,7 +40025,7 @@ t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Urkis, the High Tempest", "风暴魔导师厄奇斯", "entity name")
 t("Lightning crackles around this middle-aged man. He radiates power.", "电弧在这名中年男子周围劈啪作响。他散发着力量。", "_t")
-t("and used in mad electrical reanimation experiments", "并被用于他疯狂的电击复活实验", "_t")
+t("and used in mad electrical reanimation experiments", "并将其用于疯狂的电击复活实验", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/tempest-peak/zone.lua"
@@ -40039,7 +40039,7 @@ t("humanoid", "人形生物", "entity type")
 t("naga", "娜迦", "entity subtype")
 t("Slasul", "萨拉苏尔", "entity name")
 t("This towering naga exudes power, and radiates a certain charismatic charm as well. His masculine face stares at you with great intensity, and you struggle to meet his gaze. His torso is bare apart from an exquisite pearl set directly in his chest, and in his muscular arms he holds ready a heavy mace and shield. You sense there is more to him also, as if the very power of the ocean were concentrated in this great creature, and that the wrath of it may come flooding out at any moment.", "这只铁塔般的娜迦散发着强大的能量，同时也流露着某种迷人的魅力。他刚毅的面容热切地盯着你，你几乎无法直视他的目光。他赤裸的上身只在胸口正中嵌着一颗精致的珍珠，强壮的臂膀中分别握着一把沉重的钉头锤和一面盾牌。你感觉到他身上还隐藏着更深的东西，仿佛整个海洋的力量都凝聚在这位伟大的生物身上，其怒火随时可能喷涌而出。", "_t")
-t("and perverted into a monstrous aberration as a warning to the surface", "并被转化成一个恐怖的怪物，作为对地上所有人的警告", "_t")
+t("and perverted into a monstrous aberration as a warning to the surface", "并将其扭曲成一个恐怖的怪物，作为对地上所有人的警告", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/temple-of-creation/objects.lua"
@@ -40659,7 +40659,7 @@ t("giant", "巨人", "entity type")
 t("troll", "巨魔", "entity subtype")
 t("Prox the Mighty", "大力巨魔普罗克斯", "entity name")
 t("A huge troll, he might move slowly but he does look dangerous nonetheless.", "一只巨大的巨魔，虽然他行动缓慢，但是毫无疑问他看起来危险无比。", "_t")
-t("and eaten raw", "并被生吞活剥", "_t")
+t("and eaten raw", "并将其生吞活剥", "_t")
 t("Prox staggers for a moment. A note seems to drop at his feet.", "普罗克斯蹒跚了几步，一张纸条似乎掉在了他脚下。", "logSeen")
 t("... and we thought the trollmire was safer now!", "…谁说巨魔沼泽比以前安全了！", "_t")
 t("Shax the Slimy", "黏糊糊的夏克斯", "entity name")
@@ -40671,7 +40671,7 @@ He is wielding a small tree trunk and lumbering toward you.
 This is the troll the notes spoke about, no doubt.]], [[高大、魁梧、力大无穷，且嗜食半身人。
 他抡着一根小树的树干，正笨重地朝你挪来。
 这就是那些碎纸片上提到的巨魔，绝对没错。]], "_t")
-t("and clobbered into soup", "并被打成肉泥", "_t")
+t("and clobbered into soup", "并将其打成肉泥", "_t")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("Aluin the Fallen", "堕落骑士阿鲁因", "entity name")
@@ -41031,7 +41031,7 @@ section "mod-tome/data/zones/vor-pride/npcs.lua"
 
 t("Vor, Grand Geomancer of the Pride", "部落高阶地卜师沃尔", "entity name")
 t("An old orc, wearing multi-colored robes. Ice shards fly around him, leaving a trail of fire and lightning bursts.", "一名身穿彩色长袍的年老兽人。冰晶在他周围飞舞，在身后留下一道燃烧着火焰与闪电的轨迹。", "_t")
-t("and used as target practice for initiate mages", "并作为新兵法师的人肉靶子", "_t")
+t("and used as target practice for initiate mages", "并将其当作新兵法师的人肉靶子", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/vor-pride/objects.lua"
