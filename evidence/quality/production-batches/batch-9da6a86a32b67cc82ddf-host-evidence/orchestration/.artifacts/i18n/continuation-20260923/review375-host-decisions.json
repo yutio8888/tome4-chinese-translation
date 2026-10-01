@@ -1,0 +1,15 @@
+{
+ "workset": "evidence/quality/production-batches/batch-9da6a86a32b67cc82ddf-source-workset.json",
+ "decisions": {
+  "1c38f759ab|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/chronomancy/flux.lua:34 引导异常（Induce Anomaly）的 action 调用 paradoxDoAnomaly(..., {allow_target=self:knowTalent(self.T_TWIST_FATE)})：学会扭曲命运（Twist Fate）后，本技能引发的异常可由玩家选择目标。原文“you may target Induced Anomalies”即为引导异常选择目标；现译“你可以选中引导异常作为目标”把异常本身说成被选中的对象，机制颠倒。另：info 第二行（L41 “Induced Anomalies may not be held … However upon learning Twist Fate you may target Induced Anomalies.”）是一行，现译在“然而”前多拆一行（多一个 LF 与两个 TAB），属换行不变量缺陷。确认。修复：去掉该换行，并改为“…也不会触发被延后的异常。然而，学会扭曲命运后，你可以为引导异常选择目标。”，其余不变（“%d。 这个”处空格为 §6.4 补空格规则所致，保留）。"
+  },
+  "1c38f759ab|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一结论：Opus 5.5 引 flux.lua L34 allow_target 与扭曲命运说明“may choose the target area”，指出机制颠倒及第二行被拆为两行（LF 2→3）。宿主独立核验源码确认，合并为一次修复。"
+  }
+ }
+}

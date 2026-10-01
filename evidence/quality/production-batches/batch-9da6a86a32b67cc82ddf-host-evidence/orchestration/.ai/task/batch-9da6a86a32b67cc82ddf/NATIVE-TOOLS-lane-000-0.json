@@ -1,0 +1,50 @@
+[
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_0782cc62044333bc016abdbb6acc7087d29daccd9ce1a39ab2",
+    "status": "completed",
+    "call_id": "call_bp99d1TzxQWewPjDRTnMHtzv",
+    "name": "exec",
+    "input": "const r = await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md .ai/task/batch-9da6a86a32b67cc82ddf-surface-000/SURFACE-SCREEN-ENVELOPE-lane-000-0.json\",max_output_tokens:24000});text(r.output);\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0f524-01da-7a01-aad3-83ec98daf4c8",
+      "create_time": 1790819177.47111
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_0782cc62044333bc016abdbb6fa89887d2bfd0b68a66acd1f3",
+    "status": "completed",
+    "call_id": "call_s8KxdRkkUVPp8FSQrSYXRWUM",
+    "name": "exec",
+    "input": "text(await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md\",max_output_tokens:14000}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\np='.ai/task/batch-9da6a86a32b67cc82ddf-surface-000/SURFACE-SCREEN-ENVELOPE-lane-000-0.json'\\nd=json.load(open(p))\\nprint('identity',d['candidate_identity'])\\nfor e in d['payload']['entries']:\\n print(json.dumps({k:e[k] for k in ['entry_revision_identity','source','target','args_order']},ensure_ascii=False))\\nPY\",\"max_output_tokens\":13000}));\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0f524-01da-7a01-aad3-83ec98daf4c8",
+      "create_time": 1790819181.725207
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_0782cc62044333bc016abdbb7bab0087d284309bec10edb376",
+    "status": "completed",
+    "call_id": "call_uJYbGIBIzg5j3iDalgMYbYLU",
+    "name": "exec",
+    "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json,hashlib,re\\np='.ai/task/batch-9da6a86a32b67cc82ddf-surface-000/SURFACE-SCREEN-ENVELOPE-lane-000-0.json'\\nd=json.load(open(p)); c=lambda x:json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode(); h=lambda x:hashlib.sha256(x).hexdigest()\\nassert h(c(d['payload']))==d['candidate_identity']\\nfor e in d['payload']['entries']:\\n assert re.findall(r'%(?:%|[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[diouxXeEfgGcsq])',e['source'])==re.findall(r'%(?:%|[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[diouxXeEfgGcsq])',e['target'])\\nprint(len(d['payload']['entries']))\\nprint(json.dumps({'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':[{'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'} for e in d['payload']['entries']]},ensure_ascii=False,sort_keys=True,separators=(',',':')))\\nPY\",\"max_output_tokens\":3000}));\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0f524-01da-7a01-aad3-83ec98daf4c8",
+      "create_time": 1790819189.197259
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_0782cc62044333bc016abdbb867de487d29113c5bca7447caa",
+    "status": "completed",
+    "call_id": "call_7aQHC2deaCtGemmPJpD0ZEkT",
+    "name": "exec",
+    "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json,re\\np='.ai/task/batch-9da6a86a32b67cc82ddf-surface-000/SURFACE-SCREEN-ENVELOPE-lane-000-0.json'\\nd=json.load(open(p))\\nfor e in d['payload']['entries']:\\n a=re.findall(r'%(?:%|[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[diouxXeEfgGcsq])',e['source']);b=re.findall(r'%(?:%|[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[diouxXeEfgGcsq])',e['target'])\\n if a!=b: print(e['entry_revision_identity'],a,b)\\nprint(json.dumps({'candidate_identity':d['candidate_identity'],'contract':'translation_surface_screen_v1','results':[{'entry_revision_identity':e['entry_revision_identity'],'verdict':'OK'} for e in d['payload']['entries']]},ensure_ascii=False,sort_keys=True,separators=(',',':')))\\nPY\",\"max_output_tokens\":3000}));\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0f524-01da-7a01-aad3-83ec98daf4c8",
+      "create_time": 1790819203.555721
+    }
+  }
+]

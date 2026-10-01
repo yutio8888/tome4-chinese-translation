@@ -1,0 +1,16 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 1 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "1c38f759ab9063105dfb70a5f7385e7c6435a9e9440ef6cb896b2f8028c006df",
+      "stage": "surface",
+      "observation": "原文“you may target Induced Anomalies”疑指可以为引导异常指定目标，译文“你可以选中引导异常作为目标”则把异常本身作为被选中的对象。冻结输入不足以消除该歧义，需机制语境证据确认。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/chronomancy/flux.lua:34 引导异常（Induce Anomaly）的 action 调用 paradoxDoAnomaly(..., {allow_target=self:knowTalent(self.T_TWIST_FATE)})：学会扭曲命运（Twist Fate）后，本技能引发的异常可由玩家选择目标。原文“you may target Induced Anomalies”即为引导异常选择目标；现译“你可以选中引导异常作为目标”把异常本身说成被选中的对象，机制颠倒。另：info 第二行（L41 “Induced Anomalies may not be held … However upon learning Twist Fate you may target Induced Anomalies.”）是一行，现译在“然而”前多拆一行（多一个 LF 与两个 TAB），属换行不变量缺陷。确认。修复：去掉该换行，并改为“…也不会触发被延后的异常。然而，学会扭曲命运后，你可以为引导异常选择目标。”，其余不变（“%d。 这个”处空格为 §6.4 补空格规则所致，保留）。"
+    }
+  ]
+}

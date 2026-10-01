@@ -1,0 +1,46 @@
+{
+  "batch_id": "batch-9da6a86a32b67cc82ddf",
+  "observations": 2,
+  "observation_dispositions": {
+    "confirmed": 2
+  },
+  "repair_revision_keys": [
+    "1c38f759ab9063105dfb70a5f7385e7c6435a9e9440ef6cb896b2f8028c006df"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 79,
+    "repair_required": 1,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "1c38f759ab9063105dfb70a5f7385e7c6435a9e9440ef6cb896b2f8028c006df",
+      "stage": "surface",
+      "observation": "原文“you may target Induced Anomalies”疑指可以为引导异常指定目标，译文“你可以选中引导异常作为目标”则把异常本身作为被选中的对象。冻结输入不足以消除该歧义，需机制语境证据确认。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/chronomancy/flux.lua:34 引导异常（Induce Anomaly）的 action 调用 paradoxDoAnomaly(..., {allow_target=self:knowTalent(self.T_TWIST_FATE)})：学会扭曲命运（Twist Fate）后，本技能引发的异常可由玩家选择目标。原文“you may target Induced Anomalies”即为引导异常选择目标；现译“你可以选中引导异常作为目标”把异常本身说成被选中的对象，机制颠倒。另：info 第二行（L41 “Induced Anomalies may not be held … However upon learning Twist Fate you may target Induced Anomalies.”）是一行，现译在“然而”前多拆一行（多一个 LF 与两个 TAB），属换行不变量缺陷。确认。修复：去掉该换行，并改为“…也不会触发被延后的异常。然而，学会扭曲命运后，你可以为引导异常选择目标。”，其余不变（“%d。 这个”处空格为 §6.4 补空格规则所致，保留）。"
+    },
+    {
+      "revision_key": "1c38f759ab9063105dfb70a5f7385e7c6435a9e9440ef6cb896b2f8028c006df",
+      "stage": "contextual",
+      "observation": "机制误译：源码 tome game/modules/tome/data/talents/chronomancy/flux.lua@624a6732 L34 调用 paradoxDoAnomaly(..., {allow_target=self:knowTalent(self.T_TWIST_FATE)})，即学会扭曲命运后，本技能引发的异常可由玩家选择目标（区域）（同文件 L201 扭曲命运说明亦为 may choose the target area）；译文「你可以选中引导异常作为目标」把异常本身说成被选中的目标，意思颠倒，应改为如「学会扭曲命运后，你可以为引导异常选择目标」。另：原文第二行（Induced Anomalies…/However…）在译文中被拆成两行，多出一个换行加两个制表符，换行数与原文不一致（原文 2 个，译文 3 个）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一结论：Opus 5.5 引 flux.lua L34 allow_target 与扭曲命运说明“may choose the target area”，指出机制颠倒及第二行被拆为两行（LF 2→3）。宿主独立核验源码确认，合并为一次修复。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (6 lanes of 2/2/2/1)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 full-000, accepted on the first pass; 1 entries)"
+  },
+  "notes": [
+    "Surface screening: three groups of codex/gpt-6.1-sol (thinking medium, auto-review): main game 4 lanes x19, Cults full 1, Orcs full 3; 79 OK / 1 ISSUE; every child only read its own envelope and the contract (12 exec calls, no writes, no Paseo terminals). No observation flagged the placeholder spaces added by maintenance a2a2d6b7.",
+    "Contextual review: claude/claude-opus-5-5 over the 1 deep entry, accepted on the first pass (1 ISSUE); it read its own envelope, the contract and the pinned tome source via git show/git grep.",
+    "All 80 entries are successors of the talent placeholder-spacing maintenance (a2a2d6b7); the spaces themselves follow review guide §6.4 and were not at issue.",
+    "All 7 Orcs entries matched the public DLC source file SHA in the workset (freeze matched 7/7), with the DLC repository and commit unpinned.",
+    "1 confirmed repair revisions raise the window 59 backlog from 0 to 1; below the 20 threshold, so no window opens."
+  ]
+}

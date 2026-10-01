@@ -1,0 +1,2826 @@
+[
+  {
+    "entry_revision_identity": "29a67857987d35cc95f7333d449c9345393d604d63f9a675fe4dc5e56da9d6b4",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/temporal-combat.lua",
+    "lines": [
+      {
+        "line": 173,
+        "text": "\t\tlocal slow = t.getSlow(self, t)"
+      },
+      {
+        "line": 174,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 175,
+        "text": "\t\treturn ([[When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f physical (gravity) damage to enemies in a radius of %d."
+      },
+      {
+        "line": 176,
+        "text": "\t\tAffected targets may also be slowed, decreasing their global speed speed by %d%% for %d turns"
+      },
+      {
+        "line": 177,
+        "text": "\t\tThis effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Fate and Fold Warp by one turn.]])"
+      },
+      {
+        "line": 178,
+        "text": "\t\t:tformat(chance, damDesc(self, DamageType.PHYSICAL, damage), radius, slow, duration)"
+      },
+      {
+        "line": 179,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4df59a467cef88f640344b72eb5715174e201e5649fcf25860a62914e4453520",
+    "public_source_path": "game/modules/tome/data/talents/celestial/sunlight.lua",
+    "lines": [
+      {
+        "line": 236,
+        "text": "\tend,"
+      },
+      {
+        "line": 237,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 238,
+        "text": "\t\treturn ([[Release a burst of sunlight beams at %d random foes in radius %d, dealing %d damage to all foes hit and increasing your bonus light damage by %d%% of your bonus darkness damage for %d turns.]]):tformat(t.getTargetCount(self, t), self:getTalentRadius(t), damDesc(self, DamageType.LIGHT, t.getDamage(self, t)), t.getPower(self, t)*100, t.getDuration(self, t))"
+      },
+      {
+        "line": 239,
+        "text": "\tend,"
+      },
+      {
+        "line": 240,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "85554ed44fd8785fa56b4568195bf13a6f2c489e722dc492944587823ccdaa4a",
+    "public_source_path": "game/modules/tome/data/talents/gifts/cold-drake.lua",
+    "lines": [
+      {
+        "line": 201,
+        "text": "\t\tlocal icerad = t.getIceRadius(self, t)"
+      },
+      {
+        "line": 202,
+        "text": "\t\tlocal icedam = t.getIceDamage(self, t)"
+      },
+      {
+        "line": 203,
+        "text": "\t\treturn ([[Summons an icy wall of %d length for %d turns. Ice walls are transparent, but block projectiles and enemies."
+      },
+      {
+        "line": 204,
+        "text": "\t\tIce walls also emit freezing cold, dealing %0.2f damage for each ice wall within radius %d of an enemy, and with each wall giving a 25%% chance to freeze an enemy. This cold cannot hurt the talent user or their allies."
+      },
+      {
+        "line": 205,
+        "text": "\t\tEach point in cold drake talents also increases your cold resistance by 1%%.]]):tformat(3 + math.floor(self:getTalentLevel(t) / 2) * 2, t.getDuration(self, t), damDesc(self, DamageType.COLD, icedam),  icerad)"
+      },
+      {
+        "line": 206,
+        "text": "\tend,"
+      },
+      {
+        "line": 207,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "85b38c962c3ec58e6a6d97d5811226e5b9caddbc2b28142fbdffa51344d31dc5",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/temporal-combat.lua",
+    "lines": [
+      {
+        "line": 282,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 283,
+        "text": "\t\tlocal resists = t.getResists(self, t)"
+      },
+      {
+        "line": 284,
+        "text": "\t\treturn ([[You now have a %d%% chance to Fold Fate, Gravity, or Warp into your Weapon Folding damage."
+      },
+      {
+        "line": 285,
+        "text": "\t\t"
+      },
+      {
+        "line": 286,
+        "text": "\t\tFold Fate: Deals %0.2f temporal damage to enemies in a radius of %d.  Affected targets may lose %d%% physical and temporal resistance for %d turns."
+      },
+      {
+        "line": 287,
+        "text": "\t\tFold Warp: Deals %0.2f physical and %0.2f temporal damage to enemies in a radius of %d.  Affected targets may be stunned, blinded, confused, or pinned for %d turns."
+      },
+      {
+        "line": 288,
+        "text": "\t\tFold Gravity: Deals %0.2f physical damage to enemies in a radius of %d.  Affected targets will be slowed (%d%%) for %d turns."
+      },
+      {
+        "line": 289,
+        "text": "\t\t"
+      },
+      {
+        "line": 290,
+        "text": "\t\tEach Fold has an eight turn cooldown.  If an effect would be triggered while on cooldown it will reduce the cooldown of the other two Folds by one turn.]])"
+      },
+      {
+        "line": 291,
+        "text": "\t\t:tformat(chance, damDesc(self, DamageType.TEMPORAL, damage), radius, resists, duration, damDesc(self, DamageType.PHYSICAL, damage/2), damDesc(self, DamageType.TEMPORAL, damage/2), radius,"
+      },
+      {
+        "line": 292,
+        "text": "\t\tduration, damDesc(self, DamageType.PHYSICAL, damage), radius, slow, duration)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9328075217326ed8d95407bfb4a45bcc26101b53578584315b75ff6267924098",
+    "public_source_path": "game/modules/tome/data/talents/celestial/chants.lua",
+    "lines": [
+      {
+        "line": 418,
+        "text": "\tend,"
+      },
+      {
+        "line": 419,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 420,
+        "text": "\t\treturn ([[Your passion for singing the praises of the Sun reaches its zenith."
+      },
+      {
+        "line": 421,
+        "text": "\t\tYour Chanting now increases your light and fire damage by %d%% and, up to %d times per turn when you are hit by a weapon attack, you will gain %0.1f Positive Energy."
+      },
+      {
+        "line": 422,
+        "text": "\t\tThese values scale with your Spellpower.]]):tformat(t.getLightDamageIncrease(self, t), t.getTurnLimit(self, t), t.getPos(self, t))"
+      },
+      {
+        "line": 423,
+        "text": "\tend,"
+      },
+      {
+        "line": 424,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "bdac4d0344104962164441ce2f35abdf94f1ce0c1cedb6fe6d8fc50f3fbeb8bc",
+    "public_source_path": "game/modules/tome/data/talents/celestial/combat.lua",
+    "lines": [
+      {
+        "line": 160,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 161,
+        "text": "\t\tlocal range = self:getTalentRange(t)"
+      },
+      {
+        "line": 162,
+        "text": "\t\treturn ([[In a pure display of power, you project a ranged melee attack, doing %d%% weapon damage."
+      },
+      {
+        "line": 163,
+        "text": "\t\tIf the target is outside of melee range, you have a chance to project a second attack against it for %d%% weapon damage."
+      },
+      {
+        "line": 164,
+        "text": "\t\tThe second strike chance (which increases with distance) is %0.1f%% at range 2 and %0.1f%% at the maximum range of %d."
+      },
+      {
+        "line": 165,
+        "text": "\t\tThe range will increase with your Strength.]]):"
+      },
+      {
+        "line": 166,
+        "text": "\t\ttformat(t.getDamage(self, t)*100, t.getDamage(self, t, true)*100, t.SecondStrikeChance(self, t, 2), t.SecondStrikeChance(self, t, range), range)"
+      },
+      {
+        "line": 167,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c799d3e959dabab480c37ca8ca5dac8f1760f46f2d62c3ca44f1f6f699a31fc5",
+    "public_source_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+    "lines": [
+      {
+        "line": 1361,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1362,
+        "text": "\t\tlocal data = self:getInscriptionData(t.short_name)"
+      },
+      {
+        "line": 1363,
+        "text": "\t\treturn ([[Activate the rune to get a vision of the area surrounding you (%d radius) and to allow you to see invisible and stealthed creatures (power %d) for %d turns."
+      },
+      {
+        "line": 1364,
+        "text": "\t\tYour mind will become more receptive for %d turns, allowing you to sense any %s around.]]):"
+      },
+      {
+        "line": 1365,
+        "text": "\t\ttformat(data.range, data.power + data.inc_stat, data.dur, data.dur, data.esp or \"humanoid\")"
+      },
+      {
+        "line": 1366,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "cef076b5e283dd22496db5f95bd54c2d916a0e71d119f6371fd0711da30a8989",
+    "public_source_path": "game/modules/tome/data/talents/psionic/voracity.lua",
+    "lines": [
+      {
+        "line": 206,
+        "text": "\tinfo = function(self, t) -- could this use another effect?"
+      },
+      {
+        "line": 207,
+        "text": "\t\tlocal range = self:getTalentRadius(t)"
+      },
+      {
+        "line": 208,
+        "text": "\t\treturn ([[You draw electical potential energy from your surroundings to replenish your Psi."
+      },
+      {
+        "line": 209,
+        "text": "\t\tThis deals %0.1f (max %0.1f) Lightning damage to all targets around you within radius %d, and has a %d%% (max %d%%) chance to daze them for 3 turns."
+      },
+      {
+        "line": 210,
+        "text": "\t\tYou replenish %d (max %d) Psi from the first target, with each additional target restoring 20%% less than the one before it."
+      },
+      {
+        "line": 211,
+        "text": "\t\tThe strength of these effects increases as your Psi depletes and with your Mindpower.]])"
+      },
+      {
+        "line": 212,
+        "text": "\t\t:tformat(t.getDam(self, t), t.getDam(self, t, 0), range, t.getDaze(self, t), t.getDaze(self, t, 0), t.getLeech(self, t), t.getLeech(self, t, 0))"
+      },
+      {
+        "line": 213,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "cfc762ace84d998ea82d5b1ee863fec40702ad3b4f09eb2a8e52bb28678fb1d1",
+    "public_source_path": "game/modules/tome/data/talents/spells/death.lua",
+    "lines": [
+      {
+        "line": 202,
+        "text": "\tend,"
+      },
+      {
+        "line": 203,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 204,
+        "text": "\t\treturn ([[Your body starts to radiate shadows, increasing your darkness resistance by %d%%, armour by %d and defence by %d."
+      },
+      {
+        "line": 205,
+        "text": "\t\tAny time you absorb a soul the shadows pulse outward, dealing %0.2f frostdusk damage to all foes in range %d and knocking them back 3 tiles."
+      },
+      {
+        "line": 206,
+        "text": "\t\tThis can only happen once per turn."
+      },
+      {
+        "line": 207,
+        "text": "\t\tThe damage increases with your Spellpower.]]):"
+      },
+      {
+        "line": 208,
+        "text": "\t\ttformat(t:_getResist(self), t:_getArmor(self), t:_getDef(self), damDesc(self, DamageType.FROSTDUSK, t.getDamage(self, t)), self:getTalentRadius(t))"
+      },
+      {
+        "line": 209,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d6b0457a552dd8cde3ad1a9786995b55c5fdf41b9d23eb7bc5dfea7a6f405ce8",
+    "public_source_path": "game/modules/tome/data/talents/cursed/punishments.lua",
+    "lines": [
+      {
+        "line": 62,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 63,
+        "text": "\t\tlocal spreadFactor = t.getSpreadFactor(self, t)"
+      },
+      {
+        "line": 64,
+        "text": "\t\treturn ([[Utter a terrible curse against any who dare approach you, inflicting %d mind damage to targets in radius %d. Each affected target (ordered at random) takes %d%% less damage than the last, and has a 25%% chance of suffering Brainlock."
+      },
+      {
+        "line": 65,
+        "text": ""
+      },
+      {
+        "line": 66,
+        "text": "The damage increases with your Mindpower.]]):tformat(damDesc(self, DamageType.MIND, damage), self:getTalentRange(t), (1 - spreadFactor) * 100)"
+      },
+      {
+        "line": 67,
+        "text": "\tend,"
+      },
+      {
+        "line": 68,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "def67d3f4e05916a225d13cb2f072910f6f339da31cd244496dc14f524523b85",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/temporal-combat.lua",
+    "lines": [
+      {
+        "line": 79,
+        "text": "\t\tlocal resists = t.getResists(self, t)"
+      },
+      {
+        "line": 80,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 81,
+        "text": "\t\treturn ([[When you hit with Weapon Folding you have a %d%% chance of dealing an additional %0.2f temporal damage to enemies in a radius of %d."
+      },
+      {
+        "line": 82,
+        "text": "\t\tAffected targets may also have their physical and temporal resistance reduced by %d%% for %d turns."
+      },
+      {
+        "line": 83,
+        "text": "\t\tThis effect has a cooldown.  If it triggers while on cooldown it will reduce the cooldown of Fold Gravity and Fold Warp by one turn.]])"
+      },
+      {
+        "line": 84,
+        "text": "\t\t:tformat(chance, damDesc(self, DamageType.TEMPORAL, damage), radius, resists, duration)"
+      },
+      {
+        "line": 85,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5c58f7b481c8679dd139d8b4f1b24aacc3a4eebe9deefe6717c8ee97e5cc4f7",
+    "public_source_path": "tome-cults/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 286,
+        "text": "\t\tend"
+      },
+      {
+        "line": 287,
+        "text": "\t\tlocal damname = DamageType:get(damtype).text_color..DamageType:get(damtype).name..\"#LAST#\""
+      },
+      {
+        "line": 288,
+        "text": "\t\treturn ([[Since ziguranth removed those filthy magic runes from your body you have needed an alternative form of power to sustain your body. Thanks to drake blood you have found that power."
+      },
+      {
+        "line": 289,
+        "text": "\t\tYour blood hardens yourself, passively increasing stun resistance by %d%%, %s resistance by %d%% and dealing %d %s damage on melee attacks."
+      },
+      {
+        "line": 290,
+        "text": "\t\tYou can activate this talent to change which drake aspect to bring forth, altering the elemental type of the bonus."
+      },
+      {
+        "line": 291,
+        "text": "\t\tThe resistance and damage scales with your Willpower."
+      },
+      {
+        "line": 292,
+        "text": ""
+      },
+      {
+        "line": 293,
+        "text": "\t\tChanging your aspect requires combat experience, you may only do so after slaying 100 enemies (current %d)."
+      },
+      {
+        "line": 294,
+        "text": ""
+      },
+      {
+        "line": 295,
+        "text": "\t\tWhen you learn this talent you become so strong you can wield any type of one handed weapon in your offhand.]]):"
+      },
+      {
+        "line": 296,
+        "text": "\t\ttformat(t.getImmune(self, t), damname, resist, damDesc(self, damtype, damage), damname, self.krog_kills or 0)"
+      },
+      {
+        "line": 297,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3330baa8c780c4860abd024d015950726d90fe8bcf1ac878544d39b6da70ef4f",
+    "public_source_path": "tome-orcs/data/talents/celestial/energies.lua",
+    "lines": [
+      {
+        "line": 214,
+        "text": "\t\tlocal radius = self:getTalentRadius(t)"
+      },
+      {
+        "line": 215,
+        "text": "\t\tlocal slow = 100 * t.getSlow(self, t)"
+      },
+      {
+        "line": 216,
+        "text": "\t\treturn ([[Fires out a bolt of pure energy, dealing %0.2f light and %0.2f darkness damage in a radius of %d, and slowing targets hit. Their movement is reduced by %d%% and attacking, casting and mind attacks by %d%%. The bolt will attune to your current positive and negative energy amounts.]]):"
+      },
+      {
+        "line": 217,
+        "text": "\t\ttformat(damDesc(self, DamageType.LIGHT, dam * (1 - negpart)), damDesc(self, DamageType.DARKNESS, dam * negpart), radius, slow * negpart, slow * 0.6 * (1 - negpart))"
+      },
+      {
+        "line": 218,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "20b1e8166080c8e1b188b883c11b53293fe841263721fcbc72c269325cc214b4",
+    "public_source_path": "tome-orcs/data/talents/celestial/void.lua",
+    "lines": [
+      {
+        "line": 148,
+        "text": "\t\tlocal slow_max = t.getSlowMax(self, t)"
+      },
+      {
+        "line": 149,
+        "text": "\t\tlocal echo_factor = t.getDarkEcho(self, t)"
+      },
+      {
+        "line": 150,
+        "text": "\t\treturn ([[The target feels the echoes of all your light and dark damage for %d turns. "
+      },
+      {
+        "line": 151,
+        "text": ""
+      },
+      {
+        "line": 152,
+        "text": "Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage."
+      },
+      {
+        "line": 153,
+        "text": "Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]])"
+      },
+      {
+        "line": 154,
+        "text": "\t\t:tformat(duration, slow_per * 100, echo_dur, slow_max * 100, slow_max/slow_per, echo_dur, 100 * echo_factor)"
+      },
+      {
+        "line": 155,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f9101801a6b9a915c53418baabf42e40ecd344bcc9aaa78b543e0e511f3db146",
+    "public_source_path": "tome-orcs/data/talents/celestial/crepescula.lua",
+    "lines": [
+      {
+        "line": 29,
+        "text": "\t\tlocal slow_max = t.getSlowMax(self, t)"
+      },
+      {
+        "line": 30,
+        "text": "\t\tlocal echo_factor = t.getDarkEcho(self, t)"
+      },
+      {
+        "line": 31,
+        "text": "\t\treturn ([[The target feels the echoes of all your light and dark damage for %d turns. "
+      },
+      {
+        "line": 32,
+        "text": ""
+      },
+      {
+        "line": 33,
+        "text": "Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage."
+      },
+      {
+        "line": 34,
+        "text": "Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]])"
+      },
+      {
+        "line": 35,
+        "text": "\t\t:tformat(duration, slow_per * 100, echo_dur, slow_max * 100, slow_max/slow_per, echo_dur, 100 * echo_factor)"
+      },
+      {
+        "line": 36,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "021d2328dd22adbce838b2f5842a1733942af71440cbefd96158fc6c6bffb620",
+    "public_source_path": "game/modules/tome/data/talents/misc/npcs.lua",
+    "lines": [
+      {
+        "line": 1146,
+        "text": "\tend,"
+      },
+      {
+        "line": 1147,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1148,
+        "text": "\t\treturn ([[Weave darkness (power %d) in a radius of %d, blocking all light but the most powerful and teleporting you a short range.]]):"
+      },
+      {
+        "line": 1149,
+        "text": "\t\ttformat(t.darkPower(self, t), self:getTalentRadius(t))"
+      },
+      {
+        "line": 1150,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "02b2bee374be582da76a35ab27c2c369e01b65aeec954580f929dbd3bfdd7882",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/spacetime-folding.lua",
+    "lines": [
+      {
+        "line": 236,
+        "text": "\t\tlocal disarm = t.trapPower(self,t)"
+      },
+      {
+        "line": 237,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 238,
+        "text": "\t\treturn ([[Learn to lay Warp Mines in a radius of 1.  Warp Mines teleport targets that trigger them either toward you or away from you depending on the type of mine used and inflict %0.2f physical and %0.2f temporal (warp) damage."
+      },
+      {
+        "line": 239,
+        "text": "\t\tThe mines are hidden traps (%d detection and %d disarm power based on your Magic), last for %d turns, and each have a ten turn cooldown."
+      },
+      {
+        "line": 240,
+        "text": "\t\tInvesting in this talent improves the range of all Spacetime Folding talents and the damage caused by your Warp Mines will improve with your Spellpower."
+      },
+      {
+        "line": 241,
+        "text": "\t\t"
+      },
+      {
+        "line": 242,
+        "text": "\t\tCurrent Spacetime Folding Range: %d]]):"
+      },
+      {
+        "line": 243,
+        "text": "\t\ttformat(damDesc(self, DamageType.PHYSICAL, damage), damDesc(self, DamageType.TEMPORAL, damage), detect, disarm, duration, range) --I5"
+      },
+      {
+        "line": 244,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "043b039e4bb370f9f75c5801eb8439f2891c7e071659aaf8a222d82f00afef0d",
+    "public_source_path": "game/modules/tome/data/talents/cunning/traps.lua",
+    "lines": [
+      {
+        "line": 1943,
+        "text": "\t\tlocal dur = t.getDuration(self,t)"
+      },
+      {
+        "line": 1944,
+        "text": "\t\tlocal nb = t.getNb(self,t)"
+      },
+      {
+        "line": 1945,
+        "text": "\t\treturn ([[Radius 2 antimagic: Drains up to %d mana, %d vim, %d positive/negative, deals up to %0.2f arcane damage.  Removes %d magical effects and silences for %d turns.]]):"
+      },
+      {
+        "line": 1946,
+        "text": "\t\ttformat(base, base/2, base/4, damDesc(self, DamageType.ARCANE, base), nb, dur)"
+      },
+      {
+        "line": 1947,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "04970f40c48042b94bf09a85449d19006a24dd87b468e2eb29703f0dbd0cb54d",
+    "public_source_path": "game/modules/tome/data/talents/cunning/dirty.lua",
+    "lines": [
+      {
+        "line": 103,
+        "text": "\tlocal dam = t.getDamageBoost(self, t)"
+      },
+      {
+        "line": 104,
+        "text": "\tlocal chance = t.getDisableChance(self,t)"
+      },
+      {
+        "line": 105,
+        "text": "\t\treturn ([[Your quick wit gives you a big advantage against disabled targets, increasing your damage by %d%% for each disabling effect the target is under, to a maximum of %d%%."
+      },
+      {
+        "line": 106,
+        "text": "For this purpose, disabling effects are stun, blind, daze, confuse, pin, disarm, cripple and silence."
+      },
+      {
+        "line": 107,
+        "text": "In addition, for each disabling effect the target is under, your melee attacks have a %d%% (to a maximum of %d%%) chance to inflict a new effect on them (that they do not already have): either disarm, cripple (25%% power) or pin for 2 turns."
+      },
+      {
+        "line": 108,
+        "text": "The chance to further disable the target increases with your Accuracy.]]):"
+      },
+      {
+        "line": 109,
+        "text": "\t\ttformat(dam, dam*3, chance, chance*3)"
+      },
+      {
+        "line": 110,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "04be319905a84784ab6e8a4e2a95d22b349ddce0925309cf0fad82de0bc99293",
+    "public_source_path": "game/modules/tome/data/talents/gifts/storm-drake.lua",
+    "lines": [
+      {
+        "line": 108,
+        "text": "\t\tlocal percent = t.getPercent(self, t)"
+      },
+      {
+        "line": 109,
+        "text": "\t\tlocal litdam = t.getDamage(self, t)"
+      },
+      {
+        "line": 110,
+        "text": "\t\treturn ([[Generate an electrical field around you in a radius of %d. Any creature caught inside will lose up to %0.1f%% of its current life (%0.1f%% if the target is Elite or Rare, %0.1f%% if the target is a Unique or Boss, and %0.1f%% if they are an Elite Boss.). This life drain is irresistable, but can be saved against with physical save."
+      },
+      {
+        "line": 111,
+        "text": "\t\tAdditionally, it will deal %0.2f lightning damage afterwards, regardless of target rank."
+      },
+      {
+        "line": 112,
+        "text": "\t\tCurrent life loss and lightning damage will increase with your Mindpower, and the lightning damage element can critically hit with mental critical chances."
+      },
+      {
+        "line": 113,
+        "text": "\t\tEach point in storm drake talents also increases your lightning resistance by 1%%.]]):tformat(self:getTalentRadius(t), percent, percent/1.5, percent/2, percent/2.5, damDesc(self, DamageType.LIGHTNING, litdam))"
+      },
+      {
+        "line": 114,
+        "text": "\tend,"
+      },
+      {
+        "line": 115,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "054df2162c1654de6cb399e656cb4400fe0fe5d2bf9b8d7fecd987691bd50093",
+    "public_source_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+    "lines": [
+      {
+        "line": 726,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 727,
+        "text": "\t\tlocal data = self:getInscriptionData(t.short_name)"
+      },
+      {
+        "line": 728,
+        "text": "\t\treturn ([[Activate the rune to become ethereal for %d turns."
+      },
+      {
+        "line": 729,
+        "text": "\t\tWhile ethereal all damage you deal is reduced by %d%%, you gain %d%% all resistance, you move %d%% faster, and you are invisible (power %d).]]):"
+      },
+      {
+        "line": 730,
+        "text": "\t\t\ttformat(t.getDur(self, t),t.getReduction(self, t) * 100, t.getResistance(self, t), t.getMove(self, t), t.getPower(self, t))"
+      },
+      {
+        "line": 731,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0639147c88321b66efd447c4ed313d0bf74be3c9300b1a67aed86ccff4d3622c",
+    "public_source_path": "game/modules/tome/data/talents/misc/objects.lua",
+    "lines": [
+      {
+        "line": 430,
+        "text": "\tend,"
+      },
+      {
+        "line": 431,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 432,
+        "text": "\t\treturn ([[The target has a %d%% chance (stacking to a maximum of %d%%) to fail to cast any spell.  At level 2 magical effects may be disrupted, at level 3 magical sustains may be disrupted, and at level 5 magical constructs and undead may be stunned.]]):tformat(t.getpower(self, t),t.maxpower(self,t))"
+      },
+      {
+        "line": 433,
+        "text": "\tend,"
+      },
+      {
+        "line": 434,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "064b2c79f891a10cca43cb76ec9ec3ded1295cd4119214a850ac36288ed2a587",
+    "public_source_path": "game/modules/tome/data/talents/misc/npcs.lua",
+    "lines": [
+      {
+        "line": 3155,
+        "text": "\tend,"
+      },
+      {
+        "line": 3156,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 3157,
+        "text": "\t\treturn ([[You are able to perform usually unstealthy actions (attacking, using objects, ...) without breaking stealth.\t When you perform such an action while stealthed, you have a chance to stay hidden."
+      },
+      {
+        "line": 3158,
+        "text": "\t\tSuccess is more likely against fewer opponents and is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection (reduced by 10%% per tile distance) of all enemies that have a clear line of sight to you."
+      },
+      {
+        "line": 3159,
+        "text": "\t\tYour base chance of success is 100%% if you are not directly observed, and good or bad luck may also affect it."
+      },
+      {
+        "line": 3160,
+        "text": "\t\tYou estimate your current chance to maintain stealth as %0.1f%%.]]):"
+      },
+      {
+        "line": 3161,
+        "text": "\t\ttformat(t.stealthMult(self, t), t.getChance(self, t, true), t.getChance(self, t, false, true))"
+      },
+      {
+        "line": 3162,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "06713fe4880afc60c330be575c4bb967e783ea463079b106e56e4c3444097076",
+    "public_source_path": "game/modules/tome/data/talents/corruptions/plague.lua",
+    "lines": [
+      {
+        "line": 321,
+        "text": "\tend,"
+      },
+      {
+        "line": 322,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 323,
+        "text": "\t\treturn ([[Infects the target with a very contagious disease, doing %0.2f damage per turn for 6 turns."
+      },
+      {
+        "line": 324,
+        "text": "\t\tIf any blight damage from non-diseases hits the target, the epidemic may activate and spread a random disease to nearby targets within a radius 2 ball."
+      },
+      {
+        "line": 325,
+        "text": "\t\tThe chance to spread increases with the blight damage dealt and is 100%% if it is at least %d%% of the target's maximum life."
+      },
+      {
+        "line": 326,
+        "text": "\t\tCreatures suffering from that disease will also suffer healing reduction (%d%%) and diseases immunity reduction (%d%%)."
+      },
+      {
+        "line": 327,
+        "text": "\t\tEpidemic is an extremely potent disease; as such, it fully ignores the target's diseases immunity."
+      },
+      {
+        "line": 328,
+        "text": "\t\tThe damage will increase with your Spellpower, and the spread chance increases with the amount of blight damage dealt.]]):"
+      },
+      {
+        "line": 329,
+        "text": "\t\ttformat(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 15, 70)), t.spreadFactor(self, t)*100 ,t.healloss(self,t), t.disfact(self,t))"
+      },
+      {
+        "line": 330,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "07119865289ad8a1d201d9b34b481c7f6d09700353e739ba356767dd64df67b4",
+    "public_source_path": "game/modules/tome/data/talents/psionic/trance.lua",
+    "lines": [
+      {
+        "line": 134,
+        "text": "\t\tlocal healing_modifier = t.getHealingModifier(self, t)"
+      },
+      {
+        "line": 135,
+        "text": "\t\tlocal regen = t.getLifeRegen(self, t)"
+      },
+      {
+        "line": 136,
+        "text": "\t\treturn ([[Activate to heal yourself for %0.2f life.  While this talent is sustained your healing modifier will be increased by %d%% and your life regen by %0.2f."
+      },
+      {
+        "line": 137,
+        "text": "\t\tThe effects will scale with your mindpower."
+      },
+      {
+        "line": 138,
+        "text": "\t\tOnly one trance may be active at a time.]]):tformat(heal, healing_modifier, regen)"
+      },
+      {
+        "line": 139,
+        "text": "\tend,"
+      },
+      {
+        "line": 140,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "07303b652a42892eb019dbba8ef6204f316f8f21fc32a5b8d07645b4b507cf65",
+    "public_source_path": "game/modules/tome/data/talents/psionic/thought-forms.lua",
+    "lines": [
+      {
+        "line": 464,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 465,
+        "text": "\t\tlocal stat = t.getStatBonus(self, t)"
+      },
+      {
+        "line": 466,
+        "text": "\t\treturn ([[Forge a defender wielding a sword and shield from your thoughts.  The solider learns Armor Training, Weapon Mastery, Combat Accuracy, Shield Pummel, and Shield Wall as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution."
+      },
+      {
+        "line": 467,
+        "text": "\t\tActivating this talent will put all other thought-forms on cooldown."
+      },
+      {
+        "line": 468,
+        "text": "\t\tThe stat bonuses will improve with your Mindpower.]]):tformat(stat/2, stat/2, stat)"
+      },
+      {
+        "line": 469,
+        "text": "\tend,"
+      },
+      {
+        "line": 470,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0780a75aa09bade6f25dcac0c3382af8e0dd74decfa7ce7e704d441c9da63a83",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/guardian.lua",
+    "lines": [
+      {
+        "line": 117,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 118,
+        "text": "\t\tlocal cooldown = self:getTalentCooldown(t)"
+      },
+      {
+        "line": 119,
+        "text": "\t\treturn ([[When a single hit deals more than %d%% of your maximum life another you appears and takes %d%% of the damage as well as %d%% of all damage you take for the next %d turns."
+      },
+      {
+        "line": 120,
+        "text": "\t\tThe clone is out of phase with this reality and deals 50%% less damage but its arrows will pass through friendly targets."
+      },
+      {
+        "line": 121,
+        "text": "\t\tThis talent has a cooldown.]]):tformat(trigger, split * 2, split, duration)"
+      },
+      {
+        "line": 122,
+        "text": "\tend,"
+      },
+      {
+        "line": 123,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "07c5291610add67821e3a0991c891df60c1e054c0554fd705e8947238696ba8c",
+    "public_source_path": "game/modules/tome/data/talents/techniques/combat-techniques.lua",
+    "lines": [
+      {
+        "line": 215,
+        "text": "\tend,"
+      },
+      {
+        "line": 216,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 217,
+        "text": "\t\treturn ([[Your combat focus allows you to regenerate life faster (+%0.1f life/turn).]]):tformat(t.getRegen(self, t))"
+      },
+      {
+        "line": 218,
+        "text": "\tend,"
+      },
+      {
+        "line": 219,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "07c9db5ed21bccda0afbb917ba902726147d5cdacbd764700b3ec39959ccd28d",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/spacetime-folding.lua",
+    "lines": [
+      {
+        "line": 199,
+        "text": "\t\tlocal detect = self:callTalent(self.T_WARP_MINES, \"trapPower\") * 0.8"
+      },
+      {
+        "line": 200,
+        "text": "\t\tlocal disarm = self:callTalent(self.T_WARP_MINES, \"trapPower\")"
+      },
+      {
+        "line": 201,
+        "text": "\t\treturn ([[Lay Warp Mines in a radius of 1 that teleport enemies away from you and inflict %0.2f physical and %0.2f temporal (warp) damage."
+      },
+      {
+        "line": 202,
+        "text": "\t\tThe mines are hidden traps (%d detection and %d disarm power based on your Magic) and last for %d turns."
+      },
+      {
+        "line": 203,
+        "text": "\t\tThe damage caused by your Warp Mines will improve with your Spellpower.]]):"
+      },
+      {
+        "line": 204,
+        "text": "\t\ttformat(damDesc(self, DamageType.PHYSICAL, damage), damDesc(self, DamageType.TEMPORAL, damage), detect, disarm, duration) "
+      },
+      {
+        "line": 205,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0acacca277586287ded213a34509ffee0a3316856c371ee7c3ac9a79369bd55f",
+    "public_source_path": "game/modules/tome/data/talents/gifts/moss.lua",
+    "lines": [
+      {
+        "line": 213,
+        "text": "\t\tlocal power = t.getPower(self, t)"
+      },
+      {
+        "line": 214,
+        "text": "\t\tlocal radius = self:getTalentRadius(t)"
+      },
+      {
+        "line": 215,
+        "text": "\t\treturn ([[Instantly grow a moss circle of radius %d at your feet."
+      },
+      {
+        "line": 216,
+        "text": "\t\tEach turn the moss deals %0.2f nature damage to each foe within its radius."
+      },
+      {
+        "line": 217,
+        "text": "\t\tThis moss is coated with strange fluids and has a %d%% chance to confuse (power %d%%) foes passing through it for 2 turns."
+      },
+      {
+        "line": 218,
+        "text": "\t\tThe moss lasts %d turns."
+      },
+      {
+        "line": 219,
+        "text": "\t\tMoss talents are instant but place all other moss talents on cooldown for 3 turns."
+      },
+      {
+        "line": 220,
+        "text": "\t\tThe damage will increase with your Mindpower.]]):"
+      },
+      {
+        "line": 221,
+        "text": "\t\ttformat(radius, damDesc(self, DamageType.NATURE, damage), chance, power, duration)"
+      },
+      {
+        "line": 222,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0b7ee76914df16ce9fb36d859138abb91b37499aecefb2c62a6655a24e008796",
+    "public_source_path": "game/modules/tome/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 926,
+        "text": "\tend,"
+      },
+      {
+        "line": 927,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 928,
+        "text": "\t\treturn ([[Your mind becomes more attuned to the Way, and is shielded from outside effects."
+      },
+      {
+        "line": 929,
+        "text": "\t\tIncrease confusion and silence immunities by %d%% and Mental Save by %d.]]):"
+      },
+      {
+        "line": 930,
+        "text": "\t\ttformat(100*t.getImmune(self, t), t.getSave(self, t))"
+      },
+      {
+        "line": 931,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0ec892fc5c946c790201e48a77f353a216f8a3df37150e88134b8c5e7d506d97",
+    "public_source_path": "game/modules/tome/data/talents/spells/advanced-golemancy.lua",
+    "lines": [
+      {
+        "line": 69,
+        "text": "\tno_unlearn_last = true,"
+      },
+      {
+        "line": 70,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 71,
+        "text": "\t\treturn ([[Insert a pair of gems into your golem, providing it with the gem bonuses and changing its melee attack damage type. You may remove the gems and insert different ones; this does not destroy the gems you remove."
+      },
+      {
+        "line": 72,
+        "text": "\t\tGem level usable: %d"
+      },
+      {
+        "line": 73,
+        "text": "\t\tGem changing is done in the golem's inventory.]]):tformat(self:getTalentLevelRaw(t))"
+      },
+      {
+        "line": 74,
+        "text": "\tend,"
+      },
+      {
+        "line": 75,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0f8a335c3447bb1f44270c558c3f503eb7fdcfc7b2bdcfad30868563a1e471b3",
+    "public_source_path": "game/modules/tome/data/talents/techniques/strength-of-the-berserker.lua",
+    "lines": [
+      {
+        "line": 53,
+        "text": "\tend,"
+      },
+      {
+        "line": 54,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 55,
+        "text": "\t\treturn ([[Shout your warcry in a frontal cone of radius %d. Any targets caught inside will be confused (50%% confusion power) for %d turns.]]):"
+      },
+      {
+        "line": 56,
+        "text": "\t\ttformat(self:getTalentRadius(t), t.getDuration(self, t))"
+      },
+      {
+        "line": 57,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1342c9433bb198ff8129386095218c947eedbb66676f994d1661b75a76450903",
+    "public_source_path": "game/modules/tome/data/talents/gifts/eyals-fury.lua",
+    "lines": [
+      {
+        "line": 45,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 46,
+        "text": "\t\tlocal dam = t.getDamage(self, t)"
+      },
+      {
+        "line": 47,
+        "text": "\t\treturn ([[You focus the inexorable pull of nature against a single creature, eroding it and allowing it to be reclaimed by the cycle of life."
+      },
+      {
+        "line": 48,
+        "text": "\t\tThis deals %0.1f Nature and %0.1f Acid damage to the target, and is particularly devastating against undead and constructs, dealing %d%% more damage to them."
+      },
+      {
+        "line": 49,
+        "text": "\t\tThe damage increases with your Mindpower.]]):"
+      },
+      {
+        "line": 50,
+        "text": "\t\ttformat(damDesc(self, DamageType.NATURE, dam/2), damDesc(self, DamageType.ACID, dam/2), t.undeadBonus)"
+      },
+      {
+        "line": 51,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "13b68f2fe1504457b5e062812edd178bbf582503ed0fcf827b88f164f8050954",
+    "public_source_path": "game/modules/tome/data/talents/celestial/hymns.lua",
+    "lines": [
+      {
+        "line": 418,
+        "text": "\tgetDarkDamageIncrease = function(self, t) return self:combatTalentSpellDamage(t, 10, 30) end,"
+      },
+      {
+        "line": 419,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 420,
+        "text": "\t\treturn ([[Your Hymns now focus darkness near you, which increases your darkness damage by %d%% and does %0.2f darkness damage to anyone who hits you in melee."
+      },
+      {
+        "line": 421,
+        "text": "\t\tThese values scale with your Spellpower.]]):tformat(t.getDarkDamageIncrease(self, t), damDesc(self, DamageType.DARKNESS, t.getDamageOnMeleeHit(self, t)))"
+      },
+      {
+        "line": 422,
+        "text": "\tend,"
+      },
+      {
+        "line": 423,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "13e8473f8c3fc1eee55e5c549403e15c73dd0fd2e9a5b4d84ab8eca54e30ffab",
+    "public_source_path": "game/modules/tome/data/talents/corruptions/plague.lua",
+    "lines": [
+      {
+        "line": 89,
+        "text": "\tend,"
+      },
+      {
+        "line": 90,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 91,
+        "text": "\t\treturn ([[Whenever you deal non-disease blight damage you apply a disease dealing %0.2f blight damage per turn for 6 turns and reducing one of its physical stats (strength, constitution, dexterity) by %d. The three diseases can stack."
+      },
+      {
+        "line": 92,
+        "text": "\t\tVirulent Disease will always try to apply a disease the target does not currently have, and also one that will have the most debilitating effect for the target."
+      },
+      {
+        "line": 93,
+        "text": "\t\tThis disease will try to prioritize being applied to an enemy with a high disease count near the target."
+      },
+      {
+        "line": 94,
+        "text": "\t\tThe effect will increase with your Spellpower.]]):"
+      },
+      {
+        "line": 95,
+        "text": "\t\ttformat(damDesc(self, DamageType.BLIGHT, 7 + self:combatTalentSpellDamage(t, 6, 45)), self:combatTalentSpellDamage(t, 5, 35))"
+      },
+      {
+        "line": 96,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "153683cfefac13d34e83ef455609d070b52cf5bc6da61a4a3bf5b96edc38c6f2",
+    "public_source_path": "game/modules/tome/data/talents/gifts/summon-augmentation.lua",
+    "lines": [
+      {
+        "line": 135,
+        "text": "\tincDur = function(self, t) return math.floor(self:combatTalentLimit(t, 6, 2, 5)) end,"
+      },
+      {
+        "line": 136,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 137,
+        "text": "\t\treturn ([[Increases all your summons' max life by %0.1f%% and extends your summons' maximum lifetime by %d turns.]]):tformat(100*t.incLife(self, t), t.incDur(self,t))"
+      },
+      {
+        "line": 138,
+        "text": "\tend,"
+      },
+      {
+        "line": 139,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "160ce512746b5641732feffcd082f3ffc0a5b645d7bcbd93e8a6cfc277808d81",
+    "public_source_path": "game/modules/tome/data/talents/gifts/fungus.lua",
+    "lines": [
+      {
+        "line": 36,
+        "text": "\tend,"
+      },
+      {
+        "line": 37,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 38,
+        "text": "\t\treturn ([[Surround yourself with a myriad of tiny, nearly invisible, reinforcing fungi."
+      },
+      {
+        "line": 39,
+        "text": "\t\tYou gain %d maximum life and %d life regeneration."
+      },
+      {
+        "line": 40,
+        "text": "\t\tThe effects will increase with your Willpower.]]):"
+      },
+      {
+        "line": 41,
+        "text": "\t\ttformat(t.getLife(self, t), t.getRegen(self, t))"
+      },
+      {
+        "line": 42,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "163a33c486ea368416933cc662c89364c81fe912c97c83d0f6f2c8962351f108",
+    "public_source_path": "game/modules/tome/data/talents/cursed/gestures.lua",
+    "lines": [
+      {
+        "line": 199,
+        "text": "\t\tlocal bonusDamage = t.getBonusDamage(self, t)"
+      },
+      {
+        "line": 200,
+        "text": "\t\tlocal bonusCritical = t.getBonusCritical(self, t)"
+      },
+      {
+        "line": 201,
+        "text": "\t\treturn ([[Use a gesture of pain in place of a normal attack to assault the minds of your enemies, inflicting between %0.1f and %0.1f mind damage. If the attack succeeds, there is a %d%% chance to stun your opponent for 3 turns."
+      },
+      {
+        "line": 202,
+        "text": "\t\tThis strike replaces your melee physical and checks your Mindpower against your opponent's Mental Save, and is thus not affected by your Accuracy or the enemy's Defense. The base damage (doubled) and the critical chance of any Mindstars equipped are added in when this attack is performed."
+      },
+      {
+        "line": 203,
+        "text": "\t\tThis talent requires two free or mindstar-equipped hands and has a 25%% chance to inflict brainlock, which can critically hit. The damage will increase with your Mindpower."
+      },
+      {
+        "line": 204,
+        "text": "\t\tIf attacking with two mindstars the attack will trigger their proc effects, if any."
+      },
+      {
+        "line": 205,
+        "text": "\t\tMindstars bonuses from damage and physical criticals: (+%d damage, +%d critical chance)]])"
+      },
+      {
+        "line": 206,
+        "text": "\t\t:tformat(damDesc(self, DamageType.MIND, baseDamage * 0.5), damDesc(self, DamageType.MIND, baseDamage), stunChance, bonusDamage, bonusCritical)"
+      },
+      {
+        "line": 207,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "16becfc69a85f368fc96875fb2bb1cff4f5a3c0e595157d454c5299137789a7c",
+    "public_source_path": "game/modules/tome/data/talents/gifts/summon-utility.lua",
+    "lines": [
+      {
+        "line": 207,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 208,
+        "text": "\t\tlocal incStats = t.incStats(self, t, true)"
+      },
+      {
+        "line": 209,
+        "text": "\t\treturn ([[Summon a Turtle for %d turns to distract your foes. Turtles are resilient, but not very powerful. However, they will periodically force any foes to attack them, and can protect themselves with their shell."
+      },
+      {
+        "line": 210,
+        "text": "\t\tIt will get %d Constitution, %d Dexterity and 18 willpower."
+      },
+      {
+        "line": 211,
+        "text": "\t\tYour summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration."
+      },
+      {
+        "line": 212,
+        "text": "\t\tTheir Constitution will increase with your Mindpower.]])"
+      },
+      {
+        "line": 213,
+        "text": "\t\t:tformat(t.summonTime(self, t), incStats.con, incStats.dex)"
+      },
+      {
+        "line": 214,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "17f2850ee7e143592eed050acbd4b879c99c5e5911337d18db0a2b2342066fe1",
+    "public_source_path": "game/modules/tome/data/talents/techniques/magical-combat.lua",
+    "lines": [
+      {
+        "line": 192,
+        "text": "\t\tlocal spellpower = t.getSpellpower(self, t)"
+      },
+      {
+        "line": 193,
+        "text": "\t\tlocal bonus = self:getCun()*spellpower/100"
+      },
+      {
+        "line": 194,
+        "text": "\t\treturn ([[The user gains a bonus to Spellpower equal to %d%% of your Cunning (Current bonus: %d).]]):"
+      },
+      {
+        "line": 195,
+        "text": "\t\ttformat(spellpower, bonus)"
+      },
+      {
+        "line": 196,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "18ff46f209a5c0d7e3996617d0db8f3efa7a447ac4f09e900c9cade3384c218a",
+    "public_source_path": "game/modules/tome/data/talents/misc/objects.lua",
+    "lines": [
+      {
+        "line": 337,
+        "text": "\t\tend"
+      },
+      {
+        "line": 338,
+        "text": "\t\tlocal bt, bt_string = t.getBlockedTypes(self, t)"
+      },
+      {
+        "line": 339,
+        "text": "\t\treturn ([[Raise your shield into blocking position for 2 turns reducing all non-Mind damage by %d. If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (the next weapon attack will instead deal 200%% damage) for one turn."
+      },
+      {
+        "line": 340,
+        "text": "\t\t\tCounterstrike can normally only effect one enemy per block."
+      },
+      {
+        "line": 341,
+        "text": "\t\t\tIf any damage was successfully blocked this effect will be removed at the start of your turn."
+      },
+      {
+        "line": 342,
+        "text": "\t\t\tIf the shield has damage resistance to the blocked damage type the block value is increased by 50%%."
+      },
+      {
+        "line": 343,
+        "text": "\t\t\t"
+      },
+      {
+        "line": 344,
+        "text": "\t\t\tCurrent Bonuses:  %s%s%s%s]]):"
+      },
+      {
+        "line": 345,
+        "text": "\t\t\ttformat(t.getBlockValue(self, t), bt_string, sp_text, ref_text, br_text)"
+      },
+      {
+        "line": 346,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1a655aae546319a76eb16204175381ce165df3495df89a5dc3124bb826054db9",
+    "public_source_path": "game/modules/tome/data/talents/misc/horrors.lua",
+    "lines": [
+      {
+        "line": 221,
+        "text": "\t\tlocal light_reduction = t.getLiteReduction(self, t)"
+      },
+      {
+        "line": 222,
+        "text": "\t\tlocal darkness_resistance = t.getDarknessPower(self, t)"
+      },
+      {
+        "line": 223,
+        "text": "\t\treturn ([[Creates a shroud of darkness over a radius 3 area that lasts %d turns.  The shroud causes %0.2f darkness damage each turn, reduces light radius by %d, and darkness resistance by %d%% of those within.]]):"
+      },
+      {
+        "line": 224,
+        "text": "\t\ttformat(duration, damDesc(self, DamageType.DARKNESS, (damage)), light_reduction, darkness_resistance)"
+      },
+      {
+        "line": 225,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1bc666d138fcc9000ca01456ce4b63669f4bfc84502f38ecefcd507c5126c34d",
+    "public_source_path": "game/modules/tome/data/talents/cursed/advanced-shadowmancy.lua",
+    "lines": [
+      {
+        "line": 58,
+        "text": "\tend,"
+      },
+      {
+        "line": 59,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 60,
+        "text": "\t\treturn ([[Target a nearby shadow, and command it to merge into a nearby enemy, reducing their damage by %d%% for 5 turns."
+      },
+      {
+        "line": 61,
+        "text": "\t\tKilling your shadow releases some of your inner hatred, restoring 8 Hate to yourself.]]):"
+      },
+      {
+        "line": 62,
+        "text": "\t\ttformat(t.getReduction(self, t))"
+      },
+      {
+        "line": 63,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1bdb980f374340e9ec709f3f96309426f307be3bd1aca5842016758d0b64e6cc",
+    "public_source_path": "game/modules/tome/data/talents/celestial/other.lua",
+    "lines": [
+      {
+        "line": 177,
+        "text": "\t\tlocal dazeduration = t.getDazeDuration(self, t)"
+      },
+      {
+        "line": 178,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 179,
+        "text": "\t\treturn ([[You bind light in a glyph on the floor. All enemies walking over the glyph will be dazed for %d turns."
+      },
+      {
+        "line": 180,
+        "text": "\t\tThe glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.]]):tformat(dazeduration, t.trapPower(self,t)*0.8, t.trapPower(self,t), duration)"
+      },
+      {
+        "line": 181,
+        "text": "\tend,"
+      },
+      {
+        "line": 182,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1c38f759ab9063105dfb70a5f7385e7c6435a9e9440ef6cb896b2f8028c006df",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/flux.lua",
+    "lines": [
+      {
+        "line": 38,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 39,
+        "text": "\t\tlocal reduction = t.getReduction(self, t)"
+      },
+      {
+        "line": 40,
+        "text": "\t\treturn ([[Create an anomaly, reducing your Paradox by %d.  This spell will never produce a major anomaly."
+      },
+      {
+        "line": 41,
+        "text": "\t\tInduced Anomalies may not be held by Twist Fate, nor do they cause held anomalies to trigger.  However upon learning Twist Fate you may target Induced Anomalies."
+      },
+      {
+        "line": 42,
+        "text": "\t\tThe Paradox reduction will increase with your Spellpower.]]):tformat(reduction)"
+      },
+      {
+        "line": 43,
+        "text": "\tend,"
+      },
+      {
+        "line": 44,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1ced1bf9eef9729379ef46c34dd5f0790399573f9921bb32c4990015464770a5",
+    "public_source_path": "game/modules/tome/data/talents/cunning/poisons.lua",
+    "lines": [
+      {
+        "line": 273,
+        "text": "\tend,"
+      },
+      {
+        "line": 274,
+        "text": "info = function(self, t)"
+      },
+      {
+        "line": 275,
+        "text": "\treturn ([[Learn how to enhance your Deadly Poison, adding additional effects. Each level, you will learn a new kind of poison enhancement:"
+      },
+      {
+        "line": 276,
+        "text": "\tLevel 1: Numbing Poison"
+      },
+      {
+        "line": 277,
+        "text": "\tLevel 2: Insidious Poison"
+      },
+      {
+        "line": 278,
+        "text": "\tLevel 3: Crippling Poison"
+      },
+      {
+        "line": 279,
+        "text": "\tLevel 4: Leeching Poison"
+      },
+      {
+        "line": 280,
+        "text": "\tLevel 5: Volatile Poison"
+      },
+      {
+        "line": 281,
+        "text": "\tNew poison enhancements can also be learned from special teachers in the world."
+      },
+      {
+        "line": 282,
+        "text": "\tAlso increases the effectiveness of your poisons by %d%%. (The effect varies for each poison.)"
+      },
+      {
+        "line": 283,
+        "text": "\tAdjusting your weapon coating takes no time and does not break stealth."
+      },
+      {
+        "line": 284,
+        "text": "\tYou may only have two poison enhancements active at once; applying a third will randomly cause one of the existing ones to be cancelled.]]):"
+      },
+      {
+        "line": 285,
+        "text": "\ttformat(self:getTalentLevel(t) * 20)"
+      },
+      {
+        "line": 286,
+        "text": "end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1d5c978860ba5ddb120764942a3ba6e619f99dbf6c6c10430fa8008d4fef0d6f",
+    "public_source_path": "game/modules/tome/data/talents/techniques/unarmed-discipline.lua",
+    "lines": [
+      {
+        "line": 148,
+        "text": "\t\tlocal block = t.getBlock(self, t)"
+      },
+      {
+        "line": 149,
+        "text": "\t\tlocal maxblock = block*5"
+      },
+      {
+        "line": 150,
+        "text": "\t\treturn ([[Toughen your body blocking up to %d damage per combo point (Max %d) across 2 turns."
+      },
+      {
+        "line": 151,
+        "text": "\t\t\tCurrent block value: %d"
+      },
+      {
+        "line": 152,
+        "text": "\t\t\tUsing this talent removes your combo points."
+      },
+      {
+        "line": 153,
+        "text": "\t\t\tThe damage absorbed scales with your Physical Power.]])"
+      },
+      {
+        "line": 154,
+        "text": "\t\t:tformat(block, block * 5, block * self:getCombo())"
+      },
+      {
+        "line": 155,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1e0891834b9372739ffc9e3381fb0953230f468c6b550a25517953e3ed4f4635",
+    "public_source_path": "game/modules/tome/data/talents/psionic/dream-forge.lua",
+    "lines": [
+      {
+        "line": 277,
+        "text": "\t\tlocal chance = t.getChance(self, t)"
+      },
+      {
+        "line": 278,
+        "text": "\t\tlocal fail = t.getFailChance(self,t)"
+      },
+      {
+        "line": 279,
+        "text": "\t\treturn ([[The pounding forge of thought in your mind is released upon your surroundings.  Each turn that you remain stationary, you'll strike the dreamforge, inflicting mind and burning damage on enemies around you."
+      },
+      {
+        "line": 280,
+        "text": "\t\tThe effect will build over five turns, until it reaches a maximum radius of %d, maximum mind damage of %0.2f, and maximum burning damage of %0.2f."
+      },
+      {
+        "line": 281,
+        "text": "\t\tAt this point you'll begin breaking the dreams of enemies who hear the forge, reducing their Mental Save by %d and giving them a %d%% chance of spell failure due to the tremendous echo in their minds for %d turns."
+      },
+      {
+        "line": 282,
+        "text": "\t\tBroken Dreams has a %d%% chance to brainlock your enemies."
+      },
+      {
+        "line": 283,
+        "text": "\t\tThe damage and dream breaking effect will scale with your Mindpower.]]):"
+      },
+      {
+        "line": 284,
+        "text": "\t\ttformat(radius, damDesc(self, DamageType.MIND, damage), damDesc(self, DamageType.FIRE, damage), power, fail, duration, chance)"
+      },
+      {
+        "line": 285,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1ecfd65f65525d13f44073070a63522037651fa42367f5dfee0a4493573d4440",
+    "public_source_path": "game/modules/tome/data/talents/gifts/summon-utility.lua",
+    "lines": [
+      {
+        "line": 321,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 322,
+        "text": "\t\tlocal incStats = t.incStats(self, t,true)"
+      },
+      {
+        "line": 323,
+        "text": "\t\treturn ([[Summon a Spider for %d turns to harass your foes. Spiders can poison your foes and throw webs to pin them to the ground."
+      },
+      {
+        "line": 324,
+        "text": "\t\tIt will get %d Dexterity, %d Strength, 18 Willpower and %d Constitution."
+      },
+      {
+        "line": 325,
+        "text": "\t\tYour summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration."
+      },
+      {
+        "line": 326,
+        "text": "\t\tTheir Dexterity will increase with your Mindpower.]])"
+      },
+      {
+        "line": 327,
+        "text": "\t\t:tformat(t.summonTime(self, t), incStats.dex, incStats.str, incStats.con)"
+      },
+      {
+        "line": 328,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2013dc591b2018c971c87dd19f84ee55536107a24c9c561e722d090d50fa45a5",
+    "public_source_path": "game/modules/tome/data/talents/techniques/marksmanship.lua",
+    "lines": [
+      {
+        "line": 143,
+        "text": "\t\tlocal speed = t.getSpeed(self,t)*100"
+      },
+      {
+        "line": 144,
+        "text": "\t\tlocal mark = t.getMarkChance(self,t)"
+      },
+      {
+        "line": 145,
+        "text": "\t\treturn ([[Enter a state of heightened focus for %d turns. While in this state your ranged attack speed is increased by %d%%, your shots do not consume ammo, and all shots capable of marking have their chance to mark increased by %d%%.]]):"
+      },
+      {
+        "line": 146,
+        "text": "\t\ttformat(dur, speed, mark)"
+      },
+      {
+        "line": 147,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "204545e56db0abea810053ac33d3b96e8d65cfdf3510510ab2032b734cea2346",
+    "public_source_path": "game/modules/tome/data/talents/psionic/feedback.lua",
+    "lines": [
+      {
+        "line": 56,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 57,
+        "text": "\t\tlocal shield_power = t.getShieldPower(self, t)"
+      },
+      {
+        "line": 58,
+        "text": "\t\treturn ([[Activate to create a resonance field that will absorb 50%% of all damage you take (%d max absorption).  The field will not interfere with Feedback gain."
+      },
+      {
+        "line": 59,
+        "text": "\t\tThe max absorption value will scale with your Mindpower, and the effect lasts up to ten turns.]]):tformat(shield_power)"
+      },
+      {
+        "line": 60,
+        "text": "\tend,"
+      },
+      {
+        "line": 61,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "20abe8067feb032f8ace4b5db7db71a92e3d1ee6c33080330b028dec47a6156c",
+    "public_source_path": "game/modules/tome/data/talents/undeads/lich.lua",
+    "lines": [
+      {
+        "line": 93,
+        "text": "\tend,"
+      },
+      {
+        "line": 94,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 95,
+        "text": "\t\treturn ([[Your mere presence is terrying to any foes that dare stand against you."
+      },
+      {
+        "line": 96,
+        "text": "\t\tEvery turn all foes in radius %d must make a mental save against your spellpower/physical power (whichever is highest) or become frightened (bypassing fear immunity), reducing all their saves by %d, all damage by %d%% and movement speed by %d%%."
+      },
+      {
+        "line": 97,
+        "text": "\t\tIf they successfully resist, they are immune for %d turns.]]):"
+      },
+      {
+        "line": 98,
+        "text": "\t\ttformat(self:getTalentRadius(t), t.getSaves(self, t), t.getDam(self, t), t.getSpeed(self, t), t.getImmune(self, t))"
+      },
+      {
+        "line": 99,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "217b3f3193f31f0e57705d8e2d39a18287357802a50f5708b00d6aadab39f75f",
+    "public_source_path": "game/modules/tome/data/talents/cunning/survival.lua",
+    "lines": [
+      {
+        "line": 41,
+        "text": "\tautolearn_talent = \"T_DISARM_TRAP\","
+      },
+      {
+        "line": 42,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 43,
+        "text": "\t\treturn ([[You notice the small things others do not notice, allowing you to \"see\" creatures in a %d radius even outside of light radius."
+      },
+      {
+        "line": 44,
+        "text": "\t\tThis is not telepathy, however, and it is still limited to line of sight."
+      },
+      {
+        "line": 45,
+        "text": "\t\tAlso, your attention to detail increases stealth detection and invisibility detection by %d, and you gain the ability to detect traps (+%d detect 'power')."
+      },
+      {
+        "line": 46,
+        "text": "\t\tThe detection abilities improve with Cunning.]]):"
+      },
+      {
+        "line": 47,
+        "text": "\t\ttformat(t.sense(self,t), t.seePower(self,t), t.trapDetect(self, t))"
+      },
+      {
+        "line": 48,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "21ff7176e8451eda2bb0d9e30c4b0e4fbf7bf664a0048a96904e6c4f812ff2c8",
+    "public_source_path": "game/modules/tome/data/talents/spells/water.lua",
+    "lines": [
+      {
+        "line": 198,
+        "text": "\t\tlocal icestorm = self:getTalentFullDescription(t_is, self:getTalentLevelRaw(t))"
+      },
+      {
+        "line": 199,
+        "text": ""
+      },
+      {
+        "line": 200,
+        "text": "\t\treturn ([[You absorb latent cold around you, turning into an ice elemental - a shivgoroth - for %d turns."
+      },
+      {
+        "line": 201,
+        "text": "\t\tWhile transformed, you do not need to breathe, gain access to the Ice Storm talent at level %d, gain %d%% resistance to cuts and stuns, gain %d%% cold resistance, and all cold damage heals you for %d%% of the damage done."
+      },
+      {
+        "line": 202,
+        "text": "\t\tThe power will increase with your Spellpower."
+      },
+      {
+        "line": 203,
+        "text": ""
+      },
+      {
+        "line": 204,
+        "text": "\t\t#AQUAMARINE#Ice storm:#LAST#"
+      },
+      {
+        "line": 205,
+        "text": "\t\t%s]]):"
+      },
+      {
+        "line": 206,
+        "text": "\t\ttformat(dur, self:getTalentLevelRaw(t), power * 100, power * 100 / 2, 50 + power * 100, tostring(icestorm or \"\"))"
+      },
+      {
+        "line": 207,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2243360ebe6836f9c2b66bba28988816d3225ed776964217cc9e82db34131f08",
+    "public_source_path": "game/modules/tome/data/talents/celestial/chants.lua",
+    "lines": [
+      {
+        "line": 135,
+        "text": "\t\tlocal physicalresistance = t.getPhysicalResistance(self, t)"
+      },
+      {
+        "line": 136,
+        "text": "\t\tlocal saves = t.getResists(self, t)"
+      },
+      {
+        "line": 137,
+        "text": "\t\treturn ([[You chant the glory of the Sun, granting you %d%% physical damage resistance, %d physical save, %d armour and +15%% armour hardiness."
+      },
+      {
+        "line": 138,
+        "text": "\t\tYou may only have one Chant active at once."
+      },
+      {
+        "line": 139,
+        "text": "\t\tThe effects will increase with your Spellpower.]]):"
+      },
+      {
+        "line": 140,
+        "text": "\t\ttformat(physicalresistance, saves, physicalresistance)"
+      },
+      {
+        "line": 141,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2405ba340803c290bcae054a3c5722bcee2b67f745fe85dbd64760ddfc86712a",
+    "public_source_path": "game/modules/tome/data/talents/psionic/mentalism.lua",
+    "lines": [
+      {
+        "line": 291,
+        "text": "\t\tlocal damage = t.getBonusDamage(self, t)"
+      },
+      {
+        "line": 292,
+        "text": "\t\tlocal range = self:getTalentRange(t) * 2"
+      },
+      {
+        "line": 293,
+        "text": "\t\treturn ([[Link minds with the target.  While your minds are linked, you'll inflict %d%% more mind damage to the target and gain telepathy for its creature type."
+      },
+      {
+        "line": 294,
+        "text": "\t\tOnly one mindlink can be maintained at a time, and the effect will break if the target dies or goes beyond range (%d))."
+      },
+      {
+        "line": 295,
+        "text": "\t\tThe mind damage bonus will scale with your Mindpower.]]):tformat(damage, range)"
+      },
+      {
+        "line": 296,
+        "text": "\tend,"
+      },
+      {
+        "line": 297,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "241a73c1969ac251a514f23213df4c1da4bc5e942cf7c7c6e45980a277ae7615",
+    "public_source_path": "game/modules/tome/data/talents/techniques/tireless-combatant.lua",
+    "lines": [
+      {
+        "line": 123,
+        "text": "\t\tlocal reduction = t.getReduction(self, t)"
+      },
+      {
+        "line": 124,
+        "text": "\t\tchance = t.getBlockChance(self, t)"
+      },
+      {
+        "line": 125,
+        "text": "\t\treturn ([[Control your movements to increase your defenses. This allows you to shrug off minor damage and, if you have a shield equipped, preemptively Block in reaction to incoming damage.  "
+      },
+      {
+        "line": 126,
+        "text": "\t\tWhile this talent is activated, you are globally slowed by %0.1f%% and all damage you take is reduced by a flat %0.1f."
+      },
+      {
+        "line": 127,
+        "text": "\t\tIf you have a shield equipped and Block is not on cooldown, any blockable damage that is greater than 33%% of your block value (before resistances) will have a %d%% chance to instantly activate Block."
+      },
+      {
+        "line": 128,
+        "text": "\t\tThe flat damage reduction will increase with your defense.]])"
+      },
+      {
+        "line": 129,
+        "text": "\t\t:tformat(slow, reduction, chance)"
+      },
+      {
+        "line": 130,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "241cbde46c40f7bdd204422c563eacfb94049f8ccfa2f3c96770e7c51ef3a8a3",
+    "public_source_path": "game/modules/tome/data/talents/techniques/throwing-knives.lua",
+    "lines": [
+      {
+        "line": 290,
+        "text": "\t\tlocal power = t.getCritPower(self,t)"
+      },
+      {
+        "line": 291,
+        "text": "\t\tlocal chance = t.getChance(self,t)"
+      },
+      {
+        "line": 292,
+        "text": "\t\treturn ([[You are able to target your throwing knives with pinpoint accuracy, increasing their critical strike chance by %d%% and critical strike damage by %d%%. "
+      },
+      {
+        "line": 293,
+        "text": "In addition, your critical strikes with throwing knives have a %d%% chance to randomly disable your target, possibly disarming, silencing or pinning them for 2 turns.]])"
+      },
+      {
+        "line": 294,
+        "text": "\t\t:tformat(crit, power, chance)"
+      },
+      {
+        "line": 295,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "24d4664f7f806929821102ccf07c7c09a3a355c2a8d7a788b6a5fa59c71efb58",
+    "public_source_path": "game/modules/tome/data/talents/psionic/thought-forms.lua",
+    "lines": [
+      {
+        "line": 258,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 259,
+        "text": "\t\tlocal stat = t.getStatBonus(self, t)"
+      },
+      {
+        "line": 260,
+        "text": "\t\treturn ([[Forge a bowman, clad in leather armor, from your thoughts.  The bowman learns Bow Mastery, Combat Accuracy, Steady Shot, Crippling Shot, and Rapid Shot as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution."
+      },
+      {
+        "line": 261,
+        "text": "\t\tActivating this talent will put all other thought-forms on cooldown."
+      },
+      {
+        "line": 262,
+        "text": "\t\tThe stat bonuses will improve with your Mindpower.]]):tformat(stat/2, stat, stat/2)"
+      },
+      {
+        "line": 263,
+        "text": "\tend,"
+      },
+      {
+        "line": 264,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "25105e62a444f09be0f69a1739c8a84fff8bfab3fd7116daff164aab6c8880e5",
+    "public_source_path": "game/modules/tome/data/talents/techniques/skirmisher-slings.lua",
+    "lines": [
+      {
+        "line": 88,
+        "text": "\tend,"
+      },
+      {
+        "line": 89,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 90,
+        "text": "\t\treturn ([[Fire off a quick sling bullet for %d%% damage at double your normal attack speed, as well as increasing your attack speed by %d%% for 5 turns."
+      },
+      {
+        "line": 91,
+        "text": "\t\tEach time you move, the cooldown of this talent is reduced by 1.]])"
+      },
+      {
+        "line": 92,
+        "text": "\t\t\t:tformat(t.getDamage(self, t) * 100, t.getAttackSpeed(self,t))"
+      },
+      {
+        "line": 93,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2524e7c7a83e036d2681797ea0f2be7e2ce8da5facdab01da5012ea41aa79188",
+    "public_source_path": "game/modules/tome/data/talents/gifts/fire-drake.lua",
+    "lines": [
+      {
+        "line": 117,
+        "text": "\t\tlocal radius = self:getTalentRadius(t)"
+      },
+      {
+        "line": 118,
+        "text": "\t\tlocal power = 20 + 6 * self:getTalentLevel(t)"
+      },
+      {
+        "line": 119,
+        "text": "\t\treturn ([[You let out a powerful roar that sends your foes in radius %d into utter confusion (power: %d%%) for 3 turns."
+      },
+      {
+        "line": 120,
+        "text": "\t\tThe sound wave is so strong, your foes also take %0.2f physical damage."
+      },
+      {
+        "line": 121,
+        "text": "\t\tThe damage improves with your Strength."
+      },
+      {
+        "line": 122,
+        "text": "\t\tEach point in fire drake talents also increases your fire resistance by 1%%.]]):tformat(radius, power, self:combatTalentStatDamage(t, \"str\", 30, 380))"
+      },
+      {
+        "line": 123,
+        "text": "\tend,"
+      },
+      {
+        "line": 124,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "255236ade9f319f49e398b490f3fedcde688c79ed847e6f6e411da770e8b758f",
+    "public_source_path": "game/modules/tome/data/talents/techniques/unarmed-training.lua",
+    "lines": [
+      {
+        "line": 93,
+        "text": "\tend,"
+      },
+      {
+        "line": 94,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 95,
+        "text": "\t\treturn ([[Your mastery of unarmed combat unifies your body. Increases your Strength by %d based on Cunning and your Constitution by %d based on Dexterity.]]):tformat(t.getStr(self, t), t.getCon(self, t))"
+      },
+      {
+        "line": 96,
+        "text": "\tend"
+      },
+      {
+        "line": 97,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "25fe62008edfc45def1921a53498dae0a7e57248944b1cdae164adb98e6de157",
+    "public_source_path": "game/modules/tome/data/talents/cunning/artifice.lua",
+    "lines": [
+      {
+        "line": 468,
+        "text": "\tend,"
+      },
+      {
+        "line": 469,
+        "text": "\tshort_info = function(self, t, slot_talent)"
+      },
+      {
+        "line": 470,
+        "text": "\t\treturn ([[Prepare a potion that restores %d life, %d stamina, and cures %d negative physical effects. 20 turn cooldown.]]):tformat(t.getHeal(self, slot_talent), t.getStam(self, slot_talent), t.getCure(self, slot_talent))"
+      },
+      {
+        "line": 471,
+        "text": "\tend,"
+      },
+      {
+        "line": 472,
+        "text": "\tinfo = function(self, t)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "26017d51a8e478abafabefb8b34afbd90ae8cdbaba67bf21623ad15b7126eaf9",
+    "public_source_path": "game/modules/tome/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 483,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 484,
+        "text": "\t\tlocal params = t.getParams(self, t)"
+      },
+      {
+        "line": 485,
+        "text": "\t\treturn ([[Call upon the legendary resilience of the Dwarven race to increase armour (+%d), armour hardiness (+%d%%), spell (+%d) and physical (+%d) saves for 8 turns."
+      },
+      {
+        "line": 486,
+        "text": "\t\tThe bonuses will increase with your Constitution.]]):"
+      },
+      {
+        "line": 487,
+        "text": "\t\ttformat(params.armor, params.armor_hardiness, params.physical, params.spell)"
+      },
+      {
+        "line": 488,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "275ff4cff1ce520ef9590834e5d1aac208109557333e4b2e598c479c10916513",
+    "public_source_path": "game/modules/tome/data/talents/psionic/feedback.lua",
+    "lines": [
+      {
+        "line": 137,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 138,
+        "text": "\t\tlocal data = t.getData(self, t)"
+      },
+      {
+        "line": 139,
+        "text": "\t\treturn ([[Use Feedback to replenish yourself.  This heals you for %d life, and restores %d stamina, %d mana, %d equilibrium, %d vim, %d positive and negative energies, %d psi energy, and %d hate."
+      },
+      {
+        "line": 140,
+        "text": "\t\tThe heal and resource gain will improve with your Mindpower.]]):tformat(data.heal, data.stamina, data.mana, -data.equilibrium, data.vim, data.positive, data.psi, data.hate)"
+      },
+      {
+        "line": 141,
+        "text": "\tend,"
+      },
+      {
+        "line": 142,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2a16e92d7ef49f33806414cd1887360ad553f54f295a51d49714aaad4d75f0f7",
+    "public_source_path": "game/modules/tome/data/talents/cunning/lethality.lua",
+    "lines": [
+      {
+        "line": 136,
+        "text": "\tend,"
+      },
+      {
+        "line": 137,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 138,
+        "text": "\t\treturn ([[Become a whirling storm of blades, increasing attack speed by %d%% and causing melee attacks to strike an additional adjacent target other than your primary target for %d%% weapon damage. "
+      },
+      {
+        "line": 139,
+        "text": "This talent is exhausting to use, draining 4 stamina each turn.]]):tformat(t.getSpeed(self, t)*100, t.getDamage(self,t)*100)"
+      },
+      {
+        "line": 140,
+        "text": "\tend,"
+      },
+      {
+        "line": 141,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2a5669b0462b189ce23cdd29f6bd1e85a8d3baee7129110115061ea77fb8d267",
+    "public_source_path": "game/modules/tome/data/talents/cursed/self-hatred.lua",
+    "lines": [
+      {
+        "line": 57,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 58,
+        "text": "\t\tlocal regen = t.getHate(self, t)"
+      },
+      {
+        "line": 59,
+        "text": "\t\treturn ([[At the start of each turn, if you're bleeding, you gain %d hate."
+      },
+      {
+        "line": 60,
+        "text": ""
+      },
+      {
+        "line": 61,
+        "text": "You can activate this talent to use your own life for power, bleeding yourself for a small portion of your maximum life (%0.2f damage) over the next 5 turns. This bleed cannot be resisted or removed, but can be reduced by Bloodstained.]]):tformat(regen, damage)"
+      },
+      {
+        "line": 62,
+        "text": "\tend,"
+      },
+      {
+        "line": 63,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2a653032145f5fd7a5f237596402825a0e297c62a39f77effa2edea95d6ea787",
+    "public_source_path": "game/modules/tome/data/talents/cunning/traps.lua",
+    "lines": [
+      {
+        "line": 655,
+        "text": "\t\tend"
+      },
+      {
+        "line": 656,
+        "text": "\t\tself.turn_procs.trap_mastery_tid = nil"
+      },
+      {
+        "line": 657,
+        "text": "\t\treturn ([[This talent allows you to prepare up to %d different trap(s) of tier %d or less for later deployment. (Use this ability to select which to prepare.)"
+      },
+      {
+        "line": 658,
+        "text": "\t\tDesigns known:"
+      },
+      {
+        "line": 659,
+        "text": "%s"
+      },
+      {
+        "line": 660,
+        "text": ""
+      },
+      {
+        "line": 661,
+        "text": "\t\tTraps prepared this way are difficult to detect (%d detection 'power') and disarm (%d disarm 'power') based on your Cunning.  They gain %+d%% effectiveness, and can be deployed without breaking stealth %d%% of the time."
+      },
+      {
+        "line": 662,
+        "text": "\t\tYou are immune to the damage and negative effects of your traps, and traps may critically strike based on your physical crit chance."
+      },
+      {
+        "line": 663,
+        "text": "\t\tMost traps last %d turns if not triggered, and refund 80%% of their stamina cost on expiration."
+      },
+      {
+        "line": 664,
+        "text": "\t\tMore designs may be discovered via disarming or learned from special instructors in the world.]]):"
+      },
+      {
+        "line": 665,
+        "text": "\t\ttformat(t.getNbTraps(self, t), math.min(5, self:getTalentLevelRaw(t)), trap_descs, detect_power, disarm_power, t.getTrapMastery(self, t), stealth_chance, t.getDuration(self, t))"
+      },
+      {
+        "line": 666,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2b5ca63fd2a5f8e0592ccf3fd56b71e1962001b8d8145213a60a7142df0d2a6e",
+    "public_source_path": "game/modules/tome/data/talents/cunning/traps.lua",
+    "lines": [
+      {
+        "line": 763,
+        "text": "\ttrapStealth = function(self, t) return math.min(25, self:getTalentLevel(t)) end,"
+      },
+      {
+        "line": 764,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 765,
+        "text": "\t\treturn ([[You learn new techniques for setting traps."
+      },
+      {
+        "line": 766,
+        "text": "\t\tDeploying one of your traps is possible up to %d grids from you, takes %d%% less time than normal, and has %d%% less chance to break stealth.]]):tformat(trap_range(self, t), (1 - t.trapSpeed(self, t))*100, t.trapStealth(self, t))"
+      },
+      {
+        "line": 767,
+        "text": "\tend,"
+      },
+      {
+        "line": 768,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2d28e04e23d62a396264f88584416479a162002cd4fd260ee1194b74ffda8c80",
+    "public_source_path": "game/modules/tome/data/talents/cunning/scoundrel.lua",
+    "lines": [
+      {
+        "line": 105,
+        "text": "\t\tlocal crit = t.getCritPenalty(self, t)"
+      },
+      {
+        "line": 106,
+        "text": "\t\tlocal dur = t.getDuration(self,t)"
+      },
+      {
+        "line": 107,
+        "text": "\t\treturn ([[Your melee and ranged attacks inflict distracting wounds that reduce the target’s critical strike multiplier by %d%% for 5 turns. "
+      },
+      {
+        "line": 108,
+        "text": "In addition, your attacks have a %d%% chance to inflict a painful wound that causes them to forget a random talent for %d turns.  The last effect cannot occur more than once per turn per target."
+      },
+      {
+        "line": 109,
+        "text": "\t\t]]):tformat(crit, chance, dur)"
+      },
+      {
+        "line": 110,
+        "text": "\tend,"
+      },
+      {
+        "line": 111,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2dec1f48c4aa28eb28ff8b39d52e83921c8310aa33e97b1d62c6a56cfac0e311",
+    "public_source_path": "game/modules/tome/data/talents/cunning/survival.lua",
+    "lines": [
+      {
+        "line": 187,
+        "text": "\t\tlocal tdm = self:getTalentFromId(self.T_DEVICE_MASTERY)"
+      },
+      {
+        "line": 188,
+        "text": "\t\tlocal t_det, t_dis = self:attr(\"see_traps\") or 0, tdm.trapDisarm(self, tdm)"
+      },
+      {
+        "line": 189,
+        "text": "\t\treturn ([[You search a nearby grid for a hidden trap (%d detection 'power') and disarm it if possible (%d disarm 'power', based on your skill with %s)."
+      },
+      {
+        "line": 190,
+        "text": "\t\tDisarming a trap requires at least a minimum skill level, and you must be able to enter the trap's grid to manipulate it, though you stay in your current location.  A failed attempt to disarm a trap may trigger it."
+      },
+      {
+        "line": 191,
+        "text": "\t\tYour skill improves with your your Cunning.]]):tformat(t_det, t_dis, tdm.name)"
+      },
+      {
+        "line": 192,
+        "text": "\tend,"
+      },
+      {
+        "line": 193,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2eb94776fc057c932818df1d4cadcedb345105539c9e74c1cdfb1e8c5fff3653",
+    "public_source_path": "game/modules/tome/data/talents/spells/temporal.lua",
+    "lines": [
+      {
+        "line": 77,
+        "text": "\t\tlocal duration = self:getShieldDuration(t.getDuration(self, t))"
+      },
+      {
+        "line": 78,
+        "text": "\t\tlocal time_reduc = t.getTimeReduction(self,t)"
+      },
+      {
+        "line": 79,
+        "text": "\t\treturn ([[This intricate spell instantly erects a time shield around the caster, preventing any incoming damage and sending it forward in time."
+      },
+      {
+        "line": 80,
+        "text": "\t\tOnce either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns)."
+      },
+      {
+        "line": 81,
+        "text": "\t\tEach turn the restoration field is active, you get healed for 10%% of the absorbed damage (Aegis Shielding talent affects the percentage)."
+      },
+      {
+        "line": 82,
+        "text": "\t\tThe shield's max absorption will increase with your Spellpower.]]):"
+      },
+      {
+        "line": 83,
+        "text": "\t\ttformat(maxabsorb, duration)"
+      },
+      {
+        "line": 84,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "310d9d390f65b879248dc2aa9e547f2963570a3eee718a265d7125ae0bdc044d",
+    "public_source_path": "game/modules/tome/data/talents/techniques/sniper.lua",
+    "lines": [
+      {
+        "line": 192,
+        "text": "\t\tlocal dam = t.getDamage(self,t)"
+      },
+      {
+        "line": 193,
+        "text": "\t\tlocal mark = t.getMarkChance(self,t)"
+      },
+      {
+        "line": 194,
+        "text": "\t\treturn ([[Enter a calm, focused stance, increasing physical power and accuracy by %d, projectile speed by %d%% and the chance to mark targets by an additional %d%%."
+      },
+      {
+        "line": 195,
+        "text": "This makes your shots more effective at range, increasing all damage dealt by %0.1f%% per tile travelled beyond 3, to a maximum of %0.1f%% damage at range 8."
+      },
+      {
+        "line": 196,
+        "text": "The physical power and accuracy increase with your Dexterity. This requires a bow to use.]]):"
+      },
+      {
+        "line": 197,
+        "text": "\t\ttformat(power, speed, mark, dam, dam*5)"
+      },
+      {
+        "line": 198,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "31e1b6e4923ba2643a695f67800284a593ef3c5b7fb2df981ede2d8bbe9e452b",
+    "public_source_path": "game/modules/tome/data/talents/gifts/summon-distance.lua",
+    "lines": [
+      {
+        "line": 489,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 490,
+        "text": "\t\tlocal incStats = t.incStats(self, t, true)"
+      },
+      {
+        "line": 491,
+        "text": "\t\treturn ([[Summon a Ritch Flamespitter for %d turns to burn your foes to death. Flamespitters are weak in melee and die easily, but they can burn your foes from afar."
+      },
+      {
+        "line": 492,
+        "text": "\t\tIt will get %d Willpower, %d Cunning and %d Constitution."
+      },
+      {
+        "line": 493,
+        "text": "\t\tYour summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration."
+      },
+      {
+        "line": 494,
+        "text": "\t\tTheir Willpower and Cunning will increase with your Mindpower.]])"
+      },
+      {
+        "line": 495,
+        "text": "\t\t:tformat(t.summonTime(self, t), incStats.wil, incStats.cun, incStats.con)"
+      },
+      {
+        "line": 496,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "32250a7e032823024c7da02c1fc3806ff9f503863b6b0632a772ad045a4132ef",
+    "public_source_path": "game/modules/tome/data/talents/techniques/dualweapon.lua",
+    "lines": [
+      {
+        "line": 203,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 204,
+        "text": "\t\tlocal dam = 100 * t.getDamage(self, t)"
+      },
+      {
+        "line": 205,
+        "text": "\t\treturn ([[With a quick shift of your momentum, you execute a surprise unarmed strike in place of your normal offhand attack."
+      },
+      {
+        "line": 206,
+        "text": "\t\tThis allows you to attack with your mainhand weapon for %d%% damage and unarmed for %d%% damage.  If the unarmed attack hits, the target is confused (%d%% power) for %d turns."
+      },
+      {
+        "line": 207,
+        "text": "\t\tThe chance to confuse increases with your Accuracy.]])"
+      },
+      {
+        "line": 208,
+        "text": "\t\t:tformat(dam, dam*1.25, t.getConfusePower(self, t), t.getConfuseDuration(self, t))"
+      },
+      {
+        "line": 209,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "32ca00b5693715d242c1d0b50d6dc68716e9313fb9968e8f69491ebc90b5e0d5",
+    "public_source_path": "game/modules/tome/data/talents/psionic/kinetic-mastery.lua",
+    "lines": [
+      {
+        "line": 41,
+        "text": "\tend,"
+      },
+      {
+        "line": 42,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 43,
+        "text": "\t\treturn ([[For %d turns your telekinesis transcends your normal limits, increasing your Physical damage by %d%% and your Physical resistance penetration by %d%%."
+      },
+      {
+        "line": 44,
+        "text": "\t\tIn addition:"
+      },
+      {
+        "line": 45,
+        "text": "\t\tThe cooldowns of Kinetic Shield, Kinetic Leech, Kinetic Aura, Kinetic Strike and Mindlash are reset."
+      },
+      {
+        "line": 46,
+        "text": "\t\tKinetic Aura effects will have their radius increased by 1."
+      },
+      {
+        "line": 47,
+        "text": "\t\tYour Kinetic Shield will have 100%% absorption efficiency and will absorb twice the normal amount of damage."
+      },
+      {
+        "line": 48,
+        "text": "\t\tMindlash will also inflict stun."
+      },
+      {
+        "line": 49,
+        "text": "\t\tKinetic Leech will put enemies to sleep."
+      },
+      {
+        "line": 50,
+        "text": "\t\tKinetic Strike will hit 2 adjacent enemies in a sweeping attack."
+      },
+      {
+        "line": 51,
+        "text": "\t\tThe damage bonus and resistance penetration scale with your Mindpower."
+      },
+      {
+        "line": 52,
+        "text": "\t\tOnly one Transcendent talent may be in effect at a time.]]):tformat(t.getDuration(self, t), t.getPower(self, t), t.getPenetration(self, t))"
+      },
+      {
+        "line": 53,
+        "text": "\tend,"
+      },
+      {
+        "line": 54,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "33903becf12f5b169e8bfe98490cfc0539000a0ee2197c8c8bdb631266629058",
+    "public_source_path": "game/modules/tome/data/talents/psionic/augmented-mobility.lua",
+    "lines": [
+      {
+        "line": 74,
+        "text": "\t\tlocal percentinc = 100 * inc"
+      },
+      {
+        "line": 75,
+        "text": "\t\tlocal boost = t.getBoost(self, t)"
+      },
+      {
+        "line": 76,
+        "text": "\t\treturn ([[Encase your body in a sheath of thought-quick forces, allowing you to control your body's movements directly without the inefficiency of dealing with crude mechanisms like nerves and muscles."
+      },
+      {
+        "line": 77,
+        "text": "\t\tIncreases Accuracy by %d, your critical strike chance by %0.1f%% and your global speed by %d%% for %d turns."
+      },
+      {
+        "line": 78,
+        "text": "\t\tThe duration improves with your Mindpower.]]):"
+      },
+      {
+        "line": 79,
+        "text": "\t\ttformat(boost, 0.5*boost, percentinc, t.getDuration(self, t))"
+      },
+      {
+        "line": 80,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "33bf9b70117e0b5b81711878ea4ca91a561df8980a27c772dc487832fdc387d9",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/bow-threading.lua",
+    "lines": [
+      {
+        "line": 216,
+        "text": "\t\tlocal radius = self:getTalentRadius(t)"
+      },
+      {
+        "line": 217,
+        "text": "\t\tlocal aoe = t.getDamageAoE(self, t)"
+      },
+      {
+        "line": 218,
+        "text": "\t\treturn ([[Fire an arrow for %d%% weapon damage. When the arrow reaches its destination or hits a target it will draw in all other targets in a radius of %d and inflict %0.2f physical damage."
+      },
+      {
+        "line": 219,
+        "text": "\t\tEach target moved beyond the first increases the damage %0.2f (up to %0.2f bonus damage)."
+      },
+      {
+        "line": 220,
+        "text": "\t\tTargets take reduced damage the further they are from the epicenter (20%% less per tile)."
+      },
+      {
+        "line": 221,
+        "text": "\t\tThe additional damage scales with your Spellpower.]])"
+      },
+      {
+        "line": 222,
+        "text": "\t\t:tformat(damage, radius, damDesc(self, DamageType.PHYSICAL, aoe), damDesc(self, DamageType.PHYSICAL, aoe/8), damDesc(self, DamageType.PHYSICAL, aoe/2))"
+      },
+      {
+        "line": 223,
+        "text": "\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "33db14ffe1fb8e6d070a097768d1788846c60e0c71227bd7de9de062b8b075f0",
+    "public_source_path": "game/modules/tome/data/talents/spells/master-of-bones.lua",
+    "lines": [
+      {
+        "line": 314,
+        "text": "\tend,"
+      },
+      {
+        "line": 315,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 316,
+        "text": "\t\treturn ([[Any time one of your skeleton or bone giant dies, it shatters in radius %d, making any foe bleed for %0.2f physical damage over 5 turns."
+      },
+      {
+        "line": 317,
+        "text": "\t\tIf any other skeleton or bone giant minion is in the radius it will pickup some of the bones to enhance itself, increasing maximum and current life by %d, armour by %d and gain %0.2f physical melee retaliation for 20 turns."
+      },
+      {
+        "line": 318,
+        "text": "\t\tThis talent never works when you kill your own minions."
+      },
+      {
+        "line": 319,
+        "text": "\t\t]]):tformat(self:getTalentRadius(t), t:_getDamage(self), t:_getHealth(self), t:_getArmor(self), t:_getRetaliation(self))"
+      },
+      {
+        "line": 320,
+        "text": "\tend,"
+      },
+      {
+        "line": 321,
+        "text": "}"
+      }
+    ]
+  }
+]
