@@ -715,7 +715,7 @@ t("Ominous Shadow", "不祥黑影", "talent name")
 t([[By gorging yourself on up to %d stacks of Bleak Outcome from a creature, you turn into an Ominous Shadow for one turn per stack.
 		While transformed you are invisible (power %d), convert 100%% of all damage done to darkness and gain darkness resistance penetration and damage increase equal to your highest.
 		While transformed you can not apply new Bleak Outcome stacks.]], [[你吞噬一个生物身上最多 %d 层悲惨结局效果，使自己化为不祥黑影，每层持续 1 回合。
-		不祥黑影状态下你处于隐形（强度 %d）造成的所有伤害转化为暗影伤害，并获得相当于你最高伤害加成和抗性穿透的暗影伤害加成和抗性穿透。
+		不祥黑影状态下你处于隐形（强度 %d） 造成的所有伤害转化为暗影伤害，并获得相当于你最高伤害加成和抗性穿透的暗影伤害加成和抗性穿透。
 		在变身状态下，无法施加新的悲惨结局效果。]], "tformat")
 
 ------------------------------------------------
@@ -800,9 +800,9 @@ t([[You spawn a pool of acid in radius 4 around you for %d turns, dealing %0.2f 
 t("Blighted Path", "枯萎之路", "talent name")
 t("Blighted Path", "枯萎之路", "_t")
 t("Select a use for the %s charge(s):", "选择%s次充能的用途：", "tformat")
-t("Shield for %d damage (50%% reflect).", "产生护盾，抵挡%d伤害（50%% 反射）。", "tformat")
-t("Attack for #DARK_GREEN#%0.2f blight damage", "攻击造成#DARK_GREEN#%0.2f枯萎伤害", "tformat")
-t("Restore #904010#%0.2f vim", "恢复#904010#%0.2f活力值", "tformat")
+t("Shield for %d damage (50%% reflect).", "产生护盾，抵挡 %d 伤害（50%% 反射）。", "tformat")
+t("Attack for #DARK_GREEN#%0.2f blight damage", "攻击造成#DARK_GREEN#%0.2f 枯萎伤害", "tformat")
+t("Restore #904010#%0.2f vim", "恢复#904010#%0.2f 活力值", "tformat")
 t([[Each time you walk or move you gain a blight charge. You can store up to %d charges.
 		When you de-activate the talent you can use the charges to either:
 		- restore %0.2f vim per charge
@@ -942,7 +942,7 @@ t([[Whenever you take direct damage, there is a %d%% chance that your your disea
 		Each turn the disease deals %0.2f blight damage and reduce one random attribute (strength, dexterity, constitution) by %d.
 		This may only happen once per turn.
 		The damage increases with your spellpower.]], [[每当你受到直接伤害时，你充满疫病的躯体有 %d%% 几率爆发出枯萎能量，使攻击者感染随机疾病，持续 %d 回合。
-		疾病每回合造成 %0.2f 枯萎伤害，并会降低随机一项属性（力量、敏捷或体质）%d。
+		疾病每回合造成 %0.2f 枯萎伤害，并会降低随机一项属性（力量、敏捷或体质） %d。
 		这一效果最多每回合触发一次。
 		伤害受法术强度加成。]], "tformat")
 t("Volcanic Skin", "火山皮肤", "talent name")
@@ -965,7 +965,7 @@ t("", "", "log")
 ------------------------------------------------
 section "tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua"
 
-t("13%% chance to trigger a Blood Spray cast of level %d", "13%%几率触发等级%d的鲜血喷射", "tformat")
+t("13%% chance to trigger a Blood Spray cast of level %d", "13%%几率触发等级 %d 的鲜血喷射", "tformat")
 t("Reduces duration of detrimental effects by 40%", "降低负面效果的持续时间40%", "_t")
 t("+2 to all Demon Seeds, Spellblaze and Demonic Pact talents", "所有恶魔种子，魔法大爆炸系和恶魔契约系技能等级+2", "_t")
 t("%s (%d/%d life, level %d)", "%s (%d/%d 生命值，等级 %d)", "tformat")
@@ -1080,7 +1080,7 @@ t([[Demonic Blood flows through your veins, increasing your spellpower by %d and
 t("Abyssal Shield", "深渊护盾", "talent name")
 t([[Surround yourself with a defensive aura, increasing armor by %d, and inflicting %0.2f fire and %0.2f blight damage to all attacking foes.
 Additionally, your vim will enhance your defences, reducing all damage by %d%% of your current vim (currently %d), but never reducing by more than half of the original damage. This will cost vim equal to 5%% of the damage blocked.
-The damage will scale with your Spellpower.]], [[深渊气息围绕着你，增加 %d 点护甲，增加 %0.2f 点火焰、%0.2f 点枯萎近战反击伤害。
+The damage will scale with your Spellpower.]], [[深渊气息围绕着你，增加 %d 点护甲，增加 %0.2f 点火焰、 %0.2f 点枯萎近战反击伤害。
 	同时你的活力会增强你的防御，减少相当于当前活力 %d%% 的伤害（目前为 %d 点），但不会减少超过原伤害的一半。此效果会消耗等同于 5%% 减少伤害值的活力。
 	伤害值受法术强度加成。]], "tformat")
 
@@ -1211,7 +1211,7 @@ t("Flame Leash", "火焰束缚", "talent name")
 t([[Tendrils of flame fire from your hands in a narrow cone. Any foes caught inside will be pulled in towards you and have its movement speed reduced by %d%% for 4 turns.
 		Each tendril will leave a trail of fire in its path dealing %0.2f fire damage for 4 turns.
 		The damage increases with spellpower.]], [[火焰触须从你的手中伸出，在锥形范围内伸展。
-		被火焰触须抓住的生物将被拉过来，同时移动速度减少 %d%%，持续 4 回合。
+		被火焰触须抓住的生物将被拉过来，同时移动速度减少 %d%%， 持续 4 回合。
 		每个触须会留下火焰痕迹，每回合造成 %0.2f 火焰伤害，持续 4 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Demon Blade", "恶魔之刃", "talent name")
@@ -1227,7 +1227,7 @@ t("Select the victim:", "选择受害者：", "logPlayer")
 t([[Using demonic forces you create a link of pain from a source creature to a victim for %d turns.
 		Each time the source creature takes damage the victim takes %d%% of the damage.
 		If the victim dies from the effect you gain a burst of energy, reducing all remaining cooldowns by 1.]], [[使用恶魔之力，你在源生物与牺牲生物间构造痛苦链接，持续 %d 回合。
-		每次源生物受到伤害时，%d%% 伤害由牺牲生物承受。
+		每次源生物受到伤害时， %d%% 伤害由牺牲生物承受。
 		当牺牲生物因此效果死亡时，你将获得能量，减少所有技能冷却时间 1 回合。]], "tformat")
 t("Demon Horns", "恶魔之角", "talent name")
 t("You require a weapon and a shield to use this talent.", "你需要一把武器一个盾牌来施展这个技能。", "logPlayer")
@@ -1275,7 +1275,7 @@ t([[Your successful melee hits apply a stacking effect that decreases damage don
 		此技能无视豁免和免疫。
 		]], "tformat")
 t("Mass Hysteria", "恐惧之潮", "talent name")
-t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%%，持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 码内所有敌对生物。", "tformat")
+t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%%， 持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 码内所有敌对生物。", "tformat")
 t("Fearfeast", "恐惧盛宴", "talent name")
 t("You gain %.1f turns!", "你获得了%.1f个回合！", "logPlayer")
 t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[汲取 %d 码内敌对生物身上的恐惧，每汲取一层恐惧，恢复 %d 生命并获得 %0.1f%% 额外回合。
@@ -1327,7 +1327,7 @@ t([[The power of the Fearscape infuses your weapon: Your melee attacks will deal
 		For the purposes of applying the stun, you have %d bonus spellpower.
 		The damage will increase with your Spellpower.]], [[恶魔空间的力量注入你的武器：你的近战攻击会在 3 回合内造成总计 %0.2f 点火焰燃烧伤害。
 		另外，每次攻击时有 %d%% 几率释放强力火焰爆发，造成总计 %0.2f 点火焰燃烧伤害；半径 %d 内的所有敌人都会受到此伤害，持续 %d 回合。
-		若该技能不在冷却中，火焰爆发将改为半径 %d，并使范围内所有敌对目标同时燃烧和震慑。
+		若该技能不在冷却中，火焰爆发将改为半径 %d， 并使范围内所有敌对目标同时燃烧和震慑。
 		进行震慑判定时，你获得 %d 点额外法术强度。
 		伤害受法术强度加成。]], "tformat")
 t("Abduction", "锁魂之链", "talent name")
@@ -1379,7 +1379,7 @@ t([[Your body overflows with the power of the Fearscape, turning you into a powe
 		-Abduction: If it hits, get an additional %d attacks at 35%% weapon damage.
 		-Incinerating Blows: Increases chance of bonus damage to %d%%.
 		-Fearfeast: Gain %0.1f vim per stack.
-		-Maw of Urh'rok: Increases cone width by %d degrees.]], [[恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d，缴械和震慑免疫率提高 %d%%。
+		-Maw of Urh'rok: Increases cone width by %d degrees.]], [[恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d， 缴械和震慑免疫率提高 %d%%。
 		物理强度、体力恢复和状态抗性加值受法术强度加成。
 		变身期间，其他技能也受到强化：
 		-汲魂痛击：冷却时间减少 %d。
@@ -1403,12 +1403,12 @@ t([[Hasten yourself out of phase, teleporting you to a specific location up to %
 		Afterwards you stay out of phase for 5 turns. In this state your defense is increased by %d and all your resistances by %d%%.
 		The bonus will increase with your Willpower.]], [[加速自身，以至于脱离空间，传送半径 %d。
 		你在同一回合内至多连用两次该技能，且第二次使用会消耗时间。
-		之后，你停留在相位外 5 回合，闪避增加 %d，全体抗性增加 %d%%。
+		之后，你停留在相位外 5 回合，闪避增加 %d， 全体抗性增加 %d%%。
 		效果受意志加成。]], "tformat")
 t("Resilience of the Doomed", "强韧", "talent name")
 t([[The tortures you had to endure on the Fearscape have increased your resilience.
 		All detrimental status effects last %d%% less on you and all direct critical hits (physical, mental, spells) against you have a %d%% lower critical multiplier (but always do at least normal damage).]], [[你在恶魔空间忍受的折磨让你更加强韧。
-		所有负面状态持续时间减少 %d%%，所有直接暴击（物理、精神、法术）的暴击倍率降低 %d%% （但至少仍会造成普通伤害）。]], "tformat")
+		所有负面状态持续时间减少 %d%%， 所有直接暴击（物理、精神、法术）的暴击倍率降低 %d%% （但至少仍会造成普通伤害）。]], "tformat")
 t("Corruption of the Doomed", "末日腐化", "talent name")
 t([[Your original invisibility talent was corrupted and twisted.
 		You have %d%% chance to turn into a dúathedlen for 5 turns, when hit by a blow doing at least 10%% of your total life.

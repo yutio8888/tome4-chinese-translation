@@ -2625,13 +2625,13 @@ section "tome-cults/data/talents/demented/calamity.lua"
 
 t("Jinxed Touch", "厄运之触", "talent name")
 t([[Your touch carries an entropic curse, marking your victims for a terrible fate. Each time you deal damage to a target, they are Jinxed for 5 turns. This stacks up to 10 times, reducing saves and defense by %0.2f and critical strike chance by %0.2f%%.
-			This can only be applied once per target per turn and will fade entirely if you break line of sight with your target for more than 2 turns.]], [[你的触碰伴随着熵之诅咒，为目标带来悲惨的命运。每当你对目标造成伤害时，目标将被厄运诅咒 5 回合。厄运可以叠加 10 层，每层减少 %0.2f 豁免和闪避，%0.2f%% 暴击率。
+			This can only be applied once per target per turn and will fade entirely if you break line of sight with your target for more than 2 turns.]], [[你的触碰伴随着熵之诅咒，为目标带来悲惨的命运。每当你对目标造成伤害时，目标将被厄运诅咒 5 回合。厄运可以叠加 10 层，每层减少 %0.2f 豁免和闪避， %0.2f%% 暴击率。
 			每个目标每回合只能受到一层诅咒。若你与目标脱离视线超过 2 回合，所有诅咒都会消退。]], "tformat")
 t("Preordain", "命中注定", "talent name")
 t("You subtly alter the course of events to cause your foes further misfortune. Each stack of Jinx beyond 6 will cause enemies to also suffer a %d%% chance to fail talent usage.", "你微妙地影响因果，让你的敌人更加不幸。六层以上的每层厄运诅咒将使敌人获得 %d%% 技能失败率。", "tformat")
 t("Luckdrinker", "幸运汲取", "talent name")
 t([[Each time you apply Jinx to an enemy, you have a %d%% chance to siphon some of their luck for yourself for 5 turns. This stacks up to 10 times, increasing saves and defense by %0.2f and critical strike chance by %0.2f%%.
-		If you know Preordain, stacks beyond 6 also grant a %d%% chance for you to entirely avoid damage taken.]], [[每当你向敌人施加厄运诅咒，有 %d%% 几率吸取敌人的运气为你所用，持续 5 回合。这个效果最多叠加 10 层，每层增加 %0.2f 豁免和闪避，%0.2f%% 暴击率。
+		If you know Preordain, stacks beyond 6 also grant a %d%% chance for you to entirely avoid damage taken.]], [[每当你向敌人施加厄运诅咒，有 %d%% 几率吸取敌人的运气为你所用，持续 5 回合。这个效果最多叠加 10 层，每层增加 %0.2f 豁免和闪避， %0.2f%% 暴击率。
 		如果你同时学会了命中注定，六层以上的每层幸运使你获得 %d%% 几率完全避免受到的伤害。]], "tformat")
 t("Fatebreaker", "打破宿命", "talent name")
 t([[You form a link between yourself and the chosen target for %d turns, tying your fates together. If during this time you receive fatal damage, you reflexively warp reality, ending the effect and attempting to force them to die in your place.
@@ -2646,7 +2646,7 @@ section "tome-cults/data/talents/demented/chronophage.lua"
 t("Atrophy", "衰亡", "talent name")
 t("%s has been cut from the timeline!", "%s被从时间线中切除", "logSeen")
 t([[You are surrounded by a vortex of entropic energy that feeds on the timelines of others. Each time you cast a spell random targets in radius 10 begin rapidly aging and decaying, reducing all stats by %d for 8 turns, stacking up to %d times.
-			Up to %d stacks total will be applied to enemies each cast with a max of 2 stacks on the same target.]], [[吸收他人时间的熵能漩涡围绕着你。当你释放法术时，半径 10 格内的随机目标将迅速老化、凋零，所有属性降低 %d，持续 8 回合，效果可叠加 %d 层。
+			Up to %d stacks total will be applied to enemies each cast with a max of 2 stacks on the same target.]], [[吸收他人时间的熵能漩涡围绕着你。当你释放法术时，半径 10 格内的随机目标将迅速老化、凋零，所有属性降低 %d， 持续 8 回合，效果可叠加 %d 层。
 			每次施法可以释放最多 %d 层加速衰老，但同一目标一次最多增加 2 层效果。]], "tformat")
 t("Severed Threads", "断绝", "talent name")
 t("On applying atrophy to a target below %d%% of their maximum life you will sever their lifeline, slaying them instantly. You will then feast on the remnants of their timeline for %d turns, increasing your life regeneration by %0.1f and causing talents without fixed cooldowns to refresh twice as fast.", "当对不足 %d%% 最大生命值的目标释放衰亡时，你将尝试切断目标的生命线，立刻杀死目标。在接下来的 %d 回合中，你将会享用目标残余的时间线，增加你的生命回复 %0.1f 并使没有固定冷却时间的技能冷却速度加倍。", "tformat")
@@ -2673,7 +2673,7 @@ The decaying horrors cannot move and will attack all hostile creatures around th
 All its primary stats will be set to %d (based on your Magic stat), life rating increased by %d, and all talent levels set to %d.  Many other stats will scale with level.
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你利用和恐魔的联系召唤三个持续 %d 轮的腐败的吞噬者。
 腐败的吞噬者不能移动，能攻击周围所有敌对生物。它们拥有浴血奋战、咬牙切齿和狂乱撕咬技能。
-它们的所有主属性将设为 %d（基于你的魔法属性），生命成长增加 %d，所有技能等级设为 %d。许多其他属性随等级成长。
+它们的所有主属性将设为 %d （基于你的魔法属性），生命成长增加 %d， 所有技能等级设为 %d。 许多其他属性随等级成长。
 它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。]], "tformat")
 t("Decayed Bloated Horror", "腐败的浮肿恐魔", "talent name")
 t("bloated horror", "浮肿恐魔", "_t")
@@ -2684,7 +2684,7 @@ All its primary stats will be set to %d (based on your Magic stat), life rating 
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.
 		]], [[你利用和恐魔的联系召唤一个持续 %d 回合的腐败的浮肿恐魔。
 腐败的恐魔不能移动，能攻击范围内的所有敌对生物。它拥有精神干扰和精神光束技能。
-它的所有主属性将设为 %d（基于你的魔法属性），生命成长增加 %d，所有技能等级设为 %d。许多其他属性随等级成长。
+它的所有主属性将设为 %d （基于你的魔法属性），生命成长增加 %d， 所有技能等级设为 %d。 许多其他属性随等级成长。
 它将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。
 		]], "tformat")
 t("Horrific Display", "恐魔具现化", "talent name")
@@ -2693,7 +2693,7 @@ t([[You forcefully try to turn a creature into an horror.
 If the target fails a magical save against your Spellpower, its appearance turns into that of a horror for %d turns, making all other creatures hostile to it.
 Enemies near the target will have their target cleared on application.
 This spell does not work on horrors.]], [[你强行让一个生物变化为恐魔。
-如果目标生物未能通过对抗你法术强度的魔法豁免，%d 回合内它的相貌将转变为恐魔，令其他所有生物与之敌对。
+如果目标生物未能通过对抗你法术强度的魔法豁免， %d 回合内它的相貌将转变为恐魔，令其他所有生物与之敌对。
 目标生物周围的敌人将重新考虑其攻击目标。
 该法术对恐魔无效。]], "tformat")
 t("Call of Amakthel", "阿马克泰尔的呼唤", "talent name")
@@ -2857,7 +2857,7 @@ t([[Your knowledge of entropy allows you to defy the laws of physics, allowing y
 t("Black Hole", "黑洞", "talent name")
 t([[On casting Entropic Gift, a radius 1 rift in spacetime will be opened underneath the target for %d turns, increasing in radius by 1 each turn to a maximum of %d.
 		All caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]], [[每次释放熵之礼物，会在目标处产生一个持续 %d 回合、半径为 1 的时空裂隙，每回合半径增加 1 直到 %d。
-		所有范围内的生物每回合将被拉向裂隙中心并受到 %0.2f 暗影、%0.2f 时空伤害以及你熵总量的 %d%% 的伤害（当前 %d）。]], "tformat")
+		所有范围内的生物每回合将被拉向裂隙中心并受到 %0.2f 暗影、 %0.2f 时空伤害以及你熵总量的 %d%% 的伤害（当前 %d）。]], "tformat")
 t("Power Overwhelming", "能量过载", "talent name")
 t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，每个非瞬间法术会带来 %0.2f 熵能反冲。]], "tformat")
 
@@ -2911,7 +2911,7 @@ t([[You establish a powerful mental link with your Worm that Walks.
 		As long as you remain within radius 3 of your worm that walks each of you gains %d%% all resistance for 5 turns.
 		Additionally, your Worm that Walks permanently gains an inscription slot every 2 raw talent levels (%d).]], [[你和蠕虫合体建立强大的精神链接。
 		只要你和它的距离不超过 3 格，你们均获得持续 5 回合的 %d%% 全体抗性。
-		该技能每增加两级原始等级，你的蠕虫合体获得一个纹身位（当前：%d）。]], "tformat")
+		该技能每增加两级原始等级，你的蠕虫合体获得一个纹身位（当前： %d）。]], "tformat")
 t("Terrible Sight", "恐怖景象", "talent name")
 t("You require your worm that walk to be alive and closeby.", "你需要有一个存活的蠕虫合体伙伴在周围。", "logPlayer")
 t([[While within range 3 of your Worm that Walks you can project an aura of terror.
@@ -3032,7 +3032,7 @@ t([[Your Nihil unravels the existence of the target, tearing them apart with ent
 		破灭之兆会继承你的伤害加成、伤害穿透、暴击几率和暴击倍率加成。]], "tformat")
 t("Erase", "抹除", "talent name")
 t([[Those affected by your Nihil find themselves increasingly removed from reality, reducing all damage they deal by %d%% and causing them to take %0.2f temporal damage each turn for each negative magical effect they have.
-		The damage will scale with your Spellpower.]], [[受到你空无影响的生物逐渐从现实中被抹除，造成的伤害降低 %d%%。同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。
+		The damage will scale with your Spellpower.]], [[受到你空无影响的生物逐渐从现实中被抹除，造成的伤害降低 %d%%。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。
 		伤害受到法术强度加成。]], "tformat")
 t("All is Dust", "尽归尘土", "talent name")
 t("%s's entropic storm", "%s的湮灭风暴", "tformat")
@@ -3073,7 +3073,7 @@ t([[You trigger a cascade of rapidly mutating cells in your body for %d turns.
 t("Writhing One", "蠕动者", "talent name")
 t([[At last you unlock the true power of your mutated body!
 		You gain %d%% stun immunity, %d%% chances to ignore critical strikes and your darkness and blight damage are increased by %d%%.]], [[你终于解开了这具变异身体的最终力量！
-		你获得 %d%% 震慑免疫，%d%% 几率无视受到的暴击，并且增加 %d%% 暗影及枯萎伤害。]], "tformat")
+		你获得 %d%% 震慑免疫， %d%% 几率无视受到的暴击，并且增加 %d%% 暗影及枯萎伤害。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/rift.lua"
@@ -3136,7 +3136,7 @@ t([[You project tentacles in a cone of radius %d in front of you.
 t("Decaying Grounds", "腐朽之地", "talent name")
 t([[You blight a zone as a decaying ground for %d turns. All creatures inside take %0.2f blight damage per turn and have all their cooldowns increased by %d%% for 3 turns.
 		The damage will scale with the highest of your spell or mind power.]], [[你使一个区域枯萎，把它们变成腐朽之地，持续 %d 回合。
-		所有在其中的生物每回合受到 %0.2f 枯萎伤害，并且所有技能冷却时间增加 %d%%，持续 3 回合。
+		所有在其中的生物每回合受到 %0.2f 枯萎伤害，并且所有技能冷却时间增加 %d%%， 持续 3 回合。
 		伤害受你的法术强度或者精神强度两者中更高一方影响。]], "tformat")
 t("Augment Despair", "扩大绝望", "talent name")
 t([[You target a single creature with all your hatred and insanity, augmenting its despair, increasing the duration of detrimental effects by %d turns and dealing %0.2f blight damage per detrimental effect (each effect deals 75%% of the previous one).
@@ -3203,7 +3203,7 @@ t([[Your left hand mutates into a disgusting mass of tentacles.
 		Your tentacle hand currently has these stats%s:
 		%s]], [[你的左手异变成为一坨恶心的触手。
 		副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标同侧的其他单位。
-		物理强度提高 %d，触手武器伤害提高 %d%%。
+		物理强度提高 %d， 触手武器伤害提高 %d%%。
 		每次触手攻击时，获得 %d 疯狂值。
 		附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的心灵护盾，避免被他们发现你的恐魔形态。
 		你的触手当前属性为 %s :
@@ -3253,7 +3253,7 @@ t("Accelerate", "窃速", "talent name")
 t([[Distorting spacetime around yourself, you reduce the movement speed of all enemies in radius %d by 50%% for %d turns.
 You use the siphoned speed to grant yourself incredible quickness for 1 turn, increasing movement speed by %d%%, increased by a further %d%% for each enemy slowed, to a maximum of 4.
 Any actions other than movement will cancel the effect.]], [[扭曲周围时空，周围 %d 码内敌人移动速度降低 50%%，持续 %d 回合。
-		你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%，每减速一个敌人，额外提高 %d%%，最大个数 4 个。
+		你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%， 每减速一个敌人，额外提高 %d%%， 最大个数 4 个。
 		移动外的任何行动将终止加速效果。]], "tformat")
 t("Switch", "偷换", "talent name")
 t("Release a surge of entropy, cleansing yourself of afflictions while draining the energy from others. All enemies in range 10 will have the duration of %d beneficial effects reduced by %d turns, while you will have an equal number of detrimental effects reduced by the same duration.", "释放熵的浪潮，清除自己的灾祸，同时吸取他人的能量。10 码内所有敌人的 %d 项有益效果持续时间缩短 %d 回合。自身同等数量的有害效果持续时间缩短同等回合。", "tformat")
@@ -3269,8 +3269,8 @@ t("#LIGHT_STEEL_BLUE#%s's Temporal Clone#LAST#", "#LIGHT_STEEL_BLUE#%s的时空�
 t("A warped image resembling the creature it appeared from, its features a flickering blur of all possible futures.", "一个扭曲的图像，类似于它模仿的生物，它展现着其所有可能的未来的模糊影像。", "_t")
 t("Summon", "召唤", "_t")
 t([[The target enemy will be partially removed from the normal flow of time for %d turns, inhibiting their ability to interact with the world. All damage taken will be reduced by %d%%, while all damage dealt will be reduced by %d%%.
-While active, you form the frayed threads of their timeline into a temporal clone of them for the same duration, which assists you in combat. This clone is identical, but has %d%% reduced life and deals %d%% damage.]], [[将目标敌人从正常时间流部分移除，持续 %d 回合，隔绝他们与现实世界交互的能力。移除期间敌人受到的伤害降低 %d%%，造成的伤害也降低 %d%%。
-		技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同，克隆体生命值降低 %d%%，只造成 %d%% 伤害，其他能力与本体相同。]], "tformat")
+While active, you form the frayed threads of their timeline into a temporal clone of them for the same duration, which assists you in combat. This clone is identical, but has %d%% reduced life and deals %d%% damage.]], [[将目标敌人从正常时间流部分移除，持续 %d 回合，隔绝他们与现实世界交互的能力。移除期间敌人受到的伤害降低 %d%%， 造成的伤害也降低 %d%%。
+		技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同，克隆体生命值降低 %d%%， 只造成 %d%% 伤害，其他能力与本体相同。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/void.lua"
@@ -3282,7 +3282,7 @@ t("#FIREBRICK##Target#'s void star absorbs the damage from #Source#, converting 
 t("%s(%d to entropy)", "%s（%d 熵）", "tformat")
 t([[Conjure void stars that orbit you, defending you from incoming attacks. Each time an attack deals more than 10%% of your maximum life, a star will be consumed to reduce the damage taken by %d%%, of which 40%% will be dealt to you as entropic backlash.
 		You regenerate 1 star every %d turns, stacking up to 4 times.
-		This talent will only function in light armor.]], [[形成围绕你旋转、为你抵御攻击的虚空之星。每当一次攻击造成超过你最大生命值 10%% 的伤害时，消耗一颗虚空之星，使受到的伤害减少 %d%%，其中 40%% 会以熵能反冲的形式作用于你。
+		This talent will only function in light armor.]], [[形成围绕你旋转、为你抵御攻击的虚空之星。每当一次攻击造成超过你最大生命值 10%% 的伤害时，消耗一颗虚空之星，使受到的伤害减少 %d%%， 其中 40%% 会以熵能反冲的形式作用于你。
 		虚空之星每经过 %d 回合自动恢复一颗，最多叠加 4 颗。
 		此技能只有装备轻甲时生效。]], "tformat")
 t("Nullmail", "虚空装甲", "talent name")
@@ -3320,7 +3320,7 @@ t([[Infects the target with a very contagious disease, doing %0.2f damage per tu
 		The damage will increase with your Spellpower, and the spread chance increases with the amount of blight damage dealt.]], [[使目标感染一种传染性极强的疾病，每回合造成 %0.2f 伤害，持续 6 回合。
 		如果目标受到非疾病来源的枯萎伤害，传染病可能被触发，并将一种随机疾病传播给半径 2 的球形范围内的附近目标。
 		传播几率随造成的枯萎伤害提高；当该伤害至少达到目标最大生命值的 %d%% 时，传播几率为 100%%。
-		感染该疾病的生物还会受到治疗效果降低（%d%%）和疾病免疫降低（%d%%）的影响。
+		感染该疾病的生物还会受到治疗效果降低 （%d%%） 和疾病免疫降低 （%d%%） 的影响。
 		传染病威力极强，会完全无视目标的疾病免疫。
 		伤害随法术强度提高，传播几率随造成的枯萎伤害量提高。]], "tformat")
 t("Mutated Hereragegand", "异变之手", "talent name")
@@ -3449,7 +3449,7 @@ t([[Your skin grows small spikes coated in dark blight.
 t("Faceless", "无面", "talent name")
 t([[Your faceless visage is puzzling and emotionless, allowing you to more easily resist mind tricks.
 		You gain %d mental save, %d%% confusion immunity.]], [[你无面孔的脸没有情感，令人困惑。这让你更容易抵抗精神冲击。
-		你获得 %d 精神豁免，%d%% 混乱免疫。]], "tformat")
+		你获得 %d 精神豁免， %d%% 混乱免疫。]], "tformat")
 t("From Below It Devours", "自深渊吞噬万物", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("hungering mouth", "饥饿巨口", "_t")
@@ -3494,7 +3494,7 @@ t([[Since ziguranth removed those filthy magic runes from your body you have nee
 		Changing your aspect requires combat experience, you may only do so after slaying 100 enemies (current %d).
 
 		When you learn this talent you become so strong you can wield any type of one handed weapon in your offhand.]], [[伊格兰斯除去了你身体内部肮脏的魔法符文，此后你需要另一种力量来维持你的身体。多亏了龙血，你找到了这种力量。
-		龙血强化了你，使你获得 %d%% 震慑抗性，%d%% %s 伤害抗性，%d %s 近战附加伤害。
+		龙血强化了你，使你获得 %d%% 震慑抗性， %d%% %s 伤害抗性， %d %s 近战附加伤害。
 		你可以主动开启该技能来改变龙血类型，进而改变相应元素。
 		抗性和附加伤害受意志值加成。
 

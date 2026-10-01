@@ -143,7 +143,7 @@ t([[Your psionic powers have no limits. You are now able to assault a target and
 ------------------------------------------------
 section "tome-possessors/data/talents/psionic/possession.lua"
 
-t("Possession Talent %d", "附身技能%d", "tformat")
+t("Possession Talent %d", "附身技能 %d", "tformat")
 t("You must assume a form to use that form's talents.", "你必须占据一个身体才能使用这个身体的技能。", "logPlayer")
 t([[When you assume a form, this talent will be replaced with one of the body's talents.
 			The only use for this talent is to pre-organize your hotkeys bar.]], [[附身时，该技能会被替换成身体的其中一个技能。
@@ -151,7 +151,7 @@ t([[When you assume a form, this talent will be replaced with one of the body's 
 t("none", "没有", "_t")
 t("\
 %s%s%d)%s#LAST# (#LIGHT_BLUE#lv %d#LAST#, #LIGHT_RED#HP:%d/%d#LAST#)", "\
-%s%s%d)%s#LAST# (#LIGHT_BLUE#等级 %d#LAST#, #LIGHT_RED#生命值:%d/%d#LAST#)", "tformat")
+%s%s%d)%s#LAST# (#LIGHT_BLUE#等级 %d#LAST#, #LIGHT_RED#生命值: %d/ %d#LAST#)", "tformat")
 t("Destroy Body", "摧毁身体", "talent name")
 t("You have no stored bodies to delete.", "你没有存储的身体，无需删除。", "logPlayer")
 t([[Discard a body from your psionic reserve.
@@ -216,7 +216,7 @@ t([[You cast a psionic web at a target that lasts for %d turns. Each turn it dea
 		你可能只会偷走以下类型的生物的尸体 : #LIGHT_BLUE#%s#LAST#
 		当你尝试附身不同类型的生物时，你可以永久学习此类型，你还可以执行 %d 次。]], "tformat")
 t("Self Persistence", "自我坚持", "talent name")
-t("When you assume the form of an other body you can still keep %d%% of the values (defences, crits, powers, save, ...) of your own body.", "当你附身时，你还可以保留自己身体的属性 %d%%（闪避，暴击，强度，豁免……）。", "tformat")
+t("When you assume the form of an other body you can still keep %d%% of the values (defences, crits, powers, save, ...) of your own body.", "当你附身时，你还可以保留自己身体的属性 %d%% （闪避，暴击，强度，豁免……）。", "tformat")
 t("Improved Form", "身体改进", "talent name")
 t([[When you assume the form of another body you gain %d%% of the values (defences, crits, powers, save, ...) of the body.
 		In addition talents gained from bodies are limited to level %0.1f.]], [[当你附身时，你获得身体 %d%% 的数值（闪避，暴击，强度，豁免……）。
@@ -316,7 +316,7 @@ t([[Using both your mind and your arms you propel your two handed weapon to deal
 t("Force Shield", "力场盾", "talent name")
 t([[You create a psionic shield from your weapon that prevents you from ever taking blows that deal more than %d%% of your maximum life and gives you %d%% evasion.
 		In addition, each time you take a melee hit the attacker automatically takes revenge strike that deals %d%% weapon damage as mind damage. (This effect can only happen once per turn)
-		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你通过武器创造灵能力场盾，每次受到伤害时，伤害不会超过最大生命值 %d%%，并有 %d%% 的几率闪避攻击。
+		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你通过武器创造灵能力场盾，每次受到伤害时，伤害不会超过最大生命值 %d%%， 并有 %d%% 的几率闪避攻击。
 		此外，每次受到近战攻击时，攻击者会受到 %d%% 武器精神伤害的反击，（每回合一次）
 		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
 t("Unleashed Mind", "心灵释放", "talent name")
