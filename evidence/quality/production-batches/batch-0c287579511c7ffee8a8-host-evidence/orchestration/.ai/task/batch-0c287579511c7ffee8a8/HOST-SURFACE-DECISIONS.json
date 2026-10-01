@@ -1,0 +1,104 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 12 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "fd48d9c2c13f9304c0ff9efe087f8515afdaca8a4bc1bb864470bbf2e16f6de1",
+      "stage": "surface",
+      "observation": "原文进入潜行的限制条件是范围内存在视野中的敌人（foes in sight），译文写成存在“能看见你的敌人”，颠倒了观察方向。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cunning/stealth.lua:24-37 潜行（Stealth）的 stealthDetection 只计入敌对、未致盲且其视野表 act.fov.actors 含你自己的单位（即能看见你的敌人），:74 有此类检测值即拒绝进入潜行；现译“如果半径 %d %s 内有能看见你的敌人，你不能进入潜行”贴合实现。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "3ece21fc711866c360aa0f4744fde675fe9b39824ca2ebe93b211349e95d21e6",
+      "stage": "surface",
+      "observation": "原文为对所有攻击你的敌人造成伤害（all attacking foes），译文改为“近战反击伤害”，增加了原文未写明的近战限制；冻结输入缺少支持该限制的机制证据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Ashes 公开源码（来源未固定，按本批 workset SHA 核验）tome-ashes-urhrok/data/talents/corruptions/demonic-strength.lua:106-122 深渊护盾（Abyssal Shield）以 talentTemporaryValue(ret, \"on_melee_hit\", {FIRE, BLIGHT}) 施加反击伤害，只在被近战命中时触发；现译“近战反击伤害”贴合实现（原文“all attacking foes”反而未说明近战限定）。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "56b7b501ebbaac94c74fd082e2b8d865727dbcf12fd7f2a4c3805021cd877d70",
+      "stage": "surface",
+      "observation": "原文描述源生物受到伤害后，受害者受到其数值的 %d%% 伤害；译文“%d%% 伤害由牺牲生物承受”容易表达为伤害转移或分担。冻结文本支持这一语义疑点，但缺少机制证据，无法确认是否实际转移伤害。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Ashes 公开源码（来源未固定，按本批 workset SHA 核验）tome-ashes-urhrok/data/timed_effects.lua:706-731 苦痛链接（Link of Pain，talents/corruptions/infernal-combat.lua:99-128）的 EFF_LINK_OF_PAIN 在 callbackOnHit 中不改 cb.value，源生物照常承受全部伤害，另令 victim:takeHit(cb.value*power/100)；long_desc 亦为 “will also be done to an other victim”。现译“%d%% 伤害由牺牲生物承受”读作伤害转移/分担，与实现相反。确认（contextual 判 OK，宿主以源码为准）。修复：“每次源生物受到伤害时， %d%% 伤害由牺牲生物承受。”→“每次源生物受到伤害时，牺牲生物也会受到该伤害的 %d%%。”，其余不变。"
+    },
+    {
+      "revision_key": "a5a0cf47b6802dddeef6637f7b9bfca405c92645e7cead583d51aee33a0b37c9",
+      "stage": "surface",
+      "observation": "原文“sets its duration to %d”表示将持续时间设为指定值，译文“持续时间增大到 %d 回合”额外断言持续时间增加；冻结输入没有支持必然增加的证据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Ashes 公开源码（来源未固定，按本批 workset SHA 核验）tome-ashes-urhrok/data/talents/corruptions/oppression.lua:66-67、:81 地狱恐惧以固定 8 回合施加，:114-115、:129 恐惧之潮（Mass Hysteria）把已有恐惧的 dur 设为 getDurationBonus＝10；恐惧只会从 8 回合递减，设为 10 必为增加，现译“持续时间增大到 %d 回合”与实现一致。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "b028c0ed3b26eee3628f7131c99b0d4d08cd93d129474cc66fd05f1f52bde874",
+      "stage": "surface",
+      "observation": "原文“teleporting you to a specific location up to %d spaces away”明确传送至范围内的指定位置，译文仅写“传送半径 %d”，遗漏指定目的地的信息。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Ashes 公开源码（来源未固定，按本批 workset SHA 核验）tome-ashes-urhrok/data/talents/misc/races.lua:36-95 末日加速（Haste of the Doomed）以 beam 选定目标格（:45-62，须为空格且不超过 getTalentRange），再 teleportRandom(x, y, 0)（:68）精确传送到该格；原文 “teleporting you to a specific location up to %d spaces away”。现译“传送半径 %d”读作在半径内随机传送，漏掉“指定位置”。确认（contextual 判 OK，宿主以源码为准）。修复：“加速自身，以至于脱离空间，传送半径 %d。”→“加速自身，以至于脱离空间，传送至 %d 码内的指定位置。”，其余不变。"
+    },
+    {
+      "revision_key": "c38ed49043703fb587f6691785673611bbcc8e516dcef0c540d3d6964cd35b11",
+      "stage": "surface",
+      "observation": "Obliterating Smash 的“Increases range by %d”译为“增加半径 %d”，将距离表述改成了半径；冻结输入未提供机制证据，具体含义待核验。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Ashes 公开源码（来源未固定，按本批 workset SHA 核验）tome-ashes-urhrok/data/talents/corruptions/wrath.lua:32-37 歼灭挥斩（Obliterating Smash）的 range 为 3 + ceil(is_destroyer/4)，动作中以 {type=\"cone\", range=0, radius=self:getTalentRange(t)} 使用，即技能 range 就是锥形半径；毁灭者（Destroyer）变身对该项的 “Increases range by %d” 实际增加的是锥形半径，现译“增加半径 %d”贴合实现。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "074d7c0b7e919740e833eabc6cef88869e1ebe11c926ad40da9b3ac4ea45548e",
+      "stage": "surface",
+      "observation": "原文“those on the side”指目标侧旁的单位，译文“目标同侧的其他单位”改变了位置关系；原文“psionic field”用于遮掩外形，译为“心灵护盾”引入了原文未表述的防护含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Cults 公开源码（来源未固定，按本批 workset SHA 核验）tome-cults/superload/mod/class/interface/Combat.lua:32-49 异变之手（Mutated Hand）在主手攻击后以触手攻击目标，并用 util.dirSides 取攻击方向左右两格（与你相邻、位于目标两侧）的敌对单位各攻击一次；现译“目标同侧的其他单位”读作与目标同一阵营/同一边，误述被击对象。确认。修复见 contextual 行（合并）。“psionic field”译“心灵护盾”属措辞，建议不改。"
+    },
+    {
+      "revision_key": "b3730adfe9794327239a53f30e0b4590562d879a36f34af7327b155923b68415",
+      "stage": "surface",
+      "observation": "原文明确说明施加效果时，目标附近敌人的攻击目标会被清除（have their target cleared on application）；译文“将重新考虑其攻击目标”未表达清除目标的具体行为及触发时点。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Cults 公开源码（来源未固定，按本批 workset SHA 核验）tome-cults/data/timed_effects.lua:514-519 恐魔具现化（Horrific Display）的 EFF_HORRIFIC_DISPLAY 在 activate（施加时）对半径 10 内与目标友好的单位执行 act:setTarget(nil)；现译“目标生物周围的敌人将重新考虑其攻击目标”表达的就是攻击目标被清空、需重新选择，后果一致。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "fc1ebcae01526e5eaeded6e272c806f6f52d22d563409d6d603c487ec1658b01",
+      "stage": "surface",
+      "observation": "原文“permanently gains an inscription slot”明确说明永久获得槽位，译文“获得一个纹身位”未保留“永久”限定；“inscription slot”是否可译为“纹身位”缺少冻结术语正文，暂无法确认。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Cults 公开源码（来源未固定，按本批 workset SHA 核验）tome-cults/data/talents/demented/friend-of-the-worm.lua:268、:547 共享疯狂（Shared Insanity）令蠕虫合体 max_inscriptions = 1 + getInscriptions，随技能等级持续生效；inscription slot 可装任意刻印（纹身或符文），主游戏统一作“刻印位”（mod-tome.lua “解锁一个新的刻印位”“已经解锁了所有的刻印位”，terminology/talents.tsv inscriptions＝刻印 preferred，具体类型才作纹身/符文）。现译“获得一个纹身位”把槽位窄化为纹身，并漏掉 permanently。确认（contextual 判 OK，宿主以源码与术语为准）。修复：“你的蠕虫合体获得一个纹身位（当前： %d）。”→“你的蠕虫合体永久获得一个刻印位（当前： %d）。”，其余不变。"
+    },
+    {
+      "revision_key": "129b3ebe4476b23317dca0d9e0b7f3b5544d688fd3a457384efd3ddb2059fb7f",
+      "stage": "surface",
+      "observation": "末句原文说明装备盾牌及计算盾牌伤害时均以灵巧代替力量；译文将两者统一表述为“用灵巧代替力量要求”，混淆了伤害计算所用属性与装备属性要求。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，按本批 workset SHA 核验）tome-orcs/data/talents/steam/magnetism.lua:29-34、:62 静电震击（Static Shock）以 allow_wear_shield/show_shield_combat 使灵巧在装备盾牌与计算盾牌伤害两处都替代力量；现译“你装备盾牌和计算盾牌攻击伤害的时候，用灵巧代替力量要求”覆盖两处，“要求”一词略宽但未改变机制。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "20cef8408df0abad380ff20ec2e7a07c1cab97458a42fd2d80155b4d568e6341",
+      "stage": "surface",
+      "observation": "原文“kick a target %d tiles away”描述踢击距离为 %d 格的目标，译文“将目标踢走 %d 码”将该距离解释为目标被击退的距离；冻结输入未提供机制证据，具体距离含义待核验。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，按本批 workset SHA 核验）tome-orcs/data/talents/steam/elusiveness.lua:130-174 炫目大跳（Dazzling Jump）info 第一个 %d 为 getRange，而 action 里 getRange 用作目标被击退的距离（:163-164 target:knockback(ox, oy, t.getRange)），自身后退为 getAway（:161）；技能本身无 range 字段。现译“将目标踢走 %d 码”贴合实现（原文“kick a target %d tiles away”与实现不符）。驳回。"
+    },
+    {
+      "revision_key": "7961e3e39013b2437cdba855b2457b1dafaf420858ba49ef2e50f73f183bb65c",
+      "stage": "surface",
+      "observation": "原文“up to %d%% after 5 reapplications”说明重复施加五次后失败几率达到上限；译文“最多叠加五次”改为叠加次数上限。冻结输入不足以确认首次施加是否计入叠加次数，但原文未声明最多只能叠加五次。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，按本批 workset SHA 核验）tome-orcs/data/data/timed_effects/physical.lua:1410、:1423-1426 瘴气引擎（Miasma Engine）的 EFF_MIASMA_ENGINE 叠层 stacks = min(stacks+1, max_stacks)，max_stacks＝getMax＝5（talents/steam/chemical-warfare.lua:31），失败率 = fail*stacks/max_stacks；叠层上限确为 5，现译“最多叠加五次”贴合实现。驳回。contextual 判 OK。"
+    }
+  ]
+}
