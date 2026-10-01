@@ -1,0 +1,25 @@
+{
+  "batch_id": "batch-554490d4847b278842b9",
+  "observations": 0,
+  "observation_dispositions": {},
+  "repair_revision_keys": [],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 1,
+    "repair_required": 0,
+    "blocked": 0
+  },
+  "rows": [],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (1 lane: main-game full-000 of 1)",
+    "contextual": "none (no deep_required entry)"
+  },
+  "notes": [
+    "Single main-game entry, the successor of repair window 63 (Strength of Purpose). Surface ran as one codex/gpt-6.1-sol child in full mode and returned OK; it read only its own envelope and the contract (1 exec call, no writes, no Paseo terminals).",
+    "No entry was deep_required, so no contextual run was prepared or dispatched; the batch took the surface-only adjudication path (empty decisions array) followed by prepare-evidence. The host read the entry against guardian.lua:33 at the pinned commit and agreed with the OK verdict.",
+    "The review queue is now empty: the successors of repair windows 61-63 are all reviewed.",
+    "Single-entry batch: 1 main-game entry was verified against the manifest-pinned tome commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and matched the literal in the recorded file.",
+    "0 confirmed repair revisions raise the window 64 backlog from 0 to 0; below the 20 threshold, so no window opens."
+  ]
+}
