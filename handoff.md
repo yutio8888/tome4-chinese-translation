@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-10-01（修复窗口61已完成、待宿主证据提交与推送；下一步开修复窗口62）
+更新时间：2026-10-01（修复窗口62已完成、待宿主证据提交与推送；下一步审核窗口61、62 的 successor）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -14,11 +14,11 @@
 - 2026-10-01：审核队列耗尽、积压 3 条，用户选择“开小窗口修这 3 条”，开窗口58。
 - 2026-10-01：第376批后按维护者要求暂停；用户“先补术语库”（`8e2fae4e`，181 行），三方讨论改为 gpt-6-astra／opus-5-5／gemini-3.8-flash，同意统一 21 个名称并开窗口59；裁定 Phoenix＝凤凰、“恢复失衡值”保留不改。
 - 2026-10-01：用户裁定 deeprock 技能树改“深岩”（Deeprock Form 保持“深岩形态”），并要求一并修复 Korbek 实验笔记标题等非阻断问题，开窗口60。
-- 2026-10-01：审核队列清空后，用户要求系统性分析死亡信息表（`cd2d0d7e`）；同意把 12 条句式与拼接缺陷并入积压，开窗口61；随后裁定 pending #50（killer_message 改凶手主语）与 #51（dark Master→黑暗领主）均采用 B，排入窗口62。
+- 2026-10-01：审核队列清空后，用户要求系统性分析死亡信息表（`cd2d0d7e`）；同意把 12 条句式与拼接缺陷并入积压，开窗口61；随后裁定 pending #50（killer_message 改凶手主语）与 #51（dark Master→黑暗领主）均采用 B，排入窗口62。窗口62 已于同日完成并推送。
 - 审核已闭合至第 **380** 批（`batch-1c8107aa6a8d3b70ae53`）：38 条，38 done / 0 repair_required。
   全 Orcs，审核队列余下的全部 38 条：补空格 successor 31 条＋窗口59 successor 6 条＋窗口58 successor 1 条：surface 一组 35 OK / 3 ISSUE，无补空格误报；contextual 首轮通过（3 OK）。无新增确认，窗口61积压仍为 9（另宿主补充 1 条）；审核队列已清空。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `922c3ca265bf78170098fd76c5c74b67c9851513` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **61**：窗口60（译文 `d62fe6ff`）与窗口61（第377–379批确认 9 条＋Blindside 补充＋死亡信息表分析 12 条，译文 `276e8b2d`，migration `70e37de3…`）均已修复；窗口61 的 22 个 successor 须重新审核，不继承旧 revision 的 done 状态（窗口59/60 的 successor 已于第375–380批审完）。
+- 修复窗口已闭合至 **62**：窗口61（译文 `276e8b2d`）与窗口62（pending #50 B killer_message 凶手主语 50 条＋#51 B 黑暗领主 2 条＋苦痛链接 1 条，译文 `1f4395f6`，migration `67a73acf…`）均已修复；两窗共 75 个 successor 须重新审核，不继承旧 revision 的 done 状态。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
   - 10 条死键／冻结 MISS（上游改串未重生 locale key 等，已 host-block 登记，不动）；
@@ -61,13 +61,13 @@
 
 ## 三、下一步
 
-1. 下一步开修复窗口62（用户 2026-10-01 裁决 pending #50 B／#51 B，见第 2 项积压），推送后审核窗口61、62 的 successor。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
+1. 下一步审核窗口61、62 的 successor（共 75 个，审核队列重建后可见）。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
    届时用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句）；
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
-2. 窗口 61 已完成（22 条：主游戏 17、Ashes 2、Cults 3）：第377–379批确认 9 条＋第377批宿主补充 Blindside＝闪电突袭 1 条＋2026-10-01 死亡信息表分析 12 条。死亡公告四个句式经 args_order 改为“在{区域}第{N}层…而死，杀死他（她）的是…”（特殊句式“在{区域}第{N}层{消息}”），消除“，，”“。，”、短句式 killer_message 夹在“被…杀死”中与“…而死 死在N层”；拼接短语去句尾标点、补连接，三条 killer_message 按 pending #50 B 改为凶手主语（Subject Z、Fyrk、The Amalgamation“吸进了自己那肮脏的躯体”），reknor 单复数/时态、“他自己牺牲自己”、艾德隆句尾句号一并修。复审中另确认：意志之力“魔力”（stat）、末日加速“脱离现实”、苦痛链接 victim＝受害者、异变之手“灵能力场”与属性行“你的触手当前属性%s：”（副手非空时的禁用说明拼接）。复审路径：execute-01 → REVIEW r0a1 4 ISSUE（4 确认＋同族 1）→ execute-02 → RE r1a1 22 OK → FINAL f1a2 1 确认 → execute-03 → RE r2a1 OK → FINAL f2a2 2 确认 → execute-04 → RE r3a1 OK → FINAL f3a2 1 确认 → execute-05 → RE r4a1 OK → FINAL f4a2（Opus 5.5）22/22，cycle 4 收敛（max_cycles 5）；门禁 17/17。
-   模板：`.artifacts/i18n/repair-w61-20261001/`（make_claims.py、setup_window61.py 支持 batch 来源与 synth 混合；verify_translation_diff.py 的 ARGS 集合允许指定条目改 args_order 并校验置换与 %d 类型；freeze_review.py 对带 args_order 的条目在 context 末尾附 ` args_order={…}` 令牌，否则 preflight 失败）；宿主辅助脚本 `w61-tr.sh` 等在 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore）。
-   advisory carry_forward：Ashes 苦痛链接效果说明（EFF_LINK_OF_PAIN long_desc）“牺牲生物”→“受害者”，排入窗口62。窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
-   窗口 62 积压 **约 55** 条（估算，开窗 setup 时实测；用户 2026-10-01 裁决）：pending #50 B killer_message 全族改凶手主语（主游戏＋DLC 59 个唯一串，窗口61 已处理 5 个）、pending #51 B dreadfell dark Master 3 条→“黑暗领主”；另宿主补充 Link of Pain 效果说明 1 条；依据见 `evidence/quality/pending-user-review.md` 第50、51项与窗口61 `publication/ADJUDICATION-F1.json`。
+2. 窗口 62 已完成（53 条：主游戏 44、Cults 5、Ashes 3、Orcs 1）：按用户 2026-10-01 裁决 pending #50 B，其余 50 条 killer_message 全部改为以凶手为主语的“并将其…”主动分句（Wrathroot“并让树人们将其化为养分”、Norgos“并任由群狼分食其尸”、Tannen“并使其从此下落不明、杳无音讯”；`, who …`、`(how pathetic)` 等本不以死者为被动主语者不在范围）；pending #51 B dreadfell dark Master 2 条→“并将其献祭给她/他的黑暗领主”；窗口61 advisory 苦痛链接效果说明 victim→“另一名受害者”。Cults `0071abb36c` 同串为死键未动。复审路径：execute-01 → REVIEW r0a1 2 确认（苦痛链接“另一名”、Murgol“冲进了大海”）→ execute-02 → RE r1a1 53 OK → FINAL f1a2 1 确认（Tannen 以全角逗号起头，PartyDeath.lua:94 前置半角空格渲染为“坦能 ，”）→ execute-03 → RE r2a1 53 OK → FINAL f2a2（Opus 5.5）53/53，cycle 2 收敛（max_cycles 5）；门禁 17/17。
+   教训：killer_message 被 `" "..src.killer_message` 拼在 killer 名后，译文不得以标点起头。模板：`.artifacts/i18n/repair-w62-20261001/`（rewrites.json 为整条改写表，make_claims.py 带 new_target）。
+   窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
+   窗口 63 积压 **0** 条。窗口61 的 22 个与窗口62 的 53 个 successor 待重新审核。
    第380批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）165.6 s；finalize 143.2 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。

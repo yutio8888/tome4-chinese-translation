@@ -1,0 +1,18 @@
+{
+  "title": "W62 execute-01",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w62-20261001。先读 .ai/roles/executor.md、.ai/task/repair-w62-20261001/SPEC.md、SCOPE.json、WORKSET.json 与 SOURCE-CLAIMS.json。仅你是任务内容写入者。本窗口不改术语库。按 SOURCE-CLAIMS 中每条“修复：”给出的新 target，整条替换 WORKSET 列出的 53 个 target（mod-tome.lua、tome-ashes-urhrok.lua、tome-cults.lua、tome-orcs.lua），逐字取用新文本，不增删字词、标点或空格；source、source_tag、args_order 与其他记录一律不动。同一英文串在同一文件的两个 section 里各有一条（如 and fed to the hatchlings、and written off the story），两条都要改成同一新文本。可在 evidence/quality/repair-window-62-20261001/ 写 IMPLEMENTATION.md、VALIDATION.json。禁止从 /、/workspace 或无关目录搜索。运行有界验证：LuaJIT 加载四个译文文件，相对 .ai/task/repair-w62-20261001/baseline 恰 53 条 target 变动且逐条等于 SOURCE-CLAIMS 的新文本、其他记录不变；git diff --check；python3 -B tools/i18n lint --strict。回报改动条数与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w62-20261001",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}

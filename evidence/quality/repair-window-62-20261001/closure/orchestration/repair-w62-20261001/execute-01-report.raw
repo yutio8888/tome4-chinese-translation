@@ -1,0 +1,7 @@
+已完成 `repair-w62-20261001`：
+
+- 共修改 53 条 target：`mod-tome.lua` 44 条、`tome-ashes-urhrok.lua` 3 条、`tome-cults.lua` 5 条、`tome-orcs.lua` 1 条。
+- LuaJIT 成功加载当前文件及 baseline，确认恰有 53 条 target-only 变动；全部逐字匹配 SOURCE-CLAIMS，其余记录及参数不变。
+- `git diff --check`：通过。
+- `python3 -B tools/i18n lint --strict`：通过，30,308 条译文，0 errors、0 warnings。
+- 未修改术语库或 `.ai/task`，未 stage、commit、push，未创建 agent。

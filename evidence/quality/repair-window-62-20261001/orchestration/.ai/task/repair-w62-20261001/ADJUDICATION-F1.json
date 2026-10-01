@@ -1,0 +1,20 @@
+{
+ "cycle": 1,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f1a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 52,
+ "raw_issue_count": 1,
+ "decision": "1 confirmed tier-1 runtime finding; FINAL failed. One EXECUTOR fix (execute-03), then RE_REVIEW(2,1) and FINAL_REVIEW(2,2).",
+ "findings": [
+  {
+   "revision_key": "f34d093d2aa9beffde4d2d4b3e6c62e27ddcf230b5cb1f6ed68a600245a96e14",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "runtime",
+   "origin": "reviewer f1a2",
+   "reason": "固定 commit 624a673 game/modules/tome/class/interface/PartyDeath.lua:94 以 \" \"..src.killer_message 拼接，固定前置半角空格；mod-tome.lua 死亡公告模板把 killer 短语放在“杀死他（她）的是%s%s%s。”末尾，本条以全角逗号起头渲染为“…坦能 ，死者从此下落不明…”，逗号前出现孤立空格。同族其余条目以“并”起头，无此问题。修复：改为凶手主语并沿用 ad9d12ebef“并使其…”句式，整条 target“，死者从此下落不明、杳无音讯”→“并使其从此下落不明、杳无音讯”；同时满足 pending #50 B（凶手作主语）。"
+  }
+ ],
+ "advisories": []
+}

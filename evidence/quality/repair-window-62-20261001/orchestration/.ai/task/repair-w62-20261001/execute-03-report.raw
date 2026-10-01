@@ -1,0 +1,16 @@
+已完成 Paseo EXECUTOR 第 2 轮修复。
+
+- 修改：[mod-tome.lua:39960](/workspace/tome4-chinese-translation/mod-tome.lua:39960)
+- 前：`，死者从此下落不明、杳无音讯`
+- 后：`并使其从此下落不明、杳无音讯`
+- `source`、`source_tag`、`args_order` 及其他记录未改。
+
+验证结果：
+
+- LuaJIT 成功加载四个当前译文文件及四个 baseline 文件。
+- 相对 baseline 仍恰有 53 条 target-only 变化。
+- 相对冻结的 FINAL 快照，本轮仅修改 `f34d093d2a`。
+- `git diff --check`：通过。
+- `python3 -B tools/i18n lint --strict`：通过，检查 30,308 条译文，0 errors、0 warnings。
+
+首次结构比较因直接比较 Lua table 引用产生误报；改为递归值比较后重新验证通过。未修改 `.ai/task` 或术语库，未 stage、commit、push，也未创建 agent。

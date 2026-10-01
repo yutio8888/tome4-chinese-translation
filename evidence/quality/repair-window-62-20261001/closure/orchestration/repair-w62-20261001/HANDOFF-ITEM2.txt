@@ -1,0 +1,4 @@
+2. 窗口 62 已完成（53 条：主游戏 44、Cults 5、Ashes 3、Orcs 1）：按用户 2026-10-01 裁决 pending #50 B，其余 50 条 killer_message 全部改为以凶手为主语的“并将其…”主动分句（Wrathroot“并让树人们将其化为养分”、Norgos“并任由群狼分食其尸”、Tannen“并使其从此下落不明、杳无音讯”；`, who …`、`(how pathetic)` 等本不以死者为被动主语者不在范围）；pending #51 B dreadfell dark Master 2 条→“并将其献祭给她/他的黑暗领主”；窗口61 advisory 苦痛链接效果说明 victim→“另一名受害者”。Cults `0071abb36c` 同串为死键未动。复审路径：execute-01 → REVIEW r0a1 2 确认（苦痛链接“另一名”、Murgol“冲进了大海”）→ execute-02 → RE r1a1 53 OK → FINAL f1a2 1 确认（Tannen 以全角逗号起头，PartyDeath.lua:94 前置半角空格渲染为“坦能 ，”）→ execute-03 → RE r2a1 53 OK → FINAL f2a2（Opus 5.5）53/53，cycle 2 收敛（max_cycles 5）；门禁 17/17。
+   教训：killer_message 被 `" "..src.killer_message` 拼在 killer 名后，译文不得以标点起头。模板：`.artifacts/i18n/repair-w62-20261001/`（rewrites.json 为整条改写表，make_claims.py 带 new_target）。
+   窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
+   窗口 63 积压 **0** 条。窗口61 的 22 个与窗口62 的 53 个 successor 待重新审核。

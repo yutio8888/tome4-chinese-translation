@@ -1,0 +1,28 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "publication-01",
+      "status": "PASS",
+      "tool_calls": 9,
+      "native_calls_sha256": "894221a644bcc5929b3695756685973deeb42bfb0f897c4744d8dc3935e6b469",
+      "writes": [
+        "evidence/quality/repair-window-62-20261001/orchestration/* (163 pack files, SHA verified)",
+        "evidence/quality/repair-window-62-20261001/orchestration-pack-manifest.json",
+        "evidence/quality/repair-window-62-20261001/publication/* (20 attachments)",
+        "evidence/quality/repair-window-62-20261001/PUBLICATION.md",
+        "evidence/production-review-v2-lite/catalog/* and i18n/quality/production-review-v2-lite/* (exact copies)",
+        "evidence/production-review-v2-lite/migrations/67a73acf….json (exact copy)",
+        "handoff.md"
+      ],
+      "notes": [
+        "handoff: exactly five places updated as scoped (update line 3, section-one window line, death-table line suffix, item 1 substring, item 2 replaced by HANDOFF-ITEM2.txt); 第380批计时 line, item 3 and section four preserved verbatim; host reviewed the git diff of handoff.md",
+        "native tool scan: 9 calls, 2 flagged = false positives (rm -rf of mktemp /tmp scratch dirs in EXIT traps; >> appends into the same tmpdir)",
+        "host ran harvest and archive-intent by hand: wd_exec_done does not accept the non-numeric dispatch id (same as windows 54-61)",
+        "docs/README.md carries another session uncommitted edit; untouched and never staged"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ]
+}

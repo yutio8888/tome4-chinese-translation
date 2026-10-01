@@ -1,0 +1,18 @@
+{
+  "title": "W62 execute-02",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w62-20261001 第 1 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w62-20261001/SPEC.md、SCOPE.json、WORKSET.json 与 ADJUDICATION-R0.json。只按 ADJUDICATION-R0 中 2 条 confirmed 整条替换 target：(1) 5dc5712a74（tome-ashes-urhrok.lua，苦痛链接效果说明）“当目标受伤害时，受害者也会承受 %d%% 的伤害。”→“当目标受伤害时，另一名受害者也会承受 %d%% 的伤害。”（%d%% 原样保留）；(2) dccaeba2d4（mod-tome.lua，murgol-lair killer_message）“并将其扔进了海里”→“并将其冲进了大海”。其他条目及文件其他记录不动；不改术语库、args_order。可更新 evidence/quality/repair-window-62-20261001/ 下的修复证据。禁止从 /、/workspace 或无关目录搜索。运行有界验证：LuaJIT 加载四个译文文件，相对 .ai/task/repair-w62-20261001/baseline 仍恰 53 条 target 变动且本轮只改上述两条；git diff --check；python3 -B tools/i18n lint --strict。回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w62-20261001",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}

@@ -1,0 +1,20 @@
+已完成第 1 轮两条修复：
+
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua:1582)  
+  `当目标受伤害时，受害者也会承受 %d%% 的伤害。`  
+  → `当目标受伤害时，另一名受害者也会承受 %d%% 的伤害。`
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:39121)  
+  `并将其扔进了海里`  
+  → `并将其冲进了大海`
+
+验证结果：
+
+- LuaJIT 加载四个译文文件：通过
+- 相对 baseline：恰好 53 条 target-only 变动
+- 本轮相对 REVIEW 快照：恰好上述 2 条变动
+- 非 target 字段、`%d%%`、source_tag、args_order：未变
+- `git diff --check`：通过，退出码 0
+- `python3 -B tools/i18n lint --strict`：通过，30,308 条译文，0 errors、0 warnings
+
+未修改 `.ai/task` 或术语库，未更新 evidence，未 stage、commit 或 push。无未解决问题。

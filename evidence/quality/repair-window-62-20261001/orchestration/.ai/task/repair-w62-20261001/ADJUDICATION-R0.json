@@ -1,0 +1,28 @@
+{
+ "cycle": 0,
+ "stage": "REVIEW",
+ "accepted_dispatch_id": "r0a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 51,
+ "raw_issue_count": 2,
+ "decision": "2 confirmed tier-1 fidelity findings; one combined EXECUTOR fix (execute-02), then RE_REVIEW(1,1) and FINAL_REVIEW(1,2).",
+ "findings": [
+  {
+   "revision_key": "5dc5712a745a174e866a33a5aa23d56ac3e3251a23fff7b3a5c5fdcc731f98f8",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r0a1",
+   "reason": "Ashes 公开源码（来源未固定）tome-ashes-urhrok/data/timed_effects.lua:707-722 EFF_LINK_OF_PAIN：long_desc “%d%% of the damage will also be done to an other victim” 显示在被链接的源生物身上，callbackOnHit 再对 eff.victim（另一个单位）调用 takeHit。本窗口改后的“受害者也会承受”没有点出这是目标以外的另一个单位，原文 an other 被省略。修复：整条 target→“当目标受伤害时，另一名受害者也会承受 %d%% 的伤害。”"
+  },
+  {
+   "revision_key": "dccaeba2d425909676f183e3720a2019a857a3ab2fc4efb975a1c63c21807799",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r0a1",
+   "reason": "固定 commit 624a673 game/modules/tome/data/zones/murgol-lair/npcs.lua:30 Murgol, the Yaech Lord（水下巢穴）的 “and flushed out to sea” 指死者被水流冲往大海；本窗口沿用的“扔进海里”改成了投掷动作。本条在本窗口已改。修复：整条 target“并将其扔进了海里”→“并将其冲进了大海”。"
+  }
+ ],
+ "advisories": []
+}
