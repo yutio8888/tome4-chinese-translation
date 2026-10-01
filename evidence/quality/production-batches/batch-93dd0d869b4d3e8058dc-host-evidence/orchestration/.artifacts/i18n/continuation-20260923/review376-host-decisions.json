@@ -1,0 +1,50 @@
+{
+ "workset": "evidence/quality/production-batches/batch-93dd0d869b4d3e8058dc-source-workset.json",
+ "decisions": {
+  "3cad3be7e5|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cunning/survival.lua:57-60 装置掌握（Device Mastery）把 cdReduc 写入 use_object_cooldown_reduce；class/Object.lua:215-230 useObject 对所有可用物品统一按该值缩减 use_power（talent_cooldown 类护符写入 talents_cd，其余物品扣能量），getObjectCooldown/ActorObjectUse cycle_time 同样作用于所有物品。实现上冷却与能量消耗的缩减都覆盖全部可用物品，现译“使所有可用物品的冷却时间和能量消耗降低”与实现一致。驳回。"
+  },
+  "419f684664|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 class/Actor.lua:7860-7866：黑暗光环激活且学会避难所时，若投射物起点 (p.start_x,p.start_y) 与自身距离大于黑暗光环范围，则 damage_types.lua:464-466 按 getDamageChange 降低伤害。起点即攻击者发射时所在格，现译“光环外的目标对你的伤害降低”与机制相符，未改变适用范围。驳回。"
+  },
+  "4e496adf1d|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/celestial/chants.lua:165-170 callbackOnTakeDamage 判定 core.fov.distance(self, src) > 2 即减伤，即距离 ≥3 格（含恰为 3 格）。原文“enemies 3 or more spaces away”与实现一致；现译“三格外敌人”读作超过三格，排除了恰为 3 格的敌人，边界错误。确认。修复：“减少三格外敌人对你造成的伤害”→“减少距离三格及以上的敌人对你造成的伤害”，其余不变。"
+  },
+  "4e496adf1d|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一结论：Opus 5.5 引 chants.lua callbackOnTakeDamage 的 distance > 2，指出“三格外”排除恰为 3 格。宿主独立核验确认，合并为一次修复。"
+  },
+  "5c0dc6d9d2|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/shadows.lua:316-325 阴影的 onTakeHit 在受到伤害（value > 0）且消隐（Fade，T_SHADOW_FADE）未冷却时 forceUseTalent 自动触发消隐。原文“gain the ability to Fade when hit”交代了触发条件；现译“拥有消隐的能力，免疫所有伤害直到下一回合开始”漏掉“受到攻击时”这一触发条件，读作主动能力或常驻免伤。确认（完整性）。修复：“它们同时拥有消隐的能力，免疫所有伤害直到下一回合开始”→“它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始”，其余（含“ （%d 回合冷却时间）”）不变。contextual 判 OK，宿主以源码为准。"
+  },
+  "625375787e|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/psionic/feedback.lua:29-36 生物反馈（Biofeedback）getDecaySpeed 为相对正常衰减速率的倍率（info 以 decaySpeed*100 显示），括号内 newDecay*100 为每回合实际上限。现译“衰减速率下降至 %d%%（每回合最多 %0.1f%%）”中“下降至 X%”按汉语习惯即“降为原来的 X%”，括号另给每回合绝对值，可读出正确含义；补“正常速率的”更清楚，属措辞改进。建议，不进修复。contextual 判 OK。"
+  },
+  "694380259a|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/endless-hunt.lua:134-153 骚扰猎物（Harass Prey）每次攻击后只要目标未死就随机令一项未冷却的主动技能进入冷却，不检查 hit；原文“Each attack that scores a hit”与实现不符，现译“每次攻击都将干扰”贴合实现。按源码为准驳回。"
+  },
+  "6964e5069c|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 celestial/radiance.lua:171-183 光照（Illumination）与 timed_effects/magical.lua:3338-3351 EFF_ILLUMINATION：被光照者降低闪避并获得 blind_fighted，长描述为“looses all evasion bonus from being unseen”。现译“且不受不可见带来的闪避加成影响”主语为被光照目标，可读作其不再享有该加成，机制方向未颠倒；改为“且失去因不可见获得的闪避加成”更顺，属措辞。建议，不进修复。contextual 判 OK。"
+  },
+  "6a7d1cc720|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/gifts/sand-drake.lua:45-79 吞噬（Swallow）命中且目标生命比例低于阈值（或已死）后，还需 target:checkHit(物理强度 vs 物理豁免) 且目标可被秒杀（canBe instakill 或生命 ≤5%）才杀死并回复，否则记“resists”。原文“you attempt to swallow it”是尝试；现译“你会吞噬它，立刻将其杀死”把尝试说成必然成功，与下一句豁免相矛盾（删限定词类缺陷）。确认。修复：“你会吞噬它，立刻将其杀死，并根据其等级恢复生命值和失衡值”→“你会尝试吞噬它：若成功则立刻将其杀死，并根据其等级恢复生命值和失衡值”，其余不变。contextual 判 OK，宿主以源码为准。"
+  }
+ }
+}

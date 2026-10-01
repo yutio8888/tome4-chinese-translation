@@ -1,0 +1,107 @@
+{
+  "batch_id": "batch-93dd0d869b4d3e8058dc",
+  "observations": 9,
+  "observation_dispositions": {
+    "refuted": 3,
+    "confirmed": 4,
+    "advisory": 2
+  },
+  "repair_revision_keys": [
+    "4e496adf1df4348a788b16c0d99c54750f2d1050b9a4e6bb2df2226ca1deb6de",
+    "5c0dc6d9d2a91113376ed0ba28a1f7d5267d8df9dd0079c7b0d8b58ba0743b2b",
+    "6a7d1cc7200cb491d20d6a487d79b03969b155ee5ff20224a0a830388ee6de98"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 77,
+    "repair_required": 3,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "3cad3be7e5c40e8c0250aad5ca54d756bb6e1eaa01184f216d1a67353b87fe14",
+      "stage": "surface",
+      "observation": "原文“their cooldowns”指前述护符的冷却时间，只有能量消耗明确覆盖“all usable items”；译文“所有可用物品的冷却时间和能量消耗”扩大了冷却缩减的范围。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cunning/survival.lua:57-60 装置掌握（Device Mastery）把 cdReduc 写入 use_object_cooldown_reduce；class/Object.lua:215-230 useObject 对所有可用物品统一按该值缩减 use_power（talent_cooldown 类护符写入 talents_cd，其余物品扣能量），getObjectCooldown/ActorObjectUse cycle_time 同样作用于所有物品。实现上冷却与能量消耗的缩减都覆盖全部可用物品，现译“使所有可用物品的冷却时间和能量消耗降低”与实现一致。驳回。"
+    },
+    {
+      "revision_key": "419f684664afee14a54702502ae909c0d6c16223522bdfae02f21604ffa2a5e0",
+      "stage": "surface",
+      "observation": "原文减伤条件是攻击起源于光环边界之外（“attack that originates beyond the boundary”）；译文“光环外的目标对你的伤害”将条件改成了伤害来源生物的位置。冻结输入不足以判断两者在机制上是否等价。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 class/Actor.lua:7860-7866：黑暗光环激活且学会避难所时，若投射物起点 (p.start_x,p.start_y) 与自身距离大于黑暗光环范围，则 damage_types.lua:464-466 按 getDamageChange 降低伤害。起点即攻击者发射时所在格，现译“光环外的目标对你的伤害降低”与机制相符，未改变适用范围。驳回。"
+    },
+    {
+      "revision_key": "4e496adf1df4348a788b16c0d99c54750f2d1050b9a4e6bb2df2226ca1deb6de",
+      "stage": "surface",
+      "observation": "原文“3 or more spaces away”包含距离恰为三格的敌人，译文“三格外敌人”排除了三格，距离条件表述不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/celestial/chants.lua:165-170 callbackOnTakeDamage 判定 core.fov.distance(self, src) > 2 即减伤，即距离 ≥3 格（含恰为 3 格）。原文“enemies 3 or more spaces away”与实现一致；现译“三格外敌人”读作超过三格，排除了恰为 3 格的敌人，边界错误。确认。修复：“减少三格外敌人对你造成的伤害”→“减少距离三格及以上的敌人对你造成的伤害”，其余不变。"
+    },
+    {
+      "revision_key": "5c0dc6d9d2a91113376ed0ba28a1f7d5267d8df9dd0079c7b0d8b58ba0743b2b",
+      "stage": "surface",
+      "observation": "原文 Fade when hit 明确消隐在受到攻击时触发；译文仅写拥有消隐能力及免疫伤害，遗漏了受到攻击这一触发条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/shadows.lua:316-325 阴影的 onTakeHit 在受到伤害（value > 0）且消隐（Fade，T_SHADOW_FADE）未冷却时 forceUseTalent 自动触发消隐。原文“gain the ability to Fade when hit”交代了触发条件；现译“拥有消隐的能力，免疫所有伤害直到下一回合开始”漏掉“受到攻击时”这一触发条件，读作主动能力或常驻免伤。确认（完整性）。修复：“它们同时拥有消隐的能力，免疫所有伤害直到下一回合开始”→“它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始”，其余（含“ （%d 回合冷却时间）”）不变。contextual 判 OK，宿主以源码为准。"
+    },
+    {
+      "revision_key": "625375787ef99853284182dca6e6ba8cad52f5955a9a7002dab84de49ada4b43",
+      "stage": "surface",
+      "observation": "原文衰减速率降至 %d%% of the normal rate，即正常速率的 %d%%；译文写成衰减速率下降至 %d%%，遗漏正常速率这一比例基准，容易被理解为反馈值本身的衰减百分比。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/psionic/feedback.lua:29-36 生物反馈（Biofeedback）getDecaySpeed 为相对正常衰减速率的倍率（info 以 decaySpeed*100 显示），括号内 newDecay*100 为每回合实际上限。现译“衰减速率下降至 %d%%（每回合最多 %0.1f%%）”中“下降至 X%”按汉语习惯即“降为原来的 X%”，括号另给每回合绝对值，可读出正确含义；补“正常速率的”更清楚，属措辞改进。建议，不进修复。contextual 判 OK。"
+    },
+    {
+      "revision_key": "694380259a51de413f93feac42e9f4fff42b0c933b72e49382d049192dfaf9ef",
+      "stage": "surface",
+      "observation": "原文限定每次命中的攻击才会干扰技能（Each attack that scores a hit）；译文写成“每次攻击都将干扰”，遗漏命中条件。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/endless-hunt.lua:134-153 骚扰猎物（Harass Prey）每次攻击后只要目标未死就随机令一项未冷却的主动技能进入冷却，不检查 hit；原文“Each attack that scores a hit”与实现不符，现译“每次攻击都将干扰”贴合实现。按源码为准驳回。"
+    },
+    {
+      "revision_key": "6964e5069cb1af1aed003bceacb6a8b4277df1f80f6ebf4165f8c2f700841049",
+      "stage": "surface",
+      "observation": "原文说明被光照者因不可见获得的闪避加成被取消（all evasion bonuses from being unseen negated）；译文“且不受不可见带来的闪避加成影响”变成被光照者不受该加成影响，未准确表达其自身加成被取消。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 celestial/radiance.lua:171-183 光照（Illumination）与 timed_effects/magical.lua:3338-3351 EFF_ILLUMINATION：被光照者降低闪避并获得 blind_fighted，长描述为“looses all evasion bonus from being unseen”。现译“且不受不可见带来的闪避加成影响”主语为被光照目标，可读作其不再享有该加成，机制方向未颠倒；改为“且失去因不可见获得的闪避加成”更顺，属措辞。建议，不进修复。contextual 判 OK。"
+    },
+    {
+      "revision_key": "6a7d1cc7200cb491d20d6a487d79b03969b155ee5ff20224a0a830388ee6de98",
+      "stage": "surface",
+      "observation": "原文达到生命阈值或击杀后是“attempt to swallow”，且下一句明确目标可豁免阻止；译文写成“你会吞噬它，立刻将其杀死”，将尝试表述成必然成功，与后文的豁免条件冲突。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/gifts/sand-drake.lua:45-79 吞噬（Swallow）命中且目标生命比例低于阈值（或已死）后，还需 target:checkHit(物理强度 vs 物理豁免) 且目标可被秒杀（canBe instakill 或生命 ≤5%）才杀死并回复，否则记“resists”。原文“you attempt to swallow it”是尝试；现译“你会吞噬它，立刻将其杀死”把尝试说成必然成功，与下一句豁免相矛盾（删限定词类缺陷）。确认。修复：“你会吞噬它，立刻将其杀死，并根据其等级恢复生命值和失衡值”→“你会尝试吞噬它：若成功则立刻将其杀死，并根据其等级恢复生命值和失衡值”，其余不变。contextual 判 OK，宿主以源码为准。"
+    },
+    {
+      "revision_key": "4e496adf1df4348a788b16c0d99c54750f2d1050b9a4e6bb2df2226ca1deb6de",
+      "stage": "contextual",
+      "observation": "源文“enemies 3 or more spaces away”包含距离恰为 3 的敌人；冻结源码 chants.lua callbackOnTakeDamage 的判定为 core.fov.distance(...) > 2，即距离 ≥3 时减伤。译文“三格外敌人”容易被理解为距离超过 3 格，排除了恰好 3 格的情况，边界含义不清。建议明确为“距离 3 格及以上的敌人”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一结论：Opus 5.5 引 chants.lua callbackOnTakeDamage 的 distance > 2，指出“三格外”排除恰为 3 格。宿主独立核验确认，合并为一次修复。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes of 2/2/2/1)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 full-000, accepted on the first pass; 8 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), main game 4 lanes x20; 72 OK / 8 ISSUE; every child only read its own envelope and the contract (8 exec calls, no writes, no Paseo terminals). No observation flagged the placeholder spaces added by maintenance a2a2d6b7.",
+    "Contextual review: claude/claude-opus-5-5 over the 8 deep entries, accepted on the first pass (1 ISSUE, 7 OK); it read its own envelope, the contract and the pinned tome source.",
+    "All 80 entries are successors of the talent placeholder-spacing maintenance (a2a2d6b7); the spaces themselves follow review guide §6.4 and were not at issue.",
+    "Host overrode two contextual OK verdicts from source: Fade is triggered by onTakeHit (shadows.lua:316-325) and Swallow can be resisted (sand-drake.lua:69-79).",
+    "All 80 entries are main game and were verified against the manifest-pinned tome commit 624a673.",
+    "3 confirmed repair revisions raise the window 59 backlog from 1 to 4; below the 20 threshold, so no window opens."
+  ]
+}
