@@ -1,0 +1,228 @@
+{
+  "schema_version": 5,
+  "task_id": "repair-w63-20261001",
+  "mode": "implement",
+  "change_class": "standard",
+  "state": "DONE",
+  "review_phase": "FINAL_REVIEW",
+  "cycle": 0,
+  "max_cycles": 5,
+  "max_cycles_user_authorized": true,
+  "workspace_id": "wks_420314270844170b",
+  "orchestrator_agent_id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5",
+  "orchestration_transport": "mcp",
+  "review_contracts": [
+    "translation_contextual_v2"
+  ],
+  "pending_review_contracts": [],
+  "completed_review_contracts": [
+    "translation_contextual_v2"
+  ],
+  "baseline": {
+    "patch": "/workspace/tome4-chinese-translation/.ai/task/repair-w63-20261001/BASELINE.patch",
+    "copies_dir": "/workspace/tome4-chinese-translation/.ai/task/repair-w63-20261001/baseline",
+    "head": "ba4a610931a0b0e235f173746be7c0155011d28d",
+    "status_path": "/workspace/tome4-chinese-translation/.ai/task/repair-w63-20261001/BASELINE-status.txt"
+  },
+  "candidate_author_agent_id": "c6fcdc85-4388-48a4-b3dc-b477d4da8d1e",
+  "executor": {
+    "role": "EXECUTOR",
+    "agent_id": "c6fcdc85-4388-48a4-b3dc-b477d4da8d1e"
+  },
+  "child_dispatches": [
+    {
+      "dispatch_id": "execute-01",
+      "role": "EXECUTOR",
+      "purpose": "implement",
+      "agent_id": "c6fcdc85-4388-48a4-b3dc-b477d4da8d1e",
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5",
+      "labels": {
+        "task_id": "repair-w63-20261001",
+        "role": "executor",
+        "purpose": "implement",
+        "dispatch_id": "execute-01",
+        "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+      },
+      "created_intent_at": "2026-10-01T09:24:32.451678+00:00",
+      "dispatch_intent_recorded_before_create": true,
+      "lineage_verified": true,
+      "first_live_capture_path": ".ai/task/repair-w63-20261001/execute-01-created.json",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-10-01T09:24:55.015707+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-5.6-sol"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        }
+      },
+      "output_valid": true,
+      "raw_output_path": ".ai/task/repair-w63-20261001/execute-01-report.raw",
+      "raw_output_sha256": "bbd5319b3a2ee899bdc3df5b8f3e38d004607cc390fdd7a9d466158765ef93e0",
+      "terminal_capture_path": ".ai/task/repair-w63-20261001/execute-01-terminal.json",
+      "archived_at": "2026-10-01T09:26:18.680Z",
+      "archive_capture_path": ".ai/task/repair-w63-20261001/execute-01-archived.json"
+    },
+    {
+      "dispatch_id": "r0a1",
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v2",
+      "agent_id": "f13e7752-7945-4955-8863-cbfd8b5566e3",
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5",
+      "labels": {
+        "task_id": "repair-w63-20261001",
+        "role": "reviewer",
+        "purpose": "translation_contextual_v2",
+        "dispatch_id": "r0a1",
+        "candidate_identity": "5bacf86376e0f88998b6e975ebebcc8432c98fc0ef4dd59fee3d1583fb83fb82",
+        "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+      },
+      "created_intent_at": "2026-10-01T09:26:25.219017+00:00",
+      "dispatch_intent_recorded_before_create": true,
+      "candidate_identity": "5bacf86376e0f88998b6e975ebebcc8432c98fc0ef4dd59fee3d1583fb83fb82",
+      "input_path": ".ai/task/repair-w63-20261001/CONTEXTUAL-ENVELOPE-r0a1.json",
+      "candidate_author_agent_id": "c6fcdc85-4388-48a4-b3dc-b477d4da8d1e",
+      "author_provider_resolution": "verified",
+      "lineage_verified": true,
+      "first_live_capture_path": ".ai/task/repair-w63-20261001/r0a1-created.json",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-10-01T09:26:41.776842+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "codex"
+        },
+        "model": {
+          "presence": "present",
+          "value": "gpt-6.1-sol"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto-review"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        }
+      },
+      "output_valid": true,
+      "raw_output_path": ".ai/reviews/repair-w63-20261001/raw-r0a1.txt",
+      "raw_output_sha256": "5c7307e428b9ad58f33039f00fcf01f562653d1e4dbd0a4d2e6347a2a58d6385",
+      "read_boundary_valid": true,
+      "terminal_capture_path": ".ai/task/repair-w63-20261001/r0a1-terminal.json",
+      "archived_at": "2026-10-01T09:27:18.912Z",
+      "archive_capture_path": ".ai/task/repair-w63-20261001/r0a1-archived.json"
+    },
+    {
+      "dispatch_id": "f0a2",
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v2",
+      "agent_id": "fd136ab3-a245-470b-9458-71bddf403659",
+      "lifecycle": "archived",
+      "archive_confirmed": true,
+      "archive_attempts_started": 1,
+      "workspace_id": "wks_420314270844170b",
+      "parent_agent_id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5",
+      "labels": {
+        "task_id": "repair-w63-20261001",
+        "role": "reviewer",
+        "purpose": "translation_contextual_v2",
+        "dispatch_id": "f0a2",
+        "candidate_identity": "5bacf86376e0f88998b6e975ebebcc8432c98fc0ef4dd59fee3d1583fb83fb82",
+        "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+      },
+      "created_intent_at": "2026-10-01T09:27:25.587904+00:00",
+      "dispatch_intent_recorded_before_create": true,
+      "candidate_identity": "5bacf86376e0f88998b6e975ebebcc8432c98fc0ef4dd59fee3d1583fb83fb82",
+      "input_path": ".ai/task/repair-w63-20261001/CONTEXTUAL-ENVELOPE-f0a2.json",
+      "candidate_author_agent_id": "c6fcdc85-4388-48a4-b3dc-b477d4da8d1e",
+      "author_provider_resolution": "verified",
+      "lineage_verified": true,
+      "first_live_capture_path": ".ai/task/repair-w63-20261001/f0a2-created.json",
+      "runtime_observation": {
+        "schema_version": 1,
+        "source": "live_agent_metadata",
+        "captured_at": "2026-10-01T09:27:41.338651+00:00",
+        "capture_status": "captured",
+        "provider": {
+          "presence": "present",
+          "value": "claude"
+        },
+        "model": {
+          "presence": "present",
+          "value": "claude-opus-5-5"
+        },
+        "mode": {
+          "presence": "present",
+          "value": "auto"
+        },
+        "thinking": {
+          "presence": "present",
+          "value": "medium"
+        }
+      },
+      "output_valid": true,
+      "raw_output_path": ".ai/reviews/repair-w63-20261001/raw-f0a2.txt",
+      "raw_output_sha256": "5c7307e428b9ad58f33039f00fcf01f562653d1e4dbd0a4d2e6347a2a58d6385",
+      "read_boundary_valid": true,
+      "terminal_capture_path": ".ai/task/repair-w63-20261001/f0a2-terminal.json",
+      "archived_at": "2026-10-01T09:28:03.436Z",
+      "archive_capture_path": ".ai/task/repair-w63-20261001/f0a2-archived.json"
+    }
+  ],
+  "contextual_reviewers": [
+    {
+      "role": "REVIEWER",
+      "purpose": "translation_contextual_v2",
+      "candidate_identity": "5bacf86376e0f88998b6e975ebebcc8432c98fc0ef4dd59fee3d1583fb83fb82",
+      "dispatch_id": "f0a2",
+      "input_path": ".ai/task/repair-w63-20261001/CONTEXTUAL-ENVELOPE-f0a2.json",
+      "agent_id": "fd136ab3-a245-470b-9458-71bddf403659"
+    }
+  ],
+  "review_records": [
+    ".ai/reviews/repair-w63-20261001/r0a1.json",
+    ".ai/reviews/repair-w63-20261001/f0a2.json"
+  ],
+  "senior_review_records": [],
+  "open_accepted_findings": [],
+  "deferred_findings": [],
+  "wait": null,
+  "last_error": null,
+  "final_validation_passed": true,
+  "preflight_worksets": [],
+  "combined_workset_path": "/workspace/tome4-chinese-translation/.ai/task/repair-w63-20261001/WORKSET.json",
+  "updated_at": "2026-10-01T09:28:10.915542+00:00",
+  "current_translation_sha256": {
+    "engine.lua": "42c9809433aa29ac633b3bb9c0000607da2fe59433fbd143fa9e6def9ed69128",
+    "mod-tome.lua": "d93c86e4432c24bc9d39ba3a0d655157c66d7259e19c3f37062d473505cfe459",
+    "tome-ashes-urhrok.lua": "3c83ccee563a7c05efc4a12be57183c45985704f7052545fa0305a109d2a93de",
+    "tome-cults.lua": "d1d2fbb1db88eb270abe5e2b7de0e74725f6131196eff98bfe1c2c89a9cb99e5",
+    "tome-orcs.lua": "5f308e38d2cd76282947a4aac35061c3c9400be873113f744a6279b432f7b696"
+  },
+  "final_gate_results_path": ".artifacts/i18n/ci-gates/run.oufpa42u/results.json",
+  "final_gate_results_sha256": "b4198d25f5513cbe1bf1ffa3f3fb3cba7debaa3f4ed83948eb75dfe95899e05e"
+}
