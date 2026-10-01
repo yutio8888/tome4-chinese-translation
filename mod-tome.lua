@@ -18982,7 +18982,7 @@ What a dread and woeful task I have been given - the revival of our race. The sw
 
 And those drastic measures come down to me. I am the sole orc left with any advanced medical knowledge, as I evacuated to the East before our settlement was wiped out. I must find a way to prolong the lives of our remaining females and have them breed at far faster rates. I will use all natural and magical means at my disposal.
 
-I have taken this cavern up as a secret base, far away from the main encampment. I must do dark deeds here, and I wish them to remain hidden...]], [[#{bold}#巫医库贝克的实验笔记：一#{normal}#
+I have taken this cavern up as a secret base, far away from the main encampment. I must do dark deeds here, and I wish them to remain hidden...]], [[#{bold}#巫医库贝克的实验笔记，第一部分#{normal}#
 
 复兴我们的种族——我接下的是多么可怕而悲惨的使命。那群猪猡般的人类与半身人彻底摧毁了我们的整个社会，只剩下军方的粗鄙武夫来统治我们的人民。我们仅剩下寥寥几名女性，若不采取极端手段，我们很快便将灭绝。
 
@@ -18996,7 +18996,7 @@ I have begun work on several of the females. They are being kept in a coma for t
 
 Initial results have mostly been immensely successful. Body mass has grown significantly, especially in the abdominal region. One has even begun developing extra ovaries and sexual organs. I have managed to increase their fertility immensely, and the stimulated foetal growth rate means that new orcs take only eight weeks from conception to birth. The young also seem to be progressing in their development at a very advanced pace, with particularly accelerated muscle development.
 
-Some females have died during the procedures. I can only presume these were the weaker subjects, but it is a tragic loss regardless.]], [[#{bold}#巫医库贝克的实验笔记：二#{normal}#
+Some females have died during the procedures. I can only presume these were the weaker subjects, but it is a tragic loss regardless.]], [[#{bold}#巫医库贝克的实验笔记，第二部分#{normal}#
 
 我已经对几名雌性展开了实验。在实验期间她们一直处于昏迷状态——那样会好得多。起初我让她们承受了极高剂量的野性纹身与奥术再生力场，同时直接向她们的胃中注入高蛋白营养。在笼罩她们的时间加速力场下，堕落之血被泵入她们的卵巢。各个兽人部落的领袖都献出了自己的种子用于实验。
 
@@ -19010,7 +19010,7 @@ My work is continuing with tremendous success. All subjects now have multiple op
 
 Though the wombs operate at an advanced rate, we are keeping their vital organs suppressed to extend their lifespans. Perhaps they can live for hundreds, if not thousands of years.
 
-Pumping nutrients directly into their stomach is proving a difficulty with the increased activity in the abdominal region. I am currently investigating ways to condense nutrients into the atmosphere so that the subjects can be passively fed through breathing. Initial tests show a slimy build-up on the skin but no other negative side-effects.]], [[#{bold}#巫医库贝克的实验笔记：三#{normal}#
+Pumping nutrients directly into their stomach is proving a difficulty with the increased activity in the abdominal region. I am currently investigating ways to condense nutrients into the atmosphere so that the subjects can be passively fed through breathing. Initial tests show a slimy build-up on the skin but no other negative side-effects.]], [[#{bold}#巫医库贝克的实验笔记，第三部分#{normal}#
 
 我的研究仍在继续，并取得了巨大的成功。得益于注入堕落之血并配合奥术再生力场迅速修复被腐化的组织，如今所有受试体都拥有了多个能够正常运作的子宫。随着胎儿生长阶段加速技术的进一步突破，我们现在每隔几天就能迎来新兽人的降生！我相信这一进程还能被推向更高的极限。
 
@@ -19026,7 +19026,7 @@ I have so long been concentrating on my objectives that I never stopped to think
 
 She wanted to die. I know she wanted to die, I could see her accusing eyes on me begging to let her die. But I cannot, I cannot... This is too terrible. I should burn this cave to the ground, and erase my horrible actions from existence! But where would that leave our people...
 
-My mind is in torment. I cannot live like this any longer... I cannot live...]], [[#{bold}#巫医库贝克的实验笔记：四#{normal}#
+My mind is in torment. I cannot live like this any longer... I cannot live...]], [[#{bold}#巫医库贝克的实验笔记，第四部分#{normal}#
 
 可怕……可怕至极的梦魇啊！我都做了些什么？我究竟犯下了何等卑劣而黑暗的罪孽？！
 
@@ -28484,8 +28484,8 @@ t([[When you turn into a Deeprock elemental your Nature damage is increased by %
 		%s]], "tformat")
 t("Mountainhewn", "山崩地裂", "talent name")
 t([[While in deeprock form, you become indomitable, granting you %d%% resistance to cuts, poisons, diseases and stuns.
-		At level 5 and higher, while Deeprock Form is active, all incoming damage is applied against physical resistance instead of the normal resistance type.]], [[当你进入深岩元素形态时，你获得 %d%% 流血、毒素、疾病和震慑免疫。
-		技能等级 5 或以上时，在深岩元素形态下，你将用物理抗性取代其他伤害抗性。]], "tformat")
+		At level 5 and higher, while Deeprock Form is active, all incoming damage is applied against physical resistance instead of the normal resistance type.]], [[处于深岩形态时，你获得 %d%% 流血、毒素、疾病和震慑免疫。
+		技能等级 5 或以上时，在深岩形态下，你将用物理抗性取代其他伤害抗性。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/divination.lua"
@@ -29582,7 +29582,7 @@ t("eldritch shield", "魔力盾牌", "talent type")
 t("Infuse arcane forces into your shield.", "利用奥术能量强化盾牌。", "_t")
 t("eldritch stone", "魔法岩石", "talent type")
 t("Summon stony spikes imbued with various powers.", "召唤各种力量的岩石尖刺。", "_t")
-t("deeprock", "深岩形态", "talent type")
+t("deeprock", "深岩", "talent type")
 t("Harness the power of the world to turn into a Deeprock Form.", "利用世界的力量，进入深岩形态。", "_t")
 t("#GREY#%s can not be healed this way!", "#GREY#%s无法被这样治疗！", "logSeen")
 t("Necrotic Minion", "死灵随从", "_t")
