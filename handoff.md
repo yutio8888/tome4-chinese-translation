@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-10-01（修复窗口58已完成并推送；下一步先做技能说明占位符补空格清理，再审核第375批）
+更新时间：2026-10-01（修复窗口58与技能说明占位符补空格维护均已完成并推送；下一步审核第375批起的 393 个 successor）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -52,13 +52,13 @@
 
 ## 三、下一步
 
-1. **先做技能说明占位符补空格清理窗口**（用户 2026-10-01 指示，规则“最小必要”：升级预览 `tokenize(" ()[],")` 只按 ASCII 空格/半角括号/逗号切分，占位符所在片段连带汉字时在占位符与相邻字符之间补一个空格；只粘标点、不连汉字的如「%d%%。」不动；talents 段 tformat 约 481 条 678 处）。之后审核第 **375** 批：窗口58的 3 个 successor（主游戏 1、Cults 1、Orcs 1，混合来源批）连同清理窗口的 successor；积压按窗口59重新计数。
+1. 继续审核第 **375** 批起：窗口58的 3 个 successor（主游戏 1、Cults 1、Orcs 1）与占位符补空格维护的 390 个 successor（约 5 批，混合来源）。补空格维护已完成（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）：规则“最小必要”，talents 段 tformat 数值占位符所在 token 连带汉字时补一个 ASCII 空格，全角闭合标点随前文、正负号与全角开括号随数字，`%s` 不处理；394 条 590 处。审核这些 successor 时，空格本身按此规则不判问题。
    届时用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句）；
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
 2. 窗口 58 已完成（第373、374批确认的 3 条）：age-allure 副歌“嘿，我，现为守卫”→你（4 处）；fay-willows 骷髅转而去夺取城门、步步逼近的亡灵大军、排成射击队列，以及 FINAL 补出的两处 lockstep“步调一致”；pocket-time 精通其中几项、与吸血鬼领主正面交锋、含糊不清地咒骂了一通不公平。复审路径：execute-01 → REVIEW r0a1 3 ISSUE 全不采纳（1 驳回、2 advisory）→ FINAL f0a2 1 确认（lockstep）→ execute-02 → RE r1a1 1 advisory → FINAL f1a2 越界 grep ashes-urhrok 拒收 → f1a3（Opus 5.5）3/3，cycle 1 收敛；门禁 17/17。
    模板为窗口58：`.artifacts/i18n/repair-w58-20261001/setup_window58.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`wd.sh`、`check_siblings.py`（须传 WORKSET 路径）；宿主辅助脚本 `w58-tr.sh` 等在 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore）。setup 后要手设 STATE.candidate_author_agent_id，freeze_review.py 简报条数“审N条”要按窗口改。
    advisory carry_forward：`2822ed0142` 食人魔化歌（All Star 戏仿）多句押韵意译偏离原文（stasis、“until we say it's ogre”、the years'll start coming），整首重译属歌词策略，successor 审核时再评估；`e2c9218ea9` 已在本窗口修复 lockstep。
-   窗口 59 积压 **0** 条。
+   窗口 59 积压 **0** 条；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
    第374批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）170.1 s；finalize 145.2 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。
