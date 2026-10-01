@@ -1,0 +1,123 @@
+{
+  "batch_id": "batch-aab3f1f803f7e019bc0d",
+  "observations": 11,
+  "observation_dispositions": {
+    "confirmed": 6,
+    "refuted": 5
+  },
+  "repair_revision_keys": [
+    "b19b6b1d3452d0f274f8871f8b2a8ab238946bb71d7b13bf395069348e02f856",
+    "bc2f66a5e1862afee9a2b45f56a4ff8ce0b92853fe5a1063ed2de27572a2cbc6",
+    "de48fb09ea40ca5e0c024fc68824be1eda266cbfa4bc82eb8613daf830e8dc9b"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 76,
+    "repair_required": 3,
+    "blocked": 1
+  },
+  "rows": [
+    {
+      "revision_key": "b19b6b1d3452d0f274f8871f8b2a8ab238946bb71d7b13bf395069348e02f856",
+      "stage": "surface",
+      "observation": "source 的对象条件为“attempt to inflict a fear”（尝试施加恐惧），target 的“所有被你灌注恐惧的目标”将尝试施加改成了已被施加，遗漏尝试未成功的情形。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/fears.lua:60-87 恐惧灌输（Instill Fear）的 applyEffect 在精神强度检定（:68-71）通过后、恐惧免疫检查 canBe(\"fear\")（:85）之前就给目标挂上 EFF_HEIGHTEN_FEAR（:77-81），故恐惧免疫的敌人也会被恐惧加深（Heighten Fear）计数并在满回合后受伤、再判一次恐惧；原文 “Any foe you attempt to inflict a fear upon” 正是“试图施加”。现译“所有被你灌注恐惧的目标”把对象限定为已被恐惧者，漏掉免疫者，缩窄触发范围。确认。修复：“所有被你灌注恐惧的目标若停留在……”→“所有你试图施加恐惧的目标若停留在……”，其余不变。"
+    },
+    {
+      "revision_key": "bc2f66a5e1862afee9a2b45f56a4ff8ce0b92853fe5a1063ed2de27572a2cbc6",
+      "stage": "surface",
+      "observation": "source 的“each trap can have only one type of preparation”限制每个陷阱只能具有一种准备方式；target 的“每种陷阱只有一种改进方式”改为每种陷阱只存在一种可用方式，改变了限制的对象与含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cunning/traps.lua:600-619 在陷阱专精（Trap Mastery）里选中已作为启动陷阱的陷阱会清除 self.trap_primed（:616-619），即同一个陷阱只能以普通或即爆陷阱（Trap Priming）的启动机关其中一种方式准备；原文 “each trap can have only one type of preparation” 限定的是单个陷阱。现译“每种陷阱只有一种改进方式”改成“每种陷阱只存在一种方式”，限制对象与含义均偏。确认。修复见 contextual 行（合并）。"
+    },
+    {
+      "revision_key": "bcc792fa6e5fd63e4a1bafa2bcaaf035a1e26d825d886855389727a69fb44364",
+      "stage": "surface",
+      "observation": "source 明确为护盾每回合消耗 0.2 仇恨值；target 的“技能激活时-0.2仇恨值回复”将持续消耗表述为回复修正，且未明确每回合消耗。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/force-of-will.lua:191-199 念力折射（Deflection）callbackOnActBase 仅在护盾未满且仇恨值 ≥0.2 时每回合 incHate(-0.2) 并充能；现译把“-0.2仇恨值回复”放在“护盾值每回合回复最大值的 1/%d”之后的括注里，读作充能每回合消耗 0.2 仇恨，与实现一致（原文“0.2 a turn”反而未说明满盾时不扣）。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "c438b238b0830b2c903a118e8c778ec187b8947a20ec067c72fd80da030d746c",
+      "stage": "surface",
+      "observation": "source 的“Prepared with: %s”表示制备时使用的材料或手段，target 的“准备于：%s”将 with 误译成时间或地点关系；冻结输入未提供 %s 的具体内容。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cunning/artifice.lua:476-481 盗贼佳酿（Rogue's Brew，:407）info 的 %s 为 slot = self:getTalentFromId(slot_id).name（:478），即该工具所装入的工具栏技能名（未装入时为“not prepared”）；“准备于：<工具栏技能名>”表示装备在哪个工具位，语义成立，并非把 with 译成时间。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "dc74b5669f6581a4c6cbdeee7475c641832640bd693cbb81e5218346515015db",
+      "stage": "surface",
+      "observation": "末句 source 的 armor penetration（护甲穿透）在 target 中变为“护甲……削减”，改变了受物理强度加成的属性描述；冻结输入未提供源码语境，无法判断是否为英文描述本身有误。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/munitions.lua:45、:67-70 异种弹药（Exotic Munitions）穿甲弹的护甲与豁免削减取 getArmorSaveReduction = combatTalentLimit(t,30,5,25,0.75)，只随技能等级变化；原文末句 “armor penetration ... will increase with your Physical Power” 本身与实现不符，且 “armor penetration” 实指上文的护甲削减。现译“护甲和豁免削减”贴合上文所述效果，不构成译文缺陷（英文缩放说明错误不由译文修正）。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "de48fb09ea40ca5e0c024fc68824be1eda266cbfa4bc82eb8613daf830e8dc9b",
+      "stage": "surface",
+      "observation": "原文“These bonuses override rather than stack”涵盖前述武器伤害与物理强度加成，译文“奖励伤害取代……的加成”将不叠加的范围缩为伤害，遗漏物理强度加成的关系。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/class/interface/Combat.lua:1152-1210 同一武器类型的训练技能（武器掌握、匕首掌握、弓术专精与意志之力 Strength of Purpose）只取优先级最高的一个（:1170），其 getDamage（物理强度）与 getPercentInc（伤害加成）一并生效；故 data/talents/chronomancy/guardian.lua:33-35 “These bonuses override rather than stack” 覆盖武器伤害与 +30 物理强度两项。现译“这个技能的奖励伤害取代……的加成”只说伤害，漏掉物理强度。确认。修复见 contextual 行（合并）。"
+    },
+    {
+      "revision_key": "df32eff2817906d4d2a688939a4ac65fe1a8a52cab1d79e50a3f33b0bd11cfd5",
+      "stage": "surface",
+      "observation": "原文“Ranged attacks against targets”未声明必须命中，译文“命中敌人的远程攻击”增加了命中条件；冻结输入没有实际触发条件的证据，需确认此限制是否成立。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/agility.lua:266-273 速射姿态（Rapid Shot）callbackOnArcheryAttack 以 “if hitted and not target.turn_procs.rapid_fire and dist < 5” 判定回合返还，必须命中；现译“命中敌人的远程攻击”贴合实现（原文未写命中）。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "eace8ef1b3e87838793886e730021ba06dd816f7206fd88d6ea24525467190ff",
+      "stage": "surface",
+      "observation": "原文伤害计算基准为“best free hand melee damage”，译文“单手最大伤害”遗漏空手及近战限定，扩大了计算基准的含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/gestures.lua:20-39 canUseGestures 要求两只手都为空手或灵晶（nb >= 2），并取两手 combatDamage 的较大值（:36）作为守护手势（Gesture of Guarding）的偏移基数；括号前已说明“每只手须为空手或装备灵晶”，“单手最大伤害”即较强一手的近战伤害，未扩大基准。驳回。contextual 判 OK。"
+    },
+    {
+      "revision_key": "b19b6b1d3452d0f274f8871f8b2a8ab238946bb71d7b13bf395069348e02f856",
+      "stage": "contextual",
+      "observation": "The source says 'Any foe you attempt to inflict a fear upon'. The translation '所有被你灌注恐惧的目标' drops 'attempt' and implies only foes who were actually feared. Pinned engine 624a6732 game/modules/tome/data/talents/cursed/fears.lua:74-81 applyEffect sets EFF_HEIGHTEN_FEAR after the mindpower check but before the canBe(\"fear\") immunity check at lines 84-87. A foe immune to fear still gets this effect without ever being feared. Suggest '你试图施加恐惧的敌人'.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一结论：Opus 5.5 引 fears.lua:74-87 指出 EFF_HEIGHTEN_FEAR 在恐惧免疫检查之前施加，建议“你试图施加恐惧的敌人”。宿主独立核验确认，合并为一次修复。"
+    },
+    {
+      "revision_key": "bc2f66a5e1862afee9a2b45f56a4ff8ce0b92853fe5a1063ed2de27572a2cbc6",
+      "stage": "contextual",
+      "observation": "'up to tier %d' is translated as '最高材质等级 %d', but here tier is the trap's own tier, not a material tier. Same file traps.lua:841 lists each design as 'Tier %d: name' using trap.tier, and the value comes from getTalentLevelRaw (line 850). Also, 'Known primable designs' is translated as '已学会的引爆方式', but %s is a list of trap designs, not trigger methods. The same entry also renders primed trigger two ways: '特殊的控制机关' and '特殊启动机关'.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Opus 5.5 另指出同条三处：(1) “up to tier %d” 的 %d 为 getTalentLevelRaw（traps.lua:850），对应陷阱自身阶级（:841 “Tier %d: name” 用 trap.tier），本库陷阱专精相关串作“阶级”（mod-tome.lua “最高阶级 %d”“阶级 %d：%s”），现译“最高材质等级”误作装备材质；(2) “Known primable designs” 后接陷阱设计列表，现译“已学会的引爆方式”误作触发方式；(3) primed trigger 同条两译“特殊的控制机关／特殊启动机关”。宿主核验均成立，与 surface 合并为一次修复：“（最高材质等级 %d）”→“（最高阶级 %d）”；“带有特殊的控制机关”→“带有特殊的启动机关”；“每种陷阱只有一种改进方式”→“每个陷阱只能采用一种准备方式”；“已学会的引爆方式：”→“已知可加装启动机关的陷阱：”；其余不变。"
+    },
+    {
+      "revision_key": "de48fb09ea40ca5e0c024fc68824be1eda266cbfa4bc82eb8613daf830e8dc9b",
+      "stage": "contextual",
+      "observation": "The source says 'These bonuses override rather than stack with weapon mastery...'. Here 'these bonuses' covers both the %d%% weapon damage and the +30 physical power (guardian.lua:33-35). The translation '这个技能的奖励伤害取代…' narrows it to bonus damage only, so the physical power part of the override is lost. Suggest '以上加成取代而非叠加…'.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一结论：Opus 5.5 引 guardian.lua:33-35 指出 these bonuses 含武器伤害与物理强度。宿主独立核验确认，合并为一次修复：“这个技能的奖励伤害取代武器掌握、匕首掌握和弓箭掌握的加成。”→“以上加成会取代而非叠加武器掌握、匕首掌握和弓箭掌握的加成。”，其余不变。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes of 2/2/2/1)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000 full-000, accepted on the first pass; 8 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), main game 4 lanes x20; 72 OK / 8 ISSUE; every child only read its own envelope and the contract (10 exec calls, no writes, no Paseo terminals). No observation flagged the placeholder spaces added by maintenance a2a2d6b7.",
+    "Contextual review: claude/claude-opus-5-5 over the 8 deep entries, accepted on the first pass (3 ISSUE, 5 OK); it read its own envelope, the contract and the pinned tome source. Its verdicts agree with the host source verification on all 8 entries.",
+    "The batch holds 72 successors of the placeholder-spacing maintenance (a2a2d6b7), 3 successors of repair window 59, 4 of repair window 60 and 1 other entry.",
+    "d11a680c6e (old Infusion: Heroism info) is a registered dead key and was host-blocked at freeze; surface still screened it (OK) and it is not counted as done.",
+    "Host refuted 5 surface observations from source: Deflection drains hate only while recharging (force-of-will.lua:191-199), the Rogue's Brew %s is the tool slot name (artifice.lua:478), Exotic Munitions armor/save reduction scales with talent level only so the English scaling line is itself wrong, Rapid Shot requires a hit (agility.lua:268), and Gesture of Guarding takes the better of the two qualifying hands (gestures.lua:36).",
+    "All 80 main-game entries were verified against the manifest-pinned tome commit 624a67329fe2ad440c5b344785a9c73fcf22ae63; 79 matched the literal in the recorded file, and 1 (d11a680c6e, a registered dead key: the old Infusion: Heroism info without \"to a maximum of 100%% at 0 life or less\") was host-blocked because its source no longer exists in any code file (see host_blocks.jsonl and freeze-miss-attribution).",
+    "3 confirmed repair revisions raise the window 61 backlog from 2 to 5; below the 20 threshold, so no window opens."
+  ]
+}

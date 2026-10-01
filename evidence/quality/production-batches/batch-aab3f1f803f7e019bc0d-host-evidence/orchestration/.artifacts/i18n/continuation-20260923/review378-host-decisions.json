@@ -1,0 +1,60 @@
+{
+ "workset": "evidence/quality/production-batches/batch-aab3f1f803f7e019bc0d-source-workset.json",
+ "decisions": {
+  "b19b6b1d34|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/fears.lua:60-87 恐惧灌输（Instill Fear）的 applyEffect 在精神强度检定（:68-71）通过后、恐惧免疫检查 canBe(\"fear\")（:85）之前就给目标挂上 EFF_HEIGHTEN_FEAR（:77-81），故恐惧免疫的敌人也会被恐惧加深（Heighten Fear）计数并在满回合后受伤、再判一次恐惧；原文 “Any foe you attempt to inflict a fear upon” 正是“试图施加”。现译“所有被你灌注恐惧的目标”把对象限定为已被恐惧者，漏掉免疫者，缩窄触发范围。确认。修复：“所有被你灌注恐惧的目标若停留在……”→“所有你试图施加恐惧的目标若停留在……”，其余不变。"
+  },
+  "b19b6b1d34|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一结论：Opus 5.5 引 fears.lua:74-87 指出 EFF_HEIGHTEN_FEAR 在恐惧免疫检查之前施加，建议“你试图施加恐惧的敌人”。宿主独立核验确认，合并为一次修复。"
+  },
+  "bc2f66a5e1|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cunning/traps.lua:600-619 在陷阱专精（Trap Mastery）里选中已作为启动陷阱的陷阱会清除 self.trap_primed（:616-619），即同一个陷阱只能以普通或即爆陷阱（Trap Priming）的启动机关其中一种方式准备；原文 “each trap can have only one type of preparation” 限定的是单个陷阱。现译“每种陷阱只有一种改进方式”改成“每种陷阱只存在一种方式”，限制对象与含义均偏。确认。修复见 contextual 行（合并）。"
+  },
+  "bc2f66a5e1|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "Opus 5.5 另指出同条三处：(1) “up to tier %d” 的 %d 为 getTalentLevelRaw（traps.lua:850），对应陷阱自身阶级（:841 “Tier %d: name” 用 trap.tier），本库陷阱专精相关串作“阶级”（mod-tome.lua “最高阶级 %d”“阶级 %d：%s”），现译“最高材质等级”误作装备材质；(2) “Known primable designs” 后接陷阱设计列表，现译“已学会的引爆方式”误作触发方式；(3) primed trigger 同条两译“特殊的控制机关／特殊启动机关”。宿主核验均成立，与 surface 合并为一次修复：“（最高材质等级 %d）”→“（最高阶级 %d）”；“带有特殊的控制机关”→“带有特殊的启动机关”；“每种陷阱只有一种改进方式”→“每个陷阱只能采用一种准备方式”；“已学会的引爆方式：”→“已知可加装启动机关的陷阱：”；其余不变。"
+  },
+  "bcc792fa6e|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/force-of-will.lua:191-199 念力折射（Deflection）callbackOnActBase 仅在护盾未满且仇恨值 ≥0.2 时每回合 incHate(-0.2) 并充能；现译把“-0.2仇恨值回复”放在“护盾值每回合回复最大值的 1/%d”之后的括注里，读作充能每回合消耗 0.2 仇恨，与实现一致（原文“0.2 a turn”反而未说明满盾时不扣）。驳回。contextual 判 OK。"
+  },
+  "c438b238b0|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cunning/artifice.lua:476-481 盗贼佳酿（Rogue's Brew，:407）info 的 %s 为 slot = self:getTalentFromId(slot_id).name（:478），即该工具所装入的工具栏技能名（未装入时为“not prepared”）；“准备于：<工具栏技能名>”表示装备在哪个工具位，语义成立，并非把 with 译成时间。驳回。contextual 判 OK。"
+  },
+  "dc74b5669f|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/munitions.lua:45、:67-70 异种弹药（Exotic Munitions）穿甲弹的护甲与豁免削减取 getArmorSaveReduction = combatTalentLimit(t,30,5,25,0.75)，只随技能等级变化；原文末句 “armor penetration ... will increase with your Physical Power” 本身与实现不符，且 “armor penetration” 实指上文的护甲削减。现译“护甲和豁免削减”贴合上文所述效果，不构成译文缺陷（英文缩放说明错误不由译文修正）。驳回。contextual 判 OK。"
+  },
+  "de48fb09ea|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/class/interface/Combat.lua:1152-1210 同一武器类型的训练技能（武器掌握、匕首掌握、弓术专精与意志之力 Strength of Purpose）只取优先级最高的一个（:1170），其 getDamage（物理强度）与 getPercentInc（伤害加成）一并生效；故 data/talents/chronomancy/guardian.lua:33-35 “These bonuses override rather than stack” 覆盖武器伤害与 +30 物理强度两项。现译“这个技能的奖励伤害取代……的加成”只说伤害，漏掉物理强度。确认。修复见 contextual 行（合并）。"
+  },
+  "de48fb09ea|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一结论：Opus 5.5 引 guardian.lua:33-35 指出 these bonuses 含武器伤害与物理强度。宿主独立核验确认，合并为一次修复：“这个技能的奖励伤害取代武器掌握、匕首掌握和弓箭掌握的加成。”→“以上加成会取代而非叠加武器掌握、匕首掌握和弓箭掌握的加成。”，其余不变。"
+  },
+  "df32eff281|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/agility.lua:266-273 速射姿态（Rapid Shot）callbackOnArcheryAttack 以 “if hitted and not target.turn_procs.rapid_fire and dist < 5” 判定回合返还，必须命中；现译“命中敌人的远程攻击”贴合实现（原文未写命中）。驳回。contextual 判 OK。"
+  },
+  "eace8ef1b3|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/gestures.lua:20-39 canUseGestures 要求两只手都为空手或灵晶（nb >= 2），并取两手 combatDamage 的较大值（:36）作为守护手势（Gesture of Guarding）的偏移基数；括号前已说明“每只手须为空手或装备灵晶”，“单手最大伤害”即较强一手的近战伤害，未扩大基准。驳回。contextual 判 OK。"
+  }
+ }
+}
