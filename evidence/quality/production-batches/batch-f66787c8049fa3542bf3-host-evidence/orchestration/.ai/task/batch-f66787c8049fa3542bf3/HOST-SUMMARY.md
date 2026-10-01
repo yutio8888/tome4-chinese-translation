@@ -1,0 +1,3 @@
+第377批：冻结80条（全为主游戏：技能说明补空格维护的 successor 57 条、窗口59 successor 21 条、窗口60 successor 2 条），逐条核验80/80：按 manifest 固定 commit 核验。surface 一组（gpt-6.1-sol）：主游戏 4 条 lane×20，75 OK、5 ISSUE；各 child 只读自身 envelope 与契约；无一条把补空格当问题报出。contextual 一个 run（Opus 5.5）5 条 deep，首轮通过，1 ISSUE、4 OK。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决6个观察：{'refuted': 2, 'confirmed': 3, 'advisory': 1}；预计78条完成、2条待修复。新增 2 条修复 revision：8efa510a7a 飞刀投掷信息“基础伤害”应为“实际伤害”（knivesInfo 取 combatDamage，含属性加成）；a2147f96a9 赞歌入门汇总“三格外”应含恰为 3 格（chants.lua distance > 2）。驳回 2 条（阴影链接光抗“变化 -15%”贴合实现、Blindside 按术语作闪电突袭），建议 1 条（尸僵症持续时间措辞）；宿主补充 1 条（永恒毁灭“背后偷袭”偏离术语，登记窗口61）。修复窗口61积压为2，未达20。

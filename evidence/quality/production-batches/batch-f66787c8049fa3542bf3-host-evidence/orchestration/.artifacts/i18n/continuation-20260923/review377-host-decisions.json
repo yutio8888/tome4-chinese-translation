@@ -1,0 +1,35 @@
+{
+ "workset": "evidence/quality/production-batches/batch-f66787c8049fa3542bf3-source-workset.json",
+ "decisions": {
+  "8e97d7a8c8|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/cursed/one-with-shadows.lua:54 阴影链接（Shadows Empathy）getLightResist 恒为 -15，info（:89-91）直接把该负值填入 “lose %d%%”，原文实际显示为 “lose -15%”。现译“你的光系伤害抗性变化 %d%%”显示为“变化 -15%”，方向由负号给出，与实现一致，且避免了原文的双重否定。驳回。"
+  },
+  "8efa510a7a|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/throwing-knives.lua:174-196 飞刀投掷（Throwing Knives）knivesInfo 显示的 “Net Damage: %d - %d” 取 dmg = self:combatDamage(combat)（含 dammod 属性加成）与 dmg*damrange，即计入属性加成后的实际伤害区间，不是武器基础伤害。现译标签“基础伤害”与所示数值含义相反。确认。修复：“基础伤害： %d - %d”→“实际伤害： %d - %d”，其余不变。"
+  },
+  "8efa510a7a|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一结论：Opus 5.5 引 knivesInfo 的 combatDamage（含 dammod）指出“基础伤害”不符，建议“实际伤害”。宿主独立核验确认，合并为一次修复。"
+  },
+  "92e59146b4|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "terminology/talents.tsv:111 Blindside 为 preferred“闪电突袭”（技能以极快速度瞬移至目标身边攻击，按机制译名，notes 明确不按字面作“偷袭”）；mod-tome.lua 三处技能名均为“闪电突袭”。本条（shadows.lua 召唤阴影说明）与术语一致，驳回。reviewer 提到的另一条“背后偷袭”（9987aef53c，lich.lua:486 永恒毁灭）反而偏离术语，宿主另记补充观察。"
+  },
+  "9a9a83ae18|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/spells/death.lua:52-58 尸僵症（Rigor Mortis）对目标施加 EFF_RIGOR_MORTIS（power 0.25），持续 util.bound(nb,1,max) 回合，即每个负面效果 1 回合、上限 max。现译“降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）”结合括号上限可读出降速持续时间按负面效果数计，机制未颠倒；改为“每有一个负面效果持续 1 回合”更清楚，属措辞。建议，不进修复。contextual 判 OK。"
+  },
+  "a2147f96a9|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/celestial/chants.lua:168 元素赞歌（Chant of Resistance）callbackOnTakeDamage 以 core.fov.distance(...) > 2 判定减伤，即距离 ≥3 格（含恰为 3 格）；本条为赞歌入门（Chant Acolyte，:290-309）汇总说明，原文“(3 spaces or more)”。现译“减少三格外敌人对你造成的伤害”排除了恰为 3 格，边界错误，与第376批 4e496adf1d 同类且该条已在窗口59改为“距离三格及以上”。确认。修复：“减少三格外敌人对你造成的伤害 %d%%”→“减少距离三格及以上的敌人对你造成的伤害 %d%%”，其余不变。contextual 判 OK，宿主以源码为准。"
+  }
+ }
+}
