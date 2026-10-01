@@ -89,6 +89,8 @@ ITEM_SOURCES = {
     "Rogue Plight",  # 世界神器（world-artifacts.lua ROGUE_PLIGHT），2026-09-16 定名「盗贼之厄」
     "Gardanion, the Light of God",  # Embers of Rage 剧情护符，窗口47a 定名
     "DESTRUCTICUS, IMPOLITE PENETRATOR OF THE SKY",  # 防空巨炮全称，窗口47a 定名
+    # 2026-10-01 术语补录：被其他文本引用的独特物品与神器
+    "Blood of Life", "Blood of Undeath", "Orb of Many Ways", "Resonating Diamond", "Staff of Absorption", "Transmogrification Chest", "Summertide", "Wintertide", "Automated Portable Extractor", "Shoes of Moving Quickly",
 }
 # 生物类 source
 CREATURE_SOURCES = {
@@ -103,6 +105,8 @@ CREATURE_SOURCES = {
     "corrupted", "steamtech", "multi-hued",
     "Fire Imp",  # 用户 2026-09-28 裁决「火焰小鬼」
     "water imp", "wretchling",  # 窗口48：水小鬼、小劣魔（Gemini 咨询结论）
+    # 2026-10-01 术语补录：被其他文本引用的独特怪物与生物
+    "Rat Lich", "Sandworm Queen", "Weirdling Beast", "Yeek Wayist", "Mindwall", "Planar Controller", "Godfeaster", "Drolem", "losgoroth", "Phoenix",
 }
 
 _REQUIRED_FIELDS = ("source", "target", "category", "domain", "source_tag")

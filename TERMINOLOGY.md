@@ -67,15 +67,15 @@
 
 | 领域 | 说明 | 主要类别 | 条目数 |
 | --- | --- | --- | --- |
-| `combat` | 战斗机制：伤害类型、状态效果、战斗属性 | `T.GAME.DAMAGE`、`T.GAME.EFFECT`、`T.GAME.STAT` | 161 |
-| `talents` | 技能与技能树 | `T.GAME.TALENT`、`T.GAME.TALENT_CATEGORY` | 216 |
+| `combat` | 战斗机制：伤害类型、状态效果、战斗属性 | `T.GAME.DAMAGE`、`T.GAME.EFFECT`、`T.GAME.STAT` | 173 |
+| `talents` | 技能与技能树 | `T.GAME.TALENT`、`T.GAME.TALENT_CATEGORY` | 347 |
 | `classes` | 职业与成长 | `T.GAME.CLASS` | 45 |
-| `resources` | 角色资源 | `T.GAME.RESOURCE` | 12 |
-| `items` | 装备、物品与材料 | `T.GAME.ENTITY`（物品/材料子集） | 57 |
-| `creatures` | 生物与种族 | `T.GAME.ENTITY`（生物子集）、`T.PN.RACE` | 72 |
-| `places` | 地点、地形与世界 | `T.PN.PLACE`、`T.PN.WORLD`、`T.GAME.ENTITY`（地形/场所子集） | 46 |
-| `society` | 势力、组织与人物 | `T.PN.PERSON`、`T.PN.FACTION` | 33 |
-| `narrative` | 叙事、传说与成就 | `T.NARRATIVE.LORE`、`T.NARRATIVE.ACHIEVEMENT` | 52 |
+| `resources` | 角色资源 | `T.GAME.RESOURCE` | 13 |
+| `items` | 装备、物品与材料 | `T.GAME.ENTITY`（物品/材料子集） | 75 |
+| `creatures` | 生物与种族 | `T.GAME.ENTITY`（生物子集）、`T.PN.RACE` | 86 |
+| `places` | 地点、地形与世界 | `T.PN.PLACE`、`T.PN.WORLD`、`T.GAME.ENTITY`（地形/场所子集） | 49 |
+| `society` | 势力、组织与人物 | `T.PN.PERSON`、`T.PN.FACTION` | 55 |
+| `narrative` | 叙事、传说与成就 | `T.NARRATIVE.LORE`、`T.NARRATIVE.ACHIEVEMENT` | 58 |
 | `ui` | 界面与交互 | `T.UI.LABEL` | 12 |
 | `tech` | 技术格式与内部字符串 | `T.TECH.FORMAT`、`T.GAME.MISC` | 2 |
 
