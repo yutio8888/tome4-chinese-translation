@@ -120,6 +120,11 @@ luarocks --lua-version=5.1 --lua-dir="$(cd "$(dirname "$TOME_LUAJIT")/.." && pwd
   受保护映射。受保护组件不可用时会失败关闭，不会自动搜索未知目录名。
 - `lint` 通过 LuaJIT 执行 locale 文件，检查参数格式、空译文、运行键冲突、
   控制标记和术语 TSV。普通模式下控制标记差异是警告；`--strict` 会阻断警告。
+  技能说明另有 `talent-placeholder-spacing`（错误）：`*/talents/*` 段、`source_tag` 为
+  `tformat` 的译文里，数值占位符（`%d`、`%0.2f%%` 等，不含 `%s`）在升级预览中所在的
+  片段若连带汉字即报错，并给出应插 ASCII 空格的位置。依据是升级预览按
+  `tokenize(" ()[],")` 切分后逐段对比（tome `class/Actor.lua:6851`、engine
+  `utils.lua:1969`），全角标点不算分隔；规则细节见审核操作指南 §6.4。
 - `status` 按 `(source, source_tag)` 比较当前规范译文和固定版本官方 locale。
 - `build --profile full` 组合 `locale`、`*.copy.lua` 和规范译文，在 artifact
   中生成完整游戏目录结构，并重新加载产物确认语义没有变化。

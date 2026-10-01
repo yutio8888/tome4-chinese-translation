@@ -20,6 +20,7 @@ from i18nlib.lint import (
     extract_format_tokens,
     invalid_percent_offsets,
     lint_documents,
+    placeholder_spacing_offsets,
     load_policy,
 )
 from i18nlib.locale_model import LocaleDocument, LocaleLoader
@@ -36,6 +37,17 @@ class FormatTests(unittest.TestCase):
         self.assertEqual(invalid_percent_offsets("降低 50%。"), (5,))
         self.assertEqual(invalid_percent_offsets("100%"), (3,))
         self.assertEqual(invalid_percent_offsets("25%% 几率，%0.2f 伤害，%d%% 概率"), ())
+
+    def test_placeholder_spacing_offsets_follow_preview_tokens(self) -> None:
+        self.assertEqual(placeholder_spacing_offsets("造成 %d点伤害"), (5,))
+        self.assertEqual(placeholder_spacing_offsets("物理抗性，%d 物理豁免"), (5,))
+        self.assertEqual(placeholder_spacing_offsets("（当前加成：%d）。"), (6,))
+        self.assertEqual(placeholder_spacing_offsets("降低 %d%%，持续 3 回合"), (8,))
+        self.assertEqual(placeholder_spacing_offsets("陷阱（+%d 侦查"), (2,))
+        self.assertEqual(placeholder_spacing_offsets("降低 %d%%。\n下一行"), ())
+        self.assertEqual(placeholder_spacing_offsets("#RED#%d#LAST#点"), ())
+        self.assertEqual(placeholder_spacing_offsets("%s的时空克隆体"), ())
+        self.assertEqual(placeholder_spacing_offsets("造成 %d 点伤害，%d%% 几率"), (10,))
 
 
 class LintCommandTests(unittest.TestCase):
@@ -242,6 +254,36 @@ class LintCommandTests(unittest.TestCase):
         )
         issues, _ = lint_documents([("fixture", escaped)], EMPTY_POLICY)
         self.assertEqual(issues, [])
+
+    def test_talent_placeholder_glued_to_cjk_is_an_error(self) -> None:
+        def record(target: str, section: str, source_tag: str) -> dict[str, object]:
+            return {
+                "kind": "translation",
+                "source": "Deals %d damage, %d%% chance.",
+                "target": target,
+                "source_tag": source_tag,
+                "section": section,
+                "args_order": None,
+                "special": None,
+            }
+
+        talent = "mod-tome/data/talents/fixture.lua"
+        glued = self._document(
+            "canonical.lua", (record("造成 %d 伤害，%d%% 几率。", talent, "tformat"),)
+        )
+        issues, metrics = lint_documents([("fixture", glued)], EMPTY_POLICY)
+        self.assertEqual([issue.code for issue in issues], ["talent-placeholder-spacing"])
+        self.assertEqual(issues[0].severity, "error")
+        self.assertEqual(metrics["errors"], 1)
+
+        for target, section, tag in (
+            ("造成 %d 伤害， %d%% 几率。", talent, "tformat"),
+            ("造成 %d 伤害，%d%% 几率。", "mod-tome/data/zones/fixture.lua", "tformat"),
+            ("造成 %d 伤害，%d%% 几率。", talent, "logSeen"),
+        ):
+            document = self._document("canonical.lua", (record(target, section, tag),))
+            issues, _ = lint_documents([("fixture", document)], EMPTY_POLICY)
+            self.assertEqual(issues, [], (target, section, tag))
 
     def test_bare_percent_outside_format_strings_is_allowed(self) -> None:
         document = self._document(

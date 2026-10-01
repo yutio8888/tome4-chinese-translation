@@ -300,6 +300,76 @@ def _invalid_percent_issue(
     )
 
 
+# Level-up preview (tome class/Actor.lua:6851) splits t.info() with
+# tokenize(" ()[],") and diffs token by token (engine utils.lua:1969).  Full-width
+# punctuation does not split, so a numeric placeholder whose token also holds CJK text
+# highlights the whole run.  Maintainer rule (2026-10-01, "minimal necessary"): in talent
+# tformat strings put one ASCII space where that token would reach CJK text; full-width
+# closing punctuation stays with the preceding text, signs and opening brackets with the
+# number.  %s is exempt: it carries names, markup prefixes and fragments.
+_SPACING_NUMERIC_RE = re.compile(r"%[-+ #0]*\d*(?:\.\d+)?[diuxXeEfgG](?:%%)?")
+_SPACING_SEPARATORS = frozenset(" \t\n()[],")
+_SPACING_MARKUP_RE = re.compile(r"#[A-Za-z0-9_]+#|#\{[a-z]+\}#")
+_SPACING_CJK_RE = re.compile(r"[一-鿿]")
+_SPACING_CLOSE = frozenset("，。、；：）！？…」』”》")
+_SPACING_OPEN = frozenset("（「『“《")
+_SPACING_SIGN = frozenset("+-±")
+
+
+def placeholder_spacing_offsets(text: str) -> tuple[int, ...]:
+    """Offsets where the talent placeholder-spacing rule wants one ASCII space."""
+    masked = _SPACING_MARKUP_RE.sub(lambda match: " " * len(match.group()), text)
+    offsets: set[int] = set()
+    for match in _SPACING_NUMERIC_RE.finditer(masked):
+        start, end = match.start(), match.end()
+        left = start
+        while left > 0 and masked[left - 1] not in _SPACING_SEPARATORS:
+            left -= 1
+        right = end
+        while right < len(masked) and masked[right] not in _SPACING_SEPARATORS:
+            right += 1
+        if _SPACING_CJK_RE.search(masked[left:start]):
+            point = start
+            while point > left and masked[point - 1] in _SPACING_SIGN:
+                point -= 1
+            while point > left and masked[point - 1] in _SPACING_OPEN:
+                point -= 1
+            if point > left:
+                offsets.add(point)
+        if _SPACING_CJK_RE.search(masked[end:right]):
+            point = end
+            while point < right and masked[point] in _SPACING_CLOSE:
+                point += 1
+            if point < right:
+                offsets.add(point)
+    return tuple(sorted(offsets))
+
+
+def _placeholder_spacing_issue(
+    *,
+    entry: dict[str, Any],
+    entry_id: str,
+    logical_path: str,
+    section: str,
+) -> Issue | None:
+    if "/talents/" not in section or entry.get("source_tag") != "tformat":
+        return None
+    offsets = placeholder_spacing_offsets(entry["target"])
+    if not offsets:
+        return None
+    return Issue(
+        severity="error",
+        code="talent-placeholder-spacing",
+        message=(
+            "numeric placeholder shares a level-up preview token with CJK text; "
+            f"insert one ASCII space at offsets={list(offsets)!r}"
+        ),
+        logical_path=logical_path,
+        line=entry.get("line"),
+        entry_id=entry_id,
+    )
+
+
 def _format_shape_issue(
     *,
     entry: dict[str, Any],
@@ -427,6 +497,14 @@ def lint_documents(
             )
             if percent_issue:
                 issues.append(percent_issue)
+            spacing_issue = _placeholder_spacing_issue(
+                entry=entry,
+                entry_id=entry_id,
+                logical_path=document.logical_path,
+                section=section,
+            )
+            if spacing_issue:
+                issues.append(spacing_issue)
             if format_issue:
                 issues.append(format_issue)
             else:

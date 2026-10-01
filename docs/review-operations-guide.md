@@ -210,7 +210,7 @@ bash /tmp/closeN.sh                    # evidence commit → finalize → 回执
 1. `run_repair_steps.py preflight`：每个来源批次一个 `--batch-id` + `--output`（一次最多 3 个，
    超过就分次跑到不同输出），保留各自 workset 与 provenance。preflight 之后若有提交，必须重跑。
 2. 建有界 IMPLEMENT 任务（`.ai/task/repair-wNN-<日期>/`）：SPEC 显式列出来源 batch、去重后的 revision
-   与获准的同族附属范围；由 `setup_windowNN_task.py` 生成（以上一窗口为模板；现行模板为窗口57，已支持 `engine.lua`；claim 路径下找不到 literal 的条目用 `RELOC` 改指实际文件）。
+   与获准的同族附属范围；由 `setup_windowNN_task.py` 生成（以上一窗口为模板；现行模板为窗口58，已支持 `engine.lua`；claim 路径下找不到 literal 的条目用 `RELOC` 改指实际文件；setup 后手设 `STATE.candidate_author_agent_id`，`freeze_review.py` 简报条数按窗口改）。
    setup 后先跑 `check_siblings.py` 查同一 runtime key 的跨组件兄弟。
 3. EXECUTOR 派发（prompt 文件不带尾换行）→ harvest → 原生工具审计 → 归档确认。
 4. `REVIEW`（gpt-6.1-sol）→ 宿主裁决；有 confirmed 就进入 `FIX`（同一 cycle 的全部 confirmed 合并成一次
@@ -227,6 +227,9 @@ bash /tmp/closeN.sh                    # evidence commit → finalize → 回执
    catalog 产物在 `<目录>/evidence/production-review-v2-lite/catalog/`；migration 不会写进 evidence，要自己复制。
 7. PUBLICATION-SCOPE → `make_pack` → publication child → evidence 提交 → queue rebuild → push。
    `make_pack` 之后被打包的文件视为冻结；校验与 commit/push 放在同一条 `&&` 链里。
+
+SPEC 的译文约束须写明技能说明占位符补空格规则（§6.4；窗口58起的 SPEC-TEMPLATE 已含），EXECUTOR 改技能说明时
+照此保留或补上空格；strict lint `talent-placeholder-spacing` 是最终防线。
 
 migration 结果里的 successor 要重新审核，不继承 `done`。
 
@@ -266,6 +269,8 @@ confirmed；反之 contextual 的 ISSUE 也要宿主自己核验源码后才能�
 - 「这个技能」指代技能本身；对话中对非人生物（如堡垒之影）用「它」。
 - 意译专名只要概括机制且同族引用一致即可（「击退射击」）。
 - 表层短标签是误报重灾区：判技能名、专名、面板标签之前先查同条 info、同族译法、区域正式名。
+- 技能说明数值占位符旁的 ASCII 空格（「抗性， %d」「加成： %d）」「陷阱 （%d」「%d%%， 持续」）：
+  按 §6.4「技能说明占位符补空格」是有意为之，不报多余空格；反过来删掉这些空格会挂 strict lint。
 
 ### 6.4 持续生效的维护者裁决
 
@@ -296,6 +301,7 @@ confirmed；反之 contextual 的 ISSUE 也要宿主自己核验源码后才能�
 | Scourge from the West（Orcs） | 「西方天灾」，不写“灾星” |
 | Toxic Death | 「剧毒之死」（待窗口57执行） |
 | 术语库引证 | 只有 `preferred` 有背书力，`existing` 只是语料现状 |
+| 技能说明占位符补空格（2026-10-01） | 升级预览按 `tokenize(" ()[],")` 切分后逐段对比（tome `class/Actor.lua:6851`、engine `utils.lua:1969`），全角标点不算分隔。`*/talents/*` 段 `tformat` 译文中，数值占位符（`%d`、`%0.2f%%` 等；`%s` 除外）所在片段不得连带汉字：插一个 ASCII 空格，全角闭合标点随前文、正负号与全角开括号随数字，不在全角括号内侧加空格。由 strict lint `talent-placeholder-spacing` 强制；全库已清扫（`a2a2d6b7`，394 条，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`） |
 
 新增或修改高复用术语时先改 `terminology/`，再改 Lua 译文；候选译名要双向查冲突
 （候选是否撞别人，以及它是否已被别的英文词占用，例如 crypt→「地窖」撞 cellar）。
