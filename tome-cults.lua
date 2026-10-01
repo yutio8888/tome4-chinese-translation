@@ -2911,7 +2911,7 @@ t([[You establish a powerful mental link with your Worm that Walks.
 		As long as you remain within radius 3 of your worm that walks each of you gains %d%% all resistance for 5 turns.
 		Additionally, your Worm that Walks permanently gains an inscription slot every 2 raw talent levels (%d).]], [[你和蠕虫合体建立强大的精神链接。
 		只要你和它的距离不超过 3 格，你们均获得持续 5 回合的 %d%% 全体抗性。
-		该技能每增加两级原始等级，你的蠕虫合体获得一个纹身位（当前： %d）。]], "tformat")
+		该技能每增加两级原始等级，你的蠕虫合体永久获得一个刻印位（当前： %d）。]], "tformat")
 t("Terrible Sight", "恐怖景象", "talent name")
 t("You require your worm that walk to be alive and closeby.", "你需要有一个存活的蠕虫合体伙伴在周围。", "logPlayer")
 t([[While within range 3 of your Worm that Walks you can project an aura of terror.
@@ -3202,11 +3202,12 @@ t([[Your left hand mutates into a disgusting mass of tentacles.
 
 		Your tentacle hand currently has these stats%s:
 		%s]], [[你的左手异变成为一坨恶心的触手。
-		副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标同侧的其他单位。
+		副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标两侧的敌人。
 		物理强度提高 %d， 触手武器伤害提高 %d%%。
 		每次触手攻击时，获得 %d 疯狂值。
-		附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的心灵护盾，避免被他们发现你的恐魔形态。
-		你的触手当前属性为 %s :
+		附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。
+
+		你的触手当前属性%s：
 		%s]], "tformat")
 t(", #CRIMSON# but is currently disabled due to non-empty offhand#WHITE#", "，#CRIMSON#由于副手非空，该技能暂时被禁用#WHITE#", "_t")
 t("Lash Out", "旋风鞭挞", "talent name")
@@ -3906,7 +3907,7 @@ t("half formed drem", "半成型的德瑞姆", "entity name")
 t("A small faceless humanoid with vaguely Dwarven features.  Its waraxe and shield look battered, rusted, and generally in ill repair.", "一个没有面孔、身材矮小且带有部分矮人特征的人形怪物。它的战斧和盾牌看起来破旧、生锈，几乎从未修理过。", "_t")
 t("The Amalgamation", "融合怪", "entity name")
 t("Creating a living being from scratch is not an easy process. There are plenty of things which can go wrong, including multiple eyes, surplus limbs, too few brains and multiple bodies being fused into a single, raging mass of flesh and bone. Despite how bulky the creature is, it moves with supple ease, quickly closing the gap between you and it.", "从零开始创造一个生物并不是一件容易的事情。有很多地方可能出错，比如多了点眼睛，多了点四肢，少了点脑子，或者把无数躯体融合成一团狂暴的血肉与骨骸组成的庞大躯体。尽管这个生物体型庞大，它仍然可以轻快地移动，很快缩小了和你之间的距离。", "_t")
-t("and absorbed into the foul thing", "并被吸收到了那个肮脏的东西体内。", "_t")
+t("and absorbed into the foul thing", "并将其吸进了自己那肮脏的躯体", "_t")
 t("#CRIMSON#As %s takes an other blow you see part of it split into a drem!", "#CRIMSON#当%s受到打击时，你会看到它的一部分分裂成一个德瑞姆！", "logSeen")
 
 ------------------------------------------------

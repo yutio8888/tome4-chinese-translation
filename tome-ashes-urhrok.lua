@@ -1226,9 +1226,9 @@ t("Select the source:", "选择源生物：", "logPlayer")
 t("Select the victim:", "选择受害者：", "logPlayer")
 t([[Using demonic forces you create a link of pain from a source creature to a victim for %d turns.
 		Each time the source creature takes damage the victim takes %d%% of the damage.
-		If the victim dies from the effect you gain a burst of energy, reducing all remaining cooldowns by 1.]], [[使用恶魔之力，你在源生物与牺牲生物间构造痛苦链接，持续 %d 回合。
-		每次源生物受到伤害时， %d%% 伤害由牺牲生物承受。
-		当牺牲生物因此效果死亡时，你将获得能量，减少所有技能冷却时间 1 回合。]], "tformat")
+		If the victim dies from the effect you gain a burst of energy, reducing all remaining cooldowns by 1.]], [[使用恶魔之力，你在源生物与受害者间构造痛苦链接，持续 %d 回合。
+		每次源生物受到伤害时，受害者也会受到该伤害的 %d%%。
+		当受害者因此效果死亡时，你将获得能量，减少所有技能冷却时间 1 回合。]], "tformat")
 t("Demon Horns", "恶魔之角", "talent name")
 t("You require a weapon and a shield to use this talent.", "你需要一把武器一个盾牌来施展这个技能。", "logPlayer")
 t("%s resists the shield bash!", "%s抵抗了盾牌猛击！", "logSeen")
@@ -1401,9 +1401,9 @@ t("You must have an empty space to teleport to.", "你必须寻找一片空地�
 t([[Hasten yourself out of phase, teleporting you to a specific location up to %d spaces away.
 		You can activate this talent up to twice within the same turn, but the second activation will not be instant.
 		Afterwards you stay out of phase for 5 turns. In this state your defense is increased by %d and all your resistances by %d%%.
-		The bonus will increase with your Willpower.]], [[加速自身，以至于脱离空间，传送半径 %d。
+		The bonus will increase with your Willpower.]], [[加速自身，以至于脱离空间，传送至 %d 码内的指定位置。
 		你在同一回合内至多连用两次该技能，且第二次使用会消耗时间。
-		之后，你停留在相位外 5 回合，闪避增加 %d， 全体抗性增加 %d%%。
+		之后，你进入“脱离现实”状态 5 回合，闪避增加 %d， 全体抗性增加 %d%%。
 		效果受意志加成。]], "tformat")
 t("Resilience of the Doomed", "强韧", "talent name")
 t([[The tortures you had to endure on the Fearscape have increased your resilience.

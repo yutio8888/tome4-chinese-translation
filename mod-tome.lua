@@ -1406,16 +1406,16 @@ t("himself", "他自己", "_t")
 t(" (the fool)", " （笨蛋）", "_t")
 t(" in an act of extreme incompetence", " 操作太不给力了", "_t")
 t(" out of supreme humility", " 显然玩家太谦虚了", "_t")
-t(", by accident of course,", "，肯定是发生了什么意外，", "_t")
+t(", by accident of course,", "，肯定是发生了什么意外", "_t")
 t(" in some sort of fetish experiment gone wrong", "在某种恋物癖实验中出错了", "_t")
 t(", providing a free meal to the wildlife", "，成为了野生动物的午餐", "_t")
 t(" (how embarrassing)", " （真令人尴尬）", "_t")
-t("%s the level %d %s %s was %s to death by %s%s%s on level %s of %s.", "玩家%s等级%d%s%s%s而死，杀死他（她）的是%s%s%s，死在第%s层，%s。", "tformat")
+t("%s the level %d %s %s was %s to death by %s%s%s on level %s of %s.", "玩家%s等级%d%s%s在%s第%s层%s而死，杀死他（她）的是%s%s%s。", "tformat", {1,2,3,4,10,9,5,6,7,8})
 t("battered", "被猛击", "_t")
 t(" (yet again)", " （又来了）", "_t")
-t("%s(%d %s %s) was %s to death by %s%s on %s %s.", "%s(%d %s %s)%s而死，被%s%s杀死于%s %s。", "tformat")
-t("%s the level %d %s %s %s on level %s of %s.", "玩家%s 等级%d %s %s %s 死在%s层，%s。", "tformat")
-t("%s(%d %s %s) %s on %s %s.", "%s(%d %s %s) %s 死于 %s %s。", "tformat")
+t("%s(%d %s %s) was %s to death by %s%s on %s %s.", "%s(%d %s %s)在%s第%s层%s而死，杀死他（她）的是%s%s。", "tformat", {1,2,3,4,8,9,5,6,7})
+t("%s the level %d %s %s %s on level %s of %s.", "玩家%s等级%d%s%s在%s第%s层%s。", "tformat", {1,2,3,4,7,6,5})
+t("%s(%d %s %s) %s on %s %s.", "%s(%d %s %s)在%s第%s层%s。", "tformat", {1,2,3,4,6,7,5})
 -- untranslated text
 --[==[
 t("#{bold}#", "#{bold}#", "_t")
@@ -4948,7 +4948,7 @@ Are you sure?]], [[#LIGHT_GREEN#*它似乎正以古怪的目光注视着你。*#
 我……本对你另有打算，但我无法违背你的自由意志。要知道，本有一份宿命在等待着你。
 你确定吗？]], "_t")
 t("Just let me go please.", "请让我解脱吧。", "_t")
-t("asked the Eidolon to let %s die in peace", "请求艾德隆让 %s 安息。", "tformat")
+t("asked the Eidolon to let %s die in peace", "请求艾德隆让%s安息", "tformat")
 t("her", "她", "_t")
 t("him", "他", "_t")
 t("brought down by Eidolon", "被艾德隆杀死", "_t")
@@ -6158,7 +6158,7 @@ You were a precious ally and a friend. The world will remember your last act of 
 <<<说着，她猛然一剑刺穿你的身体，终结了你那疯狂主上的计划。>>>
 ]], "_t")
 t("#LIGHT_GREEN#[slip peacefully into death.]", "#LIGHT_GREEN#[平静地走向死亡。]", "_t")
-t("sacrificing %s to stop the mad sun's plans", "%s牺牲自己，以阻止疯狂太阳的计划", "tformat")
+t("sacrificing %s to stop the mad sun's plans", "牺牲了%s，以阻止疯狂太阳的计划", "tformat")
 t([[<<<The precious seconds fly by, but as you feel your mind breaking and burning you see a strange figure appearing in front of you, it radiates of immense power.>>>
 <<<The strange, amorphous figure in front of you remains completely silent. With a gesture of one of its tendrils, the staff is ripped from your hands. A surge of energy goes through the room as it grips the staff. Then you remember the old myth of the Godslayers. This is none other than a ***Sher'Tul***#{italic}#, and it knows you have been colluding with a god. That alone tells you everything you need to know.>>>
 ]], [[<<<宝贵的几秒飞逝而过。就在你感觉心智即将崩溃、燃烧之际，一个散发着无穷威能的奇异身影出现在你面前。>>>
@@ -21000,7 +21000,7 @@ t([[You have learned to sing the praises of the Sun, in the form of three defens
 			You may only have one Chant active at a time.]], [[你学会了三种防御赞歌，以此咏唱对太阳的赞颂：
 			坚韧赞歌：增加 %d 精神豁免， %d%% 最大生命值
 			堡垒赞歌：增加 %d 物理豁免， %d%% 物理抗性， %d 护甲，15%% 护甲强度
-			元素赞歌：增加 %d 法术豁免， %d%% 火焰 /寒冷 /闪电 /酸性抗性，减少三格外敌人对你造成的伤害 %d%%。
+			元素赞歌：增加 %d 法术豁免， %d%% 火焰 /寒冷 /闪电 /酸性抗性，减少距离三格及以上的敌人对你造成的伤害 %d%%。
 			你同时只能激活一种赞歌。]], "tformat")
 t("Chant Illuminate", "初现光芒", "talent name")
 t([[Your Chants now bathe you in a cloak of light, which increases your stamina and mana regenerations by %0.2f per turn and does %0.2f light damage to anyone who hits you in melee.
@@ -22034,8 +22034,8 @@ t("Strength of Purpose", "意志之力", "talent name")
 t([[Increases weapon damage by %d%% and physical power by 30 when using swords, axes, maces, knives, or bows.
 		You now also use your Magic in place of Strength when equipping weapons and ammo as well as when calculating weapon damage.
 		These bonuses override rather than stack with weapon mastery, dagger mastery, and bow mastery.]], [[当使用剑、斧、权杖、匕首或者弓箭时，增加武器伤害 %d%%， 物理强度30。
-		当装备武器、弹药或者计算武器伤害时，你使用魔法取代你的力量属性进行计算。
-		这个技能的奖励伤害取代武器掌握、匕首掌握和弓箭掌握的加成。]], "tformat")
+		当装备武器、弹药或者计算武器伤害时，你使用魔力取代你的力量属性进行计算。
+		以上加成会取代而非叠加武器掌握、匕首掌握和弓箭掌握的加成。]], "tformat")
 t("Guardian Unity", "守卫联合", "talent name")
 t("#STEEL_BLUE#(%d shared)#LAST#", "#STEEL_BLUE#(%d 伤害共享)#LAST#", "tformat")
 t("Guardian", "守卫", "_t")
@@ -23666,9 +23666,9 @@ t([[You prepare an additional trap (up to tier %d) with a special primed trigger
 %s
 
 A trap with a primed trigger gains %+d%% effectiveness (replacing the normal bonus from Trap Mastery) and won't break stealth %d%% of the time.
-#YELLOW#Current primed trap: %s#LAST#]], [[你额外准备一个陷阱（最高材质等级 %d）， 带有特殊的控制机关，能在设置后立刻生效。（使用该技能来选择需要准备的陷阱。）
-		并非所有陷阱都能这样准备，每种陷阱只有一种改进方式。
-		已学会的引爆方式：
+#YELLOW#Current primed trap: %s#LAST#]], [[你额外准备一个陷阱（最高阶级 %d）， 带有特殊的启动机关，能在设置后立刻生效。（使用该技能来选择需要准备的陷阱。）
+		并非所有陷阱都能这样准备，每个陷阱只能采用一种准备方式。
+		已知可加装启动机关的陷阱：
 %s
 
 带有特殊启动机关的陷阱强度增加 %+d%% （取代陷阱专精的加成），有 %d%% 几率不破坏潜行。
@@ -24176,7 +24176,7 @@ t([[Instill fear in your foes within %d radius of a target location dealing %0.2
 		#ORANGE#恶灵缠身：#LAST# 目标每有一个负面精神效果，则每回合受到 %0.2f 精神和 %0.2f 暗影伤害。]], "tformat")
 t("Heighten Fear", "恐惧加深", "talent name")
 t([[Heighten the fears of those near to you. Any foe you attempt to inflict a fear upon and who remains in a radius of %d and in sight of you for %d (non-consecutive) turns, will take %0.2f mind and %0.2f darkness damage and gain a new fear that lasts for %d turns.
-			This effect completely ignores fear resistance, but can be saved against.]], [[加深你周围敌人的恐惧。所有被你灌注恐惧的目标若停留在你视野内，并且和你距离不超过 %d， 这样累计达到 %d 回合时，受到 %0.2f 精神和 %0.2f 暗影伤害，并获得一个新的持续 %d 回合的恐惧效果。
+			This effect completely ignores fear resistance, but can be saved against.]], [[加深你周围敌人的恐惧。所有你试图施加恐惧的目标若停留在你视野内，并且和你距离不超过 %d， 这样累计达到 %d 回合时，受到 %0.2f 精神和 %0.2f 暗影伤害，并获得一个新的持续 %d 回合的恐惧效果。
 			这一效果无视恐惧抗性，但可以被豁免。]], "tformat")
 t("Tyrant", "精神专制", "talent name")
 t([[Impose your tyranny on the minds of those who fear you. When a foe gains a new fear, you have a %d%% chance to increase the duration of their heightened fear and one random existing fear effect by %d turns, to a maximum of 8 turns.
@@ -30970,7 +30970,7 @@ Crit Chance: %+d%%
 Crit mult: %d%%
 Uses Stats: %s
 ]], [[射程： %d
-基础伤害： %d - %d
+实际伤害： %d - %d
 命中： %d (%s)
 护甲穿透： %d
 暴击几率： %+d%%
@@ -31876,7 +31876,7 @@ t([[Bathes the target in frost doing %0.2f damage
 		伤害受法术强度加成。]], "tformat")
 t("Doomed For Eternity", "永恒毁灭", "talent name")
 t([[While this ability is active, you will continually call up to %d level %d shadows to aid you in battle. Shadows are weak combatants that can: Use Arcane Reconstruction to heal themselves (level %d), Blindside their opponents (level %d), and Phase Door from place to place.
-		Shadows ignore %d%% of the damage dealt to them by their master.]], [[维持此技能时，你会不断召唤最多 %d 个等级为 %d 的阴影协助战斗。阴影是脆弱的战士，可以使用奥术重组治疗自己（等级 %d）、 使用背后偷袭攻击敌人（等级 %d）， 以及使用相位之门移动。
+		Shadows ignore %d%% of the damage dealt to them by their master.]], [[维持此技能时，你会不断召唤最多 %d 个等级为 %d 的阴影协助战斗。阴影是脆弱的战士，可以使用奥术重组治疗自己（等级 %d）、 使用闪电突袭攻击敌人（等级 %d）， 以及使用相位之门移动。
 		主人对阴影造成的伤害降低 %d%%。]], "tformat")
 t("Commander of the Dead", "亡者领袖", "talent name")
 t([[You are so full with power that it overflows out of you whenever you cast a spell.
@@ -38058,7 +38058,7 @@ t("Fyrk, Faeros High Guard", "炎魔守卫弗莱克", "entity name")
 t([[Faeros are highly intelligent fire elementals, rarely seen outside volcanoes. They are probably not native to this world.
 This one looks even nastier and looks toward you with what seems to be disdain. Flames swirl all around him.]], [[炎魔是高智慧的火焰元素，在火山以外的其他地方很少看到。它们很可能不属于这个世界。
 这只看起来更加凶残，它用蔑视的眼神看着你。火焰在它的身上流转。]], "_t")
-t("and a sole piece of char was sent to his masters as a totem", "只有一块焦炭被送往他的主人那里作为信物", "_t")
+t("and a sole piece of char was sent to his masters as a totem", "并只把一块焦炭作为信物送到了他的主人那里", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/charred-scar/zone.lua"
@@ -38618,7 +38618,7 @@ t("Subject Z", "代号“Z”", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("This seems to be the 'subject Z' the notes spoke about. He looks human, but this cannot be -- he would be about five thousand years old!", "这个似乎是文献中提到的“Z号实验体”。他看起来像人类，但这不可能——他应该有大约五千岁了！", "_t")
-t("and bloodily smeared across the granite walls", "飞散的鲜血和碎肉溅满花岗岩墙壁", "_t")
+t("and bloodily smeared across the granite walls", "并将其血淋淋地涂抹在花岗岩墙壁上", "_t")
 t("Sacrifice for the Way!", "为维网而献身！", "_t")
 t("#LIGHT_RED#Intense fight", "#LIGHT_RED#激烈的战斗", "_t")
 t([[As you approach you come upon an other Wayist and receive a very clear mental message:
@@ -39388,7 +39388,7 @@ t("humanoid", "人形生物", "entity type")
 t("orc", "兽人", "entity subtype")
 t("Brotoq the Reaver", "收割者布罗托克", "entity name")
 t("A huge orc blocks your way to the Iron Council. You must pass.", "一只阻挡了通向钢铁议会道路的巨大兽人。你必须通过。", "_t")
-t(", who ate their brains still warm,", "，他会趁热吃掉他们的脑子，", "_t")
+t(", who ate their brains still warm,", "，他趁热吃掉了死者的脑子", "_t")
 t("dwarf", "矮人", "entity subtype")
 t("Norgan", "诺尔甘", "entity name")
 t("Norgan and you are the sole survivors of the Reknor expedition; your duty is to make sure the news makes it back to the Iron Council.", "诺尔甘和你是瑞库纳探险队仅存的幸存者；你的职责是确保消息传回钢铁议会。", "_t")
@@ -39483,7 +39483,7 @@ t("ritch", "里奇", "entity subtype")
 t([[Ritches are giant insects native to the arid wastes of the southern parts of the Far East.
 Vicious predators, they inject corrupting diseases into their foes, and their sharp claws cut through most armours.]], [[里奇是原产于远东南部干旱地区的一种巨型土著昆虫。
 他们是凶残的猎食者，用锋利的爪子刺穿大部分的盔甲，将腐败的疾病注入敌人的体内。]], "_t")
-t(", who incubated her eggs in the corpse,", "，她在这具尸体中孵化了她的卵，", "_t")
+t(", who incubated her eggs in the corpse,", "，她在这具尸体中孵化了她的卵", "_t")
 t("ritch flamespitter", "喷火里奇", "entity name")
 t("ritch impaler", "锋刺里奇", "entity name")
 t("chitinous ritch", "厚甲里奇", "entity name")
