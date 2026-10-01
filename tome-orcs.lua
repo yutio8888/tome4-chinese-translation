@@ -304,7 +304,7 @@ t([[The machine gives you a small metallic box labelled as #{italic}#"Automated 
 It seems to be used to break down metallic items into lumps of metal and infusions into herbs which are used to craft tinkers.
 
 #{bold}#You will have to choose to use it or the Transmogrification Chest when you destroy items. You can choose the default one by using it with no items to destroy.#{normal}#
-]], [[机械交给你一个小金属盒，上面写着 #{italic}#"便携式自动提取仪"#{normal}#。
+]], [[机械交给你一个小金属盒，上面写着 #{italic}#"便携式自动材料提取仪"#{normal}#。
 它似乎能将金属物品拆解成金属块，将纹身拆解成用于制作插件的草药。
 
 #{bold}#摧毁物品时，你必须选择使用它或转化之盒。没有可摧毁的物品时使用它，可以将其设为默认选项。#{normal}#
@@ -1653,7 +1653,7 @@ t("Steamcatcher", "蒸汽捕捉器", "entity name")
 t("pipe coated leather hat", "覆有管道的皮帽", "_t")
 t("There's an old saying that most of your body heat escapes through your head. It's not true of body heat, but strangely, is actually true of steam.", "传说人体热量大部分从头部散失。对于体热来说并不是这样，但奇怪的是，蒸汽是从头部散失的。", "_t")
 t("On taking fire damage: Gain 5% of the damage as steam.", "受到火焰伤害时：获得相当于该伤害 5% 的蒸汽。", "_t")
-t("Shoes of Moving Quickly", "疾行之鞋", "entity name")
+t("Shoes of Moving Quickly", "疾行之靴", "entity name")
 t("rocket powered boots", "火箭动力靴", "_t")
 t("Accurately? Less so.", "精确吗？并不。", "_t")
 t("You move 3 spaces at once.", "一次走3格。", "_t")
@@ -1696,7 +1696,7 @@ t("Earlier steamsaws were notably not meant to be used with one hand.", "显然�
 t("Turbocutter", "涡轮切割者", "entity name")
 t("red striped steamsaw", "红色条纹的蒸汽链锯", "_t")
 t("\"Have you ever thought your steamsaws were just too slow? Well, have I got the thing for you...\"", "“你曾经觉得你的蒸汽链锯太慢了吗？那么，我正好有你需要的东西……”", "_t")
-t("Increases the speed bonus from Saw Wheels by 25%.", "链锯轮提供的速度加成提高 25%。", "_t")
+t("Increases the speed bonus from Saw Wheels by 25%.", "链锯轮滑提供的速度加成提高 25%。", "_t")
 t("Whipsnap", "鞭笞", "entity name")
 t("spring loaded steamsaw", "弹簧式蒸汽链锯", "_t")
 t("\"Sick of your pesky enemies hitting you with weapons? Well, with the new spring loaded Whipsnap, you can quickly put a stop to that!\"", "你是否已经厌倦了恼人的敌人用武器攻击你？那么，使用装载了弹簧的鞭笞，你可以迅速制止这一切！", "_t")
@@ -3327,7 +3327,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 兽人斥候越来越大胆。他们逃走前会靠得更近，出现得也更频繁。虽然尚未交战，却只是时间问题……而我获准做的只有坐在这座难看的小桥上等待；西方人则从另一个大陆远远观望。就像盯着一道敞开的伤口，等它感染，只因他们宁愿把绷带系成漂亮的蝴蝶结。]], "tformat")
 t("hero", "英雄", "_t")
 t("heroine", "女英雄", "_t")
-t("a letter addressed to Outpost Leader John", "一封写给前哨站队长约翰的信", "_t")
+t("a letter addressed to Outpost Leader John", "一封写给前哨站首领约翰的信", "_t")
 t([[Sir,
 
 The Orcs grow more impudent every day.  Surely you've noticed too - their scouts growing closer, the smoke of their forges drifting over the mountains alongside the clanging of metal being pounded into weaponry, the guttural shouts of their training drills...  Are you really going to obey this suicidal treaty, and keep us from acting until their swords are already through our throats?
@@ -3352,7 +3352,7 @@ I'll spare you the speech about insubordination, lying, and bypassing the chain 
 
 关于抗命、撒谎和越过指挥链，我就不训斥你了，因为：第一，严格来说你“只是”在要求我犯下这些过错；第二，我有更要紧的事要做，而不是给一个我[i]确信[/i]完全清楚自己错在哪里的人写一篇长篇大论的斥责。我就直说了：永远别再想干这种事。我会留着你的信；如果你今后牵涉任何可疑的武力使用，我就会把它作为证据提交。我原以为你不至于如此。
 
--前哨站队长约翰]], "_t")
+-前哨站首领约翰]], "_t")
 t("a large, embossed envelope", "一个大大的，有压花的信封", "_t")
 t([[#{bold}#TO WHOM IT MAY CONCERN:#{normal}#
 
@@ -4317,8 +4317,8 @@ t([[You summon a galvanic rod at a location. Upon arrival the rod releases a sho
 		This spell has 25%% chance to try to activate Hurricane, if used.
 		The damage will increase with your Spellpower.]], [[你在指定位置召唤放电柱。放电柱会在 %d 码半径范围内释放电击，对所有生物造成 %0.2f 放电（火焰和闪电）伤害。
 		你有 3 枚放电柱，它们各自有 %d 回合的冷却时间。
-		这一技能可以触发无尽之炎效果。
-		这一法术有 25%% 的几率触发风暴之怒。
+		这一技能可以触发无尽之焰效果。
+		若风暴之怒已激活，这一法术有 25%% 的几率尝试触发它。
 		技能伤害受法术强度加成。]], "tformat")
 t("Galvanic Arcing", "电弧放射", "talent name")
 t([[Using your arcane power you force galvanic rods to linger for %d turns. While lingering they are inert, but can link up to other rods.
@@ -4345,7 +4345,7 @@ t([[Reaching through the aether you temporarily destabilize a galvanic rod's con
 		This spell works with Burning Wake.
 		The damage will increase with your Spellpower.]], [[你召唤以太的能量，暂时使一枚放电柱的控制系统不稳定化。（你不能把自己武器作为的放电柱当做该技能的释放目标）
 		这将会在 1 码半径内，或是在链接到的所有放电柱的领域内，产生一股冲击波。对所有生物造成 %0.2f 放电伤害，并震慑它们 %d 回合。
-		这一法术可以触发无尽之炎效果。
+		这一法术可以触发无尽之焰效果。
 		技能伤害受法术强度加成。]], "tformat")
 t("Energy Mass Conversion", "质能转换", "talent name")
 t("You need Galvanic Arcing active and three rods to cast this spell.", "你需要开启电弧放射并至少有三个放电柱才能释放这一法术。", "logPlayer")
@@ -5903,7 +5903,7 @@ t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("steamgun turret", "蒸汽枪炮台", "_t")
 t("An automated turret equipped with a steamgun.", "一个装备蒸汽枪的自动炮台。", "_t")
 t("Turret", "炮台", "_t")
-t("Deploy a turret mounted with a steamgun that fires at foes within range for %d%% steamgun damage. The turret gains +%d Dexterity, Constitution and Cunning and %0.2f Steamgun Mastery.", "部署一个装备蒸汽枪的炮台，会自动射击射程内的敌人，造成 %d%% 蒸汽枪伤害。炮台具有 +%d 额外敏捷、体质、灵巧值和 %0.2f 蒸汽枪精通。", "tformat")
+t("Deploy a turret mounted with a steamgun that fires at foes within range for %d%% steamgun damage. The turret gains +%d Dexterity, Constitution and Cunning and %0.2f Steamgun Mastery.", "部署一个装备蒸汽枪的炮台，会自动射击射程内的敌人，造成 %d%% 蒸汽枪伤害。炮台具有 +%d 额外敏捷、体质、灵巧值和 %0.2f 蒸汽枪掌握。", "tformat")
 t("Rocket Launcher", "火箭发射器", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
 t("Fire a missile dealing steamgun damage as fire in radius 2.", "发射导弹，在 2 码范围内造成火焰蒸汽枪伤害。", "tformat")
@@ -7561,7 +7561,7 @@ t("wooden barricade", "木制路障", "entity name")
 section "tome-orcs/data/zones/sunwall-outpost/npcs.lua"
 
 t("human", "人类", "entity subtype")
-t("Outpost Leader John", "前哨站队长约翰", "entity name")
+t("Outpost Leader John", "前哨站首领约翰", "entity name")
 t("This warrior's armor glows with a bright golden light. He wields an ornate sword and shield, and marches towards you with confidence.", "这位战士的盔甲闪耀着璀璨的金光。他挥动华丽的剑与盾，自信地向你冲来。", "_t")
 t("humanoid", "人形生物", "entity type")
 t("orc", "兽人", "entity subtype")
@@ -7989,7 +7989,7 @@ t([[You have defeated Outpost Leader John with two different tinker classes.
 You can now create new characters with any tinker classes you have unlocked #LIGHT_GREEN#in the classical Age of Ascendancy, Infinite Dungeon and Arena campaigns#WHITE#.
 Also tinker escorts may start to appear in Maj'Eyal now.
 
-Playing characters this way is not lore-canon, but fun!]], [[你已使用两种不同的工匠职业击败前哨站领袖约翰。
+Playing characters this way is not lore-canon, but fun!]], [[你已使用两种不同的工匠职业击败前哨站首领约翰。
 现在，你可以在#LIGHT_GREEN#原版战役、无尽地下城和竞技场#WHITE#中，使用已经解锁的任意工匠职业创建新角色。
 马基·埃亚尔如今也可能出现工匠护送任务。
 

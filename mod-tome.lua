@@ -2662,7 +2662,7 @@ t("Failed to save any escorted adventurers.", "在护送任务中未成功护送
 t("Guiding Hand", "最佳护卫", "achievement name")
 t("Saved all escorted adventurers.", "在护送任务中搭救所有的冒险者。", "_t")
 t("Earth Master", "大地领主", "achievement name")
-t("Killed Harkor'Zun.", "杀死哈克祖。", "_t")
+t("Killed Harkor'Zun.", "杀死哈卡祖。", "_t")
 t("Kill Bill!", "杀死比尔！", "achievement name")
 t("Killed Bill in the Trollmire without leveling beyond your starting level.", "用初始级别的人物杀死巨魔沼泽的比尔。", "_t")
 t("Atamathoned!", "阿塔玛森！", "achievement name")
@@ -4163,7 +4163,7 @@ t("Er, it seems that while you were out, somebody else managed to bring me the i
 t("Hrmph.", "哼。", "_t")
 t([[Well, it's like this, one of my wife's friends has gone missing. A young alchemist in training, called Celia. Thing is, her husband died recently, and the grief done drove her mad. She used to go out to his grave every day, until one day she didn't come back. Personally I don't think she was able to live without him; the two were inseparable. If you get a chance on your travels, could you pass by the mausoleum to the east and check... well, you get the idea.
 
-It's strange what death can do to people, how it can take over their minds. Sometimes they forget it's the living that matter... See she gets a proper burial - treated respectfully, eh?]], [[好吧，事情是这样的，我老婆的一个朋友最近失踪了。她是一个实习炼金术士，叫做塞莉娅。最近她的丈夫去世了，这件事让她悲痛欲绝。她每天会到她丈夫的坟墓那里去，直到有一天她一去不回。我个人认为她没了她丈夫活不下去。他们两人形影不离。要是你途经东边的墓园的话你能不能去查看一下……你懂的。
+It's strange what death can do to people, how it can take over their minds. Sometimes they forget it's the living that matter... See she gets a proper burial - treated respectfully, eh?]], [[好吧，事情是这样的，我老婆的一个朋友最近失踪了。她是一个实习炼金术士，叫做赛利亚。最近她的丈夫去世了，悲痛让她发了疯。她每天会到她丈夫的坟墓那里去，直到有一天她一去不回。我个人认为她没了她丈夫活不下去。他们两人形影不离。要是你途经东边的墓园的话你能不能去查看一下……你懂的。
 
 我很奇怪死亡到底会对别人产生什么影响，它又是怎样占据人的内心世界的。有时候他们甚至忘了那些活着的人才是最重要的……请确保她得到妥善安葬——要体面地对待她，好吗？]], "_t")
 t("I'll do what I can.", "我会去尽力的。", "_t")
@@ -4723,7 +4723,7 @@ section "mod-tome/data/chats/avatar-distant-sun.chat"
 
 t("#YELLOW#YOU ARE A CURIOUS ONE.", "#YELLOW#你的好奇心可真重。", "chat")
 t("#YELLOW#YOU HAVE MADE THE RIGHT CHOICE. TOGETHER, WE SHALL BRING ABOUT THE DESTRUCTION OF OUR ENEMIES.", "#YELLOW#你做出了正确的选择。我们将携手为我们的敌人带去毁灭。", "chat")
-t("#GOLD#[you are now an Avatar of a Distant Sun]", "#GOLD#[你成为了遥远太阳的化身]", "chat")
+t("#GOLD#[you are now an Avatar of a Distant Sun]", "#GOLD#[你成为了日耀神使]", "chat")
 t("Yes, give me your power!", "是的，赐予我你的力量！", "chat")
 t([[<<<You feel the gentle warmth of your Distant Sun patron. It speaks directly to your mind!>>>
 #YELLOW#I AM HERE. DO YOU DESIRE TO SMITE EVIL, DESTROY THE DARKNESS AND SCOUR THE EARTH? I SHALL AID YOU IN THIS QUEST. TOGETHER, WE WILL BE UNSTOPPABLE. ALL DARKNESS SHALL BE CONSUMED BY OUR LIGHT.
@@ -8022,8 +8022,8 @@ section "mod-tome/data/general/npcs/bird.lua"
 
 t("animal", "动物", "entity type")
 t("bird", "飞禽", "entity subtype")
-t("Phoenix", "不死鸟", "entity name")
-t("Ever burning, ever dying, ever reviving, the Phoenix swoops down upon you, seeking to share its fiery fate with you.", "燃烧，死亡，重生。这只不死鸟试图将它燃烧的命运带给你。", "_t")
+t("Phoenix", "凤凰", "entity name")
+t("Ever burning, ever dying, ever reviving, the Phoenix swoops down upon you, seeking to share its fiery fate with you.", "永远在燃烧，永远在死去，永远在重生，凤凰向你俯冲而来，想让你分享它炽烈的命运。", "_t")
 t("#LIGHT_RED#%s raises from the dead!", "#LIGHT_RED#%s 从尸体中站了起来！", "logSeen")
 t("RESURRECT!", "复活！", "_t")
 
@@ -12727,9 +12727,9 @@ t("rusted blade", "锈蚀的匕首", "_t")
 t("Legend has it this blade is one of a pair: twin blades forged in the earliest of days of the Wardens. To an untrained wielder it is less than perfect; to a Warden, it represents the opportunity to learn from the mistakes of the past.", "传说这把匕首是一对兵器中的一个；这对兵器打造于时空守卫最初的年代。对于未经训练的持有者来说它还不是那么完善；对于时空守卫来说，它表示着从以前的失误中吸取教训的机会。", "_t")
 t("Potentially it would go with a sword in the future.", "未来可能有把剑和它成套。", "_t")
 t("10% chance to return the target to a much younger state", "有 10% 几率使目标回到更年轻的状态。", "_t")
-t("Stone Gauntlets of Harkor'Zun", "哈克祖的岩石臂铠", "entity name")
+t("Stone Gauntlets of Harkor'Zun", "哈卡祖的岩石臂铠", "entity name")
 t("dark stone gauntlets", "黑石臂铠", "_t")
-t("Fashioned in ancient times by cultists of Harkor'Zun, these heavy granite gauntlets were designed to protect the wearer from the wrath of their dark master.", "古时候由哈克祖的狂热崇拜者制作，这副花岗岩臂铠被设计为可以保护穿戴者免于遭受黑暗之主的暴怒。", "_t")
+t("Fashioned in ancient times by cultists of Harkor'Zun, these heavy granite gauntlets were designed to protect the wearer from the wrath of their dark master.", "古时候由哈卡祖的狂热崇拜者制作，这副花岗岩臂铠被设计为可以保护穿戴者免于遭受黑暗之主的暴怒。", "_t")
 t("Unflinching Eye", "坚定之眼", "entity name")
 t("a bloodshot eye", "充血的眼球", "_t")
 t("Someone has strung a thick black cord through this large bloodshot eyeball, allowing it to be worn around the neck, should you so choose.", "有人用一条粗黑线穿过这颗充血的眼球，如果你愿意，可以把它挂在脖子上。", "_t")
@@ -18975,49 +18975,49 @@ Our forces never full recovered from the loss of our great leader. The wars cont
 然而战斗不可能无休止地持续下去。利剑的一记刺击废掉了他的腿脚，炸弹的爆炸炸瞎了他的一只眼睛；尽管他踏着四周层层叠叠的尸体继续浴血奋战，鲜血已从他全身各处的伤口中汩汩渗出。他手中的战斧斧刃开裂卷刃，只剩下握着斧柄当作战棍挥舞。他挥舞木柄在眼前的敌军中拼杀，直到动作越来越慢直至停滞，炼金术士们倾泻下一枚又一枚炸弹，直到他焦黑的残躯再也不动分毫。吞噬者加库尔就这样战死了，但即便死去他的身躯依然屹立不倒，高举武器过顶，傲立在万具尸骸堆积的战场之巅。半身人事后清点人数时，幸存者仅剩寥寥数百人。
 
 失去伟大领袖后，我军再也未能完全从沉重打击中恢复元气。战争仍在继续，但失去了他的谋略，失败变得愈发频繁。最终其他种族展开了反扑，我们将士被逐出了故土。但加库尔的意志永远与我们同在，他的教诲永驻我们的心头与脑海。终有一天，我们将重返他的诞生之地，将他开创的辉煌彻底完成——马基·埃亚尔终将属于我们。]], "_t")
-t("Clinician Korbek's experimental notes part one", "巫医库贝克的实验报告，第一部分", "_t")
+t("Clinician Korbek's experimental notes part one", "巫医库贝克的实验笔记，第一部分", "_t")
 t([[#{bold}#Clinician Korbek's experimental notes part one#{normal}#
 
 What a dread and woeful task I have been given - the revival of our race. The swine humans and halflings have destroyed our whole society, and only the brutes of the military remain to rule our people. We are left with just a handful of women left, and without drastic measures we shall soon be extinct.
 
 And those drastic measures come down to me. I am the sole orc left with any advanced medical knowledge, as I evacuated to the East before our settlement was wiped out. I must find a way to prolong the lives of our remaining females and have them breed at far faster rates. I will use all natural and magical means at my disposal.
 
-I have taken this cavern up as a secret base, far away from the main encampment. I must do dark deeds here, and I wish them to remain hidden...]], [[#{bold}#巫医库贝克的实验报告：一#{normal}#
+I have taken this cavern up as a secret base, far away from the main encampment. I must do dark deeds here, and I wish them to remain hidden...]], [[#{bold}#巫医库贝克的实验笔记：一#{normal}#
 
 复兴我们的种族——我接下的是多么可怕而悲惨的使命。那群猪猡般的人类与半身人彻底摧毁了我们的整个社会，只剩下军方的粗鄙武夫来统治我们的人民。我们仅剩下寥寥几名女性，若不采取极端手段，我们很快便将灭绝。
 
 而这些极端手段全系于我一身。在我们的聚居地被彻底抹杀之前，我便已撤退至远东，因此我是现存唯一掌握高深医术的兽人。我必须寻得一种方法来延长残存雌性的寿命，并让她们以极快的速度繁衍后代。我将动用我所能支配的一切自然与魔法手段。
 
 我将这处远离主营地的洞穴辟为秘密据点。我必须在此行见不得光的黑暗之举，而我希望这一切永远不为人知……]], "_t")
-t("Clinician Korbek's experimental notes part two", "巫医库贝克的实验报告，第二部分", "_t")
+t("Clinician Korbek's experimental notes part two", "巫医库贝克的实验笔记，第二部分", "_t")
 t([[#{bold}#Clinician Korbek's experimental notes part two#{normal}#
 
 I have begun work on several of the females. They are being kept in a coma for the duration of the experiments - it's far better that way. Initially I have subjected them to very high levels of wild infusion and arcane regeneration fields, whilst also keeping a direct feed into their stomachs high in protein. Corrupted blood is being pumped into their ovaries with a temporal acceleration field surrounding them. The leaders of each Pride have donated their seed for use in the experiments.
 
 Initial results have mostly been immensely successful. Body mass has grown significantly, especially in the abdominal region. One has even begun developing extra ovaries and sexual organs. I have managed to increase their fertility immensely, and the stimulated foetal growth rate means that new orcs take only eight weeks from conception to birth. The young also seem to be progressing in their development at a very advanced pace, with particularly accelerated muscle development.
 
-Some females have died during the procedures. I can only presume these were the weaker subjects, but it is a tragic loss regardless.]], [[#{bold}#巫医库贝克的实验报告：二#{normal}#
+Some females have died during the procedures. I can only presume these were the weaker subjects, but it is a tragic loss regardless.]], [[#{bold}#巫医库贝克的实验笔记：二#{normal}#
 
 我已经对几名雌性展开了实验。在实验期间她们一直处于昏迷状态——那样会好得多。起初我让她们承受了极高剂量的野性纹身与奥术再生力场，同时直接向她们的胃中注入高蛋白营养。在笼罩她们的时间加速力场下，堕落之血被泵入她们的卵巢。各个兽人部落的领袖都献出了自己的种子用于实验。
 
 初步结果大多取得了极其巨大的成功。受试体的体重显著增加，尤其是腹部区域。其中一人甚至开始发育出额外的卵巢与生殖器官。我成功大幅提升了她们的生育能力，受刺激的胎儿生长速度意味着新兽人从受孕到出生只需短短八周。幼体的发育速度也快得出奇，尤其是肌肉发育格外迅速。
 
 在实验过程中有几名雌性死亡。我只能推断她们是体质较弱的受试体，但无论如何这都是惨痛的损失。]], "_t")
-t("Clinician Korbek's experimental notes part three", "巫医库贝克的实验报告，第三部分", "_t")
+t("Clinician Korbek's experimental notes part three", "巫医库贝克的实验笔记，第三部分", "_t")
 t([[#{bold}#Clinician Korbek's experimental notes part three#{normal}#
 
 My work is continuing with tremendous success. All subjects now have multiple operational wombs, thanks to the corrupted blood infusions coupled with arcane regeneration fields to quickly repair the corrupted tissues. With greater advances in accelerating the foetal growth stage we are now seeing new orcs every few days! I believe this can be pushed even further.
 
 Though the wombs operate at an advanced rate, we are keeping their vital organs suppressed to extend their lifespans. Perhaps they can live for hundreds, if not thousands of years.
 
-Pumping nutrients directly into their stomach is proving a difficulty with the increased activity in the abdominal region. I am currently investigating ways to condense nutrients into the atmosphere so that the subjects can be passively fed through breathing. Initial tests show a slimy build-up on the skin but no other negative side-effects.]], [[#{bold}#巫医库贝克的实验报告：三#{normal}#
+Pumping nutrients directly into their stomach is proving a difficulty with the increased activity in the abdominal region. I am currently investigating ways to condense nutrients into the atmosphere so that the subjects can be passively fed through breathing. Initial tests show a slimy build-up on the skin but no other negative side-effects.]], [[#{bold}#巫医库贝克的实验笔记：三#{normal}#
 
 我的研究仍在继续，并取得了巨大的成功。得益于注入堕落之血并配合奥术再生力场迅速修复被腐化的组织，如今所有受试体都拥有了多个能够正常运作的子宫。随着胎儿生长阶段加速技术的进一步突破，我们现在每隔几天就能迎来新兽人的降生！我相信这一进程还能被推向更高的极限。
 
 尽管子宫在以极高的速率运转，我们仍抑制着她们的重要器官以延长其寿命。也许她们可以活上数百年，甚至数千年。
 
 随着腹部活动的加剧，直接向她们胃中输送养分变得愈发困难。我目前正在研究将养分浓缩至空气中的方法，以便受试体能通过呼吸被动摄取养分。初步测试显示皮肤上会出现黏液堆积，但暂未发现其他负面副作用。]], "_t")
-t("Clinician Korbek's experimental notes part four", "巫医库贝克的实验报告，第四部分", "_t")
+t("Clinician Korbek's experimental notes part four", "巫医库贝克的实验笔记，第四部分", "_t")
 t([[#{bold}#Clinician Korbek's experimental notes part four#{normal}#
 
 Oh horrors... Oh black bilious terrors! What have I done? What vile and black sin have I done?!
@@ -19026,7 +19026,7 @@ I have so long been concentrating on my objectives that I never stopped to think
 
 She wanted to die. I know she wanted to die, I could see her accusing eyes on me begging to let her die. But I cannot, I cannot... This is too terrible. I should burn this cave to the ground, and erase my horrible actions from existence! But where would that leave our people...
 
-My mind is in torment. I cannot live like this any longer... I cannot live...]], [[#{bold}#巫医库贝克的实验报告：四#{normal}#
+My mind is in torment. I cannot live like this any longer... I cannot live...]], [[#{bold}#巫医库贝克的实验笔记：四#{normal}#
 
 可怕……可怕至极的梦魇啊！我都做了些什么？我究竟犯下了何等卑劣而黑暗的罪孽？！
 
@@ -20979,7 +20979,7 @@ t([[You chant the glory of the Sun, granting you %d%% physical damage resistance
 t("Chant of Resistance", "元素赞歌", "talent name")
 t([[You chant the glory of the Sun, granting you %d%% fire, lightning, acid and cold damage resistance, %d spell save and reduces the damage from enemies 3 or more spaces away by %d%%.
 	You may only have one Chant active at once.
-	The effects will increase with your Spellpower.]], [[颂赞日之荣耀，使你获得 %d%% 火焰、闪电、酸性和寒冷抗性， %d 法术豁免，并减少三格外敌人对你造成的伤害 %d%%。
+	The effects will increase with your Spellpower.]], [[颂赞日之荣耀，使你获得 %d%% 火焰、闪电、酸性和寒冷抗性， %d 法术豁免，并减少距离三格及以上的敌人对你造成的伤害 %d%%。
 	同时只能激活一种赞歌。
 	效果受法术强度加成。]], "tformat")
 t("Chant of Light", "光明赞歌", "talent name")
@@ -21963,8 +21963,7 @@ t("Induce Anomaly", "引导异常", "talent name")
 t([[Create an anomaly, reducing your Paradox by %d.  This spell will never produce a major anomaly.
 		Induced Anomalies may not be held by Twist Fate, nor do they cause held anomalies to trigger.  However upon learning Twist Fate you may target Induced Anomalies.
 		The Paradox reduction will increase with your Spellpower.]], [[引发一次异常，减少你的紊乱值 %d。 这个技能不会引发重大异常。
-		引导异常不会被扭曲命运延后，也不会触发被延后的异常。
-		然而，当学会扭曲命运后，你可以选中引导异常作为目标。
+		引导异常不会被扭曲命运延后，也不会触发被延后的异常。然而，学会扭曲命运后，你可以为引导异常选择目标。
 		紊乱值减少效果受法术强度加成。]], "tformat")
 t("Reality Smearing", "弥散现实", "talent name")
 t("#LIGHT_BLUE##Source# converts damage to paradox!", "#LIGHT_BLUE##Source#将伤害转化为紊乱值！", "delayedLogMessage")
@@ -23179,7 +23178,7 @@ This talent has a cooldown.
 该技能有冷却时间。
 #YELLOW#准备于：%s#LAST#]], "tformat")
 t("Assassinate", "暗杀", "talent name")
-t("You must have Hidden Blades prepared to use this talent.", "你必须准备好隐藏刀片来使用该技能。", "logPlayer")
+t("You must have Hidden Blades prepared to use this talent.", "你必须准备好隐匿刀锋来使用该技能。", "logPlayer")
 t("#Source# strikes at a vital spot on #target#!", "#Source#攻向#target#的要害！", "logCombat")
 t("You prime your Hidden Blades to cause bleeding and facilitate the Assassinate ability, which allows you to strike twice for %d%% unarmed damage, hitting automatically while ignoring armor and resistance.", "你的隐匿刀锋会触发流血效果，并启用暗杀技能；暗杀会以 %d%% 徒手伤害攻击两次，必定命中且无视护甲和抗性。", "tformat")
 t([[You strike your target with your Hidden Blades twice in a vital spot for %d%% unarmed (physical) damage.  You must be able to see your target to use this attack, but it always hits and ignores all armor and physical resistance.
@@ -24491,9 +24490,7 @@ t([[While this ability is active, you will continually call up to %d level %d sh
 		阴影是脆弱的战士，它们能够：使用奥术重组治疗自己（等级 %d）， 使用闪电突袭攻击敌人（等级 %d）， 使用相位之门进行传送。
 		阴影无视主人对它们造成的 %d%% 伤害。]], "tformat")
 t("Shadow Warriors", "阴影战士", "talent name")
-t("Instill hate in your shadows, strengthening their attacks. They gain %d%% extra Accuracy and %d%% extra damage. The fury of their attacks gives them the ability to try to Dominate their foes, increasing all damage taken by that foe for 4 turns (level %d, %d%% chance at range 1). They also gain the ability to Fade when hit, avoiding all damage until their next turn (%d turn cooldown).", [[将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。
-		他们疯狂的攻击可以令他们支配对手，提高被支配目标所受到的所有伤害 4 回合（等级 %d，%d%% 几率 1 码范围）。
-		它们同时拥有消隐的能力，免疫所有伤害直到下一回合开始 （%d 回合冷却时间）。]], "tformat")
+t("Instill hate in your shadows, strengthening their attacks. They gain %d%% extra Accuracy and %d%% extra damage. The fury of their attacks gives them the ability to try to Dominate their foes, increasing all damage taken by that foe for 4 turns (level %d, %d%% chance at range 1). They also gain the ability to Fade when hit, avoiding all damage until their next turn (%d turn cooldown).", [[将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。他们疯狂的攻击可以令他们支配对手，提高被支配目标所受到的所有伤害 4 回合（等级 %d，%d%% 几率 1 码范围）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。]], "tformat")
 t("Shadow Mages", "阴影法师", "talent name")
 t([[Infuse magic into your shadows to give them fearsome spells. Your shadows receive a bonus of %d to their Spellpower.
 		Your shadows can strike adjacent foes with Lightning (level %d, %d%% chance at range 1).
@@ -25347,7 +25344,7 @@ t([[Attack the target for %d%% Nature weapon damage.
 		Big:  %d%%
 		Huge:  %d%%
 		Gargantuan:  %d%%]], [[对目标造成 %d%% 自然武器伤害。
-		如果这个攻击将目标的生命值降低到其最大生命值的一定比例以下（基于技能等级和两者体型大小）或杀死了它，你会吞噬它，立刻将其杀死，并根据其等级恢复生命值和失衡值。
+		如果这个攻击将目标的生命值降低到其最大生命值的一定比例以下（基于技能等级和两者体型大小）或杀死了它，你会尝试吞噬它：若成功则立刻将其杀死，并根据其等级恢复生命值和失衡值。
 		对方会与你的物理强度进行豁免对抗，以防被吞噬。
 		同时，这个技能还能被动提升你的物理和精神暴击率 %d%%。
 		每点土龙系的天赋可以使你增加物理抗性 0.5%%。
@@ -26982,11 +26979,11 @@ t("Tutorial-specific talents.", "只能用于教程的技能。", "_t")
 t("Shove", "击退攻击", "talent name")
 t("%s resists the shove!", "%s抵抗了推挤！", "logSeen")
 t("Give the target a good old-fashioned shove, knocking it back a square.", "给目标一个老式的击退攻击，将它击退一格。", "tformat")
-t("Mana Gale", "魔法风暴", "talent name")
+t("Mana Gale", "法力风暴", "talent name")
 t("%s is knocked back by the gale!", "%s 被大风吹了回来！", "logSeen")
 t("%s remains firmly planted in the face of the gale!", "%s 在大风中依然稳稳站立！", "logSeen")
 t("Conjure up a powerful magical wind, pushing the target back a distance of %d.", "施放一股强力的魔法风暴，将目标击退 %d 码。", "tformat")
-t("Telekinetic Punt", "念力打击", "talent name")
+t("Telekinetic Punt", "念力推送", "talent name")
 t("%s is knocked back by the telekinetic blow!", "%s 被念力打击击退！", "logSeen")
 t("%s holds its ground!", "%s 站稳在了原地！", "logSeen")
 t("Knock the target backwards with a powerful telekinetic blow.", "使用强大的念力攻击，将目标击退。", "tformat")
@@ -30542,7 +30539,7 @@ t([[Allows you to use melee weapons to focus your spells, granting a %d%% chance
 t("Arcane Cunning", "奥术灵巧", "talent name")
 t("The user gains a bonus to Spellpower equal to %d%% of your Cunning (Current bonus: %d).", "增加相当于你 %d%% 灵巧的法术强度。目前的法术强度加成： %d。", "tformat")
 t("Arcane Feed", "奥术充能", "talent name")
-t("Regenerates %0.2f mana per turn, and increases physical and spell critical chance by %d%% while active.", "当技能激活时，每回合恢复 %0.2f 法力值并提高 %d%% 物理及法术爆击几率。", "tformat")
+t("Regenerates %0.2f mana per turn, and increases physical and spell critical chance by %d%% while active.", "当技能激活时，每回合恢复 %0.2f 法力值并提高 %d%% 物理及法术暴击几率。", "tformat")
 t("Arcane Destruction", "奥术毁灭", "talent name")
 t([[Raw magical damage channels through the caster's weapon, increasing raw Physical Power by %d%% of your Magic (current bonus: %d).
 		Each time you crit with a melee blow, you will unleash a radius %d ball of arcane damage, doing %0.2f.
@@ -30564,8 +30561,8 @@ t("Master Marksman", "射击精通", "talent name")
 t([[Increases weapon damage by %d%% and physical power by 30 when using bows or slings, as well as your reload rate by %d.
 		In addition, your Shoot has a %d%% chance to mark targets on hit.
 The mark lasts for 5 turns, grants you visibility of the target (even through walls and other concealment), and causes them to become vulnerable to Headshot, Volley and Called Shots.]], [[使用弓或投石索时，武器伤害提高 %d%%、 物理强度提高 30，并使每次装填弹药数增加 %d。
-		射击技能有 %d%% 几率标记目标。
-		标记持续 5 回合，使你即使隔着墙壁或其他遮蔽物也能看见目标，并使其更容易受到爆头、齐射和精巧射击的影响。]], "tformat")
+		射击技能命中时有 %d%% 几率标记目标。
+标记持续 5 回合，使你即使隔着墙壁或其他遮蔽物也能看见目标，并使其更容易受到爆头、齐射和精准射击的影响。]], "tformat")
 t("First Blood", "第一滴血", "talent name")
 t([[You take advantage of unwary foes (those at or above 90%% life). Against these targets, Shoot, Steady Shot and Headshot bleed targets for %d%% additional damage over 5 turns and have a 50%% increased chance to mark (if capable of marking).
 In addition, your Steady Shot, Shoot and Headshot now restore %0.1f stamina on hit.]], [[你会利用毫无戒备的敌人（生命值不低于 90%% 的目标）。仅对这些目标，射击、稳固射击和爆头会使其流血，在 5 回合内造成额外 %d%% 伤害，并使标记概率提高 50%%（若能标记）。
@@ -31254,7 +31251,7 @@ t([[When moving over 800%% speed for at least 3 steps in the same direction, you
 t("Tricky Defenses", "欺诈护盾", "talent name")
 t("Antimagic", "反魔法", "_t")
 t([[You are full of tricks and surprises; your Antimagic Shield can absorb %d%% more damage.
-		The increase scales with your Cunning.]], [[由于你精通欺诈和伪装，你的反魔盾可以多吸收 %d%% 伤害。
+		The increase scales with your Cunning.]], [[由于你精通欺诈和伪装，你的反魔法护盾可以多吸收 %d%% 伤害。
 		受灵巧影响，效果按比例加成。]], "tformat")
 t("Endless Woes", "无尽灾厄", "talent name")
 t("Have dealt over 10000 acid, blight, darkness, mind or temporal damage", "曾造成超过 10000 点酸性、枯萎、暗影、精神或时空伤害", "_t")
@@ -31930,7 +31927,7 @@ t("a nature gift", "自然力量", "_t")
 t("an antimagic ability", "反魔法力量", "_t")
 t("a summon power", "召唤能力", "_t")
 t("necromancy", "死灵法术", "_t")
-t("usable during Aether Avatar", "可以在以太形态下使用", "_t")
+t("usable during Aether Avatar", "可以在以太之体下使用", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/texts/intro-archmage.lua"
@@ -35385,12 +35382,12 @@ t("#Target# threads time as a shell!", "#Target#将时间编织成外壳！", "_
 t("+Temporal Form", "+时空形态", "_t")
 t("#Target# is no longer embeded in time.", "#Target#不再嵌于时间之中。", "_t")
 t("-Temporal Form", "-时空形态", "_t")
-t("Corrupted Losgoroth Form", "堕落的罗斯戈洛斯形态", "_t")
-t("The target has assumed the form of a corrupted losgoroth, gaining immunity to poison, disease, bleeding, and confusion.  It does not need to breathe, and converts half of all damage to life draining blight.", "目标呈现出堕落的罗斯戈洛斯形态。获得毒素、疾病、流血和混乱免疫。不需要呼吸，将所造成的一半伤害转化为枯萎吸血伤害。", "tformat")
-t("#Target# turns into a losgoroth!", "#Target#变成了罗斯戈洛斯！", "_t")
-t("+Corrupted Losgoroth Form", "+堕落的罗斯戈洛斯形态", "_t")
+t("Corrupted Losgoroth Form", "堕落的洛斯格罗斯形态", "_t")
+t("The target has assumed the form of a corrupted losgoroth, gaining immunity to poison, disease, bleeding, and confusion.  It does not need to breathe, and converts half of all damage to life draining blight.", "目标呈现出堕落的洛斯格罗斯形态。获得毒素、疾病、流血和混乱免疫。不需要呼吸，将所造成的一半伤害转化为枯萎吸血伤害。", "tformat")
+t("#Target# turns into a losgoroth!", "#Target#变成了洛斯格罗斯！", "_t")
+t("+Corrupted Losgoroth Form", "+堕落的洛斯格罗斯形态", "_t")
 t("#Target# is no longer transformed.", "#Target#恢复了原本的形态。", "_t")
-t("-Corrupted Losgoroth Form", "-堕落的罗斯戈洛斯形态", "_t")
+t("-Corrupted Losgoroth Form", "-堕落的洛斯格罗斯形态", "_t")
 t("ice", "寒冰", "effect subtype")
 t("Shivgoroth Form", "西弗格罗斯形态", "_t")
 t("The target assumes the form of a shivgoroth.", "目标呈现出西弗格罗斯形态。", "tformat")
@@ -39367,7 +39364,7 @@ t("misc", "杂项", "entity subtype")
 t("Blood-Runed Athame", "血符仪式匕首", "entity name")
 t("athame", "仪式匕首", "_t")
 t("An athame, covered in blood runes. It radiates power.", "一把刻满血色符文的仪式匕首，散发着强大的能量。", "_t")
-t("Iron Throne Profits History", "钢铁王座盈利历史", "entity name")
+t("Iron Throne Profits History", "钢铁王座的盈利历史", "entity name")
 t("A journal of the profits history of the Iron Throne dwarves.", "有关钢铁王座矮人的盈利历史的记录。", "_t")
 t("Iron Throne trade ledger", "钢铁王座交易总账", "entity name")
 t("A trade ledger of the Iron Throne dwarves.", "钢铁王座矮人贸易账本。", "_t")
@@ -39963,7 +39960,7 @@ t("The traitor has been revealed, and he does not intend to let you escape to te
 t("and was neither found nor heard from again", "并且既未被找到也再无音讯", "_t")
 t("construct", "构装体", "entity type")
 t("golem", "傀儡", "entity subtype")
-t("Drolem", "卓勒姆", "entity name")
+t("Drolem", "龙傀儡", "entity name")
 t([[This is Tannen's construct, a HUGE golem in the rough shape of a dragon.
 It is so huge that it blocks sight beyond it.]], [[这是泰恩的构装体，一只巨大的龙形傀儡。
 它如此庞大，遮蔽了它身后的视线。]], "_t")
