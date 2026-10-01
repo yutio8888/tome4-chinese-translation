@@ -1,0 +1,18 @@
+{
+  "title": "W59 execute-01 implement",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w59-20261001。先读 .ai/roles/executor.md 与 .ai/task/repair-w59-20261001/SPEC.md、PLAN.md、SCOPE.json、WORKSET.json、TERM-EDITS.json、SOURCE-ANCHORS.json、SOURCE-CLAIMS.json、BASELINE-records.json、TERM-SNAPSHOT.json，以及 TERMINOLOGY.md 使用规则。本窗口两步：(1) 先按 TERM-EDITS.json 把 21 行术语整行精确替换为 new（只改这 21 行，TAB、行序、文件末尾换行不变）；(2) 再定向修改 WORKSET 的 44 个 target（mod-tome.lua、tome-cults.lua、tome-orcs.lua），按 SOURCE-CLAIMS 逐条修正：40 条术语统一 claim 只做「旧名→新名」替换，处数以 claim 为准，其余字一个不动；4 条审核确认 claim（1c38f759ab 引导异常选择目标并合并多拆的一行、4e496adf1d 距离三格及以上、5c0dc6d9d2 消隐补“受到攻击时”、6a7d1cc720 尝试吞噬）按建议写法写入，只做衔接所需的最小调整。普通词“魔法风暴”（magical wind）、“念力打击击退”（telekinetic blow）、伤害盾标签“反魔盾”不在 WORKSET，不得改。claim 里没有的问题即使看到也只报告不改。仅你是任务内容写入者，只改这 21 行术语与 44 个 target，并写 evidence/quality/repair-window-59-20261001/ 下的 IMPLEMENTATION.md、VALIDATION.json。主游戏源码只从 /workspace/t-engine4 固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 用 git show 取证；DLC 源码只在 SOURCE-ANCHORS 给出的 checkout 下按条目路径读取；禁止从 /、/workspace 或无关目录搜索。占位符、<?...?> 模板片段、[i]/[/i] 与 #{italic}# 等 markup 与现译一致；技能说明占位符旁空格按 SPEC 保留；除 1c38f759ab 外 LF/TAB 结构与现译逐行一致；不新增行尾空白。运行有界验证（LuaJIT 加载三个文件，恰 44 条 target 变动且其他记录不变；Python 比对五个术语文件只有这 21 行变动；strict lint；git diff --check），回报逐条改动（条目 key 与改动片段前后文本）、命令结果和发现但未改的疑点；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w59-20261001",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-01",
+    "paseo.parent-agent-id": "91cf719e-59ee-4d44-8161-9d5b5f2adca5"
+  },
+  "notifyOnFinish": true
+}

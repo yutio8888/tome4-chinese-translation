@@ -1,0 +1,128 @@
+{
+  "dispatch_id": "f1a2",
+  "native_session": "667b77ae-bb8d-4f23-95fc-e4555b46821c",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/667b77ae-bb8d-4f23-95fc-e4555b46821c.jsonl",
+  "native_sha256": "e066fdd21f9dc0361d26435a4d6678a0a894a90a29d9ca1627061c76899b0967",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01CCQ5rCfbv23Ka1CF5o3TsH",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w59-20261001/CONTEXTUAL-ENVELOPE-f1a2.json; head -c 6000 .ai/task/repair-w59-20261001/CONTEXTUAL-ENVELOPE-f1a2.json",
+        "description": "Inspect review envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_016oE2B35n4ZRLTX9UW4uwME",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w59-20261001/CONTEXTUAL-ENVELOPE-f1a2.json'))\np=d['payload']\nprint(d.keys(), p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nEOF",
+        "description": "Show envelope structure"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_014KqQyWKSbRNtd7VAuZNhs7",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md; awk '/^## *(六|6)/,/^## *(七|7)/' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section six"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01S2PdnMQCSAoEa1GADKntEZ",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF' > /tmp/w59f1a2.txt\nimport json\nd=json.load(open('.ai/task/repair-w59-20261001/CONTEXTUAL-ENVELOPE-f1a2.json'))\np=d['payload']\nctx={b['revision_key']:json.loads(b['context']) for b in p['bounded_context']}\nfor i,t in enumerate(p['translation_snapshot']):\n    k=t['revision_key']; c=ctx.get(k,{})\n    print(f\"===== [{i}] {k[:10]} {c.get('file')}:{c.get('line')} {c.get('section')} tag={c.get('source_tag')}\")\n    print(\"SRC:\",repr(t['source']))\n    print(\"TGT:\",repr(t['target']))\n    for a in c.get('adjacent_translations',[]): print(\"  ADJ:\",repr(a['source'])[:200],'=>',repr(a['target'])[:200])\n    se=c.get('source_evidence',{})\n    print(\"  PATH:\",se.get('public_source_path'),se.get('source_identity'))\n    ex=se.get('excerpts',[])\n    if ex: print(\"  EX:\",ex[-1]['excerpt'][:1500] if len(ex)==1 else \"\\n\".join(e['excerpt'] for e in ex)[:2500])\n    for kk in c:\n        if kk not in ('adjacent_translations','file','line','section','source_evidence','source_tag'): print(\"  EXTRA\",kk,json.dumps(c[kk],ensure_ascii=False)[:1500])\nEOF\nwc -c /tmp/w59f1a2.txt; head -c 40000 /tmp/w59f1a2.txt",
+        "description": "Dump entries with evidence"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_012Cedb4nBuF9GZSoNBi6CqD",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w59-20261001/CONTEXTUAL-ENVELOPE-f1a2.json'))\np=d['payload']\nctx={b['revision_key']:json.loads(b['context']) for b in p['bounded_context']}\nfor i,t in enumerate(p['translation_snapshot'][:15]):\n    k=t['revision_key']; c=ctx.get(k,{})\n    print(f\"== [{i}] {c.get('file')}:{c.get('section')} tag={c.get('source_tag')}\")\n    print(\"SRC:\",repr(t['source']))\n    print(\"TGT:\",repr(t['target']))\n    for a in c.get('adjacent_translations',[]): print(\"  ADJ:\",repr(a['source'])[:150],'=>',repr(a['target'])[:150])\n    se=c.get('source_evidence',{})\n    print(\"  PATH:\",se.get('public_source_path'), se.get('matching_lines'))\n    for kk in c:\n        if kk not in ('adjacent_translations','file','line','section','source_evidence','source_tag'): print(\"  EXTRA\",kk,json.dumps(c[kk],ensure_ascii=False)[:800])\nEOF",
+        "description": "Show entries 0-14 compactly"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01NLJxN33PQaBVLfZ8zurbPi",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/cursed/shadows.lua | sed -n 500,535p",
+        "description": "Check shadows.lua source at pinned commit"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Nn3Cq3hW8Yaz8kiWwKYkq5",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w59-20261001/CONTEXTUAL-ENVELOPE-f1a2.json'))\np=d['payload']\nctx={b['revision_key']:json.loads(b['context']) for b in p['bounded_context']}\nfor i,t in enumerate(p['translation_snapshot'][15:30],15):\n    k=t['revision_key']; c=ctx.get(k,{})\n    print(f\"== [{i}] {c.get('file')}:{c.get('section')} tag={c.get('source_tag')}\")\n    print(\"SRC:\",repr(t['source']))\n    print(\"TGT:\",repr(t['target']))\n    for a in c.get('adjacent_translations',[]): print(\"  ADJ:\",repr(a['source'])[:150],'=>',repr(a['target'])[:150])\n    se=c.get('source_evidence',{})\n    print(\"  PATH:\",se.get('public_source_path'), se.get('matching_lines'))\n    for kk in c:\n        if kk not in ('adjacent_translations','file','line','section','source_evidence','source_tag'): print(\"  EXTRA\",kk,json.dumps(c[kk],ensure_ascii=False)[:800])\nEOF",
+        "description": "Show entries 15-29"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01S4ePTibjNrT5PuNbm8hu3A",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/timed_effects/magical.lua | sed -n 2935,2965p; git show $C:game/modules/tome/data/talents/techniques/marksmanship.lua | sed -n 40,52p; cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/repair-w59-20261001/CONTEXTUAL-ENVELOPE-f1a2.json'))\nt=json.loads(d['payload']['terminology_snapshot'])\nfor r in t['records']:\n  s=r['record'].split('\\t')\n  print(s[0],'|',s[1],'|',s[4],'|',s[5])\n\"",
+        "description": "Check sources and terminology snapshot"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01UCRRdfU1dyD18hyfpFg3uS",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/repair-w59-20261001/CONTEXTUAL-ENVELOPE-f1a2.json'))\np=d['payload']\nctx={b['revision_key']:json.loads(b['context']) for b in p['bounded_context']}\nfor i,t in enumerate(p['translation_snapshot'][30:],30):\n    k=t['revision_key']; c=ctx.get(k,{})\n    print(f\"== [{i}] {c.get('file')}:{c.get('section')} tag={c.get('source_tag')}\")\n    print(\"SRC:\",repr(t['source']))\n    print(\"TGT:\",repr(t['target']))\n    for a in c.get('adjacent_translations',[]): print(\"  ADJ:\",repr(a['source'])[:150],'=>',repr(a['target'])[:150])\n    se=c.get('source_evidence',{})\n    print(\"  PATH:\",se.get('public_source_path'), se.get('matching_lines'))\nEOF",
+        "description": "Show entries 30-43"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01LcReH6dpWDreT2U7h9zLHR",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json,re\nd=json.load(open('.ai/task/repair-w59-20261001/CONTEXTUAL-ENVELOPE-f1a2.json'))\nfor i,t in enumerate(d['payload']['translation_snapshot']):\n    s,g=t['source'],t['target']\n    f=lambda x:re.findall(r'%[-0-9.]*[a-zA-Z%]|#[A-Za-z_{}]+#|\\[/?i\\]',x)\n    sl=[re.match(r'\\t*',l).group() for l in s.split('\\n')]; gl=[re.match(r'\\t*',l).group() for l in g.split('\\n')]\n    if s.count('\\n')!=g.count('\\n') or sl!=gl or sorted(f(s))!=sorted(f(g)):\n        print(i, s.count('\\n'),g.count('\\n'), sl, gl, sorted(f(s))==sorted(f(g)))\nEOF",
+        "description": "Check invariants mechanically"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}

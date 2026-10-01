@@ -1,0 +1,28 @@
+{
+ "cycle": 1,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f1a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 42,
+ "raw_issue_count": 2,
+ "decision": "2 confirmed tier-1 findings (newline/TAB invariant; one also drops 'on hit'). Per v2 rule, FINAL with ISSUE requires fix → RE_REVIEW(2,1) → FINAL_REVIEW(2,2).",
+ "findings": [
+  {
+   "revision_key": "5c0dc6d9d2a91113376ed0ba28a1f7d5267d8df9dd0079c7b0d8b58ba0743b2b",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "newline",
+   "origin": "reviewer f1a2",
+   "reason": "固定 commit 624a673 game/modules/tome/data/talents/cursed/shadows.lua:526 的 Empower Shadows（info）源串为单行、无 LF/TAB；现译多出两处“\\n\\t\\t”，把单段说明拆成三行。修复：删去两处“\\n\\t\\t”，三段直接相接为单行，文字不变。"
+  },
+  {
+   "revision_key": "a38a4fc495b51fcb53ca3f07ef4b555548b0f71ac8f7ee1627106d354c2c4205",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer f1a2",
+   "reason": "固定 commit 624a673 game/modules/tome/data/talents/techniques/marksmanship.lua:49-51：“In addition, your Shoot has a %d%% chance to mark targets on hit.\\nThe mark lasts…”，标记只在命中时判定，且第三行源串只有 LF、无 TAB。现译漏“on hit”并在第三行前多出“\\t\\t”。修复：“射击技能有 %d%% 几率标记目标。”→“射击技能命中时有 %d%% 几率标记目标。”；“\\n\\t\\t标记持续”→“\\n标记持续”。"
+  }
+ ],
+ "advisories": []
+}

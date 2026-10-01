@@ -1,0 +1,60 @@
+{
+ "cycle": 0,
+ "stage": "REVIEW",
+ "accepted_dispatch_id": "r0a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 38,
+ "raw_issue_count": 6,
+ "decision": "5 confirmed (3 pre-existing tier-1 omissions in entries this window touches, fixed as whole sentences; 2 host TERM-EDITS target omissions) and 1 refuted. One combined EXECUTOR fix (execute-02), then RE_REVIEW(1,1) and FINAL_REVIEW(1,2).",
+ "findings": [
+  {
+   "revision_key": "34475db9b1986168e05f451ac28eedc01384085c5af842806e8cf246669675c8",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r0a1",
+   "reason": "固定 commit 624a673 game/modules/tome/data/chats/alchemist-last-hope.lua:544 “Thing is, her husband died recently, and the grief done drove her mad.”：悲痛使她发了疯，与后文“how it can take over their minds”呼应；现译“这件事让她悲痛欲绝”漏了发疯。本条在本窗口已改专名，按整句修复。修复：“最近她的丈夫去世了，这件事让她悲痛欲绝。”→“最近她的丈夫去世了，悲痛让她发了疯。”其余不变。"
+  },
+  {
+   "revision_key": "7abfa1439401cff8b10346e735d6939c3ad46d642257e3413391791775fd43a5",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "completeness",
+   "origin": "reviewer r0a1",
+   "reason": "固定 commit 624a673 game/modules/tome/data/general/npcs/bird.lua:50 “Ever burning, ever dying, ever reviving, the Phoenix swoops down upon you, seeking to share its fiery fate with you.”：现译漏“向你俯冲”且 ever 的反复意味未译。本条在本窗口已改专名，按整句修复。修复：整句改为“永远在燃烧，永远在死去，永远在重生，凤凰向你俯冲而来，想让你分享它炽烈的命运。”"
+  },
+  {
+   "revision_key": "86192a30aa44a613d9eb0679c529a673a0146701dd3e5fedc1b8fc97b4edc75d",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r0a1",
+   "reason": "公开 Orcs DLC tome-orcs/data/talents/spells/galvanic-technomancy.lua:78–80、109（来源未固定，SHA-256 51cf4356…）：仅当风暴之怒（T_HURRICANE）激活时才以 25% 几率调用 do_hurricane；原文“25%% chance to try to activate Hurricane, if used”。现译“这一法术有 25%% 的几率触发风暴之怒。”删了 try to 与 if used（删限定词类缺陷）。修复：→“若风暴之怒已激活，这一法术有 25%% 的几率尝试触发它。”其余不变。"
+  },
+  {
+   "revision_key": "d1f7a9a7b5bb668f3dde95657c94835c800e8e74820221adabaad147c0907f45",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "terminology",
+   "origin": "reviewer r0a1",
+   "reason": "宿主 TERM-EDITS 漏改 target：Mana Gale 统一为“法力风暴”（技能名本身已按 claim 改），但 terminology/talents.tsv 该行升 preferred 时 target 仍为“魔法风暴”，与裁决及译文矛盾。修复：该行 target“魔法风暴”→“法力风暴”，其余字段不变；译文不再改。"
+  },
+  {
+   "revision_key": "b6c6dceda1749c9bcd0184a1f88561f1c87c26ead1913821aea0967fd8a25194",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "terminology",
+   "origin": "reviewer r0a1",
+   "reason": "宿主 TERM-EDITS 漏改 target：Telekinetic Punt 统一为“念力推送”，但 terminology/talents.tsv 该行 target 仍为“念力打击”。修复：该行 target“念力打击”→“念力推送”，其余字段不变；译文不再改。"
+  },
+  {
+   "revision_key": "a38a4fc495b51fcb53ca3f07ef4b555548b0f71ac8f7ee1627106d354c2c4205",
+   "status": "refuted",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r0a1",
+   "reason": "固定 commit 624a673 marksmanship.lua 原文“causes them to become vulnerable to Headshot, Volley and Called Shots”；现译“更容易受到爆头、齐射和精准射击的影响”忠实于原文。标记实际是爆头的使用条件、齐射与精准射击额外攻击的触发条件（archery.lua:474、533、647–649），但这是上游说明的概括写法，不是翻译错误；本窗口只改了专名。驳回。"
+  }
+ ],
+ "advisories": []
+}

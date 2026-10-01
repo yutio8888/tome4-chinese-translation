@@ -1,0 +1,29 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "publication-01",
+      "status": "PASS",
+      "tool_calls": 7,
+      "native_calls_sha256": "2686383c2ca7043e73336fd629cc8ad559e950b6c017477cd13963ff8230539c",
+      "writes": [
+        "evidence/quality/repair-window-59-20261001/orchestration/* (178 pack files, SHA verified)",
+        "evidence/quality/repair-window-59-20261001/orchestration-pack-manifest.json",
+        "evidence/quality/repair-window-59-20261001/publication/* (attachments)",
+        "evidence/quality/repair-window-59-20261001/PUBLICATION.md",
+        "evidence/production-review-v2-lite/catalog/* and i18n/quality/production-review-v2-lite/* (exact copies)",
+        "evidence/production-review-v2-lite/migrations/dd0d78d9….json (exact copy)",
+        "handoff.md"
+      ],
+      "notes": [
+        "handoff: exactly five places updated as scoped (update line 3, inserted 2026-10-01 line, section-one window line, item 1 substring, item 2 replaced by HANDOFF-ITEM2.txt); 第376批计时 line, item 3 and section four preserved verbatim; host reviewed the git diff of handoff.md",
+        "host then edited the item-2 advisory line after the child finished to record two user 2026-10-01 rulings (deeprock tree to 深岩; also fix the Korbek note titles), scheduled for window 60; handoff.md is not part of the pack",
+        "native tool scan: 7 calls, 1 flagged = false positive (rm inside Deeprock Form in PUBLICATION.md text)",
+        "host ran harvest and archive-intent by hand: wd_exec_done does not accept the non-numeric dispatch id (same as windows 54-58)",
+        "docs/README.md carries another session uncommitted edit; untouched and never staged; catalog: only entries.jsonl and manifest.json changed bytes"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ]
+}

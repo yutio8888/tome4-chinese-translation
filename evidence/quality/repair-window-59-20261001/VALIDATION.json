@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w59-20261001",
+  "role": "executor",
+  "baseline_commit": "8e2fae4e3a3a3fb84651dcbfb6591de20ec45501",
+  "inputs": {
+    "workset_sha256": "81b44b97e1d8dd05f441c2cd20004c3bb18b7a90bb2a9ef84e6c294054372408",
+    "term_edits_sha256": "8b335691e5f32c11a08281de8046aefe999d80e4dccf81ab52be5a76a716e4d7",
+    "source_anchors_sha256": "108c5465c063f60c281b566e5442a1d545fa288f03f49d7a377eef76823faa52",
+    "source_claims_sha256": "a1f40e39c92f9f1f4cc8323d96cc75d0582c93781d5d598a8b6f12657aa8168c",
+    "baseline_records_sha256": "bb69a32ea919b9ce3c86f5232508dc28b9866cab57ef3dbfa84de436ba4716af",
+    "term_snapshot_sha256": "18bd5758340de8b46793ed59bd742bdcb93d03506ebbf79bd7666d6554290c7c"
+  },
+  "outputs": {
+    "mod-tome.lua": {
+      "sha256": "7a19177d86e501121bd1b61c8f0efe3d118ddf45510325b93b72d753fa088240"
+    },
+    "tome-cults.lua": {
+      "sha256": "da440a247363dd2678f404282f4cc2bd80018c9df00fd35ea747de63a0dbcee5"
+    },
+    "tome-orcs.lua": {
+      "sha256": "126fcbe909a7d4e478b309bb7aa1dfbc9b58b1be06c27225930ec2b680fd1472"
+    },
+    "terminology/creatures.tsv": {
+      "sha256": "04361f70b041c58f682542ab60383198d4d75b8a822f814e5a012fa73ab1db31"
+    },
+    "terminology/items.tsv": {
+      "sha256": "71063e4859c620fa04b1e2387b0353510bc6f9e76e404d999bc778017e688fc5"
+    },
+    "terminology/narrative.tsv": {
+      "sha256": "abf49c32051a36483e92402e7b0a00afe8e8f1ae5d8278b94e41f92bfb66ffa1"
+    },
+    "terminology/society.tsv": {
+      "sha256": "ca63033f7fa0a9691eb96955f528891082a2a6777d2626f83d6f0a9c9578fbd3"
+    },
+    "terminology/talents.tsv": {
+      "sha256": "4d96d40dde6876df01143ca403676cb3775b2b34419c0ba5b8ceb7f0fc68cc51"
+    }
+  },
+  "source_anchor_check": {
+    "queries": 44,
+    "matches": 44,
+    "unique_files": 27,
+    "tome_repository": "/workspace/t-engine4",
+    "tome_fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "dlc_source_repository_commit_pinned": false,
+    "dlc_roots_from_source_anchors_only": true
+  },
+  "translation_diff": {
+    "changed_target_count": 44,
+    "expected_target_count": 44,
+    "by_file": {
+      "mod-tome.lua": 33,
+      "tome-cults.lua": 1,
+      "tome-orcs.lua": 10
+    },
+    "unchanged_other_bytes": true,
+    "non_target_field_change_count": 0,
+    "placeholder_checks_pass": true,
+    "markup_checks_pass": true,
+    "target_terminal_newline_checks_pass": true,
+    "layout_unchanged_target_count": 43,
+    "merged_target": "1c38f759ab9063105dfb70a5f7385e7c6435a9e9440ef6cb896b2f8028c006df",
+    "merged_target_layout_delta": {
+      "lf": -1,
+      "tab": -2
+    }
+  },
+  "terminology_diff": {
+    "changed_line_count": 21,
+    "expected_line_count": 21,
+    "by_file": {
+      "terminology/creatures.tsv": 3,
+      "terminology/items.tsv": 2,
+      "terminology/narrative.tsv": 2,
+      "terminology/society.tsv": 3,
+      "terminology/talents.tsv": 11
+    },
+    "exact_old_to_new_rows": true,
+    "unchanged_other_lines": true,
+    "line_order_unchanged": true,
+    "tab_structure_from_new_rows": true,
+    "terminal_newlines_preserved": true
+  },
+  "excluded_text": {
+    "施放一股强力的魔法风暴": {
+      "unchanged": true,
+      "count": 1
+    },
+    "被念力打击击退": {
+      "unchanged": true,
+      "count": 1
+    },
+    "伤害盾标签“反魔盾”": {
+      "unchanged": true,
+      "proof": "exact non-target byte identity"
+    }
+  },
+  "luajit_load": {
+    "mod-tome.lua": {
+      "records": 21688,
+      "passed": true
+    },
+    "tome-cults.lua": {
+      "records": 2043,
+      "passed": true
+    },
+    "tome-orcs.lua": {
+      "records": 3904,
+      "passed": true
+    }
+  },
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "manifest/runtime/LPeg/repositories OK; expected source-unpinned warnings for three DLCs"
+    },
+    {
+      "command": "bounded SOURCE-ANCHORS exact-path SHA-256 verification; tome via git show fixed commit, DLC via declared checkout/path",
+      "exit_code": 0,
+      "result": "queries=44 matches=44 unique_files=27"
+    },
+    {
+      "command": "bounded baseline/current byte comparison driven by WORKSET, SOURCE-CLAIMS, BASELINE-records, and TERM-EDITS",
+      "exit_code": 0,
+      "result": "44 targets exact; 21 term rows exact; other bytes/lines unchanged; placeholder/markup/layout assertions passed"
+    },
+    {
+      "command": "manifest-compatible LuaJIT loadfile of mod-tome.lua, tome-cults.lua, tome-orcs.lua with section/t collectors",
+      "exit_code": 0,
+      "result": "records=21688/2043/3904"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no output"
+    }
+  ],
+  "observations_not_changed": [],
+  "scope_notes": [
+    "No additional claim-external issue was identified during the bounded implementation.",
+    "The three expressly excluded ordinary/label texts were verified unchanged.",
+    "DLC checkout content matched every frozen file hash, but DLC repository/commit identities remain unpinned by contract."
+  ],
+  "repair_rounds": [
+    {
+      "cycle": 1,
+      "adjudication": ".ai/task/repair-w59-20261001/ADJUDICATION-R0.json",
+      "confirmed_repairs": 5,
+      "target_repairs": [
+        {
+          "revision_key": "34475db9b1986168e05f451ac28eedc01384085c5af842806e8cf246669675c8",
+          "before": "最近她的丈夫去世了，这件事让她悲痛欲绝。",
+          "after": "最近她的丈夫去世了，悲痛让她发了疯。"
+        },
+        {
+          "revision_key": "7abfa1439401cff8b10346e735d6939c3ad46d642257e3413391791775fd43a5",
+          "before": "燃烧，死亡，重生。这只凤凰试图将它燃烧的命运带给你。",
+          "after": "永远在燃烧，永远在死去，永远在重生，凤凰向你俯冲而来，想让你分享它炽烈的命运。"
+        },
+        {
+          "revision_key": "86192a30aa44a613d9eb0679c529a673a0146701dd3e5fedc1b8fc97b4edc75d",
+          "before": "这一法术有 25%% 的几率触发风暴之怒。",
+          "after": "若风暴之怒已激活，这一法术有 25%% 的几率尝试触发它。"
+        }
+      ],
+      "terminology_repairs": [
+        {
+          "source": "Mana Gale",
+          "before_target": "魔法风暴",
+          "after_target": "法力风暴",
+          "term_edits_new_exact": true
+        },
+        {
+          "source": "Telekinetic Punt",
+          "before_target": "念力打击",
+          "after_target": "念力推送",
+          "term_edits_new_exact": true
+        }
+      ],
+      "outputs": {
+        "mod-tome.lua": "ff3b16225d452aa75e797a44a5061f2a071b093e554d537c685116d289641c87",
+        "tome-cults.lua": "da440a247363dd2678f404282f4cc2bd80018c9df00fd35ea747de63a0dbcee5",
+        "tome-orcs.lua": "923704923e6120b346842f9ed988af724d41b7abf1244217a1c49bb5cb2af1a0",
+        "terminology/creatures.tsv": "04361f70b041c58f682542ab60383198d4d75b8a822f814e5a012fa73ab1db31",
+        "terminology/items.tsv": "71063e4859c620fa04b1e2387b0353510bc6f9e76e404d999bc778017e688fc5",
+        "terminology/narrative.tsv": "abf49c32051a36483e92402e7b0a00afe8e8f1ae5d8278b94e41f92bfb66ffa1",
+        "terminology/society.tsv": "ca63033f7fa0a9691eb96955f528891082a2a6777d2626f83d6f0a9c9578fbd3",
+        "terminology/talents.tsv": "f7ed45c769283805025c7e6986cbc4e0af329b551707035e763b6c928d5fd1e5"
+      },
+      "validation": {
+        "translation_changed_target_count": 44,
+        "translation_by_file": {
+          "mod-tome.lua": 33,
+          "tome-cults.lua": 1,
+          "tome-orcs.lua": 10
+        },
+        "luajit_loaded_translation_counts": {
+          "mod-tome.lua": 21688,
+          "tome-cults.lua": 2043,
+          "tome-orcs.lua": 3904
+        },
+        "terminology_changed_line_count": 21,
+        "terminology_by_file": {
+          "terminology/creatures.tsv": 3,
+          "terminology/items.tsv": 2,
+          "terminology/narrative.tsv": 2,
+          "terminology/society.tsv": 3,
+          "terminology/talents.tsv": 11
+        },
+        "term_edits_new_exact": true,
+        "strict_lint": "Checked 30308 translations: 0 errors, 0 warnings",
+        "git_diff_check": "PASS (no output)",
+        "initial_probe_setup_error": "load_manifest() takes 0 positional arguments but 1 was given; corrected before any comparison and rerun successfully"
+      }
+    },
+    {
+      "cycle": 2,
+      "adjudication": ".ai/task/repair-w59-20261001/ADJUDICATION-F1.json",
+      "confirmed_repairs": 2,
+      "target_repairs": [
+        {
+          "revision_key": "5c0dc6d9d2a91113376ed0ba28a1f7d5267d8df9dd0079c7b0d8b58ba0743b2b",
+          "before": "将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。\n\t\t他们疯狂的攻击可以令他们支配对手，提高被支配目标所受到的所有伤害 4 回合（等级 %d，%d%% 几率 1 码范围）。\n\t\t它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。",
+          "after": "将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。他们疯狂的攻击可以令他们支配对手，提高被支配目标所受到的所有伤害 4 回合（等级 %d，%d%% 几率 1 码范围）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。"
+        },
+        {
+          "revision_key": "a38a4fc495b51fcb53ca3f07ef4b555548b0f71ac8f7ee1627106d354c2c4205",
+          "before": "射击技能有 %d%% 几率标记目标。\n\t\t标记持续",
+          "after": "射击技能命中时有 %d%% 几率标记目标。\n标记持续"
+        }
+      ],
+      "outputs": {
+        "mod-tome.lua": "93363d530b55b7141de62a14c4605f3b609ad1ce718f4d2924fcc30b7b6af1a3",
+        "tome-cults.lua": "da440a247363dd2678f404282f4cc2bd80018c9df00fd35ea747de63a0dbcee5",
+        "tome-orcs.lua": "923704923e6120b346842f9ed988af724d41b7abf1244217a1c49bb5cb2af1a0",
+        "terminology/creatures.tsv": "04361f70b041c58f682542ab60383198d4d75b8a822f814e5a012fa73ab1db31",
+        "terminology/items.tsv": "71063e4859c620fa04b1e2387b0353510bc6f9e76e404d999bc778017e688fc5",
+        "terminology/narrative.tsv": "abf49c32051a36483e92402e7b0a00afe8e8f1ae5d8278b94e41f92bfb66ffa1",
+        "terminology/society.tsv": "ca63033f7fa0a9691eb96955f528891082a2a6777d2626f83d6f0a9c9578fbd3",
+        "terminology/talents.tsv": "f7ed45c769283805025c7e6986cbc4e0af329b551707035e763b6c928d5fd1e5"
+      },
+      "validation": {
+        "translation_changed_target_count": 44,
+        "translation_by_file": {
+          "mod-tome.lua": 33,
+          "tome-cults.lua": 1,
+          "tome-orcs.lua": 10
+        },
+        "luajit_loaded_translation_counts": {
+          "mod-tome.lua": 21688,
+          "tome-cults.lua": 2043,
+          "tome-orcs.lua": 3904
+        },
+        "non_target_record_fields_unchanged": true,
+        "repaired_layout_matches_source": {
+          "5c0dc6d9d2": {
+            "lf": 0,
+            "tab": 0
+          },
+          "a38a4fc495": {
+            "lf": 2,
+            "tab": 2
+          }
+        },
+        "terminology_changed_line_count": 21,
+        "terminology_by_file": {
+          "terminology/creatures.tsv": 3,
+          "terminology/items.tsv": 2,
+          "terminology/narrative.tsv": 2,
+          "terminology/society.tsv": 3,
+          "terminology/talents.tsv": 11
+        },
+        "term_edits_new_exact": true,
+        "strict_lint": "Checked 30308 translations: 0 errors, 0 warnings",
+        "git_diff_check": "PASS (no output)"
+      }
+    }
+  ],
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "agent_created": false,
+  "task_records_modified": false
+}

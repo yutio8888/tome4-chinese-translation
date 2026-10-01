@@ -1,0 +1,19 @@
+{
+ "cycle": 2,
+ "stage": "RE_REVIEW",
+ "accepted_dispatch_id": "r2a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 43,
+ "raw_issue_count": 1,
+ "decision": "no confirmed tier-1 finding: the 2 execute-03 fixes (5c0dc6d9d2 single line, a38a4fc495 on-hit + TAB) are OK; the single ISSUE is a pre-existing corpus-wide phrasing outside this window's edits → advisory carry_forward. Cycle 2 converged; proceed to FINAL_REVIEW(2,2).",
+ "findings": [],
+ "advisories": [
+  {
+   "revision_key": "6a7d1cc7200cb491d20d6a487d79b03969b155ee5ff20224a0a830388ee6de98",
+   "origin": "reviewer r2a1",
+   "status": "advisory",
+   "note": "固定 commit 624a673 gifts/sand-drake.lua:72-74 吞噬成功后 incEquilibrium(-target.level-5)＝降低失衡值；原文“regaining life and equilibrium”。现译“恢复生命值和失衡值”中的“恢复失衡值”沿用全库对 regain/restore Equilibrium 的既有译法（如 Natural Replenishment“每回合回复 %0.1f 失衡值”、“被击中回复失衡值：”），且该片段非本窗口改动（本窗口只把“你会吞噬它”改为“你会尝试吞噬它：若成功则”）。是否把“回复/恢复失衡值”统一改为“降低失衡值”属跨批次策略，记 advisory。",
+   "resolution": "closed_by_user_ruling 2026-10-01：用户“不需要将恢复失衡更改为降低失衡”——保留全库“回复/恢复失衡值”译法，本条不改、不 carry_forward；同类指控今后直接驳回。"
+  }
+ ]
+}

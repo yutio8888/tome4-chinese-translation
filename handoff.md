@@ -1,6 +1,6 @@
 # 翻译审核当前交接
 
-更新时间：2026-10-01（第376批已 finalize，窗口59积压 4 条；按维护者要求暂停，未开第377批）
+更新时间：2026-10-01（修复窗口59已完成、待宿主证据提交与推送；审核仍按维护者要求暂停于第376批后）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -12,10 +12,11 @@
 
 - 2026-09-30：用户恢复工作，要求用 Gemini 3.8 Flash 快速复核 09-21 以来修改过的 1190 条译文（证据提交 `c4728694`，确认 83 条），随后“请合并修复”开窗口57。是否连续审核第373批以当前会话指示为准。
 - 2026-10-01：审核队列耗尽、积压 3 条，用户选择“开小窗口修这 3 条”，开窗口58。
+- 2026-10-01：第376批后按维护者要求暂停；用户“先补术语库”（`8e2fae4e`，181 行），三方讨论改为 gpt-6-astra／opus-5-5／gemini-3.8-flash，同意统一 21 个名称并开窗口59；裁定 Phoenix＝凤凰、“恢复失衡值”保留不改。
 - 审核已闭合至第 **376** 批（`batch-93dd0d869b4d3e8058dc`）：80 条，77 done / 3 repair_required。
   技能说明补空格维护的 80 个 successor（全为主游戏）：surface 一组 72 OK / 8 ISSUE，无补空格误报；contextual 首轮通过。确认 3 条，窗口59积压 4。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `87eb3a451088d416514587c7ca08b66f44aeb8d5` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **58**：第373、374批确认的 3 条（age-allure 副歌人称、fay-willows 夺取城门／亡灵大军／射击队列／步调一致、pocket-time 两段）已修复；译文提交 `54c307a7`；migration `2f023eaf…` 的 3 个 successor（主游戏 1、Cults 1、Orcs 1）须重新审核，不继承旧 revision 的 done 状态。
+- 修复窗口已闭合至 **59**：第375、376批确认的 4 条与术语统一的 40 处引用（21 个名称，术语行改 preferred）已修复；译文提交 `e6dce581`；migration `dd0d78d9…` 的 44 个 successor（主游戏 33、Cults 1、Orcs 10）须重新审核，不继承旧 revision 的 done 状态。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
   - 10 条死键／冻结 MISS（上游改串未重生 locale key 等，已 host-block 登记，不动）；
@@ -54,13 +55,13 @@
 
 ## 三、下一步
 
-1. **审核已按维护者要求在第376批后暂停**；恢复时从第 **377** 批起：技能说明占位符补空格维护余下约 233 个 successor（约 3 批）。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制；审核这些 successor 时空格本身不判问题（第375、376批 surface 均无补空格误报）。
+1. **审核已按维护者要求在第376批后暂停**；恢复时从第 **377** 批起：技能说明占位符补空格维护余下约 233 个 successor（约 3 批），以及窗口59的 44 个 successor（主游戏 33、Cults 1、Orcs 10）。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制；审核这些 successor 时空格本身不判问题（第375、376批 surface 均无补空格误报）。
    届时用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句）；
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
-2. 窗口 58 已完成（第373、374批确认的 3 条）：age-allure 副歌“嘿，我，现为守卫”→你（4 处）；fay-willows 骷髅转而去夺取城门、步步逼近的亡灵大军、排成射击队列，以及 FINAL 补出的两处 lockstep“步调一致”；pocket-time 精通其中几项、与吸血鬼领主正面交锋、含糊不清地咒骂了一通不公平。复审路径：execute-01 → REVIEW r0a1 3 ISSUE 全不采纳（1 驳回、2 advisory）→ FINAL f0a2 1 确认（lockstep）→ execute-02 → RE r1a1 1 advisory → FINAL f1a2 越界 grep ashes-urhrok 拒收 → f1a3（Opus 5.5）3/3，cycle 1 收敛；门禁 17/17。
-   模板为窗口58：`.artifacts/i18n/repair-w58-20261001/setup_window58.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`、`wd.sh`、`check_siblings.py`（须传 WORKSET 路径）；宿主辅助脚本 `w58-tr.sh` 等在 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore）。setup 后要手设 STATE.candidate_author_agent_id，freeze_review.py 简报条数“审N条”要按窗口改。
-   advisory carry_forward：`2822ed0142` 食人魔化歌（All Star 戏仿）多句押韵意译偏离原文（stasis、“until we say it's ogre”、the years'll start coming），整首重译属歌词策略，successor 审核时再评估；`e2c9218ea9` 已在本窗口修复 lockstep。
-   窗口 59 积压 **4** 条（窗口58后重新计数，主游戏 4）：第375批 `1c38f759ab` 引导异常“你可以选中引导异常作为目标”→为引导异常选择目标，并合并多拆的一行；第376批 `4e496adf1d` 太阳赞歌“三格外”→“距离三格及以上”、`5c0dc6d9d2` 阴影消隐补“受到攻击时”、`6a7d1cc720` 吞噬改为“尝试吞噬：若成功则…”；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+2. 窗口 59 已完成（44 条＋21 行术语）：第375、376批确认的 4 条（引导异常目标与多拆行、太阳赞歌“距离三格及以上”、阴影消隐“受到攻击时”、吞噬“尝试吞噬：若成功则”）；2026-10-01 术语补录后三方讨论统一的 21 个名称共 40 处引用（如洛斯格罗斯、法力风暴、念力推送、凤凰、实验笔记、靴），对应术语行改 preferred；另宿主裁定 Hideous Visions 错指技能名与 critical 错字 2 条。复审路径：execute-01 → REVIEW r0a1 6 ISSUE（5 确认：Celia 发疯、凤凰描述、飓风限定词、两个术语 target；1 驳回）→ execute-02 → RE r1a1 44 OK → FINAL f1a2 2 确认（阴影消隐单行、强化射击“命中时”与第三行缩进）→ execute-03 → RE r2a1 1 advisory（吞噬“恢复失衡值”，用户 2026-10-01 裁定保留）→ FINAL f2a2 缩写 revision_key 无效 → f2a3（Opus 5.5）44/44，cycle 2 收敛；门禁 17/17。
+   模板为窗口59：`.artifacts/i18n/repair-w59-20261001/setup_window59.py`＋`SPEC-TEMPLATE.md`＋`HOST-SUPPLEMENT-CLAIMS.json`＋`TERM-EDITS.json`、`wd.sh`、`check_siblings.py`、`verify_translation_diff.py`（SRC_LF 列出按源码改行结构的条目）；宿主辅助脚本 `w59-tr.sh` 等在 `.artifacts/i18n/continuation-20260923/tmp-helpers-20260929/`（已 gitignore）。setup 后要手设 STATE.candidate_author_agent_id，freeze_review.py 简报条数“审N条”要按窗口改（窗口59前三轮误为“审3条”，reviewer 仍全覆盖 44 条）。
+   用户 2026-10-01 追加裁决，由窗口60执行：技能树 deeprock 改“深岩”（技能 Deeprock Form 保持“深岩形态”，“while Deeprock Form is active”处的“深岩元素形态”随之改为“深岩形态”，术语行改 preferred）；并一并修复 Korbek 实验笔记 part one–four 正文首行标题“：一/二/三/四”→“，第一部分”等（与物品名一致，全库仅此 4 处）。
+   窗口 60 积压 **0** 条（窗口59后重新计数）：；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
    第376批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）163.6 s；finalize 138.5 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。

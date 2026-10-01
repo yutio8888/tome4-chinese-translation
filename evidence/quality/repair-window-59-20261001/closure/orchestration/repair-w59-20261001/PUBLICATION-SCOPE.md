@@ -1,0 +1,23 @@
+# 窗口59证据发布范围
+
+唯一 publication EXECUTOR 只写：`evidence/quality/repair-window-59-20261001/`、`handoff.md`、候选 catalog 内对应的 `evidence/production-review-v2-lite/catalog/` 三文件、候选所含 `i18n/quality/production-review-v2-lite/catalog-v1.schema.json` 与 `policy-v1.json`、以及 `evidence/production-review-v2-lite/migrations/dd0d78d9bc040f1eed73862fcf7ad3b1e283681d8096eac44fa9505e0793acf0.json`。不改 Lua、术语、规则、工具、测试、其他 evidence、`docs/`、`.ai/task`、`.ai/reviews`、`pending-user-review.md`；不 stage/commit/push，不创建 agent，不重跑 queue/catalog/migration/门禁。窗口目录中已有的 `IMPLEMENTATION.md` 与 `VALIDATION.json` 保持不动。`docs/README.md` 上有他人未提交改动，不得触碰。
+
+1. 按 `.ai/task/repair-w59-20261001/PACK-MANIFEST.json` 将全部 `files` 精确安装到 `evidence/quality/repair-window-59-20261001/orchestration/<relative_destination>`，逐项核 SHA-256。已有同字节可保留，异字节必须停止。将 manifest 逐字复制到窗口根目录 `orchestration-pack-manifest.json`。
+2. 将 `.artifacts/i18n/repair-window/window59-20261001-candidate-catalog/` 内所有文件按相对路径逐字复制到仓库对应路径；将 `.artifacts/i18n/repair-window/window59-20261001-migration.json` 逐字复制到上述 migration 目标。已验证 44 revision_changed（均为 workset 条目）、29784 unchanged、0 ambiguous/unmapped、44 successor 新队列，无须重跑。
+3. 在本窗口 `publication/` 逐字复制 task 的 `PUBLICATION-SCOPE.md`、`CATALOG-CHANGE-VERIFICATION.json`、`MIGRATION-HOST-VERIFICATION.json`、`TRANSLATION-COMMIT.json`、`TERM-EDITS.json`、全部 `ADJUDICATION-*.json` 与 `INVALID-F2A2.json`；从 `.artifacts/i18n/repair-w59-20261001/` 逐字复制 `HOST-SUPPLEMENT-CLAIMS.json`、`HOST-EXACT-DIFF.json`、`HOST-EXACT-DIFF-POST-FIX1.json` 与 `HOST-EXACT-DIFF-POST-FIX2.json`；复制 `.artifacts/i18n/repair-window/window59-20261001-publish-chain.log`、`window59-20261001-publish-chain-timing.json`、`window59-20261001-migration.json`、`window59-20261001-migration-timing.json`，去掉 `window59-20261001-` 前缀作为 publication 文件名。
+4. 写本窗口 `PUBLICATION.md`，内容如下：
+   - 范围：44 条译文（主游戏 33、Cults 1、Orcs 10）＋ 21 行术语（creatures/items/narrative/society/talents，改为 preferred）。来源一：第375批（`batch-9da6a86a32b67cc82ddf`）与第376批（`batch-93dd0d869b4d3e8058dc`）确认的 4 条（`1c38f759ab` 引导异常目标并合并多拆一行、`4e496adf1d` 太阳赞歌“距离三格及以上”、`5c0dc6d9d2` 阴影消隐“受到攻击时”、`6a7d1cc720` 吞噬“尝试吞噬：若成功则”）。来源二：2026-10-01 术语补录（`8e2fae4e`）发现 21 个名称的引用漂移，经三方讨论（gpt-6-astra / claude-opus-5-5 / gemini-3.8-flash），用户同意“启动修复窗口”，统一 40 处引用；另宿主按事实裁定 Hideous Visions 错指技能名与 critical 错字 2 条。主游戏按 manifest 固定 commit 624a673 核验；DLC 来源仓库与 commit 未固定。Deeprock Form 三方不一，不在本窗口，待用户定。无同键兄弟。
+   - 复审路径（各轮裁决见 publication/ADJUDICATION-*.json）：execute-01 → REVIEW(0) r0a1（GPT-6.1 Sol）6 ISSUE：5 确认（Celia 悲痛发疯、凤凰描述重译、飓风限定词、Mana Gale／Telekinetic Punt 术语 target），1 驳回（精准射击 vulnerable to 忠实）→ execute-02 → RE_REVIEW(1) r1a1 44 OK → FINAL(1) f1a2（Opus 5.5）2 确认（`5c0dc6d9d2` 单行结构、`a38a4fc495` 命中时与第三行缩进）→ execute-03 → RE_REVIEW(2) r2a1 1 advisory（吞噬“恢复失衡值”，用户 2026-10-01 裁定保留全库译法）→ FINAL(2) f2a2 revision_key 缩写、契约校验拒收（INVALID-F2A2.json，不计轮次）→ fresh retry f2a3 44/44 OK，cycle 2 收敛（max_cycles 5）。advisory carry_forward：Korbek 实验笔记正文标题“：N”与物品名“，第N部分”格式不一（4 条）。宿主备注：前三轮冻结简报误写“审3条”（模板遗留），各轮 reviewer 均全覆盖 44 条；自 r2a1 起改为“审44条”。
+   - 门禁：17/17 全过，含严格构建；DONE_VERIFIED；全部 reviewer 与 executor 已归档。
+   - 标识：译文提交 `e6dce58129eee458c9bd3db2d769755206817775`；新 catalog `0e9e1d992c510295a74b2f33bcdcf413872855f10cf6763599ffc2b51db21e9c`；migration `dd0d78d9bc040f1eed73862fcf7ad3b1e283681d8096eac44fa9505e0793acf0`。
+   - 后续：44 个 successor 必须重新审核，不继承旧 done。窗口 60 积压 0 条。
+   - 本 publication child 待宿主归档。
+5. 更新 `handoff.md`，只改以下五处，其余逐字保留：
+   - 第3行“更新时间”行改为：`更新时间：2026-10-01（修复窗口59已完成、待宿主证据提交与推送；审核仍按维护者要求暂停于第376批后）`。
+   - 第一节以“- 修复窗口已闭合至 **58**”开头的条目（单行）整体替换为一行：`- 修复窗口已闭合至 **59**：第375、376批确认的 4 条与术语统一的 40 处引用（21 个名称，术语行改 preferred）已修复；译文提交 `e6dce581`；migration `dd0d78d9…` 的 44 个 successor（主游戏 33、Cults 1、Orcs 10）须重新审核，不继承旧 revision 的 done 状态。`
+   - 第一节以“- 2026-10-01：审核队列耗尽、积压 3 条”开头的那一行之后插入一行：`- 2026-10-01：第376批后按维护者要求暂停；用户“先补术语库”（`8e2fae4e`，181 行），三方讨论改为 gpt-6-astra／opus-5-5／gemini-3.8-flash，同意统一 21 个名称并开窗口59；裁定 Phoenix＝凤凰、“恢复失衡值”保留不改。`
+   - 第三节第 1 项第一行中的子串 `恢复时从第 **377** 批起：技能说明占位符补空格维护余下约 233 个 successor（约 3 批）。` 替换为 `恢复时从第 **377** 批起：技能说明占位符补空格维护余下约 233 个 successor（约 3 批），以及窗口59的 44 个 successor（主游戏 33、Cults 1、Orcs 10）。`；该行其余文字与该项续行保留。
+   - 第三节第 2 项：从以“2. 窗口 58 已完成”开头的行起，到以“   窗口 59 积压 **4** 条”开头的行止（含两端），整体替换为宿主已存的 `.ai/task/repair-w59-20261001/HANDOFF-ITEM2.txt` 全文（逐字取用，不带末尾换行）；其后以“   第376批计时（实测”开头的一行必须原样保留（下一批 handoff 生成器依赖它）。
+   第三节第 3 项及第四节必须原样保留，不得删除或改写。不要在 child 文档里提前宣称宿主动作已完成。
+
+验收：逐字副本与 SHA、catalog/migration 精确复制、文档链接/UTF-8/空白；只读运行 `python3 -B tools/ai_state_check.py .ai/task/repair-w59-20261001/STATE.json --workspace-root /workspace/tome4-chinese-translation/evidence/quality/repair-window-59-20261001/orchestration --target DONE`。不要运行 `verify_pack.py`。最后报告实际文件和验证结果。
