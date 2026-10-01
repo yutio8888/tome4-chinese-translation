@@ -1,0 +1,39 @@
+{
+  "batch_id": "batch-4584eb6ddb5e3110acab",
+  "observations": 1,
+  "observation_dispositions": {
+    "confirmed": 1
+  },
+  "repair_revision_keys": [
+    "6bba1ea093fbdbd9337545d78f19492567fabcd943fd86729a5f3aece736266a"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 74,
+    "repair_required": 1,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "6bba1ea093fbdbd9337545d78f19492567fabcd943fd86729a5f3aece736266a",
+      "stage": "surface",
+      "observation": "武器列表中的 maces 译为“权杖”，有将锤类武器误译为另一武器类别的疑点；冻结输入未提供相关术语条目正文，具体类别译名待核验。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/chronomancy/guardian.lua:22-38 意志之力（Strength of Purpose）info 原文 “when using swords, axes, maces, knives, or bows”，maces 指锤类武器；本库同句式的 data/talents/techniques/combat-training.lua:188 武器掌握（Weapons Mastery）“swords, axes or maces” 译“剑、斧、狼牙棒”，武器子类型 mace 作“锤子”，具体锤类物品作“狼牙棒”；权杖在本库专指 sceptre（大巫妖权杖、白骨雕刻的权杖）。现译“权杖”把锤类武器误作另一类物品，且与本条覆盖的武器掌握不一致。确认（contextual 判 OK，宿主以源码与本库译法为准）。修复：“剑、斧、权杖、匕首或者弓箭”→“剑、斧、狼牙棒、匕首或者弓箭”，其余不变。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (13 lanes: surface-000 main game 61 in 16/15/15/15; surface-001 Cults 8 in 2x4; surface-002 Ashes 5 in 2/1/1/1; surface-003 Orcs 1 in full mode)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000 main game 1; 1 entries)"
+  },
+  "notes": [
+    "Surface screening: four groups of codex/gpt-6.1-sol (thinking medium, auto-review), 13 children (main game 16/15/15/15, Cults 2x4, Ashes 2/1/1/1, Orcs 1 in full mode); 74 OK / 1 ISSUE; every child only read its own envelope and the contract (13 exec calls, no writes, no Paseo terminals). No observation challenged the user rulings on pending #50 (killer messages with the killer as subject) or #51 (dark Master as 黑暗领主).",
+    "Contextual review: claude/claude-opus-5-5 over the 1 deep entry, accepted on the first pass (1 OK).",
+    "The batch holds all 75 queued successors: 22 of repair window 61 and 53 of repair window 62. The review queue is now empty.",
+    "Host confirmed the surface observation on Strength of Purpose that contextual judged OK: maces were rendered as 权杖 (sceptre), while the library uses 狼牙棒 for the same phrase in Weapons Mastery (combat-training.lua:188), which this talent overrides (guardian.lua:33).",
+    "Mixed batch: 61 main-game entries were verified against the manifest-pinned tome commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file; 8 Cults, 5 Ashes and 1 Orcs entries matched the public DLC source file SHA in the workset, with the DLC repositories and commits unpinned.",
+    "1 confirmed repair revisions raise the window 63 backlog from 0 to 1; below the 20 threshold, so no window opens."
+  ]
+}
