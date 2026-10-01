@@ -1,0 +1,20 @@
+{
+ "workset": "evidence/quality/production-batches/batch-1c8107aa6a8d3b70ae53-source-workset.json",
+ "decisions": {
+  "8d6cc8d666|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "Orcs 公开源码（来源未固定，按本批 workset SHA 核验）tome-orcs/data/talents/steam/gunslinging.lua:167-243 魔术射击（Trick Shot）建弹射候选表时以 dist = core.fov.distance(x, y, actor.x, actor.y)（:232，x,y 为第一个目标坐标）只收 5 格内的敌人，并 table.sort(target_list, \"dist\")（:239）按与第一个目标的距离排序；现译“按与第一个目标的距离由近及远弹向下一个敌人”贴合实现（原文 “next closest foe” 未说明距离基准）。驳回。contextual 判 OK。"
+  },
+  "e51d489a14|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "Orcs 公开源码（来源未固定，按本批 workset SHA 核验）tome-orcs/data/lore/pocket-time.lua 口袋时间叙事中 “he started effortlessly destroying any foe he faced” 现译“他开始秒杀所有遇到的敌人”：口语化渲染，意为轻易击败，不涉及机制与关系；属二级措辞，可改“轻而易举地击败所有遇到的敌人”，建议，不进修复。contextual 判 OK。"
+  },
+  "fd49d4209d|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "Orcs 公开源码（来源未固定，按本批 workset SHA 核验）tome-orcs/data/talents/steam/mecharachnid.lua:867-889 自动修复系统（Automated Repair System）触发 EFF_AUTOMATED_REPAIR_SYSTEM，timed_effects/other.lua:551 以 addTemporaryValue(\"die_at\", -life) 把死亡阈值下调 X，生命低于 -X 才死亡（long_desc：“preventing death until falling below -%d life”）；现译“生命值下限为 -%d”即可降到 -X 为止，与实现一致。驳回。contextual 判 OK。"
+  }
+ }
+}
