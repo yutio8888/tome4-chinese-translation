@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "allowed_files": [
+    "mod-tome.lua",
+    "terminology/talents.tsv",
+    "TERMINOLOGY.md",
+    "tests/i18n/test_toolchain_static_audit.py"
+  ],
+  "anchor_scopes": [
+    {
+      "file": "mod-tome.lua",
+      "section_path": "mod-tome/data/lore/orc-prides.lua",
+      "ordered_titles": []
+    },
+    {
+      "file": "mod-tome.lua",
+      "section_path": "mod-tome/data/talents/spells/deeprock.lua",
+      "ordered_titles": []
+    },
+    {
+      "file": "mod-tome.lua",
+      "section_path": "mod-tome/data/talents/spells/spells.lua",
+      "ordered_titles": []
+    }
+  ],
+  "scope_expansions": [
+    {
+      "at": "2026-10-01T05:01:29.649255+00:00",
+      "files": [
+        "TERMINOLOGY.md",
+        "tests/i18n/test_toolchain_static_audit.py"
+      ],
+      "reason": "gate 03 toolchain unit test pins the term-row count (915) and TERMINOLOGY.md lists the talents domain count (347); the authorized new deeprock row makes them 916 / 348. Counts only; no translation target, term row or rule changes. Precedent: 8e2fae4e updated the same two places."
+    }
+  ]
+}

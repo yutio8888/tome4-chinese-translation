@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w60-20261001",
+  "role": "executor",
+  "cycle": 1,
+  "baseline_revision": "281ad0eff272259bf8c0bf67670c35a0ba7b7353",
+  "validated_at_utc": "2026-10-01T04:55:53Z",
+  "adjudication": ".ai/task/repair-w60-20261001/ADJUDICATION-F0.json",
+  "confirmed_revision": "1ebce25bfc96776d0baba0c17448747471b9b6bc02acf02d58b47f8fd2925219",
+  "replacement": {
+    "before": "当你进入深岩元素形态时，你获得",
+    "after": "处于深岩形态时，你获得",
+    "other_text_unchanged": true,
+    "placeholder_newline_tab_unchanged": true
+  },
+  "outputs": {
+    "mod-tome.lua": {
+      "sha256": "4ec9a2a76d44ff15cc7ca02e7d57a6c962390d08fe1a1405e1d9909cb6b2f066",
+      "diff_numstat_from_baseline": {
+        "insertions": 7,
+        "deletions": 7
+      }
+    },
+    "terminology/talents.tsv": {
+      "sha256": "c6b7210ee7cdc6cc6603d8b2a068e8605f277b1e81eeef814386939e99a6884d",
+      "modified_in_cycle_1": false,
+      "diff_numstat_from_baseline": {
+        "insertions": 2,
+        "deletions": 1
+      }
+    }
+  },
+  "checks": [
+    {
+      "name": "i18n_doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "passed",
+      "details": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2-1; expected source-unpinned warnings for ashes-urhrok, cults, and orcs"
+    },
+    {
+      "name": "luajit_exact_target_diff",
+      "command": "python3 -B /tmp/repair_w60_verify.py",
+      "exit_code": 0,
+      "result": "passed",
+      "details": {
+        "runtime": "manifest-compatible LuaJIT LocaleLoader",
+        "records_total": 22989,
+        "translations_total": 21688,
+        "changed_targets_from_scope_baseline": 6,
+        "changed_set_exactly_workset": true,
+        "other_records_unchanged": 22983,
+        "non_target_fields_unchanged": true,
+        "lf_tab_placeholder_markup_invariants": true,
+        "confirmed_target_exact": true
+      }
+    },
+    {
+      "name": "terminology_exact_diff",
+      "command": "TERM-EDITS-driven exact replay against baseline terminology/talents.tsv",
+      "exit_code": 0,
+      "result": "passed",
+      "details": {
+        "inserted_lines": 1,
+        "replaced_lines": 1,
+        "other_lines_unchanged": true,
+        "terminal_newline_unchanged": true,
+        "modified_in_cycle_1": false
+      }
+    },
+    {
+      "name": "strict_lint",
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "passed",
+      "details": {
+        "translations_checked": 30308,
+        "errors": 0,
+        "warnings": 0,
+        "report": ".artifacts/i18n/runs/20261001T045543.577592Z-2-lint/lint.json"
+      }
+    },
+    {
+      "name": "git_diff_check",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed",
+      "details": "no output"
+    },
+    {
+      "name": "evidence_whitespace",
+      "command": "git diff --no-index --check -- /dev/null <evidence-file>",
+      "exit_code": 1,
+      "expected_difference_exit": true,
+      "result": "passed",
+      "details": "both evidence files produced no whitespace diagnostics; exit 1 is the expected no-index difference status"
+    },
+    {
+      "name": "validation_json_parse",
+      "command": "python3 -m json.tool evidence/quality/repair-window-60-20261001/VALIDATION.json",
+      "exit_code": 0,
+      "result": "passed"
+    }
+  ],
+  "out_of_scope_actions": {
+    "staged": false,
+    "committed": false,
+    "pushed": false,
+    "agent_created": false,
+    "task_records_modified": false,
+    "terminology_modified_in_cycle_1": false
+  },
+  "remaining_responsibilities": [
+    "Independent review, task-state closure, commit, and push remain host responsibilities."
+  ]
+}

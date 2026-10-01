@@ -1,0 +1,30 @@
+第 1 轮修复已完成。
+
+前：
+```text
+当你进入深岩元素形态时，你获得 %d%% 流血、毒素、疾病和震慑免疫。
+		技能等级 5 或以上时，在深岩形态下，你将用物理抗性取代其他伤害抗性。
+```
+
+后：
+```text
+处于深岩形态时，你获得 %d%% 流血、毒素、疾病和震慑免疫。
+		技能等级 5 或以上时，在深岩形态下，你将用物理抗性取代其他伤害抗性。
+```
+
+仅修改了 [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:28486) 中指定 target；占位符、换行、TAB 和其余文字未变。术语库本轮未修改。
+
+验证结果：
+
+- LuaJIT 基线比较：22,989 条记录加载成功，相对 SCOPE 基线仍恰好 6 个 WORKSET target 变动，其他记录及非 target 字段不变。
+- `terminology/talents.tsv`：相对基线仍精确为 TERM-EDITS 的 1 行插入、1 行替换。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors，0 warnings。
+- `git diff --check`：通过，无输出。
+- evidence 空白检查及 JSON 解析：通过。
+
+证据已写入：
+
+- [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-60-20261001/IMPLEMENTATION.md)
+- [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-60-20261001/VALIDATION.json)
+
+未 stage、commit、push，未创建 agent，未修改 `.ai/task`；无未解决问题。

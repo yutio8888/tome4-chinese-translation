@@ -1,0 +1,20 @@
+{
+ "cycle": 0,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f0a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 5,
+ "raw_issue_count": 1,
+ "decision": "1 confirmed tier-1 finding (fidelity + terminology). Per v2 rule, FINAL with ISSUE requires fix → RE_REVIEW(1,1) → FINAL_REVIEW(1,2).",
+ "findings": [
+  {
+   "revision_key": "1ebce25bfc96776d0baba0c17448747471b9b6bc02acf02d58b47f8fd2925219",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer f0a2",
+   "reason": "固定 commit 624a673 game/modules/tome/data/talents/spells/deeprock.lua:96-108 Mountainhewn（passive，getImmune）：“While in deeprock form, you become indomitable…”指处于 Deeprock Form（EFF_DEEPROCK_FORM，magical.lua 中 eff.immune 在形态持续期间生效）期间，不是进入瞬间；且指的就是技能 Deeprock Form，按用户 2026-10-01 裁决应作“深岩形态”。现译“当你进入深岩元素形态时”既把持续期间说成进入时，又用了 Deeprock Elemental 的译法。宿主 setup 时误把首句判为普通描述（SOURCE-CLAIMS 中“第一行不动”的说明作废）。修复：“当你进入深岩元素形态时，你获得”→“处于深岩形态时，你获得”，其余不变。"
+  }
+ ],
+ "advisories": []
+}

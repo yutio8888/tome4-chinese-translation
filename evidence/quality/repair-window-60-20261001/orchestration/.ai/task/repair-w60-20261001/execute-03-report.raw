@@ -1,0 +1,18 @@
+已完成第 3 次派发，仅修改三处数字：
+
+- `tests/i18n/test_toolchain_static_audit.py`
+  - 两处 `915` → `916`
+- `TERMINOLOGY.md`
+  - `talents` 领域计数 `347` → `348`
+
+验证结果：
+
+- `python3 -B -m unittest tests.i18n.test_toolchain_static_audit`
+  - 14 tests，全部通过
+- `git diff --check`
+  - 通过，无输出
+- 上一轮文件 SHA-256 保持不变：
+  - `mod-tome.lua`: `4ec9a2a76d44ff15cc7ca02e7d57a6c962390d08fe1a1405e1d9909cb6b2f066`
+  - `terminology/talents.tsv`: `c6b7210ee7cdc6cc6603d8b2a068e8605f277b1e81eeef814386939e99a6884d`
+
+未修改 evidence 或 `.ai/task`，未 stage、commit、push，未创建 agent。无计划偏差或未解决问题。

@@ -1,0 +1,25 @@
+已完成 `repair-w60-20261001`，仅修改：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)
+- [terminology/talents.tsv](/workspace/tome4-chinese-translation/terminology/talents.tsv)
+
+译文前后：
+
+- `深岩形态` → `深岩`（技能树）
+- `在深岩元素形态下` → `在深岩形态下`（仅指定第二行）
+- `实验笔记：一/二/三/四` → `实验笔记，第一/第二/第三/第四部分`
+
+术语库：
+
+- 插入 `deeprock → 深岩`
+- 精确替换 `Deeprock Form` 行并更新为 `preferred`
+
+验证结果：
+
+- LuaJIT 加载基线及当前文件：均为 21,688 条记录；恰好 6 个 target 改变，其他字段和记录完全一致。
+- `talents.tsv`：恰好 1 行插入、1 行替换；其他字节、LF、TAB 结构及末尾换行不变。
+- `git diff --check`：通过。
+- `python3 -B tools/i18n lint --strict`：30,308 条译文，0 errors，0 warnings。
+- `doctor`：通过；仅有 manifest 预期的三项 DLC source-unpinned 警告。
+
+未修改 `.ai/task`，未创建 evidence 文件，未 stage、commit、push，也未触碰既有无关改动。无计划偏差或未解决问题。

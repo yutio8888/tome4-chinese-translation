@@ -1,0 +1,23 @@
+# 窗口60证据发布范围
+
+唯一 publication EXECUTOR 只写：`evidence/quality/repair-window-60-20261001/`、`handoff.md`、候选 catalog 内对应的 `evidence/production-review-v2-lite/catalog/` 三文件、候选所含 `i18n/quality/production-review-v2-lite/catalog-v1.schema.json` 与 `policy-v1.json`、以及 `evidence/production-review-v2-lite/migrations/8bdc639e15e39bbe828cbe73cbd87ce54883705b28c1a689e9b3efc04d7bbb9a.json`。不改 Lua、术语、规则、工具、测试、其他 evidence、`docs/`、`.ai/task`、`.ai/reviews`、`pending-user-review.md`；不 stage/commit/push，不创建 agent，不重跑 queue/catalog/migration/门禁。窗口目录中已有的 `IMPLEMENTATION.md` 与 `VALIDATION.json` 保持不动。`docs/README.md` 上有他人未提交改动，不得触碰。
+
+1. 按 `.ai/task/repair-w60-20261001/PACK-MANIFEST.json` 将全部 `files` 精确安装到 `evidence/quality/repair-window-60-20261001/orchestration/<relative_destination>`，逐项核 SHA-256。已有同字节可保留，异字节必须停止。将 manifest 逐字复制到窗口根目录 `orchestration-pack-manifest.json`。
+2. 将 `.artifacts/i18n/repair-window/window60-20261001-candidate-catalog/` 内所有文件按相对路径逐字复制到仓库对应路径；将 `.artifacts/i18n/repair-window/window60-20261001-migration.json` 逐字复制到上述 migration 目标。已验证 6 revision_changed（均为 workset 条目）、29822 unchanged、0 ambiguous/unmapped、6 successor 新队列，无须重跑。
+3. 在本窗口 `publication/` 逐字复制 task 的 `PUBLICATION-SCOPE.md`、`CATALOG-CHANGE-VERIFICATION.json`、`MIGRATION-HOST-VERIFICATION.json`、`TRANSLATION-COMMIT.json`、`TERM-EDITS.json`、`SCOPE.json` 与全部 `ADJUDICATION-*.json`；从 `.artifacts/i18n/repair-w60-20261001/` 逐字复制 `HOST-SUPPLEMENT-CLAIMS.json`、`HOST-EXACT-DIFF.json`、`HOST-EXACT-DIFF-POST-FIX1.json` 与 `HOST-EXACT-DIFF-POST-FIX2.json`；复制 `.artifacts/i18n/repair-window/window60-20261001-publish-chain.log`、`window60-20261001-publish-chain-timing.json`、`window60-20261001-migration.json`、`window60-20261001-migration-timing.json`，去掉 `window60-20261001-` 前缀作为 publication 文件名。
+4. 写本窗口 `PUBLICATION.md`，内容如下：
+   - 范围：6 条译文（全部主游戏 mod-tome.lua）＋ terminology/talents.tsv 1 行插入、1 行替换，依据用户 2026-10-01 两项裁决。其一“将deeprock技能树修改为深岩”：`926d166627` talent type deeprock“深岩形态”→“深岩”；技能 Deeprock Form 保持“深岩形态”，`1ebce25bfc` Mountainhewn 说明中指该形态的两处统一为“深岩形态”（第二行 while Deeprock Form is active 由 execute-01 修改，首行 while in deeprock form“当你进入深岩元素形态时”→“处于深岩形态时”由 FINAL f0a2 确认后修复）。其二“一并修复之前发现的非阻断问题”（窗口59 ADJUDICATION-F2 advisory）：Korbek 实验笔记 part one–four 正文标题“：一/二/三/四”→“，第一部分”等（`874773600`、`b9fa6649f1`、`58faaf57f6`、`233e49293a`）。术语库新增 deeprock＝深岩（preferred），Deeprock Form 改 preferred。主游戏按 manifest 固定 commit 624a673 核验；无同键兄弟。
+   - 复审路径（各轮裁决见 publication/ADJUDICATION-*.json）：execute-01 → REVIEW(0) r0a1（GPT-6.1 Sol）6 OK → FINAL(0) f0a2（Opus 5.5）1 确认（首行“进入…时”误作瞬时且用了 Deeprock Elemental 译法；宿主 setup 时误把首行判为普通描述）→ execute-02 → RE_REVIEW(1) r1a1 6 OK → FINAL(1) f1a2 6/6，cycle 1 收敛（max_cycles 5）。
+   - 门禁：首次运行在修复前，作废（SUPERSEDED-GATES-pre-fix1）；修复后运行门禁 03 失败，因单测钉死术语行数 915、新增 deeprock 行后为 916（SUPERSEDED-GATES-count-pin）。宿主把 SCOPE 扩至 tests/i18n/test_toolchain_static_audit.py 与 TERMINOLOGY.md（见 publication/SCOPE.json 的 scope_expansions），execute-03 只改 915→916 两处与 talents 计数 347→348，译文与术语文件 SHA 不变。重跑 17/17 全过，含严格构建；DONE_VERIFIED；全部 reviewer 与 executor 已归档。
+   - 标识：译文提交 `d62fe6ffd5845af719f43caf7a79611a366c6e3d`；新 catalog `456e88e5f2bc316309b070d4d2b10e19660191676cd7e0529f2fbaff478bd21f`；migration `8bdc639e15e39bbe828cbe73cbd87ce54883705b28c1a689e9b3efc04d7bbb9a`。
+   - 后续：6 个 successor 必须重新审核，不继承旧 done；其中 Korbek 4 条本是窗口59 的 successor，以本窗口版本为准。窗口 61 积压 0 条。
+   - 本 publication child 待宿主归档。
+5. 更新 `handoff.md`，只改以下五处，其余逐字保留：
+   - 第3行“更新时间”行改为：`更新时间：2026-10-01（修复窗口60已完成、待宿主证据提交与推送；审核仍按维护者要求暂停于第376批后）`。
+   - 第一节以“- 修复窗口已闭合至 **59**”开头的条目（单行）整体替换为一行：`- 修复窗口已闭合至 **60**：窗口59（44 条＋21 行术语，译文 `e6dce581`）与窗口60（deeprock 技能树改“深岩”、Mountainhewn 两处“深岩形态”、Korbek 实验笔记标题 4 条，译文 `d62fe6ff`，migration `8bdc639e…`）均已修复；两窗口的 46 个 successor（窗口59 的 40 条＋窗口60 的 6 条；主游戏 35、Cults 1、Orcs 10）须重新审核，不继承旧 revision 的 done 状态。`
+   - 第一节以“- 2026-10-01：第376批后按维护者要求暂停”开头的那一行之后插入一行：`- 2026-10-01：用户裁定 deeprock 技能树改“深岩”（Deeprock Form 保持“深岩形态”），并要求一并修复 Korbek 实验笔记标题等非阻断问题，开窗口60。`
+   - 第三节第 1 项第一行中的子串 `以及窗口59的 44 个 successor（主游戏 33、Cults 1、Orcs 10）。` 替换为 `以及窗口59、60 的 46 个 successor（窗口59 的 40 条：主游戏 29、Cults 1、Orcs 10；窗口60 的 6 条：主游戏，含窗口59 已改过的 Korbek 4 条）。`；该行其余文字与该项续行保留。
+   - 第三节第 2 项：从以“2. 窗口 59 已完成”开头的行起，到以“   窗口 60 积压 **0** 条”开头的行止（含两端），整体替换为宿主已存的 `.ai/task/repair-w60-20261001/HANDOFF-ITEM2.txt` 全文（逐字取用，不带末尾换行）；其后以“   第376批计时（实测”开头的一行必须原样保留（下一批 handoff 生成器依赖它）。
+   第三节第 3 项及第四节必须原样保留，不得删除或改写。不要在 child 文档里提前宣称宿主动作已完成。
+
+验收：逐字副本与 SHA、catalog/migration 精确复制、文档链接/UTF-8/空白；只读运行 `python3 -B tools/ai_state_check.py .ai/task/repair-w60-20261001/STATE.json --workspace-root /workspace/tome4-chinese-translation/evidence/quality/repair-window-60-20261001/orchestration --target DONE`。不要运行 `verify_pack.py`。最后报告实际文件和验证结果。
