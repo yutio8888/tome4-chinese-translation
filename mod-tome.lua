@@ -22033,7 +22033,7 @@ section "mod-tome/data/talents/chronomancy/guardian.lua"
 t("Strength of Purpose", "意志之力", "talent name")
 t([[Increases weapon damage by %d%% and physical power by 30 when using swords, axes, maces, knives, or bows.
 		You now also use your Magic in place of Strength when equipping weapons and ammo as well as when calculating weapon damage.
-		These bonuses override rather than stack with weapon mastery, dagger mastery, and bow mastery.]], [[当使用剑、斧、权杖、匕首或者弓箭时，增加武器伤害 %d%%， 物理强度30。
+		These bonuses override rather than stack with weapon mastery, dagger mastery, and bow mastery.]], [[当使用剑、斧、狼牙棒、匕首或者弓箭时，增加 %d%% 武器伤害和 30 点物理强度。
 		当装备武器、弹药或者计算武器伤害时，你使用魔力取代你的力量属性进行计算。
 		以上加成会取代而非叠加武器掌握、匕首掌握和弓箭掌握的加成。]], "tformat")
 t("Guardian Unity", "守卫联合", "talent name")
