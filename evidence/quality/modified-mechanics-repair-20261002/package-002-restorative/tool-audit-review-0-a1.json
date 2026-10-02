@@ -1,0 +1,14 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-002-restorative/INPUT-review-0-a1.json"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md; awk '/^## 六|^## 6/{f=1} f' docs/paseo-translation-context-review-v2-contract.md | head -80"
+    }
+  }
+]

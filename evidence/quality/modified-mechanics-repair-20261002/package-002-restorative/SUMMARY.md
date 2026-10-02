@@ -1,0 +1,1 @@
+boots/cloak两组restorative前缀名与keyword共4条精确修正为疗愈的/疗愈。2原confirmed claim+2必要局部关联项，未改术语库。固定commit下name/keywords/wielder关系及hash、exact-target和非target不变量、strictproposal、strictlint30308条0/0、runtime collision0、分类A1711/B0/C0、strictcoreaddon和空白通过。whole-workset REVIEW及FINAL_REVIEW全部OK，三个child归档确认，DONE_VERIFIED。

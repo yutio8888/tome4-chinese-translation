@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "lint",
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "lint",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "stdout": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T083332.467106Z-5-lint/lint.json\n",
+      "stderr": ""
+    },
+    {
+      "name": "runtime-collisions",
+      "command": [
+        "python3",
+        "-B",
+        "tools/scan_runtime_collisions.py",
+        "--out-dir",
+        ".artifacts/i18n/modified-mechanics-repair-20261002/runtime-final-002-restorative-restorative"
+      ],
+      "exit_code": 0,
+      "stdout": "runtime collisions: 0\n  json: .artifacts/i18n/modified-mechanics-repair-20261002/runtime-final-002-restorative-restorative/runtime-collisions.json\n  md:   .artifacts/i18n/modified-mechanics-repair-20261002/runtime-final-002-restorative-restorative/runtime-collisions.md\n",
+      "stderr": ""
+    },
+    {
+      "name": "runtime-classification",
+      "command": [
+        "python3",
+        "-B",
+        "tools/classify_runtime_keys.py"
+      ],
+      "exit_code": 0,
+      "stdout": "duplicate keys: 1711\n桶 A 不同 section: 1711\n桶 B 同一 section: 0\n桶 C 混合 section: 0\n桶 A tag 分布: {'_t': 698, 'entity name': 353, 'entity subtype': 114, 'entity keyword': 103, 'entity type': 71, 'effect subtype': 68, 'tformat': 65, 'logPlayer': 64, 'logSeen': 50, 'talent name': 29, 'entity short_name': 23, 'log': 15, 'birth facial category': 13, 'talent category': 10, 'logCombat': 9, 'entity on slot': 7, 'entity combat talented': 6, 'saySimple': 6, 'newLore category': 2, 'say': 2, 'talent type': 2, 'dialog_portal': 1}\n桶 A 目录模式分布: {'data/general': 1836, 'data/zones': 985, 'data/talents': 473, 'data/birth': 460, 'data/timed_effects': 297, 'data/chats': 151, 'modules/boot': 76, 'data/ingredients.lua': 73, 'engine/dialogs': 67, 'class/uiset': 49, 'data/tinkers': 36, 'dialogs/debug': 34, 'dialogs/shimmer': 34, 'overload/mod': 33, 'data/maps': 29}\nreport written: /workspace/tome4-chinese-translation/.artifacts/i18n/runtime-key-classification\n",
+      "stderr": ""
+    },
+    {
+      "name": "addon",
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "build",
+        "--profile",
+        "addon",
+        "--component",
+        "tome",
+        "--require-complete"
+      ],
+      "exit_code": 0,
+      "stdout": "OK  tome             delta=6672 inherited=12456 override=6551 new=121\nAddon artifact: complete, 6672 runtime keys, 0cc887cd7005d011\nOutput: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T083334.543981Z-44-build-addon/addon/data/locales/zh_hans.lua\n",
+      "stderr": ""
+    },
+    {
+      "name": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "translation_sha256": {
+    "engine.lua": "2f1786b43481c15edb2e741d455e94b84f0948ef633b755688036e208d87ade9",
+    "mod-boot.lua": "595f89d37c4ca3d367ba2c2cbc58d8dd3207b212374aa4eef18c72f39c8d5d14",
+    "mod-tome.lua": "9211cd050a1a0291ba7d593faf307da4226baf9e86019d11a7bb6c0b35e65dd8"
+  },
+  "runtime_collisions": 0,
+  "scope": "Bounded translation repair; workflow matrix excludes unrelated toolchain/production catalog tests. Only tome changed since prior final candidate; strict tome addon validates actual affected output. Prior engine/boot unchanged and their full artifacts were already verified."
+}

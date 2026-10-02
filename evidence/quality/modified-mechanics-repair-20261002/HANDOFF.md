@@ -1,7 +1,7 @@
 # 当前恢复入口
 
-首包已提交af899e52；第二包7条/8 claim及mod-boot.lua同键副本1条已DONE_VERIFIED，修后复审及终审全OK，主task7child+副本3child全归档。runtime collision0、分类A1711/B0/C0，strict lint30308条0/0，proposal/不变量与strictcoreaddon、engine/boot/tome full产物通过。证据在package-002，准备提交；原用户文档及其他未跟踪内容不纳入。
+首包af899e52、第二包56b529d0及同键菜单副本均DONE_VERIFIED并提交。恢复词缀补包mmrfix-20261002-002-restorative四条已DONE_VERIFIED、REVIEW/FINAL_REVIEW全OK、三child全归档，strict lint/proposal/不变量/collision0/分类/strictcoreaddon通过，证据package-002-restorative准备提交。两原claim MMR-017/018已DONE，显示名副本两项保留局部scope，术语库未改。
 
-下个有界补包：mmrfix-20261002-002-restorative，准备脚本 .artifacts/i18n/modified-mechanics-repair-20261002/prepare_restorative.py，待本包提交后运行准备与派发，四条boots/cloak前缀/keyword局部对齐疗愈的/疗愈，原claims MMR-017/018，source固定corehash，无术语库或全局策略。whole-workset full REVIEW+FINAL_REVIEW。
+下一包原packages[2] mmrfix-20261002-003 共10条10claim（mod-tome.lua8、tome-ashes-urhrok.lua2），脚本 .artifacts/i18n/modified-mechanics-repair-20261002/prepare_003.py 必须在当前提交后运行。内容为Stalk/Quickdraw/Incinerating Blows近战命中限定、Defense闪避、注射亲和抗性前基数、傀儡近战伤害类型、闪电受影响单位含友方、被诅咒者光环可能、疫火弹魔力。固定core与DLC哈希核验，DLC来源未固定。不改术语库/游戏源码；全文full独立复审与终审、门禁、归档、DONE_VERIFIED和提交后继续。
 
-MMR-026共享preferred术语仍待用户已有问题答复，不重复询问。根PLAN曾写n>=4必须四lane，该宿主误解已更正为v2允许whole-workset full；完整创建屏障不能被立即启动MCP冒充。两个EXECUTOR运行元数据的宿主schema错误已按原始capture更正并留before/trace，未更改模型身份、输入或raw结果。持续按既定批序推进，只有实际完成的原scope计入done，不push/PR/发布。
+MMR-026共享preferred术语仍待既有问题答复，不重复询问。用户其他文档/untracked production evidence/recipe不纳入提交。无push/PR/发布。
