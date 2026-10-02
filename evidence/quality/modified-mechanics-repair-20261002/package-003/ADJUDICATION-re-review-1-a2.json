@@ -1,0 +1,30 @@
+{
+  "boundary_audit": "valid; input/contract, /tmp derived context and related fixed-source calls only",
+  "verdicts": "9 OK; Stalk target limitation confirmed with fixed consumer",
+  "accepted_finding": {
+    "preimage_file_sha256": "907f2883324f2672e93e9c39d684842a79b44913a6de58845692e737874f3217",
+    "entries": [
+      {
+        "revision_key": "35b35ceb19a60836b718afdab633d54a27eaf6093d7fa173c26e4d551f6a1d64",
+        "old_target": "当你连续两回合以近战攻击命中同一个目标时，你将憎恨目标并追踪目标，效果持续 %d 回合或直到目标死亡。\n\t\t你每回合命中猎物都会使增益提升 1 层；未命中猎物的每回合，增益降低 1 层。\n\t\t1 重增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t2 重增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t3 重增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t命中受意志加成。\n\t\t近战伤害受力量值加成。",
+        "new_target": "当你连续两回合以近战攻击命中同一个目标时，你将憎恨目标并追踪目标，效果持续 %d 回合或直到目标死亡。\n\t\t追踪的命中和近战伤害增益仅对该猎物生效。你每回合命中猎物都会使增益提升 1 层；未命中猎物的每回合，增益降低 1 层。\n\t\t1 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t2 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t3 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t命中受意志加成。\n\t\t近战伤害受力量值加成。"
+      }
+    ],
+    "source_evidence": [
+      {
+        "component": "tome",
+        "public_path": "game/modules/tome/class/interface/Combat.lua",
+        "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+        "lines": [
+          421,
+          425
+        ]
+      }
+    ],
+    "finding_id": "REVIEW-STALK-TARGET-003",
+    "host_status": "confirmed",
+    "classification": "level-one completeness/fidelity; same-entry counter consistency",
+    "reason": "Combat consumer applies attack/damage multipliers only when effStalker.target == target; hate gain is not falsely limited. Local layer counters aligned."
+  }
+}

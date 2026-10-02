@@ -1,0 +1,192 @@
+{
+  "preimage_file_sha256": "dc2ff04c853a90bdb803db75c276bd61e56447af22c08f98ec59cfe9e08224e5",
+  "entries": [
+    {
+      "revision_key": "fa5df246f53d392fe403d7083318c92023f72a957ac435fbe102d5f9a1266e91",
+      "entry": {
+        "after": {
+          "args_order": null,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 25937,
+          "logical_path": "mod-tome.lua",
+          "section": "mod-tome/data/talents/misc/inscriptions.lua",
+          "source": "Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "激活这个纹身，你受到的伤害将部分转化为治疗（在伤害减免之前计算），转化比例为 %d%%。 此外，每回合减少一个随机负面效果的持续时间 %d 回合，持续 %d 回合。"
+        },
+        "ambiguous_pairing": false,
+        "before": {
+          "args_order": null,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 25961,
+          "logical_path": "mod-tome.lua",
+          "section": "mod-tome/data/talents/misc/inscriptions.lua",
+          "source": "Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "激活这个纹身，你受到的伤害将部分转化为治疗（在伤害减免之前计算），转化比例为 %d%%。此外，每回合减少一个随机负面效果的持续时间 %d 回合，持续 %d 回合。"
+        },
+        "candidate_index": 560,
+        "change_id": "fa5df246f53d392fe403d7083318c92023f72a957ac435fbe102d5f9a1266e91",
+        "change_type": "format_only",
+        "classification_reason": "技能、状态、装备类别/属性、资源、战斗提示或机制交叉引用名称。",
+        "component": "tome",
+        "content_class": "mechanics",
+        "export_identity": [
+          {
+            "args_order": null,
+            "component": "tome",
+            "item_id": "translation-6242e28f3675ebeeacf1372580fc8061910afaa2e6a46f519c79f922826456be",
+            "line": 25937,
+            "ordinal": 12989,
+            "revision_id": "6242e28f3675ebeeacf1372580fc8061910afaa2e6a46f519c79f922826456be",
+            "revision_uid": "ae1c7937fe65ebe8f64b6f095b25347231a9a16a15b9744bdc1d141f12606166",
+            "section": "mod-tome/data/talents/misc/inscriptions.lua",
+            "source": "Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.",
+            "source_tag": "tformat",
+            "special": null,
+            "target": "激活这个纹身，你受到的伤害将部分转化为治疗（在伤害减免之前计算），转化比例为 %d%%。 此外，每回合减少一个随机负面效果的持续时间 %d 回合，持续 %d 回合。",
+            "tu_uid": "41d63cfa38fad25e48b8b2e918c3a850a8daacc98b76c07ba5306e8eee03d5ad",
+            "unit_id": "10baeeb448ea3f8e982b5bf07a0a179f0065431f48ca993a844bd6cdb424a0cb"
+          }
+        ],
+        "file": "mod-tome.lua",
+        "format_proof": {
+          "insert_offsets": [
+            44
+          ],
+          "other_fields_unchanged": true,
+          "rule": "talent-placeholder-spacing minimal necessary ASCII-space insertions (docs/review-operations-guide.md section 6.4)"
+        },
+        "matching_basis": "same component/section/source/source_tag; semantic multiset subtraction; unmatched residuals paired by occurrence order",
+        "mechanic_category": "skills",
+        "risk": "format",
+        "risk_reason": "已逐条证明只含允许空格变化，结构检查全覆盖并按组件抽展示样本。",
+        "section": "mod-tome/data/talents/misc/inscriptions.lua",
+        "source": "Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.",
+        "source_tag": "tformat",
+        "unchanged_same_key_occurrences": []
+      },
+      "old_target": "激活这个纹身，你受到的伤害将部分转化为治疗（在抗性减免之前计算），转化比例为 %d%%。 此外，每回合减少一个随机负面效果的持续时间 %d 回合，持续 %d 回合。",
+      "new_target": "激活这个纹身，使你在受到伤害后若仍存活，恢复相当于该次伤害（抗性减免前计算）%d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。",
+      "finding_id": "REVIEW-AFFINITY-003",
+      "host_status": "confirmed",
+      "evidence_reason": "Damage affinity heals separately after damage resolves; dead targets do not heal. One PRIMAL_ATTUNEMENT effect limits both affinity and debuff reduction for data.dur."
+    },
+    {
+      "revision_key": "43a49669f0cd2a36326eefa15c50f54d2929f62cb2ba6f391a4c5722f5994bc2",
+      "entry": {
+        "after": {
+          "args_order": null,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 24558,
+          "logical_path": "mod-tome.lua",
+          "section": "mod-tome/data/talents/cursed/strife.lua",
+          "source": "Turn your attention to a nearby foe, and dominate them with your overwhelming presence. If the target fails to save versus your Mindpower, it will be unable to move for %d turns and vulnerable to attacks. They will lose %d Armour, %d Defense and your attacks will gain %d%% resistance penetration. If the target is adjacent to you, your domination will include a melee attack.\n\t\tEffects will improve with your Willpower.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "将注意力转向附近的敌人，以压倒性的气势将其压制。如果目标未能通过对抗你精神强度的豁免鉴定，它将在 %d 回合内无法移动，并更易受到攻击。目标的护甲降低 %d， 防御降低 %d， 且你的攻击对其获得 %d%% 抗性穿透。如果目标与你相邻，压制时还会发动一次近战攻击。\n\t\t效果受意志加成。\n\n\t\t如果装备了盾牌，本技能还会用盾牌发动攻击。"
+        },
+        "ambiguous_pairing": false,
+        "before": {
+          "args_order": null,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 24582,
+          "logical_path": "mod-tome.lua",
+          "section": "mod-tome/data/talents/cursed/strife.lua",
+          "source": "Turn your attention to a nearby foe, and dominate them with your overwhelming presence. If the target fails to save versus your Mindpower, it will be unable to move for %d turns and vulnerable to attacks. They will lose %d Armour, %d Defense and your attacks will gain %d%% resistance penetration. If the target is adjacent to you, your domination will include a melee attack.\n\t\tEffects will improve with your Willpower.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "将注意力转向附近的敌人，以压倒性的气势将其压制。如果目标未能通过对抗你精神强度的豁免鉴定，它将在 %d 回合内无法移动，并更易受到攻击。目标的护甲降低 %d，防御降低 %d，且你的攻击对其获得 %d%% 抗性穿透。如果目标与你相邻，压制时还会发动一次近战攻击。\n\t\t效果受意志加成。\n\n\t\t如果装备了盾牌，本技能还会用盾牌发动攻击。"
+        },
+        "candidate_index": 506,
+        "change_id": "43a49669f0cd2a36326eefa15c50f54d2929f62cb2ba6f391a4c5722f5994bc2",
+        "change_type": "format_only",
+        "classification_reason": "技能、状态、装备类别/属性、资源、战斗提示或机制交叉引用名称。",
+        "component": "tome",
+        "content_class": "mechanics",
+        "export_identity": [
+          {
+            "args_order": null,
+            "component": "tome",
+            "item_id": "translation-6a497df5a6bc6991b8b5a7fa215277d182b77977fa7a704cd50f45eadf6410e0",
+            "line": 24558,
+            "ordinal": 12505,
+            "revision_id": "6a497df5a6bc6991b8b5a7fa215277d182b77977fa7a704cd50f45eadf6410e0",
+            "revision_uid": "3081596da21b8867f377a4215126a9d28957277b17dd3af6a5ded7d9e086b903",
+            "section": "mod-tome/data/talents/cursed/strife.lua",
+            "source": "Turn your attention to a nearby foe, and dominate them with your overwhelming presence. If the target fails to save versus your Mindpower, it will be unable to move for %d turns and vulnerable to attacks. They will lose %d Armour, %d Defense and your attacks will gain %d%% resistance penetration. If the target is adjacent to you, your domination will include a melee attack.\n\t\tEffects will improve with your Willpower.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+            "source_tag": "tformat",
+            "special": null,
+            "target": "将注意力转向附近的敌人，以压倒性的气势将其压制。如果目标未能通过对抗你精神强度的豁免鉴定，它将在 %d 回合内无法移动，并更易受到攻击。目标的护甲降低 %d， 防御降低 %d， 且你的攻击对其获得 %d%% 抗性穿透。如果目标与你相邻，压制时还会发动一次近战攻击。\n\t\t效果受意志加成。\n\n\t\t如果装备了盾牌，本技能还会用盾牌发动攻击。",
+            "tu_uid": "816b18e55b8f3602733bd938473981681655e5479188689220db8e0387104b57",
+            "unit_id": "901d177ff49b6711107e5b4047b95568a3b30f8fbd0cc5f4d60743b9fbea259e"
+          }
+        ],
+        "file": "mod-tome.lua",
+        "format_proof": {
+          "insert_offsets": [
+            79,
+            87
+          ],
+          "other_fields_unchanged": true,
+          "rule": "talent-placeholder-spacing minimal necessary ASCII-space insertions (docs/review-operations-guide.md section 6.4)"
+        },
+        "matching_basis": "same component/section/source/source_tag; semantic multiset subtraction; unmatched residuals paired by occurrence order",
+        "mechanic_category": "skills",
+        "risk": "format",
+        "risk_reason": "已逐条证明只含允许空格变化，结构检查全覆盖并按组件抽展示样本。",
+        "section": "mod-tome/data/talents/cursed/strife.lua",
+        "source": "Turn your attention to a nearby foe, and dominate them with your overwhelming presence. If the target fails to save versus your Mindpower, it will be unable to move for %d turns and vulnerable to attacks. They will lose %d Armour, %d Defense and your attacks will gain %d%% resistance penetration. If the target is adjacent to you, your domination will include a melee attack.\n\t\tEffects will improve with your Willpower.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+        "source_tag": "tformat",
+        "unchanged_same_key_occurrences": []
+      },
+      "old_target": "将注意力转向附近的敌人，以压倒性的气势将其压制。如果目标未能通过对抗你精神强度的豁免鉴定，它将在 %d 回合内无法移动，并更易受到攻击。目标的护甲降低 %d， 闪避降低 %d， 且你的攻击对其获得 %d%% 抗性穿透。如果目标与你相邻，压制时还会发动一次近战攻击。\n\t\t效果受意志加成。\n\n\t\t如果装备了盾牌，本技能还会用盾牌发动攻击。",
+      "new_target": "将注意力转向附近的敌人，以压倒性的气势将其压制。如果目标未能通过对抗你精神强度的豁免鉴定，它将在 %d 回合内无法移动，并更易受到攻击。目标的护甲降低 %d， 闪避实际降低相同数值（闪避提示值为 %d）， 且你的攻击对其获得 %d%% 抗性穿透。如果目标与你相邻，压制时还会发动一次近战攻击。\n\t\t效果受意志加成。\n\n\t\t如果装备了盾牌，本技能还会用盾牌发动攻击。",
+      "finding_id": "SUPPLEMENTAL-UPSTREAM-003",
+      "host_status": "confirmed",
+      "evidence_reason": "DOMINATED combat_def uses armorChange, same as armor. Third info argument is defenseChange and not actual applied value. Preserve every placeholder and argument by labeling the discrepant third value as a display hint and stating actual equality. No source/tool/args_order mutation."
+    }
+  ],
+  "source_evidence": [
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2"
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e"
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479"
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/cursed/strife.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "b0dcafa04aadc9c68ebac73bdda27b056aec10b35bd9e6766bdde9f76d52086d"
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec"
+    }
+  ],
+  "frozen_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "host_adjudication": "Two objective level-one consumer/relationship findings accepted in bounded FIX cycle1, same frozen original entries. Original origin keys/source/fixed source identity remain unchanged.",
+  "scope_authority": "AGENTS permits objective level-one reopening at any cycle and ordinary FIX within max_cycles. Only target natural-language clauses; preserve every placeholder/arg and source field. Existing source mismatch is documented in player-visible numerical hint qualification.",
+  "review_raw": ".ai/reviews/mmrfix-20261002-003/raw-review-0-a1.txt"
+}

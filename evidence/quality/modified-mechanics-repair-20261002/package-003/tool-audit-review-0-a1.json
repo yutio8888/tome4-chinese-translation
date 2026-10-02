@@ -1,0 +1,51 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-003/INPUT-review-0-a1.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmrfix-20261002-003/INPUT-review-0-a1.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-review-0-a1.json'))\np=d['payload']\nprint(d.keys(), p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\n\"",
+      "description": "Inspect input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-review-0-a1.json'))\np=d['payload']\nprint(json.dumps(p['translation_snapshot'][9],ensure_ascii=False))\nfor i,c in enumerate(p['bounded_context']):\n  print('=====',i,c.get('revision_key'))\n  ctx=json.loads(c['context']) if c['context'].startswith('{') else c['context']\n  if isinstance(ctx,dict):\n    for k,v in ctx.items():\n      if k=='source_evidence':\n        for e in v: print('EV',e['public_path'],e['start'],e['end']); print(e['excerpt'])\n      else: print(k, json.dumps(v,ensure_ascii=False))\n  else: print(ctx)\n\"",
+      "description": "Print all context entries"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n  print('=====',i,c.get('revision_key'))\n  ctx=json.loads(c['context'])\n  for k,v in ctx.items():\n      if k=='source_evidence':\n        for e in v:\n          print('EV',{a:b for a,b in e.items() if a not in('excerpt','sha256')})\n          print(e.get('excerpt',''))\n      else: print(k, json.dumps(v,ensure_ascii=False))\n\" > /tmp/ctx.txt; wc -l /tmp/ctx.txt; sed -n 40,400p /tmp/ctx.txt",
+      "description": "Dump contexts to file"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx.txt",
+      "offset": 343,
+      "limit": 200
+    }
+  }
+]

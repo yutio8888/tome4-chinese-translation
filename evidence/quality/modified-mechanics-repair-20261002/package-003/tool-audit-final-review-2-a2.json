@@ -1,0 +1,62 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-003/INPUT-final-review-2-a2.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-003/INPUT-final-review-2-a2.json"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-final-review-2-a2.json'))\nprint(d.keys()); p=d['payload']; print(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-final-review-2-a2.json'))\np=d['payload']\nprint(json.dumps(p['translation_snapshot'][9],ensure_ascii=False))\nfor b in p['bounded_context'][2:]:\n  c=json.loads(b['context']); print('=====',b['revision_key'][:8],c['section'],c['source_tag'])\n  for e in c['source_evidence']:\n    print('--',e['public_path'],e.get('source_pinning'))\n    print(e.get('excerpt') or '\\n'.join(w['text'] for w in e['windows']))\n  print('TERM',json.dumps(c.get('terminology'),ensure_ascii=False))\n\" > /tmp/ctx_a2.txt; wc -l /tmp/ctx_a2.txt; grep -n '^## \\|^### ' docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; head -5 /tmp/ctx_a2.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 5,300p /tmp/ctx_a2.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 300,880p /tmp/ctx_a2.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-003/sources/tome/game/modules/tome; ls $S/data/timed_effects/ 2>/dev/null; cd /workspace/t-engine4 && git rev-parse HEAD; for f in mental physical; do git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/$f.lua | grep -n 'name = \"STALKER\"\\|name = \"STALKED\"\\|name = \"DOMINATED\"'; done"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/timed_effects/mental.lua | sed -n 420,500p; git show $C:game/modules/tome/data/timed_effects/mental.lua | sed -n 700,740p"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n 'EFF_STALKER\\|EFF_DOMINATED\\|stalk.hit\\b\\|stalk.hit_target' $C -- game/modules/tome/class game/modules/tome/data/damage_types.lua | head -30"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/class/interface/Combat.lua | sed -n 415,432p; git show $C:game/modules/tome/class/interface/Combat.lua | sed -n 725,750p; git grep -n 'getStalkedDamageMultiplier' $C -- game/modules/tome/class; git show $C:game/modules/tome/data/damage_types.lua | sed -n 360,368p; git show $C:game/modules/tome/data/damage_types.lua | grep -n 'affinity_heal' "
+    }
+  }
+]

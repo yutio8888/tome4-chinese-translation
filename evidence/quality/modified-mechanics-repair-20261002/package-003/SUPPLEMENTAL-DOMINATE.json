@@ -1,0 +1,24 @@
+{
+  "finding_id": "SUPPLEMENTAL-UPSTREAM-003",
+  "status": "confirmed; accepted for bounded target FIX cycle1",
+  "revision_key": "43a49669f0cd2a36326eefa15c50f54d2929f62cb2ba6f391a4c5722f5994bc2",
+  "evidence": [
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/cursed/strife.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "b0dcafa04aadc9c68ebac73bdda27b056aec10b35bd9e6766bdde9f76d52086d"
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec"
+    }
+  ],
+  "source_lines": "strife.lua:44-48/86: info computes separate armor and defense reductions; mental.lua:712-714: both combat_armor and combat_def use eff.armorChange.",
+  "observed_behavior": "Actual defense reduction equals armor reduction, different from third displayed argument.",
+  "constraints": "Original 10 accepted claims include Defense name only; current task forbids args_order/source/placeholder changes. Lint requires args_order permutation, so repeating armor numeric argument would violate existing invariant.",
+  "automatic_change_applied": false,
+  "next_action": "FIX-1 explicitly states actual defense reduction equals armor reduction and labels old third parameter as display hint; all format/args/source invariants preserved."
+}

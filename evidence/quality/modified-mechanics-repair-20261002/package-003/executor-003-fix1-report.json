@@ -1,0 +1,228 @@
+{
+  "task_id": "mmrfix-20261002-003",
+  "role": "EXECUTOR",
+  "cycle": 1,
+  "status": "implemented_exact_frozen_targets_validation_failed",
+  "changed_files": [
+    "mod-tome.lua"
+  ],
+  "preimage_sha256": "dc2ff04c853a90bdb803db75c276bd61e56447af22c08f98ec59cfe9e08224e5",
+  "preimage_matches_frozen": true,
+  "postimage_sha256": "56f16f201bb229b64290a2cf233f5ae2cdae890969ac6696a857dc66e119c48b",
+  "entries": [
+    {
+      "revision_key": "fa5df246f53d392fe403d7083318c92023f72a957ac435fbe102d5f9a1266e91",
+      "finding_id": "REVIEW-AFFINITY-003",
+      "record_index": 13655,
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "source": "Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "old_target": "激活这个纹身，你受到的伤害将部分转化为治疗（在抗性减免之前计算），转化比例为 %d%%。 此外，每回合减少一个随机负面效果的持续时间 %d 回合，持续 %d 回合。",
+      "new_target": "激活这个纹身，使你在受到伤害后若仍存活，恢复相当于该次伤害（抗性减免前计算）%d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。",
+      "placeholder_sequence": [
+        "%d",
+        "%%",
+        "%d",
+        "%d"
+      ],
+      "format_invariants_verified": true,
+      "calculation_arguments_consumer": {
+        "calculation": "inscriptions.lua:189,195 computes power=data.power+data.inc_stat*10 and reduce=floor(data.reduce+data.inc_stat*2); info order is power, reduce, data.dur. The info getter uses (data.reduce or 0).",
+        "arguments": "inscriptions.lua:189 passes the same power/reduce to a single EFF_PRIMAL_ATTUNEMENT for data.dur.",
+        "consumer": "physical.lua:913-919 installs/removes damage_affinity.all=eff.power; 919-925 reduces one random detrimental effect duration by eff.reduce on timeout. Both belong to the same timed effect. damage_types.lua:325-329 stores affinity_heal=max(0,dam*combatGetAffinity(type)/100) before resistances at 352 onward; takeHit resolves damage at 553; 608-609 separately heals only when not target.dead and affinity_heal>0.",
+        "conclusion": "Affinity is separate healing after resolved damage, only for surviving target; basis is before resistance reduction, not before every kind of damage reduction; affinity and debuff shortening share data.dur."
+      }
+    },
+    {
+      "revision_key": "43a49669f0cd2a36326eefa15c50f54d2929f62cb2ba6f391a4c5722f5994bc2",
+      "finding_id": "SUPPLEMENTAL-UPSTREAM-003",
+      "record_index": 13140,
+      "section": "mod-tome/data/talents/cursed/strife.lua",
+      "source": "Turn your attention to a nearby foe, and dominate them with your overwhelming presence. If the target fails to save versus your Mindpower, it will be unable to move for %d turns and vulnerable to attacks. They will lose %d Armour, %d Defense and your attacks will gain %d%% resistance penetration. If the target is adjacent to you, your domination will include a melee attack.\n\t\tEffects will improve with your Willpower.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "old_target": "将注意力转向附近的敌人，以压倒性的气势将其压制。如果目标未能通过对抗你精神强度的豁免鉴定，它将在 %d 回合内无法移动，并更易受到攻击。目标的护甲降低 %d， 闪避降低 %d， 且你的攻击对其获得 %d%% 抗性穿透。如果目标与你相邻，压制时还会发动一次近战攻击。\n\t\t效果受意志加成。\n\n\t\t如果装备了盾牌，本技能还会用盾牌发动攻击。",
+      "new_target": "将注意力转向附近的敌人，以压倒性的气势将其压制。如果目标未能通过对抗你精神强度的豁免鉴定，它将在 %d 回合内无法移动，并更易受到攻击。目标的护甲降低 %d， 闪避实际降低相同数值（闪避提示值为 %d）， 且你的攻击对其获得 %d%% 抗性穿透。如果目标与你相邻，压制时还会发动一次近战攻击。\n\t\t效果受意志加成。\n\n\t\t如果装备了盾牌，本技能还会用盾牌发动攻击。",
+      "placeholder_sequence": [
+        "%d",
+        "%d",
+        "%d",
+        "%d",
+        "%%"
+      ],
+      "format_invariants_verified": true,
+      "calculation_arguments_consumer": {
+        "calculation": "strife.lua:42-47 calculates armorChange=-combatTalentStatDamage(wil,4,30) and defenseChange=-combatTalentStatDamage(wil,6,45), which may differ.",
+        "arguments": "strife.lua:60 passes both into EFF_DOMINATED. info at 86 retains tformat(duration,-armorChange,-defenseChange,resistPenetration), so third placeholder is the defense display value.",
+        "consumer": "mental.lua:713 sets combat_armor from eff.armorChange; 714 also sets combat_def from eff.armorChange, not eff.defenseChange. Both temporary values are removed at 720-721. mental.lua:704 still displays -eff.defenseChange.",
+        "conclusion": "Actual armor and defense reductions are equal. Third numerical interpolation remains unchanged and is explicitly described as a display hint rather than actual reduction; no source/args_order alteration."
+      }
+    }
+  ],
+  "scope_verification": {
+    "semantic_records_checked": 22989,
+    "changed_records": [
+      13140,
+      13655
+    ],
+    "all_non_target_fields_unchanged": true,
+    "reverse_exact_target_replacement_restores_preimage_bytes": true,
+    "other_eight_workset_entries_and_all_other_content_preserved": true,
+    "other_repository_and_ai_evidence_files_hash_unchanged": true,
+    "files_hash_checked": 85822,
+    "index_unchanged": true
+  },
+  "timestamp_utc": "2026-10-02T08:52:13.648383+00:00",
+  "fixed_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "source_evidence": [
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2",
+      "hash_verified": true,
+      "source_pinning": "pinned",
+      "read_method": "git show <fixed_commit>:<public_path>",
+      "excerpts": [
+        {
+          "start": 182,
+          "end": 199,
+          "lines": "182: \tname = \"Infusion: Primal\", image = \"talents/infusion__wild.png\",\n183: \ttype = {\"inscriptions/infusions\", 1},\n184: \tpoints = 1,\n185: \tno_energy = true,\n186: \ttactical = {DEFEND = 2, CURE = 2},\n187: \taction = function(self, t)\n188: \t\tlocal data = self:getInscriptionData(t.short_name)\n189: \t\tself:setEffect(self.EFF_PRIMAL_ATTUNEMENT, data.dur, {power=data.power + data.inc_stat*10, reduce=math.floor(data.reduce + data.inc_stat * 2)})\n190: \t\treturn true\n191: \tend,\n192: \tinfo = function(self, t)\n193: \t\tlocal data = self:getInscriptionData(t.short_name)\n194: \t\treturn ([[Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.]]):\n195: \t\t\ttformat(data.power+data.inc_stat*10, math.floor((data.reduce or 0) + data.inc_stat * 2), data.dur)\n196: \tend,\n197: \tshort_info = function(self, t)\n198: \t\tlocal data = self:getInscriptionData(t.short_name)\n199: \t\treturn ([[affinity %d%%; reduction %d; dur %d; cd %d]]):tformat(data.power + data.inc_stat*10, math.floor((data.reduce or 0) + data.inc_stat * 2), data.dur, data.cooldown )"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "hash_verified": true,
+      "source_pinning": "pinned",
+      "read_method": "git show <fixed_commit>:<public_path>",
+      "excerpts": [
+        {
+          "start": 904,
+          "end": 926,
+          "lines": "904: \tname = \"PRIMAL_ATTUNEMENT\", image = \"talents/infusion__wild.png\",\n905: \tdesc = _t\"Primal Attunement\",\n906: \tlong_desc = function(self, eff) return (\"The target is attuned to the wild, increasing all damage affinity by %d%% and reducing a random debuff duration by %d each turn.\"):tformat(eff.power, eff.reduce) end,\n907: \ttype = \"physical\",\n908: \tsubtype = { nature=true },\n909: \tstatus = \"beneficial\",\n910: \tparameters = { power=20, reduce = 3 },\n911: \ton_gain = function(self, err) return _t\"#Target# attunes to the wild.\", _t\"+Primal\" end,\n912: \ton_lose = function(self, err) return _t\"#Target# is no longer one with nature.\", _t\"-Primal\" end,\n913: \tactivate = function(self, eff)\n914: \t\teff.pid = self:addTemporaryValue(\"damage_affinity\", {all=eff.power})\n915: \tend,\n916: \tdeactivate = function(self, eff)\n917: \t\tself:removeTemporaryValue(\"damage_affinity\", eff.pid)\n918: \tend,\n919: \ton_timeout = function(self, eff)\n920: \t\tlocal effs = self:effectsFilter({status = \"detrimental\", ignore_crosstier = true}, 1)\n921: \t\tlocal eff2 = self:hasEffect(effs[1])\n922: \t\tif eff2 then \n923: \t\t\teff2.dur = eff2.dur - eff.reduce\n924: \t\t\tif eff2.dur <= 0 then self:removeEffect(eff2.effect_id) end\n925: \t\tend\n926: \tend,"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "hash_verified": true,
+      "source_pinning": "pinned",
+      "read_method": "git show <fixed_commit>:<public_path>",
+      "excerpts": [
+        {
+          "start": 325,
+          "end": 329,
+          "lines": "325: \t\t-- affinity healing, we store it to apply it after damage is resolved\n326: \t\tlocal affinity_heal = 0\n327: \t\tif target.damage_affinity then\n328: \t\t\taffinity_heal = math.max(0, dam * target:combatGetAffinity(type) / 100)\n329: \t\tend"
+        },
+        {
+          "start": 352,
+          "end": 374,
+          "lines": "352: \t\t-- Reduce damage with resistance\n353: \t\tif target.resists then\n354: \t\t\tlocal pen = 0\n355: \t\t\tif src.combatGetResistPen then \n356: \t\t\t\tpen = src:combatGetResistPen(type)\n357: \t\t\t\tif type == DamageType.ARCANE and src.knowTalent and src:knowTalent(src.T_AURA_OF_SILENCE) then pen = pen + src:combatGetResistPen(DamageType.NATURE) end\n358: \t\t\telseif src.resists_pen then pen = (src.resists_pen.all or 0) + (src.resists_pen[type] or 0)\n359: \t\t\tend\n360: \t\t\tif src.attr and src:attr(\"ignore_enemy_resist\") then\n361: \t\t\t\tpen = 100\n362: \t\t\tend\n363: \t\t\tlocal dominated = target:hasEffect(target.EFF_DOMINATED)\n364: \t\t\tif dominated and dominated.src == src then pen = pen + (dominated.resistPenetration or 0) end\n365: \t\t\tif target:attr(\"sleep\") and src.attr and src:attr(\"night_terror\") then pen = pen + src:attr(\"night_terror\") end\n366: \t\t\tlocal res = target:combatGetResist(type)\n367: \t\t\tpen = util.bound(pen, 0, 100)\n368: \t\t\tif res > 0 then\tres = res * (100 - pen) / 100 end\n369: \t\t\tprint(\"[PROJECTOR] res\", res, (100 - res) / 100, \" on dam\", dam)\n370: \t\t\tif res >= 100 then dam = 0\n371: \t\t\telseif res <= -100 then dam = dam * 2\n372: \t\t\telse dam = dam * ((100 - res) / 100)\n373: \t\t\tend\n374: \t\tend"
+        },
+        {
+          "start": 550,
+          "end": 554,
+          "lines": "550: \t\tprint(\"[PROJECTOR] final dam after hooks and callbacks\", dam)\n551: \n552: \t\tlocal dead\n553: \t\tdead, dam = target:takeHit(dam, src, {damtype=type, damstate=state, source_talent=source_talent, source_talent_mode=source_talent_mode, initial_dam=initial_dam})\n554: "
+        },
+        {
+          "start": 607,
+          "end": 610,
+          "lines": "607: \t\t-- damage affinity healing\n608: \t\tif not target.dead and affinity_heal > 0 then\n609: \t\t\ttarget:heal(affinity_heal, src)\n610: \t\t\tgame:delayedLogMessage(target, nil, \"Affinity\"..type, (\"#Source##LIGHT_GREEN# HEALS#LAST# from %s %s #LAST# damage!\"):tformat(DamageType:get(type).text_color or \"#aaaaaa#\", DamageType:get(type).name))"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/cursed/strife.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "b0dcafa04aadc9c68ebac73bdda27b056aec10b35bd9e6766bdde9f76d52086d",
+      "hash_verified": true,
+      "source_pinning": "pinned",
+      "read_method": "git show <fixed_commit>:<public_path>",
+      "excerpts": [
+        {
+          "start": 39,
+          "end": 47,
+          "lines": "39: \t\treturn math.min(6, math.floor(2 + self:getTalentLevel(t)))\n40: \tend,\n41: \tgetArmorChange = function(self, t)\n42: \t\treturn -self:combatTalentStatDamage(t, \"wil\", 4, 30)\n43: \tend,\n44: \tgetDefenseChange = function(self, t)\n45: \t\treturn -self:combatTalentStatDamage(t, \"wil\", 6, 45)\n46: \tend,\n47: \tgetResistPenetration = function(self, t) return math.min(70, self:combatTalentStatDamage(t, \"wil\", 25, 60)) end, -- Limit < 70%"
+        },
+        {
+          "start": 55,
+          "end": 60,
+          "lines": "55: \t\t-- attempt domination\n56: \t\tlocal duration = t.getDuration(self, t)\n57: \t\tlocal armorChange = t.getArmorChange(self, t)\n58: \t\tlocal defenseChange = t.getDefenseChange(self, t)\n59: \t\tlocal resistPenetration = t.getResistPenetration(self, t)\n60: \t\ttarget:setEffect(target.EFF_DOMINATED, duration, {src = self, armorChange = armorChange, defenseChange = defenseChange, resistPenetration = resistPenetration, apply_power=self:combatMindpower() })"
+        },
+        {
+          "start": 78,
+          "end": 86,
+          "lines": "78: \tinfo = function(self, t)\n79: \t\tlocal duration = t.getDuration(self, t)\n80: \t\tlocal armorChange = t.getArmorChange(self, t)\n81: \t\tlocal defenseChange = t.getDefenseChange(self, t)\n82: \t\tlocal resistPenetration = t.getResistPenetration(self, t)\n83: \t\treturn ([[Turn your attention to a nearby foe, and dominate them with your overwhelming presence. If the target fails to save versus your Mindpower, it will be unable to move for %d turns and vulnerable to attacks. They will lose %d Armour, %d Defense and your attacks will gain %d%% resistance penetration. If the target is adjacent to you, your domination will include a melee attack.\n84: \t\tEffects will improve with your Willpower.\n85: \n86: \t\tThis talent will also attack with your shield, if you have one equipped.]]):tformat(duration, -armorChange, -defenseChange, resistPenetration)"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "hash_verified": true,
+      "source_pinning": "pinned",
+      "read_method": "git show <fixed_commit>:<public_path>",
+      "excerpts": [
+        {
+          "start": 702,
+          "end": 721,
+          "lines": "702: \tname = \"DOMINATED\", image = \"talents/dominate.png\",\n703: \tdesc = _t\"Dominated\",\n704: \tlong_desc = function(self, eff) return (\"The target has been dominated.  It is unable to move and has lost %d armor and %d defense. Attacks from %s gain %d%% damage penetration.\"):tformat(-eff.armorChange, -eff.defenseChange, eff.src:getName():capitalize(), eff.resistPenetration) end,\n705: \ttype = \"mental\",\n706: \tsubtype = { dominate=true },\n707: \tstatus = \"detrimental\",\n708: \ton_gain = function(self, err) return _t\"#F53CBE##Target# has been dominated!\", _t\"+Dominated\" end,\n709: \ton_lose = function(self, err) return _t\"#F53CBE##Target# is no longer dominated.\", _t\"-Dominated\" end,\n710: \tparameters = { armorChange = -3, defenseChange = -3, physicalResistChange = -0.1 },\n711: \tactivate = function(self, eff)\n712: \t\teff.neverMoveId = self:addTemporaryValue(\"never_move\", 1)\n713: \t\teff.armorId = self:addTemporaryValue(\"combat_armor\", eff.armorChange)\n714: \t\teff.defenseId = self:addTemporaryValue(\"combat_def\", eff.armorChange)\n715: \n716: \t\teff.particle = self:addParticles(Particles.new(\"dominated\", 1))\n717: \tend,\n718: \tdeactivate = function(self, eff)\n719: \t\tself:removeTemporaryValue(\"never_move\", eff.neverMoveId)\n720: \t\tself:removeTemporaryValue(\"combat_armor\", eff.armorId)\n721: \t\tself:removeTemporaryValue(\"combat_def\", eff.defenseId)"
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "passed; Lua 5.1 / LuaJIT 2.1.0-beta3 and LPeg 0.10.2-1 verified; existing DLC source-unpinned warnings outside this core-only FIX"
+    },
+    {
+      "command": "python3 -B /tmp/mmrfix-003-fix1/apply_and_verify.py",
+      "exit_code": 0,
+      "result": "preimage, full old targets, Lua semantic parsing, all non-target fields, placeholder order, markup, newline/tabs and byte scope passed"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 5,
+      "result": "failed: 1 error, 0 warnings across 30308 translations",
+      "artifact": ".artifacts/i18n/runs/20261002T085104.306020Z-2-lint/lint.json",
+      "diagnostic": "talent-placeholder-spacing mod-tome.lua:25937; numeric placeholder shares a level-up preview token with CJK text; insert one ASCII space at offsets=[38]"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed",
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "finding_id": "FIX1-FROZEN-TARGET-SPACING",
+      "status": "confirmed",
+      "blocking": true,
+      "entry_revision_key": "fa5df246f53d392fe403d7083318c92023f72a957ac435fbe102d5f9a1266e91",
+      "evidence": "Frozen new_target has （抗性减免前计算）%d%% without ASCII separator; strict lint reports offset 38.",
+      "suggested_bounded_adjustment": "Insert one ASCII space before %d%%: （抗性减免前计算） %d%%",
+      "action_taken": "Preserved exact frozen new_target as explicitly required; no unilateral change to target or FIX input. Requires ORCHESTRATOR revised FIX/briefing."
+    }
+  ],
+  "plan_deviations": [
+    "No implementation scope deviation. Strict lint cannot pass with the exact frozen affinity new_target; issue diagnosed and reported without altering frozen input."
+  ],
+  "prohibited_actions_performed": []
+}

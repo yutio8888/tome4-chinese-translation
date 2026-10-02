@@ -1,0 +1,77 @@
+{
+  "task_id": "mmrfix-20261002-003",
+  "role": "executor",
+  "cycle": 2,
+  "before_sha256": "907f2883324f2672e93e9c39d684842a79b44913a6de58845692e737874f3217",
+  "old_target": "当你连续两回合以近战攻击命中同一个目标时，你将憎恨目标并追踪目标，效果持续 %d 回合或直到目标死亡。\n\t\t你每回合命中猎物都会使增益提升 1 层；未命中猎物的每回合，增益降低 1 层。\n\t\t1 重增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t2 重增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t3 重增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t命中受意志加成。\n\t\t近战伤害受力量值加成。",
+  "new_target": "当你连续两回合以近战攻击命中同一个目标时，你将憎恨目标并追踪目标，效果持续 %d 回合或直到目标死亡。\n\t\t追踪的命中和近战伤害增益仅对该猎物生效。你每回合命中猎物都会使增益提升 1 层；未命中猎物的每回合，增益降低 1 层。\n\t\t1 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t2 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t3 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t命中受意志加成。\n\t\t近战伤害受力量值加成。",
+  "source_evidence": {
+    "component": "tome",
+    "public_path": "game/modules/tome/class/interface/Combat.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+    "lines": [
+      421,
+      425
+    ],
+    "verified_sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+    "excerpt": "421: \tlocal effStalker = self:hasEffect(self.EFF_STALKER)\n422: \tif effStalker and effStalker.target == target then\n423: \t\tlocal t = self:getTalentFromId(self.T_STALK)\n424: \t\tatk = atk + t.getAttackChange(self, t, effStalker.bonus)\n425: \t\tmult = mult * t.getStalkedDamageMultiplier(self, t, effStalker.bonus)",
+    "checkout_head": "3ff88853bc1c586045c439d21c5c112912c6a5bf",
+    "verification_method": "git show fixed commit; current checkout HEAD not used"
+  },
+  "after_sha256": "900c604fd3a045e380ba593c7e6c1c36ddcaeaa72c5a08bef50d4b2fe2ba317a",
+  "target_byte_offset": 2359887,
+  "status": "implemented_and_verified",
+  "scope": {
+    "changed_content_files": [
+      "mod-tome.lua"
+    ],
+    "changed_entries": 1,
+    "entry_revision_key": "35b35ceb19a60836b718afdab633d54a27eaf6093d7fa173c26e4d551f6a1d64",
+    "remaining_nine_entries": "unchanged byte-for-byte from dispatch preimage",
+    "all_bytes_outside_frozen_target": "unchanged",
+    "all_other_tracked_files": "unchanged from dispatch preimage",
+    "source_source_tag_args_order_special": "unchanged via exact target-only byte splice",
+    "placeholders": "identical kinds and order",
+    "markup": "unchanged; natural language changes only",
+    "tabs_and_newlines": "identical counts and sequence",
+    "game_source_terminology_tools_ai_evidence": "not modified",
+    "stage_commit_child": "none"
+  },
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "doctor"
+      ],
+      "exit_code": 0,
+      "result": "LuaJIT 5.1 and LPeg 0.10.2 verified; manifest repositories OK; existing unpinned DLC warnings (no DLC change in this cycle)"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "lint",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "stdout": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T091037.076915Z-4-lint/lint.json\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "plan_deviations": [],
+  "unresolved_issues": []
+}

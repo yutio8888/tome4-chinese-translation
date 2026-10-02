@@ -1,0 +1,93 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-003/INPUT-re-review-1-a2.json; head -c 6000 .ai/task/mmrfix-20261002-003/INPUT-re-review-1-a2.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-re-review-1-a2.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000]); print('----')\nprint(len(p['bounded_context']))\n\"",
+      "description": "Inspect input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-re-review-1-a2.json'))\np=d['payload']\nfor e in p['translation_snapshot'][-1:]: print(json.dumps(e,ensure_ascii=False))\nfor i,b in enumerate(p['bounded_context']):\n  print('=====',i, [k for k in b])\n  c=json.loads(b['context'])\n  print({k:v for k,v in c.items() if k!='source_evidence'})\n  for ev in c.get('source_evidence',[]):\n    print('--', ev.get('public_path'), ev.get('source_pinning'), ev.get('start'), ev.get('end'))\n    if 'excerpt' in ev: print(ev['excerpt'])\n    for w in ev.get('windows',[]): print(w['start'],w['end']); print(w['text'])\n\" > /tmp/ctx.txt; wc -l /tmp/ctx.txt; sed -n 1,40p /tmp/ctx.txt | cut -c1-3000",
+      "description": "Dump bounded context"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md | head -40",
+      "description": "List contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract section 6-7"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 40,330p /tmp/ctx.txt | cut -c1-2500",
+      "description": "Read context part 2"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | grep -n -A40 'name = \"STALKER\"' | head -60; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | grep -n -i \"stalk\" | head",
+      "description": "Check STALKER effect in pinned source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | grep -n -A40 'name = \"DOMINATED\"' | head -50",
+      "description": "Check DOMINATED effect"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"EFF_DOMINATED\\|resistPenetration\" $C -- game/modules/tome | grep -v \"talents/cursed/strife.lua\" | head",
+      "description": "Find DOMINATED consumers"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 330,620p /tmp/ctx.txt | cut -c1-2500",
+      "description": "Read context part 3"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n \"affinity_heal\" ; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | sed -n 470,500p",
+      "description": "Check affinity heal application"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 620,1072p /tmp/ctx.txt | cut -c1-2500",
+      "description": "Read context part 4"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n -A25 'type = \"FIREBURN\"' | head -30",
+      "description": "Check FIREBURN damage type"
+    }
+  }
+]

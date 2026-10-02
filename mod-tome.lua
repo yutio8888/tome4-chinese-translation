@@ -24123,11 +24123,11 @@ t([[When you focus your attacks on a single foe and strike them in melee for two
 		Bonus level 1: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
 		Bonus level 2: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
 		Bonus level 3: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
-		The accuracy bonus improves with your Willpower, and the melee damage bonus with your Strength.]], [[当你连续两回合持续近战攻击同一个目标时，你将憎恨目标并追踪目标，效果持续 %d 回合或直到目标死亡。
-		你每回合命中猎物都会使增益提升 1 层；未命中猎物的每回合，增益降低 1 层。
-		1 重增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
-		2 重增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
-		3 重增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
+		The accuracy bonus improves with your Willpower, and the melee damage bonus with your Strength.]], [[当你连续两回合以近战攻击命中同一个目标时，你将憎恨目标并追踪目标，效果持续 %d 回合或直到目标死亡。
+		追踪的命中和近战伤害增益仅对该猎物生效。你每回合命中猎物都会使增益提升 1 层；未命中猎物的每回合，增益降低 1 层。
+		1 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
+		2 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
+		3 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
 		命中受意志加成。
 		近战伤害受力量值加成。]], "tformat")
 t("Harass Prey", "袭扰猎物", "talent name")
@@ -24558,7 +24558,7 @@ t("Dominate", "压制", "talent name")
 t([[Turn your attention to a nearby foe, and dominate them with your overwhelming presence. If the target fails to save versus your Mindpower, it will be unable to move for %d turns and vulnerable to attacks. They will lose %d Armour, %d Defense and your attacks will gain %d%% resistance penetration. If the target is adjacent to you, your domination will include a melee attack.
 		Effects will improve with your Willpower.
 
-		This talent will also attack with your shield, if you have one equipped.]], [[将注意力转向附近的敌人，以压倒性的气势将其压制。如果目标未能通过对抗你精神强度的豁免鉴定，它将在 %d 回合内无法移动，并更易受到攻击。目标的护甲降低 %d， 防御降低 %d， 且你的攻击对其获得 %d%% 抗性穿透。如果目标与你相邻，压制时还会发动一次近战攻击。
+		This talent will also attack with your shield, if you have one equipped.]], [[将注意力转向附近的敌人，以压倒性的气势将其压制。如果目标未能通过对抗你精神强度的豁免鉴定，它将在 %d 回合内无法移动，并更易受到攻击。目标的护甲降低 %d， 闪避实际降低相同数值（闪避提示值为 %d）， 且你的攻击对其获得 %d%% 抗性穿透。如果目标与你相邻，压制时还会发动一次近战攻击。
 		效果受意志加成。
 
 		如果装备了盾牌，本技能还会用盾牌发动攻击。]], "tformat")
@@ -25934,7 +25934,7 @@ Also removes cross-tier effects of the affected types for free.]], [[激活纹�
 同时除去对应类型的越层效果（失去平衡、法术冲击和思维封锁）。]], "tformat")
 t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%; 解除 %s; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Primal", "纹身：原初", "talent name")
-t("Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.", "激活这个纹身，你受到的伤害将部分转化为治疗（在伤害减免之前计算），转化比例为 %d%%。 此外，每回合减少一个随机负面效果的持续时间 %d 回合，持续 %d 回合。", "tformat")
+t("Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.", "激活这个纹身，使你在受到伤害后若仍存活，恢复相当于该次伤害（抗性减免前计算） %d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。", "tformat")
 t("affinity %d%%; reduction %d; dur %d; cd %d", "伤害亲和 %d%%; 减少 %d; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Movement", "纹身：移动", "talent name")
 t([[Activate the infusion to increase movement speed by %d%% for 1 game turn.
@@ -26463,7 +26463,7 @@ t([[When gaining a combo point, you have a %d%% chance to gain an extra combo po
 		额外连击点获得概率受灵巧加成。]], "tformat")
 t("Steady Mind", "冷静思维", "talent name")
 t([[Superior cunning and training allows you to outthink and outwit your opponents' physical and mental assaults.  Increases Defense by %d and Mental Save by %d.
-		The Defense bonus will scale with your Dexterity, and the save bonus with your Cunning.]], [[卓越的灵巧与训练使你能以智取胜，看穿并化解对手的肉体和精神攻击。增加 %d 近身闪避和 %d 精神豁免。
+		The Defense bonus will scale with your Dexterity, and the save bonus with your Cunning.]], [[卓越的灵巧与训练使你能以智取胜，看穿并化解对手的肉体和精神攻击。增加 %d 闪避和 %d 精神豁免。
 		受敏捷影响，闪避按比例加成；受灵巧影响，精神豁免按比例加成。]], "tformat")
 t("Maim", "伤残", "talent name")
 t([[Grapples the target and inflicts %0.2f physical damage. If the target is already grappled, the target will be maimed as well, reducing damage by %d and global speed by 30%% for %d turns.
@@ -28116,7 +28116,7 @@ t("You tap into your golem's life energies to replenish your own. Drains %d life
 t("Gem Golem", "宝石傀儡", "talent name")
 t([[Insert a pair of gems into your golem, providing it with the gem bonuses and changing its melee attack damage type. You may remove the gems and insert different ones; this does not destroy the gems you remove.
 		Gem level usable: %d
-		Gem changing is done in the golem's inventory.]], [[在傀儡身上镶嵌 2 颗宝石，它可以得到宝石加成并改变近战攻击类型。你可以移除并镶嵌不同种类的宝石，移除行为不会破坏宝石。
+		Gem changing is done in the golem's inventory.]], [[在傀儡身上镶嵌 2 颗宝石，它可以得到宝石加成并改变近战攻击的伤害类型。你可以移除并镶嵌不同种类的宝石，移除行为不会破坏宝石。
 		可用宝石等级： %d
 		宝石的更换在傀儡的物品栏中进行。]], "tformat")
 t("Supercharge Golem", "超载傀儡", "talent name")
@@ -29684,7 +29684,7 @@ section "mod-tome/data/talents/spells/storm.lua"
 
 t("Nova", "闪电新星", "talent name")
 t([[Lightning emanates from you in a circular wave with radius %d, doing %0.2f to %0.2f lightning damage (%0.2f average) and possibly dazing anyone affected (75%% chance).
-		The damage will increase with your Spellpower.]], [[一圈闪电从你身上放射出来，在 %d 码范围内对目标造成 %0.2f ～ %0.2f 闪电伤害（平均 %0.2f） 并有 75%% 概率眩晕敌人。
+		The damage will increase with your Spellpower.]], [[一圈闪电从你身上放射出来，在 %d 码范围内对目标造成 %0.2f ～ %0.2f 闪电伤害（平均 %0.2f） 并有 75%% 概率眩晕受影响的单位。
 		伤害受法术强度加成。]], "tformat")
 t("Shock", "闪电之击", "talent name")
 t([[Conjures up a bolt of lightning, doing %0.2f to %0.2f damage (%0.2f average) and dazing the target for 3 turns.
@@ -31000,7 +31000,7 @@ In addition, your critical strikes with throwing knives have a %d%% chance to ra
 t("Quickdraw", "快速投掷", "talent name")
 t("Quickdraw Knife", "快速投掷飞刀", "_t")
 t([[You can throw knives with lightning speed, increasing your attack speed with them by %d%% and giving you a %d%% chance when striking a target in melee to throw a knife at a random foe within 7 tiles for 100%% damage. 
-		This bonus attack can only trigger once per turn, and does not trigger from throwing knife attacks.]], [[你可以闪电般地投掷你的飞刀。飞刀攻击速度增加 %d%%， 近战攻击时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害。
+		This bonus attack can only trigger once per turn, and does not trigger from throwing knife attacks.]], [[你可以闪电般地投掷你的飞刀。飞刀攻击速度增加 %d%%， 近战命中目标时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害。
 		每回合仅触发 1 次，不会被投掷飞刀触发。]], "tformat")
 t("Venomous Throw", "剧毒飞刀", "talent name")
 t("Venomous Throw", "剧毒飞刀", "_t")
@@ -33586,7 +33586,7 @@ Most of their talents are more effective with high hate.
 ]], [[被诅咒者因无知、贪婪或愚行而为某个黑暗阴谋效力，如今必须为自己的罪孽付出代价。
 如今，他们唯一的主人，是他们对一切生灵怀有的仇恨。
 他们从遇到的一切生灵的死亡中汲取力量，成为恐怖的战士。
-更可怕的是，任何接近被诅咒者的人都会受其可怕光环影响而发狂。
+更可怕的是，任何接近被诅咒者的人都可能受其可怕光环影响而发狂。
 不过其中的一些人努力弥补过错，用自己的被诅咒之力与邪恶战斗。
 
 你“解除”了本·克鲁塞达尔的诅咒，现在你创建角色时可以选择一个新的职业 #LIGHT_GREEN#被诅咒者#WHITE#。

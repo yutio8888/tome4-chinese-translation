@@ -1,0 +1,3 @@
+第三包10条/10个原confirmed claim已修复。cycle1额外确认亲和伤害后存活另行治疗/共用时限和Dominate实际闪避与提示值差异，cycle2补回Stalk增益仅对猎物。最终RE_REVIEW和FINAL_REVIEW全10 OK。首次RE_REVIEW越界查询旧证据，仅保留raw/audit、不计验收；fresh重审合法。宿主冻结target漏ASCII空格已由独立EXECUTOR单字节修复。全部8次dispatch确认归档，DONE_VERIFIED。
+
+strict lint30308条0/0，strict proposal/target外字节/非target字段通过，runtime collision0，分类A1711/B0/C0，strict核心addon及实际DLC发布dry-run missing/mismatched/unexpected/redundant均0。没有发布写入。DLC来源未固定，按冻结SHA核验，不宣称DLC版本pin。

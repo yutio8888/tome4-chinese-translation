@@ -1,0 +1,121 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-003/INPUT-re-review-1-a1.json; cat .ai/task/mmrfix-20261002-003/INPUT-re-review-1-a1.json",
+      "description": "Read frozen review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-re-review-1-a1.json'))\ndef show(o,p=''):\n  if isinstance(o,dict):\n    for k,v in o.items(): show(v,p+'.'+k)\n  elif isinstance(o,list):\n    print(p,'list',len(o))\n    if o: show(o[0],p+'[0]')\n  else: print(p,repr(o)[:150])\nshow(d)\"",
+      "description": "Show input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-re-review-1-a1.json'))\np=d['payload']\nprint(p['rendered_briefing']);print(p['terminology_snapshot'])\nfor i,t in enumerate(p['translation_snapshot']):\n  print('=====',i,t['revision_key']);print({k:v for k,v in t.items() if k not in('source','target','revision_key')})\n  print('SRC:',t['source']);print('TGT:',t['target'])\n\"",
+      "description": "Print briefing and translations"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  c=json.loads(b['context'])\n  print('=====',i,{k:v for k,v in c.items() if k!='source_evidence'})\n  for e in c.get('source_evidence',[]):\n    print('--',e.get('component'),e.get('public_path'),e.get('start'),e.get('end'),e.get('source_pinning'))\n    print(e.get('excerpt'))\n\"",
+      "description": "Print bounded contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\\|^##\" docs/paseo-translation-context-review-v2-contract.md | head -50",
+      "description": "Contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 1,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cursed/endless-hunt.lua | sed -n 1,140p",
+      "description": "Read Stalk talent source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cursed/strife.lua | sed -n '/name = \"Dominate\"/,/^}/p'; git show $C:game/modules/tome/data/timed_effects/mental.lua | grep -n -A30 'name = \"DOMINATED\"'",
+      "description": "Read Dominate source and effect"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"EFF_DOMINATED\\|resistPenetration\" $C -- game/modules/tome | grep -v \"talents/cursed/strife.lua\" | head",
+      "description": "Find dominated resist penetration consumers"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/misc/inscriptions.lua | grep -n -B40 \"heal for %d%% of all damage taken\" | sed -n 1,60p",
+      "description": "Read primal infusion source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/damage_types.lua | grep -n -B3 -A6 \"affinity_heal\" | sed -n 1,60p; git show $C:game/modules/tome/data/talents/misc/inscriptions.lua | sed -n 194,205p",
+      "description": "Check affinity heal application"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/spells/storm.lua | grep -n -B45 \"Lightning emanates\" | sed -n 1,60p",
+      "description": "Read storm nova source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs 2>/dev/null && f=$(git ls-files | grep \"corruptions/torture.lua\"); echo $f; sha256sum $f; grep -n -B60 \"The power of the Fearscape infuses\" $f | grep -n \"\" | sed -n 1,80p",
+      "description": "Read DLC torture talent source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "ls /workspace/tome4-dlcs; find /workspace/tome4-dlcs -path \"*corruptions/torture.lua\"",
+      "description": "Locate DLC torture file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "f=/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/torture.lua; sha256sum $f; n=$(grep -n \"The power of the Fearscape infuses\" $f | cut -d: -f1); awk -v n=$n 'NR>=n-75 && NR<=n+10' $f",
+      "description": "Read Fearscape infusion talent"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -l \"c9845ad5482c45ab0c2c5832950e9868bea5b9af7d4f0d1f3b31b4f03179bb66\" evidence/quality/production-batches/*source-workset.json 2>/dev/null | head -3; f=/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/general/objects/world-artifacts.lua; sha256sum $f | cut -c1-64 | xargs -I{} sh -c 'grep -l {} evidence/quality/production-batches/*source-workset.json | head -2'",
+      "description": "Match DLC SHA to tracked workset"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/damage_types.lua | grep -n -A22 'type = \"FIREBURN\"' | head -26",
+      "description": "Check FIREBURN default duration"
+    }
+  }
+]

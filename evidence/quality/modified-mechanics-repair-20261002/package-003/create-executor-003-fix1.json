@@ -1,0 +1,18 @@
+{
+  "title": "机制修正003 FIX：亲和治疗与实际闪避",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-003",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "fix-1-a1",
+    "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，fresh FIX cycle1，task mmrfix-20261002-003。读 .ai/roles/executor.md、本task SPEC/PLAN/FIX-1.json。仅mod-tome.lua冻结两条target按new_target逐字改：亲和是伤害后存活另行治疗、两效果共用时长；Dominate实际闪避等于护甲减免，第三旧defense参数保留但明确为提示值，不冒充实际减免。先核对preimage和两完整old_target，核验FIX引用fixedcore源码hash/计算→实参→消费者。保留其余8条修正和所有其他内容，placeholder/args_order/source/tag/special/markup/newline/tabs原样。不能改游戏源码/术语库/工具/.ai/旧evidence，不能stage/commit或创建child。可用/tmp。运行strictlint和git diff --check，写 .artifacts/i18n/modified-mechanics-repair-20261002/executor-003-fix1-report.json，包含逐项旧新target、固定源码hash/消费者关系/格式和范围验证/tests。最终报告实际成果。",
+  "notifyOnFinish": true
+}

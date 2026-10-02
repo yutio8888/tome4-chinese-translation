@@ -1,0 +1,74 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-003/INPUT-re-review-2-a1.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-re-review-2-a1.json'))\np=d['payload']\nprint(list(d.keys()),list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n  print('=====',i,t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target']); print({k:v for k,v in t.items() if k not in('source','target','revision_key')})\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md; "
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,170p docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  c=json.loads(b['context'])\n  print('#####',i,{k:v for k,v in b.items() if k!='context'})\n  for k,v in c.items():\n    if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False)[:1500])\n  for e in c.get('source_evidence',[]):\n    print('--',e['public_path'],e['start'],e['end'],e.get('source_pinning'))\n    print(e['excerpt'])\n\" > /tmp/bc.txt; wc -l /tmp/bc.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  c=json.loads(b['context'])\n  print('#####',i,{k:v for k,v in b.items() if k!='context'})\n  for k,v in c.items():\n    if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False)[:1500])\n  for e in c.get('source_evidence',[]):\n    print('--',{k:v for k,v in e.items() if k not in ('excerpt','sha256')})\n    print(e.get('excerpt',''))\n\" > /tmp/bc.txt; wc -l /tmp/bc.txt; sed -n 1,200p /tmp/bc.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 200,522p /tmp/bc.txt | cut -c1-6000"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-003/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context'][4:],4):\n  c=json.loads(b['context'])\n  print('#####',i,c['section'],json.dumps(c.get('terminology'),ensure_ascii=False)[:1500], c['source_locations'])\n  for e in c.get('source_evidence',[]):\n    print('--',e['public_path'],e.get('start'),e.get('end'),e.get('matching_lines'),e.get('source_pinning'))\n    if 'excerpt' in e: print(e['excerpt'][:5000])\n    for w in e.get('windows',[]):\n      ls=w['text'].split('\\n'); m=e['matching_lines'][0]; s=w['start']\n      print('\\n'.join(l for l in ls if l[:l.find(':')].isdigit() and abs(int(l[:l.find(':')])-m)<40))\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n -A3 'EFF_STALKER\\|STALKER)' $C -- game/modules/tome/class game/modules/tome/data/talents/cursed | head -40; git show $C:game/modules/tome/data/timed_effects/mental.lua | grep -n -A40 'name = \"DOMINATED\"' | head -50"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n -B3 -A3 'getStalkedDamageMultiplier\\|EFF_DOMINATED' $C -- game/modules/tome/class game/modules/tome/data/damage_types.lua | head -40; git show $C:game/modules/tome/data/damage_types.lua | sed -n 329,345p; git show $C:game/modules/tome/data/damage_types.lua | grep -n 'affinity_heal' "
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/damage_types.lua | grep -n -A22 'type = \"FIREBURN\"\\|type = \"FLAMESHOCK\"' | head -60"
+    }
+  }
+]

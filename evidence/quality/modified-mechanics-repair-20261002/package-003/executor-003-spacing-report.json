@@ -1,0 +1,54 @@
+{
+  "task_id": "mmrfix-20261002-003",
+  "dispatch_id": "fix-1-a2",
+  "cycle": 1,
+  "changed_file": "mod-tome.lua",
+  "preimage_sha256": "56f16f201bb229b64290a2cf233f5ae2cdae890969ac6696a857dc66e119c48b",
+  "postimage_sha256": "907f2883324f2672e93e9c39d684842a79b44913a6de58845692e737874f3217",
+  "revision_key": "fa5df246f53d392fe403d7083318c92023f72a957ac435fbe102d5f9a1266e91",
+  "old_target": "激活这个纹身，使你在受到伤害后若仍存活，恢复相当于该次伤害（抗性减免前计算）%d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。",
+  "new_target": "激活这个纹身，使你在受到伤害后若仍存活，恢复相当于该次伤害（抗性减免前计算） %d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。",
+  "single_byte_proof": {
+    "preimage_size": 3901415,
+    "postimage_size": 3901416,
+    "insertion_offset_zero_based": 2526612,
+    "target_insertion_offset_zero_based": 114,
+    "inserted_hex": "20",
+    "prefix_equal": true,
+    "suffix_equal": true,
+    "remove_inserted_byte_restores_preimage": true,
+    "all_other_bytes_preserved": true,
+    "line_number": 25937
+  },
+  "preserved": "All bytes outside the single inserted ASCII space, including 10 existing mechanism corrections, source/args/tag/markup/tabs/newline. Original FIX-1 records and failed lint evidence untouched.",
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "passed": true,
+      "duration_seconds": 0.084,
+      "stdout": "OK  manifest       tome-1.7.6\nOK  runtime        Lua 5.1 / LuaJIT 2.1.0-beta3\nOK  LPeg           0.10.2-1 (0.10)\nOK   repository      engine: <engine-repository>; visibility=public extraction_mode=full-tree source_pinning=pinned scan_allowlist=['game/engines/default/data', 'game/engines/default/engine', 'game/engines/default/modules/boot', 'game/modules/example', 'game/modules/example_realtime', 'game/modules/tome', 'i18n_tools']\nOK   repository      addon: <addon-repository>; visibility=public extraction_mode=full-tree source_pinning=pinned scan_allowlist=['.']\nOK   source          ashes-urhrok: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nOK   source          cults: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nOK   source          orcs: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nWARN              source-unpinned: ashes-urhrok: source repository/commit unknown; extraction snapshot is not a source pin\nWARN              source-unpinned: cults: source repository/commit unknown; extraction snapshot is not a source pin\nWARN              source-unpinned: orcs: source repository/commit unknown; extraction snapshot is not a source pin\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "passed": true,
+      "duration_seconds": 0.75,
+      "stdout": "Checked 30308 translations: 0 errors, 0 warnings\nReport: .artifacts/i18n/runs/20261002T085917.721296Z-53-lint/lint.json\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "passed": true,
+      "duration_seconds": 0.033,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "plan_deviations": [],
+  "unresolved_issues": [],
+  "check_output_path_policy": "Repository absolute paths normalized; generated lint report path is repository-relative.",
+  "result": "completed"
+}

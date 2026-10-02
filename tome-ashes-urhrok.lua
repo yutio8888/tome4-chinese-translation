@@ -173,7 +173,7 @@ t("Plague-Fire Sceptre", "疫火权杖", "entity name")
 t("darkness infused staff", "充满黑暗气息的法杖", "_t")
 t("The flames of Mal'Rok can be more stubborn than most. When they run out of fuel they have been known go out of their way to find more.", "玛·洛克的火焰比一般的火焰更加顽强。燃料耗尽时，它们甚至会特意去寻找更多燃料。", "_t")
 t("Plaguefire detonates when its victim dies, spreading to other enemies up to two times.", "疫火感染的生物死亡时，疫火将传播到附近的敌人。至多传播2次。", "_t")
-t("fire a bolt of plaguefire, dealing damage over time based on your magic stat", "发射一枚疫火弹，造成基于魔法属性的持续伤害。", "_t")
+t("fire a bolt of plaguefire, dealing damage over time based on your magic stat", "发射一枚疫火弹，造成基于魔力属性的持续伤害。", "_t")
 t("Dethblyd", "死亡之刃", "entity name")
 t("pitch black sword", "黑色的剑", "_t")
 t("Grushgore the Destroyer was as famous for his incredible brutality as he was for his childlike intelligence. He wasn't known for his subtlety of naming, but there's no denying the power of his massive sword.", "毁灭者格鲁什戈尔既以惊人的残暴著称，也以孩童般的智力闻名。他给东西起名向来不讲究含蓄，但他那把巨剑的威力无与伦比。", "_t")
@@ -1325,8 +1325,8 @@ t([[The power of the Fearscape infuses your weapon: Your melee attacks will deal
 		Additionally, every time you attack, there is a %d%% chance of releasing a burst of powerful fire that will deal %0.2f fire damage to all enemies in radius %d over %d turns.
 		If this talent is not on cooldown, the burst of fire will instead be radius %d, and stun all targets in addition to burning them.
 		For the purposes of applying the stun, you have %d bonus spellpower.
-		The damage will increase with your Spellpower.]], [[恶魔空间的力量注入你的武器：你的近战攻击会在 3 回合内造成总计 %0.2f 点火焰燃烧伤害。
-		另外，每次攻击时有 %d%% 几率释放强力火焰爆发，造成总计 %0.2f 点火焰燃烧伤害；半径 %d 内的所有敌人都会受到此伤害，持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[恶魔空间的力量注入你的武器：你的近战攻击命中时会在 3 回合内造成总计 %0.2f 点火焰燃烧伤害。
+		另外，每次近战命中时有 %d%% 几率释放强力火焰爆发，造成总计 %0.2f 点火焰燃烧伤害；半径 %d 内的所有敌人都会受到此伤害，持续 %d 回合。
 		若该技能不在冷却中，火焰爆发将改为半径 %d， 并使范围内所有敌对目标同时燃烧和震慑。
 		进行震慑判定时，你获得 %d 点额外法术强度。
 		伤害受法术强度加成。]], "tformat")
