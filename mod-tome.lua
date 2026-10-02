@@ -24212,7 +24212,7 @@ t([[Create a barrier that siphons hate from you at the rate of 0.2 a turn. The b
 t("Blast", "怒火爆炸", "talent name")
 t([[You rage coalesces at a single point, and then explodes outward, blasting enemies within a radius of %d in all directions. The blast causes %d damage and %d knockback at the center, that decreases with distance. Anyone caught in the explosion will also be dazed for 3 turns.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
-		Damage increases with your Mindpower.]], [[你的愤怒汇聚于一点，随后向外爆发，轰击半径 %d 格内四面八方的敌人。爆炸中心造成 %d 点伤害并击退 %d 格，伤害和击退距离随离爆心的距离增加而降低。爆炸范围内的所有生物还会被眩晕 3 回合。
+		Damage increases with your Mindpower.]], [[你的愤怒汇聚于一点，随后向外爆发，轰击半径 %d 格内四面八方的敌人。爆炸造成 %d 点伤害，伤害不随距离衰减；爆心处击退 %d 格，击退距离随离爆心的距离增加而降低。爆炸范围内的敌人还会被眩晕 3 回合。
 		此外，通过此技能引导力量的能力会使你的所有暴击伤害提高 %d%% （当前： %d%%）。
 		伤害随你的精神强度提高。]], "tformat")
 t("Unseen Force", "无形之力", "talent name")
@@ -24260,14 +24260,14 @@ t("#F53CBE#Your heart hardens as a powerful foe enters your gloom! (+%d hate)", 
 t([[A terrible gloom surrounds you, affecting all those who approach to within radius 3. At the end of each game turn, those caught in your gloom must save against your Mindpower, or have a %d%% chance to suffer from slowness (30%%), stun or confusion (30%%) for %d turns.
 		The chance increases with your mind speed.
 		This ability is innate, and carries no cost to activate or deactivate.
-		Each point in Gloom talents increases your Mindpower (current total: %d).]], [[可怕的黑暗光环笼罩着你，影响进入半径 3 格内的所有生物。每个游戏回合结束时，光环内的生物必须以精神豁免对抗你的精神强度；若豁免失败，则有 %d%% 几率陷入减速（30%%）、震慑或混乱（30%%）状态，持续 %d 回合。
+		Each point in Gloom talents increases your Mindpower (current total: %d).]], [[可怕的黑暗光环笼罩着你，影响进入半径 3 格内的所有敌人。每个游戏回合结束时，光环内的敌人必须以精神豁免对抗你的精神强度；若豁免失败，则有 %d%% 几率陷入减速（30%%）、震慑或混乱（30%%）状态，持续 %d 回合。
 		几率随你的精神速度提高。
 		这是与生俱来的能力，启用或停用均不消耗资源。
 		黑暗光环系技能每投入 1 点，都会提高你的精神强度（当前总计： %d）。]], "tformat")
 t("Weakness", "黑暗衰竭", "talent name")
 t([[Each turn, those caught in your gloom must save against your Mindpower, or have a %d%% chance to be crippled by fear for %d turns, reducing damage they inflict by %d%%. The first time you melee strike a foe after they have been weakened will give you %d hate.
 		The chance increases with your mind speed.
-		Each point in Gloom talents increases your Mindpower (current total: %d).]], [[在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %d%% 概率被恐惧而虚弱持续 %d 回合，降低 %d%% 伤害，你对被削弱目标的首次近战攻击能获得 %d 点仇恨值。
+		Each point in Gloom talents increases your Mindpower (current total: %d).]], [[在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %d%% 概率被恐惧而虚弱持续 %d 回合，使其造成的伤害变化 %d%% （负值表示降低），你对被削弱目标的首次近战攻击能获得 %d 点仇恨值。
 		几率受精神速度影响。
 		黑暗光环系技能每投入 1 点，都会提高你的精神强度（当前总计： %d）。]], "tformat")
 t("Mindrot", "思维腐蚀", "talent name")
@@ -24490,7 +24490,7 @@ t([[While this ability is active, you will continually call up to %d level %d sh
 		阴影是脆弱的战士，它们能够：使用奥术重组治疗自己（等级 %d）， 使用闪电突袭攻击敌人（等级 %d）， 使用相位之门进行传送。
 		阴影无视主人对它们造成的 %d%% 伤害。]], "tformat")
 t("Shadow Warriors", "阴影战士", "talent name")
-t("Instill hate in your shadows, strengthening their attacks. They gain %d%% extra Accuracy and %d%% extra damage. The fury of their attacks gives them the ability to try to Dominate their foes, increasing all damage taken by that foe for 4 turns (level %d, %d%% chance at range 1). They also gain the ability to Fade when hit, avoiding all damage until their next turn (%d turn cooldown).", [[将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。他们疯狂的攻击可以令他们支配对手，提高被支配目标所受到的所有伤害 4 回合（等级 %d，%d%% 几率 1 码范围）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。]], "tformat")
+t("Instill hate in your shadows, strengthening their attacks. They gain %d%% extra Accuracy and %d%% extra damage. The fury of their attacks gives them the ability to try to Dominate their foes, increasing all damage taken by that foe for 4 turns (level %d, %d%% chance at range 1). They also gain the ability to Fade when hit, avoiding all damage until their next turn (%d turn cooldown).", [[将仇恨注入你的阴影，强化他们的攻击。他们获得 %d 点额外命中（按点数而非 %% 比例增加）和 %d%% 额外伤害加成。他们疯狂的攻击可以令他们支配对手，提高被支配目标所受到的所有伤害，持续时间随支配的有效技能等级提高，最多 6 回合（等级 %d，%d%% 几率 1 码范围）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。]], "tformat")
 t("Shadow Mages", "阴影法师", "talent name")
 t([[Infuse magic into your shadows to give them fearsome spells. Your shadows receive a bonus of %d to their Spellpower.
 		Your shadows can strike adjacent foes with Lightning (level %d, %d%% chance at range 1).
@@ -24530,7 +24530,7 @@ t([[Assault nearby foes with 4 fast attacks for %d%% (at 0 Hate) to %d%% (at 100
 		The damage multiplier and Defense reduction increase with your Strength.
 
 		This talent will also attack with your shield, if you have one equipped.]], [[对附近目标发动 4 次快速攻击，每次造成 %d%%（0 仇恨值时）至 %d%%（100+ 仇恨值时）伤害。若附近有被追踪的猎物，则总是攻击它。
-		等级 3 时，猛烈攻击会压倒每个被命中的目标，使其闪避降低 %d， 持续 4 回合。
+		等级 3 时，猛烈攻击会压倒每个被命中的目标，使其闪避变化 %d （负值表示降低）， 持续 4 回合。
 		伤害倍率和闪避减值受力量值加成。
 
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat")
@@ -24720,7 +24720,7 @@ t([[You gain %d%% Acid resistance.
 		The resistance and damage increase improve with your Mindpower.]], [[你获得 %d%% 酸性抗性。
 		每当你对一个生物造成自然伤害时，你的酸性伤害提高 %0.1f%%， 持续 %d 回合。
 		之后造成自然伤害可使该加成进一步提高，最多再提高 4 次（每回合至多一次），最高达到 %0.1f%%。
-		抗性与伤害加成受精神强度加成。]], "tformat")
+		抗性受精神强度加成；伤害加成不受精神强度影响。]], "tformat")
 t("trap", "陷阱", "_t")
 t("Corrosive Seeds", "腐蚀之种", "talent name")
 t("You somehow fail to set the corrosive seed.", "你没能设置腐蚀之种。", "logPlayer")
@@ -25092,7 +25092,7 @@ t([[Your body is more like that of an ooze, you can split into two for %d turns.
 		If you know the Oozing Blades tree all the talents inside are exchanged for those of the Corrosive Blades tree.
 		Your two selves share the same healthpool.
 		While you are split both of you gain %d%% all resistances.
-		Resistances will increase with Mindpower.]], [[你的身体变得像软泥怪一样，你可以分裂成2个，持续 %d 回合。
+		Resistances will increase with Mindpower.]], [[此实验技能当前没有实际效果；以下为尚未实现的设计说明：你的身体变得像软泥怪一样，你可以分裂成2个，持续 %d 回合。
 		你的本体获得原始的软泥特性，而分裂体则获得酸性特性。
 		如果你习得软泥利刃技能树，则其中所有技能会替换为腐蚀利刃技能树的技能。
 		你和分裂体共享生命。
@@ -25310,7 +25310,7 @@ t([[You gain %d%% Nature resistance.
 		The resistance and damage increase improve with your Mindpower.]], [[你的自然抗性增加 %d%%。
 		当你对生物造成酸性伤害时，你的自然伤害增加 %0.1f%%， 持续 %d 回合。
 		此后你造成的酸性伤害可使该伤害加成最多提升 4 次（每回合至多 1 次），最大值 %0.1f%%。
-		抗性和伤害加成受精神强度加成。]], "tformat")
+		抗性受精神强度加成；伤害加成不受精神强度影响。]], "tformat")
 t("Mind Parasite", "精神寄生", "talent name")
 t([[You use your psiblades to fire a small worm at a foe.
 		When it hits, it will burrow into the target's brain and stay there for 6 turns, interfering with its ability to use talents.
@@ -25553,7 +25553,7 @@ t([[Destroys one of your summons, making it detonate in radius of %d.
 		-火龙：形成一片火焰，每回合造成 %d 伤害。
 		-战争猎犬：形成锋利的球，让周围的生物在 6 回合内每回合受到 %0.1f 点流血伤害。
 		-果冻怪：形成一片能减速的淤泥，造成 %d 自然伤害，并使敌人减速 %0.1f%%。
-		-米诺陶斯：使敌人混乱 5 回合（强度 %d%%）。
+		-米诺陶斯：使敌人混乱 5 回合（实际强度固定为三成；设计计算值 %d%% 未用于实际效果）。
 		-岩石傀儡：使周围的友方单位获得 %d 护甲值和 %d%% 护甲强度，持续 5 回合。
 		-乌龟：给所有友方单位提供一个甲壳护盾，所有抗性提升 %d%%， 持续 5 回合。
 		-蜘蛛：将所有敌人击退 %d 格。
@@ -25850,7 +25850,7 @@ t("The scent of blood sends the %ss into a frenzy!", "鲜血的气味使得%s们
 t("%s resists the cut!", "%s抵抗了流血！", "logSeen")
 t([[Bites the target for %d%% weapon damage, potentially causing it to bleed for %d%% weapon damage over five turns.
 		If the target is affected by the bleed it will send the devourer into a frenzy for %d turns (which in turn will frenzy other nearby devourers).
-		The frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]], [[咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，在五回合内造成 %d%% 武器伤害。
+		The frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]], [[咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，每回合造成 1 点物理伤害的 %d%%， 持续五回合。
 		如果目标进入流血状态，吞噬者会进入狂热状态 %d 回合（也会让周围的其他吞噬者进入狂热状态）。
 		狂热状态会增加全局速度 %d%%， 物理暴击率 %d%%， 同时降至 -%d%% 生命时才会死去。]], "tformat")
 t("Abyssal Shroud", "深渊裹幕", "talent name")

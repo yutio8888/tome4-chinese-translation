@@ -1,0 +1,170 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-008/INPUT-final-review-0-a2.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmrfix-20261002-008/INPUT-final-review-0-a2.json",
+      "description": "Read frozen review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-008/INPUT-final-review-0-a2.json'))\ndef show(o,p=''):\n    if isinstance(o,dict):\n        for k,v in o.items(): show(v,p+'.'+k)\n    elif isinstance(o,list):\n        print(p,'list',len(o))\n        if o: show(o[0],p+'[0]')\n    else:\n        s=str(o); print(p, s[:150])\nshow(d)\nEOF",
+      "description": "Read contract and input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-008/INPUT-final-review-0-a2.json'))\np=d['payload']\nprint(p['rendered_briefing']); print(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:1500])\nfor i,(t,c) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    print('=====',i,t['revision_key'][:8])\n    print('SRC:',t['source']); print('TGT:',t['target'])\nEOF",
+      "description": "Print entries"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-008/INPUT-final-review-0-a2.json'))\np=d['payload']\nfor i in range(0,3):\n    c=json.loads(p['bounded_context'][i]['context'])\n    print('=====',i, c.get('section'), list(c.keys()))\n    for e in c.get('source_evidence',[]):\n        print('--',e['public_path'],e['start'],e['end'],e.get('frozen_file'));print(e['excerpt'])\n    for k,v in c.items():\n        if k not in('source_evidence',): print(k, json.dumps(v,ensure_ascii=False)[:3000])\nEOF",
+      "description": "Show contexts 0-2"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-008/INPUT-final-review-0-a2.json'))\np=d['payload']\nfor i in range(0,10):\n    c=json.loads(p['bounded_context'][i]['context'])\n    print('=====',i, c.get('section'))\n    for e in c.get('source_evidence',[]):\n        print('--',e.get('public_path'),e.get('start'),e.get('end'),[k for k in e if k not in('excerpt',)])\n    for k,v in c.items():\n        if k not in('source_evidence',): print(k, json.dumps(v,ensure_ascii=False)[:600])\nEOF",
+      "description": "Context overview"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; ls -R . | head -30; grep -n \"Blastwave\\|name = \\\"Blast\\|rage coalesces\" -n talents/cursed/force-of-will.lua | head",
+      "description": "List frozen sources"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; sed -n 42,110p talents/cursed/force-of-will.lua; echo ----; sed -n 236,330p talents/cursed/force-of-will.lua",
+      "description": "Read Blast talent"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; sed -n 1,200p talents/cursed/gloom.lua",
+      "description": "Read gloom talents"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; sed -n 300,325p timed_effects/mental.lua; grep -n \"hateBonus\\|GLOOM_WEAKNESS\" -r . | head -20",
+      "description": "Gloom weakness effect"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git rev-parse HEAD && git status --short | head -3; git grep -n \"hateBonus\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head",
+      "description": "Search hateBonus at pinned commit"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cursed/shadows.lua > /tmp/sh.lua; grep -n \"Focused Wrath\\|Dominate\\|DOMINATE\\|Fade\\|getDominate\\|getAccuracy\\|combat_atk\\|Instill hate\\|SHADOW_FADE\" /tmp/sh.lua | head -40",
+      "description": "Locate shadow talent parts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; sed -n 20,60p /tmp/sh.lua; sed -n 280,330p /tmp/sh.lua; sed -n 470,530p /tmp/sh.lua; git grep -n 'name = \"Dominate\"' $C -- game/modules/tome/data/talents",
+      "description": "Read shadow details"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cursed/strife.lua | sed -n 20,90p; git show $C:game/modules/tome/data/talents/cursed/shadows.lua | grep -n \"dominate_chance\" ",
+      "description": "Read Dominate talent"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cursed/slaughter.lua > /tmp/sl.lua; n=$(grep -n \"Assault nearby foes\" /tmp/sl.lua|cut -d: -f1); grep -n \"newTalent\" /tmp/sl.lua; sed -n $((n-90)),$((n+8))p /tmp/sl.lua",
+      "description": "Read slaughter talent"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n -A14 'name = \"OVERWHELMED\"' $C -- game/modules/tome/data/timed_effects",
+      "description": "Overwhelmed effect"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; grep -n \"Acid resistance\" -B40 talents/gifts/corrosive-blades.lua | grep -v \"^\\s*$\" | tail -45; sed -n 2751,2820p timed_effects/physical.lua",
+      "description": "Corrosive/oozing affinity talents"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; sed -n 74,80p talents/gifts/corrosive-blades.lua; grep -n \"Natural Acid\" -A25 talents/gifts/oozing-blades.lua | head -30; sed -n 855,870p damage_types.lua",
+      "description": "Natural Acid talent"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; sed -n 190,205p talents/gifts/gifts.lua; grep -n \"split into two\" -B5 -A8 talents/gifts/malleable-body.lua | head -30; grep -n \"malleable\" -r . | head",
+      "description": "Mitosis status"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; sed -n 18,34p talents/gifts/malleable-body.lua",
+      "description": "Mitosis action"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; grep -n \"Detonate\" talents/gifts/summon-augmentation.lua | head -3; n=$(grep -n 'name = \"Detonate\"' talents/gifts/summon-augmentation.lua|cut -d: -f1); sed -n \"${n},$((n+200))p\" talents/gifts/summon-augmentation.lua",
+      "description": "Read Detonate"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; sed -n 325,340p talents/gifts/summon-melee.lua; sed -n 3540,3556p damage_types.lua; sed -n 120,150p timed_effects/mental.lua",
+      "description": "Minotaur detonate chain"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; for f in summon-melee summon-distance summon-utility; do git show $C:game/modules/tome/data/talents/gifts/$f.lua | grep -n -A6 \"on_detonate = function\"; done",
+      "description": "All on_detonate handlers"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; n=$(grep -n \"potentially causing it to bleed\" talents/misc/horrors.lua|cut -d: -f1); sed -n $((n-45)),$((n+5))p talents/misc/horrors.lua; sed -n 124,152p timed_effects/physical.lua; sed -n 1746,1773p timed_effects/mental.lua",
+      "description": "Frenzied bite chain"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-008/sources/tome/game/modules/tome/data; n=$(grep -n \"potentially causing it to bleed\" talents/misc/horrors.lua|cut -d: -f1); sed -n $((n-62)),$((n-45))p talents/misc/horrors.lua",
+      "description": "Bite helper functions"
+    }
+  }
+]

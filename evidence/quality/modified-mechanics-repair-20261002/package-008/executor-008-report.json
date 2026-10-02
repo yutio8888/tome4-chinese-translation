@@ -1,0 +1,951 @@
+{
+  "items": [
+    {
+      "candidate_index": 485,
+      "change_id": "655e60bf87fcd0aee324f471c94a38188c028fc24605c466366d6919e4456d97",
+      "finding_id": "UPSTREAM090",
+      "section": "mod-tome/data/talents/cursed/force-of-will.lua",
+      "old_target": "你的愤怒汇聚于一点，随后向外爆发，轰击半径 %d 格内四面八方的敌人。爆炸中心造成 %d 点伤害并击退 %d 格，伤害和击退距离随离爆心的距离增加而降低。爆炸范围内的所有生物还会被眩晕 3 回合。\n\t\t此外，通过此技能引导力量的能力会使你的所有暴击伤害提高 %d%% （当前： %d%%）。\n\t\t伤害随你的精神强度提高。",
+      "new_target": "你的愤怒汇聚于一点，随后向外爆发，轰击半径 %d 格内四面八方的敌人。爆炸造成 %d 点伤害，伤害不随距离衰减；爆心处击退 %d 格，击退距离随离爆心的距离增加而降低。爆炸范围内的敌人还会被眩晕 3 回合。\n\t\t此外，通过此技能引导力量的能力会使你的所有暴击伤害提高 %d%% （当前： %d%%）。\n\t\t伤害随你的精神强度提高。",
+      "status": "fixed",
+      "placeholder_sequence": [
+        "%d",
+        "%d",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%%"
+      ],
+      "non_target_fields_preserved": true,
+      "value_flow": {
+        "calculation": "getDamage uses combatTalentMindDamage; info damDesc emits the damage parameter. Radius from getTalentRadius; center knockback=2.",
+        "actual_arguments": "action filters reactionToward < 0, computes localDamage but calls forceHit with original damage and max(0,knockback-distance).",
+        "consumer": "forceHit mindCrit and PHYSICAL projector consume original damage; power only goes to particles; DAZED applied only to collected enemies."
+      },
+      "source_evidence": [
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/force-of-will.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "46631029827dac8f1525624d89491d194b26dd2056189b017ece7276f50ca732",
+          "start": 249,
+          "end": 295,
+          "excerpt": "249: \tradius = function(self, t) return math.floor(self:combatTalentScale(t, 2.3, 3.7)) end,\n250: \tgetDamage = function(self, t)\n251: \t\treturn self:combatTalentMindDamage(t, 0, 300)\n252: \tend,\n253: \tgetKnockback = function(self, t)\n254: \t\treturn 2\n255: \tend,\n256: \ttarget = function(self, t)\n257: \t\treturn {type=\"ball\", can_autoaccept=true, nolock=true, pass_terrain=false, friendly_fire=false, nowarning=true, range=self:getTalentRange(t), radius=self:getTalentRadius(t), talent=t}\n258: \tend,\n259: \tgetDazeDuration = function(self, t)\n260: \t\treturn 3\n261: \tend,\n262: \tcritpower = function(self, t) return self:combatTalentScale(t, 4, 15) end,\n263: \taction = function(self, t)\n264: \t\tlocal range = self:getTalentRange(t)\n265: \t\tlocal radius = self:getTalentRadius(t)\n266: \t\tlocal damage = t.getDamage(self, t)\n267: \t\tlocal knockback = t.getKnockback(self, t)\n268: \n269: \t\tlocal tg = self:getTalentTarget(t)\n270: \t\tlocal blastX, blastY = self:getTarget(tg)\n271: \t\tif not self:canProject(tg, blastX, blastY) then return nil end\n272: \n273: \t\tlocal tmp = {}\n274: \t\tlocal targets = {}\n275: \t\tlocal grids = self:project(tg, blastX, blastY,\n276: \t\t\tfunction(x, y, target, self)\n277: \t\t\t\t-- your will ignores friendly targets (except for knockback hits)\n278: \t\t\t\tlocal target = game.level.map(x, y, Map.ACTOR)\n279: \t\t\t\tif target and self:reactionToward(target) < 0 then\n280: \t\t\t\t\ttargets[#targets+1] = target\n281: \n282: \t\t\t\tend\n283: \t\t\tend,\n284: \t\t\tnil, nil)\n285: \n286: \t\tfor _,target in ipairs(targets) do\n287: \t\t\tlocal distance = core.fov.distance(blastX, blastY, target.x, target.y)\n288: \t\t\tlocal power = (1 - (distance / radius))\n289: \t\t\tlocal localDamage = damage * power\n290: \t\t\tlocal dazeDuration = t.getDazeDuration(self, t)\n291: \n292: \t\t\tself:callTalent(self.T_WILLFUL_STRIKE, \"forceHit\", target, blastX, blastY, damage, math.max(0, knockback - distance), 7, power, 10, tmp)\n293: \t\t\tif target:canBe(\"stun\") then\n294: \t\t\t\ttarget:setEffect(target.EFF_DAZED, dazeDuration, {src=self})\n295: \t\t\tend"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/force-of-will.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "46631029827dac8f1525624d89491d194b26dd2056189b017ece7276f50ca732",
+          "start": 42,
+          "end": 57,
+          "excerpt": "42: \tforceHit = function(self, t, target, sourceX, sourceY, damage, knockback, knockbackDamage, power, max)\n43: \n44: \t\t-- give direct hit a direction?\n45: \t\tif sourceX == target.x and sourceY == target.y then\n46: \t\t\tlocal newDirection = rng.table(util.adjacentDirs())\n47: \t\t\tlocal dx, dy = util.dirToCoord(newDirection, sourceX, sourceY)\n48: \t\t\tsourceX = sourceX + dx\n49: \t\t\tsourceY = sourceY + dy\n50: \t\tend\n51: \n52: \t\t-- apply initial damage\n53: \t\tif damage > 0 then\n54: \t\t\tdamage = self:mindCrit(damage)\n55: \t\t\tself:project({type=\"hit\", range=10, talent=t, pass_terrain=true}, target.x, target.y, DamageType.PHYSICAL, damage)\n56: \t\t\tgame.level.map:particleEmitter(target.x, target.y, 1, \"force_hit\", {power=power, dx=target.x - sourceX, dy=target.y - sourceY})\n57: \t\tend"
+        }
+      ],
+      "source_limitation": "Pinned core commit; no DLC source used for this item.",
+      "unresolved": []
+    },
+    {
+      "candidate_index": 490,
+      "change_id": "f0cccef145d4b9f45abc8f717651a022d809cd7e4598be07a1600240aabb2b27",
+      "finding_id": "UPSTREAM092",
+      "section": "mod-tome/data/talents/cursed/gloom.lua",
+      "old_target": "可怕的黑暗光环笼罩着你，影响进入半径 3 格内的所有生物。每个游戏回合结束时，光环内的生物必须以精神豁免对抗你的精神强度；若豁免失败，则有 %d%% 几率陷入减速（30%%）、震慑或混乱（30%%）状态，持续 %d 回合。\n\t\t几率随你的精神速度提高。\n\t\t这是与生俱来的能力，启用或停用均不消耗资源。\n\t\t黑暗光环系技能每投入 1 点，都会提高你的精神强度（当前总计： %d）。",
+      "new_target": "可怕的黑暗光环笼罩着你，影响进入半径 3 格内的所有敌人。每个游戏回合结束时，光环内的敌人必须以精神豁免对抗你的精神强度；若豁免失败，则有 %d%% 几率陷入减速（30%%）、震慑或混乱（30%%）状态，持续 %d 回合。\n\t\t几率随你的精神速度提高。\n\t\t这是与生俱来的能力，启用或停用均不消耗资源。\n\t\t黑暗光环系技能每投入 1 点，都会提高你的精神强度（当前总计： %d）。",
+      "status": "fixed",
+      "placeholder_sequence": [
+        "%d",
+        "%%",
+        "%%",
+        "%%",
+        "%d",
+        "%d"
+      ],
+      "non_target_fields_preserved": true,
+      "value_flow": {
+        "calculation": "Gloom radius=3; getChance and duration=3 supply displayed parameters.",
+        "actual_arguments": "callbackOnActBase enumerates radius grids and enters all Gloom processing only if reactionToward(target)<0.",
+        "consumer": "Only enemies receive GLOOM_CONFUSED(power=30), GLOOM_STUNNED or GLOOM_SLOW(power=.3)."
+      },
+      "source_evidence": [
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/gloom.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "10c08a0250ecf5034db9efba72630cc6e67ad79f28b452c3386ba2956bfaaeb8",
+          "start": 33,
+          "end": 98,
+          "excerpt": "33: newTalent{\n34: \tname = \"Gloom\",\n35: \ttype = {\"cursed/gloom\", 1},\n36: \tmode = \"sustained\",\n37: \trequire = cursed_wil_req1,\n38: \tpoints = 5,\n39: \tcooldown = 0,\n40: \trange = 3,\n41: \tno_energy = true,\n42: \ttactical = { BUFF = 5 },\n43: \tgetChance = function(self, t) return math.min(25, self:combatScale(self:getTalentLevel(t), 7, 1, 15, 6.5) * math.max(1, self:combatScale(self.combat_mindspeed, 1, 1, 1.35, 1.5))) end,\n44: \tgetMindpower = gloomTalentsMindpower,\n45: \tgetDuration = function(self, t)\n46: \t\treturn 3\n47: \tend,\n48: \tactivate = function(self, t)\n49: \t\tself.torment_turns = nil -- restart torment\n50: \t\tgame:playSoundNear(self, \"talents/arcane\")\n51: \t\treturn {\n52: \t\t\tparticle = self:addParticles(Particles.new(\"gloom\", 1)),\n53: \t\t}\n54: \tend,\n55: \tdeactivate = function(self, t, p)\n56: \t\tself:removeParticles(p.particle)\n57: \t\treturn true\n58: \tend,\n59: \tcallbackOnActBase = function(self, tGloom)\n60: \t\t-- all gloom effects are handled here\n61: \t\tlocal tWeakness = self:getTalentFromId(self.T_WEAKNESS)\n62: \t\tlocal tDismay = self:getTalentFromId(self.T_DISMAY)\n63: \n64: \t\tlocal mindpower = self:combatMindpower()\n65: \n66: \t\tlocal grids = core.fov.circle_grids(self.x, self.y, self:getTalentRange(tGloom), true)\n67: \t\tfor x, yy in pairs(grids) do\n68: \t\t\tfor y, _ in pairs(grids[x]) do\n69: \t\t\t\tlocal target = game.level.map(x, y, Map.ACTOR)\n70: \t\t\t\tif target and self:reactionToward(target) < 0 then\n71: \t\t\t\t\t-- check for hate bonus against tough foes\n72: \t\t\t\t\tif target.rank >= 3.5 and not target.gloom_hate_bonus then\n73: \t\t\t\t\t\tlocal hateGain = target.rank >= 4 and 20 or 10\n74: \t\t\t\t\t\tself:incHate(hateGain)\n75: \t\t\t\t\t\tgame.logPlayer(self, \"#F53CBE#Your heart hardens as a powerful foe enters your gloom! (+%d hate)\", hateGain)\n76: \t\t\t\t\t\ttarget.gloom_hate_bonus = true\n77: \t\t\t\t\tend\n78: \n79: \t\t\t\t\t-- Gloom\n80: \t\t\t\t\tif self:getTalentLevel(tGloom) > 0 and rng.percent(tGloom.getChance(self, tGloom)) and target:checkHit(mindpower, target:combatMentalResist(), 5, 95, 15) then\n81: \t\t\t\t\t\tlocal effect = rng.range(1, 3)\n82: \t\t\t\t\t\tif effect == 1 then\n83: \t\t\t\t\t\t\t-- confusion\n84: \t\t\t\t\t\t\tif target:canBe(\"confusion\") then\n85: \t\t\t\t\t\t\t\ttarget:setEffect(target.EFF_GLOOM_CONFUSED, tGloom.getDuration(self, t), {power=30})\n86: \t\t\t\t\t\t\tend\n87: \t\t\t\t\t\telseif effect == 2 then\n88: \t\t\t\t\t\t\t-- stun\n89: \t\t\t\t\t\t\tif target:canBe(\"stun\") then\n90: \t\t\t\t\t\t\t\ttarget:setEffect(target.EFF_GLOOM_STUNNED, tGloom.getDuration(self, t), {})\n91: \t\t\t\t\t\t\tend\n92: \t\t\t\t\t\telseif effect == 3 then\n93: \t\t\t\t\t\t\t-- slow\n94: \t\t\t\t\t\t\tif target:canBe(\"slow\") then\n95: \t\t\t\t\t\t\t\ttarget:setEffect(target.EFF_GLOOM_SLOW, tGloom.getDuration(self, t), {power=0.3})\n96: \t\t\t\t\t\t\tend\n97: \t\t\t\t\t\tend\n98: \t\t\t\t\tend"
+        }
+      ],
+      "source_limitation": "Pinned core commit; no DLC source used for this item.",
+      "unresolved": []
+    },
+    {
+      "candidate_index": 491,
+      "change_id": "3c159b9398ac46b02241fd55818fc62b2303e9cd03c34641a70c1495af9da157",
+      "finding_id": "UPSTREAM091",
+      "section": "mod-tome/data/talents/cursed/gloom.lua",
+      "old_target": "在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %d%% 概率被恐惧而虚弱持续 %d 回合，降低 %d%% 伤害，你对被削弱目标的首次近战攻击能获得 %d 点仇恨值。\n\t\t几率受精神速度影响。\n\t\t黑暗光环系技能每投入 1 点，都会提高你的精神强度（当前总计： %d）。",
+      "new_target": "在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %d%% 概率被恐惧而虚弱持续 %d 回合，使其造成的伤害变化 %d%% （负值表示降低），你对被削弱目标的首次近战攻击能获得 %d 点仇恨值。\n\t\t几率受精神速度影响。\n\t\t黑暗光环系技能每投入 1 点，都会提高你的精神强度（当前总计： %d）。",
+      "status": "fixed",
+      "placeholder_sequence": [
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%d"
+      ],
+      "non_target_fields_preserved": true,
+      "value_flow": {
+        "calculation": "getIncDamageChange returns positive magnitude; info passes -incDamageChange as third argument.",
+        "actual_arguments": "callback sets GLOOM_WEAKNESS with positive incDamageChange.",
+        "consumer": "GLOOM_WEAKNESS activate adds inc_damage.all=-eff.incDamageChange. Display negative value is a signed damage change, not a negative reduction."
+      },
+      "source_evidence": [
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/gloom.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "10c08a0250ecf5034db9efba72630cc6e67ad79f28b452c3386ba2956bfaaeb8",
+          "start": 100,
+          "end": 108,
+          "excerpt": "100: \t\t\t\t\t-- Weakness\n101: \t\t\t\t\tif self:getTalentLevel(tWeakness) > 0 and rng.percent(tWeakness.getChance(self, tWeakness)) and target:checkHit(mindpower, target:combatMentalResist(), 5, 95, 15) then\n102: \t\t\t\t\t\tif not target:hasEffect(target.EFF_GLOOM_WEAKNESS) then\n103: \t\t\t\t\t\t\tlocal duration = tWeakness.getDuration(self, tWeakness)\n104: \t\t\t\t\t\t\tlocal incDamageChange = tWeakness.getIncDamageChange(self, tWeakness)\n105: \t\t\t\t\t\t\tlocal hateBonus = tWeakness.getHateBonus(self, tWeakness)\n106: \t\t\t\t\t\t\ttarget:setEffect(target.EFF_GLOOM_WEAKNESS, duration, {incDamageChange=incDamageChange,hateBonus=hateBonus})\n107: \t\t\t\t\t\tend\n108: \t\t\t\t\tend"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/gloom.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "10c08a0250ecf5034db9efba72630cc6e67ad79f28b452c3386ba2956bfaaeb8",
+          "start": 132,
+          "end": 160,
+          "excerpt": "132: \tname = \"Weakness\",\n133: \ttype = {\"cursed/gloom\", 2},\n134: \tmode = \"passive\",\n135: \trequire = cursed_wil_req2,\n136: \tpoints = 5,\n137: \tgetChance = function(self, t) return math.min(25, self:combatScale(self:getTalentLevel(t), 7, 1, 15, 6.5) * math.max(1, self:combatScale(self.combat_mindspeed, 1, 1, 1.35, 1.5))) end,\n138: \tgetDuration = function(self, t)\n139: \t\treturn 3\n140: \tend,\n141: \tgetIncDamageChange = function(self, t) return self:combatLimit(self:getTalentLevel(t)^.5, 65, 12, 1, 26.8, 2.23) end, -- Limit to <65%\n142: \tgetHateBonus = function(self, t)\n143: \t\treturn 2\n144: \tend,\n145: \tinfo = function(self, t)\n146: \t\tlocal chance = t.getChance(self, t)\n147: \t\tlocal duration = t.getDuration(self, t)\n148: \t\tlocal incDamageChange = t.getIncDamageChange(self, t)\n149: \t\tlocal hateBonus = t.getHateBonus(self, t)\n150: \t\tlocal mindpowerChange = gloomTalentsMindpower(self)\n151: \t\treturn ([[Each turn, those caught in your gloom must save against your Mindpower, or have a %d%% chance to be crippled by fear for %d turns, reducing damage they inflict by %d%%. The first time you melee strike a foe after they have been weakened will give you %d hate.\n152: \t\tThe chance increases with your mind speed.\n153: \t\tEach point in Gloom talents increases your Mindpower (current total: %d).]]):tformat(chance, duration, -incDamageChange, hateBonus, mindpowerChange)\n154: \tend,\n155: }\n156: \n157: newTalent{\n158: \tname = \"Mindrot\",\n159: \timage = \"talents/dismay.png\",\n160: \ttype = {\"cursed/gloom\", 3},"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+          "start": 306,
+          "end": 323,
+          "excerpt": "306: \tname = \"GLOOM_WEAKNESS\", image = \"effects/gloom_weakness.png\",\n307: \tdesc = _t\"Gloom Weakness\",\n308: \tlong_desc = function(self, eff) return (\"The gloom reduces damage the target inflicts by %d%%.\"):tformat(eff.incDamageChange) end,\n309: \ttype = \"mental\",\n310: \tsubtype = { gloom=true },\n311: \tstatus = \"detrimental\",\n312: \tparameters = { atk=10, dam=10 },\n313: \ton_gain = function(self, err) return _t\"#F53CBE##Target# is weakened by the gloom.\" end,\n314: \ton_lose = function(self, err) return _t\"#F53CBE##Target# is no longer weakened.\" end,\n315: \tactivate = function(self, eff)\n316: \t\teff.particle = self:addParticles(Particles.new(\"gloom_weakness\", 1))\n317: \t\teff.incDamageId = self:addTemporaryValue(\"inc_damage\", {all = -eff.incDamageChange})\n318: \tend,\n319: \tdeactivate = function(self, eff)\n320: \t\tself:removeParticles(eff.particle)\n321: \t\tself:removeTemporaryValue(\"inc_damage\", eff.incDamageId)\n322: \tend,\n323: }"
+        }
+      ],
+      "source_limitation": "Pinned core commit; no DLC source used for this item.",
+      "unresolved": []
+    },
+    {
+      "candidate_index": 501,
+      "change_id": "d5b73c6663f679b56e0dd772cc01c9a9ba5c7c08e1fae4ab68f5e40fd391586a",
+      "finding_id": "UPSTREAM093",
+      "section": "mod-tome/data/talents/cursed/shadows.lua",
+      "old_target": "将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。他们疯狂的攻击可以令他们支配对手，提高被支配目标所受到的所有伤害 4 回合（等级 %d，%d%% 几率 1 码范围）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。",
+      "new_target": "将仇恨注入你的阴影，强化他们的攻击。他们获得 %d 点额外命中（按点数而非 %% 比例增加）和 %d%% 额外伤害加成。他们疯狂的攻击可以令他们支配对手，提高被支配目标所受到的所有伤害，持续时间随支配的有效技能等级提高，最多 6 回合（等级 %d，%d%% 几率 1 码范围）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。",
+      "status": "fixed",
+      "placeholder_sequence": [
+        "%d",
+        "%%",
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%%",
+        "%d"
+      ],
+      "non_target_fields_preserved": true,
+      "value_flow": {
+        "calculation": "getCombatAtk=floor((sqrt(TL)-.5)*23); getDominateLevel returns raw Shadow Warriors talent level.",
+        "actual_arguments": "feed adds getCombatAtk directly to combat_atk; createShadow gives T_DOMINATE that raw level via resolvers.talents.",
+        "consumer": "Dominate getDuration=min(6,floor(2+effective TL)); action passes that duration to EFF_DOMINATED. Accuracy is additive points; literal %% retained as an explicit nonpercentage clarification."
+      },
+      "source_evidence": [
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/shadows.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "afba9045c77c2fd6c8873ba0b48d49ccf697df0bf405f25994a43843fed9fed5",
+          "start": 222,
+          "end": 230,
+          "excerpt": "222: \t\tresolvers.talents{\n223: \t\t\t[self.T_SHADOW_PHASE_DOOR]=tCallShadows.getPhaseDoorLevel(self, tCallShadows),\n224: \t\t\t[self.T_SHADOW_BLINDSIDE]=tCallShadows.getBlindsideLevel(self, tCallShadows),\n225: \t\t\t[self.T_HEAL]=tCallShadows.getHealLevel(self, tCallShadows),\n226: \t\t\t[self.T_DOMINATE]=tShadowWarriors and tShadowWarriors.getDominateLevel(self, tShadowWarriors) or 0,\n227: \t\t\t[self.T_SHADOW_FADE]=tShadowWarriors and tShadowWarriors.getFadeLevel(self, tShadowWarriors) or 0,\n228: \t\t\t[self.T_SHADOW_LIGHTNING]=tShadowMages and tShadowMages.getLightningLevel(self, tShadowMages) or 0,\n229: \t\t\t[self.T_SHADOW_FLAMES]=tShadowMages and tShadowMages.getFlamesLevel(self, tShadowMages) or 0,\n230: \t\t\t[self.T_SHADOW_REFORM]=tShadowMages and tShadowMages.getReformLevel(self, tShadowMages) or 0,"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/shadows.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "afba9045c77c2fd6c8873ba0b48d49ccf697df0bf405f25994a43843fed9fed5",
+          "start": 304,
+          "end": 313,
+          "excerpt": "304: \t\t\tself.ai_state.feed_temp1 = nil\n305: \t\t\tif self.ai_state.feed_temp2 then self:removeTemporaryValue(\"inc_damage\", self.ai_state.feed_temp2) end\n306: \t\t\tself.ai_state.feed_temp2 = nil\n307: \t\t\tif self.summoner:knowTalent(self.summoner.T_SHADOW_WARRIORS) then\n308: \t\t\t\tlocal tShadowWarriors = self.summoner:getTalentFromId(self.summoner.T_SHADOW_WARRIORS)\n309: \t\t\t\tself.ai_state.feed_temp1 = self:addTemporaryValue(\"combat_atk\", tShadowWarriors.getCombatAtk(self.summoner, tShadowWarriors))\n310: \t\t\t\tself.ai_state.feed_temp2 = self:addTemporaryValue(\"inc_damage\", {all=tShadowWarriors.getIncDamage(self.summoner, tShadowWarriors)})\n311: \t\t\t\tself.ai_state.dominate_chance = tShadowWarriors.getDominateChance(self.summoner, tShadowWarriors)\n312: \t\t\telse\n313: \t\t\t\tself.ai_state.dominate_chance = 0"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/shadows.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "afba9045c77c2fd6c8873ba0b48d49ccf697df0bf405f25994a43843fed9fed5",
+          "start": 479,
+          "end": 495,
+          "excerpt": "479: \tgetIncDamage = function(self, t)\n480: \t\treturn math.floor((math.sqrt(self:getTalentLevel(t)) - 0.5) * 35)\n481: \tend,\n482: \tgetCombatAtk = function(self, t)\n483: \t\treturn math.floor((math.sqrt(self:getTalentLevel(t)) - 0.5) * 23)\n484: \tend,\n485: \tgetDominateLevel = function(self, t)\n486: \t\treturn self:getTalentLevelRaw(t)\n487: \tend,\n488: \tgetFadeLevel = function(self, t)\n489: \t\treturn self:getTalentLevelRaw(t)\n490: \tend,\n491: \tgetDominateChance = function(self, t)\n492: \t\tif self:getTalentLevelRaw(t) > 0 then\n493: \t\t\treturn self:combatLimit(self:getTalentLevel(t)^.5, 100, 7, 1, 15.65, 2.23) -- Limit < 100%\n494: \t\telse\n495: \t\t\treturn 0"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/strife.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "b0dcafa04aadc9c68ebac73bdda27b056aec10b35bd9e6766bdde9f76d52086d",
+          "start": 23,
+          "end": 62,
+          "excerpt": "23: \tname = \"Dominate\",\n24: \ttype = {\"cursed/strife\", 1},\n25: \trequire = cursed_str_req1,\n26: \tpoints = 5,\n27: \trandom_ego = \"attack\",\n28: \tcooldown = function(self, t)\n29: \t\treturn 8\n30: \tend,\n31: \thate = 4,\n32: \ttactical = { ATTACK = function(self, t, aitarget)\n33: \t\t\treturn self.fov.actors[aitarget] and self.fov.actors[aitarget].sqdist <= 1 and 2 or nil\n34: \t\tend,\n35: \t\tDISABLE = {pin = 2}},\n36: \trequires_target = true,\n37: \trange = 2.5,\n38: \tgetDuration = function(self, t)\n39: \t\treturn math.min(6, math.floor(2 + self:getTalentLevel(t)))\n40: \tend,\n41: \tgetArmorChange = function(self, t)\n42: \t\treturn -self:combatTalentStatDamage(t, \"wil\", 4, 30)\n43: \tend,\n44: \tgetDefenseChange = function(self, t)\n45: \t\treturn -self:combatTalentStatDamage(t, \"wil\", 6, 45)\n46: \tend,\n47: \tgetResistPenetration = function(self, t) return math.min(70, self:combatTalentStatDamage(t, \"wil\", 25, 60)) end, -- Limit < 70%\n48: \tis_melee = true,\n49: \ttarget = function(self, t) return {type=\"hit\", range=self:getTalentRange(t)} end,\n50: \taction = function(self, t)\n51: \t\tlocal tg = self:getTalentTarget(t)\n52: \t\tlocal x, y, target = self:getTarget(tg)\n53: \t\tif not target or not self:canProject(tg, x, y) then return nil end\n54: \n55: \t\t-- attempt domination\n56: \t\tlocal duration = t.getDuration(self, t)\n57: \t\tlocal armorChange = t.getArmorChange(self, t)\n58: \t\tlocal defenseChange = t.getDefenseChange(self, t)\n59: \t\tlocal resistPenetration = t.getResistPenetration(self, t)\n60: \t\ttarget:setEffect(target.EFF_DOMINATED, duration, {src = self, armorChange = armorChange, defenseChange = defenseChange, resistPenetration = resistPenetration, apply_power=self:combatMindpower() })\n61: \n62: \t\t-- attack if adjacent"
+        }
+      ],
+      "source_limitation": "Pinned core commit; no DLC source used for this item.",
+      "unresolved": []
+    },
+    {
+      "candidate_index": 505,
+      "change_id": "50ce02d721ef4167375083161a12cc10170c1beefeec0e2e200443f40b7adf6b",
+      "finding_id": "UPSTREAM094",
+      "section": "mod-tome/data/talents/cursed/slaughter.lua",
+      "old_target": "对附近目标发动 4 次快速攻击，每次造成 %d%%（0 仇恨值时）至 %d%%（100+ 仇恨值时）伤害。若附近有被追踪的猎物，则总是攻击它。\n\t\t等级 3 时，猛烈攻击会压倒每个被命中的目标，使其闪避降低 %d， 持续 4 回合。\n\t\t伤害倍率和闪避减值受力量值加成。\n\n\t\t如果你装备了盾牌，这一技能也会用你的盾牌攻击。",
+      "new_target": "对附近目标发动 4 次快速攻击，每次造成 %d%%（0 仇恨值时）至 %d%%（100+ 仇恨值时）伤害。若附近有被追踪的猎物，则总是攻击它。\n\t\t等级 3 时，猛烈攻击会压倒每个被命中的目标，使其闪避变化 %d （负值表示降低）， 持续 4 回合。\n\t\t伤害倍率和闪避减值受力量值加成。\n\n\t\t如果你装备了盾牌，这一技能也会用你的盾牌攻击。",
+      "status": "fixed",
+      "placeholder_sequence": [
+        "%d",
+        "%%",
+        "%d",
+        "%%",
+        "%d"
+      ],
+      "non_target_fields_preserved": true,
+      "value_flow": {
+        "calculation": "getDefenseChange computes positive magnitude; info tformat emits -defenseChange.",
+        "actual_arguments": "Successful hit at TL>=3 sets OVERWHELMED for 4 turns with defenseChange=positive magnitude.",
+        "consumer": "OVERWHELMED activate adds combat_def=-eff.defenseChange; displayed negative value is signed defense change."
+      },
+      "source_evidence": [
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/slaughter.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "614eaedd3ec4d3528192aca4a2e9f502eaffbe7ca050152c7336ddecac9b8ee9",
+          "start": 98,
+          "end": 100,
+          "excerpt": "98: \tgetDefenseChange = function(self, t)\n99: \t\treturn self:combatTalentIntervalDamage(t, \"str\", 6, 45)\n100: \tend,"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/cursed/slaughter.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "614eaedd3ec4d3528192aca4a2e9f502eaffbe7ca050152c7336ddecac9b8ee9",
+          "start": 144,
+          "end": 157,
+          "excerpt": "144: \t\t\tif hit and self:getTalentLevel(t) >= 3 and not target:hasEffect(target.EFF_OVERWHELMED) then\n145: \t\t\t\ttarget:setEffect(target.EFF_OVERWHELMED, 4, {src=self, defenseChange=defenseChange})\n146: \t\t\tend\n147: \t\tend\n148: \n149: \t\treturn true\n150: \tend,\n151: \tinfo = function(self, t)\n152: \t\tlocal defenseChange = t.getDefenseChange(self, t)\n153: \t\treturn ([[Assault nearby foes with 4 fast attacks for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage each. Stalked prey are always targeted if nearby.\n154: \t\tAt level 3 the intensity of your assault overwhelms anyone who is struck, reducing their Defense by %d for 4 turns.\n155: \t\tThe damage multiplier and Defense reduction increase with your Strength.\n156: \n157: \t\tThis talent will also attack with your shield, if you have one equipped.]]):tformat(t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100, -defenseChange)"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+          "start": 622,
+          "end": 639,
+          "excerpt": "622: \tname = \"OVERWHELMED\", image = \"talents/frenzy.png\",\n623: \tdesc = _t\"Overwhelmed\",\n624: \tlong_desc = function(self, eff) return (\"The target has been overwhemed by a furious assault, reducing defence by %d.\"):tformat( -eff.defenseChange) end,\n625: \ttype = \"mental\",\n626: \tsubtype = { fear=true },\n627: \tstatus = \"detrimental\",\n628: \tparameters = { damageChange=0.1 },\n629: \ton_gain = function(self, err) return _t\"#Target# has been overwhelmed.\", _t\"+Overwhelmed\" end,\n630: \ton_lose = function(self, err) return _t\"#Target# is no longer overwhelmed.\", _t\"-Overwhelmed\" end,\n631: \tparameters = { chance=5 },\n632: \tactivate = function(self, eff)\n633: \t\teff.defenseChangeId = self:addTemporaryValue(\"combat_def\", -eff.defenseChange)\n634: \t\teff.particle = self:addParticles(Particles.new(\"overwhelmed\", 1))\n635: \tend,\n636: \tdeactivate = function(self, eff)\n637: \t\tself:removeTemporaryValue(\"combat_def\", eff.defenseChangeId)\n638: \t\tself:removeParticles(eff.particle)\n639:  end,"
+        }
+      ],
+      "source_limitation": "Pinned core commit; no DLC source used for this item.",
+      "unresolved": []
+    },
+    {
+      "candidate_index": 513,
+      "change_id": "b6f5bd88e3837689f18471acb2e07300206bfe9a0d858e73a5490835cecfce5c",
+      "finding_id": "UPSTREAM072",
+      "section": "mod-tome/data/talents/gifts/corrosive-blades.lua",
+      "old_target": "你获得 %d%% 酸性抗性。\n\t\t每当你对一个生物造成自然伤害时，你的酸性伤害提高 %0.1f%%， 持续 %d 回合。\n\t\t之后造成自然伤害可使该加成进一步提高，最多再提高 4 次（每回合至多一次），最高达到 %0.1f%%。\n\t\t抗性与伤害加成受精神强度加成。",
+      "new_target": "你获得 %d%% 酸性抗性。\n\t\t每当你对一个生物造成自然伤害时，你的酸性伤害提高 %0.1f%%， 持续 %d 回合。\n\t\t之后造成自然伤害可使该加成进一步提高，最多再提高 4 次（每回合至多一次），最高达到 %0.1f%%。\n\t\t抗性受精神强度加成；伤害加成不受精神强度影响。",
+      "status": "fixed",
+      "placeholder_sequence": [
+        "%d",
+        "%%",
+        "%0.1f",
+        "%%",
+        "%d",
+        "%0.1f",
+        "%%"
+      ],
+      "non_target_fields_preserved": true,
+      "value_flow": {
+        "calculation": "getResist uses combatTalentMindDamage; getAcidDamage uses combatTalentScale*sqrt(min(5,level))/2.23 without Mindpower.",
+        "actual_arguments": "passives writes resists.ACID; CORROSIVE_NATURE activate/merge obtains getAcidDamage.",
+        "consumer": "CORROSIVE_NATURE writes that power to inc_damage.ACID. Only resistance scales with Mindpower."
+      },
+      "source_evidence": [
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/gifts/corrosive-blades.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "56f36db3ff46a0954b636d9c50a81073854bd1e5d29dadbf37b8194abd5f2df4",
+          "start": 58,
+          "end": 79,
+          "excerpt": "58: newTalent{\n59: \tname = \"Corrosive Nature\",\n60: \ttype = {\"wild-gift/corrosive-blades\", 2},\n61: \trequire = gifts_req_high2,\n62: \tpoints = 5,\n63: \tmode = \"passive\",\n64: \tgetResist = function(self, t) return self:combatTalentMindDamage(t, 10, 40) end,\n65: \t-- called in data.timed_effects.physical.lua for the CORROSIVE_NATURE effect\n66: \tgetAcidDamage = function(self, t, level)\n67: \t\treturn self:combatTalentScale(t, 5, 15, 0.75)*math.min(5, level or 1)^0.5/2.23\n68: \tend,\n69: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 2, 5, \"log\")) end,\n70: \tpassives = function(self, t, p)\n71: \t\tself:talentTemporaryValue(p, \"resists\", {[DamageType.ACID]=t.getResist(self, t)})\n72: \tend,\n73: \tinfo = function(self, t)\n74: \t\treturn ([[You gain %d%% Acid resistance.\n75: \t\tWhen you deal Nature damage to a creature, you gain a %0.1f%% bonus to Acid damage for %d turns.\n76: \t\tThis damage bonus will improve up to 4 times (no more than once each turn) with later Nature damage you do, up to a maximum of %0.1f%%.\n77: \t\tThe resistance and damage increase improve with your Mindpower.]]):\n78: \t\ttformat(t.getResist(self, t), t.getAcidDamage(self, t, 1), t.getDuration(self, t), t.getAcidDamage(self, t, 5))\n79: \tend,"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+          "start": 2751,
+          "end": 2782,
+          "excerpt": "2751: \tname = \"CORROSIVE_NATURE\", image = \"talents/corrosive_nature.png\",\n2752: \tdesc = _t\"Corrosive Nature\",\n2753: \tlong_desc = function(self, eff) return (\"Acid damage increased by %d%%.\"):tformat(eff.power) end,\n2754: \ttype = \"physical\",\n2755: \tsubtype = { nature=true, acid=true },\n2756: \tstatus = \"beneficial\",\n2757: \tparameters = { power=1, bonus_level=1},\n2758: \tcharges = function(self, eff) return math.round(eff.power) end,\n2759: \ton_gain = function(self, err) return _t\"#Target#'s acid damage is more potent.\", _t\"+Corrosive Nature\" end,\n2760: \ton_lose = function(self, err) return _t\"#Target#'s acid damage is no longer so potent.\", _t\"-Corrosive Nature\" end,\n2761: \ton_merge = function(self, eff, new_eff)\n2762: \t\tif game.turn < eff.last_update + 10 then return eff end -- update once a turn\n2763: \t\tlocal t = self:getTalentFromId(self.T_CORROSIVE_NATURE)\n2764: \t\teff.dur = t.getDuration(self, t)\n2765: \t\tif eff.bonus_level >=5 then return eff end\n2766: \t\tgame.logSeen(self, \"%s's corrosive nature intensifies!\",self:getName():capitalize())\n2767: \t\teff.last_update = game.turn\n2768: \t\teff.bonus_level = eff.bonus_level + 1\n2769: \t\teff.power = t.getAcidDamage(self, t, eff.bonus_level)\n2770: \t\tself:removeTemporaryValue(\"inc_damage\", eff.dam_id)\n2771: \t\teff.dam_id = self:addTemporaryValue(\"inc_damage\", {[DamageType.ACID]=eff.power})\n2772: \t\treturn eff\n2773: \tend,\n2774: \tactivate = function(self, eff)\n2775: \t\teff.power = self:callTalent(self.T_CORROSIVE_NATURE, \"getAcidDamage\")\n2776: \t\teff.dam_id = self:addTemporaryValue(\"inc_damage\", {[DamageType.ACID]=eff.power})\n2777: \t\teff.last_update = game.turn\n2778: \tend,\n2779: \tdeactivate = function(self, eff)\n2780: \t\tself:removeTemporaryValue(\"inc_damage\", eff.dam_id)\n2781: \tend,\n2782: }"
+        }
+      ],
+      "source_limitation": "Pinned core commit; no DLC source used for this item.",
+      "unresolved": []
+    },
+    {
+      "candidate_index": 525,
+      "change_id": "685465f48de8206790231ba7c395a5ed9510303e2a0b9d479580f0301f6a004d",
+      "finding_id": "UPSTREAM029",
+      "section": "mod-tome/data/talents/gifts/malleable-body.lua",
+      "old_target": "你的身体变得像软泥怪一样，你可以分裂成2个，持续 %d 回合。\n\t\t你的本体获得原始的软泥特性，而分裂体则获得酸性特性。\n\t\t如果你习得软泥利刃技能树，则其中所有技能会替换为腐蚀利刃技能树的技能。\n\t\t你和分裂体共享生命。\n\t\t当你分裂时，你和分裂体增加 %d%% 所有抗性。\n\t\t抗性受精神强度加成。",
+      "new_target": "此实验技能当前没有实际效果；以下为尚未实现的设计说明：你的身体变得像软泥怪一样，你可以分裂成2个，持续 %d 回合。\n\t\t你的本体获得原始的软泥特性，而分裂体则获得酸性特性。\n\t\t如果你习得软泥利刃技能树，则其中所有技能会替换为腐蚀利刃技能树的技能。\n\t\t你和分裂体共享生命。\n\t\t当你分裂时，你和分裂体增加 %d%% 所有抗性。\n\t\t抗性受精神强度加成。",
+      "status": "fixed",
+      "placeholder_sequence": [
+        "%d",
+        "%d",
+        "%%"
+      ],
+      "non_target_fields_preserved": true,
+      "value_flow": {
+        "calculation": "info computes design duration=max(5,floor(TL*2)) and design resistance=10+combatTalentMindDamage/10.",
+        "actual_arguments": "gifts.lua loads malleable-body.lua, but this experimental talent action has only return true.",
+        "consumer": "No split entity, shared life, talent conversion or resistance application occurs. Entire retained design description now explicitly marked unimplemented; no claim made about normal character access."
+      },
+      "source_evidence": [
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/gifts/gifts.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "99adc44487cb958bccd8d8698c0d42e192c4c0fe4d81d60c95bd41fd0c3d33c6",
+          "start": 196,
+          "end": 202,
+          "excerpt": "196: load(\"/data/talents/gifts/fungus.lua\")\n197: load(\"/data/talents/gifts/mucus.lua\")\n198: load(\"/data/talents/gifts/ooze.lua\")\n199: load(\"/data/talents/gifts/moss.lua\")\n200: load(\"/data/talents/gifts/malleable-body.lua\")\n201: load(\"/data/talents/gifts/oozing-blades.lua\")\n202: load(\"/data/talents/gifts/corrosive-blades.lua\")"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/gifts/malleable-body.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "d3017b92f88e190c5e70787f2f0feddfaf185a84d93d8a24a43105bf57062875",
+          "start": 20,
+          "end": 44,
+          "excerpt": "20: newTalent{\n21: \tname = \"azdadazdazdazd\",\n22: \ttype = {\"wild-gift/malleable-body\", 1},\n23: \trequire = gifts_req1,\n24: \tpoints = 5,\n25: \tequilibrium = 10,\n26: \tcooldown = 30,\n27: \tno_energy = true,\n28: \ttactical = { BUFF = 2 },\n29: \tgetDur = function(self, t) return math.max(5, math.floor(self:getTalentLevel(t) * 2)) end,\n30: \taction = function(self, t)\n31: \n32: \t\treturn true\n33: \tend,\n34: \tinfo = function(self, t)\n35: \t\tlocal dur = t.getDur(self, t)\n36: \t\treturn ([[Your body is more like that of an ooze, you can split into two for %d turns.\n37: \t\tYour original self has the original ooze aspect while your mitosis gains the acid aspect.\n38: \t\tIf you know the Oozing Blades tree all the talents inside are exchanged for those of the Corrosive Blades tree.\n39: \t\tYour two selves share the same healthpool.\n40: \t\tWhile you are split both of you gain %d%% all resistances.\n41: \t\tResistances will increase with Mindpower.]]):\n42: \t\ttformat(dur, 10 + self:combatTalentMindDamage(t, 5, 200) / 10)\n43: \tend,\n44: }"
+        }
+      ],
+      "source_limitation": "Pinned core commit; no DLC source used for this item.",
+      "unresolved": []
+    },
+    {
+      "candidate_index": 533,
+      "change_id": "b8a7aee726794aac15fb94559d5902700a8854f4c6c2e08686ff0ae8a7440496",
+      "finding_id": "UPSTREAM032",
+      "section": "mod-tome/data/talents/gifts/oozing-blades.lua",
+      "old_target": "你的自然抗性增加 %d%%。\n\t\t当你对生物造成酸性伤害时，你的自然伤害增加 %0.1f%%， 持续 %d 回合。\n\t\t此后你造成的酸性伤害可使该伤害加成最多提升 4 次（每回合至多 1 次），最大值 %0.1f%%。\n\t\t抗性和伤害加成受精神强度加成。",
+      "new_target": "你的自然抗性增加 %d%%。\n\t\t当你对生物造成酸性伤害时，你的自然伤害增加 %0.1f%%， 持续 %d 回合。\n\t\t此后你造成的酸性伤害可使该伤害加成最多提升 4 次（每回合至多 1 次），最大值 %0.1f%%。\n\t\t抗性受精神强度加成；伤害加成不受精神强度影响。",
+      "status": "fixed",
+      "placeholder_sequence": [
+        "%d",
+        "%%",
+        "%0.1f",
+        "%%",
+        "%d",
+        "%0.1f",
+        "%%"
+      ],
+      "non_target_fields_preserved": true,
+      "value_flow": {
+        "calculation": "getResist uses combatTalentMindDamage; getNatureDamage uses combatTalentScale*sqrt(min(5,level))/2.23 without Mindpower.",
+        "actual_arguments": "ACID damage with realdam>0 and a target triggers NATURAL_ACID; activate/merge obtains getNatureDamage.",
+        "consumer": "NATURAL_ACID writes power to inc_damage.NATURE; only resistance scales with Mindpower."
+      },
+      "source_evidence": [
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/gifts/oozing-blades.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "568403369da6287fb9bdc8338aeb2113eef9a2aa9dec4a24db66402859fda82d",
+          "start": 59,
+          "end": 81,
+          "excerpt": "59: newTalent{\n60: \tname = \"Natural Acid\",\n61: \ttype = {\"wild-gift/oozing-blades\", 2},\n62: \trequire = gifts_req_high2,\n63: \tpoints = 5,\n64: \tmode = \"passive\",\n65: \tgetResist = function(self, t) return self:combatTalentMindDamage(t, 10, 40) end,\n66: \t-- called in data.timed_effects.physical.lua for the NATURAL_ACID effect\n67: \tgetNatureDamage = function(self, t, level)\n68: \t\treturn self:combatTalentScale(t, 5, 15, 0.75)*math.min(5, level or 1)^0.5/2.23\n69: \tend,\n70: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 2, 5, \"log\")) end,\n71: \tpassives = function(self, t, p)\n72: \t\tself:talentTemporaryValue(p, \"resists\", {[DamageType.NATURE]=t.getResist(self, t)})\n73: \tend,\n74: \tinfo = function(self, t)\n75: \t\treturn ([[You gain %d%% Nature resistance.\n76: \t\tWhen you deal Acid damage to a creature, you gain a %0.1f%% bonus to Nature damage for %d turns. \n77: \t\tThis damage bonus will improve up to 4 times (no more than once each turn) with later Acid damage you do, up to a maximum of %0.1f%%.\n78: \t\tThe resistance and damage increase improve with your Mindpower.]]):\n79: \t\ttformat(t.getResist(self, t), t.getNatureDamage(self, t, 1), t.getDuration(self, t), t.getNatureDamage(self, t, 5))\n80: \tend,\n81: }"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/damage_types.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+          "start": 858,
+          "end": 866,
+          "excerpt": "858: \t\tstate = initState(state)\n859: \t\tuseImplicitCrit(src, state)\n860: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n861: \t\tlocal realdam = DamageType.defaultProjector(src, x, y, type, dam, state)\n862: \t\tif realdam > 0 and target and src.knowTalent and src:knowTalent(src.T_NATURAL_ACID) then\n863: \t\t\tlocal t = src:getTalentFromId(src.T_NATURAL_ACID)\n864: \t\t\tsrc:setEffect(src.EFF_NATURAL_ACID, t.getDuration(src, t), {})\n865: \t\tend\n866: \t\treturn realdam"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+          "start": 2785,
+          "end": 2816,
+          "excerpt": "2785: \tname = \"NATURAL_ACID\", image = \"talents/natural_acid.png\",\n2786: \tdesc = _t\"Natural Acid\",\n2787: \tlong_desc = function(self, eff) return (\"Nature damage increased by %d%%.\"):tformat(eff.power) end,\n2788: \ttype = \"physical\",\n2789: \tsubtype = { nature=true, acid=true },\n2790: \tstatus = \"beneficial\",\n2791: \tparameters = { power=1, bonus_level=1},\n2792: \tcharges = function(self, eff) return math.round(eff.power) end,\n2793: \ton_gain = function(self, err) return _t\"#Target#'s nature damage is more potent.\", _t\"+Natural Acid\" end,\n2794: \ton_lose = function(self, err) return _t\"#Target#'s nature damage is no longer so potent.\", _t\"-Nature Acid\" end,\n2795: \ton_merge = function(self, eff, new_eff)\n2796: \t\tif game.turn < eff.last_update + 10 then return eff end -- update once a turn\n2797: \t\tlocal t = self:getTalentFromId(self.T_NATURAL_ACID)\n2798: \t\teff.dur = t.getDuration(self, t)\n2799: \t\tif eff.bonus_level >=5 then return eff end\n2800: \t\tgame.logSeen(self, \"%s's natural acid becomes more concentrated!\",self:getName():capitalize())\n2801: \t\teff.last_update = game.turn\n2802: \t\teff.bonus_level = eff.bonus_level + 1\n2803: \t\teff.power = t.getNatureDamage(self, t, eff.bonus_level)\n2804: \t\tself:removeTemporaryValue(\"inc_damage\", eff.dam_id)\n2805: \t\teff.dam_id = self:addTemporaryValue(\"inc_damage\", {[DamageType.NATURE]=eff.power})\n2806: \t\treturn eff\n2807: \tend,\n2808: \tactivate = function(self, eff)\n2809: \t\teff.power = self:callTalent(self.T_NATURAL_ACID, \"getNatureDamage\")\n2810: \t\teff.dam_id = self:addTemporaryValue(\"inc_damage\", {[DamageType.NATURE]=eff.power})\n2811: \t\teff.last_update = game.turn\n2812: \tend,\n2813: \tdeactivate = function(self, eff)\n2814: \t\tself:removeTemporaryValue(\"inc_damage\", eff.dam_id)\n2815: \tend,\n2816: }"
+        }
+      ],
+      "source_limitation": "Pinned core commit; no DLC source used for this item.",
+      "unresolved": []
+    },
+    {
+      "candidate_index": 543,
+      "change_id": "83bc1823ab92425f2e6e7d6401fe28b44bc68fb772b646c29aef0a12a2d714e8",
+      "finding_id": "UPSTREAM095",
+      "section": "mod-tome/data/talents/gifts/summon-augmentation.lua",
+      "old_target": "献祭一只召唤兽，使它在 %d 码范围内爆炸。\n\t\t-喷火里奇：形成一个火球，造成 %d 伤害，并火焰冲击敌人。\n\t\t-三头蛇：范围内所有友方单位获得 %d%% 闪电、酸液和自然伤害亲和，并获得每回合 %d 生命回复，持续 7 回合。\n\t\t-雾凇：形成一个冰球，造成 %d 冰冷伤害，可能冰冻敌人。\n\t\t-火龙：形成一片火焰，每回合造成 %d 伤害。\n\t\t-战争猎犬：形成锋利的球，让周围的生物在 6 回合内每回合受到 %0.1f 点流血伤害。\n\t\t-果冻怪：形成一片能减速的淤泥，造成 %d 自然伤害，并使敌人减速 %0.1f%%。\n\t\t-米诺陶斯：使敌人混乱 5 回合（强度 %d%%）。\n\t\t-岩石傀儡：使周围的友方单位获得 %d 护甲值和 %d%% 护甲强度，持续 5 回合。\n\t\t-乌龟：给所有友方单位提供一个甲壳护盾，所有抗性提升 %d%%， 持续 5 回合。\n\t\t-蜘蛛：将所有敌人击退 %d 格。\n\t\t此外，随机的某个召唤技能会冷却完毕。\n\t\t引爆产生的负面效果不会影响到你或你的召唤兽。\n\t\t效果受精神强度加成，其中一些可以暴击。",
+      "new_target": "献祭一只召唤兽，使它在 %d 码范围内爆炸。\n\t\t-喷火里奇：形成一个火球，造成 %d 伤害，并火焰冲击敌人。\n\t\t-三头蛇：范围内所有友方单位获得 %d%% 闪电、酸液和自然伤害亲和，并获得每回合 %d 生命回复，持续 7 回合。\n\t\t-雾凇：形成一个冰球，造成 %d 冰冷伤害，可能冰冻敌人。\n\t\t-火龙：形成一片火焰，每回合造成 %d 伤害。\n\t\t-战争猎犬：形成锋利的球，让周围的生物在 6 回合内每回合受到 %0.1f 点流血伤害。\n\t\t-果冻怪：形成一片能减速的淤泥，造成 %d 自然伤害，并使敌人减速 %0.1f%%。\n\t\t-米诺陶斯：使敌人混乱 5 回合（实际强度固定为三成；设计计算值 %d%% 未用于实际效果）。\n\t\t-岩石傀儡：使周围的友方单位获得 %d 护甲值和 %d%% 护甲强度，持续 5 回合。\n\t\t-乌龟：给所有友方单位提供一个甲壳护盾，所有抗性提升 %d%%， 持续 5 回合。\n\t\t-蜘蛛：将所有敌人击退 %d 格。\n\t\t此外，随机的某个召唤技能会冷却完毕。\n\t\t引爆产生的负面效果不会影响到你或你的召唤兽。\n\t\t效果受精神强度加成，其中一些可以暴击。",
+      "status": "fixed",
+      "placeholder_sequence": [
+        "%d",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%d",
+        "%0.1f",
+        "%d",
+        "%0.1f",
+        "%%",
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%%",
+        "%d"
+      ],
+      "non_target_fields_preserved": true,
+      "value_flow": {
+        "calculation": "Detonate minotaurConfuse calculates combatTalentLimit(t,50,20,35); info displays that result as argument 10.",
+        "actual_arguments": "Minotaur on_detonate calculates confusePower, but passes p={minotaurConfuse} with no power field to TEMP_EFFECT.",
+        "consumer": "TEMP_EFFECT clones dam.p into setEffect; CONFUSED default power=30 is bounded/floored and written to confused. Actual strength fixed at 30 percent; retained placeholder explicitly denotes unused design calculation."
+      },
+      "source_evidence": [
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/gifts/summon-augmentation.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "60289877ddda683962fa2fec05fb30b7df9192c124666c46fa9be41767c5fa01",
+          "start": 71,
+          "end": 81,
+          "excerpt": "71: \texplodeBleed = function(self,t) return self:combatTalentMindDamage(t, 50, 500) end,\n72: \texplodeSecondary = function(self,t) return self:combatTalentMindDamage(t, 30, 250) end,\n73: \texplodeFire = function(self,t) return self:combatTalentMindDamage(t, 30, 120) end,\n74: \thydraAffinity = function(self,t) return self:combatTalentLimit(t, 50, 15, 40) end,\n75: \thydraRegen = function(self,t) return self:combatTalentMindDamage (t, 8, 40) end,\n76: \tjellySlow = function(self,t) return self:combatTalentLimit(t, 0.60, 0.25, 0.48) end,\n77: \tminotaurConfuse = function(self,t) return self:combatTalentLimit(t, 50, 20, 35) end,\n78: \tgolemArmour = function(self,t) return self:combatTalentScale(t, 15, 33) end,\n79: \tgolemHardiness = function(self,t) return 15 + self:getTalentLevel(t)*7.7 end,\n80: \tshellShielding = function(self,t) return self:combatTalentMindDamage(t, 10, 35) end,\n81: \tspiderKnockback = function(self,t) return 1 + math.floor(self:getTalentLevel(t)) end,"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/gifts/summon-augmentation.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "60289877ddda683962fa2fec05fb30b7df9192c124666c46fa9be41767c5fa01",
+          "start": 109,
+          "end": 124,
+          "excerpt": "109: \tinfo = function(self, t)\n110: \t\tlocal radius = self:getTalentRadius(t)\n111: \t\treturn ([[Destroys one of your summons, making it detonate in radius of %d.\n112: \t\t- Ritch Flamespitter: Explodes into a fireball dealing %d damage, flameshocking damaged foes\n113: \t\t- Hydra: Grants %d%% lightning, acid, and nature affinity as well as %d life regen per turn to all friendly creatures for 7 turns\n114: \t\t- Rimebark: Explodes into an iceball dealing %d ice damage, possibly freezing damaged foes\n115: \t\t- Fire Drake: Explodes into a cloud of lingering fire, dealing %d damage per turn\n116: \t\t- War Hound: Explodes into a sharp ball, cutting all creatures for %0.1f bleeding damage per turn for 6 turns\n117: \t\t- Jelly: Explodes into a ball of slowing slime, dealing %d nature damage and slowing foes by %0.1f%%\n118: \t\t- Minotaur: Confuses foes at %d%% power for 5 turns\n119: \t\t- Stone Golem: Grants %d armour and %d%% armour hardiness to all friendly creatures for 5 turns\n120: \t\t- Turtle: Grants a small shell shield to all friendly creatures, granting %d%% all resist for 5 turns\n121: \t\t- Spider: Knocks back all foes %d tiles\n122: \t\tIn addition, a random summon will come off cooldown.\n123: \t\tHostile effects will not hit you or your other summons.\n124: \t\tThe effects improve with your mindpower, and some can crit.]]):tformat(radius, t.explodeSecondary(self,t), t.hydraAffinity(self,t), t.hydraRegen(self,t), t.explodeSecondary(self,t), t.explodeFire(self,t), t.explodeBleed(self,t) / 6, t.explodeSecondary(self,t), t.jellySlow(self,t) * 100, t.minotaurConfuse(self,t), t.golemArmour(self,t), t.golemHardiness(self,t), t.shellShielding(self,t), t.spiderKnockback(self,t)) "
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/gifts/summon-melee.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "22c408c8a71dd9f134a4d71300b8581190a9c63310ec341bcbb28d9c947afe37",
+          "start": 328,
+          "end": 331,
+          "excerpt": "328: \ton_detonate = function(self, t, m)\n329: \t\tlocal tg = {type=\"ball\", range=self:getTalentRange(t), friendlyfire=false, radius=self:getTalentRadius(t), talent=t, x=m.x, y=m.y}\n330: \t\tlocal confusePower = self:callTalent(self.T_DETONATE,\"minotaurConfuse\")\n331: \t\tself:project(tg, m.x, m.y, DamageType.TEMP_EFFECT, {foes=true, eff=self.EFF_CONFUSED, check_immune=\"confusion\", dur=5, p={minotaurConfuse}}, {type=\"flame\"})"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/damage_types.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+          "start": 3542,
+          "end": 3555,
+          "excerpt": "3542: \tname = _t(\"special effect\", \"damage type\"), type = \"TEMP_EFFECT\",\n3543: \tprojector = function(src, x, y, type, dam, state)\n3544: \t\tstate = initState(state)\n3545: \t\tuseImplicitCrit(src, state)\n3546: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n3547: \t\tif target then\n3548: \t\t\tlocal ok = false\n3549: \t\t\tif dam.friends then if src:reactionToward(target) >= 0 then ok = true end\n3550: \t\t\telseif dam.foes then if src:reactionToward(target) < 0 then ok = true end\n3551: \t\t\telse ok = true\n3552: \t\t\tend\n3553: \t\t\tif ok and (not dam.check_immune or target:canBe(dam.check_immune)) then target:setEffect(dam.eff, dam.dur, table.clone(dam.p)) end\n3554: \t\tend\n3555: \tend,"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+          "start": 126,
+          "end": 144,
+          "excerpt": "126: \tname = \"CONFUSED\", image = \"effects/confused.png\",\n127: \tdesc = _t\"Confused\",\n128: \tlong_desc = function(self, eff) return (\"The target is confused, acting randomly (chance %d%%) and unable to perform complex actions.\"):tformat(eff.power) end,\n129: \tcharges = function(self, eff) return (tostring(math.floor(eff.power))..\"%\") end,\n130: \ttype = \"mental\",\n131: \tsubtype = { confusion=true },\n132: \tstatus = \"detrimental\",\n133: \tparameters = { power=30 },\n134: \ton_gain = function(self, err) return _t\"#Target# wanders around!\", _t\"+Confused\" end,\n135: \ton_lose = function(self, err) return _t\"#Target# seems more focused.\", _t\"-Confused\" end,\n136: \tactivate = function(self, eff)\n137: \t\teff.power = math.floor(util.bound(eff.power, 0, 50))\n138: \t\teff.tmpid = self:addTemporaryValue(\"confused\", eff.power)\n139: \t\tif eff.power <= 0 then eff.dur = 0 end\n140: \tend,\n141: \tdeactivate = function(self, eff)\n142: \t\tself:removeTemporaryValue(\"confused\", eff.tmpid)\n143: \t\tif self == game.player and self.updateMainShader then self:updateMainShader() end\n144: \tend,"
+        }
+      ],
+      "source_limitation": "Pinned core commit; no DLC source used for this item.",
+      "unresolved": []
+    },
+    {
+      "candidate_index": 556,
+      "change_id": "5753b643fc11128b5135524d6e021fa14146a2fb5e168b88825dbeeb8198c0c0",
+      "finding_id": "UPSTREAM096",
+      "section": "mod-tome/data/talents/misc/horrors.lua",
+      "old_target": "咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，在五回合内造成 %d%% 武器伤害。\n\t\t如果目标进入流血状态，吞噬者会进入狂热状态 %d 回合（也会让周围的其他吞噬者进入狂热状态）。\n\t\t狂热状态会增加全局速度 %d%%， 物理暴击率 %d%%， 同时降至 -%d%% 生命时才会死去。",
+      "new_target": "咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，每回合造成 1 点物理伤害的 %d%%， 持续五回合。\n\t\t如果目标进入流血状态，吞噬者会进入狂热状态 %d 回合（也会让周围的其他吞噬者进入狂热状态）。\n\t\t狂热状态会增加全局速度 %d%%， 物理暴击率 %d%%， 同时降至 -%d%% 生命时才会死去。",
+      "status": "fixed",
+      "placeholder_sequence": [
+        "%d",
+        "%%",
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%%",
+        "%d",
+        "%%"
+      ],
+      "non_target_fields_preserved": true,
+      "value_flow": {
+        "calculation": "getBleedDamage returns combatTalentWeaponDamage(t,.8,1.5); info emits this multiplier times 100 as argument 2.",
+        "actual_arguments": "On hit and cut eligibility, CUT receives power=getBleedDamage and duration=5, with no multiplication by attack damage and no division by five.",
+        "consumer": "CUT on_timeout passes eff.power directly to PHYSICAL projector each turn. Target describes %d%% of one physical damage point per turn, mathematically displayed value/100; actual damage remains subject to normal projector mitigation/modifiers."
+      },
+      "source_evidence": [
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/misc/horrors.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "0690eca57ddb8ebe78694f63ff7587798fa7432fde6e6b6ae32000255ab19292",
+          "start": 124,
+          "end": 128,
+          "excerpt": "124: \tgetDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.5, 1) end,\n125: \tgetBleedDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.8, 1.5) end,\n126: \t-- Limit crit, speed increase, -health to <100%\n127: \tgetPower = function(self, t) return self:combatLimit(self:combatTalentStatDamage(t, \"con\", 10, 50), 1, 0, 0, 0.357, 35.7) end,\n128: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 3, 7)) end,"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/misc/horrors.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "0690eca57ddb8ebe78694f63ff7587798fa7432fde6e6b6ae32000255ab19292",
+          "start": 154,
+          "end": 176,
+          "excerpt": "154: \taction = function(self, t)\n155: \t\tlocal tg = self:getTalentTarget(t)\n156: \t\tlocal x, y, target = self:getTarget(tg)\n157: \t\tif not target or not self:canProject(tg, x, y) then return nil end\n158: \t\tlocal hit = self:attackTarget(target, nil, t.getDamage(self, t), true)\n159: \n160: \t\tif hit and target:canBe(\"cut\") then\n161: \t\t\ttarget:setEffect(target.EFF_CUT, 5, {power=t.getBleedDamage(self, t), src=self, apply_power=self:combatPhysicalpower()})\n162: \t\t\tt.do_devourer_frenzy(self, target, t)\n163: \t\telse\n164: \t\t\tgame.logSeen(target, \"%s resists the cut!\", target:getName():capitalize())\n165: \t\tend\n166: \n167: \t\treturn true\n168: \tend,\n169: \tinfo = function(self, t)\n170: \t\tlocal damage = t.getDamage(self, t) * 100\n171: \t\tlocal bleed = t.getBleedDamage(self, t) * 100\n172: \t\tlocal power = t.getPower(self, t) *100\n173: \t\treturn ([[Bites the target for %d%% weapon damage, potentially causing it to bleed for %d%% weapon damage over five turns.\n174: \t\tIf the target is affected by the bleed it will send the devourer into a frenzy for %d turns (which in turn will frenzy other nearby devourers).\n175: \t\tThe frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]]):\n176: \t\ttformat(damage, bleed, t.getDuration(self, t), power, power, power)"
+        },
+        {
+          "component": "tome",
+          "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+          "start": 124,
+          "end": 152,
+          "excerpt": "124: \tname = \"CUT\", image = \"effects/cut.png\",\n125: \tdesc = _t\"Bleeding\",\n126: \tlong_desc = function(self, eff) return (\"Huge cut that bleeds, doing %0.2f physical damage per turn.\"):tformat(eff.power) end,\n127: \tcharges = function(self, eff) return (math.floor(eff.power)) end,\n128: \ttype = \"physical\",\n129: \tsubtype = { wound=true, cut=true, bleed=true },\n130: \tstatus = \"detrimental\",\n131: \tparameters = { power=1 },\n132: \ton_gain = function(self, err) return _t\"#Target# starts to bleed.\", _t\"+Bleeds\" end,\n133: \ton_lose = function(self, err) return _t\"#Target# stops bleeding.\", _t\"-Bleeds\" end,\n134: \ton_merge = function(self, old_eff, new_eff)\n135: \t\t-- Merge the flames!\n136: \t\tlocal olddam = old_eff.power * old_eff.dur\n137: \t\tlocal newdam = new_eff.power * new_eff.dur\n138: \t\tlocal dur = math.ceil((old_eff.dur + new_eff.dur) / 2)\n139: \t\told_eff.dur = dur\n140: \t\told_eff.power = (olddam + newdam) / dur\n141: \t\treturn old_eff\n142: \tend,\n143: \tactivate = function(self, eff)\n144: \t\tif eff.src and eff.src:knowTalent(self.T_BLOODY_BUTCHER) then\n145: \t\t\tlocal t = eff.src:getTalentFromId(eff.src.T_BLOODY_BUTCHER)\n146: \t\t\tlocal resist = math.min(t.getResist(eff.src, t), math.max(0, self:combatGetResist(DamageType.PHYSICAL)))\n147: \t\t\tself:effectTemporaryValue(eff, \"resists\", {[DamageType.PHYSICAL] = -resist})\n148: \t\tend\n149: \tend,\n150: \ton_timeout = function(self, eff)\n151: \t\tDamageType:get(DamageType.PHYSICAL).projector(eff.src or self, self.x, self.y, DamageType.PHYSICAL, eff.power)\n152: \tend,"
+        }
+      ],
+      "source_limitation": "Pinned core commit; no DLC source used for this item.",
+      "unresolved": []
+    }
+  ],
+  "source_verification": [
+    {
+      "anchor_id": "a378",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/gifts/gifts.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "99adc44487cb958bccd8d8698c0d42e192c4c0fe4d81d60c95bd41fd0c3d33c6",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "entry-525",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/gifts/malleable-body.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "d3017b92f88e190c5e70787f2f0feddfaf185a84d93d8a24a43105bf57062875",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a395",
+      "component": "tome",
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a396",
+      "component": "tome",
+      "path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "entry-533",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/gifts/oozing-blades.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "568403369da6287fb9bdc8338aeb2113eef9a2aa9dec4a24db66402859fda82d",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a586",
+      "component": "tome",
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "entry-513",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/gifts/corrosive-blades.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "56f36db3ff46a0954b636d9c50a81073854bd1e5d29dadbf37b8194abd5f2df4",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a639",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cursed/force-of-will.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "46631029827dac8f1525624d89491d194b26dd2056189b017ece7276f50ca732",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a642",
+      "component": "tome",
+      "path": "game/modules/tome/data/timed_effects/mental.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "entry-485",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cursed/force-of-will.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "46631029827dac8f1525624d89491d194b26dd2056189b017ece7276f50ca732",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "entry-490",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cursed/gloom.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "10c08a0250ecf5034db9efba72630cc6e67ad79f28b452c3386ba2956bfaaeb8",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "entry-491",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cursed/gloom.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "10c08a0250ecf5034db9efba72630cc6e67ad79f28b452c3386ba2956bfaaeb8",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a643",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cursed/shadows.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "afba9045c77c2fd6c8873ba0b48d49ccf697df0bf405f25994a43843fed9fed5",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a644",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cursed/shadows.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "afba9045c77c2fd6c8873ba0b48d49ccf697df0bf405f25994a43843fed9fed5",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a645",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cursed/shadows.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "afba9045c77c2fd6c8873ba0b48d49ccf697df0bf405f25994a43843fed9fed5",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "entry-501",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cursed/shadows.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "afba9045c77c2fd6c8873ba0b48d49ccf697df0bf405f25994a43843fed9fed5",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "entry-505",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/cursed/slaughter.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "614eaedd3ec4d3528192aca4a2e9f502eaffbe7ca050152c7336ddecac9b8ee9",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a662",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/gifts/summon-melee.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "22c408c8a71dd9f134a4d71300b8581190a9c63310ec341bcbb28d9c947afe37",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a663",
+      "component": "tome",
+      "path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a664",
+      "component": "tome",
+      "path": "game/modules/tome/data/timed_effects/mental.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a665",
+      "component": "tome",
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "a666",
+      "component": "tome",
+      "path": "game/modules/tome/data/timed_effects/mental.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "entry-543",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/gifts/summon-augmentation.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "60289877ddda683962fa2fec05fb30b7df9192c124666c46fa9be41767c5fa01",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    },
+    {
+      "anchor_id": "entry-556",
+      "component": "tome",
+      "path": "game/modules/tome/data/talents/misc/horrors.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0690eca57ddb8ebe78694f63ff7587798fa7432fde6e6b6ae32000255ab19292",
+      "hash_match": true,
+      "frozen_excerpt_match": true,
+      "source_pinning": "pinned"
+    }
+  ],
+  "baseline_sha256": "474f11976a42eceed6de8faaf31393bcf07b1f40377ad4e10f0bf9789afd7c42",
+  "result_sha256": "f72cdf38e1ca668f6245acce919ab536300a9e674d85e2a6afd9a4cc5fdf884d",
+  "all_other_bytes_unchanged": true,
+  "target_spans": [
+    {
+      "baseline_start": 2371712,
+      "baseline_end": 2372128,
+      "new_byte_length": 431
+    },
+    {
+      "baseline_start": 2377939,
+      "baseline_end": 2378437,
+      "new_byte_length": 498
+    },
+    {
+      "baseline_start": 2378887,
+      "baseline_end": 2379273,
+      "new_byte_length": 425
+    },
+    {
+      "baseline_start": 2400643,
+      "baseline_end": 2401033,
+      "new_byte_length": 488
+    },
+    {
+      "baseline_start": 2404435,
+      "baseline_end": 2404841,
+      "new_byte_length": 431
+    },
+    {
+      "baseline_start": 2422659,
+      "baseline_end": 2422977,
+      "new_byte_length": 342
+    },
+    {
+      "baseline_start": 2455615,
+      "baseline_end": 2456016,
+      "new_byte_length": 482
+    },
+    {
+      "baseline_start": 2474856,
+      "baseline_end": 2475155,
+      "new_byte_length": 323
+    },
+    {
+      "baseline_start": 2494211,
+      "baseline_end": 2495362,
+      "new_byte_length": 1212
+    },
+    {
+      "baseline_start": 2520025,
+      "baseline_end": 2520393,
+      "new_byte_length": 389
+    }
+  ],
+  "schema_version": 1,
+  "task_id": "mmrfix-20261002-008",
+  "role": "executor",
+  "status": "completed",
+  "created_at": "2026-10-02T11:22:25.414960+00:00",
+  "changed_files": [
+    "mod-tome.lua"
+  ],
+  "changed_target_count": 10,
+  "confirmed_claim_count": 10,
+  "fixed_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "source_limitations": {
+    "core": "All 24 frozen anchors hash- and excerpt-verified against fixed commit; extra Dominate and OVERWHELMED consumers read from same fixed commit.",
+    "dlc": "DLC repository/commit/version unpinned; extraction snapshots are not source version pins. No frozen anchor or repair in this package uses DLC source, so no DLC source SHA is applicable or claimed verified.",
+    "runtime": "Source-call-chain verification and locale LuaJIT lint; full game behavioral execution not performed."
+  },
+  "scope_byte_verification": {
+    "baseline_matches_pre_edit_file": true,
+    "baseline_sha256": "474f11976a42eceed6de8faaf31393bcf07b1f40377ad4e10f0bf9789afd7c42",
+    "result_sha256": "f72cdf38e1ca668f6245acce919ab536300a9e674d85e2a6afd9a4cc5fdf884d",
+    "exactly_10_frozen_targets_changed": true,
+    "all_non_target_bytes_preserved": true,
+    "source_source_tag_args_order_special_preserved": true,
+    "placeholder_kinds_and_order_including_literal_percent_preserved": true,
+    "markup_preserved": true,
+    "newline_and_tab_sequences_preserved": true,
+    "previous_seven_packages_and_restorative_preserved": "Entire baseline byte stream outside the 10 authorized target spans unchanged.",
+    "tracked_content_written_by_executor": [
+      "mod-tome.lua"
+    ],
+    "other_user_or_orchestrator_changes": "Not modified by executor; other files may change concurrently.",
+    "stage_commit_child_creation": false
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "result": "passed",
+      "exit_code": 0,
+      "warnings": "Three existing DLC source-unpinned notices."
+    },
+    {
+      "command": "python3 /tmp/mmrfix008-repair.py",
+      "result": "passed",
+      "details": "Baseline/target byte checks, format sequence checks, newline/tab sequence checks, all 24 anchor hashes and frozen excerpts match."
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "result": "passed",
+      "exit_code": 0,
+      "translations": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20261002T112022.746784Z-29-lint/lint.json",
+      "report_sha256": "1364eb37075598b5186f78c74e6e3c9bb902bad3a4c5e111ed58ce5849eed941",
+      "duplicate_runtime_keys": 1711,
+      "note": "1711 duplicate runtime keys are a lint metric, not a claim of conflicting keys; lint reports no issues."
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": "python3 /tmp/mmrfix008-report.py",
+      "result": "passed",
+      "details": "Reconstructed final file solely from frozen baseline and 10 full new targets; actual result byte-identical."
+    }
+  ],
+  "corrected_validation_failures": [
+    {
+      "check": "Initial edited strict lint",
+      "errors": 2,
+      "reason": "New signed-value explanations touched numeric preview tokens.",
+      "resolution": "Inserted required ASCII spaces within the two authorized targets; final strict lint passed."
+    }
+  ],
+  "plan_deviations": [],
+  "unresolved_items": [],
+  "orchestrator_remaining_steps": "Host strict proposal/consumer checks, independent review, final gates, evidence/state closure and commit remain ORCHESTRATOR responsibilities; executor did not run or claim those stages."
+}

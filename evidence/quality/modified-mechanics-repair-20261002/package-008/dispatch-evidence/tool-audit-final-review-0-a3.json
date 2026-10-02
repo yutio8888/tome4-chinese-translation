@@ -1,0 +1,110 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-008/INPUT-final-review-0-a3.json; cat .ai/task/mmrfix-20261002-008/INPUT-final-review-0-a3.json | head -c 60000"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-008/INPUT-final-review-0-a3.json'))\ndef walk(o,p=''):\n    if isinstance(o,dict):\n        for k,v in o.items(): walk(v,p+'.'+k)\n    elif isinstance(o,list):\n        print(p,'list',len(o))\n        if o: walk(o[0],p+'[0]')\n    else:\n        s=str(o); print(p, s[:150].replace('\\n','\\\\n'))\nwalk(d)\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"第六节\\|## 6\\|六、\" docs/paseo-translation-context-review-v2-contract.md | head; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-008/INPUT-final-review-0-a3.json'))['payload']\nprint(d['rendered_briefing']); print(d['terminology_snapshot'][:3000])\nfor t in d['translation_snapshot']:\n    print('=====',t['revision_key']); print('S:',t['source']); print('T:',t['target'])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 100,160p docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-008/INPUT-final-review-0-a3.json'))['payload']\nfor i,b in enumerate(d['bounded_context'][:3]):\n    c=json.loads(b['context'])\n    print('#####',i,c['section'],c['source_tag'])\n    for k,v in c.items():\n        if k=='source_evidence':\n            for e in v:\n                print('--',e.get('public_path'),e.get('start'),e.get('end'),e.get('matching_lines'),e.get('source_pinning'))\n                print(e.get('excerpt'))\n        else: print(k,':',json.dumps(v,ensure_ascii=False)[:1500])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cursed/force-of-will.lua | sed -n 40,120p; echo ----; git show $C:game/modules/tome/data/talents/cursed/force-of-will.lua | sed -n 250,330p"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cursed/gloom.lua | sed -n 1,170p"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"hateBonus\\|getMindpower\\|gloomTalentsMindpower\" $C -- game/modules/tome | head -30"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-008/INPUT-final-review-0-a3.json'))['payload']\nfor i,b in enumerate(d['bounded_context'][3:],3):\n    c=json.loads(b['context'])\n    print('#####',i,c['section'],c['source_tag'])\n    for k,v in c.items():\n        if k=='source_evidence':\n            for e in v:\n                print('--',e.get('public_path'),e.get('commit'),e.get('start'),e.get('end'),e.get('matching_lines'),e.get('source_pinning'),e.get('frozen_file'))\n                print(e.get('excerpt'))\n        elif k in('terminology',): print(k,':',json.dumps([(x['source'],x['target'],x['status']) for x in v],ensure_ascii=False))\n        elif k in ('source_locations','read_boundary'): pass\n        else: print(k,':',json.dumps(v,ensure_ascii=False)[:800])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; f(){ git show $C:game/modules/tome/data/$1 | sed -n $2p; echo =====; }; f talents/cursed/shadows.lua 470,535; git grep -n \"DOMINATE\\\"\\|name = \\\"Dominate\\\"\" $C -- game/modules/tome/data/talents/cursed/shadows.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n 'name = \"Dominate\"' $C -- game/modules/tome/data/talents"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cursed/strife.lua | sed -n 20,95p; git show $C:game/modules/tome/data/talents/cursed/shadows.lua | grep -n \"dominate_chance\\|T_DOMINATE\" ; git grep -n 'name = \"DOMINATED\"' $C -- game/modules/tome/data/timed_effects"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cursed/slaughter.lua | sed -n 85,160p"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/timed_effects/mental.lua | grep -n -A16 'name = \"OVERWHELMED\"'"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/gifts/corrosive-blades.lua | sed -n 40,80p; echo ====; git show $C:game/modules/tome/data/talents/gifts/oozing-blades.lua | sed -n 40,80p"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/gifts/malleable-body.lua | sed -n 18,60p; git grep -n \"malleable\\|wild-gift/malleable\" $C -- game/modules/tome | grep -v \"talents/gifts/malleable-body.lua\" | head"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/gifts/summon-augmentation.lua | sed -n 55,125p"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/misc/horrors.lua | sed -n 125,180p"
+    }
+  }
+]
