@@ -1,0 +1,41 @@
+{
+  "agent_id": "0b6a5cb4-17fa-48c3-a751-e852beba4817",
+  "native_session": "aeeb5899-4c64-4a52-b531-312c8894a9ad",
+  "native_log_sha256": "3a8d4246a600f0ab73817c2b24db982035acf8c6e9eaec8e6c20c3b151d453ba",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "wc -c .ai/task/mmr-20261001-008/INPUT.json docs/paseo-translation-context-review-v2-contract.md && cat .ai/task/mmr-20261001-008/INPUT.json | head -c 20000",
+        "description": "Read review input and contract size"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-008/INPUT.json'))\np=d['payload']\nprint([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\n\"; cat docs/paseo-translation-context-review-v2-contract.md | sed -n '1,400p' | grep -n -A40 '## 六\\|^## 6\\|第六' | head -80",
+        "description": "Inspect payload keys and contract section 6"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-008/INPUT.json'))\nfor b in d['payload']['bounded_context'][5:]:\n  c=json.loads(b['context'])\n  se=c['source_evidence']\n  print('==',b['revision_key'][:8],c['section'],c['source_tag'],c.get('special'),json.dumps(c['terminology'],ensure_ascii=False)[:1500])\n  for w in se.get('windows',[])[:1]: print(w['text'][:3000])\n\"",
+        "description": "Show contexts for entries 6-10"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs && ls; grep -rn -A30 'name = \"Pitiless\"' ashes-urhrok/ 2>/dev/null | grep -n 'dur\\|info\\|Pitiless' | head -30",
+        "description": "Locate Doomelf Pitiless talent in Ashes DLC"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

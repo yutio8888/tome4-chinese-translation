@@ -1,0 +1,55 @@
+{
+  "agent_id": "e55b39b3-0098-49e3-ac68-cc6f52893308",
+  "native_session": "6b69aa50-fe9c-4e8b-9e15-4f39c2e93253",
+  "native_log_sha256": "de1f2217029cb5bc4026f424ec5f4e662edd24e97b29eb54e10aae7dfa647efb",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-032/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-032/INPUT.json",
+        "description": "Read review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-032/INPUT.json'))\np=d['payload']\nprint([k for k in d]); print([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\n\"",
+        "description": "Inspect input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-032/INPUT.json'))\nfor b in d['payload']['bounded_context'][5:]:\n  c=json.loads(b['context'])\n  print('=====',b['revision_key'][:8],c['source_tag'],json.dumps(c['terminology'],ensure_ascii=False))\n  for w in c['source_evidence']['windows']: print(w['text'])\n\"; grep -n '第六节\\|## 六\\|^## ' docs/paseo-translation-context-review-v2-contract.md | head -30",
+        "description": "Print remaining contexts and contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section six"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs 2>/dev/null && pwd && grep -rn \"BLIGHTED_NEEDLES\" --include=*.lua . | head; ",
+        "description": "Locate BLIGHTED_NEEDLES damage type in orcs DLC"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs && sha256sum tome-orcs/data/talents/steam/other.lua && sed -n 130,165p tome-orcs/data/damage_types.lua",
+        "description": "Verify hash and read damage type"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

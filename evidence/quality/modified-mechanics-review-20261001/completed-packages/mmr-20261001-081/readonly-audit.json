@@ -1,0 +1,31 @@
+{
+  "agent_id": "af145fc8-0272-4317-8190-c573cd070dc1",
+  "native_session": "bda35e8d-5477-47ab-a850-a0f2b34bb2a6",
+  "native_log_sha256": "1079a74ec2c2baac34ea2b4e1be78f71eac87f17f1172f44637fd3ab4d0f3ba1",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-081/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-081/INPUT.json"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-081/INPUT.json'))\np=d['payload']\nprint([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print(b['revision_key'], c['source_tag'], c['source_evidence']['matching_lines'], c['terminology'])\n\"; sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-context-review-v2-contract.md | head -80"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-081/INPUT.json'))\nfor b in d['payload']['bounded_context'][2:]:\n  c=json.loads(b['context']); print('=====',b['revision_key'][:8])\n  for w in c['source_evidence']['windows']: print(w['text'])\n\""
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

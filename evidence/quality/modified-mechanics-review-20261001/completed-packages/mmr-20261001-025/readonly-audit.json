@@ -1,0 +1,62 @@
+{
+  "agent_id": "97134d55-4421-44d2-ac65-5181c3b8869b",
+  "native_session": "ee6b3251-2342-44f5-9a57-aecf7b3eb3e6",
+  "native_log_sha256": "dff2915690d5fc860734230ff5e4560a52e987e9134c28368c56d2b7f7266b05",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-025/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-025/INPUT.json",
+        "description": "Read frozen review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-025/INPUT.json'))\np=d['payload']\nprint([k for k in d]); print([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\n\"",
+        "description": "Show non-context payload fields"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-025/INPUT.json'))\np=d['payload']\nfor i,e in enumerate(p['translation_snapshot']):\n  print('=====',i,e['revision_key'][:8]); print('SRC:',e['source']); print('TGT:',e['target'])\n\"",
+        "description": "Print all source/target pairs"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-025/INPUT.json'))\np=d['payload']\nfor e in p['bounded_context'][5:]:\n  c=json.loads(e['context']); se=c['source_evidence']\n  print('=====',e['revision_key'][:8],c['component'],c['section'],c['source_tag'],c.get('special'),se.get('public_path'),se.get('commit'),se.get('frozen_file'),se.get('matching_lines'))\n  for w in se.get('windows',[]): print(w['text'])\n  print('TERM',json.dumps(c['terminology'],ensure_ascii=False)[:1500])\n\"; grep -n '^## \\|^### ' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Show remaining contexts and contract outline"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section six"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs 2>/dev/null && grep -rn -i \"pillar\" --include=*.lua . | grep -i -E \"mindwall|crystal|name\" | head -20",
+        "description": "Look up Mindwall pillar definitions in Orcs DLC"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs; sed -n 135,175p tome-orcs/data/zones/internment-camp/npcs.lua",
+        "description": "Read Mindcontrol Pillar NPC definition"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

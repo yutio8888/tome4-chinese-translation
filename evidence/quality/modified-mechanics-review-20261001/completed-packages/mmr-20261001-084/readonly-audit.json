@@ -1,0 +1,55 @@
+{
+  "agent_id": "4aeebf87-056c-4620-8960-b81fe347c9e1",
+  "native_session": "800cddc0-6382-41e9-8fd8-2b282aee4ac5",
+  "native_log_sha256": "8c9265883a14ea8ed34d8f6963d74eee5827b975b9788699784f0f6e66a324d6",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "wc -c .ai/task/mmr-20261001-084/INPUT.json && cat .ai/task/mmr-20261001-084/INPUT.json | head -c 20000",
+        "description": "Read the frozen review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-084/INPUT.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print(b['revision_key'][:12], c['section'], c['source_tag'], c['source_evidence']['matching_lines'], c['terminology'])\n\"",
+        "description": "Summarize input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md | head -40",
+        "description": "List contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-084/INPUT.json'))\nfor b in d['payload']['bounded_context'][4:]:\n  c=json.loads(b['context']); \n  for w in c['source_evidence']['windows']: print(b['revision_key'][:8], c['source_evidence']['matching_lines']); print(w['text'][:3500]); print('----')\n\"",
+        "description": "Print source windows for remaining items"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section 6-7"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git grep -n -A12 \"TUTORIAL_PHYS_KB\\|short_name = \\\"TUTORIAL_PHYS_KB\\\"\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/talents | head -40",
+        "description": "Find tutorial Shove talent definition at pinned commit"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

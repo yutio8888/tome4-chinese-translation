@@ -1,0 +1,41 @@
+{
+  "agent_id": "a224d633-cf42-47f3-a325-9420fdb4df09",
+  "native_session": "0ca062e2-1e72-418a-aca1-0a189c2181ef",
+  "native_log_sha256": "9cb20188b2d5c19da2e7ec0ad25c23d04b91b9cd5edcf6430884edafda39569c",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-074/INPUT.json; echo; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read review input and contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "F=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/0ca062e2-1e72-418a-aca1-0a189c2181ef/tool-results/b6vflt1vy.txt; python3 -c \"\nimport json,sys\nd=json.loads(open('$F').read().split('\\n')[0])\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor c in p['bounded_context']:\n  x=json.loads(c['context']); se=x.get('source_evidence') or {}\n  print('CTX', {k:v for k,v in c.items() if k!='context'}, x['section'], x['source_tag'], se.get('matching_lines'), [ (w['start'],w['end']) for w in se.get('windows',[])])\n\"; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Summarize input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; F=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/0ca062e2-1e72-418a-aca1-0a189c2181ef/tool-results/b6vflt1vy.txt; python3 -c \"\nimport json\nd=json.loads(open('$F').read().split('\\n')[0])\nfor i,c in enumerate(d['payload']['bounded_context']):\n  if i<4: continue\n  x=json.loads(c['context']); se=x['source_evidence']\n  print('=====',i,se['public_path'], {k:v for k,v in x.items() if k not in('source_evidence',)})\n  for w in se['windows']: print(w['text'])\n\"",
+        "description": "Read contract section six and source windows"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "F=.artifacts/i18n/modified-mechanics-20261001/sources/tome/game/modules/tome/data; sed -n 40,46p $F/talents/techniques/techniques.lua; sed -n 84,92p $F/talents/techniques/techniques.lua; sed -n 165,178p $F/talents/uber/const.lua; cd /workspace/t-engine4 2>/dev/null; git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/mental.lua | grep -n -A25 'name = \"BATTLE_CRY\"'",
+        "description": "Read remaining source contexts and Battle Cry effect"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

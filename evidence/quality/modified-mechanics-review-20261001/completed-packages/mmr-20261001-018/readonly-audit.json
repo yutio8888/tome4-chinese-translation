@@ -1,0 +1,41 @@
+{
+  "agent_id": "78665bc8-c6b4-4b06-98af-9c2baea9c6c8",
+  "native_session": "aff48fa0-d521-42df-a408-f09684bc4767",
+  "native_log_sha256": "c33dcff9418e179e3355a4ddcf49e912895f32c7be7d8ebd77c76bc0a4515724",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmr-20261001-018/INPUT.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmr-20261001-018/INPUT.json",
+        "description": "Read review input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n '/^## 6/,$p' docs/paseo-translation-context-review-v2-contract.md | head -80; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-018/INPUT.json'));p=d['payload']\nprint(list(d.keys()),list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']: print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False))\n\"",
+        "description": "Read contract output section and input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-018/INPUT.json'));p=d['payload']\nfor t in p['translation_snapshot']: print('====',t['revision_key'][:8]);print(t['source']);print('---');print(t['target'])\n\"",
+        "description": "Show contract headings and all entries"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n '109,160p' docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-018/INPUT.json'));p=d['payload']\nfor b in p['bounded_context'][1:3]:\n  c=json.loads(b['context']); print(json.dumps(c,ensure_ascii=False)[:5000]); print('#####')\nfor b in p['bounded_context'][3:]:\n  c=json.loads(b['context']); c2={k:v for k,v in c.items() if k!='source_evidence'}; print(json.dumps(c2,ensure_ascii=False)[:1500]); se=c.get('source_evidence') or {}; print({k:v for k,v in se.items() if k!='windows'}); print('#####')\n\"",
+        "description": "Contract section 6 and contexts"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

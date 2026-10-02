@@ -1,0 +1,561 @@
+{
+  "task_id": "mmr-20261001-031",
+  "before_archive_attempts": 0,
+  "after_archive_attempts": 1,
+  "basis": {
+    "reason": "concurrent full-journal save dropped archive-intent fields; actual archive response and independent readback retained",
+    "basis": [
+      {
+        "op": "archive-response",
+        "path": ".artifacts/i18n/modified-mechanics-20261001/harvest/mmr-20261001-031/full-a1/wire/27ab81afca883598171c79d1d2bef579c7fa9debbc746a8abb37a4817a4b06be.json",
+        "sha256": "27ab81afca883598171c79d1d2bef579c7fa9debbc746a8abb37a4817a4b06be"
+      },
+      {
+        "op": "archive-confirm",
+        "path": ".artifacts/i18n/modified-mechanics-20261001/harvest/mmr-20261001-031/full-a1/wire/fa8811575498014d1dc9ddd2ca7266141a089da66f794ed2f6ab8acd3844362b.json",
+        "sha256": "fa8811575498014d1dc9ddd2ca7266141a089da66f794ed2f6ab8acd3844362b"
+      }
+    ],
+    "archive_count_restored": 1,
+    "archive_started_at": "not recovered; do not fabricate",
+    "resolved": true
+  },
+  "correction": "serialize journal-mutating scripts with reviewHost completion",
+  "archive_confirmed": true,
+  "before_record": {
+    "agent_id": "4a4cf6af-f0a6-432d-ad72-b277fb99a9dd",
+    "archive_attempts_started": 0,
+    "archive_confirmed": true,
+    "archive_confirmed_at": "2026-10-02T00:55:05.666560+00:00",
+    "archived_at": "2026-10-02T00:55:01.484Z",
+    "archived_capture": {
+      "snapshot": {
+        "archivedAt": "2026-10-02T00:55:01.484Z",
+        "attentionReason": null,
+        "attentionTimestamp": null,
+        "availableModes": [],
+        "capabilities": {
+          "supportsDynamicModes": false,
+          "supportsMcpServers": false,
+          "supportsReasoningStream": false,
+          "supportsRewindBoth": false,
+          "supportsRewindConversation": false,
+          "supportsRewindFiles": false,
+          "supportsSessionPersistence": true,
+          "supportsStreaming": false,
+          "supportsToolInvocations": true
+        },
+        "createdAt": "2026-10-02T00:52:59.489Z",
+        "currentModeId": "auto",
+        "cwd": "/workspace/tome4-chinese-translation",
+        "effectiveThinkingOptionId": "medium",
+        "id": "4a4cf6af-f0a6-432d-ad72-b277fb99a9dd",
+        "labels": {
+          "candidate_identity": "36794ec52e149499bc38d8b3b5bc1bef5dcf4772cc88fefeb1f6e0959848c491",
+          "dispatch_id": "full-a1",
+          "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef",
+          "purpose": "translation_contextual_v2",
+          "role": "reviewer",
+          "task_id": "mmr-20261001-031"
+        },
+        "lastUserMessageAt": "2026-10-02T00:53:00.532Z",
+        "model": "claude-opus-5-5",
+        "pendingPermissions": [],
+        "persistence": {
+          "metadata": {
+            "cwd": "/workspace/tome4-chinese-translation",
+            "featureValues": {
+              "fast_mode": false
+            },
+            "modeId": "auto",
+            "model": "claude-opus-5-5",
+            "provider": "claude",
+            "thinkingOptionId": "medium",
+            "title": "full-a1"
+          },
+          "nativeHandle": "3de97166-479b-4908-bf8c-8897e6047e7e",
+          "provider": "claude",
+          "sessionId": "3de97166-479b-4908-bf8c-8897e6047e7e"
+        },
+        "provider": "claude",
+        "requiresAttention": false,
+        "runtimeInfo": {
+          "extra": {
+            "runtimeModel": "claude-opus-5-5"
+          },
+          "modeId": "auto",
+          "model": "claude-opus-5-5",
+          "provider": "claude",
+          "sessionId": "3de97166-479b-4908-bf8c-8897e6047e7e"
+        },
+        "status": "closed",
+        "thinkingOptionId": "medium",
+        "title": "full-a1",
+        "updatedAt": "2026-10-02T00:55:01.484Z",
+        "workspaceId": "wks_420314270844170b"
+      },
+      "status": "closed"
+    },
+    "attempt": 1,
+    "author_provider_resolution": "not_applicable",
+    "candidate_author_agent_id": null,
+    "candidate_identity": "36794ec52e149499bc38d8b3b5bc1bef5dcf4772cc88fefeb1f6e0959848c491",
+    "create_attempts": [
+      {
+        "attempt": 1,
+        "mcp_parameters": {
+          "initialPrompt": "任务：审冻结 revision；仅报有据的语义/机制/术语/关系/跨条问题，否则 OK。\n输入：candidate_identity=36794ec52e149499bc38d8b3b5bc1bef5dcf4772cc88fefeb1f6e0959848c491；input_path=.ai/task/mmr-20261001-031/INPUT.json。只读；可读输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码，仅限输入指定位置；禁从 / 或无关目录全盘搜索，禁读其他 .ai/task/、.ai/reviews/、旧 finding、当前译文/术语库。\n输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；首{末}，无文字/围栏。",
+          "labels": {
+            "candidate_identity": "36794ec52e149499bc38d8b3b5bc1bef5dcf4772cc88fefeb1f6e0959848c491",
+            "dispatch_id": "full-a1",
+            "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef",
+            "purpose": "translation_contextual_v2",
+            "role": "reviewer",
+            "task_id": "mmr-20261001-031"
+          },
+          "notifyOnFinish": true,
+          "provider": "claude/claude-opus-5-5",
+          "settings": {
+            "features": {
+              "fast_mode": false
+            },
+            "modeId": "auto",
+            "thinkingOptionId": "medium"
+          },
+          "title": "full-a1",
+          "workspaceId": "wks_420314270844170b"
+        },
+        "profiles_path": ".artifacts/i18n/modified-mechanics-20261001/mmr-20261001-031-full-a1-create-1-profiles.json",
+        "profiles_sha256": "22d3e9f5ba6501e71a723e4c5d2fdecbfe025b5a9fdec3eee93e3cb7bb1ef294",
+        "started_at": "2026-10-02T00:52:56.614271+00:00"
+      }
+    ],
+    "create_attempts_started": 1,
+    "create_parameters": {
+      "cwd": "/workspace/tome4-chinese-translation",
+      "features": {
+        "fast_mode": false
+      },
+      "labels": {
+        "candidate_identity": "36794ec52e149499bc38d8b3b5bc1bef5dcf4772cc88fefeb1f6e0959848c491",
+        "dispatch_id": "full-a1",
+        "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef",
+        "purpose": "translation_contextual_v2",
+        "role": "reviewer",
+        "task_id": "mmr-20261001-031"
+      },
+      "modeId": "auto",
+      "prompt": "任务：审冻结 revision；仅报有据的语义/机制/术语/关系/跨条问题，否则 OK。\n输入：candidate_identity=36794ec52e149499bc38d8b3b5bc1bef5dcf4772cc88fefeb1f6e0959848c491；input_path=.ai/task/mmr-20261001-031/INPUT.json。只读；可读输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码，仅限输入指定位置；禁从 / 或无关目录全盘搜索，禁读其他 .ai/task/、.ai/reviews/、旧 finding、当前译文/术语库。\n输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；首{末}，无文字/围栏。",
+      "provider": "claude/claude-opus-5-5",
+      "thinkingOptionId": "medium",
+      "workspaceId": "wks_420314270844170b"
+    },
+    "create_prompt_sha256": "59bb7f3ff6f2c2ca1b06f9f920bbde680a376172d24d2628ea14753e9c4c63cf",
+    "create_started_at": "2026-10-02T00:52:56.614271+00:00",
+    "creation_transport": "mcp",
+    "cwd": "/workspace/tome4-chinese-translation",
+    "cycle": 0,
+    "dispatch_id": "full-a1",
+    "first_live_capture": {
+      "snapshot": {
+        "activeTurn": {
+          "startedAt": "2026-10-02T00:53:00.529Z",
+          "turnId": "foreground-turn-1"
+        },
+        "attentionReason": null,
+        "attentionTimestamp": null,
+        "availableModes": [
+          {
+            "description": "Analyze the codebase without executing tools or edits",
+            "id": "plan",
+            "label": "Plan Mode"
+          },
+          {
+            "description": "Prompts for permission the first time a tool is used",
+            "id": "default",
+            "label": "Always Ask"
+          },
+          {
+            "description": "Automatically approves edit-focused tools without prompting",
+            "id": "acceptEdits",
+            "label": "Accept File Edits"
+          },
+          {
+            "description": "Uses a model classifier to review permission prompts automatically",
+            "id": "auto",
+            "label": "Auto mode"
+          },
+          {
+            "description": "Skip all permission prompts (use with caution)",
+            "id": "bypassPermissions",
+            "label": "Bypass"
+          }
+        ],
+        "capabilities": {
+          "supportsDynamicModes": true,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsRewindBoth": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": true,
+          "supportsSessionListing": true,
+          "supportsSessionPersistence": true,
+          "supportsStreaming": true,
+          "supportsToolInvocations": true
+        },
+        "createdAt": "2026-10-02T00:52:59.489Z",
+        "currentModeId": "auto",
+        "cwd": "/workspace/tome4-chinese-translation",
+        "effectiveThinkingOptionId": "medium",
+        "features": [
+          {
+            "description": "Lower latency Opus responses at higher token cost",
+            "icon": "zap",
+            "id": "fast_mode",
+            "label": "Fast",
+            "tooltip": "Toggle fast mode",
+            "type": "toggle",
+            "value": false
+          }
+        ],
+        "id": "4a4cf6af-f0a6-432d-ad72-b277fb99a9dd",
+        "labels": {
+          "candidate_identity": "36794ec52e149499bc38d8b3b5bc1bef5dcf4772cc88fefeb1f6e0959848c491",
+          "dispatch_id": "full-a1",
+          "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef",
+          "purpose": "translation_contextual_v2",
+          "role": "reviewer",
+          "task_id": "mmr-20261001-031"
+        },
+        "lastUserMessageAt": "2026-10-02T00:53:00.532Z",
+        "model": "claude-opus-5-5",
+        "pendingPermissions": [],
+        "persistence": {
+          "metadata": {
+            "cwd": "/workspace/tome4-chinese-translation",
+            "featureValues": {
+              "fast_mode": false
+            },
+            "modeId": "auto",
+            "model": "claude-opus-5-5",
+            "provider": "claude",
+            "thinkingOptionId": "medium",
+            "title": "full-a1"
+          },
+          "nativeHandle": "3de97166-479b-4908-bf8c-8897e6047e7e",
+          "provider": "claude",
+          "sessionId": "3de97166-479b-4908-bf8c-8897e6047e7e"
+        },
+        "provider": "claude",
+        "requiresAttention": false,
+        "runtimeInfo": {
+          "modeId": "auto",
+          "model": null,
+          "provider": "claude",
+          "sessionId": null
+        },
+        "status": "running",
+        "thinkingOptionId": "medium",
+        "title": "full-a1",
+        "updatedAt": "2026-10-02T00:53:00.535Z",
+        "workspaceId": "wks_420314270844170b"
+      },
+      "status": "running"
+    },
+    "input_path": ".ai/task/mmr-20261001-031/INPUT.json",
+    "input_sha256": "8f677856fdecd70d00a130e8198cadf58e33ce16ae9a539ea97f38ac9c136221",
+    "labels": {
+      "candidate_identity": "36794ec52e149499bc38d8b3b5bc1bef5dcf4772cc88fefeb1f6e0959848c491",
+      "dispatch_id": "full-a1",
+      "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef",
+      "purpose": "translation_contextual_v2",
+      "role": "reviewer",
+      "task_id": "mmr-20261001-031"
+    },
+    "last_error": null,
+    "lifecycle": "archived",
+    "lineage_verified": true,
+    "live_observation_source": "mcp_status_capture",
+    "native_provenance": {
+      "agent_id": "4a4cf6af-f0a6-432d-ad72-b277fb99a9dd",
+      "ai_title_present": false,
+      "complete_line": 69,
+      "completion_basis": "natural_success",
+      "cwd": "/workspace/tome4-chinese-translation",
+      "final_line": 69,
+      "first_live_capture_sha256": "3a38b7cb214dc9e416f20c3ec4b4079b7a91c9b192964f270c3f029d4e38c910",
+      "input_sha256": "8f677856fdecd70d00a130e8198cadf58e33ce16ae9a539ea97f38ac9c136221",
+      "key": "mmr-20261001-031|full-a1",
+      "labels": {
+        "candidate_identity": "36794ec52e149499bc38d8b3b5bc1bef5dcf4772cc88fefeb1f6e0959848c491",
+        "dispatch_id": "full-a1",
+        "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef",
+        "purpose": "translation_contextual_v2",
+        "role": "reviewer",
+        "task_id": "mmr-20261001-031"
+      },
+      "last_prompt_present": false,
+      "leaf_uuid": "aefc70c7-4ad6-454c-81c7-e1e5790f8148",
+      "message_id": "msg_011CfcVndJ5i6nDfXGfLGr7k",
+      "message_uuid": "aefc70c7-4ad6-454c-81c7-e1e5790f8148",
+      "parent_agent_id": "1b48d069-ca8b-4271-af61-d8205661e5ef",
+      "parent_uuid": "39fb9977-62be-4d50-8195-4a89e940a7ef",
+      "prompt_line": 3,
+      "prompt_sha256": "59bb7f3ff6f2c2ca1b06f9f920bbde680a376172d24d2628ea14753e9c4c63cf",
+      "provider": "claude",
+      "raw_bytes": 1793,
+      "raw_sha256": "61d6f4de6fd2c99a02e01d9f953b862dd0683ae4a7ce796fdf41e485b96d7dbf",
+      "schema_version": 1,
+      "session_id": "3de97166-479b-4908-bf8c-8897e6047e7e",
+      "source_bytes": 440047,
+      "source_lines": 69,
+      "source_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/3de97166-479b-4908-bf8c-8897e6047e7e.jsonl",
+      "source_sha256": "79950d03e0c37595088a57c3ad1bdd4a997e615b48cdaceea0ba9fbb941b2246",
+      "terminal_capture_sha256": "c3e82b8f567fad3114b0ab9cb407ddc85515d88ed2b16eb90984cd7642f2834a",
+      "version": "2.1.284",
+      "workspace_id": "wks_420314270844170b"
+    },
+    "native_raw_path": "/workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-20261001/harvest/native/mmr-20261001-031/full-a1/terminal.raw",
+    "notification_received_at": "2026-10-02T00:54:51.258Z",
+    "output_valid": true,
+    "parent_agent_id": "1b48d069-ca8b-4271-af61-d8205661e5ef",
+    "prepared_at": "2026-10-02T00:16:14.340143+00:00",
+    "profiles_sha256": "22d3e9f5ba6501e71a723e4c5d2fdecbfe025b5a9fdec3eee93e3cb7bb1ef294",
+    "purpose": "translation_contextual_v2",
+    "raw_output_path": ".artifacts/i18n/modified-mechanics-20261001/harvest/raw/mmr-20261001-031/full-a1.raw",
+    "raw_output_sha256": "61d6f4de6fd2c99a02e01d9f953b862dd0683ae4a7ce796fdf41e485b96d7dbf",
+    "review_kind": "full",
+    "role": "REVIEWER",
+    "runtime_observation": {
+      "capture_status": "captured",
+      "captured_at": "2026-10-02T00:53:03.893409+00:00",
+      "mode": {
+        "presence": "present",
+        "value": "auto"
+      },
+      "model": {
+        "presence": "present",
+        "value": "claude-opus-5-5"
+      },
+      "provider": {
+        "presence": "present",
+        "value": "claude"
+      },
+      "schema_version": 1,
+      "source": "live_agent_metadata",
+      "thinking": {
+        "presence": "present",
+        "value": "medium"
+      }
+    },
+    "status": "dispatched",
+    "task_id": "mmr-20261001-031",
+    "terminal_capture": {
+      "snapshot": {
+        "activeTurn": null,
+        "attentionReason": "finished",
+        "attentionTimestamp": "2026-10-02T00:53:56.829Z",
+        "availableModes": [
+          {
+            "description": "Analyze the codebase without executing tools or edits",
+            "id": "plan",
+            "label": "Plan Mode"
+          },
+          {
+            "description": "Prompts for permission the first time a tool is used",
+            "id": "default",
+            "label": "Always Ask"
+          },
+          {
+            "description": "Automatically approves edit-focused tools without prompting",
+            "id": "acceptEdits",
+            "label": "Accept File Edits"
+          },
+          {
+            "description": "Uses a model classifier to review permission prompts automatically",
+            "id": "auto",
+            "label": "Auto mode"
+          },
+          {
+            "description": "Skip all permission prompts (use with caution)",
+            "id": "bypassPermissions",
+            "label": "Bypass"
+          }
+        ],
+        "capabilities": {
+          "supportsDynamicModes": true,
+          "supportsMcpServers": true,
+          "supportsReasoningStream": true,
+          "supportsRewindBoth": true,
+          "supportsRewindConversation": true,
+          "supportsRewindFiles": true,
+          "supportsSessionListing": true,
+          "supportsSessionPersistence": true,
+          "supportsStreaming": true,
+          "supportsToolInvocations": true
+        },
+        "createdAt": "2026-10-02T00:52:59.489Z",
+        "currentModeId": "auto",
+        "cwd": "/workspace/tome4-chinese-translation",
+        "effectiveThinkingOptionId": "medium",
+        "features": [
+          {
+            "description": "Lower latency Opus responses at higher token cost",
+            "icon": "zap",
+            "id": "fast_mode",
+            "label": "Fast",
+            "tooltip": "Toggle fast mode",
+            "type": "toggle",
+            "value": false
+          }
+        ],
+        "id": "4a4cf6af-f0a6-432d-ad72-b277fb99a9dd",
+        "labels": {
+          "candidate_identity": "36794ec52e149499bc38d8b3b5bc1bef5dcf4772cc88fefeb1f6e0959848c491",
+          "dispatch_id": "full-a1",
+          "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef",
+          "purpose": "translation_contextual_v2",
+          "role": "reviewer",
+          "task_id": "mmr-20261001-031"
+        },
+        "lastUsage": {
+          "cachedInputTokens": 455305,
+          "contextWindowMaxTokens": 1000000,
+          "contextWindowUsedTokens": 70939,
+          "inputTokens": 18,
+          "outputTokens": 4651,
+          "totalCostUsd": 0.6363849999999999
+        },
+        "lastUserMessageAt": "2026-10-02T00:53:00.532Z",
+        "model": "claude-opus-5-5",
+        "pendingPermissions": [],
+        "persistence": {
+          "metadata": {
+            "cwd": "/workspace/tome4-chinese-translation",
+            "featureValues": {
+              "fast_mode": false
+            },
+            "modeId": "auto",
+            "model": "claude-opus-5-5",
+            "provider": "claude",
+            "thinkingOptionId": "medium",
+            "title": "full-a1"
+          },
+          "nativeHandle": "3de97166-479b-4908-bf8c-8897e6047e7e",
+          "provider": "claude",
+          "sessionId": "3de97166-479b-4908-bf8c-8897e6047e7e"
+        },
+        "provider": "claude",
+        "requiresAttention": true,
+        "runtimeInfo": {
+          "extra": {
+            "runtimeModel": "claude-opus-5-5"
+          },
+          "modeId": "auto",
+          "model": "claude-opus-5-5",
+          "provider": "claude",
+          "sessionId": "3de97166-479b-4908-bf8c-8897e6047e7e"
+        },
+        "status": "idle",
+        "thinkingOptionId": "medium",
+        "title": "full-a1",
+        "updatedAt": "2026-10-02T00:53:57.009Z",
+        "workspaceId": "wks_420314270844170b"
+      },
+      "status": "idle"
+    },
+    "terminal_observed_at": "2026-10-02T00:54:54.899354+00:00",
+    "timing": [
+      {
+        "category": "tool_call",
+        "ended_at": "2026-10-02T00:52:56.304Z",
+        "operation": "profiles",
+        "started_at": "2026-10-02T00:52:53.232Z",
+        "wire_sha256": "22d3e9f5ba6501e71a723e4c5d2fdecbfe025b5a9fdec3eee93e3cb7bb1ef294"
+      },
+      {
+        "category": "tool_call",
+        "ended_at": "2026-10-02T00:53:00.533Z",
+        "operation": "create",
+        "started_at": "2026-10-02T00:52:56.858Z",
+        "wire_sha256": "a98b0742956d300d5fea42480060cdf257644b2ad01ae7068803b39518bd1b67"
+      },
+      {
+        "category": "tool_call",
+        "ended_at": "2026-10-02T00:53:03.595Z",
+        "operation": "bind",
+        "started_at": "2026-10-02T00:53:01.058Z",
+        "wire_sha256": "b738d5eaf112a34c9a2c27565997336a64b236805a8396b2358da7fe2004a72b"
+      },
+      {
+        "category": "tool_call",
+        "ended_at": "2026-10-02T00:54:54.264Z",
+        "operation": "harvest",
+        "started_at": "2026-10-02T00:54:51.459Z",
+        "wire_sha256": "d8af28573a79c642ecd21d04e25ca146094b9e95ee9cd3da3c7b6af0804709f0"
+      },
+      {
+        "category": "tool_call",
+        "elapsed_s": 0.11133264499949291,
+        "ended_at": "2026-10-02T00:54:54.676353+00:00",
+        "operation": "native_read",
+        "started_at": "2026-10-02T00:54:54.565024+00:00"
+      },
+      {
+        "category": "harvest_validation",
+        "elapsed_s": 0.11199395800940692,
+        "ended_at": "2026-10-02T00:54:55.011357+00:00",
+        "operation": "strict_result",
+        "started_at": "2026-10-02T00:54:54.899367+00:00"
+      },
+      {
+        "category": "tool_call",
+        "ended_at": "2026-10-02T00:55:02.016Z",
+        "operation": "archive-response",
+        "started_at": "2026-10-02T00:54:58.505Z",
+        "wire_sha256": "27ab81afca883598171c79d1d2bef579c7fa9debbc746a8abb37a4817a4b06be"
+      },
+      {
+        "category": "tool_call",
+        "ended_at": "2026-10-02T00:55:05.387Z",
+        "operation": "archive-confirm",
+        "started_at": "2026-10-02T00:55:02.295Z",
+        "wire_sha256": "fa8811575498014d1dc9ddd2ca7266141a089da66f794ed2f6ab8acd3844362b"
+      }
+    ],
+    "validation_state": "completed",
+    "wire_events": [
+      {
+        "op": "profiles",
+        "path": ".artifacts/i18n/modified-mechanics-20261001/harvest/mmr-20261001-031/full-a1/wire/22d3e9f5ba6501e71a723e4c5d2fdecbfe025b5a9fdec3eee93e3cb7bb1ef294.json",
+        "sha256": "22d3e9f5ba6501e71a723e4c5d2fdecbfe025b5a9fdec3eee93e3cb7bb1ef294"
+      },
+      {
+        "op": "create",
+        "path": ".artifacts/i18n/modified-mechanics-20261001/harvest/mmr-20261001-031/full-a1/wire/a98b0742956d300d5fea42480060cdf257644b2ad01ae7068803b39518bd1b67.json",
+        "sha256": "a98b0742956d300d5fea42480060cdf257644b2ad01ae7068803b39518bd1b67"
+      },
+      {
+        "op": "bind",
+        "path": ".artifacts/i18n/modified-mechanics-20261001/harvest/mmr-20261001-031/full-a1/wire/b738d5eaf112a34c9a2c27565997336a64b236805a8396b2358da7fe2004a72b.json",
+        "sha256": "b738d5eaf112a34c9a2c27565997336a64b236805a8396b2358da7fe2004a72b"
+      },
+      {
+        "op": "harvest",
+        "path": ".artifacts/i18n/modified-mechanics-20261001/harvest/mmr-20261001-031/full-a1/wire/d8af28573a79c642ecd21d04e25ca146094b9e95ee9cd3da3c7b6af0804709f0.json",
+        "sha256": "d8af28573a79c642ecd21d04e25ca146094b9e95ee9cd3da3c7b6af0804709f0"
+      },
+      {
+        "op": "archive-response",
+        "path": ".artifacts/i18n/modified-mechanics-20261001/harvest/mmr-20261001-031/full-a1/wire/27ab81afca883598171c79d1d2bef579c7fa9debbc746a8abb37a4817a4b06be.json",
+        "sha256": "27ab81afca883598171c79d1d2bef579c7fa9debbc746a8abb37a4817a4b06be"
+      },
+      {
+        "op": "archive-confirm",
+        "path": ".artifacts/i18n/modified-mechanics-20261001/harvest/mmr-20261001-031/full-a1/wire/fa8811575498014d1dc9ddd2ca7266141a089da66f794ed2f6ab8acd3844362b.json",
+        "sha256": "fa8811575498014d1dc9ddd2ca7266141a089da66f794ed2f6ab8acd3844362b"
+      }
+    ],
+    "workspace_id": "wks_420314270844170b"
+  }
+}

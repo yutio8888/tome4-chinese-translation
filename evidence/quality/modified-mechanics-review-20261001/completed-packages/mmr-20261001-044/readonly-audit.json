@@ -1,0 +1,31 @@
+{
+  "agent_id": "6d9ef496-4f26-4cc3-941e-a73beebe3607",
+  "native_session": "d8329c34-661c-46a7-b935-6c40eeb901c3",
+  "native_log_sha256": "7848c06f4807c560e10c7017639faa07b97e1432bf495ef0cb95be9162153bb8",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-044/INPUT.json; echo; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-044/INPUT.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nfor b in p['bounded_context']:\n    c=json.loads(b['context']) if isinstance(b.get('context'),str) else b\n    print('---', {k:v for k,v in b.items() if k!='context'})\n    print({k:v for k,v in c.items() if k!='source_evidence'})\n    se=c.get('source_evidence') or {}\n    print(se.get('public_path'), se.get('matching_lines'))\nEOF\nsed -n '/^## 六/,/^## 七/p' docs/paseo-translation-context-review-v2-contract.md | head -80"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-20261001/sources/tome/game/modules/tome; sed -n 36,46p $F/data/achievements/events.lua; sed -n 128,137p $F/data/achievements/kills.lua; sed -n 262,275p $F/data/achievements/kills.lua; sed -n 102,112p $F/data/achievements/quests.lua"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

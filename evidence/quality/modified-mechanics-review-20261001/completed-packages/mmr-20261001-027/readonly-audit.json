@@ -1,0 +1,48 @@
+{
+  "agent_id": "c3605aea-f486-4808-b690-917b9c2b104b",
+  "native_session": "7983222e-943c-4800-836c-744162f9f76f",
+  "native_log_sha256": "60276a28bd4c2c5c8da97d6971dae8efa629242d76ec559769a49c452dd90bbb",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-027/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-027/INPUT.json",
+        "description": "Read review input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-027/INPUT.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context']:\n    c=json.loads(b['context'])\n    print('---',b['revision_key'][:12], c['section'])\n    for w in c['source_evidence']['windows']:\n        if w['start']>=121: print(w['text'][-3500:])\nEOF",
+        "description": "Dump input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md; awk '/^## *(六|6)/,/^## *(七|7)/' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract output section"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-027/INPUT.json'))\nfor b in d['payload']['bounded_context']:\n    if b['revision_key'][:4] in ('8639','1b08','9a2f','8a9b'):\n        c=json.loads(b['context'])\n        print('---',b['revision_key'][:12], c['section'], c.get('special'), c['source_tag'], c['terminology'])\n        for w in c['source_evidence']['windows']: print(w['text'])\nEOF",
+        "description": "Print remaining source windows"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs 2>/dev/null && grep -rn -A30 'name = \"EXPLOSIVE_WOUND\"\\|name = \"TECH_OVERLOAD\"' --include=*.lua . | head -90; cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | grep -n -B2 -A12 'projectile_evasion' | head -50",
+        "description": "Check effect and evasion mechanics"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

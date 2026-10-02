@@ -1,0 +1,55 @@
+{
+  "agent_id": "3096236d-8839-4a94-a94d-33f766cf4ccb",
+  "native_session": "0b398be0-9581-473a-b033-1be67453b549",
+  "native_log_sha256": "06c35365c34a0abf0c597a9718ff3fb067d7d5d14d85d2cc914a031809b5c1bf",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-012/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-012/INPUT.json",
+        "description": "Read review input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-012/INPUT.json'))\np=d['payload']\nprint([k for k in d]); print([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor c in p['bounded_context']:\n  ctx=json.loads(c['context']); print('==',c['revision_key'][:12], ctx['section'], ctx['source_evidence']['matching_lines'], json.dumps(ctx['terminology'],ensure_ascii=False)[:800])\n\"",
+        "description": "Summarize input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; awk '/^## *六|^## *6/{f=1} f' docs/paseo-translation-context-review-v2-contract.md | head -80",
+        "description": "Read contract section 6"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-012/INPUT.json'))\np=d['payload']\nfor t in p['translation_snapshot'][4:]:\n  print('##',t['revision_key'][:8]); print('S:',t['source']); print('T:',t['target'])\nfor c in p['bounded_context'][3:]:\n  ctx=json.loads(c['context'])\n  for w in ctx['source_evidence']['windows']:\n    txt=w['text'].split('\\n')\n    print('=====',c['revision_key'][:8]); \n    # print relevant tail\n    print('\\n'.join(txt[-60:]) if len(txt)>60 else w['text'])\n\"",
+        "description": "Show remaining entries and sources"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults 2>/dev/null && pwd && grep -rn \"SEVERED_THREADS\\|HORRIFIC_DISPLAY\\|TEMPORAL_FEAST\" --include=*.lua . | head -30",
+        "description": "Locate related implementations in cults DLC"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults; sha256sum tome-cults/data/talents/demented/chronophage.lua; sed -n 60,110p tome-cults/data/talents/demented/chronophage.lua; sed -n 485,530p tome-cults/data/timed_effects.lua; sed -n 1245,1275p tome-cults/data/timed_effects.lua",
+        "description": "Read atrophy and effect implementations"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

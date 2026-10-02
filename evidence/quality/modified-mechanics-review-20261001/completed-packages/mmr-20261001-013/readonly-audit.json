@@ -1,0 +1,48 @@
+{
+  "agent_id": "26acb1f8-efb8-4606-9113-3c385d106076",
+  "native_session": "378c92b4-2caa-414f-8541-f65539edbeb0",
+  "native_log_sha256": "1163f56fe883bc552cea935761044907ad076320e4799f9339335b492ea8184c",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmr-20261001-013/INPUT.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmr-20261001-013/INPUT.json | head -c 20000",
+        "description": "Read review input and contract size"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-013/INPUT.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor c in p['bounded_context']:\n    cc=json.loads(c['context']); print(c['revision_key'], cc['source_evidence']['matching_lines'], cc['section'], cc['terminology'])\nEOF",
+        "description": "Summarize input payload"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-013/INPUT.json'))\nfor c in d['payload']['bounded_context'][4:]:\n    cc=json.loads(c['context'])\n    for w in cc['source_evidence']['windows']: print(w['text'])\n    print('=====')\nEOF",
+        "description": "Read contract and remaining source windows"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/378c92b4-2caa-414f-8541-f65539edbeb0/tool-results/bp0e64nn0.txt | sed -n '1,400p' | cut -c1-3000 | tail -n +30",
+        "description": "View remaining contract and sources"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-013/INPUT.json'))\nfor c in d['payload']['bounded_context'][7:]:\n    cc=json.loads(c['context'])\n    for w in cc['source_evidence']['windows']: print(w['text'][-6000:])\n    print('=====')\nEOF",
+        "description": "Show last three source windows"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

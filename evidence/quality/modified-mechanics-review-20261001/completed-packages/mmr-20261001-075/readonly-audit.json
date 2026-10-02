@@ -1,0 +1,118 @@
+{
+  "agent_id": "3a8ef942-408c-4990-afec-588376667f18",
+  "native_session": "fabeb861-483f-476e-a690-118f11cda7cf",
+  "native_log_sha256": "67010cdc8febc9ce917c18407bb14c591e430acbb9c15602aa419ea476bf0043",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-075/INPUT.json; echo; grep -n '^## ' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read review input and contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-075/INPUT.json'))\ndef show(o,p=''):\n    if isinstance(o,dict):\n        for k,v in o.items(): show(v,p+'.'+k)\n    elif isinstance(o,list):\n        print(p,'list',len(o))\n        if o and not isinstance(o[0],(dict,list)): print('  ',o[:5])\n    else:\n        s=str(o); print(p, s[:300])\np=d['payload']\nfor k,v in p.items():\n    if k!='bounded_context': show(v,k)\nprint(len(p['bounded_context']))\nEOF\ngrep -n '^#' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Summarize input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-075/INPUT.json'))\np=d['payload']\nprint(json.dumps(p['translation_snapshot'][0],ensure_ascii=False)[:1500])\nprint(p['terminology_snapshot'].keys() if isinstance(p['terminology_snapshot'],dict) else '')\nEOF",
+        "description": "Read contract section six and sample"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-075/INPUT.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    c=json.loads(b['context'])\n    se=c.get('source_evidence',{})\n    print('=====',i,t['revision_key'][:8], c['section'], c['source_tag'], se.get('public_path'), se.get('matching_lines'))\n    print('SRC:',t['source']); print('TGT:',t['target'])\n    print('keys:',[k for k in c.keys()], [k for k in b.keys()])\nEOF",
+        "description": "Print all source/target pairs"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-075/INPUT.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n    c=json.loads(b['context'])\n    print('=====',i)\n    print('TERM:',json.dumps(c['terminology'],ensure_ascii=False)[:3000])\n    print('RB:',json.dumps(c['read_boundary'],ensure_ascii=False)[:400], c['special'])\nEOF",
+        "description": "Print terminology per item"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; B=game/modules/tome/data/talents\ngit show $C:$B/uber/str.lua | sed -n 250,320p | grep -n -i -E 'irresist|gravit|resist|drawn|pull|range|radius' ; echo ---\ngit grep -n -i -E 'resists.*= *0|irresistible' $C -- $B/celestial/sun.lua game/modules/tome/data/timed_effects/magical.lua | head -20; echo ---\ngit show $C:$B/uber/mag.lua | sed -n 440,510p | grep -n -i -E 'cloth|resist|archmage|beam'",
+        "description": "Check Distant Sun and Thaumaturgy source"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/modules/tome/data/timed_effects/magical.lua | sed -n 2828,2862p; echo ----\ngit grep -n -i -E 'elemental array burst|ELEMENTAL_ARRAY' $C -- game/modules/tome/data/talents | head; ",
+        "description": "Irresistible Sun effect and Elemental Array Burst"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/modules/tome/data/talents/spells/thaumaturgy.lua | sed -n 223,300p; echo ---\ngit show $C:game/modules/tome/data/timed_effects/magical.lua | grep -n -A22 'name = \"WEIGHT_OF_THE_SUN\"' | grep -n -i resist",
+        "description": "Elemental Array Burst and Weight of the Sun"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit grep -n 'GRAVITIC_EFFULGENCE\\|Gravitic Effulgence\\|gravitic_effulgence' $C -- game/modules/tome | head; ",
+        "description": "Locate Gravitic Effulgence implementation"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit grep -n -i 'gravitic' $C -- 'game/modules/tome/data/talents/*' 'game/modules/tome/class/*' | head; git show $C:game/modules/tome/data/talents/celestial/combat.lua | grep -n -B3 -A25 'Gravitic\\|GRAVITIC' | sed -n 1,60p",
+        "description": "Find Gravitic Effulgence code"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/modules/tome/data/talents/uber/mag.lua | sed -n 180,262p",
+        "description": "Blighted Summoning implementation"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/modules/tome/data/talents/uber/cun.lua | sed -n 255,340p | grep -n -E 'setEffect|threshold|getThreshold|getDamage|radius|10|turn' | head -40",
+        "description": "Elemental Surge implementation"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/modules/tome/data/talents/uber/wil.lua | sed -n 300,388p | grep -n -i -E 'celestial/|technique|unlearn|hate|stamina|forget|shield-offense|2hweapon|cursed/' | head -40",
+        "description": "Fallen evolution implementation"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/modules/tome/data/talents/undeads/ghoul.lua | sed -n 55,90p | grep -n -E 'setEffect|speed'; git show $C:game/modules/tome/data/talents/undeads/ghoul.lua | sed -n 200,250p | grep -n -E 'setEffect|percent|canBe|GHOUL|talents|summon_time'",
+        "description": "Ghoul leap and gnaw mechanics"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-075/INPUT.json'))\nprint(json.dumps({'contract':'translation_contextual_v2','candidate_identity':d['candidate_identity'],'verdicts':[{'revision_key':k,'verdict':'OK'} for k in d['payload']['ordered_revision_keys']]},separators=(',',':')))\"",
+        "description": "Build compact verdict JSON"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

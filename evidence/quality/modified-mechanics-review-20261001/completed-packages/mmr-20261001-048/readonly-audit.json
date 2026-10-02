@@ -1,0 +1,34 @@
+{
+  "agent_id": "a702febf-9933-4671-9a80-33c3c166ec90",
+  "native_session": "d9809cde-8337-453b-8958-408a4bec863e",
+  "native_log_sha256": "d041e043132850b20cd7f18f2b7d5690e91dbac1b1db1698d77eaa4983accf0e",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmr-20261001-048/INPUT.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmr-20261001-048/INPUT.json",
+        "description": "Read review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-048/INPUT.json'))\np=d['payload']\nprint(list(d.keys()),list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False))\n\"",
+        "description": "Read contract and input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-048/INPUT.json'))\nfor i,b in enumerate(d['payload']['bounded_context']):\n  c=json.loads(b['context'])\n  se=c.pop('source_evidence',None)\n  print('=====',i, json.dumps(c,ensure_ascii=False)[:2500])\n  if se:\n    print('path',se.get('public_path'),se.get('matching_lines'))\n    for w in se.get('windows',[]):\n      lines=w['text'].split('\\n'); m=se['matching_lines'][0]\n      for l in lines:\n        try: n=int(l.split(':')[0])\n        except: continue\n        if abs(n-m)<=12: print(l)\n\"",
+        "description": "Print contexts"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

@@ -1,0 +1,55 @@
+{
+  "agent_id": "697a70ee-d589-44f8-beee-e30b7284b7b9",
+  "native_session": "a412be17-7ad6-4839-955c-b54f71508e1b",
+  "native_log_sha256": "1a9ab7cc4a0a5689e64fbefa82d192679f0630558dfc44ef8ed208901bf1f415",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "wc -c .ai/task/mmr-20261001-071/INPUT.json && cat .ai/task/mmr-20261001-071/INPUT.json | head -c 20000",
+        "description": "Read frozen review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-071/INPUT.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context'][4:]:\n  c=json.loads(b['context']); print('====',b['revision_key'][:12],c['section'],c['source_tag'])\n  for w in c['source_evidence']['windows'][:1]: print(w['text'])\n  print('TERM',c['terminology'], c['special'])\n\"",
+        "description": "Dump remaining input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md | head -40",
+        "description": "List contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section six"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n -A22 'name = \"LIGHTNING_DAZE\"\\|\"LIGHTNING_DAZE\"' | head -40; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | grep -n -B2 -A30 'name = \"TIME_SHIELD\"' | grep -n 'dot_dur\\|heal\\|time_reducer\\|regen\\|deactivate\\|power' | head -30",
+        "description": "Check LIGHTNING_DAZE and TIME_SHIELD source"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n 'burning_wake' $C -- game/modules/tome | head; git show $C:game/modules/tome/data/talents/spells/fire.lua | grep -n -B2 -A3 'burning_wake' | head -60",
+        "description": "Trace burning_wake usage"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

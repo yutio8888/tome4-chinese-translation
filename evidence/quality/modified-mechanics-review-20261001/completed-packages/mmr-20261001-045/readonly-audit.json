@@ -1,0 +1,31 @@
+{
+  "agent_id": "5b2ea55f-99c3-4f28-be56-7ec0b8b6fd4e",
+  "native_session": "b54a4ec8-df98-4c7d-b1b9-696f151c14e3",
+  "native_log_sha256": "f049cce6c3503cab8965527d0bf7a031ae78097f55b842b00d716284da8b6c7c",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-045/INPUT.json | head -c 20000; echo; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-045/INPUT.json'))\np=d['payload']\nprint([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); se=c['source_evidence']\n  print(b['revision_key'][:12], se['matching_lines'], json.dumps(c['terminology'],ensure_ascii=False)[:600], c['special'])\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-045/INPUT.json'))\nfor b in d['payload']['bounded_context'][5:]:\n  c=json.loads(b['context']); se=c['source_evidence']; L=se['matching_lines'][0]\n  print(c['section'])\n  for w in se['windows']:\n    for ln in w['text'].split('\\n'):\n      n=int(ln.split(':')[0])\n      if abs(n-L)<=6: print(ln)\n\""
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

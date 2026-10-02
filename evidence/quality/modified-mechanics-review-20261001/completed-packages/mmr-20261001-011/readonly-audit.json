@@ -1,0 +1,55 @@
+{
+  "agent_id": "3886ce8a-2a08-4d75-b20d-cf6d53684939",
+  "native_session": "84c6ea52-84f7-4689-8a79-05cc7e40b99f",
+  "native_log_sha256": "5f45f6d3f79b1fe2705c1d294e7546f5bb3352527af9afe6b9491fda4d97c5fc",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-011/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-011/INPUT.json"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-011/INPUT.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print(b['revision_key'], c['section'], c['source_evidence']['matching_lines'], c.get('terminology'))\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; awk '/^## *六|^## 6/{f=1} f' docs/paseo-translation-context-review-v2-contract.md | head -80"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-011/INPUT.json'))\nfor b in d['payload']['bounded_context'][5:]:\n  c=json.loads(b['context']); \n  for w in c['source_evidence']['windows']: print('=====',c['section'],c['source_evidence']['matching_lines']); print(w['text'])\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults 2>/dev/null && pwd && grep -n \"name = \\\"JINX\\\"\" -A60 data/timed_effects/*.lua | head -90"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults && ls; grep -rn 'name = \"JINX\"' --include=*.lua . | head; grep -rn 'name = \"REALITY_FRACTURE\"\\|name = \"Reality Fracture\"' --include=*.lua . | head"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults/tome-cults/data && sed -n 1505,1575p timed_effects.lua; sed -n 20,80p talents/demented/rift.lua"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

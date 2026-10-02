@@ -1,0 +1,48 @@
+{
+  "agent_id": "fc381a30-c532-42dc-a211-d4ea288108fd",
+  "native_session": "ed03d2b3-a043-4260-8ecc-508c1b1170fb",
+  "native_log_sha256": "4e648b1f4bc28ca85150631068950de0f085c4fa62fec1d161b550c05f39df2a",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmr-20261001-002/INPUT.json docs/paseo-translation-context-review-v2-contract.md; head -c 6000 .ai/task/mmr-20261001-002/INPUT.json",
+        "description": "Inspect review input and contract sizes"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-002/INPUT.json'))\np=d['payload']\nprint([k for k in d]); print([k for k in p])\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nEOF",
+        "description": "Read contract and input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-002/INPUT.json'))\np=d['payload']\nfor t,b in zip(p['translation_snapshot'],p['bounded_context']):\n    print('=====',t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\n    c=json.loads(b['context'])\n    se=c.get('source_evidence',{})\n    print('sec',c.get('section'),'tag',c.get('source_tag'),'special',c.get('special'),'lines',se.get('matching_lines'),'file',se.get('frozen_file'))\n    print('TERM',json.dumps(c.get('terminology'),ensure_ascii=False))\n    for k in c:\n        if k not in ('component','section','source_tag','special','source_evidence','terminology','read_boundary'): print('EXTRA',k,json.dumps(c[k],ensure_ascii=False)[:2000])\nEOF",
+        "description": "Print each entry with source and target"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-002/INPUT.json'))\np=d['payload']\nfor t,b in list(zip(p['translation_snapshot'],p['bounded_context']))[1:9]:\n    c=json.loads(b['context'])\n    se=c['source_evidence']; ml=se['matching_lines']\n    print('=====',t['source'])\n    for w in se['windows']:\n        for line in w['text'].split('\\n'):\n            n=int(line.split(':')[0])\n            if abs(n-ml[0])<=12: print(line)\nEOF",
+        "description": "Show source windows near matching lines"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 46,80p .artifacts/i18n/modified-mechanics-20261001/sources/ashes-urhrok/tome-ashes-urhrok/data/general/grids/demon_statues.lua",
+        "description": "Read statue name consumer"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

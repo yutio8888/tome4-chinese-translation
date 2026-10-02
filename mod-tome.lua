@@ -28428,7 +28428,7 @@ t([[Press your advantage when your foes are starting to crumble.
 		And so on...
 		Damage increases with your Spellpower.
 		]], [[利用敌人的痛楚打击敌人。
-		目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）。
+		目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每项既有负面效果使本技能的减速持续时间增加 1 回合（最多 %d 回合）。
 		伤害加成的收益衰减如下面所示：
 		- 2 个效果： %0.2f 伤害
 		- 5 个效果： %0.2f 伤害

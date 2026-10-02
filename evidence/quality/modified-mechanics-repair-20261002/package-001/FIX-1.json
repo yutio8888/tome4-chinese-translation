@@ -1,0 +1,21 @@
+{
+  "finding": {
+    "finding_id": "UPSTREAM118",
+    "status": "confirmed",
+    "source_path": "tome-cults/superload/mod/class/interface/Combat.lua",
+    "sha256": "286287389763a7390b141216378c81c762124043deef6bff45b479470d01cf60",
+    "lines": [
+      52,
+      54
+    ],
+    "reason": "原独立ISSUE与源码均证明每turn一次且reaction<=0，非任意每次触手攻击；属于已授权169claims中的旧问题，同一冻结条目合并当前包。",
+    "counterevidence": "旧英文Each time及旧新中文都没有限制，但固定消费者turn_procs是实际结算限制。",
+    "automatic_fix_authorized": true
+  },
+  "current_target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s",
+  "source": "Your left hand mutates into a disgusting mass of tentacles.\n\t\tWhen you have your offhand empty you automatically hit your target and those on the side whenever you hit with a basic attack.\n\t\tAlso increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.\n\t\tEach time you make an attack with your tentacle you gain %d insanity.\n\t\tYou generate a low power psionic field around you when around #{italic}#'civilized people'#{normal}# that prevents them from seeing you for the horror you are.\n\n\t\tYour tentacle hand currently has these stats%s:\n\t\t%s",
+  "entry_change_id": "d57dfc79b9a95c3f841df81fc91479193efd45d31175624b18197366e509c2b0",
+  "preimage_sha256": "066a38958b776338982f64ae7572b3fdaefe4af7ade7d3f71696a13a96c5243c",
+  "suggested_text": "每回合首次以触手攻击非友方目标时，获得 %d 疯狂值。",
+  "scope": "仅将本target每次疯狂值句替换为实际触发限制，其余两处修正保持；不改其他调用与字段；不stage/commit。"
+}

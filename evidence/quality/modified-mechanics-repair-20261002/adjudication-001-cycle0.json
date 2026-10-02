@@ -1,0 +1,25 @@
+{
+  "task_id": "mmrfix-20261002-001",
+  "review": "review-0-a1",
+  "new_regressions_resolved": [
+    "MMR-010",
+    "MMR050",
+    "MMR053"
+  ],
+  "accepted": [
+    {
+      "finding_id": "UPSTREAM118",
+      "status": "confirmed",
+      "source_path": "tome-cults/superload/mod/class/interface/Combat.lua",
+      "sha256": "286287389763a7390b141216378c81c762124043deef6bff45b479470d01cf60",
+      "lines": [
+        52,
+        54
+      ],
+      "reason": "原独立ISSUE与源码均证明每turn一次且reaction<=0，非任意每次触手攻击；属于已授权169claims中的旧问题，同一冻结条目合并当前包。",
+      "counterevidence": "旧英文Each time及旧新中文都没有限制，但固定消费者turn_procs是实际结算限制。",
+      "automatic_fix_authorized": true
+    }
+  ],
+  "readonly_audit": "仅冻结input/契约、指定DLC定位及与当前技能相关的沿链源码查询，未读旧finding/当前译文或写入内容。"
+}

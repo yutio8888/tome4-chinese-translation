@@ -1,0 +1,55 @@
+{
+  "agent_id": "564e5bcd-21ec-45c4-b6c2-fbaaaab95ed2",
+  "native_session": "74c89821-e817-4ff6-b92f-a5c675ea69c3",
+  "native_log_sha256": "c78afa2489cc1b73b7ea2aa4efd77e2fd794a4c749dcbe773b2f1f2c7e18818c",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-053/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-053/INPUT.json"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-053/INPUT.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print(b['revision_key'][:12], c['section'], c['source_evidence']['matching_lines'], [ (w['start'],w['end']) for w in c['source_evidence']['windows']])\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md | head -50"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-053/INPUT.json'))\np=d['payload']\nfor t in p['translation_snapshot']:\n  print('=====',t['revision_key'][:12]); print('SRC:',t['source']); print('TGT:',t['target'])\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-053/INPUT.json'))\np=d['payload']\nfor b in p['bounded_context'][2:]:\n  c=json.loads(b['context']); print('=====',b['revision_key'][:12], c['section'], c['source_tag'], c['source_evidence']['matching_lines'])\n  print('TERM:',json.dumps(c.get('terminology'),ensure_ascii=False))\n  for w in c['source_evidence']['windows']:\n    lines=w['text'].split('\\n')\n    ml=c['source_evidence']['matching_lines']\n    for l in lines:\n      try: n=int(l.split(':')[0])\n      except: continue\n      if any(abs(n-m)<=12 for m in ml): print(l[:400])\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git grep -n \"is_a_type\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | grep -n \"is_a_type\" -A8 | head -30"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

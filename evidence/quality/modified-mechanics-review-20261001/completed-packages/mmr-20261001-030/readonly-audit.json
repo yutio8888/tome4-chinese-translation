@@ -1,0 +1,83 @@
+{
+  "agent_id": "afc907cf-6266-4aa8-a2fb-03043b52e890",
+  "native_session": "aa91de57-4c50-4bc8-839d-cac945161717",
+  "native_log_sha256": "c03e924fae158254959491b06e93cf5dbe04d49485cc26f58bfe801c76709fb8",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-030/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-030/INPUT.json",
+        "description": "Read review input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-030/INPUT.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context']:\n    c=json.loads(b['context'])\n    print('==',b['revision_key'][:12],c['section'],c['source_tag'],c['source_evidence']['matching_lines'])\nEOF",
+        "description": "Summarize input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n '/^## *六/,/^## *七/p' docs/paseo-translation-context-review-v2-contract.md | head -80; grep -n '^## ' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read output section of contract"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-030/INPUT.json'))\np=d['payload']\nfor t in p['translation_snapshot'][2:]:\n    print('#####',t['revision_key'][:12]); print('SRC:',t['source']); print('TGT:',t['target'])\nEOF",
+        "description": "Print remaining translation entries"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-030/INPUT.json'))\np=d['payload']\nfor b in p['bounded_context'][2:]:\n    c=json.loads(b['context'])\n    print('#####',b['revision_key'][:12], c['source_evidence']['matching_lines'])\n    print(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False)[:600])\n    for w in c['source_evidence']['windows']: print(w['text'])\nEOF",
+        "description": "Print source windows for remaining entries"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; F=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/aa91de57-4c50-4bc8-839d-cac945161717/tool-results/b2i7twq9t.txt; sed -n '30,200p' $F",
+        "description": "Read windows part 1"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; F=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/aa91de57-4c50-4bc8-839d-cac945161717/tool-results/b2i7twq9t.txt; sed -n '200,420p' $F",
+        "description": "Read windows part 2"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; F=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/aa91de57-4c50-4bc8-839d-cac945161717/tool-results/b2i7twq9t.txt; sed -n '420,800p' $F",
+        "description": "Read windows part 3"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs 2>/dev/null && grep -rn \"fire_flamethrower\\|getShockstaffDamage = \\|T_STORMSTRIKE\\b\" --include=*.lua . | head; ",
+        "description": "Locate flamethrower firing code in orcs DLC"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n '185,245p;356,470p' /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua",
+        "description": "Read flamethrower and stormstrike implementations"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

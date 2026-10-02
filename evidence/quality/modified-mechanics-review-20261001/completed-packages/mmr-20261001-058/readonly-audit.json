@@ -1,0 +1,62 @@
+{
+  "agent_id": "7d1f6ce0-9929-4894-898c-edae800aa268",
+  "native_session": "7a241d6a-ecf9-438a-bd7a-75a8efaf9fe3",
+  "native_log_sha256": "5b9e97481428ef4bdf48a18635bc8dd1dacb0cf6538d43b7c642d55ed273c401",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmr-20261001-058/INPUT.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmr-20261001-058/INPUT.json",
+        "description": "Read review input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-058/INPUT.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print({k:v for k,v in b.items() if k!='context'}); \n  se=c.get('source_evidence') or {}\n  print({k:v for k,v in c.items() if k!='source_evidence'})\n  print({k:v for k,v in se.items() if k!='windows'})\n\"",
+        "description": "Read contract and input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/7a241d6a-ecf9-438a-bd7a-75a8efaf9fe3/tool-results/bljch1n9d.txt | head -c 20000",
+        "description": "Show contract and structure output"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-058/INPUT.json'))\np=d['payload']\nfor t,b in zip(p['translation_snapshot'],p['bounded_context']):\n  c=json.loads(b['context']); se=c.get('source_evidence') or {}\n  print('=====',t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\n  print('section',c['section'],c['source_tag'],'terms',json.dumps(c.get('terminology'),ensure_ascii=False), {k:v for k,v in c.items() if k not in ('source_evidence','terminology','read_boundary','section','source_tag','component')})\n  print('path',se.get('public_path'),'lines',se.get('matching_lines'), [ (w['start'],w['end']) for w in se.get('windows',[])])\n\"",
+        "description": "Print each revision with terms"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-058/INPUT.json'))\np=d['payload']\nseen=set()\nfor t,b in zip(p['translation_snapshot'],p['bounded_context']):\n  c=json.loads(b['context']); se=c.get('source_evidence') or {}\n  for w in se.get('windows',[]):\n    k=(se['public_path'],w['start'],w['end'])\n    if k in seen: continue\n    seen.add(k); print('#####',k); print(w['text'])\n\" | grep -v '^[0-9]*: --' ",
+        "description": "Print source windows"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/7a241d6a-ecf9-438a-bd7a-75a8efaf9fe3/tool-results/bv2wur4u1.txt; grep -n '^#####' $f; awk '/dirty.lua/,0' $f | head -80",
+        "description": "Show dirty.lua window"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/7a241d6a-ecf9-438a-bd7a-75a8efaf9fe3/tool-results/bv2wur4u1.txt; sed -n 253,640p $f",
+        "description": "Show remaining windows"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

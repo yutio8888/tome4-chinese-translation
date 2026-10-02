@@ -1,0 +1,83 @@
+{
+  "agent_id": "6f87d833-ba7f-4d74-b4af-c4b48775cc17",
+  "native_session": "44d70de6-41da-4afc-9fcd-28d05b7556a2",
+  "native_log_sha256": "92fba8f6dad2def2080c7e7ae2ab5ccdcd5cb336e2d693e65a819684abb12e9e",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmr-20261001-034/INPUT.json; head -c 6000 .ai/task/mmr-20261001-034/INPUT.json",
+        "description": "Inspect review input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-034/INPUT.json'))\np=d['payload']\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print(b['revision_key'][:12], c['section'], c['source_evidence']['matching_lines'])\n\"",
+        "description": "Summarize input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-034/INPUT.json'))\np=d['payload']\nfor t in p['translation_snapshot'][3:]:\n  print('=====',t['revision_key'][:12]); print(t['source']); print('--'); print(t['target'])\nfor b in p['bounded_context'][3:]:\n  c=json.loads(b['context']); print('#####',b['revision_key'][:12]); \n  for w in c['source_evidence']['windows']: print(w['text'])\n  print(json.dumps(c['terminology'],ensure_ascii=False)); print(c.get('special'))\n\"; sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Print remaining entries and contract output section"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/44d70de6-41da-4afc-9fcd-28d05b7556a2/tool-results/bs0636s18.txt; sed -n '/===== 09faf/,/#####/p' $f | head -60; grep -n \"^#####\" $f",
+        "description": "Show remaining translation entries"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/44d70de6-41da-4afc-9fcd-28d05b7556a2/tool-results/bs0636s18.txt; sed -n '55,240p' $f",
+        "description": "Show source windows for entries 4-6"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/44d70de6-41da-4afc-9fcd-28d05b7556a2/tool-results/bs0636s18.txt; sed -n '27,52p;396,420p;640,760p' $f; head -40 .artifacts/i18n/modified-mechanics-20261001/sources/orcs/tome-orcs/data/talents/steam/physics.lua",
+        "description": "Show remaining windows and physics.lua header"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs 2>/dev/null && pwd; grep -rn \"craft_levelup *=\" --include=*.lua . | head; grep -rn \"MIND_DRONE\\b\\|name = \\\"MIND_DRONE\\\"\\|EFF_MIND_DRONES\\|name = \\\"MIND_DRONES\\\"\" --include=*.lua . | head",
+        "description": "Locate craft_levelup and MIND_DRONE in orcs DLC"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs; sed -n 198,215p tome-orcs/data/damage_types.lua; sed -n 76,105p tome-orcs/data/timed_effects/mental.lua; grep -rn \"craft_levelup\" --include=*.lua tome-orcs | grep -v \"on_levelup_close\" | head",
+        "description": "Read MIND_DRONE mechanics and craft_levelup refs"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs; sed -n 185,240p tome-orcs/data/talents/steam/steam.lua; sed -n '/^## 六/,/^## 七/p' /workspace/tome4-chinese-translation/docs/paseo-translation-context-review-v2-contract.md | head -80",
+        "description": "Read craft_levelup and contract section six"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs; sed -n 240,260p tome-orcs/data/talents/steam/steam.lua",
+        "description": "Read rest of craft_levelup"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

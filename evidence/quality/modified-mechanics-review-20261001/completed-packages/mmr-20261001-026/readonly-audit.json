@@ -1,0 +1,55 @@
+{
+  "agent_id": "0ff19097-3f97-4776-b4c1-19277c2f689d",
+  "native_session": "192241c3-a19f-4209-b682-f015cb93b209",
+  "native_log_sha256": "a12df77832eb43451d73005da233ffbb150a0088bea6db9ebc3d149687330392",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-026/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-026/INPUT.json",
+        "description": "Read review input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-026/INPUT.json'))\np=d['payload']\nprint([k for k in d]); print([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print(b['revision_key'][:12], c['section'], c['source_evidence']['matching_lines'])\n\"",
+        "description": "Inspect input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-026/INPUT.json'))\np=d['payload']\nfor t in p['translation_snapshot'][7:]:\n  print('SRC:',t['source']);print('TGT:',t['target']);print('---')\nfor b in p['bounded_context'][5:]:\n  c=json.loads(b['context'])\n  for w in c['source_evidence']['windows']: print(w['text'])\n  print('TERM', json.dumps(c['terminology'],ensure_ascii=False))\n  print('======')\n\"; grep -n \"第六节\\|## 6\\|六、\" docs/paseo-translation-context-review-v2-contract.md | head",
+        "description": "Print remaining entries and sources"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 100,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section 6"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git grep -n \"crushing_blow\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head; f=/workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-20261001/sources/orcs/tome-orcs/data/talents/spells/galvanic-technomancy.lua; grep -n \"doDamage\" $f | head",
+        "description": "Check crushing_blow and doDamage"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 150,185p /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-20261001/sources/orcs/tome-orcs/data/talents/spells/galvanic-technomancy.lua",
+        "description": "Read linked rods doDamage"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

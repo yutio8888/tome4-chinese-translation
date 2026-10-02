@@ -1,0 +1,37 @@
+{
+  "agent_id": "abdd6baa-b784-46ac-87e8-8bd1e39cca42",
+  "native_session": "ec6bd277-9ffb-44c4-b6a8-cfccac3032d5",
+  "native_log_sha256": "86e7dcc3db59a2fe7880c38e3a26659dd707992a0dd9800aaa8c5f222dd12961",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-039/INPUT.json; echo; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-039/INPUT.json'))\np=d['payload'];print(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False)[:1500])\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-039/INPUT.json'))\np=d['payload']\nfor t in p['translation_snapshot'][5:]: print(json.dumps(t,ensure_ascii=False))\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); se=c['source_evidence']\n  print('====',b['revision_key'][:8],c['component'],c['section'],c['source_tag'],c.get('special'))\n  for w in se.get('windows',[]): print(w['text'])\n  print('TERM',json.dumps(c.get('terminology'),ensure_ascii=False))\n  print({k:v for k,v in c.items() if k not in ('source_evidence','terminology')})\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

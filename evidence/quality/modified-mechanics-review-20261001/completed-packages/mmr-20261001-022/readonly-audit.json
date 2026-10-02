@@ -1,0 +1,41 @@
+{
+  "agent_id": "4c3de5e6-fda2-4c2f-92a0-c07e21d20464",
+  "native_session": "e92e860c-cfb4-44b3-87e2-be759faba2b5",
+  "native_log_sha256": "72ab266f87a014a2ee7753b1d53eb384e32bed15584ce4fa3ef635b79548f2ae",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-022/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-022/INPUT.json",
+        "description": "Read review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-022/INPUT.json'))\np=d['payload']\nprint([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nfor c in p['bounded_context']:\n  x=json.loads(c['context']); print(c['revision_key'][:12], x['source_tag'], x['source_evidence']['matching_lines'], json.dumps(x['terminology'],ensure_ascii=False)[:300])\n\"",
+        "description": "Summarize input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-022/INPUT.json'))\nfor c in d['payload']['bounded_context'][5:]:\n  s=c['context']\n  try:\n    x,e=json.JSONDecoder().raw_decode(s)\n  except Exception as ex: print('ERR',ex); print(s[:3000]); continue\n  print('==',c['revision_key'][:12], len(s), e)\n  for w in x['source_evidence']['windows']: print(w['text'][:4000])\n  print(json.dumps(x['terminology'],ensure_ascii=False)[:600])\n  if e<len(s): print('EXTRA:', s[e:e+500])\n\"; sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-context-review-v2-contract.md | head -80",
+        "description": "Show remaining contexts and contract output section"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | grep -n -A30 'name = \"CRIPPLING_POISON\"' | head -45",
+        "description": "Check crippling poison effect at pinned commit"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

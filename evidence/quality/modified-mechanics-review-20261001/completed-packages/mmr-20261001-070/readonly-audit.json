@@ -1,0 +1,48 @@
+{
+  "agent_id": "413d3215-f494-48ce-8ae6-5d87754c8fad",
+  "native_session": "74452595-3484-4a72-9425-f597f347d226",
+  "native_log_sha256": "d034804cdeeda4a8d1f93f03e69ea9a6792bab4628860f2b6b0cafdb16597034",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmr-20261001-070/INPUT.json docs/paseo-translation-context-review-v2-contract.md; head -c 6000 .ai/task/mmr-20261001-070/INPUT.json",
+        "description": "Inspect review input size and start"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n '/第六节\\|## 6\\|六、/,$p' docs/paseo-translation-context-review-v2-contract.md | head -80; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-070/INPUT.json'));p=d['payload']\nprint(d.keys(),p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\n\"",
+        "description": "Read contract output section and input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-070/INPUT.json'));p=d['payload']\nfor i,b in enumerate(p['bounded_context'][1:],2):\n  c=json.loads(b['context']) if isinstance(b['context'],str) else b['context']\n  print('=====',i,b.get('revision_key','')[:8])\n  se=c.pop('source_evidence',None)\n  print(json.dumps(c,ensure_ascii=False)[:2500])\n  if se:\n    print(se.get('public_path'),se.get('matching_lines'))\n    for w in se.get('windows',[]): print(w['text'][:3500])\n\"",
+        "description": "Dump bounded contexts for remaining items"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/74452595-3484-4a72-9425-f597f347d226/tool-results/by7i3dr9f.txt | sed -n '20,400p' | cut -c1-600",
+        "description": "Read rest of dumped contexts"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-070/INPUT.json'));p=d['payload']\nc=json.loads(p['bounded_context'][0]['context']);c.pop('source_evidence');print(json.dumps(c,ensure_ascii=False))\n\"; grep -n 'Corpse Explosion\\|Call of the Mausoleum\\|Putrescent' .ai/task/mmr-20261001-070/INPUT.json | head -3 | cut -c1-200",
+        "description": "Show item 1 context terminology"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

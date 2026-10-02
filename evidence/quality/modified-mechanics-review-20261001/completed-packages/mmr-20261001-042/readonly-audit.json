@@ -1,0 +1,62 @@
+{
+  "agent_id": "c5226881-c712-45db-a4bb-6f97184d2221",
+  "native_session": "40269f52-3b8e-4563-8f18-9c8ee333955e",
+  "native_log_sha256": "282910f0e94d9314e3a10ec1a901c85ee4330ffdcb95a73948c18cfa64de02cf",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "wc -c .ai/task/mmr-20261001-042/INPUT.json docs/paseo-translation-context-review-v2-contract.md && cat .ai/task/mmr-20261001-042/INPUT.json",
+        "description": "Read review input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-042/INPUT.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\n\"",
+        "description": "Read contract and input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-042/INPUT.json'))\nfor i,b in enumerate(d['payload']['bounded_context']):\n  c=json.loads(b['context'])\n  print('=====',i, c.get('section'), c.get('source_tag'), c.get('special'))\n  se=c.get('source_evidence') or {}\n  print(se.get('public_path'), se.get('matching_lines'))\n  for k in c:\n    if k not in ('source_evidence',): print(k, json.dumps(c[k],ensure_ascii=False)[:1500])\n  ml=se.get('matching_lines',[])\n  for w in se.get('windows',[]):\n    lines=w['text'].split('\\n')\n    for l in lines:\n      try: n=int(l.split(':')[0])\n      except: continue\n      if any(abs(n-m)<=12 for m in ml): print(l)\n\"",
+        "description": "Print contexts near matching lines"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-042/INPUT.json'))\nfor i in (5,6):\n  c=json.loads(d['payload']['bounded_context'][i]['context'])\n  se=c['source_evidence']\n  print({k:v for k,v in se.items() if k!='windows'})\n  for w in se.get('windows',[]): print(w['start'],w['end']); print(w['text'][:3000])\n\"; grep -n \"antimagic disrupts\" /workspace/t-engine4/game/modules/tome/class/Player.lua",
+        "description": "Inspect antimagic entries"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "grep -n -i \"antimagic\\|disrupts\" .artifacts/i18n/modified-mechanics-20261001/sources/tome/game/modules/tome/class/Player.lua | head; sha256sum .artifacts/i18n/modified-mechanics-20261001/sources/tome/game/modules/tome/class/Player.lua",
+        "description": "Locate antimagic string in frozen Player.lua"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git rev-parse HEAD; git grep -n \"COMBAT_ELEMENT\\|combat.element\\|c.element\\|\\.element \" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | grep -v \"data/lore\" | head -20; git grep -n \"antimagic disrupts\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head",
+        "description": "Check element field usage and antimagic string"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua | sed -n '2630,2665p'; git grep -n \"COMBAT_ELEMENT\\|element = \" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/general/objects game/modules/tome/class/interface/Combat.lua | head",
+        "description": "Inspect combat.element mechanics"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

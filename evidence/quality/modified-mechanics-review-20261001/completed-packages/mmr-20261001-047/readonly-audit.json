@@ -1,0 +1,48 @@
+{
+  "agent_id": "aefc009d-88da-49c0-8d2b-e87aee94e5e8",
+  "native_session": "c411684f-85e3-4fd1-8a74-7a3c62562a70",
+  "native_log_sha256": "cda7863f160736bdf01ff1dfe77039288386b28aefd72ed17dcff36be93f7dcc",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-047/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-047/INPUT.json",
+        "description": "Read task input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-047/INPUT.json'))\np=d['payload']\nprint([k for k in d]); print([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print(b['revision_key'], c['section'], c['source_tag'], c['source_evidence']['matching_lines'], [t['source'] for t in c['terminology']])\n\"",
+        "description": "Summarize input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md | head -40",
+        "description": "List contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-047/INPUT.json'))\nfor b in d['payload']['bounded_context'][4:]:\n  c=json.loads(b['context'])\n  print('=====',c['section'],c['source_tag'])\n  print(json.dumps(c['terminology'],ensure_ascii=False))\n  for w in c['source_evidence']['windows']: print(w['text'][:4000]); print('--')\n\"",
+        "description": "Show remaining contexts"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section 6-7"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

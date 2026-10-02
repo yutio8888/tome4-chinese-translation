@@ -1,0 +1,34 @@
+{
+  "agent_id": "8f719a89-4a0e-4a02-8315-03dc91663e2c",
+  "native_session": "3ec33675-28c4-4fc2-bf67-2bf951ac2a86",
+  "native_log_sha256": "5b9562d8eb2f5f4dc3e5a050c9a9322acbaa25f08f785a0ef04f43839b6212bd",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-049/INPUT.json | head -c 30000; echo; wc -c .ai/task/mmr-20261001-049/INPUT.json",
+        "description": "Read review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-049/INPUT.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context']:\n  c=json.loads(b['context']) if isinstance(b.get('context'),str) else b\n  print('---', {k:v for k,v in b.items() if k!='context'})\n  se=c.pop('source_evidence',None)\n  print(json.dumps(c,ensure_ascii=False))\n  if se:\n    for w in se['windows']: print(w['text'])\n\"",
+        "description": "Parse input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; awk '/^## *(六|6)/,/^## *(七|7)/' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section six"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

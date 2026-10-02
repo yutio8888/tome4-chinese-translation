@@ -1,0 +1,61 @@
+{
+  "agent_id": "017224e0-d879-41e2-944f-90ae967c41b2",
+  "native_session": "1319b430-0578-41d9-819a-44d4293abd8d",
+  "native_log_sha256": "4ec67f79399a942a20ad377b6ceb10125ddefeda453dad046a158c56546e650a",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-063/INPUT.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-063/INPUT.json'))\ndef show(o,p=''):\n    if isinstance(o,dict):\n        for k,v in o.items(): show(v,p+'.'+k)\n    elif isinstance(o,list):\n        print(p,'list',len(o))\n        if o and not isinstance(o[0],(dict,list)): print('  ',o[:5])\n    else:\n        s=str(o); print(p, s[:200])\nshow({k:v for k,v in d.items() if k!='payload'})\nprint(d['payload'].keys())\nfor k,v in d['payload'].items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nEOF"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md; awk '/^## *6|^## 六|第六/{f=1} f' docs/paseo-translation-context-review-v2-contract.md | head -80"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-063/INPUT.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    print('=====',i,t['revision_key'][:8])\n    print('SRC:',t['source']); print('TGT:',t['target'])\nEOF"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-063/INPUT.json'))\nfor i,b in enumerate(d['payload']['bounded_context']):\n    c=json.loads(b['context']) if isinstance(b['context'],str) else b['context']\n    print('=====',i, {k:v for k,v in b.items() if k!='context'})\n    se=c.get('source_evidence') or {}\n    print(c.get('section'),c.get('source_tag'),se.get('public_path'),se.get('frozen_file'))\n    for w in se.get('windows',[]): print(w['text'])\n    other={k:v for k,v in c.items() if k not in('source_evidence',)}\n    print(json.dumps(other,ensure_ascii=False)[:1500])\nEOF"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 30,400p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/1319b430-0578-41d9-819a-44d4293abd8d/tool-results/bhrdi479g.txt | cut -c1-600"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 400,800p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/1319b430-0578-41d9-819a-44d4293abd8d/tool-results/bhrdi479g.txt | grep -n '' | awk -F: '$1>70' | cut -c1-500"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | grep -n -A22 'name = \"BURROW\"' | head -30"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

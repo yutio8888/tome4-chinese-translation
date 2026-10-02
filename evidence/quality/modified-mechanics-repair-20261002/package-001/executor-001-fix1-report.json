@@ -1,0 +1,61 @@
+{
+  "task_id": "mmrfix-20261002-001",
+  "role": "executor",
+  "cycle": 1,
+  "status": "implemented",
+  "changed_files": [
+    "tome-cults.lua"
+  ],
+  "entry_change_id": "d57dfc79b9a95c3f841df81fc91479193efd45d31175624b18197366e509c2b0",
+  "preimage_sha256_expected": "066a38958b776338982f64ae7572b3fdaefe4af7ade7d3f71696a13a96c5243c",
+  "preimage_sha256_actual": "066a38958b776338982f64ae7572b3fdaefe4af7ade7d3f71696a13a96c5243c",
+  "postimage_sha256": "8aea7ddcdcccc0cefb694fb12be8af6757e0bf27a0a413fec8e13565611bd484",
+  "old_target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s",
+  "new_target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每回合首次以触手攻击非友方目标时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s",
+  "source_evidence": {
+    "component": "cults",
+    "public_path": "tome-cults/superload/mod/class/interface/Combat.lua",
+    "frozen_file": ".artifacts/i18n/modified-mechanics-repair-20261002/sources/cults/tome-cults/superload/mod/class/interface/Combat.lua",
+    "sha256_expected": "286287389763a7390b141216378c81c762124043deef6bff45b479470d01cf60",
+    "sha256_actual": "286287389763a7390b141216378c81c762124043deef6bff45b479470d01cf60",
+    "lines": [
+      52,
+      54
+    ],
+    "excerpt": "52: \t\tif self:reactionToward(target) <= 0 and not self.turn_procs.tentacle_insanity_gain then \n53: \t\t\tself:incInsanity(self:callTalent(self.T_MUTATED_HAND, \"getInsanityBonus\"))\n54: \t\t\tself.turn_procs.tentacle_insanity_gain = true",
+    "source_pinning": "unpinned",
+    "commit": null,
+    "limitations": "DLC 来源仓库与源码 commit 未固定；此结论依据 SHA256 已核验的冻结 consumer 快照，不能将提取基线或父 engine commit 视为 DLC 源码版本 pin。reactionToward(target) <= 0 包含中立目标；turn_procs.tentacle_insanity_gain 限制每回合一次；第52–54行无命中判定条件。"
+  },
+  "invariants": {
+    "single_target_sentence_only": true,
+    "other_targets_source_source_tag_args_order_special_preserved": true,
+    "placeholder_sequence_preserved": true,
+    "markup_preserved": true,
+    "newline_and_tabs_preserved": true,
+    "caster_center_side_grid_correction_preserved": true
+  },
+  "validation": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "环境检查通过；三个官方 DLC source-unpinned 警告。"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20261002T072724.235537Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "无输出；通过。"
+    }
+  ],
+  "scope_verification": "与本次运行前临时字节快照比较，唯一差异为指定 target 的疯狂值触发句；全部其余字节原样保留。既有工作树改动保留。",
+  "plan_deviations": [],
+  "unresolved_issues": [],
+  "stage_commit_performed": false,
+  "children_created": false
+}

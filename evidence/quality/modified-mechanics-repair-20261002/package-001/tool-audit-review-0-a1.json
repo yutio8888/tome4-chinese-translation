@@ -1,0 +1,30 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-001/INPUT-review-0-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-001/INPUT-review-0-a1.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-001/INPUT-review-0-a1.json'))\np=d['payload']\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False,indent=1))\nfor k,v in d.items():\n  if k!='payload': print(k,v)\n\"; grep -n \"^## \\|^### \" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Show remaining payload fields and contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read output section of contract"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs 2>/dev/null && pwd && ls; F=$(find /workspace/tome4-dlcs -path '*tome-cults/data/talents/demented/tentacles.lua' | head -1); echo $F; sha256sum $F; D=$(dirname $(dirname $(dirname $(dirname $F)))); echo $D; grep -rn \"MUTATED_HAND\\|getPercentInc\\|tentacle_insanity\" $D --include=*.lua | grep -v \"^.*locales\" | head -30",
+      "description": "Locate cults source and grep Mutated Hand usages"
+    }
+  }
+]

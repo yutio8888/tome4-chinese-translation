@@ -1,0 +1,55 @@
+{
+  "agent_id": "f6aa2ff4-d9a8-47c2-9159-e09a759d94df",
+  "native_session": "05e593e9-f15e-43cf-8446-91a64c00bbab",
+  "native_log_sha256": "48f90dd6d6c6c3ffa82a59bd6f0c53086f140cbfc77e06c6ce6b01e1d05f0ee8",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-028/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-028/INPUT.json"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-028/INPUT.json'))\np=d['payload']\nprint([k for k in d]); print([k for k in p])\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor i,b in enumerate(p['bounded_context']):\n    c=json.loads(b['context'])\n    if i>=6:\n        print('==',i,b['revision_key'][:8],c['section'],c['source_tag'])\n        for w in c['source_evidence']['windows']: print(w['text'])\n        print(c['terminology'])\nEOF"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "grep -n '^#' docs/paseo-translation-context-review-v2-contract.md | head -40"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs 2>/dev/null && ls; grep -rn \"craft_levelup *=\" --include=*.lua . | head; grep -rn \"OVERCHARGE_SAWS\\|NO_HOPE\\b\" --include=*.lua . | grep -v \"setEffect\" | head"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs/tome-orcs && sed -n 195,215p data/timed_effects/mental.lua; sed -n 273,295p data/timed_effects/physical.lua; grep -rn \"craft_levelup\" --include=*.lua . | head -3"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs/tome-orcs && sed -n 194,235p data/talents/steam/steam.lua"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

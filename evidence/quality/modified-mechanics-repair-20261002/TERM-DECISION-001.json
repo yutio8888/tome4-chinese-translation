@@ -1,0 +1,22 @@
+{
+  "claim": "MMR-026",
+  "status": "awaiting_user_term_authorization",
+  "term_file": "terminology/combat.tsv",
+  "existing_exact_row": "draining physical\t生命汲取\tT.GAME.DAMAGE\tcombat\tdamage type\tpreferred\tcore\t从目标汲取生命造成物理伤害并治疗施法者；不写作“物理吸收”；P0 审核确认",
+  "proposed_exact_row": "draining physical\t生命汲取（物理）\tT.GAME.DAMAGE\tcombat\tdamage type\tpreferred\tcore\t从目标汲取生命造成物理伤害并治疗施法者；名称保留物理类型限定，不写作“物理吸收”；依据固定commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 damage_types.lua:3243-3263。",
+  "translation_file": "mod-tome.lua",
+  "source": "draining physical",
+  "source_tag": "damage type",
+  "old_target": "生命汲取",
+  "proposed_target": "生命汲取（物理）",
+  "evidence": {
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "path": "game/modules/tome/data/damage_types.lua",
+    "lines": [
+      3243,
+      3263
+    ],
+    "behavior": "DEVOUR_LIFE delegates actual damage to PHYSICAL projector then heals actor from realdam"
+  },
+  "authorization_needed": "AGENTS.md requires stop for not-yet-authorized terminology library changes. Only this preferred row and bounded matching target proposed; no global replacement."
+}

@@ -1,0 +1,41 @@
+{
+  "agent_id": "8dced577-e714-4330-a251-1a5e34f352c2",
+  "native_session": "236b71ca-bef4-4a9a-b6bc-9e4434e28761",
+  "native_log_sha256": "4724de184ccf1fdd1a51d818420c6d10710a4a9c584d03a43c267c9e5725099b",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-050/INPUT.json",
+        "description": "Read frozen review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-050/INPUT.json'))\np=d['payload']\nprint([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nfor b in p['bounded_context']:\n  c=json.loads(b['context'])\n  print('---',b['revision_key'][:12],c['section'],c['source_tag'],c.get('special'))\n  for w in c['source_evidence'].get('windows',[]): print(w['text'])\n  print('TERM',json.dumps(c['terminology'],ensure_ascii=False))\n\"",
+        "description": "Summarize input payload"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md | head -40; awk '/^## 六|^## 6/{f=1} f' docs/paseo-translation-context-review-v2-contract.md | head -80\ncd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n 3876,3925p; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/magical.lua | grep -n -A30 'name = \"CORRUPT_LOSGOROTH_FORM\"'",
+        "description": "Read contract output section and source"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/general/objects/world-artifacts.lua | sed -n 3925,3960p",
+        "description": "Read rest of Spellhunt use function"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

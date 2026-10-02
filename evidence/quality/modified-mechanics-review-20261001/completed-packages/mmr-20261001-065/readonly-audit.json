@@ -1,0 +1,41 @@
+{
+  "agent_id": "771db18b-073b-4ca9-b119-1628e81a8735",
+  "native_session": "0e354768-539d-40f7-ab72-c0c8ec1fa6b2",
+  "native_log_sha256": "efdc362425bb4845d54ed7e8bf3ce2af471f9545abcdb5ed3df9e4aee402f00e",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-065/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-065/INPUT.json",
+        "description": "Read review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-065/INPUT.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context'][5:]:\n  c=json.loads(b['context']); print(b['revision_key'], c['section']); print(c['source_evidence']['windows'][0]['text'][:5000]); print(c['terminology'])\n\"",
+        "description": "Inspect rest of input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; awk '/^## 六|^## 6/{f=1} f' docs/paseo-translation-context-review-v2-contract.md | head -80",
+        "description": "Read contract section 6"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n -A25 'name = \"WASTING\"\\|newDamageType{$' | grep -n -B2 -A25 'WASTING' | head -40",
+        "description": "Check WASTING damage type at pinned commit"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

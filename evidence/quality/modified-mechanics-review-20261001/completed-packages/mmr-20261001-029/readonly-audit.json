@@ -1,0 +1,34 @@
+{
+  "agent_id": "752f333d-ce5d-4b01-adde-ee33e08f1a41",
+  "native_session": "13b9a022-a97b-4b0f-ac35-ee94e406e662",
+  "native_log_sha256": "4d1aef305a5446c990cb4437beaead0266d437e90bee8330e50b64e4c9ba5a53",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmr-20261001-029/INPUT.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmr-20261001-029/INPUT.json",
+        "description": "Read review input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-029/INPUT.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\n\"",
+        "description": "Read contract and input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-029/INPUT.json'))\nfor b in d['payload']['bounded_context']:\n  c=json.loads(b['context'])\n  print('=====',b['revision_key'][:8], c['section'], c.get('special'))\n  se=c.get('source_evidence')\n  if se:\n    print('frozen',se.get('frozen_file'),se.get('matching_lines'))\n    for w in se['windows']: print(w['text'])\n  for k in c:\n    if k not in ('component','section','source_tag','special','source_evidence'): print(k, json.dumps(c[k],ensure_ascii=False)[:3000])\n\"",
+        "description": "Print bounded context per entry"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

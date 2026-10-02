@@ -1,0 +1,61 @@
+{
+  "agent_id": "fe15287e-4740-4efe-b0a8-e8f7eec5dd76",
+  "native_session": "9f9df25a-b8f8-4592-86b2-3d9bc50e7204",
+  "native_log_sha256": "ec77a7d0446c85221400c55906d6c071db5ea8b513da9da01f30aebb276c9003",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-056/INPUT.json",
+        "description": "Read review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation 2>/dev/null; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-056/INPUT.json'));p=d['payload']\nprint(list(d.keys()));print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  print('----');print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False)[:1500])\n  c=json.loads(b['context']); print(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False)[:800])\n  for w in c.get('source_evidence',{}).get('windows',[]): print(w['text'])\n\"",
+        "description": "Parse input structure"
+      }
+    },
+    {
+      "tool": "Read",
+      "input": {
+        "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/9f9df25a-b8f8-4592-86b2-3d9bc50e7204/tool-results/b06strhh8.txt"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-056/INPUT.json'));p=d['payload']\nfor e in p['translation_snapshot'][5:]: print(json.dumps(e,ensure_ascii=False))\n\"; grep -n '^## ' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Show remaining targets and contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section six"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n 'name = \"BLIGHT_POISON\"' -A40 | head -60",
+        "description": "Look up BLIGHT_POISON at pinned commit"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n 'BLIGHT_POISON' | head; git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | awk '/newDamageType\\{/{s=NR} /\"BLIGHT_POISON\"/{p=1;st=s} p&&NR>=st{print NR\": \"$0; if(++c>45) exit}'",
+        "description": "Find BLIGHT_POISON definition"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

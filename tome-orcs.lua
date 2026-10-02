@@ -5628,7 +5628,7 @@ t([[You fire a special antimagic shot with your steamgun(s) at a target for 100%
 		The shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.
 		This talent does not use ammo as it is the ammo.
 		Sap damage scales with Steampower.]], [[你使用蒸汽枪向目标发射一枚特殊反魔弹，造成 100%% 普通武器伤害。
-		反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术法力燃烧伤害。
+		反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术资源燃烧伤害。
 		这个技能不使用弹药，因为它本身就是弹药。
 		汁液伤害取决于蒸汽强度。]], "tformat")
 t("Botanical Shell", "植物弹", "talent name")

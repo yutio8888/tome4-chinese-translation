@@ -1,0 +1,48 @@
+{
+  "agent_id": "9defdeb1-17e3-4734-9381-97fd5ac64b75",
+  "native_session": "7a22848c-7b3e-48df-8c79-1bbbbd9caed4",
+  "native_log_sha256": "cdc37395ffc175199efbf62260a6642ea13069956b36112e6c441f1406eb14b3",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmr-20261001-017/INPUT.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmr-20261001-017/INPUT.json",
+        "description": "Read review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n '/^## *[56六]/,$p' docs/paseo-translation-context-review-v2-contract.md | head -120; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-017/INPUT.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\n\"",
+        "description": "Read contract output section and input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-017/INPUT.json'))\np=d['payload']\nfor t,c in zip(p['translation_snapshot'],p['bounded_context']):\n  print('=====',t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\n  cc=json.loads(c['context']); \n  se=cc.get('source_evidence',{})\n  print('CTX:', cc.get('component'), cc.get('section'), cc.get('source_tag'))\n  for w in se.get('windows',[]): print(w['text'][:2500])\n  for k in cc:\n    if k not in ('component','section','source_tag','special','source_evidence'): print(k, json.dumps(cc[k],ensure_ascii=False)[:1500])\n\"",
+        "description": "Dump all entries with context"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults 2>/dev/null && ls; grep -rn -i \"augment despair\\|Augment Despair\" --include=*.lua . | head; grep -rln \"entropic_backlash\\|ENTROPIC_BACKLASH\\|Entropic backlash\" --include=*.lua . | head",
+        "description": "Locate Augment Despair and backlash definitions in cults DLC"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults/tome-cults/data/talents/demented; sed -n 100,160p scourge-drake.lua; grep -n \"backlash\\|Backlash\" *.lua | head -20",
+        "description": "Read Augment Despair and backlash refs"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

@@ -1,0 +1,49 @@
+{
+  "agent_id": "d2d6f04b-f2b3-4192-915c-315aaacf7734",
+  "native_session": "00c609ad-a906-4951-86a1-51a83d6ce3eb",
+  "native_log_sha256": "b6510054e3062a2c7ca8b119697cdc504ecbc6e5f6a04f0227c5e0adf2641399",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-041/INPUT.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-041/INPUT.json'))\np=d['payload'];print(list(d.keys()),list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False)[:600])\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-041/INPUT.json'))\nfor b in d['payload']['bounded_context']:\n  c=json.loads(b['context']); se=c.get('source_evidence',{})\n  print('=====',b['revision_key'][:8],c['section'],c['source_tag'],c.get('special'),se.get('matching_lines'))\n  for k,v in c.items():\n    if k not in('source_evidence','component','section','source_tag','special'): print(k,json.dumps(v,ensure_ascii=False)[:1500])\n  for w in se.get('windows',[]):\n    ml=se['matching_lines']\n    for line in w['text'].split('\\n'):\n      try: n=int(line.split(':')[0])\n      except: continue\n      if any(abs(n-m)<=12 for m in ml): print(line)\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 109,142p docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/engine/Map.lua | grep -n -A12 'function _M:compassDirection'"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

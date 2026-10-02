@@ -1,0 +1,48 @@
+{
+  "agent_id": "c7c17879-284f-430e-8528-ac79b826906f",
+  "native_session": "04ccd02d-5ee0-4b36-9aba-230a9b4060e6",
+  "native_log_sha256": "e5996c9d6a93f5ab3d85a9899f2d434478cda11cd44981d85f2bd870cc3d1a28",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmr-20261001-014/INPUT.json; head -c 6000 .ai/task/mmr-20261001-014/INPUT.json; echo; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read review input and contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-014/INPUT.json'))\np=d['payload']\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor c in p['bounded_context']:\n  x=json.loads(c['context']); print(c['revision_key'], x['section'], x['source_evidence']['matching_lines'], x['terminology'])\n\"",
+        "description": "Read output contract and input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-014/INPUT.json'))\np=d['payload']\nfor t in p['translation_snapshot']:\n  print('=====',t['revision_key'][:8]); print('S:',t['source']); print('T:',t['target'])\n\"",
+        "description": "Print all translation pairs"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-014/INPUT.json'))\np=d['payload']\nfor c in p['bounded_context'][1:]:\n  x=json.loads(c['context'])\n  for w in x['source_evidence']['windows']: print('#####',c['revision_key'][:8]); print(w['text'])\n\"",
+        "description": "Print source windows"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/cults 2>/dev/null && grep -rn -A30 \"name = \\\"NIHIL\\\"\" --include=*.lua . | head -60",
+        "description": "Check NIHIL effect definition in Cults DLC"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

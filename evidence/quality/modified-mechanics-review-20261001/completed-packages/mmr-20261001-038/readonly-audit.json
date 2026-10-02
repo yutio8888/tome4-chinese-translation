@@ -1,0 +1,43 @@
+{
+  "agent_id": "ff2ca3c1-8fa0-4d15-9f99-f58a9084e7a6",
+  "native_session": "522f2a61-2c8d-434d-b0e1-4975bb724d61",
+  "native_log_sha256": "d35391ac12878986e99c21afc8514a644da01504230a37f8c70b662e167aa7ff",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-038/INPUT.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-038/INPUT.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']: print({k:(v if k!='context' else None) for k,v in b.items()})\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-038/INPUT.json'))\nfor b in d['payload']['bounded_context']:\n  c=json.loads(b['context'])\n  se=c.get('source_evidence') or {}\n  print('=====',b['revision_key'][:8],c['component'],c['section'],c['source_tag'],c.get('special'))\n  print({k:v for k,v in c.items() if k not in('source_evidence','component','section','source_tag','special')})\n  print('lines',se.get('matching_lines'))\n  for w in se.get('windows',[]):\n    ls=w['text'].split('\\n'); m=se['matching_lines']\n    for l in ls:\n      try: n=int(l.split(':')[0])\n      except: continue\n      if any(abs(n-x)<=14 for x in m): print(l)\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 109,142p docs/paseo-translation-context-review-v2-contract.md"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

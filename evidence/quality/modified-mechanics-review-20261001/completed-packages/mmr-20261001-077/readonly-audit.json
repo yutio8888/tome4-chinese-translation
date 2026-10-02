@@ -1,0 +1,43 @@
+{
+  "agent_id": "9fbd7ed6-28f7-4f8d-b15b-61e454160f03",
+  "native_session": "687cf6ba-1d6c-4d85-b627-460220247ca0",
+  "native_log_sha256": "e53baee1a38f329e4c68d17053e5b9465ec19a6ca63cef3653ba4ae19200e72f",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-077/INPUT.json; echo; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-077/INPUT.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  print('----', {k:v for k,v in b.items() if k!='context'})\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; awk '/^## *(六|6)/,0' docs/paseo-translation-context-review-v2-contract.md | head -80"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-077/INPUT.json'))\nfor b in d['payload']['bounded_context'][3:]:\n  c=json.loads(b['context'])\n  print('=====',c['section'],c['source_tag'],c.get('special'))\n  se=c['source_evidence']\n  print(se.get('public_path'))\n  for w in se.get('windows',[]): print(w['text'])\n  for k in c:\n    if k not in ('component','section','source_tag','special','source_evidence'): print(k, json.dumps(c[k],ensure_ascii=False)[:3000])\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-077/INPUT.json'))\nfor b in d['payload']['bounded_context'][:3]:\n  c=json.loads(b['context'])\n  print('=====',c['section'],c['source_tag'])\n  se=c['source_evidence']\n  for w in se.get('windows',[]): print(w['text'][-2500:])\n  for k in c:\n    if k not in ('component','section','source_tag','special','source_evidence','read_boundary'): print(k, json.dumps(c[k],ensure_ascii=False)[:3000])\n\""
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

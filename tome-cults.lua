@@ -3202,9 +3202,9 @@ t([[Your left hand mutates into a disgusting mass of tentacles.
 
 		Your tentacle hand currently has these stats%s:
 		%s]], [[你的左手异变成为一坨恶心的触手。
-		副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标两侧的敌人。
+		副手空闲时，当使用普通攻击，触手会自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。
 		物理强度提高 %d， 触手武器伤害提高 %d%%。
-		每次触手攻击时，获得 %d 疯狂值。
+		每回合首次以触手攻击非友方目标时，获得 %d 疯狂值。
 		附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。
 
 		你的触手当前属性%s：

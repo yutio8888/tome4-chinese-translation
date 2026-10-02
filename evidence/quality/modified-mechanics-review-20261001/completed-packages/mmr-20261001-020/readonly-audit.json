@@ -1,0 +1,55 @@
+{
+  "agent_id": "ae8d8f0e-0ec5-4c6b-8b66-c8b9d0d75f71",
+  "native_session": "de3af88d-0159-4130-8024-5d417cf7c307",
+  "native_log_sha256": "a4c64242694e93db11517d400c4212348475a172007c42a98051f53c5df024c1",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-020/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-020/INPUT.json",
+        "description": "Read frozen review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmr-20261001-020/INPUT.json'))\np=d['payload']\nprint([k for k in d]); print([k for k in p])\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context'][5:]:\n    c=json.loads(b['context'])\n    print('=====',b['revision_key'],c['section'],c['source_evidence']['matching_lines'])\n    for w in c['source_evidence']['windows']: print(w['text'])\n    print(c['terminology'])\nEOF",
+        "description": "Print remaining input content"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; awk '/^## *(六|6)/,/^## *(七|7)/' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section 6"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs 2>/dev/null && grep -n -A25 'name = \"THUNDERCLAP_COATING\"' $(grep -rl THUNDERCLAP_COATING --include=*.lua . | head -5) | head -40; grep -n -A12 'name = \"SMOKE_CLOUD\"' -r --include=damage_types.lua . | head -40; cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | grep -n \"burst_on_hit\" | head",
+        "description": "Check thunderclap and smoke cloud damage types"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "ls /workspace/tome4-dlcs/orcs | head; grep -rn \"THUNDERCLAP_COATING\\|\\\"SMOKE_CLOUD\\\"\" /workspace/tome4-dlcs/orcs --include=*.lua | head",
+        "description": "Locate orcs DLC damage types"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 210,240p /workspace/tome4-dlcs/orcs/tome-orcs/data/damage_types.lua; sed -n 292,330p /workspace/tome4-dlcs/orcs/tome-orcs/data/damage_types.lua",
+        "description": "Read thunderclap and smoke cloud definitions"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

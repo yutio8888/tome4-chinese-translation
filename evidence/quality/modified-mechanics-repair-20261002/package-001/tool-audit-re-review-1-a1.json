@@ -1,0 +1,37 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat .ai/task/mmrfix-20261002-001/INPUT-re-review-1-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-001/INPUT-re-review-1-a1.json",
+      "description": "Read the review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-001/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False,indent=1))\n\"; grep -n '^## \\|第六\\|六、' docs/paseo-translation-context-review-v2-contract.md | head -40",
+      "description": "Show remaining payload fields and contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract output section"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs 2>/dev/null && pwd && ls; f=$(find . -path '*tome-cults/data/talents/demented/tentacles.lua' | head -1); echo $f; sha256sum $f; grep -rn \"MUTATED_HAND\\|getPercentInc\" --include=*.lua $(dirname $(dirname $(dirname $(dirname $f)))) | grep -v \"^.*tentacles.lua:3[0-9]:\" | head -30",
+      "description": "Locate Mutated Hand usage in cults DLC source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs/cults/tome-cults && sed -n 18,28p data/talents/demented/tentacles.lua; grep -rn '\"tentacles\"\\|T_MUTATED_HAND' superload | head",
+      "description": "Check tentacle power/damage implementation"
+    }
+  }
+]

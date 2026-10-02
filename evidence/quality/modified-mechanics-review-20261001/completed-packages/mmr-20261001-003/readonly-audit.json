@@ -1,0 +1,76 @@
+{
+  "agent_id": "399a79fe-cb68-4923-86a1-c4b39f6e2733",
+  "native_session": "d911bcce-3564-456f-b9cb-a70a6eb62246",
+  "native_log_sha256": "296cadd361c556d1049935878c856a5911ab8bb1f14722db0f48ef07b369642b",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-003/INPUT.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read review input and contract size"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "f=.ai/task/mmr-20261001-003/INPUT.json; python3 -c \"\nimport json;d=json.load(open('$f'));p=d['payload']\nprint(d.keys()); print(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor c in p['bounded_context']: print({k:(v if k!='context' else len(v)) for k,v in c.items()})\n\"",
+        "description": "Inspect input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "grep -n '^#' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "List contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read output section of contract"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "f=.ai/task/mmr-20261001-003/INPUT.json; python3 -c \"\nimport json;d=json.load(open('$f'));p=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n  print('=====',i,{k:v for k,v in t.items() if k not in('source','target')})\n  print('SRC:',t.get('source')); print('TGT:',t.get('target'))\n\"",
+        "description": "Print translation snapshot entries"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "f=.ai/task/mmr-20261001-003/INPUT.json; python3 -c \"\nimport json;d=json.load(open('$f'));p=d['payload']\nfor i in [4,5,8,9]:\n  c=json.loads(p['bounded_context'][i]['context'])\n  print('=====',i); print(json.dumps(c,ensure_ascii=False,indent=0)[:6000])\n\"",
+        "description": "Print mechanics entry contexts"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "git -C /workspace/t-engine4 grep -n \"function _M:projectApply\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/ | head; ",
+        "description": "Locate projectApply in pinned engine"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/engine/interface/ActorProject.lua | sed -n 360,400p",
+        "description": "Read projectApply implementation"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "f=.ai/task/mmr-20261001-003/INPUT.json; python3 -c \"\nimport json;d=json.load(open('$f'));p=d['payload']\nfor i in range(10):\n  c=json.loads(p['bounded_context'][i]['context'])\n  print('=====',i,c['section'],c['source_tag'],c.get('special'))\n  for t in c.get('terminology',[]): print('  ',t['source'],'=>',t['target'],t['status'],t.get('scope'),t.get('notes','')[:80])\n  if i in(6,7):\n    for w in c['source_evidence']['windows']: print(w['text'][:1500])\n\"",
+        "description": "Show terminology and contexts for entries"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

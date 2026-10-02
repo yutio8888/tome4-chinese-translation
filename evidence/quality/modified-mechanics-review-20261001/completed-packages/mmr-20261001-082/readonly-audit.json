@@ -1,0 +1,31 @@
+{
+  "agent_id": "27a12e62-99c7-4605-9aed-9be87f3362aa",
+  "native_session": "e72ec4d1-e043-4f16-a23f-7622817e01d6",
+  "native_log_sha256": "e1930a070af9830ff3914a07095b64b4ab061800493784c1652a9d7090be1e6e",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmr-20261001-082/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-082/INPUT.json"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-082/INPUT.json'))\np=d['payload'];print(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor c in p['bounded_context'][5:]:\n  x=json.loads(c['context']);print(c['revision_key']);\n  for w in x['source_evidence']['windows']: print(w['text'])\n\"; grep -n \"第六节\\|## 6\\|^## \" docs/paseo-translation-context-review-v2-contract.md | head -40"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

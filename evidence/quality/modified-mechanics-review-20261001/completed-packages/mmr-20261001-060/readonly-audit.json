@@ -1,0 +1,104 @@
+{
+  "agent_id": "35bb7eac-723e-4247-9819-54e34aa1ee43",
+  "native_session": "612bf240-654f-4d82-a43c-c649efc25a0d",
+  "native_log_sha256": "5f4e0040246c3c5ff7875bd2c3dbd4e8fb49c0d9bbeea22f94f9474c88bee6b3",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-060/INPUT.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read review input and contract size"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-060/INPUT.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']: print({k:(v if k!='context' else v[:200]) for k,v in b.items()})\n\"",
+        "description": "Summarize input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-060/INPUT.json'))\np=d['payload']\nfor t in p['translation_snapshot'][7:]: print(json.dumps(t,ensure_ascii=False))\n\"; grep -n '^## \\|^### ' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Print remaining entries and contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section six and seven"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-060/INPUT.json'))\np=d['payload']\nfor i in [1]:\n  c=json.loads(p['bounded_context'][i]['context'])\n  se=c.pop('source_evidence')\n  print(json.dumps(c,ensure_ascii=False,indent=0)[:3000])\n  for w in se['windows']: print(w['text'])\n  print({k:v for k,v in se.items() if k!='windows'})\n\"",
+        "description": "Print context for entry 2"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n 'newEffect{' $C -- game/modules/tome/data/timed_effects/ | grep -n 'mental.lua' >/dev/null; git grep -n -A3 'name = \"SLEEP\"\\|name = \"INSOMNIA\"' $C -- game/modules/tome/data/timed_effects/",
+        "description": "Locate SLEEP and INSOMNIA effects"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/timed_effects/mental.lua | sed -n '2300,2360p;2488,2530p'",
+        "description": "Read SLEEP and INSOMNIA definitions"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n 'getInsomniaPower\\|name = \"Sandman\"' $C -- game/modules/tome/data/talents/psionic/ | head",
+        "description": "Check Sandman insomnia reduction"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-060/INPUT.json'))\np=d['payload']\nfor i in [5,9]:\n  c=json.loads(p['bounded_context'][i]['context'])\n  se=c.pop('source_evidence')\n  print(c.get('terminology'))\n  for w in se['windows']: print(w['text'])\n\"",
+        "description": "Print contexts for entries 6 and 10"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n -B3 -A25 'T_FEED_STRENGTHS' $C -- game/modules/tome/data/ | grep -v '^--$' | head -60",
+        "description": "Find Feed Strengths consumer"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n 'resistGain' $C -- game/modules/tome/data/timed_effects/ | head; ",
+        "description": "Find FEED effect resistGain use"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/timed_effects/other.lua | sed -n 3845,3856p",
+        "description": "Read resist gain computation"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-060/INPUT.json'))\np=d['payload']\nfor i in [6,7]:\n  c=json.loads(p['bounded_context'][i]['context'])\n  se=c.pop('source_evidence')\n  print([t['source']+'='+t['target'] for t in c.get('terminology',[])])\n  for w in se['windows']: print(w['text'][:4500])\n\"",
+        "description": "Print contexts for darkness entries"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

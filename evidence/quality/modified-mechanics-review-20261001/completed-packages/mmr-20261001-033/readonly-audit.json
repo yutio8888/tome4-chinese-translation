@@ -1,0 +1,55 @@
+{
+  "agent_id": "048d1535-6c3e-42ac-997a-4e255e7ecf18",
+  "native_session": "f9a27191-e8c3-4c22-87f1-7ed843d3f528",
+  "native_log_sha256": "4b6cb1086e82a57f71b8423c68c70a485ad2d155fdf65198ce33487d82701920",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-033/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-033/INPUT.json",
+        "description": "Read frozen review input"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-033/INPUT.json'))\np=d['payload']\nprint([k for k in d]); print([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\n\"",
+        "description": "Show other payload fields"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-033/INPUT.json'))\nfor b in d['payload']['bounded_context'][5:]:\n  c=json.loads(b['context'])\n  print('=====',b['revision_key'][:8],c['source_tag'],c['source_evidence']['frozen_file'],c['source_evidence']['matching_lines'],c['terminology'])\n  for w in c['source_evidence']['windows']: print(w['text'])\n\"; grep -n '第六节\\|## 六\\|^## ' docs/paseo-translation-context-review-v2-contract.md | head -40",
+        "description": "Show remaining contexts and contract headings"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section six"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs/orcs 2>/dev/null && pwd && grep -rn -A25 'name = \"IRON_GRIP\"' --include=*.lua . | head -40; grep -rn -A25 'name = \"GRASPING_MOSS\"' --include=*.lua . | head -35",
+        "description": "Check Iron Grip effect and grasping moss damage type"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n -A25 'newDamageType{\\s*$' | grep -n -A22 'GRASPING_MOSS\"' | head -30",
+        "description": "Check GRASPING_MOSS at pinned engine commit"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

@@ -1,0 +1,48 @@
+{
+  "agent_id": "9b3793d1-0cd5-4976-bc49-3d09711c1f84",
+  "native_session": "06c732d5-46d3-4898-bdad-66ba8e1e2763",
+  "native_log_sha256": "c924314007c347c879273e6a5c2570c94ccc245638a51aef8b76d7764c760c3d",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "wc -c .ai/task/mmr-20261001-023/INPUT.json && head -c 6000 .ai/task/mmr-20261001-023/INPUT.json",
+        "description": "Read review input file"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-023/INPUT.json'))\np=d['payload']\nprint([k for k in d]);print([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print('==',b['revision_key'][:8],c['source_tag'],c['source_evidence']['matching_lines'],c.get('terminology'),c.get('special'))\n\"",
+        "description": "Inspect input structure"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/mmr-20261001-023/INPUT.json'))\nfor b in d['payload']['bounded_context'][2:]:\n  c=json.loads(b['context']); e=c['source_evidence']\n  print('=====',b['revision_key'][:8],e['public_path'])\n  for w in e['windows']: print(w['text'])\n\"; grep -n '第六节\\|## 六\\|^## 6\\|六、' docs/paseo-translation-context-review-v2-contract.md | head",
+        "description": "Print remaining source windows"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section 6"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-dlcs && ls; grep -rn \"sawwheel_speed\" orcs* 2>/dev/null | head",
+        "description": "Locate Saw Wheels consumer in orcs DLC"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

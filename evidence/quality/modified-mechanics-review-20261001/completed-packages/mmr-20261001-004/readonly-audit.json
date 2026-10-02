@@ -1,0 +1,55 @@
+{
+  "agent_id": "55c53e0c-c964-477c-8392-a5a50413953f",
+  "native_session": "7663feb5-a5bf-4dd5-b0a8-d8052bb9a18c",
+  "native_log_sha256": "1bf5798e5e684bd6aacb6083527addd39308d3ed634ee7b0df25a7ba77aff44c",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-004/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-004/INPUT.json"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat docs/paseo-translation-context-review-v2-contract.md"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-004/INPUT.json'))\np=d['payload']\nprint(p.keys())\nprint(p['contract'], p['fixed_source_identity'], p['terminology_snapshot'])\nprint(p['rendered_briefing'])\nfor k,t,c in zip(p['ordered_revision_keys'],p['translation_snapshot'],p['bounded_context']):\n  print('=====',k)\n  print(json.dumps(t,ensure_ascii=False))\n  cc=json.loads(c['context'])\n  print('ctx section',cc['section'],cc['source_tag'],cc['source_evidence']['matching_lines'],'term',cc.get('terminology'))\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-004/INPUT.json'))\np=d['payload']\nfor c in p['bounded_context'][5:]:\n  cc=json.loads(c['context'])\n  se=cc['source_evidence']\n  for w in se['windows']:\n    t=w['text'].split('\\n')\n    print('-----',se['public_path'],se['matching_lines'])\n    print('\\n'.join(t[-60:] if len(t)>80 else t))\n  print('TERM',cc.get('terminology'), cc['read_boundary'][:0])\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "f=.artifacts/i18n/modified-mechanics-20261001/sources/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua; grep -n \"unique\\|createSeed = function\\|function createSeed\\|regen\\|heal\\|resurrect\\|level <\\|level >\" $f | head -40; grep -n \"DEMON_SEED_ARMOURED_LEVIATHAN\" -r /workspace/tome4-dlcs/ashes-urhrok/ 2>/dev/null | head"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "f=.artifacts/i18n/modified-mechanics-20261001/sources/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua; sed -n 346,400p $f; sed -n 450,470p $f; sed -n 625,645p /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/timed_effects.lua"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/physical.lua | grep -n -A22 'name = \"DISABLE\"'"
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

@@ -1,0 +1,43 @@
+{
+  "agent_id": "abfa4008-11c0-41f8-ba4f-31e478250562",
+  "native_session": "19e26805-a7fd-48f8-ba23-cb0c4f9a743f",
+  "native_log_sha256": "eab53cfcbda78993ce8b973b66c275f31455e07d76bb25bce73cb12bd1b7e650",
+  "manually_audited_tool_calls": [
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cat .ai/task/mmr-20261001-069/INPUT.json | head -c 20000; echo; wc -c .ai/task/mmr-20261001-069/INPUT.json"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmr-20261001-069/INPUT.json'))\np=d['payload']\nprint([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context'][4:]:\n  c=json.loads(b['context']); print('=====',b['revision_key']); print(c['section']); \n  for w in c['source_evidence']['windows']: print(w['text'])\n  print(json.dumps(c['terminology'],ensure_ascii=False))\n\""
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md; awk '/^## 六|^## 6/{f=1} f' docs/paseo-translation-context-review-v2-contract.md | head -80"
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/spells/deeprock.lua | sed -n 20,95p | grep -n -i \"immune\\|Mountainhewn\\|physical\\|all_damage_convert\\|force_use_resist\" "
+      }
+    },
+    {
+      "tool": "Bash",
+      "input": {
+        "command": "cd /workspace/t-engine4 && git grep -n -i \"DEEPROCK_FORM\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/timed_effects | head; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/magical.lua | grep -n -A40 'name = \"DEEPROCK_FORM\"' | grep -i \"immune\\|resist\\|force\""
+      }
+    }
+  ],
+  "writes_observed": 0,
+  "forbidden_translation_or_old_finding_reads": 0,
+  "archive_confirmed": true,
+  "strict_output_valid": true,
+  "consumer": "DONE_VERIFIED",
+  "scope_of_done": "independent review contract; overall source audit tracked separately in coverage"
+}

@@ -1,0 +1,275 @@
+{
+  "task_id": "mmrfix-20261002-001",
+  "role": "EXECUTOR",
+  "dispatch": "executor-001",
+  "status": "implementation_complete",
+  "changed_content_files": [
+    "tome-orcs.lua",
+    "mod-tome.lua",
+    "tome-cults.lua"
+  ],
+  "target_changes": [
+    {
+      "finding_id": "MMR-010",
+      "change_id": "1303f69f0f753749e66027e257b3e8f959f535835bf9c56b3aab366e398db2f5",
+      "file": "tome-orcs.lua",
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "old_target": "你使用蒸汽枪向目标发射一枚特殊反魔弹，造成 100%% 普通武器伤害。\n\t\t反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术法力燃烧伤害。\n\t\t这个技能不使用弹药，因为它本身就是弹药。\n\t\t汁液伤害取决于蒸汽强度。",
+      "new_target": "你使用蒸汽枪向目标发射一枚特殊反魔弹，造成 100%% 普通武器伤害。\n\t\t反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术资源燃烧伤害。\n\t\t这个技能不使用弹药，因为它本身就是弹药。\n\t\t汁液伤害取决于蒸汽强度。",
+      "baseline_sha256": "5f308e38d2cd76282947a4aac35061c3c9400be873113f744a6279b432f7b696",
+      "preimage_matched_before_edit": true,
+      "result_sha256": "f8e7813f4de45e4eb453f4fb34597104f94aaa3082d92af3d8a2eb52b5f95a29",
+      "source_verdict": "confirmed_in_verified_inputs",
+      "source_reason": "Antimagic Shell 的 archery_onhit 调用 MANABURN；固定本体消费者 burnArcaneResources 扣除 mana、vim、positive、negative，并以归一化燃烧量最大值造成 ARCANE 伤害；不是仅法力。",
+      "actual_source_evidence": [
+        {
+          "anchor_id": "entry-1529",
+          "component": "orcs",
+          "public_path": "tome-orcs/data/talents/steam/other.lua",
+          "commit": null,
+          "source_pinning": "unpinned",
+          "actual_sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+          "frozen_sha256_match": true,
+          "ranges": [
+            {
+              "start": 1699,
+              "end": 1732
+            }
+          ],
+          "source_limitation": "DLC 来源、源码 commit 与发行版本未固定；仅确认当前快照与冻结哈希一致，跨版本适用性待确认。"
+        },
+        {
+          "anchor_id": "a53",
+          "component": "tome",
+          "public_path": "game/modules/tome/data/damage_types.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "actual_sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+          "frozen_sha256_match": true,
+          "ranges": [
+            {
+              "start": 3558,
+              "end": 3574
+            }
+          ],
+          "source_limitation": null
+        },
+        {
+          "anchor_id": "a54",
+          "component": "tome",
+          "public_path": "game/modules/tome/class/Actor.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "actual_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+          "frozen_sha256_match": true,
+          "ranges": [
+            {
+              "start": 7130,
+              "end": 7141
+            }
+          ],
+          "source_limitation": null
+        }
+      ],
+      "invariants": {
+        "only_authorized_target_changed": true,
+        "other_file_bytes_unchanged": true,
+        "source_source_tag_args_order_special_unchanged": true,
+        "placeholder_sequence": [
+          "%%",
+          "%0.2f"
+        ],
+        "placeholder_sequence_unchanged": true,
+        "markup_unchanged": true,
+        "newline_unchanged": true,
+        "ascii_preview_spacing": "strict lint passed"
+      }
+    },
+    {
+      "finding_id": "MMR050",
+      "change_id": "e6dd7b786f29d7d99687bdab00368d21f9faf6142d7949b81b6153f4338d0a45",
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/spells/death.lua",
+      "old_target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果： %0.2f 伤害\n\t\t- 5 个效果： %0.2f 伤害\n\t\t- 10 个效果： %0.2f 伤害\n\t\t- 15 个效果： %0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+      "new_target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每项既有负面效果使本技能的减速持续时间增加 1 回合（最多 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果： %0.2f 伤害\n\t\t- 5 个效果： %0.2f 伤害\n\t\t- 10 个效果： %0.2f 伤害\n\t\t- 15 个效果： %0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+      "baseline_sha256": "d93c86e4432c24bc9d39ba3a0d655157c66d7259e19c3f37062d473505cfe459",
+      "preimage_matched_before_edit": true,
+      "result_sha256": "3428a999ac4f743c441e4793cb6c4826ec93cc24b745c6a8eeea1a4350c086af",
+      "source_verdict": "confirmed_in_verified_inputs",
+      "source_reason": "effectsFilter 计数 nb（忽略跨阶效果）；仅对 EFF_RIGOR_MORTIS 设置 util.bound(nb, 1, max) 时长、power=0.25；该效果修改 global_speed_add，不修改已有负面效果的时长。",
+      "actual_source_evidence": [
+        {
+          "anchor_id": "entry-673",
+          "component": "tome",
+          "public_path": "game/modules/tome/data/talents/spells/death.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "actual_sha256": "78355e3e933bd6f6566cdd648554e8896af253a0f74c0a71bb18d7d8ce65f665",
+          "frozen_sha256_match": true,
+          "ranges": [
+            {
+              "start": 20,
+              "end": 78
+            }
+          ],
+          "source_limitation": null
+        },
+        {
+          "anchor_id": "a719",
+          "component": "tome",
+          "public_path": "game/modules/tome/data/timed_effects/magical.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "actual_sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+          "frozen_sha256_match": true,
+          "ranges": [
+            {
+              "start": 2068,
+              "end": 2087
+            }
+          ],
+          "source_limitation": null
+        }
+      ],
+      "invariants": {
+        "only_authorized_target_changed": true,
+        "other_file_bytes_unchanged": true,
+        "source_source_tag_args_order_special_unchanged": true,
+        "placeholder_sequence": [
+          "%0.2f",
+          "%%",
+          "%d",
+          "%0.2f",
+          "%0.2f",
+          "%0.2f",
+          "%0.2f"
+        ],
+        "placeholder_sequence_unchanged": true,
+        "markup_unchanged": true,
+        "newline_unchanged": true,
+        "ascii_preview_spacing": "strict lint passed"
+      }
+    },
+    {
+      "finding_id": "MMR053",
+      "change_id": "d57dfc79b9a95c3f841df81fc91479193efd45d31175624b18197366e509c2b0",
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/talents/demented/tentacles.lua",
+      "old_target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标两侧的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s",
+      "new_target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s",
+      "baseline_sha256": "d1d2fbb1db88eb270abe5e2b7de0e74725f6131196eff98bfe1c2c89a9cb99e5",
+      "preimage_matched_before_edit": true,
+      "result_sha256": "066a38958b776338982f64ae7572b3fdaefe4af7ade7d3f71696a13a96c5243c",
+      "source_verdict": "confirmed_in_verified_inputs",
+      "source_reason": "getDir(target.x,target.y,self.x,self.y) 求由自身指向目标的方向；dirSides 取方向相邻的左右方向，coordAddDir(self.x,self.y,...) 以自身为中心选相邻格；只攻击 reactionToward < 0 的侧格角色。方格方向示例：朝东 dir=6 时 left=9、right=3，即自身东北与东南格；朝东北 dir=9 时 left=8、right=6，即自身北与东格。",
+      "actual_source_evidence": [
+        {
+          "anchor_id": "entry-1201",
+          "component": "cults",
+          "public_path": "tome-cults/data/talents/demented/tentacles.lua",
+          "commit": null,
+          "source_pinning": "unpinned",
+          "actual_sha256": "038841bc39a9c1ca209651fb5c8cbe248ef0abab6596c528407063eefbe25906",
+          "frozen_sha256_match": true,
+          "ranges": [
+            {
+              "start": 29,
+              "end": 83
+            }
+          ],
+          "source_limitation": "DLC 来源、源码 commit 与发行版本未固定；仅确认当前快照与冻结哈希一致，跨版本适用性待确认。"
+        },
+        {
+          "anchor_id": "a758",
+          "component": "cults",
+          "public_path": "tome-cults/superload/mod/class/interface/Combat.lua",
+          "commit": null,
+          "source_pinning": "unpinned",
+          "actual_sha256": "286287389763a7390b141216378c81c762124043deef6bff45b479470d01cf60",
+          "frozen_sha256_match": true,
+          "ranges": [
+            {
+              "start": 27,
+              "end": 62
+            }
+          ],
+          "source_limitation": "DLC 来源、源码 commit 与发行版本未固定；仅确认当前快照与冻结哈希一致，跨版本适用性待确认。"
+        },
+        {
+          "anchor_id": "executor-utils-direction",
+          "component": "engine",
+          "public_path": "game/engines/default/engine/utils.lua",
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "source_pinning": "pinned",
+          "actual_sha256": "871f7ae2d26266751811d9249e4525b5b0f9d8c88b35272755d7a617885c2bbf",
+          "ranges": [
+            {
+              "start": 2025,
+              "end": 2065
+            },
+            {
+              "start": 2310,
+              "end": 2312
+            },
+            {
+              "start": 2334,
+              "end": 2339
+            },
+            {
+              "start": 2407,
+              "end": 2410
+            }
+          ],
+          "source_limitation": null
+        }
+      ],
+      "invariants": {
+        "only_authorized_target_changed": true,
+        "other_file_bytes_unchanged": true,
+        "source_source_tag_args_order_special_unchanged": true,
+        "placeholder_sequence": [
+          "%d",
+          "%d",
+          "%%",
+          "%d",
+          "%s",
+          "%s"
+        ],
+        "placeholder_sequence_unchanged": true,
+        "markup_unchanged": true,
+        "newline_unchanged": true,
+        "ascii_preview_spacing": "strict lint passed"
+      }
+    }
+  ],
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "Lua 5.1 / LuaJIT 2.1.0-beta3; LPeg 0.10.2; pinned repositories available; DLC unpinned warnings as expected"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report_path": ".artifacts/i18n/runs/20261002T071801.964028Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "scope_verification": "逐文件与 task baseline 比较，完整字节仅发生各自一个 accepted target 替换；未改其他调用、字段、术语库、源码、工具、.ai、旧 evidence 或既有用户文件。",
+  "terminology_context": "terminology/combat.tsv 的 manaburn arcane 现有名称说明已查询；本任务明确授权将该描述中的法力限定改为奥术资源，不修改术语行，也不外推到其他条目。",
+  "plan_deviations": [],
+  "unresolved_items": [],
+  "source_limitations": [
+    "DLC 来源、源码 commit 与发行版本未固定；当前 3 个 DLC 源码文件哈希与 REPAIR-INPUT 冻结快照匹配，跨版本适用性待确认。"
+  ],
+  "host_followup": "按 SPEC 由宿主执行 proposal、不变量、运行键扫描/分类、严格构建、独立复审与任务闭合；EXECUTOR 本次未代替这些后续流程。",
+  "staged": false,
+  "committed": false,
+  "child_agents_created": false
+}

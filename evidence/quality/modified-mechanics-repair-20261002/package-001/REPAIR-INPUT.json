@@ -1,0 +1,715 @@
+{
+  "claims": [
+    {
+      "finding_id": "MMR-010",
+      "change_id": "1303f69f0f753749e66027e257b3e8f959f535835bf9c56b3aab366e398db2f5",
+      "revision_identity": [
+        {
+          "args_order": null,
+          "component": "orcs",
+          "item_id": "translation-33a72bec3bbe058ffad58f4d385150ee50f2e6d96d32a739602256f9718607c5",
+          "line": 5627,
+          "ordinal": 2323,
+          "revision_id": "33a72bec3bbe058ffad58f4d385150ee50f2e6d96d32a739602256f9718607c5",
+          "revision_uid": "f7c5014c6b0641a7ce20d5a0d23fe3be5666b1b029bb03c423a7511cd4d30245",
+          "section": "tome-orcs/data/talents/steam/other.lua",
+          "source": "You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.\n\t\tThe shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tSap damage scales with Steampower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你使用蒸汽枪向目标发射一枚特殊反魔弹，造成 100%% 普通武器伤害。\n\t\t反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术法力燃烧伤害。\n\t\t这个技能不使用弹药，因为它本身就是弹药。\n\t\t汁液伤害取决于蒸汽强度。",
+          "tu_uid": "6bad8af677a457cd33cefb710f6ddb1dcaaa28136e7cd57feb816feb8d0cd0fb",
+          "unit_id": "085bc5516004040046cf6052c735ddbf6da8445e26baa2d3fcdc0bc1c6ae76cd"
+        }
+      ],
+      "location": {
+        "file": "tome-orcs.lua",
+        "line": 5627,
+        "section": "tome-orcs/data/talents/steam/other.lua"
+      },
+      "source": "You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.\n\t\tThe shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tSap damage scales with Steampower.",
+      "old_target": "你使用蒸汽枪发射特殊弹药打击目标造成 100%% 武器伤害。\n造成 %0.2f 奥术燃烧。\n这个技能不使用弹药。\n奥术燃烧伤害取决于蒸汽强度。",
+      "current_target": "你使用蒸汽枪向目标发射一枚特殊反魔弹，造成 100%% 普通武器伤害。\n\t\t反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术法力燃烧伤害。\n\t\t这个技能不使用弹药，因为它本身就是弹药。\n\t\t汁液伤害取决于蒸汽强度。",
+      "observation": "本轮新增法力限定，实际燃烧四种奥术资源。",
+      "host_status": "confirmed",
+      "origin": "new_issue",
+      "player_impact": "使玩家误判该技能对活力、正负能量使用者的作用。",
+      "strongest_counterevidence": "旧译只写奥术燃烧；MANABURN名称看似法力，但最终消费者明确同时扣四种资源。",
+      "source_anchors": [
+        "entry-1529",
+        "a53",
+        "a54"
+      ],
+      "host_reason": "宿主对完整上下文、实际差异和上述源码锚点独立裁决；DLC文件如有使用，来源/commit/版本未固定。",
+      "recommendation": "译为奥术资源燃烧傷害，不限法力。",
+      "automatic_fix_authorized": false
+    },
+    {
+      "finding_id": "MMR050",
+      "change_id": "e6dd7b786f29d7d99687bdab00368d21f9faf6142d7949b81b6153f4338d0a45",
+      "revision_identity": [
+        {
+          "args_order": null,
+          "component": "tome",
+          "item_id": "translation-86e5ea1e55ccc9ad9156e68358a885e27bd2676a14ca66ab6fdf53ecee40c73b",
+          "line": 28421,
+          "ordinal": 14069,
+          "revision_id": "86e5ea1e55ccc9ad9156e68358a885e27bd2676a14ca66ab6fdf53ecee40c73b",
+          "revision_uid": "d2cac7d33922661985c41b355fcea2a690ef87823f51e5e73590842fb7e6e8e4",
+          "section": "mod-tome/data/talents/spells/death.lua",
+          "source": "Press your advantage when your foes are starting to crumble.\n\t\tFor every detrimental effect on the target you deals %0.2f frostdusk damage (with diminishing returns) and reduce its global speed by 25%% for one turn per effect (up to a maximum of %d).\n\t\tThe diminishing returns on damage bonus works this way:\n\t\t- 2 effects: %0.2f\n\t\t- 5 effects: %0.2f\n\t\t- 10 effects: %0.2f\n\t\t- 15 effects: %0.2f\n\t\tAnd so on...\n\t\tDamage increases with your Spellpower.\n\t\t",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果： %0.2f 伤害\n\t\t- 5 个效果： %0.2f 伤害\n\t\t- 10 个效果： %0.2f 伤害\n\t\t- 15 个效果： %0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+          "tu_uid": "507493c58eecc509834f3d6355a1475f4c933046cd46ac4f40b6e0889d3dcf01",
+          "unit_id": "47eac4d7e65f3e07e50984dc74e7d88b650e4065cc45511af51e61a73f7baddf"
+        }
+      ],
+      "location": {
+        "file": "mod-tome.lua",
+        "line": 28421,
+        "section": "mod-tome/data/talents/spells/death.lua"
+      },
+      "source": "Press your advantage when your foes are starting to crumble.\n\t\tFor every detrimental effect on the target you deals %0.2f frostdusk damage (with diminishing returns) and reduce its global speed by 25%% for one turn per effect (up to a maximum of %d).\n\t\tThe diminishing returns on damage bonus works this way:\n\t\t- 2 effects: %0.2f\n\t\t- 5 effects: %0.2f\n\t\t- 10 effects: %0.2f\n\t\t- 15 effects: %0.2f\n\t\tAnd so on...\n\t\tDamage increases with your Spellpower.\n\t\t",
+      "old_target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%% 1回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果：%0.2f 伤害\n\t\t- 5 个效果：%0.2f 伤害\n\t\t- 10 个效果：%0.2f 伤害\n\t\t- 15 个效果：%0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+      "current_target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果： %0.2f 伤害\n\t\t- 5 个效果： %0.2f 伤害\n\t\t- 10 个效果： %0.2f 伤害\n\t\t- 15 个效果： %0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+      "observation": "新增“每个负面效果持续1回合”将时长绑定到已有负面效果；实际按负面效果数量计算本技能减速持续时间，不改已有负面效果时长。",
+      "host_status": "confirmed",
+      "origin": "new",
+      "player_impact": "可能误以为技能缩短其他负面效果。",
+      "strongest_counterevidence": "句首说明降低全局速度，读者或可推测是减速时长，但新增语法明确指向每个负面效果。",
+      "source_anchors": [
+        "entry-673",
+        "a719"
+      ],
+      "host_reason": "宿主对完整上下文、实际差异和上述源码锚点独立裁决；DLC文件如有使用，来源/commit/版本未固定。",
+      "recommendation": "改为“每项负面效果使减速持续时间增加1回合（最多%d回合）”。",
+      "automatic_fix_authorized": false
+    },
+    {
+      "finding_id": "MMR053",
+      "change_id": "d57dfc79b9a95c3f841df81fc91479193efd45d31175624b18197366e509c2b0",
+      "revision_identity": [
+        {
+          "args_order": null,
+          "component": "cults",
+          "item_id": "translation-ea58d08720d1132b8fd2143049293a9ac8d634309758a5c0fc49ff51852eafcc",
+          "line": 3197,
+          "ordinal": 1070,
+          "revision_id": "ea58d08720d1132b8fd2143049293a9ac8d634309758a5c0fc49ff51852eafcc",
+          "revision_uid": "cbcecc79dec7046d11573a8d43048e8369d54adbd921b547e8ef8e716ca173df",
+          "section": "tome-cults/data/talents/demented/tentacles.lua",
+          "source": "Your left hand mutates into a disgusting mass of tentacles.\n\t\tWhen you have your offhand empty you automatically hit your target and those on the side whenever you hit with a basic attack.\n\t\tAlso increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.\n\t\tEach time you make an attack with your tentacle you gain %d insanity.\n\t\tYou generate a low power psionic field around you when around #{italic}#'civilized people'#{normal}# that prevents them from seeing you for the horror you are.\n\n\t\tYour tentacle hand currently has these stats%s:\n\t\t%s",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标两侧的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s",
+          "tu_uid": "24a40733d61ff18ca7228ddb67ac4d25a3fdbe286805d237ca67efeabecfc471",
+          "unit_id": "6424afd6a390f93c8a63f49826c554bd69bafbe3431729de9bbd6e979ca1a973"
+        }
+      ],
+      "location": {
+        "file": "tome-cults.lua",
+        "line": 3197,
+        "section": "tome-cults/data/talents/demented/tentacles.lua"
+      },
+      "source": "Your left hand mutates into a disgusting mass of tentacles.\n\t\tWhen you have your offhand empty you automatically hit your target and those on the side whenever you hit with a basic attack.\n\t\tAlso increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.\n\t\tEach time you make an attack with your tentacle you gain %d insanity.\n\t\tYou generate a low power psionic field around you when around #{italic}#'civilized people'#{normal}# that prevents them from seeing you for the horror you are.\n\n\t\tYour tentacle hand currently has these stats%s:\n\t\t%s",
+      "old_target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标同侧的其他单位。\n\t\t物理强度提高 %d，触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的心灵护盾，避免被他们发现你的恐魔形态。\n\t\t你的触手当前属性为 %s :\n\t\t%s",
+      "current_target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标两侧的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s",
+      "observation": "新增“目标两侧的敌人”，而消费者util.coordAddDir以self.x/self.y为中心选两侧格；并非目标格两侧。",
+      "host_status": "confirmed",
+      "origin": "new",
+      "player_impact": "误判断追加目标的几何范围。",
+      "strongest_counterevidence": "英文thoseontheside没有明确目标中心，旧“同侧其他单位”也不够准；敌人限定本身是正确修正。",
+      "source_anchors": [
+        "entry-1201",
+        "a758"
+      ],
+      "host_reason": "宿主对完整上下文、实际差异和上述源码锚点独立裁决；DLC文件如有使用，来源/commit/版本未固定。",
+      "recommendation": "改为“你身侧的敌人”或按方向说明“攻击方向左右相邻格的敌人”。",
+      "automatic_fix_authorized": false
+    }
+  ],
+  "entries": [
+    {
+      "after": {
+        "args_order": null,
+        "function_name": "t",
+        "kind": "translation",
+        "line": 5627,
+        "logical_path": "tome-orcs.lua",
+        "section": "tome-orcs/data/talents/steam/other.lua",
+        "source": "You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.\n\t\tThe shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tSap damage scales with Steampower.",
+        "source_tag": "tformat",
+        "special": null,
+        "target": "你使用蒸汽枪向目标发射一枚特殊反魔弹，造成 100%% 普通武器伤害。\n\t\t反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术法力燃烧伤害。\n\t\t这个技能不使用弹药，因为它本身就是弹药。\n\t\t汁液伤害取决于蒸汽强度。"
+      },
+      "ambiguous_pairing": false,
+      "before": {
+        "args_order": null,
+        "function_name": "t",
+        "kind": "translation",
+        "line": 5620,
+        "logical_path": "tome-orcs.lua",
+        "section": "tome-orcs/data/talents/steam/other.lua",
+        "source": "You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.\n\t\tThe shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tSap damage scales with Steampower.",
+        "source_tag": "tformat",
+        "special": null,
+        "target": "你使用蒸汽枪发射特殊弹药打击目标造成 100%% 武器伤害。\n造成 %0.2f 奥术燃烧。\n这个技能不使用弹药。\n奥术燃烧伤害取决于蒸汽强度。"
+      },
+      "candidate_index": 1529,
+      "change_id": "1303f69f0f753749e66027e257b3e8f959f535835bf9c56b3aab366e398db2f5",
+      "change_type": "semantic",
+      "classification_reason": "技能、状态、装备类别/属性、资源、战斗提示或机制交叉引用名称。",
+      "component": "orcs",
+      "content_class": "mechanics",
+      "export_identity": [
+        {
+          "args_order": null,
+          "component": "orcs",
+          "item_id": "translation-33a72bec3bbe058ffad58f4d385150ee50f2e6d96d32a739602256f9718607c5",
+          "line": 5627,
+          "ordinal": 2323,
+          "revision_id": "33a72bec3bbe058ffad58f4d385150ee50f2e6d96d32a739602256f9718607c5",
+          "revision_uid": "f7c5014c6b0641a7ce20d5a0d23fe3be5666b1b029bb03c423a7511cd4d30245",
+          "section": "tome-orcs/data/talents/steam/other.lua",
+          "source": "You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.\n\t\tThe shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tSap damage scales with Steampower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你使用蒸汽枪向目标发射一枚特殊反魔弹，造成 100%% 普通武器伤害。\n\t\t反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术法力燃烧伤害。\n\t\t这个技能不使用弹药，因为它本身就是弹药。\n\t\t汁液伤害取决于蒸汽强度。",
+          "tu_uid": "6bad8af677a457cd33cefb710f6ddb1dcaaa28136e7cd57feb816feb8d0cd0fb",
+          "unit_id": "085bc5516004040046cf6052c735ddbf6da8445e26baa2d3fcdc0bc1c6ae76cd"
+        }
+      ],
+      "file": "tome-orcs.lua",
+      "format_proof": null,
+      "matching_basis": "same component/section/source/source_tag; semantic multiset subtraction; unmatched residuals paired by occurrence order",
+      "mechanic_category": "skills",
+      "risk": "high",
+      "risk_reason": "包含机制名称/装备适用类别、动态参数或复合效果关系；采用保守逐条源码核验，不以快筛 OK 降级。",
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "source": "You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.\n\t\tThe shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tSap damage scales with Steampower.",
+      "source_tag": "tformat",
+      "unchanged_same_key_occurrences": []
+    },
+    {
+      "after": {
+        "args_order": null,
+        "function_name": "t",
+        "kind": "translation",
+        "line": 28421,
+        "logical_path": "mod-tome.lua",
+        "section": "mod-tome/data/talents/spells/death.lua",
+        "source": "Press your advantage when your foes are starting to crumble.\n\t\tFor every detrimental effect on the target you deals %0.2f frostdusk damage (with diminishing returns) and reduce its global speed by 25%% for one turn per effect (up to a maximum of %d).\n\t\tThe diminishing returns on damage bonus works this way:\n\t\t- 2 effects: %0.2f\n\t\t- 5 effects: %0.2f\n\t\t- 10 effects: %0.2f\n\t\t- 15 effects: %0.2f\n\t\tAnd so on...\n\t\tDamage increases with your Spellpower.\n\t\t",
+        "source_tag": "tformat",
+        "special": null,
+        "target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果： %0.2f 伤害\n\t\t- 5 个效果： %0.2f 伤害\n\t\t- 10 个效果： %0.2f 伤害\n\t\t- 15 个效果： %0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t"
+      },
+      "ambiguous_pairing": false,
+      "before": {
+        "args_order": null,
+        "function_name": "t",
+        "kind": "translation",
+        "line": 28450,
+        "logical_path": "mod-tome.lua",
+        "section": "mod-tome/data/talents/spells/death.lua",
+        "source": "Press your advantage when your foes are starting to crumble.\n\t\tFor every detrimental effect on the target you deals %0.2f frostdusk damage (with diminishing returns) and reduce its global speed by 25%% for one turn per effect (up to a maximum of %d).\n\t\tThe diminishing returns on damage bonus works this way:\n\t\t- 2 effects: %0.2f\n\t\t- 5 effects: %0.2f\n\t\t- 10 effects: %0.2f\n\t\t- 15 effects: %0.2f\n\t\tAnd so on...\n\t\tDamage increases with your Spellpower.\n\t\t",
+        "source_tag": "tformat",
+        "special": null,
+        "target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%% 1回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果：%0.2f 伤害\n\t\t- 5 个效果：%0.2f 伤害\n\t\t- 10 个效果：%0.2f 伤害\n\t\t- 15 个效果：%0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t"
+      },
+      "candidate_index": 673,
+      "change_id": "e6dd7b786f29d7d99687bdab00368d21f9faf6142d7949b81b6153f4338d0a45",
+      "change_type": "semantic",
+      "classification_reason": "技能、状态、装备类别/属性、资源、战斗提示或机制交叉引用名称。",
+      "component": "tome",
+      "content_class": "mechanics",
+      "export_identity": [
+        {
+          "args_order": null,
+          "component": "tome",
+          "item_id": "translation-86e5ea1e55ccc9ad9156e68358a885e27bd2676a14ca66ab6fdf53ecee40c73b",
+          "line": 28421,
+          "ordinal": 14069,
+          "revision_id": "86e5ea1e55ccc9ad9156e68358a885e27bd2676a14ca66ab6fdf53ecee40c73b",
+          "revision_uid": "d2cac7d33922661985c41b355fcea2a690ef87823f51e5e73590842fb7e6e8e4",
+          "section": "mod-tome/data/talents/spells/death.lua",
+          "source": "Press your advantage when your foes are starting to crumble.\n\t\tFor every detrimental effect on the target you deals %0.2f frostdusk damage (with diminishing returns) and reduce its global speed by 25%% for one turn per effect (up to a maximum of %d).\n\t\tThe diminishing returns on damage bonus works this way:\n\t\t- 2 effects: %0.2f\n\t\t- 5 effects: %0.2f\n\t\t- 10 effects: %0.2f\n\t\t- 15 effects: %0.2f\n\t\tAnd so on...\n\t\tDamage increases with your Spellpower.\n\t\t",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果： %0.2f 伤害\n\t\t- 5 个效果： %0.2f 伤害\n\t\t- 10 个效果： %0.2f 伤害\n\t\t- 15 个效果： %0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+          "tu_uid": "507493c58eecc509834f3d6355a1475f4c933046cd46ac4f40b6e0889d3dcf01",
+          "unit_id": "47eac4d7e65f3e07e50984dc74e7d88b650e4065cc45511af51e61a73f7baddf"
+        }
+      ],
+      "file": "mod-tome.lua",
+      "format_proof": null,
+      "matching_basis": "same component/section/source/source_tag; semantic multiset subtraction; unmatched residuals paired by occurrence order",
+      "mechanic_category": "skills",
+      "risk": "high",
+      "risk_reason": "包含机制名称/装备适用类别、动态参数或复合效果关系；采用保守逐条源码核验，不以快筛 OK 降级。",
+      "section": "mod-tome/data/talents/spells/death.lua",
+      "source": "Press your advantage when your foes are starting to crumble.\n\t\tFor every detrimental effect on the target you deals %0.2f frostdusk damage (with diminishing returns) and reduce its global speed by 25%% for one turn per effect (up to a maximum of %d).\n\t\tThe diminishing returns on damage bonus works this way:\n\t\t- 2 effects: %0.2f\n\t\t- 5 effects: %0.2f\n\t\t- 10 effects: %0.2f\n\t\t- 15 effects: %0.2f\n\t\tAnd so on...\n\t\tDamage increases with your Spellpower.\n\t\t",
+      "source_tag": "tformat",
+      "unchanged_same_key_occurrences": []
+    },
+    {
+      "after": {
+        "args_order": null,
+        "function_name": "t",
+        "kind": "translation",
+        "line": 3197,
+        "logical_path": "tome-cults.lua",
+        "section": "tome-cults/data/talents/demented/tentacles.lua",
+        "source": "Your left hand mutates into a disgusting mass of tentacles.\n\t\tWhen you have your offhand empty you automatically hit your target and those on the side whenever you hit with a basic attack.\n\t\tAlso increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.\n\t\tEach time you make an attack with your tentacle you gain %d insanity.\n\t\tYou generate a low power psionic field around you when around #{italic}#'civilized people'#{normal}# that prevents them from seeing you for the horror you are.\n\n\t\tYour tentacle hand currently has these stats%s:\n\t\t%s",
+        "source_tag": "tformat",
+        "special": null,
+        "target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标两侧的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s"
+      },
+      "ambiguous_pairing": false,
+      "before": {
+        "args_order": null,
+        "function_name": "t",
+        "kind": "translation",
+        "line": 3200,
+        "logical_path": "tome-cults.lua",
+        "section": "tome-cults/data/talents/demented/tentacles.lua",
+        "source": "Your left hand mutates into a disgusting mass of tentacles.\n\t\tWhen you have your offhand empty you automatically hit your target and those on the side whenever you hit with a basic attack.\n\t\tAlso increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.\n\t\tEach time you make an attack with your tentacle you gain %d insanity.\n\t\tYou generate a low power psionic field around you when around #{italic}#'civilized people'#{normal}# that prevents them from seeing you for the horror you are.\n\n\t\tYour tentacle hand currently has these stats%s:\n\t\t%s",
+        "source_tag": "tformat",
+        "special": null,
+        "target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标同侧的其他单位。\n\t\t物理强度提高 %d，触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的心灵护盾，避免被他们发现你的恐魔形态。\n\t\t你的触手当前属性为 %s :\n\t\t%s"
+      },
+      "candidate_index": 1201,
+      "change_id": "d57dfc79b9a95c3f841df81fc91479193efd45d31175624b18197366e509c2b0",
+      "change_type": "semantic",
+      "classification_reason": "技能、状态、装备类别/属性、资源、战斗提示或机制交叉引用名称。",
+      "component": "cults",
+      "content_class": "mechanics",
+      "export_identity": [
+        {
+          "args_order": null,
+          "component": "cults",
+          "item_id": "translation-ea58d08720d1132b8fd2143049293a9ac8d634309758a5c0fc49ff51852eafcc",
+          "line": 3197,
+          "ordinal": 1070,
+          "revision_id": "ea58d08720d1132b8fd2143049293a9ac8d634309758a5c0fc49ff51852eafcc",
+          "revision_uid": "cbcecc79dec7046d11573a8d43048e8369d54adbd921b547e8ef8e716ca173df",
+          "section": "tome-cults/data/talents/demented/tentacles.lua",
+          "source": "Your left hand mutates into a disgusting mass of tentacles.\n\t\tWhen you have your offhand empty you automatically hit your target and those on the side whenever you hit with a basic attack.\n\t\tAlso increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.\n\t\tEach time you make an attack with your tentacle you gain %d insanity.\n\t\tYou generate a low power psionic field around you when around #{italic}#'civilized people'#{normal}# that prevents them from seeing you for the horror you are.\n\n\t\tYour tentacle hand currently has these stats%s:\n\t\t%s",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标两侧的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s",
+          "tu_uid": "24a40733d61ff18ca7228ddb67ac4d25a3fdbe286805d237ca67efeabecfc471",
+          "unit_id": "6424afd6a390f93c8a63f49826c554bd69bafbe3431729de9bbd6e979ca1a973"
+        }
+      ],
+      "file": "tome-cults.lua",
+      "format_proof": null,
+      "matching_basis": "same component/section/source/source_tag; semantic multiset subtraction; unmatched residuals paired by occurrence order",
+      "mechanic_category": "skills",
+      "risk": "high",
+      "risk_reason": "包含机制名称/装备适用类别、动态参数或复合效果关系；采用保守逐条源码核验，不以快筛 OK 降级。",
+      "section": "tome-cults/data/talents/demented/tentacles.lua",
+      "source": "Your left hand mutates into a disgusting mass of tentacles.\n\t\tWhen you have your offhand empty you automatically hit your target and those on the side whenever you hit with a basic attack.\n\t\tAlso increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.\n\t\tEach time you make an attack with your tentacle you gain %d insanity.\n\t\tYou generate a low power psionic field around you when around #{italic}#'civilized people'#{normal}# that prevents them from seeing you for the horror you are.\n\n\t\tYour tentacle hand currently has these stats%s:\n\t\t%s",
+      "source_tag": "tformat",
+      "unchanged_same_key_occurrences": []
+    }
+  ],
+  "source_anchors": [
+    {
+      "anchor_id": "a53",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "start": 3558,
+      "end": 3574,
+      "excerpt": "3558: newDamageType{\n3559: \tname = _t(\"manaburn arcane\", \"damage type\"), type = \"MANABURN\", text_color = \"#PURPLE#\",\n3560: \tprojector = function(src, x, y, type, dam, state)\n3561: \t\tstate = initState(state)\n3562: \t\tuseImplicitCrit(src, state)\n3563: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n3564: \t\tif target then\n3565: \t\t\tdam = target.burnArcaneResources and target:burnArcaneResources(dam) or 0\n3566: \t\t\tif src.knowTalent and src:knowTalent(src.T_AURA_OF_SILENCE) and src.combatGetDamageIncrease then\n3567: \t\t\t\tlocal bonus = src:combatGetDamageIncrease(DamageType.NATURE) / 100\n3568: \t\t\t\tif bonus > 0 then dam = dam * (1 + bonus) end\n3569: \t\t\tend\n3570: \t\t\treturn DamageType:get(DamageType.ARCANE).projector(src, x, y, DamageType.ARCANE, dam, state)\n3571: \t\tend\n3572: \t\treturn 0\n3573: \tend,\n3574: }"
+    },
+    {
+      "anchor_id": "a54",
+      "component": "tome",
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 7130,
+      "end": 7141,
+      "excerpt": "7130: function _M:burnArcaneResources(damage)\n7131: \tlocal mana = math.min(self:getMana(), damage)\n7132: \tlocal vim = math.min(self:getVim(), damage/2)\n7133: \tlocal pos = math.min(self:getPositive(), damage/4)\n7134: \tlocal neg = math.min(self:getNegative(), damage/4)\n7135: \tself:incMana(-mana)\n7136: \tself:incVim(-vim)\n7137: \tself:incPositive(-pos)\n7138: \tself:incNegative(-neg)\n7139: \n7140: \treturn math.max(mana, vim * 2, pos * 4, neg * 4)\n7141: end"
+    },
+    {
+      "anchor_id": "entry-1529",
+      "component": "orcs",
+      "public_path": "tome-orcs/data/talents/steam/other.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+      "matching_lines": [
+        1725
+      ],
+      "windows": [
+        {
+          "end": 1732,
+          "start": 1699,
+          "text": "1699: newTalent{\n1700: \tname = \"Antimagic Shell\", short_name = \"TINKER_ANTIMAGIC_SHELL\",\n1701: \ttype = {\"steamtech/other\",1},\n1702: \tpoints = 5,\n1703: \tcooldown = 10,\n1704: \tsteam = 5,\n1705: \tradius = 0,\n1706: \trange = steamgun_range,\n1707: \trequires_target = true,\n1708: \ttactical = { DEBUFF = 2 },\n1709: \ttarget = function(self, t) return {type=\"ball\", range=nil, radius=self:getTalentRadius(t), selffire=false} end,\n1710: \ton_pre_use = function(self, t, silent) if not self:hasArcheryWeapon(\"steamgun\") then if not silent then game.logPlayer(self, \"You require a steamgun for this talent.\") end return false end return true end,\n1711: \tgetDamage = function(self, t) return self:combatTalentSteamDamage(t, 20, 250) end,\n1712: \tarchery_onhit = function(self, t, target, x, y)\n1713: \t\tDamageType:get(DamageType.MANABURN).projector(self, x, y, DamageType.MANABURN, self:steamCrit(t.getDamage(self, t)))\n1714: \t\t-- Pondering applying a spell failure chance effect too.\n1715: \tend,\n1716: \taction = function(self, t)\n1717: \t\tlocal tg = t.target(self, t)\n1718: \t\tlocal targets = self:archeryAcquireTargets(nil, {no_energy=true, infinite=true, one_shot=true, type=\"steamgun\"})\n1719: \t\tif targets then\n1720: \t\t\tself:archeryShoot(targets, t, tg, {mult=1.0, type=\"steamgun\"})\n1721: \t\t\treturn true\n1722: \t\tend\n1723: \tend,\n1724: \tinfo = function(self, t)\n1725: \t\treturn ([[You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.\n1726: \t\tThe shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.\n1727: \t\tThis talent does not use ammo as it is the ammo.\n1728: \t\tSap damage scales with Steampower.]])\n1729: \t\t:tformat(damDesc(self, DamageType.ARCANE, t.getDamage(self, t)))\n1730: \tend,\n1731: }\n1732: "
+        }
+      ]
+    },
+    {
+      "anchor_id": "a719",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/magical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "start": 2068,
+      "end": 2087,
+      "excerpt": "2068: \tname = \"RIGOR_MORTIS\", image = \"talents/rigor_mortis.png\",\n2069: \tdesc = _t\"Rigor Mortis\",\n2070: \tlong_desc = function(self, eff) return (\"The target is slowed by %d%%.\"):tformat(eff.power*100) end,\n2071: \ttype = \"magical\",\n2072: \tsubtype = { necrotic=true },\n2073: \tstatus = \"detrimental\",\n2074: \tparameters = {power=0.25},\n2075: \ton_gain = function(self, err) return _t\"#Target# feels death coming!\", _t\"+Rigor Mortis\" end,\n2076: \ton_lose = function(self, err) return _t\"#Target# is freed from the rigor mortis.\", _t\"-Rigor Mortis\" end,\n2077: \tactivate = function(self, eff)\n2078: \t\tself:effectTemporaryValue(eff, \"global_speed_add\", -eff.power)\n2079: \tend,\n2080: }\n2081: \n2082: newEffect{\n2083: \tname = \"DEATH_RUSH\", image = \"talents/utterly_destroyed.png\",\n2084: \tdesc = _t\"Death Rush\",\n2085: \tlong_desc = function(self, eff) return (\"Movement speed increased by %d%%.\"):tformat(eff.power*100) end,\n2086: \ttype = \"magical\",\n2087: \tsubtype = { necrotic=true },"
+    },
+    {
+      "anchor_id": "entry-673",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/spells/death.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "78355e3e933bd6f6566cdd648554e8896af253a0f74c0a71bb18d7d8ce65f665",
+      "matching_lines": [
+        66
+      ],
+      "windows": [
+        {
+          "end": 78,
+          "start": 20,
+          "text": "20: newTalent{\n21: \tname = \"Rigor Mortis\",\n22: \ttype = {\"spell/death\",1},\n23: \trequire = spells_req1,\n24: \tpoints = 5,\n25: \tsoul = 2,\n26: \tmana = 20,\n27: \trange = 10,\n28: \tcooldown = 15,\n29: \trequires_target = true,\n30: \ttactical = { ATTACK = { COLD=1, DARK=1 }, DISABLE = 1 },\n31: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 30, 300) end,\n32: \tgetMax = function(self, t) return math.floor(self:combatTalentScale(t, 1, 9)) end,\n33: \ttarget = function(self, t) return {type=\"hit\", range=self:getTalentRange(t), talent=t} end,\n34: \ton_pre_use_ai = function(self, t)\n35: \t\tlocal target = self.ai_target.actor\n36: \t\tif not target then return false end\n37: \n38: \t\treturn true\n39: \tend,\n40: \tincFormula = function(nb)\n41: \t\treturn 1 + math.log10(nb) * 1.5\n42: \tend,\n43: \taction = function(self, t)\n44: \t\tlocal tg = self:getTalentTarget(t)\n45: \t\tlocal x, y = self:getTarget(tg)\n46: \t\tif not x then return end\n47: \n48: \t\tself:projectApply(tg, x, y, Map.ACTOR, function(target)\n49: \t\t\tlocal nb = #target:effectsFilter({status=\"detrimental\", ignore_crosstier=true}, 999)\n50: \t\t\tif nb == 0 then return end\n51: \t\t\tlocal mult = t.incFormula(nb)\n52: \t\t\tlocal dam = self:spellCrit(mult * t:_getDamage(self))\n53: \t\t\tif DamageType:get(DamageType.FROSTDUSK).projector(self, target.x, target.y, DamageType.FROSTDUSK, dam) > 0 then\n54: \t\t\t\tif target:canBe(\"slow\") then\n55: \t\t\t\t\ttarget:setEffect(target.EFF_RIGOR_MORTIS, util.bound(nb, 1, t:_getMax(self)), {power=0.25, apply_power=self:combatSpellpower()})\n56: \t\t\t\telse\n57: \t\t\t\t\tgame.logSeen(target, \"%s resists the Rigor Mortis!\", target:getName():capitalize())\n58: \t\t\t\tend\n59: \t\t\tend\n60: \t\tend, nil, {type=\"dark\"})\n61: \n62: \t\treturn true\n63: \tend,\n64: \tinfo = function(self, t)\n65: \t\tlocal dam = damDesc(self, DamageType.FROSTDUSK, t:_getDamage(self))\n66: \t\treturn ([[Press your advantage when your foes are starting to crumble.\n67: \t\tFor every detrimental effect on the target you deals %0.2f frostdusk damage (with diminishing returns) and reduce its global speed by 25%% for one turn per effect (up to a maximum of %d).\n68: \t\tThe diminishing returns on damage bonus works this way:\n69: \t\t- 2 effects: %0.2f\n70: \t\t- 5 effects: %0.2f\n71: \t\t- 10 effects: %0.2f\n72: \t\t- 15 effects: %0.2f\n73: \t\tAnd so on...\n74: \t\tDamage increases with your Spellpower.\n75: \t\t]]):tformat(dam, t:_getMax(self), dam*t.incFormula(2), dam*t.incFormula(5), dam*t.incFormula(10), dam*t.incFormula(15))\n76: \tend,\n77: }\n78: "
+        }
+      ]
+    },
+    {
+      "anchor_id": "a758",
+      "component": "cults",
+      "public_path": "tome-cults/superload/mod/class/interface/Combat.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "286287389763a7390b141216378c81c762124043deef6bff45b479470d01cf60",
+      "start": 27,
+      "end": 62,
+      "excerpt": "27: \n28: local attackTargetWith = _M.attackTargetWith\n29: function _M:attackTargetWith(target, weapon, damtype, ...)\n30: \tlocal speed, hit, dam = attackTargetWith(self, target, weapon, damtype, ...)\n31: \n32: \tif weapon and self:knowTalent(self.T_MUTATED_HAND) and not self:attr(\"tentacle_hand_prevent\") and self:callTalent(self.T_MUTATED_HAND, \"canTentacleCombat\") and weapon.talented ~= \"tentacles\" then\n33: \t\tself:attr(\"tentacle_hand_prevent\", 1)\n34: \t\tlocal tcombat = self:callTalent(self.T_MUTATED_HAND, \"getTentacleCombat\")\n35: \t\tlocal tdamtype = damtype\n36: \t\tif not tdamtype or tdamtype == DamageType.PHYSICAL then tdamtype = tcombat.damtype end\n37: \t\tlocal speed, hit = self:attackTargetWith(target, tcombat, tdamtype, ...)\n38: \t\tif hit then game:playSoundNear(self, tcombat.sound) else game:playSoundNear(self, tcombat.sound_miss) end\n39: \n40: \t\tlocal dir = util.getDir(target.x, target.y, self.x, self.y) or 6\n41: \t\tlocal lx, ly = util.coordAddDir(self.x, self.y, util.dirSides(dir, self.x, self.y).left)\n42: \t\tlocal rx, ry = util.coordAddDir(self.x, self.y, util.dirSides(dir, self.x, self.y).right)\n43: \t\tlocal lt, rt = game.level.map(lx, ly, Map.ACTOR), game.level.map(rx, ry, Map.ACTOR)\n44: \n45: \t\tif lt and self:reactionToward(lt) < 0 then\n46: \t\t\tself:attackTargetWith(lt, tcombat, tdamtype, ...)\n47: \t\tend\n48: \t\tif rt and self:reactionToward(rt) < 0 then\n49: \t\t\tself:attackTargetWith(rt, tcombat, tdamtype, ...)\n50: \t\tend\n51: \n52: \t\tif self:reactionToward(target) <= 0 and not self.turn_procs.tentacle_insanity_gain then \n53: \t\t\tself:incInsanity(self:callTalent(self.T_MUTATED_HAND, \"getInsanityBonus\"))\n54: \t\t\tself.turn_procs.tentacle_insanity_gain = true\n55: \t\tend\n56: \n57: \t\tlocal hx, hy = self:attachementSpot(self._flipx and \"hand1\" or \"hand2\", true)\n58: \t\tlocal ps = Particles.new(\"tentacle_lash\", 1, {dir=math.deg(math.atan2(target.y-self.y, target.x-self.x)+math.pi/2)})\n59: \t\tps.dx = hx ps.dy = hy self:addParticles(ps)\n60: \n61: \t\tself:attr(\"tentacle_hand_prevent\", -1)\n62: \tend"
+    },
+    {
+      "anchor_id": "entry-1201",
+      "component": "cults",
+      "public_path": "tome-cults/data/talents/demented/tentacles.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "038841bc39a9c1ca209651fb5c8cbe248ef0abab6596c528407063eefbe25906",
+      "matching_lines": [
+        72
+      ],
+      "windows": [
+        {
+          "end": 83,
+          "start": 29,
+          "text": "29: newTalent{\n30: \tname = \"Mutated Hand\",\n31: \ttype = {\"demented/tentacles\", 1},\n32: \tno_unlearn_last = true,\n33: \tpoints = 5,\n34: \trequire = { stat = { mag=function(level) return 12 + level * 6 end }, },\n35: \tmode = \"passive\",\n36: \tgetDamage = function(self, t) return 30 end,\n37: \tgetPercentInc = function(self, t) return math.sqrt(self:getTalentLevel(t) / 5) / 1.5 end,\n38: \tgetInsanityBonus = function(self, t) return 10 end,\n39: \tcanTentacleCombat = function(self, t)\n40: \t\tif self.override_tentacle_combat_oneshot then return true end\n41: \t\tif self:attr(\"force_tentacle_hand\") then return true end\n42: \t\tlocal offhand = self:getInven(self.INVEN_OFFHAND)\n43: \t\tif not offhand or offhand[1] then return false end -- No lefthand or lefthand used, nope\n44: \t\tif self:hasTwoHandedWeapon() and not self:attr(\"allow_mainhand_2h_in_1h\") then return false end\n45: \t\t-- No check for disarmed, you cant disarm a tentacle!\n46: \t\treturn true\n47: \tend,\n48: \tgetTentacleCombat = function(self, t, force)\n49: \t\tif self.override_tentacle_combat_oneshot then\n50: \t\t\tlocal combat = self.override_tentacle_combat_oneshot\n51: \t\t\tself.override_tentacle_combat_oneshot = nil\n52: \t\t\treturn combat\n53: \t\tend\n54: \t\tif not t.canTentacleCombat(self, t) and not force then return nil end\n55: \t\treturn {\n56: \t\t\ttalented = \"tentacles\",\n57: \t\t\tdamtype = engine.DamageType.DARKNESS,\n58: \t\t\tdam = self:combatTalentScale(t, 10, 40),\n59: \t\t\tdammod = {mag=1},\n60: \t\t\tdamrange = 1.4,\n61: \t\t\tphyscrit = self:combatTalentLimit(t, 25, 2, 12),\n62: \t\t\tphysspeed = 1,\n63: \t\t\tsound = {\"actions/tentacle_attack\"}, sound_miss = {\"actions/tentacle_attack\", pitch=0.6},\n64: \t\t}\n65: \tend,\n66: \tinfo = function(self, t)\n67: \t\tlocal damage = t.getDamage(self, t)\n68: \t\tlocal inc = t.getPercentInc(self, t)\n69: \t\tlocal allow_tcombat = t.canTentacleCombat(self, t)\n70: \t\tlocal tcombat = {combat=t.getTentacleCombat(self, t, true)}\n71: \t\tlocal tcombatdesc = Object:descCombat(self, tcombat, {}, \"combat\")\n72: \t\treturn ([[Your left hand mutates into a disgusting mass of tentacles.\n73: \t\tWhen you have your offhand empty you automatically hit your target and those on the side whenever you hit with a basic attack.\n74: \t\tAlso increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.\n75: \t\tEach time you make an attack with your tentacle you gain %d insanity.\n76: \t\tYou generate a low power psionic field around you when around #{italic}#'civilized people'#{normal}# that prevents them from seeing you for the horror you are.\n77: \n78: \t\tYour tentacle hand currently has these stats%s:\n79: \t\t%s]]):\n80: \t\ttformat(damage, 100*inc, t.getInsanityBonus(self, t), allow_tcombat and \"\" or _t\", #CRIMSON# but is currently disabled due to non-empty offhand#WHITE#\", tostring(tcombatdesc))\n81: \tend,\n82: }\n83: "
+        }
+      ]
+    }
+  ],
+  "source_checks": [
+    {
+      "change_id": "1303f69f0f753749e66027e257b3e8f959f535835bf9c56b3aab366e398db2f5",
+      "export_identity": [
+        {
+          "args_order": null,
+          "component": "orcs",
+          "item_id": "translation-33a72bec3bbe058ffad58f4d385150ee50f2e6d96d32a739602256f9718607c5",
+          "line": 5627,
+          "ordinal": 2323,
+          "revision_id": "33a72bec3bbe058ffad58f4d385150ee50f2e6d96d32a739602256f9718607c5",
+          "revision_uid": "f7c5014c6b0641a7ce20d5a0d23fe3be5666b1b029bb03c423a7511cd4d30245",
+          "section": "tome-orcs/data/talents/steam/other.lua",
+          "source": "You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.\n\t\tThe shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tSap damage scales with Steampower.",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你使用蒸汽枪向目标发射一枚特殊反魔弹，造成 100%% 普通武器伤害。\n\t\t反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术法力燃烧伤害。\n\t\t这个技能不使用弹药，因为它本身就是弹药。\n\t\t汁液伤害取决于蒸汽强度。",
+          "tu_uid": "6bad8af677a457cd33cefb710f6ddb1dcaaa28136e7cd57feb816feb8d0cd0fb",
+          "unit_id": "085bc5516004040046cf6052c735ddbf6da8445e26baa2d3fcdc0bc1c6ae76cd"
+        }
+      ],
+      "location": {
+        "file": "tome-orcs.lua",
+        "line": 5627
+      },
+      "source": "You fire a special antimagic shot with your steamgun(s) at a target for 100%% normal weapon damage.\n\t\tThe shot will release antimagic sap on the target, doing %0.2f arcane resource burn damage.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tSap damage scales with Steampower.",
+      "old_target": "你使用蒸汽枪发射特殊弹药打击目标造成 100%% 武器伤害。\n造成 %0.2f 奥术燃烧。\n这个技能不使用弹药。\n奥术燃烧伤害取决于蒸汽强度。",
+      "current_target": "你使用蒸汽枪向目标发射一枚特殊反魔弹，造成 100%% 普通武器伤害。\n\t\t反魔弹会在目标身上释放反魔汁液，造成 %0.2f 奥术法力燃烧伤害。\n\t\t这个技能不使用弹药，因为它本身就是弹药。\n\t\t汁液伤害取决于蒸汽强度。",
+      "actual_delta": [
+        [
+          "",
+          "向目标"
+        ],
+        [
+          "",
+          "一枚"
+        ],
+        [
+          "",
+          "反魔"
+        ],
+        [
+          "药打击目标",
+          "，"
+        ],
+        [
+          "",
+          "普通"
+        ],
+        [
+          "",
+          "\t\t反魔弹会在目标身上释放反魔汁液，"
+        ],
+        [
+          "",
+          "法力"
+        ],
+        [
+          "",
+          "伤害"
+        ],
+        [
+          "",
+          "\t\t"
+        ],
+        [
+          "",
+          "，因为它本身就是弹药"
+        ],
+        [
+          "奥术燃烧",
+          "\t\t汁液"
+        ]
+      ],
+      "anchors": [
+        "entry-1529",
+        "a53",
+        "a54"
+      ],
+      "host_check": "archery mult1，infinite=true不耗弹；MANABURN燃烧mana,vim,pos,neg后取max归一量作ARCANE伤害；法力限定为本轮新引入缩窄，汁液和技能本身弹药补译正确。",
+      "evidence_status": "host_source_checked",
+      "strongest_counterevidence": "完整旧新句限定本轮归因；数值设置与最终消费者分别核对；源码英文差异不等于汉化新增错误。",
+      "value_flow": [
+        {
+          "index": 1,
+          "quantity_kind": "resource_burn_damage",
+          "calculation": "combatTalentSteamDamage -> damDesc ARCANE",
+          "consumer": "burnArcaneResources four pools -> max normalized burned -> ARCANE damage"
+        }
+      ],
+      "source_limitation": "DLC 来源、源码 commit 与发行版本未固定；哈希仅绑定本次证据。",
+      "independent_review": "see coverage.jsonl; independently checked by host"
+    },
+    {
+      "change_id": "e6dd7b786f29d7d99687bdab00368d21f9faf6142d7949b81b6153f4338d0a45",
+      "export_identity": [
+        {
+          "args_order": null,
+          "component": "tome",
+          "item_id": "translation-86e5ea1e55ccc9ad9156e68358a885e27bd2676a14ca66ab6fdf53ecee40c73b",
+          "line": 28421,
+          "ordinal": 14069,
+          "revision_id": "86e5ea1e55ccc9ad9156e68358a885e27bd2676a14ca66ab6fdf53ecee40c73b",
+          "revision_uid": "d2cac7d33922661985c41b355fcea2a690ef87823f51e5e73590842fb7e6e8e4",
+          "section": "mod-tome/data/talents/spells/death.lua",
+          "source": "Press your advantage when your foes are starting to crumble.\n\t\tFor every detrimental effect on the target you deals %0.2f frostdusk damage (with diminishing returns) and reduce its global speed by 25%% for one turn per effect (up to a maximum of %d).\n\t\tThe diminishing returns on damage bonus works this way:\n\t\t- 2 effects: %0.2f\n\t\t- 5 effects: %0.2f\n\t\t- 10 effects: %0.2f\n\t\t- 15 effects: %0.2f\n\t\tAnd so on...\n\t\tDamage increases with your Spellpower.\n\t\t",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果： %0.2f 伤害\n\t\t- 5 个效果： %0.2f 伤害\n\t\t- 10 个效果： %0.2f 伤害\n\t\t- 15 个效果： %0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+          "tu_uid": "507493c58eecc509834f3d6355a1475f4c933046cd46ac4f40b6e0889d3dcf01",
+          "unit_id": "47eac4d7e65f3e07e50984dc74e7d88b650e4065cc45511af51e61a73f7baddf"
+        }
+      ],
+      "location": {
+        "file": "mod-tome.lua",
+        "line": 28421
+      },
+      "source": "Press your advantage when your foes are starting to crumble.\n\t\tFor every detrimental effect on the target you deals %0.2f frostdusk damage (with diminishing returns) and reduce its global speed by 25%% for one turn per effect (up to a maximum of %d).\n\t\tThe diminishing returns on damage bonus works this way:\n\t\t- 2 effects: %0.2f\n\t\t- 5 effects: %0.2f\n\t\t- 10 effects: %0.2f\n\t\t- 15 effects: %0.2f\n\t\tAnd so on...\n\t\tDamage increases with your Spellpower.\n\t\t",
+      "old_target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%% 1回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果：%0.2f 伤害\n\t\t- 5 个效果：%0.2f 伤害\n\t\t- 10 个效果：%0.2f 伤害\n\t\t- 15 个效果：%0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+      "current_target": "利用敌人的痛楚打击敌人。\n\t\t目标每具有一个负面效果，造成 %0.2f 霜暮伤害（有收益衰减），并降低其全局速度 25%%，每个负面效果持续 1 回合（最大 %d 回合）。\n\t\t伤害加成的收益衰减如下面所示：\n\t\t- 2 个效果： %0.2f 伤害\n\t\t- 5 个效果： %0.2f 伤害\n\t\t- 10 个效果： %0.2f 伤害\n\t\t- 15 个效果： %0.2f 伤害\n\t\t以此类推。\n\t\t伤害受法术强度加成。\n\t\t",
+      "actual_delta": [
+        [
+          "",
+          "，每个负面效果持续"
+        ],
+        [
+          "",
+          " "
+        ],
+        [
+          "",
+          " "
+        ],
+        [
+          "",
+          " "
+        ],
+        [
+          "",
+          " "
+        ],
+        [
+          "",
+          " "
+        ]
+      ],
+      "anchors": [
+        "entry-673",
+        "a719"
+      ],
+      "host_check": "RigorMortis按detrimentals数目nb（ignorecrosstier）增伤、slow25%持续bound(nb,1,max)；六值base/maxDuration/2、5、10、15debuffdamage。新增每个负面效果持续1回合修饰对象误指既有debuff，另记confirmed。",
+      "evidence_status": "host_source_checked",
+      "strongest_counterevidence": "完整旧新句限定本轮归因；数值设置与最终消费者分别核对；源码英文差异不等于汉化新增错误。",
+      "value_flow": [
+        {
+          "index": 1,
+          "quantity_kind": "base_darkness_damage",
+          "calculation_anchor": "entry-673",
+          "consumer_anchor": "entry-673",
+          "direction": "显示参数取自同一计算/效果字段，按下述host_check核对消费位置"
+        },
+        {
+          "index": 2,
+          "quantity_kind": "maximum_slow_duration",
+          "calculation_anchor": "entry-673",
+          "consumer_anchor": "entry-673",
+          "direction": "显示参数取自同一计算/效果字段，按下述host_check核对消费位置"
+        },
+        {
+          "index": 3,
+          "quantity_kind": "damage_with_two_debuffs",
+          "calculation_anchor": "entry-673",
+          "consumer_anchor": "entry-673",
+          "direction": "显示参数取自同一计算/效果字段，按下述host_check核对消费位置"
+        },
+        {
+          "index": 4,
+          "quantity_kind": "damage_with_five_debuffs",
+          "calculation_anchor": "entry-673",
+          "consumer_anchor": "entry-673",
+          "direction": "显示参数取自同一计算/效果字段，按下述host_check核对消费位置"
+        },
+        {
+          "index": 5,
+          "quantity_kind": "damage_with_ten_debuffs",
+          "calculation_anchor": "entry-673",
+          "consumer_anchor": "entry-673",
+          "direction": "显示参数取自同一计算/效果字段，按下述host_check核对消费位置"
+        },
+        {
+          "index": 6,
+          "quantity_kind": "damage_with_fifteen_debuffs",
+          "calculation_anchor": "entry-673",
+          "consumer_anchor": "entry-673",
+          "direction": "显示参数取自同一计算/效果字段，按下述host_check核对消费位置"
+        }
+      ],
+      "source_limitation": null,
+      "independent_review": "see coverage.jsonl; independently checked by host"
+    },
+    {
+      "change_id": "d57dfc79b9a95c3f841df81fc91479193efd45d31175624b18197366e509c2b0",
+      "export_identity": [
+        {
+          "args_order": null,
+          "component": "cults",
+          "item_id": "translation-ea58d08720d1132b8fd2143049293a9ac8d634309758a5c0fc49ff51852eafcc",
+          "line": 3197,
+          "ordinal": 1070,
+          "revision_id": "ea58d08720d1132b8fd2143049293a9ac8d634309758a5c0fc49ff51852eafcc",
+          "revision_uid": "cbcecc79dec7046d11573a8d43048e8369d54adbd921b547e8ef8e716ca173df",
+          "section": "tome-cults/data/talents/demented/tentacles.lua",
+          "source": "Your left hand mutates into a disgusting mass of tentacles.\n\t\tWhen you have your offhand empty you automatically hit your target and those on the side whenever you hit with a basic attack.\n\t\tAlso increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.\n\t\tEach time you make an attack with your tentacle you gain %d insanity.\n\t\tYou generate a low power psionic field around you when around #{italic}#'civilized people'#{normal}# that prevents them from seeing you for the horror you are.\n\n\t\tYour tentacle hand currently has these stats%s:\n\t\t%s",
+          "source_tag": "tformat",
+          "special": null,
+          "target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标两侧的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s",
+          "tu_uid": "24a40733d61ff18ca7228ddb67ac4d25a3fdbe286805d237ca67efeabecfc471",
+          "unit_id": "6424afd6a390f93c8a63f49826c554bd69bafbe3431729de9bbd6e979ca1a973"
+        }
+      ],
+      "location": {
+        "file": "tome-cults.lua",
+        "line": 3197
+      },
+      "source": "Your left hand mutates into a disgusting mass of tentacles.\n\t\tWhen you have your offhand empty you automatically hit your target and those on the side whenever you hit with a basic attack.\n\t\tAlso increases Physical Power by %d, and increases weapon damage by %d%% for your tentacles attacks.\n\t\tEach time you make an attack with your tentacle you gain %d insanity.\n\t\tYou generate a low power psionic field around you when around #{italic}#'civilized people'#{normal}# that prevents them from seeing you for the horror you are.\n\n\t\tYour tentacle hand currently has these stats%s:\n\t\t%s",
+      "old_target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标同侧的其他单位。\n\t\t物理强度提高 %d，触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的心灵护盾，避免被他们发现你的恐魔形态。\n\t\t你的触手当前属性为 %s :\n\t\t%s",
+      "current_target": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标以及目标两侧的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t每次触手攻击时，获得 %d 疯狂值。\n\t\t附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s",
+      "actual_delta": [
+        [
+          "同",
+          "两"
+        ],
+        [
+          "其他单位",
+          "敌人"
+        ],
+        [
+          "",
+          " "
+        ],
+        [
+          "心",
+          ""
+        ],
+        [
+          "护盾",
+          "能力场"
+        ],
+        [
+          "",
+          "\n"
+        ],
+        [
+          "为 ",
+          ""
+        ],
+        [
+          " :",
+          "："
+        ]
+      ],
+      "anchors": [
+        "entry-1201",
+        "a758"
+      ],
+      "host_check": "MutatedHand三numeric+disabled%s+combatdesc%s；offhandempty主手weapon且非tentacle触发，不依赖主手hit，主目标及自身方向两侧hostile。PP30/weaponbonus/insanity10但每turn1。new敌对范围限制正确，目标两侧措辞位置另记；civilizedfield非damageShield修正。",
+      "evidence_status": "host_source_checked",
+      "strongest_counterevidence": "完整旧新句限定本轮归因；数值设置与最终消费者分别核对；源码英文差异不等于汉化新增错误。",
+      "value_flow": [
+        {
+          "index": 1,
+          "quantity_kind": "physical_power_bonus",
+          "calculation_anchor": "entry-1201",
+          "consumer_anchor": "entry-1201",
+          "direction": "显示参数取自同一计算/效果字段，按下述host_check核对消费位置"
+        },
+        {
+          "index": 2,
+          "quantity_kind": "tentacle_weapon_damage_bonus_percent",
+          "calculation_anchor": "entry-1201",
+          "consumer_anchor": "entry-1201",
+          "direction": "显示参数取自同一计算/效果字段，按下述host_check核对消费位置"
+        },
+        {
+          "index": 3,
+          "quantity_kind": "insanity_gain",
+          "calculation_anchor": "entry-1201",
+          "consumer_anchor": "entry-1201",
+          "direction": "显示参数取自同一计算/效果字段，按下述host_check核对消费位置"
+        }
+      ],
+      "source_limitation": "DLC 来源、源码 commit 与发行版本未固定；哈希仅绑定本次证据。",
+      "independent_review": "see coverage.jsonl; independently checked by host"
+    }
+  ],
+  "fixed_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "core_checkout": "/workspace/t-engine4",
+  "dlc_checkout": "/workspace/tome4-dlcs",
+  "dlc_source_identity": "unpinned; snapshot hashes in source anchors"
+}
