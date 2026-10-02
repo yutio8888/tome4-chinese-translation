@@ -1,0 +1,68 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-004/INPUT-re-review-1-a1.json; echo; grep -n \"^## \\|^### \" docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-re-review-1-a1.json'))\np=d['payload']\nprint(list(d.keys()));print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\n\"; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-re-review-1-a1.json'))\nfor i,b in enumerate(d['payload']['bounded_context']):\n  print('=====',i, {k:v for k,v in b.items() if k!='context'})\n  c=json.loads(b['context'])\n  for k,v in c.items():\n    if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False)[:1500])\n  for e in c.get('source_evidence',[]):\n    print('--',e['public_path'],e['start'],e['end']); print(e['excerpt'])\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-re-review-1-a1.json'))\nfor i,b in enumerate(d['payload']['bounded_context'][1:],1):\n  print('=====',i)\n  c=json.loads(b['context'])\n  for k,v in c.items():\n    if k not in('source_evidence','source_locations','read_boundary'): print(k, json.dumps(v,ensure_ascii=False)[:3000])\n  for e in c.get('source_evidence',[]):\n    print('--',{k:v for k,v in e.items() if k!='excerpt'}); print(e.get('excerpt',''))\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 1,400p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/95549028-439b-4f2f-9d0d-bd38c6fcb014/tool-results/bn5km5zla.txt | cut -c1-400"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-re-review-1-a1.json'))\nfor i,b in enumerate(d['payload']['bounded_context']):\n  c=json.loads(b['context'])\n  for e in c.get('source_evidence',[]):\n    for w in e.get('windows',[]):\n      open('/tmp/r004_%d_%s_%d.txt'%(i,e['public_path'].split('/')[-1],w['start']),'w').write(w['text'])\n\"; ls /tmp/r004_*; sed -n 1,145p /tmp/r004_1_*; "
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /tmp; sed -n '/getDur\\|getStats\\|range\\|radius\\|talents{/p;/info = /,$p' r004_2_*; echo =====; cat r004_3_*"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /tmp; cat r004_4_*"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /tmp; cat r004_5_*; echo ====; cat r004_6_*"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /tmp; cat r004_7_*; cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-re-review-1-a1.json'))\nfor i in (7,):\n  c=json.loads(d['payload']['bounded_context'][i]['context'])\n  for k,v in c.items():\n    if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False)[:2000])\n  for e in c['source_evidence']:\n    print('--',{k:v for k,v in e.items() if k not in('excerpt','windows')}); print(e.get('excerpt',''))\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /tmp; cat r004_8_* r004_9_*; cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-re-review-1-a1.json'))\nfor i in (8,9):\n  c=json.loads(d['payload']['bounded_context'][i]['context'])\n  print('=====',i)\n  for k,v in c.items():\n    if k not in('source_evidence','source_locations','read_boundary'): print(k, json.dumps(v,ensure_ascii=False)[:2000])\n  for e in c['source_evidence']:\n    print('--',{k:v for k,v in e.items() if k not in('excerpt','windows')}); print(e.get('excerpt',''))\n\""
+    }
+  }
+]

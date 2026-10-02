@@ -826,7 +826,7 @@ t("As you combine the two pair of shoes you make something marvelous: %s", "当�
 t("Rod of Entropy", "熵之魔杖", "entity name")
 t("light sucking rod", "吸收光的魔杖", "_t")
 t("This rod seems to make light die around it. You feel tired just looking at it.", "这根魔杖似乎能够熄灭周围的光。光是看着它你就觉得很累了。", "_t")
-t("temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.", "暂时使目标从所受治疗中受到熵能反冲，在 %d 回合内最多受到相当于治疗量 %d%% 的伤害。效果受魔力值加成。", "tformat")
+t("temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.", "使目标在 10 回合内受到的治疗引发熵能反冲（时长提示值为 %d 回合），造成最多相当于治疗量 %d%% 的伤害。效果受魔力值加成。", "tformat")
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Seeds of the Black Tree", "黑色树之种", "entity name")
 t("corrupt stone", "被污染的石头", "_t")
@@ -2671,9 +2671,9 @@ t("Summon", "召唤", "_t")
 t([[You use your bond with horrors to summon three decaying devourers for %d turns.
 The decaying horrors cannot move and will attack all hostile creatures around them. They possess the talents Bloodbath, Gnashing Teeth and Frenzied Bite.
 All its primary stats will be set to %d (based on your Magic stat), life rating increased by %d, and all talent levels set to %d.  Many other stats will scale with level.
-Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你利用和恐魔的联系召唤三个持续 %d 轮的腐败的吞噬者。
+Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你利用和恐魔的联系召唤三个持续 %d 回合的腐败的吞噬者。
 腐败的吞噬者不能移动，能攻击周围所有敌对生物。它们拥有浴血奋战、咬牙切齿和狂乱撕咬技能。
-它们的所有主属性将设为 %d （基于你的魔法属性），生命成长增加 %d， 所有技能等级设为 %d。 许多其他属性随等级成长。
+它们的所有主属性将设为 %d （基于你的魔力属性），生命成长增加 %d， 所有技能等级设为 %d。 许多其他属性随等级成长。
 它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。]], "tformat")
 t("Decayed Bloated Horror", "腐败的浮肿恐魔", "talent name")
 t("bloated horror", "浮肿恐魔", "_t")
@@ -2684,7 +2684,7 @@ All its primary stats will be set to %d (based on your Magic stat), life rating 
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.
 		]], [[你利用和恐魔的联系召唤一个持续 %d 回合的腐败的浮肿恐魔。
 腐败的恐魔不能移动，能攻击范围内的所有敌对生物。它拥有精神干扰和精神光束技能。
-它的所有主属性将设为 %d （基于你的魔法属性），生命成长增加 %d， 所有技能等级设为 %d。 许多其他属性随等级成长。
+它的所有主属性将设为 %d （基于你的魔力属性），生命成长增加 %d， 所有技能等级设为 %d。 许多其他属性随等级成长。
 它将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。
 		]], "tformat")
 t("Horrific Display", "恐魔具现化", "talent name")
@@ -3111,7 +3111,7 @@ The stats of your Void Skitterers will scale with your Magic stat and level.]], 
 #PURPLE#彼世裂隙：#LAST# 向半径 10 内随机敌人发射光束，造成 %0.2f 暗影伤害。
 #PURPLE#时空漩涡：#LAST# 每回合对半径 4 内的敌人造成 %0.2f 时空伤害，并使其全局速度降低 30%%。
 #PURPLE#维度之门：#LAST# 每回合有 50%% 概率召唤一个虚空造物，持续 %d 回合，是一个能传送的高速近战攻击者。
-你的虚空造物属性随你的等级和魔法属性提高而提高。]], "tformat")
+你的虚空造物属性随你的等级和魔力属性提高而提高。]], "tformat")
 t("Dimensional Skitter", "维度迅击", "talent name")
 t("%s's Dimensional Skitter fizzles!", "%s的维度迅击失败了！", "logSeen")
 t("Teleport to a target within range 10 and strike them with your fangs dealing %d%% weapon damage.", "传送到范围 10 内的一个敌人处，并用你的尖牙攻击它，造成 %d%% 武器伤害。", "tformat")
@@ -3298,7 +3298,7 @@ t("This bizarre oblong shape floats in the air, defying gravity. Its form seems 
 t("Summon", "召唤", "_t")
 t([[Consuming a void star, you use it to summon a void monolith at the targeted location for %d turns. The monolith is very durable, and while immobile it will attempt to daze enemies within radius %d for 2 turns every half a turn using your spellpower.
 			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合尝试对 %d 码范围内敌人施加 2 回合眩晕（基于你的法术强度）。
-			基于你的魔法属性，巨石获得 %d 生命成长和 %d%% 全体抗性。]], "tformat")
+			基于你的魔力属性，巨石获得 %d 生命成长和 %d%% 全体抗性。]], "tformat")
 t("Essence Reave", "精华收割", "talent name")
 t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星！", "logSeen")
 t([[You rend the very essence of the target, drawing on their life and converting it to void stars. The target takes %0.2f darkness and %0.2f temporal damage, and you gain %d void star(s).

@@ -1499,7 +1499,7 @@ t("#Source# lands in a #LIGHT_RED#firey explosion#LAST#!", "#Source#引发了#LI
 t("Assassin's Surprise", "暗杀奇袭", "entity name")
 t("glistening steel gauntlets", "闪耀光辉的钢铁手套", "_t")
 t("These steel gauntlets feature a hidden contraption embedded in the left index finger that fires poisonous bolts.", "这对钢铁手套的左手食指中藏有一个能发射毒箭的精巧机关。", "_t")
-t("fire a poisonous bolt out to range %d that deals %d nature damage and afflicts the target with crippling poison (%d%% fail chance) that deals %d addition nature damage over %d turns (damage based on Cunning)", "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并使目标感染致残毒素（%d%% 行动失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）", "tformat", {1,2,3,5,4})
+t("fire a poisonous bolt out to range %d that deals %d nature damage and afflicts the target with crippling poison (%d%% fail chance) that deals %d addition nature damage over %d turns (damage based on Cunning)", "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并使目标感染致残毒素（%d%% 使用技能失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）", "tformat", {1,2,3,5,4})
 t("#Source# fires a bolt of #GREEN#poison#LAST# at #target# from %s %s!", "#Source#使用%s%s朝#target#发射#GREEN#毒液#LAST#！", "logCombat")
 t("something", "某物", "_t")
 t("Nacrush's Decimator", "纳克拉什的屠杀者", "entity name")
@@ -1586,7 +1586,7 @@ t("huge gun", "巨型枪", "_t")
 t([[This huge steamgun can be loaded with more than one bullet so that multiple shots can be fired in a nasty cone of death.
 It also seems to have been carefully balanced to work like a dual gun set.]], [[这把巨大的蒸汽枪一次能装填多发子弹，并以锥形弹幕射出。
 它似乎经过了精心配重，使用起来如同一对双枪。]], "_t")
-t("When fired, shoots up to 4 extra shots at random foes with a radius 4 cone centered on the target.", "发射时，在以目标为中心的半径 4 锥形范围内，向随机敌人额外射出至多 4 发子弹。", "_t")
+t("When fired, shoots up to 4 extra shots at random foes with a radius 4 cone centered on the target.", "发射时，在以射手为起点、朝向目标的半径 4 锥形范围内，向随机敌人额外射出至多 4 发子弹。", "_t")
 t("Cloak of Daggers", "匕首披风", "entity name")
 t("bladed cloak", "布满刀刃的披风", "_t")
 t("This cloak seems to incorporate a series of blades attached to various spring mechanisms.  Apparently the designer believed that the best defense was an active one.", "这件披风上布满了刀刃和机关。显然制作者认为“最好的防御就是进攻”。", "_t")
@@ -1603,7 +1603,7 @@ t("Titan", "泰坦", "entity name")
 t("A gun sure to turn all to ash. As long as its nearby.", "一把只要出现在附近，就会把一切化为灰烬的枪。", "_t")
 t("Golden Gun", "金枪", "entity name")
 t("golden gun", "金色的枪", "_t")
-t("every third hit always crits.", "每累计命中三次，下一次攻击的物理暴击率变为 100%。", "_t")
+t("every third hit always crits.", "每累计命中三次，武器的物理暴击属性暂时变为 100；常规射击的暴击判定不受此效果影响。", "_t")
 t("Cautery Sword", "灼烧之剑", "entity name")
 t("searing sword", "炽热的剑", "_t")
 t("This sword is equipped with a heated core to add a bit of extra pain to the wounds.", "这把剑的炽热核心可以让敌人的伤口感到更加疼痛。", "_t")
@@ -4387,7 +4387,7 @@ t([[Spin your saw at incredible speeds for an instant, fully breaking reality in
 		At level 5 the beam is so strong that all creatures caught inside are knocked back 3 tiles.
 		The breach is so deep that the beam will always have the maximum possible length it can.
 		The damage will increase with your Spellpower.]], [[让你的链锯以难以置信的速度飞速旋转，撕裂周围的现实，在你面前产生一条宽度为 3 的射线。
-		所有被射线击中的生物将会受到 %0.2f 玄机伤害，并且进入脱离现实的状态。它们的整体速度降低 %d%%， 发射的一切抛射物也会被减速 %d%%， 持续 4 回合。
+		所有被射线击中的生物将会受到 %0.2f 玄机伤害，并且进入脱离现实的状态。它们的全局速度降低 %d%%， 发射的一切抛射物也会被减速 %d%%， 持续 4 回合。
 		技能等级 3 时，射线范围内的所有抛射物也会被立刻摧毁。
 		技能等级 5 时，这一射线的力量是如此强大，所有被击中的生物都会被击退 3 码。
 		这道裂隙是如此之深，射线总会延伸至其可能达到的最大长度。
@@ -4594,8 +4594,8 @@ t([[You send a small steam-powered flying grapple to a target. The drone is homi
 		When it reaches its target it deploys grapples in all directions around it in radius 4.
 		The grapples latch onto any foes and pull them toward the target. If they are stopped by a creature (or the target) both them and the creature take %0.2f physical damage.
 		]], [[向目标发射一枚小型蒸汽动力飞爪无人机。无人机会自动追踪，目标移动时会跟随。
-		命中目标后，无人机向 4 码内的所有方向发射金属飞爪。
-		飞爪会抓住范围内任何敌人，并将它们向目标拉扯。如果被其他生物（或目标本身）阻挡，两者均受到 %0.2f 物理伤害。
+		命中目标后，无人机向半径 3 码内的所有方向发射金属飞爪。
+		飞爪会抓住范围内任何敌人，并将它们向目标拉扯至多 4 码。如果被其他生物（或目标本身）阻挡，两者均受到 %0.2f 物理伤害。
 		]], "tformat")
 t("Net Projector", "束网弹射器", "talent name")
 t("%s resists the net.", "%s抵抗了束网。", "logSeen")

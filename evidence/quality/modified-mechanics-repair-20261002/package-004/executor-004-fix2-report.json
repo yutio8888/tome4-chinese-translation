@@ -1,0 +1,115 @@
+{
+  "task_id": "mmrfix-20261002-004",
+  "role": "executor",
+  "dispatch": "fresh FIX cycle2",
+  "status": "completed",
+  "finding_id": "REVIEW-ROD-DURATION-004",
+  "changed_files": [
+    "tome-cults.lua"
+  ],
+  "entries": [
+    {
+      "revision_key": "9b105a7b75fff87ceab8896e811bf9d1e8feacdfffcc51e20eb9507de3cdadb4",
+      "old_target": "使目标在 %d 回合内受到的治疗引发熵能反冲，造成最多相当于治疗量 %d%% 的伤害。效果受魔力值加成。",
+      "new_target": "使目标在 10 回合内受到的治疗引发熵能反冲（时长提示值为 %d 回合），造成最多相当于治疗量 %d%% 的伤害。效果受魔力值加成。",
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/general/objects/world-artifacts.lua",
+      "line": 829
+    }
+  ],
+  "file_sha256": {
+    "before": "6ffb30ac5a55bb2b311e6839d8712ed0989557c7b02d02dec2d7aef98f6f1696",
+    "after": "7329d62effbf228f0ddad541d0a98c20144f85c05b6f0462b428a7c1a70efdf5",
+    "expected_preimage": "6ffb30ac5a55bb2b311e6839d8712ed0989557c7b02d02dec2d7aef98f6f1696"
+  },
+  "source_verification": [
+    {
+      "component": "cults",
+      "public_path": "tome-cults/data/timed_effects.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256_expected": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "sha256_actual": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "sha256_match": true
+    },
+    {
+      "component": "cults",
+      "public_path": "tome-cults/data/general/objects/world-artifacts.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256_expected": "27af5b2ae30c5b2db7f1d585b8334bc28ee1284e771a8a9f5c198f892edbc92a",
+      "sha256_actual": "27af5b2ae30c5b2db7f1d585b8334bc28ee1284e771a8a9f5c198f892edbc92a",
+      "sha256_match": true
+    }
+  ],
+  "consumers": [
+    {
+      "component": "cults",
+      "public_path": "tome-cults/data/general/objects/world-artifacts.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "lines": "1015-1033",
+      "calculation": "getpower(self, who) = 50 + who:getMag(); display duration field = 6",
+      "formatter_arguments": [
+        "self.use_power.duration (= 6)",
+        "self.use_power.getpower(self, who) (= 50 + Magic)"
+      ],
+      "actual_use": "target:setEffect(target.EFF_ENTROPIC_ROD, 10, {src=who, power=self.use_power.getpower(self, who), apply_power=who:combatSpellpower()})",
+      "conclusion": "Actual healing-trigger window is 10 turns. First %d is retained in original order as explicitly labeled display hint; second %d%% retains healing proportion."
+    },
+    {
+      "component": "cults",
+      "public_path": "tome-cults/data/timed_effects.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "lines": "2298-2320",
+      "consumer": "ENTROPIC_ROD.callbackOnHeal",
+      "calculation": "math.floor(value / 8 * (eff.power / 100))",
+      "actual_use": "setEffect(EFF_ENTROPIC_WASTING, 8, {src=eff.src, power=dam})",
+      "conclusion": "8 turns belongs to downstream wasting damage; it does not replace the initial 10-turn ENTROPIC_ROD duration."
+    }
+  ],
+  "dlc_limitations": "DLC source repository, commit and release version are unpinned. SHA matching verifies the supplied public source snapshot only; extraction baseline and pinned core do not establish a DLC source pin.",
+  "scope_checks": {
+    "preimage_match": true,
+    "full_old_target_exact_match": true,
+    "new_target_exact_match": true,
+    "replacement_occurrences": 1,
+    "reverse_replacement_reproduces_preimage_bytes": true,
+    "other_nine_fixes_preserved": true,
+    "all_other_targets_and_non_target_bytes_unchanged": true,
+    "source_source_tag_args_order_special_placeholders_kind_order_markup_newlines_tabs_unchanged": true,
+    "tracked_file_hash_changes_since_start": [
+      "tome-cults.lua"
+    ],
+    "tome_orcs_unchanged_since_start": true,
+    "existing_dirty_files_preserved": true
+  },
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "passed; expected source-unpinned DLC warnings"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "30308 translations; 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20261002T094035.236314Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed; no diagnostics"
+    },
+    {
+      "command": "pre/post reverse-byte and tracked-file SHA comparison",
+      "exit_code": 0,
+      "result": "passed; only tome-cults.lua changed since dispatch snapshot"
+    }
+  ],
+  "plan_deviations": [],
+  "unresolved_items": [],
+  "stage_commit_child_actions": "none",
+  "host_followup": "Independent review, proposal and remaining full batch acceptance belong to ORCHESTRATOR."
+}

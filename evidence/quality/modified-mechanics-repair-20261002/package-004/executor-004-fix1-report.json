@@ -1,0 +1,101 @@
+{
+  "task_id": "mmrfix-20261002-004",
+  "role": "executor",
+  "dispatch": "fresh FIX cycle1",
+  "status": "completed",
+  "finding_id": "REVIEW-TURN-004",
+  "changed_files": [
+    "tome-cults.lua"
+  ],
+  "entries": [
+    {
+      "revision_key": "3517bbc3156227c322d3d27ea55a864e77974bd349600fb626cb21f60f5309d4",
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/talents/demented/controlled-horrors.lua",
+      "old_target": "你利用和恐魔的联系召唤三个持续 %d 轮的腐败的吞噬者。\n腐败的吞噬者不能移动，能攻击周围所有敌对生物。它们拥有浴血奋战、咬牙切齿和狂乱撕咬技能。\n它们的所有主属性将设为 %d （基于你的魔力属性），生命成长增加 %d， 所有技能等级设为 %d。 许多其他属性随等级成长。\n它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。",
+      "new_target": "你利用和恐魔的联系召唤三个持续 %d 回合的腐败的吞噬者。\n腐败的吞噬者不能移动，能攻击周围所有敌对生物。它们拥有浴血奋战、咬牙切齿和狂乱撕咬技能。\n它们的所有主属性将设为 %d （基于你的魔力属性），生命成长增加 %d， 所有技能等级设为 %d。 许多其他属性随等级成长。\n它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。"
+    }
+  ],
+  "file_sha256": {
+    "before": "e2ac7cb5e67d6cc3a8d547f0b1916a17027b411d3394503d48af6dc78dc2fbf5",
+    "after": "6ffb30ac5a55bb2b311e6839d8712ed0989557c7b02d02dec2d7aef98f6f1696",
+    "expected_preimage": "e2ac7cb5e67d6cc3a8d547f0b1916a17027b411d3394503d48af6dc78dc2fbf5"
+  },
+  "source_verification": {
+    "component": "cults",
+    "public_path": "tome-cults/data/talents/demented/controlled-horrors.lua",
+    "sha256_expected": "a123514fa090c6d4d714dfb3ff977ade6c62d079aac1e7e4a101035bc3ee1399",
+    "sha256_actual": "a123514fa090c6d4d714dfb3ff977ade6c62d079aac1e7e4a101035bc3ee1399",
+    "sha256_match": true,
+    "commit": null,
+    "source_pinning": "unpinned",
+    "anchors": [
+      "getDur definition: line 33",
+      "summon_time = t.getDur(self, t): line 95",
+      "description and tformat(t.getDur(self, t), ...): lines 156-160"
+    ]
+  },
+  "consumers": [
+    {
+      "component": "cults",
+      "path": "tome-cults/data/talents/demented/controlled-horrors.lua",
+      "commit": null,
+      "chain": "getDur → description first %d and NPC summon_time",
+      "verification": "actual local public DLC snapshot, hash matched frozen evidence"
+    },
+    {
+      "component": "core",
+      "path": "game/modules/tome/class/NPC.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "bdc619d1ed2ee9f457e10b461789b0aae4ab8385b14c9a78ad4246af9f0644f9",
+      "lines": "50-58",
+      "consumer": "NPC.actBase",
+      "behavior": "Without no_timeflow, decrement summon_time by 1 per actBase; at <= 0 die and set dead_by_unsummon",
+      "verification": "read from fixed commit using git show"
+    }
+  ],
+  "dlc_limitations": "DLC source repository/commit/version is not pinned. The verified local public source SHA identifies this snapshot only; it does not establish DLC 1.7.4 or any release identity. Fixed core commit and extraction baseline are not DLC source pins.",
+  "scope_checks": {
+    "preimage_match": true,
+    "full_old_target_exact_match": true,
+    "new_target_exact_match": true,
+    "replacement_occurrences": 1,
+    "sole_change": "持续 %d 轮 → 持续 %d 回合",
+    "reverse_replacement_reproduces_preimage_bytes": true,
+    "other_nine_fixes_preserved": true,
+    "all_other_targets_and_non_target_bytes_unchanged": true,
+    "source_source_tag_args_order_special_placeholders_markup_newlines_tabs_unchanged": true,
+    "tracked_file_hash_changes_since_start": [
+      "tome-cults.lua"
+    ],
+    "tome_orcs_unchanged_since_start": true,
+    "existing_dirty_files_preserved": true
+  },
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "passed; expected source-unpinned warnings for DLCs"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "30308 translations checked; 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20261002T093257.793134Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed; no diagnostics"
+    },
+    {
+      "command": "pre/post byte reversal and tracked-file SHA comparison",
+      "exit_code": 0,
+      "result": "passed"
+    }
+  ],
+  "plan_deviations": [],
+  "unresolved_items": [],
+  "stage_commit_child_actions": "none; no index mutation, commit, or child created",
+  "host_followup": "Independent re-review and remaining batch acceptance belong to ORCHESTRATOR; not executed in this FIX dispatch."
+}

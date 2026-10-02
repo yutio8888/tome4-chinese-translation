@@ -1,0 +1,86 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-004/INPUT-final-review-2-a2.json; cat .ai/task/mmrfix-20261002-004/INPUT-final-review-2-a2.json | head -c 20000",
+      "description": "Read frozen review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-final-review-2-a2.json'))\np=d['payload'];print(d.keys());print(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\n\"",
+      "description": "Show input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-final-review-2-a2.json'))\np=d['payload']\nfor e in p['translation_snapshot'][9:]: print(json.dumps(e,ensure_ascii=False))\nfor i,b in enumerate(p['bounded_context'][2:],2):\n  c=json.loads(b['context']); print('=====',i,b['revision_key'][:8],c['section'])\n  for t in c['terminology']: print('TERM',json.dumps(t,ensure_ascii=False))\n  for s in c['source_evidence']:\n    print('--',s['public_path'],s.get('sha256'),s.get('frozen_file'))\n    print(s.get('excerpt') or '\\n'.join(w['text'] for w in s['windows']))\n\" > /tmp/rv_a2.txt; wc -l /tmp/rv_a2.txt; grep -n '^=====' /tmp/rv_a2.txt",
+      "description": "Dump remaining contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 1,1p /tmp/rv_a2.txt; sed -n 2,5p /tmp/rv_a2.txt; sed -n 100,115p /tmp/rv_a2.txt; sed -n 116,366p /tmp/rv_a2.txt",
+      "description": "Read context 2-3"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 40,100p /tmp/rv_a2.txt",
+      "description": "Read bloated horror source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 150,200p /tmp/rv_a2.txt; echo ...; sed -n 367,606p /tmp/rv_a2.txt",
+      "description": "Read nether breach, void, poison bolt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n -i -E 'args|order|顺序|第六|## 6|六、' docs/paseo-translation-context-review-v2-contract.md | head -40",
+      "description": "Check contract for args order and output section"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 105,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract section six"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n -A22 'type = \"CRIPPLING_POISON\"'",
+      "description": "Check crippling poison damage type"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 606,1316p /tmp/rv_a2.txt | grep -v '^\\s*$' | awk 'length<400' | sed -n 1,720p | grep -n -i -E 'cone|extra|shots|crit|third|hit|radius|grapple|pull|knock|beam|width|speed|projectile|annihil|range|tformat|info|name =|=====|-- ' | head -150",
+      "description": "Scan remaining contexts for key lines"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 606,1316p /tmp/rv_a2.txt | sed -n '/1081: /,/1095: /p' | head -16; sed -n 606,1316p /tmp/rv_a2.txt | sed -n '/^-- .*Archery.lua 09fd/,+12p' | head -30",
+      "description": "Read golden gun special"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 1083,1316p /tmp/rv_a2.txt | grep -v '^\\s*$' | awk 'length<300' | grep -v -E '^-- game/engines' | head -240",
+      "description": "Read entries 8 and 9 source"
+    }
+  }
+]

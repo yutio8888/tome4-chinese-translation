@@ -1,0 +1,86 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-004/INPUT-review-0-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-004/INPUT-review-0-a1.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-review-0-a1.json'))\nprint(d.keys()); p=d['payload']; print(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n    c=json.loads(b['context']); print(b['revision_key'], c['section'], [ (e['public_path'], e.get('matching_lines')) for e in c['source_evidence']], [(t['source'],t['target'],t['status']) for t in c['terminology']])\nEOF",
+      "description": "Summarize input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read v2 contract"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n    if i<3: continue\n    c=json.JSONDecoder().raw_decode(b['context'])[0]\n    print(\"=====\",i,b['revision_key'], c.get('section'))\n    print(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False))\n    for e in c['source_evidence']:\n        print('--',e['public_path'],e.get('start'),e.get('end'),e.get('matching_lines'),e.get('frozen_file'))\n        if 'excerpt' in e: print(e['excerpt'])\n        for w in e.get('windows',[]): print(w['text'])\n    rest=b['context'][len(json.dumps(c)):]\nEOF",
+      "description": "Dump remaining contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-004/INPUT-review-0-a1.json'))\np=d['payload']\nb=p['bounded_context'][2]\nc=json.JSONDecoder().raw_decode(b['context'])[0]\nfor e in c['source_evidence']:\n    for w in e.get('windows',[]): print(w['text'][-3500:])\nEOF",
+      "description": "Dump bloated horror context"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 1,400p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/b5c8203e-0d24-42d0-98f7-1a5a45698c30/tool-results/boyw00acf.txt | cut -c1-400",
+      "description": "Read dumped contexts part 1"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 400,1200p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/b5c8203e-0d24-42d0-98f7-1a5a45698c30/tool-results/boyw00acf.txt | cut -c1-300",
+      "description": "Read dumped contexts part 2"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 1,400p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/b5c8203e-0d24-42d0-98f7-1a5a45698c30/tool-results/be87zzegf.txt | cut -c1-260 | sed -n 20,400p",
+      "description": "Read part 2 contents"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; A=.artifacts/i18n/modified-mechanics-repair-20261002/package-004/sources; sed -n 280p $A/orcs/tome-orcs/data/general/objects/world-artifacts.lua; sed -n 1081,1100p $A/orcs/tome-orcs/data/general/objects/world-artifacts.lua; ls $A/tome/game/modules/tome/data/ 2>/dev/null; grep -n \"CRIPPLING_POISON\" -A25 $A/tome/game/modules/tome/data/damage_types.lua 2>/dev/null | head -40",
+      "description": "Check gauntlet args and Golden Gun"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n 'type = \"CRIPPLING_POISON\"' -A22; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n 'type = \"CHRONOSLOW\"' -A20 | head -25",
+      "description": "Check damage types in pinned core"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 400,1000p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/b5c8203e-0d24-42d0-98f7-1a5a45698c30/tool-results/be87zzegf.txt | cut -c1-260 | grep -n \"\" | sed -n 1,400p | grep -v \"^\\s*$\" | head -330",
+      "description": "Read remaining contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 730,1100p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/b5c8203e-0d24-42d0-98f7-1a5a45698c30/tool-results/be87zzegf.txt | cut -c1-260",
+      "description": "Read grapple drone context"
+    }
+  }
+]

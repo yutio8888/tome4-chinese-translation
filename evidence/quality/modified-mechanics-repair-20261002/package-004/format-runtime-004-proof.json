@@ -1,0 +1,22 @@
+{
+  "source": "game/engines/default/engine/I18N.lua",
+  "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "sha256": "a099d023bcf9c91d83592331666aeaa86c901a469eadf59346bcbd279c7ef31d",
+  "args_order": [
+    1,
+    2,
+    3,
+    5,
+    4
+  ],
+  "sample_args": [
+    9,
+    20,
+    15,
+    60,
+    3
+  ],
+  "exact_pinned_function": "_G.default_tformat = function(s, tag, ...)\n\tlocal args_order = get(cur_locale_args, s, tag)\n\tif args_order then\n\t\tlocal sargs = {...}\n\t\tlocal args = {}\n\t\tfor sidx, didx in pairs(args_order) do\n\t\t\targs[sidx] = sargs[didx]\n\t\tend\n\t\ts = _t(s, tag)\n\t\treturn s:format(unpack(args))\n\telse\n\t\ts = _t(s, tag)\n\t\treturn s:format(...)\n\tend\nend",
+  "rendered": "发射一支射程最远为 9 码的毒箭，造成 20 点自然伤害，并使目标感染致残毒素（15% 使用技能失败几率），在 3 回合内造成 60 点额外自然伤害（伤害受灵巧值加成）",
+  "status": "passed"
+}

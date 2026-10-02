@@ -1,0 +1,55 @@
+{
+  "preimage_file_sha256": "6ffb30ac5a55bb2b311e6839d8712ed0989557c7b02d02dec2d7aef98f6f1696",
+  "entries": [
+    {
+      "revision_key": "9b105a7b75fff87ceab8896e811bf9d1e8feacdfffcc51e20eb9507de3cdadb4",
+      "old_target": "使目标在 %d 回合内受到的治疗引发熵能反冲，造成最多相当于治疗量 %d%% 的伤害。效果受魔力值加成。",
+      "new_target": "使目标在 10 回合内受到的治疗引发熵能反冲（时长提示值为 %d 回合），造成最多相当于治疗量 %d%% 的伤害。效果受魔力值加成。"
+    }
+  ],
+  "source_evidence": [
+    {
+      "anchor_id": "a34",
+      "component": "cults",
+      "public_path": "tome-cults/data/timed_effects.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "start": 2298,
+      "end": 2323,
+      "excerpt": "2298: newEffect{\n2299: \tname = \"ENTROPIC_ROD\", image = \"talents/entropic_gift.png\",\n2300: \tdesc = _t\"Entropic Feedback\",\n2301: \tlong_desc = function(self, eff) return (\"The target healing is distorted by entropy for %d%% of the healing done over 8 turns.\"):tformat(eff.power) end,\n2302: \ttype = \"magical\",\n2303: \tsubtype = {},\n2304: \tstatus = \"detrimental\",\n2305: \tparameters = {power = 100},\n2306: \ton_gain = function(self, err) return _t\"#Target# is enveloped with entropic forces!\", true end,\n2307: \ton_lose = function(self, err) return _t\"#Target# is no longer enveloped by entropic forces.\", true end,\n2308: \tcallbackPriorities={callbackOnHeal = 1}, -- trigger after (most) other healing callbacks\n2309: \tcallbackOnHeal = function(self, eff, value, src, raw_value)\n2310: \t\tif raw_value > 0 and not eff.projecting and not self.resting and not self.reverse_entropy then -- avoid feedback; it's bad to lose out on dmg but it's worse to break the game\n2311: \t\t\teff.projecting = true\n2312: \t\t\tlocal dam = math.floor(value / 8 * (eff.power / 100))\n2313: \t\t\tlocal psrc = eff.src\n2314: \t\t\tpsrc.__project_source = t\n2315: \t\t\tself:setEffect(self.EFF_ENTROPIC_WASTING, 8, {src=eff.src, power=dam})\n2316: \t\t\tpsrc.__project_source = nil\n2317: \t\t\teff.projecting = false\n2318: \t\tend\n2319: \tend,\n2320: }\n2321: \n2322: newEffect{\n2323: \tname = \"HORRIFIC_FORTRESS\", image = \"talents/dwarf_resilience.png\","
+    },
+    {
+      "anchor_id": "a35",
+      "component": "cults",
+      "public_path": "tome-cults/data/general/objects/world-artifacts.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "27af5b2ae30c5b2db7f1d585b8334bc28ee1284e771a8a9f5c198f892edbc92a",
+      "start": 1013,
+      "end": 1037,
+      "excerpt": "1013: \t},\n1014: \tuse_power = {\n1015: \t\tname = function(self, who) return (\"temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.\"):\n1016: \t\t\ttformat(self.use_power.duration, self.use_power.getpower(self, who))\n1017: \t\tend,\n1018: \t\tgetpower = function(self, who) return 50 + who:getMag() end,\n1019: \t\tpower = 75,\n1020: \t\tduration = 6,\n1021: \t\trange = 7,\n1022: \t\trequires_target = true,\n1023: \t\ttarget = function(self, who) return {type=\"bolt\", range=self.use_power.range} end,\n1024: \t\ttactical = { ANNOY = 1 },\n1025: \t\tuse = function(self, who)\n1026: \t\t\tlocal tg = self.use_power.target(self, who)\n1027: \t\t\tlocal x, y = who:getTarget(tg)\n1028: \t\t\tif not x or not y then return nil end\n1029: \t\t\tgame.logSeen(who, \"%s activates %s %s!\", who:getName():capitalize(), who:his_her(), self:getName({no_add_name = true, do_color = true}))\n1030: \t\t\twho:project(tg, x, y, function(px, py)\n1031: \t\t\t\tlocal target = game.level.map(px, py, engine.Map.ACTOR)\n1032: \t\t\t\tif not target then return end\n1033: \t\t\t\ttarget:setEffect(target.EFF_ENTROPIC_ROD, 10, {src=who, power=self.use_power.getpower(self, who), apply_power=who:combatSpellpower()})\n1034: \t\t\tend, 1, {type=\"slime\"})\n1035: \t\t\treturn {id=true, used=true}\n1036: \t\tend\n1037: \t},"
+    },
+    {
+      "anchor_id": "entry-1104",
+      "component": "cults",
+      "public_path": "tome-cults/data/general/objects/world-artifacts.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "27af5b2ae30c5b2db7f1d585b8334bc28ee1284e771a8a9f5c198f892edbc92a",
+      "matching_lines": [
+        1015
+      ],
+      "windows": [
+        {
+          "end": 1039,
+          "start": 1000,
+          "text": "1000: newEntity{ base = \"BASE_ROD\",\n1001: \tpower_source = {unknown=true},\n1002: \tdefine_as = \"ROD_ENTROPY\",\n1003: \tunided_name = _t\"light sucking rod\", image = \"object/artifact/rod_of_entropy.png\",\n1004: \tname = \"Rod of Entropy\", color=colors.PURPLE, unique=true,\n1005: \tdesc = _t[[This rod seems to make light die around it. You feel tired just looking at it.]],\n1006: \tcost = 200,\n1007: \tlevel_range = {8, 20},\n1008: \trarity = 200,\n1009: \tmaterial_level = 2,\n1010: \tmax_power = 75, power_regen = 1,\n1011: \tcarrier = {\n1012: \t\tlite = -1,\n1013: \t},\n1014: \tuse_power = {\n1015: \t\tname = function(self, who) return (\"temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.\"):\n1016: \t\t\ttformat(self.use_power.duration, self.use_power.getpower(self, who))\n1017: \t\tend,\n1018: \t\tgetpower = function(self, who) return 50 + who:getMag() end,\n1019: \t\tpower = 75,\n1020: \t\tduration = 6,\n1021: \t\trange = 7,\n1022: \t\trequires_target = true,\n1023: \t\ttarget = function(self, who) return {type=\"bolt\", range=self.use_power.range} end,\n1024: \t\ttactical = { ANNOY = 1 },\n1025: \t\tuse = function(self, who)\n1026: \t\t\tlocal tg = self.use_power.target(self, who)\n1027: \t\t\tlocal x, y = who:getTarget(tg)\n1028: \t\t\tif not x or not y then return nil end\n1029: \t\t\tgame.logSeen(who, \"%s activates %s %s!\", who:getName():capitalize(), who:his_her(), self:getName({no_add_name = true, do_color = true}))\n1030: \t\t\twho:project(tg, x, y, function(px, py)\n1031: \t\t\t\tlocal target = game.level.map(px, py, engine.Map.ACTOR)\n1032: \t\t\t\tif not target then return end\n1033: \t\t\t\ttarget:setEffect(target.EFF_ENTROPIC_ROD, 10, {src=who, power=self.use_power.getpower(self, who), apply_power=who:combatSpellpower()})\n1034: \t\t\tend, 1, {type=\"slime\"})\n1035: \t\t\treturn {id=true, used=true}\n1036: \t\tend\n1037: \t},\n1038: }\n1039: "
+        }
+      ]
+    }
+  ],
+  "finding_id": "REVIEW-ROD-DURATION-004",
+  "host_status": "confirmed",
+  "scope": "Same original entry only. Actual duration10, retained first placeholder labeled display hint. Preserve source/args/order/other9 targets; no code/tool/term edits; DLC unpinned."
+}
