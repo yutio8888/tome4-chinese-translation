@@ -1,0 +1,96 @@
+{
+  "source_verified": true,
+  "verified_change_ids": [
+    "ab05a9f3d33d797fd81f3baf00e7fd31e56787dc885a958fa6254a1b0f7a89fd",
+    "881db0426b049a46574e2f8be2fb08d2324bf77abcaacaef348a720d811f8925",
+    "1670ae080e4a4480e1eb103d1e6eef5fc04b4abe7c3d505668147bec20b2b0dd"
+  ],
+  "decisions": [
+    {
+      "candidate_index": 1035,
+      "change_id": "ab05a9f3d33d797fd81f3baf00e7fd31e56787dc885a958fa6254a1b0f7a89fd",
+      "target": "开启通往恶魔空间的炼狱之门，踏入并传送到附近位置。当你踏出炼狱之门时，炼狱之火随之喷发，造成 %0.2f 恶魔之火伤害，影响 %d 码内所有生物，并留下余烬，在 4 回合内额外造成 %0.2f 恶魔之火伤害。\n\t\t穿越空间增强了你的直觉，让你能够在 4 回合内觉察到 %d 码内的所有敌对生物。\n\t\t伤害受法术强度加成，范围随技能等级增大。",
+      "reason": "Sense duration4 is passed to EFF_SENSE; existing Chinese4 preserved."
+    },
+    {
+      "candidate_index": 1039,
+      "change_id": "881db0426b049a46574e2f8be2fb08d2324bf77abcaacaef348a720d811f8925",
+      "target": "吸取燃烧中的烈焰，将自己包裹其中。除去半径 10 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 回合、强度为 %d 的护盾，每移除一层燃烧效果，护盾强度增加 15%%。\n\t\t当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧范围内的所有敌方生物 3 回合，造成等于护盾初始值的伤害。",
+      "reason": "Fiery Aegis action ball radius10; existing Chinese10 preserved."
+    },
+    {
+      "candidate_index": 1052,
+      "change_id": "1670ae080e4a4480e1eb103d1e6eef5fc04b4abe7c3d505668147bec20b2b0dd",
+      "target": "向目标冲锋，如果到达目标位置，则攻击目标造成 %d%% 武器伤害。\n\t\t若攻击命中，将释放半径 3 码的强烈火焰冲击，将目标以外的所有敌对生物击退 %d 码，并对范围内的敌人（包括目标）造成 %d 点火焰伤害。\n\t\t至少要从 2 码外开始冲锋。",
+      "reason": "Detonating Charge blast radius3; second placeholder goes to knockback dist fireRadius; existing Chinese maps both correctly."
+    }
+  ],
+  "source_evidence": [
+    {
+      "anchor_id": "entry-1035",
+      "component": "ashes-urhrok",
+      "public_path": "tome-ashes-urhrok/data/talents/corruptions/fearfire.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "c2faeddb2325d81dc87a1c4d591c0f8788c9c227d140fd6764d59258bd1f45d8",
+      "matching_lines": [
+        84
+      ],
+      "windows": [
+        {
+          "end": 126,
+          "start": 22,
+          "text": "22: newTalent{\n23: \tname = \"Fearscape Shift\",\n24: \ttype = {\"corruption/fearfire\", 1},\n25: \trequire = corrs_req_high1,\n26: \tpoints = 5,\n27: \trandom_ego = \"attack\",\n28: \tvim = 32,\n29: \tcooldown = 12,\n30: \ttactical = { ATTACK = {FIRE = 1}, CLOSEIN = 2 },\n31: \tdirect_hit = true,\n32: \treflectable = true,\n33: \trequires_target = true,\n34: \ttarget = function(self, t)\n35: \t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), nolock=true, friendlyfire=true, selffire=false, talent=t}\n36: \tend,\n37: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 20, 230) end,\n38: \tgetVision = function(self, t) return math.min(10, math.floor(7.5 + self:getTalentLevelRaw(t)/2)) end,\n39: \trange = function(self, t)\n40: \t\treturn math.ceil(self:combatTalentScale(t, 3.5, 7))\n41: \tend,\n42: \tradius = function(self, t)\n43: \t\treturn  math.ceil(self:combatTalentScale(t, 1, 4.5))\n44: \tend,\n45: \taction = function(self, t)\n46: \t\tlocal tg = self:getTalentTarget(t)\n47: \t\tlocal x, y = self:getTarget(tg)\n48: \t\tif not x or not y then return nil end\n49: \t\tif not self:hasLOS(x, y) or game.level.map:checkEntity(x, y, Map.TERRAIN, \"block_move\") then game.logSeen(self, \"You can't move there.\") return nil\tend\n50: \t\tlocal _ _, x, y = self:canProject(tg, x, y)\n51: \t\t\n52: \t\t-- since we're using a precise teleport we'll look for a free grid first\n53: \t\tlocal tx, ty = util.findFreeGrid(x, y, 5, true, {[Map.ACTOR]=true})\n54: \t\tif tx and ty then\n55: \t\t\tif not self:teleportRandom(tx, ty, 0) then\n56: \t\t\t\tgame.logSeen(self, \"The spell fizzles!\")\n57: \t\t\tend\n58: \t\tend\n59: \t\t\n60: \t\tlocal dam = self:spellCrit(t.getDamage(self, t))\n61: \t\t\tself:project(tg, self.x, self.y, DamageType.DEMONFIRE, dam)\n62: \t\t\tlocal _ _, _, _, x, y = self:canProject(tg, self.x, self.y)\n63: \t\t\tgame.level.map:addEffect(self,\n64: \t\t\t\tx, y, 4,\n65: \t\t\t\tDamageType.DEMONFIRE, dam/4,\n66: \t\t\t\ttg.radius,\n67: \t\t\t\t5, nil,\n68: \t\t\t\t{type=\"dark_inferno\"},\n69: \t\t\t\tnil, self:spellFriendlyFire()\n70: \t\t\t)\n71: \t\t\t\n72: \t\t\tgame.level.map:particleEmitter(x, y, tg.radius, \"fire_blast\", {radius=tg.radius})\n73: \t\t\tgame:playSoundNear(self, \"talents/fireflash\")\n74: \t\t\tlocal rad = t.getVision(self, t)\n75: \t\t\tself:setEffect(self.EFF_SENSE, 4, {\n76: \t\t\trange = rad,\n77: \t\t\tactor = 1,\n78: \t\t\t})\n79: \t\t\n80: \t\treturn true\n81: \tend,\n82: \tinfo = function(self, t)\n83: \t\tlocal damage = t.getDamage(self, t)\n84: \t\treturn ([[Open a gateway to the Fearscape, stepping through it to a nearby location. As you step out, a burst of fire will leave with you, dealing %0.2f demonfire damage to everyone within %d spaces and leaving flames which will deal an additional %0.2f demonfire damage over 4 turns.\n85: \t\tAdditionally, shifting through reality enhances your awareness, allowing you to see all enemies within %d spaces for the next 3 turns.\n86: \t\tThe damage will scale with your Spellpower and the range will increase with the talent level.]]):\n87: \t\ttformat(damDesc(self, DamageType.FIRE, damage), self:getTalentRadius(t), damDesc(self, DamageType.FIRE, damage), t.getVision(self, t))\n88: \tend,\n89: }\n90: \n91:  newTalent{\n92: \tname = \"Cauterize Spirit\",\n93: \ttype = {\"corruption/fearfire\", 2},\n94: \tpoints = 5,\n95: \trequire = corrs_req_high2,\n96: \tno_energy = true, \n97: \tcooldown = 15,\n98: \tgetBurnDamage = function(self, t)\n99: \t\treturn math.max(self:combatTalentScale(t, 0.15, 0.05), 0.05)\n100: \tend,\n101: \tgetBurnDuration = function(self, t)\n102: \t\treturn 7\n103: \tend,\n104: \taction = function(self, t)\n105: \t\t-- Cleanse all debuffs with status detrimental, not type other, and not crosstier\n106: \t\tlocal cleansed = self:removeEffectsFilter(self, function(eff)\n107: \t\t\tif eff.status == \"detrimental\" and eff.type ~= \"other\" and not eff.subtype[\"cross tier\"] then\n108: \t\t\t\treturn true\n109: \t\t\telse\n110: \t\t\t\treturn false\n111: \t\t\tend\n112: \t\tend, 254) \n113: \n114: \n115: \t\tif cleansed == 0 then return false end\n116: \t\tlocal burnDamage = (cleansed * t.getBurnDamage(self, t))\n117: \t\tself:setEffect(self.EFF_PURIFIED_BY_FIRE, t.getBurnDuration(self, t), {power = (burnDamage / t.getBurnDuration(self, t)) })\n118: \t\treturn true\n119: \t end,\n120: \t info = function(self, t)\n121: \t\treturn ([[Removes all detrimental effects but causes you to burn for %d%% of your max health per effect, over 7 turns.\n122: \t\tThis ignores all resists, defenses, and affinities.\n123: \t\tThis does not take a turn.]]):tformat(t.getBurnDamage(self, t)*100)\n124: \t end,\n125:  }\n126: "
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-1039",
+      "component": "ashes-urhrok",
+      "public_path": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "9169ec6910a96af6ce469ef88c4b257165955f96ce7828c8508e2d36372a92b5",
+      "matching_lines": [
+        95
+      ],
+      "windows": [
+        {
+          "end": 100,
+          "start": 63,
+          "text": "63: newTalent{\n64: \tname = \"Fiery Aegis\", short_name=\"DEVOURING_FLAMES\", image = \"talents/fiery_aegis.png\",--Change on major release\n65: \ttype = {\"corruption/heart-of-fire\", 2},\n66: \trequire = corrs_req2,\n67: \tpoints = 5,\n68: \tcooldown = 10,\n69: \tgetBaseShield = function (self, t) return self:combatTalentSpellDamage(t, 75, 250) end,\n70: \tgetRange = function(self, t) return math.ceil(self:combatTalentScale(t, 2, 4.5)) end,\n71: \tgetDur = function(self, t) return math.ceil(self:combatTalentScale(t, 3, 5)) end,\n72: \taction = function(self, t)\n73: \t\tlocal tg = {type=\"ball\", nolock=true, range=0, radius = 10, friendlyfire=false}\n74: \t\tlocal burncount = 0\n75: \t\tself:project(tg, self.x, self.y, function(px, py)\n76: \t\t\tlocal target = game.level.map(px, py, engine.Map.ACTOR)\n77: \t\t\tif not target then return end\n78: \t\t\tlocal burns = {}\n79: \t\t\tfor eff_id, p in pairs(target.tmp) do\n80: \t\t\t\tlocal e = target.tempeffect_def[eff_id]\n81: \t\t\t\tif e.subtype.fire and p.power and e.status == \"detrimental\" then\n82: \t\t\t\t\tburns[#burns+1] = {id=eff_id, params=p}\n83: \t\t\t\t\tburncount = burncount + 1\n84: \t\t\t\tend\n85: \t\t\tend\n86: \t\t\tfor i, d in ipairs(burns) do\n87: \t\t\t\ttarget:removeEffect(d.id)\n88: \t\t\tend\n89: \t\tend)\n90: \t\tlocal shieldboost = (1 + burncount * 0.15) * t.getBaseShield(self, t)\n91: \t\tself:setEffect(self.EFF_FIRE_SHIELD, t.getDur(self, t), {power=shieldboost, radius = t.getRange(self, t), src=self})\n92: \t\treturn true\n93: \tend,\n94: \tinfo = function(self, t)\n95: \t\treturn ([[Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.\n96: \t\tWhen the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.]]):\n97: \t\ttformat(self:getShieldDuration(t.getDur(self, t)), self:getShieldAmount(t.getBaseShield(self, t)), t.getRange(self, t))\n98: \tend,\n99: }\n100: "
+        }
+      ]
+    },
+    {
+      "anchor_id": "a76",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "start": 1638,
+      "end": 1658,
+      "excerpt": "1638: -- Fireburn damage + repulsion; checks for spell power against physical resistance\n1639: newDamageType{\n1640: \tname = _t(\"fire repulsion\", \"damage type\"), type = \"FIREKNOCKBACK\",\n1641: \tprojector = function(src, x, y, type, dam, state)\n1642: \t\tstate = initState(state)\n1643: \t\tuseImplicitCrit(src, state)\n1644: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n1645: \t\tif _G.type(dam) ~= \"table\" then dam = {dam=dam, dist=3} end\n1646: \t\tstate = initState(state)\n1647: \t\tif target and not state[target] then\n1648: \t\t\tstate[target] = true\n1649: \t\t\tDamageType:get(DamageType.FIREBURN).projector(src, x, y, DamageType.FIREBURN, dam.dam, state)\n1650: \t\t\tif target:checkHit(src:combatSpellpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe(\"knockback\") then\n1651: \t\t\t\ttarget:knockback(src.x, src.y, dam.dist)\n1652: \t\t\t\ttarget:crossTierEffect(target.EFF_OFFBALANCE, src:combatSpellpower())\n1653: \t\t\t\tgame.logSeen(target, \"%s is knocked back!\", target:getName():capitalize())\n1654: \t\t\telse\n1655: \t\t\t\tgame.logSeen(target, \"%s resists the punch!\", target:getName():capitalize())\n1656: \t\t\tend\n1657: \t\tend\n1658: \tend,"
+    },
+    {
+      "anchor_id": "entry-1052",
+      "component": "ashes-urhrok",
+      "public_path": "tome-ashes-urhrok/data/talents/corruptions/wrath.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "f2297854dd2c61863ac86812563e4f4021602df017ef56414fe8a3de224d93c0",
+      "matching_lines": [
+        132
+      ],
+      "windows": [
+        {
+          "end": 137,
+          "start": 64,
+          "text": "64: newTalent{\n65: \tname = \"Detonating Charge\",\n66: \ttype = {\"corruption/wrath\", 2},\n67: \trequire = str_corrs_req_high2,\n68: \tpoints = 5,\n69: \trandom_ego = \"attack\",\n70: \tstamina = 24,\n71: \tvim = 18,\n72: \tcooldown = 12,\n73: \ttactical = { ATTACKAREA = { weapon = 1,\tFIRE = 1 }, CLOSEIN = 3 },\n74: \trequires_target = true,\n75: \tgetMainHit = function (self, t) return self:combatTalentWeaponDamage(t, 0.5, 1.9) end,\n76: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 30, 190) end,\n77: \trange = function(self, t) return  math.ceil(self:combatTalentScale(t, 4, 8.5)) end,\n78: \tfireRadius = function(self, t) return math.ceil(self:combatTalentScale(t, 1, 4)) end,\n79: --\tfireDuration = function(self, t) return math.ceil(self:combatTalentScale(t, 3, 5)) end,\n80: \ton_pre_use = function(self, t, silent) if not self:hasTwoHandedWeapon() or self:attr(\"never_move\") then if not silent then game.logPlayer(self, \"You require a two handed weapon and being able to move to use this talent.\") end return false end return true end,\n81: \ton_pre_use = function(self, t) return not self:attr(\"never_move\") end,\n82: \taction = function(self, t)\n83: \t\tif self:attr(\"never_move\") then game.logPlayer(self, \"You can not do that currently.\") return end\n84: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t)}\n85: \t\tlocal x, y, target = self:getTarget(tg)\n86: \t\tif not x or not y or not target then return nil end\n87: \t\tif core.fov.distance(self.x, self.y, x, y) > self:getTalentRange(t) then return nil end\n88: \n89: \t\tlocal block_actor = function(_, bx, by) return game.level.map:checkEntity(bx, by, Map.TERRAIN, \"block_move\", self) end\n90: \t\tlocal l = self:lineFOV(x, y, block_actor)\n91: \t\tlocal lx, ly, is_corner_blocked = l:step()\n92: \t\tif is_corner_blocked or game.level.map:checkAllEntities(lx, ly, \"block_move\", self) then\n93: \t\t\tgame.logPlayer(self, \"You are too close to build up momentum!\")\n94: \t\t\treturn\n95: \t\tend\n96: \t\tlocal tx, ty = lx, ly\n97: \t\tlx, ly, is_corner_blocked = l:step()\n98: \t\twhile lx and ly do\n99: \t\t\tif is_corner_blocked or game.level.map:checkAllEntities(lx, ly, \"block_move\", self) then break end\n100: \t\t\ttx, ty = lx, ly\n101: \t\t\tlx, ly, is_corner_blocked = l:step()\n102: \t\tend\n103: \n104: \t\tlocal ox, oy = self.x, self.y\n105: \t\tself:move(tx, ty, true)\n106: \t\tif config.settings.tome.smooth_move > 0 then\n107: \t\t\tself:resetMoveAnim()\n108: \t\t\tself:setMoveAnim(ox, oy, 8, 5)\n109: \t\tend\n110: \t\t\n111: \t\tlocal did_crit=self:spellCrit(1)\n112: \n113: \t\t-- Attack ?\n114: \t\tif core.fov.distance(self.x, self.y, x, y) == 1 then\n115: \t\t\tif self:attackTarget(target, nil, t.getMainHit(self,t), true) then\n116: \t\t\t\ttarget:attr(\"knockback_immune\", 1)\n117: \t\t\t\tlocal blast = {type=\"ball\", range=0, radius=3, friendlyfire=false} --radius=self:spellCrit(t.fireRadius(self,t))\n118: \t\t\t\tlocal grids = self:project(blast, self.x, self.y, DamageType.FIREKNOCKBACK, {dist=t.fireRadius(self,t), dam= did_crit * (t.getDamage(self, t))})\n119: \t\t\t\tif core.shader.active(4) then\n120: \t\t\t\t\tgame.level.map:particleEmitter(self.x, self.y, blast.radius, \"detonating_charge\", {radius=blast.radius})\n121: \t\t\t\telse\n122: \t\t\t\t\tgame.level.map:particleEmitter(self.x, self.y, blast.radius, \"ball_fire\", {radius=blast.radius})\n123: \t\t\t\tend\n124: \t\t\t\tgame:playSoundNear(self, \"talents/fire\")\n125: \t\t\t\ttarget:attr(\"knockback_immune\", -1)\n126: \t\t\tend\n127: \t\tend\n128: \n129: \t\treturn true\n130: \tend,\n131: \tinfo = function(self, t)\n132: \t\treturn ([[Launch yourself toward a target. If the target is reached you get a free attack doing %d%% weapon damage.\n133: \t\tIf the attack hits you release a massive burst of fire in radius %d, knocking away all enemies except your target and dealing %d damage.\n134: \t\tYou must charge from at least 2 tiles away.]]):tformat(t.getMainHit(self,t) * 100, t.fireRadius(self,t), t.getDamage(self, t))\n135: \tend,\n136: }\n137: "
+        }
+      ]
+    }
+  ],
+  "provenance": "DLC source, commit and release version unpinned; checked snapshot SHA and exact excerpts against actual public source. Full ten remain in review."
+}

@@ -1,0 +1,6 @@
+{
+  "original_filename": "slot-probe-012.lua",
+  "sha256": "ed6ec1d850b541c25bd173739c2e033fd521333d1ccb4eb10f58741d1ce7e167",
+  "lua_source": "local kind,slot,hlevel=\"fire imp\",\"MAINHAND\",20\n\tlocal function checkSeed(o)\n\t\tif o.type == \"seed\" and o.subtype == \"demon\" and o.demon then\n\t\t\tprint(\"Testing inferior demon\", o.demon.name, o.demon.level, \"against trying to make\", kind, hlevel)\n\t\t\tif o.demon.name == kind and o.on_slot == slot then\n\t\t\t\treturn true\n\t\t\tend\n\t\tend\n\tend\nassert(checkSeed({type=\"seed\",subtype=\"demon\",demon={name=\"fire imp\",level=10},on_slot=\"MAINHAND\"}))\nassert(not checkSeed({type=\"seed\",subtype=\"demon\",demon={name=\"fire imp\",level=10},on_slot=\"BODY\"}))\nassert(not checkSeed({type=\"seed\",subtype=\"demon\",demon={name=\"quasit\",level=10},on_slot=\"MAINHAND\"}))\nassert(not checkSeed({type=\"other\",subtype=\"demon\",demon={name=\"fire imp\",level=10},on_slot=\"MAINHAND\"}))\nprint(\"PASS 4 seed matching combinations\")\n",
+  "description": "Exact probe bytes; decode lua_source as UTF-8 to reproduce."
+}

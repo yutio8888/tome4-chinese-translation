@@ -1,0 +1,86 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-012/INPUT-review-0-a2.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-012/INPUT-review-0-a2.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-012/INPUT-review-0-a2.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\n\"",
+      "description": "Inspect payload structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-012/INPUT-review-0-a2.json'))\np=d['payload']\nfor i,(t,c) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  if i<3: continue\n  print('=====',i,t['revision_key'])\n  print('SRC:',t['source']); print('TGT:',t['target'])\n  ctx=json.loads(c['context'])\n  print('SEC',ctx['section'],ctx['source_tag'])\n  for e in ctx['source_evidence']:\n    print('--',e['public_path'],e.get('source_pinning'),e.get('frozen_file'))\n    if 'excerpt' in e: print(e['excerpt'])\n    for w in e.get('windows',[]): print(w['text'])\n  print('TERM',json.dumps(ctx['terminology'],ensure_ascii=False))\n\" > /tmp/rev012a2.txt; wc -l /tmp/rev012a2.txt; grep -n '^## \\|^### ' docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Dump entries and list contract sections"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract section six"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-012/sources/tome/game/modules/tome; sed -n 5560,5580p $F/class/Actor.lua; grep -rn \"bloodcasting\\|BLOODCASTING\" /workspace/t-engine4/game/modules/tome/data --include=*.lua | head -20; cd /workspace/t-engine4 && git rev-parse HEAD",
+      "description": "Check bloodcasting call chain"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 1,260p /tmp/rev012a2.txt",
+      "description": "Read dumped entries 4 onward"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 260,600p /tmp/rev012a2.txt",
+      "description": "Read more dumped entries"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 600,844p /tmp/rev012a2.txt",
+      "description": "Read final dumped entries"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; A=.artifacts/i18n/modified-mechanics-repair-20261002/package-012/sources; ls $A/tome/game/modules/tome/data/timed_effects/ 2>/dev/null; sed -n 496,540p $A/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua; grep -n \"_getHeal\" $A/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua",
+      "description": "Check seed update and heal call"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; A=.artifacts/i18n/modified-mechanics-repair-20261002/package-012/sources/tome/game/modules/tome/data/timed_effects; grep -n 'name = \"SENSE\"' -A25 $A/*.lua | head -40; ls $A",
+      "description": "Check SENSE effect definition"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | grep -n 'name = \"SENSE\"' -A30 | head -40",
+      "description": "Read SENSE effect at pinned commit"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; for f in other magical mental physical; do git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/$f.lua | grep -n '\"SENSE\"' -A28 | sed \"s/^/$f:/\"; done | head -40",
+      "description": "Locate SENSE effect in pinned sources"
+    }
+  }
+]

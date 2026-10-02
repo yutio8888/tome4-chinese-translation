@@ -1,7 +1,3 @@
-# 当前恢复入口
-
-原修正包001—012及前序附属任务已完成，累计115/169个原confirmed claim、12/18包。本包已DONE_VERIFIED，准备提交；前序HEAD=ef6b8094。用户无关文档和其他未跟踪内容保留。持续授权至既定18包完成或真实停止条件，无push/PR/发布授权。
-
 # 第012包机制修正
 
 10条译文、10个原始claim已核验：修改7条，保留已正确的3条（感知4回合、吸收燃烧半径10、固定爆炸半径3与动态击退距离）。修正非瞬间施法条件、绝望难度区域等级增幅、活力不足才扣生命、火炎之爪有效等级严格大于4、飞弹显示数量与实际遍历、恶魔种子绝对治疗量，以及恶魔之角同回合多次治疗。宿主另确认恶魔种子更新须同种恶魔且同装备槽位，完成一次单条FIX。
@@ -13,8 +9,3 @@
 严格proposal、LuaJIT字段核验及完整字节反向还原通过，范围外字节和placeholder/markup/newline/tab均保持。字节辅助脚本补全原有Lua拼接target读取后通过，不涉及译文外修改。完整门禁：30308条零错误零警告、运行键冲突0、重复分类A1711/B0/C0、严格核心addon构建完整、DLC真实消费者dry-run通过且applied=false、语义claim检查通过。
 
 FIX执行报告含约12MB的仓库保护文件哈希清单，以gzip保存原始字节，旁附原始/压缩SHA与解压完全一致证明；未改写报告。未发布或push。
-
-
-提交本包后按packages.json推进第013包，保留既定10条以内有界范围。 每包唯一EXECUTOR写Lua，宿主核验，冻结whole-workset REVIEW/full→必要FIX/RE_REVIEW→FINAL/full、门禁、归档、DONE与提交。结束child不续跑，MCP实时profiles/author与lineage核验，canonical prompt≤800UTF8字节，raw先原样保存后严格解析。无须逐包询问。
-
-第010包bowman同revision跨轮OK/ISSUE曾触发WAIT_USER，用户已明确回复“同意”，批准源码支持的召唤时获得技能/等级取决于当时召唤者等级的单句修订及继续；USER-DECISION-BOWMAN保留，不重复征求该决定。第009包旧task因恢复父级变化STOP_VERIFIED，同范围接续task完整DONE，证据package-009-resume，旧记录不改。第004包毒箭终审疑点已被用户撤销，不重开。MMR-026共享术语决定仍待既有答复，不重复问、不扩大术语/全局策略授权。

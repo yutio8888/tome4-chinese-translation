@@ -1,0 +1,17 @@
+{
+  "finding_id": "HOST-SEED-SLOT-012",
+  "candidate_index": 1028,
+  "status": "confirmed",
+  "origin": "Host source verification prompted by observation in invalid output; invalid output remains invalid, not a contract review result.",
+  "source_pinning": "DLC repository, commit and release version unpinned; observed SHA verified.",
+  "public_path": "tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua",
+  "sha256": "5fc8f608455bd2075970c895df394ddd6d7d7c2a333d41c53e7fe478db346b5a",
+  "excerpt": "\tlocal found, found_inven, found_item, found_in = false, false, false, false\n\tlocal function checkSeed(o)\n\t\tif o.type == \"seed\" and o.subtype == \"demon\" and o.demon then\n\t\t\tprint(\"Testing inferior demon\", o.demon.name, o.demon.level, \"against trying to make\", kind, hlevel)\n\t\t\tif o.demon.name == kind and o.on_slot == slot then\n\t\t\t\treturn true\n\t\t\tend\n\t\tend\n\tend\n\tself:inventoryApplyAll(function(inven, item, o)\n\t\tif checkSeed(o) then found_inven, found_item, found, found_in = inven, item, o, false\n\t\telseif o.tinker and checkSeed(o.tinker) then found_inven, found_item, found, found_in = inven, item, o.tinker, o\n\t\tend\n\tend)\n\n\t-- This kind/slot combo didnt exist, we create it\n\tif not found then\n\t\tlocal o = makeSeed()",
+  "reason": "checkSeed requires BOTH same demon name and same on_slot. If name same but slot differs, found remains false and makeSeed runs. Current 同类 without same-slot condition overstates suppression of new seeds.",
+  "proposed_edit": {
+    "old_fragment": "已经有了同类的恶魔种子",
+    "new_fragment": "已经有了同种恶魔、同一装备槽位的种子"
+  },
+  "scope": "one existing frozen target only; no glossary/global policy",
+  "not_applied": true
+}

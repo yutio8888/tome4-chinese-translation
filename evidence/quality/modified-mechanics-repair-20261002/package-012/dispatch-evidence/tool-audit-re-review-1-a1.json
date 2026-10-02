@@ -1,0 +1,70 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-012/INPUT-re-review-1-a1.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-012/INPUT-re-review-1-a1.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000]); print()\nprint(len(p['bounded_context']))\nfor c in p['bounded_context']:\n    print(json.dumps({k:v for k,v in c.items() if k!='context'},ensure_ascii=False)[:500])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-012/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    print('=====',i,t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 100,160p docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-012/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n    ctx=json.loads(c['context'])\n    print('=====',i,ctx.get('component'),ctx.get('section'),ctx.get('source_tag'))\n    for k,v in ctx.items():\n        if k in('component','section','source_tag'):continue\n        if k=='source_evidence':\n            for e in v:\n                print('--',e['public_path'],e.get('source_pinning'),e['start'],e['end'])\n                print(e['excerpt'])\n        else: print(k,json.dumps(v,ensure_ascii=False))\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-012/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n    ctx=json.loads(c['context'])\n    print('=====',i,ctx.get('component'),ctx.get('section'),ctx.get('source_tag'))\n    for k,v in ctx.items():\n        if k in('component','section','source_tag'):continue\n        if k=='source_evidence':\n            for e in v:\n                print('--',{kk:vv for kk,vv in e.items() if kk not in('excerpt','sha256')})\n                print(e.get('excerpt',''))\n        else: print(k,json.dumps(v,ensure_ascii=False))\nEOF"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/98ca93f8-9dbc-46ac-8eaf-6b0ca1185fa7/tool-results/bzyqahcxj.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/98ca93f8-9dbc-46ac-8eaf-6b0ca1185fa7/tool-results/bzyqahcxj.txt",
+      "offset": 308,
+      "limit": 150
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 496,520p .artifacts/i18n/modified-mechanics-repair-20261002/package-012/sources/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 520,545p .artifacts/i18n/modified-mechanics-repair-20261002/package-012/sources/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua"
+    }
+  }
+]

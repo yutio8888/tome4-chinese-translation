@@ -31880,8 +31880,8 @@ t([[While this ability is active, you will continually call up to %d level %d sh
 		主人对阴影造成的伤害降低 %d%%。]], "tformat")
 t("Commander of the Dead", "亡者领袖", "talent name")
 t([[You are so full with power that it overflows out of you whenever you cast a spell.
-		Upon spell cast you have %d%% chances to boost the physical power, spellpower, mindpower and all saves of all friendly undeads in sight (including yourself) by %d for 4 turns.]], [[你的力量如此强大，每当你释放法术的时候，你的力量会喷涌而出。
-		使用法术时，你有 %d%% 几率强化周围所有可见的友方不死生物（包括你自己），物理强度、法术强度、精神强度，所有豁免提升 %d， 持续 4 回合。]], "tformat")
+		Upon spell cast you have %d%% chances to boost the physical power, spellpower, mindpower and all saves of all friendly undeads in sight (including yourself) by %d for 4 turns.]], [[你的力量如此强大，每当你释放非瞬间法术的时候，你的力量会喷涌而出。
+		使用非瞬间法术时，你有 %d%% 几率强化周围所有可见的友方不死生物（包括你自己），物理强度、法术强度、精神强度，所有豁免提升 %d， 持续 4 回合。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/undeads/skeleton.lua"
@@ -34004,7 +34004,7 @@ Madness features:#YELLOW#
 欢迎来到绝望模式！
 
 绝望模式的特点：#YELLOW#
-- 所有区域等级提高 150% + 6
+- 区域等级的增幅随玩家等级逐渐提高，到玩家 10 级时完全生效：提高 150% 后再加 2
 - 所有怪物的技能等级增加 170%
 - 稀有怪产生频率大幅增加，同时出现随机 Boss
 - Boss 将随机获得技能
@@ -35296,7 +35296,7 @@ t("The target is infected by a disease doing %0.2f blight damage per turn.%s", "
 t("#Target# is afflicted by ghoul rot!", "#Target#受到了尸鬼腐蚀！", "_t")
 t("#Target# is free from the ghoul rot.", "#Target#摆脱了尸鬼腐蚀。", "_t")
 t("Bloodcasting", "血祭施法", "_t")
-t("Corruptions consume health instead of vim.", "堕落系法术消耗生命值而非活力值。", "_t")
+t("Corruptions consume health instead of vim.", "堕落系法术先消耗现有活力值，不足的部分改为消耗生命值。", "_t")
 t("Sanguine Infusion", "鲜血充能", "_t")
 t("Maximum life increased by %d.", "最大生命值提升 %d。", "tformat")
 t("Arcane Supremacy", "奥术至尊", "_t")

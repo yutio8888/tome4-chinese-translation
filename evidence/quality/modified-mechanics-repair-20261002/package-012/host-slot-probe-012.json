@@ -1,0 +1,13 @@
+{
+  "source_pinning": "DLC source/commit/version unpinned",
+  "public_path": "tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua",
+  "sha256": "5fc8f608455bd2075970c895df394ddd6d7d7c2a333d41c53e7fe478db346b5a",
+  "lines": [
+    481,
+    488
+  ],
+  "lua_source": "local kind,slot,hlevel=\"fire imp\",\"MAINHAND\",20\n\tlocal function checkSeed(o)\n\t\tif o.type == \"seed\" and o.subtype == \"demon\" and o.demon then\n\t\t\tprint(\"Testing inferior demon\", o.demon.name, o.demon.level, \"against trying to make\", kind, hlevel)\n\t\t\tif o.demon.name == kind and o.on_slot == slot then\n\t\t\t\treturn true\n\t\t\tend\n\t\tend\n\tend\nassert(checkSeed({type=\"seed\",subtype=\"demon\",demon={name=\"fire imp\",level=10},on_slot=\"MAINHAND\"}))\nassert(not checkSeed({type=\"seed\",subtype=\"demon\",demon={name=\"fire imp\",level=10},on_slot=\"BODY\"}))\nassert(not checkSeed({type=\"seed\",subtype=\"demon\",demon={name=\"quasit\",level=10},on_slot=\"MAINHAND\"}))\nassert(not checkSeed({type=\"other\",subtype=\"demon\",demon={name=\"fire imp\",level=10},on_slot=\"MAINHAND\"}))\nprint(\"PASS 4 seed matching combinations\")\n",
+  "exit_code": 0,
+  "stdout": "Testing inferior demon\tfire imp\t10\tagainst trying to make\tfire imp\t20\nTesting inferior demon\tfire imp\t10\tagainst trying to make\tfire imp\t20\nTesting inferior demon\tquasit\t10\tagainst trying to make\tfire imp\t20\nPASS 4 seed matching combinations\n",
+  "stderr": ""
+}

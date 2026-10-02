@@ -730,7 +730,7 @@ t("%s resists the grasp!", "%s 抵抗了抓取！", "logSeen")
 t([[Send out a claw of fire, striking in a line doing %0.2f damage leading to a target. The target is caught in the claw's grasp, taking %d%% weapon damage as fire damage and becoming unable to move for %d turns, while also taking %0.2f damage per turn.
 		Starting from talent level 4, it will also silence.
 		The beam damage and damage over time will increase with your Spellpower.]], [[对目标伸出一只火炎之爪，对直线上的生物造成 %0.2f 点火焰伤害。目标被火炎之爪抓住后，受到 %d%% 火焰武器伤害，并在 %d 回合不能移动，同时每回合受到 %0.2f 点火焰伤害。
-		技能等级 4 级以后，目标同时会被沉默。
+		有效技能等级超过 4 级时，目标同时会被沉默。
 		射线伤害和持续伤害受法术强度加成。]], "tformat")
 t("Reckless Strike", "舍身一击", "talent name")
 t("#CRIMSON#(%d reckless backlash)#LAST#", "#CRIMSON#(%d 舍身一击反伤)#LAST#", "tformat")
@@ -780,7 +780,7 @@ section "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua"
 
 t("Flame Bolts", "近战火球", "talent name")
 t([[Randomly (%d%% chance) hurls up to %d flame bolts dealing %0.2f fire damage to foes in sight when you hit in melee.
-		The damage will increase with your Spellpower.]], [[当你近战攻击命中时，有 %d%% 几率向视野内的敌人发射至多 %d 个火焰飞弹，造成 %0.2f 点火焰伤害。
+		The damage will increase with your Spellpower.]], [[当你近战攻击命中时，有 %d%% 几率发射火焰飞弹（显示数量为 %d 个，实际向范围内每个敌人各发射一个），造成 %0.2f 点火焰伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Fiery Cleansing", "火焰净化", "talent name")
 t("%s is cured!", "%s 被治愈！", "logSeen")
@@ -1002,7 +1002,7 @@ t([[Strike a blow with your weapon for %d%% blight damage.
 		%s稀有#LAST#或%s史诗生物#LAST#:  50%%
 		%sBoss#LAST#:  100%%
 		当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。
-		如果你的背包或装备上已经有了同类的恶魔种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d%% 生命值，若已死亡则会复活。
+		如果你的背包或装备上已经有了同种恶魔、同一装备槽位的种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复生命值（治疗量显示为 %d%%， 实际按该数值作为生命点数计算），若已死亡则会复活。
 
 		技能等级越高，可获得的恶魔种类越强大。
 		如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。]], "tformat")
@@ -1237,7 +1237,7 @@ t([[Demon horns temporarily grow on your shield as you bash a foe with it for %d
 		Any time you damage this foe in melee while it bleeds you get healed for %d (this can only happen once per turn).
 		The healing power increases with your spellpower.]], [[你的盾牌上暂时长出恶魔之角，你用它猛击敌人，造成 %d%% 伤害。
 		如果攻击命中，目标将被恶魔之角刺穿，在 5 回合内以暗影伤害的形式流失黑血，总量相当于所造成伤害的 50%%。
-		目标流血期间，每当你以近战对其造成伤害，你就会回复 %d 生命（每回合至多 1 次）。
+		目标流血期间，每当你以近战对其造成伤害，你就会回复 %d 生命。
 		治疗效果受法术强度加成。]], "tformat")
 
 ------------------------------------------------
