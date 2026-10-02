@@ -1,0 +1,92 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-007/INPUT-re-review-1-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-007/INPUT-re-review-1-a1.json"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-007/INPUT-re-review-1-a1.json'))\np=d['payload']\nprint(d.keys(), p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n    c=json.loads(b['context'])\n    print('==',b['revision_key'],c['section'],[ (e['public_path'],e.get('start'),e.get('matching_lines')) for e in c['source_evidence']], c.get('terminology'))\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; "
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-007/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    c=json.loads(b['context'])\n    with open(f'/tmp/rr7_{i}.txt','w') as f:\n        f.write(\"SOURCE:\\n\"+t['source']+\"\\nTARGET:\\n\"+t['target']+\"\\n\\n\")\n        for e in c['source_evidence']:\n            f.write(f\"--- {e['public_path']}\\n\")\n            if 'excerpt' in e: f.write(e['excerpt']+\"\\n\")\n            for w in e.get('windows',[]): f.write(w['text']+\"\\n\")\nEOF\nwc -l /tmp/rr7_*; sed -n 1,20p /tmp/rr7_1.txt; grep -n \"\" /tmp/rr7_1.txt | sed -n '/^1[6-9][0-9]:\\|^2[0-9][0-9]:/p' | head -0; awk '/^224:/,0' /tmp/rr7_1.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat /tmp/rr7_2.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat /tmp/rr7_3.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat /tmp/rr7_4.txt /tmp/rr7_5.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat /tmp/rr7_6.txt /tmp/rr7_7.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git rev-parse HEAD; F=game/modules/tome/data/talents/cunning/stealth.lua; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:$F | grep -n -i \"shadowstrike\\|unseen\" ; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/other.lua | grep -n -A15 'name = \"SHADOWSTRIKE\"'"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n 'name = \"SHADOWSTRIKE\"' $C -- game/modules/tome/data/timed_effects/ | head; "
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/timed_effects/physical.lua | sed -n 4095,4115p; git show $C:game/modules/tome/data/talents/cunning/stealth.lua | sed -n 100,118p"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat /tmp/rr7_8.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/cursed/fears.lua | sed -n 40,66p; git show $C:game/modules/tome/data/talents/cursed/fears.lua | grep -n \"applyEffect\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat /tmp/rr7_9.txt"
+    }
+  }
+]

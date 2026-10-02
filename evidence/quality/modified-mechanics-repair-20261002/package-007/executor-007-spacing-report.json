@@ -1,0 +1,81 @@
+{
+  "task_id": "mmrfix-20261002-007",
+  "dispatch": "fix-1-a2",
+  "cycle": 1,
+  "file": "mod-tome.lua",
+  "preimage_sha256": "440cb4e2cb578a60941e3b6ca786332856ea9361c0f5f144615525c48b5cfaa0",
+  "postimage_sha256": "ce5e40924e0d12e184859e463010870384712ad723f06650464f30eee4f49922",
+  "old_target": "加深你周围敌人的恐惧。所有你试图施加恐惧的目标，在随后 5 回合内停留在你视野内且与你距离不超过 %d，累计达到 %d 回合时，受到精神和暗影伤害（参考提示：%0.2f 精神、%0.2f 暗影；提示按“恐惧加深”的等级取半值，实际每类伤害按“恐惧灌输”的等级取完整值，均受精神强度影响），并获得一个新的持续 %d 回合的恐惧效果。\n\t\t\t这一效果无视恐惧抗性，但可以被豁免。",
+  "new_target": "加深你周围敌人的恐惧。所有你试图施加恐惧的目标，在随后 5 回合内停留在你视野内且与你距离不超过 %d， 累计达到 %d 回合时，受到精神和暗影伤害（参考提示： %0.2f 精神、 %0.2f 暗影；提示按“恐惧加深”的等级取半值，实际每类伤害按“恐惧灌输”的等级取完整值，均受精神强度影响），并获得一个新的持续 %d 回合的恐惧效果。\n\t\t\t这一效果无视恐惧抗性，但可以被豁免。",
+  "proof": {
+    "offset_convention": "zero-based UTF-8 byte offsets; ranges half-open",
+    "preimage_size": 3903167,
+    "postimage_size": 3903170,
+    "delta_bytes": 3,
+    "target_preimage_range": [
+      2367341,
+      2367842
+    ],
+    "target_postimage_range": [
+      2367341,
+      2367845
+    ],
+    "insertions": [
+      {
+        "old_target_character_offset": 52,
+        "preimage_byte_offset": 2367485,
+        "postimage_byte_range": [
+          2367485,
+          2367486
+        ],
+        "inserted_hex": "20"
+      },
+      {
+        "old_target_character_offset": 79,
+        "preimage_byte_offset": 2367558,
+        "postimage_byte_range": [
+          2367559,
+          2367560
+        ],
+        "inserted_hex": "20"
+      },
+      {
+        "old_target_character_offset": 88,
+        "preimage_byte_offset": 2367573,
+        "postimage_byte_range": [
+          2367575,
+          2367576
+        ],
+        "inserted_hex": "20"
+      }
+    ],
+    "delete_three_inserted_bytes_restores_exact_preimage": true,
+    "all_other_bytes_unchanged": true,
+    "existing_mechanics_corrections_preserved": true,
+    "source_args_tag_markup_tabs_newline_preserved": true
+  },
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "returncode": 0,
+      "stdout": "OK  manifest       tome-1.7.6\nOK  runtime        Lua 5.1 / LuaJIT 2.1.0-beta3\nOK  LPeg           0.10.2-1 (0.10)\nOK   repository      engine: /workspace/t-engine4; visibility=public extraction_mode=full-tree source_pinning=pinned scan_allowlist=['game/engines/default/data', 'game/engines/default/engine', 'game/engines/default/modules/boot', 'game/modules/example', 'game/modules/example_realtime', 'game/modules/tome', 'i18n_tools']\nOK   repository      addon: /workspace/tome4-chn-mod; visibility=public extraction_mode=full-tree source_pinning=pinned scan_allowlist=['.']\nOK   source          ashes-urhrok: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nOK   source          cults: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nOK   source          orcs: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nWARN              source-unpinned: ashes-urhrok: source repository/commit unknown; extraction snapshot is not a source pin\nWARN              source-unpinned: cults: source repository/commit unknown; extraction snapshot is not a source pin\nWARN              source-unpinned: orcs: source repository/commit unknown; extraction snapshot is not a source pin\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "returncode": 0,
+      "stdout": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T105627.704572Z-4-lint/lint.json\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "result": "completed",
+  "plan_deviations": [],
+  "unresolved_issues": [],
+  "preservation": "Only three ASCII spaces inserted into the frozen single target; original FIX-1 records and failed-lint evidence untouched. No staging, commit, or child creation."
+}

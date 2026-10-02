@@ -1,0 +1,5 @@
+第007包10target/10原confirmed claim修正完成，DONE_VERIFIED。cycle2 RE_REVIEW全10 OK，合法FINAL_REVIEW a3全10 OK，9dispatch全部确认归档。
+
+FIX1补明脱离潜行的独立通用暴击加成，以及Heighten Fear实际按Instill Fear等级计算与5回合窗口；宿主冻结target三处缺ASCII空格导致lint失败，原FIX/失败报告完整保留，单独三字节spacing修正通过。FIX2补明首次精神豁免前提。终审a2虽然10OK，但原生cwd漂移未通过绑定，保留原raw/native诊断且不计accepted记录；fresh a3绑定、边界与严格JSON通过。
+
+固定core源码hash、baseline逆向字节/全部非target字段、strict proposal通过。严格lint30308条0错误0警告、collision0、分类A1711/B0/C0、strictcoreaddon和实际DLC发布dry-run通过，applied=false，无外部发布。本包修正仅固定core来源，DLC消费者来源仍未固定。

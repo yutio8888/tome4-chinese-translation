@@ -1,0 +1,79 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-007/INPUT-final-review-2-a3.json; cat .ai/task/mmrfix-20261002-007/INPUT-final-review-2-a3.json | head -c 30000",
+      "description": "Read frozen review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-007/INPUT-final-review-2-a3.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000]); print()\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n    print({k:(v if k!='context' else None) for k,v in b.items()})\nEOF",
+      "description": "Summarize input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-007/INPUT-final-review-2-a3.json'))\np=d['payload']\nfor t in p['translation_snapshot'][8:]:\n    print(json.dumps(t,ensure_ascii=False)); print()\nEOF\ngrep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Show last entries and contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract section six/seven"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-007/INPUT-final-review-2-a3.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context'][:4]):\n    c=json.loads(b['context'])\n    print('=====',i, c.get('section'), c.get('source_tag'))\n    for k,v in c.items():\n        if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False)[:3000])\n    for e in c.get('source_evidence',[]):\n        print('--', e['public_path'], e['start'], e['end'], e.get('source_pinning'), e.get('commit'))\n        print(e['excerpt'])\nEOF",
+      "description": "Dump contexts 0-3"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF' > /tmp/ctx_dump.txt\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-007/INPUT-final-review-2-a3.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n    c=json.loads(b['context'])\n    print('=====',i, c.get('section'), c.get('source_tag'))\n    for k,v in c.items():\n        if k not in('source_evidence','source_locations','read_boundary'): print(k, json.dumps(v,ensure_ascii=False)[:4000])\n    for e in c.get('source_evidence',[]):\n        print('--', {k:v for k,v in e.items() if k!='excerpt'})\n        print(e.get('excerpt'))\nEOF\nwc -l /tmp/ctx_dump.txt; grep -n \"^=====\" /tmp/ctx_dump.txt",
+      "description": "Dump all contexts to tmp"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 85,330p /tmp/ctx_dump.txt",
+      "description": "Read contexts 0 tail through 4"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 324,486p /tmp/ctx_dump.txt",
+      "description": "Read contexts 4 through 9"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"unseen_critical_power\\|SHADOWSTRIKE\\b\" $C -- game/modules/tome | head -30; git grep -n \"getCooldownDuration\\s*=\" $C -- game/modules/tome | head; git grep -n \"ignore_direct_crits\" $C -- game/modules/tome/class | head",
+      "description": "Trace Shadowstrike and Harass Prey consumers in pinned source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/timed_effects/physical.lua | sed -n 4095,4115p; git show $C:game/modules/tome/data/talents/cunning/stealth.lua | sed -n 100,118p",
+      "description": "Read SHADOWSTRIKE effect and stealth deactivate"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"friendlyfire\" $C -- game/engines/default/engine/Target.lua | head",
+      "description": "Check friendlyfire default in Target"
+    }
+  }
+]

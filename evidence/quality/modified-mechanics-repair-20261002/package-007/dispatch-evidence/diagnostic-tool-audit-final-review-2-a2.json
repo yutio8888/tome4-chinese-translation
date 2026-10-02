@@ -1,0 +1,93 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-007/INPUT-final-review-2-a2.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmrfix-20261002-007/INPUT-final-review-2-a2.json | head -c 6000",
+      "description": "Read review input and contract size"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-007/INPUT-final-review-2-a2.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']: print({k:(v if k!='context' else len(v)) for k,v in b.items()})\n\"",
+      "description": "Read contract and input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat > /tmp/show.py <<'EOF'\nimport json,sys\nd=json.load(open('.ai/task/mmrfix-20261002-007/INPUT-final-review-2-a2.json'))\np=d['payload'];i=int(sys.argv[1])\nt=p['translation_snapshot'][i];print(\"SRC:\",t['source']);print(\"TGT:\",t['target'])\nc=json.loads(p['bounded_context'][i]['context'])\ndef pr(o,ind=0):\n  if isinstance(o,dict):\n    for k,v in o.items():\n      if isinstance(v,(dict,list)): print(' '*ind+k+':');pr(v,ind+2)\n      else: print(' '*ind+k+': '+str(v))\n  elif isinstance(o,list):\n    for v in o: pr(v,ind);print(' '*ind+'--')\n  else: print(' '*ind+str(o))\npr(c)\nEOF\npython3 /tmp/show.py 0",
+      "description": "Show entry 0 with context"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 /tmp/show.py 1",
+      "description": "Show entry 1"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 /tmp/show.py 2; python3 /tmp/show.py 3",
+      "description": "Show entries 2 and 3"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 /tmp/show.py 4; python3 /tmp/show.py 5",
+      "description": "Show entries 4 and 5"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 /tmp/show.py 6",
+      "description": "Show entry 6"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-007/sources/tome/game/modules/tome; grep -rn \"SHADOWSTRIKE\\|unseen_critical_power\\|ignore_direct_crits\" --include=*.lua . | head -40; sed -n 100,124p data/damage_types.lua",
+      "description": "Trace Shadowstrike mechanics in frozen source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-007/sources/tome/game/modules/tome; sed -n 4095,4115p data/timed_effects/physical.lua; sed -n 100,118p data/talents/cunning/stealth.lua; sed -n 4085,4096p class/Actor.lua",
+      "description": "Read SHADOWSTRIKE effect and ignore_direct_crits source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 /tmp/show.py 7",
+      "description": "Show entry 7"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-007/sources/tome/game/modules/tome; grep -rn \"getCooldownDuration\\s*=\" --include=*.lua . | grep -v \"function(self, t)\" | head; grep -rn \"^\\s*getCooldownDuration\\|^function getCooldownDuration\\|^getCooldownDuration\" --include=*.lua . | head",
+      "description": "Check for global getCooldownDuration definition"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 /tmp/show.py 8",
+      "description": "Show entry 8"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 /tmp/show.py 9",
+      "description": "Show entry 9"
+    }
+  }
+]

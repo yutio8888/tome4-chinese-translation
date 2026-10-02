@@ -1,0 +1,123 @@
+{
+  "task_id": "mmrfix-20261002-007",
+  "role": "executor",
+  "cycle": 2,
+  "dispatch": "fresh FIX cycle2",
+  "file": "mod-tome.lua",
+  "preimage_sha256": "ce5e40924e0d12e184859e463010870384712ad723f06650464f30eee4f49922",
+  "postimage_sha256": "474f11976a42eceed6de8faaf31393bcf07b1f40377ad4e10f0bf9789afd7c42",
+  "old_target": "加深你周围敌人的恐惧。所有你试图施加恐惧的目标，在随后 5 回合内停留在你视野内且与你距离不超过 %d， 累计达到 %d 回合时，受到精神和暗影伤害（参考提示： %0.2f 精神、 %0.2f 暗影；提示按“恐惧加深”的等级取半值，实际每类伤害按“恐惧灌输”的等级取完整值，均受精神强度影响），并获得一个新的持续 %d 回合的恐惧效果。\n\t\t\t这一效果无视恐惧抗性，但可以被豁免。",
+  "new_target": "加深你周围敌人的恐惧。你尝试施加恐惧且未能以精神豁免抵抗的目标，在随后 5 回合内停留在你视野内且与你距离不超过 %d， 累计达到 %d 回合时，受到精神和暗影伤害（参考提示： %0.2f 精神、 %0.2f 暗影；提示按“恐惧加深”的等级取半值，实际每类伤害按“恐惧灌输”的等级取完整值，均受精神强度影响），并获得一个新的持续 %d 回合的恐惧效果。\n\t\t\t这一效果无视恐惧抗性，但可以被豁免。",
+  "materialized_old_target": "加深你周围敌人的恐惧。所有你试图施加恐惧的目标，在随后 5 回合内停留在你视野内且与你距离不超过 %d， 累计达到 %d 回合时，受到精神和暗影伤害（参考提示： %0.2f 精神、 %0.2f 暗影；提示按“恐惧加深”的等级取半值，实际每类伤害按“恐惧灌输”的等级取完整值，均受精神强度影响），并获得一个新的持续 %d 回合的恐惧效果。\n\t\t\t这一效果无视恐惧抗性，但可以被豁免。",
+  "materialized_new_target": "加深你周围敌人的恐惧。你尝试施加恐惧且未能以精神豁免抵抗的目标，在随后 5 回合内停留在你视野内且与你距离不超过 %d， 累计达到 %d 回合时，受到精神和暗影伤害（参考提示： %0.2f 精神、 %0.2f 暗影；提示按“恐惧加深”的等级取半值，实际每类伤害按“恐惧灌输”的等级取完整值，均受精神强度影响），并获得一个新的持续 %d 回合的恐惧效果。\n\t\t\t这一效果无视恐惧抗性，但可以被豁免。",
+  "source_evidence": {
+    "public_path": "game/modules/tome/data/talents/cursed/fears.lua",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "d8cb82323bb3678be598dffb219bed45d102640cbd8afeaea01474d162825807",
+    "verified_pinned_git_blob_sha256": "d8cb82323bb3678be598dffb219bed45d102640cbd8afeaea01474d162825807",
+    "verified_frozen_snapshot_sha256": "d8cb82323bb3678be598dffb219bed45d102640cbd8afeaea01474d162825807",
+    "manifest_commit_verified": true
+  },
+  "consumer_verification": {
+    "public_path": "game/modules/tome/data/talents/cursed/fears.lua",
+    "checkHit_line": 69,
+    "early_return_line": 71,
+    "heighten_gate_line": 77,
+    "setEffect_line": 81,
+    "fear_resistance_check_line": 85,
+    "conclusion": "Initial mental save must fail (checkHit must succeed) to reach EFF_HEIGHTEN_FEAR setEffect; failed checkHit returns nil before application. Heighten application precedes fear resistance check.",
+    "source_excerpt": "68: \t\tlocal mindpower = self:combatMindpower()\n69: \t\tif not target:checkHit(mindpower, target:combatMentalResist()) then\n70: \t\t\tgame.logSeen(target, \"%s resists the fear!\", target:getName():capitalize())\n71: \t\t\treturn nil\n72: \t\tend\n73: \n74: \t\t--apply heighten fear\n75: \t\tlocal tHeightenFear = nil\n76: \t\tif self:knowTalent(self.T_HEIGHTEN_FEAR) then tHeightenFear = self:getTalentFromId(self.T_HEIGHTEN_FEAR) end\n77: \t\tif tHeightenFear and not target:hasEffect(target.EFF_HEIGHTEN_FEAR) then\n78: \t\t\tlocal turnsUntilTrigger = tHeightenFear.getTurnsUntilTrigger(self, tHeightenFear)\n79: \t\t\tlocal dur = tHeightenFear.getDuration(self, t)\n80: \t\t\tlocal damage = tHeightenFear.getDamage(self, t)\n81: \t\t\ttarget:setEffect(target.EFF_HEIGHTEN_FEAR, dur, {src=self, range=self:getTalentRange(tHeightenFear), turns=turnsUntilTrigger, turns_left=turnsUntilTrigger, damage=damage })\n82: \t\tend\n83: \n84: \t\t--fear res check & heighten fear bypass\n85: \t\tif not no_fearRes and not target:canBe(\"fear\") then\n86: \t\t\tgame.logSeen(target, \"#F53CBE#%s resists the fear!\", target:getName():capitalize())\n87: \t\t\treturn true"
+  },
+  "scope_proof": {
+    "offset_convention": "zero-based UTF-8 byte offsets; half-open ranges",
+    "old_target_range": [
+      2367341,
+      2367845
+    ],
+    "new_target_range": [
+      2367341,
+      2367869
+    ],
+    "preimage_size": 3903170,
+    "postimage_size": 3903194,
+    "prefix_sha256": "c145c56b5922cae6ab90bab0fa62adf94ecd1ebb38f019aaaf82f78769c69068",
+    "suffix_sha256": "19331e291d2d98168b76c5cd48f3129ecfa10cef35df23eec7abc167d5ea1113",
+    "prefix_and_suffix_identical": true,
+    "restore_old_target_reproduces_exact_preimage": true,
+    "source_tag_args_order_special_and_all_other_bytes_preserved": true,
+    "placeholder_sequence_preserved": true,
+    "newline_tabs_preserved": true,
+    "other_nine_entries": [
+      {
+        "revision_key": "94a53592eccec50621f7548c80350ec0521266226018410cb1baa7e9d55bda08",
+        "entire_translation_block_sha256": "066c4fa36dccfbe80b481f40fd3e23738065e661525bf28a11c7ef0fdb1df0ab",
+        "identical": true
+      },
+      {
+        "revision_key": "bb8d2036e9a141ec784ecf2b19b4d2f16149ff97df4c7914e121339255164374",
+        "entire_translation_block_sha256": "3e0726842c140a31b780fcf0214be631c3ac70bcefe42a5537ecf914a1e7c236",
+        "identical": true
+      },
+      {
+        "revision_key": "c604cb438893bda5ea2cbc7839e2614912e257424eb32211f88c273018da508c",
+        "entire_translation_block_sha256": "662eb301e8e63efc44143a9e5d427ec44b3ad644b1c913eecc65bb6db1d5f957",
+        "identical": true
+      },
+      {
+        "revision_key": "0164cc1cb5902b73595a0e9fa0dfbf1d3c1811f1c537d65150a189e8e9392c1b",
+        "entire_translation_block_sha256": "5fd5cf83aa7b0f3a5578ed8d64f44f5b3cb0063ff804a23d58c704a1922e7471",
+        "identical": true
+      },
+      {
+        "revision_key": "3155c450948ca2c0db4e41ec5a426b3d350444690af30bbaa24f135372eb479b",
+        "entire_translation_block_sha256": "9bba8bc7679122f8c1257e2c2bba5be95d8bd37b4d03a6586134f3df91399b23",
+        "identical": true
+      },
+      {
+        "revision_key": "54183751682ca69f1dede6f5300d7bbb6132f63941c090afc6848481417349c4",
+        "entire_translation_block_sha256": "ffb4a96e9398da2a77ad493831734c7566205b904a1a04923b54ba0eefa12f9e",
+        "identical": true
+      },
+      {
+        "revision_key": "9b2356eef831903e58821113047890a20a40e4f3994b43f233a01cf9c656df42",
+        "entire_translation_block_sha256": "6a04f74389abac4b1e1d0d782f430e3dc129a59e1b97c34cde299b82fba2add5",
+        "identical": true
+      },
+      {
+        "revision_key": "b13507288de2c006c19b4a3b6ae5fbcfa333ae0854a29079261b6e5691313a61",
+        "entire_translation_block_sha256": "34dcee49cfc29b17cd0e3ccfbe8051f91ffcbe4cb59997b75a17cab7e4e265c8",
+        "identical": true
+      },
+      {
+        "revision_key": "ba9bfa6d4b79a886accb389a1fa0a77f8aa7516e75fa17343d9994510a1cd5ab",
+        "entire_translation_block_sha256": "25428ee4e346a6fccca9d66435cf98d020a1870b511ed1c57586ea4302ff1e43",
+        "identical": true
+      }
+    ],
+    "index_sha256_before_after": "66996811e43efa22775139ec52cc950068621aaf43f151bbb5d9359499ae303b",
+    "no_staging_commit_or_child_creation": true
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "returncode": 0,
+      "stdout": "OK  manifest       tome-1.7.6\nOK  runtime        Lua 5.1 / LuaJIT 2.1.0-beta3\nOK  LPeg           0.10.2-1 (0.10)\nOK   repository      engine: /workspace/t-engine4; visibility=public extraction_mode=full-tree source_pinning=pinned scan_allowlist=['game/engines/default/data', 'game/engines/default/engine', 'game/engines/default/modules/boot', 'game/modules/example', 'game/modules/example_realtime', 'game/modules/tome', 'i18n_tools']\nOK   repository      addon: /workspace/tome4-chn-mod; visibility=public extraction_mode=full-tree source_pinning=pinned scan_allowlist=['.']\nOK   source          ashes-urhrok: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nOK   source          cults: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nOK   source          orcs: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nWARN              source-unpinned: ashes-urhrok: source repository/commit unknown; extraction snapshot is not a source pin\nWARN              source-unpinned: cults: source repository/commit unknown; extraction snapshot is not a source pin\nWARN              source-unpinned: orcs: source repository/commit unknown; extraction snapshot is not a source pin\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "returncode": 0,
+      "stdout": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T110301.690475Z-76-lint/lint.json\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "result": "completed",
+  "plan_deviations": [],
+  "unresolved_issues": []
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "wc -c .ai/task/mmrfix-20261002-007/INPUT-re-review-2-a1.json docs/paseo-translation-context-review-v2-contract.md && cat .ai/task/mmrfix-20261002-007/INPUT-re-review-2-a1.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat docs/paseo-translation-context-review-v2-contract.md; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-007/INPUT-re-review-2-a1.json'))\nprint(d.keys())\np=d['payload']; print(p.keys())\nfor k,v in d.items():\n  if k!='payload': print(k, json.dumps(v,ensure_ascii=False)[:2000])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nEOF",
+      "description": "Read contract and input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-007/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor t,c in zip(p['translation_snapshot'],p['bounded_context']):\n  print('=====',t['revision_key'][:8])\n  print('SRC:',t['source']); print('TGT:',t['target'])\n  print('CTX:',c['context'])\nEOF",
+      "description": "Dump revisions with contexts"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/ef7907ae-3013-43c9-aacf-76d969fe8e47/tool-results/beoszl8ln.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/ef7907ae-3013-43c9-aacf-76d969fe8e47/tool-results/beoszl8ln.txt",
+      "offset": 47,
+      "limit": 36
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git rev-parse HEAD && C=624a67329fe2ad440c5b344785a9c73fcf22ae63 && git grep -n \"unseen_critical_power\\|unseen_crit\" $C -- game/modules/tome | head -30; git grep -n \"getCooldownDuration\\b\" $C -- game/modules/tome | head; git grep -n \"ignore_direct_crits\" $C -- game/modules/tome | head -20",
+      "description": "Grep pinned source for call chains"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63 && git grep -n \"T_SHADOWSTRIKE\\|SHADOW_STRIKE\\|EFF_SHADOWSTRIKE\" $C -- game/modules/tome | head; git grep -n -A25 'name = \"SHADOWSTRIKE\"' $C -- game/modules/tome/data/timed_effects | head -40",
+      "description": "Find Shadowstrike post-stealth effect"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63 && git grep -n -B3 -A3 \"EFF_SHADOWSTRIKE\" $C -- game/modules/tome | head -30",
+      "description": "Find where Shadowstrike effect is applied"
+    }
+  }
+]

@@ -22406,7 +22406,7 @@ t([[This intricate spell instantly erects a time shield around the caster, preve
 		The shield's max absorption will increase with your Spellpower.]], [[这个复杂的法术会立即在施法者周围竖起时间盾，阻挡所有将受到的伤害并将其送往未来。
 		当护盾吸收的伤害达到上限 （%d）， 或持续时间结束 （%d 回合）时，储存的伤害会在 5 回合内以时空恢复场的形式回归。
 		恢复场存在期间，每回合为你恢复相当于吸收伤害 10%% 的生命值。
-		处于时间盾效果下时，新施加的所有魔法、物理和精神效果的持续时间都会缩短 %d%%。
+		处于时间盾效果下时，新施加的魔法、物理和精神负面效果的持续时间都会缩短 %d%%。
 		护盾吸收上限随法术强度提高。]], "tformat")
 t("Stop", "时间静止", "talent name")
 t([[Inflicts %0.2f temporal damage, and attempts to stun all targets in a radius %d ball for %d turns.
@@ -22493,7 +22493,7 @@ t("temporal-hound", "时空猎犬", "_t")
 t("Temporal Hounds", "时空猎犬", "talent name")
 t([[Upon activation summon a Temporal Hound.  Every %d turns another hound will be summoned, up to a maximum of three hounds. If a hound dies you'll summon a new hound in %d turns.  
 		Your hounds inherit your increased damage percent, have %d%% physical resistance and %d%% temporal resistance, and are immune to teleportation effects.
-		Hounds will get, %d Strength, %d Dexterity, %d Constitution, %d Magic, %d Willpower, and %d Cunning, based on your Magic stat.]], [[激活时召唤一条时空猎犬。每隔 %d 回合召唤另一条时空猎犬，直至最多 3 条。当一条猎犬死去时，你将在 %d 回合后召唤一条新的猎犬。
+		Hounds will get, %d Strength, %d Dexterity, %d Constitution, %d Magic, %d Willpower, and %d Cunning, based on your Magic stat.]], [[激活时召唤一条时空猎犬。每隔 %d 回合召唤另一条时空猎犬，直至最多 3 条。当一条猎犬死去时，沿用当前召唤倒计时补召；若倒计时已结束，则重新等待 %d 回合。
 		你的猎犬继承你的伤害加成，有 %d%% 物理和 %d%% 时空抗性，对传送效果免疫。
 		猎犬将拥有 %d 力量， %d 敏捷， %d 体质， %d 魔力， %d 意志和 %d 灵巧，基于你的魔力。]], "tformat")
 t("Command Hounds: Blink", "闪烁命令", "talent name")
@@ -22803,7 +22803,7 @@ t("%s resists the disease!", "%s抵抗了疫病！", "logSeen")
 t([[Whenever you deal non-disease blight damage you apply a disease dealing %0.2f blight damage per turn for 6 turns and reducing one of its physical stats (strength, constitution, dexterity) by %d. The three diseases can stack.
 		Virulent Disease will always try to apply a disease the target does not currently have, and also one that will have the most debilitating effect for the target.
 		This disease will try to prioritize being applied to an enemy with a high disease count near the target.
-		The effect will increase with your Spellpower.]], [[每当你造成一个非疾病的枯萎伤害时，你将会对目标施加一项疾病，每回合造成 %0.2f 枯萎伤害，持续 6 回合，并降低其一项物理能力值（力量、体质、敏捷） %d。 三种疾病可以叠加。
+		The effect will increase with your Spellpower.]], [[当你造成非疾病的枯萎伤害时，你会尝试施加一项疾病，此效果有 3 回合的触发间隔，每回合造成 %0.2f 枯萎伤害，持续 6 回合，并降低其一项物理能力值（力量、体质、敏捷） %d。 三种疾病可以叠加。
 		剧毒瘟疫总是会试图施加一项目标当前尚未感染、且对目标负面效果最大的疾病。
 		该疾病会优先施加在目标附近疾病数量较多的敌人身上。
 		疾病效果随法术强度提升。]], "tformat")
@@ -23328,7 +23328,7 @@ The chance to further disable the target increases with your Accuracy.]], [[你�
 进一步限制目标的几率随你的命中提高。]], "tformat")
 t("Blinding Powder", "致盲粉", "talent name")
 t([[Throw a cloud of blinding dust in a radius %d cone. Enemies within will be blinded, as well as having their accuracy reduced by %d and movement speed decreased by %d%% for %d turns.
-		The chance to inflict these effects increase with your Accuracy.]], [[撒出致盲粉，致盲前方 %d 格锥形范围内的敌人。受影响的敌人命中减少 %d， 移动速度减少 %d%%， 持续 %d 回合。
+		The chance to inflict these effects increase with your Accuracy.]], [[撒出致盲粉，致盲前方 %d 格锥形范围内的目标（包括友方，不包括自己）。受影响的目标命中减少 %d， 移动速度减少 %d%%， 持续 %d 回合。
 		效果成功率受命中加成。]], "tformat")
 t("Twist the Knife", "伤口拧刀", "talent name")
 t("#CRIMSON#%s's %s was extended!#LAST#", "#CRIMSON#%s的%s被延长了！#LAST#", "logSeen")
@@ -23353,7 +23353,7 @@ t([[Focus on a single target and perform a probing attack to find flaws in its d
 		临时护甲穿透和命中加成随你的灵巧提高。]], "tformat")
 t("Blade Flurry", "剑刃乱舞", "talent name")
 t([[Become a whirling storm of blades, increasing attack speed by %d%% and causing melee attacks to strike an additional adjacent target other than your primary target for %d%% weapon damage. 
-This talent is exhausting to use, draining 4 stamina each turn.]], [[化作剑刃旋风，攻击速度提高 %d%%， 并使近战攻击对主目标以外的一名相邻目标造成 %d%% 武器伤害。
+This talent is exhausting to use, draining 4 stamina each turn.]], [[化作剑刃旋风，攻击速度提高 %d%%， 并在近战攻击命中后，对主目标以外的一名相邻目标追加一次造成 %d%% 武器伤害的攻击，每回合最多触发一次。
 维持此技能十分耗费体力，每回合消耗 4 点体力。]], "tformat")
 t("Snap", "灵光一闪", "talent name")
 t("Your quick wits allow you to reset the cooldown of up to %d of your combat talents (cunning or technique) of tier %d or less.", "你的快速反应使你能够重置至多 %d 个层级不超过 %d 的战斗技能（灵巧类或格斗类）的冷却时间。", "tformat")
@@ -23440,7 +23440,7 @@ t("#CRIMSON#%s's %s is disrupted by %s wounds!#LAST#", "#CRIMSON#%s 的 %s 被 %
 t([[Your melee and ranged attacks inflict distracting wounds that reduce the target’s critical strike multiplier by %d%% for 5 turns. 
 In addition, your attacks have a %d%% chance to inflict a painful wound that causes them to forget a random talent for %d turns.  The last effect cannot occur more than once per turn per target.
 		]], [[你的近战和远程攻击制造的伤口会使敌人分心，使目标的暴击系数减少 %d%%， 持续 5 回合。
-		此外，你的攻击还有 %d%% 的几率造成痛苦的创伤，使敌人随机遗忘一项技能，持续 %d 回合。这一效果对每个目标每回合最多触发一次。]], "tformat")
+		此外，当敌人至少有两项未在冷却中的非天生主动技能时，你的攻击还有 %d%% 的几率使其中随机一项进入冷却，持续 %d 回合。这一效果对每个目标每回合最多触发一次。]], "tformat")
 t("Misdirection", "误导", "talent name")
 t("#ORANGE#%s redirects the effect '%s'!#LAST#", "#ORANGE#%s 误导了 '%s' 效果！#LAST#", "logSeen")
 t([[Your abilities in sowing confusion and chaos have reached their peak.  Whenever a foe attempts to apply a detrimental physical effect to you, they have a %d%% chance to fail. If there is an adjacent enemy to you, you misdirect your foe into applying it to them at %d%% duration.
@@ -23515,8 +23515,8 @@ t([[You know how to make the most out of being unseen.
 		Your critical multiplier against targets that cannot see you is increased by up to %d%%. (You must be able to see your target and the bonus is reduced from its full value at range 3 to 0 at range 10.)
 		Also, after exiting stealth for any reason, the critical multiplier persists for %d turns (with no range limitation).]], [[你充分发挥潜行优势。
 		潜行状态下攻击时，如果直到命中前你的目标都没有发现你，你的攻击将自动暴击。（即使目标注意到你，你的法术和精神攻击也会暴击。）
-		对于看不见你的目标，暴击伤害增加 %d%%。 （你必须能够看到你的目标，并且伤害奖励随距离降低：3 格内保持满额，到 10 格时降低为 0）。
-		此外，由于任何原因脱离潜行后，暴击伤害奖励会持续存在 %d 回合（不受范围限制）。]], "tformat")
+		对于看不见你的目标，只有当其具有直接暴击伤害减免属性且本次攻击的暴击倍率大于 1 时，直接伤害的暴击伤害加成才会增加，最高为 %d%%。 （你必须能够看到你的目标，并且伤害奖励随距离降低：3 格内保持满额，到 10 格时降低为 0）。
+		此外，由于任何原因脱离潜行后，你将获得适用于所有暴击的暴击伤害加成，持续 %d 回合，不受上述目标属性、可见性和距离条件限制。]], "tformat")
 t("Soothing Darkness", "黑暗亲和", "talent name")
 t([[You have a special affinity for darkness and shadows.
 		When standing in an unlit grid, the minimum range to your foes for activating stealth or for maintaining it after a Shadow Dance is reduced by %d.
@@ -24134,7 +24134,7 @@ t("Harass Prey", "袭扰猎物", "talent name")
 t("#F53CBE#%s's %s is disrupted!", "#F53CBE#%s的%s中断了！", "logSeen")
 t([[Harass your stalked victim with two quick attacks for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage each. Each attack that scores a hit disrupts one talent, rune or infusion for %d turns. Your opponent will be unnerved by the attacks, reducing the damage they deal by %d%% for %d turns.
 
-		This talent will also attack with your shield, if you have one equipped.]], [[用两次快速的攻击折磨你追踪的目标，每次攻击造成 %d%% （0仇恨）～ %d%% （100+仇恨）的伤害。并且每次攻击都将干扰目标某项技能、纹身或符文，持续 %d 回合。目标会因为你的攻击而气馁，它的伤害降低 %d%%， 持续 %d 回合。
+		This talent will also attack with your shield, if you have one equipped.]], [[用两次快速的攻击折磨你追踪的目标，每次攻击造成 %d%% （0仇恨）～ %d%% （100+仇恨）的伤害。每次攻击都会尝试干扰目标某项技能、纹身或符文，所示干扰时长为 %d 回合，但实际不会使其进入冷却。目标会因为你的攻击而气馁，它的伤害降低 %d%%， 持续 %d 回合。
 
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat")
 t("Beckon", "引诱思维", "talent name")
@@ -24176,7 +24176,7 @@ t([[Instill fear in your foes within %d radius of a target location dealing %0.2
 		#ORANGE#恶灵缠身：#LAST# 目标每有一个负面精神效果，则每回合受到 %0.2f 精神和 %0.2f 暗影伤害。]], "tformat")
 t("Heighten Fear", "恐惧加深", "talent name")
 t([[Heighten the fears of those near to you. Any foe you attempt to inflict a fear upon and who remains in a radius of %d and in sight of you for %d (non-consecutive) turns, will take %0.2f mind and %0.2f darkness damage and gain a new fear that lasts for %d turns.
-			This effect completely ignores fear resistance, but can be saved against.]], [[加深你周围敌人的恐惧。所有你试图施加恐惧的目标若停留在你视野内，并且和你距离不超过 %d， 这样累计达到 %d 回合时，受到 %0.2f 精神和 %0.2f 暗影伤害，并获得一个新的持续 %d 回合的恐惧效果。
+			This effect completely ignores fear resistance, but can be saved against.]], [[加深你周围敌人的恐惧。你尝试施加恐惧且未能以精神豁免抵抗的目标，在随后 5 回合内停留在你视野内且与你距离不超过 %d， 累计达到 %d 回合时，受到精神和暗影伤害（参考提示： %0.2f 精神、 %0.2f 暗影；提示按“恐惧加深”的等级取半值，实际每类伤害按“恐惧灌输”的等级取完整值，均受精神强度影响），并获得一个新的持续 %d 回合的恐惧效果。
 			这一效果无视恐惧抗性，但可以被豁免。]], "tformat")
 t("Tyrant", "精神专制", "talent name")
 t([[Impose your tyranny on the minds of those who fear you. When a foe gains a new fear, you have a %d%% chance to increase the duration of their heightened fear and one random existing fear effect by %d turns, to a maximum of 8 turns.
@@ -24206,7 +24206,7 @@ t("Deflection (%d)", "念力折射 (%d)", "tformat")
 t("You have deflected %d incoming damage!", "你偏转了%d所受伤害！", "logPlayer")
 t([[Create a barrier that siphons hate from you at the rate of 0.2 a turn. The barrier will deflect 50%% of incoming damage with the force of your will, up to %d damage. The barrier charges at a rate of 1/%d of its maximum charge per turn.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
-		The maximum damage deflected increases with your Mindpower.]], [[用你的意志力折射 50%% 的伤害。你可以折射最多 %d 点伤害，护盾值每回合回复最大值的 1/%d （技能激活时-0.2仇恨值回复）。
+		The maximum damage deflected increases with your Mindpower.]], [[用你的意志力折射 50%% 的伤害。你可以折射最多 %d 点伤害，护盾值未满且仇恨值至少为 0.2 时，每回合消耗 0.2 仇恨值，回复护盾最大值的 1/%d。
 		你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前： %d%%）
 		最大伤害折射值受精神强度加成。]], "tformat")
 t("Blast", "怒火爆炸", "talent name")

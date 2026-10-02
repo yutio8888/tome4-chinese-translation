@@ -1,0 +1,140 @@
+{
+  "task_id": "mmrfix-20261002-007",
+  "role": "executor",
+  "cycle": 1,
+  "status": "changes_applied_validation_blocked",
+  "modified_files": [
+    "mod-tome.lua"
+  ],
+  "preimage_file_sha256": "ab09abbf2a89f90cdd7c7c405c2c0d791600e63dbc33b4b01facd728aa7ce259",
+  "frozen_preimage_verified": true,
+  "postimage_file_sha256": "440cb4e2cb578a60941e3b6ca786332856ea9361c0f5f144615525c48b5cfaa0",
+  "entries": [
+    {
+      "revision_key": "9b2356eef831903e58821113047890a20a40e4f3994b43f233a01cf9c656df42",
+      "finding_id": "REVIEW-SHADOWSTRIKE-007",
+      "section": "mod-tome/data/talents/cunning/stealth.lua",
+      "old_target": "你充分发挥潜行优势。\n\t\t潜行状态下攻击时，如果直到命中前你的目标都没有发现你，你的攻击将自动暴击。（即使目标注意到你，你的法术和精神攻击也会暴击。）\n\t\t对于看不见你的目标，只有当其具有直接暴击伤害减免属性且本次攻击的暴击倍率大于 1 时，直接伤害的暴击伤害加成才会增加，最高为 %d%%。 （你必须能够看到你的目标，并且伤害奖励随距离降低：3 格内保持满额，到 10 格时降低为 0）。\n\t\t此外，由于任何原因脱离潜行后，暴击伤害奖励会持续存在 %d 回合（不受范围限制）。",
+      "new_target": "你充分发挥潜行优势。\n\t\t潜行状态下攻击时，如果直到命中前你的目标都没有发现你，你的攻击将自动暴击。（即使目标注意到你，你的法术和精神攻击也会暴击。）\n\t\t对于看不见你的目标，只有当其具有直接暴击伤害减免属性且本次攻击的暴击倍率大于 1 时，直接伤害的暴击伤害加成才会增加，最高为 %d%%。 （你必须能够看到你的目标，并且伤害奖励随距离降低：3 格内保持满额，到 10 格时降低为 0）。\n\t\t此外，由于任何原因脱离潜行后，你将获得适用于所有暴击的暴击伤害加成，持续 %d 回合，不受上述目标属性、可见性和距离条件限制。",
+      "old_target_exact_unique_match": true,
+      "new_target_applied_verbatim": true
+    },
+    {
+      "revision_key": "d85be1556629489ccfe6b5a6a73da0d897c56b908d3b9bb59b4e0598398d1b35",
+      "finding_id": "REVIEW-HEIGHTEN-FEAR-007",
+      "section": "mod-tome/data/talents/cursed/fears.lua",
+      "old_target": "加深你周围敌人的恐惧。所有你试图施加恐惧的目标若停留在你视野内，并且和你距离不超过 %d， 这样累计达到 %d 回合时，受到所示 %0.2f 精神和 %0.2f 暗影伤害各自两倍的伤害，并获得一个新的持续 %d 回合的恐惧效果。\n\t\t\t这一效果无视恐惧抗性，但可以被豁免。",
+      "new_target": "加深你周围敌人的恐惧。所有你试图施加恐惧的目标，在随后 5 回合内停留在你视野内且与你距离不超过 %d，累计达到 %d 回合时，受到精神和暗影伤害（参考提示：%0.2f 精神、%0.2f 暗影；提示按“恐惧加深”的等级取半值，实际每类伤害按“恐惧灌输”的等级取完整值，均受精神强度影响），并获得一个新的持续 %d 回合的恐惧效果。\n\t\t\t这一效果无视恐惧抗性，但可以被豁免。",
+      "old_target_exact_unique_match": true,
+      "new_target_applied_verbatim": true
+    }
+  ],
+  "source_evidence": [
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/cunning/stealth.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "38accb83ed9f8124b05924589b576a0afaf61625c3e0ad4481a08e19299fa63d",
+      "actual_sha256": "38accb83ed9f8124b05924589b576a0afaf61625c3e0ad4481a08e19299fa63d",
+      "hash_verified": true
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "actual_sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "hash_verified": true
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/cursed/fears.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "d8cb82323bb3678be598dffb219bed45d102640cbd8afeaea01474d162825807",
+      "actual_sha256": "d8cb82323bb3678be598dffb219bed45d102640cbd8afeaea01474d162825807",
+      "hash_verified": true
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "actual_sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "hash_verified": true
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "actual_sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "role": "additional critical multiplier consumer"
+    }
+  ],
+  "consumers": [
+    {
+      "finding_id": "REVIEW-SHADOWSTRIKE-007",
+      "chain": [
+        "talents/cunning/stealth.lua:109-113 -> EFF_SHADOWSTRIKE(power=getMultiplier*100, duration=getDuration)",
+        "timed_effects/physical.lua:4096-4108 -> combat_critical_power temporary value",
+        "class/interface/Combat.lua:1998-1999,2027-2028,2075-2076 -> physical/spell/mind critical multiplier"
+      ],
+      "conclusion": "Post-stealth bonus is independent of unseen_critical_power, target direct-critical reduction, visibility and range."
+    },
+    {
+      "finding_id": "REVIEW-HEIGHTEN-FEAR-007",
+      "chain": [
+        "talents/cursed/fears.lua:60,79-81 -> Heighten Fear getDamage(self,t), where t is Instill Fear; duration=5 from 218-219",
+        "talents/cursed/fears.lua:221-233 -> actual full combatTalentMindDamage vs tooltip Heighten Fear talent level divided by 2",
+        "timed_effects/mental.lua:987-999 -> qualifying range/LOS turns counted during active effect, full eff.damage projected for each damage type"
+      ],
+      "conclusion": "Actual damage uses Instill Fear level and mindpower; tooltip uses Heighten Fear level and half value. Default 5-turn window counts qualifying nonconsecutive turns."
+    }
+  ],
+  "scope_invariants": {
+    "only_two_frozen_target_byte_ranges_changed": true,
+    "reverse_reconstruction_matches_preimage_byte_for_byte": true,
+    "remaining_eight_repairs_preserved": true,
+    "all_other_targets_and_content_preserved": true,
+    "source_source_tag_args_order_special_preserved": true,
+    "placeholder_types_and_order_preserved": true,
+    "markup_newline_tabs_preserved": true,
+    "source_terminology_tools_ai_old_evidence_untouched": true,
+    "stage_commit_child_creation_performed": false
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "pass; expected warnings for unpinned DLC sources; no DLC source involved in this FIX"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 5,
+      "stdout": "ERROR   talent-placeholder-spacing mod-tome.lua:24178  numeric placeholder shares a level-up preview token with CJK text; insert one ASCII space at offsets=[52, 79, 88]\nChecked 30308 translations: 1 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T105323.223069Z-4-lint/lint.json\n",
+      "stderr": "ERROR: lint failed with 1 errors and 0 warnings\n",
+      "result": "failed: frozen Heighten Fear new_target violates talent-placeholder-spacing at offsets [52,79,88]"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "result": "pass"
+    },
+    {
+      "command": "in-memory exact target replacement, token invariants, reverse reconstruction and fixed git-show SHA-256 checks",
+      "result": "pass"
+    }
+  ],
+  "plan_deviations": [
+    "strict lint cannot pass while applying the authorized new_target verbatim; no unapproved spacing changes made. Additional Combat.lua consumer first queried at a nonexistent mod/class path, then located at class/interface/Combat.lua and successfully verified; no source edits."
+  ],
+  "unresolved_items": [
+    {
+      "status": "pending_orchestrator",
+      "issue": "FIX-1 Heighten Fear new_target lacks three ASCII spaces required by strict lint",
+      "evidence": "talent-placeholder-spacing mod-tome.lua:24178 offsets=[52,79,88]",
+      "required_action": "ORCHESTRATOR must adjudicate and authorize a revised frozen target before executor can alter the exact wording/spacing."
+    }
+  ]
+}
