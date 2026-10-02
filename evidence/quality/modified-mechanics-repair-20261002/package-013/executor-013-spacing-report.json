@@ -1,0 +1,40 @@
+{
+  "task_id": "mmrfix-20261002-013",
+  "candidate_index": 1191,
+  "file": "tome-cults.lua",
+  "old_target": "受到你空无影响的生物逐渐从现实中被抹除，说明中的减伤系数为 %d%%，但当前实现未使这项减伤生效。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n\t\t伤害受到法术强度加成。",
+  "new_target": "受到你空无影响的生物逐渐从现实中被抹除，说明中的减伤系数为 %d%%， 但当前实现未使这项减伤生效。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n\t\t伤害受到法术强度加成。",
+  "preimage_sha256": "e2fc8cb31de2e8c06966b9d0d76ce391e50d5fae7869e73fccd322453e17618c",
+  "postimage_sha256": "b4953d71574b76f21be92b0f550234b8126c079806ae7893af263e5173d3ce5d",
+  "preimage_verified": true,
+  "old_target_occurrences": 1,
+  "reverse_byte_proof": {
+    "method": "Replace the new target at the recorded byte offset with the old target, then compare the entire file byte-for-byte with saved preimage.",
+    "target_byte_offset": 644971,
+    "preimage_size_bytes": 800610,
+    "postimage_size_bytes": 800611,
+    "size_delta_bytes": 1,
+    "reversed_sha256": "e2fc8cb31de2e8c06966b9d0d76ce391e50d5fae7869e73fccd322453e17618c",
+    "entire_file_bytes_equal": true,
+    "preimage_backup": "/tmp/mmrfix-013-spacing-s7ru8sh9/tome-cults.preimage",
+    "verified_after_checks": true
+  },
+  "checks": {
+    "strict_lint": {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "translations_checked": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20261002T145144.548002Z-2-lint/lint.json"
+    },
+    "diff_check": {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  },
+  "unresolved": [],
+  "plan_deviations": []
+}

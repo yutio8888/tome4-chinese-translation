@@ -1,0 +1,22 @@
+{
+  "core_path": "game/modules/tome/class/Actor.lua",
+  "core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "core_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+  "core_lines": [
+    3072,
+    3077
+  ],
+  "dlc_path": "tome-cults/data/timed_effects.lua",
+  "dlc_sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+  "dlc_lines": [
+    1151,
+    1164
+  ],
+  "dlc_provenance": "source/commit/version unpinned",
+  "lua_source": "local effect={\n\tcallbackOnDealDamage = function(self, eff, value, target, dead, death_node)\n\t\tif dead then return end\n\t\tif value <= 0 then return end\n\t\t\n\t\tlocal nb = 0\n\t\tfor eff_id, p in pairs(self.tmp) do\n\t\t\tlocal e = self.tempeffect_def[eff_id]\n\t\t\tif e.status == \"detrimental\" and e.type == \"magical\" then\n\t\t\t\tnb = nb + 1\n\t\t\tend\n\t\tend\n\t\tvalue = value - (value * eff.numb * nb / 100)\n\t\treturn value\n\tend,\n}\nmod={class={interface={ActorLife={takeHit=function(self,value)self.life=self.life-value;return false,value end}}}}\nlocal function takeHit(self,value,src,death_note)\n\tlocal dead, val = mod.class.interface.ActorLife.takeHit(self, value, src, death_note)\n\n\tif src and src.fireTalentCheck then src:fireTalentCheck(\"callbackOnDealDamage\", val, self, dead, death_note) end\n\n\treturn dead, val\nend\nlocal cases=0\nfor _,numb in ipairs({1,3,10}) do for _,nb in ipairs({1,2,5}) do\n local src={tmp={},tempeffect_def={}}\n for i=1,nb do src.tmp[i]={};src.tempeffect_def[i]={status='detrimental',type='magical'} end\n function src:fireTalentCheck(event,value,target,dead,death_note)\n  assert(event=='callbackOnDealDamage');assert(target.life==900)\n  self.returned=effect.callbackOnDealDamage(self,{numb=numb},value,target,dead,death_note);return self.returned\n end\n local target={life=1000};local dead,value=takeHit(target,100,src,nil)\n assert(value==100 and target.life==900 and src.returned==100-numb*nb);cases=cases+1\nend end\nprint('PASS '..cases..' cases: local callback returns reduced number; fixed takeHit already applied full damage and ignores returned number')\n",
+  "script_sha256": "b0ca0d3e6b48c8e52a019287e83097377d0b92f21d2a9318ecd1cb1190757bea",
+  "scope": "Actual callback and actual fixed takeHit tail with minimal ActorLife stub; demonstrates order and ignored return, not full game integration. Supersedes inference of applied reduction from earlier local-only probe.",
+  "exit_code": 0,
+  "stdout": "PASS 9 cases: local callback returns reduced number; fixed takeHit already applied full damage and ignores returned number\n",
+  "stderr": ""
+}

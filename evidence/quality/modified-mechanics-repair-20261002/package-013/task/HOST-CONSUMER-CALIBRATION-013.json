@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "task_id": "mmrfix-20261002-013",
+  "adjudication": "confirmed",
+  "supersedes_inference": "UPSTREAM026 local coefficient scaling is real; actual damage reduction is NOT applied by the fixed caller. Prior source snippet probe demonstrates calculation only. Historical frozen claims are preserved as history, not current assertions.",
+  "evidence": {
+    "DLC": "tome-cults/data/timed_effects.lua:1151-1168 callback returns number; source/commit unpinned",
+    "core": "624a67329fe2ad440c5b344785a9c73fcf22ae63 game/modules/tome/class/Actor.lua:3072-3076 applies ActorLife.takeHit before callback and ignores callback return; 6201-6226 dispatcher merely returns callback result",
+    "host_verified_sources": ".artifacts/i18n/modified-mechanics-repair-20261002/host-executor-source-013.json"
+  },
+  "destroyer": "wrath.lua getDestroy = bound(getTalentLevelRaw,1,5); timed_effects.lua stores is_destroyer; brutality.lua cooldown=6-ceil(is_destroyer/2). Clarify raw versus effective level.",
+  "status": "Completion before first independent REVIEW; fresh executor, not an invalid-dispatch retry or review-cycle reset."
+}

@@ -1,0 +1,488 @@
+{
+  "task_id": "mmrfix-20261002-013",
+  "role": "EXECUTOR",
+  "purpose": "bounded completion before first independent review",
+  "invalid_dispatch_retry": false,
+  "review_cycle_reset": false,
+  "changes": [
+    {
+      "candidate_index": 1054,
+      "change_id": "a9d05f28e0cccc9fb642077814f27d47c635c5030d901e5e0f358c89feecdeef",
+      "file": "tome-ashes-urhrok.lua",
+      "old_target": "恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d， 缴械和震慑免疫率提高 %d%%。\n\t\t物理强度、体力恢复和状态抗性加值受法术强度加成。\n\t\t变身期间，其他技能也受到强化：\n\t\t-汲魂痛击：冷却缩减的说明值为 %d 回合，实际减值为变身技能等级的一半向上取整。\n\t\t-舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。\n\t\t-歼灭挥斩：增加半径 %d。\n\t\t-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。\n\t\t-焚尽强击：增加额外伤害几率至 %d%%。\n\t\t-恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。\n\t\t-乌鲁洛克之口：角度增加 %d。",
+      "new_target": "恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d， 缴械和震慑免疫率提高 %d%%。\n\t\t物理强度、体力恢复和状态抗性加值受法术强度加成。\n\t\t变身期间，其他技能也受到强化：\n\t\t-汲魂痛击：冷却缩减的说明值为 %d 回合，实际减值按本技能的原始等级计算：先将等级限制在 1—5，再除以 2 并向上取整。\n\t\t-舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。\n\t\t-歼灭挥斩：增加半径 %d。\n\t\t-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。\n\t\t-焚尽强击：增加额外伤害几率至 %d%%。\n\t\t-恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。\n\t\t-乌鲁洛克之口：角度增加 %d。",
+      "status": "applied_exactly",
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "duration",
+          "calculation": "floor(combatTalentScale(4,7))",
+          "parameter_chain": "tformat(getDuration) -> setEffect DESTROYER_FORM duration",
+          "consumer": "effect expiration"
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "stat_and_regen_increment",
+          "calculation": "5+ceil(combatTalentSpellDamage(6,30))",
+          "parameter_chain": "tformat(getPower) -> effect.power",
+          "consumer": "DESTROYER_FORM stamina_regen and combat_dam += power"
+        },
+        {
+          "index": 3,
+          "token": "%d",
+          "quantity_kind": "immunity_percent",
+          "calculation": "min(ceil(getPower/40*100),100)",
+          "parameter_chain": "tformat(display) -> effect.power/40",
+          "consumer": "DESTROYER_FORM stun_immune/disarm_immune += power/40"
+        },
+        {
+          "index": 4,
+          "token": "%d",
+          "quantity_kind": "displayed_cooldown_reduction_turns",
+          "calculation": "ceil(bound(getTalentLevelRaw(T_DESTROYER),1,5)/3)",
+          "parameter_chain": "tformat slot 4 displays ceil(dest/3); action stores bounded raw dest as destroyer_level; effect copies to is_destroyer",
+          "consumer": "Draining Assault cooldown=6-ceil(is_destroyer/2); actual reduction ceil(bound(raw,1,5)/2), not slot 4 display"
+        },
+        {
+          "index": 5,
+          "token": "%d",
+          "quantity_kind": "resistance_penetration_percent",
+          "calculation": "10*dest",
+          "parameter_chain": "tformat(10*dest) -> RECKLESS_PEN power",
+          "consumer": "Reckless Strike setEffect RECKLESS_PEN"
+        },
+        {
+          "index": 6,
+          "token": "%d",
+          "quantity_kind": "duration",
+          "calculation": "3+ceil(dest/2)",
+          "parameter_chain": "tformat -> Reckless Strike setEffect duration",
+          "consumer": "RECKLESS_PEN expiry"
+        },
+        {
+          "index": 7,
+          "token": "%d",
+          "quantity_kind": "range_increment",
+          "calculation": "ceil(dest/4)",
+          "parameter_chain": "tformat -> Obliterating Smash range=3+ceil(is_destroyer/4)",
+          "consumer": "cone radius=self:getTalentRange"
+        },
+        {
+          "index": 8,
+          "token": "%d",
+          "quantity_kind": "attack_count",
+          "calculation": "ceil(dest/2)",
+          "parameter_chain": "tformat -> Abduction additional attacks",
+          "consumer": "oppression.lua Abduction"
+        },
+        {
+          "index": 9,
+          "token": "%d",
+          "quantity_kind": "bonus_damage_chance_percent",
+          "calculation": "25+10*dest",
+          "parameter_chain": "tformat -> Incinerating Blows",
+          "consumer": "fearfire.lua Incinerating Blows chance"
+        },
+        {
+          "index": 10,
+          "token": "%0.1f",
+          "quantity_kind": "resource_gain_per_stack",
+          "calculation": "dest*.4",
+          "parameter_chain": "tformat -> Fearfeast incVim(is_destroyer*.4*fears)",
+          "consumer": "oppression.lua incVim"
+        },
+        {
+          "index": 11,
+          "token": "%d",
+          "quantity_kind": "cone_angle_increment",
+          "calculation": "dest*10",
+          "parameter_chain": "tformat -> Maw cone_angle=90+10*is_destroyer",
+          "consumer": "fearfire.lua target cone_angle"
+        }
+      ],
+      "placeholder_tokens_including_literal_percent_before": [
+        "%d",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%%",
+        "%0.1f",
+        "%d"
+      ],
+      "placeholder_tokens_including_literal_percent_after": [
+        "%d",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%%",
+        "%0.1f",
+        "%d"
+      ],
+      "placeholder_kind_order_equal": true,
+      "newline_tab_sequence_equal": true,
+      "markup_equal": true,
+      "non_target_fields_unchanged": {
+        "source": "Your body overflows with the power of the Fearscape, turning you into a powerful demon for %d turns. This increases your stamina regen and physical power by %d, and your disarm and stun immunity by %d%%.\n\t\tThe physical power, stamina regen, and status resistances increase with your spellpower.\n\t\tYour other talents also gain a variety of bonuses:\n\t\t-Draining Assault: Reduces cooldown by %d.\n\t\t-Reckless Strike: Gain %d%% resistance penetration for all elements for %d turns.\n\t\t-Obliterating Smash: Increases range by %d.\n\t\t-Abduction: If it hits, get an additional %d attacks at 35%% weapon damage.\n\t\t-Incinerating Blows: Increases chance of bonus damage to %d%%.\n\t\t-Fearfeast: Gain %0.1f vim per stack.\n\t\t-Maw of Urh'rok: Increases cone width by %d degrees.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      },
+      "non_target_fields_proof": "full-file byte equality after reversing only the exact target substitution proves source/source_tag/args_order/special/section/delimiters and all other bytes unchanged",
+      "completion_only_unified_diff": "--- tome-ashes-urhrok.lua (COMPLETE-0 preimage)\n+++ tome-ashes-urhrok.lua (exact COMPLETE-0 postimage)\n@@ -1382,7 +1382,7 @@\n \t\t-Maw of Urh'rok: Increases cone width by %d degrees.]], [[恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d， 缴械和震慑免疫率提高 %d%%。\n \t\t物理强度、体力恢复和状态抗性加值受法术强度加成。\n \t\t变身期间，其他技能也受到强化：\n-\t\t-汲魂痛击：冷却缩减的说明值为 %d 回合，实际减值为变身技能等级的一半向上取整。\n+\t\t-汲魂痛击：冷却缩减的说明值为 %d 回合，实际减值按本技能的原始等级计算：先将等级限制在 1—5，再除以 2 并向上取整。\n \t\t-舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。\n \t\t-歼灭挥斩：增加半径 %d。\n \t\t-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。\n"
+    },
+    {
+      "candidate_index": 1191,
+      "change_id": "16460af1fb6257a45ab1944c874149bda1ca12f5f1d6b1e6698064dff35f52b6",
+      "file": "tome-cults.lua",
+      "old_target": "受到你空无影响的生物逐渐从现实中被抹除，造成的伤害降低 %d%%。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n\t\t伤害受到法术强度加成。",
+      "new_target": "受到你空无影响的生物逐渐从现实中被抹除，说明中的减伤系数为 %d%%，但当前实现未使这项减伤生效。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n\t\t伤害受到法术强度加成。",
+      "status": "applied_exactly",
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "unconsumed_damage_reduction_coefficient",
+          "calculation": "floor(combatTalentScale(1,3))",
+          "parameter_chain": "tformat(getNumb) -> do_nihil numb -> NIHIL callback returns value-value*numb*nb/100",
+          "consumer": "Actor.takeHit applies ActorLife.takeHit first, calls fireTalentCheck callbackOnDealDamage afterwards, and discards return. Dispatcher returns local value but caller does not consume it. Confirmed no applied reduction via this chain."
+        },
+        {
+          "index": 2,
+          "token": "%0.2f",
+          "quantity_kind": "damage_per_turn_per_negative_magical_effect",
+          "calculation": "combatTalentSpellDamage(1,20); display damDesc(TEMPORAL,base)",
+          "parameter_chain": "tformat -> NIHIL activate spellCrit(ERASE.getDamage) -> eff.damage",
+          "consumer": "NIHIL on_timeout counts current detrimental magical effects nb; TEMPORAL projector(eff.damage*nb), fixed damage modifiers/resists. This part confirmed"
+        }
+      ],
+      "placeholder_tokens_including_literal_percent_before": [
+        "%d",
+        "%%",
+        "%0.2f"
+      ],
+      "placeholder_tokens_including_literal_percent_after": [
+        "%d",
+        "%%",
+        "%0.2f"
+      ],
+      "placeholder_kind_order_equal": true,
+      "newline_tab_sequence_equal": true,
+      "markup_equal": true,
+      "non_target_fields_unchanged": {
+        "source": "Those affected by your Nihil find themselves increasingly removed from reality, reducing all damage they deal by %d%% and causing them to take %0.2f temporal damage each turn for each negative magical effect they have.\n\t\tThe damage will scale with your Spellpower.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      },
+      "non_target_fields_proof": "full-file byte equality after reversing only the exact target substitution proves source/source_tag/args_order/special/section/delimiters and all other bytes unchanged",
+      "completion_only_unified_diff": "--- tome-cults.lua (COMPLETE-0 preimage)\n+++ tome-cults.lua (exact COMPLETE-0 postimage)\n@@ -3032,7 +3032,7 @@\n \t\t破灭之兆会继承你的伤害加成、伤害穿透、暴击几率和暴击倍率加成。]], \"tformat\")\n t(\"Erase\", \"抹除\", \"talent name\")\n t([[Those affected by your Nihil find themselves increasingly removed from reality, reducing all damage they deal by %d%% and causing them to take %0.2f temporal damage each turn for each negative magical effect they have.\n-\t\tThe damage will scale with your Spellpower.]], [[受到你空无影响的生物逐渐从现实中被抹除，造成的伤害降低 %d%%。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n+\t\tThe damage will scale with your Spellpower.]], [[受到你空无影响的生物逐渐从现实中被抹除，说明中的减伤系数为 %d%%，但当前实现未使这项减伤生效。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n \t\t伤害受到法术强度加成。]], \"tformat\")\n t(\"All is Dust\", \"尽归尘土\", \"talent name\")\n t(\"%s's entropic storm\", \"%s的湮灭风暴\", \"tformat\")\n"
+    }
+  ],
+  "sources": [
+    {
+      "public_path": "tome-ashes-urhrok/data/talents/corruptions/wrath.lua",
+      "commit": null,
+      "source_pinning": "unpinned; observed public DLC snapshot only; repository/commit/release not fixed",
+      "sha256": "f2297854dd2c61863ac86812563e4f4021602df017ef56414fe8a3de224d93c0",
+      "host_reference_sha_matches": true,
+      "read_method": "read public DLC file",
+      "excerpts": [
+        {
+          "line_start": 165,
+          "line_end": 210,
+          "text": "newTalent{\n\tname = \"Destroyer\",\n\ttype = {\"corruption/wrath\", 4},\n\trequire = str_corrs_req_high4,\n\tpoints = 5,\n\trange=10,\n\tcooldown = 30,\n\tvim = 38,\n\t--no_npc_use = true,\n\tno_energy=true,\n\ttactical = { BUFF = 3 },\n\tgetDuration = function(self, t) return  math.floor(self:combatTalentScale(t, 4, 7)) end,\n\tgetDestroy = function(self, t) return  util.bound(self:getTalentLevelRaw(t), 1, 5) end,\n\tgetPower = function(self, t) return 5 + math.ceil(self:combatTalentSpellDamage(t, 6, 30)) end,\n\taction = function(self, t)\n\t\tself:setEffect(self.EFF_DESTROYER_FORM, t.getDuration(self, t), {power=t.getPower(self, t), destroyer_level = t.getDestroy(self, t)})\n\t\tgame:playSoundNear(self, \"talents/fire\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal dest = t.getDestroy(self, t)\n\t\treturn ([[Your body overflows with the power of the Fearscape, turning you into a powerful demon for %d turns. This increases your stamina regen and physical power by %d, and your disarm and stun immunity by %d%%.\n\t\tThe physical power, stamina regen, and status resistances increase with your spellpower.\n\t\tYour other talents also gain a variety of bonuses:\n\t\t-Draining Assault: Reduces cooldown by %d.\n\t\t-Reckless Strike: Gain %d%% resistance penetration for all elements for %d turns.\n\t\t-Obliterating Smash: Increases range by %d.\n\t\t-Abduction: If it hits, get an additional %d attacks at 35%% weapon damage.\n\t\t-Incinerating Blows: Increases chance of bonus damage to %d%%.\n\t\t-Fearfeast: Gain %0.1f vim per stack.\n\t\t-Maw of Urh'rok: Increases cone width by %d degrees.]]):\n\t\ttformat(\n\t\t\tt.getDuration(self, t),\n\t\t\tt.getPower(self, t),\n\t\t\tmath.min(math.ceil(t.getPower(self, t)/40 *100),100),\n\t\t\tmath.ceil(dest/3),\n\t\t\t10 * dest, 3 + math.ceil(dest/2),\n\t\t\tmath.ceil(dest/4),\n\t\t\tmath.ceil(dest/2),\n\t\t\t25 + 10 * dest,\n\t\t\tdest * 0.4,\n\t\t\tdest * 10\n\t\t)\n\tend,\n}"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-ashes-urhrok/data/timed_effects.lua",
+      "commit": null,
+      "source_pinning": "unpinned; observed public DLC snapshot only; repository/commit/release not fixed",
+      "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+      "host_reference_sha_matches": true,
+      "read_method": "read public DLC file",
+      "excerpts": [
+        {
+          "line_start": 88,
+          "line_end": 106,
+          "text": "}\n\nnewEffect{\n\tname = \"DESTROYER_FORM\", image = \"talents/destroyer.png\",\n\tdesc = _t\"Destroyer\",\n\tlong_desc = function(self, eff) return (\"The target assumes the form of a powerful demon.\"):tformat() end,\n\ttype = \"magical\",\n\tsubtype = { fire=true },\n\tstatus = \"beneficial\",\n\tparameters = {power = 5, destroyer_level = 1},\n\ton_gain = function(self, err) return _t\"#Target# turns into a demon!\", _t\"+Destroyer\" end,\n\ton_lose = function(self, err) return _t\"#Target# is no longer transformed.\", _t\"-Destroyer\" end,\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"stamina_regen\", eff.power)\n\t\tself:effectTemporaryValue(eff, \"combat_dam\", eff.power)\n\t\tself:effectTemporaryValue(eff, \"stun_immune\", eff.power/40)\n\t\tself:effectTemporaryValue(eff, \"disarm_immune\", eff.power/40)\n\t\tself:effectTemporaryValue(eff, \"is_destroyer\", eff.destroyer_level)\n\t\tself:effectTemporaryValue(eff, \"demon\", 1)\n"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-ashes-urhrok/data/talents/corruptions/brutality.lua",
+      "commit": null,
+      "source_pinning": "unpinned; observed public DLC snapshot only; repository/commit/release not fixed",
+      "sha256": "98445e8d729b25a81d276add49387ac07a1ce10b7cc8c5feae4a62e645c2552d",
+      "host_reference_sha_matches": true,
+      "read_method": "read public DLC file",
+      "excerpts": [
+        {
+          "line_start": 21,
+          "line_end": 34,
+          "text": "\nnewTalent{\n\tname = \"Draining Assault\",\n\ttype = {\"corruption/brutality\", 1},\n\trequire = str_corrs_req1,\n\tpoints = 5,\n\tcooldown = function(self, t)\n\t\tif self:attr(\"is_destroyer\") then\n\t\t\treturn 6 - math.ceil(self.is_destroyer/2)\n\t\telse\n\t\t\treturn 6\n\t\tend end,\n\tstamina = 20,\n\tvim=0,\n"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-cults/data/talents/demented/oblivion.lua",
+      "commit": null,
+      "source_pinning": "unpinned; observed public DLC snapshot only; repository/commit/release not fixed",
+      "sha256": "3242012a234a5b9a8c9ebfdb57556803619c8b752954e150d2b653806cb1d44b",
+      "host_reference_sha_matches": true,
+      "read_method": "read public DLC file",
+      "excerpts": [
+        {
+          "line_start": 48,
+          "line_end": 52,
+          "text": "\t\t\tlocal numb = 0\n\t\t\tif self:knowTalent(self.T_ERASE) then\n\t\t\t\tnumb = self:callTalent(self.T_ERASE, \"getNumb\")\n\t\t\tend\n\t\t\ta:setEffect(a.EFF_NIHIL, 8, {src=self, power=t.getPower(self,t), numb=numb})\n"
+        },
+        {
+          "line_start": 173,
+          "line_end": 188,
+          "text": "newTalent{\n\tname = \"Erase\",\n\ttype = {\"demented/oblivion\", 3},\n\trequire = dementedreq_high3,\n\tmode = \"passive\",\n\tpoints = 5,\n\tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 1, 20) end,\n\tgetNumb = function(self, t) return math.floor(self:combatTalentScale(t, 1, 3)) end,\n\tinfo = function(self, t)\n\t\tlocal dam = t.getDamage(self, t)\n\t\tlocal power = t.getNumb(self, t)\n\t\treturn ([[Those affected by your Nihil find themselves increasingly removed from reality, reducing all damage they deal by %d%% and causing them to take %0.2f temporal damage each turn for each negative magical effect they have.\n\t\tThe damage will scale with your Spellpower.]])\n\t\t:tformat(power, damDesc(self, DamageType.TEMPORAL, dam))\n\tend\n}\n"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-cults/data/timed_effects.lua",
+      "commit": null,
+      "source_pinning": "unpinned; observed public DLC snapshot only; repository/commit/release not fixed",
+      "sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "host_reference_sha_matches": true,
+      "read_method": "read public DLC file",
+      "excerpts": [
+        {
+          "line_start": 1095,
+          "line_end": 1110,
+          "text": "newEffect{\n\tname = \"NIHIL\", image = \"talents/nihil.png\",\n\tdesc = _t\"Nihil\",\n\tlong_desc = function(self, eff) return (\"The target is engulfed in entropy, reducing the duration of new beneficial effects and increasing the duration of new negative effects by %d%%.\\nThis effect will fade in 2 turns if the source is not in line of sight.\"):tformat(eff.power*100) end,\n\tcharges = function(self, eff) return eff.nb or 0 end,\t\n\ttype = \"other\",\n\tsubtype = { temporal=true, darkness=true },\n\tstatus = \"detrimental\",\n\tparameters = { power=0.1, dam=0.1, numb=0, damage=0, nb=0 },\n\ton_gain = function(self, err) return _t\"#Target# is wreathed in entropy.\" end,\n\ton_lose = function(self, err) return _t\"#Target# is free of the entropy.\" end,\n\tactivate = function(self, eff)\n\t\tif eff.src:knowTalent(eff.src.T_ERASE) then eff.damage = eff.src:spellCrit(eff.src:callTalent(eff.src.T_ERASE, \"getDamage\")) end -- Only calculate crit once per application\n\t\teff.detid = self:addTemporaryValue(\"increase_detrimental_status_effects_time\", eff.power)\n\t\teff.benid = self:addTemporaryValue(\"reduce_beneficial_status_effects_time\", eff.power)\t\t\n\tend,\n"
+        },
+        {
+          "line_start": 1134,
+          "line_end": 1164,
+          "text": "\t\tif eff.src:knowTalent(eff.src.T_ERASE) then\n\t\t\tlocal dam = eff.damage\n\t\t\tlocal nb = 0\n\t\n\t\t\tfor eff_id, p in pairs(self.tmp) do\n\t\t\t\tlocal e = self.tempeffect_def[eff_id]\n\t\t\t\tif e.status == \"detrimental\" and e.type == \"magical\" then\n\t\t\t\t\tnb = nb + 1\n\t\t\t\tend\n\t\t\tend\n\t\t\t\n\t\t\tif nb > 0 then\n\t\t\t\tdam = dam * nb\n\t\t\t\tDamageType:get(DamageType.TEMPORAL).projector(eff.src, self.x, self.y, DamageType.TEMPORAL, dam)\n\t\t\tend\n\t\tend\n\tend,\n\tcallbackOnDealDamage = function(self, eff, value, target, dead, death_node)\n\t\tif dead then return end\n\t\tif value <= 0 then return end\n\t\t\n\t\tlocal nb = 0\n\t\tfor eff_id, p in pairs(self.tmp) do\n\t\t\tlocal e = self.tempeffect_def[eff_id]\n\t\t\tif e.status == \"detrimental\" and e.type == \"magical\" then\n\t\t\t\tnb = nb + 1\n\t\t\tend\n\t\tend\n\t\tvalue = value - (value * eff.numb * nb / 100)\n\t\treturn value\n\tend,\n"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "host_reference_sha_matches": true,
+      "read_method": "git show fixed commit",
+      "excerpts": [
+        {
+          "line_start": 3072,
+          "line_end": 3076,
+          "text": "\tlocal dead, val = mod.class.interface.ActorLife.takeHit(self, value, src, death_note)\n\n\tif src and src.fireTalentCheck then src:fireTalentCheck(\"callbackOnDealDamage\", val, self, dead, death_note) end\n\n\treturn dead, val\n"
+        },
+        {
+          "line_start": 6201,
+          "line_end": 6226,
+          "text": "function _M:fireTalentCheck(event, ...)\n\tlocal store = sustainCallbackCheck[event]\n\tlocal ret = false\n\tif self[store] then upgradeStore(self[store], store) end\n\tif self[store] and next(self[store].__priorities) then\n\t\tlocal old_ps = self.__project_source\n\t\tfor _, info in ipairsclone(self[store].__sorted) do\n\t\t\tlocal priority, kind, stringId, tid = unpack(info)\n\t\t\tif kind == \"effect\" then\n\t\t\t\tself.__project_source = self.tmp[tid]\n\t\t\t\tret = self:callEffect(tid, event, ...) or ret\n\t\t\telseif kind == \"object\" then\n\t\t\t\tself.__project_source = tid\n\t\t\t\tself.__object_use_running = tid\n\t\t\t\tret = tid:check(event, self, ...) or ret\n\t\t\t\tself.__object_use_running = nil\n\t\t\telseif kind == \"self\" then\n\t\t\t\tret = tid.__self_callbacks[event](self, ...) or ret\n\t\t\telse\n\t\t\t\tself.__project_source = self.sustain_talents[tid]\n\t\t\t\tret = self:callTalent(tid, event, ...) or ret\n\t\t\tend\n\t\t\tself.__project_source = old_ps\n\t\tend\n\tend\n\treturn ret\n"
+        }
+      ]
+    }
+  ],
+  "byte_proof": [
+    {
+      "file": "tome-ashes-urhrok.lua",
+      "preimage_sha256": "690fecbef5ec97d7e26fffb099d15b7578e8936d66d239ad0ce7c2e90eb73813",
+      "frozen_preimage_sha256": "690fecbef5ec97d7e26fffb099d15b7578e8936d66d239ad0ce7c2e90eb73813",
+      "preimage_matches": true,
+      "postimage_sha256": "3f0694346f3aa31cf615961c239fd01e38ca2781e9365bde88d778fa855003c2",
+      "reverse_sha256": "690fecbef5ec97d7e26fffb099d15b7578e8936d66d239ad0ce7c2e90eb73813",
+      "reverse_entire_file_byte_equal": true,
+      "preimage_bytes": 283706,
+      "postimage_bytes": 283757,
+      "old_target_occurrences": 1,
+      "new_target_occurrences": 1,
+      "replacement_start_byte_offset": 237799,
+      "old_target_byte_length": 800,
+      "new_target_byte_length": 851,
+      "prefix_equal": true,
+      "suffix_equal": true,
+      "only_one_exact_target_replaced": true
+    },
+    {
+      "file": "tome-cults.lua",
+      "preimage_sha256": "4602c5bf08b59c3157824e9b865227e54338aec615cb20645487e83c79242200",
+      "frozen_preimage_sha256": "4602c5bf08b59c3157824e9b865227e54338aec615cb20645487e83c79242200",
+      "preimage_matches": true,
+      "postimage_sha256": "e2fc8cb31de2e8c06966b9d0d76ce391e50d5fae7869e73fccd322453e17618c",
+      "reverse_sha256": "4602c5bf08b59c3157824e9b865227e54338aec615cb20645487e83c79242200",
+      "reverse_entire_file_byte_equal": true,
+      "preimage_bytes": 800562,
+      "postimage_bytes": 800610,
+      "old_target_occurrences": 1,
+      "new_target_occurrences": 1,
+      "replacement_start_byte_offset": 644971,
+      "old_target_byte_length": 214,
+      "new_target_byte_length": 262,
+      "prefix_equal": true,
+      "suffix_equal": true,
+      "only_one_exact_target_replaced": true
+    }
+  ],
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor --json",
+      "exit_code": 0,
+      "ok": true,
+      "runtime": {
+        "lpeg_rock_version": "0.10.2-1",
+        "lpeg_runtime_version": "0.10",
+        "lua_version": "Lua 5.1",
+        "luajit": "/usr/bin/luajit",
+        "luajit_version": "LuaJIT 2.1.0-beta3",
+        "luarocks_root": "/opt/tome4-luarocks",
+        "modules": [
+          "lfs",
+          "lpeg",
+          "rex_pcre"
+        ],
+        "ok": true
+      },
+      "warnings": [
+        "source-unpinned: ashes-urhrok: source repository/commit unknown; extraction snapshot is not a source pin",
+        "source-unpinned: cults: source repository/commit unknown; extraction snapshot is not a source pin",
+        "source-unpinned: orcs: source repository/commit unknown; extraction snapshot is not a source pin"
+      ]
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict --json",
+      "exit_code": 5,
+      "ok": false,
+      "result": {
+        "issues": [
+          {
+            "code": "talent-placeholder-spacing",
+            "entry_id": "8f302e6209f9f1eab4e0821be6a69487cc54007fe9de171f5686dfb772a6d450",
+            "line": 3034,
+            "logical_path": "tome-cults.lua",
+            "message": "numeric placeholder shares a level-up preview token with CJK text; insert one ASCII space at offsets=[35]",
+            "severity": "error"
+          }
+        ],
+        "metrics": {
+          "components": {
+            "addon-dev": 101,
+            "ashes-urhrok": 849,
+            "boot": 283,
+            "cults": 2043,
+            "engine": 1061,
+            "example": 26,
+            "example-realtime": 26,
+            "items-vault": 69,
+            "orcs": 3904,
+            "possessors": 258,
+            "tome": 21688
+          },
+          "copy_fragment_components": {
+            "engine": 0,
+            "tome": 0
+          },
+          "copy_fragment_duplicate_runtime_keys": 0,
+          "copy_fragment_translations": 0,
+          "duplicate_runtime_keys": 1711,
+          "errors": 1,
+          "terminology": {
+            "alternative_contexts": 1,
+            "contexts": 915,
+            "rows": 916
+          },
+          "translations": 30308,
+          "warnings": 0
+        },
+        "ok": false,
+        "run_directory": "/workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T144754.439669Z-3-lint",
+        "strict": true,
+        "version": "tome-1.7.6"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --cached --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "independent full-file reverse exact target replacement and byte comparison against captured preimages",
+      "ok": true,
+      "files": 2
+    }
+  ],
+  "unresolved_items": [
+    {
+      "status": "confirmed",
+      "type": "frozen_target_strict_lint_conflict",
+      "candidate_index": 1191,
+      "file": "tome-cults.lua",
+      "evidence": {
+        "code": "talent-placeholder-spacing",
+        "entry_id": "8f302e6209f9f1eab4e0821be6a69487cc54007fe9de171f5686dfb772a6d450",
+        "line": 3034,
+        "logical_path": "tome-cults.lua",
+        "message": "numeric placeholder shares a level-up preview token with CJK text; insert one ASCII space at offsets=[35]",
+        "severity": "error"
+      },
+      "detail": "Exact COMPLETE-0 new_target contains %d%%，但当前实现未使这项减伤生效。 with CJK in the same preview token. strict lint fails with 1 error, 0 warnings. Exact-new-target authorization does not permit inserting another space.",
+      "orchestrator_action_required": "Authorize and freeze a revised new_target with one ASCII space after the full-width comma (%d%%， 但当前实现未使这项减伤生效。), then run strict lint again; no further edit made by this dispatch."
+    }
+  ],
+  "plan_deviations": [
+    "Exact two-target completion applied; strictlint acceptance unmet because frozen Erase new_target itself violates talent-placeholder-spacing. No speculative or additional edit performed."
+  ],
+  "core_worktree_head": "3ff88853bc1c586045c439d21c5c112912c6a5bf",
+  "core_worktree_source_read": false,
+  "adjudication": {
+    "UPSTREAM026": "confirmed: local callback returns value - value*numb*nb/100; fixed Actor.takeHit settles via ActorLife.takeHit first and ignores fireTalentCheck return. Actual damage reduction does not apply via this chain. Previous inference that the computed coefficient was applied is superseded. Per-negative-magical-effect temporal damage remains supported by activate/on_timeout projector.",
+    "Destroyer": "confirmed: dest=bound(getTalentLevelRaw(t),1,5); action destroyer_level -> DESTROYER_FORM is_destroyer -> Draining Assault cooldown=6-ceil(is_destroyer/2). Display is ceil(dest/3), actual reduction ceil(dest/2)."
+  },
+  "status": "EXACT_EDITS_APPLIED_VALIDATION_BLOCKED",
+  "permissions_observed": {
+    "manual_repository_writes": [
+      "tome-ashes-urhrok.lua: candidate 1054 target only",
+      "tome-cults.lua: candidate 1191 target only",
+      ".artifacts/i18n/modified-mechanics-repair-20261002/executor-013-complete-report.json"
+    ],
+    "temporary_files": "own /tmp/mmrfix-013-complete* only",
+    "tool_generated_artifacts": [
+      "/workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T144754.439669Z-3-lint"
+    ],
+    "stage": false,
+    "commit": false,
+    "child_creation": false,
+    "source_edits": false,
+    "terminology_edits": false,
+    "ai_or_evidence_edits": false,
+    "whole_repository_hash_inventory": false
+  }
+}

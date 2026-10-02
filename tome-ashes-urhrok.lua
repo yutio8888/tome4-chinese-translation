@@ -1367,7 +1367,7 @@ t([[Launch yourself toward a target. If the target is reached you get a free att
 		至少要从 2 码外开始冲锋。]], "tformat")
 t("Voracious Blade", "饕餮之刃", "talent name")
 t([[Your blade drinks in death. Whenever you score a kill with this talent off cooldown, your next %d melee attacks within 6 turns will always critically strike, and you gain %d%% critical multiplier for the duration.
-		Additionally, you gain an extra %d vim per kill.]], [[你的利刃渴饮死亡。该技能未处于冷却时，每当你完成击杀，接下来 6 回合内的 %d 次近战攻击必定暴击，并在此期间获得 %d%% 暴击倍率。
+		Additionally, you gain an extra %d vim per kill.]], [[你的利刃渴饮死亡。该技能未处于冷却时，每当你完成击杀，接下来 6 回合内的 %d 次命中的近战攻击获得 100 个百分点的物理暴击率加成（仍受目标的暴击率削减影响），并在此期间使暴击倍率增加 %d%%。
 		此外，每次击杀会额外获得 %d 点活力。]], "tformat")
 t("Destroyer", "毁灭者", "talent name")
 t([[Your body overflows with the power of the Fearscape, turning you into a powerful demon for %d turns. This increases your stamina regen and physical power by %d, and your disarm and stun immunity by %d%%.
@@ -1382,7 +1382,7 @@ t([[Your body overflows with the power of the Fearscape, turning you into a powe
 		-Maw of Urh'rok: Increases cone width by %d degrees.]], [[恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d， 缴械和震慑免疫率提高 %d%%。
 		物理强度、体力恢复和状态抗性加值受法术强度加成。
 		变身期间，其他技能也受到强化：
-		-汲魂痛击：冷却时间减少 %d。
+		-汲魂痛击：冷却缩减的说明值为 %d 回合，实际减值按本技能的原始等级计算：先将等级限制在 1—5，再除以 2 并向上取整。
 		-舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。
 		-歼灭挥斩：增加半径 %d。
 		-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。
@@ -1856,14 +1856,14 @@ Vim is the life force of all beings. It does not regenerate, and can only be sto
 
 你打败了无数恶魔，了解了恶魔精华如何运作，也见识了如何束缚恶魔为己所用。现在创建新角色时，你可以选择 #LIGHT_GREEN#恶魔使者#WHITE# 职业。
 
-腐化者是使用魔法的远程施法者。
+恶魔使者是运用恶魔之力与盾牌战技的近战斗士。
 职业特点：#YELLOW#
 - 向敌人植入恶魔种子。
 - 将恶魔种子附着在装备上，以强化装备。
 - 召唤并控制恶魔为你效力。
 - 将腐化魔法与盾牌战技结合，保护自己并毁灭敌人。#WHITE#
 
-腐化者使用“活力值”为特殊能力提供能量。
+恶魔使者使用“活力值”为特殊能力提供能量。
 活力是所有生物的生命力量。它不会自行恢复，只能从敌人身上窃取。
 ]], "_t")
 

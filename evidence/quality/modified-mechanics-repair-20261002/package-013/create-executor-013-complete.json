@@ -1,0 +1,17 @@
+{
+  "title": "机制修正013：补完减伤消费者与等级口径",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-013",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "execute-0-a2"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，task mmrfix-20261002-013首次独立复审前的有界补完，非无效dispatch重试。读.ai/roles/executor.md、本task SPEC.md/PLAN.md/COMPLETE-0.json/HOST-CONSUMER-CALIBRATION-013.json。独立核验相关源码：core必须git show固定624a67329fe2ad440c5b344785a9c73fcf22ae63，工作树HEAD不同禁止直接读取；DLC来源commit未固定需记SHA。核对preimage后严格按COMPLETE-0的old/new修两条target，保留其他所有字节。Erase局部返回减伤值，但Actor.takeHit在结算后忽略返回，校准此前推断；Destroyer明确原始等级限制1—5。只可写这两条target、自用/tmp、.artifacts/i18n/modified-mechanics-repair-20261002/executor-013-complete-report.json。不得改源码/术语库/工具/.ai/evidence或stage/commit/child。报告完整old/new、相关source SHA/摘录、placeholder与完整反向字节证明、strictlint和diffcheck；不要生成全仓文件哈希清单。",
+  "notifyOnFinish": true
+}

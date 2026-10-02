@@ -1,7 +1,3 @@
-# 当前恢复入口
-
-原修正包001—013及前序附属任务已完成，累计125/169个原confirmed claim、13/18包。本包已DONE_VERIFIED，准备提交；前序HEAD=12711731。用户无关文档和其他未跟踪内容保留。持续授权至既定18包完成或真实停止条件，无push/PR/发布授权。
-
 # 第013包机制修正
 
 完成10条译文及10个原始claim的核验与修正，覆盖灰烬和禁忌邪教DLC：暴击率加成的例外、毁灭者实际冷却公式及原始等级口径、恶魔使者职业描述、Jinx连续失去视线计数、疾病免疫对疯狂值获取的限制、背叛预言的累积触发、战斗中非瞬间主动法术反冲、虫群伙伴额外1回合冷却缩减、空无目标的可见性条件及Erase消费者。
@@ -13,8 +9,3 @@ Erase原finding及初始宿主探针只确认了局部减伤公式。执行者�
 29个原始锚点、19份执行报告源码文件SHA及精确摘录由宿主核验；补完涉及6份源码再次验证。核心固定commit624a67329fe2ad440c5b344785a9c73fcf22ae63；DLC以实际文件SHA为证，但仓库来源、commit及发布版本未固定。原始消费者探针覆盖Jinx、背叛8组序列、Erase12组局部计算、反冲16组资格组合、毁灭者及伙伴冷却各5组；局部Erase探针不能证明实际减伤，其限制已明确校准。
 
 全部target经LuaJIT字段核验、严格proposal和全文件字节遮罩/反向证明；source/source_tag/args_order/special及placeholder/markup/newline/tab和范围外字节保持。完整门禁通过：30308条译文0错误0警告、运行键冲突0、重复分类A1711/B0/C0、严格核心addon完整构建、真实DLC消费者dry-run通过且applied=false、语义claim检查和空白检查通过。未push或发布。
-
-
-提交本包后按packages.json推进第014包，保留既定10条以内有界范围。 每包唯一EXECUTOR写Lua，宿主核验，冻结whole-workset REVIEW/full→必要FIX/RE_REVIEW→FINAL/full、门禁、归档、DONE与提交。结束child不续跑，MCP实时profiles/author与lineage核验，canonical prompt≤800UTF8字节，raw先原样保存后严格解析。无须逐包询问。
-
-第010包bowman同revision跨轮OK/ISSUE曾触发WAIT_USER，用户已明确回复“同意”，批准源码支持的召唤时获得技能/等级取决于当时召唤者等级的单句修订及继续；USER-DECISION-BOWMAN保留，不重复征求该决定。第009包旧task因恢复父级变化STOP_VERIFIED，同范围接续task完整DONE，证据package-009-resume，旧记录不改。第004包毒箭终审疑点已被用户撤销，不重开。MMR-026共享术语决定仍待既有答复，不重复问、不扩大术语/全局策略授权。

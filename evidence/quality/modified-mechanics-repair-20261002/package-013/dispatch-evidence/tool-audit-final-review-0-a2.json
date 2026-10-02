@@ -1,0 +1,75 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-013/INPUT-final-review-0-a2.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmrfix-20261002-013/INPUT-final-review-0-a2.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-013/INPUT-final-review-0-a2.json'))\np=d['payload'];print(list(d.keys()));print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\n\"",
+      "description": "Read contract and input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-013/INPUT-final-review-0-a2.json'))\np=d['payload']\nfor i,(t,c) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  print('=====',i,t['revision_key'][:8])\n  print('SRC:',t['source']);print('TGT:',t['target'])\n  print('CTX:',c['context'][:200])\n\"",
+      "description": "Print all entries"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-013/INPUT-final-review-0-a2.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context'][:2]):\n  x=json.loads(c['context'])\n  print('=====',i)\n  for e in x.get('source_evidence',[]): print('--',e['public_path'],e['start'],e['end']);print(e['excerpt'])\n  for k,v in x.items():\n    if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False)[:4000])\n\"",
+      "description": "Show contexts 0-1"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-013/INPUT-final-review-0-a2.json'))\np=d['payload']\nout=open('/tmp/ctx_dump.txt','w')\nfor i,c in enumerate(p['bounded_context']):\n  x=json.loads(c['context'])\n  out.write('===== %d\\n'%i)\n  for e in x.get('source_evidence',[]):\n    out.write('-- '+json.dumps({k:v for k,v in e.items() if k!='excerpt'},ensure_ascii=False)+'\\n'); out.write(e.get('excerpt','')+'\\n')\n  for k,v in x.items():\n    if k!='source_evidence': out.write(k+': '+json.dumps(v,ensure_ascii=False,indent=1)+'\\n')\n\"; wc -l /tmp/ctx_dump.txt; grep -n '^=====' /tmp/ctx_dump.txt",
+      "description": "Dump all contexts to scratch file"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx_dump.txt",
+      "offset": 90,
+      "limit": 360
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx_dump.txt",
+      "offset": 449,
+      "limit": 290
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"callbackOnAct\\b\\|callbackOnAct\\\"\" $C -- game/modules/tome/class/Actor.lua | head; git grep -n \"^function table.set\" $C -- game/engines/default/engine/utils.lua",
+      "description": "Check callbackOnAct handling in pinned core"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx_dump.txt",
+      "offset": 739,
+      "limit": 300
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/class/Actor.lua | sed -n 780,830p; git show $C:game/modules/tome/class/interface/Combat.lua | grep -n \"^function _M:attackTarget\\b\" ; git show $C:game/modules/tome/class/interface/Combat.lua | sed -n '/^function _M:attackTarget(/,/^end/p' | grep -n \"useEnergy\\|noenergy\" ",
+      "description": "Check act flow and attackTarget energy use"
+    }
+  }
+]

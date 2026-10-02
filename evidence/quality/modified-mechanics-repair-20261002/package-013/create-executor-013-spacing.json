@@ -1,0 +1,17 @@
+{
+  "title": "机制修正013：占位符单空格修正",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-013",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "execute-0-a3"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，task mmrfix-20261002-013。仅读.ai/roles/executor.md、本task SPEC.md和SPACING-0.json及目标文件。唯一工作：核对tome-cults.lua SHA/preimage后，对1191 target按SPACING-0精确增加一个ASCII空格。不重查机制，不读其他报告/源码。只写这一处target、自己的/tmp及.artifacts/i18n/modified-mechanics-repair-20261002/executor-013-spacing-report.json。跑python3 -B tools/i18n lint --strict和git diff --check；报告旧新target、SHA、完整文件反向字节证明和检查结果。禁止改其他内容/.ai/evidence/术语/工具，禁止stage/commit或创建child。",
+  "notifyOnFinish": true
+}

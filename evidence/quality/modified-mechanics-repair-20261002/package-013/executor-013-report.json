@@ -1,0 +1,1048 @@
+{
+  "schema_version": 1,
+  "task_id": "mmrfix-20261002-013",
+  "role": "EXECUTOR",
+  "actual_result": {
+    "reviewed_targets": 10,
+    "modified_targets": 9,
+    "confirmed_repaired_claims": 9,
+    "pending_targets": 1,
+    "allowed_lua_files": [
+      "tome-ashes-urhrok.lua",
+      "tome-cults.lua"
+    ],
+    "staged": false,
+    "committed": false,
+    "children_created": false
+  },
+  "baseline": {
+    "all_10_targets_match_REPAIR_INPUT_after": true,
+    "source_files_expected_sha_match": 17,
+    "core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "core_read_method": "git show only; frozen copies under own /tmp",
+    "dlc_source_pinning": "unpinned: SHA verified against REPAIR-INPUT, no DLC release/commit assertion",
+    "literal_forms": "9 long-bracket targets and 1 quoted escaped target; original representation preserved"
+  },
+  "entries": [
+    {
+      "candidate_index": 1053,
+      "change_id": "cc81550619d3f91f4796efaa43437f00a177432628eef2b842fdf7d12be36e08",
+      "finding_id": "MMR-UPSTREAM-010",
+      "file": "tome-ashes-urhrok.lua",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/wrath.lua",
+      "old_target": "你的利刃渴饮死亡。该技能未处于冷却时，每当你完成击杀，接下来 6 回合内的 %d 次近战攻击必定暴击，并在此期间获得 %d%% 暴击倍率。\n\t\t此外，每次击杀会额外获得 %d 点活力。",
+      "new_target": "你的利刃渴饮死亡。该技能未处于冷却时，每当你完成击杀，接下来 6 回合内的 %d 次命中的近战攻击获得 100 个百分点的物理暴击率加成（仍受目标的暴击率削减影响），并在此期间使暴击倍率增加 %d%%。\n\t\t此外，每次击杀会额外获得 %d 点活力。",
+      "raw_old_target": "你的利刃渴饮死亡。该技能未处于冷却时，每当你完成击杀，接下来 6 回合内的 %d 次近战攻击必定暴击，并在此期间获得 %d%% 暴击倍率。\n\t\t此外，每次击杀会额外获得 %d 点活力。",
+      "raw_new_target": "你的利刃渴饮死亡。该技能未处于冷却时，每当你完成击杀，接下来 6 回合内的 %d 次命中的近战攻击获得 100 个百分点的物理暴击率加成（仍受目标的暴击率削减影响），并在此期间使暴击倍率增加 %d%%。\n\t\t此外，每次击杀会额外获得 %d 点活力。",
+      "escaped_literal": false,
+      "placeholder_tokens_including_literal_percent": [
+        "%d",
+        "%d",
+        "%%",
+        "%d"
+      ],
+      "claim_status": "confirmed",
+      "source_anchor_ids": [
+        "entry-1053",
+        "a72",
+        "a80"
+      ],
+      "changed": true,
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "attack_count",
+          "calculation": "getHits=1+floor(combatTalentScale(1,2.8,.75))",
+          "parameter_chain": "tformat(getHits) -> setEffect(VORACIOUS_BLADE,6,hits)",
+          "consumer": "effect callbackOnMeleeAttack decrements only hitted; effect physical crit +100 -> Combat.combatCrit -> physicalCrit subtracts target reduction, clamps and rng; no auto_phys_crit set"
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "critical_multiplier_increment",
+          "calculation": "getMult=ceil(combatTalentScale(15,30,.75))",
+          "parameter_chain": "tformat(getMult) -> effect.power -> combat_critical_power += power",
+          "consumer": "Combat.physicalCrit multiplies by 1.5 + crit_power_add + combat_critical_power/100; incremental percentage points, not total multiplier"
+        },
+        {
+          "index": 3,
+          "token": "%d",
+          "quantity_kind": "resource_gain",
+          "calculation": "vimBonus=ceil(combatTalentScale(1,4,.75))",
+          "parameter_chain": "tformat(vimBonus) -> passive vim_on_death",
+          "consumer": "Actor death consumer incVim(vim_on_death), except undead"
+        }
+      ],
+      "non_target_fields_unchanged": {
+        "source": "Your blade drinks in death. Whenever you score a kill with this talent off cooldown, your next %d melee attacks within 6 turns will always critically strike, and you gain %d%% critical multiplier for the duration.\n\t\tAdditionally, you gain an extra %d vim per kill.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      }
+    },
+    {
+      "candidate_index": 1054,
+      "change_id": "a9d05f28e0cccc9fb642077814f27d47c635c5030d901e5e0f358c89feecdeef",
+      "finding_id": "MMR-UPSTREAM-009",
+      "file": "tome-ashes-urhrok.lua",
+      "section": "tome-ashes-urhrok/data/talents/corruptions/wrath.lua",
+      "old_target": "恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d， 缴械和震慑免疫率提高 %d%%。\n\t\t物理强度、体力恢复和状态抗性加值受法术强度加成。\n\t\t变身期间，其他技能也受到强化：\n\t\t-汲魂痛击：冷却时间减少 %d。\n\t\t-舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。\n\t\t-歼灭挥斩：增加半径 %d。\n\t\t-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。\n\t\t-焚尽强击：增加额外伤害几率至 %d%%。\n\t\t-恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。\n\t\t-乌鲁洛克之口：角度增加 %d。",
+      "new_target": "恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d， 缴械和震慑免疫率提高 %d%%。\n\t\t物理强度、体力恢复和状态抗性加值受法术强度加成。\n\t\t变身期间，其他技能也受到强化：\n\t\t-汲魂痛击：冷却缩减的说明值为 %d 回合，实际减值为变身技能等级的一半向上取整。\n\t\t-舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。\n\t\t-歼灭挥斩：增加半径 %d。\n\t\t-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。\n\t\t-焚尽强击：增加额外伤害几率至 %d%%。\n\t\t-恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。\n\t\t-乌鲁洛克之口：角度增加 %d。",
+      "raw_old_target": "恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d， 缴械和震慑免疫率提高 %d%%。\n\t\t物理强度、体力恢复和状态抗性加值受法术强度加成。\n\t\t变身期间，其他技能也受到强化：\n\t\t-汲魂痛击：冷却时间减少 %d。\n\t\t-舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。\n\t\t-歼灭挥斩：增加半径 %d。\n\t\t-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。\n\t\t-焚尽强击：增加额外伤害几率至 %d%%。\n\t\t-恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。\n\t\t-乌鲁洛克之口：角度增加 %d。",
+      "raw_new_target": "恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d， 缴械和震慑免疫率提高 %d%%。\n\t\t物理强度、体力恢复和状态抗性加值受法术强度加成。\n\t\t变身期间，其他技能也受到强化：\n\t\t-汲魂痛击：冷却缩减的说明值为 %d 回合，实际减值为变身技能等级的一半向上取整。\n\t\t-舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。\n\t\t-歼灭挥斩：增加半径 %d。\n\t\t-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。\n\t\t-焚尽强击：增加额外伤害几率至 %d%%。\n\t\t-恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。\n\t\t-乌鲁洛克之口：角度增加 %d。",
+      "escaped_literal": false,
+      "placeholder_tokens_including_literal_percent": [
+        "%d",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%d",
+        "%d",
+        "%%",
+        "%d",
+        "%%",
+        "%0.1f",
+        "%d"
+      ],
+      "claim_status": "confirmed",
+      "source_anchor_ids": [
+        "entry-1054",
+        "a77"
+      ],
+      "changed": true,
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "duration",
+          "calculation": "floor(combatTalentScale(4,7))",
+          "parameter_chain": "tformat(getDuration) -> setEffect DESTROYER_FORM duration",
+          "consumer": "effect expiration"
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "stat_and_regen_increment",
+          "calculation": "5+ceil(combatTalentSpellDamage(6,30))",
+          "parameter_chain": "tformat(getPower) -> effect.power",
+          "consumer": "DESTROYER_FORM stamina_regen and combat_dam += power"
+        },
+        {
+          "index": 3,
+          "token": "%d",
+          "quantity_kind": "immunity_percent",
+          "calculation": "min(ceil(getPower/40*100),100)",
+          "parameter_chain": "tformat(display) -> effect.power/40",
+          "consumer": "DESTROYER_FORM stun_immune/disarm_immune += power/40"
+        },
+        {
+          "index": 4,
+          "token": "%d",
+          "quantity_kind": "displayed_cooldown_reduction",
+          "calculation": "ceil(dest/3), dest=bound(raw talent level,1,5)",
+          "parameter_chain": "tformat(ceil(dest/3)); setEffect destroyer_level=dest -> is_destroyer",
+          "consumer": "Draining Assault cooldown 6-ceil(is_destroyer/2), then Actor.getTalentCooldown; target explicitly identifies display vs actual"
+        },
+        {
+          "index": 5,
+          "token": "%d",
+          "quantity_kind": "resistance_penetration_percent",
+          "calculation": "10*dest",
+          "parameter_chain": "tformat(10*dest) -> RECKLESS_PEN power",
+          "consumer": "Reckless Strike setEffect RECKLESS_PEN"
+        },
+        {
+          "index": 6,
+          "token": "%d",
+          "quantity_kind": "duration",
+          "calculation": "3+ceil(dest/2)",
+          "parameter_chain": "tformat -> Reckless Strike setEffect duration",
+          "consumer": "RECKLESS_PEN expiry"
+        },
+        {
+          "index": 7,
+          "token": "%d",
+          "quantity_kind": "range_increment",
+          "calculation": "ceil(dest/4)",
+          "parameter_chain": "tformat -> Obliterating Smash range=3+ceil(is_destroyer/4)",
+          "consumer": "cone radius=self:getTalentRange"
+        },
+        {
+          "index": 8,
+          "token": "%d",
+          "quantity_kind": "attack_count",
+          "calculation": "ceil(dest/2)",
+          "parameter_chain": "tformat -> Abduction additional attacks",
+          "consumer": "oppression.lua Abduction"
+        },
+        {
+          "index": 9,
+          "token": "%d",
+          "quantity_kind": "bonus_damage_chance_percent",
+          "calculation": "25+10*dest",
+          "parameter_chain": "tformat -> Incinerating Blows",
+          "consumer": "fearfire.lua Incinerating Blows chance"
+        },
+        {
+          "index": 10,
+          "token": "%0.1f",
+          "quantity_kind": "resource_gain_per_stack",
+          "calculation": "dest*.4",
+          "parameter_chain": "tformat -> Fearfeast incVim(is_destroyer*.4*fears)",
+          "consumer": "oppression.lua incVim"
+        },
+        {
+          "index": 11,
+          "token": "%d",
+          "quantity_kind": "cone_angle_increment",
+          "calculation": "dest*10",
+          "parameter_chain": "tformat -> Maw cone_angle=90+10*is_destroyer",
+          "consumer": "fearfire.lua target cone_angle"
+        }
+      ],
+      "non_target_fields_unchanged": {
+        "source": "Your body overflows with the power of the Fearscape, turning you into a powerful demon for %d turns. This increases your stamina regen and physical power by %d, and your disarm and stun immunity by %d%%.\n\t\tThe physical power, stamina regen, and status resistances increase with your spellpower.\n\t\tYour other talents also gain a variety of bonuses:\n\t\t-Draining Assault: Reduces cooldown by %d.\n\t\t-Reckless Strike: Gain %d%% resistance penetration for all elements for %d turns.\n\t\t-Obliterating Smash: Increases range by %d.\n\t\t-Abduction: If it hits, get an additional %d attacks at 35%% weapon damage.\n\t\t-Incinerating Blows: Increases chance of bonus damage to %d%%.\n\t\t-Fearfeast: Gain %0.1f vim per stack.\n\t\t-Maw of Urh'rok: Increases cone width by %d degrees.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      }
+    },
+    {
+      "candidate_index": 1085,
+      "change_id": "41c5401dd8748f222c6ab0be32ed6164ab09fc6489e34349d13bd8ce4e893448",
+      "finding_id": "MMR-UPSTREAM-011",
+      "file": "tome-ashes-urhrok.lua",
+      "section": "tome-ashes-urhrok/overload/data/texts/unlock-corrupter_demonologist.lua",
+      "old_target": "在入侵埃亚尔的过程中，恶魔绑架了这颗星球的居民，将他们洗脑后训练为双面间谍。\n他们接受使用恶魔之力的训练，并建立了许多黑暗教团来传播恐惧与惊惶。\n也有一些人成功逃脱了恶魔的控制，选择追随自己的渴望与意志。\n\n你打败了无数恶魔，了解了恶魔精华如何运作，也见识了如何束缚恶魔为己所用。现在创建新角色时，你可以选择 #LIGHT_GREEN#恶魔使者#WHITE# 职业。\n\n腐化者是使用魔法的远程施法者。\n职业特点：#YELLOW#\n- 向敌人植入恶魔种子。\n- 将恶魔种子附着在装备上，以强化装备。\n- 召唤并控制恶魔为你效力。\n- 将腐化魔法与盾牌战技结合，保护自己并毁灭敌人。#WHITE#\n\n腐化者使用“活力值”为特殊能力提供能量。\n活力是所有生物的生命力量。它不会自行恢复，只能从敌人身上窃取。\n",
+      "new_target": "在入侵埃亚尔的过程中，恶魔绑架了这颗星球的居民，将他们洗脑后训练为双面间谍。\n他们接受使用恶魔之力的训练，并建立了许多黑暗教团来传播恐惧与惊惶。\n也有一些人成功逃脱了恶魔的控制，选择追随自己的渴望与意志。\n\n你打败了无数恶魔，了解了恶魔精华如何运作，也见识了如何束缚恶魔为己所用。现在创建新角色时，你可以选择 #LIGHT_GREEN#恶魔使者#WHITE# 职业。\n\n恶魔使者是运用恶魔之力与盾牌战技的近战斗士。\n职业特点：#YELLOW#\n- 向敌人植入恶魔种子。\n- 将恶魔种子附着在装备上，以强化装备。\n- 召唤并控制恶魔为你效力。\n- 将腐化魔法与盾牌战技结合，保护自己并毁灭敌人。#WHITE#\n\n恶魔使者使用“活力值”为特殊能力提供能量。\n活力是所有生物的生命力量。它不会自行恢复，只能从敌人身上窃取。\n",
+      "raw_old_target": "在入侵埃亚尔的过程中，恶魔绑架了这颗星球的居民，将他们洗脑后训练为双面间谍。\n他们接受使用恶魔之力的训练，并建立了许多黑暗教团来传播恐惧与惊惶。\n也有一些人成功逃脱了恶魔的控制，选择追随自己的渴望与意志。\n\n你打败了无数恶魔，了解了恶魔精华如何运作，也见识了如何束缚恶魔为己所用。现在创建新角色时，你可以选择 #LIGHT_GREEN#恶魔使者#WHITE# 职业。\n\n腐化者是使用魔法的远程施法者。\n职业特点：#YELLOW#\n- 向敌人植入恶魔种子。\n- 将恶魔种子附着在装备上，以强化装备。\n- 召唤并控制恶魔为你效力。\n- 将腐化魔法与盾牌战技结合，保护自己并毁灭敌人。#WHITE#\n\n腐化者使用“活力值”为特殊能力提供能量。\n活力是所有生物的生命力量。它不会自行恢复，只能从敌人身上窃取。\n",
+      "raw_new_target": "在入侵埃亚尔的过程中，恶魔绑架了这颗星球的居民，将他们洗脑后训练为双面间谍。\n他们接受使用恶魔之力的训练，并建立了许多黑暗教团来传播恐惧与惊惶。\n也有一些人成功逃脱了恶魔的控制，选择追随自己的渴望与意志。\n\n你打败了无数恶魔，了解了恶魔精华如何运作，也见识了如何束缚恶魔为己所用。现在创建新角色时，你可以选择 #LIGHT_GREEN#恶魔使者#WHITE# 职业。\n\n恶魔使者是运用恶魔之力与盾牌战技的近战斗士。\n职业特点：#YELLOW#\n- 向敌人植入恶魔种子。\n- 将恶魔种子附着在装备上，以强化装备。\n- 召唤并控制恶魔为你效力。\n- 将腐化魔法与盾牌战技结合，保护自己并毁灭敌人。#WHITE#\n\n恶魔使者使用“活力值”为特殊能力提供能量。\n活力是所有生物的生命力量。它不会自行恢复，只能从敌人身上窃取。\n",
+      "escaped_literal": false,
+      "placeholder_tokens_including_literal_percent": [],
+      "claim_status": "confirmed",
+      "source_anchor_ids": [
+        "entry-1085",
+        "a85",
+        "a86"
+      ],
+      "changed": true,
+      "placeholders": [],
+      "non_target_fields_unchanged": {
+        "source": "Demons in their invasion of Eyal have abducted natives of the planet and mindwiped them to serve as double agents.\nTrained in the use of the demon's own forces they have created many dark cults to spread fear and terror.\nSome have managed to escape their programming and chose to follow their own desires instead.\n\nYou have defeated countless demons, seen how their essence work, witnessed how to bind demons to your own purpose and can now create new characters with the #LIGHT_GREEN#Demonologist class#WHITE#.\n\nCorruptors are spellcasters, ranged attackers using magic.\nClass features:#YELLOW#\n- Infect your foes with demonic seeds.\n- Bind demonic seeds to your equipment to enhance them.\n- Summon and control demons to do your binding.\n- Blend corrupted magic with a martial shield training to protect yourself and ruin your foes.#WHITE#\n\nCorruptors use \"vim\" to power their special abilities.\nVim is the life force of all beings. It does not regenerate, and can only be stolen from your foes.\n",
+        "source_tag": "_t",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      }
+    },
+    {
+      "candidate_index": 1163,
+      "change_id": "2ae3f2ebfb46aaa92532f0756ed7d7a98a2711ad51ac3fd7de5eeff4c2a70de5",
+      "finding_id": "UPSTREAM114",
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/talents/demented/calamity.lua",
+      "old_target": "你的触碰伴随着熵之诅咒，为目标带来悲惨的命运。每当你对目标造成伤害时，目标将被厄运诅咒 5 回合。厄运可以叠加 10 层，每层减少 %0.2f 豁免和闪避， %0.2f%% 暴击率。\n\t\t\t每个目标每回合只能受到一层诅咒。若你与目标脱离视线超过 2 回合，所有诅咒都会消退。",
+      "new_target": "你的触碰伴随着熵之诅咒，为目标带来悲惨的命运。每当你对目标造成伤害时，目标将被厄运诅咒 5 回合。厄运可以叠加 10 层，每层减少 %0.2f 豁免和闪避， %0.2f%% 暴击率。\n\t\t\t每个目标每回合只能受到一层诅咒。若你与目标连续脱离视线 2 回合，所有诅咒都会消退。",
+      "raw_old_target": "你的触碰伴随着熵之诅咒，为目标带来悲惨的命运。每当你对目标造成伤害时，目标将被厄运诅咒 5 回合。厄运可以叠加 10 层，每层减少 %0.2f 豁免和闪避， %0.2f%% 暴击率。\n\t\t\t每个目标每回合只能受到一层诅咒。若你与目标脱离视线超过 2 回合，所有诅咒都会消退。",
+      "raw_new_target": "你的触碰伴随着熵之诅咒，为目标带来悲惨的命运。每当你对目标造成伤害时，目标将被厄运诅咒 5 回合。厄运可以叠加 10 层，每层减少 %0.2f 豁免和闪避， %0.2f%% 暴击率。\n\t\t\t每个目标每回合只能受到一层诅咒。若你与目标连续脱离视线 2 回合，所有诅咒都会消退。",
+      "escaped_literal": false,
+      "placeholder_tokens_including_literal_percent": [
+        "%0.2f",
+        "%0.2f",
+        "%%"
+      ],
+      "claim_status": "confirmed",
+      "source_anchor_ids": [
+        "entry-1163",
+        "a749"
+      ],
+      "changed": true,
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%0.2f",
+          "quantity_kind": "save_and_defense_reduction_per_stack",
+          "calculation": "getSaves raw level step 1/2/3",
+          "parameter_chain": "tformat(saves) -> setEffect JINX power",
+          "consumer": "JINX adds negative power*stacks to combat_def and three saves"
+        },
+        {
+          "index": 2,
+          "token": "%0.2f",
+          "quantity_kind": "critical_chance_reduction_per_stack",
+          "calculation": "getCrit raw level step 1/1.5/2",
+          "parameter_chain": "tformat(crit) -> JINX crit",
+          "consumer": "JINX physical/spell/mind crit -= crit*stacks"
+        }
+      ],
+      "non_target_fields_unchanged": {
+        "source": "Your touch carries an entropic curse, marking your victims for a terrible fate. Each time you deal damage to a target, they are Jinxed for 5 turns. This stacks up to 10 times, reducing saves and defense by %0.2f and critical strike chance by %0.2f%%.\n\t\t\tThis can only be applied once per target per turn and will fade entirely if you break line of sight with your target for more than 2 turns.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      }
+    },
+    {
+      "candidate_index": 1174,
+      "change_id": "fbddf6c9846fe9513e68855ad3a770cbfc625122358ad11e64f4055315898737",
+      "finding_id": "UPSTREAM115",
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/talents/demented/disfigured-face.lua",
+      "old_target": "你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。\n\t\t被舔舐的敌人受到无视护甲的 %d%% 触手伤害并获得一种持续 %d 回合的随机疾病，每回合造成 %0.2f 枯萎伤害并减少力量、敏捷或体质 %d 点。\n\t\t\n\t\t如果你至少命中了一名敌人，你获得 %d 疯狂值。\n\t\t\n\t\t疾病伤害受法术强度加成。",
+      "new_target": "你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。\n\t\t被舔舐的敌人受到无视护甲的 %d%% 触手伤害并获得一种持续 %d 回合的随机疾病，每回合造成 %0.2f 枯萎伤害并减少力量、敏捷或体质 %d 点。\n\t\t\n\t\t如果你至少命中了一名未触发疾病免疫的敌人，你获得 %d 疯狂值。\n\t\t\n\t\t疾病伤害受法术强度加成。",
+      "raw_old_target": "你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。\\n\\t\\t被舔舐的敌人受到无视护甲的 %d%% 触手伤害并获得一种持续 %d 回合的随机疾病，每回合造成 %0.2f 枯萎伤害并减少力量、敏捷或体质 %d 点。\\n\\t\\t\\n\\t\\t如果你至少命中了一名敌人，你获得 %d 疯狂值。\\n\\t\\t\\n\\t\\t疾病伤害受法术强度加成。",
+      "raw_new_target": "你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。\\n\\t\\t被舔舐的敌人受到无视护甲的 %d%% 触手伤害并获得一种持续 %d 回合的随机疾病，每回合造成 %0.2f 枯萎伤害并减少力量、敏捷或体质 %d 点。\\n\\t\\t\\n\\t\\t如果你至少命中了一名未触发疾病免疫的敌人，你获得 %d 疯狂值。\\n\\t\\t\\n\\t\\t疾病伤害受法术强度加成。",
+      "escaped_literal": true,
+      "placeholder_tokens_including_literal_percent": [
+        "%d",
+        "%%",
+        "%d",
+        "%0.2f",
+        "%d",
+        "%d"
+      ],
+      "claim_status": "confirmed",
+      "source_anchor_ids": [
+        "entry-1174"
+      ],
+      "changed": true,
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "weapon_damage_percent",
+          "calculation": "getDamageTentacle=1; display *100",
+          "parameter_chain": "tformat -> attackTargetWith tentacle multiplier 1",
+          "consumer": "Combat melee damage and physicalCrit/projector; combat_apr +10000 temporarily"
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "duration",
+          "calculation": "getDuration=6",
+          "parameter_chain": "tformat -> setEffect disease duration literal 6",
+          "consumer": "magical.lua three diseases on_timeout"
+        },
+        {
+          "index": 3,
+          "token": "%0.2f",
+          "quantity_kind": "damage_per_turn",
+          "calculation": "5+combatTalentSpellDamage(5,30); display damDesc(BLIGHT,base)",
+          "parameter_chain": "tformat -> spellCrit(base) -> disease eff.dam",
+          "consumer": "magical.lua on_timeout BLIGHT projector(eff.dam); purify_disease heals instead; damage_types modifiers/resists, not guaranteed final loss"
+        },
+        {
+          "index": 4,
+          "token": "%d",
+          "quantity_kind": "attribute_reduction",
+          "calculation": "combatTalentSpellDamage(5,28)",
+          "parameter_chain": "tformat -> setEffect str/con/dex=getDiseasePower",
+          "consumer": "magical.lua disease inc_stats negative corresponding attribute"
+        },
+        {
+          "index": 5,
+          "token": "%d",
+          "quantity_kind": "resource_gain",
+          "calculation": "getInsanity=10",
+          "parameter_chain": "tformat -> did_hit=true only when hit and canBe(disease)",
+          "consumer": "incInsanity(getInsanity) once if any qualifying target; setEffect save success is not checked for did_hit"
+        }
+      ],
+      "non_target_fields_unchanged": {
+        "source": "Your tongue turns into a diseased tentacle that you use to #{italic}#lick#{normal}# enemies in a cone.\n\t\tLicked creatures take %d%% tentacle damage that ignores armor and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.\n\t\t\n\t\tIf at least one enemy is hit you gain %d insanity.\n\t\t\n\t\tDisease damage will increase with your Spellpower.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      }
+    },
+    {
+      "candidate_index": 1175,
+      "change_id": "5a8bf0374aac70086def7a14aa80a7a9bfc780fd181096e8c2be0fae8d136f7d",
+      "finding_id": "UPSTREAM059",
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/talents/demented/doom.lua",
+      "old_target": "对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合有 %d%% 几率浪费该回合，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。\n\t\t一个目标只能同时被一个预言影响。",
+      "new_target": "对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每次获得行动机会时，背叛进度增加满值的 %d%% （初始进度随机，法术豁免可使增量减半）；进度超过满值时扣除一个满值，并浪费该次行动，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。\n\t\t一个目标只能同时被一个预言影响。",
+      "raw_old_target": "对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合有 %d%% 几率浪费该回合，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。\n\t\t一个目标只能同时被一个预言影响。",
+      "raw_new_target": "对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每次获得行动机会时，背叛进度增加满值的 %d%% （初始进度随机，法术豁免可使增量减半）；进度超过满值时扣除一个满值，并浪费该次行动，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。\n\t\t一个目标只能同时被一个预言影响。",
+      "escaped_literal": false,
+      "placeholder_tokens_including_literal_percent": [
+        "%d",
+        "%%",
+        "%%"
+      ],
+      "claim_status": "confirmed",
+      "source_anchor_ids": [
+        "entry-1175",
+        "a550"
+      ],
+      "changed": true,
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "progress_increment_percent_of_threshold",
+          "calculation": "getChance -> PROPHECY.getTreasonChance=combatTalentScale(10,25)",
+          "parameter_chain": "tformat(chance) -> effect.power",
+          "consumer": "PROPHECY_OF_TREASON callbackOnAct enoughEnergy gate; timer initially rng.float(0,100); increment power or .5*power via spellpower-vs-spellsave checkHit; >100 subtracts100 then attackTarget(.1)"
+        }
+      ],
+      "non_target_fields_unchanged": {
+        "source": "Utter a prophecy of the impending treachery of your target. For the next 6 turns, they will have a %d%% each turn to waste their turn attempting to attack an adjacent creature for 10%% weapon damage, or even themself if no creature is present.\n\t\tA target can only be affected by a single prophecy at a time.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      }
+    },
+    {
+      "candidate_index": 1180,
+      "change_id": "17d6589d846fe58e21610b6d1037d8cf113c70b0bdfd0e8d757ebc9c2a4d81d1",
+      "finding_id": "UPSTREAM039",
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/talents/demented/entropy.lua",
+      "old_target": "你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，每个非瞬间法术会带来 %0.2f 熵能反冲。",
+      "new_target": "你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，战斗中使用的每个非瞬间主动法术会带来 %0.2f 熵能反冲。",
+      "raw_old_target": "你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，每个非瞬间法术会带来 %0.2f 熵能反冲。",
+      "raw_new_target": "你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，战斗中使用的每个非瞬间主动法术会带来 %0.2f 熵能反冲。",
+      "escaped_literal": false,
+      "placeholder_tokens_including_literal_percent": [
+        "%d",
+        "%%",
+        "%d",
+        "%%",
+        "%0.2f"
+      ],
+      "claim_status": "confirmed",
+      "source_anchor_ids": [
+        "entry-1180",
+        "a462"
+      ],
+      "changed": true,
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "damage_bonus_percent",
+          "calculation": "combatTalentScale(4,16)",
+          "parameter_chain": "tformat(power) -> inc_damage[DARKNESS,TEMPORAL]",
+          "consumer": "fixed damage_types.lua source damage increase consumed by projector"
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "resistance_penetration_percent",
+          "calculation": "combatTalentScale(6,24)",
+          "parameter_chain": "tformat(pen) -> resists_pen[DARKNESS,TEMPORAL]",
+          "consumer": "fixed damage_types.lua resistance penetration consumer"
+        },
+        {
+          "index": 3,
+          "token": "%0.2f",
+          "quantity_kind": "backlash_base_total",
+          "calculation": "combatTalentSpellDamage(5,30)",
+          "parameter_chain": "tformat(dam) -> setEffect ENTROPIC_WASTING,8,power=dam/8",
+          "consumer": "only ab.is_spell and not ab.no_energy and activated and self.in_combat; ENTROPIC_WASTING on_timeout uses power and may reverse-entropy reduce; life subtraction limited above die_at, no guaranteed final loss"
+        }
+      ],
+      "non_target_fields_unchanged": {
+        "source": "You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      }
+    },
+    {
+      "candidate_index": 1183,
+      "change_id": "18b25ec806260e229cc3ac471dc9d83c59b3093f73004183f3ca225bee638945",
+      "finding_id": "UPSTREAM022",
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/talents/demented/friend-of-the-worm.lua",
+      "old_target": "你和蠕虫合体同时传送至 %d 内的目标处，各进行一次近战攻击，造成 %d%% 伤害。\n\t\t\t你的蠕虫合体的闪电突袭技能冷却时间减少 %d。",
+      "new_target": "你和蠕虫合体同时传送至 %d 内的目标处，各进行一次近战攻击，造成 %d%% 伤害。\n\t\t\t你的蠕虫合体的闪电突袭技能基础冷却时间的减值为 %d 加 1 回合。",
+      "raw_old_target": "你和蠕虫合体同时传送至 %d 内的目标处，各进行一次近战攻击，造成 %d%% 伤害。\n\t\t\t你的蠕虫合体的闪电突袭技能冷却时间减少 %d。",
+      "raw_new_target": "你和蠕虫合体同时传送至 %d 内的目标处，各进行一次近战攻击，造成 %d%% 伤害。\n\t\t\t你的蠕虫合体的闪电突袭技能基础冷却时间的减值为 %d 加 1 回合。",
+      "escaped_literal": false,
+      "placeholder_tokens_including_literal_percent": [
+        "%d",
+        "%d",
+        "%%",
+        "%d"
+      ],
+      "claim_status": "confirmed",
+      "source_anchor_ids": [
+        "entry-1183",
+        "a308",
+        "a311"
+      ],
+      "changed": true,
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "range",
+          "calculation": "literal 10",
+          "parameter_chain": "tformat(10) -> talent range=10 -> getTarget/canProject",
+          "consumer": "self hasLOS and block_move gate; companion teleport is unchecked for companion LOS/range"
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "weapon_damage_percent",
+          "calculation": "combatTalentWeaponDamage(.7,1.3)*100",
+          "parameter_chain": "tformat -> self/companion attackTarget(PHYSICAL,getDamage)",
+          "consumer": "both attacks gated by successful teleport and adjacency; fixed Combat damage/projector"
+        },
+        {
+          "index": 3,
+          "token": "%d",
+          "quantity_kind": "displayed_cooldown_component",
+          "calculation": "floor(combatTalentLimit(5,1,3.5))",
+          "parameter_chain": "tformat(getBlindside) -> update_wtw talent_cd_reduction[BLINDSIDE]=1+getBlindside",
+          "consumer": "Actor.getTalentCooldown directly subtracts field, subsequent modifiers may apply; text says base reduction is display+1"
+        }
+      ],
+      "non_target_fields_unchanged": {
+        "source": "You and your Worm that Walks both teleport to an enemy in range %d and make a melee attack for %d%% damage.\n\t\t\tYour Worm that Walks' Blindside talent cooldown is reduced by %d.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      }
+    },
+    {
+      "candidate_index": 1190,
+      "change_id": "040b753d567302146023ed7957bdab566fc6ec06561ba9aee1b6da6058eae83f",
+      "finding_id": "UPSTREAM117",
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/talents/demented/oblivion.lua",
+      "old_target": "将你身体上的熵能向周围辐射。每当你被施加熵能反冲或其强度增加时，在你半径 10 码内随机的 %d 个可见敌人都将被熵能侵蚀 8 回合。这会使施加于目标的新负面效果持续时间增加、正面效果持续时间减少 %d%%。",
+      "new_target": "将你身体上的熵能向周围辐射。每当你被施加熵能反冲或其强度增加时，在你半径 10 码内随机的 %d 个敌人都将被熵能侵蚀 8 回合。这会使施加于目标的新负面效果持续时间增加、正面效果持续时间减少 %d%%。",
+      "raw_old_target": "将你身体上的熵能向周围辐射。每当你被施加熵能反冲或其强度增加时，在你半径 10 码内随机的 %d 个可见敌人都将被熵能侵蚀 8 回合。这会使施加于目标的新负面效果持续时间增加、正面效果持续时间减少 %d%%。",
+      "raw_new_target": "将你身体上的熵能向周围辐射。每当你被施加熵能反冲或其强度增加时，在你半径 10 码内随机的 %d 个敌人都将被熵能侵蚀 8 回合。这会使施加于目标的新负面效果持续时间增加、正面效果持续时间减少 %d%%。",
+      "escaped_literal": false,
+      "placeholder_tokens_including_literal_percent": [
+        "%d",
+        "%d",
+        "%%"
+      ],
+      "claim_status": "confirmed",
+      "source_anchor_ids": [
+        "entry-1190"
+      ],
+      "changed": true,
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "target_count",
+          "calculation": "floor(combatTalentScale(1,3))",
+          "parameter_chain": "tformat -> do_nihil loop getTargetCount",
+          "consumer": "circle_grids radius10 block=true terrain block_move, reaction<0 candidates, random no replacement; no canSee/hasLOS actor check; no assertion of unrestricted through-wall reach"
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "duration_change_percent",
+          "calculation": "combatTalentLimit(50,10,40)/100; display *100",
+          "parameter_chain": "tformat -> NIHIL effect.power",
+          "consumer": "increase_detrimental_status_effects_time and reduce_beneficial_status_effects_time via temporary fields"
+        }
+      ],
+      "non_target_fields_unchanged": {
+        "source": "Your entropy bleeds into the world around you. On having entropic backlash applied or increased to you, %d random enemies you can see within radius 10 will be shrouded in entropic forces for 8 turns. This increases the duration of new negative effects and reduces the duration of new beneficial effects applied to the target by %d%%.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      }
+    },
+    {
+      "candidate_index": 1191,
+      "change_id": "16460af1fb6257a45ab1944c874149bda1ca12f5f1d6b1e6698064dff35f52b6",
+      "finding_id": "UPSTREAM026",
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/talents/demented/oblivion.lua",
+      "old_target": "受到你空无影响的生物逐渐从现实中被抹除，造成的伤害降低 %d%%。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n\t\t伤害受到法术强度加成。",
+      "new_target": "受到你空无影响的生物逐渐从现实中被抹除，造成的伤害降低 %d%%。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n\t\t伤害受到法术强度加成。",
+      "raw_old_target": "受到你空无影响的生物逐渐从现实中被抹除，造成的伤害降低 %d%%。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n\t\t伤害受到法术强度加成。",
+      "raw_new_target": "受到你空无影响的生物逐渐从现实中被抹除，造成的伤害降低 %d%%。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n\t\t伤害受到法术强度加成。",
+      "escaped_literal": false,
+      "placeholder_tokens_including_literal_percent": [
+        "%d",
+        "%%",
+        "%0.2f"
+      ],
+      "claim_status": "partially_confirmed_pending",
+      "source_anchor_ids": [
+        "entry-1191",
+        "a352"
+      ],
+      "proposed_target_withdrawn": "受到你空无影响的生物逐渐从现实中被抹除，每具有一个负面魔法效果，造成的伤害就降低 %d%%。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。\n\t\t伤害受到法术强度加成。",
+      "changed": false,
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "unconsumed_damage_reduction_coefficient",
+          "calculation": "floor(combatTalentScale(1,3))",
+          "parameter_chain": "tformat(getNumb) -> do_nihil numb -> NIHIL callback returns value-value*numb*nb/100",
+          "consumer": "fixed Actor.takeHit calls fireTalentCheck after ActorLife.takeHit, ignores return. Local formula confirmed; actual damage reduction unsupported. Pending; original target preserved"
+        },
+        {
+          "index": 2,
+          "token": "%0.2f",
+          "quantity_kind": "damage_per_turn_per_negative_magical_effect",
+          "calculation": "combatTalentSpellDamage(1,20); display damDesc(TEMPORAL,base)",
+          "parameter_chain": "tformat -> NIHIL activate spellCrit(ERASE.getDamage) -> eff.damage",
+          "consumer": "NIHIL on_timeout counts current detrimental magical effects nb; TEMPORAL projector(eff.damage*nb), fixed damage modifiers/resists. This part confirmed"
+        }
+      ],
+      "non_target_fields_unchanged": {
+        "source": "Those affected by your Nihil find themselves increasingly removed from reality, reducing all damage they deal by %d%% and causing them to take %0.2f temporal damage each turn for each negative magical effect they have.\n\t\tThe damage will scale with your Spellpower.",
+        "source_tag": "tformat",
+        "args_order": null,
+        "special": null,
+        "function_name": "t"
+      }
+    }
+  ],
+  "byte_proof": [
+    {
+      "file": "tome-ashes-urhrok.lua",
+      "baseline_sha256": "ba127702455e8d086bd77aac1c0ac995751db463544bdf216051751fe932c48b",
+      "postimage_sha256": "690fecbef5ec97d7e26fffb099d15b7578e8936d66d239ad0ce7c2e90eb73813",
+      "reverse_target_replacement_sha256": "ba127702455e8d086bd77aac1c0ac995751db463544bdf216051751fe932c48b",
+      "reverse_equals_baseline": true,
+      "all_non_target_bytes_preserved": true,
+      "modified_target_count": 3
+    },
+    {
+      "file": "tome-cults.lua",
+      "baseline_sha256": "7329d62effbf228f0ddad541d0a98c20144f85c05b6f0462b428a7c1a70efdf5",
+      "postimage_sha256": "4602c5bf08b59c3157824e9b865227e54338aec615cb20645487e83c79242200",
+      "reverse_target_replacement_sha256": "7329d62effbf228f0ddad541d0a98c20144f85c05b6f0462b428a7c1a70efdf5",
+      "reverse_equals_baseline": true,
+      "all_non_target_bytes_preserved": true,
+      "modified_target_count": 6
+    }
+  ],
+  "source_evidence": [
+    {
+      "public_path": "tome-ashes-urhrok/data/talents/corruptions/wrath.lua",
+      "sha256": "f2297854dd2c61863ac86812563e4f4021602df017ef56414fe8a3de224d93c0",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 142,
+          "end": 209,
+          "text": "142: \tpoints = 5,\n143: \tmode = \"passive\",\n144: \tcooldown = 10,\n145: \thotkey=true,\n146: \tvimBonus = function(self, t) return math.ceil(self:combatTalentScale(t, 1, 4, 0.75)) end,\n147: \tgetMult = function(self, t) return math.ceil(self:combatTalentScale(t, 15, 30, 0.75)) end,\n148: \tgetHits = function(self, t) return 1 + math.floor(self:combatTalentScale(t, 1, 2.8, 0.75)) end,\n149: \tpassives = function(self, t, p)\n150: \t\tself:talentTemporaryValue(p, \"vim_on_death\", t.vimBonus(self, t))\n151: \tend,\n152: \tcallbackOnKill = function(self, t, target)\n153: \t\tif not self:isTalentCoolingDown(t) and self:reactionToward(target) < 0 then\n154: \t\t\tself:startTalentCooldown(t)\n155: \t\t\tgame:onTickEnd(function() self:setEffect(self.EFF_VORACIOUS_BLADE, 6, {power=t.getMult(self, t), hits=t.getHits(self, t)}) end)\n156: \t\tend\n157: \t\treturn true\n158: \tend,\n159: \tinfo = function(self, t)\n160: \t\treturn ([[Your blade drinks in death. Whenever you score a kill with this talent off cooldown, your next %d melee attacks within 6 turns will always critically strike, and you gain %d%% critical multiplier for the duration.\n161: \t\tAdditionally, you gain an extra %d vim per kill.]]):tformat(t.getHits(self, t), t.getMult(self, t), t.vimBonus(self, t))\n162: \tend,\n163: }\n164: \n165: newTalent{\n166: \tname = \"Destroyer\",\n167: \ttype = {\"corruption/wrath\", 4},\n168: \trequire = str_corrs_req_high4,\n169: \tpoints = 5,\n170: \trange=10,\n171: \tcooldown = 30,\n172: \tvim = 38,\n173: \t--no_npc_use = true,\n174: \tno_energy=true,\n175: \ttactical = { BUFF = 3 },\n176: \tgetDuration = function(self, t) return  math.floor(self:combatTalentScale(t, 4, 7)) end,\n177: \tgetDestroy = function(self, t) return  util.bound(self:getTalentLevelRaw(t), 1, 5) end,\n178: \tgetPower = function(self, t) return 5 + math.ceil(self:combatTalentSpellDamage(t, 6, 30)) end,\n179: \taction = function(self, t)\n180: \t\tself:setEffect(self.EFF_DESTROYER_FORM, t.getDuration(self, t), {power=t.getPower(self, t), destroyer_level = t.getDestroy(self, t)})\n181: \t\tgame:playSoundNear(self, \"talents/fire\")\n182: \t\treturn true\n183: \tend,\n184: \tinfo = function(self, t)\n185: \t\tlocal dest = t.getDestroy(self, t)\n186: \t\treturn ([[Your body overflows with the power of the Fearscape, turning you into a powerful demon for %d turns. This increases your stamina regen and physical power by %d, and your disarm and stun immunity by %d%%.\n187: \t\tThe physical power, stamina regen, and status resistances increase with your spellpower.\n188: \t\tYour other talents also gain a variety of bonuses:\n189: \t\t-Draining Assault: Reduces cooldown by %d.\n190: \t\t-Reckless Strike: Gain %d%% resistance penetration for all elements for %d turns.\n191: \t\t-Obliterating Smash: Increases range by %d.\n192: \t\t-Abduction: If it hits, get an additional %d attacks at 35%% weapon damage.\n193: \t\t-Incinerating Blows: Increases chance of bonus damage to %d%%.\n194: \t\t-Fearfeast: Gain %0.1f vim per stack.\n195: \t\t-Maw of Urh'rok: Increases cone width by %d degrees.]]):\n196: \t\ttformat(\n197: \t\t\tt.getDuration(self, t),\n198: \t\t\tt.getPower(self, t),\n199: \t\t\tmath.min(math.ceil(t.getPower(self, t)/40 *100),100),\n200: \t\t\tmath.ceil(dest/3),\n201: \t\t\t10 * dest, 3 + math.ceil(dest/2),\n202: \t\t\tmath.ceil(dest/4),\n203: \t\t\tmath.ceil(dest/2),\n204: \t\t\t25 + 10 * dest,\n205: \t\t\tdest * 0.4,\n206: \t\t\tdest * 10\n207: \t\t)\n208: \tend,\n209: }"
+        },
+        {
+          "start": 28,
+          "end": 46,
+          "text": "28: \tstamina = 24,\n29: \tvim = 24,\n30: \ttactical = { ATTACKAREA = {weapon=2 }, },\n31: \trequires_target = true,\n32: \trange = function(self, t) return 3 + math.ceil((self.is_destroyer or 0)/4)\tend,\n33: \tgetDamage = function (self, t) return self:combatTalentWeaponDamage(t, 0.3, 1.79) end,\n34: \tgetSunder = function(self, t) return math.ceil(self:combatTalentScale(t, 10, 20)) end,\n35: \ton_pre_use = function(self, t, silent) if not (self:hasTwoHandedWeapon() or self:attr(\"obliterating_smash_wall\")) then if not silent then game.logPlayer(self, \"You require a two handed weapon to use this talent.\") end return false end return true end,\n36: \taction = function(self, t)\n37: \t\tlocal tg = {type=\"cone\", nolock=true, can_autoaccept=true, range=0, radius=self:getTalentRange(t), cone_angle = 179}\n38: \t\tlocal x, y = self:getTarget(tg)\n39: \t\tif not x or not y then return nil end\n40: \t\tself.turn_procs.auto_melee_hit = true\n41: \t\tself:project(tg, x, y, function(px, py)\n42: \t\t\tlocal target = game.level.map(px, py, engine.Map.ACTOR)\n43: \t\t\tif self:attr(\"obliterating_smash_wall\") then\n44: \t\t\t\tself:project({type=\"ball\", range=10, radius=0, friendlyfire=true}, px, py, DamageType.DIG, 1)\n45: \t\t\tend\n46: \t\t\tif not target then return end"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-ashes-urhrok/data/timed_effects.lua",
+      "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 90,
+          "end": 106,
+          "text": "90: newEffect{\n91: \tname = \"DESTROYER_FORM\", image = \"talents/destroyer.png\",\n92: \tdesc = _t\"Destroyer\",\n93: \tlong_desc = function(self, eff) return (\"The target assumes the form of a powerful demon.\"):tformat() end,\n94: \ttype = \"magical\",\n95: \tsubtype = { fire=true },\n96: \tstatus = \"beneficial\",\n97: \tparameters = {power = 5, destroyer_level = 1},\n98: \ton_gain = function(self, err) return _t\"#Target# turns into a demon!\", _t\"+Destroyer\" end,\n99: \ton_lose = function(self, err) return _t\"#Target# is no longer transformed.\", _t\"-Destroyer\" end,\n100: \tactivate = function(self, eff)\n101: \t\tself:effectTemporaryValue(eff, \"stamina_regen\", eff.power)\n102: \t\tself:effectTemporaryValue(eff, \"combat_dam\", eff.power)\n103: \t\tself:effectTemporaryValue(eff, \"stun_immune\", eff.power/40)\n104: \t\tself:effectTemporaryValue(eff, \"disarm_immune\", eff.power/40)\n105: \t\tself:effectTemporaryValue(eff, \"is_destroyer\", eff.destroyer_level)\n106: \t\tself:effectTemporaryValue(eff, \"demon\", 1)"
+        },
+        {
+          "start": 122,
+          "end": 143,
+          "text": "122: newEffect{\n123: \tname = \"VORACIOUS_BLADE\", image = \"talents/voracious_blade.png\",\n124: \tdesc = _t\"Voracious Blade\",\n125: \tlong_desc = function(self, eff) return (\"Next %d melee attacks are certain to critically strike, and this unit has %d%% more critical power.\"):tformat(eff.hits, eff.power) end,\n126: \ttype = \"magical\",\n127: \tsubtype = { corruption=true },\n128: \tstatus = \"beneficial\",\n129: \tparameters = { power=0.1, hits=1 },\n130: \ton_gain = function(self, err) return _t\"#Target#'s weapon glows with critical power!\", _t\"+Voracious\" end,\n131: \ton_lose = function(self, err) return _t\"#Target#'s weapon stops glowing.\", _t\"-Voracious\" end,\n132: \tcharges = function(self, eff) return eff.hits end,\n133: \tactivate = function(self, eff)\n134: \t\tself:effectTemporaryValue(eff, \"combat_critical_power\", eff.power)\n135: \t\tself:effectTemporaryValue(eff, \"combat_physcrit\", 100)\n136: \tend,\n137: \tcallbackOnMeleeAttack = function(self, eff, target, hitted)\n138: \t\tif not hitted then return end\n139: \t\teff.hits = eff.hits - 1\n140: \t\tif eff.hits < 1 then\n141: \t\t\tself:removeEffect(self.EFF_VORACIOUS_BLADE)\n142: \t\tend\n143: \t\tgame.level.map:particleEmitter(target.x, target.y, 1, \"circle\", {oversize=1.7, a=170, limit_life=12, shader=true, appear=12, speed=0, img=\"voracious_blade\", radius=0})"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-ashes-urhrok/data/talents/corruptions/brutality.lua",
+      "sha256": "98445e8d729b25a81d276add49387ac07a1ce10b7cc8c5feae4a62e645c2552d",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 22,
+          "end": 33,
+          "text": "22: newTalent{\n23: \tname = \"Draining Assault\",\n24: \ttype = {\"corruption/brutality\", 1},\n25: \trequire = str_corrs_req1,\n26: \tpoints = 5,\n27: \tcooldown = function(self, t)\n28: \t\tif self:attr(\"is_destroyer\") then\n29: \t\t\treturn 6 - math.ceil(self.is_destroyer/2)\n30: \t\telse\n31: \t\t\treturn 6\n32: \t\tend end,\n33: \tstamina = 20,"
+        },
+        {
+          "start": 179,
+          "end": 185,
+          "text": "179: \n180: \t\tgame.level.map:particleEmitter(target.x, target.y, 1, \"circle\", {oversize=1, a=210, limit_life=18, appear=2, base_rot=0, speed=0, img=\"reckless_strike\", radius=0})\n181: \t\t\n182: \t\tif self:attr(\"is_destroyer\") then\n183: \t\t\tself:setEffect(self.EFF_RECKLESS_PEN, 3 + math.ceil(self.is_destroyer/2), {power=10 * self.is_destroyer})\n184: \t\tend\n185: \t\treturn true"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-ashes-urhrok/data/talents/corruptions/oppression.lua",
+      "sha256": "4df44bc89ced7fc9fdd1e5daeec8ac83cf106c835fb2faf25c175316ff5cc3b3",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 175,
+          "end": 207,
+          "text": "175: \t\tself:project(tg, self.x, self.y, function(px, py, tg, self)\n176: \t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n177: \t\t\tlocal effParam\n178: \t\t\tif target then \n179: \t\t\t\teffParam = target:hasEffect(target.EFF_INFERNAL_FEAR) \n180: \t\t\tend\n181: \t\t\tif target and target ~= self and effParam then\n182: \t\t\t\tfears = fears + effParam.stacks\n183: \t\t\tend\n184: \t\tend)\n185: \t\tgame.level.map:particleEmitter(self.x, self.y, tg.radius, \"circle\", {oversize=1, a=170, limit_life=18, shader=true, appear=12, speed=2, img=\"fearfeast\", radius=tg.radius})\n186: \t\t\n187: \t\tif fears > 0 then\n188: \t\t\tself:attr(\"allow_on_heal\", 1)\n189: \t\t\tself:heal(t.getHeal(self, t) * fears, t)\n190: \t\t\tself:attr(\"allow_on_heal\", -1)\n191: \t\t\t\n192: \t\t\tif self.is_destroyer then\n193: \t\t\t\tself:incVim(self.is_destroyer * 0.4 * fears)\n194: \t\t\tend\n195: \n196: \t\t\tlocal gain = fears * t.getEnergyDrain(self, t)\n197: \t\t\tgain = math.min(gain, t.getEnergyCap(self, t))\n198: \n199: \t\t\tself.energy.value = self.energy.value + gain\n200: \t\t\tgame.logPlayer(self, \"You gain %.1f turns!\", gain / 1000)\n201: \n202: \t\tend\n203: \t\t\n204: \t\treturn true\n205: \tend,\n206: \tinfo = function(self, t)\n207: \t\treturn ([[You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.]])"
+        },
+        {
+          "start": 216,
+          "end": 250,
+          "text": "216: \tpoints = 5,\n217: \tcooldown = function(self, t) \n218: \t\treturn self:combatTalentScale(t, 50, 32)\n219: \tend,\n220: \tvim=80,\n221: \tno_npc_use=true, --Instantly ends player life.\n222: \trange = 5,\n223: \tgetDuration = function(self, t)\n224: \t\treturn self:combatTalentScale(t, 2, 4.5)\n225: \tend,\n226: \tgetStackReq = function(self, t)\n227: \t\treturn 8\n228: \tend,\t\n229: \trequires_target = true,\n230: \taction = function(self, t)\n231: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t)}\n232: \t\tlocal x, y, target = self:getTarget(tg)\n233: \t\tif not x or not y or not target then return nil end\n234: \t\tlocal effParam = target:hasEffect(target.EFF_INFERNAL_FEAR)\n235: \t\tif not effParam then return end\n236: \t\tif core.fov.distance(target.x, target.y, x, y) > 5 then return nil end\n237: \t\tif effParam.stacks >= t.getStackReq(self, t) then\n238: \t\t\ttarget:setEffect(target.EFF_HOPELESS, t.getDuration(self, t), {})\n239: \t\t\ttarget:removeEffect(target.EFF_INFERNAL_FEAR)\n240: \t\t\tgame.level.map:particleEmitter(self.x, self.y, 1, \"circle\", {oversize=1.7, a=170, limit_life=12, shader=true, appear=12, speed=0, base_rot=180, img=\"hope_wanes\", radius=0})\n241: \t\t\telse\n242: \t\t\treturn false\n243: \t\tend\n244: \t\treturn true\n245: \tend,\n246: \tinfo = function(self, t)\n247: \t\treturn ([[You crush the spirit of a target with at least %d fear stacks, consuming all stacks and making it unable to act for %d turns.\n248: \t\tThis talent ignores saves and immunities.]]):tformat(t.getStackReq(self, t), t.getDuration(self, t))\n249: \tend,\n250: }"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-ashes-urhrok/data/talents/corruptions/fearfire.lua",
+      "sha256": "c2faeddb2325d81dc87a1c4d591c0f8788c9c227d140fd6764d59258bd1f45d8",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 24,
+          "end": 95,
+          "text": "24: \ttype = {\"corruption/fearfire\", 1},\n25: \trequire = corrs_req_high1,\n26: \tpoints = 5,\n27: \trandom_ego = \"attack\",\n28: \tvim = 32,\n29: \tcooldown = 12,\n30: \ttactical = { ATTACK = {FIRE = 1}, CLOSEIN = 2 },\n31: \tdirect_hit = true,\n32: \treflectable = true,\n33: \trequires_target = true,\n34: \ttarget = function(self, t)\n35: \t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), nolock=true, friendlyfire=true, selffire=false, talent=t}\n36: \tend,\n37: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 20, 230) end,\n38: \tgetVision = function(self, t) return math.min(10, math.floor(7.5 + self:getTalentLevelRaw(t)/2)) end,\n39: \trange = function(self, t)\n40: \t\treturn math.ceil(self:combatTalentScale(t, 3.5, 7))\n41: \tend,\n42: \tradius = function(self, t)\n43: \t\treturn  math.ceil(self:combatTalentScale(t, 1, 4.5))\n44: \tend,\n45: \taction = function(self, t)\n46: \t\tlocal tg = self:getTalentTarget(t)\n47: \t\tlocal x, y = self:getTarget(tg)\n48: \t\tif not x or not y then return nil end\n49: \t\tif not self:hasLOS(x, y) or game.level.map:checkEntity(x, y, Map.TERRAIN, \"block_move\") then game.logSeen(self, \"You can't move there.\") return nil\tend\n50: \t\tlocal _ _, x, y = self:canProject(tg, x, y)\n51: \t\t\n52: \t\t-- since we're using a precise teleport we'll look for a free grid first\n53: \t\tlocal tx, ty = util.findFreeGrid(x, y, 5, true, {[Map.ACTOR]=true})\n54: \t\tif tx and ty then\n55: \t\t\tif not self:teleportRandom(tx, ty, 0) then\n56: \t\t\t\tgame.logSeen(self, \"The spell fizzles!\")\n57: \t\t\tend\n58: \t\tend\n59: \t\t\n60: \t\tlocal dam = self:spellCrit(t.getDamage(self, t))\n61: \t\t\tself:project(tg, self.x, self.y, DamageType.DEMONFIRE, dam)\n62: \t\t\tlocal _ _, _, _, x, y = self:canProject(tg, self.x, self.y)\n63: \t\t\tgame.level.map:addEffect(self,\n64: \t\t\t\tx, y, 4,\n65: \t\t\t\tDamageType.DEMONFIRE, dam/4,\n66: \t\t\t\ttg.radius,\n67: \t\t\t\t5, nil,\n68: \t\t\t\t{type=\"dark_inferno\"},\n69: \t\t\t\tnil, self:spellFriendlyFire()\n70: \t\t\t)\n71: \t\t\t\n72: \t\t\tgame.level.map:particleEmitter(x, y, tg.radius, \"fire_blast\", {radius=tg.radius})\n73: \t\t\tgame:playSoundNear(self, \"talents/fireflash\")\n74: \t\t\tlocal rad = t.getVision(self, t)\n75: \t\t\tself:setEffect(self.EFF_SENSE, 4, {\n76: \t\t\trange = rad,\n77: \t\t\tactor = 1,\n78: \t\t\t})\n79: \t\t\n80: \t\treturn true\n81: \tend,\n82: \tinfo = function(self, t)\n83: \t\tlocal damage = t.getDamage(self, t)\n84: \t\treturn ([[Open a gateway to the Fearscape, stepping through it to a nearby location. As you step out, a burst of fire will leave with you, dealing %0.2f demonfire damage to everyone within %d spaces and leaving flames which will deal an additional %0.2f demonfire damage over 4 turns.\n85: \t\tAdditionally, shifting through reality enhances your awareness, allowing you to see all enemies within %d spaces for the next 3 turns.\n86: \t\tThe damage will scale with your Spellpower and the range will increase with the talent level.]]):\n87: \t\ttformat(damDesc(self, DamageType.FIRE, damage), self:getTalentRadius(t), damDesc(self, DamageType.FIRE, damage), t.getVision(self, t))\n88: \tend,\n89: }\n90: \n91:  newTalent{\n92: \tname = \"Cauterize Spirit\",\n93: \ttype = {\"corruption/fearfire\", 2},\n94: \tpoints = 5,\n95: \trequire = corrs_req_high2,"
+        },
+        {
+          "start": 176,
+          "end": 189,
+          "text": "176: \tcooldown = 20,\n177: \tmode = \"sustained\",\n178: \trange = 0, \n179: \tno_npc_use = true, --Not really a good idea, AI wise\n180: \tdrain_vim = 5,\n181: \tradius = function(self, t)\n182: \t\treturn  math.ceil(self:combatTalentScale(t, 4, 8))\n183: \tend,\n184: \trequires_target = true,\n185: \ttarget = function(self, t)\n186: \t\treturn {type=\"cone\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), cone_angle = 90 + 10 * (self.is_destroyer or 0), selffire=false, talent=t}\n187: \tend,\n188: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 35, 150) end,\n189: \tactivate = function(self, t)"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-ashes-urhrok/data/birth/corrupted.lua",
+      "sha256": "a61a4733cfc00ff66cb9ccd9def1ccad04f0796cdf327baffee1a4cb3c56de1f",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 109,
+          "end": 163,
+          "text": "109: \n110: newBirthDescriptor{\n111: \ttype = \"subclass\",\n112: \tname = \"Demonologist\",\n113: \tlocked = function() return profile.mod.allow_build.corrupter_demonologist end,\n114: \tlocked_desc = _t\"Most simply run, but I understand: a distant planet, ravaged and damned. Burnt creations seek righteous vengeance, Urh'Rok's ashes, now destruction's engines. Harness their power! Capture and tame! I call on you, demons - UNLEASH THE FLAMES!\",\n115: \tdesc = {\n116: \t\t_t\"Contrary to popular beliefs Demonologists are not the pawns of demons, they enact pacts with them but always very carefully.\",\n117: \t\t_t\"They use those demonic powers for their own purpose, often evil but a few have been known to use demonic powers to fight demons.\",\n118: \t\t_t\"Demonologists are melee fighters, bashing their foes skulls with their shields while calling down rains of fire and darkness.\",\n119: \t\t_t\"#GOLD#Stat modifiers:\",\n120: \t\t_t\"#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +2 Constitution\",\n121: \t\t_t\"#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning\",\n122: \t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +2\",\n123: \t},\n124: \tpower_source = {technique=true, arcane=true},\n125: \tstats = { str=3, con=2, mag=4, },\n126: \ttalents_types = {\n127: \t\t[\"corruption/spellblaze\"]={false, 0.3},\n128: \t\t[\"corruption/doom-covenant\"]={false, 0.3},\n129: \t\t[\"corruption/torment\"]={true, 0.3},\n130: \t\t[\"corruption/shadowflame\"]={true, 0.3},\n131: \t\t[\"corruption/infernal-combat\"]={true, 0.3},\n132: \t\t[\"corruption/demonic-pact\"]={true, 0.3},\n133: \t\t[\"corruption/doom-shield\"]={true, 0.3},\n134: \t\t[\"corruption/black-magic\"]={true, 0.3},\n135: \t\t[\"cunning/survival\"]={true, 0},\n136: \t\t[\"technique/combat-training\"]={true, 0},\n137: \t\t[\"technique/combat-techniques-active\"]={true, 0.3},\n138: \t\t[\"technique/combat-techniques-passive\"]={true, 0.3},\n139: \t\t[\"technique/shield-offense\"]={true, 0.3},\n140: \t},\n141: \ttalents = {\n142: \t\t[ActorTalents.T_ARMOUR_TRAINING] = 2,\n143: \t\t[ActorTalents.T_WEAPON_COMBAT] = 1,\n144: \t\t[ActorTalents.T_WEAPONS_MASTERY] = 1,\n145: \t\t[ActorTalents.T_SHIELD_PUMMEL] = 1,\n146: \t\t[ActorTalents.T_FLAME_LEASH] = 1,\n147: \t\t[ActorTalents.T_DEMON_SEED] = 1,\n148: \t\t[ActorTalents.T_BLEAK_OUTCOME] = 1,\n149: \t},\n150: \tcopy = {\n151: \t\tclass_start_check = start_zone,\n152: \t\tmax_life = 110,\n153: \t\tresolvers.auto_equip_filters(\"Sun Paladin\"),\n154: \t\tresolvers.equipbirth{ id=true,\n155: \t\t\t{type=\"weapon\", subtype=\"longsword\", name=\"iron longsword\", autoreq=true, ego_chance=-1000, ego_chance=-1000},\n156: \t\t\t{type=\"armor\", subtype=\"shield\", name=\"iron shield\", autoreq=true, ego_chance=-1000, ego_chance=-1000},\n157: \t\t\t{type=\"armor\", subtype=\"heavy\", name=\"iron mail armour\", autoreq=true, ego_chance=-1000, ego_chance=-1000}\n158: \t\t},\n159: \t},\n160: \tcopy_add = {\n161: \t\tlife_rating = 2,\n162: \t},\n163: }"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-ashes-urhrok/overload/data/texts/unlock-corrupter_demonologist.lua",
+      "sha256": "dd01f3f48059a31958cc80da7d683d2abfbce87f00f63cd6b8e3901b9fb5d0b7",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 1,
+          "end": 36,
+          "text": "1: -- ToME - Tales of Maj'Eyal\n2: -- Copyright (C) 2009 - 2019 Nicolas Casalini\n3: --\n4: -- This program is free software: you can redistribute it and/or modify\n5: -- it under the terms of the GNU General Public License as published by\n6: -- the Free Software Foundation, either version 3 of the License, or\n7: -- (at your option) any later version.\n8: --\n9: -- This program is distributed in the hope that it will be useful,\n10: -- but WITHOUT ANY WARRANTY; without even the implied warranty of\n11: -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n12: -- GNU General Public License for more details.\n13: --\n14: -- You should have received a copy of the GNU General Public License\n15: -- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n16: --\n17: -- Nicolas Casalini \"DarkGod\"\n18: -- darkgod@te4.org\n19: \n20: return _t\"New Class: #LIGHT_GREEN#Corruptor (Demonologist)\",\n21: _t[[Demons in their invasion of Eyal have abducted natives of the planet and mindwiped them to serve as double agents.\n22: Trained in the use of the demon's own forces they have created many dark cults to spread fear and terror.\n23: Some have managed to escape their programming and chose to follow their own desires instead.\n24: \n25: You have defeated countless demons, seen how their essence work, witnessed how to bind demons to your own purpose and can now create new characters with the #LIGHT_GREEN#Demonologist class#WHITE#.\n26: \n27: Corruptors are spellcasters, ranged attackers using magic.\n28: Class features:#YELLOW#\n29: - Infect your foes with demonic seeds.\n30: - Bind demonic seeds to your equipment to enhance them.\n31: - Summon and control demons to do your binding.\n32: - Blend corrupted magic with a martial shield training to protect yourself and ruin your foes.#WHITE#\n33: \n34: Corruptors use \"vim\" to power their special abilities.\n35: Vim is the life force of all beings. It does not regenerate, and can only be stolen from your foes.\n36: ]]"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-cults/data/talents/demented/calamity.lua",
+      "sha256": "7a65b4d2d7a91f83f32472a330aeff48e7ac983914fd672dc09673a812a06d80",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 20,
+          "end": 75,
+          "text": "20: newTalent{\n21: \tname = \"Jinxed Touch\",\n22: \ttype = {\"demented/calamity\", 1},\n23: \tpoints = 5,\n24: \trequire = dementedreq1,\n25: \tcooldown = 10,\n26: \tmode = \"sustained\",\n27: --\tgetChance = function(self, t) return self:combatTalentLimit(t, 100, 35, 70) end,\n28: \tgetCrit = function(self, t)\n29: \t\tif self:getTalentLevelRaw(t) >= 5 then \n30: \t\t\treturn 2\n31: \t\telseif self:getTalentLevelRaw(t) >= 3 then\n32: \t\t\treturn 1.5\n33: \t\telse\n34: \t\t\treturn 1\n35: \t\tend\n36: \tend,\n37: \tgetSaves = function(self, t)\n38: \t\tif self:getTalentLevelRaw(t) >= 4 then \n39: \t\t\treturn 3\n40: \t\telseif self:getTalentLevelRaw(t) >= 2 then\n41: \t\t\treturn 2\n42: \t\telse\n43: \t\t\treturn 1\n44: \t\tend\n45: \tend,\t\n46: \tcallbackOnDealDamage = function(self, t, dam, target)\n47: \t\tif dam <=0 then return end\n48: \t\tif self.turn_procs.jinx and self.turn_procs.jinx[target] then return end\n49: \t\ttable.set(self.turn_procs, \"jinx\", {[target] = true})\n50: \t\ttarget:setEffect(target.EFF_JINX, 5, {src = self, stacks=1, max_stacks=10, power = t.getSaves(self, t), crit=t.getCrit(self,t), fail=(self:callTalent(self.T_PREORDAIN, \"getChance\") or 0), src=self })\n51: \t\tif self:knowTalent(self.T_LUCKDRINKER) then\n52: \t\t\tlocal t = self:getTalentFromId(self.T_LUCKDRINKER)\n53: \t\t\tif rng.percent(t.getChance(self,t)) then\n54: \t\t\t\tlocal avoid = 0\n55: \t\t\t\tif self:knowTalent(self.T_PREORDAIN) then avoid = t.getAvoid(self,t) end\n56: \t\t\t\tself:setEffect(self.EFF_FORTUNE, 5, {src = self, stacks=1, max_stacks=10, power = t.getSaves(self, t), crit=t.getCrit(self,t), avoid=avoid })\n57: \t\t\tend\n58: \t\tend\n59: \tend,\n60: \n61: \tactivate = function(self, t)\n62: \t\tlocal ret = {}\n63: \t\treturn ret\n64: \tend,\n65: \tdeactivate = function(self, t, p)\n66: \t\treturn true\n67: \tend,\n68: \tinfo = function(self, t)\n69: \t\tlocal saves = t.getSaves(self,t)\n70: \t\tlocal crit = t.getCrit(self,t)\n71: \t\treturn ([[Your touch carries an entropic curse, marking your victims for a terrible fate. Each time you deal damage to a target, they are Jinxed for 5 turns. This stacks up to 10 times, reducing saves and defense by %0.2f and critical strike chance by %0.2f%%.\n72: \t\t\tThis can only be applied once per target per turn and will fade entirely if you break line of sight with your target for more than 2 turns.]]):\n73: \t\ttformat(saves, crit)\n74: \tend,\n75: }"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-cults/data/talents/demented/disfigured-face.lua",
+      "sha256": "92e1c785090559761bc7cbc0b3542816a1c0a1f3c91b2e4cd421302a2caa6c36",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 22,
+          "end": 90,
+          "text": "22: newTalent{\n23: \tname = \"Diseased Tongue\",\n24: \ttype = {\"demented/disfigured-face\", 1},\n25: \trequire = dementedreq1,\n26: \tpoints = 5,\n27: \tcooldown = 5,\n28: \trange = function(self, t) return math.floor(self:combatTalentLimit(t, 6, 1, 4)) end,\n29: \ttactical = { ATTACK = {blight=2}, DISABLE = 0.5 },\n30: \tdirect_hit = true,\n31: \trequires_target = true,\n32: \tgetDiseasePower = function(self, t) return self:combatTalentSpellDamage(t, 5, 28) end,\n33: \tgetDamageDisease = function(self, t) return 5 + self:combatTalentSpellDamage(t, 5, 30) end,\n34: \tgetDamageTentacle = function(self, t) return 1 end,\n35: \tgetDuration = function(self, t) return 6 end,\n36: \tgetInsanity = function(self, t) return 10 end,\n37: \ttarget = function(self, t) return {type=\"cone\", range=0, radius=self:getTalentRange(t), selffire=false, friendlyfire=false, talent=t} end,\n38: \taction = function(self, t)\n39: \t\tlocal tentacle = self:callTalent(self.T_MUTATED_HAND, \"getTentacleCombat\", true)\n40: \t\tif not tentacle then return end\n41: \t\tlocal tg = self:getTalentTarget(t)\n42: \t\tlocal x, y = self:getTarget(tg)\n43: \t\tif not x or not y then return nil end\n44: \n45: \t\tself:attr(\"tentacle_hand_prevent\", 1)\n46: \n47: \t\tlocal diseases = {{self.EFF_WEAKNESS_DISEASE, \"str\"}, {self.EFF_ROTTING_DISEASE, \"con\"}, {self.EFF_DECREPITUDE_DISEASE, \"dex\"}}\n48: \t\tlocal damage = self:spellCrit(t.getDamageDisease(self, t))\n49: \t\tlocal did_hit = false\n50: \t\tself:attr(\"combat_apr\", 10000)\n51: \t\tself:project(tg, x, y, function(px, py)\n52: \t\t\tlocal target = game.level.map(px, py, engine.Map.ACTOR)\n53: \t\t\tif not target then return end\n54: \t\t\tlocal disease = rng.table(diseases)\n55: \t\t\tlocal speed, hit = self:attackTargetWith(target, tentacle, nil, t.getDamageTentacle(self, t))\n56: \t\t\tif hit and target:canBe(\"disease\") then\n57: \t\t\t\tdid_hit = true\n58: \t\t\t\ttarget:setEffect(disease[1], 6, {src=self, dam=damage, [disease[2]]=t.getDiseasePower(self, t), apply_power=self:combatSpellpower()})\n59: \t\t\tend\n60: \t\t\tif hit and self:knowTalent(self.T_GLIMPSE_OF_TRUE_HORROR) then\n61: \t\t\t\tself:callTalent(self.T_GLIMPSE_OF_TRUE_HORROR, \"affectTarget\", target)\n62: \t\t\tend\n63: \t\tend)\n64: \t\tself:attr(\"combat_apr\", -10000)\n65: \n66: \t\tlocal hx, hy = self:attachementSpot(\"back\", true)\n67: \t\tlocal ps = Particles.new(\"tentacle_lash\", 1, {dir=math.deg(math.atan2(y-self.y, x-self.x)+math.pi/2), dist=tg.radius})\n68: \t\tps.dx = hx ps.dy = hy self:addParticles(ps)\n69: \n70: \t\tself:attr(\"tentacle_hand_prevent\", -1)\n71: \n72: \t\tgame:playSoundNear(self, \"talents/slime\")\n73: \n74: \t\tif did_hit then self:incInsanity(t.getInsanity(self, t)) end\n75: \n76: \t\treturn true\n77: \tend,\n78: \tinfo = function(self, t)\n79: \t\treturn ([[Your tongue turns into a diseased tentacle that you use to #{italic}#lick#{normal}# enemies in a cone.\n80: \t\tLicked creatures take %d%% tentacle damage that ignores armor and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.\n81: \t\t\n82: \t\tIf at least one enemy is hit you gain %d insanity.\n83: \t\t\n84: \t\tDisease damage will increase with your Spellpower.]]):\n85: \t\ttformat(\n86: \t\t\tt.getDamageTentacle(self, t) * 100,\n87: \t\t\tt.getDuration(self, t), damDesc(self, DamageType.BLIGHT, t.getDamageDisease(self, t)), t.getDiseasePower(self, t),\n88: \t\t\tt.getInsanity(self, t)\n89: \t\t)\n90: \tend,"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-cults/data/talents/demented/doom.lua",
+      "sha256": "e68880092dbc5bfa5b8624f75b26297b163dca4b33d6dac38aba3760d6dd5b7e",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 28,
+          "end": 33,
+          "text": "28: \t--getMadnessDuration = function(self, t) return math.floor(self:combatTalentScale(t, 2, 3.6)) end,\n29: \tgetRuinDamage = function(self, t) return self:combatTalentSpellDamage(t, 1, 120) end,\n30: \tgetTreasonChance = function(self, t) return self:combatTalentScale(t, 10, 25) end,\n31: \ton_learn = function(self, t)\n32: \t\tif self:getTalentLevel(t) >= 1 and not self:knowTalent(self.T_PROPHECY_OF_RUIN) then\n33: \t\t\tself:learnTalent(self.T_PROPHECY_OF_RUIN, true)"
+        },
+        {
+          "start": 209,
+          "end": 232,
+          "text": "209: \tpoints = 5,\n210: \tcooldown = 20,\n211: \tinsanity = -10,\n212: \trange = 10,\n213: \tradius = function(self, t)\n214: \t\tlocal t2 = self:isTalentActive(self.T_GRAND_ORATION)\n215: \t\tif t2 and t2.talent == t.id then\n216: \t\t\tlocal t3 = self:getTalentFromId(self.T_GRAND_ORATION)\n217: \t\t\treturn self:getTalentRadius(t3)\n218: \t\tend\n219: \t\treturn 0\n220: \tend,\n221: \ttactical = { DISABLE = 3 },\n222: \tdirect_hit = true,\n223: \trequires_target = true,\n224: \tgetChance = function(self, t) return self:callTalent(self.T_PROPHECY, \"getTreasonChance\") end,\n225: \t--getDamage = function(self, t) return self:callTalent(self.T_PROPHECY, \"getTreasonDamage\") end,\n226: \ttwofold_curse = function(self, t, target)\n227: \t\tlocal t = self:getTalentFromId(self.T_TWOFOLD_CURSE)\n228: \t\ttarget:setEffect(target.EFF_PROPHECY_OF_TREASON, 6, {src=self, power=t.getTreasonChance(self,t), twofold=1, apply_power=self:combatSpellpower()})\n229: \t\treturn true\n230: \tend,\n231: \tcallbackOnTakeDamage = function(self, t, src, x, y, type, dam, state)\n232: \t\t-- Displace Damage?"
+        },
+        {
+          "start": 261,
+          "end": 293,
+          "text": "261: \tend,\n262: \taction = function(self, t)\n263: \t\tlocal tg = {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), talent=t}\n264: \t\tlocal x, y = self:getTargetLimited(tg)\n265: \t\tif not x or not y then return nil end\n266: \t\tlocal heal = 0\n267: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n268: \t\tif not target then return end\n269: \t\tgame.level.map:particleEmitter(target.x, target.y, 1, \"circle\", {base_rot=0, oversize=1.7, a=230, limit_life=8, appear=8, speed=0, img=\"prophecy_cast_aura\", radius=0, shader=true})\n270: \t\ttarget:setEffect(target.EFF_PROPHECY_OF_TREASON, 6, {src=self, power=t.getChance(self,t), apply_power=self:combatSpellpower()})\n271: \t\tlocal t2 = self:isTalentActive(self.T_TWOFOLD_CURSE) \n272: \t\tif t2 and t2.talent ~= t.id then\n273: \t\t\tt2 = self:getTalentFromId(t2.talent)\n274: \t\t\tt2.twofold_curse(self, t2, target)\n275: \t\tend\n276: \t\tlocal t3 = self:isTalentActive(self.T_GRAND_ORATION)\n277: \t\tif t3 and t3.talent == t.id then\n278: \t\t\tlocal tg = {type=\"ball\", radius=self:callTalent(self.T_GRAND_ORATION, \"radius\"), act_exclude={[target.uid]=true}, selffire=false, x=target.x, y=target.y}\n279: \t\t\tself:project(tg, x, y, function(tx, ty)\n280: \t\t\t\tlocal target = game.level.map(tx, ty, Map.ACTOR)\n281: \t\t\t\tif not target then return end\n282: \t\t\t\ttarget:setEffect(target.EFF_PROPHECY_OF_TREASON, 6, {src=self, power=t.getChance(self,t), apply_power=self:combatSpellpower()})\t\t\t\t\n283: \t\t\t\tgame.level.map:particleEmitter(tx, ty, 1, \"circle\", {base_rot=0, oversize=0.7, a=130, limit_life=8, appear=8, speed=0, img=\"curse_gfx\", radius=0})\n284: \t\t\tend)\n285: \t\tend\n286: \t\tgame:playSoundNear(self, \"talents/prophecy\")\n287: \t\treturn true\n288: \tend,\n289: \tinfo = function(self, t)\n290: \t\tlocal chance = t.getChance(self,t)\n291: \t\treturn ([[Utter a prophecy of the impending treachery of your target. For the next 6 turns, they will have a %d%% each turn to waste their turn attempting to attack an adjacent creature for 10%% weapon damage, or even themself if no creature is present.\n292: \t\tA target can only be affected by a single prophecy at a time.]]):tformat(chance)\n293: \tend,"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-cults/data/talents/demented/entropy.lua",
+      "sha256": "e8046402a99f3611d9f63cbc57bc060c9ce1039461e5bdfcbf5a64598fbcb69c",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 237,
+          "end": 284,
+          "text": "237: newTalent{\n238: \tname = \"Power Overwhelming\",\n239: \trequire = dementedreq4,\n240: \ttype = {\"demented/entropy\", 4},\n241: \tpoints = 5,\n242: \tmode = \"sustained\",\n243: \tcooldown = 10,\n244: \tno_energy = true,\n245: \ttactical = { BUFF = 2 },\n246: \tgetDamageIncrease = function(self, t) return self:combatTalentScale(t, 4, 16) end,\n247: \tgetResistPenalty = function(self, t) return self:combatTalentScale(t, 6, 24) end,\n248: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 5, 30) end,\n249: \tcallbackOnTalentPost = function(self, t,  ab)\n250: \t\tif ab.is_spell and not ab.no_energy and ab.mode == \"activated\" and self.in_combat then\n251: \t\t\tlocal backlash = t.getDamage(self,t)\n252: \t\t\tself:setEffect(self.EFF_ENTROPIC_WASTING, 8, {src=self, power=backlash/8})\n253: \t\tend\n254: \tend,\n255: \tactivate = function(self, t)\n256: \t\tgame:playSoundNear(self, \"talents/power_overwhelming\")\n257: \t\tlocal particle\n258: \t\tif core.shader.active(4) then\n259: \t\t\tparticle = self:addParticles(Particles.new(\"shader_ring_rotating\", 1, {rotation=0, radius=1.1, img=\"power_overwhelming\"}, {type=\"lightningshield\"}))\n260: \t\telse\n261: \t\t\tparticle = self:addParticles(Particles.new(\"power_overwhelming\", 1))\n262: \t\tend\n263: \t\treturn {\n264: \t\t\tdam = self:addTemporaryValue(\"inc_damage\", {[DamageType.DARKNESS] = t.getDamageIncrease(self, t), [DamageType.TEMPORAL] = t.getDamageIncrease(self, t)}),\n265: \t\t\tresist = self:addTemporaryValue(\"resists_pen\", {[DamageType.DARKNESS] = t.getResistPenalty(self, t), [DamageType.TEMPORAL] = t.getResistPenalty(self, t)}),\n266: \t\t\tdambonus = t.getDamageIncrease(self,t),\n267: \t\t\tparticle = particle,\n268: \t\t}\n269: \tend,\n270: \tdeactivate = function(self, t, p)\n271: \t\tself:removeParticles(p.particle)\n272: \t\tself:removeTemporaryValue(\"inc_damage\", p.dam)\n273: \t\tself:removeTemporaryValue(\"resists_pen\", p.resist)\n274: \t\tp.dambonus = nil\n275: \t\treturn true\n276: \tend,\n277: \tinfo = function(self, t)\n278: \t\tlocal power = t.getDamageIncrease(self,t)\n279: \t\tlocal pen = t.getResistPenalty(self,t)\n280: \t\tlocal dam = t.getDamage(self,t)\n281: \t\treturn ([[You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.]]):\n282: \t\ttformat(power, pen, dam)\n283: \tend,\n284: }"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-cults/data/talents/demented/friend-of-the-worm.lua",
+      "sha256": "e8c4508aa632de865c89ae398406cc6cad34b49349142c43bdf06fb8b68a1ed1",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 261,
+          "end": 274,
+          "text": "261: \n262: \t\tif wtw.level < self.level then\n263: \t\t\twtw.max_level = self.max_level\n264: \t\t\twtw:forceLevelup(self.level)\n265: \t\tend\n266: \n267: \t\tif self:knowTalent(self.T_SHARED_INSANITY) then\n268: \t\t\twtw.max_inscriptions = 1 + self:callTalent(self.T_SHARED_INSANITY, \"getInscriptions\")\n269: \t\tend\n270: \n271: \t\tif self:knowTalent(self.T_WORM_THAT_STABS) then\n272: \t\t\twtw.talent_cd_reduction = {[Talents.T_BLINDSIDE] = (1 + self:callTalent(self.T_WORM_THAT_STABS, \"getBlindside\"))}\n273: \t\tend\n274: "
+        },
+        {
+          "start": 443,
+          "end": 516,
+          "text": "443: \tname = \"Foul Convergence\",\n444: \tshort_name = \"WORM_THAT_STABS\",\n445: \ttype = {\"demented/friend-of-the-worm\", 2},\n446: \trequire = dementedreq_high2,\n447: \tpoints = 5,\n448: \tinsanity = 30,\n449: \tcooldown = function(self, t) return self:combatTalentLimit(t, 8, 25, 10) end,\n450: \ttactical = { ATTACK = { weapon = 0.5, }, CLOSEIN = 3 },\n451: \trange = 10,\n452: \tdirect_hit = true,\n453: \trequires_target = true,\n454: \tis_melee = true,\n455: \tis_teleport = true,\n456: \tno_npc_use = true,  -- Lets just not try to balance a 2 Actor teleport strike talent\n457: \ttarget = function(self, t) return {type=\"hit\", range=self:getTalentRange(t), talent=t} end,\n458: \tgetDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.7, 1.3) end,\n459: \tgetBlindside = function(self, t) return math.floor(self:combatTalentLimit(t, 5, 1, 3.5)) end,\n460: \ton_pre_use = function(self, t, silent) \n461: \t\tif self.demented_wtw and self.demented_wtw:attr(\"dead\") then \n462: \t\t\tif not silent then game.logPlayer(self, \"Your friendly horror is dead.\") end\n463: \t\t\treturn false\n464: \t\tend\n465: \t\treturn true\n466: \tend,\n467: \ton_learn = function(self, t)\n468: \t\tif self:knowTalent(self.T_WORM_THAT_WALKS) then\n469: \t\t\tself:callTalent(self.T_WORM_THAT_WALKS, \"update_wtw\")\n470: \t\tend\n471: \tend,\n472: \ton_unlearn = function(self, t)\n473: \t\tif self:knowTalent(self.T_WORM_THAT_WALKS) then\n474: \t\t\tself:callTalent(self.T_WORM_THAT_WALKS, \"update_wtw\")\n475: \t\tend\n476: \tend,\n477: \taction = function(self, t)\n478: \t\tif self:attr(\"never_move\") then return end\n479: \t\tlocal wtw = self.demented_wtw\n480: \t\tif not wtw or (wtw and wtw.dead) then return end\n481: \t\t\n482: \t\tlocal tg = self:getTalentTarget(t)\n483: \t\tlocal x, y, target = self:getTarget(tg)\n484: \t\tif not x or not y then return nil end\n485: \t\tif not target or not self:canProject(tg, x, y) then return nil end\n486: \t\tif not self:hasLOS(x, y) or game.level.map:checkEntity(x, y, Map.TERRAIN, \"block_move\") then return nil end -- To prevent teleporting through walls\n487: \t\tif not self:teleportRandom(x, y, 0) then \n488: \t\t\tgame.logSeen(self, \"%s's teleport fizzles!\", self:getName():capitalize()) \n489: \t\t\treturn true \n490: \t\tend\n491: \n492: \t\tif target and target.x and core.fov.distance(self.x, self.y, target.x, target.y) == 1 then\n493: \t\t\tlocal DamageType = require \"engine.DamageType\"\n494: \t\t\tself:attackTarget(target, DamageType.PHYSICAL, t.getDamage(self, t), true)\n495: \t\t\tgame:playSoundNear(self, \"talents/teleport\")\n496: \t\tend\n497: \n498: \t\t-- Bring a friend\n499: \t\t-- For convenience we won't check range or LOS for the pet\n500: \t\tif not wtw:teleportRandom(x, y, 0) then\n501: \t\t\tgame.logSeen(wtw, \"%s's teleport fizzles!\", self:getName():capitalize())\n502: \t\t\treturn true \n503: \t\tend\n504: \n505: \t\tif target and target.x and core.fov.distance(wtw.x, wtw.y, target.x, target.y) == 1 then\n506: \t\t\tlocal DamageType = require \"engine.DamageType\"\n507: \t\t\twtw:attackTarget(target, DamageType.PHYSICAL, t.getDamage(self, t), true)\n508: \t\t\twtw:setTarget(target)\n509: \t\tend\n510: \t\treturn true\n511: \tend,\n512: \tinfo = function(self, t)\n513: \t\treturn ([[You and your Worm that Walks both teleport to an enemy in range %d and make a melee attack for %d%% damage.\n514: \t\t\tYour Worm that Walks' Blindside talent cooldown is reduced by %d.]])\n515: \t\t:tformat(10, t.getDamage(self, t) * 100, t.getBlindside(self, t))\n516: \tend,"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-cults/data/talents/demented/oblivion.lua",
+      "sha256": "3242012a234a5b9a8c9ebfdb57556803619c8b752954e150d2b653806cb1d44b",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 22,
+          "end": 60,
+          "text": "22: newTalent{\n23: \tname = \"Nihil\",\n24: \ttype = {\"demented/oblivion\", 1},\n25: \trequire = dementedreq_high1,\n26: \tpoints = 5,\n27: \tmode = \"passive\",\n28: \tdirect_hit = true,\n29: \tgetPower = function(self, t) return self:combatTalentLimit(t, 50, 10, 40)/100 end,\n30: \tgetTargetCount = function(self, t) return math.floor(self:combatTalentScale(t, 1, 3)) end,\n31: \tdo_nihil = function(self, t)\n32: \n33: \t\tlocal tgts = {}\n34: \t\tlocal grids = core.fov.circle_grids(self.x, self.y, 10, true)\n35: \t\tfor x, yy in pairs(grids) do for y, _ in pairs(grids[x]) do\n36: \t\t\tlocal a = game.level.map(x, y, Map.ACTOR)\n37: \t\t\tif a and self:reactionToward(a) < 0 then\n38: \t\t\t\ttgts[#tgts+1] = a\n39: \t\t\tend\n40: \t\tend end\n41: \n42: \t\t-- Randomly take targets\n43: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t), talent=t}\n44: \t\tfor i = 1, t.getTargetCount(self, t) do\n45: \t\t\tif #tgts <= 0 then break end\n46: \t\t\tlocal a, id = rng.table(tgts)\n47: \t\t\ttable.remove(tgts, id)\n48: \t\t\tlocal numb = 0\n49: \t\t\tif self:knowTalent(self.T_ERASE) then\n50: \t\t\t\tnumb = self:callTalent(self.T_ERASE, \"getNumb\")\n51: \t\t\tend\n52: \t\t\ta:setEffect(a.EFF_NIHIL, 8, {src=self, power=t.getPower(self,t), numb=numb})\n53: \t\tend\n54: \tend,\n55: \tinfo = function(self, t)\n56: \t\tlocal targetcount = t.getTargetCount(self, t)\n57: \t\tlocal power = t.getPower(self, t)*100\n58: \t\treturn ([[Your entropy bleeds into the world around you. On having entropic backlash applied or increased to you, %d random enemies you can see within radius 10 will be shrouded in entropic forces for 8 turns. This increases the duration of new negative effects and reduces the duration of new beneficial effects applied to the target by %d%%.]]):\n59: \t\ttformat(targetcount, power)\n60: \tend,"
+        },
+        {
+          "start": 194,
+          "end": 213,
+          "text": "194: \trequire = dementedreq_high4,\n195: \tpoints = 5, \n196: \tcooldown = 20,\n197: \tinsanity = -10,\n198: \ttactical = { ATTACKAREA = { TEMPORAL = 3, DARKNESS = 3}, DISABLE = 2 },\n199: \trange = 7,\n200: \tradius = 4,\n201: \trequires_target = true,\n202: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 1, 20) end,\n203: \tgetDuration = function(self, t) return math.floor(self:combatTalentLimit(t, 12, 3, 10)) end, -- Awful curve, fix me later\n204: \ttarget = function(self, t)\n205: \t\treturn {type=\"ball\", radius=self:getTalentRadius(t), range=self:getTalentRange(t), nolock=true, talent=t}\n206: \tend,\n207: \taction = function(self, t)\n208: \t\tlocal tg = self:getTalentTarget(t)\n209: \t\tlocal x, y = self:getTarget(tg)\n210: \t\tif not x or not y then return nil end\n211: \t\tlocal _ _, x, y = self:canProject(tg, x, y)\n212: \t\tlocal oe = game.level.map(x, y, Map.TERRAIN+1)\n213: \t\tif (oe and oe.is_maelstrom) or game.level.map:checkEntity(x, y, Map.TERRAIN, \"block_move\") then return nil end"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-cults/data/timed_effects.lua",
+      "sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "verification": "actual DLC file SHA equals frozen REPAIR-INPUT SHA",
+      "excerpts": [
+        {
+          "start": 795,
+          "end": 841,
+          "text": "795: \tlong_desc = function(self, eff) return (\"The target is wasting away from entropic forces, taking %0.2f damage per turn.\"):tformat(eff.power) end,\n796: \ttype = \"other\",\n797: \tcharges = function(self, eff) return math.floor(eff.power*eff.dur) end,\n798: \tsubtype = { temporal=true, darkness=true }, no_ct_effect = true,\n799: \tcancel_on_level_change = true,\n800: \tparameters = { power = 100, },\n801: \ton_gain = function(self, err) return _t\"#Target# is wasting away!\", _t\"+Entropic Wasting\" end,\n802: \ton_lose = function(self, err) return _t\"#Target#'s is no longer wasting away.\", _t\"-Entropic Wasting\" end,\n803: \tactivate = function(self, eff)\n804: \t\tif self:knowTalent(self.T_NIHIL) then\n805: \t\t\tlocal t = self:getTalentFromId(self.T_NIHIL)\n806: \t\t\tt.do_nihil(self,t)\n807: \t\tend\n808: \t\tif core.shader.active() then\n809: \t\t\tlocal hx, hy = self:attachementSpot(\"head\", true) hx, hy = hx or 0, hy or 0\n810: \t\t\tself:effectParticles(eff, {type=\"shader_shield\", args={toback=true, x=hx, y=hy, size_factor=1, img=\"entropy_player\"}, shader={type=\"tentacles\", appearTime=0.6, time_factor=300, noup=0.0}})\n811: \t\tend\n812: \tend,\n813: \tdeactivate = function(self, eff)\n814: \tend,\n815: \ton_merge = function(self, old_eff, new_eff)\n816: \t\tif self:knowTalent(self.T_NIHIL) then\n817: \t\t\tlocal t = self:getTalentFromId(self.T_NIHIL)\n818: \t\t\tt.do_nihil(self,t)\n819: \t\tend\n820: \t\tlocal adjusted_power = (old_eff.power * old_eff.dur / new_eff.dur)\n821: \t\tlocal dur = math.max(old_eff.dur, new_eff.dur)\n822: \t\tlocal power = adjusted_power + new_eff.power\n823: \t\told_eff.dur = dur\n824: \t\told_eff.power = power\n825: \t\treturn old_eff\n826: \tend,\n827: \ton_timeout = function(self, eff)\n828: \t\tif self.resting then self:removeEffect(self.EFF_ENTROPIC_WASTING) return end\n829: \t\tif self:attr(\"ignore_entropic_wasting\") then return end\n830: \t\tlocal dam = eff.power\n831: \t\tif eff.src:knowTalent(eff.src.T_REVERSE_ENTROPY) then\n832: \t\t\tlocal reduce = eff.src:callTalent(eff.src.T_REVERSE_ENTROPY, \"getReduction\") / 100\n833: \t\t\tdam = dam * (1 - reduce)\n834: \t\tend\n835: \t\tif (self.life - dam) > (self.die_at or 0) then\n836: \t\t\tself.life = self.life - dam\n837: \t\t\tgame.logSeen(self, \"#{bold}##LIGHT_STEEL_BLUE#%s loses %d health to the entropy.#{normal}##LAST##\", self:getName():capitalize(), math.ceil(dam))\n838: \t\telse\n839: \t\t\tself.life = (self.die_at or 0) + 1\n840: \t\t\tgame.logSeen(self, \"#{bold}##RED#%s loses %d health and is almost overcome by the entropy!#{normal}##LAST##\", self:getName():capitalize(), math.ceil(dam))\n841: \t\tend"
+        },
+        {
+          "start": 994,
+          "end": 1055,
+          "text": "994: \tname = \"PROPHECY_OF_TREASON\", image = \"talents/prophecy_of_treason.png\",\n995: \tdesc = _t\"Prophecy of Treason\",\n996: \tlong_desc = function(self, eff) return (\"The target is doomed to treason. Each turn they have a %d%% chance to attack an adjacent creature.  If no creatures are adjacent they will attack themself.\"):tformat(eff.power) end,\n997: \ttype = \"magical\",\n998: \tsubtype = { darkness=true, prophecy=true },\n999: \tstatus = \"detrimental\",\n1000: \ton_gain = function(self, err) return _t\"#Target# is doomed to treason!\", _t\"+Prophecy of Treason\" end,\n1001: \ton_lose = function(self, err) return _t\"#Target# is free from the prophecy.\", _t\"-Prophecy of Treason\" end,\n1002: \tparameters = { power=10,},\n1003: \tactivate = function(self, eff)\n1004: \t\tif not eff.twofold then\n1005: \t\t\tif self:hasEffect(self.EFF_PROPHECY_OF_MADNESS) then self:removeEffect(self.EFF_PROPHECY_OF_MADNESS) end \n1006: \t\t\tif self:hasEffect(self.EFF_PROPHECY_OF_RUIN) then self:removeEffect(self.EFF_PROPHECY_OF_RUIN) end\n1007: \t\tend\n1008: \t\tif core.shader.active() then\n1009: \t\t\tself:effectParticles(eff, {type=\"shader_shield\", args={x=0, y=0, size_factor=1, img=\"prophecy_debuff\"}, shader={type=\"tentacles\", appearTime=1, time_factor=1000, noup=0.0}})\n1010: \t\tend\n1011: \n1012: \tend,\n1013: \tdeactivate = function(self, eff)\n1014: \tend,\n1015: \tcallbackOnAct = function(self, eff)\n1016: \t\tif not self:enoughEnergy() then return nil end\n1017: \n1018: \t\t-- apply periodic timer instead of random chance\n1019: \t\tif not eff.timer then\n1020: \t\t\teff.timer = rng.float(0, 100)\n1021: \t\tend\n1022: \t\tif not self:checkHit(eff.src:combatSpellpower(), self:combatSpellResist(), 0, 95, 5) then\n1023: \t\t\teff.timer = eff.timer + eff.power * 0.5\n1024: \t\t\tgame.logSeen(self, \"#F53CBE#%s struggles to resist the prophecy.\", self:getName():capitalize())\n1025: \t\telse\n1026: \t\t\teff.timer = eff.timer + eff.power\n1027: \t\tend\n1028: \t\tif eff.timer > 100 then\n1029: \t\t\teff.timer = eff.timer - 100\n1030: \n1031: \t\t\tlocal start = rng.range(0, 8)\n1032: \t\t\tlocal hit = false\n1033: \t\t\tfor i = start, start + 8 do\n1034: \t\t\t\tlocal x = self.x + (i % 3) - 1\n1035: \t\t\t\tlocal y = self.y + math.floor((i % 9) / 3) - 1\n1036: \t\t\t\tif (self.x ~= x or self.y ~= y) then\n1037: \t\t\t\t\tlocal target = game.level.map(x, y, Map.ACTOR)\n1038: \t\t\t\t\tif target and not target.dead then\n1039: \t\t\t\t\t\tgame.logSeen(target, \"#F53CBE#%s succumbs to the prophecy, attacking %s!\", self:getName():capitalize(), target:getName():capitalize())\n1040: \t\t\t\t\t\tself:attackTarget(target, nil, 0.1, false)\n1041: \t\t\t\t\t\thit = true\n1042: \t\t\t\t\t\treturn\n1043: \t\t\t\t\tend\n1044: \t\t\t\tend\n1045: \t\t\tend\n1046: \t\t\tif not hit then\n1047: \t\t\t\tgame.logSeen(self, \"#F53CBE#%s succumbs to the prophecy, striking themself!\", self:getName():capitalize())\n1048: \t\t\t\tself:attackTarget(self, nil, 0.1, false)\n1049: \t\t\t\treturn\n1050: \t\t\tend\n1051: \t\tend\n1052: \tend,\n1053: }\n1054: \n1055: newEffect{"
+        },
+        {
+          "start": 1095,
+          "end": 1180,
+          "text": "1095: newEffect{\n1096: \tname = \"NIHIL\", image = \"talents/nihil.png\",\n1097: \tdesc = _t\"Nihil\",\n1098: \tlong_desc = function(self, eff) return (\"The target is engulfed in entropy, reducing the duration of new beneficial effects and increasing the duration of new negative effects by %d%%.\\nThis effect will fade in 2 turns if the source is not in line of sight.\"):tformat(eff.power*100) end,\n1099: \tcharges = function(self, eff) return eff.nb or 0 end,\t\n1100: \ttype = \"other\",\n1101: \tsubtype = { temporal=true, darkness=true },\n1102: \tstatus = \"detrimental\",\n1103: \tparameters = { power=0.1, dam=0.1, numb=0, damage=0, nb=0 },\n1104: \ton_gain = function(self, err) return _t\"#Target# is wreathed in entropy.\" end,\n1105: \ton_lose = function(self, err) return _t\"#Target# is free of the entropy.\" end,\n1106: \tactivate = function(self, eff)\n1107: \t\tif eff.src:knowTalent(eff.src.T_ERASE) then eff.damage = eff.src:spellCrit(eff.src:callTalent(eff.src.T_ERASE, \"getDamage\")) end -- Only calculate crit once per application\n1108: \t\teff.detid = self:addTemporaryValue(\"increase_detrimental_status_effects_time\", eff.power)\n1109: \t\teff.benid = self:addTemporaryValue(\"reduce_beneficial_status_effects_time\", eff.power)\t\t\n1110: \tend,\n1111: \tdeactivate = function(self, eff)\n1112: \t\tself:removeTemporaryValue(\"increase_detrimental_status_effects_time\", eff.detid)\n1113: \t\tself:removeTemporaryValue(\"reduce_beneficial_status_effects_time\", eff.benid)\t\t\n1114: \tend,\n1115: \ton_merge = function(self, old_eff, new_eff)\n1116: \t\t-- We could recalculate crit here, but in the name of not giving up free crit procs so easily its proooobably better not to.. Debatable\n1117: \t\tlocal dur = math.max(old_eff.dur, new_eff.dur)\n1118: \t\tlocal nb = math.max(old_eff.nb, new_eff.nb) -- Don't reset Unravel count on merge\n1119: \t\t--local power = old_eff.power + new_eff.power\n1120: \t\told_eff.dur = dur\n1121: \t\t--old_eff.power = power\n1122: \t\told_eff.nb = nb\n1123: \t\treturn old_eff\n1124: \tend,\n1125: \ton_timeout = function(self, eff)\n1126: \t\t-- Remove the entire effect independent of stacks if LOS is broken for more than 2 turns\n1127: \t\tif eff.src.x and not self:hasLOS(eff.src.x, eff.src.y) then\n1128: \t\t\teff.fading = eff.fading or 0\n1129: \t\t\teff.fading = eff.fading + 1\n1130: \t\t\tif eff.fading >= 2 then self:removeEffect(self.EFF_NIHIL) end\n1131: \t\telse\n1132: \t\t\teff.fading = nil\n1133: \t\tend\n1134: \t\tif eff.src:knowTalent(eff.src.T_ERASE) then\n1135: \t\t\tlocal dam = eff.damage\n1136: \t\t\tlocal nb = 0\n1137: \t\n1138: \t\t\tfor eff_id, p in pairs(self.tmp) do\n1139: \t\t\t\tlocal e = self.tempeffect_def[eff_id]\n1140: \t\t\t\tif e.status == \"detrimental\" and e.type == \"magical\" then\n1141: \t\t\t\t\tnb = nb + 1\n1142: \t\t\t\tend\n1143: \t\t\tend\n1144: \t\t\t\n1145: \t\t\tif nb > 0 then\n1146: \t\t\t\tdam = dam * nb\n1147: \t\t\t\tDamageType:get(DamageType.TEMPORAL).projector(eff.src, self.x, self.y, DamageType.TEMPORAL, dam)\n1148: \t\t\tend\n1149: \t\tend\n1150: \tend,\n1151: \tcallbackOnDealDamage = function(self, eff, value, target, dead, death_node)\n1152: \t\tif dead then return end\n1153: \t\tif value <= 0 then return end\n1154: \t\t\n1155: \t\tlocal nb = 0\n1156: \t\tfor eff_id, p in pairs(self.tmp) do\n1157: \t\t\tlocal e = self.tempeffect_def[eff_id]\n1158: \t\t\tif e.status == \"detrimental\" and e.type == \"magical\" then\n1159: \t\t\t\tnb = nb + 1\n1160: \t\t\tend\n1161: \t\tend\n1162: \t\tvalue = value - (value * eff.numb * nb / 100)\n1163: \t\treturn value\n1164: \tend,\n1165: \tcallbackOnTemporaryEffect = function(self, eff, eff_id, e, p)\n1166: \t\tlocal t = eff.src:getTalentFromId(eff.src.T_UNRAVEL_EXISTENCE)\n1167: \t\tif not t or not eff.src:knowTalent(t) then return end\n1168: \t\tif eff.src:isTalentCoolingDown(t) then return end\n1169: \t\tif e.type == \"magical\" and e.status == \"detrimental\" and not e.subtype[\"cross tier\"] and not (eff_id == self.EFF_ARCANE_EYE_SEEN) then\n1170: \t\t\teff.nb = eff.nb + 1\n1171: \t\t\tif eff.nb >= 6 then\n1172: \t\t\t\tt.unravel(eff.src, self, t, eff.dur)\n1173: \t\t\t\teff.nb = 0\n1174: \t\t\t\tgame.logSeen(self, \"#LIGHT_RED#A void annihilator manifests from %s!\", self:getName():capitalize())\n1175: \t\t\tend\n1176: \t\tend\n1177: \tend,\n1178: }\n1179: \n1180: newEffect{"
+        },
+        {
+          "start": 1531,
+          "end": 1597,
+          "text": "1531: \t\tself:removeTemporaryValue(\"combat_def\", old_eff.def)\t\t\n1532: \t\tself:removeTemporaryValue(\"combat_mentalresist\", old_eff.mental)\n1533: \t\tself:removeTemporaryValue(\"combat_spellresist\", old_eff.spell)\n1534: \t\tself:removeTemporaryValue(\"combat_physresist\", old_eff.physical)\n1535: \t\tself:removeTemporaryValue(\"combat_physcrit\", old_eff.pcritid)\n1536: \t\tself:removeTemporaryValue(\"combat_spellcrit\", old_eff.scritid)\n1537: \t\tself:removeTemporaryValue(\"combat_mindcrit\", old_eff.mcritid)\n1538: \t\t\n1539: \t\tif old_eff.failid then self:removeTemporaryValue(\"talent_fail_chance\", old_eff.failid) end\n1540: \n1541: \t\told_eff.def = self:addTemporaryValue(\"combat_def\", -old_eff.power*stackCount)\t\t\n1542: \t\told_eff.mental = self:addTemporaryValue(\"combat_mentalresist\", -old_eff.power*stackCount)\n1543: \t\told_eff.spell = self:addTemporaryValue(\"combat_spellresist\", -old_eff.power*stackCount)\n1544: \t\told_eff.physical = self:addTemporaryValue(\"combat_physresist\", -old_eff.power*stackCount)\n1545: \t\told_eff.pcritid = self:addTemporaryValue(\"combat_physcrit\", -old_eff.crit*stackCount)\n1546: \t\told_eff.scritid = self:addTemporaryValue(\"combat_spellcrit\", -old_eff.crit*stackCount)\n1547: \t\told_eff.mcritid = self:addTemporaryValue(\"combat_mindcrit\", -old_eff.crit*stackCount)\n1548: \t\t\n1549: \t\tif old_eff.fail > 0 and stackCount > 6 then\n1550: \t\t\told_eff.failid = self:addTemporaryValue(\"talent_fail_chance\", old_eff.fail*(stackCount - 6))\n1551: \t\tend\t\t\n1552: \t\t\n1553: \t\told_eff.stacks = stackCount\n1554: \t\t\n1555: \t\treturn old_eff\n1556: \t\t\n1557: \tend,\n1558: \tactivate = function(self, eff)\n1559: \t\teff.def = self:addTemporaryValue(\"combat_def\", -eff.power*eff.stacks)\t\t\t\n1560: \t\teff.mental = self:addTemporaryValue(\"combat_mentalresist\", -eff.power*eff.stacks )\n1561: \t\teff.spell = self:addTemporaryValue(\"combat_spellresist\", -eff.power*eff.stacks)\n1562: \t\teff.physical = self:addTemporaryValue(\"combat_physresist\", -eff.power*eff.stacks)\n1563: \t\teff.pcritid = self:addTemporaryValue(\"combat_physcrit\", -eff.crit*eff.stacks)\n1564: \t\teff.scritid = self:addTemporaryValue(\"combat_spellcrit\", -eff.crit*eff.stacks)\n1565: \t\teff.mcritid = self:addTemporaryValue(\"combat_mindcrit\", -eff.crit*eff.stacks)\n1566: \t\tif eff.fail > 0 and eff.stacks > 6 then\n1567: \t\t\teff.failid = self:addTemporaryValue(\"talent_fail_chance\", eff.fail*(eff.stacks - 6))\n1568: \t\tend\n1569: \n1570: \t\tlocal hx, hy = self:attachementSpot(\"shoulder1\", true) hx, hy = hx or 0, hy or 0\n1571: \t\tself:effectParticles(eff, {type=\"circle\", args={x=hx, y=hy, oversize=1.1, base_rot=0, a=220, shader=true, appear=8, img=\"cultist_jinxed_debuff\", speed=0, radius=0}})\n1572: \tend,\n1573: \tdeactivate = function(self, eff)\n1574: \t\tself:removeTemporaryValue(\"combat_def\", eff.def)\t\n1575: \t\tself:removeTemporaryValue(\"combat_mentalresist\", eff.mental)\n1576: \t\tself:removeTemporaryValue(\"combat_spellresist\", eff.spell)\n1577: \t\tself:removeTemporaryValue(\"combat_physresist\", eff.physical)\n1578: \t\tself:removeTemporaryValue(\"combat_physcrit\", eff.pcritid)\n1579: \t\tself:removeTemporaryValue(\"combat_spellcrit\", eff.scritid)\n1580: \t\tself:removeTemporaryValue(\"combat_mindcrit\", eff.mcritid)\n1581: \t\tif eff.failid then self:removeTemporaryValue(\"talent_fail_chance\", eff.failid) end\n1582: \tend,\n1583: \ton_timeout = function(self, eff)\n1584: \t\t-- Remove the entire effect independent of stacks if LOS is broken for more than 2 turns\n1585: \t\tif eff.src.x and not self:hasLOS(eff.src.x, eff.src.y) then\n1586: \t\t\teff.fading = eff.fading or 0\n1587: \t\t\teff.fading = eff.fading + 1\n1588: \t\t\tif eff.fading >= 2 then self:removeEffect(self.EFF_JINX) end\n1589: \t\telse\n1590: \t\t\teff.fading = nil\n1591: \t\tend\n1592: \tend,\n1593: }\n1594: \n1595: newEffect{\n1596: \tname = \"FORTUNE\", image = \"talents/lucky_day.png\",\n1597: \tdesc = _t\"Fortune\","
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "verification": "git show fixed commit",
+      "excerpts": [
+        {
+          "start": 1445,
+          "end": 1461,
+          "text": "1445: function _M:combatCrit(weapon)\n1446: \tweapon = weapon or self.combat or {}\n1447: \tlocal addcrit = 0\n1448: \tif weapon.talented and self:knowTalent(Talents.T_LETHALITY) then\n1449: \t\taddcrit = 1 + self:callTalent(Talents.T_LETHALITY, \"getCriticalChance\")\n1450: \tend\n1451: \tif self:knowTalent(Talents.T_ARCANE_MIGHT) then\n1452: \t\taddcrit = addcrit + 0.25 * self.combat_spellcrit\n1453: \tend\n1454: \tlocal crit = self.combat_physcrit + (self.combat_generic_crit or 0) + (self:getCun() - 10) * 0.3 + (self:getLck() - 50) * 0.30 + (weapon.physcrit or 1) + addcrit\n1455: \n1456: \treturn math.max(crit, 0) -- note: crit > 100% may be offset by crit reduction elsewhere\n1457: end\n1458: \n1459: --- Gets the damage range\n1460: function _M:combatDamageRange(weapon, add)\n1461: \tweapon = weapon or self.combat or {}"
+        },
+        {
+          "start": 1922,
+          "end": 2000,
+          "text": "1922: function _M:combatCritReduction()\n1923: \tlocal crit_reduction = 0\n1924: \tif self:hasHeavyArmor() and self:knowTalent(self.T_ARMOUR_TRAINING) then\n1925: \t\tlocal at = Talents:getTalentFromId(Talents.T_ARMOUR_TRAINING)\n1926: \t\tcrit_reduction = crit_reduction + at.getCriticalChanceReduction(self, at)\n1927: \t\tif self:knowTalent(self.T_GOLEM_ARMOUR) then\n1928: \t\t\tlocal ga = Talents:getTalentFromId(Talents.T_GOLEM_ARMOUR)\n1929: \t\t\tcrit_reduction = crit_reduction + ga.getCriticalChanceReduction(self, ga)\n1930: \t\tend\n1931: \tend\n1932: \tif self:attr(\"combat_crit_reduction\") then\n1933: \t\tcrit_reduction = crit_reduction + self:attr(\"combat_crit_reduction\")\n1934: \tend\n1935: \treturn crit_reduction\n1936: end\n1937: \n1938: --- Computes physical crit for a damage\n1939: function _M:physicalCrit(dam, weapon, target, atk, def, add_chance, crit_power_add)\n1940: \tself.turn_procs.is_crit = nil\n1941: \n1942: \tlocal chance = self:combatCrit(weapon) + (add_chance or 0)\n1943: \tcrit_power_add = crit_power_add or 0\n1944: \tif weapon and weapon.crit_power then crit_power_add = crit_power_add + weapon.crit_power/100 end\n1945: \n1946: \tif target and target:hasEffect(target.EFF_DISMAYED) then\n1947: \t\tchance = 100\n1948: \tend\n1949: \n1950: \tlocal crit = false\n1951: \n1952: \tif target and target:attr(\"combat_crit_vulnerable\") then\n1953: \t\tchance = chance + target:attr(\"combat_crit_vulnerable\")\n1954: \tend\n1955: \tif target and target:hasEffect(target.EFF_SET_UP) then\n1956: \t\tlocal p = target:hasEffect(target.EFF_SET_UP)\n1957: \t\tif p and p.src == self then\n1958: \t\t\tchance = chance + p.power\n1959: \t\tend\n1960: \tend\n1961: \tif target and self:hasEffect(self.EFF_WARDEN_S_FOCUS) then\n1962: \t\tlocal eff = self:hasEffect(self.EFF_WARDEN_S_FOCUS)\n1963: \t\tif eff and eff.target == target then\n1964: \t\t\tchance = chance + eff.power\n1965: \t\t\tcrit_power_add = crit_power_add + (eff.power/100)\n1966: \t\tend\n1967: \tend\n1968: \n1969: \tif target then\n1970: \t\tchance = chance - target:combatCritReduction()\n1971: \tend\n1972: \n1973: \tif self:attr(\"stealth\") and self:knowTalent(self.T_SHADOWSTRIKE) and target and not target:canSee(self) then\n1974: \t\tchance = 100\n1975: \tend\n1976: \n1977: \tif self:isAccuracyEffect(weapon, \"axe\") then\n1978: \t\tlocal bonus = self:getAccuracyEffect(weapon, atk, def, 0.25, 25)  -- +25% crit at 100 accuracy\n1979: \t\tprint(\"[PHYS CRIT %] axe accuracy bonus\", atk, def, \"=\", bonus)\n1980: \t\tchance = chance + bonus\n1981: \tend\n1982: \n1983: \tchance = util.bound(chance, 0, 100)\n1984: \n1985: \tprint(\"[PHYS CRIT %]\", self.turn_procs.auto_phys_crit and 100 or chance)\n1986: \tif self.turn_procs.auto_phys_crit or rng.percent(chance) then\n1987: \t\tif target and target:hasEffect(target.EFF_OFFGUARD) then\n1988: \t\t\tcrit_power_add = crit_power_add + 0.1\n1989: \t\tend\n1990: \n1991: \t\tif self:isAccuracyEffect(weapon, \"sword\") then\n1992: \t\t\tlocal bonus = self:getAccuracyEffect(weapon, atk, def, 0.004, 0.4)  -- +40% crit power at 100 accuracy\n1993: \t\t\tprint(\"[PHYS CRIT %] sword accuracy bonus\", atk, def, \"=\", bonus)\n1994: \t\t\tcrit_power_add = crit_power_add + bonus\n1995: \t\tend\n1996: \n1997: \t\tself.turn_procs.is_crit = \"physical\"\n1998: \t\tself.turn_procs.crit_power = (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)\n1999: \t\tdam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)\n2000: \t\tcrit = true"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "verification": "git show fixed commit",
+      "excerpts": [
+        {
+          "start": 3056,
+          "end": 3077,
+          "text": "3056: \tself:enterCombatStatus(src)\n3057: \tif src and src.enterCombatStatus then src:enterCombatStatus(self) end\n3058: \n3059: \tfor eid, p in pairs(self.tmp) do\n3060: \t\tlocal e = self.tempeffect_def[eid]\n3061: \t\tif e.damage_feedback then\n3062: \t\t\te.damage_feedback(self, p, src, value)\n3063: \t\tend\n3064: \tend\n3065: \tfor tid, p in pairs(self.sustain_talents) do\n3066: \t\tlocal t = self:getTalentFromId(tid)\n3067: \t\tif t.damage_feedback then\n3068: \t\t\tt.damage_feedback(self, t, p, src, value)\n3069: \t\tend\n3070: \tend\n3071: \n3072: \tlocal dead, val = mod.class.interface.ActorLife.takeHit(self, value, src, death_note)\n3073: \n3074: \tif src and src.fireTalentCheck then src:fireTalentCheck(\"callbackOnDealDamage\", val, self, dead, death_note) end\n3075: \n3076: \treturn dead, val\n3077: end"
+        },
+        {
+          "start": 3428,
+          "end": 3437,
+          "text": "3428: \tif src and src.knowTalent and src:knowTalent(src.T_VIM_POOL) and src:reactionToward(self) <= 0 then\n3429: \t\tgame:onTickEnd(function() -- Do it on tick end to make sure Vim is spent by the talent code before being gained, otherwise it feels weird when you expect to spend life\n3430: \t\t\tsrc:incVim((src:getWil() * 0.5 + 1) * self.rank)\n3431: \t\tend)\n3432: \tend\n3433: \tif src and src.attr and src:attr(\"vim_on_death\") and not self:attr(\"undead\") then src:incVim(src:attr(\"vim_on_death\")) end\n3434: \n3435: \tif src and ((src.resolveSource and src:resolveSource().player) or src.player) then\n3436: \t\t-- Achievements\n3437: \t\tlocal p = game.party:findMember{main=true}"
+        },
+        {
+          "start": 6195,
+          "end": 6227,
+          "text": "6195: --  @return ret[table or false] returned from the last callback to return a value[table]\n6196: --  callbacks are called as follows:\n6197: --  effects:  self:callEffect(effect_id, event, ...)\n6198: --  objects:  object:check(event, self, ...)\n6199: --  others (incl. talents): self:callTalent(tid, event, ...)\n6200: --  (refer to specific invocations of this function for additional function arguments)\n6201: function _M:fireTalentCheck(event, ...)\n6202: \tlocal store = sustainCallbackCheck[event]\n6203: \tlocal ret = false\n6204: \tif self[store] then upgradeStore(self[store], store) end\n6205: \tif self[store] and next(self[store].__priorities) then\n6206: \t\tlocal old_ps = self.__project_source\n6207: \t\tfor _, info in ipairsclone(self[store].__sorted) do\n6208: \t\t\tlocal priority, kind, stringId, tid = unpack(info)\n6209: \t\t\tif kind == \"effect\" then\n6210: \t\t\t\tself.__project_source = self.tmp[tid]\n6211: \t\t\t\tret = self:callEffect(tid, event, ...) or ret\n6212: \t\t\telseif kind == \"object\" then\n6213: \t\t\t\tself.__project_source = tid\n6214: \t\t\t\tself.__object_use_running = tid\n6215: \t\t\t\tret = tid:check(event, self, ...) or ret\n6216: \t\t\t\tself.__object_use_running = nil\n6217: \t\t\telseif kind == \"self\" then\n6218: \t\t\t\tret = tid.__self_callbacks[event](self, ...) or ret\n6219: \t\t\telse\n6220: \t\t\t\tself.__project_source = self.sustain_talents[tid]\n6221: \t\t\t\tret = self:callTalent(tid, event, ...) or ret\n6222: \t\t\tend\n6223: \t\t\tself.__project_source = old_ps\n6224: \t\tend\n6225: \tend\n6226: \treturn ret\n6227: end"
+        },
+        {
+          "start": 6863,
+          "end": 6900,
+          "text": "6863: -- @param t the talent definition table\n6864: -- @param[opt=boolean] base, if true, return the talent defined cooldown, unmodified by other effects\n6865: function _M:getTalentCooldown(t, base)\n6866: \tif not t.cooldown then return end\n6867: \tlocal cd = t.cooldown\n6868: \tif type(cd) == \"function\" then cd = cd(self, t) end\n6869: \tif not cd then return end\n6870: \n6871: \t-- Can not touch this cooldown\n6872: \tif t.fixed_cooldown or base then return cd end\n6873: \n6874: \tif t.type[1] == \"inscriptions/infusions\" then\n6875: \t\tlocal eff = self:hasEffect(self.EFF_INFUSION_COOLDOWN)\n6876: \t\tif eff and eff.power then cd = cd + eff.power end\n6877: \telseif t.type[1] == \"inscriptions/runes\" then\n6878: \t\tlocal eff = self:hasEffect(self.EFF_RUNE_COOLDOWN)\n6879: \t\tif eff and eff.power then cd = cd + eff.power end\n6880: \telseif t.type[1] == \"inscriptions/taints\" then\n6881: \t\tlocal eff = self:hasEffect(self.EFF_TAINT_COOLDOWN)\n6882: \t\tif eff and eff.power then cd = cd + eff.power end\n6883: \tend\n6884: \n6885: \tif self.talent_cd_reduction[t.id] then cd = cd - self.talent_cd_reduction[t.id] end\n6886: \tif self.talent_cd_reduction.all then cd = cd - self.talent_cd_reduction.all end\n6887: \tif self.talent_cd_reduction.allpct then cd = cd - math.ceil(self.talent_cd_reduction.allpct * cd) end\n6888: \n6889: \tif self:attr(\"arcane_cooldown_divide\") and (t.type[1] == \"spell/arcane\" or t.type[1] == \"spell/aether\") then\n6890: \t\tcd = math.ceil(cd / self.arcane_cooldown_divide)\n6891: \tend\n6892: \n6893: \tlocal eff = self:hasEffect(self.EFF_BURNING_HEX)\n6894: \tif eff and not self:attr(\"talent_reuse\") then\n6895: \t\tcd = 1 + cd * eff.power\n6896: \tend\n6897: \n6898: \t--terrified cooldown increase effect\n6899: \tlocal eff = self:hasEffect(self.EFF_TERRIFIED)\n6900: \tif eff and not self:attr(\"talent_reuse\") and not (t.fixed_cooldown or base) then"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/data/timed_effects/magical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "source_pinning": "fixed",
+      "additional_consumer": true,
+      "verification": "git show fixed commit",
+      "excerpts": [
+        {
+          "start": 2192,
+          "end": 2267,
+          "text": "2192: newEffect{\n2193: \tname = \"ROTTING_DISEASE\", image = \"talents/rotting_disease.png\",\n2194: \tdesc = _t\"Rotting Disease\",\n2195: \tlong_desc = function(self, eff) return (\"The target is infected by a disease, reducing its constitution by %d and doing %0.2f blight damage per turn.\"):tformat(eff.con, eff.dam) end,\n2196: \ttype = \"magical\",\n2197: \tsubtype = {disease=true, blight=true},\n2198: \tstatus = \"detrimental\",\n2199: \tparameters = {con = 1, dam = 0},\n2200: \ton_gain = function(self, err) return _t\"#Target# is afflicted by a rotting disease!\" end,\n2201: \ton_lose = function(self, err) return _t\"#Target# is free from the rotting disease.\" end,\n2202: \t-- Damage each turn\n2203: \ton_timeout = function(self, eff)\n2204: \t\tif self:attr(\"purify_disease\") then self:heal(eff.dam, eff.src)\n2205: \t\telse if eff.dam > 0 then DamageType:get(DamageType.BLIGHT).projector(eff.src, self.x, self.y, DamageType.BLIGHT, eff.dam, {from_disease=true})\n2206: \t\tend end\n2207: \tend,\n2208: \t-- Lost of CON\n2209: \tactivate = function(self, eff)\n2210: \t\teff.tmpid = self:addTemporaryValue(\"inc_stats\", {[Stats.STAT_CON] = -eff.con})\n2211: \tend,\n2212: \tdeactivate = function(self, eff)\n2213: \t\tself:removeTemporaryValue(\"inc_stats\", eff.tmpid) eff.tmpid = nil\n2214: \tend,\n2215: }\n2216: \n2217: newEffect{\n2218: \tname = \"DECREPITUDE_DISEASE\", image = \"talents/decrepitude_disease.png\",\n2219: \tdesc = _t\"Decrepitude Disease\",\n2220: \tlong_desc = function(self, eff) return (\"The target is infected by a disease, reducing its dexterity by %d and doing %0.2f blight damage per turn.\"):tformat(eff.dex, eff.dam) end,\n2221: \ttype = \"magical\",\n2222: \tsubtype = {disease=true, blight=true},\n2223: \tstatus = \"detrimental\",\n2224: \tparameters = {dex = 1, dam = 0},\n2225: \ton_gain = function(self, err) return _t\"#Target# is afflicted by a decrepitude disease!\" end,\n2226: \ton_lose = function(self, err) return _t\"#Target# is free from the decrepitude disease.\" end,\n2227: \t-- Damage each turn\n2228: \ton_timeout = function(self, eff)\n2229: \t\tif self:attr(\"purify_disease\") then self:heal(eff.dam, eff.src)\n2230: \t\telse if eff.dam > 0 then DamageType:get(DamageType.BLIGHT).projector(eff.src, self.x, self.y, DamageType.BLIGHT, eff.dam, {from_disease=true})\n2231: \t\tend end\n2232: \tend,\n2233: \t-- Lost of CON\n2234: \tactivate = function(self, eff)\n2235: \t\teff.tmpid = self:addTemporaryValue(\"inc_stats\", {[Stats.STAT_DEX] = -eff.dex})\n2236: \tend,\n2237: \tdeactivate = function(self, eff)\n2238: \t\tself:removeTemporaryValue(\"inc_stats\", eff.tmpid) eff.tmpid = nil\n2239: \tend,\n2240: }\n2241: \n2242: newEffect{\n2243: \tname = \"WEAKNESS_DISEASE\", image = \"talents/weakness_disease.png\",\n2244: \tdesc = _t\"Weakness Disease\",\n2245: \tlong_desc = function(self, eff) return (\"The target is infected by a disease, reducing its strength by %d and doing %0.2f blight damage per turn.\"):tformat(eff.str, eff.dam) end,\n2246: \ttype = \"magical\",\n2247: \tsubtype = {disease=true, blight=true},\n2248: \tstatus = \"detrimental\",\n2249: \tparameters = {str = 1, dam = 0},\n2250: \ton_gain = function(self, err) return _t\"#Target# is afflicted by a weakness disease!\" end,\n2251: \ton_lose = function(self, err) return _t\"#Target# is free from the weakness disease.\" end,\n2252: \t-- Damage each turn\n2253: \ton_timeout = function(self, eff)\n2254: \t\tif self:attr(\"purify_disease\") then self:heal(eff.dam, eff.src)\n2255: \t\telse if eff.dam > 0 then DamageType:get(DamageType.BLIGHT).projector(eff.src, self.x, self.y, DamageType.BLIGHT, eff.dam, {from_disease=true})\n2256: \t\tend end\n2257: \tend,\n2258: \t-- Lost of CON\n2259: \tactivate = function(self, eff)\n2260: \t\teff.tmpid = self:addTemporaryValue(\"inc_stats\", {[Stats.STAT_STR] = -eff.str})\n2261: \tend,\n2262: \tdeactivate = function(self, eff)\n2263: \t\tself:removeTemporaryValue(\"inc_stats\", eff.tmpid) eff.tmpid = nil\n2264: \tend,\n2265: }\n2266: \n2267: -- Endless Woes prodigy effects"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "source_pinning": "fixed",
+      "additional_consumer": true,
+      "verification": "git show fixed commit",
+      "excerpts": [
+        {
+          "start": 210,
+          "end": 221,
+          "text": "210: \t\tlocal mind_linked = false\n211: \t\tlocal inc = 0\n212: \t\tif src.inc_damage then\n213: \t\t\tif src.combatGetDamageIncrease then inc = src:combatGetDamageIncrease(type)\n214: \t\t\telse inc = (src.inc_damage.all or 0) + (src.inc_damage[type] or 0) end\n215: \t\t\tif src.getVim and src:attr(\"demonblood_dam\") then inc = inc + ((src.demonblood_dam or 0) * (src:getVim() or 0)) end\n216: \t\t\tif src.attr and src:attr(\"blind_inc_damage\") and (target:attr(\"blind\") or target:attr(\"dazzled\")) then inc = inc + src:attr(\"blind_inc_damage\") end\n217: \t\t\tif inc ~= 0 then print(\"[PROJECTOR] after DamageType increase dam\", dam + (dam * inc / 100)) end\n218: \t\tend\n219: \n220: \t\t-- Increases damage for the entity type (Demon, Undead, etc)\n221: \t\tif target.type and src and src.inc_damage_actor_type then"
+        },
+        {
+          "start": 352,
+          "end": 384,
+          "text": "352: \t\t-- Reduce damage with resistance\n353: \t\tif target.resists then\n354: \t\t\tlocal pen = 0\n355: \t\t\tif src.combatGetResistPen then \n356: \t\t\t\tpen = src:combatGetResistPen(type)\n357: \t\t\t\tif type == DamageType.ARCANE and src.knowTalent and src:knowTalent(src.T_AURA_OF_SILENCE) then pen = pen + src:combatGetResistPen(DamageType.NATURE) end\n358: \t\t\telseif src.resists_pen then pen = (src.resists_pen.all or 0) + (src.resists_pen[type] or 0)\n359: \t\t\tend\n360: \t\t\tif src.attr and src:attr(\"ignore_enemy_resist\") then\n361: \t\t\t\tpen = 100\n362: \t\t\tend\n363: \t\t\tlocal dominated = target:hasEffect(target.EFF_DOMINATED)\n364: \t\t\tif dominated and dominated.src == src then pen = pen + (dominated.resistPenetration or 0) end\n365: \t\t\tif target:attr(\"sleep\") and src.attr and src:attr(\"night_terror\") then pen = pen + src:attr(\"night_terror\") end\n366: \t\t\tlocal res = target:combatGetResist(type)\n367: \t\t\tpen = util.bound(pen, 0, 100)\n368: \t\t\tif res > 0 then\tres = res * (100 - pen) / 100 end\n369: \t\t\tprint(\"[PROJECTOR] res\", res, (100 - res) / 100, \" on dam\", dam)\n370: \t\t\tif res >= 100 then dam = 0\n371: \t\t\telseif res <= -100 then dam = dam * 2\n372: \t\t\telse dam = dam * ((100 - res) / 100)\n373: \t\t\tend\n374: \t\tend\n375: \t\tprint(\"[PROJECTOR] after resists dam\", dam)\n376: \n377: \t\t-- Reduce damage with resistance against self\n378: \t\tif src == target and target.resists_self then\n379: \t\t\tlocal res = (target.resists_self[type] or 0) + (target.resists_self.all or 0)\n380: \t\t\tprint(\"[PROJECTOR] res\", res, (100 - res) / 100, \" on dam\", dam)\n381: \t\t\tif res >= 100 then dam = 0\n382: \t\t\telseif res <= -100 then dam = dam * 2\n383: \t\t\telse dam = dam * ((100 - res) / 100)\n384: \t\t\tend"
+        }
+      ]
+    },
+    {
+      "public_path": "game/engines/default/engine/utils.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "871f7ae2d26266751811d9249e4525b5b0f9d8c88b35272755d7a617885c2bbf",
+      "source_pinning": "fixed",
+      "additional_consumer": true,
+      "verification": "git show fixed commit",
+      "excerpts": [
+        {
+          "start": 2649,
+          "end": 2670,
+          "text": "2649: function core.fov.circle_grids(x, y, radius, block)\n2650: \tif not x or not y or not game.level or not game.level.map then return {} end\n2651: \tif radius == 0 then return {[x]={[y]=true}} end\n2652: \tlocal grids = {}\n2653: \tcore.fov.calc_circle(x, y, game.level.map.w, game.level.map.h, radius,\n2654: \t\tfunction(_, lx, ly)\n2655: \t\t\tif type(block) == \"function\" then\n2656: \t\t\t\treturn block(_, lx, ly)\n2657: \t\t\telseif block and game.level.map:checkEntity(lx, ly, engine.Map.TERRAIN, \"block_move\") then return true end\n2658: \t\tend,\n2659: \t\tfunction(_, lx, ly)\n2660: \t\t\tif not grids[lx] then grids[lx] = {} end\n2661: \t\t\tgrids[lx][ly] = true\n2662: \t\tend,\n2663: \tnil)\n2664: \n2665: \t-- point of origin\n2666: \tif not grids[x] then grids[x] = {} end\n2667: \tgrids[x][y] = true\n2668: \n2669: \treturn grids\n2670: end"
+        }
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "finding_id": "UPSTREAM026",
+      "status": "partially_confirmed_pending",
+      "reason": "Local coefficient multiplication exists but final fixed-core caller ignores callback return after damage has been applied. Restored original target instead of asserting actual scaled reduction. Host must adjudicate original confirmed claim against full consumer chain.",
+      "evidence": [
+        "tome-cults/data/timed_effects.lua:1151-1168",
+        "game/modules/tome/class/Actor.lua:3072-3076",
+        "game/modules/tome/class/Actor.lua:6201-6226"
+      ],
+      "scope": "no game source edits authorized; no other targets reopened"
+    },
+    {
+      "status": "provenance_limitation",
+      "reason": "DLC source commit and release version not fixed; observed SHA-bound snapshot only."
+    }
+  ],
+  "plan_deviations": [
+    "UPSTREAM026 actual effect could not be confirmed; provisional translation withdrawn in same turn and retained as pending. 9 actual repairs, not a claim of 10 completed fixes.",
+    "First strict lint found one new spacing issue in Prophecy of Treason; inserted ASCII space and reran successfully."
+  ],
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "status": "passed",
+      "details": "LuaJIT 5.1 and LPeg0.10.2 verified; DLC unpinned warnings expected"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "status": "passed",
+      "exit_code": 0,
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T143626.566254Z-5-lint/lint.json\n",
+      "scope": "all 30308 translations; includes runtime-key collision lint"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": "bounded source SHA/baseline and reverse byte assertions in own /tmp scripts",
+      "status": "passed",
+      "details": "17 unique input source files match; fixed core git show; all10 target preimages matched including quoted escape form; 9 target reversals exactly reconstruct both baseline files; non-target fields/source/args_order/special/markup/newline/tabs and earlier package bytes unchanged"
+    }
+  ],
+  "host_remaining": "proposal strict validation, independent review, build/publish dry-run and task/evidence closure belong to ORCHESTRATOR; not performed in EXECUTOR role.",
+  "placeholder_argument_count": 32,
+  "bounded_consumer_correction": {
+    "finding_id": "UPSTREAM117",
+    "detail": "No actor canSee/hasLOS in DLC selector, but circle_grids block=true passes terrain block_move opacity callback in fixed engine.utils. Removing 可见 does not assert unconditional through-wall targeting."
+  }
+}
