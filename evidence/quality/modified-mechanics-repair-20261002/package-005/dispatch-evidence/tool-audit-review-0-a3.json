@@ -1,0 +1,37 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat .ai/task/mmrfix-20261002-005/INPUT-review-0-a3.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-005/INPUT-review-0-a3.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-005/INPUT-review-0-a3.json'))\np=d['payload']\nprint([k for k in p])\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print(b['revision_key'], c['section'], c['source_tag'], [ (e['public_path'], e.get('start'), e.get('matching_lines')) for e in c['source_evidence']], [t['source']+'='+t['target'] for t in c['terminology']])\n\"",
+      "description": "Summarize input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; awk '/^## *6|^## *六/{f=1} f' docs/paseo-translation-context-review-v2-contract.md | head -120",
+      "description": "Read contract output section"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-005/INPUT-review-0-a3.json'))\nfor b in d['payload']['bounded_context'][4:]:\n  c=json.loads(b['context'])\n  print('=====',c['section'])\n  for e in c['source_evidence']:\n    print('--',e['public_path'])\n    if 'excerpt' in e: print(e['excerpt'])\n    for w in e.get('windows',[]): print(w['text'])\n\"",
+      "description": "Print evidence for entries 5-10"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-005/INPUT-review-0-a3.json'))\nc=json.loads(d['payload']['bounded_context'][3]['context'])\nprint(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False))\nprint(c['source_evidence'][1]['windows'][0]['text'])\n\"; sed -n 195,210p .artifacts/i18n/modified-mechanics-repair-20261002/package-005/sources/orcs/tome-orcs/data/talents/steam/mecharachnid.lua; grep -n \"friendlyfire\" /workspace/t-engine4/game/engines/default/engine/Target.lua | head",
+      "description": "Inspect tinker context and verify sources"
+    }
+  }
+]

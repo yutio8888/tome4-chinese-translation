@@ -1,0 +1,89 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "lint",
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "lint",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "stdout": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T101854.430856Z-12-lint/lint.json\n",
+      "stderr": ""
+    },
+    {
+      "name": "runtime-collisions",
+      "command": [
+        "python3",
+        "-B",
+        "tools/scan_runtime_collisions.py",
+        "--out-dir",
+        ".artifacts/i18n/modified-mechanics-repair-20261002/runtime-final-005"
+      ],
+      "exit_code": 0,
+      "stdout": "runtime collisions: 0\n  json: .artifacts/i18n/modified-mechanics-repair-20261002/runtime-final-005/runtime-collisions.json\n  md:   .artifacts/i18n/modified-mechanics-repair-20261002/runtime-final-005/runtime-collisions.md\n",
+      "stderr": ""
+    },
+    {
+      "name": "runtime-classification",
+      "command": [
+        "python3",
+        "-B",
+        "tools/classify_runtime_keys.py"
+      ],
+      "exit_code": 0,
+      "stdout": "duplicate keys: 1711\n桶 A 不同 section: 1711\n桶 B 同一 section: 0\n桶 C 混合 section: 0\n桶 A tag 分布: {'_t': 698, 'entity name': 353, 'entity subtype': 114, 'entity keyword': 103, 'entity type': 71, 'effect subtype': 68, 'tformat': 65, 'logPlayer': 64, 'logSeen': 50, 'talent name': 29, 'entity short_name': 23, 'log': 15, 'birth facial category': 13, 'talent category': 10, 'logCombat': 9, 'entity on slot': 7, 'entity combat talented': 6, 'saySimple': 6, 'newLore category': 2, 'say': 2, 'talent type': 2, 'dialog_portal': 1}\n桶 A 目录模式分布: {'data/general': 1836, 'data/zones': 985, 'data/talents': 473, 'data/birth': 460, 'data/timed_effects': 297, 'data/chats': 151, 'modules/boot': 76, 'data/ingredients.lua': 73, 'engine/dialogs': 67, 'class/uiset': 49, 'data/tinkers': 36, 'dialogs/debug': 34, 'dialogs/shimmer': 34, 'overload/mod': 33, 'data/maps': 29}\nreport written: /workspace/tome4-chinese-translation/.artifacts/i18n/runtime-key-classification\n",
+      "stderr": ""
+    },
+    {
+      "name": "addon",
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "build",
+        "--profile",
+        "addon",
+        "--component",
+        "tome",
+        "--require-complete"
+      ],
+      "exit_code": 0,
+      "stdout": "OK  tome             delta=6672 inherited=12456 override=6551 new=121\nAddon artifact: complete, 6672 runtime keys, f0ca1c62d4c8746a\nOutput: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T101856.494160Z-51-build-addon/addon/data/locales/zh_hans.lua\n",
+      "stderr": ""
+    },
+    {
+      "name": "dlc-consumer",
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "publish",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"applied\": false,\n  \"bump_addon_version\": false,\n  \"commit\": false,\n  \"delta_runtime_keys\": 6672,\n  \"dlc_entries\": 5461,\n  \"dlc_entries_by_component\": {\n    \"ashes-urhrok\": 743,\n    \"cults\": 1569,\n    \"orcs\": 3149\n  },\n  \"locale_file\": \"/workspace/tome4-chn-mod/data/locales/zh_hans.lua\",\n  \"new_addon_version\": null,\n  \"new_entries\": 12133,\n  \"new_entries_overlay\": 121,\n  \"new_sha256\": \"e806202d12ae8f63fec005e88f3895e0157b42eec3eb2467e80cd5f1d370468e\",\n  \"note\": \"dry run: no file was written; re-run with --apply to publish\",\n  \"ok\": true,\n  \"old_addon_version\": null,\n  \"old_entries\": 12131,\n  \"old_sha256\": \"d07b43c75d6fe2867ca68dd74b0492d4127a804cbf6ba56de584ef996f7b2062\",\n  \"override_entries\": 6551,\n  \"release_repository\": \"/workspace/tome4-chn-mod\",\n  \"verification\": {\n    \"expected_runtime_keys\": 19135,\n    \"mismatched\": 0,\n    \"missing\": 0,\n    \"patch_runtime_keys\": 6672,\n    \"redundant\": 0,\n    \"unexpected\": 0\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "translation_sha256": {
+    "mod-tome.lua": "7124aebc54e662a940e76a8f3f5ef2983fc9a81a6e62f1270b2b719f7208348f",
+    "tome-orcs.lua": "906546aaf458f72d6b584ebf2de8305f41b064793137d6ce4ef013b2423e678c"
+  },
+  "runtime_collisions": 0,
+  "scope": "Bounded translation repair. Strict core addon plus real DLC publish dry-run consumer verifies actual affected output; no release repository writes. Unrelated toolchain/production catalog tests not required by matrix."
+}

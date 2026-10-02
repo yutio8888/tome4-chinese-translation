@@ -1,0 +1,43 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-005/INPUT-final-review-0-a4.json docs/paseo-translation-context-review-v2-contract.md; head -c 3000 .ai/task/mmrfix-20261002-005/INPUT-final-review-0-a4.json",
+      "description": "Inspect input file and contract size"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-005/INPUT-final-review-0-a4.json'))\np=d['payload'];print(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\n\"",
+      "description": "Read contract and input payload keys"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-005/INPUT-final-review-0-a4.json'))\nfor i,b in enumerate(d['payload']['bounded_context']):\n  c=json.loads(b['context']) if b['context'] else {}\n  print('=====',i, {k:v for k,v in c.items() if k not in('source_evidence',)} )\n  for e in c.get('source_evidence',[]):\n    print('--',e['public_path'],e['start'],e['end']); print(e['excerpt'])\n\"",
+      "description": "Dump bounded context per entry"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-005/INPUT-final-review-0-a4.json'))\nfor i,b in enumerate(d['payload']['bounded_context']):\n  if i==0: continue\n  c=json.loads(b['context']) if b['context'] else {}\n  print('=====',i, json.dumps({k:v for k,v in c.items() if k not in('source_evidence','source_locations','read_boundary')},ensure_ascii=False) )\n  for e in c.get('source_evidence',[]):\n    print('--',json.dumps({k:v for k,v in e.items() if k!='excerpt'},ensure_ascii=False)); print(e.get('excerpt'))\n\"",
+      "description": "Dump remaining bounded contexts"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/573c80a1-9f0c-4afb-8a50-0aaeb1c64706/tool-results/b75vi3xox.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/573c80a1-9f0c-4afb-8a50-0aaeb1c64706/tool-results/b75vi3xox.txt",
+      "offset": 194
+    }
+  }
+]

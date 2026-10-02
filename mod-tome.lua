@@ -12551,7 +12551,7 @@ t("#ORCHID#%s resists the tendrils' pull!", "#ORCHID#%s抵抗了触须的拉扯�
 t("Rogue Plight", "盗贼之厄", "entity name")
 t("blackened leather armour", "熏黑的皮甲", "_t")
 t("No rogue blades shall incapacitate the wearer of this armour.", "盗贼之刃休想令此甲的穿戴者丧失行动能力。", "_t")
-t("Transfers a bleed, poison, or wound to its source or a nearby enemy every 4 turns.", "每4回合将一项流血、毒素或创伤效果转移给效果来源或者附近的敌人。", "_t")
+t("Transfers a bleed, poison, or wound to its source or a nearby enemy every 4 turns.", "每4回合将一项流血、毒素或创伤效果转移给效果来源；若无可用来源，则转移给相邻单位，友方也可能受影响。", "_t")
 t("#CRIMSON#Rogue Plight transfers an effect to its source!", "#CRIMSON#盗贼之厄将一项效果转移给其来源！", "logPlayer")
 t("#CRIMSON#Rogue Plight transfers an effect to a nearby enemy!", "#CRIMSON#盗贼之厄将一项效果转移给周围敌人！", "logPlayer")
 t("misc", "杂项", "entity type")
@@ -20981,7 +20981,7 @@ t([[You chant the glory of the Sun, granting you %d%% fire, lightning, acid and 
 	You may only have one Chant active at once.
 	The effects will increase with your Spellpower.]], [[颂赞日之荣耀，使你获得 %d%% 火焰、闪电、酸性和寒冷抗性， %d 法术豁免，并减少距离三格及以上的敌人对你造成的伤害 %d%%。
 	同时只能激活一种赞歌。
-	效果受法术强度加成。]], "tformat")
+	元素抗性和法术豁免受法术强度加成，远距离减伤比例不受其加成。]], "tformat")
 t("Chant of Light", "光明赞歌", "talent name")
 t([[You chant the glory of the Sun, empowering your light and fire elemental attacks so that they do %d%% additional damage.
 		In addition, this talent surrounds you with a shield of light, dealing %0.1f light damage to anything that hits you in melee.
@@ -21000,7 +21000,7 @@ t([[You have learned to sing the praises of the Sun, in the form of three defens
 			You may only have one Chant active at a time.]], [[你学会了三种防御赞歌，以此咏唱对太阳的赞颂：
 			坚韧赞歌：增加 %d 精神豁免， %d%% 最大生命值
 			堡垒赞歌：增加 %d 物理豁免， %d%% 物理抗性， %d 护甲，15%% 护甲强度
-			元素赞歌：增加 %d 法术豁免， %d%% 火焰 /寒冷 /闪电 /酸性抗性，减少距离三格及以上的敌人对你造成的伤害 %d%%。
+			元素赞歌：增加 %d 法术豁免， %d%% 火焰 /寒冷 /闪电 /酸性抗性，距离三格及以上的敌人对你造成的伤害变化为 %d%% （负值表示减伤）。
 			你同时只能激活一种赞歌。]], "tformat")
 t("Chant Illuminate", "初现光芒", "talent name")
 t([[Your Chants now bathe you in a cloak of light, which increases your stamina and mana regenerations by %0.2f per turn and does %0.2f light damage to anyone who hits you in melee.
@@ -21021,8 +21021,8 @@ t("Chant Radiant", "辉耀绽放", "talent name")
 t([[Your passion for singing the praises of the Sun reaches its zenith.
 		Your Chanting now increases your light and fire damage by %d%% and, up to %d times per turn when you are hit by a weapon attack, you will gain %0.1f Positive Energy.
 		These values scale with your Spellpower.]], [[咏唱赞歌歌颂太阳的热情达到了顶峰。
-		你的赞歌现在让你的火焰与光系伤害增加 %d%%。 当你被武器攻击击中的时候，你恢复 %0.1f 点正能量，这一效果最多每回合触发 %d 次。
-		效果受法术强度加成。]], "tformat", {1,3,2})
+		你的赞歌现在让你的火焰与光系伤害增加 %d%%。 当你被武器攻击击中的时候，你恢复 %0.1f 点正能量，这一效果每回合最多触发 %d + 1 次。
+		只有火焰与光系伤害加成受法术强度加成，正能量恢复量和触发次数仅随技能等级提升。]], "tformat", {1,3,2})
 
 ------------------------------------------------
 section "mod-tome/data/talents/celestial/circles.lua"
@@ -21072,7 +21072,7 @@ t([[In a pure display of power, you project a ranged melee attack, doing %d%% we
 t("Weapon of Wrath", "愤怒之刃", "talent name")
 t([[Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP as additional Fire damage (up to %d, Current:  %d).
 		Targets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.
-		The bonus damage can only occur once per turn.]], [[你使用武器攻击时，造成相当于 %d%% 你已损失的生命值的额外火焰伤害（至多 %d 点，当前 %d 点）。
+		The bonus damage can only occur once per turn.]], [[你的近战武器攻击命中时，造成相当于 %d%% 你已损失的生命值的额外火焰伤害（至多 %d 点，当前 %d 点）。
 		然后令目标进入殉难状态，受到 %d%% 自己造成的伤害，持续 4 回合。
 		每回合最多触发一次额外伤害。]], "tformat")
 t("Second Life", "第二生命", "talent name")
@@ -21091,7 +21091,7 @@ t("Absorption Strike", "吸能一击", "talent name")
 t("You require a two handed weapon to use this talent.", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
 t([[You strike your foe with your two handed weapon, dealing %d%% weapon damage.
 		If the attack hits, all foes in radius 2 will have their light resistance reduced by %d%% and their damage reduced by %d%% for 5 turns.]], [[你用双手武器攻击敌人，造成 %d%% 武器伤害。
-		如果攻击命中，半径 2 以内的敌人光系抗性下降 %d%%， 伤害下降 %d%%， 持续 5 回合。]], "tformat")
+		如果攻击命中，以你为中心半径 2 以内除你以外的所有单位（包括友方）光系抗性下降 %d%%， 伤害下降 %d%%， 持续 5 回合。]], "tformat")
 t("Mark of Light", "光之印记", "talent name")
 t("You mark a target with light for 3 turns, causing all melee hits you deal to it to heal you for %d%% of the damage done.", "你用光标记目标 3 回合，你对它近战攻击时，将受到相当于 %d%% 伤害的治疗。", "tformat")
 t("Righteous Strength", "光明之力", "talent name")

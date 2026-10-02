@@ -1,0 +1,43 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-005/INPUT-review-0-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-005/INPUT-review-0-a1.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-005/INPUT-review-0-a1.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\n\"",
+      "description": "Inspect input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"第六节\\|^## 六\\|^## 6\" docs/paseo-translation-context-review-v2-contract.md | head; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-005/INPUT-review-0-a1.json'))\nfor b in d['payload']['bounded_context'][3:]:\n  c=json.loads(b['context']); print('=====',b['revision_key'][:8],c['section'],c['source_tag'])\n  for e in c['source_evidence']:\n    print('--',e['public_path'],e.get('sha256'),e.get('frozen_file'))\n    print(e.get('excerpt') or '\\n'.join(w['text'] for w in e['windows']))\n  print('TERM',json.dumps(c['terminology'],ensure_ascii=False))\n\"",
+      "description": "Dump remaining contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 100,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read output contract section"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/88be6bdf-c94f-472f-b470-63163bd7abba/tool-results/bne5v4bs5.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-005/sources; grep -n \"getAcidPower\" orcs/tome-orcs/data/talents/steam/demolition.lua | head -3; sed -n 60,100p tome/game/modules/tome/data/talents/celestial/chants.lua | grep -n \"getResists\\|getLifePct\\|combat_mentalresist\\|max_life\\|name =\"; grep -n \"cur_locale_args\" engine/game/engines/default/engine/I18N.lua | head",
+      "description": "Check related source details"
+    }
+  }
+]

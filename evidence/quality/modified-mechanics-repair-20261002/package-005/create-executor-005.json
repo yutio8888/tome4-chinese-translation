@@ -1,0 +1,18 @@
+{
+  "title": "机制修正005：蒸汽装备与圣光技能",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-005",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "execute-0-a1",
+    "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，task mmrfix-20261002-005。读 .ai/roles/executor.md、AGENTS.md、本task SPEC/PLAN/REPAIR-INPUT。只修冻结10条target的11原confirmed机制问题：global speed术语、stormcoil的EFF_SPEED匿名参数/实际power默认0.1与显示值差异、疾病每回合伤害、蒸汽工具装备制作奖励、Rogue Plight无source邻格转移的敌我范围、圣歌抗性/减伤/能量参数的SP依赖与计数限制、负百分数实参、Weapon of Wrath仅近战触发、Absorption Strike友方范围。先核对baseline逐字，固定core commit624a67329fe2ad440c5b344785a9c73fcf22ae63和DLC源码SHA须匹配，按计算→实参→消费者核验。DLC来源未固定如实记录。保留其余所有target/字节与source/tag/args/special/placeholder/markup/newline/tabs，保留前四包及疗愈词缀修正。允许文件仅SPEC/SCOPE枚举的Lua文件，仅冻结10条target。不改术语库/游戏源码/工具/.ai/旧evidence/用户文件，不stage/commit、不创建child。可用/tmp。完成运行strictlint及git diff --check，写 .artifacts/i18n/modified-mechanics-repair-20261002/executor-005-report.json，含逐项完整旧新target/源码调用证据hash/来源限制/范围字节核验/tests/未解决项。最终报告实际成果。",
+  "notifyOnFinish": true
+}

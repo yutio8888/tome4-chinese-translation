@@ -4897,7 +4897,7 @@ t([[You load a magazine of %d grenades into your launcher, causing your next %d 
 t("Incendiary Grenade", "燃烧榴弹", "talent name")
 t("Enhance your grenade with an incendiary agent that burns through armor, dealing fire damage over 3 turns and increasing damage taken while burning by %d%%.", "用高度易燃物质强化榴弹，烧蚀敌人护甲，3回合内造成火焰伤害，在目标燃烧时增加所受到的伤害 %d%%。", "tformat")
 t("Chemical Grenade", "化学榴弹", "talent name")
-t("Enhance your grenade with incapacitating chemicals that deal acid damage and reduce global speed by %d%% for 3 turns.", "用致残化学物质强化榴弹，造成酸性伤害，降低目标整体速度 %d%%， 持续 3 回合。", "tformat")
+t("Enhance your grenade with incapacitating chemicals that deal acid damage and reduce global speed by %d%% for 3 turns.", "用致残化学物质强化榴弹，造成酸性伤害，降低目标全局速度 %d%%， 持续 3 回合。", "tformat")
 t("Shock Grenade", "震荡榴弹", "talent name")
 t("Enhance your grenade with an electrical charge, causing it to deal lightning damage and shock targets for %d turns, reducing stun and pin resistance by 50%%.", "为你的榴弹充上电荷，使其造成闪电伤害并震撼目标 %d 回合，令其震慑和定身抗性降低 50%%。", "tformat")
 
@@ -5299,7 +5299,7 @@ The mecharachnid has an inbuilt teleportation device that will recall it to you 
 你的机械蜘蛛获得 %d 级蒸汽枪掌握、强化命中和重甲训练技能。机械蜘蛛使用敏捷代替力量装备护甲。
 机械蜘蛛带有一个内置的传送装置，如果在战斗结束后它不在你的附近，会自动传送到你的身边。]], "tformat")
 t("Stormcoil Generator", "风暴线圈发电机", "talent name")
-t("You equip your mecharachnid with a stormcoil generator, a mechanical device that projects a powerful electrical field. On taking a hit greater than 15%% of its maximum life, the excess damage will be reduced by %d%% and converted into energy, giving your mecharachnid %d%% increased global speed for 2 turns.", "你给机械蜘蛛装备风暴线圈发电机，这一装置可以产生强大的电力场。当受到超过最大生命值 15%% 的伤害的时候，超过的伤害将会被降低 %d%%， 并被转化为能量，增加机械蜘蛛 %d%% 的整体速度，持续 2 回合。", "tformat")
+t("You equip your mecharachnid with a stormcoil generator, a mechanical device that projects a powerful electrical field. On taking a hit greater than 15%% of its maximum life, the excess damage will be reduced by %d%% and converted into energy, giving your mecharachnid %d%% increased global speed for 2 turns.", "你给机械蜘蛛装备风暴线圈发电机，这一装置可以产生强大的电力场。当单次伤害达到或超过最大生命值 15%% 时，超过的伤害将会被降低 %d%%， 并被转化为能量。机械蜘蛛的全局速度加成显示为 %d%%， 实际提高一成，持续 2 回合。", "tformat")
 t("Mecharachnid Chassis", "机械蜘蛛底盘", "talent name")
 t("Assault", "强袭", "_t")
 t("Armament", "武装", "_t")
@@ -5476,7 +5476,7 @@ t("Viral Needlegun", "病毒针枪", "talent name")
 t([[You fire a cone of blighted needles, hitting everything in a frontal cone of radius %d for %0.2f physical damage.
 		Each creature hit has a %d%% chance of being infected by a random disease, doing %0.2f blight damage and reducing either Constitution, Strength or Dexterity by %d for 20 turns.
 		The damage and disease effects increase with your Steampower.]], [[你射出一片枯萎的针，打击 %d 码锥形范围内的目标，造成 %0.2f 的物理伤害。
-		每个命中目标都有 %d%% 几率感染一种随机疾病，造成 %0.2f 枯萎伤害同时降低体质，力量或敏捷 %d 点持续 20 回合。
+		每个命中目标都有 %d%% 几率感染一种随机疾病，每回合造成 %0.2f 枯萎伤害同时降低体质，力量或敏捷 %d 点持续 20 回合。
 		伤害和疾病效果受蒸汽强度加成。]], "tformat")
 t("Sand Shredder", "砂土粉碎", "talent name")
 t("%s shreds through sandwalls!", "%s 挖开沙墙！", "logSeen")
@@ -8155,7 +8155,7 @@ t("lost tinker", "迷路的工匠", "_t")
 t("Please help me! I am afraid I lost myself in this place while testing some new steamtech. I know there is a recall portal left around here by a friend, but I have fought too many battles, and I fear I will not make it. Would you help me?", "帮帮我！我在测试某种蒸汽科技，结果在这地方迷路了。我有个朋友给我留下了一个传送门，不过我打了太多仗，恐怕靠我自己是到不了那里了，你能帮我一下吗？", "_t")
 t("%s, the experimenting tinker", "%s，实验的工匠", "_t")
 t("She looks tired and wounded.", "她看起来疲惫又受伤。", "_t")
-t("[Ask where to learn tinkers crafting]", "[询问哪里可以学习插件制作]", "_t")
+t("[Ask where to learn tinkers crafting]", "[询问哪里可以学习蒸汽工具制作]", "_t")
 t("Reveal the location of a teacher.", "揭示工匠大师的位置。", "_t")
 t("Tinker's Master", "工匠大师", "_t")
 t("She points a location on your map, in a remote area to the north.", "她指出了地图上的一个位置，在北方的某地。", "_t")
