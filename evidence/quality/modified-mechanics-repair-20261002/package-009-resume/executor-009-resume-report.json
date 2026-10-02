@@ -1,0 +1,113 @@
+{
+  "task_id": "mmrfix-20261002-009-resume",
+  "role": "executor",
+  "status": "completed",
+  "changed_files": [
+    "mod-tome.lua"
+  ],
+  "revision_key": "e2490468b5f4b51b852f0d4f0fe3be96dd4bc63a1e765b1b15c1f8d8e9b85a3d",
+  "finding_id": "REVIEW-TELEPATHY-DURATION-009",
+  "old_target": "卸除你心灵上的防护屏障 %d 回合，感应 %d 格范围内所有生物的思维；精神豁免降低 %d， 精神强度提高 %d， 持续 10 回合。激活时会对自己造成最大生命值五分之一的伤害。",
+  "new_target": "卸除你心灵上的防护屏障，实际感应固定持续 5 回合（时长显示值为 %d 回合），感应 %d 格范围内所有生物的思维；精神豁免降低 %d， 精神强度提高 %d， 持续 10 回合。激活时会对自己造成最大生命值五分之一的伤害。",
+  "preimage_sha256": "3bca6cfddf54b21655124d97cf5a02a314757dc7dff9a8db6ed7f45d722bc7be",
+  "expected_preimage_sha256": "3bca6cfddf54b21655124d97cf5a02a314757dc7dff9a8db6ed7f45d722bc7be",
+  "candidate_sha256": "077f20a39949122f0d06b3dcab629ad1ab16c7ff809938fae7c6706f7ab0fd24",
+  "source_evidence": [
+    {
+      "public_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2",
+      "hash_match": true,
+      "component": "tome",
+      "source_pinning": "pinned",
+      "start": 1196,
+      "end": 1221,
+      "excerpt": "newInscription{\n\tname = \"Taint: Telepathy\",\n\ttype = {\"inscriptions/taints\", 1},\n\tpoints = 1,\n\tis_spell = true,\n\trange = 10,\n\taction = function(self, t)\n\t\tself:takeHit(self.max_life * 0.2, self)\n\n\t\tlocal rad = self:getTalentRange(t)\n\t\tself:setEffect(self.EFF_SENSE, 5, {\n\t\t\trange = rad,\n\t\t\tactor = 1,\n\t\t})\n\t\tself:setEffect(self.EFF_WEAKENED_MIND, 10, {save=10, power=35})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Strip the protective barriers from your mind for %d turns, allowing in the thoughts all creatures within %d squares but reducing mind save by %d and increasing your mindpower by %d for 10 turns.]]):tformat(data.dur, self:getTalentRange(t), 10, 35)\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Range %d telepathy for %d turns]]):tformat(self:getTalentRange(t), data.dur)\n\tend,\n}\n",
+      "excerpt_sha256": "6d7ec9bed91b5f37743be0968c4d521cb88b1bc1db2dcde616885d508851cf46"
+    }
+  ],
+  "consumers": {
+    "action_sense": {
+      "line": 1206,
+      "expression": "self:setEffect(self.EFF_SENSE, 5, {range=rad, actor=1})",
+      "duration_turns": 5
+    },
+    "action_self_damage": {
+      "line": 1203,
+      "expression": "self:takeHit(self.max_life * 0.2, self)"
+    },
+    "action_weakened_mind": {
+      "line": 1210,
+      "duration_turns": 10,
+      "save": 10,
+      "power": 35
+    },
+    "info": {
+      "line": 1215,
+      "placeholder_parameters": [
+        "data.dur",
+        "self:getTalentRange(t)",
+        "10",
+        "35"
+      ],
+      "interpretation": "First %d is the display value data.dur; action EFF_SENSE uses literal 5, independent of data.dur."
+    }
+  },
+  "scope_proof": {
+    "changed_targets": 1,
+    "record_count": 22989,
+    "non_target_fields_unchanged": true,
+    "outside_target_bytes_unchanged": true,
+    "reverse_replacement_sha256": "3bca6cfddf54b21655124d97cf5a02a314757dc7dff9a8db6ed7f45d722bc7be",
+    "other_nine_candidate_indices_unchanged": [
+      561,
+      572,
+      577,
+      583,
+      588,
+      589,
+      594,
+      616,
+      618
+    ],
+    "placeholder_sequence": [
+      "%d",
+      "%d",
+      "%d",
+      "%d"
+    ],
+    "placeholder_markup_newline_tabs_unchanged": true,
+    "source_tag_args_order_special_unchanged": true,
+    "final_candidate_rechecked": true,
+    "incremental_changed_line": 26060
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "manifest, LuaJIT 5.1, LPeg 0.10.2 and fixed repositories verified; existing source-unpinned warnings for DLC outside this repair scope"
+    },
+    {
+      "command": "python3 -B /tmp/mmrfix-009-resume.py",
+      "exit_code": 0,
+      "result": "fixed source SHA-256, preimage, full old_target, Lua-loaded non-target fields, other nine entries and reverse replacement byte equality passed"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "translations_checked": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20261002T122621.602234Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "plan_deviations": [],
+  "unresolved_items": [],
+  "staged_or_committed": false,
+  "children_created": false
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-009-resume/INPUT-review-0-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-009-resume/INPUT-review-0-a1.json"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-review-0-a1.json'))\nprint(d.keys()); p=d['payload']; print(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n    c=json.loads(b['context']); print(b['revision_key'], c['section'], [e['public_path']+':'+str(e.get('start',e.get('matching_lines'))) for e in c['source_evidence']], c['terminology'])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-review-0-a1.json'))\np=d['payload']\nfor t in p['translation_snapshot']:\n    print('=====',t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\nEOF\ngrep -n '^## ' docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; awk '/^## 6/,/^## 7/' docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-review-0-a1.json'))\np=d['payload']\nfor b in p['bounded_context'][2:6]:\n    c=json.loads(b['context']); print('#####',b['revision_key'][:8])\n    for e in c['source_evidence']:\n        print('---',e['public_path'])\n        if 'excerpt' in e: print(e['excerpt'])\n        else:\n            for w in e['windows']:\n                lines=w['text'].split('\\n'); ml=e['matching_lines'][0]\n                for l in lines:\n                    n=int(l.split(':')[0]) if l.split(':')[0].isdigit() else 0\n                    if ml-40<=n<=ml+8: print(l)\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git rev-parse HEAD; git grep -n \"HEROISM\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head -20"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git grep -n \"die_at\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class/Actor.lua game/engines/default/engine/interface/ActorLife.lua game/modules/tome/class/interface/ActorLife.lua | head -30"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n -A8 \"function _M:combatTalentSpellDamage\\b\\|function _M:combatTalentSpellDamage(\" $C -- game/modules/tome/class/interface/Combat.lua; git grep -n -A12 \"function _M:rescaleDamage\" $C -- game/modules/tome/class/interface/Combat.lua; git grep -n -A10 \"function _M:combatSpellpower(\" $C -- game/modules/tome/class/interface/Combat.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n -A22 \"function _M:combatTalentScale(\" $C -- game/modules/tome/class/interface/Combat.lua; git grep -n -A8 \"function _M:getCombo\" $C -- game/modules/tome/"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"DIM_VISION\\|dim_vision\\|sticky\" $C -- game/modules/tome | grep -v \"^.*npcs.lua:29[0-3]\" | head; git show $C:game/modules/tome/data/talents/cunning/stealth.lua | sed -n 38,140p"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-review-0-a1.json'))\np=d['payload']\nfor b in p['bounded_context'][6:10]:\n    c=json.loads(b['context']); print('#####',b['revision_key'][:8])\n    for e in c['source_evidence'][1:] if b['revision_key'].startswith('65') else c['source_evidence']:\n        print('---',e['public_path'])\n        if 'excerpt' in e: print(e['excerpt'])\n        else:\n            for w in e['windows']:\n                lines=w['text'].split('\\n'); ml=e['matching_lines'][0]\n                for l in lines:\n                    n=int(l.split(':')[0]) if l.split(':')[0].isdigit() else 0\n                    if ml-60<=n<=ml+10: print(l)\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/misc/objects.lua | grep -n \"bonuses\" ; git show $C:game/modules/tome/data/talents/misc/objects.lua | sed -n 255,278p; git show $C:game/modules/tome/data/timed_effects/physical.lua | sed -n 2375,2400p; git grep -n \"do_block\\|did_block\" $C -- game/modules/tome/class | head"
+    }
+  }
+]

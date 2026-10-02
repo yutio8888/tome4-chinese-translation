@@ -1,0 +1,50 @@
+{
+  "task_id": "mmrfix-20261002-009-resume",
+  "result": "confirmed_resolved",
+  "finding_id": "REVIEW-TELEPATHY-DURATION-009",
+  "candidate_sha256": "077f20a39949122f0d06b3dcab629ad1ab16c7ff809938fae7c6706f7ab0fd24",
+  "initial_target_scope": 10,
+  "incremental_target_scope": 1,
+  "all_non_target_fields_unchanged": true,
+  "outside_target_bytes_unchanged": true,
+  "strict_proposals": "host-validation-009-resume-c0.json",
+  "fixed_source_records_reverified": 31,
+  "fixed_source_excerpts_reverified": 29,
+  "fixed_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "source_limitations": "No DLC code used for this package; DLC publish consumer only dry-run.",
+  "directional_value_flow": [
+    {
+      "placeholder_index": 1,
+      "quantity_kind": "duration_display_only",
+      "calculation": "info data.dur",
+      "consumer": "action EFF_SENSE duration literal5, no data.dur use; target explicitly separates display value from actual5"
+    },
+    {
+      "placeholder_index": 2,
+      "quantity_kind": "sense_radius",
+      "calculation": "getTalentRange(t)",
+      "consumer": "EFF_SENSE range=rad"
+    },
+    {
+      "placeholder_index": 3,
+      "quantity_kind": "mental_save_reduction_points",
+      "calculation": "info10",
+      "consumer": "EFF_WEAKENED_MIND save10 -> combat_mentalresist -save"
+    },
+    {
+      "placeholder_index": 4,
+      "quantity_kind": "raw_mindpower_addition_points",
+      "calculation": "info35",
+      "consumer": "EFF_WEAKENED_MIND power35 -> combat_mindpower +power"
+    }
+  ],
+  "formula_probe": {
+    "command": "python3 -B /tmp/mmrfix-009-verify.py (manifest LuaRuntime, fixed Lua function slices)",
+    "exit_code": 0,
+    "stdout": "PASS: 7 Body Shot and 35 Blightzone formula cases against fixed Lua functions\n",
+    "body_shot_cases": 7,
+    "blightzone_cases": 35
+  },
+  "tool_boundary_audit": "Actual native custom_tool_call records inspected: only target Lua write, authorized report and own /tmp scratch; no git write or child creation. Executor used tracked exact FIX copy when hidden .ai was absent from rg enumeration; exact equality independently checked.",
+  "claims_check_exit_code": 0
+}

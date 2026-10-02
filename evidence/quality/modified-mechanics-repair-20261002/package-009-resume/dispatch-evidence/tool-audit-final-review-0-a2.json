@@ -1,0 +1,100 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-009-resume/INPUT-final-review-0-a2.json; cat .ai/task/mmrfix-20261002-009-resume/INPUT-final-review-0-a2.json | head -c 20000",
+      "description": "Read frozen input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-final-review-0-a2.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n    c=json.loads(b['context']); print(b['revision_key'], c['section'], [ (e['public_path'], e.get('start'), e.get('matching_lines')) for e in c['source_evidence']], c['terminology'])\nEOF",
+      "description": "Summarize input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-final-review-0-a2.json'))\nprint(json.dumps(d['payload']['translation_snapshot'][-1],ensure_ascii=False))\nEOF\ngrep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Last entry and contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read full contract"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-final-review-0-a2.json'))\nfor i in [2,1]:\n    c=json.loads(d['payload']['bounded_context'][i]['context'])\n    for e in c['source_evidence']:\n        if 'inscriptions' in e['public_path']: continue\n        print('==',e['public_path'],e.get('start')); print(e.get('excerpt'))\nEOF",
+      "description": "Show Heroism/Taint evidence"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/class/Actor.lua | grep -n \"die_at\" | head -30; git show $C:game/modules/tome/data/talents/misc/inscriptions.lua | sed -n 1180,1200p",
+      "description": "Check die_at handling at pinned commit"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-final-review-0-a2.json'))\nfor i in [3,4]:\n    c=json.loads(d['payload']['bounded_context'][i]['context'])\n    for e in c['source_evidence']:\n        print('==',e['public_path'],e.get('start'),e.get('matching_lines'))\n        if 'excerpt' in e: print(e['excerpt'])\n        else:\n            for w in e['windows']:\n                lines=w['text'].split('\\n'); m=e['matching_lines'][0]\n                print('\\n'.join(l for l in lines if abs(int(l.split(':')[0])-m)<=30))\nEOF",
+      "description": "Show evidence entries 4-5"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/class/interface/Combat.lua > /tmp/combat.lua; grep -n \"function _M:combatTalentSpellDamage\\|function _M:rescaleDamage\\|function _M:combatTalentScale\\|function _M:combatTalentPhysicalDamage\" /tmp/combat.lua",
+      "description": "Locate damage formulas"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 1460,1480p /tmp/combat.lua; sed -n 1540,1580p /tmp/combat.lua; sed -n 1815,1835p /tmp/combat.lua",
+      "description": "Read formulas"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/misc/npcs.lua > /tmp/npcs.lua; sed -n 2270,2300p /tmp/npcs.lua",
+      "description": "Read Body Shot definitions"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-final-review-0-a2.json'))\nfor i in [5,6]:\n    c=json.loads(d['payload']['bounded_context'][i]['context'])\n    for e in c['source_evidence']:\n        print('==',e['public_path'],e.get('start'),e.get('matching_lines'))\n        if 'excerpt' in e: print(e['excerpt'])\n        else:\n            for w in e['windows']:\n                lines=w['text'].split('\\n'); m=e['matching_lines'][0]\n                print('\\n'.join(l for l in lines if -45<=int(l.split(':')[0])-m<=15))\nEOF",
+      "description": "Show evidence entries 6-7"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"DIM_VISION\\|STICKY_SMOKE\\|sticky\" $C -- game/modules/tome | grep -v \"^.*images\" | head -20",
+      "description": "Check smoke stealth interactions"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-final-review-0-a2.json'))\nfor i in [7]:\n    c=json.loads(d['payload']['bounded_context'][i]['context'])\n    for e in c['source_evidence']:\n        print('==',e['public_path'],e.get('start'),e.get('matching_lines'))\n        if 'excerpt' in e: print(e['excerpt'])\n        else:\n            for w in e['windows']:\n                lines=w['text'].split('\\n'); m=e['matching_lines'][0]\n                print('\\n'.join(l for l in lines if -50<=int(l.split(':')[0])-m<=12))\nEOF",
+      "description": "Show evidence entry 8"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009-resume/INPUT-final-review-0-a2.json'))\nfor i in [8,9]:\n    c=json.loads(d['payload']['bounded_context'][i]['context'])\n    for e in c['source_evidence']:\n        print('==',e['public_path'],e.get('start'),e.get('matching_lines'))\n        if 'excerpt' in e: print(e['excerpt'])\n        else:\n            for w in e['windows']:\n                lines=w['text'].split('\\n'); m=e['matching_lines'][0]\n                print('\\n'.join(l for l in lines if -70<=int(l.split(':')[0])-m<=12))\nEOF",
+      "description": "Show evidence entries 9-10"
+    }
+  }
+]

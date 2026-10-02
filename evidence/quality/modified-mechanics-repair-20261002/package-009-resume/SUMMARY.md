@@ -1,0 +1,7 @@
+第009包10条target/10个原confirmed claim已完成。
+
+用户明确恢复后，工作树preimage与暂停点完全一致。旧task的两child已再次实时确认归档，因当前主代理父级不同，旧task以STOP_VERIFIED关闭编排，不修改旧review身份、不计完成。新同范围task mmrfix-20261002-009-resume继承原争议和global cycle offset=1、剩余FIX预算2；新EXECUTOR仅逐字修复Telepathy实际5回合与显示值分离。重新whole10 REVIEW及FINAL均10 OK；三个新child均归档，DONE_VERIFIED。
+
+宿主核对31条源码记录、29处摘录与固定core commit624a67329fe2ad440c5b344785a9c73fcf22ae63；保留前序9条候选。LuaJIT全字段及完整逆向字节证明总10target范围；strict proposal通过；BodyShot7组/Blightzone35组实际固定Lua函数探针通过。strict lint30308条0错误0警告、运行键冲突0/分类A1711 B0 C0、strictcoreaddon完整、真实DLC发布dry-run成功且applied=false，claims check及空白通过。没有DLC源码机制输入，未发布、未push。
+
+旧包package-009保留首次执行、原9OK/1ISSUE及已确认时长问题；接续报告只记录实际新修复和新父级，不改写历史。原源码英文的错误机制由译文澄清，游戏源码本身未修改。

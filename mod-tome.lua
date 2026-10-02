@@ -25953,7 +25953,7 @@ t([[Activate the infusion to endure even the most grievous of wounds for %d turn
 		当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。
 		你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%。
 		（目前 %d 生命值， %d 持续时间）
-		效果结束时，如果你的生命值在 0 以下，会变为 1 点。]], "tformat")
+		效果结束时，负生命保护随之消失，生命值不会因此恢复为 1 点。]], "tformat")
 t("die at -%d; dur %d; cd %d", "-%d 死亡底线; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Wild Growth", "纹身：野性生长", "talent name")
 t([[Causes thick vines to spring from the ground and entangle all targets within %d squares for %d turns, pinning them in place for 5 turns and dealing %0.2f physical damage and %0.2f nature damage.
@@ -26057,7 +26057,7 @@ The light is so powerful it will also banish magical darkness", "\
 t("rad %d; power %d; turns %d%s", "范围 %d; 强度 %d; 持续 %d%s", "tformat")
 t("; dispels darkness", "; 驱散黑暗", "_t")
 t("Taint: Telepathy", "堕落印记：感应", "talent name")
-t("Strip the protective barriers from your mind for %d turns, allowing in the thoughts all creatures within %d squares but reducing mind save by %d and increasing your mindpower by %d for 10 turns.", "卸除你心灵上的防护屏障 %d 回合，感应 %d 格范围内所有生物的思维；精神豁免降低 %d， 精神强度提高 %d， 持续 10 回合。", "tformat")
+t("Strip the protective barriers from your mind for %d turns, allowing in the thoughts all creatures within %d squares but reducing mind save by %d and increasing your mindpower by %d for 10 turns.", "卸除你心灵上的防护屏障，实际感应固定持续 5 回合（时长显示值为 %d 回合），感应 %d 格范围内所有生物的思维；精神豁免降低 %d， 精神强度提高 %d， 持续 10 回合。激活时会对自己造成最大生命值五分之一的伤害。", "tformat")
 t("Range %d telepathy for %d turns", "范围 %d 码心灵感应持续 %d 回合。", "tformat")
 t("Rune: Frozen Spear", "符文：冰枪", "talent name")
 t([[Activate the rune to fire a bolt of ice, doing %0.2f cold damage with a chance to freeze the target.
@@ -26117,7 +26117,7 @@ t([[Activate the infusion to endure even the most grievous of wounds for %d turn
 		当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。
 		你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%，在生命值降至 0 或更低时最多提高 100%%。
 		（目前 %d 生命值， %d 持续时间）
-		效果结束时，如果你的生命值在 0 以下，会变为 1 点。]], "tformat")
+		效果结束时，负生命保护随之消失，生命值不会因此恢复为 1 点。]], "tformat")
 
 section "mod-tome/data/talents/misc/misc.lua"
 
@@ -26358,7 +26358,7 @@ t([[Sends a telekinetic attack, knocking back the target up to 3 grids and doing
 		伤害受精神强度加成。]], "tformat")
 t("Blightzone", "枯萎区域", "talent name")
 t([[Corrupted vapour rises at the target location (radius 4) doing %0.2f blight damage every turn for %d turns.
-		The damage increases with Spellpower.]], [[腐化的蒸汽在目标位置升起（半径 4），每回合造成 %0.2f 枯萎伤害，持续 %d 回合。
+		The damage increases with Spellpower.]], [[腐化的蒸汽在目标位置升起（半径 4），每回合造成枯萎伤害（显示参考值 %0.2f， 实际伤害参考值为未舍入参考值乘以 [105×(法术强度+4)/(104×(法术强度+5))]^1.04），持续 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Invoke Tentacle", "召唤触须", "talent name")
 t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
@@ -26452,7 +26452,7 @@ t("@Source@ throws a body shot.", "@Source@打出崩拳。", "_t")
 t("%s resists the body shot!", "%s抵抗了崩拳！", "logSeen")
 t([[A punch to the body that deals %d%% damage, drains %d of the target's stamina per combo point, and dazes the target for %d to %d turns, depending on the amount of combo points you've accumulated.
 		The daze chance will increase with your Physical Power.
-		Using this talent removes your combo points.]], [[对目标的身体发出强烈的一击，造成 %d%% 伤害，每点连击点消耗 %d 目标体力并眩晕目标 %d 到 %d 回合（由你的连击点数决定）。
+		Using this talent removes your combo points.]], [[对目标的身体发出强烈的一击，造成 %d%% 伤害，命中后扣除目标体力（每点连击点的显示参考值为 %d， 实际每点扣除为 max(0, 2+8×(有效技能等级^0.75-1)/(5^0.75-1))）并眩晕目标 %d 到 %d 回合（由你的连击点数决定）。
 		眩晕概率受物理强度加成。
 		使用此技能会消耗当前所有连击点。]], "tformat")
 t("Combo String", "强化连击", "talent name")
@@ -26532,7 +26532,7 @@ t("Sticky Smoke", "粘性烟雾", "talent name")
 t([[Throws a vial of sticky smoke that explodes in radius %d on your foes, reducing their vision range by %d for 5 turns.
 		Creatures affected by smoke bomb can never prevent you from stealthing, even if their proximity would normally forbid it.
 		Use of this will not break stealth.]], [[向你的敌人投掷一小瓶在半径 %d 码范围内爆炸的粘性烟雾，使他们的视野范围减少 %d， 持续5回合。
-		受烟雾弹影响的生物永远不会阻止你潜行，即使通常情况下接近它们会导致无法潜行。
+		烟雾只会降低视野范围，最低降至 1 格；仍能看到你的近处敌人依然可能阻止你进入潜行。
 		使用这个技能不会打破潜行。]], "tformat")
 t("Switch Place", "换位", "talent name")
 t("Terrain prevents #Source# from switching places with #Target#.", "地形阻止了#Source#与#Target#的换位。", "logCombat")
@@ -26559,7 +26559,7 @@ t([[You have learned how to be stealthy even when in plain sight of your foes.  
 		You estimate your current chance to hide as %0.1f%%.]], [[即使在你的敌人面前，你也学会了如何隐身。不管你与敌人有多近，你都可以尝试潜行，但敌人越少，距离越远成功率越高。
 		你的成功率取决于你潜行强度的 %0.2f 倍（当前值 %d）， 以及所有视线能及你的敌人的侦测潜行能力（离你距离每有一格则下降10%%）。
 		如果没有生物能看到你，你一定会潜行成功。
-		这一技能会重置潜行技能的冷却时间。如果使用成功的话，所有正在追踪你的生物都会失去对你位置的感知。
+		这一技能会重置潜行技能的冷却时间。无论是否成功进入潜行，所有以你为追踪目标的生物都会清除当前追踪目标。
 		你估计你目前使用这一技能的成功率为 %0.1f%%。]], "tformat")
 t("Unseen Actions", "行动如风", "talent name")
 t([[You are able to perform usually unstealthy actions (attacking, using objects, ...) without breaking stealth.	 When you perform such an action while stealthed, you have a chance to stay hidden.
@@ -26715,7 +26715,7 @@ t([[Raise your shield into blocking position for 2 turns reducing all non-Mind d
 			Current Bonuses:  %s%s%s%s]], [[举起你的盾牌进入防御姿态 2 回合，减少所有非精神攻击伤害 %d。 如果你完全格挡了一次攻击，攻击者将陷入可被致命反击的状态（下一次武器攻击将改为造成 200%% 伤害），持续 1 回合。
 		每次格挡通常只能反击一个敌人。
 		如果有任何伤害被成功格挡，此效果将在回合开始时移除。
-		如果盾牌对格挡伤害类型有伤害抗性，则格挡值增加50%%。
+		盾牌对格挡伤害类型的抗性不会使格挡值额外增加50%%。
 
 		当前加成：%s%s%s%s]], "tformat")
 t("Bloom Heal", "夏花之愈", "talent name")
@@ -27139,7 +27139,7 @@ t([[Cast a net of static electricity in a radius of %d for %d turns.
 		When you move through the net, a static charge will accumulate on your weapon which will add %0.1f additional Lightning damage to your next attack for each turn you spend within its area.
 		These effects scale with your Mindpower.]], [[在半径 %d 范围中散布一个持续 %d 回合的静电捕网。
 		站在网中的敌人受到 %0.1f 的闪电伤害并被减速 %d%%。
-		当你在网中穿梭，你的武器上会逐渐累加静电充能；你在网中每停留一回合，下一次攻击就额外增加 %0.1f 闪电伤害。
+		当你在网中穿梭，你的武器上会逐渐累加静电充能；你在网中每停留一回合，充能伤害就增加 %0.1f 点闪电伤害，并在下一次近战命中后目标仍存活时释放并消耗。
 		技能效果受精神强度加成。]], "tformat")
 t("Heartstart", "心跳复苏", "talent name")
 t([[Store an electric charge for saving your life at a later time.
@@ -27191,7 +27191,7 @@ t([[Fire a bolt of distortion that ignores resistance and inflicts %0.2f physica
 		Investing in this talent will increase the physical resistance reduction from all of your distortion effects.
 		At talent level 5, you learn to shape your distortion effects, preventing them from hitting you or your allies.
 		The damage will scale with your Mindpower.]], [[射出一枚无视抵抗的扭曲飞弹并造成 %0.2f 物理伤害。此技能会扭曲目标，减少对方物理抗性 %d%%， 并使其在 2 回合内受到扭曲效果时会产生额外的负面影响。
-		如果飞弹命中已存在扭曲效果的目标，则会在 %d 码范围内产生 150%% 基础伤害的爆炸。
+		如果飞弹命中已存在扭曲效果的目标，则会在 %d 码范围内产生 150%% 基础伤害的爆炸；爆炸会对次级目标施加扭曲状态，但不会附带新的物理抗性降低。
 		在该技能投入点数会增加你所有扭曲效果的降抗效果。
 		在等级 5 时，你学会控制你的扭曲效果，防止扭曲效果攻击到你或友军。
 		受精神强度影响，伤害按比例加成。]], "tformat")

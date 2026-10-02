@@ -1,0 +1,552 @@
+{
+  "baseline_sha256": "f72cdf38e1ca668f6245acce919ab536300a9e674d85e2a6afd9a4cc5fdf884d",
+  "candidate_sha256": "077f20a39949122f0d06b3dcab629ad1ab16c7ff809938fae7c6706f7ab0fd24",
+  "all_records": 22989,
+  "translations": 21688,
+  "changed_target_count": 10,
+  "changed_candidate_indices": [
+    561,
+    568,
+    572,
+    577,
+    583,
+    588,
+    589,
+    594,
+    616,
+    618
+  ],
+  "non_target_fields_unchanged": true,
+  "other_records_unchanged": true,
+  "outside_target_bytes_unchanged": true,
+  "reverse_target_spans_sha256": "f72cdf38e1ca668f6245acce919ab536300a9e674d85e2a6afd9a4cc5fdf884d",
+  "placeholder_sequences_unchanged": true,
+  "markup_sequences_unchanged": true,
+  "newline_tab_sequences_unchanged": true,
+  "source_anchors": [
+    {
+      "anchor_id": "a255",
+      "component": "engine",
+      "public_path": "game/engines/default/engine/Map.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "6fdf0294ab835d06cf1186a47a2222b266bd71bfc53b3ba3a423cbb3e41ba315",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 1256,
+          "end": 1282,
+          "sha256": "35caea6811b9ddff54b36b90e399aabffe49037348d51cf32a6e357308e7f506",
+          "text": "--- Process the overlay effects, call it from your tick function\n-- @param update_shape_only if true no damage is projected, no duration changes\nfunction _M:processEffects(update_shape_only)\n\tlocal todel = {}\n\tfor i, e in ipairs(self.effects) do\n\t\t-- Run damage and decrease duration only on certain ticks\n\t\tif not update_shape_only and e.duration > 0 then\n\t\t\tfor lx, ys in pairs(e.grids) do\n\t\t\t\tfor ly, _ in pairs(ys) do\n\t\t\t\t\tlocal act = game.level.map(lx, ly, engine.Map.ACTOR)\n\t\t\t\t\tif act and act == e.src and not ((type(e.selffire) == \"number\" and rng.percent(e.selffire)) or (type(e.selffire) ~= \"number\" and e.selffire)) then\n\t\t\t\t\telseif act and e.src and e.src.reactionToward and (e.src:reactionToward(act) >= 0) and not ((type(e.friendlyfire) == \"number\" and rng.percent(e.friendlyfire)) or (type(e.friendlyfire) ~= \"number\" and e.friendlyfire)) then\n\t\t\t\t\t-- Otherwise hit\n\t\t\t\t\telse\n\t\t\t\t\t\te.src.__project_source = e -- intermediate projector source\n\t\t\t\t\t\tDamageType:get(e.damtype).projector(e.src, lx, ly, e.damtype, e.dam)\n\t\t\t\t\t\te.src.__project_source = nil\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\n\t\t\te.duration = e.duration - 1\n\t\tend\n\n\t\tif e.duration <= 0 then\n\t\t\ttable.insert(todel, i)\n\t\telseif e.update_fct then\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-577",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/npcs.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 1351,
+          "end": 1391,
+          "sha256": "c30ae74d055dae2737a465d2641fad6a680cb00fd310d2745807b73373831006",
+          "text": "newTalent{\n\tname = \"Blightzone\",\n\ttype = {\"corruption/other\", 1},\n\tpoints = 5,\n\tcooldown = 13,\n\tvim = 27,\n\trange = 10,\n\tradius = 4,\n\tdirect_hit = true,\n\trequires_target = true,\n\ttarget = function(self, t)\n\t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t)}\n\tend,\n\ttactical = { ATTACKAREA = { BLIGHT = 2 } },\n\tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 3, 7)) end,\n\taction = function(self, t)\n\t\tlocal duration = t.getDuration(self, t)\n\t\tlocal dam = self:combatTalentSpellDamage(t, 4, 65)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal x, y = self:getTarget(tg)\n\t\tif not x or not y then return nil end\n\t\tlocal _ _, x, y = self:canProject(tg, x, y)\n\t\t-- Add a lasting map effect\n\t\tgame.level.map:addEffect(self,\n\t\t\tx, y, duration,\n\t\t\tDamageType.BLIGHT, dam,\n\t\t\tself:getTalentRadius(t),\n\t\t\t5, nil,\n\t\t\t{type=\"blightzone\"},\n\t\t\tnil, self:spellFriendlyFire()\n\t\t)\n\t\tgame:playSoundNear(self, \"talents/cloud\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Corrupted vapour rises at the target location (radius 4) doing %0.2f blight damage every turn for %d turns.\n\t\tThe damage increases with Spellpower.]]):\n\t\ttformat(damDesc(self, engine.DamageType.BLIGHT, self:combatTalentSpellDamage(t, 5, 65)), t.getDuration(self, t))\n\tend,\n}\n\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a427",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 1563,
+          "end": 1578,
+          "sha256": "673d0d10ef83c5b17098878e8c3fd7d1a60bc7da123f95ca12c414fa92293a10",
+          "text": "\tname = \"WEAKENED_MIND\", image = \"talents/taint__telepathy.png\",\n\tdesc = _t\"Receptive Mind\",\n\tlong_desc = function(self, eff) return (\"Decreases mind save by %d and increases mindpower by %d.\"):tformat(eff.save, eff.power) end,\n\ttype = \"mental\",\n\tsubtype = { morale=true },\n\tstatus = \"detrimental\",\n\tparameters = { power=10, save=10 },\n\tactivate = function(self, eff)\n\t\teff.mindid = self:addTemporaryValue(\"combat_mentalresist\", -eff.save)\n\t\teff.powdid = self:addTemporaryValue(\"combat_mindpower\", eff.power)\n\tend,\n\tdeactivate = function(self, eff)\n\t\tself:removeTemporaryValue(\"combat_mentalresist\", eff.mindid)\n\t\tself:removeTemporaryValue(\"combat_mindpower\", eff.powdid)\n\tend,\n}\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-568",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 1198,
+          "end": 1357,
+          "sha256": "6936f076b41fe4d8ac457c4de12179746e855bec670a7672e9370b340d7be67f",
+          "text": "\ttype = {\"inscriptions/taints\", 1},\n\tpoints = 1,\n\tis_spell = true,\n\trange = 10,\n\taction = function(self, t)\n\t\tself:takeHit(self.max_life * 0.2, self)\n\n\t\tlocal rad = self:getTalentRange(t)\n\t\tself:setEffect(self.EFF_SENSE, 5, {\n\t\t\trange = rad,\n\t\t\tactor = 1,\n\t\t})\n\t\tself:setEffect(self.EFF_WEAKENED_MIND, 10, {save=10, power=35})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Strip the protective barriers from your mind for %d turns, allowing in the thoughts all creatures within %d squares but reducing mind save by %d and increasing your mindpower by %d for 10 turns.]]):tformat(data.dur, self:getTalentRange(t), 10, 35)\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Range %d telepathy for %d turns]]):tformat(self:getTalentRange(t), data.dur)\n\tend,\n}\n\nnewInscription{\n\tname = \"Rune: Frozen Spear\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_attack_rune = true,\n\tno_energy = true,\n\tis_spell = true,\n\ttactical = { ATTACK = { COLD = 1 }, DISABLE = { stun = 1 }, CURE = function(self, t, target)\n\t\t\tlocal nb = 0\n\t\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\t\tfor eff_id, p in pairs(self.tmp) do\n\t\t\t\tlocal e = self.tempeffect_def[eff_id]\n\t\t\t\tif e.type == \"mental\" and e.status == \"detrimental\" then nb = nb + 1 end\n\t\t\tend\n\t\t\treturn nb\n\t\tend },\n\trequires_target = true,\n\trange = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn data.range\n\tend,\n\ttarget = function(self, t)\n\t\treturn {type=\"bolt\", range=self:getTalentRange(t), talent=t, display={particle=\"bolt_ice\", trail=\"icetrail\"}}\n\tend,\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal x, y = self:getTarget(tg)\n\t\tif not x or not y then return nil end\n\t\tself:project(tg, x, y, DamageType.ICE, data.power + data.inc_stat, {type=\"freeze\"})\n\t\tself:removeEffectsFilter(self, {status=\"detrimental\", type=\"mental\", ignore_crosstier=true}, 1)\n\t\tgame:playSoundNear(self, \"talents/ice\")\n\t\tattack_rune(self, t.id)\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Activate the rune to fire a bolt of ice, doing %0.2f cold damage with a chance to freeze the target.\n\t\tThe deep cold also crystalizes your mind, removing one random detrimental mental effect from you.]]):tformat(damDesc(self, DamageType.COLD, data.power + data.inc_stat))\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[%d cold damage]]):tformat(damDesc(self, DamageType.COLD, data.power + data.inc_stat))\n\tend,\n}\n\nnewInscription{\n\tname = \"Rune: Heat Beam\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_attack_rune = true,\n\tno_energy = true,\n\tis_spell = true,\n\ttactical = { ATTACK = { FIRE = 1 }, CURE = function(self, t, target)\n\t\t\tlocal nb = 0\n\t\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\t\tfor eff_id, p in pairs(self.tmp) do\n\t\t\t\tlocal e = self.tempeffect_def[eff_id]\n\t\t\t\tif e.type == \"physical\" and e.status == \"detrimental\" then nb = nb + 1 end\n\t\t\tend\n\t\t\treturn nb\n\t\tend },\n\trequires_target = true,\n\tdirect_hit = true,\n\trange = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn data.range\n\tend,\n\ttarget = function(self, t)\n\t\treturn {type=\"beam\", range=self:getTalentRange(t), talent=t}\n\tend,\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal x, y = self:getTarget(tg)\n\t\tif not x or not y then return nil end\n\t\tself:project(tg, x, y, DamageType.FIREBURN, {dur=5, initial=0, dam=data.power + data.inc_stat})\n\t\tlocal _ _, x, y = self:canProject(tg, x, y)\n\t\tgame.level.map:particleEmitter(self.x, self.y, tg.radius, \"flamebeam\", {tx=x-self.x, ty=y-self.y})\n\t\tself:removeEffectsFilter(self, {status=\"detrimental\", type=\"physical\", ignore_crosstier=true}, 1)\n\t\tgame:playSoundNear(self, \"talents/fire\")\n\t\tattack_rune(self, t.id)\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Activate the rune to fire a beam of heat, doing %0.2f fire damage over 5 turns\n\t\tThe intensity of the heat will also remove one random detrimental physical effect from you.]]):tformat(damDesc(self, DamageType.FIRE, data.power + data.inc_stat))\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[%d fire damage]]):tformat(damDesc(self, DamageType.FIRE, data.power + data.inc_stat))\n\tend,\n}\n\nnewInscription{\n\tname = \"Rune: Speed\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_spell = true,\n\tno_energy = true,\n\ttactical = { BUFF = 4 },\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tself:setEffect(self.EFF_SPEED, data.dur, {power=(data.power + data.inc_stat) / 100})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Activate the rune to increase your global speed by %d%% for %d turns.]]):tformat(data.power + data.inc_stat, data.dur)\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[speed %d%% for %d turns]]):tformat(data.power + data.inc_stat, data.dur)\n\tend,\n}\n\nnewInscription{\n\tname = \"Rune: Vision\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_spell = true,\n\tno_npc_use = true,\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tself:magicMap(data.range, self.x, self.y, function(x, y)\n\t\t\tlocal g = game.level.map(x, y, Map.TERRAIN)\n\t\t\tif g and (g.always_remember or g:check(\"block_move\")) then\n\t\t\t\tfor _, coord in pairs(util.adjacentCoords(x, y)) do\n\t\t\t\t\tlocal g2 = game.level.map(coord[1], coord[2], Map.TERRAIN)\n\t\t\t\t\tif g2 and not g2:check(\"block_move\") then return true end\n\t\t\t\tend\n\t\t\tend\n\t\tend)\n\t\tself:setEffect(self.EFF_SENSE_HIDDEN, data.dur, {power=data.power + data.inc_stat})\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a524",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 1480,
+          "end": 1493,
+          "sha256": "e1094083f23ca09aa088bef971a589b6f6c06bc788ea24fb6a6201df2ce2afa0",
+          "text": "\tname = _t(\"sticky smoke\", \"damage type\"), type = \"STICKY_SMOKE\",\n\tprojector = function(src, x, y, type, dam, state)\n\t\tstate = initState(state)\n\t\tuseImplicitCrit(src, state)\n\t\tlocal target = game.level.map(x, y, Map.ACTOR)\n\t\tif target then\n\t\t\tif target:canBe(\"blind\") then\n\t\t\t\ttarget:setEffect(target.EFF_DIM_VISION, 5, {sight=dam, apply_power=src:combatAttack()})\n\t\t\telse\n\t\t\t\tgame.logSeen(target, \"%s resists!\", target:getName():capitalize())\n\t\t\tend\n\t\tend\n\tend,\n}\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a525",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 1133,
+          "end": 1152,
+          "sha256": "8617b860ca0b3e4cbd3ffcfaa9c961c116b9c9fbac50a3e6e9a2a6ea127b3230",
+          "text": "\tname = \"DIM_VISION\", image = \"talents/sticky_smoke.png\",\n\tdesc = _t\"Reduced Vision\",\n\tlong_desc = function(self, eff) return (\"The target's vision range is decreased by %d.\"):tformat(eff.sight) end,\n\ttype = \"physical\",\n\tsubtype = { sense=true },\n\tstatus = \"detrimental\",\n\tparameters = { sight=5 },\n\ton_gain = function(self, err) return _t\"#Target# is surrounded by a thick smoke.\", _t\"+Dim Vision\" end,\n\ton_lose = function(self, err) return _t\"The smoke around #target# dissipates.\", _t\"-Dim Vision\" end,\n\tcharges = function(self, eff) return -eff.sight end,\n\tactivate = function(self, eff)\n\t\tif self.sight - eff.sight < 1 then eff.sight = self.sight - 1 end\n\t\teff.tmpid = self:addTemporaryValue(\"sight\", -eff.sight)\n--\t\tself:setTarget(nil) -- Loose target!\n\t\tself:doFOV()\n\tend,\n\tdeactivate = function(self, eff)\n\t\tself:removeTemporaryValue(\"sight\", eff.tmpid)\n\t\tself:doFOV()\n\tend,\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a526",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/cunning/stealth.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "38accb83ed9f8124b05924589b576a0afaf61625c3e0ad4481a08e19299fa63d",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 24,
+          "end": 37,
+          "sha256": "ba28edf4345390a4cf5ae9e477c1bdf9ca548cc6d90c77328e634be6ac7fac99",
+          "text": "local function stealthDetection(self, radius, estimate)\n\tif not self.x then return 0, math.huge end\n\tlocal dist = 0\n\tlocal closest, detect = math.huge, 0\n\tfor i, act in ipairs(self.fov.actors_dist) do\n\t\tdist = core.fov.distance(self.x, self.y, act.x, act.y)\n\t\tif dist > radius then break end\n\t\tif act ~= self and act:reactionToward(self) < 0 and not act:attr(\"blind\") and (not act.fov or not act.fov.actors or act.fov.actors[self]) and (not estimate or self:canSee(act)) then\n\t\t\tdetect = detect + act:combatSeeStealth() * (1.1 - dist/10) -- detection strength reduced 10% per tile\n\t\t\tif dist < closest then closest = dist end\n\t\tend\n\tend\n\treturn detect, closest\nend\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-588",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/npcs.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 2908,
+          "end": 2939,
+          "sha256": "6f591c290e92a58f27addf3398705f3f2c9da69bbb413b42534a1cdebeba54d9",
+          "text": "newTalent{\n\tname = \"Sticky Smoke\",\n\ttype = {\"other/other\", 1},\n\tpoints = 5,\n\tcooldown = 15,\n\tstamina = 10,\n--\trequire = cuns_req3,\n\tno_break_stealth = true,\n\treflectable = true,\n\tproj_speed = 10,\n\trequires_target = true,\n\trange = 10,\n\tspeed = \"combat\",\n\tradius = function(self, t) return math.max(0,math.floor(self:combatTalentScale(t, 0.5, 2.5))) end,\n\tgetSightLoss = function(self, t) return math.floor(self:combatTalentScale(t,1, 6, \"log\", 0, 4)) end, -- 1@1 6@5\n\ttactical = { DISABLE = { blind = 2 } },\n\taction = function(self, t)\n\t\tlocal tg = {type=\"ball\", range=self:getTalentRange(t), selffire=false, radius=self:getTalentRadius(t), talent=t, display={particle=\"bolt_dark\"}}\n\t\tlocal x, y = self:getTarget(tg)\n\t\tif not x or not y then return nil end\n\t\tself:projectile(tg, x, y, DamageType.STICKY_SMOKE, t.getSightLoss(self,t), {type=\"slime\"})\n\t\tgame:playSoundNear(self, \"talents/slime\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Throws a vial of sticky smoke that explodes in radius %d on your foes, reducing their vision range by %d for 5 turns.\n\t\tCreatures affected by smoke bomb can never prevent you from stealthing, even if their proximity would normally forbid it.\n\t\tUse of this will not break stealth.]]):\n\t\ttformat(self:getTalentRadius(t), t.getSightLoss(self,t))\n\tend,\n}\n\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-583",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/npcs.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 2283,
+          "end": 2337,
+          "sha256": "965daa1ba16f7b454651280d6129486a512f2cd08136b800c3b799052094fa40",
+          "text": "newTalent{\n\tname = \"Body Shot\",\n\ttype = {\"technique/other\", 1},\n\tpoints = 5,\n\tcooldown = 10,\n\tstamina = 10,\n\tmessage = _t\"@Source@ throws a body shot.\",\n\ttactical = { ATTACK = { weapon = 2 }, DISABLE = { stun = 2 } },\n\trequires_target = true,\n\t--on_pre_use = function(self, t, silent) if not self:hasEffect(self.EFF_COMBO) then if not silent then game.logPlayer(self, \"You must have a combo going to use this ability.\") end return false end return true end,\n\tgetDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.1, 1.8) + getStrikingStyle(self, dam) end,\n\tgetDuration = function(self, t, comb) return math.ceil(self:combatTalentScale(t, 1, 5) * (0.25 + comb/5)) end,\n\tgetDrain = function(self, t) return self:combatTalentScale(t, 2, 10, 0.75) * self:getCombo(combo) end,\n\ttarget = function(self, t) return {type=\"hit\", range=self:getTalentRange(t)} end,\n\trange = 1,\n\taction = function(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal x, y, target = self:getTarget(tg)\n\t\tif not target or not self:canProject(tg, x, y) then return nil end\n\n\t\t-- breaks active grapples if the target is not grappled\n\t\tif not target:isGrappled(self) then\n\t\t\tself:breakGrapples()\n\t\tend\n\n\t\tlocal hit = self:attackTarget(target, nil, t.getDamage(self, t), true)\n\n\t\tif hit then\n\t\t\t-- try to daze\n\t\t\tif target:canBe(\"stun\") then\n\t\t\t\ttarget:setEffect(target.EFF_DAZED, t.getDuration(self, t, self:getCombo(combo)), {apply_power=self:combatPhysicalpower()})\n\t\t\telse\n\t\t\t\tgame.logSeen(target, \"%s resists the body shot!\", target:getName():capitalize())\n\t\t\tend\n\n\t\t\ttarget:incStamina(- t.getDrain(self, t))\n\n\t\tend\n\n\t\tself:clearCombo()\n\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal damage = t.getDamage(self, t) * 100\n\t\tlocal drain = self:getTalentLevel(t) * 2\n\t\tlocal daze = t.getDuration(self, t, 0)\n\t\tlocal dazemax = t.getDuration(self, t, 5)\n\t\treturn ([[A punch to the body that deals %d%% damage, drains %d of the target's stamina per combo point, and dazes the target for %d to %d turns, depending on the amount of combo points you've accumulated.\n\t\tThe daze chance will increase with your Physical Power.\n\t\tUsing this talent removes your combo points.]])\n\t\t:tformat(damage, drain, daze, dazemax)\n\tend,\n}\n\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a583",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 977,
+          "end": 991,
+          "sha256": "9a2912ffc43b61a5531a06275faddad3fc38edbd53a5320fedc348cd0658ddd9",
+          "text": "\tname = \"HEROISM\", image = \"talents/infusion__heroism.png\",\n\tdesc = _t\"Heroism\",\n\tlong_desc = function(self, eff)\n\t\tlocal xs = eff.die_at > 0 and (\"Keeps you from dying even if your life drops to %+d\"):tformat(-eff.die_at) or \"\"\n\t\treturn xs\n\tend,\n\ttype = \"physical\",\n\tsubtype = { nature=true },\n\tno_player_remove = true,\n\tstatus = \"beneficial\",\n\tparameters = { die_at = 0 },\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"die_at\", -eff.die_at)\n\tend,\n}\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a584",
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/ActorLife.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "f10012cb28cb5406ab7d6739045f060a2aae3570a6fd51fe27665f35cb9f7a67",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 38,
+          "end": 60,
+          "sha256": "e1ac72c83332adb5909a35dfd910cb8cbfb9ba701654f0b10d60f049572aee8d",
+          "text": "-- If HP is reduced to 0 then remove from the level and call the die method.<br/>\n-- When an actor dies its dead property is set to true, to wait until garbage collection deletes it\n-- @return true/false if the actor died and the actual damage done\nfunction _M:takeHit(value, src, death_note)\n\tif self.onTakeHit then value = self:onTakeHit(value, src, death_note) end\n\tif value <= 0 then return false, 0 end\n\n\tif death_note and death_note.cant_die then\n\t\tif value >= self.life then value = self.life - 1 end\n\tend\n\n\tself.life = self.life - value\n\tself.changed = true\n\tif self.life <= self.die_at and not self.dead then\n\t\treturn oktodie(self, value, src, death_note)\n\t-- Allow double-death ONLY for npcs\n\telseif self.life <= self.die_at and self.dead then\n\t\tif not game.party or not game.party:hasMember(self) then\n\t\t\treturn oktodie(self, value, src, death_note)\n\t\tend\n\tend\n\treturn false, value\nend\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-561",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 228,
+          "end": 387,
+          "sha256": "985f1c091a37868bec2f6d2f85349dccc84761a662b7225f00f9d1ad9fc24d18",
+          "text": "newInscription{\n\tname = \"Infusion: Heroism\",\n\ttype = {\"inscriptions/infusions\", 1},\n\tpoints = 1,\n\tno_energy = true,\n\ttactical = { DEFEND = 1 },\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal bonus = 1 + (1 - math.max(0, self.life) / self.max_life)\n\t\tself:setEffect(self.EFF_HEROISM, math.floor(data.dur * bonus), {die_at=(data.die_at + data.inc_stat * 30) * bonus})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal bonus = 1 + (1 -  math.max(0, self.life) / self.max_life)\n\t\tlocal bonus1 = (data.die_at + data.inc_stat * 30) * bonus\n\t\tlocal bonus2 = math.floor(data.dur * bonus)\n\t\treturn ([[Activate the infusion to endure even the most grievous of wounds for %d turns.\n\t\tWhile Heroism is active, you will only die when reaching -%d life.\n\t\tThe duration and life will increase by 1%% for every 1%% life you have lost, to a maximum of 100%% at 0 life or less (currently %d life, %d duration)\n\t\tIf your life is below 0 when this effect wears off it will be set to 1.]]):tformat(data.dur, data.die_at + data.inc_stat * 30, bonus1, bonus2)\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[die at -%d; dur %d; cd %d]]):tformat(data.die_at + data.inc_stat * 30, data.dur, data.cooldown)\n\tend,\n}\n\nnewInscription{\n\tname = \"Infusion: Wild Growth\",\n\ttype = {\"inscriptions/infusions\", 1},\n\tpoints = 1,\n\ttactical = { ATTACKAREA = { PHYSICAL = 1, NATURE = 1 }, DEFEND = 1, DISABLE = {pin = 2}},\n\trange = 0,\n\tradius = 5,\n\tdirect_hit = true,\n\tno_energy = true,\n\ttarget = function(self, t)\n\t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), selffire=false, friendlyfire = false, talent=t}\n\tend,\n\tgetDamage = function(self, t) return 10 + self:combatMindpower() * 3.6 end,\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal dam = t.getDamage(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tself:project(tg, self.x, self.y, function(tx, ty)\n\t\t\tDamageType:get(DamageType.ENTANGLE).projector(self, tx, ty, DamageType.ENTANGLE, dam)\n\t\tend)\n\t\tself:setEffect(self.EFF_THORNY_SKIN, data.dur, {hard=data.hard or 30, ac=data.armor or 50})\n\t\tgame:playSoundNear(self, \"talents/earth\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal damage = t.getDamage(self, t)\n\t\treturn ([[Causes thick vines to spring from the ground and entangle all targets within %d squares for %d turns, pinning them in place for 5 turns and dealing %0.2f physical damage and %0.2f nature damage.\n\t\tThe vines also grow all around you, increasing your armour by %d and armour hardiness by %d.]]):\n\t\ttformat(self:getTalentRadius(t), data.dur, damDesc(self, DamageType.PHYSICAL, damage)/3, damDesc(self, DamageType.NATURE, 2*damage)/3, data.armor or 50, data.hard or 30)\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[rad %d; dur %d;]]):tformat(self:getTalentRadius(t), data.dur)\n\tend,\n}\n\n-----------------------------------------------------------------------\n-- Runes\n-----------------------------------------------------------------------\n\nlocal function attack_rune(self, btid)\n\tfor tid, lev in pairs(self.talents) do\n\t\tif tid ~= btid and self.talents_def[tid].is_attack_rune and not self.talents_cd[tid] then\n\t\t\tself.talents_cd[tid] = 1\n\t\tend\n\tend\nend\n\nnewInscription{\n\tname = \"Rune: Teleportation\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_spell = true,\n\tis_teleport = true,\n\tno_break_stealth = true,\n\ttactical = { ESCAPE = 3 },\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tgame.level.map:particleEmitter(self.x, self.y, 1, \"teleport\")\n\t\tself:teleportRandom(self.x, self.y, data.range + data.inc_stat, 15)\n\t\tgame.level.map:particleEmitter(self.x, self.y, 1, \"teleport\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Activate the rune to teleport randomly in a range of %d with a minimum range of 15.]]):tformat(data.range + data.inc_stat)\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[range %d; cd %d]]):tformat(data.range + data.inc_stat, data.cooldown)\n\tend,\n}\n\nnewInscription{\n\tname = \"Rune: Shielding\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_spell = true,\n\tallow_autocast = true,\n\tno_energy = true,\n\ttactical = { DEFEND = 2 },\n\ton_pre_use = function(self, t)\n\t\treturn not self:hasEffect(self.EFF_DAMAGE_SHIELD)\n\tend,\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tself:setEffect(self.EFF_DAMAGE_SHIELD, data.dur, {power=data.power + data.inc_stat})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Activate the rune to create a protective shield absorbing at most %d damage for %d turns.]]):tformat(self:getShieldAmount(data.power + data.inc_stat), self:getShieldDuration(data.dur))\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[absorb %d; dur %d; cd %d]]):tformat(self:getShieldAmount(data.power + data.inc_stat), self:getShieldDuration(data.dur), data.cooldown)\n\tend,\n}\n\nnewInscription{\n\tname = \"Rune: Reflection Shield\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_spell = true,\n\tallow_autocast = true,\n\tno_energy = true,\n\ttactical = { DEFEND = 2 },\n\tgetPower = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tif data.power and data.inc_stat then \n\t\t\treturn data.power + data.inc_stat\n\t\telse\n\t\t\treturn 100+5*self:getMag()\n\t\tend\n\tend,\n\tgetDuration = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn data.dur or 5\n\tend,\n\ton_pre_use = function(self, t)\n\t\treturn not self:hasEffect(self.EFF_DAMAGE_SHIELD)\n\tend,\n\taction = function(self, t)\n\t\tlocal power = t.getPower(self, t)\n\t\tlocal dur = t.getDuration(self, t)\n\t\tself:setEffect(self.EFF_DAMAGE_SHIELD, dur, {power=power, reflect=100, image=\"reflectionshield_17\", shield_intensity=0.6})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal power = t.getPower(self, t)\n\t\tlocal dur = t.getDuration(self, t)\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a668",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 977,
+          "end": 991,
+          "sha256": "9a2912ffc43b61a5531a06275faddad3fc38edbd53a5320fedc348cd0658ddd9",
+          "text": "\tname = \"HEROISM\", image = \"talents/infusion__heroism.png\",\n\tdesc = _t\"Heroism\",\n\tlong_desc = function(self, eff)\n\t\tlocal xs = eff.die_at > 0 and (\"Keeps you from dying even if your life drops to %+d\"):tformat(-eff.die_at) or \"\"\n\t\treturn xs\n\tend,\n\ttype = \"physical\",\n\tsubtype = { nature=true },\n\tno_player_remove = true,\n\tstatus = \"beneficial\",\n\tparameters = { die_at = 0 },\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"die_at\", -eff.die_at)\n\tend,\n}\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a669",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/cunning/stealth.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "38accb83ed9f8124b05924589b576a0afaf61625c3e0ad4481a08e19299fa63d",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 24,
+          "end": 38,
+          "sha256": "5f4c9c01eef185dbd48d76d2bae2833c2531abc7ed6801a7dc81ce23ba742ee7",
+          "text": "local function stealthDetection(self, radius, estimate)\n\tif not self.x then return 0, math.huge end\n\tlocal dist = 0\n\tlocal closest, detect = math.huge, 0\n\tfor i, act in ipairs(self.fov.actors_dist) do\n\t\tdist = core.fov.distance(self.x, self.y, act.x, act.y)\n\t\tif dist > radius then break end\n\t\tif act ~= self and act:reactionToward(self) < 0 and not act:attr(\"blind\") and (not act.fov or not act.fov.actors or act.fov.actors[self]) and (not estimate or self:canSee(act)) then\n\t\t\tdetect = detect + act:combatSeeStealth() * (1.1 - dist/10) -- detection strength reduced 10% per tile\n\t\t\tif dist < closest then closest = dist end\n\t\tend\n\tend\n\treturn detect, closest\nend\nTalents.stealthDetection = stealthDetection\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a670",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/npcs.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 3114,
+          "end": 3124,
+          "sha256": "d32b5ebfc9d2828ec48226a35f7ddec46de6250f2fae4889aa78e14fc81502d4",
+          "text": "\taction = function(self, t)\n\t\tself.talents_cd[self.T_STEALTH] = nil\n\t\tself.changed = true\n\t\tself.hide_chance = t.getChance(self, t)\n\t\tself:useTalent(self.T_STEALTH)\n\t\tself.hide_chance = nil\n\n\t\tfor uid, e in pairs(game.level.entities) do\n\t\t\tif e.ai_target and e.ai_target.actor == self then e:setTarget(nil) end\n\t\tend\n\t\treturn true\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a671",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/objects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "7396731ef4718b932752a648d67726332b7b3a5b180321cbfe6ed4da2f59f7e2",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 292,
+          "end": 321,
+          "sha256": "fc555d206334f8668cecb32e06beb45e12f02c8e79d3c640c8b24d35a732282d",
+          "text": "\t\tlocal bonuses = {}  -- Bonuses to damage resist on base type put in a separate table to avoid changing the structure of the bt table and breaking addons\n\n\t\tif not shield1 then return bt, \"error!\" end\n\n\t\tif not self:attr(\"spectral_shield\") then\n\t\t\tif shield1.wielder.resists then for res, v in pairs(shield1.wielder.resists) do if bt[res] and v > 0 then bonuses[res] = 1.5 end end end\n\t\t\tif shield2 and shield2.wielder.resists then for res, v in pairs(shield2.wielder.resists) do if bt[res] and v > 0 then bonuses[res] = 1.5 end end end\n\t\tend\n\n\t\tbonuses.MIND = nil\n\n\t\tlocal list = table.keys(bonuses)\n\t\tlocal n = #list\n\t\tif n < 1 then return bt, _t\"None\" end\n\t\tlocal e_string = \"\"\n\t\tif n == 1 then\n\t\t\te_string = DamageType.dam_def[next(bonuses)].name\n\t\telse\n\t\t\tfor i = 1, #list do \n\t\t\t\tif DamageType.dam_def[list[i]] and bt[list[i]] then\n\t\t\t\t\tlist[i] = DamageType.dam_def[list[i]].text_color..string.lower(DamageType.dam_def[list[i]].name)..\"#LAST#\"\n\t\t\tend end\n\t\t\te_string = table.concatNice(list, \", \", _t\" and \")\n\t\tend\n\t\treturn bt, e_string\n\tend,\n\taction = function(self, t)\n\t\tlocal properties = t.getProperties(self, t)\n\t\tlocal bt, bt_string = t.getBlockedTypes(self, t)\n\t\tself:setEffect(self.EFF_BLOCKING, 2, {power = t.getBlockValue(self, t), d_types=bt, bonus_block_pct = bonuses, properties=properties, from_block=true})\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a672",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 2305,
+          "end": 2375,
+          "sha256": "9ce9ff7cc316ec95b6287152be5cb06f1eab6ca4002a1995a142ab1c3bd288d1",
+          "text": "\tname = \"BLOCKING\", image = \"talents/block.png\",\n\tdesc = _t\"Blocking\",\n\tlong_desc = function(self, eff) return (\"Reduces all damage taken by %d.\"):tformat(eff.power) end,\n\ttype = \"physical\",\n\tsubtype = { tactic=true },\n\tstatus = \"beneficial\",\n\tparameters = { nb=1 },\n\ton_gain = function(self, eff) return nil, nil end,\n\ton_lose = function(self, eff) return nil, nil end,\n\tdo_block = function(type, dam, eff, self, src)\n\t\tif self == src then return dam end\n\t\tlocal dur_inc = 0\n\t\tlocal crit_inc = 0\n\t\tlocal nb = 1\n\t\tif self:knowTalent(self.T_RIPOSTE) then\n\t\t\tlocal t = self:getTalentFromId(self.T_RIPOSTE)\n\t\t\tdur_inc = t.getDurInc(self, t)\n\t\t\tcrit_inc = t.getCritInc(self, t)\n\t\t\tnb = nb + dur_inc\n\t\tend\n\t\tlocal b = false\n\t\tif eff.d_types[type] then b = true end\n\t\tif not b then return dam end\n\t\tlocal amt = util.bound(dam - eff.power, 0, dam)\n\t\tif eff.bonus_block_pct and eff.bonus_block_pct[type] then amt = amt * eff.bonus_block_pct[type] end\n\t\tlocal blocked = dam - amt\n\t\tlocal shield1, combat1, shield2, combat2 = self:hasShield()\n\n\t\t-- on_block can have two structures, an older single table, and a newer list of on_block functions used by randomly generated items\n\t\tif shield1 and shield1.on_block and shield1.on_block.fct then shield1.on_block.fct(shield1, self, src, type, dam, eff) end\n\t\tif shield2 and shield2.on_block and shield2.on_block.fct then shield2.on_block.fct(shield2, self, src, type, dam, eff) end\n\n\t\tif shield1 and shield1.on_block and shield1.on_block[1] then\n\t\t\tfor _, on_block in pairs(shield1.on_block) do\n\t\t\t\ton_block.fct(shield1, self, src, type, dam, eff, on_block)\n\t\t\tend\n\t\tend\n\t\tif shield2 and shield2.on_block and shield2.on_block[1] then\n\t\t\tfor _, on_block in pairs(shield2.on_block) do\n\t\t\t\ton_block.fct(shield2, self, src, type, dam, eff, on_block)\n\t\t\tend\n\t\tend\n\n\t\tif eff.properties.br then\n\t\t\tself:heal(blocked, src)\n\t\t\tgame:delayedLogMessage(self, src, \"block_heal\", \"#CRIMSON##Source# heals from blocking with %s shield!\", string.his_her(self))\n\t\tend\n\t\tif eff.properties.ref and src.life then DamageType.defaultProjector(src, src.x, src.y, type, blocked, tmp, true) end\n\t\tlocal full = false\n\t\tif (self:attr(\"allow_incomplete_blocks\") or amt == 0) and not eff.did_counterstrike and src.life then\n\t\t\tfull = true\n\t\t\tif not self.__counterstrike_recurse then\n\t\t\t\tself.__counterstrike_recurse = true\n\t\t\t\tif not self:knowTalent(self.T_ETERNAL_GUARD) then eff.did_counterstrike = true end\n\t\t\t\tsrc:setEffect(src.EFF_COUNTERSTRIKE, 2, {power=eff.power, no_ct_effect=true, src=self, crit_inc=crit_inc, nb=nb})\n\t\t\t\tif eff.properties.sb then\n\t\t\t\t\tif src:canBe(\"disarm\") then\n\t\t\t\t\t\tsrc:setEffect(src.EFF_DISARMED, 3, {apply_power=self:combatPhysicalpower()})\n\t\t\t\t\telse\n\t\t\t\t\t\tgame.logSeen(src, \"%s resists the disarming attempt!\", src:getName():capitalize())\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\t\tif eff.properties.on_cs then\n\t\t\t\t\teff.properties.on_cs(self, eff, dam, type, src)\n\t\t\t\tend\n\t\t\t\tself.__counterstrike_recurse = nil\n\t\t\tend\n\t\tend\n\t\teff.did_block = true\n\t\tself:fireTalentCheck(\"callbackOnBlock\", eff, dam, type, src, blocked)\n\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a681",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 3935,
+          "end": 3946,
+          "sha256": "a35712aac0431c647dc8091b13f44f1b6fe32118b7cb72cbf21329353f1349e7",
+          "text": "\tname = _t(\"static net\", \"damage type\"), type = \"STATIC_NET\",\n\tprojector = function(src, x, y, type, dam, state)\n\t\tstate = initState(state)\n\t\tuseImplicitCrit(src, state)\n\t\tlocal target = game.level.map(x, y, Map.ACTOR)\n\t\tif target and src:reactionToward(target) < 0 then\n\t\t\tDamageType:get(DamageType.LIGHTNING).projector(src, x, y, DamageType.LIGHTNING, dam.dam, state)\n\t\t\ttarget:setEffect(target.EFF_SLOW, 4, {apply_power=src:combatMindpower(), power=dam.slow/100}, true)\n\t\telseif target == src then\n\t\t\ttarget:setEffect(target.EFF_STATIC_CHARGE, 4, {power=dam.weapon}, true)\n\t\tend\n\tend,\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a682",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 2803,
+          "end": 2826,
+          "sha256": "ad917630f5bf9e85e1e41f326311eb4a58d8205cb412789b1ae539141718fabc",
+          "text": "\tname = \"STATIC_CHARGE\", image = \"talents/static_net.png\",\n\tdesc = _t\"Static Charge\",\n\tlong_desc = function(self, eff) return (\"You have accumulated an electric charge. Your next melee hit does %d extra lightning damage.\"):tformat(eff.power) end,\n\ttype = \"mental\",\n\tsubtype = { lightning=true },\n\tstatus = \"beneficial\",\n\tparameters = { },\n\ton_gain = function(self, eff) return nil, nil end,\n\ton_lose = function(self, eff) return nil, nil end,\n\ton_merge = function(self, old_eff, new_eff)\n\t\told_eff.power = new_eff.power + old_eff.power\n\t\told_eff.dur = new_eff.dur\n\t\treturn old_eff\n\tend,\n\tactivate = function(self, eff)\n\t\tif core.shader.active() then\n\t\t\tlocal h1x, h1y = self:attachementSpot(\"hand1\", true) if h1x then eff.particle1 = self:addParticles(Particles.new(\"circle\", 1, {shader=true, oversize=0.3, a=185, appear=8, speed=0, img=\"transcend_electro\", base_rot=0, radius=0, x=h1x, y=h1y})) end\n\t\t\tlocal h2x, h2y = self:attachementSpot(\"hand2\", true) if h2x then eff.particle2 = self:addParticles(Particles.new(\"circle\", 1, {shader=true, oversize=0.3, a=185, appear=8, speed=0, img=\"transcend_electro\", base_rot=0, radius=0, x=h2x, y=h2y})) end\n\t\tend\n\tend,\n\tdeactivate = function(self, eff)\n\t\tif eff.particle1 then self:removeParticles(eff.particle1) end\n\t\tif eff.particle2 then self:removeParticles(eff.particle2) end\n\tend,\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a683",
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 967,
+          "end": 972,
+          "sha256": "f0c2a46cac3e6614e7abcb4c0d52f87b0821a3808a012f1ac3a60586447b9429",
+          "text": "\t-- Static dis-Charge\n\tif hitted and not target.dead and self:hasEffect(self.EFF_STATIC_CHARGE) then\n\t\tlocal eff = self:hasEffect(self.EFF_STATIC_CHARGE)\n\t\tDamageType:get(DamageType.LIGHTNING).projector(self, target.x, target.y, DamageType.LIGHTNING, eff.power)\n\t\tself:removeEffect(self.EFF_STATIC_CHARGE)\n\tend\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a685",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 3598,
+          "end": 3652,
+          "sha256": "d9cec26b053f6b78f687d0eb9677a4cad14f29a81f56e618cac03da8a62b66f9",
+          "text": "\tname = _t(\"distorting physical\", \"damage type\"), type = \"DISTORTION\",\n\tprojector = function(src, x, y, type, dam, state)\n\t\tstate = initState(state)\n\t\tuseImplicitCrit(src, state)\n\t\tlocal target = game.level.map(x, y, Map.ACTOR)\n\t\tif not target then return end\n\t\tstate = initState(state)\n\t\tif target and not state[target] then\n\t\t\tstate[target] = true\n\t\t\tlocal old_pen = 0\n\n\t\t\tif core.shader.allow(\"distort\") then game.level.map:particleEmitter(x, y, 1, \"distortion\") end\n\n\t\t\t-- Spike resists pen\n\t\t\tsrc:attr(\"ignore_enemy_resist\", 1)\n\t\t\t-- Handle distortion effects\n\t\t\tif target:hasEffect(target.EFF_DISTORTION) then\n\t\t\t\t-- Explosive?\n\t\t\t\tif dam.explosion then\n\t\t\t\t\tsrc:project({type=\"ball\", target.x, target.y, radius=dam.radius, friendlyfire=dam.friendlyfire}, target.x, target.y, engine.DamageType.DISTORTION, {dam=dam.explosion, power=dam.distort or 0})\n\t\t\t\t\tgame.level.map:particleEmitter(target.x, target.y, dam.radius, \"generic_blast\", {radius=dam.radius, tx=target.x, ty=target.y, rm=255, rM=255, gm=180, gM=255, bm=180, bM=255, am=35, aM=90})\n\t\t\t\t\tdam.explosion_done = true\n\t\t\t\tend\n\t\t\t\t-- Stun?\n\t\t\t\tif dam.stun then\n\t\t\t\t\tdam.do_stun = true\n\t\t\t\tend\n\t\t\tend\n\t\t\t-- Our damage\n\t\t\ttarget:setEffect(target.EFF_DISTORTION, 2, {power=dam.distort or 0})\n\t\t\tif not dam.explosion_done then\n\t\t\t\tDamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam, state)\n\t\t\tend\n\t\t\t-- Do knockback\n\t\t\tif dam.knockback then\n\t\t\t\tif target:checkHit(src:combatMindpower(), target:combatPhysicalResist(), 0, 95, 15) and target:canBe(\"knockback\") then\n\t\t\t\t\ttarget:knockback(src.x, src.y, dam.knockback)\n\t\t\t\t\ttarget:crossTierEffect(target.EFF_OFFBALANCE, src:combatMindpower())\n\t\t\t\t\tgame.logSeen(target, \"%s is knocked back!\", target:getName():capitalize())\n\t\t\t\telse\n\t\t\t\t\tgame.logSeen(target, \"%s resists the knockback!\", target:getName():capitalize())\n\t\t\t\tend\n\t\t\tend\n\t\t\t-- Do stun\n\t\t\tif dam.do_stun then\n\t\t\t\tif target:canBe(\"stun\") then\n\t\t\t\t\ttarget:setEffect(target.EFF_STUNNED, dam.stun, {apply_power=src:combatMindpower()})\n\t\t\t\telse\n\t\t\t\t\tgame.logSeen(target, \"%s resists the stun!\", target:getName():capitalize())\n\t\t\t\tend\n\t\t\tend\n\t\t\t-- Reset resists pen\n\t\t\tsrc:attr(\"ignore_enemy_resist\", -1)\n\t\tend\n\tend,\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a686",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 2528,
+          "end": 2597,
+          "sha256": "d808e1910849cda17e02e350712b97c6ebc571b7f73c27b8de568987c30dde39",
+          "text": "\tname = \"RAVAGE\", image = \"talents/ravage.png\",\n\tdesc = _t\"Ravage\",\n\tlong_desc = function(self, eff)\n\t\tlocal ravaged = _t\"each turn.\"\n\t\tif eff.ravage then ravaged = _t\"and is losing one physical effect turn.\" end\n\t\treturn (\"The target is being ravaged by distortion, taking %0.2f physical damage %s\"):tformat(eff.dam, ravaged)\n\tend,\n\ttype = \"physical\",\n\tsubtype = { distortion=true },\n\tstatus = \"detrimental\",\n\tparameters = {dam=1, distort=0},\n\ton_gain = function(self, err) return  nil, _t\"+Ravage\" end,\n\ton_lose = function(self, err) return _t\"#Target# is no longer being ravaged.\" or nil, _t\"-Ravage\" end,\n\ton_timeout = function(self, eff)\n\t\tif eff.ravage then\n\t\t\t-- Go through all physical effects\n\t\t\tlocal effs = {}\n\t\t\tfor eff_id, p in pairs(self.tmp) do\n\t\t\t\tlocal e = self.tempeffect_def[eff_id]\n\t\t\t\tif e.type == \"physical\" and e.status == \"beneficial\" then\n\t\t\t\t\teffs[#effs+1] = {\"effect\", eff_id}\n\t\t\t\tend\n\t\t\tend\n\n\t\t\t-- Go through all sustained techniques\n\t\t\tfor tid, act in pairs(self.sustain_talents) do\n\t\t\t\tif act then\n\t\t\t\t\tlocal talent = self:getTalentFromId(tid)\n\t\t\t\t\tif not talent.is_spell and not talent.is_mind then effs[#effs+1] = {\"talent\", tid} end\n\t\t\t\tend\n\t\t\tend\n\n\t\t\tif #effs > 0 then\n\t\t\t\tlocal eff = rng.tableRemove(effs)\n\t\t\t\tself:dispel(eff[2], eff.src)\n\t\t\tend\n\t\tend\n\t\tself:setEffect(self.EFF_DISTORTION, 2, {power=eff.distort})\n\t\tDamageType:get(DamageType.PHYSICAL).projector(eff.src or self, self.x, self.y, DamageType.PHYSICAL, eff.dam)\n\tend,\n\tactivate = function(self, eff)\n\t\tself:setEffect(self.EFF_DISTORTION, 2, {power=eff.distort})\n\t\tif eff.ravage then\n\t\t\tgame.logSeen(self, \"#LIGHT_RED#%s is being ravaged by distortion!\", self:getName():capitalize())\n\t\t\teff.dam = eff.dam * 1.5\n\t\tend\n\t\tlocal particle = Particles.new(\"ultrashield\", 1, {rm=255, rM=255, gm=180, gM=255, bm=220, bM=255, am=35, aM=90, radius=0.2, density=15, life=28, instop=40})\n\t\tif core.shader.allow(\"distort\") then particle:setSub(\"gravity_well2\", 1, {radius=1}) end\n\t\teff.particle = self:addParticles(particle)\n\tend,\n\tdeactivate = function(self, eff)\n\t\tself:removeParticles(eff.particle)\n\tend,\n}\n\nnewEffect{\n\tname = \"DISTORTION\", image = \"talents/maelstrom.png\",\n\tdesc = _t\"Distortion\",\n\tlong_desc = function(self, eff) return (\"The target has recently taken distortion damage, is vulnerable to distortion effects, and has its physical resistance decreased by %d%%.\"):tformat(eff.power) end,\n\ttype = \"physical\",\n\tsubtype = { distortion=true },\n\tstatus = \"detrimental\",\n\tparameters = {power=0},\n\ton_gain = function(self, err) return  nil, _t\"+Distortion\" end,\n\ton_lose = function(self, err) return _t\"#Target# is no longer distorted.\" or nil, _t\"-Distortion\" end,\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"resists\", {[DamageType.PHYSICAL]=-eff.power})\n\tend,\n\n}\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a689",
+      "component": "tome",
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 7773,
+          "end": 7777,
+          "sha256": "7222ec912f3be578dd2e772131827ff85634023e0b920234bbe204299dd8476a",
+          "text": "function _M:on_temporary_effect_removed(eff_id, e, p)\n\tself:unregisterCallbacks(e, eff_id)\n\tself:fireTalentCheck(\"callbackOnTemporaryEffectRemove\", eff_id, e, p)\n\tif e.status == \"detrimental\" and e.type ~= \"other\" and not (e.ignore_from_combat_compute or (p.src and p.src.ignore_from_combat_compute)) then self:enterCombatStatus() end\nend\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "a690",
+      "component": "engine",
+      "public_path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 189,
+          "end": 246,
+          "sha256": "0dfbadf9f6e48eff2b4b3852305bcbc0945d05e2e2443d66b6317621bd43dcff",
+          "text": "function _M:removeEffect(eff, silent, force)\n\tlocal p = self.tmp[eff]\n\tif not p then return end\n\n\t-- Make sure we're not trying to remove an effect currently being setup, if so we delay that order til the end of the tick (and recheck)\n\tif p.__setting_up then\n\t\tgame:onTickEnd(function()\n\t\t\tlocal p = self.tmp[eff]\n\t\t\tif not p then return end\n\t\t\tif p.__setting_up then return end --- WHUT ??\n\t\t\tself:removeEffect(eff, silent, force)\n\t\tend)\n\t\treturn\n\tend\n\n\tif _M.tempeffect_def[eff].no_remove and not force then return end\n\tself.tmp[eff] = nil\n\tself.changed = true\n\tlocal ed = _M.tempeffect_def[eff]\n\tif ed.on_lose then\n\t\tlocal ret, fly = ed.on_lose(self, p)\n\t\tif not silent then\n\t\t\tif ret then\n\t\t\t\tgame.logSeen(self, ret:noun_sub(\"#Target#\", self:getName():capitalize()):noun_sub(\"#target#\", self:getName()):gsub(\"#himher#\", self:him_her()))\n\t\t\tend\n\t\t\tif fly and game.flyers and self.x and self.y then\n\t\t\t\tif fly == true then fly = \"-\"..ed.desc end\n\t\t\t\tlocal sx, sy = game.level.map:getTileToScreen(self.x, self.y, true)\n\t\t\t\tif game.level.map.seens(self.x, self.y) then game.flyers:add(sx, sy, 20, (rng.range(0,2)-1) * 0.5, -3, fly, {255,100,80}) end\n\t\t\tend\n\t\tend\n\tend\n\tif p.__tmpvals then\n\t\tfor i = 1, #p.__tmpvals do\n\t\t\tself:removeTemporaryValue(p.__tmpvals[i][1], p.__tmpvals[i][2])\n\t\tend\n\tend\n\tif p.__tmpparticles then\n\t\tfor i = 1, #p.__tmpparticles do\n\t\t\tself:removeParticles(p.__tmpparticles[i])\n\t\tend\n\tend\n\tif ed.deactivate then ed.deactivate(self, p, ed) end\n\tif ed.lists then\n\t\tlocal lists = ed.lists\n\t\tif 'table' ~= type(lists) then lists = {lists} end\n\t\tfor _, list in ipairs(lists) do\n\t\t\tif 'table' == type(list) then\n\t\t\t\tlist = table.getTable(self, unpack(list))\n\t\t\telse\n\t\t\t\tlist = table.getTable(self, list)\n\t\t\tend\n\t\t\ttable.removeFromList(list, eff_id)\n\t\tend\n\tend\n\n\tself:check(\"on_temporary_effect_removed\", eff, ed, p)\nend\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-572",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "9c90062320a8661c73529bf90271369a897e5eb8b1393aae460d6a10677281c2",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 228,
+          "end": 387,
+          "sha256": "985f1c091a37868bec2f6d2f85349dccc84761a662b7225f00f9d1ad9fc24d18",
+          "text": "newInscription{\n\tname = \"Infusion: Heroism\",\n\ttype = {\"inscriptions/infusions\", 1},\n\tpoints = 1,\n\tno_energy = true,\n\ttactical = { DEFEND = 1 },\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal bonus = 1 + (1 - math.max(0, self.life) / self.max_life)\n\t\tself:setEffect(self.EFF_HEROISM, math.floor(data.dur * bonus), {die_at=(data.die_at + data.inc_stat * 30) * bonus})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal bonus = 1 + (1 -  math.max(0, self.life) / self.max_life)\n\t\tlocal bonus1 = (data.die_at + data.inc_stat * 30) * bonus\n\t\tlocal bonus2 = math.floor(data.dur * bonus)\n\t\treturn ([[Activate the infusion to endure even the most grievous of wounds for %d turns.\n\t\tWhile Heroism is active, you will only die when reaching -%d life.\n\t\tThe duration and life will increase by 1%% for every 1%% life you have lost, to a maximum of 100%% at 0 life or less (currently %d life, %d duration)\n\t\tIf your life is below 0 when this effect wears off it will be set to 1.]]):tformat(data.dur, data.die_at + data.inc_stat * 30, bonus1, bonus2)\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[die at -%d; dur %d; cd %d]]):tformat(data.die_at + data.inc_stat * 30, data.dur, data.cooldown)\n\tend,\n}\n\nnewInscription{\n\tname = \"Infusion: Wild Growth\",\n\ttype = {\"inscriptions/infusions\", 1},\n\tpoints = 1,\n\ttactical = { ATTACKAREA = { PHYSICAL = 1, NATURE = 1 }, DEFEND = 1, DISABLE = {pin = 2}},\n\trange = 0,\n\tradius = 5,\n\tdirect_hit = true,\n\tno_energy = true,\n\ttarget = function(self, t)\n\t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), selffire=false, friendlyfire = false, talent=t}\n\tend,\n\tgetDamage = function(self, t) return 10 + self:combatMindpower() * 3.6 end,\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal dam = t.getDamage(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tself:project(tg, self.x, self.y, function(tx, ty)\n\t\t\tDamageType:get(DamageType.ENTANGLE).projector(self, tx, ty, DamageType.ENTANGLE, dam)\n\t\tend)\n\t\tself:setEffect(self.EFF_THORNY_SKIN, data.dur, {hard=data.hard or 30, ac=data.armor or 50})\n\t\tgame:playSoundNear(self, \"talents/earth\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tlocal damage = t.getDamage(self, t)\n\t\treturn ([[Causes thick vines to spring from the ground and entangle all targets within %d squares for %d turns, pinning them in place for 5 turns and dealing %0.2f physical damage and %0.2f nature damage.\n\t\tThe vines also grow all around you, increasing your armour by %d and armour hardiness by %d.]]):\n\t\ttformat(self:getTalentRadius(t), data.dur, damDesc(self, DamageType.PHYSICAL, damage)/3, damDesc(self, DamageType.NATURE, 2*damage)/3, data.armor or 50, data.hard or 30)\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[rad %d; dur %d;]]):tformat(self:getTalentRadius(t), data.dur)\n\tend,\n}\n\n-----------------------------------------------------------------------\n-- Runes\n-----------------------------------------------------------------------\n\nlocal function attack_rune(self, btid)\n\tfor tid, lev in pairs(self.talents) do\n\t\tif tid ~= btid and self.talents_def[tid].is_attack_rune and not self.talents_cd[tid] then\n\t\t\tself.talents_cd[tid] = 1\n\t\tend\n\tend\nend\n\nnewInscription{\n\tname = \"Rune: Teleportation\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_spell = true,\n\tis_teleport = true,\n\tno_break_stealth = true,\n\ttactical = { ESCAPE = 3 },\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tgame.level.map:particleEmitter(self.x, self.y, 1, \"teleport\")\n\t\tself:teleportRandom(self.x, self.y, data.range + data.inc_stat, 15)\n\t\tgame.level.map:particleEmitter(self.x, self.y, 1, \"teleport\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Activate the rune to teleport randomly in a range of %d with a minimum range of 15.]]):tformat(data.range + data.inc_stat)\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[range %d; cd %d]]):tformat(data.range + data.inc_stat, data.cooldown)\n\tend,\n}\n\nnewInscription{\n\tname = \"Rune: Shielding\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_spell = true,\n\tallow_autocast = true,\n\tno_energy = true,\n\ttactical = { DEFEND = 2 },\n\ton_pre_use = function(self, t)\n\t\treturn not self:hasEffect(self.EFF_DAMAGE_SHIELD)\n\tend,\n\taction = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tself:setEffect(self.EFF_DAMAGE_SHIELD, data.dur, {power=data.power + data.inc_stat})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[Activate the rune to create a protective shield absorbing at most %d damage for %d turns.]]):tformat(self:getShieldAmount(data.power + data.inc_stat), self:getShieldDuration(data.dur))\n\tend,\n\tshort_info = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn ([[absorb %d; dur %d; cd %d]]):tformat(self:getShieldAmount(data.power + data.inc_stat), self:getShieldDuration(data.dur), data.cooldown)\n\tend,\n}\n\nnewInscription{\n\tname = \"Rune: Reflection Shield\",\n\ttype = {\"inscriptions/runes\", 1},\n\tpoints = 1,\n\tis_spell = true,\n\tallow_autocast = true,\n\tno_energy = true,\n\ttactical = { DEFEND = 2 },\n\tgetPower = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\tif data.power and data.inc_stat then \n\t\t\treturn data.power + data.inc_stat\n\t\telse\n\t\t\treturn 100+5*self:getMag()\n\t\tend\n\tend,\n\tgetDuration = function(self, t)\n\t\tlocal data = self:getInscriptionData(t.short_name)\n\t\treturn data.dur or 5\n\tend,\n\ton_pre_use = function(self, t)\n\t\treturn not self:hasEffect(self.EFF_DAMAGE_SHIELD)\n\tend,\n\taction = function(self, t)\n\t\tlocal power = t.getPower(self, t)\n\t\tlocal dur = t.getDuration(self, t)\n\t\tself:setEffect(self.EFF_DAMAGE_SHIELD, dur, {power=power, reflect=100, image=\"reflectionshield_17\", shield_intensity=0.6})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal power = t.getPower(self, t)\n\t\tlocal dur = t.getDuration(self, t)\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-589",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/npcs.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "dc640c1af5d22a45472d843380c9de01334530b3831bd2b9fe88ee0cba3abc23",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 3080,
+          "end": 3135,
+          "sha256": "f7050bbd8108954249789172199077a629381342204eafd8a95d4cc16764054e",
+          "text": "newTalent{\n\tname = \"Hide in Plain Sight\",\n\ttype = {\"other/other\",3},\n--\trequire = cuns_req3,\n\tno_energy = true,\n\tpoints = 5,\n\thide = false,\n\tstamina = 20,\n\tcooldown = 40,\n\ttactical = { DEFEND = 2, ESCAPE = 1 },\n\ton_pre_use_ai = function(self, t, silent, fake)\n\t\treturn self.ai_target.actor and not self:isTalentActive(self.T_STEALTH)\n\tend,\n\t-- Assume level 50 w/100 cun --> stealth = 54, detection = 50\n\t-- 90% (~= 47% chance against 1 opponent (range 1) at talent level 1, 270% (~= 75% chance against 1 opponent (range 1) and 3 opponents (range 6) at talent level 5\n\tstealthMult = function(self, t) return self:combatTalentScale(t, 0.9, 2.7) end,\n\tno_break_stealth = true,\n\ton_pre_use = function(self, t, silent, fake)\n\t\tlocal armor = self:getInven(\"BODY\") and self:getInven(\"BODY\")[1]\n\t\tif armor and (armor.subtype == \"heavy\" or armor.subtype == \"massive\") then\n\t\t\tif not silent then game.logPlayer(self, \"You cannot be stealthy with such heavy armour on!\") end\n\t\t\treturn nil\n\t\tend\n\t\treturn true\n\tend,\n\tgetChance = function(self, t, fake, estimate)\n\t\tlocal netstealth = t.stealthMult(self, t) * (self:callTalent(self.T_STEALTH, \"getStealthPower\") + (self:attr(\"inc_stealth\") or 0))\n\t\tif fake then return netstealth end\n\t\tlocal detection = self:stealthDetection(10, estimate) -- Default radius 10\n\t\tif detection <= 0 then return 100 end\n\t\tlocal _, chance = self:checkHit(netstealth, detection)\n\t\tprint(\"Hide in Plain Sight: \"..netstealth..\" stealth vs \"..detection..\" detection -->chance \"..chance)\n\t\treturn chance\n\tend,\n\taction = function(self, t)\n\t\tself.talents_cd[self.T_STEALTH] = nil\n\t\tself.changed = true\n\t\tself.hide_chance = t.getChance(self, t)\n\t\tself:useTalent(self.T_STEALTH)\n\t\tself.hide_chance = nil\n\n\t\tfor uid, e in pairs(game.level.entities) do\n\t\t\tif e.ai_target and e.ai_target.actor == self then e:setTarget(nil) end\n\t\tend\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[You have learned how to be stealthy even when in plain sight of your foes.  You may attempt to enter stealth regardless of how close you are to your enemies, but success is more likely against fewer opponents that are farther away.\n\t\tYour chance to succeed is determined by comparing %0.2f times your stealth power (currently %d) to the stealth detection of all enemies (reduced by 10%% per tile distance) that have a clear line of sight to you.\n\t\tYou always succeed if you are not directly observed.\n\t\tThis resets the cooldown of your Stealth talent, and, if successful, all creatures currently following you will lose track of your position.\n\t\tYou estimate your current chance to hide as %0.1f%%.]]):\n\t\ttformat(t.stealthMult(self, t), t.getChance(self, t, true), t.getChance(self, t, false, true))\n\tend,\n}\n\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-594",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/misc/objects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "7396731ef4718b932752a648d67726332b7b3a5b180321cbfe6ed4da2f59f7e2",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 250,
+          "end": 348,
+          "sha256": "2dc279bbb19e60f29584164d96db2456e70e552da35ec305abbe6a607e8d41df",
+          "text": "newTalent{\n\tname = \"Block\",\n\ttype = {\"technique/objects\", 1},\n\tcooldown = function(self, t)\n\t\treturn 8\n\tend,\n\tspeed = 'shield',\n\tpoints = 1,\n\thard_cap = 1,\n\trange = 1,\n\trequires_target = true,\n\ttactical = { ATTACK = 3, DEFEND = 3 },\n\ton_pre_use = function(self, t, silent) if not self:hasShield() then if not silent then game.logPlayer(self, \"You require a shield to use this talent.\") end return false end return true end,\n\tgetProperties = function(self, t)\n\t\tlocal shield1, combat1, shield2, combat2 = self:hasShield()\n\t\t--if not shield then return nil end\n\t\tlocal p = {\n\t\t\tsp = (combat1 and combat1.spellplated or false) or (combat2 and combat2.spellplated or false),\n\t\t\tref = (combat1 and combat1.reflective or false) or (combat2 and combat2.reflective or false),\n\t\t\tbr = (combat1 and combat1.bloodruned or false) or (combat2 and combat2.bloodruned or false),\n\t\t}\n\t\treturn p\n\tend,\n\tcallbackOnAct = function(self, eff)\n\t\tif not self:knowTalent(self.T_ETERNAL_GUARD) and self:hasEffect(self.EFF_BLOCKING) and self:hasEffect(self.EFF_BLOCKING).from_block and self:hasEffect(self.EFF_BLOCKING).did_block then self:removeEffect(self.EFF_BLOCKING) end\n\tend,\n\tgetBlockValue = function(self, t) return self:combatShieldBlock() or 0 end,\n\tgetBlockedTypes = function(self, t)\n\t\tlocal shield1, combat1, shield2, combat2 = self:hasShield()\n\t\tlocal bt = {\n\t\t\t[DamageType.PHYSICAL]= true,\n\t\t\t[DamageType.FIRE] = true,\n\t\t\t[DamageType.LIGHTNING] = true,\n\t\t\t[DamageType.COLD] = true,\n\t\t\t[DamageType.ACID] = true,\n\t\t\t[DamageType.NATURE] = true,\n\t\t\t[DamageType.BLIGHT] = true,\n\t\t\t[DamageType.LIGHT] = true,\n\t\t\t[DamageType.DARKNESS] = true,\n\t\t\t[DamageType.ARCANE] = true,\n\t\t\t[DamageType.TEMPORAL] = true,\n\t\t}\n\t\tlocal bonuses = {}  -- Bonuses to damage resist on base type put in a separate table to avoid changing the structure of the bt table and breaking addons\n\n\t\tif not shield1 then return bt, \"error!\" end\n\n\t\tif not self:attr(\"spectral_shield\") then\n\t\t\tif shield1.wielder.resists then for res, v in pairs(shield1.wielder.resists) do if bt[res] and v > 0 then bonuses[res] = 1.5 end end end\n\t\t\tif shield2 and shield2.wielder.resists then for res, v in pairs(shield2.wielder.resists) do if bt[res] and v > 0 then bonuses[res] = 1.5 end end end\n\t\tend\n\n\t\tbonuses.MIND = nil\n\n\t\tlocal list = table.keys(bonuses)\n\t\tlocal n = #list\n\t\tif n < 1 then return bt, _t\"None\" end\n\t\tlocal e_string = \"\"\n\t\tif n == 1 then\n\t\t\te_string = DamageType.dam_def[next(bonuses)].name\n\t\telse\n\t\t\tfor i = 1, #list do \n\t\t\t\tif DamageType.dam_def[list[i]] and bt[list[i]] then\n\t\t\t\t\tlist[i] = DamageType.dam_def[list[i]].text_color..string.lower(DamageType.dam_def[list[i]].name)..\"#LAST#\"\n\t\t\tend end\n\t\t\te_string = table.concatNice(list, \", \", _t\" and \")\n\t\tend\n\t\treturn bt, e_string\n\tend,\n\taction = function(self, t)\n\t\tlocal properties = t.getProperties(self, t)\n\t\tlocal bt, bt_string = t.getBlockedTypes(self, t)\n\t\tself:setEffect(self.EFF_BLOCKING, 2, {power = t.getBlockValue(self, t), d_types=bt, bonus_block_pct = bonuses, properties=properties, from_block=true})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal properties = t.getProperties(self, t)\n\t\tlocal sp_text = \"\"\n\t\tlocal ref_text = \"\"\n\t\tlocal br_text = \"\"\n\t\tif properties.sp then\n\t\t\tsp_text = (\" Increases your spell save by %d for that turn.\"):tformat(t.getBlockValue(self, t))\n\t\tend\n\t\tif properties.ref then\n\t\t\tref_text = _t\" Reflects all blocked damage back to the source.\"\n\t\tend\n\t\tif properties.br then\n\t\t\tbr_text = _t\" All blocked damage heals the wielder.\"\n\t\tend\n\t\tlocal bt, bt_string = t.getBlockedTypes(self, t)\n\t\treturn ([[Raise your shield into blocking position for 2 turns reducing all non-Mind damage by %d. If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (the next weapon attack will instead deal 200%% damage) for one turn.\n\t\t\tCounterstrike can normally only effect one enemy per block.\n\t\t\tIf any damage was successfully blocked this effect will be removed at the start of your turn.\n\t\t\tIf the shield has damage resistance to the blocked damage type the block value is increased by 50%%.\n\t\t\t\n\t\t\tCurrent Bonuses:  %s%s%s%s]]):\n\t\t\ttformat(t.getBlockValue(self, t), bt_string, sp_text, ref_text, br_text)\n\tend,\n}\n\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-616",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/psionic/charged-mastery.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "bb66a96e051a649f6eaf9adc2a259d35d85b599ba1bb0df2ee37ed35d33edc01",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 79,
+          "end": 126,
+          "sha256": "825d09784a8ca6a39fb23e5d8bdaa1baec7a68580b8f2163a748c90d6229608c",
+          "text": "newTalent{\n\tname = \"Static Net\",\n\ttype = {\"psionic/charged-mastery\", 3},\n\trequire = psi_cun_high3,\n\tpoints = 5,\n\trandom_ego = \"attack\",\n\tpsi = 32,\n\tcooldown = 23,\n\ttactical = { ATTACKAREA = { LIGHTNING = 2 } },\n\trange = 8,\n\tradius = function(self,t) return math.floor(self:combatTalentScale(t, 2, 4)) end,\n\tdirect_hit = true,\n\trequires_target = true,\n\ttarget = function(self, t)\n\t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t)}\n\tend,\n\tgetSlow = function(self, t) return self:combatLimit(self:combatTalentMindDamage(t, 5, 50), 50, 4, 4, 34, 34) end, -- Limit < 50%\n\tgetDamage = function(self, t) return self:combatTalentMindDamage(t, 20, 100) end,\n\tgetWeaponDamage = function(self, t) return self:combatTalentMindDamage(t, 10, 50) end,\n\tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 3, 6)) end,\n\taction = function(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal x, y = self:getTarget(tg)\n\t\tif not x or not y then return nil end\n\t\tlocal _ _, _, _, x, y = self:canProject(tg, x, y)\n\t\t-- Add a lasting map effect\n\t\tgame.level.map:addEffect(self,\n\t\t\tx, y, t.getDuration(self, t),\n\t\t\tDamageType.STATIC_NET, {dam=t.getDamage(self, t), slow=t.getSlow(self, t), weapon=t.getWeaponDamage(self, t)},\n\t\t\tself:getTalentRadius(t),\n\t\t\t5, nil,\n\t\t\tMapEffect.new{color_br=30, color_bg=100, color_bb=160, effect_shader=\"shader_images/retch_effect.png\"},\n\t\t\tnil, true\n\t\t)\n\t\tgame:playSoundNear(self, \"talents/lightning\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal damage = t.getDamage(self, t)\n\t\tlocal duration = t.getDuration(self, t)\n\t\treturn ([[Cast a net of static electricity in a radius of %d for %d turns.\n\t\tEnemies standing in the net will take %0.1f Lightning damage and be slowed by %d%%.\n\t\tWhen you move through the net, a static charge will accumulate on your weapon which will add %0.1f additional Lightning damage to your next attack for each turn you spend within its area.\n\t\tThese effects scale with your Mindpower.]]):\n\t\ttformat(self:getTalentRadius(t), duration, damDesc(self, DamageType.LIGHTNING, damage), t.getSlow(self, t), damDesc(self, DamageType.LIGHTNING, t.getWeaponDamage(self, t)))\n\tend,\n}\n\n"
+        }
+      ]
+    },
+    {
+      "anchor_id": "entry-618",
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/psionic/distortion.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "48e9509ba306795fd9ed07b6d514551f97894d28619450960b086785101981e5",
+      "hash_match": true,
+      "fixed_commit_excerpts": [
+        {
+          "start": 36,
+          "end": 76,
+          "sha256": "e5298d2a0da230981e3ab7f1bc8132c0c170039f204a14a94456c0d9dbb0e452",
+          "text": "newTalent{\n\tname = \"Distortion Bolt\",\n\ttype = {\"psionic/distortion\", 1},\n\tpoints = 5, \n\trequire = psi_wil_req1,\n\tcooldown = 3,\n\tpsi = 5,\n\ttactical = { ATTACKAREA = { PHYSICAL = 2} },\n\trange = 10,\n\tradius = function(self, t) return math.floor(self:combatTalentScale(t, 1.3, 2.7)) end,\n\trequires_target = true,\n\tgetDamage = function(self, t) return self:combatTalentMindDamage(t, 10, 150) end,\n\ttarget = function(self, t)\n\t\tlocal friendlyfire = true\n\t\tif self:getTalentLevel(self.T_DISTORTION_BOLT) >= 5 then\n\t\t\tfriendlyfire = false\n\t\tend\n\t\treturn {type=\"ball\", radius=self:getTalentRadius(t), friendlyfire=friendlyfire, range=self:getTalentRange(t), talent=t, display={trail=\"distortion_trail\"}}\n\tend,\n\taction = function(self, t)\n\t\tlocal tg = self:getTalentTarget(t)\n\t\tlocal x, y = self:getTarget(tg)\n\t\tif not x or not y then return nil end\n\t\tlocal damage = self:mindCrit(t.getDamage(self, t))\n\t\ttg.type = \"bolt\" -- switch our targeting to a bolt for the initial projectile\n\t\tself:projectile(tg, x, y, DamageType.DISTORTION, {dam=damage,  penetrate=true, explosion=damage*1.5, friendlyfire=tg.friendlyfire, distort=DistortionCount(self), radius=self:getTalentRadius(t)})\n\t\tgame:playSoundNear(self, \"talents/distortion\")\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\tlocal damage = t.getDamage(self, t)\n\t\tlocal radius = self:getTalentRadius(t)\n\t\tlocal distort = DistortionCount(self)\n\t\treturn ([[Fire a bolt of distortion that ignores resistance and inflicts %0.2f physical damage.  This damage will distort affected targets, decreasing physical resistance by %d%% and rendering them vulnerable to distortion effects for two turns.\n\t\tIf the bolt comes in contact with a target that's already distorted, a detonation will occur, inflicting 150%% of the base damage in a radius of %d.\n\t\tInvesting in this talent will increase the physical resistance reduction from all of your distortion effects.\n\t\tAt talent level 5, you learn to shape your distortion effects, preventing them from hitting you or your allies.\n\t\tThe damage will scale with your Mindpower.]]):tformat(damDesc(self, DamageType.PHYSICAL, damage), distort, radius)\n\tend,\n}\n\n"
+        }
+      ]
+    }
+  ],
+  "additional_fixed_source": {
+    "component": "tome",
+    "public_path": "game/modules/tome/class/interface/Combat.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+    "calculation_ranges": [
+      [
+        1467,
+        1472
+      ],
+      [
+        1544,
+        1565
+      ],
+      [
+        1822,
+        1827
+      ],
+      [
+        2742,
+        2749
+      ]
+    ]
+  },
+  "formula_probe": {
+    "command": "python3 -B /tmp/mmrfix-009-verify.py (manifest LuaRuntime, fixed Lua function slices)",
+    "exit_code": 0,
+    "stdout": "PASS: 7 Body Shot and 35 Blightzone formula cases against fixed Lua functions\n",
+    "body_shot_cases": 7,
+    "blightzone_cases": 35
+  }
+}
