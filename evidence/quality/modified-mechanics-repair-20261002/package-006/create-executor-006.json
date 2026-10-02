@@ -1,0 +1,18 @@
+{
+  "title": "机制修正006：圣光与时空技能消费者",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-006",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "execute-0-a1",
+    "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，task mmrfix-20261002-006。读 .ai/roles/executor.md、AGENTS.md、本task SPEC/PLAN/REPAIR-INPUT。只修冻结10条target的10原confirmed机制问题：Righteous Strength双手条件范围、Flash of the Blade友方范围、Glyphs维持能量而非逐次扣除、Hymn of Detection实际盲战消费者、Judgement光枯萎触发与输入伤害治疗、Illumination依赖Searing Sight、异常护盾基础提示/实际差异、Singularity Arrow距离衰减公式、Cosmic Cycle意志修正无消费者、Slow固定减速比例。先核对baseline逐字，固定core commit624a67329fe2ad440c5b344785a9c73fcf22ae63和DLC源码SHA须匹配，按计算→实参→消费者核验。DLC来源未固定如实记录。保留其余所有target/字节与source/tag/args/special/placeholder/markup/newline/tabs，保留前五包及疗愈词缀修正。允许文件仅SPEC/SCOPE枚举的Lua文件，仅冻结10条target。不改术语库/游戏源码/工具/.ai/旧evidence/用户文件，不stage/commit、不创建child。可用/tmp。完成运行strictlint及git diff --check，写 .artifacts/i18n/modified-mechanics-repair-20261002/executor-006-report.json，含逐项完整旧新target/源码调用证据hash/来源限制/范围字节核验/tests/未解决项。最终报告实际成果。",
+  "notifyOnFinish": true
+}

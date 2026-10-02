@@ -21097,16 +21097,16 @@ t("You mark a target with light for 3 turns, causing all melee hits you deal to 
 t("Righteous Strength", "光明之力", "talent name")
 t([[While wielding a two handed weapon, your critical strike chance is increased by %d%%, and your melee criticals instill you with righteous strength, increasing all physical and light damage you deal by %d%%, stacking up to 3 times.
 		In addition, your melee critical strikes leave a lasting lightburn on the target, dealing %0.2f light damage over 5 turns and reducing opponents armour by %d.
-		The damage increases with your Spellpower.]], [[当装备双手武器时，你的暴击率增加 %d%%， 同时你的近战暴击会引发光明之力，增加 %d%% 物理和光系伤害加成，最多叠加 3 次。
-		同时，你的近战暴击会在目标身上留下灼烧痕迹，5 回合内造成 %0.2f 光系伤害，同时减少 %d 护甲。
+		The damage increases with your Spellpower.]], [[维持技能时，你的暴击率增加 %d%%； 装备双手武器时，你的近战暴击会引发光明之力，增加 %d%% 物理和光系伤害加成，最多叠加 3 次。
+		同时，装备双手武器时，你的近战暴击会在目标身上留下灼烧痕迹，5 回合内造成 %0.2f 光系伤害，同时减少 %d 护甲。
 		伤害受法强加成。]], "tformat")
 t("Flash of the Blade", "闪光之刃", "talent name")
 t([[Infuse your two handed weapon with light while spinning around.
 		All creatures in radius one take %d%% weapon damage.
 		In addition while spinning your weapon shines so much it deals %d%% light weapon damage to all foes in radius 2.
 		At level 4 your spinning blade creates a shield that blocks all damage for 1 turn.]], [[旋转一周，同时将光明之力注入你的双手武器。
-		半径 1 以内的所有生物将受到 %d%% 武器伤害。
-		此外，旋转时你的武器光芒四射，对半径 2 以内的所有敌人造成 %d%% 光系武器伤害。
+		半径 1 以内除你以外的所有生物（包括友方）将受到 %d%% 武器伤害。
+		此外，旋转时你的武器光芒四射，对半径 2 以内除你以外的所有生物（包括友方）造成 %d%% 光系武器伤害。
 		技能等级 4 或以上时，在旋转时你会制造一层护盾，免疫 1 回合内的所有伤害。]], "tformat")
 
 ------------------------------------------------
@@ -21265,7 +21265,7 @@ t([[When one of your spells goes critical, you bind glyphs in radius 1 centered 
 		#ffd700#Glyph of Sunlight#LAST#:  Bind sunlight into a glyph. When triggered it will release a brilliant light, dealing %0.2f light damage and healing you for %d.
 		#7f7f7f#Glyph of Moonlight#LAST#:  Bind moonlight into a glyph. When triggered it will release a fatiguing darkness,  dealing %0.2f darkness damage and reducing the foes damage dealt by %d%% for %d turns.
 		#9D9DC9#Glyph of Twilight#LAST#:  Bind twilight into a glyph. When triggered it will release a burst of twilight, dealing %0.2f light and %0.2f darkness damage and knocking the foe back %d tiles.
-		]], [[每当你的法术暴击时，你消耗 5 点正能量和负能量，在范围 %d 内的随机目标周围 1 码半径的区域内放置随机圣印。
+		]], [[维持技能需保留正能量和负能量各 5 点。维持期间，当前正能量和负能量各不少于 5 点时，每当你的法术暴击，你会在范围 %d 内的随机目标周围 1 码半径的区域内放置随机圣印，触发时不额外扣除能量。
 		圣印持续 %d 回合，当敌人踩上时，会对其产生特殊效果。
 		圣印只会在周围没有圣印的敌人周围产生。
 		每 %d 游戏回合最多触发一次该效果。
@@ -21348,7 +21348,7 @@ t([[Chant the glory of the Moons, granting you stealth detection (+%d power), an
 		You may also attack creatures you cannot see without penalty and your critical hits do %d%% more damage.
 		You may only have one Hymn active at once.
 		The stealth and invisibility detection will increase with your Spellpower.]], [[赞颂月之荣耀，使你的潜行侦测强度提高 %d， 隐形侦测强度提高 %d。
-		你也能无惩罚地攻击不可见生物，并使暴击伤害提高 %d%%。
+		你的暴击伤害提高 %d%%。 本技能实际不提供盲战，无法消除攻击不可见生物的命中惩罚。
 		同时只能激活一种圣诗。
 		潜行与隐形侦测强度随法术强度提高。]], "tformat")
 t("Hymn of Perseverance", "坚毅圣诗", "talent name")
@@ -21473,8 +21473,8 @@ t([[You are so infused with sunlight that your body glows permanently in radius 
 t("Judgement", "裁决", "talent name")
 t("Judgement", "裁决", "_t")
 t([[Fire a glowing orb of light at each enemy within your Radiance.  Each orb will slowly follow its target until it connects, dealing %d light damage to anything else it contacts along the way.  When the target is reached the orb will explode dealing %d light damage in radius 1 and healing you for 50%% of the damage dealt.
-		All targets struck by your Judgement will be blighted by light, reducing saves by %d, reducing critical power by %d%%, and causing light damage received to splash in radius 2 for %d%% damage against all hostile targets for 4 turns.]], [[在你的光辉中，向每一个敌人发射一个发光的球体。球体会缓慢追踪目标，直到击中目标，对它沿途接触到的其他物体造成 %d 点光系伤害。当到达目标时，球体将爆炸，在半径 1 码范围内造成 %d 点光系伤害，并治疗你 50%% 伤害量的生命值。
-		所有被裁决击中的目标都会受到光之枯萎：全豁免降低 %d， 暴击伤害加成降低 %d%%； 其受到的光系伤害会以 %d%% 的伤害溅射至半径 2 内的所有敌对目标，持续 4 回合。]], "tformat")
+		All targets struck by your Judgement will be blighted by light, reducing saves by %d, reducing critical power by %d%%, and causing light damage received to splash in radius 2 for %d%% damage against all hostile targets for 4 turns.]], [[在你的光辉中，向每一个敌人发射一个发光的球体。球体会缓慢追踪目标，直到击中目标，对它沿途接触到的其他物体造成 %d 点光系伤害。当到达目标时，球体将爆炸，在半径 1 码范围内造成 %d 点光系伤害，每次沿途或爆炸伤害命中其他生物时，按该次伤害在增伤、抗性和减伤结算前的输入值的 50%% 治疗你。
+		只有球体最终追踪命中的目标会受到光之枯萎：全豁免降低 %d， 暴击伤害加成降低 %d%%； 当其受到来自你的单次光系伤害大于 80 点时，会以该次伤害的 %d%% 溅射至半径 2 内的所有敌对目标，每个受光之枯萎影响的目标每回合最多触发一次。光之枯萎持续 4 回合。]], "tformat")
 t("Searing Sight", "灼热之视", "talent name")
 t([[Your Radiance is so powerful it burns all foes caught in it, dealing %0.1f light damage to all foes caught inside every turn.
 		Each enemy effected has a %d%% chance of being dazed and blinded by the light for 3 turns. The daze and blind can be applied to each enemy at most once every 7 turns.
@@ -21485,8 +21485,8 @@ t("Illumination", "照明", "talent name")
 t([[The light of your Radiance allows you to see that which would normally be unseen and strike that which would normally be protected.
 		All enemies in your Radiance aura have their invisibility and stealth power reduced by %d; all actors affected by illumination have their defense reduced by %d as well as all evasion bonuses from being unseen negated.
 		In addition, your light damage is increased by %d%% and your strikes ignore %d%% of the light resistance of your targets.
-		The invisibility, stealth power, and defense reductions increase with your Spellpower.]], [[光辉可以让你看到平时无法见到的敌人，并攻击被保护的敌人。
-		在光辉光环的影响下的敌人，其隐形和潜行强度降低 %d。 所有被光照的目标，闪避值降低 %d， 且不受不可见带来的闪避加成影响。
+		The invisibility, stealth power, and defense reductions increase with your Spellpower.]], [[维持灼热之视时，光辉中的敌人会受到光照效果，更容易被发现和命中。
+		维持灼热之视时，光辉光环内的敌人受到光照，其隐形和潜行强度降低 %d。 所有被光照的目标，闪避值降低 %d， 且不受不可见带来的闪避加成影响。
 		此外，你的光系伤害增加 %d%%， 你的攻击无视敌人 %d%% 的光系伤害抗性。
 		隐形、潜行强度和闪避值降低效果受法术强度加成。]], "tformat")
 
@@ -21641,7 +21641,7 @@ t("Anomaly Displacement Shield", "异常：偏转护盾", "talent name")
 t("@Source@ transfers damage to a nearby target.", "@Source@将伤害转移至附近一名目标。", "_t")
 t([[50%% chance that damage the caster takes will be warped to a set target.
 		Once the maximum damage (%d) is absorbed, the time runs out, or the target dies, the shield will crumble.]], [[施法者所承受的伤害有 50%% 的概率转移给指定连接的目标。
-		一旦吸收伤害达到上限 （%d）， 持续时间到了或目标死亡，护盾会破碎掉。]], "tformat")
+		提示容量为 %d， 其基础值只有实际护盾基础容量的一半；提示与实际容量的基础值均会接受护盾强度修正。一旦实际转移伤害达到容量上限、持续时间到了或目标死亡，护盾会破碎掉。]], "tformat")
 t("Anomaly Wormhole", "异常：虫洞", "talent name")
 t("@Source@ folds the space between two points.", "@Source@折叠了两点间的空间。", "_t")
 t("wormhole", "虫洞", "_t")
@@ -21810,7 +21810,7 @@ t([[Fire an arrow for %d%% weapon damage. When the arrow reaches its destination
 		Targets take reduced damage the further they are from the epicenter (20%% less per tile).
 		The additional damage scales with your Spellpower.]], [[发射一支箭，造成 %d%% 武器伤害。当箭矢到达目的地或命中目标时，会牵引半径 %d 内的所有其他目标，并造成 %0.2f 物理伤害。
 		从第二个被移动的目标起，每多移动一个目标，伤害增加 %0.2f （额外伤害上限为 %0.2f）。
-		目标距中心点越远，受到的伤害越低（每格降低 20%%）。
+		目标距中心点越远，受到的伤害越低：范围伤害除以（1 + 距离 × 20%%）。
 		额外伤害受法术强度加成。]], "tformat")
 t("Arrow Echoes", "灵矢回声", "talent name")
 t("You do not have line of sight.", "你没有视线。", "logSeen")
@@ -22066,7 +22066,7 @@ t("#LIGHT_BLUE#Your cosmic cycle expands.", "#LIGHT_BLUE#你的宇宙圈膨胀�
 t("#LIGHT_RED#Your cosmic cycle contracts.", "#LIGHT_RED#你的宇宙圈收缩了。", "logPlayer")
 t([[Tune yourself into the ebb and flow of spacetime.  When your Paradox crosses a 100 point threshold, your Cosmic Cycle gains or loses one radius.
 		While Cosmic Cycle is expanding, your temporal resistance penetration will be increased by %d%%.  While it's contracting, your Willpower for Paradox calculations will be increased by %d%%.]], [[调谐自身，以适应时空的涨落。每当紊乱值跨过一个 100 点阈值，你的宇宙圈半径便增加或减少 1 格。
-		宇宙圈膨胀时，你的时空抗性穿透提高 %d%%； 收缩时，用于计算紊乱值的意志提高 %d%%。]], "tformat")
+		宇宙圈膨胀时，你的时空抗性穿透提高 %d%%； 收缩时，原技能提示的 %d%% 紊乱计算意志加成实际不生效。]], "tformat")
 t("Polarity Shift", "极性转换", "talent name")
 t("You must have Cosmic Cycle active to use this talent.", "你必须开启宇宙圈才能使用这一技能。", "logPlayer")
 t("Polarity Bolt", "极性飞弹", "_t")
@@ -22147,7 +22147,7 @@ t([[Use to set your preferred Paradox.  While resting or waiting you'll adjust y
 t("Slow", "减速", "talent name")
 t([[Creates a time distortion in a radius of %d that lasts for %d turns, decreasing global speed by %d%% for 3 turns and inflicting %0.2f temporal damage each turn to all targets within the area.
 		The slow effect and damage dealt will scale with your Spellpower.]], [[在半径 %d 格内制造一个持续 %d 回合的时间扭曲力场，使范围内所有目标的全局速度降低 %d%%， 持续 3 回合，并每回合对其造成 %0.2f 时空伤害。
-		减速效果和伤害受法术强度加成。]], "tformat")
+		减速比例固定为六成，不随法术强度提高；伤害受法术强度加成。]], "tformat")
 t("Spacetime Mastery", "时空掌握", "talent name")
 t("Your mastery of spacetime reduces the cooldown of Banish, Dimensional Step, Swap, and Temporal Wake by %d, and the cooldown of Wormhole by %d.  Also improves your Spellpower for purposes of hitting targets with chronomancy effects that may cause continuum destabilization (Banish, Time Skip, etc.), as well as your chance of overcoming continuum destabilization, by %d%%.", "你的时空掌控使放逐、空间跳跃、时空交换和时空尾迹的冷却时间减少 %d 回合，使虫洞穿梭的冷却时间减少 %d 回合。当你用可能造成连续体失稳的时空技能（如放逐、时间跳跃等）命中目标时，判定所用的法术强度以及克服连续体失稳的几率均提高 %d%%。", "tformat")
 t("Quantum Feed", "量子充能", "talent name")

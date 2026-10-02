@@ -1,0 +1,79 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "wc -c .ai/task/mmrfix-20261002-006/INPUT-final-review-0-a2.json && head -c 6000 .ai/task/mmrfix-20261002-006/INPUT-final-review-0-a2.json",
+      "description": "Inspect input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-006/INPUT-final-review-0-a2.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:4000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']: print({k:(v if k!='context' else len(v)) for k,v in b.items()})\n\"",
+      "description": "Summarize input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; awk '/^## *(六|6)/,/^## *(七|7)/' docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract section 6"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-006/INPUT-final-review-0-a2.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  if i>2: break\n  print('=====',i,t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\n  c=json.loads(b['context'])\n  for e in c.get('source_evidence',[]):\n    print('--',e.get('public_path'),e.get('start'),e.get('end'))\n    if 'excerpt' in e: print(e['excerpt'])\n    for w in e.get('windows',[]): print(w['text'])\n  for k in c:\n    if k not in ('source_evidence',): print(k, json.dumps(c[k],ensure_ascii=False)[:3000])\n\"",
+      "description": "Dump first 3 entries with context"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 40,400p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/6367a978-5878-48cd-9436-5acf9f790515/tool-results/b5pxe2b46.txt",
+      "description": "Read rest of dump"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 400,700p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/6367a978-5878-48cd-9436-5acf9f790515/tool-results/b5pxe2b46.txt",
+      "description": "Read rest of dump"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-006/INPUT-final-review-0-a2.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  if i<3 or i>5: continue\n  print('=====',i,t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\n  c=json.loads(b['context'])\n  for e in c.get('source_evidence',[]):\n    print('--',e.get('public_path'),e.get('start'),e.get('end'))\n    if 'excerpt' in e: print(e['excerpt'])\n    for w in e.get('windows',[]): print(w['text'])\n  for k in c:\n    if k not in ('source_evidence','read_boundary','source_locations'): print(k, json.dumps(c[k],ensure_ascii=False)[:3000])\n\" > /tmp/d2.txt; wc -l /tmp/d2.txt; sed -n 1,330p /tmp/d2.txt",
+      "description": "Dump entries 3-5"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 330,380p /tmp/d2.txt",
+      "description": "Rest of entry 5"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/celestial/radiance.lua | sed -n 104,140p; git grep -n \"blindfight\\b\\|\\\"blindfight\\\"\" $C -- game/modules/tome game/engines | head",
+      "description": "Check Searing Sight and blindfight usage at pinned commit"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-006/INPUT-final-review-0-a2.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  if i<6: continue\n  print('=====',i,t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\n  c=json.loads(b['context'])\n  for e in c.get('source_evidence',[]):\n    print('--',e.get('public_path'),e.get('start'),e.get('end'))\n    if 'excerpt' in e: print(e['excerpt'])\n    for w in e.get('windows',[]): print(w['text'])\n  for k in c:\n    if k not in ('source_evidence','read_boundary','source_locations'): print(k, json.dumps(c[k],ensure_ascii=False)[:3000])\n\" > /tmp/d3.txt; wc -l /tmp/d3.txt; cat /tmp/d3.txt",
+      "description": "Dump entries 6-9"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"paradox_will_multi\" $C -- game; git grep -n \"getShieldAmount = \\|function _M:getShieldAmount\" $C -- game/modules/tome/class | head -3",
+      "description": "Check paradox_will_multi readers at pinned commit"
+    }
+  }
+]

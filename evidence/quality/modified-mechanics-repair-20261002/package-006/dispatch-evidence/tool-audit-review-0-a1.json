@@ -1,0 +1,127 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-006/INPUT-review-0-a1.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmrfix-20261002-006/INPUT-review-0-a1.json",
+      "description": "Read review input and contract size"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-006/INPUT-review-0-a1.json'))\np=d['payload']\nprint(d.keys(), p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\n\"",
+      "description": "Read contract and input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-006/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  print('=====',i,t['revision_key'][:8])\n  print('SRC:',t['source']); print('TGT:',t['target'])\n  c=json.loads(b['context'])\n  print('CTX:',json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False)[:3000])\n  for e in c.get('source_evidence',[]):\n    print('--EV',e.get('component'),e.get('public_path'),e.get('start'),e.get('end'),e.get('source_pinning'))\n    print(e.get('excerpt'))\n\"",
+      "description": "Dump entries and evidence"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/92a7b2a8-236c-4024-9455-b179364eaf9d/tool-results/bq5ajr8c6.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\ngit show $C:$P/celestial/crusader.lua | grep -n \"Crusade\\|Flash of the Blade\\|critical\\|lightburn\\|righteous\\|LIGHTBURN\\|RIGHTEOUS\\|two handed\\|twohanded\\|hasTwoHanded\\|sustain\\|mode\\|info\\|passives\\|callback\\|cancel\\|FLASH\\|radius\\|project\\|friendly\\|selffire\" | head -80",
+      "description": "Inspect crusader.lua at pinned commit"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\ngit show $C:$P/celestial/crusader.lua | sed -n 94,185p",
+      "description": "Read Crusade and Flash of the Blade"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\ngit show $C:$P/celestial/glyphs.lua | sed -n 155,180p; git show $C:$P/celestial/glyphs.lua | sed -n 221,330p | grep -n \"twilight\\|Twilight\\|dam\\|rng\\|glyph\\|knock\" | head -40\necho ====HYMN; git show $C:$P/celestial/hymns.lua | grep -n \"Glory of the Moons\\|glory of the Moons\" ; ",
+      "description": "Glyph twilight and hymn lookup"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\ngit show $C:$P/celestial/hymns.lua | grep -n \"Moons\" ; git show $C:$P/celestial/hymns.lua | grep -n \"name = \\\"Hymn of Moonlight\\\"\\|blind_fight\\|see_invisible\\|see_stealth\\|combat_critical_power\" ",
+      "description": "Find hymn talent"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\ngit show $C:$P/celestial/hymns.lua | sed -n 160,215p",
+      "description": "Read Hymn of Detection"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit grep -n '\"blindfight\"\\|blindfight\\b\\|\\.blindfight' $C -- game/modules/tome game/engines | head; git grep -n 'blind_fight\"' $C -- game/modules/tome/class | head",
+      "description": "Check blindfight attr consumers"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\ngit show $C:$P/celestial/radiance.lua | sed -n 100,137p; git show $C:$P/celestial/radiance.lua | sed -n 155,330p",
+      "description": "Read radiance.lua talents"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\ngit show $C:$P/celestial/radiance.lua | sed -n 40,99p",
+      "description": "Read Judgement talent"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\ngit show $C:$P/chronomancy/anomalies.lua | grep -n \"warped to a set target\" ; git show $C:$P/chronomancy/anomalies.lua | grep -n \"DISPLACEMENT_SHIELD\" ",
+      "description": "Locate displacement anomaly"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\ngit show $C:$P/chronomancy/anomalies.lua | sed -n 280,322p; git show $C:$P/chronomancy/anomalies.lua | grep -n \"getAnomalyDamage\\b\\|^local function getAnomaly\\|getAnomalyDamage =\" | head; git show $C:game/modules/tome/class/Actor.lua | grep -n \"function _M:getShieldAmount\" -A6",
+      "description": "Read displacement anomaly code"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\nF=$(git show $C:$P/chronomancy/bow-threading.lua); n=$(echo \"$F\" | grep -n \"draw in all other targets\" | cut -d: -f1); echo \"$F\" | sed -n \"$((n-75)),$((n+6))p\"",
+      "description": "Read gravity arrow talent"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\nF=$(git show $C:$P/chronomancy/induced-phenomena.lua); n=$(echo \"$F\" | grep -n \"ebb and flow\" | cut -d: -f1); echo \"$F\" | sed -n \"$((n-90)),$((n+4))p\"; git grep -n \"paradox_will_mutli\\|paradox_will_multi\\|cosmic_cycle\\|getParadoxWill\\|will_modifier\" $C -- game/modules/tome | head -20",
+      "description": "Read Cosmic Cycle talent"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; P=game/modules/tome/data/talents\nF=$(git show $C:$P/chronomancy/other.lua); n=$(echo \"$F\" | grep -n \"Creates a time distortion in a radius\" | cut -d: -f1); echo \"$F\" | sed -n \"$((n-45)),$((n+5))p\"; git show $C:game/modules/tome/data/talents/chronomancy/chronomancer.lua 2>/dev/null | grep -n \"getParadoxSpellpower\" | head -2",
+      "description": "Read time distortion talent"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63\ngit show $C:game/engines/default/engine/Target.lua | grep -n \"friendlyfire\\|selffire\" | head; git show $C:game/engines/default/engine/interface/ActorProject.lua | grep -n \"friendlyfire\\|selffire\" | head; git show $C:game/modules/tome/class/interface/Combat.lua | grep -n \"function _M:attackTarget\" -A15 | grep -n \"reaction\\|friend\" ",
+      "description": "Check friendlyfire default"
+    }
+  }
+]
