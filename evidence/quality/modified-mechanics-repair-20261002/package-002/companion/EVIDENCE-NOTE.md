@@ -1,0 +1,1 @@
+原生输出、输入、独立复审及终审均验证通过，三个child归档已确认。此快照STATE为FINAL_VALIDATE，尚未宣称DONE；完成共用最终门禁后再保存最终STATE。

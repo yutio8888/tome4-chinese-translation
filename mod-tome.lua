@@ -717,7 +717,7 @@ t("%s%0.2f/turn", "%s%0.2f/回合", "tformat")
 t("%s, %s apr", "%s, %s 护甲穿透", "tformat")
 t("%d/%d, %s, %s apr", "%d/%d, %s, %s 护甲穿透", "tformat")
 t("%s, %d apr, %s damage", "%s, %d 护甲穿透，%s 伤害", "tformat")
-t("%s, %d apr, %s element", "%s，%d 护甲穿透，%s 伤害", "tformat")
+t("%s, %d apr, %s element", "%s，%d 护甲穿透，%s 元素", "tformat")
 t("%s, %s block", "%s, %s 格挡", "tformat")
 t("%s block", "%s 格挡", "tformat")
 t("%s def, %s armour", "%s 闪避，%s 护甲", "tformat")
@@ -21443,7 +21443,7 @@ t("glyph of paralysis", "麻痹圣印", "_t")
 t("Dazes for %d turns.", "眩晕 %d 回合。", "tformat")
 t([[You bind light in a glyph on the floor. All enemies walking over the glyph will be dazed for %d turns.
 		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.]], [[你用光能在地上刻画圣印。所有经过的敌人会被眩晕 %d 回合。
-		圣印视为隐藏陷阱 （%d 侦查强度， %d 点解除强度，基于魔法）持续 %d 回合。]], "tformat")
+		圣印视为隐藏陷阱 （%d 侦查强度， %d 点解除强度，基于魔力）持续 %d 回合。]], "tformat")
 t("Glyph of Repulsion", "冲击圣印", "talent name")
 t("glyph of repulsion", "冲击圣印", "_t")
 t("Deals %d physical damage, knocking the target back.", "造成 %d 物理伤害，击退目标。", "tformat")
@@ -21457,7 +21457,7 @@ t("glyph of fatigue", "疲劳圣印", "_t")
 t("Slows (%d%%) for 5 turns.", "减速 (%d%%) 5 回合。", "tformat")
 t([[You bind light in a glyph on the floor. All enemies walking over the glyph will be slowed by %d%% for 5 turns.
 		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.]], [[你用光能在地上刻画圣印。所有经过圣印的敌人会减速 %d%%， 持续 5 回合。
-		圣印视为隐藏陷阱 （%d 侦查强度， %d 点解除强度，基于魔法）持续 %d 回合。]], "tformat")
+		圣印视为隐藏陷阱 （%d 侦查强度， %d 点解除强度，基于魔力）持续 %d 回合。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/celestial/radiance.lua"
@@ -22268,7 +22268,7 @@ t("Warp Mine Away", "时空地雷：远离", "talent name")
 t([[Lay Warp Mines in a radius of 1 that teleport enemies away from you and inflict %0.2f physical and %0.2f temporal (warp) damage.
 		The mines are hidden traps (%d detection and %d disarm power based on your Magic) and last for %d turns.
 		The damage caused by your Warp Mines will improve with your Spellpower.]], [[在半径 1 的范围里埋设时空地雷，将敌人传送远离你身边并造成 %0.2f 物理和 %0.2f 时空（扭曲）伤害。
-		地雷是隐藏的陷阱 （%d 侦查强度 %d 解除强度基于魔法），持续 %d 回合。
+		地雷是隐藏的陷阱 （%d 侦查强度 %d 解除强度基于魔力），持续 %d 回合。
 		时空地雷造成的伤害受法术强度加成。]], "tformat")
 t("Warp Mines", "时空地雷", "talent name")
 t([[Learn to lay Warp Mines in a radius of 1.  Warp Mines teleport targets that trigger them either toward you or away from you depending on the type of mine used and inflict %0.2f physical and %0.2f temporal (warp) damage.
@@ -22276,7 +22276,7 @@ t([[Learn to lay Warp Mines in a radius of 1.  Warp Mines teleport targets that 
 		Investing in this talent improves the range of all Spacetime Folding talents and the damage caused by your Warp Mines will improve with your Spellpower.
 		
 		Current Spacetime Folding Range: %d]], [[学会在半径 1 的范围内埋设时空地雷。时空地雷会根据所用地雷的类型，将触发它们的目标传送到你身边或推离你身边，并造成 %0.2f 物理和 %0.2f 时空（扭曲）伤害。
-		地雷是隐藏的陷阱（侦测强度 %d、 拆除强度 %d， 基于你的魔法），持续 %d 回合，各有 10 回合冷却时间。
+		地雷是隐藏的陷阱（侦查强度 %d、 解除强度 %d， 基于你的魔力），持续 %d 回合，各有 10 回合冷却时间。
 		在该技能上投入点数会提升所有时空折叠系技能的范围，时空地雷的伤害也会随你的法术强度提升。
 		
 		当前时空折叠范围： %d]], "tformat")
@@ -22876,8 +22876,8 @@ t([[Your body has become a mass of living corruption, increasing your blight and
 On taking damage greater than 15%% of your maximum health, the damage will be reduced by %d%% and a carrion worm mass will burst forth onto a nearby tile, attacking your foes for 5 turns.
 You can never have more than 5 worms active from any source at a time.
 When a carrion worm dies it will explode into a radius 2 pool of blight for 5 turns, dealing %0.2f blight damage each turn and healing you for 33%% of that amount.]], [[你的身体已经腐败，增加 %d%% 枯萎和酸性抗性， %d%% 枯萎伤害亲和。
-		每当你受到大于最大生命值 15%% 的伤害时，该伤害将减少 %d%%， 同时在相邻的格子生成一团腐肉虫群，攻击你的敌人 5 回合。
-		无论来源为何，你同时最多只能拥有 5 只蠕虫。
+		每当你受到大于最大生命值 15%% 的伤害时，若你现有的蠕虫少于 5 只，该伤害将减少 %d%%； 每回合最多在附近的空格生成一团腐肉虫群，攻击你的敌人 5 回合。
+		无论来源为何，你同时最多只能拥有 5 只蠕虫。已有 5 只时，本次伤害不会因此减少，也不会生成虫群。
 		腐肉虫群死亡时将爆炸，产生半径 2 的枯萎毒池，持续 5 回合，每回合造成 %0.2f 枯萎伤害，并按该伤害的 33%% 治疗你。]], "tformat")
 t("Worm Walk", "蠕虫行走", "talent name")
 t("You do not have line of sight to this location.", "你没有这个位置的视野。", "logPlayer")

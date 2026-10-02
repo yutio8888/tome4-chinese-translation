@@ -1,0 +1,18 @@
+{
+  "title": "机制修正002 RETRY：七条有界修复",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-002",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "execute-0-a2",
+    "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，任务mmrfix-20261002-002的fresh retry execute-0-a2。遵守 .ai/roles/executor.md 和当前task SPEC.md/PLAN.md/REPAIR-INPUT.json。前次运行已停止并归档，未改译文。当前仅7条/8 claim；MMR-017/018/restorative全部从本task移出，MMR-026/draining physical仍排除，不要再因移出条目停止。唯一内容写入，仅改engine.lua和mod-tome.lua冻结七条target；先核对baseline。读取固定核心commit 624a67329fe2ad440c5b344785a9c73fcf22ae63（git show，不用当前不同HEAD）。逐条核验主体/限定/实际consumer，修正Doomelves适应尤其良好、法杖元素、4条Magic→既有规范魔力、Infestation附近格并注明现有虫群达5时该次减伤/召唤条件。保留现有tabs和所有source/source_tag/args_order/special/placeholder/markup/newline字段，保留首包全部字节。不改术语库、其他调用、源码、工具、.ai、旧evidence，不stage/commit或创建child。可用自身/tmp临时文件。完成实际修改后运行python3 -B tools/i18n lint --strict及git diff --check，写 .artifacts/i18n/modified-mechanics-repair-20261002/executor-002-retry-report.json，逐条旧新target、固定源码证据/hash、检查与未解决项；不能只给计划。",
+  "notifyOnFinish": true
+}

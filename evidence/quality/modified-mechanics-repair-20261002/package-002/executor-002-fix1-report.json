@@ -1,0 +1,89 @@
+{
+  "task_id": "mmrfix-20261002-002",
+  "role": "executor",
+  "dispatch": "fresh FIX cycle1",
+  "status": "completed",
+  "changed_file": "mod-tome.lua",
+  "changed_target_count": 1,
+  "old_target": "学会在半径 1 的范围内埋设时空地雷。时空地雷会根据所用地雷的类型，将触发它们的目标传送到你身边或推离你身边，并造成 %0.2f 物理和 %0.2f 时空（扭曲）伤害。\n\t\t地雷是隐藏的陷阱（侦测强度 %d、 拆除强度 %d， 基于你的魔力），持续 %d 回合，各有 10 回合冷却时间。\n\t\t在该技能上投入点数会提升所有时空折叠系技能的范围，时空地雷的伤害也会随你的法术强度提升。\n\t\t\n\t\t当前时空折叠范围： %d",
+  "new_target": "学会在半径 1 的范围内埋设时空地雷。时空地雷会根据所用地雷的类型，将触发它们的目标传送到你身边或推离你身边，并造成 %0.2f 物理和 %0.2f 时空（扭曲）伤害。\n\t\t地雷是隐藏的陷阱（侦查强度 %d、 解除强度 %d， 基于你的魔力），持续 %d 回合，各有 10 回合冷却时间。\n\t\t在该技能上投入点数会提升所有时空折叠系技能的范围，时空地雷的伤害也会随你的法术强度提升。\n\t\t\n\t\t当前时空折叠范围： %d",
+  "preimage_file_sha256": "27cbaf412b0f99e7d2b69d0757e2663a6325107bd69804fd4b311101511cf6e6",
+  "expected_preimage_file_sha256": "27cbaf412b0f99e7d2b69d0757e2663a6325107bd69804fd4b311101511cf6e6",
+  "postimage_file_sha256": "156059de173f40db32b90e85c56e0d767b87852004fd52f60738784729ad97b4",
+  "preimage_and_complete_old_target_verified": true,
+  "source_evidence": {
+    "component": "tome",
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_path": "game/modules/tome/data/talents/chronomancy/spacetime-folding.lua",
+    "source_sha256": "758107c693dabfa147769a0b2baade273c9108507539c011e19338c98825ca9e",
+    "expected_source_sha256": "758107c693dabfa147769a0b2baade273c9108507539c011e19338c98825ca9e",
+    "lines": {
+      "27": "\tlocal detect = math.floor(self:callTalent(self.T_WARP_MINES, \"trapPower\") * 0.8)",
+      "28": "\tlocal disarm = math.floor(self:callTalent(self.T_WARP_MINES, \"trapPower\"))",
+      "42": "\t\tdisarm_power = disarm,\tdetect_power = detect,",
+      "199": "\t\tlocal detect = self:callTalent(self.T_WARP_MINES, \"trapPower\") * 0.8",
+      "200": "\t\tlocal disarm = self:callTalent(self.T_WARP_MINES, \"trapPower\")",
+      "235": "\t\tlocal detect = t.trapPower(self,t)*0.8",
+      "236": "\t\tlocal disarm = t.trapPower(self,t)"
+    },
+    "conclusion": "Parent and child info compute detect = trapPower * 0.8 and disarm = trapPower; makeWarpMine floors those values and sets detect_power and disarm_power. Local label alignment only; no semantic defect claim or global terminology decision."
+  },
+  "scope": {
+    "only_authorized_target_changed": true,
+    "other_bytes_in_mod_tome_unchanged": true,
+    "all_existing_seven_fixes_preserved": true,
+    "mod_boot_same_key_preserved": true,
+    "other_fields_placeholders_markup_newlines_tabs_preserved": true,
+    "no_terminology_source_ai_old_evidence_changes": true,
+    "no_stage_commit_or_child": true
+  },
+  "checks": {
+    "doctor": {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "passed; existing DLC unpinned provenance warnings"
+    },
+    "git_diff_check": {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "strict_lint": {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "translations_checked": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20261002T081431.902173Z-2-lint/lint.json"
+    },
+    "scope_hash_comparison": {
+      "observed_changed_preexisting_files": [
+        "evidence/quality/modified-mechanics-repair-20261002/PLAN.md",
+        "evidence/quality/modified-mechanics-repair-20261002/progress.json",
+        "mod-tome.lua"
+      ],
+      "executor_authored_changes": [
+        "mod-tome.lua"
+      ],
+      "concurrent_external_changes": [
+        "evidence/quality/modified-mechanics-repair-20261002/PLAN.md",
+        "evidence/quality/modified-mechanics-repair-20261002/progress.json"
+      ],
+      "note": "Concurrent external evidence updates observed; executor did not write these files.",
+      "baseline_file_count": 58380,
+      "mod_boot_sha256_before_and_after": "595f89d37c4ca3d367ba2c2cbc58d8dd3207b212374aa4eef18c72f39c8d5d14"
+    },
+    "three_frozen_sibling_labels": {
+      "verified": true,
+      "change_ids": [
+        "c3bd892c8c1b3711b6bfba81834de1b4ac2dac141e0ace707ea78a170df6bf82",
+        "c610b690cd9157ca03291b1d65e3a8be2f6630aeab2e76097fc95eb21355b86d",
+        "d200e4d2feb4c324cdd743de0619fff11fbd0755ab5734ca32da2fc563e93e29"
+      ]
+    }
+  },
+  "plan_deviations": [],
+  "unresolved_issues": [],
+  "actual_outcome": "Exactly one frozen Warp Mines target replaced verbatim with FIX-1 new_target. All other mod-tome.lua bytes preserved; mod-boot.lua unchanged."
+}

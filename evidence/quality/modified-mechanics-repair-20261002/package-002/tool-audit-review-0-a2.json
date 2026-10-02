@@ -1,0 +1,58 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-002/INPUT-review-0-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-002/INPUT-review-0-a1.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"\" docs/paseo-translation-context-review-v2-contract.md | sed -n '1,400p'",
+      "description": "Read v2 review contract"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-002/INPUT-review-0-a1.json'))\np=d['payload']\nprint(p.keys())\nprint(p['contract'],p['fixed_source_identity'])\nprint('TERM',p['terminology_snapshot'])\nprint('BRIEF',p['rendered_briefing'])\nfor i,(k,t) in enumerate(zip(p['ordered_revision_keys'],p['translation_snapshot'])):\n  print('=====',i,k); print(json.dumps(t,ensure_ascii=False))\n\"",
+      "description": "Dump payload translations"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-002/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  if i<1: continue\n  c=json.loads(b['context'])\n  print('=====',i,c.get('component'),c.get('section'),c.get('source_tag'))\n  for e in c.get('source_evidence',[]):\n    print('--',e.get('public_path'),e.get('commit'),e.get('source_pinning'),e.get('start'),e.get('end'),e.get('matching_lines'))\n    if 'excerpt' in e: print(e['excerpt'])\n    for w in e.get('windows',[]): print(w['text'][:6000])\n  print('TERM',json.dumps(c.get('terminology'),ensure_ascii=False))\n  print('OTHER',{k:v for k,v in c.items() if k not in ('source_evidence','terminology')})\n\"",
+      "description": "Dump bounded context for entries 1-6"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/fee48609-74e5-4082-8d5e-aca4cd97e8d4/tool-results/bjrzgfc9s.txt; grep -n \"^=====\\|^--\\|^TERM\\|^OTHER\" $f | cut -c1-600",
+      "description": "Outline the context dump"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/fee48609-74e5-4082-8d5e-aca4cd97e8d4/tool-results/bjrzgfc9s.txt; sed -n '715,951p' $f",
+      "description": "Show rot.lua context"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/fee48609-74e5-4082-8d5e-aca4cd97e8d4/tool-results/bjrzgfc9s.txt; sed -n '183,258p;260,334p' $f",
+      "description": "Show glyph contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/fee48609-74e5-4082-8d5e-aca4cd97e8d4/tool-results/bjrzgfc9s.txt; sed -n '337,529p' $f; sed -n '665,712p' $f",
+      "description": "Show warp mines contexts"
+    }
+  }
+]

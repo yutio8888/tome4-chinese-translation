@@ -1,0 +1,65 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-002/INPUT-final-review-1-a2.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-002/INPUT-final-review-1-a2.json",
+      "description": "Read review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-002/INPUT-final-review-1-a2.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nEOF",
+      "description": "Inspect input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-002/INPUT-final-review-1-a2.json'))\nfor b in d['payload']['bounded_context'][1:]:\n    c=json.loads(b['context'])\n    print('=====',b['revision_key'][:8],c['component'],c['section'],c['source_tag'])\n    for e in c['source_evidence']:\n        print('--',e['public_path'],e.get('source_pinning'),e.get('start'),e.get('end'),e.get('matching_lines'))\n        if 'excerpt' in e: print(e['excerpt'])\n        for w in e.get('windows',[]): print(w['text'])\n    print('TERMS',json.dumps(c.get('terminology'),ensure_ascii=False))\n    print({k:v for k,v in c.items() if k not in('source_evidence','terminology')})\nEOF",
+      "description": "Dump remaining contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/455e006e-bbaa-43d5-8a26-4e59b6f83a94/tool-results/bc8gn1coo.txt; grep -n \"=====\\|^-- \\|TERMS\\|^{\" $f | cut -c1-400",
+      "description": "Index dumped contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/455e006e-bbaa-43d5-8a26-4e59b6f83a94/tool-results/bc8gn1coo.txt; sed -n 212,286p $f; sed -n 744,978p $f",
+      "description": "Read glyph and rot contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "f=/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/455e006e-bbaa-43d5-8a26-4e59b6f83a94/tool-results/bc8gn1coo.txt; sed -n 289,362p $f | grep -n \"slow\\|Slow\\|info\\|420\\|421\\|dam\\|Duration\\|power\" ; sed -n 364,557p $f",
+      "description": "Read slow glyph and warp mine contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; awk '/^## *6/,/^## *7/' docs/paseo-translation-context-review-v2-contract.md | head -120",
+      "description": "Read contract section 6"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md",
+      "description": "List contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,142p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read section 6"
+    }
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "title": "机制修正002 同键副本：启动菜单",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-002-companion",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "execute-0-a1",
+    "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，task mmrfix-20261002-002-companion。读 .ai/roles/executor.md、本task SPEC.md/PLAN.md/REPAIR-INPUT.json，唯一内容写入仅mod-boot.lua中冻结一条source/_t的target，对齐为输入的frozen_target（源自相同engine runtime key的已修候选）。先核对baseline，保留其他所有字节与source/source_tag/args_order/special/placeholder/markup/newline。固定core源码commit624a67329fe2ad440c5b344785a9c73fcf22ae63需git show核对MainMenu.lua原句特别适应恶魔改造限定。parent七条当前候选不许改。不改术语、源码、.ai、旧evidence或用户文件，不stage/commit，不创建child。可写自己的/tmp临时文件；完成运行python3 -B tools/i18n lint --strict及git diff --check，写 .artifacts/i18n/modified-mechanics-repair-20261002/executor-002-companion-report.json，逐项old/new target/byte核验/source hash/tests。最终报告实际成果。",
+  "notifyOnFinish": true
+}

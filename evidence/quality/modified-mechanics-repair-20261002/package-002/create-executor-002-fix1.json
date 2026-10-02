@@ -1,0 +1,18 @@
+{
+  "title": "机制修正002 FIX：同组陷阱属性用词",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-002",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "fix-1-a1",
+    "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，fresh FIX cycle1，task mmrfix-20261002-002。读 .ai/roles/executor.md、本task SPEC.md/PLAN.md/FIX-1.json。仅将mod-tome.lua冻结Warp Mines一条target中的侦测强度→侦查强度、拆除强度→解除强度，和本包其余三条同属性说明一致。先核对preimage文件SHA与完整old_target，核验固定commit源码说明为相同trapPower及detect_power/disarm_power。按FIX-1的new_target逐字替换，只改这一target，七条既有修正、mod-boot.lua同键副本、其余target及所有字段/placeholder/markup/newline/tabs全部保留。不改术语/源码/.ai/旧evidence，不stage/commit、不创建child；可用/tmp。运行strict lint与git diff --check，写 .artifacts/i18n/modified-mechanics-repair-20261002/executor-002-fix1-report.json，记录完整旧新target、源码hash、范围与检查结果，最终报告实际成果。",
+  "notifyOnFinish": true
+}

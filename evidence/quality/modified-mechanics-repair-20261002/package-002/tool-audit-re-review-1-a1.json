@@ -1,0 +1,74 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-002/INPUT-re-review-1-a1.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-002/INPUT-re-review-1-a1.json'))\ndef show(o,p=''):\n    if isinstance(o,dict):\n        for k,v in o.items(): show(v,p+'.'+k)\n    elif isinstance(o,list):\n        print(p,'list',len(o))\n        for i,v in enumerate(o[:200]): show(v,p+f'[{i}]')\n    else:\n        s=str(o); print(p, s[:300] if 'context' in p else s[:3000])\nshow({k:v for k,v in d.items()})\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-002/INPUT-re-review-1-a1.json'))\nfor i,b in enumerate(d['payload']['bounded_context'][1:],1):\n    c=json.loads(b['context'])\n    print('=====',i,{k:v for k,v in c.items() if k!='source_evidence'})\n    for e in c['source_evidence']:\n        print(e['public_path'],e.get('matching_lines'))\n        for w in e['windows']: print(w['text'])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-002/INPUT-re-review-1-a1.json'))\nfor i,b in enumerate(d['payload']['bounded_context'][1:],1):\n    c=json.loads(b['context'])\n    print('=====',i,c['section'],c.get('terminology'))\n    for e in c['source_evidence']:\n        print({k:v for k,v in e.items() if k!='windows'})\n        for w in e.get('windows',[]): print(w['text'][:4000])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua | grep -n \"apr, %s element\" ; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Object.lua | grep -n -B8 -A4 \"apr, %s element\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/celestial/other.lua | grep -n -A40 \"glyph\" | sed -n 1,200p | grep -n -i -E \"dur|daze|slow|det|disarm|lasts|power|turns|name =\" | head -60"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/talents/celestial/other.lua | grep -n -B60 \"slowed by %d%% for 5 turns\" | grep -n -i -E \"slow|SLOW|trapPower|getDuration|tformat|power\" "
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; f=game/modules/tome/data/talents/chronomancy/spacetime-folding.lua; git show $C:$f | sed -n 1,260p | grep -n -i -E \"name =|cooldown|radius|teleport|trapPower|detect_power|disarm_power|tformat|getRange|range|toward|away|temporary|getDuration\" | head -80"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; f=game/modules/tome/data/talents/corruptions/rot.lua; git show $C:$f | grep -n \"living corruption\" ; git show $C:$f | grep -n -i -E \"Infestation|worm|turn_procs|reduce|15|callbackOnHit|max_life|dam \\*|dam=|getDamageReduction|getResist|getAffinity|getHeal|33\" | head -80"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; f=game/modules/tome/data/talents/corruptions/rot.lua; git show $C:$f | sed -n 100,125p; git show $C:$f | sed -n 176,226p"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/data/damage_types.lua | grep -n -A14 'newDamageType{\\s*$' | grep -n -A14 'WORMBLIGHT' | head -20"
+    }
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "finding_id": "LOCAL-CONSISTENCY-002",
+  "host_status": "confirmed",
+  "revision_key": "8a842e07101236e415364ce8842d80ea21a645a182f35cfe66845803fd27bb8e",
+  "raw_review": ".ai/reviews/mmrfix-20261002-002/raw-review-0-a2.txt",
+  "component": "tome",
+  "public_path": "game/modules/tome/data/talents/chronomancy/spacetime-folding.lua",
+  "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "source_sha256": "758107c693dabfa147769a0b2baade273c9108507539c011e19338c98825ca9e",
+  "source_lines": [
+    27,
+    28,
+    42,
+    199,
+    200,
+    235,
+    236
+  ],
+  "evidence": "Parent Warp Mines and child Warp Mine Away compute the same detect/disarm values and populate the same makeWarpMine fields. Three frozen sibling entries use 侦查强度/解除强度; this one uses alternate labels.",
+  "counterevidence": "Both Chinese alternatives describe the mechanic correctly; neither is a frozen preferred term. No conclusion that 侦测/拆除 is semantically wrong.",
+  "accepted_extent": "Local labels for the same parent/child trap attributes only; align this single entry to three frozen siblings. No high-reuse terminology choice, terminology library change or cross-batch/global naming policy.",
+  "authority": "AGENTS.md allows batch-local consistency alignment and ordinary FIX rounds.",
+  "old_target": "学会在半径 1 的范围内埋设时空地雷。时空地雷会根据所用地雷的类型，将触发它们的目标传送到你身边或推离你身边，并造成 %0.2f 物理和 %0.2f 时空（扭曲）伤害。\n\t\t地雷是隐藏的陷阱（侦测强度 %d、 拆除强度 %d， 基于你的魔力），持续 %d 回合，各有 10 回合冷却时间。\n\t\t在该技能上投入点数会提升所有时空折叠系技能的范围，时空地雷的伤害也会随你的法术强度提升。\n\t\t\n\t\t当前时空折叠范围： %d",
+  "new_target": "学会在半径 1 的范围内埋设时空地雷。时空地雷会根据所用地雷的类型，将触发它们的目标传送到你身边或推离你身边，并造成 %0.2f 物理和 %0.2f 时空（扭曲）伤害。\n\t\t地雷是隐藏的陷阱（侦查强度 %d、 解除强度 %d， 基于你的魔力），持续 %d 回合，各有 10 回合冷却时间。\n\t\t在该技能上投入点数会提升所有时空折叠系技能的范围，时空地雷的伤害也会随你的法术强度提升。\n\t\t\n\t\t当前时空折叠范围： %d"
+}

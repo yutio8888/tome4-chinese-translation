@@ -1,0 +1,18 @@
+{
+  "title": "机制修正002：属性、标签与触发条件",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-002",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "execute-0-a1",
+    "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，任务mmrfix-20261002-002。遵守 .ai/roles/executor.md 和本task SPEC.md/PLAN.md，读取REPAIR-INPUT.json的9条/10 claim及源码锚点。唯一内容写入者，仅读固定核心commit 624a67329fe2ad440c5b344785a9c73fcf22ae63（git show，禁止用不同HEAD工作树）核验。仅修改engine.lua、mod-tome.lua中冻结9条target；先比对baseline preimage；其余字段及此前已完成首包3条所有字节保留。MMR-026/draining physical排除，禁止改术语库、未冻结显示名、源码、工具、旧evidence、.ai或用户其他文件。不stage/commit，不创建child。实际机制优先；restorative先核对相关显示名但只改冻结关键词，若需跨范围改名报告停止。Infestation合并附近格与现有5虫减伤条件；不改既有tabs。运行 python3 -B tools/i18n lint --strict、git diff --check；写 .artifacts/i18n/modified-mechanics-repair-20261002/executor-002-report.json，逐条旧新target、固定源码证据/哈希、检查结果及未解决项。可创建自身/tmp临时文件。最终只报告实际成果，不止计划。",
+  "notifyOnFinish": true
+}
