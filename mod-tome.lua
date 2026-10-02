@@ -27338,7 +27338,7 @@ section "mod-tome/data/talents/psionic/feedback.lua"
 
 t("Biofeedback", "生物反馈", "talent name")
 t([[Your Feedback decay now heals you for %0.1f times the loss, and the decay rate is reduced to %d%% of the normal rate (up to %0.1f%% per turn).  As a result, you are healed for %0.2f%% of your feedback pool each turn.
-		The healing effect improves with your Willpower.]], [[你的反馈值衰减的 %0.1f 倍会转换成治疗，同时衰减速率下降至 %d%% （每回合最多 %0.1f%%）。 总而言之，每回合你将受到治疗量等于你的反馈池 %0.2f%% 的治疗。
+		The healing effect improves with your Willpower.]], [[你的反馈值衰减的 %0.1f 倍会转换成基础治疗量，同时衰减速率下降至正常速率的 %d%% （反馈值为正时，每回合按反馈池的 %0.1f%% 与 1 点中的较大值计算衰减量）。不触及最低衰减限制时，每回合的基础治疗量为反馈池的 %0.2f%%。
 		治疗效果受意志加成。]], "tformat")
 t("Resonance Field", "共鸣领域", "talent name")
 t([[Activate to create a resonance field that will absorb 50%% of all damage you take (%d max absorption).  The field will not interfere with Feedback gain.
@@ -27350,7 +27350,7 @@ t([[Increases your maximum Feedback by %d, and increases your base Feedback gain
 		受精神强度影响，反馈值增加率按比例加成。]], "tformat")
 t([[Increases your maximum Feedback by %d, and increases the Feedback you gain from damage by %0.1f%% (to %0.1f%% of damage received).
 		The Feedback gain will scale with your Mindpower.]], [[增加 %d 最大反馈值，同时反馈值的基础获得比率增加 %0.1f%% （达到所受伤害的 %0.1f%%）。
-		受精神强度影响，反馈值增加率按比例加成。]], "tformat")
+		反馈值获得率的增幅受技能等级影响，基础获得率随角色等级变化，不受精神强度加成。]], "tformat")
 t("Conversion", "反馈充能", "talent name")
 t([[Use Feedback to replenish yourself.  This heals you for %d life, and restores %d stamina, %d mana, %d equilibrium, %d vim, %d positive and negative energies, %d psi energy, and %d hate.
 		The heal and resource gain will improve with your Mindpower.]], [[使用反馈值来补充自己。治疗 %d 生命值并回复 %d 点体力值， %d 点法力， %d 点失衡值， %d 点活力， %d 点正能量和负能量， %d 点灵能值及 %d 点仇恨值。
@@ -27608,7 +27608,7 @@ t([[The telekinetically-wielded ranged weapon uses Willpower in place of Strengt
 			Damage: %d
 			APR: %d
 			Crit: %0.1f%%
-			Speed: %0.1f%%]], [[念动远程武器使用意志和灵巧来分别代替力量和敏捷，以决定命中和伤害。
+			Speed: %0.1f%%]], [[念动远程武器使用灵巧代替敏捷计算命中；计算伤害时，意志代替力量，灵巧代替敏捷。
 			战斗属性：
 			范围： %d
 			命中： %d
@@ -27869,7 +27869,7 @@ t([[Enter a sleeping target's dreams for %d turns.  While in the Dreamscape, you
 		When the Dreamscape ends, for each projection destroyed, the target's life will be reduced by 10%% and it will be brainlocked for one turn.
 		In the Dreamscape, your damage will be improved by %d%%.
 		The damage bonus will improve with your Mindpower.]], [[进入某个睡眠状态目标的梦境中，持续 %d 回合。当你位于梦境空间中时，你将会遇到目标无敌的睡眠形态，每 2 回合它会制造出 1 个梦境投影来保护它的心灵。
-		除非目标激活了清晰梦境，否则梦境投影造成的伤害比本体低 50%%。
+		除非目标激活了清晰梦境，否则梦境投影的全伤害加成在本体基础上减去 50%%（即降低 50 个百分点）。
 		当梦境空间的效果结束时，你每摧毁一个梦境投影，目标生命值会减少 10%%，并且受到持续 1 回合的思维封锁效果（可叠加）。
 		在梦境空间中时，你的伤害会提高 %d%%。
 		伤害增益受精神强度加成。]], "tformat")
@@ -27974,7 +27974,7 @@ t("thought-forged bowman", "精神体弓箭手", "_t")
 t("A thought-forged bowman.  It appears ready for battle.", "一位精神体弓箭手。他时刻准备着战斗。", "_t")
 t([[Forge a bowman, clad in leather armor, from your thoughts.  The bowman learns Bow Mastery, Combat Accuracy, Steady Shot, Crippling Shot, and Rapid Shot as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
 		Activating this talent will put all other thought-forms on cooldown.
-		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位身穿皮甲的精神体弓箭手。当精神体弓箭手到达对应等级时可习得弓术掌握、强化命中、稳固射击、致残射击和急速射击，并且可增加 %d 点力量、 %d 点敏捷和 %d 体质。
+		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位身穿皮甲的精神体弓箭手。精神体弓箭手在召唤时即掌握弓术掌握、强化命中、稳固射击、致残射击和瞄准姿态，这些技能的等级取决于召唤时你的等级，并且可增加 %d 点力量、 %d 点敏捷和 %d 体质。
 		激活此技能会使其他思维形态技能进入冷却。
 		属性增益受精神强度加成。]], "tformat")
 t("Thought-Form: Warrior", "思维形态：战士", "talent name")
@@ -28704,7 +28704,7 @@ t([[Engulfs your hands (and weapons) in a sheath of fire, dealing %0.2f fire dam
 		Each hit will also regenerate %0.2f stamina.
 		The effects will increase with your Spellpower.]], [[你的双手（及武器）笼罩在火焰中，每次近战攻击会造成 %0.2f 火焰伤害并提高所有火焰伤害 %d%%。
 		每次命中同时也会回复 %0.2f 体力值。
-		效果受法术强度加成。]], "tformat")
+		火焰伤害及其加成受法术强度影响，体力回复量仅随技能等级提高。]], "tformat")
 t("Shock Hands", "闪电之触", "talent name")
 t([[Engulfs your hands (and weapons) in a sheath of lightning, dealing %d lightning damage with a chance to daze (25%%) per melee attack and increasing all lightning damage dealt by %d%%.
 		Each hit will also regenerate %0.2f mana.
@@ -29170,7 +29170,7 @@ t([[Any time one of your skeleton or bone giant dies, it shatters in radius %d, 
 		This talent never works when you kill your own minions.
 		]], [[每当你的骷髅或骨巨人死去时，它会在半径 %d 码范围内粉碎，使敌人在5回合内受到 %0.2f 物理流血伤害。
 		如果范围内有其他骷髅或骨巨人，它们会使用这些骸骨强化自己，增加最大和当前生命值 %d， 护甲值 %d， 并获得 %0.2f 物理近战报复效果，持续 20 回合。
-		如果你杀死自己的随从，这一效果不会触发。
+		你杀死自己的骷髅或骨巨人随从时，也会触发这一效果。
 		]], "tformat")
 t("Assemble", "亡灵组合", "talent name")
 t("A towering creature, made from the bones of dozens of dead bodies. It is covered by an unholy aura.", "一个高大的生物，由数十具尸体的骨头构成。它全身围绕着邪恶的气息。", "_t")
@@ -29610,7 +29610,7 @@ t([[Hit a target for %d%% melee damage and stun it for %d turns.
 		Stun chance will improve with Spellpower.
 		At level 5, this attack cannot miss.]], [[以法杖击打目标，造成 %d%% 近战伤害并震慑目标 %d 回合。
 		震慑概率受法术强度加成。
-		在等级 5 时，此攻击必中。]], "tformat")
+		在技能等级达到 5 时，此攻击跳过命中与闪避值的检定，但仍可能被抵消或躲闪。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/stone-alchemy.lua"
@@ -29707,7 +29707,7 @@ t([[Surround yourself with a Tempest, increasing all your lightning damage by %d
 section "mod-tome/data/talents/spells/temporal.lua"
 
 t("Congeal Time", "时间凝固", "talent name")
-t("Project a bolt of time distortion, decreasing the target's global speed by %d%% and all projectiles it fires by %d%% for 7 turns.", "发射一枚时间扭曲弹，减少目标 %d%% 的全局速度，并使目标所释放的抛射物减速 %d%%， 持续 7 回合。", "tformat")
+t("Project a bolt of time distortion, decreasing the target's global speed by %d%% and all projectiles it fires by %d%% for 7 turns.", "发射一枚时间扭曲弹，以 %d%% 的系数施加全局减速（基础全局速度为 1 且无其他速度修正时，实际降幅为该系数÷（1＋2×该系数）），并使目标所释放的抛射物减速 %d%%， 持续 7 回合。", "tformat")
 t("Temporal Shield", "时光之盾", "talent name")
 t([[This intricate spell instantly erects a time shield around the caster, preventing any incoming damage and sending it forward in time.
 		Once either the maximum damage (%d) is absorbed, or the time runs out (%d turns), the stored damage will return as a temporal restoration field over time (5 turns).
@@ -30010,7 +30010,7 @@ t("You cannot use Rapid Fire without a bow or sling!", "你需要装备弓或投
 t([[Enter a fluid, mobile shooting stance that excels at close combat. Your ranged attack speed is increased by %d%% and each time you shoot you gain %d%% increased movement speed for 2 turns.
 Ranged attacks against targets will also grant you up to %d%% of a turn. This is 100%% effective against targets within 3 tiles, and decreases by 20%% for each tile beyond that (to 0%% at 8 tiles). This cannot occur more than once per turn.
 Requires a sling to use.]], [[进入流畅灵活的射击姿势，擅长近距离射击。你的远程攻击速度增加 %d%%， 每次射击令你在两回合内移动速度增加 %d%%。
-命中敌人的远程攻击将给你带来最多 %d%% 额外回合，该效果对三格以内的目标有 100%% 效果，每增加 1 格距离，效果降低 20%%（8 格降为 0%%）。该效果每回合只能生效一次。
+命中敌人的远程攻击将给你带来最多 %d%% 额外回合，该效果对三格以内的目标有 100%% 效果，每增加 1 格距离，效果降低 20%%（8 格降为 0%%）。该额外回合效果对每个目标只能生效一次，直到该目标再次行动时重置。
 该技能需要投石索。]], "tformat")
 
 ------------------------------------------------

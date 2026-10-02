@@ -1,0 +1,17 @@
+{
+  "title": "机制修正010 FIX2：弓箭手召唤技能时序",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-010",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "fix-2-a1"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，fresh FIX cycle2，task mmrfix-20261002-010。直接读 .ai/roles/executor.md、本task SPEC.md/PLAN.md/FIX-2.json/ADJUDICATION-BOWMAN-010.json/USER-DECISION-BOWMAN.json。用户已同意单句提案并继续。只核对preimage和完整old_target后按FIX-2的new_target逐字替换mod-tome.lua一条target，其余9条及范围外字节保持。固定源码复核：thought-forms召唤时resolvers.talents授予所列技能，等级ceil(召唤者level/10)，不是精神体自行升级获得；表述明确召唤时等级，不声称召唤后动态更新。保留source/tag/args/special/placeholder/markup/newline/tabs。不改源码/术语库/工具/.ai/evidence/旧报告/用户文档，不stage/commit或创建child。可写自己的/tmp和 .artifacts/i18n/modified-mechanics-repair-20261002/executor-010-fix2-report.json，记录完整旧新target、源码证据hash和摘录、数值消费者、范围字节证明、tests/未决项；跑strictlint及git diff --check。最终报告实际成果。",
+  "notifyOnFinish": true
+}

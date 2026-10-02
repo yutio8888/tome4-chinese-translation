@@ -1,0 +1,93 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-010/INPUT-re-review-1-a1.json docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Check input and contract sizes"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read v2 review contract"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-re-review-1-a1.json'))\ndef s(o,p=''):\n  if isinstance(o,dict):\n    for k,v in o.items(): s(v,p+'.'+k)\n  elif isinstance(o,list): print(p,'list',len(o)); \n  else: print(p, repr(o)[:150])\ns(d)\"",
+      "description": "Outline input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-re-review-1-a1.json'))\np=d['payload']\nprint(p['rendered_briefing']);print(p['terminology_snapshot'])\nfor i,k in enumerate(p['ordered_revision_keys']):\n  print('=====',i,k)\n  print(json.dumps(p['translation_snapshot'][i],ensure_ascii=False))\n\"",
+      "description": "Show briefing and translations"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n  print('=====',i)\n  print(json.dumps(c,ensure_ascii=False,indent=0)[:9000])\n\"",
+      "description": "Show bounded contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n  print('=====',i, list(c.keys()))\n  x=json.loads(c['context'])\n  for k,v in x.items():\n    if k=='source_evidence':\n      for e in v:\n        print('--',e['component'],e['public_path'],e.get('commit'),e.get('source_pinning'),e['start'],e['end'],e.get('frozen_file'))\n        print(e['excerpt'])\n    else: print(k,':',json.dumps(v,ensure_ascii=False)[:3000])\n\" > /tmp/ctx010.txt; wc -l /tmp/ctx010.txt; sed -n 1,250p /tmp/ctx010.txt",
+      "description": "Pretty-print bounded contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,c in enumerate(p['bounded_context']):\n  print('=====',i)\n  x=json.loads(c['context'])\n  for k,v in x.items():\n    if k=='source_evidence':\n      for e in v:\n        print('--',{kk:vv for kk,vv in e.items() if kk not in ('excerpt','sha256','frozen_file')})\n        print(e.get('excerpt',''))\n    else: print(k,':',json.dumps(v,ensure_ascii=False)[:4000])\n\" > /tmp/ctx010.txt; wc -l /tmp/ctx010.txt; sed -n 20,400p /tmp/ctx010.txt",
+      "description": "Pretty-print bounded contexts robustly"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 40,200p /tmp/ctx010.txt",
+      "description": "Read contexts part 2"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 26,40p /tmp/ctx010.txt; sed -n 200,330p /tmp/ctx010.txt",
+      "description": "Read contexts part 3"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/psionic.lua | grep -n \"setupThoughtForm\" -A40 | head -60",
+      "description": "Inspect setupThoughtForm at pinned commit"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git grep -n \"function setupThoughtForm\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/data/talents/psionic/",
+      "description": "Locate setupThoughtForm in pinned commit"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/thought-forms.lua | sed -n 88,140p",
+      "description": "Read setupThoughtForm"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 330,493p /tmp/ctx010.txt",
+      "description": "Read contexts part 4"
+    }
+  }
+]

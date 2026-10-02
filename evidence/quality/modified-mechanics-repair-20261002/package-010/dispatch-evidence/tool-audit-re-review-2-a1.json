@@ -1,0 +1,65 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "wc -c .ai/task/mmrfix-20261002-010/INPUT-re-review-2-a1.json docs/paseo-translation-context-review-v2-contract.md && cat .ai/task/mmrfix-20261002-010/INPUT-re-review-2-a1.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-re-review-2-a1.json'))\np=d['payload'];print(list(d.keys()));print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context' and k!='entries': print(k, json.dumps(v,ensure_ascii=False)[:3000])\n\"",
+      "description": "Read contract and input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n  print('=====',i,t['revision_key'][:8]);print('SRC:',t['source']);print('TGT:',t['target'])\n\"",
+      "description": "Print all translation entries"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context'][:4]):\n  print('=====',i)\n  c=json.loads(b['context'])\n  for k,v in c.items():\n    if k=='source_evidence':\n      for e in v: print('--',e['public_path'],e['start'],e['end']);print(e['excerpt'])\n    else: print(k, json.dumps(v,ensure_ascii=False)[:4000])\n\"",
+      "description": "Print bounded context 0-3"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  print('=====',i)\n  c=json.loads(b['context'])\n  for k,v in c.items():\n    if k=='source_evidence':\n      for e in v:\n        print('--',e.get('public_path'),e.get('start'),e.get('end'), {kk:vv for kk,vv in e.items() if kk not in ('excerpt','public_path','start','end','sha256','commit','component','source_pinning','frozen_file')})\n        print(e.get('excerpt',''))\n    else: print(k, json.dumps(v,ensure_ascii=False))\n\" > /tmp/ctx.txt; wc -l /tmp/ctx.txt; sed -n 1,400p /tmp/ctx.txt | tail -n +30 | head -250",
+      "description": "Dump all bounded contexts to temp file"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx.txt",
+      "offset": 374,
+      "limit": 210
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/thought-forms.lua | grep -n \"getStatBonus\" | head; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/techniques/combat-training.lua | grep -n -A2 'short_name = \"WEAPON_COMBAT\"\\|name = \"Combat Accuracy\"' | head",
+      "description": "Check stat bonus scaling in pinned source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/thought-forms.lua | grep -n -A3 'name = \"Thought-Forms\"' ; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/talents/psionic/thought-forms.lua | sed -n '/name = \"Thought-Forms\"/,/info/p' | grep -n getStatBonus",
+      "description": "Check Thought-Forms stat bonus formula"
+    }
+  }
+]

@@ -1,0 +1,340 @@
+{
+  "task_id": "mmrfix-20261002-010",
+  "role": "executor",
+  "cycle": 1,
+  "fixed_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "entries": [
+    {
+      "candidate_index": 640,
+      "revision_key": "f5390d2927d5d22561977ef45ea22bf94bf7626e236724b75cd39a9710a4773e",
+      "section": "mod-tome/data/talents/psionic/other.lua",
+      "source": "The telekinetically-wielded ranged weapon uses Willpower in place of Strength, and Cunning in place of Dexterity, to determine Accuracy and damage respectively.\n\t\t\tCombat stats:\n\t\t\tRange: %d\n\t\t\tAccuracy: %d\n\t\t\tDamage: %d\n\t\t\tAPR: %d\n\t\t\tCrit: %0.1f%%\n\t\t\tSpeed: %0.1f%%",
+      "source_tag": "tformat",
+      "old_target": "念动远程武器使用灵巧代替敏捷计算命中，使用意志代替力量参与伤害计算。\n\t\t\t战斗属性：\n\t\t\t范围： %d\n\t\t\t命中： %d\n\t\t\t伤害： %d\n\t\t\t护甲穿透： %d\n\t\t\t暴击率： %0.1f%%\n\t\t\t攻击速度： %0.1f%%",
+      "new_target": "念动远程武器使用灵巧代替敏捷计算命中；计算伤害时，意志代替力量，灵巧代替敏捷。\n\t\t\t战斗属性：\n\t\t\t范围： %d\n\t\t\t命中： %d\n\t\t\t伤害： %d\n\t\t\t护甲穿透： %d\n\t\t\t暴击率： %0.1f%%\n\t\t\t攻击速度： %0.1f%%"
+    },
+    {
+      "candidate_index": 715,
+      "revision_key": "21711bf7cee567372495e9a891d999f4b89c94cc77972c8a6ad2396b3d7caf4b",
+      "section": "mod-tome/data/talents/techniques/agility.lua",
+      "source": "Enter a fluid, mobile shooting stance that excels at close combat. Your ranged attack speed is increased by %d%% and each time you shoot you gain %d%% increased movement speed for 2 turns.\nRanged attacks against targets will also grant you up to %d%% of a turn. This is 100%% effective against targets within 3 tiles, and decreases by 20%% for each tile beyond that (to 0%% at 8 tiles). This cannot occur more than once per turn.\nRequires a sling to use.",
+      "source_tag": "tformat",
+      "old_target": "进入流畅灵活的射击姿势，擅长近距离射击。你的远程攻击速度增加 %d%%， 每次射击令你在 1 回合内移动速度增加 %d%%。\n命中敌人的远程攻击将给你带来最多 %d%% 额外回合，该效果对三格以内的目标有 100%% 效果，每增加 1 格距离，效果降低 20%%（8 格降为 0%%）。该额外回合效果每回合对每个目标只能生效一次。\n该技能需要投石索。",
+      "new_target": "进入流畅灵活的射击姿势，擅长近距离射击。你的远程攻击速度增加 %d%%， 每次射击令你在两回合内移动速度增加 %d%%。\n命中敌人的远程攻击将给你带来最多 %d%% 额外回合，该效果对三格以内的目标有 100%% 效果，每增加 1 格距离，效果降低 20%%（8 格降为 0%%）。该额外回合效果对每个目标只能生效一次，直到该目标再次行动时重置。\n该技能需要投石索。"
+    }
+  ],
+  "source_verification": [
+    {
+      "component": "engine",
+      "public_path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "expected_host_sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "host_hash_and_excerpts_verified": true,
+      "read_from": "git show pinned_commit:path",
+      "excerpts": [
+        {
+          "start": 48,
+          "end": 56,
+          "text": "\tt.name = t.name:upper()\n\tt.activation = t.activation or function() end\n\tt.deactivation = t.deactivation or function() end\n\tt.parameters = t.parameters or {}\n\tt.type = t.type or \"physical\"\n\tt.status = t.status or \"detrimental\"\n\tt.decrease = t.decrease or 1\n\n\t-- I18N"
+        },
+        {
+          "start": 78,
+          "end": 110,
+          "text": "function _M:timedEffects(filter)\n\tlocal todel = {}\n\tlocal def\n\tlocal effs = {}\n\tfor eff, p in pairs(self.tmp) do\n\t\teffs[eff] = p\n\tend\n\tfor eff, p in pairs(effs) do\n\t\tdef = _M.tempeffect_def[eff]\n\t\tif not filter or filter(def, p) then\n\t\t\tif p.dur <= 0 then\n\t\t\t\ttodel[#todel+1] = eff\n\t\t\telse\n\t\t\t\tif def.on_timeout then\n\t\t\t\t\tlocal old_source\n\t\t\t\t\tif p.src then\n\t\t\t\t\t\told_source = p.src.__project_source\n\t\t\t\t\t\tp.src.__project_source = p \n\t\t\t\t\tend -- intermediate projector source\n\t\t\t\t\tif def.on_timeout(self, p, def) then\n\t\t\t\t\t\ttodel[#todel+1] = eff\n\t\t\t\t\tend\n\t\t\t\t\tif p.src then p.src.__project_source = old_source end\n\t\t\t\tend\n\t\t\tend\n\t\t\tp.dur = p.dur - def.decrease\n\t\tend\n\tend\n\n\twhile #todel > 0 do\n\t\tself:removeEffect(table.remove(todel))\n\tend\nend"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "expected_host_sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "host_hash_and_excerpts_verified": true,
+      "read_from": "git show pinned_commit:path",
+      "excerpts": [
+        {
+          "start": 541,
+          "end": 549,
+          "text": "\tend\n\n\tself.energyBase = self.energyBase - game.energy_to_act\n\n\tif self:attr(\"no_timeflow\") then\n\t\t-- Compute timed effects that can happen even in timeless mode\n\t\tself:timedEffects(function(e, p) if e.tick_on_timeless then return true end end)\n\t\treturn\n\tend"
+        },
+        {
+          "start": 638,
+          "end": 646,
+          "text": "\tif self:knowTalent(self.T_COUNTER_ATTACK) then self:setEffect(self.EFF_COUNTER_ATTACKING,1,{}) end\n\tif self:knowTalent(self.T_DEFENSIVE_THROW) then self:setEffect(self.EFF_DEFENSIVE_GRAPPLING,1,{}) end\n\n\tself:timedEffects()\n\n\t-- Handle thunderstorm, even if the actor is stunned or incapacitated it still works\n\tif not game.zone.wilderness and not self.dead then\n\t\tself:triggerHook{\"Actor:actBase:Effects\"}\n\t\tself:fireTalentCheck(\"callbackOnActBase\")"
+        },
+        {
+          "start": 678,
+          "end": 698,
+          "text": "-- General entry point for Actors to act, called by NPC:act or Player:act\nfunction _M:act()\n\tif not engine.Actor.act(self) then return end\n\n\tself.changed = true\n\n\t-- Store procs with more than 1 turn remaining and re-add them after we clear turn_procs\n\tlocal temp = {}\n\tif self.turn_procs.multi then\n\t\tfor proc, val in pairs(self.turn_procs.multi) do\n\t\t\tif proc then\n\t\t\t\tself.turn_procs.multi[proc].turns = self.turn_procs.multi[proc].turns - 1\n\t\t\t\tif self.turn_procs.multi[proc].turns > 0 then temp[proc] = val end\n\t\t\tend\n\t\tend\n\tend\n\n\tself.turn_procs = {}\n\tself._turn_ai_tactical = nil\n\tif temp then self.turn_procs.multi = temp end\n"
+        }
+      ]
+    },
+    {
+      "component": "engine",
+      "public_path": "game/engines/default/engine/GameEnergyBased.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "b903ee64450a462c66cf803adcf3e62c9498a4617846bf6ccd9b795b7ac92182",
+      "expected_host_sha256": "b903ee64450a462c66cf803adcf3e62c9498a4617846bf6ccd9b795b7ac92182",
+      "host_hash_and_excerpts_verified": true,
+      "read_from": "git show pinned_commit:path",
+      "excerpts": [
+        {
+          "start": 111,
+          "end": 129,
+          "text": "\t\te = arr[i]\n\t\titer.e, iter.i = e, i\n\t\tif e and e.act and e.energy then\n\t\t\tif e.actBase and e.energyBase then\n\t\t\t\tif e.energyBase < self.energy_to_act then\n\t\t\t\t\te.energyBase = e.energyBase + self.energy_per_tick\n\t\t\t\tend\n\t\t\t\tif e.energyBase >= self.energy_to_act then\n\t\t\t\t\te:actBase(self)\n\t\t\t\tend\n\t\t\tend\n\n--\t\t\tprint(\"<ENERGY\", e.name, e.uid, \"::\", e.energy.value, self.paused, \"::\", e.player)\n\t\t\tif e.energy.value < self.energy_to_act then\n\t\t\t\te.energy.value = (e.energy.value or 0) + self.energy_per_tick * (e.energy.mod or 1) * (e.global_speed or 1)\n\t\t\tend\n\t\t\tif e.energy.value >= self.energy_to_act then\n\t\t\t\te.energy.used = false\n\t\t\t\te:act(self)"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/techniques/agility.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "b0b1c7bd745a5f76e39c283c4a310efa4bf04968ecbfa868f67cada956280ae2",
+      "expected_host_sha256": "b0b1c7bd745a5f76e39c283c4a310efa4bf04968ecbfa868f67cada956280ae2",
+      "host_hash_and_excerpts_verified": true,
+      "read_from": "git show pinned_commit:path",
+      "excerpts": [
+        {
+          "start": 248,
+          "end": 277,
+          "text": "newTalent{\n\tname = \"Rapid Shot\",\n\ttype = {\"technique/agility\", 4},\n\tpoints = 5,\n\tmode = \"sustained\",\n\trequire = techs_dex_req_high4,\n\tcooldown = 30,\n\tsustain_stamina = 50,\n\tno_energy = true,\n\ttactical = { BUFF = 2 },\n\ton_pre_use = function(self, t, silent) return archerPreUse(self, t, silent) end,\n\tgetAttackSpeed = function(self, t) return math.floor(self:combatTalentLimit(t, 35, 15, 30))/100 end,\n\tgetMovementSpeed = function(self, t) return math.floor(self:combatTalentScale(t, 25, 50))/100 end,\n\tgetTurn = function(self, t) return math.floor(self:combatTalentLimit(t, 20, 5, 12)) end,\n\ton_pre_use = function(self, t, silent)\n\t\tif not archerPreUse(self, t, silent, \"sling\") then return false end\n\t\treturn true\n\tend,\n\tcallbackOnArcheryAttack = function(self, t, target, hitted)\n\t\tlocal dist = math.max(0, core.fov.distance(self.x, self.y, target.x, target.y) - 3)\n\t\tif hitted and not target.turn_procs.rapid_fire and dist < 5 then\n\t\t\ttarget.turn_procs.rapid_fire = true\n\t\t\tturn = t.getTurn(self,t)/100\n\t\t\tenergy = turn - (turn * dist * 0.2)\n\t\t\tself.energy.value = self.energy.value + game.energy_to_act*energy\n\t\tend\n\t\tgame:onTickEnd(function() \n\t\t\tself:setEffect(self.EFF_RAPID_MOVEMENT, 1, {src=self, power=t.getMovementSpeed(self,t)})\n\t\tend)\n\tend,"
+        },
+        {
+          "start": 285,
+          "end": 288,
+          "text": "\t\tlocal speed = t.getAttackSpeed(self, t)\n\t\tlocal ret = {\n\t\t\tspeed = self:addTemporaryValue(\"combat_physspeed\", speed),\n\t\t}"
+        },
+        {
+          "start": 299,
+          "end": 307,
+          "text": "\tinfo = function(self, t)\n\t\tlocal atk = t.getAttackSpeed(self,t)*100\n\t\tlocal move = t.getMovementSpeed(self,t)*100\n\t\tlocal turn = t.getTurn(self,t)\n\t\treturn ([[Enter a fluid, mobile shooting stance that excels at close combat. Your ranged attack speed is increased by %d%% and each time you shoot you gain %d%% increased movement speed for 2 turns.\nRanged attacks against targets will also grant you up to %d%% of a turn. This is 100%% effective against targets within 3 tiles, and decreases by 20%% for each tile beyond that (to 0%% at 8 tiles). This cannot occur more than once per turn.\nRequires a sling to use.]]):\n\t\ttformat(atk, move, turn)\n\tend,"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "expected_host_sha256": null,
+      "host_hash_and_excerpts_verified": false,
+      "read_from": "git show pinned_commit:path",
+      "excerpts": [
+        {
+          "start": 1374,
+          "end": 1403,
+          "text": "function _M:combatAttack(weapon, ammo)\n\tif self.combat_precomputed_accuracy then return self.combat_precomputed_accuracy end\n\tlocal stats\n\tif self:attr(\"use_psi_combat\") then stats = (self:getCun(100, true) - 10) * (0.6 + self:callTalent(self.T_RESONANT_FOCUS, \"bonus\")/100)\n\telseif weapon and weapon.wil_attack then stats = self:getWil(100, true) - 10\n\telseif weapon and weapon.mag_attack then stats = self:getMag(100, true) - 10\n\telse\n\t\tlocal ret = self:fireTalentCheck(\"callbackOnCombatAttack\", weapon, ammo)\n\t\tif ret then stats = ret\n\t\telse stats = self:getDex(100, true) - 10 end\n\tend\n\tlocal d = self:combatAttackBase(weapon, ammo) + stats\n\tif self:attr(\"dazed\") then d = d / 2 end\n\tif self:attr(\"scoured\") then d = d / 1.2 end\n\treturn self:rescaleCombatStats(d)\nend\n\nfunction _M:combatAttackRanged(weapon, ammo)\n\tif self.combat_precomputed_accuracy then return self.combat_precomputed_accuracy end\n\tlocal stats\n\tif self:attr(\"use_psi_combat\") then stats = (self:getCun(100, true) - 10) * (0.6 + self:callTalent(self.T_RESONANT_FOCUS, \"bonus\")/100)\n\telseif weapon and weapon.wil_attack then stats = self:getWil(100, true) - 10\n\telseif weapon and weapon.mag_attack then stats = self:getMag(100, true) - 10\n\telse stats = self:getDex(100, true) - 10\n\tend\n\tlocal d = self:combatAttackBase(weapon, ammo) + stats + (self.combat_atk_ranged or 0)\n\tif self:attr(\"dazed\") then d = d / 2 end\n\tif self:attr(\"scoured\") then d = d / 1.2 end\n\n\treturn self:rescaleCombatStats(d)"
+        },
+        {
+          "start": 1647,
+          "end": 1682,
+          "text": "--- Gets the dammod table for a given weapon.\nfunction _M:getDammod(combat)\n\tcombat = combat or self.combat or {}\n\n\tlocal dammod = table.clone(combat.dammod or {str = 0.6}, true)\n\n\tlocal sub = function(from, to)\n\t\tdammod[to] = (dammod[from] or 0) + (dammod[to] or 0)\n\t\tdammod[from] = nil\n\tend\n\n\tif combat.talented == 'knife' and self:knowTalent('T_LETHALITY') then sub('str', 'cun') end\n\tif combat.talented and self:knowTalent('T_STRENGTH_OF_PURPOSE') then sub('str', 'mag') end\n\tif self:attr 'use_psi_combat' then\n\t\tif dammod['str'] then\n\t\t\tdammod['str'] = (dammod['str'] or 0) * (0.6 + self:callTalent(self.T_RESONANT_FOCUS, \"bonus\")/100)\n\t\t\tsub('str', 'wil')\n\t\tend\n\t\tif dammod['dex'] then\n\t\t\tdammod['dex'] = (dammod['dex'] or 0) * (0.6 + self:callTalent(self.T_RESONANT_FOCUS, \"bonus\")/100)\n\t\t\tsub('dex', 'cun')\n\t\tend\n\tend\n\n\t-- Add stuff like lethality here.\n\tlocal hd = {\"Combat:getDammod:subs\", combat=combat, dammod=dammod, sub=sub}\n\tif self:triggerHook(hd) then dammod = hd.dammod end\n\n\tlocal add = function(stat, val)\n\t\tdammod[stat] = (dammod[stat] or 0) + val\n\tend\n\n\tif self:knowTalent(self.T_SUPERPOWER) then add('wil', 0.4) end\n\tif self:knowTalent(self.T_ARCANE_MIGHT) then add('mag', 0.5) end\n\n\treturn dammod"
+        },
+        {
+          "start": 1685,
+          "end": 1740,
+          "text": "-- Calculate combat damage for a weapon (with an optional damage field for ranged)\n-- Talent bonuses are always based on the base weapon\nfunction _M:combatDamage(weapon, adddammod, damage)\n\tweapon = weapon or self.combat or {}\n\tlocal dammod = self:getDammod(damage or weapon)\n\tlocal totstat = 0\n\tfor stat, mod in pairs(dammod) do\n\t\ttotstat = totstat + self:getStat(stat) * mod\n\tend\n\tif adddammod then\n\t\tfor stat, mod in pairs(adddammod) do\n\t\t\ttotstat = totstat + self:getStat(stat) * mod\n\t\tend\n\tend\n\t\n\tlocal talented_mod = 1 + self:combatTrainingPercentInc(weapon)\n\tlocal power = self:combatDamagePower(damage or weapon)\n\tlocal phys = self:combatPhysicalpower(nil, weapon)\n\tlocal statmod = self:rescaleCombatStats(totstat, 45, 1/3) -- totstat tends to be lower than values of powers and saves so default interval and step size is too harsh; instead use wider intervals and 1/3 step size\n\treturn self:rescaleDamage(0.3 * (phys + statmod) * power * talented_mod)\nend\n\n--- Gets the 'power' portion of the damage\nfunction _M:combatDamagePower(weapon_combat, add)\n\tif not weapon_combat then return 1 end\n\tlocal power = math.max((weapon_combat.dam or 1) + (add or 0), 1)\n\n\tif self:knowTalent(self[\"T_FORM_AND_FUNCTION\"]) then power = power + self:callTalent(self[\"T_FORM_AND_FUNCTION\"], \"getDamBoost\", weapon_combat) end\n\n\treturn (math.sqrt(power / 10) - 1) * 0.5 + 1\nend\n\nfunction _M:combatPhysicalpowerRaw(weapon, add)\n\tif self.combat_precomputed_physpower then return self.combat_precomputed_physpower end\n\tadd = add or 0\n\n\tif self.combat_generic_power then\n\t\tadd = add + self.combat_generic_power\n\tend\n\tif self:knowTalent(Talents.T_ARCANE_DESTRUCTION) then\n\t\tadd = add + self:getMag() * self:callTalent(Talents.T_ARCANE_DESTRUCTION, \"getSPMult\")\n\tend\n\tif self:isTalentActive(Talents.T_BLOOD_FRENZY) then\n\t\tadd = add + self.blood_frenzy\n\tend\n\tif self:knowTalent(self.T_BLOODY_BUTCHER) then\n\t\tadd = add + self:callTalent(Talents.T_BLOODY_BUTCHER, \"getDam\")\n\tend\n\tif self:knowTalent(self.T_EMPTY_HAND) and self:isUnarmed() then\n\t\tlocal t = self:getTalentFromId(self.T_EMPTY_HAND)\n\t\tadd = add + t.getDamage(self, t)\n\tend\n\tif self:attr(\"psychometry_power\") then\n\t\tadd = add + self:attr(\"psychometry_power\")\n\tend\n"
+        },
+        {
+          "start": 1431,
+          "end": 1460,
+          "text": "--- Gets the armor penetration\nfunction _M:combatAPR(weapon)\n\tweapon = weapon or self.combat or {}\n\tlocal addapr = 0\n\treturn self.combat_apr + (weapon.apr or 0) + addapr\nend\n\n--- Gets the weapon speed\nfunction _M:combatSpeed(weapon, add)\n\tweapon = weapon or self.combat or {}\n\treturn (weapon.physspeed or 1) / math.max(self.combat_physspeed + (add or 0), 0.4)\nend\n\n--- Gets the crit rate\nfunction _M:combatCrit(weapon)\n\tweapon = weapon or self.combat or {}\n\tlocal addcrit = 0\n\tif weapon.talented and self:knowTalent(Talents.T_LETHALITY) then\n\t\taddcrit = 1 + self:callTalent(Talents.T_LETHALITY, \"getCriticalChance\")\n\tend\n\tif self:knowTalent(Talents.T_ARCANE_MIGHT) then\n\t\taddcrit = addcrit + 0.25 * self.combat_spellcrit\n\tend\n\tlocal crit = self.combat_physcrit + (self.combat_generic_crit or 0) + (self:getCun() - 10) * 0.3 + (self:getLck() - 50) * 0.30 + (weapon.physcrit or 1) + addcrit\n\n\treturn math.max(crit, 0) -- note: crit > 100% may be offset by crit reduction elsewhere\nend\n\n--- Gets the damage range\nfunction _M:combatDamageRange(weapon, add)"
+        },
+        {
+          "start": 2389,
+          "end": 2403,
+          "text": "--- Computes movement speed\nfunction _M:combatMovementSpeed(x, y)\n\tlocal mult = 1\n\tif game.level and game.level.data.zero_gravity then\n\t\tmult = 3\n\tend\n\n\tlocal movement_speed = self.movement_speed\n\tif x and y and game.level.map:checkAllEntities(x, y, \"creepingDark\") and self:knowTalent(self.T_DARK_VISION) then\n\t\tlocal t = self:getTalentFromId(self.T_DARK_VISION)\n\t\tmovement_speed = movement_speed + t.getMovementSpeedChange(self, t)\n\tend\n\tmovement_speed = math.max(movement_speed, 0.4)\n\treturn mult * (self.base_movement_speed or 1) / movement_speed\nend"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/talents/psionic/other.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "9e8828c6064e105f85b46a03af4344239a4234364c0a12869ab9fb9985c5889f",
+      "expected_host_sha256": null,
+      "host_hash_and_excerpts_verified": false,
+      "read_from": "git show pinned_commit:path",
+      "excerpts": [
+        {
+          "start": 303,
+          "end": 320,
+          "text": "\t\telseif o.archery and ammo then\n\t\t\tself:attr(\"use_psi_combat\", 1)\n\t\t\trange = math.max(math.min(o.combat.range or 6), self:attr(\"archery_range_override\") or 1)\n\t\t\tatk = self:combatAttackRanged(o.combat, ammo.combat)\n\t\t\tdam = self:combatDamage(o.combat, nil, ammo.combat)\n\t\t\tapr = self:combatAPR(ammo.combat) + (o.combat and o.combat.apr or 0)\n\t\t\tcrit = self:combatCrit(o.combat)\n\t\t\tspeed = self:combatSpeed(o.combat)\n\t\t\tself:attr(\"use_psi_combat\", -1)\n\t\t\tbase = base..([[The telekinetically-wielded ranged weapon uses Willpower in place of Strength, and Cunning in place of Dexterity, to determine Accuracy and damage respectively.\n\t\t\tCombat stats:\n\t\t\tRange: %d\n\t\t\tAccuracy: %d\n\t\t\tDamage: %d\n\t\t\tAPR: %d\n\t\t\tCrit: %0.1f%%\n\t\t\tSpeed: %0.1f%%]]):\n\t\t\ttformat(range, atk, dam, apr, crit, speed*100)"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "expected_host_sha256": null,
+      "host_hash_and_excerpts_verified": false,
+      "read_from": "git show pinned_commit:path",
+      "excerpts": [
+        {
+          "start": 3894,
+          "end": 3905,
+          "text": "newEffect{\n\tname = \"RAPID_MOVEMENT\", image = \"talents/rapid_shot.png\",\n\tdesc = _t\"Rapid Movement\",\n\tlong_desc = function(self, eff) return (\"Increases movement speed by %d%%.\"):tformat(eff.power*100) end,\n\ttype = \"physical\",\n\tsubtype = { tactic=true },\n\tstatus = \"beneficial\",\n\tparameters = {power=10},\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"movement_speed\", eff.power)\n\tend,\n}"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/Archery.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "09fdce1e839d74e1a5bd65a1432f044a3811ecc5618dbecc828e33738963c0fe",
+      "read_from": "git show pinned_commit:path",
+      "excerpts": [
+        {
+          "start": 309,
+          "end": 319,
+          "text": "\tlocal mult = tg.archery.mult or 1\n\n\tself.turn_procs.weapon_type = {kind=weapon and weapon.talented or \"unknown\", mode=\"archery\"}\n\n\t-- Does the blow connect? yes .. complex :/\n\tif tg.archery.use_psi_archery then self:attr(\"use_psi_combat\", 1) end\n\tlocal atk, def = self:combatAttackRanged(weapon, ammo), target:combatDefenseRanged()\n\tlocal dam, apr, armor = self:combatDamage(weapon, nil, ammo), self:combatAPR(ammo) + (weapon and weapon.apr or 0), target:combatArmor()\n\tatk = atk + (tg.archery.atk or 0)\n\tdam = dam + (tg.archery.dam or 0)\n\tapr = apr + (tg.archery.apr or 0)"
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor --json",
+      "exit_code": 0,
+      "ok": true,
+      "runtime": "Lua 5.1 / LuaJIT 2.1.0-beta3 / LPeg 0.10.2-1",
+      "warnings": "Three unpinned DLC source warnings; no DLC entry in this two-target FIX."
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "translations": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "derived_output": "/tmp/mmrfix-010-fix1-lint-output/lint.json",
+      "output": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261002T125722.456616Z-3-lint/lint.json\n"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "Exact FIX preimage/source/tag/context/placeholder/newline/tab checks and reverse full-file byte comparison",
+      "passed": true
+    },
+    {
+      "command": "Pinned git object SHA256 and HOST exact excerpt checks",
+      "passed": true
+    },
+    {
+      "command": "All tracked non-mod-tome.lua diff blocks compared before/after",
+      "passed": true
+    }
+  ],
+  "unresolved": [],
+  "plan_deviations": [],
+  "byte_scope_proof": {
+    "preimage_sha256": "1cd81cab86300fb1559f8a35c01ab86d6c636de96f91d928f244897077ff5d5d",
+    "expected_preimage_matches": true,
+    "postimage_sha256": "07da73e5530a35097aad39c9d8e79bee400dddf2e9fa659b260384a25cb2de95",
+    "reverse_sha256": "1cd81cab86300fb1559f8a35c01ab86d6c636de96f91d928f244897077ff5d5d",
+    "reverse_equals_full_preimage": true,
+    "non_target_bytes_unchanged": true,
+    "other_eight_targets_and_user_changes_preserved": true,
+    "source_tag_args_special_markup_placeholders_newlines_tabs_preserved": true,
+    "method": "Two unique complete raw UTF-8 targets with exact source/tag call context; replace at descending offsets; reverse both substitutions and compare every byte.",
+    "spans": [
+      {
+        "candidate_index": 640,
+        "start_byte": 2696002,
+        "end_byte_exclusive": 2696244,
+        "old_sha256": "5bcf0438a66ef89858da7981820fe7e6e588b99b5e73bf280c8ac173e35d24b4",
+        "new_sha256": "4e647eceaf79f60ec928c16fb0f4d90fbf4c15ac8eff518dbc1d408cb626348a"
+      },
+      {
+        "candidate_index": 715,
+        "start_byte": 2911376,
+        "end_byte_exclusive": 2911815,
+        "old_sha256": "41f5b8cc32091773c94089401091004ecad9d8eb4a0593308863907fbdc4546d",
+        "new_sha256": "8e54144356230514da72ba5b7e8bec9577e40f44b7f6c645d82db948f6374b8f"
+      }
+    ],
+    "other_tracked_file_diffs_unchanged": true,
+    "final_recheck_passed": true
+  },
+  "mechanism_conclusions": {
+    "640": "use_psi_combat Accuracy uses Cunning; getDammod substitutes str→wil and dex→cun, consumed by combatDamage(damage or weapon).",
+    "715": "Tick-end applies RAPID_MOVEMENT with dur=1. Default decrease=1; timedEffects checks dur<=0 before decrement. First normal processing retains effect at dur=0; second removes it. This does not justify claiming one player action. Refund guard is target.turn_procs.rapid_fire and clears in that target act().",
+    "prior_inference_retracted": "stored dur1 alone proves a one-turn player window"
+  },
+  "numeric_consumers": {
+    "640": [
+      {
+        "index": 1,
+        "placeholder": "%d",
+        "quantity_kind": "range_tiles",
+        "argument": "range",
+        "chain": "other.lua:305 math.max/math.min on weapon combat.range and archery_range_override → tformat(range) at320"
+      },
+      {
+        "index": 2,
+        "placeholder": "%d",
+        "quantity_kind": "accuracy",
+        "argument": "atk",
+        "chain": "other.lua:304 enables use_psi_combat → combatAttackRanged(o.combat, ammo.combat) at306 → Combat.lua:1394 Cunning stats → tformat at320"
+      },
+      {
+        "index": 3,
+        "placeholder": "%d",
+        "quantity_kind": "damage",
+        "argument": "dam",
+        "chain": "other.lua:307 combatDamage(o.combat,nil,ammo.combat) → Combat.lua:1689 getDammod(ammo.combat) → str→wil,dex→cun at1660-1668 → getStat*mod at1691-1692 → tformat at320"
+      },
+      {
+        "index": 4,
+        "placeholder": "%d",
+        "quantity_kind": "armor_penetration",
+        "argument": "apr",
+        "chain": "other.lua:308 combatAPR(ammo.combat)+(o.combat.apr or0) → tformat at320; Combat.lua:1435 self.combat_apr+(weapon.apr or0)"
+      },
+      {
+        "index": 5,
+        "placeholder": "%0.1f%%",
+        "quantity_kind": "critical_chance_percent",
+        "argument": "crit",
+        "chain": "other.lua:309 combatCrit(o.combat) → tformat at320; Combat.lua:1454-1456 crit stats, Cunning, Luck, weapon.physcrit and talent bonus → max(crit,0)"
+      },
+      {
+        "index": 6,
+        "placeholder": "%0.1f%%",
+        "quantity_kind": "attack_speed_percent",
+        "argument": "speed*100",
+        "chain": "other.lua:310 combatSpeed(o.combat) → speed*100 → tformat at320; Combat.lua:1441 weapon.physspeed/max(combat_physspeed+add,.4)"
+      }
+    ],
+    "715": [
+      {
+        "index": 1,
+        "placeholder": "%d%%",
+        "quantity_kind": "attack_speed_percent",
+        "chain": "agility.lua:259 floor(combatTalentLimit(t,35,15,30))/100 → activate addTemporaryValue(combat_physspeed,speed) at285-287; info atk=*100 at300 → tformat at306 → Combat.lua:1441 combatSpeed divides weapon.physspeed by max(combat_physspeed+add,.4)"
+      },
+      {
+        "index": 2,
+        "placeholder": "%d%%",
+        "quantity_kind": "movement_speed_percent",
+        "chain": "agility.lua:260 floor(combatTalentScale(t,25,50))/100 → tickend effect power at275 → physical.lua:3903 movement_speed temporary value; info move=*100 at301 → tformat at306 → Combat.lua:2396-2402 movement speed divides movement energy multiplier"
+      },
+      {
+        "index": 3,
+        "placeholder": "%d%%",
+        "quantity_kind": "maximum_refund_fraction_of_turn_percent",
+        "chain": "agility.lua:261 floor(combatTalentLimit(t,20,5,12)) → getTurn/100 at270 → distance multiplier(1-dist*.2) at271 → game.energy_to_act*energy added at272; info at302 → tformat at306"
+      }
+    ]
+  },
+  "role_boundary": "Only frozen two target spans and this fresh report; no source, terminology, tools, .ai, evidence, prior report or user document changes; no stage, commit or child.",
+  "status": "implemented_two_targets_verified",
+  "batch_acceptance_boundary": "This fresh EXECUTOR completes only the requested FIX cycle and strictlint/diff checks. Proposal, independent review, remaining batch gates and lifecycle closure belong to ORCHESTRATOR."
+}

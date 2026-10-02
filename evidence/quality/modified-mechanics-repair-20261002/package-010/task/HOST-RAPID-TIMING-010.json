@@ -1,0 +1,79 @@
+{
+  "finding_id": "HOST-RAPID-TIMING-010",
+  "revision_key": "21711bf7cee567372495e9a891d999f4b89c94cc77972c8a6ad2396b3d7caf4b",
+  "host_status": "confirmed",
+  "level": 1,
+  "issues": [
+    "Candidate shortens nominal window to1 using only stored dur; actual normal timedEffects retains effect through first processing and removes at second.",
+    "Refund guard belongs to target.turn_procs and is cleared in that targets act(), so clarify actor-turn reset rather than imply a universal per-turn limit."
+  ],
+  "prior_claim_refinement": "UPSTREAM107 remains confirmed for per-target guard. Retract inference that stored dur1 alone proves a one-turn player window. Do not rewrite original audit; record this source-based correction prospectively.",
+  "desired_resolution": "Restore original 两回合内 timing, already consistent with second normal processing boundary; specify 每个目标在其下一次行动前只能触发一次 for refund.",
+  "sources": [
+    {
+      "public_path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "excerpts": [
+        {
+          "start": 48,
+          "end": 56,
+          "text": "\tt.name = t.name:upper()\n\tt.activation = t.activation or function() end\n\tt.deactivation = t.deactivation or function() end\n\tt.parameters = t.parameters or {}\n\tt.type = t.type or \"physical\"\n\tt.status = t.status or \"detrimental\"\n\tt.decrease = t.decrease or 1\n\n\t-- I18N"
+        },
+        {
+          "start": 78,
+          "end": 110,
+          "text": "function _M:timedEffects(filter)\n\tlocal todel = {}\n\tlocal def\n\tlocal effs = {}\n\tfor eff, p in pairs(self.tmp) do\n\t\teffs[eff] = p\n\tend\n\tfor eff, p in pairs(effs) do\n\t\tdef = _M.tempeffect_def[eff]\n\t\tif not filter or filter(def, p) then\n\t\t\tif p.dur <= 0 then\n\t\t\t\ttodel[#todel+1] = eff\n\t\t\telse\n\t\t\t\tif def.on_timeout then\n\t\t\t\t\tlocal old_source\n\t\t\t\t\tif p.src then\n\t\t\t\t\t\told_source = p.src.__project_source\n\t\t\t\t\t\tp.src.__project_source = p \n\t\t\t\t\tend -- intermediate projector source\n\t\t\t\t\tif def.on_timeout(self, p, def) then\n\t\t\t\t\t\ttodel[#todel+1] = eff\n\t\t\t\t\tend\n\t\t\t\t\tif p.src then p.src.__project_source = old_source end\n\t\t\t\tend\n\t\t\tend\n\t\t\tp.dur = p.dur - def.decrease\n\t\tend\n\tend\n\n\twhile #todel > 0 do\n\t\tself:removeEffect(table.remove(todel))\n\tend\nend"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "excerpts": [
+        {
+          "start": 541,
+          "end": 549,
+          "text": "\tend\n\n\tself.energyBase = self.energyBase - game.energy_to_act\n\n\tif self:attr(\"no_timeflow\") then\n\t\t-- Compute timed effects that can happen even in timeless mode\n\t\tself:timedEffects(function(e, p) if e.tick_on_timeless then return true end end)\n\t\treturn\n\tend"
+        },
+        {
+          "start": 638,
+          "end": 646,
+          "text": "\tif self:knowTalent(self.T_COUNTER_ATTACK) then self:setEffect(self.EFF_COUNTER_ATTACKING,1,{}) end\n\tif self:knowTalent(self.T_DEFENSIVE_THROW) then self:setEffect(self.EFF_DEFENSIVE_GRAPPLING,1,{}) end\n\n\tself:timedEffects()\n\n\t-- Handle thunderstorm, even if the actor is stunned or incapacitated it still works\n\tif not game.zone.wilderness and not self.dead then\n\t\tself:triggerHook{\"Actor:actBase:Effects\"}\n\t\tself:fireTalentCheck(\"callbackOnActBase\")"
+        },
+        {
+          "start": 678,
+          "end": 698,
+          "text": "-- General entry point for Actors to act, called by NPC:act or Player:act\nfunction _M:act()\n\tif not engine.Actor.act(self) then return end\n\n\tself.changed = true\n\n\t-- Store procs with more than 1 turn remaining and re-add them after we clear turn_procs\n\tlocal temp = {}\n\tif self.turn_procs.multi then\n\t\tfor proc, val in pairs(self.turn_procs.multi) do\n\t\t\tif proc then\n\t\t\t\tself.turn_procs.multi[proc].turns = self.turn_procs.multi[proc].turns - 1\n\t\t\t\tif self.turn_procs.multi[proc].turns > 0 then temp[proc] = val end\n\t\t\tend\n\t\tend\n\tend\n\n\tself.turn_procs = {}\n\tself._turn_ai_tactical = nil\n\tif temp then self.turn_procs.multi = temp end\n"
+        }
+      ]
+    },
+    {
+      "public_path": "game/engines/default/engine/GameEnergyBased.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "b903ee64450a462c66cf803adcf3e62c9498a4617846bf6ccd9b795b7ac92182",
+      "excerpts": [
+        {
+          "start": 111,
+          "end": 129,
+          "text": "\t\te = arr[i]\n\t\titer.e, iter.i = e, i\n\t\tif e and e.act and e.energy then\n\t\t\tif e.actBase and e.energyBase then\n\t\t\t\tif e.energyBase < self.energy_to_act then\n\t\t\t\t\te.energyBase = e.energyBase + self.energy_per_tick\n\t\t\t\tend\n\t\t\t\tif e.energyBase >= self.energy_to_act then\n\t\t\t\t\te:actBase(self)\n\t\t\t\tend\n\t\t\tend\n\n--\t\t\tprint(\"<ENERGY\", e.name, e.uid, \"::\", e.energy.value, self.paused, \"::\", e.player)\n\t\t\tif e.energy.value < self.energy_to_act then\n\t\t\t\te.energy.value = (e.energy.value or 0) + self.energy_per_tick * (e.energy.mod or 1) * (e.global_speed or 1)\n\t\t\tend\n\t\t\tif e.energy.value >= self.energy_to_act then\n\t\t\t\te.energy.used = false\n\t\t\t\te:act(self)"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/data/talents/techniques/agility.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "b0b1c7bd745a5f76e39c283c4a310efa4bf04968ecbfa868f67cada956280ae2",
+      "excerpts": [
+        {
+          "start": 262,
+          "end": 278,
+          "text": "\ton_pre_use = function(self, t, silent)\n\t\tif not archerPreUse(self, t, silent, \"sling\") then return false end\n\t\treturn true\n\tend,\n\tcallbackOnArcheryAttack = function(self, t, target, hitted)\n\t\tlocal dist = math.max(0, core.fov.distance(self.x, self.y, target.x, target.y) - 3)\n\t\tif hitted and not target.turn_procs.rapid_fire and dist < 5 then\n\t\t\ttarget.turn_procs.rapid_fire = true\n\t\t\tturn = t.getTurn(self,t)/100\n\t\t\tenergy = turn - (turn * dist * 0.2)\n\t\t\tself.energy.value = self.energy.value + game.energy_to_act*energy\n\t\tend\n\t\tgame:onTickEnd(function() \n\t\t\tself:setEffect(self.EFF_RAPID_MOVEMENT, 1, {src=self, power=t.getMovementSpeed(self,t)})\n\t\tend)\n\tend,\n\tactivate = function(self, t)"
+        }
+      ]
+    }
+  ],
+  "probe": "host-rapid-duration-probe-010.json",
+  "independent_review_status": "Running on frozen current candidate; host evidence not supplied to reviewer"
+}

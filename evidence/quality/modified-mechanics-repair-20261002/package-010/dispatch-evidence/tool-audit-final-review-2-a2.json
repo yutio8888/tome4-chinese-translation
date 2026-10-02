@@ -1,0 +1,56 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat .ai/task/mmrfix-20261002-010/INPUT-final-review-2-a2.json; echo; wc -l docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-final-review-2-a2.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n    if k!='bounded_context' and k!='entries':\n        print(k, json.dumps(v,ensure_ascii=False)[:1500])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-final-review-2-a2.json'))\np=d['payload']\nfor i,(t,c) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    print(\"=====\",i,t['revision_key'][:8])\n    print(\"SRC:\",t['source']); print(\"TGT:\",t['target'])\n    ctx=json.loads(c['context']) if c['context'] else {}\n    print(\"CTXKEYS\", list(ctx.keys()))\n    print(json.dumps({k:v for k,v in ctx.items()},ensure_ascii=False,indent=0)[:9000])\nEOF"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/fad6be66-18cc-4c7a-94bd-00d02a3f6c60/tool-results/bugv8epzr.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-final-review-2-a2.json'))\np=d['payload']\nc=json.loads(p['bounded_context'][2]['context'])\nfor e in c['source_evidence']:\n    for w in e.get('windows',[]):\n        t=w['text']; i=t.find('302:'); print(t[i:])\n    if 'excerpt' in e and 'Combat.lua' not in e['public_path']: print(e['public_path'],e['excerpt'])\nprint(json.dumps(c['terminology'],ensure_ascii=False))\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-final-review-2-a2.json'))\np=d['payload']\nfor i in range(3,10):\n    c=json.loads(p['bounded_context'][i]['context'])\n    print(\"=====\",i, c['section'])\n    print(\"TERM\",json.dumps([(t['source'],t['target'],t['status'],t.get('notes')) for t in c['terminology']],ensure_ascii=False))\n    if i>=5:\n        t=p['translation_snapshot'][i]; print(\"SRC:\",t['source']); print(\"TGT:\",t['target'])\n        for e in c['source_evidence']:\n            print('--',e['public_path'], e.get('start'),e.get('end'))\n            if 'excerpt' in e: print(e['excerpt'])\n            for w in e.get('windows',[]): print(w['text'])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "F=.artifacts/i18n/modified-mechanics-repair-20261002/package-010/sources/tome/game/modules/tome/class/Actor.lua; ls .artifacts/i18n/modified-mechanics-repair-20261002/package-010/sources/tome/game/modules/tome/class/ 2>&1; grep -n \"turn_procs = {}\\|turn_procs={}\" $F | head; sha256sum $F"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "F=.artifacts/i18n/modified-mechanics-repair-20261002/package-010/sources/tome/game/modules/tome/class/Actor.lua; sed -n 680,700p $F; grep -n \"^function _M:act\\b\\|^function _M:act(\" $F"
+    }
+  }
+]

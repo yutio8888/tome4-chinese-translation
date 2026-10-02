@@ -1,0 +1,72 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-010/INPUT-review-0-a1.json | head -c 60000; echo; wc -c .ai/task/mmrfix-20261002-010/INPUT-review-0-a1.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-review-0-a1.json'))\nprint(d.keys()); p=d['payload']; print(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\n\"",
+      "description": "Inspect input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read v2 contract"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  print('=====',i, b.get('revision_key'))\n  c=json.loads(b['context'])\n  for k,v in c.items():\n    if k=='source_evidence':\n      for e in v: print('--',e['public_path'],e['start'],e['end'],e.get('frozen_file')); print(e['excerpt'])\n    else: print(k, json.dumps(v,ensure_ascii=False))\n\"",
+      "description": "Dump bounded context evidence"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-010/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  print('=====',i, b.get('revision_key'))\n  c=json.loads(b['context'])\n  for k,v in c.items():\n    if k=='source_evidence':\n      for e in v:\n        print('--',{x:y for x,y in e.items() if x!='excerpt'}); print(e.get('excerpt',''))\n    else: print(k, json.dumps(v,ensure_ascii=False))\n\" > /tmp/ctx010.txt; wc -l /tmp/ctx010.txt; sed -n 1,400p /tmp/ctx010.txt | cut -c1-3000 | tail -n +25",
+      "description": "Dump all bounded context"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 40,200p /tmp/ctx010.txt | cut -c1-4000",
+      "description": "Read context part 2"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('/workspace/tome4-chinese-translation/.ai/task/mmrfix-20261002-010/INPUT-review-0-a1.json'))\nb=d['payload']['bounded_context'][2]\nc=json.loads(b['context'])\nfor e in c['source_evidence']:\n  for w in e.get('windows',[]): print(w['text'][4000:])\nEOF",
+      "description": "Read rest of entry 3 window"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 200,330p /tmp/ctx010.txt | cut -c1-5000",
+      "description": "Read context part 3"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 330,493p /tmp/ctx010.txt | cut -c1-6000",
+      "description": "Read context part 4"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 25,40p /tmp/ctx010.txt | cut -c1-2500",
+      "description": "Read Feedback Pool evidence"
+    }
+  }
+]

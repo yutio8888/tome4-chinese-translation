@@ -1,0 +1,17 @@
+{
+  "title": "机制修正010 FIX：灵巧伤害与急射时序",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-010",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "fix-1-a1"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，fresh FIX cycle1，task mmrfix-20261002-010。直接读 .ai/roles/executor.md、本task SPEC.md/PLAN.md/FIX-1.json/HOST-RAPID-TIMING-010.json。只核对preimage和完整old_target后按FIX-1的new_target逐字替换mod-tome.lua两条target，其他8条和范围外字节保持。固定源码机制复核：Combat伤害str→wil/dex→cun，命中cun；Rapid在tickend施加dur1，timedEffects先检查<=0再减1，在第二次状态结算移除，不能据dur1改成玩家1回合；返还能量限制在目标turn_procs，目标act时重置。保留所有source/tag/args/special/placeholder/markup/newline/tabs。不改源码/术语库/工具/.ai/evidence/旧报告/用户文档，不stage/commit或创建child。可写自己的/tmp和 .artifacts/i18n/modified-mechanics-repair-20261002/executor-010-fix1-report.json，记录完整旧新target、源码证据hash、数值消费者、范围字节证明、tests/未决项；跑strictlint及git diff --check。最终报告实际成果。",
+  "notifyOnFinish": true
+}
