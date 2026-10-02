@@ -1,0 +1,93 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-011/INPUT-review-0-a1.json | head -c 60000; echo; wc -c .ai/task/mmrfix-20261002-011/INPUT-review-0-a1.json"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-011/INPUT-review-0-a1.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context']:\n    print('----', {k:v for k,v in b.items() if k!='context'})\n    c=json.loads(b['context'])\n    print(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False))\n    for e in c.get('source_evidence',[]):\n        print(e['public_path'], e.get('matching_lines'))\n        for w in e['windows']: print(w['text'])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF' > /tmp/rev011.txt\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-011/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    print('=====',i,t['revision_key']); print('SRC:',t['source']); print('TGT:',t['target'])\nfor b in p['bounded_context']:\n    print('----', b['revision_key'])\n    c=json.loads(b['context'])\n    print(json.dumps({k:v for k,v in c.items() if k not in('source_evidence','source_locations','read_boundary')},ensure_ascii=False))\n    for e in c.get('source_evidence',[]):\n        print('#',e.get('public_path'), e.get('matching_lines'), {k:v for k,v in e.items() if k not in('windows','public_path','matching_lines')})\n        for w in e.get('windows',[]): print(w['text'])\nEOF\nwc -l /tmp/rev011.txt; grep -n '^=====\\|^----\\|^#' /tmp/rev011.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/rev011.txt",
+      "limit": 72
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n '^=====\\|^----\\|^#' /tmp/rev011.txt | cut -c1-300; grep -n '^## ' docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 149,330p /tmp/rev011.txt | python3 -c \"\nimport sys\nfor l in sys.stdin: print(l.rstrip()[:20000].replace('\\\\\\\\n','\\n').replace('\\\\\\\\t','\\t'))\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 149,330p /tmp/rev011.txt | python3 -c \"\nimport sys\nfor l in sys.stdin: print(l.rstrip().replace('\\\\\\\\n','\\n').replace('\\\\\\\\t','\\t'))\" > /tmp/rev011b.txt; sed -n 20,140p /tmp/rev011b.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git rev-parse HEAD; git grep -n '\"RECOVERY\"\\|name = \"RECOVERY' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome | head; git grep -n 'EFF_RECOVERY' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game | head"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 140,260p /tmp/rev011b.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 260,520p /tmp/rev011b.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 520,700p /tmp/rev011b.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 330,662p /tmp/rev011.txt | python3 -c \"\nimport sys\nfor l in sys.stdin: print(l.rstrip().replace('\\\\\\\\n','\\n').replace('\\\\\\\\t','\\t'))\" > /tmp/rev011c.txt; wc -l /tmp/rev011c.txt; sed -n 1,140p /tmp/rev011c.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 140,330p /tmp/rev011c.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 330,570p /tmp/rev011c.txt"
+    }
+  }
+]

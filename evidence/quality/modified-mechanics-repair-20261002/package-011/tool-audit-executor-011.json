@@ -1,0 +1,283 @@
+{
+  "calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb083c10c87d2bef979c3002684cb",
+      "status": "completed",
+      "call_id": "call_8WQC7PTeexZ5g8ACJ2M93guP",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/roles/executor.md .ai/task/mmrfix-20261002-011/SPEC.md .ai/task/mmrfix-20261002-011/PLAN.md .ai/task/mmrfix-20261002-011/REPAIR-INPUT.json\",max_output_tokens:26000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947456.638973
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb088d37487d286988461a3ee0901",
+      "status": "completed",
+      "call_id": "call_6P1LuIGTwWrPceNgTISzjBea",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\np=json.load(open('.ai/task/mmrfix-20261002-011/REPAIR-INPUT.json'))\\nprint('KEYS',list(p))\\nfor k,v in p.items():\\n if k!='entries' and k!='source_anchors': print(k, str(v)[:6500])\\nfor i,e in enumerate(p['entries']): print(i,e['candidate_index'], e['after']['target'])\\nPY\",\"max_output_tokens\":10000}));\ntext(await tools.exec_command({cmd:\"git status --short\\n git diff --stat\\nrg -n '验证矩阵|完成交付|strict|proposal' docs/agent-workflow.md\\nrg -n 'doctor|proposal|lint|manifest|source' i18n/README.md\\ncat TERMINOLOGY.md\",\"max_output_tokens\":9000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947463.056803
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb0914eb087d29f13c7d90778dbf1",
+      "status": "completed",
+      "call_id": "call_zgDhz37RYQSMwOZkKsuymSlv",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\np=json.load(open('.ai/task/mmrfix-20261002-011/REPAIR-INPUT.json'))\\nfor i,e in enumerate(p['entries']):\\n print(i,e['candidate_index'],e['section'])\\n if i>=7: print(e['after']['target'])\\nfor a in p['source_anchors']: print(a['anchor_id'],a['public_path'],a.get('sha256'),a.get('start'),a.get('end'))\\nPY\\nsed -n '254,280p' docs/agent-workflow.md\\nsed -n '190,200p' i18n/README.md\\nsed -n '279,304p' i18n/README.md\\nrg -n 'baseline|preimage' .ai/task/mmrfix-20261002-011/SCOPE.md .ai/task/mmrfix-20261002-011/*json\",\"max_output_tokens\":5000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947471.842957
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb09b999887d2846b2bf06db9ce16",
+      "status": "completed",
+      "call_id": "call_nDGh13lfxIAYxNN4nLag5ZN3",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/task/mmrfix-20261002-011/STATE.json\\nls -la .ai/task/mmrfix-20261002-011/baseline\\npython3 - <<'PY'\\nimport json,subprocess,hashlib,pathlib\\np=json.load(open('.ai/task/mmrfix-20261002-011/REPAIR-INPUT.json')); c=p['fixed_core_commit']\\nprint('HEAD',subprocess.check_output(['git','-C',p['core_checkout'],'rev-parse','HEAD']).decode().strip())\\nfor a in p['source_anchors']:\\n b=subprocess.check_output(['git','-C',p['core_checkout'],'show',c+':'+a['public_path']]); assert hashlib.sha256(b).hexdigest()==a['sha256'],a['anchor_id']\\n s=b.decode().splitlines(); print('\\\\nANCHOR',a['anchor_id'])\\n for w in a.get('windows', [dict(start=a.get('start',1),end=a.get('end',1))]):\\n  print('\\\\n'.join(f'{i+1}: {s[i]}' for i in range(w['start']-1,w['end'])))\\nPY\",\"max_output_tokens\":24000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947480.457687
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb0a9960887d29521ec00ac51c6cc",
+      "status": "completed",
+      "call_id": "call_0JYWClkBYTMV5uuVKqGHAC0P",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json,subprocess,pathlib,hashlib\\np=json.load(open('.ai/task/mmrfix-20261002-011/REPAIR-INPUT.json'))\\nb=pathlib.Path('.ai/task/mmrfix-20261002-011/baseline/mod-tome.lua').read_bytes(); w=pathlib.Path('mod-tome.lua').read_bytes(); assert b==w\\npathlib.Path('/tmp/mmr011-baseline.lua').write_bytes(w)\\nprint('baseline exact',len(b),hashlib.sha256(b).hexdigest())\\nfor a in p['source_anchors']:\\n if a['anchor_id'] not in ['a543','entry-780','entry-728','a554','a555','entry-729']: continue\\n s=subprocess.check_output(['git','-C',p['core_checkout'],'show',p['fixed_core_commit']+':'+a['public_path']]).decode().splitlines()\\n print('\\\\n',a['anchor_id'])\\n for z in a.get('windows',[dict(start=a.get('start'),end=a.get('end'))]): print('\\\\n'.join(f'{i+1}: {s[i]}' for i in range(z['start']-1,z['end'])))\\nprint('RECOVERY search:')\\nr=subprocess.run(['git','-C',p['core_checkout'],'grep','-n','RECOVERY',p['fixed_core_commit'],'--','game'],capture_output=True,text=True);print(r.stdout)\\nPY\\nrg -n 'friendlyfire|selffire' /workspace/t-engine4/game/engines/default/engine/interface/ActorProject.lua\\nrg -n 'Concealment|Striking Stance|Reflex Defense|Crushing Hold' terminology\\npython3 -B tools/i18n doctor\",\"max_output_tokens\":8500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947492.321322
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb0b8dd1487d2b3121e87bba1fc75",
+      "status": "completed",
+      "call_id": "call_6M3pJoDkRssSWUCM9UuhoAGi",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/engine/interface/ActorProject.lua | sed -n '210,274p'\\ngit -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/engines/default/engine/Target.lua | rg -n -C 5 'friendlyfire|selffire'\\nrg -n 'proposal|validate_workset|workset_id' tools/i18n_lib/proposal.py\\nls .ai/task/mmrfix-20261002-011\\nsed -n '30040,30050p' mod-tome.lua\",\"max_output_tokens\":5000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947510.268906
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb0c1c93087d28b716757ab314f9f",
+      "status": "completed",
+      "call_id": "call_tfigMlYb495TBS0T9KjnqyMD",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg --files tools | rg 'proposal|workset|runtime'\\ncat .ai/task/mmrfix-20261002-011/SCOPE.json\\n git -C /workspace/t-engine4 grep -n -E 'FIRE_SUNDER|NUMBING_POISON|name = \\\"MAIM\\\"|function _M:attackTargetWith|function _M:setEffect|function _M:checkEvasion|T_AIM.*getMarkChance' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome game/engines/default/engine/interface/ActorTemporaryEffects.lua\",\"max_output_tokens\":4000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947518.819944
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb0c9eeec87d2a99cd597f9f3b3e8",
+      "status": "completed",
+      "call_id": "call_lsSlpsHVB8OIpinVN1AB3Zbf",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"sed -n '1,220p' tools/i18nlib/proposal.py\\nsed -n '1,140p' tools/i18nlib/workset.py\\npython3 - <<'PY'\\nimport subprocess\\nc='624a67329fe2ad440c5b344785a9c73fcf22ae63'\\nfor path,rs in [('game/engines/default/engine/interface/ActorTemporaryEffects.lua',[(117,155),(330,365)]),('game/modules/tome/class/interface/Combat.lua',[(353,365),(380,400),(513,546)]),('game/modules/tome/data/damage_types.lua',[(4210,4226)]),('game/modules/tome/data/timed_effects/physical.lua',[(329,366),(3970,4005)]),('game/modules/tome/data/timed_effects/mental.lua',[(20,80)])]:\\n s=subprocess.check_output(['git','-C','/workspace/t-engine4','show',c+':'+path]).decode().splitlines();print(path)\\n for a,b in rs: print('\\\\n'.join(f'{i+1}: {s[i]}' for i in range(a-1,b)))\\nPY\",\"max_output_tokens\":6500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947527.234222
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb0d4b7c487d2a2951bc7a8d1f1cb",
+      "status": "completed",
+      "call_id": "call_LrE6W3XVdRilkDMWDO31Gk14",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport subprocess\\nc='624a67329fe2ad440c5b344785a9c73fcf22ae63'\\nfor path,rs in [('game/modules/tome/class/interface/Combat.lua',[(353,365),(380,400),(513,546)]),('game/modules/tome/data/damage_types.lua',[(4210,4226)]),('game/modules/tome/data/timed_effects/physical.lua',[(329,366),(3970,4005)]),('game/modules/tome/data/timed_effects/mental.lua',[(1,65)])]:\\n s=subprocess.check_output(['git','-C','/workspace/t-engine4','show',c+':'+path]).decode().splitlines();print(path)\\n for a,b in rs: print('\\\\n'.join(f'{i+1}: {s[i]}' for i in range(a-1,min(b,len(s)))))\\nPY\\nsed -n '155,310p' tools/i18nlib/workset.py\",\"max_output_tokens\":5500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947538.901676
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb0e1194087d2a5130afea9c35e16",
+      "status": "completed",
+      "call_id": "call_44vB4NizItXRkbWFB6vhf2XQ",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B tools/i18n lint --help\\npython3 -B tools/i18n proposal --help\\nsed -n '1,100p' tools/i18nlib/report.py\\nrg -n 'REPORT|ARTIFACT|OUTPUT|report_root' tools/i18nlib/config.py tools/i18nlib/cli.py tools/i18nlib/report.py\",\"max_output_tokens\":3000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947548.769376
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb0f773a487d2b7b41972f90e4d3a",
+      "status": "completed",
+      "call_id": "call_qaaep3NkQe4nnj1A616GT1uc",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'create_run_directory|write_json|lint_report' tools/i18nlib/cli.py tools/i18nlib/lint.py\\nrg -n 'name = \\\"CONFUSED\\\"|name = \\\"SUNDER_ARMOUR\\\"' /workspace/t-engine4/game/modules/tome/data/timed_effects/{mental,physical}.lua\\n git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | rg -n 'dam = dam \\\\* mult'\\n git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Archery.lua | rg -n 'dam = dam \\\\* mult'\",\"max_output_tokens\":1500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947556.195448
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb1000d6c87d2b38c33c3bbb6dfda",
+      "status": "completed",
+      "call_id": "call_3uWppKA7EpleI8sYs2TBPXW6",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > /tmp/mmr011.py <<'PY'\\nimport pathlib,json,hashlib,subprocess,re\\nroot=pathlib.Path('/workspace/tome4-chinese-translation')\\np=json.loads((root/'.ai/task/mmrfix-20261002-011/REPAIR-INPUT.json').read_text())\\nbase=(root/'.ai/task/mmrfix-20261002-011/baseline/mod-tome.lua').read_bytes()\\nassert (root/'mod-tome.lua').read_bytes()==base\\nold=[e['after']['target'] for e in p['entries']]\\nnew=old.copy()\\nnew[0]=old[0].replace('只能对被标记的单位使用，命中时消耗该标记。','可对被标记的单位使用；维持隐匿时也可对未标记的单位使用。命中已标记单位时消耗该标记。')\\nnew[1]=old[1].replace('此外在生命值低于 50%% 时，你的生命回复将会增加 %0.1f， 持续 %d 回合，共回复 %d 生命值，但每隔 %d 回合才能触发一次。','生命值从高于 50%% 降至该阈值或以下时，原说明列出的生命回复增量为 %0.1f， 持续 %d 回合，总回复量为 %d， 触发间隔为 %d 回合；但当前固定版本缺少对应回复效果定义，无法保证实际获得这些回复。').replace('生命回复受体质值加成。','说明中的回复量受体质值加成。')\\nnew[2]=old[2].replace('并以徒手攻击造成 %d%% 伤害。','徒手伤害的说明显示值为 %d%%， 但实际徒手伤害倍率为主手伤害倍率加 125 个百分点。')\\nnew[3]=old[3].replace('所有额外效果都会应用于每次抓取，且无需额外的豁免或抵抗鉴定。','这些额外效果随抓取施加，无需额外豁免鉴定；沉默仍受沉默免疫限制。')\\nnew[4]=old[4].replace('作用于半径 %d 的球形范围','实际作用于半径 1 的球形范围（说明显示半径为 %d）')\\nnew[5]=old[5].replace('8 格距离时达到最大值 （%0.1f%%）。','8 格时说明显示的增伤为 %0.1f%%； 实际在 11 格时达到上限，为每格增伤的 8 倍。')\\nnew[6]=old[6].replace('每回合都造成相当于本次攻击所造成伤害 100%% 的物理伤害，且每回合递增 %d%% （因此 4 回合后共计造成 %d%% 伤害）。','首次造成相当于本次攻击所造成伤害 100%% 的物理伤害，之后每次递增 %d%% （原说明显示的总伤害为 %d%%， 该数值计算有误；实际四次持续伤害的总量为本次攻击伤害乘以 1、(1 + 递增比例)、(1 + 递增比例)² 和 (1 + 递增比例)³ 之和）。')\\nnew[7]=old[7].replace('的暴击倍率降低 %d%% （但伤害不会低于普通命中）。','超过普通命中伤害的额外暴击部分降低 %d%% （但伤害不会低于普通命中）。')\\nnew[8]=old[8].replace('锥形范围内敌人的斗志','锥形范围内除你之外所有单位（包括友方）的斗志')\\nnew[9]=old[9].replace('所有生物向你拉扯','敌对单位向你拉扯')\\n# Every frozen source-target pair occurs exactly once. Only replace target bytes inside the pair.\\nresult=base; spans=[]\\nfor e,o,n in zip(p['entries'],old,new):\\n assert o!=n\\n assert re.findall(r'%[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[cdeEfgGiouXxqs%]',o)==re.findall(r'%[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[cdeEfgGiouXxqs%]',n)\\n assert re.findall(r'[\\\\n\\\\t]',o)==re.findall(r'[\\\\n\\\\t]',n)\\n assert re.findall(r'#[A-Za-z]+#',o)==re.findall(r'#[A-Za-z]+#',n)\\n pair=('t([['+e['source']+']], [['+o+']], \\\"'+e['source_tag']+'\\\")').encode()\\n assert base.count(pair)==1,(e['candidate_index'],base.count(pair))\\n pos=base.index(pair)+len(('t([['+e['source']+']], [[').encode());spans.append((pos,pos+len(o.encode())))\\n result=result.replace(pair,pair.replace(o.encode(),n.encode()),1)\\n# Reverse only the ten replacement spans; compare every byte with frozen baseline.\\nreverse=result\\nfor e,o,n in zip(p['entries'],old,new):\\n pair=('t([['+e['source']+']], [['+n+']], \\\"'+e['source_tag']+'\\\")').encode();assert reverse.count(pair)==1\\n reverse=reverse.replace(pair,pair.replace(n.encode(),o.encode()),1)\\nassert reverse==base\\n(root/'mod-tome.lua').write_bytes(result)\\nsha=lambda b:hashlib.sha256(b).hexdigest()\\nc=p['fixed_core_commit']; sources={}\\ndef source(path):\\n if path not in sources:\\n  b=subprocess.check_output(['git','-C',p['core_checkout'],'show',c+':'+path]);sources[path]={'commit':c,'sha256':sha(b),'lines':b.decode().splitlines()}\\n return sources[path]\\ndef excerpt(path,a,b):\\n s=source(path);return dict(public_path=path,commit=c,sha256=s['sha256'],start=a,end=b,excerpt='\\\\n'.join(f'{i+1}: {s[\\\"lines\\\"][i]}' for i in range(a-1,b)))\\nanchors=[]\\nfor a in p['source_anchors']:\\n s=source(a['public_path']);assert s['sha256']==a['sha256']\\n for w in a.get('windows',[dict(start=a.get('start'),end=a.get('end'))]):anchors.append(dict(anchor_id=a['anchor_id'],**excerpt(a['public_path'],w['start'],w['end'])))\\nextras=[('game/engines/default/engine/Target.lua',676,710),('game/engines/default/engine/interface/ActorProject.lua',248,265),('game/engines/default/engine/interface/ActorTemporaryEffects.lua',117,132),('game/modules/tome/class/interface/Combat.lua',353,365),('game/modules/tome/class/interface/Combat.lua',566,583),('game/modules/tome/class/interface/Archery.lua',374,394),('game/modules/tome/data/damage_types.lua',4210,4221),('game/modules/tome/data/timed_effects/physical.lua',329,351),('game/modules/tome/data/timed_effects/physical.lua',994,1022),('game/modules/tome/data/timed_effects/physical.lua',3970,3993),('game/modules/tome/data/timed_effects/mental.lua',126,153)]\\nanchors.extend(dict(anchor_id='executor-extra-'+str(i),**excerpt(*a)) for i,a in enumerate(extras))\\nnotes=[\\n'Headshot getDamage = combatTalentWeaponDamage(1.1,2.3); info getDamage*100 -> tformat #1. action passes mult=getDamage, atk=100 to archeryShoot; Archery consumes tg.archery.mult and multiplies dam at L380. action condition is MARKED OR active CONCEALMENT; onhit removes existing MARKED. Confirmed exception, not an unconditional unmarked shot.',\\n'Vitality getWoundReduction*100 -> #1; Actor on_set_effect consumes fraction to ceil(duration*(1-bound(reduction,0,1))). getHealValues(con,1,200) -> #2; getDuration=8 -> #3; baseheal*duration -> #4; getTalentCooldown -> #5. do_vitality_recovery passes regen=baseheal and duration to EFF_RECOVERY then starts cooldown, only on downward 50% threshold crossing. Fixed whole game search has no RECOVERY definition; ActorTemporaryEffects setEffect requires ed.parameters, no missing-definition fallback. #2-4 are declared display values, NOT verified executable regeneration. Translation states missing definition, without asserting runtime repair or universal absence in modded installations.',\\n'Offhand Jab getDamage=m -> #1=100m, #2=125m; attackTargetWith mainhand m then barehand m+1.25; Combat L576 consumes mult. Thus actual barehand percent=100m+125, not #2. #3=getConfusePower, #4=getConfuseDuration; hit and canBe(confusion) gate EFF_CONFUSED with apply_power=combatAttack; effect uses power for confusion. Text labels erroneous second display and states actual multiplier using #1 rather than numerically trusting #2.',\\n'Crushing Hold #1=getDamageReduction, #2=getSlow*100; getBonusEffects passes reduce, slow, silence to startGrapple. startGrapple checks silence==1 and canBe(silence), resets to 0 if immune. GRAPPLED uses -reduce combat_dam, silence>0 attribute, slow>0 -global_speed_add. slow check in startGrapple is ==1 rather than all nonzero; text only qualifies silence immunity, not claiming a universal slow immunity check.',\\n'Alloyed Munitions #1 armor getter, #2 resist getter, #3 poison weapon multiplier*100, #4 radius getter (2 at TL>=3 else1), #5 physical/5, #6 physical, #7 numb. Incendiary activate adds physical/fire resists_pen #2; FIRE_SUNDER passes #1 power via SUNDER_ARMOUR. Venomous callback explicitly radius=1 with friendlyfire=false; #4 is unused for projection. Piercing hit physical #5 plus MAIM 5 ticks each #6/5 with reduce=#7; MAIM consumes power and numbed. Only radius claim repaired; potential unrelated cross-talent getter argument mismatch remains outside scope.',\\n'Aim #1 power -> combat_dam/combat_atk; #2 speed -> negative slow_projectiles_outgoing; #3 mark -> archery chance increment; #4 dam=getDamage; #5 dam*5 is range8 bonus, NOT maximum. Archery computes min(max(distance-3,0),8)*getDamage and multiplies dam by 1+bonus/100. Range11 gives maximum8*getDamage. Text retains #5 as range8 display bonus and states actual cap separately.',\\n'Touch of Death #1 damage=100*getDamage -> attackTarget multiplier; captures life_diff after actual attack and passes eff.dam=life_diff, eff.mult=getMult/100, duration4; #2=getMult. on_timeout deals eff.dam THEN multiplies by 1+eff.mult, so four ticks exponents0,1,2,3. #3 info finaldam uses damage*(1+q²+q³+q⁴), not actual sum and not a postmitigation life_diff value. Text labels #3 erroneous original display and gives sum based on actual attack life loss. #4 radius -> effect radius -> death explosion current eff.dam, four combo build calls. No guarantee that the erroneous display has been fixed in source.',\\n'Reflex Defense #1 getFlatReduction -> Striking Stance getFlatReduction multiplies base by1+bonus/100; #2 critResist -> ignore_direct_crits. Damage projector divides dam by crit_power, subtracts (crit_power-1)*bound(percent,0,100)/100, then reapplies max(1,newcrit). Only excess above normal damage is reduced, not the entire crit multiplier.',\\n'Battle Cry #1 talent radius -> cone target; #2 7*TL -> EFF_BATTLE_CRY.power, duration7, apply_power physicalpower. Target.getType defaults friendlyfire=true; cone selffire=false; ActorProject callback applies to all actors passing filter without reaction test. BATTLE_CRY consumes -power combat_def, no_evasion and blind_fighted; Combat.checkEvasion and hit visibility branch consume these. Friendlies are affected subject to ordinary effect application checks.',\\n'Irresistible Sun #1/#2/#3 damDesc(FIRE/LIGHT/PHYSICAL,(35+Str*1.3)/3); action effect.dam=35+Str*1.3,dur8. on_timeout projects ball radius5,friendlyfire=false, which ActorProject rejects for reaction>=0. Remaining actors pull one step unless ignore_irresistible_sun; hostile branch damage=eff.dam*(1+(5-postpull_distance)/8), then each type dam/3 and WEIGHT_OF_THE_SUN reduce30 -> numbed. Translation only repairs claimed pull recipient set; original 150% maximum remains outside current claim.'\\n]\\nentries=[]\\nfor i,(e,cl,sc,o,n) in enumerate(zip(p['entries'],p['claims'],p['source_checks'],old,new)):\\n tokens=[x for x in re.findall(r'%[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[cdeEfgGiouXxqs%]',o) if x!='%%']\\n vf=sc['value_flow'];assert len(tokens)==len(vf),(i,tokens,vf)\\n entries.append(dict(candidate_index=e['candidate_index'],change_id=e['change_id'],claim_id=cl['finding_id'],status='confirmed',section=e['section'],source=e['source'],source_tag=e['source_tag'],old_target=o,new_target=n,placeholder_flow=[dict(index=j+1,placeholder=t,quantity_kind=v['quantity_kind'],calculation_parameter_consumer_verification=notes[i]) for j,(t,v) in enumerate(zip(tokens,vf))],independent_verification=notes[i],baseline_target_byte_span=list(spans[i]),invariants={'source_source_tag_args_order_special_unchanged':True,'printf_tokens_including_literal_percent_exact':True,'markup_exact':True,'newline_tab_sequence_exact':True}))\\nreport=dict(schema_version=1,task_id='mmrfix-20261002-011',role='EXECUTOR',modified_files=['mod-tome.lua'],changed_target_count=10,confirmed_claim_count=10,baseline=dict(commit='9e9a55318494ee7a9b98852655029cd6274144bb',sha256=sha(base),bytes=len(base),working_tree_exact_match_before=True),candidate=dict(sha256=sha(result),bytes=len(result)),byte_reverse_proof=dict(method='Find each frozen complete t(source,target,source_tag) call exactly once; replace only target. Reverse each of the ten replacements and compare full bytes with frozen baseline.',reversed_sha256=sha(reverse),baseline_sha256=sha(base),byte_equal=True,all_non_target_bytes_preserved=True,prior_package_changes_preserved=True),fixed_core_commit=c,core_checkout_head_observed=subprocess.check_output(['git','-C',p['core_checkout'],'rev-parse','HEAD']).decode().strip(),source_method='git show fixed_commit:public_path; every frozen anchor whole-file SHA256 independently matched; additional consumers read from same commit',dlc=dict(applicable=False,reason='All ten entries and all supplied anchors are core/tome. No DLC source file used; no DLC SHA to match in this package.',source_identity=p['dlc_source_identity']),source_anchors=anchors,entries=entries,tests=[],unresolved_items=[dict(type='runtime_limitation',claim_id='UPSTREAM061',detail='Fixed core lacks RECOVERY definition. Original display quantities are explicitly qualified. External-addon injection / live runtime not tested; no game source repair authorized.'),dict(type='outside_claim_scope',claim_id='UPSTREAM108',detail='Incendiary getArmorSaveReduction(self,t) uses other talent argument; noted without repairing beyond frozen radius claim.'),dict(type='outside_claim_scope',claim_id='UPSTREAM058',detail='Existing 150% maximum statement not adjudicated/repaired in this pull-recipient claim.')],plan_deviations=[],host_followup='Full-workset independent review, final gates/build/publish dry-run, evidence/state/lifecycle/commit belong to ORCHESTRATOR; not executed by this child.')\\npath=root/'.artifacts/i18n/modified-mechanics-repair-20261002/executor-011-report.json';path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\\\\n')\\nprint('10 targets changed; reverse bytes exact; report',path)\\nPY\\npython3 -B /tmp/mmr011.py\\npython3 -B tools/i18n lint --strict\\n git diff --check\",\"yield_time_ms\":1000,\"max_output_tokens\":2500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947580.201656
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb17a4fb487d28e4b5aed1c665aca",
+      "status": "completed",
+      "call_id": "call_FY2TZMvhvC0RFKQ04LP7R2Oj",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'Your understanding of physiology' mod-tome.lua\\nrg -n 'def.*load|def.*parse' tools/i18nlib/locale_model.py tools/i18nlib/config.py\\nsed -n '1,100p' tools/i18nlib/locale_model.py\\nrg -n 'run_directory|create_run_directory' tools/i18nlib/proposal.py\\nsed -n '315,370p' tools/i18nlib/proposal.py\",\"max_output_tokens\":2500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947698.744393
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb184215487d29157b1d90c423c02",
+      "status": "completed",
+      "call_id": "call_dObNuz0xQPER3qaqAbXZUPVH",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\np='/tmp/mmr011.py'\\ns=open(p).read();s=s.replace(\\\"result=base; spans=[]\\\",'''result=base; spans=[]\\ndef pair_for(e,target):\\n source_literal='[['+e['source']+']]'\\n if '\\\\\\\\n' not in e['source']: source_literal=json.dumps(e['source'],ensure_ascii=False)\\n return ('t('+source_literal+', [['+target+']], \\\"'+e['source_tag']+'\\\")').encode()''')\\ns=s.replace(\\\"pair=('t([['+e['source']+']], [['+o+']], \\\\\\\"'+e['source_tag']+'\\\\\\\")').encode()\\\",\\\"pair=pair_for(e,o)\\\")\\ns=s.replace(\\\"pos=base.index(pair)+len(('t([['+e['source']+']], [[').encode());spans.append((pos,pos+len(o.encode())))\\\",\\\"pos=base.index(pair)+pair.index(o.encode());spans.append((pos,pos+len(o.encode())))\\\")\\ns=s.replace(\\\"pair=('t([['+e['source']+']], [['+n+']], \\\\\\\"'+e['source_tag']+'\\\\\\\")').encode();assert reverse.count(pair)==1\\\",\\\"pair=pair_for(e,n);assert reverse.count(pair)==1\\\")\\nopen(p,'w').write(s)\\nPY\\npython3 -B /tmp/mmr011.py\",\"max_output_tokens\":1500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947710.41676
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb190159487d28559b5b22d1a2ee4",
+      "status": "completed",
+      "call_id": "call_x0bi91P8zKl4tSuqEYHJihvU",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'create_run_directory|write_json' tools/i18nlib/commands* tools/i18nlib/*lint* tools/i18nlib/cli.py\\nsed -n '1,75p' tools/i18n\\npython3 - <<'PY'\\nimport json\\np=json.load(open('.artifacts/i18n/modified-mechanics-repair-20261002/executor-011-report.json'))\\nfor a in p['source_anchors']:\\n if a['anchor_id'] in ['executor-extra-4','executor-extra-5','executor-extra-8','executor-extra-10']: print(a['public_path'],a['excerpt'])\\nPY\\n git diff --stat\\n git diff -- mod-tome.lua\",\"max_output_tokens\":4500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947724.91713
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb19efa2087d29d97f852a3f10c4e",
+      "status": "completed",
+      "call_id": "call_rr1D77zqxi1QiPNHvYnGd6Tr",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > /tmp/mmr011-lint.py <<'PY'\\nimport sys,tempfile,pathlib\\nsys.path.insert(0,'/workspace/tome4-chinese-translation/tools')\\nimport i18nlib.report\\n# Redirect only the tool's derived receipt location, preserving checks and manifest inputs.\\ni18nlib.report.create_run_directory=lambda root,command:pathlib.Path(tempfile.mkdtemp(prefix='mmr011-'+command+'-',dir='/tmp'))\\nfrom i18nlib.cli import main\\nraise SystemExit(main())\\nPY\\npython3 -B /tmp/mmr011-lint.py lint --strict\\n git diff --check\",\"max_output_tokens\":2500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947734.943502
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb1ae591487d29297bdea097b490f",
+      "status": "completed",
+      "call_id": "call_VcNg0bUoCOpdxZ7hQ0qaW1wX",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json,pathlib,hashlib\\nf=pathlib.Path('mod-tome.lua'); b=f.read_bytes();rp=pathlib.Path('.artifacts/i18n/modified-mechanics-repair-20261002/executor-011-report.json');r=json.loads(rp.read_text());e=r['entries'][4];o=e['new_target'];n=o.replace('%d），并','%d）， 并');assert n!=o;assert b.count(o.encode())==1;b=b.replace(o.encode(),n.encode(),1);f.write_bytes(b);e['new_target']=n\\nreverse=b\\nfor e in r['entries']:\\n assert reverse.count(e['new_target'].encode())==1\\n reverse=reverse.replace(e['new_target'].encode(),e['old_target'].encode(),1)\\nassert reverse==pathlib.Path('/tmp/mmr011-baseline.lua').read_bytes()\\nr['candidate']={'sha256':hashlib.sha256(b).hexdigest(),'bytes':len(b)}\\nr['byte_reverse_proof']['reversed_sha256']=hashlib.sha256(reverse).hexdigest()\\nrp.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\\\\n')\\nPY\\npython3 -B /tmp/mmr011-lint.py lint --strict\\n git diff --check\",\"max_output_tokens\":2000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947748.728551
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb1c79d1087d29067fd71068bb002",
+      "status": "completed",
+      "call_id": "call_2aMtKqcd1U7FAE7zTCbV0T5J",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"sed -n '1,110p' tools/scan_runtime_collisions.py\\nsed -n '1,105p' tools/classify_runtime_keys.py\\nsed -n '304,334p' tools/i18nlib/config.py\\nsed -n '1,75p' tools/i18nlib/runtime.py\\nsed -n '125,155p' tools/i18nlib/cli_lint.py\",\"max_output_tokens\":3300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947768.677185
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb1d94fe887d2b946b675a58ff619",
+      "status": "completed",
+      "call_id": "call_FLMEno22enZQ8TYT0xS67T43",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'output-dir|out-dir|output_dir|def run' tools/classify_runtime_keys.py\\nsed -n '330,366p' tools/i18nlib/workset.py\\nsed -n '1,55p' tools/i18nlib/config.py\\nsed -n '395,450p' tools/i18nlib/proposal.py\",\"max_output_tokens\":1700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947787.248324
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb1e11f4487d2a80ad22a8dcd9a4f",
+      "status": "completed",
+      "call_id": "call_9KiYY4jnjJgjVT9jnNWN1hWF",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > /tmp/mmr011-verify.py <<'PY'\\nimport sys,pathlib,json,hashlib,tempfile,dataclasses,subprocess\\nsys.path.insert(0,'/workspace/tome4-chinese-translation/tools')\\nfrom i18nlib.config import load_manifest\\nfrom i18nlib.runtime import LuaRuntime\\nfrom i18nlib.locale_model import LocaleLoader\\nfrom i18nlib.lint import stable_entry_id\\nfrom i18nlib.workset import create_workset\\nfrom i18nlib.proposal import validate_proposal\\nroot=pathlib.Path('/workspace/tome4-chinese-translation');rp=root/'.artifacts/i18n/modified-mechanics-repair-20261002/executor-011-report.json';r=json.loads(rp.read_text())\\nm=load_manifest(); loader=LocaleLoader(LuaRuntime(m))\\nold=loader.load_path(pathlib.Path('/tmp/mmr011-baseline.lua'),logical_path='mod-tome.lua');new=loader.load_path(root/'mod-tome.lua',logical_path='mod-tome.lua');assert len(old.records)==len(new.records)\\nchanges=[]\\nfor a,b in zip(old.records,new.records):\\n if a==b:continue\\n assert {k:v for k,v in a.items() if k!='target'}=={k:v for k,v in b.items() if k!='target'}\\n changes.append((a,b))\\nassert len(changes)==10\\nassert {(a['source'],a['target'],b['target']) for a,b in changes}=={(e['source'],e['old_target'],e['new_target']) for e in r['entries']}\\nr['tests'].append({'command':'LuaJIT LocaleLoader baseline/candidate full-record comparison','passed':True,'changed_records':10,'all_non_target_fields_equal':True,'record_count':len(old.records)})\\n# Isolated /tmp validation root: immutable source/config paths symlink to real repository;\\n# workset, synthetic merge input, and all generated receipts live only under /tmp.\\nvr=pathlib.Path(tempfile.mkdtemp(prefix='mmr011-proposal-',dir='/tmp'))\\nfor child in root.iterdir():\\n if child.name in ['.artifacts','.git','.ai']:continue\\n (vr/child.name).symlink_to(child,target_is_directory=child.is_dir())\\nvm=dataclasses.replace(m,root=vr)\\nitems=[]\\nfor a,b in changes:\\n it=dict(a);it['entry_id']=stable_entry_id('tome',a['section'],a['source'],a['source_tag']);it['component']='tome';it['classification']='source-changed';items.append(it)\\nmerge={'schema_version':1,'merge_id':'mmrfix-20261002-011-frozen-repair-baseline','component':'tome','untranslated':items}\\nmp=vr/'repair-merge.json';mp.write_text(json.dumps(merge,ensure_ascii=False))\\nw=create_workset(vm,merge_report_path=mp,limit=10,section_prefix=None,classification='all')\\nwp=pathlib.Path(w['workset']); wd=json.loads(wp.read_text())\\nproposal={'schema_version':1,'workset_id':wd['workset_id'],'proposals':[dict(entry_id=it['entry_id'],source=it['source'],source_tag=it['source_tag'],target=b['target'],args_order=b['args_order'],special=b['special'],notes='Frozen authorized repair; original erroneous display is qualified, no source changes.') for it,(a,b) in zip(items,changes)]}\\npp=vr/'repair-proposal.json';pp.write_text(json.dumps(proposal,ensure_ascii=False))\\npv=validate_proposal(vm,workset_path=wp,proposal_path=pp,allow_partial=False,strict=True)\\nassert pv['ok'],pv['issues']\\nr['tests'].append({'command':'tools/i18n proposal --strict equivalent validate_proposal in isolated /tmp root','passed':pv['ok'],'errors':pv['errors'],'warnings':pv['warnings'],'coverage':pv['coverage'],'workset_id':wd['workset_id'],'validated_proposal':pv['validated_proposal'],'provenance':'Synthetic bounded repair workset from exact frozen baseline, not claimed to be an extraction merge. Same manifest raw bytes, terminology and tool code; no validation bypass.'})\\nrp.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\\\\n');print('Full-record proof and strict proposal passed',pv['coverage'])\\nPY\\npython3 -B /tmp/mmr011-verify.py\",\"yield_time_ms\":1000,\"max_output_tokens\":2000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947805.422061
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb202224087d2ba215d0330e959d8",
+      "status": "completed",
+      "call_id": "call_T4ivojMtMr4oPMk8jJWy8lI4",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"sed -n '365,452p' tools/i18nlib/workset.py\\npython3 -B tools/scan_runtime_collisions.py --out-dir /tmp/mmr011-runtime-scan\\npython3 -B tools/classify_runtime_keys.py --out-dir /tmp/mmr011-runtime-classification\",\"yield_time_ms\":1000,\"max_output_tokens\":1800}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947839.839117
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb2086c5887d28ea7adc69ca0de4f",
+      "status": "completed",
+      "call_id": "call_4bvTbBByte0s9DOawUVOvsXi",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"sed -i \\\"s/w\\\\['workset'\\\\]/w['output']/\\\" /tmp/mmr011-verify.py\\npython3 -B /tmp/mmr011-verify.py\",\"yield_time_ms\":1000,\"max_output_tokens\":2000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947846.253561
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0bd9571f3d1ea778016abfb220550887d2a8f81a27eed62690",
+      "status": "completed",
+      "call_id": "call_91SmB6ioMoJ2G5sMBbe1cG2S",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > /tmp/mmr011-finish.py <<'PY'\\nimport json,pathlib,hashlib,subprocess\\nroot=pathlib.Path('/workspace/tome4-chinese-translation');rp=root/'.artifacts/i18n/modified-mechanics-repair-20261002/executor-011-report.json';r=json.loads(rp.read_text())\\n# Undo only the initial baseline lint receipt made by this invocation.\\np=root/'.artifacts/i18n/runs/20261002T132817.929405Z-5-lint'\\nassert sorted(x.name for x in p.iterdir())==['lint.json']\\n(p/'lint.json').unlink();p.rmdir()\\nr['plan_deviations'].append({'detail':'Initial baseline-only lint used the tool default report directory; that self-created receipt was removed. Final lint redirected only derived receipts into /tmp with an in-memory create_run_directory override; no shared tool files or validators changed. Strict proposal used an isolated /tmp root with identical manifest raw bytes, tool code and terminology, and synthetic frozen-baseline repair input.'})\\nchecks=[('doctor','python3 -B tools/i18n doctor',0,{'runtime':'LuaJIT 2.1.0-beta3 Lua5.1','lpeg':'0.10.2-1','warnings':'DLC source-unpinned, expected; no DLC source consumed in this package'}),('strictlint','python3 -B /tmp/mmr011-lint.py lint --strict',0,{'translations':30308,'errors':0,'warnings':0,'report':'/tmp/mmr011-lint-ewxrsftf/lint.json','cli_equivalent':'python3 -B tools/i18n lint --strict; derived receipt location only redirected to /tmp'}),('runtime_collision','python3 -B tools/scan_runtime_collisions.py --out-dir /tmp/mmr011-runtime-scan',0,{'collisions':0}),('runtime_classification','python3 -B tools/classify_runtime_keys.py --out-dir /tmp/mmr011-runtime-classification',0,{'duplicate_keys':1711,'bucket_A':1711,'bucket_B':0,'bucket_C':0,'all_runtime_values_equal':True})]\\nr['tests'].extend(dict(name=n,command=c,exit_code=x,passed=x==0,result=z) for n,c,x,z in checks)\\nr['tests'].append({'name':'first_candidate_strictlint','command':'python3 -B /tmp/mmr011-lint.py lint --strict','passed':False,'exit_code':1,'errors':1,'detail':'talent-placeholder-spacing entry745; resolved with one ASCII space after fullwidth comma; final candidate strictlint passed.'})\\nres=subprocess.run(['git','diff','--check'],cwd=root,text=True,capture_output=True);assert res.returncode==0,(res.stdout,res.stderr)\\nr['tests'].append({'name':'whitespace','command':'git diff --check','exit_code':res.returncode,'passed':True,'stdout':res.stdout,'stderr':res.stderr})\\n# Store explicit per-index display expression and destination (not merely common narrative).\\ndata=[\\n[('getDamage*100','archeryShoot mult=getDamage -> Archery dam*mult')],\\n[('getWoundReduction*100','Actor on_set_effect ceil(p.dur*(1-bound(getWoundReduction,0,1)))'),('getHealValues','setEffect EFF_RECOVERY regen=baseheal; definition missing; NO executable consumer verified'),('getDuration=8','setEffect EFF_RECOVERY duration; definition missing'),('baseheal*duration','display only; no total regeneration consumer verified'),('getTalentCooldown','do_vitality_recovery cooldown check/start after setEffect; missing definition may prevent cooldown start')],\\n[('100*getDamage','attackTargetWith mainhand mult=getDamage -> Combat dam*mult'),('100*getDamage*1.25','display only erroneous; attackTargetWith barehand mult=getDamage+1.25 -> Combat dam*mult'),('getConfusePower','setEffect CONFUSED power -> bounded floor power -> confused attribute'),('getConfuseDuration','setEffect CONFUSED duration')],\\n[('getDamageReduction','getBonusEffects.reduce -> startGrapple -> GRAPPLED combat_dam=-reduce'),('getSlow*100','getBonusEffects.slow -> startGrapple -> GRAPPLED global_speed_add=-slow')],\\n[('getArmorSaveReduction','Incendiary FIRE_SUNDER.power -> SUNDER_ARMOUR armor/phys/spell/mental saves -power; other-talent t argument caveat'),('getResistPenalty','Incendiary activate resists_pen physical/fire'),('getPoisonDamage*100','Venomous callback dam=rolled ammo damage*getPoisonDamage -> NATURE projector'),('getPoisonRadius=TL>=3?2:1','display only; actual ball radius literal1 -> ActorProject'),('getPhysicalDamage/5','Piercing hit PHYSICAL projector'),('getPhysicalDamage','MAIM duration5 power=getPhysicalDamage/5 -> PHYSICAL on_timeout conditional canBe(cut)'),('getNumb','MAIM reduce -> numbed attribute')],\\n[('getPower','activate combat_dam/combat_atk'),('getSpeed','activate slow_projectiles_outgoing=-speed'),('getMarkChance','archery mark chance addition -> chance roll -> MARKED'),('getDamage','Archery dam*(1+getDamage*min(max(distance-3,0),8)/100)'),('getDamage*5','range8 display bonus only; actual max is getDamage*8 at range11')],\\n[('getDamage*100','attackTarget -> attackTargetWith mult -> captured life_diff'),('getMult','TOUCH_OF_DEATH mult=getMult/100 -> dam*=1+mult after each tick'),('damage*(1+q^2+q^3+q^4), q=1+getMult/100','incorrect display only; actual tick total=life_diff*(1+q+q^2+q^3)'),('getTalentRadius','TOUCH_OF_DEATH radius -> on_die ball radius')],\\n[('getFlatReduction','Striking Stance flatReduction base*(1+getFlatReduction/100)'),('critResist','ignore_direct_crits -> projector reduction=(crit_power-1)*bound(percent,0,100)/100')],\\n[('getTalentRadius','cone radius -> Target cone -> ActorProject with friendlyfire default true'),('7*getTalentLevel','BATTLE_CRY power -> combat_def=-power')],\\n[('damDesc(FIRE,(35+Str*1.3)/3)','IRRESISTIBLE_SUN eff.dam*(1+(5-postpull_distance)/8)/3 -> FIRE projector'),('damDesc(LIGHT,(35+Str*1.3)/3)','same value -> LIGHT projector'),('damDesc(PHYSICAL,(35+Str*1.3)/3)','same value -> PHYSICAL projector')]\\n]\\nfor e,rows in zip(r['entries'],data):\\n assert len(rows)==len(e['placeholder_flow'])\\n for f,(calc,dest) in zip(e['placeholder_flow'],rows):f['display_parameter_expression']=calc;f['actual_consumer']=dest\\n# Make incorrect-display quantity kinds explicit for consumers of this report.\\nfor ei,pi,kind in [(1,2,'declared_regeneration_increment_without_definition'),(1,3,'declared_regeneration_duration_without_definition'),(1,4,'declared_total_regeneration_without_definition'),(2,2,'erroneous_display_unarmed_weapon_damage_percent'),(4,4,'display_radius_not_used_by_projection'),(5,5,'display_range8_damage_bonus_percent_not_maximum'),(6,3,'erroneous_display_total_weapon_damage_percent')]:\\n f=r['entries'][ei]['placeholder_flow'][pi-1];f['original_quantity_kind']=f['quantity_kind'];f['quantity_kind']=kind\\n# Full byte reversal after every final edit, binding tested candidate hash.\\nb=(root/'mod-tome.lua').read_bytes();reverse=b\\nfor e in r['entries']:\\n assert reverse.count(e['new_target'].encode())==1\\n reverse=reverse.replace(e['new_target'].encode(),e['old_target'].encode(),1)\\nassert reverse==(root/'.ai/task/mmrfix-20261002-011/baseline/mod-tome.lua').read_bytes()\\nassert hashlib.sha256(b).hexdigest()==r['candidate']['sha256']\\nr['final_candidate_tests_bound_to_sha256']=r['candidate']['sha256'];r['tests'].append({'name':'final_byte_reverse','passed':True,'reversed_sha256':hashlib.sha256(reverse).hexdigest(),'non_target_byte_equality':True})\\nr['runtime_not_tested']='No live game run, DLC publish dry-run or game-source repair; static fixed-commit calculation -> actual parameters -> final consumers verified. Host remains responsible for final whole-workset review and full batch gates.'\\nrp.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\\\\n')\\nprint('Final report complete:',len(r['entries']),'entries;',sum(len(e['placeholder_flow']) for e in r['entries']),'indexed placeholders;',len(r['source_anchors']),'source excerpts')\\nprint('candidate SHA256',r['candidate']['sha256'])\\nPY\\npython3 -B /tmp/mmr011-finish.py\\n git diff --check\\n git status --short\",\"max_output_tokens\":1300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0fcc9-64a5-7371-a7c0-b91fa5999d0a",
+        "create_time": 1790947852.670473
+      }
+    }
+  ],
+  "call_count": 23,
+  "status": "host_inspected",
+  "host_boundary": "Confirmed only frozen Lua targets, fresh report and derived /tmp/own lint receipts were written; no shared tool modifications, stage, commit, child or external write. Current-source location reads followed by pinned git object reads."
+}

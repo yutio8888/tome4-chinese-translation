@@ -1,0 +1,50 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-011/INPUT-re-review-1-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-011/INPUT-re-review-1-a1.json"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-011/INPUT-re-review-1-a1.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-011/INPUT-re-review-1-a1.json'))\np=d['payload']\nprint(json.dumps(p['translation_snapshot'][9],ensure_ascii=False))\nfor i,b in enumerate(p['bounded_context'][3:],3):\n    c=json.loads(b['context'])\n    print('=====',i,b['revision_key'][:8],c['section'])\n    print(json.dumps(c['terminology'],ensure_ascii=False))\n    for e in c['source_evidence']:\n        print('--',e['public_path'],e.get('start'),e.get('end'))\n        if 'excerpt' in e: print(e['excerpt'])\n        for w in e.get('windows',[]): print(w['text'])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 1,400p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/655d8789-92e3-41c0-bb5d-9709514fd4a6/tool-results/bbqu1aeii.txt | cut -c1-400"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 400,900p /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/655d8789-92e3-41c0-bb5d-9709514fd4a6/tool-results/bbqu1aeii.txt | cut -c1-500"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git rev-parse HEAD; for f in physical other magical mental; do git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/$f.lua | grep -n '\"RECOVERY\"' | sed \"s/^/$f:/\"; done; git grep -n 'name = \"RECOVERY\"' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome game/engines | head; cd /workspace/tome4-chinese-translation; grep -n '^#\\|^##' docs/paseo-translation-context-review-v2-contract.md | head -40"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git grep -n 'RECOVERY' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game | grep -v 'T_\\|_RECOVERY' | head; git grep -n '\"RECOVERY\"\\|EFF_RECOVERY' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game | head; cd /workspace/tome4-chinese-translation; sed -n 109,142p docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/damage_types.lua | grep -n -A12 'name = _t\"fire sunder\"\\|\"FIRE_SUNDER\"' | head -30"
+    }
+  }
+]

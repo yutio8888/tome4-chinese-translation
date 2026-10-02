@@ -1,0 +1,23 @@
+{
+  "review_dispatch": "review-0-a1",
+  "reviewer_issue": {
+    "candidate_index": 732,
+    "status": "advisory",
+    "accepted_for_fix": false,
+    "reason": "Source only checks slow immunity if slow==1, whereas silence is a boolean flag1. Suggested blanket slow-immunity qualification is not supported for normal fractional slow values and would misdescribe implementation. Candidate states no additional saving throw and silence immunity; it does not explicitly promise that all other status immunities are ignored. Source-code symmetry is not behavior symmetry. Exact branch probe retained.",
+    "source": {
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "lines": "2810-2815"
+    },
+    "probe": ".artifacts/i18n/modified-mechanics-repair-20261002/host-immunity-probe-011.json"
+  },
+  "host_confirmed": [
+    {
+      "finding_id": "HOST-ALLOYED-SUNDER-011",
+      "candidate_index": 745,
+      "status": "confirmed"
+    }
+  ]
+}

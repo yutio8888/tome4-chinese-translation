@@ -1,0 +1,50 @@
+{
+  "source_evidence": [
+    {
+      "public_path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "start": 78,
+      "end": 110,
+      "excerpt": "function _M:timedEffects(filter)\n\tlocal todel = {}\n\tlocal def\n\tlocal effs = {}\n\tfor eff, p in pairs(self.tmp) do\n\t\teffs[eff] = p\n\tend\n\tfor eff, p in pairs(effs) do\n\t\tdef = _M.tempeffect_def[eff]\n\t\tif not filter or filter(def, p) then\n\t\t\tif p.dur <= 0 then\n\t\t\t\ttodel[#todel+1] = eff\n\t\t\telse\n\t\t\t\tif def.on_timeout then\n\t\t\t\t\tlocal old_source\n\t\t\t\t\tif p.src then\n\t\t\t\t\t\told_source = p.src.__project_source\n\t\t\t\t\t\tp.src.__project_source = p \n\t\t\t\t\tend -- intermediate projector source\n\t\t\t\t\tif def.on_timeout(self, p, def) then\n\t\t\t\t\t\ttodel[#todel+1] = eff\n\t\t\t\t\tend\n\t\t\t\t\tif p.src then p.src.__project_source = old_source end\n\t\t\t\tend\n\t\t\tend\n\t\t\tp.dur = p.dur - def.decrease\n\t\tend\n\tend\n\n\twhile #todel > 0 do\n\t\tself:removeEffect(table.remove(todel))\n\tend\nend"
+    },
+    {
+      "public_path": "game/modules/tome/data/timed_effects/other.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0ebac2cda64f72fb4e94460bac4560b2b541db31e392aa521cc2caccf44818f7",
+      "start": 3540,
+      "end": 3541,
+      "excerpt": "\t\tDamageType:get(DamageType.PHYSICAL).projector(eff.src or self, self.x, self.y, DamageType.PHYSICAL, eff.dam)\n\t\teff.dam = eff.dam * (1 + eff.mult)"
+    },
+    {
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "start": 150,
+      "end": 153,
+      "excerpt": "\t\t\tdam = dam / crit_power\n\t\t\tlocal reduce = (crit_power - 1) * (util.bound(ignore_direct_crits, 0, 100) / 100)\n\t\t\tcrit_power = math.max(1, crit_power - reduce)\n\t\t\tdam = dam * crit_power"
+    },
+    {
+      "public_path": "game/modules/tome/class/interface/Archery.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "09fdce1e839d74e1a5bd65a1432f044a3811ecc5618dbecc828e33738963c0fe",
+      "start": 389,
+      "end": 395,
+      "excerpt": "\t\tif self and dam > 0 and self.knowTalent and self:isTalentActive(self.T_AIM) and self.__CLASSNAME ~= \"mod.class.Grid\" then\n\t\t\tlocal dist = math.min(math.max(0, core.fov.distance(self.x, self.y, target.x, target.y) - 3),8)\n\t\t\tif dist > 0 then \n\t\t\t\tlocal dammult = self:callTalent(self.T_AIM, \"getDamage\") * dist \n\t\t\t\tdam = dam * (1 + (dammult/100))\n\t\t\tend\n\t\tend"
+    },
+    {
+      "public_path": "game/modules/tome/data/talents/techniques/dualweapon.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "aa6d54f5e30aa27c881120dee2c47a5e24b69e556442ac0958275e387972493d",
+      "start": 193,
+      "end": 193,
+      "excerpt": "\t\tspeed, hit = self:attackTargetWith(target, self:getObjectCombat(nil, \"barehand\"), nil, dam_mult+1.25)"
+    }
+  ],
+  "script_sha256": "c532570964839ce0a1f624e81c5b1137ab934e0e7f7bedbec9740e6df62d994b",
+  "lua_source": "local _M={}\nfunction _M:timedEffects(filter)\n\tlocal todel = {}\n\tlocal def\n\tlocal effs = {}\n\tfor eff, p in pairs(self.tmp) do\n\t\teffs[eff] = p\n\tend\n\tfor eff, p in pairs(effs) do\n\t\tdef = _M.tempeffect_def[eff]\n\t\tif not filter or filter(def, p) then\n\t\t\tif p.dur <= 0 then\n\t\t\t\ttodel[#todel+1] = eff\n\t\t\telse\n\t\t\t\tif def.on_timeout then\n\t\t\t\t\tlocal old_source\n\t\t\t\t\tif p.src then\n\t\t\t\t\t\told_source = p.src.__project_source\n\t\t\t\t\t\tp.src.__project_source = p \n\t\t\t\t\tend -- intermediate projector source\n\t\t\t\t\tif def.on_timeout(self, p, def) then\n\t\t\t\t\t\ttodel[#todel+1] = eff\n\t\t\t\t\tend\n\t\t\t\t\tif p.src then p.src.__project_source = old_source end\n\t\t\t\tend\n\t\t\tend\n\t\t\tp.dur = p.dur - def.decrease\n\t\tend\n\tend\n\n\twhile #todel > 0 do\n\t\tself:removeEffect(table.remove(todel))\n\tend\nend\nlocal hits={}\nDamageType={PHYSICAL=1}\nfunction DamageType:get() return {projector=function(_,_,_,_,dam) hits[#hits+1]=dam end} end\n_M.tempeffect_def={[1]={decrease=1,on_timeout=function(self,eff)\n\t\tDamageType:get(DamageType.PHYSICAL).projector(eff.src or self, self.x, self.y, DamageType.PHYSICAL, eff.dam)\n\t\teff.dam = eff.dam * (1 + eff.mult)\nend}}\nlocal actor=setmetatable({x=0,y=0,tmp={}}, {__index=_M})\nfunction actor:removeEffect(id) self.tmp[id]=nil end\nlocal tickcases=0\nfor _,base in ipairs({1,20,123.4}) do\n for _,mult in ipairs({0.25,0.4,0.75}) do\n  hits={};actor.tmp={[1]={dur=4,dam=base,mult=mult}}\n  for i=1,5 do actor:timedEffects() end\n  assert(#hits==4 and actor.tmp[1]==nil)\n  local total=0\n  for i=1,4 do assert(math.abs(hits[i]-base*(1+mult)^(i-1))<1e-9);total=total+hits[i] end\n  local display=base*(1+(1+mult)^2+(1+mult)^3+(1+mult)^4)\n  assert(display>total)\n  tickcases=tickcases+1\n end\nend\nutil={bound=function(x,a,b) return math.min(math.max(x,a),b) end}\nlocal function mitigate(base,cp,reduction)\n local dam,crit_power,ignore_direct_crits=base*cp,cp,reduction\n\t\t\tdam = dam / crit_power\n\t\t\tlocal reduce = (crit_power - 1) * (util.bound(ignore_direct_crits, 0, 100) / 100)\n\t\t\tcrit_power = math.max(1, crit_power - reduce)\n\t\t\tdam = dam * crit_power\n return dam\nend\nlocal cc=0\nfor _,cp in ipairs({1.2,1.5,2,3}) do\n for _,r in ipairs({0,20,50,100,120}) do\n  local expected=100*(1+(cp-1)*(1-math.min(r,100)/100))\n  assert(math.abs(mitigate(100,cp,r)-expected)<1e-9);cc=cc+1\n end\nend\nlocal distvalue=0\ncore={fov={distance=function() return distvalue end}}\nlocal function aiming(distance,power)\n distvalue=distance\n local self={knowTalent=true,T_AIM=1,__CLASSNAME='mod.class.Actor',isTalentActive=function()return true end,callTalent=function()return power end}\n local target={};local dam=100\n\t\tif self and dam > 0 and self.knowTalent and self:isTalentActive(self.T_AIM) and self.__CLASSNAME ~= \"mod.class.Grid\" then\n\t\t\tlocal dist = math.min(math.max(0, core.fov.distance(self.x, self.y, target.x, target.y) - 3),8)\n\t\t\tif dist > 0 then \n\t\t\t\tlocal dammult = self:callTalent(self.T_AIM, \"getDamage\") * dist \n\t\t\t\tdam = dam * (1 + (dammult/100))\n\t\t\tend\n\t\tend\n return dam\nend\nlocal ac=0\nfor _,p in ipairs({2,4.5,7.9}) do\n for d=0,15 do assert(math.abs(aiming(d,p)-(100+p*math.min(math.max(d-3,0),8)))<1e-9);ac=ac+1 end\n assert(math.abs(aiming(8,p)-(100+5*p))<1e-9)\n assert(math.abs(aiming(11,p)-(100+8*p))<1e-9)\nend\nlocal jc=0\nfor _,dam_mult in ipairs({1,1.5,2.25}) do\n local result\n local self={getObjectCombat=function()return {} end,attackTargetWith=function(_,_,_,_,m)result=m;return 1,true end}\n local target={};local speed,hit\n\t\tspeed, hit = self:attackTargetWith(target, self:getObjectCombat(nil, \"barehand\"), nil, dam_mult+1.25)\n assert(result==dam_mult+1.25 and result~=dam_mult*1.25);jc=jc+1\nend\nprint('PASS: '..tickcases..' actual four-tick Touch of Death cases; '..cc..' excess-critical-power reductions; '..ac..' Aim distance samples; '..jc..' Offhand Jab additive multipliers')\n",
+  "exit_code": 0,
+  "stdout": "PASS: 9 actual four-tick Touch of Death cases; 20 excess-critical-power reductions; 48 Aim distance samples; 3 Offhand Jab additive multipliers\n",
+  "stderr": "",
+  "scope": "Pinned actual consumer snippets and temporary-effect function run under LuaJIT with controlled stubs; not in-game integration."
+}

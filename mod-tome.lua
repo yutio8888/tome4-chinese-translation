@@ -30046,7 +30046,7 @@ t([[Fires a wave of projectiles in a radius %d cone, dealing %d%% weapon damage.
 t("Headshot", "爆头", "talent name")
 t([[Fire a precise shot dealing %d%% weapon damage, with 100 increased accuracy. This shot will bypass other enemies between you and your target.
 Only usable against marked targets, and consumes the mark on hit.]], [[瞄准目标头部进行一次精准射击，造成 %d%% 武器伤害，此次攻击额外获得 100 命中，且能越过你与目标之间的其他敌人。
-只能对被标记的单位使用，命中时消耗该标记。]], "tformat")
+可对被标记的单位使用；维持隐匿时也可对未标记的单位使用。命中已标记单位时消耗该标记。]], "tformat")
 t("Volley", "齐射", "talent name")
 t([[You fire countless shots into the sky to rain down around your target, inflicting %d%% weapon damage to all within radius %d.
 If the primary target is marked, you consume the mark to fire a second volley of arrows for %d%% damage at no ammo cost.]], [[你向天空发射无数弹药，如箭雨般落向目标，造成 %d%% 武器伤害，杀伤半径 %d 格。
@@ -30288,8 +30288,8 @@ t("Vitality", "活力", "talent name")
 t([[You recover faster from poisons, diseases and wounds, reducing the duration of all such effects by %d%%.  
 			Whenever your life falls below 50%%, your life regeneration increases by %0.1f for %d turns (%d total). This effect can only happen once every %d turns.
 		The regeneration scales with your Constitution.]], [[你受中毒、疾病和创伤的影响较小，减少 %d%% 此类效果的持续时间。
-		此外在生命值低于 50%% 时，你的生命回复将会增加 %0.1f， 持续 %d 回合，共回复 %d 生命值，但每隔 %d 回合才能触发一次。
-		生命回复受体质值加成。]], "tformat")
+		生命值从高于 50%% 降至该阈值或以下时，原说明列出的生命回复增量为 %0.1f， 持续 %d 回合，总回复量为 %d， 触发间隔为 %d 回合；但当前固定版本缺少对应回复效果定义，无法保证实际获得这些回复。
+		说明中的回复量受体质值加成。]], "tformat")
 t("Unflinching Resolve", "顽强意志", "talent name")
 t("#ORCHID#%s has recovered!#LAST#", "#ORCHID#%s恢复了！#LAST#", "logSeen")
 t([[You've learned to recover quickly from effects that would disable you. Each turn, you have a %d%% chance to recover from a single stun effect.
@@ -30348,7 +30348,7 @@ t("%s resists the surprise strike!", "%s抵抗了这次打击！", "logSeen")
 t([[With a quick shift of your momentum, you execute a surprise unarmed strike in place of your normal offhand attack.
 		This allows you to attack with your mainhand weapon for %d%% damage and unarmed for %d%% damage.  If the unarmed attack hits, the target is confused (%d%% power) for %d turns.
 		The chance to confuse increases with your Accuracy.]], [[你迅速变换发力方式，以出其不意的徒手攻击替代通常的副手攻击。
-		这使你能以主手武器造成 %d%% 伤害，并以徒手攻击造成 %d%% 伤害。若徒手攻击命中，目标将陷入混乱 （%d%% 强度），持续 %d 回合。
+		这使你能以主手武器造成 %d%% 伤害，徒手伤害的说明显示值为 %d%%， 但实际徒手伤害倍率为主手伤害倍率加 125 个百分点。若徒手攻击命中，目标将陷入混乱 （%d%% 强度），持续 %d 回合。
 		混乱几率随命中提高。]], "tformat")
 t("Dual Strike", "双持打击", "talent name")
 t("You cannot use Dual Strike without dual wielding!", "你只有在双持状态下才能使用这个技能！", "logPlayer")
@@ -30492,7 +30492,7 @@ t("Crushing Hold", "碾压擒抱", "talent name")
 t([[Enhances your grapples with additional effects. All additional effects will apply to every grapple with no additional save or resist check.
 		#RED#Talent Level 1:  Reduces physical power by %d
 		Talent Level 3:  Silences
-		Talent Level 5:  Reduces global action speed by %d%%]], [[增强你的抓取，使其获得额外效果。所有额外效果都会应用于每次抓取，且无需额外的豁免或抵抗鉴定。
+		Talent Level 5:  Reduces global action speed by %d%%]], [[增强你的抓取，使其获得额外效果。这些额外效果随抓取施加，无需额外豁免鉴定；沉默仍受沉默免疫限制。
 		#RED#技能等级 1：降低目标 %d 点物理强度
 		技能等级 3：沉默
 		技能等级 5：降低目标 %d%% 全局速度]], "tformat")
@@ -30674,10 +30674,10 @@ Incendiary - Targets struck by the explosion have their armor and saves reduced 
 Venomous - Shots deal an additional %d%% weapon damage as nature in a radius %d ball, which applies numbing poison as per Exotic Munitions. This cannot occur more than once per turn.
 Piercing - Shots deal %0.2f physical damage and maim the target, bleeding them for a further %0.2f physical damage over 5 turns and reducing all damage dealt by %d%%.
 The physical damage dealt, armor penetration and save reduction will increase with your Physical Power.]], [[混合你的弹药，造成更强力的效果：
-燃烧弹- 受到爆炸袭击的目标护甲和豁免减少 %d 持续 3 回合，你的物理和火焰穿透增加 %d%%.
-剧毒弹- 额外造成 %d%% 自然武器伤害，作用于半径 %d 的球形范围，并如同异种弹药一样施加麻木毒素。每回合最多生效一次。
+燃烧弹- 对受到爆炸袭击的目标，护甲和豁免削减的说明显示值为 %d， 实际削减量按燃烧弹的技能等级计算，持续 3 回合；你的物理和火焰穿透增加 %d%%.
+剧毒弹- 额外造成 %d%% 自然武器伤害，实际作用于半径 1 的球形范围（说明显示半径为 %d）， 并如同异种弹药一样施加麻木毒素。每回合最多生效一次。
 穿甲弹- 造成 %0.2f 物理伤害并使目标伤残（Maim），在 5 回合内额外流血造成 %0.2f 物理伤害，并使其造成的所有伤害减少 %d%%.
-物理伤害、护甲和豁免削减受物理强度加成。]], "tformat")
+物理伤害受物理强度加成。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/pugilism.lua"
@@ -30792,7 +30792,7 @@ t("Aim", "瞄准姿态", "talent name")
 t([[Enter a calm, focused stance, increasing physical power and accuracy by %d, projectile speed by %d%% and the chance to mark targets by an additional %d%%.
 This makes your shots more effective at range, increasing all damage dealt by %0.1f%% per tile travelled beyond 3, to a maximum of %0.1f%% damage at range 8.
 The physical power and accuracy increase with your Dexterity. This requires a bow to use.]], [[进入一个平静，专注的姿态，增加 %d 物理强度和命中，抛射物速度增加 %d%% 并且标记目标的几率增加 %d%%。
-这让你的远距离射击更有效：对三格外目标的距离每增加一格，伤害增加 %0.1f%%，8 格距离时达到最大值 （%0.1f%%）。
+这让你的远距离射击更有效：对三格外目标的距离每增加一格，伤害增加 %0.1f%%，8 格时说明显示的增伤为 %0.1f%%； 实际在 11 格时达到上限，为每格增伤的 8 倍。
 物理强度和命中受敏捷值加成。该技能需要弓来使用。]], "tformat")
 t("Snipe", "狙击", "talent name")
 t([[Take aim for 1 turn, preparing a deadly shot. During the next turn, this talent will be replaced with the ability to fire a lethal shot dealing %d%% damage and marking the target.
@@ -31086,7 +31086,7 @@ t("#Source# strikes at a vital spot on #target#!", "#Source#攻向#target#的要
 t([[Using your deep knowledge of anatomy, you strike a target in a vital pressure point for %d%% weapon damage, bypassing their defense and evasion.
 		This strike inflicts terrible wounds inside the target's body, causing them to take physical damage equal to 100%% of any damage dealt during the attack each turn for 4 turns, increasing by %d%% each turn (so after 4 turns, they would have taken a total of %d%% damage).
 		If the target dies while under or from this effect their body will explode in a radius %d shower of bone and gore, inflicting physical damage equal to the current tick to all enemies and granting you 4 combo points.]], [[使用你深刻的解剖学知识，击中敌人的穴道造成 %d%% 武器伤害，无视闪避和躲闪效果。
-		这次攻击在敌人身上造成可怕的内伤，在之后的 4 回合内，每回合都造成相当于本次攻击所造成伤害 100%% 的物理伤害，且每回合递增 %d%% （因此 4 回合后共计造成 %d%% 伤害）。
+		这次攻击在敌人身上造成可怕的内伤，在之后的 4 回合内，首次造成相当于本次攻击所造成伤害 100%% 的物理伤害，之后每次递增 %d%% （原说明显示的总伤害为 %d%%， 该数值计算有误；实际四次持续伤害的总量为本次攻击伤害乘以 1、(1 + 递增比例)、(1 + 递增比例)² 和 (1 + 递增比例)³ 之和）。
 		如果目标死在该效果下，他们身体会爆炸，并让半径 %d 内的敌人受到等于他们当前回合的点穴伤害的物理伤害，并给你 4 点连击点。]], "tformat")
 
 ------------------------------------------------
@@ -31106,7 +31106,7 @@ t("Heightened Reflexes", "高度反射", "talent name")
 t("When you're targeted by a projectile, your global speed is increased by %d%% for 1 turn.  Taking any action other than movement will break the effect.", [[当你被抛射物锁定时，增加你 %d%% 全局速度 1 回合。
 		除了移动外的任何动作均会打破此效果。]], "tformat")
 t("Reflex Defense", "反射防御", "talent name")
-t("Your understanding of physiology allows you to apply your reflexes in new ways, increasing the flat damage reduction granted by Striking Stance by %d%% and causing direct critical hits (physical, mental, spells) against you to have a %d%% lower Critical multiplier (but always do at least normal damage).", [[你对生理结构的理解使你能以新的方式运用反射神经，使攻击姿态提供的固定伤害减免提高 %d%%， 并使针对你的直接暴击（物理、精神或法术）的暴击倍率降低 %d%% （但伤害不会低于普通命中）。]], "tformat")
+t("Your understanding of physiology allows you to apply your reflexes in new ways, increasing the flat damage reduction granted by Striking Stance by %d%% and causing direct critical hits (physical, mental, spells) against you to have a %d%% lower Critical multiplier (but always do at least normal damage).", [[你对生理结构的理解使你能以新的方式运用反射神经，使攻击姿态提供的固定伤害减免提高 %d%%， 并使针对你的直接暴击（物理、精神或法术）超过普通命中伤害的额外暴击部分降低 %d%% （但伤害不会低于普通命中）。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/warcries.lua"
@@ -31127,7 +31127,7 @@ t([[Boost your life and stamina by %0.1f%% for %d turns by bellowing your battle
 t("Battle Cry", "战斗怒喝", "talent name")
 t([[Your battle cry shatters the will of your foes within a radius of %d, lowering their Defense by %d for 7 turns, making them easier to hit.
 		All evasion and concealment bonuses are also disabled.
-		The chance to hit increases with your Physical Power.]], [[你的战吼会击溃前方 %d 码锥形范围内敌人的斗志，使其闪避降低 %d 点，持续 7 回合，令其更容易被命中。
+		The chance to hit increases with your Physical Power.]], [[你的战吼会击溃前方 %d 码锥形范围内除你之外所有单位（包括友方）的斗志，使其闪避降低 %d 点，持续 7 回合，令其更容易被命中。
 		躲闪与隐匿提供的未命中加成也会被禁用。
 		命中率受物理强度加成。]], "tformat")
 
@@ -31636,7 +31636,7 @@ t("Irresistible Sun", "无御之日", "talent name")
 t("Have dealt over 50000 light or fire damage", "曾造成50000点以上的光系或者火系伤害", "_t")
 t([[For 8 turns you gain the mass and power of a star, drawing all creatures within radius 5 toward you and dealing %0.2f fire, %0.2f light and %0.2f physical damage to all foes and reducing their damage dealt by 30%%.
 		Foes closer to you take up to 150%% damage.
-		The damage will increase with your Strength.]], [[你获得 8 回合的星之引力，将周围 5 码范围内的所有生物向你拉扯，并对所有敌人造成 %0.2f 火焰、 %0.2f 光系和 %0.2f 物理伤害。他们所造成的伤害减少30%%。
+		The damage will increase with your Strength.]], [[你获得 8 回合的星之引力，将周围 5 码范围内的敌对单位向你拉扯，并对所有敌人造成 %0.2f 火焰、 %0.2f 光系和 %0.2f 物理伤害。他们所造成的伤害减少30%%。
 		距离越近，敌人受到的伤害越高，最高为 150%%。
 		伤害值受力量值加成。]], "tformat")
 t("I Can Carry The World!", "我能举起世界！", "talent name")

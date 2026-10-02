@@ -1,0 +1,11 @@
+{
+  "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "public_path": "game/modules/tome/class/interface/Combat.lua",
+  "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+  "start": 2810,
+  "end": 2815,
+  "exact_excerpt": "\tif grappledParam.silence == 1 and not target:canBe(\"silence\") then\n\t\tgrappledParam.silence = 0\n\tend\n\tif grappledParam.slow == 1 and not target:canBe(\"slow\") then\n\t\tgrappledParam.slow = 0\n\tend",
+  "lua_source": "local target={canBe=function() return false end}\nfor _,slow in ipairs({0,0.05,0.45,0.8,1}) do\n local grappledParam={silence=1,slow=slow}\n\tif grappledParam.silence == 1 and not target:canBe(\"silence\") then\n\t\tgrappledParam.silence = 0\n\tend\n\tif grappledParam.slow == 1 and not target:canBe(\"slow\") then\n\t\tgrappledParam.slow = 0\n\tend\nassert(grappledParam.silence==0)\nassert(grappledParam.slow==(slow==1 and 0 or slow))\nend\nprint(\"PASS: slow immunity conditional only at exact slow==1; silence flag1 always checked\")\n",
+  "stdout": "PASS: slow immunity conditional only at exact slow==1; silence flag1 always checked\n",
+  "exit_code": 0
+}

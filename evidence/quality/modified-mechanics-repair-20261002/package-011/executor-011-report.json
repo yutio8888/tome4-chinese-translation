@@ -1,0 +1,998 @@
+{
+  "schema_version": 1,
+  "task_id": "mmrfix-20261002-011",
+  "role": "EXECUTOR",
+  "modified_files": [
+    "mod-tome.lua"
+  ],
+  "changed_target_count": 10,
+  "confirmed_claim_count": 10,
+  "baseline": {
+    "commit": "9e9a55318494ee7a9b98852655029cd6274144bb",
+    "sha256": "d3cae3e6a852720e12f6cdb41398bc3953b869d7c60706f393cf14baedc567a8",
+    "bytes": 3904704,
+    "working_tree_exact_match_before": true
+  },
+  "candidate": {
+    "sha256": "03629048b23f93631e24432fc2a960b112a927775a24ff0cbffe2fa60ff38480",
+    "bytes": 3905275
+  },
+  "byte_reverse_proof": {
+    "method": "Find each frozen complete t(source,target,source_tag) call exactly once; replace only target. Reverse each of the ten replacements and compare full bytes with frozen baseline.",
+    "reversed_sha256": "d3cae3e6a852720e12f6cdb41398bc3953b869d7c60706f393cf14baedc567a8",
+    "baseline_sha256": "d3cae3e6a852720e12f6cdb41398bc3953b869d7c60706f393cf14baedc567a8",
+    "byte_equal": true,
+    "all_non_target_bytes_preserved": true,
+    "prior_package_changes_preserved": true
+  },
+  "fixed_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "core_checkout_head_observed": "3ff88853bc1c586045c439d21c5c112912c6a5bf",
+  "source_method": "git show fixed_commit:public_path; every frozen anchor whole-file SHA256 independently matched; additional consumers read from same commit",
+  "dlc": {
+    "applicable": false,
+    "reason": "All ten entries and all supplied anchors are core/tome. No DLC source file used; no DLC SHA to match in this package.",
+    "source_identity": "unpinned; verify every file SHA; no claim of DLC release version pin"
+  },
+  "source_anchors": [
+    {
+      "anchor_id": "a357",
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "start": 130,
+      "end": 154,
+      "excerpt": "130: \t\tlocal ignore_direct_crits = target:attr 'ignore_direct_crits'\n131: \t\tif crit_power > 1 and ignore_direct_crits then -- Reduce the post crit damage, we have to do this here since most crits are calculated before knowing their target\n132: \n133: \t\t\t-- Add crit bonus power for being unseen (direct damage only, diminished with range)\n134: \t\t\tlocal unseen_crit = src.__is_actor and target.__is_actor and not src.__project_source and src.unseen_critical_power\n135: \t\t\tif unseen_crit and not target:canSee(src) and src:canSee(target) then\n136: \t\t\t\tlocal d, reduc = core.fov.distance(src.x, src.y, x, y), 0\n137: \t\t\t\tif d > 3 then\n138: \t\t\t\t\treduc = math.scale(d, 3, 10, 0, 1)\n139: \t\t\t\t\tunseen_crit = math.max(0, unseen_crit*(1 - reduc))\n140: \t\t\t\tend\n141: \t\t\t\tif unseen_crit > 0 then\n142: \t\t\t\t\tif target.unseen_crit_defense and target.unseen_crit_defense > 0 then\n143: \t\t\t\t\t\tunseen_crit = math.max(0, unseen_crit*(1 - target.unseen_crit_defense))\n144: \t\t\t\t\tend\n145: \t\t\t\t\tcrit_power = crit_power + unseen_crit\n146: \t\t\t\t\tprint(\"[PROJECTOR] after unseen_critical_power type/dam/range/power\", type, dam, d, unseen_crit, \"::\", crit_power - unseen_crit, \"=>\", crit_power)\n147: \t\t\t\tend\n148: \t\t\tend\t\n149: \n150: \t\t\tdam = dam / crit_power\n151: \t\t\tlocal reduce = (crit_power - 1) * (util.bound(ignore_direct_crits, 0, 100) / 100)\n152: \t\t\tcrit_power = math.max(1, crit_power - reduce)\n153: \t\t\tdam = dam * crit_power\n154: \t\t\tprint(\"[PROJECTOR] crit power reduce dam\", dam)"
+    },
+    {
+      "anchor_id": "a358",
+      "public_path": "game/modules/tome/data/talents/techniques/pugilism.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "2bd78bf7b1fb297d558a1cd70f49a206b43bec72ef268aa12bc1732ce601bb4a",
+      "start": 40,
+      "end": 46,
+      "excerpt": "40: \tgetAttack = function(self, t) return self:getDex(25, true) end,\n41: \tgetDamage = function(self, t) return self:combatStatScale(\"dex\", 25, 60) end,\n42: \tgetFlatReduction = function(self, t) \n43: \t\tif self:knowTalent(self.T_REFLEX_DEFENSE) then\n44: \t\t\treturn math.min(35, self:combatStatScale(\"str\", 1, 30, 0.75)) * (1 + (self:callTalent(self.T_REFLEX_DEFENSE, \"getFlatReduction\")/100) )\n45: \t\telse\n46: \t\t\treturn math.min(35, self:combatStatScale(\"str\", 1, 30, 0.75))"
+    },
+    {
+      "anchor_id": "entry-768",
+      "public_path": "game/modules/tome/data/talents/techniques/unarmed-training.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "f6860eae478ac6b3f2bcd2a822c3dfbcc384e50c55239d337dcc624569fb1822",
+      "start": 116,
+      "end": 132,
+      "excerpt": "116: newTalent{\n117: \tname = \"Reflex Defense\",\n118: \ttype = {\"technique/unarmed-training\", 4},\n119: \trequire = techs_cun_req4,\n120: \tpoints = 5,\n121: \tmode = \"passive\",\n122: \tgetFlatReduction = function(self, t) return self:combatTalentScale(t, 30, 70, 0.75) end,\n123: \tcritResist = function(self, t) return self:combatTalentScale(t, 8, 25, 0.75) end,\n124: \tpassives = function(self, t, p)\n125: \t\tself:talentTemporaryValue(p, \"ignore_direct_crits\", t.critResist(self, t))\n126: \tend,\n127: \tinfo = function(self, t)\n128: \t\treturn ([[Your understanding of physiology allows you to apply your reflexes in new ways, increasing the flat damage reduction granted by Striking Stance by %d%% and causing direct critical hits (physical, mental, spells) against you to have a %d%% lower Critical multiplier (but always do at least normal damage).]]):\n129: \t\ttformat(t.getFlatReduction(self,t), t.critResist(self,t) )\n130: \tend\n131: }\n132: "
+    },
+    {
+      "anchor_id": "entry-716",
+      "public_path": "game/modules/tome/data/talents/techniques/archery.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "4c26268cd967d35171d9854350db863fa31306bb2c90ae324ed7dfad644f11ea",
+      "start": 416,
+      "end": 490,
+      "excerpt": "416: newTalent{\n417: \tname = \"Headshot\",\n418: \ttype = {\"technique/archery-utility\", 1},\n419: \tno_energy = \"fake\",\n420: \tpoints = 5,\n421: \trandom_ego = \"attack\",\n422: \tcooldown = function(self, t) -- this makes it a bit less likely that a mob could lob chain headshots at you\n423: \t\tif self.ai and self.ai == \"party_member\" then \n424: \t\t\treturn 0\n425: \t\telseif self.ai then\n426: \t\t\treturn 6\n427: \t\telse\n428: \t\t\treturn 6\n429: \t\tend\n430: \tend,\trequire = techs_dex_req1,\n431: \trange = archery_range,\n432: \trequires_target = true,\n433: \ttactical = { ATTACK = { weapon = 2 } },\n434: \tgetDamage = function(self, t)\n435: \t\treturn self:combatTalentWeaponDamage(t, 1.1, 2.3)\n436: \tend,\n437: \ton_pre_use = function(self, t, silent) return archerPreUse(self, t, silent) end,\n438: \tarchery_onreach = function(self, t, x, y, tg, target)\n439: \t\tif not target then return end\n440: \t\t\n441: \t\tlocal dam = t.getDamage(self,t)\n442: \n443: \t\tif self:knowTalent(self.T_FIRST_BLOOD) then\n444: \t\t\tlocal perc = (target.life / target.max_life)\n445: \t\t\tif perc >= 0.9 then\n446: \t\t\t\tself.turn_procs.first_blood_hs = target.life\n447: \t\t\tend\n448: \t\tend\n449: \tend,\n450: \tarchery_onhit = function(self, t, target, x, y)\n451: \t\t\n452: \t\tif self.turn_procs.first_blood_hs then\n453: \t\t\tlocal life_diff = self.turn_procs.first_blood_hs - target.life\n454: \t\t\tlocal scale = self:callTalent(self.T_FIRST_BLOOD, \"getBleed\")\n455: \t\t\tif life_diff > 0 and target:canBe('cut') and scale then\n456: \t\t\t\ttarget:setEffect(target.EFF_CUT, 5, {power=life_diff * scale / 5, src=self, apply_power=self:combatPhysicalpower(), no_ct_effect=true})\n457: \t\t\tend\n458: \t\tend\n459: \t\tif target:hasEffect(target.EFF_MARKED) then \n460: \t\t\ttarget:removeEffect(target.EFF_MARKED)\n461: \t\t\tif self:knowTalent(self.T_BULLSEYE) then self:callTalent(self.T_BULLSEYE, \"proc\") end\n462: \t\tend\n463: \t\tif self:knowTalent(self.T_FIRST_BLOOD) then self:incStamina(self:callTalent(self.T_FIRST_BLOOD, \"getStamina\")) end\n464: \tend,\n465: \ttarget = function(self, t) return {type = \"hit\", range = self:getTalentRange(t), talent = t } end,\n466: \taction = function(self, t)\n467: \n468: \t\tlocal tg = self:getTalentTarget(t)\n469: \t\tlocal x, y, target = self:getTarget(tg)\n470: \t\tif not x or not y then return end\n471: \t\t\n472: \t\tlocal target = game.level.map(x, y, game.level.map.ACTOR)\n473: \t\t\n474: \t\tif not target or not (target:hasEffect(target.EFF_MARKED) or self:isTalentActive(self.T_CONCEALMENT)) then return nil end \n475: \t\tlocal targets = self:archeryAcquireTargets(tg, {one_shot=true, x=target.x, y=target.y})\n476: \n477: \t\tif not targets then return end\n478: \t\tlocal dam = t.getDamage(self,t)\n479: \t\tself:archeryShoot(targets, t, {type = \"hit\", speed = 200}, {mult=dam, atk=100})\n480: \t\t\n481: \t\treturn true\n482: \tend,\n483: \tinfo = function(self, t)\n484: \t\tlocal dam = t.getDamage(self,t)*100\n485: \t\treturn ([[Fire a precise shot dealing %d%% weapon damage, with 100 increased accuracy. This shot will bypass other enemies between you and your target.\n486: Only usable against marked targets, and consumes the mark on hit.]]):\n487: \t\ttformat(dam)\n488: \tend,\n489: }\n490: "
+    },
+    {
+      "anchor_id": "a473",
+      "public_path": "game/modules/tome/class/interface/Archery.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "09fdce1e839d74e1a5bd65a1432f044a3811ecc5618dbecc828e33738963c0fe",
+      "start": 306,
+      "end": 330,
+      "excerpt": "306: \tif not target then return end\n307: \n308: \tlocal damtype = tg.archery.damtype or ammo.damtype or DamageType.PHYSICAL\n309: \tlocal mult = tg.archery.mult or 1\n310: \n311: \tself.turn_procs.weapon_type = {kind=weapon and weapon.talented or \"unknown\", mode=\"archery\"}\n312: \n313: \t-- Does the blow connect? yes .. complex :/\n314: \tif tg.archery.use_psi_archery then self:attr(\"use_psi_combat\", 1) end\n315: \tlocal atk, def = self:combatAttackRanged(weapon, ammo), target:combatDefenseRanged()\n316: \tlocal dam, apr, armor = self:combatDamage(weapon, nil, ammo), self:combatAPR(ammo) + (weapon and weapon.apr or 0), target:combatArmor()\n317: \tatk = atk + (tg.archery.atk or 0)\n318: \tdam = dam + (tg.archery.dam or 0)\n319: \tapr = apr + (tg.archery.apr or 0)\n320: \tprint(\"[ATTACK ARCHERY]\", self.__project_source and self.__project_source.uid,\" to \", target.name, \" :: \", dam, apr, armor, \"::\", mult)\n321: \n322: \t-- If hit is over 0 it connects, if it is 0 we still have 50% chance\n323: \tlocal hitted = false\n324: \tlocal crit = false\n325: \tlocal deflect = 0\n326: \tif self:checkHit(atk, def) and (self:canSee(target) or self:attr(\"blind_fight\") or rng.chance(3) or talent.archery_auto_hit) then\n327: \t\tprint(\"[ATTACK ARCHERY] raw dam\", dam, \"versus\", armor, \"with APR\", apr)\n328: \n329: \t\tlocal pres = util.bound(target:combatArmorHardiness() / 100, 0, 1)\n330: \t\t-- check if target deflects the blow (deflected blows cannot crit)"
+    },
+    {
+      "anchor_id": "a496",
+      "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "start": 270,
+      "end": 286,
+      "excerpt": "270: newEffect{\n271: \tname = \"BATTLE_CRY\", image = \"talents/battle_cry.png\",\n272: \tdesc = _t\"Battle Cry\",\n273: \tlong_desc = function(self, eff) return (\"The target's will to defend itself is shattered by the powerful battle cry, reducing defense by %d.\"):tformat(eff.power) end,\n274: \ttype = \"mental\",\n275: \tsubtype = { morale=true },\n276: \tstatus = \"detrimental\",\n277: \tparameters = { power=10 },\n278: \ton_gain = function(self, err) return _t\"#Target#'s will is shattered.\", _t\"+Battle Cry\" end,\n279: \ton_lose = function(self, err) return _t\"#Target# regains some of its will.\", _t\"-Battle Cry\" end,\n280: \tactivate = function(self, eff)\n281: \t\tself:effectTemporaryValue(eff, \"combat_def\", -eff.power)\n282: \t\tself:effectTemporaryValue(eff, \"no_evasion\", 1)\n283: \t\tself:effectTemporaryValue(eff, \"blind_fighted\", 1)\n284: \tend,\n285: }\n286: "
+    },
+    {
+      "anchor_id": "a497",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 504,
+      "end": 513,
+      "excerpt": "504: \n505: \tif repelled then\n506: \t\tself:logCombat(target, \"#Target# repels an attack from #Source#.\")\n507: \telseif self:checkEvasion(target) then\n508: \t\tevaded = true\n509: \t\tself:logCombat(target, \"#Target# evades #Source#.\")\n510: \telseif self.turn_procs.auto_melee_hit or (self:checkHit(atk, def) and (self:canSee(target) or self:attr(\"blind_fight\") or target:attr(\"blind_fighted\") or rng.chance(3))) then\n511: \t\tlocal pres = util.bound(target:combatArmorHardiness() / 100, 0, 1)\n512: \n513: \t\t-- Apply weapon damage range"
+    },
+    {
+      "anchor_id": "entry-769",
+      "public_path": "game/modules/tome/data/talents/techniques/warcries.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "fabb2618fcab9a25cce43473e048b2ab64d5c7f92cbd68b9bbeaa3b6799f3e3e",
+      "start": 102,
+      "end": 134,
+      "excerpt": "102: newTalent{\n103: \tname = \"Battle Cry\",\n104: \ttype = {\"technique/warcries\", 4},\n105: \trequire = techs_req_high4,\n106: \tpoints = 5,\n107: \tcooldown = 30,\n108: \tstamina = 40,\n109: \trange = 0,\n110: \tradius = function(self, t) return math.floor(self:combatTalentScale(t, 4, 8)) end,\n111: \ttarget = function(self, t)\n112: \t\treturn {type=\"cone\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), selffire=false}\n113: \tend,\n114: \trequires_target = true,\n115: \ttactical = { DISABLE = 2 },\n116: \taction = function(self, t)\n117: \t\tlocal tg = self:getTalentTarget(t)\n118: \t\tlocal x, y = self:getTarget(tg)\n119: \t\tif not x or not y then return nil end\n120: \t\tself:project(tg, x, y, function(px, py)\n121: \t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n122: \t\t\tif not target then return end\n123: \t\t\ttarget:setEffect(target.EFF_BATTLE_CRY, 7, {power=7 * self:getTalentLevel(t), apply_power=self:combatPhysicalpower()})\n124: \t\tend)\n125: \t\tgame.level.map:particleEmitter(self.x, self.y, self:getTalentRadius(t), \"directional_shout\", {life=12, size=5, tx=x-self.x, ty=y-self.y, distorion_factor=0.1, radius=self:getTalentRadius(t), nb_circles=8, rm=0.8, rM=1, gm=0.8, gM=1, bm=0.1, bM=0.2, am=0.6, aM=0.8})\n126: \t\treturn true\n127: \tend,\n128: \tinfo = function(self, t)\n129: \t\treturn ([[Your battle cry shatters the will of your foes within a radius of %d, lowering their Defense by %d for 7 turns, making them easier to hit.\n130: \t\tAll evasion and concealment bonuses are also disabled.\n131: \t\tThe chance to hit increases with your Physical Power.]]):\n132: \t\ttformat(self:getTalentRadius(t), 7 * self:getTalentLevel(t))\n133: \tend,\n134: }"
+    },
+    {
+      "anchor_id": "a522",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 2795,
+      "end": 2830,
+      "excerpt": "2795: \tif self:knowTalent(self.T_CLINCH) then\n2796: \t\tlocal t = self:getTalentFromId(self.T_CLINCH)\n2797: \t\tif self:knowTalent(self.T_CRUSHING_HOLD) then\n2798: \t\t\tlocal t2 = self:getTalentFromId(self.T_CRUSHING_HOLD)\n2799: \t\t\tgrappledParam = t2.getBonusEffects(self, t2) -- get the 4 bonus parameters first\n2800: \t\tend\n2801: \t\tlocal power = self:physicalCrit(t.getPower(self, t), nil, target, self:combatAttack(), target:combatDefense())\n2802: \t\tgrappledParam[\"power\"] = power -- damage/turn set by Clinch\n2803: \t\tduration = t.getDuration(self, t)\n2804: \n2805: \t\tgrappleParam[\"drain\"] = t.getDrain(self, t) -- stamina/turn set by Clinch\n2806: \t\tgrappleParam[\"sharePct\"] = t.getSharePct(self, t) -- damage shared with grappled set by Clinch\n2807: \n2808: \tend\n2809: \n2810: \tif grappledParam.silence == 1 and not target:canBe(\"silence\") then\n2811: \t\tgrappledParam.silence = 0\n2812: \tend\n2813: \tif grappledParam.slow == 1 and not target:canBe(\"slow\") then\n2814: \t\tgrappledParam.slow = 0\n2815: \tend\n2816: \t-- oh for the love of god why didn't I rewrite this entire structure\n2817: \tgrappledParam[\"src\"] = self\n2818: \tgrappledParam[\"apply_power\"] = self:combatPhysicalpower()\n2819: \t-- Breaks the grapple before reapplying\n2820: \tif self:hasEffect(self.EFF_GRAPPLING) then\n2821: \t\tself:removeEffect(self.EFF_GRAPPLING, true)\n2822: \t\ttarget:setEffect(target.EFF_GRAPPLED, duration, grappledParam, true)\n2823: \t\tself:setEffect(self.EFF_GRAPPLING, duration, grappleParam, true)\n2824: \t\treturn true\n2825: \telseif target:canBe(\"pin\") then\n2826: \t\ttarget:setEffect(target.EFF_GRAPPLED, duration, grappledParam)\n2827: \t\ttarget:crossTierEffect(target.EFF_GRAPPLED, self:combatPhysicalpower())\n2828: \t\tself:setEffect(self.EFF_GRAPPLING, duration, grappleParam)\n2829: \t\treturn true\n2830: \telse"
+    },
+    {
+      "anchor_id": "a523",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "start": 1456,
+      "end": 1478,
+      "excerpt": "1456: newEffect{\n1457: \tname = \"GRAPPLED\", image = \"talents/grab.png\",\n1458: \tdesc = _t\"Grappled\",\n1459: \tlong_desc = function(self, eff) return (\"The target is grappled, unable to move, and limited in its offensive capabilities.\\n#RED#%sPinned\\n%s\\n%s\\n%s#LAST#\"):tformat(eff.silence > 0 and _t\"Silenced\\n\" or \"\", (\"Physical power reduced by %d\"):tformat(math.ceil(eff.reduce)), (\"Slowed by %d%%\"):tformat(math.floor(eff.slow * 100)), (\"Damage per turn %d\"):tformat(math.ceil(eff.power))) end,\n1460: \ttype = \"physical\",\n1461: \tsubtype = { grapple=true, pin=true },\n1462: \tstatus = \"detrimental\",\n1463: \tparameters = {silence = 0, slow = 0, reduce = 1, power = 1},\n1464: \tremove_on_clone = true,\n1465: \ton_gain = function(self, err) return _t\"#Target# is grappled!\", _t\"+Grappled\" end,\n1466: \ton_lose = function(self, err) return _t\"#Target# is free from the grapple.\", _t\"-Grappled\" end,\n1467: \tactivate = function(self, eff)\n1468: \t\tif self:attr(\"never_move\") then self:effectTemporaryValue(eff, \"never_move_before_grapple\", 1) end  -- Flag for Hurricane Throw\n1469: \t\tself:effectTemporaryValue(eff, \"never_move\", 1)\n1470: \t\tself:effectTemporaryValue(eff, \"combat_dam\", -eff.reduce)\n1471: \t\tif (eff.silence > 0) then\n1472: \t\t\tself:effectTemporaryValue(eff, \"silence\", 1)\n1473: \t\tend\n1474: \t\tif (eff.slow > 0) then\n1475: \t\t\tself:effectTemporaryValue(eff, \"global_speed_add\", -eff.slow)\n1476: \t\tend\n1477: \t\tif core.shader.active() then\n1478: \t\t\tself:effectParticles(eff, {type=\"shader_shield\", args={toback=false, size_factor=1.5, img=\"grappled_debuff_tentacles\"}, shader={type=\"tentacles\", backgroundLayersCount=-4, appearTime=0.3, time_factor=1000, noup=0.0}})"
+    },
+    {
+      "anchor_id": "entry-732",
+      "public_path": "game/modules/tome/data/talents/techniques/grappling.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "673d746fc2eeec72962afaa52d4e00f644b3d855a0ebb749c30af2ac9ff752eb",
+      "start": 111,
+      "end": 151,
+      "excerpt": "111: newTalent{\n112: \tname = \"Crushing Hold\",\n113: \ttype = {\"technique/grappling\", 2},\n114: \trequire = techs_req2,\n115: \tmode = \"passive\",\n116: \tpoints = 5,\n117: \ttactical = { ATTACK = { PHYSICAL = 2 }, DISABLE = { silence = 2 } },\n118: \trequires_target = true,\n119: \tgetDamage = function(self, t) return self:combatTalentPhysicalDamage(t, 5, 50) * getUnarmedTrainingBonus(self) end, -- this function shouldn't be used any more but I left it in to be safe, Clinch now handles the damage\n120: \tgetSlow = function(self, t)\n121: \t\tif self:getTalentLevel(self.T_CRUSHING_HOLD) >= 5 then\n122: \t\t\treturn self:combatTalentPhysicalDamage(t, 0.05, 0.45)\n123: \t\telse\n124: \t\t\treturn 0\n125: \t\tend\n126: \tend,\n127: \tgetDamageReduction = function(self, t)\n128: \t\treturn self:combatTalentPhysicalDamage(t, 10, 30)\n129: \tend,\n130: \tgetSilence = function(self, t) -- this is a silence without an immunity check by design, if concerned about NPC use this is the talent to block\n131: \t\tif self:getTalentLevel(self.T_CRUSHING_HOLD) >= 3 then\n132: \t\t\treturn 1\n133: \t\telse\n134: \t\t\treturn 0\n135: \t\tend\n136: \tend,\n137: \tgetBonusEffects = function(self, t) -- used by startGrapple in Combat.lua, essentially merges these properties and the Clinch bonuses\n138: \t\treturn {silence = t.getSilence(self, t), slow = t.getSlow(self, t), reduce = t.getDamageReduction(self, t)}\n139: \tend,\n140: \tinfo = function(self, t)\n141: \t\tlocal reduction = t.getDamageReduction(self, t)\n142: \t\tlocal slow = t.getSlow(self, t)\n143: \n144: \t\treturn ([[Enhances your grapples with additional effects. All additional effects will apply to every grapple with no additional save or resist check.\n145: \t\t#RED#Talent Level 1:  Reduces physical power by %d\n146: \t\tTalent Level 3:  Silences\n147: \t\tTalent Level 5:  Reduces global action speed by %d%%]])\n148: \t\t:tformat(reduction, slow*100)\n149: \tend,\n150: }\n151: "
+    },
+    {
+      "anchor_id": "a543",
+      "public_path": "game/modules/tome/data/timed_effects/magical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "start": 2819,
+      "end": 2879,
+      "excerpt": "2819: \tname = \"IRRESISTIBLE_SUN\", image = \"talents/irresistible_sun.png\",\n2820: \tdesc = _t\"Irresistible Sun\",\n2821: \tlong_desc = function(self, eff) return (\"The target is attracting all toward it, also dealing fire, light and physical damage each turn..\"):tformat() end,\n2822: \ttype = \"magical\",\n2823: \tsubtype = { sun=true },\n2824: \tstatus = \"beneficial\",\n2825: \tparameters = {dam=100},\n2826: \ton_gain = function(self, err) return _t\"#Target# starts to attract all creatures around!\", _t\"+Irresistible Sun\" end,\n2827: \ton_lose = function(self, err) return _t\"#Target# is no longer attracting creatures.\", _t\"-Irresistible Sun\" end,\n2828: \tactivate = function(self, eff)\n2829: \t\tlocal particle = Particles.new(\"generic_vortex\", 5, {rm=230, rM=230, gm=20, gM=250, bm=250, bM=80, am=80, aM=150, radius=5, density=50})\n2830: \t\tif core.shader.allow(\"distort\") then particle:setSub(\"vortex_distort\", 5, {radius=5}) end\n2831: \t\teff.particle = self:addParticles(particle)\n2832: \tend,\n2833: \tdeactivate = function(self, eff)\n2834: \t\tself:removeParticles(eff.particle)\n2835: \tend,\n2836: \ton_timeout = function(self, eff)\n2837: \t\tlocal tgts = {}\n2838: \t\tself:project({type=\"ball\", range=0, friendlyfire=false, radius=5}, self.x, self.y, function(px, py)\n2839: \t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n2840: \t\t\tif not target then return end\n2841: \t\t\tif not tgts[target] then\n2842: \t\t\t\ttgts[target] = true\n2843: \t\t\t\tif not target:attr(\"ignore_irresistible_sun\") then\n2844: \t\t\t\t\tlocal ox, oy = target.x, target.y\n2845: \t\t\t\t\ttarget:pull(self.x, self.y, 1)\n2846: \t\t\t\t\tif target.x ~= ox or target.y ~= oy then\n2847: \t\t\t\t\t\tgame.logSeen(target, \"%s is pulled in!\", target:getName():capitalize())\n2848: \t\t\t\t\tend\n2849: \n2850: \t\t\t\t\tif self:reactionToward(target) < 0 then\n2851: \t\t\t\t\t\tlocal dam = eff.dam * (1 + (5 - core.fov.distance(self.x, self.y, target.x, target.y)) / 8)\n2852: \t\t\t\t\t\ttarget:setEffect(target.EFF_WEIGHT_OF_THE_SUN, 2, {reduce = 30, resists = self:attr(\"sun_paladin_avatar\")})  -- Quickly wears off when outside of AoE\n2853: \t\t\t\t\t\tDamageType:get(DamageType.FIRE).projector(self, target.x, target.y, DamageType.FIRE, dam/3)\n2854: \t\t\t\t\t\tDamageType:get(DamageType.LIGHT).projector(self, target.x, target.y, DamageType.LIGHT, dam/3)\n2855: \t\t\t\t\t\tDamageType:get(DamageType.PHYSICAL).projector(self, target.x, target.y, DamageType.PHYSICAL, dam/3)\n2856: \t\t\t\t\tend\n2857: \t\t\t\tend\n2858: \t\t\tend\n2859: \t\tend)\n2860: \tend,\n2861: }\n2862: \n2863: newEffect{\n2864: \tname = \"WEIGHT_OF_THE_SUN\", image = \"talents/irresistible_sun.png\",\n2865: \tdesc = _t\"Weight of the Sun\",\n2866: \tlong_desc = function(self, eff) return (\"The target is struggling against immense gravity, all damage it does is reduced by %d%%.%s\"):tformat(eff.reduce, eff.resists and _t\" Due to facing an Avatar of a Distant Sun, fire and light resistances are reduced to 0%.\" or \"\") end,\n2867: \ttype = \"magical\",\n2868: \tsubtype = { sun=true,},\n2869: \tstatus = \"detrimental\",\n2870: \tparameters = {reduce=5},\n2871: \ton_gain = function(self, err) return _t\"#Target# can barely stand!\", _t\"+Weight of the Sun\" end,\n2872: \ton_lose = function(self, err) return _t\"#Target# can move freely once more.\", _t\"-Weight of the Sun\" end,\n2873: \tactivate = function(self, eff)\n2874: \t\tself:effectTemporaryValue(eff, \"numbed\", eff.reduce)\n2875: \t\tif eff.resists then\n2876: \t\t\tself:effectTemporaryValue(eff, \"resists_cap\", {[DamageType.LIGHT]=-(self.resists_cap.all or 0)-(self.resists_cap.LIGHT or 0), [DamageType.FIRE]=-(self.resists_cap.all or 0)-(self.resists_cap.FIRE or 0)})\n2877: \t\tend\n2878: \tend,\n2879: }"
+    },
+    {
+      "anchor_id": "entry-780",
+      "public_path": "game/modules/tome/data/talents/uber/str.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "f9eb9c5960f2c4fcfa7fdaffb41ea0b0ba1c11d5111023d9668ddeeba8ff3004",
+      "start": 178,
+      "end": 325,
+      "excerpt": "178: \tcooldown = 25,\n179: \trequires_target = true,\n180: \trange = 5,\n181: \ttactical = { ATTACKAREA = {LIGHT = 2, FIRE = 2, PHYSICAL = 2}, CLOSEIN = 2 },\n182: \ttarget = {type=\"ball\", range=0, friendlyfire=false, radius=5},\n183: \trequire = { special={desc=_t\"Have dealt over 50000 light or fire damage\", fct=function(self) return\n184: \t\tself.damage_log and (\n185: \t\t\t(self.damage_log[DamageType.FIRE] and self.damage_log[DamageType.FIRE] >= 50000) or\n186: \t\t\t(self.damage_log[DamageType.LIGHT] and self.damage_log[DamageType.LIGHT] >= 50000)\n187: \t\t)\n188: \tend} },\n189: \taction = function(self, t)\n190: \t\tself:setEffect(self.EFF_IRRESISTIBLE_SUN, 8, {dam=35 + self:getStr() * 1.3})\n191: \t\treturn true\n192: \tend,\n193: \tinfo = function(self, t)\n194: \t\tlocal dam = (35 + self:getStr() * 1.3) / 3\n195: \t\treturn ([[For 8 turns you gain the mass and power of a star, drawing all creatures within radius 5 toward you and dealing %0.2f fire, %0.2f light and %0.2f physical damage to all foes and reducing their damage dealt by 30%%.\n196: \t\tFoes closer to you take up to 150%% damage.\n197: \t\tThe damage will increase with your Strength.]])\n198: \t\t:tformat(damDesc(self, DamageType.FIRE, dam), damDesc(self, DamageType.LIGHT, dam), damDesc(self, DamageType.PHYSICAL, dam))\n199: \tend,\n200: }\n201: \n202: uberTalent{\n203: \tname = \"I Can Carry The World!\", short_name = \"NO_FATIGUE\",\n204: \tmode = \"passive\",\n205: \trequire = { special={desc=_t\"Be able to use massive armours\", fct=function(self) return self:getTalentLevelRaw(self.T_ARMOUR_TRAINING) >= 3 end} },\n206: \ton_learn = function(self, t)\n207: \t\tself:attr(\"size_category\", 1)\n208: \t\tself:attr(\"max_encumber\", 500)\n209: \t\tself:incIncStat(self.STAT_STR, 50)\n210: \tend,\n211: \ton_unlearn = function(self, t)\n212: \t\tself:attr(\"size_category\", -1)\n213: \t\tself:attr(\"max_encumber\", -500)\n214: \t\tself:incIncStat(self.STAT_STR, -50)\n215: \tend,\n216: \tinfo = function(self, t)\n217: \t\treturn ([[Your strength is legendary; fatigue and physical exertion mean nothing to you.\n218: \t\tYour fatigue is permanently set to 0, carrying capacity increased by 500, and strength increased by 50 and you gain a size category.]])\n219: \t\t:tformat()\n220: \tend,\n221: }\n222: \n223: uberTalent{\n224: \tname = \"Legacy of the Naloren\",\n225: \tmode = \"passive\",\n226: \trequire = { special={desc=_t\"Have sided with Slasul and killed Ukllmswwik\", fct=function(self)\n227: \t\tif game.state.birth.ignore_prodigies_special_reqs then return true end\n228: \t\tlocal q = self:hasQuest(\"temple-of-creation\")\n229: \t\treturn q and not q:isCompleted(\"kill-slasul\") and q:isCompleted(\"kill-drake\")\n230: \tend} },\n231: \tcant_steal = true,\n232: \t-- _M:levelup function in mod.class.Actor.lua updates the talent levels with character level\n233: \tbonusLevel = function(self, t) return math.ceil(self.level/10) end,\n234: \tcallbackOnLevelup = function(self, t, new_level)\n235: \t\treturn t.updateTalent(self, t)\n236: \tend,\n237: \tupdateTalent = function(self, t)\n238: \t\tlocal p = self.talents_learn_vals[t.id] or {}\n239: \t\tif p.__tmpvals then\n240: \t\t\tfor i = 1, #p.__tmpvals do\n241: \t\t\t\tself:removeTemporaryValue(p.__tmpvals[i][1], p.__tmpvals[i][2])\n242: \t\t\tend\n243: \t\t\tp.__tmpvals = nil\n244: \t\tend\n245: \t\tself:talentTemporaryValue(p, \"can_breath\", {water = 1})\n246: \t\tself.__show_special_talents[self.T_EXOTIC_WEAPONS_MASTERY] = true\n247: \t\tself:talentTemporaryValue(p, \"talents_inc_cap\", {T_EXOTIC_WEAPONS_MASTERY=t.bonusLevel(self,t)})\n248: \t\tself:talentTemporaryValue(p, \"talents\", {T_EXOTIC_WEAPONS_MASTERY=t.bonusLevel(self,t)})\n249: \t\tself:talentTemporaryValue(p, \"talents_inc_cap\", {T_SPIT_POISON=t.bonusLevel(self,t)})\n250: \t\tself:talentTemporaryValue(p, \"talents\", {T_SPIT_POISON=t.bonusLevel(self,t)})\n251: \tend,\n252: \tpassives = function(self, t, p)\n253: \t\t-- talents_inc_cap field referenced by _M:getMaxTPoints in mod.dialogs.LevelupDialog.lua\n254: \t\tself.talents_inc_cap = self.talents_inc_cap or {}\n255: \t\tt.callbackOnLevelup(self, t)\n256: \tend,\n257: \ton_learn = function(self, t)\n258: \t\trequire(\"engine.ui.Dialog\"):simplePopup(_t\"Legacy of the Naloren\", _t\"Slasul will be happy to know your faith in his cause. You should return to speak to him.\")\n259: \tend,\n260: \tinfo = function(self, t)\n261: \t\tlocal level = t.bonusLevel(self,t)\n262: \t\treturn ([[You have sided with Slasul and helped him vanquish Ukllmswwik. You are now able to breathe underwater with ease.\n263: \t\tYou have also learned to use tridents and other exotic weapons easily (talent level %d of Exotic Weapon Mastery), and can Spit Poison (talent level %d) as nagas do. These are bonus talent levels that increase with your character level.\n264: \t\tIn addition, should Slasul still live, he may have a further reward for you as thanks...]])\n265: \t\t:tformat(level, level)\n266: \tend,\n267: }\n268: \n269: uberTalent{\n270: \tname = \"Superpower\",\n271: \tmode = \"passive\",\n272: \tinfo = function(self, t)\n273: \t\treturn ([[A strong body is key to a strong mind, and a strong mind can be powerful enough to make a strong body.\n274: \t\tThis prodigy grants a Mindpower bonus equal to 60%% of your Strength.\n275: \t\tAdditionally, you treat all weapons as having an additional 40%% Willpower modifier.]])\n276: \t\t:tformat()\n277: \tend,\n278: }\n279: \n280: \n281: uberTalent{\n282: \tname = \"Avatar of a Distant Sun\",\n283: \trequire = {\n284: \t\tbirth_descriptors={{\"subclass\", \"Sun Paladin\"}},\n285: \t\tspecial={desc=_t\"Unlocked the evolution\", fct=function(self) return profile.mod.allow_build.paladin_avatar end},\n286: \t\tspecial2={desc=_t\"Found a distant patron\", fct=function(self) return not self:attr(\"pissed_of_distant_sun\") end},\n287: \t\tstat = {mag=25},\n288: \t\ttalent = {\"T_SUN_VENGEANCE\", \"T_WEAPON_OF_LIGHT\", \"T_SEARING_SIGHT\", \"T_JUDGEMENT\"},\n289: \t},\n290: \tis_class_evolution = \"Sun Paladin\",\n291: \tcant_steal = true,\n292: \tmode = \"passive\",\n293: \tbecomeAvatar = function(self, t)\n294: \t\tself.descriptor.class_evolution = _t\"Avatar of a Distant Sun\"\n295: \n296: \t\tself:attr(\"sun_paladin_avatar\", 1)\n297: \t\tself:attr(\"allow_mainhand_2h_in_1h\", 1)\n298: \t\tself:attr(\"allow_mainhand_2h_in_1h_no_penalty\", 1)\n299: \t\tself:addTemporaryValue(\"all_damage_convert\", DamageType.LIGHT)\n300: \t\tself:addTemporaryValue(\"all_damage_convert_percent\", 50)\n301: \t\tself:learnTalent(self.T_GRAVITIC_EFFULGENCE, true)\n302: \t\tgame.level.map:particleEmitter(self.x, self.y, 5, \"sunburst\", {radius=5, max_alpha=80})\n303: \tend,\n304: \ton_learn = function(self, t, kind)\n305: \t\tif not game.party:hasMember(self) then return end\n306: \t\tlocal Chat = require \"engine.Chat\"\n307: \t\tlocal chat = Chat.new(\"avatar-distant-sun\", {name=_t\"Distant Sun\", image=\"talents/avatar_of_a_distant_sun.png\"}, self)\n308: \t\tchat:invoke()\n309: \tend,\n310: \tinfo = function(self, t)\n311: \t\treturn ([[During your studies of celestial forces you came in contact with an entity far beyond Eyal: the living incarnation of a Star!\n312: \t\tBy allying yourself with it you can gain its power!\n313: \n314: \t\tGrants multiple benefits:\n315: \t\t- The strength of your bond is so strong that you can now #GOLD#wield a two-handed weapon and a shield together#LAST#\n316: \t\t- 50%% of all damage you deal is converted to #GOLD#light damage#LAST#\n317: \t\t- #GOLD#Gravitic Effulgence#LAST#: whenever your Weapon of Light hits the damage is now a radius 2 sphere and all foes in range 5 are drawn to it. (You can toggle this effect)\n318: \t\t- The damage and chance to trigger of #GOLD#Searing Sight#LAST# is doubled\n319: \t\t- Whenever #GOLD#Sun's Vengeance#LAST# triggers the remaining cooldown of Judgement is reduced by 6.\n320: \t\t- If you also know #GOLD#Irresistible Sun#LAST#, it will set the fire and light resistances of those affected to 0%%\n321: \n322: \t\t#{italic}##GOLD#Will you bind yourself to the Distant Sun?#{normal}#\n323: \t\t]]):tformat()\n324: \tend,\n325: }"
+    },
+    {
+      "anchor_id": "a554",
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 2841,
+      "end": 2846,
+      "excerpt": "2841: \tif value <= 0 then return 0 end\n2842: \t-- VITALITY?\n2843: \tif self:knowTalent(self.T_VITALITY) and self.life > self.max_life /2 and self.life - value <= self.max_life/2 then\n2844: \t\tlocal t = self:getTalentFromId(self.T_VITALITY)\n2845: \t\tt.do_vitality_recovery(self, t)\n2846: \tend"
+    },
+    {
+      "anchor_id": "a555",
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 7708,
+      "end": 7711,
+      "excerpt": "7708: \tif self:knowTalent(self.T_VITALITY) and e.status == \"detrimental\" and (e.subtype.wound or e.subtype.poison or e.subtype.disease) then\n7709: \t\tlocal t = self:getTalentFromId(self.T_VITALITY)\n7710: \t\tp.dur = math.ceil(p.dur * (1 - util.bound(t.getWoundReduction(self, t), 0, 1)))\n7711: \tend"
+    },
+    {
+      "anchor_id": "entry-728",
+      "public_path": "game/modules/tome/data/talents/techniques/conditioning.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "7942d057c4bcaeb11335c86204628b825477a15c985290736de2b1e61666c799",
+      "start": 20,
+      "end": 49,
+      "excerpt": "20: newTalent{\n21: \tname = \"Vitality\",\n22: \ttype = {\"technique/conditioning\", 1},\n23: \trequire = techs_con_req1,\n24: \tmode = \"passive\",\n25: \tpoints = 5,\n26: \tcooldown = 15,\n27: \tgetHealValues = function(self, t)\n28: \t\treturn self:combatTalentStatDamage(t, \"con\", 1, 200)\n29: \tend,\n30: \tgetWoundReduction = function(self, t) return self:combatTalentLimit(t, 0.6, 0.225, 0.5) end, -- Limit <60%%\n31: \tgetDuration = function(self, t) return 8 end,\n32: \tdo_vitality_recovery = function(self, t)\n33: \t\tif self:isTalentCoolingDown(t) then return end\n34: \t\tlocal baseheal = t.getHealValues(self, t)\n35: \t\tself:setEffect(self.EFF_RECOVERY, t.getDuration(self, t), {regen = baseheal})\n36: \t\tself:startTalentCooldown(t)\n37: \tend,\n38: \tinfo = function(self, t)\n39: \t\tlocal wounds = t.getWoundReduction(self, t) * 100\n40: \t\tlocal baseheal = t.getHealValues(self, t)\n41: \t\tlocal duration = t.getDuration(self, t)\n42: \t\tlocal totalheal = baseheal\n43: \t\treturn ([[You recover faster from poisons, diseases and wounds, reducing the duration of all such effects by %d%%.  \n44: \t\t\tWhenever your life falls below 50%%, your life regeneration increases by %0.1f for %d turns (%d total). This effect can only happen once every %d turns.\n45: \t\tThe regeneration scales with your Constitution.]]):\n46: \t\ttformat(wounds, baseheal, duration, baseheal*duration, self:getTalentCooldown(t))\n47: \tend,\n48: }\n49: "
+    },
+    {
+      "anchor_id": "a730",
+      "public_path": "game/modules/tome/data/talents/techniques/archery.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "4c26268cd967d35171d9854350db863fa31306bb2c90ae324ed7dfad644f11ea",
+      "start": 55,
+      "end": 78,
+      "excerpt": "55: \t\t\tend\n56: \t\tend\n57: \t\tif target:hasEffect(target.EFF_PIN_DOWN) then self.turn_procs.auto_phys_crit = true end\n58: \tend,\n59: \tarchery_onmiss = function(self, talent, target, x, y)\n60: \t\tif target:hasEffect(target.EFF_PIN_DOWN) then self.turn_procs.auto_phys_crit = nil end\n61: \t\tif self.mark_steady then self.mark_steady = nil end\n62: \tend,\n63: \tarchery_onhit = function(self, t, target, x, y)\n64: \t\tif self:knowTalent(self.T_MASTER_MARKSMAN) or self.mark_steady then\n65: \t\t\tlocal chance = (self:knowTalent(self.T_MASTER_MARKSMAN) and 15 or 0) + (self.mark_steady or 0)\n66: \t\t\tif self:hasEffect(self.EFF_TRUESHOT) then chance = chance + (chance * self:callTalent(self.T_TRUESHOT, \"getMarkChance\")/100) end\n67: \t\t\tif self:isTalentActive(self.T_AIM) then\t\n68: \t\t\t\tchance = chance + self:callTalent(self.T_AIM, \"getMarkChance\") \n69: \t\t\tend\n70: \t\t\tif target:hasEffect(target.EFF_PIN_DOWN) then \n71: \t\t\t\tlocal eff = target:hasEffect(target.EFF_PIN_DOWN)\n72: \t\t\t\tchance = 100\n73: \t\t\t\tself.turn_procs.auto_phys_crit = nil\n74: \t\t\t\ttarget:removeEffect(target.EFF_PIN_DOWN)\n75: \t\t\tend\n76: \t\t\tif self.turn_procs.first_blood_shoot then chance = chance + 50 end\n77: \t\t\tif rng.percent(chance) then target:setEffect(target.EFF_MARKED, 5, {src=self}) end\n78: \t\tend"
+    },
+    {
+      "anchor_id": "entry-729",
+      "public_path": "game/modules/tome/data/talents/techniques/dualweapon.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "aa6d54f5e30aa27c881120dee2c47a5e24b69e556442ac0958275e387972493d",
+      "start": 155,
+      "end": 214,
+      "excerpt": "155: newTalent{\n156: \tname = \"Offhand Jab\",\n157: \ttype = {\"technique/dualweapon-training\", 3},\n158: \timage = \"talents/golem_crush.png\",\n159: \tpoints = 5,\n160: \trandom_ego = \"attack\",\n161: \tcooldown = 6,\n162: \tstamina = 5,\n163: \trequire = techs_dex_req3,\n164: \trequires_target = true,\n165: \ttactical = { ATTACK = { weapon = 2 }, DISABLE = { confusion = 1.5 } },\n166: \ton_pre_use = function(self, t, silent) if not self:hasDualWeapon() then if not silent then game.logPlayer(self, \"You require two weapons to use this talent.\") end return false end return true end,\n167: \tgetDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1, 1.5) end,\n168: \tgetConfusePower = function(self, t) return self:combatTalentLimit(t, 50, 25, 40) end,\n169: \tgetConfuseDuration = function(self, t) return math.floor(self:combatTalentScale(t, 2, 4)) end,\n170: \ton_learn = function(self, t)\n171: \t\tself:attr(\"show_gloves_combat\", 1)\n172: \tend,\n173: \ton_unlearn = function(self, t)\n174: \t\tself:attr(\"show_gloves_combat\", -1)\n175: \tend,\n176: \taction = function(self, t)\n177: \t\tlocal weapon, offweapon = self:hasDualWeapon()\n178: \t\tif not weapon then\n179: \t\t\tgame.logPlayer(self, \"You must dual wield to perform an Offhand Jab!\")\n180: \t\t\treturn nil\n181: \t\tend\n182: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t)}\n183: \t\tlocal x, y, target = self:getTarget(tg)\n184: \t\tif not x or not y or not target then return nil end\n185: \t\tif core.fov.distance(self.x, self.y, x, y) > 1 then return nil end\n186: \t\t\n187: \t\tlocal dam_mult = t.getDamage(self, t)\n188: \n189: \t\t-- First attack with mainhand\n190: \t\tlocal speed, hit = self:attackTargetWith(target, weapon.combat, nil, dam_mult)\n191: \n192: \t\t-- Then attack unarmed\n193: \t\tspeed, hit = self:attackTargetWith(target, self:getObjectCombat(nil, \"barehand\"), nil, dam_mult+1.25)\n194: \t\tif hit then\n195: \t\t\tif target:canBe(\"confusion\") then\n196: \t\t\t\ttarget:setEffect(target.EFF_CONFUSED, t.getConfuseDuration(self, t), {apply_power=self:combatAttack(), power=t.getConfusePower(self, t)})\n197: \t\t\telse\n198: \t\t\t\tgame.logSeen(target, \"%s resists the surprise strike!\", target:getName():capitalize())\n199: \t\t\tend\n200: \t\tend\n201: \t\treturn true\n202: \tend,\n203: \tinfo = function(self, t)\n204: \t\tlocal dam = 100 * t.getDamage(self, t)\n205: \t\treturn ([[With a quick shift of your momentum, you execute a surprise unarmed strike in place of your normal offhand attack.\n206: \t\tThis allows you to attack with your mainhand weapon for %d%% damage and unarmed for %d%% damage.  If the unarmed attack hits, the target is confused (%d%% power) for %d turns.\n207: \t\tThe chance to confuse increases with your Accuracy.]])\n208: \t\t:tformat(dam, dam*1.25, t.getConfusePower(self, t), t.getConfuseDuration(self, t))\n209: \tend,\n210: }\n211: \n212: ------------------------------------------------------\n213: -- Primary Attacks\n214: ------------------------------------------------------"
+    },
+    {
+      "anchor_id": "a732",
+      "public_path": "game/modules/tome/data/talents/techniques/munitions.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "6675712c498b0de1bd51049059d7459f7d275c755c9bb9cfb4caed9f69536aa6",
+      "start": 74,
+      "end": 273,
+      "excerpt": "74: newTalent{\n75: \tname = \"Incendiary Ammunition\",\n76: \ttype = {\"technique/other\", 1},\n77: \tmode = \"sustained\",\n78: \tno_energy = true,\n79: \tsustain_stamina = 12,\n80: \tcooldown = 10,\n81: \ttactical = { BUFF = 2 },\n82: \tpoints = 5,\n83: \tgetIncendiaryDamage = function(self, t) return self:callTalent(self.T_EXOTIC_MUNITIONS, \"getIncendiaryDamage\") end,\n84: \tradius = function(self, t)\n85: \t\tif self:knowTalent(self.T_ENHANCED_MUNITIONS) and not self:isTalentCoolingDown(self.T_ENHANCED_MUNITIONS) then\n86: \t\t\treturn self:callTalent(self.T_EXOTIC_MUNITIONS, \"getIncendiaryRadius\") + 1 \n87: \t\telse\n88: \t\t\treturn self:callTalent(self.T_EXOTIC_MUNITIONS, \"getIncendiaryRadius\") \n89: \t\tend\n90: \tend,\n91: \ttarget = function(self, t)\n92: \t\treturn {type=\"ball\", range=100, radius=self:getTalentRadius(t), talent=t, friendlyfire=false}\n93: \tend,\n94: \tactivate = function(self, t)\n95: \t\tcancelAmmo(self)\n96: \t\tlocal ret = {}\n97: \t\tif self:knowTalent(self.T_ALLOYED_MUNITIONS) then\n98: \t\t\tlocal t2 = self:getTalentFromId(self.T_ALLOYED_MUNITIONS)\n99: \t\t\tself:talentTemporaryValue(ret, \"resists_pen\", {[DamageType.PHYSICAL] = t2.getResistPenalty(self, t2), [DamageType.FIRE] = t2.getResistPenalty(self, t2)})\n100: \t\tend\n101: \t\treturn ret\n102: \tend,\n103: \tdeactivate = function(self, t, p)\n104: \t\treturn true\n105: \tend,\n106: \tcallbackOnArcheryAttack = function(self, t, target, hitted)\n107: \t\tif hitted and not self.turn_procs.explosive_ammunition then\n108: \t\t\tself.turn_procs.explosive_ammunition = true\n109: \t\t\tlocal tg = self:getTalentTarget(t)\n110: \t\t\t\n111: \t\t\tif self:knowTalent(self.T_ENHANCED_MUNITIONS) then\n112: \t\t\t\tlocal t2 = self:getTalentFromId(self.T_ENHANCED_MUNITIONS)\n113: \t\t\t\tif not self:isTalentCoolingDown(t2) then \n114: \t\t\t\t\tgame.level.map:addEffect(self,\n115: \t\t\t\t\t\ttarget.x, target.y, 3,\n116: \t\t\t\t\t\tengine.DamageType.FIRE, t2.getFireDamage(self,t2),\n117: \t\t\t\t\t\tself:getTalentRadius(t),\n118: \t\t\t\t\t\t5, nil,\n119: \t\t\t\t\t\t{type=\"inferno\"},\n120: \t\t\t\t\t\tnil, false\n121: \t\t\t\t\t)\n122: \t\t\t\tself:startTalentCooldown(t2)\n123: \t\t\t\tend\n124: \t\t\tend\n125: \t\t\t\n126: \t\t\tlocal sw = self:getInven(\"QUIVER\")\n127: \t\t\tif sw then\n128: \t\t\t\tsw = sw[1] and sw[1].combat\n129: \t\t\tend\n130: \t\t\tsw = sw or self.combat\n131: \t\t\tlocal dam = self:combatDamage(sw)\n132: \t\t\tlocal dam = self:combatDamage(sw)\n133: \t\t\tlocal damrange = self:combatDamageRange(sw)\n134: \t\t\tdam = rng.range(dam, dam * damrange)\n135: \t\t\tdam = dam * t.getIncendiaryDamage(self,t)\n136: \t\t\t\n137: \t\t\tif self:knowTalent(self.T_ALLOYED_MUNITIONS) then\n138: \t\t\t\tlocal t2 = self:getTalentFromId(self.T_ALLOYED_MUNITIONS)\n139: \t\t\t\tself:project(tg, target.x, target.y, function(px, py)\n140: \t\t\t\t\tDamageType:get(DamageType.FIRE_SUNDER).projector(self, px, py, DamageType.FIRE_SUNDER, {src=self, dam=dam, dur=3, power=t2.getArmorSaveReduction(self,t)})\n141: \t\t\t\tend)\n142: \t\t\telse\n143: \t\t\t\tself:project(tg, target.x, target.y, function(px, py)\n144: \t\t\t\t\tDamageType:get(DamageType.FIRE).projector(self, px, py, DamageType.FIRE, dam)\n145: \t\t\t\tend)\n146: \t\t\tend\n147: \n148: \n149: \t\tend\n150: \tend,\n151: \tinfo = function(self, t)\n152: \t\tlocal damage = t.getIncendiaryDamage(self, t)*100\n153: \t\tlocal radius = self:getTalentRadius(t)\n154: \t\treturn ([[Load incendiary ammunition, causing attacks to deal an additional %d%% weapon damage as fire in a radius %d ball around your target. \n155: \t\tThis cannot trigger more than once per turn.\n156: \t\tThe damage will scale with your Physical Power.]]):tformat(damage, radius)\n157: \tend,\n158: }\n159: \n160: newTalent{\n161: \tname = \"Venomous Ammunition\",\n162: \ttype = {\"technique/other\", 1},\n163: \tmode = \"sustained\",\n164: \tno_energy = true,\n165: \tsustain_stamina = 12,\n166: \tcooldown = 10,\n167: \ttactical = { BUFF = 2 },\n168: \tpoints = 5,\n169: \trange = 10,\n170: \tgetPoisonDamage = function(self, t) return self:callTalent(self.T_EXOTIC_MUNITIONS, \"getPoisonDamage\") end,\n171: \tgetNumb = function(self, t) return self:callTalent(self.T_EXOTIC_MUNITIONS, \"getNumb\") end,\n172: \tactivate = function(self, t)\n173: \t\tcancelAmmo(self)\n174: \t\treturn {}\n175: \tend,\n176: \tdeactivate = function(self, t, p)\n177: \t\treturn true\n178: \tend,\n179: \tcallbackOnArcheryAttack = function(self, t, target, hitted)\n180: \t\tif hitted then\n181: \t\t\tself:project({type=\"hit\", range=100}, target.x, target.y, DamageType.NATURE, t.getPoisonDamage(self,t)/5)\n182: \t\t\tif self.turn_procs.venomous_ammunition or not self:knowTalent(self.T_ALLOYED_MUNITIONS) and target:canBe(\"poison\") then\n183: \t\t\t\ttarget:setEffect(target.EFF_NUMBING_POISON, 5, {src=self, power=t.getPoisonDamage(self,t)/5, reduce=t.getNumb(self,t)})\n184: \t\t\tend\n185: \t\t\tif self:knowTalent(self.T_ENHANCED_MUNITIONS) then\n186: \t\t\t\tlocal t = self:getTalentFromId(self.T_ENHANCED_MUNITIONS)\n187: \t\t\t\tif not self:isTalentCoolingDown(t) and target:canBe(\"poison\") then \n188: \t\t\t\t\ttarget:setEffect(target.EFF_LEECHING_POISON, 3, {src=self, power=t.getPoisonDamage(self,t)/3, apply_power=self:combatAttack(), no_ct_effect=true})\n189: \t\t\t\t\tself:startTalentCooldown(t)\n190: \t\t\t\tend\n191: \t\t\tend\n192: \t\t\tif not self.turn_procs.venomous_ammunition and self:knowTalent(self.T_ALLOYED_MUNITIONS) then\n193: \t\t\t\tself.turn_procs.venomous_ammunition = true\n194: \t\t\t\tlocal t2 = self:getTalentFromId(self.T_ALLOYED_MUNITIONS)\n195: \t\t\t\tlocal tg = {type=\"ball\", range=100, radius=1, talent=t, friendlyfire=false}\n196: \t\t\t\t\n197: \t\t\t\t\t\t\t\n198: \t\t\t\tlocal sw = self:getInven(\"QUIVER\")\n199: \t\t\t\tif sw then\n200: \t\t\t\t\tsw = sw[1] and sw[1].combat\n201: \t\t\t\tend\n202: \t\t\t\tsw = sw or self.combat\n203: \t\t\t\tlocal dam = self:combatDamage(sw)\n204: \t\t\t\tlocal damrange = self:combatDamageRange(sw)\n205: \t\t\t\tdam = rng.range(dam, dam * damrange)\n206: \t\t\t\tdam = dam * t2.getPoisonDamage(self,t2)\n207: \t\t\t\t\n208: \t\t\t\tself:project(tg, target.x, target.y, function(px, py)\n209: \t\t\t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n210: \t\t\t\t\tDamageType:get(DamageType.NATURE).projector(self, px, py, DamageType.NATURE, dam)\n211: \t\t\t\t\tif target and target:canBe(\"poison\") then target:setEffect(target.EFF_NUMBING_POISON, 5, {src=self, power=t.getPoisonDamage(self,t)/5, reduce=t.getNumb(self,t)}) end\n212: \t\t\t\tend)\n213: \t\t\tend\n214: \t\tend\n215: \tend,\n216: \tinfo = function(self, t)\n217: \t\tlocal damage = t.getPoisonDamage(self, t)\n218: \t\tlocal numb = t.getNumb(self,t)\n219: \t\treturn ([[Load venomous ammunition, causing ranged attacks to deal %0.2f nature damage and inflict numbing poison, dealing %0.2f nature damage over 5 turns and reducing all damage dealt by %d%%. \n220: \t\tThe damage will scale with your Physical Power.]]):tformat(damDesc(self, DamageType.NATURE, damage/5), damDesc(self, DamageType.NATURE, damage), numb)\n221: \tend,\n222: }\n223: \n224: newTalent{\n225: \tname = \"Piercing Ammunition\",\n226: \ttype = {\"technique/other\", 1},\n227: \tmode = \"sustained\",\n228: \tno_energy = true,\n229: \tsustain_stamina = 12,\n230: \tcooldown = 10,\n231: \ttactical = { BUFF = 2 },\n232: \tpoints = 5,\n233: \tradius = 1,\n234: \trange = 10,\n235: \tgetArmorSaveReduction = function(self, t) return self:callTalent(self.T_EXOTIC_MUNITIONS, \"getArmorSaveReduction\") end,\n236: \tgetResistPenalty = function(self, t) return self:callTalent(self.T_EXOTIC_MUNITIONS, \"getResistPenalty\") end,\n237: \ttarget = function(self, t)\n238: \t\treturn {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), talent=t, friendlyfire=false}\n239: \tend,\n240: \tactivate = function(self, t)\n241: \t\tcancelAmmo(self)\n242: \t\treturn {\n243: \t\t\tresist = self:addTemporaryValue(\"resists_pen\", {[DamageType.PHYSICAL] = t.getResistPenalty(self, t)}),\n244: \t\t}\n245: \tend,\n246: \tdeactivate = function(self, t, p)\n247: \t\tself:removeTemporaryValue(\"resists_pen\", p.resist)\n248: \t\treturn true\n249: \tend,\n250: \tcallbackOnArcheryAttack = function(self, t, target, hitted)\n251: \t\tif hitted then\n252: \t\t\ttarget:setEffect(target.EFF_SUNDER_ARMOUR, 3, {src=self, power=t.getArmorSaveReduction(self,t)})\n253: \t\t\tif self:knowTalent(self.T_ENHANCED_MUNITIONS) then\n254: \t\t\t\tlocal t = self:getTalentFromId(self.T_ENHANCED_MUNITIONS)\n255: \t\t\t\tif not self:isTalentCoolingDown(t) then \n256: \t\t\t\t\ttarget:setEffect(target.EFF_PUNCTURED_ARMOUR, 3, {src=self, power=t.getResistPenalty(self,t), apply_power=self:combatAttack(), no_ct_effect=true})\n257: \t\t\t\t\tself:startTalentCooldown(t)\n258: \t\t\t\tend\n259: \t\t\tend\n260: \t\t\tif self:knowTalent(self.T_ALLOYED_MUNITIONS) then\n261: \t\t\t\tlocal t2 = self:getTalentFromId(self.T_ALLOYED_MUNITIONS)\n262: \t\t\t\tself:project({type=\"hit\", range=100}, target.x, target.y, DamageType.PHYSICAL, t2.getPhysicalDamage(self,t2)/5)\n263: \t\t\t\ttarget:setEffect(target.EFF_MAIM, 5, {src=self, power=t2.getPhysicalDamage(self,t2)/5, reduce=t2.getNumb(self,t2)})\n264: \t\t\tend\n265: \t\tend\n266: \tend,\n267: \tinfo = function(self, t)\n268: \t\tlocal reduce = t.getArmorSaveReduction(self, t)\n269: \t\tlocal resist = t.getResistPenalty(self,t)\n270: \t\treturn ([[Load piercing ammunition, causing attacks to reduce the target's armor and saves by %d for 3 turns, and increasing your physical penetration by %d%%.\n271: \t\tThe armor and save reduction will scale with your Physical Power.]]):tformat(reduce, resist)\n272: \tend,\n273: }"
+    },
+    {
+      "anchor_id": "a734",
+      "public_path": "game/modules/tome/data/timed_effects/other.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0ebac2cda64f72fb4e94460bac4560b2b541db31e392aa521cc2caccf44818f7",
+      "start": 3525,
+      "end": 3553,
+      "excerpt": "3525: newEffect{\n3526: \tname = \"TOUCH_OF_DEATH\", image = \"talents/touch_of_death.png\",\n3527: \tdesc = _t\"Touch of Death\",\n3528: \tlong_desc = function(self, eff) return (\"The target is taking %0.2f physical damage each turn. If they die while under this effect, they will explode!\"):tformat(eff.dam) end,\n3529: \ttype = \"other\", --extending this would be very bad\n3530: \tsubtype = {  },\n3531: \tstatus = \"detrimental\",\n3532: \tparameters = { dur=4, dam=10, radius=1, combo=1 },\n3533: \ton_gain = function(self, err) return _t\"#Target# is mortally wounded!\", _t\"+Touch of Death!\" end,\n3534: \ton_lose = function(self, err) return _t\"#Target# overcomes the touch of death.\", _t\"-Touch of Death\" end,\n3535: \tactivate = function(self, eff)\n3536: \tend,\n3537: \tdeactivate = function(self, eff)\n3538: \tend,\n3539: \ton_timeout = function(self, eff)\n3540: \t\tDamageType:get(DamageType.PHYSICAL).projector(eff.src or self, self.x, self.y, DamageType.PHYSICAL, eff.dam)\n3541: \t\teff.dam = eff.dam * (1 + eff.mult)\n3542: \tend,\n3543: \ton_die = function(self, eff)\n3544: \t\teff.src:buildCombo()\n3545: \t\teff.src:buildCombo()\n3546: \t\teff.src:buildCombo()\n3547: \t\teff.src:buildCombo()\n3548: \t\tlocal tg = {type=\"ball\", radius=eff.radius, selffire=false, friendlyfire=false, x=self.x, y=self.y}\n3549: \t\tlocal dam = eff.dam\n3550: \t\teff.src:project(tg, self.x, self.y, DamageType.PHYSICAL, dam, {type=\"bones\"})\n3551: \t\tgame.logSeen(eff.src, \"#LIGHT_RED#%s explodes into a shower of gore!\", self:getName():capitalize())\n3552: \t\tself:removeEffect(self.EFF_TOUCH_OF_DEATH)\n3553: \tend,"
+    },
+    {
+      "anchor_id": "a736",
+      "public_path": "game/modules/tome/class/interface/Archery.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "09fdce1e839d74e1a5bd65a1432f044a3811ecc5618dbecc828e33738963c0fe",
+      "start": 389,
+      "end": 394,
+      "excerpt": "389: \t\tif self and dam > 0 and self.knowTalent and self:isTalentActive(self.T_AIM) and self.__CLASSNAME ~= \"mod.class.Grid\" then\n390: \t\t\tlocal dist = math.min(math.max(0, core.fov.distance(self.x, self.y, target.x, target.y) - 3),8)\n391: \t\t\tif dist > 0 then \n392: \t\t\t\tlocal dammult = self:callTalent(self.T_AIM, \"getDamage\") * dist \n393: \t\t\t\tdam = dam * (1 + (dammult/100))\n394: \t\t\tend"
+    },
+    {
+      "anchor_id": "entry-745",
+      "public_path": "game/modules/tome/data/talents/techniques/munitions.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "6675712c498b0de1bd51049059d7459f7d275c755c9bb9cfb4caed9f69536aa6",
+      "start": 422,
+      "end": 448,
+      "excerpt": "422: newTalent{\n423: \tname = \"Alloyed Munitions\",\n424: \ttype = {\"technique/munitions\", 4},\n425: \tpoints = 5,\n426: \tmode = \"passive\",\n427: \trequire = techs_dex_req_high4,\n428: \tgetPoisonDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.1, 0.4) end,\n429: \tgetPoisonRadius = function(self, t) if self:getTalentLevel(t)>=3 then return 2 else return 1 end end,\n430: \tgetPhysicalDamage = function(self, t) return self:combatTalentPhysicalDamage(t, 20, 180) end,\n431: \tgetNumb = function(self, t) return 5 + self:combatTalentLimit(t, 25, 5, 15) end,\n432: \tgetArmorSaveReduction = function(self, t) return self:combatTalentLimit(t, 30, 5, 25, 0.75) end,\n433: \tgetResistPenalty = function(self, t) return self:combatTalentLimit(t, 35, 10, 25, true) end,\n434: \tinfo = function(self, t)\n435: \t\tlocal poison = t.getPoisonDamage(self,t)*100\n436: \t\tlocal radius = t.getPoisonRadius(self,t)\n437: \t\tlocal bleed = t.getPhysicalDamage(self,t)\n438: \t\tlocal numb = t.getNumb(self,t)\n439: \t\tlocal armor = t.getArmorSaveReduction(self,t)\n440: \t\tlocal resist = t.getResistPenalty(self,t)\n441: \t\treturn ([[You mix together your munitions, leading to powerful new effects:\n442: Incendiary - Targets struck by the explosion have their armor and saves reduced by %d for 3 turns, and your physical and fire penetration is increased by %d%%.\n443: Venomous - Shots deal an additional %d%% weapon damage as nature in a radius %d ball, which applies numbing poison as per Exotic Munitions. This cannot occur more than once per turn.\n444: Piercing - Shots deal %0.2f physical damage and maim the target, bleeding them for a further %0.2f physical damage over 5 turns and reducing all damage dealt by %d%%.\n445: The physical damage dealt, armor penetration and save reduction will increase with your Physical Power.]]):\n446: \t\ttformat(armor, resist, poison, radius, bleed/5, bleed, numb)\n447: \tend,\n448: }"
+    },
+    {
+      "anchor_id": "entry-751",
+      "public_path": "game/modules/tome/data/talents/techniques/sniper.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "a336f99b204e4ef9e0296664ff77a170c41849d9519d7997ae318b32855046b9",
+      "start": 153,
+      "end": 200,
+      "excerpt": "153: newTalent{\n154: \tname = \"Aim\",\n155: \ttype = {\"technique/sniper\", 3},\n156: \tmode = \"sustained\",\n157: \tpoints = 5,\n158: \trequire = techs_dex_req_high3,\n159: \tcooldown = 30,\n160: \tsustain_stamina = 50,\n161: \ttactical = { BUFF = 2 },\n162: \ton_pre_use = function(self, t, silent) return archerPreUse(self, t, silent, \"bow\") end,\n163: \tgetPower = function(self, t)  return self:combatTalentStatDamage(t, \"dex\", 15, 50) end,\n164: \tgetSpeed = function(self, t) return math.floor(self:combatTalentLimit(t, 150, 55, 115)) end,\n165: \tgetDamage = function(self, t) return self:combatTalentLimit(t, 8.0, 2.0, 4.5) end,\n166: \tgetMarkChance = function(self, t) return math.floor(self:combatTalentScale(t, 2, 10)) end,\n167: \tsustain_slots = 'archery_stance',\n168: \tactivate = function(self, t)\n169: \n170: \t\tlocal power = t.getPower(self,t)\n171: \t\tlocal speed = t.getSpeed(self,t)\n172: \t\tlocal ret = {\n173: \t\t\tatk = self:addTemporaryValue(\"combat_dam\", power),\n174: \t\t\tdam = self:addTemporaryValue(\"combat_atk\", power),\n175: \t\t\tspeed = self:addTemporaryValue(\"slow_projectiles_outgoing\", -speed),\n176: \t\t}\n177: \t\tif core.shader.active(4) then\n178: \t\t\tself:talentParticles(ret, {type=\"shader_shield\", args={toback=true,  size_factor=1, img=\"aim_shieldwall\"}, shader={type=\"rotatingshield\", noup=2.0, time_factor=600, appearTime=0.2}})\n179: \t\t\tself:talentParticles(ret, {type=\"shader_shield\", args={toback=false, size_factor=1, img=\"aim_shieldwall\"}, shader={type=\"rotatingshield\", noup=1.0, time_factor=600, appearTime=0.2}})\n180: \t\tend\n181: \t\treturn ret\n182: \tend,\n183: \tdeactivate = function(self, t, p)\n184: \t\tself:removeTemporaryValue(\"slow_projectiles_outgoing\", p.speed)\n185: \t\tself:removeTemporaryValue(\"combat_atk\", p.atk)\n186: \t\tself:removeTemporaryValue(\"combat_dam\", p.dam)\n187: \t\treturn true\n188: \tend,\n189: \tinfo = function(self, t)\n190: \t\tlocal power = t.getPower(self,t)\n191: \t\tlocal speed = t.getSpeed(self,t)\n192: \t\tlocal dam = t.getDamage(self,t)\n193: \t\tlocal mark = t.getMarkChance(self,t)\n194: \t\treturn ([[Enter a calm, focused stance, increasing physical power and accuracy by %d, projectile speed by %d%% and the chance to mark targets by an additional %d%%.\n195: This makes your shots more effective at range, increasing all damage dealt by %0.1f%% per tile travelled beyond 3, to a maximum of %0.1f%% damage at range 8.\n196: The physical power and accuracy increase with your Dexterity. This requires a bow to use.]]):\n197: \t\ttformat(power, speed, mark, dam, dam*5)\n198: \tend,\n199: }\n200: "
+    },
+    {
+      "anchor_id": "entry-764",
+      "public_path": "game/modules/tome/data/talents/techniques/unarmed-discipline.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "91ac098348600487931a3843a2aac1b824e580b05c307bdf2ec068d464948aac",
+      "start": 159,
+      "end": 221,
+      "excerpt": "159: newTalent{\n160: \tname = \"Touch of Death\",\n161: \ttype = {\"technique/unarmed-discipline\", 4},\n162: \trequire = techs_dex_req4,\n163: \tpoints = 5,\n164: \tstamina = 40,\n165: \trandom_ego = \"attack\",\n166: \tcooldown = 18,\n167: \tis_melee = true,\n168: \ttarget = function(self, t) return {type=\"hit\", range=self:getTalentRange(t)} end,\n169: \trange = 1,\n170: \tmessage = _t\"@Source@ strikes a deadly pressure point on the target.\",\n171: \ttactical = { DISABLE = 3, ATTACK = { weapon = 3 } },\n172: \trequires_target = true,\n173: \tradius = function(self,t) return self:combatTalentScale(t, 1, 3) end,\n174: \tgetDamage = function(self, t) return 0.2 + getStrikingStyle(self, dam) end,\n175: \tgetMult = function(self, t) return self:combatTalentLimit(t, 100, 25, 40) end,\n176: \taction = function(self, t)\n177: \t\tlocal tg = self:getTalentTarget(t)\n178: \t\tlocal x, y, target = self:getTarget(tg)\n179: \t\tif not target or not self:canProject(tg, x, y) then return nil end\n180: \n181: \t\t-- breaks active grapples if the target is not grappled\n182: \t\tif not target:isGrappled(self) then\n183: \t\t\tself:breakGrapples()\n184: \t\tend\n185: \n186: \t\t-- This is really not a good way to calculate damage, consider changing to base off just the weapon damage dealt\n187: \t\tself.turn_procs.auto_melee_hit = true\n188: \t\t-- store old values to restore later\n189: \t\tlocal evasion = target.evasion\n190: \t\ttarget.evasion = 0\n191: \t\tlocal oldlife = target.life\n192: \t\tself:logCombat(target, \"#Source# strikes at a vital spot on #target#!\")\n193: \t\tlocal do_attack = function() self:attackTarget(target, nil, t.getDamage(self, t), true) end\n194: \t\tlocal ok, err = pcall(do_attack)\n195: \t\ttarget.evasion = evasion\n196: \t\tif not ok then error(err) end\n197: \t\tself.turn_procs.auto_melee_hit = nil\n198: \t\t\n199: \t\tlocal life_diff = oldlife - target.life\n200: \t\tif life_diff > 0 then\n201: \t\t\tgame:onTickEnd(function()\t\n202: \t\t\t\ttarget:setEffect(target.EFF_TOUCH_OF_DEATH, 4, {dam=life_diff, initial_dam=life_diff, mult=t.getMult(self,t)/100, radius=self:getTalentRadius(t), src=self})\n203: \t\t\tend)\n204: \t\tend\n205: \n206: \t\treturn true\n207: \n208: \tend,\n209: \tinfo = function(self, t)\n210: \t\tlocal damage = t.getDamage(self, t) * 100\n211: \t\tlocal mult = t.getMult(self,t)\n212: \t\tlocal finaldam = damage+(damage*(((mult/100)+1)^2))+(damage*(((mult/100)+1)^3))+(damage*(((mult/100)+1)^4))\n213: \t\tlocal radius = self:getTalentRadius(t)\n214: \t\treturn ([[Using your deep knowledge of anatomy, you strike a target in a vital pressure point for %d%% weapon damage, bypassing their defense and evasion.\n215: \t\tThis strike inflicts terrible wounds inside the target's body, causing them to take physical damage equal to 100%% of any damage dealt during the attack each turn for 4 turns, increasing by %d%% each turn (so after 4 turns, they would have taken a total of %d%% damage).\n216: \t\tIf the target dies while under or from this effect their body will explode in a radius %d shower of bone and gore, inflicting physical damage equal to the current tick to all enemies and granting you 4 combo points.]])\n217: \t\t:tformat(damage, mult, finaldam, radius, life)\n218: \tend,\n219: }\n220: \n221: --[["
+    },
+    {
+      "anchor_id": "executor-extra-0",
+      "public_path": "game/engines/default/engine/Target.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "d89c2dd92471ac5cdd9fb02c6a20c7432deabecb9617902a9bf1acdced117bed",
+      "start": 676,
+      "end": 710,
+      "excerpt": "676: \t-- Add the default values\n677: \tt = table.clone(t)\n678: \t-- Default type def\n679: \tlocal target_type = {\n680: \t\trange = 20,\n681: \t\tselffire = true,\n682: \t\tfriendlyfire = true,\n683: \t\tactorblock = true,\n684: \t}\n685: \tfor k, v in pairs(self.defaults) do target_type[k] = v end\n686: \n687: \t-- And now modify for the default types\n688: \tif t.type then\n689: \t\tfor type_name, fun in pairs(self.types_def) do\n690: \t\t\tif t.type:find(type_name) then fun(target_type, t) end\n691: \t\tend\n692: \tend\n693: \n694: \ttable.update(t, target_type)\n695: \treturn t\n696: end\n697: \n698: function _M:setActive(v, type)\n699: \tif v == nil then\n700: \t\treturn self.active\n701: \telse\n702: \t\tself.active = v\n703: \t\tif v and type then\n704: \t\t\tself.target_type = self:getType(type)\n705: \t\t\t-- Targeting will generally want to stop at unseen/remembered tiles\n706: --\t\t\ttable.update(self.target_type, {requires_knowledge=true})\n707: \t\telse\n708: \t\t\tself.target_type = {}\n709: \t\tend\n710: \tend"
+    },
+    {
+      "anchor_id": "executor-extra-1",
+      "public_path": "game/engines/default/engine/interface/ActorProject.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+      "start": 248,
+      "end": 265,
+      "excerpt": "248: \tfor px, ys in pairs(grids) do\n249: \t\tfor py, _ in pairs(ys) do\n250: \t\t\t-- Call the projected method of the target grid if possible\n251: \t\t\tif not game.level.map:checkAllEntities(px, py, \"projected\", self, t, px, py, damtype, dam, particles) then\n252: \t\t\t\t-- Check self- and friendly-fire, excluded Actors, and if the projection \"misses\"\n253: \t\t\t\tlocal act = game.level.map(px, py, engine.Map.ACTOR)\n254: \t\t\t\tif act and (typ.act_exclude and typ.act_exclude[act.uid]) or act == self and not ((type(typ.selffire) == \"number\" and rng.percent(typ.selffire)) or (type(typ.selffire) ~= \"number\" and typ.selffire)) then\n255: \t\t\t\telseif act and self.reactionToward and (self:reactionToward(act) >= 0) and not ((type(typ.friendlyfire) == \"number\" and rng.percent(typ.friendlyfire)) or (type(typ.friendlyfire) ~= \"number\" and typ.friendlyfire)) then\n256: \t\t\t\t-- Otherwise hit\n257: \t\t\t\telse\n258: \t\t\t\t\tif type(damtype) == \"function\" then if damtype(px, py, t, self) then stop=true break end\n259: \t\t\t\t\telse DamageType:get(damtype).projector(self, px, py, damtype, dam, state, nil) end\n260: \t\t\t\t\tif particles then\n261: \t\t\t\t\t\tgame.level.map:particleEmitter(px, py, 1, particles.type, particles.args)\n262: \t\t\t\t\tend\n263: \t\t\t\tend\n264: \t\t\tend\n265: \t\tend"
+    },
+    {
+      "anchor_id": "executor-extra-2",
+      "public_path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "start": 117,
+      "end": 132,
+      "excerpt": "117: function _M:setEffect(eff_id, dur, p, silent)\n118: \tlocal had = self.tmp[eff_id]\n119: \n120: \t-- Beware, setting to 0 means removing\n121: \tif dur <= 0 then return self:removeEffect(eff_id) end\n122: \tdur = math.floor(dur)\n123: \n124: \tp.__orig_params = table.clone(p, true, {__orig_params=true})\n125: \tlocal ed = _M.tempeffect_def[eff_id]\n126: \tfor k, e in pairs(ed.parameters) do\n127: \t\tif not p[k] then p[k] = e end\n128: \tend\n129: \tp.dur = dur\n130: \tp.effect_id = eff_id\n131: \tif self:check(\"on_set_temporary_effect\", eff_id, ed, p) then return end\n132: \tif p.dur <= 0 then return self:removeEffect(eff_id) end"
+    },
+    {
+      "anchor_id": "executor-extra-3",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 353,
+      "end": 365,
+      "excerpt": "353: function _M:checkEvasion(target)\n354: \tlocal evasion = target:attr(\"evasion\")\n355: \tif target:knowTalent(target.T_ARMOUR_OF_SHADOWS) and not game.level.map.lites(target.x, target.y) then\n356: \t\tevasion = (evasion or 0) + 20\n357: \tend\n358: \n359: \tif not evasion or self == target then return end\n360: \tif target:attr(\"no_evasion\") then return end\n361: \n362: \tprint(\"checkEvasion\", evasion, target.level, self.level)\n363: \tprint(\"=> evasion chance\", evasion)\n364: \treturn rng.percent(evasion)\n365: end"
+    },
+    {
+      "anchor_id": "executor-extra-4",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 566,
+      "end": 583,
+      "excerpt": "566: \t\t\tmult = hd.mult\n567: \t\t\tno_procs = hd.no_procs\n568: \t\tend\n569: \n570: \t\tarmor = math.max(0, armor - apr)\n571: \t\tdam = math.max(dam * pres - armor, 0) + (dam * (1 - pres))\n572: \t\tprint(\"[ATTACK] after armor\", dam)\n573: \n574: \t\tif deflect == 0 then dam, crit = self:physicalCrit(dam, weapon, target, atk, def) end\n575: \t\tprint(\"[ATTACK] after crit\", dam)\n576: \t\tdam = dam * mult\n577: \t\tprint(\"[ATTACK] after mult\", dam)\n578: \n579: \t\tif target:hasEffect(target.EFF_COUNTERSTRIKE) and not self:attr(\"ignore_counterstrike\") then\n580: \t\t\tdam = target:callEffect(target.EFF_COUNTERSTRIKE, \"onStrike\", dam, self)\n581: \t\t\tprint(\"[ATTACK] after counterstrike\", dam)\n582: \t\tend\n583: "
+    },
+    {
+      "anchor_id": "executor-extra-5",
+      "public_path": "game/modules/tome/class/interface/Archery.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "09fdce1e839d74e1a5bd65a1432f044a3811ecc5618dbecc828e33738963c0fe",
+      "start": 374,
+      "end": 394,
+      "excerpt": "374: \t\t\tprint(\"[ATTACK] after inc by type (ammo)\", dam)\n375: \t\tend\n376: \n377: \t\tif deflect == 0 then dam, crit = self:physicalCrit(dam, ammo, target, atk, def, tg.archery.crit_chance or 0, (tg.archery.crit_power or 0) + (weapon.crit_power or 0)/100) end\n378: \t\tprint(\"[ATTACK ARCHERY] after crit\", dam)\n379: \n380: \t\tdam = dam * mult * (weapon.dam_mult or 1)\n381: \t\tprint(\"[ATTACK ARCHERY] after mult\", dam)\n382: \n383: \t\tif self:isAccuracyEffect(ammo, \"mace\") then\n384: \t\t\tlocal bonus = 1 + self:getAccuracyEffect(ammo, atk, def, 0.002, 0.2)\n385: \t\t\tprint(\"[ATTACK] mace accuracy bonus\", atk, def, \"=\", bonus)\n386: \t\t\tdam = dam * bonus\n387: \t\tend\n388: \t\t\n389: \t\tif self and dam > 0 and self.knowTalent and self:isTalentActive(self.T_AIM) and self.__CLASSNAME ~= \"mod.class.Grid\" then\n390: \t\t\tlocal dist = math.min(math.max(0, core.fov.distance(self.x, self.y, target.x, target.y) - 3),8)\n391: \t\t\tif dist > 0 then \n392: \t\t\t\tlocal dammult = self:callTalent(self.T_AIM, \"getDamage\") * dist \n393: \t\t\t\tdam = dam * (1 + (dammult/100))\n394: \t\t\tend"
+    },
+    {
+      "anchor_id": "executor-extra-6",
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "start": 4210,
+      "end": 4221,
+      "excerpt": "4210: newDamageType{\n4211: \tname = _t(\"fire sunder\", \"damage type\"), type = \"FIRE_SUNDER\",\n4212: \tprojector = function(src, x, y, type, dam, state)\n4213: \t\tstate = initState(state)\n4214: \t\tuseImplicitCrit(src, state)\n4215: \t\tif _G.type(dam) == \"number\" then dam = {dam=dam, power=10} end\n4216: \t\tDamageType:get(DamageType.FIRE).projector(src, x, y, DamageType.FIRE, dam.dam, state)\n4217: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n4218: \t\tif target then\n4219: \t\t\ttarget:setEffect(target.EFF_SUNDER_ARMOUR, dam.dur, {src=dam.self, power=dam.power})\n4220: \t\tend\n4221: \tend,"
+    },
+    {
+      "anchor_id": "executor-extra-7",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "start": 329,
+      "end": 351,
+      "excerpt": "329: \tname = \"NUMBING_POISON\", image = \"effects/numbing_poison.png\",\n330: \tdesc = _t\"Numbing Poison\",\n331: \tlong_desc = function(self, eff) return (\"The target is poisoned and sick, doing %0.2f nature damage per turn. All damage it does is reduced by %d%%.\"):tformat(eff.power, eff.reduce) end,\n332: \ttype = \"physical\",\n333: \tsubtype = { poison=true, nature=true }, no_ct_effect = true,\n334: \tstatus = \"detrimental\",\n335: \tparameters = {power=10, reduce=5},\n336: \ton_gain = function(self, err) return _t\"#Target# is poisoned!\", _t\"+Numbing Poison\" end,\n337: \ton_lose = function(self, err) return _t\"#Target# is no longer poisoned.\", _t\"-Numbing Poison\" end,\n338: \t-- Damage each turn\n339: \ton_timeout = function(self, eff)\n340: \t\tif self:attr(\"purify_poison\") then self:heal(eff.power, eff.src)\n341: \t\telse DamageType:get(DamageType.NATURE).projector(eff.src, self.x, self.y, DamageType.NATURE, eff.power)\n342: \t\tend\n343: \tend,\n344: \t-- There are situations this matters, such as copyEffect\n345: \ton_merge = function(self, old_eff, new_eff)\n346: \t\told_eff.dur = math.max(old_eff.dur, new_eff.dur)\n347: \t\treturn old_eff\n348: \tend,\n349: \tactivate = function(self, eff)\n350: \t\tself:effectTemporaryValue(eff, \"numbed\", eff.reduce)\n351: \tend,"
+    },
+    {
+      "anchor_id": "executor-extra-8",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "start": 994,
+      "end": 1022,
+      "excerpt": "994: \tname = \"SUNDER_ARMOUR\", image = \"talents/sunder_armour.png\",\n995: \tdesc = _t\"Sunder Armour\",\n996: \tlong_desc = function(self, eff) return (\"The target's armour and saves are broken, reducing them by %d.\"):tformat(eff.power) end,\n997: \ttype = \"physical\",\n998: \tsubtype = { sunder=true },\n999: \tstatus = \"detrimental\",\n1000: \tparameters = { power=10 },\n1001: \ton_gain = function(self, err) return _t\"#Target#'s armour is damaged!\", _t\"+Sunder Armor\" end,\n1002: \ton_lose = function(self, err) return _t\"#Target#'s armour is more intact.\", _t\"-Sunder Armor\" end,\n1003: \tactivate = function(self, eff)\n1004: \t\tself:effectTemporaryValue(eff, \"combat_armor\", -eff.power)\n1005: \t\tself:effectTemporaryValue(eff, \"combat_physresist\", -eff.power)\n1006: \t\tself:effectTemporaryValue(eff, \"combat_spellresist\", -eff.power)\n1007: \t\tself:effectTemporaryValue(eff, \"combat_mentalresist\", -eff.power)\n1008: \tend,\n1009: }\n1010: \n1011: newEffect{\n1012: \tname = \"SUNDER_ARMS\", image = \"talents/sunder_arms.png\",\n1013: \tdesc = _t\"Sunder Arms\",\n1014: \tlong_desc = function(self, eff) return (\"The target's combat ability is reduced, reducing its attack by %d.\"):tformat(eff.power) end,\n1015: \ttype = \"physical\",\n1016: \tsubtype = { sunder=true },\n1017: \tstatus = \"detrimental\",\n1018: \tparameters = { power=10 },\n1019: \ton_gain = function(self, err) return _t\"#Target#'s fighting ability is impaired!\", _t\"+Sunder Arms\" end,\n1020: \ton_lose = function(self, err) return _t\"#Target#'s ability to fight has recovered.\", _t\"-Sunder Arms\" end,\n1021: \tactivate = function(self, eff)\n1022: \t\teff.tmpid = self:addTemporaryValue(\"combat_atk\", -eff.power)"
+    },
+    {
+      "anchor_id": "executor-extra-9",
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "start": 3970,
+      "end": 3993,
+      "excerpt": "3970: \tname = \"MAIM\", image = \"effects/deep_wound.png\",\n3971: \tdesc = _t\"Maim\",\n3972: \tlong_desc = function(self, eff) return (\"The target is maimed, doing %0.2f physical damage per turn. All damage it does is reduced by %d%%.\"):tformat(eff.power, eff.reduce) end,\n3973: \ttype = \"physical\",\n3974: \tsubtype = { cut=true }, no_ct_effect = true,\n3975: \tstatus = \"detrimental\",\n3976: \tparameters = {power=10, reduce=5},\n3977: \ton_gain = function(self, err) return _t\"#Target# is maimed!\", _t\"+Maim\" end,\n3978: \ton_lose = function(self, err) return _t\"#Target# is no longer maimed.\", _t\"-Maim\" end,\n3979: \t-- Damage each turn\n3980: \ton_timeout = function(self, eff)\n3981: \t\tif self:canBe(\"cut\") then DamageType:get(DamageType.PHYSICAL).projector(eff.src, self.x, self.y, DamageType.PHYSICAL, eff.power) end\n3982: \tend,\n3983: \t-- There are situations this matters, such as copyEffect\n3984: \ton_merge = function(self, old_eff, new_eff)\n3985: \t\told_eff.dur = math.max(old_eff.dur, new_eff.dur)\n3986: \t\treturn old_eff\n3987: \tend,\n3988: \tactivate = function(self, eff)\n3989: \t\teff.tmpid = self:addTemporaryValue(\"numbed\", eff.reduce)\n3990: \tend,\n3991: \tdeactivate = function(self, eff)\n3992: \t\tself:removeTemporaryValue(\"numbed\", eff.tmpid)\n3993: \tend,"
+    },
+    {
+      "anchor_id": "executor-extra-10",
+      "public_path": "game/modules/tome/data/timed_effects/mental.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "38a96a362d08b749c282b79c344250092e0ac09a9f089c958fb0175ab90fe6ec",
+      "start": 126,
+      "end": 153,
+      "excerpt": "126: \tname = \"CONFUSED\", image = \"effects/confused.png\",\n127: \tdesc = _t\"Confused\",\n128: \tlong_desc = function(self, eff) return (\"The target is confused, acting randomly (chance %d%%) and unable to perform complex actions.\"):tformat(eff.power) end,\n129: \tcharges = function(self, eff) return (tostring(math.floor(eff.power))..\"%\") end,\n130: \ttype = \"mental\",\n131: \tsubtype = { confusion=true },\n132: \tstatus = \"detrimental\",\n133: \tparameters = { power=30 },\n134: \ton_gain = function(self, err) return _t\"#Target# wanders around!\", _t\"+Confused\" end,\n135: \ton_lose = function(self, err) return _t\"#Target# seems more focused.\", _t\"-Confused\" end,\n136: \tactivate = function(self, eff)\n137: \t\teff.power = math.floor(util.bound(eff.power, 0, 50))\n138: \t\teff.tmpid = self:addTemporaryValue(\"confused\", eff.power)\n139: \t\tif eff.power <= 0 then eff.dur = 0 end\n140: \tend,\n141: \tdeactivate = function(self, eff)\n142: \t\tself:removeTemporaryValue(\"confused\", eff.tmpid)\n143: \t\tif self == game.player and self.updateMainShader then self:updateMainShader() end\n144: \tend,\n145: }\n146: \n147: newEffect{\n148: \tname = \"DOMINANT_WILL\", image = \"talents/yeek_will.png\",\n149: \tdesc = _t\"Mental Domination\",\n150: \tlong_desc = function(self, eff) return (\"The target's mind has been shattered. Its body remains as a thrall to %s.\"):tformat(eff.src:getName():capitalize()) end,\n151: \ttype = \"mental\",\n152: \tsubtype = { dominate=true },\n153: \tstatus = \"detrimental\","
+    }
+  ],
+  "entries": [
+    {
+      "candidate_index": 716,
+      "change_id": "9a050d8b864efefe84fe9da7f1121e7525532d8d2c2b1313897047947b0c03cb",
+      "claim_id": "UPSTREAM034",
+      "status": "confirmed",
+      "section": "mod-tome/data/talents/techniques/archery.lua",
+      "source": "Fire a precise shot dealing %d%% weapon damage, with 100 increased accuracy. This shot will bypass other enemies between you and your target.\nOnly usable against marked targets, and consumes the mark on hit.",
+      "source_tag": "tformat",
+      "old_target": "瞄准目标头部进行一次精准射击，造成 %d%% 武器伤害，此次攻击额外获得 100 命中，且能越过你与目标之间的其他敌人。\n只能对被标记的单位使用，命中时消耗该标记。",
+      "new_target": "瞄准目标头部进行一次精准射击，造成 %d%% 武器伤害，此次攻击额外获得 100 命中，且能越过你与目标之间的其他敌人。\n可对被标记的单位使用；维持隐匿时也可对未标记的单位使用。命中已标记单位时消耗该标记。",
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "weapon_damage_multiplier_percent",
+          "calculation_parameter_consumer_verification": "Headshot getDamage = combatTalentWeaponDamage(1.1,2.3); info getDamage*100 -> tformat #1. action passes mult=getDamage, atk=100 to archeryShoot; Archery consumes tg.archery.mult and multiplies dam at L380. action condition is MARKED OR active CONCEALMENT; onhit removes existing MARKED. Confirmed exception, not an unconditional unmarked shot.",
+          "display_parameter_expression": "getDamage*100",
+          "actual_consumer": "archeryShoot mult=getDamage -> Archery dam*mult"
+        }
+      ],
+      "independent_verification": "Headshot getDamage = combatTalentWeaponDamage(1.1,2.3); info getDamage*100 -> tformat #1. action passes mult=getDamage, atk=100 to archeryShoot; Archery consumes tg.archery.mult and multiplies dam at L380. action condition is MARKED OR active CONCEALMENT; onhit removes existing MARKED. Confirmed exception, not an unconditional unmarked shot.",
+      "baseline_target_byte_span": [
+        2914975,
+        2915197
+      ],
+      "invariants": {
+        "source_source_tag_args_order_special_unchanged": true,
+        "printf_tokens_including_literal_percent_exact": true,
+        "markup_exact": true,
+        "newline_tab_sequence_exact": true
+      }
+    },
+    {
+      "candidate_index": 728,
+      "change_id": "88e6f800b5e7c2a723171a5f479588a46ec3310770a20d92d987b96d251ed706",
+      "claim_id": "UPSTREAM061",
+      "status": "confirmed",
+      "section": "mod-tome/data/talents/techniques/conditioning.lua",
+      "source": "You recover faster from poisons, diseases and wounds, reducing the duration of all such effects by %d%%.  \n\t\t\tWhenever your life falls below 50%%, your life regeneration increases by %0.1f for %d turns (%d total). This effect can only happen once every %d turns.\n\t\tThe regeneration scales with your Constitution.",
+      "source_tag": "tformat",
+      "old_target": "你受中毒、疾病和创伤的影响较小，减少 %d%% 此类效果的持续时间。\n\t\t此外在生命值低于 50%% 时，你的生命回复将会增加 %0.1f， 持续 %d 回合，共回复 %d 生命值，但每隔 %d 回合才能触发一次。\n\t\t生命回复受体质值加成。",
+      "new_target": "你受中毒、疾病和创伤的影响较小，减少 %d%% 此类效果的持续时间。\n\t\t生命值从高于 50%% 降至该阈值或以下时，原说明列出的生命回复增量为 %0.1f， 持续 %d 回合，总回复量为 %d， 触发间隔为 %d 回合；但当前固定版本缺少对应回复效果定义，无法保证实际获得这些回复。\n\t\t说明中的回复量受体质值加成。",
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "poison_disease_wound_duration_reduction_percent",
+          "calculation_parameter_consumer_verification": "Vitality getWoundReduction*100 -> #1; Actor on_set_effect consumes fraction to ceil(duration*(1-bound(reduction,0,1))). getHealValues(con,1,200) -> #2; getDuration=8 -> #3; baseheal*duration -> #4; getTalentCooldown -> #5. do_vitality_recovery passes regen=baseheal and duration to EFF_RECOVERY then starts cooldown, only on downward 50% threshold crossing. Fixed whole game search has no RECOVERY definition; ActorTemporaryEffects setEffect requires ed.parameters, no missing-definition fallback. #2-4 are declared display values, NOT verified executable regeneration. Translation states missing definition, without asserting runtime repair or universal absence in modded installations.",
+          "display_parameter_expression": "getWoundReduction*100",
+          "actual_consumer": "Actor on_set_effect ceil(p.dur*(1-bound(getWoundReduction,0,1)))"
+        },
+        {
+          "index": 2,
+          "placeholder": "%0.1f",
+          "quantity_kind": "declared_regeneration_increment_without_definition",
+          "calculation_parameter_consumer_verification": "Vitality getWoundReduction*100 -> #1; Actor on_set_effect consumes fraction to ceil(duration*(1-bound(reduction,0,1))). getHealValues(con,1,200) -> #2; getDuration=8 -> #3; baseheal*duration -> #4; getTalentCooldown -> #5. do_vitality_recovery passes regen=baseheal and duration to EFF_RECOVERY then starts cooldown, only on downward 50% threshold crossing. Fixed whole game search has no RECOVERY definition; ActorTemporaryEffects setEffect requires ed.parameters, no missing-definition fallback. #2-4 are declared display values, NOT verified executable regeneration. Translation states missing definition, without asserting runtime repair or universal absence in modded installations.",
+          "display_parameter_expression": "getHealValues",
+          "actual_consumer": "setEffect EFF_RECOVERY regen=baseheal; definition missing; NO executable consumer verified",
+          "original_quantity_kind": "declared_life_regeneration_per_turn"
+        },
+        {
+          "index": 3,
+          "placeholder": "%d",
+          "quantity_kind": "declared_regeneration_duration_without_definition",
+          "calculation_parameter_consumer_verification": "Vitality getWoundReduction*100 -> #1; Actor on_set_effect consumes fraction to ceil(duration*(1-bound(reduction,0,1))). getHealValues(con,1,200) -> #2; getDuration=8 -> #3; baseheal*duration -> #4; getTalentCooldown -> #5. do_vitality_recovery passes regen=baseheal and duration to EFF_RECOVERY then starts cooldown, only on downward 50% threshold crossing. Fixed whole game search has no RECOVERY definition; ActorTemporaryEffects setEffect requires ed.parameters, no missing-definition fallback. #2-4 are declared display values, NOT verified executable regeneration. Translation states missing definition, without asserting runtime repair or universal absence in modded installations.",
+          "display_parameter_expression": "getDuration=8",
+          "actual_consumer": "setEffect EFF_RECOVERY duration; definition missing",
+          "original_quantity_kind": "declared_regeneration_duration_turns"
+        },
+        {
+          "index": 4,
+          "placeholder": "%d",
+          "quantity_kind": "declared_total_regeneration_without_definition",
+          "calculation_parameter_consumer_verification": "Vitality getWoundReduction*100 -> #1; Actor on_set_effect consumes fraction to ceil(duration*(1-bound(reduction,0,1))). getHealValues(con,1,200) -> #2; getDuration=8 -> #3; baseheal*duration -> #4; getTalentCooldown -> #5. do_vitality_recovery passes regen=baseheal and duration to EFF_RECOVERY then starts cooldown, only on downward 50% threshold crossing. Fixed whole game search has no RECOVERY definition; ActorTemporaryEffects setEffect requires ed.parameters, no missing-definition fallback. #2-4 are declared display values, NOT verified executable regeneration. Translation states missing definition, without asserting runtime repair or universal absence in modded installations.",
+          "display_parameter_expression": "baseheal*duration",
+          "actual_consumer": "display only; no total regeneration consumer verified",
+          "original_quantity_kind": "declared_total_regeneration"
+        },
+        {
+          "index": 5,
+          "placeholder": "%d",
+          "quantity_kind": "trigger_cooldown_turns",
+          "calculation_parameter_consumer_verification": "Vitality getWoundReduction*100 -> #1; Actor on_set_effect consumes fraction to ceil(duration*(1-bound(reduction,0,1))). getHealValues(con,1,200) -> #2; getDuration=8 -> #3; baseheal*duration -> #4; getTalentCooldown -> #5. do_vitality_recovery passes regen=baseheal and duration to EFF_RECOVERY then starts cooldown, only on downward 50% threshold crossing. Fixed whole game search has no RECOVERY definition; ActorTemporaryEffects setEffect requires ed.parameters, no missing-definition fallback. #2-4 are declared display values, NOT verified executable regeneration. Translation states missing definition, without asserting runtime repair or universal absence in modded installations.",
+          "display_parameter_expression": "getTalentCooldown",
+          "actual_consumer": "do_vitality_recovery cooldown check/start after setEffect; missing definition may prevent cooldown start"
+        }
+      ],
+      "independent_verification": "Vitality getWoundReduction*100 -> #1; Actor on_set_effect consumes fraction to ceil(duration*(1-bound(reduction,0,1))). getHealValues(con,1,200) -> #2; getDuration=8 -> #3; baseheal*duration -> #4; getTalentCooldown -> #5. do_vitality_recovery passes regen=baseheal and duration to EFF_RECOVERY then starts cooldown, only on downward 50% threshold crossing. Fixed whole game search has no RECOVERY definition; ActorTemporaryEffects setEffect requires ed.parameters, no missing-definition fallback. #2-4 are declared display values, NOT verified executable regeneration. Translation states missing definition, without asserting runtime repair or universal absence in modded installations.",
+      "baseline_target_byte_span": [
+        2938990,
+        2939279
+      ],
+      "invariants": {
+        "source_source_tag_args_order_special_unchanged": true,
+        "printf_tokens_including_literal_percent_exact": true,
+        "markup_exact": true,
+        "newline_tab_sequence_exact": true
+      }
+    },
+    {
+      "candidate_index": 729,
+      "change_id": "ca6cf2ec5a77166b75db07133ba1d0c60f96115a28e839a4acea8b5fd9adb604",
+      "claim_id": "UPSTREAM106",
+      "status": "confirmed",
+      "section": "mod-tome/data/talents/techniques/dualweapon.lua",
+      "source": "With a quick shift of your momentum, you execute a surprise unarmed strike in place of your normal offhand attack.\n\t\tThis allows you to attack with your mainhand weapon for %d%% damage and unarmed for %d%% damage.  If the unarmed attack hits, the target is confused (%d%% power) for %d turns.\n\t\tThe chance to confuse increases with your Accuracy.",
+      "source_tag": "tformat",
+      "old_target": "你迅速变换发力方式，以出其不意的徒手攻击替代通常的副手攻击。\n\t\t这使你能以主手武器造成 %d%% 伤害，并以徒手攻击造成 %d%% 伤害。若徒手攻击命中，目标将陷入混乱 （%d%% 强度），持续 %d 回合。\n\t\t混乱几率随命中提高。",
+      "new_target": "你迅速变换发力方式，以出其不意的徒手攻击替代通常的副手攻击。\n\t\t这使你能以主手武器造成 %d%% 伤害，徒手伤害的说明显示值为 %d%%， 但实际徒手伤害倍率为主手伤害倍率加 125 个百分点。若徒手攻击命中，目标将陷入混乱 （%d%% 强度），持续 %d 回合。\n\t\t混乱几率随命中提高。",
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "mainhand_damage_percent",
+          "calculation_parameter_consumer_verification": "Offhand Jab getDamage=m -> #1=100m, #2=125m; attackTargetWith mainhand m then barehand m+1.25; Combat L576 consumes mult. Thus actual barehand percent=100m+125, not #2. #3=getConfusePower, #4=getConfuseDuration; hit and canBe(confusion) gate EFF_CONFUSED with apply_power=combatAttack; effect uses power for confusion. Text labels erroneous second display and states actual multiplier using #1 rather than numerically trusting #2.",
+          "display_parameter_expression": "100*getDamage",
+          "actual_consumer": "attackTargetWith mainhand mult=getDamage -> Combat dam*mult"
+        },
+        {
+          "index": 2,
+          "placeholder": "%d",
+          "quantity_kind": "erroneous_display_unarmed_weapon_damage_percent",
+          "calculation_parameter_consumer_verification": "Offhand Jab getDamage=m -> #1=100m, #2=125m; attackTargetWith mainhand m then barehand m+1.25; Combat L576 consumes mult. Thus actual barehand percent=100m+125, not #2. #3=getConfusePower, #4=getConfuseDuration; hit and canBe(confusion) gate EFF_CONFUSED with apply_power=combatAttack; effect uses power for confusion. Text labels erroneous second display and states actual multiplier using #1 rather than numerically trusting #2.",
+          "display_parameter_expression": "100*getDamage*1.25",
+          "actual_consumer": "display only erroneous; attackTargetWith barehand mult=getDamage+1.25 -> Combat dam*mult",
+          "original_quantity_kind": "displayed_unarmed_damage_percent"
+        },
+        {
+          "index": 3,
+          "placeholder": "%d",
+          "quantity_kind": "confusion_power_percent",
+          "calculation_parameter_consumer_verification": "Offhand Jab getDamage=m -> #1=100m, #2=125m; attackTargetWith mainhand m then barehand m+1.25; Combat L576 consumes mult. Thus actual barehand percent=100m+125, not #2. #3=getConfusePower, #4=getConfuseDuration; hit and canBe(confusion) gate EFF_CONFUSED with apply_power=combatAttack; effect uses power for confusion. Text labels erroneous second display and states actual multiplier using #1 rather than numerically trusting #2.",
+          "display_parameter_expression": "getConfusePower",
+          "actual_consumer": "setEffect CONFUSED power -> bounded floor power -> confused attribute"
+        },
+        {
+          "index": 4,
+          "placeholder": "%d",
+          "quantity_kind": "confusion_duration",
+          "calculation_parameter_consumer_verification": "Offhand Jab getDamage=m -> #1=100m, #2=125m; attackTargetWith mainhand m then barehand m+1.25; Combat L576 consumes mult. Thus actual barehand percent=100m+125, not #2. #3=getConfusePower, #4=getConfuseDuration; hit and canBe(confusion) gate EFF_CONFUSED with apply_power=combatAttack; effect uses power for confusion. Text labels erroneous second display and states actual multiplier using #1 rather than numerically trusting #2.",
+          "display_parameter_expression": "getConfuseDuration",
+          "actual_consumer": "setEffect CONFUSED duration"
+        }
+      ],
+      "independent_verification": "Offhand Jab getDamage=m -> #1=100m, #2=125m; attackTargetWith mainhand m then barehand m+1.25; Combat L576 consumes mult. Thus actual barehand percent=100m+125, not #2. #3=getConfusePower, #4=getConfuseDuration; hit and canBe(confusion) gate EFF_CONFUSED with apply_power=combatAttack; effect uses power for confusion. Text labels erroneous second display and states actual multiplier using #1 rather than numerically trusting #2.",
+      "baseline_target_byte_span": [
+        2944976,
+        2945274
+      ],
+      "invariants": {
+        "source_source_tag_args_order_special_unchanged": true,
+        "printf_tokens_including_literal_percent_exact": true,
+        "markup_exact": true,
+        "newline_tab_sequence_exact": true
+      }
+    },
+    {
+      "candidate_index": 732,
+      "change_id": "9d9506fe4f048536ea779118cc940a5856212ad3573a3f164a46050ccfbbbd32",
+      "claim_id": "UPSTREAM046",
+      "status": "confirmed",
+      "section": "mod-tome/data/talents/techniques/grappling.lua",
+      "source": "Enhances your grapples with additional effects. All additional effects will apply to every grapple with no additional save or resist check.\n\t\t#RED#Talent Level 1:  Reduces physical power by %d\n\t\tTalent Level 3:  Silences\n\t\tTalent Level 5:  Reduces global action speed by %d%%",
+      "source_tag": "tformat",
+      "old_target": "增强你的抓取，使其获得额外效果。所有额外效果都会应用于每次抓取，且无需额外的豁免或抵抗鉴定。\n\t\t#RED#技能等级 1：降低目标 %d 点物理强度\n\t\t技能等级 3：沉默\n\t\t技能等级 5：降低目标 %d%% 全局速度",
+      "new_target": "增强你的抓取，使其获得额外效果。这些额外效果随抓取施加，无需额外豁免鉴定；沉默仍受沉默免疫限制。\n\t\t#RED#技能等级 1：降低目标 %d 点物理强度\n\t\t技能等级 3：沉默\n\t\t技能等级 5：降低目标 %d%% 全局速度",
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "physical_power_reduction_points",
+          "calculation_parameter_consumer_verification": "Crushing Hold #1=getDamageReduction, #2=getSlow*100; getBonusEffects passes reduce, slow, silence to startGrapple. startGrapple checks silence==1 and canBe(silence), resets to 0 if immune. GRAPPLED uses -reduce combat_dam, silence>0 attribute, slow>0 -global_speed_add. slow check in startGrapple is ==1 rather than all nonzero; text only qualifies silence immunity, not claiming a universal slow immunity check.",
+          "display_parameter_expression": "getDamageReduction",
+          "actual_consumer": "getBonusEffects.reduce -> startGrapple -> GRAPPLED combat_dam=-reduce"
+        },
+        {
+          "index": 2,
+          "placeholder": "%d",
+          "quantity_kind": "global_speed_reduction_percent",
+          "calculation_parameter_consumer_verification": "Crushing Hold #1=getDamageReduction, #2=getSlow*100; getBonusEffects passes reduce, slow, silence to startGrapple. startGrapple checks silence==1 and canBe(silence), resets to 0 if immune. GRAPPLED uses -reduce combat_dam, silence>0 attribute, slow>0 -global_speed_add. slow check in startGrapple is ==1 rather than all nonzero; text only qualifies silence immunity, not claiming a universal slow immunity check.",
+          "display_parameter_expression": "getSlow*100",
+          "actual_consumer": "getBonusEffects.slow -> startGrapple -> GRAPPLED global_speed_add=-slow"
+        }
+      ],
+      "independent_verification": "Crushing Hold #1=getDamageReduction, #2=getSlow*100; getBonusEffects passes reduce, slow, silence to startGrapple. startGrapple checks silence==1 and canBe(silence), resets to 0 if immune. GRAPPLED uses -reduce combat_dam, silence>0 attribute, slow>0 -global_speed_add. slow check in startGrapple is ==1 rather than all nonzero; text only qualifies silence immunity, not claiming a universal slow immunity check.",
+      "baseline_target_byte_span": [
+        2960494,
+        2960764
+      ],
+      "invariants": {
+        "source_source_tag_args_order_special_unchanged": true,
+        "printf_tokens_including_literal_percent_exact": true,
+        "markup_exact": true,
+        "newline_tab_sequence_exact": true
+      }
+    },
+    {
+      "candidate_index": 745,
+      "change_id": "518075af432f34a00139473212e7bbcc34a70ec455d55d011423c6024fa82208",
+      "claim_id": "UPSTREAM108",
+      "status": "confirmed",
+      "section": "mod-tome/data/talents/techniques/munitions.lua",
+      "source": "You mix together your munitions, leading to powerful new effects:\nIncendiary - Targets struck by the explosion have their armor and saves reduced by %d for 3 turns, and your physical and fire penetration is increased by %d%%.\nVenomous - Shots deal an additional %d%% weapon damage as nature in a radius %d ball, which applies numbing poison as per Exotic Munitions. This cannot occur more than once per turn.\nPiercing - Shots deal %0.2f physical damage and maim the target, bleeding them for a further %0.2f physical damage over 5 turns and reducing all damage dealt by %d%%.\nThe physical damage dealt, armor penetration and save reduction will increase with your Physical Power.",
+      "source_tag": "tformat",
+      "old_target": "混合你的弹药，造成更强力的效果：\n燃烧弹- 受到爆炸袭击的目标护甲和豁免减少 %d 持续 3 回合，你的物理和火焰穿透增加 %d%%.\n剧毒弹- 额外造成 %d%% 自然武器伤害，作用于半径 %d 的球形范围，并如同异种弹药一样施加麻木毒素。每回合最多生效一次。\n穿甲弹- 造成 %0.2f 物理伤害并使目标伤残（Maim），在 5 回合内额外流血造成 %0.2f 物理伤害，并使其造成的所有伤害减少 %d%%.\n物理伤害、护甲和豁免削减受物理强度加成。",
+      "new_target": "混合你的弹药，造成更强力的效果：\n燃烧弹- 受到爆炸袭击的目标护甲和豁免减少 %d 持续 3 回合，你的物理和火焰穿透增加 %d%%.\n剧毒弹- 额外造成 %d%% 自然武器伤害，实际作用于半径 1 的球形范围（说明显示半径为 %d）， 并如同异种弹药一样施加麻木毒素。每回合最多生效一次。\n穿甲弹- 造成 %0.2f 物理伤害并使目标伤残（Maim），在 5 回合内额外流血造成 %0.2f 物理伤害，并使其造成的所有伤害减少 %d%%.\n物理伤害、护甲和豁免削减受物理强度加成。",
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "armor_and_saves_reduction",
+          "calculation_parameter_consumer_verification": "Alloyed Munitions #1 armor getter, #2 resist getter, #3 poison weapon multiplier*100, #4 radius getter (2 at TL>=3 else1), #5 physical/5, #6 physical, #7 numb. Incendiary activate adds physical/fire resists_pen #2; FIRE_SUNDER passes #1 power via SUNDER_ARMOUR. Venomous callback explicitly radius=1 with friendlyfire=false; #4 is unused for projection. Piercing hit physical #5 plus MAIM 5 ticks each #6/5 with reduce=#7; MAIM consumes power and numbed. Only radius claim repaired; potential unrelated cross-talent getter argument mismatch remains outside scope.",
+          "display_parameter_expression": "getArmorSaveReduction",
+          "actual_consumer": "Incendiary FIRE_SUNDER.power -> SUNDER_ARMOUR armor/phys/spell/mental saves -power; other-talent t argument caveat"
+        },
+        {
+          "index": 2,
+          "placeholder": "%d",
+          "quantity_kind": "physical_fire_penetration_percent",
+          "calculation_parameter_consumer_verification": "Alloyed Munitions #1 armor getter, #2 resist getter, #3 poison weapon multiplier*100, #4 radius getter (2 at TL>=3 else1), #5 physical/5, #6 physical, #7 numb. Incendiary activate adds physical/fire resists_pen #2; FIRE_SUNDER passes #1 power via SUNDER_ARMOUR. Venomous callback explicitly radius=1 with friendlyfire=false; #4 is unused for projection. Piercing hit physical #5 plus MAIM 5 ticks each #6/5 with reduce=#7; MAIM consumes power and numbed. Only radius claim repaired; potential unrelated cross-talent getter argument mismatch remains outside scope.",
+          "display_parameter_expression": "getResistPenalty",
+          "actual_consumer": "Incendiary activate resists_pen physical/fire"
+        },
+        {
+          "index": 3,
+          "placeholder": "%d",
+          "quantity_kind": "nature_weapon_damage_percent",
+          "calculation_parameter_consumer_verification": "Alloyed Munitions #1 armor getter, #2 resist getter, #3 poison weapon multiplier*100, #4 radius getter (2 at TL>=3 else1), #5 physical/5, #6 physical, #7 numb. Incendiary activate adds physical/fire resists_pen #2; FIRE_SUNDER passes #1 power via SUNDER_ARMOUR. Venomous callback explicitly radius=1 with friendlyfire=false; #4 is unused for projection. Piercing hit physical #5 plus MAIM 5 ticks each #6/5 with reduce=#7; MAIM consumes power and numbed. Only radius claim repaired; potential unrelated cross-talent getter argument mismatch remains outside scope.",
+          "display_parameter_expression": "getPoisonDamage*100",
+          "actual_consumer": "Venomous callback dam=rolled ammo damage*getPoisonDamage -> NATURE projector"
+        },
+        {
+          "index": 4,
+          "placeholder": "%d",
+          "quantity_kind": "display_radius_not_used_by_projection",
+          "calculation_parameter_consumer_verification": "Alloyed Munitions #1 armor getter, #2 resist getter, #3 poison weapon multiplier*100, #4 radius getter (2 at TL>=3 else1), #5 physical/5, #6 physical, #7 numb. Incendiary activate adds physical/fire resists_pen #2; FIRE_SUNDER passes #1 power via SUNDER_ARMOUR. Venomous callback explicitly radius=1 with friendlyfire=false; #4 is unused for projection. Piercing hit physical #5 plus MAIM 5 ticks each #6/5 with reduce=#7; MAIM consumes power and numbed. Only radius claim repaired; potential unrelated cross-talent getter argument mismatch remains outside scope.",
+          "display_parameter_expression": "getPoisonRadius=TL>=3?2:1",
+          "actual_consumer": "display only; actual ball radius literal1 -> ActorProject",
+          "original_quantity_kind": "displayed_nature_radius"
+        },
+        {
+          "index": 5,
+          "placeholder": "%0.2f",
+          "quantity_kind": "direct_physical_damage",
+          "calculation_parameter_consumer_verification": "Alloyed Munitions #1 armor getter, #2 resist getter, #3 poison weapon multiplier*100, #4 radius getter (2 at TL>=3 else1), #5 physical/5, #6 physical, #7 numb. Incendiary activate adds physical/fire resists_pen #2; FIRE_SUNDER passes #1 power via SUNDER_ARMOUR. Venomous callback explicitly radius=1 with friendlyfire=false; #4 is unused for projection. Piercing hit physical #5 plus MAIM 5 ticks each #6/5 with reduce=#7; MAIM consumes power and numbed. Only radius claim repaired; potential unrelated cross-talent getter argument mismatch remains outside scope.",
+          "display_parameter_expression": "getPhysicalDamage/5",
+          "actual_consumer": "Piercing hit PHYSICAL projector"
+        },
+        {
+          "index": 6,
+          "placeholder": "%0.2f",
+          "quantity_kind": "five_turn_bleed_total",
+          "calculation_parameter_consumer_verification": "Alloyed Munitions #1 armor getter, #2 resist getter, #3 poison weapon multiplier*100, #4 radius getter (2 at TL>=3 else1), #5 physical/5, #6 physical, #7 numb. Incendiary activate adds physical/fire resists_pen #2; FIRE_SUNDER passes #1 power via SUNDER_ARMOUR. Venomous callback explicitly radius=1 with friendlyfire=false; #4 is unused for projection. Piercing hit physical #5 plus MAIM 5 ticks each #6/5 with reduce=#7; MAIM consumes power and numbed. Only radius claim repaired; potential unrelated cross-talent getter argument mismatch remains outside scope.",
+          "display_parameter_expression": "getPhysicalDamage",
+          "actual_consumer": "MAIM duration5 power=getPhysicalDamage/5 -> PHYSICAL on_timeout conditional canBe(cut)"
+        },
+        {
+          "index": 7,
+          "placeholder": "%d",
+          "quantity_kind": "damage_dealt_reduction_percent",
+          "calculation_parameter_consumer_verification": "Alloyed Munitions #1 armor getter, #2 resist getter, #3 poison weapon multiplier*100, #4 radius getter (2 at TL>=3 else1), #5 physical/5, #6 physical, #7 numb. Incendiary activate adds physical/fire resists_pen #2; FIRE_SUNDER passes #1 power via SUNDER_ARMOUR. Venomous callback explicitly radius=1 with friendlyfire=false; #4 is unused for projection. Piercing hit physical #5 plus MAIM 5 ticks each #6/5 with reduce=#7; MAIM consumes power and numbed. Only radius claim repaired; potential unrelated cross-talent getter argument mismatch remains outside scope.",
+          "display_parameter_expression": "getNumb",
+          "actual_consumer": "MAIM reduce -> numbed attribute"
+        }
+      ],
+      "independent_verification": "Alloyed Munitions #1 armor getter, #2 resist getter, #3 poison weapon multiplier*100, #4 radius getter (2 at TL>=3 else1), #5 physical/5, #6 physical, #7 numb. Incendiary activate adds physical/fire resists_pen #2; FIRE_SUNDER passes #1 power via SUNDER_ARMOUR. Venomous callback explicitly radius=1 with friendlyfire=false; #4 is unused for projection. Piercing hit physical #5 plus MAIM 5 ticks each #6/5 with reduce=#7; MAIM consumes power and numbed. Only radius claim repaired; potential unrelated cross-talent getter argument mismatch remains outside scope.",
+      "baseline_target_byte_span": [
+        2978811,
+        2979372
+      ],
+      "invariants": {
+        "source_source_tag_args_order_special_unchanged": true,
+        "printf_tokens_including_literal_percent_exact": true,
+        "markup_exact": true,
+        "newline_tab_sequence_exact": true
+      }
+    },
+    {
+      "candidate_index": 751,
+      "change_id": "3efc544c6ff4ca6b724459e66455adac3dcb558560126ed3673a00287efb1265",
+      "claim_id": "UPSTREAM109",
+      "status": "confirmed",
+      "section": "mod-tome/data/talents/techniques/sniper.lua",
+      "source": "Enter a calm, focused stance, increasing physical power and accuracy by %d, projectile speed by %d%% and the chance to mark targets by an additional %d%%.\nThis makes your shots more effective at range, increasing all damage dealt by %0.1f%% per tile travelled beyond 3, to a maximum of %0.1f%% damage at range 8.\nThe physical power and accuracy increase with your Dexterity. This requires a bow to use.",
+      "source_tag": "tformat",
+      "old_target": "进入一个平静，专注的姿态，增加 %d 物理强度和命中，抛射物速度增加 %d%% 并且标记目标的几率增加 %d%%。\n这让你的远距离射击更有效：对三格外目标的距离每增加一格，伤害增加 %0.1f%%，8 格距离时达到最大值 （%0.1f%%）。\n物理强度和命中受敏捷值加成。该技能需要弓来使用。",
+      "new_target": "进入一个平静，专注的姿态，增加 %d 物理强度和命中，抛射物速度增加 %d%% 并且标记目标的几率增加 %d%%。\n这让你的远距离射击更有效：对三格外目标的距离每增加一格，伤害增加 %0.1f%%，8 格时说明显示的增伤为 %0.1f%%； 实际在 11 格时达到上限，为每格增伤的 8 倍。\n物理强度和命中受敏捷值加成。该技能需要弓来使用。",
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "physical_power_and_accuracy",
+          "calculation_parameter_consumer_verification": "Aim #1 power -> combat_dam/combat_atk; #2 speed -> negative slow_projectiles_outgoing; #3 mark -> archery chance increment; #4 dam=getDamage; #5 dam*5 is range8 bonus, NOT maximum. Archery computes min(max(distance-3,0),8)*getDamage and multiplies dam by 1+bonus/100. Range11 gives maximum8*getDamage. Text retains #5 as range8 display bonus and states actual cap separately.",
+          "display_parameter_expression": "getPower",
+          "actual_consumer": "activate combat_dam/combat_atk"
+        },
+        {
+          "index": 2,
+          "placeholder": "%d",
+          "quantity_kind": "projectile_speed_percent",
+          "calculation_parameter_consumer_verification": "Aim #1 power -> combat_dam/combat_atk; #2 speed -> negative slow_projectiles_outgoing; #3 mark -> archery chance increment; #4 dam=getDamage; #5 dam*5 is range8 bonus, NOT maximum. Archery computes min(max(distance-3,0),8)*getDamage and multiplies dam by 1+bonus/100. Range11 gives maximum8*getDamage. Text retains #5 as range8 display bonus and states actual cap separately.",
+          "display_parameter_expression": "getSpeed",
+          "actual_consumer": "activate slow_projectiles_outgoing=-speed"
+        },
+        {
+          "index": 3,
+          "placeholder": "%d",
+          "quantity_kind": "additional_mark_chance_percent",
+          "calculation_parameter_consumer_verification": "Aim #1 power -> combat_dam/combat_atk; #2 speed -> negative slow_projectiles_outgoing; #3 mark -> archery chance increment; #4 dam=getDamage; #5 dam*5 is range8 bonus, NOT maximum. Archery computes min(max(distance-3,0),8)*getDamage and multiplies dam by 1+bonus/100. Range11 gives maximum8*getDamage. Text retains #5 as range8 display bonus and states actual cap separately.",
+          "display_parameter_expression": "getMarkChance",
+          "actual_consumer": "archery mark chance addition -> chance roll -> MARKED"
+        },
+        {
+          "index": 4,
+          "placeholder": "%0.1f",
+          "quantity_kind": "damage_per_excess_tile_percent",
+          "calculation_parameter_consumer_verification": "Aim #1 power -> combat_dam/combat_atk; #2 speed -> negative slow_projectiles_outgoing; #3 mark -> archery chance increment; #4 dam=getDamage; #5 dam*5 is range8 bonus, NOT maximum. Archery computes min(max(distance-3,0),8)*getDamage and multiplies dam by 1+bonus/100. Range11 gives maximum8*getDamage. Text retains #5 as range8 display bonus and states actual cap separately.",
+          "display_parameter_expression": "getDamage",
+          "actual_consumer": "Archery dam*(1+getDamage*min(max(distance-3,0),8)/100)"
+        },
+        {
+          "index": 5,
+          "placeholder": "%0.1f",
+          "quantity_kind": "display_range8_damage_bonus_percent_not_maximum",
+          "calculation_parameter_consumer_verification": "Aim #1 power -> combat_dam/combat_atk; #2 speed -> negative slow_projectiles_outgoing; #3 mark -> archery chance increment; #4 dam=getDamage; #5 dam*5 is range8 bonus, NOT maximum. Archery computes min(max(distance-3,0),8)*getDamage and multiplies dam by 1+bonus/100. Range11 gives maximum8*getDamage. Text retains #5 as range8 display bonus and states actual cap separately.",
+          "display_parameter_expression": "getDamage*5",
+          "actual_consumer": "range8 display bonus only; actual max is getDamage*8 at range11",
+          "original_quantity_kind": "displayed_maximum_damage_bonus_percent"
+        }
+      ],
+      "independent_verification": "Aim #1 power -> combat_dam/combat_atk; #2 speed -> negative slow_projectiles_outgoing; #3 mark -> archery chance increment; #4 dam=getDamage; #5 dam*5 is range8 bonus, NOT maximum. Archery computes min(max(distance-3,0),8)*getDamage and multiplies dam by 1+bonus/100. Range11 gives maximum8*getDamage. Text retains #5 as range8 display bonus and states actual cap separately.",
+      "baseline_target_byte_span": [
+        2992037,
+        2992405
+      ],
+      "invariants": {
+        "source_source_tag_args_order_special_unchanged": true,
+        "printf_tokens_including_literal_percent_exact": true,
+        "markup_exact": true,
+        "newline_tab_sequence_exact": true
+      }
+    },
+    {
+      "candidate_index": 764,
+      "change_id": "85b198af1d7c23aad4827a5ea8ec91ceb113002aff5330dcccdfa60e05f48c96",
+      "claim_id": "UPSTREAM110",
+      "status": "confirmed",
+      "section": "mod-tome/data/talents/techniques/unarmed-discipline.lua",
+      "source": "Using your deep knowledge of anatomy, you strike a target in a vital pressure point for %d%% weapon damage, bypassing their defense and evasion.\n\t\tThis strike inflicts terrible wounds inside the target's body, causing them to take physical damage equal to 100%% of any damage dealt during the attack each turn for 4 turns, increasing by %d%% each turn (so after 4 turns, they would have taken a total of %d%% damage).\n\t\tIf the target dies while under or from this effect their body will explode in a radius %d shower of bone and gore, inflicting physical damage equal to the current tick to all enemies and granting you 4 combo points.",
+      "source_tag": "tformat",
+      "old_target": "使用你深刻的解剖学知识，击中敌人的穴道造成 %d%% 武器伤害，无视闪避和躲闪效果。\n\t\t这次攻击在敌人身上造成可怕的内伤，在之后的 4 回合内，每回合都造成相当于本次攻击所造成伤害 100%% 的物理伤害，且每回合递增 %d%% （因此 4 回合后共计造成 %d%% 伤害）。\n\t\t如果目标死在该效果下，他们身体会爆炸，并让半径 %d 内的敌人受到等于他们当前回合的点穴伤害的物理伤害，并给你 4 点连击点。",
+      "new_target": "使用你深刻的解剖学知识，击中敌人的穴道造成 %d%% 武器伤害，无视闪避和躲闪效果。\n\t\t这次攻击在敌人身上造成可怕的内伤，在之后的 4 回合内，首次造成相当于本次攻击所造成伤害 100%% 的物理伤害，之后每次递增 %d%% （原说明显示的总伤害为 %d%%， 该数值计算有误；实际四次持续伤害的总量为本次攻击伤害乘以 1、(1 + 递增比例)、(1 + 递增比例)² 和 (1 + 递增比例)³ 之和）。\n\t\t如果目标死在该效果下，他们身体会爆炸，并让半径 %d 内的敌人受到等于他们当前回合的点穴伤害的物理伤害，并给你 4 点连击点。",
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "weapon_damage_percent",
+          "calculation_parameter_consumer_verification": "Touch of Death #1 damage=100*getDamage -> attackTarget multiplier; captures life_diff after actual attack and passes eff.dam=life_diff, eff.mult=getMult/100, duration4; #2=getMult. on_timeout deals eff.dam THEN multiplies by 1+eff.mult, so four ticks exponents0,1,2,3. #3 info finaldam uses damage*(1+q²+q³+q⁴), not actual sum and not a postmitigation life_diff value. Text labels #3 erroneous original display and gives sum based on actual attack life loss. #4 radius -> effect radius -> death explosion current eff.dam, four combo build calls. No guarantee that the erroneous display has been fixed in source.",
+          "display_parameter_expression": "getDamage*100",
+          "actual_consumer": "attackTarget -> attackTargetWith mult -> captured life_diff"
+        },
+        {
+          "index": 2,
+          "placeholder": "%d",
+          "quantity_kind": "damage_growth_per_turn_percent",
+          "calculation_parameter_consumer_verification": "Touch of Death #1 damage=100*getDamage -> attackTarget multiplier; captures life_diff after actual attack and passes eff.dam=life_diff, eff.mult=getMult/100, duration4; #2=getMult. on_timeout deals eff.dam THEN multiplies by 1+eff.mult, so four ticks exponents0,1,2,3. #3 info finaldam uses damage*(1+q²+q³+q⁴), not actual sum and not a postmitigation life_diff value. Text labels #3 erroneous original display and gives sum based on actual attack life loss. #4 radius -> effect radius -> death explosion current eff.dam, four combo build calls. No guarantee that the erroneous display has been fixed in source.",
+          "display_parameter_expression": "getMult",
+          "actual_consumer": "TOUCH_OF_DEATH mult=getMult/100 -> dam*=1+mult after each tick"
+        },
+        {
+          "index": 3,
+          "placeholder": "%d",
+          "quantity_kind": "erroneous_display_total_weapon_damage_percent",
+          "calculation_parameter_consumer_verification": "Touch of Death #1 damage=100*getDamage -> attackTarget multiplier; captures life_diff after actual attack and passes eff.dam=life_diff, eff.mult=getMult/100, duration4; #2=getMult. on_timeout deals eff.dam THEN multiplies by 1+eff.mult, so four ticks exponents0,1,2,3. #3 info finaldam uses damage*(1+q²+q³+q⁴), not actual sum and not a postmitigation life_diff value. Text labels #3 erroneous original display and gives sum based on actual attack life loss. #4 radius -> effect radius -> death explosion current eff.dam, four combo build calls. No guarantee that the erroneous display has been fixed in source.",
+          "display_parameter_expression": "damage*(1+q^2+q^3+q^4), q=1+getMult/100",
+          "actual_consumer": "incorrect display only; actual tick total=life_diff*(1+q+q^2+q^3)",
+          "original_quantity_kind": "displayed_total_weapon_damage_percent"
+        },
+        {
+          "index": 4,
+          "placeholder": "%d",
+          "quantity_kind": "death_explosion_radius",
+          "calculation_parameter_consumer_verification": "Touch of Death #1 damage=100*getDamage -> attackTarget multiplier; captures life_diff after actual attack and passes eff.dam=life_diff, eff.mult=getMult/100, duration4; #2=getMult. on_timeout deals eff.dam THEN multiplies by 1+eff.mult, so four ticks exponents0,1,2,3. #3 info finaldam uses damage*(1+q²+q³+q⁴), not actual sum and not a postmitigation life_diff value. Text labels #3 erroneous original display and gives sum based on actual attack life loss. #4 radius -> effect radius -> death explosion current eff.dam, four combo build calls. No guarantee that the erroneous display has been fixed in source.",
+          "display_parameter_expression": "getTalentRadius",
+          "actual_consumer": "TOUCH_OF_DEATH radius -> on_die ball radius"
+        }
+      ],
+      "independent_verification": "Touch of Death #1 damage=100*getDamage -> attackTarget multiplier; captures life_diff after actual attack and passes eff.dam=life_diff, eff.mult=getMult/100, duration4; #2=getMult. on_timeout deals eff.dam THEN multiplies by 1+eff.mult, so four ticks exponents0,1,2,3. #3 info finaldam uses damage*(1+q²+q³+q⁴), not actual sum and not a postmitigation life_diff value. Text labels #3 erroneous original display and gives sum based on actual attack life loss. #4 radius -> effect radius -> death explosion current eff.dam, four combo build calls. No guarantee that the erroneous display has been fixed in source.",
+      "baseline_target_byte_span": [
+        3017999,
+        3018526
+      ],
+      "invariants": {
+        "source_source_tag_args_order_special_unchanged": true,
+        "printf_tokens_including_literal_percent_exact": true,
+        "markup_exact": true,
+        "newline_tab_sequence_exact": true
+      }
+    },
+    {
+      "candidate_index": 768,
+      "change_id": "6499a8f4b0ad92f93182c24f867a84f09b43d2a28636b578e621f0429c55fb9a",
+      "claim_id": "UPSTREAM028",
+      "status": "confirmed",
+      "section": "mod-tome/data/talents/techniques/unarmed-training.lua",
+      "source": "Your understanding of physiology allows you to apply your reflexes in new ways, increasing the flat damage reduction granted by Striking Stance by %d%% and causing direct critical hits (physical, mental, spells) against you to have a %d%% lower Critical multiplier (but always do at least normal damage).",
+      "source_tag": "tformat",
+      "old_target": "你对生理结构的理解使你能以新的方式运用反射神经，使攻击姿态提供的固定伤害减免提高 %d%%， 并使针对你的直接暴击（物理、精神或法术）的暴击倍率降低 %d%% （但伤害不会低于普通命中）。",
+      "new_target": "你对生理结构的理解使你能以新的方式运用反射神经，使攻击姿态提供的固定伤害减免提高 %d%%， 并使针对你的直接暴击（物理、精神或法术）超过普通命中伤害的额外暴击部分降低 %d%% （但伤害不会低于普通命中）。",
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "striking_stance_flat_reduction_relative_increase_percent",
+          "calculation_parameter_consumer_verification": "Reflex Defense #1 getFlatReduction -> Striking Stance getFlatReduction multiplies base by1+bonus/100; #2 critResist -> ignore_direct_crits. Damage projector divides dam by crit_power, subtracts (crit_power-1)*bound(percent,0,100)/100, then reapplies max(1,newcrit). Only excess above normal damage is reduced, not the entire crit multiplier.",
+          "display_parameter_expression": "getFlatReduction",
+          "actual_consumer": "Striking Stance flatReduction base*(1+getFlatReduction/100)"
+        },
+        {
+          "index": 2,
+          "placeholder": "%d",
+          "quantity_kind": "additional_critical_multiplier_relative_reduction_percent",
+          "calculation_parameter_consumer_verification": "Reflex Defense #1 getFlatReduction -> Striking Stance getFlatReduction multiplies base by1+bonus/100; #2 critResist -> ignore_direct_crits. Damage projector divides dam by crit_power, subtracts (crit_power-1)*bound(percent,0,100)/100, then reapplies max(1,newcrit). Only excess above normal damage is reduced, not the entire crit multiplier.",
+          "display_parameter_expression": "critResist",
+          "actual_consumer": "ignore_direct_crits -> projector reduction=(crit_power-1)*bound(percent,0,100)/100"
+        }
+      ],
+      "independent_verification": "Reflex Defense #1 getFlatReduction -> Striking Stance getFlatReduction multiplies base by1+bonus/100; #2 critResist -> ignore_direct_crits. Damage projector divides dam by crit_power, subtracts (crit_power-1)*bound(percent,0,100)/100, then reapplies max(1,newcrit). Only excess above normal damage is reduced, not the entire crit multiplier.",
+      "baseline_target_byte_span": [
+        3020594,
+        3020852
+      ],
+      "invariants": {
+        "source_source_tag_args_order_special_unchanged": true,
+        "printf_tokens_including_literal_percent_exact": true,
+        "markup_exact": true,
+        "newline_tab_sequence_exact": true
+      }
+    },
+    {
+      "candidate_index": 769,
+      "change_id": "afeba5863887972b71c1f514109258097981f01db0086fbfdb072529c5cd4c7d",
+      "claim_id": "UPSTREAM042",
+      "status": "confirmed",
+      "section": "mod-tome/data/talents/techniques/warcries.lua",
+      "source": "Your battle cry shatters the will of your foes within a radius of %d, lowering their Defense by %d for 7 turns, making them easier to hit.\n\t\tAll evasion and concealment bonuses are also disabled.\n\t\tThe chance to hit increases with your Physical Power.",
+      "source_tag": "tformat",
+      "old_target": "你的战吼会击溃前方 %d 码锥形范围内敌人的斗志，使其闪避降低 %d 点，持续 7 回合，令其更容易被命中。\n\t\t躲闪与隐匿提供的未命中加成也会被禁用。\n\t\t命中率受物理强度加成。",
+      "new_target": "你的战吼会击溃前方 %d 码锥形范围内除你之外所有单位（包括友方）的斗志，使其闪避降低 %d 点，持续 7 回合，令其更容易被命中。\n\t\t躲闪与隐匿提供的未命中加成也会被禁用。\n\t\t命中率受物理强度加成。",
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "cone_radius",
+          "calculation_parameter_consumer_verification": "Battle Cry #1 talent radius -> cone target; #2 7*TL -> EFF_BATTLE_CRY.power, duration7, apply_power physicalpower. Target.getType defaults friendlyfire=true; cone selffire=false; ActorProject callback applies to all actors passing filter without reaction test. BATTLE_CRY consumes -power combat_def, no_evasion and blind_fighted; Combat.checkEvasion and hit visibility branch consume these. Friendlies are affected subject to ordinary effect application checks.",
+          "display_parameter_expression": "getTalentRadius",
+          "actual_consumer": "cone radius -> Target cone -> ActorProject with friendlyfire default true"
+        },
+        {
+          "index": 2,
+          "placeholder": "%d",
+          "quantity_kind": "defense_reduction_points",
+          "calculation_parameter_consumer_verification": "Battle Cry #1 talent radius -> cone target; #2 7*TL -> EFF_BATTLE_CRY.power, duration7, apply_power physicalpower. Target.getType defaults friendlyfire=true; cone selffire=false; ActorProject callback applies to all actors passing filter without reaction test. BATTLE_CRY consumes -power combat_def, no_evasion and blind_fighted; Combat.checkEvasion and hit visibility branch consume these. Friendlies are affected subject to ordinary effect application checks.",
+          "display_parameter_expression": "7*getTalentLevel",
+          "actual_consumer": "BATTLE_CRY power -> combat_def=-power"
+        }
+      ],
+      "independent_verification": "Battle Cry #1 talent radius -> cone target; #2 7*TL -> EFF_BATTLE_CRY.power, duration7, apply_power physicalpower. Target.getType defaults friendlyfire=true; cone selffire=false; ActorProject callback applies to all actors passing filter without reaction test. BATTLE_CRY consumes -power combat_def, no_evasion and blind_fighted; Combat.checkEvasion and hit visibility branch consume these. Friendlies are affected subject to ordinary effect application checks.",
+      "baseline_target_byte_span": [
+        3022499,
+        3022735
+      ],
+      "invariants": {
+        "source_source_tag_args_order_special_unchanged": true,
+        "printf_tokens_including_literal_percent_exact": true,
+        "markup_exact": true,
+        "newline_tab_sequence_exact": true
+      }
+    },
+    {
+      "candidate_index": 780,
+      "change_id": "6d4857ee379d942f15e17aa4feb06219e434f509b16af28191df768d1823a280",
+      "claim_id": "UPSTREAM058",
+      "status": "confirmed",
+      "section": "mod-tome/data/talents/uber/str.lua",
+      "source": "For 8 turns you gain the mass and power of a star, drawing all creatures within radius 5 toward you and dealing %0.2f fire, %0.2f light and %0.2f physical damage to all foes and reducing their damage dealt by 30%%.\n\t\tFoes closer to you take up to 150%% damage.\n\t\tThe damage will increase with your Strength.",
+      "source_tag": "tformat",
+      "old_target": "你获得 8 回合的星之引力，将周围 5 码范围内的所有生物向你拉扯，并对所有敌人造成 %0.2f 火焰、 %0.2f 光系和 %0.2f 物理伤害。他们所造成的伤害减少30%%。\n\t\t距离越近，敌人受到的伤害越高，最高为 150%%。\n\t\t伤害值受力量值加成。",
+      "new_target": "你获得 8 回合的星之引力，将周围 5 码范围内的敌对单位向你拉扯，并对所有敌人造成 %0.2f 火焰、 %0.2f 光系和 %0.2f 物理伤害。他们所造成的伤害减少30%%。\n\t\t距离越近，敌人受到的伤害越高，最高为 150%%。\n\t\t伤害值受力量值加成。",
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%0.2f",
+          "quantity_kind": "base_fire_damage_per_turn",
+          "calculation_parameter_consumer_verification": "Irresistible Sun #1/#2/#3 damDesc(FIRE/LIGHT/PHYSICAL,(35+Str*1.3)/3); action effect.dam=35+Str*1.3,dur8. on_timeout projects ball radius5,friendlyfire=false, which ActorProject rejects for reaction>=0. Remaining actors pull one step unless ignore_irresistible_sun; hostile branch damage=eff.dam*(1+(5-postpull_distance)/8), then each type dam/3 and WEIGHT_OF_THE_SUN reduce30 -> numbed. Translation only repairs claimed pull recipient set; original 150% maximum remains outside current claim.",
+          "display_parameter_expression": "damDesc(FIRE,(35+Str*1.3)/3)",
+          "actual_consumer": "IRRESISTIBLE_SUN eff.dam*(1+(5-postpull_distance)/8)/3 -> FIRE projector"
+        },
+        {
+          "index": 2,
+          "placeholder": "%0.2f",
+          "quantity_kind": "base_light_damage_per_turn",
+          "calculation_parameter_consumer_verification": "Irresistible Sun #1/#2/#3 damDesc(FIRE/LIGHT/PHYSICAL,(35+Str*1.3)/3); action effect.dam=35+Str*1.3,dur8. on_timeout projects ball radius5,friendlyfire=false, which ActorProject rejects for reaction>=0. Remaining actors pull one step unless ignore_irresistible_sun; hostile branch damage=eff.dam*(1+(5-postpull_distance)/8), then each type dam/3 and WEIGHT_OF_THE_SUN reduce30 -> numbed. Translation only repairs claimed pull recipient set; original 150% maximum remains outside current claim.",
+          "display_parameter_expression": "damDesc(LIGHT,(35+Str*1.3)/3)",
+          "actual_consumer": "same value -> LIGHT projector"
+        },
+        {
+          "index": 3,
+          "placeholder": "%0.2f",
+          "quantity_kind": "base_physical_damage_per_turn",
+          "calculation_parameter_consumer_verification": "Irresistible Sun #1/#2/#3 damDesc(FIRE/LIGHT/PHYSICAL,(35+Str*1.3)/3); action effect.dam=35+Str*1.3,dur8. on_timeout projects ball radius5,friendlyfire=false, which ActorProject rejects for reaction>=0. Remaining actors pull one step unless ignore_irresistible_sun; hostile branch damage=eff.dam*(1+(5-postpull_distance)/8), then each type dam/3 and WEIGHT_OF_THE_SUN reduce30 -> numbed. Translation only repairs claimed pull recipient set; original 150% maximum remains outside current claim.",
+          "display_parameter_expression": "damDesc(PHYSICAL,(35+Str*1.3)/3)",
+          "actual_consumer": "same value -> PHYSICAL projector"
+        }
+      ],
+      "independent_verification": "Irresistible Sun #1/#2/#3 damDesc(FIRE/LIGHT/PHYSICAL,(35+Str*1.3)/3); action effect.dam=35+Str*1.3,dur8. on_timeout projects ball radius5,friendlyfire=false, which ActorProject rejects for reaction>=0. Remaining actors pull one step unless ignore_irresistible_sun; hostile branch damage=eff.dam*(1+(5-postpull_distance)/8), then each type dam/3 and WEIGHT_OF_THE_SUN reduce30 -> numbed. Translation only repairs claimed pull recipient set; original 150% maximum remains outside current claim.",
+      "baseline_target_byte_span": [
+        3068554,
+        3068858
+      ],
+      "invariants": {
+        "source_source_tag_args_order_special_unchanged": true,
+        "printf_tokens_including_literal_percent_exact": true,
+        "markup_exact": true,
+        "newline_tab_sequence_exact": true
+      }
+    }
+  ],
+  "tests": [
+    {
+      "command": "LuaJIT LocaleLoader baseline/candidate full-record comparison",
+      "passed": true,
+      "changed_records": 10,
+      "all_non_target_fields_equal": true,
+      "record_count": 22989
+    },
+    {
+      "command": "tools/i18n proposal --strict equivalent validate_proposal in isolated /tmp root",
+      "passed": true,
+      "errors": 0,
+      "warnings": 0,
+      "coverage": {
+        "workset_items": 10,
+        "proposed": 10,
+        "missing": 0
+      },
+      "workset_id": "58403347670856a526c00a4078c4f64265aa85f7b06e6fa1b06e69a599342d17",
+      "validated_proposal": "/tmp/mmr011-proposal-zavftf7i/.artifacts/i18n/runs/20261002T133051.078756Z-2-proposal/73261dd62925d65ca51b91fedcd94480dd8319b1b4342b20d79761d46c68df8d.validated.json",
+      "provenance": "Synthetic bounded repair workset from exact frozen baseline, not claimed to be an extraction merge. Same manifest raw bytes, terminology and tool code; no validation bypass."
+    },
+    {
+      "name": "doctor",
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "passed": true,
+      "result": {
+        "runtime": "LuaJIT 2.1.0-beta3 Lua5.1",
+        "lpeg": "0.10.2-1",
+        "warnings": "DLC source-unpinned, expected; no DLC source consumed in this package"
+      }
+    },
+    {
+      "name": "strictlint",
+      "command": "python3 -B /tmp/mmr011-lint.py lint --strict",
+      "exit_code": 0,
+      "passed": true,
+      "result": {
+        "translations": 30308,
+        "errors": 0,
+        "warnings": 0,
+        "report": "/tmp/mmr011-lint-ewxrsftf/lint.json",
+        "cli_equivalent": "python3 -B tools/i18n lint --strict; derived receipt location only redirected to /tmp"
+      }
+    },
+    {
+      "name": "runtime_collision",
+      "command": "python3 -B tools/scan_runtime_collisions.py --out-dir /tmp/mmr011-runtime-scan",
+      "exit_code": 0,
+      "passed": true,
+      "result": {
+        "collisions": 0
+      }
+    },
+    {
+      "name": "runtime_classification",
+      "command": "python3 -B tools/classify_runtime_keys.py --out-dir /tmp/mmr011-runtime-classification",
+      "exit_code": 0,
+      "passed": true,
+      "result": {
+        "duplicate_keys": 1711,
+        "bucket_A": 1711,
+        "bucket_B": 0,
+        "bucket_C": 0,
+        "all_runtime_values_equal": true
+      }
+    },
+    {
+      "name": "first_candidate_strictlint",
+      "command": "python3 -B /tmp/mmr011-lint.py lint --strict",
+      "passed": false,
+      "exit_code": 1,
+      "errors": 1,
+      "detail": "talent-placeholder-spacing entry745; resolved with one ASCII space after fullwidth comma; final candidate strictlint passed."
+    },
+    {
+      "name": "whitespace",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "final_byte_reverse",
+      "passed": true,
+      "reversed_sha256": "d3cae3e6a852720e12f6cdb41398bc3953b869d7c60706f393cf14baedc567a8",
+      "non_target_byte_equality": true
+    }
+  ],
+  "unresolved_items": [
+    {
+      "type": "runtime_limitation",
+      "claim_id": "UPSTREAM061",
+      "detail": "Fixed core lacks RECOVERY definition. Original display quantities are explicitly qualified. External-addon injection / live runtime not tested; no game source repair authorized."
+    },
+    {
+      "type": "outside_claim_scope",
+      "claim_id": "UPSTREAM108",
+      "detail": "Incendiary getArmorSaveReduction(self,t) uses other talent argument; noted without repairing beyond frozen radius claim."
+    },
+    {
+      "type": "outside_claim_scope",
+      "claim_id": "UPSTREAM058",
+      "detail": "Existing 150% maximum statement not adjudicated/repaired in this pull-recipient claim."
+    }
+  ],
+  "plan_deviations": [
+    {
+      "detail": "Initial baseline-only lint used the tool default report directory; that self-created receipt was removed. Final lint redirected only derived receipts into /tmp with an in-memory create_run_directory override; no shared tool files or validators changed. Strict proposal used an isolated /tmp root with identical manifest raw bytes, tool code and terminology, and synthetic frozen-baseline repair input."
+    }
+  ],
+  "host_followup": "Full-workset independent review, final gates/build/publish dry-run, evidence/state/lifecycle/commit belong to ORCHESTRATOR; not executed by this child.",
+  "final_candidate_tests_bound_to_sha256": "03629048b23f93631e24432fc2a960b112a927775a24ff0cbffe2fa60ff38480",
+  "runtime_not_tested": "No live game run, DLC publish dry-run or game-source repair; static fixed-commit calculation -> actual parameters -> final consumers verified. Host remains responsible for final whole-workset review and full batch gates."
+}

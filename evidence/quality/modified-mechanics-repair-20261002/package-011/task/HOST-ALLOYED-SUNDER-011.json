@@ -1,0 +1,43 @@
+{
+  "finding_id": "HOST-ALLOYED-SUNDER-011",
+  "candidate_index": 745,
+  "status": "confirmed",
+  "category": "fidelity/numeric_consumer",
+  "evidence": {
+    "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "public_path": "game/modules/tome/data/talents/techniques/munitions.lua",
+    "sha256": "6675712c498b0de1bd51049059d7459f7d275c755c9bb9cfb4caed9f69536aa6",
+    "excerpts": [
+      {
+        "start": 45,
+        "end": 51,
+        "text": "\tgetArmorSaveReduction = function(self, t) return self:combatTalentLimit(t, 30, 5, 25, 0.75) end,\n\tgetResistPenalty = function(self, t) return self:combatTalentLimit(t, 35, 10, 25, true) end,\n\ton_learn = function(self, t)\n\t\tlocal lev = self:getTalentLevelRaw(t)\n\t\tif lev == 1 then\n\t\t\tself:learnTalent(self.T_INCENDIARY_AMMUNITION, true, nil, {no_unlearn=true})\n\t\t\tself:learnTalent(self.T_VENOMOUS_AMMUNITION, true, nil, {no_unlearn=true})"
+      },
+      {
+        "start": 134,
+        "end": 143,
+        "text": "\t\t\tdam = rng.range(dam, dam * damrange)\n\t\t\tdam = dam * t.getIncendiaryDamage(self,t)\n\t\t\t\n\t\t\tif self:knowTalent(self.T_ALLOYED_MUNITIONS) then\n\t\t\t\tlocal t2 = self:getTalentFromId(self.T_ALLOYED_MUNITIONS)\n\t\t\t\tself:project(tg, target.x, target.y, function(px, py)\n\t\t\t\t\tDamageType:get(DamageType.FIRE_SUNDER).projector(self, px, py, DamageType.FIRE_SUNDER, {src=self, dam=dam, dur=3, power=t2.getArmorSaveReduction(self,t)})\n\t\t\t\tend)\n\t\t\telse\n\t\t\t\tself:project(tg, target.x, target.y, function(px, py)"
+      },
+      {
+        "start": 428,
+        "end": 446,
+        "text": "\tgetPoisonDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.1, 0.4) end,\n\tgetPoisonRadius = function(self, t) if self:getTalentLevel(t)>=3 then return 2 else return 1 end end,\n\tgetPhysicalDamage = function(self, t) return self:combatTalentPhysicalDamage(t, 20, 180) end,\n\tgetNumb = function(self, t) return 5 + self:combatTalentLimit(t, 25, 5, 15) end,\n\tgetArmorSaveReduction = function(self, t) return self:combatTalentLimit(t, 30, 5, 25, 0.75) end,\n\tgetResistPenalty = function(self, t) return self:combatTalentLimit(t, 35, 10, 25, true) end,\n\tinfo = function(self, t)\n\t\tlocal poison = t.getPoisonDamage(self,t)*100\n\t\tlocal radius = t.getPoisonRadius(self,t)\n\t\tlocal bleed = t.getPhysicalDamage(self,t)\n\t\tlocal numb = t.getNumb(self,t)\n\t\tlocal armor = t.getArmorSaveReduction(self,t)\n\t\tlocal resist = t.getResistPenalty(self,t)\n\t\treturn ([[You mix together your munitions, leading to powerful new effects:\nIncendiary - Targets struck by the explosion have their armor and saves reduced by %d for 3 turns, and your physical and fire penetration is increased by %d%%.\nVenomous - Shots deal an additional %d%% weapon damage as nature in a radius %d ball, which applies numbing poison as per Exotic Munitions. This cannot occur more than once per turn.\nPiercing - Shots deal %0.2f physical damage and maim the target, bleeding them for a further %0.2f physical damage over 5 turns and reducing all damage dealt by %d%%.\nThe physical damage dealt, armor penetration and save reduction will increase with your Physical Power.]]):\n\t\ttformat(armor, resist, poison, radius, bleed/5, bleed, numb)"
+      }
+    ]
+  },
+  "reason": "The first placeholder is computed using Alloyed Munitions, but FIRE_SUNDER gets getArmorSaveReduction(self,t) where t is Incendiary Ammunition. Thus displayed reduction is not reliably the applied amount when raw talent levels differ. combatTalentLimit is talent-level scaling, not Physical Power. This was observed by executor as outside original claim; host confirms within frozen target scope, no glossary/global policy change.",
+  "proposed_resolution": "Qualify first placeholder as displayed value and describe actual armor/save reduction as calculated using Incendiary Ammunition talent level; remove unsupported Physical Power scaling for armor/save reduction while retaining the verified physical-damage scaling.",
+  "other_executor_observations": [
+    {
+      "subject": "Vitality absent RECOVERY effect",
+      "status": "advisory",
+      "reason": "Missing definition is confirmed and candidate explicitly qualifies displayed quantities; no game implementation claim."
+    },
+    {
+      "subject": "Irresistible Sun maximum150",
+      "status": "advisory",
+      "reason": "Ordinary distinct actor positions after pull give distance>=1 and maximum1.5. No concrete counterexample established; not an accepted repair finding."
+    }
+  ],
+  "calibration": "combatTalentLimit fifth argument 0.75 is Lua-truthy raw flag, so getTalentLevelRaw is used. Clarified from generic/effective skill level after exact helper lookup; same displayed-vs-applied talent mismatch, no change to approved target phrase."
+}

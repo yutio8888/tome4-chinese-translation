@@ -1,0 +1,17 @@
+{
+  "title": "机制修正011：有界机制与消费者修正",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-011",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "execute-0-a1"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，task mmrfix-20261002-011。直接按路径读取 .ai/roles/executor.md、.ai/task/mmrfix-20261002-011/SPEC.md、PLAN.md、REPAIR-INPUT.json（.ai为隐藏/ignored，rg默认不列出不表示文件不存在）。严格仅修本包10条target/10个confirmed claim。先核对baseline，完整按计算→参数→消费者独立核验，固定core版本及DLC SHA匹配；不能机械服从finding，不确定如实报告。保持全部非target字段/placeholder/markup/newline/tabs及范围外字节，保留此前各包修正。唯一内容写入者；不改源码/术语库/工具/.ai/evidence/用户文档，不stage/commit、不创建child。只可写SPEC允许Lua target、自己的/tmp和 .artifacts/i18n/modified-mechanics-repair-20261002/executor-011-report.json。报告须记录完整旧新target、源码commit/hash/相关消费者摘录、逐placeholder index与quantity kind、字节逆向证明/tests/未决项。运行strictlint和git diff --check，最终报告实际成果。",
+  "notifyOnFinish": true
+}
