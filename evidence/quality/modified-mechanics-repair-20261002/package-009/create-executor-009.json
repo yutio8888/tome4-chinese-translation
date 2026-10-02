@@ -1,0 +1,18 @@
+{
+  "title": "机制修正009：纹身、NPC与灵能消费者",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-009",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "execute-0-a1",
+    "paseo.parent-agent-id": "1b48d069-ca8b-4271-af61-d8205661e5ef"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，task mmrfix-20261002-009。读 .ai/roles/executor.md、AGENTS.md、本task SPEC/PLAN/REPAIR-INPUT。只修冻结10条target的10原confirmed机制问题：两条Heroism到期生命未置1、Telepathy20%最大生命自伤、Blightzone实际伤害公式、BodyShot实际体力扣除、StickySmoke不保证近身潜行、HideInPlainSight清AI目标独立于潜行成功、Block抗性额外格挡输入未接通、StaticCharge近战命中活目标触发、Distortion次级降抗字段错位。先核对baseline逐字，固定core commit624a67329fe2ad440c5b344785a9c73fcf22ae63和DLC源码SHA须匹配，按计算→实参→消费者核验。DLC来源未固定如实记录。保留其余所有target/字节与source/tag/args/special/placeholder/markup/newline/tabs，保留前八包及疗愈词缀修正。允许文件仅SPEC/SCOPE枚举的Lua文件，仅冻结10条target。不改术语库/游戏源码/工具/.ai/旧evidence/用户文件，不stage/commit、不创建child。可用/tmp。完成运行strictlint及git diff --check，写 .artifacts/i18n/modified-mechanics-repair-20261002/executor-009-report.json，含逐项完整旧新target/源码调用证据hash/来源限制/范围字节核验/tests/未解决项。最终报告实际成果。",
+  "notifyOnFinish": true
+}

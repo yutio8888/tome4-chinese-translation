@@ -1,0 +1,86 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-009/INPUT-review-0-a1.json | head -c 60000",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009/INPUT-review-0-a1.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n    print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False)[:500])\nEOF",
+      "description": "Inspect input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -l docs/paseo-translation-context-review-v2-contract.md; cat docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read v2 contract"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    print('=====',i, t['revision_key'][:8])\n    print('SRC:',t['source']); print('TGT:',t['target'])\n    c=json.loads(b['context'])\n    print(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False)[:3000])\n    for e in c.get('source_evidence',[]):\n        print('--',e['public_path'],e['start'],e['end'],e.get('source_pinning'),e.get('frozen_file'))\n        print(e['excerpt'])\nEOF",
+      "description": "Dump entries with context"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-009/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    print('=====',i, t['revision_key'][:8])\n    print('SRC:',t['source']); print('TGT:',t['target'])\n    c=json.loads(b['context'])\n    print(json.dumps({k:v for k,v in c.items() if k not in('source_evidence','source_locations','read_boundary')},ensure_ascii=False)[:3000])\n    for e in c.get('source_evidence',[]):\n        print('--',json.dumps({k:v for k,v in e.items() if k!='excerpt'},ensure_ascii=False))\n        print(e.get('excerpt',''))\nEOF",
+      "description": "Dump all entries robustly"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/d91bb38b-f6d9-4037-b0ad-77f1557f2cae/tool-results/b283whrwv.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/d91bb38b-f6d9-4037-b0ad-77f1557f2cae/tool-results/b283whrwv.txt",
+      "offset": 222,
+      "limit": 420
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; g(){ git show $C:$1; }\ng game/modules/tome/class/interface/Combat.lua | grep -n \"function _M:combatTalentSpellDamage\\|function _M:combatTalentScale\\|function _M:rescaleDamage\\|function _M:combatSpellpower\\b\" \ng game/modules/tome/class/interface/Combat.lua > /tmp/c.lua\nfor f in combatTalentSpellDamage combatTalentScale rescaleDamage; do n=$(grep -n \"function _M:$f\" /tmp/c.lua|head -1|cut -d: -f1); sed -n \"$n,$((n+30))p\" /tmp/c.lua; echo ----; done",
+      "description": "Inspect combat scaling formulas at pinned commit"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"function _M:getCombo\\|function _M:clearCombo\" $C -- game/modules/tome | head; git grep -n \"TAINT_TELEPATHY\\|Taint: Telepathy\" $C -- game/modules/tome | head; git grep -n \"die_at\" $C -- game/modules/tome/class/Actor.lua | head -20",
+      "description": "Find getCombo, telepathy data, die_at uses"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/class/interface/Combat.lua | sed -n 2742,2756p; git grep -n -i \"T_TAINT__TELEPATHY\\|TAINT__TELEPATHY\" $C -- game/modules/tome | head; git grep -n \"hide_chance\\|DIM_VISION\\|dim_vision\" $C -- game/modules/tome/data/talents/cunning/stealth.lua game/modules/tome/class | head",
+      "description": "Check combo getter, telepathy data, stealth hooks"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git grep -n \"TAINT_TELEPATHY\\|Taint: Telepathy\\|taint__telepathy\\|TELEPATHY\\\"\" $C -- game/modules/tome/data/general game/modules/tome/data/talents | head; git show $C:game/modules/tome/data/talents/cunning/stealth.lua | sed -n 55,95p",
+      "description": "Look for telepathy data and stealth activation"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; C=624a67329fe2ad440c5b344785a9c73fcf22ae63; git show $C:game/modules/tome/class/Actor.lua | sed -n 5575,5592p; git show $C:game/modules/tome/class/Actor.lua | grep -n \"self.life <= self.die_at\\|life < self.die_at\\|self.life < 0\\|self.life <= 0\" | head",
+      "description": "Check death handling after die_at removal"
+    }
+  }
+]
