@@ -5208,7 +5208,7 @@ These attacks will not trigger Counterstrike.
 The chance to silence will increase with your Steampower.]], [[你使用重装武器技术强化你的盾牌，在你装备重装武器的时候进行格挡，会触发以下的特殊效果。
 #AQUAMARINE#火焰喷射器#LAST#: 在火焰喷射器攻击半径范围内，释放出燃烧的呛人浓烟。被击中的敌人会受到 %d%% 火焰盾牌伤害，并被沉默 %d 回合。
 #AQUAMARINE#电击棒#LAST#: 将盾牌注入闪电，攻击半径 3 码范围内的所有敌人，造成 %d%% 闪电盾牌伤害，并获得相当于最高伤害值 100%% 的伤害吸收护盾，持续 6 回合。
-#AQUAMARINE#爆矢枪#LAST#: 从盾牌中向半径 7 码内的所有敌人发射一阵腐蚀性毒镖，造成 %d%% 酸性盾牌伤害。每个目标身上会嵌入 %d 枚腐蚀性毒镖，持续 6 回合；目标每受到一次近战或远程攻击，就会有一枚毒镖爆炸，造成相当于盾牌伤害 50%% 的酸性伤害。
+#AQUAMARINE#爆矢枪#LAST#: 从盾牌中向半径 7 码内的所有敌人发射一阵腐蚀性毒镖，造成 %d%% 酸性盾牌伤害。每个目标身上会嵌入 %d 枚腐蚀性毒镖，持续 6 回合；目标每被与其敌对的单位用近战或远程攻击命中一次，就会有一枚毒镖爆炸，造成相当于盾牌伤害 50%% 的酸性伤害。
 这些攻击不会触发反击效果。
 沉默几率受蒸汽强度加成。]], "tformat")
 t("Safety Override", "武器过载", "talent name")
@@ -5219,8 +5219,8 @@ t([[Push your heavy weapon beyond its normal limits to trigger a powerful effect
 #AQUAMARINE#Shockstaff#LAST#: Drive your staff into the ground, discharging all remaining power to deal %d%% shockstaff damage as lightning in radius %d. Those struck will be knocked back %d tiles, and if they strike a wall they will emit a static pulse dealing %0.2f lightning damage in radius 1 and stunning them for 5 turns.
 #AQUAMARINE#Boltgun#LAST#: Overcharge your boltgun, firing a single deadly bolt dealing %d%% steamgun damage as acid in a piercing line. For each negative physical, magical, or mental effect on the target, they take an additional %d%% damage (to a maximum of %d%%) and the duration of each negative effect is increased by %d turns.]], [[让你的重装武器突破正常极限，触发一个强大的效果。这会立即停用重装武器，并消耗所有剩余弹药。
 #AQUAMARINE#火焰喷射器#LAST#: 引爆燃料箱，制造半径 4 的爆炸，将你抛至距离 %d 内的指定格。爆炸范围内的敌人受到 %0.2f 点火焰伤害；不稳定燃料还会使其额外受到相当于当前燃烧伤害 %d%% 的火焰伤害。
-#AQUAMARINE#电击棒#LAST#: 将电击棒砸入地面，释放所有剩余能量，造成相当于 %d%% 电击棒伤害的闪电伤害，半径为 %d。 受击目标会被击退 %d 格；若撞上墙壁，便会释放一道半径 1 的静电脉冲，造成 %0.2f 点闪电伤害，并震慑其 5 回合。
-#AQUAMARINE#爆矢枪#LAST#: 超载爆矢枪，射出一枚致命弹矢，对直线上的目标造成相当于 %d%% 蒸汽枪伤害的酸性伤害。目标每有一种物理、魔法或精神负面效果，便额外受到 %d%% 伤害（最多 %d%%）， 且每种负面效果的持续时间增加 %d 回合。]], "tformat")
+#AQUAMARINE#电击棒#LAST#: 将电击棒砸入地面，释放所有剩余能量，造成相当于 %d%% 电击棒伤害的闪电伤害，半径为 %d。 即使攻击未命中，也会尝试将范围内的敌人击退 %d 格；若撞上墙壁，便会释放一道半径 1 的静电脉冲，对范围内的敌人造成 %0.2f 点闪电伤害，并尝试震慑他们 5 回合（同一敌人在此次施放中只受一次脉冲影响）。
+#AQUAMARINE#爆矢枪#LAST#: 超载爆矢枪，射出一枚致命弹矢，对直线上的目标造成相当于 %d%% 蒸汽枪伤害的酸性伤害。目标每有一种物理、魔法或精神负面效果，便额外受到 %d%% 伤害（界面标示的额外伤害上限为 %d%%， 实际每回合对同一目标最多追加 6 次伤害）， 且每种负面效果的持续时间增加 %d 回合。]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/inscriptions.lua"
@@ -5245,9 +5245,9 @@ section "tome-orcs/data/talents/steam/magnetism.lua"
 t("Static Shock", "静电震击", "talent name")
 t([[Using your Block talent surrounds you and your minions in a static barrier for 4 turns, increasing all resistances by %d%%. If an enemy deals damage to you or your minions, the barrier will shock them for %d%% of your shield damage.
 		This effect cannot damage the same target more than once per turn, and will not interact with Counterstrike.
-You now also use your Cunning in place of Strength when equipping shields as well as when calculating shield damage.]], [[当你使用格挡技能的时候，你会在自己和召唤物身边产生一个静电屏障，增加所有抗性 %d%%， 持续 4 回合。如果有敌人对你或召唤物造成伤害，屏障会电击它们，造成 %d%% 你的盾牌伤害。
+You now also use your Cunning in place of Strength when equipping shields as well as when calculating shield damage.]], [[当你使用格挡技能的时候，你会在自己和你召唤的炮台身边产生一个静电屏障，增加所有抗性 %d%%， 持续 4 回合。如果有敌人对你或你召唤的炮台造成伤害，屏障会电击它们，造成 %d%% 你的盾牌伤害。
 		这一效果每回合对同一目标最多造成一次伤害，且不会与反击效果相互作用。
-你装备盾牌和计算盾牌攻击伤害的时候，用灵巧代替力量要求。]], "tformat")
+装备盾牌时，你以灵巧代替力量满足属性需求；计算盾牌伤害时，也以灵巧代替力量。]], "tformat")
 t("Magnetic Field", "磁性力场", "talent name")
 t("You require a shield for this talent.", "你需要一面盾牌才能使用这一技能。", "logPlayer")
 t("#Source# shatters '#Target#'.", "#Source#击碎了'#Target#'。", "logCombat")
@@ -5334,13 +5334,13 @@ t("You require a tail-mounted steamsaw for this talent.", "你必须要尾部安
 t("Your mecharachnid cannot do that currently.", "你的机械蜘蛛目前不能这么做。", "logPlayer")
 t("#Source# provokes #Target# to attack it.", "#Source#强制#Target#攻击它。", "logCombat")
 t([[You rush to the target and strike with your tailsaw, dealing %d%% damage and taunting enemies within radius %d.
-		You now also use your Dexterity in place of Strength when equipping Steamsaws as well as when calculating weapon damage, and have your Steamsaw damage increased by %d%% and Physical Power by %d.]], [[你冲向敌人，用尾部蒸汽链锯进行攻击，造成 %d%% 伤害，并嘲讽半径 %d 码内的所有敌人。
+		You now also use your Dexterity in place of Strength when equipping Steamsaws as well as when calculating weapon damage, and have your Steamsaw damage increased by %d%% and Physical Power by %d.]], [[你冲向敌人，用尾部蒸汽链锯进行攻击，造成 %d%% 伤害，并嘲讽投射命中的敌人（界面显示半径 %d 码，实际并非范围嘲讽）。
 		装备蒸汽链锯的时候，你使用敏捷代替力量值计算装备需求和计算武器伤害，并且增加你蒸汽链锯的伤害 %d%%， 物理强度 %d。]], "tformat")
 t("Defensive Protocol", "防御协议", "talent name")
 t("Enhancements to your mecharachnid combat skill increases your melee and ranged evasion by %d%%, and causes you to automatically strike adjacent enemies with your tailsaw for %d%% damage each turn.", "强化机械蜘蛛的近身战斗能力，增加 %d%% 概率躲闪近战和远程攻击，你每回合会自动用尾部的蒸汽链锯打击临近的敌人，造成 %d%% 伤害。", "tformat")
 t("Pincer Strike", "钢爪钳制", "talent name")
 t("#Target# resists the pincer strike from #Source#!", "#Target#抵抗了#Source#的钢爪钳制！", "logCombat")
-t("You strike the target with your tailsaw for %d%% damage. If this hits, you attempt to clamp them with your pincers for %d turns. This pins, reduces their attack, spell and mind speed by %d%%, and lets you make a free, unavoidable strike with your tailsaw against them each turn for %d%% damage. This ends if you move more than 1 tile from the target.", "你用尾部蒸汽链锯攻击目标，造成 %d%% 伤害。若命中，你会尝试用钳爪将目标钳制 %d 回合，使其定身，并使其攻击、法术和精神速度降低 %d%%。 在此期间，你每回合都会用尾部蒸汽链锯对其发动一次额外且无法闪避的攻击，造成 %d%% 伤害。若你与目标的距离超过 1 格，该效果结束。", "tformat")
+t("You strike the target with your tailsaw for %d%% damage. If this hits, you attempt to clamp them with your pincers for %d turns. This pins, reduces their attack, spell and mind speed by %d%%, and lets you make a free, unavoidable strike with your tailsaw against them each turn for %d%% damage. This ends if you move more than 1 tile from the target.", "你用尾部蒸汽链锯攻击目标，造成 %d%% 伤害。攻击后，即使未命中，你也会尝试用钳爪将目标钳制 %d 回合，使其定身，并使其攻击、法术和精神速度降低 %d%%。 在此期间，你每回合都会用尾部蒸汽链锯对其发动一次额外且无法闪避的攻击，造成 %d%% 伤害。若你与目标的距离超过 1 格，该效果结束。", "tformat")
 t("Automated Repair System", "自动修复系统", "talent name")
 t([[On falling below 0 life, you engage an automated repair mode. While in this mode you cannot act, but can survive below -%d life, heal for %0.1f life each turn and have all resistances increased by %d%%. This will last until you are destroyed or until you are fully healed.
 		This effect has a cooldown.]], [[当生命值降低到 0 点以下的时候，你会启动自动修理模式。在自动修理模式下，你不能活动，生命值下限为 -%d， 每回合恢复 %0.1f 生命值，并且所有抗性增加 %d%%。 这一效果直到你的生命值完全恢复或者你被摧毁才会终止。
@@ -5382,13 +5382,13 @@ t([[When you fire your metalstar, your also establish a psionic bloodlink with t
 		If the victim move more than twice away from the radius of Metalstar (currently %d) the effect stops.
 		This damage does not break daze and increases with your Steampower.]], [[每次你发射金属灵晶时，还会与仍嵌在目标体内的弹片建立灵能血链，持续 %d 回合。
 		每回合对受害者造成 %0.2f 点物理伤害，其中一半用于治疗你（每多一名受害者，治疗量减半）。
-		如果受害者与你的距离超过金属灵晶半径的两倍（当前为 %d）， 效果便会终止。
+		如果受害者与你的距离达到或超过金属灵晶半径的两倍（当前为 %d）， 效果便会终止。
 		该伤害不会打断眩晕效果，受蒸汽强度加成。]], "tformat")
 t("Steamstar", "蒸汽灵晶", "talent name")
 t([[Your bloodstar effect also burns part of your victim's flesh, dealing %0.2f fire damage.
 		The intensity of the fire generates steam which you psionically absorb through gestalt, providing %d steam each turn (each additional victim steam generation is reduced by 66%%).
 		This damage does not break daze and increases with your Steampower.]], [[你的血液灵晶效果还会灼烧受害者的部分血肉，造成 %0.2f 火焰伤害。
-		火焰的强度会产生蒸汽，你通过格式塔以灵能吸收这些蒸汽，每回合获得 %d 蒸汽（每多一名受害者，蒸汽生成量减少 66%%）。
+		火焰的强度会产生蒸汽，你通过格式塔以灵能吸收这些蒸汽，每回合获得 %d 蒸汽（每回合仅在火焰伤害生效时产汽，每多一名成功产汽的受害者，其产汽量比前一名减少 70%%）。
 		该伤害不会打断眩晕效果，受蒸汽强度加成。]], "tformat")
 t("Deathstar", "死亡灵晶", "talent name")
 t("When you use a shoot class talent to hit a creature affected by bloodstar an other shoot talent will have its current cooldown reduced by %d turns.", "每次你使用射击类技能命中一个被血液灵晶影响的目标时，随机另一项冷却中的射击类技能冷却时间减少 %d 回合。", "tformat")
@@ -5427,9 +5427,9 @@ t("fatal attractor", "致命诱敌装置", "_t")
 t("A psionic contraption that reflects damage and forces things to attack it.", "一个反射伤害并迫使周围单位攻击它自身的灵能装置。", "_t")
 t([[Quickly create a psionic-enhanced metal contraption that lures all your foes to it and reflects %d%% of the damage it takes to its attackers.
 		The contraption will have %d life and last 5 turns.
-		Damage, life, resists, and armor scale with your Steampower.]], [[快速制造一个灵能强化的金属装置，吸引所有敌人攻击它，并将其所受伤害的 %d%% 反弹给攻击者。
-		该装置拥有 %d 点生命值，持续 5 回合。
-		其伤害、生命值、抗性和护甲随你的蒸汽强度提升。]], "tformat")
+		Damage, life, resists, and armor scale with your Steampower.]], [[快速制造一个灵能强化的金属装置，吸引附近敌人攻击它，并将其所受伤害的 %d%% 反弹给攻击者。
+		该装置拥有 %d 点生命值，持续 8 回合。
+		其生命值、抗性和护甲随你的蒸汽强度提升。]], "tformat")
 t("Rocket Boots", "火箭靴", "talent name")
 t([[Activate the rocket boots, firing huge flames from your boots increasing your movement speed by %d%%.
 		Each movement will leave a trail of flames doing %0.2f fire damage for 4 turns.
@@ -5470,7 +5470,7 @@ t([[Activate the armour's active defense system.
 		The effects increase with your Steampower.]], [[激活护甲的主动防御系统。
 		电流覆盖护甲，削弱能量攻击的威力；与此同时，小型蒸汽引擎会移动护甲的关键部件，以削弱物理攻击。
 		除精神伤害外，所有伤害都会固定减少 %d 点。
-		此外，护甲的电力有时会泄漏：每回合有 50%% 几率向一名敌人放出电弧，对其半径 1 内的所有敌人造成 %0.2f 至 %0.2f 点闪电伤害。
+		此外，护甲的电力有时会泄漏：每回合有 50%% 几率向一名敌人放出电弧，对其半径 1 内的生物造成闪电伤害，也可能伤及友方。界面显示的伤害范围为 %0.2f 至 %0.2f 点，实际基础伤害按 1 至蒸汽暴击后的基础伤害上限取三次随机值的平均数。
 		效果随蒸汽强度提升。]], "tformat")
 t("Viral Needlegun", "病毒针枪", "talent name")
 t([[You fire a cone of blighted needles, hitting everything in a frontal cone of radius %d for %0.2f physical damage.

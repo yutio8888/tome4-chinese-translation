@@ -1,0 +1,51 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-016/INPUT-final-review-3-a2.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmrfix-20261002-016/INPUT-final-review-3-a2.json | head -c 20000",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-3-a2.json'))\np=d['payload']\nprint(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\n\"",
+      "description": "Read contract and input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-3-a2.json'))\np=d['payload']\nfor t in p['translation_snapshot'][5:]:\n  print(t['revision_key']); print('SRC:',t['source']); print('TGT:',t['target']); print()\n\"",
+      "description": "Print remaining translation entries"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-3-a2.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  c=json.loads(b['context'])\n  print('=====',i, b['revision_key'][:8])\n  for e in c.get('source_evidence',[]):\n    print('--',e['public_path'], e.get('start'),e.get('end'))\n    if 'excerpt' in e: print(e['excerpt'])\n    for w in e.get('windows',[]): print(w['text'])\n  print('TERM', json.dumps(c.get('terminology'),ensure_ascii=False))\n  print('OTHER', [k for k in c if k not in ('source_evidence','terminology')])\n\" > /tmp/ctx016.txt; wc -l /tmp/ctx016.txt; sed -n '1,400p' /tmp/ctx016.txt | sed -n '/===== 1/,$p' | head -400",
+      "description": "Dump bounded contexts to tmp file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; git -C /workspace/t-engine4 grep -n \"callbackOnMeleeHit\\b\\|callbackOnArcheryHit\\b\\|\\\"callbackOnMeleeHit\\\"\\|\\\"callbackOnArcheryHit\\\"\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class | head -20",
+      "description": "Find callback dispatch sites in pinned core"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n '/===== 2/,/===== 5/p' /tmp/ctx016.txt | sed -n '60,500p'",
+      "description": "View contexts for entries 2-4"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n '/===== 5/,$p' /tmp/ctx016.txt",
+      "description": "View contexts for entries 5-8"
+    }
+  }
+]

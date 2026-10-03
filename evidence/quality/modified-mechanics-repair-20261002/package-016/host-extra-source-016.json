@@ -1,0 +1,21 @@
+{
+  "source_evidence": [
+    {
+      "public_path": "src/core_lua.c",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "9006a07b9ba0581d916e5e2f2e2f2f287aa9964710e82137ddac0039497d8f04",
+      "start": 3676,
+      "end": 3692,
+      "excerpt": "static int rng_avg(lua_State *L)\n{\n\tint x = luaL_checknumber(L, 1);\n\tint y = luaL_checknumber(L, 2);\n\tint nb = 2;\n\tdouble res = 0;\n\tint i;\n\tif (lua_isnumber(L, 3)) nb = luaL_checknumber(L, 3);\n\tfor (i = 0; i < nb; i++)\n\t{\n\t\tint r = x + rand_div(1 + y - x);\n\t\tres += r;\n\t}\n\tlua_pushnumber(L, res / (double)nb);\n\treturn 1;\n}\n"
+    },
+    {
+      "public_path": "game/engines/default/engine/Target.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "d89c2dd92471ac5cdd9fb02c6a20c7432deabecb9617902a9bf1acdced117bed",
+      "start": 674,
+      "end": 696,
+      "excerpt": "\tend\n\n\t-- Add the default values\n\tt = table.clone(t)\n\t-- Default type def\n\tlocal target_type = {\n\t\trange = 20,\n\t\tselffire = true,\n\t\tfriendlyfire = true,\n\t\tactorblock = true,\n\t}\n\tfor k, v in pairs(self.defaults) do target_type[k] = v end\n\n\t-- And now modify for the default types\n\tif t.type then\n\t\tfor type_name, fun in pairs(self.types_def) do\n\t\t\tif t.type:find(type_name) then fun(target_type, t) end\n\t\tend\n\tend\n\n\ttable.update(t, target_type)\n\treturn t\nend"
+    }
+  ],
+  "adjudication": "rng.avg samples three integers in inclusive bounds then averages; Target defaults friendlyfire=true; neither a guaranteed damage floor of dam/3 nor enemy-only splash follows from the consumer."
+}

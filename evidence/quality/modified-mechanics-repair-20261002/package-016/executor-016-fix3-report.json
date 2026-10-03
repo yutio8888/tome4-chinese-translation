@@ -1,0 +1,300 @@
+{
+  "task_id": "mmrfix-20261002-016",
+  "dispatch": "fresh fix-3-a1",
+  "role": "EXECUTOR",
+  "status": "implemented",
+  "timestamp": "2026-10-03T02:50:53.148637+00:00",
+  "allowed_changed_content_files": [
+    "tome-orcs.lua"
+  ],
+  "entries": [
+    {
+      "candidate_index": 1512,
+      "finding_id": "REVIEW-FATAL-ATTRACTOR-SCALING-RANGE-016",
+      "old_target": "快速制造一个灵能强化的金属装置，吸引所有敌人攻击它，并将其所受伤害的 %d%% 反弹给攻击者。\n\t\t该装置拥有 %d 点生命值，持续 8 回合。\n\t\t其伤害、生命值、抗性和护甲随你的蒸汽强度提升。",
+      "new_target": "快速制造一个灵能强化的金属装置，吸引附近敌人攻击它，并将其所受伤害的 %d%% 反弹给攻击者。\n\t\t该装置拥有 %d 点生命值，持续 8 回合。\n\t\t其生命值、抗性和护甲随你的蒸汽强度提升。",
+      "source": "Quickly create a psionic-enhanced metal contraption that lures all your foes to it and reflects %d%% of the damage it takes to its attackers.\n\t\tThe contraption will have %d life and last 5 turns.\n\t\tDamage, life, resists, and armor scale with your Steampower.",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null
+    }
+  ],
+  "source_verification": {
+    "anchors": [
+      {
+        "public_path": "tome-orcs/data/timed_effects/physical.lua",
+        "commit": null,
+        "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+        "read_method": "DLC public snapshot; source/commit/version unpinned",
+        "local_path": "/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua"
+      },
+      {
+        "public_path": "tome-orcs/data/talents/steam/mechstar.lua",
+        "commit": null,
+        "sha256": "e6e5f57a088fe6f750d2ef8daeef2b37f4dd255ba5bdcb81f24a04f67e23229b",
+        "read_method": "DLC public snapshot; source/commit/version unpinned",
+        "local_path": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/mechstar.lua"
+      },
+      {
+        "public_path": "game/modules/tome/class/NPC.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "bdc619d1ed2ee9f457e10b461789b0aae4ab8385b14c9a78ad4246af9f0644f9",
+        "read_method": "git show pinned commit",
+        "local_path": null
+      },
+      {
+        "public_path": "game/modules/tome/data/damage_types.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "read_method": "git show pinned commit",
+        "local_path": null
+      },
+      {
+        "public_path": "game/modules/tome/data/talents/gifts/summon-utility.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "b7f9b25c89954bcf7b8affbaf2b05c6715777e6b69652079fb9bad36c2bb1540",
+        "read_method": "git show pinned commit",
+        "local_path": null
+      },
+      {
+        "public_path": "tome-orcs/data/talents/steam/other.lua",
+        "commit": null,
+        "sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+        "read_method": "DLC public snapshot; source/commit/version unpinned",
+        "local_path": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua"
+      },
+      {
+        "public_path": "game/engines/default/engine/interface/ActorProject.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+        "read_method": "git show pinned commit",
+        "local_path": null
+      },
+      {
+        "public_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+        "commit": null,
+        "sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+        "read_method": "DLC public snapshot; source/commit/version unpinned",
+        "local_path": "/workspace/tome4-dlcs/orcs/tome-orcs/superload/mod/class/interface/Combat.lua"
+      },
+      {
+        "public_path": "tome-orcs/superload/mod/class/Object.lua",
+        "commit": null,
+        "sha256": "581c4f1a1144f3a3f88a458ebc52fa053ac3cf2a6067e97d644e0e8a2d003dff",
+        "read_method": "DLC public snapshot; source/commit/version unpinned",
+        "local_path": "/workspace/tome4-dlcs/orcs/tome-orcs/superload/mod/class/Object.lua"
+      },
+      {
+        "public_path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+        "commit": null,
+        "sha256": "d4a229c033179400bfeecdf22a6d8c7d8b890754f25cecd82908d413c3fa5102",
+        "read_method": "DLC public snapshot; source/commit/version unpinned",
+        "local_path": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/mecharachnid.lua"
+      },
+      {
+        "public_path": "game/modules/tome/class/interface/Combat.lua",
+        "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+        "read_method": "git show pinned commit",
+        "local_path": null
+      },
+      {
+        "public_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+        "commit": null,
+        "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+        "read_method": "DLC public snapshot; source/commit/version unpinned",
+        "local_path": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua"
+      },
+      {
+        "public_path": "tome-orcs/data/damage_types.lua",
+        "commit": null,
+        "sha256": "19256d2673432e01a92db25a320a4a24c66f034dca35de82bcb8e42cdec91c45",
+        "read_method": "DLC public snapshot; source/commit/version unpinned",
+        "local_path": "/workspace/tome4-dlcs/orcs/tome-orcs/data/damage_types.lua"
+      },
+      {
+        "public_path": "tome-orcs/data/talents/steam/magnetism.lua",
+        "commit": null,
+        "sha256": "b14b2da4ec659318e895a5bbcbb3bf56c68e66636afe1228a34c249ec0f1abed",
+        "read_method": "DLC public snapshot; source/commit/version unpinned",
+        "local_path": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/magnetism.lua"
+      }
+    ],
+    "excerpts": [
+      {
+        "component": "orcs",
+        "public_path": "tome-orcs/data/talents/steam/other.lua",
+        "fixed_commit": null,
+        "source_identity": "DLC source/commit/version unpinned",
+        "sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+        "start": 364,
+        "end": 443,
+        "excerpt": "newTalent{\n\tname = \"Fatal Attractor\", short_name = \"TINKER_FATAL_ATTRACTOR\",\n\ttype = {\"steamtech/other\",1},\n\trange = 7,\n\tpoints = 5,\n\tsteam = 20,\n\tcooldown = 20,\n\t--tactical = { ATTACKAREA = 2 },\n\trequires_target = true,\n\tgetHP = function(self, t) return self:combatTalentSteamDamage(t, 10, 1000) end,\n\tgetResist = function(self, t) return self:combatTalentSteamDamage(t, 20, 50) end,\n\tgetArmor = function(self, t) return self:combatTalentSteamDamage(t, 5, 45) end,\n\tgetReflection = function(self, t) return 30 end,\n\taction = function(self, t)\n\t\tlocal tg = {type=\"bolt\", nowarning=true, range=self:getTalentRange(t), nolock=true, simple_dir_request=true, talent=t}\n\t\tlocal tx, ty, target = self:getTarget(tg)\n\t\tif not tx or not ty then return nil end\n\t\tlocal _ _, _, _, tx, ty = self:canProject(tg, tx, ty)\n\t\ttarget = game.level.map(tx, ty, Map.ACTOR)\n\t\tif target == self then target = nil end\n\n\t\t-- Find space\n\t\tlocal x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})\n\t\tif not x then\n\t\t\tgame.logPlayer(self, \"Not enough space to summon!\")\n\t\t\treturn\n\t\tend\n\n\t\tlocal NPC = require \"mod.class.NPC\"\n\t\tlocal m = NPC.new{\n\t\t\ttype = \"construct\", subtype = \"steambot\",\n\t\t\tdisplay = \"*\", color=colors.GREEN,\n\t\t\tname = _t\"fatal attractor\", faction = self.faction, image = \"object/tinkers_fatal_attractor_t5.png\",\n\t\t\tdesc = _t[[A psionic contraption that reflects damage and forces things to attack it.]],\n\t\t\tautolevel = \"none\",\n\t\t\tai = \"summoned\", ai_real = nil, ai_state = { talent_in=1, }, ai_target = {actor=nil},\n\t\t\tlevel_range = {1, 1}, exp_worth = 0,\n\n\t\t\tmax_life = self:steamCrit(t.getHP(self, t)),\n\t\t\tcombat_armor_hardiness = 50,\n\t\t\tcombat_armor = t.getArmor(self, t),\n\t\t\tresists = {all = t.getResist(self, t)},\n\t\t\tlife_rating = 3,\n\t\t\tnever_move = 1,\n\t\t\tnever_anger = true,\n\t\t\t\n\t\t\treflect_damage = t.getReflection(self, t),\n\n\t\t\tnegative_status_effect_immune = 1,\n\t\t\tcant_be_moved = 1,\n\t\t\t\n\t\t\tresolvers.talents{\n\t\t\t\t[self.T_TAUNT]=self:getTalentLevel(t),\n\t\t\t},\n\t\t\t\n\t\t\t-- no AI, just Taunt\n\t\t\ton_act = function(self)\n\t\t\t\tself:forceUseTalent(self.T_TAUNT, {})\n\t\t\tend,\n\n\t\t\tsummoner = self, summoner_gain_exp=true,\n\t\t\tsummon_time = 8,\n\t\t}\n\t\t\n\t\tm:resolve() m:resolve(nil, true)\n\t\tm:forceLevelup(self.level)\n\t\tgame.zone:addEntity(game.level, m, \"actor\", x, y)\n\t\t\n\t\tm:forceUseTalent(m.T_TAUNT, {})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Quickly create a psionic-enhanced metal contraption that lures all your foes to it and reflects %d%% of the damage it takes to its attackers.\n\t\tThe contraption will have %d life and last 5 turns.\n\t\tDamage, life, resists, and armor scale with your Steampower.]]):\n\t\ttformat(t.getReflection(self, t), t.getHP(self, t))\n\tend,\n}\n\nnewTalent{",
+        "verified_excerpt": "newTalent{\n\tname = \"Fatal Attractor\", short_name = \"TINKER_FATAL_ATTRACTOR\",\n\ttype = {\"steamtech/other\",1},\n\trange = 7,\n\tpoints = 5,\n\tsteam = 20,\n\tcooldown = 20,\n\t--tactical = { ATTACKAREA = 2 },\n\trequires_target = true,\n\tgetHP = function(self, t) return self:combatTalentSteamDamage(t, 10, 1000) end,\n\tgetResist = function(self, t) return self:combatTalentSteamDamage(t, 20, 50) end,\n\tgetArmor = function(self, t) return self:combatTalentSteamDamage(t, 5, 45) end,\n\tgetReflection = function(self, t) return 30 end,\n\taction = function(self, t)\n\t\tlocal tg = {type=\"bolt\", nowarning=true, range=self:getTalentRange(t), nolock=true, simple_dir_request=true, talent=t}\n\t\tlocal tx, ty, target = self:getTarget(tg)\n\t\tif not tx or not ty then return nil end\n\t\tlocal _ _, _, _, tx, ty = self:canProject(tg, tx, ty)\n\t\ttarget = game.level.map(tx, ty, Map.ACTOR)\n\t\tif target == self then target = nil end\n\n\t\t-- Find space\n\t\tlocal x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})\n\t\tif not x then\n\t\t\tgame.logPlayer(self, \"Not enough space to summon!\")\n\t\t\treturn\n\t\tend\n\n\t\tlocal NPC = require \"mod.class.NPC\"\n\t\tlocal m = NPC.new{\n\t\t\ttype = \"construct\", subtype = \"steambot\",\n\t\t\tdisplay = \"*\", color=colors.GREEN,\n\t\t\tname = _t\"fatal attractor\", faction = self.faction, image = \"object/tinkers_fatal_attractor_t5.png\",\n\t\t\tdesc = _t[[A psionic contraption that reflects damage and forces things to attack it.]],\n\t\t\tautolevel = \"none\",\n\t\t\tai = \"summoned\", ai_real = nil, ai_state = { talent_in=1, }, ai_target = {actor=nil},\n\t\t\tlevel_range = {1, 1}, exp_worth = 0,\n\n\t\t\tmax_life = self:steamCrit(t.getHP(self, t)),\n\t\t\tcombat_armor_hardiness = 50,\n\t\t\tcombat_armor = t.getArmor(self, t),\n\t\t\tresists = {all = t.getResist(self, t)},\n\t\t\tlife_rating = 3,\n\t\t\tnever_move = 1,\n\t\t\tnever_anger = true,\n\t\t\t\n\t\t\treflect_damage = t.getReflection(self, t),\n\n\t\t\tnegative_status_effect_immune = 1,\n\t\t\tcant_be_moved = 1,\n\t\t\t\n\t\t\tresolvers.talents{\n\t\t\t\t[self.T_TAUNT]=self:getTalentLevel(t),\n\t\t\t},\n\t\t\t\n\t\t\t-- no AI, just Taunt\n\t\t\ton_act = function(self)\n\t\t\t\tself:forceUseTalent(self.T_TAUNT, {})\n\t\t\tend,\n\n\t\t\tsummoner = self, summoner_gain_exp=true,\n\t\t\tsummon_time = 8,\n\t\t}\n\t\t\n\t\tm:resolve() m:resolve(nil, true)\n\t\tm:forceLevelup(self.level)\n\t\tgame.zone:addEntity(game.level, m, \"actor\", x, y)\n\t\t\n\t\tm:forceUseTalent(m.T_TAUNT, {})\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Quickly create a psionic-enhanced metal contraption that lures all your foes to it and reflects %d%% of the damage it takes to its attackers.\n\t\tThe contraption will have %d life and last 5 turns.\n\t\tDamage, life, resists, and armor scale with your Steampower.]]):\n\t\ttformat(t.getReflection(self, t), t.getHP(self, t))\n\tend,\n}\n\nnewTalent{"
+      },
+      {
+        "component": "tome",
+        "public_path": "game/modules/tome/data/talents/gifts/summon-utility.lua",
+        "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "source_identity": "manifest pinned",
+        "sha256": "b7f9b25c89954bcf7b8affbaf2b05c6715777e6b69652079fb9bad36c2bb1540",
+        "start": 20,
+        "end": 42,
+        "excerpt": "newTalent{\n\tname = \"Taunt\",\n\ttype = {\"technique/other\",1},\n\tpoints = 1,\n\tcooldown = 5,\n\trequires_target = false,\n\ttactical = { PROTECT = 10 },\n\trange = 0,\n\tradius = function(self, t) return math.floor(self:combatTalentScale(t, 4, 8)) end,\n\taction = function(self, t)\n\t\tlocal tg = {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), friendlyfire=false, talent=t}\n\t\tself:project(tg, self.x, self.y, function(tx, ty)\n\t\t\tlocal a = game.level.map(tx, ty, Map.ACTOR)\n\t\t\tif a then\n\t\t\t\ta:setTarget(self)\n\t\t\tend\n\t\tend)\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Forces all hostile foes in radius %d to attack you.]]):tformat(self:getTalentRadius(t))\n\tend,\n}",
+        "verified_excerpt": "newTalent{\n\tname = \"Taunt\",\n\ttype = {\"technique/other\",1},\n\tpoints = 1,\n\tcooldown = 5,\n\trequires_target = false,\n\ttactical = { PROTECT = 10 },\n\trange = 0,\n\tradius = function(self, t) return math.floor(self:combatTalentScale(t, 4, 8)) end,\n\taction = function(self, t)\n\t\tlocal tg = {type=\"ball\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), friendlyfire=false, talent=t}\n\t\tself:project(tg, self.x, self.y, function(tx, ty)\n\t\t\tlocal a = game.level.map(tx, ty, Map.ACTOR)\n\t\t\tif a then\n\t\t\t\ta:setTarget(self)\n\t\t\tend\n\t\tend)\n\t\treturn true\n\tend,\n\tinfo = function(self, t)\n\t\treturn ([[Forces all hostile foes in radius %d to attack you.]]):tformat(self:getTalentRadius(t))\n\tend,\n}"
+      },
+      {
+        "component": "tome",
+        "public_path": "game/modules/tome/data/damage_types.lua",
+        "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "source_identity": "manifest pinned",
+        "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+        "start": 573,
+        "end": 578,
+        "excerpt": "\t\tif target.attr and target:attr(\"reflect_damage\") and not state.no_reflect and src.x and src.y then\n\t\t\tgame:delayedLogMessage(target, src, \"reflect_damage\"..(src.uid or \"\"), \"#CRIMSON##Source# reflects damage back to #Target#!\")\n\t\t\tstate.no_reflect = true\n\t\t\tDamageType.defaultProjector(target, src.x, src.y, type, dam * target.reflect_damage / 100, state)\n\t\t\tstate.no_reflect = nil\n\t\tend",
+        "verified_excerpt": "\t\tif target.attr and target:attr(\"reflect_damage\") and not state.no_reflect and src.x and src.y then\n\t\t\tgame:delayedLogMessage(target, src, \"reflect_damage\"..(src.uid or \"\"), \"#CRIMSON##Source# reflects damage back to #Target#!\")\n\t\t\tstate.no_reflect = true\n\t\t\tDamageType.defaultProjector(target, src.x, src.y, type, dam * target.reflect_damage / 100, state)\n\t\t\tstate.no_reflect = nil\n\t\tend"
+      },
+      {
+        "public_path": "game/modules/tome/class/NPC.lua",
+        "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "bdc619d1ed2ee9f457e10b461789b0aae4ab8385b14c9a78ad4246af9f0644f9",
+        "start": 47,
+        "end": 59,
+        "verified_excerpt": "\t\tend\n\tend\n\t-- Run out of time ?\n\tif self.summon_time and not self:attr(\"no_timeflow\") then\n\t\tself.summon_time = self.summon_time - 1\n\t\tif self.summon_time <= 0 then\n\t\t\tif not self.summon_quiet then\n\t\t\t\tgame.logPlayer(self.summoner, \"#PINK#Your summoned %s disappears.\", self:getName())\n\t\t\tend\n\t\t\tself:die()\n\t\t\tself.dead_by_unsummon = true\n\t\tend\n\tend"
+      },
+      {
+        "public_path": "game/modules/tome/class/NPC.lua",
+        "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "bdc619d1ed2ee9f457e10b461789b0aae4ab8385b14c9a78ad4246af9f0644f9",
+        "start": 48,
+        "end": 60,
+        "verified_excerpt": "\tend\n\t-- Run out of time ?\n\tif self.summon_time and not self:attr(\"no_timeflow\") then\n\t\tself.summon_time = self.summon_time - 1\n\t\tif self.summon_time <= 0 then\n\t\t\tif not self.summon_quiet then\n\t\t\t\tgame.logPlayer(self.summoner, \"#PINK#Your summoned %s disappears.\", self:getName())\n\t\t\tend\n\t\t\tself:die()\n\t\t\tself.dead_by_unsummon = true\n\t\tend\n\tend\n\treturn mod.class.Actor.actBase(self)"
+      },
+      {
+        "public_path": "game/modules/tome/class/NPC.lua",
+        "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "bdc619d1ed2ee9f457e10b461789b0aae4ab8385b14c9a78ad4246af9f0644f9",
+        "start": 49,
+        "end": 61,
+        "verified_excerpt": "\t-- Run out of time ?\n\tif self.summon_time and not self:attr(\"no_timeflow\") then\n\t\tself.summon_time = self.summon_time - 1\n\t\tif self.summon_time <= 0 then\n\t\t\tif not self.summon_quiet then\n\t\t\t\tgame.logPlayer(self.summoner, \"#PINK#Your summoned %s disappears.\", self:getName())\n\t\t\tend\n\t\t\tself:die()\n\t\t\tself.dead_by_unsummon = true\n\t\tend\n\tend\n\treturn mod.class.Actor.actBase(self)\nend"
+      },
+      {
+        "public_path": "game/engines/default/engine/interface/ActorProject.lua",
+        "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+        "start": 252,
+        "end": 264,
+        "verified_excerpt": "\t\t\t\t-- Check self- and friendly-fire, excluded Actors, and if the projection \"misses\"\n\t\t\t\tlocal act = game.level.map(px, py, engine.Map.ACTOR)\n\t\t\t\tif act and (typ.act_exclude and typ.act_exclude[act.uid]) or act == self and not ((type(typ.selffire) == \"number\" and rng.percent(typ.selffire)) or (type(typ.selffire) ~= \"number\" and typ.selffire)) then\n\t\t\t\telseif act and self.reactionToward and (self:reactionToward(act) >= 0) and not ((type(typ.friendlyfire) == \"number\" and rng.percent(typ.friendlyfire)) or (type(typ.friendlyfire) ~= \"number\" and typ.friendlyfire)) then\n\t\t\t\t-- Otherwise hit\n\t\t\t\telse\n\t\t\t\t\tif type(damtype) == \"function\" then if damtype(px, py, t, self) then stop=true break end\n\t\t\t\t\telse DamageType:get(damtype).projector(self, px, py, damtype, dam, state, nil) end\n\t\t\t\t\tif particles then\n\t\t\t\t\t\tgame.level.map:particleEmitter(px, py, 1, particles.type, particles.args)\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend"
+      },
+      {
+        "public_path": "game/engines/default/engine/interface/ActorProject.lua",
+        "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+        "start": 491,
+        "end": 503,
+        "verified_excerpt": "\t\t-- Check self- and friendly-fire, and if the projection \"misses\"\n\t\tlocal act = game.level.map(px, py, engine.Map.ACTOR)\n\t\tif act and act == self and not ((type(typ.selffire) == \"number\" and rng.percent(typ.selffire)) or (type(typ.selffire) ~= \"number\" and typ.selffire)) then\n\t\telseif act and self.reactionToward and (self:reactionToward(act) >= 0) and not ((type(typ.friendlyfire) == \"number\" and rng.percent(typ.friendlyfire)) or (type(typ.friendlyfire) ~= \"number\" and typ.friendlyfire)) then\n\t\t-- Otherwise hit\n\t\telse\n\t\t\tDamageType:projectingFor(self, {project_type=tg})\n\t\t\tif type(damtype) == \"function\" then if damtype(px, py, tg, self, tmp) then return true end\n\t\t\telse DamageType:get(damtype).projector(self, px, py, damtype, dam, tmp, nil, tg) end\n\t\t\tif particles and type(particles) == \"table\" then\n\t\t\t\tgame.level.map:particleEmitter(px, py, 1, particles.type, particles.args)\n\t\t\tend\n\t\t\tDamageType:projectingFor(self, nil)"
+      },
+      {
+        "public_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+        "fixed_commit": null,
+        "source_identity": "DLC source/commit/version unpinned",
+        "sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+        "start": 88,
+        "end": 105,
+        "verified_excerpt": "function _M:combatSteampower(mod, add)\n\tmod = mod or 1\n\treturn self:rescaleCombatStats(self:combatSteampowerRaw(add)) * mod\nend\n\n--- Scale for therapeutics\nfunction _M:combatScaleTherapeutic(o, base, mult)\n\tlocal power = base + o.material_level * mult\n\treturn self:combatScale(self:combatSteampower(), power / 2, 0, power, 100)\nend\n\n--- Gets damage based on talent\nfunction _M:combatTalentSteamDamage(t, base, max)\n\t-- Compute at \"max\"\n\tlocal mod = max / ((base + 100) * ((math.sqrt(5) - 1) * 0.8 + 1))\n\t-- Compute real\n\treturn self:rescaleDamage((base + (self:combatSteampower())) * ((math.sqrt(self:getTalentLevel(t)) - 1) * 0.8 + 1) * mod)\nend"
+      }
+    ]
+  },
+  "mechanism_verification": {
+    "attraction": "DLC NPC receives T_TAUNT at talent level; initial/on_act forceUseTalent -> fixed core Taunt ball centered on contraption with scaled radius -> ActorProject excludes friendly actors -> a:setTarget(self). Nearby enemies, not every foe on map.",
+    "scaling": "getHP/getResist/getArmor -> combatTalentSteamDamage uses combatSteampower; assigned to max_life (steamCrit applied), resists.all, combat_armor. getReflection returns constant 30; no steam-scaled damage assignment in Fatal Attractor NPC.",
+    "lifetime": "summon_time=8 -> pinned NPC.actBase decrements each turn, dies at <=0; existing 8 unchanged."
+  },
+  "placeholders": [
+    {
+      "index": 1,
+      "token": "%d%%",
+      "quantity_kind": "damage reflection percentage",
+      "calculation": "getReflection returns 30",
+      "format_argument": "t.getReflection(self,t)",
+      "consumer": "NPC reflect_damage -> fixed core damage_types defaultProjector: dam * target.reflect_damage / 100",
+      "unchanged": true
+    },
+    {
+      "index": 2,
+      "token": "%d",
+      "quantity_kind": "displayed life (pre-crit getHP)",
+      "calculation": "combatTalentSteamDamage(t,10,1000)",
+      "format_argument": "t.getHP(self,t)",
+      "consumer": "NPC.max_life=self:steamCrit(t.getHP(self,t)); display is pre-crit; no new numeric guarantee",
+      "unchanged": true
+    }
+  ],
+  "byte_proof": {
+    "preimage_sha256": "bb7bb07ae5d42a07cd9814c856e87654289a755c6b628c88e8d40850e7eeddaf",
+    "postimage_sha256": "2876f395e6c54551b545d5f0dbd4a8a4995c7b75d253ee5cb92b32e192964e71",
+    "reverse_sha256": "bb7bb07ae5d42a07cd9814c856e87654289a755c6b628c88e8d40850e7eeddaf",
+    "reverse_equals_preimage": true,
+    "replacement_count": 1,
+    "old_target_byte_offset": 667580,
+    "old_target_byte_length": 256,
+    "new_target_byte_length": 247,
+    "non_target_bytes_unchanged": true,
+    "other_eight_targets_sha256": {
+      "1494": "e481c12270b57acf3a03f4a583152e22f5024c2cfced2833d739ab9f1fcf4880",
+      "1496": "ede2ae4ab3aeb31cb623ee6eb325ea5a3296eb26d2d92ed350af02e64e3119c0",
+      "1497": "87f651bcadf09b5ec191851f096ce48945720e12d325b7c5ee5c55100f16020a",
+      "1502": "99eda4e4538933ec395f38e1921e95cb17c632527f34cc4a39ca95cb371c7330",
+      "1503": "b354689014498b86f16383ae0a13e9a9d21c3bae2ae995b26a807248e93c350b",
+      "1506": "d2a97777be739c4abc8f988238483928893149a479df877a4d0768a02edb4e59",
+      "1507": "08d8d6777a1958612fdcaa8f6abe4def77146a54ccc624e34fdfaecf83e6afec",
+      "1515": "824d6e9d3e13c41950c2e6bfc96020bddbf2b39d8b39791b7d57ab1f120dd5d5"
+    },
+    "entry1520_holdout": {
+      "baseline_target_sha256": "7653c5f3035d7d0b375c8ee2d7b5f97ed44ccef0f8d48585ca30629ebfa73c42",
+      "preimage_target_sha256": "7653c5f3035d7d0b375c8ee2d7b5f97ed44ccef0f8d48585ca30629ebfa73c42",
+      "postimage_target_sha256": "7653c5f3035d7d0b375c8ee2d7b5f97ed44ccef0f8d48585ca30629ebfa73c42",
+      "baseline_equal": true
+    },
+    "invariants": {
+      "source": true,
+      "source_tag": true,
+      "args_order": true,
+      "special": true,
+      "placeholder_types_order": true,
+      "markup": true,
+      "newline_tabs": true
+    }
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "LuaJIT 5.1 and LPeg 0.10.2 verified; DLC unpinned warnings expected"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "30308 translations; 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20261003T025053.939656Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no whitespace diagnostics"
+    },
+    {
+      "command": "Python byte-level preimage/source-anchor verification and reverse replacement",
+      "exit_code": 0,
+      "result": "14 unique SHA anchors verified; FIX-3 exact excerpts match; whole file reverse equals frozen preimage; other eight targets unchanged; holdout 1520 equals baseline"
+    }
+  ],
+  "plan_deviations": [],
+  "unresolved_items": [],
+  "host_followup": "Batch-level proposal, independent review and final gates remain ORCHESTRATOR responsibilities. No stage/commit or child creation performed.",
+  "incremental_diff": "--- frozen-fix3-preimage/tome-orcs.lua\n+++ fix3-postimage/tome-orcs.lua\n@@ -5427,9 +5427,9 @@\n t(\"A psionic contraption that reflects damage and forces things to attack it.\", \"一个反射伤害并迫使周围单位攻击它自身的灵能装置。\", \"_t\")\n t([[Quickly create a psionic-enhanced metal contraption that lures all your foes to it and reflects %d%% of the damage it takes to its attackers.\n \t\tThe contraption will have %d life and last 5 turns.\n-\t\tDamage, life, resists, and armor scale with your Steampower.]], [[快速制造一个灵能强化的金属装置，吸引所有敌人攻击它，并将其所受伤害的 %d%% 反弹给攻击者。\n+\t\tDamage, life, resists, and armor scale with your Steampower.]], [[快速制造一个灵能强化的金属装置，吸引附近敌人攻击它，并将其所受伤害的 %d%% 反弹给攻击者。\n \t\t该装置拥有 %d 点生命值，持续 8 回合。\n-\t\t其伤害、生命值、抗性和护甲随你的蒸汽强度提升。]], \"tformat\")\n+\t\t其生命值、抗性和护甲随你的蒸汽强度提升。]], \"tformat\")\n t(\"Rocket Boots\", \"火箭靴\", \"talent name\")\n t([[Activate the rocket boots, firing huge flames from your boots increasing your movement speed by %d%%.\n \t\tEach movement will leave a trail of flames doing %0.2f fire damage for 4 turns.\n",
+  "diagnostic_notes": [
+    "Initial DLC path probe lacked component subdirectory; corrected mapping before edit and all SHA anchors verified.",
+    "Initial auxiliary comparison assumed every Lua target used long brackets; adjusted read-only comparison for entry1503 quoted literal before any content write. Final invariants and strict lint passed after the actual replacement."
+  ]
+}

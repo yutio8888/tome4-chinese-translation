@@ -1,0 +1,148 @@
+{
+  "task_id": "mmrfix-20261002-016",
+  "dispatch": "fresh fix-2-a1",
+  "role": "EXECUTOR",
+  "status": "completed",
+  "changed_file": "tome-orcs.lua",
+  "candidate_index": 1497,
+  "finding_id": "REVIEW-STATIC-SHIELD-STATS-016",
+  "old_target": "当你使用格挡技能的时候，你会在自己和你召唤的炮台身边产生一个静电屏障，增加所有抗性 %d%%， 持续 4 回合。如果有敌人对你或你召唤的炮台造成伤害，屏障会电击它们，造成 %d%% 你的盾牌伤害。\n\t\t这一效果每回合对同一目标最多造成一次伤害，且不会与反击效果相互作用。\n你装备盾牌和计算盾牌攻击伤害的时候，用灵巧代替力量要求。",
+  "new_target": "当你使用格挡技能的时候，你会在自己和你召唤的炮台身边产生一个静电屏障，增加所有抗性 %d%%， 持续 4 回合。如果有敌人对你或你召唤的炮台造成伤害，屏障会电击它们，造成 %d%% 你的盾牌伤害。\n\t\t这一效果每回合对同一目标最多造成一次伤害，且不会与反击效果相互作用。\n装备盾牌时，你以灵巧代替力量满足属性需求；计算盾牌伤害时，也以灵巧代替力量。",
+  "preimage_file_sha256": "44452a3b6a120692b81adf399bd582ed335072995d7648486be4df3aed75023d",
+  "postimage_file_sha256": "bb7bb07ae5d42a07cd9814c856e87654289a755c6b628c88e8d40850e7eeddaf",
+  "source_evidence": [
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+      "start": 163,
+      "end": 167,
+      "excerpt": "_M:bindHook(\"Combat:getDammod:subs\", function(self, data)\n\tif data.combat.talented == 'shield' and self:knowTalent('T_STATIC_SHOCK') then data.sub('str', 'cun') end\n\tif data.combat.talented == 'steamsaw' and self:knowTalent('T_OVERRUN') then data.sub('str', 'dex') end\n\tif data.combat.talented == 'steamsaw' and self:isTalentActive('T_METATEMPORAL_SPINNER') then data.sub('str', 'mag') end\nend)",
+      "verified": true
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/superload/mod/class/Actor.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "2b332d29bf6015e3cb786f2990071437e560b551a53db470deb3ff997f4c5717",
+      "start": 175,
+      "end": 198,
+      "excerpt": "function _M:updateObjectRequirements(o)\n\tlocal oldreq = rawget(o, \"require\")\n\tif not oldreq then return oldreq end\n\tlocal newreq\n\tif o.subtype == \"shield\" and self:knowTalent(self.T_STATIC_SHOCK) then\n\t\tnewreq = newreq or table.clone(oldreq, true)\n\t\tif newreq.stat and newreq.stat.str then\n\t\t\tnewreq.stat.cun, newreq.stat.str = newreq.stat.str, nil\n\t\tend\n\telseif o.subtype == \"steamsaw\" and self:knowTalent(self.T_OVERRUN) then\n\t\tnewreq = newreq or table.clone(oldreq, true)\n\t\tif newreq.stat and newreq.stat.str then\n\t\t\tnewreq.stat.dex, newreq.stat.str = newreq.stat.str, nil\n\t\tend\n\telseif o.type == \"armor\" and self:knowTalent(self.T_MECHARACHNID_LINK) then\n\t\tnewreq = newreq or table.clone(oldreq, true)\n\t\tif newreq.stat and newreq.stat.str then\n\t\t\tnewreq.stat.dex, newreq.stat.str = newreq.stat.str, nil\n\t\tend\n\tend\n\tif newreq then o.require = newreq end\n\tlocal ret, reason = base_updateObjectRequirements(self, o)\n\treturn ret, reason\nend",
+      "verified": true
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/talents/steam/magnetism.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "b14b2da4ec659318e895a5bbcbb3bf56c68e66636afe1228a34c249ec0f1abed",
+      "start": 20,
+      "end": 64,
+      "excerpt": "newTalent{\n\tname = \"Static Shock\", \n\ttype = {\"steamtech/magnetism\", 1},\n\tpoints = 5,\n\trequire = steamreq1,\n\tmode = \"passive\",\n\tgetResists = function(self, t) return self:combatTalentLimit(t, 50, 10, 25) end,\n\tgetDamage = function(self, t) return self:combatTalentWeaponDamage(t, 0.4, 1) end,\n\ton_learn = function(self, t)\n\t\tself:attr(\"allow_wear_shield\", 1)\n\t\tself:attr(\"show_shield_combat\", 1)\n\tend,\n\ton_unlearn = function(self, t)\n\t\tself:attr(\"allow_wear_shield\", -1)\n\t\tself:attr(\"show_shield_combat\", 1)\n\tend,\n\tcallbackOnTalentPost = function(self, t, ab, ret)\n\t\tif ab.id == self.T_BLOCK and ret == true then\n\t\tself:setEffect(self.EFF_STATIC_SHIELD, 4, {src=self, power=t.getResists(self,t), dam=t.getDamage(self,t)})\n\t\t\n\t\tlocal apply = function(a)\n\t\t\ta:setEffect(a.EFF_STATIC_SHIELD, 4, {src=self, power=t.getResists(self,t), dam=t.getDamage(self,t)})\n\t\tend\n\n\t\tif game.party and game.party:hasMember(self) then\n\t\t\tfor act, def in pairs(game.party.members) do\n\t\t\t\tif act.summoner and act.summoner == self and act.turret then apply(act) end\n\t\t\tend\n\t\telse\n\t\t\tfor uid, act in pairs(game.level.entities) do\n\t\t\t\tif act.summoner and act.summoner == self and act.turret then apply(act) end\n\t\t\tend\n\t\tend\n\t\t\n\t\treturn true\n\t\telse return end\n\tend,\n\tinfo = function(self, t)\n\t\tlocal resist = t.getResists(self,t)\n\t\tlocal damage = t.getDamage(self, t)\n\t\treturn ([[Using your Block talent surrounds you and your minions in a static barrier for 4 turns, increasing all resistances by %d%%. If an enemy deals damage to you or your minions, the barrier will shock them for %d%% of your shield damage.\n\t\tThis effect cannot damage the same target more than once per turn, and will not interact with Counterstrike.\nYou now also use your Cunning in place of Strength when equipping shields as well as when calculating shield damage.]]):tformat(resist, damage*100)\n\tend,\n}",
+      "verified": true
+    },
+    {
+      "component": "core",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 1648,
+      "end": 1694,
+      "excerpt": "function _M:getDammod(combat)\n\tcombat = combat or self.combat or {}\n\n\tlocal dammod = table.clone(combat.dammod or {str = 0.6}, true)\n\n\tlocal sub = function(from, to)\n\t\tdammod[to] = (dammod[from] or 0) + (dammod[to] or 0)\n\t\tdammod[from] = nil\n\tend\n\n\tif combat.talented == 'knife' and self:knowTalent('T_LETHALITY') then sub('str', 'cun') end\n\tif combat.talented and self:knowTalent('T_STRENGTH_OF_PURPOSE') then sub('str', 'mag') end\n\tif self:attr 'use_psi_combat' then\n\t\tif dammod['str'] then\n\t\t\tdammod['str'] = (dammod['str'] or 0) * (0.6 + self:callTalent(self.T_RESONANT_FOCUS, \"bonus\")/100)\n\t\t\tsub('str', 'wil')\n\t\tend\n\t\tif dammod['dex'] then\n\t\t\tdammod['dex'] = (dammod['dex'] or 0) * (0.6 + self:callTalent(self.T_RESONANT_FOCUS, \"bonus\")/100)\n\t\t\tsub('dex', 'cun')\n\t\tend\n\tend\n\n\t-- Add stuff like lethality here.\n\tlocal hd = {\"Combat:getDammod:subs\", combat=combat, dammod=dammod, sub=sub}\n\tif self:triggerHook(hd) then dammod = hd.dammod end\n\n\tlocal add = function(stat, val)\n\t\tdammod[stat] = (dammod[stat] or 0) + val\n\tend\n\n\tif self:knowTalent(self.T_SUPERPOWER) then add('wil', 0.4) end\n\tif self:knowTalent(self.T_ARCANE_MIGHT) then add('mag', 0.5) end\n\n\treturn dammod\nend\n\n-- Calculate combat damage for a weapon (with an optional damage field for ranged)\n-- Talent bonuses are always based on the base weapon\nfunction _M:combatDamage(weapon, adddammod, damage)\n\tweapon = weapon or self.combat or {}\n\tlocal dammod = self:getDammod(damage or weapon)\n\tlocal totstat = 0\n\tfor stat, mod in pairs(dammod) do\n\t\ttotstat = totstat + self:getStat(stat) * mod\n\tend\n\tif adddammod then",
+      "verified": true
+    },
+    {
+      "component": "core",
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 5032,
+      "end": 5070,
+      "excerpt": "function _M:updateObjectRequirements(o)\n\tlocal oldreq = rawget(o, \"require\")\n\tif not oldreq then return oldreq end\n\tlocal newreq\n\tif o.subtype == \"shield\" and self:knowTalent(self.T_SKIRMISHER_BUCKLER_EXPERTISE) then\n\t\tnewreq = newreq or table.clone(oldreq, true)\n\t\tif newreq.stat and newreq.stat.str then\n\t\t\tnewreq.stat.cun, newreq.stat.str = newreq.stat.str, nil\n\t\tend\n\tend\n\tif o.subtype == \"shield\" and self:knowTalent(self.T_AGILE_DEFENSE) then\n\t\tnewreq = newreq or table.clone(oldreq, true)\n\t\tif newreq.stat and newreq.stat.str then\n\t\t\tnewreq.stat.dex, newreq.stat.str = newreq.stat.str, nil\n\t\tend\n\tend\n\tif (o.type == \"weapon\" or o.type == \"ammo\") and self:knowTalent(self.T_STRENGTH_OF_PURPOSE) then\n\t\tnewreq = newreq or table.clone(oldreq, true)\n\t\tif newreq.stat and newreq.stat.str then\n\t\t\tnewreq.stat.mag, newreq.stat.str = newreq.stat.str, nil\n\t\tend\n\tend\n\treturn newreq or oldreq, oldreq\nend\n\n--- Can we wear this item?\nfunction _M:canWearObject(o, try_slot)\n\tif self:attr(\"forbid_arcane\") and o.power_source and o.power_source.arcane then\n\t\treturn nil, _t\"antimagic\"\n\tend\n\n\tlocal oldreq\n\to.require, oldreq = self:updateObjectRequirements(o)\n\n\tlocal ok, reason = engine.interface.ActorInventory.canWearObject(self, o, try_slot)\n\to.require = oldreq\n\treturn ok, reason\nend\n",
+      "verified": true
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "start": 918,
+      "end": 953,
+      "excerpt": "\tname = \"STATIC_SHIELD\", image = \"talents/static_shock.png\",\n\tdesc = _t\"Static Shield\",\n\tlong_desc = function(self, eff) return (\"The target is surrounded by a static shield, increasing all resistances by %d%% and causing attacks against them to trigger a shield attack for %d%% damage as lightning.\"):tformat(eff.power, eff.dam*100) end,\n\ttype = \"physical\",\n\tsubtype = { lightning=true },\n\tstatus = \"beneficial\",\n\tparameters = { power=100 },\n\ton_gain = function(self, err) return _t\"A static shield forms around #target#.\", _t\"+Static Shield\" end,\n\ton_lose = function(self, err) return _t\"The static shield around #target# crumbles.\", _t\"-Static Shield\" end,\n\tcallbackOnHit = function(self, eff, dam, target) --Target=attacker\n\t\tlocal src = eff.src\n\t\tif not target then return end\n\t\tlocal shield, shield_combat = src:hasShield()\n\t\tif not shield then return end\n\t\tif not target or target==src or target:attr(\"dead\") or src:reactionToward(target) >= 0 then return end\n\t\tif target:getEntityKind(target) ~= \"actor\" then return end -- Don't try to hit traps and such\n\t\tif target.turn_procs.static_shock then return end\n\t\tif not target.x or not target.y then return end\n\t\tif core.fov.distance(src.x, src.y, target.x, target.y) > 10 then return end\n\t\ttarget.turn_procs.static_shock = 1\n\t\tlocal cs = nil\n\t\tif target:hasEffect(target.EFF_COUNTERSTRIKE) then\n\t\t\tcs = target:copyEffect(target.EFF_COUNTERSTRIKE)\n\t\t\ttarget:removeEffect(target.EFF_COUNTERSTRIKE)\n\t\tend\n\t\tsrc:attackTargetWith(target, shield_combat, DamageType.LIGHTNING, eff.dam)\n\t\tif cs then\n\t\t\ttarget:setEffect(target.EFF_COUNTERSTRIKE, cs.dur, cs)\n\t\tend\n\t\treturn true\n\tend,\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"resists\", {all=eff.power})\n\tend,\n\tdeactivate = function(self, eff)\n\tend,",
+      "verified": true
+    }
+  ],
+  "source_limitations": "DLC source repository/commit/release identity unpinned; verified current public files by SHA and exact excerpts.",
+  "mechanism_verification": {
+    "equipment": "DLC Actor:179-183 replaces shield require.stat.str with require.stat.cun and calls base at 196; fixed core Actor:canWearObject passes result to engine.interface.ActorInventory.canWearObject at 5066.",
+    "damage": "DLC Combat:164 invokes data.sub(str,cun) for shield with T_STATIC_SHOCK; fixed core getDammod transfers coefficient and removes str; combatDamage consumes getStat(stat) * mod."
+  },
+  "placeholders": [
+    {
+      "index": 1,
+      "token": "%d%%",
+      "quantity_kind": "all resistance percentage",
+      "calculation": "getResists -> resist -> tformat arg1",
+      "consumer": "setEffect STATIC_SHIELD power=t.getResists(self,t) -> activate effectTemporaryValue resists {all=eff.power}",
+      "unchanged": true
+    },
+    {
+      "index": 2,
+      "token": "%d%%",
+      "quantity_kind": "shield damage multiplier in percent",
+      "calculation": "getDamage -> damage*100 -> tformat arg2",
+      "consumer": "setEffect STATIC_SHIELD dam=t.getDamage(self,t) -> callbackOnHit src:attackTargetWith(target, shield_combat, DamageType.LIGHTNING, eff.dam)",
+      "unchanged": true
+    }
+  ],
+  "byte_proof": {
+    "replacement_count": 1,
+    "target_offset_bytes": 645132,
+    "old_target_bytes": 454,
+    "new_target_bytes": 484,
+    "inverse_equals_preimage": true,
+    "inverse_sha256": "44452a3b6a120692b81adf399bd582ed335072995d7648486be4df3aed75023d",
+    "prefix_sha256": "c6c3ac5371629325753973452aaf37de1e20ce6c2d5fde3303a3068f6ea228ec",
+    "suffix_sha256": "774a080f44da2265c7eb3e2bb6d75265a52731cb83ab61098dd4cc4e4629f716",
+    "source_source_tag_args_order_special_unchanged": true,
+    "placeholder_markup_newline_tab_unchanged": true,
+    "other_8_entries_and_out_of_scope_bytes_unchanged": true,
+    "holdout_entry1520_unchanged": true,
+    "holdout_baseline_reference": "REPAIR-INPUT entry1520 after.target; original pre-repair baseline with existing tabs",
+    "holdout_target_sha256": "7653c5f3035d7d0b375c8ee2d7b5f97ed44ccef0f8d48585ca30629ebfa73c42"
+  },
+  "temporary_preimage": "/tmp/executor-016-fix2-urew_8yd/preimage.lua",
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "passed; expected DLC source-unpinned warnings"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261003T024110.295146Z-3-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed; no output"
+    },
+    {
+      "command": "inverse whole-file byte comparison",
+      "result": "passed; restored file equals original preimage exactly",
+      "exit_code": 0
+    }
+  ],
+  "plan_deviations": [],
+  "unresolved": [],
+  "validation_scope": "EXECUTOR fix-2 exact replacement; independent review, proposal, full batch gates/build/finalize remain ORCHESTRATOR responsibilities per PLAN.",
+  "actual_content_changes": 1,
+  "stage_commit_child_created": false
+}

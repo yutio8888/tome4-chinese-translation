@@ -1,0 +1,44 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat .ai/task/mmrfix-20261002-016/INPUT-re-review-4-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-016/INPUT-re-review-4-a1.json"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-4-a1.json'))\ndef show(o,p=''):\n    if isinstance(o,dict):\n        for k,v in o.items():\n            if isinstance(v,(dict,list)): print(p+k, type(v).__name__, len(v)); show(v,p+'  ') if p.count(' ')<4 else None\n            else: print(p+k, repr(v)[:150])\n    elif isinstance(o,list) and o:\n        show(o[0],p+'  [0] ')\nshow(d)\nEOF\ngrep -n \"^## \\|^### \" docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-4-a1.json'))['payload']\nprint(d['rendered_briefing'])\nprint(d['ordered_revision_keys'])\nfor i,t in enumerate(d['translation_snapshot']):\n    print('=====',i,t['revision_key'], [k for k in t])\n    print(t['source']); print('---'); print(t['target'])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-4-a1.json'))['payload']\nfor i,b in enumerate(d['bounded_context']):\n    c=json.loads(b['context'])\n    with open(f'/tmp/ctx{i}.txt','w') as f:\n        f.write(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False,indent=1)+'\\n')\n        for e in c['source_evidence']:\n            f.write(f\"## {e['public_path']} {e.get('start')}-{e.get('end')} {e.get('frozen_file')} sha={e['sha256']}\\n\")\n            if 'excerpt' in e: f.write(e['excerpt']+'\\n')\n            for w in e.get('windows',[]): f.write(w['text']+'\\n')\n    print(i, len(open(f'/tmp/ctx{i}.txt').read()))\nEOF\nsed -n '1,400p' /tmp/ctx1.txt | grep -v '^ \"source_locations\\|read_boundary' | head -300"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "for i in 2 3; do sed -n '/^## /,$p' /tmp/ctx$i.txt; python3 -c \"\nimport json;c=json.load(open('/tmp/ctx$i.txt')) if False else None\"; grep -n '\"terminology\"' -A30 /tmp/ctx$i.txt | grep -v source_loc | head -40; done"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "for i in 4 5 6; do echo \"=========== $i\"; grep -n '\"terminology\"' -A14 /tmp/ctx$i.txt | grep -v 'source_loc\\|pinned\\|dlc_check'|head -16; sed -n '/^## /,$p' /tmp/ctx$i.txt; done"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "for i in 7 8; do echo \"=========== $i\"; grep -n '\"terminology\"' -A14 /tmp/ctx$i.txt | grep -v 'source_loc\\|pinned\\|dlc_check'|head -16; sed -n '/^## /,$p' /tmp/ctx$i.txt; done"
+    }
+  }
+]

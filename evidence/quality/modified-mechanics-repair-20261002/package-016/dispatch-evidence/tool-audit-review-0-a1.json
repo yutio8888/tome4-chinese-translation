@@ -1,0 +1,58 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-016/INPUT-review-0-a1.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read review input and contract size"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-review-0-a1.json'))\ndef show(o,ind=0):\n    pass\np=d['payload']\nprint(d.keys()); print(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n    print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False)[:500])\nEOF",
+      "description": "Inspect input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read v2 contract"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    print(\"=====\",i,t['revision_key'][:8])\n    print(\"SRC:\",t['source']); print(\"TGT:\",t['target'])\n    c=json.loads(b['context'])\n    print(\"CTX keys:\",list(c.keys()))\n    for k,v in c.items():\n        if k!='source_evidence': print(\" \",k,\":\",json.dumps(v,ensure_ascii=False)[:2500])\n    for e in c.get('source_evidence',[]):\n        print(\"  EVID\",e['public_path'],e['start'],e['end'])\n        print(e['excerpt'])\nEOF",
+      "description": "Dump all entries with context"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF' > /tmp/rv016.txt\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    print(\"=====\",i,t['revision_key'][:8])\n    print(\"SRC:\",t['source']); print(\"TGT:\",t['target'])\n    c=json.loads(b['context'])\n    for k,v in c.items():\n        if k not in('source_evidence','source_locations','read_boundary','source_access_warning','execution_cwd_requirement'): print(\" \",k,\":\",json.dumps(v,ensure_ascii=False)[:3000])\n    for e in c.get('source_evidence',[]):\n        print(\"  EVID\",{k:v for k,v in e.items() if k!='excerpt'})\n        print(e.get('excerpt',''))\nEOF\nwc -l /tmp/rv016.txt; sed -n 40,400p /tmp/rv016.txt",
+      "description": "Dump all entries to tmp file"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/rv016.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/rv016.txt",
+      "offset": 288,
+      "limit": 210
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; ls /workspace/tome4-dlcs | head; grep -rn \"steamsaw_dam_mult\\|T_OVERRUN\" /workspace/tome4-dlcs --include=*.lua | grep -v \"^.*locale\" | head -20",
+      "description": "Locate Overrun passive implementation in DLC source"
+    }
+  }
+]

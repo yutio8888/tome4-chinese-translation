@@ -1,0 +1,58 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-016/INPUT-re-review-2-a1.json",
+      "description": "Read the frozen review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-2-a1.json'))\np=d['payload']\nprint(list(d.keys()));print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\n\"",
+      "description": "Inspect input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor e in p['translation_snapshot'][6:]: print(json.dumps(e,ensure_ascii=False,indent=0))\n\"; grep -n '第六节\\|^## 六\\|^## 6' docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Show remaining entries and contract section"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 100,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract section six"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor b in p['bounded_context']:\n  print('=====',[k for k in b if k!='context'], {k:b[k] for k in b if k!='context'})\n  c=json.loads(b['context'])\n  for k,v in c.items():\n    if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False)[:3000])\n  for s in c.get('source_evidence',[]):\n    print('--',s['public_path'],s['start'],s['end']); print(s['excerpt'])\n\" > /tmp/ctx016.txt; wc -l /tmp/ctx016.txt",
+      "description": "Dump bounded context to scratch"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor b in p['bounded_context']:\n  print('=====',{k:b[k] for k in b if k!='context'})\n  c=json.loads(b['context'])\n  for k,v in c.items():\n    if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False)[:3000])\n  for s in c.get('source_evidence',[]):\n    print('--',{k:v for k,v in s.items() if k!='excerpt'}); print(s.get('excerpt'))\n\" > /tmp/ctx016.txt; wc -l /tmp/ctx016.txt; cat /tmp/ctx016.txt",
+      "description": "Dump bounded context fully"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx016.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx016.txt",
+      "offset": 268,
+      "limit": 210
+    }
+  }
+]

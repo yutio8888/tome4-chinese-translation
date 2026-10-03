@@ -1,0 +1,56 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat .ai/task/mmrfix-20261002-016/INPUT-re-review-3-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-016/INPUT-re-review-3-a1.json"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-3-a1.json'))\ndef show(o,p=''):\n    if isinstance(o,dict):\n        for k,v in o.items(): show(v,p+'.'+k)\n    elif isinstance(o,list):\n        print(p,'list',len(o))\n        for i,v in enumerate(o[:1]): show(v,p+f'[{i}]')\n    else:\n        s=str(o); print(p, s[:150].replace('\\n','\\\\n'))\nshow(d)\nEOF\ngrep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-3-a1.json'))['payload']\nprint(d['rendered_briefing']); print(d['terminology_snapshot'][:3000])\nfor i,t in enumerate(d['translation_snapshot']):\n    print('=====',i,t['revision_key'], {k:v for k,v in t.items() if k not in('source','target','revision_key')})\n    print('SRC:',t['source']); print('TGT:',t['target'])\nEOF"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF' > /tmp/ctx016.txt\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-3-a1.json'))['payload']\nfor i,b in enumerate(d['bounded_context']):\n    c=json.loads(b['context'])\n    print('#####',i,b['revision_key'][:8])\n    for k,v in c.items():\n        if k in('source_evidence',):\n            for e in v:\n                print('--',e.get('public_path'),e.get('sha256'),e.get('frozen_file'))\n                if 'excerpt' in e: print(e['excerpt'])\n                for w in e.get('windows',[]): print(w['text'])\n        elif k in ('terminology',): print('TERM',json.dumps(v,ensure_ascii=False))\n        elif k in('read_boundary','source_access_warning','execution_cwd_requirement','source_locations'): pass\n        else: print(k, json.dumps(v,ensure_ascii=False)[:500])\nEOF\nwc -l /tmp/ctx016.txt; grep -n \"#####\\|^--\\|TERM\" /tmp/ctx016.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 230,345p /tmp/ctx016.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 347,563p /tmp/ctx016.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 564,790p /tmp/ctx016.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 790,1037p /tmp/ctx016.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "f=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs/superload/mod/class/Object.lua; sha256sum $f; sed -n 60,90p $f"
+    }
+  }
+]

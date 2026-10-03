@@ -1,0 +1,24 @@
+{
+  "claim_id": "UPSTREAM054",
+  "candidate_index": 1520,
+  "prior_claim": "Beam path can hit additional actors, so total enemies hit can exceed tier",
+  "host_status": "partially_confirmed_revised",
+  "confirmed": "Tier limits selected endpoints; projections use beams and may hit an intermediate actor instead of the selected endpoint. Candidate cannot promise selected endpoints all receive damage.",
+  "withdrawn": "Inference that mere use of beam makes default hit total exceed tier omitted range=1 enforcement. No verified general >tier counterexample established.",
+  "evidence": [
+    "host-range-probe-016.json",
+    "host-source-016-original.json"
+  ],
+  "additional_source": {
+    "component": "orcs",
+    "public_path": "tome-orcs/superload/mod/class/Actor.lua",
+    "commit": null,
+    "source_pinning": "unpinned",
+    "sha256": "2b332d29bf6015e3cb786f2990071437e560b551a53db470deb3ff997f4c5717",
+    "start": 247,
+    "end": 255,
+    "excerpt": "local getTalentRange = _M.getTalentRange\nfunction _M:getTalentRange(t)\n\tlocal r = getTalentRange(self, t)\n\tif r > 1 and (t.is_spell or t.is_mind) and self:attr(\"spell_psionic_range_increase\") then\n\t\tr = math.min(10, r + self.spell_psionic_range_increase)\n\tend\n\treturn r\nend\n"
+  },
+  "instruction": "Do not mechanically preserve original >tier conclusion. Stay within same target; describe selected-target count only if changing wording and substantiate projection range. No game source change.",
+  "recorded_at": "2026-10-03T02:18:50.296959+00:00"
+}

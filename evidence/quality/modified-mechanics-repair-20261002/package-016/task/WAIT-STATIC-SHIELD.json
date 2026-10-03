@@ -1,0 +1,41 @@
+{
+  "finding_id": "REVIEW-STATIC-SHIELD-STATS-016",
+  "revision_key": "6b68be25047efa92ff93828ac9c535c29df1872eaefd766f6e828160abe32f30",
+  "candidate_index": 1497,
+  "host_status": "confirmed",
+  "category": "fidelity",
+  "tier": 1,
+  "prior_review": "review-0-a1 OK",
+  "current_review": "re-review-1-a1 ISSUE",
+  "same_entry_and_fixed_source_verified": true,
+  "old_target": "当你使用格挡技能的时候，你会在自己和你召唤的炮台身边产生一个静电屏障，增加所有抗性 %d%%， 持续 4 回合。如果有敌人对你或你召唤的炮台造成伤害，屏障会电击它们，造成 %d%% 你的盾牌伤害。\n\t\t这一效果每回合对同一目标最多造成一次伤害，且不会与反击效果相互作用。\n你装备盾牌和计算盾牌攻击伤害的时候，用灵巧代替力量要求。",
+  "proposed_target": "当你使用格挡技能的时候，你会在自己和你召唤的炮台身边产生一个静电屏障，增加所有抗性 %d%%， 持续 4 回合。如果有敌人对你或你召唤的炮台造成伤害，屏障会电击它们，造成 %d%% 你的盾牌伤害。\n\t\t这一效果每回合对同一目标最多造成一次伤害，且不会与反击效果相互作用。\n装备盾牌时，你以灵巧代替力量满足属性需求；计算盾牌伤害时，也以灵巧代替力量。",
+  "proposed_clause": "装备盾牌时，你以灵巧代替力量满足属性需求；计算盾牌伤害时，也以灵巧代替力量。",
+  "source_evidence": [
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+      "start": 163,
+      "end": 167,
+      "excerpt": "_M:bindHook(\"Combat:getDammod:subs\", function(self, data)\n\tif data.combat.talented == 'shield' and self:knowTalent('T_STATIC_SHOCK') then data.sub('str', 'cun') end\n\tif data.combat.talented == 'steamsaw' and self:knowTalent('T_OVERRUN') then data.sub('str', 'dex') end\n\tif data.combat.talented == 'steamsaw' and self:isTalentActive('T_METATEMPORAL_SPINNER') then data.sub('str', 'mag') end\nend)"
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/superload/mod/class/Actor.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "2b332d29bf6015e3cb786f2990071437e560b551a53db470deb3ff997f4c5717",
+      "start": 175,
+      "end": 198,
+      "excerpt": "function _M:updateObjectRequirements(o)\n\tlocal oldreq = rawget(o, \"require\")\n\tif not oldreq then return oldreq end\n\tlocal newreq\n\tif o.subtype == \"shield\" and self:knowTalent(self.T_STATIC_SHOCK) then\n\t\tnewreq = newreq or table.clone(oldreq, true)\n\t\tif newreq.stat and newreq.stat.str then\n\t\t\tnewreq.stat.cun, newreq.stat.str = newreq.stat.str, nil\n\t\tend\n\telseif o.subtype == \"steamsaw\" and self:knowTalent(self.T_OVERRUN) then\n\t\tnewreq = newreq or table.clone(oldreq, true)\n\t\tif newreq.stat and newreq.stat.str then\n\t\t\tnewreq.stat.dex, newreq.stat.str = newreq.stat.str, nil\n\t\tend\n\telseif o.type == \"armor\" and self:knowTalent(self.T_MECHARACHNID_LINK) then\n\t\tnewreq = newreq or table.clone(oldreq, true)\n\t\tif newreq.stat and newreq.stat.str then\n\t\t\tnewreq.stat.dex, newreq.stat.str = newreq.stat.str, nil\n\t\tend\n\tend\n\tif newreq then o.require = newreq end\n\tlocal ret, reason = base_updateObjectRequirements(self, o)\n\treturn ret, reason\nend"
+    }
+  ],
+  "reason": "Equipment attribute requirements and damage stat coefficients are distinct consumers; present sentence incorrectly calls the latter a requirement. Exact narrow wording proposed, not applied.",
+  "stop_authority": "AGENTS.md:80 same revision contradictory substantive review opinions",
+  "decision_needed": "Accept the source-supported narrow clarification and continue, or adjudicate retaining current wording.",
+  "clarification_requested": "User asks for detailed context and disagreement; no authorization to apply proposed clause.",
+  "disagreement_precision": "Earlier reviewer returned bare OK; there is no contrary mechanism argument. Later reviewer flagged existing wording ambiguity between equipment requirements and damage coefficients. Mechanism itself is unambiguous in inspected source; this is a source-grounded wording clarification, not reversed attribute direction or newly introduced behavior."
+}

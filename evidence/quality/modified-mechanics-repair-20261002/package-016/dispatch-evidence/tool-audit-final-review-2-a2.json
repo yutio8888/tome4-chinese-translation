@@ -1,0 +1,52 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-016/INPUT-final-review-2-a2.json; echo; grep -n \"^## \" docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-2-a2.json'))\np=d['payload'];print(d.keys(),p.keys())\nfor k,v in p.items():\n  if k!='bounded_context' and k!='entries': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p.get('entries',[])), len(p['bounded_context']))\n\"; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-2-a2.json'))\np=d['payload']\nfor i,e in enumerate(p['translation_snapshot']):\n  print('=====',i,e['revision_key']);print('SRC:',e['source']);print('TGT:',e['target'])\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-2-a2.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  print('#####',i,[k for k in b if k!='context'], {k:b[k] for k in b if k!='context'})\n  c=json.loads(b['context'])\n  print(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False)[:3000])\n  for s in c.get('source_evidence',[]):\n    print('--',s['public_path'],s['start'],s['end']);print(s['excerpt'])\n\" > /tmp/ctx016.txt; wc -c /tmp/ctx016.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-2-a2.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  print('#####',i,{k:b[k] for k in b if k!='context'})\n  c=json.loads(b['context'])\n  print(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False)[:3000])\n  for s in c.get('source_evidence',[]):\n    print('--',{k:v for k,v in s.items() if k!='excerpt'});print(s.get('excerpt'))\n\" > /tmp/ctx016.txt; wc -c /tmp/ctx016.txt; head -c 30000 /tmp/ctx016.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx016.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/ctx016.txt",
+      "offset": 231,
+      "limit": 180
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources; ls -R $S | head -40; grep -rn \"OVERRUN\\|STATIC_SHOCK\\|steamsaw_dam_mult\" $S | grep -v \"^.*mecharachnid.lua:7[0-9][0-9]\" | head -30; sha256sum $S/orcs/tome-orcs/superload/mod/class/Object.lua"
+    }
+  }
+]

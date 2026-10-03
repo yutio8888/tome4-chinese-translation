@@ -1,0 +1,425 @@
+{
+  "task_id": "mmrfix-20261002-016",
+  "dispatch": "fresh fix-4-a1",
+  "role": "executor",
+  "status": "implemented",
+  "changed_files": [
+    "tome-orcs.lua"
+  ],
+  "candidate_index": 1496,
+  "old_target": "让你的重装武器突破正常极限，触发一个强大的效果。这会立即停用重装武器，并消耗所有剩余弹药。\n#AQUAMARINE#火焰喷射器#LAST#: 引爆燃料箱，制造半径 4 的爆炸，将你抛至距离 %d 内的指定格。爆炸范围内的敌人受到 %0.2f 点火焰伤害；不稳定燃料还会使其额外受到相当于当前燃烧伤害 %d%% 的火焰伤害。\n#AQUAMARINE#电击棒#LAST#: 将电击棒砸入地面，释放所有剩余能量，造成相当于 %d%% 电击棒伤害的闪电伤害，半径为 %d。 受击目标会被击退 %d 格；若撞上墙壁，便会释放一道半径 1 的静电脉冲，对范围内的敌人造成 %0.2f 点闪电伤害，并尝试震慑他们 5 回合（同一敌人在此次施放中只受一次脉冲影响）。\n#AQUAMARINE#爆矢枪#LAST#: 超载爆矢枪，射出一枚致命弹矢，对直线上的目标造成相当于 %d%% 蒸汽枪伤害的酸性伤害。目标每有一种物理、魔法或精神负面效果，便额外受到 %d%% 伤害（界面标示的额外伤害上限为 %d%%， 实际每回合对同一目标最多追加 6 次伤害）， 且每种负面效果的持续时间增加 %d 回合。",
+  "new_target": "让你的重装武器突破正常极限，触发一个强大的效果。这会立即停用重装武器，并消耗所有剩余弹药。\n#AQUAMARINE#火焰喷射器#LAST#: 引爆燃料箱，制造半径 4 的爆炸，将你抛至距离 %d 内的指定格。爆炸范围内的敌人受到 %0.2f 点火焰伤害；不稳定燃料还会使其额外受到相当于当前燃烧伤害 %d%% 的火焰伤害。\n#AQUAMARINE#电击棒#LAST#: 将电击棒砸入地面，释放所有剩余能量，造成相当于 %d%% 电击棒伤害的闪电伤害，半径为 %d。 即使攻击未命中，也会尝试将范围内的敌人击退 %d 格；若撞上墙壁，便会释放一道半径 1 的静电脉冲，对范围内的敌人造成 %0.2f 点闪电伤害，并尝试震慑他们 5 回合（同一敌人在此次施放中只受一次脉冲影响）。\n#AQUAMARINE#爆矢枪#LAST#: 超载爆矢枪，射出一枚致命弹矢，对直线上的目标造成相当于 %d%% 蒸汽枪伤害的酸性伤害。目标每有一种物理、魔法或精神负面效果，便额外受到 %d%% 伤害（界面标示的额外伤害上限为 %d%%， 实际每回合对同一目标最多追加 6 次伤害）， 且每种负面效果的持续时间增加 %d 回合。",
+  "preimage_sha256": "2876f395e6c54551b545d5f0dbd4a8a4995c7b75d253ee5cb92b32e192964e71",
+  "postimage_sha256": "8bb4b2f9eaf8225c0e1a39dd0e73f1902ad1c997e054ff7fe4ae855c5336e394",
+  "source_anchor_checks": [
+    {
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/mechstar.lua",
+      "sha256": "e6e5f57a088fe6f750d2ef8daeef2b37f4dd255ba5bdcb81f24a04f67e23229b",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "game/modules/tome/class/NPC.lua",
+      "sha256": "bdc619d1ed2ee9f457e10b461789b0aae4ab8385b14c9a78ad4246af9f0644f9",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned; git show only"
+    },
+    {
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned; git show only"
+    },
+    {
+      "public_path": "game/modules/tome/data/talents/gifts/summon-utility.lua",
+      "sha256": "b7f9b25c89954bcf7b8affbaf2b05c6715777e6b69652079fb9bad36c2bb1540",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned; git show only"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/other.lua",
+      "sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "game/engines/default/engine/interface/ActorProject.lua",
+      "sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned; git show only"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/other.lua",
+      "sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+      "sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/superload/mod/class/Object.lua",
+      "sha256": "581c4f1a1144f3a3f88a458ebc52fa053ac3cf2a6067e97d644e0e8a2d003dff",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+      "sha256": "d4a229c033179400bfeecdf22a6d8c7d8b890754f25cecd82908d413c3fa5102",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned; git show only"
+    },
+    {
+      "public_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+      "sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/damage_types.lua",
+      "sha256": "19256d2673432e01a92db25a320a4a24c66f034dca35de82bcb8e42cdec91c45",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/damage_types.lua",
+      "sha256": "19256d2673432e01a92db25a320a4a24c66f034dca35de82bcb8e42cdec91c45",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/magnetism.lua",
+      "sha256": "b14b2da4ec659318e895a5bbcbb3bf56c68e66636afe1228a34c249ec0f1abed",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+      "sha256": "d4a229c033179400bfeecdf22a6d8c7d8b890754f25cecd82908d413c3fa5102",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/mechstar.lua",
+      "sha256": "e6e5f57a088fe6f750d2ef8daeef2b37f4dd255ba5bdcb81f24a04f67e23229b",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/other.lua",
+      "sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+      "sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned; git show only"
+    },
+    {
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned; git show only"
+    },
+    {
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned; git show only"
+    }
+  ],
+  "source_evidence": [
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned",
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "start": 957,
+      "end": 993,
+      "excerpt": "\t\t\treturn true\n\t\telseif self:isTalentActive(self.T_HW_SHOCKSTAFF) then\n\t\t\tlocal tg = {type=\"ball\", range=0, radius=t.getShockRadius(self, t), friendlyfire=false }\n\t\t\tlocal state = {}\n\t\t\tself:project(tg, self.x, self.y, function(px, py, tg, self)\n\t\t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n\t\t\t\tif target then\n\t\t\t\t\tlocal stormstrike = self:getTalentFromId(self.T_STORMSTRIKE)\n\t\t\t\t\tlocal shockstaff = stormstrike.getShockstaffObject(self, stormstrike)\n\t\t\t\t\tlocal hit = self:attackTargetWith(target, shockstaff, DamageType.LIGHTNING, t.getShockDamage(self,t))\n\t\t\t\t\tlocal dam = t.getShockPulseDamage(self,t)\n\t\t\t\t\tif hit then \n\t\t\t\t\t\ttarget:knockback(self.x, self.y, t.getShockKnockback(self,t), false, function(g, x, y)\n\t\t\t\t\t\t\t-- Deal our bonus damage\n\t\t\t\t\t\t\tif game.level.map:checkAllEntities(x, y, \"block_move\", target) then\n\t\t\t\t\t\t\t\tself:project({type=\"ball\", range=100, radius=1, selffire=false, friendlyfire=false}, target.x, target.y, function(tx, ty)\n\t\t\t\t\t\t\t\t\tlocal target = game.level.map(tx, ty, Map.ACTOR)\n\t\t\t\t\t\t\t\t\tif target and not state[target] then\n\t\t\t\t\t\t\t\t\t\tif not state.did_crit then\n\t\t\t\t\t\t\t\t\t\t\tdam = self:steamCrit(dam)\n\t\t\t\t\t\t\t\t\t\t\tstate.did_crit = true\n\t\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\t\t\tstate[target] = true  -- Avoid knockback multihits\n\t\t\t\t\t\t\t\t\t\tDamageType:get(DamageType.LIGHTNING).projector(self, target.x, target.y, DamageType.LIGHTNING, dam)\n\t\t\t\t\t\t\t\t\t\tif target:canBe(\"stun\") then\n\t\t\t\t\t\t\t\t\t\t\ttarget:setEffect(target.EFF_STUNNED, 5, {apply_power=self:combatSteampower()})\n\t\t\t\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\t\t\t\tgame.logSeen(target, \"%s resists the stun!\", target:getName():capitalize())\n\t\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\tend)\n\t\t\t\t\t\t\t\tgame.logSeen(target, \"%s slams into something solid, emitting a pulse of stunning lightning!\", target:getName():capitalize())\n\t\t\t\t\t\t\tend\n\t\t\t\t\t\tend)\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend)",
+      "actual_sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "excerpt_verified": true
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned",
+      "sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+      "start": 153,
+      "end": 161,
+      "excerpt": "\nlocal attackTargetWith = _M.attackTargetWith\nfunction _M:attackTargetWith(target, weapon, damtype, mult, force_dam)\n\tmult = mult or 1\n\tif weapon and weapon.talented == \"steamsaw\" and self:attr(\"steamsaw_dam_mult\") then\n\t\tmult = mult + self:attr(\"steamsaw_dam_mult\") / 100\n\tend\n\treturn attackTargetWith(self, target, weapon, damtype, mult, force_dam)\nend",
+      "actual_sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+      "excerpt_verified": true
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 380,
+      "end": 394,
+      "excerpt": "function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)\n\t-- if insufficient resources, try to use unarmed or cancel attack\n\tlocal unarmed = self:getObjectCombat(nil, \"barehand\")\n\tlocal weapon_or_unarmed = weapon or unarmed\n\tif weapon_or_unarmed and weapon_or_unarmed.use_resources and not self:useResources(weapon_or_unarmed.use_resources) then\n\t\tif unarmed == weapon then\n\t\t\tprint(\"[attackTargetWith] (unarmed) against \", target.name, \"unarmed attack fails due to resources\")\n\t\t\treturn self:combatSpeed(unarmed), false, 0\n\t\telse\n\t\t\tweapon = unarmed\n\t\t\tprint(\"[attackTargetWith] against \", target.name, \"insufficient weapon resources, using unarmed combat\")\n\t\t\tif weapon.use_resources and not self:useResources(weapon.use_resources) then\n\t\t\t\tprint(\"[attackTargetWith] against \", target.name, \"unarmed attack fails due to resources\")\n\t\t\t\treturn self:combatSpeed(weapon), false, 0\n\t\t\tend",
+      "actual_sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "excerpt_verified": true
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 446,
+      "end": 453,
+      "excerpt": "\tend\n\n\t-- melee attack bonus hooks/callbacks  Note: These are post rescaleCombatStats\n\tlocal hd = {\"Combat:attackTargetWith:attackerBonuses\", target=target, weapon=weapon, damtype=damtype, mult=mult, dam=dam, apr=apr, atk=atk, def=def, armor=armor}\n\tself:triggerHook(hd)\n\tself:fireTalentCheck(\"callbackOnMeleeAttackBonuses\", hd)\n\ttarget, weapon, damtype, mult, dam, apr, atk, def, armor = hd.target, hd.weapon, hd.damtype, hd.mult, hd.dam, hd.apr, hd.atk, hd.def, hd.armor\n\tif hd.stop then return end",
+      "actual_sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "excerpt_verified": true
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 687,
+      "end": 704,
+      "excerpt": "\t\t\tself.__attacktargetwith_recursing = self.__attacktargetwith_recursing - 1\n\t\telse\n\t\t\tself.__attacktargetwith_recursing = weapon.attack_recurse - 1\n\t\t\tself.__attacktargetwith_recursing_procs_reduce = weapon.attack_recurse_procs_reduce\n\t\tend\n\n\t\tif self.__attacktargetwith_recursing > 0 and not self.turn_procs._no_melee_recursion then\n\t\t\tlocal _, newhitted, newdam = self:attackTargetWith(target, weapon, damtype, mult, force_dam)\n\t\t\thitted = newhitted or hitted\n\t\t\tdam = math.max(dam, newdam)\n\t\telse\n\t\t\tself.__attacktargetwith_recursing = nil\n\t\t\tself.__attacktargetwith_recursing_procs_reduce = nil\n\t\tend\n\tend\n\n\treturn self:combatSpeed(weapon), hitted, dam\nend",
+      "actual_sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "excerpt_verified": true
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "fixed_commit": null,
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "start": 915,
+      "end": 924,
+      "excerpt": "\tgetFlamethrowerRange = function(self, t) return math.floor(self:combatTalentScale(t, 5, 9)) end,\t\n\tgetFlamethrowerDamage = function(self, t) return self:combatTalentSteamDamage(t, 20, 280) end,\n\tgetFlamethrowerBurn = function(self, t) return math.floor(self:combatTalentScale(t, 50, 120))/100 end,\n\tgetShockDamage = function(self, t) return self:combatTalentScale(t, 1.5, 2.5) end,\n\tgetShockRadius = function(self, t) return math.floor(self:combatTalentScale(t, 2, 4.5)) end,\t\t\t\t\n\tgetShockKnockback = function(self, t) return math.floor(self:combatTalentScale(t, 5, 10)) end,\n\tgetShockPulseDamage = function(self, t) return self:combatTalentSteamDamage(t, 20, 200) end,\n\tgetBoltDamage = function(self, t) return self:combatTalentScale(t, 1.5, 2.5) end,\n\tgetBoltDamageIncrease = function(self, t) return self:combatTalentScale(t, 5, 20) end,\t\t\t\n\tgetBoltDuration = function(self, t) return math.floor(self:combatTalentScale(t, 2, 4.5)) end,\t\t\t\n",
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "fixed_commit": null,
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "start": 1025,
+      "end": 1041,
+      "excerpt": "\tinfo = function(self, t)\n\t\tlocal frange = t.getFlamethrowerRange(self,t)\n\t\tlocal fdam = t.getFlamethrowerDamage(self,t)\n\t\tlocal fburn = t.getFlamethrowerBurn(self,t)\n\t\tlocal sdam = t.getShockDamage(self,t)\n\t\tlocal srad = t.getShockRadius(self,t)\n\t\tlocal sknockback = t.getShockKnockback(self,t)\n\t\tlocal spulse = t.getShockPulseDamage(self,t)\n\t\tlocal bdam = t.getBoltDamage(self,t)\n\t\tlocal binc = t.getBoltDamageIncrease(self,t)\n\t\tlocal bdur = t.getBoltDuration(self,t)\n\t\treturn ([[Push your heavy weapon beyond its normal limits to trigger a powerful effect. This will immediately disable your heavy weapon and expends all remaining ammunition.\n#AQUAMARINE#Flamethrower#LAST#: Detonate your fuel tanks, creating a radius 4 explosion that launches you to a chosen tile in range %d. Enemies caught within the explosion take %0.2f fire damage, and further fire damage equal to %d%% of their current burning damage from the volatile fuel.\n#AQUAMARINE#Shockstaff#LAST#: Drive your staff into the ground, discharging all remaining power to deal %d%% shockstaff damage as lightning in radius %d. Those struck will be knocked back %d tiles, and if they strike a wall they will emit a static pulse dealing %0.2f lightning damage in radius 1 and stunning them for 5 turns.\n#AQUAMARINE#Boltgun#LAST#: Overcharge your boltgun, firing a single deadly bolt dealing %d%% steamgun damage as acid in a piercing line. For each negative physical, magical, or mental effect on the target, they take an additional %d%% damage (to a maximum of %d%%) and the duration of each negative effect is increased by %d turns.]]):\n\t\ttformat(frange, damDesc(self, DamageType.FIRE, fdam), fburn*100, sdam*100, srad, sknockback, damDesc(self, DamageType.LIGHTNING, spulse), bdam*100, binc, binc*5, bdur)\n\tend,\n",
+      "source_identity": "DLC source/commit/version unpinned"
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned",
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "start": 915,
+      "end": 1042,
+      "excerpt": "\tgetFlamethrowerRange = function(self, t) return math.floor(self:combatTalentScale(t, 5, 9)) end,\t\n\tgetFlamethrowerDamage = function(self, t) return self:combatTalentSteamDamage(t, 20, 280) end,\n\tgetFlamethrowerBurn = function(self, t) return math.floor(self:combatTalentScale(t, 50, 120))/100 end,\n\tgetShockDamage = function(self, t) return self:combatTalentScale(t, 1.5, 2.5) end,\n\tgetShockRadius = function(self, t) return math.floor(self:combatTalentScale(t, 2, 4.5)) end,\t\t\t\t\n\tgetShockKnockback = function(self, t) return math.floor(self:combatTalentScale(t, 5, 10)) end,\n\tgetShockPulseDamage = function(self, t) return self:combatTalentSteamDamage(t, 20, 200) end,\n\tgetBoltDamage = function(self, t) return self:combatTalentScale(t, 1.5, 2.5) end,\n\tgetBoltDamageIncrease = function(self, t) return self:combatTalentScale(t, 5, 20) end,\t\t\t\n\tgetBoltDuration = function(self, t) return math.floor(self:combatTalentScale(t, 2, 4.5)) end,\t\t\t\n\taction = util.finalize(function(myenv, self, t) myenv.archery_weapon_override = self.archery_weapon_override end, function(myenv, self, t) self.archery_weapon_override = myenv.archery_weapon_override end, function(myenv, self, t)\n\t\tlocal eff = self:hasEffect(self.EFF_HEAVY_AMMUNITION)\n\t\tif not eff then return nil end\n\t\t\n\t\tif self:isTalentActive(self.T_HW_FLAMETHROWER) then \t\n\t\t\tlocal tg = {type=\"hit\", nolock=true, range=t.getFlamethrowerRange(self,t)}\n\t\t\tlocal x, y, target = self:getTarget(tg)\n\t\t\tif not x or not y then return nil end\n\t\t\tlocal _ _, x, y = self:canProject(tg, x, y)\n\t\n\t\t\tif game.level.map(x, y, Map.ACTOR) then\n\t\t\t\tx, y = util.findFreeGrid(x, y, 1, true, {[Map.ACTOR]=true})\n\t\t\t\tif not x then return end\n\t\t\tend\n\t\n\t\t\tif game.level.map:checkAllEntities(x, y, \"block_move\") then return end\n\n\t\t\tlocal tg2 = {type=\"ball\", range=0, radius=4, selffire=false, friendlyfire=false, talent=t}\n\t\t\tself:project(tg2, self.x, self.y, DamageType.FLAME_FUEL, {dam=self:steamCrit(t.getFlamethrowerDamage(self, t)), burn=t.getFlamethrowerBurn(self,t)})\n\t\t\tgame.level.map:particleEmitter(self.x, self.y, 4, \"ball_fire\", {radius=4})\n\t\t\tgame:playSoundNear(self, \"talents/fire\")\n\t\t\t\n\t\t\tlocal ox, oy = self.x, self.y\n\t\t\tself:move(x, y, true)\n\t\t\tif config.settings.tome.smooth_move > 0 then\n\t\t\t\tself:resetMoveAnim()\n\t\t\t\tself:setMoveAnim(ox, oy, 8, 5)\n\t\t\tend\n\n\t\t\tif not self.energy.used then self:useEnergy() end\n\t\t\tself:removeEffect(self.EFF_HEAVY_AMMUNITION)\n\t\t\tself:forceUseTalent(self.T_HW_FLAMETHROWER, {ignore_energy=true})\n\t\t\treturn true\n\t\telseif self:isTalentActive(self.T_HW_SHOCKSTAFF) then\n\t\t\tlocal tg = {type=\"ball\", range=0, radius=t.getShockRadius(self, t), friendlyfire=false }\n\t\t\tlocal state = {}\n\t\t\tself:project(tg, self.x, self.y, function(px, py, tg, self)\n\t\t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n\t\t\t\tif target then\n\t\t\t\t\tlocal stormstrike = self:getTalentFromId(self.T_STORMSTRIKE)\n\t\t\t\t\tlocal shockstaff = stormstrike.getShockstaffObject(self, stormstrike)\n\t\t\t\t\tlocal hit = self:attackTargetWith(target, shockstaff, DamageType.LIGHTNING, t.getShockDamage(self,t))\n\t\t\t\t\tlocal dam = t.getShockPulseDamage(self,t)\n\t\t\t\t\tif hit then \n\t\t\t\t\t\ttarget:knockback(self.x, self.y, t.getShockKnockback(self,t), false, function(g, x, y)\n\t\t\t\t\t\t\t-- Deal our bonus damage\n\t\t\t\t\t\t\tif game.level.map:checkAllEntities(x, y, \"block_move\", target) then\n\t\t\t\t\t\t\t\tself:project({type=\"ball\", range=100, radius=1, selffire=false, friendlyfire=false}, target.x, target.y, function(tx, ty)\n\t\t\t\t\t\t\t\t\tlocal target = game.level.map(tx, ty, Map.ACTOR)\n\t\t\t\t\t\t\t\t\tif target and not state[target] then\n\t\t\t\t\t\t\t\t\t\tif not state.did_crit then\n\t\t\t\t\t\t\t\t\t\t\tdam = self:steamCrit(dam)\n\t\t\t\t\t\t\t\t\t\t\tstate.did_crit = true\n\t\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\t\t\tstate[target] = true  -- Avoid knockback multihits\n\t\t\t\t\t\t\t\t\t\tDamageType:get(DamageType.LIGHTNING).projector(self, target.x, target.y, DamageType.LIGHTNING, dam)\n\t\t\t\t\t\t\t\t\t\tif target:canBe(\"stun\") then\n\t\t\t\t\t\t\t\t\t\t\ttarget:setEffect(target.EFF_STUNNED, 5, {apply_power=self:combatSteampower()})\n\t\t\t\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\t\t\t\tgame.logSeen(target, \"%s resists the stun!\", target:getName():capitalize())\n\t\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\tend)\n\t\t\t\t\t\t\t\tgame.logSeen(target, \"%s slams into something solid, emitting a pulse of stunning lightning!\", target:getName():capitalize())\n\t\t\t\t\t\t\tend\n\t\t\t\t\t\tend)\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend)\n\t\t\tif core.shader.active(4) then\n\t\t\t\t\tgame.level.map:particleEmitter(self.x, self.y, tg.radius, \"shader_ring\", {radius=tg.radius*2, life=8}, {type=\"sparks\"})\n\t\t\t\telse\n\t\t\t\t\tlocal x, y = self.x, self.y\n\t\t\t\t\t-- Lightning ball gets a special treatment to make it look neat\n\t\t\t\t\tlocal sradius = (tg.radius + 0.5) * (engine.Map.tile_w + engine.Map.tile_h) / 2\n\t\t\t\t\tlocal nb_forks = 16\n\t\t\t\t\tlocal angle_diff = 360 / nb_forks\n\t\t\t\t\tfor i = 0, nb_forks - 1 do\n\t\t\t\t\t\tlocal a = math.rad(rng.range(0+i*angle_diff,angle_diff+i*angle_diff))\n\t\t\t\t\t\tlocal tx = x + math.floor(math.cos(a) * tg.radius)\n\t\t\t\t\t\tlocal ty = y + math.floor(math.sin(a) * tg.radius)\n\t\t\t\t\t\tgame.level.map:particleEmitter(x, y, tg.radius, \"lightning\", {radius=tg.radius, grids=grids, tx=tx-x, ty=ty-y, nb_particles=25, life=8})\n\t\t\t\t\tend\n\t\t\tend\n\n\t\t\tself:removeEffect(self.EFF_HEAVY_AMMUNITION)\n\t\t\tself:forceUseTalent(self.T_HW_SHOCKSTAFF, {ignore_energy=true})\n\t\t\tgame:playSoundNear(self, \"talents/lightning\")\n\t\t\tif not self.energy.used then self:useEnergy() end\n\t\t\treturn true\n\t\telseif self:isTalentActive(self.T_HW_BOLTGUN) then \t\n\t\t\tlocal damage = t.getBoltDamage(self,t)\n\t\t\tlocal targets = self:archeryAcquireTargets({type=\"beam\"}, {one_shot=true})\n\t\t\tif not targets then return end\n\t\t\tself:archeryShoot(targets, t, {type=\"beam\"}, {mult=t.getBoltDamage(self,t), damtype=DamageType.DEBILITATING_ACID})\n\t\t\tself:removeEffect(self.EFF_HEAVY_AMMUNITION)\t\t\n\t\t\tself:forceUseTalent(self.T_HW_BOLTGUN, {ignore_energy=true})\n\t\t\treturn true\n\t\tend\n\tend),\n\tinfo = function(self, t)\n\t\tlocal frange = t.getFlamethrowerRange(self,t)\n\t\tlocal fdam = t.getFlamethrowerDamage(self,t)\n\t\tlocal fburn = t.getFlamethrowerBurn(self,t)\n\t\tlocal sdam = t.getShockDamage(self,t)\n\t\tlocal srad = t.getShockRadius(self,t)\n\t\tlocal sknockback = t.getShockKnockback(self,t)\n\t\tlocal spulse = t.getShockPulseDamage(self,t)\n\t\tlocal bdam = t.getBoltDamage(self,t)\n\t\tlocal binc = t.getBoltDamageIncrease(self,t)\n\t\tlocal bdur = t.getBoltDuration(self,t)\n\t\treturn ([[Push your heavy weapon beyond its normal limits to trigger a powerful effect. This will immediately disable your heavy weapon and expends all remaining ammunition.\n#AQUAMARINE#Flamethrower#LAST#: Detonate your fuel tanks, creating a radius 4 explosion that launches you to a chosen tile in range %d. Enemies caught within the explosion take %0.2f fire damage, and further fire damage equal to %d%% of their current burning damage from the volatile fuel.\n#AQUAMARINE#Shockstaff#LAST#: Drive your staff into the ground, discharging all remaining power to deal %d%% shockstaff damage as lightning in radius %d. Those struck will be knocked back %d tiles, and if they strike a wall they will emit a static pulse dealing %0.2f lightning damage in radius 1 and stunning them for 5 turns.\n#AQUAMARINE#Boltgun#LAST#: Overcharge your boltgun, firing a single deadly bolt dealing %d%% steamgun damage as acid in a piercing line. For each negative physical, magical, or mental effect on the target, they take an additional %d%% damage (to a maximum of %d%%) and the duration of each negative effect is increased by %d turns.]]):\n\t\ttformat(frange, damDesc(self, DamageType.FIRE, fdam), fburn*100, sdam*100, srad, sknockback, damDesc(self, DamageType.LIGHTNING, spulse), bdam*100, binc, binc*5, bdur)\n\tend,\n}\n"
+    }
+  ],
+  "mechanism_verification": {
+    "status": "confirmed",
+    "chain": "DLC attackTargetWith superload returns all core return values unchanged; core returns combatSpeed(weapon), hitted, dam. Heavy-weapons local hit captures first return (combat speed), not hitted. Lua numbers including zero are truthy, so a missed attack returning speed can still enter knockback. hd.stop early return nil can suppress branch. Knockback remains an attempt; wording does not guarantee displacement. friendlyfire=false filters allies in projection; wall-block callback creates pulse, state[target] limits each victim once; stun requires canBe and power application.",
+    "limitation": "Core pinned; DLC source repository/commit/version unpinned; verified SHA binds only inspected public snapshot."
+  },
+  "placeholder_flow": [
+    {
+      "index": 1,
+      "format": "%d",
+      "quantity_kind": "flamethrower_range",
+      "calculation_to_argument_to_consumer": "getFlamethrowerRange → info frange → chosen tile range",
+      "changed": false
+    },
+    {
+      "index": 2,
+      "format": "%0.2f",
+      "quantity_kind": "fire_damage",
+      "calculation_to_argument_to_consumer": "getFlamethrowerDamage → damDesc FIRE fdam → explosion FIRE",
+      "changed": false
+    },
+    {
+      "index": 3,
+      "format": "%d",
+      "quantity_kind": "burn_damage_percent",
+      "calculation_to_argument_to_consumer": "getFlamethrowerBurn * 100 → fburn*100 → volatile burn multiplier",
+      "changed": false
+    },
+    {
+      "index": 4,
+      "format": "%d",
+      "quantity_kind": "shockstaff_damage_percent",
+      "calculation_to_argument_to_consumer": "getShockDamage * 100 → sdam*100 → attackTargetWith mult",
+      "changed": false
+    },
+    {
+      "index": 5,
+      "format": "%d",
+      "quantity_kind": "shock_radius",
+      "calculation_to_argument_to_consumer": "getShockRadius → srad → ball radius",
+      "changed": false
+    },
+    {
+      "index": 6,
+      "format": "%d",
+      "quantity_kind": "shock_knockback_distance",
+      "calculation_to_argument_to_consumer": "floor(combatTalentScale(t,5,10)) → sknockback → target:knockback distance",
+      "changed": false
+    },
+    {
+      "index": 7,
+      "format": "%0.2f",
+      "quantity_kind": "pulse_lightning_damage",
+      "calculation_to_argument_to_consumer": "getShockPulseDamage → damDesc LIGHTNING spulse → steamCrit → LIGHTNING projector",
+      "changed": false
+    },
+    {
+      "index": 8,
+      "format": "%d",
+      "quantity_kind": "boltgun_damage_percent",
+      "calculation_to_argument_to_consumer": "getBoltDamage *100 → bdam*100 → archeryShoot mult",
+      "changed": false
+    },
+    {
+      "index": 9,
+      "format": "%d",
+      "quantity_kind": "per_negative_effect_bonus_percent",
+      "calculation_to_argument_to_consumer": "getBoltDamageIncrease → binc → DEBILITATING_ACID bonus",
+      "changed": false
+    },
+    {
+      "index": 10,
+      "format": "%d",
+      "quantity_kind": "display_bonus_cap_percent",
+      "calculation_to_argument_to_consumer": "binc*5 → displayed cap; actual per-turn maximum six increments retained",
+      "changed": false
+    },
+    {
+      "index": 11,
+      "format": "%d",
+      "quantity_kind": "negative_effect_duration_increase",
+      "calculation_to_argument_to_consumer": "getBoltDuration → bdur → negative effect duration increase",
+      "changed": false
+    }
+  ],
+  "byte_proof": {
+    "target_occurrences_before": 1,
+    "target_byte_offset": 642070,
+    "old_target_bytes": 1195,
+    "new_target_bytes": 1234,
+    "prefix_equal": true,
+    "suffix_equal": true,
+    "reverse_sha256": "2876f395e6c54551b545d5f0dbd4a8a4995c7b75d253ee5cb92b32e192964e71",
+    "reverse_equals_entire_preimage": true,
+    "all_non_target_bytes_unchanged": true,
+    "other_eight_entries_unchanged": true,
+    "holdout_entry1520_matches_baseline": true,
+    "source_source_tag_args_order_special_unchanged": true,
+    "placeholder_sequence_unchanged": [
+      "%d",
+      "%0.2f",
+      "%d",
+      "%%",
+      "%d",
+      "%%",
+      "%d",
+      "%d",
+      "%0.2f",
+      "%d",
+      "%%",
+      "%d",
+      "%%",
+      "%d",
+      "%%",
+      "%d"
+    ],
+    "markup_unchanged": true,
+    "newline_tab_unchanged": true
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "OK manifest, runtime Lua 5.1/LuaJIT, LPeg 0.10.2-1; public DLC source-unpinned warnings as expected"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "stdout": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261003T030006.742551Z-9-lint/lint.json\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "plan_deviations": [],
+  "unresolved_items": [],
+  "boundary": "No stage/commit, child creation, source/terminology/tools/.ai/evidence/user-document changes. Final package review and full gates belong to orchestrator."
+}

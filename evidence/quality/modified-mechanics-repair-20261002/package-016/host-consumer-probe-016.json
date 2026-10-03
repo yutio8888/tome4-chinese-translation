@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "source_evidence": [
+    {
+      "public_path": "tome-orcs/data/damage_types.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "19256d2673432e01a92db25a320a4a24c66f034dca35de82bcb8e42cdec91c45",
+      "start": 467,
+      "end": 490,
+      "excerpt": "\tprojector = function(src, x, y, type, dam, state)\n\t\tstate = initState(state)\n\t\tuseImplicitCrit(src, state)\n\t\tDamageType:get(DamageType.ACID).projector(src, x, y, DamageType.ACID, dam)\n\t\tlocal target = game.level.map(x, y, Map.ACTOR)\n\t\tif target and src and src:knowTalent(src.T_SAFETY_OVERRIDE) then\n\t\t\tlocal inc = src:callTalent(src.T_SAFETY_OVERRIDE, \"getBoltDamageIncrease\")/100\n\t\t\tlocal dur = src:callTalent(src.T_SAFETY_OVERRIDE, \"getBoltDuration\")\n\t\t\t\n\t\t\tlocal effs = target:effectsFilter({status=\"detrimental\", types={physical=true, magical=true, mental=true,}}, 50)\n\t\t\tlocal nb = #effs\n\t\t\tif nb > 0 then\n\t\t\t\tfor _, eff_id in ipairs(effs) do\n\t\t\t\t\ttarget.tmp[eff_id].dur = target.tmp[eff_id].dur + dur\n\t\t\t\tend\n\t\t\t\tfor i = 1, nb do\n\t\t\t\t\ttarget.turn_procs.debilitating_acid = 1 + (target.turn_procs.debilitating_acid or 0)\n\t\t\t\t\tif target.turn_procs.debilitating_acid <= 6 then\n\t\t\t\t\t\tDamageType:get(DamageType.ACID).projector(src, x, y, DamageType.ACID, dam*inc) \n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend,"
+    },
+    {
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "start": 754,
+      "end": 760,
+      "excerpt": "\t\t\tif eff.steamstar then\n\t\t\t\tif DamageType:get(DamageType.FIRE).projector(src, self.x, self.y, DamageType.FIRE, eff.steamstar.dam) > 0 then\n\t\t\t\t\tlocal nb_done = eff.src.turn_procs.steamstar_steam or 0\n\t\t\t\t\teff.src:incSteam(eff.steamstar.steam * 0.3 ^ nb_done)\n\t\t\t\t\teff.src.turn_procs.steamstar_steam = nb_done + 1\n\t\t\t\tend\n\t\t\tend"
+    },
+    {
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "start": 743,
+      "end": 745,
+      "excerpt": "\t\tlocal severed = false\n\t\tlocal src = eff.src or self\n\t\tif core.fov.distance(self.x, self.y, src.x, src.y) >= eff.free or src.dead or not game.level:hasEntity(src) then severed = true end"
+    }
+  ],
+  "lua_source": "local acid={\n\tprojector = function(src, x, y, type, dam, state)\n\t\tstate = initState(state)\n\t\tuseImplicitCrit(src, state)\n\t\tDamageType:get(DamageType.ACID).projector(src, x, y, DamageType.ACID, dam)\n\t\tlocal target = game.level.map(x, y, Map.ACTOR)\n\t\tif target and src and src:knowTalent(src.T_SAFETY_OVERRIDE) then\n\t\t\tlocal inc = src:callTalent(src.T_SAFETY_OVERRIDE, \"getBoltDamageIncrease\")/100\n\t\t\tlocal dur = src:callTalent(src.T_SAFETY_OVERRIDE, \"getBoltDuration\")\n\t\t\t\n\t\t\tlocal effs = target:effectsFilter({status=\"detrimental\", types={physical=true, magical=true, mental=true,}}, 50)\n\t\t\tlocal nb = #effs\n\t\t\tif nb > 0 then\n\t\t\t\tfor _, eff_id in ipairs(effs) do\n\t\t\t\t\ttarget.tmp[eff_id].dur = target.tmp[eff_id].dur + dur\n\t\t\t\tend\n\t\t\t\tfor i = 1, nb do\n\t\t\t\t\ttarget.turn_procs.debilitating_acid = 1 + (target.turn_procs.debilitating_acid or 0)\n\t\t\t\t\tif target.turn_procs.debilitating_acid <= 6 then\n\t\t\t\t\t\tDamageType:get(DamageType.ACID).projector(src, x, y, DamageType.ACID, dam*inc) \n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend,\n}\ninitState=function()return {}end;useImplicitCrit=function()end;Map={ACTOR=1}\nlocal damage={};DamageType={ACID=1,get=function()return {projector=function(_,_,_,_,dam)table.insert(damage,dam)end}end}\nlocal target={tmp={},turn_procs={},effectsFilter=function(self)return self.effects end}\ngame={level={map=function()return target end}}\nlocal src={T_SAFETY_OVERRIDE=1,knowTalent=function()return true end,callTalent=function(_,_,kind)return kind=='getBoltDuration' and 2 or 10 end}\nfor initial=0,7 do for nb=0,9 do\n target.tmp={};target.effects={};target.turn_procs={debilitating_acid=initial};damage={}\n for i=1,nb do target.effects[i]=i;target.tmp[i]={dur=3}end\n acid.projector(src,0,0,0,100,{})\n local expected=math.min(nb,math.max(0,6-initial));assert(#damage==1+expected and damage[1]==100)\n for i=2,#damage do assert(damage[i]==10)end\n for i=1,nb do assert(target.tmp[i].dur==5)end\nend end\nlocal function steam_tick(self,eff,src)\n\t\t\tif eff.steamstar then\n\t\t\t\tif DamageType:get(DamageType.FIRE).projector(src, self.x, self.y, DamageType.FIRE, eff.steamstar.dam) > 0 then\n\t\t\t\t\tlocal nb_done = eff.src.turn_procs.steamstar_steam or 0\n\t\t\t\t\teff.src:incSteam(eff.steamstar.steam * 0.3 ^ nb_done)\n\t\t\t\t\teff.src.turn_procs.steamstar_steam = nb_done + 1\n\t\t\t\tend\n\t\t\tend\nend\nlocal yielded={};local actual=1;DamageType.FIRE=2;DamageType.get=function()return {projector=function()return actual end}end\nlocal caster={turn_procs={},incSteam=function(self,n)table.insert(yielded,n)end};local effect={src=caster,steamstar={steam=10,dam=5}}\nlocal self={x=0,y=0}\nactual=0;steam_tick(self,effect,caster);assert(#yielded==0 and caster.turn_procs.steamstar_steam==nil)\nactual=1;for i=1,4 do steam_tick(self,effect,caster)end\nfor i,v in ipairs({10,3,0.9,0.27})do assert(math.abs(yielded[i]-v)<1e-9)end\ncaster.turn_procs={};steam_tick(self,effect,caster);assert(yielded[5]==10)\nlocal function severed(self,eff)\n\t\tlocal severed = false\n\t\tlocal src = eff.src or self\n\t\tif core.fov.distance(self.x, self.y, src.x, src.y) >= eff.free or src.dead or not game.level:hasEntity(src) then severed = true end\nreturn severed end\ncore={fov={distance=function(x,y,a,b)return math.abs(x-a)end}};game.level.hasEntity=function()return true end\nfor _,x in ipairs({5,6,7})do assert(severed({x=x,y=0},{src={x=0,y=0},free=6})==(x>=6))end\nprint('PASS acid:80 count/prior-budget cases; steam:zero-damage, geometric yield and reset; bloodlink:below/equal/above distance boundary')\n",
+  "script_sha256": "54618ce00bfffd4f26000b2cce2c96bb93a28e44a6f5217a403d4a3445bca53a",
+  "exit_code": 0,
+  "stdout": "PASS acid:80 count/prior-budget cases; steam:zero-damage, geometric yield and reset; bloodlink:below/equal/above distance boundary\n",
+  "stderr": "",
+  "scope": "Exact public DLC source snippets under LuaJIT with stubs; not end-to-end game scheduling; DLC version/commit unpinned"
+}

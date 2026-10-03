@@ -1,0 +1,139 @@
+{
+  "calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06ce3aa3c87d1ac936007d1bdddd6",
+      "status": "completed",
+      "call_id": "call_ua1Jq2dyx0xQAFoTy5dhjzhA",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/roles/executor.md .ai/task/mmrfix-20261002-016/SPEC.md .ai/task/mmrfix-20261002-016/PLAN.md .ai/task/mmrfix-20261002-016/FIX-3.json .ai/task/mmrfix-20261002-016/REPAIR-INPUT-SPLIT.json .ai/task/mmrfix-20261002-016/USER-DECISION-FATAL-ATTRACTOR.json\",max_output_tokens:14000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995680.97338
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06ce96a9887d19274f9e93289d254",
+      "status": "completed",
+      "call_id": "call_z8nDRwVCZYZfIHLIpUL8LnI5",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n '验证矩阵|普通维护|完成交付|lint|doctor' docs/agent-workflow.md i18n/README.md; cat TERMINOLOGY.md; git status --short; git diff --stat\",max_output_tokens:5500}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=Path('.ai/task/mmrfix-20261002-016')\\nf=json.loads((p/'FIX-3.json').read_text()); s=json.loads((p/'REPAIR-INPUT-SPLIT.json').read_text())\\nprint('FIX-3:'); print(json.dumps(f,ensure_ascii=False,indent=2))\\nprint('SPLIT keys',list(s)); print('entry count',len(s['entries']))\\nfor k,v in s.items():\\n if k not in ('entries','source_anchors','claims','source_evidence'): print(k,json.dumps(v,ensure_ascii=False)[:3000])\\nprint('entries summary')\\nfor e in s['entries']: print(e.get('candidate_index'), e.get('section'), e.get('source','')[:90])\\nprint('anchor keys',[(k, len(v)) for k,v in s.items() if isinstance(v,list)])\\nPY\",\"max_output_tokens\":6500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995687.762841
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06cf56dc887d18621a11f7731e5bf",
+      "status": "completed",
+      "call_id": "call_gIOdduF2Ba1IbzgoEL2GTdy2",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"sed -n '1,40p' i18n/README.md; sed -n '114,136p' i18n/README.md; sed -n '254,272p' docs/agent-workflow.md; sed -n '5424,5435p' tome-orcs.lua; rg -n '624a673|engine|commit' i18n/manifest*; python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\ns=json.loads(Path('.ai/task/mmrfix-20261002-016/REPAIR-INPUT-SPLIT.json').read_text())\\nfor a in s['source_anchors']: print(a['component'],a['public_path'],a.get('commit'),a['sha256'])\\nPY\",\"max_output_tokens\":3400}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995699.002833
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06cfed36087d1831e0a8af09b947b",
+      "status": "completed",
+      "call_id": "call_CNHLmYZpbjkcWgoNfMwwhIQ3",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json,hashlib,subprocess\\nfrom pathlib import Path\\np=Path('.ai/task/mmrfix-20261002-016'); f=json.loads((p/'FIX-3.json').read_text()); s=json.loads((p/'REPAIR-INPUT-SPLIT.json').read_text())\\nh=lambda b:hashlib.sha256(b).hexdigest()\\nb=Path('tome-orcs.lua').read_bytes(); assert h(b)==f['preimage_file_sha256']; print('preimage SHA OK',h(b))\\nverified=[]; seen=set()\\nfor a in s['source_anchors']+f['source_evidence']:\\n key=(a['public_path'],a['sha256'])\\n if key in seen: continue\\n seen.add(key); commit=a.get('fixed_commit',a.get('commit')); path=a['public_path']\\n if commit:\\n  assert commit==s['fixed_core_commit']; data=subprocess.check_output(['git','-C',s['core_checkout'],'show',commit+':'+path]); mode='git show pinned commit'\\n else:\\n  data=(Path(s['dlc_checkout'])/path).read_bytes(); mode='DLC public snapshot; source/commit/version unpinned'\\n assert h(data)==a['sha256'],path\\n verified.append(dict(public_path=path,commit=commit,sha256=h(data),read_method=mode)); print('anchor OK',path)\\nexcerpts=[]\\nfor a in f['source_evidence']:\\n commit=a['fixed_commit']; path=a['public_path']\\n data=subprocess.check_output(['git','-C',s['core_checkout'],'show',commit+':'+path]) if commit else (Path(s['dlc_checkout'])/path).read_bytes()\\n excerpt='\\\\n'.join(data.decode().splitlines()[a['start']-1:a['end']]); assert excerpt==a['excerpt'],path\\n excerpts.append(dict(a,verified_excerpt=excerpt)); print('exact excerpt OK',path)\\nnp='game/modules/tome/class/NPC.lua'; nd=subprocess.check_output(['git','-C',s['core_checkout'],'show',s['fixed_core_commit']+':'+np]).decode().splitlines()\\nfor i,line in enumerate(nd):\\n if 'summon_time' in line: print('NPC',i+1,'\\\\n'.join(nd[max(0,i-3):i+5]))\\nap='game/engines/default/engine/interface/ActorProject.lua'; ad=subprocess.check_output(['git','-C',s['core_checkout'],'show',s['fixed_core_commit']+':'+ap]).decode().splitlines()\\nfor i,line in enumerate(ad):\\n if 'friendlyfire' in line: print('PROJECT',i+1,'\\\\n'.join(ad[max(0,i-3):i+5]))\\nPath('/tmp/mmrfix-016-fix3-preimage.lua').write_bytes(b)\\nPath('/tmp/mmrfix-016-fix3-verification.json').write_text(json.dumps(dict(anchors=verified,excerpts=excerpts),ensure_ascii=False,indent=2))\\nPY\",\"max_output_tokens\":3200}));\ntext(await tools.exec_command({cmd:\"python3 -B tools/i18n doctor\",\"max_output_tokens\":1800,\"yield_time_ms\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995707.360394
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06d161ab487d1bba998405dfc86d1",
+      "status": "completed",
+      "call_id": "call_bnhbsIW6pDYBIid6KniEqU3Z",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'dlc_checkout|other.lua|tome4-dlcs|source_root' .ai/task/mmrfix-20261002-016/SCOPE.md .artifacts/i18n/modified-mechanics-repair-20261002/executor-016-report.json; ls /workspace/tome4-dlcs; rg --files /workspace/tome4-dlcs | rg '(steam/other.lua|timed_effects/physical.lua)$'\",\"max_output_tokens\":1400}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995732.462233
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06d1dcd4487d19ca3b8338bb1be5c",
+      "status": "completed",
+      "call_id": "call_KGSCbo8wateLQ3Ct9P9R1iY7",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > /tmp/mmrfix-016-fix3-verify.py <<'PY'\\nimport json,hashlib,subprocess\\nfrom pathlib import Path\\np=Path('.ai/task/mmrfix-20261002-016'); f=json.loads((p/'FIX-3.json').read_text()); s=json.loads((p/'REPAIR-INPUT-SPLIT.json').read_text())\\nh=lambda b:hashlib.sha256(b).hexdigest()\\nb=Path('tome-orcs.lua').read_bytes(); assert h(b)==f['preimage_file_sha256']\\ndef read(path,commit,component='orcs'):\\n return subprocess.check_output(['git','-C',s['core_checkout'],'show',commit+':'+path]) if commit else (Path(s['dlc_checkout'])/component/path).read_bytes()\\nverified=[]; seen=set()\\nfor a in s['source_anchors']+f['source_evidence']:\\n key=(a['public_path'],a['sha256'])\\n if key in seen: continue\\n seen.add(key); commit=a.get('fixed_commit',a.get('commit')); path=a['public_path']\\n if commit: assert commit==s['fixed_core_commit']\\n data=read(path,commit,a['component']); assert h(data)==a['sha256'],path\\n verified.append(dict(public_path=path,commit=commit,sha256=h(data),read_method='git show pinned commit' if commit else 'DLC public snapshot; source/commit/version unpinned',local_path=None if commit else str(Path(s['dlc_checkout'])/a['component']/path)))\\nexcerpts=[]\\nfor a in f['source_evidence']:\\n data=read(a['public_path'],a['fixed_commit']); excerpt='\\\\n'.join(data.decode().splitlines()[a['start']-1:a['end']]); assert excerpt==a['excerpt'],a['public_path']\\n excerpts.append(dict(a,verified_excerpt=excerpt))\\nfor path,needle in [('game/modules/tome/class/NPC.lua','summon_time'),('game/engines/default/engine/interface/ActorProject.lua','friendlyfire'),('game/modules/tome/class/interface/Combat.lua','function _M:combatTalentSteamDamage')]:\\n data=read(path,s['fixed_core_commit']); lines=data.decode().splitlines()\\n for i,line in enumerate(lines):\\n  if needle in line:\\n   start=max(0,i-3); end=min(len(lines),i+10); excerpt='\\\\n'.join(lines[start:end]); print(path,start+1,end,excerpt)\\n   excerpts.append(dict(public_path=path,fixed_commit=s['fixed_core_commit'],sha256=h(data),start=start+1,end=end,verified_excerpt=excerpt))\\nPath('/tmp/mmrfix-016-fix3-preimage.lua').write_bytes(b)\\nPath('/tmp/mmrfix-016-fix3-verification.json').write_text(json.dumps(dict(anchors=verified,excerpts=excerpts),ensure_ascii=False,indent=2))\\nprint('preimage and all',len(verified),'unique anchors verified; FIX-3 exact excerpts verified')\\nPY\\npython3 /tmp/mmrfix-016-fix3-verify.py\",\"max_output_tokens\":3600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995738.133102
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06d3920c887d1974cda378fd1e9a0",
+      "status": "completed",
+      "call_id": "call_jvNaeHNuAOhIJfe1UQ87SEE4",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'combatTalentSteamDamage|combatSteampower' /workspace/tome4-dlcs/orcs/tome-orcs/superload/mod/class/interface/Combat.lua; rg --files .ai/task/mmrfix-20261002-016 | head -35; python3 -B tools/i18n proposal --help\",\"max_output_tokens\":1700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995763.699046
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06d4a1c5487d1b387cb47347bbd4f",
+      "status": "completed",
+      "call_id": "call_pSIIO78XcVPOLHDcb76kCawS",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > /tmp/mmrfix-016-fix3-apply.py <<'PY'\\nimport json,hashlib,re,subprocess,datetime\\nfrom pathlib import Path\\np=Path('.ai/task/mmrfix-20261002-016'); f=json.loads((p/'FIX-3.json').read_text()); s=json.loads((p/'REPAIR-INPUT-SPLIT.json').read_text()); orig=json.loads((p/'REPAIR-INPUT.json').read_text())\\nh=lambda b:hashlib.sha256(b).hexdigest()\\nb=Path('tome-orcs.lua').read_bytes(); assert h(b)==f['preimage_file_sha256']; assert b==Path('/tmp/mmrfix-016-fix3-preimage.lua').read_bytes()\\ne=f['entries'][0]; old=e['old_target'].encode(); new=e['new_target'].encode(); assert len(f['entries'])==1 and b.count(old)==1 and b.count(new)==0\\nsource=e['entry']['source'].encode(); statement=b't([['+source+b']], [['+old+b']], \\\"tformat\\\")'; assert b.count(statement)==1\\nassert re.findall(rb'%(?:\\\\d+\\\\$)?[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[a-zA-Z%]',old)==re.findall(rb'%(?:\\\\d+\\\\$)?[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[a-zA-Z%]',new)\\nassert [c for c in old if c in (9,10)]==[c for c in new if c in (9,10)]\\nassert re.findall(rb'#[A-Za-z_]+#',old)==re.findall(rb'#[A-Za-z_]+#',new)\\nhold=next(x for x in orig['entries'] if x['candidate_index']==1520)\\ndef target(data,entry):\\n source=entry['source'].encode(); prefix=b't([['+source+b']], [['; assert data.count(prefix)==1\\n start=data.index(prefix)+len(prefix); end=data.index(b']], \\\"tformat\\\")',start); return data[start:end]\\nhold_before=target(b,hold); hold_base=target((p/'baseline/tome-orcs.lua').read_bytes(),hold); assert hold_before==hold_base\\nother={x['candidate_index']:h(target(b,x)) for x in s['entries'] if x['candidate_index']!=1512}\\nchanged=b.replace(old,new,1); reverse=changed.replace(new,old,1); assert reverse==b\\nfor x in s['entries']:\\n if x['candidate_index']!=1512: assert h(target(changed,x))==other[x['candidate_index']]\\nassert target(changed,hold)==hold_base\\nPath('tome-orcs.lua').write_bytes(changed)\\nv=json.loads(Path('/tmp/mmrfix-016-fix3-verification.json').read_text())\\ncp=Path('/workspace/tome4-dlcs/orcs/tome-orcs/superload/mod/class/interface/Combat.lua'); cd=cp.read_bytes(); assert h(cd)=='bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f'\\nv['excerpts'].append(dict(public_path='tome-orcs/superload/mod/class/interface/Combat.lua',fixed_commit=None,source_identity='DLC source/commit/version unpinned',sha256=h(cd),start=88,end=105,verified_excerpt='\\\\n'.join(cd.decode().splitlines()[87:105])))\\nreport=dict(task_id='mmrfix-20261002-016',dispatch='fresh fix-3-a1',role='EXECUTOR',status='implemented',timestamp=datetime.datetime.now(datetime.timezone.utc).isoformat(),allowed_changed_content_files=['tome-orcs.lua'],entries=[dict(candidate_index=1512,finding_id=e['finding_id'],old_target=e['old_target'],new_target=e['new_target'],source=e['entry']['source'],source_tag='tformat',args_order=None,special=None)],source_verification=v,mechanism_verification=dict(attraction='DLC NPC receives T_TAUNT at talent level; initial/on_act forceUseTalent -> fixed core Taunt ball centered on contraption with scaled radius -> ActorProject excludes friendly actors -> a:setTarget(self). Nearby enemies, not every foe on map.',scaling='getHP/getResist/getArmor -> combatTalentSteamDamage uses combatSteampower; assigned to max_life (steamCrit applied), resists.all, combat_armor. getReflection returns constant 30; no steam-scaled damage assignment in Fatal Attractor NPC.',lifetime='summon_time=8 -> pinned NPC.actBase decrements each turn, dies at <=0; existing 8 unchanged.'),placeholders=[dict(index=1,token='%d%%',quantity_kind='damage reflection percentage',calculation='getReflection returns 30',format_argument='t.getReflection(self,t)',consumer='NPC reflect_damage -> fixed core damage_types defaultProjector: dam * target.reflect_damage / 100',unchanged=True),dict(index=2,token='%d',quantity_kind='displayed life (pre-crit getHP)',calculation='combatTalentSteamDamage(t,10,1000)',format_argument='t.getHP(self,t)',consumer='NPC.max_life=self:steamCrit(t.getHP(self,t)); display is pre-crit; no new numeric guarantee',unchanged=True)],byte_proof=dict(preimage_sha256=h(b),postimage_sha256=h(changed),reverse_sha256=h(reverse),reverse_equals_preimage=True,replacement_count=1,old_target_byte_offset=b.index(old),old_target_byte_length=len(old),new_target_byte_length=len(new),non_target_bytes_unchanged=True,other_eight_targets_sha256=other,entry1520_holdout=dict(baseline_target_sha256=h(hold_base),preimage_target_sha256=h(hold_before),postimage_target_sha256=h(target(changed,hold)),baseline_equal=True),invariants=dict(source=True,source_tag=True,args_order=True,special=True,placeholder_types_order=True,markup=True,newline_tabs=True)),tests=[],plan_deviations=[],unresolved_items=[],host_followup='Batch-level proposal, independent review and final gates remain ORCHESTRATOR responsibilities. No stage/commit or child creation performed.')\\nPath('/tmp/mmrfix-016-fix3-report-draft.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\\\\n')\\nprint(json.dumps(report['byte_proof'],ensure_ascii=False,indent=2))\\nPY\\npython3 /tmp/mmrfix-016-fix3-apply.py\",\"max_output_tokens\":1600}));\ntext(await tools.exec_command({cmd:\"python3 -B tools/i18n lint --strict\",\"max_output_tokens\":2000,\"yield_time_ms\":1000}));\ntext(await tools.exec_command({cmd:\"git diff --check\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995772.27558
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06d7d16b087d19c99c7a449ccd7de",
+      "status": "completed",
+      "call_id": "call_PYDRoMd7qeUXOUNlgOenyTts",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\ns=json.loads(Path('.ai/task/mmrfix-20261002-016/REPAIR-INPUT-SPLIT.json').read_text()); b=Path('tome-orcs.lua').read_text()\\nfor x in s['entries']:\\n src=x['source']; i=b.find(src)\\n print(x['candidate_index'],i,repr(b[max(0,i-6):i+len(src)+60][-100:]))\\nPY\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995831.596881
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06d832de087d19bde078e3652081d",
+      "status": "completed",
+      "call_id": "call_Bgrwd7gupDVAwPsgznwyF4uY",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('/tmp/mmrfix-016-fix3-apply.py'); s=p.read_text(); s=s.replace(\\\"source=entry['source'].encode(); prefix=b't([['+source+b']], [['; assert data.count(prefix)==1\\\\n start=data.index(prefix)+len(prefix); end=data.index(b']], \\\\\\\"tformat\\\\\\\")',start); return data[start:end]\\\", \\\"source=entry['source'].encode(); prefix=b't([['+source+b']], [['\\\\n if data.count(prefix)==1:\\\\n  start=data.index(prefix)+len(prefix); end=data.index(b']], \\\\\\\"tformat\\\\\\\")',start); return data[start:end]\\\\n prefix=b't('+json.dumps(entry['source'],ensure_ascii=False).encode()+b', '\\\\n assert data.count(prefix)==1\\\\n start=data.index(prefix)+len(prefix); end=data.index(b', \\\\\\\"tformat\\\\\\\")',start); return data[start:end]\\\")\\np.write_text(s)\\nPY\\npython3 /tmp/mmrfix-016-fix3-apply.py\",\"max_output_tokens\":1500}));\ntext(await tools.exec_command({cmd:\"python3 -B tools/i18n lint --strict\",\"yield_time_ms\":1000,\"max_output_tokens\":1200}));\ntext(await tools.exec_command({cmd:\"git diff --check\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995840.800664
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_008776c04c90a20a016ac06d91930887d18c0c471dcb317aa0",
+      "status": "completed",
+      "call_id": "call_HYWKO6sabz1ixU2OAy11OmLV",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json,hashlib,difflib\\nfrom pathlib import Path\\nr=json.loads(Path('/tmp/mmrfix-016-fix3-report-draft.json').read_text())\\nb=Path('/tmp/mmrfix-016-fix3-preimage.lua').read_bytes(); a=Path('tome-orcs.lua').read_bytes(); e=r['entries'][0]\\nassert a.replace(e['new_target'].encode(),e['old_target'].encode(),1)==b\\nassert hashlib.sha256(a).hexdigest()==r['byte_proof']['postimage_sha256']\\nr['tests']=[dict(command='python3 -B tools/i18n doctor',exit_code=0,result='LuaJIT 5.1 and LPeg 0.10.2 verified; DLC unpinned warnings expected'),dict(command='python3 -B tools/i18n lint --strict',exit_code=0,result='30308 translations; 0 errors, 0 warnings',report='.artifacts/i18n/runs/20261003T025053.939656Z-2-lint/lint.json'),dict(command='git diff --check',exit_code=0,result='no whitespace diagnostics'),dict(command='Python byte-level preimage/source-anchor verification and reverse replacement',exit_code=0,result='14 unique SHA anchors verified; FIX-3 exact excerpts match; whole file reverse equals frozen preimage; other eight targets unchanged; holdout 1520 equals baseline')]\\nr['incremental_diff']=''.join(difflib.unified_diff(b.decode().splitlines(True),a.decode().splitlines(True),fromfile='frozen-fix3-preimage/tome-orcs.lua',tofile='fix3-postimage/tome-orcs.lua'))\\nr['diagnostic_notes']=['Initial DLC path probe lacked component subdirectory; corrected mapping before edit and all SHA anchors verified.', 'Initial auxiliary comparison assumed every Lua target used long brackets; adjusted read-only comparison for entry1503 quoted literal before any content write. Final invariants and strict lint passed after the actual replacement.']\\np=Path('.artifacts/i18n/modified-mechanics-repair-20261002/executor-016-fix3-report.json'); p.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\\\\n'); print(p); print(r['incremental_diff'])\\nPY\",\"max_output_tokens\":1200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a0ffa9-3da8-7d92-9cdd-f766f3768ea7",
+        "create_time": 1790995854.377094
+      }
+    }
+  ],
+  "call_count": 11,
+  "status": "host_verified",
+  "finding": "11 tool calls inspected; allowed Lua single target/report/tmp/derived only. Early failed path/quoted-literal probes preceded successful write; source facts verified from pinned objects and DLC hashes."
+}

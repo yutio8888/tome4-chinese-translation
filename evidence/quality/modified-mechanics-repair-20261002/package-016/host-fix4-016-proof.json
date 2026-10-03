@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "preimage_sha256": "2876f395e6c54551b545d5f0dbd4a8a4995c7b75d253ee5cb92b32e192964e71",
+  "postimage_sha256": "8bb4b2f9eaf8225c0e1a39dd0e73f1902ad1c997e054ff7fe4ae855c5336e394",
+  "inverse_exact": true,
+  "source_records": [
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned",
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "start": 957,
+      "end": 993,
+      "excerpt": "\t\t\treturn true\n\t\telseif self:isTalentActive(self.T_HW_SHOCKSTAFF) then\n\t\t\tlocal tg = {type=\"ball\", range=0, radius=t.getShockRadius(self, t), friendlyfire=false }\n\t\t\tlocal state = {}\n\t\t\tself:project(tg, self.x, self.y, function(px, py, tg, self)\n\t\t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n\t\t\t\tif target then\n\t\t\t\t\tlocal stormstrike = self:getTalentFromId(self.T_STORMSTRIKE)\n\t\t\t\t\tlocal shockstaff = stormstrike.getShockstaffObject(self, stormstrike)\n\t\t\t\t\tlocal hit = self:attackTargetWith(target, shockstaff, DamageType.LIGHTNING, t.getShockDamage(self,t))\n\t\t\t\t\tlocal dam = t.getShockPulseDamage(self,t)\n\t\t\t\t\tif hit then \n\t\t\t\t\t\ttarget:knockback(self.x, self.y, t.getShockKnockback(self,t), false, function(g, x, y)\n\t\t\t\t\t\t\t-- Deal our bonus damage\n\t\t\t\t\t\t\tif game.level.map:checkAllEntities(x, y, \"block_move\", target) then\n\t\t\t\t\t\t\t\tself:project({type=\"ball\", range=100, radius=1, selffire=false, friendlyfire=false}, target.x, target.y, function(tx, ty)\n\t\t\t\t\t\t\t\t\tlocal target = game.level.map(tx, ty, Map.ACTOR)\n\t\t\t\t\t\t\t\t\tif target and not state[target] then\n\t\t\t\t\t\t\t\t\t\tif not state.did_crit then\n\t\t\t\t\t\t\t\t\t\t\tdam = self:steamCrit(dam)\n\t\t\t\t\t\t\t\t\t\t\tstate.did_crit = true\n\t\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\t\t\tstate[target] = true  -- Avoid knockback multihits\n\t\t\t\t\t\t\t\t\t\tDamageType:get(DamageType.LIGHTNING).projector(self, target.x, target.y, DamageType.LIGHTNING, dam)\n\t\t\t\t\t\t\t\t\t\tif target:canBe(\"stun\") then\n\t\t\t\t\t\t\t\t\t\t\ttarget:setEffect(target.EFF_STUNNED, 5, {apply_power=self:combatSteampower()})\n\t\t\t\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\t\t\t\tgame.logSeen(target, \"%s resists the stun!\", target:getName():capitalize())\n\t\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\tend)\n\t\t\t\t\t\t\t\tgame.logSeen(target, \"%s slams into something solid, emitting a pulse of stunning lightning!\", target:getName():capitalize())\n\t\t\t\t\t\t\tend\n\t\t\t\t\t\tend)\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend)"
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+      "fixed_commit": null,
+      "source_identity": "DLC source/commit/version unpinned",
+      "sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+      "start": 153,
+      "end": 161,
+      "excerpt": "\nlocal attackTargetWith = _M.attackTargetWith\nfunction _M:attackTargetWith(target, weapon, damtype, mult, force_dam)\n\tmult = mult or 1\n\tif weapon and weapon.talented == \"steamsaw\" and self:attr(\"steamsaw_dam_mult\") then\n\t\tmult = mult + self:attr(\"steamsaw_dam_mult\") / 100\n\tend\n\treturn attackTargetWith(self, target, weapon, damtype, mult, force_dam)\nend"
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 380,
+      "end": 394,
+      "excerpt": "function _M:attackTargetWith(target, weapon, damtype, mult, force_dam)\n\t-- if insufficient resources, try to use unarmed or cancel attack\n\tlocal unarmed = self:getObjectCombat(nil, \"barehand\")\n\tlocal weapon_or_unarmed = weapon or unarmed\n\tif weapon_or_unarmed and weapon_or_unarmed.use_resources and not self:useResources(weapon_or_unarmed.use_resources) then\n\t\tif unarmed == weapon then\n\t\t\tprint(\"[attackTargetWith] (unarmed) against \", target.name, \"unarmed attack fails due to resources\")\n\t\t\treturn self:combatSpeed(unarmed), false, 0\n\t\telse\n\t\t\tweapon = unarmed\n\t\t\tprint(\"[attackTargetWith] against \", target.name, \"insufficient weapon resources, using unarmed combat\")\n\t\t\tif weapon.use_resources and not self:useResources(weapon.use_resources) then\n\t\t\t\tprint(\"[attackTargetWith] against \", target.name, \"unarmed attack fails due to resources\")\n\t\t\t\treturn self:combatSpeed(weapon), false, 0\n\t\t\tend"
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 446,
+      "end": 453,
+      "excerpt": "\tend\n\n\t-- melee attack bonus hooks/callbacks  Note: These are post rescaleCombatStats\n\tlocal hd = {\"Combat:attackTargetWith:attackerBonuses\", target=target, weapon=weapon, damtype=damtype, mult=mult, dam=dam, apr=apr, atk=atk, def=def, armor=armor}\n\tself:triggerHook(hd)\n\tself:fireTalentCheck(\"callbackOnMeleeAttackBonuses\", hd)\n\ttarget, weapon, damtype, mult, dam, apr, atk, def, armor = hd.target, hd.weapon, hd.damtype, hd.mult, hd.dam, hd.apr, hd.atk, hd.def, hd.armor\n\tif hd.stop then return end"
+    },
+    {
+      "component": "tome",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "fixed_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_identity": "manifest pinned",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 687,
+      "end": 704,
+      "excerpt": "\t\t\tself.__attacktargetwith_recursing = self.__attacktargetwith_recursing - 1\n\t\telse\n\t\t\tself.__attacktargetwith_recursing = weapon.attack_recurse - 1\n\t\t\tself.__attacktargetwith_recursing_procs_reduce = weapon.attack_recurse_procs_reduce\n\t\tend\n\n\t\tif self.__attacktargetwith_recursing > 0 and not self.turn_procs._no_melee_recursion then\n\t\t\tlocal _, newhitted, newdam = self:attackTargetWith(target, weapon, damtype, mult, force_dam)\n\t\t\thitted = newhitted or hitted\n\t\t\tdam = math.max(dam, newdam)\n\t\telse\n\t\t\tself.__attacktargetwith_recursing = nil\n\t\t\tself.__attacktargetwith_recursing_procs_reduce = nil\n\t\tend\n\tend\n\n\treturn self:combatSpeed(weapon), hitted, dam\nend"
+    }
+  ],
+  "old_target": "让你的重装武器突破正常极限，触发一个强大的效果。这会立即停用重装武器，并消耗所有剩余弹药。\n#AQUAMARINE#火焰喷射器#LAST#: 引爆燃料箱，制造半径 4 的爆炸，将你抛至距离 %d 内的指定格。爆炸范围内的敌人受到 %0.2f 点火焰伤害；不稳定燃料还会使其额外受到相当于当前燃烧伤害 %d%% 的火焰伤害。\n#AQUAMARINE#电击棒#LAST#: 将电击棒砸入地面，释放所有剩余能量，造成相当于 %d%% 电击棒伤害的闪电伤害，半径为 %d。 受击目标会被击退 %d 格；若撞上墙壁，便会释放一道半径 1 的静电脉冲，对范围内的敌人造成 %0.2f 点闪电伤害，并尝试震慑他们 5 回合（同一敌人在此次施放中只受一次脉冲影响）。\n#AQUAMARINE#爆矢枪#LAST#: 超载爆矢枪，射出一枚致命弹矢，对直线上的目标造成相当于 %d%% 蒸汽枪伤害的酸性伤害。目标每有一种物理、魔法或精神负面效果，便额外受到 %d%% 伤害（界面标示的额外伤害上限为 %d%%， 实际每回合对同一目标最多追加 6 次伤害）， 且每种负面效果的持续时间增加 %d 回合。",
+  "new_target": "让你的重装武器突破正常极限，触发一个强大的效果。这会立即停用重装武器，并消耗所有剩余弹药。\n#AQUAMARINE#火焰喷射器#LAST#: 引爆燃料箱，制造半径 4 的爆炸，将你抛至距离 %d 内的指定格。爆炸范围内的敌人受到 %0.2f 点火焰伤害；不稳定燃料还会使其额外受到相当于当前燃烧伤害 %d%% 的火焰伤害。\n#AQUAMARINE#电击棒#LAST#: 将电击棒砸入地面，释放所有剩余能量，造成相当于 %d%% 电击棒伤害的闪电伤害，半径为 %d。 即使攻击未命中，也会尝试将范围内的敌人击退 %d 格；若撞上墙壁，便会释放一道半径 1 的静电脉冲，对范围内的敌人造成 %0.2f 点闪电伤害，并尝试震慑他们 5 回合（同一敌人在此次施放中只受一次脉冲影响）。\n#AQUAMARINE#爆矢枪#LAST#: 超载爆矢枪，射出一枚致命弹矢，对直线上的目标造成相当于 %d%% 蒸汽枪伤害的酸性伤害。目标每有一种物理、魔法或精神负面效果，便额外受到 %d%% 伤害（界面标示的额外伤害上限为 %d%%， 实际每回合对同一目标最多追加 6 次伤害）， 且每种负面效果的持续时间增加 %d 回合。",
+  "executor_source_records_verified": 38,
+  "executor_report_candidate_index": 1496,
+  "actual_candidate_index": 1496,
+  "report_identity_resolved_by": "exact source/source_tag/old_target/new_target and revision_key in FIX4, not numeric report index"
+}

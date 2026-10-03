@@ -1,0 +1,65 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat .ai/task/mmrfix-20261002-016/INPUT-re-review-1-a1.json",
+      "description": "Read frozen review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-1-a1.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000]); print()\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n    print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False))\nEOF",
+      "description": "Summarize input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "grep -n '^#' docs/paseo-translation-context-review-v2-contract.md | head -50",
+      "description": "List contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract section 6-7"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n    if i<6: continue\n    print('=====',i,t['revision_key'])\n    print(t['source']); print('---'); print(t['target'])\nEOF",
+      "description": "Print remaining translation entries"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context'][:3]):\n    c=json.loads(b['context'])\n    print('#####',i, {k:v for k,v in c.items() if k not in('source_evidence',)} if True else '')\n    for e in c.get('source_evidence',[]):\n        print('--',e['public_path'],e['start'],e['end']); print(e['excerpt'])\nEOF",
+      "description": "Print contexts 0-2"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-re-review-1-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n    c=json.loads(b['context'])\n    print('#####',i, json.dumps(c.get('terminology'),ensure_ascii=False))\n    for k in c:\n        if k not in ('source_evidence','terminology','source_locations','read_boundary','source_access_warning','execution_cwd_requirement','component','section','source_tag'): print('KEY',k, json.dumps(c[k],ensure_ascii=False)[:3000])\n    for e in c.get('source_evidence',[]):\n        print('--',json.dumps({k:v for k,v in e.items() if k!='excerpt'}))\n        print(e.get('excerpt'))\nEOF",
+      "description": "Print all contexts"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/39b20b80-3b95-471d-86c2-a559909d6287/tool-results/bf4elg67a.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/39b20b80-3b95-471d-86c2-a559909d6287/tool-results/bf4elg67a.txt",
+      "offset": 269,
+      "limit": 130
+    }
+  }
+]

@@ -1,0 +1,172 @@
+{
+  "task_id": "mmrfix-20261002-016",
+  "dispatch": "fresh fix-1-a1",
+  "role": "EXECUTOR",
+  "status": "completed",
+  "changed_files": [
+    "tome-orcs.lua"
+  ],
+  "candidate_index": 1496,
+  "finding_id": "REVIEW-PULSE-RECIPIENTS-016",
+  "old_target": "让你的重装武器突破正常极限，触发一个强大的效果。这会立即停用重装武器，并消耗所有剩余弹药。\n#AQUAMARINE#火焰喷射器#LAST#: 引爆燃料箱，制造半径 4 的爆炸，将你抛至距离 %d 内的指定格。爆炸范围内的敌人受到 %0.2f 点火焰伤害；不稳定燃料还会使其额外受到相当于当前燃烧伤害 %d%% 的火焰伤害。\n#AQUAMARINE#电击棒#LAST#: 将电击棒砸入地面，释放所有剩余能量，造成相当于 %d%% 电击棒伤害的闪电伤害，半径为 %d。 受击目标会被击退 %d 格；若撞上墙壁，便会释放一道半径 1 的静电脉冲，造成 %0.2f 点闪电伤害，并震慑其 5 回合。\n#AQUAMARINE#爆矢枪#LAST#: 超载爆矢枪，射出一枚致命弹矢，对直线上的目标造成相当于 %d%% 蒸汽枪伤害的酸性伤害。目标每有一种物理、魔法或精神负面效果，便额外受到 %d%% 伤害（界面标示的额外伤害上限为 %d%%， 实际每回合对同一目标最多追加 6 次伤害）， 且每种负面效果的持续时间增加 %d 回合。",
+  "new_target": "让你的重装武器突破正常极限，触发一个强大的效果。这会立即停用重装武器，并消耗所有剩余弹药。\n#AQUAMARINE#火焰喷射器#LAST#: 引爆燃料箱，制造半径 4 的爆炸，将你抛至距离 %d 内的指定格。爆炸范围内的敌人受到 %0.2f 点火焰伤害；不稳定燃料还会使其额外受到相当于当前燃烧伤害 %d%% 的火焰伤害。\n#AQUAMARINE#电击棒#LAST#: 将电击棒砸入地面，释放所有剩余能量，造成相当于 %d%% 电击棒伤害的闪电伤害，半径为 %d。 受击目标会被击退 %d 格；若撞上墙壁，便会释放一道半径 1 的静电脉冲，对范围内的敌人造成 %0.2f 点闪电伤害，并尝试震慑他们 5 回合（同一敌人在此次施放中只受一次脉冲影响）。\n#AQUAMARINE#爆矢枪#LAST#: 超载爆矢枪，射出一枚致命弹矢，对直线上的目标造成相当于 %d%% 蒸汽枪伤害的酸性伤害。目标每有一种物理、魔法或精神负面效果，便额外受到 %d%% 伤害（界面标示的额外伤害上限为 %d%%， 实际每回合对同一目标最多追加 6 次伤害）， 且每种负面效果的持续时间增加 %d 回合。",
+  "source_evidence": [
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "start": 959,
+      "end": 991,
+      "excerpt": "\t\t\tlocal tg = {type=\"ball\", range=0, radius=t.getShockRadius(self, t), friendlyfire=false }\n\t\t\tlocal state = {}\n\t\t\tself:project(tg, self.x, self.y, function(px, py, tg, self)\n\t\t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n\t\t\t\tif target then\n\t\t\t\t\tlocal stormstrike = self:getTalentFromId(self.T_STORMSTRIKE)\n\t\t\t\t\tlocal shockstaff = stormstrike.getShockstaffObject(self, stormstrike)\n\t\t\t\t\tlocal hit = self:attackTargetWith(target, shockstaff, DamageType.LIGHTNING, t.getShockDamage(self,t))\n\t\t\t\t\tlocal dam = t.getShockPulseDamage(self,t)\n\t\t\t\t\tif hit then \n\t\t\t\t\t\ttarget:knockback(self.x, self.y, t.getShockKnockback(self,t), false, function(g, x, y)\n\t\t\t\t\t\t\t-- Deal our bonus damage\n\t\t\t\t\t\t\tif game.level.map:checkAllEntities(x, y, \"block_move\", target) then\n\t\t\t\t\t\t\t\tself:project({type=\"ball\", range=100, radius=1, selffire=false, friendlyfire=false}, target.x, target.y, function(tx, ty)\n\t\t\t\t\t\t\t\t\tlocal target = game.level.map(tx, ty, Map.ACTOR)\n\t\t\t\t\t\t\t\t\tif target and not state[target] then\n\t\t\t\t\t\t\t\t\t\tif not state.did_crit then\n\t\t\t\t\t\t\t\t\t\t\tdam = self:steamCrit(dam)\n\t\t\t\t\t\t\t\t\t\t\tstate.did_crit = true\n\t\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\t\t\tstate[target] = true  -- Avoid knockback multihits\n\t\t\t\t\t\t\t\t\t\tDamageType:get(DamageType.LIGHTNING).projector(self, target.x, target.y, DamageType.LIGHTNING, dam)\n\t\t\t\t\t\t\t\t\t\tif target:canBe(\"stun\") then\n\t\t\t\t\t\t\t\t\t\t\ttarget:setEffect(target.EFF_STUNNED, 5, {apply_power=self:combatSteampower()})\n\t\t\t\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\t\t\t\tgame.logSeen(target, \"%s resists the stun!\", target:getName():capitalize())\n\t\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\t\tend\n\t\t\t\t\t\t\t\tend)\n\t\t\t\t\t\t\t\tgame.logSeen(target, \"%s slams into something solid, emitting a pulse of stunning lightning!\", target:getName():capitalize())\n\t\t\t\t\t\t\tend\n\t\t\t\t\t\tend)\n\t\t\t\t\tend",
+      "verified_sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "exact_excerpt_matches": true,
+      "release_version_fixed": false
+    },
+    {
+      "component": "core",
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 8374,
+      "end": 8398,
+      "excerpt": "-- Superload from ActorPoject to handle player_selffire\nfunction _M:projectDoAct(typ, tg, damtype, dam, particles, px, py, tmp)\n\t-- Now project on each grid, one type\n\t-- Call the projected method of the target grid if possible\n\tif not game.level.map:checkAllEntities(px, py, \"projected\", self, typ, px, py, damtype, dam, particles) then\n\t\t-- Check self- and friendly-fire, and if the projection \"misses\"\n\t\tlocal act = game.level.map(px, py, engine.Map.ACTOR)\n\t\tlocal shouldHit = true\n\t\tif act and act == self and not (\n\t\t\t\t((type(typ.selffire) == \"number\" and rng.percent(typ.selffire))\n\t\t\t\t\t\tor\n\t\t\t\t\t\t(type(typ.selffire) ~= \"number\" and typ.selffire))\n\t\t\t\t\t\tand (act == game.player and (typ.player_selffire or act.allow_player_selffire))  -- Disable friendlyfire for player projectiles unless explicitly overriden\n\t\t) then\n\t\t\tshouldHit = false\n\t\telseif act and self.reactionToward and (self:reactionToward(act) >= 0) and not ((type(typ.friendlyfire) == \"number\" and rng.percent(typ.friendlyfire)) or (type(typ.friendlyfire) ~= \"number\" and typ.friendlyfire)) then\n\t\t\tshouldHit = false\n\t\tend\n\t\tif shouldHit or (act == self and self:attr(\"encased_in_ice\")) then\n\t\t\tDamageType:projectingFor(self, {project_type=tg})\n\t\t\tif type(damtype) == \"function\" then if damtype(px, py, tg, self, tmp) then return true end\n\t\t\telse DamageType:get(damtype).projector(self, px, py, damtype, dam, tmp, nil, tg) end\n\t\t\tif particles and type(particles) == \"table\" then\n\t\t\t\tgame.level.map:particleEmitter(px, py, 1, particles.type, particles.args)\n\t\t\tend"
+    }
+  ],
+  "source_verification": {
+    "status": "confirmed",
+    "chain": [
+      "heavy-weapons.lua:960 state is shared across this cast",
+      "966-971 hit attack -> knockback -> collision with blocking entity",
+      "972 radius=1 ball, selffire=false, friendlyfire=false -> core Actor.lua:8375-8395 filters friendly/self recipients before function callback",
+      "973-980 inner target is actor at each pulse grid; state[target] checked then set before lightning projector",
+      "981-982 canBe(stun) -> EFF_STUNNED duration 5 with combatSteampower; wording attempts stun",
+      "same shared state prevents a second pulse effect on each enemy across this cast"
+    ],
+    "damage_value_flow": "getShockPulseDamage 921 combatTalentSteamDamage(20,200) -> dam 967 -> optional steamCrit 976 -> LIGHTNING.projector 980 for each inner target; info spulse 1032 -> damDesc(LIGHTNING,spulse) 1040 -> placeholder 7. Display is not a guarantee of final post-mitigation damage."
+  },
+  "placeholder_bindings": [
+    {
+      "index": 1,
+      "quantity_kind": "range",
+      "display_argument": "frange",
+      "changed": false
+    },
+    {
+      "index": 2,
+      "quantity_kind": "damage",
+      "display_argument": "damDesc(FIRE,fdam)",
+      "changed": false
+    },
+    {
+      "index": 3,
+      "quantity_kind": "damage_ratio",
+      "display_argument": "fburn*100",
+      "changed": false
+    },
+    {
+      "index": 4,
+      "quantity_kind": "damage_ratio",
+      "display_argument": "sdam*100",
+      "changed": false
+    },
+    {
+      "index": 5,
+      "quantity_kind": "radius",
+      "display_argument": "srad",
+      "changed": false
+    },
+    {
+      "index": 6,
+      "quantity_kind": "distance",
+      "display_argument": "sknockback",
+      "changed": false
+    },
+    {
+      "index": 7,
+      "quantity_kind": "damage",
+      "display_argument": "damDesc(LIGHTNING,spulse)",
+      "changed": false
+    },
+    {
+      "index": 8,
+      "quantity_kind": "damage_ratio",
+      "display_argument": "bdam*100",
+      "changed": false
+    },
+    {
+      "index": 9,
+      "quantity_kind": "damage_ratio",
+      "display_argument": "binc",
+      "changed": false
+    },
+    {
+      "index": 10,
+      "quantity_kind": "displayed_damage_ratio_cap",
+      "display_argument": "binc*5",
+      "changed": false
+    },
+    {
+      "index": 11,
+      "quantity_kind": "duration",
+      "display_argument": "bdur",
+      "changed": false
+    }
+  ],
+  "byte_proof": {
+    "preimage_sha256": "dc834c03c3222fb032b07eb34f86d66fe4d78d37dea78df81933de3201634573",
+    "expected_preimage_sha256": "dc834c03c3222fb032b07eb34f86d66fe4d78d37dea78df81933de3201634573",
+    "postimage_sha256": "44452a3b6a120692b81adf399bd582ed335072995d7648486be4df3aed75023d",
+    "reverse_sha256": "dc834c03c3222fb032b07eb34f86d66fe4d78d37dea78df81933de3201634573",
+    "reverse_equals_preimage": true,
+    "replacement_count": 1,
+    "target_start_byte_zero_based": 642070,
+    "old_target_bytes": 1105,
+    "new_target_bytes": 1195,
+    "prefix_unchanged": true,
+    "suffix_unchanged": true,
+    "all_outside_target_bytes_unchanged": true,
+    "source_source_tag_args_order_special_unchanged": true,
+    "invariants": {
+      "placeholder": true,
+      "markup": true,
+      "newline_tab": true
+    },
+    "other_eight_entries_unchanged": true,
+    "entry1520_baseline_before_and_after": true,
+    "holdout_baseline_target_sha256": "7653c5f3035d7d0b375c8ee2d7b5f97ed44ccef0f8d48585ca30629ebfa73c42"
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "passed; DLC source unpinned warnings"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "checked_translations": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20261003T023025.736426Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": "final whole-file reverse byte equality and postimage SHA recheck",
+      "result": "passed"
+    }
+  ],
+  "plan_deviations": [],
+  "unresolved_issues": [],
+  "authorization_boundaries": {
+    "staged": false,
+    "committed": false,
+    "children_created": false,
+    "other_task_content_modified": false
+  }
+}

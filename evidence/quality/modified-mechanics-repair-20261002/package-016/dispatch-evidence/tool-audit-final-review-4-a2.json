@@ -1,0 +1,116 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-016/INPUT-final-review-4-a2.json; echo; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-4-a2.json'))\np=d['payload']; print(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\n\"; sed -n '/第六节\\|## 六\\|^## 6/,/^## 七\\|^## 7/p' docs/paseo-translation-context-review-v2-contract.md | head -80"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-4-a2.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n  print('=====',i,t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-4-a2.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  print('#####',i, [k for k in b if k!='context'], {k:b[k] for k in b if k!='context'})\n  c=json.loads(b['context'])\n  print({k:c[k] for k in c if k not in ('source_evidence','source_facts_v1')})\n  for e in c.get('source_evidence',[]):\n    print('--',e['public_path'],e['start'],e['end']); print(e['excerpt'])\n  if 'source_facts_v1' in c: print('FACTS',json.dumps(c['source_facts_v1'],ensure_ascii=False)[:4000])\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-4-a2.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  c=json.loads(b['context'])\n  print('#####',i, c.get('section'), [k for k in c])\n  print('TERM',json.dumps(c.get('terminology'),ensure_ascii=False)[:1500])\n  for e in c.get('source_evidence',[]):\n    print('--',{k:e[k] for k in e if k!='excerpt'})\n\" ; ls /workspace/tome4-dlcs"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources; find $F -type f | xargs sha256sum; grep -o \"'frozen_file': '[^']*'\" /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/8e4b85d6-8113-4e9a-bd0b-092a434bb631/tool-results/b9fp1m38q.txt | sort | uniq -c; grep -o \"'matching_lines': \\[[^]]*\\]\\|#####.*\\[\" /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/8e4b85d6-8113-4e9a-bd0b-092a434bb631/tool-results/b9fp1m38q.txt | cut -c1-80"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs; sed -n 792,895p $F/data/talents/steam/heavy-weapons.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs; sed -n 895,1045p $F/data/talents/steam/heavy-weapons.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs; grep -n \"DEBILITATING_ACID\\|FLAME_FUEL\" -A40 $F/data/damage_types.lua | head -120"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs; sed -n 20,70p $F/data/talents/steam/magnetism.lua; grep -n \"STATIC_BARRIER\\|static_barrier\\|getEntityKind\\|use_cunning\\|cunning\" $F/data/talents/steam/magnetism.lua $F/data/timed_effects/physical.lua $F/superload/mod/class/Object.lua $F/superload/mod/class/interface/Combat.lua | head -40"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs; sed -n 1320,1365p $F/data/timed_effects/physical.lua; grep -n -i \"STATIC_SHOCK\\|MECHARACHNID\\|TAILSAW\\|steamsaw\\|shield\" $F/superload/mod/class/Object.lua $F/superload/mod/class/interface/Combat.lua | head -40"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs; grep -n '\"STATIC_SHIELD\"' -A35 $F/data/timed_effects/physical.lua; sed -n 1290,1325p $F/data/timed_effects/physical.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs; sed -n 70,100p $F/superload/mod/class/Object.lua; sed -n 715,870p $F/data/talents/steam/mecharachnid.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs; sed -n 20,110p $F/data/talents/steam/mechstar.lua; grep -n \"BLOODSTAR\\|METALSTAR\" $F/data/timed_effects/physical.lua $F/data/damage_types.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs; sed -n 725,790p $F/data/timed_effects/physical.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources/orcs/tome-orcs; sed -n 360,440p $F/data/talents/steam/other.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-016/INPUT-final-review-4-a2.json'))\nfor b in d['payload']['bounded_context'][7:]:\n  c=json.loads(b['context'])\n  for e in c['source_evidence']: print({k:e[k] for k in e if k not in('excerpt','windows')}, [ (w['start'],w['end']) for w in e.get('windows',[])])\n\"; grep -n \"reflect_damage\" -B2 -A12 $S/tome/game/modules/tome/data/damage_types.lua | head -50"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources; sed -n 38,60p $S/tome/game/modules/tome/class/NPC.lua; sed -n 20,42p $S/tome/game/modules/tome/data/talents/gifts/summon-utility.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-016/sources; sed -n 659,732p $S/orcs/tome-orcs/data/talents/steam/other.lua; sed -n 3676,3692p $S/engine/src/core_lua.c; sed -n 674,686p $S/engine/game/engines/default/engine/Target.lua"
+    }
+  }
+]
