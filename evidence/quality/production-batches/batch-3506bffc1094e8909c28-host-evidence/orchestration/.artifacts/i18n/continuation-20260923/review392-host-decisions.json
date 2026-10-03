@@ -1,0 +1,35 @@
+{
+ "workset": "evidence/quality/production-batches/batch-3506bffc1094e8909c28-source-workset.json",
+ "decisions": {
+  "f76a120cd7|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/engines/default/engine/dialogs/microtxn/MTXMain.lua:55-70 内购欢迎词（窗口64 已修改末段的 successor）：“As for what kind of purchases are/will be available”现译“目前，我提供了以下几种内购项”只写现有、略去 will be；“automatically and randomly triggered”略去 randomly。两处均为不改变内购内容与机制的措辞细节，contextual 判 OK，窗口64 两轮复审亦未提出。只记建议：可改为“目前及今后提供的内购项如下”“服务器会自动随机触发部分在线事件”。"
+  },
+  "fd75c9b849|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/objects.lua:26 与 :30 在源文中各为单行（“To select an item, ... press the key next to its name.”“This infusion inscribes you ... but they can easily be replaced.”）；现译在“也可以\\n直接按物品名字旁边的快捷键”与“但\\n你可以轻松地替换它们”处各多插一个硬换行，比源文多 2 个 LF，教程弹窗会把句子从中间断开，违反换行不变量。确认（contextual 同判）。修复：删去这两个多余的 \\n，其余不变。"
+  },
+  "fd75c9b849|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/objects.lua:26 与 :30 在源文中各为单行（“To select an item, ... press the key next to its name.”“This infusion inscribes you ... but they can easily be replaced.”）；现译在“也可以\\n直接按物品名字旁边的快捷键”与“但\\n你可以轻松地替换它们”处各多插一个硬换行，比源文多 2 个 LF，教程弹窗会把句子从中间断开，违反换行不变量。确认（contextual 同判）。修复：删去这两个多余的 \\n，其余不变。"
+  },
+  "67de33a164|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "Ashes 公开源码（来源未固定，/workspace/tome4-dlcs/ashes-urhrok）tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua:350-389 暗影融合（Shadowmeld）：callbackOnEffectSave（:366-370）在物理或魔法效果施加时按几率把豁免判为成功（hd.saved = true），即阻止效果生效。本库豁免说明一贯以“摆脱”表示抵抗效果（mod-tome.lua:1927“增加你摆脱物理引发效果的几率”等），现译“有 %d%% 几率摆脱物理或魔法负面效果”与实现一致，contextual 亦判 OK。驳回。"
+  },
+  "728ac31db2|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "Ashes 公开源码（来源未固定）tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua:736 恶魔结合（Bind Demon）info :824 “This spell can summon demons from any seeds available in either your equipment or inventory”——可以用装备或背包中任一可用的种子召唤恶魔；现译“这一技能可以召唤你装备或背包里的任何恶魔种子”把召唤对象由恶魔变成种子，属错译。contextual 判 OK，宿主以原文为准确认。修复：改为“这一技能可以通过你装备或背包中任何可用的种子召唤恶魔。”；同条首行“且可以召唤恶魔”后补句号，其余不变。"
+  },
+  "9efe3c4647|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "Ashes 公开源码（来源未固定）tome-ashes-urhrok/data/general/objects/world-artifacts.lua:289-294 亡魂（Revenant）desc：“The scratch and crack of metal mutters of suffering…”承接前文 creak，指金属的刮擦与崩裂声；现译“金属的划痕与裂纹低声诉说着……”以痕迹拟人，意象仍成立，不影响物品识别或机制，contextual 判 OK。只记建议：可改为“金属的刮擦与崩裂声低声诉说着……”。"
+  }
+ }
+}

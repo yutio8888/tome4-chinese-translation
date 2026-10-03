@@ -1,0 +1,3 @@
+第392批：冻结80条（主游戏 37 条、引擎 1 条、Ashes 37 条、Cults 5 条；为 2026-10-03 重新复审迁移 22b293c4 或窗口64迁移 629e3b1e 排入的 successor），逐条核验80/80：主游戏、引擎与启动按 manifest 固定 commit 624a673 核验，DLC 按本批公开源码文件SHA核验、来源仓库和commit未固定。surface 3组（gpt-6.1-sol）12 个 child：主游戏/引擎 10/10/9/9、Ashes 10/9/9/9、Cults 2/1/1/1，75 OK、5 ISSUE；各 child 只读自身 envelope 与契约。contextual 2 个 run（Opus 5.5）5 条 deep，首轮通过：4 OK、1 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决6个观察：{'advisory': 2, 'confirmed': 3, 'refuted': 1}；预计78条完成、2条待修复。新增 2 条修复 revision：fd75c9b849 物品教程（tutorial/objects.lua）多插 2 个硬换行，把两句从中间断开；728ac31db2 恶魔结合说明把“用种子召唤恶魔”误译为“召唤恶魔种子”，首行另缺句号。驳回 1：67de33a164 暗影融合“摆脱”负面效果与 callbackOnEffectSave 置 saved=true 的实现及本库豁免用语一致。建议 2（不入积压）：f76a120cd7 内购欢迎词略去 will be 与 randomly；9efe3c4647 亡魂描述“划痕与裂纹”可改为刮擦与崩裂声。修复窗口65积压为2，未达20。

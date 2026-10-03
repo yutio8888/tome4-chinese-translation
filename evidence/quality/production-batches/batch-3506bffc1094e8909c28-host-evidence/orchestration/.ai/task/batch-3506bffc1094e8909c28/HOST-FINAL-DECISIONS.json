@@ -1,0 +1,83 @@
+{
+  "batch_id": "batch-3506bffc1094e8909c28",
+  "observations": 6,
+  "observation_dispositions": {
+    "advisory": 2,
+    "confirmed": 3,
+    "refuted": 1
+  },
+  "repair_revision_keys": [
+    "728ac31db24abcb47f113157babc678aa6304651a1e769de1852335ae482b1e6",
+    "fd75c9b84984c3abb1bb4982a2563fe181083031540ef4eff34bf165cb026f3c"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 78,
+    "repair_required": 2,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "f76a120cd733880433658830c580c58c33e33e1afe9e52356bf1dca2b1bcb7d8",
+      "stage": "surface",
+      "observation": "原文“purchases are/will be available”包含现有及未来提供的购买项目，译文“目前，我提供了以下几种内购项”将整份列表表述为目前已提供，遗漏未来时态；社区事件原文“automatically and randomly triggered”中的随机触发也未译出。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/engines/default/engine/dialogs/microtxn/MTXMain.lua:55-70 内购欢迎词（窗口64 已修改末段的 successor）：“As for what kind of purchases are/will be available”现译“目前，我提供了以下几种内购项”只写现有、略去 will be；“automatically and randomly triggered”略去 randomly。两处均为不改变内购内容与机制的措辞细节，contextual 判 OK，窗口64 两轮复审亦未提出。只记建议：可改为“目前及今后提供的内购项如下”“服务器会自动随机触发部分在线事件”。"
+    },
+    {
+      "revision_key": "fd75c9b84984c3abb1bb4982a2563fe181083031540ef4eff34bf165cb026f3c",
+      "stage": "surface",
+      "observation": "译文新增两处原文没有的句内换行：“也可以\\n直接按物品名字旁边的快捷键”和“但\\n你可以轻松地替换它们”，改变了冻结原文的换行结构。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/objects.lua:26 与 :30 在源文中各为单行（“To select an item, ... press the key next to its name.”“This infusion inscribes you ... but they can easily be replaced.”）；现译在“也可以\\n直接按物品名字旁边的快捷键”与“但\\n你可以轻松地替换它们”处各多插一个硬换行，比源文多 2 个 LF，教程弹窗会把句子从中间断开，违反换行不变量。确认（contextual 同判）。修复：删去这两个多余的 \\n，其余不变。"
+    },
+    {
+      "revision_key": "67de33a1647aa078fa33c78d2e0032a4ca3ee1a41e780e5de867f07494d407f1",
+      "stage": "surface",
+      "observation": "原文为有几率“ignore”物理或魔法负面效果，译文“摆脱”表达解除已有负面效果，存在忽略与解除的语义差异；冻结输入未提供机制证据，无法确认实际行为。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Ashes 公开源码（来源未固定，/workspace/tome4-dlcs/ashes-urhrok）tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua:350-389 暗影融合（Shadowmeld）：callbackOnEffectSave（:366-370）在物理或魔法效果施加时按几率把豁免判为成功（hd.saved = true），即阻止效果生效。本库豁免说明一贯以“摆脱”表示抵抗效果（mod-tome.lua:1927“增加你摆脱物理引发效果的几率”等），现译“有 %d%% 几率摆脱物理或魔法负面效果”与实现一致，contextual 亦判 OK。驳回。"
+    },
+    {
+      "revision_key": "728ac31db24abcb47f113157babc678aa6304651a1e769de1852335ae482b1e6",
+      "stage": "surface",
+      "observation": "原文“This spell can summon demons from any seeds available in either your equipment or inventory”指从装备或背包中的种子召唤恶魔，译文“这一技能可以召唤你装备或背包里的任何恶魔种子”将召唤对象由恶魔改成了种子。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Ashes 公开源码（来源未固定）tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua:736 恶魔结合（Bind Demon）info :824 “This spell can summon demons from any seeds available in either your equipment or inventory”——可以用装备或背包中任一可用的种子召唤恶魔；现译“这一技能可以召唤你装备或背包里的任何恶魔种子”把召唤对象由恶魔变成种子，属错译。contextual 判 OK，宿主以原文为准确认。修复：改为“这一技能可以通过你装备或背包中任何可用的种子召唤恶魔。”；同条首行“且可以召唤恶魔”后补句号，其余不变。"
+    },
+    {
+      "revision_key": "9efe3c4647698b1a30221db25fd96be3cb78d939301857c9c86de55db3bc8c95",
+      "stage": "surface",
+      "observation": "原文以 creak、mutters 描写护甲发出的声音，The scratch and crack of metal 在此指金属摩擦、爆裂的声响；译为“金属的划痕与裂纹”将声音误译成表面痕迹。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "Ashes 公开源码（来源未固定）tome-ashes-urhrok/data/general/objects/world-artifacts.lua:289-294 亡魂（Revenant）desc：“The scratch and crack of metal mutters of suffering…”承接前文 creak，指金属的刮擦与崩裂声；现译“金属的划痕与裂纹低声诉说着……”以痕迹拟人，意象仍成立，不影响物品识别或机制，contextual 判 OK。只记建议：可改为“金属的刮擦与崩裂声低声诉说着……”。"
+    },
+    {
+      "revision_key": "fd75c9b84984c3abb1bb4982a2563fe181083031540ef4eff34bf165cb026f3c",
+      "stage": "contextual",
+      "observation": "换行不变量被破坏：源文 game/modules/tome/data/texts/tutorial/objects.lua@624a6732 第26行（To select an item, ... press the key next to its name.）与第30行（This infusion inscribes you ... but they can easily be replaced.）各为单行，译文却在句中插入硬换行：「也可以\\n直接按物品名字旁边的快捷键」「你只能印刻有限数量的刻印，但\\n你可以轻松地替换它们」。这使译文行数比源文多 2 行，且在教程弹窗中会把一句话从中间断开显示；应去掉这两处多余的 \\n，恢复与源文一致的行结构。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/objects.lua:26 与 :30 在源文中各为单行（“To select an item, ... press the key next to its name.”“This infusion inscribes you ... but they can easily be replaced.”）；现译在“也可以\\n直接按物品名字旁边的快捷键”与“但\\n你可以轻松地替换它们”处各多插一个硬换行，比源文多 2 个 LF，教程弹窗会把句子从中间断开，违反换行不变量。确认（contextual 同判）。修复：删去这两个多余的 \\n，其余不变。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (12 lanes: surface-000 main game/engine 38 in 10/10/9/9; surface-001 Ashes 37 in 10/9/9/9; surface-002 Cults 5 in 2/1/1/1)",
+    "contextual": "claude/claude-opus-5-5 (2 runs accepted on the first pass: contextual-000, contextual-001; 5 entries)"
+  },
+  "notes": [
+    "Surface screening: 3 groups of codex/gpt-6.1-sol (thinking medium, auto-review), 12 children (main game/engine 10/10/9/9; Ashes 10/9/9/9; Cults 2/1/1/1); 75 OK / 5 ISSUE; every child only read its own envelope and the contract (12 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 5 deep entries (2 runs), accepted on the first pass (4 OK / 1 ISSUE).",
+    "Re-review batch: successors queued by migration 22b293c4 (and window 64's migration 629e3b1e); 219 remain queued after this batch.",
+    "Contextual judged 728ac31db2 OK; the host confirmed it from the Ashes source line ('summon demons from any seeds'), which the translation turns into summoning the seeds themselves.",
+    "f76a120cd7 is one of window 64's successors (migration 629e3b1e); its two omissions are wording-level only and were recorded as advisory.",
+    "38 pinned entries (37 main game, 1 engine) were verified against the manifest-pinned commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file; 37 Ashes, 5 Cults entries matched the public DLC source file SHA in the workset, with the DLC repositories and commits unpinned.",
+    "2 confirmed repair revisions raise the window 65 backlog from 0 to 2; below the 20 threshold, so no window opens."
+  ]
+}
