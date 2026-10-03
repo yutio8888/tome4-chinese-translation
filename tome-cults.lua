@@ -826,7 +826,7 @@ t("As you combine the two pair of shoes you make something marvelous: %s", "当�
 t("Rod of Entropy", "熵之魔杖", "entity name")
 t("light sucking rod", "吸收光的魔杖", "_t")
 t("This rod seems to make light die around it. You feel tired just looking at it.", "这根魔杖似乎能够熄灭周围的光。光是看着它你就觉得很累了。", "_t")
-t("temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.", "使目标在 10 回合内受到的治疗引发熵能反冲（时长提示值为 %d 回合），造成最多相当于治疗量 %d%% 的伤害。效果受魔力值加成。", "tformat")
+t("temporarily causes the target to receive entropic backlash from any healing they receive for %d turns up to %d%% of the healing done. This effect scales with your Magic stat.", "暂时使目标从所受治疗中受到熵能反冲，在 %d 回合内最多受到相当于治疗量 %d%% 的伤害。效果受魔力值加成。", "tformat")
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Seeds of the Black Tree", "黑色树之种", "entity name")
 t("corrupt stone", "被污染的石头", "_t")
@@ -2626,7 +2626,7 @@ section "tome-cults/data/talents/demented/calamity.lua"
 t("Jinxed Touch", "厄运之触", "talent name")
 t([[Your touch carries an entropic curse, marking your victims for a terrible fate. Each time you deal damage to a target, they are Jinxed for 5 turns. This stacks up to 10 times, reducing saves and defense by %0.2f and critical strike chance by %0.2f%%.
 			This can only be applied once per target per turn and will fade entirely if you break line of sight with your target for more than 2 turns.]], [[你的触碰伴随着熵之诅咒，为目标带来悲惨的命运。每当你对目标造成伤害时，目标将被厄运诅咒 5 回合。厄运可以叠加 10 层，每层减少 %0.2f 豁免和闪避， %0.2f%% 暴击率。
-			每个目标每回合只能受到一层诅咒。若你与目标连续脱离视线 2 回合，所有诅咒都会消退。]], "tformat")
+			每个目标每回合只能受到一层诅咒。若你与目标脱离视线超过 2 回合，所有诅咒都会消退。]], "tformat")
 t("Preordain", "命中注定", "talent name")
 t("You subtly alter the course of events to cause your foes further misfortune. Each stack of Jinx beyond 6 will cause enemies to also suffer a %d%% chance to fail talent usage.", "你微妙地影响因果，让你的敌人更加不幸。六层以上的每层厄运诅咒将使敌人获得 %d%% 技能失败率。", "tformat")
 t("Luckdrinker", "幸运汲取", "talent name")
@@ -2760,7 +2760,7 @@ t("Talents of the various entities of the world.", "世界上各种怪物的能�
 section "tome-cults/data/talents/demented/disfigured-face.lua"
 
 t("Diseased Tongue", "疫病之舌", "talent name")
-t("Your tongue turns into a diseased tentacle that you use to #{italic}#lick#{normal}# enemies in a cone.\n\t\tLicked creatures take %d%% tentacle damage that ignores armor and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.\n\t\t\n\t\tIf at least one enemy is hit you gain %d insanity.\n\t\t\n\t\tDisease damage will increase with your Spellpower.", "你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。\n\t\t被舔舐的敌人受到无视护甲的 %d%% 触手伤害并获得一种持续 %d 回合的随机疾病，每回合造成 %0.2f 枯萎伤害并减少力量、敏捷或体质 %d 点。\n\t\t\n\t\t如果你至少命中了一名未触发疾病免疫的敌人，你获得 %d 疯狂值。\n\t\t\n\t\t疾病伤害受法术强度加成。", "tformat")
+t("Your tongue turns into a diseased tentacle that you use to #{italic}#lick#{normal}# enemies in a cone.\n\t\tLicked creatures take %d%% tentacle damage that ignores armor and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.\n\t\t\n\t\tIf at least one enemy is hit you gain %d insanity.\n\t\t\n\t\tDisease damage will increase with your Spellpower.", "你的舌头化作疫病触手，让你能 #{italic}#舔舐#{normal}# 锥形范围内的敌人。\n\t\t被舔舐的敌人受到无视护甲的 %d%% 触手伤害并获得一种持续 %d 回合的随机疾病，每回合造成 %0.2f 枯萎伤害并减少力量、敏捷或体质 %d 点。\n\t\t\n\t\t如果你至少命中了一名敌人，你获得 %d 疯狂值。\n\t\t\n\t\t疾病伤害受法术强度加成。", "tformat")
 t("Dissolved Face", "溶解之脸", "talent name")
 t([[Your face melts, exploding in a targeted gush of blood and gore dealing %0.2f darkness damage (%0.2f total) in a cone over 5 turns.
 		Each turn the target will be dealt an additional %0.2f blight damage per disease.
@@ -2812,7 +2812,7 @@ t([[Utter a prophecy of the impending demise of your target that lasts 6 turns.
 t("Prophecy of Treason", "背叛预言", "talent name")
 t("%s(%d treason)#LAST#", "%s(%d 背叛)#LAST#", "tformat")
 t([[Utter a prophecy of the impending treachery of your target. For the next 6 turns, they will have a %d%% each turn to waste their turn attempting to attack an adjacent creature for 10%% weapon damage, or even themself if no creature is present.
-		A target can only be affected by a single prophecy at a time.]], [[对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每次获得行动机会时，背叛进度增加满值的 %d%% （初始进度随机，法术豁免可使增量减半）；进度超过满值时扣除一个满值，并浪费该次行动，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。
+		A target can only be affected by a single prophecy at a time.]], [[对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合有 %d%% 几率浪费该回合，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。
 		一个目标只能同时被一个预言影响。]], "tformat")
 t("Grand Oration", "隆重演说", "talent name")
 t("None", "无", "_t")
@@ -2859,7 +2859,7 @@ t([[On casting Entropic Gift, a radius 1 rift in spacetime will be opened undern
 		All caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]], [[每次释放熵之礼物，会在目标处产生一个持续 %d 回合、半径为 1 的时空裂隙，每回合半径增加 1 直到 %d。
 		所有范围内的生物每回合将被拉向裂隙中心并受到 %0.2f 暗影、 %0.2f 时空伤害以及你熵总量的 %d%% 的伤害（当前 %d）。]], "tformat")
 t("Power Overwhelming", "能量过载", "talent name")
-t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，战斗中使用的每个非瞬间主动法术会带来 %0.2f 熵能反冲。]], "tformat")
+t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，每个非瞬间法术会带来 %0.2f 熵能反冲。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/friend-of-the-worm.lua"
@@ -2905,7 +2905,7 @@ t("Your friendly horror is dead.", "你的恐魔伙伴死了。", "logPlayer")
 t("%s's teleport fizzles!", "%s的传送失败了！", "logSeen")
 t([[You and your Worm that Walks both teleport to an enemy in range %d and make a melee attack for %d%% damage.
 			Your Worm that Walks' Blindside talent cooldown is reduced by %d.]], [[你和蠕虫合体同时传送至 %d 内的目标处，各进行一次近战攻击，造成 %d%% 伤害。
-			你的蠕虫合体的闪电突袭技能基础冷却时间的减值为 %d 加 1 回合。]], "tformat")
+			你的蠕虫合体的闪电突袭技能冷却时间减少 %d。]], "tformat")
 t("Shared Insanity", "共享疯狂", "talent name")
 t([[You establish a powerful mental link with your Worm that Walks.
 		As long as you remain within radius 3 of your worm that walks each of you gains %d%% all resistance for 5 turns.
@@ -3016,7 +3016,7 @@ t("Grab a target and drag it to your side, dealing %d%% weapon damage and taunti
 section "tome-cults/data/talents/demented/oblivion.lua"
 
 t("Nihil", "空无", "talent name")
-t("Your entropy bleeds into the world around you. On having entropic backlash applied or increased to you, %d random enemies you can see within radius 10 will be shrouded in entropic forces for 8 turns. This increases the duration of new negative effects and reduces the duration of new beneficial effects applied to the target by %d%%.", "将你身体上的熵能向周围辐射。每当你被施加熵能反冲或其强度增加时，在你半径 10 码内随机的 %d 个敌人都将被熵能侵蚀 8 回合。这会使施加于目标的新负面效果持续时间增加、正面效果持续时间减少 %d%%。", "tformat")
+t("Your entropy bleeds into the world around you. On having entropic backlash applied or increased to you, %d random enemies you can see within radius 10 will be shrouded in entropic forces for 8 turns. This increases the duration of new negative effects and reduces the duration of new beneficial effects applied to the target by %d%%.", "将你身体上的熵能向周围辐射。每当你被施加熵能反冲或其强度增加时，在你半径 10 码内随机的 %d 个可见敌人都将被熵能侵蚀 8 回合。这会使施加于目标的新负面效果持续时间增加、正面效果持续时间减少 %d%%。", "tformat")
 t("Unravel Existence", "解构存在", "talent name")
 t("herald of oblivion", "破灭之兆", "_t")
 t("Space warps and blurs around this titanic being, as if reality itself was struggling against it.", "时空在这个巨大的生物的周围扭曲模糊，仿佛现实本身正在和它斗争。", "_t")
@@ -3032,7 +3032,7 @@ t([[Your Nihil unravels the existence of the target, tearing them apart with ent
 		破灭之兆会继承你的伤害加成、伤害穿透、暴击几率和暴击倍率加成。]], "tformat")
 t("Erase", "抹除", "talent name")
 t([[Those affected by your Nihil find themselves increasingly removed from reality, reducing all damage they deal by %d%% and causing them to take %0.2f temporal damage each turn for each negative magical effect they have.
-		The damage will scale with your Spellpower.]], [[受到你空无影响的生物逐渐从现实中被抹除，说明中的减伤系数为 %d%%， 但当前实现未使这项减伤生效。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。
+		The damage will scale with your Spellpower.]], [[受到你空无影响的生物逐渐从现实中被抹除，造成的伤害降低 %d%%。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。
 		伤害受到法术强度加成。]], "tformat")
 t("All is Dust", "尽归尘土", "talent name")
 t("%s's entropic storm", "%s的湮灭风暴", "tformat")
@@ -3073,7 +3073,7 @@ t([[You trigger a cascade of rapidly mutating cells in your body for %d turns.
 t("Writhing One", "蠕动者", "talent name")
 t([[At last you unlock the true power of your mutated body!
 		You gain %d%% stun immunity, %d%% chances to ignore critical strikes and your darkness and blight damage are increased by %d%%.]], [[你终于解开了这具变异身体的最终力量！
-		你获得 %d%% 震慑免疫， 受到暴击时的额外伤害降低 %d%%， 并且增加 %d%% 暗影及枯萎伤害。]], "tformat")
+		你获得 %d%% 震慑免疫， %d%% 几率无视受到的暴击，并且增加 %d%% 暗影及枯萎伤害。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/rift.lua"
@@ -3204,7 +3204,7 @@ t([[Your left hand mutates into a disgusting mass of tentacles.
 		%s]], [[你的左手异变成为一坨恶心的触手。
 		副手空闲时，当使用普通攻击，触手会自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。
 		物理强度提高 %d， 触手武器伤害提高 %d%%。
-		每回合首次以触手攻击非友方目标时，获得 %d 疯狂值。
+		每次触手攻击时，获得 %d 疯狂值。
 		附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。
 
 		你的触手当前属性%s：
@@ -3227,9 +3227,9 @@ t([[You plant your tentacle hand in the ground where it splits up and extends to
 
 		#YELLOW_GREEN#When constricting:#WHITE#The tendrils pummel your constricted target for %d%% tentacle damage and if adjacent you make an additional mainhand weapon attack.  Talent cooldown reduced to 10.]], [[你的触手钻入地下，分布到 %d 码范围的目标区域。
 		该区域喷发出大量黑色触手，对区域内所有敌人造成 %d%% 触手伤害。
-		区域内受到触手攻击的敌人，无论攻击是否命中，都需要进行法术检定，检定失败将被麻木，5 回合内伤害降低 %d%%。
+		被触手击中的生物需要进行法术检定，检定失败将被麻木，5 回合内伤害降低 %d%%。
 
-		如果触手对至少一个敌人完成攻击结算，即使未命中，你获得 %d 疯狂值。
+		如果有敌人被触手击中，你获得 %d 疯狂值。
 
 		#YELLOW_GREEN#当触手处于缠绕状态:#WHITE#触手对缠绕对象连续突击，造成 %d%% 触手伤害。如果你与被缠绕对象相邻，则进行一次额外的主手打击。技能冷却时间缩短为 10 回合。]], "tformat")
 t("Constrict", "缠绕", "talent name")
@@ -3270,8 +3270,8 @@ t("#LIGHT_STEEL_BLUE#%s's Temporal Clone#LAST#", "#LIGHT_STEEL_BLUE#%s的时空�
 t("A warped image resembling the creature it appeared from, its features a flickering blur of all possible futures.", "一个扭曲的图像，类似于它模仿的生物，它展现着其所有可能的未来的模糊影像。", "_t")
 t("Summon", "召唤", "_t")
 t([[The target enemy will be partially removed from the normal flow of time for %d turns, inhibiting their ability to interact with the world. All damage taken will be reduced by %d%%, while all damage dealt will be reduced by %d%%.
-While active, you form the frayed threads of their timeline into a temporal clone of them for the same duration, which assists you in combat. This clone is identical, but has %d%% reduced life and deals %d%% damage.]], [[将目标敌人从正常时间流部分移除，持续 %d 回合，隔绝他们与现实世界交互的能力。移除期间敌人受到的伤害保留 %d%%， 造成的伤害也降低 %d%%。
-		技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同，克隆体生命值降低 %d%%， 全伤害加成变为原加成加上 %d%% 再减去 100 个百分点，其他能力与本体相同。]], "tformat")
+While active, you form the frayed threads of their timeline into a temporal clone of them for the same duration, which assists you in combat. This clone is identical, but has %d%% reduced life and deals %d%% damage.]], [[将目标敌人从正常时间流部分移除，持续 %d 回合，隔绝他们与现实世界交互的能力。移除期间敌人受到的伤害降低 %d%%， 造成的伤害也降低 %d%%。
+		技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同，克隆体生命值降低 %d%%， 只造成 %d%% 伤害，其他能力与本体相同。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/void.lua"
@@ -3378,8 +3378,8 @@ t([[Allows to teleport to Kroshkkur.
 	This spell must be kept secret; it should never be used within view of uninitiated witnesses.
 	The spell takes time (40 turns) to activate, and you must be out of sight of any other creature when you cast it and when the teleportation takes effect.]], [[允许传送至克诺什库尔。
 	你学习了那里的禁忌秘密，因此获得了传送至克诺什库尔的法术。
-	该法术必须保持机密；应避免在未入门的目击者视野内使用。
-	该法术需要 40 回合生效。施放时及传送生效时，都会检查 20 码视线内的其他生物。你的召唤物不会阻止传送；若检查时最后遇到的是你的召唤物，此前发现的其他目击者也不会阻止传送。]], "_t")
+	该法术必须保持机密；绝不能在未入门的目击者视野内使用。
+	该法术需要 40 回合生效。施放时及传送生效时，你都必须处于任何其他生物的视线之外。]], "_t")
 t("Call of Amakthel", "阿马克泰尔的呼唤", "talent name")
 t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
 t("Pull all foes within radius 10 2 grids towards you.", "将10码范围内所有的目标朝你拉近2格。", "_t")
@@ -4157,7 +4157,7 @@ t("Clarity found in safety.\nClarity found in comfort.\nThoughts and idle dreams
 珍惜思想。
 独处的思想备受珍视。
 
-#RED#阅读这本书会启动从3开始的倒计时，倒计时自然结束时将你慢慢拉入书中。]], "_t")
+#RED#阅读这本书将会在5回合内将你慢慢拉入书中。]], "_t")
 -- untranslated text
 --[==[
 t("..", "..", "entity name")

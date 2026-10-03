@@ -1,0 +1,35 @@
+{
+  "task_id": "mechanics-rollback-20261003",
+  "review_contract": "code_legacy_v1",
+  "review_phase": "FINAL_REVIEW",
+  "cycle": 1,
+  "attempt": 1,
+  "reviewer_role": "REVIEWER",
+  "purpose": "normal_review",
+  "dispatch_id": "final-review-1-a1",
+  "agent_id": "a3344626-a5c6-46af-91e1-3e706c591499",
+  "status": "completed",
+  "candidate_locator": {
+    "spec_path": ".ai/task/mechanics-rollback-20261003/SPEC-FINAL_REVIEW-1-1.md",
+    "diff_path": ".ai/task/mechanics-rollback-20261003/CODE_DIFF-FINAL_REVIEW-1-1.patch"
+  },
+  "candidate_ref": "0f773f4f6b23c0ca1f56cd7edfacacab3b8054a22f3f99bc7e8c45cfde9e57a5",
+  "verdict": "CHANGES_REQUIRED",
+  "findings": [
+    {
+      "id": "FR-001",
+      "severity": "medium",
+      "file": "tome-orcs.lua",
+      "location": "line 5208, inventory 140, record 2282",
+      "problem": "Ordinary struck/hit wording was withdrawn with hostility restriction.",
+      "evidence": "English: when struck by a melee or ranged attack",
+      "impact": "Loses explicit hit condition.",
+      "recommended_fix": "目标每被近战或远程攻击命中一次",
+      "host_status": "confirmed"
+    }
+  ],
+  "host_adjudication": "confirmed from frozen English; first specific finding on this clause, not a contradictory substantive finding from prior PASS",
+  "raw_output_path": ".ai/reviews/mechanics-rollback-20261003/raw-final-review-1-a1.txt",
+  "raw_output_sha256": "0262a41088ee6807cafb2075a947716ce3125b3eb23452f608733a9d02476476",
+  "tool_boundary_audit": "All 20 calls inspected: read-only inputs, git/stdout lexical checks, ps and process output waits; no writes or other review reads."
+}

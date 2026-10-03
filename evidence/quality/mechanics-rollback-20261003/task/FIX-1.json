@@ -1,0 +1,59 @@
+{
+  "findings": [
+    {
+      "id": "HOST-SCOPE-51",
+      "status": "confirmed",
+      "inventory_id": 51,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "source": "Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.",
+      "old_target": "激活这个纹身，你受到的伤害将部分转化为治疗（在抗性减免前计算），转化比例为 %d%%， 并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。",
+      "new_target": "激活这个纹身，使你受到伤害时恢复相当于该次伤害（抗性减免前计算） %d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。",
+      "evidence": "英文 heal for 要表达治疗；原“转化”可能读为伤害被抵消。仅撤去代码添加的存活条件及明确先后，保留恢复生命、抗性减免前、两项持续时长的普通修正。",
+      "required_action": "只按此条修复，不新增任何机制结论"
+    },
+    {
+      "id": "HOST-SCOPE-73",
+      "status": "confirmed",
+      "inventory_id": 73,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/spells/storm.lua",
+      "source": "Lightning emanates from you in a circular wave with radius %d, doing %0.2f to %0.2f lightning damage (%0.2f average) and possibly dazing anyone affected (75%% chance).\n\t\tThe damage will increase with your Spellpower.",
+      "old_target": "一圈闪电从你身上放射出来，在 %d 码范围内对目标造成 %0.2f ～ %0.2f 闪电伤害（平均 %0.2f） 并有 75%% 概率眩晕敌人。\n\t\t伤害受法术强度加成。",
+      "new_target": "一圈闪电从你身上放射出来，在 %d 码范围内对目标造成 %0.2f ～ %0.2f 闪电伤害（平均 %0.2f） 并有 75%% 概率眩晕受影响的单位。\n\t\t伤害受法术强度加成。",
+      "evidence": "英文明确 anyone affected；受影响单位是忠实原文的普通修正，不是代码覆盖英文。",
+      "required_action": "只按此条修复，不新增任何机制结论"
+    },
+    {
+      "id": "HOST-SCOPE-82",
+      "status": "confirmed",
+      "inventory_id": 82,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/techniques/throwing-knives.lua",
+      "source": "You can throw knives with lightning speed, increasing your attack speed with them by %d%% and giving you a %d%% chance when striking a target in melee to throw a knife at a random foe within 7 tiles for 100%% damage. \n\t\tThis bonus attack can only trigger once per turn, and does not trigger from throwing knife attacks.",
+      "old_target": "你可以闪电般地投掷你的飞刀。飞刀攻击速度增加 %d%%， 近战攻击时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害。\n\t\t每回合仅触发 1 次，不会被投掷飞刀触发。",
+      "new_target": "你可以闪电般地投掷你的飞刀。飞刀攻击速度增加 %d%%， 近战命中目标时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害。\n\t\t每回合仅触发 1 次，不会被投掷飞刀触发。",
+      "evidence": "英文 when striking a target in melee 已表达命中对象；恢复本轮普通漏义修正。",
+      "required_action": "只按此条修复，不新增任何机制结论"
+    },
+    {
+      "id": "HOST-SCOPE-118",
+      "status": "confirmed",
+      "inventory_id": 118,
+      "file": "tome-orcs.lua",
+      "section": "tome-orcs/data/general/objects/world-artifacts.lua",
+      "source": "fire a poisonous bolt out to range %d that deals %d nature damage and afflicts the target with crippling poison (%d%% fail chance) that deals %d addition nature damage over %d turns (damage based on Cunning)",
+      "old_target": "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并使目标感染致残毒素（%d%% 行动失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）",
+      "new_target": "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并使目标感染致残毒素（%d%% 使用技能失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）",
+      "evidence": "英文仅写 crippling poison (fail chance)，未写所有行动失败；将明确游戏效果译为使用技能失败是普通语义澄清，无英文与代码矛盾，不在用户要求撤回范围。",
+      "required_action": "只按此条修复，不新增任何机制结论"
+    }
+  ],
+  "allowed_target_ids": [
+    51,
+    73,
+    82,
+    118
+  ],
+  "extra_report": ".artifacts/i18n/mechanics-rollback-20261003/fix-1-report.json"
+}

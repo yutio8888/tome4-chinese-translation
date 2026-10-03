@@ -1,0 +1,49 @@
+{
+  "finding_id": "FR-001",
+  "status": "implemented",
+  "changes": [
+    {
+      "file": "tome-orcs.lua",
+      "record_index": 2282,
+      "field": "target",
+      "old_clause": "目标每受到一次近战或远程攻击",
+      "new_clause": "目标每被近战或远程攻击命中一次",
+      "exact_FIX_2_old_to_new": true,
+      "source_exact_match": true
+    }
+  ],
+  "byte_proof": {
+    "baseline": ".ai/task/mechanics-rollback-20261003/before-fix-2/tome-orcs.lua",
+    "pre_edit_equals_baseline": true,
+    "replacement_count": 1,
+    "target_start_byte_zero_based": 637889,
+    "old_target_bytes": 944,
+    "new_target_bytes": 947,
+    "prefix_bytes_unchanged": 637889,
+    "suffix_bytes_unchanged": 254897,
+    "prefix_equal": true,
+    "suffix_equal": true,
+    "before_sha256": "4af65398def5acdc251cbec066c3c28ca1864c3ccb1d202c5e0fcab7f7346205",
+    "after_sha256": "8f070729fd3869dec08f5a1d29282f4c51d791c7f952617978c9e5eecf70eda1"
+  },
+  "checks": {
+    "doctor": {
+      "exit_code": 0,
+      "note": "DLC source-unpinned warnings only"
+    },
+    "strict_lint": {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "translations": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20261003T045630.672464Z-4-lint/lint.json"
+    },
+    "diff_check": {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  },
+  "deviations": [],
+  "unresolved": []
+}

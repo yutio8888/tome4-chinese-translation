@@ -1,0 +1,191 @@
+{
+  "task_id": "mechanics-rollback-20261003",
+  "dispatch": "fix-1",
+  "status": "completed",
+  "scope": "Only FIX-1 confirmed inventory IDs 51,73,82,118; no game source reinterpretation",
+  "changes": [
+    {
+      "id": "HOST-SCOPE-51",
+      "status": "confirmed",
+      "inventory_id": 51,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/misc/inscriptions.lua",
+      "source": "Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.",
+      "old_target": "激活这个纹身，你受到的伤害将部分转化为治疗（在抗性减免前计算），转化比例为 %d%%， 并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。",
+      "new_target": "激活这个纹身，使你受到伤害时恢复相当于该次伤害（抗性减免前计算） %d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。",
+      "evidence": "英文 heal for 要表达治疗；原“转化”可能读为伤害被抵消。仅撤去代码添加的存活条件及明确先后，保留恢复生命、抗性减免前、两项持续时长的普通修正。",
+      "required_action": "只按此条修复，不新增任何机制结论",
+      "record_index": 13655,
+      "line": 25937,
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "inventory_baseline_target": "激活这个纹身，你受到的伤害将部分转化为治疗（在伤害减免之前计算），转化比例为 %d%%。 此外，每回合减少一个随机负面效果的持续时间 %d 回合，持续 %d 回合。",
+      "action": "exact old_target -> new_target"
+    },
+    {
+      "id": "HOST-SCOPE-73",
+      "status": "confirmed",
+      "inventory_id": 73,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/spells/storm.lua",
+      "source": "Lightning emanates from you in a circular wave with radius %d, doing %0.2f to %0.2f lightning damage (%0.2f average) and possibly dazing anyone affected (75%% chance).\n\t\tThe damage will increase with your Spellpower.",
+      "old_target": "一圈闪电从你身上放射出来，在 %d 码范围内对目标造成 %0.2f ～ %0.2f 闪电伤害（平均 %0.2f） 并有 75%% 概率眩晕敌人。\n\t\t伤害受法术强度加成。",
+      "new_target": "一圈闪电从你身上放射出来，在 %d 码范围内对目标造成 %0.2f ～ %0.2f 闪电伤害（平均 %0.2f） 并有 75%% 概率眩晕受影响的单位。\n\t\t伤害受法术强度加成。",
+      "evidence": "英文明确 anyone affected；受影响单位是忠实原文的普通修正，不是代码覆盖英文。",
+      "required_action": "只按此条修复，不新增任何机制结论",
+      "record_index": 15282,
+      "line": 29686,
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "inventory_baseline_target": "一圈闪电从你身上放射出来，在 %d 码范围内对目标造成 %0.2f ～ %0.2f 闪电伤害（平均 %0.2f） 并有 75%% 概率眩晕敌人。\n\t\t伤害受法术强度加成。",
+      "action": "exact old_target -> new_target"
+    },
+    {
+      "id": "HOST-SCOPE-82",
+      "status": "confirmed",
+      "inventory_id": 82,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/techniques/throwing-knives.lua",
+      "source": "You can throw knives with lightning speed, increasing your attack speed with them by %d%% and giving you a %d%% chance when striking a target in melee to throw a knife at a random foe within 7 tiles for 100%% damage. \n\t\tThis bonus attack can only trigger once per turn, and does not trigger from throwing knife attacks.",
+      "old_target": "你可以闪电般地投掷你的飞刀。飞刀攻击速度增加 %d%%， 近战攻击时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害。\n\t\t每回合仅触发 1 次，不会被投掷飞刀触发。",
+      "new_target": "你可以闪电般地投掷你的飞刀。飞刀攻击速度增加 %d%%， 近战命中目标时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害。\n\t\t每回合仅触发 1 次，不会被投掷飞刀触发。",
+      "evidence": "英文 when striking a target in melee 已表达命中对象；恢复本轮普通漏义修正。",
+      "required_action": "只按此条修复，不新增任何机制结论",
+      "record_index": 15896,
+      "line": 31002,
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "inventory_baseline_target": "你可以闪电般地投掷你的飞刀。飞刀攻击速度增加 %d%%， 近战攻击时有 %d%% 几率投掷一把飞刀随机对 7 格范围内的一名敌人造成 100%% 伤害。\n\t\t每回合仅触发 1 次，不会被投掷飞刀触发。",
+      "action": "exact old_target -> new_target"
+    },
+    {
+      "id": "HOST-SCOPE-118",
+      "status": "confirmed",
+      "inventory_id": 118,
+      "file": "tome-orcs.lua",
+      "section": "tome-orcs/data/general/objects/world-artifacts.lua",
+      "source": "fire a poisonous bolt out to range %d that deals %d nature damage and afflicts the target with crippling poison (%d%% fail chance) that deals %d addition nature damage over %d turns (damage based on Cunning)",
+      "old_target": "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并使目标感染致残毒素（%d%% 行动失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）",
+      "new_target": "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并使目标感染致残毒素（%d%% 使用技能失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）",
+      "evidence": "英文仅写 crippling poison (fail chance)，未写所有行动失败；将明确游戏效果译为使用技能失败是普通语义澄清，无英文与代码矛盾，不在用户要求撤回范围。",
+      "required_action": "只按此条修复，不新增任何机制结论",
+      "record_index": 1131,
+      "line": 1502,
+      "source_tag": "tformat",
+      "args_order": [
+        1,
+        2,
+        3,
+        5,
+        4
+      ],
+      "special": null,
+      "inventory_baseline_target": "发射一支射程最远为 %d 码的毒箭，造成 %d 点自然伤害，并使目标感染致残毒素（%d%% 行动失败几率），在 %d 回合内造成 %d 点额外自然伤害（伤害受灵巧值加成）",
+      "action": "exact old_target -> new_target"
+    }
+  ],
+  "proof": [
+    {
+      "file": "mod-tome.lua",
+      "before_sha256": "2593d254c63247657de5522cd9869b88f21609655ca4fc8cb3094ecbd61ef8bd",
+      "after_sha256": "73c63f0b2525ea88b9f64f611cb0ea6b3f8f09d3b7c3d66487d8e9aa93f0ab0c",
+      "reverse_restored_sha256": "2593d254c63247657de5522cd9869b88f21609655ca4fc8cb3094ecbd61ef8bd",
+      "reverse_restores_exact_snapshot": true,
+      "target_external_bytes_unchanged": true,
+      "record_count": 22989,
+      "changed_records": [
+        {
+          "record_index": 13655,
+          "finding_id": "HOST-SCOPE-51",
+          "changed_fields": [
+            "target"
+          ],
+          "all_other_fields_identical": true
+        },
+        {
+          "record_index": 15282,
+          "finding_id": "HOST-SCOPE-73",
+          "changed_fields": [
+            "target"
+          ],
+          "all_other_fields_identical": true
+        },
+        {
+          "record_index": 15896,
+          "finding_id": "HOST-SCOPE-82",
+          "changed_fields": [
+            "target"
+          ],
+          "all_other_fields_identical": true
+        }
+      ],
+      "all_unchanged_records_identical": true,
+      "source_source_tag_args_order_special_function_section_line_preserved": true
+    },
+    {
+      "file": "tome-orcs.lua",
+      "before_sha256": "e1dce540b3a8c9b2572e3a741a8d7897577b6ecce88543a225ba61c28658eb35",
+      "after_sha256": "4af65398def5acdc251cbec066c3c28ca1864c3ccb1d202c5e0fcab7f7346205",
+      "reverse_restored_sha256": "e1dce540b3a8c9b2572e3a741a8d7897577b6ecce88543a225ba61c28658eb35",
+      "reverse_restores_exact_snapshot": true,
+      "target_external_bytes_unchanged": true,
+      "record_count": 4202,
+      "changed_records": [
+        {
+          "record_index": 1131,
+          "finding_id": "HOST-SCOPE-118",
+          "changed_fields": [
+            "target"
+          ],
+          "all_other_fields_identical": true
+        }
+      ],
+      "all_unchanged_records_identical": true,
+      "source_source_tag_args_order_special_function_section_line_preserved": true
+    }
+  ],
+  "validation": {
+    "doctor": {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "runtime": "Lua 5.1 / LuaJIT 2.1.0-beta3",
+      "lpeg": "0.10.2-1 (0.10)",
+      "warnings": "Existing unpinned DLC source warnings"
+    },
+    "strict_lint": {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "stdout": ".ai/task/mechanics-rollback-20261003/fix-1-validation/strict_lint.stdout.txt",
+      "stderr": ".ai/task/mechanics-rollback-20261003/fix-1-validation/strict_lint.stderr.txt"
+    },
+    "git_diff_check": {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": ".ai/task/mechanics-rollback-20261003/fix-1-validation/git_diff_check.stdout.txt",
+      "stderr": ".ai/task/mechanics-rollback-20261003/fix-1-validation/git_diff_check.stderr.txt"
+    }
+  },
+  "protected_files": {
+    "count": 88239,
+    "all_bytes_unchanged": true,
+    "git_index_unchanged": true,
+    "previous_executor_report_unchanged": true,
+    "sha256_before_summary": {
+      "entry_count": 88239,
+      "canonical_json_sha256": "d6e45b8eb4500a49facba960b9199c7b85dad06f221bf356ca65e4aefeee216e"
+    }
+  },
+  "plan_deviations": [],
+  "unresolved_issues": [],
+  "additional_writes": [
+    ".ai/task/mechanics-rollback-20261003/fix-1-validation/",
+    ".artifacts/i18n/mechanics-rollback-20261003/fix-1-report.json",
+    "/tmp/mechanics-rollback-fix-1.py",
+    "strict lint default derived .artifacts/i18n/runs/"
+  ],
+  "original_report_sha256": "4478354f21a6bfd03458ae45699cc10f1ff35dff0ad71156f829b4e1f73b2557",
+  "compaction_note": "Only the 88,239-file pre-run hash map is summarized; judgments and fix evidence retained."
+}

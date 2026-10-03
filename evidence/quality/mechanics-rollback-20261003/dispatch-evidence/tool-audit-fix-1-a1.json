@@ -1,0 +1,100 @@
+{
+  "calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_06c2fba718101e44016ac084b5cd3887d1a99785e242c525ba",
+      "status": "completed",
+      "call_id": "call_DMtwEUq2anRkL63POpW3dQiv",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"pwd && git status --short && cat .ai/roles/executor.md && cat .ai/task/mechanics-rollback-20261003/SPEC.md && cat .ai/task/mechanics-rollback-20261003/FIX-1.json\",max_output_tokens:12000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10006-4c1b-7f43-b655-a3d4320460a5",
+        "create_time": 1791001779.196875
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_06c2fba718101e44016ac084b9f4ec87d1ac1c3e8d744df495",
+      "status": "completed",
+      "call_id": "call_tKkh6Qmg6lGBx7TwRwRfcHnc",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n '验证矩阵|普通维护|完成交付' docs/agent-workflow.md; rg -n 'doctor|lint|LuaJIT|manifest|TOME_LUAJIT|TOME_LUAROCKS_ROOT' i18n/README.md; rg --files .ai/task/mechanics-rollback-20261003 .artifacts/i18n/mechanics-rollback-20261003 | head -65; cat TERMINOLOGY.md\",max_output_tokens:7000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10006-4c1b-7f43-b655-a3d4320460a5",
+        "create_time": 1791001784.532375
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_06c2fba718101e44016ac084c3863487d1b19336c4f331235a",
+      "status": "completed",
+      "call_id": "call_cs0gXC7zTqC2PG9bfbaw7yWj",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"sed -n '254,277p' docs/agent-workflow.md; sed -n '80,100p' i18n/README.md; sed -n '112,132p' i18n/README.md; head -30 mod-tome.lua; rg -n 'load_locale|dump|luajit|tDef|args_order' tools/i18n_lib | head -60; python3 - <<'PY'\\nimport json,os\\nfrom pathlib import Path\\np=Path('.ai/task/mechanics-rollback-20261003')\\ni=json.loads((p/'INVENTORY.json').read_text())\\nprint('inventory type',type(i).__name__)\\nprint('keys',list(i)[:20] if isinstance(i,dict) else '')\\nprint('env present', {k:bool(os.environ.get(k)) for k in ('TOME_LUAJIT','TOME_LUAROCKS_ROOT')})\\nfor fn in ('mod-tome.lua','tome-orcs.lua'):\\n print(fn,'snapshot_matches',Path(fn).read_bytes()==(p/'before-fix-1'/fn).read_bytes())\\nPY\",\"max_output_tokens\":4000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10006-4c1b-7f43-b655-a3d4320460a5",
+        "create_time": 1791001793.001295
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_06c2fba718101e44016ac084ccffac87d1aaa543a36c2c75a4",
+      "status": "completed",
+      "call_id": "call_dIh5OYErRwPdmVCW9EVJ2Okf",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg --files tools | rg 'lua|i18n' | head -45; python3 - <<'PY'\\nimport json\\np='.ai/task/mechanics-rollback-20261003/INVENTORY.json'\\nr=json.load(open(p))['all_changed_records']\\nprint(type(r).__name__,len(r))\\nprint(json.dumps(r[50],ensure_ascii=False,indent=2)[:4500])\\nPY\\npython3 -B tools/i18n doctor\",\"max_output_tokens\":4000,\"yield_time_ms\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10006-4c1b-7f43-b655-a3d4320460a5",
+        "create_time": 1791001803.735298
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_06c2fba718101e44016ac084d3792887d1ab36988ccb5c9152",
+      "status": "completed",
+      "call_id": "call_4FTcwjgIm0CsL36LecLFyONt",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat tools/i18nlib/locale_model.py | head -180; cat tools/lua/load_locale.lua | head -165; sed -n '1,110p' tools/i18nlib/config.py; rg -n '激活这个纹身，你受到的伤害将部分|并有 75%% 概率眩晕敌人|近战攻击时有 %d%% 几率投掷|行动失败几率' mod-tome.lua tome-orcs.lua\",\"max_output_tokens\":5000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10006-4c1b-7f43-b655-a3d4320460a5",
+        "create_time": 1791001809.453565
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_06c2fba718101e44016ac084e22a9487d1a965785d39a5db7e",
+      "status": "completed",
+      "call_id": "call_6TI2HFkzDgTkuKkTTK329kyt",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > /tmp/mechanics-rollback-fix-1.py <<'PY'\\nimport os,json,hashlib,subprocess\\nfrom pathlib import Path\\nroot=Path.cwd()\\ntask=root/'.ai/task/mechanics-rollback-20261003'\\nval=task/'fix-1-validation'\\nval.mkdir(exist_ok=True)\\nfix=json.loads((task/'FIX-1.json').read_text())\\nfindings=fix['findings']\\nassert len(findings)==4 and all(x['status']=='confirmed' for x in findings)\\nassert [x['inventory_id'] for x in findings]==[51,73,82,118]\\nfiles=['mod-tome.lua','tome-orcs.lua']\\nsha=lambda b:hashlib.sha256(b).hexdigest()\\ntracked=subprocess.check_output(['git','ls-files','-z']).decode().split('\\\\0')\\nprotected=[root/x for x in tracked if x and x not in files]\\nprotected += [x for x in (root/'.ai').rglob('*') if x.is_file() and val not in x.parents]\\nprotected += [root/'.artifacts/i18n/mechanics-rollback-20261003/executor-report.json']\\nprotected_hash={str(p.relative_to(root)):sha(p.read_bytes()) for p in protected}\\nindex=root/'.git/index'\\n# git index may be located in a shared worktree git dir.\\nindex=Path(subprocess.check_output(['git','rev-parse','--git-path','index'],text=True).strip())\\nindex_hash=sha(index.read_bytes())\\nenv=os.environ.copy()\\nrocks=env['TOME_LUAROCKS_ROOT']\\nenv['LUA_PATH']=rocks+'/share/lua/5.1/?.lua;'+rocks+'/share/lua/5.1/?/init.lua;;'\\nenv['LUA_CPATH']=rocks+'/lib/lua/5.1/?.so;;'\\ndef load(path,out):\\n    r=subprocess.run([env['TOME_LUAJIT'],'tools/lua/load_locale.lua',str(path.relative_to(root)),str(out.relative_to(root))],env=env,capture_output=True,text=True)\\n    assert r.returncode==0,(r.stdout,r.stderr)\\n    return [json.loads(s) for s in out.read_text().splitlines() if s]\\ninventory={r['id']:r for r in json.loads((task/'INVENTORY.json').read_text())['all_changed_records']}\\nproof=[]\\nchanges=[]\\nprepared={}\\nfor file in files:\\n    before=(task/'before-fix-1'/file).read_bytes()\\n    assert (root/file).read_bytes()==before\\n    expected=before\\n    rows=load(task/'before-fix-1'/file,val/(file+'.before.jsonl'))\\n    for f in [x for x in findings if x['file']==file]:\\n        inv=inventory[f['inventory_id']]\\n        assert inv['file']==file and inv['current']['source']==f['source'] and inv['current']['section']==f['section']\\n        matches=[(i,r) for i,r in enumerate(rows) if r.get('kind')=='translation' and r.get('section')==f['section'] and r.get('source')==f['source']]\\n        assert len(matches)==1\\n        i,r=matches[0]\\n        assert r['target']==f['old_target']\\n        old=f['old_target'].encode();new=f['new_target'].encode()\\n        assert expected.count(old)==1\\n        expected=expected.replace(old,new,1)\\n        changes.append(dict(f,record_index=i,line=r['line'],source_tag=r.get('source_tag'),args_order=r.get('args_order'),special=r.get('special'),inventory_baseline_target=inv['baseline']['target'],action='exact old_target -> new_target'))\\n    prepared[file]=(before,expected,rows)\\n# Every precondition has passed before either content file is written.\\nfor file,(_,expected,_) in prepared.items():\\n    (root/file).write_bytes(expected)\\nfor file,(before,expected,rows) in prepared.items():\\n    after=(root/file).read_bytes()\\n    assert after==expected\\n    reverse=after\\n    local=[x for x in changes if x['file']==file]\\n    for f in reversed(local):\\n        new=f['new_target'].encode();old=f['old_target'].encode()\\n        assert reverse.count(new)==1\\n        reverse=reverse.replace(new,old,1)\\n    assert reverse==before\\n    final=load(root/file,val/(file+'.after.jsonl'))\\n    assert len(final)==len(rows)\\n    allowed={x['record_index']:x for x in local}\\n    diffs=[]\\n    for i,(a,b) in enumerate(zip(rows,final)):\\n        if a==b: continue\\n        assert i in allowed\\n        f=allowed[i]\\n        assert b==dict(a,target=f['new_target'])\\n        diffs.append({'record_index':i,'finding_id':f['id'],'changed_fields':['target'],'all_other_fields_identical':True})\\n    assert len(diffs)==len(local)\\n    proof.append({'file':file,'before_sha256':sha(before),'after_sha256':sha(after),'reverse_restored_sha256':sha(reverse),'reverse_restores_exact_snapshot':True,'target_external_bytes_unchanged':True,'record_count':len(rows),'changed_records':diffs,'all_unchanged_records_identical':True,'source_source_tag_args_order_special_function_section_line_preserved':True})\\nchecks={}\\nfor name,cmd in [('strict_lint',['python3','-B','tools/i18n','lint','--strict']),('git_diff_check',['git','diff','--check'])]:\\n    r=subprocess.run(cmd,capture_output=True,text=True)\\n    (val/(name+'.stdout.txt')).write_text(r.stdout)\\n    (val/(name+'.stderr.txt')).write_text(r.stderr)\\n    checks[name]={'command':' '.join(cmd),'exit_code':r.returncode,'stdout':str((val/(name+'.stdout.txt')).relative_to(root)),'stderr':str((val/(name+'.stderr.txt')).relative_to(root))}\\n    print(name,r.returncode,r.stdout[-2500:],r.stderr[-500:])\\nsubprocess.run(['git','diff','--stat'],check=True,stdout=(val/'git-diff-stat.txt').open('w'))\\n# Snapshot-relative diff covers only this dispatch, despite preexisting worktree changes.\\nfor file in files:\\n    r=subprocess.run(['git','diff','--no-index','--',str((task/'before-fix-1'/file).relative_to(root)),file],capture_output=True,text=True)\\n    assert r.returncode==1\\n    (val/(file+'.diff')).write_text(r.stdout)\\nunchanged=all((root/p).is_file() and sha((root/p).read_bytes())==h for p,h in protected_hash.items())\\nassert unchanged\\nassert sha(index.read_bytes())==index_hash\\nreport={'task_id':'mechanics-rollback-20261003','dispatch':'fix-1','status':'completed' if all(c['exit_code']==0 for c in checks.values()) else 'validation_failed','scope':'Only FIX-1 confirmed inventory IDs 51,73,82,118; no game source reinterpretation','changes':changes,'proof':proof,'validation':dict(doctor={'command':'python3 -B tools/i18n doctor','exit_code':0,'runtime':'Lua 5.1 / LuaJIT 2.1.0-beta3','lpeg':'0.10.2-1 (0.10)','warnings':'Existing unpinned DLC source warnings'},**checks),'protected_files':{'count':len(protected_hash),'all_bytes_unchanged':unchanged,'sha256_before':protected_hash,'git_index_unchanged':True,'previous_executor_report_unchanged':True},'plan_deviations':[],'unresolved_issues':[],'additional_writes':['.ai/task/mechanics-rollback-20261003/fix-1-validation/','.artifacts/i18n/mechanics-rollback-20261003/fix-1-report.json','/tmp/mechanics-rollback-fix-1.py','strict lint default derived .artifacts/i18n/runs/']}\\nout=root/fix['extra_report']\\nout.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\\\\n')\\nprint('Report:',str(out.relative_to(root)))\\nprint('Proof: 4 target-only changes; reverse bytes and all LuaJIT non-target fields match; protected files and git index unchanged.')\\nassert report['status']=='completed'\\nPY\\npython3 -B /tmp/mechanics-rollback-fix-1.py\",\"yield_time_ms\":1000,\"max_output_tokens\":2500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10006-4c1b-7f43-b655-a3d4320460a5",
+        "create_time": 1791001815.648019
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_06c2fba718101e44016ac0851fe80487d1b02cb12e3bacdd4c",
+      "status": "completed",
+      "call_id": "call_TRpweK2ks8JTkR06GNtwpipo",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:1142,chars:\"\",yield_time_ms:1000,max_output_tokens:3000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10006-4c1b-7f43-b655-a3d4320460a5",
+        "create_time": 1791001885.768482
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_06c2fba718101e44016ac085265de087d1abdd39c1a290ce52",
+      "status": "completed",
+      "call_id": "call_ae6LfxOWT0BKd3T1Vh2Hij3Y",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/task/mechanics-rollback-20261003/fix-1-validation/mod-tome.lua.diff .ai/task/mechanics-rollback-20261003/fix-1-validation/tome-orcs.lua.diff; python3 - <<'PY'\\nimport json\\np='.artifacts/i18n/mechanics-rollback-20261003/fix-1-report.json'\\nr=json.load(open(p))\\nprint('status:',r['status'])\\nprint('changed:',[(x['id'],x['file'],x['line']) for x in r['changes']])\\nprint('LuaJIT loaded records:',[(x['file'],x['record_count']) for x in r['proof']])\\nprint('protected files:',r['protected_files']['count'],'unchanged:',r['protected_files']['all_bytes_unchanged'])\\nPY\",\"max_output_tokens\":2500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10006-4c1b-7f43-b655-a3d4320460a5",
+        "create_time": 1791001891.369849
+      }
+    }
+  ]
+}

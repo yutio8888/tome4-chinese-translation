@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "target_file_sha256": {
+    "engine.lua": "2f1786b43481c15edb2e741d455e94b84f0948ef633b755688036e208d87ade9",
+    "mod-tome.lua": "73c63f0b2525ea88b9f64f611cb0ea6b3f8f09d3b7c3d66487d8e9aa93f0ab0c",
+    "tome-ashes-urhrok.lua": "5311665ddfb27296637a1a8d675dd2df6cfd3646e846dc5074382f31e377444d",
+    "tome-cults.lua": "42b9a5f00d0f3e42fb31c33c9fd8f6136b1e3a112c76799d022ec1aa901b79a0",
+    "tome-orcs.lua": "8f070729fd3869dec08f5a1d29282f4c51d791c7f952617978c9e5eecf70eda1"
+  },
+  "checks": [
+    {
+      "name": "lint",
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "lint",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "stdout": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261003T045742.861020Z-15-lint/lint.json\n",
+      "stderr": ""
+    },
+    {
+      "name": "runtime-collisions",
+      "command": [
+        "python3",
+        "-B",
+        "tools/scan_runtime_collisions.py",
+        "--out-dir",
+        ".artifacts/i18n/mechanics-rollback-20261003/runtime-final"
+      ],
+      "exit_code": 0,
+      "stdout": "runtime collisions: 0\n  json: .artifacts/i18n/mechanics-rollback-20261003/runtime-final/runtime-collisions.json\n  md:   .artifacts/i18n/mechanics-rollback-20261003/runtime-final/runtime-collisions.md\n",
+      "stderr": ""
+    },
+    {
+      "name": "runtime-classification",
+      "command": [
+        "python3",
+        "-B",
+        "tools/classify_runtime_keys.py"
+      ],
+      "exit_code": 0,
+      "stdout": "duplicate keys: 1711\n桶 A 不同 section: 1711\n桶 B 同一 section: 0\n桶 C 混合 section: 0\n桶 A tag 分布: {'_t': 698, 'entity name': 353, 'entity subtype': 114, 'entity keyword': 103, 'entity type': 71, 'effect subtype': 68, 'tformat': 65, 'logPlayer': 64, 'logSeen': 50, 'talent name': 29, 'entity short_name': 23, 'log': 15, 'birth facial category': 13, 'talent category': 10, 'logCombat': 9, 'entity on slot': 7, 'entity combat talented': 6, 'saySimple': 6, 'newLore category': 2, 'say': 2, 'talent type': 2, 'dialog_portal': 1}\n桶 A 目录模式分布: {'data/general': 1836, 'data/zones': 985, 'data/talents': 473, 'data/birth': 460, 'data/timed_effects': 297, 'data/chats': 151, 'modules/boot': 76, 'data/ingredients.lua': 73, 'engine/dialogs': 67, 'class/uiset': 49, 'data/tinkers': 36, 'dialogs/debug': 34, 'dialogs/shimmer': 34, 'overload/mod': 33, 'data/maps': 29}\nreport written: /workspace/tome4-chinese-translation/.artifacts/i18n/runtime-key-classification\n",
+      "stderr": ""
+    },
+    {
+      "name": "addon",
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "build",
+        "--profile",
+        "addon",
+        "--component",
+        "tome",
+        "--require-complete"
+      ],
+      "exit_code": 0,
+      "stdout": "OK  tome             delta=6672 inherited=12456 override=6551 new=121\nAddon artifact: complete, 6672 runtime keys, 2561ea3f830becbb\nOutput: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261003T045744.939728Z-54-build-addon/addon/data/locales/zh_hans.lua\n",
+      "stderr": ""
+    },
+    {
+      "name": "dlc-consumer",
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "publish",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"applied\": false,\n  \"bump_addon_version\": false,\n  \"commit\": false,\n  \"delta_runtime_keys\": 6672,\n  \"dlc_entries\": 5461,\n  \"dlc_entries_by_component\": {\n    \"ashes-urhrok\": 743,\n    \"cults\": 1569,\n    \"orcs\": 3149\n  },\n  \"locale_file\": \"/workspace/tome4-chn-mod/data/locales/zh_hans.lua\",\n  \"new_addon_version\": null,\n  \"new_entries\": 12133,\n  \"new_entries_overlay\": 121,\n  \"new_sha256\": \"50e4b74f7db0dcb3de58e2a4312badb183a72e658a87031c091e2da1972c5d8b\",\n  \"note\": \"dry run: no file was written; re-run with --apply to publish\",\n  \"ok\": true,\n  \"old_addon_version\": null,\n  \"old_entries\": 12133,\n  \"old_sha256\": \"a8f4e019f60ca205ed762056ad651da16605ae8a7d3a8961a993ad6b02369779\",\n  \"override_entries\": 6551,\n  \"release_repository\": \"/workspace/tome4-chn-mod\",\n  \"verification\": {\n    \"expected_runtime_keys\": 19135,\n    \"mismatched\": 0,\n    \"missing\": 0,\n    \"patch_runtime_keys\": 6672,\n    \"redundant\": 0,\n    \"unexpected\": 0\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "scope": "Bounded user-authorized rollback: no shared tooling or formal production changes. Canonical strict lint, runtime-key checks, core addon and real DLC dry-run consumer; external writes not authorized or performed."
+}

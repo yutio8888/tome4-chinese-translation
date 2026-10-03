@@ -730,7 +730,7 @@ t("%s resists the grasp!", "%s 抵抗了抓取！", "logSeen")
 t([[Send out a claw of fire, striking in a line doing %0.2f damage leading to a target. The target is caught in the claw's grasp, taking %d%% weapon damage as fire damage and becoming unable to move for %d turns, while also taking %0.2f damage per turn.
 		Starting from talent level 4, it will also silence.
 		The beam damage and damage over time will increase with your Spellpower.]], [[对目标伸出一只火炎之爪，对直线上的生物造成 %0.2f 点火焰伤害。目标被火炎之爪抓住后，受到 %d%% 火焰武器伤害，并在 %d 回合不能移动，同时每回合受到 %0.2f 点火焰伤害。
-		有效技能等级超过 4 级时，目标同时会被沉默。
+		技能等级 4 级以后，目标同时会被沉默。
 		射线伤害和持续伤害受法术强度加成。]], "tformat")
 t("Reckless Strike", "舍身一击", "talent name")
 t("#CRIMSON#(%d reckless backlash)#LAST#", "#CRIMSON#(%d 舍身一击反伤)#LAST#", "tformat")
@@ -780,7 +780,7 @@ section "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua"
 
 t("Flame Bolts", "近战火球", "talent name")
 t([[Randomly (%d%% chance) hurls up to %d flame bolts dealing %0.2f fire damage to foes in sight when you hit in melee.
-		The damage will increase with your Spellpower.]], [[当你近战攻击命中时，有 %d%% 几率发射火焰飞弹（显示数量为 %d 个，实际向范围内每个敌人各发射一个），造成 %0.2f 点火焰伤害。
+		The damage will increase with your Spellpower.]], [[当你近战攻击命中时，有 %d%% 几率向视野内的敌人发射至多 %d 个火焰飞弹，造成 %0.2f 点火焰伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Fiery Cleansing", "火焰净化", "talent name")
 t("%s is cured!", "%s 被治愈！", "logSeen")
@@ -992,20 +992,7 @@ t([[Strike a blow with your weapon for %d%% blight damage.
 		If you already have a seed of the same time in your inventory or equipment it will instead increase its level if the host was of higher level than the seed and the demon inside will regenerate %d%% health and resurrect if it was dead.
 
 		Higher talent levels allow for more powerful demon types.
-		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], [[用武器打击目标，造成 %d%% 枯萎伤害。
-		如果攻击命中，一颗恶魔种子会尝试在敌人体内扎根；随后你用盾牌猛击目标，造成 %d%% 伤害并使其眩晕 %d 回合。
-]] .. "\t\t\n" .. [[
-		种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。
-		种子扎根的几率取决于生物的级别：
-		%s普通生物#LAST#:  5%%
-		%s精英生物#LAST#:  20%%
-		%s稀有#LAST#或%s史诗生物#LAST#:  50%%
-		%sBoss#LAST#:  100%%
-		当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。
-		如果你的背包或装备上已经有了同种恶魔、同一装备槽位的种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复生命值（治疗量显示为 %d%%， 实际按该数值作为生命点数计算），若已死亡则会复活。
-
-		技能等级越高，可获得的恶魔种类越强大。
-		如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。]], "tformat")
+		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], "用武器打击目标，造成 %d%% 枯萎伤害。\n\t\t如果攻击命中，一颗恶魔种子会尝试在敌人体内扎根；随后你用盾牌猛击目标，造成 %d%% 伤害并使其眩晕 %d 回合。\n\t\t\n\t\t种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。\n\t\t种子扎根的几率取决于生物的级别：\n\t\t%s普通生物#LAST#:  5%%\n\t\t%s精英生物#LAST#:  20%%\n\t\t%s稀有#LAST#或%s史诗生物#LAST#:  50%%\n\t\t%sBoss#LAST#:  100%%\n\t\t当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。\n\t\t如果你的背包或装备上已经有了同类的恶魔种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d%% 生命值，若已死亡则会复活。\n\n\t\t技能等级越高，可获得的恶魔种类越强大。\n\t\t如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。", "tformat")
 t("Bind Demon", "恶魔结合", "talent name")
 t("Summon demon", "召唤恶魔", "_t")
 t("Which seed to use:", "使用哪个恶魔种子：", "_t")
@@ -1237,7 +1224,7 @@ t([[Demon horns temporarily grow on your shield as you bash a foe with it for %d
 		Any time you damage this foe in melee while it bleeds you get healed for %d (this can only happen once per turn).
 		The healing power increases with your spellpower.]], [[你的盾牌上暂时长出恶魔之角，你用它猛击敌人，造成 %d%% 伤害。
 		如果攻击命中，目标将被恶魔之角刺穿，在 5 回合内以暗影伤害的形式流失黑血，总量相当于所造成伤害的 50%%。
-		目标流血期间，每当你以近战对其造成伤害，你就会回复 %d 生命。
+		目标流血期间，每当你以近战对其造成伤害，你就会回复 %d 生命（每回合至多 1 次）。
 		治疗效果受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -1325,8 +1312,8 @@ t([[The power of the Fearscape infuses your weapon: Your melee attacks will deal
 		Additionally, every time you attack, there is a %d%% chance of releasing a burst of powerful fire that will deal %0.2f fire damage to all enemies in radius %d over %d turns.
 		If this talent is not on cooldown, the burst of fire will instead be radius %d, and stun all targets in addition to burning them.
 		For the purposes of applying the stun, you have %d bonus spellpower.
-		The damage will increase with your Spellpower.]], [[恶魔空间的力量注入你的武器：你的近战攻击命中时会在 3 回合内造成总计 %0.2f 点火焰燃烧伤害。
-		另外，每次近战命中时有 %d%% 几率释放强力火焰爆发，造成总计 %0.2f 点火焰燃烧伤害；半径 %d 内的所有敌人都会受到此伤害，持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[恶魔空间的力量注入你的武器：你的近战攻击会在 3 回合内造成总计 %0.2f 点火焰燃烧伤害。
+		另外，每次攻击时有 %d%% 几率释放强力火焰爆发，造成总计 %0.2f 点火焰燃烧伤害；半径 %d 内的所有敌人都会受到此伤害，持续 %d 回合。
 		若该技能不在冷却中，火焰爆发将改为半径 %d， 并使范围内所有敌对目标同时燃烧和震慑。
 		进行震慑判定时，你获得 %d 点额外法术强度。
 		伤害受法术强度加成。]], "tformat")
@@ -1367,7 +1354,7 @@ t([[Launch yourself toward a target. If the target is reached you get a free att
 		至少要从 2 码外开始冲锋。]], "tformat")
 t("Voracious Blade", "饕餮之刃", "talent name")
 t([[Your blade drinks in death. Whenever you score a kill with this talent off cooldown, your next %d melee attacks within 6 turns will always critically strike, and you gain %d%% critical multiplier for the duration.
-		Additionally, you gain an extra %d vim per kill.]], [[你的利刃渴饮死亡。该技能未处于冷却时，每当你完成击杀，接下来 6 回合内的 %d 次命中的近战攻击获得 100 个百分点的物理暴击率加成（仍受目标的暴击率削减影响），并在此期间使暴击倍率增加 %d%%。
+		Additionally, you gain an extra %d vim per kill.]], [[你的利刃渴饮死亡。该技能未处于冷却时，每当你完成击杀，接下来 6 回合内的 %d 次近战攻击必定暴击，并在此期间获得 %d%% 暴击倍率。
 		此外，每次击杀会额外获得 %d 点活力。]], "tformat")
 t("Destroyer", "毁灭者", "talent name")
 t([[Your body overflows with the power of the Fearscape, turning you into a powerful demon for %d turns. This increases your stamina regen and physical power by %d, and your disarm and stun immunity by %d%%.
@@ -1382,7 +1369,7 @@ t([[Your body overflows with the power of the Fearscape, turning you into a powe
 		-Maw of Urh'rok: Increases cone width by %d degrees.]], [[恶魔空间的力量充溢了你的身体，将你转换成一个强大的恶魔，持续 %d 回合。变身期间，体力恢复和物理强度增加 %d， 缴械和震慑免疫率提高 %d%%。
 		物理强度、体力恢复和状态抗性加值受法术强度加成。
 		变身期间，其他技能也受到强化：
-		-汲魂痛击：冷却缩减的说明值为 %d 回合，实际减值按本技能的原始等级计算：先将等级限制在 1—5，再除以 2 并向上取整。
+		-汲魂痛击：冷却时间减少 %d。
 		-舍身一击：增加 %d%% 全体抗性穿透，持续 %d 回合。
 		-歼灭挥斩：增加半径 %d。
 		-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。
@@ -1856,14 +1843,14 @@ Vim is the life force of all beings. It does not regenerate, and can only be sto
 
 你打败了无数恶魔，了解了恶魔精华如何运作，也见识了如何束缚恶魔为己所用。现在创建新角色时，你可以选择 #LIGHT_GREEN#恶魔使者#WHITE# 职业。
 
-恶魔使者是运用恶魔之力与盾牌战技的近战斗士。
+腐化者是使用魔法的远程施法者。
 职业特点：#YELLOW#
 - 向敌人植入恶魔种子。
 - 将恶魔种子附着在装备上，以强化装备。
 - 召唤并控制恶魔为你效力。
 - 将腐化魔法与盾牌战技结合，保护自己并毁灭敌人。#WHITE#
 
-恶魔使者使用“活力值”为特殊能力提供能量。
+腐化者使用“活力值”为特殊能力提供能量。
 活力是所有生物的生命力量。它不会自行恢复，只能从敌人身上窃取。
 ]], "_t")
 
