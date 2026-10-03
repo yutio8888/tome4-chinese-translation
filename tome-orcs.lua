@@ -5548,12 +5548,12 @@ t([[Place an electrically charged sentry device at a location.
 		The bolts do %0.2f lightning damage.
 		The sentry has %d life and lasts 10 turns.
 		Damage, life, resists, and armor scale with your Steampower.
-		Damage and penetration are inherited from the creator.]], [[在指定位置放置一个带电的哨兵装置。
-		它每回合会向附近的敌人发射一道电流。
-		电流造成 %0.2f 点闪电伤害。
-		哨兵拥有 %d 点生命，持续 10 回合。
-		伤害、生命、抗性和护甲随你的蒸汽强度提高。
-		伤害和抗性穿透继承自创造者。]], "tformat")
+		Damage and penetration are inherited from the creator.]], [[在选定位置附近的可用空位放置一个带电的哨兵装置。
+		它会尝试向附近的敌人发射电流。
+		此处显示 %0.2f 点闪电伤害；实际电流伤害由哨兵自身的蒸汽强度与闪电箭技能等级计算，并非此显示值。
+		哨兵的基础生命为 %d 点，召唤时可受蒸汽暴击加成，持续 10 回合。
+		生命、抗性和护甲随你的蒸汽强度提高；电流伤害随哨兵自身的蒸汽强度提高。
+		伤害加成和抗性穿透继承自创造者。]], "tformat")
 t("Explosive Shell", "爆炸弹", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
@@ -5573,8 +5573,8 @@ t([[You fire a special explosive shot with your steamgun(s) at a spot within ran
 		When each shot reaches its target, it does normal steamgun damage and releases %d explosive charges in a radius of 2.
 		These charges will shortly explode for %0.2f fire damage in a radius of 1.
 		This talent does not use ammo as it is the ammo.]], [[你用蒸汽枪向射程内的一处地点发射特殊爆炸弹。
-		每发子弹命中目标时都会造成正常蒸汽枪伤害，并在半径 2 格内释放 %d 枚爆炸装药。
-		这些装药很快就会爆炸，对半径 1 格内的目标造成 %0.2f 点火焰伤害。
+		每发子弹命中时都会造成正常蒸汽枪伤害，并在落点半径 3 格内的可通行位置放置至多 %d 枚爆炸装药。
+		这些装药很快就会爆炸，对各自半径 1 格内的目标造成 %0.2f 点火焰伤害，可受蒸汽暴击加成。
 		这个技能本身就是弹药，因此不消耗弹药。]], "tformat")
 t("Solid Shell", "固实弹", "talent name")
 t("%s is knocked back!", "%s 被击退！", "logSeen")
@@ -5665,10 +5665,10 @@ t([[For %d turns, you lay down Grasping Moss where you walk or stand.
 		The moss is placed automatically every step and lasts %d turns.
 		Each turn the moss deals %0.2f nature damage to each foe standing on it.
 		This moss is very thick and sticky causing all foes passing through it have their movement speed reduced by %d%% and have a %d%% chance to be pinned to the ground for 4 turns.
-		The damage scales with your Steampower.]], [[在 %d 回合内，你会在走过或停留的位置铺下缠绕苔藓。
-		每走一步都会自动铺下苔藓，持续 %d 回合。
-		苔藓每回合对站在其上的每个敌人造成 %0.2f 自然伤害。
-		苔藓极其浓密黏稠，所有穿过它的敌人移动速度降低 %d%%， 并有 %d%% 几率被定身 4 回合。
+		The damage scales with your Steampower.]], [[在 %d 回合内，你会在成功的非强制移动后，于落脚位置铺下缠绕苔藓；原地停留不会铺下新苔藓。
+		每次铺下的苔藓持续 %d 回合。
+		苔藓每回合对站在其上的每个敌人造成 %0.2f 自然伤害，可受施放时的蒸汽暴击加成。
+		苔藓极其浓密黏稠，使站在其上的敌人移动速度降低 %d%%， 持续 4 回合，并有 %d%% 几率尝试将其定身 4 回合。
 		伤害随蒸汽强度提升。]], "tformat")
 t("Arcane Dynamo", "奥术发电机", "talent name")
 t([[Allows the use of Technomancy spells.
@@ -5676,8 +5676,8 @@ t([[Allows the use of Technomancy spells.
 		Grants Spellpower based on current steam level (currently %d; %d%% steam filled).
 		Outside of combat, you relax and let your steam reserve slowly wither away.
 		#{italic}#Metal Arcane Power!#{normal}#]], [[允许使用科技法术，
-		获得一个魔法的蒸汽储备，每消耗10点法力值获得 %d 蒸汽。
-		根据当前蒸汽等级获得法术强度（目前 %d； 充满了 %d%% 蒸汽）
+		获得一个魔法蒸汽储备：施放声明了法力费用、未声明蒸汽费用的主动法术后，按该技能未经费用修正的法力费用每10点获得 %d 蒸汽，而非按实际扣除量计算。
+		根据当前蒸汽值调整法术强度（目前 %d； 蒸汽储量 %d%%， 以100点为基准）；蒸汽低于25点时，此加成为负。
 		在战斗外，你放松了控制，蒸汽储备会逐渐消退。
 		#{italic}#金属奥术力量！#{normal}#]], "tformat")
 
@@ -5754,18 +5754,18 @@ t([[You "gently" slam your saws into the wounds of a creature, dealing %d%% weap
 		All bleeding wounds durations are increased by %d turns and the damage by %d%% (this may be done only once per bleeding effect).
 		When this happens a gush of blood is projected in a narrow cone of radius 4, dealing %0.2f physical damage to all creatures.
 		The power and damage improves with your Steampower.
-		#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#]], [[你“轻柔”地将链锯猛砸进目标的伤口，造成 %d%% 武器伤害并加深伤口。
-		所有流血伤口持续时间增加 %d 回合，伤害增加 %d%% （每项流血最多触发一次）。
-		效果触发时，血流将喷射而出，对半径 4 的窄锥形范围内所有生物造成 %0.2f 物理伤害。
-		效果强度和伤害受蒸汽强度加成。
+		#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#]], [[你“轻柔”地将链锯猛砸进目标的伤口，造成 %d%% 武器伤害。
+		若攻击命中，且目标在攻击前后均有普通流血效果，其持续时间增加 %d 回合；此处 %d%% 为界面显示的伤害增幅，并非实际增幅。实际每回合流血伤害乘以本技能血流喷射的基础伤害数值除以100所得的系数，可能降低（仅对普通流血生效，每个效果最多触发一次）。
+		效果触发时，血流将喷射而出，对半径 4 的窄锥形范围内生物造成 %0.2f 物理伤害，可受蒸汽暴击加成；上述系数使用的是未经伤害加成和暴击修正的基础数值。
+		流血伤害系数和喷射伤害受蒸汽强度影响。
 		#{italic}#科技的奇迹，如今为真正的屠戮效力！#{normal}#]], "tformat")
 t("Spinal Break", "断脊", "talent name")
 t([[You try to sever the spine of your foe, reducing its global speed by %d%% for 4 turns and dealing %d%% weapon damage.
 		The power of the blow also removes up to %d physical effects.
 		If your talent level is at least 3 %d physical or magical sustains are also removed.
-		#{italic}#Break them, grind them, mow them down!#{normal}#]], [[你尝试撕裂敌人的脊柱，使其全局速度降低 %d%%， 持续 4 回合，并造成 %d%% 武器伤害。
-		这一击的力量还会移除至多 %d 项物理效果。
-		若技能等级至少为 3，还会移除 %d 项物理或魔法维持技能。
+		#{italic}#Break them, grind them, mow them down!#{normal}#]], [[你尝试撕裂敌人的脊柱，命中时使其全局速度降低 %d%%， 持续 5 回合，并造成 %d%% 武器伤害。
+		命中时还会尝试移除至多 %d 项物理增益效果。
+		若技能等级至少为 3，还会进行 %d 次随机尝试，移除非精神类维持技能；同一技能可能被重复选中。
 		#{italic}#切碎他们，折磨他们，收割他们！#{normal}#]], "tformat")
 t("Goresplosion", "爆尸", "talent name")
 t([[When you kill a foe you place small explosives with shrapnels inside its body, making it explode in radius %d.
@@ -5933,15 +5933,15 @@ t("Upgrade", "炮台升级", "talent name")
 t([[Upgrade the target turret, granting it %d%% increased maximum life and enhanced abilities based on type:
 		Steamgun: Gains a second steamgun dealing %d%% damage, and every 3 turns will fire a rocket dealing %d%% steamgun damage as fire in radius 2.
 		Flame: Increases damage by %d%%, range by %d, and every 3 turns will project a vortex of superheated air that drags targets within range %d towards the turret as well as dealing normal flamethrower damage.
-		Medic: Increases healing on affected targets by %d%%, and has a %d%% chance to cleanse a negative effect each turn.]], [[升级目标炮台，使其最大生命值增加 %d%%， 并根据其类型，获得以下的特殊能力：
-		蒸汽枪炮台：获得第二把造成 %d%% 伤害的蒸汽枪，每 3 回合会发射一枚火箭，在 2 码半径内造成 %d%% 火焰蒸汽枪伤害。
-		火焰炮台：增加 %d%% 伤害和 %d 射程，每过 3 回合，会在 %d 码范围内喷出过热空气的漩涡，将所有敌人拉向炮台，并造成标准喷火伤害。
-		医疗炮台：增加对目标的治疗量 %d%%， 且每回合有 %d%% 几率清除目标身上一个负面效果。]], "tformat")
+		Medic: Increases healing on affected targets by %d%%, and has a %d%% chance to cleanse a negative effect each turn.]], [[升级你召唤的目标炮台，使其最大生命值增加 %d%%， 并根据其类型获得以下特殊能力：
+		蒸汽枪炮台：获得第二把造成 %d%% 伤害的蒸汽枪，有敌人可供攻击且火箭冷却完毕时会发射一枚火箭（冷却 3 回合），在半径 2 格内造成 %d%% 蒸汽枪伤害，转为火焰类型。
+		火焰炮台：伤害增加 %d%%， 火焰喷射器射程增幅显示为 %d； 下述范围参数的一半才是实际增幅。漩涡的范围参数为 %d， 实际半径为3加该参数的一半；有敌人可供攻击且漩涡冷却完毕时会喷出过热空气漩涡（冷却 3 回合），造成与火焰喷射器相同的伤害，并尝试将范围内可被传送的目标强制移动到炮台半径 5 格内搜索到的可用空位，不保证更靠近炮台。
+		医疗炮台：使受治疗雾影响的目标治疗系数增加 %d%%， 且每回合有 %d%% 几率清除目标身上一个负面效果。]], "tformat")
 t("Hunker Down", "炮台守卫", "talent name")
 t("guardian turret", "守卫炮台", "_t")
 t("An advanced turret equipped with dual steamguns.", "一个装备双蒸汽枪的高级炮台。", "_t")
 t([[Deploy a defensive emplacement around you, summoning 2 guardian turrets in adjacent tiles for %d turns. Guardian turrets redirect %d%% of all damage taken by other adjacent allies (other than fellow guardian turrets) to themselves, and each is armed with a powerful turret capable of firing piercing bullets.
-			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]], [[进入守备模式，在身边召唤 2 个守卫炮台，持续 %d 回合。守卫炮台会将身边盟友（不包括其他守卫炮台）所受到所有伤害的 %d%% 转移到自己身上，并且它们装备有能发射贯穿子弹的强力炮塔。
+			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]], [[进入守备模式，在你半径 5 格内的可用空位召唤至多 2 个守卫炮台，持续 %d 回合。各炮台每回合为身边盟友提供持续 2 回合的保护，将受保护者所受伤害的 %d%% 转移到提供保护的炮台身上（仅排除该炮台自身，其他守卫炮台也可被保护）；它们装备有能发射贯穿子弹的强力炮塔。
 			守卫炮台获得 %0.2f 级蒸汽枪掌握，等级取决于你的炮台守卫技能等级。]], "tformat")
 t("Gauss Cannon", "电磁炮", "talent name")
 t("Fire your twin-linked gauss cannons, dealing 100%% steamgun damage as lightning in a piercing beam that bypasses all armor. This does not harm friendly targets.", "发射你的双联电磁炮，在一条贯穿直线上造成 100%% 闪电蒸汽枪伤害，无视护甲。这一效果不会伤害友好目标。", "tformat")
@@ -6011,7 +6011,7 @@ t("Arcane Amplification Drone", "奥术增幅装置", "talent name")
 t("Have gained the #{italic}#Tales of the Spellblaze#{normal}# achievement with this or any previous character for the current difficulty & permadeath settings.", "当前或之前的角色在当前难度与模式下解锁过 #{italic}#大灾变的故事#{normal}# 这个成就。", "_t")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("arcane amplification drone", "奥术增幅装置", "_t")
-t("Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.", "你对其造成的法术伤害会化为波纹，对半径 4 内的所有目标造成等同于该伤害 130% 的奥术伤害。", "_t")
+t("Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.", "你对其造成的正数法术伤害会化为波纹，对半径 4 内除你和无人机自身以外的生物投射等同于该伤害 130% 的奥术伤害。", "_t")
 t([[You create an Arcane Amplification Drone at the selected location for 3 turns.
 		When you cast a spell that damages the drone it will ripple the damage as 130%% arcane damage of the initial hit in radius 4.]], [[你在目标地点放置一个持续 3 回合的奥术增幅装置。
 		每当你释放的法术对其造成伤害时，增幅装置把伤害转化为波纹对半径 4 内的所有目标造成等同于该伤害 130%% 的奥术伤害。]], "tformat")
@@ -6054,7 +6054,7 @@ t([[Technomancers are Archmages that dabble in steam technology to enhance their
 		- 法术/科技法术：玄机系 （未解锁）- 使用时间和奥术
 		- 你可以免费解锁三个科技法术系的其中之一。
 
-		奥术发电机装入长袍后，每当你消耗法力值时都会产生蒸汽，并根据当前蒸汽值提升法术强度。
+		奥术发电机装入长袍后，施放声明了法力费用、未声明蒸汽费用的主动法术会产生蒸汽，数量按技能未经费用修正的法力费用计算，而非按实际扣除量计算。它还会根据当前蒸汽值调整法术强度；蒸汽低于25点时，此加成为负。
 
 		#{bold}#一旦使用此进阶，你就需要制作奥术发电机并装入长袍，才能获得科技法师的全部能力。#{normal}#]], "tformat")
 

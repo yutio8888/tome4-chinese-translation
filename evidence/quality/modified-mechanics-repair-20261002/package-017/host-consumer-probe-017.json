@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "source_evidence": [
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/talents/steam/other.lua",
+      "fixed_commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+      "start": 1912,
+      "end": 1921,
+      "excerpt": "\tgetSpellpower = function(self, t)\n\t\tlocal p = self:getSteam() / 100 -- Not using max_steam to be able to go over 100% bonus\n\t\treturn p * 80 - 20\n\tend,\n\tcallbackOnTalentPost = function(self, t, ab)\n\t\tif ab.is_spell and ab.mana and not ab.steam and ab.mode == \"activated\" then\n\t\t\tlocal m = util.getval(ab.mana, self, ab)\n\t\t\tif tonumber(m) then self:incSteam(m / 10 * (self:attr(\"arcane_dynamo\") or 1)) end\n\t\tend\n\tend,"
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "fixed_commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "start": 841,
+      "end": 844,
+      "excerpt": "\tcallbackOnMove = function(self, eff, moved, force, ox, oy)\n\t\tif not moved or force or (ox == self.x and oy == self.y) then return end\n\t\tself:callTalent(self.T_TINKER_MOSS_TREAD, nil, self.x, self.y, eff.dam)\n\tend,"
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/talents/steam/sawmaiming.lua",
+      "fixed_commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "eb7b701da0502dfd685dff66912bd41839dca9fb9b0b7276c4507b186125f169",
+      "start": 64,
+      "end": 66,
+      "excerpt": "\tgetDamageInc = function(self, t) return self:combatTalentSteamDamage(t, 50, 250) end,\n\tgetDuration = function(self, t) return math.floor(self:combatTalentLimit(t, 4, 1, 2)) end,\n\tgetDamage = function(self, t) return self:combatTalentSteamDamage(t, 50, 230) end,"
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/talents/steam/sawmaiming.lua",
+      "fixed_commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "eb7b701da0502dfd685dff66912bd41839dca9fb9b0b7276c4507b186125f169",
+      "start": 68,
+      "end": 91,
+      "excerpt": "\taction = function(self, t)\n\t\tlocal weapon = self:hasWeaponType(\"steamsaw\")\n\t\tif not weapon then return nil end\n\t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t)}\n\t\tlocal x, y, target = self:getTarget(tg)\n\t\tif not x or not y or not target then return nil end\n\t\tif core.fov.distance(self.x, self.y, x, y) > 1 then return nil end\n\t\tlocal was_cut = target:hasEffect(target.EFF_CUT)\n\n\t\tlocal hit = self:attackTarget(target, nil, self:combatTalentWeaponDamage(t, 0.3, 1.1), true)\n\n\t\tlocal cut = target:hasEffect(target.EFF_CUT)\n\t\tif hit and was_cut and cut and not cut.bloodstreamed then\n\t\t\tcut.bloodstreamed = true\n\t\t\tcut.dur = cut.dur + t.getDuration(self, t)\n\t\t\tcut.power = cut.power * t.getDamage(self, t) / 100\n\n\t\t\tlocal tg = {type=\"cone\", range=0, talent=t, radius=4, cone_angle = 25}\n\t\t\tself:project(tg, target.x, target.y, DamageType.PHYSICAL, self:steamCrit(t.getDamage(self, t)))\n\t\t\tgame.level.map:particleEmitter(self.x, self.y, tg.radius, \"breath_blood\", {radius=tg.radius, tx=target.x-self.x, ty=target.y-self.y, spread=20})\n\t\tend\n\n\t\treturn true\n\tend,"
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/talents/steam/turrets.lua",
+      "fixed_commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "14dbc643e66d9916ea2bdf257053c3e0870addf2ebfb3bc58bb593258dcd5e1c",
+      "start": 493,
+      "end": 493,
+      "excerpt": "\tradius = function(self, t) if self:hasEffect(self.EFF_UPGRADE) then local eff = self:hasEffect(self.EFF_UPGRADE) return 3 + eff.range/2 else return 3 end end,"
+    },
+    {
+      "component": "orcs",
+      "public_path": "tome-orcs/data/timed_effects/other.lua",
+      "fixed_commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "78dd56833a21a4e633506394ce3042f794a6818244259066d192e5246ed33c8c",
+      "start": 303,
+      "end": 313,
+      "excerpt": "\tcallbackOnHit = function(self, t, cb, src)\n\t\tlocal eff = self:hasEffect(self.EFF_GUARDIAN_SHIELD)\n\t\tlocal effsrc = eff.src\n\t\tif effsrc == self then return nil end\n\t\tlocal split = cb.value * eff.power/100\n\t\t\n\t\t\tgame:delayedLogDamage(src, effsrc, split, (\"#STEEL_BLUE#(%d shared)#LAST#\"):tformat(split), nil)\n\t\t\tcb.value = cb.value - split\n\t\t\teffsrc:takeHit(split, src)\n\t\treturn cb.value\n\tend,"
+    }
+  ],
+  "lua_source": "local dynamo={\n\tgetSpellpower = function(self, t)\n\t\tlocal p = self:getSteam() / 100 -- Not using max_steam to be able to go over 100% bonus\n\t\treturn p * 80 - 20\n\tend,\n\tcallbackOnTalentPost = function(self, t, ab)\n\t\tif ab.is_spell and ab.mana and not ab.steam and ab.mode == \"activated\" then\n\t\t\tlocal m = util.getval(ab.mana, self, ab)\n\t\t\tif tonumber(m) then self:incSteam(m / 10 * (self:attr(\"arcane_dynamo\") or 1)) end\n\t\tend\n\tend,\n}\nlocal moss={\n\tcallbackOnMove = function(self, eff, moved, force, ox, oy)\n\t\tif not moved or force or (ox == self.x and oy == self.y) then return end\n\t\tself:callTalent(self.T_TINKER_MOSS_TREAD, nil, self.x, self.y, eff.dam)\n\tend,\n}\nlocal bloodstream={\n\tgetDamageInc = function(self, t) return self:combatTalentSteamDamage(t, 50, 250) end,\n\tgetDuration = function(self, t) return math.floor(self:combatTalentLimit(t, 4, 1, 2)) end,\n\tgetDamage = function(self, t) return self:combatTalentSteamDamage(t, 50, 230) end,\n\taction = function(self, t)\n\t\tlocal weapon = self:hasWeaponType(\"steamsaw\")\n\t\tif not weapon then return nil end\n\t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t)}\n\t\tlocal x, y, target = self:getTarget(tg)\n\t\tif not x or not y or not target then return nil end\n\t\tif core.fov.distance(self.x, self.y, x, y) > 1 then return nil end\n\t\tlocal was_cut = target:hasEffect(target.EFF_CUT)\n\n\t\tlocal hit = self:attackTarget(target, nil, self:combatTalentWeaponDamage(t, 0.3, 1.1), true)\n\n\t\tlocal cut = target:hasEffect(target.EFF_CUT)\n\t\tif hit and was_cut and cut and not cut.bloodstreamed then\n\t\t\tcut.bloodstreamed = true\n\t\t\tcut.dur = cut.dur + t.getDuration(self, t)\n\t\t\tcut.power = cut.power * t.getDamage(self, t) / 100\n\n\t\t\tlocal tg = {type=\"cone\", range=0, talent=t, radius=4, cone_angle = 25}\n\t\t\tself:project(tg, target.x, target.y, DamageType.PHYSICAL, self:steamCrit(t.getDamage(self, t)))\n\t\t\tgame.level.map:particleEmitter(self.x, self.y, tg.radius, \"breath_blood\", {radius=tg.radius, tx=target.x-self.x, ty=target.y-self.y, spread=20})\n\t\tend\n\n\t\treturn true\n\tend,\n}\nlocal vortex={\n\tradius = function(self, t) if self:hasEffect(self.EFF_UPGRADE) then local eff = self:hasEffect(self.EFF_UPGRADE) return 3 + eff.range/2 else return 3 end end,\n}\nlocal guardian={\n\tcallbackOnHit = function(self, t, cb, src)\n\t\tlocal eff = self:hasEffect(self.EFF_GUARDIAN_SHIELD)\n\t\tlocal effsrc = eff.src\n\t\tif effsrc == self then return nil end\n\t\tlocal split = cb.value * eff.power/100\n\t\t\n\t\t\tgame:delayedLogDamage(src, effsrc, split, (\"#STEEL_BLUE#(%d shared)#LAST#\"):tformat(split), nil)\n\t\t\tcb.value = cb.value - split\n\t\t\teffsrc:takeHit(split, src)\n\t\treturn cb.value\n\tend,\n}\n\nutil={getval=function(x,...)if type(x)==\"function\" then return x(...)end return x end}\nlocal generated=0;local caster={steam=0,rate=3,getSteam=function(s)return s.steam end,attr=function(s)return s.rate end,incSteam=function(s,n)generated=generated+n end}\nlocal n=0\nfor _,steam in ipairs({0,10,24,25,26,100,150})do caster.steam=steam;assert(math.abs(dynamo.getSpellpower(caster,{})-(steam*.8-20))<1e-9);n=n+1 end\nlocal cases={\n {ab={is_spell=true,mana=20,mode='activated'},expect=6},\n {ab={is_spell=true,mana=function()return 30 end,mode='activated'},expect=9},\n {ab={is_spell=true,mana=0,mode='activated'},expect=0},\n {ab={is_spell=true,mana=20,steam=0,mode='activated'},expect=0},\n {ab={is_spell=true,mana=20,mode='sustained'},expect=0},\n {ab={is_spell=false,mana=20,mode='activated'},expect=0},\n {ab={is_spell=true,mode='activated'},expect=0}}\nfor _,c in ipairs(cases)do generated=0;dynamo.callbackOnTalentPost(caster,{},c.ab);assert(generated==c.expect);n=n+1 end\n-- Declared cost is consumed even if a separate hypothetical actual cost is zero.\ncaster.actual_mana_paid=0;generated=0;dynamo.callbackOnTalentPost(caster,{}, {is_spell=true,mana=20,mode='activated'});assert(generated==6)\nlocal placed=0;local walker={x=1,y=2,T_TINKER_MOSS_TREAD=1,callTalent=function()placed=placed+1 end}\nfor _,c in ipairs({{true,false,0,2,1},{false,false,0,2,0},{true,true,0,2,0},{true,false,1,2,0}})do placed=0;moss.callbackOnMove(walker,{dam=5},c[1],c[2],c[3],c[4]);assert(placed==c[5]);n=n+1 end\nlocal turret={EFF_UPGRADE=1,eff=nil,hasEffect=function(s)return s.eff end}\nassert(vortex.radius(turret,{})==3)\nfor _,range in ipairs({2,3,4,6})do turret.eff={range=range};assert(vortex.radius(turret,{})==3+range/2);n=n+1 end\ncore={fov={distance=function()return 1 end}};DamageType={PHYSICAL=1};game={level={map={particleEmitter=function()end}},delayedLogDamage=function()end};string.tformat=string.format\nlocal cut={dur=3,power=10};local victim={x=1,y=0,EFF_CUT=1,hasEffect=function()return cut end}\nlocal hit=true;local projections=0\nlocal attacker={x=0,y=0,hasWeaponType=function()return {}end,getTalentRange=function()return 1 end,getTarget=function()return 1,0,victim end,attackTarget=function()return hit end,combatTalentWeaponDamage=function()return .8 end,combatTalentSteamDamage=function(s,t,lo,hi)assert(lo==50);return hi==230 and 80 or 120 end,combatTalentLimit=function()return 2 end,steamCrit=function(s,x)return x end,project=function(s,tg,x,y,dt,damage)assert(damage==80);projections=projections+1 end}\nassert(bloodstream.getDamageInc(attacker,bloodstream)==120 and bloodstream.getDamage(attacker,bloodstream)==80)\nbloodstream.action(attacker,bloodstream);assert(cut.dur==5 and cut.power==8 and cut.bloodstreamed and projections==1)\nbloodstream.action(attacker,bloodstream);assert(cut.dur==5 and cut.power==8 and projections==1)\ncut={dur=3,power=10};hit=false;bloodstream.action(attacker,bloodstream);assert(cut.dur==3 and cut.power==10 and not cut.bloodstreamed)\nlocal split=0;local guard={guardian_turret=true,takeHit=function(s,x)split=split+x end}\nlocal guarded={guardian_turret=true,EFF_GUARDIAN_SHIELD=1,hasEffect=function()return {src=guard,power=30}end}\nlocal cb={value=100};assert(guardian.callbackOnHit(guarded,nil,cb,{})==70 and cb.value==70 and split==30)\nguard.EFF_GUARDIAN_SHIELD=1;guard.hasEffect=function()return {src=guard,power=30}end;cb={value=100};assert(guardian.callbackOnHit(guard,nil,cb,{})==nil and cb.value==100 and split==30)\nprint('PASS: Dynamo 7 steam boundaries + 7 spell/cost cases; declared-vs-paid cost; Moss 4 move/force cases; Vortex base+4 upgrade radii; Bloodstream actual factor not displayed increase, one-use and hit guards; Guardian other-guardian transfer/self exclusion')\n",
+  "script_sha256": "a09a2556038c9df930e2a36706b531d358c2266a86c07d9f41c4e6312f0cac00",
+  "exit_code": 0,
+  "stdout": "PASS: Dynamo 7 steam boundaries + 7 spell/cost cases; declared-vs-paid cost; Moss 4 move/force cases; Vortex base+4 upgrade radii; Bloodstream actual factor not displayed increase, one-use and hit guards; Guardian other-guardian transfer/self exclusion\n",
+  "stderr": "",
+  "scope": "Exact DLC Lua function snippets executed in manifest LuaJIT with stub actor/map/skill dependencies. Branches and numerical consumers only, not full game simulation. DLC source/commit/version unpinned."
+}

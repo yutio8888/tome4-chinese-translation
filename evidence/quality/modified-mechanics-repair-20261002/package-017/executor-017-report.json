@@ -1,0 +1,942 @@
+{
+  "schema_version": 1,
+  "task_id": "mmrfix-20261002-017",
+  "role": "executor",
+  "status": "EXECUTOR_REPAIR_COMPLETE",
+  "created_at": "2026-10-03T03:17:28.574761+00:00",
+  "allowed_content_file": "tome-orcs.lua",
+  "target_count": 10,
+  "confirmed_claim_count": 10,
+  "changed_target_count": 10,
+  "baseline": {
+    "path": ".ai/task/mmrfix-20261002-017/baseline/tome-orcs.lua",
+    "sha256": "8bb4b2f9eaf8225c0e1a39dd0e73f1902ad1c997e054ff7fe4ae855c5336e394",
+    "whole_file_exact_before_edit": true
+  },
+  "fixed_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "observed_core_head": "3ff88853bc1c586045c439d21c5c112912c6a5bf",
+  "core_read_method": "Only git show/grep of fixed commit; never core current-worktree source",
+  "dlc_source_identity": "orcs public GPL source; repository/commit/release version unpinned; all23 frozen source anchor SHA checks passed; all actually read source hashes recorded",
+  "entries": [
+    {
+      "candidate_index": 1524,
+      "finding_id": "UPSTREAM070",
+      "source": "Place an electrically charged sentry device at a location.\n\t\tEvery turn it will fire a bolt of electricity at a nearby enemy.\n\t\tThe bolts do %0.2f lightning damage.\n\t\tThe sentry has %d life and lasts 10 turns.\n\t\tDamage, life, resists, and armor scale with your Steampower.\n\t\tDamage and penetration are inherited from the creator.",
+      "source_tag": "tformat",
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "old_target": "在指定位置放置一个带电的哨兵装置。\n\t\t它每回合会向附近的敌人发射一道电流。\n\t\t电流造成 %0.2f 点闪电伤害。\n\t\t哨兵拥有 %d 点生命，持续 10 回合。\n\t\t伤害、生命、抗性和护甲随你的蒸汽强度提高。\n\t\t伤害和抗性穿透继承自创造者。",
+      "new_target": "在选定位置附近的可用空位放置一个带电的哨兵装置。\n\t\t它会尝试向附近的敌人发射电流。\n\t\t此处显示 %0.2f 点闪电伤害；实际电流伤害由哨兵自身的蒸汽强度与闪电箭技能等级计算，并非此显示值。\n\t\t哨兵的基础生命为 %d 点，召唤时可受蒸汽暴击加成，持续 10 回合。\n\t\t生命、抗性和护甲随你的蒸汽强度提高；电流伤害随哨兵自身的蒸汽强度提高。\n\t\t伤害加成和抗性穿透继承自创造者。",
+      "claim_status": "confirmed",
+      "action": "target_repaired",
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%0.2f",
+          "quantity_kind": "damage_display",
+          "calculation_argument_consumer": "creator combatTalentSteamDamage(t,20,100) → damDesc(LIGHTNING) → info arg1 only; does not feed sentry/Bolt. Actual NPC has no damcloud or precomputed steampower; grants Bolt talent level from creator. Bolt getDamage(NPC,20,350) → projectile LIGHTNING → NPC inc_damage/resists_pen inherited from creator → victim mitigation."
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "life",
+          "calculation_argument_consumer": "creator combatTalentSteamDamage(t,10,1000) → info arg2 (%d truncation); NPC max_life=creator steamCrit(getHP). No duration division. summon_time=10. Armor/resists getArmor/getResist calculated with creator; no steam-power inheritance declared."
+        }
+      ],
+      "source_evidence_indices": [
+        0,
+        6,
+        9,
+        13
+      ],
+      "non_target_fields_unchanged": true,
+      "placeholder_sequence_unchanged": true,
+      "markup_newline_tabs_unchanged": true,
+      "whole_target_check": "主体、触发、命中返回值、持续时间、范围、增益继承与所有动态消费者已核对；内容仅修本条target。"
+    },
+    {
+      "candidate_index": 1526,
+      "finding_id": "UPSTREAM067",
+      "source": "You fire a special explosive shot with your steamgun(s) at a spot within range.\n\t\tWhen each shot reaches its target, it does normal steamgun damage and releases %d explosive charges in a radius of 2.\n\t\tThese charges will shortly explode for %0.2f fire damage in a radius of 1.\n\t\tThis talent does not use ammo as it is the ammo.",
+      "source_tag": "tformat",
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "old_target": "你用蒸汽枪向射程内的一处地点发射特殊爆炸弹。\n\t\t每发子弹命中目标时都会造成正常蒸汽枪伤害，并在半径 2 格内释放 %d 枚爆炸装药。\n\t\t这些装药很快就会爆炸，对半径 1 格内的目标造成 %0.2f 点火焰伤害。\n\t\t这个技能本身就是弹药，因此不消耗弹药。",
+      "new_target": "你用蒸汽枪向射程内的一处地点发射特殊爆炸弹。\n\t\t每发子弹命中时都会造成正常蒸汽枪伤害，并在落点半径 3 格内的可通行位置放置至多 %d 枚爆炸装药。\n\t\t这些装药很快就会爆炸，对各自半径 1 格内的目标造成 %0.2f 点火焰伤害，可受蒸汽暴击加成。\n\t\t这个技能本身就是弹药，因此不消耗弹药。",
+      "claim_status": "confirmed",
+      "action": "target_repaired",
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "count",
+          "calculation_argument_consumer": "floor(getTalentLevel(t)) → info arg1; archery_onhit searches radius3 non-block_move cells, samples without replacement, breaks if no positions: at most displayed count per callback. archeryShoot mult=1.0 and infinite ammo."
+        },
+        {
+          "index": 2,
+          "token": "%0.2f",
+          "quantity_kind": "damage",
+          "calculation_argument_consumer": "combatTalentSteamDamage(20,250) → damDesc(FIRE) info arg2; action uses steamCrit(getDamage) stored e.damage → delayed clusterbomb act → each point radius1 FIRE projector, friendlyfire=false. Each charge receives full damage, no division."
+        }
+      ],
+      "source_evidence_indices": [
+        0,
+        6,
+        13
+      ],
+      "non_target_fields_unchanged": true,
+      "placeholder_sequence_unchanged": true,
+      "markup_newline_tabs_unchanged": true,
+      "whole_target_check": "主体、触发、命中返回值、持续时间、范围、增益继承与所有动态消费者已核对；内容仅修本条target。"
+    },
+    {
+      "candidate_index": 1533,
+      "finding_id": "UPSTREAM137",
+      "source": "For %d turns, you lay down Grasping Moss where you walk or stand.\n\t\tThe moss is placed automatically every step and lasts %d turns.\n\t\tEach turn the moss deals %0.2f nature damage to each foe standing on it.\n\t\tThis moss is very thick and sticky causing all foes passing through it have their movement speed reduced by %d%% and have a %d%% chance to be pinned to the ground for 4 turns.\n\t\tThe damage scales with your Steampower.",
+      "source_tag": "tformat",
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "old_target": "在 %d 回合内，你会在走过或停留的位置铺下缠绕苔藓。\n\t\t每走一步都会自动铺下苔藓，持续 %d 回合。\n\t\t苔藓每回合对站在其上的每个敌人造成 %0.2f 自然伤害。\n\t\t苔藓极其浓密黏稠，所有穿过它的敌人移动速度降低 %d%%， 并有 %d%% 几率被定身 4 回合。\n\t\t伤害随蒸汽强度提升。",
+      "new_target": "在 %d 回合内，你会在成功的非强制移动后，于落脚位置铺下缠绕苔藓；原地停留不会铺下新苔藓。\n\t\t每次铺下的苔藓持续 %d 回合。\n\t\t苔藓每回合对站在其上的每个敌人造成 %0.2f 自然伤害，可受施放时的蒸汽暴击加成。\n\t\t苔藓极其浓密黏稠，使站在其上的敌人移动速度降低 %d%%， 持续 4 回合，并有 %d%% 几率尝试将其定身 4 回合。\n\t\t伤害随蒸汽强度提升。",
+      "claim_status": "confirmed",
+      "action": "target_repaired",
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "duration",
+          "calculation_argument_consumer": "floor(combatTalentLimit(t,16,4,8))*2 → info arg1 and setEffect MOSS_TREAD duration; callbackOnMove requires moved, not force, coordinates changed; no standing timeout."
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "duration",
+          "calculation_argument_consumer": "floor(combatTalentLimit(t,16,4,8)) → info arg2 and map.addEffect duration for each new tile."
+        },
+        {
+          "index": 3,
+          "token": "%0.2f",
+          "quantity_kind": "damage",
+          "calculation_argument_consumer": "combatTalentSteamDamage(6,40) → damDesc(NATURE) arg3; steamCrit at initial action → eff.dam → trigger dam.dam → GRASPING_MOSS NATURE projector once per map-effect tick per hostile actor. No division; same captured crit value on later footprints."
+        },
+        {
+          "index": 4,
+          "token": "%d",
+          "quantity_kind": "movement_speed_reduction",
+          "calculation_argument_consumer": "ceil(combatTalentLimit(t,100,36,60)) → arg4 and trigger slow → GRASPING_MOSS EFF_SLOW_MOVE power=slow/100 duration4; not a passing-through-only trigger."
+        },
+        {
+          "index": 5,
+          "token": "%d",
+          "quantity_kind": "probability",
+          "calculation_argument_consumer": "ceil(combatTalentLimit(t,100,25,45)) → arg5 and pin → rng.percent with canBe(pin) → attempted EFF_PINNED duration4, apply_power Mindpower; not guaranteed successful pin."
+        }
+      ],
+      "source_evidence_indices": [
+        0,
+        3,
+        8,
+        6,
+        13
+      ],
+      "non_target_fields_unchanged": true,
+      "placeholder_sequence_unchanged": true,
+      "markup_newline_tabs_unchanged": true,
+      "whole_target_check": "主体、触发、命中返回值、持续时间、范围、增益继承与所有动态消费者已核对；内容仅修本条target。"
+    },
+    {
+      "candidate_index": 1534,
+      "finding_id": "UPSTREAM064",
+      "source": "Allows the use of Technomancy spells.\n\t\tGrants a magical steam reserve that regenerates %d steam per 10 mana spent.\n\t\tGrants Spellpower based on current steam level (currently %d; %d%% steam filled).\n\t\tOutside of combat, you relax and let your steam reserve slowly wither away.\n\t\t#{italic}#Metal Arcane Power!#{normal}#",
+      "source_tag": "tformat",
+      "section": "tome-orcs/data/talents/steam/other.lua",
+      "old_target": "允许使用科技法术，\n\t\t获得一个魔法的蒸汽储备，每消耗10点法力值获得 %d 蒸汽。\n\t\t根据当前蒸汽等级获得法术强度（目前 %d； 充满了 %d%% 蒸汽）\n\t\t在战斗外，你放松了控制，蒸汽储备会逐渐消退。\n\t\t#{italic}#金属奥术力量！#{normal}#",
+      "new_target": "允许使用科技法术，\n\t\t获得一个魔法蒸汽储备：施放声明了法力费用、未声明蒸汽费用的主动法术后，按该技能未经费用修正的法力费用每10点获得 %d 蒸汽，而非按实际扣除量计算。\n\t\t根据当前蒸汽值调整法术强度（目前 %d； 蒸汽储量 %d%%， 以100点为基准）；蒸汽低于25点时，此加成为负。\n\t\t在战斗外，你放松了控制，蒸汽储备会逐渐消退。\n\t\t#{italic}#金属奥术力量！#{normal}#",
+      "claim_status": "confirmed",
+      "action": "target_repaired",
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "resource_generation",
+          "calculation_argument_consumer": "attr(arcane_dynamo) or1 → arg1; passives talent level → attr. callback ab.is_spell and ab.mana and not ab.steam and activated → util.getval(ab.mana,self,ab) → tonumber(m) → incSteam(m/10*attr). Core resource payment alterTalentCost/cost_factor distinct from callback declared cost."
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "spellpower_raw_addition",
+          "calculation_argument_consumer": "getSpellpower=getSteam()/100*80-20 → info arg2 integer; DLC combatSpellpower adds this before fixed core combatSpellpowerRaw floor0 and rescaleCombatStats. Signed raw contribution, not guaranteed identical final displayed Spellpower increase; negative below25."
+        },
+        {
+          "index": 3,
+          "token": "%d",
+          "quantity_kind": "resource_display",
+          "calculation_argument_consumer": "getSteam() → arg3 rendered with percent literal; baseline100 steam units, not getSteam()/getMaxSteam(). Outside combat passive steam_regen=-2, refreshed callbackOnCombat."
+        }
+      ],
+      "source_evidence_indices": [
+        0,
+        6,
+        10,
+        11
+      ],
+      "non_target_fields_unchanged": true,
+      "placeholder_sequence_unchanged": true,
+      "markup_newline_tabs_unchanged": true,
+      "whole_target_check": "主体、触发、命中返回值、持续时间、范围、增益继承与所有动态消费者已核对；内容仅修本条target。"
+    },
+    {
+      "candidate_index": 1540,
+      "finding_id": "UPSTREAM138",
+      "source": "You \"gently\" slam your saws into the wounds of a creature, dealing %d%% weapon damage and deepening the wounds.\n\t\tAll bleeding wounds durations are increased by %d turns and the damage by %d%% (this may be done only once per bleeding effect).\n\t\tWhen this happens a gush of blood is projected in a narrow cone of radius 4, dealing %0.2f physical damage to all creatures.\n\t\tThe power and damage improves with your Steampower.\n\t\t#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#",
+      "source_tag": "tformat",
+      "section": "tome-orcs/data/talents/steam/sawmaiming.lua",
+      "old_target": "你“轻柔”地将链锯猛砸进目标的伤口，造成 %d%% 武器伤害并加深伤口。\n\t\t所有流血伤口持续时间增加 %d 回合，伤害增加 %d%% （每项流血最多触发一次）。\n\t\t效果触发时，血流将喷射而出，对半径 4 的窄锥形范围内所有生物造成 %0.2f 物理伤害。\n\t\t效果强度和伤害受蒸汽强度加成。\n\t\t#{italic}#科技的奇迹，如今为真正的屠戮效力！#{normal}#",
+      "new_target": "你“轻柔”地将链锯猛砸进目标的伤口，造成 %d%% 武器伤害。\n\t\t若攻击命中，且目标在攻击前后均有普通流血效果，其持续时间增加 %d 回合；此处 %d%% 为界面显示的伤害增幅，并非实际增幅。实际每回合流血伤害乘以本技能血流喷射的基础伤害数值除以100所得的系数，可能降低（仅对普通流血生效，每个效果最多触发一次）。\n\t\t效果触发时，血流将喷射而出，对半径 4 的窄锥形范围内生物造成 %0.2f 物理伤害，可受蒸汽暴击加成；上述系数使用的是未经伤害加成和暴击修正的基础数值。\n\t\t流血伤害系数和喷射伤害受蒸汽强度影响。\n\t\t#{italic}#科技的奇迹，如今为真正的屠戮效力！#{normal}#",
+      "claim_status": "confirmed",
+      "action": "target_repaired",
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "weapon_damage_ratio",
+          "calculation_argument_consumer": "combatTalentWeaponDamage(.3,1.1)*100 → info arg1; attackTarget multiplier=.3..1.1 → core returns hit as first result (totaldam second), includes main/offhand attack aggregation."
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "duration_extension",
+          "calculation_argument_consumer": "floor(combatTalentLimit(t,4,1,2)) → info arg2; requires hit and preexisting CUT and surviving postattack CUT and not bloodstreamed → cut.dur+=getDuration; only ordinary EFF_CUT, not every bleed subtype."
+        },
+        {
+          "index": 3,
+          "token": "%d",
+          "quantity_kind": "unconsumed_displayed_damage_increase",
+          "calculation_argument_consumer": "combatTalentSteamDamage(t,50,250)=getDamageInc → info arg3 ONLY. Actual cut.power *= getDamage(t,50,230)/100. Different functions/scales, no 1+; can reduce. CUT on_timeout feeds PHYSICAL projector with eff.power once per tick. No deriving actual coefficient from this displayed placeholder."
+        },
+        {
+          "index": 4,
+          "token": "%0.2f",
+          "quantity_kind": "damage",
+          "calculation_argument_consumer": "damDesc(PHYSICAL,getDamage(t,50,230)) → info arg4; action steamCrit(getDamage) → narrow cone radius4 angle25 PHYSICAL. Base before damDesc and crit divided100 controls cut multiplier, not formatted displayed damage. No duration division."
+        }
+      ],
+      "source_evidence_indices": [
+        1,
+        7,
+        11,
+        6,
+        13
+      ],
+      "non_target_fields_unchanged": true,
+      "placeholder_sequence_unchanged": true,
+      "markup_newline_tabs_unchanged": true,
+      "whole_target_check": "主体、触发、命中返回值、持续时间、范围、增益继承与所有动态消费者已核对；内容仅修本条target。"
+    },
+    {
+      "candidate_index": 1541,
+      "finding_id": "MMR-UPSTREAM-004",
+      "source": "You try to sever the spine of your foe, reducing its global speed by %d%% for 4 turns and dealing %d%% weapon damage.\n\t\tThe power of the blow also removes up to %d physical effects.\n\t\tIf your talent level is at least 3 %d physical or magical sustains are also removed.\n\t\t#{italic}#Break them, grind them, mow them down!#{normal}#",
+      "source_tag": "tformat",
+      "section": "tome-orcs/data/talents/steam/sawmaiming.lua",
+      "old_target": "你尝试撕裂敌人的脊柱，使其全局速度降低 %d%%， 持续 4 回合，并造成 %d%% 武器伤害。\n\t\t这一击的力量还会移除至多 %d 项物理效果。\n\t\t若技能等级至少为 3，还会移除 %d 项物理或魔法维持技能。\n\t\t#{italic}#切碎他们，折磨他们，收割他们！#{normal}#",
+      "new_target": "你尝试撕裂敌人的脊柱，命中时使其全局速度降低 %d%%， 持续 5 回合，并造成 %d%% 武器伤害。\n\t\t命中时还会尝试移除至多 %d 项物理增益效果。\n\t\t若技能等级至少为 3，还会进行 %d 次随机尝试，移除非精神类维持技能；同一技能可能被重复选中。\n\t\t#{italic}#切碎他们，折磨他们，收割他们！#{normal}#",
+      "claim_status": "confirmed",
+      "action": "target_repaired",
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "global_speed_reduction",
+          "calculation_argument_consumer": "getSlow=combatTalentLimit(t,.6,.2,.5); info arg1=100*getSlow; if attackTarget returns hit → EFF_SLOW duration5 power=getSlow → core global_speed_add=-eff.power. Not 4 turns."
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "weapon_damage_ratio",
+          "calculation_argument_consumer": "combatTalentWeaponDamage(.6,1.5)*100 → info arg2; attackTarget actual multiplier; miss does not enter slow/dispel branch."
+        },
+        {
+          "index": 3,
+          "token": "%d",
+          "quantity_kind": "dispel_attempt_count",
+          "calculation_argument_consumer": "floor(combatTalentLimit(t,4,1,1.5)) → info arg3; only physical AND beneficial effects are collected, samples without replacement → core dispel subject to immunity/callback; at most count attempts."
+        },
+        {
+          "index": 4,
+          "token": "%d",
+          "quantity_kind": "sustain_dispel_attempt_count",
+          "calculation_argument_consumer": "same getRemoveCount → info arg4; talent level>=3 only; captures active sustains with not is_mind, uses rng.table without tableRemove, permits repeated selection; core dispel rejects absent/inactive/immune, hence not guaranteed removal of displayed number or exclusively physical/magical categories."
+        }
+      ],
+      "source_evidence_indices": [
+        1,
+        7,
+        10,
+        11
+      ],
+      "non_target_fields_unchanged": true,
+      "placeholder_sequence_unchanged": true,
+      "markup_newline_tabs_unchanged": true,
+      "whole_target_check": "主体、触发、命中返回值、持续时间、范围、增益继承与所有动态消费者已核对；内容仅修本条target。"
+    },
+    {
+      "candidate_index": 1550,
+      "finding_id": "UPSTREAM139",
+      "source": "Upgrade the target turret, granting it %d%% increased maximum life and enhanced abilities based on type:\n\t\tSteamgun: Gains a second steamgun dealing %d%% damage, and every 3 turns will fire a rocket dealing %d%% steamgun damage as fire in radius 2.\n\t\tFlame: Increases damage by %d%%, range by %d, and every 3 turns will project a vortex of superheated air that drags targets within range %d towards the turret as well as dealing normal flamethrower damage.\n\t\tMedic: Increases healing on affected targets by %d%%, and has a %d%% chance to cleanse a negative effect each turn.",
+      "source_tag": "tformat",
+      "section": "tome-orcs/data/talents/steam/turrets.lua",
+      "old_target": "升级目标炮台，使其最大生命值增加 %d%%， 并根据其类型，获得以下的特殊能力：\n\t\t蒸汽枪炮台：获得第二把造成 %d%% 伤害的蒸汽枪，每 3 回合会发射一枚火箭，在 2 码半径内造成 %d%% 火焰蒸汽枪伤害。\n\t\t火焰炮台：增加 %d%% 伤害和 %d 射程，每过 3 回合，会在 %d 码范围内喷出过热空气的漩涡，将所有敌人拉向炮台，并造成标准喷火伤害。\n\t\t医疗炮台：增加对目标的治疗量 %d%%， 且每回合有 %d%% 几率清除目标身上一个负面效果。",
+      "new_target": "升级你召唤的目标炮台，使其最大生命值增加 %d%%， 并根据其类型获得以下特殊能力：\n\t\t蒸汽枪炮台：获得第二把造成 %d%% 伤害的蒸汽枪，有敌人可供攻击且火箭冷却完毕时会发射一枚火箭（冷却 3 回合），在半径 2 格内造成 %d%% 蒸汽枪伤害，转为火焰类型。\n\t\t火焰炮台：伤害增加 %d%%， 火焰喷射器射程增幅显示为 %d； 下述范围参数的一半才是实际增幅。漩涡的范围参数为 %d， 实际半径为3加该参数的一半；有敌人可供攻击且漩涡冷却完毕时会喷出过热空气漩涡（冷却 3 回合），造成与火焰喷射器相同的伤害，并尝试将范围内可被传送的目标强制移动到炮台半径 5 格内搜索到的可用空位，不保证更靠近炮台。\n\t\t医疗炮台：使受治疗雾影响的目标治疗系数增加 %d%%， 且每回合有 %d%% 几率清除目标身上一个负面效果。",
+      "claim_status": "confirmed",
+      "action": "target_repaired",
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "maximum_life_bonus",
+          "calculation_argument_consumer": "floor(combatTalentScale(20,100))=power → arg1; action owned turret only sets EFF_UPGRADE power,range duration1 but decrease=0 persists; effect adds power*oldMaxLife/100 then heal same amount."
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "weapon_damage_ratio",
+          "calculation_argument_consumer": "power/2 → arg2; dual shot multiplier=eff.power/200; NPC on_act uses dualshot on normal steamgun attacks (rocket branch replaces normal attack)."
+        },
+        {
+          "index": 3,
+          "token": "%d",
+          "quantity_kind": "weapon_damage_ratio",
+          "calculation_argument_consumer": "100+power*3 → arg3; RocketLauncher mult=1+eff.power*.03, radius2 FIRE, cooldown3; on_act only when hostile in gun range and ready."
+        },
+        {
+          "index": 4,
+          "token": "%d",
+          "quantity_kind": "damage_bonus",
+          "calculation_argument_consumer": "power/2 → arg4; Flamethrower getDamage=getBaseDamage*(1+eff.power/200), shared by Vortex, both steamCrit; ordinary fire damage pipeline after."
+        },
+        {
+          "index": 5,
+          "token": "%d",
+          "quantity_kind": "radius_increment_integer_display",
+          "calculation_argument_consumer": "range/2 → arg5 rendered %d truncates e.g 3/2 to1; actual Flamethrower radius=3+eff.range/2. Text labels displayed increment, ties exact half to next parameter."
+        },
+        {
+          "index": 6,
+          "token": "%d",
+          "quantity_kind": "radius_parameter",
+          "calculation_argument_consumer": "floor(combatTalentScale(2,4))=range → arg6; action EFF_UPGRADE.range; Vortex radius=3+eff.range/2 (range2→radius4); cooldown3, on_act hostile/ready branch, project FIRE plus separate relocation pass over actors. util.findFreeGrid(center,5) nearest available grid → canBe(teleport) → move(tx,ty,true). No distance-decrease requirement; may move actor from1 to5; not a pull guarantee."
+        },
+        {
+          "index": 7,
+          "token": "%d",
+          "quantity_kind": "healing_factor_bonus",
+          "calculation_argument_consumer": "power/2 → arg7; HEALING_MIST activate adds healing_factor=eff2.power/200 to affected actor. Not direct scaling of self.healing base value only; affects healing received."
+        },
+        {
+          "index": 8,
+          "token": "%d",
+          "quantity_kind": "cleanse_probability",
+          "calculation_argument_consumer": "power/3 → arg8 %d truncation; HEALING_MIST callbackOnActBase reads source UPGRADE → rng.percent(eff.power/3) → removeEffectsFilter(status=detrimental,ignore_crosstier=true,1). Internal probability may be fractional; targets receiving healing mist."
+        }
+      ],
+      "source_evidence_indices": [
+        2,
+        4,
+        3,
+        9,
+        12,
+        6
+      ],
+      "non_target_fields_unchanged": true,
+      "placeholder_sequence_unchanged": true,
+      "markup_newline_tabs_unchanged": true,
+      "whole_target_check": "主体、触发、命中返回值、持续时间、范围、增益继承与所有动态消费者已核对；内容仅修本条target。"
+    },
+    {
+      "candidate_index": 1551,
+      "finding_id": "UPSTREAM140",
+      "source": "Deploy a defensive emplacement around you, summoning 2 guardian turrets in adjacent tiles for %d turns. Guardian turrets redirect %d%% of all damage taken by other adjacent allies (other than fellow guardian turrets) to themselves, and each is armed with a powerful turret capable of firing piercing bullets.\n\t\t\tGuardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.",
+      "source_tag": "tformat",
+      "section": "tome-orcs/data/talents/steam/turrets.lua",
+      "old_target": "进入守备模式，在身边召唤 2 个守卫炮台，持续 %d 回合。守卫炮台会将身边盟友（不包括其他守卫炮台）所受到所有伤害的 %d%% 转移到自己身上，并且它们装备有能发射贯穿子弹的强力炮塔。\n\t\t\t守卫炮台获得 %0.2f 级蒸汽枪掌握，等级取决于你的炮台守卫技能等级。",
+      "new_target": "进入守备模式，在你半径 5 格内的可用空位召唤至多 2 个守卫炮台，持续 %d 回合。各炮台每回合为身边盟友提供持续 2 回合的保护，将受保护者所受伤害的 %d%% 转移到提供保护的炮台身上（仅排除该炮台自身，其他守卫炮台也可被保护）；它们装备有能发射贯穿子弹的强力炮塔。\n\t\t\t守卫炮台获得 %0.2f 级蒸汽枪掌握，等级取决于你的炮台守卫技能等级。",
+      "claim_status": "confirmed",
+      "action": "target_repaired",
+      "placeholders": [
+        {
+          "index": 1,
+          "token": "%d",
+          "quantity_kind": "summon_duration",
+          "calculation_argument_consumer": "floor(combatTalentScale(5,9)) → arg1 and each guardian summon_time; loop2 findFreeGrid(self.x,self.y,5) may return early after0/1 spawn. No mandatory adjacent placement."
+        },
+        {
+          "index": 2,
+          "token": "%d",
+          "quantity_kind": "damage_redirect_fraction",
+          "calculation_argument_consumer": "floor(combatTalentScale(15,50)) → arg2 and NPC power; on_act radius1 reaction>=0 → EFF_GUARDIAN_SHIELD duration2 src=that NPC; callback effsrc==protected self returns nil else split=cb.value*eff.power/100, subtract and effsrc.takeHit(split,attacker). Other guardian allowed. Lasting shield consumer contains no recheck of adjacency or guardian flag; protected source self only is excluded."
+        },
+        {
+          "index": 3,
+          "token": "%0.2f",
+          "quantity_kind": "talent_level",
+          "calculation_argument_consumer": "getTalentLevel(T_HUNKER_DOWN) → arg3 and NPC Steamgun Mastery talent assignment; precomputed creator Steampower/PhysicalPower/Accuracy and inc_damage/resists_pen cloned; T_TURRET_GAUSS_CANNON used in on_act, piercing bullets via actual talent, not invented equipment."
+        }
+      ],
+      "source_evidence_indices": [
+        2,
+        4,
+        9,
+        11
+      ],
+      "non_target_fields_unchanged": true,
+      "placeholder_sequence_unchanged": true,
+      "markup_newline_tabs_unchanged": true,
+      "whole_target_check": "主体、触发、命中返回值、持续时间、范围、增益继承与所有动态消费者已核对；内容仅修本条target。"
+    },
+    {
+      "candidate_index": 1553,
+      "finding_id": "UPSTREAM013",
+      "source": "Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.",
+      "source_tag": "_t",
+      "section": "tome-orcs/data/talents/uber/mag.lua",
+      "old_target": "你对其造成的法术伤害会化为波纹，对半径 4 内的所有目标造成等同于该伤害 130% 的奥术伤害。",
+      "new_target": "你对其造成的正数法术伤害会化为波纹，对半径 4 内除你和无人机自身以外的生物投射等同于该伤害 130% 的奥术伤害。",
+      "claim_status": "confirmed",
+      "action": "target_repaired",
+      "placeholders": [],
+      "source_evidence_indices": [
+        5,
+        13
+      ],
+      "non_target_fields_unchanged": true,
+      "placeholder_sequence_unchanged": true,
+      "markup_newline_tabs_unchanged": true,
+      "whole_target_check": "主体、触发、命中返回值、持续时间、范围、增益继承与所有动态消费者已核对；内容仅修本条target。",
+      "literal_quantity_flows": [
+        {
+          "quantity": "130%",
+          "quantity_kind": "damage_multiplier",
+          "chain": "positive dam and src==summoner, source_talent.is_spell verified via src.__projecting_for → project radius4 → actor ~=drone and ~=src → ARCANE projector(dam*1.3), NPC inherits resists_pen; callback returns {dam=0}. Literal130%, not printf placeholder; NPC source160% mismatches implementation; preserve130 and clarify exclusions. Damage at callback is input to a new ARCANE projection, not guaranteed final victim HP loss."
+        }
+      ]
+    },
+    {
+      "candidate_index": 1554,
+      "finding_id": "UPSTREAM141",
+      "source": "Technomancers are Archmages that dabble in steam technology to enhance their already formidable arsenal of spells.\n\t\tOnce this class evolution is taken, you gain the following:\n\t\t- Arcane Dynamo tinker schematic\n\t\t- Steamtech/Physics category (unlocked)\n\t\t- Steamtech/Chemistry category (locked)\n\t\t- An Automated Portable Extractor (A.P.E.)\n\t\t- One point in the Physics talent Smith and two in Mechanical and Electricity\n\t\t- Spell/Galvanic Technomancy category (locked) - deals with fire and lightning\n\t\t- Spell/Terrene Technomancy category (locked) - deals with earth and water\n\t\t- Spell/Occult Technomancy category (locked) - deals with time and arcane\n\t\t- The ability to unlock one of the three Technomancy categories for free\n\n\t\tOnce put in a robe, the Arcane Dynamo will regenerate Steam each time mana is spent and increase Spellpower based on current steam level.\n\n\t\t#{bold}#As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.#{normal}#",
+      "source_tag": "tformat",
+      "section": "tome-orcs/data/talents/uber/mag.lua",
+      "old_target": "科技法师是涉猎蒸汽科技的元素法师，他们用科技来强化自己本已强大的法术武库。\n\t\t当你选择这一项进阶职业的时候，你获得以下能力：\n\t\t- 奥术发电机蒸汽工具配方\n\t\t- 蒸汽科技/物理系 （已解锁）\n\t\t- 蒸汽科技/化学系 （未解锁）\n\t\t- 一个便携式自动材料提取仪（A.P.E.）\n\t\t- 1级铁匠技能，2级机械和电力技能。\n\t\t- 法术/科技法术：放电系 （未解锁）- 使用火焰和闪电\n\t\t- 法术/科技法术：寒岩系 （未解锁）- 使用土和水\n\t\t- 法术/科技法术：玄机系 （未解锁）- 使用时间和奥术\n\t\t- 你可以免费解锁三个科技法术系的其中之一。\n\n\t\t奥术发电机装入长袍后，每当你消耗法力值时都会产生蒸汽，并根据当前蒸汽值提升法术强度。\n\n\t\t#{bold}#一旦使用此进阶，你就需要制作奥术发电机并装入长袍，才能获得科技法师的全部能力。#{normal}#",
+      "new_target": "科技法师是涉猎蒸汽科技的元素法师，他们用科技来强化自己本已强大的法术武库。\n\t\t当你选择这一项进阶职业的时候，你获得以下能力：\n\t\t- 奥术发电机蒸汽工具配方\n\t\t- 蒸汽科技/物理系 （已解锁）\n\t\t- 蒸汽科技/化学系 （未解锁）\n\t\t- 一个便携式自动材料提取仪（A.P.E.）\n\t\t- 1级铁匠技能，2级机械和电力技能。\n\t\t- 法术/科技法术：放电系 （未解锁）- 使用火焰和闪电\n\t\t- 法术/科技法术：寒岩系 （未解锁）- 使用土和水\n\t\t- 法术/科技法术：玄机系 （未解锁）- 使用时间和奥术\n\t\t- 你可以免费解锁三个科技法术系的其中之一。\n\n\t\t奥术发电机装入长袍后，施放声明了法力费用、未声明蒸汽费用的主动法术会产生蒸汽，数量按技能未经费用修正的法力费用计算，而非按实际扣除量计算。它还会根据当前蒸汽值调整法术强度；蒸汽低于25点时，此加成为负。\n\n\t\t#{bold}#一旦使用此进阶，你就需要制作奥术发电机并装入长袍，才能获得科技法师的全部能力。#{normal}#",
+      "claim_status": "confirmed",
+      "action": "target_repaired",
+      "placeholders": [],
+      "source_evidence_indices": [
+        5,
+        0,
+        6,
+        11,
+        10,
+        15,
+        16
+      ],
+      "non_target_fields_unchanged": true,
+      "placeholder_sequence_unchanged": true,
+      "markup_newline_tabs_unchanged": true,
+      "whole_target_check": "主体、触发、命中返回值、持续时间、范围、增益继承与所有动态消费者已核对；内容仅修本条target。",
+      "literal_quantity_flows": [
+        {
+          "quantity": "steam<25",
+          "quantity_kind": "spellpower_raw_addition",
+          "chain": "Technomancer learns Dynamo schematic; equip robe grants Dynamo passive via tinker; activation rules and raw additive .8*steam-20 match row1534; core rescales and clamps effective raw power. Unlocks/grants match on_learn, not changed."
+        }
+      ]
+    }
+  ],
+  "source_evidence": [
+    {
+      "public_path": "tome-orcs/data/talents/steam/other.lua",
+      "component": "orcs",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+      "windows": [
+        {
+          "start": 1208,
+          "end": 1320,
+          "text": "1208: newTalent{\n1209: \tname = \"Voltaic Bolt\", short_name = \"TINKER_VOLTAIC_BOLT\",\n1210: \ttype = {\"steamtech/other\",1},\n1211: \tpoints = 5,\n1212: \tcooldown = 1,\n1213: \ttactical = { ATTACK = { LIGHTNING = 2 } },\n1214: \trange = 8,\n1215: \ttravel_speed = 6,\n1216: \trequires_target = true,\n1217: \treflectable = true,\n1218: \tgetDamage = function(self, t) return self:combatTalentSteamDamage(t, 20, 350) end,\n1219: \taction = function(self, t)\n1220: \t\tlocal tg = {type=\"bolt\", range=self:getTalentRange(t), talent=t, display={particle=\"bolt_lightning\", trail=\"lightningtrail\"}}\n1221: \t\tlocal x, y = self:getTarget(tg)\n1222: \t\tif not x or not y then return nil end\n1223: \t\tlocal dam = t.getDamage(self, t)\n1224: \t\tself:projectile(tg, x, y, DamageType.LIGHTNING, (self.damcloud or dam), {type=\"lightning_explosion\"})\n1225: \t\tgame:playSoundNear(self, \"talents/lightning\")\n1226: \t\treturn true\n1227: \tend,\n1228: \tinfo = function(self, t)\n1229: \t\tlocal damage = t.getDamage(self, t)\n1230: \t\treturn ([[Fires a bolt of lightning, doing %0.2f lightning damage.\n1231: \t\tThe damage will increase with your Steampower.]]):\n1232: \t\ttformat(damDesc(self, DamageType.LIGHTNING, damage))\n1233: \tend,\n1234: }\n1235: \n1236: newTalent{\n1237: \tname = \"Voltaic Sentry\", short_name = \"TINKER_VOLTAIC_SENTRY\",\n1238: \ttype = {\"steamtech/other\",1},\n1239: \trange = 7,\n1240: \tpoints = 5,\n1241: \tsteam = 20,\n1242: \tcooldown = 15,\n1243: \ttactical = { ATTACKAREA = {LIGHTNING = 2} },\n1244: \trequires_target = true,\n1245: \tgetDam = function(self, t) return self:combatTalentSteamDamage(t, 20, 100) end,\n1246: \tgetResist = function(self, t) return self:combatTalentSteamDamage(t, 20, 50) end,\n1247: \tgetArmor = function(self, t) return self:combatTalentSteamDamage(t, 5, 45) end,\n1248: \tgetHP = function(self, t) return self:combatTalentSteamDamage(t, 10, 1000) end,\n1249: \ttarget = function(self, t) return {type=\"bolt\", nowarning=true, radius=2, range=self:getTalentRange(t), nolock=true, simple_dir_request=true, talent=t} end, -- for the ai\n1250: \taction = function(self, t)\n1251: \t\tlocal tg = {type=\"bolt\", nowarning=true, range=self:getTalentRange(t), nolock=true, simple_dir_request=true, talent=t}\n1252: \t\tlocal tx, ty, target = self:getTarget(tg)\n1253: \t\tif not tx or not ty then return nil end\n1254: \t\tlocal _ _, _, _, tx, ty = self:canProject(tg, tx, ty)\n1255: \t\ttarget = game.level.map(tx, ty, Map.ACTOR)\n1256: \t\tif target == self then target = nil end\n1257: \n1258: \t\t-- Find space\n1259: \t\tlocal x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})\n1260: \t\tif not x then\n1261: \t\t\tgame.logPlayer(self, \"Not enough space to summon!\")\n1262: \t\t\treturn\n1263: \t\tend\n1264: \n1265: \t\tlocal NPC = require \"mod.class.NPC\"\n1266: \t\tlocal m = NPC.new{\n1267: \t\t\ttype = \"construct\", subtype = \"sentry\",\n1268: \t\t\tdisplay = \"*\", color=colors.GREEN,\n1269: \t\t\tname = _t\"volatic sentry\", faction = self.faction, image = \"object/canister_toxic_gas.png\",\n1270: \t\t\tdesc = _t[[A strange device. Your hair stands on end when you approach.]],\n1271: \t\t\tautolevel = \"none\",\n1272: \t\t\tai = \"summoned\", ai_real = \"dumb_talented\", ai_state = { talent_in=1, },\n1273: \t\t\tlevel_range = {1, 1}, exp_worth = 0,\n1274: \n1275: \t\t\tmax_life = self:steamCrit(t.getHP(self, t)),\n1276: \t\t\tlife_rating = 0,\n1277: \t\t\tnever_move = 1,\n1278: \n1279: \t\t\tinc_damage = table.clone(self.inc_damage),\n1280: \t\t\tresists_pen = table.clone(self.resists_pen),\n1281: \n1282: \t\t\tcombat_armor_hardiness = 50,\n1283: \t\t\tcombat_armor = t.getArmor(self, t),\n1284: \t\t\tresists = {all = t.getResist(self, t)},\n1285: \n1286: \t\t\tnegative_status_effect_immune = 1,\n1287: \t\t\tcant_be_moved = 1,\n1288: \t\t\t\n1289: \t\t\tresolvers.talents{\n1290: \t\t\t\t[self.T_TINKER_VOLTAIC_BOLT]=self:getTalentLevel(t),\n1291: \t\t\t},\n1292: \n1293: \t\t\tsummoner = self, summoner_gain_exp=true,\n1294: \t\t\tsummon_time = 10,\n1295: \t\t\tembed_particles = {{name=\"bolt_lightning\"}},\n1296: \t\t}\n1297: \n1298: \t\tm:resolve() m:resolve(nil, true)\n1299: \t\tm:forceLevelup(self.level)\n1300: \t\tgame.zone:addEntity(game.level, m, \"actor\", x, y)\n1301: \t\treturn true\n1302: \tend,\n1303: \tinfo = function(self, t)\n1304: \t\treturn ([[Place an electrically charged sentry device at a location.\n1305: \t\tEvery turn it will fire a bolt of electricity at a nearby enemy.\n1306: \t\tThe bolts do %0.2f lightning damage.\n1307: \t\tThe sentry has %d life and lasts 10 turns.\n1308: \t\tDamage, life, resists, and armor scale with your Steampower.\n1309: \t\tDamage and penetration are inherited from the creator.]]):\n1310: \t\ttformat(damDesc(self, DamageType.LIGHTNING, t.getDam(self, t)), t.getHP(self, t))\n1311: \tend,\n1312: }\n1313: \n1314: newTalent{\n1315: \tname = \"Explosive Shell\", short_name = \"TINKER_EXPLOSIVE_SHELL\",\n1316: \ttype = {\"steamtech/other\",1},\n1317: \tpoints = 5,\n1318: \tcooldown = 10,\n1319: \tsteam = 5,\n1320: \tradius = 1,"
+        },
+        {
+          "start": 1392,
+          "end": 1464,
+          "text": "1392: newTalent{\n1393: \tname = \"Incendiary Shell\", short_name = \"TINKER_INCENDIARY_SHELL\",\n1394: \ttype = {\"steamtech/other\",1},\n1395: \tpoints = 5,\n1396: \tcooldown = 10,\n1397: \tsteam = 5,\n1398: \tradius = 2,\n1399: \trange = steamgun_range,\n1400: \trequires_target = true,\n1401: \ttactical = { ATTACKAREA = { LIGHT = 1 }},\n1402: \ttarget = function(self, t) return {type=\"ball\", range=nil, radius=self:getTalentRadius(t), selffire=false} end,\n1403: \ton_pre_use = function(self, t, silent) if not self:hasArcheryWeapon(\"steamgun\") then if not silent then game.logPlayer(self, \"You require a steamgun for this talent.\") end return false end return true end,\n1404: \tgetDamage = function(self, t) return self:combatTalentSteamDamage(t, 20, 250) end,\n1405: \tduration = function(self, t) return math.floor(self:combatTalentScale(t, 2.9, 5.5)) end,\n1406: \tarchery_onhit = function(self, t, target, x, y)\n1407: \t\tlocal e = mod.class.Object.new{\n1408: \t\t\tname = _t\"clusterbomb\",\n1409: \t\t\tblock_sight=false,\n1410: \t\t\tcanAct = false,\n1411: \t\t\ttarget = target,\n1412: \t\t\tdamage = self:steamCrit(t.getDamage(self, t)),\n1413: \t\t\tsummoner = self,\n1414: \t\t\tsummoner_gain_exp = true,\n1415: \t\t\tenergy = {value=0, mod=0.50},\n1416: \t\t\tact = function(self)\n1417: \t\t\t\tlocal tg = {type=\"ball\", radius=1, friendlyfire=false}\n1418: \t\t\t\tfor i, d in ipairs(self.points) do\n1419: \t\t\t\t\tgame.level.map:removeParticleEmitter(d.e)\n1420: \t\t\t\t\tself.summoner:project(tg, d.x, d.y, engine.DamageType.FIRE, self.damage, nil)\n1421: \t\t\t\t\tgame.level.map:particleEmitter(d.x, d.y, 1, \"ball_fire\", {radius=1})\n1422: \t\t\t\tend\n1423: \t\t\t\tself.points = {}\n1424: \t\t\t\tself:useEnergy()\n1425: \t\t\t\tgame.level:removeEntity(self)\n1426: \t\t\tend,\n1427: \t\t}\n1428: \t\n1429: \t\tlocal ps, p = {}, self.points or {}\n1430: \t\tself.x, self.y = x, y\n1431: \t\tself:project({type=\"ball\", radius=3}, x, y, function(px, py)\n1432: \t\t\tlocal g = game.level.map(px, py, engine.Map.TERRAIN)\n1433: \t\t\tif not g:check(\"block_move\") then\n1434: \t\t\t\tps[#ps+1] = {x=px, y=py}\n1435: \t\t\tend\n1436: \t\tend)\n1437: \t\tfor i = 1, math.floor(self:getTalentLevel(t)) do\n1438: \t\t\tif #ps == 0 then break end\n1439: \t\t\tp[#p+1] = rng.tableRemove(ps)\n1440: \t\t\tp[#p].e = game.level.map:particleEmitter(p[#p].x, p[#p].y, 1, \"bolt_fire\", {trail_length=0})\n1441: \t\tend\n1442: \t\te.points = p\n1443: \n1444: \t\tgame.level:addEntity(e)\n1445: \tend,\n1446: \taction = function(self, t)\n1447: \t\tlocal tg = t.target(self, t)\n1448: \t\tlocal targets = self:archeryAcquireTargets(tg, {no_energy=true, infinite=true, one_shot=true, type=\"steamgun\"})\n1449: \t\tif targets then\n1450: \t\t\tself:archeryShoot(targets, t, tg, {mult=1.0, type=\"steamgun\"})\n1451: \t\t\treturn true\n1452: \t\tend\n1453: \tend,\n1454: \tinfo = function(self, t)\n1455: \t\treturn ([[You fire a special explosive shot with your steamgun(s) at a spot within range.\n1456: \t\tWhen each shot reaches its target, it does normal steamgun damage and releases %d explosive charges in a radius of 2.\n1457: \t\tThese charges will shortly explode for %0.2f fire damage in a radius of 1.\n1458: \t\tThis talent does not use ammo as it is the ammo.]])\n1459: \t\t:tformat(math.floor(self:getTalentLevel(t)), damDesc(self, DamageType.FIRE, t.getDamage(self, t)))\n1460: \tend,\n1461: }\n1462: \n1463: newTalent{\n1464: \tname = \"Solid Shell\", short_name = \"TINKER_SOLID_SHELL\","
+        },
+        {
+          "start": 1854,
+          "end": 1942,
+          "text": "1854: newTalent{\n1855: \tname = \"Moss Tread\", short_name = \"TINKER_MOSS_TREAD\",\n1856: \ttype = {\"steamtech/other\",1},\n1857: \tpoints = 5,\n1858: \tcooldown = 10,\n1859: \tsteam = 5,\n1860: \tradius = 0,\n1861: \trange = 0,\n1862: \tno_energy = true,\n1863: \trequires_target = true,\n1864: \ttactical = { ATTACK = { NATURE = 1 }, ESCAPE = { pin = 1 } },\n1865: \ttarget = function(self, t) return {type=\"ball\", range=nil, radius=self:getTalentRadius(t), selffire=false} end,\n1866: \tgetDamage = function(self, t) return self:combatTalentSteamDamage(t, 6, 40) end,\n1867: \tgetDuration = function(self, t) return math.floor(self:combatTalentLimit(t, 16, 4, 8)) end, -- Limit < 16\n1868: \tgetSlow = function(self, t) return math.ceil(self:combatTalentLimit(t, 100, 36, 60)) end, -- Limit < 100%\n1869: \tgetPin = function(self, t) return math.ceil(self:combatTalentLimit(t, 100, 25, 45)) end, -- Limit < 100%\n1870: \ttrigger = function(self, t, x, y, dam) -- avoid stacking on map tile\n1871: \t\t-- Add a lasting map effect\n1872: \t\tgame.level.map:addEffect(self,\n1873: \t\t\tx, y, t.getDuration(self, t),\n1874: \t\t\tDamageType.GRASPING_MOSS, {dam=dam, pin=t.getPin(self, t), slow=t.getSlow(self, t)},\n1875: \t\t\tself:getTalentRadius(t),\n1876: \t\t\t5, nil,\n1877: \t\t\t{type=\"moss\"},\n1878: \t\t\tnil, false, false\n1879: \t\t)\n1880: \tend,\n1881: \taction = function(self, t)\n1882: \t\tlocal dur = t.getDuration(self, t)\n1883: \t\tself:setEffect(self.EFF_MOSS_TREAD, dur*2, {dam=self:steamCrit(t.getDamage(self, t))})\n1884: \t\treturn true\n1885: \tend,\n1886: \tinfo = function(self, t)\n1887: \t\tlocal dur = t.getDuration(self, t)\n1888: \t\tlocal dam = t.getDamage(self, t)\n1889: \t\treturn ([[For %d turns, you lay down Grasping Moss where you walk or stand.\n1890: \t\tThe moss is placed automatically every step and lasts %d turns.\n1891: \t\tEach turn the moss deals %0.2f nature damage to each foe standing on it.\n1892: \t\tThis moss is very thick and sticky causing all foes passing through it have their movement speed reduced by %d%% and have a %d%% chance to be pinned to the ground for 4 turns.\n1893: \t\tThe damage scales with your Steampower.]]):\n1894: \t\ttformat(dur*2, dur, damDesc(self, DamageType.NATURE, dam), t.getSlow(self, t), t.getPin(self, t))\n1895: \tend,\n1896: }\n1897: \n1898: newTalent{\n1899: \tname = \"Arcane Dynamo\", short_name = \"TINKER_ARCANE_DYNAMO\",\n1900: \ttype = {\"steamtech/other\",1},\n1901: \tis_technomancy = true, is_steam = true, is_spell = true,\n1902: \ttype_no_req = true,\n1903: \tmode = \"passive\",\n1904: \tpoints = 5,\n1905: \tautolearn_talent = \"T_STEAM_POOL\",\n1906: \tpassives = function(self, t, p)\n1907: \t\tself:talentTemporaryValue(p, \"arcane_dynamo\", self:getTalentLevel(t))\n1908: \t\tif not self.in_combat then\n1909: \t\t\tself:talentTemporaryValue(p, \"steam_regen\", -2)\n1910: \t\tend\n1911: \tend,\n1912: \tgetSpellpower = function(self, t)\n1913: \t\tlocal p = self:getSteam() / 100 -- Not using max_steam to be able to go over 100% bonus\n1914: \t\treturn p * 80 - 20\n1915: \tend,\n1916: \tcallbackOnTalentPost = function(self, t, ab)\n1917: \t\tif ab.is_spell and ab.mana and not ab.steam and ab.mode == \"activated\" then\n1918: \t\t\tlocal m = util.getval(ab.mana, self, ab)\n1919: \t\t\tif tonumber(m) then self:incSteam(m / 10 * (self:attr(\"arcane_dynamo\") or 1)) end\n1920: \t\tend\n1921: \tend,\n1922: \tcallbackOnCombat = function(self, t, combat)\n1923: \t\tself:updateTalentPassives(t)\n1924: \tend,\n1925: \tinfo = function(self, t)\n1926: \t\treturn ([[Allows the use of Technomancy spells.\n1927: \t\tGrants a magical steam reserve that regenerates %d steam per 10 mana spent.\n1928: \t\tGrants Spellpower based on current steam level (currently %d; %d%% steam filled).\n1929: \t\tOutside of combat, you relax and let your steam reserve slowly wither away.\n1930: \t\t#{italic}#Metal Arcane Power!#{normal}#]]):\n1931: \t\ttformat(self:attr(\"arcane_dynamo\") or 1, t.getSpellpower(self, t), self:getSteam())\n1932: \tend,\n1933: }"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/sawmaiming.lua",
+      "component": "orcs",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "eb7b701da0502dfd685dff66912bd41839dca9fb9b0b7276c4507b186125f169",
+      "windows": [
+        {
+          "start": 56,
+          "end": 190,
+          "text": "56: newTalent{\n57: \tname = \"Bloodstream\",\n58: \ttype = {\"steamtech/sawmaiming\",2},\n59: \trequire = str_steamreq2,\n60: \tpoints = 5,\n61: \tsteam = 10,\n62: \tcooldown = 8,\n63: \ttactical = { ATTACK = 2 },\n64: \tgetDamageInc = function(self, t) return self:combatTalentSteamDamage(t, 50, 250) end,\n65: \tgetDuration = function(self, t) return math.floor(self:combatTalentLimit(t, 4, 1, 2)) end,\n66: \tgetDamage = function(self, t) return self:combatTalentSteamDamage(t, 50, 230) end,\n67: \ton_pre_use = function(self, t, silent) if not self:hasWeaponType(\"steamsaw\") then if not silent then game.logPlayer(self, \"You require a steamsaw for this talent.\") end return false end return true end,\n68: \taction = function(self, t)\n69: \t\tlocal weapon = self:hasWeaponType(\"steamsaw\")\n70: \t\tif not weapon then return nil end\n71: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t)}\n72: \t\tlocal x, y, target = self:getTarget(tg)\n73: \t\tif not x or not y or not target then return nil end\n74: \t\tif core.fov.distance(self.x, self.y, x, y) > 1 then return nil end\n75: \t\tlocal was_cut = target:hasEffect(target.EFF_CUT)\n76: \n77: \t\tlocal hit = self:attackTarget(target, nil, self:combatTalentWeaponDamage(t, 0.3, 1.1), true)\n78: \n79: \t\tlocal cut = target:hasEffect(target.EFF_CUT)\n80: \t\tif hit and was_cut and cut and not cut.bloodstreamed then\n81: \t\t\tcut.bloodstreamed = true\n82: \t\t\tcut.dur = cut.dur + t.getDuration(self, t)\n83: \t\t\tcut.power = cut.power * t.getDamage(self, t) / 100\n84: \n85: \t\t\tlocal tg = {type=\"cone\", range=0, talent=t, radius=4, cone_angle = 25}\n86: \t\t\tself:project(tg, target.x, target.y, DamageType.PHYSICAL, self:steamCrit(t.getDamage(self, t)))\n87: \t\t\tgame.level.map:particleEmitter(self.x, self.y, tg.radius, \"breath_blood\", {radius=tg.radius, tx=target.x-self.x, ty=target.y-self.y, spread=20})\n88: \t\tend\n89: \n90: \t\treturn true\n91: \tend,\n92: \tinfo = function(self, t)\n93: \t\treturn ([[You \"gently\" slam your saws into the wounds of a creature, dealing %d%% weapon damage and deepening the wounds.\n94: \t\tAll bleeding wounds durations are increased by %d turns and the damage by %d%% (this may be done only once per bleeding effect).\n95: \t\tWhen this happens a gush of blood is projected in a narrow cone of radius 4, dealing %0.2f physical damage to all creatures.\n96: \t\tThe power and damage improves with your Steampower.\n97: \t\t#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#]]):\n98: \t\ttformat(self:combatTalentWeaponDamage(t, 0.3, 1.1) * 100, t.getDuration(self, t), t.getDamageInc(self, t), damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)))\n99: \tend,\n100: }\n101: \n102: newTalent{\n103: \tname = \"Spinal Break\",\n104: \ttype = {\"steamtech/sawmaiming\",3},\n105: \trequire = str_steamreq3,\n106: \tpoints = 5,\n107: \tsteam = 20,\n108: \tcooldown = 10,\n109: \trequires_target = true,\n110: \tgetSlow = function(self, t) return self:combatTalentLimit(t, 0.6, 0.2, 0.5) end,\n111: \tgetRemoveCount = function(self, t) return math.floor(self:combatTalentLimit(t, 4, 1, 1.5)) end,\n112: \trange = 1,\n113: \ttactical = { ATTACK = { PHYSICAL = 1 }, DISABLE = { slow = 2 } },\n114: \ton_pre_use = function(self, t, silent) if not self:hasWeaponType(\"steamsaw\") then if not silent then game.logPlayer(self, \"You require a steamsaw for this talent.\") end return false end return true end,\n115: \taction = function(self, t)\n116: \t\tlocal weapon = self:hasWeaponType(\"steamsaw\")\n117: \t\tif not weapon then return nil end\n118: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t)}\n119: \t\tlocal x, y, target = self:getTarget(tg)\n120: \t\tif not x or not y or not target then return nil end\n121: \t\tif core.fov.distance(self.x, self.y, x, y) > 1 then return nil end\n122: \n123: \t\tlocal hit = self:attackTarget(target, nil, self:combatTalentWeaponDamage(t, 0.6, 1.5), true)\n124: \n125: \t\tif hit then\n126: \t\t\ttarget:setEffect(target.EFF_SLOW, 5, {power=t.getSlow(self, t)})\n127: \n128: \t\t\tlocal effs = {}\n129: \n130: \t\t\t-- Go through all spell effects\n131: \t\t\tfor eff_id, p in pairs(target.tmp) do\n132: \t\t\t\tlocal e = target.tempeffect_def[eff_id]\n133: \t\t\t\tif e.type == \"physical\" and e.status == \"beneficial\" then\n134: \t\t\t\t\teffs[#effs+1] = {\"effect\", eff_id}\n135: \t\t\t\tend\n136: \t\t\tend\n137: \n138: \t\t\t-- Go through all sustained spells\n139: \t\t\tlocal sustains = {}\n140: \t\t\tfor tid, act in pairs(target.sustain_talents) do\n141: \t\t\t\tif act then\n142: \t\t\t\t\tlocal talent = target:getTalentFromId(tid)\n143: \t\t\t\t\tif not talent.is_mind then\n144: \t\t\t\t\t\tsustains[#sustains+1] = {\"talent\", tid}\n145: \t\t\t\t\tend\n146: \t\t\t\tend\n147: \t\t\tend\n148: \n149: \t\t\tfor i = 1, t.getRemoveCount(self, t) do\n150: \t\t\t\tif #effs == 0 then break end\n151: \t\t\t\tlocal eff = rng.tableRemove(effs)\n152: \n153: \t\t\t\tif eff[1] == \"effect\" then\n154: \t\t\t\t\ttarget:dispel(eff[2], self)\n155: \t\t\t\tend\n156: \t\t\tend\n157: \t\t\tif self:getTalentLevel(t) >= 3 then\n158: \t\t\t\tfor i = 1, t.getRemoveCount(self, t) do\n159: \t\t\t\t\tlocal sustain = rng.table(sustains)\n160: \t\t\t\t\tif sustain then\n161: \t\t\t\t\t\ttarget:dispel(sustain[2], self)\n162: \t\t\t\t\tend\n163: \t\t\t\tend\n164: \t\t\tend\n165: \t\tend\n166: \n167: \t\treturn true\n168: \tend,\n169: \tinfo = function(self, t)\n170: \t\treturn ([[You try to sever the spine of your foe, reducing its global speed by %d%% for 4 turns and dealing %d%% weapon damage.\n171: \t\tThe power of the blow also removes up to %d physical effects.\n172: \t\tIf your talent level is at least 3 %d physical or magical sustains are also removed.\n173: \t\t#{italic}#Break them, grind them, mow them down!#{normal}#]]):\n174: \t\ttformat(t.getSlow(self, t) * 100, self:combatTalentWeaponDamage(t, 0.6, 1.5) * 100, t.getRemoveCount(self, t), t.getRemoveCount(self, t))\n175: \tend,\n176: }\n177: \n178: \n179: newTalent{\n180: \tname = \"Goresplosion\",\n181: \ttype = {\"steamtech/sawmaiming\",4},\n182: \trequire = str_steamreq4,\n183: \tpoints = 5,\n184: \tdrain_steam = 10,\n185: \tmode = \"sustained\",\n186: \trange = 5,\n187: \tno_energy = true,\n188: \tcooldown = 15,\n189: \tgetDuration = function(self, t) return self:combatTalentLimit(t, 6, 1, 4) end,\n190: \tgetDamage = function(self, t) return self:combatTalentSteamDamage(t, 20, 150) end,"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-orcs/data/talents/steam/turrets.lua",
+      "component": "orcs",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "14dbc643e66d9916ea2bdf257053c3e0870addf2ebfb3bc58bb593258dcd5e1c",
+      "windows": [
+        {
+          "start": 174,
+          "end": 194,
+          "text": "174: \t\t\t\tif not a then return end\n175: \t\t\t\tlocal dualshot = 0\n176: \t\t\t\tif self:knowTalent(self.T_TURRET_DUAL_STEAMGUN) then dualshot = self:callTalent(self.T_TURRET_DUAL_STEAMGUN, \"getDamage\") end\n177: \t\t\t\t\n178: \t\t\t\tlocal tg = {type=\"bolt\", range=range, talent=self.t, display=self:archeryDefaultProjectileVisual(weapon, ammo), friendlyblock=false, friendlyfire=false}\n179: \t\t\t\tlocal targets = self:archeryAcquireTargets(tg, {no_sound=true, one_shot=true, infinite=true, no_energy=true, x=a.x, y=a.y})\n180: \t\t\t\tlocal target = game.level.map(a.x, a.y, engine.Map.ACTOR)\t\t\n181: \t\t\t\tif not target then return end\n182: \t\t\t\tif self:knowTalent(self.T_TURRET_ROCKET_LAUNCHER) and not self:isTalentCoolingDown(self.T_TURRET_ROCKET_LAUNCHER) then\n183: \t\t\t\t\tself:forceUseTalent(self.T_TURRET_ROCKET_LAUNCHER, {ignore_energy=true, force_target=target, ignore_ressources=true}) \n184: \t\t\t\telse\n185: \t\t\t\t\tself:archeryShoot(targets, self.t, tg, {mult=self.mult}) \n186: \t\t\t\t\tif dualshot > 0 then self:archeryShoot(targets, self.t, tg, {mult=dualshot})  end\t\t\t\t\n187: \t\t\t\tend\n188: \n189: \t\t\t\tammo.combat.shots_left = ammo.combat.capacity\n190: \t\t\tend,\n191: \t\t\ton_die = function(self, killer)\n192: \t\t\t\tlocal src = self.summoner\n193: \t\t\t\t\n194: \t\t\t\tif src:knowTalent(src.T_SAPPER) and self:hasLOS(src.x, src.y) then"
+        },
+        {
+          "start": 248,
+          "end": 297,
+          "text": "248: \ttype = {\"steamtech/other\", 1},\n249: \tpoints = 1,\n250: \tcooldown = 3,\n251: \trange = steamgun_range,\n252: \trequires_target = true,\n253: \tspeed = \"archery\",\n254: \tno_energy = \"fake\",\n255: \ttactical = { ATTACKAREA = { weapon = 2 }, },\n256: \ton_pre_use = function(self, t, silent) if not self:hasArcheryWeapon(\"steamgun\") then if not silent then game.logPlayer(self, \"You require a steamgun for this talent.\") end return false end return true end,\n257: \tarchery_onreach = function(self, t, x, y)\n258: \t\tgame.level.map:particleEmitter(x, y, 2, \"ball_fire\", {radius=2})\n259: \tend,\n260: \ttarget = function(self, t)\n261: \t\tlocal weapon, ammo = self:hasArcheryWeapon()\n262: \t\treturn {type=\"ball\", radius=2, range=self:getTalentRange(t), friendlyfire=false, display=self:archeryDefaultProjectileVisual(weapon, ammo)}\n263: \tend,\n264: \taction = function(self, t)\n265: \t\tlocal tg = self:getTalentTarget(t)\n266: \t\tlocal targets = nil\n267: \t\ttargets = self:archeryAcquireTargets(tg, {one_shot=true})\n268: \t\tif not targets then return end\n269: \t\t\n270: \t\tlocal eff = self:hasEffect(self.EFF_UPGRADE)\n271: \t\tlocal dam = 1 + (eff.power*0.03)\n272: \t\t\t\n273: \t\tself.turn_procs.rocket_launcher = true\n274: \t\tself:archeryShoot(targets, t, tg, {mult=dam, damtype=DamageType.FIRE})\n275: \t\treturn true\n276: \tend,\n277: \tinfo = function(self, t)\n278: \t\treturn ([[Fire a missile dealing steamgun damage as fire in radius 2.]]):\n279: \t\ttformat()\n280: \tend,\n281: }\n282: \n283: newTalent{\n284: \tname = \"Dual Steamgun\", short_name = \"TURRET_DUAL_STEAMGUN\",\n285: \ttype = {\"steamtech/other\", 1},\n286: \tpoints = 1,\n287: \tmode = \"passive\",\n288: \tgetDamage = function(self,t)\n289: \t\tlocal dam = 0.1\n290: \t\tlocal eff = self:hasEffect(self.EFF_UPGRADE)\n291: \t\tif eff then dam = eff.power/200 end\n292: \t\treturn dam\n293: \tend,\n294: \tinfo = function(self, t)\n295: \t\treturn ([[Gain a second steamgun that deals %d%% damage.]]):\n296: \t\ttformat(t.getDamage(self,t)*100)\n297: \tend,"
+        },
+        {
+          "start": 366,
+          "end": 395,
+          "text": "366: \t\t\t\tlocal Map = require \"engine.Map\"\n367: \t\t\t\tself:useEnergy()\n368: \t\t\t\tlocal range = self:callTalent(self.T_TURRET_FLAMETHROWER, \"radius\")\n369: \t\t\t\tlocal tgts = {}\n370: \t\t\t\tlocal grids = core.fov.circle_grids(self.x, self.y, range, true)\n371: \t\t\t\tfor x, yy in pairs(grids) do for y, _ in pairs(grids[x]) do\n372: \t\t\t\t\tlocal a = game.level.map(x, y, engine.Map.ACTOR)\n373: \t\t\t\t\tif a and self:reactionToward(a) < 0 then\n374: \t\t\t\t\t\ttgts[#tgts+1] = a\n375: \t\t\t\t\tend\n376: \t\t\t\tend end\n377: \t\t\t\tlocal a, id = rng.table(tgts)\t\t\t\t\n378: \t\t\t\tif not a then return end\n379: \t\t\t\tif self:knowTalent(self.T_TURRET_FLAME_VORTEX) and not self:isTalentCoolingDown(self.T_TURRET_FLAME_VORTEX) then\n380: \t\t\t\t\tself:forceUseTalent(self.T_TURRET_FLAME_VORTEX, {ignore_energy=true, ignore_ressources=true})\n381: \t\t\t\tend\n382: \t\t\t\tlocal target = game.level.map(a.x, a.y, engine.Map.ACTOR)\n383: \t\t\t\tif not target then return end\n384: \t\t\t\tself:forceUseTalent(self.T_TURRET_FLAMETHROWER, {ignore_cd=true, ignore_energy=true, force_target=target, ignore_ressources=true})\n385: \n386: \t\t\tend,\n387: \t\t\ton_die = function(self, killer)\n388: \t\t\t\tlocal src = self.summoner\n389: \t\t\t\t\n390: \t\t\t\tif src:knowTalent(src.T_SAPPER) and self:hasLOS(src.x, src.y) then\n391: \t\t\t\t\tlocal t = src:getTalentFromId(src.T_SAPPER)\n392: \t\t\t\t\tlocal tg = {type=\"ball\", radius=3, range=0, friendlyfire=false, x=self.x, y=self.y}\n393: \t\t\t\t\tsrc:project(tg, self.x, self.y, engine.DamageType.PHYSICAL, t.getTurretPower(src,t))\n394: \t\t\t\t\tgame.level.map:particleEmitter(self.x, self.y, 3, \"shrapnel_explosion\", {radius=3})\t\t\t\t\t\n395: \t\t\t\tend"
+        },
+        {
+          "start": 438,
+          "end": 528,
+          "text": "438: \tname = \"Flamethrower\", short_name = \"TURRET_FLAMETHROWER\",\n439: \ttype = {\"steamtech/other\",1},\n440: \tpoints = 5,\n441: \tcooldown = 0,\n442: \ttactical = { ATTACK = { FIRE = 1 } },\n443: \trange = 0,\n444: \tradius = function(self, t) if self:hasEffect(self.EFF_UPGRADE) then local eff = self:hasEffect(self.EFF_UPGRADE) return 3 + eff.range/2 else return 3 end end,\n445: \trequires_target = true,\n446: \ttarget = function(self, t)\n447: \t\treturn {type=\"cone\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), friendlyfire=false, talent=t}\n448: \tend,\n449: \tgetBaseDamage = function(self, t) return self:combatTalentSteamDamage(t, 10, 100) end,\n450: \tgetDamage = function(self, t) \n451: \t\tif self:hasEffect(self.EFF_UPGRADE) then \n452: \t\t\tlocal eff = self:hasEffect(self.EFF_UPGRADE) \n453: \t\t\treturn t.getBaseDamage(self,t) + t.getBaseDamage(self,t)*eff.power/200 \n454: \t\telse \n455: \t\t\treturn t.getBaseDamage(self,t)\n456: \t\tend \n457: \tend,\n458: \taction = function(self, t)\n459: \t\tlocal tg = self:getTalentTarget(t)\n460: \t\tlocal x, y = self:getTarget(tg)\n461: \t\tif not x or not y then return nil end\n462: \t\tself:project(tg, x, y, function(px, py)\n463: \t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n464: \t\t\tif not target then return end\n465: \n466: \t\t\tif self:reactionToward(target) < 0 then\n467: \t\t\t\tif self.ai_target then self.ai_target.target = target end\n468: \t\t\t\ttarget:setTarget(self)\n469: \t\t\tend\n470: \t\tend)\n471: \t\tself:project(tg, x, y, DamageType.FIRE, self:steamCrit(t.getDamage(self, t)))\n472: \t\tgame.level.map:particleEmitter(self.x, self.y, tg.radius, \"breath_fire\", {radius=tg.radius, tx=x-self.x, ty=y-self.y})\n473: \t\tgame:playSoundNear(self, \"talents/fireflash\")\n474: \t\treturn true\n475: \tend,\n476: \tinfo = function(self, t)\n477: \t\tlocal damage = t.getDamage(self, t)\n478: \t\tlocal radius = self:getTalentRadius(t)\n479: \t\treturn ([[Throw a cone of flame with radius %d, dealing %0.2f fire damage.\n480: \t\tThe damage will increase with your Steampower.]]):\n481: \t\ttformat(radius, damDesc(self, DamageType.FIRE, damage))\n482: \tend,\n483: }\n484: \n485: newTalent{\n486: \tname = \"Flame Vortex\", short_name = \"TURRET_FLAME_VORTEX\",\n487: \ttype = {\"steamtech/other\",1},\n488: \tpoints = 1,\n489: \tcooldown = 3,\n490: \trandom_ego = \"attack\",\n491: \ttactical = { ATTACK = { FIRE = 3 } },\n492: \trange = 0,\n493: \tradius = function(self, t) if self:hasEffect(self.EFF_UPGRADE) then local eff = self:hasEffect(self.EFF_UPGRADE) return 3 + eff.range/2 else return 3 end end,\n494: \trequires_target = true,\n495: \tgetDamage = function(self, t) \n496: \t\tlocal t = self:getTalentFromId(self.T_TURRET_FLAMETHROWER)\n497: \t\treturn t.getDamage(self, t)\n498: \tend,\n499: \ttarget = function(self, t)\n500: \t\treturn {type=\"ball\", range=self:getTalentRange(t), friendlyfire=false, radius=self:getTalentRadius(t), talent=t}\n501: \tend,\n502: \taction = function(self, t)\n503: \t\tlocal tg = self:getTalentTarget(t)\n504: \t\tlocal x, y = self:getTarget(tg)\n505: \t\tif not x or not y then return nil end\n506: \t\tself:project(tg, x, y, DamageType.FIRE, self:steamCrit(t.getDamage(self, t)))\n507: \t\tself:project(tg, self.x, self.y, function(px, py)\n508: \t\t\tlocal target = game.level.map(px, py, Map.ACTOR)\n509: \t\t\tif not target then return end\n510: \t\t\tlocal tx, ty = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})\n511: \t\t\tif tx and ty and target:canBe(\"teleport\") then\n512: \t\t\t\ttarget:move(tx, ty, true)\n513: \t\t\tend\n514: \t\tend)\n515: \t\tgame.level.map:particleEmitter(self.x, self.y, tg.radius, \"gravity_spike\", {radius=tg.radius, allow=core.shader.allow(\"distort\")})\n516: \t\treturn true\n517: \tend,\n518: \tinfo = function(self, t)\n519: \t\tlocal damage = t.getDamage(self, t)\n520: \t\tlocal radius = self:getTalentRadius(t)\n521: \t\treturn ([[Project a radius %d vortex of superheated air, dealing %0.2f fire damage and pulling targets towards you.\n522: \t\tThe damage will increase with your Steampower.]]):\n523: \t\ttformat(radius, damDesc(self, DamageType.FIRE, damage))\n524: \tend,\n525: }\n526: \n527: newTalent{\n528: \tname = \"Medic Turret\","
+        },
+        {
+          "start": 581,
+          "end": 625,
+          "text": "581: \t\t\tnever_move = 1,\n582: \n583: \t\t\tinc_damage = table.clone(self.inc_damage),\n584: \t\t\tresists_pen = table.clone(self.resists_pen),\n585: \t\t\tcombat_armor_hardiness = 50,\n586: \t\t\tcombat_armor = self.level/2,\n587: \t\t\tresists = {all = 0},\n588: \t\t\thealing = t.getHeal(self, t),\n589: \t\t\tpower = t.getNegativeResist(self, t),\n590: \n591: \t\t\tnegative_status_effect_immune = 1,\n592: \t\t\tcant_be_moved = 1,\n593: \t\t\tinfravision = 20,\n594: \t\t\tno_breath = 1,\n595: \t\t\tno_drops = 1,\n596: \t\t\t\n597: \t\t\tcombat = { dam=resolvers.levelup(5, 1, 0.7), atk=7, apr=1 },\n598: \t\t\ton_die = function(self, killer)\n599: \t\t\t\tlocal src = self.summoner\n600: \t\t\t\t\n601: \t\t\t\tif src:knowTalent(src.T_SAPPER) and self:hasLOS(src.x, src.y) then\n602: \t\t\t\t\tlocal t = src:getTalentFromId(src.T_SAPPER)\n603: \t\t\t\t\tlocal tg = {type=\"ball\", radius=3, range=0, friendlyfire=false, x=self.x, y=self.y}\n604: \t\t\t\t\tsrc:project(tg, self.x, self.y, engine.DamageType.PHYSICAL, t.getTurretPower(src,t))\n605: \t\t\t\t\tgame.level.map:particleEmitter(self.x, self.y, 3, \"shrapnel_explosion\", {radius=3})\t\t\t\t\t\n606: \t\t\t\tend\n607: \t\t\tend,\t\t\n608: \t\t\tbody = { INVEN = 10, MAINHAND=1, OFFHAND=1, CLOAK=1, QUIVER=1 },\n609: \t\t\ton_act = function(self)\n610: \t\t\t\tlocal Map = require \"engine.Map\"\n611: \t\t\t\tlocal tg = {type=\"ball\", range=0, radius=3}\n612: \t\t\t\tself:project(tg, self.x, self.y, function(px, py)\n613: \t\t\t\t\tlocal target = game.level.map(px, py, engine.Map.ACTOR)\n614: \t\t\t\t\tif not target then return end\n615: \t\t\n616: \t\t\t\t\tif self:reactionToward(target) >= 0 then\n617: \t\t\t\t\t\ttarget:setEffect(target.EFF_HEALING_MIST, 1, { power=self.power, heal=self.healing, src=self } )\n618: \t\t\t\t\tend\n619: \t\t\t\tend)\n620: \t\t\tend,\n621: \t\t\tresolvers.talents{ [Talents.T_STEAM_POOL]=1,\n622: \t\t\t},\n623: \t\t\tsilent_levelup = true, no_points_on_levelup = true,\n624: \t\t\tsummoner = self, summoner_gain_exp=true,\n625: \t\t\tsummon_time = 10,"
+        },
+        {
+          "start": 708,
+          "end": 866,
+          "text": "708: newTalent{\n709: \tname = \"Upgrade\",\n710: \ttype = {\"steamtech/turrets\", 3},\n711: \tpoints = 5,\n712: \trequire = steamreq3,\n713: \tsteam = 20,\n714: \tcooldown = 15,\n715: \trange = 10,\n716: \tno_energy = true,\n717: \tgetPower = function(self, t) return math.floor(self:combatTalentScale(t, 20, 100)) end,\n718: \tgetRange = function(self, t) return math.floor(self:combatTalentScale(t, 2, 4)) end,\n719: \taction = function(self, t)\n720: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t), talent=t, first_target=\"friend\"}\n721: \t\tlocal tx, ty, target = self:getTargetLimited(tg)\n722: \t\tif not tx or not ty or not target or not target.summoner or target.summoner ~= self or not target.turret then return nil end\n723: \t\ttarget:setEffect(target.EFF_UPGRADE, 1, {power=t.getPower(self,t), range=t.getRange(self,t), src=self})\n724: \t\tgame:playSoundNear(self, \"talents/spell_generic\")\n725: \t\treturn true\n726: \tend,\n727: \tinfo = function(self, t)\n728: \t\tlocal power = t.getPower(self,t)\n729: \t\tlocal range = t.getRange(self,t)\n730: \t\treturn ([[Upgrade the target turret, granting it %d%% increased maximum life and enhanced abilities based on type:\n731: \t\tSteamgun: Gains a second steamgun dealing %d%% damage, and every 3 turns will fire a rocket dealing %d%% steamgun damage as fire in radius 2.\n732: \t\tFlame: Increases damage by %d%%, range by %d, and every 3 turns will project a vortex of superheated air that drags targets within range %d towards the turret as well as dealing normal flamethrower damage.\n733: \t\tMedic: Increases healing on affected targets by %d%%, and has a %d%% chance to cleanse a negative effect each turn.]]):\n734: \t\ttformat(power, power/2, 100 + (power*3), power/2, range/2, range, power/2, power/3)\n735: \tend,\n736: }\n737: \n738: newTalent{\n739: \tname = \"Hunker Down\",\n740: \ttype = {\"steamtech/turrets\", 4},\n741: \tpoints = 5,\n742: \trequire = steamreq4,\n743: \tsteam = 50,\n744: \tcooldown = 30,\n745: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 5, 9)) end,\n746: \tgetPower = function(self, t) return math.floor(self:combatTalentScale(t, 15, 50)) end,\n747: \tgetStatBonus = function(self, t) \n748: \t\tlocal t = self:getTalentFromId(self.T_DEPLOY_TURRET)\n749: \t\treturn t.getStatBonus(self, t)\n750: \tend,\n751: \taction = function(self, t)\n752: \t\tfor i = 1, 2 do\n753: \n754: \t\t\tlocal x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})\n755: \t\t\tif not x then\n756: \t\t\t\tgame.logPlayer(self, \"Not enough space to summon!\")\n757: \t\t\t\treturn\n758: \t\t\tend\n759: \n760: \t\t\tlocal NPC = require \"mod.class.NPC\"\n761: \t\t\tlocal m = NPC.new{\n762: \t\t\t\ttype = \"construct\", subtype = \"sentry\",\n763: \t\t\t\tdisplay = \"*\", color=colors.GREEN,\n764: \t\t\t\tname = _t\"guardian turret\", faction = self.faction, image = \"npc/guardian_turret1.png\",\n765: \t\t\t\tdesc = _t[[An advanced turret equipped with dual steamguns.]],\n766: \t\t\t\tautolevel = \"rogue\",\n767: \t\t\t\tai = \"tactical\", ai_state = { talent_in=1, },\n768: \t\t\t\tstats = { dex=15, con=15, cun=15 },\n769: \t\t\t\tlevel_range = {1, 1},\n770: \t\t\t\tpower_source = {steamtech=true},\n771: \t\t\t\texp_worth = 0,\n772: \t\t\t\tinc_stats = {\n773: \t\t\t\t\tdex = t.getStatBonus(self,t),\n774: \t\t\t\t\tcon = t.getStatBonus(self,t),\n775: \t\t\t\t\tcun = t.getStatBonus(self,t),\n776: \t\t\t\t},\n777: \t\n778: \t\t\t\tmax_life = 20,\n779: \t\t\t\tlife_rating = 10,\n780: \t\t\t\tnever_move = 1,\n781: \t\n782: \t\t\t\tinc_damage = table.clone(self.inc_damage),\n783: \t\t\t\tresists_pen = table.clone(self.resists_pen),\n784: \t\n785: \t\t\t\tcombat_armor_hardiness = 50,\n786: \t\t\t\tcombat_armor = self.level/2,\n787: \t\t\t\tresists = {all = 0},\n788: \t\n789: \t\t\t\tnegative_status_effect_immune = 1,\n790: \t\t\t\tcant_be_moved = 1,\n791: \t\t\t\tinfravision = 20,\n792: \t\t\t\tno_breath = 1,\n793: \t\t\t\tno_drops = 1,\n794: \t\t\t\tpower = t.getPower(self,t),\n795: \t\t\t\t\n796: \t\t\t\tcombat = { dam=resolvers.levelup(5, 1, 0.7), atk=7, apr=1 },\n797: \t\t\t\tbody = { INVEN = 10, MAINHAND=1, OFFHAND=1, CLOAK=1, QUIVER=1 },\n798: \t\t\t\tresolvers.equip{\n799: \t\t\t\t\t{type=\"weapon\", subtype=\"steamgun\", base_list=\"mod.class.Object:/data-orcs/general/objects/steamgun.lua\", not_properties={unique=true}, autoreq=true, ego_chance=-1000},\n800: \t\t\t\t\t{type=\"weapon\", subtype=\"steamgun\", base_list=\"mod.class.Object:/data-orcs/general/objects/steamgun.lua\", not_properties={unique=true}, autoreq=true, ego_chance=-1000},\n801: \t\t\t\t\t{type=\"ammo\", subtype=\"shot\", autoreq=true, not_properties={unique=true}, ego_chance=-1000},\n802: \t\t\t\t},\n803: \t\t\t\tresolvers.talents{ [Talents.T_STEAM_POOL]=1, [Talents.T_SHOOT]=1, [Talents.T_RELOAD]=1,\n804: \t\t\t\t\t[Talents.T_STEAMGUN_MASTERY]=self:getTalentLevel(self.T_HUNKER_DOWN),\n805: \t\t\t\t\t[Talents.T_TURRET_GAUSS_CANNON]=1,\n806: \t\t\t\t},\n807: \t\t\t\tsilent_levelup = true, no_points_on_levelup = true,\n808: \t\t\t\tsummoner = self, summoner_gain_exp=true,\n809: \t\t\t\tsummon_time = t.getDuration(self,t),\n810: \t\t\t\ton_act = function(self)\n811: \t\t\t\t\tlocal Map = require \"engine.Map\"\n812: \t\t\t\t\tlocal tg = {type=\"ball\", range=0, radius=1}\n813: \t\t\t\t\tself:project(tg, self.x, self.y, function(px, py)\n814: \t\t\t\t\t\tlocal target = game.level.map(px, py, engine.Map.ACTOR)\n815: \t\t\t\t\t\tif not target then return end\n816: \t\t\t\n817: \t\t\t\t\t\tif self:reactionToward(target) >= 0  then\n818: \t\t\t\t\t\t\ttarget:setEffect(target.EFF_GUARDIAN_SHIELD, 2, { power=self.power, src=self } )\n819: \t\t\t\t\t\tend\n820: \t\t\t\t\tend)\n821: \t\t\t\t\tself:useEnergy()\n822: \t\t\t\t\tlocal weapon, ammo, offweapon = self:hasArcheryWeapon()\n823: \t\t\t\t\tif not weapon then return end\n824: \t\t\t\t\tlocal range = weapon.combat.range\n825: \t\t\t\t\tlocal tgts = {}\n826: \t\t\t\t\tlocal grids = core.fov.circle_grids(self.x, self.y, range, true)\n827: \t\t\t\t\tfor x, yy in pairs(grids) do for y, _ in pairs(grids[x]) do\n828: \t\t\t\t\t\tlocal a = game.level.map(x, y, engine.Map.ACTOR)\n829: \t\t\t\t\t\tif a and self:reactionToward(a) < 0 then\n830: \t\t\t\t\t\t\ttgts[#tgts+1] = a\n831: \t\t\t\t\t\tend\n832: \t\t\t\t\tend end\n833: \t\t\t\t\tlocal a, id = rng.table(tgts)\t\t\t\t\n834: \t\t\t\t\tif not a then return end\n835: \t\t\t\t\tlocal target = game.level.map(a.x, a.y, engine.Map.ACTOR)\n836: \t\t\t\t\tif not target then return end\n837: \t\t\t\t\tself:forceUseTalent(self.T_TURRET_GAUSS_CANNON, {ignore_energy=true, force_target=target, ignore_ressources=true})\n838: \n839: \t\t\t\t\tammo.combat.shots_left = ammo.combat.capacity\n840: \t\t\t\tend,\n841: \t\t\t}\n842: \t\n843: \t\t\tm:resolve() m:resolve(nil, true)\n844: \t\t\tm.turret = true\n845: \t\t\tm.guardian_turret = true\n846: \t\t\tm:attr(\"archery_pass_friendly\", 1)\n847: \n848: \t\t\tm.combat_precomputed_steampower = self:combatSteampower()\n849: \t\t\tm.combat_precomputed_physpower = self:combatPhysicalpower()\n850: \t\t\tm.combat_precomputed_accuracy = self:combatAttack()\n851: \n852: \t\t\tgame.zone:addEntity(game.level, m, \"actor\", x, y)\n853: \t\t\tm.max_level = self.level m:forceLevelup(self.level)\n854: \t\tend\n855: \n856: \t\treturn true\n857: \tend,\n858: \tinfo = function(self, t)\n859: \t\tlocal dam = t.getPower(self,t)\n860: \t\tlocal dur = t.getDuration(self,t)\n861: \t\treturn ([[Deploy a defensive emplacement around you, summoning 2 guardian turrets in adjacent tiles for %d turns. Guardian turrets redirect %d%% of all damage taken by other adjacent allies (other than fellow guardian turrets) to themselves, and each is armed with a powerful turret capable of firing piercing bullets.\n862: \t\t\tGuardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]]):\n863: \t\ttformat(dur, dam, self:getTalentLevel(self.T_HUNKER_DOWN))\n864: \tend,\n865: }\n866: "
+        }
+      ]
+    },
+    {
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "component": "orcs",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "windows": [
+        {
+          "start": 831,
+          "end": 846,
+          "text": "831: newEffect{\n832: \tname = \"MOSS_TREAD\", image = \"talents/mucus.png\",\n833: \tdesc = _t\"Moss Tread\",\n834: \tlong_desc = function(self, eff) return (\"You lay moss where you walk.\"):tformat() end,\n835: \ttype = \"physical\",\n836: \tsubtype = { moss=true },\n837: \tstatus = \"beneficial\",\n838: \tparameters = {},\n839: \ton_gain = function(self, err) return nil, _t\"+Moss\" end,\n840: \ton_lose = function(self, err) return nil, _t\"-Moss\" end,\n841: \tcallbackOnMove = function(self, eff, moved, force, ox, oy)\n842: \t\tif not moved or force or (ox == self.x and oy == self.y) then return end\n843: \t\tself:callTalent(self.T_TINKER_MOSS_TREAD, nil, self.x, self.y, eff.dam)\n844: \tend,\n845: }\n846: "
+        },
+        {
+          "start": 998,
+          "end": 1034,
+          "text": "998: newEffect{\n999: \tname = \"HEALING_MIST\", image = \"talents/time_shield.png\",\n1000: \tdesc = _t\"Healing Mist\",\n1001: \tlong_desc = function(self, eff) return (\"Newly applied status effects durations are reduced by %d%%.\"):tformat(eff.power) end,\n1002: \ttype = \"physical\",\n1003: \tsubtype = { steamtech=true },\n1004: \tstatus = \"beneficial\",\n1005: \tparameters = { power=10, heal=10 },\n1006: \tcallbackOnActBase = function(self, t)\n1007: \t\tlocal eff = self:hasEffect(self.EFF_HEALING_MIST)\n1008: \t\tlocal src = eff.src\n1009: \t\tif src:hasEffect(src.EFF_UPGRADE) then\n1010: \t\t\teff = src:hasEffect(src.EFF_UPGRADE)\n1011: \t\t\tif rng.percent(eff.power/3) and self:removeEffectsFilter(self, {status=\"detrimental\", ignore_crosstier=true}, 1) > 0 then\n1012: \t\t\t\tgame.logSeen(self, \"#ORCHID#%s has recovered!#LAST#\", self:getName():capitalize())\n1013: \t\t\tend\n1014: \t\tend\n1015: \tend,\n1016: \tactivate = function(self, eff)\n1017: \t\tlocal src = eff.src\n1018: \t\teff.durid = self:addTemporaryValue(\"reduce_detrimental_status_effects_time\", eff.power)\n1019: \t\tif src:hasEffect(src.EFF_UPGRADE) then\n1020: \t\t\tlocal eff2 = src:hasEffect(src.EFF_UPGRADE)\n1021: \t\t\teff.healid = self:addTemporaryValue(\"healing_factor\", eff2.power/200)\n1022: \t\tend\n1023: \t\tself:attr(\"allow_on_heal\", 1)\n1024: \t\tself:heal(eff.heal, src)\n1025: \t\tself:attr(\"allow_on_heal\", -1)\n1026: \tend,\n1027: \tdeactivate = function(self, eff)\n1028: \t\tself:removeTemporaryValue(\"reduce_detrimental_status_effects_time\", eff.durid)\n1029: \t\tif eff.healid then self:removeTemporaryValue(\"healing_factor\", eff.healid) end\n1030: \tend,\n1031: }\n1032: \n1033: newEffect{\n1034: \tname = \"OVERCLOCK\", image = \"talents/barrier.png\","
+        }
+      ]
+    },
+    {
+      "public_path": "tome-orcs/data/timed_effects/other.lua",
+      "component": "orcs",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "78dd56833a21a4e633506394ce3042f794a6818244259066d192e5246ed33c8c",
+      "windows": [
+        {
+          "start": 238,
+          "end": 315,
+          "text": "238: newEffect{\n239: \tname = \"UPGRADE\",-- image = \"talents/last_stand.png\",\n240: \tdesc = _t\"Upgrade\",\n241: \tlong_desc = function(self, eff) return (\"This turret has been greatly enhanced.\"):tformat() end,\n242: \ttype = \"other\",\n243: \tsubtype = { tactical=true },\n244: \tstatus = \"beneficial\", decrease = 0,\n245: \tparameters = {power = 1},\n246: \tactivate = function(self, eff)\n247: \t\tlocal life = eff.power * self.max_life / 100\n248: \t\teff.lid = self:addTemporaryValue(\"max_life\", life)\n249: \t\tself:heal(life, src)\n250: \t\tif self.steamgun_turret then\n251: \t\t\tself:learnTalent(self.T_TURRET_ROCKET_LAUNCHER, true, 1, {no_unlearn=true})\n252: \t\t\tself:learnTalent(self.T_TURRET_DUAL_STEAMGUN, true, 1, {no_unlearn=true})\n253: \t\t\tself.image = \"npc/steamgun_turret2.png\"\n254: \t\t\tself:removeAllMOs() game.level.map:updateMap(self.x, self.y)\n255: \t\tend\n256: \t\tif self.flame_turret then\n257: \t\t\tself:learnTalent(self.T_TURRET_FLAME_VORTEX, true, 1, {no_unlearn=true})\n258: \t\t\tself.image = \"npc/flame_turret2.png\"\n259: \t\t\tself:removeAllMOs() game.level.map:updateMap(self.x, self.y)\n260: \t\tend\n261: \t\tif self.medic_turret then\n262: \t\t\tself.image = \"npc/healing_turret2.png\"\n263: \t\t\tself:removeAllMOs() game.level.map:updateMap(self.x, self.y)\n264: \t\tend\n265: \t\tif self.guardian_turret then\n266: \t\t\tself.image = \"npc/guardian_turret2.png\"\n267: \t\t\tself:removeAllMOs() game.level.map:updateMap(self.x, self.y)\n268: \t\tend\n269: \tend,\n270: \tdeactivate = function(self, eff)\n271: \t\tself:removeTemporaryValue(\"max_life\", eff.lid)\n272: \t\tif self.max_life < self.life then self.life = self.max_life end\n273: \t\tif self.steamgun_turret then\n274: \t\t\tself:unlearnTalent(self.T_TURRET_ROCKET_LAUNCHER, 1, nil, {no_unlearn=true})\n275: \t\t\tself:unlearnTalent(self.T_TURRET_DUAL_STEAMGUN, 1, nil, {no_unlearn=true})\n276: \t\t\tself.image = \"npc/steamgun_turret1.png\"\n277: \t\t\tself:removeAllMOs() game.level.map:updateMap(self.x, self.y)\n278: \t\tend\n279: \t\tif self.flame_turret then\n280: \t\t\tself:unlearnTalent(self.T_TURRET_FLAME_VORTEX, 1, nil, {no_unlearn=true})\n281: \t\t\tself.image = \"npc/flame_turret1.png\"\n282: \t\t\tself:removeAllMOs() game.level.map:updateMap(self.x, self.y)\n283: \t\tend\n284: \t\tif self.medic_turret then\n285: \t\t\tself.image = \"npc/healing_turret1.png\"\n286: \t\t\tself:removeAllMOs() game.level.map:updateMap(self.x, self.y)\n287: \t\tend\n288: \t\tif self.guardian_turret then\n289: \t\t\tself.image = \"npc/guardian_turret1.png\"\n290: \t\t\tself:removeAllMOs() game.level.map:updateMap(self.x, self.y)\n291: \t\tend\n292: \tend,\n293: }\n294: \n295: newEffect{\n296: \tname = \"GUARDIAN_SHIELD\", image = \"talents/hunker_down.png\",\n297: \tdesc = _t\"Guardian Shield\",\n298: \tlong_desc = function(self, eff) return (\"%d%% of all incoming damage is redirected to the adjacent Guardian Turret.\"):tformat(eff.power) end,\n299: \ttype = \"other\",\n300: \tsubtype = { steamtech=true },\n301: \tstatus = \"beneficial\",\n302: \tparameters = { power = 5},\n303: \tcallbackOnHit = function(self, t, cb, src)\n304: \t\tlocal eff = self:hasEffect(self.EFF_GUARDIAN_SHIELD)\n305: \t\tlocal effsrc = eff.src\n306: \t\tif effsrc == self then return nil end\n307: \t\tlocal split = cb.value * eff.power/100\n308: \t\t\n309: \t\t\tgame:delayedLogDamage(src, effsrc, split, (\"#STEEL_BLUE#(%d shared)#LAST#\"):tformat(split), nil)\n310: \t\t\tcb.value = cb.value - split\n311: \t\t\teffsrc:takeHit(split, src)\n312: \t\treturn cb.value\n313: \tend,\n314: \tactivate = function(self, eff)\n315: \tend,"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-orcs/data/talents/uber/mag.lua",
+      "component": "orcs",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "f66debe2fe113ec88810ebaabc9a1c5674085445bc25a84a4f6175623ebd527b",
+      "windows": [
+        {
+          "start": 20,
+          "end": 118,
+          "text": "20: newTalent{\n21: \tname = \"Arcane Amplification Drone Effect\", image = \"talents/arcane_amplification_drone.png\",\n22: \ttype = {\"spell/other\", 1},\n23: \tmode = \"passive\",\n24: \tpoints = 1,\n25: \tcallbackOnTakeDamage = function(self, t, src, x, y, type, dam, tmp)\n26: \t\tif dam <= 0 or src ~= self.summoner then return {dam=0} end\n27: \n28: \t\tlocal source_talent = src.__projecting_for and src.__projecting_for.project_type and (src.__projecting_for.project_type.talent_id or src.__projecting_for.project_type.talent) and src.getTalentFromId and src:getTalentFromId(src.__projecting_for.project_type.talent or src.__projecting_for.project_type.talent_id)\n29: \t\tif not source_talent or not source_talent.is_spell then return {dam=0} end\n30: \n31: \t\tself:project({type=\"ball\", range=0, radius=4}, self.x, self.y, function(px, py)\n32: \t\t\tlocal a = game.level.map(px, py, Map.ACTOR)\n33: \t\t\tif a and a ~= self and a ~= src then\n34: \t\t\t\tDamageType:get(DamageType.ARCANE).projector(self, a.x, a.y, DamageType.ARCANE, dam * 1.3)\n35: \t\t\tend\n36: \t\tend)\n37: \t\tgame.level.map:particleEmitter(self.x, self.y, 4, \"generic_sploom\", {rm=150, rM=180, gm=20, gM=60, bm=180, bM=200, am=80, aM=150, radius=2, basenb=120})\n38: \t\treturn {dam=0}\n39: \tend,\n40: \tinfo = function(self, t)\n41: \t\treturn (_t[[Spell damage done to it ripples in radius 4 doing 130% arcane damage.]])\n42: \tend,\n43: }\n44: \n45: uberTalent{\n46: \tname = \"Arcane Amplification Drone\",\n47: \trequire = { special={desc=_t\"Have gained the #{italic}#Tales of the Spellblaze#{normal}# achievement with this or any previous character for the current difficulty & permadeath settings.\", fct=function(self)\n48: \t\tlocal id = world:getCurrentAchievementDifficultyId(game, \"SPELLBLAZE_LORE\")\n49: \t\treturn world:hasAchievement(id)\n50: \tend} },\n51: \tcooldown = 10,\n52: \tno_npc_use = true,\n53: \tno_energy = true,\n54: \trange = 7,\n55: \tcallbackOnChangeLevel = function(self, t, mode, zone, level)\n56: \t\tif not level or mode ~= \"leave\" then return end\n57: \t\tfor uid, e in pairs(level.entities) do\n58: \t\t\tif e.is_amplification_drone and e.summoner == self then e:disappear() end\n59: \t\tend\n60: \tend,\t\n61: \taction = function(self, t)\n62: \t\tlocal tg = {type=\"bolt\", nowarning=true, range=self:getTalentRange(t), nolock=true, simple_dir_request=true, talent=t}\n63: \t\tlocal tx, ty, target = self:getTarget(tg)\n64: \t\tif not tx or not ty then return nil end\n65: \t\tlocal _ _, _, _, tx, ty = self:canProject(tg, tx, ty)\n66: \t\ttarget = game.level.map(tx, ty, Map.ACTOR)\n67: \t\tif target == self then target = nil end\n68: \n69: \t\t-- Find space\n70: \t\tlocal x, y = util.findFreeGrid(tx, ty, 5, true, {[Map.ACTOR]=true})\n71: \t\tif not x then\n72: \t\t\tgame.logPlayer(self, \"Not enough space to summon!\")\n73: \t\t\treturn\n74: \t\tend\n75: \n76: \t\tlocal NPC = require \"mod.class.NPC\"\n77: \t\tlocal m = NPC.new{\n78: \t\t\ttype = \"construct\", subtype = \"mechanical\",\n79: \t\t\tdisplay = \"*\", color=colors.UMBER,\n80: \t\t\tname = _t\"arcane amplification drone\", faction = self.faction, image = \"npc/construct_mechanical_arcane_amplification_drone.png\",\n81: \t\t\tresolvers.nice_tile{tall=1},\n82: \t\t\tdesc = _t[[Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.]],\n83: \t\t\tautolevel = \"none\",\n84: \t\t\tai = \"summoned\", ai_real = \"dumb_talented\", ai_state = { talent_in=1, },\n85: \t\t\tlevel_range = {1, 1}, exp_worth = 0,\n86: \n87: \t\t\tmax_life = 100, life_regen = 100,\n88: \t\t\thated_by_summoner = 1,\n89: \t\t\tlife_rating = 0,\n90: \t\t\tnever_move = 1,\n91: \t\t\tnever_act = 1,\n92: \t\t\tcombat_armor = 0, combat_def = 0,\n93: \t\t\tis_amplification_drone = true,\n94: \n95: \t\t\tresolvers.talents{\n96: \t\t\t\t[self.T_ARCANE_AMPLIFICATION_DRONE_EFFECT] = 1,\n97: \t\t\t},\n98: \n99: \t\t\tsummoner = self, summoner_gain_exp=true,\n100: \t\t\tsummon_time = 3,\n101: \t\t\tresists_pen = table.clone(self.resists_pen or {}, true),\n102: \t\t}\n103: \n104: \t\tm:resolve() m:resolve(nil, true)\n105: \t\tm:forceLevelup(self.level)\n106: \t\t-- if core.shader.active(4) then m:addParticles(Particles.new(\"shader_ring_rotating\", 1, {toback=true, rotation=0, radius=2, img=\"arcanegeneric\", a=0.7}, {type=\"sunaura\", time_factor=5000}))\n107: \t\t-- else m:addParticles(Particles.new(\"ultrashield\", 1, {rm=180, rM=220, gm=10, gM=50, bm=190, bM=220, am=120, aM=200, radius=0.4, density=100, life=8, instop=20}))\n108: \t\t-- end\n109: \n110: \t\tgame.zone:addEntity(game.level, m, \"actor\", x, y)\n111: \t\tgame.level.map:particleEmitter(x, y, 1, \"summon\")\n112: \t\treturn true\n113: \tend,\n114: \tinfo = function(self, t)\n115: \t\treturn ([[You create an Arcane Amplification Drone at the selected location for 3 turns.\n116: \t\tWhen you cast a spell that damages the drone it will ripple the damage as 130%% arcane damage of the initial hit in radius 4.]])\n117: \t\t:tformat()\n118: \tend,"
+        },
+        {
+          "start": 121,
+          "end": 211,
+          "text": "121: uberTalent{\n122: \tname = \"Technomancer\",\n123: \trequire = {\n124: \t\tbirth_descriptors={{\"subclass\", \"Archmage\"}},\n125: \t\tspecial={desc=_t\"Unlocked the Technomancer evolution\", fct=function(self) return profile.mod.allow_build.mage_technomancer end},\n126: \t\tstat = {cun=25},\n127: \t},\n128: \tis_class_evolution = \"Archmage\", requires_unlock = \"mage_technomancer\",\n129: \tcant_steal = true,\n130: \tis_technomancy = true, is_steam = true, is_spell = true,\n131: \tmode = \"passive\",\n132: \tno_npc_use = true,\n133: \ton_learn = function(self, t)\n134: \t\tif not game.party:hasMember(self) then return end\n135: \t\tself.descriptor.class_evolution = _t\"Technomancer\"\n136: \n137: \t\tself:learnTalentType(\"spell/galvanic-technomancy\", false)\n138: \t\tself:setTalentTypeMastery(\"spell/galvanic-technomancy\", 1.3)\n139: \n140: \t\tself:learnTalentType(\"spell/terrene-technomancy\", false)\n141: \t\tself:setTalentTypeMastery(\"spell/terrene-technomancy\", 1.3)\n142: \n143: \t\tself:learnTalentType(\"spell/occult-technomancy\", false)\n144: \t\tself:setTalentTypeMastery(\"spell/occult-technomancy\", 1.3)\n145: \n146: \t\tself:learnTalentType(\"steamtech/physics\", true)\n147: \t\tself:learnTalentType(\"steamtech/chemistry\", false)\n148: \t\tself:learnTalent(self.T_SMITH, true)\n149: \t\tself:learnTalent(self.T_MECHANICAL, true, 2)\n150: \t\tself:learnTalent(self.T_ELECTRICITY, true, 2)\n151: \t\tself:incSteam(100)\n152: \n153: \t\tif self ~= game:getPlayer(true) then return end\n154: \t\t\n155: \t\t-- From now on, drop tinker stuff\n156: \t\tgame.state.birth.merge_tinkers_data = true\n157: \n158: \t\tgame.party:learnTinker(\"ARCANE_DYNAMO\")\n159: \n160: \t\tlocal ape = self:findInAllInventoriesBy(\"define_as\", \"APE\")\n161: \t\tif not ape then\n162: \t\t\tlocal base_list = require(\"mod.class.Object\"):loadList(\"/data-orcs/general/objects/quest-artifacts.lua\")\n163: \t\t\tbase_list.__real_type = \"object\"\n164: \t\t\tlocal o = game.zone:makeEntityByName(game.level, base_list, \"APE\", true)\n165: \t\t\tif o then\n166: \t\t\t\to.auto_hotkey = 1\n167: \t\t\t\tself:addObject(self.INVEN_INVEN, o)\n168: \t\t\t\tself:sortInven()\n169: \t\t\tend\n170: \t\tend\n171: \n172: \t\tlocal list = {\n173: \t\t\t{name=_t\"Occult Technomancy\", type=\"spell/occult-technomancy\", talent=self.T_METATEMPORAL_SPINNER, desc=_t[[These talents focus on arcane and temporal damage, using a super-spinned steamsaw to rip holes in reality.]]},\n174: \t\t\t{name=_t\"Galvanic Technomancy\", type=\"spell/galvanic-technomancy\", talent=self.T_GALVANIC_ROD, desc=_t[[These talents focus on fire and lightning damage, strategically placing galvanic rods to create fields of death and stuns.]]},\n175: \t\t\t{name=_t\"Terrene Technomancy\", type=\"spell/terrene-technomancy\", talent=self.T_MICRO_SPIDERBOT, desc=_t[[These talents focus on cold and physical damage, summoning micro spiderbots to harass and pin their foes or protect themselves.]]},\n176: \t\t}\n177: \t\tlocal d = require(\"engine.ui.Dialog\"):listPopup(_t\"Technomancer\", _t\"Choose your free Technomancy unlock?\", list, 400, 250, function(sel)\n178: \t\t\tif not sel then return end\n179: \t\t\tself:learnTalentType(sel.type)\n180: \t\t\tself:learnTalent(sel.talent, true)\n181: \t\tend, function(sel)\n182: \t\t\tgame.tooltip_x, game.tooltip_y = 1, 1\n183: \t\t\tlocal talents = _t\"Available talents:\\n\"\n184: \t\t\tfor i, t in ipairs(game.player.talents_types_def[sel.type].talents) do\n185: \t\t\t\ttalents = talents..\"#AQUAMARINE#\"..t.name..\"\\n\"\n186: \t\t\tend\n187: \t\t\tgame:tooltipDisplayAtMap(game.w, game.h, \"#GOLD#\"..sel.name..\"#LAST#\\n\"..sel.desc..talents)\n188: \t\tend)\n189: \t\td.key:addBind(\"EXIT\", function() end)\n190: \tend,\n191: \ton_unlearn = function(self, t)\n192: \tend,\n193: \tinfo = function(self, t)\n194: \t\treturn ([[Technomancers are Archmages that dabble in steam technology to enhance their already formidable arsenal of spells.\n195: \t\tOnce this class evolution is taken, you gain the following:\n196: \t\t- Arcane Dynamo tinker schematic\n197: \t\t- Steamtech/Physics category (unlocked)\n198: \t\t- Steamtech/Chemistry category (locked)\n199: \t\t- An Automated Portable Extractor (A.P.E.)\n200: \t\t- One point in the Physics talent Smith and two in Mechanical and Electricity\n201: \t\t- Spell/Galvanic Technomancy category (locked) - deals with fire and lightning\n202: \t\t- Spell/Terrene Technomancy category (locked) - deals with earth and water\n203: \t\t- Spell/Occult Technomancy category (locked) - deals with time and arcane\n204: \t\t- The ability to unlock one of the three Technomancy categories for free\n205: \n206: \t\tOnce put in a robe, the Arcane Dynamo will regenerate Steam each time mana is spent and increase Spellpower based on current steam level.\n207: \n208: \t\t#{bold}#As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.#{normal}#]])\n209: \t\t:tformat()\n210: \tend,\n211: }"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-orcs/superload/mod/class/interface/Combat.lua",
+      "component": "orcs",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "bc9bc76cd217c8a661082bfc75bf8d258d66e5d9fa9e34732664e7f17eeb6b3f",
+      "windows": [
+        {
+          "start": 59,
+          "end": 149,
+          "text": "59: local combatSpellpower = _M.combatSpellpower\n60: function _M:combatSpellpower(mod, add)\n61: \tif self:knowTalent(self.T_TINKER_ARCANE_DYNAMO) then\n62: \t\tadd = (add or 0) + self:callTalent(self.T_TINKER_ARCANE_DYNAMO, \"getSpellpower\")\n63: \tend\n64: \n65: \treturn combatSpellpower(self, mod, add)\n66: end\n67: \n68: --- Gets steampower\n69: function _M:combatSteampowerRaw(add)\n70: \tif self.combat_precomputed_steampower then return self.combat_precomputed_steampower end\n71: \t\t\n72: \tadd = add or 0\n73: \n74: \tif self.combat_generic_power then\n75: \t\tadd = add + self.combat_generic_power\n76: \tend\n77: \n78: \tlocal p = self.combat_steampower or 0\n79: \tlocal d = (p > 0 and p or 0) + add + self:getCun()\n80: \tif self:attr(\"dazed\") then d = d / 2 end\n81: \n82: \tif self:attr(\"hit_penalty_2h\") then d = d * (1 - math.max(0, 20 - (self.size_category - 4) * 5) / 100) end\n83: \n84: \treturn d\n85: end\n86: \n87: --- Gets steampower\n88: function _M:combatSteampower(mod, add)\n89: \tmod = mod or 1\n90: \treturn self:rescaleCombatStats(self:combatSteampowerRaw(add)) * mod\n91: end\n92: \n93: --- Scale for therapeutics\n94: function _M:combatScaleTherapeutic(o, base, mult)\n95: \tlocal power = base + o.material_level * mult\n96: \treturn self:combatScale(self:combatSteampower(), power / 2, 0, power, 100)\n97: end\n98: \n99: --- Gets damage based on talent\n100: function _M:combatTalentSteamDamage(t, base, max)\n101: \t-- Compute at \"max\"\n102: \tlocal mod = max / ((base + 100) * ((math.sqrt(5) - 1) * 0.8 + 1))\n103: \t-- Compute real\n104: \treturn self:rescaleDamage((base + (self:combatSteampower())) * ((math.sqrt(self:getTalentLevel(t)) - 1) * 0.8 + 1) * mod)\n105: end\n106: \n107: --- Gets damage based on material level\n108: function _M:combatMLSteamDamage(tl, base, max)\n109: \t-- Compute at \"max\"\n110: \tlocal mod = max / ((base + 100) * ((math.sqrt(5) - 1) * 0.8 + 1))\n111: \t-- Compute real\n112: \treturn self:rescaleDamage((base + (self:combatSteampower())) * ((math.sqrt(tl) - 1) * 0.8 + 1) * mod)\n113: end\n114: \n115: --- Gets steamcrit\n116: function _M:combatSteamCrit()\n117: \tlocal crit = (self.combat_steamcrit or 0) + (self.combat_generic_crit or 0) + (self:getCun() - 10) * 0.3 + (self:getLck() - 50) * 0.30 + 1\n118: \n119: \treturn util.bound(crit, 0, 100)\n120: end\n121: \n122: --- Computes steam crit for a damage\n123: function _M:steamCrit(dam, add_chance, crit_power_add)\n124: \tself.turn_procs.is_crit = nil\n125: \n126: \tcrit_power_add = crit_power_add or 0\n127: \tlocal chance = self:combatSteamCrit() + (add_chance or 0)\n128: \tlocal crit = false\n129: \n130: \tif self:isTalentActive(self.T_STEALTH) and self:knowTalent(self.T_SHADOWSTRIKE) then\n131: \t\tchance = 100\n132: \tend\n133: \n134: \tprint(\"[STEAM CRIT %]\", chance)\n135: \tif rng.percent(chance) then\n136: \t\tself.turn_procs.is_crit = \"steam\"\n137: \t\tself.turn_procs.crit_power = (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)\n138: \t\tdam = dam * (1.5 + crit_power_add + (self.combat_critical_power or 0) / 100)\n139: \t\tcrit = true\n140: \t\tgame.logSeen(self, \"#{bold}#%s's tinker attains critical power!#{normal}#\", self:getName():capitalize())\n141: \n142: \t\tif self:knowTalent(self.T_EYE_OF_THE_TIGER) then self:triggerTalent(self.T_EYE_OF_THE_TIGER, nil, \"steam\") end\n143: \n144: \t\tself:fireTalentCheck(\"callbackOnCrit\", \"steam\", dam, chance)\n145: \tend\n146: \treturn dam, crit\n147: end\n148: \n149: -- Gets steamtech speed"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/data/timed_effects/physical.lua",
+      "component": "core",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "windows": [
+        {
+          "start": 123,
+          "end": 153,
+          "text": "123: newEffect{\n124: \tname = \"CUT\", image = \"effects/cut.png\",\n125: \tdesc = _t\"Bleeding\",\n126: \tlong_desc = function(self, eff) return (\"Huge cut that bleeds, doing %0.2f physical damage per turn.\"):tformat(eff.power) end,\n127: \tcharges = function(self, eff) return (math.floor(eff.power)) end,\n128: \ttype = \"physical\",\n129: \tsubtype = { wound=true, cut=true, bleed=true },\n130: \tstatus = \"detrimental\",\n131: \tparameters = { power=1 },\n132: \ton_gain = function(self, err) return _t\"#Target# starts to bleed.\", _t\"+Bleeds\" end,\n133: \ton_lose = function(self, err) return _t\"#Target# stops bleeding.\", _t\"-Bleeds\" end,\n134: \ton_merge = function(self, old_eff, new_eff)\n135: \t\t-- Merge the flames!\n136: \t\tlocal olddam = old_eff.power * old_eff.dur\n137: \t\tlocal newdam = new_eff.power * new_eff.dur\n138: \t\tlocal dur = math.ceil((old_eff.dur + new_eff.dur) / 2)\n139: \t\told_eff.dur = dur\n140: \t\told_eff.power = (olddam + newdam) / dur\n141: \t\treturn old_eff\n142: \tend,\n143: \tactivate = function(self, eff)\n144: \t\tif eff.src and eff.src:knowTalent(self.T_BLOODY_BUTCHER) then\n145: \t\t\tlocal t = eff.src:getTalentFromId(eff.src.T_BLOODY_BUTCHER)\n146: \t\t\tlocal resist = math.min(t.getResist(eff.src, t), math.max(0, self:combatGetResist(DamageType.PHYSICAL)))\n147: \t\t\tself:effectTemporaryValue(eff, \"resists\", {[DamageType.PHYSICAL] = -resist})\n148: \t\tend\n149: \tend,\n150: \ton_timeout = function(self, eff)\n151: \t\tDamageType:get(DamageType.PHYSICAL).projector(eff.src or self, self.x, self.y, DamageType.PHYSICAL, eff.power)\n152: \tend,\n153: }"
+        },
+        {
+          "start": 623,
+          "end": 649,
+          "text": "623: newEffect{\n624: \tname = \"SLOW\", image = \"talents/slow.png\",\n625: \tdesc = _t\"Slow\",\n626: \tlong_desc = function(self, eff) return (\"Reduces global action speed by %d%%.\"):tformat(math.floor(eff.power * 100)) end,\n627: \tcharges = function(self, eff) return (math.floor(eff.power * 100)..\"%\") end,\n628: \ttype = \"physical\",\n629: \tsubtype = { slow=true },\n630: \tstatus = \"detrimental\",\n631: \tparameters = { power=0.1 },\n632: \ton_gain = function(self, err) return _t\"#Target# slows down.\", _t\"+Slow\" end,\n633: \ton_lose = function(self, err) return _t\"#Target# speeds up.\", _t\"-Slow\" end,\n634: \ton_merge = function(self, old_eff, new_eff)\n635: \t\tif new_eff.power > old_eff.power then\n636: \t\t\tself:removeTemporaryValue(\"global_speed_add\", old_eff.tmpid)\n637: \t\t\told_eff.tmpid = self:addTemporaryValue(\"global_speed_add\", -new_eff.power)\n638: \t\t\told_eff.power = new_eff.power\n639: \t\t\told_eff.dur = new_eff.dur\n640: \t\tend \n641: \t\treturn old_eff\n642: \tend,\n643: \tactivate = function(self, eff)\n644: \t\teff.tmpid = self:addTemporaryValue(\"global_speed_add\", -eff.power)\n645: \tend,\n646: \tdeactivate = function(self, eff)\n647: \t\tself:removeTemporaryValue(\"global_speed_add\", eff.tmpid)\n648: \tend,\n649: }"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/data/damage_types.lua",
+      "component": "core",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "windows": [
+        {
+          "start": 2965,
+          "end": 2982,
+          "text": "2965: -- Mosses\n2966: newDamageType{\n2967: \tname = _t(\"pinning nature\", \"damage type\"), type = \"GRASPING_MOSS\",\n2968: \tprojector = function(src, x, y, type, dam, state)\n2969: \t\tstate = initState(state)\n2970: \t\tuseImplicitCrit(src, state)\n2971: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n2972: \t\tif target and src:reactionToward(target) < 0 then\n2973: \t\t\tDamageType:get(DamageType.NATURE).projector(src, x, y, DamageType.NATURE, dam.dam, state)\n2974: \t\t\ttarget:setEffect(target.EFF_SLOW_MOVE, 4, {apply_power=src:combatMindpower(), power=dam.slow/100}, true)\n2975: \t\t\tif target:canBe(\"pin\") and rng.percent(dam.pin) then\n2976: \t\t\t\ttarget:setEffect(target.EFF_PINNED, 4, {apply_power=src:combatMindpower()}, true)\n2977: \t\t\telse\n2978: \t\t\t\tgame.logSeen(target, \"%s resists the pinning!\", target:getName():capitalize())\n2979: \t\t\tend\n2980: \t\tend\n2981: \tend,\n2982: }"
+        }
+      ]
+    },
+    {
+      "public_path": "game/engines/default/engine/utils.lua",
+      "component": "core",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "871f7ae2d26266751811d9249e4525b5b0f9d8c88b35272755d7a617885c2bbf",
+      "windows": [
+        {
+          "start": 2950,
+          "end": 2982,
+          "text": "2950: function util.findFreeGrid(sx, sy, radius, block, what, checker)\n2951: \tif not sx or not sy then return nil, nil, {} end\n2952: \twhat = what or {}\n2953: \tlocal grids = core.fov.circle_grids(sx, sy, radius, block)\n2954: \tlocal gs = {}\n2955: \tfor x, yy in pairs(grids) do for y, _ in pairs(yy) do\n2956: \t\tlocal ok = true\n2957: \t\tif not game.level.map:isBound(x, y) then ok = false end\n2958: \t\tfor w, _ in pairs(what) do\n2959: --\t\t\tprint(\"findFreeGrid test\", x, y, w, \":=>\", game.level.map(x, y, w))\n2960: \t\t\tif game.level.map(x, y, w) then ok = false end\n2961: \t\tend\n2962: \t\tif game.level.map:checkEntity(x, y, game.level.map.TERRAIN, \"block_move\") then ok = false end\n2963: --\t\tprint(\"findFreeGrid\", x, y, \"from\", sx,sy,\"=>\", ok)\n2964: \t\tif checker and not checker(x, y) then ok = false end\n2965: \t\tif ok then\n2966: \t\t\tgs[#gs+1] = {x, y, core.fov.distance(sx, sy, x, y), rng.range(1, 1000)}\n2967: \t\tend\n2968: \tend end\n2969: \n2970: \tif #gs == 0 then return nil, nil, {} end\n2971: \n2972: \ttable.sort(gs, function(a, b)\n2973: \t\tif a[3] == b[3] then\n2974: \t\t\treturn a[4] < b[4]\n2975: \t\telse\n2976: \t\t\treturn a[3] < b[3]\n2977: \t\tend\n2978: \tend)\n2979: \n2980: --\tprint(\"findFreeGrid using\", gs[1][1], gs[1][2])\n2981: \treturn gs[1][1], gs[1][2], gs\n2982: end"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "component": "core",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "windows": [
+        {
+          "start": 1388,
+          "end": 1422,
+          "text": "1388: function _M:move(x, y, force)\n1389: \tlocal moved = false\n1390: \tlocal ox, oy = self.x, self.y\n1391: \n1392: \tif force or self:enoughEnergy() then\n1393: \n1394: \t\t-- Confused ?\n1395: \t\tif not force and self:attr(\"confused\") then\n1396: \t\t\tif rng.percent(util.bound(self:attr(\"confused\"), 0, 50)) then\n1397: \t\t\t\tx, y = self.x + rng.range(-1, 1), self.y + rng.range(-1, 1)\n1398: \t\t\tend\n1399: \t\tend\n1400: \n1401: \t\t-- Sleeping?  Do nothing..\n1402: \t\tif not force and self:attr(\"sleep\") and not self:attr(\"lucid_dreamer\") then\n1403: \t\t\tgame.logPlayer(self, \"You are asleep and unable to move!\")\n1404: \t\t-- Encased in ice, attack the ice\n1405: \t\telseif not force and (self:attr(\"encased_in_ice\") or self:attr(\"encased\")) then\n1406: \t\t\tself:attackTarget(self)\n1407: \t\t\tmoved = true\n1408: \t\t-- Should we prob travel through walls ?\n1409: \t\telseif not force and self:attr(\"prob_travel\") and not self:attr(\"prob_travel_deny\") and game.level.map:checkEntity(x, y, Map.TERRAIN, \"block_move\", self) then\n1410: \t\t\tmoved = self:probabilityTravel(x, y, self:attr(\"prob_travel\"))\n1411: \t\t\tif self:attr(\"prob_travel_penalty\") then\n1412: \t\t\t\tlocal d = core.fov.distance(ox, oy, self.x, self.y)\n1413: \t\t\t\tself:setEffect(self.EFF_PROB_TRAVEL_UNSTABLE, d * self:attr(\"prob_travel_penalty\"), {})\n1414: \t\t\tend\n1415: \t\t-- Never move but tries to attack ? ok\n1416: \t\telseif not force and self:attr(\"never_move\") then\n1417: \t\t\t-- A bit weird, but this simple asks the collision code to detect an attack\n1418: \t\t\tif not game.level.map:checkAllEntities(x, y, \"block_move\", self, true) then\n1419: \t\t\t\tgame.logPlayer(self, \"You are unable to move!\")\n1420: \t\t\tend\n1421: \t\telse\n1422: \t\t\tmoved = engine.Actor.move(self, x, y, force)"
+        },
+        {
+          "start": 6504,
+          "end": 6525,
+          "text": "6504: \t\tfor res, res_def in ipairs(_M.resources_def) do\n6505: \t\t\trname = res_def.short_name\n6506: \t\t\tcost = ab[rname] and util.getval(ab[rname], self, ab) or 0\n6507: \t\t\tcost = self:alterTalentCost(ab, rname, cost)\n6508: \t\t\tif cost ~= 0 then\n6509: \t\t\t\ttrigger = true\n6510: \t\t\t\tcost = cost * (util.getval(res_def.cost_factor, self, ab, false, cost) or 1)\n6511: \t\t\t\tif res_def.invert_values then\n6512: \t\t\t\t\tself[res_def.incFunction](self, cost)\n6513: \t\t\t\telse\n6514: \t\t\t\t\tself[res_def.incFunction](self, -cost)\n6515: \t\t\t\tend\n6516: \t\t\tend\n6517: \t\tend\n6518: \tend\n6519: \n6520: \tlocal hd = {\"Actor:postUseTalent\", t=ab, ret=ret, trigger=trigger}\n6521: \tif self:triggerHook(hd) then\n6522: \t\ttrigger = hd.trigger\n6523: \tend\n6524: \n6525: \tself:fireTalentCheck(\"callbackOnTalentPost\", ab, ret, silent)"
+        },
+        {
+          "start": 7295,
+          "end": 7349,
+          "text": "7295: function _M:dispel(effid_or_tid, src, allow_immunity, params)\n7296: \tif not params then params = {} end\n7297: \tif params.silent == nil then params.silent = false end\n7298: \tif params.force == nil then params.force = false end\n7299: \tif params.ignore_energy == nil then params.ignore_energy = true end\n7300: \tif allow_immunity == nil then allow_immunity = true end\n7301: \tlocal allowed = true\n7302: \n7303: \t-- Dont resist yourself!\n7304: \tif src == self then allow_immunity = false end\n7305: \n7306: \tif allow_immunity and self:attr(\"invulnerable\") then return end\n7307: \n7308: \t-- Effect\n7309: \tif effid_or_tid:find(\"^EFF_\") then\n7310: \t\tlocal eff = self:getEffectFromId(effid_or_tid)\n7311: \t\tif (not eff or eff.type == \"other\") and not params.force then return end -- NEVER touch other\n7312: \t\tif not self:hasEffect(effid_or_tid) then return end\n7313: \n7314: \t\tif allow_immunity then\n7315: \t\t\tif not self:canBe(\"dispel_effects\") then allowed = false end\n7316: \t\tend\n7317: \t\tif allowed and allow_immunity then\n7318: \t\t\tif self:fireTalentCheck(\"callbackOnDispel\", \"effect\", effid_or_tid, src, allow_immunity, eff.desc) then allowed = false end\n7319: \t\tend\n7320: \t\tif allowed then\n7321: \t\t\tself:fireTalentCheck(\"callbackOnDispelled\", \"effect\", effid_or_tid, src, allow_immunity, eff.desc)\n7322: \t\t\tself:removeEffect(effid_or_tid, params.silent, params.force)\n7323: \t\t\treturn true\n7324: \t\telse\n7325: \t\t\tgame.logSeen(self, \"%s resists the dispelling of %s!\", self:getName():capitalize(), eff.desc)\n7326: \t\t\treturn false\n7327: \t\tend\n7328: \t-- Sustain\n7329: \telse\n7330: \t\tlocal t = self:getTalentFromId(effid_or_tid)\n7331: \t\tif not t then return end\n7332: \t\tif not self:isTalentActive(t.id) then return end\n7333: \n7334: \t\tif allow_immunity then\n7335: \t\t\tif not self:canBe(\"dispel_sustains\") then allowed = false end\n7336: \t\tend\n7337: \t\tif allowed and allow_immunity then\n7338: \t\t\tif self:fireTalentCheck(\"callbackOnDispel\", \"sustain\", effid_or_tid, src, allow_immunity, t.name) then allowed = false end\n7339: \t\tend\n7340: \t\tif allowed then\n7341: \t\t\tself:fireTalentCheck(\"callbackOnDispelled\", \"sustain\", effid_or_tid, src, allow_immunity, t.name)\n7342: \t\t\tself:forceUseTalent(effid_or_tid, params)\n7343: \t\t\treturn true\n7344: \t\telse\n7345: \t\t\tgame.logSeen(self, \"%s resists the dispelling of %s!\", self:getName():capitalize(), t.name)\n7346: \t\t\treturn false\n7347: \t\tend\n7348: \tend\n7349: end"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "component": "core",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "windows": [
+        {
+          "start": 93,
+          "end": 107,
+          "text": "93: function _M:attackTarget(target, damtype, mult, noenergy, force_unarmed)\n94: \tlocal speed, hit = nil, false\n95: \tlocal sound, sound_miss = nil, nil\n96: \n97: \t-- Break before we do the blow, because it might start step up, we dont want to insta-cancel it\n98: \tself:breakStepUp()\n99: \tself:breakSpacetimeTuning()\n100: \n101: \tif self:attr(\"feared\") then\n102: \t\tif not noenergy then\n103: \t\t\tself:useEnergy(game.energy_to_act)\n104: \t\t\tself.did_energy = true\n105: \t\tend\n106: \t\tgame.logSeen(self, \"%s is too afraid to attack.\", self:getName():capitalize())\n107: \t\treturn false"
+        },
+        {
+          "start": 178,
+          "end": 223,
+          "text": "178: \tif not speed and not self:attr(\"disarmed\") and not self:isUnarmed() and not force_unarmed then\n179: \t\tlocal double_weapon\n180: \t\t-- All weapons in main hands\n181: \t\tif self:getInven(self.INVEN_MAINHAND) then\n182: \t\t\tfor i, o in ipairs(self:getInven(self.INVEN_MAINHAND)) do\n183: \t\t\t\tlocal combat = self:getObjectCombat(o, \"mainhand\")\n184: \t\t\t\tif combat and not o.archery then\n185: \t\t\t\t\tif o.double_weapon and not double_weapon then double_weapon = o end\n186: \t\t\t\t\tprint(\"[ATTACK] attacking with (mainhand)\", o.name)\n187: \t\t\t\t\tlocal s, h, _curdam = self:attackTargetWith(target, combat, damtype, mult)\n188: \t\t\t\t\tif _curdam then totaldam = totaldam + _curdam end\n189: \t\t\t\t\tspeed = math.max(speed or 0, s)\n190: \t\t\t\t\thit = hit or h\n191: \t\t\t\t\tif hit and not sound then sound = combat.sound\n192: \t\t\t\t\telseif not hit and not sound_miss then sound_miss = combat.sound_miss end\n193: \t\t\t\t\tif not combat.no_stealth_break then break_stealth = true end\n194: \t\t\t\tend\n195: \t\t\tend\n196: \t\tend\n197: \t\t-- All weapons in off hands\n198: \t\tlocal oh_weaps, offhand = table.clone(self:getInven(self.INVEN_OFFHAND)) or {}, false\n199: \t\t-- Offhand attacks are with a damage penalty, that can be reduced by talents\n200: \t\tif double_weapon then oh_weaps[#oh_weaps+1] = double_weapon end -- use double weapon as OFFHAND if there are no others\n201: \t\tfor i = 1, #oh_weaps do\n202: \t\t\tif i == #oh_weaps and double_weapon and offhand then break end\n203: \t\t\tlocal o = oh_weaps[i]\n204: \t\t\tlocal combat = self:getObjectCombat(o, \"offhand\")\n205: \t\t\tlocal offmult = self:getOffHandMult(combat, mult)\n206: \t\t\t\n207: \t\t\t-- no offhand unarmed attacks\n208: \t\t\tif combat and not o.archery then\n209: \t\t\t\tif combat.use_resources and not self:useResources(combat.use_resources, true) then\n210: \t\t\t\t\tprint(\"[ATTACK] Cancelling attack (offhand) with\", o.name , \"(resources)\")\n211: \t\t\t\telse\n212: \t\t\t\t\toffhand = true\n213: \t\t\t\t\tprint(\"[ATTACK] attacking with (offhand)\", o.name)\n214: \t\t\t\t\tlocal s, h, _curdam = self:attackTargetWith(target, combat, damtype, offmult)\n215: \t\t\t\t\tif _curdam then totaldam = totaldam + _curdam end\n216: \t\t\t\t\tspeed = math.max(speed or 0, s)\n217: \t\t\t\t\thit = hit or h\n218: \t\t\t\t\tif hit and not sound then sound = combat.sound\n219: \t\t\t\t\telseif not hit and not sound_miss then sound_miss = combat.sound_miss end\n220: \t\t\t\t\tif not combat.no_stealth_break then break_stealth = true end\n221: \t\t\t\tend\n222: \t\t\tend\n223: \t\tend"
+        },
+        {
+          "start": 252,
+          "end": 262,
+          "text": "252: \tif self:isTalentActive(self.T_CLEAVE) then\n253: \t\tlocal t = self:getTalentFromId(self.T_CLEAVE)\n254: \t\tt.on_attackTarget(self, t, target)\n255: \tend\n256: \n257: \t-- Cancel stealth!\n258: \tif break_stealth then self:breakStealth() end\n259: \tself:breakLightningSpeed()\n260: \treturn hit, totaldam\n261: end\n262: "
+        },
+        {
+          "start": 1779,
+          "end": 1820,
+          "text": "1779: function _M:combatSpellpowerRaw(add)\n1780: \tif self.combat_precomputed_spellpower then return self.combat_precomputed_spellpower, 1 end\n1781: \tadd = add or 0\n1782: \n1783: \tif self.combat_generic_power then\n1784: \t\tadd = add + self.combat_generic_power\n1785: \tend\n1786: \tif self:knowTalent(self.T_ARCANE_CUNNING) then\n1787: \t\tadd = add + self:callTalent(self.T_ARCANE_CUNNING,\"getSpellpower\") * self:getCun() / 100\n1788: \tend\n1789: \tif self:knowTalent(self.T_SHADOW_CUNNING) then\n1790: \t\tadd = add + self:callTalent(self.T_SHADOW_CUNNING,\"getSpellpower\") * self:getCun() / 100\n1791: \tend\n1792: \tif self:knowTalent(self.T_LUNACY) then\n1793: \t\tadd = add + self:callTalent(self.T_LUNACY,\"getSpellpower\") * self:getWil() / 100\n1794: \tend\n1795: \tif self:hasEffect(self.EFF_BLOODLUST) then\n1796: \t\tadd = add + self:hasEffect(self.EFF_BLOODLUST).spellpower * self:hasEffect(self.EFF_BLOODLUST).stacks\n1797: \tend\n1798: \tif self.summoner and self.summoner:knowTalent(self.summoner.T_BLIGHTED_SUMMONING) then\n1799: \t\tadd = add + self.summoner:getMag()\n1800: \tend\n1801: \n1802: \tlocal am = 1\n1803: \tif self:attr(\"spellpower_reduction\") then am = 1 / (1 + self:attr(\"spellpower_reduction\")) end\n1804: \n1805: \tlocal d = math.max(0, (self.combat_spellpower or 0) + add + self:getMag())\n1806: \tif self:attr(\"dazed\") then d = d / 2 end\n1807: \tif self:attr(\"scoured\") then d = d / 1.2 end\n1808: \n1809: \tif self:attr(\"hit_penalty_2h\") then d = d * (1 - math.max(0, 20 - (self.size_category - 4) * 5) / 100) end\n1810: \n1811: \treturn d, am\n1812: end\n1813: \n1814: --- Gets spellpower\n1815: function _M:combatSpellpower(mod, add)\n1816: \tmod = mod or 1\n1817: \tlocal d, am = self:combatSpellpowerRaw(add)\n1818: \treturn self:rescaleCombatStats(d) * mod * am\n1819: end\n1820: "
+        }
+      ]
+    },
+    {
+      "public_path": "game/engines/default/engine/Actor.lua",
+      "component": "core",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "51ede3d424c6303876b2e6e18c8924ea6a40e3e4a8ecaa76f4e40e2f23b641c5",
+      "windows": [
+        {
+          "start": 229,
+          "end": 267,
+          "text": "229: function _M:move(x, y, force)\n230: \tif not x or not y then return end\n231: \tif self.dead then return true end\n232: \tif not game.level then return end\n233: \tlocal map = game.level.map\n234: \n235: \tx = math.floor(x)\n236: \ty = math.floor(y)\n237: \n238: \tif x < 0 then x = 0 end\n239: \tif x >= map.w then x = map.w - 1 end\n240: \tif y < 0 then y = 0 end\n241: \tif y >= map.h then y = map.h - 1 end\n242: \n243: \tif not force and map:checkAllEntities(x, y, \"block_move\", self, true) then return true end\n244: \n245: \tif self.x and self.y then\n246: \t\tmap:remove(self.x, self.y, Map.ACTOR, self)\n247: \telse\n248: --\t\tprint(\"[MOVE] actor moved without a starting position\", self.name, x, y)\n249: \tend\n250: \tself.old_x, self.old_y = self.x or x, self.y or y\n251: \tself.x, self.y = x, y\n252: \tmap(x, y, Map.ACTOR, self)\n253: \n254: \t-- Move emote\n255: \tif self.__emote then\n256: \t\tif self.__emote.dead then self.__emote = nil\n257: \t\telse\n258: \t\t\tself.__emote.x = x\n259: \t\t\tself.__emote.y = y\n260: \t\t\tmap.emotes[self.__emote] = true\n261: \t\tend\n262: \tend\n263: \n264: \tmap:checkAllEntities(x, y, \"on_move\", self, force)\n265: \n266: \treturn true\n267: end"
+        }
+      ]
+    },
+    {
+      "public_path": "game/modules/tome/data/talents.lua",
+      "component": "core",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "60600da06f633d8feed19bed0c59da3ae73c7ae805071e0fe044abc880b9333f",
+      "windows": [
+        {
+          "start": 100,
+          "end": 143,
+          "text": "100: damDesc = function(self, type, dam)\n101: \tif self:attr(\"dazed\") then\n102: \t\tdam = dam * 0.5\n103: \tend\n104: \tif self:attr(\"stunned\") then\n105: \t\tdam = dam * 0.5\n106: \tend\n107: \tif self:attr(\"invisible_damage_penalty\") then\n108: \t\tdam = dam * util.bound(1 - (self.invisible_damage_penalty / (self.invisible_damage_penalty_divisor or 1)), 0, 1)\n109: \tend\n110: \tif self:attr(\"numbed\") then\n111: \t\tdam = dam - dam * self:attr(\"numbed\") / 100\n112: \tend\n113: \tif self:attr(\"generic_damage_penalty\") then\n114: \t\tdam = dam - dam * math.min(100, self:attr(\"generic_damage_penalty\")) / 100\n115: \tend\n116: \n117: \t-- Increases damage\n118: \tif self.inc_damage then\n119: \t\tif _G.type(type) == \"string\" then\n120: \t\t\tlocal dt = DamageType:get(type)\n121: \t\t\tif dt.damdesc_split then\n122: \t\t\t\tif _G.type(dt.damdesc_split) == \"function\" then\n123: \t\t\t\t\ttype = dt.damdesc_split(self, type, dam)\n124: \t\t\t\telse\n125: \t\t\t\t\ttype = dt.damdesc_split\n126: \t\t\t\tend\n127: \t\t\tend\n128: \t\tend\n129: \n130: \t\tif _G.type(type) == \"table\" then\n131: \t\t\tlocal basedam = dam\n132: \t\t\tfor _, ds in ipairs(type) do\n133: \t\t\t\tlocal inc = self:combatGetDamageIncrease(ds[1])\n134: \t\t\t\tdam = dam + (basedam * inc / 100) * ds[2]\n135: \t\t\tend\n136: \t\telse\n137: \t\t\tlocal inc = self:combatGetDamageIncrease(type)\n138: \t\t\tdam = dam + (dam * inc / 100)\n139: \t\tend\n140: \tend\n141: \treturn dam\n142: end\n143: "
+        }
+      ]
+    },
+    {
+      "public_path": "tome-orcs/data/general/objects/quest-artifacts.lua",
+      "component": "orcs",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "176a9edc178cbefa9ac3dfa0c9baa05079ebf85d79d1e89fc7a5b1d9ca3f8dfc",
+      "windows": [
+        {
+          "start": 24,
+          "end": 80,
+          "text": "24: \ttype = \"tinker\", subtype = \"power\",\n25: \tdefine_as = \"APE\",\n26: \tidentified=true, no_unique_lore=true,\n27: \tname = \"Automated Portable Extractor\", display = '~', color=colors.GOLD, unique=true, image = \"object/artifact/ape.png\",\n28: \tdesc = _t[[The APE is a multifunction tinker toolbox. It can store temporarily any amount of items and when requested melt them down using metallurgic and chemical processes.\n29: The metals are melted into lumps of ore to server for the creation of tinkers.\n30: Any remains are melted and turned into valuable materials.]],\n31: \tcost = 0, quest=true,\n32: \n33: \tcarrier = {\n34: \t\tauto_id = 100,\n35: \t\thas_transmo = 1,\n36: \t\thas_transmo_orcs = 1,\n37: \t},\n38: \n39: \tno_drop = true,\n40: \tmax_power = 1000, power_regen = 1,\n41: \tuse_power = { name = _t\"melt all the items in the APE at once (also done automatically when you change level)\", \tpower = 0,\n42: \t\tno_npc_use = true,\n43: \t\tuse = function(self, who)\n44: \t\t\tif not who.player then return {id=true, used=false} end\n45: \t\t\tlocal inven = who:getInven(\"INVEN\")\n46: \t\t\tlocal nb = 0\n47: \t\t\tfor i = #inven, 1, -1 do\n48: \t\t\t\tlocal o = inven[i]\n49: \t\t\t\tif o.__transmo then nb = nb + 1 end\n50: \t\t\tend\n51: \t\t\tif nb <= 0 then\n52: \t\t\t\tlocal floor = game.level.map:getObjectTotal(who.x, who.y)\n53: \t\t\t\tif floor == 0 then\n54: \t\t\t\t\tif who:attr(\"has_transmo\") >= 2 then\n55: \t\t\t\t\t\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"APE\", _t\"Make the Automated Portable Extractor the default item's destroyer?\", function(ret) if ret then\n56: \t\t\t\t\t\t\twho.default_transmo_source = self\n57: \t\t\t\t\t\tend end)\n58: \t\t\t\t\telse\n59: \t\t\t\t\t\trequire(\"engine.ui.Dialog\"):simplePopup(_t\"APE\", _t\"You do not have any items to melt in your APE or on the floor.\")\n60: \t\t\t\t\tend\n61: \t\t\t\telse\n62: \t\t\t\t\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"APE\", (\"Melt all %d item(s) on the floor?\"):tformat(floor), function(ret)\n63: \t\t\t\t\t\tif not ret then return end\n64: \t\t\t\t\t\tfor i = floor, 1, -1 do\n65: \t\t\t\t\t\t\tlocal o = game.level.map:getObject(who.x, who.y, i)\n66: \t\t\t\t\t\t\tif who:transmoFilter(o, self) then\n67: \t\t\t\t\t\t\t\tgame.level.map:removeObject(who.x, who.y, i)\n68: \t\t\t\t\t\t\t\twho:transmoInven(nil, nil, o, self)\n69: \t\t\t\t\t\t\tend\n70: \t\t\t\t\t\tend\n71: \t\t\t\t\tend)\n72: \t\t\t\tend\n73: \t\t\t\treturn {id=true, used=true}\n74: \t\t\tend\n75: \n76: \t\t\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"APE\", (\"Melt all %d item(s) in your APE?\"):tformat(nb), function(ret)\n77: \t\t\t\tif not ret then return end\n78: \t\t\t\tfor i = #inven, 1, -1 do\n79: \t\t\t\t\tlocal o = inven[i]\n80: \t\t\t\t\tif o.__transmo then"
+        }
+      ]
+    },
+    {
+      "public_path": "tome-orcs/data/general/objects/tinkers/electricity.lua",
+      "component": "orcs",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "9f681becf935fab0f48918afe9ea1e68d6a2bb935e12227d8e7d8ca91741a88b",
+      "windows": [
+        {
+          "start": 94,
+          "end": 119,
+          "text": "94: \tend,\n95: \ton_untinker = function(self, o, who)\n96: \t\tfor i, s in ipairs(o.talent_on_spell) do if s.is_manacoil then table.remove(o.talent_on_spell, i) break end end\n97: \tend,\n98: }\n99: end\n100: \n101: for i = 1, 5 do\n102: newEntity{ base = \"BASE_TINKER\", define_as = \"TINKER_ARCANE_DYNAMO\"..i,\n103: \tname = \"arcane dynamo\", image = \"object/tinkers_arcane_dynamo.png\",\n104: \ton_type = \"armor\", on_subtype = \"cloth\",\n105: \tmetallic = true,\n106: \tmaterial_level = i,\n107: \tspecial_desc = function(self) return _t\"Allows the use of Technomancy spells.\" end,\n108: \tobject_tinker = {\n109: \t\twielder = {\n110: \t\t\tlearn_talent = {[Talents.T_TINKER_ARCANE_DYNAMO] = i},\n111: \t\t},\n112: \t},\n113: }\n114: end\n115: \n116: for i = 1, 5 do\n117: newEntity{ base = \"BASE_TINKER\", define_as = \"TINKER_SHOCKING_TOUCH\"..i,\n118: \tname = (\"%s shocking touch\"):tformat(metals[i]), image = \"object/tinkers_shocking_touch_t5.png\",\n119: \ton_slot = \"HANDS\","
+        }
+      ]
+    },
+    {
+      "public_path": "tome-orcs/data/tinkers/electricity.lua",
+      "component": "orcs",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "495edeff7292d136ca87a1be02ac126d1dbc9166b9b897e260484732787445e6",
+      "windows": [
+        {
+          "start": 51,
+          "end": 68,
+          "text": "51: newRecipe{ id = \"ARCANE_DYNAMO\",\n52: \tname = _t\"Arcane Dynamo\", icon = \"shockbolt/object/tinkers_mana_coil_t5.png\",\n53: \tdesc = _t\"Arcane Dynamos build a bridge between arcane forces and steamtech, regenerating steam supplies when casting spells and allowing the use of Technomancy.\",\n54: \tbase_ml = 1, max_ml = 5,\n55: \t-- random_schematic = {level=15, rarity=70, cost=110}, -- Not randomly learnt\n56: \ttalents = {\n57: \t\tT_ELECTRICITY = 2,\n58: \t\tT_MECHANICAL = 2,\n59: \t},\n60: \tingredients = {\n61: \t\tLUMP_ORE = 7,\n62: \t},\n63: \titems = {\n64: \t\tGEM_AMETHYST = _t\"amethyst\",\n65: \t},\n66: }\n67: \n68: newRecipe{ id = \"SHOCKING_TOUCH\","
+        }
+      ]
+    }
+  ],
+  "byte_inverse_proof": {
+    "method": "Reverse only each uniquely matched frozen call target, with exact source and source_tag wrapper; reconstruct entire preimage byte-for-byte. LuaJIT independently loaded before/after records and compared every field.",
+    "reverse_equal_baseline": true,
+    "reverse_sha256": "8bb4b2f9eaf8225c0e1a39dd0e73f1902ad1c997e054ff7fe4ae855c5336e394",
+    "postimage_sha256": "a3f952b4a3123cdf36c04bac1659b001f18238318cadd907f4db22dd2656538e",
+    "old_new_record_count": [
+      4202,
+      4202
+    ],
+    "changed_records": 10,
+    "only_changed_field": "target",
+    "all_out_of_target_bytes_unchanged": true,
+    "all_source_source_tag_args_order_special_fields_unchanged": true,
+    "all_printf_types_order_literal_percent_markup_newlines_tabs_unchanged": true,
+    "spans": [
+      {
+        "candidate_index": 1524,
+        "baseline_target_byte_start": 677658,
+        "old_target_byte_length": 309,
+        "new_target_byte_length": 513
+      },
+      {
+        "candidate_index": 1526,
+        "baseline_target_byte_start": 679723,
+        "old_target_byte_length": 335,
+        "new_target_byte_length": 392
+      },
+      {
+        "candidate_index": 1533,
+        "baseline_target_byte_start": 687266,
+        "old_target_byte_length": 363,
+        "new_target_byte_length": 468
+      },
+      {
+        "candidate_index": 1534,
+        "baseline_target_byte_start": 688026,
+        "old_target_byte_length": 306,
+        "new_target_byte_length": 497
+      },
+      {
+        "candidate_index": 1540,
+        "baseline_target_byte_start": 694192,
+        "old_target_byte_length": 445,
+        "new_target_byte_length": 781
+      },
+      {
+        "candidate_index": 1541,
+        "baseline_target_byte_start": 695034,
+        "old_target_byte_length": 324,
+        "new_target_byte_length": 390
+      },
+      {
+        "candidate_index": 1550,
+        "baseline_target_byte_start": 711769,
+        "old_target_byte_length": 569,
+        "new_target_byte_length": 954
+      },
+      {
+        "candidate_index": 1551,
+        "baseline_target_byte_start": 712965,
+        "old_target_byte_length": 351,
+        "new_target_byte_length": 468
+      },
+      {
+        "candidate_index": 1553,
+        "baseline_target_byte_start": 719559,
+        "old_target_byte_length": 126,
+        "new_target_byte_length": 156
+      },
+      {
+        "candidate_index": 1554,
+        "baseline_target_byte_start": 722439,
+        "old_target_byte_length": 965,
+        "new_target_byte_length": 1138
+      }
+    ]
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor --json",
+      "result": "PASS LuaJIT5.1 and LPeg0.10.2; core fixed commit available; DLC unpinned warnings accurately retained"
+    },
+    {
+      "command": "python3 -B /tmp/mmr017-lint.py",
+      "equivalent_validation": "tools/i18n lint --strict with only run-directory output redirected to own /tmp in memory; no shared-tool modifications",
+      "result": "PASS",
+      "metrics": {
+        "components": {
+          "addon-dev": 101,
+          "ashes-urhrok": 849,
+          "boot": 283,
+          "cults": 2043,
+          "engine": 1061,
+          "example": 26,
+          "example-realtime": 26,
+          "items-vault": 69,
+          "orcs": 3904,
+          "possessors": 258,
+          "tome": 21688
+        },
+        "copy_fragment_components": {
+          "engine": 0,
+          "tome": 0
+        },
+        "copy_fragment_duplicate_runtime_keys": 0,
+        "copy_fragment_translations": 0,
+        "duplicate_runtime_keys": 1711,
+        "errors": 0,
+        "terminology": {
+          "alternative_contexts": 1,
+          "contexts": 915,
+          "rows": 916
+        },
+        "translations": 30308,
+        "warnings": 0
+      }
+    },
+    {
+      "command": "python3 -B /tmp/mmr017-proposal.py",
+      "equivalent_validation": "i18nlib.proposal.validate_proposal(strict=True,allow_partial=False), real manifest bytes and exact terminology symlink; frozen repair synthetic workset/merge rooted in own /tmp to obey write boundary",
+      "result": "PASS 10/10, errors0 warnings0; first run preferred Flamethrower term missing warning fixed in allowed target"
+    },
+    {
+      "command": "python3 -B tools/classify_runtime_keys.py --out-dir /tmp/mmr017-runtime-keys",
+      "result": "PASS",
+      "total_duplicate_keys": 1711,
+      "all_duplicate_targets_identical": true,
+      "all_duplicate_runtime_values_identical": true
+    },
+    {
+      "command": "env LUA_PATH=<project Lua5.1 paths> LUA_CPATH=<project Lua5.1 paths> \"$TOME_LUAJIT\" /tmp/mmr017-consumer-probes.lua",
+      "result": "PASS six groups",
+      "scope": "Actual selected DLC function tables loaded into stubbed bounded fixtures: Dynamo, Bloodstream, GuardianShield, FlameVortex, MossTread, integer format. Not a full live-game simulation. First harness failed only missing string.tformat; supplied engine-equivalent format adapter then all passed."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "LuaJIT LocaleLoader before/after and exact byte inverse",
+      "result": "PASS 10 changed targets; every other field and byte preserved"
+    }
+  ],
+  "plan_deviations": [
+    "No gameplay source fixes; unreachable correct display calculations clarified in text because placeholders/arguments frozen. All implementation defects remain upstream.",
+    "Verification outputs routed to own /tmp; only authorized report written under repository .artifacts. No .ai, evidence, source, terminology, tools or user documents modified; no stage/commit/child.",
+    "Entire authorized target text checked, with additional in-target corrections supported by consumers (life crit, placement availability, dispel selection/repeated sustain attempts, range truncation, healing factor, drone actor exclusions)."
+  ],
+  "unresolved_items": [
+    {
+      "status": "pending_provenance",
+      "blocking_executor": false,
+      "detail": "DLC source SHA matches frozen evidence, but repository/commit/release remains unpinned. No claim of release-version verification."
+    },
+    {
+      "status": "known_upstream_limitation",
+      "blocking_executor": false,
+      "detail": "Sentry display, Bloodstream displayed increment, integer Upgrade range increment and original English mechanics are not fixed in gameplay code. Targets explain consumer behavior without repurposing placeholders."
+    },
+    {
+      "status": "host_remaining_acceptance",
+      "blocking_executor": false,
+      "detail": "Independent whole-workset reviews, strict addon build/real DLC publish dry-run, other full gate closure, evidence/state/commit/lifecycle are ORCHESTRATOR responsibilities, not performed or claimed by this EXECUTOR."
+    }
+  ],
+  "out_of_scope_findings": [
+    {
+      "status": "advisory",
+      "detail": "Other translated drone effect/skill info and FlameVortex individual tooltip still have broad targets/pull wording matching upstream; outside these10 frozen targets, not modified."
+    }
+  ]
+}
