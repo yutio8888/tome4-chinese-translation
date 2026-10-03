@@ -1,0 +1,30 @@
+{
+ "workset": "evidence/quality/production-batches/batch-8ddbfa00da4d0d50cdaa-source-workset.json",
+ "decisions": {
+  "9eff87b7ca|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/misc/objects.lua:608-664 匕首格挡（Dagger Block）action 设 EFF_BLOCKING，d_types 只开 PHYSICAL；格挡在 data/damage_types.lua:409-414 的 defaultProjector 中对任意来源（自身除外）造成的该类型伤害生效，timed_effects/physical.lua:2314-2326 do_block 只检查 d_types[type]，不区分近战与远程；效果 long_desc 也写“Reduces all damage taken by %d”。英文“all physical melee attacks”比实现窄，现译“减少所有物理伤害 %d 点”与实现一致。驳回。"
+  },
+  "a6e24d11ca|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/levelup.lua 升级教程正文：各要点句内没有换行；现译在“另外还能获得\\n不同的点数”“每等级你能获\\n得3个点数”“和你等级差不多的怪物\\n来获得经验值”三处多插硬换行，其中一处把“获得”拆成两行（与第386批 468766bf64 同类）。换行不变量可对固定源码客观判定。确认。修复：删去这三个多余的 \\n（保留源文本身的段落与列表换行），其余不变。"
+  },
+  "b41d528014|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/intro-higher.lua 高等人类开场介绍：“...all kinds of wild animals.”与“To the west lies another dangerous place...”之间有换行（\\n）；现译把“这是一个被巨魔和野生动物占据的古老树林。”与“向西走还有另一个危险的区域”接成一行，源 7 个 \\n、译 6 个。换行不变量可对固定源码客观判定。确认。修复：在“古老树林。”与“向西走”之间补回 \\n，其余不变。"
+  },
+  "a6e24d11ca|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（a6e24d11ca）。固定 commit 624a673 game/modules/tome/data/texts/tutorial/levelup.lua 第24、25、30行在源文中各为单行；现译多插三个硬换行，其一拆开“获得”。确认，与 surface 合并为一个修复 revision：删去这三个 \\n。"
+  },
+  "b41d528014|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（b41d528014）。固定 commit 624a673 game/modules/tome/data/texts/intro-higher.lua 第24、25行为两行，现译合并成一行；另“the most powerful and respected lineage of men”译作“拥有强大和受人尊敬的人类高贵血统”，丢掉最高级 most。确认，与 surface 合并为一个修复 revision：补回 \\n，并把该句改为“你是高等人类中的一员，这是人类中最强大、最受尊敬的血统。”一类说法（按整句修改）。"
+  }
+ }
+}

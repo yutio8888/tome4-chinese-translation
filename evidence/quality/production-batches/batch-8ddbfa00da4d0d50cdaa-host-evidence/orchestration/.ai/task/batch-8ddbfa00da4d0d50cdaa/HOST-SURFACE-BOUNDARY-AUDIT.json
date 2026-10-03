@@ -1,0 +1,55 @@
+{
+  "batch_id": "batch-8ddbfa00da4d0d50cdaa",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-10-03T17:11:21.963254+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "7 native tool calls (12 exec_command calls): lanes 2 and 3 one call each reading the contract and the own envelope (cat); lane 0 the same plus one call running a sed line range of the contract and a python3 -c json.load/print of its own envelope; lane 1 the same as lane 0 plus one more sed line range of the contract; every referenced path is the own envelope or the contract; no write modes, no other paths, no Paseo terminals",
+  "write_or_external_calls_observed": false,
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "host_notes": [
+    "one group (task id = batch): pinned main game 20x4; lane 3 created after lane 0 was archived and as lanes 1 and 2 finished, so at most 3 children ran at once",
+    "all 4 outputs harvested natively without corrections"
+  ],
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "task_id": "batch-8ddbfa00da4d0d50cdaa",
+      "agent_id": "ce813a2e-5e5d-4411-9dee-8dc958dd5189",
+      "native_tools_sha256": "890eec05025a2b1a9e46eb7029839e5fc31faa244951c74d8af8cf92242d5563",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "task_id": "batch-8ddbfa00da4d0d50cdaa",
+      "agent_id": "ae697212-11d0-4a47-b23d-7a989ff684db",
+      "native_tools_sha256": "c5c98285ec7f74aece45523eff020c5a041052c052948f9e96fc84031e5290c3",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "task_id": "batch-8ddbfa00da4d0d50cdaa",
+      "agent_id": "a4abc96d-6167-48e1-8542-6037ed0eb466",
+      "native_tools_sha256": "bfa85f058ed459ec2c30e9b3a50351bbe1dfc8c661aebdce75b5ad3a4de37b39",
+      "tool_calls": 1,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "task_id": "batch-8ddbfa00da4d0d50cdaa",
+      "agent_id": "543fb419-6253-4727-b9be-1f88d38f1f8a",
+      "native_tools_sha256": "07520ad116a296eccbd6505d09291c10572f1312c4eb4cb57470e494e6f5a560",
+      "tool_calls": 1,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}

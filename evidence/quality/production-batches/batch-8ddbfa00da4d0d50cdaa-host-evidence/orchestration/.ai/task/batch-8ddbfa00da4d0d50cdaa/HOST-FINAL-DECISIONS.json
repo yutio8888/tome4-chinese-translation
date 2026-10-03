@@ -1,0 +1,73 @@
+{
+  "batch_id": "batch-8ddbfa00da4d0d50cdaa",
+  "observations": 5,
+  "observation_dispositions": {
+    "refuted": 1,
+    "confirmed": 4
+  },
+  "repair_revision_keys": [
+    "a6e24d11cae4986a0daa1edbdce66a43434a921bbdcd4cd89e0262b99019b3e5",
+    "b41d52801474aff0939949dee4faddd65653c0ae85a4483884caddd1b01cb4a4"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 78,
+    "repair_required": 2,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "9eff87b7ca8dd7df790a96c2f77a3cbfed9f769b694852d1ad8c4da61ca8e046",
+      "stage": "surface",
+      "observation": "原文限定减伤对象为 physical melee attacks（物理近战攻击），译文写成“减少所有物理伤害”，遗漏近战攻击限制，扩大了减伤范围。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/misc/objects.lua:608-664 匕首格挡（Dagger Block）action 设 EFF_BLOCKING，d_types 只开 PHYSICAL；格挡在 data/damage_types.lua:409-414 的 defaultProjector 中对任意来源（自身除外）造成的该类型伤害生效，timed_effects/physical.lua:2314-2326 do_block 只检查 d_types[type]，不区分近战与远程；效果 long_desc 也写“Reduces all damage taken by %d”。英文“all physical melee attacks”比实现窄，现译“减少所有物理伤害 %d 点”与实现一致。驳回。"
+    },
+    {
+      "revision_key": "a6e24d11cae4986a0daa1edbdce66a43434a921bbdcd4cd89e0262b99019b3e5",
+      "stage": "surface",
+      "observation": "译文在“每等级你能获\\n得3个点数”处将“获得”拆成两行；原文对应句“You get 3 points per level.”没有此换行，存在明显断词格式问题。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/levelup.lua 升级教程正文：各要点句内没有换行；现译在“另外还能获得\\n不同的点数”“每等级你能获\\n得3个点数”“和你等级差不多的怪物\\n来获得经验值”三处多插硬换行，其中一处把“获得”拆成两行（与第386批 468766bf64 同类）。换行不变量可对固定源码客观判定。确认。修复：删去这三个多余的 \\n（保留源文本身的段落与列表换行），其余不变。"
+    },
+    {
+      "revision_key": "b41d52801474aff0939949dee4faddd65653c0ae85a4483884caddd1b01cb4a4",
+      "stage": "surface",
+      "observation": "原文在“To the west lies another dangerous place”之前有换行，译文“向西走还有另一个危险的区域”之前缺少对应换行，两段被合并。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/intro-higher.lua 高等人类开场介绍：“...all kinds of wild animals.”与“To the west lies another dangerous place...”之间有换行（\\n）；现译把“这是一个被巨魔和野生动物占据的古老树林。”与“向西走还有另一个危险的区域”接成一行，源 7 个 \\n、译 6 个。换行不变量可对固定源码客观判定。确认。修复：在“古老树林。”与“向西走”之间补回 \\n，其余不变。"
+    },
+    {
+      "revision_key": "a6e24d11cae4986a0daa1edbdce66a43434a921bbdcd4cd89e0262b99019b3e5",
+      "stage": "contextual",
+      "observation": "The target adds three hard line breaks that do not exist in the source (game/modules/tome/data/texts/tutorial/levelup.lua L24/L25/L30, commit 624a6732; each of those source lines is a single unbroken line). They are in '另外还能获得\\n不同的点数', '每等级你能获\\n得3个点数' and '怪物\\n来获得经验值'. The second one splits the word 获得 across two lines. The newline structure no longer matches the source, so the tutorial text will display broken mid-sentence. Remove these three extra newlines.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一条（a6e24d11ca）。固定 commit 624a673 game/modules/tome/data/texts/tutorial/levelup.lua 第24、25、30行在源文中各为单行；现译多插三个硬换行，其一拆开“获得”。确认，与 surface 合并为一个修复 revision：删去这三个 \\n。"
+    },
+    {
+      "revision_key": "b41d52801474aff0939949dee4faddd65653c0ae85a4483884caddd1b01cb4a4",
+      "stage": "contextual",
+      "observation": "1) Newline mismatch: source L24 ('...all kinds of wild animals.') and L25 ('To the west lies...Kor'Pul...') are two separate lines (intro-higher.lua, commit 624a6732). The target merges them into one line ('...古老树林。向西走还有...'), so it has one fewer line break than the source. 2) Dropped superlative: 'the most powerful and respected lineage of men' is rendered as '拥有强大和受人尊敬的人类高贵血统'. The meaning of 'most' is lost, which weakens the description of the Higher as the most powerful and most respected lineage of men.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一条（b41d528014）。固定 commit 624a673 game/modules/tome/data/texts/intro-higher.lua 第24、25行为两行，现译合并成一行；另“the most powerful and respected lineage of men”译作“拥有强大和受人尊敬的人类高贵血统”，丢掉最高级 most。确认，与 surface 合并为一个修复 revision：补回 \\n，并把该句改为“你是高等人类中的一员，这是人类中最强大、最受尊敬的血统。”一类说法（按整句修改）。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes: surface main game 80 in 20/20/20/20)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000; 3 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), 4 children (main game 20x4); 77 OK / 3 ISSUE; every child only read its own envelope and the contract (7 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 3 deep entries, accepted on the first pass (1 OK / 2 ISSUE).",
+    "Re-review batch: all 80 entries are successors queued by migration 22b293c4; 433 remain queued after this batch.",
+    "Refuted: Dagger Block's translation omits 'melee', but the block applies to physical damage from any source in defaultProjector (damage_types.lua:409-414; physical.lua:2314-2326 checks only d_types), and the effect's own long_desc says 'Reduces all damage taken'. The translation follows the implementation.",
+    "80 pinned entries (80 main game) were verified against the manifest-pinned commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file.",
+    "2 confirmed repair revisions raise the window 64 backlog from 13 to 15; below the 20 threshold, so no window opens."
+  ]
+}
