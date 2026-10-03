@@ -1,0 +1,12 @@
+cd /workspace/tome4-chinese-translation; C=.artifacts/i18n/continuation-20260923; B=batch-fe24f4f2a420a35a72cc; export TOME_PASEO_WORKSPACE=wks_420314270844170b
+# n = emit index 0..12 (3 groups x4 lanes + full-003)
+key(){ python3 -c "import json;e=json.load(open('$C/review383-surface-emit.json'))[$1];print(e['task_id']+'|'+e['dispatch_id'])"; }
+did(){ python3 -c "import json;print(json.load(open('$C/review383-surface-emit.json'))[$1]['dispatch_id'])"; }
+# live <n> <aid> <sid> <createdAt> <updatedAt> <turnStartedAt> <lastUserMessageAt|null>
+live(){ n=$1; d=$(did $n); python3 -B $C/mklive383.py $C/review383-$d-live.json $n $2 $3 $4 $5 $6 && python3 -c "
+import json;p='$C/review383-$d-live.json';d=json.load(open(p));v='$7';d['snapshot']['lastUserMessageAt']=None if v=='null' else v;json.dump(d,open(p,'w'),ensure_ascii=False)" && python3 -B tools/orchestration/review_lifecycle.py bind $C/review383-surface-children.json "$(key $n)" --capture $C/review383-$d-live.json; echo bind$n=$?; }
+intent(){ python3 -B tools/orchestration/review_lifecycle.py create-intent $C/review383-surface-children.json "$(key $1)" --profiles $C/profiles-live-01.json 2>&1 | python3 -c "import json,sys;e=json.load(sys.stdin);l=e['labels'];l.pop('paseo.parent-agent-id');print(json.dumps(l));print(e['prompt'])"; }
+# h <n> <updatedAt> <lastUserMessageAt> <attentionTimestamp> <sessionId> <entry count>
+h(){ n=$1; d=$(did $n); python3 -B $C/mkterm383.py $C/review383-$d-live.json $C/review383-$d-terminal.json $2 $3 $4 && python3 -B $C/lane383.py precheck $n | tail -2 && python3 -B $C/lane383.py precheck $n | grep -q "match True $6 $6" && L=$(ls /home/paseo/.codex/sessions/*/*/*/*$5.jsonl) && python3 -B tools/orchestration/review_lifecycle.py harvest $C/review383-surface-children.json "$(key $n)" --capture $C/review383-$d-terminal.json --native-log $L --outdir $C/review383-surface-diag --notified >/dev/null && python3 -B tools/orchestration/review_lifecycle.py archive-intent $C/review383-surface-children.json "$(key $n)" --capture $C/review383-$d-terminal.json >/dev/null; echo lane$n=$?; }
+# conf <n> <archivedAt>
+conf(){ d=$(did $1); python3 -B $C/mkarch257.py $C/review383-$d-terminal.json $C/review383-$d-archive.json $2 $2 && python3 -B tools/orchestration/review_lifecycle.py archive-confirm $C/review383-surface-children.json "$(key $1)" --capture $C/review383-$d-archive.json >/dev/null; echo confirm$1=$?; }

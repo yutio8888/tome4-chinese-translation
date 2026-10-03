@@ -1,0 +1,45 @@
+{
+  "batch_id": "batch-fe24f4f2a420a35a72cc",
+  "observations": 2,
+  "observation_dispositions": {
+    "advisory": 2
+  },
+  "repair_revision_keys": [],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 80,
+    "repair_required": 0,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "c6fccc0433b50c3c2c7d4b8747f06dea9aa73c4f6d616ed8458287cbaafa91a6",
+      "stage": "surface",
+      "observation": "原文以 abomination 指称这只腐烂的怪物，译文仅作“身体”，丢失了怪物及其可憎性质的含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/ghoul.lua:51 食尸鬼（ghoul）desc “Flesh is falling off in chunks from this decaying abomination.” 现译“肉块正不断地从这具腐朽的身体上掉落。”：abomination 是对该怪物的贬义指称，现译作中性的“身体”，失去“可憎之物”的语气；但所指仍是这只食尸鬼，“腐朽”保留了腐坏意象，不涉及机制、关系或术语。同族 ghoul.lua 的 ghast（“vile abomination”→“肮脏的生物”）与 ghoul king（“rotting abomination”→“腐烂的身躯”）同样作中性名词。本次重审的改动只是“的→地、这个→这具”，该译法早于本轮。属二级语气损失，可改“这具腐朽的可憎怪物”，建议，不进修复。contextual 同样指出该语气损失，见 contextual 裁决。"
+    },
+    {
+      "revision_key": "c6fccc0433b50c3c2c7d4b8747f06dea9aa73c4f6d616ed8458287cbaafa91a6",
+      "stage": "contextual",
+      "observation": "源文 'this decaying abomination'（ghoul.lua:51，engine 624a6732，食尸鬼 desc）中的 abomination 是带贬义的「可憎之物／怪物」，译文作中性的「这具腐朽的身体」，丢失了对怪物的憎恶语气。建议改为如「这具腐烂的可憎之物」，其余语义（肉块成块脱落、腐朽）忠实。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "contextual（Opus 5.5）与 surface 指出同一点：abomination 为贬义的“可憎之物”，现译中性“这具腐朽的身体”丢失憎恶语气，并注明其余语义（肉块成块脱落、腐朽）忠实。宿主按固定 commit 624a673 ghoul.lua:51 核对：所指仍是该食尸鬼，不涉及机制、关系或术语；同族 ghast、ghoul king 的 abomination 亦作中性名词，本轮改动仅为“的→地、这个→这具”。两路一致但均属语气损失，二级，建议改“这具腐朽的可憎怪物”，不进修复。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (13 lanes: surface-000 pinned main game/engine/boot 68 in 17x4; surface-001 Cults 2 in full mode; surface-002 Orcs 6 in 2/2/1/1; surface-003 Ashes 4 in 1x4)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000 main game 1 (1 ISSUE); 1 entries)"
+  },
+  "notes": [
+    "Surface screening: four groups of codex/gpt-6.1-sol (thinking medium, auto-review), 13 children (pinned main game/engine/boot 17x4, Cults 2 in full mode, Orcs 2/2/1/1, Ashes 1x4); 79 OK / 1 ISSUE; every child only read its own envelope and the contract (13 exec calls, no writes, no Paseo terminals). No observation challenged the user rulings on pending #50 or #51.",
+    "Contextual review: claude/claude-opus-5-5 over the 1 deep entry, accepted on the first pass (1 ISSUE, the same point as surface).",
+    "First batch of the 2026-10-03 re-review: all 80 entries are successors queued by migration 22b293c4 (changes made after batch 382: mechanics repairs kept after the rollback, explanation trims, awkward-description scan tiers A and B and their cross-review fixes). 913 successors remain queued.",
+    "Host kept the ghoul flavour observation as advisory although surface and contextual agree: 'abomination' rendered as neutral 身体 loses the pejorative tone only; the referent, mechanics and terms are unchanged, sibling ghast and ghoul king lines use neutral nouns too, and this round only changed 的/地 and 这个/这具.",
+    "Mixed batch: 68 pinned entries (45 main game, 21 engine, 2 boot) were verified against the manifest-pinned commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file; 6 Orcs, 4 Ashes and 2 Cults entries matched the public DLC source file SHA in the workset, with the DLC repositories and commits unpinned.",
+    "0 confirmed repair revisions raise the window 64 backlog from 0 to 0; below the 20 threshold, so no window opens."
+  ]
+}
