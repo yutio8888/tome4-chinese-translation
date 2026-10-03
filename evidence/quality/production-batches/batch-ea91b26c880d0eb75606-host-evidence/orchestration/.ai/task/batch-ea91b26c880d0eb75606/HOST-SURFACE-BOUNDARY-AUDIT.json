@@ -1,0 +1,57 @@
+{
+  "batch_id": "batch-ea91b26c880d0eb75606",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-10-03T16:13:17.443560+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "7 native tool blocks (9 exec_command calls): lanes 1-2 one read of the contract and the own envelope each; lane 0 one cat of both plus one call running a sed line range of the contract and a python3 json.load/print of its own envelope; lane 3 cat of the contract and of its own envelope, sed line ranges of the contract and a python3 json.load/print of its own envelope (re-reading after truncated output); every referenced path is the own envelope or the contract; no write modes, no other paths, no Paseo terminals",
+  "write_or_external_calls_observed": false,
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "host_notes": [
+    "one group (task id = batch): pinned main game/engine/boot 20x4; lanes dispatched serially under the concurrency cap of 3",
+    "lane-000-3 finished before its bind capture was taken; it was bound with the observed post-finish get_agent_status snapshot (idle, attentionReason finished) instead of a running capture",
+    "the host-blocked dead key (eri 250c0642…) still appears in the surface export and was screened like the others",
+    "all 4 outputs harvested natively without corrections"
+  ],
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "task_id": "batch-ea91b26c880d0eb75606",
+      "agent_id": "89c4d774-2d66-495e-a81e-dfdacc5f7420",
+      "native_tools_sha256": "651923221220145abc8301efb3be6917e16acbb0ba89872d6600993911807ebc",
+      "tool_calls": 2,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "task_id": "batch-ea91b26c880d0eb75606",
+      "agent_id": "7081a139-16bb-45ac-b23e-39388f4233cc",
+      "native_tools_sha256": "6af38a6c897d782178696c9e9c9197cefeedab05a3bfbe9a4687a4ceaf5cace9",
+      "tool_calls": 1,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "task_id": "batch-ea91b26c880d0eb75606",
+      "agent_id": "bdf4aeb9-746f-4f5d-b2fe-cfadd488bb91",
+      "native_tools_sha256": "691278ffd8fb3c46f5cf9144f7dc89973a985feaf51d87c17405d5e6aabbf333",
+      "tool_calls": 1,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "task_id": "batch-ea91b26c880d0eb75606",
+      "agent_id": "004679f1-7504-4c0e-86a7-34800edcc5bb",
+      "native_tools_sha256": "59e0f7b6df868915d9ddd8aad0ce8957cd6475ed01a967f5633d1c8328a72364",
+      "tool_calls": 3,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}

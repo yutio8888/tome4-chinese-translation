@@ -1,0 +1,40 @@
+{
+ "workset": "evidence/quality/production-batches/batch-ea91b26c880d0eb75606-source-workset.json",
+ "decisions": {
+  "2ea5a9ea81|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/lich.lua:25 巫妖 desc：“they have grown to hate all that breathes or trespasses on their domain”——憎恨对象是“一切会呼吸的存在”与“擅闯其领地者”两类；现译“憎恨所有在其领地上呼吸或擅闯其领地的人”把前者限定为“在其领地上呼吸的”，缩小了范围，属忠实性错误。确认。修复：改为“憎恨一切会呼吸的生灵和擅闯其领地者”一类说法，其余不变。"
+  },
+  "2ec352628b|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/dreadfell/npcs.lua:216-217 扭曲的波法斯特（Borfast the Broken）desc：216 行末与 217 行“What proud hero of renown...”之间有换行（\\n），现译把问句直接接在上句后，丢失换行；另“an eyeball drooping low from its socket”是眼球从眼窝里低垂下来，现译“掉了出来”并据此改称“独眼”，原文“its eyes”与“a slump of resignation to its gait”（步态中的颓丧认命）被改成“他的独眼……透露着深深的无奈”，丢了步态。换行不变量与忠实性均可对固定源码判定。确认。修复：眼球改为“从眼窝中低垂下来”，“独眼”改回双眼，补回步态的颓丧认命，并在“如此威风的英雄人物……”前补回换行（\\n）；按整句修改，其余不变。"
+  },
+  "2f94cd9a50|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/dialogs/debug/AdvanceActor.lua:44-47 调试升级对话框说明“gain points to spend on Levelup”；同文件 100 行对应选项为“Gain points for stats, talents, and prodigies”，375-383 行实际增加 unused_stats、unused_talents、unused_generics、unused_prodigies、unused_talents_types 五类点数。现译“获得升级所得到的属性点”只剩属性点，与实现不符。确认。修复：改为“获得可在升级界面分配的点数”一类泛称（或列出属性点、技能点等），同句“可以自动设置相应的属性值”中原文没有的“自动”一并改为“可选择设置属性值”，其余不变。"
+  },
+  "34fe029225|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/corruptions/blight.lua:145 腐蚀蠕虫 info“reduces blight and acid resistance by %d%%”；效果 timed_effects/magical.lua:1293 同时降低 DamageType.BLIGHT 与 DamageType.ACID 两项抗性。现译“降低目标 %d%% 酸性枯萎抗性”缺并列连词，读作一种不存在的“酸性枯萎”抗性；本库同效果 long_desc（mod-tome.lua:35097）作“酸性和枯萎抗性”，22878 行作“枯萎和酸性抗性”。术语/机制描述可对固定源码判定。确认。修复：改为“降低目标 %d%% 枯萎和酸性抗性”，占位符与其余不变。"
+  },
+  "2ec352628b|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（2ec352628b）。固定 commit 624a673 game/modules/tome/data/zones/dreadfell/npcs.lua:216 “an eyeball drooping low from its socket”是眼球低垂，现译“掉了出来”；“its eyes”被改成“他的独眼”；“a slump of resignation to its gait”的步态被漏掉；同段“它/他”混用。确认，与 surface 合并为一个修复 revision（含 217 行前换行）。修复时人称统一为“它”。"
+  },
+  "2f94cd9a50|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（2f94cd9a50）。固定 commit 624a673 game/modules/tome/dialogs/debug/AdvanceActor.lua:100 选项为“Gain points for stats, talents, and prodigies”，375-383 行增加属性点、职业/通用技能点、类别点与觉醒点；现译只写“属性点”。确认，与 surface 合并为一个修复 revision。首行“Levelup an actor.”句号缺失属标点细节，修复时一并补上即可。"
+  },
+  "34fe029225|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（34fe029225）。固定 commit 624a673 game/modules/tome/data/timed_effects/magical.lua:1293 CORROSIVE_WORM activate 写入 resists {[BLIGHT]=-power,[ACID]=-power}；现译“酸性枯萎抗性”读作一种复合抗性。确认，与 surface 合并为一个修复 revision：改为“枯萎和酸性抗性”。"
+  }
+ }
+}

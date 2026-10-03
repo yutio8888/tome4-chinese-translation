@@ -1,0 +1,92 @@
+{
+  "batch_id": "batch-ea91b26c880d0eb75606",
+  "observations": 7,
+  "observation_dispositions": {
+    "confirmed": 7
+  },
+  "repair_revision_keys": [
+    "2ea5a9ea81bb39c712489863db8cf388130a3c839ebc1bceecb6410f099dd81f",
+    "2ec352628b54ff8c52ee7b646e23764aac509e6070a0a333edd566a590e91c3a",
+    "2f94cd9a504b66db402bc584c3a07d2c6cff040ce02416b416edcc5eb374e293",
+    "34fe029225d87e317f04a152d2a98d717becd6c0f159bde8eda3c3d2a330de17"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 75,
+    "repair_required": 4,
+    "blocked": 1
+  },
+  "rows": [
+    {
+      "revision_key": "2ea5a9ea81bb39c712489863db8cf388130a3c839ebc1bceecb6410f099dd81f",
+      "stage": "surface",
+      "observation": "原文憎恨对象是所有会呼吸的存在或擅闯其领地者；译文将前者限制为“在其领地上呼吸”的人，缩小了范围。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/lich.lua:25 巫妖 desc：“they have grown to hate all that breathes or trespasses on their domain”——憎恨对象是“一切会呼吸的存在”与“擅闯其领地者”两类；现译“憎恨所有在其领地上呼吸或擅闯其领地的人”把前者限定为“在其领地上呼吸的”，缩小了范围，属忠实性错误。确认。修复：改为“憎恨一切会呼吸的生灵和擅闯其领地者”一类说法，其余不变。"
+    },
+    {
+      "revision_key": "2ec352628b54ff8c52ee7b646e23764aac509e6070a0a333edd566a590e91c3a",
+      "stage": "surface",
+      "observation": "原文“an eyeball drooping low from its socket”是眼球从眼窝低垂，译文改为眼睛“掉了出来”并称“独眼”；原文步态中的颓丧认命也被改写为独眼透露无奈。此外，末尾问句前的换行丢失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/dreadfell/npcs.lua:216-217 扭曲的波法斯特（Borfast the Broken）desc：216 行末与 217 行“What proud hero of renown...”之间有换行（\\n），现译把问句直接接在上句后，丢失换行；另“an eyeball drooping low from its socket”是眼球从眼窝里低垂下来，现译“掉了出来”并据此改称“独眼”，原文“its eyes”与“a slump of resignation to its gait”（步态中的颓丧认命）被改成“他的独眼……透露着深深的无奈”，丢了步态。换行不变量与忠实性均可对固定源码判定。确认。修复：眼球改为“从眼窝中低垂下来”，“独眼”改回双眼，补回步态的颓丧认命，并在“如此威风的英雄人物……”前补回换行（\\n）；按整句修改，其余不变。"
+    },
+    {
+      "revision_key": "2f94cd9a504b66db402bc584c3a07d2c6cff040ce02416b416edcc5eb374e293",
+      "stage": "surface",
+      "observation": "原文“gain points to spend on Levelup”泛指供升级分配的点数，译文限定为“属性点”；冻结输入没有支持这一限定的证据。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/dialogs/debug/AdvanceActor.lua:44-47 调试升级对话框说明“gain points to spend on Levelup”；同文件 100 行对应选项为“Gain points for stats, talents, and prodigies”，375-383 行实际增加 unused_stats、unused_talents、unused_generics、unused_prodigies、unused_talents_types 五类点数。现译“获得升级所得到的属性点”只剩属性点，与实现不符。确认。修复：改为“获得可在升级界面分配的点数”一类泛称（或列出属性点、技能点等），同句“可以自动设置相应的属性值”中原文没有的“自动”一并改为“可选择设置属性值”，其余不变。"
+    },
+    {
+      "revision_key": "34fe029225d87e317f04a152d2a98d717becd6c0f159bde8eda3c3d2a330de17",
+      "stage": "surface",
+      "observation": "原文明确降低 blight 和 acid 两种抗性，译文写成“酸性枯萎抗性”，缺少并列关系，易被理解为一种抗性。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/corruptions/blight.lua:145 腐蚀蠕虫 info“reduces blight and acid resistance by %d%%”；效果 timed_effects/magical.lua:1293 同时降低 DamageType.BLIGHT 与 DamageType.ACID 两项抗性。现译“降低目标 %d%% 酸性枯萎抗性”缺并列连词，读作一种不存在的“酸性枯萎”抗性；本库同效果 long_desc（mod-tome.lua:35097）作“酸性和枯萎抗性”，22878 行作“枯萎和酸性抗性”。术语/机制描述可对固定源码判定。确认。修复：改为“降低目标 %d%% 枯萎和酸性抗性”，占位符与其余不变。"
+    },
+    {
+      "revision_key": "2ec352628b54ff8c52ee7b646e23764aac509e6070a0a333edd566a590e91c3a",
+      "stage": "contextual",
+      "observation": "语义失真：原文 an eyeball drooping low from its socket 是眼球从眼窝垂落，译成「掉了出来」，意思变成眼球已经脱落；There is a unique sadness to its eyes 被误读成「他的独眼」，但原文说的是双眼（eyes），unique 意为特有、独特，不是「独眼」；a slump of resignation to its gait 中的步态（gait）在译文里漏掉了。另外同一段里人称代词「它/他」混用。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一条（2ec352628b）。固定 commit 624a673 game/modules/tome/data/zones/dreadfell/npcs.lua:216 “an eyeball drooping low from its socket”是眼球低垂，现译“掉了出来”；“its eyes”被改成“他的独眼”；“a slump of resignation to its gait”的步态被漏掉；同段“它/他”混用。确认，与 surface 合并为一个修复 revision（含 217 行前换行）。修复时人称统一为“它”。"
+    },
+    {
+      "revision_key": "2f94cd9a504b66db402bc584c3a07d2c6cff040ce02416b416edcc5eb374e293",
+      "stage": "contextual",
+      "observation": "范围被缩窄：原文 gain points to spend on Levelup 指升级用的各类点数。固定 commit 624a6732 中 game/modules/tome/dialogs/debug/AdvanceActor.lua 的 get_points 复选框标题为 Gain points for stats, talents, and prodigies，即同时包括属性点、技能点和天赋点，译文只写「属性点」，漏了后两类；第一行也漏了原文的句号。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一条（2f94cd9a50）。固定 commit 624a673 game/modules/tome/dialogs/debug/AdvanceActor.lua:100 选项为“Gain points for stats, talents, and prodigies”，375-383 行增加属性点、职业/通用技能点、类别点与觉醒点；现译只写“属性点”。确认，与 surface 合并为一个修复 revision。首行“Levelup an actor.”句号缺失属标点细节，修复时一并补上即可。"
+    },
+    {
+      "revision_key": "34fe029225d87e317f04a152d2a98d717becd6c0f159bde8eda3c3d2a330de17",
+      "stage": "contextual",
+      "observation": "机制表述有歧义：原文 reduces blight and acid resistance 指两种抗性。固定 commit 624a6732 中 timed_effects/magical.lua 的 CORROSIVE_WORM activate 对 resists 写入 {[BLIGHT]=-power,[ACID]=-power}，即枯萎和酸性抗性各降低 power。译文「%d%% 酸性枯萎抗性」读起来像是一种复合抗性，应写明「枯萎和酸性抗性」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一条（34fe029225）。固定 commit 624a673 game/modules/tome/data/timed_effects/magical.lua:1293 CORROSIVE_WORM activate 写入 resists {[BLIGHT]=-power,[ACID]=-power}；现译“酸性枯萎抗性”读作一种复合抗性。确认，与 surface 合并为一个修复 revision：改为“枯萎和酸性抗性”。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes: surface main game 80 in 20/20/20/20)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000; 4 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), 4 children (main game 20x4); 76 OK / 4 ISSUE; every child only read its own envelope and the contract (7 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 4 deep entries, accepted on the first pass (1 OK / 3 ISSUE).",
+    "Re-review batch: all 80 entries are successors queued by migration 22b293c4; 753 remain queued after this batch.",
+    "Host confirmed the lich description observation that contextual judged OK: 'hate all that breathes or trespasses on their domain' names two groups, and the translation narrows the first to those breathing on their domain.",
+    "One dead key (eri 250c0642…, the old mod-tome/load.lua copy of Loremaster Greynot chapter 10 already listed in known-dead-keys.json; its source string differs from upstream by one space, so it never matches at runtime) returned as a successor because the awkward-description scan edited its translation. It was host-blocked under the freeze-miss-attribution/1 precedent; it still appears in the surface export and is counted as blocked. The live lore entry is reviewed in a later batch.",
+    "Correction to batch 384: its surface note said '4 exec calls', but its HOST-SURFACE-BOUNDARY-AUDIT.json correctly records 8 native tool calls (lane 3 re-read after truncated output). The note generator now counts calls from the NATIVE-TOOLS files.",
+    "80 pinned entries (80 main game) were verified against the manifest-pinned commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file.",
+    "4 confirmed repair revisions raise the window 64 backlog from 3 to 7; below the 20 threshold, so no window opens."
+  ]
+}

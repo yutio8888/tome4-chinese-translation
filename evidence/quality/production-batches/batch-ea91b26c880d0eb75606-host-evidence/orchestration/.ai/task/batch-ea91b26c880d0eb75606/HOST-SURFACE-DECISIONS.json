@@ -1,0 +1,40 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 4 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "2ea5a9ea81bb39c712489863db8cf388130a3c839ebc1bceecb6410f099dd81f",
+      "stage": "surface",
+      "observation": "原文憎恨对象是所有会呼吸的存在或擅闯其领地者；译文将前者限制为“在其领地上呼吸”的人，缩小了范围。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/lich.lua:25 巫妖 desc：“they have grown to hate all that breathes or trespasses on their domain”——憎恨对象是“一切会呼吸的存在”与“擅闯其领地者”两类；现译“憎恨所有在其领地上呼吸或擅闯其领地的人”把前者限定为“在其领地上呼吸的”，缩小了范围，属忠实性错误。确认。修复：改为“憎恨一切会呼吸的生灵和擅闯其领地者”一类说法，其余不变。"
+    },
+    {
+      "revision_key": "2ec352628b54ff8c52ee7b646e23764aac509e6070a0a333edd566a590e91c3a",
+      "stage": "surface",
+      "observation": "原文“an eyeball drooping low from its socket”是眼球从眼窝低垂，译文改为眼睛“掉了出来”并称“独眼”；原文步态中的颓丧认命也被改写为独眼透露无奈。此外，末尾问句前的换行丢失。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/dreadfell/npcs.lua:216-217 扭曲的波法斯特（Borfast the Broken）desc：216 行末与 217 行“What proud hero of renown...”之间有换行（\\n），现译把问句直接接在上句后，丢失换行；另“an eyeball drooping low from its socket”是眼球从眼窝里低垂下来，现译“掉了出来”并据此改称“独眼”，原文“its eyes”与“a slump of resignation to its gait”（步态中的颓丧认命）被改成“他的独眼……透露着深深的无奈”，丢了步态。换行不变量与忠实性均可对固定源码判定。确认。修复：眼球改为“从眼窝中低垂下来”，“独眼”改回双眼，补回步态的颓丧认命，并在“如此威风的英雄人物……”前补回换行（\\n）；按整句修改，其余不变。"
+    },
+    {
+      "revision_key": "2f94cd9a504b66db402bc584c3a07d2c6cff040ce02416b416edcc5eb374e293",
+      "stage": "surface",
+      "observation": "原文“gain points to spend on Levelup”泛指供升级分配的点数，译文限定为“属性点”；冻结输入没有支持这一限定的证据。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/dialogs/debug/AdvanceActor.lua:44-47 调试升级对话框说明“gain points to spend on Levelup”；同文件 100 行对应选项为“Gain points for stats, talents, and prodigies”，375-383 行实际增加 unused_stats、unused_talents、unused_generics、unused_prodigies、unused_talents_types 五类点数。现译“获得升级所得到的属性点”只剩属性点，与实现不符。确认。修复：改为“获得可在升级界面分配的点数”一类泛称（或列出属性点、技能点等），同句“可以自动设置相应的属性值”中原文没有的“自动”一并改为“可选择设置属性值”，其余不变。"
+    },
+    {
+      "revision_key": "34fe029225d87e317f04a152d2a98d717becd6c0f159bde8eda3c3d2a330de17",
+      "stage": "surface",
+      "observation": "原文明确降低 blight 和 acid 两种抗性，译文写成“酸性枯萎抗性”，缺少并列关系，易被理解为一种抗性。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/corruptions/blight.lua:145 腐蚀蠕虫 info“reduces blight and acid resistance by %d%%”；效果 timed_effects/magical.lua:1293 同时降低 DamageType.BLIGHT 与 DamageType.ACID 两项抗性。现译“降低目标 %d%% 酸性枯萎抗性”缺并列连词，读作一种不存在的“酸性枯萎”抗性；本库同效果 long_desc（mod-tome.lua:35097）作“酸性和枯萎抗性”，22878 行作“枯萎和酸性抗性”。术语/机制描述可对固定源码判定。确认。修复：改为“降低目标 %d%% 枯萎和酸性抗性”，占位符与其余不变。"
+    }
+  ]
+}
