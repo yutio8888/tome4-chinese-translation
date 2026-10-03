@@ -1,0 +1,30 @@
+{
+ "workset": "evidence/quality/production-batches/batch-563560854ae20160c9d5-source-workset.json",
+ "decisions": {
+  "7fd5139f69|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/golem-graveyard/grids.lua:24-55 破损的阿塔玛森（ATAMATHON_BROKEN）desc 31-33 行：末句“Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.”是游戏提示——35-51 行 block_move 检查玩家背包中的 ATAMATHON_ACTIVATE，可将其装入空眼窝唤醒阿塔玛森。现译“但由于找不到那只眼睛而没有完成”丢掉了“傀儡还需要另一只眼睛才能完整”这一提示，并新增原文没有的“因找不到眼睛”因果；另“it towers above you”译作“似乎默默地俯视着你”增补了“似乎、默默”。属忠实性错误（遗漏提示＋增补因果）。确认。修复：末句改为“某个蠢货曾试图重建它，却没能完成；这尊傀儡还需要另一只眼睛才能完整。”，“俯视着你”一句去掉增补，其余不变。"
+  },
+  "948f957973|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/uber/const.lua:99-120 影之护甲（Armour of Shadows）passives 设 darkness_darkens；data/damage_types.lua:930-933 暗影伤害生效时只调用 game.level.map.lites(x, y, false) 与 lites(src.x, src.y, false)，即熄灭目标所在格与自身所在格两个格子。现译“使你当前所在区域和目标区域陷入黑暗”把两个格子说成区域，夸大作用范围（本库“区域”常指整个地图区域）。机制范围可对固定源码判定。确认。修复：改为“同时，你造成暗影伤害时，会使目标所在的格子和你所在的格子失去照明。”，其余不变。"
+  },
+  "960055be5d|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/ooze.lua:116-118 粘胶方块（gelatinous cube）desc 在“...the corridors it patrols.”与“Through its transparent jelly structure...”之间有换行（\\n）；现译把两句接成一行，丢失换行。换行不变量可对固定源码客观判定。确认。修复：在“呈立方体状。”与“透过它透明的果冻状结构”之间补回 \\n，其余不变。"
+  },
+  "98521dea5b|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/gifts/malleable-body.lua:63-80 该技能名为占位符“zeczczeczec”，action 为空函数（只 return true），没有实现交换位置或转移仇恨，说明文字没有可对照的机制；现译“使敌人的目标锁定为另一个分身”以“另一个”相对指代，大致表达了互换目标，只是没有明说双向。只记建议：可改为“攻击其中一方的生物会转而攻击另一方”。"
+  },
+  "7fd5139f69|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（7fd5139f69）。固定 commit 624a673 game/modules/tome/data/zones/golem-graveyard/grids.lua:32-33：现译“由于找不到那只眼睛而没有完成”新增原文没有的因果，并丢掉“傀儡还需要另一只眼睛才能完整”这一玩家提示；“似乎默默地俯视着你”增补“似乎、默默”。确认，与 surface 合并为一个修复 revision。"
+  }
+ }
+}

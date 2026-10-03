@@ -1,0 +1,76 @@
+{
+  "batch_id": "batch-563560854ae20160c9d5",
+  "observations": 5,
+  "observation_dispositions": {
+    "confirmed": 4,
+    "advisory": 1
+  },
+  "repair_revision_keys": [
+    "7fd5139f69b4e23a29a0800b0eec665e8ab1e441c5fb6d92386f9e9f464a965c",
+    "948f9579734dc1743cc9754dc3dce19cf530dc34139c5753dd188378b9e9b204",
+    "960055be5ddd6c08206eeff24fd40be9aaa5a7f3ba1879fc95ac25afbaf3d2a5"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 76,
+    "repair_required": 3,
+    "blocked": 1
+  },
+  "rows": [
+    {
+      "revision_key": "7fd5139f69b4e23a29a0800b0eec665e8ab1e441c5fb6d92386f9e9f464a965c",
+      "stage": "surface",
+      "observation": "原文末句说明傀儡需要另一只眼睛才能完整；译文改成重建者“由于找不到那只眼睛而没有完成”，添加了原文未说明的寻找失败及因果关系，并将“另一只眼睛”限定为失落的那只。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/golem-graveyard/grids.lua:24-55 破损的阿塔玛森（ATAMATHON_BROKEN）desc 31-33 行：末句“Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.”是游戏提示——35-51 行 block_move 检查玩家背包中的 ATAMATHON_ACTIVATE，可将其装入空眼窝唤醒阿塔玛森。现译“但由于找不到那只眼睛而没有完成”丢掉了“傀儡还需要另一只眼睛才能完整”这一提示，并新增原文没有的“因找不到眼睛”因果；另“it towers above you”译作“似乎默默地俯视着你”增补了“似乎、默默”。属忠实性错误（遗漏提示＋增补因果）。确认。修复：末句改为“某个蠢货曾试图重建它，却没能完成；这尊傀儡还需要另一只眼睛才能完整。”，“俯视着你”一句去掉增补，其余不变。"
+    },
+    {
+      "revision_key": "948f9579734dc1743cc9754dc3dce19cf530dc34139c5753dd188378b9e9b204",
+      "stage": "surface",
+      "observation": "原文明确为使“the target tile and yours”两个格子失去照明，译文“你当前所在区域和目标区域陷入黑暗”将格子扩大成区域，容易误示作用范围。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/uber/const.lua:99-120 影之护甲（Armour of Shadows）passives 设 darkness_darkens；data/damage_types.lua:930-933 暗影伤害生效时只调用 game.level.map.lites(x, y, false) 与 lites(src.x, src.y, false)，即熄灭目标所在格与自身所在格两个格子。现译“使你当前所在区域和目标区域陷入黑暗”把两个格子说成区域，夸大作用范围（本库“区域”常指整个地图区域）。机制范围可对固定源码判定。确认。修复：改为“同时，你造成暗影伤害时，会使目标所在的格子和你所在的格子失去照明。”，其余不变。"
+    },
+    {
+      "revision_key": "960055be5ddd6c08206eeff24fd40be9aaa5a7f3ba1879fc95ac25afbaf3d2a5",
+      "stage": "surface",
+      "observation": "原文在“Through its transparent jelly structure”前有一个换行，译文对应“透过它透明的果冻状结构”前的换行缺失，两行合为一行。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/ooze.lua:116-118 粘胶方块（gelatinous cube）desc 在“...the corridors it patrols.”与“Through its transparent jelly structure...”之间有换行（\\n）；现译把两句接成一行，丢失换行。换行不变量可对固定源码客观判定。确认。修复：在“呈立方体状。”与“透过它透明的果冻状结构”之间补回 \\n，其余不变。"
+    },
+    {
+      "revision_key": "98521dea5bd8eeaf2499e29379e201caee12dd3ca750dbea5cd86323f9088a00",
+      "stage": "surface",
+      "observation": "原文“creatures attacking one will target the other”描述双方互换攻击目标，译文“使敌人的目标锁定为另一个分身”只描述转向分身，未表达原本攻击分裂体的敌人会转向你。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/gifts/malleable-body.lua:63-80 该技能名为占位符“zeczczeczec”，action 为空函数（只 return true），没有实现交换位置或转移仇恨，说明文字没有可对照的机制；现译“使敌人的目标锁定为另一个分身”以“另一个”相对指代，大致表达了互换目标，只是没有明说双向。只记建议：可改为“攻击其中一方的生物会转而攻击另一方”。"
+    },
+    {
+      "revision_key": "7fd5139f69b4e23a29a0800b0eec665e8ab1e441c5fb6d92386f9e9f464a965c",
+      "stage": "contextual",
+      "observation": "Last sentence (golem-graveyard/grids.lua:33 @624a6732): the source says the would-be rebuilder could not finish the task, then states separately that 'the golem needs another eye to be complete'. The target turns this into '由于找不到那只眼睛而没有完成', which adds a cause the source never gives and drops the separate statement that the golem needs another eye to be complete, a hint to the player. In line 32, '似乎默默地俯视着你' also adds '似乎/默默地' to 'towers above you'.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一条（7fd5139f69）。固定 commit 624a673 game/modules/tome/data/zones/golem-graveyard/grids.lua:32-33：现译“由于找不到那只眼睛而没有完成”新增原文没有的因果，并丢掉“傀儡还需要另一只眼睛才能完整”这一玩家提示；“似乎默默地俯视着你”增补“似乎、默默”。确认，与 surface 合并为一个修复 revision。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes: surface main game 80 in 20/20/20/20)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000; 4 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), 4 children (main game 20x4); 76 OK / 4 ISSUE; every child only read its own envelope and the contract (6 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 4 deep entries, accepted on the first pass (3 OK / 1 ISSUE).",
+    "Re-review batch: all 80 entries are successors queued by migration 22b293c4; 513 remain queued after this batch.",
+    "Host confirmed two observations that contextual judged OK: Armour of Shadows unlights only the target tile and the caster's tile (damage_types.lua:930-933), but the translation says the areas go dark; the gelatinous cube description drops the source newline before 'Through its transparent jelly structure' (ooze.lua:116-118).",
+    "Advisory: the placeholder talent zeczczeczec (malleable-body.lua:63-80, empty action) renders 'creatures attacking one will target the other' without stating both directions.",
+    "One dead key (eri 7dab7858…, the old mod-tome/load.lua copy of Loremaster Greynot chapter 3 - Dwarves, already listed in known-dead-keys.json; each paragraph of its source string carries one extra leading space, so it never matches at runtime) returned as a successor because the awkward-description scan edited its translation. It was host-blocked under the freeze-miss-attribution/1 precedent; it still appears in the surface export and is counted as blocked. The live lore entry is reviewed in a later batch.",
+    "80 pinned entries (80 main game) were verified against the manifest-pinned commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file.",
+    "3 confirmed repair revisions raise the window 64 backlog from 10 to 13; below the 20 threshold, so no window opens."
+  ]
+}

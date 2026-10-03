@@ -1,0 +1,3 @@
+第388批：冻结80条（主游戏 80 条；均为 2026-10-03 重新复审迁移 22b293c4 排入的 successor），逐条核验80/80：主游戏、引擎与启动按 manifest 固定 commit 624a673 核验。surface 一组（gpt-6.1-sol）4 个 child：主游戏 20×4，76 OK、4 ISSUE；各 child 只读自身 envelope 与契约。contextual 一个 run（Opus 5.5）4 条 deep，首轮通过：3 OK、1 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决5个观察：{'confirmed': 4, 'advisory': 1}；预计76条完成、3条待修复。新增 3 条修复 revision：7fd5139f69 破损的阿塔玛森描述丢掉“还需要另一只眼睛才能完整”的提示并增补因果；948f957973 影之护甲把熄灭两个格子说成“区域陷入黑暗”；960055be5d 粘胶方块描述丢失换行。建议 1：98521dea5b 占位技能 zeczczeczec（action 为空）互换目标的说法未明说双向，只记建议。影之护甲与粘胶方块 contextual 判 OK，宿主按源码维持确认。另有一条死键（eri 7dab7858…）按先例 host-block。修复窗口64积压为13，未达20。
