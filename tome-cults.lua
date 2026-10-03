@@ -2677,7 +2677,7 @@ Your increased damage, damage penetration, critical strike chance, and critical 
 它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。]], "tformat")
 t("Decayed Bloated Horror", "腐败的浮肿恐魔", "talent name")
 t("bloated horror", "浮肿恐魔", "_t")
-t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个臃肿的人形生物漂浮在这里。它的光头像个孩子，与身体相比大得不成比例，皮肤上布满痘坑，长着狰狞的红色脓疮。", "_t")
+t("A bulbous humanoid form floats here. Its bald, child-like head is disproportionately large compared to its body, and its skin is pock-marked with nasty red sores.", "一个臃肿的人形生物漂浮在这里。它那孩童般的光头与身体相比大得不成比例，皮肤上布满痘坑，长着狰狞的红色脓疮。", "_t")
 t([[You use your bond with horrors to summon a decaying bloated horror for %d turns.
 The decaying horror cannot move and will attack all hostile creatures in range of it. It possesses the talents Mind Disruption and Mind Sear.
 All its primary stats will be set to %d (based on your Magic stat), life rating increased by %d, and all talent levels set to %d.  Many other stats will scale with level.
@@ -3542,7 +3542,7 @@ t([[Creates a shell around you, absorbing %d damage. Lasts for 10 turns.
 ------------------------------------------------
 section "tome-cults/data/talents/spell/necro.lua"
 
-t("The massive ribcage in the middle beats with loud, audible cracks, as many a skeletal hand protrude forth, entwining, fusing, forming long skeletal appendages to support itself, while others crumble and collapse inward. During all this, somehow, it seems they grasp for you.", "中央的巨大胸腔伴随着响亮而清晰的碎裂声搏动着，许多骷髅手臂从中伸出，缠绕、融合，形成长长的骨骼肢体支撑自身，而其他部分则崩塌向内坍缩。在此期间，它们似乎都想抓住你。", "_t")
+t("The massive ribcage in the middle beats with loud, audible cracks, as many a skeletal hand protrude forth, entwining, fusing, forming long skeletal appendages to support itself, while others crumble and collapse inward. During all this, somehow, it seems they grasp for you.", "中央的巨大胸腔伴随着响亮而清晰的碎裂声搏动着，许多骷髅手臂从中伸出，缠绕、融合，形成长长的骨骼肢体支撑自身，而其他部分则碎裂、向内坍塌。在此期间，它们似乎都想抓住你。", "_t")
 t("#VIOLET#As the bone horror is destroyed you see the remaining bones reassembling in the form of new skeletons!", "#VIOLET#白骨恐魔被摧毁了，你看到剩余的骨头重新组装成了新的骷髅！", "logSeen")
 
 ------------------------------------------------
