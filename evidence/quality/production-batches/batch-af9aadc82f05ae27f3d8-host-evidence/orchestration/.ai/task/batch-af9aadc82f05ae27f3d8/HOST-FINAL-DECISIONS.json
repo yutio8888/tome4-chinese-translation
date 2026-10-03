@@ -1,0 +1,88 @@
+{
+  "batch_id": "batch-af9aadc82f05ae27f3d8",
+  "observations": 7,
+  "observation_dispositions": {
+    "refuted": 5,
+    "confirmed": 2
+  },
+  "repair_revision_keys": [
+    "e1e9720d81539fabbdea5260cc2d4da62ed63afaa11d67bd8c8574f884e3fb5e"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 79,
+    "repair_required": 1,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "7502d460c05f9deb2759be7caed24fef994a97fb9c13b6967c136de68c8c9c03",
+      "stage": "surface",
+      "observation": "原文“you will sever their lifeline, slaying them instantly”直接陈述切断生命线并立即击杀，译文增加“尝试”，改变了效果的确定性；冻结输入未提供机制证据，无法判断此增译是否有源码依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Cults 公开源码（来源未固定，/workspace/tome4-dlcs/cults）tome-cults/data/talents/demented/chronophage.lua 断绝（Severed Threads）：实际处决在衰亡（Atrophy）施加处 :85-92，除生命低于阈值外还要 target:checkHit(法术强度, 物理豁免) 命中且 target:canBe(\"instakill\") 才会 target:die(self) 并获得 INVIGORATE；即并非必定斩杀。现译“你将尝试切断目标的生命线，立刻杀死目标”的“尝试”与实现一致，info 原文省略了豁免判定。contextual 只据冻结 info 判断“无豁免依据”，宿主以实现为准驳回。"
+    },
+    {
+      "revision_key": "7af0624b505d27546937dee880f7b43e7caeda3abf8fb534acc5ef47ab15bdcb",
+      "stage": "surface",
+      "observation": "背叛预言原文仅称伤害转移至“a random target affected by Prophecy of Treason”，译文增加“周围”这一范围限制；冻结输入未提供范围机制证据，无法判断此增译是否有依据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Cults 公开源码（来源未固定）tome-cults/data/talents/demented/doom.lua 天启（Revelation）选背叛预言时的 callbackOnTakeDamage（:231-259）：用 core.fov.circle_grids(self.x, self.y, 10, true) 只在自身 10 格半径内收集带 PROPHECY_OF_TREASON 的敌对目标再随机挑一个转移伤害；现译“转移至周围随机受背叛预言影响的目标”的“周围”与实现的范围限制一致。contextual 附带指出 whispers from the void 译“回响”略失“低语”，属不影响机制的措辞细节。驳回。"
+    },
+    {
+      "revision_key": "e1e9720d81539fabbdea5260cc2d4da62ed63afaa11d67bd8c8574f884e3fb5e",
+      "stage": "surface",
+      "observation": "原文“But while they are magic users Ziguranth took pity on them”明确表示伊格兰斯虽面对魔法使用者仍给予同情；译文遗漏“他们是魔法使用者”这一让步条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Cults 公开源码（来源未固定）tome-cults/overload/data/texts/unlock-race_krog.lua 克罗格解锁文本：原文“But while they are magic users Ziguranth took pity on them for they had not chosen their fate, it was forced upon them.”的让步“尽管他们是魔法使用者”是本句要点（伊格兰斯敌视魔法却仍同情食人魔），现译“然而，伊格兰斯同情他们被强迫而无法选择的命运。”整段删去，属漏译（contextual 同判）。另下一行“Zigur was finally able to create”现译主语换成“伊格兰斯”，与同条“伊格的坚实保护者”不一，按整句对照一并改回“伊格”。确认。修复：该行改为“然而，尽管食人魔是魔法使用者，伊格兰斯仍同情他们，因为这命运并非他们自己选择，而是被强加于身。”；下一行“伊格兰斯终于创造出”改为“伊格终于创造出”，其余（含 LF 与标记）不变。"
+    },
+    {
+      "revision_key": "e780b6669a1f4f107002dab1fb9ae07345f2846d4596f4f295e2a42fcb020c50",
+      "stage": "surface",
+      "observation": "原文“Talents have %d%% chances to fail”描述技能有 %d%% 几率失败；译文“技能失败率增加 %d%%”改为失败率的增量，改变了百分比的含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Cults 公开源码（来源未固定）tome-cults/data/timed_effects.lua:2161-2180 玻璃碎片（GLASS_SPLINTERS）：activate 用 effectTemporaryValue(eff, \"talent_fail_chance\", eff.fail) 把 fail 叠加到技能失败几率上，与其他失败来源相加；现译“技能失败率增加 %d%%”如实描述了这一加算，未改变百分比含义。contextual 判 OK。驳回。"
+    },
+    {
+      "revision_key": "7502d460c05f9deb2759be7caed24fef994a97fb9c13b6967c136de68c8c9c03",
+      "stage": "contextual",
+      "observation": "Line 149 of chronophage.lua says the kill is certain: 'you will sever their lifeline, slaying them instantly'. The target says '你将尝试切断目标的生命线，立刻杀死目标'. The added '尝试' (attempt) turns a certain kill into an uncertain one, and the next clause '立刻杀死目标' then contradicts it. The frozen source gives no save or chance check. Remove '尝试' so it reads like '你将切断目标的生命线，立刻杀死目标'.",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Cults 公开源码（来源未固定，/workspace/tome4-dlcs/cults）tome-cults/data/talents/demented/chronophage.lua 断绝（Severed Threads）：实际处决在衰亡（Atrophy）施加处 :85-92，除生命低于阈值外还要 target:checkHit(法术强度, 物理豁免) 命中且 target:canBe(\"instakill\") 才会 target:die(self) 并获得 INVIGORATE；即并非必定斩杀。现译“你将尝试切断目标的生命线，立刻杀死目标”的“尝试”与实现一致，info 原文省略了豁免判定。contextual 只据冻结 info 判断“无豁免依据”，宿主以实现为准驳回。"
+    },
+    {
+      "revision_key": "7af0624b505d27546937dee880f7b43e7caeda3abf8fb534acc5ef47ab15bdcb",
+      "stage": "contextual",
+      "observation": "Line 418 of doom.lua says the redirected damage goes to 'a random target affected by Prophecy of Treason', with no range limit. The target says '转移至周围随机受背叛预言影响的目标'. The added '周围' (nearby) is a range limit the source does not state. The frozen context does not include the implementation, so this extra limit is unsupported. Remove '周围' unless the code shows a range check. Minor: on line 415, 'whispers from the void' was translated as '回响' (echo), which loses 'whispers'.",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Cults 公开源码（来源未固定）tome-cults/data/talents/demented/doom.lua 天启（Revelation）选背叛预言时的 callbackOnTakeDamage（:231-259）：用 core.fov.circle_grids(self.x, self.y, 10, true) 只在自身 10 格半径内收集带 PROPHECY_OF_TREASON 的敌对目标再随机挑一个转移伤害；现译“转移至周围随机受背叛预言影响的目标”的“周围”与实现的范围限制一致。contextual 附带指出 whispers from the void 译“回响”略失“低语”，属不影响机制的措辞细节。驳回。"
+    },
+    {
+      "revision_key": "e1e9720d81539fabbdea5260cc2d4da62ed63afaa11d67bd8c8574f884e3fb5e",
+      "stage": "contextual",
+      "observation": "Two problems in unlock-race_krog.lua, lines 24–26. (1) The concession on line 24, 'But while they are magic users Ziguranth took pity on them', was dropped. The target only says '然而，伊格兰斯同情…'. The point that the Ziguranth pitied the ogres even though they use magic, which goes against Ziguranth anti-magic, is lost. (2) The place name Zigur and the order Ziguranth are rendered inconsistently. Line 25, 'Zigur was finally able to create', is translated '伊格兰斯终于创造', using the Ziguranth name. Line 26, 'protectors of Zigur', is translated '伊格的坚实保护者'. So Zigur is rendered two different ways within this one entry, and the subject on line 25 changed from Zigur to the Ziguranth.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Cults 公开源码（来源未固定）tome-cults/overload/data/texts/unlock-race_krog.lua 克罗格解锁文本：原文“But while they are magic users Ziguranth took pity on them for they had not chosen their fate, it was forced upon them.”的让步“尽管他们是魔法使用者”是本句要点（伊格兰斯敌视魔法却仍同情食人魔），现译“然而，伊格兰斯同情他们被强迫而无法选择的命运。”整段删去，属漏译（contextual 同判）。另下一行“Zigur was finally able to create”现译主语换成“伊格兰斯”，与同条“伊格的坚实保护者”不一，按整句对照一并改回“伊格”。确认。修复：该行改为“然而，尽管食人魔是魔法使用者，伊格兰斯仍同情他们，因为这命运并非他们自己选择，而是被强加于身。”；下一行“伊格兰斯终于创造出”改为“伊格终于创造出”，其余（含 LF 与标记）不变。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (8 lanes: surface-000 Cults 75 in 19/19/19/18; surface-001 Orcs 5 in 2/1/1/1)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000; 4 entries)"
+  },
+  "notes": [
+    "Surface screening: 2 groups of codex/gpt-6.1-sol (thinking medium, auto-review), 8 children (Cults 19/19/19/18; Orcs 2/1/1/1); 76 OK / 4 ISSUE; every child only read its own envelope and the contract (10 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 4 deep entries (one run), accepted on the first pass (1 OK / 3 ISSUE).",
+    "Re-review batch: successors queued by migration 22b293c4 (and window 64's migration 629e3b1e); 139 remain queued after this batch.",
+    "Contextual flagged 7502d460c0 and 7af0624b50 from the frozen info text alone; the host refuted both from the implementation (Severed Threads needs a checkHit and canBe('instakill') before the kill; the Prophecy of Treason redirect only searches a radius-10 circle).",
+    "No pinned entries; 5 Orcs, 75 Cults entries matched the public DLC source file SHA in the workset, with the DLC repositories and commits unpinned.",
+    "1 confirmed repair revisions raise the window 65 backlog from 2 to 3; below the 20 threshold, so no window opens."
+  ]
+}

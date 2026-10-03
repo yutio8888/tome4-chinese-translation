@@ -1,0 +1,26 @@
+[
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_0c4ad5cdb15af001016ac14bb020d887d2b9dfae26f968a0eb",
+    "status": "completed",
+    "call_id": "call_6PU83JkrLiAYxuJSN3eNcN0y",
+    "name": "exec",
+    "input": "const r = await tools.exec_command({cmd:\"cat docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":16000});text(r.output);\nconst e = await tools.exec_command({cmd:\"cat .ai/task/batch-af9aadc82f05ae27f3d8-surface-000/SURFACE-SCREEN-ENVELOPE-lane-000-2.json\",\"max_output_tokens\":22000});text(e.output);\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a1030f-92af-7fd3-b87f-8bde6a08c8f0",
+      "create_time": 1791052718.301129
+    }
+  },
+  {
+    "type": "custom_tool_call",
+    "id": "ctc_0c4ad5cdb15af001016ac14bb613d487d2a5589958af80659b",
+    "status": "completed",
+    "call_id": "call_OlLMWgRnIAGqR3Gc9LQ8bnc9",
+    "name": "exec",
+    "input": "text((await tools.exec_command({cmd:\"sed -n '225,260p' docs/paseo-translation-surface-screen-v1-contract.md\",\"max_output_tokens\":2500})).output);\n",
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a1030f-92af-7fd3-b87f-8bde6a08c8f0",
+      "create_time": 1791052723.715604
+    }
+  }
+]

@@ -1,0 +1,3 @@
+第393批：冻结80条（Orcs 5 条、Cults 75 条；为 2026-10-03 重新复审迁移 22b293c4 或窗口64迁移 629e3b1e 排入的 successor），逐条核验80/80：DLC 按本批公开源码文件SHA核验、来源仓库和commit未固定。surface 2组（gpt-6.1-sol）8 个 child：Cults 19/19/19/18、Orcs 2/1/1/1，76 OK、4 ISSUE；各 child 只读自身 envelope 与契约。contextual 一个 run（Opus 5.5）4 条 deep，首轮通过：1 OK、3 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决7个观察：{'refuted': 5, 'confirmed': 2}；预计79条完成、1条待修复。新增 1 条修复 revision：e1e9720d81 克罗格解锁文本漏译让步“尽管他们是魔法使用者”，下一行 Zigur 误作伊格兰斯。驳回 3：7502d460c0 断绝“尝试”切断生命线与实现的命中判定和 instakill 免疫检查一致；7af0624b50 背叛预言“周围”与 10 格半径取目标一致；e780b6669a 玻璃碎片“技能失败率增加”与 talent_fail_chance 加算一致。修复窗口65积压为3，未达20。

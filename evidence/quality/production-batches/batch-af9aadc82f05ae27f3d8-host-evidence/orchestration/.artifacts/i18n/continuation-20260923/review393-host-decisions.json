@@ -1,0 +1,40 @@
+{
+ "workset": "evidence/quality/production-batches/batch-af9aadc82f05ae27f3d8-source-workset.json",
+ "decisions": {
+  "7502d460c0|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "Cults 公开源码（来源未固定，/workspace/tome4-dlcs/cults）tome-cults/data/talents/demented/chronophage.lua 断绝（Severed Threads）：实际处决在衰亡（Atrophy）施加处 :85-92，除生命低于阈值外还要 target:checkHit(法术强度, 物理豁免) 命中且 target:canBe(\"instakill\") 才会 target:die(self) 并获得 INVIGORATE；即并非必定斩杀。现译“你将尝试切断目标的生命线，立刻杀死目标”的“尝试”与实现一致，info 原文省略了豁免判定。contextual 只据冻结 info 判断“无豁免依据”，宿主以实现为准驳回。"
+  },
+  "7502d460c0|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "Cults 公开源码（来源未固定，/workspace/tome4-dlcs/cults）tome-cults/data/talents/demented/chronophage.lua 断绝（Severed Threads）：实际处决在衰亡（Atrophy）施加处 :85-92，除生命低于阈值外还要 target:checkHit(法术强度, 物理豁免) 命中且 target:canBe(\"instakill\") 才会 target:die(self) 并获得 INVIGORATE；即并非必定斩杀。现译“你将尝试切断目标的生命线，立刻杀死目标”的“尝试”与实现一致，info 原文省略了豁免判定。contextual 只据冻结 info 判断“无豁免依据”，宿主以实现为准驳回。"
+  },
+  "7af0624b50|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "Cults 公开源码（来源未固定）tome-cults/data/talents/demented/doom.lua 天启（Revelation）选背叛预言时的 callbackOnTakeDamage（:231-259）：用 core.fov.circle_grids(self.x, self.y, 10, true) 只在自身 10 格半径内收集带 PROPHECY_OF_TREASON 的敌对目标再随机挑一个转移伤害；现译“转移至周围随机受背叛预言影响的目标”的“周围”与实现的范围限制一致。contextual 附带指出 whispers from the void 译“回响”略失“低语”，属不影响机制的措辞细节。驳回。"
+  },
+  "7af0624b50|contextual": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "Cults 公开源码（来源未固定）tome-cults/data/talents/demented/doom.lua 天启（Revelation）选背叛预言时的 callbackOnTakeDamage（:231-259）：用 core.fov.circle_grids(self.x, self.y, 10, true) 只在自身 10 格半径内收集带 PROPHECY_OF_TREASON 的敌对目标再随机挑一个转移伤害；现译“转移至周围随机受背叛预言影响的目标”的“周围”与实现的范围限制一致。contextual 附带指出 whispers from the void 译“回响”略失“低语”，属不影响机制的措辞细节。驳回。"
+  },
+  "e1e9720d81|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "Cults 公开源码（来源未固定）tome-cults/overload/data/texts/unlock-race_krog.lua 克罗格解锁文本：原文“But while they are magic users Ziguranth took pity on them for they had not chosen their fate, it was forced upon them.”的让步“尽管他们是魔法使用者”是本句要点（伊格兰斯敌视魔法却仍同情食人魔），现译“然而，伊格兰斯同情他们被强迫而无法选择的命运。”整段删去，属漏译（contextual 同判）。另下一行“Zigur was finally able to create”现译主语换成“伊格兰斯”，与同条“伊格的坚实保护者”不一，按整句对照一并改回“伊格”。确认。修复：该行改为“然而，尽管食人魔是魔法使用者，伊格兰斯仍同情他们，因为这命运并非他们自己选择，而是被强加于身。”；下一行“伊格兰斯终于创造出”改为“伊格终于创造出”，其余（含 LF 与标记）不变。"
+  },
+  "e1e9720d81|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "Cults 公开源码（来源未固定）tome-cults/overload/data/texts/unlock-race_krog.lua 克罗格解锁文本：原文“But while they are magic users Ziguranth took pity on them for they had not chosen their fate, it was forced upon them.”的让步“尽管他们是魔法使用者”是本句要点（伊格兰斯敌视魔法却仍同情食人魔），现译“然而，伊格兰斯同情他们被强迫而无法选择的命运。”整段删去，属漏译（contextual 同判）。另下一行“Zigur was finally able to create”现译主语换成“伊格兰斯”，与同条“伊格的坚实保护者”不一，按整句对照一并改回“伊格”。确认。修复：该行改为“然而，尽管食人魔是魔法使用者，伊格兰斯仍同情他们，因为这命运并非他们自己选择，而是被强加于身。”；下一行“伊格兰斯终于创造出”改为“伊格终于创造出”，其余（含 LF 与标记）不变。"
+  },
+  "e780b6669a|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "Cults 公开源码（来源未固定）tome-cults/data/timed_effects.lua:2161-2180 玻璃碎片（GLASS_SPLINTERS）：activate 用 effectTemporaryValue(eff, \"talent_fail_chance\", eff.fail) 把 fail 叠加到技能失败几率上，与其他失败来源相加；现译“技能失败率增加 %d%%”如实描述了这一加算，未改变百分比含义。contextual 判 OK。驳回。"
+  }
+ }
+}
