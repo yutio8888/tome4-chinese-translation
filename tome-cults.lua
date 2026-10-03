@@ -2946,7 +2946,7 @@ t([[When you make your pustules explode you leave a pool of defiled blood on the
 		Creatures that hit you while covered in your blood heal you for %d%% of the damage done.
 		The healing received increases with your Spellpower.]], [[每次脓包爆裂时，你会在地上留下一滩持续 5 回合的污血。
 		范围内的敌人每回合将被污血中产生的触手纠缠，受到 %d%% 暗影触手伤害并被污血覆盖 2 回合。
-		被污血覆盖的敌人击中你时，你受到 %d%% 相应伤害的治疗。
+		被污血覆盖的敌人击中你时，你回复相当于该伤害 %d%% 的生命值。
 		治疗系数受法术强度影响。]], "tformat")
 
 ------------------------------------------------
@@ -2955,7 +2955,7 @@ section "tome-cults/data/talents/demented/madness.lua"
 t("Dark Whispers", "黑暗低语", "talent name")
 t([[Terrible visions and maddening voices fill the minds of enemies within a radius %d area, inflicting %0.2f darkness damage each turn for 5 turns. In addition, this distraction will reduce physical, spell and mindpower of those affected by %d.
 The power loss caused by this spell can stack, to a maximum of %d powers.
-		The effect will increase with your Spellpower.]], [[令半径 %d 格内的敌人的心灵里充满可怕的幻觉和疯狂的低语，5 回合内每回合受到 %0.2f 暗影伤害。同时，该效果将使其物理强度、法术强度和精神强度各降低 %d 点，该效果可叠加至最多 %d 点。
+		The effect will increase with your Spellpower.]], [[令半径 %d 格内敌人的心灵充满可怕的幻觉和疯狂的低语，5 回合内每回合受到 %0.2f 暗影伤害。同时，该效果将使其物理强度、法术强度和精神强度各降低 %d 点，最多可叠加至 %d 点。
 		技能效果受法术强度加成。]], "tformat")
 t("Hideous Visions", "惊骇幻象", "talent name")
 t("hallucination", "幻象", "_t")
@@ -2965,7 +2965,7 @@ t([[Each time an enemy takes damage from Dark Whispers, there is a %d%% chance f
 t("Sanity Warp", "失智冲击", "talent name")
 t("When a hallucination from Hideous Visions is slain, it unleashes a psychic shriek dealing %0.2f darkness damage to enemies in radius %d.", "每当“惊骇幻象”产生的幻象被消灭时，它将释放心灵冲击，对 %d 格内的敌人造成 %0.2f 暗影伤害。", "tformat", {2,1})
 t("Cacophony", "心灵尖啸", "talent name")
-t("Raise your Dark Whispers in radius %d to a deafening crescendo for %d turns, applying another stack and drowning out all thought. \n\t\t\tTargets afflicted by Dark Whispers will have 20%% higher chance to spawn hallucinations, and each time they take damage from your Dark Whispers or Sanity Warp they will take an additional %d%% damage as temporal damage.\n\t\tThe damage will improve with your Spellpower.", [[使 %d 格内的黑暗低语音量提升 %d 回合，达到震耳欲聋的地步，额外施加一层低语效果，同时干扰一切思考能力。
+t("Raise your Dark Whispers in radius %d to a deafening crescendo for %d turns, applying another stack and drowning out all thought. \n\t\t\tTargets afflicted by Dark Whispers will have 20%% higher chance to spawn hallucinations, and each time they take damage from your Dark Whispers or Sanity Warp they will take an additional %d%% damage as temporal damage.\n\t\tThe damage will improve with your Spellpower.", [[使半径 %d 格内的黑暗低语变得震耳欲聋，持续 %d 回合，额外施加一层低语效果，同时干扰一切思考能力。
 			被黑暗低语影响的目标产生幻象的几率增加 20%%，每次受到黑暗低语或失智冲击的伤害时，会受到额外 %d%% 时空伤害。
 		伤害受法术强度加成。]], "tformat")
 
@@ -2974,7 +2974,7 @@ section "tome-cults/data/talents/demented/nether.lua"
 
 t("Netherblast", "彼世冲击", "talent name")
 t([[Fire a burst of unstable void energy, dealing %0.2f darkness and %0.2f temporal damage to the target. The power of this spell inflicts entropic backlash on you, causing you to take %d damage over 8 turns. This damage counts as entropy for the purpose of Entropic Gift.
-		The damage will increase with your Spellpower.]], [[发射一束不稳定的虚空能量，造成 %0.2f 暗影 %0.2f 时空伤害。
+		The damage will increase with your Spellpower.]], [[发射一束不稳定的虚空能量，造成 %0.2f 暗影和 %0.2f 时空伤害。
 		该法术会对你产生熵能反冲，在 8 回合内造成 %d 伤害。此伤害对熵之礼物而言视为熵。
 		伤害受法术强度加成。]], "tformat")
 t("Rift Cutter", "裂缝切割", "talent name")
@@ -3025,10 +3025,10 @@ t([[Your Nihil unravels the existence of the target, tearing them apart with ent
 		If 6 negative magical effects are applied before Nihil expires a Herald of Oblivion will be summoned to assist you for %d turns.
 		Currently existing debuffs, Spellshocked, and Seen by Arcane Eye will not count towards this total.  Refreshing the same debuff is counted.
 		The Herald will have a bonus to all attributes equal to your Magic.  Many other stats will scale with level.
-		Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你的空无能解构目标的存在并通过熵能将其撕裂。
+		Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你的空无会解构目标的存在，并以熵能将其撕裂。
 		在空无效果结束之前，如果目标身上被施加了 6 个负面魔法效果，将召唤出持续 %d 回合的破灭之兆。
 		之前已有的负面效果、法术冲击、被奥术之眼观察不会计入总数。刷新同一个效果会计入总数。
-		破灭之兆的全部属性点提升你魔法属性的相同数值。其他属性根据本身等级提升。
+		破灭之兆的所有属性获得等同于你魔法属性的加成。其他属性根据本身等级提升。
 		破灭之兆会继承你的伤害加成、伤害穿透、暴击几率和暴击倍率加成。]], "tformat")
 t("Erase", "抹除", "talent name")
 t([[Those affected by your Nihil find themselves increasingly removed from reality, reducing all damage they deal by %d%% and causing them to take %0.2f temporal damage each turn for each negative magical effect they have.
@@ -3040,12 +3040,12 @@ t("#ORCHID#The entropic storm destroys %s!#LAST#", "#ORCHID#湮灭风暴摧毁�
 t("a projectile", "一个抛射物", "_t")
 t([[Summon a radius 4 storm of all-consuming oblivion at the targeted location for %d turns, reducing those within to nothing. Targets within will take %0.2f darkness damage and %0.2f temporal damage each turn.  Walls and other terrain within the storm will be disintegrated.
 		Each time the storm deals damage enemies will have any detrimental magical effect with less than 3 duration set to 3 duration, and all enemy projectiles will be destroyed.
-		The damage will scale with your Spellpower.]], [[在目标区域召唤出范围 4 码、持续 %d 回合的湮灭风暴，使受到影响的物质化为虚无，每回合造成 %0.2f 暗影 %0.2f 时空伤害。
+		The damage will scale with your Spellpower.]], [[在目标区域召唤出范围 4 码、持续 %d 回合的湮灭风暴，使受到影响的物质化为虚无，每回合造成 %0.2f 暗影和 %0.2f 时空伤害。
 		范围内的墙壁和部分其他地形将被粉碎。
 		每次受到风暴伤害时，敌人身上不足 3 回合的负面魔法效果都将重置为 3 回合。风暴范围内敌人的投射物都将被扯碎。
 		伤害受到法术强度加成。]], "tformat")
 t("Void Crash", "虚空撞击", "talent name")
-t("Slam your weapons into the ground, creating a radius 2 explosion of void energy dealing %d%% damage split between darkness and temporal.", "用武器撞击地面，产生 2 码的虚空爆炸，造成 %d%% 虚空武器伤害（暗影时空各 50%%）。", "tformat")
+t("Slam your weapons into the ground, creating a radius 2 explosion of void energy dealing %d%% damage split between darkness and temporal.", "用武器撞击地面，产生 2 码的虚空爆炸，造成 %d%% 武器伤害，分摊为暗影和时空伤害。", "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/path-of-horror.lua"
@@ -3072,7 +3072,7 @@ t([[You trigger a cascade of rapidly mutating cells in your body for %d turns.
 		你的巨大体型使你在每次行走时都导致一场小型的地震，破坏并重组周围的地形。]], "tformat")
 t("Writhing One", "蠕动者", "talent name")
 t([[At last you unlock the true power of your mutated body!
-		You gain %d%% stun immunity, %d%% chances to ignore critical strikes and your darkness and blight damage are increased by %d%%.]], [[你终于解开了这具变异身体的最终力量！
+		You gain %d%% stun immunity, %d%% chances to ignore critical strikes and your darkness and blight damage are increased by %d%%.]], [[你终于解锁了这具变异身体的真正力量！
 		你获得 %d%% 震慑免疫， %d%% 几率无视受到的暴击，并且增加 %d%% 暗影及枯萎伤害。]], "tformat")
 
 ------------------------------------------------
@@ -3094,8 +3094,8 @@ t("You must target a void rift.", "你必须瞄准虚空裂隙。", "logPlayer")
 t("%s's space-time folding fizzles!", "%s的时空折叠失败了！", "logSeen")
 t("%s emerges from a space-time rift!", "%s从时空裂隙中出现！", "logSeen")
 t([[You briefly open a tunnel through spacetime, teleporting to a void rift in range %d. This destroys the rift, granting you a shield for %d turns absorbing %d damage.
-		The damage absorbed will scale with your Spellpower]], [[你短暂地在时空中打开一个通道，传送到范围 %d 内的一个虚空裂隙。这将摧毁那个虚空裂隙，使你获得一个护盾，吸收 %d 点伤害，持续 %d 回合。
-		护盾吸收的伤害随法术强度提高而提高。]], "tformat", {1,3,2})
+		The damage absorbed will scale with your Spellpower]], [[你短暂地在时空中打开一个通道，传送到范围 %d 内的一个虚空裂隙。这将摧毁那个虚空裂隙，使你获得一个持续 %d 回合、可吸收 %d 点伤害的护盾。
+		护盾吸收的伤害随法术强度提升。]], "tformat", {1,3,2})
 t("Pierce the Veil", "刺破境界", "talent name")
 t("nether breach", "彼世裂隙", "_t")
 t("temporal vortex", "时空漩涡", "_t")
@@ -3110,8 +3110,8 @@ t([[Pouring more energy into your rifts, you have a %d%% chance for each one to 
 The stats of your Void Skitterers will scale with your Magic stat and level.]], [[向你的裂隙注入能量，你将有 %d%% 概率让每一个裂口进化成为更强大的形态。
 #PURPLE#彼世裂隙：#LAST# 向半径 10 内随机敌人发射光束，造成 %0.2f 暗影伤害。
 #PURPLE#时空漩涡：#LAST# 每回合对半径 4 内的敌人造成 %0.2f 时空伤害，并使其全局速度降低 30%%。
-#PURPLE#维度之门：#LAST# 每回合有 50%% 概率召唤一个虚空造物，持续 %d 回合，是一个能传送的高速近战攻击者。
-你的虚空造物属性随你的等级和魔力属性提高而提高。]], "tformat")
+#PURPLE#维度之门：#LAST# 每回合有 50%% 概率召唤一个持续 %d 回合的虚空造物，它是能传送的高速近战攻击者。
+你的虚空造物属性随你的等级和魔力属性提升。]], "tformat")
 t("Dimensional Skitter", "维度迅击", "talent name")
 t("%s's Dimensional Skitter fizzles!", "%s的维度迅击失败了！", "logSeen")
 t("Teleport to a target within range 10 and strike them with your fangs dealing %d%% weapon damage.", "传送到范围 10 内的一个敌人处，并用你的尖牙攻击它，造成 %d%% 武器伤害。", "tformat")
@@ -3135,7 +3135,7 @@ t([[You project tentacles in a cone of radius %d in front of you.
 		任何在范围内的敌人将会被触手缠绕并受到 %d%% 枯萎武器伤害，如果攻击命中，该生物还会被拉向你。]], "tformat")
 t("Decaying Grounds", "腐朽之地", "talent name")
 t([[You blight a zone as a decaying ground for %d turns. All creatures inside take %0.2f blight damage per turn and have all their cooldowns increased by %d%% for 3 turns.
-		The damage will scale with the highest of your spell or mind power.]], [[你使一个区域枯萎，把它们变成腐朽之地，持续 %d 回合。
+		The damage will scale with the highest of your spell or mind power.]], [[你使一个区域枯萎，化为腐朽之地，持续 %d 回合。
 		所有在其中的生物每回合受到 %0.2f 枯萎伤害，并且所有技能冷却时间增加 %d%%， 持续 3 回合。
 		伤害受你的法术强度或者精神强度两者中更高一方影响。]], "tformat")
 t("Augment Despair", "扩大绝望", "talent name")
@@ -3241,10 +3241,10 @@ t([[You extend your tentacle to grab a distant target, pulling it to you.
 		As long as Constrict stays active the target is bound by your tentacle, it can try to move away but each turn you pull it back in 1 tile.
 		While constricting you cannot use your tentacle to enhance your normal attacks but you deal %d%% tentacle damage each turn to your target.
 		Enemies can resist the attempt to pull them but Constrict will always work for purposes of modifying your talents.
-		Your other tentacle talents may act differently when used while constricting (check their descriptions).]], [[伸展触手缠绕一个远处的目标，并向你拖拽。
+		Your other tentacle talents may act differently when used while constricting (check their descriptions).]], [[伸展触手缠住一个远处的目标，将其拖向你。
 		只要缠绕技能保持激活，目标就会被触手束缚；它可以尝试向远处移动，但每回合都会被你拉回一码。
 		当缠绕了敌人，普通攻击不会额外附加触手攻击，但每回合对缠绕敌人造成 %d%% 触手伤害。
-		敌人可以抵抗触手拖拽，但即使抵抗成功，只要缠绕技能仍处于激活状态，它仍会对你的技能产生修改效果。
+		敌人可以抵抗触手拖拽，但即使抵抗成功，缠绕对你技能的修改效果仍会照常生效。
 		其他触手技能在缠绕状态下会发生变化，具体请查看相应技能描述。]], "tformat")
 
 ------------------------------------------------
@@ -3254,7 +3254,7 @@ t("Accelerate", "窃速", "talent name")
 t([[Distorting spacetime around yourself, you reduce the movement speed of all enemies in radius %d by 50%% for %d turns.
 You use the siphoned speed to grant yourself incredible quickness for 1 turn, increasing movement speed by %d%%, increased by a further %d%% for each enemy slowed, to a maximum of 4.
 Any actions other than movement will cancel the effect.]], [[扭曲周围时空，周围 %d 码内敌人移动速度降低 50%%，持续 %d 回合。
-		你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%， 每减速一个敌人，额外提高 %d%%， 最大个数 4 个。
+		你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%， 每减速一个敌人额外提高 %d%%， 最多计 4 个敌人。
 		移动外的任何行动将终止加速效果。]], "tformat")
 t("Switch", "偷换", "talent name")
 t("Release a surge of entropy, cleansing yourself of afflictions while draining the energy from others. All enemies in range 10 will have the duration of %d beneficial effects reduced by %d turns, while you will have an equal number of detrimental effects reduced by the same duration.", "释放熵的浪潮，清除自己的灾祸，同时吸取他人的能量。10 码内所有敌人的 %d 项有益效果持续时间缩短 %d 回合。自身同等数量的有害效果持续时间缩短同等回合。", "tformat")
@@ -3267,10 +3267,10 @@ t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("You can't clone summons!", "你不能克隆召唤物", "logPlayer")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t("#LIGHT_STEEL_BLUE#%s's Temporal Clone#LAST#", "#LIGHT_STEEL_BLUE#%s的时空克隆#LAST#", "tformat")
-t("A warped image resembling the creature it appeared from, its features a flickering blur of all possible futures.", "一个扭曲的图像，类似于它模仿的生物，它展现着其所有可能的未来的模糊影像。", "_t")
+t("A warped image resembling the creature it appeared from, its features a flickering blur of all possible futures.", "一个扭曲的影像，形似它所源自的生物，其面貌是所有可能未来交织闪烁的模糊残影。", "_t")
 t("Summon", "召唤", "_t")
 t([[The target enemy will be partially removed from the normal flow of time for %d turns, inhibiting their ability to interact with the world. All damage taken will be reduced by %d%%, while all damage dealt will be reduced by %d%%.
-While active, you form the frayed threads of their timeline into a temporal clone of them for the same duration, which assists you in combat. This clone is identical, but has %d%% reduced life and deals %d%% damage.]], [[将目标敌人从正常时间流部分移除，持续 %d 回合，隔绝他们与现实世界交互的能力。移除期间敌人受到的伤害降低 %d%%， 造成的伤害也降低 %d%%。
+While active, you form the frayed threads of their timeline into a temporal clone of them for the same duration, which assists you in combat. This clone is identical, but has %d%% reduced life and deals %d%% damage.]], [[将目标敌人从正常时间流部分移除，持续 %d 回合，抑制其与现实世界交互的能力。移除期间敌人受到的伤害降低 %d%%， 造成的伤害也降低 %d%%。
 		技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同，克隆体生命值降低 %d%%， 只造成 %d%% 伤害，其他能力与本体相同。]], "tformat")
 
 ------------------------------------------------
@@ -3368,7 +3368,7 @@ section "tome-cults/data/talents/misc/misc.lua"
 
 t("glass golem", "玻璃傀儡", "_t")
 t("Self-destruction", "自爆", "talent name")
-t("Self destruct in a glorious explosion of gore dealing %0.2f blight damage to all enemies in %d radius.  Your summoner must be dead to use this talent.", "自爆成一团光荣的血肉，对半径 %d 格范围内的所有敌人造成 %0.2f 枯萎伤害。这个技能只有主人死亡时能够使用。", "tformat", {2,1})
+t("Self destruct in a glorious explosion of gore dealing %0.2f blight damage to all enemies in %d radius.  Your summoner must be dead to use this talent.", "自爆，引发一场壮观的血肉爆炸，对半径 %d 格范围内的所有敌人造成 %0.2f 枯萎伤害。这个技能只有主人死亡时能够使用。", "tformat", {2,1})
 t("Teleport: Kroshkkur", "传送：克诺什库尔", "talent name")
 t("#CRIMSON#Kroshkkur is destroyed, there is nothing to teleport to.", "#CRIMSON#克诺什库尔被摧毁了，无法传送到那里。", "logPlayer")
 t("The spell fizzles...", "法术失败了……", "logPlayer")
@@ -3421,7 +3421,7 @@ t([[Throw a pebble at your target, dealing %0.2f physical damage.
 t("Netherforce", "彼世之力", "talent name")
 t([[Smash the target with the force of the void dealing %0.2f darkness and %0.2f temporal damage to the target and knocking them back 8 spaces.
 		The power of this spell inflicts entropic backlash on you, causing you to take %d damage over 8 turns. This damage counts as entropy for the purpose of Entropic Gift.
-		The damage will increase with your Spellpower.]], [[用虚空之力攻击目标，造成 %0.2f 暗影 %0.2f 时空伤害并击退 8 格。
+		The damage will increase with your Spellpower.]], [[用虚空之力攻击目标，造成 %0.2f 暗影和 %0.2f 时空伤害并击退 8 格。
 		该法术会产生熵能反冲，让你在 8 回合内受到 %d 伤害。此伤害对熵之礼物而言视为熵。
 		伤害受法术强度加成。]], "tformat")
 
@@ -3449,7 +3449,7 @@ t([[Your skin grows small spikes coated in dark blight.
 		伤害随魔法属性提升。]], "tformat")
 t("Faceless", "无面", "talent name")
 t([[Your faceless visage is puzzling and emotionless, allowing you to more easily resist mind tricks.
-		You gain %d mental save, %d%% confusion immunity.]], [[你无面孔的脸没有情感，令人困惑。这让你更容易抵抗精神冲击。
+		You gain %d mental save, %d%% confusion immunity.]], [[你那张没有五官的脸毫无表情，令人困惑。这让你更容易抵抗精神冲击。
 		你获得 %d 精神豁免， %d%% 混乱免疫。]], "tformat")
 t("From Below It Devours", "自深渊吞噬万物", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
@@ -3470,8 +3470,8 @@ t("Wrath of the Wilds", "自然之怒", "talent name")
 t([[You unleash the wrath of the wilds for 5 turns.
 		When you deal damage to a creature while wrath is active you have %d%% chance (100%% for the first creature hit each turn) to stun them for 3 turns.
 		This effect can only stun a creature once per turn.
-		Chance scales with your Constitution and apply power is the highest or your physical or mind power.]], [[你释放持续 5 回合的自然的愤怒。
-		愤怒状态下，每当你造成伤害时有 %d%% （每回合攻击的第一个生物 100%%）几率震慑 3 回合。
+		Chance scales with your Constitution and apply power is the highest or your physical or mind power.]], [[你释放自然的愤怒，持续 5 回合。
+		愤怒状态下，每当你对生物造成伤害时，有 %d%% 几率（每回合命中的第一个生物为 100%%）将其震慑 3 回合。
 		每个敌人每回合只能被该技能震慑一次。
 		震慑几率受体质影响，强度由物理或精神强度中较高一项决定。]], "tformat")
 t("Drake-Infused Blood", "灌输龙血", "talent name")
@@ -3510,7 +3510,7 @@ t("Drakeblood Strike", "龙血打击", "talent name")
 t([[You were created by ziguranth for one purpose only, to wage war on magic!
 			Strike your target dealing %d%% %s weapon damage and silencing them for %d turns.
 			The damage type will change with your drake aspect.
-			The chance to silence will increase with the highest of your physical or mind power.]], [[你被伊格制造的唯一理由：对魔法作战！
+			The chance to silence will increase with the highest of your physical or mind power.]], [[伊格制造你只有一个目的：向魔法开战！
 		打击你的敌人，造成 %d%% %s 武器伤害，并沉默它们 %d 回合。
 		伤害类型根据龙血的类型而决定。
 		沉默的几率受物理强度或精神强度的最高值加成。]], "tformat")
@@ -3522,21 +3522,21 @@ t("%s resists!", "%s抵抗了效果！", "logSeen")
 t([[You try to bite off your foe with your #{italic}#head#{normal}# for %d%% blight weapon damage.
 		If the target falls under 20%% life you have %d%% chances to outright kill it (bosses are immune).
 		Whenever you succesfully bite a foe you regenerate %0.1f life per turn for 5 turns.
-		Instant kill chances and regeneration increase with your Constitution stat and weapon damage increases with the highest of your Strength, Dexterity or Magic stat.]], [[你尝试用 #{italic}#头#{normal}# 咬你的敌人造成 %d%% 枯萎武器伤害。
+		Instant kill chances and regeneration increase with your Constitution stat and weapon damage increases with the highest of your Strength, Dexterity or Magic stat.]], [[你尝试用 #{italic}#头#{normal}# 咬你的敌人，造成 %d%% 枯萎武器伤害。
 		如果目标被咬后生命不足 20%%，你有 %d%% 几率直接杀死它（对 boss 无效）。
 		你咬中以后 5 回合内每回合回复 %0.1f 生命。
-		秒杀几率和生命回复受体质加成，武器伤害受力量敏捷魔法中最高值影响。]], "tformat")
+		秒杀几率和生命回复受体质加成，武器伤害受力量、敏捷、魔法中的最高值影响。]], "tformat")
 t("Ultra Instinct", "终极本能", "talent name")
 t([[Without the distraction of #{bold}#thoughts#{normal}# or #{bold}#self#{normal}# your body reacts faster and better to aggressions.
 		Increases global speed by %d%%.]], [[没有 #{bold}#思维#{normal}# 和 #{bold}#自我#{normal}# 的干扰，你的身体全凭本能行动，反应速度更快。
 		整体速度增加 %d%%。]], "tformat")
 t("Corrupting Influence", "堕落影响", "talent name")
 t([[The parasite corruption seeps into your body, strengthening it.
-		Increases blight, darkness, temporal and acid resistances by %d%% but decreases nature and light resistances by %d%%.]], [[寄生在你身体里的堕落力量渗入你的身体，给予你强化。
+		Increases blight, darkness, temporal and acid resistances by %d%% but decreases nature and light resistances by %d%%.]], [[寄生体的堕落力量渗入你的身体，使之更加强健。
 		增加 %d%% 枯萎、黑暗、时空和酸性伤害抗性，同时减少 %d%% 自然和光系伤害抗性。]], "tformat")
 t("Horror Shell", "恐惧外壳", "talent name")
 t([[Creates a shell around you, absorbing %d damage. Lasts for 10 turns.
-		The total damage the shield can absorb increases with your Constitution.]], [[在你身边制造一层持续 10 回合吸收 %d 伤害的外壳。
+		The total damage the shield can absorb increases with your Constitution.]], [[在你身边制造一层外壳，吸收 %d 伤害，持续 10 回合。
 		吸收量受体质加成。]], "tformat")
 
 ------------------------------------------------
@@ -3606,7 +3606,7 @@ t("chaos", "混沌", "effect subtype")
 t("damage", "伤害", "effect subtype")
 t("insanity", "疯狂", "effect subtype")
 t("Chaos Orbs", "混沌之球", "_t")
-t("%d stacks, +%d%% to all damage dealt.", "%d 层，+%d%% 所有造成的伤害。", "tformat")
+t("%d stacks, +%d%% to all damage dealt.", "%d 层，造成的所有伤害 +%d%%。", "tformat")
 t("horror", "恐怖", "effect subtype")
 t("blight", "枯萎", "effect subtype")
 t("Putrescent Pustule", "腐败脓包", "_t")
@@ -3629,7 +3629,7 @@ t("#Target# is empowered by the pain of its victim.", "#Target#被牺牲者的�
 t("#Target# is less powerfull.", "#Target#的力量减弱了。", "_t")
 t("morph", "变形", "effect subtype")
 t("Horrific Display", "恐魔具现化", "_t")
-t("Appearance changed to an horror, everything is hostile to it.", "外貌变化为恐魔，令其他人和它敌对。", "tformat")
+t("Appearance changed to an horror, everything is hostile to it.", "外貌变为恐魔，所有生物都与其敌对。", "tformat")
 t("#PURPLE##Target# turns into an horror.", "#PURPLE##Target#变成了恐魔。", "_t")
 t("#Target# is back to normal.", "#Target#恢复了正常。", "_t")
 t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
@@ -3676,7 +3676,7 @@ t("-Dark Whispers", "-黑暗低语", "_t")
 t("Hideous Visions", "惊骇幻象", "_t")
 t("The target is being distracted by a hallucination, reducing all damage dealt to non-hallucinations targets by %d%%.", "目标被幻觉所困，降低其对非幻觉单位造成的伤害 %d%%。", "tformat")
 t("Cacophony", "心灵尖啸", "_t")
-t("The target is overwhelmed by voices from the void, giving them a 20%% higher chance to spawn hallucinations from Dark Whispers and causing them to take an additional %d%% temporal damage from Dark Whispers and Hideous Visions.", "目标被虚空之声淹没，让他们从黑暗低语中产生幻觉的几率增加 20%%，并使他们从黑暗低语和惊骇幻象中受到额外 %d%% 时空伤害。", "tformat")
+t("The target is overwhelmed by voices from the void, giving them a 20%% higher chance to spawn hallucinations from Dark Whispers and causing them to take an additional %d%% temporal damage from Dark Whispers and Hideous Visions.", "目标被虚空之声淹没，从黑暗低语中产生幻觉的几率增加 20%%，并从黑暗低语和惊骇幻象中受到额外 %d%% 时空伤害。", "tformat")
 t("#Target#'s mind is shattered by the void!", "#Target#的精神被虚空粉碎！", "_t")
 t("+Cacophony", "+心灵尖啸", "_t")
 t("#Target# seems more focused.", "#Target#恢复了理智。", "_t")
@@ -3826,7 +3826,7 @@ t("Total Collapse", "完全崩溃", "_t")
 t("Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.", "你的身体无法正常运转，被逐渐损耗。每回合你受到 %0.2f 虚空伤害，任何新施加的负面效果持续时间延长 %d%%。每回合这些惩罚都会增长，直到效果结束。", "tformat")
 t("threat", "威胁", "effect subtype")
 t("Save Kroshkkur", "拯救克诺什库尔", "_t")
-t("Kroshkkur is still under threat from %s.", "克诺什库尔仍处于 %s 威胁中。", "tformat")
+t("Kroshkkur is still under threat from %s.", "克诺什库尔仍受到 %s 的威胁。", "tformat")
 t("#CRIMSON#You waited too long, Kroshkkur has been destroyed by %s!", "#CRIMSON#你等得太久了，克诺什库尔被%s摧毁了！", "say")
 t("Covered in Gastric Fluids", "被胃液覆盖", "_t")
 t("Reduces all damage taken by %d%% and remove all detrimental effects on application.", "降低所有受到的伤害 %d%%。施加该效果的时候会解除所有负面效果。", "tformat")
@@ -3847,7 +3847,7 @@ t("wound", "创伤", "effect subtype")
 t("cut", "流血", "effect subtype")
 t("fail", "失败", "effect subtype")
 t("Glass Splinters", "玻璃碎片", "_t")
-t("Nasty glass splinters that make you bleed, doing %0.2f arcane damage per turn. Deals %0.2f arcane damage on move. Talents have %d%% chances to fail.", "令人讨厌的玻璃碎片令你流血，每回合造成 %0.2f 奥术伤害。行走时造成 %0.2f 奥术伤害。技能失败率增加 %d%%。", "tformat")
+t("Nasty glass splinters that make you bleed, doing %0.2f arcane damage per turn. Deals %0.2f arcane damage on move. Talents have %d%% chances to fail.", "讨厌的玻璃碎片让你流血，每回合造成 %0.2f 奥术伤害。行走时造成 %0.2f 奥术伤害。技能失败率增加 %d%%。", "tformat")
 t("#Target# starts to bleed due to glass splinters.", "#Target#因为玻璃碎片开始流血。", "_t")
 t("#Target# stops bleeding.", "#Target#停止流血。", "_t")
 t("will", "意志", "effect subtype")

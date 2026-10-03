@@ -101,7 +101,7 @@ t("#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +
 t("#LIGHT_BLUE# * +0 Magic, +3 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法，+3 意志，+3 灵巧", "_t")
 t("Annihilator", "歼灭者", "birth descriptor name")
 t("The Annihilator is a master of destruction, wielding the most devastating steamtech inventions to lay waste to their foes.", "歼灭者是破坏的大师，他们掌握着最具破坏力的蒸汽科技成果，可以给他们的敌人带来无尽的毁灭。", "_t")
-t("While normally wielding a steamgun loaded with experimental ammunition and an electrically charged shield, they can equip heavy weapons such as flamethrowers.", "他们通常装备着装载着实验性弹药的蒸汽枪和一面电力充能的盾牌，但他们也可以装备像火焰喷射器那样的重装武器。", "_t")
+t("While normally wielding a steamgun loaded with experimental ammunition and an electrically charged shield, they can equip heavy weapons such as flamethrowers.", "他们通常手持装填了实验性弹药的蒸汽枪和一面电力充能的盾牌，但他们也可以装备像火焰喷射器那样的重装武器。", "_t")
 t("More adept at technology than most other tinkers, they supplement their weapons with automated turrets, mechanical minions and other such devices.", "他们比其他的工匠更加精通科学技术，他们使用自动炮台、机械随从和各种各样的强大发明来充实自己的武器库。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+4 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +5 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+5 灵巧", "_t")
@@ -118,7 +118,7 @@ t("Special", "特殊", "birth facial category")
 t("Orc", "兽人", "birth descriptor name")
 t("Orcs have a long and sad history. They are seen, and are, as an aggressive race that more than one time managed to imperil all of Maj'Eyal.", "兽人拥有久远而悲伤的历史。他们被视为（也确实如此）一个侵略性种族，曾不止一次危及整个马基埃亚尔世界。", "_t")
 t("But one year ago the Scourge from the West came and wiped four of the five Prides. And a hundred years ago King Toknor wiped all traces of orcs from Maj'Eyal.", "但是一年前，来自西方的天灾消灭了五个兽人部落中的四个。一百年前，图库纳国王消灭了马基埃亚尔本土的所有兽人。", "_t")
-t("The orc race is dangerously on the brink of destruction. One wrong move is all that is needed.", "兽人种族正危险地处于毁灭边缘。只需走错一步，就足以毁灭。", "_t")
+t("The orc race is dangerously on the brink of destruction. One wrong move is all that is needed.", "兽人种族正危险地处于毁灭边缘。只需走错一步，就足以令其毁灭。", "_t")
 t("But they are strong and will face whatever is needed to ensure a future of their own!", "但他们意志强大，敢于直面任何磨难，来创造属于他们的未来！", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
 t("Skin Color 2", "皮肤颜色2", "_t")
@@ -1178,7 +1178,7 @@ t("A stylish kruk-style cloak, to look awesome.", "一件时髦的克鲁克风�
 t("Teleporter to the Tinker's Cave", "前往工匠洞穴的传送器", "entity name")
 t("A strange metal contraption imbued with some kind of teleportation magic.", "一种带有某种传送魔法的奇怪金属装置。", "_t")
 t("teleport.", "传送。", "_t")
-t("The teleporter's delicate systems are perturbed by foes on this level. You must have no foes left to be able to use it.", "传送器的精密系统被这个楼层中敌人扰乱了。你必须在没有敌人的情况下使用。", "logPlayer")
+t("The teleporter's delicate systems are perturbed by foes on this level. You must have no foes left to be able to use it.", "传送器的精密系统被这个楼层中的敌人扰乱了。你必须在没有敌人的情况下使用。", "logPlayer")
 
 ------------------------------------------------
 section "tome-orcs/data/general/objects/steamgun.lua"
@@ -1266,7 +1266,7 @@ t("armor", "护甲", "entity type")
 t("cloak", "斗篷", "entity subtype")
 t("Rogue's Gallery", "盗贼画廊", "entity name")
 t("action packed cloak", "便于行动的斗篷", "_t")
-t("Lined with reactive mechanisms, this cloak is equipped for any situation you might possibly encounter, and several you couldn't possibly encounter!", "内衬各种机械装置，这件披风包含着让你可以应对任何你有可能或不可能遇到的情况的特殊装备！", "_t")
+t("Lined with reactive mechanisms, this cloak is equipped for any situation you might possibly encounter, and several you couldn't possibly encounter!", "内衬各种机械装置，这件披风足以应对你可能遇到的任何情况，甚至还能应对几种你根本不可能遇到的情况！", "_t")
 t("On falling below 20% of your max life, releases a cloud of smoke, confusing nearby enemies and giving you stealth and a chance to avoid incoming damage for 5 turns.", "生命掉落至20%以下时，释放一阵烟雾，混乱附近的敌人，令你潜行并有一定几率免疫伤害，持续5回合。", "_t")
 t("cause the next damage you deal to inflict crippling poison (does not recharge until used), dealing minor poison damage and causing your target to have a 10% chance to fail all talents", "令你下一次造成的伤害施加致残毒素（触发前不会再次充能）；该毒素造成少量毒素伤害，并使目标使用任何技能时有 10% 的几率失败。", "_t")
 t("BODY", "躯体", "entity on slot")
@@ -1486,8 +1486,8 @@ t([[These boots seem to have been made by a... creative individual who seems to 
 They look like they will work, though.
 Probably.
 If you're very careful.]], [[这套鞋子似乎是被一位具有……创造力的大师制造出来的，他似乎认为用火箭将你发射到空中就是“反重力”了。
-看上去这套鞋子能用，大概。
-确实有可能。
+不过看上去这套鞋子能用。
+大概吧。
 只要你非常非常小心。]], "_t")
 t("These boots have a %d%% chance to fail to operate properly (reduced by Cunning).", "这套鞋子有%d%%几率无法正常运作（随灵巧降低）。", "tformat")
 t("jump to a nearby location within range %d, blasting everything within radius 2 (%d burning fire damage, 2 tile knockback) of the jump point and within radius 3 (%d burning fire damage, 3 tile knockback) of the landing point (damage based on Cunning)", "跳向半径%d码范围内的地点，轰炸起跳点附近半径2码范围内的一切目标 (%d 火焰燃烧伤害，击退2格)以及落地点附近半径3码范围内的一切目标 (%d 火焰燃烧伤害，击退3格)（伤害随灵巧值提升）", "tformat")
@@ -1546,7 +1546,7 @@ t("Ready to trigger!", "可以触发！", "_t")
 t("bursts into an cloud of spydric poison, pinning those inside (with a 10 turn cooldown)", "爆发一阵具有定身效果的毒云，10回合冷却", "_t")
 t("Scattermind", "破碎意志", "entity name")
 t("shattered mindstar", "破碎的灵晶", "_t")
-t("A linen pouch of jagged mindstar fragments, each radiating a palpable sense of confusion and pain. They must have made up an impressive whole originally, before some cretin turned it to bits.", "一个亚麻布袋中装着锯齿状的灵晶碎片，让人清晰的感受到混乱和痛苦。在某个混蛋把它打成碎片之前，它一定是一个令人无法忘怀的整体。", "_t")
+t("A linen pouch of jagged mindstar fragments, each radiating a palpable sense of confusion and pain. They must have made up an impressive whole originally, before some cretin turned it to bits.", "一个亚麻布袋中装着锯齿状的灵晶碎片，让人清晰地感受到混乱和痛苦。在某个混蛋把它打成碎片之前，它一定是一个令人无法忘怀的整体。", "_t")
 t("strike the target with one of Mind Sear, Psychic Lobotomy, or Sunder Mind, at random.", "随机使用以下技能之一打击目标：心灵灼烧、心灵脑叶切除或碾碎心灵。", "_t")
 t("Thundercrack", "雷电打击", "entity name")
 t("pouch of copper shots", "一袋铜制弹丸", "_t")
@@ -1573,12 +1573,12 @@ They all just say 'make it really flashy'.
 t("Burst apart, dealing physical damage equal to 25% of the original damage in a ball of radius 1.", "向四周爆裂，在半径 1 范围内造成相当于原伤害 25% 的物理伤害。", "_t")
 t("The Long-Arm", "长手", "entity name")
 t("long barreled gun", "长管蒸汽枪", "_t")
-t("This gun has an absurdly long barrel. You wonder for whom it may have been designed.", "这把枪的枪管长的出奇。你好奇这杆枪到底是为谁设计。", "_t")
+t("This gun has an absurdly long barrel. You wonder for whom it may have been designed.", "这把枪的枪管长得出奇。你好奇这杆枪到底是为谁设计的。", "_t")
 t("Focus your aim on a target, marking them for death - reducing their ranged defense by %d and their resistances by %d%%", "凝神瞄准一个目标，将其标记为必杀对象——使其远程闪避降低 %d、所有抗性降低 %d%%", "tformat")
 t("#Source# takes aim at #target# using %s!", "#Source#使用%s瞄准#target#！", "logCombat")
 t("Annihilator", "歼灭者", "entity name")
 t("gigantic many barreled gun", "巨大的多管蒸汽枪", "_t")
-t("This gun features a wheel with several barrels attached and seems to be powered by an engine. It looks... impressive.", "这把枪的转轮上附有多支枪管，看起来由引擎驱动。看起来令人印象深刻。", "_t")
+t("This gun features a wheel with several barrels attached and seems to be powered by an engine. It looks... impressive.", "这把枪的转轮上附有多支枪管，似乎由引擎驱动。看起来……令人印象深刻。", "_t")
 t("Fire rate increases while firing, up to 5 shots per turn. Resets after 5 turns without firing.", "攻击频率随着射击而增加，一回合最多射5次。5回合未射击则效果消失。", "_t")
 t("50% chance to reload 1 ammo", "50% 几率装填1发弹药", "_t")
 t("The Shotgonne", "火枪", "entity name")
@@ -1648,7 +1648,7 @@ t("heavy lined cloak", "厚重的夹层披风", "_t")
 t("This cloak hides and protects a series of powerful steam compressors.", "这件斗篷隐藏并保护着一套蒸汽压缩机。", "_t")
 t("Eastern Wood Hat", "东方森林之帽", "entity name")
 t("worn leather hat", "破损的皮帽", "_t")
-t("This hat was made from materials from a forest whose name is long since lost, far in the east. It is said to have belonged to one of the first gunslingers.", "这顶皮帽的材料来自于遥远的树林，人们早已遗忘了树林的名字。据说它的主人曾是最早的枪手之一。", "_t")
+t("This hat was made from materials from a forest whose name is long since lost, far in the east. It is said to have belonged to one of the first gunslingers.", "这顶皮帽的材料来自遥远东方的一片树林，那片树林的名字早已失传。据说它的主人曾是最早的枪手之一。", "_t")
 t("Steamcatcher", "蒸汽捕捉器", "entity name")
 t("pipe coated leather hat", "覆有管道的皮帽", "_t")
 t("There's an old saying that most of your body heat escapes through your head. It's not true of body heat, but strangely, is actually true of steam.", "传说人体热量大部分从头部散失。对于体热来说并不是这样，但奇怪的是，蒸汽是从头部散失的。", "_t")
@@ -1688,7 +1688,7 @@ They sure seem sharp though.]], [[这套错综复杂的蒸汽链锯以一种几�
 不过看起来确实很锋利。]], "_t")
 t("Ramroller", "碾压战车", "entity name")
 t("a... chariot?", "一个……战车？", "_t")
-t("\"So we were thinking. You know what's better than saws? Really BIG saws. Unfortunately, no one could lift them. So we came up with an innovative new solution: Mount them on a motorized platform, allowing easy transportation and unparalleled cutting power!\"", "我们曾经这么想：你知道比锯子更好的是什么吗？巨大的锯子。可惜没人能够拿得动它们。所以我们想了一个新颖的主意：将他们安装在一个移动的平台上，以便让我们方便的运输，并获得无与伦比的切割能力。", "_t")
+t("\"So we were thinking. You know what's better than saws? Really BIG saws. Unfortunately, no one could lift them. So we came up with an innovative new solution: Mount them on a motorized platform, allowing easy transportation and unparalleled cutting power!\"", "我们曾经这么想：你知道比锯子更好的是什么吗？巨大的锯子。可惜没人能够拿得动它们。所以我们想了一个新颖的主意：将它们安装在一个机动平台上，既便于运输，又能获得无与伦比的切割能力。", "_t")
 t("Moving builds up a stacking movement speed (caps at 25%) and damage bonus (caps at double). Hitting removes the bonus.", "移动会叠加移动速度加成（最高 25%）和伤害加成（最高使伤害翻倍）。命中目标后加成消失。", "_t")
 t("Overcutter", "超级切割者", "entity name")
 t("enormous steamsaw", "大型的蒸汽链锯", "_t")
@@ -1771,7 +1771,7 @@ t("#PURPLE#%s activates and resets %s's %s cooldown!", "#PURPLE#%s启动，重�
 t("Galen's Will", "盖伦的意志", "entity name")
 t("aether-infused steamsaw", "以太灌注的蒸汽链锯", "_t")
 t("Saws made of metal? That is no good for a discerning Technomancer so Galen made a saw out of pure arcane forces!", "金属制作的链锯？挑剔的科技法师可不会满足于此，所以盖伦用纯奥术力量制造了一把链锯！", "_t")
-t("Increases the steam your arcane dynamo generate per 10 points of mana by 2.", "增加你的奥术发电机产生的蒸汽量，每消耗10点法力值产生的蒸汽量增加2。", "_t")
+t("Increases the steam your arcane dynamo generate per 10 points of mana by 2.", "使你的奥术发电机每消耗10点法力值产生的蒸汽量增加2。", "_t")
 t("Eye of the Lost", "迷失之眼", "entity name")
 t("pale mindstar", "苍白的灵晶", "_t")
 t("A strange aura surrounds this mindstar. You feel a presence, but it is obscured, as if it refuses to be found.", "灵晶周围环绕着一股奇怪的气息。你能感觉到某个存在，但它被遮蔽了，就像它不愿意被察觉到一样。", "_t")
@@ -3931,7 +3931,7 @@ t("", "", "_t")
 section "tome-orcs/data/talents/celestial/cosmic.lua"
 
 t("Lunar Orb", "月光之球", "talent name")
-t("Fires out a bolt of cosmic energy in the target direction. The projectile continues until it hits a wall or the edge of the map, dealing %0.2f dark damage to enemies hit and restoring %d negative energy. The negative energy gained is reduced by 25%% per enemy hit, restoring a maximum of %d. Enemies hit will become aware of you.", "向目标方向射出一道宇宙能量。直到碰到墙或者到达地图边缘，对敌人造成 %0.2f 的暗影伤害并回复 %d 负能量。负能量回复量最大为 %d， 每击中一个敌人将少回复 25%% 的负能量，被击中的敌人将注意到你。", "tformat")
+t("Fires out a bolt of cosmic energy in the target direction. The projectile continues until it hits a wall or the edge of the map, dealing %0.2f dark damage to enemies hit and restoring %d negative energy. The negative energy gained is reduced by 25%% per enemy hit, restoring a maximum of %d. Enemies hit will become aware of you.", "向目标方向射出一道宇宙能量，能量会一直飞行，直到碰到墙或者到达地图边缘，对命中的敌人造成 %0.2f 的暗影伤害并回复 %d 负能量。负能量回复量最大为 %d， 每击中一个敌人将少回复 25%% 的负能量，被击中的敌人将注意到你。", "tformat")
 t("Astral Path", "星光大道", "talent name")
 t("The spell fizzles: there are no available spots to teleport to.", "法术失败了：周围没有可供传送到的区域。", "logSeen")
 t([[Fire an orb of negative energy towards a spot within range %d.
@@ -3970,7 +3970,7 @@ t("Increases your movement speed by %0.2f%% per percent of positive energy and y
 t("Polarization", "偏振", "talent name")
 t("Whichever of your positive and negative energies is a higher percentage regenerates towards its max instead of its normal resting value (%d positive, %d negative). Your negative and positive regeneration/degeneration rates are increased to %0.2f.", "你的正负能量中，当前百分比较高的一种将向其最大值恢复，而非向通常的静止值恢复 （%d 正能量， %d 负能量）。你的负能量和正能量回复/消退速度增加至 %0.2f。", "tformat")
 t("Magnetic Inversion", "磁反转", "talent name")
-t("Swap your current positive and negative energy levels. This spell takes no time to cast.", "交换当前正和负能量水平，这个法术是瞬发法术。", "_t")
+t("Swap your current positive and negative energy levels. This spell takes no time to cast.", "交换你当前的正能量与负能量值，这个法术是瞬发法术。", "_t")
 t("Plasma Bolt", "等离子球", "talent name")
 t("Fires out a bolt of pure energy, dealing %0.2f light and %0.2f darkness damage in a radius of %d, and slowing targets hit. Their movement is reduced by %d%% and attacking, casting and mind attacks by %d%%. The bolt will attune to your current positive and negative energy amounts.", "发射一道纯净能量飞弹，在半径 %d 的范围内造成 %0.2f 点光系伤害和 %0.2f 点暗影伤害，并使命中的目标减速。其移动速度降低 %d%%， 攻击、施法和精神攻击速度降低 %d%%。 飞弹会根据你当前的正能量和负能量数值进行调谐。", "tformat", {3,1,2,4,5})
 
@@ -3981,21 +3981,21 @@ t("Diffraction Pulse", "衍射脉冲", "talent name")
 t("Create a distortion at the target tile, knocking back all projectiles and changing their direction to face away if possible.", "在目标地块制造一处扭曲，击退所有投射物，并尽可能使它们转向外侧。", "_t")
 t("Mirror Wall", "反射镜墙", "talent name")
 t("mirror wall", "镜像之墙", "_t")
-t("Creates a wall %d units long for %d turns, reflecting all projectiles that hit it and blocking sight.", "创造一堵墙长 %d 持续 %d 回合，反射所有击中此墙的飞行物并且阻挡视线。", "tformat")
+t("Creates a wall %d units long for %d turns, reflecting all projectiles that hit it and blocking sight.", "创造一堵长度为 %d 的墙，持续 %d 回合，反射所有击中此墙的飞行物并且阻挡视线。", "tformat")
 t("Spatial Prism", "空间棱镜", "talent name")
 t("Target a projectile in mid-flight to clone it and target that projectile independently. You gain ownership over the new projectile.", "选择一个飞行中的抛射物，复制它，并指定新抛射物的目标。你获得新的抛射物所有权。", "_t")
 t("Mirror Self", "自我镜像", "talent name")
 t("Mirror Image (%s)", "镜像 (%s)", "tformat")
 t("A cloned image of you.", "你的克隆影像。", "_t")
 t("Mirror Self", "自我镜像", "_t")
-t("Summons a clone for %d turns which casts all the spells you cast, dealing %d%% damage and having %d%% health. Additionally, all light damage the clone deals becomes darkness damage and all darkness damage becomes light damage.", "召唤一个持续 %d 回合能施放你所有法术的镜像，造成 %d%% 的伤害和拥有 %d%% 生命值。此外，镜像造成的所有光伤害转换为暗影伤害，所有暗影伤害转换为光伤害。", "tformat")
+t("Summons a clone for %d turns which casts all the spells you cast, dealing %d%% damage and having %d%% health. Additionally, all light damage the clone deals becomes darkness damage and all darkness damage becomes light damage.", "召唤一个镜像，持续 %d 回合。镜像会施放你施放的所有法术，造成 %d%% 的伤害，并拥有 %d%% 的生命值。此外，镜像造成的所有光伤害转换为暗影伤害，所有暗影伤害转换为光伤害。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/celestial/sol.lua"
 
 t("Solar Orb", "日光球", "talent name")
 t("Solar Orb", "日光球", "_t")
-t("Fire out an orb of light that deals %0.2f light damage and then returns, dealing the same amount of damage again and reducing the cooldown by half (%d) when it reaches you. The damage will increase with your spellpower. The ball will travel at most %d distance to return to you.", "发射一个光球造成 %0.2f 的光伤害然后折返，再次造成相同的伤害并且当回到你身上的时候减少一半 (%d) 的冷却时间。伤害受法术强度加成。球体最多飞行 %d 然后折回你。", "tformat")
+t("Fire out an orb of light that deals %0.2f light damage and then returns, dealing the same amount of damage again and reducing the cooldown by half (%d) when it reaches you. The damage will increase with your spellpower. The ball will travel at most %d distance to return to you.", "发射一个光球造成 %0.2f 的光伤害然后折返，再次造成相同的伤害，并在回到你身边时使冷却时间减少一半 (%d)。伤害受法术强度加成。球体最多飞行 %d 码后折返回你身边。", "tformat")
 t("Solar Wind", "太阳风", "talent name")
 t("While sustained, this ability speeds up outgoing projectiles by %d%% while slowing incoming projectiles by %d%%. The increase and decrease improve with your spellpower", "开启时，增加发射出去的抛射物 %d%% 速度，减少射向你的抛射物 %d%% 速度。增加和减少随着你的法术强度提高。", "tformat")
 t("Lucent Wrath", "光之愤怒", "talent name")
@@ -4053,8 +4053,8 @@ t("@Source@ stings with her ovipositor!", "@Source@使用产卵器刺入敌人�
 t([[Sting the target with your ovipositor, injecting %d larvae into it to finish their hatching process.
 		Over a 5 turn gestation period, the larvae will feed on the victim internally, dealing %0.2f to %0.2f physical damage each turn (increasing as they grow).
 		After the gestation period is complete, each larva will rip itself free of its host, dealing %0.2f physical and %0.2f fire damage.
-		]], [[用你的产卵器蜇目标一下，将 %d 个幼虫注入目标体内以完成他们的孵化流程。
-		在一个 5 回合的发育周期内，幼虫们会以受害者的血肉为食，每回合造成 %0.2f 到 %0.2f 的物理伤害（随着他们的成长增多）。
+		]], [[用你的产卵器蜇目标一下，将 %d 个幼虫注入目标体内以完成它们的孵化流程。
+		在一个 5 回合的发育周期内，幼虫们会以受害者的血肉为食，每回合造成 %0.2f 到 %0.2f 的物理伤害（随着它们的成长增多）。
 		在发育期结束后，幼虫会从寄主体内钻出，每个幼虫造成 %0.2f 物理和 %0.2f 火焰伤害。
 		]], "tformat")
 t("Slumbering...", "沉睡中…", "talent name")
@@ -4071,11 +4071,11 @@ t("#ORCHID#%s summons a %s...", "#ORCHID#%s召唤了一个%s……", "saySimple"
 t("The Dead God wishes to tickle you...", "已死之神想要逗逗你……", "_t")
 t("Curse of Amakthel", "阿马克泰尔的诅咒", "talent name")
 t([[Create a circle of cursed ground (radius %d) for %d turns. Any foes inside will be cursed, all new negative effects on them will have their duration doubled.
-		]], [[创造一片诅咒之地（半径 %d 码） %d 回合。任何陷入其中的敌人都会被诅咒，任何他们新得到的负面状态的持续时间都会翻倍。
+		]], [[创造一片诅咒之地（半径 %d 码），持续 %d 回合。任何陷入其中的敌人都会被诅咒，他们新获得的所有负面状态持续时间都会翻倍。
 		]], "tformat")
 t("Temporal Ripples", "时空涟漪", "talent name")
 t([[Creates a circle of radius %d of altered time for %d turns. Any damage your foes take while standing in it will heal the attacker for 200%% of the damage dealt.
-		]], [[创造一片半径 %d 码的时间错乱之地 %d 回合。任何站在其中的敌人受到的伤害都会治疗攻击者 200%% 伤害数额的生命。
+		]], [[创造一片半径 %d 码的时间错乱之地，持续 %d 回合。敌人站在其中时受到的任何伤害，都会为攻击者回复相当于伤害值 200%% 的生命。
 		]], "tformat")
 t("Saw Storm", "锯刃风暴", "talent name")
 t([[Summon a storm of swirling sawblades to slice your foes, inflicting %d physical damage and bleeding to anyone who approaches for %d turns.
@@ -4110,7 +4110,7 @@ t([[Instantly grow a moss circle of radius %d at target area.
 		Moss talents are instant but place all other moss talents on cooldown for 3 turns.
 		The damage will increase with your Mindpower.]], [[瞬间在半径 %d 码的区域内长出苔藓圈。
 		每回合苔藓会对其中的敌人造成 %0.2f 的自然伤害。
-		这些又厚又粘的苔藓会让途经他们的敌人移动速度下降 %d%% 并且有 %d%% 的几率被定身 4 回合。
+		这些又厚又粘的苔藓会让穿过其中的敌人移动速度下降 %d%% 并且有 %d%% 的几率被定身 4 回合。
 		苔藓能持续 %d 回合。
 		苔藓技能都是瞬发的，但是会让其他的苔藓技能进入冷却 3 回合。
 		伤害受精神强度加成。]], "tformat")
@@ -4118,12 +4118,12 @@ t("Ceasefire", "停火", "talent name")
 t("You require at least a steamgun for this talent.", "你需要至少一把蒸汽枪才能使用这一技能。", "logPlayer")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t([[You fire an incredibly potent shot at an enemy, doing %d%% damage and dazing them for %d turns.
-		The daze chance increases with your Steampower.]], [[你向一个敌人射出一发威力无穷的子弹，造成 %d%% 伤害并眩晕他们 %d 回合。
+		The daze chance increases with your Steampower.]], [[你向一个敌人射出一发威力无穷的子弹，造成 %d%% 伤害并眩晕目标 %d 回合。
 		眩晕几率受蒸汽强度加成。]], "tformat")
 t("Surekill", "一击必杀", "talent name")
 t([[You fire an exceptionally lethal shot at an enemy, doing %d%% damage.
 Damage dealt by this talent is increased by half your critical multiplier, if doing so would kill the target.]], [[你向一个敌人射出一发无比致命的子弹，造成 %d%% 伤害。
-若如此提升后足以杀死目标，本技能造成的伤害将提高你暴击伤害系数的一半。]], "tformat")
+如果提高后的伤害足以杀死目标，本技能造成的伤害将提高你暴击伤害系数的一半。]], "tformat")
 t("Rocket Smash", "火箭重击", "talent name")
 t("@Source@ rockets forward!", "@Source@使用火箭突进向前！", "_t")
 t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")
@@ -4133,7 +4133,7 @@ t([[Dash forward using rockets.
 		You must dash from at least 2 tiles away.]], [[借助火箭向前突击。
 		如果目标地点已被占据，那么你到达的时候会对目标进行一次近战攻击并击退他和任何被他撞到的目标 4 码。
 		这个攻击会造成 180% 武器伤害。
-		你必须突击至少 2 格。]], "_t")
+		你必须从至少 2 格外开始突击。]], "_t")
 t("Laser Powered Smash", "激光重击", "talent name")
 t("@Source@ unleashes the power of the Gloryhammer!", "@Source@释放了光荣之锤的终极力量！", "_t")
 t([[Unleash the ultimate power of the Gloryhammer to all foes around in radius 1.
@@ -4152,7 +4152,7 @@ t([[Your yeti is attuned to the cold climates.
 		While Algid Rage is up you easily pierce through iceblocks, reducing the damage they absorb by 50%%.
 		The bonus will increase with your Willpower.]], [[你的雪人早已适应寒冷的环境。
 		在 5 回合中你造成的所有伤害都有 %d%% 几率把目标冻在冰块中 3 回合。
-		在寒冰之怒生效中你可以轻松地穿透冰块，减少 50%% 他们所吸收的伤害。
+		寒冰之怒生效期间，你可以轻松穿透冰块，使冰块吸收的伤害减少 50%%。
 		数值会随着你的意志提升。]], "tformat")
 t("Thick Fur", "厚实毛皮", "talent name")
 t("Your yeti's fur acts like a shield, providing %d%% cold resistance, %d%% physical resistance and %d magical save.", "你厚实的雪人毛皮能像盾牌一样保护你，为你提供 %d%% 寒冷抗性， %d%% 物理抗性和 %d 魔法豁免。", "tformat")
@@ -4184,7 +4184,7 @@ t([[You summon your undead energies to instantly build up death momentum to its 
 		The effect will only start to decrease after %d turns.
 		In addition, the death momentum effect also grants +%d%% to all damage per charge.]], [[你唤起死灵之力，瞬间将死亡动量叠加至最大层数。
 		死亡动量只会在 %d 回合后开始衰减。
-		此外，每层死亡动量还会使所有伤害提高 +%d%%。]], "tformat")
+		此外，每层死亡动量还会使所有伤害提高 %d%%。]], "tformat")
 t("Essence Drain", "吸取精华", "talent name")
 t([[You send a wave of darkness at your foe, dealing %0.2f darkness damage.
 		The darkness will drain a part of its life essence (only works on living targets) to increase the duration before the next charge of death momentum is used by %d.
@@ -4244,13 +4244,13 @@ t([[When you use a steamtech talent while Gestalt is active you drain some resid
 		这个护盾持续 3 回合，并能吸收 %d 伤害。
 		效果受精神强度加成。]], "tformat")
 t("Instant Channeling", "瞬间引导", "talent name")
-t("You must have either a psionic damage shield active or Improved Gestalt available to use this talent.", "你必须在格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中时，才能使用这一技能。", "logPlayer")
+t("You must have either a psionic damage shield active or Improved Gestalt available to use this talent.", "你必须有一个激活的精神护盾，或强化格式塔不在冷却中，才能使用这一技能。", "logPlayer")
 t([[Instantly channel all of your remaining steam to replenish your psi energies and either enhance your active psionic damage shield or trigger a new one.
 		The (new or existing) shield duration is increased by 3 turns and its power is boosted by %d%% of the steam used.
 		You restore psi equal to %d%% of the steam used.
-		This talent requires Gestalt to be active and either an active psionic damage shield or Improved Gestalt off cooldown.]], [[瞬间引导你剩余的所有蒸汽来补充你的灵能并充能或制造一个新的精神护盾。
-		护盾的持续时间会增加 3 回合，并能多吸收 %d%% 消耗的蒸汽数额的伤害。
-		你回复等同于 %d%% 所消耗的蒸汽数额的灵能。
+		This talent requires Gestalt to be active and either an active psionic damage shield or Improved Gestalt off cooldown.]], [[瞬间引导你剩余的所有蒸汽来补充你的灵能并强化已激活的精神护盾或制造一个新的精神护盾。
+		护盾的持续时间会增加 3 回合，并能额外吸收相当于所消耗蒸汽量 %d%% 的伤害。
+		你回复相当于所消耗蒸汽量 %d%% 的灵能。
 		此技能需要格式塔处于激活状态，并且有一个精神护盾或强化格式塔不在冷却中。]], "tformat")
 t("Forced Gestalt", "强制格式塔", "talent name")
 t([[Temporarily expand your mind to force your Gestalt upon your foes in a radius of 5. Up to %d foe(s) will be affected.
@@ -4259,7 +4259,7 @@ t([[Temporarily expand your mind to force your Gestalt upon your foes in a radiu
 		In addition for 5 turns you can sense creatures beyond your sight, even through walls in radius %d.
 		The effects improve with your Mindpower.]], [[暂时延伸你的心灵以使你的格式塔笼罩你周围半径 5 码内的敌人，最多可影响 %d 个敌人。
 		格式塔会吸收每个被影响敌人的各项强度（物理强度，精神强度，法术强度，蒸汽强度） %d 点，持续 5 回合。
-		你自身的各项强度会增加所吸取的数额（每多吸收一个额外的敌人，效果都会衰减）。
+		你自身的各项强度会增加所吸取的数额（每多影响一个敌人，效果都会衰减）。
 		除此之外，在 5 回合内，你可以感知半径 %d 码内视野之外的生物，即使隔着墙壁也不例外。
 		效果受精神强度加成。]], "tformat")
 
@@ -4343,7 +4343,7 @@ t("You need Galvanic Arcing active and at least one rod to cast this spell.", "�
 t([[Reaching through the aether you temporarily destabilize a galvanic rod's control systems. (Using your weapon as a rod does not count as a valid target)
 		This creates a blast in radius 1 around it, or through all connected rods if they are linked dealing %0.2f galvanic damage to all creatures and stunning them for %d turns.
 		This spell works with Burning Wake.
-		The damage will increase with your Spellpower.]], [[你召唤以太的能量，暂时使一枚放电柱的控制系统不稳定化。（你不能把自己武器作为的放电柱当做该技能的释放目标）
+		The damage will increase with your Spellpower.]], [[你召唤以太的能量，暂时使一枚放电柱的控制系统不稳定化。（你用作放电柱的武器不能作为该技能的目标）
 		这将会在 1 码半径内，或是在链接到的所有放电柱的领域内，产生一股冲击波。对所有生物造成 %0.2f 放电伤害，并震慑它们 %d 回合。
 		这一法术可以触发无尽之焰效果。
 		技能伤害受法术强度加成。]], "tformat")
@@ -4371,8 +4371,8 @@ t([[You imbue a steamsaw with arcane and temporal forces, making it spin very fa
 		#{italic}#When you first learn this talent you also learn the Steamsaw tinker creation if you didn't already know it.#{normal}#
 		]], [[你把奥术和时空能量注入一把蒸汽链锯，让它绕着你的腰飞速旋转（无视装备需求）。
 		这把链锯旋转的速度是那么快，它扰乱了你周围的时空。最多增加你 %d 的法术强度， %d 的法术暴击率，和 %0.1f 的法力值恢复（基于蒸汽链锯的材质等级）
-		任何对你的成功的近战攻击都会触发一次必定命中的自动的蒸汽链锯反击，造成 %d%% 玄机（奥术和时空）武器伤害。
-		使用这种方法装备的蒸汽链锯会提供装备它所提供的属性加成，但你不能使用它来格挡。
+		任何命中你的近战攻击都会自动触发一次必定命中的蒸汽链锯反击，造成 %d%% 玄机（奥术和时空）武器伤害。
+		使用这种方法装备的蒸汽链锯会提供与正常装备时相同的属性加成，但你不能使用它来格挡。
 		增加蒸汽链锯的武器伤害 %d%%， 并在使用蒸汽链锯时用魔力值代替力量值计算伤害。
 		如果你激活了以太之体，所有科技法术：玄机系的技能都可以在其持续期间使用，并且所有玄机伤害都会转化为纯净的奥术伤害。
 
@@ -4386,7 +4386,7 @@ t([[Spin your saw at incredible speeds for an instant, fully breaking reality in
 		At level 3 any projectiles caught in the beam are instantly annihilated.
 		At level 5 the beam is so strong that all creatures caught inside are knocked back 3 tiles.
 		The breach is so deep that the beam will always have the maximum possible length it can.
-		The damage will increase with your Spellpower.]], [[让你的链锯以难以置信的速度飞速旋转，撕裂周围的现实，在你面前产生一条宽度为 3 的射线。
+		The damage will increase with your Spellpower.]], [[让你的链锯以难以置信的速度旋转，撕裂周围的现实，在你面前产生一条宽度为 3 的射线。
 		所有被射线击中的生物将会受到 %0.2f 玄机伤害，并且进入脱离现实的状态。它们的全局速度降低 %d%%， 发射的一切抛射物也会被减速 %d%%， 持续 4 回合。
 		技能等级 3 时，射线范围内的所有抛射物也会被立刻摧毁。
 		技能等级 5 时，这一射线的力量是如此强大，所有被击中的生物都会被击退 3 码。
@@ -4411,8 +4411,8 @@ t([[Using your sheer arcane power you keep breaches in spacetime open for %d tur
 		The saw cuts both in a physical and arcane way, reducing the duration of a random beneficial effect on each target by %d each time.
 		Each target can only be affected once per turn.
 		This spell is only usable for one turn after casting Reality Breach but any Reality Breach cast during its duration is also recorded inside.]], [[你调动强大的奥术力量，在时空中切开的裂缝会保持开放，持续 %d 回合。
-		在这一裂缝打开的每一回合里，从裂缝中会投射一个你链锯的玄机克隆，对所有击中的生物造成 %d%% 玄机武器伤害。
-		这一链锯会在物理和奥术的意义上切裂敌人，每次击中会降低目标身上一个随机增益效果的持续时间 %d 回合。
+		在这一裂缝打开的每一回合里，裂缝中会投射出你链锯的玄机克隆，对所有被击中的生物造成 %d%% 玄机武器伤害。
+		这把链锯会同时进行物理和奥术层面的切割，每次击中会降低目标身上一个随机增益效果的持续时间 %d 回合。
 		每个目标每回合只会被这一效果影响一次。
 		此法术只能在施放现实切裂后的下一回合使用，但它持续期间施放的任何现实切裂也会被记录其中。]], "tformat")
 
@@ -4425,7 +4425,7 @@ t("You can only cast this spell after casting an other technomancy spell.", "你
 t([[After casting a technomancy spell you store some of its energies that you can then use to overload your arcane dynamo, increasing the steam it generates per 10 mana spent by 4 for 4 turns.
 		In addition the energies spills outward in radius 3, dealing %0.2f damage (damage type based on the type of technomancy spell used).
 		This spell is only usable after casting a technomancy spell and until you use any other spell or talent.
-		The damage will increase with your Spellpower.]], [[每当你释放一个科技法术，你都会储存它一部分的能量，用来超载你的奥术发电机。每消耗 10 点法力值就会增加它产生的 4 点蒸汽值，持续 4 回合。
+		The damage will increase with your Spellpower.]], [[每当你释放一个科技法术，你都会储存它一部分的能量，用来超载你的奥术发电机。每消耗 10 点法力值，它产生的蒸汽就增加 4 点，持续 4 回合。
 		此外，这些能量会在你周围 3 码半径内溢出，造成 %0.2f 伤害。（伤害类型基于你使用的科技法术的类型）
 		这个法术只可以在你刚刚施放了一个科技法术，且中途没有释放过其他法术的时候使用。
 		技能伤害受法术强度提升。]], "tformat")
@@ -4435,7 +4435,7 @@ section "tome-orcs/data/talents/spells/spells.lua"
 
 t("spell", "法术", "talent category")
 t("undead drake", "亡灵飞龙", "talent type")
-t("Take on the defining aspects of an Undead Drake.", "化身成为亡灵龙形态使你能使用亡灵龙技能。", "_t")
+t("Take on the defining aspects of an Undead Drake.", "获得亡灵龙的标志性特征。", "_t")
 t("galvanic technomancy", "科技法术：放电", "talent type")
 t("Combine the power of steamtech and arcane forces to destroy your foes with fire and lightning.", "结合蒸汽科技和奥术能量的力量，用火焰和闪电元素摧毁你的敌人。", "_t")
 t("terrene technomancy", "科技法术：寒岩", "talent type")
@@ -4463,7 +4463,7 @@ t([[You build %d micro spiderbot(s) from the earthly elements around you. Spider
 		蜘蛛机器人每个回合会对它们的目标造成 %0.2f 寒岩（物理和寒冷）伤害。极寒的攻击有 25%% 的几率冻结目标的双脚，将他们定身 5 回合。
 		如果目标被击杀了，蜘蛛机器人将会跳跃到你半径 %d 码范围内的另一个敌人身上。
 		如果这个目标上有多个机器人，并且范围内还有其他空闲目标，它们会尽可能分散到更多目标上。
-		如果一个目标的身上附身了多个蜘蛛机器人，它们会合为一体攻击，伤害会叠加（但收益递减），并且只进行一次冻结判定。
+		如果同一个目标身上附着多个蜘蛛机器人，它们会合为一体攻击，伤害会叠加（但收益递减），并且只进行一次冻结判定。
 		你可以维持最多 %d 个蜘蛛机器人，他们最多存活 %d 回合。但是，只有在你视野范围内的蜘蛛机器人才会行动。
 		这一技能的冷却时间受岩石身躯的影响。
 		技能伤害受法术强度加成。
@@ -4500,7 +4500,7 @@ section "tome-orcs/data/talents/spells/undead-drake.lua"
 t("Raze", "夷为平地", "talent name")
 t([[You revel in death, devouring the souls of your victims. Whenever you inflict damage to a target, you deal an additional %0.2f darkness damage.
 		Additionally, you gain %d souls whenever you score a kill.
-		The damage will scale with the highest of your spell or mind power and can only occur up to 25 times per turn.]], [[你在死亡中狂欢，吞噬你受害者们的灵魂。每当你对一个目标造成伤害时，你造成 %0.2f 额外暗影伤害。
+		The damage will scale with the highest of your spell or mind power and can only occur up to 25 times per turn.]], [[你在死亡中狂欢，吞噬受害者的灵魂。每当你对一个目标造成伤害时，你造成 %0.2f 额外暗影伤害。
 		除此之外，每当你杀死敌人时你获得 %d 个灵魂。
 		伤害将会随你法术强度和精神强度中较高者变化，且每回合最多触发 25 次。]], "tformat")
 t("Infectious Miasma", "疫毒瘴气", "talent name")
@@ -4576,7 +4576,7 @@ t([[When you kill a foe with a melee strike you quickly throw some of their rema
 t("Tech Overload", "系统过载", "talent name")
 t([[You override all security measures of your tinkers, allowing you to reset the cooldown of %d of most of your steamtech talents of tier %d or less and instantly increases your steam level by %d%% of the maximum.
 		In addition for 6 turns your maximum steam capacity is doubled, but steam regeneration is halved.
-		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你解除全部插件的安全限制，重置你大部分蒸汽科技技能中 %d 个 （%d 层级或以下）的冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。
+		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你解除全部插件的安全限制，从你大部分蒸汽科技技能中重置 %d 个层级不高于 %d 的技能冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。
 		此外，在 6 回合内，蒸汽值上限翻倍，但蒸汽恢复速度减半。
 		#{italic}#科技至尊、死亡之主！#{normal}#]], "tformat")
 
@@ -4594,7 +4594,7 @@ t([[You send a small steam-powered flying grapple to a target. The drone is homi
 		When it reaches its target it deploys grapples in all directions around it in radius 4.
 		The grapples latch onto any foes and pull them toward the target. If they are stopped by a creature (or the target) both them and the creature take %0.2f physical damage.
 		]], [[向目标发射一枚小型蒸汽动力飞爪无人机。无人机会自动追踪，目标移动时会跟随。
-		命中目标后，无人机向 4 码内的所有方向发射金属飞爪。
+		命中目标后，无人机朝周围 4 码范围内的各个方向发射金属飞爪。
 		飞爪会抓住范围内任何敌人，并将它们向目标拉扯。如果被其他生物（或目标本身）阻挡，两者均受到 %0.2f 物理伤害。
 		]], "tformat")
 t("Net Projector", "束网弹射器", "talent name")
@@ -4615,13 +4615,13 @@ t("@Source@ tessellates @hisher@ cloak!", "@Source@在@hisher@披风上布满金
 t("You require a cloak to use this talent.", "你需要有披风才能使用这一技能。", "logPlayer")
 t([[You tessellate your cloak with small pieces of metal, providing %d damage reduction against all attacks.
 		The myriad metal scraps also help against incoming projectiles, providing a %d%% chance of deflecting them to a nearby spot.]], [[在披风上布满小块金属，对所有攻击提供 %d 的伤害减免。
-		大量的金属碎片同时对远程打击提供偏移抵抗，有 %d%% 的概率将投射物反射至附近的其他位置。]], "tformat")
+		大量的金属碎片还能帮助抵御飞来的投射物，有 %d%% 的概率将其偏转至附近的位置。]], "tformat")
 t("Cloak Gesture", "披风花招", "talent name")
 t("@Source@ weaves @hisher@ cloak!", "@Source@挥舞@hisher@披风！", "_t")
 t([[With a gesture of your cloak, you drop a small incendiary device in front of you, creating a wall of thick steam of %d length that burns creatures passing it for %0.2f fire damage and blocks sight for 5 turns.
 		At level 5 the action is so perfect that your foes even lose track of you entirely.
 		Damage increases with your steampower.]], [[在抖动披风的同时，在面前扔下一个小型的爆燃设备，产生一堵长度为 %d 的浓密蒸汽墙。对穿越的生物造成 %0.2f 的火焰伤害，并且阻挡生物视线。效果持续 5 回合。
-		技能等级 5 时，敌人会完全丧失你的行踪，仇恨丢失。
+		技能等级 5 时，敌人会完全失去你的踪迹。
 		伤害受蒸汽强度加成。]], "tformat")
 t("Embedded Restoration Systems", "嵌入式回复系统", "talent name")
 t("#LIGHT_BLUE#%s's embedded restoration system activate.", "#LIGHT_BLUE#%s的内置恢复系统启动了。", "logSeen")
@@ -4637,7 +4637,7 @@ t([[Your cloak is lined with an automated health system that activate when no en
 t("Cloaking Device", "隐形装置", "talent name")
 t([[Trigger an array of small mirrors to appear all over your cloak.
 		The mirrors are positioned to reflect all light shining on you, granting %d stealth power for 10 turns.
-		Stealth power increases with your steampower.]], [[在披风上布满细小的反射镜阵列，反射照射到你身上的所有光线，让你直接潜形。
+		Stealth power increases with your steampower.]], [[在披风上布满细小的反射镜阵列，反射照射到你身上的所有光线。
 		获得 %d 潜行强度，持续 10 回合。
 		潜行强度受蒸汽强度加成。]], "tformat")
 
@@ -4678,8 +4678,8 @@ t("raging volcano", "喷发中的火山", "_t")
 t([[On its last pulse, your Tremor Engine shakes violently, raising a volcano for %d turns.
 		Each turn, the volcano will send out fiery boulders that deal %0.2f fire and %0.2f physical damage.
 		Damage scales with your Steampower.
-		#{italic}#All the fury of fire at your disposal!#{normal}#]], [[巨震引擎的最后一次爆发输出撕裂地面，引出岩浆，形成一座火山，持续 %d 回合。
-		每回合，火山会喷出熔岩球，造成 %0.2f 火焰伤害 %0.2f 物理伤害。
+		#{italic}#All the fury of fire at your disposal!#{normal}#]], [[巨震引擎在最后一次脉冲时剧烈震动，升起一座火山，持续 %d 回合。
+		每回合，火山会喷出熔岩球，造成 %0.2f 火焰伤害和 %0.2f 物理伤害。
 		伤害受蒸汽强度加成。
 		#{italic}#品尝火焰之怒吧！#{normal}#]], "tformat")
 
@@ -4700,7 +4700,7 @@ t([[Firmly plant your steamsaws in the ground, using them to propel yourself ver
 t("Grinding Shield", "利齿护盾", "talent name")
 t([[Spin your saws wildly around you to create a wall of steamy sawteeth.
 		All melee damage against you is reduced by %d%%, you have %d%% chance to evade projectiles and you can never take a blow that deals more than %d%% of your max life.
-		#{italic}#Split their bones on the saws of death!#{normal}#]], [[围绕自身快速旋转链锯，形成一堵链锯齿形成的墙壁。
+		#{italic}#Split their bones on the saws of death!#{normal}#]], [[围绕自身快速旋转链锯，形成一堵由链锯齿构成的墙壁。
 		所有近战伤害降低 %d%%， 有 %d%% 的概率回避投射物，并且受到的一击伤害不会超过最大生命值的 %d%%。
 		#{italic}#用死亡链锯拆了他们的骨头！！#{normal}#]], "tformat")
 t("Punishment", "惩戒", "talent name")
@@ -4717,7 +4717,7 @@ t([[You have lived through many battles, and your experience makes you a gritty 
 		Punishment has a %d%% chance to have its cooldown reduced by 1 for each effect.
 		#{italic}#Domination for all!#{normal}#]], [[你是一名坚毅的老兵，经历了大量战争仍然能够幸存，有着丰富的战斗经验。
 		链锯轮滑效果结束时的攻击伤害提高 %d%%。
-		利齿护盾让你超越生存下限，在 -%d 的生命下仍然生存。
+		利齿护盾让你突破正常生命下限，生命值降至 -%d 时仍能存活。
 		惩戒有 %d%% 的几率：目标每具备一个效果，惩戒的冷却时间就减少 1 回合。
 		#{italic}#一切尽在掌控！！#{normal}#]], "tformat")
 
@@ -4739,7 +4739,7 @@ t([[Slaving for many years at the forge has made you more resilient to physical 
 		Your fire resistance is increased by %d%% and your physical resistance by %d%%.
 		At talent level 5, you are so accustomed to the flames that you become immune to the fireburn effect.]], [[长时间的锻造工作让你对疼痛和火焰的忍耐力提高。
 		火焰抗性增加 %d%%， 物理抗性增加 %d%%。
-		技能等级 5 时，你对火焰抗性极高，从而免疫燃烧状态。]], "tformat")
+		技能等级 5 时，你已完全习惯火焰，从而免疫燃烧状态。]], "tformat")
 t("Craftsman's Eye", "匠师之眼", "talent name")
 t([[You can easily see the weak points in your enemy's defenses. After all, you know to look for the same flaws in your own work.
 		This grants %d armour penetration and %d%% critical strike multiplier.
@@ -4811,11 +4811,11 @@ t([[You repurpose your steam engine to emit a cloud of toxic, corrosive chemical
 		Each time miasma is reapplied the failure chance increases, up to %d%% after 5 reapplications.
 		The first time each turn a target affected by miasma is hit by a melee or ranged attack the miasma seeps into their wounds, dealing an additional %0.2f acid damage.
 		Miasma duration does not increase on re-apply.
-		When a creature survives the miasma it becomes immune to it for 9 turns.]], [[你使用你的蒸汽机，在你的周围产生一股有毒且有腐蚀性的化学物质形成的云雾。
+		When a creature survives the miasma it becomes immune to it for 9 turns.]], [[你改造蒸汽机，使其在你周围释放出一团有毒且具有腐蚀性的化学云雾。
 		每当你使用一个非瞬发的蒸汽科技技能的时候，你会在周围产生半径为 3 码的瘴气，持续 5 回合。所有被包裹入瘴气的敌人治疗效果减少 %d%%， 且会有 %d%% 的几率使用技能失败。
 		瘴气效果叠加的时候，这一技能使用失败的几率也会上升，最多叠加五次，达到 %d%%。
 		当被瘴气影响的目标每回合第一次被近战或远程攻击击中的时候，瘴气会渗入他们的伤口，造成 %0.2f 额外的酸性伤害。
-		瘴气效果叠加的时候，持续时间不会叠加。
+		再次施加瘴气时，持续时间不会延长。
 		当一个生物在瘴气效果中存活下来后，它会免疫瘴气效果 9 回合。]], "tformat")
 t("Caustic Dispersal", "腐蚀扩散", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
@@ -4825,7 +4825,7 @@ t("You become difficult to target through the thick smog generated by your Miasm
 t("Fumigate", "毒气熏杀", "talent name")
 t("You require a steamgun and an active miasma cloud for this talent.", "你需要一把蒸汽枪和一个活跃的瘴气云雾才能使用这一技能。", "logPlayer")
 t([[You consume all Miasma Engine stacks you have to fire a blast of corrosive death through your steamgun, dealing %d%% weapon damage as acid in a radius %d cone with a %d%% chance to remove a random beneficial physical or mental effect. For every stack beyond the first the damage dealt is increased by 50%% and there is a %d%% chance to remove an additional effect.
-		This attack ignores all enemy armour, and you must have at least 1 stack of Miasma Engine to use this talent.]], [[你消耗所有瘴气引擎的叠加效果，并用你的蒸汽枪发射出毁灭性的腐蚀爆炸，在 %d 码范围的扇形区域内造成 %d%% 酸性武器伤害，并有 %d%% 的几率移除一个随机的有益物理或精神效果。你瘴气引擎叠加的层数每超过一层，则增加 50%% 伤害，并有 %d%% 几率额外移除一个效果。
+		This attack ignores all enemy armour, and you must have at least 1 stack of Miasma Engine to use this talent.]], [[你消耗所有瘴气引擎的叠加效果，并用你的蒸汽枪发射出毁灭性的腐蚀爆炸，在 %d 码范围的扇形区域内造成 %d%% 酸性武器伤害，并有 %d%% 的几率移除一个随机的有益物理或精神效果。瘴气引擎在第一层之外每多叠加一层，伤害就增加 50%%，并有 %d%% 几率额外移除一个效果。
 		这一攻击无视敌人护甲，你至少需要有一层瘴气引擎效果才能使用这个技能。]], "tformat", {2,1,3,4})
 
 ------------------------------------------------
@@ -4871,7 +4871,7 @@ t("Reactive Armor", "反应式装甲", "talent name")
 t([[You line your armor with explosive plating that detonates when struck. On taking a melee or ranged hit that deals more than 8%% of your maximum life a plate detonates, reducing the damage taken by %d%% and triggering a basic grenade attack in a radius %d cone projected at the target dealing %d%% of its usual damage.
 		This cannot trigger more than once per turn.
 		Blocking an attack with your shield will also trigger the retaliation damage, if it has not already triggered this turn.
-		You have up to 3 plates at a time, and regain one every %d turns.]], [[你在你的护甲上嵌入爆炸物装甲层，在被攻击的时候会发生爆炸。在近战或远程攻击对你造成超过最大生命值 8%% 的伤害的时候，装甲层会发生爆炸，降低所受到的伤害 %d%% 并在目标方向 %d 码范围的扇形区域内触发一次手榴弹攻击，造成平常的手榴弹 %d%% 的伤害。
+		You have up to 3 plates at a time, and regain one every %d turns.]], [[你在你的护甲上嵌入爆炸物装甲层，在被攻击的时候会发生爆炸。在近战或远程攻击对你造成超过最大生命值 8%% 的伤害的时候，装甲层会发生爆炸，降低所受到的伤害 %d%% 并在目标方向 %d 码范围的扇形区域内触发一次手榴弹攻击，造成正常手榴弹伤害的 %d%%。
 		每回合最多触发一次该效果。
 		如果该回合内没有触发过这一效果，使用盾牌格挡攻击也可以触发这样的反击伤害。
 		你最多同时能有 3 层护甲层，每 %d 回合会补充一层。]], "tformat")
@@ -4960,7 +4960,7 @@ t([[You open all steam valves at once, releasing a radius %d wave of superheated
 		If you had at least 35 steam, the vapours will be so hot that they can burn sensory organs, blinding affected creatures for %d turns.
 		The effects scale with your current steam value; at 1 steam they are only 15%% as effective as at 50 or more (current factor %d%%).]], [[你打开所有蒸汽阀，释放半径 %d 的蒸汽冲击波，造成 %0.2f 火焰伤害。（这一技能无法暴击）
 		若你有至少 35 点蒸汽，气体的温度将变得极高，能烧伤感知器官，令受影响的生物目盲 %d 回合。
-		效果受当前蒸汽值加成。1 点蒸汽值时，强度仅为 50 或更高点蒸汽值的 15%%。
+		效果受当前蒸汽值加成。1 点蒸汽值时，强度仅为 50 点或更高蒸汽值时的 15%%。
 		当前强度系数 %d%%。]], "tformat")
 t("Innovation", "创新", "talent name")
 t([[Your knowledge of physical laws allows you to use and improve equipment in ways their creators never dreamed.
@@ -5043,12 +5043,12 @@ t([[Current exoskeleton life: %d/%d
 		Your powered armour repairs 5%% of it’s maximum life each turn, and each time you spend steam it will be repaired for %d%% of the steam cost.
 		The armor's maximum life will increase with your Steampower.]], [[当前机械外骨骼生命值： %d / %d
 		你制造一台蒸汽驱动的机械外骨骼，可以装载在你平常的护甲外面，增强你的防御能力。机械外骨骼具有 %d 生命值，你受到的所有伤害的 50%% 会转移到它身上。
-		你的机械外骨骼每回合会修复 5%% 的最大生命值，每当你消耗蒸汽的时候，它也会修复相当于蒸汽值消耗 %d%% 的生命值。
+		你的机械外骨骼每回合会修复 5%% 的最大生命值，每当你消耗蒸汽的时候，它也会修复相当于蒸汽消耗量 %d%% 的生命值。
 		外骨骼的最大生命值受蒸汽强度加成。]], "tformat")
 t("Hypervision Goggles", "强化视觉护目镜", "talent name")
 t([[Enhance your vision for %d turns, giving you vision of all targets in range %d, even through walls. While the goggles are active you also spot flaws in your opponent's defenses, increasing your resistance penetration by %d%%.
 In addition, the goggles passively increase your stealth, invisibility and trap detection by %d.]], [[强化你的视觉，持续 %d 回合。你将能看到半径 %d 码范围内的所有目标，该效果可以穿墙。当护目镜激活的时候，你也能注意到敌人防御上的弱点，增加你的抗性穿透 %d%%。
-此外，护目镜会被动地增加你 %d 潜行、隐形和陷阱侦测能力。]], "tformat")
+此外，护目镜会被动增加你 %d 点潜行、隐形和陷阱侦测能力。]], "tformat")
 t("AED", "电击除颤器", "talent name")
 t([[Prepare a defensive device that stores an electrical charge for 8 turns.
 If your life falls below 0 while the AED is active it will activate to shock you back into life, negating the triggering attack, restoring %d life and dealing %0.2f lightning damage in radius %d that dazes affected enemies for 3 turns.
@@ -5180,7 +5180,7 @@ t("Boltgun", "爆矢枪", "talent name")
 t("You require heavy ammunition to fire your boltgun.", "你需要重装武器弹药才能使用爆矢枪。", "logPlayer")
 t([[You replace your steamgun and attack with a multi-barreled bolt launcher, firing deadly chemical-infused flechettes.
 		
-		Each attack fires twice for %d%% weapon damage as acid and generates %d steam per hit.]], [[你把你的蒸汽枪替换成一把多管重型枪械，发射注入了致命的化学物质的子弹。
+		Each attack fires twice for %d%% weapon damage as acid and generates %d steam per hit.]], [[你把你的蒸汽枪替换成一把多管重型枪械，发射注入致命化学物质的子弹。
 
 		每次攻击造成两次 %d%% 酸性武器伤害，击中恢复 %d 蒸汽。]], "tformat")
 t("Flechette Burst", "毒弹爆射", "talent name")
@@ -5207,7 +5207,7 @@ t([[You augment your shield with your heavy weapon technology, causing an effect
 These attacks will not trigger Counterstrike.
 The chance to silence will increase with your Steampower.]], [[你使用重装武器技术强化你的盾牌，在你装备重装武器的时候进行格挡，会触发以下的特殊效果。
 #AQUAMARINE#火焰喷射器#LAST#: 在火焰喷射器攻击半径范围内，释放出燃烧的呛人浓烟。被击中的敌人会受到 %d%% 火焰盾牌伤害，并被沉默 %d 回合。
-#AQUAMARINE#电击棒#LAST#: 将盾牌注入闪电，攻击半径 3 码范围内的所有敌人，造成 %d%% 闪电盾牌伤害，并获得相当于最高伤害值 100%% 的伤害吸收护盾，持续 6 回合。
+#AQUAMARINE#电击棒#LAST#: 为盾牌注入闪电，攻击半径 3 码范围内的所有敌人，造成 %d%% 闪电盾牌伤害，并获得相当于最高伤害值 100%% 的伤害吸收护盾，持续 6 回合。
 #AQUAMARINE#爆矢枪#LAST#: 从盾牌中向半径 7 码内的所有敌人发射一阵腐蚀性毒镖，造成 %d%% 酸性盾牌伤害。每个目标身上会嵌入 %d 枚腐蚀性毒镖，持续 6 回合；目标每被近战或远程攻击命中一次，就会有一枚毒镖爆炸，造成相当于盾牌伤害 50%% 的酸性伤害。
 这些攻击不会触发反击效果。
 沉默几率受蒸汽强度加成。]], "tformat")
@@ -5245,21 +5245,21 @@ section "tome-orcs/data/talents/steam/magnetism.lua"
 t("Static Shock", "静电震击", "talent name")
 t([[Using your Block talent surrounds you and your minions in a static barrier for 4 turns, increasing all resistances by %d%%. If an enemy deals damage to you or your minions, the barrier will shock them for %d%% of your shield damage.
 		This effect cannot damage the same target more than once per turn, and will not interact with Counterstrike.
-You now also use your Cunning in place of Strength when equipping shields as well as when calculating shield damage.]], [[当你使用格挡技能的时候，你会在自己和召唤物身边产生一个静电屏障，增加所有抗性 %d%%， 持续 4 回合。如果有敌人对你或召唤物造成伤害，屏障会电击它们，造成 %d%% 你的盾牌伤害。
+You now also use your Cunning in place of Strength when equipping shields as well as when calculating shield damage.]], [[当你使用格挡技能的时候，你会在自己和召唤物身边产生一个静电屏障，增加所有抗性 %d%%， 持续 4 回合。如果有敌人对你或召唤物造成伤害，屏障会电击它们，造成 %d%% 盾牌伤害。
 		这一效果每回合对同一目标最多造成一次伤害，且不会与反击效果相互作用。
 装备盾牌时，你以灵巧代替力量满足属性需求；计算盾牌伤害时，也以灵巧代替力量。]], "tformat")
 t("Magnetic Field", "磁性力场", "talent name")
 t("You require a shield for this talent.", "你需要一面盾牌才能使用这一技能。", "logPlayer")
 t("#Source# shatters '#Target#'.", "#Source#击碎了'#Target#'。", "logCombat")
 t([[You project a powerful blast of magnetic energy from your shield in radius %d around you. Enemies caught within are knocked back %d tiles and take %d%% shield damage as lightning, and any projectiles will be destroyed.
-		While this talent is not on cooldown, you also project a magnetic field from your shield, reducing the speed of incoming projectiles by %d%% and your chance to be critically hit by %d%%.]], [[你从盾牌中发射出强大的磁性能量冲击波，半径为 %d 码范围。所有被击中的敌人会被击退 %d 码，并受到 %d%% 闪电盾牌伤害。所有的抛射物也会被摧毁。
+		While this talent is not on cooldown, you also project a magnetic field from your shield, reducing the speed of incoming projectiles by %d%% and your chance to be critically hit by %d%%.]], [[你从盾牌中发射出强大的磁性能量冲击波，半径 %d 码。所有被击中的敌人会被击退 %d 码，并受到 %d%% 闪电盾牌伤害。所有的抛射物也会被摧毁。
 		当这一技能不处于冷却时间的时候，你会从盾牌中发射出一个磁性力场，降低所有瞄准你的抛射物速度 %d%%， 并且你被暴击的几率降低 %d%%。]], "tformat")
 t("Capacitor Discharge", "电力放出", "talent name")
 t([[Mount capacitors to your shield that dampen the impact of attacks, increasing block value by %d%% and storing 100%% of the damage blocked as an electrical charge (to a maximum of %d).
 Activating this ability discharges blocked damage, firing a bolt of lightning dealing %d%% shield damage as lightning to the first target, then projecting a bolt of lightning that arcs to %d other targets dealing lightning damage equal to the stored amount.
 If at maximum charge, this also dazes for 2 turns and the shield strike is a guarenteed critical hit.
-The maximum damage you can absorb will increase with your Steampower.]], [[将电容器放置在你的盾牌上，它们可以减弱攻击的影响。增加 %d%% 的格挡值，并将 100%% 格挡的伤害转化为电力充能（最多充能 %d 点）。
-启动这一技能将会放出格挡的伤害，并发射出一道闪电冲击，对第一个目标造成 %d%% 闪电盾牌伤害，并产生一股电弧，对最多 %d 个其他目标产生相当于你存储的伤害量的伤害。
+The maximum damage you can absorb will increase with your Steampower.]], [[将电容器放置在你的盾牌上，它们可以减弱攻击的影响。增加 %d%% 的格挡值，并将所格挡伤害的 100%% 转化为电力充能（最多充能 %d 点）。
+启动这一技能将会释放所格挡的伤害，并发射出一道闪电冲击，对第一个目标造成 %d%% 闪电盾牌伤害，并产生一股电弧，对最多 %d 个其他目标产生相当于你存储的伤害量的伤害。
 如果你的伤害充能满了，被击中的目标还会被眩晕 2 回合，且盾牌攻击必定暴击。
 你能够吸收的最大伤害量受蒸汽强度加成。]], "tformat")
 t("Lightning Web", "闪电之网", "talent name")
@@ -5281,7 +5281,7 @@ t("Mecharachnid Link", "机械蜘蛛链接", "talent name")
 t("Link to the summoner.", "链接到召唤者。", "_t")
 t("Self-destruction", "自爆", "talent name")
 t([[The mecharachnid self-destructs, destroying itself and generating a blast of fire in a radius of %d, doing %0.2f fire damage.
-		This spell is only usable when the mecharachnid's master is dead.]], [[机械蜘蛛引爆自己，摧毁机械蜘蛛并在 %d 码范围内产生一个火焰爆炸，造成 %0.2f 火焰伤害。
+		This spell is only usable when the mecharachnid's master is dead.]], [[机械蜘蛛引爆自身，将自己摧毁，并在 %d 码范围内产生一个火焰爆炸，造成 %0.2f 火焰伤害。
 		这个技能只有机械蜘蛛的主人死亡时能够使用。]], "tformat")
 t("A heavily armored mechachnical spider, armed to the teeth with advanced weaponry.", "一只身披重甲、以先进武器武装到牙齿的机械蜘蛛。", "_t")
 t("Your mecharachnid is out of sight; you cannot establish direct control.", "你的机械蜘蛛在视野外，你无法建立直接控制。", "logPlayer")
@@ -5330,12 +5330,12 @@ t("Ranged combat mecharachnid abilities.", "机械蜘蛛的远程战斗技能。
 t("assault", "强袭", "talent type")
 t("Close combat mecharachnid abilities.", "机械蜘蛛的近身战斗技能。", "_t")
 t("Overrun", "超速撞击", "talent name")
-t("You require a tail-mounted steamsaw for this talent.", "你必须要尾部安装蒸汽链锯才能使用这一技能。", "logPlayer")
+t("You require a tail-mounted steamsaw for this talent.", "你必须在尾部安装蒸汽链锯才能使用这一技能。", "logPlayer")
 t("Your mecharachnid cannot do that currently.", "你的机械蜘蛛目前不能这么做。", "logPlayer")
 t("#Source# provokes #Target# to attack it.", "#Source#强制#Target#攻击它。", "logCombat")
 t([[You rush to the target and strike with your tailsaw, dealing %d%% damage and taunting enemies within radius %d.
 		You now also use your Dexterity in place of Strength when equipping Steamsaws as well as when calculating weapon damage, and have your Steamsaw damage increased by %d%% and Physical Power by %d.]], [[你冲向敌人，用尾部蒸汽链锯进行攻击，造成 %d%% 伤害，并嘲讽半径 %d 码内的所有敌人。
-		装备蒸汽链锯的时候，你使用敏捷代替力量值计算装备需求和计算武器伤害，并且增加你蒸汽链锯的伤害 %d%%， 物理强度 %d。]], "tformat")
+		装备蒸汽链锯的时候，你以敏捷代替力量来计算装备需求和武器伤害，并且增加你蒸汽链锯的伤害 %d%%， 物理强度 %d。]], "tformat")
 t("Defensive Protocol", "防御协议", "talent name")
 t("Enhancements to your mecharachnid combat skill increases your melee and ranged evasion by %d%%, and causes you to automatically strike adjacent enemies with your tailsaw for %d%% damage each turn.", "强化机械蜘蛛的近身战斗能力，增加 %d%% 概率躲闪近战和远程攻击，你每回合会自动用尾部的蒸汽链锯打击临近的敌人，造成 %d%% 伤害。", "tformat")
 t("Pincer Strike", "钢爪钳制", "talent name")
@@ -5346,7 +5346,7 @@ t([[On falling below 0 life, you engage an automated repair mode. While in this 
 		This effect has a cooldown.]], [[当生命值降低到 0 点以下的时候，你会启动自动修理模式。在自动修理模式下，你不能活动，生命值下限为 -%d， 每回合恢复 %0.1f 生命值，并且所有抗性增加 %d%%。 这一效果直到你的生命值完全恢复或者你被摧毁才会终止。
 		这一效果具有冷却时间。]], "tformat")
 t("Gauss Cannon", "电磁炮", "talent name")
-t("You require a tail-mounted steamgun for this talent.", "你必须要尾部安装蒸汽枪才能使用这一技能。", "logPlayer")
+t("You require a tail-mounted steamgun for this talent.", "你必须在尾部安装蒸汽枪才能使用这一技能。", "logPlayer")
 t([[Fire a charged shot at the farthest target with your tail-mounted steamgun that pierces through your enemies, ignoring armor and dealing %d%% weapon damage as lightning.
 		This takes no time to use.]], [[用尾部蒸汽枪发射充能射击，攻击离你最远的敌人，击穿路径上所有敌人，无视护甲，造成 %d%% 闪电武器伤害。
 		使用这一技能不需要消耗时间。]], "tformat")
@@ -5419,7 +5419,7 @@ t([[Deploy a Weapon Automaton based on a selected one handed melee item.  The Au
 t("Hand Cannon", "手炮", "talent name")
 t("You have no ammo!", "你没有子弹！", "logPlayer")
 t([[Fires your ammo at an enemy in range %d for %d%% weapon damage.  If this tinker is made of voratun you will fire an additional shot.
-			This shot is a ranged melee attack but will use the ranged procs of your ammo as well.]], [[向在 %d 码范围内的一个敌人开火造成 %d%% 的武器伤害。如果手炮是由沃瑞钽制作的，你能多一次额外的射击。
+			This shot is a ranged melee attack but will use the ranged procs of your ammo as well.]], [[向 %d 码范围内的一个敌人开火，造成 %d%% 的武器伤害。如果手炮是由沃瑞钽制作的，你能额外射击一次。
 			这次射击是一次远程发动的近战攻击，但也会触发弹药的远程特效。]], "tformat")
 t("Fatal Attractor", "致命诱饵", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
@@ -5435,7 +5435,7 @@ t([[Activate the rocket boots, firing huge flames from your boots increasing you
 		Each movement will leave a trail of flames doing %0.2f fire damage for 4 turns.
 		Doing any other actions will break the effect.
 		#{italic}#Burninate them all!#{normal}#]], [[激活火箭靴，从你的靴子上发射巨大的火焰，增加你的移动速度 %d%%。
-每次移动都会留下一道火焰持续 4 回合的伤害为 %0.2f 的火焰。
+每次移动都会留下一道持续 4 回合的火焰，造成 %0.2f 火焰伤害。
 做任何其他行动都会打断效果。
 #{italic}#烧毁他们 !#{normal}#]], "tformat")
 t("Iron Grip", "铁腕", "talent name")
@@ -5447,7 +5447,7 @@ t([[Activate the pistons to crush your target for %d turns and dealing %d%% unar
 		#{italic}#压碎他们的骨头 !#{normal}#]], "tformat")
 t("Spring Grapple", "弹簧飞爪", "talent name")
 t("%s resists the pin!", "%s抵抗了定身！", "logSeen")
-t("Grab the target and pull them towards you, striking for %d%% unarmed melee damage, and if you hit, pinning them for %d turns.", [[抓住目标把目标向你拉拢，造成 %d%% 的徒手伤害，如果命中，目标定身 %d 回合。]], "tformat")
+t("Grab the target and pull them towards you, striking for %d%% unarmed melee damage, and if you hit, pinning them for %d turns.", [[抓住目标并将其拉向你，造成 %d%% 的徒手伤害，如果命中，目标定身 %d 回合。]], "tformat")
 t("Toxic Cannister Launcher", "毒罐发射装置", "talent name")
 t("toxic cannister", "毒罐", "_t")
 t("A smelly cannister.", "一个放出气味的罐子。", "_t")
@@ -5498,8 +5498,8 @@ t("%s resists the mental assault!", "%s抵抗了精神攻击！", "logSeen")
 t([[Shatters the mind of your victim, giving you full control over its actions for 6 turns.
 		When the effect ends, you pull out your mind and the victim's body collapses, dead.
 		This effect does not work on rares, bosses, or undead.
-		.]], [[粉碎你的受害者的内心，给你完全控制其行为 6 回合。
-　　当效果结束时，你抽出了自己的思维，受害者的身体会崩溃，死亡。
+		.]], [[粉碎受害者的心智，使你完全控制其行动 6 回合。
+　　当效果结束时，你抽离自己的思维，受害者的身体随之倒地死亡。
 　　稀有怪、boss、亡灵不受控制。]], "tformat")
 t("Shocking Touch", "电击之触", "talent name")
 t([[Touch a creature to release a nasty electrical charge into them, doing %0.2f lightning damage.
@@ -5521,14 +5521,14 @@ t("%s resists the itching powder!", "%s 抵抗了痒痒粉！", "logSeen")
 t([[Throw a handful of dust that is very itchy to touch.
 		Creatures in a cone of radius %d are itchy for %d turns, causing them to fail talents %d%% of the time.
 		The itchiness effect is applied with your Steampower.]], [[释放一把痒痒粉。
-		锥形半径 %d 码内的生物 %d 回合内很痒，导致它们释放技能 %d%% 几率失败。
+		锥形半径 %d 码内的生物 将瘙痒 %d 回合，使其使用技能时有 %d%% 几率失败。
 		致痒强度受蒸汽强度加成。]], "tformat")
 t("Thunder Grenade", "雷鸣榴弹", "talent name")
 t("%s resists the explosion!", "%s 抵抗了爆炸！", "logSeen")
 t([[Throw a grenade at your foes, dealing %0.2f physical damage in radius %d.
 		Creatures hit will also be stunned for %d turns.
 		The stun effect is applied with your Steampower.]], [[向你的敌人投掷手榴弹，造成 %0.2f 物理伤害，半径 %d 码。
-　　目标也会震慑 %d 回合。
+　　被击中的生物还会被震慑 %d 回合。
 　　震慑强度受蒸汽强度加成。]], "tformat")
 t("Project Saw", "发射链锯", "talent name")
 t([[You activate hidden springs to project a saw towards your foes.
@@ -5801,7 +5801,7 @@ t("Use steam powered saws to their maximum efficiency! Maim! Cut! Shred!", "最�
 t("battlefield management", "战地控制", "talent type")
 t("Use steam powered saws to maneuver around the battlefield, gaining strategic advantage.", "使用蒸汽动力链锯在战场上机动，获得战略优势。", "_t")
 t("battle machinery", "战术机械", "talent type")
-t("Use steam powered engines to tilt the battle in your favour.", "使用蒸汽动力引擎使战斗向你有利的方向倾斜。", "_t")
+t("Use steam powered engines to tilt the battle in your favour.", "使用蒸汽动力引擎让战局向对你有利的方向倾斜。", "_t")
 t("automated butchery", "自动化屠杀", "talent type")
 t("Improve your saws and tinkers with automated processes to help shred your foes.", "利用自动化流程改进你的链锯和蒸汽工具，助你撕碎敌人。", "_t")
 t("furnace", "熔炉", "talent type")
@@ -5919,7 +5919,7 @@ t([[Throw a cone of flame with radius %d, dealing %0.2f fire damage.
 		伤害受蒸汽强度加成。]], "tformat")
 t("Flame Vortex", "火焰旋涡", "talent name")
 t([[Project a radius %d vortex of superheated air, dealing %0.2f fire damage and pulling targets towards you.
-		The damage will increase with your Steampower.]], [[在半径 %d 码范围内喷出灼热空气构成的漩涡，造成 %0.2f 火焰伤害，把所有敌人拉近你。
+		The damage will increase with your Steampower.]], [[在半径 %d 码范围内喷出灼热空气构成的漩涡，造成 %0.2f 火焰伤害，并将目标拉向你。
 		伤害受蒸汽强度加成。]], "tformat")
 t("Medic Turret", "医疗炮台", "talent name")
 t("medic turret", "医疗炮台", "_t")
@@ -5927,7 +5927,7 @@ t("An automated turret emitting a healing mist.", "一个可以喷射治疗迷�
 t("Deploy a turret that emits a healing mist in radius 3. The turret gains +%d Dexterity, Constitution and Cunning.", "部署一个在 3 码范围内喷出治疗之雾的炮台。炮台具有 +%d 额外敏捷、体质和灵巧值。", "tformat")
 t("Overclock", "炮台超载", "talent name")
 t([[Send a surge of power into all turrets in sight, extending their duration by %d turns and granting them a charged shield absorbing %d damage for 10 turns. While the shield holds, each turn the turret will project a bolt of lightning dealing %0.2f lightning damage to a random enemy in radius 6, with a 25%% chance to daze.
-		The effects will increase with your Steampower.]], [[向视野内所有炮台注入能量，增加他们 %d 回合的持续时间，并且让他们获得一个吸收 %d 伤害的护盾，持续 10 回合。在护盾消失之前，每个炮台都会向半径 6 码内的随机敌人发射闪电弹，造成 %0.2f 闪电伤害，并有 25%% 的几率眩晕敌人。
+		The effects will increase with your Steampower.]], [[向视野内所有炮台注入能量，使其持续时间延长 %d 回合，并获得一个吸收 %d 伤害的护盾，持续 10 回合。在护盾消失之前，每个炮台每回合都会向半径 6 码内的随机敌人发射闪电弹，造成 %0.2f 闪电伤害，并有 25%% 的几率眩晕敌人。
 		这一效果随蒸汽强度提升。]], "tformat")
 t("Upgrade", "炮台升级", "talent name")
 t([[Upgrade the target turret, granting it %d%% increased maximum life and enhanced abilities based on type:
@@ -5941,7 +5941,7 @@ t("Hunker Down", "炮台守卫", "talent name")
 t("guardian turret", "守卫炮台", "_t")
 t("An advanced turret equipped with dual steamguns.", "一个装备双蒸汽枪的高级炮台。", "_t")
 t([[Deploy a defensive emplacement around you, summoning 2 guardian turrets in adjacent tiles for %d turns. Guardian turrets redirect %d%% of all damage taken by other adjacent allies (other than fellow guardian turrets) to themselves, and each is armed with a powerful turret capable of firing piercing bullets.
-			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]], [[进入守备模式，在身边召唤 2 个守卫炮台，持续 %d 回合。守卫炮台会将身边盟友（不包括其他守卫炮台）所受到所有伤害的 %d%% 转移到自己身上，并且它们装备有能发射贯穿子弹的强力炮塔。
+			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]], [[进入守备模式，在身边召唤 2 个守卫炮台，持续 %d 回合。守卫炮台会将身边盟友（不包括其他守卫炮台）所受全部伤害的 %d%% 转移到自己身上，并且它们装备有能发射贯穿子弹的强力炮塔。
 			守卫炮台获得 %0.2f 级蒸汽枪掌握，等级取决于你的炮台守卫技能等级。]], "tformat")
 t("Gauss Cannon", "电磁炮", "talent name")
 t("Fire your twin-linked gauss cannons, dealing 100%% steamgun damage as lightning in a piercing beam that bypasses all armor. This does not harm friendly targets.", "发射你的双联电磁炮，在一条贯穿直线上造成 100%% 闪电蒸汽枪伤害，无视护甲。这一效果不会伤害友好目标。", "tformat")
@@ -5974,9 +5974,9 @@ t("Quaffed the Blood of Undeath, not already undead and not antimagic.", "喝下
 t("Rak'Shor's Cunning", "拉克·肖的狡诈", "_t")
 t([[#GREY#Applying you cunning plans, you escape death by turning to undeath in an instant!
 
-#{italic}#You may now choose to customize your undead appearance, this can not be changed afterwards.]], [[#GREY#你使用了你狡猾的计划，瞬间将自己转化成不死族逃避死亡。
+#{italic}#You may now choose to customize your undead appearance, this can not be changed afterwards.]], [[#GREY#你施展狡猾的计谋，瞬间化身不死族，逃过了死亡！
 
-#{italic}#你可以现在选择自定义你的不死族外观，之后不能改变。]], "_t")
+#{italic}#你现在可以选择自定义你的不死族外观，之后无法更改。]], "_t")
 t("Cosmetic Options", "外观设置", "_t")
 t("Customize Appearance", "自定义外形", "_t")
 t("Use Default", "使用默认", "_t")
@@ -6612,7 +6612,7 @@ t("What is better than throwing sand in someone's face? Throwing sand that shine
 t("Itching Powder", "痒痒粉", "_t")
 t("The 'Crawling Ants' itching powder will distract your enemies from any complicated actions.", "这个“爬行的蚂蚁”牌痒痒粉能够分散你敌人的注意力，让他们无法完成复杂的行动。", "_t")
 t("Rogue's Gallery", "盗贼画廊", "_t")
-t("Lined with reactive mechanisms, this cloak is equipped for any situation you might possibly encounter, and several you couldn't possibly encounter!", "内衬各种机械装置，这件披风包含着让你可以应对任何你有可能或不可能遇到的情况的特殊装备！", "_t")
+t("Lined with reactive mechanisms, this cloak is equipped for any situation you might possibly encounter, and several you couldn't possibly encounter!", "内衬各种机械装置，这件披风足以应对你可能遇到的任何情况，甚至还能应对几种你根本不可能遇到的情况！", "_t")
 t("flash powder", "闪光粉", "_t")
 t("fire opal", "火蛋白石", "_t")
 t("pearl", "珍珠", "_t")
