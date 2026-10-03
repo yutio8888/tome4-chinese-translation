@@ -6,9 +6,10 @@
 按所属契约保存在受跟踪的 `evidence/`。本文件按命令查询，不是每次修改前的必读清单；检查选择见
 [工作流验证矩阵](../docs/agent-workflow.md#验证矩阵)。
 
-最新已推送 addon 版本：**0.3.1**（2026-10-01，发布仓库 tome4-chn-mod `c53351a`，由本仓库
-`bdcd937d` 经 `tools/i18n publish --apply --bump` 构建：12,131 条＝核心 6,670＋DLC 5,461，sha256 `d07b43c7…`）。
-GitHub Release `v0.3.1` 附带 `tome-chn-mod.teaa`（tag 指向 `c53351a`，包 sha256 `a560bd9b…`）；打包方式与游戏内置 `utils/te4_pack_module.sh`
+最新已推送 addon 版本：**0.3.2**（2026-10-03，发布仓库 tome4-chn-mod `c06767f`，由本仓库
+`dd1a255d` 经 `tools/i18n publish --apply --bump` 构建：12,133 条＝核心 6,672＋DLC 5,461，sha256 `a8f4e019…`）。
+本次更新对外仓库 `master`；尚未创建 `v0.3.2` GitHub Release。发布凭据见 [`addon-0.3.2.json`](../evidence/releases/addon-0.3.2.json)。
+现有 GitHub Release `v0.3.1` 附带 `tome-chn-mod.teaa`（tag 指向 `c53351a`，包 sha256 `a560bd9b…`）；打包方式与游戏内置 `utils/te4_pack_module.sh`
 一致：`git archive` 取干净树后在其中 `zip -r -0`，`init.lua` 位于根目录，文件名为 `for_module-short_name.teaa`（引擎只识别 `tome-` 前缀）。
 `publish --bump` 只递增补丁号，次版本号需手动改发布仓库 `init.lua`（该文件为 CRLF 行尾）。
 早期发布计划见 [`deprecated/docs/release-plan.md`](../deprecated/docs/release-plan.md)（已弃用）。manifest 中的 `repositories.addon.commit`
