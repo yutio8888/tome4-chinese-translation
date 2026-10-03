@@ -1,0 +1,161 @@
+{
+  "batch_id": "batch-ac27e658ed64b3f7f270",
+  "observations": 15,
+  "observation_dispositions": {
+    "confirmed": 14,
+    "refuted": 1
+  },
+  "repair_revision_keys": [
+    "dd34f3b3a1f66cf66666a1b28fca9bb7e7e42375956fb4a797025b541ba0ae7b",
+    "e28fc01c1fd2f334cd600935356c228cf5c9d81bd4c7e9c744b86d67e1fad9eb",
+    "e2d3907f2592284ebd66ec9e8e8cd3886e04872331c59cf95245f4ffdaebd306",
+    "e52bd62005796ec8d51c98d03790198c10d494fc505418a7375c86def7dae1ff",
+    "e65e6b87602904ba1039570534868629d4599e3efc343781494819326ad0565c",
+    "ebdc517c7d1e9888609dea8ffd237542957f7cce0358ea93cc4b73b05bd0fbea",
+    "ecb27ee6afb97ab9933440d5537c38a0a96ce553a87117b3884639fa71eeb8db",
+    "f2beff1edaedd0ec3288ba6f37a536151fb5d6356edba89365cf61fa1f6bd368"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 71,
+    "repair_required": 8,
+    "blocked": 1
+  },
+  "rows": [
+    {
+      "revision_key": "dd34f3b3a1f66cf66666a1b28fca9bb7e7e42375956fb4a797025b541ba0ae7b",
+      "stage": "surface",
+      "observation": "原文明确传播当前负面精神效果中的一个（one of），译文“将你当前的负面精神效果传播给他们”遗漏单个效果的限定。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/timed_effects/other.lua:1118 疯狂诅咒（Curse of Madness）强度 3+“阴谋”：spread one of your current detrimental mental effect。实现 doConspirator（other.lua:1232-1257）先收集自身全部负面精神效果，再用 rng.tableRemove(list)（:1244）只取其中一个复制给目标。现译“将你当前的负面精神效果传播给他们”删去 one of，读作全部传播，与实现不符。修复：补“其中一种”，如“都有 %d%% 的几率将你当前的一种负面精神效果传播给对方”。"
+    },
+    {
+      "revision_key": "e28fc01c1fd2f334cd600935356c228cf5c9d81bd4c7e9c744b86d67e1fad9eb",
+      "stage": "surface",
+      "observation": "原文“you instantly activate Concealment”表示冷却降至0时立即激活隐匿；译文“都可立即激活隐匿”变成可以激活，弱化了自动发生的结果。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/sniper.lua:101 暗影射击（Shadow Shot）：冷却减少后若隐匿不在冷却中，:135 直接 forceUseTalent(T_CONCEALMENT, {ignore_cd=true, …}) 自动开启隐匿，无需玩家操作。现译“无论敌人是否太近，都可立即激活隐匿”把自动触发写成可选能力，机制不符；同句还漏了“The distraction caused by this effect”（由此造成的干扰）。修复：如“此效果造成的干扰使你的隐匿冷却时间减少 %d 回合。如果冷却时间减到 0，无论敌人是否太近，你都会立即自动进入隐匿。”"
+    },
+    {
+      "revision_key": "e2d3907f2592284ebd66ec9e8e8cd3886e04872331c59cf95245f4ffdaebd306",
+      "stage": "surface",
+      "observation": "译文在“你是使\\n用灵巧的动作”中插入换行，将“使用”一词拆开；原文对应句内无此换行。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/stats/stats7.1.lua:25 为一整段（stun. 与 But what will you use? 之间无换行），原文共 5 个 LF；现译 7 个：在“摆脱震慑。”后多断一行，又在“你是使\\n用灵巧的动作”处把“使用”一词拆开，教程正文会出现断词换行，违反换行不变量。修复：删去这两个多余换行，恢复与原文一致的 5 个 LF。"
+    },
+    {
+      "revision_key": "e52bd62005796ec8d51c98d03790198c10d494fc505418a7375c86def7dae1ff",
+      "stage": "surface",
+      "observation": "原文 sprouts 泛指植物嫩芽，译文两次写成“豆芽”，无原文依据地限定了植物种类。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5338 埃亚尔的呼吸（Breath of Eyal）desc：woven of countless sprouts, still curling and growing——由无数仍在卷曲生长的嫩芽编成。现译两处“豆芽”把泛指的新芽误限为食用豆芽，与自然神器语境不符，属错译。修复：改作“嫩芽”（如“这件护甲由无数嫩芽编成，嫩芽们仍在不停地卷曲生长”）。"
+    },
+    {
+      "revision_key": "e65e6b87602904ba1039570534868629d4599e3efc343781494819326ad0565c",
+      "stage": "surface",
+      "observation": "原文 glitters in infinite colours 描述珍珠闪耀无穷色彩，译文仅写“不断闪烁着光芒”，遗漏了色彩特征。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/high-peak/objects.lua:169 生死珍珠（Pearl of Life and Death）desc：glitters in infinite colours, with slight patterns ever shifting away。现译“表面不断闪烁着光芒，似乎有奇妙的花纹一闪而逝”漏掉“无穷色彩”，且 ever shifting away 是花纹不断流转变幻，而非一闪即逝。修复：如“一颗有普通珍珠三倍大的珍珠，闪耀着无穷无尽的色彩，细微的花纹不断流转变幻。”"
+    },
+    {
+      "revision_key": "ebdc517c7d1e9888609dea8ffd237542957f7cce0358ea93cc4b73b05bd0fbea",
+      "stage": "surface",
+      "observation": "格式差异：source 含两处换行及缩进序列，target 含三处；target 在“负面效果。”后新增了换行及缩进。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/misc/inscriptions.lua:972 符文：粉碎痛苦（Rune: Shatter Afflictions）说明原文共 2 个 LF（各接 \\t\\t），现译 3 个：把首句拆成“激活符文，立刻清除你身上的负面效果。\\n\\t\\t清除所有越层效果……”，多出一行，违反换行不变量。contextual 判 OK 未审换行；宿主按 LF 计数客观判定，确认。修复：把前两行合并为一行（如“激活符文，立刻消散你身上负面状态的能量，清除所有越层效果，以及物理、精神和魔法负面效果各 1 个。”），恢复 2 个 LF。"
+    },
+    {
+      "revision_key": "ecb27ee6afb97ab9933440d5537c38a0a96ce553a87117b3884639fa71eeb8db",
+      "stage": "surface",
+      "observation": "source 在“switching rapidly.”后有换行，target 将两段合并，遗漏该换行。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/tannen-tower/objects.lua:76 多元水晶球（Orb of Many Ways）desc 在 switching rapidly. 后有 1 个 LF，第二行 If used near a portal… 单独成行；现译 0 个 LF，两句合并为一段，违反换行不变量。contextual 判 OK 未审换行；宿主按 LF 计数客观判定，确认。修复：在“……不属于这个世界。”后补回换行。"
+    },
+    {
+      "revision_key": "f2beff1edaedd0ec3288ba6f37a536151fb5d6356edba89365cf61fa1f6bd368",
+      "stage": "surface",
+      "observation": "source 的“Children will hear of your relentlessness in song”指孩子们从歌曲中听闻你坚持不懈的事迹；target 的“孩子们会在将来用童谣来传唱你的无情”将听闻改为传唱，并将坚持不懈错译为无情。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/misc/misc.lua:348/391 无尽追踪（Relentless Pursuit）：Children will hear of your relentlessness in song——孩子们会在歌谣中听闻你的锲而不舍。现译“传唱你的无情”把 relentlessness（坚持不懈）译成意义相反的“无情”；同句 all the orcs in fallen Reknor 译作“失落之地的瑞库纳兽人”，把 fallen（已陷落的）误当地名修饰并丢了 all。机制句与 misc.lua 一致。修复：如“无论是领主本人、已陷落的瑞库纳城中的所有兽人……”“孩子们将在今后多年的歌谣里传颂你的坚持不懈。”"
+    },
+    {
+      "revision_key": "f821ede85edce349079bf279eb6ad72da602dc4abb80517ad2130e60050e8b3c",
+      "stage": "surface",
+      "observation": "原文明确以“the Cursed”为主体，译文仅用“他们”，遗漏了主体名称；冻结输入未提供上下文，无法确认该指代是否可由相邻文本补足。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/birth/classes/afflicted.lua:50-54 被诅咒者（Cursed）职业 desc 为连续显示的多行；第 1 行已译出主语“被诅咒者”（mod-tome.lua:2902），第 2、3 行用“他们”承接，指代明确，contextual 亦判 OK。省略重复主语不改变含义，驳回。"
+    },
+    {
+      "revision_key": "dd34f3b3a1f66cf66666a1b28fca9bb7e7e42375956fb4a797025b541ba0ae7b",
+      "stage": "contextual",
+      "observation": "Power 3+ 原文 spread one of your current detrimental mental effect，冻结源码 other.lua 1213/1244 用 rng.tableRemove(list) 只取一个效果施加；译文「将你当前的负面精神效果传播给他们」删去 one of，可被读成全部传播，应补「其中一个」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/timed_effects/other.lua:1118 疯狂诅咒（Curse of Madness）强度 3+“阴谋”：spread one of your current detrimental mental effect。实现 doConspirator（other.lua:1232-1257）先收集自身全部负面精神效果，再用 rng.tableRemove(list)（:1244）只取其中一个复制给目标。现译“将你当前的负面精神效果传播给他们”删去 one of，读作全部传播，与实现不符。修复：补“其中一种”，如“都有 %d%% 的几率将你当前的一种负面精神效果传播给对方”。"
+    },
+    {
+      "revision_key": "e28fc01c1fd2f334cd600935356c228cf5c9d81bd4c7e9c744b86d67e1fad9eb",
+      "stage": "contextual",
+      "observation": "原文 you instantly activate Concealment 是自动触发；sniper.lua Shadow Shot action 在冷却归零时 forceUseTalent(T_CONCEALMENT, ignore_cd…) 强制开启。译文「都可立即激活隐匿」写成玩家可选的能力，机制不符，应为「立即自动激活隐匿」。另漏译 The distraction caused by this effect（由此造成的干扰）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/sniper.lua:101 暗影射击（Shadow Shot）：冷却减少后若隐匿不在冷却中，:135 直接 forceUseTalent(T_CONCEALMENT, {ignore_cd=true, …}) 自动开启隐匿，无需玩家操作。现译“无论敌人是否太近，都可立即激活隐匿”把自动触发写成可选能力，机制不符；同句还漏了“The distraction caused by this effect”（由此造成的干扰）。修复：如“此效果造成的干扰使你的隐匿冷却时间减少 %d 回合。如果冷却时间减到 0，无论敌人是否太近，你都会立即自动进入隐匿。”"
+    },
+    {
+      "revision_key": "e2d3907f2592284ebd66ec9e8e8cd3886e04872331c59cf95245f4ffdaebd306",
+      "stage": "contextual",
+      "observation": "源码 stats7.1.lua 第 25 行是一整段（stun. But what… 之间无换行），原文共 5 个 LF；译文多出 2 个硬换行，变成 7 个：在「震慑。」后断行，又在「使\\n用」处把一个词从中间拆开，教程正文会出现断词换行，违反换行不变量。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/stats/stats7.1.lua:25 为一整段（stun. 与 But what will you use? 之间无换行），原文共 5 个 LF；现译 7 个：在“摆脱震慑。”后多断一行，又在“你是使\\n用灵巧的动作”处把“使用”一词拆开，教程正文会出现断词换行，违反换行不变量。修复：删去这两个多余换行，恢复与原文一致的 5 个 LF。"
+    },
+    {
+      "revision_key": "e52bd62005796ec8d51c98d03790198c10d494fc505418a7375c86def7dae1ff",
+      "stage": "contextual",
+      "observation": "Breath of Eyal（world-artifacts.lua 5338）的 countless sprouts 泛指新芽／嫩芽，译成「豆芽」把它误限为食用豆芽，与自然神器语境不符，应作「嫩芽」或「新芽」。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5338 埃亚尔的呼吸（Breath of Eyal）desc：woven of countless sprouts, still curling and growing——由无数仍在卷曲生长的嫩芽编成。现译两处“豆芽”把泛指的新芽误限为食用豆芽，与自然神器语境不符，属错译。修复：改作“嫩芽”（如“这件护甲由无数嫩芽编成，嫩芽们仍在不停地卷曲生长”）。"
+    },
+    {
+      "revision_key": "e65e6b87602904ba1039570534868629d4599e3efc343781494819326ad0565c",
+      "stage": "contextual",
+      "observation": "漏译 glitters in infinite colours 的「无穷色彩」：译文只写「不断闪烁着光芒」，丢了多彩含义；ever shifting away 译作「一闪而逝」也偏离原意（花纹在不断流转变幻，并非一闪即逝）。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/high-peak/objects.lua:169 生死珍珠（Pearl of Life and Death）desc：glitters in infinite colours, with slight patterns ever shifting away。现译“表面不断闪烁着光芒，似乎有奇妙的花纹一闪而逝”漏掉“无穷色彩”，且 ever shifting away 是花纹不断流转变幻，而非一闪即逝。修复：如“一颗有普通珍珠三倍大的珍珠，闪耀着无穷无尽的色彩，细微的花纹不断流转变幻。”"
+    },
+    {
+      "revision_key": "f2beff1edaedd0ec3288ba6f37a536151fb5d6356edba89365cf61fa1f6bd368",
+      "stage": "contextual",
+      "observation": "all the orcs in fallen Reknor 指「已陷落的瑞库纳城中的所有兽人」，译文「失落之地的瑞库纳兽人」把 fallen 误作地名修饰，也丢了 all；relentlessness 在此指锲而不舍，译「无情」意义相反，应作「坚持不懈／不屈不挠」。机制句与 misc.lua 一致，无问题。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/misc/misc.lua:348/391 无尽追踪（Relentless Pursuit）：Children will hear of your relentlessness in song——孩子们会在歌谣中听闻你的锲而不舍。现译“传唱你的无情”把 relentlessness（坚持不懈）译成意义相反的“无情”；同句 all the orcs in fallen Reknor 译作“失落之地的瑞库纳兽人”，把 fallen（已陷落的）误当地名修饰并丢了 all。机制句与 misc.lua 一致。修复：如“无论是领主本人、已陷落的瑞库纳城中的所有兽人……”“孩子们将在今后多年的歌谣里传颂你的坚持不懈。”"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes: surface main game 80 in 20/20/20/20)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000; 9 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), 4 children (main game 20x4); 71 OK / 9 ISSUE; every child only read its own envelope and the contract (7 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 9 deep entries, accepted on the first pass (3 OK / 6 ISSUE).",
+    "Re-review batch: all 80 entries are successors queued by migration 22b293c4; 273 remain queued after this batch.",
+    "Dead key e4824491182e (the mod-tome/load.lua copy of Researcher Dremnot's chapter on Quekorja, a Cults DLC text with an extra leading space versus upstream; live entry tome-cults.lua:2184, section tome-cults/data/lore/kroshkkur.lua) is registered in known-dead-keys.json; it caused a freeze MISS and was host-blocked rather than reviewed.",
+    "Contextual judged ebdc517c7d and ecb27ee6af OK; the host confirmed both on objective newline counts (source 2 vs target 3 LF, and 1 vs 0).",
+    "Refuted: the Cursed class description uses 他们 for its third line, which is unambiguous because the first displayed line already names 被诅咒者.",
+    "80 pinned entries (80 main game) were verified against the manifest-pinned commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file.",
+    "8 confirmed repair revisions raise the window 64 backlog from 17 to 25, reaching the 20 threshold: repair window 64 opens next."
+  ]
+}

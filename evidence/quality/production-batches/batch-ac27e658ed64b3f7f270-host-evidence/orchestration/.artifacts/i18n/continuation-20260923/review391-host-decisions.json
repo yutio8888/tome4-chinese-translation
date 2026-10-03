@@ -1,0 +1,80 @@
+{
+ "workset": "evidence/quality/production-batches/batch-ac27e658ed64b3f7f270-source-workset.json",
+ "decisions": {
+  "dd34f3b3a1|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/timed_effects/other.lua:1118 疯狂诅咒（Curse of Madness）强度 3+“阴谋”：spread one of your current detrimental mental effect。实现 doConspirator（other.lua:1232-1257）先收集自身全部负面精神效果，再用 rng.tableRemove(list)（:1244）只取其中一个复制给目标。现译“将你当前的负面精神效果传播给他们”删去 one of，读作全部传播，与实现不符。修复：补“其中一种”，如“都有 %d%% 的几率将你当前的一种负面精神效果传播给对方”。"
+  },
+  "dd34f3b3a1|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/timed_effects/other.lua:1118 疯狂诅咒（Curse of Madness）强度 3+“阴谋”：spread one of your current detrimental mental effect。实现 doConspirator（other.lua:1232-1257）先收集自身全部负面精神效果，再用 rng.tableRemove(list)（:1244）只取其中一个复制给目标。现译“将你当前的负面精神效果传播给他们”删去 one of，读作全部传播，与实现不符。修复：补“其中一种”，如“都有 %d%% 的几率将你当前的一种负面精神效果传播给对方”。"
+  },
+  "e28fc01c1f|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/sniper.lua:101 暗影射击（Shadow Shot）：冷却减少后若隐匿不在冷却中，:135 直接 forceUseTalent(T_CONCEALMENT, {ignore_cd=true, …}) 自动开启隐匿，无需玩家操作。现译“无论敌人是否太近，都可立即激活隐匿”把自动触发写成可选能力，机制不符；同句还漏了“The distraction caused by this effect”（由此造成的干扰）。修复：如“此效果造成的干扰使你的隐匿冷却时间减少 %d 回合。如果冷却时间减到 0，无论敌人是否太近，你都会立即自动进入隐匿。”"
+  },
+  "e28fc01c1f|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/techniques/sniper.lua:101 暗影射击（Shadow Shot）：冷却减少后若隐匿不在冷却中，:135 直接 forceUseTalent(T_CONCEALMENT, {ignore_cd=true, …}) 自动开启隐匿，无需玩家操作。现译“无论敌人是否太近，都可立即激活隐匿”把自动触发写成可选能力，机制不符；同句还漏了“The distraction caused by this effect”（由此造成的干扰）。修复：如“此效果造成的干扰使你的隐匿冷却时间减少 %d 回合。如果冷却时间减到 0，无论敌人是否太近，你都会立即自动进入隐匿。”"
+  },
+  "e2d3907f25|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/stats/stats7.1.lua:25 为一整段（stun. 与 But what will you use? 之间无换行），原文共 5 个 LF；现译 7 个：在“摆脱震慑。”后多断一行，又在“你是使\\n用灵巧的动作”处把“使用”一词拆开，教程正文会出现断词换行，违反换行不变量。修复：删去这两个多余换行，恢复与原文一致的 5 个 LF。"
+  },
+  "e2d3907f25|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/stats/stats7.1.lua:25 为一整段（stun. 与 But what will you use? 之间无换行），原文共 5 个 LF；现译 7 个：在“摆脱震慑。”后多断一行，又在“你是使\\n用灵巧的动作”处把“使用”一词拆开，教程正文会出现断词换行，违反换行不变量。修复：删去这两个多余换行，恢复与原文一致的 5 个 LF。"
+  },
+  "e52bd62005|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5338 埃亚尔的呼吸（Breath of Eyal）desc：woven of countless sprouts, still curling and growing——由无数仍在卷曲生长的嫩芽编成。现译两处“豆芽”把泛指的新芽误限为食用豆芽，与自然神器语境不符，属错译。修复：改作“嫩芽”（如“这件护甲由无数嫩芽编成，嫩芽们仍在不停地卷曲生长”）。"
+  },
+  "e52bd62005|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5338 埃亚尔的呼吸（Breath of Eyal）desc：woven of countless sprouts, still curling and growing——由无数仍在卷曲生长的嫩芽编成。现译两处“豆芽”把泛指的新芽误限为食用豆芽，与自然神器语境不符，属错译。修复：改作“嫩芽”（如“这件护甲由无数嫩芽编成，嫩芽们仍在不停地卷曲生长”）。"
+  },
+  "e65e6b8760|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/high-peak/objects.lua:169 生死珍珠（Pearl of Life and Death）desc：glitters in infinite colours, with slight patterns ever shifting away。现译“表面不断闪烁着光芒，似乎有奇妙的花纹一闪而逝”漏掉“无穷色彩”，且 ever shifting away 是花纹不断流转变幻，而非一闪即逝。修复：如“一颗有普通珍珠三倍大的珍珠，闪耀着无穷无尽的色彩，细微的花纹不断流转变幻。”"
+  },
+  "e65e6b8760|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/high-peak/objects.lua:169 生死珍珠（Pearl of Life and Death）desc：glitters in infinite colours, with slight patterns ever shifting away。现译“表面不断闪烁着光芒，似乎有奇妙的花纹一闪而逝”漏掉“无穷色彩”，且 ever shifting away 是花纹不断流转变幻，而非一闪即逝。修复：如“一颗有普通珍珠三倍大的珍珠，闪耀着无穷无尽的色彩，细微的花纹不断流转变幻。”"
+  },
+  "ebdc517c7d|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/misc/inscriptions.lua:972 符文：粉碎痛苦（Rune: Shatter Afflictions）说明原文共 2 个 LF（各接 \\t\\t），现译 3 个：把首句拆成“激活符文，立刻清除你身上的负面效果。\\n\\t\\t清除所有越层效果……”，多出一行，违反换行不变量。contextual 判 OK 未审换行；宿主按 LF 计数客观判定，确认。修复：把前两行合并为一行（如“激活符文，立刻消散你身上负面状态的能量，清除所有越层效果，以及物理、精神和魔法负面效果各 1 个。”），恢复 2 个 LF。"
+  },
+  "ecb27ee6af|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/tannen-tower/objects.lua:76 多元水晶球（Orb of Many Ways）desc 在 switching rapidly. 后有 1 个 LF，第二行 If used near a portal… 单独成行；现译 0 个 LF，两句合并为一段，违反换行不变量。contextual 判 OK 未审换行；宿主按 LF 计数客观判定，确认。修复：在“……不属于这个世界。”后补回换行。"
+  },
+  "f2beff1eda|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/misc/misc.lua:348/391 无尽追踪（Relentless Pursuit）：Children will hear of your relentlessness in song——孩子们会在歌谣中听闻你的锲而不舍。现译“传唱你的无情”把 relentlessness（坚持不懈）译成意义相反的“无情”；同句 all the orcs in fallen Reknor 译作“失落之地的瑞库纳兽人”，把 fallen（已陷落的）误当地名修饰并丢了 all。机制句与 misc.lua 一致。修复：如“无论是领主本人、已陷落的瑞库纳城中的所有兽人……”“孩子们将在今后多年的歌谣里传颂你的坚持不懈。”"
+  },
+  "f2beff1eda|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/misc/misc.lua:348/391 无尽追踪（Relentless Pursuit）：Children will hear of your relentlessness in song——孩子们会在歌谣中听闻你的锲而不舍。现译“传唱你的无情”把 relentlessness（坚持不懈）译成意义相反的“无情”；同句 all the orcs in fallen Reknor 译作“失落之地的瑞库纳兽人”，把 fallen（已陷落的）误当地名修饰并丢了 all。机制句与 misc.lua 一致。修复：如“无论是领主本人、已陷落的瑞库纳城中的所有兽人……”“孩子们将在今后多年的歌谣里传颂你的坚持不懈。”"
+  },
+  "f821ede85e|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/birth/classes/afflicted.lua:50-54 被诅咒者（Cursed）职业 desc 为连续显示的多行；第 1 行已译出主语“被诅咒者”（mod-tome.lua:2902），第 2、3 行用“他们”承接，指代明确，contextual 亦判 OK。省略重复主语不改变含义，驳回。"
+  }
+ }
+}

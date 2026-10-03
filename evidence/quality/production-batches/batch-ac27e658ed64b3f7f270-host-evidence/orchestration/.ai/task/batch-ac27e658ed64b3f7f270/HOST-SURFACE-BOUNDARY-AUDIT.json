@@ -1,0 +1,56 @@
+{
+ "batch_id": "batch-ac27e658ed64b3f7f270",
+ "review_contract": "translation_surface_screen_v1",
+ "checked_at": "2026-10-03T17:39:31.818356+00:00",
+ "launched": 4,
+ "undispatched_prepared": 0,
+ "all_launched_archived": true,
+ "allowed_read_files": "each own frozen envelope and surface contract",
+ "other_commands": "7 native tool calls (10 exec_command calls): every lane read the contract and its own envelope (cat), some also re-read a contract range with sed -n; lanes 0 and 1 additionally ran a read-only python3 heredoc that json.load-ed only their own envelope and printed its entries; every referenced path is the own envelope or the contract; no write modes, no other paths, no Paseo terminals",
+ "write_or_external_calls_observed": false,
+ "rejected": [],
+ "identity_echo_corrections": [],
+ "host_notes": [
+  "one group (task id = batch): pinned main game 20x4; lanes 1-3 were created after lane 0 was archived, so at most 3 children ran at once",
+  "lane 0 finished (attentionTimestamp 17:35:42.054Z) before its bind command ran; it was bound with the running get_agent_status snapshot actually observed at 17:34:48 (activeTurn codex-turn-0 started 17:34:45.897Z) and harvested from the later idle snapshot",
+  "all 4 outputs harvested natively without corrections"
+ ],
+ "items": [
+  {
+   "dispatch_id": "lane-000-0",
+   "task_id": "batch-ac27e658ed64b3f7f270",
+   "agent_id": "508d1c8f-b339-48ad-96c7-b5d111a5b5bf",
+   "native_tools_sha256": "1f026d71c49416bf13ebb2b1087c4d94eb4669c5b854d4e81762a35320d5fa99",
+   "tool_calls": 2,
+   "archive_confirmed": true,
+   "output_valid": true
+  },
+  {
+   "dispatch_id": "lane-000-1",
+   "task_id": "batch-ac27e658ed64b3f7f270",
+   "agent_id": "f5d0f9a1-025b-4097-a603-2e6b5f8fb56e",
+   "native_tools_sha256": "b28fb346fa4e0d115ec8b07081ea863853084fd74971337dfe834813f4a25f39",
+   "tool_calls": 2,
+   "archive_confirmed": true,
+   "output_valid": true
+  },
+  {
+   "dispatch_id": "lane-000-2",
+   "task_id": "batch-ac27e658ed64b3f7f270",
+   "agent_id": "c22f8ab9-8506-459c-94be-4324846617e8",
+   "native_tools_sha256": "3233bd7d349415f96aac14bdae6331591c25588a2dffffdd805213aca86ea5ef",
+   "tool_calls": 1,
+   "archive_confirmed": true,
+   "output_valid": true
+  },
+  {
+   "dispatch_id": "lane-000-3",
+   "task_id": "batch-ac27e658ed64b3f7f270",
+   "agent_id": "256f03de-2358-4947-9104-4501b5ced7cf",
+   "native_tools_sha256": "dfd0b3c33cd4672a8b3f83b098b9b13e94550038f92310f0d3b7afa06ab541cd",
+   "tool_calls": 2,
+   "archive_confirmed": true,
+   "output_valid": true
+  }
+ ]
+}
