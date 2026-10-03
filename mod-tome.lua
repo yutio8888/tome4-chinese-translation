@@ -2131,7 +2131,7 @@ This represents your chance to completely avoid ANY persistent bad magical effec
 t([[#GOLD#Damage when hit#LAST#
 Each time a creature hits you with a melee attack, it will suffer damage or other effects.
 ]], [[#GOLD#近战反击伤害#LAST#
-其他生物每次近战攻击你时，都会受到反击伤害或者其他反击效果。
+其他生物每次以近战攻击命中你时，都会受到反击伤害或者其他反击效果。
 ]], "_t")
 t([[#GOLD#Additional Melee Damage#LAST#
 Each time you strike a creature with a melee attack, you will deal additional damage or other effects.
@@ -33721,7 +33721,7 @@ Campaign features:#YELLOW#
 
 你解锁了神秘的无尽地下城，现在你在创建新人物时可以选择进入一个新的战役模式：#LIGHT_GREEN#无尽地下城#WHITE#。
 
-无尽地下城由层数不断增加、充满可怕敌人的楼层组成。
+无尽地下城的楼层不断增加，层层充满可怕的敌人。
 战役特点：#YELLOW#
 - 没有任务、剧情、友善生物或逃生途径：只有你独自面对一切逆境。
 - 不存在最后取胜的情况：你最终会在地城中死去，不过你进入的层数越深说明你的水平越高。
@@ -41226,7 +41226,7 @@ While this is a free game that I am doing for fun, if it can help feed my family
 You will need an online profile active and connected for the tile selector to enable. If you choose to donate now you will need to restart the game to be granted access.
 
 Donators will also gain access to the custom tiles for their characters.]], [[探索模式提供给角色无限的生命数。
-马基·埃亚尔的故事是一款非常耐玩的游戏，你会在错误中（也就是在死亡中）不断学习、不断进步。
+马基·埃亚尔的故事是一款非常耐玩的游戏，你会在错误中（因而也包括在死亡中）不断学习、不断进步。
 我觉得这款游戏可能不会被所有人接受并且在收到多次请求后，我决定开放探索模式给捐赠者，因为它允许喜欢这款游戏的玩家能全面地体验这款游戏。
 不过要注意的是，无限的生命并不意味着难度的减少，只意味着你可以随意尝试，而不必重新开始。
 

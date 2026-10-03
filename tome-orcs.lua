@@ -7349,7 +7349,7 @@ t("A very strong near-sentient tree, which has become infected with crystalline 
 t("giant", "巨人", "entity type")
 t("treant", "树人", "entity subtype")
 t("Crystallized Primal Root", "晶化原始之根", "entity name")
-t("This once great primal tree has been infused and corrupted by crystals growing wildly all over it. Such a terrible end.", "这棵曾经伟大的原始树木，已被疯狂蔓延的水晶注入并腐化。真是可怕的结局。", "_t")
+t("This once great primal tree has been infused and corrupted by crystals growing wildly all over it. Such a terrible end.", "这棵曾经伟大的原始树木，已被在其全身疯狂生长的水晶浸染并腐化。真是可怕的结局。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/primal-forest/objects.lua"
