@@ -1,0 +1,30 @@
+{
+ "workset": "evidence/quality/production-batches/batch-e63ec4963b48bd6eee9a-source-workset.json",
+ "decisions": {
+  "0090a2e867|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5528-5530 望远镜（Kestin Highfin）desc 在 “...for a stolen sword.” 与 “His last known words were ...” 之间有空行（\\n\\n），现译“……要为被他偷走的一把剑复仇。他留下的最后遗言是……”把两段直接相连，丢失段落分隔；换行不变量可对固定源码客观判定，旧译即如此，非本轮改动引入。确认（contextual 同判）。修复：在“复仇。”与“他留下的最后遗言是”之间补回空行（\\n\\n），其余不变。"
+  },
+  "0090a2e867|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "contextual 指出同一换行缺失；固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5528-5530 望远镜（Kestin Highfin）desc 在 “...for a stolen sword.” 与 “His last known words were ...” 之间有空行（\\n\\n），现译“……要为被他偷走的一把剑复仇。他留下的最后遗言是……”把两段直接相连，丢失段落分隔；换行不变量可对固定源码客观判定，旧译即如此，非本轮改动引入。确认，修复同 surface 裁决。"
+  },
+  "0a4c89e965|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/birth/classes/warrior.lua:116 盾战士（Bulwark）简介 “specializes in weapon and shield combat, rarely leaving the cover of her many protective techniques” 后半句说她很少离开其诸多防护技巧的庇护；现译“并拥有极高的防御技能”丢掉“rarely leaving the cover”这一行为描述，并把“many techniques”改成程度判断“极高”，属失义。确认（contextual 同判）。修复：后半句改为“很少离开其诸多防护技巧的庇护”，如“盾战士精通武器与盾牌格斗，很少离开其诸多防护技巧的庇护。”"
+  },
+  "0a4c89e965|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "contextual 指出同一失义；固定 commit 624a673 game/modules/tome/data/birth/classes/warrior.lua:116 盾战士（Bulwark）简介 “specializes in weapon and shield combat, rarely leaving the cover of her many protective techniques” 后半句说她很少离开其诸多防护技巧的庇护；现译“并拥有极高的防御技能”丢掉“rarely leaving the cover”这一行为描述，并把“many techniques”改成程度判断“极高”，属失义。确认，修复同 surface 裁决。"
+  },
+  "af41a12055|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/engines/default/engine/dialogs/microtxn/MTXMain.lua:55-70 内购欢迎词末段 “I must say feel dirty doing microtransactions even as benign as those” 只称这些内购无伤大雅；现译“即使上面这些选项都不影响游戏内容”新增“不影响游戏内容”的断言，与同段所列额外共享装备格、强制触发全服社区事件（均影响游戏）相矛盾。contextual 判 OK，宿主以原文与同条列表为准确认。本轮改动只涉及时装一行，此句为旧译。修复：改为“即使是上面这些无伤大雅的内购也不例外”一类表述，其余不变。"
+  }
+ }
+}

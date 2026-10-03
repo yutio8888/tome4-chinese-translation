@@ -1,0 +1,73 @@
+{
+  "batch_id": "batch-e63ec4963b48bd6eee9a",
+  "observations": 5,
+  "observation_dispositions": {
+    "confirmed": 5
+  },
+  "repair_revision_keys": [
+    "0090a2e8672e93060276814c3052d003ade90bd38529329a54c65f6472f2ee83",
+    "0a4c89e965bb89255f390021ec6ea94917118dcac9a4ed1e0a0a2314ba33a7b9",
+    "af41a12055ca8247631fd934b1be83c07ed6770a35fbee844b2e326675e5bad9"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 77,
+    "repair_required": 3,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "0090a2e8672e93060276814c3052d003ade90bd38529329a54c65f6472f2ee83",
+      "stage": "surface",
+      "observation": "source 在最后遗言段落前有两个换行符（\\n\\n），target 删除了该段落分隔。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5528-5530 望远镜（Kestin Highfin）desc 在 “...for a stolen sword.” 与 “His last known words were ...” 之间有空行（\\n\\n），现译“……要为被他偷走的一把剑复仇。他留下的最后遗言是……”把两段直接相连，丢失段落分隔；换行不变量可对固定源码客观判定，旧译即如此，非本轮改动引入。确认（contextual 同判）。修复：在“复仇。”与“他留下的最后遗言是”之间补回空行（\\n\\n），其余不变。"
+    },
+    {
+      "revision_key": "0a4c89e965bb89255f390021ec6ea94917118dcac9a4ed1e0a0a2314ba33a7b9",
+      "stage": "surface",
+      "observation": "原文“rarely leaving the cover of her many protective techniques”表示很少脱离多种防护技巧的保护；译文“并拥有极高的防御技能”遗漏这一行为描述，并将“many”的数量含义改成“极高”的程度含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/birth/classes/warrior.lua:116 盾战士（Bulwark）简介 “specializes in weapon and shield combat, rarely leaving the cover of her many protective techniques” 后半句说她很少离开其诸多防护技巧的庇护；现译“并拥有极高的防御技能”丢掉“rarely leaving the cover”这一行为描述，并把“many techniques”改成程度判断“极高”，属失义。确认（contextual 同判）。修复：后半句改为“很少离开其诸多防护技巧的庇护”，如“盾战士精通武器与盾牌格斗，很少离开其诸多防护技巧的庇护。”"
+    },
+    {
+      "revision_key": "af41a12055ca8247631fd934b1be83c07ed6770a35fbee844b2e326675e5bad9",
+      "stage": "surface",
+      "observation": "原文“even as benign as those”仅称这些内购温和无害，译文却写成“即使上面这些选项都不影响游戏内容”；新增了全部内购不影响游戏内容的断言，与同条列出的额外共享装备格和强制触发社区事件不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/engines/default/engine/dialogs/microtxn/MTXMain.lua:55-70 内购欢迎词末段 “I must say feel dirty doing microtransactions even as benign as those” 只称这些内购无伤大雅；现译“即使上面这些选项都不影响游戏内容”新增“不影响游戏内容”的断言，与同段所列额外共享装备格、强制触发全服社区事件（均影响游戏）相矛盾。contextual 判 OK，宿主以原文与同条列表为准确认。本轮改动只涉及时装一行，此句为旧译。修复：改为“即使是上面这些无伤大雅的内购也不例外”一类表述，其余不变。"
+    },
+    {
+      "revision_key": "0090a2e8672e93060276814c3052d003ade90bd38529329a54c65f6472f2ee83",
+      "stage": "contextual",
+      "observation": "Newline invariant broken: the source (world-artifacts.lua:5528-5530, commit 624a6732) has a blank line (\\n\\n) between \"...for a stolen sword.\" and \"His last known words were...\", but the target joins 「…复仇。他留下的最后遗言是…」 directly with no newline, so the paragraph break is lost.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "contextual 指出同一换行缺失；固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5528-5530 望远镜（Kestin Highfin）desc 在 “...for a stolen sword.” 与 “His last known words were ...” 之间有空行（\\n\\n），现译“……要为被他偷走的一把剑复仇。他留下的最后遗言是……”把两段直接相连，丢失段落分隔；换行不变量可对固定源码客观判定，旧译即如此，非本轮改动引入。确认，修复同 surface 裁决。"
+    },
+    {
+      "revision_key": "0a4c89e965bb89255f390021ec6ea94917118dcac9a4ed1e0a0a2314ba33a7b9",
+      "stage": "contextual",
+      "observation": "Fidelity: in the source (warrior.lua:116) the second half reads \"rarely leaving the cover of her many protective techniques\", meaning the Bulwark seldom leaves the cover of her many protective techniques. The target 「并拥有极高的防御技能」 drops \"rarely leaving the cover\" and changes \"many techniques\" into \"extremely high defensive skill\", so the meaning has drifted. Suggest something closer to 「很少离开其诸多防护技巧的庇护」.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "contextual 指出同一失义；固定 commit 624a673 game/modules/tome/data/birth/classes/warrior.lua:116 盾战士（Bulwark）简介 “specializes in weapon and shield combat, rarely leaving the cover of her many protective techniques” 后半句说她很少离开其诸多防护技巧的庇护；现译“并拥有极高的防御技能”丢掉“rarely leaving the cover”这一行为描述，并把“many techniques”改成程度判断“极高”，属失义。确认，修复同 surface 裁决。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes: surface main game/engine/boot 80 in 20/20/20/20)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000; 3 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), 4 children (main game/engine/boot 20x4); 77 OK / 3 ISSUE; every child only read its own envelope and the contract (4 exec calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 3 deep entries, accepted on the first pass (1 OK / 2 ISSUE).",
+    "Re-review batch: all 80 entries are successors queued by migration 22b293c4; 833 remain queued after this batch.",
+    "Host confirmed the microtransaction welcome-text observation that contextual judged OK: 'even as benign as those' became a claim that the options do not affect game content, contradicted by the vault slots and server-wide events listed in the same text.",
+    "80 pinned entries (63 main game, 4 engine, 13 boot) were verified against the manifest-pinned commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file.",
+    "3 confirmed repair revisions raise the window 64 backlog from 0 to 3; below the 20 threshold, so no window opens."
+  ]
+}
