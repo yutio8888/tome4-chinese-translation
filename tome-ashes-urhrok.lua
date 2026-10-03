@@ -829,7 +829,7 @@ t([[Whenever you are on an unlit grid you can meld with the shadows, gaining %d 
 		移动会取消该效果。
 		潜行强度受法术强度加成。]], "tformat")
 t("Blood Shield", "鲜血护盾", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器一个盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
 t([[By channeling doom forces in your shield you constantly apply 15%% of its block value as a flat damage reduction against all damage.
 		Whenever you are hit in melee your shield retaliates automatically for %d%% of its block value as fire and darkness damage.]], [[在盾牌中引导毁灭之力，使你受到的全体伤害减少 15%% 格挡值。
 		每次你被近战攻击命中时，你的盾牌会自动反击，造成 %d%% 格挡值的火焰暗影混合伤害。]], "tformat")
@@ -978,7 +978,7 @@ t("#CRIMSON#You extract a %s and add it to your inventory.", "#CRIMSON#你提取
 t("#CRIMSON#You extract a %s and bind it to your %s.", "#CRIMSON#你提取了一个%s并将其附着于你的%s。", "logPlayer")
 t("#CRIMSON#You feed vim into your %s, increasing its level to %d and healing it.", "#CRIMSON#你将活力注入你的 %s，将其等级提升到 %d，并治疗了它。", "logPlayer")
 t("Demon Seed", "恶魔之种", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器一个盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
 t([[Strike a blow with your weapon for %d%% blight damage.
 		If the attack hits a demonic seed tries to take hold inside your foe and you follow up with a shield strike dealing %d%% damage and dazing your target for %d turns.
 		
@@ -1116,7 +1116,7 @@ t([[When Dread End creates pools of darkness you can focus your raging thoughts 
 section "tome-ashes-urhrok/data/talents/corruptions/doom-shield.lua"
 
 t("Osmosis Shield", "渗透护盾", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器一个盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
 t("#SLATE#(%d turned into osmosis)#LAST#", "#SLATE#(%d 转化为渗透)#LAST#", "tformat")
 t([[You infuse your shield with the energies of Urh'Rok, bringing about a magical shield that heals you for the first points of all damage you receive (based on your shield's block value) over 3 turns. This effect stacks.
 		Amount is 5 + %d%% of your shield block value (currently %d).
@@ -1217,7 +1217,7 @@ t([[Using demonic forces you create a link of pain from a source creature to a v
 		每次源生物受到伤害时，受害者也会受到该伤害的 %d%%。
 		当受害者因此效果死亡时，你将获得能量，减少所有技能冷却时间 1 回合。]], "tformat")
 t("Demon Horns", "恶魔之角", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器一个盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
 t("%s resists the shield bash!", "%s抵抗了盾牌猛击！", "logSeen")
 t([[Demon horns temporarily grow on your shield as you bash a foe with it for %d%% damage.
 		If the attack hits the creature is impaled by the horns, causing it to bleed black blood for 50%% of the damage done as darkness over 5 turns.

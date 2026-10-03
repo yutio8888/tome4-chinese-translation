@@ -24123,7 +24123,7 @@ t([[When you focus your attacks on a single foe and strike them in melee for two
 		Bonus level 1: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
 		Bonus level 2: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
 		Bonus level 3: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit
-		The accuracy bonus improves with your Willpower, and the melee damage bonus with your Strength.]], [[当你连续两回合以近战攻击命中同一个目标时，你将憎恨目标并追踪目标，效果持续 %d 回合或直到目标死亡。
+		The accuracy bonus improves with your Willpower, and the melee damage bonus with your Strength.]], [[当你连续两回合以近战攻击命中同一个目标时，你会被对它的憎恨吞没，开始一心追踪它，效果持续 %d 回合或直到目标死亡。
 		追踪的命中和近战伤害增益仅对该猎物生效。你每回合命中猎物都会使增益提升 1 层；未命中猎物的每回合，增益降低 1 层。
 		1 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
 		2 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。
@@ -24170,13 +24170,13 @@ t([[Instill fear in your foes within %d radius of a target location dealing %0.2
 		恐惧效果受精神强度加成。
 
 		可能的恐惧效果如下所示：
-		#ORANGE#妄想症：#LAST# 目标有 %d%% 几率使用物理攻击附近的生物，不管它是敌对还是友方生物。如果击中了目标，目标也会感染妄想症。
+		#ORANGE#妄想症：#LAST# 目标有 %d%% 几率使用物理攻击附近的生物，不管它是敌对还是友方生物。如果攻击命中，被攻击者也会陷入妄想症。
 		#ORANGE#绝望：#LAST# 精神伤害抗性，精神豁免，护甲值和闪避各降低 %d。
 		#ORANGE#惊惧：#LAST# 每回合受到 %0.2f 精神和 %0.2f 暗影伤害，技能冷却时间增加 %d%%。
 		#ORANGE#恶灵缠身：#LAST# 目标每有一个负面精神效果，则每回合受到 %0.2f 精神和 %0.2f 暗影伤害。]], "tformat")
 t("Heighten Fear", "恐惧加深", "talent name")
 t([[Heighten the fears of those near to you. Any foe you attempt to inflict a fear upon and who remains in a radius of %d and in sight of you for %d (non-consecutive) turns, will take %0.2f mind and %0.2f darkness damage and gain a new fear that lasts for %d turns.
-			This effect completely ignores fear resistance, but can be saved against.]], [[加深你周围敌人的恐惧。所有你试图施加恐惧的目标若停留在你视野内，并且和你距离不超过 %d， 这样累计达到 %d 回合时，受到 %0.2f 精神和 %0.2f 暗影伤害，并获得一个新的持续 %d 回合的恐惧效果。
+			This effect completely ignores fear resistance, but can be saved against.]], [[加深你周围敌人的恐惧。所有你试图施加恐惧的目标若停留在你视野内，并且和你距离不超过 %d， 累计（不必连续）达到 %d 回合时，就会受到 %0.2f 精神和 %0.2f 暗影伤害，并获得一个新的持续 %d 回合的恐惧效果。
 			这一效果无视恐惧抗性，但可以被豁免。]], "tformat")
 t("Tyrant", "精神专制", "talent name")
 t([[Impose your tyranny on the minds of those who fear you. When a foe gains a new fear, you have a %d%% chance to increase the duration of their heightened fear and one random existing fear effect by %d turns, to a maximum of 8 turns.
@@ -24199,7 +24199,7 @@ t("%s was blasted back %d spaces!", "%s被击退%d格！", "logSeen")
 t([[Focusing your hate, you strike your foe with unseen force for %d damage and %d knockback.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
 		Damage increases with your Mindpower.]], [[专注你的仇恨，你用无形的力量打击敌人造成 %d 点伤害和 %d 码击退效果。
-		此外，你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前： %d%%）
+		此外，你灌注力量的能力使你的所有暴击伤害提高 %d%%。 （当前： %d%%）
 		伤害受精神强度加成。]], "tformat")
 t("Deflection", "念力折射", "talent name")
 t("Deflection (%d)", "念力折射 (%d)", "tformat")
@@ -24207,7 +24207,7 @@ t("You have deflected %d incoming damage!", "你偏转了%d所受伤害！", "lo
 t([[Create a barrier that siphons hate from you at the rate of 0.2 a turn. The barrier will deflect 50%% of incoming damage with the force of your will, up to %d damage. The barrier charges at a rate of 1/%d of its maximum charge per turn.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
 		The maximum damage deflected increases with your Mindpower.]], [[用你的意志力折射 50%% 的伤害。你可以折射最多 %d 点伤害，护盾值每回合回复最大值的 1/%d （技能激活时-0.2仇恨值回复）。
-		你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前： %d%%）
+		你灌注力量的能力使你的所有暴击伤害提高 %d%%。 （当前： %d%%）
 		最大伤害折射值受精神强度加成。]], "tformat")
 t("Blast", "怒火爆炸", "talent name")
 t([[You rage coalesces at a single point, and then explodes outward, blasting enemies within a radius of %d in all directions. The blast causes %d damage and %d knockback at the center, that decreases with distance. Anyone caught in the explosion will also be dazed for 3 turns.
@@ -24219,14 +24219,14 @@ t("Unseen Force", "无形之力", "talent name")
 t([[Your fury becomes an unseen force that randomly lashes out at foes around you. For %d turns you strike %d (%d%% chance for %d) nearby target(s) within range %d doing %d damage and %d knockback. The number of extra strikes increases at higher talent levels.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
 		Damage increases with your Mindpower.]], [[你的愤怒变成一股无形之力，猛烈鞭笞你附近的随机敌人。在 %d 回合内，你将攻击 %d （%d%% 概率攻击 %d） 个半径 %d 以内的敌人，造成 %d 点伤害并击退 %d 码。额外攻击的数目随技能等级增长。
-		你灌注力量的能力使你增加 %d%% 所有暴击伤害。（当前： %d%%）
+		你灌注力量的能力使你的所有暴击伤害提高 %d%%。 （当前： %d%%）
 		伤害受精神强度加成。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/gestures.lua"
 
 t("Gesture of Pain", "痛苦手势", "talent name")
-t("You require two free or mindstar-equipped hands to use Gesture of Pain.", "你需要两只手都可用于手势（每只手须为空手或装备灵晶），才能使用痛苦手势。", "logPlayer")
+t("You require two free or mindstar-equipped hands to use Gesture of Pain.", "你需要双手均为空手或装备灵晶，才能使用痛苦手势。", "logPlayer")
 t("%s resists the Gesture of Pain.", "%s抵抗了痛苦手势。", "logSeen")
 t("#F53CBE#You revel in attacking a weakened foe! (+%d hate)", "#F53CBE#你沉醉于攻击一个虚弱的敌人！（+%d 仇恨）", "logPlayer")
 t([[Use a gesture of pain in place of a normal attack to assault the minds of your enemies, inflicting between %0.1f and %0.1f mind damage. If the attack succeeds, there is a %d%% chance to stun your opponent for 3 turns.
@@ -24245,7 +24245,7 @@ t([[Enhance your Gesture of Pain with a malicious curse that causes any victim t
 t("Gesture of Power", "力量手势", "talent name")
 t([[Enhance your mental attacks with a single gesture. You gain +%d mindpower and +%d%% chance to inflict critical damage with mind-based attacks (current chance is %d%%).
 		Requires two free or mindstar-equipped hands; does not require Gesture of Pain to be sustained.]], [[以一个手势强化你的精神攻击。你的精神强度提高 %d 点，精神类攻击的暴击几率提高 %d%% （当前为 %d%%）。
-		要求两只手都可用于手势（每只手须为空手或装备灵晶）；无需维持痛苦手势。]], "tformat")
+		要求两只手均为空手或装备灵晶；无需维持痛苦手势。]], "tformat")
 t("Gesture of Guarding", "守护手势", "talent name")
 t("#F53CBE##Source# lashes back at #Target#!", "#F53CBE##Source#反击#Target#！", "logCombat")
 t([[You guard against melee damage with a sweep of your hand. So long as you can use Gestures (Requires two free or mindstar-equipped hands), you deflect up to %d damage (%0.1f%% of your best free hand melee damage) from up to %0.1f melee attack(s) each turn (based on your cunning). Deflected attacks cannot be crits.
@@ -24256,7 +24256,7 @@ t([[You guard against melee damage with a sweep of your hand. So long as you can
 section "mod-tome/data/talents/cursed/gloom.lua"
 
 t("Gloom", "黑暗光环", "talent name")
-t("#F53CBE#Your heart hardens as a powerful foe enters your gloom! (+%d hate)", "#F53CBE#当一个强力的敌人进入黑暗光环你的内心变得更加冷酷！（+%d 仇恨）", "logPlayer")
+t("#F53CBE#Your heart hardens as a powerful foe enters your gloom! (+%d hate)", "#F53CBE#当一个强力的敌人进入黑暗光环时，你的内心变得更加冷酷！（+%d 仇恨）", "logPlayer")
 t([[A terrible gloom surrounds you, affecting all those who approach to within radius 3. At the end of each game turn, those caught in your gloom must save against your Mindpower, or have a %d%% chance to suffer from slowness (30%%), stun or confusion (30%%) for %d turns.
 		The chance increases with your mind speed.
 		This ability is innate, and carries no cost to activate or deactivate.
@@ -24267,7 +24267,7 @@ t([[A terrible gloom surrounds you, affecting all those who approach to within r
 t("Weakness", "黑暗衰竭", "talent name")
 t([[Each turn, those caught in your gloom must save against your Mindpower, or have a %d%% chance to be crippled by fear for %d turns, reducing damage they inflict by %d%%. The first time you melee strike a foe after they have been weakened will give you %d hate.
 		The chance increases with your mind speed.
-		Each point in Gloom talents increases your Mindpower (current total: %d).]], [[在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %d%% 概率被恐惧而虚弱持续 %d 回合，降低 %d%% 伤害，你对被削弱目标的首次近战攻击能获得 %d 点仇恨值。
+		Each point in Gloom talents increases your Mindpower (current total: %d).]], [[在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %d%% 概率因恐惧而虚弱，持续 %d 回合，造成的伤害降低 %d%%。 你对被削弱目标的首次近战攻击能获得 %d 点仇恨值。
 		几率受精神速度影响。
 		黑暗光环系技能每投入 1 点，都会提高你的精神强度（当前总计： %d）。]], "tformat")
 t("Mindrot", "思维腐蚀", "talent name")
@@ -24289,7 +24289,7 @@ section "mod-tome/data/talents/cursed/one-with-shadows.lua"
 t("Shadow Senses", "阴影感知", "talent name")
 t([[Your awareness extends to your shadows.
 		You always know exactly where your shadows are and can perceive any foe within %d tiles of their vision.]], [[你的意识延伸到阴影上。
-		你能清晰的感知到阴影的位置，同时还能感知到阴影视野 %d 码范围内的敌人。]], "tformat")
+		你能清晰地感知到阴影的位置，同时还能感知到阴影视野 %d 码范围内的敌人。]], "tformat")
 t("Shadows Empathy", "阴影链接", "talent name")
 t([[You empathy with your shadows causes the line between you and your shadows to blur.
 		You lose %d%% light resistance, but gain %d%% darkness resistance and affinity. You also gain %0.2f%% all resistance for each shadow in your party.]], [[你与阴影之间的共鸣，使彼此的界限逐渐模糊。
@@ -24308,7 +24308,7 @@ t([[Your shadows guard you with their lives.
 		For the next 4 turns you only die if you reach -%d life.
 		Effect increases with Mindpower.]], [[你的阴影用生命来守护你。
 		当你受到致命攻击时，你将立刻和随机一个阴影换位，让它代替承受攻击，并将此技能打入冷却。
-		在接下来的 4 个回合，除非你的生命降至 -%d 下，否则你不会死去。
+		在接下来的 4 个回合，除非你的生命降至 -%d 以下，否则你不会死去。
 		效果受精神强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -24330,14 +24330,14 @@ t([[While shrouded in cursed miasma you gain stealth (%d power) and %d physical 
 		The stealth power and physical power will increase with your mindpower.]], [[当你被包裹在诅咒瘴气中时，你获得潜行 (%d 强度)，并获得 %d 物理强度。
 		潜行强度和物理强度受精神强度加成。]], "tformat")
 t("Mark Prey", "猎杀标记", "talent name")
-t("Focus your predation on the most worthy prey. Upon entering a level for the first time, up to %d foes are marked as your prey. You gain vision of them, wherever they are. Additionally, all damage you receive from their subtype is reduced by %d%%.", "将你的猎杀欲望集中在最重要的猎物身上。当你第一次走入某张地图，你会将最多 %d 个敌人标记成你的猎物。无论它们在哪里，你可以获得它们的视野。此外，对于所有它们所属的子分类的敌人，你从它们那里受到的伤害降低 %d%%。", "tformat")
+t("Focus your predation on the most worthy prey. Upon entering a level for the first time, up to %d foes are marked as your prey. You gain vision of them, wherever they are. Additionally, all damage you receive from their subtype is reduced by %d%%.", "将你的猎杀欲望集中在最重要的猎物身上。当你第一次走入某张地图，你会将最多 %d 个敌人标记成你的猎物。无论它们在哪里，你都能获得它们的视野。此外，所有与它们同属一个子分类的敌人对你造成的伤害降低 %d%%。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/primal-magic.lua"
 
 t("Arcane Bolts", "奥术飞弹", "talent name")
 t([[Each turn for 4 turns you fire a bolt of arcane energy at your nearest enemy inflicting %d damage.
-		The damage will increase with the Magic stat.]], [[连续4个回合向你最近目标发射奥术能量弹，造成 %d 伤害。
+		The damage will increase with the Magic stat.]], [[连续4个回合向离你最近的目标发射奥术能量弹，造成 %d 伤害。
 		伤害受魔力值加成。]], "tformat")
 t("Displace", "位移", "talent name")
 t("Selects a displacement location...", "选择位移目的地…", "logPlayer")
@@ -24374,12 +24374,12 @@ The damage increases with your Mindpower.]], [[用恶毒私语感染目标心智
 t("Agony", "极度痛苦", "talent name")
 t([[Sear your hatred into the mind of a target, dealing escalating Mind damage each turn over %d turns. The victim will suffer %0.1f damage on the first turn, slowly increasing up to %0.1f damage on the last, dealing %d Mind damage in total. Re-applying the effect resets the damage escalation. The victim has a 25%% chance of suffering Brainlock each turn from the unbearable pain.
 
-The damage increases with your Mindpower.]], [[将你的憎恨灼入目标的心智，在 %d 回合内每回合造成不断升级的精神伤害。第一回合会造成 %0.1f 点精神伤害并在最后 1 回合增加至 %0.1f 点，总计 %d 点精神伤害。重复施加这一效果会把伤害值重置为初始伤害值。
+The damage increases with your Mindpower.]], [[将你的憎恨灼入目标的心智，在 %d 回合内每回合造成不断升级的精神伤害。第一回合会造成 %0.1f 点精神伤害并在最后 1 回合增加至 %0.1f 点，总计 %d 点精神伤害。重复施加这一效果会把伤害重置为初始值。
 被影响的敌人每回合有 25%% 概率附加思维封锁效果。
 
 伤害受精神强度加成。]], "tformat")
 t("Madness", "疯狂", "talent name")
-t("Your hateful will splinters into the minds of those you torture, breaking them down. Each time you inflict Mind damage, the victim has a %0.1f%% chance of going mad for 3 turns unless they save against your Mindpower. The madness will lower the victim's Mind resistance by %0.1f%% and cause them to become confused (50%% power), slowed (30%% power), or stunned for the duration.", "你的仇恨会撕裂那些被你折磨的敌人的思想，使他们崩溃。每次你造成精神伤害时，被伤害的对象有 %0.1f%% 概率必须用精神豁免抵消你的精神强度，否则会疯狂3回合。疯狂会使它们降低 %0.1f%% 对精神伤害的抵抗，并被混乱（50%%强度），减速（30%%强度）或震慑。", "tformat")
+t("Your hateful will splinters into the minds of those you torture, breaking them down. Each time you inflict Mind damage, the victim has a %0.1f%% chance of going mad for 3 turns unless they save against your Mindpower. The madness will lower the victim's Mind resistance by %0.1f%% and cause them to become confused (50%% power), slowed (30%% power), or stunned for the duration.", "你的仇恨会撕裂那些被你折磨的敌人的思想，使他们崩溃。每次你造成精神伤害时，被伤害的对象有 %0.1f%% 概率必须以精神豁免对抗你的精神强度，否则会疯狂 3 回合。疯狂会使它们对精神伤害的抵抗降低 %0.1f%%， 并在此期间陷入混乱（50%%强度）、减速（30%%强度）或震慑。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/rampage.lua"
@@ -24406,14 +24406,14 @@ t([[Nothing will stop your rampage.
 		Rampage Bonus: You shrug off up to %d damage each turn during your rampage. If you shrug off more than %d damage, the rampage duration increases by 1.
 		The amount of damage you can shrug off improves with your Strength.]], [[你的暴走变得势不可挡。
 		暴走加成：暴走状态下每回合你最多可以无视 %d 伤害，当你无视超过 %d 伤害时，暴走效果延长 1 回合。
-		受力量加成，你无视的伤害有额外加成。]], "tformat")
+		可无视的伤害量受力量加成。]], "tformat")
 t("Slam", "猛力抨击", "talent name")
 t("You must be rampaging to use this talant.", "只有在暴走状态下才能使用这个技能。", "logPlayer")
 t("#F53CBE#%s slams %s!", "#F53CBE#%s 猛击了 %s！", "logSeen")
 t("#F53CBE#%s resists the stunning blow!", "#F53CBE#%s抵抗了震慑一击！", "logSeen")
 t("#F53CBE#Your rampage is invigorated by the collosal slam! (+1 duration)", "#F53CBE#巨力猛击激发了你的暴走！（+1 持续时间）", "logPlayer")
 t([[While rampaging, you slam up to %d adjacent opponents, stunning them for %d turns and damaging them for between %d and %d physical damage. Your first slam of at least two opponents increases the rampage duration by 1.
-		Damage increases with your Physical Power.]], [[暴走状态中，你可以攻击到最多 %d 个邻近目标，震慑他们 %d 回合，并造成 %d ～ %d 物理伤害，首次同时对两个以上目标造成的攻击可以延长暴走效果 1 回合。
+		Damage increases with your Physical Power.]], [[暴走状态中，你可以攻击到最多 %d 个邻近目标，震慑他们 %d 回合，并造成 %d ～ %d 物理伤害。首次同时攻击至少两个目标时，暴走效果延长 1 回合。
 		伤害受物理强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -24440,7 +24440,7 @@ This bonus cooldown occurs even if your talents would not normally cool down.
 This talent deactivates automatically upon rest.
 This strength comes at a cost: you lose %d%% of your maximum life every turn.  This can kill you.
 
-#{italic}#If you're lucky, this will take everything you've got.#{normal}#]], [[唤起你保留在最深处的力量，以不顾一切代价取胜。
+#{italic}#If you're lucky, this will take everything you've got.#{normal}#]], [[唤起你保留在最深处的力量，不惜一切代价取胜。
 使用这一技能的瞬间，和之后这一技能持续开启的每一回合，你的负面效果持续时间和技能冷却时间都会额外减少一回合。
 即使你的技能冷却时间本来不会降低，这一效果也可以降低其冷却时间。
 这一技能在休息时自动关闭。
@@ -24490,7 +24490,7 @@ t([[While this ability is active, you will continually call up to %d level %d sh
 		阴影是脆弱的战士，它们能够：使用奥术重组治疗自己（等级 %d）， 使用闪电突袭攻击敌人（等级 %d）， 使用相位之门进行传送。
 		阴影无视主人对它们造成的 %d%% 伤害。]], "tformat")
 t("Shadow Warriors", "阴影战士", "talent name")
-t("Instill hate in your shadows, strengthening their attacks. They gain %d%% extra Accuracy and %d%% extra damage. The fury of their attacks gives them the ability to try to Dominate their foes, increasing all damage taken by that foe for 4 turns (level %d, %d%% chance at range 1). They also gain the ability to Fade when hit, avoiding all damage until their next turn (%d turn cooldown).", [[将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。他们疯狂的攻击可以令他们支配对手，提高被支配目标所受到的所有伤害 4 回合（等级 %d，%d%% 几率 1 码范围）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。]], "tformat")
+t("Instill hate in your shadows, strengthening their attacks. They gain %d%% extra Accuracy and %d%% extra damage. The fury of their attacks gives them the ability to try to Dominate their foes, increasing all damage taken by that foe for 4 turns (level %d, %d%% chance at range 1). They also gain the ability to Fade when hit, avoiding all damage until their next turn (%d turn cooldown).", [[将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。他们疯狂的攻击让他们能够尝试支配对手，被支配目标受到的所有伤害提高，持续 4 回合（等级 %d，%d%% 几率 1 码范围）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。]], "tformat")
 t("Shadow Mages", "阴影法师", "talent name")
 t([[Infuse magic into your shadows to give them fearsome spells. Your shadows receive a bonus of %d to their Spellpower.
 		Your shadows can strike adjacent foes with Lightning (level %d, %d%% chance at range 1).
@@ -24498,7 +24498,7 @@ t([[Infuse magic into your shadows to give them fearsome spells. Your shadows re
 		At level 5 when your shadows are struck down they will attempt to Reform, becoming whole again (50%% chance).]], [[灌输魔力给你的阴影使它们学会可怕的法术。你的阴影获得 %d 点法术强度加成。
 		你的阴影可以用闪电术攻击附近的目标（等级 %d，%d%% 几率 1 码范围）。
 		等级 3 时你的阴影可以远距离使用暗影之火灼烧你的敌人（等级 %d，%d%% 几率 2 到 6 码范围）。
-		等级 5 时你的阴影在被击倒时有一定几率重组并重新加入战斗（50%% 几率）。]], "tformat")
+		等级 5 时你的阴影在被击倒时有 50%% 几率重组并重新加入战斗。]], "tformat")
 t("Focus Shadows", "聚集阴影", "talent name")
 t("#PINK#The shadows converge on #Target#!", "#PINK#阴影向 #Target# 集中！", "logCombat")
 t("There are no shadows to heed the call!", "没有阴影可以召唤！", "logPlayer")
@@ -24519,7 +24519,7 @@ t([[You slash wildly at your target for %d%% (at 0 Hate) to %d%% (at 100+ Hate) 
 		At level 3, any wound you inflict with this carries a part of your curse, reducing the effectiveness of healing by %d%% for %d turns. The effect will stack.
 		The damage multiplier increases with your Strength.
 
-		This talent will also attack with your shield, if you have one equipped.]], [[野蛮的削砍你的目标造成 %d%% （0仇恨）至 %d%% （100+仇恨）伤害。
+		This talent will also attack with your shield, if you have one equipped.]], [[野蛮地削砍你的目标，造成 %d%% （0仇恨）至 %d%% （100+仇恨）伤害。
 		等级 3 时攻击附带诅咒，降低目标治疗效果 %d%% 持续 %d 回合，效果可叠加。
 		伤害比例受力量值加成。
 
@@ -24573,8 +24573,8 @@ t([[Your preternatural senses aid you in your hunt for the next victim. You sens
 t("Blindside", "闪电突袭", "talent name")
 t("The blindside fizzles!", "闪电突袭失败了！", "logSeen")
 t([[With blinding speed, you suddenly appear next to a target up to %d spaces away and attack for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage. Your sudden appearance catches everyone off-guard, giving you %d extra Defense for 1 turn.
-		The Defense boost improves with your Strength.]], [[你闪电般的出现在 %d 码范围内的敌人身边，造成 %d%% （0仇恨）～ %d%% （100+仇恨）的伤害。
-		你闪电般的突袭使敌人没有提防，增加 %d 点额外闪避，持续 1 回合。
+		The Defense boost improves with your Strength.]], [[你闪电般地出现在 %d 码范围内的敌人身边，造成 %d%% （0仇恨）～ %d%% （100+仇恨）的伤害。
+		你闪电般的突袭让敌人猝不及防，使你获得 %d 点额外闪避，持续 1 回合。
 		闪避值受力量值加成。]], "tformat")
 t("Repel", "无所畏惧", "talent name")
 t([[Rather than hide from the onslaught, you face down every threat. While active you have a %d%% chance of repelling a melee attack. The recklessness of your defense brings you bad luck (Luck -3).
@@ -24593,7 +24593,7 @@ t("Your travels have hardened you. You gain +%d armor.", "你的经历使你的�
 t("Wary", "谨慎", "talent name")
 t("You have become wary of danger in your journeys. You have a %d%% chance of not triggering traps.", "你的行动变得更加谨慎，有 %d%% 几率不会触发陷阱。", "tformat")
 t("Weathered", "风化", "talent name")
-t("You have become weathered by the elements. Your Cold and Fire resistance is increased by %d%%", "你更适应元素攻击，增加你火焰和寒冷抗性 %d%%。", "tformat")
+t("You have become weathered by the elements. Your Cold and Fire resistance is increased by %d%%", "你更适应元素攻击，你的火焰和寒冷抗性提高 %d%%。", "tformat")
 t("Savvy", "领悟", "talent name")
 t("You have become a keen observer in your travels. Each kill gives you %d%% more experience.", "你在旅途中逐渐成长为一个敏锐的观察者，杀死敌人获得 %d%% 更多经验值。", "tformat")
 
@@ -24637,7 +24637,7 @@ t([[Drain %d mana, %d vim, %d positive and negative energies from your target, t
 		The damage done is equal to 100%% of the mana drained, 200%% of the vim drained, or 400%% of the positive or negative energy drained, whichever is higher. This effect is called a manaburn.
 		The effect will increase with your Mindpower or Physical power (whichever is greater).
 		%s]], [[从目标身上吸收 %d 点法力， %d 点活力， %d 点正负能量，并触发一次链式反应，引发一次奥术对撞。
-		奥术对撞造成相当于 100%% 吸收的法力值或 200%% 吸收的活力值或 400%% 吸收的正负能量的伤害，按最高值计算（称为法力燃烧）。
+		奥术对撞的伤害取以下最高值：吸收法力值的 100%%、吸收活力值的 200%% 或吸收正负能量的 400%%（称为法力燃烧）。
 		效果受精神或物理强度较高者加成。
 		%s]], "tformat")
 t("Antimagic Adept", "反魔专家", "talent name")
@@ -24801,8 +24801,8 @@ t("Stone Fortress", "岩石壁垒", "talent name")
 t([[When you use your Resilience of the Dwarves racial power your skin becomes so tough that it even absorbs damage from non-physical attacks.
 		Non-physical damage is reduced by %d%% of your total armour value (ignoring hardiness).
 		While this effect is not active, half of it is still applied against foes entangled by your stone vines.]], [[当你使用钢筋铁骨时，你的皮肤会变得非常坚硬，甚至能吸收非物理攻击。
-		所有非物理伤害减免 %d%% 护甲值（无视护甲强度）。
-		钢筋铁骨没有启用的时候，被你岩石藤蔓缠绕的敌人对你的攻击也会获得一半的伤害减免效果。]], "tformat")
+		非物理伤害减免值为你护甲总值的 %d%% （无视护甲强度）。
+		钢筋铁骨未启用时，此效果对被你的岩石藤蔓缠绕的敌人仍以一半生效。]], "tformat")
 t("Shards", "岩石碎片", "talent name")
 t([[Sharp shards of stone grow from your shields.
 		When you are hit in melee, you will get a free attack against the attacker with the shards doing %d%% shield damage (as Nature).
@@ -24914,7 +24914,7 @@ t([[Spit a cloud of flames, doing %0.2f fire damage in a radius of %d each turn 
 		The flames will ignore the caster, and will drain 10%% of the damage dealt as the flames consume enemies life force and transfer it to the user.
 		The damage will increase with your Mindpower, and can critical.
 		Each point in fire drake talents also increases your fire resistance by 1%%.]], [[你喷出一片火焰，范围内的目标每回合会受到 %0.2f 火焰伤害（影响半径 %d）， 持续 %d 回合。
-		火焰会无视使用者，并吸收 10%% 伤害治疗自身。
+		火焰不会伤害使用者，并会吸取所造成伤害的 10%% 来治疗你。
 		伤害受精神强度加成。技能可暴击。
 		每点火龙系的技能可以使你增加火焰抗性 1%%。]], "tformat")
 t("Fire Breath", "火焰吐息", "talent name")
@@ -25006,7 +25006,7 @@ t("You channel acid through your psiblades.", "你向心灵利刃里灌注酸性
 t("eyal's fury", "埃亚尔之怒", "talent type")
 t("Unleash nature's fury against foes around you.", "向你周围的敌人释放自然的愤怒。", "_t")
 t("earthen power", "大地力量", "talent type")
-t("Dwarves have learned to imbue their shields with the power of stone itself.", "矮人学会将岩石力量赋予给盾牌。", "_t")
+t("Dwarves have learned to imbue their shields with the power of stone itself.", "矮人学会将岩石之力赋予盾牌。", "_t")
 t("earthen vines", "岩石藤蔓", "talent type")
 t("Control the stone itself and bring it alive in the form of dreadful vines.", "掌握岩石并赋予其生命，形成恐怖的藤蔓。", "_t")
 t("dwarven nature", "矮人之自然力量", "talent type")
@@ -25082,7 +25082,7 @@ t([[You have gained the full power of the various drakes throughout the world, a
 		Learning this talent will add a Willpower bonus to your breath talent damage with the same scaling as Strength, effectively doubling it when the stats are equal.]], [[你获得了世界中数不清的龙的力量传承，你对物理、火焰、寒冷、闪电、酸性、自然、枯萎和暗影属性伤害的抵抗力和适应力增强了。
 		你对这些属性的抗性提升 %0.1f%%， 使用这些属性的时候伤害提升 %0.1f%%， 获得 %0.1f%% 伤害穿透。
 
-		学习此技能后，你的龙息技能伤害将在原来受力量属性加成的基础上，额外受到意志属性加成，加成比例相等。举例而言，如果你的意志值和力量值相等，你的龙息技能伤害，将达到学习此技能前的两倍。]], "tformat")
+		学习此技能后，你的龙息技能伤害将在原来受力量属性加成的基础上，额外受到意志属性加成，加成比例相等。意志与力量相等时，龙息技能伤害相当于翻倍。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/gifts/malleable-body.lua"
@@ -25100,13 +25100,13 @@ t([[Your body is more like that of an ooze, you can split into two for %d turns.
 		抗性受精神强度加成。]], "tformat")
 t([[Improve your fungus to allow it to take a part of any healing you receive and improve it.
 		Each time you are healed you get a regeneration effect for 6 turns that heals you of %d%% of the direct heal you received.
-		The effect will increase with your Mindpower.]], [[强化你的孢子使其能够参与到你的治疗作用中。
+		The effect will increase with your Mindpower.]], [[强化你的孢子，使其能分取你受到的治疗并加以强化。
 		每当你受到治疗时，你会得到一个持续6回合的回复效果，回复值为你所受治疗值的 %d%%。
 		效果受精神强度加成。]], "tformat")
 t([[Both of you swap place in an instant, creatures attacking one will target the other.
 		While swaping you briefly merge together, boosting all your nature and acid damage by %d%% for 6 turns and healing you for %d.
 		Damage and healing increase with Mindpower.]], [[你和分裂体相互交换位置，误导敌人，使敌人的目标锁定为另一个分身。
-		当你和分裂体交换位置时，双方进行了短暂的融合。增加 %d%% 自然和酸性伤害，持续6回合，同时治疗你 %d 点生命值。
+		当你和分裂体交换位置时，双方会短暂融合，使你的自然和酸性伤害增加 %d%%， 持续6回合，同时治疗你 %d 点生命值。
 		伤害和治疗量受精神强度加成。]], "tformat")
 t("Indiscernible Anatomyblabla", "难以辨认的解剖结构", "talent name")
 t([[Your body's internal organs are melted together, making it much harder to suffer critical hits.
@@ -25149,7 +25149,7 @@ t("Nature's Equilibrium", "自然均衡", "talent name")
 t([[You hit a foe with your mainhand psiblade doing %d%% weapon damage, channeling all the damage done through your offhand psiblade with which you touch a friendly creature to heal it.
 		The maximum heal possible is %d. Equilibrium of the healed target will also decrease by 10%% of the heal power.
 		Max heal will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %2.f).]], [[你用主手心灵利刃攻击敌人造成 %d%% 武器伤害，用副手心灵利刃传导敌人所受的伤害能量来治疗友方单位。
-		治疗最大值为 %d。 受到治疗效果的目标失衡值会降低治疗量的 10%%。
+		治疗最大值为 %d。 被治疗目标的失衡值也会降低，降幅为治疗量的 10%%。
 		最大治疗值受精神强度和灵晶强度加成（需要 2 只灵晶，加成比例 %2.f）。]], "tformat")
 
 ------------------------------------------------
@@ -25199,7 +25199,7 @@ t([[Instantly grow a moss circle of radius %d at your feet.
 		Moss talents are instant but place all other moss talents on cooldown for 3 turns.
 		The damage will increase with your Mindpower.]], [[在你的脚下，半径 %d 的范围内生长出苔藓。
 		每回合苔藓对半径内的敌人会造成 %0.2f 点自然伤害。
-		这种苔藓上沾满了奇怪的液体，有 %d%% 概率让对方混乱 （%d%% 强度）2 个回合。
+		这种苔藓上沾满了奇怪的液体，有 %d%% 概率使经过的敌人混乱 2 个回合（混乱强度 %d%%）。
 		苔藓持续 %d 个回合。
 		苔藓系技能无需使用时间，但会让同系其他技能进入 3 回合的冷却。
 		伤害受精神强度加成。]], "tformat")
@@ -25315,7 +25315,7 @@ t("Mind Parasite", "精神寄生", "talent name")
 t([[You use your psiblades to fire a small worm at a foe.
 		When it hits, it will burrow into the target's brain and stay there for 6 turns, interfering with its ability to use talents.
 		Each time a talent is used there is %d%% chance that %d talent(s) are placed on a %d turn(s) cooldown.
-		The chance will increase with your Mindpower.]], [[你利用你的心灵利刃朝你的敌人发射一条小蠕虫。
+		The chance will increase with your Mindpower.]], [[你用心灵利刃朝敌人发射一条小蠕虫。
 		当攻击击中时，它会进入目标大脑，并在那里待 6 回合，干扰对方使用技能的能力。
 		每次对方使用技能时，有 %d%% 概率 %d 个技能被打入 %d 个回合的冷却。
 		概率受精神强度加成。]], "tformat")
@@ -25477,7 +25477,7 @@ t([[While Master Summoner is active, when a creature you summon appears in the w
 		- Turtle: Heals all friendly targets in the radius %d HP
 		- Spider: Pins all foes in the radius
 		Radius for effects is %d, and the duration of each lasting effect is %d turns.
-		The effects improve with your mindpower.]], [[当召唤精通激活时，每个召唤兽出现在世界上时，它会触发 1 个野性效果：
+		The effects improve with your mindpower.]], [[召唤精通激活期间，每当你的召唤兽出现，都会触发 1 个野性效果：
 		- 喷火里奇：减少范围内所有敌人的火焰抗性 %d%%
 		- 三头蛇：生成一片持续的毒雾，范围内所有敌人每回合受到 %0.1f 自然伤害（可叠加）
 		- 雾凇：减少范围内所有敌人的寒冷抗性 %d%%
@@ -25547,7 +25547,7 @@ t([[Destroys one of your summons, making it detonate in radius of %d.
 		In addition, a random summon will come off cooldown.
 		Hostile effects will not hit you or your other summons.
 		The effects improve with your mindpower, and some can crit.]], [[献祭一只召唤兽，使它在 %d 码范围内爆炸。
-		-喷火里奇：形成一个火球，造成 %d 伤害，并火焰冲击敌人。
+		-喷火里奇：形成一个火球，造成 %d 伤害，并使敌人陷入火焰冲击。
 		-三头蛇：范围内所有友方单位获得 %d%% 闪电、酸液和自然伤害亲和，并获得每回合 %d 生命回复，持续 7 回合。
 		-雾凇：形成一个冰球，造成 %d 冰冷伤害，可能冰冻敌人。
 		-火龙：形成一片火焰，每回合造成 %d 伤害。
@@ -25644,7 +25644,7 @@ t([[Summon a 3-headed Hydra for %d turns to destroy your foes. 3-headed hydras a
 		三头蛇的意志受精神强度加成。]], "tformat")
 t("Rimebark", "召唤：雾凇", "talent name")
 t("@Source@ summons a Rimebark!", "@Source@召唤了一只雾凇！", "_t")
-t("This huge treant-like being is embedded with the fury of winter itself.", "这个巨大的树精样生物被寒冬之怒覆盖。", "_t")
+t("This huge treant-like being is embedded with the fury of winter itself.", "这个巨大的类树精生物体内蕴藏着寒冬之怒。", "_t")
 t([[Summon a Rimebark for %d turns to harass your foes. Rimebarks cannot move, but they have a permanent ice storm around them, damaging and freezing anything coming close in a radius of 3.
 		It will get %d Willpower, %d Cunning and %d Constitution.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
@@ -25748,7 +25748,7 @@ t([[Summon a Turtle for %d turns to distract your foes. Turtles are resilient, b
 		It will get %d Constitution, %d Dexterity and 18 willpower.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
 		Their Constitution will increase with your Mindpower.]], [[召唤一只乌龟来吸引敌人攻击，持续 %d 回合。
-		乌龟具有很强的生命力，并不能造成很多伤害。
+		乌龟具有很强的生命力，但不能造成很多伤害。
 		然而，它们会周期性的嘲讽敌人并用龟壳保护自己。
 		它拥有 %d 点体质， %d 点敏捷和 18 点意志。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
@@ -25837,7 +25837,7 @@ t("Unclassified talents of the various horrors of the world.", "世界上各种�
 t("Frenzied Bite", "狂乱撕咬", "talent name")
 t("In a frenzy @Source@ bites at @Target@!", "@Source@在狂热中咬向@Target@！", "_t")
 t([[A nasty bite that hits for %d%% weapon damage, reduces the targets healing by %d%%, and causes the target to bleed for %d%% weapon damage over 5 turns.
-		Only usable while frenzied.]], [[撕咬目标造成 %d%% 武器伤害。减少目标治疗效果 %d%% 并造成 %d%% 武器伤害的流血伤害持续 5 回合。
+		Only usable while frenzied.]], [[撕咬目标造成 %d%% 武器伤害。减少目标治疗效果 %d%%， 并使其流血，在 5 回合内造成 %d%% 武器伤害。
 		只有在狂乱状态下可以使用。]], "tformat")
 t("Frenzied Leap", "狂乱跳跃", "talent name")
 t("@Source@ leaps forward in a frenzy!", "@Source@在狂热中向前跳跃！", "_t")
@@ -25852,7 +25852,7 @@ t([[Bites the target for %d%% weapon damage, potentially causing it to bleed for
 		If the target is affected by the bleed it will send the devourer into a frenzy for %d turns (which in turn will frenzy other nearby devourers).
 		The frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]], [[咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，在五回合内造成 %d%% 武器伤害。
 		如果目标进入流血状态，吞噬者会进入狂热状态 %d 回合（也会让周围的其他吞噬者进入狂热状态）。
-		狂热状态会增加全局速度 %d%%， 物理暴击率 %d%%， 同时降至 -%d%% 生命时才会死去。]], "tformat")
+		狂热状态会增加全局速度 %d%%， 物理暴击率 %d%%， 并使其生命降至 -%d%% 时才会死亡。]], "tformat")
 t("Abyssal Shroud", "深渊裹幕", "talent name")
 t("Creates a shroud of darkness over a radius 3 area that lasts %d turns.  The shroud causes %0.2f darkness damage each turn, reduces light radius by %d, and darkness resistance by %d%% of those within.", "在半径 3 格区域制造一片持续 %d 回合的暗影帷幕。帷幕每回合造成 %0.2f 点暗影伤害，使区域内生物的光照半径降低 %d、 暗影抗性降低 %d%%。", "tformat")
 t("Echoes From The Void", "虚空回响", "talent name")
@@ -25931,7 +25931,7 @@ t("%s is cured!", "%s 被治愈！", "logSeen")
 t(" and ", "和", "_t")
 t([[Activate the infusion to cure yourself of one random %s effect and reduce all damage taken by %d%% for %d turns.
 Also removes cross-tier effects of the affected types for free.]], [[激活纹身解除你随机一个 %s 效果并减少受到的所有伤害 %d%%， 持续 %d 回合。
-同时除去对应类型的越层效果（失去平衡、法术冲击和思维封锁）。]], "tformat")
+同时除去对应类型的越层效果。]], "tformat")
 t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%; 解除 %s; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Primal", "纹身：原初", "talent name")
 t("Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.", "激活这个纹身，使你受到伤害时恢复相当于该次伤害（抗性减免前计算） %d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。", "tformat")
@@ -25997,7 +25997,7 @@ t("temporal instability", "时间不稳定性", "_t")
 t("%s has moved forward in time!", "%s的时间向前推移！", "logSeen")
 t([[Inflicts %0.2f temporal damage.  If your target survives, it will be sent %d turns into the future.
 		It will also lower your paradox by 25 (if you have any).
-		Note that messing with the spacetime continuum may have unforeseen consequences.]], [[造成 %0.2f 时空伤害。如果你的目标存活，则它会被传送 %d 回合至未来。
+		Note that messing with the spacetime continuum may have unforeseen consequences.]], [[造成 %0.2f 时空伤害。如果你的目标存活，则它会被传送到 %d 回合后的未来。
 		它还会使你的紊乱值降低 25（如果你拥有紊乱值）。
 		注意，干扰时空连续体可能产生无法预料的后果。]], "tformat")
 t("%0.2f temporal damage, removed from time %d turns", "%0.2f 时空伤害，从时间中移除 %d 回合", "tformat")
@@ -26032,7 +26032,7 @@ t("Rune: Shatter Afflictions", "符文：粉碎痛苦", "talent name")
 t([[Activate the rune to instantly dissipate the energy of your ailments, cleansing all cross tier effects and 1 physical, mental, and magical effect.
 		You use the dissipated energy to create a shield lasting %d turns and blocking %d damage per debuff cleansed (not counting cross-tier ones).
 		If there were only cross-tier effects to cleanse, no shield is created and the rune goes on a 75%% reduced cooldown.]], [[激活符文，立刻清除你身上的负面效果。
-		清除所有越层效果（失去平衡、法术冲击和思维封锁），以及物理、精神和魔法负面效果各 1 个。
+		清除所有越层效果，以及物理、精神和魔法负面效果各 1 个。
 		你会获得一个护盾，持续 %d 回合，每清除一个非越层负面效果可抵挡 %d 点伤害。
 		如果只清除了越层效果，不会产生护盾且冷却时间减少75%%。]], "tformat")
 t("absorb %d; cd %d", "吸收 %d; 冷却 %d", "tformat")
@@ -26093,14 +26093,14 @@ t([[Activate the rune to fire a beam of lightning, doing %0.2f to %0.2f lightnin
 t("%d lightning damage", "%d 闪电伤害", "tformat")
 t("Infusion: Insidious Poison", "纹身：阴险毒素", "talent name")
 t([[Activate the infusion to spit a bolt of poison doing %0.2f nature damage per turn for 7 turns, and reducing the target's healing received by %d%%.
-		The sudden stream of natural forces also strips you of one random detrimental magical effect.]], [[激活这个纹身会发射一个毒液弹造成每回合 %0.2f 自然伤害持续 7 回合，并降低目标受到的治疗效果 %d%%。
+		The sudden stream of natural forces also strips you of one random detrimental magical effect.]], [[激活这个纹身会发射一枚毒液弹，每回合造成 %0.2f 自然伤害，持续 7 回合，并降低目标受到的治疗效果 %d%%。
 		突然涌动的自然力量会除去你受到的一个随机负面魔法效果。]], "tformat")
 t("%d nature damage, %d%% healing reduction", "%d 自然伤害，受到的治疗降低 %d%%", "tformat")
 t("Rune: Invisibility", "符文：隐身", "talent name")
 t([[Activate the rune to become invisible (power %d) for %d turns.
 		As you become invisible you fade out of phase with reality, all your damage is reduced by 40%%.
 		]], [[激活这个符文使你变得隐形 （%d 隐形等级）持续 %d 回合。
-		由于你的隐形使你从现实相位中脱离，你造成的所有伤害降低 40%%。
+		隐形时你会脱离现实相位，你造成的所有伤害降低 40%%。
 		]], "tformat")
 t("power %d for %d turns", "强度 %d 持续 %d 回合", "tformat")
 -- untranslated text
@@ -26128,7 +26128,7 @@ t("race", "种族技能", "talent type")
 t("The various racial bonuses a character can have.", "角色可能拥有的各种种族加成。", "_t")
 t("inscriptions", "刻印", "talent category")
 t("infusions", "纹身", "talent type")
-t("Infusions are not class abilities, you must find them or learn them from other people.", "纹身不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
+t("Infusions are not class abilities, you must find them or learn them from other people.", "纹身不是职业技能，你必须找到它们或向其他人学习。", "_t")
 t("runes", "符文", "talent type")
 t("Runes are not class abilities, you must find them or learn them from other people.", "符文不是职业技能，你必须找到它们或从其他人那获得它们。", "_t")
 t("taints", "污印", "talent type")
@@ -26152,7 +26152,7 @@ t("#F53CBE#An elite foe has fallen to your hate!", "#F53CBE#一名精英敌人�
 t("Paradox Pool", "紊乱值槽", "talent name")
 t("Hunted!", "被捕猎", "talent name")
 t([[You are hunted!.
-		There is a %d%% chance each turn that all foes in a %d radius get a glimpse of your position for 30 turns.]], [[你被捕猎了！
+		There is a %d%% chance each turn that all foes in a %d radius get a glimpse of your position for 30 turns.]], [[你正被追猎！
 		每回合有 %d%% 的几率使半径 %d 格内的所有敌人察觉你的位置，持续 30 回合。]], "tformat")
 t("Teleport: Angolwen", "传送：安格利文", "talent name")
 t("The spell fizzles...", "法术失败了……", "logPlayer")
@@ -26180,18 +26180,18 @@ t("\
 t([[Not the Master himself, nor all the orcs in fallen Reknor, nor even the terrifying unknown beyond Reknor's portal could slow your pursuit of the Staff of Absorption.
 		Children will hear of your relentlessness in song for years to come.
 		When activated, this ability reduces the duration of all active detrimental effects by 20%% of your associated save value or 2, whichever is greater:
-		%s]], [[无论是领主大人、失落之地的瑞库纳兽人还是瑞库纳传送门外那些令人恐怖的未知生物都无法阻止你寻找吸能法杖的毅力。
+		%s]], [[无论是领主大人、失落之地的瑞库纳兽人还是瑞库纳传送门外那些令人恐怖的未知生物都无法拖慢你追寻吸能法杖的脚步。
 		孩子们会在将来用童谣来传唱你的无情。
-		当激活时，可以缩短所有不利效果的相当于20%%相应豁免的回合数的持续时间，至少缩短2回合。
+		激活时，所有当前不利效果的持续时间缩短，缩短的回合数为相应豁免值的 20%%，至少 2 回合。
 		%s]], "tformat")
 t("Teleport to the ground", "返回地面", "talent name")
 t("You cannot teleport there.", "你不能传送到那里。", "log")
 t([[Use the onboard short-range teleport of the Fortress to beam down to the surface.
-	Requires being in flight above the ground of a planet.]], [[使用堡垒自带的短程传送装置“哔”的一下回到地面。
+	Requires being in flight above the ground of a planet.]], [[使用堡垒自带的短程传送装置回到地面。
 	需要在某个星球的空中飞行。]], "_t")
 t("Fire a blast of energy", "发射能量冲击", "talent name")
 t([[Use 10 Fortress energy to send a powerful blast to the ground, directly below the Fortress, heavily damaging any creatures caught inside.
-	Requires being in flight above the ground of a planet.]], [[消耗 10 点堡垒能量，向堡垒正下方的地面发出一道强力冲击，重创位于其中的任何生物。
+	Requires being in flight above the ground of a planet.]], [[消耗 10 点堡垒能量，向堡垒正下方的地面发出一道强力冲击，重创被波及的任何生物。
 	需要在某个星球的空中飞行。]], "_t")
 t("High Planetary Orbit", "高空轨道", "talent name")
 t([[Activate the powerful flight engines of the Fortress, propelling it fast into high planetary orbit.
@@ -26267,7 +26267,7 @@ t("Mind Disruption", "精神干扰", "talent name")
 t("Try to confuse the target's mind for %d (power %d%%) turns.", "试图使目标混乱 %d 回合 (强度 %d%%)。", "tformat")
 t("Water Bolt", "水弹", "talent name")
 t([[Condenses ambient water on a target, inflicting %0.1f cold damage.
-		The damage will increase with your Spellpower.]], [[浓缩周围的水份形成水弹攻击目标造成 %0.1f 冰冻伤害。
+		The damage will increase with your Spellpower.]], [[将周围的水汽凝聚在目标身上，造成 %0.1f 冰冻伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Flame Bolt", "火焰箭", "talent name")
 t([[Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.
@@ -26285,7 +26285,7 @@ t([[Projects a bolt of pure blight, doing %0.2f blight damage.
 		伤害受法术强度加成。]], "tformat")
 t("Water Jet", "水之喷射", "talent name")
 t([[Condenses ambient water on a target, inflicting %0.1f cold damage and stunning it for 4 turns.
-		The damage will increase with your Spellpower]], [[浓缩周围的水份喷射目标造成 %0.1f 冰冻伤害并震慑目标 4 回合。
+		The damage will increase with your Spellpower]], [[将周围的水汽凝聚在目标身上，造成 %0.1f 冰冻伤害并震慑目标 4 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Void Blast", "虚空爆炸", "talent name")
 t([[Fires a blast of void energies that slowly travel to their target, dealing %0.2f arcane damage on impact.
@@ -26313,7 +26313,7 @@ t([[Strike your target with poison, doing %0.2f poison damage over six turns.
 		伤害受精神强度加成。]], "tformat")
 t("Spit Blight", "枯萎喷吐", "talent name")
 t([[Spit blight at your target doing %0.2f blight damage.
-		The damage will increase with your Magic.]], [[喷吐目标造成 %0.2f 枯萎伤害。
+		The damage will increase with your Magic.]], [[向目标喷吐枯萎之力，造成 %0.2f 枯萎伤害。
 		伤害受魔力值加成。]], "tformat")
 t("Rushing Claws", "冲锋抓击", "talent name")
 t("@Source@ rushes out, claws sharp and ready!", "@Source@冲了出去，利爪蓄势待发！", "_t")
@@ -26349,7 +26349,7 @@ t("Shriek (radius %d) to call your allies.", "呼唤同伴（范围 %d 码）。
 t("Crush", "压碎", "talent name")
 t("You cannot use Crush without a two-handed weapon!", "你必须使用双手武器才能释放压碎！", "logPlayer")
 t("%s resists the crushing!", "%s抵抗了压碎！", "logSeen")
-t("Hits the target with a mighty blow to the legs doing %d%% weapon damage. If the attack hits, the target is unable to move for %d turns.", "对目标的腿部进行重击，造成 %d%% 武器伤害，如果攻击命中，则目标无法移动，持续 %d 回合。", "tformat")
+t("Hits the target with a mighty blow to the legs doing %d%% weapon damage. If the attack hits, the target is unable to move for %d turns.", "重击目标的腿部，造成 %d%% 武器伤害，如果攻击命中，则目标无法移动，持续 %d 回合。", "tformat")
 t("Silence", "沉默", "talent name")
 t("Sends a telepathic attack, silencing the target for %d turns.  The chance to silence improves with Mindpower.", "发动一次心灵攻击，使目标沉默 %d 回合。沉默几率受精神强度加成。", "tformat")
 t("Telekinetic Blast", "念力爆炸", "talent name")
@@ -26375,7 +26375,7 @@ t("@Source@ explodes! @target@ is enveloped in frost.", "@Source@爆炸了！@ta
 t("Explode against one target for %0.2f cold damage.", "自爆对单个目标造成 %0.2f 寒冷伤害。", "tformat")
 t("Elemental Bolt", "元素弹", "talent name")
 t("@Source@ casts Elemental Bolt!", "@Source@释放了元素弹！", "_t")
-t("Fire a slow bolt of a random element for %d damage. Damage increases with the magic stat.", "发射一枚随机元素属性的魔法飞弹缓慢飞行攻击目标造成 %d 伤害，伤害受魔力值加成。", "tformat")
+t("Fire a slow bolt of a random element for %d damage. Damage increases with the magic stat.", "发射一枚缓慢飞行的随机元素属性飞弹，造成 %d 伤害，伤害受魔力值加成。", "tformat")
 t("Volcano", "火山爆发", "talent name")
 t("A volcano erupts!", "一座火山开始喷发！", "_t")
 t("raging volcano", "喷发中的火山", "_t")
@@ -26400,7 +26400,7 @@ t("%s spawns a slimy crawler!", "%s 产出了一只黏糊糊的爬虫！", "logS
 t("Invoke a slimy crawler for 10 turns.", "召唤一只黏糊糊的爬虫 10 回合。", "tformat")
 t("Strike", "打击", "talent name")
 t([[Conjures up a fist of stone, doing %0.2f physical damage and knocking the target back 3 grids.
-		The damage will increase with your Spellpower.]], [[制造一个石拳造成 %0.2f 物理伤害并击退目标 3 格。
+		The damage will increase with your Spellpower.]], [[制造一个石拳，造成 %0.2f 物理伤害并击退目标 3 格。
 		伤害受法术强度加成。]], "tformat")
 t("Corrosive Vapour", "腐蚀酸雾", "talent name")
 t([[Corrosive fumes rise from the ground doing %0.2f acid damage in a radius of 3 each turn for %d turns.
@@ -26408,11 +26408,11 @@ t([[Corrosive fumes rise from the ground doing %0.2f acid damage in a radius of 
 		伤害受法术强度加成。]], "tformat")
 t("Manaflow", "法力涌动", "talent name")
 t([[Engulf yourself in a surge of mana, quickly restoring %d mana every turn for 10 turns.
-		The mana restored will increase with your Spellpower.]], [[将自己包围在法力的河水中，每回合回复 %d 点法力值，持续 10 回合。
+		The mana restored will increase with your Spellpower.]], [[让自己被涌动的法力包围，每回合回复 %d 点法力值，持续 10 回合。
 		法力回复受法术强度加成。]], "tformat")
 t("Infernal Breath", "地狱吐息", "talent name")
 t([[Exhale a wave of dark fire with radius %d. Any non demon caught in the area will take %0.2f fire damage, and flames will be left dealing a further %0.2f each turn. Demons will be healed for the same amount.
-		The damage will increase with your Strength Stat.]], [[对 %d 码范围吐出黑暗之火。所有非恶魔生物受到 %0.2f 火焰伤害，并在接下来继续造成每回合 %0.2f 的持续火焰伤害。恶魔则会治疗同等数值的生命值。
+		The damage will increase with your Strength Stat.]], [[对 %d 码范围吐出黑暗之火。所有非恶魔生物受到 %0.2f 火焰伤害，残留的火焰每回合还会继续造成 %0.2f 伤害。恶魔则会回复同等数值的生命值。
 		伤害受力量值加成。]], "tformat")
 t("Frost Hands", "霜冻之手", "talent name")
 t([[Engulfs your hands (and weapons) in a sheath of frost, dealing %0.2f cold damage per melee attack and increasing all cold damage by %d%%.
@@ -26452,7 +26452,7 @@ t("@Source@ throws a body shot.", "@Source@打出崩拳。", "_t")
 t("%s resists the body shot!", "%s抵抗了崩拳！", "logSeen")
 t([[A punch to the body that deals %d%% damage, drains %d of the target's stamina per combo point, and dazes the target for %d to %d turns, depending on the amount of combo points you've accumulated.
 		The daze chance will increase with your Physical Power.
-		Using this talent removes your combo points.]], [[对目标的身体发出强烈的一击，造成 %d%% 伤害，每点连击点消耗 %d 目标体力并眩晕目标 %d 到 %d 回合（由你的连击点数决定）。
+		Using this talent removes your combo points.]], [[对目标的身体发出强烈的一击，造成 %d%% 伤害，每点连击点消耗目标 %d 点体力并眩晕目标 %d 到 %d 回合（由你的连击点数决定）。
 		眩晕概率受物理强度加成。
 		使用此技能会消耗当前所有连击点。]], "tformat")
 t("Combo String", "强化连击", "talent name")
@@ -26467,23 +26467,23 @@ t([[Superior cunning and training allows you to outthink and outwit your opponen
 		受敏捷影响，闪避按比例加成；受灵巧影响，精神豁免按比例加成。]], "tformat")
 t("Maim", "伤残", "talent name")
 t([[Grapples the target and inflicts %0.2f physical damage. If the target is already grappled, the target will be maimed as well, reducing damage by %d and global speed by 30%% for %d turns.
-		The grapple effects will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.]], [[抓取目标并给予其 %0.2f 物理伤害。
+		The grapple effects will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.]], [[抓取目标并造成 %0.2f 物理伤害。
 		如果目标已被抓取，则目标会被致残，减少 %d 伤害和 30%% 全局速度持续 %d 回合。
 		抓取效果受你已有的抓取技能影响。
 		受物理强度影响，伤害按比例加成。]], "tformat")
 t("Bloodrage", "血怒", "talent name")
 t("Each time one of your foes bites the dust, you feel a surge of power, increasing your strength by 2 (stacking up to a maximum of %d) for %d turns.", "每当你让一个敌人扑街，你会感到一股力量涌起，增加你 2 点力量，上限 %d， 持续 %d 回合。", "tformat")
 t("Martyrdom", "殉难", "talent name")
-t("Designate a target as a martyr for 10 turns. When the martyr deals damage, it also damages itself for %d%% of the damage dealt.", "将目标设置为殉难的目标，持续10回合。当殉难的目标造成伤害的时候，会对自己返还伤害值的 %d%%。", "tformat")
+t("Designate a target as a martyr for 10 turns. When the martyr deals damage, it also damages itself for %d%% of the damage dealt.", "将目标标记为殉难者，持续10回合。当殉难者造成伤害时，自身也会受到相当于该伤害 %d%% 的伤害。", "tformat")
 t("Overpower", "压制", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器一个盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
 t("You cannot use Overpower without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
 t([[Hits the target with your weapon doing %d%% damage and two shield strikes doing %d%% damage each, trying to overpower your target.
 		If the last attack hits, the target is knocked back 4 grids. The chance for knockback increases with your Accuracy.]], [[用武器攻击目标，造成 %d%% 武器伤害，再用盾牌攻击两次，每次造成 %d%% 伤害，试图压制目标。
 		若最后一次攻击命中，目标会被击退 4 格。击退概率受命中加成。]], "tformat")
 t("Perfect Control", "完美控制", "talent name")
 t([[Encase your body in a sheath of thought-quick forces, allowing you to control your body's movements directly without the inefficiency of dealing with crude mechanisms like nerves and muscles.
-		Increases Accuracy by %d and critical strike chance by %0.1f%% for %d turns.]], [[用灵能围绕你的身体，通过思想高效控制身体，允许你不使用肌肉和神经操纵身体。
+		Increases Accuracy by %d and critical strike chance by %0.1f%% for %d turns.]], [[以灵能包裹你的身体，让你能直接以意念控制身体动作，而不必经过神经和肌肉这类低效的粗陋机制。
 		增加 %d 点命中和 %0.1f%% 暴击概率，持续 %d 回合。]], "tformat")
 t("Shattering Charge", "毁灭冲锋", "talent name")
 t("You can't move there.", "你不能移动至那里。", "logSeen")
@@ -26580,11 +26580,11 @@ t([[You are light on your feet, handling your armour better. Each step you take 
 t("Strider", "凌波微步", "talent name")
 t("You literally dance around your foes, increasing your movement speed by %d%% and reducing the cooldown of Hack'n'Back, Rush, Disengage and Evasion by %d turns.", "你在敌人周围跳起华丽的舞蹈，增加 %d%% 移动速度并减少燕回斩、冲锋、逃脱和回避的冷却时间 %d 回合。", "tformat")
 t("Charm Mastery", "饰品掌握", "talent name")
-t("Your cunning manipulations allow you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns by %d%%.", "你灵活的头脑，使你可以更加有效的使用护符（魔杖、图腾和项圈），减少 %d%% 护符的冷却时间。", "tformat")
+t("Your cunning manipulations allow you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns by %d%%.", "你灵活的头脑使你可以更有效地使用护符（魔杖、图腾和项圈），使其冷却时间减少 %d%%。", "tformat")
 t("Piercing Sight", "洞察视界", "talent name")
 t([[You look at your surroundings with more intensity than most people, allowing you to see stealthed or invisible creatures.
 		Increases stealth detection by %d and invisibility detection by %d.
-		The detection power increases with your Cunning.]], [[你比大多数人都更加注意仔细观察周围的动静，使你能发觉隐形和潜行的生物。
+		The detection power increases with your Cunning.]], [[你比大多数人都更留心观察周围的动静，使你能发觉隐形和潜行的生物。
 		提升侦测潜行等级 %d 并提升侦测隐形等级 %d。
 		你的侦查强度受灵巧加成。]], "tformat")
 t("Precision", "弱点打击", "talent name")
@@ -26654,7 +26654,7 @@ t([[Cold Flames slowly spread from %d spots in a radius of %d around the targete
 		Damage improves with your Spellpower.]], [[冰冷的火焰从目标位置周围 %d 处地点缓慢扩散，范围半径 %d 格。火焰会造成 %0.2f 冰冷伤害并有几率冰冻目标。
 		伤害受法术强度加成。]], "tformat")
 t("Quicken Spells", "快速施法", "talent name")
-t("Reduces the cooldown of all spells by %d%%.", "减少 %d%% 所有法术冷却时间。", "tformat")
+t("Reduces the cooldown of all spells by %d%%.", "所有法术的冷却时间减少 %d%%。", "tformat")
 -- untranslated text
 --[==[
 t("", "", "log")
@@ -26744,14 +26744,14 @@ t("Shivgoroth Form", "西弗格罗斯形态", "talent name")
 t("You are already a Shivgoroth!", "你已经是西弗格罗斯了！", "logPlayer")
 t([[You absorb latent cold around you, turning into an ice elemental - a shivgoroth - for %d turns.
 		While transformed, you do not need to breathe, gain access to the Ice Storm talent at level %d, gain %d%% resistance to cuts and stuns, gain %d%% cold resistance, and all cold damage heals you for %d%% of the damage done.
-		The power will increase with your Spellpower.]], [[你吸收周围的寒冰围绕你，将自己转变为纯粹的冰元素——西弗格罗斯，持续 %d 回合。
+		The power will increase with your Spellpower.]], [[你吸收周围潜藏的寒气，将自己转变为纯粹的冰元素——西弗格罗斯，持续 %d 回合。
 		转化成元素后，你不需要呼吸并获得等级 %d 的冰雪风暴，获得 %d%% 切割和震慑抵抗， %d%% 寒冰抗性，所有冰冷伤害可对你产生治疗，治疗量基于伤害值的 %d%%。
 		效果受法术强度加成。]], "tformat")
 t("Mental Refresh", "振作精神", "talent name")
 t("Reset up to 3 wild gift, psionic or cursed talents.", "刷新至多 3 个自然，灵能或诅咒系技能。", "tformat")
 t("Dagger Block", "匕首格挡", "talent name")
 t([[Raise your dagger into blocking position for one turn, reducing the damage of all physical melee attacks against you by %d. If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal attack will instead deal 200%% damage) for one turn and be left disarmed for 3 turns.
-		The blocking value will increase with your Dexterity and Cunning.]], [[举起你的匕首来格挡攻击一回合，减少所有物理伤害 %d 点。如果你完全格挡了一次攻击的伤害，攻击者将进入致命的被反击状态（对其进行的下一次武器攻击伤害增加到 200%%）一回合并被缴械三回合。
+		The blocking value will increase with your Dexterity and Cunning.]], [[举起你的匕首来格挡攻击一回合，减少所有物理伤害 %d 点。如果你完全格挡了一次攻击的伤害，攻击者将在 1 回合内陷入可被致命反击的状态（对其进行的下一次武器攻击伤害增加到 200%%），并被缴械 3 回合。
 		格挡值受敏捷值和灵巧值加成。]], "tformat")
 t("Shieldsmaiden Aura", "女武神之守护", "talent name")
 t("#CRIMSON#%s's shield deflects the blow!", "#CRIMSON#%s的盾牌让攻击发生了偏斜！", "logSeen")
@@ -26775,7 +26775,7 @@ t("Overseer of Nations", "远见卓识", "talent name")
 t([[While Highers are not meant to rule other humans - and show no particular will to do so - they are frequently called to higher duties.
 		Their nature grants them better senses than other humans.
 		Increase blindness immunity by %d%%, maximum sight range by %d, and increases existing infravision, and heightened senses range by %d.
-		At talent level 5, each time you hit a target you gain telepathy to all similar creatures in radius 15 for 5 turns.]], [[虽然高等人类的高贵血统并不意味着统治他人——他们也没有特别的意愿去那样做——但是他们经常承担更高的义务。
+		At talent level 5, each time you hit a target you gain telepathy to all similar creatures in radius 15 for 5 turns.]], [[虽然高等人类并非生来就要统治他人——他们也没有特别的意愿去那样做——但是他们经常承担更高的义务。
 		他们的本能使得他们比别人有更强的直觉。
 		增加 %d%% 目盲免疫，提高 %d 点最大视野范围并提高 %d 夜视及感应范围。
 		技能等级 5 时，每次你命中目标，你将获得 15 格范围内同类型生物感知能力，持续 5 回合。]], "tformat")
@@ -26807,7 +26807,7 @@ t([[As the only immortal race of Eyal, Shaloren have learnt over the long years 
 t("Timeless", "超越永恒", "talent name")
 t([[The world grows old as you stand through the ages. To you, time is different.
 		Reduces the time remaining on detrimental effects by %d, most cooling down talents by %d, and increases the time remaining on beneficial effects by %d (up to 2 times the current duration).]], [[世界在不断的变老，而你似乎永恒不变。对于你来说，时间是不同寻常的。
-		减少 %d 回合负面状态的持续时间，减少大多数技能 %d 回合冷却时间，并增加 %d 回合增益状态的持续时间（至多延长为剩余时间的两倍）。]], "tformat")
+		减少 %d 回合负面状态的持续时间，使大多数冷却中技能的冷却时间减少 %d 回合，并增加 %d 回合增益状态的持续时间（至多延长为剩余时间的两倍）。]], "tformat")
 t("thalore", "自然精灵", "talent type")
 t("Gift of the Woods", "森林的恩赐", "talent name")
 t([[Call upon nature to regenerate your body for %d life every turn and increase healing mod by %d%% for 8 turns.
@@ -26860,7 +26860,7 @@ t([[While the origins of the dwarves remain clouded in mystery to the other race
 t("halfling", "半身人", "talent type")
 t("Luck of the Little Folk", "小不点的幸运", "talent name")
 t([[Call upon the luck and cunning of the Little Folk to increase your critical strike chance by %d%% and your saves by %d for 5 turns.
-		The bonus will increase with your Cunning.]], [[召唤小不点的幸运和机智来提高你 %d%% 暴击率和 %d 豁免 5 回合。
+		The bonus will increase with your Cunning.]], [[召唤小不点的幸运和机智，使你的暴击率提高 %d%%、 豁免提高 %d， 持续 5 回合。
 		受灵巧影响，此效果有额外增益。]], "tformat")
 t("Duck and Dodge", "闪避", "talent name")
 t([[Halfling's incredible luck always kicks in at just the right moment to save their skin.
@@ -27163,7 +27163,7 @@ t("Feedback Loop", "反馈循环", "talent name")
 t("You have no feedback to start a feedback loop!", "你没有反馈值，不能这么做！", "logPlayer")
 t([[Activate to invert your Feedback decay for %d turns.  This effect can be a critical hit, increasing the duration even further.
 		You must have some Feedback in order to start the loop.
-		The maximum Feedback gain will scale with your Mindpower.]], [[激活以逆转你的反馈值衰减，持续 %d 回合。此技能激活时可产生暴击效果，效果为增加技能持续时间。
+		The maximum Feedback gain will scale with your Mindpower.]], [[激活以逆转你的反馈值衰减，持续 %d 回合。此效果可以暴击，使持续时间进一步延长。
 		使用此技能时，你必须拥有一定的反馈值。
 		受精神强度影响，反馈值的最大增加值按比例加成。]], "tformat")
 t("Backlash", "灵能反击", "talent name")
@@ -27200,7 +27200,7 @@ t([[Creates a distortion wave in a radius %d cone that deals %0.2f physical dama
 		This damage will distort affected targets, decreasing physical resistance by %d%% and rendering them vulnerable to distortion effects for two turns.
 		Investing in this talent will increase the physical resistance reduction from all of your distortion effects.
 		If the target is already distorted, they'll be stunned for %d turns as well.
-		The damage will scale with your Mindpower.]], [[在 %d 码锥形半径范围内创建一股扭曲之涛，造成 %0.2f 物理伤害，并击退扭曲之涛中的目标。
+		The damage will scale with your Mindpower.]], [[在 %d 码锥形半径范围内创建一股扭曲之涛，造成 %0.2f 物理伤害，并击退范围内的目标。
 		此技能会扭曲目标，减少对方物理抗性 %d%%， 并使其在 2 回合内受到扭曲效果时会产生额外的负面影响。
 		在该技能投入点数会增加你所有扭曲效果的降抗效果。
 		如果目标身上已存在扭曲效果，则会被震慑 %d 回合。
@@ -27294,7 +27294,7 @@ t([[Crush your enemy with your Dream Hammer, inflicting %d%% weapon damage.  If 
 		Stun chance improves with your Mindpower.  Learning this talent increases your Physical Power for Dream Hammer damage calculations by %d and all damage with Dream Hammer attacks by %d%%.
 		]], [[用你的梦之巨锤碾碎敌人，造成 %d%% 武器伤害。如果攻击命中，则目标会被震慑 %d 回合。
 		震慑几率受精神强度加成。
-		学习此技能会增加 %d 点你使用梦之巨锤时的物理强度，同时使梦之巨锤造成的所有伤害提升 %d%%。]], "tformat")
+		学习此技能会使你使用梦之巨锤时的物理强度增加 %d 点，同时使梦之巨锤造成的所有伤害提升 %d%%。]], "tformat")
 t("Forge Echoes", "回音击", "talent name")
 t([[Strike an adjacent target with a mighty blow from the forge, inflicting %d%% weapon damage.  If the attack hits, the echo of the attack will lash out at all enemies in a %d radius of the impact.
 		Learning this talent adds %0.2f mind damage and %0.2f burning damage to your Dream Hammer strikes.
@@ -27338,7 +27338,7 @@ section "mod-tome/data/talents/psionic/feedback.lua"
 
 t("Biofeedback", "生物反馈", "talent name")
 t([[Your Feedback decay now heals you for %0.1f times the loss, and the decay rate is reduced to %d%% of the normal rate (up to %0.1f%% per turn).  As a result, you are healed for %0.2f%% of your feedback pool each turn.
-		The healing effect improves with your Willpower.]], [[你的反馈值衰减的 %0.1f 倍会转换成治疗，同时衰减速率下降至正常速率的 %d%% （每回合最多 %0.1f%%）。 总而言之，每回合你将受到治疗量等于你的反馈池 %0.2f%% 的治疗。
+		The healing effect improves with your Willpower.]], [[你的反馈值衰减的 %0.1f 倍会转换成治疗，同时衰减速率下降至正常速率的 %d%% （每回合最多 %0.1f%%）。 因此，每回合你将受到相当于反馈池 %0.2f%% 的治疗。
 		治疗效果受意志加成。]], "tformat")
 t("Resonance Field", "共鸣领域", "talent name")
 t([[Activate to create a resonance field that will absorb 50%% of all damage you take (%d max absorption).  The field will not interfere with Feedback gain.
@@ -27369,7 +27369,7 @@ t([[Manipulate forces on the molecular level to realign, rebalance, and synergiz
 		The accuracy and damage of any weapon will act as if it were %d higher. (Mindstars cannot be manipulated in this way because they are already in an ideal natural state.)
 		Your total armour will increase by %d and your fatigue will decrease by %d for each body armour and shield worn.
 		The effects increase with your Mindpower.]], [[操纵力量从分子层面重组、平衡、磨砺你的装备。
-		你装备的每一件武器都会提升 %d 的命中和伤害。灵晶不能被调整，因为他们已经是完美的自然形态。
+		你装备的每一件武器都会提升 %d 的命中和伤害。灵晶不能被调整，因为它们已经是完美的自然形态。
 		你所穿的躯干护甲与所持的盾牌，每有一件便增加你 %d 护甲，同时减少 %d 疲劳。
 		该技能效果受精神强度影响。]], "tformat")
 t("Matter is Energy", "物能转化", "talent name")
@@ -27378,14 +27378,14 @@ t([[Matter is energy, as any good Mindslayer knows. Unfortunately, the various b
 		This talent consumes one gem and grants %d psi per turn for between 5 and 13 turns, depending on the quality of the gem used.
 		This process also creates a resonance field that provides the (imbued) effects of the gem to you while this effect lasts.]], [[任何优秀的心灵杀手都知道，物质就是能量。遗憾的是，大多数物质由于分子成分的复杂性无法转换。然而，宝石有序的晶体结构使得部分物质转化为能量成为可能。
 		这个技能消耗一个宝石，在 5~13 回合内，每回合获得 %d 灵能值，持续回合取决于所用的宝石品质。
-		在持续时间内同时获得一个共振领域提供宝石的效果。]], "tformat")
+		在持续时间内还会产生一个共振领域，为你提供宝石的效果。]], "tformat")
 t("Resonant Focus", "共振聚焦", "talent name")
 t([[By carefully synchronizing your mind to the resonant frequencies of your psionic focus, you strengthen its effects.
 		For conventional weapons, this increases the percentage of your willpower and cunning that is used in place of strength and dexterity for all weapon attacks, from 60%% to %d%%.
 		For mindstars, this increases the chance to pull enemies to you by +%d%%.
 		For gems, this increases the bonus stats by %d.]], [[通过小心地同步你的精神和灵能聚焦的共振频率，强化灵能聚焦的效果。
-		对于武器，提升你的意志和灵巧来代替力量和敏捷的百分比，从 60%% 到 %d%%。
-		对于灵晶，提升 %d%% 将敌人抓取过来的几率。
+		对于武器，所有武器攻击中以意志和灵巧代替力量和敏捷的比例从 60%% 提升至 %d%%。
+		对于灵晶，将敌人抓取过来的几率提升 %d%%。
 		对于宝石，提升 %d 额外全属性。]], "tformat")
 
 ------------------------------------------------
@@ -27478,7 +27478,7 @@ t([[You learn to devote a portion of your attention to mentally swatting, grabbi
 		If you choose, you can use your mind to grab all projectiles within radius 10 of you and hurl them toward any location within range %d of you, but this will break your concentration.
 		To do this, deactivate this sustained talent.]], [[你学会分配一部分注意力，用精神力击落、抓取或偏斜飞来的发射物。
 		所有以你为目标的发射物有 %d%% 的几率落在半径 %d 格范围内的其他地点，并且移动速度减慢 %d%%。
-		如果你愿意，你可以使用精神力来抓住半径 10 格内的所有发射物，并投回以你为中心半径 %d 格内的任意地点，这么做会打断你的集中力，并使这个持续技能进入冷却。
+		如果你愿意，你可以使用精神力来抓住半径 10 格内的所有发射物，并投回以你为中心半径 %d 格内的任意地点，但这么做会打断你的集中力。
 		要想这样做，取消该持续技即可。]], "tformat")
 t("Implode", "碎骨压制", "talent name")
 t([[Bind the target mercilessly with constant, bone-shattering pressure, pinning and slowing it by 50%% for %d turns and dealing %0.1f Physical damage each turn.
@@ -27507,7 +27507,7 @@ section "mod-tome/data/talents/psionic/mentalism.lua"
 t("Psychometry", "共鸣之心", "talent name")
 t([[Resonate with psionic, nature, and anti-magic powered objects you wear, increasing your physical and mind power by %0.1f or %d%% of the object's material level (whichever is lower).
 		This effect stacks and applies for each qualifying object worn.
-		Current bonus: %d]], [[与你装备着的具有灵能、自然或反魔力量的物品产生共鸣，增加你 %0.1f 点或 %d%% 物品材质等级数值（取较小值）的物理和精神强度。
+		Current bonus: %d]], [[与你装备着的具有灵能、自然或反魔力量的物品产生共鸣，使你的物理和精神强度提高 %0.1f 点或物品材质等级的 %d%% （取较小值）。
 		此效果可以叠加，并且适用于所有符合条件的已穿戴装备。
 		当前加成： %d]], "tformat")
 t("Mental Shielding", "精神屏障", "talent name")
@@ -27544,7 +27544,7 @@ t([[Puts targets in a radius %d cone into a nightmarish sleep for %d turns, rend
 		伤害临界点和暗影伤害受精神强度加成。]], "tformat")
 t("Inner Demons", "心魔", "talent name")
 t("%s's Inner Demon", "%s的心魔", "tformat")
-t("A hideous, demonic entity that resembles the creature it came from.", "一种可怕的、恶魔般的实体，类似于它来自的生物。", "_t")
+t("A hideous, demonic entity that resembles the creature it came from.", "一种可怕的、恶魔般的实体，与其来源生物相似。", "_t")
 t("#F53CBE#%s's Inner Demon manifests!", "#F53CBE#%s的心魔出现了！", "logSeen")
 t("You can't cast this on friendly targets.", "该技能不能对友军释放。", "logPlayer")
 t("%s resists the demons!", "%s抵抗了心魔！", "logSeen")
@@ -27578,7 +27578,7 @@ t("Telekinetically grasp which item?", "念力之握抓握哪件物品？", "_t"
 t("%s telekinetically seizes: %s.", "%s用念力装备了%s。", "logSeen")
 t([[Telekinetically grasp a weapon or gem using mentally-directed forces, holding it aloft and bringing it to bear with the power of your mind alone.
 		Note: The normal restrictions on worn equipment do not apply to this item.]], [[用精神引导的念动力抓握一件武器或宝石，将其举起悬浮在空中，仅凭意念之力操控使用。
-		请注意：通常装备物品的一些限制不适用于这样装备的物品。]], "tformat")
+		请注意：通常的装备限制不适用于该物品。]], "tformat")
 t("Beyond the Flesh", "超越肉体", "talent name")
 t("#Source#'s mindstar telekinetically grabs #target#!", "#Source#的灵晶念力抓取了#target#！", "logCombat")
 t("%s telekinetically grabs %s!", "%s念力抓取了%s！", "logSeen")
@@ -27642,7 +27642,7 @@ t([[Fills the air around you with reactive currents of force.
 		When deactivated, if you have at least %d energy, a massive spike of kinetic energy is released as a range %d beam, smashing targets for up to %d physical damage and sending them flying.
 		#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#
 		To turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.
-		You can only have two of these auras active at once.]], [[将你周围的空气充满能量力场。
+		You can only have two of these auras active at once.]], [[使你周围的空气中充满能量力场。
 		如果你的灵能武器槽佩戴的是宝石或者灵晶，会对所有相邻的敌人造成 %0.1f 的物理伤害，每个生物消耗 %0.1f 能量。
 		如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的物理伤害，每次攻击消耗 %0.1f 能量。
 		当关闭该技能时，如果你拥有最少 %d 点能量，巨大的动能会释放为一个射程为 %d 的射线，击打目标，造成高达 %d 的物理伤害，并击飞他们。
@@ -27659,7 +27659,7 @@ t([[Fills the air around you with reactive currents of furnace-like heat.
 		You can only have two of these auras active at once.]], [[将你周围的空气充满火炉般的热量。
 		如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有相邻的敌人造成 %0.1f 的火焰伤害，每个生物消耗 %0.1f 能量。
 		如果你的灵能武器槽佩戴的是武器，每次武器命中时附加 %0.1f 的火焰伤害，每次命中消耗 %0.1f 能量。
-		当关闭该技能时，如果你拥有最少 %d 点能量，巨大的热能会释放为一个半径为 %d 的锥形冲击。范围内的任意目标在数轮中受到高达 %d 的火焰伤害。
+		当关闭该技能时，如果你至少拥有 %d 点能量，巨大的热能会释放为一个半径为 %d 的锥形冲击。范围内的任意目标在数轮中受到高达 %d 的火焰伤害。
 		#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#
 		若要关闭光环而不释放热能冲击，请在关闭时以自己为目标。伤害随着精神强度而增长。
 		你同时只能激活两种此类光环。]], "tformat")
@@ -27673,7 +27673,7 @@ t([[Fills the air around you with crackling energy.
 		You can only have two of these auras active at once.]], [[将你周围的空气充满噼啪响的电能。
 		如果你的灵能武器槽佩戴的是宝石或灵晶，会对所有相邻的敌人造成 %0.1f 的闪电伤害，每个生物消耗 %0.1f 能量。
 		如果你的灵能武器槽佩戴的是武器，每次武器命中时附加 %0.1f 的闪电伤害，每次命中消耗 %0.1f 能量。
-		当关闭该技能时，如果你拥有最少 %d 点能量，巨大的电能会释放为在最多 %d 个邻近目标间跳跃的闪电，对每个目标造成至多 %0.1f 的闪电伤害，且 50%% 的概率令他们眩晕。
+		当关闭该技能时，如果你至少拥有 %d 点能量，巨大的电能会释放为在最多 %d 个邻近目标间跳跃的闪电，对每个目标造成至多 %0.1f 的闪电伤害，且有 50%% 的概率令他们眩晕。
 		#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#
 		如果要关闭光环且不释放这股电能，关闭它并选择你自己为目标。伤害随着精神强度而增长。
 		你同时只能激活两种此类光环。]], "tformat")
@@ -27728,12 +27728,12 @@ t([[Gather your will, and brutally smash the target with your mainhand weapon an
 		This attack uses 60%% of your Willpower and Cunning instead of Strength and Dexterity to determine weapon damage and accuracy, for both attacks.
 		Any active Aura damage bonusses will extend to the weapons used for this attack.]], [[凝集你的意念，用主手武器和念动武器狂莽地砸击你的目标，造成 %d%% 武器伤害。
 		如果你的主手武器命中，将震慑目标 %d 回合。
-		此次攻击根据你意志和灵巧的 60%% 取代力量和敏捷，来判定伤害和命中。
+		两次攻击均以你意志和灵巧的 60%% 代替力量和敏捷来判定伤害和命中。
 		此次攻击中任何激活光环的伤害附加将会沿用到武器上。]], "tformat")
 t("Augmentation", "心灵强化", "talent name")
 t([[While active, you give your flesh and blood body a boost in the form of precisely applied mental forces. Increases Strength and Dexterity by %d%% of your Willpower and Cunning, respectively.
 		Strength increased by %d
-		Dexterity increased by %d]], [[当开启时，你为了你的血肉之躯精准地灌布精神之力。分别增加意志和灵巧的 %d%% 至力量和敏捷。
+		Dexterity increased by %d]], [[开启时，你以精准施加的精神之力强化自己的血肉之躯。分别增加意志和灵巧的 %d%% 至力量和敏捷。
 		力量增加 %d 点
 		敏捷增加 %d 点]], "tformat")
 t("Warding Weapon", "武器格挡", "talent name")
@@ -27752,7 +27752,7 @@ t("#CRIMSON#%s shatters %s shield!", "#CRIMSON#%s粉碎了%s的护盾！", "logS
 t([[Focus your will into a powerful thrust of your telekinetically-wielded weapon to impale your target and then viciously rip it free.
 		This deals %d%% weapon damage and then causes the victim to bleed for %0.1f Physical damage over four turns.
 		At level 3 the thrust is so powerful that it has %d%% chance to shatter a random temporary magical or psionic damage absorbing shield if one exists.
-		The bleeding damage increases with your Mindpower.]], [[将你的意志灌入你的念动武器，使它猛力推进并刺穿你的目标并恶毒的绞开它的身体。
+		The bleeding damage increases with your Mindpower.]], [[将你的意志灌入你的念动武器，使它猛力刺穿你的目标，再凶狠地将它拔出。
 		这次攻击将造成 %d%% 武器伤害，并使目标流血 4 回合，累计造成 %0.1f 物理伤害。
 		在 3 级时，武器将势不可挡地突进，有 %d%% 几率随机击碎目标身上一个临时的魔法或灵能伤害吸收护盾（如果存在）。
 		流血伤害受精神强度加成。]], "tformat")
@@ -27831,7 +27831,7 @@ t([[Sends out a blast of telepathic static in a %d radius, inflicting %0.2f mind
 t("Sunder Mind", "碾碎心灵", "talent name")
 t([[Cripples the target's mind, inflicting %0.2f mind damage and reducing its Mental Save by %d for 4 turns.  This attack always hits, and the mental save reduction stacks.
 		Against brainlocked targets, the damage and Mental Save reduction will be doubled.
-		The damage and save reduction will scale with your Mindpower.]], [[摧毁目标的思维，造成 %0.2f 精神伤害并且减少 %d 目标的精神豁免，持续 4 回合。
+		The damage and save reduction will scale with your Mindpower.]], [[摧毁目标的思维，造成 %0.2f 精神伤害并使目标的精神豁免降低 %d， 持续 4 回合。
 		此技能必中且精神豁免削减效果可叠加。
 		若目标处于思维封锁状态，则会产生双倍的伤害和豁免削减。
 		受精神强度影响，伤害和豁免削减按比例加成。]], "tformat")
@@ -27853,7 +27853,7 @@ t([[Targets you have slept take %0.2f mind damage each turn for five turns upon 
 t("Sandman", "睡魔", "talent name")
 t([[Increases the amount of damage you can deal to sleeping targets before reducing the effect duration by %d%%, and reduces the sleep immunity of your Insomnia effects by %d%%.
 		These effects will be directly reflected in the appropriate talent descriptions.
-		The damage threshold bonus will scale with your Mindpower.]], [[增加 %d%% 你对被睡眠目标在睡眠回合减少前所能造成的伤害，并且减少 %d%% 你造成的失眠效果所增加的睡眠免疫。
+		The damage threshold bonus will scale with your Mindpower.]], [[使你在睡眠目标的睡眠回合减少前所能造成的伤害提高 %d%%， 并使你造成的失眠效果所增加的睡眠免疫降低 %d%%。
 		这些效果将即时反映在技能描述中。
 		受精神强度影响，伤害临界点的增益效果按比例加成。]], "tformat")
 t("Dreamscape", "梦境空间", "talent name")
@@ -27870,7 +27870,7 @@ t([[Enter a sleeping target's dreams for %d turns.  While in the Dreamscape, you
 		In the Dreamscape, your damage will be improved by %d%%.
 		The damage bonus will improve with your Mindpower.]], [[进入某个睡眠状态目标的梦境中，持续 %d 回合。当你位于梦境空间中时，你将会遇到目标无敌的睡眠形态，每 2 回合它会制造出 1 个梦境投影来保护它的心灵。
 		除非目标激活了清晰梦境，否则梦境投影造成的伤害比本体低 50%%。
-		当梦境空间的效果结束时，你每摧毁一个梦境投影，目标生命值会减少 10%%，并且受到持续 1 回合的思维封锁效果（可叠加）。
+		当梦境空间的效果结束时，你每摧毁一个梦境投影，目标生命值会减少 10%%，并且受到持续 1 回合的思维封锁效果。
 		在梦境空间中时，你的伤害会提高 %d%%。
 		伤害增益受精神强度加成。]], "tformat")
 
@@ -27893,7 +27893,7 @@ t([[You now substitute %d%% of your Mental Save for %d%% of your Physical and Sp
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
 		Learning this talent also increases your solipsism threshold by 10%% (currently %d%%).]], [[你现在使用 %d%% 精神豁免值来替代 %d%% 物理和法术豁免（即 100 %%时精神豁免完全替代所有豁免）。
 		首次投入技能点时，每点意志提供的灵能值增加 0.5，每点体质提供的生命值减少 0.25。
-		学习此技能也会增加你 10 %%唯我临界点（当前 %d%%）。]], "tformat")
+		学习此技能也会使你的唯我临界点提高 10%%（当前 %d%%）。]], "tformat")
 t("Clarity", "唯我论：明晰", "talent name")
 t([[For every percent that your Psi pool exceeds %d%%, you gain 1%% global speed (up to a maximum of %+d%%).
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25 and will increase your solipsism threshold by 10%% (currently %d%%).]], [[当你的灵能值超过 %d%% 时，每超过 1%% 你增加 1%% 全局速度（最大值 %+d%%）。
@@ -27944,7 +27944,7 @@ t([[For %d turns your pyrokinesis transcends your normal limits, increasing your
 t("Brainfreeze", "锁脑极寒", "talent name")
 t([[Quickly drain the heat from your target's brain, dealing %0.1f Cold damage.
 		Affected creatures will also be brainlocked for 4 turns, putting a random talent on cooldown, and freezing cooldowns.
-		The damage and chance to brainlock increase with your Mindpower.]], [[迅速的抽取敌人大脑的热量，造成 %0.1f 寒冷伤害。
+		The damage and chance to brainlock increase with your Mindpower.]], [[迅速地抽取敌人大脑的热量，造成 %0.1f 寒冷伤害。
 		受到技能影响的生物将被思维封锁四回合，随机技能进入冷却，并冻结冷却时间。
 		伤害和思维封锁几率受精神强度加成。]], "tformat")
 t("Heat Shift", "热能转移", "talent name")
@@ -28096,7 +28096,7 @@ t([[While Acid Infusion is active, your bombs coat your golem in acid for %d tur
 t("Caustic Mire", "腐蚀之地", "talent name")
 t([[A radius %d pool of acid spawns at the target location, doing %0.1f Acid damage each turn for %d turns.
 		All creatures caught in the mire will also suffer a %d%% slowness effect.
-		The damage will increase with your Spellpower.]], [[一小块酸液覆盖了目标地面，散落在半径 %d 的范围内，每回合造成 %0.1f 点酸性伤害，持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[目标地点出现一片半径 %d 的酸液池，每回合造成 %0.1f 点酸性伤害，持续 %d 回合。
 		受影响的生物同时会减速 %d%%。
 		伤害受法术强度加成。]], "tformat")
 t("Dissolving Acid", "酸液溶解", "talent name")
@@ -28123,7 +28123,7 @@ t("Supercharge Golem", "超载傀儡", "talent name")
 t("Not enough space to supercharge!", "没有足够的空间来超载傀儡！", "logPlayer")
 t([[You activate a special mode of your golem, boosting its regeneration rate by %0.2f life per turn for %d turns.
 		If your golem was dead, it is instantly brought back to life with %d%% life.
-		While supercharged, your golem is enraged and deals 25%% more damage.]], [[你激活傀儡的特殊模式，提高它每回合 %0.2f 生命回复速度，持续 %d 回合。
+		While supercharged, your golem is enraged and deals 25%% more damage.]], [[你激活傀儡的特殊模式，使它每回合多回复 %0.2f 点生命，持续 %d 回合。
 		如果你的傀儡死亡，它会立刻复活，复活时保留 %d%% 生命值。
 		此技能激活时你的傀儡处于激怒状态，可增加 25%% 伤害。]], "tformat")
 t("Runic Golem", "符文傀儡", "talent name")
@@ -31135,7 +31135,7 @@ t([[Your battle cry shatters the will of your foes within a radius of %d, loweri
 section "mod-tome/data/talents/techniques/weaponshield.lua"
 
 t("Shield Pummel", "盾牌连击", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器一个盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
 t("You cannot use Shield Pummel without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
 t("%s resists the shield bash!", "%s抵抗了盾牌猛击！", "logSeen")
 t([[Hits the target with two shield strikes, doing %d%% and %d%% shield damage. If it hits a second time, it stuns the target for %d turns.
