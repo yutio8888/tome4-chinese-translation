@@ -895,7 +895,7 @@ t("firestorm", "火焰风暴", "_t")
 t([[A furious fire storm rages around the caster, doing %0.2f fire damage in a radius of 3 each turn for %d turns.
 		You closely control the firestorm, preventing it from harming your party members.
 		The damage and duration will increase with your Spellpower.]], [[制造一片激烈的火焰风暴，每回合对施法者周围 3 码范围内的目标造成 %0.2f 火焰伤害，持续 %d 回合。
-		你精确的操控火焰风暴，阻止它伤害你的队友。
+		你精确地操控火焰风暴，阻止它伤害你的队友。
 		伤害和持续时间受法术强度加成。]], "tformat")
 t("Frostfire Nova", "霜火爆炸", "talent name")
 t([[Fire a blast of frostfire in radius %d, doing %0.2f fire damage and freezing creatures in ice blocks for 4 turns.
