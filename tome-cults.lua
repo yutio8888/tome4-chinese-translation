@@ -674,7 +674,7 @@ t("%s resists the mental assault!", "%s抵抗了精神攻击！", "logSeen")
 t("Writhing Ring of the Hunter", "猎手的扭曲指环", "entity name")
 t("green slimy ring", "绿色粘乎乎的指环", "_t")
 t("A writhing mass of tentacles roughtly warped into the form of a ring. A dark malovelant power emanates from it.", "大量扭曲的触须弯曲成了指环的形状。一团黑暗的恶意力量从里面散发出来。", "_t")
-t("When first worn the ring attunes to you, letting you choose a prodigy it will forever grant while worn (can not be changed once chosen, re-wear it to select again if you refused to choose at first).", "当你第一次戴上戒指的时候，选择一个觉醒技能，你将在戴上这个戒指的时候获得这个觉醒技能（一旦选择就不能改变。如果你第一次没有选择，可以在重新装备的时候进行选择）。", "_t")
+t("When first worn the ring attunes to you, letting you choose a prodigy it will forever grant while worn (can not be changed once chosen, re-wear it to select again if you refused to choose at first).", "当你第一次戴上戒指时，它会与你契合，让你选择一个觉醒技能，此后佩戴期间你将永久获得该技能（一旦选择就不能改变。如果你第一次没有选择，可以在重新装备的时候进行选择）。", "_t")
 t("#DARK_SEA_GREEN#While the ring senses battle it grips your finger so hard you can not take it off.", "#DARK_SEA_GREEN#指环感知到了战斗，牢牢抓住了你的手指，你无法脱下。", "logPlayer")
 t("#DARK_SEA_GREEN#As you put the %s on your finger, you feel more attuned to the horror within you.", "#DARK_SEA_GREEN#当你将%s戴在手上，你觉得你和体内的恐魔更加协调了。", "logPlayer")
 t("Staff of Bones", "白骨法杖", "entity name")
@@ -757,10 +757,10 @@ t("The arm can sometimes reach out to a foe in radius 5 and grab it to you with 
 t("#DARK_SEA_GREEN#The %s reaches for %s with a tentacle!", "#DARK_SEA_GREEN#%s使用触手抓握%s！", "logSeen")
 t("Monolith Armour", "巨石铠甲", "entity name")
 t("black stone armour", "黑色的石头铠甲", "_t")
-t("This 'armour' seems to mostly consist of chunks of a rune etched stone somehow fused with a highly flexible black mesh. The titanic pieces of stone would undoubtedly deflect any blow thrown at you, but you would need obscene strength just to move while wearing this. The glyphs and runes carved into the chunks sometimes light up of their own accord, letting out small bursts of magic.", "这块护甲似乎是由一块块刻有符文的石块组成，它们与某种高度灵活的黑色网状物融为一体。毋庸置疑，巨大的石块可以阻挡对你身上的任何打击，但你需要巨大的力量才能穿着它移动。刻在石块上的符文有时候会自动点亮，放出小型的魔法爆炸。", "_t")
+t("This 'armour' seems to mostly consist of chunks of a rune etched stone somehow fused with a highly flexible black mesh. The titanic pieces of stone would undoubtedly deflect any blow thrown at you, but you would need obscene strength just to move while wearing this. The glyphs and runes carved into the chunks sometimes light up of their own accord, letting out small bursts of magic.", "这块护甲似乎是由一块块刻有符文的石块组成，它们与某种高度灵活的黑色网状物融为一体。毋庸置疑，巨大的石块能挡下任何袭向你的打击，但你需要巨大的力量才能穿着它移动。刻在石块上的符文有时候会自动点亮，放出小型的魔法爆炸。", "_t")
 t([[15% chance when hit to shatter reality around you creating rifts to help you (free cast of a Reality Fracture talent, level 4). This effect has a 30 turns cooldown.
 #PURPLE#If your constitution drops below requirement while using it, it is so heavy you will automatically unequip it. Beware.#LAST#]], [[被击中时有15%的几率撕裂周围的现实，在身边创造时空裂隙来帮助你（免费释放一次等级4的实境撕裂）。这个效果的冷却时间为30回合。
-#PURPLE#如果在你使用它的时候你的体质值降低到了装备的需求以下，因为它太重了，你会立刻解除装备。要小心。#LAST#]], "_t")
+#PURPLE#如果使用期间你的体质值降到装备需求以下，它会因为太重而被自动卸下。要小心。#LAST#]], "_t")
 t("#LIGHT_RED#Your %s is too heavy to carry with your punny constitution anymore. You remove it.", "#LIGHT_RED#你的体质已不足以穿戴沉重的%s，你将它卸下了。", "logPlayer")
 t("Fanged Collar", "利牙项环", "entity name")
 t("a necklace with fangs", "有尖牙的项链", "_t")
@@ -793,20 +793,20 @@ Despite this however, the citizenry continued to burn alive the enemies of natur
 This stake of wood appears to one of those used to prop up one of the executed heads. It has seemingly absorbed the will of the head it propped up, and holding it you can hear the Ziguranth's message echo through your mind.]], [[在黄昏纪的魔法大爆炸后，纳格尔王国迅速爆发了反对法师的活动。民众群起攻击那些拥有魔力的人，将他们绑在木头上活活烧死。当局找到并处决了这些肇事者，把他们的人头插在遍布首都的柱子上。
 然而尽管如此，民众仍继续把大自然的敌人活活烧死。当局所不知道的是，那些被处死的肇事者的头颅在他们死后仍然继续传播着他们的讯息。
 
-这段木头似乎是曾经戳着一个被处决的人的人头的。它似乎吸收了它曾支撑的头颅的意志，拿着它，你可以听到伊格兰斯的讯息在你的脑海中回响。]], "_t")
+这根木桩似乎就是当年插着被处决者头颅的木桩之一。它似乎吸收了那颗头颅的意志，拿着它，你可以听到伊格兰斯的讯息在你的脑海中回响。]], "_t")
 t("convince all non arcane users in radius 10 to turn on their spellcasting friends for 6 turns (chance increases with your Mindpower)", "使半径10码范围内的非奥术魔法使用者攻击奥术魔法使用者，持续6回合（几率随精神强度提升）", "tformat")
 t("Worm Nest", "虫穴", "entity name")
 t("disgusting robe", "恶心的长袍", "_t")
-t("This unusually thick robe constantly wriggles and squirms. Small worms sometimes pop out of it, dropping to the floor. The worms will cushion attacks against your person, but you somehow do not like the idea of having so many parasitic creatures so close to your vulnerable flesh.", "这件异常厚重的长袍不断蠕动。上面的小蠕虫有时会从上面跳出来，掉到地板上。这些蠕虫会缓冲敌人对你的攻击，但是让这么多寄生生物如此接近你脆弱的肉体……实在是太恶心了。", "_t")
+t("This unusually thick robe constantly wriggles and squirms. Small worms sometimes pop out of it, dropping to the floor. The worms will cushion attacks against your person, but you somehow do not like the idea of having so many parasitic creatures so close to your vulnerable flesh.", "这件异常厚重的长袍不断蠕动。有时会有小蠕虫从里面冒出来，掉到地板上。这些蠕虫会缓冲敌人对你的攻击，但是让这么多寄生生物如此接近你脆弱的肉体……实在是太恶心了。", "_t")
 t("#GREEN#The worms embed themselves easily in your mutated skin.", "#GREEN#蠕虫很容易嵌入你的变异皮肤中。", "logPlayer")
 t("Light of Revelation", "揭示之光", "entity name")
 t("disturbing lantern", "令人不安的灯笼", "_t")
 t("The \"lantern\" appears to be a glowing shard of a glass-like substance. Despite how bright it is, its light deeply disturbs you. It illuminates everything in its wake, including things which you would rather not see. Part of you wants to throw it away, but another part wants to know the unearthly truths it will reveal to you.", "这个“灯笼”似乎是一块发光的玻璃状物体的碎片。尽管它十分明亮，但它的光却让你深感不安。它照亮了身边的一切，包括你不愿意看到的东西。你内心既想要把它扔掉，却又渴望着它向你揭示的超自然的真相。", "_t")
 t("Sometimes reveals the hidden truths you'd rather not see.", "有时会揭示你宁愿视而不见的隐秘真相。", "_t")
-t("#YELLOW#Light of Revelation shines on %s revealing its true nature as %s!", "#YELLOW#揭示之光照耀着%s，揭示了它实际上是%s！", "say")
+t("#YELLOW#Light of Revelation shines on %s revealing its true nature as %s!", "#YELLOW#揭示之光照耀着%s，显露出它的真面目：%s！", "say")
 t("Glowing Core", "光亮之核", "entity name")
 t("burning core", "燃烧的核心", "_t")
-t("This is all that's left of the Searing Horror. Even after its death, the object in your hand glows just as brightly as it did before.", "这是灼热恐魔仅存的残余。即使它已经死去，你手中的物体依然如从前一样闪耀着光芒。", "_t")
+t("This is all that's left of the Searing Horror. Even after its death, the object in your hand glows just as brightly as it did before.", "这是灼热恐魔仅剩的残骸。即使它已经死去，你手中的物体依然如从前一样闪耀着光芒。", "_t")
 t("Shoes of Moving Slowly", "缓步之靴", "entity name")
 t("restful shoes", "放松的鞋子", "_t")
 t([[Fast does not always win.
@@ -816,7 +816,7 @@ t([[Fast does not always win.
 #GOLD#有人说这可以和疾行之靴结合。]], "_t")
 t("Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.", "每个你没有移动的回合都能得到2点防御和护甲值增益。最多叠加12次。", "_t")
 t("combine it with the Shoes of Moving Quickly", "与疾行之靴结合", "_t")
-t("You need to have the Shoes of Moving Quickly in your inventory.", "你需要拥有一双疾行之靴（疾行之靴需在背包中）。", "logPlayer")
+t("You need to have the Shoes of Moving Quickly in your inventory.", "你的背包中需要有一双疾行之靴。", "logPlayer")
 t("Shoes of Slowly Moving Quickly", "缓步疾行之靴", "_t")
 t("A wonder of footwear! You can set a shoe to stay in place while the other one goes very fast, spinning around to create tornados!", "这是鞋子的奇迹！你可以让一只鞋待在原地不动，另一只鞋飞快地旋转起来，形成龙卷风！", "_t")
 t([[Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.
@@ -830,7 +830,7 @@ t("temporarily causes the target to receive entropic backlash from any healing t
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Seeds of the Black Tree", "黑色树之种", "entity name")
 t("corrupt stone", "被污染的石头", "_t")
-t("This writhing mass of tentacles appears to have infested a mindstar, creating some bizarre fusion between natural and unnatural. The once clear gem now seems more like a shard of black obsidian with tentacles striking out from it like whips. You do not want to think of the implications of this horror being able to fuse with Nature itself.", "这团扭曲的触手似乎寄生了一块灵晶，在自然和超自然之间形成了一种奇异的混合。曾经清晰的宝石现在看起来更像一块黑曜石碎片，触手在上面伸出，宛如鞭子一般。你无法想象，恐魔竟然能够和大自然混合。", "_t")
+t("This writhing mass of tentacles appears to have infested a mindstar, creating some bizarre fusion between natural and unnatural. The once clear gem now seems more like a shard of black obsidian with tentacles striking out from it like whips. You do not want to think of the implications of this horror being able to fuse with Nature itself.", "这团扭曲的触手似乎寄生在了一块灵晶上，在自然和超自然之间形成了一种奇异的混合。曾经清晰的宝石现在看起来更像一块黑曜石碎片，触手在上面伸出，宛如鞭子一般。你无法想象，恐魔竟然能够和大自然混合。", "_t")
 t("15% chance to cast Tendrils Eruption level 3 on your target", "15%几率对目标施放等级3的触手地狱", "_t")
 -- untranslated text
 --[==[
@@ -2636,7 +2636,7 @@ t([[Each time you apply Jinx to an enemy, you have a %d%% chance to siphon some 
 t("Fatebreaker", "打破宿命", "talent name")
 t([[You form a link between yourself and the chosen target for %d turns, tying your fates together. If during this time you receive fatal damage, you reflexively warp reality, ending the effect and attempting to force them to die in your place.
 		As long as your target remains alive this redirects all damage you take to it as temporal and darkness damage for 1 turn.
-		Any Fortune stacks you have and any Jinx stacks the enemy have will then be consumed to heal you for %d life per stack.]], [[在你和目标之间建立一个持续 %d 回合的命运链接。如果在这期间你受到了致命的伤害，你将条件反射般扭曲现实，尝试迫使目标在你的位置死亡并中断连接。
+		Any Fortune stacks you have and any Jinx stacks the enemy have will then be consumed to heal you for %d life per stack.]], [[在你和目标之间建立一个持续 %d 回合的命运链接。如果在这期间你受到了致命的伤害，你将条件反射般扭曲现实，中断连接并尝试迫使目标替你死去。
 		在 1 回合内，只要目标还活着，你会将所有受到的伤害作为时空和暗影伤害转移给目标。
 		同时，你身上的幸运效果和目标携带的厄运效果将被消耗，每层效果将会治疗 %d 点生命值。]], "tformat")
 
@@ -2649,7 +2649,7 @@ t([[You are surrounded by a vortex of entropic energy that feeds on the timeline
 			Up to %d stacks total will be applied to enemies each cast with a max of 2 stacks on the same target.]], [[吸收他人时间的熵能漩涡围绕着你。当你释放法术时，半径 10 格内的随机目标将迅速老化、凋零，所有属性降低 %d， 持续 8 回合，效果可叠加 %d 层。
 			每次施法可以释放最多 %d 层加速衰老，但同一目标一次最多增加 2 层效果。]], "tformat")
 t("Severed Threads", "断绝", "talent name")
-t("On applying atrophy to a target below %d%% of their maximum life you will sever their lifeline, slaying them instantly. You will then feast on the remnants of their timeline for %d turns, increasing your life regeneration by %0.1f and causing talents without fixed cooldowns to refresh twice as fast.", "当对不足 %d%% 最大生命值的目标释放衰亡时，你将尝试切断目标的生命线，立刻杀死目标。在接下来的 %d 回合中，你将会享用目标残余的时间线，增加你的生命回复 %0.1f 并使没有固定冷却时间的技能冷却速度加倍。", "tformat")
+t("On applying atrophy to a target below %d%% of their maximum life you will sever their lifeline, slaying them instantly. You will then feast on the remnants of their timeline for %d turns, increasing your life regeneration by %0.1f and causing talents without fixed cooldowns to refresh twice as fast.", "当对生命值低于最大生命值 %d%% 的目标释放衰亡时，你将尝试切断目标的生命线，立刻杀死目标。在接下来的 %d 回合中，你将会享用目标残余的时间线，增加你的生命回复 %0.1f 并使没有固定冷却时间的技能冷却速度加倍。", "tformat")
 t("Temporal Feast", "时空盛宴", "talent name")
 t([[You drink deeper from the timeline of others. Each time you apply atrophy you gain %0.1f%% spell speed per atrophy stack on the target and cause them to lose %d%% of a turn.
 			The highest atrophy stack found will be used for the spell speed calculation.]], [[你进一步榨取他人的时间线。每次对目标施加衰亡效果时，目标身上的每层衰亡效果将使你获得 %0.1f%% 施法速度，同时目标将失去 %d%% 回合。
@@ -2671,7 +2671,7 @@ t("Summon", "召唤", "_t")
 t([[You use your bond with horrors to summon three decaying devourers for %d turns.
 The decaying horrors cannot move and will attack all hostile creatures around them. They possess the talents Bloodbath, Gnashing Teeth and Frenzied Bite.
 All its primary stats will be set to %d (based on your Magic stat), life rating increased by %d, and all talent levels set to %d.  Many other stats will scale with level.
-Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你利用和恐魔的联系召唤三个持续 %d 回合的腐败的吞噬者。
+Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你利用和恐魔的联系召唤三个腐败的吞噬者，持续 %d 回合。
 腐败的吞噬者不能移动，能攻击周围所有敌对生物。它们拥有浴血奋战、咬牙切齿和狂乱撕咬技能。
 它们的所有主属性将设为 %d （基于你的魔力属性），生命成长增加 %d， 所有技能等级设为 %d。 许多其他属性随等级成长。
 它们将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。]], "tformat")
@@ -2701,7 +2701,7 @@ t([[You attune your horrors to the dead god Amakthel, increasing your summoned h
 At talent level 3, your Decaying Devourers spell will summon 4 additional Devourers adjacent to random enemies nearby and your Bloated Horror will learn the Agony talent.
 At talent level 5, victims of your Horrific Display spell will pull enemies in radius 10 1 space towards them each turn.
 The damage increase is based on your Spellpower.]], [[你使你的恐魔与已死之神阿马克泰尔相协调，增加你召唤的恐魔 %d%% 伤害。
-技能等级 3 后，你的腐败的吞噬者法术将额外召唤四名吞噬者在随机敌人周围，你的浮肿恐魔将学会极度痛苦。
+技能等级 3 后，你的腐败的吞噬者法术将在附近随机敌人身边额外召唤四名吞噬者，你的浮肿恐魔将学会极度痛苦。
 技能等级 5 后，恐怖展示的受害者每回合会把范围 10 码内的敌人拉近 1 码。
 伤害加成受法术强度加成。]], "tformat")
 
@@ -2716,7 +2716,7 @@ t("Grow horrific tentacles to assail your foes.", "长出可怕的触手攻击�
 t("horrific body", "恐怖身躯", "talent type")
 t("Let your body mutate in terrible and efficient ways.", "让你的身体以可怕而有效的方式变异。", "_t")
 t("writhing body", "扭曲身体", "talent type")
-t("Enhance your body and tentacle with new attacks and horrific growths.", "用新的攻击和可怕的生长来增强你的身体和触手。", "_t")
+t("Enhance your body and tentacle with new attacks and horrific growths.", "用新的攻击和可怖的增生来增强你的身体和触手。", "_t")
 t("path of horror", "恐魔之路", "talent type")
 t("Continue your journey on the side of horror.", "继续你成为恐魔的旅程。", "_t")
 t("controlled horrors", "恐魔操控", "talent type")
@@ -2744,7 +2744,7 @@ t("Tear holes in space and time to unleash devastating forces on your foes.", "�
 t("chronophage", "噬宙", "talent type")
 t("Feast upon the ruined timelines of your enemies.", "享受你敌人毁灭的时间线。", "_t")
 t("scourge drake", "天谴龙", "talent type")
-t("Take on the defining aspects of a Scourge Drake.", "化身成为天谴龙形态使你能使用天谴龙技能。", "_t")
+t("Take on the defining aspects of a Scourge Drake.", "获得天谴龙的标志性特征。", "_t")
 t("doom", "末日", "talent type")
 t("Foretell the dire fate of your enemies.", "预言你敌人的悲惨命运。", "_t")
 t("prophecy", "预言", "talent type")
@@ -2794,7 +2794,7 @@ t([[By bringing the forces of entropy to bear on a target, you prophesize their 
 Level 1: Prophecy of Ruin. Deals %0.2f damage on falling below 75%%, 50%% or 25%% of maximum life.
 Level 3: Prophecy of Treason. %d%% chance each turn to attack an ally or themselves.
 Level 5: Prophecy of Madness. Increases talent cooldowns by %d%%.]], [[对目标释放熵能力量，你预言了它无可避免的末日。随着技能等级提升，你能解锁更多预言。同一目标不能同时处于两种预言下。
-技能等级 1：毁灭预言。当生命值降低至最大生命的 75%%，50%% 或 25%% 下时，造成 %0.2f 伤害。
+技能等级 1：毁灭预言。当生命值降至最大生命的 75%%、50%% 或 25%% 以下时，造成 %0.2f 伤害。
 技能等级 3：背叛预言。每回合有 %d%% 几率攻击友方单位或自身。
 技能等级 5：疯狂预言。增加 %d%% 技能冷却时间。]], "tformat")
 t("Prophecy of Madness", "疯狂预言", "talent name")
@@ -2806,7 +2806,7 @@ t([[Utter a prophecy of the impending demise of your target that lasts 6 turns.
 		Each time their life falls below 75%%, 50%% or 25%% of maximum the power of the prophecy will echo outwards, inflicting %0.2f darkness damage to them.
 		A target can only be affected by a single prophecy at a time.
 		The damage increase will increase with your Spellpower.]], [[对目标施加毁灭预言，持续 6 回合。
-		当生命值降低至最大生命的 75%%，50%% 或 25%% 下时，造成 %0.2f 暗影伤害。
+		每当目标生命值降至最大生命的 75%%、50%% 或 25%% 以下时，对其造成 %0.2f 暗影伤害。
 		一个目标只能同时被一个预言影响。
 		伤害受法术强度加成。]], "tformat")
 t("Prophecy of Treason", "背叛预言", "talent name")
@@ -2827,9 +2827,9 @@ t("Weave your chosen prophecy into your speech, dooming your foe twice over. The
 t("Revelation", "天启", "talent name")
 t("As you speak the chosen prophecy whispers from the void guide you in how to bring about the downfall of your foe. The chosen prophecy will grant one of the following effects.\n\t\tProphecy of Madness. Each time the target uses a talent one of your talents on cooldown has its cooldown reduced by %d turns.\n\t\tProphecy of Ruin. Each time the target takes damage you are healed for %d%% of the damage dealt.\n\t\tProphecy of Treason: %d%% of all damage you take is redirected to a random target affected by Prophecy of Treason.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\n\t\tCurrent prophecy: %s", [[当你宣读预言时，来自虚空的回响将指引你带来敌人的末日。你选择的预言将提供以下三种加成之一。
 		疯狂预言：每次目标使用技能时，你的一个正在冷却中的技能将减少 %d 回合冷却时间。
-		毁灭预言：每次目标受到伤害时，你回复 %d%% 伤害值。
+		毁灭预言：每次目标受到伤害时，你回复相当于该伤害 %d%% 的生命值。
 		背叛预言：你受到的 %d%% 伤害将转移至周围随机受背叛预言影响的目标。
-		同一种预言只能以一种方式进行强化，隆重演说，双重诅咒或者天启。
+		同一种预言只能被隆重演说、双重诅咒或天启中的一种强化。
 
 		当前预言 : %s]], "tformat")
 
@@ -2843,7 +2843,7 @@ t([[Your unnatural existence causes the fabric of reality to reject your presenc
 
 You may activate this talent to channel your entropy onto a nearby enemy, removing all entropic backlash to inflict darkness and temporal damage equal to %d%% of your entropy over 4 turns.
 
-The damage dealt when applying this to an enemy will increase with your Spellpower.]], [[你作为非自然的存在被现实抗拒。你受到的直接治疗的 25%% 将以熵能反冲的形式在 8 回合内伤害自身，这种伤害不可抗拒、无视所有护盾，但不会致死。
+The damage dealt when applying this to an enemy will increase with your Spellpower.]], [[你非自然的存在令现实排斥你。你所受直接治疗量的 25%% 将以熵能反冲的形式在 8 回合内对你造成伤害，这种伤害不可抗拒、无视所有护盾，但不会致死。
 
 你可以主动开启该技能，将你身上的熵转移给附近的一名敌人，除去所有熵能反冲并对其造成持续 4 回合的暗影和时空伤害，伤害值等于你自身熵能的 %d%%。
 
@@ -2857,7 +2857,7 @@ t([[Your knowledge of entropy allows you to defy the laws of physics, allowing y
 t("Black Hole", "黑洞", "talent name")
 t([[On casting Entropic Gift, a radius 1 rift in spacetime will be opened underneath the target for %d turns, increasing in radius by 1 each turn to a maximum of %d.
 		All caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]], [[每次释放熵之礼物，会在目标处产生一个持续 %d 回合、半径为 1 的时空裂隙，每回合半径增加 1 直到 %d。
-		所有范围内的生物每回合将被拉向裂隙中心并受到 %0.2f 暗影、 %0.2f 时空伤害以及你熵总量的 %d%% 的伤害（当前 %d）。]], "tformat")
+		所有范围内的生物每回合将被拉向裂隙中心并受到 %0.2f 暗影、 %0.2f 时空伤害以及相当于你熵总量 %d%% 的伤害（当前 %d）。]], "tformat")
 t("Power Overwhelming", "能量过载", "talent name")
 t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，每个非瞬间法术会带来 %0.2f 熵能反冲。]], "tformat")
 
@@ -2939,7 +2939,7 @@ t([[Each time your shed skin looses %d%% of its max power or you take damage ove
 		你最多能同时拥有 %d 个脓包。
 		抗性受法术强度加成。]], "tformat")
 t("Pustulent Fulmination", "脓包爆裂", "talent name")
-t("You make all your putrescent pustules explode at once, splashing all creatures in radius %d with black fluids that deal %0.2f darkness damage per pustule and healing you for %0.1f per pustule.", "你引爆身上所有脓包，产生黑色液体溅射到半径 %d 格内所有生物上，每个脓包造成 %0.2f 暗影伤害并治疗你 %0.1f 生命。", "tformat")
+t("You make all your putrescent pustules explode at once, splashing all creatures in radius %d with black fluids that deal %0.2f darkness damage per pustule and healing you for %0.1f per pustule.", "你同时引爆身上所有脓包，将黑色液体溅射到半径 %d 格内的所有生物身上，每个脓包造成 %0.2f 暗影伤害并治疗你 %0.1f 生命。", "tformat")
 t("Defiled Blood", "污血", "talent name")
 t([[When you make your pustules explode you leave a pool of defiled blood on the ground for 5 turns.
 		Foes caught inside get assaulted by black tentacles every turn, dealing %d%% darkness tentacle damage and covering them in your black blood for 2 turns.

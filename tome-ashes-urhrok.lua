@@ -36,7 +36,7 @@ t("#LIGHT_BLUE# * +2 Magic, +0 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法
 t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD#每等级生命加值：#LIGHT_BLUE# +3", "_t")
 t("Demonologist", "恶魔使者", "birth descriptor name")
 t("Most simply run, but I understand: a distant planet, ravaged and damned. Burnt creations seek righteous vengeance, Urh'Rok's ashes, now destruction's engines. Harness their power! Capture and tame! I call on you, demons - UNLEASH THE FLAMES!", "多数人只会逃跑，但我明白：遥远的星球，饱受蹂躏，深陷诅咒。焦灼的造物寻求正义的复仇，乌鲁洛克的余烬，如今已成毁灭的工具。驾驭他们的力量！捕获并驯服他们！我召唤你们，恶魔——释放烈焰！", "_t")
-t("Contrary to popular beliefs Demonologists are not the pawns of demons, they enact pacts with them but always very carefully.", "不同于众人所相信的，恶魔使者并非恶魔的走卒。他们只是小心谨慎地与恶魔签订契约。", "_t")
+t("Contrary to popular beliefs Demonologists are not the pawns of demons, they enact pacts with them but always very carefully.", "与众人的看法不同，恶魔使者并非恶魔的走卒。他们只是小心谨慎地与恶魔签订契约。", "_t")
 t("They use those demonic powers for their own purpose, often evil but a few have been known to use demonic powers to fight demons.", "他们利用恶魔之力达成自己的目的，往往用于作恶，但也有少数人会用恶魔之力对抗恶魔。", "_t")
 t("Demonologists are melee fighters, bashing their foes skulls with their shields while calling down rains of fire and darkness.", "恶魔使者是近身格斗的战士，用盾牌击碎敌人的头颅，同时能呼唤黑暗与火焰之力。", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+2 体质", "_t")
@@ -58,7 +58,7 @@ and then you may witness a new elf's conception...]], [[玛·洛克的恶魔绝�
 之一召集邪徒为复活另一者而战
 静默他们的声音，隐藏你的踪影
 新的精灵终将诞生…]], "_t")
-t("Doomelves are not a real race, they are Shaloren that have been taken by demons and transformed into harbingers of doom.", "魔化精灵并不是一个真正的种族，他们曾是永恒精灵，而被恶魔抓去，变为末日的使者。", "_t")
+t("Doomelves are not a real race, they are Shaloren that have been taken by demons and transformed into harbingers of doom.", "魔化精灵并不是一个真正的种族，他们本是永恒精灵，被恶魔抓去后变成了末日的使者。", "_t")
 t("They enjoy unleashing torments and suffering on their victims.", "他们对折磨敌人感到享受。", "_t")
 t("They possess the #GOLD#Haste of the Doomed#WHITE# talent which allows them to phase away once in a while.", "他们拥有#GOLD#末日加速#WHITE#技能，可以不时脱离相位并传送。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
@@ -160,15 +160,15 @@ section "tome-ashes-urhrok/data/general/objects/world-artifacts.lua"
 t("Blackfire Aegis", "黑炎石盾", "entity name")
 t("blackened stone shield", "黑色的石质盾牌", "_t")
 t("This rugged stone shield flickers with bursts of pitch black flame.", "这个坚固的石盾闪烁着漆黑的火焰。", "_t")
-t("releases a burst of dark fire, dealing damage equal to your magic stat", "释放黑暗之火造成等于魔法属性的伤害", "_t")
+t("releases a burst of dark fire, dealing damage equal to your magic stat", "释放一股黑暗之火，造成相当于你魔法属性的伤害", "_t")
 t("Will of Ul'Gruth", "乌尔格鲁斯的意志", "entity name")
 t("massive metallic gauntlets", "巨型金属手套", "_t")
-t("These massive gauntlets once belonged to a very powerful demon named Ul'Gruth. The behemoth was said to be able to level entire buildings with a single swing of his hands.", "这双巨大的手套曾经属于一个名叫乌尔格鲁斯的强大的恶魔。据说，这个庞然大物一挥手就能夷平整栋建筑。", "_t")
+t("These massive gauntlets once belonged to a very powerful demon named Ul'Gruth. The behemoth was said to be able to level entire buildings with a single swing of his hands.", "这双巨大的手套曾经属于一个名叫乌尔格鲁斯的强大恶魔。据说，这个庞然大物一挥手就能夷平整栋建筑。", "_t")
 t("Your Obliterating Smash can destroy walls.", "你的歼灭挥斩能摧毁墙壁。", "_t")
 t("Fearfire Mantle", "恐惧之焰", "entity name")
 t("cloak shaped flames", "斗篷状的火焰", "_t")
 t("Black fires born of a blackened heart.", "黑色的火焰从漆黑的心脏中涌出。", "_t")
-t("All enemies in radius 2 take 20 fire damage each turn and healing you for 10% of the damage dealt.", "附近2码范围的敌人每回合受到20火焰伤害。你受到10%伤害值的治疗。", "_t")
+t("All enemies in radius 2 take 20 fire damage each turn and healing you for 10% of the damage dealt.", "2码范围内的敌人每回合受到20点火焰伤害，你回复相当于该伤害值10%的生命值。", "_t")
 t("Plague-Fire Sceptre", "疫火权杖", "entity name")
 t("darkness infused staff", "充满黑暗气息的法杖", "_t")
 t("The flames of Mal'Rok can be more stubborn than most. When they run out of fuel they have been known go out of their way to find more.", "玛·洛克的火焰比一般的火焰更加顽强。燃料耗尽时，它们甚至会特意去寻找更多燃料。", "_t")
@@ -183,8 +183,8 @@ t("rocky helm", "岩石头盔", "_t")
 t("Some enterprising adventurer seems to have noticed the skin of quasits is actually tougher than most metals, and fashioned this helm from one. Shame about the smell.", "一些有魄力的冒险者已经注意到了夸塞魔的皮肤其实比大多数金属都要坚硬，并且用一只夸塞魔的皮肤制成了这顶头盔。呣，气味浓郁。", "_t")
 t("Revenant", "亡魂", "entity name")
 t("shifting breastplate", "不断变形的胸甲", "_t")
-t("The joints of this armor creak ominously, the frame bends and heaves, almost as if breathing. The scratch and crack of metal mutters of suffering, of loss, perseverance and revenge.", "这件护甲的关节发出不祥的咯吱声，框架弯曲起伏，仿佛在呼吸。划痕与裂纹是金属的低语，有关苦楚、失去、坚持与复仇。", "_t")
-t("Status resistances shift over time to match the statuses you are being hit by.", "依据你中的负面状态改变你的状态免疫。", "_t")
+t("The joints of this armor creak ominously, the frame bends and heaves, almost as if breathing. The scratch and crack of metal mutters of suffering, of loss, perseverance and revenge.", "这件护甲的关节发出不祥的咯吱声，框架弯曲起伏，仿佛在呼吸。金属的划痕与裂纹低声诉说着苦楚、失去、坚持与复仇。", "_t")
+t("Status resistances shift over time to match the statuses you are being hit by.", "你的状态免疫会随时间变化，以匹配你所受到的负面状态。", "_t")
 t("Imp Claw", "小鬼之爪", "entity name")
 t("red, mottled claw", "红色斑驳的爪子", "_t")
 t("The battered remains of a flame imp's hand. It still burns with that unnatural flame.", "这是一只火焰小鬼留下的满是伤痕的爪子。它还燃烧着不自然的火焰。", "_t")
@@ -206,7 +206,7 @@ t("Wheel of Fate", "命运之轮", "_t")
 t("#GREEN#The skull embossed in the ring twists around momentarily. ...Did it just laugh?", "#GREEN#戒指里的头骨似乎扭曲了一瞬间……它刚才笑了么？", "logPlayer")
 t("Helm of the Dominated", "支配头盔", "entity name")
 t("horned helm", "长角的头盔", "_t")
-t("An experimental helmet designed to enhance the effects of the Doomelf corruption.", "这个头盔是为了提高魔化精灵的能力，而作为实验产品被制造出来。", "_t")
+t("An experimental helmet designed to enhance the effects of the Doomelf corruption.", "这是一顶实验性头盔，旨在增强魔化精灵所受腐化的效果。", "_t")
 t("Increases the range of Haste of the Doomed by 1.", "“末日加速”的范围增加 1 格。", "_t")
 t("The Black Crown", "黑之冠", "entity name")
 t("cracked obsidian crown", "破碎的黑曜石之冠", "_t")
@@ -246,7 +246,7 @@ t("A strange orb of demonic origins. It glows with a surreal red light.", "一�
 t("Jaw of Rogroth", "罗格洛斯的下颚", "entity name")
 t("tooth lined belt", "布满尖齿的腰带", "_t")
 t("Rogroth's mouth happened to be about the same size as your waist. Interesting.", "真有趣，罗格洛斯灵魂吞噬者的嘴巴正好和你的腰一样大。", "_t")
-t("deal darkness damage equal to your 350%% of your spellpower to a target, and, if it kills the target, restores 15% of max hp and all resources (except paradox and equilibrium)", "对目标造成相当于你350%%法术强度的暗影伤害，如果这杀死了目标，恢复15%最大生命值和所有资源（紊乱值和失衡值除外）", "_t")
+t("deal darkness damage equal to your 350%% of your spellpower to a target, and, if it kills the target, restores 15% of max hp and all resources (except paradox and equilibrium)", "对目标造成相当于你法术强度350%%的暗影伤害，若击杀目标，则恢复15%最大生命值和所有资源（紊乱值和失衡值除外）", "_t")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -700,22 +700,22 @@ t([[Your actions foreshadow a bleak outcome for your foes.
 		The vim's worth of a creature depends on your Willpower.]], [[你的一举一动都是敌人悲惨结局的预兆。
 		每次你造成暗影、火焰、枯萎或酸性伤害时，你诅咒你的目标，最多叠加至 %d 次（每个敌人每回合最多触发一次）。
 		每有一层诅咒，你杀死被诅咒目标时获得的活力值增加 100%%。
-		获得活力值基础值取决于意志。]], "tformat")
+		生物提供的活力值取决于你的意志。]], "tformat")
 t("Weakened Soul", "灵魂弱化", "talent name")
-t("For each stack of Bleak Outcome up to %d the afflicted creatures are weakened, reducing their resistances by 2%%.", "悲惨结局每叠加一层（至多 %d 层），受影响的生物都会削弱，抗性降低 2%%。", "tformat")
+t("For each stack of Bleak Outcome up to %d the afflicted creatures are weakened, reducing their resistances by 2%%.", "悲惨结局每叠加一层（至多 %d 层），受影响的生物都会被削弱，抗性降低 2%%。", "tformat")
 t("Grim Future", "无情未来", "talent name")
 t([[The future looks grim indeed... for your foes.
 		You can target a creature affected by Bleak Outcome to consume up to %s stacks, dealing %0.2f darkness damage to it for every stack and increasing your Spellpower by 4 per stacks for 6 turns.
 		While powered-up you can not apply new Bleak Outcome stacks.		
 		Damage is based on your Spellpower.]], [[对你的敌人来说，未来非常无情。
-		你可以指定一个被悲惨结局影响的生物，至多消耗 %s 层叠加效果，每层造成 %0.2f 暗影伤害，并每层强化你法术强度 4 点，持续 6 回合。
+		你可以指定一个被悲惨结局影响的生物，至多消耗 %s 层叠加效果，每层造成 %0.2f 暗影伤害，并使你的法术强度每层提高 4 点，持续 6 回合。
 		当你处于强化状态下，无法施加新的悲惨结局效果。
 		伤害受法术强度加成。]], "tformat")
 t("Ominous Shadow", "不祥黑影", "talent name")
 t([[By gorging yourself on up to %d stacks of Bleak Outcome from a creature, you turn into an Ominous Shadow for one turn per stack.
 		While transformed you are invisible (power %d), convert 100%% of all damage done to darkness and gain darkness resistance penetration and damage increase equal to your highest.
 		While transformed you can not apply new Bleak Outcome stacks.]], [[你吞噬一个生物身上最多 %d 层悲惨结局效果，使自己化为不祥黑影，每层持续 1 回合。
-		不祥黑影状态下你处于隐形（强度 %d） 造成的所有伤害转化为暗影伤害，并获得相当于你最高伤害加成和抗性穿透的暗影伤害加成和抗性穿透。
+		不祥黑影状态下你处于隐形（强度 %d）， 造成的所有伤害转化为暗影伤害，并获得暗影伤害加成与暗影抗性穿透，数值分别等于你最高的伤害加成与抗性穿透。
 		在变身状态下，无法施加新的悲惨结局效果。]], "tformat")
 
 ------------------------------------------------
@@ -752,7 +752,7 @@ t("Bind and use demons to do your bidding.", "束缚并驱使恶魔服从你的�
 t("infernal combat", "地狱格斗", "talent type")
 t("Imbue your melee attacks with lethal demonic powers.", "利用致命的恶魔之力强化近战攻击。", "_t")
 t("doom shield", "毁灭之盾", "talent type")
-t("Imbue yourself with the forces of Mal'Rok, the demon's homeworld, to protect and enhance.", "运用来自恶魔家乡玛·洛克的力量保护强化自身。", "_t")
+t("Imbue yourself with the forces of Mal'Rok, the demon's homeworld, to protect and enhance.", "运用来自恶魔家乡玛·洛克的力量保护并强化自身。", "_t")
 t("black-magic", "黑暗魔法", "talent type")
 t("That Old Black Magic.", "古老的黑魔法。", "_t")
 t("doom covenant", "末日契约", "talent type")
@@ -824,15 +824,15 @@ t([[Whenever you are on an unlit grid you can meld with the shadows, gaining %d 
 		Your equiped lite does not count and will be turned off when activating.
 		Moving will cancel the effect.
 		Stealth power depends on Spellpower.]], [[每当你站在黑暗地形时，你能与黑暗融合，获得 %d 潜行强度。
-		当你潜行时，你周围的黑暗在你的身边形成了一道防御型的屏障，你有 %d%% 几率摆脱物理或魔法负面效果。
+		当你潜行时，黑暗在你身周形成一道防御屏障，你有 %d%% 几率摆脱物理或魔法负面效果。
 		你的灯具不会计算在内，同时效果激活时灯具将自动关闭。
 		移动会取消该效果。
 		潜行强度受法术强度加成。]], "tformat")
 t("Blood Shield", "鲜血护盾", "talent name")
 t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
 t([[By channeling doom forces in your shield you constantly apply 15%% of its block value as a flat damage reduction against all damage.
-		Whenever you are hit in melee your shield retaliates automatically for %d%% of its block value as fire and darkness damage.]], [[在盾牌中引导毁灭之力，使你受到的全体伤害减少 15%% 格挡值。
-		每次你被近战攻击命中时，你的盾牌会自动反击，造成 %d%% 格挡值的火焰暗影混合伤害。]], "tformat")
+		Whenever you are hit in melee your shield retaliates automatically for %d%% of its block value as fire and darkness damage.]], [[在盾牌中引导毁灭之力，使你受到的全体伤害固定减少，减少量相当于盾牌格挡值的 15%%。
+		每次你被近战攻击命中时，你的盾牌会自动反击，造成相当于格挡值 %d%% 的火焰暗影混合伤害。]], "tformat")
 t("Silence", "沉默", "talent name")
 t("Corrupt the target, silencing it for %d turns.", "腐化目标，使之沉默 %d 回合。", "tformat")
 t("Fiery Portal", "火焰传送门", "talent name")
@@ -841,7 +841,7 @@ t([[Create two interlinked portals for %d turns.
 		Only you can use the portal willingly.
 		If a creature stands on the other end of the portal when you enter, you will switch places with it.]], [[制造两个连接在一起的传送门，持续 %d 回合。
 		只有你可以主动使用这个传送门。
-		如果当你进入传送门的时候，目标点上有一个生物，你会和它换位。]], "tformat")
+		如果你进入传送门时，另一端有生物，你会和它换位。]], "tformat")
 t("Doom Tendrils", "末日触须", "talent name")
 t([[You turn into a pillar of doom, sprouting flame tendrils in radius 2 around you.
 		All foes hit by the tendrils take %0.2f fire damage per turn.
@@ -880,7 +880,7 @@ t([[Raging flames burn foes and allies alike, doing %0.2f fire damage in a radiu
 		伤害受法术强度加成。]], "tformat")
 t("Pain Affinity", "痛苦协调", "talent name")
 t([[Whenever you take blight damage you bask in the sweet pain for 2 turns, increasing all damage affinity by 15%%.
-		This can only happen every %d turns.]], [[每当你受到枯萎伤害，你沐浴痛苦的甜美，在 2 回合内提升全体伤害亲和 15%%。
+		This can only happen every %d turns.]], [[每当你受到枯萎伤害，你沉浸于甜美的痛苦之中，在 2 回合内提升全体伤害亲和 15%%。
 		这一效果最多每 %d 回合触发一次。]], "tformat")
 t("Hexed Shield", "邪术护盾", "talent name")
 t([[Whenever you block an attack with your shield, you randomly hex the attacker with one of the hexes: Pacification, Domination, Burning or Empathic as if cast at talent level %d.
@@ -1014,7 +1014,7 @@ t([[Your knowledge of demonic forces grows, allowing you to bind more seeds to y
 		如果恶魔死亡，将不能再使用同一个种子进行召唤，直到它被复活为止。
 		这一技能可以召唤你装备或背包里的任何恶魔种子。
 
-		随着你对恶魔力量的了解更加深入，你能将更多的种子与你的装备结合。
+		随着你越来越善于结合种子，你也能使用更多种子：
 		技能等级 2 时你能将种子与第一个戒指结合。
 		技能等级 3 时你能将种子与盾牌结合。
 		技能等级 4 时你能将种子与第二个戒指结合。
@@ -1123,7 +1123,7 @@ t([[You infuse your shield with the energies of Urh'Rok, bringing about a magica
 		At level 3 if a damage dealt is at least twice as high you have %d%% chance to also remove a physical detrimental effect. This effect can only happen once per turn.
 		This spell disabled automatically on rest or run.
 		#{bold}#Activating the shield takes no time but de-activating it does.#{normal}#
-		The damage increases with spellpower.]], [[你的盾牌充满了乌鲁洛克的能量，带来一层魔法护盾：你受到的每次伤害中，最初的几点（基于你的盾牌格挡值）会转化为在 3 回合内生效的治疗。此效果可以叠加。
+		The damage increases with spellpower.]], [[你的盾牌充满了乌鲁洛克的能量，带来一层魔法护盾：你受到的每次伤害中，最先承受的若干点伤害（基于你的盾牌格挡值）会转化为在 3 回合内生效的治疗。此效果可以叠加。
 		治疗量等于 5 + %d%% 格挡值（当前 %d 点）。
 		技能等级 3 时，如果伤害在治疗量两倍以上，有 %d%% 几率额外移除一个物理负面效果。此效果每回合只能触发一次。
 		在休息和跑步时，该技能自动终止。
@@ -1140,7 +1140,7 @@ t([[You spin around madly with your shield, bashing all those around you for %d%
 t("Blighted Shield", "枯萎之盾", "talent name")
 t([[Your shield is infused with a powerful blight. Anytime you block and apply a counterstrike effect the target is also afflicted by a curse of impotence.
 		Cursed creatures have all their damage decreased by %d%% for 5 turns.
-		The effects will improve with your Spellpower.]], [[你的盾牌充满强大的枯萎能量。每次你格挡并附加反击状态时，目标将被虚弱诅咒感染，5 回合内降低 %d%% 伤害。
+		The effects will improve with your Spellpower.]], [[你的盾牌充满强大的枯萎能量。每次你格挡并附加反击状态时，目标还会受到虚弱诅咒，5 回合内降低 %d%% 伤害。
 		效果受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -1176,7 +1176,7 @@ t("Burning Sacrifice", "燃烧献祭", "talent name")
 t([[Whenever you kill a burning enemy, you will instantly deal a melee attack against a random adjacant enemy at %d%% power. 
 		Additionally, Incinerating Blows will always trigger on this attack (or your next attack), dealing %d%% of its normal damage to all enemies hit and stunning, ignoring the cooldown.
 		This can only trigger once every 5 turns.]], [[每次你击杀一个燃烧的敌对生物时，会立刻对一个随机相邻敌对生物进行一次攻击，造成 %d%% 武器伤害。
-		另外，焚尽强击必定被此效果触发（或者下一次攻击），对所有击中的敌对生物造成 %d%% 正常伤害并使其震慑，无视冷却时间。
+		另外，这次攻击（或你的下一次攻击）必定触发焚尽强击，对所有击中的敌对生物造成 %d%% 正常伤害并使其震慑，无视冷却时间。
 		此效果每 5 回合才能触发一次。]], "tformat")
 t("Fiery Aegis", "火焰守护", "talent name")
 t([[Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.
@@ -1269,7 +1269,7 @@ t("You consume the fear of enemies in radius %d, healing for %d life and gaining
 	至多能获得 %.1f 个额外回合。]], "tformat")
 t("Hope Wanes", "绝望碾压", "talent name")
 t([[You crush the spirit of a target with at least %d fear stacks, consuming all stacks and making it unable to act for %d turns.
-		This talent ignores saves and immunities.]], [[击溃已叠加至少 %d 层恐惧目标的精神，消耗其全部恐惧层数，使目标 %d 回合无法行动。
+		This talent ignores saves and immunities.]], [[击溃恐惧叠加至少 %d 层的目标的精神，消耗其全部恐惧层数，使目标 %d 回合无法行动。
 		此技能无视豁免和免疫。]], "tformat")
 
 ------------------------------------------------
@@ -1388,7 +1388,7 @@ t("You must have an empty space to teleport to.", "你必须寻找一片空地�
 t([[Hasten yourself out of phase, teleporting you to a specific location up to %d spaces away.
 		You can activate this talent up to twice within the same turn, but the second activation will not be instant.
 		Afterwards you stay out of phase for 5 turns. In this state your defense is increased by %d and all your resistances by %d%%.
-		The bonus will increase with your Willpower.]], [[加速自身，以至于脱离空间，传送至 %d 码内的指定位置。
+		The bonus will increase with your Willpower.]], [[加速自身以脱离空间，传送至 %d 码内的指定位置。
 		你在同一回合内至多连用两次该技能，且第二次使用会消耗时间。
 		之后，你进入“脱离现实”状态 5 回合，闪避增加 %d， 全体抗性增加 %d%%。
 		效果受意志加成。]], "tformat")
@@ -1410,11 +1410,11 @@ t([[Your original invisibility talent was corrupted and twisted.
 		- 你获得永久潜行 (强度 %d)
 		- 你的暗影伤害增加 %d%%
 		- 每当你造成超过 %d 点的非物理非精神伤害时，在半径 1 的范围内产生一次暗影爆炸，造成额外 50%% 伤害（每回合至多 1 次）。
-		- 变形时重置种族技能“末日加速”与种族技能“无情”
+		- 变形时重置“末日加速”与“无情”的冷却时间
 		]], "tformat")
 t("Pitiless", "无情", "talent name")
 t([[You launch a mental assault on the target.
-		The assult increases the cooldown of any already cooling down talents by %d, the duration of any magical, physical or mental detrimental effects by %d (max 4x duration) and decreases the duration of any magical, physical or mental beneficial effects by %d.]], [[你对目标的精神进行冲击。
+		The assult increases the cooldown of any already cooling down talents by %d, the duration of any magical, physical or mental detrimental effects by %d (max 4x duration) and decreases the duration of any magical, physical or mental beneficial effects by %d.]], [[你对目标发动精神冲击。
 		他所有正在冷却中的技能冷却时间延长 %d 回合，所有负面魔法、物理、精神效果延长 %d 回合（最多延长至原持续时间的 4 倍），所有正面魔法、物理、精神效果缩短 %d 回合。]], "tformat")
 
 ------------------------------------------------
@@ -1429,7 +1429,7 @@ t("#Target#'s weapon looks less threatening.", "#Target#的武器看起来不再
 t("-Demon Blade", "-恶魔之刃", "_t")
 t("curse", "诅咒", "effect subtype")
 t("Fiery Torment", "灼魂之罚", "_t")
-t("The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment", "目标的火焰抗性下降 %d%%，并且极易受到恐惧空间火焰的伤害。效果结束时将受到 %d 火焰伤害，并追加效果期间受到的总伤害的 %d%%。", "tformat")
+t("The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment", "目标的火焰抗性下降 %d%%，并且极易受到恐惧空间火焰的伤害。效果结束时将受到 %d 火焰伤害，该伤害还会增加效果期间所受总伤害的 %d%%。", "tformat")
 t("#Target# is surrounded by a vile flame!", "#Target#被邪恶的火焰包围", "_t")
 t("+Fiery Torment", "+灼魂之罚", "_t")
 t("The black flame around #Target# dies down", "#Target#周围的黑色火焰熄灭了", "_t")
@@ -1470,7 +1470,7 @@ t("+Unable to act", "+无法行动", "_t")
 t("#Target# regains the will to fight.", "#Target#恢复了战斗的勇气。", "_t")
 t("-Unable to act", "-无法行动", "_t")
 t("Suffered", "被折磨", "_t")
-t("The target has recently suffered, and cannot do so again yet.", "目标最近被折磨过，暂时不能继续折磨。", "_t")
+t("The target has recently suffered, and cannot do so again yet.", "目标最近被折磨过，暂时不会再次受到折磨。", "_t")
 t("#Target# suffers!", "#Target# 被折磨！", "_t")
 t("+Eternal Suffering", "+永恒折磨", "_t")
 t("Cleansing flames", "净化之焰", "_t")
@@ -1481,7 +1481,7 @@ t("#Target#'s purification is complete.", "#Target#的火焰净化结束了。",
 t("-Fire", "-火焰", "_t")
 t("Damage from soulburn.", "来自灵魂燃烧的伤害。", "_t")
 t("Blazing Rebirth", "烈焰重生", "_t")
-t("The target is burning, taking %d damage per turn, split among it and burning foes in radius %d.", "目标正在燃烧，每回合损失 %d 生命值，和半径 %d 内的正在燃烧的敌人分摊。", "tformat")
+t("The target is burning, taking %d damage per turn, split among it and burning foes in radius %d.", "目标正在燃烧，每回合受到 %d 伤害，由其与半径 %d 内正在燃烧的敌人分摊。", "tformat")
 t("%s loses %d health to the soulburn.", "%s 因为灵魂燃烧流失 %d 生命值。", "logSeen")
 t("pin", "定身", "effect subtype")
 t("Fiery Grasp", "炙炎之牢", "_t")
