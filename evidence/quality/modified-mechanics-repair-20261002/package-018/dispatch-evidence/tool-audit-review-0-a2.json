@@ -1,0 +1,44 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cat .ai/task/mmrfix-20261002-018/INPUT-review-0-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-018/INPUT-review-0-a1.json",
+      "description": "Read review input file"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-018/INPUT-review-0-a1.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor c in p['bounded_context']:\n  print({k:(v if k!='context' else v[-3000:]) for k,v in c.items()})\n\" | tail -c 20000",
+      "description": "Inspect rest of input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md | head -40",
+      "description": "List contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-018/INPUT-review-0-a1.json'))\nfor c in d['payload']['bounded_context'][1:]:\n  x=json.loads(c['context'])\n  for e in x['source_evidence']:\n    print('==',e.get('public_path'),e.get('start'),e.get('end'))\n    print(e.get('excerpt') or '\\n'.join(w['text'] for w in e.get('windows',[])))\n\"",
+      "description": "Print contexts for items 2 and 3"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 109,142p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract section 6"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "git -C /workspace/t-engine4 grep -n \"healing_factor\\|temporary_values_conf\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class/Actor.lua game/engines/default/engine/Entity.lua | head -20; git -C /workspace/t-engine4 grep -n \"function _M:addEffect\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/engines/default/engine/Map.lua",
+      "description": "Check healing_factor conf and addEffect signature"
+    }
+  }
+]

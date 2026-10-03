@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "workset_id": "31c214d81ea0ff5849592d960932e6237698dda251970c41f7938e72d94cef75",
+  "proposals": [
+    {
+      "entry_id": "b29103635392996cc5508271484815dd28a276db0f7036fba6133f6fa87d5b69",
+      "source": "The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.",
+      "source_tag": "tformat",
+      "target": "目标所受的光系或暗影伤害达到 1 点时会触发回响。每点光系伤害提供 %0.2f%% 的减速强度；已有减速合并时强度累加，上限为 %d%%，相当于累计 %d 点光系伤害提供的强度；首次施加直接采用该次伤害计算的强度，不受此上限截断。暗影伤害会在目标地格生成初始寿命为 4 回合的效果；暮光回响仍生效时，只有再次受到至少 1 点暗影伤害，且该地格效果剩余寿命大于 0、小于 %d 回合，才将其寿命重置为该回合数。初始每回合造成相当于触发暗影伤害 %d%% 的伤害；刷新时将剩余伤害与新伤害的回响合并，均摊到刷新后的回合内。",
+      "args_order": null,
+      "special": null,
+      "notes": "Current bounded repaired target; host selection is not source extraction."
+    },
+    {
+      "entry_id": "991e8b844a958eb129dc39c745247f70e921fb215991fc460ac87f805d08385f",
+      "source": "Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.",
+      "source_tag": "tformat",
+      "target": "进入自动修复模式，无法行动，并提高生命恢复速率、全部抗性及负生命存活能力；在回合检查时生命值已回满便结束。原说明的恢复读数 %d、抗性读数 %d%% 与生命下限读数 -%d 实际使用内部句柄编号，不代表实际效果数值。",
+      "args_order": null,
+      "special": null,
+      "notes": "Current bounded repaired target; host selection is not source extraction."
+    },
+    {
+      "entry_id": "e68c2f8110773cfe7c59ba16493c53005d46789138d999043c2b515cbe469996",
+      "source": "Increases all saves by %d and healing factor by %d%%.",
+      "source_tag": "tformat",
+      "target": "增加全豁免 %d。原说明的治疗系数读数为 %d%%，其中百分号误标：该数值实际直接加到治疗倍率上，未除以 100；常规治疗使用的总倍率最高为 2.5 倍。",
+      "args_order": null,
+      "special": null,
+      "notes": "Current bounded repaired target; host selection is not source extraction."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-018/INPUT-final-review-0-a3.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmrfix-20261002-018/INPUT-final-review-0-a3.json"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-018/INPUT-final-review-0-a3.json'))\np=d['payload'];print(p.keys())\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nprint(len(p['bounded_context']))\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-018/INPUT-final-review-0-a3.json'))\nfor b in d['payload']['bounded_context']:\n  c=json.loads(b['context'])\n  for e in c.get('source_evidence',[]):\n    print('=====',e['public_path'],e['start'],e['end'],e.get('sha256'));print(e['excerpt'])\n  for k,v in c.items():\n    if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False)[:3000])\n  print('#########')\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-018/INPUT-final-review-0-a3.json'))\nfor i,b in enumerate(d['payload']['bounded_context']):\n  c=json.loads(b['context'])\n  print('######',i, list(c.keys()))\n  for e in c.get('source_evidence',[]):\n    print('=====',{k:v for k,v in e.items() if k!='excerpt'})\n    if i>0 or 'start' not in e: print(e.get('excerpt'))\n  for k,v in c.items():\n    if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False)[:5000])\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; A=.artifacts/i18n/modified-mechanics-repair-20261002/package-018/sources; sed -n 121,155p $A/orcs/tome-orcs/data/talents/celestial/void.lua; echo ====; sed -n 1258,1319p $A/engine/game/engines/default/engine/Map.lua; echo ===; sed -n 114,174p $A/engine/game/engines/default/engine/interface/ActorTemporaryEffects.lua; echo ===; sed -n 102,120p $A/orcs/tome-orcs/superload/mod/class/Actor.lua; sha256sum $A/orcs/tome-orcs/data/talents/celestial/void.lua $A/orcs/tome-orcs/superload/mod/class/Actor.lua $A/orcs/tome-orcs/data/timed_effects/*.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; git -C /workspace/t-engine4 grep -n \"healing_factor\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class/Actor.lua game/engines/default/engine/Entity.lua | head -20; git -C /workspace/t-engine4 grep -n \"temporary_values_conf\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class game/engines/default/engine | head"
+    }
+  }
+]

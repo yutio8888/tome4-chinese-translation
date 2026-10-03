@@ -1,0 +1,37 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-018/INPUT-review-0-a1.json; echo; wc -l docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read review input and contract size"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-018/INPUT-review-0-a1.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor b in p['bounded_context']:\n  print('----');print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False))\n  c=json.loads(b['context']) if isinstance(b['context'],str) else b['context']\n  for k,v in c.items():\n    if k!='source_evidence': print(k, json.dumps(v,ensure_ascii=False))\n  for e in c.get('source_evidence',[]): print(e['public_path'],e['start'],e['end']); print(e['excerpt'])\n\"",
+      "description": "Pretty-print review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-018/INPUT-review-0-a1.json'))\np=d['payload']\nfor b in p['bounded_context'][1:]:\n  print('----');print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False))\n  c=json.loads(b['context']) if isinstance(b['context'],str) else b['context']\n  for k,v in c.items():\n    if k not in('source_evidence','read_boundary','source_access_warning','execution_cwd_requirement'): print(k, json.dumps(v,ensure_ascii=False))\n  for e in c.get('source_evidence',[]): print(json.dumps({k:v for k,v in e.items() if k!='excerpt'})); print(e.get('excerpt'))\n\"; grep -n '第六\\|## 6\\|六、' docs/paseo-translation-context-review-v2-contract.md | head",
+      "description": "Print remaining contexts"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 100,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract section 6"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; git -C /workspace/t-engine4 grep -n 'healing_factor' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class/Actor.lua game/engines/default/engine/Entity.lua | head; git -C /workspace/t-engine4 grep -n 'temporary_values_conf' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class game/engines/default/engine | head",
+      "description": "Check healing_factor temp value config"
+    }
+  }
+]

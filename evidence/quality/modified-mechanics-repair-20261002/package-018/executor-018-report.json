@@ -1,0 +1,858 @@
+{
+  "schema_version": 1,
+  "merge_id": "mmrfix-20261002-018",
+  "component": "orcs",
+  "untranslated": [
+    {
+      "component": "orcs",
+      "section": "tome-orcs/data/timed_effects/magical.lua",
+      "source": "The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.",
+      "source_tag": "tformat",
+      "entry_id": "b29103635392996cc5508271484815dd28a276db0f7036fba6133f6fa87d5b69",
+      "previous_target": "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，累计受到 %d 点伤害时达到上限。暗影伤害会在目标地格生成一个持续 %d 回合的效果，每回合造成相当于该次暗影伤害 %d%% 的伤害。只要目标继续受到该效果或其他来源的伤害，持续时间就会刷新。",
+      "previous_args_order": null,
+      "previous_special": null,
+      "classification": "source-changed"
+    },
+    {
+      "component": "orcs",
+      "section": "tome-orcs/data/timed_effects/other.lua",
+      "source": "Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.",
+      "source_tag": "tformat",
+      "entry_id": "991e8b844a958eb129dc39c745247f70e921fb215991fc460ac87f805d08385f",
+      "previous_target": "进入自动修复模式，无法行动，但生命恢复速率增加 %d，生命值回满后结束该模式，全部抗性提升 %d%%，死亡生命下限为 -%d。",
+      "previous_args_order": null,
+      "previous_special": null,
+      "classification": "source-changed"
+    },
+    {
+      "component": "orcs",
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "Increases all saves by %d and healing factor by %d%%.",
+      "source_tag": "tformat",
+      "entry_id": "e68c2f8110773cfe7c59ba16493c53005d46789138d999043c2b515cbe469996",
+      "previous_target": "增加全豁免 %d，增加治疗系数 %d%%。",
+      "previous_args_order": null,
+      "previous_special": null,
+      "classification": "source-changed"
+    }
+  ],
+  "task_id": "mmrfix-20261002-018",
+  "status": "implemented_verified_for_executor_handoff",
+  "role": "EXECUTOR",
+  "changed_files": [
+    "tome-orcs.lua"
+  ],
+  "target_count": 3,
+  "confirmed_claim_count": 3,
+  "changes": [
+    {
+      "claim_id": "UPSTREAM142",
+      "status": "confirmed",
+      "change_id": "19bbf7b4d440d83940a4100182625105ec0a31ea863900e141caf47dc4bdd8a2",
+      "line": 6113,
+      "section": "tome-orcs/data/timed_effects/magical.lua",
+      "source": "The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "old_target": "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，累计受到 %d 点伤害时达到上限。暗影伤害会在目标地格生成一个持续 %d 回合的效果，每回合造成相当于该次暗影伤害 %d%% 的伤害。只要目标继续受到该效果或其他来源的伤害，持续时间就会刷新。",
+      "new_target": "目标所受的光系或暗影伤害达到 1 点时会触发回响。每点光系伤害提供 %0.2f%% 的减速强度；已有减速合并时强度累加，上限为 %d%%，相当于累计 %d 点光系伤害提供的强度；首次施加直接采用该次伤害计算的强度，不受此上限截断。暗影伤害会在目标地格生成初始寿命为 4 回合的效果；暮光回响仍生效时，只有再次受到至少 1 点暗影伤害，且该地格效果剩余寿命大于 0、小于 %d 回合，才将其寿命重置为该回合数。初始每回合造成相当于触发暗影伤害 %d%% 的伤害；刷新时将剩余伤害与新伤害的回响合并，均摊到刷新后的回合内。",
+      "baseline_byte_offset": 729430,
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%0.2f",
+          "quantity_kind": "slow_strength_percent_per_damage",
+          "calculation_to_argument": "getSlowPer=0.001 -> setEffect.slow_per -> eff.slow_per*100",
+          "independent_consumer_verification": "LIGHT dam>=1 -> ECHOED_LIGHT.power=dam*slow_per -> activate.global_speed_add=-power; Actor.computeGlobalSpeed uses base/(1+abs(add)) for negative add. Display is strength, not literal final speed reduction percentage."
+        },
+        {
+          "index": 2,
+          "placeholder": "%d",
+          "quantity_kind": "merge_slow_strength_cap_percent",
+          "calculation_to_argument": "slow_max=getSlowPer*combatTalentSpellDamage(150,400) -> eff.slow_max*100",
+          "independent_consumer_verification": "ECHOED_LIGHT.max=slow_max; initial activate consumes full power, no cap; on_merge min(old.power+new.power,max(old.max,new.max)); setEffect and Actor.on_set_temporary_effect do not cap power in normal path."
+        },
+        {
+          "index": 3,
+          "placeholder": "%d",
+          "quantity_kind": "damage_equivalent_of_merge_slow_cap",
+          "calculation_to_argument": "eff.slow_max/eff.slow_per",
+          "independent_consumer_verification": "Sum damage supplies summed strength, capped in merge only; not unconditional cap on first damage instance."
+        },
+        {
+          "index": 4,
+          "placeholder": "%d",
+          "quantity_kind": "refresh_duration_and_threshold_turns_not_initial_lifetime",
+          "calculation_to_argument": "getEchoDur=3; action passes echo_dur=3 -> long_desc eff.echo_dur",
+          "independent_consumer_verification": "doEcho DARKNESS: initial Map.addEffect(...,4,...); existing positive same-coordinate echo renews only if 0<duration<echo_dur; sets duration=echo_dur. processEffects projects then decrements; without refresh initial4 supports4 processing ticks."
+        },
+        {
+          "index": 5,
+          "placeholder": "%d",
+          "quantity_kind": "initial_echo_damage_percent_and_new_refresh_contribution",
+          "calculation_to_argument": "getDarkEcho=combatTalentScale(0.075,0.15) -> eff.dam_factor*100",
+          "independent_consumer_verification": "Initial map.dam=dam*factor; refresh new total=(old_duration*old_dam)+(new_damage*factor*echo_dur); per-tick damage=total/echo_dur. Map.processEffects passes map.dam to DARKNESS projector. Only LIGHT/DARKNESS dam>=1 enters doEcho, regardless of attacker/source; other damage cannot refresh."
+        }
+      ],
+      "whole_target_checked": true
+    },
+    {
+      "claim_id": "UPSTREAM020",
+      "status": "confirmed",
+      "change_id": "cdee0ef41b093cc6d57205224dd05627566113c582a66240a7f2bcb37bfeaa92",
+      "line": 6285,
+      "section": "tome-orcs/data/timed_effects/other.lua",
+      "source": "Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "old_target": "进入自动修复模式，无法行动，但生命恢复速率增加 %d，生命值回满后结束该模式，全部抗性提升 %d%%，死亡生命下限为 -%d。",
+      "new_target": "进入自动修复模式，无法行动，并提高生命恢复速率、全部抗性及负生命存活能力；在回合检查时生命值已回满便结束。原说明的恢复读数 %d、抗性读数 %d%% 与生命下限读数 -%d 实际使用内部句柄编号，不代表实际效果数值。",
+      "baseline_byte_offset": 743550,
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "temporary_value_handle_not_regen",
+          "calculation_to_argument": "getHeal=floor(combatTalentScale(10,110)) -> setEffect heal -> addTemporaryValue(life_regen,heal) returns id -> overwrites eff.heal",
+          "independent_consumer_verification": "Actual life_regen receives heal; Entity returns sequential compute_vals id, which long_desc renders using %d. Actor.regenLife consumes actual life_regen with bounded healing factor; readout cannot quantify regen."
+        },
+        {
+          "index": 2,
+          "placeholder": "%d",
+          "quantity_kind": "temporary_value_handle_with_erroneous_percent_suffix_not_resistance",
+          "calculation_to_argument": "getResist=combatTalentLimit(70,10,40) -> setEffect resist -> addTemporaryValue(resists,{all=resist}) returns id -> eff.resist",
+          "independent_consumer_verification": "resists.all receives original resistance value; Combat.combatGetResist combines and caps actual resistance; long_desc renders handle with %d%%, which is retained and explicitly labeled as a readout."
+        },
+        {
+          "index": 3,
+          "placeholder": "%d",
+          "quantity_kind": "temporary_value_handle_with_erroneous_minus_sign_not_death_threshold",
+          "calculation_to_argument": "getLife=floor(combatTalentScale(50,650)) -> setEffect life -> addTemporaryValue(die_at,-life) returns id -> eff.life",
+          "independent_consumer_verification": "Actual die_at gets an additive negative value; ActorLife.takeHit dies at life<=die_at. long_desc -%d is negative handle, not actual threshold. Text gives no false threshold guarantee. never_act blocks Actor.act; on_timeout checks life==max_life, not immediate healing callback."
+        }
+      ],
+      "whole_target_checked": true
+    },
+    {
+      "claim_id": "UPSTREAM016",
+      "status": "confirmed",
+      "change_id": "a6bcc683410a4f971dbb69cf02b7bf645480fe6550901789f1496ffa7df124b3",
+      "line": 6373,
+      "section": "tome-orcs/data/timed_effects/physical.lua",
+      "source": "Increases all saves by %d and healing factor by %d%%.",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null,
+      "old_target": "增加全豁免 %d，增加治疗系数 %d%%。",
+      "new_target": "增加全豁免 %d。原说明的治疗系数读数为 %d%%，其中百分号误标：该数值实际直接加到治疗倍率上，未除以 100；常规治疗使用的总倍率最高为 2.5 倍。",
+      "baseline_byte_offset": 749893,
+      "placeholder_flow": [
+        {
+          "index": 1,
+          "placeholder": "%d",
+          "quantity_kind": "raw_save_stat_increment",
+          "calculation_to_argument": "combatScaleTherapeutic(15,17) -> getCharmPower -> setEffect power -> long_desc eff.power",
+          "independent_consumer_verification": "effectTemporaryValue adds same power to combat_physresist/combat_spellresist/combat_mentalresist; Combat raw save calculations consume fields before rescaleCombatStats. Display %d is integer-formatted."
+        },
+        {
+          "index": 2,
+          "placeholder": "%d",
+          "quantity_kind": "healing_multiplier_addend_mislabeled_percent",
+          "calculation_to_argument": "power -> long_desc eff.power/2 formatted %d%%",
+          "independent_consumer_verification": "effectTemporaryValue(healing_factor,power/2) -> Entity.addTemporaryValue default addition (no /100; no healing_factor override in Actor configuration) -> Actor.onHeal multiplies value by bound(healing_factor or1,0,2.5). Example power20, base1: field11, regular heal factor2.5, not +10% or an uncapped 11x heal. %d integer formatting can truncate fractional increments; percent sign preserved but identified as erroneous."
+        }
+      ],
+      "whole_target_checked": true
+    }
+  ],
+  "source_evidence": [
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/general/objects/tinkers/therapeutics.lua",
+      "commit": null,
+      "sha256": "3b910e0879a793467a96401c189593f044221dd4ad12f717a2f72aa3ca83ef1b",
+      "start": 146,
+      "end": 159,
+      "excerpt": "146: newEntity{ base = \"BASE_SALVE\", define_as = \"TINKER_UNSTOPPABLE_FORCE_SALVE\"..i,\n147: \tname = (\"%s unstoppable force salve\"):tformat(medical[i]), image = \"talents/unstoppable_force_salve.png\",\n148: \tcolor = colors.GOLD,\n149: \tmaterial_level = i,\n150: \tsteamtech_power_def = function(self, who)\n151: \t\treturn who:combatScaleTherapeutic(self, 15, 17)\n152: \tend,\n153: \tuse_no_energy = true,\n154: \tresolvers.medical_salves(_t\"increases all saves by %d and healing factor by half\", 18, function(self, who)\n155: \t\twho:setEffect(who.EFF_UNSTOPPABLE_FORCE_SALVE, self.material_level, {power=self:getCharmPower(who)})\n156: \t\treturn {id=true, used=true}\n157: \tend),\n158: }\n159: end",
+      "verified_from": "public DLC snapshot; unpinned"
+    },
+    {
+      "component": "engine",
+      "path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "start": 297,
+      "end": 301,
+      "excerpt": "297: function _M:effectTemporaryValue(eff, k, v)\n298: \tif not eff.__tmpvals then eff.__tmpvals = {} end\n299: \teff.__tmpvals[#eff.__tmpvals+1] = {k, self:addTemporaryValue(k, v)}\n300: end\n301: ",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine",
+      "path": "game/engines/default/engine/Entity.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "4c9eb3873ad9f99ffd01ab75a44faaf219a6dc1393dbf0a30584a9288f2141d2",
+      "start": 885,
+      "end": 928,
+      "excerpt": "885: \trecursive = function(base, prop, v, method)\n886: \t\tmethod = self.temporary_values_conf[prop] or method\n887: \t\tif type(v) == \"number\" then\n888: \t\t\t-- Simple addition\n889: \t\t\tif method == \"mult\" then\n890: \t\t\t\tbase[prop] = (base[prop] or 1) * v\n891: \t\t\telseif method == \"mult0\" then\n892: \t\t\t\tbase[prop] = (base[prop] or 1) * (1 + v)\n893: \t\t\telseif method == \"perc_inv\" then\n894: \t\t\t\tv = v / 100\n895: \t\t\t\tlocal b = (base[prop] or 0) / 100\n896: \t\t\t\tb = 1 - (1 - b) * (1 - v)\n897: \t\t\t\tbase[prop] = b * 100\n898: \t\t\telseif method == \"inv1\" then\n899: \t\t\t\tv = util.bound(v, -0.999, 0.999)\n900: \t\t\t\tt[id] = v\n901: \t\t\t\tlocal b = (base[prop] or 1) - 1\n902: \t\t\t\tb = 1 - (1 - b) * (1 - v)\n903: \t\t\t\tbase[prop] = b + 1\n904: \t\t\telseif method == \"highest\" then\n905: \t\t\t\tbase[\"__thighest_\"..prop] = base[\"__thighest_\"..prop] or {[-1] = base[prop]}\n906: \t\t\t\tbase[\"__thighest_\"..prop][id] = v\n907: \t\t\t\tbase[prop] = table.max(base[\"__thighest_\"..prop])\n908: \t\t\telseif method == \"lowest\" then\n909: \t\t\t\tbase[\"__tlowest_\"..prop] = base[\"__tlowest_\"..prop] or {[-1] = base[prop]}\n910: \t\t\t\tbase[\"__tlowest_\"..prop][id] = v\n911: \t\t\t\tbase[prop] = table.min(base[\"__tlowest_\"..prop])\n912: \t\t\telseif method == \"last\" then\n913: \t\t\t\tbase[\"__tlast_\"..prop] = base[\"__tlast_\"..prop] or {[-1] = base[prop]}\n914: \t\t\t\tlocal b = base[\"__tlast_\"..prop]\n915: \t\t\t\tb[id] = v\n916: \t\t\t\tb = table.listify(b)\n917: \t\t\t\ttable.sort(b, function(a, b) return a[1] > b[1] end)\n918: \t\t\t\tbase[prop] = b[1] and b[1][2]\n919: \t\t\telse\n920: -- if type(base[prop] or 0) ~= \"number\" or type(v) ~= \"number\" then\n921: -- \tprint(\"ERROR: Attempting to add value\", v, \"property\", prop, \"to\", base[prop]) table.print(base[prop]) table.print(v)\n922: -- \tprint(\"Entity:\", self) -- table.print(self)\n923: -- \tgame.debug._debug_entity = self\n924: -- end\n925: \t\t\t\tbase[prop] = (base[prop] or 0) + v\n926: \t\t\tend\n927: \t\t\tself:onTemporaryValueChange(prop, v, base)\n928: --\t\t\tprint(\"addTmpVal\", base, prop, v, \" :=: \", #t, id, method)",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "tome",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 2335,
+      "end": 2341,
+      "excerpt": "2335: --- Called before healing\n2336: function _M:onHeal(value, src)\n2337: \tlocal raw_value = value\n2338: \tvalue = value * util.bound((self.healing_factor or 1), 0, 2.5)\n2339: \n2340: \tfor cb in self:iterCallbacks(\"callbackOnHeal\") do\n2341: \t\tlocal ret = cb(value, src, raw_value)",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/physical.lua",
+      "commit": null,
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "start": 224,
+      "end": 241,
+      "excerpt": "224: newEffect{\n225: \tname = \"UNSTOPPABLE_FORCE_SALVE\", image = \"talents/unstoppable_force_salve.png\",\n226: \tdesc = _t\"Unstoppable Force Salve\",\n227: \tlong_desc = function(self, eff) return (\"Increases all saves by %d and healing factor by %d%%.\"):tformat(eff.power, eff.power / 2) end,\n228: \ttype = \"physical\",\n229: \tsubtype = { tech=true },\n230: \tstatus = \"beneficial\",\n231: \ton_gain = function(self, err) return _t\"#Target# uses an unstoppable force salve.\", _t\"+Unstoppable Force\" end,\n232: \ton_lose = function(self, err) return _t\"#Target# is not affected anymore by the salve.\", _t\"-Unstoppable Force\" end,\n233: \tparameters = { power=1 },\n234: \tactivate = function(self, eff)\n235: \t\tself:effectTemporaryValue(eff, \"combat_physresist\", eff.power)\n236: \t\tself:effectTemporaryValue(eff, \"combat_spellresist\", eff.power)\n237: \t\tself:effectTemporaryValue(eff, \"combat_mentalresist\", eff.power)\n238: \t\tself:effectTemporaryValue(eff, \"healing_factor\", eff.power / 2)\n239: \tend,\n240: }\n241: ",
+      "verified_from": "public DLC snapshot; unpinned"
+    },
+    {
+      "component": "engine",
+      "path": "game/engines/default/engine/Entity.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "4c9eb3873ad9f99ffd01ab75a44faaf219a6dc1393dbf0a30584a9288f2141d2",
+      "start": 859,
+      "end": 866,
+      "excerpt": "859: function _M:addTemporaryValue(prop, v, noupdate)\n860: \tif not self.compute_vals then self.compute_vals = {n=0} end\n861: \n862: \tlocal t = self.compute_vals\n863: \tlocal id = t.n + 1\n864: \twhile t[id] ~= nil do id = id + 1 end\n865: \tt[id] = v\n866: \tt.n = id",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine",
+      "path": "game/engines/default/engine/Entity.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "4c9eb3873ad9f99ffd01ab75a44faaf219a6dc1393dbf0a30584a9288f2141d2",
+      "start": 966,
+      "end": 972,
+      "excerpt": "966: \t-- Update the base prop\n967: \tif not noupdate then\n968: \t\trecursive(initial_base, initial_prop, v, \"add\")\n969: \tend\n970: \n971: \treturn id\n972: end",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/other.lua",
+      "commit": null,
+      "sha256": "78dd56833a21a4e633506394ce3042f794a6818244259066d192e5246ed33c8c",
+      "start": 538,
+      "end": 564,
+      "excerpt": "538: newEffect{\n539: \tname = \"AUTOMATED_REPAIR_SYSTEM\", image = \"talents/automated_repair_system.png\",\n540: \tdesc = _t\"Automated Repair System\", decrease = 0,\n541: \tlong_desc = function(self, eff) return (\"Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.\"):tformat(eff.heal, eff.resist, eff.life) end,\n542: \ttype = \"other\",\n543: \tsubtype = { steamtech=true, healing=true },\n544: \tstatus = \"beneficial\",\n545: \tparameters = { power=10 },\n546: \ton_gain = function(self, err) return _t\"#Target# shuts down and engages its automated repair system.\", _t\"+Automated Repair System\" end,\n547: \ton_lose = function(self, err) return _t\"#Target#'s repairs are complete.\", _t\"-Automated Repair System\" end,\n548: \tactivate = function(self, eff)\n549: \t\teff.heal = self:addTemporaryValue(\"life_regen\", eff.heal)\n550: \t\teff.resist = self:addTemporaryValue(\"resists\", {all=eff.resist})\n551: \t\teff.life = self:addTemporaryValue(\"die_at\", -eff.life)\n552: \t\tself.never_act = true\n553: \tend,\n554: \ton_timeout = function(self, eff)\n555: \t\tif self.life == self.max_life then self:removeEffect(self.EFF_AUTOMATED_REPAIR_SYSTEM) end\n556: \tend,\n557: \tdeactivate = function(self, eff)\n558: \t\tself:removeTemporaryValue(\"life_regen\", eff.heal)\n559: \t\tself:removeTemporaryValue(\"resists\", eff.resist)\n560: \t\tself:removeTemporaryValue(\"die_at\", eff.life)\t\t\n561: \t\tself.never_act = nil\t\t\n562: \tend,\n563: }\n564: ",
+      "verified_from": "public DLC snapshot; unpinned"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/magical.lua",
+      "commit": null,
+      "sha256": "6b62a43d6712f6fb221bef24db8ee339a249824f4670540ace77fc439a7bb081",
+      "start": 118,
+      "end": 182,
+      "excerpt": "118: \tname = \"TWILIT_ECHOES\", image=\"talents/twilight.png\",\n119: \tdesc = _t\"Twilit Echoes\",\n120: \tlong_desc = function(self, eff) return ([[The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.]])\n121: \t\t:tformat(eff.slow_per * 100, eff.slow_max * 100, eff.slow_max / eff.slow_per, eff.echo_dur, eff.dam_factor * 100) end,\n122: \ttype = \"magical\",\n123: \tsubtype = { dark=true, light=true},\n124: \tstatus = \"detrimental\",\n125: \tdoEcho = function(type, dam, eff, target, src, x, y)\n126: \t\tif type == DamageType.LIGHT then\n127: \t\t\ttarget:setEffect(target.EFF_ECHOED_LIGHT, eff.echo_dur, {power = dam * eff.slow_per, max = eff.slow_max})\n128: \t\telseif type == DamageType.DARKNESS then --you can never be too sure\n129: \t\t\tlocal echo\n130: \t\t\tif eff.dark_echoes then for _, e in ipairs(eff.dark_echoes) do\n131: \t\t\t\tif e.duration > 0 and e.x == x and e.y == y then\n132: \t\t\t\t\techo = e\n133: \t\t\t\tend\n134: \t\t\tend end\n135: \t\t\tif not echo then\n136: \t\t\t\tgame.level.map:addEffect(src, \n137: \t\t\t\t\tx, y, 4,\n138: \t\t\t\t\tDamageType.DARKNESS, dam * eff.dam_factor,\n139: \t\t\t\t\t0,\n140: \t\t\t\t\t5, nil,\n141: \t\t\t\t\t{type=\"shadow_zone\"},\n142: \t\t\t\t\tnil, src:spellFriendlyFire()\n143: \t\t\t\t)\n144: \t\t\t\t--it's hacky yeah, but map:addEffect should really return the instance\n145: \t\t\t\techo = game.level.map.effects[#game.level.map.effects]\n146: \t\t\t\teff.dark_echoes = eff.dark_echoes or {}\n147: \t\t\t\ttable.insert(eff.dark_echoes, echo)\n148: \t\t\telse\n149: \t\t\t\tif echo.duration < eff.echo_dur and echo.duration > 0 then\n150: \t\t\t\t\told_dur = echo.duration\n151: \t\t\t\t\told_dam = old_dur * echo.dam\n152: \t\t\t\t\tlocal new_dam = dam * eff.dam_factor * eff.echo_dur + old_dam\n153: \t\t\t\t\techo.duration = eff.echo_dur\n154: \t\t\t\t\techo.dam = new_dam / eff.echo_dur\n155: \t\t\t\telse\n156: \t\t\t\t\t\n157: \t\t\t\tend\n158: \t\t\tend\n159: \t\tend\n160: \tend,\n161: }\n162: \n163: newEffect{\n164: \tname = \"ECHOED_LIGHT\", image=\"talents/twilight.png\",\n165: \tdesc = _t\"Echoed Light\",\n166: \tlong_desc = function(self, eff) return ([[The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.]])\n167: \t\t:tformat(eff.power * 100, eff.max * 100) end,\n168: \ttype = \"magical\",\n169: \tsubtype = { slow=true},\n170: \tactivate = function(self, eff)\n171: \t\teff.tmpid = self:addTemporaryValue(\"global_speed_add\", -eff.power)\n172: \tend,\n173: \tdeactivate = function(self, eff)\n174: \t\tself:removeTemporaryValue(\"global_speed_add\", eff.tmpid)\n175: \tend,\n176: \ton_merge = function(self, old_eff, new_eff)\n177: \t\tmax = math.max(old_eff.max, new_eff.max)\n178: \t\told_eff.power = math.min(old_eff.power + new_eff.power, max)\n179: \t\tself:removeTemporaryValue(\"global_speed_add\", old_eff.tmpid)\n180: \t\told_eff.tmpid = self:addTemporaryValue(\"global_speed_add\", -old_eff.power)\n181: \t\treturn old_eff\n182: \tend,",
+      "verified_from": "public DLC snapshot; unpinned"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/overload/mod/class/OrcCampaign.lua",
+      "commit": null,
+      "sha256": "68709132d1d4675e1ee49f1f7227a639d1cdc12bda1f68eb6fa63ea185658a7c",
+      "start": 348,
+      "end": 361,
+      "excerpt": "348: \t\t\tdata.dam = 0\n349: \t\t\treturn true\n350: \t\tend\n351: \tend\n352: end\n353: \n354: function hookDamageProjectorFinal(self, data)\n355: \tlocal target = game.level.map(data.x, data.y, engine.Map.ACTOR)\n356: \tif target and target:hasEffect(target.EFF_TWILIT_ECHOES) and (data.type == DamageType.LIGHT or data.type == DamageType.DARKNESS) and data.dam >= 1 then\n357: \t\tlocal e = target:hasEffect(target.EFF_TWILIT_ECHOES)\n358: \t\tlocal def = target.tempeffect_def[target.EFF_TWILIT_ECHOES]\n359: \t\tdef.doEcho(data.type, data.dam, e, target, data.src, data.x, data.y)\n360: \tend\n361: end",
+      "verified_from": "public DLC snapshot; unpinned"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/magical.lua",
+      "commit": null,
+      "sha256": "6b62a43d6712f6fb221bef24db8ee339a249824f4670540ace77fc439a7bb081",
+      "start": 117,
+      "end": 162,
+      "excerpt": "117: newEffect{\n118: \tname = \"TWILIT_ECHOES\", image=\"talents/twilight.png\",\n119: \tdesc = _t\"Twilit Echoes\",\n120: \tlong_desc = function(self, eff) return ([[The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.]])\n121: \t\t:tformat(eff.slow_per * 100, eff.slow_max * 100, eff.slow_max / eff.slow_per, eff.echo_dur, eff.dam_factor * 100) end,\n122: \ttype = \"magical\",\n123: \tsubtype = { dark=true, light=true},\n124: \tstatus = \"detrimental\",\n125: \tdoEcho = function(type, dam, eff, target, src, x, y)\n126: \t\tif type == DamageType.LIGHT then\n127: \t\t\ttarget:setEffect(target.EFF_ECHOED_LIGHT, eff.echo_dur, {power = dam * eff.slow_per, max = eff.slow_max})\n128: \t\telseif type == DamageType.DARKNESS then --you can never be too sure\n129: \t\t\tlocal echo\n130: \t\t\tif eff.dark_echoes then for _, e in ipairs(eff.dark_echoes) do\n131: \t\t\t\tif e.duration > 0 and e.x == x and e.y == y then\n132: \t\t\t\t\techo = e\n133: \t\t\t\tend\n134: \t\t\tend end\n135: \t\t\tif not echo then\n136: \t\t\t\tgame.level.map:addEffect(src, \n137: \t\t\t\t\tx, y, 4,\n138: \t\t\t\t\tDamageType.DARKNESS, dam * eff.dam_factor,\n139: \t\t\t\t\t0,\n140: \t\t\t\t\t5, nil,\n141: \t\t\t\t\t{type=\"shadow_zone\"},\n142: \t\t\t\t\tnil, src:spellFriendlyFire()\n143: \t\t\t\t)\n144: \t\t\t\t--it's hacky yeah, but map:addEffect should really return the instance\n145: \t\t\t\techo = game.level.map.effects[#game.level.map.effects]\n146: \t\t\t\teff.dark_echoes = eff.dark_echoes or {}\n147: \t\t\t\ttable.insert(eff.dark_echoes, echo)\n148: \t\t\telse\n149: \t\t\t\tif echo.duration < eff.echo_dur and echo.duration > 0 then\n150: \t\t\t\t\told_dur = echo.duration\n151: \t\t\t\t\told_dam = old_dur * echo.dam\n152: \t\t\t\t\tlocal new_dam = dam * eff.dam_factor * eff.echo_dur + old_dam\n153: \t\t\t\t\techo.duration = eff.echo_dur\n154: \t\t\t\t\techo.dam = new_dam / eff.echo_dur\n155: \t\t\t\telse\n156: \t\t\t\t\t\n157: \t\t\t\tend\n158: \t\t\tend\n159: \t\tend\n160: \tend,\n161: }\n162: ",
+      "verified_from": "public DLC snapshot; unpinned"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/talents/celestial/void.lua",
+      "commit": null,
+      "sha256": "b6c361dedd503e479b8c16c872338a49887aa50742e3f4cade7dca4dc254d305",
+      "start": 121,
+      "end": 155,
+      "excerpt": "121: \n122: newTalent{\n123: \tname = \"Twilit Echoes\",\n124: \ttype = {\"celestial/void\", 2},\n125: \trequire = divi_req_high2,\n126: \trange = 7,\n127: \tpositive = 20,\n128: \tnegative = 20,\n129: \tpoints = 5,\n130: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 4, 8)) end,\n131: \tgetEchoDur = function(self, t) return 3 end,\n132: \tgetDarkEcho = function(self, t) return self:combatTalentScale(t, 0.075, 0.15) end,\n133: \tgetSlowPer = function(self, t) return 0.001 end,\n134: \tgetSlowMax = function(self, t) return t.getSlowPer(self, t) * self:combatTalentSpellDamage(t, 150, 400) end,\n135: \taction = function(self, t)\n136: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t), talent=t}\n137: \t\tlocal x, y = self:getTarget(tg)\n138: \t\tif not x or not y then return nil end\n139: \t\tlocal _ _, x, y = self:canProject(tg, x, y)\n140: \t\tlocal target = game.level.map(x, y, engine.Map.ACTOR)\n141: \t\tif not target then return nil end\n142: \t\ttarget:setEffect(target.EFF_TWILIT_ECHOES, t.getDuration(self, t), {echo_dur = 3, dam_factor = t.getDarkEcho(self,t), slow_per = t.getSlowPer(self, t), slow_max = t.getSlowMax(self, t)})\n143: \tend,\n144: \tinfo = function(self, t)\n145: \t\tlocal duration = t.getDuration(self, t)\n146: \t\tlocal echo_dur = t.getEchoDur(self, t)\n147: \t\tlocal slow_per = t.getSlowPer(self, t)\n148: \t\tlocal slow_max = t.getSlowMax(self, t)\n149: \t\tlocal echo_factor = t.getDarkEcho(self, t)\n150: \t\treturn ([[The target feels the echoes of all your light and dark damage for %d turns. \n151: \n152: Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.\n153: Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]])\n154: \t\t:tformat(duration, slow_per * 100, echo_dur, slow_max * 100, slow_max/slow_per, echo_dur, 100 * echo_factor)\n155: \tend,",
+      "verified_from": "public DLC snapshot; unpinned"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/magical.lua",
+      "commit": null,
+      "sha256": "6b62a43d6712f6fb221bef24db8ee339a249824f4670540ace77fc439a7bb081",
+      "start": 163,
+      "end": 182,
+      "excerpt": "163: newEffect{\n164: \tname = \"ECHOED_LIGHT\", image=\"talents/twilight.png\",\n165: \tdesc = _t\"Echoed Light\",\n166: \tlong_desc = function(self, eff) return ([[The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.]])\n167: \t\t:tformat(eff.power * 100, eff.max * 100) end,\n168: \ttype = \"magical\",\n169: \tsubtype = { slow=true},\n170: \tactivate = function(self, eff)\n171: \t\teff.tmpid = self:addTemporaryValue(\"global_speed_add\", -eff.power)\n172: \tend,\n173: \tdeactivate = function(self, eff)\n174: \t\tself:removeTemporaryValue(\"global_speed_add\", eff.tmpid)\n175: \tend,\n176: \ton_merge = function(self, old_eff, new_eff)\n177: \t\tmax = math.max(old_eff.max, new_eff.max)\n178: \t\told_eff.power = math.min(old_eff.power + new_eff.power, max)\n179: \t\tself:removeTemporaryValue(\"global_speed_add\", old_eff.tmpid)\n180: \t\told_eff.tmpid = self:addTemporaryValue(\"global_speed_add\", -old_eff.power)\n181: \t\treturn old_eff\n182: \tend,",
+      "verified_from": "public DLC snapshot; unpinned"
+    },
+    {
+      "component": "tome",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 2335,
+      "end": 2341,
+      "excerpt": "2335: --- Called before healing\n2336: function _M:onHeal(value, src)\n2337: \tlocal raw_value = value\n2338: \tvalue = value * util.bound((self.healing_factor or 1), 0, 2.5)\n2339: \n2340: \tfor cb in self:iterCallbacks(\"callbackOnHeal\") do\n2341: \t\tlocal ret = cb(value, src, raw_value)",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine",
+      "path": "game/engines/default/engine/Map.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "6fdf0294ab835d06cf1186a47a2222b266bd71bfc53b3ba3a423cbb3e41ba315",
+      "start": 1258,
+      "end": 1319,
+      "excerpt": "1258: function _M:processEffects(update_shape_only)\n1259: \tlocal todel = {}\n1260: \tfor i, e in ipairs(self.effects) do\n1261: \t\t-- Run damage and decrease duration only on certain ticks\n1262: \t\tif not update_shape_only and e.duration > 0 then\n1263: \t\t\tfor lx, ys in pairs(e.grids) do\n1264: \t\t\t\tfor ly, _ in pairs(ys) do\n1265: \t\t\t\t\tlocal act = game.level.map(lx, ly, engine.Map.ACTOR)\n1266: \t\t\t\t\tif act and act == e.src and not ((type(e.selffire) == \"number\" and rng.percent(e.selffire)) or (type(e.selffire) ~= \"number\" and e.selffire)) then\n1267: \t\t\t\t\telseif act and e.src and e.src.reactionToward and (e.src:reactionToward(act) >= 0) and not ((type(e.friendlyfire) == \"number\" and rng.percent(e.friendlyfire)) or (type(e.friendlyfire) ~= \"number\" and e.friendlyfire)) then\n1268: \t\t\t\t\t-- Otherwise hit\n1269: \t\t\t\t\telse\n1270: \t\t\t\t\t\te.src.__project_source = e -- intermediate projector source\n1271: \t\t\t\t\t\tDamageType:get(e.damtype).projector(e.src, lx, ly, e.damtype, e.dam)\n1272: \t\t\t\t\t\te.src.__project_source = nil\n1273: \t\t\t\t\tend\n1274: \t\t\t\tend\n1275: \t\t\tend\n1276: \n1277: \t\t\te.duration = e.duration - 1\n1278: \t\tend\n1279: \n1280: \t\tif e.duration <= 0 then\n1281: \t\t\ttable.insert(todel, i)\n1282: \t\telseif e.update_fct then\n1283: \t\t\tif e:update_fct(update_shape_only, todel, i) then\n1284: \t\t\t\tif type(dir) == \"table\" then e.grids = core.fov.beam_any_angle_grids(e.x, e.y, e.radius, e.angle, e.dir.source_x or e.src.x or e.x, e.dir.source_y or e.src.y or e.y, e.dir.delta_x, e.dir.delta_y, true)\n1285: \t\t\t\telseif e.dir == 5 then e.grids = core.fov.circle_grids(e.x, e.y, e.radius, true)\n1286: \t\t\t\telse e.grids = core.fov.beam_grids(e.x, e.y, e.radius, e.dir, e.angle, true) end\n1287: \t\t\t\tif e.particles then\n1288: \t\t\t\t\tif e.particles_only_one then\n1289: \t\t\t\t\t\tfor i, p in ipairs(e.particles) do\n1290: \t\t\t\t\t\t\tp:shiftCustom(self.tile_w * (p.x - e.x), self.tile_h * (p.y - e.y))\n1291: \t\t\t\t\t\t\tp.x = e.x\n1292: \t\t\t\t\t\t\tp.y = e.y\n1293: \t\t\t\t\t\tend\n1294: \t\t\t\t\telse\n1295: \t\t\t\t\t\tfor j, ps in ipairs(e.particles) do self:removeParticleEmitter(ps) end\n1296: \t\t\t\t\t\te.particles = {}\n1297: \t\t\t\t\t\tfor lx, ys in pairs(e.grids) do\n1298: \t\t\t\t\t\t\tfor ly, _ in pairs(ys) do\n1299: \t\t\t\t\t\t\t\te.particles[#e.particles+1] = self:particleEmitter(lx, ly, 1, e.fake_overlay.type, e.fake_overlay.args, nil, e.zdepth)\n1300: \t\t\t\t\t\t\t\te.particles[#e.particles].__map_effect = e\n1301: \t\t\t\t\t\t\tend\n1302: \t\t\t\t\t\tend\n1303: \t\t\t\t\tend\n1304: \t\t\t\tend\n1305: \t\t\tend\n1306: \t\tend\n1307: \tend\n1308: \n1309: \tif #todel > 0 then table.sort(todel) end\n1310: \tfor i = #todel, 1, -1 do\n1311: \t\tlocal e = table.remove(self.effects, todel[i])\n1312: \t\tif e.particles then\n1313: \t\t\tfor j, ps in ipairs(e.particles) do self:removeParticleEmitter(ps) end\n1314: \t\tend\n1315: \t\tif e.overlay then\n1316: \t\t\tself.z_effects[e.overlay.zdepth][e] = nil\n1317: \t\tend\n1318: \tend\n1319: end",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine",
+      "path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "start": 114,
+      "end": 174,
+      "excerpt": "114: -- @param dur the number of turns to go on\n115: -- @param p a table containing the effects parameters\n116: -- @param silent true to suppress messages\n117: function _M:setEffect(eff_id, dur, p, silent)\n118: \tlocal had = self.tmp[eff_id]\n119: \n120: \t-- Beware, setting to 0 means removing\n121: \tif dur <= 0 then return self:removeEffect(eff_id) end\n122: \tdur = math.floor(dur)\n123: \n124: \tp.__orig_params = table.clone(p, true, {__orig_params=true})\n125: \tlocal ed = _M.tempeffect_def[eff_id]\n126: \tfor k, e in pairs(ed.parameters) do\n127: \t\tif not p[k] then p[k] = e end\n128: \tend\n129: \tp.dur = dur\n130: \tp.effect_id = eff_id\n131: \tif self:check(\"on_set_temporary_effect\", eff_id, ed, p) then return end\n132: \tif p.dur <= 0 then return self:removeEffect(eff_id) end\n133: \n134: \t-- If we already have it, we check if it knows how to \"merge\", or else we remove it and re-add it\n135: \tif self:hasEffect(eff_id) then\n136: \t\tif ed.on_merge then\n137: \t\t\tself.tmp[eff_id] = ed.on_merge(self, self.tmp[eff_id], p, ed)\n138: \t\t\tself.changed = true\n139: \t\t\treturn\n140: \t\telse\n141: \t\t\tself:removeEffect(eff_id, true, true)\n142: \t\tend\n143: \tend\n144: \n145: \tself.tmp[eff_id] = p\n146: \tp.__setting_up = true\n147: \tif ed.on_gain then\n148: \t\tlocal ret, fly = ed.on_gain(self, p)\n149: \t\tif not silent and not had then\n150: \t\t\tif ret then\n151: \t\t\t\tgame.logSeen(self, ret:noun_sub(\"#Target#\", self:getName():capitalize()):noun_sub(\"#target#\", self:getName()):gsub(\"#himher#\", self:him_her()):gsub(\"#hisher#\", self:his_her()))\n152: \t\t\tend\n153: \t\t\tif fly and game.flyers and self.x and self.y and game.level.map.seens(self.x, self.y) then\n154: \t\t\t\tif fly == true then fly = \"+\"..ed.desc end\n155: \t\t\t\tlocal sx, sy = game.level.map:getTileToScreen(self.x, self.y, true)\n156: \t\t\t\tif game.level.map.seens(self.x, self.y) then game.flyers:add(sx, sy, 20, (rng.range(0,2)-1) * 0.5, -3, fly, {255,100,80}) end\n157: \t\t\tend\n158: \t\tend\n159: \tend\n160: \tif ed.activate then ed.activate(self, p, ed) end\n161: \n162: \tif ed.lists then\n163: \t\tlocal lists = ed.lists\n164: \t\tif 'table' ~= type(lists) then lists = {lists} end\n165: \t\tfor _, list in ipairs(lists) do\n166: \t\t\tif 'table' == type(list) then\n167: \t\t\t\tlist = table.getTable(self, unpack(list))\n168: \t\t\telse\n169: \t\t\t\tlist = table.getTable(self, list)\n170: \t\t\tend\n171: \t\t\ttable.insert(list, eff_id)\n172: \t\tend\n173: \tend\n174: ",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "tome",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 7644,
+      "end": 7760,
+      "excerpt": "7644: function _M:on_set_temporary_effect(eff_id, e, p)\n7645: \tp.getName = e.getName\n7646: \tp.resolveSource = e.resolveSource\n7647: \n7648: \tlocal old = self.tmp[eff_id]\n7649: \tlocal olddur = old and not e.on_merge and old.dur or 0 -- let mergable effects handle their own duration\n7650: \t-- Adjust duration based on saves\n7651: \tif p.apply_power and (save_for_effects[e.type] or p.apply_save) then\n7652: \t\tp.maximum = p.dur\n7653: \t\tp.minimum = p.min_dur or 0 --Default minimum duration is 0. Can specify something else by putting min_dur=foo in p when calling setEffect()\n7654: \t\tlocal save = self[p.apply_save or save_for_effects[e.type]](self)\n7655: \t\tlocal saved, savechance = self:checkHit(save, p.apply_power, 0, 95) -- get save and save chance\n7656: \n7657: --[[\n7658: \t\t-- failed save tuning parameters: increase mean_fact to increase avg duration, std_dev for more randomness\n7659: \t\tlocal mean_fact, std_dev = 1.1, 50\n7660: \t\tlocal mean_pct = (100-savechance)*mean_fact -- mean % duration on a failed save\n7661: \t\tlocal percentage = util.bound(rng.normalFloat(mean_pct, std_dev)/100, 0, 2) -- fraction duration\n7662: ]]\n7663: \t\tlocal percentage = 1 - ((save - p.apply_power)/20)\n7664: \n7665: \t\tlocal desired = p.maximum * percentage\n7666: \t\tlocal fraction = desired % 1\n7667: \t\tdesired = math.floor(desired) + (rng.percent(100*fraction) and 1 or 0)\n7668: \t\tlocal duration = math.min(p.maximum, desired)\n7669: \t\t-- print((\"[on_set_temporary_effect] %s Save %d vs Power %d (%d%% save: %s) :: dur mult: %0.3f(%d%%) :: dur %s ==> %d\"):format(self.name, save, p.apply_power, savechance, saved, percentage, mean_pct, p.dur, duration))\n7670: \t\tp.dur = util.bound(duration, p.minimum or 0, p.maximum)\n7671: \t\tp.amount_decreased = p.maximum - p.dur\n7672: \t\tlocal save_type = nil\n7673: \n7674: \t\tif p.apply_save then save_type = p.apply_save else save_type = save_for_effects[e.type] end\n7675: \t\tif save_type == \"combatPhysicalResist\" then p.save_string = _t\"Physical save\"\n7676: \t\telseif save_type == \"combatMentalResist\" then p.save_string = _t\"Mental save\"\n7677: \t\telseif save_type == \"combatSpellResist\" then p.save_string = _t\"Spell save\"\n7678: \t\tend\n7679: \n7680: \t\tif e.status == \"detrimental\" then\n7681: \t\t\tif p.dur > 0 then\n7682: \t\t\t\t-- apply cross-tier effects\n7683: \t\t\t\tif not p.no_ct_effect and not e.no_ct_effect then self:crossTierEffect(eff_id, p.apply_power, p.apply_save or save_for_effects[e.type]) end\n7684: \t\t\t\tp.total_dur = p.dur\n7685: \n7686: \t\t\t\tlocal hd = {\"Actor:effectSave\", saved=saved, save=save, save_type=save_type, eff_id=eff_id, e=e, p=p,}\n7687: \t\t\t\tself:triggerHook(hd)\n7688: \t\t\t\tself:fireTalentCheck(\"callbackOnEffectSave\", hd)\n7689: \t\t\t\tsaved, eff_id, e, p = hd.saved, hd.eff_id, hd.e, hd.p\n7690: \t\t\t\tif saved then\n7691: \t\t\t\t\tself:logCombat(p.src, \"#ORANGE#%s shrugs off %s '%s'!\", self:getName():capitalize(), p.src and _t\"#Target#'s\" or _t\"the effect\", e.desc)\n7692: \t\t\t\t\treturn true\n7693: \t\t\t\tend\n7694: \t\t\telse\n7695: \t\t\t\tself:logCombat(p.src, \"#LIGHT_UMBER#%s resists %s '%s'!\", self:getName():capitalize(), p.src and _t\"#Target#'s\" or _t\"the effect\", e.desc)\n7696: \t\t\t\treturn true\n7697: \t\t\tend\n7698: \t\tend\n7699: \tend\n7700: \n7701: \tif e.status == \"detrimental\" and e.type ~= \"other\" and self:knowTalent(self.T_RESILIENT_BONES) then\n7702: \t\tp.dur = math.ceil(p.dur * (1 - self:callTalent(self.T_RESILIENT_BONES,\"durresist\")))\n7703: \tend\n7704: \tif e.status == \"detrimental\" and e.type ~= \"other\" and self:attr(\"reduce_detrimental_status_effects_time\") then\n7705: \t\tlocal power = util.bound(self.reduce_detrimental_status_effects_time, 0, 100)\n7706: \t\tp.dur = math.ceil(p.dur * (1 - (power/100)))\n7707: \tend\n7708: \tif self:knowTalent(self.T_VITALITY) and e.status == \"detrimental\" and (e.subtype.wound or e.subtype.poison or e.subtype.disease) then\n7709: \t\tlocal t = self:getTalentFromId(self.T_VITALITY)\n7710: \t\tp.dur = math.ceil(p.dur * (1 - util.bound(t.getWoundReduction(self, t), 0, 1)))\n7711: \tend\n7712: \tif e.status == \"detrimental\" and e.type ~= \"other\" and self:attr(\"negative_status_effect_immune\") then\n7713: \t\tif not (self:attr(\"negative_status_effect_immune_frozen\") and (eff_id == self.EFF_WET or eff_id == self.EFF_FROZEN_FEET)) then\n7714: \t\t\tp.dur = 0\n7715: \t\tend\n7716: \tend\n7717: \tif e.status == \"detrimental\" and e.type == \"mental\" and self:attr(\"clear_mind_immune\") and not e.subtype[\"cross tier\"] then\n7718: \t\tp.dur = 0\n7719: \t\tself:attr(\"clear_mind_immune\", -1)\n7720: \t\tif not self:attr(\"clear_mind_immune\") then self:removeEffect(self.EFF_CLEAR_MIND) end\n7721: \tend\n7722: \tif e.status == \"detrimental\" and e.type == \"mental\" and self:knowTalent(self.T_UNBREAKABLE_WILL) and not e.subtype[\"cross tier\"] then\n7723: \t\tif self:triggerTalent(self.T_UNBREAKABLE_WILL) then p.dur = 0 end\n7724: \tend\n7725: \tif e.status == \"detrimental\" and e.type == \"mental\" and self:attr(\"mental_negative_status_effect_immune\") and not e.subtype[\"cross tier\"] then\n7726: \t\tp.dur = 0\n7727: \tend\n7728: \tif e.status == \"detrimental\" and e.type == \"physical\" and self:attr(\"physical_negative_status_effect_immune\") and not e.subtype[\"cross tier\"] then\n7729: \t\tp.dur = 0\n7730: \tend\n7731: \tif e.status == \"detrimental\" and e.type == \"magical\" and self:attr(\"spell_negative_status_effect_immune\") and not e.subtype[\"cross tier\"] then\n7732: \t\tp.dur = 0\n7733: \tend\n7734: \tif self:attr(\"status_effect_immune\") then\n7735: \t\tp.dur = 0\n7736: \tend\n7737: \n7738: \tif game.difficulty == game.DIFFICULTY_EASY and self.player and e.status == \"detrimental\" then\n7739: \t\tp.dur = math.ceil(p.dur / 2)\n7740: \tend\n7741: \n7742: \tif p.dur > 0 and not e.subtype[\"cross tier\"] and e.status == \"detrimental\" and e.type == \"physical\" and self:knowTalent(self.T_SPINE_OF_THE_WORLD) then\n7743: \t\tself:triggerTalent(self.T_SPINE_OF_THE_WORLD)\n7744: \tend\n7745: \n7746: \t-- This could be utilized for more effects\n7747: \tif self:fireTalentCheck(\"callbackOnTemporaryEffect\", eff_id, e, p) then return true end\n7748: \n7749: \tif self.player and not old then\n7750: \t\tp.__set_time = core.game.getTime()\n7751: \tend\n7752: \n7753: \tif p.dur <= 0 then return true end\n7754: \tp.dur = math.max(p.dur, olddur) -- don't shorten the existing duration because of a new application (on_merge may change it)\n7755: end\n7756: \n7757: function _M:on_temporary_effect_added(eff_id, e, p)\n7758: \tself:registerCallbacks(e, eff_id, \"effect\")\n7759: \tself:fireTalentCheck(\"callbackOnTemporaryEffectAdd\", eff_id, e, p)\n7760: \tif e.status == \"detrimental\" and e.type ~= \"other\" and not (e.ignore_from_combat_compute or (p.src and p.src.ignore_from_combat_compute)) then self:enterCombatStatus() end",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/superload/mod/class/Actor.lua",
+      "commit": null,
+      "sha256": "2b332d29bf6015e3cb786f2990071437e560b551a53db470deb3ff997f4c5717",
+      "start": 102,
+      "end": 120,
+      "excerpt": "102: local on_set_temporary_effect = _M.on_set_temporary_effect\n103: function _M:on_set_temporary_effect(eff_id, e, p)\n104: \tlocal ret = on_set_temporary_effect(self, eff_id, e, p)\n105: \n106: \tif self:attr(\"ignore_fireburn\") and (eff_id == self.EFF_BURNING or eff_id == self.EFF_BURNING_SHOCK) then p.dur = 0 end\n107: \t\n108: \tif self:attr(\"ignore_bleed\") and (eff_id == self.EFF_CUT or eff_id == self.EFF_DEEP_WOUND) then p.dur = 0 end\n109: \n110: \tif self:attr(\"heal_on_detrimental_status\") and p.dur > 0 and e.status == \"detrimental\" and (e.type == \"physical\" or e.type == \"magical\" or e.type ==\"mental\") and not (self.turn_procs.heal_detrimental and self.turn_procs.heal_detrimental >= 3) then\n111: \t\tself:attr(\"disable_ancestral_life\", 1)\n112: \t\tself:heal(self:attr(\"heal_on_detrimental_status\"))\n113: \t\tself.turn_procs.heal_detrimental = self.turn_procs.heal_detrimental or 0\n114: \t\tself.turn_procs.heal_detrimental = self.turn_procs.heal_detrimental + 1\n115: \t\tself:attr(\"disable_ancestral_life\", -1)\n116: \n117: \tend\n118: \treturn ret\n119: end\n120: ",
+      "verified_from": "public DLC snapshot; unpinned"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/magical.lua",
+      "commit": null,
+      "sha256": "6b62a43d6712f6fb221bef24db8ee339a249824f4670540ace77fc439a7bb081",
+      "start": 117,
+      "end": 183,
+      "excerpt": "newEffect{\n\tname = \"TWILIT_ECHOES\", image=\"talents/twilight.png\",\n\tdesc = _t\"Twilit Echoes\",\n\tlong_desc = function(self, eff) return ([[The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.]])\n\t\t:tformat(eff.slow_per * 100, eff.slow_max * 100, eff.slow_max / eff.slow_per, eff.echo_dur, eff.dam_factor * 100) end,\n\ttype = \"magical\",\n\tsubtype = { dark=true, light=true},\n\tstatus = \"detrimental\",\n\tdoEcho = function(type, dam, eff, target, src, x, y)\n\t\tif type == DamageType.LIGHT then\n\t\t\ttarget:setEffect(target.EFF_ECHOED_LIGHT, eff.echo_dur, {power = dam * eff.slow_per, max = eff.slow_max})\n\t\telseif type == DamageType.DARKNESS then --you can never be too sure\n\t\t\tlocal echo\n\t\t\tif eff.dark_echoes then for _, e in ipairs(eff.dark_echoes) do\n\t\t\t\tif e.duration > 0 and e.x == x and e.y == y then\n\t\t\t\t\techo = e\n\t\t\t\tend\n\t\t\tend end\n\t\t\tif not echo then\n\t\t\t\tgame.level.map:addEffect(src, \n\t\t\t\t\tx, y, 4,\n\t\t\t\t\tDamageType.DARKNESS, dam * eff.dam_factor,\n\t\t\t\t\t0,\n\t\t\t\t\t5, nil,\n\t\t\t\t\t{type=\"shadow_zone\"},\n\t\t\t\t\tnil, src:spellFriendlyFire()\n\t\t\t\t)\n\t\t\t\t--it's hacky yeah, but map:addEffect should really return the instance\n\t\t\t\techo = game.level.map.effects[#game.level.map.effects]\n\t\t\t\teff.dark_echoes = eff.dark_echoes or {}\n\t\t\t\ttable.insert(eff.dark_echoes, echo)\n\t\t\telse\n\t\t\t\tif echo.duration < eff.echo_dur and echo.duration > 0 then\n\t\t\t\t\told_dur = echo.duration\n\t\t\t\t\told_dam = old_dur * echo.dam\n\t\t\t\t\tlocal new_dam = dam * eff.dam_factor * eff.echo_dur + old_dam\n\t\t\t\t\techo.duration = eff.echo_dur\n\t\t\t\t\techo.dam = new_dam / eff.echo_dur\n\t\t\t\telse\n\t\t\t\t\t\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend,\n}\n\nnewEffect{\n\tname = \"ECHOED_LIGHT\", image=\"talents/twilight.png\",\n\tdesc = _t\"Echoed Light\",\n\tlong_desc = function(self, eff) return ([[The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.]])\n\t\t:tformat(eff.power * 100, eff.max * 100) end,\n\ttype = \"magical\",\n\tsubtype = { slow=true},\n\tactivate = function(self, eff)\n\t\teff.tmpid = self:addTemporaryValue(\"global_speed_add\", -eff.power)\n\tend,\n\tdeactivate = function(self, eff)\n\t\tself:removeTemporaryValue(\"global_speed_add\", eff.tmpid)\n\tend,\n\ton_merge = function(self, old_eff, new_eff)\n\t\tmax = math.max(old_eff.max, new_eff.max)\n\t\told_eff.power = math.min(old_eff.power + new_eff.power, max)\n\t\tself:removeTemporaryValue(\"global_speed_add\", old_eff.tmpid)\n\t\told_eff.tmpid = self:addTemporaryValue(\"global_speed_add\", -old_eff.power)\n\t\treturn old_eff\n\tend,\n}",
+      "verified_from": "public unpinned DLC snapshot"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/other.lua",
+      "commit": null,
+      "sha256": "78dd56833a21a4e633506394ce3042f794a6818244259066d192e5246ed33c8c",
+      "start": 538,
+      "end": 563,
+      "excerpt": "newEffect{\n\tname = \"AUTOMATED_REPAIR_SYSTEM\", image = \"talents/automated_repair_system.png\",\n\tdesc = _t\"Automated Repair System\", decrease = 0,\n\tlong_desc = function(self, eff) return (\"Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.\"):tformat(eff.heal, eff.resist, eff.life) end,\n\ttype = \"other\",\n\tsubtype = { steamtech=true, healing=true },\n\tstatus = \"beneficial\",\n\tparameters = { power=10 },\n\ton_gain = function(self, err) return _t\"#Target# shuts down and engages its automated repair system.\", _t\"+Automated Repair System\" end,\n\ton_lose = function(self, err) return _t\"#Target#'s repairs are complete.\", _t\"-Automated Repair System\" end,\n\tactivate = function(self, eff)\n\t\teff.heal = self:addTemporaryValue(\"life_regen\", eff.heal)\n\t\teff.resist = self:addTemporaryValue(\"resists\", {all=eff.resist})\n\t\teff.life = self:addTemporaryValue(\"die_at\", -eff.life)\n\t\tself.never_act = true\n\tend,\n\ton_timeout = function(self, eff)\n\t\tif self.life == self.max_life then self:removeEffect(self.EFF_AUTOMATED_REPAIR_SYSTEM) end\n\tend,\n\tdeactivate = function(self, eff)\n\t\tself:removeTemporaryValue(\"life_regen\", eff.heal)\n\t\tself:removeTemporaryValue(\"resists\", eff.resist)\n\t\tself:removeTemporaryValue(\"die_at\", eff.life)\t\t\n\t\tself.never_act = nil\t\t\n\tend,\n}",
+      "verified_from": "public unpinned DLC snapshot"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/physical.lua",
+      "commit": null,
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "start": 224,
+      "end": 240,
+      "excerpt": "newEffect{\n\tname = \"UNSTOPPABLE_FORCE_SALVE\", image = \"talents/unstoppable_force_salve.png\",\n\tdesc = _t\"Unstoppable Force Salve\",\n\tlong_desc = function(self, eff) return (\"Increases all saves by %d and healing factor by %d%%.\"):tformat(eff.power, eff.power / 2) end,\n\ttype = \"physical\",\n\tsubtype = { tech=true },\n\tstatus = \"beneficial\",\n\ton_gain = function(self, err) return _t\"#Target# uses an unstoppable force salve.\", _t\"+Unstoppable Force\" end,\n\ton_lose = function(self, err) return _t\"#Target# is not affected anymore by the salve.\", _t\"-Unstoppable Force\" end,\n\tparameters = { power=1 },\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"combat_physresist\", eff.power)\n\t\tself:effectTemporaryValue(eff, \"combat_spellresist\", eff.power)\n\t\tself:effectTemporaryValue(eff, \"combat_mentalresist\", eff.power)\n\t\tself:effectTemporaryValue(eff, \"healing_factor\", eff.power / 2)\n\tend,\n}",
+      "verified_from": "public unpinned DLC snapshot"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/engines/default/engine/Entity.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "4c9eb3873ad9f99ffd01ab75a44faaf219a6dc1393dbf0a30584a9288f2141d2",
+      "start": 859,
+      "end": 972,
+      "excerpt": "function _M:addTemporaryValue(prop, v, noupdate)\n\tif not self.compute_vals then self.compute_vals = {n=0} end\n\n\tlocal t = self.compute_vals\n\tlocal id = t.n + 1\n\twhile t[id] ~= nil do id = id + 1 end\n\tt[id] = v\n\tt.n = id\n\n\t-- Find the base, one removed from the last prop\n\tlocal initial_base, initial_prop\n\tif type(prop) == \"table\" then\n\t\tinitial_base = self\n\t\tlocal idx = 1\n\t\twhile idx < #prop do\n\t\t\tinitial_base = initial_base[prop[idx]]\n\t\t\tidx = idx + 1\n\t\tend\n\t\tinitial_prop = prop[idx]\n\telse\n\t\tinitial_base = self\n\t\tinitial_prop = prop\n\tend\n\n\t-- The recursive enclosure\n\tlocal recursive\n\trecursive = function(base, prop, v, method)\n\t\tmethod = self.temporary_values_conf[prop] or method\n\t\tif type(v) == \"number\" then\n\t\t\t-- Simple addition\n\t\t\tif method == \"mult\" then\n\t\t\t\tbase[prop] = (base[prop] or 1) * v\n\t\t\telseif method == \"mult0\" then\n\t\t\t\tbase[prop] = (base[prop] or 1) * (1 + v)\n\t\t\telseif method == \"perc_inv\" then\n\t\t\t\tv = v / 100\n\t\t\t\tlocal b = (base[prop] or 0) / 100\n\t\t\t\tb = 1 - (1 - b) * (1 - v)\n\t\t\t\tbase[prop] = b * 100\n\t\t\telseif method == \"inv1\" then\n\t\t\t\tv = util.bound(v, -0.999, 0.999)\n\t\t\t\tt[id] = v\n\t\t\t\tlocal b = (base[prop] or 1) - 1\n\t\t\t\tb = 1 - (1 - b) * (1 - v)\n\t\t\t\tbase[prop] = b + 1\n\t\t\telseif method == \"highest\" then\n\t\t\t\tbase[\"__thighest_\"..prop] = base[\"__thighest_\"..prop] or {[-1] = base[prop]}\n\t\t\t\tbase[\"__thighest_\"..prop][id] = v\n\t\t\t\tbase[prop] = table.max(base[\"__thighest_\"..prop])\n\t\t\telseif method == \"lowest\" then\n\t\t\t\tbase[\"__tlowest_\"..prop] = base[\"__tlowest_\"..prop] or {[-1] = base[prop]}\n\t\t\t\tbase[\"__tlowest_\"..prop][id] = v\n\t\t\t\tbase[prop] = table.min(base[\"__tlowest_\"..prop])\n\t\t\telseif method == \"last\" then\n\t\t\t\tbase[\"__tlast_\"..prop] = base[\"__tlast_\"..prop] or {[-1] = base[prop]}\n\t\t\t\tlocal b = base[\"__tlast_\"..prop]\n\t\t\t\tb[id] = v\n\t\t\t\tb = table.listify(b)\n\t\t\t\ttable.sort(b, function(a, b) return a[1] > b[1] end)\n\t\t\t\tbase[prop] = b[1] and b[1][2]\n\t\t\telse\n-- if type(base[prop] or 0) ~= \"number\" or type(v) ~= \"number\" then\n-- \tprint(\"ERROR: Attempting to add value\", v, \"property\", prop, \"to\", base[prop]) table.print(base[prop]) table.print(v)\n-- \tprint(\"Entity:\", self) -- table.print(self)\n-- \tgame.debug._debug_entity = self\n-- end\n\t\t\t\tbase[prop] = (base[prop] or 0) + v\n\t\t\tend\n\t\t\tself:onTemporaryValueChange(prop, v, base)\n--\t\t\tprint(\"addTmpVal\", base, prop, v, \" :=: \", #t, id, method)\n\t\telseif type(v) == \"table\" then\n\t\t\tfor k, e in pairs(v) do\n--\t\t\t\tprint(\"addTmpValTable\", base[prop], k, e)\n\t\t\t\tbase[prop] = base[prop] or {}\n\t\t\t\trecursive(base[prop], k, e, method)\n\t\t\tend\n\t\telseif type(v) == \"string\" then\n\t\t\t-- Only last works on strings\n\t\t\tif true or method == \"last\" then\n\t\t\t\tbase[\"__tlast_\"..prop] = base[\"__tlast_\"..prop] or {[-1] = base[prop]}\n\t\t\t\tlocal b = base[\"__tlast_\"..prop]\n\t\t\t\tb[id] = v\n\t\t\t\tb = table.listify(b)\n\t\t\t\ttable.sort(b, function(a, b) return a[1] > b[1] end)\n\t\t\t\tbase[prop] = b[1] and b[1][2]\n\t\t\telse\n\t\t\t\tbase[prop] = (base[prop] or 0) + v\n\t\t\tend\n--\t\t\tprint(\"addTmpVal\", base, prop, v, \" :=: \", #t, id, method)\n\t\telseif type(v) == \"function\" then\n\t\t\t-- Only last works on functions\n\t\t\tif true or method == \"last\" then\n\t\t\t\tbase[\"__tlast_\"..prop] = base[\"__tlast_\"..prop] or {[-1] = base[prop]}\n\t\t\t\tlocal b = base[\"__tlast_\"..prop]\n\t\t\t\tb[id] = v\n\t\t\t\tb = table.listify(b)\n\t\t\t\ttable.sort(b, function(a, b) return a[1] > b[1] end)\n\t\t\t\tbase[prop] = b[1] and b[1][2]\n\t\t\telse\n\t\t\t\tbase[prop] = (base[prop] or 0) + v\n\t\t\tend\n--\t\t\tprint(\"addTmpVal\", base, prop, v, \" :=: \", #t, id, method)\n\t\telse\n\t\t\terror(\"unsupported temporary value type: \"..type(v)..\" :=: \"..tostring(v)..\" (on key \"..tostring(prop)..\")\")\n\t\tend\n\tend\n\n\t-- Update the base prop\n\tif not noupdate then\n\t\trecursive(initial_base, initial_prop, v, \"add\")\n\tend\n\n\treturn id\nend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "start": 297,
+      "end": 300,
+      "excerpt": "function _M:effectTemporaryValue(eff, k, v)\n\tif not eff.__tmpvals then eff.__tmpvals = {} end\n\teff.__tmpvals[#eff.__tmpvals+1] = {k, self:addTemporaryValue(k, v)}\nend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/engines/default/engine/Map.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "6fdf0294ab835d06cf1186a47a2222b266bd71bfc53b3ba3a423cbb3e41ba315",
+      "start": 1258,
+      "end": 1319,
+      "excerpt": "function _M:processEffects(update_shape_only)\n\tlocal todel = {}\n\tfor i, e in ipairs(self.effects) do\n\t\t-- Run damage and decrease duration only on certain ticks\n\t\tif not update_shape_only and e.duration > 0 then\n\t\t\tfor lx, ys in pairs(e.grids) do\n\t\t\t\tfor ly, _ in pairs(ys) do\n\t\t\t\t\tlocal act = game.level.map(lx, ly, engine.Map.ACTOR)\n\t\t\t\t\tif act and act == e.src and not ((type(e.selffire) == \"number\" and rng.percent(e.selffire)) or (type(e.selffire) ~= \"number\" and e.selffire)) then\n\t\t\t\t\telseif act and e.src and e.src.reactionToward and (e.src:reactionToward(act) >= 0) and not ((type(e.friendlyfire) == \"number\" and rng.percent(e.friendlyfire)) or (type(e.friendlyfire) ~= \"number\" and e.friendlyfire)) then\n\t\t\t\t\t-- Otherwise hit\n\t\t\t\t\telse\n\t\t\t\t\t\te.src.__project_source = e -- intermediate projector source\n\t\t\t\t\t\tDamageType:get(e.damtype).projector(e.src, lx, ly, e.damtype, e.dam)\n\t\t\t\t\t\te.src.__project_source = nil\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\n\t\t\te.duration = e.duration - 1\n\t\tend\n\n\t\tif e.duration <= 0 then\n\t\t\ttable.insert(todel, i)\n\t\telseif e.update_fct then\n\t\t\tif e:update_fct(update_shape_only, todel, i) then\n\t\t\t\tif type(dir) == \"table\" then e.grids = core.fov.beam_any_angle_grids(e.x, e.y, e.radius, e.angle, e.dir.source_x or e.src.x or e.x, e.dir.source_y or e.src.y or e.y, e.dir.delta_x, e.dir.delta_y, true)\n\t\t\t\telseif e.dir == 5 then e.grids = core.fov.circle_grids(e.x, e.y, e.radius, true)\n\t\t\t\telse e.grids = core.fov.beam_grids(e.x, e.y, e.radius, e.dir, e.angle, true) end\n\t\t\t\tif e.particles then\n\t\t\t\t\tif e.particles_only_one then\n\t\t\t\t\t\tfor i, p in ipairs(e.particles) do\n\t\t\t\t\t\t\tp:shiftCustom(self.tile_w * (p.x - e.x), self.tile_h * (p.y - e.y))\n\t\t\t\t\t\t\tp.x = e.x\n\t\t\t\t\t\t\tp.y = e.y\n\t\t\t\t\t\tend\n\t\t\t\t\telse\n\t\t\t\t\t\tfor j, ps in ipairs(e.particles) do self:removeParticleEmitter(ps) end\n\t\t\t\t\t\te.particles = {}\n\t\t\t\t\t\tfor lx, ys in pairs(e.grids) do\n\t\t\t\t\t\t\tfor ly, _ in pairs(ys) do\n\t\t\t\t\t\t\t\te.particles[#e.particles+1] = self:particleEmitter(lx, ly, 1, e.fake_overlay.type, e.fake_overlay.args, nil, e.zdepth)\n\t\t\t\t\t\t\t\te.particles[#e.particles].__map_effect = e\n\t\t\t\t\t\t\tend\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend\n\n\tif #todel > 0 then table.sort(todel) end\n\tfor i = #todel, 1, -1 do\n\t\tlocal e = table.remove(self.effects, todel[i])\n\t\tif e.particles then\n\t\t\tfor j, ps in ipairs(e.particles) do self:removeParticleEmitter(ps) end\n\t\tend\n\t\tif e.overlay then\n\t\t\tself.z_effects[e.overlay.zdepth][e] = nil\n\t\tend\n\tend\nend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/overload/mod/class/OrcCampaign.lua",
+      "commit": null,
+      "sha256": "68709132d1d4675e1ee49f1f7227a639d1cdc12bda1f68eb6fa63ea185658a7c",
+      "start": 354,
+      "end": 361,
+      "excerpt": "function hookDamageProjectorFinal(self, data)\n\tlocal target = game.level.map(data.x, data.y, engine.Map.ACTOR)\n\tif target and target:hasEffect(target.EFF_TWILIT_ECHOES) and (data.type == DamageType.LIGHT or data.type == DamageType.DARKNESS) and data.dam >= 1 then\n\t\tlocal e = target:hasEffect(target.EFF_TWILIT_ECHOES)\n\t\tlocal def = target.tempeffect_def[target.EFF_TWILIT_ECHOES]\n\t\tdef.doEcho(data.type, data.dam, e, target, data.src, data.x, data.y)\n\tend\nend",
+      "verified_from": "public unpinned DLC snapshot"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 113,
+      "end": 153,
+      "excerpt": "\n_M.__is_actor = true\n\n_M.stats_per_level = 3\n\n-- Speeds are multiplicative, not additive\n_M.temporary_values_conf.global_speed_add = \"add\"\n_M.temporary_values_conf.movement_speed = \"add\" -- Prevent excessive movement speed compounding\n_M.temporary_values_conf.combat_physspeed = \"add\" -- Prevent excessive attack speed compounding\n_M.temporary_values_conf.combat_spellspeed = \"add\" -- Prevent excessive spell speed compounding\n_M.temporary_values_conf.combat_mindspeed = \"add\" -- Prevent excessive mind speed compounding\n\n-- Effect reductions are multiplicative, not additive\n_M.temporary_values_conf.reduce_detrimental_status_effects_time = \"perc_inv\"  -- Prevent effect reduction from hitting 100%\n\n-- Damage cap takes the lowest\n_M.temporary_values_conf.flat_damage_cap = \"lowest\"\n\n-- Projectile evasion uses highest\n_M.temporary_values_conf.projectile_evasion = \"highest\"\n_M.temporary_values_conf.projectile_evasion_spread = \"highest\"\n\n_M.temporary_values_conf.life_leech_chance = \"highest\"\n\n-- For archmages\n_M.temporary_values_conf.blind_inc_damage = \"highest\"\n\n-- Damage redirection takes last\n_M.temporary_values_conf.force_use_resist = \"last\"\n_M.temporary_values_conf.force_use_resist_percent = \"last\"\n_M.temporary_values_conf.all_damage_convert = \"last\"\n_M.temporary_values_conf.all_damage_convert_percent = \"last\"\n_M.temporary_values_conf.force_melee_damtype = \"last\"\n\n-- AI\n_M.temporary_values_conf.ai_move = \"last\"\n\n-- Misc\n_M.temporary_values_conf.death_dialog = \"last\"\n_M.temporary_values_conf.visual_force_day_time = \"last\"\n",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 770,
+      "end": 778,
+      "excerpt": "\t-- Ok reset the seen cache\n\tself:resetCanSeeCache()\n\n\tif self.on_act then self:on_act() end\n\n\tif self:attr(\"never_act\") then return false end\n\n\tif not game.zone.wilderness and not self:attr(\"confused\") --[[and not self:attr(\"terrified\")]] then self:automaticTalents() end --terrified check for prosperity\n",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 2300,
+      "end": 2320,
+      "excerpt": "-- accounts for healing_factor and Solipsism life/psi healing split, which includes psi_regen\nfunction _M:regenLife(fake)\n\tif self.life_regen and not self:attr(\"no_life_regen\") then\n\t\tlocal regen, psi_increase = self.life_regen * util.bound((self.healing_factor or 1), 0, self.healing_factor_max or 2.5)\n\n\t\t-- Solipsism: regeneration split between life and psi\n\t\tif self:knowTalent(self.T_SOLIPSISM) then\n\t\t\tlocal ratio = self:callTalent(self.T_SOLIPSISM, \"getConversionRatio\")\n\t\t\tpsi_increase = util.bound(regen * ratio, 0, self.max_psi - self.psi)\n\t\t\t\tregen = regen - psi_increase\n\t\t\tif not fake then self:incPsi(psi_increase) end\n\t\t\tpsi_increase = psi_increase + self.psi_regen\n\t\tend\n\n\t\t-- handles maximum life (including Blood Lock)\n\t\tregen = util.bound(self.life + regen, self.die_at, self:attr(\"blood_lock\") or self.max_life) - self.life\n\t\tif not fake then self.life = self.life + regen end\n\t\treturn regen, psi_increase or self.psi_regen or 0\n\tend\n\treturn 0, 0\nend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 2335,
+      "end": 2341,
+      "excerpt": "--- Called before healing\nfunction _M:onHeal(value, src)\n\tlocal raw_value = value\n\tvalue = value * util.bound((self.healing_factor or 1), 0, 2.5)\n\n\tfor cb in self:iterCallbacks(\"callbackOnHeal\") do\n\t\tlocal ret = cb(value, src, raw_value)",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 4109,
+      "end": 4132,
+      "excerpt": "end\n\nfunction _M:recomputeGlobalSpeed()\n\tif self.global_speed_add >= 0 then self.global_speed = self.global_speed_base + self.global_speed_add\n\telse self.global_speed = self.global_speed_base / (1 + math.abs(self.global_speed_add)) -- Symmetric scaling\n\tend\n\tself.global_speed = math.max(self.global_speed, 0.1)\nend\n\n--- Called when a temporary value changes (added or deleted)\n-- Takes care to call onStatChange when needed\n-- @param prop the property changing\n-- @param v the value of the change\n-- @param base the base table of prop\nfunction _M:onTemporaryValueChange(prop, v, base)\n\tif base == self.inc_stats then\n\t\tself:onStatChange(prop, v)\n\telseif prop == \"global_speed_add\" then\n\t\tself:recomputeGlobalSpeed()\n\telseif base == self.talents_types_mastery then\n\t\tself:updateTalentTypeMastery(prop)\n\telseif prop == \"disarmed\" then\n\t\tself:updateModdableTile()\n\tend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/engines/default/engine/Map.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "6fdf0294ab835d06cf1186a47a2222b266bd71bfc53b3ba3a423cbb3e41ba315",
+      "start": 1098,
+      "end": 1140,
+      "excerpt": "-- @param x the epicenter coords\n-- @param y the epicenter coords\n-- @param duration the number of turns to persist\n-- @param damtype the DamageType to apply\n-- @param dam the amount of damage\n-- @param radius the radius of the effect\n-- @param dir the numpad direction of the effect, 5 for a ball effect\n-- @param angle the angle of the effect\n-- @param overlay either a simple display entity to draw upon the map or a Particle class\n-- @param update_fct optional function that will be called each time the effect is updated with the effect itself as parameter. Use it to change radius, move around ....\n-- @param selffire percent chance to damage the source actor (default 100)\n-- @param friendlyfire percent chance to damage friendly actors (default 100)\nfunction _M:addEffect(src, x, y, duration, damtype, dam, radius, dir, angle, overlay, update_fct, selffire, friendlyfire)\n\tif selffire == nil then selffire = true end\n\tif friendlyfire == nil then friendlyfire = true end\n\n\tlocal grids\n\n\t-- Custom grids\n\tif type(angle) == \"table\" then\n\t\tgrids = angle\n\t\tangle = nil\n\t-- Handle any angle\n\telseif type(dir) == \"table\" then\n\t\tgrids = core.fov.beam_any_angle_grids(x, y, radius, angle, dir.source_x or src.x or x, dir.source_y or src.y or y, dir.delta_x, dir.delta_y, true)\n\t-- Handle balls\n\telseif dir == 5 then\n\t\tgrids = core.fov.circle_grids(x, y, radius, true)\n\t-- Handle beams\n\telse\n\t\tgrids = core.fov.beam_grids(x, y, radius, dir, angle, true)\n\tend\n\n\tlocal e = {\n\t\t__ATOMIC = true,\n\t\tsrc=src, x=x, y=y, duration=duration, damtype=damtype, dam=dam, radius=radius, dir=dir, angle=angle,\n\t\toverlay=overlay and (overlay.__ATOMIC or overlay.__CLASSNAME) and overlay,\n\t\tgrids = grids,\n\t\tupdate_fct=update_fct, selffire=selffire, friendlyfire=friendlyfire,\n\t}\n\n\tlocal overlay_particle = nil\n\tif overlay and not overlay.__ATOMIC and not overlay.__CLASSNAME then",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/engines/default/engine/interface/ActorLife.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "fa8f4f527fcf8076572b1d60be36cd031d8ac8a1c026fbd70b1eadcd1a342324",
+      "start": 70,
+      "end": 81,
+      "excerpt": "-- @return the actual damage done\nfunction _M:takeHit(value, src, death_note)\n\tif self.onTakeHit then value = self:onTakeHit(value, src) end\n\tself.life = self.life - value\n\tself.changed = true\n\tif self.life <= self.die_at and not self.dead then\n\t\tif src and src.on_kill and src:on_kill(self) then return false, value end\n\t\tgame.logSeen(self, \"#{bold}#%s killed %s!#{normal}#\", src and src:getName():capitalize() or _t\"something\", self:getName())\n\t\treturn self:die(src, death_note), value\n\tend\n\treturn false, value\nend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 2198,
+      "end": 2212,
+      "excerpt": "\tif self:knowTalent(self.T_CORRUPTED_SHELL) then\n\t\tadd = add + self:getCon() / 3\n\tend\n\tif self:knowTalent(self.T_POWER_IS_MONEY) then\n\t\tadd = add + self:callTalent(self.T_POWER_IS_MONEY, \"getSaves\")\n\tend\n\n\t-- To return later\n\tlocal d = self.combat_physresist + (self:getCon() + self:getStr() + (self:getLck() - 50) * 0.5) * 0.35 + add\n\tif self:attr(\"dazed\") then d = d / 2 end\n\n\treturn d\nend\n\n--- Computes physical resistance (before scaling)",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 2240,
+      "end": 2257,
+      "excerpt": "\t-- To return later\n\tlocal d = self.combat_spellresist + (self:getMag() + self:getWil() + (self:getLck() - 50) * 0.5) * 0.35 + add\n\tif self:attr(\"dazed\") then d = d / 2 end\n\n\treturn d\nend\n\n--- Computes spell resistance\n--- Fake denotes a check not actually being made, used by character sheets etc.\nfunction _M:combatSpellResist(fake, add)\n\tlocal total = self:rescaleCombatStats(self:combatSpellResistRaw(fake, add))\n\n\t-- Psionic Balance\n\tif self:knowTalent(self.T_BALANCE) then\n\t\tlocal t = self:getTalentFromId(self.T_BALANCE)\n\t\tlocal ratio = t.getBalanceRatio(self, t)\n\t\ttotal = (1 - ratio)*total + self:combatMentalResist(fake)*ratio\n\tend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 2264,
+      "end": 2284,
+      "excerpt": "\tadd = add or 0\n\tif not fake then\n\t\tadd = add + (self:checkOnDefenseCall(\"mental\") or 0)\n\tend\n\tif self:knowTalent(self.T_CORRUPTED_SHELL) then\n\t\tadd = add + self:getCon() / 3\n\tend\n\tif self:knowTalent(self.T_STEADY_MIND) then\n\t\tlocal t = self:getTalentFromId(self.T_STEADY_MIND)\n\t\tadd = add + t.getMental(self, t)\n\tend\n\tif self:knowTalent(self.T_POWER_IS_MONEY) then\n\t\tadd = add + self:callTalent(self.T_POWER_IS_MONEY, \"getSaves\")\n\tend\n\n\tlocal d = self.combat_mentalresist + (self:getCun() + self:getWil() + (self:getLck() - 50) * 0.5) * 0.35 + add\n\tif self:attr(\"dazed\") then d = d / 2 end\n\n\tlocal nm = self:hasEffect(self.EFF_CURSE_OF_NIGHTMARES)\n\tif nm and rng.percent(20) and not fake then\n\t\td = d * (1-self.tempeffect_def.EFF_CURSE_OF_NIGHTMARES.getVisionsReduction(nm, nm.level)/100)",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 2308,
+      "end": 2323,
+      "excerpt": "\n--- Returns the resistance\nfunction _M:combatGetResist(type)\n\tif not self.resists then return 0 end -- wtf\n\tlocal power = 100\n\tif self.force_use_resist and self.force_use_resist ~= type then\n\t\ttype = self.force_use_resist\n\t\tpower = self.force_use_resist_percent or 100\n\tend\n\n\tlocal a = math.min((self.resists.all or 0) / 100,1) -- Prevent large numbers from inverting the resist formulas\n\tlocal b = (type == \"all\") and 0 or math.min((self.resists[type] or 0) / 100,1)\n\tlocal r = util.bound(100 * (1 - (1 - a) * (1 - b)), -100, (self.resists_cap.all or 0) + (self.resists_cap[type] or 0))\n\treturn r * power / 100\nend\n",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+      "commit": null,
+      "sha256": "d4a229c033179400bfeecdf22a6d8c7d8b890754f25cecd82908d413c3fa5102",
+      "start": 867,
+      "end": 892,
+      "excerpt": "\tname = \"Automated Repair System\",\n\ttype = {\"steamtech/assault\", 4},\n\trequire = dex_steamreq4,\n\tpoints = 5,\n\tmode = \"passive\",\n\tcooldown = 40,\n\tgetLife = function(self, t) return math.floor(self:combatTalentScale(t, 50, 650)) end,\n\tgetHeal = function(self, t) return math.floor(self:combatTalentScale(t, 10, 110)) end,\n\tgetResist = function(self, t) return self:combatTalentLimit(t, 70, 10, 40) end,\t\t\t\n\tcallbackOnHit = function(self, t, cb, src)\n\t\tif cb.value >= (self.life - self.die_at) and not self:isTalentCoolingDown(t) then\n\t\t\tself:startTalentCooldown(t)\n\t\t\tself:setEffect(self.EFF_AUTOMATED_REPAIR_SYSTEM, 1, {src=self, life=t.getLife(self,t), heal=t.getHeal(self,t), resist=t.getResist(self,t)})\n\t\tend\n\t\treturn cb.value\n\tend,\n\tinfo = function(self, t)\n\t\tlocal life = t.getLife(self,t)\n\t\tlocal heal = t.getHeal(self,t)\n\t\tlocal resist = t.getResist(self,t)\n\t\treturn ([[On falling below 0 life, you engage an automated repair mode. While in this mode you cannot act, but can survive below -%d life, heal for %0.1f life each turn and have all resistances increased by %d%%. This will last until you are destroyed or until you are fully healed.\n\t\tThis effect has a cooldown.]])\n\t\t:tformat(life, heal, resist)\n\tend,\n}\n",
+      "verified_from": "public unpinned DLC snapshot"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/magical.lua",
+      "commit": null,
+      "sha256": "6b62a43d6712f6fb221bef24db8ee339a249824f4670540ace77fc439a7bb081",
+      "start": 117,
+      "end": 183,
+      "excerpt": "newEffect{\n\tname = \"TWILIT_ECHOES\", image=\"talents/twilight.png\",\n\tdesc = _t\"Twilit Echoes\",\n\tlong_desc = function(self, eff) return ([[The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.]])\n\t\t:tformat(eff.slow_per * 100, eff.slow_max * 100, eff.slow_max / eff.slow_per, eff.echo_dur, eff.dam_factor * 100) end,\n\ttype = \"magical\",\n\tsubtype = { dark=true, light=true},\n\tstatus = \"detrimental\",\n\tdoEcho = function(type, dam, eff, target, src, x, y)\n\t\tif type == DamageType.LIGHT then\n\t\t\ttarget:setEffect(target.EFF_ECHOED_LIGHT, eff.echo_dur, {power = dam * eff.slow_per, max = eff.slow_max})\n\t\telseif type == DamageType.DARKNESS then --you can never be too sure\n\t\t\tlocal echo\n\t\t\tif eff.dark_echoes then for _, e in ipairs(eff.dark_echoes) do\n\t\t\t\tif e.duration > 0 and e.x == x and e.y == y then\n\t\t\t\t\techo = e\n\t\t\t\tend\n\t\t\tend end\n\t\t\tif not echo then\n\t\t\t\tgame.level.map:addEffect(src, \n\t\t\t\t\tx, y, 4,\n\t\t\t\t\tDamageType.DARKNESS, dam * eff.dam_factor,\n\t\t\t\t\t0,\n\t\t\t\t\t5, nil,\n\t\t\t\t\t{type=\"shadow_zone\"},\n\t\t\t\t\tnil, src:spellFriendlyFire()\n\t\t\t\t)\n\t\t\t\t--it's hacky yeah, but map:addEffect should really return the instance\n\t\t\t\techo = game.level.map.effects[#game.level.map.effects]\n\t\t\t\teff.dark_echoes = eff.dark_echoes or {}\n\t\t\t\ttable.insert(eff.dark_echoes, echo)\n\t\t\telse\n\t\t\t\tif echo.duration < eff.echo_dur and echo.duration > 0 then\n\t\t\t\t\told_dur = echo.duration\n\t\t\t\t\told_dam = old_dur * echo.dam\n\t\t\t\t\tlocal new_dam = dam * eff.dam_factor * eff.echo_dur + old_dam\n\t\t\t\t\techo.duration = eff.echo_dur\n\t\t\t\t\techo.dam = new_dam / eff.echo_dur\n\t\t\t\telse\n\t\t\t\t\t\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend,\n}\n\nnewEffect{\n\tname = \"ECHOED_LIGHT\", image=\"talents/twilight.png\",\n\tdesc = _t\"Echoed Light\",\n\tlong_desc = function(self, eff) return ([[The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.]])\n\t\t:tformat(eff.power * 100, eff.max * 100) end,\n\ttype = \"magical\",\n\tsubtype = { slow=true},\n\tactivate = function(self, eff)\n\t\teff.tmpid = self:addTemporaryValue(\"global_speed_add\", -eff.power)\n\tend,\n\tdeactivate = function(self, eff)\n\t\tself:removeTemporaryValue(\"global_speed_add\", eff.tmpid)\n\tend,\n\ton_merge = function(self, old_eff, new_eff)\n\t\tmax = math.max(old_eff.max, new_eff.max)\n\t\told_eff.power = math.min(old_eff.power + new_eff.power, max)\n\t\tself:removeTemporaryValue(\"global_speed_add\", old_eff.tmpid)\n\t\told_eff.tmpid = self:addTemporaryValue(\"global_speed_add\", -old_eff.power)\n\t\treturn old_eff\n\tend,\n}",
+      "verified_from": "public unpinned DLC snapshot"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/other.lua",
+      "commit": null,
+      "sha256": "78dd56833a21a4e633506394ce3042f794a6818244259066d192e5246ed33c8c",
+      "start": 538,
+      "end": 563,
+      "excerpt": "newEffect{\n\tname = \"AUTOMATED_REPAIR_SYSTEM\", image = \"talents/automated_repair_system.png\",\n\tdesc = _t\"Automated Repair System\", decrease = 0,\n\tlong_desc = function(self, eff) return (\"Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.\"):tformat(eff.heal, eff.resist, eff.life) end,\n\ttype = \"other\",\n\tsubtype = { steamtech=true, healing=true },\n\tstatus = \"beneficial\",\n\tparameters = { power=10 },\n\ton_gain = function(self, err) return _t\"#Target# shuts down and engages its automated repair system.\", _t\"+Automated Repair System\" end,\n\ton_lose = function(self, err) return _t\"#Target#'s repairs are complete.\", _t\"-Automated Repair System\" end,\n\tactivate = function(self, eff)\n\t\teff.heal = self:addTemporaryValue(\"life_regen\", eff.heal)\n\t\teff.resist = self:addTemporaryValue(\"resists\", {all=eff.resist})\n\t\teff.life = self:addTemporaryValue(\"die_at\", -eff.life)\n\t\tself.never_act = true\n\tend,\n\ton_timeout = function(self, eff)\n\t\tif self.life == self.max_life then self:removeEffect(self.EFF_AUTOMATED_REPAIR_SYSTEM) end\n\tend,\n\tdeactivate = function(self, eff)\n\t\tself:removeTemporaryValue(\"life_regen\", eff.heal)\n\t\tself:removeTemporaryValue(\"resists\", eff.resist)\n\t\tself:removeTemporaryValue(\"die_at\", eff.life)\t\t\n\t\tself.never_act = nil\t\t\n\tend,\n}",
+      "verified_from": "public unpinned DLC snapshot"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/timed_effects/physical.lua",
+      "commit": null,
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "start": 224,
+      "end": 240,
+      "excerpt": "newEffect{\n\tname = \"UNSTOPPABLE_FORCE_SALVE\", image = \"talents/unstoppable_force_salve.png\",\n\tdesc = _t\"Unstoppable Force Salve\",\n\tlong_desc = function(self, eff) return (\"Increases all saves by %d and healing factor by %d%%.\"):tformat(eff.power, eff.power / 2) end,\n\ttype = \"physical\",\n\tsubtype = { tech=true },\n\tstatus = \"beneficial\",\n\ton_gain = function(self, err) return _t\"#Target# uses an unstoppable force salve.\", _t\"+Unstoppable Force\" end,\n\ton_lose = function(self, err) return _t\"#Target# is not affected anymore by the salve.\", _t\"-Unstoppable Force\" end,\n\tparameters = { power=1 },\n\tactivate = function(self, eff)\n\t\tself:effectTemporaryValue(eff, \"combat_physresist\", eff.power)\n\t\tself:effectTemporaryValue(eff, \"combat_spellresist\", eff.power)\n\t\tself:effectTemporaryValue(eff, \"combat_mentalresist\", eff.power)\n\t\tself:effectTemporaryValue(eff, \"healing_factor\", eff.power / 2)\n\tend,\n}",
+      "verified_from": "public unpinned DLC snapshot"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/engines/default/engine/Entity.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "4c9eb3873ad9f99ffd01ab75a44faaf219a6dc1393dbf0a30584a9288f2141d2",
+      "start": 859,
+      "end": 972,
+      "excerpt": "function _M:addTemporaryValue(prop, v, noupdate)\n\tif not self.compute_vals then self.compute_vals = {n=0} end\n\n\tlocal t = self.compute_vals\n\tlocal id = t.n + 1\n\twhile t[id] ~= nil do id = id + 1 end\n\tt[id] = v\n\tt.n = id\n\n\t-- Find the base, one removed from the last prop\n\tlocal initial_base, initial_prop\n\tif type(prop) == \"table\" then\n\t\tinitial_base = self\n\t\tlocal idx = 1\n\t\twhile idx < #prop do\n\t\t\tinitial_base = initial_base[prop[idx]]\n\t\t\tidx = idx + 1\n\t\tend\n\t\tinitial_prop = prop[idx]\n\telse\n\t\tinitial_base = self\n\t\tinitial_prop = prop\n\tend\n\n\t-- The recursive enclosure\n\tlocal recursive\n\trecursive = function(base, prop, v, method)\n\t\tmethod = self.temporary_values_conf[prop] or method\n\t\tif type(v) == \"number\" then\n\t\t\t-- Simple addition\n\t\t\tif method == \"mult\" then\n\t\t\t\tbase[prop] = (base[prop] or 1) * v\n\t\t\telseif method == \"mult0\" then\n\t\t\t\tbase[prop] = (base[prop] or 1) * (1 + v)\n\t\t\telseif method == \"perc_inv\" then\n\t\t\t\tv = v / 100\n\t\t\t\tlocal b = (base[prop] or 0) / 100\n\t\t\t\tb = 1 - (1 - b) * (1 - v)\n\t\t\t\tbase[prop] = b * 100\n\t\t\telseif method == \"inv1\" then\n\t\t\t\tv = util.bound(v, -0.999, 0.999)\n\t\t\t\tt[id] = v\n\t\t\t\tlocal b = (base[prop] or 1) - 1\n\t\t\t\tb = 1 - (1 - b) * (1 - v)\n\t\t\t\tbase[prop] = b + 1\n\t\t\telseif method == \"highest\" then\n\t\t\t\tbase[\"__thighest_\"..prop] = base[\"__thighest_\"..prop] or {[-1] = base[prop]}\n\t\t\t\tbase[\"__thighest_\"..prop][id] = v\n\t\t\t\tbase[prop] = table.max(base[\"__thighest_\"..prop])\n\t\t\telseif method == \"lowest\" then\n\t\t\t\tbase[\"__tlowest_\"..prop] = base[\"__tlowest_\"..prop] or {[-1] = base[prop]}\n\t\t\t\tbase[\"__tlowest_\"..prop][id] = v\n\t\t\t\tbase[prop] = table.min(base[\"__tlowest_\"..prop])\n\t\t\telseif method == \"last\" then\n\t\t\t\tbase[\"__tlast_\"..prop] = base[\"__tlast_\"..prop] or {[-1] = base[prop]}\n\t\t\t\tlocal b = base[\"__tlast_\"..prop]\n\t\t\t\tb[id] = v\n\t\t\t\tb = table.listify(b)\n\t\t\t\ttable.sort(b, function(a, b) return a[1] > b[1] end)\n\t\t\t\tbase[prop] = b[1] and b[1][2]\n\t\t\telse\n-- if type(base[prop] or 0) ~= \"number\" or type(v) ~= \"number\" then\n-- \tprint(\"ERROR: Attempting to add value\", v, \"property\", prop, \"to\", base[prop]) table.print(base[prop]) table.print(v)\n-- \tprint(\"Entity:\", self) -- table.print(self)\n-- \tgame.debug._debug_entity = self\n-- end\n\t\t\t\tbase[prop] = (base[prop] or 0) + v\n\t\t\tend\n\t\t\tself:onTemporaryValueChange(prop, v, base)\n--\t\t\tprint(\"addTmpVal\", base, prop, v, \" :=: \", #t, id, method)\n\t\telseif type(v) == \"table\" then\n\t\t\tfor k, e in pairs(v) do\n--\t\t\t\tprint(\"addTmpValTable\", base[prop], k, e)\n\t\t\t\tbase[prop] = base[prop] or {}\n\t\t\t\trecursive(base[prop], k, e, method)\n\t\t\tend\n\t\telseif type(v) == \"string\" then\n\t\t\t-- Only last works on strings\n\t\t\tif true or method == \"last\" then\n\t\t\t\tbase[\"__tlast_\"..prop] = base[\"__tlast_\"..prop] or {[-1] = base[prop]}\n\t\t\t\tlocal b = base[\"__tlast_\"..prop]\n\t\t\t\tb[id] = v\n\t\t\t\tb = table.listify(b)\n\t\t\t\ttable.sort(b, function(a, b) return a[1] > b[1] end)\n\t\t\t\tbase[prop] = b[1] and b[1][2]\n\t\t\telse\n\t\t\t\tbase[prop] = (base[prop] or 0) + v\n\t\t\tend\n--\t\t\tprint(\"addTmpVal\", base, prop, v, \" :=: \", #t, id, method)\n\t\telseif type(v) == \"function\" then\n\t\t\t-- Only last works on functions\n\t\t\tif true or method == \"last\" then\n\t\t\t\tbase[\"__tlast_\"..prop] = base[\"__tlast_\"..prop] or {[-1] = base[prop]}\n\t\t\t\tlocal b = base[\"__tlast_\"..prop]\n\t\t\t\tb[id] = v\n\t\t\t\tb = table.listify(b)\n\t\t\t\ttable.sort(b, function(a, b) return a[1] > b[1] end)\n\t\t\t\tbase[prop] = b[1] and b[1][2]\n\t\t\telse\n\t\t\t\tbase[prop] = (base[prop] or 0) + v\n\t\t\tend\n--\t\t\tprint(\"addTmpVal\", base, prop, v, \" :=: \", #t, id, method)\n\t\telse\n\t\t\terror(\"unsupported temporary value type: \"..type(v)..\" :=: \"..tostring(v)..\" (on key \"..tostring(prop)..\")\")\n\t\tend\n\tend\n\n\t-- Update the base prop\n\tif not noupdate then\n\t\trecursive(initial_base, initial_prop, v, \"add\")\n\tend\n\n\treturn id\nend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "start": 297,
+      "end": 300,
+      "excerpt": "function _M:effectTemporaryValue(eff, k, v)\n\tif not eff.__tmpvals then eff.__tmpvals = {} end\n\teff.__tmpvals[#eff.__tmpvals+1] = {k, self:addTemporaryValue(k, v)}\nend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/engines/default/engine/Map.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "6fdf0294ab835d06cf1186a47a2222b266bd71bfc53b3ba3a423cbb3e41ba315",
+      "start": 1258,
+      "end": 1319,
+      "excerpt": "function _M:processEffects(update_shape_only)\n\tlocal todel = {}\n\tfor i, e in ipairs(self.effects) do\n\t\t-- Run damage and decrease duration only on certain ticks\n\t\tif not update_shape_only and e.duration > 0 then\n\t\t\tfor lx, ys in pairs(e.grids) do\n\t\t\t\tfor ly, _ in pairs(ys) do\n\t\t\t\t\tlocal act = game.level.map(lx, ly, engine.Map.ACTOR)\n\t\t\t\t\tif act and act == e.src and not ((type(e.selffire) == \"number\" and rng.percent(e.selffire)) or (type(e.selffire) ~= \"number\" and e.selffire)) then\n\t\t\t\t\telseif act and e.src and e.src.reactionToward and (e.src:reactionToward(act) >= 0) and not ((type(e.friendlyfire) == \"number\" and rng.percent(e.friendlyfire)) or (type(e.friendlyfire) ~= \"number\" and e.friendlyfire)) then\n\t\t\t\t\t-- Otherwise hit\n\t\t\t\t\telse\n\t\t\t\t\t\te.src.__project_source = e -- intermediate projector source\n\t\t\t\t\t\tDamageType:get(e.damtype).projector(e.src, lx, ly, e.damtype, e.dam)\n\t\t\t\t\t\te.src.__project_source = nil\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\n\t\t\te.duration = e.duration - 1\n\t\tend\n\n\t\tif e.duration <= 0 then\n\t\t\ttable.insert(todel, i)\n\t\telseif e.update_fct then\n\t\t\tif e:update_fct(update_shape_only, todel, i) then\n\t\t\t\tif type(dir) == \"table\" then e.grids = core.fov.beam_any_angle_grids(e.x, e.y, e.radius, e.angle, e.dir.source_x or e.src.x or e.x, e.dir.source_y or e.src.y or e.y, e.dir.delta_x, e.dir.delta_y, true)\n\t\t\t\telseif e.dir == 5 then e.grids = core.fov.circle_grids(e.x, e.y, e.radius, true)\n\t\t\t\telse e.grids = core.fov.beam_grids(e.x, e.y, e.radius, e.dir, e.angle, true) end\n\t\t\t\tif e.particles then\n\t\t\t\t\tif e.particles_only_one then\n\t\t\t\t\t\tfor i, p in ipairs(e.particles) do\n\t\t\t\t\t\t\tp:shiftCustom(self.tile_w * (p.x - e.x), self.tile_h * (p.y - e.y))\n\t\t\t\t\t\t\tp.x = e.x\n\t\t\t\t\t\t\tp.y = e.y\n\t\t\t\t\t\tend\n\t\t\t\t\telse\n\t\t\t\t\t\tfor j, ps in ipairs(e.particles) do self:removeParticleEmitter(ps) end\n\t\t\t\t\t\te.particles = {}\n\t\t\t\t\t\tfor lx, ys in pairs(e.grids) do\n\t\t\t\t\t\t\tfor ly, _ in pairs(ys) do\n\t\t\t\t\t\t\t\te.particles[#e.particles+1] = self:particleEmitter(lx, ly, 1, e.fake_overlay.type, e.fake_overlay.args, nil, e.zdepth)\n\t\t\t\t\t\t\t\te.particles[#e.particles].__map_effect = e\n\t\t\t\t\t\t\tend\n\t\t\t\t\t\tend\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend\n\n\tif #todel > 0 then table.sort(todel) end\n\tfor i = #todel, 1, -1 do\n\t\tlocal e = table.remove(self.effects, todel[i])\n\t\tif e.particles then\n\t\t\tfor j, ps in ipairs(e.particles) do self:removeParticleEmitter(ps) end\n\t\tend\n\t\tif e.overlay then\n\t\t\tself.z_effects[e.overlay.zdepth][e] = nil\n\t\tend\n\tend\nend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/overload/mod/class/OrcCampaign.lua",
+      "commit": null,
+      "sha256": "68709132d1d4675e1ee49f1f7227a639d1cdc12bda1f68eb6fa63ea185658a7c",
+      "start": 354,
+      "end": 361,
+      "excerpt": "function hookDamageProjectorFinal(self, data)\n\tlocal target = game.level.map(data.x, data.y, engine.Map.ACTOR)\n\tif target and target:hasEffect(target.EFF_TWILIT_ECHOES) and (data.type == DamageType.LIGHT or data.type == DamageType.DARKNESS) and data.dam >= 1 then\n\t\tlocal e = target:hasEffect(target.EFF_TWILIT_ECHOES)\n\t\tlocal def = target.tempeffect_def[target.EFF_TWILIT_ECHOES]\n\t\tdef.doEcho(data.type, data.dam, e, target, data.src, data.x, data.y)\n\tend\nend",
+      "verified_from": "public unpinned DLC snapshot"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 2336,
+      "end": 2338,
+      "excerpt": "function _M:onHeal(value, src)\n\tlocal raw_value = value\n\tvalue = value * util.bound((self.healing_factor or 1), 0, 2.5)",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 113,
+      "end": 153,
+      "excerpt": "\n_M.__is_actor = true\n\n_M.stats_per_level = 3\n\n-- Speeds are multiplicative, not additive\n_M.temporary_values_conf.global_speed_add = \"add\"\n_M.temporary_values_conf.movement_speed = \"add\" -- Prevent excessive movement speed compounding\n_M.temporary_values_conf.combat_physspeed = \"add\" -- Prevent excessive attack speed compounding\n_M.temporary_values_conf.combat_spellspeed = \"add\" -- Prevent excessive spell speed compounding\n_M.temporary_values_conf.combat_mindspeed = \"add\" -- Prevent excessive mind speed compounding\n\n-- Effect reductions are multiplicative, not additive\n_M.temporary_values_conf.reduce_detrimental_status_effects_time = \"perc_inv\"  -- Prevent effect reduction from hitting 100%\n\n-- Damage cap takes the lowest\n_M.temporary_values_conf.flat_damage_cap = \"lowest\"\n\n-- Projectile evasion uses highest\n_M.temporary_values_conf.projectile_evasion = \"highest\"\n_M.temporary_values_conf.projectile_evasion_spread = \"highest\"\n\n_M.temporary_values_conf.life_leech_chance = \"highest\"\n\n-- For archmages\n_M.temporary_values_conf.blind_inc_damage = \"highest\"\n\n-- Damage redirection takes last\n_M.temporary_values_conf.force_use_resist = \"last\"\n_M.temporary_values_conf.force_use_resist_percent = \"last\"\n_M.temporary_values_conf.all_damage_convert = \"last\"\n_M.temporary_values_conf.all_damage_convert_percent = \"last\"\n_M.temporary_values_conf.force_melee_damtype = \"last\"\n\n-- AI\n_M.temporary_values_conf.ai_move = \"last\"\n\n-- Misc\n_M.temporary_values_conf.death_dialog = \"last\"\n_M.temporary_values_conf.visual_force_day_time = \"last\"\n",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 770,
+      "end": 778,
+      "excerpt": "\t-- Ok reset the seen cache\n\tself:resetCanSeeCache()\n\n\tif self.on_act then self:on_act() end\n\n\tif self:attr(\"never_act\") then return false end\n\n\tif not game.zone.wilderness and not self:attr(\"confused\") --[[and not self:attr(\"terrified\")]] then self:automaticTalents() end --terrified check for prosperity\n",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 2300,
+      "end": 2320,
+      "excerpt": "-- accounts for healing_factor and Solipsism life/psi healing split, which includes psi_regen\nfunction _M:regenLife(fake)\n\tif self.life_regen and not self:attr(\"no_life_regen\") then\n\t\tlocal regen, psi_increase = self.life_regen * util.bound((self.healing_factor or 1), 0, self.healing_factor_max or 2.5)\n\n\t\t-- Solipsism: regeneration split between life and psi\n\t\tif self:knowTalent(self.T_SOLIPSISM) then\n\t\t\tlocal ratio = self:callTalent(self.T_SOLIPSISM, \"getConversionRatio\")\n\t\t\tpsi_increase = util.bound(regen * ratio, 0, self.max_psi - self.psi)\n\t\t\t\tregen = regen - psi_increase\n\t\t\tif not fake then self:incPsi(psi_increase) end\n\t\t\tpsi_increase = psi_increase + self.psi_regen\n\t\tend\n\n\t\t-- handles maximum life (including Blood Lock)\n\t\tregen = util.bound(self.life + regen, self.die_at, self:attr(\"blood_lock\") or self.max_life) - self.life\n\t\tif not fake then self.life = self.life + regen end\n\t\treturn regen, psi_increase or self.psi_regen or 0\n\tend\n\treturn 0, 0\nend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 2335,
+      "end": 2341,
+      "excerpt": "--- Called before healing\nfunction _M:onHeal(value, src)\n\tlocal raw_value = value\n\tvalue = value * util.bound((self.healing_factor or 1), 0, 2.5)\n\n\tfor cb in self:iterCallbacks(\"callbackOnHeal\") do\n\t\tlocal ret = cb(value, src, raw_value)",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 4109,
+      "end": 4132,
+      "excerpt": "end\n\nfunction _M:recomputeGlobalSpeed()\n\tif self.global_speed_add >= 0 then self.global_speed = self.global_speed_base + self.global_speed_add\n\telse self.global_speed = self.global_speed_base / (1 + math.abs(self.global_speed_add)) -- Symmetric scaling\n\tend\n\tself.global_speed = math.max(self.global_speed, 0.1)\nend\n\n--- Called when a temporary value changes (added or deleted)\n-- Takes care to call onStatChange when needed\n-- @param prop the property changing\n-- @param v the value of the change\n-- @param base the base table of prop\nfunction _M:onTemporaryValueChange(prop, v, base)\n\tif base == self.inc_stats then\n\t\tself:onStatChange(prop, v)\n\telseif prop == \"global_speed_add\" then\n\t\tself:recomputeGlobalSpeed()\n\telseif base == self.talents_types_mastery then\n\t\tself:updateTalentTypeMastery(prop)\n\telseif prop == \"disarmed\" then\n\t\tself:updateModdableTile()\n\tend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/engines/default/engine/Map.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "6fdf0294ab835d06cf1186a47a2222b266bd71bfc53b3ba3a423cbb3e41ba315",
+      "start": 1098,
+      "end": 1140,
+      "excerpt": "-- @param x the epicenter coords\n-- @param y the epicenter coords\n-- @param duration the number of turns to persist\n-- @param damtype the DamageType to apply\n-- @param dam the amount of damage\n-- @param radius the radius of the effect\n-- @param dir the numpad direction of the effect, 5 for a ball effect\n-- @param angle the angle of the effect\n-- @param overlay either a simple display entity to draw upon the map or a Particle class\n-- @param update_fct optional function that will be called each time the effect is updated with the effect itself as parameter. Use it to change radius, move around ....\n-- @param selffire percent chance to damage the source actor (default 100)\n-- @param friendlyfire percent chance to damage friendly actors (default 100)\nfunction _M:addEffect(src, x, y, duration, damtype, dam, radius, dir, angle, overlay, update_fct, selffire, friendlyfire)\n\tif selffire == nil then selffire = true end\n\tif friendlyfire == nil then friendlyfire = true end\n\n\tlocal grids\n\n\t-- Custom grids\n\tif type(angle) == \"table\" then\n\t\tgrids = angle\n\t\tangle = nil\n\t-- Handle any angle\n\telseif type(dir) == \"table\" then\n\t\tgrids = core.fov.beam_any_angle_grids(x, y, radius, angle, dir.source_x or src.x or x, dir.source_y or src.y or y, dir.delta_x, dir.delta_y, true)\n\t-- Handle balls\n\telseif dir == 5 then\n\t\tgrids = core.fov.circle_grids(x, y, radius, true)\n\t-- Handle beams\n\telse\n\t\tgrids = core.fov.beam_grids(x, y, radius, dir, angle, true)\n\tend\n\n\tlocal e = {\n\t\t__ATOMIC = true,\n\t\tsrc=src, x=x, y=y, duration=duration, damtype=damtype, dam=dam, radius=radius, dir=dir, angle=angle,\n\t\toverlay=overlay and (overlay.__ATOMIC or overlay.__CLASSNAME) and overlay,\n\t\tgrids = grids,\n\t\tupdate_fct=update_fct, selffire=selffire, friendlyfire=friendlyfire,\n\t}\n\n\tlocal overlay_particle = nil\n\tif overlay and not overlay.__ATOMIC and not overlay.__CLASSNAME then",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/engines/default/engine/interface/ActorLife.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "fa8f4f527fcf8076572b1d60be36cd031d8ac8a1c026fbd70b1eadcd1a342324",
+      "start": 70,
+      "end": 81,
+      "excerpt": "-- @return the actual damage done\nfunction _M:takeHit(value, src, death_note)\n\tif self.onTakeHit then value = self:onTakeHit(value, src) end\n\tself.life = self.life - value\n\tself.changed = true\n\tif self.life <= self.die_at and not self.dead then\n\t\tif src and src.on_kill and src:on_kill(self) then return false, value end\n\t\tgame.logSeen(self, \"#{bold}#%s killed %s!#{normal}#\", src and src:getName():capitalize() or _t\"something\", self:getName())\n\t\treturn self:die(src, death_note), value\n\tend\n\treturn false, value\nend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 2198,
+      "end": 2212,
+      "excerpt": "\tif self:knowTalent(self.T_CORRUPTED_SHELL) then\n\t\tadd = add + self:getCon() / 3\n\tend\n\tif self:knowTalent(self.T_POWER_IS_MONEY) then\n\t\tadd = add + self:callTalent(self.T_POWER_IS_MONEY, \"getSaves\")\n\tend\n\n\t-- To return later\n\tlocal d = self.combat_physresist + (self:getCon() + self:getStr() + (self:getLck() - 50) * 0.5) * 0.35 + add\n\tif self:attr(\"dazed\") then d = d / 2 end\n\n\treturn d\nend\n\n--- Computes physical resistance (before scaling)",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 2240,
+      "end": 2257,
+      "excerpt": "\t-- To return later\n\tlocal d = self.combat_spellresist + (self:getMag() + self:getWil() + (self:getLck() - 50) * 0.5) * 0.35 + add\n\tif self:attr(\"dazed\") then d = d / 2 end\n\n\treturn d\nend\n\n--- Computes spell resistance\n--- Fake denotes a check not actually being made, used by character sheets etc.\nfunction _M:combatSpellResist(fake, add)\n\tlocal total = self:rescaleCombatStats(self:combatSpellResistRaw(fake, add))\n\n\t-- Psionic Balance\n\tif self:knowTalent(self.T_BALANCE) then\n\t\tlocal t = self:getTalentFromId(self.T_BALANCE)\n\t\tlocal ratio = t.getBalanceRatio(self, t)\n\t\ttotal = (1 - ratio)*total + self:combatMentalResist(fake)*ratio\n\tend",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 2264,
+      "end": 2284,
+      "excerpt": "\tadd = add or 0\n\tif not fake then\n\t\tadd = add + (self:checkOnDefenseCall(\"mental\") or 0)\n\tend\n\tif self:knowTalent(self.T_CORRUPTED_SHELL) then\n\t\tadd = add + self:getCon() / 3\n\tend\n\tif self:knowTalent(self.T_STEADY_MIND) then\n\t\tlocal t = self:getTalentFromId(self.T_STEADY_MIND)\n\t\tadd = add + t.getMental(self, t)\n\tend\n\tif self:knowTalent(self.T_POWER_IS_MONEY) then\n\t\tadd = add + self:callTalent(self.T_POWER_IS_MONEY, \"getSaves\")\n\tend\n\n\tlocal d = self.combat_mentalresist + (self:getCun() + self:getWil() + (self:getLck() - 50) * 0.5) * 0.35 + add\n\tif self:attr(\"dazed\") then d = d / 2 end\n\n\tlocal nm = self:hasEffect(self.EFF_CURSE_OF_NIGHTMARES)\n\tif nm and rng.percent(20) and not fake then\n\t\td = d * (1-self.tempeffect_def.EFF_CURSE_OF_NIGHTMARES.getVisionsReduction(nm, nm.level)/100)",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "engine/core",
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 2308,
+      "end": 2323,
+      "excerpt": "\n--- Returns the resistance\nfunction _M:combatGetResist(type)\n\tif not self.resists then return 0 end -- wtf\n\tlocal power = 100\n\tif self.force_use_resist and self.force_use_resist ~= type then\n\t\ttype = self.force_use_resist\n\t\tpower = self.force_use_resist_percent or 100\n\tend\n\n\tlocal a = math.min((self.resists.all or 0) / 100,1) -- Prevent large numbers from inverting the resist formulas\n\tlocal b = (type == \"all\") and 0 or math.min((self.resists[type] or 0) / 100,1)\n\tlocal r = util.bound(100 * (1 - (1 - a) * (1 - b)), -100, (self.resists_cap.all or 0) + (self.resists_cap[type] or 0))\n\treturn r * power / 100\nend\n",
+      "verified_from": "git show fixed object"
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/talents/steam/mecharachnid.lua",
+      "commit": null,
+      "sha256": "d4a229c033179400bfeecdf22a6d8c7d8b890754f25cecd82908d413c3fa5102",
+      "start": 867,
+      "end": 892,
+      "excerpt": "\tname = \"Automated Repair System\",\n\ttype = {\"steamtech/assault\", 4},\n\trequire = dex_steamreq4,\n\tpoints = 5,\n\tmode = \"passive\",\n\tcooldown = 40,\n\tgetLife = function(self, t) return math.floor(self:combatTalentScale(t, 50, 650)) end,\n\tgetHeal = function(self, t) return math.floor(self:combatTalentScale(t, 10, 110)) end,\n\tgetResist = function(self, t) return self:combatTalentLimit(t, 70, 10, 40) end,\t\t\t\n\tcallbackOnHit = function(self, t, cb, src)\n\t\tif cb.value >= (self.life - self.die_at) and not self:isTalentCoolingDown(t) then\n\t\t\tself:startTalentCooldown(t)\n\t\t\tself:setEffect(self.EFF_AUTOMATED_REPAIR_SYSTEM, 1, {src=self, life=t.getLife(self,t), heal=t.getHeal(self,t), resist=t.getResist(self,t)})\n\t\tend\n\t\treturn cb.value\n\tend,\n\tinfo = function(self, t)\n\t\tlocal life = t.getLife(self,t)\n\t\tlocal heal = t.getHeal(self,t)\n\t\tlocal resist = t.getResist(self,t)\n\t\treturn ([[On falling below 0 life, you engage an automated repair mode. While in this mode you cannot act, but can survive below -%d life, heal for %0.1f life each turn and have all resistances increased by %d%%. This will last until you are destroyed or until you are fully healed.\n\t\tThis effect has a cooldown.]])\n\t\t:tformat(life, heal, resist)\n\tend,\n}\n",
+      "verified_from": "public unpinned DLC snapshot"
+    },
+    {
+      "component": "tome",
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 2187,
+      "end": 2286,
+      "excerpt": "2187: \tlocal stat_weight = stat_weight or 0.5\n2188: \treturn self:rescaleDamage(min + (max - min)*((stat_weight * self[stat](self)/100) + (1 - stat_weight) * self:getTalentLevel(t)/6.5))\n2189: end\n2190: \n2191: --- Computes physical resistance (before scaling)\n2192: --- Fake denotes a check not actually being made, used by character sheets etc.\n2193: function _M:combatPhysicalResistRaw(fake, add)\n2194: \tadd = add or 0\n2195: \tif not fake then\n2196: \t\tadd = add + (self:checkOnDefenseCall(\"physical\") or 0)\n2197: \tend\n2198: \tif self:knowTalent(self.T_CORRUPTED_SHELL) then\n2199: \t\tadd = add + self:getCon() / 3\n2200: \tend\n2201: \tif self:knowTalent(self.T_POWER_IS_MONEY) then\n2202: \t\tadd = add + self:callTalent(self.T_POWER_IS_MONEY, \"getSaves\")\n2203: \tend\n2204: \n2205: \t-- To return later\n2206: \tlocal d = self.combat_physresist + (self:getCon() + self:getStr() + (self:getLck() - 50) * 0.5) * 0.35 + add\n2207: \tif self:attr(\"dazed\") then d = d / 2 end\n2208: \n2209: \treturn d\n2210: end\n2211: \n2212: --- Computes physical resistance (before scaling)\n2213: --- Fake denotes a check not actually being made, used by character sheets etc.\n2214: function _M:combatPhysicalResist(fake, add)\n2215: \tlocal total = self:rescaleCombatStats(self:combatPhysicalResistRaw(fake, add))\n2216: \n2217: \t-- Psionic Balance\n2218: \tif self:knowTalent(self.T_BALANCE) then\n2219: \t\tlocal t = self:getTalentFromId(self.T_BALANCE)\n2220: \t\tlocal ratio = t.getBalanceRatio(self, t)\n2221: \t\ttotal = (1 - ratio)*total + self:combatMentalResist(fake)*ratio\n2222: \tend\n2223: \treturn total\n2224: end\n2225: \n2226: --- Computes spell resistance raw\n2227: --- Fake denotes a check not actually being made, used by character sheets etc.\n2228: function _M:combatSpellResistRaw(fake, add)\n2229: \tadd = add or 0\n2230: \tif not fake then\n2231: \t\tadd = add + (self:checkOnDefenseCall(\"spell\") or 0)\n2232: \tend\n2233: \tif self:knowTalent(self.T_CORRUPTED_SHELL) then\n2234: \t\tadd = add + self:getCon() / 3\n2235: \tend\n2236: \tif self:knowTalent(self.T_POWER_IS_MONEY) then\n2237: \t\tadd = add + self:callTalent(self.T_POWER_IS_MONEY, \"getSaves\")\n2238: \tend\n2239: \n2240: \t-- To return later\n2241: \tlocal d = self.combat_spellresist + (self:getMag() + self:getWil() + (self:getLck() - 50) * 0.5) * 0.35 + add\n2242: \tif self:attr(\"dazed\") then d = d / 2 end\n2243: \n2244: \treturn d\n2245: end\n2246: \n2247: --- Computes spell resistance\n2248: --- Fake denotes a check not actually being made, used by character sheets etc.\n2249: function _M:combatSpellResist(fake, add)\n2250: \tlocal total = self:rescaleCombatStats(self:combatSpellResistRaw(fake, add))\n2251: \n2252: \t-- Psionic Balance\n2253: \tif self:knowTalent(self.T_BALANCE) then\n2254: \t\tlocal t = self:getTalentFromId(self.T_BALANCE)\n2255: \t\tlocal ratio = t.getBalanceRatio(self, t)\n2256: \t\ttotal = (1 - ratio)*total + self:combatMentalResist(fake)*ratio\n2257: \tend\n2258: \treturn total\n2259: end\n2260: \n2261: --- Computes mental resistance raw\n2262: --- Fake denotes a check not actually being made, used by character sheets etc.\n2263: function _M:combatMentalResistRaw(fake, add)\n2264: \tadd = add or 0\n2265: \tif not fake then\n2266: \t\tadd = add + (self:checkOnDefenseCall(\"mental\") or 0)\n2267: \tend\n2268: \tif self:knowTalent(self.T_CORRUPTED_SHELL) then\n2269: \t\tadd = add + self:getCon() / 3\n2270: \tend\n2271: \tif self:knowTalent(self.T_STEADY_MIND) then\n2272: \t\tlocal t = self:getTalentFromId(self.T_STEADY_MIND)\n2273: \t\tadd = add + t.getMental(self, t)\n2274: \tend\n2275: \tif self:knowTalent(self.T_POWER_IS_MONEY) then\n2276: \t\tadd = add + self:callTalent(self.T_POWER_IS_MONEY, \"getSaves\")\n2277: \tend\n2278: \n2279: \tlocal d = self.combat_mentalresist + (self:getCun() + self:getWil() + (self:getLck() - 50) * 0.5) * 0.35 + add\n2280: \tif self:attr(\"dazed\") then d = d / 2 end\n2281: \n2282: \tlocal nm = self:hasEffect(self.EFF_CURSE_OF_NIGHTMARES)\n2283: \tif nm and rng.percent(20) and not fake then\n2284: \t\td = d * (1-self.tempeffect_def.EFF_CURSE_OF_NIGHTMARES.getVisionsReduction(nm, nm.level)/100)\n2285: \tend\n2286: ",
+      "verified_from": "git show fixed object"
+    }
+  ],
+  "source_identity": {
+    "core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "core_read_method": "git -C /workspace/t-engine4 show/grep fixed object only; HEAD not used",
+    "dlc_root": "/workspace/tome4-dlcs/orcs",
+    "all_input_and_host_extra_source_sha256_matched": true,
+    "dlc_commit": null,
+    "dlc_version_pinned": false,
+    "dlc_limitation": "公开 DLC 本次快照 SHA 匹配；源码仓库/commit/发行版本未固定。"
+  },
+  "byte_invariants": {
+    "baseline_sha256": "a3f952b4a3123cdf36c04bac1659b001f18238318cadd907f4db22dd2656538e",
+    "final_sha256": "0f40e38446798c497b8da70503c87008caa5196758818d30dd95fcf3272d0cff",
+    "reverse_sha256": "a3f952b4a3123cdf36c04bac1659b001f18238318cadd907f4db22dd2656538e",
+    "reverse_byte_equal": true,
+    "task_baseline_full_file_equal": true,
+    "target_count": 3,
+    "non_target_fields_and_bytes_unchanged": true,
+    "placeholder_tokens_order_and_literal_percent_unchanged": true,
+    "markup_newlines_tabs_unchanged": true,
+    "masked_outside_target_sha256": "1ef35c122c92c2c9abc1e6dde97626a6e736cd59712aa55a7584ee137c0a567b",
+    "masked_byte_equal": true,
+    "baseline_path": ".ai/task/mmrfix-20261002-018/baseline/tome-orcs.lua",
+    "outside_target_newline_tabs_and_all_bytes_preserved": true
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "LuaJIT5.1, LPeg0.10.2, fixed repositories OK; expected DLC unpinned warnings"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "30308 translations; 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20261003T032753.911559Z-19-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/i18n proposal --workset /tmp/mmrfix-018-executor/workset.json --proposal /tmp/mmrfix-018-executor/proposal.json --strict",
+      "exit_code": 0,
+      "result": "coverage3/3; 0 errors, 0 warnings",
+      "report": ".artifacts/i18n/runs/20261003T032932.240953Z-2-proposal/proposal-validation.json"
+    },
+    {
+      "command": "python3 -B /tmp/mmrfix-018-executor/probe.py",
+      "exit_code": 0,
+      "result": {
+        "exit_code": 0,
+        "stdout": "PASS: exact-source probes: damage threshold/type; echo initial4 and refresh3 gates/damage; 4 processing ticks; LIGHT initial uncapped/merge capped; repair values vs handles/full-life timeout; salve additive multiplier\nPASS: pinned onHeal multiplier bounded to [0,2.5]\n",
+        "stderr": ""
+      },
+      "scope": "Runs exact verified effect and Entity functions and Map.processEffects with isolated actor/map stubs; onHeal exact calculation prefix; not a full game simulation."
+    },
+    {
+      "command": "python3 -B tools/classify_runtime_keys.py --out-dir /tmp/mmrfix-018-executor/runtime-keys",
+      "exit_code": 0,
+      "result": "1711 duplicates; all bucketA, all runtime semantic values consistent; B0 C0"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no whitespace errors"
+    },
+    {
+      "command": "full baseline compare + reverse replacement + masked byte compare",
+      "exit_code": 0,
+      "result": "exactly3 target substitutions; all outside bytes identical"
+    }
+  ],
+  "validation_setup_corrections": [
+    {
+      "issue": "First proposal attempt omitted merge_report binding",
+      "resolution": "Bound local workset to executor report containing exact source item set; strict proposal subsequently passed."
+    },
+    {
+      "issue": "First source probe searched literal10%% although string.format produces10%",
+      "resolution": "Corrected probe assertion; source unchanged; all source branch tests and healing bound probe passed."
+    }
+  ],
+  "unresolved_items": [
+    {
+      "status": "advisory",
+      "issue": "DLC source commit/release unpinned",
+      "evidence": "all provided SHA verified; no release pin inferred"
+    },
+    {
+      "status": "advisory",
+      "issue": "Underlying display defects remain in upstream game code",
+      "scope": "Translation explicitly distinguishes handles/mislabelled percentages/refresh parameter from real mechanics; game source not changed."
+    }
+  ],
+  "pending_semantic_claims": [],
+  "host_followup": [
+    "Independent whole-workset review and final review",
+    "Strict core addon and actual DLC publish dry-run gates required by SPEC; reserved for host workflow",
+    "Lifecycle archive, DONE_VERIFIED and commit reserved for ORCHESTRATOR"
+  ],
+  "scope_compliance": {
+    "stage_commit": false,
+    "children_created": false,
+    "source_terminology_tools_ai_evidence_user_docs_changed": false,
+    "prior_package_repairs_preserved": true,
+    "manual_repository_content_writes": "only three frozen target strings and this report",
+    "tool_derived_reports": "required doctor/lint/proposal produced standard ignored reports; custom inputs and probes only in own /tmp"
+  },
+  "plan_deviations": []
+}

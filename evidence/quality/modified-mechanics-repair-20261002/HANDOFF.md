@@ -1,18 +1,18 @@
-# 当前恢复入口
+# 最终交接：既定18包已收束
 
-原修正包001—017及前序附属任务已完成，累计164/169个原confirmed claim、17/18包。本包已DONE_VERIFIED，准备提交；前序HEAD=5a789959。用户无关文档和其他未跟踪内容保留。持续授权至既定18包完成或真实停止条件，无push/PR/发布授权。
+18/18包已完成，167/169个原claim、164/166条目完成；另3个已授权附属任务也已完成。此为既定有界范围收束，不代表原workset全部闭合，progress.complete保持false。第017包提交e2506d2a；第018包译文及本交接随本次提交交付。任务状态、所有child归档、计数与最终文件SHA见 [FINAL-STATUS.json](FINAL-STATUS.json)。
 
-# 第017包：兽人DLC十条机制描述
+第018包3条全量独立REVIEW与FINAL_REVIEW均OK，严格lint30308条零错误零警告、proposal、运行键检查、strict addon、真实DLC publish dry-run（applied=false）及字节/占位符不变量通过，DONE_VERIFIED。一次复审格式不合格原样留证、归档后fresh retry；未把格式无效的输出计入完成。详见 [第018包总结](package-018/SUMMARY.md) 与 [第017包总结](package-017/SUMMARY.md)。
 
-修正10条 target，覆盖10个原claim。包括电流哨兵的实际伤害来源、爆炸装药半径、移动铺苔藓条件、奥术发电机声明费用与负法强区间、普通流血伤害系数、断脊持续时间与移除条件、火焰炮台范围和强制传送、守卫炮台放置与保护对象。无人机条目原130%已正确，本批保留该数字并补齐排除创造者/无人机自身及正伤害条件，未虚称再次修正数值。
+## 原169项中仍未闭合的两项
 
-全部10条由唯一EXECUTOR修改；宿主逐条核对17个源码文件、32段精确摘录及SHA，逆向还原范围外字节。core以624a67329fe2ad440c5b344785a9c73fcf22ae63为准；DLC来源/commit未固定，仅以记录的可核验快照为依据。
+- **MMR-026**：共享术语 draining physical 的preferred译名决定待既有答复。具体提案与源码依据见 [TERM-DECISION-001.md](TERM-DECISION-001.md)。不重复请求，不擅改术语或扩大成全局替换。
+- **UPSTREAM054／entry1520**：Shocking Touch旧beam推论经固定core调用链核验后证据不足，保留baseline，状态PENDING_SOURCE_REASSESSMENT。详见 [第016包总结](package-016/SUMMARY.md)；未计入167项完成数。
 
-宿主独立消费者探针及对EXECUTOR探针的原样重跑通过，覆盖声明费用与实付费用、移动条件、漩涡半径、流血系数及守卫伤害转移。这些是精确函数片段的有界测试，不宣称完整游戏测试。严格lint、proposal、runtime-key碰撞与分类、strict addon构建、真实DLC publish dry-run（applied=false）通过。冻结候选完整首轮10条OK；终审和生命周期证明见归档记录。
+原审查的pending/advisory和各包新发现的范围外疑点继续留在原证据中，本轮不自动扩修。例如第015包entry1443增伤消费者疑点见 [第015包总结](package-015/SUMMARY.md)。
 
-伴随的范围外描述不自动扩入本包；原MMR-026术语决定与UPSTREAM054源码重评保留未决。无push/PR/实际发布。
+## 授权与恢复边界
 
+既定18包已结束，不据历史“继续”另开新批。无push、PR或发布授权；未作这些外部写入。DLC来源/commit/发行版本仍未固定，所有DLC结论只对应记录的公开源码快照。游戏源码、术语库及用户原有文档改动未被本轮修改或清理。
 
-提交本包后按packages.json推进第018包，保留既定10条以内有界范围。 每包唯一EXECUTOR写Lua，宿主核验，冻结whole-workset REVIEW/full→必要FIX/RE_REVIEW→FINAL/full、门禁、归档、DONE与提交。结束child不续跑，MCP实时profiles/author与lineage核验，canonical prompt≤800UTF8字节，raw先原样保存后严格解析。无须逐包询问。
-
-第010包bowman同revision跨轮OK/ISSUE曾触发WAIT_USER，用户已明确回复“同意”，批准源码支持的召唤时获得技能/等级取决于当时召唤者等级的单句修订及继续；USER-DECISION-BOWMAN保留，不重复征求该决定。第009包旧task因恢复父级变化STOP_VERIFIED，同范围接续task完整DONE，证据package-009-resume，旧记录不改。第004包毒箭终审疑点已被用户撤销，不重开。MMR-026共享术语决定仍待既有答复，不重复问、不扩大术语/全局策略授权。
+第016包用户批准的静电屏障、碎片炮台和机甲最后修订及cycle4扩展均已落实，授权只适用于该包；记录保留于package-016。第015包熔点风味按用户决定保留并限定此次高温。第014包args_order终审误报按用户明确决定撤销，第010包bowman修订按用户批准落实；不重开。第009包旧父级task以STOP_VERIFIED收束，接续task完整DONE；状态与记录均保留。

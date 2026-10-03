@@ -1,0 +1,147 @@
+{
+  "status": "source_sha_verified; semantic adjudication ongoing",
+  "source_anchors": [
+    {
+      "anchor_id": "a158",
+      "component": "orcs",
+      "public_path": "tome-orcs/data/general/objects/tinkers/therapeutics.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "3b910e0879a793467a96401c189593f044221dd4ad12f717a2f72aa3ca83ef1b",
+      "start": 146,
+      "end": 159,
+      "excerpt": "146: newEntity{ base = \"BASE_SALVE\", define_as = \"TINKER_UNSTOPPABLE_FORCE_SALVE\"..i,\n147: \tname = (\"%s unstoppable force salve\"):tformat(medical[i]), image = \"talents/unstoppable_force_salve.png\",\n148: \tcolor = colors.GOLD,\n149: \tmaterial_level = i,\n150: \tsteamtech_power_def = function(self, who)\n151: \t\treturn who:combatScaleTherapeutic(self, 15, 17)\n152: \tend,\n153: \tuse_no_energy = true,\n154: \tresolvers.medical_salves(_t\"increases all saves by %d and healing factor by half\", 18, function(self, who)\n155: \t\twho:setEffect(who.EFF_UNSTOPPABLE_FORCE_SALVE, self.material_level, {power=self:getCharmPower(who)})\n156: \t\treturn {id=true, used=true}\n157: \tend),\n158: }\n159: end"
+    },
+    {
+      "anchor_id": "a159",
+      "component": "engine",
+      "public_path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "start": 297,
+      "end": 301,
+      "excerpt": "297: function _M:effectTemporaryValue(eff, k, v)\n298: \tif not eff.__tmpvals then eff.__tmpvals = {} end\n299: \teff.__tmpvals[#eff.__tmpvals+1] = {k, self:addTemporaryValue(k, v)}\n300: end\n301: "
+    },
+    {
+      "anchor_id": "a160",
+      "component": "engine",
+      "public_path": "game/engines/default/engine/Entity.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "4c9eb3873ad9f99ffd01ab75a44faaf219a6dc1393dbf0a30584a9288f2141d2",
+      "start": 885,
+      "end": 928,
+      "excerpt": "885: \trecursive = function(base, prop, v, method)\n886: \t\tmethod = self.temporary_values_conf[prop] or method\n887: \t\tif type(v) == \"number\" then\n888: \t\t\t-- Simple addition\n889: \t\t\tif method == \"mult\" then\n890: \t\t\t\tbase[prop] = (base[prop] or 1) * v\n891: \t\t\telseif method == \"mult0\" then\n892: \t\t\t\tbase[prop] = (base[prop] or 1) * (1 + v)\n893: \t\t\telseif method == \"perc_inv\" then\n894: \t\t\t\tv = v / 100\n895: \t\t\t\tlocal b = (base[prop] or 0) / 100\n896: \t\t\t\tb = 1 - (1 - b) * (1 - v)\n897: \t\t\t\tbase[prop] = b * 100\n898: \t\t\telseif method == \"inv1\" then\n899: \t\t\t\tv = util.bound(v, -0.999, 0.999)\n900: \t\t\t\tt[id] = v\n901: \t\t\t\tlocal b = (base[prop] or 1) - 1\n902: \t\t\t\tb = 1 - (1 - b) * (1 - v)\n903: \t\t\t\tbase[prop] = b + 1\n904: \t\t\telseif method == \"highest\" then\n905: \t\t\t\tbase[\"__thighest_\"..prop] = base[\"__thighest_\"..prop] or {[-1] = base[prop]}\n906: \t\t\t\tbase[\"__thighest_\"..prop][id] = v\n907: \t\t\t\tbase[prop] = table.max(base[\"__thighest_\"..prop])\n908: \t\t\telseif method == \"lowest\" then\n909: \t\t\t\tbase[\"__tlowest_\"..prop] = base[\"__tlowest_\"..prop] or {[-1] = base[prop]}\n910: \t\t\t\tbase[\"__tlowest_\"..prop][id] = v\n911: \t\t\t\tbase[prop] = table.min(base[\"__tlowest_\"..prop])\n912: \t\t\telseif method == \"last\" then\n913: \t\t\t\tbase[\"__tlast_\"..prop] = base[\"__tlast_\"..prop] or {[-1] = base[prop]}\n914: \t\t\t\tlocal b = base[\"__tlast_\"..prop]\n915: \t\t\t\tb[id] = v\n916: \t\t\t\tb = table.listify(b)\n917: \t\t\t\ttable.sort(b, function(a, b) return a[1] > b[1] end)\n918: \t\t\t\tbase[prop] = b[1] and b[1][2]\n919: \t\t\telse\n920: -- if type(base[prop] or 0) ~= \"number\" or type(v) ~= \"number\" then\n921: -- \tprint(\"ERROR: Attempting to add value\", v, \"property\", prop, \"to\", base[prop]) table.print(base[prop]) table.print(v)\n922: -- \tprint(\"Entity:\", self) -- table.print(self)\n923: -- \tgame.debug._debug_entity = self\n924: -- end\n925: \t\t\t\tbase[prop] = (base[prop] or 0) + v\n926: \t\t\tend\n927: \t\t\tself:onTemporaryValueChange(prop, v, base)\n928: --\t\t\tprint(\"addTmpVal\", base, prop, v, \" :=: \", #t, id, method)"
+    },
+    {
+      "anchor_id": "a161",
+      "component": "tome",
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "start": 2335,
+      "end": 2341,
+      "excerpt": "2335: --- Called before healing\n2336: function _M:onHeal(value, src)\n2337: \tlocal raw_value = value\n2338: \tvalue = value * util.bound((self.healing_factor or 1), 0, 2.5)\n2339: \n2340: \tfor cb in self:iterCallbacks(\"callbackOnHeal\") do\n2341: \t\tlocal ret = cb(value, src, raw_value)"
+    },
+    {
+      "anchor_id": "entry-1570",
+      "component": "orcs",
+      "public_path": "tome-orcs/data/timed_effects/physical.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "matching_lines": [
+        227
+      ],
+      "windows": [
+        {
+          "end": 241,
+          "start": 224,
+          "text": "224: newEffect{\n225: \tname = \"UNSTOPPABLE_FORCE_SALVE\", image = \"talents/unstoppable_force_salve.png\",\n226: \tdesc = _t\"Unstoppable Force Salve\",\n227: \tlong_desc = function(self, eff) return (\"Increases all saves by %d and healing factor by %d%%.\"):tformat(eff.power, eff.power / 2) end,\n228: \ttype = \"physical\",\n229: \tsubtype = { tech=true },\n230: \tstatus = \"beneficial\",\n231: \ton_gain = function(self, err) return _t\"#Target# uses an unstoppable force salve.\", _t\"+Unstoppable Force\" end,\n232: \ton_lose = function(self, err) return _t\"#Target# is not affected anymore by the salve.\", _t\"-Unstoppable Force\" end,\n233: \tparameters = { power=1 },\n234: \tactivate = function(self, eff)\n235: \t\tself:effectTemporaryValue(eff, \"combat_physresist\", eff.power)\n236: \t\tself:effectTemporaryValue(eff, \"combat_spellresist\", eff.power)\n237: \t\tself:effectTemporaryValue(eff, \"combat_mentalresist\", eff.power)\n238: \t\tself:effectTemporaryValue(eff, \"healing_factor\", eff.power / 2)\n239: \tend,\n240: }\n241: "
+        }
+      ]
+    },
+    {
+      "anchor_id": "a295",
+      "component": "engine",
+      "public_path": "game/engines/default/engine/Entity.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "4c9eb3873ad9f99ffd01ab75a44faaf219a6dc1393dbf0a30584a9288f2141d2",
+      "start": 859,
+      "end": 866,
+      "excerpt": "859: function _M:addTemporaryValue(prop, v, noupdate)\n860: \tif not self.compute_vals then self.compute_vals = {n=0} end\n861: \n862: \tlocal t = self.compute_vals\n863: \tlocal id = t.n + 1\n864: \twhile t[id] ~= nil do id = id + 1 end\n865: \tt[id] = v\n866: \tt.n = id"
+    },
+    {
+      "anchor_id": "a296",
+      "component": "engine",
+      "public_path": "game/engines/default/engine/Entity.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "4c9eb3873ad9f99ffd01ab75a44faaf219a6dc1393dbf0a30584a9288f2141d2",
+      "start": 966,
+      "end": 972,
+      "excerpt": "966: \t-- Update the base prop\n967: \tif not noupdate then\n968: \t\trecursive(initial_base, initial_prop, v, \"add\")\n969: \tend\n970: \n971: \treturn id\n972: end"
+    },
+    {
+      "anchor_id": "entry-1565",
+      "component": "orcs",
+      "public_path": "tome-orcs/data/timed_effects/other.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "78dd56833a21a4e633506394ce3042f794a6818244259066d192e5246ed33c8c",
+      "matching_lines": [
+        541
+      ],
+      "windows": [
+        {
+          "end": 564,
+          "start": 538,
+          "text": "538: newEffect{\n539: \tname = \"AUTOMATED_REPAIR_SYSTEM\", image = \"talents/automated_repair_system.png\",\n540: \tdesc = _t\"Automated Repair System\", decrease = 0,\n541: \tlong_desc = function(self, eff) return (\"Engaged in automated repairs, preventing any action but increasing life regen by %d, all resistances by %d%% and preventing death until falling below -%d life.\"):tformat(eff.heal, eff.resist, eff.life) end,\n542: \ttype = \"other\",\n543: \tsubtype = { steamtech=true, healing=true },\n544: \tstatus = \"beneficial\",\n545: \tparameters = { power=10 },\n546: \ton_gain = function(self, err) return _t\"#Target# shuts down and engages its automated repair system.\", _t\"+Automated Repair System\" end,\n547: \ton_lose = function(self, err) return _t\"#Target#'s repairs are complete.\", _t\"-Automated Repair System\" end,\n548: \tactivate = function(self, eff)\n549: \t\teff.heal = self:addTemporaryValue(\"life_regen\", eff.heal)\n550: \t\teff.resist = self:addTemporaryValue(\"resists\", {all=eff.resist})\n551: \t\teff.life = self:addTemporaryValue(\"die_at\", -eff.life)\n552: \t\tself.never_act = true\n553: \tend,\n554: \ton_timeout = function(self, eff)\n555: \t\tif self.life == self.max_life then self:removeEffect(self.EFF_AUTOMATED_REPAIR_SYSTEM) end\n556: \tend,\n557: \tdeactivate = function(self, eff)\n558: \t\tself:removeTemporaryValue(\"life_regen\", eff.heal)\n559: \t\tself:removeTemporaryValue(\"resists\", eff.resist)\n560: \t\tself:removeTemporaryValue(\"die_at\", eff.life)\t\t\n561: \t\tself.never_act = nil\t\t\n562: \tend,\n563: }\n564: "
+        }
+      ]
+    },
+    {
+      "anchor_id": "a766",
+      "component": "orcs",
+      "public_path": "tome-orcs/data/timed_effects/magical.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "6b62a43d6712f6fb221bef24db8ee339a249824f4670540ace77fc439a7bb081",
+      "start": 118,
+      "end": 182,
+      "excerpt": "118: \tname = \"TWILIT_ECHOES\", image=\"talents/twilight.png\",\n119: \tdesc = _t\"Twilit Echoes\",\n120: \tlong_desc = function(self, eff) return ([[The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.]])\n121: \t\t:tformat(eff.slow_per * 100, eff.slow_max * 100, eff.slow_max / eff.slow_per, eff.echo_dur, eff.dam_factor * 100) end,\n122: \ttype = \"magical\",\n123: \tsubtype = { dark=true, light=true},\n124: \tstatus = \"detrimental\",\n125: \tdoEcho = function(type, dam, eff, target, src, x, y)\n126: \t\tif type == DamageType.LIGHT then\n127: \t\t\ttarget:setEffect(target.EFF_ECHOED_LIGHT, eff.echo_dur, {power = dam * eff.slow_per, max = eff.slow_max})\n128: \t\telseif type == DamageType.DARKNESS then --you can never be too sure\n129: \t\t\tlocal echo\n130: \t\t\tif eff.dark_echoes then for _, e in ipairs(eff.dark_echoes) do\n131: \t\t\t\tif e.duration > 0 and e.x == x and e.y == y then\n132: \t\t\t\t\techo = e\n133: \t\t\t\tend\n134: \t\t\tend end\n135: \t\t\tif not echo then\n136: \t\t\t\tgame.level.map:addEffect(src, \n137: \t\t\t\t\tx, y, 4,\n138: \t\t\t\t\tDamageType.DARKNESS, dam * eff.dam_factor,\n139: \t\t\t\t\t0,\n140: \t\t\t\t\t5, nil,\n141: \t\t\t\t\t{type=\"shadow_zone\"},\n142: \t\t\t\t\tnil, src:spellFriendlyFire()\n143: \t\t\t\t)\n144: \t\t\t\t--it's hacky yeah, but map:addEffect should really return the instance\n145: \t\t\t\techo = game.level.map.effects[#game.level.map.effects]\n146: \t\t\t\teff.dark_echoes = eff.dark_echoes or {}\n147: \t\t\t\ttable.insert(eff.dark_echoes, echo)\n148: \t\t\telse\n149: \t\t\t\tif echo.duration < eff.echo_dur and echo.duration > 0 then\n150: \t\t\t\t\told_dur = echo.duration\n151: \t\t\t\t\told_dam = old_dur * echo.dam\n152: \t\t\t\t\tlocal new_dam = dam * eff.dam_factor * eff.echo_dur + old_dam\n153: \t\t\t\t\techo.duration = eff.echo_dur\n154: \t\t\t\t\techo.dam = new_dam / eff.echo_dur\n155: \t\t\t\telse\n156: \t\t\t\t\t\n157: \t\t\t\tend\n158: \t\t\tend\n159: \t\tend\n160: \tend,\n161: }\n162: \n163: newEffect{\n164: \tname = \"ECHOED_LIGHT\", image=\"talents/twilight.png\",\n165: \tdesc = _t\"Echoed Light\",\n166: \tlong_desc = function(self, eff) return ([[The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.]])\n167: \t\t:tformat(eff.power * 100, eff.max * 100) end,\n168: \ttype = \"magical\",\n169: \tsubtype = { slow=true},\n170: \tactivate = function(self, eff)\n171: \t\teff.tmpid = self:addTemporaryValue(\"global_speed_add\", -eff.power)\n172: \tend,\n173: \tdeactivate = function(self, eff)\n174: \t\tself:removeTemporaryValue(\"global_speed_add\", eff.tmpid)\n175: \tend,\n176: \ton_merge = function(self, old_eff, new_eff)\n177: \t\tmax = math.max(old_eff.max, new_eff.max)\n178: \t\told_eff.power = math.min(old_eff.power + new_eff.power, max)\n179: \t\tself:removeTemporaryValue(\"global_speed_add\", old_eff.tmpid)\n180: \t\told_eff.tmpid = self:addTemporaryValue(\"global_speed_add\", -old_eff.power)\n181: \t\treturn old_eff\n182: \tend,"
+    },
+    {
+      "anchor_id": "a767",
+      "component": "orcs",
+      "public_path": "tome-orcs/overload/mod/class/OrcCampaign.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "68709132d1d4675e1ee49f1f7227a639d1cdc12bda1f68eb6fa63ea185658a7c",
+      "start": 348,
+      "end": 361,
+      "excerpt": "348: \t\t\tdata.dam = 0\n349: \t\t\treturn true\n350: \t\tend\n351: \tend\n352: end\n353: \n354: function hookDamageProjectorFinal(self, data)\n355: \tlocal target = game.level.map(data.x, data.y, engine.Map.ACTOR)\n356: \tif target and target:hasEffect(target.EFF_TWILIT_ECHOES) and (data.type == DamageType.LIGHT or data.type == DamageType.DARKNESS) and data.dam >= 1 then\n357: \t\tlocal e = target:hasEffect(target.EFF_TWILIT_ECHOES)\n358: \t\tlocal def = target.tempeffect_def[target.EFF_TWILIT_ECHOES]\n359: \t\tdef.doEcho(data.type, data.dam, e, target, data.src, data.x, data.y)\n360: \tend\n361: end"
+    },
+    {
+      "anchor_id": "entry-1558",
+      "component": "orcs",
+      "public_path": "tome-orcs/data/timed_effects/magical.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "6b62a43d6712f6fb221bef24db8ee339a249824f4670540ace77fc439a7bb081",
+      "matching_lines": [
+        120
+      ],
+      "windows": [
+        {
+          "end": 162,
+          "start": 117,
+          "text": "117: newEffect{\n118: \tname = \"TWILIT_ECHOES\", image=\"talents/twilight.png\",\n119: \tdesc = _t\"Twilit Echoes\",\n120: \tlong_desc = function(self, eff) return ([[The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.]])\n121: \t\t:tformat(eff.slow_per * 100, eff.slow_max * 100, eff.slow_max / eff.slow_per, eff.echo_dur, eff.dam_factor * 100) end,\n122: \ttype = \"magical\",\n123: \tsubtype = { dark=true, light=true},\n124: \tstatus = \"detrimental\",\n125: \tdoEcho = function(type, dam, eff, target, src, x, y)\n126: \t\tif type == DamageType.LIGHT then\n127: \t\t\ttarget:setEffect(target.EFF_ECHOED_LIGHT, eff.echo_dur, {power = dam * eff.slow_per, max = eff.slow_max})\n128: \t\telseif type == DamageType.DARKNESS then --you can never be too sure\n129: \t\t\tlocal echo\n130: \t\t\tif eff.dark_echoes then for _, e in ipairs(eff.dark_echoes) do\n131: \t\t\t\tif e.duration > 0 and e.x == x and e.y == y then\n132: \t\t\t\t\techo = e\n133: \t\t\t\tend\n134: \t\t\tend end\n135: \t\t\tif not echo then\n136: \t\t\t\tgame.level.map:addEffect(src, \n137: \t\t\t\t\tx, y, 4,\n138: \t\t\t\t\tDamageType.DARKNESS, dam * eff.dam_factor,\n139: \t\t\t\t\t0,\n140: \t\t\t\t\t5, nil,\n141: \t\t\t\t\t{type=\"shadow_zone\"},\n142: \t\t\t\t\tnil, src:spellFriendlyFire()\n143: \t\t\t\t)\n144: \t\t\t\t--it's hacky yeah, but map:addEffect should really return the instance\n145: \t\t\t\techo = game.level.map.effects[#game.level.map.effects]\n146: \t\t\t\teff.dark_echoes = eff.dark_echoes or {}\n147: \t\t\t\ttable.insert(eff.dark_echoes, echo)\n148: \t\t\telse\n149: \t\t\t\tif echo.duration < eff.echo_dur and echo.duration > 0 then\n150: \t\t\t\t\told_dur = echo.duration\n151: \t\t\t\t\told_dam = old_dur * echo.dam\n152: \t\t\t\t\tlocal new_dam = dam * eff.dam_factor * eff.echo_dur + old_dam\n153: \t\t\t\t\techo.duration = eff.echo_dur\n154: \t\t\t\t\techo.dam = new_dam / eff.echo_dur\n155: \t\t\t\telse\n156: \t\t\t\t\t\n157: \t\t\t\tend\n158: \t\t\tend\n159: \t\tend\n160: \tend,\n161: }\n162: "
+        }
+      ]
+    }
+  ]
+}
