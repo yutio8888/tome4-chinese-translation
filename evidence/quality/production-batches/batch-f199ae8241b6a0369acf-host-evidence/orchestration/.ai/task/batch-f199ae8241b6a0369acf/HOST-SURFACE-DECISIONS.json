@@ -1,0 +1,32 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 3 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "cb2722e476b2e7925a41b7743559c588447e380e21b8e4606f30b1c8d3ca8648",
+      "stage": "surface",
+      "observation": "原文“preserve their flesh after death”指死后保存肉体，译文“永葆青春”增加了保持青春的含义；“with little success”表示收效甚微，译文“并没有成功”将其改成完全未成功。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/init.lua:97 加载提示（load_tips）：“experimented with necromancy to preserve their flesh after death, but with little success”——试图在死后保存肉身，收效甚微。现译“试图让他们死后的肉体仍能永葆青春。不过他们并没有成功”把“保存肉身”增补为“永葆青春”，并把“收效甚微”改成“没有成功”，属忠实性错误（增补＋把程度改为绝对）。确认。修复：改为“传说永恒精灵的王侯们早年曾用死灵法术做实验，试图在死后保存自己的肉身，但收效甚微。永恒精灵对此矢口否认。”一类说法。"
+    },
+    {
+      "revision_key": "d51afb7f5c9f8bc686d711f6c818449daef777a6014df3e9a0aeabb3701ea554",
+      "stage": "surface",
+      "observation": "原文以“the direct heal you received”为回复值的计算基准，译文“你所受治疗值”遗漏了“直接治疗”的限定，表面上扩大了计算基准；实际机制未经源码核验。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/gifts/malleable-body.lua 占位技能“ervevev”（wild-gift/malleable-body 2；gifts.lua:41 该系 allow_random=true，可出现在随机首领的技能栏中，说明文字会显示）。现译有两处偏差：“Improve your fungus”的 fungus 译作“孢子”，而本库 fungus 系名与同系说明（mod-tome.lua:24978“真菌”及 4 条“your fungus／the fungus on your body”说明）均作“真菌”，属术语不一致；“the direct heal you received”漏掉 direct（直接治疗）限定。术语可对本库既定译名判定。确认（原 surface 只记建议，contextual 补出术语问题后改判）。修复：改为“强化你的真菌，使其能分取你受到的治疗并加以强化。……回复值为你所受直接治疗量的 %d%%。”，其余不变。"
+    },
+    {
+      "revision_key": "dabd05340b76173e5e3f522320e7ed89a339612721ec074ce9465c68c8234e58",
+      "stage": "surface",
+      "observation": "原文“pockmarked skin”描述皮肤有凹陷疤痕，译文“长满了痘痘”将疤痕误作正在生长的痘痘。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/orc.lua:280-283 贪吃的克拉塔（Kra'Tor the Gluttonous）desc：“greasy pockmarked skin”指油腻、坑坑洼洼（麻点）的皮肤，现译“皮肤油腻且长满了痘痘”意象相近，属措辞偏差，不影响身份或机制。只记建议：可改为“皮肤油腻、坑坑洼洼”。"
+    }
+  ]
+}

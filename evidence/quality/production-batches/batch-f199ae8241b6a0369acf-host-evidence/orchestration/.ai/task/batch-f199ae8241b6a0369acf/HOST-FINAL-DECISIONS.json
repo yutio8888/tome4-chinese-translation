@@ -1,0 +1,75 @@
+{
+  "batch_id": "batch-f199ae8241b6a0369acf",
+  "observations": 5,
+  "observation_dispositions": {
+    "confirmed": 4,
+    "advisory": 1
+  },
+  "repair_revision_keys": [
+    "cb2722e476b2e7925a41b7743559c588447e380e21b8e4606f30b1c8d3ca8648",
+    "d51afb7f5c9f8bc686d711f6c818449daef777a6014df3e9a0aeabb3701ea554"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 78,
+    "repair_required": 2,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "cb2722e476b2e7925a41b7743559c588447e380e21b8e4606f30b1c8d3ca8648",
+      "stage": "surface",
+      "observation": "原文“preserve their flesh after death”指死后保存肉体，译文“永葆青春”增加了保持青春的含义；“with little success”表示收效甚微，译文“并没有成功”将其改成完全未成功。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/init.lua:97 加载提示（load_tips）：“experimented with necromancy to preserve their flesh after death, but with little success”——试图在死后保存肉身，收效甚微。现译“试图让他们死后的肉体仍能永葆青春。不过他们并没有成功”把“保存肉身”增补为“永葆青春”，并把“收效甚微”改成“没有成功”，属忠实性错误（增补＋把程度改为绝对）。确认。修复：改为“传说永恒精灵的王侯们早年曾用死灵法术做实验，试图在死后保存自己的肉身，但收效甚微。永恒精灵对此矢口否认。”一类说法。"
+    },
+    {
+      "revision_key": "d51afb7f5c9f8bc686d711f6c818449daef777a6014df3e9a0aeabb3701ea554",
+      "stage": "surface",
+      "observation": "原文以“the direct heal you received”为回复值的计算基准，译文“你所受治疗值”遗漏了“直接治疗”的限定，表面上扩大了计算基准；实际机制未经源码核验。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/gifts/malleable-body.lua 占位技能“ervevev”（wild-gift/malleable-body 2；gifts.lua:41 该系 allow_random=true，可出现在随机首领的技能栏中，说明文字会显示）。现译有两处偏差：“Improve your fungus”的 fungus 译作“孢子”，而本库 fungus 系名与同系说明（mod-tome.lua:24978“真菌”及 4 条“your fungus／the fungus on your body”说明）均作“真菌”，属术语不一致；“the direct heal you received”漏掉 direct（直接治疗）限定。术语可对本库既定译名判定。确认（原 surface 只记建议，contextual 补出术语问题后改判）。修复：改为“强化你的真菌，使其能分取你受到的治疗并加以强化。……回复值为你所受直接治疗量的 %d%%。”，其余不变。"
+    },
+    {
+      "revision_key": "dabd05340b76173e5e3f522320e7ed89a339612721ec074ce9465c68c8234e58",
+      "stage": "surface",
+      "observation": "原文“pockmarked skin”描述皮肤有凹陷疤痕，译文“长满了痘痘”将疤痕误作正在生长的痘痘。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/orc.lua:280-283 贪吃的克拉塔（Kra'Tor the Gluttonous）desc：“greasy pockmarked skin”指油腻、坑坑洼洼（麻点）的皮肤，现译“皮肤油腻且长满了痘痘”意象相近，属措辞偏差，不影响身份或机制。只记建议：可改为“皮肤油腻、坑坑洼洼”。"
+    },
+    {
+      "revision_key": "cb2722e476b2e7925a41b7743559c588447e380e21b8e4606f30b1c8d3ca8648",
+      "stage": "contextual",
+      "observation": "语义偏移：原文 'experimented with necromancy to preserve their flesh after death' 是让死后的肉身得以保存（不腐），译文“让他们死后的肉体仍能永葆青春”改成了保持年轻，含义不同；'but with little success' 是“收效甚微”，译文“并没有成功”说成了完全失败，删掉了 little 的程度限定。依据：engine 624a6732 game/modules/tome/init.lua:97（配图为 undead_mummy_greater_mummy_lord，即木乃伊，与保存肉身一致）。建议改为“试图在死后保存肉身，但收效甚微”。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一条（cb2722e476）。固定 commit 624a673 game/modules/tome/init.lua:97 配图为 undead_mummy_greater_mummy_lord（木乃伊），与“保存肉身”一致；现译“永葆青春”与“并没有成功”分别偏离原文的“保存肉身”与“收效甚微”。确认，与 surface 合并为一个修复 revision。"
+    },
+    {
+      "revision_key": "d51afb7f5c9f8bc686d711f6c818449daef777a6014df3e9a0aeabb3701ea554",
+      "stage": "contextual",
+      "observation": "'Improve your fungus' 中的 fungus 指自然系天赋的真菌（wild-gift/fungus 系），译文作“孢子”（spore），属另一概念。依据：engine 624a6732 game/modules/tome/data/talents/gifts/malleable-body.lua:56，该天赋属 wild-gift/malleable-body，见 gifts.lua:41。冻结输入中没有 fungus 的术语条目，需补充最小术语快照以确认既定译名（如“真菌”）；其余机制（6 回合、按直接治疗量的 %d%% 回复、随精神强度提升）与源码一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一条（d51afb7f5c）。fungus 本库作“真菌”（mod-tome.lua:24978 系名），现译“孢子”属另一概念；其余数值描述与源码一致。确认，与 surface 合并为一个修复 revision（同时补回“直接治疗”）。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes: surface main game 80 in 20/20/20/20)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000; 3 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), 4 children (main game 20x4); 77 OK / 3 ISSUE; every child only read its own envelope and the contract (5 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 3 deep entries, accepted on the first pass (1 OK / 2 ISSUE).",
+    "Re-review batch: all 80 entries are successors queued by migration 22b293c4; 353 remain queued after this batch.",
+    "The surface advisory on d51afb7f5c (placeholder talent ervevev, missing 'direct') was upgraded to confirmed after contextual showed a terminology conflict: the library renders the fungus tree and four other 'your fungus' descriptions as 真菌, while this entry uses 孢子. The malleable-body category has allow_random=true (gifts.lua:41), so the text can appear on random bosses.",
+    "Advisory: Kra'Tor the Gluttonous renders 'pockmarked skin' as skin covered in pimples.",
+    "Host supplement (not counted): another fungus.lua line, 'A wave of energy passes through your fungus' (mod-tome.lua:24954), also uses 孢子; window 64 may sync it.",
+    "80 pinned entries (80 main game) were verified against the manifest-pinned commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file.",
+    "2 confirmed repair revisions raise the window 64 backlog from 15 to 17; below the 20 threshold, so no window opens."
+  ]
+}

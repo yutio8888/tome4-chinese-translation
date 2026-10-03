@@ -1,0 +1,30 @@
+{
+ "workset": "evidence/quality/production-batches/batch-f199ae8241b6a0369acf-source-workset.json",
+ "decisions": {
+  "cb2722e476|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/init.lua:97 加载提示（load_tips）：“experimented with necromancy to preserve their flesh after death, but with little success”——试图在死后保存肉身，收效甚微。现译“试图让他们死后的肉体仍能永葆青春。不过他们并没有成功”把“保存肉身”增补为“永葆青春”，并把“收效甚微”改成“没有成功”，属忠实性错误（增补＋把程度改为绝对）。确认。修复：改为“传说永恒精灵的王侯们早年曾用死灵法术做实验，试图在死后保存自己的肉身，但收效甚微。永恒精灵对此矢口否认。”一类说法。"
+  },
+  "d51afb7f5c|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/gifts/malleable-body.lua 占位技能“ervevev”（wild-gift/malleable-body 2；gifts.lua:41 该系 allow_random=true，可出现在随机首领的技能栏中，说明文字会显示）。现译有两处偏差：“Improve your fungus”的 fungus 译作“孢子”，而本库 fungus 系名与同系说明（mod-tome.lua:24978“真菌”及 4 条“your fungus／the fungus on your body”说明）均作“真菌”，属术语不一致；“the direct heal you received”漏掉 direct（直接治疗）限定。术语可对本库既定译名判定。确认（原 surface 只记建议，contextual 补出术语问题后改判）。修复：改为“强化你的真菌，使其能分取你受到的治疗并加以强化。……回复值为你所受直接治疗量的 %d%%。”，其余不变。"
+  },
+  "dabd05340b|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/orc.lua:280-283 贪吃的克拉塔（Kra'Tor the Gluttonous）desc：“greasy pockmarked skin”指油腻、坑坑洼洼（麻点）的皮肤，现译“皮肤油腻且长满了痘痘”意象相近，属措辞偏差，不影响身份或机制。只记建议：可改为“皮肤油腻、坑坑洼洼”。"
+  },
+  "cb2722e476|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（cb2722e476）。固定 commit 624a673 game/modules/tome/init.lua:97 配图为 undead_mummy_greater_mummy_lord（木乃伊），与“保存肉身”一致；现译“永葆青春”与“并没有成功”分别偏离原文的“保存肉身”与“收效甚微”。确认，与 surface 合并为一个修复 revision。"
+  },
+  "d51afb7f5c|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（d51afb7f5c）。fungus 本库作“真菌”（mod-tome.lua:24978 系名），现译“孢子”属另一概念；其余数值描述与源码一致。确认，与 surface 合并为一个修复 revision（同时补回“直接治疗”）。"
+  }
+ }
+}

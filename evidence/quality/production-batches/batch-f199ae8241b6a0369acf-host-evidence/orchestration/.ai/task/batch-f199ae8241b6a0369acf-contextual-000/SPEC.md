@@ -1,0 +1,1 @@
+审核390上下文full（reviewer: claude/claude-opus-5-5），范围仅draft冻结的3条revision；只读，术语限冻结正文。主游戏公开源码按 manifest 固定 engine commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 核验；只按 envelope 与契约允许的有限引用核查。宿主独立裁决，不改译文、术语或范围外记录。

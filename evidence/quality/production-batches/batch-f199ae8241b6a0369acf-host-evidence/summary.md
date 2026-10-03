@@ -1,0 +1,3 @@
+第390批：冻结80条（主游戏 80 条；均为 2026-10-03 重新复审迁移 22b293c4 排入的 successor），逐条核验80/80：主游戏、引擎与启动按 manifest 固定 commit 624a673 核验。surface 一组（gpt-6.1-sol）4 个 child：主游戏 20×4，77 OK、3 ISSUE；各 child 只读自身 envelope 与契约。contextual 一个 run（Opus 5.5）3 条 deep，首轮通过：1 OK、2 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决5个观察：{'confirmed': 4, 'advisory': 1}；预计78条完成、2条待修复。新增 2 条修复 revision：cb2722e476 永恒精灵加载提示把“保存肉身、收效甚微”译成“永葆青春、没有成功”；d51afb7f5c 占位技能 ervevev 把 fungus 译作“孢子”（本库作“真菌”）并漏掉“直接治疗”。建议 1：dabd05340b 贪吃的克拉塔“长满了痘痘”应为坑洼麻点的皮肤，只记建议。宿主补充（不计数）：fungus.lua 同系另一条“A wave of energy passes through your fungus”（mod-tome.lua:24954）也作“孢子”，供窗口64 同步时一并考虑。修复窗口64积压为17，未达20。
