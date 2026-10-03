@@ -39235,7 +39235,7 @@ section "mod-tome/data/zones/orc-breeding-pit/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("orc", "兽人", "entity subtype")
 t("orc baby", "兽人宝宝", "entity name")
-t("Crawling on all fours, this green-skinned creature is far from cute, with vicious little sharp teeth and nails, and slime still sticking to its skin.", "虽然只能用四肢在地上爬行，这只绿皮生物和可爱却丝毫没有关联。它有着锋利的牙齿和指甲，并且它的皮肤上沾了一层粘糊糊的液体。", "_t")
+t("Crawling on all fours, this green-skinned creature is far from cute, with vicious little sharp teeth and nails, and slime still sticking to its skin.", "这只绿皮生物四肢着地爬行，却与可爱毫不沾边。它有着锋利的牙齿和指甲，并且它的皮肤上沾了一层粘糊糊的液体。", "_t")
 t("orc child", "兽人儿童", "entity name")
 t("This small orc has a malicious and greedy look in its eyes. Its veins pulse with new life and it moves with surprising speed. Though not fully developed you can still see the muscles forming on its long limbs, leading to clawed fingers and toes.", "这只小兽人的眼里透露着怨恨和贪婪。它有着旺盛的活力并能以惊人的速度移动。虽然还没完全长大，但是你仍能看到他修长四肢上正在成形的肌肉，末端连着带爪的手指和脚趾。", "_t")
 t("young orc", "年轻兽人", "entity name")
@@ -39340,7 +39340,7 @@ t("Golbug the Destroyer", "毁灭者高尔布格", "entity name")
 t("A huge and muscular orc of unknown breed. He looks both menacing and cunning...", "一只种类不明、肌肉发达的巨大兽人。他看起来既危险又狡猾……", "_t")
 t("They say that after it has been confirmed orcs still inhabited Reknor, they found a mighty demon there.", "据说在确认兽人仍居住在瑞库纳之后，他们在那里发现了一个强大的恶魔。", "_t")
 t("Danger...", "小心……", "_t")
-t("When last you saw it, this cavern was littered with the corpses of orcs that you had slain. Now many, many more corpses carpet the floor, all charred and reeking of sulfur. An orange glow dimly illuminates the far reaches of the cavern to the east.", "你上次过来时，这个洞穴里满是你杀死的兽人尸体。现在，更多的尸体铺在了地上，尽皆焦黑，散发着刺鼻的硫磺味。桔色的昏暗灯光照亮了洞穴延伸的东面。", "_t")
+t("When last you saw it, this cavern was littered with the corpses of orcs that you had slain. Now many, many more corpses carpet the floor, all charred and reeking of sulfur. An orange glow dimly illuminates the far reaches of the cavern to the east.", "你上次过来时，这个洞穴里满是你杀死的兽人尸体。现在，更多的尸体铺在了地上，尽皆焦黑，散发着刺鼻的硫磺味。昏暗的橙色光芒隐约照亮了洞穴东面的深处。", "_t")
 t("human", "人类", "entity subtype")
 t("Harno, Herald of Last Hope", "最后希望的传令官哈诺", "entity name")
 t("This is one of the heralds of Last Hope. He seems to be looking for you.", "他是最后希望传令官中的一员。他似乎找你有事。", "_t")
@@ -39387,7 +39387,7 @@ section "mod-tome/data/zones/reknor-escape/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("orc", "兽人", "entity subtype")
 t("Brotoq the Reaver", "收割者布罗托克", "entity name")
-t("A huge orc blocks your way to the Iron Council. You must pass.", "一只阻挡了通向钢铁议会道路的巨大兽人。你必须通过。", "_t")
+t("A huge orc blocks your way to the Iron Council. You must pass.", "一只巨大的兽人挡住了你通往钢铁议会的去路。你必须通过。", "_t")
 t(", who ate their brains still warm,", "，他趁热吃掉了死者的脑子", "_t")
 t("dwarf", "矮人", "entity subtype")
 t("Norgan", "诺尔甘", "entity name")
@@ -39411,7 +39411,7 @@ section "mod-tome/data/zones/rhaloren-camp/npcs.lua"
 t("humanoid", "人形生物", "entity type")
 t("shalore", "永恒精灵", "entity subtype")
 t("Rhaloren Inquisitor", "罗兰精灵检察官", "entity name")
-t("This tall elf rushes at you, wielding both her greatsword and magical spells.", "这位高大的精灵冲向你，同时带来她锋利的大剑和魔法的怒吼。", "_t")
+t("This tall elf rushes at you, wielding both her greatsword and magical spells.", "这位高大的精灵冲向你，挥舞着她的大剑，同时施放法术。", "_t")
 t("and hung from the rafters", "并将其挂在了椽子上", "_t")
 
 ------------------------------------------------
@@ -39532,7 +39532,7 @@ t("Guardian", "守卫", "_t")
 t("You can hear a magical trigger firing off.", "你听到了魔力开关触动的声音。", "_t")
 t("Strange Orb", "奇特的水晶球", "_t")
 t("The orb seems to react badly to your touch; there is a high shriek!", "这只水晶球在你的触摸下反应很糟；你听到了一声尖叫！", "_t")
-t("The orb burns to your touch and a loud shout screams out!", "这颗水晶球触手灼烫，一声响亮的呼喊冲天而起！", "_t")
+t("The orb burns to your touch and a loud shout screams out!", "这颗水晶球摸上去滚烫，一声响亮的呼喊冲天而起！", "_t")
 t("The orb reacts violently to your touch and the walls begin to rumble!", "这只水晶球在你的触摸下反应剧烈，墙壁开始颤抖！", "_t")
 t("%s appears out of the thin air!", "%s从空气中出现了！", "logSeen")
 t("The orb glows brightly. There is a loud crack coming from the northern central chamber.", "水晶球闪耀着光芒。北部中央大厅传来一声巨响。", "_t")
@@ -39548,7 +39548,7 @@ t("This skeleton looks nasty. There are red flames in its empty eye sockets. It 
 t("and left to rot", "并任其腐烂", "_t")
 t(".. yes I tell you! The old ruins of Kor'Pul are still haunted!", "…是的，我告诉你！卡·普尔的古老废墟仍然闹鬼！", "_t")
 t("The Possessed", "幽灵附体的强盗头目", "entity name")
-t("He is the leader of a gang of bandits that killed the Shade of Kor'Pul, however it is obvious the Shade was merely displaced. It is now possessing the corpse of his killer.", "这是那伙杀死暗影骷髅的强盗的头目，但显然暗影骷髅上的灵魂并没有这么甘心离去，曾经不可一世的强盗头目也只是被其附体的行尸走肉罢了。", "_t")
+t("He is the leader of a gang of bandits that killed the Shade of Kor'Pul, however it is obvious the Shade was merely displaced. It is now possessing the corpse of his killer.", "这是那伙杀死暗影骷髅的强盗的头目，但显然暗影骷髅只是被驱离了原先的躯体，如今它附身在了杀死自己的强盗头目尸体上。", "_t")
 t("and used as a new host", "并将其作为新的宿主", "_t")
 t("ghost", "幽灵", "entity subtype")
 t("Kor's Fury", "卡·普尔之怒", "entity name")
@@ -39579,12 +39579,12 @@ t("Sandworm Queen", "沙虫女皇", "entity name")
 t("Before you stands the queen of the sandworms. Massive and bloated, she slithers toward you, calling for her offspring!", "在你面前站着的是沙虫女皇。她庞大而臃肿，蜿蜒蠕行着向你逼近，同时还在召唤自己的子孙！", "_t")
 t("and swallowed whole", "并将其整个吞下", "_t")
 t("Rumbling...", "轰隆隆…", "_t")
-t("The ground shakes.  Something very large is stirring in the distance.", "大地震颤起来，远处好像有一个巨大的东西正搅动着大地。", "_t")
+t("The ground shakes.  Something very large is stirring in the distance.", "大地震颤起来。远处似乎有什么庞然大物正在蠢动。", "_t")
 t("Did you hear? Something seems to have devoured all the last sandworms!", "你听说了吗？有什么东西把所有剩下的沙虫都吞噬了！", "_t")
 t("dragon", "龙", "entity type")
 t("sand", "沙", "entity subtype")
 t("Corrupted Sand Wyrm", "堕落沙龙", "entity name")
-t("The sandworms are gone, devoured by this shrieking, warped horror.", "沙虫们已经死了，它们被这只尖啸而扭曲的恐怖所吞噬。", "_t")
+t("The sandworms are gone, devoured by this shrieking, warped horror.", "沙虫们已经消失了，被这只尖啸着的扭曲怪物吞噬殆尽。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/sandworm-lair/objects.lua"
@@ -39630,11 +39630,11 @@ t("#OLIVE_DRAB#You feel the ground shaking from the west.", "#OLIVE_DRAB#你感�
 section "mod-tome/data/zones/scintillating-caves/npcs.lua"
 
 t("Spellblaze Crystal", "魔法大爆炸水晶", "entity name")
-t("A formation of purple crystal. It seems strangely aware.", "一种紫色水晶。它有着奇特的意识。", "_t")
+t("A formation of purple crystal. It seems strangely aware.", "一团紫色结晶。它似乎有着奇特的意识。", "_t")
 t("and vaporised into nothingness", "并将其蒸发成虚无", "_t")
 t("I heard that some old crystals are nearly alive now in the scintillating caves.", "我听说闪光洞穴里的一些古老水晶几乎活了过来。", "_t")
 t("Spellblaze Simulacrum", "魔法大爆炸幻象", "entity name")
-t("A formation of purple crystal, but where the others could only be described as polyhedral, this construct seems to strangely resemble... you, if you were much, much larger.", "一种紫色水晶，如果其他水晶可以被定义为多面体的话，那么这个水晶只能说……和你一样，如果你大个几倍的话。", "_t")
+t("A formation of purple crystal, but where the others could only be described as polyhedral, this construct seems to strangely resemble... you, if you were much, much larger.", "一团紫色结晶。其他结晶只能用多面体来形容，而这个构造体却奇异地像……你，只不过要大上许多许多。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/scintillating-caves/objects.lua"
@@ -39722,7 +39722,7 @@ t("#LIGHT_RED#As the Weirdling beast falls it shrieks one last time and the door
 t("Teleportation portal to the Sher'Tul Fortress", "通向夏·图尔堡垒的传送阵", "_t")
 t("Sher'Tul", "夏·图尔", "entity subtype")
 t("Fortress Shadow", "堡垒之影", "entity name")
-t("The shadow created by the fortress, it resembles somewhat the horrors you saw previously, but it is not the same.", "堡垒制造的阴影，就像你之前看到的恐怖生物一样，不过显然它们有着本质的区别。", "_t")
+t("The shadow created by the fortress, it resembles somewhat the horrors you saw previously, but it is not the same.", "堡垒制造出的阴影，与你之前见过的恐怖生物有几分相似，但并不相同。", "_t")
 t("training", "训练", "entity type")
 t("dummy", "傀儡", "entity subtype")
 t("Training Dummy", "训练用傀儡", "entity name")
@@ -39746,7 +39746,7 @@ t([[As you enter the familiar Fortress you notice a small orange cat has followe
 It looks like the kitty you fed earlier.]], [[当你进入熟悉的堡垒时，你发现一只橙色的小猫不知怎么跟着你进来了。
 它看起来就像你不久前喂过的那一只。]], "_t")
 t("Your %s is magically sorted by the storage room.", "你的 %s 被储藏室魔法般整理了。", "logPlayer")
-t("Your %s is magically sorted by the storage room and put in a pile with the others items of the same type.", "你的 %s 被储藏室魔法般整理了，同类的东西被整理成一堆。", "logPlayer")
+t("Your %s is magically sorted by the storage room and put in a pile with the others items of the same type.", "你的 %s 被储藏室以魔法分拣，与其他同类物品归为一堆。", "logPlayer")
 t("It seems the room has no more space to sort your %s.", "房间里似乎没有空余的地方给你放 %s 了。", "logPlayer")
 
 ------------------------------------------------
@@ -39774,7 +39774,7 @@ section "mod-tome/data/zones/shertul-fortress-caldizar/zone.lua"
 t("Unknown Sher'Tul Fortress", "未知的夏·图尔堡垒", "_t")
 t("Unknown Sher'Tul Fortress (%s)", "未知的夏·图尔堡垒 (%s)", "tformat")
 t("Unknown the Sher'Tul Fortress", "未知的夏·图尔堡垒", "_t")
-t("With a sudden jolt you find yourself... somewhere familiar. The smooth walls and gentle lighting remind you of your fortress. And yet it feels different too. There is a gentle humming noise in the background, and your whole body feels light, almost weightless, such that the slightest movement propels you into the air. You have the odd feeling that you are not on Maj'Eyal any longer... From ahead you sense something both terrible and wonderful, and trepidation fills every corner of your being.", "随着突然的震动，你发现自己身处某个熟悉的地方。那光滑的墙壁和柔和的灯光让你想起自己的堡垒。不过它仍然有所不同。背景中传来轻柔的嗡嗡声，你感觉整个身体轻飘飘的，几乎像羽毛一样，似乎你轻轻的移动都能跃至半空。你有着一种奇异的感觉——你似乎不在马基·埃亚尔了……在你的前方你感到了某种既可怕又美妙的东西，恐惧充满了你身心的每个角落。", "_t")
+t("With a sudden jolt you find yourself... somewhere familiar. The smooth walls and gentle lighting remind you of your fortress. And yet it feels different too. There is a gentle humming noise in the background, and your whole body feels light, almost weightless, such that the slightest movement propels you into the air. You have the odd feeling that you are not on Maj'Eyal any longer... From ahead you sense something both terrible and wonderful, and trepidation fills every corner of your being.", "随着突然的震动，你发现自己身处某个熟悉的地方。那光滑的墙壁和柔和的灯光让你想起自己的堡垒。不过它仍然有所不同。背景中传来轻柔的嗡嗡声，你感觉整个身体轻飘飘的，几乎没有重量，哪怕最轻微的动作都会让你飘到半空。你有着一种奇异的感觉——你似乎不在马基·埃亚尔了……在你的前方你感到了某种既可怕又美妙的东西，恐惧充满了你身心的每个角落。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/slazish-fen/grids.lua"
@@ -39991,7 +39991,7 @@ section "mod-tome/data/zones/tannen-tower/zone.lua"
 
 t("Tannen's Tower", "泰恩之塔", "_t")
 t("The portal brought you to what seems to be a cell in the basement of the tower. You must escape!", "传送门将你送到了一座高塔地下室中的牢房里。你必须逃离！", "_t")
-t("As you climb up the steps, you see Tannen standing with his drolem, reading a scrap of parchment.  As he reads, his eyes grow wider, and he starts sweating and pacing back and forth.  When he reaches to stuff it in his pocket, he sees you and jumps back like a startled cat.  \"No!  Not now!  You have no idea what's at stake!\"  He retrieves a fistful of brightly-colored flasks from his robes, and his drolem's eyes glow as it springs to life, metal screeching in an impressive imitation of a roar.", "当你爬上楼梯，你看到泰恩正和他的龙傀儡站在一起，手中拿着一张羊皮纸。在他阅读的时候，他的眼睛越睁越大，汗如雨下，不断来回踱步。当他攥起纸条试图放进口袋里的时候，他突然望见了你，如同一只受惊吓的猫一样向后跳了几步。“不！不是现在！你根本不懂，现在是生死攸关的时刻！”他从长袍中拿出一把彩色的小瓶子，身旁龙傀儡站了起来，眼睛放射出光芒，金属的响声如同真龙的吼叫一般，让你印象深刻。", "_t")
+t("As you climb up the steps, you see Tannen standing with his drolem, reading a scrap of parchment.  As he reads, his eyes grow wider, and he starts sweating and pacing back and forth.  When he reaches to stuff it in his pocket, he sees you and jumps back like a startled cat.  \"No!  Not now!  You have no idea what's at stake!\"  He retrieves a fistful of brightly-colored flasks from his robes, and his drolem's eyes glow as it springs to life, metal screeching in an impressive imitation of a roar.", "当你爬上楼梯，你看到泰恩正和他的龙傀儡站在一起，手中拿着一张羊皮纸。在他阅读的时候，他的眼睛越睁越大，汗如雨下，不断来回踱步。当他攥起纸条试图放进口袋里的时候，他突然望见了你，如同一只受惊吓的猫一样向后跳了几步。“不！不是现在！你根本不懂，现在是生死攸关的时刻！”他从长袍中掏出一把色彩鲜艳的小瓶子，身旁的龙傀儡双眼亮起，随之活了过来，金属发出刺耳的尖啸，惟妙惟肖地模仿着咆哮。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/telmur/npcs.lua"
@@ -40002,7 +40002,7 @@ t("The Shade of Telos", "泰勒斯之影", "entity name")
 t("Everybody thought Telos dead and his spirit destroyed, but it seems he still lingers in his old place of power.", "所有人都认为泰勒斯已经形神俱灭了，但现在看起来他似乎仍徘徊在他旧日的力量之所。", "_t")
 t("and was savagely mutilated, a show of his rage towards all living things", "并将其残忍肢解，以此宣泄他对一切生灵的怒火", "_t")
 t("Back and there again", "归而复往", "_t")
-t("As the shade dissipates, you see no sign of the text entitled \"Inverted and Reverted Probabilistic Fields\". You should go back to Tannen.", "当阴影消退，你没有找到任何《反转与复原概率场》标题的文本。你必须回到泰恩那。", "_t")
+t("As the shade dissipates, you see no sign of the text entitled \"Inverted and Reverted Probabilistic Fields\". You should go back to Tannen.", "当阴影消退，你没有找到任何题为《反转与复原概率场》的文本。你应该回去找泰恩。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/telmur/objects.lua"
@@ -40016,7 +40016,7 @@ section "mod-tome/data/zones/telmur/zone.lua"
 
 t("Ruins of Telmur", "泰尔玛废墟", "_t")
 t("Telmur", "泰尔玛", "_t")
-t("As you approach the tower you notice it is utterly destroyed, only the basement remaining.", "当你靠近高塔时，你发现它已被彻底摧毁，只剩下地下室还在。", "_t")
+t("As you approach the tower you notice it is utterly destroyed, only the basement remaining.", "当你靠近高塔时，你发现它已被彻底摧毁，只剩下地下室。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/tempest-peak/npcs.lua"
@@ -40064,8 +40064,8 @@ section "mod-tome/data/zones/temple-of-creation/zone.lua"
 
 t("Temple of Creation", "造物者神庙", "_t")
 t("#AQUAMARINE#You arrive deep under water, at the sea floor, as you look upwards you only see a glimpse of light coming through.", "#AQUAMARINE#你深入了水下，来到海床上。当你抬头仰望时，只能隐约看到一丝从水面透下的光。", "logPlayer")
-t("#AQUAMARINE#You should be crushed by the pressure, but strangely you feel no discomfort.", "#AQUAMARINE#你应该被压力所压扁，不过奇怪的是你没有感到任何不适。", "logPlayer")
-t("#AQUAMARINE#All around you there is only water as far as you can see, except to your left, a giant coral structure. This is probably the temple of Creation.", "#AQUAMARINE#在你四周除了水你看到的还是水，除了在你的左边，你看到一个巨大的珊瑚礁建筑，有可能这就是造物者神庙。", "logPlayer")
+t("#AQUAMARINE#You should be crushed by the pressure, but strangely you feel no discomfort.", "#AQUAMARINE#按理说你本该被这股压力压扁，不过奇怪的是你没有感到任何不适。", "logPlayer")
+t("#AQUAMARINE#All around you there is only water as far as you can see, except to your left, a giant coral structure. This is probably the temple of Creation.", "#AQUAMARINE#放眼望去，你的四周除了水还是水，只有左边有一座巨大的珊瑚建筑，这里可能就是造物者神庙。", "logPlayer")
 
 ------------------------------------------------
 section "mod-tome/data/zones/temporal-reprieve-talent/zone.lua"
@@ -40106,8 +40106,8 @@ t("Temporal Rift: Lumberjack village", "时空裂隙：伐木工人村庄", "_t"
 t("Temporal Rift: Daikara", "时空裂隙：岱卡拉", "_t")
 t("Temporal Rift: Lake of Nur", "时空裂隙：纳尔湖", "_t")
 t("Space and time distort and lose meaning as you pass through the rift. This place is alien.", "当你穿过裂隙时，时空扭曲、失去了意义。这个地方令人感到陌生。", "_t")
-t("This looks like Maj'Eyal's forest but it looks strangely distorted, beware...", "这里看起来像是马基·埃亚尔的丛林，但它看起来被诡异的扭曲过，当心……", "_t")
-t("As you pass the rift you see what seems to be the Daikara mountains, yet they are not.", "当你经过裂隙时你看到了像是岱卡拉山脉的情景，尽管它们不是。", "_t")
+t("This looks like Maj'Eyal's forest but it looks strangely distorted, beware...", "这里看起来像是马基·埃亚尔的丛林，却诡异地扭曲变形了，当心……", "_t")
+t("As you pass the rift you see what seems to be the Daikara mountains, yet they are not.", "穿过裂隙后，你看到的似乎是岱卡拉山脉，但又并不是。", "_t")
 t("The peace of this place has been disturbed.", "此处的和平被打破了。", "_t")
 
 ------------------------------------------------
@@ -40143,7 +40143,7 @@ t("human", "人类", "entity subtype")
 t("Assassin Lord", "刺客领主", "entity name")
 t("He is the leader of a gang of bandits; watch out for his men.", "他是一帮盗贼的头头，小心他的手下。", "_t")
 t("#DARK_GREY#The assassin lord throws a smoke bomb and disappears!", "#DARK_GREY#刺客领主扔下了一个烟雾弹，消失了！", "logPlayer")
-t("As the assassin dies the magical veil protecting the stairs out vanishes.", "刺客死后，笼罩离开这里的楼梯的魔法封印消失了。", "logSeen")
+t("As the assassin dies the magical veil protecting the stairs out vanishes.", "刺客死后，笼罩出口楼梯的魔法封印消失了。", "logSeen")
 t("Lost Merchant", "迷路商人", "entity name")
 
 ------------------------------------------------
@@ -40345,7 +40345,7 @@ t("Catch @himher@!", "抓住@himher@！", "_t")
 t("yeek mindslayer", "夺心魔心灵杀手", "entity name")
 t("A mindslayer in training.", "一名正在训练中的心灵杀手。", "_t")
 t("yeek psionic", "夺心魔灵能力者", "entity name")
-t("You can literaly feel the mental energies emitted by this yeek.", "你几乎能真切地感受到这名夺心魔散发出的精神能量。", "_t")
+t("You can literaly feel the mental energies emitted by this yeek.", "你能真切地感受到这名夺心魔散发出的精神能量。", "_t")
 t("gem crafter", "珠宝匠", "entity name")
 t("This yeek has all sorts of gems to sell.", "这名夺心魔出售所有品种的宝石。", "_t")
 t("two hander weapons crafter", "双手武器铁匠", "entity name")
@@ -40889,7 +40889,7 @@ t("Arachnophobia...", "我有蜘蛛恐惧症……", "_t")
 t("weaver hatchling", "编织者幼体", "entity name")
 t("A nearly translucent spider hatchling.", "一只近乎半透明的蜘蛛幼体。", "_t")
 t("orb spinner", "球蛛纺织者", "entity name")
-t("A large brownish arachnid, its fangs drip with a strange fluid.", "一只巨大的褐色蜘蛛，它的尖牙不断的滴落奇怪的液体。", "_t")
+t("A large brownish arachnid, its fangs drip with a strange fluid.", "一只巨大的褐色蜘蛛，它的尖牙不断滴落着奇怪的液体。", "_t")
 t("orb weaver", "球蛛编织者", "entity name")
 t("A large brownish arachnid spinning its web.  It doesn't look pleased that you've disturbed its work.", "一只正在结网的巨大褐色蜘蛛，你的打扰使它很不高兴。", "_t")
 t("fate spinner", "命运纺织者", "entity name")
@@ -40987,7 +40987,7 @@ t("Gerlyk, the Creator", "创世神·盖里克", "entity name")
 t([[During the Age of Haze nearly all gods were destroyed by the Sher'tul Godslayers. However, a small number escaped.
 Gerlyk, the creator of the Human race, prefered to flee into the void between the stars than to face death. He has been trapped ever since.
 The sorcerers tried to bring him back and nearly succeeded.
-Now you have come to finish what the Sher'tul began. Become a Godslayer yourself.]], [[在混沌纪，几乎大部分神祇都被夏·图尔的弑神者所杀。但仍有少部分逃离。
+Now you have come to finish what the Sher'tul began. Become a Godslayer yourself.]], [[在混沌纪，几乎所有神祇都被夏·图尔的弑神者所杀。但仍有少部分逃离。
 盖里克，人类缔造者，则选择走进群星间的虚空来避免死亡。他从此一直被困在那里。
 巫师们曾试图将他召回，并且险些成功。
 现在是你结束夏·图尔人未完成事业的时刻了，去成为一名弑神者吧。]], "_t")
@@ -41136,7 +41136,7 @@ t("Tunnel into the ritchs grounds", "里奇通道", "entity name")
 t("Charred Scar Volcano", "灼烧之痕火山", "entity name")
 t("Tunnel to Maj'Eyal", "马基·埃亚尔通道", "entity name")
 t("Long tunnel", "漫长的通道", "_t")
-t("You cannot abandon the yeeks of Rel to the dangers that lie within the island.", "岛屿的安全仍然在威胁之中，你不能丢下瑞尔岛的夺心魔出去。", "_t")
+t("You cannot abandon the yeeks of Rel to the dangers that lie within the island.", "你不能丢下瑞尔岛的夺心魔，任由他们面对岛上潜藏的危险。", "_t")
 t("Unremarkable cave", "不显眼的山洞", "entity name")
 t("A gate into the old kingdom of Reknor", "古代王国瑞库纳的大门", "entity name")
 t("Entrance into Telmur, tower of Telos", "泰勒斯之塔泰尔玛的入口", "entity name")
@@ -41195,7 +41195,7 @@ t("There is already a character with this name, do you want to overwrite it?", "
 t("No", "否", "_t")
 t("Yes", "是", "_t")
 t("Antimagic Magic combo", "反魔和魔法的组合", "_t")
-t("The selected race/class has both magic and antimagic, this is unlikely to work. Continue?", "你选择的种族/职业搭配同时具有魔法能力和反魔属性，这个结果恐怕会是很糟糕的。你确认要继续吗？", "_t")
+t("The selected race/class has both magic and antimagic, this is unlikely to work. Continue?", "你选择的种族/职业搭配同时具有魔法能力和反魔属性，这恐怕行不通。你确认要继续吗？", "_t")
 t("Yes I'm sure", "是的，我确认", "_t")
 t("Tutorials", "教程", "_t")
 t("Basic Gameplay (recommended)", "基本游戏教程（推荐）", "_t")
@@ -41206,7 +41206,7 @@ t("\
 \
 #GOLD#This is a locked birth option. Performing certain actions and completing certain quests will make locked campaigns, races and classes permanently available.", "\
 \
-#GOLD#本选项被锁定，完成特定的任务或条件可以永久解锁这个战役，种族，职业。", "_t")
+#GOLD#本选项被锁定，执行特定行动、完成特定任务可以永久解锁被锁定的战役、种族和职业。", "_t")
 t("-- locked --", "-- 需解锁 --", "_t")
 t([[#CRIMSON#Playing this class with the race you selected does not make much sense lore-wise. You can still do it but might miss on some special quests/...#WHITE#
 ]], [[#CRIMSON#使用这个种族来游玩这个职业不符合剧情。你仍然可以这么做，但可能会错过一些特殊任务/……#WHITE#
@@ -41226,15 +41226,15 @@ While this is a free game that I am doing for fun, if it can help feed my family
 You will need an online profile active and connected for the tile selector to enable. If you choose to donate now you will need to restart the game to be granted access.
 
 Donators will also gain access to the custom tiles for their characters.]], [[探索模式提供给角色无限的生命数。
-马基·埃亚尔的故事是一款非常耐玩的游戏，你需要不断的从错误中学习。（同样从死亡的错误中学习）
+马基·埃亚尔的故事是一款非常耐玩的游戏，你会在错误中（也就是在死亡中）不断学习、不断进步。
 我觉得这款游戏可能不会被所有人接受并且在收到多次请求后，我决定开放探索模式给捐赠者，因为它允许喜欢这款游戏的玩家能全面地体验这款游戏。
-不过要注意的是，无限的生命并不意味着难度的减少，仅仅意味着你可以有着无限多的尝试次数。
+不过要注意的是，无限的生命并不意味着难度的减少，只意味着你可以随意尝试，而不必重新开始。
 
 如果你愿意使用这项功能并且觉得这款游戏很好，你可以考虑捐赠。
-这会帮助延长这款游戏的寿命。尽管这只是我自娱自乐所做的一款游戏，如果它还能帮助我分担一点养家糊口的压力的话，我就谢天谢地，不会再抱怨现实的诸多压力了。
+这会帮助延长这款游戏的寿命。尽管这只是我自娱自乐所做的一款游戏，但如果它能帮我稍微贴补家用，我当然不会有怨言，毕竟现实生活有时很艰难。
 你需要一个已激活并保持连接的在线档案，贴图选择器才能启用。如果你现在选择捐赠，你需要重启游戏才能获得权限。
 
-捐赠者也可以使用自定义贴图来DIY他们的角色。]], "_t")
+捐赠者还能为自己的角色使用自定义贴图。]], "_t")
 t("Later", "以后再说", "_t")
 t("Donate!", "捐赠！", "_t")
 t("Custom tiles", "自定义角色贴图", "_t")
@@ -41554,7 +41554,7 @@ t(" and ", "和", "_t")
 t([[Thank you for supporting ToME, your donation was greatly appreciated.
 If you want to continue supporting ToME you are welcome to make a new donation or even a reccuring one which helps ensure the future of the game.
 Thank you for your kindness!]], [[感谢你支持ToME，你的捐款对这个游戏意义重大。
-如果你想要继续支持ToME，你也可以随时选择继续捐赠，乃至持续捐赠，以确保这个游戏的未来发展。
+如果你想要继续支持ToME，欢迎再次捐赠，甚至设置定期捐赠，这将帮助确保这个游戏的未来。
 感谢你的慷慨资助！]], "_t")
 t("Donation amount: ", "捐赠数额：", "_t")
 t("Monthly donation", "每月捐赠", "_t")
@@ -41990,7 +41990,7 @@ t("Inscriptions", "刻印", "_t")
 t("You have learnt all the inscription slots you could.", "你已经解锁了所有的刻印位。", "_t")
 t("You can learn %d new slot(s). Do you wish to buy one with one category point?", "您可以解锁 %d 个新的刻印位。你希望用 1 个技能树点数解锁 1 个刻印位吗？", "tformat")
 t("Category points: %s", "技能树解锁点：%s", "tformat")
-t("You can still learn %d new slot(s) but you need a category point.", "你还可以学习 %d 个新的刻印位，但你需要一个技能树点数。", "tformat")
+t("You can still learn %d new slot(s) but you need a category point.", "你还可以解锁 %d 个新的刻印位，但你需要一个技能树点数。", "tformat")
 t("Stats: %s", "属性：%s", "tformat")
 t("Class points: %s", "职业点：%s", "tformat")
 t("Generic points: %s", "通用点：%s", "tformat")
@@ -42333,7 +42333,7 @@ t("You must wear this object to use it!", "你必须装备这件物品才能使�
 t("Drop how many?", "丢下多少？", "_t")
 t("1 to %d", "1 到 %d", "tformat")
 t("Attach to item", "附加到物品", "_t")
-t("You do not have any equipped items that it can be attached to.", "你没有已装备的、可供它附加的物品。", "_t")
+t("You do not have any equipped items that it can be attached to.", "你没有可供它附加的已装备物品。", "_t")
 t("Select which item to attach it to:", "选择要附加到哪个物品：", "_t")
 t("Really %s %s", "真的要 %s %s", "tformat")
 t("Tag object (tagged objects can not be destroyed or dropped)", "标记物品（被标记的物品无法丢下或摧毁）", "_t")
@@ -42368,7 +42368,7 @@ t([[You can bind a non-passive talent to a hotkey by pressing the corresponding 
 Check out the keybinding screen in the game menu to bind hotkeys to a key (default is 1-0 plus control, shift, or alt).
 Right click or press '~' to configure talent confirmation and automatic use.
 ]], [[你可以通过选中技能时按下对应快捷键，或右键点击技能，将非被动技能绑定到快捷键上。
-仔细检查一下游戏菜单中关于快捷键绑定的设置（默认情况下的快捷键是0～9，以及 Ctrl、Shift 或 Alt 与数字的组合键）。
+请到游戏菜单的快捷键绑定设置中查看（默认情况下的快捷键是0～9，以及 Ctrl、Shift 或 Alt 与数字的组合键）。
 右键点击或按'~'键可配置技能确认和自动使用。
 ]], "_t")
 t("Talent", "技能", "_t")
@@ -42393,9 +42393,9 @@ t("Hotkey ", "快捷键 ", "_t")
 t("Bind talent: %s", "绑定技能：%s", "tformat")
 t("How do you want to bind this talent?", "如何绑定技能？", "_t")
 t("Middle mouse click assigned", "已设置为鼠标中键", "_t")
-t("%s assigned to middle mouse click on an hostile target.", "设置至鼠标中键点击敌对目标时释放%s。", "tformat")
+t("%s assigned to middle mouse click on an hostile target.", "已设置为鼠标中键点击敌对目标时释放%s。", "tformat")
 t("Left mouse click assigned", "已设置为鼠标左键", "_t")
-t("%s assigned to left mouse click on an hostile target.", "设置至鼠标左键点击敌对目标时释放%s。", "tformat")
+t("%s assigned to left mouse click on an hostile target.", "已设置为鼠标左键点击敌对目标时释放%s。", "tformat")
 t("#{bold}#Activable talents#{normal}#", "#{bold}#主动技能#{normal}#", "_t")
 t("All activable talents you can currently use.", "当前你可以使用的所有主动技能。", "_t")
 t("#{bold}#Object powers#{normal}#", "#{bold}#物品技能#{normal}#", "_t")
@@ -42440,7 +42440,7 @@ Optionally set Stat levels, learn all talents possible, and gain points to spend
 The actor is backed up before changes are made.  (Use the "Restore" button to recover.)
 ]], [[升级角色
 可以自动设置相应的属性值，尽可能学习所有技能，并获得升级所得到的属性点。
-这个角色会在更新前被备份，按“恢复”按钮可以恢复备份。
+角色会在更改前备份，按“恢复”按钮即可还原。
 ]], "_t")
 t(" Advance to Level: ", " 升级到等级： ", "_t")
 t("Restore: %s (v%d)", "恢复：%s (v%d)", "tformat")
@@ -42450,7 +42450,7 @@ t("Gain points for stats, talents, and prodigies (unlimited respec)", "获得属
 t(" Force all BASE stats to: ", " 设置所有基础属性为： ", "_t")
 t(" Force all BONUS stats to: ", " 设置所有额外属性为： ", "_t")
 t("Learn Talents ", "学习技能 ", "_t")
-t("Unlock & Learn all available talents to level: ", "解锁并学习所有的技能到等级： ", "_t")
+t("Unlock & Learn all available talents to level: ", "解锁并学习所有可用技能至等级： ", "_t")
 t("maximum allowed", "最高等级", "_t")
 t("Ignore requirements", "无视技能需求", "_t")
 t("Force all talent mastery levels to (0.1-5.0): ", "将所有技能树系数设置到 (0.1-5.0): ", "_t")
@@ -42686,15 +42686,15 @@ t("unknown", "未知", "_t")
 t("None", "无", "_t")
 t("Don't apply a resolver", "不使用解析器", "_t")
 t("Equipment", "装备", "_t")
-t("Object will be equipped if possible, otherwise added to main inventory", "物品将会尽可能被装备，否则会被加入物品栏。", "_t")
+t("Object will be equipped if possible, otherwise added to main inventory", "如有可能，物品会直接装备上，否则放入物品栏。", "_t")
 t("Inventory", "物品栏", "_t")
 t("Object added to main inventory", "物品加入主要物品栏", "_t")
 t("Drops", "掉落", "_t")
 t("Object added to main inventory (dropped on death)", "物品加入主要物品栏，并在死亡时掉落", "_t")
 t("Attach Tinker", "装载插件", "_t")
-t("Tinker will be attached to a worn object", "插件将会被插到一个穿戴的物品上。", "_t")
+t("Tinker will be attached to a worn object", "插件会附加到一件已穿戴的物品上。", "_t")
 t("Drop Randart (auto data)", "掉落随机神器（自动数据）", "_t")
-t("Random Artifact (dropped on death) added to main inventory, uses the Base Object or Base Filter plus Randart Data as input", "随机神器（死亡后掉落）将会被加入到主要物品栏，使用基础物品或基础过滤器，加上随机神器数据作为输入。", "_t")
+t("Random Artifact (dropped on death) added to main inventory, uses the Base Object or Base Filter plus Randart Data as input", "随机神器（死亡后掉落）会放入主要物品栏，以基础物品或基础过滤器加上随机神器数据作为输入。", "_t")
 t("Drop Randart", "掉落随机神器", "_t")
 t("Random Artifact (dropped on death) added to main inventory", "随机神器（死亡后掉落）将会被加入到主要物品栏", "_t")
 t("DEBUG -- Create Random Object", "调试模式 -- 创建随机物品", "_t")
@@ -42757,7 +42757,7 @@ t("#LIGHT_BLUE# New random%s object: %s", "#LIGHT_BLUE# 新随机%s 物品：%s"
 t(" (resolver: %s)", " (解析器：%s)", "tformat")
 t("#LIGHT_BLUE#Could not generate a random object with filter: %s", "#LIGHT_BLUE#无法使用以下筛选器生成随机物品：%s", "log")
 t([[#LIGHT_BLUE#ERROR generating random object with filter [%s].
- Error: %s]], [[#LIGHT_BLUE#错误：使用该筛选器生成随机物品时发生错误[%s]。
+ Error: %s]], [[#LIGHT_BLUE#错误：使用筛选器 [%s] 生成随机物品失败。
  错误：%s]], "log")
 t("#LIGHT_BLUE#Could not generate a base object with filter: %s", "#LIGHT_BLUE#无法使用该筛选器生成基础物品：%s", "log")
 t([[#LIGHT_BLUE#ERROR generating base object with filter [%s].
@@ -42818,8 +42818,8 @@ t("Define tactical talents usage", "设定技能使用策略", "_t")
 t([[%s is listening attentively, and wants to know what talents to use.
 You can modify the tactical weights of various talents to increase or decrease their use.  The weights are multiplicative (zero will turn the talent off) and relative (changing everything to a weight of 2 will not alter how talents are used relative to each other).
 Word travels fast in Maj'Eyal, and if %s is a summon all future summons of the same type will remember your preferences.
-]], [[%s正在仔细地听着你，向你询问该怎么使用它的技能。
-你可以修改他的技能使用策略中每个技能的权重，增加或减少某些技能使用的概率。这些权重是乘法性的（权重为零表示该技能永远不会被使用）和相对性的（把所有技能的权重都调整为 2，并不会改变各技能之间的相对使用）
+]], [[%s正在专心聆听，想知道该使用哪些技能。
+你可以修改他的技能使用策略中每个技能的权重，增加或减少某些技能使用的概率。这些权重是乘法性的（权重为零表示该技能永远不会被使用）和相对性的（把所有技能的权重都调整为 2，并不会改变各技能之间的相对使用频率）。
 在马基·埃亚尔消息传播得很快。如果 %s 是一个召唤生物，所有同类的召唤生物都会记住你的设置。
 ]], "tformat")
 t("Talent Name", "技能名", "_t")
@@ -43050,7 +43050,7 @@ Still, this is a golden age. Civilisations are healing the wounds of thousands o
 You are an adventurer, set out to discover wonders, explore old places, and venture into the unknown for wealth and glory.
 ]], [[欢迎来到马基·埃亚尔的世界！
 
-现在的埃亚尔大陆是卓越纪。在长达一万年的冲突痛苦和混乱之后，我们所知的世界终于进入了一个相对和平的时期。
+如今正值卓越纪。在长达一万多年的冲突、痛苦和混乱之后，我们所知的世界终于进入了一个相对和平的时期。
 #FF0000#“魔法大爆炸”#WHITE#所造成的影响已经渐渐减轻。烈火纪之后，大地慢慢自愈，各个文明也纷纷开始重建家园。
 
 自联合王国在#14fffc#图库纳#ffffff#与其妻#14fffc#米雯尼雅#ffffff#的统治下建立，至今已有一百二十二年。
@@ -43063,7 +43063,7 @@ You are an adventurer, set out to discover wonders, explore old places, and vent
 近一百年来，钢铁王座的矮人们一直小心谨慎地与联合王国维持着贸易往来，但外界对这个种族所知甚少，甚至不知道他们的统治者是谁。
 
 尽管马基·埃亚尔大陆上的居民都知道是魔法师们帮忙终止了恐怖的魔法大爆炸，但他们也没有忘记正是魔法本身造成了这场灾难。因此法师们至今仍遭社会排斥，甚至被公开猎杀。
-无论如何，这是个黄金时代，所有的文明在过去数千年中经历的不幸正在好转，甚至人类和半身人之间已经形成了长久的和平。
+无论如何，这是个黄金时代，各个文明正在治愈数千年冲突留下的创伤，人类和半身人之间也已缔结了长久的和平。
 
 你是一名冒险者，去见识奇观、探索古迹，为财富与荣耀踏入未知之地。
 ]], "init.lua description")
@@ -43072,14 +43072,14 @@ t("The Rush talent lets you close in on an enemy quickly and daze them, disablin
 t("Stunning an opponent slows down their movement and reduces their damage output, giving you the opportunity to tactically reposition or finish them off at less risk.", "震慑可以减缓目标的移动速度，降低其伤害输出，为你制造机会重新占位，或以更低的风险将其解决。", "init.lua load_tips")
 t("Movement is key on the battlefield. A stationary fighter will become a dead fighter. One must always seek the position of greatest tactical advantage and continue to re-evaluate throughout the battle.", "移动是战斗制胜的关键。一个固定不动的战士只会变成一个死的战士。战斗过程中你必须随时调整你的走位以保持你的优势。", "init.lua load_tips")
 t("In the Age of Pyre the orcs learned the secrets of magic, and with their newfound powers nearly overcame the whole of Maj'Eyal.", "在烈火纪，兽人掌握了魔法的奥秘，凭借新获得的力量几乎征服了整个马基·埃亚尔。", "init.lua load_tips")
-t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们已被彻底灭绝，但传言四起，仍有隐匿的团体在蛰伏待机，伺机卷土重来。", "init.lua load_tips")
+t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们已被彻底灭绝，但传言四起，仍有隐匿的团体在蛰伏，伺机卷土重来。", "init.lua load_tips")
 t("Intense willpower lets wyrmics take on the natural powers of dragons.", "高强度的意志使龙战士可以获得龙族的自然力量。", "init.lua load_tips")
 t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造炽烈的爆炸，并且往往带着一尊坚固的傀儡随行以获得额外保护。", "init.lua load_tips")
 t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造巨型傀儡阿塔玛森的唯一目的，就是阻止兽人首领吞噬者加库尔。加库尔仅凭一己之力便摧毁了这尊傀儡，随后又屠戮了一支数千人的军队，最终这名如恶魔般的战士才被杀死。", "init.lua load_tips")
 t("None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.", "无人知晓夏·图尔人的长相，也没有人知道为什么他们在几千年前突然消失了。至今我们仍能从他们仅存的废墟里感受到他们的神秘和恐怖。", "init.lua load_tips")
-t("In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.", "地城深处潜藏着无法用语言描述或理解的黑暗事物，无人知道它们是从哪里而来。", "init.lua load_tips")
+t("In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.", "地城深处潜藏着无法用语言描述或理解的黑暗事物，无人知道它们从何而来。", "init.lua load_tips")
 t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的造物自最早的记忆以来就一直困扰着所有种族。", "init.lua load_tips")
-t("Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.", "传说很早以前永恒精灵的王侯们利用死灵法术进行试验，试图让他们死后的肉体仍能永葆青春。不过他们并没有成功。但永恒精灵们都否认这个传说的真实性。", "init.lua load_tips")
+t("Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.", "传说很早以前永恒精灵的王侯们利用死灵法术进行试验，试图让他们死后的肉体仍能永葆青春。不过他们并没有成功。永恒精灵们则极力否认这一传说。", "init.lua load_tips")
 t("120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.", "120年前，图库纳与米雯尼雅将人类与半身人的王国联合起来，将兽人一族彻底消灭，自此开启了卓越纪元。", "init.lua load_tips")
 t("\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.", "魔法大爆炸撕裂了埃亚尔，整个文明差点被彻底摧毁。两千年岁月已过，爆炸的阴影依然笼罩着很多地区。而那些高傲的法师们，也从未因其在促成此事中所扮演的角色而获得宽恕。", "init.lua load_tips")
 t("Some are cursed with mental powers beyond their full control, turning them to a dark life powered by hatred.", "某些人被诅咒，获得了超出自身完全掌控的精神力量，从此堕入由仇恨驱动的黑暗生涯。", "init.lua load_tips")
@@ -43112,9 +43112,9 @@ t("Demons are thought to come from another world, brought to Eyal by magical for
 t("The art of potion making fell into decline after the Spellhunt, and only a rare few now master the gift.", "猎魔行动之后炼金技术严重衰退，现在只有极少数人掌握这种技能了。", "init.lua load_tips")
 t("It's said that some rare powers can save your soul from the edge of death.", "传说有些罕见的力量可以在死亡边缘拯救你的灵魂。", "init.lua load_tips")
 t("Rumours tell of a shadowy cult kidnapping women and performing strange rites. Their intentions are unknown, and they have so far evaded capture.", "传说有一个邪教组织，他们绑架妇女举行奇怪的仪式，没人知道他们真正的目的，至今他们还没有被抓捕。", "init.lua load_tips")
-t("Though slavery is illegal there is still a black market for it, and in some areas men are even used for blood sports.", "尽管贩奴被严令禁止但地下交易却仍然存在。有些地方奴隶甚至被作为一种血腥运动项目的道具。", "init.lua load_tips")
+t("Though slavery is illegal there is still a black market for it, and in some areas men are even used for blood sports.", "尽管贩奴被严令禁止，但地下交易仍然存在，有些地方甚至将人用于血腥竞技。", "init.lua load_tips")
 t("Maj'Eyal is the biggest continent in the world of Eyal. Though records suggest other continents and islands may exist it has not been possible to cross the wide and stormy oceans since the Spellblaze and the Cataclysm.", "马基·埃亚尔是埃亚尔世界中最大的一块大陆。虽然有记载世界上有可能还存在着其他大陆或者岛屿，但自从魔法大爆炸和大灾变发生之后，穿越浩瀚的风暴之海已经不大可能了。", "init.lua load_tips")
-t("The effects of the Spellblaze were not all instant, and many centuries later the Cataclysm tore the continent apart once more, devastating coastal areas the destroying all of the Naloren lands.", "魔法大爆炸造成的影响并非仅局限于那一瞬间，数个世纪之后，大灾变再次撕裂了大陆，摧毁了沿海地区，并摧毁了所有纳鲁人的土地。", "init.lua load_tips")
+t("The effects of the Spellblaze were not all instant, and many centuries later the Cataclysm tore the continent apart once more, devastating coastal areas the destroying all of the Naloren lands.", "魔法大爆炸造成的影响并非仅局限于那一瞬间，数个世纪之后，大灾变再次撕裂了大陆，重创了沿海地区，并彻底摧毁了纳鲁人的全部土地。", "init.lua load_tips")
 t("Archers are fast and deadly, and with pinning shots can render their foes helpless as they swiftly dispatch them.", "弓箭手行动迅捷而致命，他们可以使用定身射击使敌人无力反抗，然后迅速解决他们。", "init.lua load_tips")
 t("Reavers are powerful fighters with corrupted blood, and the strength to wield a one-handed weapon in each arm.", "收割者是流着堕落之血的强大战士，他们双手各可以装备一件单手武器。", "init.lua load_tips")
 t("Corruptors feed off the essence of others, and can use their own corrupted blood to launch deadly magical attacks.", "腐化者可以吸取他人的精华，并使用自身的腐化之血发动致命的魔法攻击。", "init.lua load_tips")
@@ -43137,7 +43137,7 @@ t("Most weapons are wielded in the main hand.", "大部分武器使用主手抓�
 t("In off hand", "在副手", "_t")
 t("You can use shields or a second weapon in your off-hand, if you have the talents for it.", "如果你有对应的技能，你可以副手使用盾牌或第二把武器。", "_t")
 t("Psionic focus", "心灵传动", "_t")
-t("Object held in your telekinetic grasp. It can be a weapon or some other item to provide a benefit to your psionic powers.", "使用你的念动力抓取的物品。你可以抓取武器，或者抓取其他物品来为你的心灵力量提供增益。", "_t")
+t("Object held in your telekinetic grasp. It can be a weapon or some other item to provide a benefit to your psionic powers.", "使用你的念动力抓取的物品。可以是武器，也可以是其他能增强你心灵力量的物品。", "_t")
 t("On fingers", "在手指上", "_t")
 t("Rings are worn on fingers.", "戒指戴在手指上。", "_t")
 t("Around neck", "在脖子上", "_t")
@@ -43163,7 +43163,7 @@ t("Your readied ammo.", "你准备好的弹药。", "_t")
 t("Socketed Gems", "镶嵌宝石", "_t")
 t("Gems worn in/on the body, providing their worn bonuses.", "装在身体内/外的宝石，提供宝石的装备属性。", "_t")
 t("Second weapon set: In main hand", "第二套武器：在主手", "_t")
-t("Weapon Set 2: Most weapons are wielded in the main hand. Press 'x' to switch weapon sets.", "第二套武器：大部分武器使用主手抓握。按 X 键切换武器套。", "_t")
+t("Weapon Set 2: Most weapons are wielded in the main hand. Press 'x' to switch weapon sets.", "第二套武器：大部分武器都握在主手。按 X 键切换武器套。", "_t")
 t("Second weapon set: In off hand", "第二套武器：在副手", "_t")
 t("Weapon Set 2: You can use shields or a second weapon in your off-hand, if you have the talents for it. Press 'x' to switch weapon sets.", "第二套武器：如果你有对应的技能，你可以副手使用盾牌或第二把武器。按 X 键切换武器套。", "_t")
 t("Second weapon set: psionic focus", "第二套武器：灵能聚焦物", "_t")
@@ -43171,7 +43171,7 @@ t("Weapon Set 2: Object held in your telekinetic grasp. It can be a weapon or so
 t("Second weapon set: Quiver", "第二套武器：箭袋", "_t")
 t("Weapon Set 2: Your readied ammo.", "第二套武器：你准备好的弹药。", "_t")
 t("Swift Hands", "无影手", "_t")
-t("List of items that can be instantly used by swift hands.", "无影手可即时使用（不消耗回合）的物品列表。", "_t")
+t("List of items that can be instantly used by swift hands.", "无影手可即时使用的物品列表。", "_t")
 t("Strength", "力量", "stat name")
 t("str", "力量", "stat short_name")
 t("Strength defines your character's ability to apply physical force. It increases your melee damage, damage done with heavy weapons, your chance to resist physical effects, and carrying capacity.", "力量属性影响你的角色的物理能力，提升力量可以提高物理强度，提高使用重型武器造成的伤害，提高物理豁免，同时提高你的负重量。", "_t")
@@ -43180,19 +43180,19 @@ t("dex", "敏捷", "stat short_name")
 t("Dexterity defines your character's ability to be agile and alert. It increases your chance to hit, your ability to avoid attacks, and your damage with light or ranged weapons.", "敏捷属性影响你的灵巧和警觉能力，提升敏捷可以提升命中，提升闪避，提升使用轻武器和远程武器造成的伤害。", "_t")
 t("Magic", "魔力", "stat name")
 t("mag", "魔力", "stat short_name")
-t("Magic defines your character's ability to manipulate the magical energy of the world. It increases your spell power, and the effect of spells and other magic items.", "魔法属性影响你驾驭魔法能量的能力，提升魔法可以提高你的法术强度，法术的效果和其他魔法物品的使用效果。", "_t")
+t("Magic defines your character's ability to manipulate the magical energy of the world. It increases your spell power, and the effect of spells and other magic items.", "魔法属性影响你驾驭魔法能量的能力，提升魔法可以提高你的法术强度，以及法术和其他魔法物品的效果。", "_t")
 t("Willpower", "意志", "stat name")
 t("wil", "意志", "stat short_name")
 t("Willpower defines your character's ability to concentrate. It increases your mana, stamina and PSI capacity, and your chance to resist mental attacks.", "意志属性决定你的角色集中精神的能力。它会提高你的法力值、体力值与灵能值上限，并提高精神豁免。", "_t")
 t("Cunning", "灵巧", "stat name")
 t("cun", "灵巧", "stat short_name")
-t("Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your mental capabilities and chance of critical hits.", "灵巧属性提升你学习、思考和反应能力。提升灵巧可以让你学习更多的技能，提升精神能力和暴击几率。", "_t")
+t("Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your mental capabilities and chance of critical hits.", "灵巧属性决定你学习、思考和反应的能力。提升灵巧可以让你学习更多的技能，提升精神能力和暴击几率。", "_t")
 t("Constitution", "体质", "stat name")
 t("con", "体质", "stat short_name")
 t("Constitution defines your character's ability to withstand and resist damage. It increases your maximum life and physical resistance.", "体质属性影响你抵抗和承受伤害的能力，提升体质可以提高你的最大生命值和物理豁免。", "_t")
 t("Luck", "幸运", "stat name")
 t("lck", "幸运", "stat short_name")
-t("Luck defines your character's fortune when dealing with unknown events. It increases your critical strike chance, your chance of random encounters, ...", "幸运属性影响你的角色在参与未知事件的幸运度。它可以增加你的暴击率，以及增加引发某些随机事件的几率。", "_t")
+t("Luck defines your character's fortune when dealing with unknown events. It increases your critical strike chance, your chance of random encounters, ...", "幸运属性决定你的角色在面对未知事件时的运气。它可以提高你的暴击率，以及引发某些随机事件的几率。", "_t")
 t("All kinds of weapons", "各种类型的武器", "_t")
 t("All kinds of armours", "各种类型的护甲", "_t")
 t("Rings and Amulets", "戒指和项链", "_t")
@@ -43215,15 +43215,15 @@ t([[I begin my writings with a study of the humans, currently the most populous 
 
  All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]], [[我从人类的研究开始，他们目前是马基·埃亚尔人口最多的种族。若论人口数量，科纳克王国远超其他人类王国。此外，肖尔塔王国和马卓普王国以及高等人类这一血统支系也值得一提。最大的人类聚居地在最后的希望要塞周围，另外还有许多聚居地存在于马基·埃亚尔的每个角落。
 
- 科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗组织也更倾向于被科纳克人控制。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后的希望一带，这种现象尤为明显。
+ 科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗团伙也往往由科纳克人把持。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后的希望一带。
 
  肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大灾变将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身工匠或龙战士猎手行走于世。
 
- 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为魔法猎手的首要目标。然而，人们仍能找到他们的些许痕迹——火红的头发以及生有雀斑的皮肤，仍常常出现在血缘疏远的后裔身上。有部分传言说他们仍住在某些遥远的地方的城堡或高塔里。
+ 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为魔法猎手的首要目标。然而，人们仍能找到他们的些许痕迹——火红的头发以及生有雀斑的皮肤，仍常常出现在血缘疏远的后裔身上。据传，还有少数人仍在某些偏远之地拥有城堡和高塔。
 
  高等人类基本身高在6英尺左右，有着金色的头发、白皙的皮肤和蓝色或灰色的眼睛。大多数学者都是高等人类，贵族阶层也大多由他们占据。有人说这都是歧视和精英理论所导致的，虽然这可能只是简单的嫉妒情绪。也有传言说高等人类的高智商源于厄流纪时期古老的孔克雷夫所主导的奥术实验，但是我找不到任何证据来支持这一论点，我只能认为这种说法毫无根据。高等人类的血统被认为是优秀的标志，与低等血统通婚则为世所不齿。
 
- 在烈火纪，勇者图库纳国王统一了所有的人类王国，并仍然掌控于他的儿子公正之王托拉克的手中。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。]], "_t")
+ 在烈火纪，勇者图库纳国王统一了所有的人类王国，这些王国至今仍由他的儿子公正之王托拉克统治。一份关于人类漫长历史的全面报告需要更加详细的文本来叙述。]], "_t")
 t([[No text would be complete without at least a brief note of some of the more brutish races which infest our world. These do not hold any civilised society of note, nor in general do they seem capable of any form of higher thought or culture, but they are still of interest to study for any who take delight in analysing beings of more primitive intellect.
 
  Trolls come in two main types - Kezrak and Moltep, or stone and forest trolls as they are colloquially known. Stone trolls infest many mountain chains to the north-east, and some have been known to wander further afield in search of food or to spread violence. They are generally over 8' high, with extremely pronounced muscular strength and a thick, solid hide which bears the appearance of coal or granite. Forest trolls are generally found in dense woods or swamps, with the Trollmire east of Derth being especially infamous. They have a more advanced form of speech than their mountain-dwelling cousins, and are known to move faster and wield more elaborate weapons, though their greenish hide is not as thick and their musculature less developed. All trolls have intensely fast metabolisms, capable of healing from grievous wounds within a matter of hours. At birth they measure just eight inches long, but within two years grow to full maturity, and rarely live beyond ten years old. They used to be considered little more than beasts, but towards the end of the Age of Pyre many were trained as fighters by the orcs, and were even taught the basics of language and certain battle tactics, making them much more dangerous. Though the orcs are gone their servants remain, and their remote breeding areas and intense birth rates have so far scampered attempts to eradicate them completely.
@@ -43234,11 +43234,11 @@ t([[No text would be complete without at least a brief note of some of the more 
 
  The origin of Demons is not wholly known, but it is clear that they are capable of intelligence and so I feel the need to describe them somewhat here. It is known that they can be summoned by certain magical rites, and minor demons were oft in the employ of evil sorcerers during the Age of Dusk. The main theory, which is supported by certain studies by Shaloren archmages, seems to indicate that they come from another world than our own, with connections formed through intense arcane energies. It must be a truly terrifying place to host such foul denizens. Demons vary immensely in appearance and power, as much as the creatures of our own world vary. They generally have blueish blood and metallic flesh and skin, which can oft react oddly with our atmosphere - some become wreathed in flames, others release hideous acids or belching clouds of darkness. All seem versed in magical abilities to some degree, and the strongest of them possess truly terrifying powers. Luckily they are exceptionally rare, and seem to be much less common in modern times since magic has fallen out of use.]], [[任何著述都少不了对肆虐于我们世界的野蛮种族作至少一番简要记述。这些种族没有任何值得一提的文明社会，一般来说似乎也不具备任何高等思维或文化，但对于热衷于分析低等智慧生物的人而言，他们仍值得研究。
 
- 巨魔主要分为两大类——科兹拉克和马提普，俗称岩石巨魔和森林巨魔。岩石巨魔盘踞于东北部的许多山脉，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着极其发达的肌肉和厚实坚固、外观如煤炭或花岗岩的皮肤。森林巨魔生活在浓密的森林和沼泽中，在德斯镇东部的巨魔沼泽尤为臭名卓著。他们的言语能力比居于山地的同族更发达，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。他们出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们过去被认为仅比野兽好一点，然而在烈火纪末期，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
+ 巨魔主要分为两大类——科兹拉克和马提普，俗称岩石巨魔和森林巨魔。岩石巨魔盘踞于东北部的许多山脉，有些为了寻找食物和散播暴力甚至走到了更远的地方。他们通常超过8英尺高，有着极其发达的肌肉和厚实坚固、外观如煤炭或花岗岩的皮肤。森林巨魔生活在浓密的森林和沼泽中，其中德斯镇东部的巨魔沼泽尤为臭名昭著。他们的言语能力比居于山地的同族更发达，并且以移动迅速和能够使用精工武器闻名，尽管他们泛绿的外皮没有那么厚实，肌肉也不如岩石巨魔发达。所有的巨魔有着快速的新陈代谢能力，再严重的伤口，恢复只要几个小时。他们出生时只有8英寸长，但是在2年内他们就可以成长完全，并且很少有寿命超过10年的。他们过去被认为仅比野兽好一点，然而在烈火纪末期，他们被兽人当做战士般训练，甚至学习了一些基础语言和战术，使得他们更加危险。虽然兽人已经走了，但他们的仆人仍然存在，并且他们偏远的繁殖地和极高的出生率至今仍挫败着彻底根除他们的企图。
 
  巨人们通常住在岱卡拉周围的山峦中。他们在体型上有着很大的差异，但基本上不会低于10英尺高。他们看起来像体形巨大而畸形的人类，面部肿胀，摆动的四肢也长得多。他们属于游牧部落，随着季节的变化，从一个山头迁移到另一个山头，以野鹿和山羊为食。他们通常是和善的生物，只有当他们的领土受到入侵或者幼崽受到威胁时才会变得具有攻击性。有报道称，巨人们有时会来到低地，偷走农场动物或者袭击聚落，但是这极其少见并且大多发生在极端的严冬。巨人们似乎没有值得一提的成熟文化和语言，但有记载表明他们会展现出有限的智慧，也擅长在群体中交流。
 
- 娜迦曾被认为仅存于神话中，但是据可靠消息以及死亡的标本表明他们是真实存在的。他们的上半身是人形，有着金色的头发和极为瘦削的身材，但是下半身却极像一只巨蛇的尾巴。他们在陆地上大约身高6英尺，而他们的尾巴还要向后延伸数英尺。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。有关他们的记载只见于近几百年，而且直到最近人们才开始认为这些记载不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用珠宝装饰自己，并用海底找到的材料制作武器和护甲，例如用多层厚鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是迄今为止，与他们沟通已被证明是不可能的。现在还不知道他们是否有复杂的语言，但到目前为止，他们对遇到的人只会以极端暴力回应，东部的渔民们也时刻提防着碰上这些凶恶的生物。
+ 娜迦曾被认为仅存于神话中，但是可靠的报告乃至捕获的尸体标本都表明他们是真实存在的。他们的上半身是人形，有着金色的头发和极为瘦削的身材，但是下半身却极像一只巨蛇的尾巴。他们在陆地上大约身高6英尺，而他们的尾巴还要向后延伸数英尺。他们在马基·埃亚尔的东岸和东南岸都有踪迹，这似乎表明波涛之下存在着某种异域文明。有关他们的记载只见于近几百年，而且直到最近人们才开始认为这些记载不只是醉酒水手的荒诞幻想。他们可以在水里和陆地上呼吸，同时拥有肺和鳃，并且据说在陆地上有着非常惊人的速度。有人可能认为它们只是特殊的怪物，但是他们会用珠宝装饰自己，并用海底找到的材料制作武器和护甲，例如用多层厚鲨鱼皮制成的柔软锁甲。这表明了一种先进的文明，但是迄今为止，与他们沟通的尝试都以失败告终。现在还不知道他们是否有复杂的语言，但到目前为止，他们对遇到的人只会以极端暴力回应，东部的渔民们也时刻提防着碰上这些凶恶的生物。
 
  恶魔的起源尚未完全清楚，但是很显然他们具有某种智慧，所以我觉得有必要在此写下一段。众所周知，某些魔法仪式可以召唤他们，并且在黄昏纪时期，小恶魔们经常受雇于邪恶的巫师。最主要的理论得到了永恒精灵魔导师们某些研究的支持，该理论认为恶魔们似乎来自另一个世界，一个通过强烈的奥术能量与我们相连的世界。那必然是一个地狱般的地方才能容下如此多恐怖的生物。恶魔们在外观和能力上不尽相同，正如我们世界里的生物一样。他们通常有偏蓝的血液和金属般的血肉，这些部位常会与我们的空气发生奇异反应——有的被火焰环绕，有的释放可怕的酸液或喷吐黑暗之云。他们似乎都在某种程度上通晓魔法，并且他们之中最强者具有真正可怕的力量。幸运的是他们是非常罕见的种族，而且自从魔法淡出人们的视野后，出现得更加稀少了。]], "_t")
 t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.
@@ -43249,20 +43249,20 @@ t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk
 
  Their skill with metal is renowned above all else. Dwarven steel is considered the most durable material for use in construction, and dwarves are the finest workers with stralite and voratun, precious metals of immense value. They trade heavily in their crafts from their capital the Iron Throne, but allow no outsiders in - instead they send innumerable merchant caravans out to all the cities to ply their wares.
 
- As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故的切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的主要领导人对话。
+ As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故地切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的几位公会首领对话。
 
  矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过编入胡须的珠饰来辨认。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
- 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。
+ 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的事几乎闻所未闻。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。
 
  他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派无数商队到各个城市去售卖货物。
 
- 在众多的矮人商人出现的同时，越来越多的年轻矮人更加倾向于从他们的石头洞穴里出去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了帮助他们的“市场调查策略”。]], "_t")
+ 除了随处可见的矮人商人，还有大量年轻矮人走出他们的石厅去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了帮助他们的“市场调查策略”。]], "_t")
 t([[Quekorja was the god of time and possibilities. What stands out about Eyal's myths regarding Quekorja is how wildly inconsistent they are. In particular, tales after the Godhunt tend to have a far less favourable outlook of the god than pre-Godhunt myths. Speculation regarding this is due to Quekorja supposedly taking an interest in written history and appointing its own librarians to record its tales. Since there are no surviving records of this library existing, this theory is considered to be pure conjecture and has no concrete evidence to validate it. There have been some unusual records found too, supposedly written by the same authors on the same dates, but wildly varying in their tone and their description of the god itself. Given the god's ability to control time, it is thought these notes might be from alternate timelines, further obscuring the truth about the god itself.
 
  Quekorja was also thought to be responsible for the creat...[i](You know you read this section, but you can't actually remember it. It is almost like something has deliberately erased it from your mind.)[/i]
 
- According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.]], [[奎科加是时间和可能性之神。在埃亚尔关于奎科加的神话传说中，最突出的一点就是它们之间有着极大的矛盾，而在弑神之战之后的传说中它的形象远不如前。对此的猜测是奎科加自己可能十分爱好书写历史，指派了自己的记录者来记录自己的故事，但并没有证据表明有这样一个图书馆存在，因而这种理论被认为只是没有依据的臆测，没有实际证据的支持。另外还有一些不寻常的记录，本应是同一个作者在同一天写的，但其语调和对此神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录其实是来自别的时间线。这更加增添了奎科加的神秘。
+ According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.]], [[奎科加是时间和可能性之神。在埃亚尔关于奎科加的神话传说中，最突出的一点就是它们之间有着极大的矛盾，而在弑神之战之后的传说中它的形象远不如前。对此的一种猜测是，奎科加可能十分热衷于书写历史，还指派了自己的图书管理员来记录它的故事。但由于没有任何记录表明这座图书馆存在过，这种理论被视为纯粹的臆测，没有实际证据支持。另外还有一些不寻常的记录，本应是同一个作者在同一天写的，但其语调和对此神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录其实是来自别的时间线。这更加增添了奎科加的神秘。
 
  奎科加也被认为创……[i]（你记得你读过这段文字，但就是记不起其内容，就好像它是被有意从你的脑海中抹去了一样。）[/i]
 

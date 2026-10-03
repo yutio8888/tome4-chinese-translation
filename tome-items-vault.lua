@@ -88,8 +88,8 @@ t("#LIGHT_BLUE#You transfer %s to the offline item's vault.", "#LIGHT_BLUE#你�
 t("Teleporting object from the vault, please wait...", "正在从共享仓库中接收物品，请稍候…", "_t")
 t("Transfer failed", "传输失败", "_t")
 t([[This item comes from a previous version and would not work in your current game.
-To prevent the universe from imploding the item was not transfered from the vault.]], [[这一物品来自以前的游戏版本，无法在当前游戏中工作。
-为了防止当前宇宙发生问题，你无法从共享仓库中取回这个物品。]], "_t")
+To prevent the universe from imploding the item was not transfered from the vault.]], [[这一物品来自以前的游戏版本，无法在当前游戏中使用。
+为了防止宇宙内爆，该物品没有从共享仓库中转出。]], "_t")
 t("Item's Vault", "共享仓库", "_t")
 t("Checking item's vault list, please wait...", "正在检查共享仓库列表，请稍候…", "_t")
 

@@ -26,7 +26,7 @@ t("Freed all the Orc Prides without killing a single mind-controlled orc.", "释
 t("Mender", "修理工", "achievement name")
 t("Destroyed the bosses of the Primal Forest without killing any uncorrupted treants.", "杀死原始森林的boss，同时不杀死任何一名未腐化的树精。", "_t")
 t("Sufficiently Advanced Technology", "高科技", "achievement name")
-t("Put five points into each of the tinker-crafting talents as any mage class.", "作为任何法师职业，将每个蒸汽配件制造技能均投入5点技能点数。", "_t")
+t("Put five points into each of the tinker-crafting talents as any mage class.", "以任意法师职业，在每个蒸汽配件制造技能上各投入5点技能点。", "_t")
 t("Radiant Horrorc", "光芒恐兽人", "achievement name")
 t("While fighting in a Sunwall zone, use a Fiery Salve to reach at least 66% affinity for Fire and Light. Pointing and laughing is optional.", "在太阳堡垒的区域内战斗时，开启烈火药剂，并获得至少 66% 火焰和光系伤害亲和。指指点点和嘲笑，随你便。", "_t")
 t("Blood on the Moon", "月上血痕", "achievement name")
@@ -813,7 +813,7 @@ t("How cliche!", "多么的老套！", "_t")
 t("giant alligator", "巨型鳄鱼", "entity name")
 t("How cliche! Also, terrifying!", "多么的老套，并且可怕！", "_t")
 t("basaligator", "蛇蜥魔鳄", "entity name")
-t("This thing looks like an alligator, but it has unnaturally large, grey eyes. It gazes at you with great intensity.", "这个东西看上去像是只鳄鱼，但是它有一双大的不自然的灰色眼睛。它正在紧紧的盯着你。", "_t")
+t("This thing looks like an alligator, but it has unnaturally large, grey eyes. It gazes at you with great intensity.", "这个东西看上去像是只鳄鱼，但是它有一双大得不自然的灰色眼睛，正紧紧地盯着你。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/domestic-yeti.lua"
@@ -823,9 +823,9 @@ t("yeti", "雪人", "entity subtype")
 t("pet yeti", "宠物雪人", "entity name")
 t("This yeti is somewhat smaller than the average yeti, and its fur seems well groomed. Nonetheless, it looks quite unhappy to see its master's home invaded.", "这个雪人比一般的雪人要小一些，毛发似乎也经过精心梳理。不过，看到主人的家被入侵，它显得很不高兴。", "_t")
 t("guard yeti", "雪人守卫", "entity name")
-t("This yeti is large and angry, with claws far more sharply honed than those found in nature.", "这个雪人巨大且愤怒，他的爪子被打磨的远比那些野生雪人的锋利。", "_t")
+t("This yeti is large and angry, with claws far more sharply honed than those found in nature.", "这个雪人体型巨大、怒气冲冲，它的爪子打磨得远比野生雪人的锋利。", "_t")
 t("attack yeti", "雪人攻击者", "entity name")
-t("This yeti's claws are coated in sharply carved iron. It glares at you with a long trained anger.", "这个雪人的爪子上套着锋利的铁刺，用长期训练养成的怒意恶狠狠地瞪着你。", "_t")
+t("This yeti's claws are coated in sharply carved iron. It glares at you with a long trained anger.", "这个雪人的爪子上套着锋利的铁刺，带着长期训练出的怒意恶狠狠地瞪着你。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/hethugoroth.lua"
@@ -865,7 +865,7 @@ t("ritch hive mother", "里奇巢母", "entity name")
 t("ritch centipede", "里奇百足虫", "entity name")
 t("This strange creature looks like a ritch hunter but with more legs. So many legs.", "这个奇怪的生物看上去像是一个里奇猎手，但是它的脚要多多了，多很多很多。", "_t")
 t("larvae bloated ritch mother", "满载幼虫的里奇巢母", "entity name")
-t("The skin of this creature is literally crawling with larvae, yet she seems to be moving toward you very fast.", "这个生物的皮肤上爬满了幼虫，字面意义上的爬满。尽管如此，她向你前进的速度非常快。", "_t")
+t("The skin of this creature is literally crawling with larvae, yet she seems to be moving toward you very fast.", "这个生物的皮肤上确确实实爬满了幼虫，但她似乎正飞快地向你逼近。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/snake-add.lua"
@@ -958,7 +958,7 @@ section "tome-orcs/data/general/npcs/sunwall-warrior.lua"
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("sunwall guard", "太阳堡垒守卫", "entity name")
-t("This guard stands tall and proud, wearing the symbol of the Sunwall.", "这个身着太阳堡垒徽记的守卫挺拔而骄傲的站立着。", "_t")
+t("This guard stands tall and proud, wearing the symbol of the Sunwall.", "这个身着太阳堡垒徽记的守卫挺拔而骄傲地站立着。", "_t")
 t("sunwall archer", "太阳堡垒弓箭手", "entity name")
 t("elf", "精灵", "entity subtype")
 t("You see an archer with his bow drawn back, and a golden sun embossed on his armor.", "你看到了一个拉着弓的射手，他的护甲上有金色太阳的压纹。", "_t")
@@ -981,13 +981,13 @@ t("While a titan usually look like a corrupted steam giant, this one looks more 
 t("titan searing seer", "泰坦炙热先知", "entity name")
 t("Wreathed in arcane flames you can feel the intense psionic forces ripping at your mind emanating from this titan.", "被奥术烈焰缠绕的泰坦散发出强烈的灵能力量，正撕扯着你的心灵。", "_t")
 t("titan vile spewer", "泰坦呕吐魔", "entity name")
-t("The wretched titan's skin is of a sickly green, full of ever-oozing wounds, cracks and pustules. Worms and all kind of vile things crawl over it.", "这个恶心的泰坦的皮肤呈现一种粘乎乎的绿色，满是不停的流着粘液的伤口，裂缝，和脓疱。蠕虫和其他各种卑劣的东西在他身上爬来爬去。", "_t")
+t("The wretched titan's skin is of a sickly green, full of ever-oozing wounds, cracks and pustules. Worms and all kind of vile things crawl over it.", "这个恶心的泰坦皮肤呈病态的绿色，满是不停渗液的伤口、裂缝和脓疱。蠕虫和其他各种卑劣的东西在他身上爬来爬去。", "_t")
 t("titan dreadnought", "泰坦无畏勇士", "entity name")
 t("One of the biggest titans you have seen yet, it is fully clad in deep black stralite full plate, charging menacingly towards you at a terrible pace.", "这是你迄今见过的最大泰坦之一，它身披一整套深黑色斯莱特板甲，正以骇人的速度向你猛冲而来。", "_t")
 t("sher'tan", "夏尔泰坦", "entity name")
-t("This abomination has the height of any other titan but its features definitively remind you of the few Sher'Tul images you have seen. Your very being rebels to the thought and sheer terror takes hold of your mind.", "这个孽物和其他泰坦差不多高，但是他的特征让你回想起了你见过的那些夏·图尔人图片。你竭尽全力的抗拒这些想法，你的心灵已被纯粹的恐惧所控制。", "_t")
+t("This abomination has the height of any other titan but its features definitively remind you of the few Sher'Tul images you have seen. Your very being rebels to the thought and sheer terror takes hold of your mind.", "这个孽物和其他泰坦差不多高，但是他的特征让你回想起了你见过的那些夏·图尔人图片。你竭尽全力地抗拒这些想法，你的心灵已被纯粹的恐惧所控制。", "_t")
 t("gargantuan sher'tan", "庞大的夏尔泰坦", "entity name")
-t("This abomination has the height of any other titan but its feature definitively remind you of the few Sher'Tul images you have seen. Your very being rebels to the thought and sheer terror takes hold of your mind.", "这个孽物和其他泰坦差不多高，但是他的特征让你回想起了你见过的那些夏·图尔人图片。你竭尽全力的抗拒这些想法，你的心灵已被纯粹的恐惧所控制。", "_t")
+t("This abomination has the height of any other titan but its feature definitively remind you of the few Sher'Tul images you have seen. Your very being rebels to the thought and sheer terror takes hold of your mind.", "这个孽物和其他泰坦差不多高，但是他的特征让你回想起了你见过的那些夏·图尔人图片。你竭尽全力地抗拒这些想法，你的心灵已被纯粹的恐惧所控制。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/troll-pirates.lua"
@@ -1011,7 +1011,7 @@ section "tome-orcs/data/general/npcs/undead-drake.lua"
 t("undead", "亡灵", "entity type")
 t("dragon", "龙", "entity subtype")
 t("undead drake hatchling", "亡灵幼龙", "entity name")
-t("A skeletal drake hatchling; not too powerful by itself, but if it's anything like living ones, it's probably not alone.", "一只骷髅幼龙；并不怎么强，但是如果他们的习性还像活着的时候那样的话，这里恐怕有不止一只。", "_t")
+t("A skeletal drake hatchling; not too powerful by itself, but if it's anything like living ones, it's probably not alone.", "一只骷髅幼龙；并不怎么强，但如果它和活着的幼龙有几分相像，这里恐怕不止一只。", "_t")
 t("undead drake", "亡灵飞龙", "entity name")
 t("A skeletal drake, armed with a deadly breath weapon and nasty claws.", "一只骷髅飞龙，有着致命的吐息和可怕的利爪。", "_t")
 t("undead wyrm", "亡灵巨龙", "entity name")
@@ -3634,10 +3634,10 @@ t("#CRIMSON#You feel as if your Rod of Recall is working again in this area.", "
 t("Orc Warrior", "兽人战士", "_t")
 t("Winner", "游戏胜利", "_t")
 t("#GOLD#Well done! You have won the Tales of Maj'Eyal: Embers of Rage!#WHITE#", "#GOLD#干得不错！你通关了马基·埃亚尔的传说：余烬怒火#WHITE#", "_t")
-t("You have thwarted the Steam Giants' genocidal plans, and avenged those killed in the attack on Kruk Pride.  Their desperate pact with the High Priest did nothing to stop you; the priest and his god lay dead at your feet, and you have ensured they will #{italic}#stay#{normal}# dead for the foreseeable future.", "你挫败了蒸汽巨人灭绝你们的邪恶计划，并为那些在他们残忍袭击中丧生的部落同胞复仇。他们绝望中与夏·图尔祭司订立的邪恶契约也未能阻止你，祭司和他的神倒在你的脚下，你已经确保他们在可预见的将来会#{italic}#一直#{normal}#长眠下去。", "_t")
+t("You have thwarted the Steam Giants' genocidal plans, and avenged those killed in the attack on Kruk Pride.  Their desperate pact with the High Priest did nothing to stop you; the priest and his god lay dead at your feet, and you have ensured they will #{italic}#stay#{normal}# dead for the foreseeable future.", "你挫败了蒸汽巨人灭绝你们的计划，并为那些在他们残忍袭击中丧生的部落同胞复仇。他们绝望中与夏·图尔祭司订立的契约也未能阻止你，祭司和他的神倒在你的脚下，你已经确保他们在可预见的将来会#{italic}#一直#{normal}#长眠下去。", "_t")
 t("The humans, elves, and halflings will not be able to hurt your people again.  By destroying the farportal and denying King Tolak's army its glorious battle, you have ensured the safety of your people from the Allied Kingdoms, and by storming the Gates of Morning you have eliminated the last bearers of the West's hateful aggression in Var'Eyal.", "无论是人类、精灵还是半身人，都再也无法伤害你的族人。你摧毁了远行传送门，使托拉克国王的军队失去了这场光荣的战斗，从而确保族人免受联合王国侵害。你攻下晨曦之门，也消灭了西方在瓦·埃亚尔施行可恨侵略的最后一批爪牙。", "_t")
 t("For now, peace reigns.  You know that this will not last forever.  You may have repelled its vanguard, but the Kar'Haïb Dominion bides its time waiting for a weakness it can exploit; the smugglers' portals from Maj'Eyal remain undiscovered, and while neither you nor King Tolak has any remaining desire to take the other's continent, the fear of invasion will linger in the backs of your minds.", "眼下，和平降临了。但你知道这不会永远持续下去。虽然你击退了卡尔·亥巴帝国的先锋，它却仍在等待可乘之机；走私者们从马基·埃亚尔通往这里的传送门依然没有被发现。即使你和托拉克国王都已无意夺取对方的大陆，对入侵的恐惧仍会萦绕在你们心底。", "_t")
-t("  The messages of the Lost City give you cause to remain ever vigilant for the threats they warned of, including their authors, and you wonder what your people will do now that their struggle to escape eradication, one that has defined them for their entire recorded history, has ceased to be a concern.", "  来自失落之城的消息让你充满警醒，无论是那些他们警告的恐怖威胁，还是他们本身。你想知道，当你的人民所极力摆脱的灭亡威胁：那个镌刻在你们整个历史中的威胁，现在已经不复存在的时候，你们的人民又将何去何从。", "_t")
+t("  The messages of the Lost City give you cause to remain ever vigilant for the threats they warned of, including their authors, and you wonder what your people will do now that their struggle to escape eradication, one that has defined them for their entire recorded history, has ceased to be a concern.", "  来自失落之城的消息让你时刻警惕他们所警告的种种威胁，包括他们自己。你的人民为摆脱灭亡而进行的抗争贯穿了你们有记载以来的全部历史，如今这已不再需要担忧，你不禁思索他们将何去何从。", "_t")
 t("Regardless...  You just killed a god and gave your people the first chance to relax in thousands of years.  It's been a pretty good day.", "不管怎样…你杀死了一个神，而你的人民在数千年的征战中终于有了放松的机会。多么愉快的一天。", "_t")
 t("You may continue playing and enjoy the rest of the world.  Your soldiers may want to speak with you outside...", "你可以继续游戏，享受这个世界。你的士兵在外面，有些话要说……", "_t")
 -- untranslated text
@@ -3755,12 +3755,12 @@ t("", "", "_t")
 section "tome-orcs/data/quests/kruk-invasion.lua"
 
 t("Homeland", "家园", "_t")
-t("The giants have breached the mountain-side of Kruk pride!", "巨人们已经进犯了克鲁克部族的靠山侧！", "_t")
+t("The giants have breached the mountain-side of Kruk pride!", "巨人们已经攻破了克鲁克部族依山的一侧！", "_t")
 t("They are invading the town just when most of our forces are outside.", "他们偏在我军大部分兵力都在外面时进攻城镇。", "_t")
 t([[Only you and few others are left to close the breach by collapsing the tunnel from the inside.
 ]], [[只有你和少量同伴还留在这里，必须炸毁他们的隧道，封锁突破口。
 ]], "_t")
-t("#LIGHT_GREEN#* You have collapsed the tunnel, saving the Pride. For now.#WHITE#", "#LIGHT_GREEN#* 你成功炸毁了隧道，挽救了部落的燃眉之急。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have collapsed the tunnel, saving the Pride. For now.#WHITE#", "#LIGHT_GREEN#* 你成功炸毁了隧道，暂时拯救了部落。#WHITE#", "_t")
 t("#LIGHT_GREY#* You must place the bomb at the end of the tunnel to destroy it.#WHITE#", "#LIGHT_GREY#* 你必须在隧道尽头安装炸弹来炸毁它。#WHITE#", "_t")
 t("Cave Detonator", "洞穴炸弹", "_t")
 t("This bomb was tailored to crumble the tunnel used by the Steam Giants to invade Kruk Pride.", "这枚炸弹是为粉碎蒸汽巨人用来入侵克鲁克部落的隧道而特制的。", "_t")
@@ -3806,7 +3806,7 @@ t("#LIGHT_GREEN#* The third valve has been destroyed.#WHITE#", "#LIGHT_GREEN#* �
 section "tome-orcs/data/quests/ritch-hive.lua"
 
 t("A Ritch Party", "里奇派对", "_t")
-t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地清除太阳堡垒的威胁。", "_t")
+t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地铲除太阳堡垒。", "_t")
 t("To do that we will prepare a special surprise to help our final attack.", "为此，我们必须为最终的突袭做好准备，给他们一个“惊喜”。", "_t")
 t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠以北群山中的里奇巢穴，收集大量的里奇虫卵。大约 30 个可孵化的虫卵便已足够。", "_t")
 t("When you have enough, find a tunnel leading north and use the special sand shredder gloves tinker to open a path under the Gates of Morning.", "当你有了足够的里奇虫卵，找到一条向北的隧道，使用特殊的挖沙手套插件来挖出一条通向晨曦之门的道路。", "_t")
@@ -3839,7 +3839,7 @@ t("#SLATE#* You must explore the Yeti Cave and destroy the patriarch!#WHITE#", "
 section "tome-orcs/data/quests/sunwall-observatory.lua"
 
 t("Stargazers", "观星者", "_t")
-t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地清除太阳堡垒的威胁。", "_t")
+t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地铲除太阳堡垒。", "_t")
 t("Our scouts have noticed the Gates of Morning is being reinforced with sun and moon orbs.", "我们的哨兵注意到晨曦之门使用太阳球和月亮球来进行防护。", "_t")
 t("Go to the Sunwall Observatory and destroy everything there to reduce their supplies.", "前往太阳堡垒观星台，摧毁那里的一切，以削减他们的补给。", "_t")
 t("#LIGHT_GREEN#* You have destroyed the Observatory, the Gates of Morning defenses will be weakened.#WHITE#", "#LIGHT_GREEN#* 你摧毁了观星台，晨曦之门的防御被削弱了。#WHITE#", "_t")
