@@ -1,6 +1,6 @@
 # 当前恢复入口（2026-10-03 重新生产复审）
 
-用户 2026-10-03 要求“重新再走一轮生产复审流程”。第 382 批之后的译文改动（机制修正撤回后保留的普通修正、补充解释精简、生硬描述 A／B 档及两轮交叉复核修正）已在 `ca558992` 上迁移进复审目录：catalog `c5d72508…`，migration `22b293c4…`，**993 个 successor** 排队待审（约 13 批，估算；第383批已审 80，余 913）。见[迁移记录](evidence/quality/maintenance-reaudit-20261003/README.md)。
+用户 2026-10-03 要求“重新再走一轮生产复审流程”。第 382 批之后的译文改动（机制修正撤回后保留的普通修正、补充解释精简、生硬描述 A／B 档及两轮交叉复核修正）已在 `ca558992` 上迁移进复审目录：catalog `c5d72508…`，migration `22b293c4…`，**993 个 successor** 排队待审（约 13 批，估算；第383–384批已审 160，余 833）。见[迁移记录](evidence/quality/maintenance-reaudit-20261003/README.md)。
 
 按常驻连续审核授权从第 383 批起逐批推进，每批收口后 push；确认待修项累计 ≥20 条再开合并修复窗口 64。批次操作见下文“翻译审核当前交接”与审核操作指南。`tome-possessors.lua`、`tome-items-vault.lua` 的 13 条改动不在目录内，不进入复审。对外 0.3.2 未变，无发布授权。
 
@@ -60,7 +60,7 @@
 
 # 翻译审核当前交接
 
-更新时间：2026-10-03（第383批已 finalize，窗口64积压 0 条，继续审核第384批）
+更新时间：2026-10-03（第384批已 finalize，窗口64积压 3 条，继续审核第385批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -75,9 +75,9 @@
 - 2026-10-01：第376批后按维护者要求暂停；用户“先补术语库”（`8e2fae4e`，181 行），三方讨论改为 gpt-6-astra／opus-5-5／gemini-3.8-flash，同意统一 21 个名称并开窗口59；裁定 Phoenix＝凤凰、“恢复失衡值”保留不改。
 - 2026-10-01：用户裁定 deeprock 技能树改“深岩”（Deeprock Form 保持“深岩形态”），并要求一并修复 Korbek 实验笔记标题等非阻断问题，开窗口60。
 - 2026-10-01：审核队列清空后，用户要求系统性分析死亡信息表（`cd2d0d7e`）；同意把 12 条句式与拼接缺陷并入积压，开窗口61；随后裁定 pending #50（killer_message 改凶手主语）与 #51（dark Master→黑暗领主）均采用 B，排入窗口62。窗口62 已于同日完成并推送。
-- 审核已闭合至第 **383** 批（`batch-fe24f4f2a420a35a72cc`）：80 条，80 done / 0 repair_required。
-  重新复审首批：migration 22b293c4 排入的 successor 80 条（主游戏 45、引擎 21、启动 2、Orcs 6、Ashes 4、Cults 2）：surface 四组 79 OK / 1 ISSUE；contextual 首轮通过（1 ISSUE，与 surface 同一点），宿主判建议。无确认，窗口64积压 0；余 913 个 successor。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `4c3567eb8d13a72e52c6d2f7712b159c46ef204c` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **384** 批（`batch-e63ec4963b48bd6eee9a`）：80 条，77 done / 3 repair_required。
+  重新复审：successor 80 条（主游戏 63、引擎 4、启动 13）：surface 77 OK / 3 ISSUE；contextual 1 OK / 2 ISSUE；裁决 confirmed 5；新增修复 3 条，窗口64积压 3；余 833 个 successor。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `22317780532d2abcca91d98d1e18a1a383cd0fc0` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **63**：窗口62（译文 `1f4395f6`）与窗口63（第381批确认的意志之力 maces“权杖”→“狼牙棒” 1 条，译文 `7a7d8653`，migration `f0e5ef72…`）均已修复；窗口63 的 1 个 successor 须重新审核，不继承旧 revision 的 done 状态（窗口61、62 的 successor 已于第381批审完）。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
@@ -105,6 +105,7 @@
 | 381 | `batch-4584eb6ddb5e3110acab` | 74 done / 1 repair | 74 OK / 1 ISSUE | 1 OK / 0 ISSUE | 1 confirmed |
 | 382 | `batch-554490d4847b278842b9` | 1 done / 0 repair | 1 OK / 0 ISSUE | 0 OK / 0 ISSUE |  |
 | 383 | `batch-fe24f4f2a420a35a72cc` | 80 done / 0 repair | 79 OK / 1 ISSUE | 0 OK / 1 ISSUE | 2 advisory |
+| 384 | `batch-e63ec4963b48bd6eee9a` | 77 done / 3 repair | 77 OK / 3 ISSUE | 1 OK / 2 ISSUE | 5 confirmed |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -124,14 +125,14 @@
 
 ## 三、下一步
 
-1. 继续审核第 **384** 批：2026-10-03 迁移（migration `22b293c4…`）排入的 993 个 successor（机制修正撤回后保留的普通修正 44、补充解释精简 16、生硬描述 A 档 632、B 档 326，含 25 条多阶段重复修改）。第382批审完窗口63 的 1 个 successor（无新增确认）。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
+1. 继续审核第 **385** 批：2026-10-03 迁移（migration `22b293c4…`）排入的 993 个 successor（机制修正撤回后保留的普通修正 44、补充解释精简 16、生硬描述 A 档 632、B 档 326，含 25 条多阶段重复修改）。第382批审完窗口63 的 1 个 successor（无新增确认）。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
    届时用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句）；
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
 2. 窗口 63 已完成（1 条，主游戏）：第381批确认的意志之力（Strength of Purpose）maces“权杖”→“狼牙棒”（与其覆盖的武器掌握同句式一致），并按整句对照把第一行改为“当使用剑、斧、狼牙棒、匕首或者弓箭时，增加 %d%% 武器伤害和 30 点物理强度。”（去掉逗号后多余空格、补谓语）。用户 2026-10-01 批准在未达 20 条时开窗。复审路径：execute-01 → REVIEW r0a1（GPT-6.1 Sol）1 OK → FINAL f0a2（Opus 5.5）1/1，cycle 0 收敛；门禁 17/17。
    窗口62（killer_message 凶手主语 50 条、黑暗领主 2 条、苦痛链接 1 条）详见 `evidence/quality/repair-window-62-20261001/PUBLICATION.md`；教训：killer_message 被 `" "..src.killer_message` 拼在凶手名后，译文不得以标点起头。
    窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
-   窗口 64 积压 **0** 条（窗口63后重新计数，暂无）：第383批 无新增；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
-   第383批计时（实测，投影缓存 on）：start 152.2 s；adjudication chain（含 17 项门禁）167.0 s；finalize 153.1 s。
+   窗口 64 积压 **3** 条（窗口63后重新计数，主游戏 2、引擎 1）：第383批 无新增；第384批 `0090a2e867` 科斯汀望远镜遗言前缺空行、`0a4c89e965` 盾战士简介漏译“rarely leaving the cover”、`af41a12055` 内购欢迎词新增“不影响游戏内容”断言；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   第384批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）171.8 s；finalize 154.8 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。
 
