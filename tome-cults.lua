@@ -3321,7 +3321,7 @@ t([[Infects the target with a very contagious disease, doing %0.2f damage per tu
 		The damage will increase with your Spellpower, and the spread chance increases with the amount of blight damage dealt.]], [[使目标感染一种传染性极强的疾病，每回合造成 %0.2f 伤害，持续 6 回合。
 		如果目标受到非疾病来源的枯萎伤害，传染病可能被触发，并将一种随机疾病传播给半径 2 的球形范围内的附近目标。
 		传播几率随造成的枯萎伤害提高；当该伤害至少达到目标最大生命值的 %d%% 时，传播几率为 100%%。
-		感染该疾病的生物还会受到治疗效果降低 （%d%%） 和疾病免疫降低 （%d%%） 的影响。
+		感染该疾病的生物，其治疗效果还会降低 %d%%， 疾病免疫降低 %d%%。
 		传染病威力极强，会完全无视目标的疾病免疫。
 		伤害随法术强度提高，传播几率随造成的枯萎伤害量提高。]], "tformat")
 t("Mutated Hereragegand", "异变之手", "talent name")
