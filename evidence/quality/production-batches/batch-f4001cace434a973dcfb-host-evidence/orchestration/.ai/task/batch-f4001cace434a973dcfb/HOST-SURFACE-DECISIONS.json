@@ -1,0 +1,87 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [
+    {
+      "revision_key": "4396f7dfa07c93d5ea4cd2ebf0716e15615fcd76a01623452d720803da0359d8",
+      "source": "Activate the rocket boots, firing huge flames from your boots increasing your movement speed by %d%%.\n\t\tEach movement will leave a trail of flames doing %0.2f fire damage for 4 turns.\n\t\tDoing any other actions will break the effect.\n\t\t#{italic}#Burninate them all!#{normal}#",
+      "target": "激活火箭靴，从你的靴子上发射巨大的火焰，增加你的移动速度 %d%%。\n每次移动都会留下一道持续 4 回合的火焰，造成 %0.2f 火焰伤害。\n做任何其他行动都会打断效果。\n#{italic}#烧毁他们 !#{normal}#",
+      "disposition": "advisory",
+      "note": "宿主补充观察：Orcs 公开源码（来源未固定）tome-orcs/data/talents/steam/other.lua:444 起 火箭靴（Rocket Boots）说明：原文第二至四行行首为 \\t\\t（共 6 个 TAB），现译三行行首的 \\t\\t 全部丢失（TAB 0），违反 LF／TAB 格式不变量；末行“Burninate them all!”译“烧毁他们 !”漏 all 且感叹号前多空格、用半角。surface lane-000-1 判 OK、未进 contextual。本批按惯例记 done（宿主补充不改 disposition），作为宿主补充项登记到窗口65：三行行首补回 \\t\\t，末行改为“#{italic}#把他们统统烧光！#{normal}#”。"
+    },
+    {
+      "revision_key": "48e944baf872c52257902cecc03e586d13ef41e65c91adac9fc25f79affa4604",
+      "source": "You open all steam valves at once, releasing a radius %d wave of superheated steam around yourself which deals %0.2f fire damage (but can not be a critical hit).\n\t\tIf you had at least 35 steam, the vapours will be so hot that they can burn sensory organs, blinding affected creatures for %d turns.\n\t\tThe effects scale with your current steam value; at 1 steam they are only 15%% as effective as at 50 or more (current factor %d%%).",
+      "target": "你打开所有蒸汽阀，释放半径 %d 的蒸汽冲击波，造成 %0.2f 火焰伤害。（这一技能无法暴击）\n\t\t若你有至少 35 点蒸汽，气体的温度将变得极高，能烧伤感知器官，令受影响的生物目盲 %d 回合。\n\t\t效果受当前蒸汽值加成。1 点蒸汽值时，强度仅为 50 点或更高蒸汽值时的 15%%。\n\t\t当前强度系数 %d%%。",
+      "disposition": "advisory",
+      "note": "宿主补充观察：Orcs 公开源码（来源未固定）tome-orcs/data/talents/steam/engineering.lua:21 起 紧急蒸汽排出（Emergency Steam Purge）说明：原文 2 个 LF，“(current factor %d%%)”在第三行句内；现译在“15%%。”后另起“\\n\\t\\t当前强度系数 %d%%。”，多 1 个 LF（3 个），违反换行不变量。surface lane-000-1 判 OK、未进 contextual。本批按惯例记 done，作为宿主补充项登记到窗口65：末两行合并为“……强度仅为 50 点或更高蒸汽值时的 15%%（当前强度系数 %d%%）。”"
+    }
+  ],
+  "slide_check": "all 8 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "2e202430f808f279ca4650fb20723042584c5f52851c3763fb5abfb79d3acf6a",
+      "stage": "surface",
+      "observation": "原文使用条件为直到使用任何其他“spell or talent”；译文仅写“中途没有释放过其他法术”，遗漏其他技能也会终止可用条件。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/spells/other-technomancy.lua 电子咒式（Electron Incantation）：callbackOnTalentPost（:33-39）在施放任何技能后，只要该技能不是另一个科技法术就把 can_use_electron_incantation 清空，on_pre_use（:40-44）据此禁止施放；即使用任何其他法术或技能都会失效，info :69 也写“until you use any other spell or talent”。现译“且中途没有释放过其他法术”漏掉技能，把失效条件缩窄为法术（contextual 同判）。确认。修复：第三行改为“这个法术只能在你施放科技法术之后、且尚未使用任何其他法术或技能时使用。”，其余（含 \\t\\t）不变。"
+    },
+    {
+      "revision_key": "2efd00c290043d0ba4d711eb59a3a29e861044af0808ce018a3638a2a79e77a7",
+      "stage": "surface",
+      "observation": "原文为“a free melee attack”，译文仅写“一次近战攻击”，遗漏该攻击免费触发的限定。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/misc/objects.lua 火箭突进（Rocket Dash）：:175 突进到达被占据格时 attackTarget 打一下并 :177 击退，攻击包含在这次突进动作内；现译“到达的时候会对目标进行一次近战攻击”已表达附带攻击，只略去 free 的修饰，不改变机制，contextual 判 OK。只记建议：可作“进行一次免费的近战攻击”。（另：实现倍率为 1.3，而原文写 180%，译文照原文，属上游文本与实现不一致，不在本条范围。）"
+    },
+    {
+      "revision_key": "4ec95d55de8d85c832e1653f7c1991d4b63b4a416c4a2d8230c3430ef90ceea8",
+      "stage": "surface",
+      "observation": "原文仅说明技能失败几率在再次施加五次后达到上限（up to %d%% after 5 reapplications），译文“最多叠加五次”额外宣称瘴气叠加次数存在上限。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/chemical-warfare.lua 瘴气引擎（Miasma Engine）getMax=5，效果 MIASMA_ENGINE（timed_effects/physical.lua:1404 起）on_merge 用 math.min(old_eff.stacks + 1, new_eff.max_stacks) 把叠层封顶为 5，失败率按 fail*stacks/max_stacks 计；现译“最多叠加五次，达到 %d%%”与实现一致，contextual 判 OK。驳回。"
+    },
+    {
+      "revision_key": "557285f8a1f44ef7fc096029eb609cb683a2a233322ccd6c8c910ee4c1c36671",
+      "stage": "surface",
+      "observation": "原文后续电弧对其他目标造成 lightning damage equal to the stored amount，译文仅写“相当于你存储的伤害量的伤害”，遗漏该段伤害的闪电类型。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/magnetism.lua 电力放出（Capacitor Discharge）action :216-232：对每个目标 project DamageType.LIGHTNING_DAZE {dam=储存量}，即电弧伤害为闪电伤害；info :250 亦写“dealing lightning damage equal to the stored amount”。现译“产生相当于你存储的伤害量的伤害”漏掉伤害类型（闪电），属机制信息遗漏。contextual 判 OK，宿主以实现为准确认。修复：改为“并产生一股电弧，对最多 %d 个其他目标造成相当于你储存伤害量的闪电伤害。”，其余不变。"
+    },
+    {
+      "revision_key": "5c908e08b3e00b9488111b4985ffea41727f710381e3062a5c5c90db18acfa94",
+      "stage": "surface",
+      "observation": "两处换行后的缩进由原文的两个制表符（\\t\\t）改成两个全角空格（　　），冻结字符串的格式字符未保留。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/other.lua 雷鸣榴弹（Thunder Grenade，:1137 起）说明：原文第二、三行行首为 \\t\\t，现译换成两个全角空格 U+3000，破坏 LF／TAB 格式不变量（先例：batch-966a30f506c5616356f4 的 46b5e759b9 与 batch-a56cdce9f90a044bdd63 的 70349db401，同类全角空格缩进均确认）。contextual 判 OK，宿主以格式不变量确认。修复：两处“　　”改回 \\t\\t，文字不变。"
+    },
+    {
+      "revision_key": "6dc843e987d66d157050591a272eb29fd4aef8d95d1ce670ffd0c03bdbcdc6c3",
+      "stage": "surface",
+      "observation": "原文明确描述幼虫正在取食宿主（which are feeding on it%s），译文仅写“寄生%s”，遗漏取食含义；%s 的实际内容未冻结，无法判断拼接后的完整表现。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/timed_effects/physical.lua:337-343 幼虫寄生效果 long_desc：%s 在孵化前拼接“ for %0.2f physical damage (increasing) each turn”，本库该片段译作“ ，每回合受到 %0.2f 物理伤害（随回合递增）”（tome-orcs.lua:6398），拼接后为“目标被 N 个里奇幼虫寄生，每回合受到 X 物理伤害（随回合递增）”，“寄生”加逐回合伤害已表达 feeding on it。contextual 判 OK。驳回。"
+    },
+    {
+      "revision_key": "80ce6e73ac796fbe9d1268eba89d1adfab224970ff83e7b744c52fd10b7eb1ef",
+      "stage": "surface",
+      "observation": "原文 dazing/daze 均译为“眩晕”，存在与 stun 状态混淆的疑点；冻结输入没有相关术语正文或状态定义，无法确认是否错译。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/misc/objects.lua 停火（Ceasefire）说明：本库 daze 统一作“眩晕”、stun 作“震慑”（同批 5c908e08b3 雷鸣榴弹 stunned→震慑），现译“眩晕目标”“眩晕几率”符合本库约定，无混淆。contextual 判 OK。驳回。"
+    },
+    {
+      "revision_key": "95b2ccbaf055ecb7e97f4f4464e06396c7e0e7f02bf034f0f199d2b94dfc7d5c",
+      "stage": "surface",
+      "observation": "原文 multi-barreled bolt launcher 与 flechettes 分别指多管箭矢发射器和镖形弹，译文写成“多管重型枪械”和“子弹”，丢失武器及弹药类型并新增“重型”。原文段间为 \\n\\t\\t\\n\\t\\t，译文为 \\n\\n\\t\\t，少了一组制表符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/heavy-weapons.lua:510 说明：“multi-barreled bolt launcher”是多管弩箭发射器，“chemical-infused flechettes”是箭形弹，同族攻击说明本库作“化学毒弹”（tome-orcs.lua:5188）；现译“多管重型枪械”“子弹”改变武器与弹药类型并增“重型”，属错译。contextual 判 OK，宿主按原文与同族译法确认。修复：首句改为“你把你的蒸汽枪替换成一具多管弩箭发射器，发射注入致命化学物质的毒弹。”，其余不变。原文空行上的 \\t\\t 属行尾空白，按门禁 11 先例不补。"
+    }
+  ]
+}
