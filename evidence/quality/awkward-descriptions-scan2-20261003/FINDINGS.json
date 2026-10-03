@@ -1,0 +1,475 @@
+{
+  "task": "awkward-descriptions-scan2-20261003",
+  "baseline_commit": "1663a0a71a8f830ae14d326782ed5316cb33a740",
+  "scope": "Main-agent read-only textual screening and bounded English/Chinese comparison; no game-mechanism adjudication, no production review contract, no translation edits.",
+  "counts": {
+    "groups": 14,
+    "records": 17,
+    "statuses": {
+      "confirmed": 7,
+      "advisory": 7
+    }
+  },
+  "findings": [
+    {
+      "id": "SCAN2-01",
+      "status": "confirmed",
+      "kind": "text_expansion",
+      "excerpt": "（近战或射击落空、或被招架）",
+      "problem": "在“防御性触发”之后插入触发条件清单，打断主句；仅确认这是当前条目英文之外的展开。",
+      "english_basis": "本条只有 each time it is triggered defensively；相邻 Tempo 英文确实列出 melee or archery attack misses you or you parry it，因此不认定机制错误或无依据杜撰。",
+      "suggested_excerpt": "每当“节奏”因防御而触发时，本技能的冷却时间减少 1 回合。",
+      "records": [
+        {
+          "file": "mod-tome.lua",
+          "component": "tome",
+          "index": 15593,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 30401,
+          "section": "mod-tome/data/talents/techniques/duelist.lua",
+          "source": "Exploiting a gap in your target's defenses, you make a lethal strike with your offhand weapon for %d%% damage that causes them to drop their weapon, disarming them for %d turns.\n\t\tTempo will reduce the cooldown of this talent by 1 turn each time it is triggered defensively.\n\t\tThe chance to disarm increases with your Accuracy.",
+          "source_tag": "tformat",
+          "target": "你攻其不备，用副手发起致命打击，造成 %d%% 伤害并使其武器脱落，缴械 %d 回合。\n\t\t每当节奏被防御性触发（近战或射击落空、或被招架）时，本技能的冷却时间减少 1 回合。\n\t\t缴械几率受命中加成。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-02",
+      "status": "confirmed",
+      "kind": "grammar",
+      "excerpt": "但是这个世界并不是那么美好以至于我们的大法师不得不飞速逃跑。",
+      "problem": "“并不是那么……以至于……”把否定和因果拧在一起，读起来像“美好”导致逃跑。",
+      "english_basis": "But the world is not a nice place and it seems he had to run fast.",
+      "suggested_excerpt": "但这个世界并不友善，看来他也曾不得不拔腿就跑。",
+      "records": [
+        {
+          "file": "mod-tome.lua",
+          "component": "tome",
+          "index": 8804,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 12332,
+          "section": "mod-tome/data/general/objects/world-artifacts-maj-eyal.lua",
+          "source": "Archmage Tarelion travelled the world in his youth. But the world is not a nice place and it seems he had to run fast.",
+          "source_tag": "_t",
+          "target": "大法师泰尔兰在年轻的时候曾环游世界。但是这个世界并不是那么美好以至于我们的大法师不得不飞速逃跑。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-03",
+      "status": "confirmed",
+      "kind": "grammar",
+      "excerpt": "任何目标或你的移动将会打破抓取。",
+      "problem": "“任何目标”容易读成任意其他目标；修饰语和主语关系不清。",
+      "english_basis": "Any movement from the target or you will break the grapple.",
+      "suggested_excerpt": "你或被抓取的目标一旦移动，抓取就会中断。",
+      "records": [
+        {
+          "file": "mod-tome.lua",
+          "component": "tome",
+          "index": 15634,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 30486,
+          "section": "mod-tome/data/talents/techniques/grappling.lua",
+          "source": "Make a melee attack for %d%% damage and then attempt to grapple a target up to one size category larger than yourself for %d turns. A grappled opponent will be unable to move, take %d damage each turn, and %d%% of the damage you receive from any source will be redirected to them as physical damage.\n\t\tAny movement from the target or you will break the grapple. Maintaining a grapple drains %d stamina per turn.\n\t\tYou may only grapple a single target at a time, and using any targeted unarmed talent on a target that you're not grappling will break the grapple.",
+          "source_tag": "tformat",
+          "target": "对目标进行一次近战攻击，造成 %d%% 武器伤害并抓取目标（可抓取目标的身材最多比你大 1 级）持续 %d 回合。被钳住的对手将无法移动，每回合受到 %d 物理伤害，同时你从任何来源受到的伤害的 %d%% 将以物理伤害的形式转移至它身上。\n\t\t任何目标或你的移动将会打破抓取。维持抓取每回合消耗 %d 体力。\n\t\t同时你只能抓取 1 个目标，并且对任意一个你未在抓取中的目标使用指向性徒手技能均会打破抓取。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-04",
+      "status": "confirmed",
+      "kind": "grammar",
+      "excerpt": "在魔法大爆炸后这个灾变后的世界",
+      "problem": "“后”重复，灾变、世界的修饰关系绕口；这里只建议改该短语，不顺带改其他叙事含义。",
+      "english_basis": "in the apocalyptic world created by the Spellblaze",
+      "suggested_excerpt": "在魔法大爆炸造成的末世中",
+      "records": [
+        {
+          "file": "tome-cults.lua",
+          "component": "cults",
+          "index": 804,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 2383,
+          "section": "tome-cults/data/lore/misc.lua",
+          "source": "Only one person escaped alive from the summoning of the Unspeakable Thing. She believed that, despite the failure of her fellow students and the horror of what she saw, The Teacher's wisdom still had value in the apocalyptic world created by the Spellblaze. After all, is it not better to know about the horrors out there than it is to be ignorant of their existence? She began to pass on the power of entropy onto others, and they too passed it on. The ones who learned this forbidden lore became known as the Cultists of Entropy.\n\nWhat became of The Teacher is unknown. Perhaps it didn't survive the encounter with the Unspeakable Thing, or perhaps it returned to its home somewhere far beyond Eyal.",
+          "source_tag": "_t",
+          "target": "不可名状的恐怖降临之时，只有一个人幸存逃离。她坚信，尽管她的同学们失败地召唤出了她所看到的无法言说的恐怖，但导师的智慧教诲在魔法大爆炸后这个灾变后的世界仍然有着无法替代的价值。毕竟，比起那些恐怖本身，对恐怖的无知不是更加糟糕吗？她开始向其他人传授有关熵的力量的知识，而这一知识也就这样代代相传。那些掌握了这些禁忌知识的人，现在被称为熵教徒。\n\n没有人知道“导师”去了哪里。也许，他没能在不可名状的恐怖之下幸存；也许，他离开了埃亚尔，回到了自己遥远繁星中的家园。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-cults.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-05",
+      "status": "confirmed",
+      "kind": "grammar",
+      "excerpt": "焚尽强击必定被此效果触发（或者下一次攻击）",
+      "problem": "“此效果”与“下一次攻击”并列不齐，括注缺少清楚的句法归属。",
+      "english_basis": "Incinerating Blows will always trigger on this attack (or your next attack)",
+      "suggested_excerpt": "这次攻击（或你的下一次攻击）必定触发焚尽强击",
+      "records": [
+        {
+          "file": "tome-ashes-urhrok.lua",
+          "component": "ashes-urhrok",
+          "index": 497,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1176,
+          "section": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+          "source": "Whenever you kill a burning enemy, you will instantly deal a melee attack against a random adjacant enemy at %d%% power. \n\t\tAdditionally, Incinerating Blows will always trigger on this attack (or your next attack), dealing %d%% of its normal damage to all enemies hit and stunning, ignoring the cooldown.\n\t\tThis can only trigger once every 5 turns.",
+          "source_tag": "tformat",
+          "target": "每次你击杀一个燃烧的敌对生物时，会立刻对一个随机相邻敌对生物进行一次攻击，造成 %d%% 武器伤害。\n\t\t另外，焚尽强击必定被此效果触发（或者下一次攻击），对所有击中的敌对生物造成 %d%% 正常伤害并使其震慑，无视冷却时间。\n\t\t此效果每 5 回合才能触发一次。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-06",
+      "status": "advisory",
+      "kind": "translationese",
+      "excerpt": "任何对你的成功的近战攻击……自动的蒸汽链锯反击；提供装备它所提供的属性加成",
+      "problem": "连续“的”和“提供……所提供”重复；条件和属性本身均有英文依据，应保留。",
+      "english_basis": "Any successful melee attack against you ... automatic steamsaw attack that cannot miss; provide its bonus as if it was worn",
+      "suggested_excerpt": "近战攻击命中你时，蒸汽链锯会自动反击，且必定命中……；以这种方式使用蒸汽链锯，也能获得它的装备属性加成……",
+      "records": [
+        {
+          "file": "tome-orcs.lua",
+          "component": "orcs",
+          "index": 1994,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 4364,
+          "section": "tome-orcs/data/talents/spells/occult-technomancy.lua",
+          "source": "You imbue a steamsaw with arcane and temporal forces, making it spin very fast around your waist (ignoring requirements).\n\t\tThe saw spins so fast it it disturbs spacetime around you, increasing your spellpower by up to %d, your spell critical chance by up to %d and your mana regen by up to %0.1f (depending on steamsaw tier).\n\t\tAny successful melee attack against you also triggers an automatic steamsaw attack that cannot miss dealing %d%% weapon damage as occult damage (arcane and temporal).\n\t\tThe steamsaw used will provide its bonus as if it was worn, but you can not Block with it.\n\t\tIncreases steamsaws weapon damage by %d%% and uses Magic instead of Strength to determine their damage.\n\t\tIf using Aether Avatar, all Occult Technomancy spells become usable for its duration and all occult damage becomes pure arcane.\n\n\t\t#{italic}#When you first learn this talent you also learn the Steamsaw tinker creation if you didn't already know it.#{normal}#\n\t\t",
+          "source_tag": "tformat",
+          "target": "你把奥术和时空能量注入一把蒸汽链锯，让它绕着你的腰飞速旋转（无视装备需求）。\n\t\t这把链锯旋转的速度是那么快，它扰乱了你周围的时空。最多增加你 %d 的法术强度， %d 的法术暴击率，和 %0.1f 的法力值恢复（基于蒸汽链锯的材质等级）\n\t\t任何对你的成功的近战攻击都会触发一次必定命中的自动的蒸汽链锯反击，造成 %d%% 玄机（奥术和时空）武器伤害。\n\t\t使用这种方法装备的蒸汽链锯会提供装备它所提供的属性加成，但你不能使用它来格挡。\n\t\t增加蒸汽链锯的武器伤害 %d%%， 并在使用蒸汽链锯时用魔力值代替力量值计算伤害。\n\t\t如果你激活了以太之体，所有科技法术：玄机系的技能都可以在其持续期间使用，并且所有玄机伤害都会转化为纯净的奥术伤害。\n\n\t\t#{italic}#当你第一次学会这一技能的时候，如果你还没有掌握蒸汽链锯的配方，你还会同时学会这一配方。#{normal}#\n\t\t",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-orcs.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-07",
+      "status": "advisory",
+      "kind": "translationese",
+      "excerpt": "你使用你的蒸汽机，在你的周围产生一股有毒且有腐蚀性的化学物质形成的云雾。",
+      "problem": "“你／你的”重复，名词修饰链过长；建议精简开头即可。",
+      "english_basis": "You repurpose your steam engine to emit a cloud of toxic, corrosive chemicals around you.",
+      "suggested_excerpt": "你改用蒸汽机向周围释放有毒且具有腐蚀性的化学烟雾。",
+      "records": [
+        {
+          "file": "tome-orcs.lua",
+          "component": "orcs",
+          "index": 2146,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 4809,
+          "section": "tome-orcs/data/talents/steam/chemical-warfare.lua",
+          "source": "You repurpose your steam engine to emit a cloud of toxic, corrosive chemicals around you.\n\t\tEach time you use a non-instant steamtech talent, you create a radius 3 cloud of miasma for 5 turns. All enemies within the miasma have %d%% reduced healing and %d%% chance to fail talent usage.\n\t\tEach time miasma is reapplied the failure chance increases, up to %d%% after 5 reapplications.\n\t\tThe first time each turn a target affected by miasma is hit by a melee or ranged attack the miasma seeps into their wounds, dealing an additional %0.2f acid damage.\n\t\tMiasma duration does not increase on re-apply.\n\t\tWhen a creature survives the miasma it becomes immune to it for 9 turns.",
+          "source_tag": "tformat",
+          "target": "你使用你的蒸汽机，在你的周围产生一股有毒且有腐蚀性的化学物质形成的云雾。\n\t\t每当你使用一个非瞬发的蒸汽科技技能的时候，你会在周围产生半径为 3 码的瘴气，持续 5 回合。所有被包裹入瘴气的敌人治疗效果减少 %d%%， 且会有 %d%% 的几率使用技能失败。\n\t\t瘴气效果叠加的时候，这一技能使用失败的几率也会上升，最多叠加五次，达到 %d%%。\n\t\t当被瘴气影响的目标每回合第一次被近战或远程攻击击中的时候，瘴气会渗入他们的伤口，造成 %0.2f 额外的酸性伤害。\n\t\t瘴气效果叠加的时候，持续时间不会叠加。\n\t\t当一个生物在瘴气效果中存活下来后，它会免疫瘴气效果 9 回合。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-orcs.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-08",
+      "status": "advisory",
+      "kind": "translationese",
+      "excerpt": "护甲过热，温度极高，以至于最多 %d 个负面物理状态被高温驱散",
+      "problem": "“过热／温度极高／高温”反复，长被动句可顺写；高温驱除状态有原文依据。",
+      "english_basis": "armour overheats ... cauterize up to %d detrimental physical effects",
+      "suggested_excerpt": "达到 10 点融化点数时，过热的护甲会以高温驱除你身上至多 %d 个物理负面状态。",
+      "records": [
+        {
+          "file": "tome-orcs.lua",
+          "component": "orcs",
+          "index": 2218,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 5012,
+          "section": "tome-orcs/data/talents/steam/furnace.lua",
+          "source": "When you reach 10 molten points your armour overheats, reaching temperatures so high that they cauterize up to %d detrimental physical effects on you.\n\t\tA special medical injector injects you with a fire immunity serum at that precise moment to make you immune to the burning effect.\n\t\tWhen this happens all molten points are consumed and trigger a Furnace Vent at the creature that triggered the last molten point.\n\t\tThis effect drains 15 steam when triggered, and will not trigger if steam is too low.\n\t\t#{italic}#It's only a flesh burn!#{normal}#\n\t\t",
+          "source_tag": "tformat",
+          "target": "当你达到 10 点融化点数时，你的护甲过热，温度极高，以至于最多 %d 个负面物理状态被高温驱散。\n\t\t同时，一个特殊的医疗注射器会为你注射火焰免疫血清，令你免疫烧伤效果。\n\t\t该效果触发时，消耗所有融化点数，并自动对最后一次提供融化点数的生物触发一次通风孔效果。\n\t\t该效果将消耗 15 点蒸汽。蒸汽不足时不能触发。\n\t\t#{italic}#不过是皮肉烫伤！#{normal}#\n\t\t",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-orcs.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-09",
+      "status": "advisory",
+      "kind": "redundancy",
+      "excerpt": "两只手都可用于手势（每只手须为空手或装备灵晶）",
+      "problem": "先说抽象条件，再用括注复述具体条件，可以直接给出要求。",
+      "english_basis": "two free or mindstar-equipped hands",
+      "suggested_excerpt": "使用痛苦手势时，双手都必须空着或装备灵晶。",
+      "records": [
+        {
+          "file": "mod-tome.lua",
+          "component": "tome",
+          "index": 13004,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 24229,
+          "section": "mod-tome/data/talents/cursed/gestures.lua",
+          "source": "You require two free or mindstar-equipped hands to use Gesture of Pain.",
+          "source_tag": "logPlayer",
+          "target": "你需要两只手都可用于手势（每只手须为空手或装备灵晶），才能使用痛苦手势。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-10",
+      "status": "advisory",
+      "kind": "redundancy",
+      "excerpt": "以太之体状态下，只会释放以太之体下能释放的技能。",
+      "problem": "“以太之体下”“释放”各重复一次；限制有英文依据，应简化而不是删除。",
+      "english_basis": "During Aether Avatar only compatible spells are used.",
+      "suggested_excerpt": "处于以太之体状态时，只会施放该状态允许使用的法术。",
+      "records": [
+        {
+          "file": "mod-tome.lua",
+          "component": "tome",
+          "index": 15305,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 29742,
+          "section": "mod-tome/data/talents/spells/thaumaturgy.lua",
+          "source": "Casting beam spells has become so instinctive for you that you can now easily weave in other spells at the same time.\n\t\tAnytime you cast a beam spell there is a %d%% chance to automatically cast an offensive spell that you know.\n\t\tBeam spells duplicated by the Orb of Thaumaturgy can also trigger this effect.\n\t\tThis can only happen once (or twice with Orb of Thaumaturgy) per turn.\n\t\tThe additional cast will cost mana but no turn, will not active its cooldown and can trigger on spells currently on cooldown.\n\t\tDuring Aether Avatar only compatible spells are used.\n\n\t\tEligible spells: %s",
+          "source_tag": "tformat",
+          "target": "释放射线类法术对你来说如此自然，以至于可以和其他法术穿插释放。\n每当释放射线类法术时，你有 %d%% 几率自动释放一个已习得的其他攻击类法术。\n奇术之球复制的射线类法术也能触发这一效果。\n该效果每回合只能触发一次（有奇术之球时最多触发两次）。\n额外施放会消耗法力，但不消耗回合，也不会触发法术的冷却；即使法术当前处于冷却中也可以触发。\n以太之体状态下，只会释放以太之体下能释放的技能。\n\n可触发法术：%s",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-11",
+      "status": "advisory",
+      "kind": "redundancy",
+      "excerpt": "你需要拥有一双疾行之靴（疾行之靴需在背包中）。",
+      "problem": "物品名重复，把必要的背包条件藏在括注内。",
+      "english_basis": "You need to have the Shoes of Moving Quickly in your inventory.",
+      "suggested_excerpt": "你的背包中需要有一双疾行之靴。",
+      "records": [
+        {
+          "file": "tome-cults.lua",
+          "component": "cults",
+          "index": 625,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 819,
+          "section": "tome-cults/data/general/objects/world-artifacts.lua",
+          "source": "You need to have the Shoes of Moving Quickly in your inventory.",
+          "source_tag": "logPlayer",
+          "target": "你需要拥有一双疾行之靴（疾行之靴需在背包中）。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-cults.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-12",
+      "status": "advisory",
+      "kind": "translationese",
+      "excerpt": "有着%s的形象的水晶分身。／有着%s的形象的岩石分身。",
+      "problem": "“有着……的形象的”连续套接，可压缩；两处同步处理。",
+      "english_basis": "A crystaline/stone structure that has taken the form of %s.",
+      "suggested_excerpt": "化作 %s 模样的水晶分身。／化作 %s 模样的岩石分身。",
+      "records": [
+        {
+          "file": "mod-tome.lua",
+          "component": "tome",
+          "index": 13211,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 24750,
+          "section": "mod-tome/data/talents/gifts/dwarven-nature.lua",
+          "source": "A crystaline structure that has taken the form of %s.",
+          "source_tag": "tformat",
+          "target": "有着%s的形象的水晶分身。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        },
+        {
+          "file": "mod-tome.lua",
+          "component": "tome",
+          "index": 13214,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 24753,
+          "section": "mod-tome/data/talents/gifts/dwarven-nature.lua",
+          "source": "A stone structure that has taken the form of %s.",
+          "source_tag": "tformat",
+          "target": "有着%s的形象的岩石分身。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-13",
+      "status": "confirmed",
+      "kind": "redundancy",
+      "excerpt": "一对兵器中的其中一个",
+      "problem": "“中的”与“其中”重复，“长剑”用“一个”也不自然。",
+      "english_basis": "this blade is one of a pair",
+      "suggested_excerpt": "传说这把长剑是一对兵器中的一把",
+      "records": [
+        {
+          "file": "mod-tome.lua",
+          "component": "tome",
+          "index": 9175,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 12720,
+          "section": "mod-tome/data/general/objects/world-artifacts.lua",
+          "source": "Legend has it this blade is one of a pair: twin blades forged in the earliest of days of the Wardens. To an untrained wielder it is less than perfect; to a Warden, it represents the untapped potential of time.",
+          "source_tag": "_t",
+          "target": "传说这把长剑是一对兵器中的其中一个；这对兵器打造于时空守卫最初的年代。对于未经训练的持有者来说它还不是那么完善；对于时空守卫来说，它代表着时间尚未开发的潜能。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ]
+    },
+    {
+      "id": "SCAN2-14",
+      "status": "confirmed",
+      "kind": "grammar",
+      "excerpt": "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现……",
+      "problem": "开头名词片段与后半句拼接突兀，“惊讶的发现”助词有误；同句在三组件复用。",
+      "english_basis": "A giant troll ... With a shudder, you notice the belt of dwarf skulls around his massive waist.",
+      "suggested_excerpt": "一个皮肤粗糙黝黑的巨魔。你注意到他粗壮的腰间系着一串矮人头骨，不禁打了个寒战。",
+      "records": [
+        {
+          "file": "engine.lua",
+          "component": "engine",
+          "index": 946,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1608,
+          "section": "engine/modules/boot/data/general/npcs/troll.lua",
+          "source": "A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.",
+          "source_tag": "_t",
+          "target": "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "engine.lua"
+        },
+        {
+          "file": "mod-boot.lua",
+          "component": "boot",
+          "index": 87,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 194,
+          "section": "mod-boot/data/general/npcs/troll.lua",
+          "source": "A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.",
+          "source_tag": "_t",
+          "target": "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-boot.lua"
+        },
+        {
+          "file": "mod-tome.lua",
+          "component": "tome",
+          "index": 5772,
+          "function_name": "t",
+          "kind": "translation",
+          "line": 8900,
+          "section": "mod-tome/data/general/npcs/troll.lua",
+          "source": "A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.",
+          "source_tag": "_t",
+          "target": "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "file": "mod-tome.lua",
+      "line": 21583,
+      "reason": "跃迁之门的楼梯提示和第二道门均见英文，不作为无依据追加。",
+      "source": "Create a shadow jumpgate at your current location. As long as you sustain this spell, you can use 'Jumpgate: Teleport' to instantly travel to the jumpgate, as long as you are within %d tiles of it.\n\t\tNote that any stairs underneath the jumpgate will be unusable while the spell is sustained, and you may need to cancel this sustain in order to leave certain locations.\n\t\tAt talent level 4, you learn to create and sustain a second jumpgate.",
+      "target": "在你的位置制造 1 个阴影跃迁之门，当你激活这个技能时你可以使用跃迁之门：传送技能将你传送至此（跃迁之门必须在你 %d 码范围以内）。\n\t\t注意：当此技能激活且楼梯位于跃迁之门下方时，楼梯将不可使用。你必须取消此技能方可使用楼梯离开该区域。\n\t\t在等级 4 时，你可以制造 2 个跃迁之门。"
+    },
+    {
+      "file": "mod-tome.lua",
+      "line": 23756,
+      "reason": "重力异常持续时间上限和重新充能条件均有英文依据。",
+      "source": "Lay a trap that creates a radius 5 gravitic anomaly when triggered by foes approaching within range 1.  Each turn, the anomaly deals %0.2f temporal damage (based on your Magic) to foes while pulling them towards its center (chance increases with your combat accuracy or spell power, whichever is higher).\n\t\tEach anomaly lasts %d turns (up to the amount of time since the last anomaly dissipated, based on your Trap Mastery skill).\n\t\tThe trap may trigger more than once, but requires at least 2 turns to recharge between activations.\nThis design does not require advanced preparation to use.",
+      "target": "放置一个引力陷阱。当敌人接近至 1 格内时，陷阱会触发并制造一个半径 5 格的重力异常。每回合，异常会对敌人造成 %0.2f 点时空伤害（基于你的魔力），同时将其拉向中心；拉动成功率取你的命中与法术强度中较高者，并随之提高。\n\t\t每个异常最多持续 %d 回合；实际持续时间不超过上一个异常消散至今经过的回合数，并受你的陷阱专精技能影响。\n\t\t该陷阱可触发多次，但每次触发后至少需要 2 回合重新充能。\n使用这个设计无需进行高级准备。"
+    },
+    {
+      "file": "mod-tome.lua",
+      "line": 24945,
+      "reason": "非回复治疗、溢出治疗不计及最多储存两回合均有英文依据。",
+      "source": "Your fungus reaches into the primordial ages of the world, granting you ancient instincts.\n\t\tEach time you receive non-regeneration healing you gain %0.1f%% of a turn per 100 life healed.  This effect can't add energy past 2 stored turns and overhealing is not counted.\n\t\tAlso, regeneration effects on you will decrease your equilibrium by %0.1f each turn.\n\t\tThe turn gain increases with your Mindpower.",
+      "target": "你身上的真菌可追溯至世界的原初时代，赋予你远古本能。\n\t\t每当你受到非回复类治疗时，每实际恢复 100 点生命，你获得 %0.1f%% 个回合。\n\t\t溢出治疗不计入，且这一效果提供的能量最多可储存至 2 个回合。\n\t\t同时，你身上的回复效果会使失衡值每回合减少 %0.1f。\n\t\t获得的回合数受精神强度加成。"
+    },
+    {
+      "file": "mod-tome.lua",
+      "line": 27551,
+      "reason": "睡眠减半豁免、未睡眠时抵抗提前终止、唤醒但不移除心魔均有英文依据。",
+      "source": "Brings the target's inner demons to the surface.  Each turn, for %d turns, there's a %d%% chance that a demon will surface, requiring the target to make a Mental Save to keep it from manifesting.\n\t\tIf the target is sleeping, the chance to save will be halved, and fear immunity will be ignored.  Otherwise, if the summoning is resisted, the effect will end early.\n\t\tThe summon chance will scale with your Mindpower and the demon's life will scale with the target's rank.\n\t\tIf a demon manifests the sheer terror will remove all sleep effects from the victim, but not the Inner Demons.",
+      "target": "使目标的心魔浮现。在 %d 回合内，每回合有 %d%% 的几率会召唤一个心魔，需要目标进行一次精神豁免鉴定，失败则心魔具现化。\n\t\t如果目标处于睡眠状态，豁免概率减半，且无视目标的恐惧免疫。若目标未处于睡眠状态且豁免鉴定成功，则心魔的效果提前结束。\n\t\t受精神强度影响，召唤几率按比例加成。\n\t\t心魔的生命值受目标分级加成。\n\t\t心魔具现化时，会移除目标身上的所有睡眠类效果，本技能除外。"
+    },
+    {
+      "file": "mod-tome.lua",
+      "line": 30424,
+      "reason": "包括某些技能额外打击的括注来自英文，保留。",
+      "source": "Activating this talent enhances your reflexes to incredible levels.  Each time you are attacked in melee, you have a %d%% chance get a defensive shot off in time to intercept the attack, fully disrupting it (including extra blows from certain talents), dealing %d%% archery damage, and knocking the attacker back %d tiles.\n\t\tActivating this talent will not interrupt reloading.",
+      "target": "激活该技能会大幅强化你的反射神经。每次你受到近战攻击，你有 %d%% 的几率及时进行一次防御性射击来拦截并完全瓦解对方这次攻击（包括某些技能带来的额外打击），造成 %d%% 射击伤害，同时击退对方 %d 码。激活这项技能不会中断装填弹药。"
+    },
+    {
+      "file": "mod-tome.lua",
+      "line": 31625,
+      "reason": "无视击退抗性或物理豁免来自英文，不建议删除该条件。",
+      "source": "You deal a massive blow to your foe, smashing it for 150%% weapon damage and knocking it back 4 tiles (ignoring knockback resistance or physical save).\n\t\tIf the knockback makes it hit a wall, it will smash down the wall, deal an additional 350%% weapon damage and apply the Counterstrike effect.",
+      "target": "对敌人进行一次猛击，造成 150%% 的武器伤害并击退目标 4 码。（无视击退免疫和物理豁免）\n\t\t如果敌人在击退时撞上墙壁，墙壁会被撞毁且对敌人造成额外的 350%% 武器伤害，并附加被反击特效。"
+    },
+    {
+      "file": "tome-cults.lua",
+      "line": 3299,
+      "reason": "半回合、两回合眩晕、法术强度等细节均有英文依据。",
+      "source": "Consuming a void star, you use it to summon a void monolith at the targeted location for %d turns. The monolith is very durable, and while immobile it will attempt to daze enemies within radius %d for 2 turns every half a turn using your spellpower.\n\t\t\tThe monolith will gain %d life rating and %d%% all resist based on your Magic stat.",
+      "target": "消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合尝试对 %d 码范围内敌人施加 2 回合眩晕（基于你的法术强度）。\n\t\t\t基于你的魔力属性，巨石获得 %d 生命成长和 %d%% 全体抗性。"
+    }
+  ]
+}
