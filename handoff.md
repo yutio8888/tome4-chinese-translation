@@ -1,4 +1,12 @@
-# 当前恢复入口（2026-10-03 生硬解释调整完成）
+# 当前恢复入口（2026-10-03 重新生产复审）
+
+用户 2026-10-03 要求“重新再走一轮生产复审流程”。第 382 批之后的译文改动（机制修正撤回后保留的普通修正、补充解释精简、生硬描述 A／B 档及两轮交叉复核修正）已在 `ca558992` 上迁移进复审目录：catalog `c5d72508…`，migration `22b293c4…`，**993 个 successor** 排队待审（约 13 批，估算）。见[迁移记录](evidence/quality/maintenance-reaudit-20261003/README.md)。
+
+按常驻连续审核授权从第 383 批起逐批推进，每批收口后 push；确认待修项累计 ≥20 条再开合并修复窗口 64。批次操作见下文“翻译审核当前交接”与审核操作指南。`tome-possessors.lua`、`tome-items-vault.lua` 的 13 条改动不在目录内，不进入复审。对外 0.3.2 未变，无发布授权。
+
+---
+
+# 历史恢复入口（2026-10-03 生硬解释调整完成）
 
 机制改写撤回之后，用户要求调整补充扫描清单；已完成 16 条（13 条英文外扩写、3 条措辞精简），4 条排除项未动。两轮独立复审通过，适用门禁及 DONE_VERIFIED 通过，3 次 child dispatch 全部确认归档。见 [调整完成记录](evidence/quality/awkward-explanations-adjust-20261003/SUMMARY.md) 与 [扫描记录](evidence/quality/awkward-explanations-scan-20261003/REPORT.md)。
 
@@ -52,7 +60,7 @@
 
 # 翻译审核当前交接
 
-更新时间：2026-10-01（第382批已 finalize，窗口64积压 0 条，审核队列已清空）
+更新时间：2026-10-03（复审目录已迁移，993 个 successor 待审，开始第383批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -115,7 +123,7 @@
 
 ## 三、下一步
 
-1. 审核队列已清空：第382批审完窗口63 的 1 个 successor（无新增确认），窗口64积压 0 条。addon 0.3.1 已发布（发布仓库 `c53351a`，GitHub Release `v0.3.1`，12,131 条）。下一步待用户指示。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
+1. 继续审核第 **383** 批：2026-10-03 迁移（migration `22b293c4…`）排入的 993 个 successor（机制修正撤回后保留的普通修正 44、补充解释精简 16、生硬描述 A 档 632、B 档 326，含 25 条多阶段重复修改）。第382批审完窗口63 的 1 个 successor（无新增确认）。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
    届时用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句）；
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
 2. 窗口 63 已完成（1 条，主游戏）：第381批确认的意志之力（Strength of Purpose）maces“权杖”→“狼牙棒”（与其覆盖的武器掌握同句式一致），并按整句对照把第一行改为“当使用剑、斧、狼牙棒、匕首或者弓箭时，增加 %d%% 武器伤害和 30 点物理强度。”（去掉逗号后多余空格、补谓语）。用户 2026-10-01 批准在未达 20 条时开窗。复审路径：execute-01 → REVIEW r0a1（GPT-6.1 Sol）1 OK → FINAL f0a2（Opus 5.5）1/1，cycle 0 收敛；门禁 17/17。
