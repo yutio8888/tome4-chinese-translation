@@ -1,0 +1,2638 @@
+[
+  {
+    "entry_revision_identity": "3e34087b937bef2d8ca1ff8f730c719847851276ef922fcb860d1d5c38d930f3",
+    "public_source_path": "game/modules/tome/data/talents/spells/advanced-golemancy.lua",
+    "lines": [
+      {
+        "line": 121,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 122,
+        "text": "\t\tlocal regen, turns, life = t.getPower(self, t)"
+      },
+      {
+        "line": 123,
+        "text": "\t\treturn ([[You activate a special mode of your golem, boosting its regeneration rate by %0.2f life per turn for %d turns."
+      },
+      {
+        "line": 124,
+        "text": "\t\tIf your golem was dead, it is instantly brought back to life with %d%% life."
+      },
+      {
+        "line": 125,
+        "text": "\t\tWhile supercharged, your golem is enraged and deals 25%% more damage.]]):"
+      },
+      {
+        "line": 126,
+        "text": "\t\ttformat(regen, turns, life)"
+      },
+      {
+        "line": 127,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3e8700de69c6b5d42e021a525233ab967f4f69b6cc6eca0826e9939b531a30e1",
+    "public_source_path": "game/modules/tome/data/talents/misc/npcs.lua",
+    "lines": [
+      {
+        "line": 3287,
+        "text": "\tseePower = function(self, t) return math.max(0, self:combatScale(self:getCun(15, true)*self:getTalentLevel(t), 10, 1, 80, 75, 0.25)) end, --TL 5, cun 100 = 80"
+      },
+      {
+        "line": 3288,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 3289,
+        "text": "\t\treturn ([[You look at your surroundings with more intensity than most people, allowing you to see stealthed or invisible creatures."
+      },
+      {
+        "line": 3290,
+        "text": "\t\tIncreases stealth detection by %d and invisibility detection by %d."
+      },
+      {
+        "line": 3291,
+        "text": "\t\tThe detection power increases with your Cunning.]]):"
+      },
+      {
+        "line": 3292,
+        "text": "\t\ttformat(t.seePower(self,t), t.seePower(self,t))"
+      },
+      {
+        "line": 3293,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3eda4b9a76c2d167707573554df1f05aeeef438bbc5e2e64842acd5a46f728cf",
+    "public_source_path": "game/modules/tome/data/talents/techniques/strength-of-the-berserker.lua",
+    "lines": [
+      {
+        "line": 53,
+        "text": "\tend,"
+      },
+      {
+        "line": 54,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 55,
+        "text": "\t\treturn ([[Shout your warcry in a frontal cone of radius %d. Any targets caught inside will be confused (50%% confusion power) for %d turns.]]):"
+      },
+      {
+        "line": 56,
+        "text": "\t\ttformat(self:getTalentRadius(t), t.getDuration(self, t))"
+      },
+      {
+        "line": 57,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3faefe7674a95a03c66e814c1613e91368c19bc74496ae687513654ee9e48c1b",
+    "public_source_path": "game/modules/tome/data/talents/spells/phantasm.lua",
+    "lines": [
+      {
+        "line": 292,
+        "text": "\tend,"
+      },
+      {
+        "line": 293,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 294,
+        "text": "\t\treturn ([[Create a perfect lookalike of your own form made out of pure light near a creature."
+      },
+      {
+        "line": 295,
+        "text": "\t\tThis image has %d life and can never take more than 1 damage per creature per turn and is immune to any non direct damage (ground effects, damage over time, ...)."
+      },
+      {
+        "line": 296,
+        "text": "\t\tWhenever you cast a spell your mirror image will try to duplicate it at the same target for 66%% less damage, if possible. If it can, it will lose 1 life, if not it will instead taunt a creature to focus its attention on itself."
+      },
+      {
+        "line": 297,
+        "text": "\t\tWhile the image exists you receive the damage bonus from the Invisibility spell as if you were invisible."
+      },
+      {
+        "line": 298,
+        "text": "\t\tThis spell can not be cast while a Mirror Image already exists and only in combat. It will disappear after a few turn when outside of combat."
+      },
+      {
+        "line": 299,
+        "text": "\t\t]])"
+      },
+      {
+        "line": 300,
+        "text": "\t\t:tformat(t.getLife(self, t))"
+      },
+      {
+        "line": 301,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4009677d4d2f6d608794c939ff5795dc694d9b69c081459b9f91369eedbfa547",
+    "public_source_path": "game/modules/tome/dialogs/orders/Talents.lua",
+    "lines": [
+      {
+        "line": 36,
+        "text": "\tlocal halfwidth = math.floor((self.iw - vsep.w)/2)"
+      },
+      {
+        "line": 37,
+        "text": "\tself.c_tut = Textzone.new{width=halfwidth, height=1, auto_height=true, no_color_bleed=true, text=([["
+      },
+      {
+        "line": 38,
+        "text": "%s is listening attentively, and wants to know what talents to use."
+      },
+      {
+        "line": 39,
+        "text": "You can modify the tactical weights of various talents to increase or decrease their use.  The weights are multiplicative (zero will turn the talent off) and relative (changing everything to a weight of 2 will not alter how talents are used relative to each other)."
+      },
+      {
+        "line": 40,
+        "text": "Word travels fast in Maj'Eyal, and if %s is a summon all future summons of the same type will remember your preferences."
+      },
+      {
+        "line": 41,
+        "text": "]]):tformat(actor:getName():capitalize(), actor:getName())}"
+      },
+      {
+        "line": 42,
+        "text": "\tself.c_desc = TextzoneList.new{width=halfwidth, height=self.ih, no_color_bleed=true}"
+      },
+      {
+        "line": 43,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "40afb3fb6a8c15170af3d9c5d042beeca4c4eba1cbeef567b5e466493de4d67c",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 2173,
+        "text": "\tname = \"SPELLSHOCKED\","
+      },
+      {
+        "line": 2174,
+        "text": "\tdesc = _t\"Spellshocked\","
+      },
+      {
+        "line": 2175,
+        "text": "\tlong_desc = function(self, eff) return (\"Overwhelming magic has temporarily interfered with all damage resistances, lowering them by %d%%.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 2176,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 2177,
+        "text": "\tsubtype = { [\"cross tier\"]=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "40be9437fa46b8d32df845d9263bb1cf5c24bb9b8a0575255d4844c08e5d74d2",
+    "public_source_path": "game/modules/tome/class/Party.lua",
+    "lines": [
+      {
+        "line": 409,
+        "text": "\t\tactor:die(actor)"
+      },
+      {
+        "line": 410,
+        "text": "\telseif order == \"pet_hound\" then"
+      },
+      {
+        "line": 411,
+        "text": "\t\tgame.log(\"#LIGHT_GREEN#You pet your hound! It happily wags its tail back and forth in time!\")"
+      },
+      {
+        "line": 412,
+        "text": ""
+      },
+      {
+        "line": 413,
+        "text": "\t-------------------------------------------"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "41756cd2d9d3646fd8502d1173ebcf580ec2663a15a55cf2e60044b444f9cbe7",
+    "public_source_path": "game/modules/tome/data/talents/cursed/gloom.lua",
+    "lines": [
+      {
+        "line": 73,
+        "text": "\t\t\t\t\t\tlocal hateGain = target.rank >= 4 and 20 or 10"
+      },
+      {
+        "line": 74,
+        "text": "\t\t\t\t\t\tself:incHate(hateGain)"
+      },
+      {
+        "line": 75,
+        "text": "\t\t\t\t\t\tgame.logPlayer(self, \"#F53CBE#Your heart hardens as a powerful foe enters your gloom! (+%d hate)\", hateGain)"
+      },
+      {
+        "line": 76,
+        "text": "\t\t\t\t\t\ttarget.gloom_hate_bonus = true"
+      },
+      {
+        "line": 77,
+        "text": "\t\t\t\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4233a63fb80da1d523e8fca0e986b811358c2b835ec0e4c0b56c3ac937606fa0",
+    "public_source_path": "game/modules/tome/data/zones/high-peak/grids.lua",
+    "lines": [
+      {
+        "line": 95,
+        "text": "\talways_remember = true,"
+      },
+      {
+        "line": 96,
+        "text": "\tshow_tooltip = true,"
+      },
+      {
+        "line": 97,
+        "text": "\tdesc = _t[[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way."
+      },
+      {
+        "line": 98,
+        "text": "This one seems to go to an unknown place, seemingly out of this world. You dare not use it.]],"
+      },
+      {
+        "line": 99,
+        "text": "}"
+      },
+      {
+        "line": 100,
+        "text": "newEntity{ base = \"VOID_PORTAL\", define_as = \"CVOID_PORTAL\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "424e14bc258a492f501b4a1fc97fbd5140842924ca495b8262b0ca4bb7f490ad",
+    "public_source_path": "game/modules/tome/data/talents/cunning/survival.lua",
+    "lines": [
+      {
+        "line": 96,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 97,
+        "text": "\t\tlocal rad = self:getTalentRadius(t)"
+      },
+      {
+        "line": 98,
+        "text": "\t\treturn ([[Sense foes around you in a radius of %d for %d turns."
+      },
+      {
+        "line": 99,
+        "text": "\t\tThe radius will increase with your Cunning.]]):tformat(rad, t.getDuration(self, t))"
+      },
+      {
+        "line": 100,
+        "text": "\tend,"
+      },
+      {
+        "line": 101,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "42ddccba3f47e3490dc3e19027efc9f1660369cc20a87e4f09e1b31edbf76cf4",
+    "public_source_path": "game/modules/tome/data/talents/corruptions/hexes.lua",
+    "lines": [
+      {
+        "line": 89,
+        "text": "\tend,"
+      },
+      {
+        "line": 90,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 91,
+        "text": "\t\treturn ([[Hexes your target and everything within a radius 2 ball around it for 20 turns. Each time an affected target uses a resource (stamina, mana, vim, ...), it takes %0.2f fire damage."
+      },
+      {
+        "line": 92,
+        "text": "\t\tIn addition, the cooldown of any talent used while so hexed is increased by %d%% + 1 turn."
+      },
+      {
+        "line": 93,
+        "text": "\t\tThe damage will increase with your Spellpower.]]):"
+      },
+      {
+        "line": 94,
+        "text": "\t\ttformat(damDesc(self, DamageType.FIRE, self:combatTalentSpellDamage(t, 4, 90)), t.getCDincrease(self, t)*100)"
+      },
+      {
+        "line": 95,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "43927edbc9a52a4057522d639c8bff3798d29dcaa35d5834e10991b2464d8b31",
+    "public_source_path": "game/modules/tome/data/talents/psionic/mentalism.lua",
+    "lines": [
+      {
+        "line": 223,
+        "text": "\t\tlocal power = t.getPower(self, t)"
+      },
+      {
+        "line": 224,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 225,
+        "text": "\t\treturn ([[Activate to project your mind from your body for %d turns.  In this state you're invisible (+%d power), can see invisible and stealthed creatures (+%d detection power), can move through walls, and do not need air to survive."
+      },
+      {
+        "line": 226,
+        "text": "\t\tAll damage you suffer is shared with your physical body, and while in this form you may only deal damage to 'ghosts' or through an active mind link (mind damage only in the second case.)"
+      },
+      {
+        "line": 227,
+        "text": "\t\tTo return to your body, simply release control of the projection.]]):tformat(duration, power, power)"
+      },
+      {
+        "line": 228,
+        "text": "\tend,"
+      },
+      {
+        "line": 229,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "43ccf6938c720e91fc38f1d80978754f5b5cbaa3f19ce6574717ea3320a35fbd",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts-far-east.lua",
+    "lines": [
+      {
+        "line": 151,
+        "text": "\tcolor = colors.PURPLE,"
+      },
+      {
+        "line": 152,
+        "text": "\tlevel_range = {42, 50},"
+      },
+      {
+        "line": 153,
+        "text": "\tdesc = _t[[A small rock that seems from beyond this world, vibrating with a fierce energy.  It feels warped and terrible and evil... and yet oh so powerful.]],"
+      },
+      {
+        "line": 154,
+        "text": "\trarity = 300,"
+      },
+      {
+        "line": 155,
+        "text": "\tcost = 300,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "444676bd2d0b334ee21ff0198a687013687b5e4766775b75b54486b7e16a0c11",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/anomalies.lua",
+    "lines": [
+      {
+        "line": 1786,
+        "text": "\tend,"
+      },
+      {
+        "line": 1787,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1788,
+        "text": "\t\treturn ([[Digs out all terrain in between three and six radius %d balls.]]):tformat(self:getTalentRadius(t))"
+      },
+      {
+        "line": 1789,
+        "text": "\tend,"
+      },
+      {
+        "line": 1790,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4456b0a771d1fe1c6f8ddc9e04c9fe23155091a508b3f938c96b64dcfa68197b",
+    "public_source_path": "game/modules/tome/data/texts/unlock-divine_anorithil.lua",
+    "lines": [
+      {
+        "line": 20,
+        "text": "return _t\"New Class: #LIGHT_GREEN#Anorithil (Celestial)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[["
+      },
+      {
+        "line": 22,
+        "text": "In the uttermost east, on the continent known only as the Far East, dwell the last remnants of Elves and Humans, fighting the Orc Pride and the many perils of the Far East."
+      },
+      {
+        "line": 23,
+        "text": ""
+      },
+      {
+        "line": 24,
+        "text": "Anorithil are mages who are trained in special magic to focus the powers of the Sun and Moons."
+      },
+      {
+        "line": 25,
+        "text": "They have learned to harness the energy of both shadows and light in their battle against the Pride."
+      },
+      {
+        "line": 26,
+        "text": "Their motto is: \"We stand betwixt the Sun and Moons, where light and darkness meet. In the grey twilight we seek our destiny.\""
+      },
+      {
+        "line": 27,
+        "text": ""
+      },
+      {
+        "line": 28,
+        "text": "You have helped one of them and can now create new characters with the #LIGHT_GREEN#Anorithil class#WHITE#."
+      },
+      {
+        "line": 29,
+        "text": ""
+      },
+      {
+        "line": 30,
+        "text": "Anorithil are pure spellcasters that rely on positive and negative energies."
+      },
+      {
+        "line": 31,
+        "text": "Class features:#YELLOW#"
+      },
+      {
+        "line": 32,
+        "text": "- Burn your foes from afar with the light and fire of the Sun"
+      },
+      {
+        "line": 33,
+        "text": "- Head into battle enhanced by your powerful Sun Chants and Moon Hymns"
+      },
+      {
+        "line": 34,
+        "text": "- Engulf your foes in the shadows"
+      },
+      {
+        "line": 35,
+        "text": "- Set glyphs of power to confuse and control your foes#WHITE#"
+      },
+      {
+        "line": 36,
+        "text": ""
+      },
+      {
+        "line": 37,
+        "text": "Anorithil use \"positive and negative energy\" to use their special abilities."
+      },
+      {
+        "line": 38,
+        "text": "These are filled by some of their spells and depleted by others, making them alternate their talents."
+      },
+      {
+        "line": 39,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "447055f93958b184eb7a265574e568e69ab3ccef4009b77e9b2188999d23d09b",
+    "public_source_path": "game/modules/tome/class/Object.lua",
+    "lines": [
+      {
+        "line": 1120,
+        "text": ""
+      },
+      {
+        "line": 1121,
+        "text": "\tif combat.crushing_blow then"
+      },
+      {
+        "line": 1122,
+        "text": "\t\tdesc:add({\"color\", \"YELLOW\"}, _t\"Crushing Blows: \", {\"color\", \"LAST\"}, _t\"Damage dealt by this weapon is increased by half your critical multiplier, if doing so would kill the target.\", true)"
+      },
+      {
+        "line": 1123,
+        "text": "\tend"
+      },
+      {
+        "line": 1124,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "44b41645ef663d509c6e8c107440c5a0451cfa25f6d36ee935dfca7966bba048",
+    "public_source_path": "game/modules/tome/data/talents/techniques/munitions.lua",
+    "lines": [
+      {
+        "line": 290,
+        "text": "\t\t\treturn archerPreUse(self, t, silent) "
+      },
+      {
+        "line": 291,
+        "text": "\t\telse"
+      },
+      {
+        "line": 292,
+        "text": "\t\t\tif not silent then game.logPlayer(self, \"You require incendiary, venomous or piercing ammunition to use this talent!\") end"
+      },
+      {
+        "line": 293,
+        "text": "\t\tend"
+      },
+      {
+        "line": 294,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "44e2f1d0144a9a31f8ddf750df83c82c04d6787d11d3ddd13b39316839aef35b",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 2022,
+        "text": "\tmoddable_tile = \"special/%s_razorblade_the_cursed_waraxe\","
+      },
+      {
+        "line": 2023,
+        "text": "\tmoddable_tile_big = true,"
+      },
+      {
+        "line": 2024,
+        "text": "\tdesc = _t[[This mighty axe can cleave through armour like the sharpest swords, yet hit with all the impact of a heavy club."
+      },
+      {
+        "line": 2025,
+        "text": "It is said the wielder will slowly grow mad. This, however, has never been proven - no known possessor of this item has lived to tell the tale.]],"
+      },
+      {
+        "line": 2026,
+        "text": "\trequire = { stat = { str=42 }, },"
+      },
+      {
+        "line": 2027,
+        "text": "\tlevel_range = {40, 50},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "451e8e6b4e8a49d7c812a90b86dad207ff42f6872a96bb483bfcc84bf584ab7e",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 3800,
+        "text": "\t\telseif level == 3 then -- LEVEL 3"
+      },
+      {
+        "line": 3801,
+        "text": "\t\tself.unided_name = _t\"tarnished voratun gauntlets\""
+      },
+      {
+        "line": 3802,
+        "text": "\t\tself.desc = _t[[These voratun gauntlets appear to have suffered considerable damage. Originally used in the spellhunt, they were often used to destroy arcane artifacts, ridding the world of their influence.]]"
+      },
+      {
+        "line": 3803,
+        "text": "\t\tself.wielder={"
+      },
+      {
+        "line": 3804,
+        "text": "\t\t\tcombat_mindpower=8,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4566028aee256cfa0de1f2507e89cfb9251859c9d2188e97e50201ef06c5c47e",
+    "public_source_path": "game/modules/tome/load.lua",
+    "lines": [
+      {
+        "line": 183,
+        "text": "ActorStats:defineStat(\"Strength\",\t\"str\", 10, 1, 100, _t\"Strength defines your character's ability to apply physical force. It increases your melee damage, damage done with heavy weapons, your chance to resist physical effects, and carrying capacity.\")"
+      },
+      {
+        "line": 184,
+        "text": "ActorStats:defineStat(\"Dexterity\",\t\"dex\", 10, 1, 100, _t\"Dexterity defines your character's ability to be agile and alert. It increases your chance to hit, your ability to avoid attacks, and your damage with light or ranged weapons.\")"
+      },
+      {
+        "line": 185,
+        "text": "ActorStats:defineStat(\"Magic\",\t\t\"mag\", 10, 1, 100, _t\"Magic defines your character's ability to manipulate the magical energy of the world. It increases your spell power, and the effect of spells and other magic items.\")"
+      },
+      {
+        "line": 186,
+        "text": "ActorStats:defineStat(\"Willpower\",\t\"wil\", 10, 1, 100, _t\"Willpower defines your character's ability to concentrate. It increases your mana, stamina and PSI capacity, and your chance to resist mental attacks.\")"
+      },
+      {
+        "line": 187,
+        "text": "ActorStats:defineStat(\"Cunning\",\t\"cun\", 10, 1, 100, _t\"Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your mental capabilities and chance of critical hits.\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "45879249e1353268a03f15f9edcaba7ff63df29b1718c5052e1b6b9427c4ac6d",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 6791,
+        "text": "\tname = \"Crimson Robe\", color = colors.RED, image = \"object/artifact/crimson_robe.png\","
+      },
+      {
+        "line": 6792,
+        "text": "\tunided_name = _t\"blood-stained robe\","
+      },
+      {
+        "line": 6793,
+        "text": "\tdesc = _t[[This robe was formerly owned by Callister the Psion, a powerful Psionic that pioneered many Psionic abilities. After his wife was murdered, Callister became obsessed with finding her killer, using his own hatred as a fuel for new and disturbing arts. After forcing the killer to torture himself to death, Callister walked the land, forcing any he found to kill themselves - his way of releasing them from the world's horrors. One day, he simply disappeared. This robe, soaked in blood, was the only thing he left behind.]],"
+      },
+      {
+        "line": 6794,
+        "text": "\tlevel_range = {40, 50},"
+      },
+      {
+        "line": 6795,
+        "text": "\trarity = 230,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "45c45885c5fc1e343f8393c37ae9ae548d622148306b1b8d9a6973acb06e669e",
+    "public_source_path": "game/modules/tome/data/general/npcs/crystal.lua",
+    "lines": [
+      {
+        "line": 130,
+        "text": "newEntity{ base = \"BASE_NPC_CRYSTAL\","
+      },
+      {
+        "line": 131,
+        "text": "\tname = \"crimson crystal\", color=colors.DARK_RED, tint=colors.DARK_RED, image = \"npc/crystal_darkred.png\","
+      },
+      {
+        "line": 132,
+        "text": "\tdesc = _t\"A formation of crimson crystal. It emits a crimson light reminiscent of blood.\","
+      },
+      {
+        "line": 133,
+        "text": "\tlevel_range = {3, nil}, exp_worth = 1,"
+      },
+      {
+        "line": 134,
+        "text": "\trarity = 3,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "45e0a3bc6fc59cec2de91f051a6a1c4cb631ccf756aa191a21d4f7bcc02e1806",
+    "public_source_path": "game/modules/tome/data/talents/cursed/force-of-will.lua",
+    "lines": [
+      {
+        "line": 230,
+        "text": "\t\tlocal maxDamage = t.getMaxDamage(self, t)"
+      },
+      {
+        "line": 231,
+        "text": "\t\tlocal recharge_rate = t.getRechargeRate(self, t)"
+      },
+      {
+        "line": 232,
+        "text": "\t\treturn ([[Create a barrier that siphons hate from you at the rate of 0.2 a turn. The barrier will deflect 50%% of incoming damage with the force of your will, up to %d damage. The barrier charges at a rate of 1/%d of its maximum charge per turn."
+      },
+      {
+        "line": 233,
+        "text": "\t\tIn addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)"
+      },
+      {
+        "line": 234,
+        "text": "\t\tThe maximum damage deflected increases with your Mindpower.]]):tformat(maxDamage, recharge_rate, t.critpower(self, t),self.combat_critical_power or 0)"
+      },
+      {
+        "line": 235,
+        "text": "\tend,"
+      },
+      {
+        "line": 236,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "468766bf646d890eb06dc793b0485f559e2c9c14997ad8392f839b54243e0ef7",
+    "public_source_path": "game/modules/tome/data/texts/tutorial/stats/stats1.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t[["
+      },
+      {
+        "line": 21,
+        "text": "Basic character attributes such as strength and willpower are important, but their importance lies in how they affect your #GOLD#combat stats#WHITE#, the subject of this entire tutorial."
+      },
+      {
+        "line": 22,
+        "text": "The first two of these #GOLD#combat stats#WHITE# are:"
+      },
+      {
+        "line": 23,
+        "text": ""
+      },
+      {
+        "line": 24,
+        "text": "#LIGHT_GREEN#Accuracy: #WHITE#Determines whether your physical attacks hit your target.  "
+      },
+      {
+        "line": 25,
+        "text": "#LIGHT_GREEN#Defense: #WHITE#Your ability to avoid attacks."
+      },
+      {
+        "line": 26,
+        "text": ""
+      },
+      {
+        "line": 27,
+        "text": "When you try to stab somebody, your #LIGHT_GREEN#Accuracy#WHITE# score is measured against your target's #LIGHT_GREEN#Defense#WHITE# score, and a percentage chance of success is determined. We'll look at the exact calculation later."
+      },
+      {
+        "line": 28,
+        "text": ""
+      },
+      {
+        "line": 29,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "46d7910c214dcb69ec903aa3ca135bcc796a73a06d58de6fa9f5cc585ba437fa",
+    "public_source_path": "game/modules/tome/data/general/objects/quest-artifacts.lua",
+    "lines": [
+      {
+        "line": 86,
+        "text": "\tencumber = 1,"
+      },
+      {
+        "line": 87,
+        "text": "\tplot = true, quest = true,"
+      },
+      {
+        "line": 88,
+        "text": "\tdesc = _t[[The orb projects images of distant places, some that seem to be not of this world, switching rapidly."
+      },
+      {
+        "line": 89,
+        "text": "If used near a portal it could probably activate it.]],"
+      },
+      {
+        "line": 90,
+        "text": ""
+      },
+      {
+        "line": 91,
+        "text": "\tauto_hotkey = 1,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "46e218aa0b02bd00a94ee598440612be8f2945b57c8fbdeb49801017fb1060af",
+    "public_source_path": "game/modules/tome/data/texts/unlock-mage_necromancer.lua",
+    "lines": [
+      {
+        "line": 20,
+        "text": "return _t\"New Class: #LIGHT_GREEN#Necromancer\","
+      },
+      {
+        "line": 21,
+        "text": "_t[["
+      },
+      {
+        "line": 22,
+        "text": "Necromancy, the forbidden art."
+      },
+      {
+        "line": 23,
+        "text": "Necromancy, the black art."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "During the Age of Dusk and the Age of Pyre the world went through a tortured era. Kingdoms were shattered, whole races suppressed, and diseases ran wild, killing millions."
+      },
+      {
+        "line": 26,
+        "text": "It was a dark time and amidst the chaos came the bringers of terror: the necromancers."
+      },
+      {
+        "line": 27,
+        "text": "Though they always existed, and will always exist whilst our souls are open to temptation, this was their true age of glory."
+      },
+      {
+        "line": 28,
+        "text": "The so-called 'noble' archmages regard necromancers as fallen brothers that must be corrected... or removed. But necromancers consider themselves misunderstood practitioners of an art that others are too scared or too feeble to touch. And oh, what great powers those arts do bring...."
+      },
+      {
+        "line": 29,
+        "text": ""
+      },
+      {
+        "line": 30,
+        "text": "You have learnt the basics of necromancy, killed a real one, and can now create new characters with the #LIGHT_GREEN#Necromancer class#WHITE#."
+      },
+      {
+        "line": 31,
+        "text": ""
+      },
+      {
+        "line": 32,
+        "text": "Necromancers are dark spellcasters, attuned to death itself. Their ultimate goal is their own eternal life, often as a Lich."
+      },
+      {
+        "line": 33,
+        "text": "Class features:#YELLOW#"
+      },
+      {
+        "line": 34,
+        "text": "- Cast darkness and ice infused spells to destroy your foes"
+      },
+      {
+        "line": 35,
+        "text": "- Summon an army of undead minions to do your bidding"
+      },
+      {
+        "line": 36,
+        "text": "- Use your minions as pawns, sacrificing them in various cruel and unusual ways"
+      },
+      {
+        "line": 37,
+        "text": "- Embark on the quest of your life: Lichdom#WHITE#"
+      },
+      {
+        "line": 38,
+        "text": ""
+      },
+      {
+        "line": 39,
+        "text": "All mages use mana to cast their spells."
+      },
+      {
+        "line": 40,
+        "text": "It slowly replenishes over time."
+      },
+      {
+        "line": 41,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "46e896df6de9f33570675d3df1b9f60ac5bb955dab733fc427cdf2f2e5f286bd",
+    "public_source_path": "game/modules/tome/class/interface/TooltipsData.lua",
+    "lines": [
+      {
+        "line": 274,
+        "text": "This can never increase the damage you do beyond reducing armour, so it is only useful against armoured foes."
+      },
+      {
+        "line": 275,
+        "text": "]]"
+      },
+      {
+        "line": 276,
+        "text": "TOOLTIP_COMBAT_CRIT = _t[[#GOLD#Critical chance#LAST#"
+      },
+      {
+        "line": 277,
+        "text": "Each time you deal damage you have a chance to make a critical hit that deals extra damage."
+      },
+      {
+        "line": 278,
+        "text": "Some talents allow you to increase this percentage."
+      },
+      {
+        "line": 279,
+        "text": "It is improved by Cunning."
+      },
+      {
+        "line": 280,
+        "text": "]]"
+      },
+      {
+        "line": 281,
+        "text": "TOOLTIP_COMBAT_SPEED = _t[[#GOLD#Attack speed#LAST#"
+      },
+      {
+        "line": 282,
+        "text": "Attack speed represents how fast your attacks are compared to normal."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "472ae2c9eed40e050c0c5d8ebbfcd1c19d60cef5ec3be219da361dbcab4ca4ef",
+    "public_source_path": "game/modules/tome/data/texts/tutorial/stats-tier/tier8.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t[["
+      },
+      {
+        "line": 21,
+        "text": "What about #LIGHT_GREEN#Defense?#WHITE# Is it safe to neglect that?"
+      },
+      {
+        "line": 22,
+        "text": ""
+      },
+      {
+        "line": 23,
+        "text": "Go see how your #B4B4B4#Tier 1#WHITE# #LIGHT_GREEN#Defense#WHITE# holds up against the orcs in the next room."
+      },
+      {
+        "line": 24,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "47574147779e163dda23b4d46932d77990d4f18457b6d3d1bf54a3ee14fc9312",
+    "public_source_path": "game/modules/tome/data/texts/tutorial/stats-scale/scale4.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t[["
+      },
+      {
+        "line": 21,
+        "text": "A summary of the #GOLD#combat stat#WHITE# tiers:"
+      },
+      {
+        "line": 22,
+        "text": ""
+      },
+      {
+        "line": 23,
+        "text": "#B4B4B4#Tier 1#WHITE# scores, those from one to twenty, are displayed in #B4B4B4#grey#WHITE#."
+      },
+      {
+        "line": 24,
+        "text": "#FFFFFF#Tier 2#WHITE# scores, those from twenty-one to forty, are displayed in #FFFFFF#white#WHITE#."
+      },
+      {
+        "line": 25,
+        "text": "#00FF80#Tier 3#WHITE# scores, those from forty-one to sixty, are displayed in #00FF80#green#WHITE#."
+      },
+      {
+        "line": 26,
+        "text": "#0080FF#Tier 4#WHITE# scores, those from sixty-one to eighty, are displayed in #0080FF#blue#WHITE#."
+      },
+      {
+        "line": 27,
+        "text": "#8d55ff#Tier 5#WHITE# scores, those from eighty-one to one-hundred, are displayed in #8d55ff#purple#WHITE#."
+      },
+      {
+        "line": 28,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "47789daa682bde78ffcbd5ccb015d6463902aef00c80ef6570a6fc1498577d6d",
+    "public_source_path": "game/modules/tome/data/talents/cursed/traveler.lua",
+    "lines": [
+      {
+        "line": 68,
+        "text": "\tend,"
+      },
+      {
+        "line": 69,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 70,
+        "text": "\t\treturn ([[You have become weathered by the elements. Your Cold and Fire resistance is increased by %d%%]]):tformat(self:getTalentLevel(t) * 7)"
+      },
+      {
+        "line": 71,
+        "text": "\tend"
+      },
+      {
+        "line": 72,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "48f9c4ed31cd62614c615db1c5bdd99343edb407abbc5a08d7967788837f5a33",
+    "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 2758,
+        "text": "\tname = \"SPACETIME_TUNING\", image = \"talents/spacetime_tuning.png\","
+      },
+      {
+        "line": 2759,
+        "text": "\tdesc = _t\"Spacetime Tuning\","
+      },
+      {
+        "line": 2760,
+        "text": "\tlong_desc = function(self, eff) return (\"Tuning Paradox at a rate of %+d per turn.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 2761,
+        "text": "\ttype = \"other\","
+      },
+      {
+        "line": 2762,
+        "text": "\tsubtype = { time=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4934465099fd2ecd347d045a0f4032357c1396523586868085afc60cc913d542",
+    "public_source_path": "game/modules/tome/data/zones/shertul-fortress/npcs.lua",
+    "lines": [
+      {
+        "line": 129,
+        "text": "\tsubtype = \"Sher'Tul\","
+      },
+      {
+        "line": 130,
+        "text": "\tname = \"Fortress Shadow\", color=colors.GREY,"
+      },
+      {
+        "line": 131,
+        "text": "\tdesc = _t\"The shadow created by the fortress, it resembles somewhat the horrors you saw previously, but it is not the same.\","
+      },
+      {
+        "line": 132,
+        "text": "\tlevel_range = {19, nil}, exp_worth = 3,"
+      },
+      {
+        "line": 133,
+        "text": "\trank = 3,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "497f199907d9887c4ecbc53711523c0c351e8e871188bff7295fac6790d9611e",
+    "public_source_path": "game/modules/tome/data/talents/misc/npcs.lua",
+    "lines": [
+      {
+        "line": 960,
+        "text": "\tend,"
+      },
+      {
+        "line": 961,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 962,
+        "text": "\t\treturn ([[Spit blight at your target doing %0.2f blight damage."
+      },
+      {
+        "line": 963,
+        "text": "\t\tThe damage will increase with your Magic.]]):tformat(t.getDamage(self,t))"
+      },
+      {
+        "line": 964,
+        "text": "\tend,"
+      },
+      {
+        "line": 965,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4a1e9e27137480daeea4122ee4650e063abaea010059865fdd1aade7e2b60aad",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 8210,
+        "text": "\tmoddable_tile = \"special/%s_icy_kill\","
+      },
+      {
+        "line": 8211,
+        "text": "\tunided_name = _t\"sharpened icicle\","
+      },
+      {
+        "line": 8212,
+        "text": "\tdesc = _t[[As any scryer knows, the link between the murderer and the murdered is the murder weapon, and a scryer can follow that link from the murdered to the weapon to the murderer."
+      },
+      {
+        "line": 8213,
+        "text": "One rather cold blooded killer thought of a way around this. By carving blades out of ice, they could kill as they wished and the link would just melt away."
+      },
+      {
+        "line": 8214,
+        "text": "Their killing spree ended when one of the victims got lucky and managed to stab the murderer in the heart with the icey blade. After being united with the cold heart that created it, the final ice blade has never melted.]],"
+      },
+      {
+        "line": 8215,
+        "text": "\tlevel_range = {30, 40},"
+      },
+      {
+        "line": 8216,
+        "text": "\trarity = 300,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4a3a78af3abb18292e3acf612f4be36421743378f988d91c288c058897695ff6",
+    "public_source_path": "game/modules/tome/data/zones/dreadfell/npcs.lua",
+    "lines": [
+      {
+        "line": 38,
+        "text": "\tname = \"The Master\","
+      },
+      {
+        "line": 39,
+        "text": "\tdisplay = \"V\", color=colors.VIOLET,"
+      },
+      {
+        "line": 40,
+        "text": "\tdesc = _t[[A terrifying vampiric figure of power, with flowing robes and an intense aura of fright.  His cold, sinewy flesh seems to cling to this world through greed and malice, and his eyes betray a strength of mind beyond any puny mortal.  All nearby are utterly subservient to his will, though he stands aloof from them, as if to say he needs not the pathetic meddling of minions to help him overcome his foes.  Your eyes are drawn to a dark staff in his hands which seems to suck the very life from the air around it.  It looks ancient and dangerous and terrible, and the sight of it fills you with fervent desire.]],"
+      },
+      {
+        "line": 41,
+        "text": "\tkiller_message = _t\"and raised as his tortured undead thrall\","
+      },
+      {
+        "line": 42,
+        "text": "\tnot_power_source = {nature=true},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4a849312290b344bc357aca14f698f08ec6d3452eca10524f3ce03bc6113d121",
+    "public_source_path": "game/modules/tome/class/interface/TooltipsData.lua",
+    "lines": [
+      {
+        "line": 401,
+        "text": "All critical hits (melee, spells, ...) do this much damage compared to normal."
+      },
+      {
+        "line": 402,
+        "text": "]]"
+      },
+      {
+        "line": 403,
+        "text": "TOOLTIP_RESIST_DAMAGE = _t[[#GOLD#Damage resistance#LAST#"
+      },
+      {
+        "line": 404,
+        "text": "Whenever you take damage, the percent resistance you have to its type, if any, is checked.  The damage is reduced by this percentage (which may be partially negated by the attacker's Damage Penetration) before being applied."
+      },
+      {
+        "line": 405,
+        "text": "Your effective resistance can never be higher than your resistance cap and negative resistances increase the damage you recieve (up to +100%)."
+      },
+      {
+        "line": 406,
+        "text": "]]"
+      },
+      {
+        "line": 407,
+        "text": "TOOLTIP_RESIST_ALL = _t[[#GOLD#Damage resistance: all#LAST#"
+      },
+      {
+        "line": 408,
+        "text": "All damage you receive, through any means, is decreased by this percentage."
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4a89669de49918310caaf5d82f84b0905ab8c134ac93755119e47929ae2d1614",
+    "public_source_path": "game/modules/tome/data/texts/unlock-birth_transmo_chest.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New birth equipment: #LIGHT_GREEN#Transmogrification Chest\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[You have discovered an old Fortress belonging to the mysterious Sher'tul race."
+      },
+      {
+        "line": 22,
+        "text": "The Fortress shadow gave you a transmogrification chest which shall make your dealing with storage and gold much easier."
+      },
+      {
+        "line": 23,
+        "text": ""
+      },
+      {
+        "line": 24,
+        "text": "All your new characters will now start with a transmogrification chest at birth. All items transmogrified before you find the Fortress with them will only yield gold."
+      },
+      {
+        "line": 25,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4a9cf0fd2f770c561cc0b9dc52267301a59234cd7df03d8da4e33bb6772eda3b",
+    "public_source_path": "game/modules/tome/data/birth/classes/adventurer.lua",
+    "lines": [
+      {
+        "line": 168,
+        "text": "\t\t\t\t\tlocal cat = tt_def.type:gsub(\"/.*\", \"\")"
+      },
+      {
+        "line": 169,
+        "text": "\t\t\t\t\tlocal name = tstring{{\"font\", \"bold\"}, _t(cat, \"talent category\"):capitalize()..\" / \"..tt_def.name:capitalize(), {\"font\", \"normal\"}}"
+      },
+      {
+        "line": 170,
+        "text": "\t\t\t\t\tgame.bignews:say(90, \"#GOLD#As you level up you learn the talent tree: #LIGHT_BLUE#%s\", tostring(name))"
+      },
+      {
+        "line": 171,
+        "text": "\t\t\t\tend"
+      },
+      {
+        "line": 172,
+        "text": "\t\t\t\tself:learnTalentType(tt)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4ad9ecc6b9b9dcb22a915a3e42d18fab7cb3cb14149f0474e3a1f7105709ab01",
+    "public_source_path": "game/modules/tome/data/talents/corruptions/plague.lua",
+    "lines": [
+      {
+        "line": 249,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 250,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 251,
+        "text": "\t\treturn ([[All your foes within a radius %d ball infected with a disease enter a cataleptic state, stunning them for %d turns and dealing %d%% of all remaining disease damage instantly.]]):"
+      },
+      {
+        "line": 252,
+        "text": "\t\ttformat(radius, duration, damage * 100)"
+      },
+      {
+        "line": 253,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4b0e8cef4859019bcf8d0fec471e3a4dfa434436b04b10290b3a2a25fbc5f0b2",
+    "public_source_path": "game/modules/tome/data/general/npcs/skeleton.lua",
+    "lines": [
+      {
+        "line": 193,
+        "text": "newEntity{ base = \"BASE_NPC_SKELETON\","
+      },
+      {
+        "line": 194,
+        "text": "\tname = \"skeleton assassin\", color=colors.DARK_BLUE,"
+      },
+      {
+        "line": 195,
+        "text": "\tdesc=_t[[Most skeletons announce their presence with a chorus of rattling bones; this one's been charred black and has enough cartilage between its joints to muffle its approach.  The first you'll see of it will be the flash of its blade.]],"
+      },
+      {
+        "line": 196,
+        "text": "\tlevel_range = {20, nil}, exp_worth = 1,"
+      },
+      {
+        "line": 197,
+        "text": "\trarity = 15,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4b7e05f5fd30394fd8fb78bda274d5a61b2f04f87441c7e06d43ae64199cac08",
+    "public_source_path": "game/modules/tome/data/texts/tutorial/move.lua",
+    "lines": [
+      {
+        "line": 18,
+        "text": "-- darkgod@te4.org"
+      },
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t[[Movement is simple. You can use the keyboard, the mouse, or both."
+      },
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "#GOLD#Keyboard:#WHITE#"
+      },
+      {
+        "line": 23,
+        "text": "- Press the arrow keys or keypad to move in the given direction."
+      },
+      {
+        "line": 24,
+        "text": "- Press shift + the arrow keys or keypad to run in the given direction."
+      },
+      {
+        "line": 25,
+        "text": "- Press 5 on the keypad to stay put for a turn (doing nothing)."
+      },
+      {
+        "line": 26,
+        "text": "- Press z to \"auto explore\" until you find something dangerous or interesting."
+      },
+      {
+        "line": 27,
+        "text": ""
+      },
+      {
+        "line": 28,
+        "text": "#GOLD#Mouse:#WHITE#"
+      },
+      {
+        "line": 29,
+        "text": "- Click on a spot on the map to move there."
+      },
+      {
+        "line": 30,
+        "text": "- If there are no monsters and the way is known you will run there."
+      },
+      {
+        "line": 31,
+        "text": "- If there are unknown or interesting grids along the way you may stop."
+      },
+      {
+        "line": 32,
+        "text": "- If there is a hostile creature in sight you will only move one grid per click, to prevent stupid deaths."
+      },
+      {
+        "line": 33,
+        "text": "- Clicking on yourself will make you stay put for a turn (doing nothing)."
+      },
+      {
+        "line": 34,
+        "text": ""
+      },
+      {
+        "line": 35,
+        "text": "You can scroll the map by pressing shift and click+dragging with your mouse, or pressing \"L\" and using shift+the movement keys."
+      },
+      {
+        "line": 36,
+        "text": ""
+      },
+      {
+        "line": 37,
+        "text": "Now close this dialog and go west (left) until you arrive in a bigger area."
+      },
+      {
+        "line": 38,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4bc21ab09508569c03712da235cf8b339ff3083fbc2dde165ec9e2143b0aee53",
+    "public_source_path": "game/modules/tome/data/zones/ring-of-blood/objects.lua",
+    "lines": [
+      {
+        "line": 26,
+        "text": "\tdesc = _t[[You won the Ring of Blood trial, and this is your reward.]],"
+      },
+      {
+        "line": 27,
+        "text": "\tunided_name = _t\"bloody ring\","
+      },
+      {
+        "line": 28,
+        "text": "\tspecial_desc = function(self) return (\"You heal for 2.5%% of the damage you deal.\\nHealing during current combat:  #GREEN#%0.2f#LAST#\"):tformat(self.bloodcaller_heal_amt or 0) end,"
+      },
+      {
+        "line": 29,
+        "text": "\trarity = false,"
+      },
+      {
+        "line": 30,
+        "text": "\tcost = 300,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4bd1d2a03d9bfa3176c8d010cd871926d8d70798829c9d851f7fda3e1b5054cd",
+    "public_source_path": "game/modules/tome/data/quests/deep-bellow.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": "desc = function(self, who)"
+      },
+      {
+        "line": 22,
+        "text": "\tlocal desc = {}"
+      },
+      {
+        "line": 23,
+        "text": "\tdesc[#desc+1] = _t\"Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold.\""
+      },
+      {
+        "line": 24,
+        "text": "\tdesc[#desc+1] = _t\"Maybe it is time for you to start an adventurer's career. Deep below the Iron Throne mountains lies the Deep Bellow.\""
+      },
+      {
+        "line": 25,
+        "text": "\tdesc[#desc+1] = _t\"It has been long sealed away but still, from time to time adventurers go there looking for wealth.\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4bf66688eac7026bb94caf8ae22e438d3e66156fe231effe72d73bf57a2cac24",
+    "public_source_path": "game/modules/tome/data/talents/undeads/undeads.lua",
+    "lines": [
+      {
+        "line": 53,
+        "text": "\ton_learn = function(self, t) self.auto_id = 100 end,"
+      },
+      {
+        "line": 54,
+        "text": "\tinfo = function(self)"
+      },
+      {
+        "line": 55,
+        "text": "\t\treturn ([[You concentrate for a moment to recall some of your memories as a living being and look for knowledge to identify rare objects.]]):tformat()"
+      },
+      {
+        "line": 56,
+        "text": "\tend,"
+      },
+      {
+        "line": 57,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4c761db61bccb93ce060b8870308d918d677c4ea8a42ed132ee4ce617c5af3a8",
+    "public_source_path": "game/modules/tome/data/zones/temporal-rift/zone.lua",
+    "lines": [
+      {
+        "line": 139,
+        "text": "\t\t\tgame.level.shown_warning = true"
+      },
+      {
+        "line": 140,
+        "text": "\t\telseif lev == 2 and not game.level.shown_warning then"
+      },
+      {
+        "line": 141,
+        "text": "\t\t\tDialog:simplePopup(_t\"Temporal Rift\", _t\"This looks like Maj'Eyal's forest but it looks strangely distorted, beware...\")"
+      },
+      {
+        "line": 142,
+        "text": "\t\t\tgame.level.shown_warning = true"
+      },
+      {
+        "line": 143,
+        "text": "\t\t\trequire(\"mod.class.generator.actor.Random\").new(game.zone, game.level.map, game.level, {}):generateGuardian(\"BEN_CRUTHDAR_ABOMINATION\")"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4c99dd3925208fa71048880be11fe19909327eba1fd9c438b99f77f847a50a56",
+    "public_source_path": "game/modules/tome/data/general/npcs/troll.lua",
+    "lines": [
+      {
+        "line": 146,
+        "text": "\tname = \"Forest Troll Hedge-Wizard\", color=colors.YELLOW_GREEN, "
+      },
+      {
+        "line": 147,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      },
+      {
+        "line": 148,
+        "text": "\tdesc = _t[[This old-looking troll glares at you with malice. His muscles appear atrophied, but a certain power surrounds him nonetheless.]],"
+      },
+      {
+        "line": 149,
+        "text": "\tlevel_range = {3, nil}, exp_worth = 2,"
+      },
+      {
+        "line": 150,
+        "text": "\trank=3.5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4caae02766800ff377e40be1d6af122027802b0fa6851e52c69875f0ef7e18b3",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts-far-east.lua",
+    "lines": [
+      {
+        "line": 61,
+        "text": "\tcost = 200,"
+      },
+      {
+        "line": 62,
+        "text": "\tmaterial_level = 4,"
+      },
+      {
+        "line": 63,
+        "text": "\tspecial_desc = function(self) return _t\"All your damage is converted and split into light and darkness.\" end,"
+      },
+      {
+        "line": 64,
+        "text": "\twielder = {"
+      },
+      {
+        "line": 65,
+        "text": "\t\ttwilight_mastery = 0.5,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4cc313be28bf47dc79758189687aaacc20f8a34e84d716d492b48ad7186099cf",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 4600,
+        "text": "\tname = \"SHADOW_CUT\", image = \"\","
+      },
+      {
+        "line": 4601,
+        "text": "\tdesc = _t\"Shadow Cut\","
+      },
+      {
+        "line": 4602,
+        "text": "\tlong_desc = function(self, eff) return (\"Huge shadow cut that bleeds, doing %0.2f darkness damage per turn. Anytime you hit it you get healed for %d.\"):tformat(eff.dam/5, eff.heal) end,"
+      },
+      {
+        "line": 4603,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 4604,
+        "text": "\tsubtype = { wound=true, cut=true, bleed=true, darkness=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4d0833fcb35f32517df84ec827c166c5b35649fc8d827863cf7ea839b981d7a3",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 1200,
+        "text": "\t\tend, nil)"
+      },
+      {
+        "line": 1201,
+        "text": "\t\tif seen then"
+      },
+      {
+        "line": 1202,
+        "text": "\t\t\tgame.log(\"There are creatures that could be watching you; you cannot take the risk of teleporting to Angolwen.\")"
+      },
+      {
+        "line": 1203,
+        "text": "\t\t\treturn"
+      },
+      {
+        "line": 1204,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4de8bc7441d4c5e71b3ed5c59dda6298800cd7f783362a6e1d1b600eab0b75b5",
+    "public_source_path": "game/modules/tome/data/talents/gifts/mindstar-mastery.lua",
+    "lines": [
+      {
+        "line": 198,
+        "text": "\tend,"
+      },
+      {
+        "line": 199,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 200,
+        "text": "\t\treturn ([[You hit a foe with your mainhand psiblade doing %d%% weapon damage, channeling all the damage done through your offhand psiblade with which you touch a friendly creature to heal it."
+      },
+      {
+        "line": 201,
+        "text": "\t\tThe maximum heal possible is %d. Equilibrium of the healed target will also decrease by 10%% of the heal power."
+      },
+      {
+        "line": 202,
+        "text": "\t\tMax heal will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %2.f).]]):"
+      },
+      {
+        "line": 203,
+        "text": "\t\ttformat(self:combatTalentWeaponDamage(t, 2.5, 4) * 100, t.getMaxDamage(self, t), get_mindstar_power_mult(self))"
+      },
+      {
+        "line": 204,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4e0e16b01503faf4d34312a9fecab82c122e0552b4f4ab5120c591d423a78aba",
+    "public_source_path": "game/modules/tome/data/talents/spells/grave.lua",
+    "lines": [
+      {
+        "line": 159,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 160,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 161,
+        "text": "\t\treturn ([[Upon expiring the corpselight implodes, pulling in all foes towards its center and dealing %0.2f cold damage."
+      },
+      {
+        "line": 162,
+        "text": "\t\tThe damage is increased by +10%% per stack."
+      },
+      {
+        "line": 163,
+        "text": "\t\tThe damage will increase with your Spellpower."
+      },
+      {
+        "line": 164,
+        "text": ""
+      },
+      {
+        "line": 165,
+        "text": "\t\t#PURPLE#Learning this spell will make Corpselight cost two souls to use instead of one.]]):"
+      },
+      {
+        "line": 166,
+        "text": "\t\ttformat(damDesc(self, DamageType.COLD, damage))"
+      },
+      {
+        "line": 167,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4e5e66f83f7315885a9835a5cf1d7e20e18df8f25fc82e7db6137a6bee774199",
+    "public_source_path": "game/modules/tome/data/zones/ruins-kor-pul/npcs.lua",
+    "lines": [
+      {
+        "line": 95,
+        "text": "\tname = \"The Possessed\", color=colors.VIOLET,"
+      },
+      {
+        "line": 96,
+        "text": "\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/humanoid_human_the_possessed.png\", display_h=2, display_y=-1}}},"
+      },
+      {
+        "line": 97,
+        "text": "\tdesc = _t[[He is the leader of a gang of bandits that killed the Shade of Kor'Pul, however it is obvious the Shade was merely displaced. It is now possessing the corpse of his killer.]],"
+      },
+      {
+        "line": 98,
+        "text": "\tkiller_message = _t\"and used as a new host\","
+      },
+      {
+        "line": 99,
+        "text": "\tlevel_range = {7, nil}, exp_worth = 2,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4ec0c06fd3966f9975021b911450c9e7363b887051e31e8d78e0b4634de6d668",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 7630,
+        "text": "\tunided_name = _t\"flame coated sandals\","
+      },
+      {
+        "line": 7631,
+        "text": "\tname = \"Cinderfeet\", unique=true, image = \"object/artifact/cinderfeet.png\","
+      },
+      {
+        "line": 7632,
+        "text": "\tdesc = _t[[A cautionary tale tells of the ancient warlock by the name of Caim, who fancied himself daily walks through Goedalath, both to test himself and the harsh demonic wastes. He was careful to never bring anything back with him, lest it provide a beacon for the demons to find him. Unfortunately, over time, his sandals drenched in the soot and ashes of the fearscape and the fire followed his footsteps outside, drawing in the conclusion of his grim fate.]],"
+      },
+      {
+        "line": 7633,
+        "text": "\trequire = { stat = { dex=10 }, },"
+      },
+      {
+        "line": 7634,
+        "text": "\tlevel_range = {28, 38},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4f3939287162da6c61fb383b7a0224be957a8c6d43175a0b18fa0922204f509a",
+    "public_source_path": "game/modules/tome/data/talents/cursed/predator.lua",
+    "lines": [
+      {
+        "line": 326,
+        "text": ""
+      },
+      {
+        "line": 327,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 328,
+        "text": "\t\treturn([[Focus your predation on the most worthy prey. Upon entering a level for the first time, up to %d foes are marked as your prey. You gain vision of them, wherever they are. Additionally, all damage you receive from their subtype is reduced by %d%%.]]):tformat(t.getCount(self, t), t.getPower(self, t))"
+      },
+      {
+        "line": 329,
+        "text": "\tend,"
+      },
+      {
+        "line": 330,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4f45171968a794e2c0fb9c17740a5c1112be72327e6866023a06e8872f872d28",
+    "public_source_path": "game/modules/tome/data/talents/cursed/rampage.lua",
+    "lines": [
+      {
+        "line": 139,
+        "text": "\t\tlocal damageShield = t.getDamageShield(self, t)"
+      },
+      {
+        "line": 140,
+        "text": "\t\tlocal damageShieldBonus = t.getDamageShieldBonus(self, t)"
+      },
+      {
+        "line": 141,
+        "text": "\t\treturn ([[Nothing will stop your rampage."
+      },
+      {
+        "line": 142,
+        "text": "\t\tRampage Bonus: You shrug off up to %d damage each turn during your rampage. If you shrug off more than %d damage, the rampage duration increases by 1."
+      },
+      {
+        "line": 143,
+        "text": "\t\tThe amount of damage you can shrug off improves with your Strength.]]):tformat(damageShield, damageShieldBonus)"
+      },
+      {
+        "line": 144,
+        "text": "\tend,"
+      },
+      {
+        "line": 145,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "4fb9259a326efd440fb1e00970de24d88911fe4765ec580d87b28323237f4244",
+    "public_source_path": "game/modules/tome/data/talents/cursed/one-with-shadows.lua",
+    "lines": [
+      {
+        "line": 29,
+        "text": "\trange = function(self, t) return math.floor(self:combatTalentScale(t, 1, 5, 1)) end,"
+      },
+      {
+        "line": 30,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 31,
+        "text": "\t\treturn ([[Your awareness extends to your shadows."
+      },
+      {
+        "line": 32,
+        "text": "\t\tYou always know exactly where your shadows are and can perceive any foe within %d tiles of their vision.]])"
+      },
+      {
+        "line": 33,
+        "text": "\t\t:tformat(self:getTalentRange(t))"
+      },
+      {
+        "line": 34,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "50c7ec6b531004e8fb6cd55c9fdc3a7f0e0ff6b0fcfe60ace4c8c88d1266814e",
+    "public_source_path": "game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua",
+    "lines": [
+      {
+        "line": 1234,
+        "text": "\tlevel_range = {35, 42},"
+      },
+      {
+        "line": 1235,
+        "text": "\tdesc = _t[[This crystal is huge, easily the size of your head. It sparkles brilliantly almost of its own accord.]],"
+      },
+      {
+        "line": 1236,
+        "text": "\tspecial_desc = function(self) return _t\"(The created item can be activated to recover the Heart.)\" end,"
+      },
+      {
+        "line": 1237,
+        "text": "\trarity = 250,"
+      },
+      {
+        "line": 1238,
+        "text": "\tidentified = false,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "50cfe32228ae9f12e1d6e313a41faec9432ccc5ab0daf250ad4e495aff19588b",
+    "public_source_path": "game/modules/tome/data/talents/spells/energy-alchemy.lua",
+    "lines": [
+      {
+        "line": 206,
+        "text": "\t\tlocal turn = t.getTurn(self, t)"
+      },
+      {
+        "line": 207,
+        "text": "\t\tlocal range = self:getTalentRange(t)"
+      },
+      {
+        "line": 208,
+        "text": "\t\treturn ([[Infuse your body with lightning energy, bolstering your movement speed by +%d%%."
+      },
+      {
+        "line": 209,
+        "text": "\t\tEach turn, a foe within range %d will be struck by lightning and be dealt %0.1f Lightning damage."
+      },
+      {
+        "line": 210,
+        "text": "\t\tIn addition, damage to your health will energize you."
+      },
+      {
+        "line": 211,
+        "text": "\t\tAt the start of each turn in which you have lost at least %d life (20%% of your maximum life) since your last turn, you will gain %d%% of a turn."
+      },
+      {
+        "line": 212,
+        "text": "\t\tThe effects increase with your Spellpower.]]):"
+      },
+      {
+        "line": 213,
+        "text": "\t\ttformat(speed, range, damDesc(self, DamageType.LIGHTNING, t.getDamage(self, t)), self.max_life * 0.2, turn)"
+      },
+      {
+        "line": 214,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "50d07f24528323d32f3fa50fa736819c37068507a04e69157fc7b74d0197b1d0",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/spacetime-weaving.lua",
+    "lines": [
+      {
+        "line": 122,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 123,
+        "text": "\t\tlocal reduction = t.getReduction(self, t)"
+      },
+      {
+        "line": 124,
+        "text": "\t\treturn ([[When you teleport you reduce the duration of a single detrimental effect by %d turns.]]):"
+      },
+      {
+        "line": 125,
+        "text": "\t\ttformat(reduction)"
+      },
+      {
+        "line": 126,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "511a17a66da67734e0e5e13bf8c89805cc80a46ad4ee43f8dff84acfe8528524",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 2117,
+        "text": "\tname = \"LOBOTOMIZED\", image = \"talents/psychic_lobotomy.png\","
+      },
+      {
+        "line": 2118,
+        "text": "\tdesc = _t\"Lobotomized (confused)\","
+      },
+      {
+        "line": 2119,
+        "text": "\tlong_desc = function(self, eff) return (\"The target's mental faculties have been severely impaired, making it act randomly each turn (%d%% chance) and reducing its cunning by %d.\"):tformat(eff.confuse, eff.power/2) end,"
+      },
+      {
+        "line": 2120,
+        "text": "\ttype = \"mental\","
+      },
+      {
+        "line": 2121,
+        "text": "\tsubtype = { confusion=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5198418bb324359bb69647da8b927626ce7583de2e865c6c8cb8dc3cd7465e8e",
+    "public_source_path": "game/modules/tome/data/talents/spells/fire-alchemy.lua",
+    "lines": [
+      {
+        "line": 152,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 153,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 154,
+        "text": "\t\treturn ([[A furious fire storm rages around the caster, doing %0.2f fire damage in a radius of 3 each turn for %d turns."
+      },
+      {
+        "line": 155,
+        "text": "\t\tYou closely control the firestorm, preventing it from harming your party members."
+      },
+      {
+        "line": 156,
+        "text": "\t\tThe damage and duration will increase with your Spellpower.]]):"
+      },
+      {
+        "line": 157,
+        "text": "\t\ttformat(damDesc(self, DamageType.FIRE, damage), duration)"
+      },
+      {
+        "line": 158,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "51b65b9c8cecf93b7a514cd38cdf8082777fefaf7c18bde002844c14a77bfa9f",
+    "public_source_path": "game/modules/tome/dialogs/debug/RandomObject.lua",
+    "lines": [
+      {
+        "line": 69,
+        "text": "--- configure resolvers that can be used"
+      },
+      {
+        "line": 70,
+        "text": "_M.resolver_choices = {{name=_t\"None\", resolver=nil, desc=_t\"Don't apply a resolver\"},"
+      },
+      {
+        "line": 71,
+        "text": "\t{name=_t\"Equipment\", resolver=\"equip\", desc=_t\"Object will be equipped if possible, otherwise added to main inventory\","
+      },
+      {
+        "line": 72,
+        "text": "\tgenerate=function(dialog) -- generate an object, forcing antimagic check"
+      },
+      {
+        "line": 73,
+        "text": "\t\tlocal res_input, ok, t"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "51d93e5db95e463545707ad356b4d132140277b1d33cf82e577b4479fe8dbbd6",
+    "public_source_path": "game/modules/tome/data/texts/intro-arena.lua",
+    "lines": [
+      {
+        "line": 18,
+        "text": "-- darkgod@te4.org"
+      },
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t[[Welcome #LIGHT_GREEN#@name@#WHITE#."
+      },
+      {
+        "line": 21,
+        "text": "As you walk forward, you hear the increasingly loud cheers coming from outside."
+      },
+      {
+        "line": 22,
+        "text": "As you step into the arena, the scorching sun blinds your eyes temporarily."
+      },
+      {
+        "line": 23,
+        "text": "You look up, and meet your target eye to eye: The Master of the Arena, carefully examining"
+      },
+      {
+        "line": 24,
+        "text": "the newcomer. He smirks, and starts looking at the other fighters with interest."
+      },
+      {
+        "line": 25,
+        "text": "Whoever defeats the Master of Arena will achieve utmost glory. "
+      },
+      {
+        "line": 26,
+        "text": "Determined to win, you draw your weapons and advance defiantly. "
+      },
+      {
+        "line": 27,
+        "text": "The public roars in anticipation...."
+      },
+      {
+        "line": 28,
+        "text": "]]"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "524abcd28fce400203928530817b215d3e0961d9856b1d3eab0d6f346fca06d7",
+    "public_source_path": "game/modules/tome/data/talents/spells/golem.lua",
+    "lines": [
+      {
+        "line": 455,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 456,
+        "text": "\t\tlocal rad = self:getTalentRadius(t)"
+      },
+      {
+        "line": 457,
+        "text": "\t\treturn ([[The golem self-destructs, destroying itself and generating a blast of fire in a radius of %d, doing %0.2f fire damage."
+      },
+      {
+        "line": 458,
+        "text": "\t\tThis spell is only usable when the golem's master is dead.]]):tformat(rad, damDesc(self, DamageType.FIRE, 50 + 10 * self.level))"
+      },
+      {
+        "line": 459,
+        "text": "\tend,"
+      },
+      {
+        "line": 460,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "529b679647527b7676a0db65909db18604949fe9dbed5e8eeaedccfd8cc0f868",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 493,
+        "text": "\tencumber = 0.4,"
+      },
+      {
+        "line": 494,
+        "text": "\trarity = 350,"
+      },
+      {
+        "line": 495,
+        "text": "\tdesc = _t[[This vial of blood was drawn from an ancient race in the Age of Haze. Some of the power and vitality of those early days of the world still flows through it. \"Drink me, mortal,\" the red liquid seems to whisper in your thoughts. \"I will bring you light beyond darkness. Those who taste my essence fear not the death of flesh. Drink me, mortal, if you value your life...\"]],"
+      },
+      {
+        "line": 496,
+        "text": "\tcost = 1000,"
+      },
+      {
+        "line": 497,
+        "text": "\tspecial = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5333b121c481ce3b612847d4f3b9aa14652d610c37a2aa47bef2d1855c2df7ca",
+    "public_source_path": "game/modules/tome/data/zones/sandworm-lair/npcs.lua",
+    "lines": [
+      {
+        "line": 177,
+        "text": "\tdisplay = \"D\", color=colors.VIOLET,"
+      },
+      {
+        "line": 178,
+        "text": "\tresolvers.nice_tile{image=\"invis.png\", add_mos = {{image=\"npc/dragon_sand_corrupted_sand_wyrm.png\", display_h=2, display_y=-1}}},"
+      },
+      {
+        "line": 179,
+        "text": "\tdesc = _t[[The sandworms are gone, devoured by this shrieking, warped horror.]],"
+      },
+      {
+        "line": 180,
+        "text": "\tlevel_range = {47, nil}, exp_worth = 3,"
+      },
+      {
+        "line": 181,
+        "text": "\tmax_life = 850, life_rating = 24, fixed_rating = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "53395599ca539d5851070fb35e70fa050440411ed2be83e476cd4477fb0deedc",
+    "public_source_path": "game/modules/tome/class/interface/TooltipsData.lua",
+    "lines": [
+      {
+        "line": 96,
+        "text": "]]"
+      },
+      {
+        "line": 97,
+        "text": ""
+      },
+      {
+        "line": 98,
+        "text": "TOOLTIP_VIM = _t[[#GOLD#Vim#LAST#"
+      },
+      {
+        "line": 99,
+        "text": "Vim represents the amount of life energy you control. Each corruption talent requires some."
+      },
+      {
+        "line": 100,
+        "text": "It does not regenerate naturally; you need to drain it from yourself or your victims."
+      },
+      {
+        "line": 101,
+        "text": "Each time you kill a creature you gain 50% of your Willpower + 1 as Vim.  This value is multiplied by the rank of the creature."
+      },
+      {
+        "line": 102,
+        "text": "If you can't pay for the Vim cost of a talent you may instead pay with life at a rate of 200% of the Vim cost."
+      },
+      {
+        "line": 103,
+        "text": "]]"
+      },
+      {
+        "line": 104,
+        "text": ""
+      },
+      {
+        "line": 105,
+        "text": "TOOLTIP_EQUILIBRIUM = _t[[#GOLD#Equilibrium#LAST#"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "53aef18af7821283248b9b07b732c20ab19dea70a4e827cc74e8d923419416de",
+    "public_source_path": "game/modules/tome/data/zones/mark-spellblaze/grids.lua",
+    "lines": [
+      {
+        "line": 31,
+        "text": "\t\tif not o then return end"
+      },
+      {
+        "line": 32,
+        "text": ""
+      },
+      {
+        "line": 33,
+        "text": "\t\trequire(\"engine.ui.Dialog\"):yesnoPopup(_t\"Heart of the Sandworm Queen\", _t\"The altar seems to react to the heart. You feel you could corrupt it here.\", function(ret)"
+      },
+      {
+        "line": 34,
+        "text": "\t\t\tif ret then return end"
+      },
+      {
+        "line": 35,
+        "text": "\t\t\tlocal o = game.zone:makeEntityByName(game.level, \"object\", \"CORRUPTED_SANDQUEEN_HEART\", true)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "545e1fdd6a32a780868297a6bef6f079ef78d6edab792c74a67fff964dd940d6",
+    "public_source_path": "game/modules/tome/data/quests/start-dwarf.lua",
+    "lines": [
+      {
+        "line": 21,
+        "text": "desc = function(self, who)"
+      },
+      {
+        "line": 22,
+        "text": "\tlocal desc = {}"
+      },
+      {
+        "line": 23,
+        "text": "\tdesc[#desc+1] = _t\"You were part of a group of dwarves sent to investigate the situation of the kingdom of Reknor.\""
+      },
+      {
+        "line": 24,
+        "text": "\tdesc[#desc+1] = _t\"When you arrived there you found nothing but orcs, well organized and very powerful.\""
+      },
+      {
+        "line": 25,
+        "text": "\tdesc[#desc+1] = _t\"Most of your team was killed there and now you and Norgan (the sole survivor besides you) must hurry back to the Iron Council to bring the news.\""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "548aae47e4cb455131efc2b0ab6f7000b953bcad9dca1cea293b94519b1d6db0",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/induced-phenomena.lua",
+    "lines": [
+      {
+        "line": 333,
+        "text": "\t\tlocal regress = t.getRegression(self, t)"
+      },
+      {
+        "line": 334,
+        "text": "\t\tlocal aging = t.getAgingChance(self, t)"
+      },
+      {
+        "line": 335,
+        "text": "\t\treturn ([[While your cosmic cycle is expanding, creatures in its radius have a %d%% chance to suffer the effects of aging; pinning, blinding, or confusing them for 3 turns."
+      },
+      {
+        "line": 336,
+        "text": "\t\tWhile your cosmic cycle is contracting, creatures in its radius suffer from age regression; reducing their three highest stats by %d."
+      },
+      {
+        "line": 337,
+        "text": "\t\tThe chance and stat reduction will scale with your Spellpower.]]):tformat(aging, regress)"
+      },
+      {
+        "line": 338,
+        "text": "\tend,"
+      },
+      {
+        "line": 339,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5491e3985c053517dd801286b150b0480d81eeb106d564bc3c69a841fe749b74",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 3427,
+        "text": "\tname = \"SHOCKED\","
+      },
+      {
+        "line": 3428,
+        "text": "\tdesc = _t\"Shocked\","
+      },
+      {
+        "line": 3429,
+        "text": "\tlong_desc = function(self, eff) return (\"Target is reeling from an lightning shock, halving its stun and pinning resistance.\"):tformat() end,"
+      },
+      {
+        "line": 3430,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 3431,
+        "text": "\tsubtype = { lightning=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "54a5fab9c3c1cfed976648537d71efa8ad1b971501e52130ba123f0088815759",
+    "public_source_path": "game/modules/tome/data/talents/misc/misc.lua",
+    "lines": [
+      {
+        "line": 413,
+        "text": "\t\treturn true"
+      },
+      {
+        "line": 414,
+        "text": "\tend,"
+      },
+      {
+        "line": 415,
+        "text": "\tinfo = _t[[Use the onboard short-range teleport of the Fortress to beam down to the surface."
+      },
+      {
+        "line": 416,
+        "text": "\tRequires being in flight above the ground of a planet.]]"
+      },
+      {
+        "line": 417,
+        "text": "}"
+      },
+      {
+        "line": 418,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5611c3c381fad5ff0625b797130a7b55ee40d6ec6355e6707ae849ced88d1678",
+    "public_source_path": "game/modules/tome/data/talents/misc/npcs.lua",
+    "lines": [
+      {
+        "line": 1531,
+        "text": "\tend,"
+      },
+      {
+        "line": 1532,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1533,
+        "text": "\t\treturn ([[Fire a slow bolt of a random element for %d damage. Damage increases with the magic stat.]]):"
+      },
+      {
+        "line": 1534,
+        "text": "\t\ttformat(t.getDamage(self, t))"
+      },
+      {
+        "line": 1535,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "562fe334054a943c696d31133e7d04f96fa5a52b2156301f3482d226e7dfd03c",
+    "public_source_path": "game/modules/tome/data/talents/uber/cun.lua",
+    "lines": [
+      {
+        "line": 382,
+        "text": "\t},"
+      },
+      {
+        "line": 383,
+        "text": "\tmind = {"
+      },
+      {
+        "line": 384,
+        "text": "\t\tdesc = _t\"All mind criticals reduce the remaining cooldown of a random wild gift/psionic/afflicted talent by 2.\","
+      },
+      {
+        "line": 385,
+        "text": "\t\ttypes = { \"^wild%-gift/\", \"^cursed/\", \"^psionic/\" },"
+      },
+      {
+        "line": 386,
+        "text": "\t\treduce = 2,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "569688406707f4282a10825cfbb03e608bd7bfb0deab7580e94c3668b000e878",
+    "public_source_path": "game/modules/tome/data/timed_effects/mental.lua",
+    "lines": [
+      {
+        "line": 2210,
+        "text": "\tname = \"RESONANCE_FIELD\", image = \"talents/resonance_field.png\","
+      },
+      {
+        "line": 2211,
+        "text": "\tdesc = _t\"Resonance Field\","
+      },
+      {
+        "line": 2212,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is surrounded by a psychic field, absorbing 50%% of all damage (up to %d/%d).\"):tformat(self.resonance_field_absorb, eff.power) end,"
+      },
+      {
+        "line": 2213,
+        "text": "\ttype = \"mental\","
+      },
+      {
+        "line": 2214,
+        "text": "\tsubtype = { psionic=true, shield=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "572460a6b66d932fd2d53c9d363ac88ae49606a81e72aa542ba19c006e86d0c6",
+    "public_source_path": "game/modules/tome/class/Trap.lua",
+    "lines": [
+      {
+        "line": 227,
+        "text": "\t\t\tdesc = desc and _t\"\\n#LIGHT_BLUE#Trap Description:#WHITE#\\n\"..desc or \"\""
+      },
+      {
+        "line": 228,
+        "text": "\t\t\trequire \"engine.ui.Dialog\":yesnoLongPopup((\"Disarming a trap: %s\"):tformat(self:getName()),"
+      },
+      {
+        "line": 229,
+        "text": "\t([[As you begin disarming the trap, you think you may be able to learn how it works by carefully dismantling it.  You estimate this will take up to #YELLOW#%d#LAST# uninterrupted turns."
+      },
+      {
+        "line": 230,
+        "text": "\tWhat do you want to do?"
+      },
+      {
+        "line": 231,
+        "text": "%s"
+      },
+      {
+        "line": 232,
+        "text": "]]):tformat(turns, desc), math.min(800, game.w*.75),"
+      },
+      {
+        "line": 233,
+        "text": "\t\t\tfunction(quit)"
+      },
+      {
+        "line": 234,
+        "text": "\t\t\t\tif quit == true then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "573b992273880cbd758d9661761d4add0f71fab2c9e15502f00418157c17df62",
+    "public_source_path": "game/modules/tome/data/talents/spells/explosives.lua",
+    "lines": [
+      {
+        "line": 193,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 194,
+        "text": "\t\tlocal min, max = t.minmax(self, t)"
+      },
+      {
+        "line": 195,
+        "text": "\t\treturn ([[Your alchemist bombs now affect a radius of %d around them."
+      },
+      {
+        "line": 196,
+        "text": "\t\tExplosion damage may increase by %d%% (if the explosion is not contained) to %d%% if the area of effect is confined.]]):"
+      },
+      {
+        "line": 197,
+        "text": "\t\ttformat(t.getRadius(self, t), min*100, max*100) --I5"
+      },
+      {
+        "line": 198,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "574a5dc4699c5d73bd9df7e9b82552841297f61d80065612823191b3d4a4a53e",
+    "public_source_path": "game/modules/tome/data/zones/reknor/npcs.lua",
+    "lines": [
+      {
+        "line": 101,
+        "text": "\ton_die = function(self, who)"
+      },
+      {
+        "line": 102,
+        "text": "\t\tgame.state:activateBackupGuardian(\"LITHFENGEL\", 4, 35, _t\"They say that after it has been confirmed orcs still inhabited Reknor, they found a mighty demon there.\", function(gen)"
+      },
+      {
+        "line": 103,
+        "text": "\t\t\tif gen then require(\"engine.ui.Dialog\"):simpleLongPopup(_t\"Danger...\", _t\"When last you saw it, this cavern was littered with the corpses of orcs that you had slain. Now many, many more corpses carpet the floor, all charred and reeking of sulfur. An orange glow dimly illuminates the far reaches of the cavern to the east.\", 400) end"
+      },
+      {
+        "line": 104,
+        "text": "\t\tend)"
+      },
+      {
+        "line": 105,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "575002ba8cf56bc43c196e5db193ba304380c0a732f766d87fda95095ec52f6e",
+    "public_source_path": "game/modules/tome/data/zones/conclave-vault/npcs.lua",
+    "lines": [
+      {
+        "line": 141,
+        "text": "\tname = \"Healer Astelrid\", color=colors.VIOLET, unique = true,"
+      },
+      {
+        "line": 142,
+        "text": "\tresolvers.nice_tile{tall=1},"
+      },
+      {
+        "line": 143,
+        "text": "\tdesc = _t[[An enormous ogre, clad in a tattered set of robes with an officer's badge.  She clutches a healer's staff, wrapped in casting plaster and scalpels for use as a massive spiked club.]],"
+      },
+      {
+        "line": 144,
+        "text": "\tkiller_message = _t\"and spliced for experiments\","
+      },
+      {
+        "line": 145,
+        "text": "\tlevel_range = {23, nil}, exp_worth = 2,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "57aa286619c1dc83ba57166af9044a7a53f4102dc16fefdc0d4312f1054e3083",
+    "public_source_path": "game/modules/tome/data/texts/unlock-rogue_skirmisher.lua",
+    "lines": [
+      {
+        "line": 19,
+        "text": ""
+      },
+      {
+        "line": 20,
+        "text": "return _t\"New Class: #LIGHT_GREEN#Skirmisher (Rogue)\","
+      },
+      {
+        "line": 21,
+        "text": "_t[[In Maj'Eyal threats are everywhere when you walk the wildlands, some rogues prefer to forgo the use of stealth instead using their cunning skills to kill silently from afar with a sling well protected with a buckler."
+      },
+      {
+        "line": 22,
+        "text": ""
+      },
+      {
+        "line": 23,
+        "text": "You have learned the power of counterstriking from afar and can now create characters with the #LIGHT_GREEN#Skirmisher class#WHITE#."
+      },
+      {
+        "line": 24,
+        "text": ""
+      },
+      {
+        "line": 25,
+        "text": "Skirmishers are highly mobile rogues that specialize in running and gunning, using Slings to harass, debilitate, and wear down enemies before finishing them off with extremely quick attacks."
+      },
+      {
+        "line": 26,
+        "text": ""
+      },
+      {
+        "line": 27,
+        "text": "Class features:#YELLOW#"
+      },
+      {
+        "line": 28,
+        "text": "- Vault and roll around your foes, staying one step ahead and just out of"
+      },
+      {
+        "line": 29,
+        "text": "reach"
+      },
+      {
+        "line": 30,
+        "text": "- Cripple your opponents and unleash a torrent of sling bullets"
+      },
+      {
+        "line": 31,
+        "text": "- Block enemy fire with your buckler mastery and counter attack#WHITE#"
+      },
+      {
+        "line": 32,
+        "text": ""
+      },
+      {
+        "line": 33,
+        "text": "Skirmisher use stamina to fuel their techniques, which replenishes slowly over time."
+      },
+      {
+        "line": 34,
+        "text": "]]"
+      }
+    ]
+  }
+]

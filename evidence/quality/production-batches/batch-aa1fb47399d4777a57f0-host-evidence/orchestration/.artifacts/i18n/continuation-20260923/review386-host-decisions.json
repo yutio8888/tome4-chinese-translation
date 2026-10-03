@@ -1,0 +1,35 @@
+{
+ "workset": "evidence/quality/production-batches/batch-aa1fb47399d4777a57f0-source-workset.json",
+ "decisions": {
+  "45c45885c5|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/crystal.lua:130-132 深红水晶体（crimson crystal）是 BASE_NPC_CRYSTAL 派生的 NPC 实体（20-40 行：type immovable／subtype crystal，有生命值、AI 与施法技能，126 行同族会放枯萎箭），游戏内是会攻击的敌对单位；现译“由深红色水晶构成的生物”指称的就是这个单位，没有引入与实现不符的身份判断；“reminiscent of blood”译“血红色”属措辞取舍。驳回。"
+  },
+  "468766bf64|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/stats/stats1.lua:21 起的教程正文：“...your #GOLD#combat stats#WHITE#, the subject of this entire tutorial.”与“...a percentage chance of success is determined.”两句内部都没有换行；现译在“#GOLD#战斗属性#WHITE#，”之后和“成功击”与“中目标概率”之间各多插一个 \\n，后者把“击中”拆成两行。换行不变量可对固定源码客观判定。确认。修复：删去这两个多余的 \\n（其余换行与颜色标记不变），“成功击中目标概率”一句可顺手改为“得出成功命中目标的几率”，按整句检查。"
+  },
+  "4a1e9e2713|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:8212 冰冷杀戮（Icy Kill）desc：原文说凶手与死者之间的联系是凶器，占卜师能沿“死者→凶器→凶手”追踪；杀手用冰雕刀刃（blades，复数）杀人，联系随之融化消失；最后一名受害者侥幸用冰刃刺中凶手心脏，这把与造就它的冷酷之心相合的最后一把冰刃从未融化。现译把追踪链改成泛泛的“从人群中找出凶手”，并新增原文没有的“刺入受害者的胸口”“随受害者心脏的体温渐渐融化”“夺下了利刃”等情节，复数刀刃写成一把。属忠实性错误（增补情节）。确认。修复：按原文重写三段：占卜师沿死者→凶器→凶手的联系追查；杀手以冰雕刀刃行凶，联系随之融化；某受害者侥幸以冰刃刺中凶手心脏，最后这把冰刃与造就它的冷酷之心相合，从此不再融化；保留两个 \\n 段落分隔。"
+  },
+  "4ec0c06fd3|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:7632 余烬之足（Cinderfeet）desc：“who fancied himself daily walks through Goedalath”句法残缺，“fancied himself”本身带“自以为、自负”的意味，放在警示故事里译成“自命不凡”是可辩护的解读，不构成可对源码客观判定的忠实性或机制错误；其余情节（考验自己与荒原、不带回任何东西、草鞋沾满恶魔空间（fearscape）的烟灰、火焰随脚步带出）均已译出。只记建议：如重写可改为“他总爱天天到高达勒斯散步”一类更贴近字面的说法。"
+  },
+  "468766bf64|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（468766bf64）。固定 commit 624a673 game/modules/tome/data/texts/tutorial/stats/stats1.lua 第21、27行在源文中各为单行段落，现译句中插入两个硬换行（“战斗属性#WHITE#，\\n这是整个教程的主题”“成功击\\n中目标概率”），后者拆开“击中”。确认，与 surface 合并为一个修复 revision：删去这两个 \\n。"
+  },
+  "4a1e9e2713|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（4a1e9e2713）。固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:8212-8214 冰冷杀戮：原文 blades 为复数、末句是“the final ice blade”；现译写成“一把利刃”且删掉 final，同一把刃先在受害者体内融化、后又被受害者夺下，前后矛盾。确认，与 surface 合并为一个修复 revision（含增补情节与追踪链的修正）。"
+  }
+ }
+}

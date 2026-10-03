@@ -1,0 +1,40 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 4 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "45c45885c5fc1e343f8393c37ae9ae548d622148306b1b8d9a6973acb06e669e",
+      "stage": "surface",
+      "observation": "原文仅描述深红色水晶构成的形体，译文增加了“生物”这一身份判断；冻结输入缺少可确认其是否为生物的语境。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/npcs/crystal.lua:130-132 深红水晶体（crimson crystal）是 BASE_NPC_CRYSTAL 派生的 NPC 实体（20-40 行：type immovable／subtype crystal，有生命值、AI 与施法技能，126 行同族会放枯萎箭），游戏内是会攻击的敌对单位；现译“由深红色水晶构成的生物”指称的就是这个单位，没有引入与实现不符的身份判断；“reminiscent of blood”译“血红色”属措辞取舍。驳回。"
+    },
+    {
+      "revision_key": "468766bf646d890eb06dc793b0485f559e2c9c14997ad8392f839b54243e0ef7",
+      "stage": "surface",
+      "observation": "译文在“成功击\\n中目标概率”中插入换行，将“击中”一词拆开；原文对应句子没有此处换行。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/stats/stats1.lua:21 起的教程正文：“...your #GOLD#combat stats#WHITE#, the subject of this entire tutorial.”与“...a percentage chance of success is determined.”两句内部都没有换行；现译在“#GOLD#战斗属性#WHITE#，”之后和“成功击”与“中目标概率”之间各多插一个 \\n，后者把“击中”拆成两行。换行不变量可对固定源码客观判定。确认。修复：删去这两个多余的 \\n（其余换行与颜色标记不变），“成功击中目标概率”一句可顺手改为“得出成功命中目标的几率”，按整句检查。"
+    },
+    {
+      "revision_key": "4a1e9e27137480daeea4122ee4650e063abaea010059865fdd1aade7e2b60aad",
+      "stage": "surface",
+      "observation": "原文明确描述占卜师沿“受害者→凶器→凶手”的联系追踪，译文改为泛泛的“从人群中找出凶手”，丢失该追踪关系；另增加原文没有的刺入受害者胸口、靠心脏体温融化及夺下利刃等情节。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:8212 冰冷杀戮（Icy Kill）desc：原文说凶手与死者之间的联系是凶器，占卜师能沿“死者→凶器→凶手”追踪；杀手用冰雕刀刃（blades，复数）杀人，联系随之融化消失；最后一名受害者侥幸用冰刃刺中凶手心脏，这把与造就它的冷酷之心相合的最后一把冰刃从未融化。现译把追踪链改成泛泛的“从人群中找出凶手”，并新增原文没有的“刺入受害者的胸口”“随受害者心脏的体温渐渐融化”“夺下了利刃”等情节，复数刀刃写成一把。属忠实性错误（增补情节）。确认。修复：按原文重写三段：占卜师沿死者→凶器→凶手的联系追查；杀手以冰雕刀刃行凶，联系随之融化；某受害者侥幸以冰刃刺中凶手心脏，最后这把冰刃与造就它的冷酷之心相合，从此不再融化；保留两个 \\n 段落分隔。"
+    },
+    {
+      "revision_key": "4ec0c06fd3966f9975021b911450c9e7363b887051e31e8d78e0b4634de6d668",
+      "stage": "surface",
+      "observation": "原文“fancied himself daily walks through Goedalath”表示喜欢或想要每天在 Goedalath 散步，译文额外写成“他自命不凡”，误将散步偏好解释为自负性格。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:7632 余烬之足（Cinderfeet）desc：“who fancied himself daily walks through Goedalath”句法残缺，“fancied himself”本身带“自以为、自负”的意味，放在警示故事里译成“自命不凡”是可辩护的解读，不构成可对源码客观判定的忠实性或机制错误；其余情节（考验自己与荒原、不带回任何东西、草鞋沾满恶魔空间（fearscape）的烟灰、火焰随脚步带出）均已译出。只记建议：如重写可改为“他总爱天天到高达勒斯散步”一类更贴近字面的说法。"
+    }
+  ]
+}
