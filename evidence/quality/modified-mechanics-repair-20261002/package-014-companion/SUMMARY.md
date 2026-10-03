@@ -1,7 +1,3 @@
-# 当前恢复入口
-
-原001—014主包及暮光回响2条伴随包已DONE_VERIFIED；累计135/169个原confirmed claim、14/18主包。伴随包还包含用户批准的void同键副本，额外副本不计入169。准备提交伴随包后继续015—018；不再需要就此次9＋2拆分请求确认。
-
 # 第014伴随包：暮光回响两处同键说明
 
 按用户明确批准的9＋2拆分，修正crepescula与void两个section中的同一运行键，两个target保持完全相同。包含原UPSTREAM124及一条额外同键副本；不扩展术语或修改游戏源码。
@@ -13,5 +9,3 @@
 strict proposal/lint、运行键碰撞／分类、完整strict addon、真实DLC publish dry-run（未apply）和空白检查通过。原始独立审核回复、归档凭据及最终DONE校验随包保存。
 
 有效REVIEW/full及FINAL/full均为2条OK。一次终审虽回2条OK，但原生记录cwd切至冻结源码子目录，绑定校验拒绝；原始回复及诊断保留为无效尝试，归档后fresh同候选重试通过。全部child归档。
-
-继续遵循唯一EXECUTOR、whole-workset独立REVIEW/FINAL、宿主源码与字节核验、完整门禁、全部child归档和DONE/提交。无push/PR/发布授权。保留用户无关改动。原有第004/010用户裁决及MMR026术语待决不变。

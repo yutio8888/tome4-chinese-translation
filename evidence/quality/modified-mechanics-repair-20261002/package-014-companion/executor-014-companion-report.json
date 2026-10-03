@@ -1,0 +1,375 @@
+{
+  "task_id": "mmrfix-20261002-014-companion",
+  "role": "EXECUTOR",
+  "result": "implemented",
+  "changed_files": [
+    "tome-orcs.lua"
+  ],
+  "claims": [
+    {
+      "finding_id": "UPSTREAM124",
+      "status": "confirmed",
+      "disposition": "target repaired based on independently checked fixed-core/unpinned-DLC bytes"
+    },
+    {
+      "finding_id": "LOCAL-COMPANION-014",
+      "status": "confirmed",
+      "disposition": "target repaired based on independently checked fixed-core/unpinned-DLC bytes"
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "128d5a7e71d56a34dcd508fe4597fe10ec9519c37fcaabe4afc111afa2985222",
+      "section": "tome-orcs/data/talents/celestial/crepescula.lua",
+      "old_target": "目标会感受到你造成的所有光系和暗影伤害的回响，持续 %d 回合。\n\n每造成 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 造成 %d 点伤害时达到上限。\n暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。",
+      "new_target": "目标会感受到所受光系和暗影伤害的回响，持续 %d 回合；任意来源的单次至少 1 点光系或暗影伤害均可触发。\n\n光系伤害每点产生 %0.2f%% 的减速强度，初次持续 %d 回合，强度不受上限限制；已有减速效果遇到后续光系伤害时，叠加强度并按 %d%% 的上限重新计算（对应累计 %d 点光系伤害），但不刷新持续时间。\n暗影伤害会在目标所在格产生初次持续 4 回合的效果；在暮光回响生效期间，仅当该效果的剩余回合数大于 0 且小于刷新时长，并且目标再次受到暗影伤害时，才会刷新至 %d 回合。每回合的基础伤害为触发该效果的那次暗影伤害的 %d%%； 刷新时将剩余总伤害均摊到新的持续时间内，再加上本次暗影伤害产生的每回合基础伤害。",
+      "source": "The target feels the echoes of all your light and dark damage for %d turns. \n\nLight damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.\nDark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null
+    },
+    {
+      "change_id": "5cf5eb8d4dfa0c66855f7d44352a7f0a47f5d413fc9e8178312f174b764375d7",
+      "section": "tome-orcs/data/talents/celestial/void.lua",
+      "old_target": "目标会感受到你造成的所有光系和暗影伤害的回响，持续 %d 回合。\n\n每造成 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 造成 %d 点伤害时达到上限。\n暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。",
+      "new_target": "目标会感受到所受光系和暗影伤害的回响，持续 %d 回合；任意来源的单次至少 1 点光系或暗影伤害均可触发。\n\n光系伤害每点产生 %0.2f%% 的减速强度，初次持续 %d 回合，强度不受上限限制；已有减速效果遇到后续光系伤害时，叠加强度并按 %d%% 的上限重新计算（对应累计 %d 点光系伤害），但不刷新持续时间。\n暗影伤害会在目标所在格产生初次持续 4 回合的效果；在暮光回响生效期间，仅当该效果的剩余回合数大于 0 且小于刷新时长，并且目标再次受到暗影伤害时，才会刷新至 %d 回合。每回合的基础伤害为触发该效果的那次暗影伤害的 %d%%； 刷新时将剩余总伤害均摊到新的持续时间内，再加上本次暗影伤害产生的每回合基础伤害。",
+      "source": "The target feels the echoes of all your light and dark damage for %d turns. \n\nLight damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.\nDark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.",
+      "source_tag": "tformat",
+      "args_order": null,
+      "special": null
+    }
+  ],
+  "source_checks": [
+    {
+      "anchor_id": "entry-1431",
+      "public_path": "tome-orcs/data/talents/celestial/void.lua",
+      "commit": null,
+      "sha256": "b6c361dedd503e479b8c16c872338a49887aa50742e3f4cade7dca4dc254d305",
+      "hash_match": true,
+      "start": 1,
+      "end": 187,
+      "excerpt": "1: -- ToME - Tales of Maj'Eyal\n2: -- Copyright (C) 2009, 2010, 2011, 2012 Nicolas Casalini\n3: --\n4: -- This program is free software: you can redistribute it and/or modify\n5: -- it under the terms of the GNU General Public License as published by\n6: -- the Free Software Foundation, either version 3 of the License, or\n7: -- (at your option) any later version.\n8: --\n9: -- This program is distributed in the hope that it will be useful,\n10: -- but WITHOUT ANY WARRANTY; without even the implied warranty of\n11: -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n12: -- GNU General Public License for more details.\n13: --\n14: -- You should have received a copy of the GNU General Public License\n15: -- along with this program.  If not, see <http://www.gnu.org/licenses/>.\n16: --\n17: -- Nicolas Casalini \"DarkGod\"\n18: -- darkgod@te4.org\n19: \n20: local damDesc = Talents.main_env.damDesc\n21: \n22: newTalent{\n23: \tname = \"Nebula Spear\",\n24: \ttype = {\"celestial/void\", 1},\n25: \trequire = divi_req_high1,\n26: \tpoints = 5,\n27: \trange = 6,\n28: \tradius = 4,\n29: \tproj_speed = 3.5,\n30: \tgetDamage = function(self, t) return self:combatTalentSpellDamage(t, 30, 140) end,\n31: \ttarget = function(self, t) return \n32: \t\t{type=\"cone\", range=self:getTalentRange(t), radius=self:getTalentRadius(t), cone_angle=25, stop_block=true, talent=t, display={particle=\"nebula_spear\", trail=\"darktrail\"}, start_x = self.x, start_y = self.y,\n33: \t\tblock_radius = function(typ, lx, ly) --the only difference is adding a check for actors that block move\n34: \t\t\tlocal nb = game.level.map:checkAllEntitiesCount(lx, ly, \"block_move\")\n35: \t\t\t\t\t-- Reduce the nb blocking for friendlies\n36: \t\t\t\tif (typ.pass_terrain or game.level.map:checkEntity(lx, ly, engine.Map.TERRAIN, \"pass_projectile\")) then\n37: \t\t\t\t\tnb = nb - 1\n38: \t\t\t\tend\n39: \t\t\t\tif not typ.friendlyblock and typ.source_actor and typ.source_actor.reactionToward then\n40: \t\t\t\t\tlocal a = game.level.map(lx, ly, engine.Map.ACTOR)\n41: \t\t\t\t\tif a and typ.source_actor:reactionToward(a) > 0 then\n42: \t\t\t\t\t\tnb = nb - 1\n43: \t\t\t\t\tend\n44: \t\t\t\tend\n45: \t\t\treturn not typ.no_restrict and nb > 0 and not game.level.map:checkEntity(lx, ly, engine.Map.TERRAIN, \"pass_projectile\") and not (for_highlights and not (game.level.map.remembers(lx, ly) or game.level.map.seens(lx, ly)))\n46: \t\tend}\n47: \tend,\n48: \taction = function(self, t)\n49: \t\tlocal tgt = self:getTalentTarget(t)\n50: \t\tlocal x, y = self:getTarget(tgt)\n51: \t\tif not x or not y then return nil end\n52: \t\tlocal _ _, x, y = self:canProject(tg, x, y)\n53: \t\t\n54: \t\ttgt.display.tx = x - self.x\n55: \t\ttgt.display.ty = y - self.y\n56: \t\ttgt.type = \"bolt\" --in order to count the grids we have to do the projection ourselves\n57: \t\ttgt.damage = self:spellCrit(t.getDamage(self, t))\n58: \t\ttgt.on_stop_check = function(self, typ, tg, damtype, dam, particles, px, py, tmp, rx, ry, projectile)\n59: \t\t\tDamageType = require \"engine.DamageType\"\n60: \t\t\tif game.level.map(rx, ry, engine.Map.ACTOR) then\n61: \t\t\t\tDamageType:get(DamageType.DARKNESS).projector(self, rx, ry, DamageType.DARKNESS, tg.damage * 2.5, nil, nil)\n62: \t\t\telse\n63: \t\t\t\ttg.type = \"cone\"\n64: \t\t\t\ttg.stop_block = false\n65: \t\t\t\n66: \t\t\t\tlocal grids = self:project(tg, rx, ry, function() end)\n67: \t\t\t\t--don't want to do this but I have to\n68: \t\t\t\tlocal old_block = tg.block_radius\n69: \t\t\t\ttg.block_radius = nil\n70: \t\t\t\tlocal theoretical_nb = 0\n71: \t\t\t\tlocal nb = 0\n72: \t\t\t\t--this is the number of grids excluding walls, unlike the alchemist bombs which are higher when there are more walls\n73: \t\t\t\tlocal theoretical_grids = self:project(tg, rx, ry, function() end)\n74: \t\t\t\tif theoretical_grids then for px, ys in pairs(theoretical_grids or {}) do for py, _ in pairs(ys) do theoretical_nb = theoretical_nb + 1 end end end\n75: \t\t\t\tif grids then for px, ys in pairs(grids or {}) do for py, _ in pairs(ys) do nb = nb + 1 end end end\n76: \t\t\t\tlocal dammult\n77: \t\t\t\tif theoretical_nb == 0 then dammult = 1\n78: \t\t\t\telse dammult = 1 + 1 * math.max(nb - 1, 0) / theoretical_nb end\n79: \t\t\t\t\n80: \t\t\t\tif grids then for px, ys in pairs(grids or {}) do for py, _ in pairs(ys) do DamageType:get(DamageType.DARKNESS).projector(self, px, py, DamageType.DARKNESS, tg.damage * dammult, nil, nil) end end end\n81: \t\t\t\tgame.level.map:particleEmitter(px, py, tg.radius, \"breath_dark\", {radius=tg.radius, spread = tg.cone_angle, grids=grids, tx=px - tg.start_x, ty=py - tg.start_y})\n82: \t\t\t\n83: \t\t\t\t--nothing should use this but just in case\n84: \t\t\t\ttg.type = \"bolt\"\n85: \t\t\t\ttg.stop_block = true\n86: \t\t\tend\n87: \t\t\treturn true\n88: \t\tend\n89: \t\t\n90: \t\tself:projectile(tgt, x, y, function(px, py, tg, self)\n91: \t\t\tlocal Map = require(\"engine.Map\")\n92: \t\t\tlocal proj = game.level.map(px, py, Map.PROJECTILE)\n93: \t\t\tif not proj then --i.e. the projectile finished\n94: \t\t\t\t--part of the reason we're using the same tg is due to things in reflection and such that change the start_x, y etc which we need for cones\n95: \t\t\t\t\n96: \t\t\tend\n97: \t\tend)\n98: \t\treturn true\n99: \tend,\n100: \tinfo = function(self, t)\n101: \t\tlocal damage = damDesc(self, DamageType.DARKNESS, t.getDamage(self, t))\n102: \t\tlocal radius = self:getTalentRadius(t)\n103: \t\treturn ([[Fire out a spear of cosmic energies. If it hits an enemy it deals %0.2f damage, otherwise it explodes in a thin cone of radius %d at the end of its range, blocked by enemies, which deals %0.2f to %0.2f damage depending on how much the enemies block.]]):\n104: \t\ttformat(damage * 2.5, radius, damage, damage * 2.5)\n105: \tend,\n106: \t\n107: }\n108: \n109: newTalent{\n110: \tname = \"Crescent Wave\",\n111: \ttype = {\"celestial/void\", 2},\n112: \trequire = divi_req_high2,\n113: \tpoints = 5,\n114: \taction = function(self, t)\n115: \tend,\n116: \tinfo = function(self, t)\n117: \t\treturn (_t[[Fires out a projectile in a clockwise arc. If it hits an enemy it deals %0.2f damage and roots them for one turn. If another projectile damages them within %d turns, they take half that damage and are rooted again.]])\n118: \tend,\n119: \t\n120: }\n121: \n122: newTalent{\n123: \tname = \"Twilit Echoes\",\n124: \ttype = {\"celestial/void\", 2},\n125: \trequire = divi_req_high2,\n126: \trange = 7,\n127: \tpositive = 20,\n128: \tnegative = 20,\n129: \tpoints = 5,\n130: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 4, 8)) end,\n131: \tgetEchoDur = function(self, t) return 3 end,\n132: \tgetDarkEcho = function(self, t) return self:combatTalentScale(t, 0.075, 0.15) end,\n133: \tgetSlowPer = function(self, t) return 0.001 end,\n134: \tgetSlowMax = function(self, t) return t.getSlowPer(self, t) * self:combatTalentSpellDamage(t, 150, 400) end,\n135: \taction = function(self, t)\n136: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t), talent=t}\n137: \t\tlocal x, y = self:getTarget(tg)\n138: \t\tif not x or not y then return nil end\n139: \t\tlocal _ _, x, y = self:canProject(tg, x, y)\n140: \t\tlocal target = game.level.map(x, y, engine.Map.ACTOR)\n141: \t\tif not target then return nil end\n142: \t\ttarget:setEffect(target.EFF_TWILIT_ECHOES, t.getDuration(self, t), {echo_dur = 3, dam_factor = t.getDarkEcho(self,t), slow_per = t.getSlowPer(self, t), slow_max = t.getSlowMax(self, t)})\n143: \tend,\n144: \tinfo = function(self, t)\n145: \t\tlocal duration = t.getDuration(self, t)\n146: \t\tlocal echo_dur = t.getEchoDur(self, t)\n147: \t\tlocal slow_per = t.getSlowPer(self, t)\n148: \t\tlocal slow_max = t.getSlowMax(self, t)\n149: \t\tlocal echo_factor = t.getDarkEcho(self, t)\n150: \t\treturn ([[The target feels the echoes of all your light and dark damage for %d turns. \n151: \n152: Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.\n153: Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]])\n154: \t\t:tformat(duration, slow_per * 100, echo_dur, slow_max * 100, slow_max/slow_per, echo_dur, 100 * echo_factor)\n155: \tend,\n156: }\n157: \n158: newTalent{\n159: \tname = \"Starscape\",\n160: \ttype = {\"celestial/void\", 4},\n161: \trequire = divi_req_high4,\n162: \tpoints = 5,\n163: \tcooldown = 60,\n164: \tpositive = 0,\n165: \tnegative = 0,\n166: \tradius = 8,\n167: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 4, 9)) end,\n168: \trequires_target = true,\n169: \taction = function(self, t)\n170: \t\tif game.zone.no_planechange then\n171: \t\t\tgame.logPlayer(self, \"This spell cannot be cast here.\")\n172: \t\t\treturn\n173: \t\tend\n174: \t\tt.terrains = t.terrains or mod.class.Grid:loadList(\"/data/general/grids/void.lua\")\n175: \t\t-- cache\n176: \t\t--the effects are handled in the main buff\n177: \t\tself:setEffect(self.EFF_STARSCAPE, t.getDuration(self, t), {radius=self:getTalentRadius(t), t=t, terrains=t.terrains})\n178: \t\treturn self:hasEffect(self.EFF_STARSCAPE)\n179: \tend,\n180: \tinfo = function(self, t)\n181: \t\tlocal duration = t.getDuration(self, t)\n182: \t\tlocal radius = self:getTalentRadius(t)\n183: \t\t\n184: \t\treturn ([[Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.]]):\n185: \t\ttformat(radius, duration)\n186: \tend,\n187: }"
+    },
+    {
+      "anchor_id": "a766",
+      "public_path": "tome-orcs/data/timed_effects/magical.lua",
+      "commit": null,
+      "sha256": "6b62a43d6712f6fb221bef24db8ee339a249824f4670540ace77fc439a7bb081",
+      "hash_match": true,
+      "start": 118,
+      "end": 182,
+      "excerpt": "118: \tname = \"TWILIT_ECHOES\", image=\"talents/twilight.png\",\n119: \tdesc = _t\"Twilit Echoes\",\n120: \tlong_desc = function(self, eff) return ([[The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.]])\n121: \t\t:tformat(eff.slow_per * 100, eff.slow_max * 100, eff.slow_max / eff.slow_per, eff.echo_dur, eff.dam_factor * 100) end,\n122: \ttype = \"magical\",\n123: \tsubtype = { dark=true, light=true},\n124: \tstatus = \"detrimental\",\n125: \tdoEcho = function(type, dam, eff, target, src, x, y)\n126: \t\tif type == DamageType.LIGHT then\n127: \t\t\ttarget:setEffect(target.EFF_ECHOED_LIGHT, eff.echo_dur, {power = dam * eff.slow_per, max = eff.slow_max})\n128: \t\telseif type == DamageType.DARKNESS then --you can never be too sure\n129: \t\t\tlocal echo\n130: \t\t\tif eff.dark_echoes then for _, e in ipairs(eff.dark_echoes) do\n131: \t\t\t\tif e.duration > 0 and e.x == x and e.y == y then\n132: \t\t\t\t\techo = e\n133: \t\t\t\tend\n134: \t\t\tend end\n135: \t\t\tif not echo then\n136: \t\t\t\tgame.level.map:addEffect(src, \n137: \t\t\t\t\tx, y, 4,\n138: \t\t\t\t\tDamageType.DARKNESS, dam * eff.dam_factor,\n139: \t\t\t\t\t0,\n140: \t\t\t\t\t5, nil,\n141: \t\t\t\t\t{type=\"shadow_zone\"},\n142: \t\t\t\t\tnil, src:spellFriendlyFire()\n143: \t\t\t\t)\n144: \t\t\t\t--it's hacky yeah, but map:addEffect should really return the instance\n145: \t\t\t\techo = game.level.map.effects[#game.level.map.effects]\n146: \t\t\t\teff.dark_echoes = eff.dark_echoes or {}\n147: \t\t\t\ttable.insert(eff.dark_echoes, echo)\n148: \t\t\telse\n149: \t\t\t\tif echo.duration < eff.echo_dur and echo.duration > 0 then\n150: \t\t\t\t\told_dur = echo.duration\n151: \t\t\t\t\told_dam = old_dur * echo.dam\n152: \t\t\t\t\tlocal new_dam = dam * eff.dam_factor * eff.echo_dur + old_dam\n153: \t\t\t\t\techo.duration = eff.echo_dur\n154: \t\t\t\t\techo.dam = new_dam / eff.echo_dur\n155: \t\t\t\telse\n156: \t\t\t\t\t\n157: \t\t\t\tend\n158: \t\t\tend\n159: \t\tend\n160: \tend,\n161: }\n162: \n163: newEffect{\n164: \tname = \"ECHOED_LIGHT\", image=\"talents/twilight.png\",\n165: \tdesc = _t\"Echoed Light\",\n166: \tlong_desc = function(self, eff) return ([[The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.]])\n167: \t\t:tformat(eff.power * 100, eff.max * 100) end,\n168: \ttype = \"magical\",\n169: \tsubtype = { slow=true},\n170: \tactivate = function(self, eff)\n171: \t\teff.tmpid = self:addTemporaryValue(\"global_speed_add\", -eff.power)\n172: \tend,\n173: \tdeactivate = function(self, eff)\n174: \t\tself:removeTemporaryValue(\"global_speed_add\", eff.tmpid)\n175: \tend,\n176: \ton_merge = function(self, old_eff, new_eff)\n177: \t\tmax = math.max(old_eff.max, new_eff.max)\n178: \t\told_eff.power = math.min(old_eff.power + new_eff.power, max)\n179: \t\tself:removeTemporaryValue(\"global_speed_add\", old_eff.tmpid)\n180: \t\told_eff.tmpid = self:addTemporaryValue(\"global_speed_add\", -old_eff.power)\n181: \t\treturn old_eff\n182: \tend,"
+    },
+    {
+      "anchor_id": "a767",
+      "public_path": "tome-orcs/overload/mod/class/OrcCampaign.lua",
+      "commit": null,
+      "sha256": "68709132d1d4675e1ee49f1f7227a639d1cdc12bda1f68eb6fa63ea185658a7c",
+      "hash_match": true,
+      "start": 348,
+      "end": 361,
+      "excerpt": "348: \t\t\tdata.dam = 0\n349: \t\t\treturn true\n350: \t\tend\n351: \tend\n352: end\n353: \n354: function hookDamageProjectorFinal(self, data)\n355: \tlocal target = game.level.map(data.x, data.y, engine.Map.ACTOR)\n356: \tif target and target:hasEffect(target.EFF_TWILIT_ECHOES) and (data.type == DamageType.LIGHT or data.type == DamageType.DARKNESS) and data.dam >= 1 then\n357: \t\tlocal e = target:hasEffect(target.EFF_TWILIT_ECHOES)\n358: \t\tlocal def = target.tempeffect_def[target.EFF_TWILIT_ECHOES]\n359: \t\tdef.doEcho(data.type, data.dam, e, target, data.src, data.x, data.y)\n360: \tend\n361: end"
+    },
+    {
+      "anchor_id": "entry-1425",
+      "public_path": "tome-orcs/data/talents/celestial/crepescula.lua",
+      "commit": null,
+      "sha256": "1cd8e04cd0e589e7fdb7cb62119b2a4c2df8937785b367fd81df3150a385a9b6",
+      "hash_match": true,
+      "start": 3,
+      "end": 37,
+      "excerpt": "3: newTalent{\n4: \tname = \"Twilit Echoes\",\n5: \ttype = {\"celestial/crepescula\", 2},\n6: \trequire = divi_req_high2,\n7: \trange = 7,\n8: \tpositive = 20,\n9: \tnegative = 20,\n10: \tpoints = 5,\n11: \tgetDuration = function(self, t) return math.floor(self:combatTalentScale(t, 4, 8)) end,\n12: \tgetEchoDur = function(self, t) return 3 end,\n13: \tgetDarkEcho = function(self, t) return self:combatTalentScale(t, 0.075, 0.15) end,\n14: \tgetSlowPer = function(self, t) return 0.001 end,\n15: \tgetSlowMax = function(self, t) return t.getSlowPer(self, t) * self:combatTalentSpellDamage(t, 150, 400) end,\n16: \taction = function(self, t)\n17: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t), talent=t}\n18: \t\tlocal x, y = self:getTarget(tg)\n19: \t\tif not x or not y then return nil end\n20: \t\tlocal _ _, x, y = self:canProject(tg, x, y)\n21: \t\tlocal target = game.level.map(x, y, engine.Map.ACTOR)\n22: \t\tif not target then return nil end\n23: \t\ttarget:setEffect(target.EFF_TWILIT_ECHOES, t.getDuration(self, t), {echo_dur = 3, dam_factor = t.getDarkEcho(self,t), slow_per = t.getSlowPer(self, t), slow_max = t.getSlowMax(self, t)})\n24: \tend,\n25: \tinfo = function(self, t)\n26: \t\tlocal duration = t.getDuration(self, t)\n27: \t\tlocal echo_dur = t.getEchoDur(self, t)\n28: \t\tlocal slow_per = t.getSlowPer(self, t)\n29: \t\tlocal slow_max = t.getSlowMax(self, t)\n30: \t\tlocal echo_factor = t.getDarkEcho(self, t)\n31: \t\treturn ([[The target feels the echoes of all your light and dark damage for %d turns. \n32: \n33: Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.\n34: Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]])\n35: \t\t:tformat(duration, slow_per * 100, echo_dur, slow_max * 100, slow_max/slow_per, echo_dur, 100 * echo_factor)\n36: \tend,\n37: }"
+    },
+    {
+      "anchor_id": "comp-map-create",
+      "public_path": "game/engines/default/engine/Map.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "6fdf0294ab835d06cf1186a47a2222b266bd71bfc53b3ba3a423cbb3e41ba315",
+      "hash_match": true,
+      "start": 1110,
+      "end": 1138,
+      "excerpt": "1110: function _M:addEffect(src, x, y, duration, damtype, dam, radius, dir, angle, overlay, update_fct, selffire, friendlyfire)\n1111: \tif selffire == nil then selffire = true end\n1112: \tif friendlyfire == nil then friendlyfire = true end\n1113: \n1114: \tlocal grids\n1115: \n1116: \t-- Custom grids\n1117: \tif type(angle) == \"table\" then\n1118: \t\tgrids = angle\n1119: \t\tangle = nil\n1120: \t-- Handle any angle\n1121: \telseif type(dir) == \"table\" then\n1122: \t\tgrids = core.fov.beam_any_angle_grids(x, y, radius, angle, dir.source_x or src.x or x, dir.source_y or src.y or y, dir.delta_x, dir.delta_y, true)\n1123: \t-- Handle balls\n1124: \telseif dir == 5 then\n1125: \t\tgrids = core.fov.circle_grids(x, y, radius, true)\n1126: \t-- Handle beams\n1127: \telse\n1128: \t\tgrids = core.fov.beam_grids(x, y, radius, dir, angle, true)\n1129: \tend\n1130: \n1131: \tlocal e = {\n1132: \t\t__ATOMIC = true,\n1133: \t\tsrc=src, x=x, y=y, duration=duration, damtype=damtype, dam=dam, radius=radius, dir=dir, angle=angle,\n1134: \t\toverlay=overlay and (overlay.__ATOMIC or overlay.__CLASSNAME) and overlay,\n1135: \t\tgrids = grids,\n1136: \t\tupdate_fct=update_fct, selffire=selffire, friendlyfire=friendlyfire,\n1137: \t}\n1138: "
+    },
+    {
+      "anchor_id": "comp-map-tick",
+      "public_path": "game/engines/default/engine/Map.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "6fdf0294ab835d06cf1186a47a2222b266bd71bfc53b3ba3a423cbb3e41ba315",
+      "hash_match": true,
+      "start": 1256,
+      "end": 1277,
+      "excerpt": "1256: --- Process the overlay effects, call it from your tick function\n1257: -- @param update_shape_only if true no damage is projected, no duration changes\n1258: function _M:processEffects(update_shape_only)\n1259: \tlocal todel = {}\n1260: \tfor i, e in ipairs(self.effects) do\n1261: \t\t-- Run damage and decrease duration only on certain ticks\n1262: \t\tif not update_shape_only and e.duration > 0 then\n1263: \t\t\tfor lx, ys in pairs(e.grids) do\n1264: \t\t\t\tfor ly, _ in pairs(ys) do\n1265: \t\t\t\t\tlocal act = game.level.map(lx, ly, engine.Map.ACTOR)\n1266: \t\t\t\t\tif act and act == e.src and not ((type(e.selffire) == \"number\" and rng.percent(e.selffire)) or (type(e.selffire) ~= \"number\" and e.selffire)) then\n1267: \t\t\t\t\telseif act and e.src and e.src.reactionToward and (e.src:reactionToward(act) >= 0) and not ((type(e.friendlyfire) == \"number\" and rng.percent(e.friendlyfire)) or (type(e.friendlyfire) ~= \"number\" and e.friendlyfire)) then\n1268: \t\t\t\t\t-- Otherwise hit\n1269: \t\t\t\t\telse\n1270: \t\t\t\t\t\te.src.__project_source = e -- intermediate projector source\n1271: \t\t\t\t\t\tDamageType:get(e.damtype).projector(e.src, lx, ly, e.damtype, e.dam)\n1272: \t\t\t\t\t\te.src.__project_source = nil\n1273: \t\t\t\t\tend\n1274: \t\t\t\tend\n1275: \t\t\tend\n1276: \n1277: \t\t\te.duration = e.duration - 1"
+    },
+    {
+      "anchor_id": "comp-game-clock",
+      "public_path": "game/modules/tome/class/Game.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "dcd6dc85d9b2cf74741e82ac9156128b782193d23a459d53f7cda324b099092a",
+      "hash_match": true,
+      "start": 1796,
+      "end": 1810,
+      "excerpt": "1796: \t\tt.tgtSeen = tgtSeen\n1797: \tend\n1798: end\n1799: \n1800: --- Called every game turns\n1801: function _M:onTurn()\n1802: \tif self.zone then\n1803: \t\tif self.zone.on_turn then self.zone:on_turn() end\n1804: \tend\n1805: \n1806: \t-- Process overlay effects\n1807: \tself.level.map:processEffects(self.turn % 10 ~= 0)\n1808: \n1809: \t-- The following happens only every 10 game turns (once for every turn of 1 mod speed actors)\n1810: \tif self.turn % 10 ~= 0 then return end"
+    },
+    {
+      "anchor_id": "comp-speed",
+      "public_path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "hash_match": true,
+      "start": 4100,
+      "end": 4130,
+      "excerpt": "4100: \t\tself:incMaxStamina(multi_stamina * v)\n4101: \t\t-- psi\n4102: \t\tlocal multi_psi = 1 + (self.inc_resource_multi.psi or 0)\n4103: \t\tself:incMaxPsi(multi_psi * v)\n4104: \telseif stat == self.STAT_STR then\n4105: \t\tself:checkEncumbrance()\n4106: \tend\n4107: \n4108: \tself:fireTalentCheck(\"callbackOnStatChange\", stat, v)\n4109: end\n4110: \n4111: function _M:recomputeGlobalSpeed()\n4112: \tif self.global_speed_add >= 0 then self.global_speed = self.global_speed_base + self.global_speed_add\n4113: \telse self.global_speed = self.global_speed_base / (1 + math.abs(self.global_speed_add)) -- Symmetric scaling\n4114: \tend\n4115: \tself.global_speed = math.max(self.global_speed, 0.1)\n4116: end\n4117: \n4118: --- Called when a temporary value changes (added or deleted)\n4119: -- Takes care to call onStatChange when needed\n4120: -- @param prop the property changing\n4121: -- @param v the value of the change\n4122: -- @param base the base table of prop\n4123: function _M:onTemporaryValueChange(prop, v, base)\n4124: \tif base == self.inc_stats then\n4125: \t\tself:onStatChange(prop, v)\n4126: \telseif prop == \"global_speed_add\" then\n4127: \t\tself:recomputeGlobalSpeed()\n4128: \telseif base == self.talents_types_mastery then\n4129: \t\tself:updateTalentTypeMastery(prop)\n4130: \telseif prop == \"disarmed\" then"
+    },
+    {
+      "anchor_id": "comp-effect-merge",
+      "public_path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "hash_match": true,
+      "start": 110,
+      "end": 162,
+      "excerpt": "110: end\n111: \n112: --- Sets a timed effect on the actor\n113: -- @param eff_id the effect to set\n114: -- @param dur the number of turns to go on\n115: -- @param p a table containing the effects parameters\n116: -- @param silent true to suppress messages\n117: function _M:setEffect(eff_id, dur, p, silent)\n118: \tlocal had = self.tmp[eff_id]\n119: \n120: \t-- Beware, setting to 0 means removing\n121: \tif dur <= 0 then return self:removeEffect(eff_id) end\n122: \tdur = math.floor(dur)\n123: \n124: \tp.__orig_params = table.clone(p, true, {__orig_params=true})\n125: \tlocal ed = _M.tempeffect_def[eff_id]\n126: \tfor k, e in pairs(ed.parameters) do\n127: \t\tif not p[k] then p[k] = e end\n128: \tend\n129: \tp.dur = dur\n130: \tp.effect_id = eff_id\n131: \tif self:check(\"on_set_temporary_effect\", eff_id, ed, p) then return end\n132: \tif p.dur <= 0 then return self:removeEffect(eff_id) end\n133: \n134: \t-- If we already have it, we check if it knows how to \"merge\", or else we remove it and re-add it\n135: \tif self:hasEffect(eff_id) then\n136: \t\tif ed.on_merge then\n137: \t\t\tself.tmp[eff_id] = ed.on_merge(self, self.tmp[eff_id], p, ed)\n138: \t\t\tself.changed = true\n139: \t\t\treturn\n140: \t\telse\n141: \t\t\tself:removeEffect(eff_id, true, true)\n142: \t\tend\n143: \tend\n144: \n145: \tself.tmp[eff_id] = p\n146: \tp.__setting_up = true\n147: \tif ed.on_gain then\n148: \t\tlocal ret, fly = ed.on_gain(self, p)\n149: \t\tif not silent and not had then\n150: \t\t\tif ret then\n151: \t\t\t\tgame.logSeen(self, ret:noun_sub(\"#Target#\", self:getName():capitalize()):noun_sub(\"#target#\", self:getName()):gsub(\"#himher#\", self:him_her()):gsub(\"#hisher#\", self:his_her()))\n152: \t\t\tend\n153: \t\t\tif fly and game.flyers and self.x and self.y and game.level.map.seens(self.x, self.y) then\n154: \t\t\t\tif fly == true then fly = \"+\"..ed.desc end\n155: \t\t\t\tlocal sx, sy = game.level.map:getTileToScreen(self.x, self.y, true)\n156: \t\t\t\tif game.level.map.seens(self.x, self.y) then game.flyers:add(sx, sy, 20, (rng.range(0,2)-1) * 0.5, -3, fly, {255,100,80}) end\n157: \t\t\tend\n158: \t\tend\n159: \tend\n160: \tif ed.activate then ed.activate(self, p, ed) end\n161: \n162: \tif ed.lists then"
+    },
+    {
+      "anchor_id": "comp-calculation-1536",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 1536,
+      "end": 1569,
+      "excerpt": "1536: -- Compute a diminishing returns value based on talent level that scales with a power\n1537: -- t = talent def table or a numeric value\n1538: -- low = value to match at talent level 1\n1539: -- high = value to match at talent level 5\n1540: -- power = scaling factor (default 0.5) or \"log\" for log10\n1541: -- add = amount to add the result (default 0)\n1542: -- shift = amount to add to the talent level before computation (default 0)\n1543: -- raw if true specifies use of raw talent level\n1544: function _M:combatTalentScale(t, low, high, power, add, shift, raw)\n1545: \tlocal tl = type(t) == \"table\" and (raw and self:getTalentLevelRaw(t) or self:getTalentLevel(t)) or t\n1546: \tif tl <= 0 then tl = 0.1 end\n1547: \tpower, add, shift = power or 0.5, add or 0, shift or 0\n1548: \tlocal x_low, x_high = 1, 5 -- Implied talent levels to fit\n1549: \tlocal x_low_adj, x_high_adj\n1550: \tif power == \"log\" then\n1551: \t\tx_low_adj, x_high_adj = math.log10(x_low+shift), math.log10(x_high+shift)\n1552: \t\ttl = math.max(1, tl)\n1553: \telse\n1554: \t\tx_low_adj, x_high_adj = (x_low+shift)^power, (x_high+shift)^power\n1555: \tend\n1556: \tlocal m = (high - low)/(x_high_adj - x_low_adj)\n1557: \tlocal b = low - m*x_low_adj\n1558: \tif power == \"log\" then -- always >= 0\n1559: \t\treturn math.max(0, m * math.log10(tl + shift) + b + add)\n1560: --\t\treturn math.max(0, m * math.log10(tl + shift) + b + add), m, b\n1561: \telse\n1562: \t\treturn math.max(0, m * (tl + shift)^power + b + add)\n1563: --\t\treturn math.max(0, m * (tl + shift)^power + b + add), m, b\n1564: \tend\n1565: end\n1566: \n1567: -- Compute a diminishing returns value based on a stat value that scales with a power\n1568: -- stat == \"str\", \"con\",.... or a numeric value\n1569: -- low = value to match when stat = 10"
+    },
+    {
+      "anchor_id": "comp-calculation-1815",
+      "public_path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "start": 1815,
+      "end": 1830,
+      "excerpt": "1815: function _M:combatSpellpower(mod, add)\n1816: \tmod = mod or 1\n1817: \tlocal d, am = self:combatSpellpowerRaw(add)\n1818: \treturn self:rescaleCombatStats(d) * mod * am\n1819: end\n1820: \n1821: --- Gets damage based on talent\n1822: function _M:combatTalentSpellDamage(t, base, max, spellpower_override)\n1823: \t-- Compute at \"max\"\n1824: \tlocal mod = max / ((base + 100) * ((math.sqrt(5) - 1) * 0.8 + 1))\n1825: \t-- Compute real\n1826: \treturn self:rescaleDamage((base + (spellpower_override or self:combatSpellpower())) * ((math.sqrt(self:getTalentLevel(t)) - 1) * 0.8 + 1) * mod)\n1827: end\n1828: \n1829: --- Returns the best of the 3 powers\n1830: function _M:combatBestpower(mod, add)"
+    }
+  ],
+  "value_flow": [
+    {
+      "index": 1,
+      "placeholder": "%d",
+      "quantity_kind": "twilit_effect_duration_turns",
+      "calculation": "floor(combatTalentScale(t,4,8))",
+      "parameter": "info duration -> tformat argument 1; action setEffect(EFF_TWILIT_ECHOES,getDuration,...)",
+      "consumer": "core setEffect floors dur and assigns p.dur. Campaign checks hasEffect(EFF_TWILIT_ECHOES).",
+      "anchors": [
+        "entry-1425:11,23,26,35",
+        "comp-effect-merge:117-145",
+        "a767:356-359"
+      ]
+    },
+    {
+      "index": 2,
+      "placeholder": "%0.2f",
+      "quantity_kind": "slow_strength_percent_per_final_light_damage",
+      "calculation": "getSlowPer()=0.001; display slow_per*100=0.10",
+      "parameter": "action slow_per -> eff.slow_per; doEcho power=dam*eff.slow_per",
+      "consumer": "ECHOED_LIGHT.activate adds -power to global_speed_add. Core speed is base/(1+abs(global_speed_add)), floored at 0.1; displayed strength is not literal fractional reduction of final global speed.",
+      "anchors": [
+        "entry-1425:14,23,28,35",
+        "a766:127,170-171",
+        "comp-speed:4111-4115"
+      ]
+    },
+    {
+      "index": 3,
+      "placeholder": "%d",
+      "quantity_kind": "initial_light_effect_duration_turns",
+      "calculation": "getEchoDur()=3",
+      "parameter": "tformat arg3=echo_dur; action echo_dur=3; doEcho setEffect(EFF_ECHOED_LIGHT,eff.echo_dur,...)",
+      "consumer": "Initial core setEffect assigns p.dur=3; subsequent on_merge returns old_eff and core returns immediately without refreshing old dur.",
+      "anchors": [
+        "entry-1425:12,23,27,35",
+        "a766:127,176-182",
+        "comp-effect-merge:129,135-139"
+      ]
+    },
+    {
+      "index": 4,
+      "placeholder": "%d",
+      "quantity_kind": "merged_light_strength_cap_percent",
+      "calculation": "getSlowMax()=0.001*combatTalentSpellDamage(t,150,400); display slow_max*100",
+      "parameter": "action slow_max -> doEcho new_eff.max",
+      "consumer": "Initial activate is uncapped. on_merge max=math.max(old.max,new.max), old.power=math.min(old.power+new.power,max). It can lower a previously uncapped large power; target deliberately says recalculate, not guaranteed increase.",
+      "display_caveat": "%d formats a possibly noninteger displayed cap; no claim of exact final speed reduction.",
+      "anchors": [
+        "entry-1425:15,23,29,35",
+        "a766:127,170-171,176-180",
+        "comp-calculation-1815"
+      ]
+    },
+    {
+      "index": 5,
+      "placeholder": "%d",
+      "quantity_kind": "light_damage_equivalent_of_merge_cap",
+      "calculation": "slow_max/slow_per = combatTalentSpellDamage(t,150,400)",
+      "parameter": "info tformat arg5",
+      "consumer": "Equivalent damage sum for slow power cap when adding dam*0.001. Not a clamp on first hit. %d is display formatting of this computed equivalent.",
+      "anchors": [
+        "entry-1425:14-15,35",
+        "a766:127,177-178",
+        "comp-calculation-1815"
+      ]
+    },
+    {
+      "index": 6,
+      "placeholder": "%d",
+      "quantity_kind": "dark_echo_refresh_duration_turns",
+      "calculation": "getEchoDur()=3",
+      "parameter": "tformat arg6=echo_dur; action echo_dur=3 -> eff.echo_dur",
+      "consumer": "Initial Map.addEffect duration is literal 4, not this display parameter. Existing same-tile live dark echo refreshes only for DARKNESS and 0<duration<eff.echo_dur, assigns duration=3. Map projects damage before decrementing duration; a self-triggered refresh to 3 during that tick ends at 2 after decrement.",
+      "anchors": [
+        "entry-1425:12,23,27,35",
+        "a766:128-154",
+        "comp-map-create:1110-1138",
+        "comp-map-tick:1262-1277",
+        "comp-game-clock:1806-1810"
+      ]
+    },
+    {
+      "index": 7,
+      "placeholder": "%d",
+      "quantity_kind": "dark_echo_base_damage_percent_per_map_tick",
+      "calculation": "getDarkEcho()=combatTalentScale(t,0.075,0.15); display 100*echo_factor",
+      "parameter": "action dam_factor -> eff.dam_factor; initial addEffect dam=dam*factor",
+      "consumer": "Map DamageType projector consumes echo.dam each eligible map tick. Refresh old_total=old_duration*old_per_tick; new_per_tick=(incoming_damage*factor*3+old_total)/3. Thus displayed factor is the base new contribution, not total refreshed tick damage or a percentage of original damage divided by duration.",
+      "display_caveat": "%d formats scaling result; no guarantee on eventual mitigated damage or lifetime total while refresh continues.",
+      "anchors": [
+        "entry-1425:13,23,30,35",
+        "a766:136-154",
+        "comp-map-tick:1271,1277",
+        "comp-game-clock:1806-1810",
+        "comp-calculation-1536"
+      ]
+    }
+  ],
+  "source_provenance": {
+    "fixed_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "core_checkout_HEAD": "3ff88853bc1c586045c439d21c5c112912c6a5bf",
+    "core_read_method": "git show fixed_commit:public_path; never checkout HEAD semantics",
+    "dlc_commit": null,
+    "dlc_source_pinning": "unpinned; all four DLC file SHA256 values match REPAIR-INPUT; no release-version pin claimed",
+    "dlc_path_resolution": "REPAIR-INPUT dlc_checkout contains an orcs/ container before public tome-orcs/ paths"
+  },
+  "baseline": {
+    "commit": "5bc6d339d8b373817f6081df92777ff1671962ff",
+    "sha256": "853dd4b80c471f8999a95a364eb3016dd4fccb8e7359c35b56289d1d9d6df6a9",
+    "exact_initial_baseline_match": true
+  },
+  "invariants": {
+    "target_count": 2,
+    "placeholder_argument_sequence": [
+      "%d",
+      "%0.2f",
+      "%d",
+      "%d",
+      "%d",
+      "%d",
+      "%d"
+    ],
+    "printf_full_token_sequence": [
+      "%d",
+      "%0.2f",
+      "%%",
+      "%d",
+      "%d",
+      "%%",
+      "%d",
+      "%d",
+      "%d",
+      "%%"
+    ],
+    "source_source_tag_args_order_special_unchanged": true,
+    "markup_unchanged": true,
+    "newline_sequence_unchanged": true,
+    "tabs_unchanged": true,
+    "identical_targets": true,
+    "byte_spans": [
+      {
+        "section": "tome-orcs/data/talents/celestial/crepescula.lua",
+        "final_target_byte_start": 515332,
+        "final_target_byte_end_exclusive": 516176,
+        "old_bytes": 529,
+        "new_bytes": 844
+      },
+      {
+        "section": "tome-orcs/data/talents/celestial/void.lua",
+        "final_target_byte_start": 523393,
+        "final_target_byte_end_exclusive": 524237,
+        "old_bytes": 529,
+        "new_bytes": 844
+      }
+    ],
+    "postimage_sha256": "3c725db5bbd1e5702743e571bd727b6c65b88a0d166cd9301aeb36eda56e7989",
+    "inverse_sha256": "853dd4b80c471f8999a95a364eb3016dd4fccb8e7359c35b56289d1d9d6df6a9",
+    "inverse_exact_match": true,
+    "proof": "Replace only both final target interiors with recorded complete old targets, in their frozen sections: byte-for-byte equality to whole-file initial baseline proves every non-target byte including sources, field delimiters, previous packages and surrounding formatting is preserved."
+  },
+  "runtime_key_check": {
+    "key_fields": [
+      "source",
+      "source_tag"
+    ],
+    "same_key": true,
+    "occurrences": 2,
+    "classification": "same-key same-target companion duplicates; no collision introduced",
+    "evidence": "Both frozen entries have identical source and tformat tag; exact byte-level target search returns two matching occurrences.",
+    "companion_source_caveat": "Actual SHA-matched void.lua does not define Twilit Echoes; its frozen translation is a duplicate runtime key, not proof of a second independently implemented talent."
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "manifest/runtime/LuaJIT/LPeg 0.10.2 verified; expected unpinned DLC warnings"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "phase": "first attempt",
+      "exit_code": 5,
+      "result": "2 spacing errors at target offset 267; fixed by ASCII space after final %d%% semicolon"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "phase": "final candidate",
+      "exit_code": 0,
+      "result": "30308 translations; 0 errors; 0 warnings",
+      "report": ".artifacts/i18n/runs/20261003T010235.675385Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no whitespace diagnostics"
+    },
+    {
+      "command": "python3 -B /tmp/mmr014-report.py",
+      "exit_code": 0,
+      "result": "baseline, placeholders/newlines/tabs, two identical targets, exact whole-file inverse byte proof passed"
+    },
+    {
+      "command": "LuaRuntime(manifest).run([/tmp/mmr014-probe.lua], timeout=10), with same-call LUA_PATH/LUA_CPATH",
+      "source": "DamageType={LIGHT=1,DARKNESS=2}\nlocal def={\n\tdoEcho = function(type, dam, eff, target, src, x, y)\n\t\tif type == DamageType.LIGHT then\n\t\t\ttarget:setEffect(target.EFF_ECHOED_LIGHT, eff.echo_dur, {power = dam * eff.slow_per, max = eff.slow_max})\n\t\telseif type == DamageType.DARKNESS then --you can never be too sure\n\t\t\tlocal echo\n\t\t\tif eff.dark_echoes then for _, e in ipairs(eff.dark_echoes) do\n\t\t\t\tif e.duration > 0 and e.x == x and e.y == y then\n\t\t\t\t\techo = e\n\t\t\t\tend\n\t\t\tend end\n\t\t\tif not echo then\n\t\t\t\tgame.level.map:addEffect(src, \n\t\t\t\t\tx, y, 4,\n\t\t\t\t\tDamageType.DARKNESS, dam * eff.dam_factor,\n\t\t\t\t\t0,\n\t\t\t\t\t5, nil,\n\t\t\t\t\t{type=\"shadow_zone\"},\n\t\t\t\t\tnil, src:spellFriendlyFire()\n\t\t\t\t)\n\t\t\t\t--it's hacky yeah, but map:addEffect should really return the instance\n\t\t\t\techo = game.level.map.effects[#game.level.map.effects]\n\t\t\t\teff.dark_echoes = eff.dark_echoes or {}\n\t\t\t\ttable.insert(eff.dark_echoes, echo)\n\t\t\telse\n\t\t\t\tif echo.duration < eff.echo_dur and echo.duration > 0 then\n\t\t\t\t\told_dur = echo.duration\n\t\t\t\t\told_dam = old_dur * echo.dam\n\t\t\t\t\tlocal new_dam = dam * eff.dam_factor * eff.echo_dur + old_dam\n\t\t\t\t\techo.duration = eff.echo_dur\n\t\t\t\t\techo.dam = new_dam / eff.echo_dur\n\t\t\t\telse\n\t\t\t\t\t\n\t\t\t\tend\n\t\t\tend\n\t\tend\n\tend,\n}\nlocal src={spellFriendlyFire=function()return false end}\nlocal map={effects={},addEffect=function(self,source,x,y,dur,dt,dam)self.effects[#self.effects+1]={x=x,y=y,duration=dur,dam=dam}end}\ngame={level={map=map}}\nlocal target={EFF_ECHOED_LIGHT=1,setEffect=function(self,id,dur,p)self.effect={dur=dur,p=p}end}\nlocal eff={echo_dur=3,dam_factor=.1,slow_per=.001,slow_max=.3}\ndef.doEcho(DamageType.LIGHT,800,eff,target,src,0,0)\nassert(target.effect.p.power==.8 and target.effect.p.max==.3 and target.effect.dur==3)\ndef.doEcho(DamageType.DARKNESS,100,eff,target,src,0,0)\nlocal e=map.effects[1];assert(e.duration==4 and e.dam==10)\nfor _,remaining in ipairs({4,3})do e.duration=remaining;def.doEcho(DamageType.DARKNESS,100,eff,target,src,0,0);assert(e.duration==remaining and e.dam==10)end\ne.duration=2;def.doEcho(DamageType.DARKNESS,100,eff,target,src,0,0);assert(e.duration==3 and math.abs(e.dam-50/3)<1e-9)\nlocal before=e.dam;def.doEcho(DamageType.LIGHT,100,eff,target,src,0,0);assert(e.duration==3 and e.dam==before)\ne.duration=0;def.doEcho(DamageType.DARKNESS,100,eff,target,src,0,0);assert(#map.effects==2 and map.effects[2].duration==4)\nprint('PASS Twilit actual doEcho: first light power unclamped; dark initial duration4; no refresh at4/3; refresh at2 with old+new damage; light does not refresh dark; expired creates new4')\n\nlocal light={\n\tactivate = function(self, eff)\n\t\teff.tmpid = self:addTemporaryValue(\"global_speed_add\", -eff.power)\n\tend,\n\ton_merge = function(self, old_eff, new_eff)\n\t\tmax = math.max(old_eff.max, new_eff.max)\n\t\told_eff.power = math.min(old_eff.power + new_eff.power, max)\n\t\tself:removeTemporaryValue(\"global_speed_add\", old_eff.tmpid)\n\t\told_eff.tmpid = self:addTemporaryValue(\"global_speed_add\", -old_eff.power)\n\t\treturn old_eff\n\tend,\n}\nlocal calls={}\nlocal a={addTemporaryValue=function(self,k,v)calls[#calls+1]={k,v};return #calls end,removeTemporaryValue=function()end}\nlight.activate(a,{power=.8})\nassert(calls[1][1]=='global_speed_add' and calls[1][2]==-.8)\nlocal old={power=.8,max=.3,dur=1,tmpid=1}\nlocal result=light.on_merge(a,old,{power=.1,max=.3,dur=3})\nassert(result==old and old.dur==1 and old.power==.3)\n_M={tempeffect_def={[1]={parameters={},on_merge=light.on_merge}}}\nfunction _M:setEffect(eff_id, dur, p, silent)\n\tlocal had = self.tmp[eff_id]\n\n\t-- Beware, setting to 0 means removing\n\tif dur <= 0 then return self:removeEffect(eff_id) end\n\tdur = math.floor(dur)\n\n\tp.__orig_params = table.clone(p, true, {__orig_params=true})\n\tlocal ed = _M.tempeffect_def[eff_id]\n\tfor k, e in pairs(ed.parameters) do\n\t\tif not p[k] then p[k] = e end\n\tend\n\tp.dur = dur\n\tp.effect_id = eff_id\n\tif self:check(\"on_set_temporary_effect\", eff_id, ed, p) then return end\n\tif p.dur <= 0 then return self:removeEffect(eff_id) end\n\n\t-- If we already have it, we check if it knows how to \"merge\", or else we remove it and re-add it\n\tif self:hasEffect(eff_id) then\n\t\tif ed.on_merge then\n\t\t\tself.tmp[eff_id] = ed.on_merge(self, self.tmp[eff_id], p, ed)\n\t\t\tself.changed = true\n\t\t\treturn\n\t\telse\n\t\t\tself:removeEffect(eff_id, true, true)\n\t\tend\n\tend\n\n\tself.tmp[eff_id] = p\nend\ntable.clone=function(p)local q={}for k,v in pairs(p)do q[k]=v end return q end\na.tmp={[1]=old};a.hasEffect=function(self,id)return self.tmp[id]end;a.check=function()return false end\n_M.setEffect(a,1,3,{power=.1,max=.3})\nassert(a.tmp[1]==old and a.tmp[1].dur==1 and a.tmp[1].power==.3)\nfunction _M:recomputeGlobalSpeed()\n\tif self.global_speed_add >= 0 then self.global_speed = self.global_speed_base + self.global_speed_add\n\telse self.global_speed = self.global_speed_base / (1 + math.abs(self.global_speed_add)) -- Symmetric scaling\n\tend\n\tself.global_speed = math.max(self.global_speed, 0.1)\nend\na.global_speed_base=1;a.global_speed_add=-.8\n_M.recomputeGlobalSpeed(a);assert(math.abs(a.global_speed-1/1.8)<1e-9)\nprint('PASS actual light activate/on_merge and fixed setEffect merge path: no duration refresh, merge clamps; actual speed consumer uses reciprocal scaling')\n",
+      "exit_code": 0,
+      "stdout": "PASS Twilit actual doEcho: first light power unclamped; dark initial duration4; no refresh at4/3; refresh at2 with old+new damage; light does not refresh dark; expired creates new4\nPASS actual light activate/on_merge and fixed setEffect merge path: no duration refresh, merge clamps; actual speed consumer uses reciprocal scaling\n",
+      "stderr": "",
+      "scope": "Actual DLC doEcho, activate, on_merge; actual core setEffect prefix through merge return and recomputeGlobalSpeed under stubs. Static Map/Game excerpts separately establish scheduling. Does not simulate full game scheduling."
+    }
+  ],
+  "plan_deviations": [
+    "Resolved DLC container layout orcs/ before public paths; fixed SHA identities unchanged.",
+    "Used fixed core git objects because core working HEAD differs.",
+    "Clarified light numbers as slow strength, because final speed consumer is reciprocal scaling."
+  ],
+  "unresolved_items": [],
+  "limitations": [
+    "DLC source/commit/release version remain unpinned as frozen input declares.",
+    "Lua probe uses source functions with stubs and fixed setEffect prefix through the merge return; static source separately verifies Map/Game timing, not an end-to-end game simulation."
+  ],
+  "host_followup": [
+    "proposal --strict, global runtime scans/classification, strict addon build and real DLC publish dry-run, frozen independent reviews and task/evidence closure belong to ORCHESTRATOR; EXECUTOR did not stage/commit/create children or modify task/evidence."
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "status": "passed",
+  "source_hash_and_exact_excerpt_checks": [
+    "entry-1431",
+    "a766",
+    "a767",
+    "entry-1425",
+    "comp-map-create",
+    "comp-map-tick",
+    "comp-game-clock",
+    "comp-speed",
+    "comp-effect-merge",
+    "comp-calculation-1536",
+    "comp-calculation-1815"
+  ],
+  "confirmed_claims": [
+    "UPSTREAM124",
+    "LOCAL-COMPANION-014"
+  ],
+  "reviewed_value_flow": [
+    {
+      "index": 1,
+      "placeholder": "%d",
+      "quantity_kind": "twilit_effect_duration_turns",
+      "calculation": "floor(combatTalentScale(t,4,8))",
+      "parameter": "info duration -> tformat argument 1; action setEffect(EFF_TWILIT_ECHOES,getDuration,...)",
+      "consumer": "core setEffect floors dur and assigns p.dur. Campaign checks hasEffect(EFF_TWILIT_ECHOES).",
+      "anchors": [
+        "entry-1425:11,23,26,35",
+        "comp-effect-merge:117-145",
+        "a767:356-359"
+      ]
+    },
+    {
+      "index": 2,
+      "placeholder": "%0.2f",
+      "quantity_kind": "slow_strength_percent_per_final_light_damage",
+      "calculation": "getSlowPer()=0.001; display slow_per*100=0.10",
+      "parameter": "action slow_per -> eff.slow_per; doEcho power=dam*eff.slow_per",
+      "consumer": "ECHOED_LIGHT.activate adds -power to global_speed_add. Core speed is base/(1+abs(global_speed_add)), floored at 0.1; displayed strength is not literal fractional reduction of final global speed.",
+      "anchors": [
+        "entry-1425:14,23,28,35",
+        "a766:127,170-171",
+        "comp-speed:4111-4115"
+      ]
+    },
+    {
+      "index": 3,
+      "placeholder": "%d",
+      "quantity_kind": "initial_light_effect_duration_turns",
+      "calculation": "getEchoDur()=3",
+      "parameter": "tformat arg3=echo_dur; action echo_dur=3; doEcho setEffect(EFF_ECHOED_LIGHT,eff.echo_dur,...)",
+      "consumer": "Initial core setEffect assigns p.dur=3; subsequent on_merge returns old_eff and core returns immediately without refreshing old dur.",
+      "anchors": [
+        "entry-1425:12,23,27,35",
+        "a766:127,176-182",
+        "comp-effect-merge:129,135-139"
+      ]
+    },
+    {
+      "index": 4,
+      "placeholder": "%d",
+      "quantity_kind": "merged_light_strength_cap_percent",
+      "calculation": "getSlowMax()=0.001*combatTalentSpellDamage(t,150,400); display slow_max*100",
+      "parameter": "action slow_max -> doEcho new_eff.max",
+      "consumer": "Initial activate is uncapped. on_merge max=math.max(old.max,new.max), old.power=math.min(old.power+new.power,max). It can lower a previously uncapped large power; target deliberately says recalculate, not guaranteed increase.",
+      "display_caveat": "%d formats a possibly noninteger displayed cap; no claim of exact final speed reduction.",
+      "anchors": [
+        "entry-1425:15,23,29,35",
+        "a766:127,170-171,176-180",
+        "comp-calculation-1815"
+      ]
+    },
+    {
+      "index": 5,
+      "placeholder": "%d",
+      "quantity_kind": "light_damage_equivalent_of_merge_cap",
+      "calculation": "slow_max/slow_per = combatTalentSpellDamage(t,150,400)",
+      "parameter": "info tformat arg5",
+      "consumer": "Equivalent damage sum for slow power cap when adding dam*0.001. Not a clamp on first hit. %d is display formatting of this computed equivalent.",
+      "anchors": [
+        "entry-1425:14-15,35",
+        "a766:127,177-178",
+        "comp-calculation-1815"
+      ]
+    },
+    {
+      "index": 6,
+      "placeholder": "%d",
+      "quantity_kind": "dark_echo_refresh_duration_turns",
+      "calculation": "getEchoDur()=3",
+      "parameter": "tformat arg6=echo_dur; action echo_dur=3 -> eff.echo_dur",
+      "consumer": "Initial Map.addEffect duration is literal 4, not this display parameter. Existing same-tile live dark echo refreshes only for DARKNESS and 0<duration<eff.echo_dur, assigns duration=3. Map projects damage before decrementing duration; a self-triggered refresh to 3 during that tick ends at 2 after decrement.",
+      "anchors": [
+        "entry-1425:12,23,27,35",
+        "a766:128-154",
+        "comp-map-create:1110-1138",
+        "comp-map-tick:1262-1277",
+        "comp-game-clock:1806-1810"
+      ]
+    },
+    {
+      "index": 7,
+      "placeholder": "%d",
+      "quantity_kind": "dark_echo_base_damage_percent_per_map_tick",
+      "calculation": "getDarkEcho()=combatTalentScale(t,0.075,0.15); display 100*echo_factor",
+      "parameter": "action dam_factor -> eff.dam_factor; initial addEffect dam=dam*factor",
+      "consumer": "Map DamageType projector consumes echo.dam each eligible map tick. Refresh old_total=old_duration*old_per_tick; new_per_tick=(incoming_damage*factor*3+old_total)/3. Thus displayed factor is the base new contribution, not total refreshed tick damage or a percentage of original damage divided by duration.",
+      "display_caveat": "%d formats scaling result; no guarantee on eventual mitigated damage or lifetime total while refresh continues.",
+      "anchors": [
+        "entry-1425:13,23,30,35",
+        "a766:136-154",
+        "comp-map-tick:1271,1277",
+        "comp-game-clock:1806-1810",
+        "comp-calculation-1536"
+      ]
+    }
+  ],
+  "report_corrections": [
+    {
+      "field": "runtime_key_check.companion_source_caveat",
+      "status": "withdrawn",
+      "reason": "Report incorrectly says void.lua does not define Twilit Echoes; same verified source does define it at123-155, matching crepescula formulas. Frozen source and report own excerpt demonstrate this; runtime alias repair remains valid."
+    }
+  ],
+  "native_boundary_audit": "15 calls inspected; only frozen two target edits, report and own /tmp writes. Initial core working-tree symbol search not used as authoritative evidence; final source checks use pinned git objects verified by host.",
+  "host_probes": [
+    "host-twilit-probe-014.json",
+    "host-twilit-merge-probe-014.json"
+  ],
+  "dlc_source_pinning": "unpinned",
+  "unresolved_items": []
+}

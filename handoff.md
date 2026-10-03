@@ -1,5 +1,13 @@
 # 当前恢复入口
 
+第014主包及暮光回响两条伴随包均已DONE_VERIFIED；累计135/169原claim，14/18主包，3个附属任务。主包提交5bc6d339；伴随包准备提交后连续015—018。MMR-026术语决定仍待既有答复。全部child已确认归档，无push/PR/发布授权。
+
+详见 evidence/quality/modified-mechanics-repair-20261002/HANDOFF.md。用户无关改动保留。
+
+---
+
+# 当前恢复入口
+
 第014主包9条已DONE_VERIFIED，累计134/169原claim、14/18主包；准备提交后先运行已授权暮光回响两条companion，再015—018。所有8次派发已归档。用户已批准撤销args_order误报；最终有效终审全部9条OK。
 
 详见 evidence/quality/modified-mechanics-repair-20261002/HANDOFF.md。保留用户无关改动，无push/PR/发布授权。

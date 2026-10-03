@@ -1,0 +1,44 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-014-companion/INPUT-review-0-a1.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read review input and contract size"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-014-companion/INPUT-review-0-a1.json'))\np=d['payload']\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000]); print()\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  c=json.loads(b['context']) if isinstance(b.get('context'),str) else b\n  print({k:v for k,v in b.items() if k!='context'})\n  for e in c.get('source_evidence',[]):\n    print(e['public_path'], e['matching_lines'])\n    for w in e['windows']: print(w['text'])\n  print({k:v for k,v in c.items() if k!='source_evidence'})\n  print('-----')\n\"",
+      "description": "Parse input payload"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-014-companion/INPUT-review-0-a1.json'))\np=d['payload']\nfor b in p['bounded_context']:\n  c=json.loads(b['context'])\n  print(json.dumps({k:v for k,v in c.items() if k!='source_evidence'},ensure_ascii=False))\n  for e in c.get('source_evidence',[]):\n    print({k:v for k,v in e.items() if k!='windows'})\n    for w in e.get('windows',[]): print(w['text'])\n  print('=====')\n\" | head -c 60000",
+      "description": "Dump bounded context fully"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -v '^[0-9]*: ' /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/b1ba90b0-95d9-48c1-9c78-a77e8fd56348/tool-results/bej5p0q79.txt | cut -c1-600; ls .artifacts/i18n/modified-mechanics-repair-20261002/package-014-companion/sources/orcs/tome-orcs/data/talents/celestial/",
+      "description": "Show non-source lines and frozen files"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-014-companion/INPUT-review-0-a1.json'))\nc=json.loads(d['payload']['bounded_context'][0]['context'])\nfor e in c['source_evidence'][1:]:\n  print('##',e['public_path'],e.get('start')); print(e.get('excerpt'))\n\"; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-014-companion/sources/orcs/tome-orcs/data/talents/celestial; sha256sum $F/*; sed -n 1,80p $F/crepescula.lua; grep -n -i \"twilit\\|echo\" $F/void.lua",
+      "description": "Show excerpts and frozen talent source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; awk '/^## *(六|6)/,0' docs/paseo-translation-context-review-v2-contract.md | head -80",
+      "description": "Read contract output section"
+    }
+  }
+]

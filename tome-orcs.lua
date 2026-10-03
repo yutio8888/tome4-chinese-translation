@@ -3957,10 +3957,10 @@ t("Twilit Echoes", "暮光回响", "talent name")
 t([[The target feels the echoes of all your light and dark damage for %d turns. 
 
 Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.
-Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到你造成的所有光系和暗影伤害的回响，持续 %d 回合。
+Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到所受光系和暗影伤害的回响，持续 %d 回合；任意来源的单次至少 1 点光系或暗影伤害均可触发。
 
-每造成 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 造成 %d 点伤害时达到上限。
-暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]], "tformat")
+光系伤害每点产生 %0.2f%% 的减速强度，初次持续 %d 回合，强度不受上限限制；已有减速效果遇到后续光系伤害时，叠加强度并按 %d%% 的上限重新计算（对应累计 %d 点光系伤害），但不刷新持续时间。
+暗影伤害会在目标所在格产生初次持续 4 回合的效果；在暮光回响生效期间，仅当该效果的剩余回合数大于 0 且小于刷新时长，并且目标再次受到暗影伤害时，才会刷新至 %d 回合。每回合的基础伤害为触发该效果的那次暗影伤害的 %d%%； 刷新时将剩余总伤害均摊到新的持续时间内，再加上本次暗影伤害产生的每回合基础伤害。]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/celestial/energies.lua"
@@ -4015,10 +4015,10 @@ t("Twilit Echoes", "暮光回响", "talent name")
 t([[The target feels the echoes of all your light and dark damage for %d turns. 
 
 Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.
-Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到你造成的所有光系和暗影伤害的回响，持续 %d 回合。
+Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到所受光系和暗影伤害的回响，持续 %d 回合；任意来源的单次至少 1 点光系或暗影伤害均可触发。
 
-每造成 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 造成 %d 点伤害时达到上限。
-暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]], "tformat")
+光系伤害每点产生 %0.2f%% 的减速强度，初次持续 %d 回合，强度不受上限限制；已有减速效果遇到后续光系伤害时，叠加强度并按 %d%% 的上限重新计算（对应累计 %d 点光系伤害），但不刷新持续时间。
+暗影伤害会在目标所在格产生初次持续 4 回合的效果；在暮光回响生效期间，仅当该效果的剩余回合数大于 0 且小于刷新时长，并且目标再次受到暗影伤害时，才会刷新至 %d 回合。每回合的基础伤害为触发该效果的那次暗影伤害的 %d%%； 刷新时将剩余总伤害均摊到新的持续时间内，再加上本次暗影伤害产生的每回合基础伤害。]], "tformat")
 t("Starscape", "星界领域", "talent name")
 t("This spell cannot be cast here.", "该技能不能在这里使用。", "logPlayer")
 t("Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.", "在 %d 范围内召唤一片星界领域，持续 %d 回合。领域内的生物获得零重力状态，大幅提高最大负重；技能本身不会使领域内的生物或抛射物减速。领域外的生物与抛射物被冻结，领域内的攻击无法伤害领域外的生物，直到效果结束。", "tformat")
