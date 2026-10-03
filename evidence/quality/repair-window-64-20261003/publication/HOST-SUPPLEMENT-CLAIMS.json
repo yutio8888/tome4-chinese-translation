@@ -1,0 +1,132 @@
+{
+ "0090a2e8672e93060276814c3052d003ade90bd38529329a54c65f6472f2ee83": {
+  "source_batch_id": "batch-e63ec4963b48bd6eee9a",
+  "claim": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5528-5530 望远镜（Kestin Highfin）desc 在 “...for a stolen sword.” 与 “His last known words were ...” 之间有空行（\\n\\n），现译“……要为被他偷走的一把剑复仇。他留下的最后遗言是……”把两段直接相连，丢失段落分隔；换行不变量可对固定源码客观判定，旧译即如此，非本轮改动引入。确认（contextual 同判）。修复：在“复仇。”与“他留下的最后遗言是”之间补回空行（\\n\\n），其余不变。 contextual：contextual 指出同一换行缺失；固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5528-5530 望远镜（Kestin Highfin）desc 在 “...for a stolen sword.” 与 “His last known words were ...” 之间有空行（\\n\\n），现译“……要为被他偷走的一把剑复仇。他留下的最后遗言是……”把两段直接相连，丢失段落分隔；换行不变量可对固定源码客观判定，旧译即如此，非本轮改动引入。确认，修复同 surface 裁决。 同句整句对照：补回 in search of treasures（寻找宝藏）、去掉原文没有的“著名的”，collection was incredibly vast→“收藏已极为丰富”，often credited→“常说……要归功于”。",
+  "new_target": "这副精致的望远镜曾属于探险家兼冒险家科斯汀·赫菲因。他带着它走遍马基·埃亚尔大陆寻找宝藏，据说在他死前，他的收藏已极为丰富。他常说自己的好运要归功于这副望远镜：只要有它在手，无论处境多么危险，他都能脱身。相传，他死于一名恶魔之手，那恶魔要为被他偷走的一把剑复仇。\n\n他留下的最后遗言是“不知为何，这感觉像是结局，但我知道前方还有太多值得探寻的东西。”"
+ },
+ "0a4c89e965bb89255f390021ec6ea94917118dcac9a4ed1e0a0a2314ba33a7b9": {
+  "source_batch_id": "batch-e63ec4963b48bd6eee9a",
+  "claim": "固定 commit 624a673 game/modules/tome/data/birth/classes/warrior.lua:116 盾战士（Bulwark）简介 “specializes in weapon and shield combat, rarely leaving the cover of her many protective techniques” 后半句说她很少离开其诸多防护技巧的庇护；现译“并拥有极高的防御技能”丢掉“rarely leaving the cover”这一行为描述，并把“many techniques”改成程度判断“极高”，属失义。确认（contextual 同判）。修复：后半句改为“很少离开其诸多防护技巧的庇护”，如“盾战士精通武器与盾牌格斗，很少离开其诸多防护技巧的庇护。” contextual：contextual 指出同一失义；固定 commit 624a673 game/modules/tome/data/birth/classes/warrior.lua:116 盾战士（Bulwark）简介 “specializes in weapon and shield combat, rarely leaving the cover of her many protective techniques” 后半句说她很少离开其诸多防护技巧的庇护；现译“并拥有极高的防御技能”丢掉“rarely leaving the cover”这一行为描述，并把“many techniques”改成程度判断“极高”，属失义。确认，修复同 surface 裁决。",
+  "new_target": "盾战士精通武器与盾牌格斗，很少离开其诸多防护技巧的庇护。"
+ },
+ "2ea5a9ea81bb39c712489863db8cf388130a3c839ebc1bceecb6410f099dd81f": {
+  "source_batch_id": "batch-ea91b26c880d0eb75606",
+  "claim": "固定 commit 624a673 game/modules/tome/data/general/npcs/lich.lua:25 巫妖 desc：“they have grown to hate all that breathes or trespasses on their domain”——憎恨对象是“一切会呼吸的存在”与“擅闯其领地者”两类；现译“憎恨所有在其领地上呼吸或擅闯其领地的人”把前者限定为“在其领地上呼吸的”，缩小了范围，属忠实性错误。确认。修复：改为“憎恨一切会呼吸的生灵和擅闯其领地者”一类说法，其余不变。 同句整句对照：spellcasters raised to unlife→“施法者被转化为不死之身后”，have grown to hate→“渐渐憎恨起”。",
+  "new_target": "只有最强大的施法者被转化为不死之身后，才会成为巫妖。他们注定要永远在世间游荡，渐渐憎恨起一切会呼吸的生灵和擅闯其领地者。不幸的是，这也包括你在内。"
+ },
+ "2ec352628b54ff8c52ee7b646e23764aac509e6070a0a333edd566a590e91c3a": {
+  "source_batch_id": "batch-ea91b26c880d0eb75606",
+  "claim": "固定 commit 624a673 game/modules/tome/data/zones/dreadfell/npcs.lua:216-217 扭曲的波法斯特（Borfast the Broken）desc：216 行末与 217 行“What proud hero of renown...”之间有换行（\\n），现译把问句直接接在上句后，丢失换行；另“an eyeball drooping low from its socket”是眼球从眼窝里低垂下来，现译“掉了出来”并据此改称“独眼”，原文“its eyes”与“a slump of resignation to its gait”（步态中的颓丧认命）被改成“他的独眼……透露着深深的无奈”，丢了步态。换行不变量与忠实性均可对固定源码判定。确认。修复：眼球改为“从眼窝中低垂下来”，“独眼”改回双眼，补回步态的颓丧认命，并在“如此威风的英雄人物……”前补回换行（\\n）；按整句修改，其余不变。 contextual：与 surface 同一条（2ec352628b）。固定 commit 624a673 game/modules/tome/data/zones/dreadfell/npcs.lua:216 “an eyeball drooping low from its socket”是眼球低垂，现译“掉了出来”；“its eyes”被改成“他的独眼”；“a slump of resignation to its gait”的步态被漏掉；同段“它/他”混用。确认，与 surface 合并为一个修复 revision（含 217 行前换行）。修复时人称统一为“它”。 同句整句对照：seared in acid→“被酸液灼烧”（原译“硫酸”过窄），the flesh melted away from the skull→“血肉从头骨上融化剥落”；问句改为“在被判以如此可怕的命运之前，这曾是一位怎样声名远扬的骄傲英雄？”。",
+  "new_target": "在你面前的是一只身形矮小、步履蹒跚的怪物，厚厚的皮肤松松垮垮地挂在身上。从它下巴伸出的一簇簇毛发，昭示着它曾经拥有过一副壮丽的矮人胡须。它的半边脸似乎曾被酸液灼烧过，血肉从头骨上融化剥落，一只眼球从眼窝中低垂下来。它的双眼中有一种独特的悲伤，步态里透着颓丧与认命。\n在被判以如此可怕的命运之前，这曾是一位怎样声名远扬的骄傲英雄？"
+ },
+ "2f94cd9a504b66db402bc584c3a07d2c6cff040ce02416b416edcc5eb374e293": {
+  "source_batch_id": "batch-ea91b26c880d0eb75606",
+  "claim": "固定 commit 624a673 game/modules/tome/dialogs/debug/AdvanceActor.lua:44-47 调试升级对话框说明“gain points to spend on Levelup”；同文件 100 行对应选项为“Gain points for stats, talents, and prodigies”，375-383 行实际增加 unused_stats、unused_talents、unused_generics、unused_prodigies、unused_talents_types 五类点数。现译“获得升级所得到的属性点”只剩属性点，与实现不符。确认。修复：改为“获得可在升级界面分配的点数”一类泛称（或列出属性点、技能点等），同句“可以自动设置相应的属性值”中原文没有的“自动”一并改为“可选择设置属性值”，其余不变。 contextual：与 surface 同一条（2f94cd9a50）。固定 commit 624a673 game/modules/tome/dialogs/debug/AdvanceActor.lua:100 选项为“Gain points for stats, talents, and prodigies”，375-383 行增加属性点、职业/通用技能点、类别点与觉醒点；现译只写“属性点”。确认，与 surface 合并为一个修复 revision。首行“Levelup an actor.”句号缺失属标点细节，修复时一并补上即可。 同句整句对照：Stat levels→“属性等级”，括注保留为括号。",
+  "new_target": "升级角色。\n可选择设置属性等级、尽可能学习所有技能，并获得可在升级界面分配的点数。\n角色会在更改前备份（按“恢复”按钮即可还原）。\n"
+ },
+ "34fe029225d87e317f04a152d2a98d717becd6c0f159bde8eda3c3d2a330de17": {
+  "source_batch_id": "batch-ea91b26c880d0eb75606",
+  "claim": "固定 commit 624a673 game/modules/tome/data/talents/corruptions/blight.lua:145 腐蚀蠕虫 info“reduces blight and acid resistance by %d%%”；效果 timed_effects/magical.lua:1293 同时降低 DamageType.BLIGHT 与 DamageType.ACID 两项抗性。现译“降低目标 %d%% 酸性枯萎抗性”缺并列连词，读作一种不存在的“酸性枯萎”抗性；本库同效果 long_desc（mod-tome.lua:35097）作“酸性和枯萎抗性”，22878 行作“枯萎和酸性抗性”。术语/机制描述可对固定源码判定。确认。修复：改为“降低目标 %d%% 枯萎和酸性抗性”，占位符与其余不变。 contextual：与 surface 同一条（34fe029225）。固定 commit 624a673 game/modules/tome/data/timed_effects/magical.lua:1293 CORROSIVE_WORM activate 写入 resists {[BLIGHT]=-power,[ACID]=-power}；现译“酸性枯萎抗性”读作一种复合抗性。确认，与 surface 合并为一个修复 revision：改为“枯萎和酸性抗性”。 同句整句对照：补回 feeds off damage taken（蠕虫以目标受到的伤害为食），第二行主语补“蠕虫”。",
+  "new_target": "用腐蚀蠕虫感染目标 6 回合，降低目标 %d%% 枯萎和酸性抗性，蠕虫会以目标受到的伤害为食。\n\t\t效果结束或者目标死亡时，蠕虫会爆炸，在 4 码半径内造成 %d 酸性伤害。同时，感染期内目标受到的伤害会按 %d%% 的比例计入爆炸伤害。\n\t\t伤害受法术强度加成。"
+ },
+ "468766bf646d890eb06dc793b0485f559e2c9c14997ad8392f839b54243e0ef7": {
+  "source_batch_id": "batch-aa1fb47399d4777a57f0",
+  "claim": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/stats/stats1.lua:21 起的教程正文：“...your #GOLD#combat stats#WHITE#, the subject of this entire tutorial.”与“...a percentage chance of success is determined.”两句内部都没有换行；现译在“#GOLD#战斗属性#WHITE#，”之后和“成功击”与“中目标概率”之间各多插一个 \\n，后者把“击中”拆成两行。换行不变量可对固定源码客观判定。确认。修复：删去这两个多余的 \\n（其余换行与颜色标记不变），“成功击中目标概率”一句可顺手改为“得出成功命中目标的几率”，按整句检查。 contextual：与 surface 同一条（468766bf64）。固定 commit 624a673 game/modules/tome/data/texts/tutorial/stats/stats1.lua 第21、27行在源文中各为单行段落，现译句中插入两个硬换行（“战斗属性#WHITE#，\\n这是整个教程的主题”“成功击\\n中目标概率”），后者拆开“击中”。确认，与 surface 合并为一个修复 revision：删去这两个 \\n。 同句整句对照：末段改为“……进行比较，得出成功命中目标的几率。”",
+  "new_target": "基础角色属性比如力量和意志是非常重要的，其重要性在于它们如何影响你的 #GOLD#战斗属性#WHITE#，这是整个教程的主题。\n首先两个 #GOLD#战斗属性#WHITE# 是：\n\n#LIGHT_GREEN#命中：#WHITE#决定了你的物理攻击是否可以击中目标。\n#LIGHT_GREEN#闪避：#WHITE#你躲避攻击的能力。\n\n当你尝试刺击某人时，你的 #LIGHT_GREEN#命中#WHITE# 数值会和目标的 #LIGHT_GREEN#闪避#WHITE# 数值进行比较，得出成功命中目标的几率。我们稍后会看具体的计算方法。\n\n"
+ },
+ "4a1e9e27137480daeea4122ee4650e063abaea010059865fdd1aade7e2b60aad": {
+  "source_batch_id": "batch-aa1fb47399d4777a57f0",
+  "claim": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:8212 冰冷杀戮（Icy Kill）desc：原文说凶手与死者之间的联系是凶器，占卜师能沿“死者→凶器→凶手”追踪；杀手用冰雕刀刃（blades，复数）杀人，联系随之融化消失；最后一名受害者侥幸用冰刃刺中凶手心脏，这把与造就它的冷酷之心相合的最后一把冰刃从未融化。现译把追踪链改成泛泛的“从人群中找出凶手”，并新增原文没有的“刺入受害者的胸口”“随受害者心脏的体温渐渐融化”“夺下了利刃”等情节，复数刀刃写成一把。属忠实性错误（增补情节）。确认。修复：按原文重写三段：占卜师沿死者→凶器→凶手的联系追查；杀手以冰雕刀刃行凶，联系随之融化；某受害者侥幸以冰刃刺中凶手心脏，最后这把冰刃与造就它的冷酷之心相合，从此不再融化；保留两个 \\n 段落分隔。 contextual：与 surface 同一条（4a1e9e2713）。固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:8212-8214 冰冷杀戮：原文 blades 为复数、末句是“the final ice blade”；现译写成“一把利刃”且删掉 final，同一把刃先在受害者体内融化、后又被受害者夺下，前后矛盾。确认，与 surface 合并为一个修复 revision（含增补情节与追踪链的修正）。",
+  "new_target": "任何占卜师都知道，凶手与死者之间的联系就是凶器，占卜师可以循着这条联系，从死者追到凶器，再追到凶手。\n有一个相当冷血的杀手想出了规避的办法：用寒冰雕成刀刃，这样就能随心所欲地杀人，而那条联系也会随之融化消失。\n直到一名受害者侥幸用冰刃刺中了凶手的心脏，这场连环杀戮才告终结。与造就它的那颗冰冷之心合而为一后，这最后一把冰刃再也没有融化过。"
+ },
+ "6cf5ef442228c9e4418140638803565812227a44e204c6f31e4700aa7f4ce2d8": {
+  "source_batch_id": "batch-96dcbe7098ab7a8a87f7",
+  "claim": "固定 commit 624a673 game/modules/tome/data/talents/celestial/hymns.lua:448-527 暗夜流光（Hymn Nocturnalist）do_beams：469-481 行只要负能量不低于消耗且 5 格内至少有一个敌对单位就进入发射，483-484 行先一次性扣除 drain，再随机向至多 getTargetCount 个目标各发一道射线；扣费是每次齐射一次、与命中无关，也不按射线数计。现译“这项效果每产生一发射线并击中至少一个目标将抽取 %0.1f 负能量”把扣费写成按每道射线计、且以击中为条件，与实现不符。确认。修复：改为“每次向至少一个目标发射射线时，此效果消耗 %0.1f 负能量；负能量过低时不会发射射线。”一类说法，占位符不变。 contextual：与 surface 同一条（6cf5ef4422）。固定 commit 624a673 game/modules/tome/data/talents/celestial/hymns.lua:469-484 暗夜流光 do_beams：负能量不足或 5 格内无敌对单位即返回，否则先 incNegative(-drain) 一次，再向至多 getTargetCount 个随机目标各发一道射线；扣费每次齐射一次，不按射线数计、也与命中无关。现译“每产生一发射线并击中至少一个目标将抽取”与实现不符。确认，与 surface 合并为一个修复 revision：改为“每次向至少一个目标发射射线时抽取 %0.1f 负能量”。 只改第三行（This powerful effect…），其余行不变。",
+  "new_target": "你歌颂月亮的热情达到了顶峰。\n\t\t你的圣诗自动产生阴影射线攻击周围 5 格内至多 %d 个敌人，造成 %0.2f 伤害，同时有 25%% 几率触发致盲效果。\n\t\t这一强力效果每次向至少一个目标发射射线时，消耗 %0.1f 负能量；负能量过低时不会发射射线。\n\t\t效果受法术强度加成。"
+ },
+ "7fd5139f69b4e23a29a0800b0eec665e8ab1e441c5fb6d92386f9e9f464a965c": {
+  "source_batch_id": "batch-563560854ae20160c9d5",
+  "claim": "固定 commit 624a673 game/modules/tome/data/zones/golem-graveyard/grids.lua:24-55 破损的阿塔玛森（ATAMATHON_BROKEN）desc 31-33 行：末句“Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.”是游戏提示——35-51 行 block_move 检查玩家背包中的 ATAMATHON_ACTIVATE，可将其装入空眼窝唤醒阿塔玛森。现译“但由于找不到那只眼睛而没有完成”丢掉了“傀儡还需要另一只眼睛才能完整”这一提示，并新增原文没有的“因找不到眼睛”因果；另“it towers above you”译作“似乎默默地俯视着你”增补了“似乎、默默”。属忠实性错误（遗漏提示＋增补因果）。确认。修复：末句改为“某个蠢货曾试图重建它，却没能完成；这尊傀儡还需要另一只眼睛才能完整。”，“俯视着你”一句去掉增补，其余不变。 contextual：与 surface 同一条（7fd5139f69）。固定 commit 624a673 game/modules/tome/data/zones/golem-graveyard/grids.lua:32-33：现译“由于找不到那只眼睛而没有完成”新增原文没有的因果，并丢掉“傀儡还需要另一只眼睛才能完整”这一玩家提示；“似乎默默地俯视着你”增补“似乎、默默”。确认，与 surface 合并为一个修复 revision。 同句整句对照：its sole eye→“仅有的一只眼睛”，it towers above you→“巍然耸立在你面前”。",
+  "new_target": "这尊巨型傀儡是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。\n它的身躯由大理石制成，关节由坚固的沃瑞钽打造，仅有的一只眼睛由纯净的红宝石构成，另一只眼睛似乎已经遗失。它高达四十多英尺，巍然耸立在你面前。\n某个蠢货曾试图重建它，却没能完成；这尊傀儡还需要另一只眼睛才能完整。"
+ },
+ "948f9579734dc1743cc9754dc3dce19cf530dc34139c5753dd188378b9e9b204": {
+  "source_batch_id": "batch-563560854ae20160c9d5",
+  "claim": "固定 commit 624a673 game/modules/tome/data/talents/uber/const.lua:99-120 影之护甲（Armour of Shadows）passives 设 darkness_darkens；data/damage_types.lua:930-933 暗影伤害生效时只调用 game.level.map.lites(x, y, false) 与 lites(src.x, src.y, false)，即熄灭目标所在格与自身所在格两个格子。现译“使你当前所在区域和目标区域陷入黑暗”把两个格子说成区域，夸大作用范围（本库“区域”常指整个地图区域）。机制范围可对固定源码判定。确认。修复：改为“同时，你造成暗影伤害时，会使目标所在的格子和你所在的格子失去照明。”，其余不变。 同句整句对照：首行 protect yourself with the deepest shadows→“借助最深的阴影保护自己”，unlit tile→“未被照亮的格子”（与第二行一致），“50%%护甲强度”补空格。",
+  "new_target": "你懂得如何借助最深的阴影保护自己。只要你站在未被照亮的格子上，就能获得 %d 点护甲、50%% 护甲强度和 20%% 躲闪概率。\n\t\t同时，你造成暗影伤害时，会使目标所在的格子和你所在的格子失去照明。\n\t\t被动增加 %d 潜行强度。\n\t\t护甲加值受体质加成。"
+ },
+ "960055be5ddd6c08206eeff24fd40be9aaa5a7f3ba1879fc95ac25afbaf3d2a5": {
+  "source_batch_id": "batch-563560854ae20160c9d5",
+  "claim": "固定 commit 624a673 game/modules/tome/data/general/npcs/ooze.lua:116-118 粘胶方块（gelatinous cube）desc 在“...the corridors it patrols.”与“Through its transparent jelly structure...”之间有换行（\\n）；现译把两句接成一行，丢失换行。换行不变量可对固定源码客观判定。确认。修复：在“呈立方体状。”与“透过它透明的果冻状结构”之间补回 \\n，其余不变。",
+  "new_target": "这是一个奇怪的、巨大的凝胶状结构，它紧贴着所巡逻走廊的四面墙壁，呈立方体状。\n透过它透明的果冻状结构，你可以看到它吞噬的宝物，还有几具尸体。"
+ },
+ "9679988d2198fa8711b8ee492b69021d72109d83c75aef5e696d06a41127756e": {
+  "source_batch_id": null,
+  "claim": "宿主补充（第390批 d51afb7f5c 裁决附记，不计积压）：固定 commit 624a673 game/modules/tome/data/talents/gifts/fungus.lua Sudden Growth（骤然生长）info“A wave of energy passes through your fungus…”，本库 fungus 系名与同系说明均作“真菌”（mod-tome.lua:24978 等），此条作“孢子”，属术语不一致；“强大的能量”增补了原文没有的“强大”。修复：“一股强大的能量穿过你的孢子，”→“一股能量穿过你的真菌，”，其余不变。",
+  "new_target": "一股能量穿过你的真菌，使其立刻对你释放治愈性能量，治疗你 %d%% 当前生命回复值（#GREEN# %d #LAST#）。"
+ },
+ "a6e24d11cae4986a0daa1edbdce66a43434a921bbdcd4cd89e0262b99019b3e5": {
+  "source_batch_id": "batch-8ddbfa00da4d0d50cdaa",
+  "claim": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/levelup.lua 升级教程正文：各要点句内没有换行；现译在“另外还能获得\\n不同的点数”“每等级你能获\\n得3个点数”“和你等级差不多的怪物\\n来获得经验值”三处多插硬换行，其中一处把“获得”拆成两行（与第386批 468766bf64 同类）。换行不变量可对固定源码客观判定。确认。修复：删去这三个多余的 \\n（保留源文本身的段落与列表换行），其余不变。 contextual：与 surface 同一条（a6e24d11ca）。固定 commit 624a673 game/modules/tome/data/texts/tutorial/levelup.lua 第24、25、30行在源文中各为单行；现译多插三个硬换行，其一拆开“获得”。确认，与 surface 合并为一个修复 revision：删去这三个 \\n。",
+  "new_target": "在ToME4中角色的能力取决于他/她的人物等级：角色最高可以升级至50级。\n\n每升一级你会获得更多的生命值和其他能量值（比如体力、法力等等）。另外还能获得不同的点数来提升你的角色。\n* #GOLD#属性点数#WHITE#：允许你提升6个主要属性：力量、敏捷、魔力、意志、灵巧和体质。每等级你能获得3个点数。\n* #GOLD#职业技能点数#WHITE#：职业技能是你的职业的核心能力，每升一级获得1点，每5级额外获得1点。\n* #GOLD#通用技能点数#WHITE#：通用技能提供辅助功能或更强的实力，但不一定专属于你的职业；在等级不是 5 的倍数时，你每升一级获得 1 点。\n* #GOLD#技能树解锁点#WHITE#：可以提高你对某一技能树内所有技能的掌握程度，或者也可以解锁一个新的技能树。\n\n每当你的经验值达到100%时你就升级了。你可以通过杀死和你等级差不多的怪物来获得经验值。\n\n按下 'p' 键，或者右键点击你自己并选择“升级”，即可打开升级面板。\n\n现在，打开你的升级面板，进行升级操作。\n"
+ },
+ "af41a12055ca8247631fd934b1be83c07ed6770a35fbee844b2e326675e5bad9": {
+  "source_batch_id": "batch-e63ec4963b48bd6eee9a",
+  "claim": "固定 commit 624a673 game/engines/default/engine/dialogs/microtxn/MTXMain.lua:55-70 内购欢迎词末段 “I must say feel dirty doing microtransactions even as benign as those” 只称这些内购无伤大雅；现译“即使上面这些选项都不影响游戏内容”新增“不影响游戏内容”的断言，与同段所列额外共享装备格、强制触发全服社区事件（均影响游戏）相矛盾。contextual 判 OK，宿主以原文与同条列表为准确认。本轮改动只涉及时装一行，此句为旧译。修复：改为“即使是上面这些无伤大雅的内购也不例外”一类表述，其余不变。",
+  "new_target": "欢迎！\n\n我是游戏的制造者 #{italic}##ANTIQUE_WHITE#DarkGod#LAST##{normal}#。在愉快的探险开始之前，我希望占用短暂的时间向你解释游戏内购的存在意义。\n\n请不要听到“内购”就惊慌逃跑，听完我的解释再做选择：我本人 #{bold}# 坚决 #CRIMSON#反对#LAST# 氪金胜利 #{normal}#，因此我保证绝不会做这种事情。\n\n那么，为什么要加入内购呢？马基·埃亚尔的传说是一款便宜/免费的游戏，也不需要会员订阅。它就像我的孩子一样；我非常爱它，并计划为之长久工作（从2009年开始我就一直这么干了！）。但是，为了生存，我仍然需要在现实世界中取得必要的收入。\n\n目前，我提供了以下几种内购项：\n- #GOLD#时装#LAST#：除了游戏内现有的种族、物品时装之外，你可以获得更多时装效果，让你看起来更靓！\n- #GOLD#氪金速死#LAST#：已经不想玩这个角色了吗？用这个选项来迎接一个帅气的终结吧！\n- #GOLD#额外共享装备格#LAST#：对于捐赠者而言，可以把那些“无用”的捐赠换成更多在线共享装备格。\n- #GOLD#社区事件#LAST#：服务器会自动触发部分在线事件，而你可以强制让服务器触发特定事件。当然，当前在线的所有玩家都会收到该事件！\n\n我希望这些能说服你，我并没有什么邪恶的想法（虽然我名为DarkGod）。我不得不说，做内购让我感觉很龌龊，即使是上面这些无伤大雅的内购也不例外，但为了游戏的未来，我必须想尽一切办法。\n感谢你看到这里，去享受游戏吧！"
+ },
+ "b41d52801474aff0939949dee4faddd65653c0ae85a4483884caddd1b01cb4a4": {
+  "source_batch_id": "batch-8ddbfa00da4d0d50cdaa",
+  "claim": "固定 commit 624a673 game/modules/tome/data/texts/intro-higher.lua 高等人类开场介绍：“...all kinds of wild animals.”与“To the west lies another dangerous place...”之间有换行（\\n）；现译把“这是一个被巨魔和野生动物占据的古老树林。”与“向西走还有另一个危险的区域”接成一行，源 7 个 \\n、译 6 个。换行不变量可对固定源码客观判定。确认。修复：在“古老树林。”与“向西走”之间补回 \\n，其余不变。 contextual：与 surface 同一条（b41d528014）。固定 commit 624a673 game/modules/tome/data/texts/intro-higher.lua 第24、25行为两行，现译合并成一行；另“the most powerful and respected lineage of men”译作“拥有强大和受人尊敬的人类高贵血统”，丢掉最高级 most。确认，与 surface 合并为一个修复 revision：补回 \\n，并把该句改为“你是高等人类中的一员，这是人类中最强大、最受尊敬的血统。”一类说法（按整句修改）。 同句整句对照：all kinds of wild animals→“各种野生动物”，the caves below it→“它下面的洞穴里”。",
+  "new_target": "欢迎你 #LIGHT_GREEN#@name@#WHITE#！\n你是高等人类中的一员，这是人类中最强大、最受尊敬的血统。你的许多同类都在联合王国各大城市担任高级顾问。\n但你不是。你想要更多；你需要证明自己的价值，并在这个世界上找到属于自己的立足之地。你决定深入那些古老而荒野的地方，寻找古老的宝藏和荣耀。\n\n你来到了自然精灵森林西部边境一个叫做德斯荒野的地方，寻找巨魔沼泽。这是一个被巨魔和各种野生动物占据的古老树林。\n向西走还有另一个危险的区域：卡·普尔废墟。你听说它下面的洞穴里盘踞着大量的害虫和亡灵生物。\n\n"
+ },
+ "cb2722e476b2e7925a41b7743559c588447e380e21b8e4606f30b1c8d3ca8648": {
+  "source_batch_id": "batch-f199ae8241b6a0369acf",
+  "claim": "固定 commit 624a673 game/modules/tome/init.lua:97 加载提示（load_tips）：“experimented with necromancy to preserve their flesh after death, but with little success”——试图在死后保存肉身，收效甚微。现译“试图让他们死后的肉体仍能永葆青春。不过他们并没有成功”把“保存肉身”增补为“永葆青春”，并把“收效甚微”改成“没有成功”，属忠实性错误（增补＋把程度改为绝对）。确认。修复：改为“传说永恒精灵的王侯们早年曾用死灵法术做实验，试图在死后保存自己的肉身，但收效甚微。永恒精灵对此矢口否认。”一类说法。 contextual：与 surface 同一条（cb2722e476）。固定 commit 624a673 game/modules/tome/init.lua:97 配图为 undead_mummy_greater_mummy_lord（木乃伊），与“保存肉身”一致；现译“永葆青春”与“并没有成功”分别偏离原文的“保存肉身”与“收效甚微”。确认，与 surface 合并为一个修复 revision。",
+  "new_target": "传说永恒精灵的王侯们早年曾用死灵法术做实验，试图在死后保存自己的肉身，但收效甚微。永恒精灵对此矢口否认。"
+ },
+ "d51afb7f5c9f8bc686d711f6c818449daef777a6014df3e9a0aeabb3701ea554": {
+  "source_batch_id": "batch-f199ae8241b6a0369acf",
+  "claim": "固定 commit 624a673 game/modules/tome/data/talents/gifts/malleable-body.lua 占位技能“ervevev”（wild-gift/malleable-body 2；gifts.lua:41 该系 allow_random=true，可出现在随机首领的技能栏中，说明文字会显示）。现译有两处偏差：“Improve your fungus”的 fungus 译作“孢子”，而本库 fungus 系名与同系说明（mod-tome.lua:24978“真菌”及 4 条“your fungus／the fungus on your body”说明）均作“真菌”，属术语不一致；“the direct heal you received”漏掉 direct（直接治疗）限定。术语可对本库既定译名判定。确认（原 surface 只记建议，contextual 补出术语问题后改判）。修复：改为“强化你的真菌，使其能分取你受到的治疗并加以强化。……回复值为你所受直接治疗量的 %d%%。”，其余不变。 contextual：与 surface 同一条（d51afb7f5c）。fungus 本库作“真菌”（mod-tome.lua:24978 系名），现译“孢子”属另一概念；其余数值描述与源码一致。确认，与 surface 合并为一个修复 revision（同时补回“直接治疗”）。",
+  "new_target": "强化你的真菌，使其能分取你受到的治疗并加以强化。\n\t\t每当你受到治疗时，你会得到一个持续6回合的回复效果，回复值为你所受直接治疗量的 %d%%。\n\t\t效果受精神强度加成。"
+ },
+ "dd34f3b3a1f66cf66666a1b28fca9bb7e7e42375956fb4a797025b541ba0ae7b": {
+  "source_batch_id": "batch-ac27e658ed64b3f7f270",
+  "claim": "固定 commit 624a673 game/modules/tome/data/timed_effects/other.lua:1118 疯狂诅咒（Curse of Madness）强度 3+“阴谋”：spread one of your current detrimental mental effect。实现 doConspirator（other.lua:1232-1257）先收集自身全部负面精神效果，再用 rng.tableRemove(list)（:1244）只取其中一个复制给目标。现译“将你当前的负面精神效果传播给他们”删去 one of，读作全部传播，与实现不符。修复：补“其中一种”，如“都有 %d%% 的几率将你当前的一种负面精神效果传播给对方”。",
+  "new_target": "你感到自己对现实的掌控正在松动。\n#CRIMSON# 惩罚：#WHITE# 扰乱心智：%+d%% 精神抗性，%+d%% 混乱免疫\n#CRIMSON# 强度 1+：%s 解除束缚：%+d%% 暴击伤害，%+d%% 副手武器伤害。\n#CRIMSON# 强度 2+：%s%+d 幸运，%+d 敏捷\n#CRIMSON# 强度 3+：%s 阴谋：你的疯狂是会传染的。每次你对敌人造成暴击伤害时，都有 %d%% 的几率将你当前的一种负面精神效果传播给对方。\n#CRIMSON# 强度 4+：%s 狂热：每回合一次，当一次攻击超过你生命的 %0.1f%% 时，你所有技能的剩余冷却时间减少 1。"
+ },
+ "e28fc01c1fd2f334cd600935356c228cf5c9d81bd4c7e9c744b86d67e1fad9eb": {
+  "source_batch_id": "batch-ac27e658ed64b3f7f270",
+  "claim": "固定 commit 624a673 game/modules/tome/data/talents/techniques/sniper.lua:101 暗影射击（Shadow Shot）：冷却减少后若隐匿不在冷却中，:135 直接 forceUseTalent(T_CONCEALMENT, {ignore_cd=true, …}) 自动开启隐匿，无需玩家操作。现译“无论敌人是否太近，都可立即激活隐匿”把自动触发写成可选能力，机制不符；同句还漏了“The distraction caused by this effect”（由此造成的干扰）。修复：如“此效果造成的干扰使你的隐匿冷却时间减少 %d 回合。如果冷却时间减到 0，无论敌人是否太近，你都会立即自动进入隐匿。” 同句整句对照：首句改为“发射一支绑有烟雾弹的箭矢……被困在烟雾中的单位……”，末句“需要装备弓才能使用”。",
+  "new_target": "发射一支绑有烟雾弹的箭矢，造成 %d%% 伤害，并制造一片半径为 %d 的浓密烟雾，令人迷失方向。被困在烟雾中的单位视野减少 %d 格，持续 5 回合。\n此效果造成的干扰使你的隐匿冷却时间减少 %d 回合。如果冷却时间减到 0，无论敌人是否太近，你都会立即自动进入隐匿。\n烟雾弹影响目标的几率受命中值加成。该技能需要装备弓才能使用。"
+ },
+ "e2d3907f2592284ebd66ec9e8e8cd3886e04872331c59cf95245f4ffdaebd306": {
+  "source_batch_id": "batch-ac27e658ed64b3f7f270",
+  "claim": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/stats/stats7.1.lua:25 为一整段（stun. 与 But what will you use? 之间无换行），原文共 5 个 LF；现译 7 个：在“摆脱震慑。”后多断一行，又在“你是使\\n用灵巧的动作”处把“使用”一词拆开，教程正文会出现断词换行，违反换行不变量。修复：删去这两个多余换行，恢复与原文一致的 5 个 LF。 同句整句对照：第二段“你首先得命中目标，所以要将你的命中与目标的闪避进行比较”；第三段 with finesse→“靠技巧”，we'll use your Accuracy→“我们使用你的命中来判定”（去掉“仍然”）。",
+  "new_target": "最后，假如你是一个盗贼，你使用双持打击尝试震慑某个目标。\n\n如同在狂战士的例子里一样，你首先得命中目标，所以要将你的 #LIGHT_GREEN#命中#WHITE# 与目标的 #LIGHT_GREEN#闪避#WHITE# 进行比较。\n\n我们可以猜到，目标会使用 #LIGHT_GREEN#物理豁免#WHITE# 来尝试摆脱震慑。但你这边用的是什么呢？你不是像狂战士那样靠蛮力来完成这一击，而是靠技巧，所以我们使用你的 #LIGHT_GREEN#命中#WHITE# 来判定。\n"
+ },
+ "e52bd62005796ec8d51c98d03790198c10d494fc505418a7375c86def7dae1ff": {
+  "source_batch_id": "batch-ac27e658ed64b3f7f270",
+  "claim": "固定 commit 624a673 game/modules/tome/data/general/objects/world-artifacts.lua:5338 埃亚尔的呼吸（Breath of Eyal）desc：woven of countless sprouts, still curling and growing——由无数仍在卷曲生长的嫩芽编成。现译两处“豆芽”把泛指的新芽误限为食用豆芽，与自然神器语境不符，属错译。修复：改作“嫩芽”（如“这件护甲由无数嫩芽编成，嫩芽们仍在不停地卷曲生长”）。 同句整句对照：lightweight armor appears to have been woven→“轻巧的护甲似乎由……编织而成”，the weight of the world on your shoulders→“肩上仿佛扛着整个世界的重量”。",
+  "new_target": "这件轻巧的护甲似乎由无数嫩芽编织而成，嫩芽们仍在不停地卷曲生长。尽管拿在手里很轻，但当你穿上它时，你会感到肩上仿佛扛着整个世界的重量。"
+ },
+ "e65e6b87602904ba1039570534868629d4599e3efc343781494819326ad0565c": {
+  "source_batch_id": "batch-ac27e658ed64b3f7f270",
+  "claim": "固定 commit 624a673 game/modules/tome/data/zones/high-peak/objects.lua:169 生死珍珠（Pearl of Life and Death）desc：glitters in infinite colours, with slight patterns ever shifting away。现译“表面不断闪烁着光芒，似乎有奇妙的花纹一闪而逝”漏掉“无穷色彩”，且 ever shifting away 是花纹不断流转变幻，而非一闪即逝。修复：如“一颗有普通珍珠三倍大的珍珠，闪耀着无穷无尽的色彩，细微的花纹不断流转变幻。”",
+  "new_target": "一颗有普通珍珠三倍大的珍珠，闪耀着无穷无尽的色彩，细微的花纹不断流转变幻。"
+ },
+ "ebdc517c7d1e9888609dea8ffd237542957f7cce0358ea93cc4b73b05bd0fbea": {
+  "source_batch_id": "batch-ac27e658ed64b3f7f270",
+  "claim": "固定 commit 624a673 game/modules/tome/data/talents/misc/inscriptions.lua:972 符文：粉碎痛苦（Rune: Shatter Afflictions）说明原文共 2 个 LF（各接 \\t\\t），现译 3 个：把首句拆成“激活符文，立刻清除你身上的负面效果。\\n\\t\\t清除所有越层效果……”，多出一行，违反换行不变量。contextual 判 OK 未审换行；宿主按 LF 计数客观判定，确认。修复：把前两行合并为一行（如“激活符文，立刻消散你身上负面状态的能量，清除所有越层效果，以及物理、精神和魔法负面效果各 1 个。”），恢复 2 个 LF。 同句整句对照：补回 dissipate the energy of your ailments（消散负面状态的能量）与 You use the dissipated energy；(not counting cross-tier ones)→“（不计越层效果）”；冷却主语为符文。",
+  "new_target": "激活符文，立刻消散你身上负面状态的能量，清除所有越层效果，以及物理、精神和魔法负面效果各 1 个。\n\t\t你会利用消散的能量获得一个护盾，持续 %d 回合，每清除一个负面效果（不计越层效果）可抵挡 %d 点伤害。\n\t\t如果只清除了越层效果，不会产生护盾，且符文冷却时间减少 75%%。"
+ },
+ "ecb27ee6afb97ab9933440d5537c38a0a96ce553a87117b3884639fa71eeb8db": {
+  "source_batch_id": "batch-ac27e658ed64b3f7f270",
+  "claim": "固定 commit 624a673 game/modules/tome/data/zones/tannen-tower/objects.lua:76 多元水晶球（Orb of Many Ways）desc 在 switching rapidly. 后有 1 个 LF，第二行 If used near a portal… 单独成行；现译 0 个 LF，两句合并为一段，违反换行不变量。contextual 判 OK 未审换行；宿主按 LF 计数客观判定，确认。修复：在“……不属于这个世界。”后补回换行。 同句整句对照：projects→“投射”（原译“折射”是另一物理现象），portal→“传送门”（本库 activate a portal＝激活一个传送门，mod-tome.lua:39983）。",
+  "new_target": "这个球体可以投射出远方的景象，并快速地切换着，有些景象甚至不属于这个世界。\n如果你在传送门附近使用它，它也许能激活传送门。"
+ },
+ "f2beff1edaedd0ec3288ba6f37a536151fb5d6356edba89365cf61fa1f6bd368": {
+  "source_batch_id": "batch-ac27e658ed64b3f7f270",
+  "claim": "固定 commit 624a673 game/modules/tome/data/talents/misc/misc.lua:348/391 无尽追踪（Relentless Pursuit）：Children will hear of your relentlessness in song——孩子们会在歌谣中听闻你的锲而不舍。现译“传唱你的无情”把 relentlessness（坚持不懈）译成意义相反的“无情”；同句 all the orcs in fallen Reknor 译作“失落之地的瑞库纳兽人”，把 fallen（已陷落的）误当地名修饰并丢了 all。机制句与 misc.lua 一致。修复：如“无论是领主本人、已陷落的瑞库纳城中的所有兽人……”“孩子们将在今后多年的歌谣里传颂你的坚持不懈。” 同句整句对照：terrifying unknown→“令人恐惧的未知之物”；第二行“多年以后，孩子们仍会在歌谣中听到你锲而不舍的事迹”。",
+  "new_target": "无论是领主本人、已陷落的瑞库纳城中的所有兽人，还是瑞库纳传送门外那些令人恐惧的未知之物，都无法拖慢你追寻吸能法杖的脚步。\n\t\t多年以后，孩子们仍会在歌谣中听到你锲而不舍的事迹。\n\t\t激活时，所有当前不利效果的持续时间缩短，缩短的回合数为相应豁免值的 20%%，至少 2 回合。\n\t\t%s"
+ }
+}
