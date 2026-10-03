@@ -3117,7 +3117,7 @@ t("#LIGHT_BLUE# * +5 Strength, +1 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD#每等级生命加值：#LIGHT_BLUE# +3", "_t")
 t("Bulwark", "盾战士", "birth descriptor name")
-t("A Bulwark specializes in weapon and shield combat, rarely leaving the cover of her many protective techniques.", "盾战士精通武器与盾牌格斗，并拥有极高的防御技能。", "_t")
+t("A Bulwark specializes in weapon and shield combat, rarely leaving the cover of her many protective techniques.", "盾战士精通武器与盾牌格斗，很少离开其诸多防护技巧的庇护。", "_t")
 t("A good Bulwark is able to withstand terrible attacks from all sides, protected by her shield, and when the time comes lash out at her foes with incredible strength.", "一个好的盾战士能够使用盾牌承受来自各方的攻击，当时机一到就立即将对手置于死地。", "_t")
 t("Their most important stats are: Strength and Dexterity", "他们最重要的属性是：力量和敏捷。", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +2 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +5 力量，+2 敏捷，+2 体质", "_t")
@@ -8398,7 +8398,7 @@ section "mod-tome/data/general/npcs/lich.lua"
 
 t("undead", "亡灵", "entity type")
 t("lich", "巫妖", "entity subtype")
-t("Only the most powerful spellcasters raised to unlife become liches. Doomed to haunt the world for an eternity, they have grown to hate all that breathes or trespasses on their domain. Unfortunately that includes you.", "只有最强大的法师，才会被复活成为巫妖。他们注定要永远在世间游荡，憎恨所有在其领地上呼吸或擅闯其领地的人。不幸的是，这包括你在内。", "_t")
+t("Only the most powerful spellcasters raised to unlife become liches. Doomed to haunt the world for an eternity, they have grown to hate all that breathes or trespasses on their domain. Unfortunately that includes you.", "只有最强大的施法者被转化为不死之身后，才会成为巫妖。他们注定要永远在世间游荡，渐渐憎恨起一切会呼吸的生灵和擅闯其领地者。不幸的是，这也包括你在内。", "_t")
 t("lich", "巫妖", "entity name")
 t("Having thought to discover life eternal, these beings have allowed undeath to rob them of the joys of life. Now they seek to destroy it as well.", "这些存在本以为能求得永生，却让不死之身夺走了生之乐趣。现在，他们也试图毁灭生命。", "_t")
 t("ancient lich", "远古巫妖", "entity name")
@@ -8555,7 +8555,7 @@ t("black ooze", "黑泥怪", "entity name")
 t("It's black and it's oozing.", "又黑又粘的软泥怪。", "_t")
 t("gelatinous cube", "粘胶方块", "entity name")
 t([[It is a strange, vast gelatinous structure that assumes cubic proportions as it lines all four walls of the corridors it patrols.
-Through its transparent jelly structure you can see treasures it has engulfed, and a few corpses as well.]], "这是一个奇怪的、巨大的凝胶状结构，它紧贴着所巡逻走廊的四面墙壁，呈立方体状。透过它透明的果冻状结构，你可以看到它吞噬的宝物，还有几具尸体。", "_t")
+Through its transparent jelly structure you can see treasures it has engulfed, and a few corpses as well.]], "这是一个奇怪的、巨大的凝胶状结构，它紧贴着所巡逻走廊的四面墙壁，呈立方体状。\n透过它透明的果冻状结构，你可以看到它吞噬的宝物，还有几具尸体。", "_t")
 t("crimson ooze", "深红泥怪", "entity name")
 t("It's reddish and it's oozing.", "微红且粘稠的软泥怪。", "_t")
 t("brittle clear ooze", "易碎透明泥怪", "entity name")
@@ -13017,7 +13017,7 @@ t("turn yourself invisible (power %d, based on Cunning and Magic) for 10 turns",
 t("%s pulls %s %s around %s like a dark shroud!", "%s将%s%s环绕%s，形成了黑暗的壁障", "logSeen")
 t("Breath of Eyal", "埃亚尔的呼吸", "entity name")
 t("gauzy green armor", "薄薄的绿色护甲", "_t")
-t("This lightweight armor appears to have been woven of countless sprouts, still curling and growing. When you put it on, you feel the weight of the world on your shoulders, in spite of how light it feels in your hands.", "这件护甲由数以千计的豆芽编成，豆芽们仍在不停地卷曲生长。尽管在你手里很轻，但当穿上它时，你感觉到肩上那世界一般的重量。", "_t")
+t("This lightweight armor appears to have been woven of countless sprouts, still curling and growing. When you put it on, you feel the weight of the world on your shoulders, in spite of how light it feels in your hands.", "这件轻巧的护甲似乎由无数嫩芽编织而成，嫩芽们仍在不停地卷曲生长。尽管拿在手里很轻，但当你穿上它时，你会感到肩上仿佛扛着整个世界的重量。", "_t")
 t("#DARK_GREEN#You feel the strength of the whole world behind you!", "#DARK_GREEN#你感受到了世界的力量！", "logPlayer")
 t("Eternity's Counter", "永恒沙漏", "entity name")
 t("crystalline hourglass", "水晶沙漏", "_t")
@@ -13038,7 +13038,7 @@ t("Fortune's Eye", "幸运之眼", "entity name")
 t("golden telescope", "金色望远镜", "_t")
 t([[This finely crafted telescope once belonged to the explorer and adventurer Kestin Highfin. With this tool in hand he traveled in search of treasures all across Maj'Eyal, and before his death it was said his collection was incredibly vast. He often credited this telescope with his luck, saying that as long as he had it, he could escape any situation, no matter how dangerous. It is said he died confronting a demon seeking revenge for a stolen sword.
 
-His last known words were "Somehow this feels like an ending, yet I know there is so much more to find."]], "这副精致的望远镜曾属于一位著名的冒险家和探险家科斯汀·赫菲因。有此宝在手，赫菲因遍历了整个马基·埃亚尔大陆，在他死前据说他搜集了许多宝贵的财富。他相信这副望远镜能带给他好运，有此物在手，无论面对任何险境，都能死里逃生。相传，他死于一名恶魔之手，那恶魔要为被他偷走的一把剑复仇。他留下的最后遗言是“不知为何，这感觉像是结局，但我知道前方还有太多值得探寻的东西。”", "_t")
+His last known words were "Somehow this feels like an ending, yet I know there is so much more to find."]], "这副精致的望远镜曾属于探险家兼冒险家科斯汀·赫菲因。他带着它走遍马基·埃亚尔大陆寻找宝藏，据说在他死前，他的收藏已极为丰富。他常说自己的好运要归功于这副望远镜：只要有它在手，无论处境多么危险，他都能脱身。相传，他死于一名恶魔之手，那恶魔要为被他偷走的一把剑复仇。\n\n他留下的最后遗言是“不知为何，这感觉像是结局，但我知道前方还有太多值得探寻的东西。”", "_t")
 t("Eye of the Forest", "森林之眼", "entity name")
 t("overgrown leather cap", "长满苔藓的皮帽", "_t")
 t("This leather cap is overgrown with a thick moss, except for around the very front, where an eye, carved of wood, rests. A thick green slime slowly pours from the corners of the eye, like tears.", "这顶皮帽上长满了厚厚的苔藓，帽子正前方用木头刻上了一只眼睛——绿色的液体缓缓从眼角流出，仿佛眼泪一样。", "_t")
@@ -13327,9 +13327,9 @@ t("Icy Kill", "冰冷杀戮", "entity name")
 t("sharpened icicle", "锋利的冰柱", "_t")
 t([[As any scryer knows, the link between the murderer and the murdered is the murder weapon, and a scryer can follow that link from the murdered to the weapon to the murderer.
 One rather cold blooded killer thought of a way around this. By carving blades out of ice, they could kill as they wished and the link would just melt away.
-Their killing spree ended when one of the victims got lucky and managed to stab the murderer in the heart with the icey blade. After being united with the cold heart that created it, the final ice blade has never melted.]], [[任何占卜师都知道，凶器乃是缉查凶手最重要的线索；他们往往顺藤摸瓜，从人群中找出凶手的真身。
-然而，一个冷酷的杀手找到了一个办法：他用寒冰铸成了一把利刃，将其刺入受害者的胸口，让其随着受害者心脏的体温渐渐融化，消失于无形。
-最终，这名杀手仍然没有逍遥于法外。一名受害者幸运地夺下了利刃，反身刺入了杀手的心脏里。杀手冷酷的内心没有温度，而这把与其相融的利刃从此再也不会融化。]], "_t")
+Their killing spree ended when one of the victims got lucky and managed to stab the murderer in the heart with the icey blade. After being united with the cold heart that created it, the final ice blade has never melted.]], [[任何占卜师都知道，凶手与死者之间的联系就是凶器，占卜师可以循着这条联系，从死者追到凶器，再追到凶手。
+有一个相当冷血的杀手想出了规避的办法：用寒冰雕成刀刃，这样就能随心所欲地杀人，而那条联系也会随之融化消失。
+直到一名受害者侥幸用冰刃刺中了凶手的心脏，这场连环杀戮才告终结。与造就它的那颗冰冷之心合而为一后，这最后一把冰刃再也没有融化过。]], "_t")
 t("freezes the target", "冻结目标", "_t")
 t("explodes a frozen creature (damage scales with willpower)", "令一个冻结生物爆炸（伤害受意志加成）", "_t")
 t("Thunderfall", "落雷", "entity name")
@@ -21402,7 +21402,7 @@ t([[Your passion for singing the praises of the Moons reaches its zenith.
 		This powerful effect will drain %0.1f negative energy each time it fires at at least 1 target; no beam will fire if your negative energy is too low.
 		These values scale with your Spellpower.]], [[你歌颂月亮的热情达到了顶峰。
 		你的圣诗自动产生阴影射线攻击周围 5 格内至多 %d 个敌人，造成 %0.2f 伤害，同时有 25%% 几率触发致盲效果。
-		这项效果每产生一发射线并击中至少一个目标将抽取 %0.1f 负能量，能量过低时无法产生射线。
+		这一强力效果每次向至少一个目标发射射线时，消耗 %0.1f 负能量；负能量过低时不会发射射线。
 		效果受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -22645,8 +22645,8 @@ t([[Project a corrupted blast of power that removes up to %d magical or physical
 t("Corrosive Worm", "腐蚀蠕虫", "talent name")
 t([[Infects the target with a corrosive worm for 6 turns that reduces blight and acid resistance by %d%% and feeds off damage taken.
 		When this effect ends or the target dies the worm will explode, dealing %d acid damage in a 4 radius ball. This damage will increase by %d%% of all damage taken while infected.
-		The damage dealt by the effect will increase with spellpower.]], [[用腐蚀蠕虫感染目标 6 回合，降低目标 %d%% 酸性枯萎抗性。
-		效果结束或者目标死亡时会产生爆炸，在 4 码半径内造成 %d 酸性伤害。同时，感染期内目标受到的伤害会按 %d%% 的比例计入爆炸伤害。
+		The damage dealt by the effect will increase with spellpower.]], [[用腐蚀蠕虫感染目标 6 回合，降低目标 %d%% 枯萎和酸性抗性，蠕虫会以目标受到的伤害为食。
+		效果结束或者目标死亡时，蠕虫会爆炸，在 4 码半径内造成 %d 酸性伤害。同时，感染期内目标受到的伤害会按 %d%% 的比例计入爆炸伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Poison Storm", "剧毒风暴", "talent name")
 t([[A furious storm of blighted poison rages around the caster in a radius of %d for %d turns.  Each creature hit by the storm takes %0.2f blight damage and is poisoned for %0.2f blight damage over 4 turns.
@@ -24951,7 +24951,7 @@ t([[Your fungus reaches into the primordial ages of the world, granting you anci
 		同时，你身上的回复效果会使失衡值每回合减少 %0.1f。
 		获得的回合数受精神强度加成。]], "tformat")
 t("Sudden Growth", "骤然生长", "talent name")
-t("A wave of energy passes through your fungus, making it release immediate healing energies on you, healing you for %d%% of your current life regeneration rate (#GREEN#%d#LAST#).", "一股强大的能量穿过你的孢子，使其立刻对你释放治愈性能量，治疗你 %d%% 当前生命回复值（#GREEN# %d #LAST#）。", "tformat")
+t("A wave of energy passes through your fungus, making it release immediate healing energies on you, healing you for %d%% of your current life regeneration rate (#GREEN#%d#LAST#).", "一股能量穿过你的真菌，使其立刻对你释放治愈性能量，治疗你 %d%% 当前生命回复值（#GREEN# %d #LAST#）。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/gifts/gifts.lua"
@@ -25100,8 +25100,8 @@ t([[Your body is more like that of an ooze, you can split into two for %d turns.
 		抗性受精神强度加成。]], "tformat")
 t([[Improve your fungus to allow it to take a part of any healing you receive and improve it.
 		Each time you are healed you get a regeneration effect for 6 turns that heals you of %d%% of the direct heal you received.
-		The effect will increase with your Mindpower.]], [[强化你的孢子，使其能分取你受到的治疗并加以强化。
-		每当你受到治疗时，你会得到一个持续6回合的回复效果，回复值为你所受治疗值的 %d%%。
+		The effect will increase with your Mindpower.]], [[强化你的真菌，使其能分取你受到的治疗并加以强化。
+		每当你受到治疗时，你会得到一个持续6回合的回复效果，回复值为你所受直接治疗量的 %d%%。
 		效果受精神强度加成。]], "tformat")
 t([[Both of you swap place in an instant, creatures attacking one will target the other.
 		While swaping you briefly merge together, boosting all your nature and acid damage by %d%% for 6 turns and healing you for %d.
@@ -26031,10 +26031,9 @@ t("dur %d; cd %d", "持续 %d; 冷却 %d", "tformat")
 t("Rune: Shatter Afflictions", "符文：粉碎痛苦", "talent name")
 t([[Activate the rune to instantly dissipate the energy of your ailments, cleansing all cross tier effects and 1 physical, mental, and magical effect.
 		You use the dissipated energy to create a shield lasting %d turns and blocking %d damage per debuff cleansed (not counting cross-tier ones).
-		If there were only cross-tier effects to cleanse, no shield is created and the rune goes on a 75%% reduced cooldown.]], [[激活符文，立刻清除你身上的负面效果。
-		清除所有越层效果，以及物理、精神和魔法负面效果各 1 个。
-		你会获得一个护盾，持续 %d 回合，每清除一个非越层负面效果可抵挡 %d 点伤害。
-		如果只清除了越层效果，不会产生护盾且冷却时间减少75%%。]], "tformat")
+		If there were only cross-tier effects to cleanse, no shield is created and the rune goes on a 75%% reduced cooldown.]], [[激活符文，立刻消散你身上负面状态的能量，清除所有越层效果，以及物理、精神和魔法负面效果各 1 个。
+		你会利用消散的能量获得一个护盾，持续 %d 回合，每清除一个负面效果（不计越层效果）可抵挡 %d 点伤害。
+		如果只清除了越层效果，不会产生护盾，且符文冷却时间减少 75%%。]], "tformat")
 t("absorb %d; cd %d", "吸收 %d; 冷却 %d", "tformat")
 t("Rune: Dissipation", "符文：消散", "talent name")
 t("Activate the rune to remove 8 beneficial magical sustains from an enemy target or all magical debuffs from you.", "激活这个符文，从敌人身上移除 8 个正面魔法持续技能，或从自己身上移除所有魔法负面效果。", "tformat")
@@ -26180,8 +26179,8 @@ t("\
 t([[Not the Master himself, nor all the orcs in fallen Reknor, nor even the terrifying unknown beyond Reknor's portal could slow your pursuit of the Staff of Absorption.
 		Children will hear of your relentlessness in song for years to come.
 		When activated, this ability reduces the duration of all active detrimental effects by 20%% of your associated save value or 2, whichever is greater:
-		%s]], [[无论是领主大人、失落之地的瑞库纳兽人还是瑞库纳传送门外那些令人恐怖的未知生物都无法拖慢你追寻吸能法杖的脚步。
-		孩子们会在将来用童谣来传唱你的无情。
+		%s]], [[无论是领主本人、已陷落的瑞库纳城中的所有兽人，还是瑞库纳传送门外那些令人恐惧的未知之物，都无法拖慢你追寻吸能法杖的脚步。
+		多年以后，孩子们仍会在歌谣中听到你锲而不舍的事迹。
 		激活时，所有当前不利效果的持续时间缩短，缩短的回合数为相应豁免值的 20%%，至少 2 回合。
 		%s]], "tformat")
 t("Teleport to the ground", "返回地面", "talent name")
@@ -30785,9 +30784,9 @@ This requires a bow to use, and cannot be used if there are foes in sight within
 t("Shadow Shot", "暗影射击", "talent name")
 t([[Fire an arrow tipped with a smoke bomb inflicting %d%% damage and creating a radius %d cloud of thick, disorientating smoke. Those caught within will have their vision range reduced by %d for 5 turns.
 The distraction caused by this effect reduces the cooldown of your Concealment by %d turns. If the cooldown is reduced to 0, you instantly activate Concealment regardless of whether foes are too close.
-The chance for the smoke bomb to affect your targets increases with your Accuracy. This requires a bow to use.]], [[发射一个带着烟雾弹的箭头造成 %d%% 伤害并制造一片半径为 %d 的浓密烟雾，令人迷失方向。被困在内的单位视野减少 %d 格，持续 5 回合。
-此效果将减少你隐匿技能 %d 回合冷却时间。如果冷却时间减到 0，无论敌人是否太近，都可立即激活隐匿。
-烟雾弹影响目标的几率受命中值加成。该技能需要弓来使用。]], "tformat")
+The chance for the smoke bomb to affect your targets increases with your Accuracy. This requires a bow to use.]], [[发射一支绑有烟雾弹的箭矢，造成 %d%% 伤害，并制造一片半径为 %d 的浓密烟雾，令人迷失方向。被困在烟雾中的单位视野减少 %d 格，持续 5 回合。
+此效果造成的干扰使你的隐匿冷却时间减少 %d 回合。如果冷却时间减到 0，无论敌人是否太近，你都会立即自动进入隐匿。
+烟雾弹影响目标的几率受命中值加成。该技能需要装备弓才能使用。]], "tformat")
 t("Aim", "瞄准姿态", "talent name")
 t([[Enter a calm, focused stance, increasing physical power and accuracy by %d, projectile speed by %d%% and the chance to mark targets by an additional %d%%.
 This makes your shots more effective at range, increasing all damage dealt by %0.1f%% per tile travelled beyond 3, to a maximum of %0.1f%% damage at range 8.
@@ -31214,8 +31213,8 @@ t("Have dealt over 50000 darkness damage", "曾造成超过50000点暗影伤害"
 t([[You know how to protect yourself with the deepest shadows. As long as you stand on an unlit tile you gain %d armour, 50%% armour hardiness, and 20%% evasion.
 		Any time you deal darkness damage, you will unlight both the target tile and yours.
 		Passively increases your stealth rating by %d.
-		The armor bonus scales with your Constitution.]], [[你懂得如何融入阴影，当你站在黑暗地形上时将增加 %d 点护甲、50%%护甲强度和 20%% 躲闪概率。
-		同时，你造成的暗影伤害会使你当前所在区域和目标区域陷入黑暗。
+		The armor bonus scales with your Constitution.]], [[你懂得如何借助最深的阴影保护自己。只要你站在未被照亮的格子上，就能获得 %d 点护甲、50%% 护甲强度和 20%% 躲闪概率。
+		同时，你造成暗影伤害时，会使目标所在的格子和你所在的格子失去照明。
 		被动增加 %d 潜行强度。
 		护甲加值受体质加成。]], "tformat")
 t("Spine of the World", "世界之脊", "talent name")
@@ -32096,10 +32095,11 @@ You have come to a land called the Derthfields on the western border of the Thal
 To the west lies another dangerous place: the old ruins of Kor'Pul. You heard the caves below it were infested by vermin and undead.
 
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
-你是高等人类中的一员，拥有强大和受人尊敬的人类高贵血统。你的许多同类都在联合王国各大城市担任高级顾问。
+你是高等人类中的一员，这是人类中最强大、最受尊敬的血统。你的许多同类都在联合王国各大城市担任高级顾问。
 但你不是。你想要更多；你需要证明自己的价值，并在这个世界上找到属于自己的立足之地。你决定深入那些古老而荒野的地方，寻找古老的宝藏和荣耀。
 
-你来到了自然精灵森林西部边境一个叫做德斯荒野的地方，寻找巨魔沼泽。这是一个被巨魔和野生动物占据的古老树林。向西走还有另一个危险的区域：卡·普尔废墟。你听说那里的地下盘踞着大量的害虫和亡灵生物。
+你来到了自然精灵森林西部边境一个叫做德斯荒野的地方，寻找巨魔沼泽。这是一个被巨魔和各种野生动物占据的古老树林。
+向西走还有另一个危险的区域：卡·普尔废墟。你听说它下面的洞穴里盘踞着大量的害虫和亡灵生物。
 
 ]], "_t")
 
@@ -32414,16 +32414,13 @@ To open the character levelup screen either press 'p' or right-click on yourself
 Now open the levelup screen and assign your points.
 ]], [[在ToME4中角色的能力取决于他/她的人物等级：角色最高可以升级至50级。
 
-每升一级你会获得更多的生命值和其他能量值（比如体力、法力等等）。另外还能获得
-不同的点数来提升你的角色。
-* #GOLD#属性点数#WHITE#：允许你提升6个主要属性：力量、敏捷、魔力、意志、灵巧和体质。每等级你能获
-得3个点数。
+每升一级你会获得更多的生命值和其他能量值（比如体力、法力等等）。另外还能获得不同的点数来提升你的角色。
+* #GOLD#属性点数#WHITE#：允许你提升6个主要属性：力量、敏捷、魔力、意志、灵巧和体质。每等级你能获得3个点数。
 * #GOLD#职业技能点数#WHITE#：职业技能是你的职业的核心能力，每升一级获得1点，每5级额外获得1点。
 * #GOLD#通用技能点数#WHITE#：通用技能提供辅助功能或更强的实力，但不一定专属于你的职业；在等级不是 5 的倍数时，你每升一级获得 1 点。
 * #GOLD#技能树解锁点#WHITE#：可以提高你对某一技能树内所有技能的掌握程度，或者也可以解锁一个新的技能树。
 
-每当你的经验值达到100%时你就升级了。你可以通过杀死和你等级差不多的怪物
-来获得经验值。
+每当你的经验值达到100%时你就升级了。你可以通过杀死和你等级差不多的怪物来获得经验值。
 
 按下 'p' 键，或者右键点击你自己并选择“升级”，即可打开升级面板。
 
@@ -32607,15 +32604,13 @@ The first two of these #GOLD#combat stats#WHITE# are:
 
 When you try to stab somebody, your #LIGHT_GREEN#Accuracy#WHITE# score is measured against your target's #LIGHT_GREEN#Defense#WHITE# score, and a percentage chance of success is determined. We'll look at the exact calculation later.
 
-]], [[基础角色属性比如力量和意志是非常重要的，其重要性在于它们如何影响你的 #GOLD#战斗属性#WHITE#，
-这是整个教程的主题。
+]], [[基础角色属性比如力量和意志是非常重要的，其重要性在于它们如何影响你的 #GOLD#战斗属性#WHITE#，这是整个教程的主题。
 首先两个 #GOLD#战斗属性#WHITE# 是：
 
 #LIGHT_GREEN#命中：#WHITE#决定了你的物理攻击是否可以击中目标。
 #LIGHT_GREEN#闪避：#WHITE#你躲避攻击的能力。
 
-当你尝试刺击某人时，你的 #LIGHT_GREEN#命中#WHITE# 数值会和目标的 #LIGHT_GREEN#闪避#WHITE# 数值进行一个计算得出成功击
-中目标概率，我们稍后会看具体的计算方法。
+当你尝试刺击某人时，你的 #LIGHT_GREEN#命中#WHITE# 数值会和目标的 #LIGHT_GREEN#闪避#WHITE# 数值进行比较，得出成功命中目标的几率。我们稍后会看具体的计算方法。
 
 ]], "_t")
 
@@ -32736,11 +32731,9 @@ As with the berserker example, first you must hit, so you compare your #LIGHT_GR
 We can guess now that the target will use their #LIGHT_GREEN#Physical save#WHITE# to attempt to shrug off the stun. But what will you use? You're not getting the job done with raw muscle, like a berserker. You're doing this with finesse, so we'll use your #LIGHT_GREEN#Accuracy#WHITE#.
 ]], [[最后，假如你是一个盗贼，你使用双持打击尝试震慑某个目标。
 
-如同在狂战士的例子里一样你首先得攻击命中目标，所以你的 #LIGHT_GREEN#命中#WHITE# 和目标的 #LIGHT_GREEN#闪避#WHITE#进行比较运算。
+如同在狂战士的例子里一样，你首先得命中目标，所以要将你的 #LIGHT_GREEN#命中#WHITE# 与目标的 #LIGHT_GREEN#闪避#WHITE# 进行比较。
 
-我们可能会猜到目标会使用 #LIGHT_GREEN#物理豁免#WHITE# 来尝试摆脱震慑。
-但你这边用的是什么呢？你不是像狂战士那样用你的蛮力来打击目标，你是使
-用灵巧的动作来完成这个技能的，所以我们使用的仍然是 #LIGHT_GREEN#命中#WHITE# 来判定。
+我们可以猜到，目标会使用 #LIGHT_GREEN#物理豁免#WHITE# 来尝试摆脱震慑。但你这边用的是什么呢？你不是像狂战士那样靠蛮力来完成这一击，而是靠技巧，所以我们使用你的 #LIGHT_GREEN#命中#WHITE# 来判定。
 ]], "_t")
 
 ------------------------------------------------
@@ -36517,7 +36510,7 @@ t([[You feel your grip on reality slipping.
 #CRIMSON# 惩罚：#WHITE# 扰乱心智：%+d%% 精神抗性，%+d%% 混乱免疫
 #CRIMSON# 强度 1+：%s 解除束缚：%+d%% 暴击伤害，%+d%% 副手武器伤害。
 #CRIMSON# 强度 2+：%s%+d 幸运，%+d 敏捷
-#CRIMSON# 强度 3+：%s 阴谋：你的疯狂是会传染的。每次你对敌人造成暴击伤害时，都有 %d%% 的几率将你当前的负面精神效果传播给他们。
+#CRIMSON# 强度 3+：%s 阴谋：你的疯狂是会传染的。每次你对敌人造成暴击伤害时，都有 %d%% 的几率将你当前的一种负面精神效果传播给对方。
 #CRIMSON# 强度 4+：%s 狂热：每回合一次，当一次攻击超过你生命的 %0.1f%% 时，你所有技能的剩余冷却时间减少 1。]], "tformat")
 t("#F53CBE#%s's mania hastens cooldowns.", "#F53CBE#%s的狂热降低了冷却时间。", "logSeen")
 t("#F53CBE##Source# spreads the madness to #Target#.", "#F53CBE##Source#的疯狂传播到#Target#。", "logCombat")
@@ -38298,7 +38291,7 @@ t("A malevolent skeleton archmage that has taken control of the Dreadfell since 
 t("ghoul", "食尸鬼", "entity subtype")
 t("Borfast the Broken", "扭曲的波法斯特", "entity name")
 t([[Thick skin hangs loosely from this short, shambling form. Tufts of hair sticking out from its chin give evidence of a once magnificent dwarven beard. Half its face seems to have been seared in acid at some point, the flesh melted away from the skull and an eyeball drooping low from its socket. There is a unique sadness to its eyes, and a slump of resignation to its gait.
-What proud hero of renown was this before he was condemned to such a terrible fate?]], "在你面前的是一只身形矮小、步履蹒跚的怪物，厚厚的皮肤松松垮垮地挂在身上。从它下巴伸出的一簇簇毛发，昭示着它曾经拥有过一副壮丽的矮人胡须。看起来他的半边脸曾经被硫酸泼过，血肉从他的脸部脱落，其中一只眼睛从它的眼窝中掉了出来。他的独眼有一种莫名的悲伤，透露着深深的无奈。如此威风的英雄人物怎会落得如此下场？", "_t")
+What proud hero of renown was this before he was condemned to such a terrible fate?]], "在你面前的是一只身形矮小、步履蹒跚的怪物，厚厚的皮肤松松垮垮地挂在身上。从它下巴伸出的一簇簇毛发，昭示着它曾经拥有过一副壮丽的矮人胡须。它的半边脸似乎曾被酸液灼烧过，血肉从头骨上融化剥落，一只眼球从眼窝中低垂下来。它的双眼中有一种独特的悲伤，步态里透着颓丧与认命。\n在被判以如此可怕的命运之前，这曾是一位怎样声名远扬的骄傲英雄？", "_t")
 t("and offered to his dark Master", "并将其献祭给他的黑暗领主", "_t")
 t("ghost", "幽灵", "entity subtype")
 t("Aletta Soultorn", "阿蕾塔·苏尔顿", "entity name")
@@ -38499,8 +38492,8 @@ t("the remains of Atamathon", "阿塔玛森的遗骸", "entity name")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its sole eye of purest ruby; the other one seems to be missing. At over 40 feet tall, it towers above you.
 Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.]], [[这尊巨型傀儡是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
-它的身躯由大理石制成，关节由坚固的沃瑞钽打造，一只眼由纯净的红宝石构成。它的另一只眼睛似乎已经失落。四十多英尺高的巨像似乎默默地俯视着你。
-某个蠢货似乎想要重塑它，但由于找不到那只眼睛而没有完成。]], "_t")
+它的身躯由大理石制成，关节由坚固的沃瑞钽打造，仅有的一只眼睛由纯净的红宝石构成，另一只眼睛似乎已经遗失。它高达四十多英尺，巍然耸立在你面前。
+某个蠢货曾试图重建它，却没能完成；这尊傀儡还需要另一只眼睛才能完整。]], "_t")
 t("Atamathon", "阿塔玛森", "_t")
 t("It seems that your %s is made to fit inside the empty eye socket of Atamathon. This is probably very unwise.", "你手中%s的外形看上去似乎可以安装到阿塔玛森的空眼窝内，但也许这样做并不明智。", "tformat")
 t("The socket seems broken.", "插槽似乎已经损坏。", "log")
@@ -38755,7 +38748,7 @@ t("gem", "珠宝", "entity type")
 t("white", "白色", "entity subtype")
 t("Pearl of Life and Death", "生死珍珠", "entity name")
 t("shining pearl", "闪光的珍珠", "_t")
-t("A pearl, three times the size of a normal pearl, that glitters in infinite colours, with slight patterns ever shifting away.", "一颗有普通珍珠三倍大的珍珠。它的表面不断闪烁着光芒，似乎有奇妙的花纹一闪而逝。", "_t")
+t("A pearl, three times the size of a normal pearl, that glitters in infinite colours, with slight patterns ever shifting away.", "一颗有普通珍珠三倍大的珍珠，闪耀着无穷无尽的色彩，细微的花纹不断流转变幻。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/high-peak/zone.lua"
@@ -39980,7 +39973,7 @@ t("orb", "水晶球", "entity subtype")
 t("Orb of Many Ways", "多元水晶球", "entity name")
 t("swirling orb", "涡流水晶球", "_t")
 t([[The orb projects images of distant places, some that seem not to be of this world, switching rapidly.
-If used near a portal, it could probably activate it.]], "这个球体可以折射出远处的景象并快速地切换着，有些景象甚至不属于这个世界。如果你在传送点附近使用它，它可能会激活传送。", "_t")
+If used near a portal, it could probably activate it.]], "这个球体可以投射出远方的景象，并快速地切换着，有些景象甚至不属于这个世界。\n如果你在传送门附近使用它，它也许能激活传送门。", "_t")
 t("activate a portal", "激活一个传送门", "_t")
 t("There is no portal to activate here.", "这里没有可用的传送门。", "logPlayer")
 t("tattered paper scrap", "破烂的碎纸片", "entity name")
@@ -42438,9 +42431,9 @@ t("DEBUG -- Levelup Actor: [%s] %s", "调试模式 -- 升级角色：[%s] %s", "
 t([[Levelup an actor.
 Optionally set Stat levels, learn all talents possible, and gain points to spend on Levelup. 
 The actor is backed up before changes are made.  (Use the "Restore" button to recover.)
-]], [[升级角色
-可以自动设置相应的属性值，尽可能学习所有技能，并获得升级所得到的属性点。
-角色会在更改前备份，按“恢复”按钮即可还原。
+]], [[升级角色。
+可选择设置属性等级、尽可能学习所有技能，并获得可在升级界面分配的点数。
+角色会在更改前备份（按“恢复”按钮即可还原）。
 ]], "_t")
 t(" Advance to Level: ", " 升级到等级： ", "_t")
 t("Restore: %s (v%d)", "恢复：%s (v%d)", "tformat")
@@ -43079,7 +43072,7 @@ t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose 
 t("None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.", "无人知晓夏·图尔人的长相，也没有人知道为什么他们在几千年前突然消失了。至今我们仍能从他们仅存的废墟里感受到他们的神秘和恐怖。", "init.lua load_tips")
 t("In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.", "地城深处潜藏着无法用语言描述或理解的黑暗事物，无人知道它们从何而来。", "init.lua load_tips")
 t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的造物自最早的记忆以来就一直困扰着所有种族。", "init.lua load_tips")
-t("Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.", "传说很早以前永恒精灵的王侯们利用死灵法术进行试验，试图让他们死后的肉体仍能永葆青春。不过他们并没有成功。永恒精灵们则极力否认这一传说。", "init.lua load_tips")
+t("Some say that in their early days the Shaloren kings experimented with necromancy to preserve their flesh after death, but with little success. The Shaloren vehemently deny this.", "传说永恒精灵的王侯们早年曾用死灵法术做实验，试图在死后保存自己的肉身，但收效甚微。永恒精灵对此矢口否认。", "init.lua load_tips")
 t("120 years ago Toknor and Mirvenia united the human and halfling kingdoms and wiped out the orcish race, thus establishing the Age of Ascendancy.", "120年前，图库纳与米雯尼雅将人类与半身人的王国联合起来，将兽人一族彻底消灭，自此开启了卓越纪元。", "init.lua load_tips")
 t("\"The Spellblaze tore Eyal apart and nearly brought about the end of all civilisation. Two thousand years on its shadow still hangs over many lands, and the prideful mages have never been forgiven their place in bringing it about.", "魔法大爆炸撕裂了埃亚尔，整个文明差点被彻底摧毁。两千年岁月已过，爆炸的阴影依然笼罩着很多地区。而那些高傲的法师们，也从未因其在促成此事中所扮演的角色而获得宽恕。", "init.lua load_tips")
 t("Some are cursed with mental powers beyond their full control, turning them to a dark life powered by hatred.", "某些人被诅咒，获得了超出自身完全掌控的精神力量，从此堕入由仇恨驱动的黑暗生涯。", "init.lua load_tips")
