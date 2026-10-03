@@ -8761,7 +8761,7 @@ t("It is a large snake with a hooded face.", "这是一条面部呈兜帽状的�
 t("black mamba", "黑曼巴", "entity name")
 t("It has glistening black skin, a sleek body, and highly venomous fangs.", "它有着油亮光滑的黑色皮肤、流线型的身体和剧毒的毒牙。", "_t")
 t("anaconda", "巨蟒", "entity name")
-t("You recoil in fear as you notice this gigantic snake.  It seeks to crush the life out of you.", "看到这条巨蛇，你恐惧地向后退缩。它想要绞杀你的生命。", "_t")
+t("You recoil in fear as you notice this gigantic snake.  It seeks to crush the life out of you.", "看到这条巨蛇，你恐惧地向后退缩。它想把你活活绞死。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/snow-giant.lua"
@@ -8775,7 +8775,7 @@ t("A towering creature, humanoid but huge. It wields a giant maul and does not l
 t("snow giant boulder thrower", "雪巨人投石者", "entity name")
 t("snow giant chieftain", "雪巨人酋长", "entity name")
 t("Burb the snow giant champion", "雪巨人勇士巴布", "entity name")
-t("A maddened, enraged snow giant that towers over his comrades. You've heard legends mentioning this particular monstrosity; they say that when he's not rampaging around frothing at the mouth, he sits, almost childlike, engraving stories and mysterious patterns on any flat stone surface he can find.", "一个疯狂而暴怒的雪巨人，远远高于他的同胞。你以前听说过关于这个雪巨人的故事：据说，平时他不像现在这样愤怒得口沫横飞时，他会坐下来，像个孩子一样，在他能找到的任何一块平整的石头表面雕刻故事和神秘的图案。", "_t")
+t("A maddened, enraged snow giant that towers over his comrades. You've heard legends mentioning this particular monstrosity; they say that when he's not rampaging around frothing at the mouth, he sits, almost childlike, engraving stories and mysterious patterns on any flat stone surface he can find.", "一个疯狂而暴怒的雪巨人，远远高于他的同胞。你以前听说过关于这个雪巨人的故事：据说，他不在四处狂暴肆虐、口沫横飞的时候，会坐下来，像个孩子一样，在他能找到的任何一块平整的石头表面雕刻故事和神秘的图案。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/spider.lua"
@@ -8790,7 +8790,7 @@ t("A huge arachnid, it sprays venom at its prey.", "一只巨大的蛛形纲动�
 t("chitinous spider", "硬壳蜘蛛", "entity name")
 t("A huge arachnid with a massive exoskeleton.", "一只巨大的蛛形纲动物，它有着厚重的外壳。", "_t")
 t("gaeramarth", "盖瑞麦斯", "entity name")
-t("These cunning spiders terrorize those who enter the ever-growing borders of their lairs.  Those who encounter them rarely return.", "这些狡猾的蜘蛛威胁着踏入其巢穴那不断扩张的边界的生物。遭遇它们的人鲜有生还。", "_t")
+t("These cunning spiders terrorize those who enter the ever-growing borders of their lairs.  Those who encounter them rarely return.", "这些狡猾的蜘蛛的巢穴边界不断扩张，踏入其中者无不受其威胁。遭遇它们的人鲜有生还。", "_t")
 t("ninurlhing", "林尔荷", "entity name")
 t("The air reeks with noxious fumes and the ground around it decays.", "在它周围，毒雾散播，大地枯萎。", "_t")
 t("faerlhing", "费尔荷", "entity name")
@@ -8802,7 +8802,7 @@ t("The air seems to freeze solid around this frigid spider.", "这只寒冷的�
 t("weaver young", "编织者幼体", "entity name")
 t("A tiny arachnid that phases in and out of reality.", "一只小小的蜘蛛，它不断地在现实中时隐时现。", "_t")
 t("weaver patriarch", "雄性编织者", "entity name")
-t("A large blue arachnid with white markings on its thorax.  It shifts and shimmers as though only partially connected to the timeline.", "一只胸部有着白色花纹的巨大蓝蜘蛛。它不断的移动和闪烁，好像它只有部分连接在时间线上。", "_t")
+t("A large blue arachnid with white markings on its thorax.  It shifts and shimmers as though only partially connected to the timeline.", "一只胸部有着白色花纹的巨大蓝蜘蛛。它不断地移动和闪烁，仿佛只有一部分与时间线相连。", "_t")
 t("weaver matriarch", "雌性编织者", "entity name")
 t("A large dark blue arachnid with a shifting yellow and white pattern on its thorax.  It shifts and shimmers as though only partially connected to the timeline.", "一只巨大的深蓝色蛛形生物，胸部有着不断变幻的黄白花纹。它不停地晃动闪烁，仿佛只是部分连接在时间线上。", "_t")
 t("Ninandra, the Great Weaver", "妮娜卓·伟大的编织者", "entity name")
@@ -8906,7 +8906,7 @@ t("mountain troll thunderer", "闪电山岭巨魔", "entity name")
 t("patchwork troll", "拼凑巨魔", "entity name")
 t("A disgusting and mismatched construct of necromantically-enhanced troll bits and shattered weapons. Confused and furious, it rends and shatters its surroundings with impossible strength, moving with speed found nowhere in nature.", "一个由死灵法术强化的巨魔残肢与碎裂武器拼凑而成的恶心造物。它困惑而暴怒，以不可思议的力量撕裂摧毁周围的一切，移动速度在自然界中无处可寻。", "_t")
 t("Forest Troll Hedge-Wizard", "森林巨魔野法师", "entity name")
-t("This old-looking troll glares at you with malice. His muscles appear atrophied, but a certain power surrounds him nonetheless.", "这只老迈的巨魔恶狠狠的盯着你。尽管它已经年老力衰，但是你仍能感受到一股强大的能量环绕着它。", "_t")
+t("This old-looking troll glares at you with malice. His muscles appear atrophied, but a certain power surrounds him nonetheless.", "这只老迈的巨魔恶狠狠地盯着你。尽管它已经年老力衰，但是你仍能感受到一股强大的能量环绕着它。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/undead-rat.lua"
@@ -8929,7 +8929,7 @@ t("An eerie haze surrounds this translucent rat.", "怪异的烟雾环绕着这�
 t("Eerie Squeak!", "阴森的吱吱声！", "_t")
 t("Frightening Squeak??", "恐怖吱！", "_t")
 t("vampire rat", "吸血鼠", "entity name")
-t("Looks much like a normal rat. That is, other than the very large fangs.", "不谈那大了一号的牙齿，它看起来还算比较正常的一只老鼠。", "_t")
+t("Looks much like a normal rat. That is, other than the very large fangs.", "除了那对大得出奇的尖牙，它看起来和普通老鼠没什么两样。", "_t")
 t("Squeak! Blood!", "吱！鲜血！", "_t")
 t("gigantic bone rat", "巨型骨鼠", "entity name")
 t("This massive beast appears to be a rat composed of countless bones fused together.", "这只巨大的怪物看起来像是许多骨头拼起来的老鼠。", "_t")
@@ -9014,7 +9014,7 @@ section "mod-tome/data/general/npcs/xorn.lua"
 t("elemental", "元素生物", "entity type")
 t("xorn", "索尔石怪", "entity subtype")
 t("umber hulk", "褐色巨兽", "entity name")
-t("This bizarre creature has glaring eyes and large mandibles capable of slicing through rock.", "这只怪异的生物长着怒目圆睁的眼睛和几只能咬穿岩石的巨大口器。", "_t")
+t("This bizarre creature has glaring eyes and large mandibles capable of slicing through rock.", "这只怪异的生物长着一双怒睁的眼睛和几只能咬穿岩石的巨大口器。", "_t")
 t("xorn", "索尔石怪", "entity name")
 t("A huge creature of the element Earth. Able to merge with its element, it has four huge arms protruding from its enormous torso.", "一只巨大的土元素。它有四只巨大的手臂，并且可以融合泥土。", "_t")
 t("xaren", "钻石索尔石怪", "entity name")
@@ -11009,7 +11009,7 @@ t("battered skull", "破损的头骨", "_t")
 t("The skull of a skeleton mage. The eyes have stopped glowing... for now.", "一颗骷髅法师的头骨。现在……它的眼睛已经暗淡了。", "_t")
 t("ritch stinger", "里奇螫针", "entity name")
 t("giant stinger", "巨大的螫针", "_t")
-t("A ritch stinger, still glistening with venom.", "一只里奇的螫针，还残留着许多粘稠的毒液。", "_t")
+t("A ritch stinger, still glistening with venom.", "一根里奇的螫针，仍闪着毒液的光泽。", "_t")
 t("orc heart", "兽人心脏", "entity name")
 t("heart", "心脏", "_t")
 t("The heart of an orc. Perhaps surprisingly, it isn't green.", "一颗兽人的心脏。很惊讶吧，它不是绿色的。", "_t")
@@ -11077,7 +11077,7 @@ t("kidney", "肾脏", "_t")
 t("As unpleasant-looking as any exposed organ.", "和任何外露的器官一样难看。", "_t")
 t("storm wyrm claw", "风暴之龙的爪子", "entity name")
 t("claw", "爪子", "_t")
-t("Bluish and wickedly sharp. It makes your arm hair stand on end.", "这只爪子泛着蓝色光泽并且锋利的吓人，它使你汗毛竖立。", "_t")
+t("Bluish and wickedly sharp. It makes your arm hair stand on end.", "这只爪子泛着蓝色光泽并且锋利得吓人，它使你汗毛竖立。", "_t")
 t("green worm", "翡翠蠕虫", "entity name")
 t("dead green worm", "死亡的绿色蠕虫", "_t")
 t("A dead green worm, painstakingly separated from its tangle of companions.", "一只死掉的绿色虫子，需要非常仔细才能把它从蠕虫团中挑拣出来。", "_t")
@@ -11094,7 +11094,7 @@ t("ash", "灰烬", "_t")
 t("Unremarkable grey ash.", "不起眼的灰色灰烬。", "_t")
 t("wretchling eyeball", "小劣魔之眼", "entity name")
 t("eyeball", "眼球", "_t")
-t("Small and bloodshot. Its dead gaze still burns your skin.", "小而充血。它死去后的凝视仍灼痛着你的皮肤。", "_t")
+t("Small and bloodshot. Its dead gaze still burns your skin.", "小而充血。它死寂的目光仍灼痛着你的皮肤。", "_t")
 t("faerlhing fang", "费尔荷毒牙", "entity name")
 t("fang", "牙齿", "_t")
 t("It still drips venom and crackles with magical energy.", "它仍滴着毒液，魔法能量在上面噼啪作响。", "_t")
@@ -13519,7 +13519,7 @@ t("annoy", "烦扰", "entity type")
 t("teleport", "传送", "entity subtype")
 t("trap", "陷阱", "_t")
 t("teleport trap", "传送陷阱", "entity name")
-t("Teleports the victim away.  How does anyone get close enough to disarm this trap...?", "将目标传送走。能有人成功走近并解除这个陷阱吗…？", "_t")
+t("Teleports the victim away.  How does anyone get close enough to disarm this trap...?", "将目标传送走。到底要怎样才能靠近并解除这个陷阱……？", "_t")
 t("@Target@ shimmers briefly.", "@Target@短暂地闪烁。", "_t")
 t("shimmering floor switch", "闪烁的地板开关", "_t")
 t("%s is teleported away!", "%s被传送走了！", "logSeen")
@@ -13603,7 +13603,7 @@ t("skeleton mage skull", "骷髅法师头骨", "entity name")
 t("The skull of a skeleton mage. The eyes have stopped glowing... for now.", "一颗骷髅法师的头骨。现在……它的眼睛已经暗淡了。", "_t")
 t("If the eyes are still glowing, please bash it around a bit until they fade. I'll not have another one of those coming alive and wreaking havoc in my lab.", "如果它的眼睛仍然亮着，请猛击它直到不再发光为止。我不想再要一个会突然活过来并把我的实验室搞得一塌糊涂的头骨了。", "_t")
 t("ritch stinger", "里奇螫针", "entity name")
-t("A ritch stinger, still glistening with venom.", "一只里奇的螫针，还残留着许多粘稠的毒液。", "_t")
+t("A ritch stinger, still glistening with venom.", "一根里奇的螫针，仍闪着毒液的光泽。", "_t")
 t("Keep as much venom in it as possible.", "请尽可能多地保留其中的毒液。", "_t")
 t("orc heart", "兽人心脏", "entity name")
 t("The heart of an orc. Perhaps surprisingly, it isn't green.", "一颗兽人的心脏。很惊讶吧，它不是绿色的。", "_t")
@@ -13646,7 +13646,7 @@ t("Thick, black and opaque.", "粘稠、黑色且不透明。", "_t")
 t("However annoying this will be for you to gather, I promise that the reek it produces in my lab will prove even more annoying.", "不管采集它会让你多么恼火，我保证它在我实验室里散发的恶臭会更令人受不了。", "_t")
 t("bear paw", "熊爪", "entity name")
 t("Large and hairy with flesh-rending claws. It smells slightly of fish.", "体型巨大、浑身长毛，还有能撕裂血肉的利爪。它闻起来略带鱼腥味。", "_t")
-t("You'd think I could get one of these from a local hunter, but they've had no luck. Don't get eaten.", "你认为我可以从本地的猎户手上取得它吗？甭想了，他们没那个运气。不要被吃掉了。", "_t")
+t("You'd think I could get one of these from a local hunter, but they've had no luck. Don't get eaten.", "你大概以为我能从本地猎户手上弄到一个，可他们一直没那个运气。可别被吃掉了。", "_t")
 t("ice wyrm tooth", "冰霜巨龙的牙齿", "entity name")
 t("This tooth has been blunted with age, but still looks more than capable of doing its job.", "这颗牙齿饱受岁月的侵蚀，但是仍然能胜任它的工作。", "_t")
 t("Ice Wyrms lose teeth fairly often, so you might get lucky and not have to do battle with one. But dress warm just in case.", "冰龙每隔一段时间会换齿，所以你幸运的话，可以捡到几颗而不需要和它战斗。不过保险起见，还是穿得暖和点。", "_t")
@@ -13672,7 +13672,7 @@ t("snow giant kidney", "雪巨人的肾脏", "entity name")
 t("As unpleasant-looking as any exposed organ.", "和任何外露的器官一样难看。", "_t")
 t("I suggest not killing the snow giant by impaling it through the kidneys. You'll just have to find another.", "我建议你不要从雪巨人的肾脏部位刺死它，否则你不得不寻找另外一个。", "_t")
 t("storm wyrm claw", "风暴之龙的爪子", "entity name")
-t("Bluish and wickedly sharp. It makes your arm hair stand on end.", "这只爪子泛着蓝色光泽并且锋利的吓人，它使你汗毛竖立。", "_t")
+t("Bluish and wickedly sharp. It makes your arm hair stand on end.", "这只爪子泛着蓝色光泽并且锋利得吓人，它使你汗毛竖立。", "_t")
 t("I recommend severing one of their dewclaws. They're smaller and easier to remove, but they've never been blunted by use, so be careful you don't poke yourself. Oh yes, and don't get eaten.", "我建议切下它们的一个悬爪。悬爪更小、更容易切下，但从未因使用而磨钝，所以小心别扎到自己。哦，对了，也别被吃掉。", "_t")
 t("green worm", "翡翠蠕虫", "entity name")
 t("A dead green worm, painstakingly separated from its tangle of companions.", "一只死掉的绿色虫子，需要非常仔细才能把它从蠕虫团中挑拣出来。", "_t")
@@ -13688,13 +13688,13 @@ t("Unpleasantly large and sharp for a canine's claw.", "这只爪子对于犬科
 t("My usual ingredient gatherers draw the line at hunting wargs. Feel free to mock them on your way back.", "我平时找原料的那些人一听说要猎杀座狼就不干了。回来时尽管嘲笑他们吧。", "_t")
 t("pouch of faeros ash", "一袋法罗灰烬", "entity name")
 t("Unremarkable grey ash.", "不起眼的灰色灰烬。", "_t")
-t("They're creatures of pure flame, and likely of extraplanar origin, but the ash of objects consumed by their fire has remarkable properties.", "它们是由纯粹的火焰组成的生物，似乎来自另一个世界。然而，由它们的火焰燃烧成的灰烬有着非凡的功效。", "_t")
+t("They're creatures of pure flame, and likely of extraplanar origin, but the ash of objects consumed by their fire has remarkable properties.", "它们是由纯粹的火焰组成的生物，似乎来自另一个世界。然而，被它们的火焰烧尽之物留下的灰烬有着非凡的功效。", "_t")
 t("wretchling eyeball", "小劣魔之眼", "entity name")
-t("Small and bloodshot. Its dead gaze still burns your skin.", "小而充血。它死去后的凝视仍灼痛着你的皮肤。", "_t")
+t("Small and bloodshot. Its dead gaze still burns your skin.", "小而充血。它死寂的目光仍灼痛着你的皮肤。", "_t")
 t("Evil little things, wretchlings. Feel free to kill as many as you can, though I just need the one intact eyeball.", "邪恶的小东西——小劣魔。你可以尽情地杀戮它们，尽管我只需要一只完整的眼球。", "_t")
 t("faerlhing fang", "费尔荷毒牙", "entity name")
 t("It still drips venom and crackles with magical energy.", "它仍滴着毒液，魔法能量在上面噼啪作响。", "_t")
-t("I've lost a number of adventurers to this one, but I'm sure you'll be fine.", "我已经在这个工作中失去了许多冒险者，但我确信你会安全归来。", "_t")
+t("I've lost a number of adventurers to this one, but I'm sure you'll be fine.", "为了这东西，我已经折损了许多冒险者，但我确信你会安全归来。", "_t")
 t("vampire lord fang", "吸血鬼领主的毒牙", "entity name")
 t("Brilliantly white, but surrounded by blackest magic.", "亮白色的牙齿，周身却萦绕着黑色的魔法。", "_t")
 t("You should definitely consider not pricking yourself with it.", "你必须确保自己不会被它划伤。", "_t")
@@ -20099,7 +20099,7 @@ t("#VIOLET#Another foe is summoned to the arena!", "#VIOLET#又一个对手被�
 section "mod-tome/data/quests/arena-unlock.lua"
 
 t("The agent of the arena", "竞技场代理人", "_t")
-t("You were asked to prove your worth as a fighter by a rogue, in order to participate in the arena", "你被一个盗贼邀请，证明你作为一个斗士的能力，以获得进入竞技场的资格。", "_t")
+t("You were asked to prove your worth as a fighter by a rogue, in order to participate in the arena", "一个盗贼要求你证明自己作为斗士的实力，以获得参加竞技场的资格。", "_t")
 t("You succesfully defeated your adversaries and gained access to the arena!", "你成功战胜了对手，现在可以进入竞技场了！", "_t")
 
 ------------------------------------------------
@@ -20123,7 +20123,7 @@ section "mod-tome/data/quests/brotherhood-of-alchemists.lua"
 
 t("The Brotherhood of Alchemists", "炼金术士兄弟会", "_t")
 t("#LIGHT_GREEN#Thanks to your timely aid, %s is the newest member of the Brotherhood of Alchemists.#WHITE#", "#LIGHT_GREEN#感谢你的及时帮助，%s成为了炼金术士兄弟会的新成员。#WHITE#", "tformat")
-t("#RED#You aided various denizens of Maj'Eyal in their attempts to join the Brotherhood of Alchemists, though you did not prove the deciding factor for any. This year's new member is %s.#WHITE#", "#RED#你帮助了马基·埃亚尔的许多人尝试加入炼金术士兄弟会，但是你没有成为任何一个决定性因素。今年的新成员是%s。#WHITE#", "tformat")
+t("#RED#You aided various denizens of Maj'Eyal in their attempts to join the Brotherhood of Alchemists, though you did not prove the deciding factor for any. This year's new member is %s.#WHITE#", "#RED#你帮助了马基·埃亚尔的许多人尝试加入炼金术士兄弟会，但你的帮助对其中任何一人都未起到决定作用。今年的新成员是%s。#WHITE#", "tformat")
 t("#LIGHT_BLUE#Various alchemists around Maj'Eyal are competing to gain entry into the great Brotherhood of Alchemists, and one or more have enlisted your aid.#WHITE#", "#LIGHT_BLUE#很多马基·埃亚尔的炼金术士想竞争加入强大的炼金术士兄弟会，其中有一个或者几个人请求你的帮助。#WHITE#", "_t")
 t("#GREEN#You have aided %s in creating an %s.#WHITE#", "#GREEN#你帮助%s制造了%s。#WHITE#", "tformat")
 t("#RED#%s has completed an %s without your aid.#WHITE#", "#RED#%s已经制造了%s，并没有获得你的帮助。#WHITE#", "tformat")
@@ -20153,7 +20153,7 @@ section "mod-tome/data/quests/charred-scar.lua"
 t("The Doom of the World!", "世界末日！", "_t")
 t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", "你被送到了灼烧之痕，其中心是一座巨大的火山——烈火纪元时，喷发的火山摧毁了当时矗立于此的古老夏·图尔遗址，并吸收了其中潜藏的大量魔法。", "_t")
 t("This place is still full of that power and the orcs intend to absorb this power using the Staff of Absorption!", "这里仍然充满了那种能量，兽人打算用吸能法杖的力量来吸收这里的能量！", "_t")
-t("Whatever their plan may be, they must be stopped at all cost.", "不管他们的目的是要干什么，必须不惜一切代价阻止他们。", "_t")
+t("Whatever their plan may be, they must be stopped at all cost.", "不管他们有何图谋，必须不惜一切代价阻止他们。", "_t")
 t("The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time.", "火山正遭到兽人的攻击。几名太阳骑士与你一同赶到了这里，他们将不惜牺牲生命坚守防线，为你争取一些时间。", "_t")
 t("Honor their sacrifice; do not let the orcs finish their work!", "向他们的献身精神致敬！不要让兽人们达成所愿！", "_t")
 t("You arrived too late. The place has been drained of its power and the sorcerers have left.", "你来得太晚了，这里的能量已经被吸干，而那些巫师已经离开了。", "_t")
@@ -20171,7 +20171,7 @@ t("", "", "_t")
 section "mod-tome/data/quests/deep-bellow.lua"
 
 t("From bellow, it devours", "来自深渊，吞噬四方", "_t")
-t("Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold.", "你从瑞库纳逃了出来，你觉得你的心脏狂跳不止，你对财富和力量的渴望增加了十倍。", "_t")
+t("Your escape from Reknor got your heart pounding and your desire for wealth and power increased tenfold.", "从瑞库纳逃出后，你的心脏狂跳不止，对财富和力量的渴望也增加了十倍。", "_t")
 t("Maybe it is time for you to start an adventurer's career. Deep below the Iron Throne mountains lies the Deep Bellow.", "也许是你开始冒险生涯的时候了，在钢铁王座山脉的深处有个叫深渊咆哮的地下城。", "_t")
 t("It has been long sealed away but still, from time to time adventurers go there looking for wealth.", "那里已被尘封许久，但仍不时有冒险者前去寻找财宝。", "_t")
 t("None that you know of has come back yet, but you did survive Reknor. You are great.", "据你所知，至今还没有人回来过，不过你毕竟从瑞库纳幸存了下来。你很了不起。", "_t")
@@ -20188,7 +20188,7 @@ t("Perhaps you should explore it and find the truth, and the treasures, for your
 section "mod-tome/data/quests/east-portal.lua"
 
 t("Back and there again", "归而复往", "_t")
-t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", "你创造了一个回到马基·埃亚尔的传送门，你应该试试找最后的希望的某个人谈谈建立返回通路的事。", "_t")
+t("You have created a portal back to Maj'Eyal. You should try to talk to someone in Last Hope about establishing a link back.", "你创造了一个回到马基·埃亚尔的传送门，你应该试着去最后的希望找个人谈谈建立返回通路的事。", "_t")
 t("You talked to the Elder in Last Hope who in turn told you to talk to Tannen, who lives in the north of the city.", "你和最后的希望的长者交谈，得知要去找城市北边的泰恩。", "_t")
 t("You gave the Orb of Many Ways to Tannen to study while you look for the athame and diamond in Reknor.", "你把多元水晶球交给泰恩研究，自己则去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
 t("You kept the Orb of Many Ways despite Tannen's request to study it. You must now look for the athame and diamond in Reknor.", "尽管泰恩想要研究多元水晶球，你还是把它留在了自己手中。现在你必须去瑞库纳寻找仪式匕首和共鸣钻石。", "_t")
@@ -20196,7 +20196,7 @@ t("You brought back the diamond and athame to Tannen who asked you to check the 
 t("You brought back the diamond and athame to Tannen who asked you to contact Zemekkys to ask some delicate questions.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你联系泽梅基斯，询问一些敏感问题。", "_t")
 t("You brought back the diamond and athame to Tannen who asked you to come back in a few days.", "你把共鸣钻石和仪式匕首带回给泰恩；他让你过几天再回来。", "_t")
 t("Tannen has tricked you! He swapped the orb for a false one that brought you to a demonic plane. Find the exit, and get revenge!", "泰恩把你耍了！他用一个假水晶球掉了包，把你传送到了恶魔空间。找到出口，回去找他算账！", "_t")
-t("Tannen revealed himself as the vile scum he really is and trapped you in his tower.", "泰恩暴露出了他的确是个卑鄙的人渣，他把你囚禁在他的塔牢里。", "_t")
+t("Tannen revealed himself as the vile scum he really is and trapped you in his tower.", "泰恩露出了真面目——他就是个卑鄙的人渣，他把你囚禁在他的塔牢里。", "_t")
 t("#LIGHT_GREEN#* The portal to the Far East is now functional and can be used to go back.#WHITE#", "#LIGHT_GREEN#* 通向远东的传送门开始运作了，你可以用它来回去。#WHITE#", "_t")
 t("Tannen points to the location of Telmur on your map.", "泰恩在你的地图上指出了泰尔玛的位置。", "logPlayer")
 t("A portal appears in the center of the tower!", "在塔的中间出现了一个传送门！", "_t")
@@ -20251,10 +20251,10 @@ t("You have won the game!", "你通关了！", "_t")
 t("#LIGHT_GREEN#* You encountered Sun Paladin Aeryn who blamed you for the loss of the Sunwall. You were forced to kill her.#LAST#", "#LIGHT_GREEN#* 你遇到了太阳骑士艾琳；她将太阳堡垒的陷落归咎于你，你不得不杀了她。#LAST#", "_t")
 t("#LIGHT_GREEN#* You encountered Sun Paladin Aeryn who blamed you for the loss of the Sunwall, but you spared her.#LAST#", "#LIGHT_GREEN#* 你遭遇了太阳骑士艾琳，她把太阳堡垒陷落的责任归咎在你的头上，但是你饶恕了她。#LAST#", "_t")
 t("#LIGHT_GREEN#* You defeated the Sorcerers before the Void portal could open.#LAST#", "#LIGHT_GREEN#* 你在虚空传送门打开之前击败了那些巫师。#LAST#", "_t")
-t("#LIGHT_GREEN#* You defeated the Sorcerers and Aeryn sacrificed herself to close the Void portal.#LAST#", "#LIGHT_GREEN#* 你击败了那些巫师，艾琳牺牲了她自己关闭了虚空传送门。#LAST#", "_t")
+t("#LIGHT_GREEN#* You defeated the Sorcerers and Aeryn sacrificed herself to close the Void portal.#LAST#", "#LIGHT_GREEN#* 你击败了那些巫师，艾琳牺牲自己关闭了虚空传送门。#LAST#", "_t")
 t("#LIGHT_GREEN#* You defeated the Sorcerers and sacrificed yourself to close the Void portal.#LAST#", "#LIGHT_GREEN#* 你击败了那些巫师，并牺牲了自己关闭虚空传送门。#LAST#", "_t")
 t("Endgame", "游戏结束", "_t")
-t("#LIGHT_RED#As you enter the level you hear a familiar voice.", "#LIGHT_RED#当你进入地图你听到了一个熟悉的声音。", "logPlayer")
+t("#LIGHT_RED#As you enter the level you hear a familiar voice.", "#LIGHT_RED#当你进入这一层时，听到了一个熟悉的声音。", "logPlayer")
 t("#LIGHT_RED#Fallen Sun Paladin Aeryn: '%s YOU BROUGHT ONLY DESTRUCTION TO THE SUNWALL! YOU WILL PAY!'", "#LIGHT_RED#堕落太阳骑士艾琳：“%s 你只给太阳堡垒带来了毁灭！你会为此付出代价！”", "logPlayer")
 t("Ruins of the Gates of Morning", "晨曦之门的废墟", "_t")
 t("The Sunwall was destroyed while you were trapped in the High Peak.", "当你在巅峰被困的时候，太阳堡垒被摧毁了。", "_t")
@@ -20272,7 +20272,7 @@ t("Though you succumbed to the fight, your mind was already gone, burnt to ashes
 t("Your sacrifice worked. Your mental energies were imbued with farportal energies. The Way radiated from the High Peak toward the rest of Eyal like a mental tidal wave.", "你的牺牲起作用了，你的精神能量被远行传送门能量所灌注。维网从巅峰向埃亚尔各处辐射出一股精神冲击波。", "_t")
 t("Every sentient being in Eyal is now part of the Way. Peace and happiness are enforced for all.", "所有埃亚尔有知觉的生物都成为了维网的一部分，和平与幸福被强加于所有生物。", "_t")
 t("Only the mages of Angolwen were able to withstand the mental shock and thus are the only unsafe people left. But what can they do against the might of the Way?", "只有安格利文的法师能够抵制住这道精神冲击，从而他们成为了仅存的危险人类，不过他们又能对强大的维网怎么样呢？", "_t")
-t("In the aftermath of the battle the Way tried to force you to act as a vessel to bring the Way to every sentient being.", "在战斗结束后，维网试图强迫你用你的身躯作为通道将维网传输到所有知觉生物的身体中。", "_t")
+t("In the aftermath of the battle the Way tried to force you to act as a vessel to bring the Way to every sentient being.", "在战斗结束后，维网试图强迫你充当载体，将维网带给所有知觉生物。", "_t")
 t("You have prevented the portal to the Void from opening and thus stopped the Creator from bringing about the end of the world.", "你阻止了虚空传送门的开启，并终止了世界末日的到来。", "_t")
 t("In a selfless act, High Sun Paladin Aeryn sacrificed herself to close the portal to the Void and thus stopped the Creator from bringing about the end of the world.", "高阶太阳骑士艾琳无私地牺牲了自己，关闭通往虚空的传送门，从而阻止造物主毁灭世界。", "_t")
 t("In a selfless act, you sacrificed yourself to close the portal to the Void and thus stopped the Creator from bringing about the end of the world.", "你无私地牺牲了自己，关闭通往虚空的传送门，从而阻止造物主毁灭世界。", "_t")
@@ -20302,16 +20302,16 @@ t("You have found a small iron acorn which you keep as a reminder of your past."
 t("You have destroyed the merchant caravan that you once considered family.", "你摧毁了那个你曾经视作家人的商队。", "_t")
 t("Kyless, the one who brought the curse, is dead by your hand.", "凯勒斯，那个曾经为你带来诅咒的人，死在了你的手上。", "_t")
 t("Berethh is dead, may he rest in peace.", "贝里斯已死，但愿他能安息。", "_t")
-t("Your curse has changed the iron acorn which now serves as a cruel reminder of your past and present.", "你的诅咒使铁橡果成为了使你回忆起残酷过去和现实的信物。", "_t")
+t("Your curse has changed the iron acorn which now serves as a cruel reminder of your past and present.", "你的诅咒改变了铁橡果，如今它成了一件残酷的信物，令你回想起自己的过去与现在。", "_t")
 t("You have found a small iron acorn which you keep as a reminder of your past", "你找到了一个小小的铁质橡果，将它保留下来，作为对过去的提醒。", "_t")
-t("Your curse has defiled the iron acorn which now serves as a reminder of your vile nature.", "你的诅咒污浊了铁橡果，它成为了使你回想起你卑劣本性的信物。", "_t")
+t("Your curse has defiled the iron acorn which now serves as a reminder of your vile nature.", "你的诅咒玷污了铁橡果，它成了提醒你自身卑劣本性的信物。", "_t")
 t("#LIGHT_GREEN#You need to find Berethh, the last person who may be able to help you.", "#LIGHT_GREEN#你得找到贝里斯，也许他是最后一个可以帮助你的人。", "_t")
 t("#LIGHT_GREEN#Seek out Kyless' cave in the northern part of the meadow and end him. Perhaps the curse will end with him.", "#LIGHT_GREEN#找出位于草原北部的凯勒斯的洞穴，然后杀掉他，他的死也许会解除这个诅咒。", "_t")
 t("#LIGHT_GREEN#Discover the meaning of the acorn and the dream.", "#LIGHT_GREEN#搞清楚铁橡果与这个梦境的含义。", "_t")
 t("#LIGHT_GREEN#You may have to revist your past to unlock some secret buried there.", "#LIGHT_GREEN#你可能需要重访过去，以解开埋藏在那里的秘密。", "_t")
 t("#VIOLET#The time has come to learn the true nature of your curse.", "#VIOLET#是时候搞清楚你诅咒的本质了。", "logPlayer")
 t("#VIOLET#You find yourself in a dream.", "#VIOLET#你发现你在一个梦境里。", "logPlayer")
-t("#VIOLET#Your hate surges. You refuse to succumb to death!", "#VIOLET#你仇恨涌动，你不屈服于死亡！", "logPlayer")
+t("#VIOLET#Your hate surges. You refuse to succumb to death!", "#VIOLET#你的仇恨涌动，你拒绝向死亡屈服！", "logPlayer")
 t("#VIOLET#You have discovered a small iron acorn, a link to your past.", "#VIOLET#你发现了一个小铁橡果，它和你的过去有关。", "logPlayer")
 t("#VIOLET#The merchant caravan from the past has appeared in your dream.", "#VIOLET#很久以前商队的往事出现在你的梦里。", "logPlayer")
 t("Last of the Caravan", "商队的最后一人", "_t")
@@ -20333,7 +20333,7 @@ t("#VIOLET#Berethh lies dead.", "#VIOLET#贝里斯死了。", "logPlayer")
 section "mod-tome/data/quests/kryl-feijan-escape.lua"
 
 t("The Sect of Kryl-Feijan", "克里尔·费扬教派", "_t")
-t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地宫中发现了一个崇拜名为克里尔·费扬的恶魔的教派。", "_t")
+t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地宫中发现了一个教派，他们崇拜一个名叫克里尔·费扬的恶魔。", "_t")
 t("They were trying to bring it back into the world using a human sacrifice.", "他们试图用献祭活人来召唤恶魔到这个世界上。", "_t")
 t("You defeated the acolytes and saved the woman. She told you she is the daughter of a rich merchant of Last Hope.", "你打败了那些侍僧并救下了这个女人。她告诉你，她是最后的希望城中一位富商的女儿。", "_t")
 t("You failed to protect her when escorting her out of the crypt.", "你没能在护送她离开这个地宫时保护好她。", "_t")
@@ -20348,14 +20348,14 @@ t("Your studies have uncovered much surrounding this subject, but now you must p
 t("You will need:", "你需要：", "_t")
 t("#LIGHT_GREEN#* You are experienced enough.#WHITE#", "#LIGHT_GREEN#* 你有足够的经验。#WHITE#", "_t")
 t("#SLATE#* The ceremony will require that you are worthy, experienced, and possessed of a certain amount of power (level 25, Magic over 50, Willpower over 25 and one prodigy point available).#WHITE#", "#SLATE#* 仪式要求你具备资格、经验丰富，并拥有足够的力量（达到 25 级、魔力超过 50、意志超过 25，且有 1 点可用的觉醒点）。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have 'extracted' the heart of one of your fellow necromancers.#WHITE#", "#LIGHT_GREEN#* 你已经取得了你死灵法师同类的心脏。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have 'extracted' the heart of one of your fellow necromancers.#WHITE#", "#LIGHT_GREEN#* 你已经“取出”了一位死灵法师同类的心脏。#WHITE#", "_t")
 t("#SLATE#* The beating heart of a powerful necromancer.#WHITE#", "#SLATE#* 一颗强大死灵法师跳动的心脏。#WHITE#", "_t")
 t("#LIGHT_GREEN#* Yiilkgur the Sher'tul Fortress is a suitable location.#WHITE#", "#LIGHT_GREEN#* 夏·图尔堡垒伊克格是个合适的地方。#WHITE#", "_t")
 t("#LIGHT_GREEN#* Yiilkgur has enough energy.#WHITE#", "#LIGHT_GREEN#* 伊克格有足够的能量。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You are now on the path of lichdom.#WHITE#", "#LIGHT_GREEN#* 你已经做好了成为巫妖的准备。#WHITE#", "_t")
 t("#SLATE#* Use the control orb of Yiilkgur to begin the ceremony.#WHITE#", "#SLATE#* 使用伊克格的控制水晶球来开启仪式。#WHITE#", "_t")
 t("#SLATE#* Your lair must amass enough energy to use in your rebirth (40 energy).#WHITE#", "#SLATE#* 你的堡垒中必须积累足够的能量才能开启重生仪式。（40 能量）#WHITE#", "_t")
-t("#SLATE#* The ceremony will require a suitable location, secluded and given to the channelling of energy#WHITE#", "#SLATE#* 仪式必须在一个合适的地方进行，要足够隐蔽但是又能传输能量。#WHITE#", "_t")
+t("#SLATE#* The ceremony will require a suitable location, secluded and given to the channelling of energy#WHITE#", "#SLATE#* 仪式必须在一个合适的地方进行，要足够隐蔽，又便于引导能量。#WHITE#", "_t")
 t("#CRIMSON#* You have ascended to Lichdom!#WHITE#", "#CRIMSON#* 你完成了巫妖转生！#WHITE#", "_t")
 t("Lichform", "巫妖转生", "_t")
 t("The secrets of death lay open to you! You are to become a Lich upon your next death!", "死亡的秘密已经朝你打开了！你下一次死亡就会转生为巫妖！", "_t")
@@ -20406,7 +20406,7 @@ t("Melinda died to a Yaech raiding party at the beach.", "梅琳达在沙滩上�
 t("The Fortress Shadow said she could be cured.", "堡垒之影说她有可能被治愈。", "_t")
 t("Melinda decided to come live with you in your Fortress.", "梅琳达决定和你一起在堡垒里生活。", "_t")
 t("The Fortress Shadow has established a portal for her so she can come and go freely.", "堡垒之影为她建造了一个传送门，好让她能够自由来去。", "_t")
-t("After your victory you came back to Last Hope and reunited with Melinda, who after many years remains free of demonic corruption.", "在你的胜利之后，你回到了最后的希望，并与梅琳达重聚，梅琳达在许多年后没有再受到恶魔腐化的影响。", "_t")
+t("After your victory you came back to Last Hope and reunited with Melinda, who after many years remains free of demonic corruption.", "胜利之后，你回到了最后的希望，与梅琳达重聚。多年过去，她依然没有受到恶魔腐化的影响。", "_t")
 t("You lived together and led a happy life. Melinda even learned a few adventurer's tricks and you both traveled Eyal, making new legends.", "你们住在一起，过着幸福的生活。梅琳达甚至学会了一些冒险家的技能，你们俩一起去旅行，创造了新的传奇。", "_t")
 t("Melinda", "梅琳达", "_t")
 t("You saved her from the depth of a cultists' lair and fell in love with her. She has moved into the Fortress to see you more often.", "你把她从邪教徒的巢穴中救了出来，并且与她相爱了。她现在搬到了堡垒里，可以经常见到你。", "_t")
@@ -20434,7 +20434,7 @@ t("You met a novice mage who was tasked to collect an arcane powered artifact.",
 t("He asked for your help, should you collect some that you do not need.", "如果你收集到自己不需要的奥术物品，他希望你能交给他。", "_t")
 t("#SLATE#* Collect an artifact arcane powered item.#WHITE#", "#SLATE#* 收集一件充满奥术力量的神器。#WHITE#", "_t")
 t("Offer which item?", "交出什么物品？", "_t")
-t("#LIGHT_RED#As the apprentice touches the staff he begins to scream, flames bursting out of his mouth. Life seems to be drained away from him, and in an instant he collapses in a lifeless husk.", "#LIGHT_RED#当学徒触摸这根法杖，他开始尖叫，火焰从他的嘴里喷射了出来。他的生命似乎被从他的体内吸取了出来。瞬间他只剩下一具毫无生机的空壳。", "logPlayer")
+t("#LIGHT_RED#As the apprentice touches the staff he begins to scream, flames bursting out of his mouth. Life seems to be drained away from him, and in an instant he collapses in a lifeless husk.", "#LIGHT_RED#当学徒触碰到这根法杖时，他开始尖叫，火焰从他的嘴里喷射了出来。他的生命似乎正从体内被抽干。瞬间他只剩下一具毫无生机的空壳。", "logPlayer")
 t("You have no more %s", "你不再拥有%s。", "log")
 t("You receive: %s", "你收到：%s。", "logPlayer")
 
@@ -20445,7 +20445,7 @@ t("Lost Knowledge", "遗失的知识", "_t")
 t("You found an ancient tome about gems.", "你发现了一本关于宝石的古籍。", "_t")
 t("You should bring it to the jeweler in the Gates of Morning.", "你应该把这本书带给晨曦之门的珠宝匠看看。", "_t")
 t("Limmir told you to look for the Valley of the Moon in the southern mountains.", "利米尔让你去南部山脉寻找新月峡谷。", "_t")
-t("#VIOLET#This tome seems to be about the power of gems. Maybe you should bring it to the jeweler in the Gates of Morning.", "#VIOLET#这本册子似乎描述了关于宝石的力量。也许应该带给晨曦之门的珠宝匠看看。", "logPlayer")
+t("#VIOLET#This tome seems to be about the power of gems. Maybe you should bring it to the jeweler in the Gates of Morning.", "#VIOLET#这本册子似乎讲述了宝石的力量。也许应该带给晨曦之门的珠宝匠看看。", "logPlayer")
 t("Limmir points to the entrance to a cave on your map. This is supposed to be the way to the valley.", "利米尔在你的地图上指出了山洞的入口。这是一条通往山谷的路。", "logPlayer")
 t("You must be near the moonstone to summon Limmir.", "你必须在月亮石附近召唤利米尔。", "logPlayer")
 t("You do not have the summoning scroll!", "你没有召唤卷轴！", "logPlayer")
@@ -20567,12 +20567,12 @@ section "mod-tome/data/quests/shertul-fortress.lua"
 
 t("Sher'Tul Fortress", "夏·图尔堡垒", "_t")
 t("You found notes from an explorer inside the Old Forest. He spoke about Sher'Tul ruins sunken below the surface of the lake of Nur, at the forest's center.", "在古老森林里找到了一个探险者的笔记，里面提到在森林中心的纳尔湖底下有一个沉没的夏·图尔遗迹。", "_t")
-t("With one of the notes there was a small gem that looks like a key.", "和笔记在一起被发现的还有个小小的宝石，样子看上去像一把钥匙。", "_t")
+t("With one of the notes there was a small gem that looks like a key.", "其中一份笔记旁还有一颗小宝石，看上去像一把钥匙。", "_t")
 t("#LIGHT_GREEN#* You used the key inside the ruins of Nur and found a way into the fortress of old.#WHITE#", "#LIGHT_GREEN#* 你在纳尔遗迹中使用这把钥匙，找到了通往古老堡垒的入口。#WHITE#", "_t")
 t("#LIGHT_GREEN#* The Weirdling Beast is dead, freeing the way into the fortress itself.#WHITE#", "#LIGHT_GREEN#* 异形触手死了，进入堡垒的道路被打开了。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have activated what seems to be a ... butler? with your rod of recall.#WHITE#", "#LIGHT_GREEN#* 你用回归之杖激活了一个……管家？#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have bound the transmogrification chest to the Fortress power system.#WHITE#", "#LIGHT_GREEN#* 你把转化之盒连接到了堡垒的能量系统#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have upgraded the transmogrification chest to automatically transmute metallic items into gems before transmogrifying them.#WHITE#", "#LIGHT_GREEN#* 你升级了转化之盒，现在它会在转化的时候自动把金属物品转化成宝石了。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have upgraded the transmogrification chest to automatically transmute metallic items into gems before transmogrifying them.#WHITE#", "#LIGHT_GREEN#* 你升级了转化之盒，现在它会在转化之前自动把金属物品变成宝石了。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have unlocked the training room.#WHITE#", "#LIGHT_GREEN#* 你解锁了训练室。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have unlocked the hall of reflections.#WHITE#", "#LIGHT_GREEN#* 你解锁了反射之镜的大厅。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have upgraded your rod of recall to transport you to the fortress.#WHITE#", "#LIGHT_GREEN#* 你升级了回归之杖，现在可以用它传送到堡垒。#WHITE#", "_t")
@@ -20667,7 +20667,7 @@ t("#SLATE#* You have closed %s wormhole(s).#WHITE#", "#SLATE#* 你关闭了 %s �
 section "mod-tome/data/quests/start-dwarf.lua"
 
 t("Reknor is lost!", "瑞库纳沦陷了！", "_t")
-t("You were part of a group of dwarves sent to investigate the situation of the kingdom of Reknor.", "你是被指派到瑞库纳王国去调查情况的一个矮人小分队的一员。", "_t")
+t("You were part of a group of dwarves sent to investigate the situation of the kingdom of Reknor.", "你是一支矮人小分队的一员，这支小分队被派往瑞库纳王国调查情况。", "_t")
 t("When you arrived there you found nothing but orcs, well organized and very powerful.", "当你到达那里时，你只发现了组织严密且非常强大的兽人。", "_t")
 t("Most of your team was killed there and now you and Norgan (the sole survivor besides you) must hurry back to the Iron Council to bring the news.", "你队伍中大多数人被杀死，现在你和诺尔甘（除你以外的唯一幸存者）必须赶紧回到钢铁议会去汇报这里的情况。", "_t")
 t("Let nothing stop you.", "别让任何东西阻挡你。", "_t")
@@ -20719,7 +20719,7 @@ t([[The Thaloren forest is disrupted. Corruption is spreading. Norgos the guardi
 ]], [[自然精灵森林陷入了混乱，到处肆虐着堕落。据说守护巨熊诺尔格斯已经陷入了疯狂。
 ]], "_t")
 t([[On the western border of the forest a gloomy aura has been set up. Things inside are... twisted.
-]], [[在森林的西部边境被设置了一个黑暗光环，里面的东西已陷入了扭曲。
+]], [[有人在森林的西部边境布下了一个黑暗光环，里面的东西已陷入了扭曲。
 ]], "_t")
 t("#LIGHT_GREEN#* You have explored Norgos' Lair and stopped the shivgoroth invasion.#WHITE#", "#LIGHT_GREEN#* 你已经探索了诺尔格斯的巢穴并阻止了寒冰元素的侵略。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored Norgos' Lair and put it to rest.#WHITE#", "#LIGHT_GREEN#* 你已经探索了诺尔格斯的巢穴并埋葬了它。#WHITE#", "_t")
@@ -20761,7 +20761,7 @@ t("It is time to explore some new places -- dark, forgotten and dangerous ones."
 t("The Old Forest is just south-east of the town of Derth.", "在德斯镇东南方向是古老森林。", "_t")
 t("The Maze is west of Derth.", "在德斯镇西面是迷宫。", "_t")
 t("The Sandworm Lair is to the far west of Derth, near the sea.", "在德斯镇遥远的西面，靠近海岸的地方是沙虫巢穴。", "_t")
-t("The Daikara is on the eastern borders of the Thaloren forest.", "在自然精灵树林的东部边境那里是岱卡拉。", "_t")
+t("The Daikara is on the eastern borders of the Thaloren forest.", "岱卡拉位于自然精灵树林的东部边境。", "_t")
 t("#LIGHT_GREEN#* You have explored the Old Forest and vanquished Shardskin.#WHITE#", "#LIGHT_GREEN#* 你已经探索了古老森林并杀死了水晶树精。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Old Forest and vanquished Wrathroot.#WHITE#", "#LIGHT_GREEN#* 你已经探索了古老森林并杀死了狂怒树精。#WHITE#", "_t")
 t("#SLATE#* You must explore the Old Forest and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你应当探索古老森林，查清那里潜伏的危险，并获得那里的宝藏！#WHITE#", "_t")
@@ -20779,7 +20779,7 @@ section "mod-tome/data/quests/strange-new-world.lua"
 
 t("Strange new world", "陌生的新世界", "_t")
 t("You arrived through the farportal in a cave, probably in the Far East.", "你经由远行传送门抵达了一处山洞，大概位于远东大陆。", "_t")
-t("Upon arrival you met an Elf and an orc fighting.", "你碰到了一个精灵在和一个兽人战斗。", "_t")
+t("Upon arrival you met an Elf and an orc fighting.", "抵达时，你碰到一个精灵正在和一个兽人战斗。", "_t")
 t("You decided to side with the Elven lady.", "你决定帮助那位精灵女士。", "_t")
 t("You decided to side with the orc.", "你决定帮助那个兽人。", "_t")
 t("Fillarel told you to go to the southeast and meet with High Sun Paladin Aeryn.", "菲拉瑞尔告诉你去东南方会见高阶太阳骑士艾琳。", "_t")
@@ -20807,7 +20807,7 @@ section "mod-tome/data/quests/temporal-rift.lua"
 
 t("Back and Back and Back to the Future", "回到、回到、回到未来", "_t")
 t([[After passing through some kind of time anomaly you met a temporal warden who told you to destroy the abominations of this alternate timeline.
-]], [[穿过了异常时空你碰到了一个时空守卫，他告诉你去摧毁这个变换时间线里的怪物。
+]], [[穿过某种时间异常后，你碰到了一个时空守卫，他告诉你去摧毁这个变换时间线里的怪物。
 ]], "_t")
 t("Temporal Warden", "时空守卫", "_t")
 
@@ -20822,7 +20822,7 @@ t("way to the hidden trollmire treasure", "通往巨魔沼泽隐藏宝藏的路"
 t("Beware!", "小心！", "_t")
 t("Danger...", "小心……", "_t")
 t("This way leads to the lair of a mighty troll. Traces of blood are everywhere. Are you sure?", "这条路通往巨魔的巢穴，一路上到处都是血迹，你确定要进去么？", "_t")
-t("The way to the treasure is to the east. But beware, death probably awaits there.", "通向宝藏的路在东边。但是请当心，死亡常常相伴。", "_t")
+t("The way to the treasure is to the east. But beware, death probably awaits there.", "通向宝藏的路在东边。但是请当心，死亡很可能就在那里等着你。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/tutorial-combat-stats.lua"
@@ -31946,7 +31946,7 @@ You have been tasked to investigate and fix the problem.
 你在安格利文生活并受到训练，那里的很多人是你的朋友，但你不安于现在的生活。
 你想周游世界，并看看你能帮这个世界做点什么。
 
-但目前安格利文仍然需要你。次元浮岛——埃亚尔的一个地区，在魔法大爆炸发生的时候被从这个世界撕裂并卷入了虚空而且变得很不稳定。
+但目前安格利文仍然需要你。次元浮岛是埃亚尔的一个地区，在魔法大爆炸中被撕裂并抛入虚空，如今正迅速变得不稳定。
 你被指派来调查和解决这个问题。
 ]], "_t")
 
@@ -31963,7 +31963,7 @@ Determined to win, you draw your weapons and advance defiantly.
 The public roars in anticipation....
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
 当你往前走时，你听到外面传来越来越高的欢呼声。
-当你走入竞技场，灼烈的阳光暂使你一时睁不开眼睛。
+当你走入竞技场，灼热的阳光让你一时睁不开眼睛。
 你抬头往前看，与你的对手四目相对。
 竞技场主宰，小心翼翼地打量着这个新来的对手。
 他得意地一笑，并开始把他的兴趣转移到其他的斗士身上。
@@ -32096,7 +32096,7 @@ You have come to a land called the Derthfields on the western border of the Thal
 To the west lies another dangerous place: the old ruins of Kor'Pul. You heard the caves below it were infested by vermin and undead.
 
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
-你是高等人类中的一员，拥有强大和受人尊敬的人类高贵血统。很多你的同类人成为了联合王国各大城市的高级顾问。
+你是高等人类中的一员，拥有强大和受人尊敬的人类高贵血统。你的许多同类都在联合王国各大城市担任高级顾问。
 但你不是。你想要更多；你需要证明自己的价值，并在这个世界上找到属于自己的立足之地。你决定深入那些古老而荒野的地方，寻找古老的宝藏和荣耀。
 
 你来到了自然精灵森林西部边境一个叫做德斯荒野的地方，寻找巨魔沼泽。这是一个被巨魔和野生动物占据的古老树林。向西走还有另一个危险的区域：卡·普尔废墟。你听说那里的地下盘踞着大量的害虫和亡灵生物。
@@ -32137,9 +32137,9 @@ After days of travel, you have found the caves and entered it. What will you fin
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#。
 你是一名食人魔，来自埃尔瓦拉。
 
-你面临着来自一个从未被你的同族伤害过的世界的轻蔑和恐惧；若非永恒精灵表示同情并允许你的祖先在埃尔瓦拉避难，魔法狩猎本会将你的种族彻底灭绝。
+你的同族从未亏待过这个世界，你却要面对它的轻蔑和恐惧；若非永恒精灵表示同情并允许你的祖先在埃尔瓦拉避难，魔法狩猎本会将你的种族彻底灭绝。
 如今，你的同族开始摆脱旧有形象，但这并不是你踏上冒险之路的原因；你得知这个世界正面临着无数问题，并打算亲自解决它们。
-你的种族生来就是为战斗和苦工而造就的，现在马基·埃亚尔大陆正需要这些。
+你的种族生来就是为了战斗和苦工，而马基·埃亚尔大陆正大量需要这两者。
 
 你来到了永恒精灵首都埃尔瓦拉北部，寻找闪光洞穴，那里被害虫和看似有生命的水晶所侵扰。
 西部还有一个危险的地方：罗兰精灵营地。他们是永恒精灵的叛徒，不愿限制魔法的使用。阻止他们总体上有益于这个世界，尤其有益于庇护你们的永恒精灵恩人。
@@ -32158,7 +32158,7 @@ You have been sent to a remote island on the southwest coast of the Far East to 
 
 A little to the south lies the outpost. Your task: destroy it and bathe in the blood of its people!
 ]], [[欢迎你#LIGHT_GREEN#@name@#WHITE#。
-你是令人望风丧胆的兽人种族的一员。
+你是令人闻风丧胆的兽人种族的一员。
 BLAH BLAH BLAH
 
 你被派往远东大陆西南海岸外的一座偏远岛屿，摧毁太阳堡垒的一处前哨站——这里是人类、精灵和矮人在这片大陆上仅存的堡垒。
@@ -32288,7 +32288,7 @@ Now press #LIGHT_BLUE#escape#LAST# or #LIGHT_BLUE#click outside#LAST# this dialo
 这个教程会安排给你一个简短的任务以帮助你熟悉这个游戏。
 你是一个人类冒险者，被当地村庄派到森林里去消灭“孤狼”。
 
-这个教程角色比普通开始游戏时的游戏角色要强大的多，而且拥有无限生命。
+这个教程角色比普通的初始角色强大得多，而且拥有无限生命。
 普通角色的生命数有限，一旦耗尽便会永久死亡（除非你找到或完成了能让你复活的事物）。
 
 在这个教程游戏过程中，你会碰到很多像这样的弹出对话框，来解释游戏的内容。
@@ -32419,10 +32419,10 @@ Now open the levelup screen and assign your points.
 * #GOLD#属性点数#WHITE#：允许你提升6个主要属性：力量、敏捷、魔力、意志、灵巧和体质。每等级你能获
 得3个点数。
 * #GOLD#职业技能点数#WHITE#：职业技能是你的职业的核心能力，每升一级获得1点，每5级额外获得1点。
-* #GOLD#通用技能点数#WHITE#：通用技能是非职业限定的一些角色提升技能，在等级不是 5 的倍数时，你每升一级获得 1 点。
+* #GOLD#通用技能点数#WHITE#：通用技能提供辅助功能或更强的实力，但不一定专属于你的职业；在等级不是 5 的倍数时，你每升一级获得 1 点。
 * #GOLD#技能树解锁点#WHITE#：可以提高你对某一技能树内所有技能的掌握程度，或者也可以解锁一个新的技能树。
 
-每当你的经验值获得达到100%时你就升级了。你可以通过杀死和你等级差不多的怪物
+每当你的经验值达到100%时你就升级了。你可以通过杀死和你等级差不多的怪物
 来获得经验值。
 
 按下 'p' 键，或者右键点击你自己并选择“升级”，即可打开升级面板。
@@ -32486,7 +32486,7 @@ t([[Movement is simple. You can use the keyboard, the mouse, or both.
 You can scroll the map by pressing shift and click+dragging with your mouse, or pressing "L" and using shift+the movement keys.
 
 Now close this dialog and go west (left) until you arrive in a bigger area.
-]], [[移动非常简单，你同时可以使用键盘或者鼠标来操作。
+]], [[移动非常简单，你可以使用键盘或鼠标，也可以两者并用。
 
 #GOLD#键盘：#WHITE#
 - 按下方向键或数字键盘的方向键向指定方向移动。
@@ -32503,7 +32503,7 @@ Now close this dialog and go west (left) until you arrive in a bigger area.
 
 你可以按住 Shift 并用鼠标点击拖动来滚动地图，或者按下 "L" 键并使用 Shift + 移动键。
 
-现在关闭这个对话框并向西方（左侧）移动到达一个更广阔的区域。
+现在关闭这个对话框并向西（左侧）移动，直到抵达一个更广阔的区域。
 ]], "_t")
 
 ------------------------------------------------
@@ -32577,7 +32577,7 @@ To equip your bow and arrows:
 
 There are trolls to the west. Go use your bow and arrows to kill them!
 ]], [[远程攻击主要包括射箭、用投石索投掷石块或者施法。
-你现在获得了一把弓，你得用双手来装备它。
+你现在获得了一把弓，你得用双手持握它。
 箭矢数量无限，但需要不时通过等待、休息或走动来重新装填。你也可以在箭袋中装备特殊箭矢，以造成额外伤害或附加效果。
 想要射箭，使用射击技能。目标界面会弹出，就像使用其他技能一样。
 
@@ -32607,7 +32607,7 @@ The first two of these #GOLD#combat stats#WHITE# are:
 
 When you try to stab somebody, your #LIGHT_GREEN#Accuracy#WHITE# score is measured against your target's #LIGHT_GREEN#Defense#WHITE# score, and a percentage chance of success is determined. We'll look at the exact calculation later.
 
-]], [[基础角色属性比如力量和意志是非常重要的，重要性在于他们如何影响你的 #GOLD#战斗属性#WHITE#，
+]], [[基础角色属性比如力量和意志是非常重要的，其重要性在于它们如何影响你的 #GOLD#战斗属性#WHITE#，
 这是整个教程的主题。
 首先两个 #GOLD#战斗属性#WHITE# 是：
 
@@ -32697,11 +32697,11 @@ What about the other #GOLD#combat stats#WHITE#?
 
 They're a little harder to pin down. #LIGHT_GREEN#Physical save#WHITE#,  #LIGHT_GREEN#Spell save#WHITE#,  and #LIGHT_GREEN#Mental save#WHITE# are generally used by a defender when there's some sort of unpleasant effect at stake-- say, getting pinned to the ground or blinded or knocked flying. The #GOLD#combat stat#WHITE# used by the attacker in such cases depends on the source of the attack. Let's consider a few examples...
 ]], [[很多时候，当你发动攻击或承受攻击时，攻击是否成功取决于比较攻击者和防御者的 #GOLD#战斗属性#WHITE# 数值。
-我们已经看到物理攻击（如近身的打击和远程射箭）的成功率和攻击者的 #LIGHT_GREEN#命中#WHITE# 和防御者的 #LIGHT_GREEN#闪避#WHITE# 值进行比较结果有关。
+我们已经看到物理攻击（如近身的打击和远程射箭）需要将攻击者的 #LIGHT_GREEN#命中#WHITE# 与防御者的 #LIGHT_GREEN#闪避#WHITE# 值进行比较。
 
 那么其他 #GOLD#战斗属性#WHITE#呢？
 
-有点难以被确定下来。#LIGHT_GREEN#物理豁免#WHITE#、#LIGHT_GREEN#法术豁免#WHITE#和#LIGHT_GREEN#精神豁免#WHITE# 一般是防御者用来计算一些不良效果如定身、致盲或者击退。
+它们有点难以确定。#LIGHT_GREEN#物理豁免#WHITE#、#LIGHT_GREEN#法术豁免#WHITE#和#LIGHT_GREEN#精神豁免#WHITE# 一般在防御者面临定身、致盲或被击飞之类的不良效果时使用。
 攻击者在这种情况下使用的#GOLD#战斗属性#WHITE#取决于攻击来源，我们来看几个例子……
 ]], "_t")
 
@@ -32716,7 +32716,7 @@ Second, the stun must take effect. The source of the stun is you, a rampaging be
 A stun is a physical effect, so we use the target's #LIGHT_GREEN#Physical save#WHITE#. Thus we'll be comparing your #LIGHT_GREEN#Physical power#WHITE# to the target's #LIGHT_GREEN#Physical save#WHITE#.
 
 It seems quite natural to always compare #LIGHT_GREEN#Physical power#WHITE# with #LIGHT_GREEN#Physical save#WHITE#, but let's consider another example. 
-]], [[假如你是一个狂战士，你尝试震慑一个目标，如果成功必须达到两个状态：
+]], [[假如你是一个狂战士，你尝试震慑一个目标。要想成功，必须满足两个条件：
 
 首先，你的攻击必须命中目标！这意味着将你的 #LIGHT_GREEN#命中#WHITE# 和对方的 #LIGHT_GREEN#闪避#WHITE# 进行比较计算。
 
@@ -32739,7 +32739,7 @@ We can guess now that the target will use their #LIGHT_GREEN#Physical save#WHITE
 如同在狂战士的例子里一样你首先得攻击命中目标，所以你的 #LIGHT_GREEN#命中#WHITE# 和目标的 #LIGHT_GREEN#闪避#WHITE#进行比较运算。
 
 我们可能会猜到目标会使用 #LIGHT_GREEN#物理豁免#WHITE# 来尝试摆脱震慑。
-但实际上你会怎么操作呢？你不是像狂战士那样用你的蛮力来打击目标，你是使
+但你这边用的是什么呢？你不是像狂战士那样用你的蛮力来打击目标，你是使
 用灵巧的动作来完成这个技能的，所以我们使用的仍然是 #LIGHT_GREEN#命中#WHITE# 来判定。
 ]], "_t")
 
@@ -32757,7 +32757,7 @@ The spell will also attempt to stun the target. Stunning, you recall, is a physi
 #GOLD#战斗属性#WHITE# 并不是用来减轻伤害的，所以防御者会受到全部法术伤害，
 实际受到伤害量与火焰抗性相关（这是另一个教程的主题）。
 
-法术另外也会尝试震慑目标，说起震慑你会回想起来这是一个物理效果，所以目标
+法术另外也会尝试震慑目标，你应该还记得，震慑是一种物理效果，所以目标
 以 #LIGHT_GREEN#物理豁免#WHITE# 来计算。
 然而和前面的例子不同，震慑的来源是一个法术，所以你用你的 #LIGHT_GREEN#法术强度#WHITE# 与目标的
 #LIGHT_GREEN#物理豁免#WHITE# 来决定震慑的成功率。
@@ -32795,11 +32795,11 @@ But don't worry. It's usually easy to know what will get used for two reasons:
 #LIGHT_GREEN#法术豁免#WHITE#
 #LIGHT_GREEN#精神豁免#WHITE#
 
-别着急，通常很容易知道会使用什么，原因有两个：
+别担心，通常很容易知道会使用什么，原因有两个：
 
 #GOLD#1)#WHITE#  防御性 #GOLD#战斗属性#WHITE#的使用方式相当固定：无论来源是什么，物理效果使用 #LIGHT_GREEN#物理豁免#WHITE#，魔法效果使用 #LIGHT_GREEN#法术豁免#WHITE#，精神效果使用 #LIGHT_GREEN#精神豁免#WHITE#。
 
-#GOLD#2)#WHITE#  大多数情况下，某种职业都使用单一的攻击性 #GOLD#战斗属性#WHITE#，所以也不太会混淆。
+#GOLD#2)#WHITE#  大多数情况下，每个职业都只使用单一的攻击性 #GOLD#战斗属性#WHITE#，所以也不太会混淆。
 狂战士只会用 #LIGHT_GREEN#物理强度#WHITE# 判定效果，而元素法师只会使用 #LIGHT_GREEN#法术强度#WHITE#。
 ]], "_t")
 
@@ -32858,7 +32858,7 @@ You might also have concluded that this simple "win by ten points for best resul
 
 2) 比较大致相等的 #GOLD#战斗属性#WHITE# 数值时，大约有一半的几率成功。
 
-出于教程教学的目的，最大成功率为 100%，在正式游戏中大多并非如此——但无论上限是多少，10 点的差值仍然是你为了达到最大成功率所需追求的目标。
+出于本教程的目的，最大成功率为 100%，在正式游戏中大多并非如此——但无论上限是多少，10 点的差值仍然是你为了达到最大成功率所需追求的目标。
 
 你可能还得出结论：这条简单的“赢 10 点以获得最佳效果”规则，意味着在比较更高层级的 #GOLD#战斗属性#WHITE# 数值时，使成功率最大化会变得越来越难。千真万确！
 ]], "_t")
@@ -33090,7 +33090,7 @@ t([[A summary of the #GOLD#combat stat#WHITE# tiers:
 #00FF80#Tier 3#WHITE# scores, those from forty-one to sixty, are displayed in #00FF80#green#WHITE#.
 #0080FF#Tier 4#WHITE# scores, those from sixty-one to eighty, are displayed in #0080FF#blue#WHITE#.
 #8d55ff#Tier 5#WHITE# scores, those from eighty-one to one-hundred, are displayed in #8d55ff#purple#WHITE#.
-]], [[一个 #GOLD#战斗属性#WHITE# 层级的颜色列表：
+]], [[#GOLD#战斗属性#WHITE# 层级一览：
 
 #B4B4B4#层级1#WHITE#：1～20，显示为 #B4B4B4#灰色#WHITE#。
 #FFFFFF#层级2#WHITE#：21～40，显示为 #FFFFFF#白色#WHITE#。
@@ -33178,9 +33178,9 @@ section "mod-tome/data/texts/tutorial/stats-tier/tier10.lua"
 t([[Basic attacks, ones that compare #LIGHT_GREEN#Accuracy#WHITE# to #LIGHT_GREEN#Defense#WHITE#, only apply #GOLD#cross-tier afflictions#WHITE# on critical hits.
 
 Still, it's a good reason to not neglect your #LIGHT_GREEN#Defense#WHITE# stat, even if it's not central to your class.
-]], [[基础攻击，使用 #LIGHT_GREEN#命中#WHITE# 和 #LIGHT_GREEN#闪避#WHITE# 进行判定，只有在暴击时才会施加#GOLD#越层负面效果#WHITE#。
+]], [[比较 #LIGHT_GREEN#命中#WHITE# 与 #LIGHT_GREEN#闪避#WHITE# 的基础攻击，只有在暴击时才会施加#GOLD#越层负面效果#WHITE#。
 
-因此，你还是不要忽视你的 #LIGHT_GREEN#闪避#WHITE# 属性，尽管它不是你职业的核心属性。
+不过，你还是不要忽视你的 #LIGHT_GREEN#闪避#WHITE# 属性，尽管它不是你职业的核心属性。
 ]], "_t")
 
 ------------------------------------------------
@@ -33283,7 +33283,7 @@ Mental effects cause the "Brainlocked" effect.
 
 The effects last one turn per tier difference in the attacker's and defender's #GOLD#combat stats#WHITE#. For example, casting Mana Gale with a #8d55ff#Tier 5#WHITE# #LIGHT_GREEN#Spellpower#WHITE# on a target with a #B4B4B4#Tier 1#WHITE# #LIGHT_GREEN#Physical save#WHITE# would result in applying a four-turn "Off-balance" effect.
 
-]], [[这些新效果是 #GOLD#越层效果#WHITE#。当一个技能需要比较处于不同层级的 #GOLD#战斗属性#WHITE# 时，就会出现它们。
+]], [[这些新效果是 #GOLD#越层效果#WHITE#。当一个技能需要比较处于不同层级的 #GOLD#战斗属性#WHITE# 时，就会触发这类效果。
 
 物理效果造成 "失去平衡" 效果。
 
@@ -33291,7 +33291,7 @@ The effects last one turn per tier difference in the attacker's and defender's #
 
 精神效果造成 "思维封锁" 效果。
 
-这些效果的持续时间会随攻击者和防御者的 #GOLD#战斗属性#WHITE# 每相差一个层级增加 1 回合。
+攻击者和防御者的 #GOLD#战斗属性#WHITE# 每相差一个层级，这些效果就持续 1 回合。
 例如，以 #8d55ff#层级 5#WHITE# #LIGHT_GREEN#法术强度#WHITE# 对一个 #B4B4B4#层级 1#WHITE# #LIGHT_GREEN#物理豁免#WHITE#的目标施放法力风暴，会施加持续 4 回合的“失去平衡”效果。
 
 ]], "_t")
@@ -33313,9 +33313,9 @@ section "mod-tome/data/texts/tutorial/stats-tier/tier8.lua"
 t([[What about #LIGHT_GREEN#Defense?#WHITE# Is it safe to neglect that?
 
 Go see how your #B4B4B4#Tier 1#WHITE# #LIGHT_GREEN#Defense#WHITE# holds up against the orcs in the next room.
-]], [[那么 #LIGHT_GREEN#闪避#WHITE# 呢？要是不重视这项属性是不是安全呢？
+]], [[那么 #LIGHT_GREEN#闪避#WHITE# 呢？忽视这项属性真的安全吗？
 
-来看看下一个房间 #B4B4B4#层级 1#WHITE# #LIGHT_GREEN#闪避#WHITE# 对那些兽人是如何作用的。
+去下一个房间看看，你的 #B4B4B4#层级 1#WHITE# #LIGHT_GREEN#闪避#WHITE# 面对那些兽人表现如何。
 ]], "_t")
 
 ------------------------------------------------
@@ -33363,7 +33363,7 @@ For those targets that didn't receive the full duration, how did their applicabl
 
 ]], [[在什么情况下你才能造成最长持续时间的流血效果呢？
 
-而对于那些没有受全程流血效果影响的目标，他们的 #GOLD#战斗属性#WHITE# 又是怎样和你的属性比较的呢？
+而对于那些没有受全程流血效果影响的目标，他们相应的 #GOLD#战斗属性#WHITE# 与你的相比如何？
 
 ]], "_t")
 
@@ -33427,7 +33427,7 @@ t([[In general, greatly reducing the durations of timed effects requires rather 
 If you want to negate timed effects completely, you're going to have to work hard at finding sources of #LIGHT_GREEN#Physical save#WHITE#, #LIGHT_GREEN#Spell save#WHITE#, and 
 #LIGHT_GREEN#Mental save#WHITE#.
 
-]], [[总的来说，要大幅缩短持续效果的持续时间，需要相当高的防御性 #GOLD#战斗属性#WHITE# 数值。我们先前见过至关重要的 #GOLD#战斗属性#WHITE# 差值：10 点差值通常也只能让持续效果缩短 2 回合。
+]], [[总的来说，要大幅缩短持续效果的持续时间，需要相当高的防御性 #GOLD#战斗属性#WHITE# 数值。我们先前见过的那个至关重要的 10 点 #GOLD#战斗属性#WHITE# 差值，通常也只能让持续效果缩短 2 回合。
 
 如果想完全免除持续效果，你得费力搜寻 #LIGHT_GREEN#物理豁免#WHITE#、#LIGHT_GREEN#法术豁免#WHITE#和
 #LIGHT_GREEN#精神豁免#WHITE#的来源。
@@ -33593,7 +33593,7 @@ Most of their talents are more effective with high hate.
 
 被诅咒者是重型近战战士，将所有仇恨倾注于自己的攻击。
 职业特点：#YELLOW#
-- 用你的黑暗光环将你的对手吞没，削弱、混乱、震慑和对他们造成伤害
+- 用你的黑暗光环吞没对手，削弱、混乱、震慑他们并造成伤害
 - 追踪你的猎物，将其标记为必死目标
 - 强大的近战能力#WHITE#
 
@@ -33652,7 +33652,7 @@ All your new characters will now start with a transmogrification chest at birth.
 ]], [[你发现了属于神秘的夏·图尔种族的古老堡垒。
 堡垒之影给了你一个转化之盒，让你更轻松地管理物品储存和金币。
 
-现在开始你所有新建的人物一出生就会拥有这个转化之盒。在找到堡垒之前转化的所有物品都只能产出金币。
+从现在开始，你所有新建的人物一出生就会拥有这个转化之盒。在找到堡垒之前转化的所有物品都只能产出金币。
 ]], "_t")
 
 ------------------------------------------------
@@ -33721,7 +33721,7 @@ Campaign features:#YELLOW#
 
 你解锁了神秘的无尽地下城，现在你在创建新人物时可以选择进入一个新的战役模式：#LIGHT_GREEN#无尽地下城#WHITE#。
 
-无尽地下城由一层层不断增加、充满可怕敌人的楼层组成。
+无尽地下城由层数不断增加、充满可怕敌人的楼层组成。
 战役特点：#YELLOW#
 - 没有任务、剧情、友善生物或逃生途径：只有你独自面对一切逆境。
 - 不存在最后取胜的情况：你最终会在地城中死去，不过你进入的层数越深说明你的水平越高。
@@ -33789,7 +33789,7 @@ The higher their paradox the greater the effect of their powers but the harder t
 时空守卫是同时精通近战和远程战斗的战士。
 职业特点：#YELLOW#
 - 双持一把中型武器和一把小型武器，或使用远程武器技能从远处攻击
-- 操纵时空来加速、制造虫洞或甚至直接将你的目标传送到未来
+- 操纵时空来加速、制造虫洞，甚至直接将你的目标传送到未来
 - 可以预知未来或者穿越回过去#WHITE#
 
 时空守卫使用紊乱值施展能力。它代表他们对时空连续体造成了多大破坏。
@@ -33817,7 +33817,7 @@ Corruptors use "vim" to power their special abilities.
 Vim is the life force of all beings. It does not regenerate, and can only be stolen from your foes.
 ]], [[所有的力量都有其黑暗的一面，包括奥术。
 腐化者是使用黑暗、枯萎和恶魔法术来达到目的的法师。
-并非所有的腐化者都是邪恶的，有些人只是单纯自私地只关心其个人力量而已。
+并非所有的腐化者都是邪恶的，有些人只是单纯自私，只关心自身的力量而已。
 
 大腐化者教会了你堕落系法术，现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#腐化者#WHITE#。
 
@@ -33882,7 +33882,7 @@ This has no effect on gameplay at all but it is fun!
 #LIGHT_GREEN#This is only available to donators. Thanks for your support!
 ]], [[你在海滩再一次拯救了梅琳达。
 
-你现在可以创建初始装备比基尼和男性比基尼的角色。
+你现在可以创建初始装备比基尼或男性比基尼的角色。
 这对游戏没有任何影响，但是很有趣！
 
 #{bold}#另外，如果你始终穿着比基尼/男性比基尼从未脱下并赢得游戏，你会获得一个成就！#{normal}#
@@ -33902,7 +33902,7 @@ Drolems look awesome and can eventually learn to breathe poison.
 
 #LIGHT_GREEN#This is only available to donators. Thanks for your support!
 ]], [[你使用炼金术师职业打败了泰恩，并花了一些时间研究他是如何制造出强大的龙傀儡的。
-龙傀儡是巨龙形状的傀儡，可以朝敌人吐出强力的毒液吐息。
+龙傀儡是巨龙形状的傀儡，可以朝敌人喷出强力的毒息。
 
 你现在可以创建使用龙傀儡代替普通傀儡的炼金术师角色。
 龙傀儡看起来更炫酷，并且最终可以学会喷吐毒液。
@@ -33940,7 +33940,7 @@ This has no effect on gameplay at all but it is fun!
 #LIGHT_GREEN#This is only available to donators. Thanks for your support!
 ]], [[你从无数的恐怖和折磨中救出了梅琳达。
 
-现在，你可以创造带有红色头发的人类、精灵、半身人和矮人。
+现在，你可以创建红发的人类、精灵、半身人和矮人角色。
 这完全不会影响游戏玩法，但很有趣！
 
 #LIGHT_GREEN#注意这项奖励只有捐赠者们可用。谢谢你们的支持！
@@ -34037,7 +34037,7 @@ Anorithil use "positive and negative energy" to use their special abilities.
 These are filled by some of their spells and depleted by others, making them alternate their talents.
 ]], [[在遥远的东方，称为远东大陆的地方，居住着幸存下来的精灵和人类，与兽人部落和远东大陆的种种危险战斗。
 
-星月术士是接受过聚集太阳与月亮神力的特殊魔法训练的法师。
+星月术士是受过特殊魔法训练、能够聚集太阳与月亮神力的法师。
 他们在与兽人部落的战斗中学会了如何同时掌控光与影的能量。
 他们的座右铭是：“我们站在太阳与月亮之间，光明与黑暗交汇的地方，在灰色的暮光中寻找我们的命运。”
 
@@ -34116,7 +34116,7 @@ All mages use mana to cast their spells.
 It slowly replenishes over time.
 ]], [[魔法狩猎之后魔法并没有从马基·埃亚尔消失。
 
-在黄昏纪元，当魔法狩猎接近尾声时，卡·克鲁尔的一名强大的法师——莱娜尼尔——为剩余的各种族的法师们建立了一个避风港。
+在黄昏纪元，当魔法狩猎接近尾声时，卡·克鲁尔的强大法师莱娜尼尔为各种族仅存的少数法师建立了一个避风港。
 这个地方就是安格利文，魔法之城，在这里，两千多年来一直传授魔法，以保存并发扬它。
 
 现在，你已经知道了这个故事，你可以在创建人物时选择新的职业 #LIGHT_GREEN#元素法师#WHITE#。
@@ -34185,7 +34185,7 @@ Talents:
 - #YELLOW# 岩石飞弹：#WHITE# 分别向目标发射数枚岩石飞弹。
 - #YELLOW# 岩石身躯：#WHITE# 进入岩石形态，降低许多石系/大地系技能的冷却时间。
 - #YELLOW# 地震：#WHITE# 创造一个区域性地震，震慑区域内的所有生物。
-- #YELLOW# 水晶力场：#WHITE# 掌握石系魔法使你能穿透物理免疫的生物对其造成伤害。
+- #YELLOW# 水晶力场：#WHITE# 掌握石系魔法，甚至能穿透物理免疫。
 ]], "_t")
 
 ------------------------------------------------
@@ -34216,7 +34216,7 @@ It slowly replenishes over time.
 
 在黄昏纪元和烈火纪元，世界进入了一个扭曲的时代。国家分裂，整个种族遭到压迫，疫病肆虐，杀死了数百万人。
 这是一个黑暗的时代，恐怖的制造者——死灵法师来到了这个混乱的时代。
-死灵法师过去一直存在，将来也永远存在，只要灵魂仍向诱惑敞开。这个时代是他们荣耀的时代。
+死灵法师过去一直存在，将来也永远存在，只要灵魂仍向诱惑敞开。而那才是他们真正的荣耀岁月。
 那些所谓的“高贵”的元素法师们认为死灵法师是他们走入歧途的兄弟，必须予以纠正或者消灭。但是死灵法师们认为自己是被误解的从业者，他们深入了别人不敢或者没有能力掌控的魔法领域，而正是这种魔法给他们带来了强大的力量。
 
 你已经学会了死灵法术的基础，并且杀死了一个死灵法师，现在你可以在创建人物时选择新的职业：#LIGHT_GREEN#死灵法师#WHITE#。
@@ -34284,7 +34284,7 @@ Talents:
 技能：
 - #YELLOW# 闪电新星：#WHITE# 对你的四周施放闪电新星，对周围生物造成闪电伤害并带有眩晕效果。
 - #YELLOW# 闪电之击：#WHITE# 发射一道快速的闪电箭，眩晕目标
-- #YELLOW# 飓风：#WHITE# 召唤风暴攻击你眩晕的目标，产生围绕他们的闪电对其造成伤害。
+- #YELLOW# 飓风：#WHITE# 对被你眩晕的生物召唤飓风，在每个目标周围形成闪电风暴。
 - #YELLOW# 无尽风暴：#WHITE# 掌握无尽风暴，甚至能穿透目标的闪电免疫。
 ]], "_t")
 
@@ -34454,7 +34454,7 @@ Class features:#YELLOW#
 Solipsists use their mind to manipulate the world around them.
 They require energy to do so, which they recover naturally over time, and through methods others use to heal the body.
 ]], [[织梦者是强大的灵能力者，他们相信世界是由思想和人们的梦境组成的。
-这种力量并非毫无代价，织梦者必须不断与自己的自我抗争，以保持对现实的清晰认识，以免陷入唯我论状态，认为世界和生活在其中的人们不过是自己心灵的幻象。
+这种力量并非毫无代价，织梦者必须不断与自我抗争，以保持对现实的清晰认识，以免陷入唯我论状态，认为世界和生活在其中的人们不过是自己心灵的幻象。
 
 你先前已经体验过梦境的力量了，现在你可以在创建人物时选择新的职业 #LIGHT_GREEN#织梦者#WHITE#。
 
@@ -34467,7 +34467,7 @@ They require energy to do so, which they recover naturally over time, and throug
 - 使你的敌人陷入沉睡，进入它们的梦境，成为对方的梦魇。#WHITE#
 
 织梦者利用自己的心灵掌控身边的天地。
-他们需要灵能来做这一切，而他们的灵能既可以通过自然回复，也可以通过其他人恢复生命值的方法来回复。
+他们需要灵能来做这一切，灵能会随时间自然回复，也可以通过他人用来恢复生命值的方法回复。
 ]], "_t")
 
 ------------------------------------------------
@@ -34491,7 +34491,7 @@ Race features:#YELLOW#
 在厄流战争中，孔克雷夫创造了食人魔作为工人和战士，但最后他们成为了被遗弃的种族。他们庞大的体型和身上闪光的符文让他们在魔法狩猎期间无处藏身，只有那些逃去永恒精灵领地的少量族群幸免于难。
 因为他们必须要维护自己身上的刻印存活下去，他们操纵刻印的能力无可比拟，并且这份知识一直世代传承下去。他们解决问题的时候习惯使用最简单直接的手段，再加上他们……暴躁的脾性，这一切让他们获得了“愚蠢粗暴的野蛮人”这一不公的名声。然而，日益发展的刻印制作贸易正逐渐消除这种印象。
 
-你学习了食人魔的过去，并让他们那惊恐万分的创造者得以安息。随着孔克雷夫最后残余的毁灭，厄流战争终于迎来了真正的结束。现在，你可以创造新的#LIGHT_GREEN#食人魔#WHITE#角色，在实战中发挥他们的魔法力量吧！
+你了解了食人魔过往的详情，并让他们那惊恐万分的创造者得以安息。随着孔克雷夫最后残余的毁灭，厄流战争终于迎来了真正的结束。现在，你可以创造新的#LIGHT_GREEN#食人魔#WHITE#角色，在实战中发挥他们的魔法力量吧！
 
 种族特色：#YELLOW#
 - 强壮但不愚笨
@@ -34570,11 +34570,11 @@ reach
 - Block enemy fire with your buckler mastery and counter attack#WHITE#
 
 Skirmisher use stamina to fuel their techniques, which replenishes slowly over time.
-]], [[当你漫步在马基·埃亚尔大陆上广袤的荒野之地时，你会发现威胁无处不在。一些盗贼放弃了传统的潜行手段，利用盾牌的保护和手中的投石索取而代之，使用其诡诈的技能在远处悄悄地干掉对手。
+]], [[当你漫步在马基·埃亚尔大陆上广袤的荒野之地时，你会发现威胁无处不在。一些盗贼放弃了传统的潜行手段，转而凭借诡诈的技能，在盾牌的保护下用投石索从远处悄然击杀对手。
 
 你已经学会了从远处发动反击的能力，并且现在可以创建#LIGHT_GREEN#散兵#WHITE#这个角色
 
-散兵是高度机动的盗贼，运用游击战术的好手，利用手中的投石索，袭扰、虚弱敌人，并在用极快的攻击终结敌人之前，先不断消耗他们。
+散兵是高度机动的盗贼，运用游击战术的好手，利用手中的投石索袭扰、削弱并消耗敌人，再以极快的攻击将其终结。
 
 职业特点：#YELLOW#
 - 跃过并翻滚绕开敌人，始终领先一步，保持在攻击范围之外
@@ -34710,7 +34710,7 @@ The higher it gets the more off-balance they are with it. A high Equilibrium mak
 - 短暂召唤各种软泥怪到你身边
 - 使用软泥、史莱姆、粘液和苔藓来对抗自然的敌人#WHITE#
 
-所有野性系职业使用自然失衡值作为其能量，它与自然之间的联系密切相关。
+所有野性系职业使用自然失衡值作为其能量，它代表着他们与自然之间的联系。
 失衡值越高，他们与自然越不平衡。失衡值过高可能导致能力使用失败并损失一个回合。
 ]], "_t")
 
@@ -34803,7 +34803,7 @@ Wyrmics are also trained in the martial arts and use stamina for some techniques
 - 吐息武器：火焰、寒冰、沙土等
 - 强大的近战战斗能力#WHITE#
 
-所有野性系职业使用自然失衡值作为其能量，它与自然之间的联系密切相关。
+所有野性系职业使用自然失衡值作为其能量，它代表着他们与自然之间的联系。
 失衡值越高，他们与自然越不平衡。失衡值过高可能导致能力使用失败并损失一个回合。
 此外龙战士也受过武术训练，使用体力值施展部分技巧。
 ]], "_t")
@@ -34824,8 +34824,8 @@ Race features:#YELLOW#
 - Confusion resistance
 - Fast leveling
 - Frail body#WHITE#
-]], [[夺心魔是热带小岛瑞尔岛上比较神秘的人形原住民种族。
-他们的身体长着白色的毛发，另外他们有着不成比例的巨大脑袋使他们看上去样子有点滑稽。不过他们是非常灵巧而且意志强大的种族。
+]], [[夺心魔是热带瑞尔岛上的原住民，一个神秘的小型人形种族。
+他们的身体长着白色的毛发，另外，不成比例的巨大脑袋使他们看上去有点滑稽。不过他们是非常灵巧而且意志强大的种族。
 尽管在马基·埃亚尔几乎没有听说过他们，但在烈火纪元之前的漫长岁月里，他们曾是半身人国家纳格尔的秘密奴隶。
 他们在烈火纪元获得了自由，并从此遵循“维网”——一种由他们强大的灵能维系的心灵统一。
 
@@ -38091,7 +38091,7 @@ t("This ogre seems to have tried to graft golem parts on its own body. To variou
 t("ogre sentry", "食人魔哨兵", "entity name")
 t("This greatsword-wielding ogre looks at you with contempt and hatred.", "这个挥舞着大剑的食人魔用带着鄙视和仇恨的眼神凝视着你。", "_t")
 t("Healer Astelrid", "孔克雷夫治疗师亚斯特莉", "entity name")
-t("An enormous ogre, clad in a tattered set of robes with an officer's badge.  She clutches a healer's staff, wrapped in casting plaster and scalpels for use as a massive spiked club.", "一个巨大的食人魔，身上穿着的破烂长袍上是一枚亮闪闪的官员徽章。她用手抓住一把治疗用的法杖，被石膏浇铸并裹挟着手术刀，用作一个巨大的狼牙棒。", "_t")
+t("An enormous ogre, clad in a tattered set of robes with an officer's badge.  She clutches a healer's staff, wrapped in casting plaster and scalpels for use as a massive spiked club.", "一个巨大的食人魔，身穿一件别着官员徽章的破烂长袍。她紧握一把治疗用的法杖，法杖上裹满了铸型石膏和手术刀，被当作一根巨大的狼牙棒使用。", "_t")
 t("and spliced for experiments", "并将其拼接用于实验", "_t")
 
 ------------------------------------------------
@@ -38152,7 +38152,7 @@ t("Crypt", "地宫", "_t")
 t("You hear an eerie chanting echoing from a distance.", "你听到远方传来的念诵回响声。", "_t")
 t("The chanting grows louder. You hear a sudden high-pitched scream.", "念诵声增大了。你突然听到一声尖叫。", "_t")
 t("The cultists are about to sacrifice the woman. Stop them!", "邪教徒准备献祭那个女人。阻止他们！", "_t")
-t("The woman lets out a sudden ear-splitting scream that turns from pain to horror as her stomach is ripped open from within by long dark claws. A towering black demon arises, rending her flesh to shreds, and replacing her dying scream with a terrifying roar.", "这个女人发出了一声刺耳欲聋的尖叫声，当她的胃被黑色的爪子撕裂时突然转为恐怖的惊叫。一个铁塔般的恶魔站了起来，将她的血肉撕裂，并且代替她临终惨叫的是一声恐怖的怒吼。", "_t")
+t("The woman lets out a sudden ear-splitting scream that turns from pain to horror as her stomach is ripped open from within by long dark claws. A towering black demon arises, rending her flesh to shreds, and replacing her dying scream with a terrifying roar.", "这个女人突然发出一声震耳欲聋的尖叫，叫声由痛苦转为惊恐——修长的黑色利爪从内部撕开了她的腹部。一个铁塔般的黑色恶魔站了起来，将她的血肉撕成碎片，她临终的惨叫被一声骇人的咆哮取代。", "_t")
 t("You cannot abandon Melinda here!", "你不能放弃梅琳达！", "_t")
 
 ------------------------------------------------
@@ -38207,7 +38207,7 @@ t("The Mouth", "大嘴怪", "entity name")
 t("\"From bellow, it devours.\"", "“来自深渊，吞噬四方。”", "_t")
 t("and revived as a screeching drem bat", "并将其复活为一只尖啸的德瑞姆蝙蝠", "_t")
 t("#CRIMSON#%s seems invulnerable, there must be an other way to kill it!", "#CRIMSON#%s 似乎无懈可击，一定有什么其他方法可以杀死它！", "logSeen")
-t("I have heard a dwarf whispering about some abomination in the deep bellow.", "我听到有个矮人正悄悄谈论着关于在深渊咆哮出现的憎恶。", "_t")
+t("I have heard a dwarf whispering about some abomination in the deep bellow.", "我听到有个矮人正悄悄谈论深渊咆哮里的某种憎恶。", "_t")
 t("slimy crawler", "泥泞爬行怪", "entity name")
 t([[This disgusting... thing crawls on the floor toward you with great speed.
 It seems to come from the digestive system of the mouth.]], [[这只恶心的……东西在地板上迅速的向你爬来。
@@ -38289,7 +38289,7 @@ section "mod-tome/data/zones/dreadfell/npcs.lua"
 t("undead", "亡灵", "entity type")
 t("vampire", "吸血鬼", "entity subtype")
 t("The Master", "领主", "entity name")
-t("A terrifying vampiric figure of power, with flowing robes and an intense aura of fright.  His cold, sinewy flesh seems to cling to this world through greed and malice, and his eyes betray a strength of mind beyond any puny mortal.  All nearby are utterly subservient to his will, though he stands aloof from them, as if to say he needs not the pathetic meddling of minions to help him overcome his foes.  Your eyes are drawn to a dark staff in his hands which seems to suck the very life from the air around it.  It looks ancient and dangerous and terrible, and the sight of it fills you with fervent desire.", "一个拥有强大力量的可怕吸血鬼，他的长袍无风自动，周身环绕着恐惧光环。他冰冷而精瘦的肉体似乎全凭贪婪与恶意才得以留驻人间，他的眼神透露出远超凡俗之辈的强大意志。周围所有生物都完全服从于他的意志，尽管如此，他仍对他们保持超然疏离，就好像他不需要这些废物来御敌一样。你的目光被他手里的黑色法杖所吸引，这根法杖似乎在不断的吸取周围的活力。它看起来古老、危险而可怕，看到它的瞬间，你心底的欲望被彻底点燃了。", "_t")
+t("A terrifying vampiric figure of power, with flowing robes and an intense aura of fright.  His cold, sinewy flesh seems to cling to this world through greed and malice, and his eyes betray a strength of mind beyond any puny mortal.  All nearby are utterly subservient to his will, though he stands aloof from them, as if to say he needs not the pathetic meddling of minions to help him overcome his foes.  Your eyes are drawn to a dark staff in his hands which seems to suck the very life from the air around it.  It looks ancient and dangerous and terrible, and the sight of it fills you with fervent desire.", "一个拥有强大力量的可怕吸血鬼，他的长袍无风自动，周身环绕着恐惧光环。他冰冷而精瘦的肉体似乎全凭贪婪与恶意才得以留驻人间，他的眼神透露出远超凡俗之辈的强大意志。周围所有生物都完全服从于他的意志，尽管如此，他仍对他们保持超然疏离，就好像他不需要这些废物来御敌一样。你的目光被他手里的黑色法杖吸引，这根法杖似乎在不断地吸取周围的活力。它看起来古老、危险而可怕，看到它的瞬间，你心底的欲望被彻底点燃了。", "_t")
 t("and raised as his tortured undead thrall", "并将其复活为他饱受折磨的不死奴仆", "_t")
 t("It has been months since the hero cleansed the Dreadfell, yet rumours are growing: evil is back.", "自从英雄肃清了恐惧王座后已经过去数个月了，但是仍然流传着谣言：有一股恶势力重新掌握了那里。", "_t")
 t("skeleton", "骷髅", "entity subtype")
@@ -38298,7 +38298,7 @@ t("A malevolent skeleton archmage that has taken control of the Dreadfell since 
 t("ghoul", "食尸鬼", "entity subtype")
 t("Borfast the Broken", "扭曲的波法斯特", "entity name")
 t([[Thick skin hangs loosely from this short, shambling form. Tufts of hair sticking out from its chin give evidence of a once magnificent dwarven beard. Half its face seems to have been seared in acid at some point, the flesh melted away from the skull and an eyeball drooping low from its socket. There is a unique sadness to its eyes, and a slump of resignation to its gait.
-What proud hero of renown was this before he was condemned to such a terrible fate?]], "在你面前的是一只身形矮小、步履蹒跚的怪物，松垂的厚皮松松垮垮地挂在身上。从它下巴伸出的一簇簇毛发，昭示着它曾经拥有过一副壮丽的矮人胡须。看起来他的半边脸曾经被硫酸泼过，血肉从他的脸部脱落，其中一只眼睛从它的眼窝中掉了出来。他的独眼有一种莫名的悲伤，透露着深深的无奈。如此威风的英雄人物怎会落得如此下场？", "_t")
+What proud hero of renown was this before he was condemned to such a terrible fate?]], "在你面前的是一只身形矮小、步履蹒跚的怪物，厚厚的皮肤松松垮垮地挂在身上。从它下巴伸出的一簇簇毛发，昭示着它曾经拥有过一副壮丽的矮人胡须。看起来他的半边脸曾经被硫酸泼过，血肉从他的脸部脱落，其中一只眼睛从它的眼窝中掉了出来。他的独眼有一种莫名的悲伤，透露着深深的无奈。如此威风的英雄人物怎会落得如此下场？", "_t")
 t("and offered to his dark Master", "并将其献祭给他的黑暗领主", "_t")
 t("ghost", "幽灵", "entity subtype")
 t("Aletta Soultorn", "阿蕾塔·苏尔顿", "entity name")
@@ -38415,7 +38415,7 @@ t("%s has %d stat point(s) to spend. Press p to use them.", "%s有%d可用属性
 t("Deep slumber...", "沉眠……", "_t")
 t([[As you die in a dream you suddenly wake up.
 Poisonous fumes take their toll on your body!]], [[当你在梦中死去时，你突然醒来。
-呛在有毒的烟雾中让你浑身不适！]], "_t")
+有毒的烟雾侵蚀着你的身体！]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/dreamscape-talent/grids.lua"
@@ -38499,12 +38499,12 @@ t("the remains of Atamathon", "阿塔玛森的遗骸", "entity name")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its sole eye of purest ruby; the other one seems to be missing. At over 40 feet tall, it towers above you.
 Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.]], [[这尊巨型傀儡是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
-它的躯干是用大理石铸造，关节部分则灌入沃瑞钽衔接，一只眼由纯净的红宝石构成。它的另一只眼睛似乎已经失落。四十多英尺高的巨像似乎默默地俯视着你。
+它的身躯由大理石制成，关节由坚固的沃瑞钽打造，一只眼由纯净的红宝石构成。它的另一只眼睛似乎已经失落。四十多英尺高的巨像似乎默默地俯视着你。
 某个蠢货似乎想要重塑它，但由于找不到那只眼睛而没有完成。]], "_t")
 t("Atamathon", "阿塔玛森", "_t")
 t("It seems that your %s is made to fit inside the empty eye socket of Atamathon. This is probably very unwise.", "你手中%s的外形看上去似乎可以安装到阿塔玛森的空眼窝内，但也许这样做并不明智。", "tformat")
 t("The socket seems broken.", "插槽似乎已经损坏。", "log")
-t("#LIGHT_RED#As you insert the gem the golem starts to shake. All its systems and magics are reactivating.", "#LIGHT_RED#当你插入宝石傀儡开始震动。它的系统和魔法被重新激活了。", "log")
+t("#LIGHT_RED#As you insert the gem the golem starts to shake. All its systems and magics are reactivating.", "#LIGHT_RED#当你插入宝石时，傀儡开始震动。它的系统和魔法被重新激活了。", "log")
 t("#LIGHT_RED#Atamathon walks the world again, but without control.", "#LIGHT_RED#阿塔玛森重新来到了世界，不过它失去了控制。", "log")
 t("Activating defenses. Targetting hostile. **DESTRUCTION**!", "启动防御系统，瞄准目标，**启动摧毁命令**！", "_t")
 t("Insert", "插入", "_t")
@@ -38699,7 +38699,7 @@ t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot
 t("Farportal: the Void", "远行传送门：虚空", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to an unknown place, seemingly out of this world. You dare not use it.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
-这道门似乎通向未知之地，似乎为世外之地，你不太敢使用它。]], "_t")
+这道门似乎通向某个未知之地，仿佛不属于这个世界。你不敢使用它。]], "_t")
 t("#LIGHT_BLUE#You use the orb on the portal, shutting it down easily.", "#LIGHT_BLUE#你在传送门上使用了水晶球，很轻易的关闭了它。", "logPlayer")
 t("%s (disabled)", "%s（已禁用）", "tformat")
 t("Invocation Portal: Undeath", "召唤传送门：亡灵", "entity name")
@@ -38897,7 +38897,7 @@ t("This is a large dog, bred and trained for fighting. Something about the way i
 t("undead", "亡灵", "entity type")
 t("shadow", "阴影", "entity subtype")
 t("shadow claw", "阴影之爪", "entity name")
-t("A shadow, almost humanoid in shape. Long claws extend in front of it as is swims through the air.", "一个影子，看起来几乎是人类的形状。长长的利爪伸在它面前，如同在空气中游动。", "_t")
+t("A shadow, almost humanoid in shape. Long claws extend in front of it as is swims through the air.", "一个影子，看起来几乎是人类的形状。它在空气中游动，长长的利爪伸在身前。", "_t")
 t("shadow stalker", "阴影潜行者", "entity name")
 t("A shadow, almost humanoid in shape. It seems to move carefully and with cunning before swiftly striking.", "一个影子，看起来几乎是人类的形状。它谨慎而狡猾地移动，然后迅猛出击。", "_t")
 t("A shadow, almost humanoid in shape. At times its form seems to be a force of will rather than something real.", "一个影子，看起来几乎是人类的形状。有时它的形态看上去不像是某种真实存在的物体，而是某种意志的力量。", "_t")
@@ -39035,7 +39035,7 @@ You hear the sound of a woman sobbing, and every now and then it turns into a fi
 section "mod-tome/data/zones/mark-spellblaze/grids.lua"
 
 t("Heart of the Sandworm Queen", "沙虫女皇之心", "_t")
-t("The altar seems to react to the heart. You feel you could corrupt it here.", "这个祭坛看上去和心脏产生了互动。你感觉到你可以在祭坛上腐化它。", "_t")
+t("The altar seems to react to the heart. You feel you could corrupt it here.", "这个祭坛似乎对心脏起了反应。你感觉到你可以在祭坛上腐化它。", "_t")
 t("#GREEN#You put the heart on the altar. The heart shrivels and shakes, vibrating with new corrupt forces.", "#GREEN#你将心脏放在祭坛上。心脏干瘪、抖动，因新的堕落力量而震颤。", "log")
 t("Cancel", "取消", "_t")
 t("Corrupt", "腐化", "_t")
@@ -39089,9 +39089,9 @@ section "mod-tome/data/zones/maze/npcs.lua"
 t("horror", "恐魔", "entity type")
 t("corrupted", "腐化", "entity subtype")
 t("Horned Horror", "长角恐魔", "entity name")
-t("Some horrible power has twisted this brutish minotaur into something altogether more terrifying. Huge tentacles undulate from its back as it clenches and unclenches its powerful fists.", "某种可怕的力量将这个野蛮的米诺陶扭曲成了更加恐怖的东西。巨大的触手从它背上起伏翻涌，它同时握紧又松开有力的拳头。", "_t")
+t("Some horrible power has twisted this brutish minotaur into something altogether more terrifying. Huge tentacles undulate from its back as it clenches and unclenches its powerful fists.", "某种可怕的力量将这个野蛮的米诺陶扭曲成了更加恐怖的东西。巨大的触手在它背上起伏翻涌，它有力的拳头一握一松。", "_t")
 t("and revived as a mindless horror", "并将其复活为一只无心智的恐魔", "_t")
-t("Have you hard about the patrol that disappeared in the maze in the west?", "你有听说过有一支巡逻队在西边迷宫附近失踪了吗？", "_t")
+t("Have you hard about the patrol that disappeared in the maze in the west?", "你听说过有一支巡逻队在西边的迷宫里失踪了吗？", "_t")
 t("giant", "巨人", "entity type")
 t("minotaur", "米诺陶", "entity subtype")
 t("Minotaur of the Labyrinth", "迷宫的米诺陶", "entity name")
@@ -39141,7 +39141,7 @@ section "mod-tome/data/zones/norgos-lair/npcs.lua"
 
 t("Norgos, the Frozen", "冰冻者诺尔格斯", "entity name")
 t([[This ancient bear long guarded the western side of the forest, but as of late he started growing mad, attacking even the Thaloren.
-It seems to have fallen prey to the shivgoroth invading the area. Dead and frozen, it seems like a statue, animated by the elementals.]], [[这只远古巨熊一直守护着西边的丛林，但是不知何时他变的疯狂并到处攻击自然精灵们。
+It seems to have fallen prey to the shivgoroth invading the area. Dead and frozen, it seems like a statue, animated by the elementals.]], [[这只远古巨熊一直守护着西边的丛林，但是不知何时他变得疯狂并到处攻击自然精灵们。
 它似乎已经成为了进入这片领地的寒冰元素的牺牲品，死去并且冻结，就像一座雕塑，被元素能量所支配。]], "_t")
 t("and was turned into icicles", "并将其冻成了冰柱", "_t")
 t("Norgos, the Guardian", "守护者诺尔格斯", "entity name")
@@ -39205,12 +39205,12 @@ section "mod-tome/data/zones/old-forest/npcs.lua"
 t("giant", "巨人", "entity type")
 t("crystal", "水晶", "entity subtype")
 t("Shardskin", "水晶树精", "entity name")
-t("This crystalline structure seems to be filled with a malevolent aura. Through the crystal surface you can still see the remains of what once was a huge tree.", "这个水晶一样的生物内部似乎充满了邪恶能量，透过水晶表面，你似乎还能看到里面曾是树的部分。", "_t")
+t("This crystalline structure seems to be filled with a malevolent aura. Through the crystal surface you can still see the remains of what once was a huge tree.", "这个水晶一样的生物内部似乎充满了邪恶能量，透过水晶表面，你仍能看到里面一棵巨树的残骸。", "_t")
 t("and integrated into the crystaline structure", "并将其融入了自身的水晶结构", "_t")
 t("Have you heard, the old forest seems to have been claimed by a new evil!", "你有听说过吗，古老森林似乎已经被一股新的邪恶势力占据了！", "_t")
 t("treant", "树人", "entity subtype")
 t("Wrathroot", "狂怒树精", "entity name")
-t("The ancient grey willow tree, ruler of the Old Forest. He despises trespassers in his territory.", "这棵古老的灰色柳树，古老森林的统治者。他蔑视一切闯入他领地的入侵者。", "_t")
+t("The ancient grey willow tree, ruler of the Old Forest. He despises trespassers in his territory.", "这棵古老的灰色柳树，古老森林的统治者。他蔑视一切擅闯他领地的人。", "_t")
 t("and digested by treants", "并让树人们将其化为养分", "_t")
 t("cute little bunny", "可爱的小白兔", "entity name")
 t("It looks at you with cute little eyes before jumping at you with razor sharp teeth.", "它用无辜的眼神看着你，随即用剃刀般锋利的牙齿扑向你。", "_t")
