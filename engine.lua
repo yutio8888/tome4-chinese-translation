@@ -782,7 +782,7 @@ section "engine/engine/dialogs/ShowErrorStack.lua"
 t("Lua Error", "Lua脚本错误", "_t")
 t("If you already reported that error, you do not have to do it again (unless you feel the situation is different).", "如果你已经汇报过了这个错误，你不需要再次进行汇报（除非你认为这一情况和之前有所不同）。", "_t")
 t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你 #LIGHT_GREEN#已经汇报过了#WHITE# 这个错误，你不需要再次进行汇报（除非你认为这一情况和之前有所不同）。", "_t")
-t("You have already got this error but #LIGHT_RED#never reported#WHITE# it, please do.", "你以前遇到过这个错误，但你#LIGHT_RED#还没有汇报过#WHITE#这个错误，请汇报这个错误。", "_t")
+t("You have already got this error but #LIGHT_RED#never reported#WHITE# it, please do.", "你以前遇到过这个错误，但#LIGHT_RED#还没有汇报过#WHITE#，请汇报一下。", "_t")
 t("You have #LIGHT_RED#never seen#WHITE# that error, please report it.", "你之前#LIGHT_RED#从未遇到过#WHITE#这个错误，请汇报这个错误。", "_t")
 t([[#{bold}#Oh my! It seems there was an error!
 The game might still work but this is suspect, please type in your current situation and click on "Send" to send an error report to the game creator.
@@ -871,7 +871,7 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 t([[Purge all Steam Cloud saves.
 This will remove all saves from the cloud cloud (but not your local copy). Only use if you somehow encounter storage problems on it (which should not happen, the game automatically manages it for you).#WHITE#]], [[删除所有Steam云存档。
-这会在Steam云中删除所有的云存档，但不会删除你的本地存档。只有在你遇到存储问题的时候才使用这一功能。（一般情况下这不会发生，游戏会自动管理云存档）#WHITE#]], "_t")
+这会删除Steam云中的所有存档，但不会删除你的本地存档。只有在你遇到存储问题的时候才使用这一功能。（一般情况下这不会发生，游戏会自动管理云存档）#WHITE#]], "_t")
 t("#GOLD##{bold}#Purge Cloud Saves#WHITE##{normal}#", "#GOLD##{bold}#清除云存档#WHITE##{normal}#", "_t")
 t("Steam Cloud Purge", "清除Steam云存档", "_t")
 t("Confirm purge?", "确认删除？", "_t")
@@ -905,7 +905,7 @@ t("Use Talents: ", "使用技能：", "tformat")
 t([[You can bind a talent to a hotkey be pressing the corresponding hotkey while selecting a talent.
 Check out the keybinding screen in the game menu to bind hotkeys to a key (default is 1-0 plus control or shift).
 ]], [[你可以把技能绑定到一个快捷键。方法是选择一个技能，然后按下对应的快捷键。
-请确认游戏菜单中的快捷键绑定界面，将快捷键绑定到键盘按键(默认绑定位置是1-0+Ctrl/Shift键)。
+请查看游戏菜单中的快捷键绑定界面，将快捷键绑定到键盘按键(默认绑定位置是1-0+Ctrl/Shift键)。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("Status", "状态", "_t")
@@ -1087,7 +1087,7 @@ Thanks, and have fun!]], [[欢迎！
 那么，为什么要加入内购呢？马基·埃亚尔的传说是一款便宜/免费的游戏，也不需要会员订阅。它就像我的孩子一样；我非常爱它，并计划为之长久工作（从2009年开始我就一直这么干了！）。但是，为了生存，我仍然需要在现实世界中取得必要的收入。
 
 目前，我提供了以下几种内购项：
-- #GOLD#时装#LAST#：在目前游戏内已有的种族、物品时装外，你可以获得更多时装效果，让你看起来更靓！
+- #GOLD#时装#LAST#：除了游戏内现有的种族、物品时装之外，你可以获得更多时装效果，让你看起来更靓！
 - #GOLD#氪金速死#LAST#：已经不想玩这个角色了吗？用这个选项来迎接一个帅气的终结吧！
 - #GOLD#额外共享装备格#LAST#：对于捐赠者而言，可以把那些“无用”的捐赠换成更多在线共享装备格。
 - #GOLD#社区事件#LAST#：服务器会自动触发部分在线事件，而你可以强制让服务器触发特定事件。当然，当前在线的所有玩家都会收到该事件！
@@ -1100,11 +1100,11 @@ section "engine/engine/dialogs/microtxn/ShowPurchasable.lua"
 
 t("#{italic}##UMBER#Bonus vault slots from this order: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#这项购买提供的额外在线仓库空间：#ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every purchase of #{italic}##GREY#%s#LAST##{normal}# you gain a permanent additional vault slot.
-#GOLD##{italic}#Because why not!#{normal}#]], [[每次购买 #{italic}##GREY#%s#LAST##{normal}#，你都会获得额外一个在线仓库格。
+#GOLD##{italic}#Because why not!#{normal}#]], [[每次购买 #{italic}##GREY#%s#LAST##{normal}#，你都会永久获得一个额外的在线仓库格。
 #GOLD##{italic}#为什么不呢！#{normal}#]], "_t")
 t("#{italic}##UMBER#Voratun Coins available from your donations: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#可用沃瑞钽硬币数：#ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every donations you've ever made you have earned voratun coins. These can be spent purchasing expansions or options on the online store. This is the amount you have left, if your purchase total is below this number you'll instantly get your purchase validated, if not you'll need to donate some more first.
-#GOLD##{italic}#Thanks for your support, every little bit helps the game survive for years on!#{normal}#]], [[你历次所做的每一笔捐赠，都为你赚取了沃瑞钽硬币，可以用于购买扩展DLC或者在线商店的商品。这是你当前可用的硬币，如果购买价格在这以下，你可以立刻获得商品，否则你需要进行更多的捐赠。
+#GOLD##{italic}#Thanks for your support, every little bit helps the game survive for years on!#{normal}#]], [[你历次所做的每一笔捐赠，都为你赚取了沃瑞钽硬币，可以用于购买扩展DLC或者在线商店的商品。这是你当前可用的硬币，如果购买总额低于这个数值，购买会立即生效，否则你需要先追加捐赠。
 #GOLD##{italic}#感谢你的支持，每一分钱都让这游戏更加持久！#{normal}#]], "_t")
 t("%s #GOLD#Online Store#LAST#", "%s #GOLD#在线商店#LAST#", "tformat")
 t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器… --", "_t")
@@ -1182,7 +1182,7 @@ Make sure you have #GOLD##{bold}#Allow online events#WHITE##{normal}# in the #GO
 请确保在游戏设置的#GOLD##{bold}#在线#WHITE##{normal}#选项中将#GOLD##{bold}#允许在线事件#WHITE##{normal}# 设置为“全部”。收到事件之后，你可以把它改回你原本的设置。
 ]], "_t")
 t("This pack is already installed and in use for your character.", "这个包已经安装，并且正在你的角色上使用中。", "_t")
-t("You are about to use a charge of this option. You currently have %d charges remaining.", "你准备使用这个选项，消耗一次使用次数。你还有 %d 次使用次数。", "tformat")
+t("You are about to use a charge of this option. You currently have %d charges remaining.", "你准备使用这个选项，这将消耗一次使用次数。你当前还剩 %d 次。", "tformat")
 t("Please wait while contacting the server...", "请稍候，正在与服务器进行通信", "_t")
 t("The option has been activated.", "选项已激活。", "_t")
 t("There was an error from the server: %s", "服务器发生错误：%s", "tformat")
@@ -1211,7 +1211,7 @@ t("%s can not wear %s.", "%s不能装备%s。", "logSeen")
 t("%s can not wear (%s): %s (%s).", "%s无法装备（%s）：%s（%s）。", "logSeen")
 t("%s wears: %s.", "%s装备了：%s。", "logSeen")
 t("%s wears (offslot): %s.", "%s副手装备了：%s。", "logSeen")
-t("%s wears (replacing %s): %s.", "%s装备（替换%s）了：%s。", "logSeen")
+t("%s wears (replacing %s): %s.", "%s装备了（替换%s）：%s。", "logSeen")
 t("%s can not wear: %s.", "%s不能装备%s。", "logSeen")
 
 ------------------------------------------------
@@ -1353,11 +1353,11 @@ Gestures movements are color coded to better display which movement to do:
 
 If you do not wish to see gestures anymore, you can hide them in the UI section of the Game Options.
 ]], [[你开始试着绘制鼠标手势了！
-鼠标手势可以让你用鼠标动作来完成释放技能或是键盘操作。
+鼠标手势可以让你通过简单的鼠标动作释放技能或执行键盘操作。
 你只需要#{bold}#右击并拖动#{normal}#就可以绘制鼠标手势。
-默认情况下，鼠标手势没有绑定到任何操作。如果你需要使用鼠标手势，你可以在“按键绑定”中添加一些鼠标手势，它可以为你的冒险旅程提供帮助。
+默认情况下，鼠标手势没有绑定到任何操作。如果你需要使用鼠标手势，你可以在“按键绑定”中添加一些，操作简单又有趣！
 
-手势动作以颜色编码，以让你更好地显示你目前做出的动作：
+手势动作以颜色编码，方便你更清楚地看出该做哪个动作：
 #15ed2f##{italic}#绿色#{normal}##LAST#: 向上拖动
 #1576ed##{italic}#蓝色#{normal}##LAST#: 向下拖动
 #ed1515##{italic}#红色#{normal}##LAST#: 向左拖动
@@ -1388,7 +1388,7 @@ t("Are you sure you want to install this addon: #LIGHT_GREEN##{bold}#%s#{normal}
 t("Confirm module install/update", "确认模组安装/更新", "_t")
 t("Are you sure you want to install this module: #LIGHT_GREEN##{bold}#%s#{normal}##LAST#?", "你确认要安装这个模组吗：#LIGHT_GREEN##{bold}#%s#{normal}##LAST#？", "tformat")
 t("Addon installed!", "插件安装完成！", "_t")
-t("Addon installation successful. New addons are only active for new characters.", "插件安装成功。新的插件只会在新的游戏角色生效。", "_t")
+t("Addon installation successful. New addons are only active for new characters.", "插件安装成功。新插件只对新角色生效。", "_t")
 t("Game installed!", "游戏安装完成！", "_t")
 t("Game installation successful. Have fun!", "游戏安装完成。玩的开心！", "_t")
 
@@ -1424,7 +1424,7 @@ Remember that in most roguelikes death is usually permanent so be careful!
 
 Now go and have some fun!]], [[#GOLD#马基·埃亚尔的传说#WHITE# 是主游戏，你也可以在 https://te4.org/ 下载到更多游戏插件和游戏模组。
 
-在游戏模组内，你可以按 Esc 键打开菜单，改变按键绑定，游戏分辨率和其他和模组有关的设置。
+在游戏模组内，你可以按 Esc 键打开菜单，改变按键绑定、游戏分辨率以及其他与模组有关的设置。
 
 请记住，在大部分Roguelike游戏里，角色的死亡都是永久的，请小心！
 
@@ -1435,22 +1435,22 @@ t([[The way the engine manages saving has been reworked for v1.0.5.
 The background saves should no longer lag horribly and as such it is highly recommended that you use the option. The upgrade turned it on for you.
 
 For the same reason the save per level option should not be used unless you have severe memory problems. The upgrade turned it off for you.
-]], [[游戏引擎管理游戏存档的方式在 v1.0.5 版本发生了变化
+]], [[游戏引擎管理游戏存档的方式在 v1.0.5 版本发生了变化。
 
-后台存档将不再会严重拖慢你的游戏运行速率，强烈建议你开启这一选项。这次更新会自动帮你打开这个选项。
+后台存档不会再严重拖慢游戏运行，因此强烈建议你开启这一选项。这次更新会自动帮你打开这个选项。
 
-与此同时，每层存档的选项已经没有必要使用，除非你有严重的内存问题。这次更新会自动帮你关闭这个选项。
+出于同样的原因，每层存档的选项已经没有必要使用，除非你有严重的内存问题。这次更新会自动帮你关闭这个选项。
 ]], "_t")
 t("Safe Mode", "安全模式", "_t")
 t([[Oops! Either you activated safe mode manually or the game detected it did not start correctly last time and thus you are in #LIGHT_GREEN#safe mode#WHITE#.
 Safe Mode disabled all graphical options and sets a low FPS. It is not advisable to play this way (as it will be very painful and ugly).
 
 Please go to the Video Options and try enabling/disabling options and then restarting until you do not get this message.
-A usual problem is shaders and thus should be your first target to disable.]], [[糟糕！如果你不是手动开启了安全模式的话，那么说明，游戏检测到上一次启动时发生错误，目前游戏已进入#LIGHT_GREEN#安全模式#WHITE#。
+A usual problem is shaders and thus should be your first target to disable.]], [[糟糕！如果你不是手动开启了安全模式，那就说明游戏检测到上一次启动时发生了错误，目前游戏已进入#LIGHT_GREEN#安全模式#WHITE#。
 在安全模式下，所有图形选项都被关闭，FPS被设置为很低。不建议在这种情况下进行游戏（游戏画面会变得很难看）。
 
 请你进入游戏视频选项，尝试启用或禁用各项选项并重启游戏，直到不再弹出此消息。
-常见的问题一般是由着色器引发的，你可以先尝试关闭这些选项。]], "_t")
+常见的问题一般是由着色器引发的，你可以先尝试关闭着色器。]], "_t")
 t("Message", "消息", "_t")
 t("Duplicate Addon", "重复的插件", "_t")
 t([[Oops! It seems like you have the same addon/dlc installed twice.
@@ -1498,7 +1498,7 @@ This is all optional, you are not forced to use this feature at all, but the dev
 * 记录你的击杀数量，死亡次数，以及玩得最多的职业…
 * 用有趣的统计数据帮你打磨自己的游戏风格
 * 在游戏里直接安装官方扩展包和第三方插件，免去手动安装的麻烦
-* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/捐赠者独享权益
+* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，就可以获得购买者/捐赠者独享权益
 * 帮助游戏开发者调整游戏平衡，让这个游戏变得更好
 
 你也会获得一个 #LIGHT_BLUE#https://te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
@@ -1605,7 +1605,7 @@ t("troll", "巨魔", "entity subtype")
 t("forest troll", "森林巨魔", "entity name")
 t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是疣的绿色拳头。", "_t")
 t("stone troll", "岩石巨魔", "entity name")
-t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。", "_t")
+t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "一只皮肤粗糙黝黑的巨魔。你注意到他粗壮的腰间系着一条矮人头骨串成的腰带，不禁打了个寒战。", "_t")
 t("cave troll", "洞穴巨魔", "entity name")
 t("This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.", "这只巨魔手握一根笨重的长矛，它那双小猪般的眼睛里透露出一种令人不安的聪明神情。", "_t")
 t("mountain troll", "山岭巨魔", "entity name")
@@ -1742,11 +1742,11 @@ Requires addons: %s
 需要的插件：%s
 
 %s]], "tformat")
-t("You can simply grab an older version of the game from where you downloaded it.", "你可以在下载这个游戏的地方，下载到这个游戏的旧版本。", "_t")
+t("You can simply grab an older version of the game from where you downloaded it.", "你可以直接到当初下载游戏的地方获取旧版本。", "_t")
 t("You can downgrade the version by selecting it in the Steam's \"Beta\" properties of the game.", "你可以在Steam中设置Beta版本属性，来降级你的游戏版本。", "_t")
 t("Original game version not found", "未找到原游戏版本", "_t")
 t([[This savefile was created with game version %s. You can try loading it with the current version if you wish but it is recommended you play it with the old version to ensure compatibility
-%s]], [[这个存档是游戏版本 %s 创建的。如果你愿意，你可以尝试使用当前版本强制读档，但是建议你使用旧版本游戏进行游玩，来确保兼容性。
+%s]], [[这个存档由游戏版本 %s 创建。如果你愿意，可以尝试用当前版本读取，但建议使用旧版本游玩，以确保兼容性。
 %s]], "tformat")
 t("Cancel", "取消", "_t")
 t("Run with newer version", "运行新版本", "_t")
@@ -1812,9 +1812,9 @@ t([[#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！
-#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！
+#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，粉碎那些胆敢反抗部落的人吧！
 #LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。
-#LIGHT_UMBER#蒸汽工具系统：#WHITE# 合成强大的蒸汽工具，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的蒸汽工具。
+#LIGHT_UMBER#蒸汽工具系统：#WHITE# 合成强大的蒸汽工具，用于强化你的物品。包括给你的靴子安装火箭、给你的手套安装抓取系统等等。
 #LIGHT_UMBER#药剂系统：#WHITE# 在蒸汽工具系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。
 #LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！
 
@@ -1837,9 +1837,9 @@ t([[#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#新职业：#WHITE# 蠕动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
-#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
+#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。他们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
 #LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
-#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
+#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，而且他们力量强大，可以双持任何单手武器。
 #LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路（不要问我你是怎么*进来*的），探索神秘的出口，以及更多奇异的，充满触手的地图！
 #LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！
 #LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！
@@ -1880,7 +1880,7 @@ t("Game Module", "游戏模组", "_t")
 t("Version", "版本", "_t")
 t("Enter your character's name", "输入角色名称", "_t")
 t("Overwrite character?", "覆盖角色？", "_t")
-t("There is already a character with this name, do you want to overwrite it?", "已经有一个这个名称的角色了，你要覆盖这个角色吗？", "_t")
+t("There is already a character with this name, do you want to overwrite it?", "已经存在同名角色，你要覆盖它吗？", "_t")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
 t("This game is not compatible with your version of T-Engine, you can still try it but it might break.", "这个游戏与你T-Engine的版本不兼容，你可以尝试运行，但是游戏可能崩溃。", "_t")
@@ -1919,7 +1919,7 @@ t("Your password is too short", "你的密码过短", "_t")
 t("Email", "邮箱", "_t")
 t("Your email seems invalid", "邮箱地址无效", "_t")
 t("Age Check", "年龄确认", "_t")
-t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁以上，或者得到了家长的许可，才可以游玩本游戏。", "_t")
+t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁，或者得到了家长的许可，才可以游玩本游戏。", "_t")
 
 ------------------------------------------------
 section "engine/modules/boot/dialogs/ProfileSteamRegister.lua"
@@ -1930,7 +1930,7 @@ To enjoy all the features the game has to offer it is #{bold}#highly#{normal}# r
 Luckily this is very easy to do: you only require a profile name and optionally an email (we send very few email, maybe two a year at most).
 ]], [[欢迎来到#GOLD#马基·埃亚尔的传说#LAST#。
 为了享受游戏的全部功能，我们#{bold}#强烈#{normal}#推荐你注册你的Steam账户。
-幸运的是，这非常容易：你只需要提供你的用户名，也可以提供你的邮箱（我们基本上不会给你发送邮件，每年最多发送一两份）。
+幸运的是，这非常容易：你只需要提供用户名，邮箱可选填（我们基本上不会给你发送邮件，每年最多发送一两份）。
 ]], "_t")
 t("Username: ", "用户名：", "_t")
 t("Email: ", "邮箱：", "_t")
@@ -1944,12 +1944,12 @@ t("Your username is too short", "你的用户名过短", "_t")
 t("Email", "邮箱", "_t")
 t("Your email does not look right.", "你的邮件地址有问题。", "_t")
 t("Age Check", "年龄确认", "_t")
-t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁以上，或者得到了家长的许可，才可以游玩本游戏。", "_t")
+t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁，或者得到了家长的许可，才可以游玩本游戏。", "_t")
 t("Registering...", "正在注册…", "_t")
 t("Registering on https://te4.org/, please wait...", "正在 https://te4.org/ 上注册，请稍候…", "_t")
 t("Steam client not found.", "找不到Steam客户端。", "_t")
 t("Error", "错误", "_t")
-t("Username or Email already taken, please select an other one.", "用户名或邮件地址已被使用，请选择其他用户名或邮件地址。", "_t")
+t("Username or Email already taken, please select an other one.", "用户名或邮件地址已被使用，请另选一个。", "_t")
 
 ------------------------------------------------
 section "engine/modules/boot/dialogs/UpdateAll.lua"

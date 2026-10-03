@@ -49,7 +49,7 @@ t("__%s[%d] #ORANGE# maintenance ACTION FAILED:  %s", "__%s[%d] #ORANGE# mainten
 section "mod-tome/ai/quests.lua"
 
 t("Protect Limmir from the demons coming from north-east. Hold them off!", "保护利米尔免受东北方向袭来的恶魔的袭击。守住阵线！", "_t")
-t("This place is corrupted! I will cleanse it! Protect me while I do it!", "这个地方被污染了！我会净化它的！请在我这么做的时候保护我！", "_t")
+t("This place is corrupted! I will cleanse it! Protect me while I do it!", "这个地方被污染了！我会净化它的！净化期间请保护我！", "_t")
 
 ------------------------------------------------
 section "mod-tome/ai/sandworm_tunneler.lua"
@@ -213,7 +213,7 @@ t("#RED#(%d refused)#LAST#", "#RED#(%d 伤害无视)#LAST#", "tformat")
 t("#RED##Source# is unstoppable!", "#RED##Source#势不可挡！", "delayedLogMessage")
 t("RESURRECT!", "复活！", "_t")
 t("You feel a surge of power as a powerful creature falls nearby.", "你感受到一股力量的涌动，附近有个强大的生物倒下。", "logPlayer")
-t("%s feeds you hate from its latest victim. (+%d hate)", "%s 从它最近的受害者身上为你提供仇恨。（+%d 仇恨）", "logPlayer")
+t("%s feeds you hate from its latest victim. (+%d hate)", "%s 从它最近的受害者身上为你汲取仇恨。（+%d 仇恨）", "logPlayer")
 t("#LIGHT_RED#The cease to exist spell fizzles and cancels, leaving the timeline intact.", "#LIGHT_RED#存在抹杀技能失败并取消，时间线保持不变。", "logPlayer")
 t("Prodigy!", "获得觉醒技！", "_t")
 t([[You have achieved #LIGHT_GREEN#level %d#WHITE# and gained a #LIGHT_GREEN#prodigy point#LAST#!
@@ -276,7 +276,7 @@ t("You do not have enough feedback to use %s.", "你的反馈值不足，无法�
 t("You do not have enough fortress energy to use %s.", "你的堡垒能量不足，无法使用%s。", "logPlayer")
 t("You have too much %s to use %s.", "你的%s过高，无法使用%s。", "logPlayer")
 t("You do not have enough %s to use %s.", "你没有足够的%s来施展%s。", "logPlayer")
-t("You fail to use %s due to your equilibrium!", "由于你的失衡值过高你使用 %s 失败！", "logPlayer")
+t("You fail to use %s due to your equilibrium!", "由于你的失衡值过高，你未能使用 %s！", "logPlayer")
 t("%s's %s has been disrupted by #ORCHID#anti-magic forces#LAST#!", "%s的%s被#ORCHID#反魔法力量#LAST#打断了！", "logSeen")
 t("%s's %s has been disrupted by #ORCHID#anti-nature forces#LAST#!", "%s的%s被#ORCHID#反自然力量#LAST#打断了！", "logSeen")
 t("%s's %s has been disrupted by #ORCHID#anti-psionic forces#LAST#!", "%s的%s被#ORCHID#反灵能力量#LAST#打断了！", "logSeen")
@@ -484,7 +484,7 @@ t("Easy!", "小菜一碟！", "_t")
 t("This zone is so easy for you that you can stroll to the last area with ease.", "这个地下城对你来说过于简单，你可以闲庭信步，直达最后一层。", "_t")
 t("Stroll", "闲庭信步", "_t")
 t("Stay there", "步步为营", "_t")
-t("You feel a thrill of terror and your heart begins to pound in your chest. You feel terribly threatened upon entering this area.", "你因恐惧而感到不安，你觉得你的心跳开始加速，你感到进入这个区域对你有极大的威胁。", "_t")
+t("You feel a thrill of terror and your heart begins to pound in your chest. You feel terribly threatened upon entering this area.", "一阵恐惧袭来，你的心开始在胸中狂跳。进入这片区域让你感到极大的威胁。", "_t")
 t("You feel mildly anxious, and walk with caution.", "你感到稍微有点不安，开始小心前行。", "_t")
 t("You feel very confident walking into this place.", "你充满自信地进入了这个区域。", "_t")
 t("You stride into this area without a second thought, while stifling a yawn. You feel your time might be better spent elsewhere.", "你大步流星地走进这片区域，打了个哈欠，你感到待在这里可能是浪费时间，最好到别的地方去看看。", "_t")
@@ -764,7 +764,7 @@ t("#YELLOW#On weapon crit:#LAST#", "#YELLOW#武器暴击时：#LAST#", "_t")
 t("#YELLOW#On weapon kill:#LAST#", "#YELLOW#武器击杀时：#LAST#", "_t")
 t("When used from stealth a simple attack with it will not break stealth.", "潜行中使用，单纯攻击不会取消潜行。", "_t")
 t("Crushing Blows: ", "毁灭打击：", "_t")
-t("Damage dealt by this weapon is increased by half your critical multiplier, if doing so would kill the target.", "这把武器造成的伤害将增加一半的暴击加成，如果这样能秒杀目标。", "_t")
+t("Damage dealt by this weapon is increased by half your critical multiplier, if doing so would kill the target.", "如果这样能击杀目标，这把武器造成的伤害将提高，增幅为你暴击加成的一半。", "_t")
 t("Travel speed: ", "飞行速度：", "_t")
 t("Damage Shield penetration (this weapon only): ", "伤害护盾穿透（仅该武器）：", "_t")
 t("Lifesteal (this weapon only): ", "吸血（仅该武器）：", "_t")
@@ -1057,7 +1057,7 @@ t("%s targets #Target#.", "%s将#Target#设为目标。", "logCombat")
 t("Change name of: %s", "改变名字：%s", "tformat")
 t("Name", "名称", "_t")
 t("%s is dismissed!", "%s 被遣散了！", "log")
-t("#LIGHT_GREEN#You pet your hound! It happily wags its tail back and forth in time!", "#LIGHT_GREEN#你拍了拍你的猎犬！它开心地将尾巴来回摇摆！", "log")
+t("#LIGHT_GREEN#You pet your hound! It happily wags its tail back and forth in time!", "#LIGHT_GREEN#你拍了拍猎犬！它开心地来回摇着尾巴！", "log")
 t("No, we must hurry!", "不行，我们必须得抓紧时间！", "_t")
 t("Ok, but not for long.", "好吧，但时间不要太长。", "_t")
 t("very close", "很近了", "_t")
@@ -1206,7 +1206,7 @@ t("Disarming a trap: %s", "正在拆除陷阱：%s", "tformat")
 t([[As you begin disarming the trap, you think you may be able to learn how it works by carefully dismantling it.  You estimate this will take up to #YELLOW#%d#LAST# uninterrupted turns.
 	What do you want to do?
 %s
-]], [[当你开始解除陷阱时，你认为你可以通过仔细地拆除它来学习它是如何工作的。你估计需要花费#YELLOW#%d#LAST#个不受打扰的回合。
+]], [[当你开始解除陷阱时，你认为也许可以通过仔细拆解它来弄清它的工作原理。你估计最多需要花费#YELLOW#%d#LAST#个不受打扰的回合。
 	你想做什么？
 %s
 ]], "tformat")
@@ -1432,7 +1432,7 @@ t("You collect a new ingredient: #LIGHT_GREEN#%s%s (%d)#WHITE#.", "你搜集了�
 section "mod-tome/class/interface/PartyLore.lua"
 
 t("Lore found: #0080FF#%s", "发现手札：#0080FF#%s", "logPlayer")
-t("You can read all your collected lore in the game menu, by pressing Escape.", "按 Esc 键，进入游戏菜单你可以查看所有你已经收集的札记。", "logPlayer")
+t("You can read all your collected lore in the game menu, by pressing Escape.", "按 Esc 键进入游戏菜单，即可查看你已收集的所有札记。", "logPlayer")
 t("learnt lore", "发现手札", "_t")
 
 ------------------------------------------------
@@ -1559,12 +1559,12 @@ It is increased by Willpower.
 t([[#GOLD#Positive Energy#LAST#
 Positive energy represents your reserve of positive "celestial" power, most closely associated with the Sun.
 ]], [[#GOLD#正能量#LAST#
-正能量是你的剩余“正”天空能量，这一能量与太阳有关。
+正能量代表你储备的“正”天空能量，这一能量与太阳有关。
 ]], "_t")
 t([[#GOLD#Negative Energy#LAST#
 Negative energy represents your reserve of negative "celestial" power, most closely associated with the Moon.
 ]], [[#GOLD#负能量#LAST#
-负能量是你的剩余“负”天空能量，这一能量和月亮有关。
+负能量代表你储备的“负”天空能量，这一能量和月亮有关。
 ]], "_t")
 t([[#GOLD#Vim#LAST#
 Vim represents the amount of life energy you control. Each corruption talent requires some.
@@ -1612,7 +1612,7 @@ It regenerates naturally, though slowly, as you pull minute amounts of heat and 
 To get meaningful amounts back in combat, you must absorb it through shields or various other talents.
 Your capacity for storing energy is determined by your Willpower.
 ]], [[#GOLD#灵能值#LAST#
-灵能值反映你的意志力能够控制能量的大小。与物质一样，不能产生或者消灭。
+灵能值反映你的意志力能够控制能量的大小。它与物质一样，既不能被创造，也不能被消灭。
 通常会随着你从周围自发吸收到的少量的热能和动能而缓慢恢复。
 如果需要在战斗时迅速大量恢复，需要通过护盾或者其他技能进行能量的大量吸收来达到。
 灵能值储存的上限由意志决定。
@@ -1651,8 +1651,8 @@ t([[#GOLD#Encumbrance#LAST#
 Each object you carry has an encumbrance value. Your maximum carrying capacity is determined by your strength.
 You cannot move while encumbered; drop some items.
 ]], [[#GOLD#负重#LAST#
-你携带的每种道具都有负重值，你的最大负重量取决你的力量属性。
-当当前负重值超过你的负重量时你就不能移动了，尝试丢弃一些道具减少负重。
+你携带的每种道具都有负重值，你的最大负重量取决于你的力量属性。
+当负重超过最大负重量时，你将无法移动，尝试丢弃一些道具减少负重。
 ]], "_t")
 t([[#GOLD#Inscriptions#LAST#
 The people of Eyal have found a way to create herbal infusions and runes that can be inscribed on the skin of a creature.  More exotic types of inscriptions also exist.
@@ -1802,7 +1802,7 @@ Many weapon types will have an additional "accuracy bonus" scaling per point of 
 ]], [[#GOLD#命中#LAST#
 命中值表示经目标闪避值校正后你击中目标和使目标失去平衡的几率。
 当造成基于命中的持续性物理效果的时候，敌人的相关豁免每超过命中一点减少5%持续时间。
-不同的武器还具有不同的命中加值，这是取决于你的命中比目标的闪避高多少点产生的额外效果。
+许多类型的武器还有额外的命中加值效果，你的命中每比目标的闪避高出一点，该效果就相应提升。
 ]], "_t")
 t([[#GOLD#Physical Power#LAST#
 Measures your ability to deal physical damage in combat.
@@ -1839,7 +1839,7 @@ Each time you deal damage you have a chance to make a critical hit that deals ex
 Some talents allow you to increase this percentage.
 It is improved by Cunning.
 ]], [[#GOLD#暴击率#LAST#
-每次造成伤害时，你都有一定几率造成一次造成额外伤害的致命攻击。
+每次造成伤害时，你都有一定几率造成一次附带额外伤害的致命攻击。
 一些技能可以提高这个几率。
 提升灵巧属性值可以提高暴击率。
 ]], "_t")
@@ -1973,7 +1973,7 @@ Spellcasting speed represents how fast your spellcasting is compared to normal.
 Higher is faster - 200% means that you cast spells twice as fast as someone at 100%.
 ]], [[#GOLD#施法速度#LAST#
 施法速度表示你在每个回合内施法的速度。
-越高越好——200%速度下，你施法的速度是100%的情况的两倍。
+越高越好——200%速度下，你的施法速度是100%时的两倍。
 ]], "_t")
 t([[#GOLD#Spellcooldown#LAST#
 Spell cooldown represents how fast your spells will come off of cooldown.
@@ -2009,29 +2009,29 @@ t([[#GOLD#Damage increase: all#LAST#
 All damage you deal, through any means, is increased by this percentage.
 This stacks with individual damage type increases.
 ]], [[#GOLD#伤害加成：全体#LAST#
-所有类型任何方式造成的伤害，不管造成伤害的方式是什么，都受此比例加成。
+你以任何方式造成的所有伤害都按此比例提高。
 可以与独立类型的伤害增加效果叠加。
 ]], "_t")
 t([[#GOLD#Damage increase: specific#LAST#
 All damage of this type that you deal, through any means, is increased by this percentage.
 ]], [[#GOLD#伤害加成：指定#LAST#
-任何方式造成指定类型的伤害，不管造成伤害的方式是什么，都受此比例加成。
+你以任何方式造成的该类型伤害都按此比例提高。
 ]], "_t")
 t([[#GOLD#Damage increase: creature type#LAST#
 All damage you deal to creatures of this type, through any means, is increased by this percentage.  This is applied in addition to (stacks with) other damage modifiers.
 ]], [[#GOLD#伤害加成：指定生物类型#LAST#
-你对这种类型生物的伤害加成，不管造成伤害的方式是什么，都受此比例加成。这一效果和你的其他伤害加成效果加法叠加。
+你以任何方式对这类生物造成的伤害都按此比例提高。这一效果和你的其他伤害加成效果加法叠加。
 ]], "_t")
 t([[#GOLD#Critical multiplier#LAST#
 All critical hits (melee, spells, ...) do this much damage compared to normal.
 ]], [[#GOLD#暴击加成#LAST#
-所有（近战、魔法等等）暴击，都会造成这样比例的，更大的暴击伤害。
+所有暴击（近战、魔法等）造成的伤害为普通伤害乘以此比例。
 ]], "_t")
 t([[#GOLD#Damage resistance#LAST#
 Whenever you take damage, the percent resistance you have to its type, if any, is checked.  The damage is reduced by this percentage (which may be partially negated by the attacker's Damage Penetration) before being applied.
 Your effective resistance can never be higher than your resistance cap and negative resistances increase the damage you recieve (up to +100%).
 ]], [[#GOLD#伤害抗性#LAST#
-当你受到伤害的时候，会检查对应伤害的伤害抗性。你在受到伤害前，受到的伤害会减免相当于这一比例的数值，可能受到攻击者的抗性穿透的影响。
+当你受到伤害的时候，会检查对应伤害的伤害抗性。伤害在生效前会按这一比例减免，该减免可能被攻击者的抗性穿透部分抵消。
 你的伤害抗性不会高于你的抗性上限，负的抗性会增加你所受到的伤害，最高增加 100%。
 ]], "_t")
 t([[#GOLD#Damage resistance: all#LAST#
@@ -2065,7 +2065,7 @@ This is applied after normal damage type resistances.
 t([[#GOLD#Damage resistance: creature type#LAST#
 All damage you receive from creatures of this type, through any means, is decreased by this percentage.  This is applied separately to (stacks with) normal resistances.
 ]], [[#GOLD#伤害抗性：生物类型#LAST#
-任何方式受到指定生物类型的伤害，不管造成伤害的方式是什么，都按此值减免。这一效果与普通伤害抗性各自独立生效。
+你以任何方式受到的来自该类生物的伤害都按此比例减免。这一效果与普通伤害抗性各自独立生效。
 ]], "_t")
 t([[#GOLD#Damage affinity: all#LAST#
 All damage you receive, through any means, also heals you for this percentage of the damage.
@@ -2131,7 +2131,7 @@ This represents your chance to completely avoid ANY persistent bad magical effec
 t([[#GOLD#Damage when hit#LAST#
 Each time a creature hits you with a melee attack, it will suffer damage or other effects.
 ]], [[#GOLD#近战反击伤害#LAST#
-其他生物每次近战攻击你时，所受到的反击伤害或者其他反击效果。
+其他生物每次近战攻击你时，都会受到反击伤害或者其他反击效果。
 ]], "_t")
 t([[#GOLD#Additional Melee Damage#LAST#
 Each time you strike a creature with a melee attack, you will deal additional damage or other effects.
@@ -2166,7 +2166,7 @@ If you have 50% penetration against a creature with 50% resistance it will have 
 You can never have more than 70% penetration.
 ]], [[#GOLD#伤害穿透：指定#LAST#
 减少你造成指定类型伤害时目标对该类型伤害的抗性。
-如果你对某种生物有50%指定类型伤害穿透并且这个生物对该伤害类型有50%的伤害抗性，那最终这个生物对该伤害抗性为25%。
+如果你对某种生物有50%指定类型伤害穿透并且这个生物对该伤害类型有50%的伤害抗性，那这个生物对该类型伤害的实际抗性为25%。
 抗性穿透最高不超过70%。
 ]], "_t")
 t([[#GOLD#Flat resistances#LAST#
@@ -2192,7 +2192,7 @@ Allows you to sense any creatures even if they are not currently in your line of
 t([[#GOLD#Lite radius#LAST#
 The maximum distance your lite can light up. Anything further cannot be seen by natural means, unless the place itself is lit.
 ]], [[#GOLD#光照范围#LAST#
-你的灯具可照亮的最大距离。任何在光照范围之外的区域，除非被预先照亮，否则正常情况下无法看见里面的东西。
+你的灯具可照亮的最大距离。光照范围之外的任何东西，除非所在位置本身被照亮，否则无法通过正常方式看见。
 ]], "_t")
 t([[#GOLD#Sight range#LAST#
 How far you can see. This only works within your lite radius, or in lit areas.
@@ -2257,7 +2257,7 @@ If you can't pay for the Vim cost of a talent you may instead pay with life at a
 活力是你控制的生命能量。施放堕落系法术需要消耗活力值。
 活力值不会自动回复，你需要从你自身和你的目标身上吸取。
 每杀死一个生物可以吸收意志属性50%+1的活力值。从高分级的生物获得的活力值会乘以分级倍率。
-如果你无法支付使用一个技能的活力值，你可以改为支付活力值消耗200%的生命值。
+如果你无法支付使用一个技能的活力值，你可以改为支付生命值，数额为活力值消耗的200%。
 ]], "_t")
 t([[#GOLD#Global Speed#LAST#
 Global speed represents how fast you are and affects everything you do.
@@ -2770,7 +2770,7 @@ t("Won ToME by sacrificing yourself to forcefully spread the Way to every other 
 t("No Way!", "我拒绝！", "achievement name")
 t("Won ToME by closing the Void portal and letting yourself be killed by Aeryn to prevent the Way to enslave every sentient being on Eyal.", "关闭虚空传送门并让自己被艾琳杀死，以防止维网奴役埃亚尔上每一个有知觉的生命，通关ToME。", "_t")
 t("This is how the world ends: swallowed in fire, but not in darkness.", "这就是世界终结的方式：并非被黑暗，而是被火焰吞噬。", "achievement name")
-t("\"Won\" ToME by sacrificing yourself for your patron Distant Sun, opening a portal for it to burn and consume the world.", "以牺牲自己、为你的主上遥远的太阳打开传送门，任其焚烧并吞噬整个世界的方式，\"通关\"ToME。", "_t")
+t("\"Won\" ToME by sacrificing yourself for your patron Distant Sun, opening a portal for it to burn and consume the world.", "牺牲自己，为你的主上遥远的太阳打开传送门，任其焚烧并吞噬整个世界，以此\"通关\"ToME。", "_t")
 t("Last Instant of Sanity", "理智，在最后一刻", "achievement name")
 t("Won ToME by closing the Void portal and letting yourself be killed by Aeryn to prevent your mad patron sun from burning the world in a searing flash.", "关闭虚空传送门并让自己被艾琳杀死，以阻止你那疯狂的太阳主上在一道灼目的闪光中焚毁世界，通关ToME。", "_t")
 t("They Came Back For Eyal", "他们为埃亚尔而归", "achievement name")
@@ -2802,7 +2802,7 @@ t("Killed Slasul even though you sided with him to learn the Legacy of the Nalor
 t("Flooder", "倒戈", "achievement name")
 t("Defeated Ukllmswwik while doing his own quest.", "在做乌克勒姆斯维奇托付的任务时击败他。", "_t")
 t("Gem of the Moon", "月亮宝石", "achievement name")
-t("Completed the Master Jeweler quest with Limmir.", "与利米尔一同完成了珠宝匠托付的任务“遗失的知识”。", "_t")
+t("Completed the Master Jeweler quest with Limmir.", "与利米尔一同完成了珠宝匠托付的任务。", "_t")
 t("Curse Lifter", "诅咒超度者", "achievement name")
 t("Killed Ben Cruthdar the Cursed.", "杀死被诅咒者本·克鲁塞达尔。", "_t")
 t("Fast Curse Dispel", "快速除咒", "achievement name")
@@ -7015,7 +7015,7 @@ t("purging blight", "枯萎净化", "damage type")
 t("holy light", "圣光", "damage type")
 t("healing", "治疗", "damage type")
 t("healing light", "治疗之光", "damage type")
-t("#DARK_ORCHID#Your damage shield cannot be extended any farther and has exploded.", "#DARK_ORCHID#你的伤害护盾不能再被延长，爆炸了。", "logPlayer")
+t("#DARK_ORCHID#Your damage shield cannot be extended any farther and has exploded.", "#DARK_ORCHID#你的伤害护盾无法再延长，已经爆炸了。", "logPlayer")
 t("judgement", "审判", "damage type")
 t("healing nature", "自然治疗", "damage type")
 t("infective blight", "枯萎感染", "damage type")
@@ -7185,7 +7185,7 @@ t("Encounter", "遭遇", "_t")
 t("You find a hidden trap door, and hear cries for help from within...", "你发现了一个隐藏的活板门，并听到从里面传来呼救声……", "_t")
 t("#LIGHT_BLUE#You carefully get away without making a sound.", "#LIGHT_BLUE#你小心翼翼地悄悄离开了。", "logPlayer")
 t("#LIGHT_RED#You carefully open the trap door and enter the underground tunnels...", "#LIGHT_RED#你小心打开地板上的活门进入了地下通道……", "logPlayer")
-t("#LIGHT_RED#As you enter you notice the trap door has no visible handle on the inside. You are stuck here!", "#LIGHT_RED#当你进入了地道你发现活门没有出去的开关，你被关在这里了！", "logPlayer")
+t("#LIGHT_RED#As you enter you notice the trap door has no visible handle on the inside. You are stuck here!", "#LIGHT_RED#进入地道后，你发现活门内侧看不到任何把手，你被关在这里了！", "logPlayer")
 t("Enter the tunnels", "进入通道", "_t")
 t("Leave carefully", "悄悄离开", "_t")
 t("Sect of Kryl-Faijan", "克里尔·费扬教派", "entity name")
@@ -7248,15 +7248,15 @@ t("corrupted monolith", "被污染的符文巨石", "_t")
 t("This is too soon!", "太早了！", "_t")
 t("No the ritual will weaken!", "不！仪式会被削弱的！", "_t")
 t("disrupted monolith", "被干扰的符文巨石", "_t")
-t("Something the cultists are doing is coming. Beware.", "邪教徒在做的事情将要到来。小心。", "_t")
+t("Something the cultists are doing is coming. Beware.", "邪教徒正在进行的某件事即将发生。小心。", "_t")
 t("The cultist's soul seems to be absorbed by the strange stone he was guarding. You feel like something is about to happen...", "邪教徒的灵魂似乎被其守卫的奇异石头所吸收。你感觉似乎要出大事了……", "_t")
-t("This demon would be very attractive if not for the hovering crown of flames, the three tails and sharp claws. As you watch her you can almost feel pain digging in your flesh. She wants you to suffer.", "不看她那盘旋在头上的火焰王冠、三条小尾巴以及那锋利的爪子，这只恶魔仍然充满了奇异的魅惑。当你看着她时，你感觉痛苦像利刃一样，深入骨髓。她想让你受苦。", "_t")
+t("This demon would be very attractive if not for the hovering crown of flames, the three tails and sharp claws. As you watch her you can almost feel pain digging in your flesh. She wants you to suffer.", "要不是她头上盘旋的火焰王冠、三条尾巴和锋利的爪子，这只恶魔本会非常迷人。当你看着她时，你几乎能感觉到痛苦正钻进你的血肉。她想让你受苦。", "_t")
 t("and used for her perverted desires", "并将其用于满足她的变态欲望", "_t")
 t("Crown of Burning Pain", "燃烧痛苦之冠", "_t")
 t("burning crown", "燃烧王冠", "_t")
 t("This crown of pure flames possesses a myriad of small molten rocks floating wildly above it. Each can be removed to throw as a true meteor.", "这顶由纯粹火焰所打造的王冠上漂浮着许多小小的熔融石块，每个都可以用意念扔出，化作一块真实的陨石砸向大地。", "_t")
 t([[A terrible shout thunders across the level: 'Come my darling, come, I will be ssssooo *nice* to you!'
-You should flee from this level!]], [[一个恐怖的声音突然自空中传来：“来吧，亲爱的，来吧，我将会好好的“疼”你的。”
+You should flee from this level!]], [[一个恐怖的声音突然自空中传来：“来吧，亲爱的，来吧，我会好好地‘疼’你的。”
 你必须逃离此地！]], "_t")
 t("%s pulls a dagger and opens his own chest, piercing his beating heart. The stone glows with malevolent colors.", "%s拔出一把匕首，剖开自己的胸膛，刺穿了跳动的心脏。石头泛起了邪恶的光芒。", "logSeen")
 
@@ -7396,7 +7396,7 @@ t("From the dust of decay a %s forms!", "一只%s从腐朽的尘埃中成形了�
 t("Forsaken Crypt", "废弃地宫", "_t")
 t("stairway leading downwards", "向下的楼梯", "_t")
 t("Stairs seem to lead into some kind of crypt.", "这道楼梯似乎通向某种地宫。", "_t")
-t("You hear squeaks and the sounds of clicking bone echo around you... Pure death awaits. Flee!", "你听到老鼠的叫声夹杂着骨骼的响动的吱吱声……前面等待着你的是死亡的力量。快逃！", "_t")
+t("You hear squeaks and the sounds of clicking bone echo around you... Pure death awaits. Flee!", "你听到吱吱的叫声和骨头的咔哒声在你周围回荡……纯粹的死亡正等待着你。快逃！", "_t")
 t("collapsed forsaken crypt", "坍塌的废弃地宫", "_t")
 t("Stairs lead downwards into rubble.", "向下通往瓦砾之中的楼梯。", "_t")
 
@@ -7430,7 +7430,7 @@ section "mod-tome/data/general/events/sub-vault.lua"
 
 t("way up (%s)", "向上的路(到%s)", "tformat")
 t("#VIOLET# The stairway collapses completely as you ascend!", "#VIOLET# 当你爬上楼梯的时候，楼梯彻底坍塌了！", "log")
-t("#VIOLET# The decrepit stairs crumble some more as you climb them.", "#VIOLET# 当你爬上这些破旧的楼梯的时候，它摇摇欲坠，又更加破碎了一点。", "log")
+t("#VIOLET# The decrepit stairs crumble some more as you climb them.", "#VIOLET# 你爬上这段破旧的楼梯时，它又崩塌了一些。", "log")
 t("Hidden Vault - %s", "隐藏宝库 - %s", "tformat")
 t("hidden vault", "隐藏的宝库", "_t")
 t("Crumbling stairs lead down to something.", "摇摇欲坠的楼梯向下通往某处。", "_t")
@@ -8011,7 +8011,7 @@ t("Do you smell like honey? 'Cause this bear wants honey.", "你闻起来像蜂�
 t("cave bear", "穴居熊", "entity name")
 t("It has come down from its cave foraging for food. Unfortunately, it found you.", "它从洞穴中下来觅食。不幸的是，它找到了你。", "_t")
 t("war bear", "战熊", "entity name")
-t("Bears with tusks, trained to kill.", "带着獠牙的巨熊，被训练过杀人的技巧。", "_t")
+t("Bears with tusks, trained to kill.", "带着獠牙的巨熊，受过杀戮训练。", "_t")
 t("grizzly bear", "灰熊", "entity name")
 t("A huge, beastly bear, more savage than most of its kind.", "一头巨大而凶猛的熊，比同类更加凶残。", "_t")
 t("polar bear", "北极熊", "entity name")
@@ -8038,7 +8038,7 @@ t("eternal bone giant", "永恒骨巨人", "entity name")
 t("A towering creature, made from the bones of hundreds of dead bodies. It is covered by an unholy aura.", "一个高大的生物，由数百具尸体的骨头构成。它全身围绕着邪恶的气息。", "_t")
 t("heavy bone giant", "重型骨巨人", "entity name")
 t("runed bone giant", "符文骨巨人", "entity name")
-t("A towering creature, made from the bones of hundreds of dead bodies, rune-etched and infused with hateful sorceries.", "一个高大的生物，由数百具尸体的骨头构成，它的骨头上布满符文和充斥着憎恨的魔法印记。", "_t")
+t("A towering creature, made from the bones of hundreds of dead bodies, rune-etched and infused with hateful sorceries.", "一个高大的生物，由数百具尸体的骨头构成，它的骨头上刻满符文，并灌注着充满憎恨的魔法。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/canine.lua"
@@ -8066,7 +8066,7 @@ section "mod-tome/data/general/npcs/cold-drake.lua"
 t("dragon", "龙", "entity type")
 t("cold", "寒冷", "entity subtype")
 t("cold drake hatchling", "冰龙幼仔", "entity name")
-t("A drake hatchling. Not too powerful by itself, but it usually comes with its brothers and sisters.", "一条幼龙。它本身并不强大，但是它们经常集体行动。", "_t")
+t("A drake hatchling. Not too powerful by itself, but it usually comes with its brothers and sisters.", "一条幼龙。它本身并不强大，但它通常与兄弟姐妹结伴出现。", "_t")
 t("cold drake", "冰龙", "entity name")
 t("A mature cold drake, armed with deadly breath and nasty claws.", "一条成年冰龙，拥有冰冷刺骨的吐息和锋利的爪子。", "_t")
 t("ice wyrm", "冰霜巨龙", "entity name")
@@ -8100,7 +8100,7 @@ t("A formation of white crystal. It emits bright white, chilling light.", "一�
 t("black crystal", "黑色水晶体", "entity name")
 t("A formation of black crystal. It absorbs all light around it.", "一个由黑色水晶构成的生物，它可以吸收周围的光芒。", "_t")
 t("crimson crystal", "深红水晶体", "entity name")
-t("A formation of crimson crystal. It emits a crimson light reminiscent of blood.", "一个通体由深红色水晶构成的生物，它通体散发着血红色的光芒。", "_t")
+t("A formation of crimson crystal. It emits a crimson light reminiscent of blood.", "一个由深红色水晶构成的生物，通体散发着血红色的光芒。", "_t")
 t("blue crystal", "海蓝水晶体", "entity name")
 t("A formation of blue crystal. Its light shines like the ocean's waves.", "一个由蓝色水晶构成的生物，它通体荡漾着海蓝色的光芒。", "_t")
 t("multi-hued crystal", "彩虹水晶体", "entity name")
@@ -8225,7 +8225,7 @@ t("A disfigured humanoid with vaguely Dwarven features dressed in patched-togeth
 t("brecklorn", "布瑞克隆", "entity name")
 t("A giant hairless bat with the face of a Dwarf twisted into a constant scream.  Pustulant sores cover its malformed body, and your heart weakens as it nears.", "一只巨大的无毛蝙蝠，它长着一张扭曲成永恒尖叫状的矮人脸。化脓的疮口覆盖着它畸形的身体，当它靠近时，你的心跳越来越弱。", "_t")
 t("grannor'vor", "格兰诺伏尔", "entity name")
-t("A large sluglike creature that moves slowly, leaving a trail of acid in its wake.  Its head has strangely humanoid features.", "一只长的类似蛞蝓的生物，当它缓慢经过时，会留下一滩酸性的踪迹。它的头部有着奇怪的人类特征。", "_t")
+t("A large sluglike creature that moves slowly, leaving a trail of acid in its wake.  Its head has strangely humanoid features.", "一只体型庞大、形似蛞蝓的生物，行动缓慢，身后会留下一道酸液痕迹。它的头部有着奇怪的人类特征。", "_t")
 t("grannor'vin", "格兰诺文", "entity name")
 t("A large sluglike creature with the face of a man.  Shadows seem to be drawn to its massive form, and your light dims as it approaches.", "一只长有人脸的类似蛞蝓的生物。阴影似乎都被扯向了它厚重的身体，当它靠近你时，灯光似乎都模糊了。", "_t")
 
@@ -8243,7 +8243,7 @@ t("bone horror", "骨灵恐魔", "entity name")
 t("The massive ribcage in the middle beats with loud, audible cracks, as many a skeletal hand protrude forth, entwining, fusing, forming long skeletal appendages to support itself, while others crumble and collapse inward. During all this, somehow, it seems they grasp for you.", "中央的巨大胸腔伴随着响亮而清晰的碎裂声搏动着，许多骷髅手臂从中伸出，缠绕、融合，形成长长的骨骼肢体支撑自身，而其他部分则碎裂、向内坍塌。在此期间，它们似乎都想抓住你。", "_t")
 t("#VIOLET#As the bone horror is destroyed you see the remaining bones reassembling in the form of new foes!", "#VIOLET#当骨灵恐魔被摧毁时，你发现它的剩余部分重组为新的敌人！", "logSeen")
 t("sanguine horror", "血红恐魔", "entity name")
-t("This pulsing, quivering form is a deep crimson, and appears to be composed entirely of thick, virulent blood. Waves rhythmically ripple across its surface, indicating a still beating heart somewhere in its body.", "这个不断跳动不断颤抖的物体是深红色的，似乎完全由浓厚致命的血液组成。在其表面仍有富有节奏的波纹，也许在其身上的某个地方仍有心脏跳动。", "_t")
+t("This pulsing, quivering form is a deep crimson, and appears to be composed entirely of thick, virulent blood. Waves rhythmically ripple across its surface, indicating a still beating heart somewhere in its body.", "这个不断跳动、颤抖的物体是深红色的，似乎完全由浓厚致命的血液组成。其表面有节奏地泛起波纹，表明它体内某处仍有一颗心脏在跳动。", "_t")
 t("animated blood", "活化血液", "entity name")
 t("blood", "血", "entity subtype")
 t("This crimson shape drips ceaselessly, spattering the nearby ground. The droplets seem to continue moving of their own volition.", "血红色的物体不断滴落液体，散落在地面上。滴落下来的血液似乎有着自己的意志。", "_t")
@@ -8292,7 +8292,7 @@ t([[A vaguely tentacled yet rapidly changing shape floats here.  With each breat
 Blue burns into red, green bursts into yellow, and the air crackles and hisses before exploding into a thousand fragments of sharp shapes and colors.]], "一只不断变幻形态的触手生物漂浮在这里，每一次呼吸，你都能感到现实在扭曲、碎裂、崩坏。蓝色烧成红色，绿色爆成黄色，空气噼啪嘶鸣，随后炸裂成千片尖锐的形状与色彩。", "_t")
 t("#LIGHT_BLUE#The sleeper stirs...", "#LIGHT_BLUE#沉睡者骚动起来……", "logSeen")
 t("dream seed", "梦境之种", "entity name")
-t("A pinkish bubble floats here, reflecting the world not as it is, but as it would be in that surreal place that exists only in our dreams.", "一个粉红色的气泡漂浮在这里，反映的不是世界的本来面目，而是那个只存在于我们梦中的超现实。", "_t")
+t("A pinkish bubble floats here, reflecting the world not as it is, but as it would be in that surreal place that exists only in our dreams.", "一个粉红色的气泡漂浮在这里，反映的不是世界的本来面目，而是它在那个只存在于我们梦中的超现实之地里的模样。", "_t")
 t("maelstrom", "灵能漩涡", "entity name")
 t("This powerful vortex of ice and lightning somehow gives you the impression of claws, teeth and intense hunger...", "这个由冰和闪电组成的强大漩涡不知为何给你一种利爪、尖牙和强烈饥饿的印象……", "_t")
 t("parasitic horror", "寄生恐魔", "entity name")
@@ -8334,7 +8334,7 @@ t("A vile looking liquid flows from the teeth of this agile monster. It glides t
 t("boiling horror", "沸腾恐魔", "entity name")
 t("This frothing ball of water rages with an intense heat.", "这个冒着泡沫的水球带着强烈的热度汹涌而来。", "_t")
 t("swarm hive", "虫群巢穴", "entity name")
-t("This titanic mass of flesh pulsates and churns as tiny monsters burst from its orifices.", "巨大的肉块在不断振动、摇晃，从孔口处不断涌现生物。", "_t")
+t("This titanic mass of flesh pulsates and churns as tiny monsters burst from its orifices.", "巨大的肉块不断搏动、翻搅，小怪物从它的孔窍中迸出。", "_t")
 t("abyssal horror", "深渊恐魔", "entity name")
 t("This pitch black form is shrouded in darkness. All you can make out are a pair of deep red eyes, hidden behind a mass of tentacles.", "这个深黑的物体被黑暗围绕，你只能认出一对猩红的眼睛，藏在一堆触手后面。", "_t")
 
@@ -8398,7 +8398,7 @@ section "mod-tome/data/general/npcs/lich.lua"
 
 t("undead", "亡灵", "entity type")
 t("lich", "巫妖", "entity subtype")
-t("Only the most powerful spellcasters raised to unlife become liches. Doomed to haunt the world for an eternity, they have grown to hate all that breathes or trespasses on their domain. Unfortunately that includes you.", "只有最强大的法师，才会被复活成为巫妖。他们注定要永远萦绕在这个世界上，他们憎恨所有在他们的领地上呼吸或侵入的人。不幸的是，这包括你在内。", "_t")
+t("Only the most powerful spellcasters raised to unlife become liches. Doomed to haunt the world for an eternity, they have grown to hate all that breathes or trespasses on their domain. Unfortunately that includes you.", "只有最强大的法师，才会被复活成为巫妖。他们注定要永远在世间游荡，憎恨所有在其领地上呼吸或擅闯其领地的人。不幸的是，这包括你在内。", "_t")
 t("lich", "巫妖", "entity name")
 t("Having thought to discover life eternal, these beings have allowed undeath to rob them of the joys of life. Now they seek to destroy it as well.", "这些存在本以为能求得永生，却让不死之身夺走了生之乐趣。现在，他们也试图毁灭生命。", "_t")
 t("ancient lich", "远古巫妖", "entity name")
@@ -8436,7 +8436,7 @@ t("daelach", "达莱奇", "entity name")
 t([[You can only guess at the real shape of this demon. Its body is surrounded by a cloud of fiery darkness.
 It moves swiftly toward you, casting terrible spells and swinging its weapons at you.]], "你只能猜测这只恶魔的真实形态。它的身体被一层炽热的黑暗所笼罩。\n它迅速向你逼近，一边施放可怕的法术，一边挥舞武器攻击你。", "_t")
 t("champion of Urh'Rok", "乌鲁洛克的冠军", "entity name")
-t("One of Urh'Rok's own champions. A thousand nightmares made flesh and screaming steel tower before you in the form of a massive, armored humanoid.", "乌鲁洛克本人的冠军之一。一千个噩梦化作血肉与尖啸的钢铁，以庞大的装甲人形之姿耸立在你面前。", "_t")
+t("One of Urh'Rok's own champions. A thousand nightmares made flesh and screaming steel tower before you in the form of a massive, armored humanoid.", "乌鲁洛克麾下的冠军之一。一千个噩梦化作血肉与尖啸的钢铁，以庞大的装甲人形之姿耸立在你面前。", "_t")
 t("forge-giant", "锻造巨人", "entity name")
 t("A burning giant wielding a forge hammer of the underworld in each hand -- weapons imbued by Urh'Rok himself with the power to crush and shape felsteel. Enter their range at your peril.", "一个浑身燃烧的巨人，双手各持一柄来自地底的锻造巨锤——由乌鲁洛克亲自赋予碾碎和锻造魔钢之力的武器。踏入它们的攻击范围，后果自负。", "_t")
 t("Khulmanar, General of Urh'Rok", "库马纳，乌鲁洛克的将军", "entity name")
@@ -8453,7 +8453,7 @@ t("wretchling", "小劣魔", "entity name")
 t("Acid oozes all over this small demon's skin.  Beware, they tend to hunt in packs.", "酸液从这只小恶魔的身体上渗出。当心，它们喜欢群体行动。", "_t")
 t("onilug", "欧尼路格", "entity name")
 t([[A gaunt vaguely humanoid shape featuring unadorned grey leathery skin. Its arms and legs seem somehow too long and it stands tall, projecting an ominous shadow even in darkness.
-Its glowing red eyes shine with both cruelty and a deep frightening intellect.]], [[一个憔悴、隐约近似人类的身影，全身是未经修饰的灰色皮革质地的皮肤。它的胳膊和腿不知为何过于修长。当它耸立在那里的时候，即使在黑暗中也会投下不祥的阴影。
+Its glowing red eyes shine with both cruelty and a deep frightening intellect.]], [[一个憔悴、隐约近似人类的身影，全身是毫无修饰的灰色革质皮肤。它的胳膊和腿不知为何过于修长。当它耸立在那里的时候，即使在黑暗中也会投下不祥的阴影。
 它发光的红色眼睛闪烁着，目光里蕴含着既残酷又深邃可怕的智慧。]], "_t")
 t("quasit", "夸塞魔", "entity name")
 t("A small, heavily armoured demon, rushing toward you.", "一只装备了重甲的小恶魔，它向你发起冲锋。", "_t")
@@ -8492,13 +8492,13 @@ section "mod-tome/data/general/npcs/multihued-drake.lua"
 t("dragon", "龙", "entity type")
 t("multihued", "多彩", "entity subtype")
 t("multi-hued drake hatchling", "七彩龙幼仔", "entity name")
-t("A drake hatchling. Not too powerful by itself, but it usually comes with its brothers and sisters.", "一条幼龙。它本身并不强大，但是它们经常集体行动。", "_t")
+t("A drake hatchling. Not too powerful by itself, but it usually comes with its brothers and sisters.", "一条幼龙。它本身并不强大，但它通常与兄弟姐妹结伴出现。", "_t")
 t("multi-hued drake", "七彩龙", "entity name")
 t("A mature multi-hued drake, armed with many deadly breath weapons and nasty claws.", "一条成年七彩龙，拥有许多致命的吐息和锋利的爪子。", "_t")
 t("greater multi-hued wyrm", "强化七彩巨龙", "entity name")
 t("An old and powerful multi-hued drake, armed with many deadly breath weapons and nasty claws.", "一条年长且强大的七彩龙，拥有许多致命的吐息和锋利的爪子。", "_t")
 t("Ureslak the Prismatic", "七色闪光，乌瑞斯拉克", "entity name")
-t("A huge multi-hued drake. It seems to shift color rapidly.", "一只巨大的七彩龙。它似乎在快速的变幻颜色。", "_t")
+t("A huge multi-hued drake. It seems to shift color rapidly.", "一只巨大的七彩龙。它似乎在快速地变幻颜色。", "_t")
 t("#YELLOW#%s's skin turns %s!", "#YELLOW#%s的皮肤变成了 %s！", "logSeen")
 
 ------------------------------------------------
@@ -8513,11 +8513,11 @@ section "mod-tome/data/general/npcs/naga.lua"
 t("humanoid", "人形生物", "entity type")
 t("naga", "娜迦", "entity subtype")
 t("naga myrmidon", "娜迦侍从", "entity name")
-t("Before you stands a tall figure -- a very tall figure, propped high by a thick serpent's tail in place of where his legs should rightly be. His torso is human-like, with bulging muscles beneath fitted armour, and large hands gripping a fiercely sharp trident. He glares at you with dark intensity, like a wolf about to pounce on unsuspecting prey.", "你面前站着一个高大的人影——一个非常高的人形怪物，用本该长着双腿的位置上的粗大蛇尾撑起身体。他的上半身是人形，贴身护甲下肌肉隆起，一双大手紧握锋利的三叉戟。他以阴沉而锐利的目光盯着你，像一头随时要扑向毫无防备猎物的狼。", "_t")
+t("Before you stands a tall figure -- a very tall figure, propped high by a thick serpent's tail in place of where his legs should rightly be. His torso is human-like, with bulging muscles beneath fitted armour, and large hands gripping a fiercely sharp trident. He glares at you with dark intensity, like a wolf about to pounce on unsuspecting prey.", "你面前站着一个高大的人影——一个非常高的人形怪物，本该长着双腿的地方是一条粗大的蛇尾，将身躯高高撑起。他的上半身是人形，贴身护甲下肌肉隆起，一双大手紧握锋利的三叉戟。他以阴沉而锐利的目光盯着你，像一头随时要扑向毫无防备猎物的狼。", "_t")
 t("naga tide huntress", "娜迦潮汐女猎手", "entity name")
 t("Though the sharp point of an arrow pointed steadily at your head is of concern, more unnerving is the creature that wields it: a slim and lithe woman from the waist up, but a terrifying giant serpent beneath, her tail stretching for several feet behind her. Her eyes turn cold and ice seems to magically condense on the tip of her barbed arrow. Suddenly it is of concern again.", "尽管一支利箭稳稳地指着你的脑袋令人担忧，但更让人不安的是握着它的生物：上半身是一个纤细柔美的女人，下半身却是可怕的巨蛇，尾巴在身后延伸数英尺。她的眼神变得冰冷，冰似乎神奇地凝结在她带刺箭矢的尖端。突然间，那箭矢又令你心生恐惧了。", "_t")
 t("naga psyren", "娜迦海妖", "entity name")
-t("Such a mix of enchanting beauty and revolting horror you have never before seen combined. Above, a beautiful, ethereal woman, of scant form and entrancing grace. Below, the thick, smooth scales of a snake, its stretched tail gently waving back and forth in the air behind her. The movement is eye-catching and hypnotic, and whilst you watch a mysterious smile plays across her seductive lips.", "你从未见过如此妖娆和恐怖的结合。上半身是一个美丽而出尘，性感而又迷人的女人。下半身是厚实而光滑的蛇尾。尾巴在她身后缓慢的来回摆动着，摆动的幅度醒目而又具有迷惑性。当你抬头看她时，你看到她性感的嘴角漾起神秘的微笑。", "_t")
+t("Such a mix of enchanting beauty and revolting horror you have never before seen combined. Above, a beautiful, ethereal woman, of scant form and entrancing grace. Below, the thick, smooth scales of a snake, its stretched tail gently waving back and forth in the air behind her. The movement is eye-catching and hypnotic, and whilst you watch a mysterious smile plays across her seductive lips.", "你从未见过如此妖娆和恐怖的结合。上半身是一个美丽而出尘，性感而又迷人的女人。下半身是厚实而光滑的蛇尾。尾巴在她身后缓慢地来回摆动着，那摆动引人注目，令人着迷。就在你注视之际，她性感的嘴角漾起神秘的微笑。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/ogre.lua"
@@ -8531,7 +8531,7 @@ t("A master of combat, she is impatient to test her newfound skills.", "一个�
 t("ogre mauler", "食人魔重击者", "entity name")
 t("Crush! Destroy! Maim!", "碾碎！摧毁！致残！", "_t")
 t("ogre pounder", "食人魔摔跤手", "entity name")
-t("This ogre closes in fast on you, arms open for the hug of death.", "这个食人魔快速地接近你，张开他死亡的拥抱。", "_t")
+t("This ogre closes in fast on you, arms open for the hug of death.", "这个食人魔快速地接近你，张开双臂，要给你一个死亡的拥抱。", "_t")
 t("ogre rune-spinner", "食人魔符文师", "entity name")
 t("A towering ogre guard, her skin covered in runes and arcane designs.", "一个高大的食人魔守卫，她的皮肤上刻满符文和奥术图案。", "_t")
 
@@ -8555,7 +8555,7 @@ t("black ooze", "黑泥怪", "entity name")
 t("It's black and it's oozing.", "又黑又粘的软泥怪。", "_t")
 t("gelatinous cube", "粘胶方块", "entity name")
 t([[It is a strange, vast gelatinous structure that assumes cubic proportions as it lines all four walls of the corridors it patrols.
-Through its transparent jelly structure you can see treasures it has engulfed, and a few corpses as well.]], "这是一个奇怪的、巨大的凝胶状结构，它充满所巡逻走廊的所有四面墙，呈立方体状。透过它透明的果冻状结构，你可以看到它吞噬的宝物，还有几具尸体。", "_t")
+Through its transparent jelly structure you can see treasures it has engulfed, and a few corpses as well.]], "这是一个奇怪的、巨大的凝胶状结构，它紧贴着所巡逻走廊的四面墙壁，呈立方体状。透过它透明的果冻状结构，你可以看到它吞噬的宝物，还有几具尸体。", "_t")
 t("crimson ooze", "深红泥怪", "entity name")
 t("It's reddish and it's oozing.", "微红且粘稠的软泥怪。", "_t")
 t("brittle clear ooze", "易碎透明泥怪", "entity name")
@@ -8631,7 +8631,7 @@ t("An orc trained in the secret ways of assassination, stealthy and deadly.", "�
 t("orc master assassin", "兽人刺客大师", "entity name")
 t("orc grand master assassin", "高阶兽人刺客大师", "entity name")
 t("Kra'Tor the Gluttonous", "贪吃的克拉塔", "entity name")
-t("A morbidly obese orc with greasy pockmarked skin and oily long black hair.  He's clad in plate mail and carries a huge granite battleaxe that's nearly as large as he is.", "一只肥胖过度的兽人，他有一头油腻的黑色长发，皮肤油腻且长满了痘痘。他身穿板甲，手握一个几乎和他一样大的花岗岩双手斧。", "_t")
+t("A morbidly obese orc with greasy pockmarked skin and oily long black hair.  He's clad in plate mail and carries a huge granite battleaxe that's nearly as large as he is.", "一只肥胖过度的兽人，他有一头油乎乎的黑色长发，皮肤油腻且长满了痘痘。他身穿板甲，手握一把几乎和他一样大的花岗岩双手斧。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/plant.lua"
@@ -8654,8 +8654,8 @@ section "mod-tome/data/general/npcs/ritch.lua"
 t("insect", "昆虫", "entity type")
 t("ritch", "里奇", "entity subtype")
 t([[Ritches are giant insects native to the arid wastes of the southern parts of the Far East.
-Vicious predators, they inject corrupting diseases into their foes, and their sharp claws cut through most armours.]], [[里奇是原产于远东南部干旱地区的一种巨型土著昆虫。
-他们是凶残的猎食者，用锋利的爪子刺穿大部分的盔甲，将腐败的疾病注入敌人的体内。]], "_t")
+Vicious predators, they inject corrupting diseases into their foes, and their sharp claws cut through most armours.]], [[里奇是原产于远东南部干旱地区的一种巨型昆虫。
+它们是凶残的猎食者，会将腐败的疾病注入敌人体内，锋利的爪子能刺穿大部分盔甲。]], "_t")
 t("ritch larva", "里奇幼虫", "entity name")
 t("ritch hunter", "里奇猎手", "entity name")
 t("ritch hive mother", "里奇巢母", "entity name")
@@ -8730,7 +8730,7 @@ t("A haphazard collection of crumbling bones, with jerky movements that remind y
 t("degenerated skeleton archer", "退化骷髅弓箭手", "entity name")
 t("A frail skeleton; just about the only bones that aren't cracked are its arms.  It's missing a hand, but a notch has been carved into its wrist to let it pull back a bowstring regardless.", "一具脆弱的骨架；几乎只有双臂的骨头没有开裂。它缺少了一只手，不过手腕上刻了一道凹槽，刚好可以卡住弓弦拉弓上箭。", "_t")
 t("skeleton mage", "骷髅法师", "entity name")
-t("Given its condition, you're less inclined to think this skeleton knows proper spells, rather than simply disgorging its magical energy as it breaks down.  This doesn't make it much less dangerous to be around, mind you.", "看着它残破的样子，你与其相信这只骷髅会释放魔法，不如相信是在它身躯逐渐破碎的同时将奥术能量胡乱喷射出来。不过，这一点也没有降低它的危险性，小心。", "_t")
+t("Given its condition, you're less inclined to think this skeleton knows proper spells, rather than simply disgorging its magical energy as it breaks down.  This doesn't make it much less dangerous to be around, mind you.", "看着它残破的样子，你与其相信这只骷髅会释放魔法，不如相信它只是在身躯逐渐破碎时胡乱喷射奥术能量。不过，这一点也没有降低它的危险性，小心。", "_t")
 t("skeleton warrior", "骷髅战士", "entity name")
 t("The forces binding this skeleton together are resilient enough to let it hold a shield and swing a weapon as well as it could have in life.  It's still wearing its old armor, in rusty but servicable condition.", "维系这只骷髅身躯的力量足够坚韧，让它像生前一样持盾挥击。它仍穿着原来的旧盔甲，虽已锈迹斑斑，却还堪使用。", "_t")
 t("skeleton archer", "骷髅弓箭手", "entity name")
@@ -8740,9 +8740,9 @@ t("This skeleton has been imbued with far more magical energy than normal, and s
 t("armoured skeleton warrior", "装甲骷髅战士", "entity name")
 t("It feels no pain.  It moves with fluidity and strength that would tear natural muscles apart.  It must be from a fresh corpse, since its bones, armor, and weapon are all in pristine condition.  And it's furious.", "它感觉不到疼痛。它的动作流畅而有力，足以撕裂天然的肌肉。它一定来自一具新鲜的尸体，因为它的骨头、装甲和武器都完好如新。而且，它怒不可遏。", "_t")
 t("skeleton master archer", "骷髅弓箭手大师", "entity name")
-t("This skeleton can fire arrows and nock new ones with blinding speed.  Arcane forces pull its bones with unnatural precision - its arms will never tremble or get tired.", "这只骷髅可以飞速的拈弓射箭，奥术的力量使它的身躯达到了常人无法企及的精确度——它的射击永远不会颤动，也永远不会疲累。", "_t")
+t("This skeleton can fire arrows and nock new ones with blinding speed.  Arcane forces pull its bones with unnatural precision - its arms will never tremble or get tired.", "这只骷髅可以飞速地拈弓射箭，奥术的力量使它的身躯达到了常人无法企及的精确度——它的手臂永远不会颤抖，也永远不会疲累。", "_t")
 t("skeleton assassin", "骷髅刺客", "entity name")
-t("Most skeletons announce their presence with a chorus of rattling bones; this one's been charred black and has enough cartilage between its joints to muffle its approach.  The first you'll see of it will be the flash of its blade.", "普通骷髅骨节之间的吱嘎猛响会早早暴露他们的行踪，但这只骷髅的身躯被烧焦成暗夜的黑色，关节间的软骨缓冲着骨节的转动。当你看到它时，它银光闪耀的刀刃已经出现在你的眼前。", "_t")
+t("Most skeletons announce their presence with a chorus of rattling bones; this one's been charred black and has enough cartilage between its joints to muffle its approach.  The first you'll see of it will be the flash of its blade.", "普通骷髅骨节之间的吱嘎猛响会早早暴露它们的行踪，但这只骷髅的身躯被烧得焦黑，关节间的软骨缓冲着骨节的转动。当你看到它时，它银光闪耀的刀刃已经出现在你的眼前。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/snake.lua"
@@ -8814,7 +8814,7 @@ section "mod-tome/data/general/npcs/storm-drake.lua"
 t("dragon", "龙", "entity type")
 t("storm", "风暴", "entity subtype")
 t("storm drake hatchling", "风暴幼龙", "entity name")
-t("A drake hatchling. Not too powerful by itself, but it usually comes with its brothers and sisters.", "一条幼龙。它本身并不强大，但是它们经常集体行动。", "_t")
+t("A drake hatchling. Not too powerful by itself, but it usually comes with its brothers and sisters.", "一条幼龙。它本身并不强大，但它通常与兄弟姐妹结伴出现。", "_t")
 t("storm drake", "风暴翼龙", "entity name")
 t("A mature storm drake, armed with deadly breath and nasty claws.", "一条成年风暴巨龙，拥有致命的吐息和锋利的爪子。", "_t")
 t("storm wyrm", "风暴巨龙", "entity name")
@@ -8897,7 +8897,7 @@ t("troll", "巨魔", "entity subtype")
 t("forest troll", "森林巨魔", "entity name")
 t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是疣的绿色拳头。", "_t")
 t("stone troll", "岩石巨魔", "entity name")
-t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。", "_t")
+t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "一只皮肤粗糙黝黑的巨魔。你注意到他粗壮的腰间系着一条矮人头骨串成的腰带，不禁打了个寒战。", "_t")
 t("cave troll", "洞穴巨魔", "entity name")
 t("This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.", "这只巨魔手握一根笨重的长矛，它那双小猪般的眼睛里透露出一种令人不安的聪明神情。", "_t")
 t("mountain troll", "山岭巨魔", "entity name")
@@ -20068,7 +20068,7 @@ t("collapsed hidden vault", "坍塌的隐藏宝库", "_t")
 t("It is fully collapsed, no way down.", "楼梯彻底倒塌了，再也没法下去了。", "_t")
 t("#VIOLET# The stairway is about to collapses completely, you may still go back but it will be the last time!", "#VIOLET# 楼梯很快就要坍塌了，你还可以回去一次，但是这将会是最后一次了！", "log")
 t("nearly collapsed hidden vault", "近乎坍塌的隐藏宝库", "_t")
-t("#VIOLET# The decrepit stairs crumble some more as you climb them.", "#VIOLET# 当你爬上这些破旧的楼梯的时候，它摇摇欲坠，又更加破碎了一点。", "log")
+t("#VIOLET# The decrepit stairs crumble some more as you climb them.", "#VIOLET# 你爬上这段破旧的楼梯时，它又崩塌了一些。", "log")
 
 ------------------------------------------------
 section "mod-tome/data/quests/anti-antimagic.lua"
@@ -39481,8 +39481,8 @@ section "mod-tome/data/zones/ritch-tunnels/npcs.lua"
 t("insect", "昆虫", "entity type")
 t("ritch", "里奇", "entity subtype")
 t([[Ritches are giant insects native to the arid wastes of the southern parts of the Far East.
-Vicious predators, they inject corrupting diseases into their foes, and their sharp claws cut through most armours.]], [[里奇是原产于远东南部干旱地区的一种巨型土著昆虫。
-他们是凶残的猎食者，用锋利的爪子刺穿大部分的盔甲，将腐败的疾病注入敌人的体内。]], "_t")
+Vicious predators, they inject corrupting diseases into their foes, and their sharp claws cut through most armours.]], [[里奇是原产于远东南部干旱地区的一种巨型昆虫。
+它们是凶残的猎食者，会将腐败的疾病注入敌人体内，锋利的爪子能刺穿大部分盔甲。]], "_t")
 t(", who incubated her eggs in the corpse,", "，她在这具尸体中孵化了她的卵", "_t")
 t("ritch flamespitter", "喷火里奇", "entity name")
 t("ritch impaler", "锋刺里奇", "entity name")
@@ -41191,7 +41191,7 @@ t("Campaign: ", "战役：", "_t")
 t("Difficulty: ", "难度：", "_t")
 t("Permadeath: ", "死亡模式：", "_t")
 t("Overwrite character?", "覆盖角色？", "_t")
-t("There is already a character with this name, do you want to overwrite it?", "已经有一个这个名称的角色了，你要覆盖这个角色吗？", "_t")
+t("There is already a character with this name, do you want to overwrite it?", "已经存在同名角色，你要覆盖它吗？", "_t")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
 t("Antimagic Magic combo", "反魔和魔法的组合", "_t")

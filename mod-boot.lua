@@ -10,7 +10,7 @@ Remember that in most roguelikes death is usually permanent so be careful!
 
 Now go and have some fun!]], [[#GOLD#马基·埃亚尔的传说#WHITE# 是主游戏，你也可以在 https://te4.org/ 下载到更多游戏插件和游戏模组。
 
-在游戏模组内，你可以按 Esc 键打开菜单，改变按键绑定，游戏分辨率和其他和模组有关的设置。
+在游戏模组内，你可以按 Esc 键打开菜单，改变按键绑定、游戏分辨率以及其他与模组有关的设置。
 
 请记住，在大部分Roguelike游戏里，角色的死亡都是永久的，请小心！
 
@@ -21,22 +21,22 @@ t([[The way the engine manages saving has been reworked for v1.0.5.
 The background saves should no longer lag horribly and as such it is highly recommended that you use the option. The upgrade turned it on for you.
 
 For the same reason the save per level option should not be used unless you have severe memory problems. The upgrade turned it off for you.
-]], [[游戏引擎管理游戏存档的方式在 v1.0.5 版本发生了变化
+]], [[游戏引擎管理游戏存档的方式在 v1.0.5 版本发生了变化。
 
-后台存档将不再会严重拖慢你的游戏运行速率，强烈建议你开启这一选项。这次更新会自动帮你打开这个选项。
+后台存档不会再严重拖慢游戏运行，因此强烈建议你开启这一选项。这次更新会自动帮你打开这个选项。
 
-与此同时，每层存档的选项已经没有必要使用，除非你有严重的内存问题。这次更新会自动帮你关闭这个选项。
+出于同样的原因，每层存档的选项已经没有必要使用，除非你有严重的内存问题。这次更新会自动帮你关闭这个选项。
 ]], "_t")
 t("Safe Mode", "安全模式", "_t")
 t([[Oops! Either you activated safe mode manually or the game detected it did not start correctly last time and thus you are in #LIGHT_GREEN#safe mode#WHITE#.
 Safe Mode disabled all graphical options and sets a low FPS. It is not advisable to play this way (as it will be very painful and ugly).
 
 Please go to the Video Options and try enabling/disabling options and then restarting until you do not get this message.
-A usual problem is shaders and thus should be your first target to disable.]], [[糟糕！如果你不是手动开启了安全模式的话，那么说明，游戏检测到上一次启动时发生错误，目前游戏已进入#LIGHT_GREEN#安全模式#WHITE#。
+A usual problem is shaders and thus should be your first target to disable.]], [[糟糕！如果你不是手动开启了安全模式，那就说明游戏检测到上一次启动时发生了错误，目前游戏已进入#LIGHT_GREEN#安全模式#WHITE#。
 在安全模式下，所有图形选项都被关闭，FPS被设置为很低。不建议在这种情况下进行游戏（游戏画面会变得很难看）。
 
 请你进入游戏视频选项，尝试启用或禁用各项选项并重启游戏，直到不再弹出此消息。
-常见的问题一般是由着色器引发的，你可以先尝试关闭这些选项。]], "_t")
+常见的问题一般是由着色器引发的，你可以先尝试关闭着色器。]], "_t")
 t("Message", "消息", "_t")
 t("Duplicate Addon", "重复的插件", "_t")
 t([[Oops! It seems like you have the same addon/dlc installed twice.
@@ -84,7 +84,7 @@ This is all optional, you are not forced to use this feature at all, but the dev
 * 记录你的击杀数量，死亡次数，以及玩得最多的职业…
 * 用有趣的统计数据帮你打磨自己的游戏风格
 * 在游戏里直接安装官方扩展包和第三方插件，免去手动安装的麻烦
-* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，你可以获得你的购买者/捐赠者独享权益
+* 如果你购买了游戏或是在 https://te4.org/ 上进行了捐助，就可以获得购买者/捐赠者独享权益
 * 帮助游戏开发者调整游戏平衡，让这个游戏变得更好
 
 你也会获得一个 #LIGHT_BLUE#https://te4.org/#LAST# 上的用户页面，可以用来向你的朋友炫耀。
@@ -191,7 +191,7 @@ t("troll", "巨魔", "entity subtype")
 t("forest troll", "森林巨魔", "entity name")
 t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是疣的绿色拳头。", "_t")
 t("stone troll", "岩石巨魔", "entity name")
-t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "有着粗糙黑色皮肤的巨魔，一阵战栗后，你惊讶的发现他的腰带是用矮人头骨制成。", "_t")
+t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "一只皮肤粗糙黝黑的巨魔。你注意到他粗壮的腰间系着一条矮人头骨串成的腰带，不禁打了个寒战。", "_t")
 t("cave troll", "洞穴巨魔", "entity name")
 t("This huge troll wields a massive spear and has a disturbingly intelligent look in its piggy eyes.", "这只巨魔手握一根笨重的长矛，它那双小猪般的眼睛里透露出一种令人不安的聪明神情。", "_t")
 t("mountain troll", "山岭巨魔", "entity name")
@@ -328,11 +328,11 @@ Requires addons: %s
 需要的插件：%s
 
 %s]], "tformat")
-t("You can simply grab an older version of the game from where you downloaded it.", "你可以在下载这个游戏的地方，下载到这个游戏的旧版本。", "_t")
+t("You can simply grab an older version of the game from where you downloaded it.", "你可以直接到当初下载游戏的地方获取旧版本。", "_t")
 t("You can downgrade the version by selecting it in the Steam's \"Beta\" properties of the game.", "你可以在Steam中设置Beta版本属性，来降级你的游戏版本。", "_t")
 t("Original game version not found", "未找到原游戏版本", "_t")
 t([[This savefile was created with game version %s. You can try loading it with the current version if you wish but it is recommended you play it with the old version to ensure compatibility
-%s]], [[这个存档是游戏版本 %s 创建的。如果你愿意，你可以尝试使用当前版本强制读档，但是建议你使用旧版本游戏进行游玩，来确保兼容性。
+%s]], [[这个存档由游戏版本 %s 创建。如果你愿意，可以尝试用当前版本读取，但建议使用旧版本游玩，以确保兼容性。
 %s]], "tformat")
 t("Cancel", "取消", "_t")
 t("Run with newer version", "运行新版本", "_t")
@@ -398,9 +398,9 @@ t([[#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！
-#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，用钢铁洪流粉碎那些胆敢反抗部落的人吧！
+#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，粉碎那些胆敢反抗部落的人吧！
 #LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。
-#LIGHT_UMBER#蒸汽工具系统：#WHITE# 合成强大的蒸汽工具，用于强化你的物品。包括给你的靴子安装火箭，给你的手套安装抓取系统，乃至许多更多的蒸汽工具。
+#LIGHT_UMBER#蒸汽工具系统：#WHITE# 合成强大的蒸汽工具，用于强化你的物品。包括给你的靴子安装火箭、给你的手套安装抓取系统等等。
 #LIGHT_UMBER#药剂系统：#WHITE# 在蒸汽工具系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。
 #LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！
 
@@ -423,9 +423,9 @@ t([[#{bold}##GOLD#Forgotten Cults - Expansion#LAST##{normal}#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#新职业：#WHITE# 蠕动者。屈服于腐化的力量，让自己逐渐变成一只恐魔。你可以召唤恐魔在战斗中协助自己，褪去自己的皮肤，融化自己的脸庞，作为攻击的武器。当你的手臂也被转化成触手之后，还有什么敌人能阻挡你呢？
-#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。它们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
+#LIGHT_UMBER#新职业：#WHITE# 熵教徒。这种法师职业使用疯狂的能力，掌控了熵的力量，颠覆了传统的物理定律。他们可以将治疗转换成伤害，并召唤虚空的力量，将敌人粉碎为尘土。
 #LIGHT_UMBER#新种族：#WHITE# 德瑞姆。他们是矮人的一支腐化分支，但是因为某种原因，保持了一定程度的理性，而没有完全退化成无意识的恐魔。他们可以进入狂热状态，并学会召唤恐魔。
-#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，并且他们强壮的力量可以双持任何单手武器。
+#LIGHT_UMBER#新种族：#WHITE# 克罗格。他们是被本该杀死他们的力量所转化的食人魔。他们强大的攻击可以震慑敌人，而且他们力量强大，可以双持任何单手武器。
 #LIGHT_UMBER#大量全新地图：#WHITE# 探索瘟疫之穴，在一只巨大蠕虫的身体内杀出一条血路（不要问我你是怎么*进来*的），探索神秘的出口，以及更多奇异的，充满触手的地图！
 #LIGHT_UMBER#新的恐魔：#WHITE# 你喜欢光芒恐魔吗？你一定会喜欢上灼光恐魔的！还有彼世之门，还有熵之碎片，还有其他更多怪物！
 #LIGHT_UMBER#厌倦了你自己的头？#WHITE#  把它换成一个舒适惬意的恐魔吧！
@@ -466,7 +466,7 @@ t("Game Module", "游戏模组", "_t")
 t("Version", "版本", "_t")
 t("Enter your character's name", "输入角色名称", "_t")
 t("Overwrite character?", "覆盖角色？", "_t")
-t("There is already a character with this name, do you want to overwrite it?", "已经有一个这个名称的角色了，你要覆盖这个角色吗？", "_t")
+t("There is already a character with this name, do you want to overwrite it?", "已经存在同名角色，你要覆盖它吗？", "_t")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
 t("This game is not compatible with your version of T-Engine, you can still try it but it might break.", "这个游戏与你T-Engine的版本不兼容，你可以尝试运行，但是游戏可能崩溃。", "_t")
@@ -505,7 +505,7 @@ t("Your password is too short", "你的密码过短", "_t")
 t("Email", "邮箱", "_t")
 t("Your email seems invalid", "邮箱地址无效", "_t")
 t("Age Check", "年龄确认", "_t")
-t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁以上，或者得到了家长的许可，才可以游玩本游戏。", "_t")
+t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁，或者得到了家长的许可，才可以游玩本游戏。", "_t")
 
 ------------------------------------------------
 section "mod-boot/dialogs/ProfileSteamRegister.lua"
@@ -516,7 +516,7 @@ To enjoy all the features the game has to offer it is #{bold}#highly#{normal}# r
 Luckily this is very easy to do: you only require a profile name and optionally an email (we send very few email, maybe two a year at most).
 ]], [[欢迎来到#GOLD#马基·埃亚尔的传说#LAST#。
 为了享受游戏的全部功能，我们#{bold}#强烈#{normal}#推荐你注册你的Steam账户。
-幸运的是，这非常容易：你只需要提供你的用户名，也可以提供你的邮箱（我们基本上不会给你发送邮件，每年最多发送一两份）。
+幸运的是，这非常容易：你只需要提供用户名，邮箱可选填（我们基本上不会给你发送邮件，每年最多发送一两份）。
 ]], "_t")
 t("Username: ", "用户名：", "_t")
 t("Email: ", "邮箱：", "_t")
@@ -530,12 +530,12 @@ t("Your username is too short", "你的用户名过短", "_t")
 t("Email", "邮箱", "_t")
 t("Your email does not look right.", "你的邮件地址有问题。", "_t")
 t("Age Check", "年龄确认", "_t")
-t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁以上，或者得到了家长的许可，才可以游玩本游戏。", "_t")
+t("You need to be 16 years old or more or to have parental authorization to play this game.", "你需要年满16岁，或者得到了家长的许可，才可以游玩本游戏。", "_t")
 t("Registering...", "正在注册…", "_t")
 t("Registering on https://te4.org/, please wait...", "正在 https://te4.org/ 上注册，请稍候…", "_t")
 t("Steam client not found.", "找不到Steam客户端。", "_t")
 t("Error", "错误", "_t")
-t("Username or Email already taken, please select an other one.", "用户名或邮件地址已被使用，请选择其他用户名或邮件地址。", "_t")
+t("Username or Email already taken, please select an other one.", "用户名或邮件地址已被使用，请另选一个。", "_t")
 
 ------------------------------------------------
 section "mod-boot/dialogs/UpdateAll.lua"

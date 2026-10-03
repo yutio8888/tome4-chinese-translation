@@ -857,8 +857,8 @@ section "tome-orcs/data/general/npcs/ritch-extended.lua"
 t("insect", "昆虫", "entity type")
 t("ritch", "里奇", "entity subtype")
 t([[Ritches are giant insects native to the arid wastes of the southern parts of the Far East.
-Vicious predators, they inject corrupting diseases into their foes, and their sharp claws cut through most armours.]], [[里奇是原产于远东南部干旱地区的一种巨型土著昆虫。
-他们是凶残的猎食者，用锋利的爪子刺穿大部分的盔甲，将腐败的疾病注入敌人的体内。]], "_t")
+Vicious predators, they inject corrupting diseases into their foes, and their sharp claws cut through most armours.]], [[里奇是原产于远东南部干旱地区的一种巨型昆虫。
+它们是凶残的猎食者，会将腐败的疾病注入敌人体内，锋利的爪子能刺穿大部分盔甲。]], "_t")
 t("ritch larva", "里奇幼虫", "entity name")
 t("ritch hunter", "里奇猎手", "entity name")
 t("ritch hive mother", "里奇巢母", "entity name")
