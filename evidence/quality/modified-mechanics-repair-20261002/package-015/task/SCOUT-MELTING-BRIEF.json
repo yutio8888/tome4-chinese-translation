@@ -1,0 +1,31 @@
+{
+  "role": "SCOUT",
+  "purpose": "source_scout",
+  "user_authorization": "用户明确要求 DeepSeek V4.1 Flash 作为 SCOUT 进一步收集熔点源码证据；仅授权侦察，不代表接受译文修订。",
+  "question": "Melting Point（熔点）触发时，是否直接或间接赋予烧伤/燃烧/火焰免疫？若有，持续多久、针对什么；若无，已有燃烧与后续燃烧如何处理？请主动查找反证，不能仅凭该技能函数没有某字段就下结论。",
+  "allowed_reads": [
+    ".ai/roles/scout.md",
+    ".ai/task/mmrfix-20261002-015/SCOUT-MELTING-BRIEF.json",
+    "/workspace/tome4-dlcs/orcs/tome-orcs (public source, read only, related call chain only)",
+    "/workspace/t-engine4 (public source via git show/git grep at fixed commit only)"
+  ],
+  "fixed_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "dlc_source_pinning": "unpinned; do not assert release version, record full SHA256 of relevant files",
+  "entrypoints": [
+    "tome-orcs/data/talents/steam/furnace.lua: Molten Metal, Melting Point, Furnace Vent",
+    "game/modules/tome/class/Actor.lua: effectsFilter/removeEffectsFilter/dispel",
+    "game/modules/tome/data/timed_effects/physical.lua: BURNING"
+  ],
+  "investigate": [
+    "Follow T_MELTING_POINT all callsites and hooks/superloads; inspect sustain activate/deactivate and cleanActor, effects triggered by removal.",
+    "Distinguish immunity attribute, current-effect removal, generic dispel immunity parameter, callback side effects and textual flavor.",
+    "Check if Furnace or Molten Point provides an independent immunity or special self-burn prevention that explains the serum sentence.",
+    "Explain count/selection and burning classification; distinguish generic BURNING from other fire DOT effects.",
+    "Return exact paths/lines/snippets and commit/full SHA256; identify search scope and remaining uncertainty."
+  ],
+  "constraints": [
+    "Strictly no file writes, including /tmp, redirections or generated artifacts; no edits/network/stage/commit/children. Keep shell cwd repository root. Use PYTHONDONTWRITEBYTECODE=1 or python3 -B if needed.",
+    "Do not read translations, terminology, review findings, adjudication, .artifacts or other task files. This is source reconnaissance, not reviewer verdict or finding.",
+    "Return exactly the seven fields from scout.md: context, files_retrieved, key_code, architecture, start_here, risks, open_questions. No Markdown code fence or extra fields."
+  ]
+}

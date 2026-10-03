@@ -1,0 +1,203 @@
+{
+  "status": "source context checked; existing host conclusion supported with additional comparison evidence",
+  "scout_is_review_vote": false,
+  "dlc_sha_records_checked": [
+    "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/furnace.lua",
+    "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/blacksmith.lua",
+    "/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua",
+    "/workspace/tome4-dlcs/orcs/tome-orcs/superload/mod/class/Actor.lua",
+    "/workspace/tome4-dlcs/orcs/tome-orcs/data/general/npcs/titan.lua"
+  ],
+  "source_evidence": [
+    {
+      "path": "tome-orcs/data/talents/steam/furnace.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "66df49a75a14a56ea59ee37babb5a41886e714e508cdb65016238841695e6450",
+      "excerpts": [
+        {
+          "start": 65,
+          "end": 87,
+          "text": "65: \tcallbackOnTakeDamage = function(self, t, src, x, y, type, dam, state)\n66: \t\tif not self:isTalentActive(self.T_FURNACE) then return end\n67: \t\tif type == DamageType.PHYSICAL or type == DamageType.MIND then return end\n68: \t\t\n69: \t\tlocal mp = self:hasEffect(self.EFF_FURNACE_MOLTEN_POINT)\n70: \t\tlocal reduction = 1\n71: \t\tif mp then reduction = 0.75 ^ mp.stacks end\n72: \t\treduction = t.getResist(self, t) * reduction\n73: \n74: \t\tif mp and mp.stacks >= 10 and self:isTalentActive(self.T_MELTING_POINT) and self:getSteam() > 15 then\n75: \t\t\tself:callTalent(self.T_MELTING_POINT, \"cleanActor\")\n76: \t\t\tif not self.turn_procs.molten_furnace_trigger_vent then\n77: \t\t\t\tself.turn_procs.molten_furnace_trigger_vent = true\n78: \t\t\t\tself:forceUseTalent(self.T_FURNACE_VENT, {ignore_energy=true, force_target={x=src.x, y=src.y}})\n79: \t\t\tend\n80: \t\t\tself:removeEffect(self.EFF_FURNACE_MOLTEN_POINT, true, true)\n81: \t\tend\n82: \n83: \t\tif not self.turn_procs.molten_metal then self:setEffect(self.EFF_FURNACE_MOLTEN_POINT, 1, {}) end\n84: \t\tself.turn_procs.molten_metal = true\n85: \n86: \t\treturn {dam=math.max(0, dam - reduction)}\n87: \tend,"
+        },
+        {
+          "start": 150,
+          "end": 178,
+          "text": "150: \tname = \"Melting Point\",\n151: \ttype = {\"steamtech/furnace\", 4},\n152: \tpoints = 5,\n153: \trequire = steamreq_high4,\n154: \tmode = \"sustained\",\n155: \tcooldown = function(self, t) return self:combatTalentLimit(t, 10, 20, 15) end,\n156: \ttactical = { BUFF=1 },\n157: \tgetNb = function(self, t) return math.floor(self:getTalentLevel(t)) end,\n158: \tcleanActor = function(self, t)\n159: \t\tlocal nb = t.getNb(self, t)\n160: \t\tself:removeEffectsFilter(self, {status=\"detrimental\", type=\"physical\"}, nb)\n161: \t\tself:incSteam(-15)\n162: \tend,\n163: \tactivate = function(self, t)\n164: \t\tlocal ret = {}\n165: \t\treturn ret\n166: \tend,\n167: \tdeactivate = function(self, t, p)\n168: \t\treturn true\n169: \tend,\n170: \tinfo = function(self, t)\n171: \t\treturn ([[When you reach 10 molten points your armour overheats, reaching temperatures so high that they cauterize up to %d detrimental physical effects on you.\n172: \t\tA special medical injector injects you with a fire immunity serum at that precise moment to make you immune to the burning effect.\n173: \t\tWhen this happens all molten points are consumed and trigger a Furnace Vent at the creature that triggered the last molten point.\n174: \t\tThis effect drains 15 steam when triggered, and will not trigger if steam is too low.\n175: \t\t#{italic}#It's only a flesh burn!#{normal}#\n176: \t\t]]):\n177: \t\ttformat(t.getNb(self, t))\n178: \tend,"
+        }
+      ]
+    },
+    {
+      "path": "tome-orcs/data/talents/steam/blacksmith.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "0ec9dc9025bb72d3017c4ab18950a7e35950de7819ebc5385e8e327bf055b772",
+      "excerpts": [
+        {
+          "start": 65,
+          "end": 91,
+          "text": "65: newTalent{\n66: \tname = \"Life in the Flames\",\n67: \ttype = {\"steamtech/blacksmith\",3},\n68: \trequire = str_steamreq3,\n69: \tpoints = 5,\n70: \tmode = \"passive\",\n71: \tgetFireRes = function(self, t) return self:combatTalentScale(t, 3.5, 22) end,\n72: \tgetPhysRes = function(self, t) return self:combatTalentScale(t, 2, 17.5) end,\n73: \ton_learn = function(self, t)\n74: \t\tif self:getTalentLevelRaw(t) == 5 then self:attr(\"ignore_fireburn\", 1) end\n75: \tend,\n76: \ton_unlearn = function(self, t)\n77: \t\tif self:getTalentLevelRaw(t) == 4 then self:attr(\"ignore_fireburn\", -1) end\n78: \tend,\n79: \tpassives = function(self, t, p)\n80: \t\tself:talentTemporaryValue(p, \"resists\", {\n81: \t\t\t[DamageType.FIRE] = t.getFireRes(self, t),\n82: \t\t\t[DamageType.PHYSICAL] = t.getPhysRes(self, t),\n83: \t\t})\n84: \tend,\n85: \tinfo = function(self, t)\n86: \t\treturn ([[Slaving for many years at the forge has made you more resilient to physical pain and fire burns.\n87: \t\tYour fire resistance is increased by %d%% and your physical resistance by %d%%.\n88: \t\tAt talent level 5, you are so accustomed to the flames that you become immune to the fireburn effect.]])\n89: \t\t:tformat(t.getFireRes(self, t), t.getPhysRes(self, t))\n90: \tend,\n91: }"
+        }
+      ]
+    },
+    {
+      "path": "tome-orcs/superload/mod/class/Actor.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "2b332d29bf6015e3cb786f2990071437e560b551a53db470deb3ff997f4c5717",
+      "excerpts": [
+        {
+          "start": 102,
+          "end": 124,
+          "text": "102: local on_set_temporary_effect = _M.on_set_temporary_effect\n103: function _M:on_set_temporary_effect(eff_id, e, p)\n104: \tlocal ret = on_set_temporary_effect(self, eff_id, e, p)\n105: \n106: \tif self:attr(\"ignore_fireburn\") and (eff_id == self.EFF_BURNING or eff_id == self.EFF_BURNING_SHOCK) then p.dur = 0 end\n107: \t\n108: \tif self:attr(\"ignore_bleed\") and (eff_id == self.EFF_CUT or eff_id == self.EFF_DEEP_WOUND) then p.dur = 0 end\n109: \n110: \tif self:attr(\"heal_on_detrimental_status\") and p.dur > 0 and e.status == \"detrimental\" and (e.type == \"physical\" or e.type == \"magical\" or e.type ==\"mental\") and not (self.turn_procs.heal_detrimental and self.turn_procs.heal_detrimental >= 3) then\n111: \t\tself:attr(\"disable_ancestral_life\", 1)\n112: \t\tself:heal(self:attr(\"heal_on_detrimental_status\"))\n113: \t\tself.turn_procs.heal_detrimental = self.turn_procs.heal_detrimental or 0\n114: \t\tself.turn_procs.heal_detrimental = self.turn_procs.heal_detrimental + 1\n115: \t\tself:attr(\"disable_ancestral_life\", -1)\n116: \n117: \tend\n118: \treturn ret\n119: end\n120: \n121: local die = _M.die\n122: function _M:die(src, death_note)\n123: \tlocal ret = die(self, src, death_note)\n124: \tif src and game.party:hasMember(src) and self.type == \"giant\" and self.subtype == \"steam\" and self.civilian then"
+        }
+      ]
+    },
+    {
+      "path": "tome-orcs/data/timed_effects/physical.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+      "excerpts": [
+        {
+          "start": 527,
+          "end": 547,
+          "text": "527: newEffect{\n528: \tname = \"FURNACE_MOLTEN_POINT\", image = \"talents/molten_metal.png\",\n529: \tdesc = _t\"Molten Point\",\n530: \tlong_desc = function(self, eff) return (\"You have %d charges.\"):tformat(eff.stacks) end,\n531: \ttype = \"other\",\n532: \tdecrease = 0, no_player_remove = true,\n533: \tsubtype = { fire=true },\n534: \tstatus = \"beneficial\",\n535: \tparameters = { stacks=1, max_stacks=10 },\n536: \tcharges = function(self, eff) return eff.stacks end,\n537: \ton_merge = function(self, old_eff, new_eff)\n538: \t\told_eff.dur = new_eff.dur\n539: \t\told_eff.stacks = util.bound(old_eff.stacks + 1, 1, new_eff.max_stacks)\n540: \t\treturn old_eff\n541: \tend,\n542: \tactivate = function(self, eff)\n543: \tend,\n544: \tdeactivate = function(self, eff)\n545: \tend,\n546: }\n547: "
+        },
+        {
+          "start": 1196,
+          "end": 1224,
+          "text": "1196: newEffect{\n1197: \tname = \"BURNING_PHOSPHOROUS\", image = \"talents/incendiary_powder.png\",\n1198: \tdesc = _t\"Burning Phosphorous\",\n1199: \tlong_desc = function(self, eff) return (\"The target is covered in burning chemicals, taking %0.2f fire damage each turn. Subsequent shots deal %0.2f fire damage, and if they fall below 25%% life they have a %d%% chance to panic.\"):tformat(self:damDesc(DamageType.FIRE, eff.dam), self:damDesc(DamageType.FIRE, eff.initdam), eff.fear) end,\n1200: \ttype = \"physical\",\n1201: \tsubtype = { steamtech=true, fire=true },\n1202: \tstatus = \"detrimental\",\n1203: \tparameters = {dam=10, apr=5, initdam=5, fear=15},\n1204: \ton_merge = function(self, old_eff, new_eff)\n1205: \t\tDamageType:get(DamageType.FIRE).projector(new_eff.src, self.x, self.y, DamageType.FIRE, new_eff.initdam)\n1206: \t\told_eff.dam = new_eff.dam\n1207: \t\told_eff.apr = new_eff.apr\n1208: \t\told_eff.fear = new_eff.fear\n1209: \t\told_eff.dur = 3\n1210: \t\treturn old_eff\n1211: \tend,\n1212: \tactivate = function(self, eff)\n1213: \t\tself:effectTemporaryValue(eff, \"combat_armor\", -eff.apr)\t\n1214: \tend,\n1215: \tdeactivate = function(self, eff)\n1216: \tend,\n1217: \ton_timeout = function(self, eff)\n1218: \t\tDamageType:get(DamageType.FIRE).projector(eff.src, self.x, self.y, DamageType.FIRE, eff.dam)\n1219: \tend,\n1220: \tcallbackOnAct = function(self, eff)\n1221: \t\tif eff.src.dead then\n1222: \t\t\tself:removeEffect(self.EFF_BURNING_PHOSPHOROUS)\n1223: \t\t\treturn\n1224: \t\tend"
+        }
+      ]
+    },
+    {
+      "path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "excerpts": [
+        {
+          "start": 117,
+          "end": 138,
+          "text": "117: function _M:setEffect(eff_id, dur, p, silent)\n118: \tlocal had = self.tmp[eff_id]\n119: \n120: \t-- Beware, setting to 0 means removing\n121: \tif dur <= 0 then return self:removeEffect(eff_id) end\n122: \tdur = math.floor(dur)\n123: \n124: \tp.__orig_params = table.clone(p, true, {__orig_params=true})\n125: \tlocal ed = _M.tempeffect_def[eff_id]\n126: \tfor k, e in pairs(ed.parameters) do\n127: \t\tif not p[k] then p[k] = e end\n128: \tend\n129: \tp.dur = dur\n130: \tp.effect_id = eff_id\n131: \tif self:check(\"on_set_temporary_effect\", eff_id, ed, p) then return end\n132: \tif p.dur <= 0 then return self:removeEffect(eff_id) end\n133: \n134: \t-- If we already have it, we check if it knows how to \"merge\", or else we remove it and re-add it\n135: \tif self:hasEffect(eff_id) then\n136: \t\tif ed.on_merge then\n137: \t\t\tself.tmp[eff_id] = ed.on_merge(self, self.tmp[eff_id], p, ed)\n138: \t\t\tself.changed = true"
+        }
+      ]
+    },
+    {
+      "path": "game/modules/tome/class/Actor.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "excerpts": [
+        {
+          "start": 7144,
+          "end": 7183,
+          "text": "7144: function _M:effectsFilter(t, nb)\n7145: \tlocal effs = {}\n7146: \n7147: \tfor eff_id, p in pairs(self.tmp) do\n7148: \t\tlocal e = self.tempeffect_def[eff_id]\n7149: \t\tif t == true then\n7150: \t\t\teffs[#effs+1] = eff_id\n7151: \t\telseif type(t) == \"function\" then\n7152: \t\t\tif t(e) then effs[#effs+1] = eff_id end\n7153: \t\telse\n7154: \t\t\tlocal test = true\n7155: \t\t\tlocal include_other = (t.type and t.type==\"other\") or (t.types and t.types.other)\n7156: \t\t\ttest = (not t.ignore_crosstier or not e.subtype[\"cross tier\"])\n7157: \t\t\ttest = test and (include_other or e.type ~= \"other\")  -- only remove other explicitly\n7158: \t\t\ttest = test and (not t.type or t.type == e.type)\n7159: \t\t\ttest = test and (not t.types or t.types[e.type])\n7160: \t\t\tif t.subtype then\n7161: \t\t\t\tlocal valid = false\n7162: \t\t\t\tfor k, _ in pairs(t.subtype) do valid = valid or e.subtype[k] end\n7163: \t\t\t\ttest = test and valid\n7164: \t\t\tend\n7165: \t\t\ttest = test and (not t.status or e.status == t.status)\n7166: \t\t\tif test then effs[#effs+1] = eff_id end\n7167: \t\tend\n7168: \tend\n7169: \n7170: \treturn rng.tableSample(effs, nb)\n7171: end\n7172: \n7173: function _M:removeEffectsFilter(src, t, nb, silent, force, check_remove, allow_immunity)\n7174: \tif allow_immunity == nil then allow_immunity = true end\n7175: \tt = t or {}\n7176: \tlocal eff_ids = self:effectsFilter(t, nb)\n7177: \tfor _, eff_id in ipairs(eff_ids) do\n7178: \t\tif not check_remove or check_remove(self, eff_id) then\n7179: \t\t\tself:dispel(eff_id, src, not force and allow_immunity, {force=force, silent=silent})\n7180: \t\tend\n7181: \tend\n7182: \treturn #eff_ids\n7183: end"
+        },
+        {
+          "start": 7295,
+          "end": 7323,
+          "text": "7295: function _M:dispel(effid_or_tid, src, allow_immunity, params)\n7296: \tif not params then params = {} end\n7297: \tif params.silent == nil then params.silent = false end\n7298: \tif params.force == nil then params.force = false end\n7299: \tif params.ignore_energy == nil then params.ignore_energy = true end\n7300: \tif allow_immunity == nil then allow_immunity = true end\n7301: \tlocal allowed = true\n7302: \n7303: \t-- Dont resist yourself!\n7304: \tif src == self then allow_immunity = false end\n7305: \n7306: \tif allow_immunity and self:attr(\"invulnerable\") then return end\n7307: \n7308: \t-- Effect\n7309: \tif effid_or_tid:find(\"^EFF_\") then\n7310: \t\tlocal eff = self:getEffectFromId(effid_or_tid)\n7311: \t\tif (not eff or eff.type == \"other\") and not params.force then return end -- NEVER touch other\n7312: \t\tif not self:hasEffect(effid_or_tid) then return end\n7313: \n7314: \t\tif allow_immunity then\n7315: \t\t\tif not self:canBe(\"dispel_effects\") then allowed = false end\n7316: \t\tend\n7317: \t\tif allowed and allow_immunity then\n7318: \t\t\tif self:fireTalentCheck(\"callbackOnDispel\", \"effect\", effid_or_tid, src, allow_immunity, eff.desc) then allowed = false end\n7319: \t\tend\n7320: \t\tif allowed then\n7321: \t\t\tself:fireTalentCheck(\"callbackOnDispelled\", \"effect\", effid_or_tid, src, allow_immunity, eff.desc)\n7322: \t\t\tself:removeEffect(effid_or_tid, params.silent, params.force)\n7323: \t\t\treturn true"
+        },
+        {
+          "start": 7746,
+          "end": 7755,
+          "text": "7746: \t-- This could be utilized for more effects\n7747: \tif self:fireTalentCheck(\"callbackOnTemporaryEffect\", eff_id, e, p) then return true end\n7748: \n7749: \tif self.player and not old then\n7750: \t\tp.__set_time = core.game.getTime()\n7751: \tend\n7752: \n7753: \tif p.dur <= 0 then return true end\n7754: \tp.dur = math.max(p.dur, olddur) -- don't shorten the existing duration because of a new application (on_merge may change it)\n7755: end"
+        }
+      ]
+    },
+    {
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "excerpts": [
+        {
+          "start": 417,
+          "end": 478,
+          "text": "417: newEffect{\n418: \tname = \"BURNING\", image = \"talents/flame.png\",\n419: \tdesc = _t\"Burning\",\n420: \tlong_desc = function(self, eff) return (\"The target is on fire, taking %0.2f fire damage per turn.\"):tformat(eff.power) end,\n421: \tcharges = function(self, eff) return (math.floor(eff.power)) end,\n422: \ttype = \"physical\",\n423: \tsubtype = { fire=true },\n424: \tstatus = \"detrimental\",\n425: \tparameters = { power=10 },\n426: \ton_gain = function(self, err) return _t\"#Target# is on fire!\", _t\"+Burn\" end,\n427: \ton_lose = function(self, err) return _t\"#Target# stops burning.\", _t\"-Burn\" end,\n428: \ton_merge = function(self, old_eff, new_eff)\n429: \t\t-- Merge the flames!\n430: \t\tlocal olddam = old_eff.power * old_eff.dur\n431: \t\tlocal newdam = new_eff.power * new_eff.dur\n432: \t\tlocal dur = math.ceil((old_eff.dur + new_eff.dur) / 2)\n433: \t\told_eff.dur = dur\n434: \t\told_eff.power = (olddam + newdam) / dur\n435: \t\treturn old_eff\n436: \tend,\n437: \ton_timeout = function(self, eff)\n438: \t\tDamageType:get(DamageType.FIRE).projector(eff.src, self.x, self.y, DamageType.FIRE, eff.power)\n439: \tend,\n440: }\n441: \n442: newEffect{\n443: \tname = \"BURNING_SHOCK\", image = \"talents/flameshock.png\",\n444: \tdesc = _t\"Burning Shock\",\n445: \tlong_desc = function(self, eff) return (\"The target is on fire, taking %0.2f fire damage per turn, reducing damage by 50%%, putting 4 random talents on cooldown and reducing movement speed by 50%%. While flameshocked talents cooldown twice as slow.\"):tformat(eff.power) end,\n446: \tcharges = function(self, eff) return (math.floor(eff.power)) end,\n447: \ttype = \"physical\",\n448: \tsubtype = { fire=true, stun=true },\n449: \tstatus = \"detrimental\",\n450: \tparameters = {},\n451: \ton_gain = function(self, err) return _t\"#Target# is stunned by the burning flame!\", _t\"+Burning Shock\" end,\n452: \ton_lose = function(self, err) return _t\"#Target# is not stunned anymore.\", _t\"-Burning Shock\" end,\n453: \tactivate = function(self, eff)\n454: \t\teff.tmpid = self:addTemporaryValue(\"stunned\", 1)\n455: \t\teff.speedid = self:addTemporaryValue(\"movement_speed\", -0.5)\n456: \t\teff.lockid = self:addTemporaryValue(\"half_talents_cooldown\", 1)\n457: \n458: \t\tlocal tids = {}\n459: \t\tfor tid, lev in pairs(self.talents) do\n460: \t\t\tlocal t = self:getTalentFromId(tid)\n461: \t\t\tif t and not self.talents_cd[tid] and t.mode == \"activated\" and not t.innate and util.getval(t.no_energy, self, t) ~= true then tids[#tids+1] = t end\n462: \t\tend\n463: \t\tfor i = 1, 4 do\n464: \t\t\tlocal t = rng.tableRemove(tids)\n465: \t\t\tif not t then break end\n466: \t\t\tself:startTalentCooldown(t.id, 1)\n467: \t\tend\n468: \tend,\n469: \ton_timeout = function(self, eff)\n470: \t\tDamageType:get(DamageType.FIRE).projector(eff.src, self.x, self.y, DamageType.FIRE, eff.power)\n471: \tend,\n472: \tdeactivate = function(self, eff)\n473: \t\tself:removeTemporaryValue(\"stunned\", eff.tmpid)\n474: \t\tself:removeTemporaryValue(\"movement_speed\", eff.speedid)\n475: \t\tself:removeTemporaryValue(\"half_talents_cooldown\", eff.lockid)\n476: \tend,\n477: }\n478: "
+        }
+      ]
+    },
+    {
+      "path": "game/modules/tome/data/timed_effects/magical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "10de292fffb104890909a9a1ec40a7453234a79fc7f267e3b754c0d290aa7b3b",
+      "excerpts": [
+        {
+          "start": 2382,
+          "end": 2401,
+          "text": "2382: newEffect{\n2383: \tname = \"WORM_ROT\", image = \"talents/worm_rot.png\",\n2384: \tdesc = _t\"Worm Rot\",\n2385: \tlong_desc = function(self, eff) return (\"The target is infected with carrion worm larvae.  Each turn it will lose one beneficial physical effect and %0.2f blight and acid damage will be inflicted.\\nAfter five turns the disease will inflict %0.2f blight damage and spawn a carrion worm mass.\"):tformat(eff.dam, eff.burst) end,\n2386: \ttype = \"magical\",\n2387: \tsubtype = {disease=true, blight=true, acid=true},\n2388: \tstatus = \"detrimental\",\n2389: \tparameters = {chance=20, dam=10, burst=20},\n2390: \ton_gain = function(self, err) return _t\"#Target# is afflicted by a terrible worm rot!\" end,\n2391: \ton_lose = function(self, err) return _t\"#Target# is free from the worm rot.\" end,\n2392: \tcallbackOnDispelled = function(self, eff, type, effid_or_tid, src, allow_immunity)\n2393: \t\tif effid_or_tid ~= self.EFF_WORM_ROT then return end\n2394: \t\tif rng.percent(eff.chance) then\n2395: \t\t\tlocal ed = self:getEffectFromId(eff.effect_id)\n2396: \t\t\ted.spawn_worm(self, eff)\n2397: \t\telse\n2398: \t\t\t-- Fake it, we missed out chance!\n2399: \t\t\teff.spawned = true\n2400: \t\tend\n2401: \tend,"
+        },
+        {
+          "start": 4490,
+          "end": 4502,
+          "text": "4490: \tname = \"BURNING_HEX\", image = \"talents/burning_hex.png\",\n4491: \tdesc = _t\"Burning Hex\",\n4492: \tlong_desc = function(self, eff) return (\"The target is hexed.  Each time it uses an ability it takes %0.2f fire damage, and talent cooldowns are increased by %s plus 1 turn.\"):\n4493: \t\ttformat(eff.dam, eff.power and (\"%d%%\"):tformat((eff.power-1)*100) or \"\")\n4494: \tend,\n4495: \tcharges = function(self, eff) return (tostring(math.floor((eff.power-1)*100))..\"%\") end,\n4496: \ttype = \"magical\",\n4497: \tsubtype = { hex=true, fire=true },\n4498: \tstatus = \"detrimental\",\n4499: \t-- _M:getTalentCooldown(t) in mod.class.Actor.lua references this table to compute cooldowns\n4500: \tparameters = {dam=10, power = 1},\n4501: \ton_gain = function(self, err) return _t\"#Target# is hexed!\", _t\"+Burning Hex\" end,\n4502: \ton_lose = function(self, err) return _t\"#Target# is free from the hex.\", _t\"-Burning Hex\" end,"
+        }
+      ]
+    },
+    {
+      "path": "game/loader/pre-init.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "19964db350dd422979968853a353f26955a37b620ff4b9d625b14af719c05962",
+      "excerpts": [
+        {
+          "start": 107,
+          "end": 117,
+          "text": "107: function rng.tableSample(t, k)\n108: \tlocal n = #t\n109: \tif not k or k > n then k = n end\n110: \tlocal sample = {}\n111: \tfor i=1,k do\n112: \t\tlocal j = rng.range(i, n)\n113: \t\tsample[i], sample[j] = (sample[j] or t[j]), (sample[i] or t[i])\n114: \tend\n115: \tfor i=k+1,n do sample[i] = nil end\n116: \treturn sample\n117: end"
+        }
+      ]
+    }
+  ],
+  "bounded_searches": [
+    {
+      "command": [
+        "rg",
+        "-n",
+        "ignore_fireburn|T_MELTING_POINT|callbackOnDispelled|callbackOnTemporaryEffectRemove",
+        "/workspace/tome4-dlcs/orcs/tome-orcs"
+      ],
+      "stdout": "/workspace/tome4-dlcs/orcs/tome-orcs/superload/mod/class/Actor.lua:106:\tif self:attr(\"ignore_fireburn\") and (eff_id == self.EFF_BURNING or eff_id == self.EFF_BURNING_SHOCK) then p.dur = 0 end\n/workspace/tome4-dlcs/orcs/tome-orcs/data/general/npcs/titan.lua:192:\t\t[Talents.T_MELTING_POINT]={base=5, every=5, max=15},\n/workspace/tome4-dlcs/orcs/tome-orcs/data/general/npcs/titan.lua:213:\t\t[Talents.T_MELTING_POINT]={base=5, every=5, max=15},\n/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/blacksmith.lua:74:\t\tif self:getTalentLevelRaw(t) == 5 then self:attr(\"ignore_fireburn\", 1) end\n/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/blacksmith.lua:77:\t\tif self:getTalentLevelRaw(t) == 4 then self:attr(\"ignore_fireburn\", -1) end\n/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/furnace.lua:74:\t\tif mp and mp.stacks >= 10 and self:isTalentActive(self.T_MELTING_POINT) and self:getSteam() > 15 then\n/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/furnace.lua:75:\t\t\tself:callTalent(self.T_MELTING_POINT, \"cleanActor\")\n",
+      "returncode": 0
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "/workspace/t-engine4",
+        "grep",
+        "-n",
+        "-e",
+        "callbackOnDispelled",
+        "-e",
+        "callbackOnTemporaryEffectRemove",
+        "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+        "--",
+        "game/modules/tome/data/talents",
+        "game/modules/tome/data/timed_effects"
+      ],
+      "stdout": "624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/data/timed_effects/magical.lua:2392:\tcallbackOnDispelled = function(self, eff, type, effid_or_tid, src, allow_immunity)\n",
+      "returncode": 0
+    }
+  ],
+  "confirmed": [
+    "Melting Point cleans a capped random sample of physical detrimental effects and spends steam, without setting ignore_fireburn.",
+    "BURNING/BURNING_SHOCK are physical detrimental; existing instances can be selected. BURNING_HEX is magical and outside the filter.",
+    "Life in the Flames on_learn at raw5 sets ignore_fireburn; on_unlearn at raw4 removes it. Actor superload checks exactly BURNING/BURNING_SHOCK and sets p.dur=0.",
+    "ActorTemporaryEffects.setEffect checks p.dur after the superloaded callback at line132 and removes/does not add that effect. This completes the concrete contrast chain.",
+    "Molten Point activate/deactivate are empty. The located core callbackOnDispelled handles only WORM_ROT, a magical effect; it does not grant burning immunity."
+  ],
+  "scout_corrections_and_limits": [
+    "Scout key_code is abbreviated pseudocode with several inaccurate line labels, not verbatim source. Use host numbered excerpts here. E.g. src==self check is Actor.lua7304, not7301; BURNING timeout projector is physical.lua438, not441.",
+    "Scout explanation of zero-duration rejection attributes it to core on_set_temporary_effect, but the DLC changes duration after that base call. The decisive later guard is ActorTemporaryEffects.setEffect132; host verified it.",
+    "Do not adopt the global statement that no other immunity mechanisms exist. Evidence concerns the bounded Melting Point chain and the named ignore_fireburn path.",
+    "Architecture phrase every non-instant? is uncertain and not adopted; callback analysis concerns defaultProjector path only.",
+    "SCOUT changed shell cwd despite briefing request. Native session/model/header and source paths verified; no writes observed in all46 calls. This is source context, not a formal review-contract acceptance.",
+    "DLC source remains unpinned; no claim about every release, outside addon, or author intent."
+  ],
+  "translation_edit_performed": false,
+  "recommendation": "Retain proposed narrow correction: 此次驱散也可能移除现有的烧伤状态，但不会赋予后续烧伤免疫。 Await user decision before implementation."
+}

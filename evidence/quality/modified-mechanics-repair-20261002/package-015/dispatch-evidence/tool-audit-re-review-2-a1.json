@@ -1,0 +1,107 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-015/INPUT-re-review-2-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-015/INPUT-re-review-2-a1.json",
+      "description": "Read the frozen review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-re-review-2-a1.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print(b['revision_key'], c['section'], [ (e['public_path'],e.get('start'),e.get('matching_lines')) for e in c['source_evidence']], [t['source'] for t in c['terminology']])\n\"",
+      "description": "Summarize input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; wc -l docs/paseo-translation-context-review-v2-contract.md",
+      "description": "List contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,159p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read output contract section"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-re-review-2-a1.json'))\np=d['payload']\nfor i,t in enumerate(p['translation_snapshot']):\n  if i==0: continue\n  print('=====',i,t['revision_key'][:8]); print('SRC:',t['source']); print('TGT:',t['target'])\n\"",
+      "description": "Print all source/target pairs"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources; ls -R $F | head -50; grep -n \"getPercentInc\\|steamsaw_dam_mult\\|METATEMPORAL\" -r $F | head -30; sed -n 140,160p $F/orcs/tome-orcs/superload/mod/class/interface/Combat.lua",
+      "description": "Check frozen sources for percent inc consumer"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs; sed -n 20,140p $F/data/talents/steam/butchery.lua",
+      "description": "Read butchery talents source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources; sed -n 265,300p $S/orcs/tome-orcs/data/timed_effects/physical.lua; sed -n 905,945p $S/engine/game/engines/default/engine/interface/ActorTalents.lua",
+      "description": "Read overcharge effect and mastery code"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-re-review-2-a1.json'))\nfor b in d['payload']['bounded_context'][3:]:\n  c=json.loads(b['context']); print('#####',b['revision_key'][:8]); print(json.dumps(c['terminology'],ensure_ascii=False))\n  for e in c['source_evidence']:\n    print('--',e['public_path'],e.get('start'),e.get('end'))\n    if 'excerpt' in e: print(e['excerpt'])\n\" ; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs; sed -n 130,185p $S/data/talents/steam/elusiveness.lua",
+      "description": "Print remaining contexts and elusiveness source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs/data/talents/steam; sed -n 105,135p $S/engineering.lua; echo ====; sed -n 120,185p $S/furnace.lua",
+      "description": "Read engineering and furnace sources"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs/data/talents/steam; grep -n \"cleanActor\\|MELTING_POINT\\|MOLTEN_POINT\\|callbackOn\\|steam\\b\\|getSteam\\|FURNACE_VENT\" $S/furnace.lua | head -30",
+      "description": "Find melting point trigger call sites"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs/data/talents/steam; sed -n 20,90p $S/furnace.lua; grep -n \"MOLTEN_POINT\\|EFF_BURNING\\|fire immun\\|melting\" -i $S/furnace.lua | head",
+      "description": "Read furnace callback logic"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs/data/talents/steam; sed -n 85,150p $S/gadgets.lua",
+      "description": "Read powered armour source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs/data/talents/steam; sed -n 20,160p $S/heavy-weapons.lua; sed -n 245,350p $S/heavy-weapons.lua",
+      "description": "Read heavy weapons source"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua > /tmp/c.lua; grep -n \"^function _M:attackTargetWith\" /tmp/c.lua; awk '/^function _M:attackTargetWith/{f=1} f&&/^\\treturn/{print NR\": \"$0} f&&/^end/{exit}' /tmp/c.lua",
+      "description": "Check attackTargetWith return value in pinned core"
+    }
+  }
+]

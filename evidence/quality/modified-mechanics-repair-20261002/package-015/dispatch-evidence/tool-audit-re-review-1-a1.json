@@ -1,0 +1,116 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-015/INPUT-re-review-1-a1.json; echo; grep -n \"^## \\|^### \" docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-re-review-1-a1.json'))\ndef walk(o,p=''):\n  if isinstance(o,dict):\n    for k,v in o.items(): walk(v,p+'.'+k)\n  elif isinstance(o,list):\n    print(p,'list',len(o)); \n    if o: walk(o[0],p+'[0]')\n  else: print(p, repr(o)[:150])\nwalk(d)\"; grep -n \"^## \\|^### \" docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-re-review-1-a1.json'))['payload']\nprint(d['rendered_briefing']); print(d['terminology_snapshot'][:3000])\nfor t in d['translation_snapshot']:\n  print('=====',t['revision_key']); \n  for k,v in t.items():\n    if k!='revision_key': print('--',k,':',v)\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-re-review-1-a1.json'))['payload']\nfor i,b in enumerate(d['bounded_context'][:3]):\n  c=json.loads(b['context'])\n  print('#####',i,c.get('section'),[k for k in c])\n  for e in c.get('source_evidence',[]):\n    print('--',e['public_path'],e['start'],e['end']); print(e['excerpt'])\n  for k,v in c.items():\n    if k not in ('source_evidence',): print('>>',k,json.dumps(v,ensure_ascii=False)[:3000])\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-re-review-1-a1.json'))['payload']\nout=open('/tmp/ctx015.txt','w')\nfor i,b in enumerate(d['bounded_context']):\n  c=json.loads(b['context'])\n  out.write('\\n##### %d %s\\n'%(i,c.get('section')))\n  for e in c.get('source_evidence',[]):\n    out.write('-- %s %s %s\\n'%(e.get('public_path'),e.get('start'),e.get('end')))\n    for k,v in e.items():\n      if k not in ('public_path','start','end','sha256','component','commit','source_pinning'): out.write('[%s] %s\\n'%(k, v if isinstance(v,str) else json.dumps(v,ensure_ascii=False)))\n  for k,v in c.items():\n    if k!='source_evidence': out.write('>> %s %s\\n'%(k,json.dumps(v,ensure_ascii=False)))\n\"; wc -l /tmp/ctx015.txt; sed -n 1,400p /tmp/ctx015.txt | cut -c1-600 | sed -n 50,400p"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"^##### \\|^-- \\|^>> source_locations\\|^>> read_boundary\\|^>> terminology\" /tmp/ctx015.txt | cut -c1-400"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs; find . -type f | head -50; sed -n 20,117p data/talents/spells/occult-technomancy.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation/.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs; sed -n 72,126p /tmp/ctx015.txt | cut -c1-300; grep -n \"steamy sawteeth\" -B60 data/talents/steam/battlefield-management.lua | head -80"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs; sed -n 62,200p $S/data/talents/steam/butchery.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 126,170p /tmp/ctx015.txt | cut -c1-2500"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs; n=$(grep -n \"kick a target\" $S/data/talents/steam/elusiveness.lua | cut -d: -f1); sed -n $((n-70)),$((n+5))p $S/data/talents/steam/elusiveness.lua; grep -n \"calculated than others\" -B40 $S/data/talents/steam/elusiveness.lua | head -60"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources; grep -n \"calculated than others\" -B30 $S/orcs/tome-orcs/data/talents/steam/engineering.lua; sed -n 191,236p /tmp/ctx015.txt | cut -c1-1500"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs; sed -n 243,266p /tmp/ctx015.txt; grep -n \"cauterize up to\" -B45 $S/data/talents/steam/furnace.lua | head -60; grep -n \"MOLTEN_POINTS\\|molten_points\\|T_FURNACE\\b\\|FURNACE_VENT\" $S/data/talents/steam/furnace.lua | head -30"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs; sed -n 55,100p $S/data/talents/steam/furnace.lua; grep -n \"BURNING\\|burning\\|fire immun\" $S/data/talents/steam/furnace.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs; grep -n \"Current exoskeleton life\" -B70 $S/data/talents/steam/gadgets.lua | head -90"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources; sed -n 160,244p $S/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua; sed -n 20,89p $S/orcs/tome-orcs/superload/mod/class/interface/Archery.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources; grep -n \"incendiary device\\|lightning-charged staff\\|steamgun_range\\|getFlamethrowerBaseDamage\\|getShockstaff\" $S/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua | head; sed -n 454,521p /tmp/ctx015.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; S=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs; sed -n 120,159p $S/data/talents/steam/heavy-weapons.lua; grep -n \"lightning-charged staff\" $S/data/talents/steam/heavy-weapons.lua; sed -n 350,450p $S/data/talents/steam/heavy-weapons.lua"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | grep -n \"^function _M:attackTargetWith\" -A3; git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | awk 'NR>=1 && /^function _M:attackTargetWith/{f=1} f&&/^\\treturn /{print NR\": \"$0} f&&/^end/{exit}'; sed -n 160,161p .artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs/superload/mod/class/interface/Combat.lua; sed -n 536,600p /tmp/ctx015.txt | grep -n \"STORMSTRIKE\" -A25 | head -40; sed -n 300,349p .artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua"
+    }
+  }
+]

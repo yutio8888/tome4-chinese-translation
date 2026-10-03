@@ -1,0 +1,17 @@
+{
+  "title": "机制修正015 FIX：火焰伤害时序",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-015",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "fix-1-a1"
+  },
+  "notifyOnFinish": true,
+  "initialPrompt": "你是Paseo EXECUTOR，fresh FIX cycle1，task mmrfix-20261002-015。读 .ai/roles/executor.md、.ai/task/mmrfix-20261002-015/SPEC.md、PLAN.md、FIX-1.json。仅tome-orcs.lua火焰喷射一条target按new_target修改，补充一半即时、一半3回合燃烧。先核对preimage/old_target，核验fixed core damage_types.lua1187-1204及DLC heavy-weapons.lua FlameJet调用链；DLC来源未固定用hash。保留其他9条和所有非target字段、placeholder/markup/newline/tab。不得改源码/术语/工具/.ai/evidence/用户文件，不stage/commit或创建child。可用/tmp。运行strict lint及git diff --check；写 .artifacts/i18n/modified-mechanics-repair-20261002/executor-015-fix1-report.json，记录完整old/new、源码hash/精确摘录、逆向字节验证/tests。所有shell保持仓库根cwd，用绝对路径或git -C读取源码。最终报告实际成果。"
+}

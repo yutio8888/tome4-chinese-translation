@@ -1,7 +1,3 @@
-# 当前恢复入口
-
-原修正包001—015及前序附属任务已完成，累计145/169个原confirmed claim、15/18包。本包已DONE_VERIFIED，准备提交；前序HEAD=e7ef118e。用户无关文档和其他未跟踪内容保留。持续授权至既定18包完成或真实停止条件，无push/PR/发布授权。
-
 # 机制修正第015包
 
 修正 tome-orcs.lua 中10条描述、10个原confirmed claim。主要涉及反击与追加攻击的触发次数、距离减伤与逐次伤害上限、技能树精通加值、敌对目标筛选、暴击额外伤害减免、熔点触发边界、外骨骼修复成本来源，以及重型武器的范围、命中和状态施加。
@@ -15,8 +11,3 @@
 范围外pending：1443链锯旋转描述第5占位符的增伤数值有显示getter，但执行进程未找到此技能应用对应加成的消费者，未据此自动扩展修改。该疑点与本包反击触发claim分开，保留报告原文供后续有界核验。MMR-026术语待决事项亦保持。
 
 本次限定风味后的 RE_REVIEW/full 与 FINAL_REVIEW/full 均为10 OK；宿主核对原生输出、工具读取边界及冻结身份，所有10个 child 已确认归档（含应用户暂停而取消的执行进程）。最终状态由 ai_state_check.py 验收。
-
-
-提交本包后按packages.json推进第016包，保留既定10条以内有界范围。 每包唯一EXECUTOR写Lua，宿主核验，冻结whole-workset REVIEW/full→必要FIX/RE_REVIEW→FINAL/full、门禁、归档、DONE与提交。结束child不续跑，MCP实时profiles/author与lineage核验，canonical prompt≤800UTF8字节，raw先原样保存后严格解析。无须逐包询问。
-
-第010包bowman同revision跨轮OK/ISSUE曾触发WAIT_USER，用户已明确回复“同意”，批准源码支持的召唤时获得技能/等级取决于当时召唤者等级的单句修订及继续；USER-DECISION-BOWMAN保留，不重复征求该决定。第009包旧task因恢复父级变化STOP_VERIFIED，同范围接续task完整DONE，证据package-009-resume，旧记录不改。第004包毒箭终审疑点已被用户撤销，不重开。MMR-026共享术语决定仍待既有答复，不重复问、不扩大术语/全局策略授权。

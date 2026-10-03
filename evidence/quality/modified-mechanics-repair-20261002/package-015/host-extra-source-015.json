@@ -1,0 +1,45 @@
+{
+  "records": [
+    {
+      "component": "tome",
+      "path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "line_start": 1187,
+      "line_end": 1204,
+      "excerpt": "1187: newDamageType{\n1188: \tname = _t(\"fire burn\", \"damage type\"), type = \"FIREBURN\", text_color = \"#LIGHT_RED#\",\n1189: \tprojector = function(src, x, y, type, dam, state)\n1190: \t\tstate = initState(state)\n1191: \t\tuseImplicitCrit(src, state)\n1192: \t\tlocal dur = 3\n1193: \t\tlocal perc = 50\n1194: \t\tif _G.type(dam) == \"table\" then dam, dur, perc = dam.dam, dam.dur, (dam.initial or perc) end\n1195: \t\tlocal init_dam = dam * perc / 100\n1196: \t\tif init_dam > 0 then DamageType:get(DamageType.FIRE).projector(src, x, y, DamageType.FIRE, init_dam, state) end\n1197: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n1198: \t\tif target then\n1199: \t\t\t-- Set on fire!\n1200: \t\t\tdam = dam - init_dam\n1201: \t\t\ttarget:setEffect(target.EFF_BURNING, dur, {src=src, power=dam / dur, no_ct_effect=true})\n1202: \t\tend\n1203: \t\treturn init_dam\n1204: \tend,"
+    },
+    {
+      "component": "tome",
+      "path": "game/modules/tome/class/interface/Combat.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "line_start": 669,
+      "line_end": 704,
+      "excerpt": "669: \tif not no_procs then\n670: \t\thitted = self:attackTargetHitProcs(target, weapon, dam, apr, armor, damtype, mult, atk, def, hitted, crit, evaded, repelled, old_target_life)\n671: \tend\n672: \n673: \t-- Visual feedback\n674: \tif hitted then game.level.map:particleEmitter(target.x, target.y, 1, \"melee_attack\", {color=target.blood_color}) end\n675: \tif Map.tiles and Map.tiles.use_images then if self.x and target.x then if target.x < self.x then self:MOflipX(self:isTileFlipped()) elseif target.x > self.x then self:MOflipX(not self:isTileFlipped()) end end end\n676: \n677: \tself.turn_procs.weapon_type = nil\n678: \n679: \t--Life Steal\n680: \tif weapon and weapon.lifesteal then\n681: \t\tself:attr(\"lifesteal\", -weapon.lifesteal)\n682: \t\tself:attr(\"silent_heal\", -1)\n683: \tend\n684: \n685: \tif weapon and weapon.attack_recurse then\n686: \t\tif self.__attacktargetwith_recursing then\n687: \t\t\tself.__attacktargetwith_recursing = self.__attacktargetwith_recursing - 1\n688: \t\telse\n689: \t\t\tself.__attacktargetwith_recursing = weapon.attack_recurse - 1\n690: \t\t\tself.__attacktargetwith_recursing_procs_reduce = weapon.attack_recurse_procs_reduce\n691: \t\tend\n692: \n693: \t\tif self.__attacktargetwith_recursing > 0 and not self.turn_procs._no_melee_recursion then\n694: \t\t\tlocal _, newhitted, newdam = self:attackTargetWith(target, weapon, damtype, mult, force_dam)\n695: \t\t\thitted = newhitted or hitted\n696: \t\t\tdam = math.max(dam, newdam)\n697: \t\telse\n698: \t\t\tself.__attacktargetwith_recursing = nil\n699: \t\t\tself.__attacktargetwith_recursing_procs_reduce = nil\n700: \t\tend\n701: \tend\n702: \n703: \treturn self:combatSpeed(weapon), hitted, dam\n704: end"
+    },
+    {
+      "component": "tome",
+      "path": "game/engines/default/engine/Target.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "d89c2dd92471ac5cdd9fb02c6a20c7432deabecb9617902a9bf1acdced117bed",
+      "line_start": 677,
+      "line_end": 685,
+      "excerpt": "677: \tt = table.clone(t)\n678: \t-- Default type def\n679: \tlocal target_type = {\n680: \t\trange = 20,\n681: \t\tselffire = true,\n682: \t\tfriendlyfire = true,\n683: \t\tactorblock = true,\n684: \t}\n685: \tfor k, v in pairs(self.defaults) do target_type[k] = v end"
+    },
+    {
+      "component": "tome",
+      "path": "game/engines/default/engine/interface/ActorProject.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "316cf75aaf725560045eae47af019de634d3bb62687495ae7fb46868786610b1",
+      "line_start": 250,
+      "line_end": 259,
+      "excerpt": "250: \t\t\t-- Call the projected method of the target grid if possible\n251: \t\t\tif not game.level.map:checkAllEntities(px, py, \"projected\", self, t, px, py, damtype, dam, particles) then\n252: \t\t\t\t-- Check self- and friendly-fire, excluded Actors, and if the projection \"misses\"\n253: \t\t\t\tlocal act = game.level.map(px, py, engine.Map.ACTOR)\n254: \t\t\t\tif act and (typ.act_exclude and typ.act_exclude[act.uid]) or act == self and not ((type(typ.selffire) == \"number\" and rng.percent(typ.selffire)) or (type(typ.selffire) ~= \"number\" and typ.selffire)) then\n255: \t\t\t\telseif act and self.reactionToward and (self:reactionToward(act) >= 0) and not ((type(typ.friendlyfire) == \"number\" and rng.percent(typ.friendlyfire)) or (type(typ.friendlyfire) ~= \"number\" and typ.friendlyfire)) then\n256: \t\t\t\t-- Otherwise hit\n257: \t\t\t\telse\n258: \t\t\t\t\tif type(damtype) == \"function\" then if damtype(px, py, t, self) then stop=true break end\n259: \t\t\t\t\telse DamageType:get(damtype).projector(self, px, py, damtype, dam, state, nil) end"
+    }
+  ],
+  "observations": [
+    "FIREBURN defaults: 50 percent initial, remaining damage divided across 3 burning ticks.",
+    "ActorProject excludes reaction >= 0 when friendlyfire false.",
+    "attackTargetWith returns combatSpeed first and hitted second; STORMSTRIKE local hit receives speed."
+  ]
+}

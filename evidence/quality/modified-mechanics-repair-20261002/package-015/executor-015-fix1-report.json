@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "task_id": "mmrfix-20261002-015",
+  "role": "executor",
+  "cycle": 1,
+  "result": "FIX cycle1 completed: exact new_target applied; all executor checks passed",
+  "changed_files": [
+    "tome-orcs.lua"
+  ],
+  "entry_count": 1,
+  "finding_id": "HOST-FLAME-DISTRIBUTION-015",
+  "old_target": "你收起蒸汽枪，改用燃烧装置攻击，向敌人喷射液态火焰。\n\n\t\t对前方锥形范围内、距离不超过蒸汽枪射程的敌人造成相当于蒸汽枪伤害 %d%% 的火焰伤害，持续 3 回合。\n\n\t\t这些攻击需要进行命中判定，并具有 1000 点护甲穿透。",
+  "new_target": "你收起蒸汽枪，改用燃烧装置攻击，向敌人喷射液态火焰。\n\n\t\t对前方锥形范围内、距离不超过蒸汽枪射程的敌人造成总计相当于蒸汽枪伤害 %d%% 的火焰伤害，其中一半立即造成，另一半在随后 3 回合内造成。\n\n\t\t这些攻击需要进行命中判定，并具有 1000 点护甲穿透。",
+  "source_evidence": [
+    {
+      "component": "tome",
+      "path": "game/modules/tome/data/damage_types.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "excerpts": [
+        {
+          "line_start": 1187,
+          "line_end": 1204,
+          "excerpt": "1187: newDamageType{\n1188: \tname = _t(\"fire burn\", \"damage type\"), type = \"FIREBURN\", text_color = \"#LIGHT_RED#\",\n1189: \tprojector = function(src, x, y, type, dam, state)\n1190: \t\tstate = initState(state)\n1191: \t\tuseImplicitCrit(src, state)\n1192: \t\tlocal dur = 3\n1193: \t\tlocal perc = 50\n1194: \t\tif _G.type(dam) == \"table\" then dam, dur, perc = dam.dam, dam.dur, (dam.initial or perc) end\n1195: \t\tlocal init_dam = dam * perc / 100\n1196: \t\tif init_dam > 0 then DamageType:get(DamageType.FIRE).projector(src, x, y, DamageType.FIRE, init_dam, state) end\n1197: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n1198: \t\tif target then\n1199: \t\t\t-- Set on fire!\n1200: \t\t\tdam = dam - init_dam\n1201: \t\t\ttarget:setEffect(target.EFF_BURNING, dur, {src=src, power=dam / dur, no_ct_effect=true})\n1202: \t\tend\n1203: \t\treturn init_dam\n1204: \tend,"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "path": "game/modules/tome/class/interface/Archery.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "09fdce1e839d74e1a5bd65a1432f044a3811ecc5618dbecc828e33738963c0fe",
+      "excerpts": [
+        {
+          "line_start": 300,
+          "line_end": 326,
+          "excerpt": "300: \tlocal talent = self:getTalentFromId(tg.talent_id)\n301: \n302: \tlocal target = game.level.map(tx, ty, game.level.map.ACTOR)\n303: \tif talent.archery_onreach then\n304: \t\ttalent.archery_onreach(self, talent, tx, ty, tg, target)\n305: \tend\n306: \tif not target then return end\n307: \n308: \tlocal damtype = tg.archery.damtype or ammo.damtype or DamageType.PHYSICAL\n309: \tlocal mult = tg.archery.mult or 1\n310: \n311: \tself.turn_procs.weapon_type = {kind=weapon and weapon.talented or \"unknown\", mode=\"archery\"}\n312: \n313: \t-- Does the blow connect? yes .. complex :/\n314: \tif tg.archery.use_psi_archery then self:attr(\"use_psi_combat\", 1) end\n315: \tlocal atk, def = self:combatAttackRanged(weapon, ammo), target:combatDefenseRanged()\n316: \tlocal dam, apr, armor = self:combatDamage(weapon, nil, ammo), self:combatAPR(ammo) + (weapon and weapon.apr or 0), target:combatArmor()\n317: \tatk = atk + (tg.archery.atk or 0)\n318: \tdam = dam + (tg.archery.dam or 0)\n319: \tapr = apr + (tg.archery.apr or 0)\n320: \tprint(\"[ATTACK ARCHERY]\", self.__project_source and self.__project_source.uid,\" to \", target.name, \" :: \", dam, apr, armor, \"::\", mult)\n321: \n322: \t-- If hit is over 0 it connects, if it is 0 we still have 50% chance\n323: \tlocal hitted = false\n324: \tlocal crit = false\n325: \tlocal deflect = 0\n326: \tif self:checkHit(atk, def) and (self:canSee(target) or self:attr(\"blind_fight\") or rng.chance(3) or talent.archery_auto_hit) then"
+        },
+        {
+          "line_start": 340,
+          "line_end": 368,
+          "excerpt": "340: \t\tarmor = math.max(0, armor - apr)\n341: \t\tdam = math.max(dam * pres - armor, 0) + (dam * (1 - pres))\n342: \t\tprint(\"[ATTACK ARCHERY] after armor\", dam)\n343: \n344: \t\tlocal damrange = self:combatDamageRange(ammo)\n345: \t\tdam = rng.range(dam, dam * damrange)\n346: \t\tprint(\"[ATTACK ARCHERY] after range\", dam)\n347: \n348: \t\tif target:hasEffect(target.EFF_COUNTERSTRIKE) then\n349: \t\t\tdam = target:callEffect(target.EFF_COUNTERSTRIKE, \"onStrike\", dam, self)\n350: \t\t\tprint(\"[ATTACK] after counterstrike\", dam)\n351: \t\tend\n352: \n353: \t\tif weapon and weapon.inc_damage_type then\n354: \t\t\tlocal inc = 0\n355: \n356: \t\t\tfor k, v in pairs(weapon.inc_damage_type) do\n357: \t\t\t\tif target:checkClassification(tostring(k)) then inc = math.max(inc, v) end\n358: \t\t\tend\n359: \n360: \t\t\tdam = dam + dam * inc / 100\n361: \n362: \t\t\tprint(\"[ATTACK] after inc by type (weapon)\", dam)\n363: \t\tend\n364: \n365: \t\tif ammo and ammo.inc_damage_type then\n366: \t\t\tlocal inc = 0\n367: \n368: \t\t\tfor k, v in pairs(ammo.inc_damage_type) do"
+        },
+        {
+          "line_start": 398,
+          "line_end": 442,
+          "excerpt": "398: \t\tlocal hd = {\"Combat:archeryDamage\", hitted=hitted, target=target, weapon=weapon, ammo=ammo, damtype=damtype, mult=1, dam=dam}\n399: \t\tif self:triggerHook(hd) then\n400: \t\t\tdam = dam * hd.mult\n401: \t\tend\n402: \t\tprint(\"[ATTACK ARCHERY] after hook\", dam)\n403: \n404: \t\tif crit then self:logCombat(target, \"#{bold}##Source# performs a ranged critical strike against #Target#!#{normal}#\") end\n405: \n406: \t\tif tg.archery.crushing_blow then self:attr(\"crushing_blow\", 1) end\n407: \n408: \t\t-- Damage conversion?\n409: \t\t-- Convert base damage to other damage types according to weapon and ammo\n410: \t\tlocal ammo_conversion, weapon_conversion = 0, 0\n411: \t\tif dam > 0 then\n412: \t\t\tlocal conv_dam\n413: \t\t\tlocal archery_state = {is_archery=true}\n414: \t\t\tif tmp then table.merge(archery_state, tmp) end\n415: \t\t\tif ammo and ammo.convert_damage then -- convert to ammo damage types first\n416: \t\t\t\tfor typ, conv in pairs(ammo.convert_damage) do\n417: \t\t\t\t\tconv_dam = math.min(dam, dam * (conv / 100))\n418: \t\t\t\t\tprint(\"[ATTACK ARCHERY]\\tAmmo DamageType conversion%\", conv, typ, conv_dam)\n419: \t\t\t\t\tammo_conversion = ammo_conversion + conv_dam\n420: \t\t\t\t\tif conv_dam > 0 then\n421: \t\t\t\t\t\tDamageType:get(typ).projector(self, target.x, target.y, typ, conv_dam, archery_state)\n422: \t\t\t\t\tend\n423: \t\t\t\tend\n424: \t\t\t\tdam = dam - ammo_conversion\n425: \t\t\t\tprint(\"[ATTACK ARCHERY]\\t after Ammo DamageType conversion dam:\", dam)\n426: \t\t\tend\n427: \t\t\tif weapon and weapon.convert_damage and dam > 0 then -- convert remaining damage to weapon damage types\n428: \t\t\t\tfor typ, conv in pairs(weapon.convert_damage) do\n429: \t\t\t\t\tconv_dam = math.min(dam, dam * (conv / 100))\n430: \t\t\t\t\tprint(\"[ATTACK ARCHERY]\\tWeapon DamageType conversion%\", conv, typ, conv_dam)\n431: \t\t\t\t\tweapon_conversion = weapon_conversion + conv_dam\n432: \t\t\t\t\tif conv_dam > 0 then\n433: \t\t\t\t\t\tDamageType:get(typ).projector(self, target.x, target.y, typ, conv_dam, archery_state)\n434: \t\t\t\t\tend\n435: \t\t\t\tend\n436: \t\t\t\tdam = dam - weapon_conversion\n437: \t\t\t\tprint(\"[ATTACK ARCHERY]\\t after Weapon DamageType conversion dam:\", dam)\n438: \t\t\tend\n439: \n440: \t\t\tif dam > 0 then\n441: \t\t\t\tDamageType:get(damtype).projector(self, target.x, target.y, damtype, dam, archery_state)\n442: \t\t\tend"
+        }
+      ]
+    },
+    {
+      "component": "orcs",
+      "path": "tome-orcs/data/talents/steam/heavy-weapons.lua",
+      "commit": null,
+      "source_pinning": "unpinned",
+      "sha256": "0b4f50fb9226192436c2c2d6265cb7c6237c3cff4bb9e07d55e37faaa04fb1dd",
+      "excerpts": [
+        {
+          "line_start": 34,
+          "line_end": 35,
+          "excerpt": "34: \tgetNb = function(self, t) return 5 end,\n35: \tgetFlamethrowerBaseDamage = function(self, t) return self:combatTalentWeaponDamage(t, 1.0, 1.5) end,\t"
+        },
+        {
+          "line_start": 111,
+          "line_end": 128,
+          "excerpt": "111: \t\tif not flamethrower.fire_flamethrower(self, flamethrower) then return end\n112: \t\tlocal ret = {\n113: \t\t}\n114: \n115: \t\tif self:isTalentActive(self.T_HW_SHOCKSTAFF) then self:forceUseTalent(self.T_HW_SHOCKSTAFF, {ignore_energy=true}) end\n116: \t\tif self:isTalentActive(self.T_HW_BOLTGUN) then self:forceUseTalent(self.T_HW_BOLTGUN, {ignore_energy=true}) end\n117: \t\tif self.hotkey and self.isHotkeyBound then\n118: \t\t\tlocal pos = self:isHotkeyBound(\"talent\", self.T_SHOOT)\n119: \t\t\tif pos then\n120: \t\t\t\tself.hotkey[pos] = {\"talent\", self.T_FLAME_JET}\n121: \t\t\tend\n122: \t\t\tself:talentTemporaryValue(ret, \"auto_shoot_talent\", \"T_FLAME_JET\")\n123: \t\tend\n124: \n125: \t\tlocal ohk = self.hotkey\n126: \t\tself.hotkey = nil\n127: \t\tself:learnTalent(self.T_FLAME_JET, true, 1, {no_unlearn=true})\n128: \t\tself.hotkey = ohk"
+        },
+        {
+          "line_start": 149,
+          "line_end": 176,
+          "excerpt": "149: \tinfo = function(self, t)\n150: \t\tlocal hw = self:getTalentFromId(self.T_HEAVY_WEAPONS)\n151: \t\tlocal fdam = hw.getFlamethrowerBaseDamage(self, hw)*100\n152: \t\treturn ([[You replace your steamgun and attack with an incendiary device that projects streams of liquid flame at your foes.\n153: \t\t\n154: \t\tDeals %d%% steamgun damage as fire over 3 turns to enemies in radius 5.\n155: \n156: \t\tThese attacks cannot miss and ignore armor.]]):tformat(fdam)\n157: \tend,\n158: }\n159: \n160: newTalent{\n161: \tname = \"Flame Jet\",\n162: \ttype = {\"steamtech/other\", 1},\n163: \tpoints = 1,\n164: \tno_energy = \"fake\",\n165: \theavy_weapon = true,\n166: \trange = steamgun_range,\n167: \tinnate = true,\n168: \tgetDamage = function(self,t) return self:callTalent(self.T_HEAVY_WEAPONS, \"getFlamethrowerBaseDamage\") end,\n169: \ttactical = { ATTACKAREA = { weapon = 2 }, },\n170: \tno_npc_use = true,\n171: \trequires_target = true,\n172: \ttarget = function(self, t)\n173: \t\tlocal weapon, ammo = self:hasArcheryWeapon()\n174: \t\treturn {type = \"cone\", range = 0, radius = self:getTalentRange(t), selffire = false, talent = t }\n175: \tend,\n176: \ton_pre_use = function(self, t, silent) "
+        },
+        {
+          "line_start": 191,
+          "line_end": 225,
+          "excerpt": "191: \tfire_flamethrower = function(self, t)\n192: \t\tlocal eff = self:hasEffect(self.EFF_HEAVY_AMMUNITION)\n193: \t\tif not eff then return nil end\n194: \n195: \t\tlocal tg = self:getTalentTarget(t)\n196: \t\tlocal x, y = self:getTarget(tg)\n197: \t\tif not x or not y then return end\n198: \t\tlocal targets = {}\n199: \t\tlocal add_target = function(x, y)\n200: \t\t\tlocal target = game.level.map(x, y, game.level.map.ACTOR)\n201: \t\t\tif target and self:reactionToward(target) < 0 then\n202: \t\t\t\ttargets[#targets + 1] = target\n203: \t\t\tend\n204: \t\tend\n205: \t\tself:project(tg, x, y, add_target)\n206: \t\tif #targets == 0 then return end\n207: \n208: \t\ttable.shuffle(targets)\n209: \n210: \t\t-- Fire each shot individually.\n211: \t\tlocal old_target_forced = game.target.forced\n212: \t\tlocal fired = nil -- If we've fired at least one shot.\n213: \t\tfor i = 1, #targets do\n214: \t\t\tlocal target = targets[i]\n215: \t\t\tgame.target.forced = {target.x, target.y, target}\n216: \t\t\tlocal targets = self:archeryAcquireTargets({type = \"hit\", speed = 200}, {infinite=true, no_energy = fired, no_sound=true})\n217: \t\t\tif targets then\n218: \t\t\t\tlocal target = targets.dual and targets.main[1] or targets[1]\n219: \t\t\t\tlocal dist = core.fov.distance(self.x, self.y, target.x, target.y) - 1\n220: \t\t\t\tself:archeryShoot(targets, t, {type = \"hit\", speed = 200, start_x=target.x, start_y=target.y}, {mult = t.getDamage(self,t), apr=1000, phasing = true, phase_target = game.level.map(target.x, target.y, game.level.map.ACTOR), damtype=DamageType.FIREBURN})\n221: \t\t\t\tfired = true\n222: \t\t\telse\n223: \t\t\t\t-- If no target that means we're out of ammo.\n224: \t\t\t\tbreak\n225: \t\t\tend"
+        },
+        {
+          "line_start": 239,
+          "line_end": 246,
+          "excerpt": "239: \t\treturn t.fire_flamethrower(self, t)\n240: \tend,\n241: \tinfo = function(self, t)\n242: \t\tlocal dam = t.getDamage(self,t)*100\n243: \t\treturn ([[Fire a jet of flame, dealing %d%% weapon damage as fire over 3 turns.]])\n244: \t\t:tformat(dam)\n245: \tend,\n246: }"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "path": "game/modules/tome/class/interface/Archery.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "09fdce1e839d74e1a5bd65a1432f044a3811ecc5618dbecc828e33738963c0fe",
+      "excerpts": [
+        {
+          "line_start": 374,
+          "line_end": 382,
+          "excerpt": "374: \t\t\tprint(\"[ATTACK] after inc by type (ammo)\", dam)\n375: \t\tend\n376: \n377: \t\tif deflect == 0 then dam, crit = self:physicalCrit(dam, ammo, target, atk, def, tg.archery.crit_chance or 0, (tg.archery.crit_power or 0) + (weapon.crit_power or 0)/100) end\n378: \t\tprint(\"[ATTACK ARCHERY] after crit\", dam)\n379: \n380: \t\tdam = dam * mult * (weapon.dam_mult or 1)\n381: \t\tprint(\"[ATTACK ARCHERY] after mult\", dam)\n382: "
+        },
+        {
+          "line_start": 698,
+          "line_end": 714,
+          "excerpt": "698: \t-- Pass friendly actors\n699: \tif self:attr(\"archery_pass_friendly\") or self:knowTalent(self.T_SHOOT_DOWN) then\n700: \t\ttg.friendlyfire=false\t\n701: \t\ttg.friendlyblock=false\n702: \tend\n703: \n704: \t-- hook to trigger before any archery projectiles are created\n705: \tself:triggerHook{\"Combat:archeryTargetKind\", tg=tg, params=params, weapon=weaponC, offweapon=offweaponC, pf_weapon=pf_weaponC, ammo=ammo, mode=\"fire\"}\n706: \n707: \t-- create a projectile for each target on the list\n708: \tlocal dofire = function(weapon, targets, realweapon)\n709: \n710: \t\tfor i = 1, #targets do\n711: \t\t\tlocal tg = table.clone(tg) -- prevent overwriting params from different shooter/ammo combinations\n712: \t\t\ttg.archery = table.clone(params)\n713: \t\t\ttg.archery.weapon = weapon\n714: \t\t\ttg.archery.ammo = targets[i].ammo or ammo.combat"
+        }
+      ]
+    },
+    {
+      "component": "tome",
+      "path": "game/modules/tome/data/timed_effects/physical.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "source_pinning": "pinned",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "excerpts": [
+        {
+          "line_start": 417,
+          "line_end": 440,
+          "excerpt": "417: newEffect{\n418: \tname = \"BURNING\", image = \"talents/flame.png\",\n419: \tdesc = _t\"Burning\",\n420: \tlong_desc = function(self, eff) return (\"The target is on fire, taking %0.2f fire damage per turn.\"):tformat(eff.power) end,\n421: \tcharges = function(self, eff) return (math.floor(eff.power)) end,\n422: \ttype = \"physical\",\n423: \tsubtype = { fire=true },\n424: \tstatus = \"detrimental\",\n425: \tparameters = { power=10 },\n426: \ton_gain = function(self, err) return _t\"#Target# is on fire!\", _t\"+Burn\" end,\n427: \ton_lose = function(self, err) return _t\"#Target# stops burning.\", _t\"-Burn\" end,\n428: \ton_merge = function(self, old_eff, new_eff)\n429: \t\t-- Merge the flames!\n430: \t\tlocal olddam = old_eff.power * old_eff.dur\n431: \t\tlocal newdam = new_eff.power * new_eff.dur\n432: \t\tlocal dur = math.ceil((old_eff.dur + new_eff.dur) / 2)\n433: \t\told_eff.dur = dur\n434: \t\told_eff.power = (olddam + newdam) / dur\n435: \t\treturn old_eff\n436: \tend,\n437: \ton_timeout = function(self, eff)\n438: \t\tDamageType:get(DamageType.FIRE).projector(eff.src, self.x, self.y, DamageType.FIRE, eff.power)\n439: \tend,\n440: }"
+        }
+      ]
+    }
+  ],
+  "source_verification": {
+    "status": "confirmed",
+    "chain": "Heavy Weapons getFlamethrowerBaseDamage -> Flamethrower info fdam*100 -> Flame Jet getDamage -> archeryShoot mult, apr=1000, phasing=true, FIREBURN -> Archery checkHit and scalar dam projector -> FIREBURN default dur=3, perc=50; immediate FIRE=dam/2, EFF_BURNING power=(dam/2)/3 for 3 turns",
+    "dlc_source": "Repository, commit and release version are not fixed; evidence anchored by actual file SHA256",
+    "quantity_limit": "Nominal weapon multiplier and FIREBURN split; actual final damage depends on hit, mitigation, damage conversion and other combat modifiers"
+  },
+  "placeholders": [
+    {
+      "index": 1,
+      "token": "%d",
+      "quantity_kind": "steamgun_weapon_damage_multiplier_percent",
+      "calculation": "combatTalentWeaponDamage(1.0,1.5)*100 for display; same getFlamethrowerBaseDamage supplied as Flame Jet getDamage and archeryShoot mult",
+      "consumer": "Archery scalar dam to FIREBURN; split 50 percent immediate, 50 percent over 3 turns"
+    },
+    {
+      "token": "%%",
+      "index": null,
+      "quantity_kind": "literal percent sign"
+    }
+  ],
+  "byte_proof": {
+    "preimage_sha256": "0e94cc9e8d1da5c5cabae58e8d276fa6e2c1d2cfa47cfd898af5f0aadde918b6",
+    "preimage_expected_sha256": "0e94cc9e8d1da5c5cabae58e8d276fa6e2c1d2cfa47cfd898af5f0aadde918b6",
+    "postimage_sha256": "97e88a25c9b7a5d5bdc94090bebffe5fd07fb963f864f173cc81fa9f1ee6a1e8",
+    "reverse_sha256": "0e94cc9e8d1da5c5cabae58e8d276fa6e2c1d2cfa47cfd898af5f0aadde918b6",
+    "reverse_equals_initial_preimage": true,
+    "target_start_byte": 633174,
+    "record_count": 4202,
+    "changed_record_indices": [
+      2260
+    ],
+    "changed_record_lines": [
+      5149
+    ],
+    "changed_target_fields": 1,
+    "all_non_target_fields_equal": true,
+    "other_9_workset_entries_unchanged": true,
+    "all_out_of_scope_bytes_equal": true,
+    "invariants": {
+      "placeholder_sequence": true,
+      "markup_sequence": true,
+      "newline_tab_sequence": true
+    }
+  },
+  "tests": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "stdout": "OK  manifest       tome-1.7.6\nOK  runtime        Lua 5.1 / LuaJIT 2.1.0-beta3\nOK  LPeg           0.10.2-1 (0.10)\nOK   repository      engine: /workspace/t-engine4; visibility=public extraction_mode=full-tree source_pinning=pinned scan_allowlist=['game/engines/default/data', 'game/engines/default/engine', 'game/engines/default/modules/boot', 'game/modules/example', 'game/modules/example_realtime', 'game/modules/tome', 'i18n_tools']\nOK   repository      addon: /workspace/tome4-chn-mod; visibility=public extraction_mode=full-tree source_pinning=pinned scan_allowlist=['.']\nOK   source          ashes-urhrok: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nOK   source          cults: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nOK   source          orcs: visibility=public extraction_mode=lua-extractor-only source_pinning=unpinned scan_allowlist=[]\nWARN              source-unpinned: ashes-urhrok: source repository/commit unknown; extraction snapshot is not a source pin\nWARN              source-unpinned: cults: source repository/commit unknown; extraction snapshot is not a source pin\nWARN              source-unpinned: orcs: source repository/commit unknown; extraction snapshot is not a source pin\n",
+      "stderr": "",
+      "log": "/tmp/mmr015-fix1-test-0.log"
+    },
+    {
+      "command": "python3 -B /tmp/mmr015-fix1-lint.py",
+      "exit_code": 0,
+      "stdout": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /tmp/mmr015-fix1-check-output/.artifacts/i18n/runs/20261003T012953.551050Z-54-lint/lint.json\n",
+      "stderr": "",
+      "log": "/tmp/mmr015-fix1-test-1.log"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "log": "/tmp/mmr015-fix1-test-2.log"
+    },
+    {
+      "command": "python3 -B tools/scan_runtime_collisions.py --out-dir /tmp/mmr015-fix1-runtime-scan",
+      "exit_code": 0,
+      "stdout": "runtime collisions: 0\n  json: /tmp/mmr015-fix1-runtime-scan/runtime-collisions.json\n  md:   /tmp/mmr015-fix1-runtime-scan/runtime-collisions.md\n",
+      "stderr": "",
+      "log": "/tmp/mmr015-fix1-test-3.log"
+    },
+    {
+      "command": "python3 -B tools/classify_runtime_keys.py --out-dir /tmp/mmr015-fix1-runtime-classification",
+      "exit_code": 0,
+      "stdout": "duplicate keys: 1711\n桶 A 不同 section: 1711\n桶 B 同一 section: 0\n桶 C 混合 section: 0\n桶 A tag 分布: {'_t': 698, 'entity name': 353, 'entity subtype': 114, 'entity keyword': 103, 'entity type': 71, 'effect subtype': 68, 'tformat': 65, 'logPlayer': 64, 'logSeen': 50, 'talent name': 29, 'entity short_name': 23, 'log': 15, 'birth facial category': 13, 'talent category': 10, 'logCombat': 9, 'entity on slot': 7, 'entity combat talented': 6, 'saySimple': 6, 'newLore category': 2, 'say': 2, 'talent type': 2, 'dialog_portal': 1}\n桶 A 目录模式分布: {'data/general': 1836, 'data/zones': 985, 'data/talents': 473, 'data/birth': 460, 'data/timed_effects': 297, 'data/chats': 151, 'modules/boot': 76, 'data/ingredients.lua': 73, 'engine/dialogs': 67, 'class/uiset': 49, 'data/tinkers': 36, 'dialogs/debug': 34, 'dialogs/shimmer': 34, 'overload/mod': 33, 'data/maps': 29}\nreport written: /tmp/mmr015-fix1-runtime-classification\n",
+      "stderr": "",
+      "log": "/tmp/mmr015-fix1-test-4.log"
+    },
+    {
+      "command": "python3 -B /tmp/mmr015-fix1-proposal.py (tools/i18n proposal --strict handler)",
+      "exit_code": 0,
+      "result": "OK proposal fe8b9cb47387097f  coverage=10/10 errors=0 warnings=0\nReport: /tmp/mmr015-proposal-root/.artifacts/i18n/runs/20261003T013008.398324Z-4-proposal/proposal-validation.json\nValidated: /tmp/mmr015-proposal-root/.artifacts/i18n/runs/20261003T013008.398324Z-4-proposal/fe8b9cb47387097f7a97cd7fdd044afd472522c693a01b7e2c75d615d60b2ef1.validated.json\n"
+    },
+    {
+      "command": "LuaRuntime/LocaleLoader preimage/postimage load and reverse target byte substitution",
+      "exit_code": 0,
+      "result": "4202 records; exactly one target changed; all non-target fields, other 9 workset entries and outside bytes unchanged; reverse SHA equals FIX-1 preimage"
+    }
+  ],
+  "plan_deviations": [
+    "No target or scope deviation. Strict lint executes tools/i18n via runpy with only create_run_directory redirected to own /tmp. Strict proposal uses existing frozen 10-entry temporary workset with only specified target updated and existing /tmp manifest report root; repository tools and task/evidence files unchanged."
+  ],
+  "unresolved_items": [],
+  "prohibited_actions_performed": {
+    "source_edits": false,
+    "terminology_edits": false,
+    "tool_edits": false,
+    "ai_edits": false,
+    "evidence_edits": false,
+    "user_file_edits": false,
+    "stage": false,
+    "commit": false,
+    "child_creation": false
+  },
+  "limitations": [
+    "DLC source repository/commit/version unpinned; verified actual file hash against previous frozen executor source anchor.",
+    "FIREBURN distribution states default nominal split; existing BURNING can merge and final damage is affected by combat modifiers. No game code change or guarantee of final damage.",
+    "Independent review, final full gates, build, publish dry-run, state closure, archive, stage/commit remain ORCHESTRATOR responsibilities."
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-015/INPUT-review-0-a1.json; echo; grep -n '^## ' docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read review input and contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-review-0-a1.json'))\np=d['payload']\nprint(d.keys(), p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n    print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False)[:500])\nEOF",
+      "description": "Summarize input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md",
+      "description": "List contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-review-0-a1.json'))\np=d['payload']\nctx={b['revision_key']:b['context'] for b in p['bounded_context']}\nfor i,t in enumerate(p['translation_snapshot']):\n    print('=====',i,t['revision_key'][:8])\n    print('SRC:',t['source']); print('TGT:',t['target'])\n    c=json.loads(ctx[t['revision_key']])\n    print('META:',{k:v for k,v in c.items() if k!='source_evidence'} )\n    for e in c.get('source_evidence',[]):\n        print('--',e['public_path'],e['start'],e['end']); print(e['excerpt'])\nEOF",
+      "description": "Dump entries with source evidence"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md; python3 - <<'EOF' > /tmp/rev015.txt\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-review-0-a1.json'))\np=d['payload']\nctx={b['revision_key']:b['context'] for b in p['bounded_context']}\nfor i,t in enumerate(p['translation_snapshot']):\n    print('=====',i,t['revision_key'][:8])\n    print('SRC:',t['source']); print('TGT:',t['target'])\n    c=json.loads(ctx[t['revision_key']])\n    print('META:',c.get('section'),c.get('source_tag'), [ (x['source'],x['target']) for x in c.get('terminology',[])])\n    for k in c:\n        if k not in ('source_evidence','terminology','section','source_tag','source_locations','read_boundary','source_access_warning','execution_cwd_requirement','component'): print('KEY',k, json.dumps(c[k],ensure_ascii=False)[:1500])\n    for e in c.get('source_evidence',[]):\n        print('--',e.get('public_path'),e.get('start'),e.get('end'), [k for k in e])\n        print(e.get('excerpt', json.dumps(e,ensure_ascii=False)[:2000]))\nEOF\nwc -l /tmp/rev015.txt",
+      "description": "Read contract section 6 and dump entries"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/rev015.txt"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/rev015.txt",
+      "offset": 511
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-015/INPUT-review-0-a1.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n    c=json.loads(b['context'])\n    for e in c.get('source_evidence',[]):\n        if 'windows' in e:\n            print('=====',i,e['public_path'],e['frozen_file'],e['sha256'])\n            for w in e['windows']:\n                print(w['text'][1400:] if i in (3,5,6) else w['text'])\nEOF",
+      "description": "Print full source windows"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources; ls -R $F | head -50; sha256sum $F/orcs/tome-orcs/data/talents/steam/furnace.lua; grep -n 'cleanActor\\|MOLTEN_POINT\\|Melting\\|MELTING' $F/orcs/tome-orcs/data/talents/steam/furnace.lua",
+      "description": "List frozen sources and grep furnace"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-015/sources; sed -n 20,148p $F/orcs/tome-orcs/data/talents/steam/furnace.lua; ls $F/orcs/tome-orcs/superload/mod/class/interface/; sed -n 120,161p $F/orcs/tome-orcs/superload/mod/class/interface/Combat.lua",
+      "description": "Read furnace and Combat superload"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; ls /workspace/tome4-dlcs; D=$(ls -d /workspace/tome4-dlcs/*orcs* 2>/dev/null | head -1); echo $D; grep -rn 'steamsaw_dam_mult\\|getPercentInc' /workspace/tome4-dlcs --include=*.lua | grep -v '/locales\\?/' | head; sha256sum $(find /workspace/tome4-dlcs -path '*tome-orcs/data/talents/spells/occult-technomancy.lua')",
+      "description": "Search DLC source for steamsaw_dam_mult"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-dlcs/orcs; grep -rn 'METATEMPORAL_SPINNER' --include=*.lua . | grep -v locale; grep -rn 'steamsaw' tome-orcs/superload/mod/class/interface/Combat.lua tome-orcs/hooks/*.lua 2>/dev/null | head -20",
+      "description": "Find spinner and steamsaw training references"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/interface/Combat.lua | grep -n 'function _M:attackTargetWith\\|return self:combatSpeed(weapon), hitted' | head",
+      "description": "Check attackTargetWith return at pinned commit"
+    }
+  }
+]

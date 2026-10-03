@@ -1,0 +1,32 @@
+{
+  "user_message": "稍等，这个描述有没有可能是风味描述，即针对上文的护甲过热、温度极高的驱散机制，表示这个机制不会对自己施加烧伤？",
+  "prior_deletion_decision": "Suspended by latest user pause; no target deletion applied.",
+  "status": "semantic finding downgraded to pending; code facts remain confirmed",
+  "reason": "No general burn immunity implementation proves only absence of a reusable immunity mechanism. It cannot refute narrative serum protection from the described overheating. At that precise moment supports a local event reading. No burn/damage applied to self by cleanActor; automatic Furnace Vent has selffire=false and projects FIRE rather than FIREBURN. Original English author intent not established.",
+  "source": {
+    "path": "tome-orcs/data/talents/steam/furnace.lua",
+    "commit": null,
+    "source_pinning": "unpinned",
+    "sha256": "66df49a75a14a56ea59ee37babb5a41886e714e508cdb65016238841695e6450",
+    "excerpts": [
+      {
+        "start": 65,
+        "end": 87,
+        "text": "65: \tcallbackOnTakeDamage = function(self, t, src, x, y, type, dam, state)\n66: \t\tif not self:isTalentActive(self.T_FURNACE) then return end\n67: \t\tif type == DamageType.PHYSICAL or type == DamageType.MIND then return end\n68: \t\t\n69: \t\tlocal mp = self:hasEffect(self.EFF_FURNACE_MOLTEN_POINT)\n70: \t\tlocal reduction = 1\n71: \t\tif mp then reduction = 0.75 ^ mp.stacks end\n72: \t\treduction = t.getResist(self, t) * reduction\n73: \n74: \t\tif mp and mp.stacks >= 10 and self:isTalentActive(self.T_MELTING_POINT) and self:getSteam() > 15 then\n75: \t\t\tself:callTalent(self.T_MELTING_POINT, \"cleanActor\")\n76: \t\t\tif not self.turn_procs.molten_furnace_trigger_vent then\n77: \t\t\t\tself.turn_procs.molten_furnace_trigger_vent = true\n78: \t\t\t\tself:forceUseTalent(self.T_FURNACE_VENT, {ignore_energy=true, force_target={x=src.x, y=src.y}})\n79: \t\t\tend\n80: \t\t\tself:removeEffect(self.EFF_FURNACE_MOLTEN_POINT, true, true)\n81: \t\tend\n82: \n83: \t\tif not self.turn_procs.molten_metal then self:setEffect(self.EFF_FURNACE_MOLTEN_POINT, 1, {}) end\n84: \t\tself.turn_procs.molten_metal = true\n85: \n86: \t\treturn {dam=math.max(0, dam - reduction)}\n87: \tend,"
+      },
+      {
+        "start": 120,
+        "end": 136,
+        "text": "120: \tgetDamage = function(self, t) return self:combatTalentSteamDamage(t, 10, 400) end,\n121: \ton_pre_use = function(self, t) return self:hasEffect(self.EFF_FURNACE_MOLTEN_POINT) end,\n122: \taction = function(self, t)\n123: \t\tlocal mp = self:hasEffect(self.EFF_FURNACE_MOLTEN_POINT)\n124: \t\tif not mp then return nil end\n125: \t\tlocal tg = self:getTalentTarget(t)\n126: \t\tlocal x, y = self:getTarget(tg)\n127: \t\tif not x or not y then return nil end\n128: \t\tlocal stacks = mp.stacks\n129: \t\tself:removeEffect(self.EFF_FURNACE_MOLTEN_POINT, true, true)\n130: \t\tself:project(tg, x, y, DamageType.FIRE, self:steamCrit(t.getDamage(self, t) * stacks / 10))\n131: \n132: \t\tgame.level.map:particleEmitter(self.x, self.y, tg.radius, \"breath_fire\", {radius=tg.radius, tx=x-self.x, ty=y-self.y})\n133: \t\tgame:playSoundNear(self, \"talents/fireflash\")\n134: \t\treturn true\n135: \tend,\n136: \tinfo = function(self, t)"
+      },
+      {
+        "start": 150,
+        "end": 179,
+        "text": "150: \tname = \"Melting Point\",\n151: \ttype = {\"steamtech/furnace\", 4},\n152: \tpoints = 5,\n153: \trequire = steamreq_high4,\n154: \tmode = \"sustained\",\n155: \tcooldown = function(self, t) return self:combatTalentLimit(t, 10, 20, 15) end,\n156: \ttactical = { BUFF=1 },\n157: \tgetNb = function(self, t) return math.floor(self:getTalentLevel(t)) end,\n158: \tcleanActor = function(self, t)\n159: \t\tlocal nb = t.getNb(self, t)\n160: \t\tself:removeEffectsFilter(self, {status=\"detrimental\", type=\"physical\"}, nb)\n161: \t\tself:incSteam(-15)\n162: \tend,\n163: \tactivate = function(self, t)\n164: \t\tlocal ret = {}\n165: \t\treturn ret\n166: \tend,\n167: \tdeactivate = function(self, t, p)\n168: \t\treturn true\n169: \tend,\n170: \tinfo = function(self, t)\n171: \t\treturn ([[When you reach 10 molten points your armour overheats, reaching temperatures so high that they cauterize up to %d detrimental physical effects on you.\n172: \t\tA special medical injector injects you with a fire immunity serum at that precise moment to make you immune to the burning effect.\n173: \t\tWhen this happens all molten points are consumed and trigger a Furnace Vent at the creature that triggered the last molten point.\n174: \t\tThis effect drains 15 steam when triggered, and will not trigger if steam is too low.\n175: \t\t#{italic}#It's only a flesh burn!#{normal}#\n176: \t\t]]):\n177: \t\ttformat(t.getNb(self, t))\n178: \tend,\n179: }"
+      }
+    ]
+  },
+  "possible_flavor_translation": "同时，特殊医疗注射器会注入防火血清，保护你免受这次高温的灼伤。",
+  "translation_changed": false,
+  "lifecycle": "FIX2 cancelled on user pause with exact preimage hash unchanged; not hang or executor failure; all7 children archived."
+}
