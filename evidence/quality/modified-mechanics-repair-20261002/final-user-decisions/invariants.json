@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "lua_runtime": "manifest LuaJIT/Lua5.1",
+  "translation_records_changed": 1,
+  "non_target_fields_unchanged": true,
+  "reverse_byte_equal": true,
+  "term_row_exact_approved_change": true,
+  "orcs_entire_file_unchanged": true,
+  "orcs_sha256": "0f40e38446798c497b8da70503c87008caa5196758818d30dd95fcf3272d0cff",
+  "source": {
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "path": "game/modules/tome/data/damage_types.lua",
+    "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+    "start": 3243,
+    "end": 3263,
+    "excerpt": "newDamageType{\n\tname = _t(\"draining physical\", \"damage type\"), type = \"DEVOUR_LIFE\",\n\tprojector = function(src, x, y, type, dam, state)\n\t\tstate = initState(state)\n\t\tuseImplicitCrit(src, state)\n\t\tif _G.type(dam) == \"number\" then dam = {dam=dam} end\n\t\tlocal target = game.level.map(x, y, Map.ACTOR) -- Get the target first to make sure we heal even on kill\n\t\tif target then dam.dam = math.max(0, math.min(target.life, dam.dam)) end\n\t\tlocal realdam = DamageType:get(DamageType.PHYSICAL).projector(src, x, y, DamageType.PHYSICAL, dam.dam, state)\n\t\tif target and realdam > 0 and not src:attr(\"dead\") then\n\t\t\tlocal heal = realdam * (dam.healfactor or 1)\n\t\t\t-- cannot be reduced\n\t\t\tlocal temp = src.healing_factor\n\t\t\tsrc.healing_factor = 1\n\t\t\tsrc:heal(heal, target)\n\t\t\tsrc.healing_factor = temp\n\t\t\tsrc:logCombat(target, \"#Source# consumes %d life from #Target#!\", heal)\n\t\tend\n\tend,\n\thideMessage=true,\n}"
+  },
+  "files": {
+    "mod-tome.lua": "524803542ceaba99d87b4acb60735a8f4fb917feacf6f1d17332ab434643e8b4",
+    "terminology/combat.tsv": "43390d99965a68472311e90c4beda0876bbc83199db4597f41bcee03bef16bb5"
+  }
+}

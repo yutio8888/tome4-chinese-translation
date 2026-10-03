@@ -1,18 +1,11 @@
-# 最终交接：既定18包已收束
+# 最终交接：全部原问题已闭合
 
-18/18包已完成，167/169个原claim、164/166条目完成；另3个已授权附属任务也已完成。此为既定有界范围收束，不代表原workset全部闭合，progress.complete保持false。第017包提交e2506d2a；第018包译文及本交接随本次提交交付。任务状态、所有child归档、计数与最终文件SHA见 [FINAL-STATUS.json](FINAL-STATUS.json)。
+用户决定已落实：MMR-026按批准提案改为“生命汲取（物理）”，同步单条术语及译文；UPSTREAM054保留当前译文、撤销原问题。
 
-第018包3条全量独立REVIEW与FINAL_REVIEW均OK，严格lint30308条零错误零警告、proposal、运行键检查、strict addon、真实DLC publish dry-run（applied=false）及字节/占位符不变量通过，DONE_VERIFIED。一次复审格式不合格原样留证、归档后fresh retry；未把格式无效的输出计入完成。详见 [第018包总结](package-018/SUMMARY.md) 与 [第017包总结](package-017/SUMMARY.md)。
+原169项中 **168项修正、1项撤销、未决0**；原166条目中165条修正、1条保持不变而撤销。progress.complete=true，撤销不计为译文修复。既定18/18包及3个附属任务原历史保持，第018包提交f5f12bd7；此次决定作为后续小型有界维护交付，不重开已完成任务。
 
-## 原169项中仍未闭合的两项
+最新决定、范围和验证见 [决定总结](final-user-decisions/SUMMARY.md)、[原始用户决定及结构化记录](final-user-decisions/DECISIONS.json)、[最终状态](FINAL-STATUS.json)。严格lint、三项术语审计、LuaJIT加载/字段/字节证明、运行键与strict addon构建均完成；既有范围外审计提示保留。tome-orcs.lua整个文件未变。
 
-- **MMR-026**：共享术语 draining physical 的preferred译名决定待既有答复。具体提案与源码依据见 [TERM-DECISION-001.md](TERM-DECISION-001.md)。不重复请求，不擅改术语或扩大成全局替换。
-- **UPSTREAM054／entry1520**：Shocking Touch旧beam推论经固定core调用链核验后证据不足，保留baseline，状态PENDING_SOURCE_REASSESSMENT。详见 [第016包总结](package-016/SUMMARY.md)；未计入167项完成数。
+此前待决交接原文保留于 [PREVIOUS-HANDOFF.md](final-user-decisions/PREVIOUS-HANDOFF.md)，其中未决状态已由本次决定取代。TERM-DECISION-001与package-016旧holdout及其他冻结输入/原始审核结论作为历史保留，不应再当作当前待处理项。
 
-原审查的pending/advisory和各包新发现的范围外疑点继续留在原证据中，本轮不自动扩修。例如第015包entry1443增伤消费者疑点见 [第015包总结](package-015/SUMMARY.md)。
-
-## 授权与恢复边界
-
-既定18包已结束，不据历史“继续”另开新批。无push、PR或发布授权；未作这些外部写入。DLC来源/commit/发行版本仍未固定，所有DLC结论只对应记录的公开源码快照。游戏源码、术语库及用户原有文档改动未被本轮修改或清理。
-
-第016包用户批准的静电屏障、碎片炮台和机甲最后修订及cycle4扩展均已落实，授权只适用于该包；记录保留于package-016。第015包熔点风味按用户决定保留并限定此次高温。第014包args_order终审误报按用户明确决定撤销，第010包bowman修订按用户批准落实；不重开。第009包旧父级task以STOP_VERIFIED收束，接续task完整DONE；状态与记录均保留。
+原审查pending/advisory及各包范围外观察不自动扩修；18包已结束，不据历史继续指令另开新批。DLC来源/commit/发行版本未固定的限制继续有效。本次未改游戏源码、未清理用户既有改动，无push、PR或实际发布。

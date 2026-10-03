@@ -1,0 +1,87 @@
+[
+  {
+    "name": "lint",
+    "command": [
+      "python3",
+      "-B",
+      "tools/i18n",
+      "lint",
+      "--strict"
+    ],
+    "exit_code": 0,
+    "stdout": "Checked 30308 translations: 0 errors, 0 warnings\nReport: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261003T035209.353506Z-4-lint/lint.json\n",
+    "stderr": ""
+  },
+  {
+    "name": "term-static",
+    "command": [
+      "python3",
+      "-B",
+      "tools/audit_static.py"
+    ],
+    "exit_code": 0,
+    "stdout": "static audit done: 916 rows\n  S1.1_same_source_multi_target: 1\n  S1.2_typos: 0\n  S1.3_punctuation: 0\n  S1.4_category_boundary: 19\n  S1.5_fields: {'missing_notes_preferred': 0, 'bad_scope': 0, 'bad_status': 0}\n",
+    "stderr": ""
+  },
+  {
+    "name": "term-dynamic",
+    "command": [
+      "python3",
+      "-B",
+      "tools/audit_dynamic.py"
+    ],
+    "exit_code": 0,
+    "stdout": "terminology inventory done: 7490 candidates (A=1443, B=6047, UNCLASSIFIED=0); missing=6590, auto_excluded=2270, force_manual=98\ndynamic audit done: 30308 entries\n  unused: 77 | mismatch: 1 | candidates: 5 | multi: 34\n",
+    "stderr": ""
+  },
+  {
+    "name": "term-domains",
+    "command": [
+      "python3",
+      "-B",
+      "tools/annotate_domains.py"
+    ],
+    "exit_code": 0,
+    "stdout": "=== domain 统计（含 ENTITY 细分）===\n  classes      45\n  combat       169\n  creatures    84\n  items        75\n  narrative    58\n  places       49\n  resources    18\n  society      56\n  talents      348\n  tech         2\n  ui           12\n\n=== 未映射（需人工）===\n\n=== 声明 domain 与推导 domain 不同（advisory）===\n  L204 'Life': combat → resources\n  L205 'Positive energy': combat → resources\n  L206 'Negative energy': combat → resources\n  L207 'Souls': combat → resources\n  L208 'Air': combat → resources\n  L222 'corrupted': creatures → combat\n  L271 'Ureslak': creatures → society\n\nannotation written: /workspace/tome4-chinese-translation/.artifacts/i18n/terminology-audit/domain_annotation.json\n",
+    "stderr": ""
+  },
+  {
+    "name": "runtime-scan",
+    "command": [
+      "python3",
+      "-B",
+      "tools/scan_runtime_collisions.py"
+    ],
+    "exit_code": 0,
+    "stdout": "runtime collisions: 0\n  json: /workspace/tome4-chinese-translation/.artifacts/i18n/runtime-collisions.json\n  md:   /workspace/tome4-chinese-translation/.artifacts/i18n/runtime-collisions.md\n",
+    "stderr": ""
+  },
+  {
+    "name": "runtime-classify",
+    "command": [
+      "python3",
+      "-B",
+      "tools/classify_runtime_keys.py"
+    ],
+    "exit_code": 0,
+    "stdout": "duplicate keys: 1711\n桶 A 不同 section: 1711\n桶 B 同一 section: 0\n桶 C 混合 section: 0\n桶 A tag 分布: {'_t': 698, 'entity name': 353, 'entity subtype': 114, 'entity keyword': 103, 'entity type': 71, 'effect subtype': 68, 'tformat': 65, 'logPlayer': 64, 'logSeen': 50, 'talent name': 29, 'entity short_name': 23, 'log': 15, 'birth facial category': 13, 'talent category': 10, 'logCombat': 9, 'entity on slot': 7, 'entity combat talented': 6, 'saySimple': 6, 'newLore category': 2, 'say': 2, 'talent type': 2, 'dialog_portal': 1}\n桶 A 目录模式分布: {'data/general': 1836, 'data/zones': 985, 'data/talents': 473, 'data/birth': 460, 'data/timed_effects': 297, 'data/chats': 151, 'modules/boot': 76, 'data/ingredients.lua': 73, 'engine/dialogs': 67, 'class/uiset': 49, 'data/tinkers': 36, 'dialogs/debug': 34, 'dialogs/shimmer': 34, 'overload/mod': 33, 'data/maps': 29}\nreport written: /workspace/tome4-chinese-translation/.artifacts/i18n/runtime-key-classification\n",
+    "stderr": ""
+  },
+  {
+    "name": "addon",
+    "command": [
+      "python3",
+      "-B",
+      "tools/i18n",
+      "build",
+      "--profile",
+      "addon",
+      "--component",
+      "tome",
+      "--require-complete"
+    ],
+    "exit_code": 0,
+    "stdout": "OK  tome             delta=6672 inherited=12456 override=6551 new=121\nAddon artifact: complete, 6672 runtime keys, 50dd15bc1168336a\nOutput: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261003T035212.572777Z-57-build-addon/addon/data/locales/zh_hans.lua\n",
+    "stderr": ""
+  }
+]

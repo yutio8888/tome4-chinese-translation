@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-03T03:54:42.863875+00:00",
+  "user_instruction": "1.同意修改2.保留当前译文，撤销原问题",
+  "task_kind": "small bounded maintenance after all original tasks DONE/STOP; no active Paseo task; direct primary writer per AGENTS.md",
+  "baseline_commit": "f5f12bd7fe2fbfec128399d5e88fad89acfe946b",
+  "decisions": [
+    {
+      "claim_id": "MMR-026",
+      "resolution": "fixed",
+      "term_proposal": "../TERM-DECISION-001.json",
+      "old_target": "生命汲取",
+      "new_target": "生命汲取（物理）",
+      "changed_files": [
+        "terminology/combat.tsv",
+        "mod-tome.lua"
+      ],
+      "scope": "One preferred row then matching damage type target; no global replacement"
+    },
+    {
+      "claim_id": "UPSTREAM054",
+      "resolution": "withdrawn_by_user",
+      "target_unchanged": true,
+      "reason": "Original >tier inference retracted; user explicitly requests retaining current translation and withdrawing original issue",
+      "prior_evidence": "../package-016/task/HOLDOUT-UPSTREAM054.json",
+      "new_source_claim": false
+    }
+  ],
+  "validation": "checks.json and invariants.json; strict lint, three term audits, LuaJIT record comparison, runtime scans, strict addon and exact reverse byte proof",
+  "audit_scope_notes": {
+    "dynamic_mismatch": "Air → 空气 vs existing 空气量; unchanged outside this task",
+    "static_multi_target": "High Sun Paladin Aeryn existing cross-tag entries; unchanged outside this task",
+    "category_and_domain_advisories": "Existing 19 category observations and 7 declared-domain differences; approved row and translation not implicated; not expanded"
+  },
+  "historical_evidence_policy": "Prior proposals, frozen review inputs, original accepted_claims and package task states preserved; this new record supersedes pending resolution status only",
+  "counts": {
+    "original_claims_fixed": 168,
+    "original_claims_withdrawn": 1,
+    "original_claims_resolved": 169,
+    "original_claims_pending": 0,
+    "original_entries_fixed": 165,
+    "original_entries_withdrawn_unchanged": 1,
+    "original_entries_resolved": 166
+  }
+}
