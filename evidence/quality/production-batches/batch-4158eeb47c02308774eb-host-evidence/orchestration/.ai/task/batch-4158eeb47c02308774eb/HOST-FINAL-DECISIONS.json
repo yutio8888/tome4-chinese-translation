@@ -1,0 +1,83 @@
+{
+  "batch_id": "batch-4158eeb47c02308774eb",
+  "observations": 6,
+  "observation_dispositions": {
+    "confirmed": 3,
+    "advisory": 3
+  },
+  "repair_revision_keys": [
+    "aaf0b7e246c49c58016365e11a4097067ad216bb7f72b66cb4fb9ebbf01cf78d",
+    "cb4aed41a8699493e4e1cb6065491b3ae9fc121a49e965d94d54ac188c64934e"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 57,
+    "repair_required": 2,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "aaf0b7e246c49c58016365e11a4097067ad216bb7f72b66cb4fb9ebbf01cf78d",
+      "stage": "surface",
+      "observation": "冻结原文含三处换行及各行的两个制表符缩进；译文仅保留两处换行，将缩进改为全角空格，并删除末尾的“\\n\\t\\t.”，换行与缩进格式未保留。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/other.lua:945 起 精神碾压（Mind Crush）说明：原文 3 个 LF、各续行行首 \\t\\t，末行为“\\n\\t\\t.”；现译把两处 \\t\\t 换成全角空格 U+3000，并删去末行“\\n\\t\\t.”（LF 3→2，TAB 6→0），破坏 LF／TAB 格式不变量（同类全角空格缩进先例：batch-966a30f506c5616356f4 的 46b5e759b9、第394批 5c908e08b3）。contextual 判 OK，宿主以格式不变量确认。修复：两处“　　”改回 \\t\\t，并在末尾补回“\\n\\t\\t.”，文字不变。"
+    },
+    {
+      "revision_key": "cb4aed41a8699493e4e1cb6065491b3ae9fc121a49e965d94d54ac188c64934e",
+      "stage": "surface",
+      "observation": "原文明确指在袭击 Kruk Pride 时遇难的人；译文“在他们残忍袭击中丧生的部落同胞”遗漏了袭击地点 Kruk Pride。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/quests/amakthel.lua:86 通关描述：“avenged those killed in the attack on Kruk Pride”，现译“为那些在他们残忍袭击中丧生的部落同胞复仇”漏掉遇袭地克鲁克部落（Kruk Pride，tome-orcs.lua:635 译名）并增“残忍”；“the High Priest”指 slumbering-caves/npcs.lua:218 的唯一 NPC Sher'Tul High Priest（本库“夏·图尔高阶祭司”），现译“夏·图尔祭司”所指正确但丢了“高阶”（contextual 同判漏地名与 High）。确认。修复：前两句改为“你挫败了蒸汽巨人灭绝你们的计划，并为在克鲁克部落遇袭时丧生的同胞复仇。他们绝望中与夏·图尔高阶祭司订立的契约也未能阻止你，”其余不变。"
+    },
+    {
+      "revision_key": "cb8c2518feda31f1609c2ea7bece4cebaced0b7f17a94ef66417b19eb9f23756",
+      "stage": "surface",
+      "observation": "原文首句评价施虐者对雪人造成的痛苦和摧残；译文改为雪人“变成了一个恐怖的杀戮机器”，改变了陈述对象并新增原文未表达的杀戮能力。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/zones/gem/npcs.lua 改造雪人描述：首句“did an amazing job of pain and destruction”承接后文的斯莱特装甲与蒸汽链锯手臂，可理解为把雪人改造成了痛苦与毁灭的杰作；现译“它的确变成了一个恐怖的杀戮机器”属意译，未改变后文所述改造事实，contextual 判 OK。只记建议：可贴近原文作“不管是谁折磨、摧残了这只雪人，都把它打造成了痛苦与毁灭的杰作。”"
+    },
+    {
+      "revision_key": "eb52b575a8c944450927970400e44ea938978524c7b9a97bf0b357d471044d78",
+      "stage": "surface",
+      "observation": "原文“crush spellswords of all types with draconic might”中的 spellswords 指战斗者，译文“用巨龙的力量粉碎各种类型的魔法剑”将其译成武器；此外，“it is possible that ... do not have”表达可能性，译文“本身并不会”改成了确定断言。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "known-dead-keys.json 已登记的死键（登记 eri e3dd184ad0，section tome-orcs/superload/mod/dialogs/debug/DebugMain.lua 的 primal-forest lore 副本；源串比 Orcs data/lore/primal-forest.lua 少行尾两个空格，运行时永不命中，生效行为 tome-orcs.lua:3146）。freeze 报 literal_source_match=false，DLC 快照身份不能 host-block，按第353/368批先例照常审核。surface 与 contextual 指出的 spellswords 误作“魔法剑”、多处 may/possible 限定被删等属实，但该译文永不显示，按登记表裁定一律不作修复，记 advisory；宿主核对生效行：tome-orcs.lua:3157 已作“以巨龙之力击溃各种魔法战士”，无此误译。"
+    },
+    {
+      "revision_key": "cb4aed41a8699493e4e1cb6065491b3ae9fc121a49e965d94d54ac188c64934e",
+      "stage": "contextual",
+      "observation": "tome-orcs/data/quests/amakthel.lua:86 has \"avenged those killed in the attack on Kruk Pride\". The target \"为那些在他们残忍袭击中丧生的部落同胞复仇\" drops the proper noun Kruk Pride (the place that was attacked) and adds \"残忍\" (cruel), which is not in the source. The source only says \"the High Priest\", but the target adds a name and turns it into \"夏·图尔祭司\". The frozen input has no evidence for that name, and \"High\" is also lost. Restore the Kruk Pride name. Translate High Priest as a title (e.g. 大祭司) rather than inventing a name.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/quests/amakthel.lua:86 通关描述：“avenged those killed in the attack on Kruk Pride”，现译“为那些在他们残忍袭击中丧生的部落同胞复仇”漏掉遇袭地克鲁克部落（Kruk Pride，tome-orcs.lua:635 译名）并增“残忍”；“the High Priest”指 slumbering-caves/npcs.lua:218 的唯一 NPC Sher'Tul High Priest（本库“夏·图尔高阶祭司”），现译“夏·图尔祭司”所指正确但丢了“高阶”（contextual 同判漏地名与 High）。确认。修复：前两句改为“你挫败了蒸汽巨人灭绝你们的计划，并为在克鲁克部落遇袭时丧生的同胞复仇。他们绝望中与夏·图尔高阶祭司订立的契约也未能阻止你，”其余不变。"
+    },
+    {
+      "revision_key": "eb52b575a8c944450927970400e44ea938978524c7b9a97bf0b357d471044d78",
+      "stage": "contextual",
+      "observation": "1) \"crush spellswords of all types with draconic might\": spellswords are a type of combatant (warriors who use magic). The target \"粉碎各种类型的魔法剑\" mistranslates this as magic swords (weapons). 2) Hedges in the source are dropped, turning possibilities into certainties. \"but it is possible that lesser uses of arcane magic do not have any inherent corrupting or harmful effect\" becomes \"本身并不会对世界带来任何腐蚀和有害的影响\", which loses \"it is possible that\". \"Maybe no Sun Paladin or Anorithil has yet sunk to the depths...\" becomes \"可以说…远远没有堕落到…\", which changes \"maybe not yet\" into \"far from\". \"some may enrich the lives\" becomes \"他们中的许多人，都可以\", which turns \"some may\" into \"many can\". 3) \"That said, this proves nothing about the most terrible potential of magic\" becomes \"同时，魔法仍然可能造成极其可怕的后果\". This drops the argument that the evidence proves nothing.",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "known-dead-keys.json 已登记的死键（登记 eri e3dd184ad0，section tome-orcs/superload/mod/dialogs/debug/DebugMain.lua 的 primal-forest lore 副本；源串比 Orcs data/lore/primal-forest.lua 少行尾两个空格，运行时永不命中，生效行为 tome-orcs.lua:3146）。freeze 报 literal_source_match=false，DLC 快照身份不能 host-block，按第353/368批先例照常审核。surface 与 contextual 指出的 spellswords 误作“魔法剑”、多处 may/possible 限定被删等属实，但该译文永不显示，按登记表裁定一律不作修复，记 advisory；宿主核对生效行：tome-orcs.lua:3157 已作“以巨龙之力击溃各种魔法战士”，无此误译。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes: surface Orcs 59 in 15/15/15/14)",
+    "contextual": "claude/claude-opus-5-5 (contextual-000: attempt 1 full-000 rejected for the usage-limit message with no output, attempt 2 full-001 accepted; 4 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), 4 children (Orcs 15/15/15/14); 55 OK / 4 ISSUE; every child only read its own envelope and the contract (6 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 4 deep entries; attempt 1 (full-000) hit the Claude usage limit with no output and was rejected, attempt 2 (full-001) was accepted (2 OK / 2 ISSUE).",
+    "Re-review batch: successors queued by migration 22b293c4 (and window 64's migration 629e3b1e); 0 remain queued after this batch.",
+    "Freeze reported literal_source_match=false for the two DebugMain.lua-section dead keys d4f4bf81dd and eb52b575a8 (registered in known-dead-keys.json; sources lack the two trailing spaces of the Orcs lore files). DLC snapshot identities cannot be host-blocked, so both were reviewed normally per the batch 353/368 precedent and recorded without repair.",
+    "The first contextual dispatch (full-000) ended four seconds after its prompt with the Claude usage-limit message and no tool calls; the host rejected it with evidence, archived it and dispatched attempt 2 (full-001, retry_of full-000), which read only its envelope and the contract and was accepted.",
+    "This is the final batch of the 2026-10-03 re-review: all 1019 successors (993 from migration 22b293c4 plus 26 from window 64's 629e3b1e) have now been reviewed.",
+    "No pinned entries; 59 Orcs entries matched the public DLC source file SHA in the workset, with the DLC repositories and commits unpinned.",
+    "2 confirmed repair revisions raise the window 65 backlog from 7 to 9; below the 20 threshold, so no window opens."
+  ]
+}

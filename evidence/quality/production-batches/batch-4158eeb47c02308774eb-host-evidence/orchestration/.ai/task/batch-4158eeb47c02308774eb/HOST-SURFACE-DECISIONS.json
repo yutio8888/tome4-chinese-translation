@@ -1,0 +1,40 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 4 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "aaf0b7e246c49c58016365e11a4097067ad216bb7f72b66cb4fb9ebbf01cf78d",
+      "stage": "surface",
+      "observation": "冻结原文含三处换行及各行的两个制表符缩进；译文仅保留两处换行，将缩进改为全角空格，并删除末尾的“\\n\\t\\t.”，换行与缩进格式未保留。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/other.lua:945 起 精神碾压（Mind Crush）说明：原文 3 个 LF、各续行行首 \\t\\t，末行为“\\n\\t\\t.”；现译把两处 \\t\\t 换成全角空格 U+3000，并删去末行“\\n\\t\\t.”（LF 3→2，TAB 6→0），破坏 LF／TAB 格式不变量（同类全角空格缩进先例：batch-966a30f506c5616356f4 的 46b5e759b9、第394批 5c908e08b3）。contextual 判 OK，宿主以格式不变量确认。修复：两处“　　”改回 \\t\\t，并在末尾补回“\\n\\t\\t.”，文字不变。"
+    },
+    {
+      "revision_key": "cb4aed41a8699493e4e1cb6065491b3ae9fc121a49e965d94d54ac188c64934e",
+      "stage": "surface",
+      "observation": "原文明确指在袭击 Kruk Pride 时遇难的人；译文“在他们残忍袭击中丧生的部落同胞”遗漏了袭击地点 Kruk Pride。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/quests/amakthel.lua:86 通关描述：“avenged those killed in the attack on Kruk Pride”，现译“为那些在他们残忍袭击中丧生的部落同胞复仇”漏掉遇袭地克鲁克部落（Kruk Pride，tome-orcs.lua:635 译名）并增“残忍”；“the High Priest”指 slumbering-caves/npcs.lua:218 的唯一 NPC Sher'Tul High Priest（本库“夏·图尔高阶祭司”），现译“夏·图尔祭司”所指正确但丢了“高阶”（contextual 同判漏地名与 High）。确认。修复：前两句改为“你挫败了蒸汽巨人灭绝你们的计划，并为在克鲁克部落遇袭时丧生的同胞复仇。他们绝望中与夏·图尔高阶祭司订立的契约也未能阻止你，”其余不变。"
+    },
+    {
+      "revision_key": "cb8c2518feda31f1609c2ea7bece4cebaced0b7f17a94ef66417b19eb9f23756",
+      "stage": "surface",
+      "observation": "原文首句评价施虐者对雪人造成的痛苦和摧残；译文改为雪人“变成了一个恐怖的杀戮机器”，改变了陈述对象并新增原文未表达的杀戮能力。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/zones/gem/npcs.lua 改造雪人描述：首句“did an amazing job of pain and destruction”承接后文的斯莱特装甲与蒸汽链锯手臂，可理解为把雪人改造成了痛苦与毁灭的杰作；现译“它的确变成了一个恐怖的杀戮机器”属意译，未改变后文所述改造事实，contextual 判 OK。只记建议：可贴近原文作“不管是谁折磨、摧残了这只雪人，都把它打造成了痛苦与毁灭的杰作。”"
+    },
+    {
+      "revision_key": "eb52b575a8c944450927970400e44ea938978524c7b9a97bf0b357d471044d78",
+      "stage": "surface",
+      "observation": "原文“crush spellswords of all types with draconic might”中的 spellswords 指战斗者，译文“用巨龙的力量粉碎各种类型的魔法剑”将其译成武器；此外，“it is possible that ... do not have”表达可能性，译文“本身并不会”改成了确定断言。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "known-dead-keys.json 已登记的死键（登记 eri e3dd184ad0，section tome-orcs/superload/mod/dialogs/debug/DebugMain.lua 的 primal-forest lore 副本；源串比 Orcs data/lore/primal-forest.lua 少行尾两个空格，运行时永不命中，生效行为 tome-orcs.lua:3146）。freeze 报 literal_source_match=false，DLC 快照身份不能 host-block，按第353/368批先例照常审核。surface 与 contextual 指出的 spellswords 误作“魔法剑”、多处 may/possible 限定被删等属实，但该译文永不显示，按登记表裁定一律不作修复，记 advisory；宿主核对生效行：tome-orcs.lua:3157 已作“以巨龙之力击溃各种魔法战士”，无此误译。"
+    }
+  ]
+}
