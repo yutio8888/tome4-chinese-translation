@@ -1,9 +1,16 @@
-# 当前恢复入口（2026-10-03 重新生产复审）
+# 当前恢复入口（2026-10-03 重新生产复审完成，按用户要求暂停）
 
-用户 2026-10-03 要求“重新再走一轮生产复审流程”。第 382 批之后的译文改动（机制修正撤回后保留的普通修正、补充解释精简、生硬描述 A／B 档及两轮交叉复核修正）已在 `ca558992` 上迁移进复审目录：catalog `c5d72508…`，migration `22b293c4…`，**993 个 successor**（另加窗口64 的 26 个）排队待审（约 13 批，估算；第383–395批已审 1019，余 0）。见[迁移记录](evidence/quality/maintenance-reaudit-20261003/README.md)。
+用户 2026-10-03 要求“重新再走一轮生产复审流程”，已全部审完：第383–395批共 13 批、**1019 个 successor**（migration `22b293c4…` 的 993 个＋窗口64 migration `629e3b1e…` 的 26 个），队列余 0。来源见[迁移记录](evidence/quality/maintenance-reaudit-20261003/README.md)，每批证据在 `evidence/quality/production-batches/<batch>-host-evidence/`。
 
-按常驻连续审核授权从第 383 批起逐批推进，每批收口后 push；确认待修项累计 ≥20 条再开合并修复窗口（窗口 64 已于 2026-10-03 完成，下一个为窗口 65）。批次操作见下文“翻译审核当前交接”与审核操作指南。`tome-possessors.lua`、`tome-items-vault.lua` 的 13 条改动不在目录内，不进入复审。对外 0.3.2 未变，无发布授权。
+结果：完成 981 条，host-block 4 条（`mod-tome/load.lua` 段已登记死键），确认待修 34 条。其中 25 条已在窗口64 修复并推送（`a2671655`），**9 条留给窗口65**，另有宿主补充 2 条（不计积压）。宿主裁决观察：confirmed 57 行、refuted 14 行、advisory 12 行（surface 与 contextual 同判的条目各记一行）。最后一批的收口提交是 `54a2cc9e`，已推送，工作树只剩用户既有改动。`tools/i18n production queue status`（2026-10-03 实测）：queued=0、repair_required=9、blocked=17、done=29802，active writer no。
 
+**用户 2026-10-03 指示：本轮完成后暂停并撰写 handoff。** 当前没有进行中的批次、窗口或 child，所有 child 都已确认归档。恢复前需要用户决定：
+
+1. 窗口65 是否现在开。积压 9 条＋补充 2 条，未达 20 条阈值，审核队列也已清空。按 2026-09-24 指示，这种情况要问用户：开小窗口，还是继续等待。
+2. 生硬描述扫描 C 档仍待用户决定。
+3. 对外发布：对外版本仍是 0.3.2，此后的译文改动均未发布，无发布授权。
+
+`tome-possessors.lua`、`tome-items-vault.lua` 的 13 条改动不在目录内，没有进入复审。
 ---
 
 # 历史恢复入口（2026-10-03 生硬解释调整完成）
@@ -136,9 +143,13 @@
 
 ## 三、下一步
 
-1. 继续审核第 **396** 批：2026-10-03 迁移（migration `22b293c4…`）排入的 993 个 successor（机制修正撤回后保留的普通修正 44、补充解释精简 16、生硬描述 A 档 632、B 档 326，含 25 条多阶段重复修改）。第382批审完窗口63 的 1 个 successor（无新增确认）。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
-   届时用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句）；
-   混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
+1. **重新复审已完成并暂停**（第383–395批，1019/1019）。没有待审 successor；不要自行开新批或开窗口65，等用户决定（见文首）。
+   若用户批准开窗口65：从 `.artifacts/i18n/repair-w64-20261003/` 派生（setup_window64.py、freeze_review.py、wd.sh、w64-tr.sh、w64-close.sh），条目与新译文依据 `/tmp/backlog65.json`（备份 `.artifacts/i18n/continuation-20260923/reaudit-helpers/backlog65.json`）与各批 `HOST-FINAL-DECISIONS.json`；宿主补充 2 条在第394批 `HOST-FINAL-DECISIONS.json` 的 `additional_host_observations` 中。开窗前先全仓 grep 同一 runtime key 的跨组件副本。
+   本轮新增经验（第392–395批）：
+   - 一批有多个 contextual run 时，`finalize_host_gen_re.py` 与 `/tmp/mkfin_re.py` 已能处理；`close_review<N>.py` 的 `for run in (...)` 仍须按 run 数手改。
+   - Orcs、Cults 等 DLC 死键（如 DebugMain section 的 lore 副本）带快照身份，不能 host-block；按第353/368批先例照常审核，被指出的问题记 advisory，并核对生效行。
+   - contextual child 因 Claude 会话额度用尽而无输出时：harvest 会拒收，改用 `review_lifecycle.py reject --notified --capture <terminal> --evidence <证据>` → archive-intent → archive → archive-confirm；然后按 attempt 2（`full-001`，`retry_of`）重派，并在 snapshot 脚本中加入 `{batch}-*-rejection-evidence` 收录。fin 中可用 `contextual_reviewer_en` 覆盖 reviewer 描述（第395批先例）。
+   - 宿主可对 workset 做 LF／TAB／全角空格的预扫描，这类问题 surface 常漏。没被任何 lane 指出的，只能经 `review<N>-extra.json` 作为宿主补充登记（第394批先例）。
 2. 窗口 64 已完成（26 条：主游戏 25、引擎 1）：第384–391批重新复审确认的 25 条（换行不变量 9 条，忠实性、机制与术语 16 条）＋宿主补充 1 条（骤然生长 fungus“孢子”→“真菌”），新译文均由宿主按整句对照写定、EXECUTOR 逐字替换。复审路径：execute-01 → REVIEW r0a1（GPT-6.1 Sol）26 OK → FINAL f0a2（Opus 5.5）26/26，cycle 0 收敛；门禁 17/17。详见 `evidence/quality/repair-window-64-20261003/PUBLICATION.md`。
    窗口63（意志之力 maces 1 条）详见 `evidence/quality/repair-window-63-20261001/PUBLICATION.md`；窗口62 教训：killer_message 被 `" "..src.killer_message` 拼在凶手名后，译文不得以标点起头。
    窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
