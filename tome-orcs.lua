@@ -3876,7 +3876,7 @@ t("#LIGHT_GREEN#* Travelling deep within Eyal you found the source of all corrup
 section "tome-orcs/data/quests/weissi.lua"
 
 t("Mystery of the Yetis", "雪人之谜", "_t")
-t("You have found a bit of preserved yeti muscle, probably somebody somewhere will be interested.", "你找到了一些保存好的雪人肌肉，或许哪里有谁会有什么兴趣吧…", "_t")
+t("You have found a bit of preserved yeti muscle, probably somebody somewhere will be interested.", "你找到了一些保存好的雪人肌肉，或许某处有人会对它感兴趣吧…", "_t")
 t("For each yeti muscle you return to the psy-machines in the ruins of a lost city you will gain a great reward.", "你每找到一份雪人肌肉并交给在失落之城废墟的灵能机器，你就会获得一份奖励。", "_t")
 t("#LIGHT_GREEN#* You have helped the strange psionic machines and got rewards out of them. You still feel like somehow you did wrong...", "#LIGHT_GREEN#* 你帮助了那些奇怪的灵能机器，并从它们那里获得了奖励。可是，你总觉得自己好像做错了什么……", "_t")
 -- untranslated text
@@ -3899,7 +3899,7 @@ t("Yetis left to call: %d", "剩余可召唤的雪人：%d", "tformat")
 t("call a trained yeti for help", "召唤受训练的雪人来帮助你", "_t")
 t("The yetis are not ready yet.", "雪人还没有准备好。", "log")
 t("Yeti", "雪人", "_t")
-t("You extract the psychoportation beacon from the mind controller. Yetis will require some time to train before being usable.", "你从精神控制器上提取精神传送信标。雪人需要一些时间来训练才能使用。", "log")
+t("You extract the psychoportation beacon from the mind controller. Yetis will require some time to train before being usable.", "你从精神控制器上提取精神传送信标。雪人需要训练一段时间才能投入使用。", "log")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -6645,7 +6645,7 @@ t("Fortify your shield with electricity and prepare to unleash GALVANIC RETRIBUT
 t("Shocking Edge", "电击之刃", "_t")
 t("Attaching a capacitor to your weapon in just the right way is a great way to shock your enemies.", "在你的武器上安装一个电容器，电击那些被你击中的敌人。", "_t")
 t("Steamsaw: Stormcutter", "蒸汽链锯：风暴切割者", "_t")
-t("The pinnacle of steamsaws technology. Every one of your hits will unleash the power of the storm onto your foes, chaining between them and stunning them!", "蒸汽链锯技术的巅峰之作。你的每一击将会在敌人的身上施放风暴的力量，在他们的身上连锁并震慑他们！", "_t")
+t("The pinnacle of steamsaws technology. Every one of your hits will unleash the power of the storm onto your foes, chaining between them and stunning them!", "蒸汽链锯技术的巅峰之作。你的每一击都会对敌人施放风暴的力量，在他们之间连锁并震慑他们！", "_t")
 t("shocking edge", "电击之刃", "_t")
 t("fire opal", "火蛋白石", "_t")
 t("pearl", "珍珠", "_t")
@@ -6700,7 +6700,7 @@ t("A special shot filled with antimagic sap.", "灌注了反魔汁液的特殊�
 t("Corrosive Shell", "腐蚀弹", "_t")
 t("A special shot that releases acid on impact.", "击中时可以流出酸液的特殊弹头。", "_t")
 t("Hook Shell", "钩链弹", "_t")
-t("A special shot moving yourself, or others quickly.", "可以让你或被击中的目标快速被拉向对方的特殊弹头。", "_t")
+t("A special shot moving yourself, or others quickly.", "可以将你快速拉向被击中的目标，或将目标快速拉向你的特殊弹头。", "_t")
 t("Voltaic Shell", "伏特弹", "_t")
 t("A special shot that releases electricity on impact.", "击中时可以放出电流的特殊弹头。", "_t")
 t("Botanical Shell", "植物弹", "_t")
@@ -6718,7 +6718,7 @@ t("Allows you to fire your equipped shot or arrow ammo via your gloves.", "让�
 t("Fatal Attractor", "致命诱饵", "_t")
 t("Creates a small psionic device that will taunt nearby enemies and reflect damage received.", "制造一个小型的灵能装置，它会吸引周围敌人的注意力并反弹受到的伤害。", "_t")
 t("Iron Grip", "铁腕", "_t")
-t("Attach powerful steam-powered pistons to your gloves, giving you a tight grip on your weapon (preventing disarming) and allowing you to crush a foe, pinning it and reducing its defense and armour.", "在你的手套上附加强力的蒸汽活塞，让你紧抓你的武器（免疫缴械）并让你可以扼制一个敌人，定身它并降低它的闪避和护甲。", "_t")
+t("Attach powerful steam-powered pistons to your gloves, giving you a tight grip on your weapon (preventing disarming) and allowing you to crush a foe, pinning it and reducing its defense and armour.", "在你的手套上附加强力的蒸汽活塞，让你紧握武器（免疫缴械），并能扼制一个敌人，将其定身并降低其闪避和护甲。", "_t")
 t("Spring Grapple", "弹簧飞爪", "_t")
 t("Attach a spring loaded mechanism to your gloves, allowing you to drag enemies into melee range and deliver a quick blow, pinning them in front of you.", "在你的手套上安装一个弹簧，让你可以将敌人拉到身边并快速打出一击，让他在你的面前被定身。", "_t")
 t("Steam Powered Armour", "蒸汽动力装甲", "_t")
@@ -6753,7 +6753,7 @@ t("Amaze your friends with this cannister launcher which lets you project deadly
 t("Viral Needlegun", "病毒针枪", "_t")
 t("Blight is not dirty to a Tinker, it is useful! By combining blighted materials with a simple mechanical gun, you can fire a low damaging attack that infects foes with terrible diseases.", "对工匠来说，枯萎并不肮脏，而是大有用处！将枯萎材料与一把简易机械枪结合，你就能发射一记低伤害的攻击，让敌人感染可怕的疾病。", "_t")
 t("Razor Edge", "锐利刀片", "_t")
-t("Properly working and tempering a metal can make it harder than normal, and hold a sharper edge.", "经过精心地回火锻造可以让金属比以前更加坚韧，拥有更加锐利的刀锋。", "_t")
+t("Properly working and tempering a metal can make it harder than normal, and hold a sharper edge.", "经过精心的锻造与回火，金属会比平常更加坚硬，刀锋也更加锐利。", "_t")
 t("Armour Reinforcement", "装甲加固", "_t")
 t("Want more defense? Wear more armour!", "想要更强的防御？再加一层装甲不就行了！", "_t")
 t("Crystal Edge", "水晶刀刃", "_t")
@@ -6769,7 +6769,7 @@ t("bloodstone", "血滴石", "_t")
 t("Spike Attachment", "附着尖刺", "_t")
 t("Adding metal spikes to anything makes it more dangerous. (and also unwieldy and inconvenient)", "在任何东西上加上尖刺都会使它变得更加危险（但穿起来也更加不方便了）", "_t")
 t("Silver Filigree", "银质花边", "_t")
-t("In addition to making a weapon look more fancy, it also makes it more deadly against undead and other nasties.", "这不仅让武器变得更加花哨，纯银也可以有效地对抗亡灵和其他恐怖的东西。", "_t")
+t("In addition to making a weapon look more fancy, it also makes it more deadly against undead and other nasties.", "这不仅让武器看起来更加花哨，也能让它更有效地对抗亡灵和其他恐怖的东西。", "_t")
 t("Back Support", "脊椎牵引装置", "_t")
 t("Just what you need to support your back when lifting heavy things; like armour, weapons or Yetis.", "当你手拿着武器、重甲或者一只雪人这类重物时候，这个东西能有效分担你身上的重量。", "_t")
 t("Grounding Strap", "接地导线", "_t")
@@ -6800,7 +6800,7 @@ To be used with the medical injector implant.]], [[一个可以清除你身上�
 需通过医疗注射器植入体使用。]], "_t")
 t("Unstoppable Force Salve", "势不可挡药剂", "_t")
 t([[A powerful salve that makes you more resilient to physical, mental and magic effects and grants increased healing.
-To be used with the medical injector implant.]], [[一个增强你对物理、精神和魔法效果的抵抗能力并增加你的治疗效果的强大药剂。
+To be used with the medical injector implant.]], [[一种强大的药剂，能增强你对物理、精神和魔法效果的抵抗能力，并增加你的治疗效果。
 需通过医疗注射器植入体使用。]], "_t")
 t("frost salve", "寒霜药剂", "_t")
 t("fiery salve", "烈火药剂", "_t")
@@ -6905,7 +6905,7 @@ t("chest (plundered)", "被洗劫的箱子", "_t")
 section "tome-orcs/data/zones/dominion-port/npcs.lua"
 
 t("Admiral Korbek", "海军上将库贝克", "entity name")
-t("This old troll stands tall and proud in somewhat ornate clothing; it's clear he is an important figure. He holds in his right hand a wicked looking blade, and in his left hand what seems to be an antique handgun.", "这只年长的巨魔昂首挺胸，身穿华丽的服装；不用说，他一定是一个重要人物。它右手持一把邪恶长剑，左手拿着一把古色古香的手枪。", "_t")
+t("This old troll stands tall and proud in somewhat ornate clothing; it's clear he is an important figure. He holds in his right hand a wicked looking blade, and in his left hand what seems to be an antique handgun.", "这只年长的巨魔昂首挺胸，身穿华丽的服装；不用说，他一定是一个重要人物。他右手持一把邪恶长剑，左手拿着一把古色古香的手枪。", "_t")
 t("reptile", "爬行动物", "entity type")
 t("mutant snake", "变异蛇", "entity name")
 t("This snake seems to... thrive... in the polluted water of the sewers.", "这种蛇看起来在这片污染的下水道里…生活得很兴旺嘛。", "_t")
@@ -6933,7 +6933,7 @@ t("Dominion Port: Sewers 2", "巨魔帝国港口：下水道 2", "_t")
 t("Dominion Port: Tower", "巨魔帝国港口：塔楼", "_t")
 t("Dominion Port ???", "巨魔帝国港口 ???", "_t")
 t("Dominion's Port Tower", "帝国港口塔楼", "_t")
-t("As you enter you see the door lock behind you. It's a trap!", "当你进入，你注意到背后的门锁上了。这是个陷阱！", "_t")
+t("As you enter you see the door lock behind you. It's a trap!", "你一走进去，就发现身后的门锁上了。这是个陷阱！", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/gates-of-morning/grids.lua"
@@ -7030,7 +7030,7 @@ section "tome-orcs/data/zones/gem/npcs.lua"
 t("Haze Commander Parmor", "阴霾指挥官帕默", "entity name")
 t("The Commander of the G.E.M. this noble looking giant looks down upon you in contempt. She wields two huge rotating saws still covered in various horror entrails.", "G.E.M.的指挥官。这个高贵的巨人用藐视的眼神居高临下地看着你。她手里拿着两个巨大的旋转圆锯，上面还带有恐魔的内脏。", "_t")
 t("Half-Mechanized Yeti", "半机械化雪人", "entity name")
-t("Whoever tortured and tormented this yeti did an amazing job of pain and destruction. As you gaze upon its fur you notice several vital spots reinforced with stralite plating. One of its arms has been replaced with a steamsaw.", "虽然不知道是谁把这个雪人折磨成这样，它的确变成了一个恐怖的杀戮机器。当你凝视着它的皮毛，你注意到它身上的重要部分都被斯莱特装甲所覆盖。他的一只手臂也被替换成了蒸汽链锯。", "_t")
+t("Whoever tortured and tormented this yeti did an amazing job of pain and destruction. As you gaze upon its fur you notice several vital spots reinforced with stralite plating. One of its arms has been replaced with a steamsaw.", "虽然不知道是谁把这个雪人折磨成这样，它的确变成了一个恐怖的杀戮机器。当你凝视着它的皮毛，你注意到它身上的重要部分都被斯莱特装甲所覆盖。它的一只手臂也被替换成了蒸汽链锯。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/gem/objects.lua"
@@ -7183,7 +7183,7 @@ t("underwater luminous algae", "水下发光藻类", "entity name")
 section "tome-orcs/data/zones/krimbul/npcs.lua"
 
 t("Nektosh the One-Horned", "独角者纳克托什", "entity name")
-t("A withered Whitehoof, with two horns that curve over his head and spiral into a cone.  The tip of his \"horn\" glows intensely, but is slowly fading; he acts confident, but his darting, wild eyes reveal panic behind them.", "一个干瘪的白蹄，他的两只角在头上弯曲成螺旋形合并起来。他头上的角发出强烈的闪光，但闪光逐渐消退。他努力让自己显得充满自信，但他飘忽不定的眼神展露出了内心的恐惧。", "_t")
+t("A withered Whitehoof, with two horns that curve over his head and spiral into a cone.  The tip of his \"horn\" glows intensely, but is slowly fading; he acts confident, but his darting, wild eyes reveal panic behind them.", "一个干瘪的白蹄，他的两只角在头上弯曲，螺旋合拢成锥形。角尖发出强烈的闪光，但正逐渐消退。他努力让自己显得充满自信，但他飘忽不定的眼神展露出了内心的恐惧。", "_t")
 t("KNOW MY POWER, FOOLISH MORTAL!", "感受我的力量吧，愚蠢的凡人！", "_t")
 t("Stop--  stop moving and this will be over before you can feel pain!  STOP!", "停…停下不要动，这样你在死前就不会感受到任何痛苦！停下！", "_t")
 t("No...  come on, come on, there has to be something left...", "不要……来啊，来啊，肯定还能剩下一点…", "_t")
@@ -7267,7 +7267,7 @@ t("The noble features on the face of this giantess contrast heavily with the evi
 t("Council Member Tormak", "议会成员托马克", "entity name")
 t("A master in all things arcane, Tormak stands in your way, steadfast in his resolution to crush you under his mighty spells.", "精通一切奥术的托马克挡住了你的去路，决意不移，要用他强大的法术将你碾碎。", "_t")
 t("Council Member Pendor", "议会成员潘多尔", "entity name")
-t("Wielding two huge steamguns this giant is amazingly elusive and agile for his size. Oh and very deadly!", "这位手拿两把巨大的蒸汽枪的巨人却表现出令人吃惊的敏捷和难以捉摸。十分致命！", "_t")
+t("Wielding two huge steamguns this giant is amazingly elusive and agile for his size. Oh and very deadly!", "这位手持两把巨型蒸汽枪的巨人，以他的体型而言敏捷得惊人，极难捉摸。而且十分致命！", "_t")
 t("Council Member Palaquie", "议会成员帕拉奎", "entity name")
 t("Standing proud, the giantess wields both a steamgun and a mindstar, as the bullets fly you can feel a powerful mental pressure on your mind, numbing you.", "女巨人傲然挺立，同时手持蒸汽枪和灵晶。子弹飞来时，你能感觉到一股强大的精神压力压迫着心灵，令你麻木。", "_t")
 t("Council Member Tantalos", "议会成员坦塔洛斯", "entity name")
@@ -7277,7 +7277,7 @@ t("mechanical", "机械", "entity subtype")
 t("steam defence turret", "蒸汽防御炮台", "entity name")
 t([[This appears to be mechanized pedestal.
 Two steamguns mounted on its top constantly swivel back and forth, seeking enemies of the Atmos.]], [[这似乎是机械化的底座。
-两个蒸汽枪安装在它的顶部，不断来回旋转，寻找气之部族的敌人。]], "_t")
+两把蒸汽枪安装在它的顶部，不断来回旋转，寻找气之部族的敌人。]], "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/palace-fumes/objects.lua"
@@ -7349,7 +7349,7 @@ t("A very strong near-sentient tree, which has become infected with crystalline 
 t("giant", "巨人", "entity type")
 t("treant", "树人", "entity subtype")
 t("Crystallized Primal Root", "晶化原始之根", "entity name")
-t("This once great primal tree has been infused and corrupted by crystals growing wildly all over it. Such a terrible end.", "这个曾经伟大的原始树木，已经被疯狂蔓延的水晶侵蚀注入和腐化。真是可怕的结局。", "_t")
+t("This once great primal tree has been infused and corrupted by crystals growing wildly all over it. Such a terrible end.", "这棵曾经伟大的原始树木，已被疯狂蔓延的水晶注入并腐化。真是可怕的结局。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/primal-forest/objects.lua"
@@ -7398,7 +7398,7 @@ t([[You arrive in a maze of shifty sand tunnels.
 But you have with you the power of technology! You have been given a #GOLD#Stralite Sand Shredder#LAST#. Use it to dig yourself a path should there be none to be found.
 #{italic}#Simply walk into a wall with the shredder equipped and the sand will crumble before you!#{normal}#
 
-Beware to not draw too much attention to yourself, and do not forget to collect the eggs!]], [[你到达了一片由沙子形成的不断变化的通道构成的迷宫。
+Beware to not draw too much attention to yourself, and do not forget to collect the eggs!]], [[你来到了一座由变幻不定的沙土通道构成的迷宫。
 但是这一次，你有了科技的力量！你得到了一套#GOLD#斯莱特掘沙者#LAST#。若没有现成的通道，就用它为自己挖出一条路来。
 #{italic}#只需要装备着掘沙者走向沙墙，这面沙墙就会在你面前坍塌！#{normal}#
 
@@ -7594,7 +7594,7 @@ section "tome-orcs/data/zones/tinker-master/npcs.lua"
 t("construct", "构装体", "entity type")
 t("mechanical", "机械", "entity subtype")
 t("Ancient Automated Teacher", "远古教学机器人", "entity name")
-t("An ancient archive of knowledge! It seems to have some kind of vocal interface.", "一份远古知识的宝库！他似乎能和你对话。", "_t")
+t("An ancient archive of knowledge! It seems to have some kind of vocal interface.", "一份远古知识的宝库！它似乎能和你对话。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/tinker-master/zone.lua"
@@ -7756,7 +7756,7 @@ t("a crude mural painting", "粗糙的壁画", "entity name")
 section "tome-orcs/data/zones/yeti-caves/npcs.lua"
 
 t("immature ice ant", "未成熟的冰蚁", "_t")
-t("An oversized white ant. It seems not yet fully developed.", "一只超大的白色蚂蚁。它似乎还没有完全发展。", "_t")
+t("An oversized white ant. It seems not yet fully developed.", "一只超大的白色蚂蚁。它似乎还没有完全发育。", "_t")
 t("Yeti Patriarch", "雪人族长", "entity name")
 t("This yeti towers over its comrades. You see a cunning in its eyes unmatched by the others.", "这个雪人比同伴们高大许多。它眼中透着其他雪人所没有的狡黠。", "_t")
 
@@ -7814,10 +7814,10 @@ If you help the Orcs with their problems you hope they will with yours; for the 
 You have been sent to the Vaporous Emporium to wreak havoc and demoralize the giants.
 For the Krimbul Clan !
 ]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#。
-你是生活在他人的贱视和追杀中的米诺陶一族。为了生存，你的部落使用了死灵魔法来改变自己。
+你是生活在他人的贱视和追杀中的米诺陶一族。你的部落借助死灵魔法找到了生存之道。
 
-只有兽人是唯一对你们表示尊重的种族，然而，你们的部落正在被一位变得疯狂的领袖所控制。
-兽人是你们的盟友，你希望为了两个种族的共同利益能够和兽人互相帮助。
+兽人是唯一对你们表示过尊重的种族，而如今你们的部落已落入一位疯狂领袖的控制之下。
+你希望，只要你帮兽人解决他们的难题，他们也会帮你解决你的难题；这是为了你们两族的共同利益。
 
 你被送去蒸汽商场造成破坏以摧垮巨人们的士气。
 为了克里布尔部落！
@@ -7879,7 +7879,7 @@ For the orcs, for Garkul's legacy !
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#。
 你是骄傲但逐渐凋零的兽人一族的成员。
 
-在历史的长河中，你的种族被人所憎恨、捕杀并残忍地杀害。你的种族也曾犯下许多暴行，造成无数破坏。
+在历史的长河中，你的种族遭其他种族憎恨、猎捕和无情屠戮。你的种族也曾犯下许多暴行，造成无数破坏。
 但是现在，兽人已经到了灭绝的边缘。你们在瓦·埃亚尔所有的据点不是被太阳堡垒摧毁，就是被你们称作#{italic}#西方天灾#{normal}#的那个人摧毁。
 大陆上的四个部落不复存在。他们已经全部被击败，很少有成员有机会能够逃离。
 
@@ -7929,7 +7929,7 @@ Features:#YELLOW#
 Class evolutions are selected as prodigies and grant new ways to build and expand your class and are only visible to the concerned class.
 ]], [[#{bold}##GOLD#我发现了！#LAST##{normal}#
 
-作为一个元素法师，你在多年的训练中掌握了周围奥术力量的深奥知识，而作为一个工匠，你也掌握了建造和创造的能力。然后有一天，你突然发现了！
+作为一个元素法师，你在多年的训练中掌握了周围奥术力量的深奥知识，而作为一个工匠，你也掌握了建造和创造的能力。突然间，你灵光一闪！
 #{italic}#你掌握了把魔法和科技结合起来的技术！#{normal}#
 
 你解锁了元素法师的#LIGHT_GREEN#科技法师 职业进阶#WHITE#。
@@ -8344,11 +8344,11 @@ At this point, it should go without saying that reckless use of magic is a dire 
 Fortunately, there is an alternative available!  With the proper respect, care, and concentration given to Nature, one can be rewarded with powers rivaling or besting the popular uses of magic.  On the civilian level, summoned fireflies can replace magical lighting, regeneration salves can replace healing spells, and accelerated crop growth makes for a far more nutritious diet than conjured foodstuffs.  For martial purposes, there's very little that can stand up to the powers of Nature.  An experienced disciple of Eyal can summon loyal beasts faster than any mage can blast them, crush spellswords of all types with draconic might, or dissolve a necromancer's army in a tide of corrosive ooze.  And if the disciple in question is familiar with the practices of the Ziguranth...  We do not condone their approach to defending nature, but their techniques speak for themselves when facing a hostile mage.  The best part about these abilities, though, is that they are self-limiting!  There is no potential for a runaway chain reaction, or a lone megalomaniac destroying much of Eyal.  The planet willingly gives us its power, and is conscious enough to take it away if we start abusing its gifts.  Even the most powerful of Wilders cannot abuse their power to the perverse degree that a necromancer can.
 
 Thus, we're putting our efforts into two areas.  The first is advocacy of Natural alternatives to magic, talking to spellcasters to determine what they use magic for and figuring out ways to use Nature's abilities to do the same task just as well (if not more so).  We've continued the Ziguranth efforts to make all-natural replacements for Ogric runes (we predict that life expectancy is now only reduced by 40% with our newest mixtures), developed fertilizing recipes that outperform arcane methods of producing food, created wells near desert settlements otherwise dependent on water magic, and developed so many other techniques and applications that make magic just as obsolete as it is hazardous.  The second is minimizing the harm done by the arcane, by educating spellcasters on the safe, responsible, and Nature-conscious use of magic.  Not every spellcaster is evil, and in fact, some may enrich the lives of those around them!  Runic magic is at least somewhat self-limiting, and we are working with the Living Fossils guild in hopes of developing a new type of magic, one inherently linked to and limited by Nature.  Their stone-wardens have maintained perfect harmony with Nature despite constant use of the arcane; if this is truly the way forward, then we shall welcome it with open arms.
-]], [[我们必须承认，现在世道变了。在不到一年的时间里，在东方重新发现的那些盟友的影响之下，联合王国已经开始从不情愿地容忍魔法，迅速转变为公开接受魔法的使用。此外，如果那些报导确认属实的话，尽管在那里的人们长期使用魔法长达几千年，瓦·埃亚尔的生态系统仍然健康而完整。因此，我们绝不能对新知识一无所知，我们的观点和方法必须随着时代而改变。
+]], [[我们必须承认，现在世道变了。在不到一年的时间里，在东方重新发现的那些盟友的影响之下，联合王国已经开始从不情愿地容忍魔法，迅速转变为公开接受魔法的使用。此外，如果那些报导确认属实的话，尽管那里的人们持续使用魔法长达几千年，瓦·埃亚尔的生态系统仍然健康而完整。因此，我们绝不能对新知识一无所知，我们的观点和方法必须随着时代而改变。
 
-说到这里，鲁莽地使用魔法是对……世间一切的可怕威胁，这一点本应不言自明。黄昏纪里死灵魔法的猖獗使用，对埃亚尔所造成的影响至今还没有恢复，更不用说魔法大爆炸的影响了。消除所有魔法的使用，看起来是避免这种状况重演的唯一方法……但是，从太阳骑士和星月术士的情况来看，少量使用奥术魔法，本身并不会对世界带来任何腐蚀和有害的影响。与我们长期以来的信念相反，他们成功地，安全而负责任地控制了魔法的使用。我们不会盲目到否认这是一个令人难以置信的保证。同时，魔法仍然可能造成极其可怕的后果。可以说，太阳骑士和星月术士，远远没有堕落到黄昏纪法师那样邪恶，也并不像那些引发魔法大爆炸的法师一样，鲁莽到可悲。但是这并不能证明，他们的魔法不会被滥用。
+说到这里，鲁莽地使用魔法是对……世间一切的可怕威胁，这一点本应不言自明。埃亚尔至今还没有从黄昏纪死灵魔法的猖獗使用中完全恢复过来，更不用说魔法大爆炸了。消除所有魔法的使用，看起来是避免这种状况重演的唯一方法……但是，从太阳骑士和星月术士的情况来看，少量使用奥术魔法，本身并不会对世界带来任何腐蚀和有害的影响。与我们长期以来的信念相反，他们成功地、安全而负责任地控制了魔法的使用。我们不会盲目到否认这是一个令人难以置信的保证。同时，魔法仍然可能造成极其可怕的后果。可以说，太阳骑士和星月术士，远远没有堕落到黄昏纪法师那样邪恶，也并不像那些引发魔法大爆炸的法师一样，鲁莽到可悲。但是这并不能证明，他们的魔法不会被滥用。
 
-幸运的是，我们还有另一种选择！只要给予大自然足够的尊重，关心和专注，人们就可以获得和普遍应用的魔法匹敌，乃至更强的力量。在民用领域，召唤萤火虫可以替代魔法灯笼，治疗药剂可以替代治疗魔法，而加速谷物成熟的技术做出来的菜肴，可比法师制作的魔法食品对身体健康多了。在军用领域，很少有人能够抵挡自然强大的力量。那些埃亚尔忠实的学徒，可以比法师的火球速度更快地召唤忠诚的兽群，用巨龙的力量粉碎各种类型的魔法剑，或是用一股腐蚀性的粘液，瞬间融解死灵法师的军团。另外，如果那些学徒还了解那些伊格兰斯曾经使用过的力量的话……我们不能容忍他们为了保卫自然做出的一系列举措，但他们的技术在面对敌对法师的时候，总是能够脱颖而出。有关这些自然能力，最重要的一点是，它们是会进行自我约束的！他们绝对不会像奥术魔法一样，引发一场失控的连锁反应，在妄自尊大的狂妄中给埃亚尔大部分的地方带来毁灭。这颗星球自愿给予了我们力量，当我们开始滥用它们的时候，它就会有意识的从我们的身边拿走。即使是最强大的野性系能力者，也不会像死灵法师一样，把他们的力量滥用到如此反常的程度。
+幸运的是，我们还有另一种选择！只要给予大自然足够的尊重，关心和专注，人们就可以获得和普遍应用的魔法匹敌，乃至更强的力量。在民用领域，召唤萤火虫可以替代魔法灯笼，治疗药剂可以替代治疗魔法，而加速谷物成熟的技术做出来的菜肴，可比法师制作的魔法食品对身体健康多了。在军用领域，很少有人能够抵挡自然强大的力量。那些埃亚尔忠实的学徒，可以比法师的火球速度更快地召唤忠诚的兽群，用巨龙的力量粉碎各种类型的魔法剑，或是用一股腐蚀性的粘液，瞬间融解死灵法师的军团。另外，如果那些学徒还了解那些伊格兰斯曾经使用过的力量的话……我们不能容忍他们为了保卫自然做出的一系列举措，但他们的技术在面对敌对法师的时候，总是能够脱颖而出。有关这些自然能力，最重要的一点是，它们是会进行自我约束的！他们绝对不会像奥术魔法一样，引发一场失控的连锁反应，在妄自尊大的狂妄中给埃亚尔大部分的地方带来毁灭。这颗星球自愿给予了我们力量，当我们开始滥用它们的时候，它就会有意识地从我们身边收回。即使是最强大的野性系能力者，也不会像死灵法师一样，把他们的力量滥用到如此反常的程度。
 
 因此，我们目前的事业有两个主要的目标。第一个目标是推广使用自然力量代替法术的方法。我们要和那些法师交谈，知道他们用魔法来做什么，然后想办法用自然的力量来达成同样的目标，乃至做的更好。我们继续伊格兰斯把食人魔的符文替换成纯天然产品的努力（现在，使用我们的新技术，预计只会减少40%的寿命），发展新的肥料技术，让它们远远超出使用奥术力量生产食物的方法，还有在沙漠地区创造水井，让那些地方不再只能依靠水魔法。我们创造了各种各样其他使用自然力量的技术与应用，让过去那些使用魔法的方法看上去既落后又危险。第二个目标是最大限度地减少奥术魔法造成的危害，我们会教育法师，如何安全地、负责任地、有保护自然的意识地去使用魔法。并不是每个法师都是邪恶的，他们中的许多人，都可以给他们身边人的生活带来好处！符文魔法就是某种意义上有自我限制能力的魔法，我们也在和那个活化石组织合作，希望能够开发出一种新的魔法，一种和自然联结，受自然约束的魔法。那些岩石守卫就是这样的例子，他们经常使用奥术力量，却仍然和自然之间保持着完美的和谐。如果这就是我们前进的道路，我们将张开双臂欢迎它。]], "_t")
 t([[The Steam Council has been called to order, with Chief Councilor Tantalos presiding.
@@ -8383,7 +8383,7 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 坦塔洛斯：“这是[i]无关紧要[/i] 的。托马克？你一直在占卜潜在的地热能源，你能告诉大家哪里最有潜力吗？”
 
-托马克：叹气。“不幸的是，就在克鲁克兽人的地盘底下。那确实是个有潜力的源头，提供能源的岩浆可不像我们地盘底下的都枯竭了，但是在那里挖掘会……好吧，我们都知道他们能多快的把建筑工具变成能威胁我们的武器。如果我们把能用来开采的最新式采矿工具带过去————”
+托马克：叹气。“不幸的是，就在克鲁克兽人的地盘底下。那确实是个有潜力的源头，提供能源的岩浆也不像我们地盘底下的那样已经枯竭，但是在那里挖掘会……好吧，我们都知道他们能多快的把建筑工具变成能威胁我们的武器。如果我们把能用来开采的最新式采矿工具带过去————”
 
 坦塔洛斯：大笑。“采矿工具！你把我当成是怎样的傻瓜？帕拉奎，告诉我那些在大陆上到处搜寻兽人反叛者的齐腰高的小傻战士们在想什么。”举起手打断荣誉终身议员卡西罗斯。“我向你保证，这确实相关。”
 
@@ -8395,7 +8395,7 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 坦塔洛斯：“那就更好了！还有……卡西罗斯，我想让[i]你[/i]告诉我人民最在意什么。我敢肯定，你身上的伤痕一定能提醒你，公民们的意志是什么，对吧？”
 
-卡西罗斯：[这一发言因言辞过于粗鄙，以4比2的投票，通过从记录中削除。]
+卡西罗斯：[这一发言因言辞过于粗鄙，经4比2投票决定从记录中删除。]
 
 坦塔洛斯：“真是不成体统的发言啊！只是你不能接受群众想要回他们的蒸汽。比起想要那些肮脏的小绿人们在身边，比起他们害怕把自己的手弄脏，比起想要以[i]你[/i]的方法做事，更想要蒸汽。所以！兹认定我们能从中获益良多，认定我们拥有或能够取得执行此事的手段，也认定这正是选民之所愿。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”
 
