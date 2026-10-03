@@ -1,0 +1,74 @@
+{
+  "batch_id": "batch-96dcbe7098ab7a8a87f7",
+  "observations": 5,
+  "observation_dispositions": {
+    "refuted": 2,
+    "confirmed": 2,
+    "advisory": 1
+  },
+  "repair_revision_keys": [
+    "6cf5ef442228c9e4418140638803565812227a44e204c6f31e4700aa7f4ce2d8"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 78,
+    "repair_required": 1,
+    "blocked": 1
+  },
+  "rows": [
+    {
+      "revision_key": "60b80d09d2608ea7f024e0930d456687f827343d435ac0ab8fdcc175a4e4875a",
+      "stage": "surface",
+      "observation": "原文为解除“all cross-tier effects”，译文增加“相应类型”的限制；译文还增加原文未述的“随机”解除方式。冻结输入未提供机制证据，无法确认这些增补是否符合实际行为。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/celestial/chants.lua:336-391 赞歌专家（Chant Adept）doCure(self, t, type)：353-358 行只收集 e.type == type 的有害效果，其中 subtype[\"cross tier\"] 的放入 force、其余放入 effs；362-367 行 force 全部移除，370-377 行用 rng.tableRemove(effs) 随机移除至多 cures 个。即越层效果与负面状态都只限当前赞歌对应的类型（坚韧赞歌精神、堡垒赞歌物理、元素赞歌魔法），普通负面状态随机移除。现译“解除所有相应类型的越层效果，并随机解除至多 %d 项相应类型的负面状态”与实现一致，比英文表述更准确。驳回。"
+    },
+    {
+      "revision_key": "685ac97498b9837f2e247677fa1cce598d7039177aa8229ebdd25a647ecd6513",
+      "stage": "surface",
+      "observation": "原文 crystalline structure 指水晶结构，译文改称“水晶一样的生物”，增加了原文未说明的生物属性，并将水晶材质改为外观相似。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/old-forest/npcs.lua:43-49 水晶树精（Shardskin）是唯一 NPC（type giant、subtype crystal，有生命值、属性与近战），游戏内是会战斗的 Boss 单位；“crystalline structure”本身就是“水晶状的构造”，现译“这个水晶一样的生物”指称该单位，并保留了“透过水晶表面……巨树的残骸”，没有引入与实现不符的身份或材质判断。驳回。"
+    },
+    {
+      "revision_key": "6cf5ef442228c9e4418140638803565812227a44e204c6f31e4700aa7f4ce2d8",
+      "stage": "surface",
+      "observation": "原文耗能条件为 each time it fires at at least 1 target，即向至少一个目标发射时；译文写成“每产生一发射线并击中至少一个目标”，增加了命中条件。实际耗能触发机制未在冻结输入中提供。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/celestial/hymns.lua:448-527 暗夜流光（Hymn Nocturnalist）do_beams：469-481 行只要负能量不低于消耗且 5 格内至少有一个敌对单位就进入发射，483-484 行先一次性扣除 drain，再随机向至多 getTargetCount 个目标各发一道射线；扣费是每次齐射一次、与命中无关，也不按射线数计。现译“这项效果每产生一发射线并击中至少一个目标将抽取 %0.1f 负能量”把扣费写成按每道射线计、且以击中为条件，与实现不符。确认。修复：改为“每次向至少一个目标发射射线时，此效果消耗 %0.1f 负能量；负能量过低时不会发射射线。”一类说法，占位符不变。"
+    },
+    {
+      "revision_key": "6f5c282fb8db68e05d6e71ed49a671ff2783b093930ba7d6ca6ed7c68e93cca3",
+      "stage": "surface",
+      "observation": "原文 partially remove yourself from the timeline 表示自身部分脱离时间线，译文“将部分身体移出时间线”把脱离程度改成身体部位，增加了原文未说明的身体分割含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/chronomancy/other.lua:342 时光凋零（Fade From Time）info：“You partially remove yourself from the timeline”中 partially 是程度（部分地脱离），现译“将部分身体移出时间线”把程度说成身体的一部分，属意象偏差；其后的抗性、负面状态缩短、伤害降低及随时间衰减均已正确译出，不影响对机制的理解。只记建议：改为“你使自身部分脱离时间线，持续 10 回合。”"
+    },
+    {
+      "revision_key": "6cf5ef442228c9e4418140638803565812227a44e204c6f31e4700aa7f4ce2d8",
+      "stage": "contextual",
+      "observation": "Mechanism mistranslation of the drain clause. In the source (engine 624a6732, game/modules/tome/data/talents/celestial/hymns.lua), Hymn Nocturnalist's do_beams checks getNegative()<drain, then returns early if no foes are within radius 5 (#tgts<=0). Otherwise it calls self:incNegative(-drain) once and fires beams at up to getTargetCount randomly chosen targets. So the drain is paid once per firing, not once per beam. The source text 'drain %0.1f negative energy each time it fires at at least 1 target' says the same thing. The target '每产生一发射线并击中至少一个目标将抽取 %0.1f 负能量' reads as a drain for every beam, which overstates the cost by up to %d times. Suggested wording: '每次向至少一个目标发射射线时抽取'.",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "与 surface 同一条（6cf5ef4422）。固定 commit 624a673 game/modules/tome/data/talents/celestial/hymns.lua:469-484 暗夜流光 do_beams：负能量不足或 5 格内无敌对单位即返回，否则先 incNegative(-drain) 一次，再向至多 getTargetCount 个随机目标各发一道射线；扣费每次齐射一次，不按射线数计、也与命中无关。现译“每产生一发射线并击中至少一个目标将抽取”与实现不符。确认，与 surface 合并为一个修复 revision：改为“每次向至少一个目标发射射线时抽取 %0.1f 负能量”。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes: surface main game 80 in 20/20/20/20)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000; 4 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), 4 children (main game 20x4); 76 OK / 4 ISSUE; every child only read its own envelope and the contract (5 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 4 deep entries, accepted on the first pass (3 OK / 1 ISSUE).",
+    "Re-review batch: all 80 entries are successors queued by migration 22b293c4; 593 remain queued after this batch.",
+    "Refuted: Chant Adept's 'of the matching type' and 'randomly' follow doCure exactly (chants.lua:344-377: only effects of the chant's type are collected, cross-tier ones always removed, the rest removed via rng.tableRemove); Shardskin is a unique giant/crystal NPC, so calling it a creature is correct. Advisory: Fade From Time renders 'partially remove yourself' as moving part of the body out of the timeline.",
+    "One dead key (eri 69ad08a4…, the old mod-tome/load.lua copy of Loremaster Greynot chapter 1 - Humans, already listed in known-dead-keys.json; each paragraph of its source string carries one extra leading space, so it never matches at runtime) returned as a successor because the awkward-description scan edited its translation. It was host-blocked under the freeze-miss-attribution/1 precedent; it still appears in the surface export and is counted as blocked. The live lore entry is reviewed in a later batch.",
+    "80 pinned entries (80 main game) were verified against the manifest-pinned commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file.",
+    "1 confirmed repair revisions raise the window 64 backlog from 9 to 10; below the 20 threshold, so no window opens."
+  ]
+}

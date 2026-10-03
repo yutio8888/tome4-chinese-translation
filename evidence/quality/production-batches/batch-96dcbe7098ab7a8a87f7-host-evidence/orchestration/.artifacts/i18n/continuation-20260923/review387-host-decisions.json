@@ -1,0 +1,30 @@
+{
+ "workset": "evidence/quality/production-batches/batch-96dcbe7098ab7a8a87f7-source-workset.json",
+ "decisions": {
+  "60b80d09d2|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/celestial/chants.lua:336-391 赞歌专家（Chant Adept）doCure(self, t, type)：353-358 行只收集 e.type == type 的有害效果，其中 subtype[\"cross tier\"] 的放入 force、其余放入 effs；362-367 行 force 全部移除，370-377 行用 rng.tableRemove(effs) 随机移除至多 cures 个。即越层效果与负面状态都只限当前赞歌对应的类型（坚韧赞歌精神、堡垒赞歌物理、元素赞歌魔法），普通负面状态随机移除。现译“解除所有相应类型的越层效果，并随机解除至多 %d 项相应类型的负面状态”与实现一致，比英文表述更准确。驳回。"
+  },
+  "685ac97498|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/zones/old-forest/npcs.lua:43-49 水晶树精（Shardskin）是唯一 NPC（type giant、subtype crystal，有生命值、属性与近战），游戏内是会战斗的 Boss 单位；“crystalline structure”本身就是“水晶状的构造”，现译“这个水晶一样的生物”指称该单位，并保留了“透过水晶表面……巨树的残骸”，没有引入与实现不符的身份或材质判断。驳回。"
+  },
+  "6cf5ef4422|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/celestial/hymns.lua:448-527 暗夜流光（Hymn Nocturnalist）do_beams：469-481 行只要负能量不低于消耗且 5 格内至少有一个敌对单位就进入发射，483-484 行先一次性扣除 drain，再随机向至多 getTargetCount 个目标各发一道射线；扣费是每次齐射一次、与命中无关，也不按射线数计。现译“这项效果每产生一发射线并击中至少一个目标将抽取 %0.1f 负能量”把扣费写成按每道射线计、且以击中为条件，与实现不符。确认。修复：改为“每次向至少一个目标发射射线时，此效果消耗 %0.1f 负能量；负能量过低时不会发射射线。”一类说法，占位符不变。"
+  },
+  "6f5c282fb8|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "固定 commit 624a673 game/modules/tome/data/talents/chronomancy/other.lua:342 时光凋零（Fade From Time）info：“You partially remove yourself from the timeline”中 partially 是程度（部分地脱离），现译“将部分身体移出时间线”把程度说成身体的一部分，属意象偏差；其后的抗性、负面状态缩短、伤害降低及随时间衰减均已正确译出，不影响对机制的理解。只记建议：改为“你使自身部分脱离时间线，持续 10 回合。”"
+  },
+  "6cf5ef4422|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "与 surface 同一条（6cf5ef4422）。固定 commit 624a673 game/modules/tome/data/talents/celestial/hymns.lua:469-484 暗夜流光 do_beams：负能量不足或 5 格内无敌对单位即返回，否则先 incNegative(-drain) 一次，再向至多 getTargetCount 个随机目标各发一道射线；扣费每次齐射一次，不按射线数计、也与命中无关。现译“每产生一发射线并击中至少一个目标将抽取”与实现不符。确认，与 surface 合并为一个修复 revision：改为“每次向至少一个目标发射射线时抽取 %0.1f 负能量”。"
+  }
+ }
+}
