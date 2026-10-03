@@ -1,6 +1,6 @@
 # 当前恢复入口（2026-10-03 重新生产复审）
 
-用户 2026-10-03 要求“重新再走一轮生产复审流程”。第 382 批之后的译文改动（机制修正撤回后保留的普通修正、补充解释精简、生硬描述 A／B 档及两轮交叉复核修正）已在 `ca558992` 上迁移进复审目录：catalog `c5d72508…`，migration `22b293c4…`，**993 个 successor**（另加窗口64 的 26 个）排队待审（约 13 批，估算；第383–391批已审 720，余 299）。见[迁移记录](evidence/quality/maintenance-reaudit-20261003/README.md)。
+用户 2026-10-03 要求“重新再走一轮生产复审流程”。第 382 批之后的译文改动（机制修正撤回后保留的普通修正、补充解释精简、生硬描述 A／B 档及两轮交叉复核修正）已在 `ca558992` 上迁移进复审目录：catalog `c5d72508…`，migration `22b293c4…`，**993 个 successor**（另加窗口64 的 26 个）排队待审（约 13 批，估算；第383–392批已审 800，余 219）。见[迁移记录](evidence/quality/maintenance-reaudit-20261003/README.md)。
 
 按常驻连续审核授权从第 383 批起逐批推进，每批收口后 push；确认待修项累计 ≥20 条再开合并修复窗口（窗口 64 已于 2026-10-03 完成，下一个为窗口 65）。批次操作见下文“翻译审核当前交接”与审核操作指南。`tome-possessors.lua`、`tome-items-vault.lua` 的 13 条改动不在目录内，不进入复审。对外 0.3.2 未变，无发布授权。
 
@@ -60,7 +60,7 @@
 
 # 翻译审核当前交接
 
-更新时间：2026-10-03（修复窗口64已完成、待宿主证据提交与推送；下一步继续审核第392批）
+更新时间：2026-10-03（第392批已 finalize，窗口65积压 2 条，继续审核第393批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -75,9 +75,9 @@
 - 2026-10-01：第376批后按维护者要求暂停；用户“先补术语库”（`8e2fae4e`，181 行），三方讨论改为 gpt-6-astra／opus-5-5／gemini-3.8-flash，同意统一 21 个名称并开窗口59；裁定 Phoenix＝凤凰、“恢复失衡值”保留不改。
 - 2026-10-01：用户裁定 deeprock 技能树改“深岩”（Deeprock Form 保持“深岩形态”），并要求一并修复 Korbek 实验笔记标题等非阻断问题，开窗口60。
 - 2026-10-01：审核队列清空后，用户要求系统性分析死亡信息表（`cd2d0d7e`）；同意把 12 条句式与拼接缺陷并入积压，开窗口61；随后裁定 pending #50（killer_message 改凶手主语）与 #51（dark Master→黑暗领主）均采用 B，排入窗口62。窗口62 已于同日完成并推送。
-- 审核已闭合至第 **391** 批（`batch-ac27e658ed64b3f7f270`）：80 条，71 done / 8 repair_required。
-  重新复审：successor 80 条（主游戏 80）：surface 71 OK / 9 ISSUE；contextual 3 OK / 6 ISSUE；裁决 confirmed 14、refuted 1；新增修复 8 条，窗口64积压 25；余 273 个 successor。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `3322ce63875ed8bf4f69012dc30bbe8cf1a4e9c9` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **392** 批（`batch-3506bffc1094e8909c28`）：80 条，78 done / 2 repair_required。
+  重新复审：successor 80 条（主游戏 37、引擎 1、Ashes 37、Cults 5）：surface 75 OK / 5 ISSUE；contextual 4 OK / 1 ISSUE；裁决 confirmed 3、refuted 1、advisory 2；新增修复 2 条，窗口65积压 2；余 219 个 successor。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `94eadcec55d2e4a6681fe2980f399dde1f118362` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **64**：窗口63（译文 `7a7d8653`）与窗口64（第384–391批重新复审确认 25 条＋宿主补充 1 条，译文 `80b359b0`，migration `629e3b1e…`）均已修复；窗口64 的 26 个 successor 须重新审核，不继承旧 revision 的 done 状态。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
@@ -113,6 +113,7 @@
 | 389 | `batch-8ddbfa00da4d0d50cdaa` | 78 done / 2 repair | 77 OK / 3 ISSUE | 1 OK / 2 ISSUE | 4 confirmed / 1 refuted |
 | 390 | `batch-f199ae8241b6a0369acf` | 78 done / 2 repair | 77 OK / 3 ISSUE | 1 OK / 2 ISSUE | 4 confirmed / 1 advisory |
 | 391 | `batch-ac27e658ed64b3f7f270` | 71 done / 8 repair | 71 OK / 9 ISSUE | 3 OK / 6 ISSUE | 14 confirmed / 1 refuted |
+| 392 | `batch-3506bffc1094e8909c28` | 78 done / 2 repair | 75 OK / 5 ISSUE | 4 OK / 1 ISSUE | 3 confirmed / 1 refuted / 2 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -132,14 +133,14 @@
 
 ## 三、下一步
 
-1. 继续审核第 **392** 批：2026-10-03 迁移（migration `22b293c4…`）排入的 993 个 successor（机制修正撤回后保留的普通修正 44、补充解释精简 16、生硬描述 A 档 632、B 档 326，含 25 条多阶段重复修改）。第382批审完窗口63 的 1 个 successor（无新增确认）。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
+1. 继续审核第 **393** 批：2026-10-03 迁移（migration `22b293c4…`）排入的 993 个 successor（机制修正撤回后保留的普通修正 44、补充解释精简 16、生硬描述 A 档 632、B 档 326，含 25 条多阶段重复修改）。第382批审完窗口63 的 1 个 successor（无新增确认）。补空格维护（2026-10-01，译文 `a2a2d6b7`，migration `89381695…`，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`）的规则见审核操作指南 §6.4，由 strict lint `talent-placeholder-spacing` 强制。
    届时用 `.artifacts/i18n/continuation-20260923/bd.sh` 驱动（`N=<批号>; source bd.sh` 须分两句）；
    混合批按第290批（或第372批）的 stage/snapshot/close 派生，注意指南第七节列出的混合批故障。
 2. 窗口 64 已完成（26 条：主游戏 25、引擎 1）：第384–391批重新复审确认的 25 条（换行不变量 9 条，忠实性、机制与术语 16 条）＋宿主补充 1 条（骤然生长 fungus“孢子”→“真菌”），新译文均由宿主按整句对照写定、EXECUTOR 逐字替换。复审路径：execute-01 → REVIEW r0a1（GPT-6.1 Sol）26 OK → FINAL f0a2（Opus 5.5）26/26，cycle 0 收敛；门禁 17/17。详见 `evidence/quality/repair-window-64-20261003/PUBLICATION.md`。
    窗口63（意志之力 maces 1 条）详见 `evidence/quality/repair-window-63-20261001/PUBLICATION.md`；窗口62 教训：killer_message 被 `" "..src.killer_message` 拼在凶手名后，译文不得以标点起头。
    窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
-   窗口 65 积压 **0** 条（窗口64后重新计数）：无；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
-   第391批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）167.7 s；finalize 156.3 s。
+   窗口 65 积压 **2** 条（窗口64后重新计数，主游戏 1、Ashes 1）：第392批 `fd75c9b849` 物品教程删 2 个多余换行、`728ac31db2` 恶魔结合“召唤恶魔种子”→通过种子召唤恶魔并补句号；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   第392批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）166.4 s；finalize 155.4 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。
 
