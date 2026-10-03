@@ -25,7 +25,7 @@ t("#GOLD#Life per level:#LIGHT_BLUE# -4", "#GOLD#每等级生命加值：#LIGHT_
 section "tome-possessors/data/talents/psionic/battle-psionics.lua"
 
 t("You are disarmed.", "你被缴械了。", "logPlayer")
-t("You require a mainhand weapon and an offhand mindstar to use this talent.", "你需要主手武器副手灵晶才能使用这一技能。", "logPlayer")
+t("You require a mainhand weapon and an offhand mindstar to use this talent.", "你需要主手武器和副手灵晶才能使用这一技能。", "logPlayer")
 t("Psionic Disruption", "灵能瓦解", "talent name")
 t([[You imbue your offhand mindstar with wild psionic forces.
 		While active you gain %d%% more of your mindstar's mindpower and mind critical chance.
@@ -34,7 +34,7 @@ t([[You imbue your offhand mindstar with wild psionic forces.
 		If you do not have a one handed weapon and a mindstar equiped, but have them in your off set, you instantly automatically switch. The wild psionic powers are incompatible with the focused nature of psiblades.]], [[向副手灵晶灌注狂暴的灵能力量。
 		生效时，灵晶的精神强度和精神暴击几率增加 %d%%。
 		每次近战攻击，都会给目标附加 1 层灵能瓦解效果。
-		每层效果持续 %d 回合造成 %0.2f 精神伤害 (最多 %d 层)。
+		每层效果持续 %d 回合，期间共造成 %0.2f 精神伤害 (最多 %d 层)。
 		如果你没有装备单手武器和灵晶，但在备用武器组里装备了它们，你会立刻自动切换到那组武器。此技能与心灵利刃不兼容。]], "tformat")
 t("Shockstar", "震撼之星", "talent name")
 t([[You make a first attack with your mainhand for %d%% weapon damage.
@@ -174,7 +174,7 @@ t([[You call upon one of your reserve bodies, assuming its form.
 		以这种方式使用的身体不能以任何方式被治愈。
 		你可以随时通过再次使用这个技能来选择退出身体，将其按原样送回你的备用身体库。
 		当生命为 0 时被迫离开身体，冲击对你最大血量造成 %d%% 的损失并降低 50%% 移动速度和 60%% 伤害，持续 6 回合。
-		技能冷却仅在恢复正常形式时开始冷却。
+		该技能只有在恢复正常形态后才开始冷却。
 		附身时仍会获得经验，但不会被应用，直到你离开身体。
 		附身时你现有的装备被#{italic}#合并#{normal}#到你身上，你无法更换装备。
 		拥有的身体 :
@@ -183,7 +183,7 @@ t("Possess", "附身", "talent name")
 t("You do not have enough room in your bodies storage.", "你的身体存储空间不够。", "logPlayer")
 t("This creature is immune to possession.", "这个生物免疫附身。", "logPlayer")
 t("You may not possess a creature which you summoned.", "你不能附身你自己召唤的生物。", "logPlayer")
-t("You may not possess a creature which has an expiration time or a master.", "你不能附身有时间限制或者主人的生物。", "logPlayer")
+t("You may not possess a creature which has an expiration time or a master.", "你不能附身带有时间限制或拥有主人的生物。", "logPlayer")
 t("You may not possess a creature of this rank (%s%s#LAST#).", "你不能附身这个阶级的生物（%s%s#LAST#）。", "logPlayer")
 t("Possess", "附身", "_t")
 t("Permanently learn to possess creatures of type #LIGHT_BLUE#%s#LAST# (you may only do that a few times, based on talent level) ?", "确认要永久性地学习占据#LIGHT_BLUE#%s#LAST#身体的能力吗（你只能学习有限次，基于技能等级）？", "tformat")
@@ -229,12 +229,12 @@ t([[When you assume the form of an other body you gain more control over the bod
 		- at level 4 you gain one more talent slot
 		- at level 5 you gain all speeds (only if they are superior to yours)
 		- at level 6+ you gain one more talent slot
-		]], [[附身时，可更好的控制身体 :
+		]], [[附身时，可更好地控制身体 :
 		- 在等级 1 时，可额外获得一个技能位
 		- 在等级 2 时，可额外获得一个技能位
 		- 在等级 3 时，可获得抗性和固定减伤
 		- 在等级 4 时，可额外获得一个技能位
-		- 在等级 5 时，可获得所有速度（只有当他们优于你时）
+		- 在等级 5 时，可获得所有速度（仅当这些速度高于你时）
 		- 在等级 6 以上时，可额外获得一个技能位
 		]], "tformat")
 
@@ -292,7 +292,7 @@ t("Wield a two handed weapon to channel your psionics into your foes' faces!", "
 t("battle psionics", "灵能战斗", "talent type")
 t("Dual wield a one handed weapon and a mindstar to assail your enemies's minds and bodies!", "使用单手武器和灵晶攻击敌人的身体和精神！", "_t")
 t("deep horror", "深邃恐惧", "talent type")
-t("Through your psionic powers you become a nightmare for your foes.", "通过灵能量，你成为了敌人的梦魇！", "_t")
+t("Through your psionic powers you become a nightmare for your foes.", "凭借灵能之力，你成为了敌人的梦魇！", "_t")
 t("ravenous mind", "极度饥渴", "talent type")
 t("Your mind hungers for pain and suffering! Feed it!", "你的精神渴望痛苦！满足它吧！", "_t")
 
@@ -310,7 +310,7 @@ t([[Using both your mind and your arms you propel your two handed weapon to deal
 		If the blow connects and the target fails a mental save there is %d%% chance that the blow was so powerful it ripped a psychic imprint off the target.
 		It will appear nearby and serve you for %d turns.
 		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[用双手武器攻击敌人造成 %d%% 武器精神伤害。
-		如果命中且目标没有通过精神豁免有 %d%% 几率剥夺目标的心灵印记。
+		如果命中且目标未通过精神豁免，则有 %d%% 几率剥夺其心灵印记。
 		它会出现在附近，并为你服务 %d 回合。
 		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
 t("Force Shield", "力场盾", "talent name")
@@ -331,7 +331,7 @@ t("Seismic Mind", "心灵地震", "talent name")
 t([[You shatter your weapon in the ground, projecting a psionic shockwave in a cone of radius %d.
 		Any foes in the area will take %d%% weapon damage as mind damage.
 		Any psionic clones hit will instantly shatter, exploding for %0.2f physical damage in radius 1.
-		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你在地面上打碎你的武器，将一个心灵的冲击波投射在半径为 %d 的圆锥上。
+		If you do not have a two handed weapon equiped, but have it in your off set, you instantly automatically switch.]], [[你在地面上打碎你的武器，向半径 %d 的锥形范围释放一道心灵冲击波。
 		范围内的所有敌人受到 %d%% 武器精神伤害。
 		任何被击中的灵能克隆体将立即破碎，在半径 1 的范围内爆炸造成 %0.2f 物理伤害。
 		如果你没有装备双手武器，但在备用武器组里装备了它，你会立刻自动切换到那组武器。]], "tformat")
@@ -344,12 +344,12 @@ t([[You feed on the pain of all foes in sight. For each one of them with life un
 		]], [[你从视野内所有敌人的痛苦中得到养分。每一个生命值低于 80%% 的敌人将让你获得一层虐待狂效果，每层增加你的原始精神强度 %d。
 		]], "tformat")
 t("Channel Pain", "痛苦连接", "talent name")
-t("#ORANGE#%s channels pain to %s!", "#ORANGE#%s连接痛苦到%s！", "logSeen")
+t("#ORANGE#%s channels pain to %s!", "#ORANGE#%s将痛苦传导给%s！", "logSeen")
 t("#ORANGE#%s channels pain!", "#ORANGE#%s连接痛苦！", "logSeen")
 t([[As long as you have at least a stack of Sadist whenever you take damage you use %d psi to harness your stacks of Sadist to divide the damage by your stacks + 1.
 		Each time this happens a random foe in sight with 80%% or less life left will take a backlash of %d%% of the absorbed damage as mind damage.
 		This effect can only happen once per turn and only triggers for hits over 10%% of your max life.]], [[当你至少有一层虐待狂效果时，每当你受到伤害，你消耗 %d 灵能值，利用你的虐待狂叠加层数将伤害除以（层数 + 1）。
-		每次触发时，视野内一个生命值剩余 80%% 或以下的随机敌人将受到所吸收伤害 %d%% 的精神伤害反弹。
+		每次触发时，视野内一个生命值剩余 80%% 或以下的随机敌人将遭到反噬，受到相当于所吸收伤害 %d%% 的精神伤害。
 		该效果每回合只能触发一次，且只对超过你最大生命值 10%% 的伤害生效。]], "tformat")
 t("Radiate Agony", "痛苦辐射", "talent name")
 t("You need a Sadist stack to use this talent.", "你需要有一层虐待狂效果才能使用这一技能。", "logPlayer")
