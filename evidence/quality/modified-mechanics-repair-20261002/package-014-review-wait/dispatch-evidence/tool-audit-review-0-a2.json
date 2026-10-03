@@ -1,0 +1,80 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-014/INPUT-review-0-a2.json; echo; wc -c docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a2.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a2.json'))\np=d['payload']\nfor i,e in enumerate(p['translation_snapshot']):\n  print('=====',i,e['revision_key'][:8]); print('SRC:',e['source']); print('TGT:',e['target'])\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md | head -50"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a2.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  print('=====',i, [k for k in b if k!='context'], {k:b[k] for k in b if k!='context'})\n  c=json.loads(b['context'])\n  print({k:(v if k!='source_evidence' else None) for k,v in c.items()})\n  for e in c.get('source_evidence',[]):\n    print('--',e['component'],e['public_path'],e.get('commit'),e.get('source_pinning'),e['start'],e['end'])\n    print(e['excerpt'])\n\" > /tmp/bc014a2.txt; wc -l /tmp/bc014a2.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a2.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  print('=====',i, {k:b[k] for k in b if k!='context'})\n  c=json.loads(b['context'])\n  print({k:(v if k!='source_evidence' else None) for k,v in c.items()})\n  for e in c.get('source_evidence',[]):\n    ex=e.pop('excerpt',None)\n    print('--',e)\n    if ex: print(ex)\n\" > /tmp/bc014a2.txt; wc -l /tmp/bc014a2.txt; head -c 3000 /tmp/bc014a2.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 1,200p /tmp/bc014a2.txt | cut -c1-600 | tail -n +18"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a2.json'))\np=d['payload']\nfor i,b in enumerate(p['bounded_context']):\n  c=json.loads(b['context'])\n  for e in c.get('source_evidence',[]):\n    for w in e.get('windows',[]):\n      print('=====',i,e['public_path']); print(w['text'])\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n '/ActorTemporaryEffects.lua/,/^=====/p' /tmp/bc014a2.txt | head -80; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a2.json'))\np=d['payload']\nfor i in range(5,9):\n  c=json.loads(p['bounded_context'][i]['context'])\n  print('=====',i,c.get('terminology'))\n  for e in c['source_evidence']:\n    if 'windows' not in e: print('--',e['public_path'],e.get('start'),e.get('end')); print(e.get('excerpt'))\n\""
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; ls .artifacts/i18n/modified-mechanics-repair-20261002/package-014/sources/orcs/tome-orcs/data/timed_effects/ 2>&1; f=.artifacts/i18n/modified-mechanics-repair-20261002/package-014/sources/orcs/tome-orcs/data/timed_effects/magical.lua; sha256sum $f; sed -n 299,400p $f | grep -n -i 'gravity\\|energy\\|mod\\|slow\\|projectile\\|deactivate' "
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a2.json'))\nc=json.loads(d['payload']['bounded_context'][7]['context'])\nfor e in c['source_evidence']: print(e['public_path'],e.get('sha256'))\n\"; f=.artifacts/i18n/modified-mechanics-repair-20261002/package-014/sources/orcs/tome-orcs/data/timed_effects/magical.lua; sed -n 299,320p $f; grep -n 'zero_gravity\\|global_speed\\|mod_starscape' $f"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; f=.artifacts/i18n/modified-mechanics-repair-20261002/package-014/sources/tome/game/modules/tome/class/interface/Combat.lua; s=$(grep -n '^function _M:attackTargetWith' $f | cut -d: -f1); echo $s; awk -v s=$s 'NR>=s && NR<=704 && /return/' $f | head"
+    }
+  }
+]

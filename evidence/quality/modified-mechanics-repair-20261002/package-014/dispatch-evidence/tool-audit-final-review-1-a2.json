@@ -1,0 +1,60 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-014/INPUT-final-review-1-a2.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/mmrfix-20261002-014/INPUT-final-review-1-a2.json",
+      "description": "Read review input and contract size"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n '/^## /p' docs/paseo-translation-context-review-v2-contract.md; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-final-review-1-a2.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\nfor b in p['bounded_context']:\n    print(json.dumps({k:v for k,v in b.items() if k!='context'},ensure_ascii=False)[:500])\nEOF",
+      "description": "Inspect input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n '/^## 六/,/^## 七/p' docs/paseo-translation-context-review-v2-contract.md; sed -n '/^## 七/,$p' docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract output section"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-final-review-1-a2.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    print('=====',i,t['revision_key'][:8])\n    print('SRC:',t['source']); print('TGT:',t['target'])\n    c=json.loads(b['context'])\n    for k,v in c.items():\n        if k!='source_evidence': print(k,':',json.dumps(v,ensure_ascii=False)[:1500])\n    for e in c.get('source_evidence',[]):\n        print('--',e['component'],e['public_path'],e.get('source_pinning'),e['start'],e['end'])\n        print(e['excerpt'])\nEOF",
+      "description": "Dump entries with context"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF' > /tmp/rev014.txt\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-final-review-1-a2.json'))\np=d['payload']\nfor i,(t,b) in enumerate(zip(p['translation_snapshot'],p['bounded_context'])):\n    print('=====',i,t['revision_key'][:8])\n    print('SRC:',t['source']); print('TGT:',t['target'])\n    c=json.loads(b['context'])\n    for k,v in c.items():\n        if k not in('source_evidence','source_locations','read_boundary','source_access_warning'): print(k,':',json.dumps(v,ensure_ascii=False)[:2500])\n    for e in c.get('source_evidence',[]):\n        print('--',{k:v for k,v in e.items() if k!='excerpt'})\n        print(e.get('excerpt',''))\nEOF\nwc -l /tmp/rev014.txt; sed -n '30,400p' /tmp/rev014.txt",
+      "description": "Dump all entries to tmp and view"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/rev014.txt",
+      "offset": 33,
+      "limit": 200
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/tmp/rev014.txt",
+      "offset": 232,
+      "limit": 380
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; F=.artifacts/i18n/modified-mechanics-repair-20261002/package-014/sources; sed -n '/types_def/,/^}/p' $F/engine/game/engines/default/engine/Target.lua | grep -n -E 'ball|beam|selffire|friendlyfire|function' | head -40; sed -n '299,400p' $F/orcs/tome-orcs/data/timed_effects/magical.lua | grep -n -E 'zero_gravity|energy|mod|speed|projectile' ",
+      "description": "Check target type defaults and starscape rest"
+    }
+  }
+]

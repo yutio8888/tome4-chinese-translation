@@ -1,0 +1,65 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/mmrfix-20261002-014/INPUT-final-review-1-a1.json; cat .ai/task/mmrfix-20261002-014/INPUT-final-review-1-a1.json | head -c 20000",
+      "description": "Read frozen review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-final-review-1-a1.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000]); print('----')\nprint(len(p['bounded_context']))\n\"",
+      "description": "Inspect input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n '^#' docs/paseo-translation-context-review-v2-contract.md; ",
+      "description": "List contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract output section"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-final-review-1-a1.json'))\nfor i,b in enumerate(d['payload']['bounded_context'][2:],3):\n  c=json.loads(b['context'])\n  print('=====',i,b['revision_key'][:8],c['section'],c['source_tag'])\n  print('TERM',json.dumps(c.get('terminology'),ensure_ascii=False))\n  for e in c['source_evidence']:\n    print('--',e['public_path'],e.get('commit'),e.get('start'),e.get('end'))\n    if 'excerpt' in e: print(e['excerpt'])\n    for w in e.get('windows',[]): print(w['text'])\n\" > /tmp/ctx.txt; wc -l /tmp/ctx.txt",
+      "description": "Dump remaining contexts to tmp"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 1,260p /tmp/ctx.txt",
+      "description": "Read contexts part 1"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 260,560p /tmp/ctx.txt",
+      "description": "Read contexts part 2"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 560,817p /tmp/ctx.txt",
+      "description": "Read contexts part 3"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; f=.artifacts/i18n/modified-mechanics-repair-20261002/package-014/sources/orcs/tome-orcs/data/timed_effects/magical.lua; ls .artifacts/i18n/modified-mechanics-repair-20261002/package-014/sources/*/ ; ls $f && sed -n 296,380p $f",
+      "description": "Read rest of Starscape effect from frozen copy"
+    }
+  }
+]

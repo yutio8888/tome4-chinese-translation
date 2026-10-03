@@ -1,0 +1,24 @@
+{
+  "task_id": "mmrfix-20261002-014",
+  "candidate_identity": "2df9d2a2d399349a8e7d6c54e283cb3eefd3356c39a780d13b2e6c80fe968305",
+  "revision_key": "39149f5f699c3a46a2a6bd4d598f113f0e1180504f11e04a23c27e4bbcd77f52",
+  "host_status": "advisory",
+  "resolution": "Reviewer missing-evidence allegation refuted; no target or args_order change recommended",
+  "facts": [
+    "Frozen bounded_context already contains args_order=[3,1,2,4,5] and formatter source evidence.",
+    "Actual DLC dry-run output registers the same args_order.",
+    "Exact fixed formatter renders distinct test values correctly: radius7, light123.25, darkness456.50, move11%, other22%.",
+    "RE_REVIEW and FINAL_REVIEW have identical candidate identity; prior verdict OK, final ISSUE."
+  ],
+  "evidence": [
+    "published-args-014-proof.json",
+    "format-runtime-014-proof.json"
+  ],
+  "review_boundary_audit": "9 native calls only frozen input/referenced sources/contract plus own /tmp; did not print/read context.args_order when extracting evidence",
+  "reason_for_wait": "AGENTS.md same-revision contradictory independent review stop rule. Host considers runtime allegation refuted but asks user to authorize disposition/closure rather than reroll reviews.",
+  "recommended_decision": "Dismiss the missed-metadata finding, preserve exact current candidate and args_order, accept final full coverage with host adjudication, close/commit main014 after DONE checker; then approved two-entry companion and015—018.",
+  "not_requested": "No new scope/terminology/runtime/source/push authorization.",
+  "user_disposition": "撤销误报，按现有候选收束并继续（推荐）",
+  "accepted_final_coverage": true,
+  "unresolved_findings": []
+}

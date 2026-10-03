@@ -3073,7 +3073,7 @@ t([[You trigger a cascade of rapidly mutating cells in your body for %d turns.
 t("Writhing One", "蠕动者", "talent name")
 t([[At last you unlock the true power of your mutated body!
 		You gain %d%% stun immunity, %d%% chances to ignore critical strikes and your darkness and blight damage are increased by %d%%.]], [[你终于解开了这具变异身体的最终力量！
-		你获得 %d%% 震慑免疫， %d%% 几率无视受到的暴击，并且增加 %d%% 暗影及枯萎伤害。]], "tformat")
+		你获得 %d%% 震慑免疫， 受到暴击时的额外伤害降低 %d%%， 并且增加 %d%% 暗影及枯萎伤害。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/rift.lua"
@@ -3227,9 +3227,9 @@ t([[You plant your tentacle hand in the ground where it splits up and extends to
 
 		#YELLOW_GREEN#When constricting:#WHITE#The tendrils pummel your constricted target for %d%% tentacle damage and if adjacent you make an additional mainhand weapon attack.  Talent cooldown reduced to 10.]], [[你的触手钻入地下，分布到 %d 码范围的目标区域。
 		该区域喷发出大量黑色触手，对区域内所有敌人造成 %d%% 触手伤害。
-		被触手击中的生物需要进行法术检定，检定失败将被麻木，5 回合内伤害降低 %d%%。
+		区域内受到触手攻击的敌人，无论攻击是否命中，都需要进行法术检定，检定失败将被麻木，5 回合内伤害降低 %d%%。
 
-		如果有敌人被触手击中，你获得 %d 疯狂值。
+		如果触手对至少一个敌人完成攻击结算，即使未命中，你获得 %d 疯狂值。
 
 		#YELLOW_GREEN#当触手处于缠绕状态:#WHITE#触手对缠绕对象连续突击，造成 %d%% 触手伤害。如果你与被缠绕对象相邻，则进行一次额外的主手打击。技能冷却时间缩短为 10 回合。]], "tformat")
 t("Constrict", "缠绕", "talent name")
@@ -3270,8 +3270,8 @@ t("#LIGHT_STEEL_BLUE#%s's Temporal Clone#LAST#", "#LIGHT_STEEL_BLUE#%s的时空�
 t("A warped image resembling the creature it appeared from, its features a flickering blur of all possible futures.", "一个扭曲的图像，类似于它模仿的生物，它展现着其所有可能的未来的模糊影像。", "_t")
 t("Summon", "召唤", "_t")
 t([[The target enemy will be partially removed from the normal flow of time for %d turns, inhibiting their ability to interact with the world. All damage taken will be reduced by %d%%, while all damage dealt will be reduced by %d%%.
-While active, you form the frayed threads of their timeline into a temporal clone of them for the same duration, which assists you in combat. This clone is identical, but has %d%% reduced life and deals %d%% damage.]], [[将目标敌人从正常时间流部分移除，持续 %d 回合，隔绝他们与现实世界交互的能力。移除期间敌人受到的伤害降低 %d%%， 造成的伤害也降低 %d%%。
-		技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同，克隆体生命值降低 %d%%， 只造成 %d%% 伤害，其他能力与本体相同。]], "tformat")
+While active, you form the frayed threads of their timeline into a temporal clone of them for the same duration, which assists you in combat. This clone is identical, but has %d%% reduced life and deals %d%% damage.]], [[将目标敌人从正常时间流部分移除，持续 %d 回合，隔绝他们与现实世界交互的能力。移除期间敌人受到的伤害保留 %d%%， 造成的伤害也降低 %d%%。
+		技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同，克隆体生命值降低 %d%%， 全伤害加成变为原加成加上 %d%% 再减去 100 个百分点，其他能力与本体相同。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/void.lua"
@@ -3378,8 +3378,8 @@ t([[Allows to teleport to Kroshkkur.
 	This spell must be kept secret; it should never be used within view of uninitiated witnesses.
 	The spell takes time (40 turns) to activate, and you must be out of sight of any other creature when you cast it and when the teleportation takes effect.]], [[允许传送至克诺什库尔。
 	你学习了那里的禁忌秘密，因此获得了传送至克诺什库尔的法术。
-	该法术必须保持机密；绝不能在未入门的目击者视野内使用。
-	该法术需要 40 回合生效。施放时及传送生效时，你都必须处于任何其他生物的视线之外。]], "_t")
+	该法术必须保持机密；应避免在未入门的目击者视野内使用。
+	该法术需要 40 回合生效。施放时及传送生效时，都会检查 20 码视线内的其他生物。你的召唤物不会阻止传送；若检查时最后遇到的是你的召唤物，此前发现的其他目击者也不会阻止传送。]], "_t")
 t("Call of Amakthel", "阿马克泰尔的呼唤", "talent name")
 t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
 t("Pull all foes within radius 10 2 grids towards you.", "将10码范围内所有的目标朝你拉近2格。", "_t")
@@ -4157,7 +4157,7 @@ t("Clarity found in safety.\nClarity found in comfort.\nThoughts and idle dreams
 珍惜思想。
 独处的思想备受珍视。
 
-#RED#阅读这本书将会在5回合内将你慢慢拉入书中。]], "_t")
+#RED#阅读这本书会启动从3开始的倒计时，倒计时自然结束时将你慢慢拉入书中。]], "_t")
 -- untranslated text
 --[==[
 t("..", "..", "entity name")

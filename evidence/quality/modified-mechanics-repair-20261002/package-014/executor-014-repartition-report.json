@@ -1,0 +1,267 @@
+{
+  "task": "mmrfix-20261002-014",
+  "role": "executor",
+  "purpose": "bounded pre-review repartition",
+  "source_evidence": [
+    {
+      "public_path": "game/engines/default/engine/interface/ActorTemporaryEffects.lua",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "start": 78,
+      "end": 110,
+      "excerpt": "function _M:timedEffects(filter)\n\tlocal todel = {}\n\tlocal def\n\tlocal effs = {}\n\tfor eff, p in pairs(self.tmp) do\n\t\teffs[eff] = p\n\tend\n\tfor eff, p in pairs(effs) do\n\t\tdef = _M.tempeffect_def[eff]\n\t\tif not filter or filter(def, p) then\n\t\t\tif p.dur <= 0 then\n\t\t\t\ttodel[#todel+1] = eff\n\t\t\telse\n\t\t\t\tif def.on_timeout then\n\t\t\t\t\tlocal old_source\n\t\t\t\t\tif p.src then\n\t\t\t\t\t\told_source = p.src.__project_source\n\t\t\t\t\t\tp.src.__project_source = p \n\t\t\t\t\tend -- intermediate projector source\n\t\t\t\t\tif def.on_timeout(self, p, def) then\n\t\t\t\t\t\ttodel[#todel+1] = eff\n\t\t\t\t\tend\n\t\t\t\t\tif p.src then p.src.__project_source = old_source end\n\t\t\t\tend\n\t\t\tend\n\t\t\tp.dur = p.dur - def.decrease\n\t\tend\n\tend\n\n\twhile #todel > 0 do\n\t\tself:removeEffect(table.remove(todel))\n\tend\nend",
+      "source_pinning": "pinned",
+      "verified_sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "verified_excerpt": "function _M:timedEffects(filter)\n\tlocal todel = {}\n\tlocal def\n\tlocal effs = {}\n\tfor eff, p in pairs(self.tmp) do\n\t\teffs[eff] = p\n\tend\n\tfor eff, p in pairs(effs) do\n\t\tdef = _M.tempeffect_def[eff]\n\t\tif not filter or filter(def, p) then\n\t\t\tif p.dur <= 0 then\n\t\t\t\ttodel[#todel+1] = eff\n\t\t\telse\n\t\t\t\tif def.on_timeout then\n\t\t\t\t\tlocal old_source\n\t\t\t\t\tif p.src then\n\t\t\t\t\t\told_source = p.src.__project_source\n\t\t\t\t\t\tp.src.__project_source = p \n\t\t\t\t\tend -- intermediate projector source\n\t\t\t\t\tif def.on_timeout(self, p, def) then\n\t\t\t\t\t\ttodel[#todel+1] = eff\n\t\t\t\t\tend\n\t\t\t\t\tif p.src then p.src.__project_source = old_source end\n\t\t\t\tend\n\t\t\tend\n\t\t\tp.dur = p.dur - def.decrease\n\t\tend\n\tend\n\n\twhile #todel > 0 do\n\t\tself:removeEffect(table.remove(todel))\n\tend\nend",
+      "verification": "git show fixed commit; no HEAD source read"
+    },
+    {
+      "public_path": "tome-cults/overload/mod/dialogs/ForbiddenTome.lua",
+      "commit": null,
+      "source_pinning": "unpinned DLC; repository/commit/release not fixed",
+      "sha256": "8f01f826b78cda474da812bd46e33384e0ed0a2f139fcf4491835e3b70c461c2",
+      "start": 101,
+      "end": 107,
+      "excerpt": "\tif self.tome.book_change_timeout then\n\t\tself.actor:setEffect(self.actor.EFF_CULTS_BOOK_TIMEOUT, self.tome.book_change_timeout, {tome=self.tome})\n\telse\n\t\tCults.handleBookTransition(self.tome, self.actor)\n\tend\n\tgame:unregisterDialog(self)\nend",
+      "expected_sha256_verified": true
+    },
+    {
+      "public_path": "tome-cults/data/timed_effects.lua",
+      "commit": null,
+      "source_pinning": "unpinned DLC; repository/commit/release not fixed",
+      "sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+      "start": 1875,
+      "end": 1897,
+      "excerpt": "\tname = \"CULTS_BOOK_TIMEOUT\", image = \"shockbolt/object/artifact/forbidden_tome_home.png\",\n\tdesc = _t\"Forbidden Tome\",\n\tlong_desc = function(self, eff) return _t\"Slowly transfered to a Forbidden Tome.\" end,\n\ttype = \"magical\",\n\tsubtype = {book=true},\n\tstatus = \"beneficial\",\n\tparameters = {},\n\ton_gain = function(self, err) return _t\"#Target# is entering a Forbidden Tome!\", true end,\n\ton_lose = function(self, err) return _t\"#Target# enters a Forbidden Tome!\", true end,\n\tactivate = function(self, eff)\n\t\teff.leveid = game.zone.short_name..\"-\"..game.level.level\n\tend,\n\tdeactivate = function(self, eff)\n\t\tif eff.dur > 0 or eff.forbid then return end\n\t\tif self ~= game:getPlayer(true) then return end\n\t\tgame:onTickEnd(function()\n\t\t\tif eff.leveid == game.zone.short_name..\"-\"..game.level.level and game.player.can_change_zone then\n\t\t\t\tCults.handleBookTransition(eff.tome, self)\n\t\t\tend\n\t\tend)\n\tend,\n}\n",
+      "expected_sha256_verified": true
+    },
+    {
+      "public_path": "tome-cults/data/zones/ft-horrors/objects.lua",
+      "commit": null,
+      "source_pinning": "unpinned DLC; repository/commit/release not fixed",
+      "sha256": "3ee604b7acc5d71b35296563acde6e5a1328743ff05a81b7e72a92212880a3cb",
+      "start": 35,
+      "end": 73,
+      "excerpt": "newEntity{ base = \"BASE_FORBIDDEN_TOME\", define_as = \"FORBIDDEN_TOME_HOME\",\n\tname = 'Forbidden Tome: \"Home, Horrific Home\"', unique=true,\n\timage = \"object/artifact/forbidden_tome_home.png\",\n\tdesc = _t[[A tome of lost knowledge. Touching it you feel both sick and yet strangely at peace.]],\n\tlevel_range = {25, 50},\n\trarity = nil,\n\tcost = 500,\n\tmaterial_level = 5,\n\n\tchange_zone = \"cults+ft-home\",\n\tbook_in_combat = true,\n\tbook_texture = \"book-texture-home\",\n\tbook_change_timeout = 3,\n\tbook_change_cooldown = 80,\n\tbook_font = \"Unquiet Spirits.ttf\",\n\tbook_font_style = \"book_unquiet\",\n\tbook_text = _t[[Clarity found in safety.\nClarity found in comfort.\nThoughts and idle dreams drifting through space.\nNo one to harm.\nNo one to distract.\nJust thoughts.\nWork to great works.\nMeditate.\nPain is a lens.\nFocus through it.\nLet flesh be your canvas.\nLet flesh fuel dreams.\nThoughts are treasures.\nTreasure thoughts.\nThoughts treasured when they are alone. \n\n#RED#Reading this tome will slowly pull you in over 5 turns.]],\n\n\ton_pickup = function(self)\n\t\tself.on_pickup = nil\n\t\tworld:gainAchievement(\"CULTS_BOOKCEPTION\", game.player)\n\tend,\n}",
+      "expected_sha256_verified": true
+    }
+  ],
+  "core_head_commit": "3ff88853bc1c586045c439d21c5c112912c6a5bf",
+  "fixed_core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "edits": [
+    {
+      "candidate_index": 1425,
+      "file": "tome-orcs.lua",
+      "section": "tome-orcs/data/talents/celestial/crepescula.lua",
+      "old_target": "目标会感受到所有来源造成的不低于 1 点的光系和暗影伤害的回响，持续 %d 回合。\n\n每造成 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；后续光系伤害叠加时，减速参数上限为 %d%%， 相当于 %d 点累计光系伤害；首次施加时不受此上限限制。\n暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。",
+      "new_target": "目标会感受到你造成的所有光系和暗影伤害的回响，持续 %d 回合。\n\n每造成 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 造成 %d 点伤害时达到上限。\n暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。",
+      "reason": "Authorized repartition: restore this scoped target before separate two-entry companion",
+      "lua_literal_form": "[[...]]; preserved",
+      "old_literal": "[[目标会感受到所有来源造成的不低于 1 点的光系和暗影伤害的回响，持续 %d 回合。\n\n每造成 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；后续光系伤害叠加时，减速参数上限为 %d%%， 相当于 %d 点累计光系伤害；首次施加时不受此上限限制。\n暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]]",
+      "new_literal": "[[目标会感受到你造成的所有光系和暗影伤害的回响，持续 %d 回合。\n\n每造成 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 造成 %d 点伤害时达到上限。\n暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]]",
+      "old_byte_offset": 515332,
+      "old_byte_length": 625,
+      "new_byte_length": 529,
+      "old_target_sha256": "8a3088154f222c0128b49e9d92f8ae2bc24b32a487a02a67260d301bdcdd128b",
+      "new_target_sha256": "a56f799e35cdd29c7c754381d067c8864d790814bf035e5533c903349881b90e",
+      "preimage_verified": true,
+      "restored_baseline_verified": true,
+      "invariant_signatures": {
+        "placeholders": [
+          "%d",
+          "%0.2f",
+          "%%",
+          "%d",
+          "%d",
+          "%%",
+          "%d",
+          "%d",
+          "%d",
+          "%%"
+        ],
+        "markup": [],
+        "line_controls": [
+          "\n",
+          "\n",
+          "\n"
+        ]
+      },
+      "translation_source": "The target feels the echoes of all your light and dark damage for %d turns. \n\nLight damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.\nDark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.",
+      "translation_source_sha256": "80d665bbd87b0f5ca63c64206d7725b73c3c91c3efe8503674d304ae5d3ec422",
+      "final_target_line": 3960
+    },
+    {
+      "candidate_index": 1228,
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/zones/ft-horrors/objects.lua",
+      "old_target": "在安全中找到清明。\n在舒适中找到清明。\n思绪与白日梦在虚空中飘荡。\n无人可伤害。\n无人来打扰。\n唯有思想。\n投身伟大的作品。\n冥想。\n痛苦是一面透镜。\n透过它聚焦。\n让肉体成为你的画布。\n让肉体滋养梦想。\n思想是财富。\n珍惜思想。\n独处的思想备受珍视。\n\n#RED#阅读这本书将会在3回合内将你慢慢拉入书中。",
+      "new_target": "在安全中找到清明。\n在舒适中找到清明。\n思绪与白日梦在虚空中飘荡。\n无人可伤害。\n无人来打扰。\n唯有思想。\n投身伟大的作品。\n冥想。\n痛苦是一面透镜。\n透过它聚焦。\n让肉体成为你的画布。\n让肉体滋养梦想。\n思想是财富。\n珍惜思想。\n独处的思想备受珍视。\n\n#RED#阅读这本书会启动从3开始的倒计时，倒计时自然结束时将你慢慢拉入书中。",
+      "reason": "Distinguish initial countdown3 from exact elapsed player turns; fixed expiry tests before decrement.",
+      "lua_literal_form": "[[...]]; preserved",
+      "old_literal": "[[在安全中找到清明。\n在舒适中找到清明。\n思绪与白日梦在虚空中飘荡。\n无人可伤害。\n无人来打扰。\n唯有思想。\n投身伟大的作品。\n冥想。\n痛苦是一面透镜。\n透过它聚焦。\n让肉体成为你的画布。\n让肉体滋养梦想。\n思想是财富。\n珍惜思想。\n独处的思想备受珍视。\n\n#RED#阅读这本书将会在3回合内将你慢慢拉入书中。]]",
+      "new_literal": "[[在安全中找到清明。\n在舒适中找到清明。\n思绪与白日梦在虚空中飘荡。\n无人可伤害。\n无人来打扰。\n唯有思想。\n投身伟大的作品。\n冥想。\n痛苦是一面透镜。\n透过它聚焦。\n让肉体成为你的画布。\n让肉体滋养梦想。\n思想是财富。\n珍惜思想。\n独处的思想备受珍视。\n\n#RED#阅读这本书会启动从3开始的倒计时，倒计时自然结束时将你慢慢拉入书中。]]",
+      "old_byte_offset": 743543,
+      "old_byte_length": 418,
+      "new_byte_length": 457,
+      "old_target_sha256": "352b1aa3829c85f0f5f20d2299b75c936164080829743a83296652301aed79d8",
+      "new_target_sha256": "4e90e2d0b34802dea2ed606a2def068e75fe4b2ac5e184d48fa9ac7d04860d9f",
+      "preimage_verified": true,
+      "restored_baseline_verified": false,
+      "invariant_signatures": {
+        "placeholders": [],
+        "markup": [
+          "#RED#"
+        ],
+        "line_controls": [
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n",
+          "\n"
+        ]
+      },
+      "translation_source": "It's a cold night and you did not find anything to eat during the day. Your fur pelt doesn't do much to keep the cold out either. You're about to go out to hunt, but everyone else has warned you that you must not do that. The night is dangerous and there appears to be strange lights in the sky. An ill omen, to say the least. Food has been hard to come by lately, so everyone is just as famished as you are.\n\nThe many tentacled ones who sometimes come down from the sky to look at you say that they are going to battle with themselves. You did not really understand why they would fight among themselves, even as it tried to explain it to you. You reconsider the idea of going outside when its warnings come across your mind, but the rumbling in your belly renews your resolve. Everyone in your tribe tonight must eat, no matter what.",
+      "translation_source_sha256": "f952217646a47985dc5f4bdea479c0d2e9a18b43701ceafe1ed29281441f1fa6",
+      "final_target_line": 4144
+    }
+  ],
+  "full_file_reverse_byte_proof": [
+    {
+      "file": "tome-orcs.lua",
+      "preimage_sha256": "6efb769e89b156a4be4bdb7c520659328007febe33bc3cbbd05260906b70628a",
+      "expected_preimage_sha256": "6efb769e89b156a4be4bdb7c520659328007febe33bc3cbbd05260906b70628a",
+      "postimage_sha256": "d2a9bf50abaeab336b185a8f336be2bdea8f47d334f6db83cfa35886f6756756",
+      "reverse_sha256": "6efb769e89b156a4be4bdb7c520659328007febe33bc3cbbd05260906b70628a",
+      "reverse_equals_entire_preimage": true,
+      "prefix_unchanged_bytes": 515332,
+      "suffix_unchanged_bytes": 378342,
+      "only_target_bytes_changed": true,
+      "verified_again_after_checks": true
+    },
+    {
+      "file": "tome-cults.lua",
+      "preimage_sha256": "ac39b388cc85c853959d7c92a5aab3329124226a197901d35eb40910fa921de2",
+      "expected_preimage_sha256": "ac39b388cc85c853959d7c92a5aab3329124226a197901d35eb40910fa921de2",
+      "postimage_sha256": "f7740f587e53fba06df34bec51f37b4c39fbc1ec6bec65f736665e53981ce366",
+      "reverse_sha256": "ac39b388cc85c853959d7c92a5aab3329124226a197901d35eb40910fa921de2",
+      "reverse_equals_entire_preimage": true,
+      "prefix_unchanged_bytes": 743543,
+      "suffix_unchanged_bytes": 56921,
+      "only_target_bytes_changed": true,
+      "verified_again_after_checks": true
+    }
+  ],
+  "other_eight_entries": [
+    {
+      "candidate_index": 1194,
+      "file": "tome-cults.lua",
+      "entire_raw_call_unchanged": true,
+      "raw_sha256": "30690709f4190f21d5089a44f7284936af2a6d250a941c991a5ad6a106d0f1cf",
+      "raw_byte_length": 486
+    },
+    {
+      "candidate_index": 1202,
+      "file": "tome-cults.lua",
+      "entire_raw_call_unchanged": true,
+      "raw_sha256": "86ec3ab059017f13855d92304dc2a54865b7fdfc55e0f1f102b14f26ed226191",
+      "raw_byte_length": 2897
+    },
+    {
+      "candidate_index": 1205,
+      "file": "tome-cults.lua",
+      "entire_raw_call_unchanged": true,
+      "raw_sha256": "123240623f6c84262846f69b369bebfc2a2ba0d60109bdebe30dfb971937fa05",
+      "raw_byte_length": 1034
+    },
+    {
+      "candidate_index": 1210,
+      "file": "tome-cults.lua",
+      "entire_raw_call_unchanged": true,
+      "raw_sha256": "7e6f7e05955f81b45a8592cda5b37af441822ca2e213cb31b1562016e42e6f8b",
+      "raw_byte_length": 4607
+    },
+    {
+      "candidate_index": 1424,
+      "file": "tome-orcs.lua",
+      "entire_raw_call_unchanged": true,
+      "raw_sha256": "66e4d207b1d2f8980ad3d52481d5aa9b49620b4347c18b177df8a343bc37ba48",
+      "raw_byte_length": 2649
+    },
+    {
+      "candidate_index": 1428,
+      "file": "tome-orcs.lua",
+      "entire_raw_call_unchanged": true,
+      "raw_sha256": "ba225706f06d63457224c835e25e34041a2c962806defe6052ee53aae7c22179",
+      "raw_byte_length": 934
+    },
+    {
+      "candidate_index": 1431,
+      "file": "tome-orcs.lua",
+      "entire_raw_call_unchanged": true,
+      "raw_sha256": "39980876ac189e3adad7814ff5d94d85ef42d27086df030fb2adb2e45b1308a5",
+      "raw_byte_length": 738
+    },
+    {
+      "candidate_index": 1436,
+      "file": "tome-orcs.lua",
+      "entire_raw_call_unchanged": true,
+      "raw_sha256": "7fe46415e37a261b5e8f234c691a5280649a964d539dc2cc4274a600102d5373",
+      "raw_byte_length": 2863
+    }
+  ],
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "manifest, Lua5.1/LuaJIT, LPeg0.10.2 and input repositories checked; expected unpinned DLC warnings"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "stdout": "Checked 30308 translations: 0 errors, 0 warnings",
+      "derived_report": ".artifacts/i18n/runs/20261003T002653.326219Z-2-lint/lint.json"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": ""
+    },
+    {
+      "command": "git diff --cached --check",
+      "exit_code": 0,
+      "stdout": ""
+    }
+  ],
+  "unresolved": [],
+  "plan_deviations": [],
+  "mechanism_conclusion": "book_change_timeout=3 is passed to CULTS_BOOK_TIMEOUT; fixed timedEffects checks p.dur<=0 before decrease, then removeEffect; DLC deactivate queues conditional transition at tick end. Countdown starts at3; no exact player-turn duration promise. Restore1425 strictly to baseline for companion repair, not a mechanism correctness endorsement.",
+  "invariants": {
+    "source_source_tag_args_order_special_unchanged": "proven by exact target-only whole-file replacement and reversal",
+    "placeholder_markup_newline_tabs": "replacement signatures compared below",
+    "no_other_eight_changed": true,
+    "no_stage_commit_child": true
+  },
+  "host_probe_reference": {
+    "path": ".artifacts/i18n/modified-mechanics-repair-20261002/host-consumer-probe-014.json",
+    "source_sha256": "85ee6d341f23a940022c6ada8b7472d2afcddfa24b37deca174dfabfc3b670d2",
+    "observed_result": "dur3 remains after three timedEffects passes and is removed on the fourth; this does not establish elapsed player actions or scheduling phase",
+    "probe_rerun": false,
+    "actual_fixed_consumer_excerpt_independently_verified": true
+  },
+  "source_limitations": [
+    "DLC repository/commit/release version not pinned; cited complete file SHA verified against available public checkout.",
+    "Book transition on natural expiry also depends on same level and can_change_zone as shown in deactivate; wording does not guarantee exact player-turn duration."
+  ],
+  "delivery_scope": "Exactly two specified target edits; other eight entries preserved; no source/terminology/tool/.ai/evidence changes; no stage/commit/child. Tools generated their normal ignored lint output. Full package review/gates/finalization belong to ORCHESTRATOR, outside this bounded dispatch."
+}

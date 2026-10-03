@@ -1,6 +1,24 @@
+# 当前恢复入口
+
+第014主包9条已DONE_VERIFIED，累计134/169原claim、14/18主包；准备提交后先运行已授权暮光回响两条companion，再015—018。所有8次派发已归档。用户已批准撤销args_order误报；最终有效终审全部9条OK。
+
+详见 evidence/quality/modified-mechanics-repair-20261002/HANDOFF.md。保留用户无关改动，无push/PR/发布授权。
+
+---
+
+2026-10-03更新：用户已明确批准撤销参数顺序误报并继续。收束检查发现宿主给RE_REVIEW及FINAL_REVIEW重复cycle1/attempt1，旧final已保留为无效派发诊断（raw不改、用户裁决不改）；fresh FINAL_REVIEW attempt2 601d3a67-2732-467c-a8ff-169b39bf16a9运行中，candidate未变。完成后收束主包→companion→015—018。
+
+# 当前恢复入口
+
+第001—013包完成，125/169原claim；第014主包9条已修并通过完整门禁及RE_REVIEW，FINAL_REVIEW对等离子飞弹提出与上一轮相反的缺失args_order疑点。宿主已证伪：冻结context及实际DLC产物均为{3,1,2,4,5}，固定formatter探针正确。按AGENTS同revision复审分歧规则WAIT_USER，等待是否撤销误报、保持候选并据宿主裁决收束。全部child已确认归档；无活动执行者。第014未DONE/未提交。
+
+证据：package-014-review-wait/DECISION.json、published-args-014-proof.json、format-runtime-014-proof.json及task/reviews/dispatch-evidence。用户此前9＋2拆分授权持续有效，不重问；主包若获准收束后先做014-companion两条，再015—018。伴随包prepare helper已准备但未执行。用户无关文件不动；无push/PR/发布授权。
+
+---
+
 # 当前交接入口（2026-10-02）
 
-当前工作是[修改译文机制修正任务](evidence/quality/modified-mechanics-repair-20261002/HANDOFF.md)：已完成 **13/18 包、125/169 个原始claim**。第013包提交 `0c739d7f`，独立复审、终审与完整门禁通过，5个child均已归档；第014包尚未创建或派发。下一步及MMR-026待决术语事项以该交接为准。
+当前工作是[修改译文机制修正任务](evidence/quality/modified-mechanics-repair-20261002/HANDOFF.md)：已完成 **13/18 包、125/169 个原始claim**。第013包提交 `0c739d7f`，独立复审、终审与完整门禁通过，5个child均已归档；用户已回复“请继续”，用户已批准第014包拆为9＋2条，当前正在执行拆分；主9条及暮光2条伴随包分别完整验证后提交。当前细节见任务交接。下一步及MMR-026待决术语事项以该交接为准。
 
 本轮用户要求更新handoff，已记录当前状态。既有连续修正范围保持；本任务未获push／PR／发布授权。下文保留第382批生产队列历史，其中旧授权、模型配置和“无未决项”等结论仅属当时任务，不覆盖当前机制修正交接。
 

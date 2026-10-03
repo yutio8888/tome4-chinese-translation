@@ -1,0 +1,17 @@
+{
+  "title": "机制修正014 FIX：混乱施加检定",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-014",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "fix-1-a1"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，fresh FIX cycle1，task mmrfix-20261002-014。读 .ai/roles/executor.md、.ai/task/mmrfix-20261002-014/SPEC.md、PLAN.md、FIX-1.json。仅tome-orcs.lua冻结Mindwave一条target按new_target修改：apply_power是施加混乱的检定强度，power=35是混乱强度。先核对preimage/old_target，核验fixedcore Actor.lua7651-7675和DLC tome-orcs/data/talents/misc/races.lua95-122，DLC来源未固定需hash。保留其余8条及所有其他内容和非target字段/placeholder/markup/newline/tabs。不得改源码/术语/工具/.ai/旧evidence/用户文件，不stage/commit或创建child。可用/tmp。运行strictlint和git diff --check；写 .artifacts/i18n/modified-mechanics-repair-20261002/executor-014-fix1-report.json，含完整old/new、源码hash/精确摘录、范围逆向字节验证/tests。最终报告实际成果。",
+  "notifyOnFinish": true
+}

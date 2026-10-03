@@ -1,0 +1,42 @@
+{
+  "task_id": "mmrfix-20261002-014",
+  "status": "confirmed_scope_blocker",
+  "runtime_key_source": "The target feels the echoes of all your light and dark damage for %d turns. \n\nLight damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.\nDark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.",
+  "locations": [
+    {
+      "file": "tome-orcs.lua",
+      "section": "tome-orcs/data/talents/celestial/crepescula.lua",
+      "line": 3957,
+      "already_authorized": true
+    },
+    {
+      "file": "tome-orcs.lua",
+      "section": "tome-orcs/data/talents/celestial/void.lua",
+      "line": 4015,
+      "already_authorized": false
+    }
+  ],
+  "host_validation": {
+    "exact_targets_modified": 10,
+    "outside_target_bytes_unchanged": true,
+    "strict_proposals": "passed",
+    "strict_lint": "confirmed one runtime-collision, zero warnings using unmodified CLI",
+    "executor_source_anchors_verified": 30,
+    "all_child_archived": true,
+    "independent_review_started": false
+  },
+  "recommended_scope": "Authorize the second identical runtime-key target. Repartition current task into9 original entries and one separate2-entry Twilit Echoes companion; keep <=10 entries per task. Independently verify and synchronize both Twilit targets, including the source-confirmed dark-echo initial duration/refresh condition; no terminology/global rename/source modification.",
+  "alternative": "Use fresh executor to restore only1425 to baseline and defer its claim; proceed with remaining9 after validation.",
+  "pending_host_checks": [
+    {
+      "candidate_index": 1228,
+      "status": "pending",
+      "detail": "book timeout=3; fixed timedEffects expires on fourth pass. Scheduling/player-action duration not fully proven; do not mechanically treat local3 as exact elapsed player turns."
+    },
+    {
+      "candidate_index": 1425,
+      "status": "confirmed_source_discrepancy",
+      "detail": "Initial dark map effect duration4 versus displayed/refresh3; refresh only on DARKNESS>=1 and0<remaining<3; source Map.processEffects damages then decrements duration. Current target still has unconditional displayed duration/refresh phrasing."
+    }
+  ]
+}

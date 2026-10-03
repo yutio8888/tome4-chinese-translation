@@ -1,0 +1,17 @@
+{
+  "title": "机制修正014：批准拆包与倒计时口径",
+  "provider": "codex/gpt-6.1-sol",
+  "workspaceId": "wks_420314270844170b",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "labels": {
+    "task_id": "mmrfix-20261002-014",
+    "role": "executor",
+    "purpose": "implementation",
+    "dispatch_id": "execute-0-a2"
+  },
+  "initialPrompt": "你是Paseo EXECUTOR，task mmrfix-20261002-014的首次复审前有界拆包。读.ai/roles/executor.md、本task SPEC.md/PLAN.md/USER-DECISION-SPLIT.json/REPARTITION-0.json。按REPARTITION精确修改2处target：撤回暂存的1425暮光以便后续独立2条包同步修复；1228读书改为从3开始倒计时，不保证精确3玩家回合。核对preimage及固定engine/interface/ActorTemporaryEffects.lua78-110（core624a67329fe2ad440c5b344785a9c73fcf22ae63仅gitshow，HEAD不同），DLCbook读书状态参数参见host-consumer-probe-014.json/REPAIR-INPUT-SPLIT.json。Lua可能字符串转义，保持原形式和其余字节；不改其他8条。只写这两处target、自己/tmp及.artifacts/i18n/modified-mechanics-repair-20261002/executor-014-repartition-report.json。不stage/commit/child，不改源码术语工具.ai/evidence。跑strictlint/diffcheck，报告完整old/new、相关sourceSHA/摘录、全文件反向字节证明/检查。",
+  "notifyOnFinish": true
+}

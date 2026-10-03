@@ -1,0 +1,6 @@
+{
+  "original_filename": "twilit-merge-probe-014.lua",
+  "sha256": "e8c1d7789dac20128d5fa4a1035c419c9b3eb635e3e0228c32083a2f71e8fa17",
+  "lua_source": "local def={\n\ton_merge = function(self, old_eff, new_eff)\n\t\tmax = math.max(old_eff.max, new_eff.max)\n\t\told_eff.power = math.min(old_eff.power + new_eff.power, max)\n\t\tself:removeTemporaryValue(\"global_speed_add\", old_eff.tmpid)\n\t\told_eff.tmpid = self:addTemporaryValue(\"global_speed_add\", -old_eff.power)\n\t\treturn old_eff\n\tend,\n}\nlocal actor={removeTemporaryValue=function()end,addTemporaryValue=function()return 1 end}\nfor _,d in ipairs({1,2,3})do local old={power=.8,max=.3,dur=d,tmpid=1};local new={power=.1,max=.3,dur=3};local merged=def.on_merge(actor,old,new);assert(merged==old and merged.power==.3 and merged.dur==d)end\nprint(\"PASS actual ECHOED_LIGHT on_merge caps strength but preserves old duration 1/2/3\")\n",
+  "description": "Exact probe bytes; decode lua_source as UTF-8 to reproduce."
+}

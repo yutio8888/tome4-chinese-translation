@@ -1,0 +1,78 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "wc -c .ai/task/mmrfix-20261002-014/INPUT-review-0-a1.json && cat .ai/task/mmrfix-20261002-014/INPUT-review-0-a1.json",
+      "description": "Read frozen review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a1.json'))\ndef show(o,p=''):\n    if isinstance(o,dict):\n        for k,v in o.items(): show(v,p+'.'+k)\n    elif isinstance(o,list):\n        for i,v in enumerate(o): show(v,p+f'[{i}]')\n    else:\n        s=str(o)\n        print(p,':',s[:3000])\nshow(d)\nEOF",
+      "description": "Dump input structure"
+    }
+  },
+  {
+    "tool": "Read",
+    "input": {
+      "file_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/1242ecc3-660f-4fc4-9f3c-3b51f50523e1/tool-results/bcv8fvehz.txt"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "grep -n '^#' docs/paseo-translation-context-review-v2-contract.md",
+      "description": "List contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract sections 6-7"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a1.json'))\nfor i in [0,1]:\n    c=json.loads(d['payload']['bounded_context'][i]['context'])\n    for e in c['source_evidence']:\n        print('==',e.get('public_path'))\n        if 'excerpt' in e: print(e['excerpt'])\n        for w in e.get('windows',[]): print(w['text'])\n    for k in c:\n        if k not in('source_evidence',): print(k, json.dumps(c[k],ensure_ascii=False)[:3000])\nEOF",
+      "description": "Print contexts 0-1"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a1.json'))\nfor i in [2,3,4]:\n    c=json.loads(d['payload']['bounded_context'][i]['context'])\n    print('########',i)\n    for e in c['source_evidence']:\n        print('==',e.get('public_path'))\n        if 'excerpt' in e: print(e['excerpt'])\n        for w in e.get('windows',[]): print(w['text'])\n    print('term',json.dumps(c.get('terminology'),ensure_ascii=False))\n    for k in c:\n        if k not in('source_evidence','terminology','source_locations','read_boundary','source_access_warning'): print(k, json.dumps(c[k],ensure_ascii=False)[:3000])\nEOF",
+      "description": "Print contexts 2-4"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-review-0-a1.json'))\nfor i in [5,6,7,8]:\n    c=json.loads(d['payload']['bounded_context'][i]['context'])\n    print('########',i)\n    for e in c['source_evidence']:\n        print('==',e.get('public_path'), e.get('frozen_file'))\n        if 'excerpt' in e: print(e['excerpt'])\n        for w in e.get('windows',[]): print(w['text'])\n    print('term',json.dumps(c.get('terminology'),ensure_ascii=False))\n    for k in c:\n        if k not in('source_evidence','terminology','source_locations','read_boundary','source_access_warning'): print(k, json.dumps(c[k],ensure_ascii=False)[:3000])\nEOF",
+      "description": "Print contexts 5-8"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "F=.artifacts/i18n/modified-mechanics-repair-20261002/package-014/sources/orcs/tome-orcs/data/timed_effects/magical.lua; sha256sum $F; sed -n 296,420p $F",
+      "description": "Read rest of STARSCAPE effect"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git grep -n -e 'EFF_ZERO_GRAVITY' -e 'zero_gravity' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class game/engines/default/engine | head -20; git grep -n 'friendlyfire' 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class/Actor.lua game/modules/tome/load.lua game/modules/tome/class/Game.lua | head",
+      "description": "Grep zero gravity and friendlyfire at pinned commit"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4 && git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n 8370,8400p; git show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/Actor.lua | sed -n 7775,7795p",
+      "description": "Read tome projectDoAct override"
+    }
+  }
+]

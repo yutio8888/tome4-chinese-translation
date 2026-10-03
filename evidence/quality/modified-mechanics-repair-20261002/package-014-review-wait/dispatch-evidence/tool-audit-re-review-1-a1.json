@@ -1,0 +1,65 @@
+[
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; cat .ai/task/mmrfix-20261002-014/INPUT-re-review-1-a1.json | head -c 20000; echo; wc -c .ai/task/mmrfix-20261002-014/INPUT-re-review-1-a1.json",
+      "description": "Read frozen review input"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-re-review-1-a1.json'))\np=d['payload']\nprint(p.keys())\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000])\nfor c in p['bounded_context']:\n    cc=json.loads(c['context'])\n    print('====',c['revision_key'],cc['section'])\n    for e in cc['source_evidence']:\n        print('--',e['public_path'],e.get('start'),e.get('end'))\n        if 'windows' in e:\n            for w in e['windows']: print(w['text'][-6000:] if len(w['text'])>6000 else w['text'])\n        else: print(e['excerpt'][:5000])\n    print('TERM',json.dumps(cc['terminology'],ensure_ascii=False))\nEOF",
+      "description": "Dump input structure"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/mmrfix-20261002-014/INPUT-re-review-1-a1.json'))\np=d['payload']\nprint(json.dumps(p['translation_snapshot'],ensure_ascii=False,indent=1)[:20000])\nprint(json.dumps(p['terminology_snapshot'],ensure_ascii=False)[:3000])\nEOF",
+      "description": "Show translation snapshot"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; ",
+      "description": "List contract headings"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; sed -n 100,170p docs/paseo-translation-context-review-v2-contract.md",
+      "description": "Read contract output section"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n '/==== b2e4/,$p' /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/70614a59-3bb4-42ba-b2eb-9c5541ddb1da/tool-results/bjf0bu16l.txt | head -c 30000",
+      "description": "Read evidence for items 3 onward"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "sed -n '/==== 08d7/,$p' /home/paseo/.claude/projects/-workspace-tome4-chinese-translation/70614a59-3bb4-42ba-b2eb-9c5541ddb1da/tool-results/bjf0bu16l.txt | sed -n '/tome-orcs\\/data\\/talents\\/c/,$p'",
+      "description": "Read remaining evidence"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/tome4-chinese-translation; f=.artifacts/i18n/modified-mechanics-repair-20261002/package-014/sources/orcs/tome-orcs/data/timed_effects/magical.lua; ls .artifacts/i18n/modified-mechanics-repair-20261002/package-014/sources/*/ 2>&1 | head; ls $f && sha256sum $f && sed -n 299,400p $f",
+      "description": "Read rest of frozen Starscape effect"
+    }
+  },
+  {
+    "tool": "Bash",
+    "input": {
+      "command": "cd /workspace/t-engine4; git grep -n \"zero_gravity\\|ZERO_GRAVITY\" 624a67329fe2ad440c5b344785a9c73fcf22ae63 -- game/modules/tome/class game/modules/tome/data/timed_effects | head",
+      "description": "Check zero gravity consumers at pinned commit"
+    }
+  }
+]

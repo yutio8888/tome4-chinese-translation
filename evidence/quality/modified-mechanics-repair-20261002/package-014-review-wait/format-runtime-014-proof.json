@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "public_path": "game/engines/default/engine/I18N.lua",
+  "sha256": "a099d023bcf9c91d83592331666aeaa86c901a469eadf59346bcbd279c7ef31d",
+  "source_excerpt": "_G.default_tformat = function(s, tag, ...)\n\tlocal args_order = get(cur_locale_args, s, tag)\n\tif args_order then\n\t\tlocal sargs = {...}\n\t\tlocal args = {}\n\t\tfor sidx, didx in pairs(args_order) do\n\t\t\targs[sidx] = sargs[didx]\n\t\tend\n\t\ts = _t(s, tag)\n\t\treturn s:format(unpack(args))\n\telse\n\t\ts = _t(s, tag)\n\t\treturn s:format(...)\n\tend\nend",
+  "published_artifact_sha256": "d958dcd0a1eb67472e6f9bc58bd164e979f0aa665ef88497f651ffff8e2af464",
+  "args_order": [
+    3,
+    1,
+    2,
+    4,
+    5
+  ],
+  "test_source_args": [
+    123.25,
+    456.5,
+    7,
+    11,
+    22
+  ],
+  "lua_source": "local cur_locale_args={}\nlocal function get() return {3,1,2,4,5} end\n_G._t=function() return [====[发射一道纯净能量飞弹，在半径 %d 的范围内造成 %0.2f 点光系伤害和 %0.2f 点暗影伤害。当前显示的移动减速值为 %d%%， 攻击、施法和精神攻击减速值为 %d%%， 这两个显示值按能量比例缩减，与实际效果不同：造成暗影伤害时尝试施加完整移动减速，造成光系伤害时尝试施加其六成强度的攻击、施法和精神攻击减速，均持续 5 回合。飞弹会根据你当前的正能量和负能量数值调谐伤害比例。]====] end\n_G.default_tformat = function(s, tag, ...)\n\tlocal args_order = get(cur_locale_args, s, tag)\n\tif args_order then\n\t\tlocal sargs = {...}\n\t\tlocal args = {}\n\t\tfor sidx, didx in pairs(args_order) do\n\t\t\targs[sidx] = sargs[didx]\n\t\tend\n\t\ts = _t(s, tag)\n\t\treturn s:format(unpack(args))\n\telse\n\t\ts = _t(s, tag)\n\t\treturn s:format(...)\n\tend\nend\nlocal result=default_tformat(\"frozen_source\",\"tformat\",123.25,456.5,7,11,22)\nassert(result:find(\"半径 7\",1,true) and result:find(\"123.25 点光系\",1,true) and result:find(\"456.50 点暗影\",1,true))\nassert(result:find(\"移动减速值为 11%\",1,true) and result:find(\"减速值为 22%\",1,true))\nprint(result)\n",
+  "stdout": "发射一道纯净能量飞弹，在半径 7 的范围内造成 123.25 点光系伤害和 456.50 点暗影伤害。当前显示的移动减速值为 11%， 攻击、施法和精神攻击减速值为 22%， 这两个显示值按能量比例缩减，与实际效果不同：造成暗影伤害时尝试施加完整移动减速，造成光系伤害时尝试施加其六成强度的攻击、施法和精神攻击减速，均持续 5 回合。飞弹会根据你当前的正能量和负能量数值调谐伤害比例。\n",
+  "stderr": "",
+  "exit_code": 0,
+  "limitation": "Exact fixed formatter function with frozen published target and args mapping supplied by minimal get/_t stubs; locale registration independently verified from dry-run artifact."
+}

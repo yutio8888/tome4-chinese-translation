@@ -3931,7 +3931,7 @@ t("", "", "_t")
 section "tome-orcs/data/talents/celestial/cosmic.lua"
 
 t("Lunar Orb", "月光之球", "talent name")
-t("Fires out a bolt of cosmic energy in the target direction. The projectile continues until it hits a wall or the edge of the map, dealing %0.2f dark damage to enemies hit and restoring %d negative energy. The negative energy gained is reduced by 25%% per enemy hit, restoring a maximum of %d. Enemies hit will become aware of you.", "向目标方向射出一道宇宙能量。直到碰到墙或者到达地图边缘，对敌人造成 %0.2f 的暗影伤害并回复 %d 负能量。负能量回复量最大为 %d， 每击中一个敌人将少回复 25%% 的负能量，被击中的敌人将注意到你。", "tformat")
+t("Fires out a bolt of cosmic energy in the target direction. The projectile continues until it hits a wall or the edge of the map, dealing %0.2f dark damage to enemies hit and restoring %d negative energy. The negative energy gained is reduced by 25%% per enemy hit, restoring a maximum of %d. Enemies hit will become aware of you.", "向目标方向射出一道宇宙能量。直到碰到墙或者到达地图边缘，对路径上的生物（包括友方）造成 %0.2f 的暗影伤害。每遇到一个非自身且非自身召唤物的生物，回复负能量，首次回复 %d 点。负能量回复量的理论上限为 %d， 每次回复后，下一次的回复量减少 25%%；路径上的敌人将注意到你。", "tformat")
 t("Astral Path", "星光大道", "talent name")
 t("The spell fizzles: there are no available spots to teleport to.", "法术失败了：周围没有可供传送到的区域。", "logSeen")
 t([[Fire an orb of negative energy towards a spot within range %d.
@@ -3972,7 +3972,7 @@ t("Whichever of your positive and negative energies is a higher percentage regen
 t("Magnetic Inversion", "磁反转", "talent name")
 t("Swap your current positive and negative energy levels. This spell takes no time to cast.", "交换当前正和负能量水平，这个法术是瞬发法术。", "_t")
 t("Plasma Bolt", "等离子球", "talent name")
-t("Fires out a bolt of pure energy, dealing %0.2f light and %0.2f darkness damage in a radius of %d, and slowing targets hit. Their movement is reduced by %d%% and attacking, casting and mind attacks by %d%%. The bolt will attune to your current positive and negative energy amounts.", "发射一道纯净能量飞弹，在半径 %d 的范围内造成 %0.2f 点光系伤害和 %0.2f 点暗影伤害，并使命中的目标减速。其移动速度降低 %d%%， 攻击、施法和精神攻击速度降低 %d%%。 飞弹会根据你当前的正能量和负能量数值进行调谐。", "tformat", {3,1,2,4,5})
+t("Fires out a bolt of pure energy, dealing %0.2f light and %0.2f darkness damage in a radius of %d, and slowing targets hit. Their movement is reduced by %d%% and attacking, casting and mind attacks by %d%%. The bolt will attune to your current positive and negative energy amounts.", "发射一道纯净能量飞弹，在半径 %d 的范围内造成 %0.2f 点光系伤害和 %0.2f 点暗影伤害。当前显示的移动减速值为 %d%%， 攻击、施法和精神攻击减速值为 %d%%， 这两个显示值按能量比例缩减，与实际效果不同：造成暗影伤害时尝试施加完整移动减速，造成光系伤害时尝试施加其六成强度的攻击、施法和精神攻击减速，均持续 5 回合。飞弹会根据你当前的正能量和负能量数值调谐伤害比例。", "tformat", {3,1,2,4,5})
 
 ------------------------------------------------
 section "tome-orcs/data/talents/celestial/reflection.lua"
@@ -4021,7 +4021,7 @@ Dark damage creates an effect at the tile for %d turns which deals %d%% of the d
 暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]], "tformat")
 t("Starscape", "星界领域", "talent name")
 t("This spell cannot be cast here.", "该技能不能在这里使用。", "logPlayer")
-t("Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.", "在 %d 范围内召唤一片星界领域。 %d 回合内，这个区域存在于正常时间之外，且重力为零。除了零重力之外，抛射物和生物的活动比平时慢 3 倍。法术和攻击不能逃脱范围，直到效果结束。", "tformat")
+t("Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.", "在 %d 范围内召唤一片星界领域，持续 %d 回合。领域内的生物获得零重力状态，大幅提高最大负重；技能本身不会使领域内的生物或抛射物减速。领域外的生物与抛射物被冻结，领域内的攻击无法伤害领域外的生物，直到效果结束。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/misc/npcs.lua"
@@ -4167,9 +4167,9 @@ t([[Your yeti's body is very resilient to detrimental effects.
 t("Mindwave", "脑波冲击", "talent name")
 t([[You willingly fry a few parts of your yeti's brain to trigger a huge psionic blast in cone of radius %d.
 		Any foes caught in the blast will suffer %0.2f mind damage and be confused (35%% power) for %d turns.
-		The damage will increase with your Constitution and the apply power will be the highest of your mind, spell, or physical power.]], [[你主动烧灼雪人大脑的一小部分，向半径 %d 的锥形范围释放强大的灵能冲击。
+		The damage will increase with your Constitution and the apply power will be the highest of your mind, spell, or physical power.]], [[你主动烧灼雪人大脑的一小部分，以自身为中心，向半径 %d 的圆形范围释放强大的灵能冲击。
 		冲击范围内的所有敌人受到 %0.2f 点精神伤害，并陷入混乱（35%% 强度） %d 回合。
-		伤害随体质提高；效果强度取你的精神强度、法术强度或物理强度中的最高值。]], "tformat")
+		伤害随体质提高；施加混乱时的检定强度取你的精神强度、法术强度或物理强度中的最高值。]], "tformat")
 t("whitehooves", "白蹄", "talent type")
 t("Whitehooves", "白蹄", "talent name")
 t([[Improves your undead body, increasing Strength and Magic by %d.
