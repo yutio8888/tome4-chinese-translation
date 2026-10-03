@@ -13175,7 +13175,7 @@ t("handled hole in space", "带手柄的空间之洞", "_t")
 t("Some mad Chronomancer appears to have affixed a handle to this hole in spacetime. It looks highly effective, in its own strange way.", "某个疯狂的时空法师似乎给这个时空洞装上了手柄。以它自己奇怪的方式来看，这东西似乎非常高效。", "_t")
 t("Arkul's Siege Arrows", "阿库尔的攻城矢", "entity name")
 t("gigantic spiral arrows", "巨大的螺旋箭", "_t")
-t("These titanic double-helical arrows seem to have been designed more for knocking down towers than for use in regular combat. They'll no doubt make short work of most foes.", "巨大的双螺旋箭，似乎是为推倒高塔而设计，而不是用于常规战斗。毫无疑问，它们会迅速干掉大多数敌人。", "_t")
+t("These titanic double-helical arrows seem to have been designed more for knocking down towers than for use in regular combat. They'll no doubt make short work of most foes.", "巨大的双螺旋箭，似乎更像是为推倒高塔而设计，而非用于常规战斗。毫无疑问，它们会迅速干掉大多数敌人。", "_t")
 t("25% of all damage splashes in a radius of 1 around the target.", "你造成的伤害的25%溅射在目标周围1格。", "_t")
 t("Punae's Blade", "普纳之刃", "entity name")
 t("thin blade", "很薄的剑", "_t")
@@ -21093,7 +21093,7 @@ t([[You strike your foe with your two handed weapon, dealing %d%% weapon damage.
 		If the attack hits, all foes in radius 2 will have their light resistance reduced by %d%% and their damage reduced by %d%% for 5 turns.]], [[你用双手武器攻击敌人，造成 %d%% 武器伤害。
 		如果攻击命中，半径 2 以内的敌人光系抗性下降 %d%%， 伤害下降 %d%%， 持续 5 回合。]], "tformat")
 t("Mark of Light", "光之印记", "talent name")
-t("You mark a target with light for 3 turns, causing all melee hits you deal to it to heal you for %d%% of the damage done.", "你用光标记目标 3 回合，你对它近战命中时，将回复相当于所造成伤害 %d%% 的生命值。", "tformat")
+t("You mark a target with light for 3 turns, causing all melee hits you deal to it to heal you for %d%% of the damage done.", "你用光标记目标 3 回合，你的近战攻击命中它时，你将回复相当于所造成伤害 %d%% 的生命值。", "tformat")
 t("Righteous Strength", "光明之力", "talent name")
 t([[While wielding a two handed weapon, your critical strike chance is increased by %d%%, and your melee criticals instill you with righteous strength, increasing all physical and light damage you deal by %d%%, stacking up to 3 times.
 		In addition, your melee critical strikes leave a lasting lightburn on the target, dealing %0.2f light damage over 5 turns and reducing opponents armour by %d.
@@ -24802,7 +24802,7 @@ t([[When you use your Resilience of the Dwarves racial power your skin becomes s
 		Non-physical damage is reduced by %d%% of your total armour value (ignoring hardiness).
 		While this effect is not active, half of it is still applied against foes entangled by your stone vines.]], [[当你使用钢筋铁骨时，你的皮肤会变得非常坚硬，甚至能吸收非物理攻击。
 		非物理伤害减免值为你护甲总值的 %d%% （无视护甲强度）。
-		钢筋铁骨未启用时，此效果对被你的岩石藤蔓缠绕的敌人仍以一半生效。]], "tformat")
+		钢筋铁骨未启用时，被你的岩石藤蔓缠绕的敌人对你造成的伤害仍会受到此效果一半的减免。]], "tformat")
 t("Shards", "岩石碎片", "talent name")
 t([[Sharp shards of stone grow from your shields.
 		When you are hit in melee, you will get a free attack against the attacker with the shards doing %d%% shield damage (as Nature).
@@ -31648,7 +31648,7 @@ t([[Your strength is legendary; fatigue and physical exertion mean nothing to yo
 t("Legacy of the Naloren", "纳鲁精灵的遗产", "talent name")
 t("Have sided with Slasul and killed Ukllmswwik", "站在萨拉苏尔一方并且杀死乌克勒姆斯维奇", "_t")
 t("Legacy of the Naloren", "纳鲁精灵的遗产", "_t")
-t("Slasul will be happy to know your faith in his cause. You should return to speak to him.", "萨拉苏尔得知你信奉他的事业，会很高兴。你应该去见他一面。", "_t")
+t("Slasul will be happy to know your faith in his cause. You should return to speak to him.", "萨拉苏尔得知你对他的事业抱有信心，会很高兴。你应该去见他一面。", "_t")
 t([[You have sided with Slasul and helped him vanquish Ukllmswwik. You are now able to breathe underwater with ease.
 		You have also learned to use tridents and other exotic weapons easily (talent level %d of Exotic Weapon Mastery), and can Spit Poison (talent level %d) as nagas do. These are bonus talent levels that increase with your character level.
 		In addition, should Slasul still live, he may have a further reward for you as thanks...]], [[你站在萨拉苏尔一方并帮助他解决了乌克勒姆斯维奇。你现在可以轻松地在水下呼吸。

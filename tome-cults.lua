@@ -3094,7 +3094,7 @@ t("You must target a void rift.", "你必须瞄准虚空裂隙。", "logPlayer")
 t("%s's space-time folding fizzles!", "%s的时空折叠失败了！", "logSeen")
 t("%s emerges from a space-time rift!", "%s从时空裂隙中出现！", "logSeen")
 t([[You briefly open a tunnel through spacetime, teleporting to a void rift in range %d. This destroys the rift, granting you a shield for %d turns absorbing %d damage.
-		The damage absorbed will scale with your Spellpower]], [[你短暂地在时空中打开一个通道，传送到范围 %d 内的一个虚空裂隙。这将摧毁那个虚空裂隙，使你获得一个持续 %d 回合、可吸收 %d 点伤害的护盾。
+		The damage absorbed will scale with your Spellpower]], [[你短暂地在时空中打开一个通道，传送到范围 %d 内的一个虚空裂隙。这将摧毁那个虚空裂隙，使你获得一个可吸收 %d 点伤害、持续 %d 回合的护盾。
 		护盾吸收的伤害随法术强度提升。]], "tformat", {1,3,2})
 t("Pierce the Veil", "刺破境界", "talent name")
 t("nether breach", "彼世裂隙", "_t")
