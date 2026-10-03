@@ -1287,9 +1287,9 @@ t("Only Ashes Left", "唯余灰烬", "talent name")
 t([[Bringing about the darkest days of the Spellblaze you hasten the death of your foes.
 		When you deal damage to a creature in radius %d or less around you and it dips below 33%% life you automatically unleash the fury of the Spellblaze.
 		Affected foes will start taking %0.2f darkness damage each turn until it dies as long as it remains in radius %d of you.
-		The damage increases with spellpower.]], [[通过引发魔法大爆炸最黑暗的时候的场景，你加速了敌人的死亡。
-		每次你对半径 %d 内的生物造成伤害后（实际触发范围固定为 4 格，不随该数值变化），如果它生命值低于 33%%，将会承受魔法大爆炸的力量。
-		受影响的敌人每回合会受到 %0.2f 暗影伤害；只要它仍在你周围半径 %d 内，伤害就会持续直至其死亡。
+		The damage increases with spellpower.]], [[重现魔法大爆炸最黑暗的时刻，加速敌人的死亡。
+		当你对周围半径 %d 内的生物造成伤害，使其生命值降至 33%% 以下时，会自动向其释放魔法大爆炸之怒。
+		受影响的敌人每回合受到 %0.2f 点暗影伤害；只要它仍在你周围半径 %d 内，伤害就会持续至其死亡。
 		伤害受法术强度加成。]], "tformat")
 t("Shattered Mind", "精神破碎", "talent name")
 t([[When you block an attack the shock ripples through your attacker, spreading the force of the Spellblaze in its mind for 5 turns.
@@ -1494,7 +1494,7 @@ t("-Fiery Grasp", "-炙炎之牢", "_t")
 t("arcane", "奥术", "effect subtype")
 t("shield", "护盾", "effect subtype")
 t("Fiery Aegis", "火焰守护", "_t")
-t("The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.", "目标被一层魔法护盾包围，吸收 %d/%d 伤害，护盾结束时（无论吸收耗尽还是自然到期），对周围敌方生物施加持续 3 回合的灼烧，总计造成 %d 伤害，作用半径为 %d。", "tformat")
+t("The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.", "目标被一层魔法护盾包围，可吸收 %d/%d 点伤害；护盾破碎时造成 %d 点伤害，作用半径为 %d。", "tformat")
 t("A shield forms around #target#.", "#target#的周围产生了一道护盾。", "_t")
 t("+Shield", "+护盾", "_t")
 t("The shield around #target# crumbles.", "#target#周围的护盾消失了。", "_t")

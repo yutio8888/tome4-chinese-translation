@@ -27164,7 +27164,7 @@ t("You have no feedback to start a feedback loop!", "你没有反馈值，不能
 t([[Activate to invert your Feedback decay for %d turns.  This effect can be a critical hit, increasing the duration even further.
 		You must have some Feedback in order to start the loop.
 		The maximum Feedback gain will scale with your Mindpower.]], [[激活以逆转你的反馈值衰减，持续 %d 回合。此技能激活时可产生暴击效果，效果为增加技能持续时间。
-		你必须在反馈值非空的时候才能使用此技能（否则没有衰减）。
+		使用此技能时，你必须拥有一定的反馈值。
 		受精神强度影响，反馈值的最大增加值按比例加成。]], "tformat")
 t("Backlash", "灵能反击", "talent name")
 t([[Your subconscious now retaliates when you take damage.  If the attacker is within range (%d), you'll inflict mind damage equal to the Feedback gained from the attack or %0.2f, whichever is lower.
@@ -27519,10 +27519,10 @@ t("Projection of %s", "%s的投影。", "tformat")
 t("A ghostly figure.", "一个隐约的形象。", "_t")
 t([[Activate to project your mind from your body for %d turns.  In this state you're invisible (+%d power), can see invisible and stealthed creatures (+%d detection power), can move through walls, and do not need air to survive.
 		All damage you suffer is shared with your physical body, and while in this form you may only deal damage to 'ghosts' or through an active mind link (mind damage only in the second case.)
-		To return to your body, simply release control of the projection.]], [[激活此技能可以使你的灵魂出窍，持续 %d 回合。在此效果下，你处于隐形状态 （+%d 强度），并且可以看到隐形和潜行单位 （+%d 侦查强度），还可以穿过墙体，并且无需呼吸。
-		你受到的所有伤害都会与身体共享，当你处于此形态下你只能对“鬼魂”类怪物造成伤害，或者通过激活一种精神通道来造成伤害。
-		注：后一种情况下只能造成精神伤害。
-		要回到你的身体里，只需释放灵魂体的控制即可。]], "tformat")
+		To return to your body, simply release control of the projection.]], [[激活此技能可以使你的灵魂出窍，持续 %d 回合。在此形态下，你处于隐形状态 （+%d 强度）。
+		你可以看见隐形和潜行的生物 （+%d 侦查强度），穿过墙壁，且无需呼吸。
+		你受到的所有伤害都会与肉身共享；你只能伤害“鬼魂”，或通过已激活的精神链接造成精神伤害。
+		要回到你的身体里，只需放弃对灵魂投影的控制。]], "tformat")
 t("Mind Link", "精神通道", "talent name")
 t([[Link minds with the target.  While your minds are linked, you'll inflict %d%% more mind damage to the target and gain telepathy for its creature type.
 		Only one mindlink can be maintained at a time, and the effect will break if the target dies or goes beyond range (%d)).
@@ -27886,13 +27886,13 @@ t([[You believe that your mind is the center of everything.  Permanently increas
 		每级永久性增加你 5 点灵能值，并减少你 50%% 的生命成长（影响升级时的生命增益，但只在学习此技能时永久影响一次）。
 		同时你学会用心灵来承受伤害，转化 %d%% 生命削减为灵能值削减，并且 %d%% 的治疗值和回复值会转化为灵能值的增长。
 		转化成的灵能值削减将进一步被减少 %0.1f%% （%0.1f%% 来自于人物等级，剩余部分再受技能等级提供的 %0.1f%% 减免。）
-		学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。
+		首次投入技能点时，每点意志提供的灵能值增加 0.5，每点体质提供的生命值减少 0.25。
 		学习此技能时，你的唯我临界点会增加 20 %%（当前 %d%%）， 你的灵能值每低于这个临界点 1 %%，你的全局速度减少 1 %%。]], "tformat")
 t("Balance", "唯我论：均衡", "talent name")
 t([[You now substitute %d%% of your Mental Save for %d%% of your Physical and Spell Saves throws (so at 100%%, you would effectively use mental save for all saving throw rolls).
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
 		Learning this talent also increases your solipsism threshold by 10%% (currently %d%%).]], [[你现在使用 %d%% 精神豁免值来替代 %d%% 物理和法术豁免（即 100 %%时精神豁免完全替代所有豁免）。
-		学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。
+		首次投入技能点时，每点意志提供的灵能值增加 0.5，每点体质提供的生命值减少 0.25。
 		学习此技能也会增加你 10 %%唯我临界点（当前 %d%%）。]], "tformat")
 t("Clarity", "唯我论：明晰", "talent name")
 t([[For every percent that your Psi pool exceeds %d%%, you gain 1%% global speed (up to a maximum of %+d%%).
@@ -27904,7 +27904,7 @@ t("#TAN#(%d dismissed)#LAST#", "#TAN#（豁免 %d 点伤害）#LAST#", "tformat"
 t([[Each time you take damage, you roll %d%% of your mental save against it.  A successful saving throw can crit and will reduce the damage by at least 50%%.
 		The first talent point invested will also increase the amount of Psi you gain from Willpower by 0.5, but reduce the amount of life you gain from Constitution by 0.25.
 		The first talent point also increases your solipsism threshold by 10%% (currently %d%%).]], [[每当你受到伤害时，你会用精神豁免的 %d%% 与本次伤害数值进行一次检定。检定成功时可触发精神暴击，并会使伤害至少降低 50%%。
-		学习此技能时，（高于基础值 10 的）每点意志会额外增加 0.5 点灵能值上限，而（高于基础值 10 的）每点体质会减少 0.25 点生命上限（若低于基础值 10 则增加生命上限）。
+		首次投入技能点时，每点意志提供的灵能值增加 0.5，每点体质提供的生命值减少 0.25。
 		学习此技能也会使你的唯我临界点提高 10%%（当前 %d%%）。]], "tformat")
 
 ------------------------------------------------
@@ -31154,7 +31154,7 @@ t([[Improves your ability to perform counterstrikes after blocks in the followin
 t("Shield Slam", "拍击", "talent name")
 t("You cannot use Shield Slam without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
 t("Hit your target with your shield 3 times for %d%% damage then quickly return to a blocking position.  The bonus block will not check or trigger Block cooldown.", [[用盾牌拍击目标 3 次，造成 %d%% 盾牌伤害，然后迅速进入格挡状态。
-		这次额外格挡既不检查也不触发格挡技能的冷却（冷却中仍可获得）。]], "tformat")
+		这次额外格挡既不检查也不触发格挡技能的冷却。]], "tformat")
 t("Assault", "强袭", "talent name")
 t("You cannot use Assault without a mainhand weapon and shield!", "没有主手武器和盾牌，无法使用强袭！", "logPlayer")
 t("Hits the target with your shield, doing %d%% damage. If it hits, you follow up with two automatic critical hits with your weapon, doing %d%% base damage each.", "用你的盾牌攻击目标并造成 %d%% 伤害，如果此次攻击命中，那么你将会发动 2 次武器暴击，每击分别造成 %d%% 基础伤害。", "tformat")
@@ -36553,7 +36553,7 @@ t([[Horrible visions fill your mind.
 #CRIMSON# 惩罚：#WHITE# 幻象缠身：受检定时，你的精神豁免有 20%%概率减少 %d%%
 #CRIMSON# 强度 1+：%s 从现实消失：%+d 物理抗性，%+d 物理抗性上限
 #CRIMSON# 强度 2+：%s%+d 幸运，%+d 意志
-#CRIMSON# 强度 3+：%s 折磨：当敌人试图对你施加负面效果时，你的折磨光环会反击施加者（若来源不是生物，则改为攻击半径 10 内的一个随机敌人），造成 %d 精神和 %d 暗影伤害。
+#CRIMSON# 强度 3+：%s 折磨：当敌人试图对你施加负面效果时，你的折磨光环会反击半径 10 内的一个随机敌人，造成 %d 精神和 %d 暗影伤害。
 #CRIMSON# 强度 4+：%s 噩梦：每次被敌人所伤有概率 (当前 %d%%) 触发一个范围为 %d 码的噩梦（召唤恐魔，并有几率减速、造成%d精神伤害和%d暗影伤害）持续 8 回合。触发几率在每次你受到打击时提高，同时随时间下降。]], "tformat")
 t("#F53CBE#%s harrows %s!", "#F53CBE#%s折磨%s！", "logSeen")
 t("A formless terror that seems to cut through the air, and its victims, like a knife.", "这只形态模糊的恐魔，将敌人连同周围的空气一起切成两半。", "_t")

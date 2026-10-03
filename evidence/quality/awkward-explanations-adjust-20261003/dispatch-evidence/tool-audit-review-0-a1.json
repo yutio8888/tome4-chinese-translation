@@ -1,0 +1,64 @@
+{
+  "calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0f6514f02d8dde4e016ac0ca99af8c87d1a9801802754c936e",
+      "status": "completed",
+      "call_id": "call_Hh4wjSNBK2QJAAjcPEI5HjLy",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/roles/reviewer.md\",\"max_output_tokens\":12000}));\ntext(await tools.exec_command({cmd:\"cat .ai/task/awkward-explanations-adjust-20261003/SPEC-REVIEW-0-1.md\",\"max_output_tokens\":12000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10117-50f7-72c3-aaed-182f492aabaa",
+        "create_time": 1791019671.042333
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0f6514f02d8dde4e016ac0ca9de3fc87d1b230c4d1dddd4414",
+      "status": "completed",
+      "call_id": "call_rXp2Tdxxtsk3kxW4kOjbFiEq",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/task/awkward-explanations-adjust-20261003/CANDIDATE-REVIEW-0-1.json .ai/task/awkward-explanations-adjust-20261003/CHANGES.json .ai/task/awkward-explanations-adjust-20261003/CODE_DIFF-REVIEW-0-1.patch\",\"max_output_tokens\":27000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10117-50f7-72c3-aaed-182f492aabaa",
+        "create_time": 1791019676.319245
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0f6514f02d8dde4e016ac0caa47fb487d19ad32c1b5946efc1",
+      "status": "completed",
+      "call_id": "call_BPRfWXxVR05VA21H0oXSojSG",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json, pathlib, hashlib\\np=pathlib.Path('.ai/task/awkward-explanations-adjust-20261003')\\nb=(p/'CANDIDATE-REVIEW-0-1.json').read_bytes(); c=json.loads(b)\\nprint('candidate_sha256',hashlib.sha256(b).hexdigest())\\na=json.loads((p/'CHANGES.json').read_text()); print('CHANGES shape',type(a).__name__, list(a) if isinstance(a,dict) else len(a))\\nfor r in c['records']:\\n print('\\\\n',r['id'],r['file'],r['line']); print('SOURCE:',r['source']); print('BEFORE:',r['old_target']); print('AFTER:',r['final_target'])\\nprint('\\\\nCandidate other fields:',{k:v for k,v in c.items() if k not in ('files','records')})\\nprint('AUTHORIZATION:',json.dumps(a,ensure_ascii=False))\\nPY\",\"max_output_tokens\":18000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10117-50f7-72c3-aaed-182f492aabaa",
+        "create_time": 1791019680.996935
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0f6514f02d8dde4e016ac0cab3c2b887d186b0bc2e933db2c7",
+      "status": "completed",
+      "call_id": "call_jDPPwMw1Z1HmrQtPJu3Mpd20",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json,pathlib,subprocess,hashlib,re\\np=pathlib.Path('.ai/task/awkward-explanations-adjust-20261003'); c=json.loads((p/'CANDIDATE-REVIEW-0-1.json').read_text()); a=json.loads((p/'CHANGES.json').read_text()); baseline='31c93a100507f57dfa39628f11b76af7410f6386'\\nassert len(a)==len(c['records'])==16\\nbyid={r['id']:r for r in a}\\nfmt=re.compile(r'%(?:%|[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[cdiouxXeEfgGqs])')\\nfor r in c['records']:\\n assert all(r[k]==byid[r['id']][k] for k in byid[r['id']]),r['id']\\n assert r['final_target']==r['new_target'],r['id']\\n old,new=r['old_target'],r['new_target']\\n assert fmt.findall(old)==fmt.findall(new),(r['id'],'format')\\n assert re.findall(r'#[^#\\\\n]+#',old)==re.findall(r'#[^#\\\\n]+#',new),(r['id'],'markup')\\n assert old.count('\\\\n')==new.count('\\\\n'),(r['id'],'newline')\\n print(r['id'],'authorization/placeholder/markup/newline OK')\\nfor f in c['files']:\\n name=f['file']; old=subprocess.check_output(['git','show',baseline+':'+name]); current=pathlib.Path(name).read_bytes(); rebuilt=old\\n assert hashlib.sha256(old).hexdigest()==f['baseline_sha256']\\n assert hashlib.sha256(current).hexdigest()==f['final_sha256']\\n for r in c['records']:\\n  if r['file']!=name: continue\\n  before=r['old_target'].encode(); after=r['new_target'].encode()\\n  assert rebuilt.count(before)==1,(r['id'],'not unique')\\n  loc=rebuilt.index(before)\\n  assert (rebuilt[loc-2:loc]==b'[[' and rebuilt[loc+len(before):loc+len(before)+2]==b']]') or (rebuilt[loc-1:loc]==b'\\\"' and rebuilt[loc+len(before):loc+len(before)+1]==b'\\\"'),(r['id'],'not full literal')\\n  assert r['source'].encode() in old,(r['id'],'source absent')\\n  rebuilt=rebuilt.replace(before,after,1)\\n assert rebuilt==current,(name,'unauthorized bytes')\\n print(name,'independent baseline -> exact target replacements == current bytes; hashes OK')\\ndiff=subprocess.check_output(['git','diff',baseline,'--',*[f['file'] for f in c['files']]])\\nassert diff==(p/'CODE_DIFF-REVIEW-0-1.patch').read_bytes(),'frozen diff mismatch'\\nprint('frozen patch == independently reproduced diff; all 16 checked')\\nPY\",\"max_output_tokens\":2500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10117-50f7-72c3-aaed-182f492aabaa",
+        "create_time": 1791019692.094694
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0f6514f02d8dde4e016ac0cacc3e7087d189adfc3893fe5d4f",
+      "status": "completed",
+      "call_id": "call_X8ZFqG3WosrcEY6Nc1lq1FWe",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json,pathlib,subprocess,hashlib,re\\np=pathlib.Path('.ai/task/awkward-explanations-adjust-20261003'); c=json.loads((p/'CANDIDATE-REVIEW-0-1.json').read_text()); a=json.loads((p/'CHANGES.json').read_text()); baseline='31c93a100507f57dfa39628f11b76af7410f6386'\\nbyid={r['id']:r for r in a}; assert len(a)==len(c['records'])==len(byid)==16\\nfmt=re.compile(r'%(?:%|[-+ #0]*\\\\d*(?:\\\\.\\\\d+)?[cdiouxXeEfgGqs])')\\nfor r in c['records']:\\n assert all(r[k]==byid[r['id']][k] for k in byid[r['id']]),r['id']\\n assert r['final_target']==r['new_target'],r['id']\\n old,new=r['old_target'],r['new_target']\\n assert [v for v in fmt.findall(old) if v!='%%']==[v for v in fmt.findall(new) if v!='%%'],(r['id'],'placeholder')\\n assert re.findall(r'#[^#\\\\n]+#',old)==re.findall(r'#[^#\\\\n]+#',new),(r['id'],'markup')\\n assert old.count('\\\\n')==new.count('\\\\n'),(r['id'],'newline')\\n print(r['id'],'authorization/placeholder/markup/newline OK')\\nfor f in c['files']:\\n name=f['file']; old=subprocess.check_output(['git','show',baseline+':'+name]); current=pathlib.Path(name).read_bytes(); rebuilt=old\\n assert hashlib.sha256(old).hexdigest()==f['baseline_sha256']\\n assert hashlib.sha256(current).hexdigest()==f['final_sha256']\\n for r in c['records']:\\n  if r['file']!=name: continue\\n  before=r['old_target'].encode(); after=r['new_target'].encode()\\n  assert rebuilt.count(before)==1,(r['id'],'not unique')\\n  loc=rebuilt.index(before)\\n  assert (rebuilt[loc-2:loc]==b'[[' and rebuilt[loc+len(before):loc+len(before)+2]==b']]') or (rebuilt[loc-1:loc]==b'\\\"' and rebuilt[loc+len(before):loc+len(before)+1]==b'\\\"'),(r['id'],'not full literal')\\n  assert r['source'].encode() in old,(r['id'],'source absent')\\n  rebuilt=rebuilt.replace(before,after,1)\\n assert rebuilt==current,(name,'unauthorized bytes')\\n print(name,'independent baseline -> exact target replacements == current bytes; hashes OK')\\ndiff=subprocess.check_output(['git','diff',baseline,'--',*[f['file'] for f in c['files']]])\\nassert diff==(p/'CODE_DIFF-REVIEW-0-1.patch').read_bytes(),'frozen diff mismatch'\\nprint('frozen patch == independently reproduced diff; all 16 checked')\\nPY\",\"max_output_tokens\":2500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10117-50f7-72c3-aaed-182f492aabaa",
+        "create_time": 1791019720.918165
+      }
+    }
+  ]
+}

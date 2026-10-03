@@ -1,0 +1,97 @@
+{
+  "status": "passed",
+  "scope": "bounded translation maintenance",
+  "reuse_reason": "Same final candidate bytes and environment as executor checks; workflow verification matrix explicitly avoids duplicate runs.",
+  "files": [
+    {
+      "file": "mod-tome.lua",
+      "baseline_sha256": "73c63f0b2525ea88b9f64f611cb0ea6b3f8f09d3b7c3d66487d8e9aa93f0ab0c",
+      "final_sha256": "5c109cacdd91f56f43d6d7bf5ec4c4fbb279878932e0ee5c1fa8eafdab7314e4",
+      "record_count": 22989,
+      "changed_targets": 7,
+      "all_non_target_fields_equal": true,
+      "exact_raw_replacement_only": true
+    },
+    {
+      "file": "tome-ashes-urhrok.lua",
+      "baseline_sha256": "5311665ddfb27296637a1a8d675dd2df6cfd3646e846dc5074382f31e377444d",
+      "final_sha256": "9d6e2ea520a229f855a9109e46ee9c9c621385308100f00222f74293e83ce657",
+      "record_count": 900,
+      "changed_targets": 2,
+      "all_non_target_fields_equal": true,
+      "exact_raw_replacement_only": true
+    },
+    {
+      "file": "tome-cults.lua",
+      "baseline_sha256": "42b9a5f00d0f3e42fb31c33c9fd8f6136b1e3a112c76799d022ec1aa901b79a0",
+      "final_sha256": "007a5a1bbde69b1720ed44c526644c33419499def277d7c16f51893aea602908",
+      "record_count": 2199,
+      "changed_targets": 5,
+      "all_non_target_fields_equal": true,
+      "exact_raw_replacement_only": true
+    },
+    {
+      "file": "tome-orcs.lua",
+      "baseline_sha256": "8f070729fd3869dec08f5a1d29282f4c51d791c7f952617978c9e5eecf70eda1",
+      "final_sha256": "8c0a2703e91182c6798a1dc7d59e25973d66ad6704d115003045f166ad84360e",
+      "record_count": 4202,
+      "changed_targets": 2,
+      "all_non_target_fields_equal": true,
+      "exact_raw_replacement_only": true
+    }
+  ],
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "runtime and LPeg verified; existing unpinned DLC source warnings only"
+    },
+    {
+      "command": "LuaJIT LocaleLoader + before/after target byte masking",
+      "exit_code": 0,
+      "result": "all 16 exact targets; all non-target bytes/fields and other records unchanged"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "30308 translations; 0 errors; 0 warnings",
+      "report": ".artifacts/i18n/runs/20261003T092210.321087Z-2-lint/lint.json"
+    },
+    {
+      "command": "python3 -B tools/scan_runtime_collisions.py",
+      "exit_code": 0,
+      "result": "0 runtime collisions",
+      "report": ".artifacts/i18n/runtime-collisions.json"
+    },
+    {
+      "command": "python3 -B tools/classify_runtime_keys.py",
+      "exit_code": 0,
+      "result": "1711 duplicate keys; bucket A 1711, B 0, C 0; all duplicate keys have one runtime semantic value",
+      "report": ".artifacts/i18n/runtime-key-classification/"
+    },
+    {
+      "command": "python3 -B tools/i18n build --profile addon --component tome --require-complete",
+      "exit_code": 0,
+      "result": "complete; 6672 runtime keys",
+      "report": ".artifacts/i18n/runs/20261003T092225.240939Z-2-build-addon/"
+    },
+    {
+      "command": "python3 -B tools/i18n publish",
+      "exit_code": 0,
+      "result": "DLC actual consumer dry run; 12133 entries; no external write; new hash prefix 2612b6ed94613189"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no whitespace errors"
+    },
+    {
+      "command": "baseline git diff/status comparison; git diff --cached",
+      "exit_code": 0,
+      "result": "pre-existing user changes retained; only 4 authorized Lua files added to modified set; index unchanged"
+    }
+  ],
+  "strict_proposals": "proposal-validation.json",
+  "native_gate_outputs": "validation-receipts.json",
+  "host_invariants": "host-proof.json"
+}

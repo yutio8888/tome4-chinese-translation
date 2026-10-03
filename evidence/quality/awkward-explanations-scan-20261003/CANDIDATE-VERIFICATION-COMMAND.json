@@ -1,0 +1,13 @@
+[
+  {
+    "name": "run_command",
+    "args": {
+      "BypassSandbox": true,
+      "CommandLine": "python3 -c '\nimport json\n\nwith open(\".ai/task/awkward-explanations-scan-20261003/ENTRIES.json\") as f:\n    entries = json.load(f)\n\ntwenty = [\n    (\"tome-cults.lua\", 3712),\n    (\"tome-cults.lua\", 3769),\n    (\"tome-ashes-urhrok.lua\", 1287),\n    (\"tome-orcs.lua\", 6193),\n    (\"tome-cults.lua\", 3728),\n    (\"tome-cults.lua\", 3815),\n    (\"tome-cults.lua\", 3826),\n    (\"mod-tome.lua\", 27881),\n    (\"mod-tome.lua\", 27892),\n    (\"mod-tome.lua\", 27904),\n    (\"mod-tome.lua\", 3671),\n    (\"mod-tome.lua\", 22920),\n    (\"mod-tome.lua\", 27164),\n    (\"mod-tome.lua\", 27520),\n    (\"mod-tome.lua\", 28598),\n    (\"mod-tome.lua\", 31156),\n    (\"mod-tome.lua\", 31356),\n    (\"mod-tome.lua\", 36547),\n    (\"tome-orcs.lua\", 6456),\n    (\"tome-ashes-urhrok.lua\", 1497)\n]\n\nfound = {}\nfor e in entries:\n    k = (e[\"file\"], e[\"line\"])\n    if k in set(twenty):\n        found[k] = e\n\nprint(\"Found \" + str(len(found)) + \" of 20\")\nfor k in twenty:\n    if k in found:\n        e = found[k]\n        print(\"OK: \" + k[0] + \":\" + str(k[1]) + \" (\" + e.get(\"section\", \"\") + \")\")\n    else:\n        print(\"MISSING: \" + str(k))\n'",
+      "Cwd": "/workspace/tome4-chinese-translation",
+      "WaitMsBeforeAsync": 5000,
+      "toolAction": "Verifying candidate entries",
+      "toolSummary": "Verify all 20 candidates exist in ENTRIES.json"
+    }
+  }
+]
