@@ -3634,7 +3634,7 @@ t("#CRIMSON#You feel as if your Rod of Recall is working again in this area.", "
 t("Orc Warrior", "兽人战士", "_t")
 t("Winner", "游戏胜利", "_t")
 t("#GOLD#Well done! You have won the Tales of Maj'Eyal: Embers of Rage!#WHITE#", "#GOLD#干得不错！你通关了马基·埃亚尔的传说：余烬怒火#WHITE#", "_t")
-t("You have thwarted the Steam Giants' genocidal plans, and avenged those killed in the attack on Kruk Pride.  Their desperate pact with the High Priest did nothing to stop you; the priest and his god lay dead at your feet, and you have ensured they will #{italic}#stay#{normal}# dead for the foreseeable future.", "你挫败了蒸汽巨人灭绝你们的计划，并为那些在他们残忍袭击中丧生的部落同胞复仇。他们绝望中与夏·图尔祭司订立的契约也未能阻止你，祭司和他的神倒在你的脚下，你已经确保他们在可预见的将来会#{italic}#一直#{normal}#长眠下去。", "_t")
+t("You have thwarted the Steam Giants' genocidal plans, and avenged those killed in the attack on Kruk Pride.  Their desperate pact with the High Priest did nothing to stop you; the priest and his god lay dead at your feet, and you have ensured they will #{italic}#stay#{normal}# dead for the foreseeable future.", "你挫败了蒸汽巨人灭绝你们的计划，并为在克鲁克部落遇袭时丧生的同胞复仇。他们绝望中与夏·图尔高阶祭司订立的契约也未能阻止你，祭司和他的神倒在你的脚下，你已经确保他们在可预见的将来会#{italic}#一直#{normal}#长眠下去。", "_t")
 t("The humans, elves, and halflings will not be able to hurt your people again.  By destroying the farportal and denying King Tolak's army its glorious battle, you have ensured the safety of your people from the Allied Kingdoms, and by storming the Gates of Morning you have eliminated the last bearers of the West's hateful aggression in Var'Eyal.", "无论是人类、精灵还是半身人，都再也无法伤害你的族人。你摧毁了远行传送门，使托拉克国王的军队失去了这场光荣的战斗，从而确保族人免受联合王国侵害。你攻下晨曦之门，也消灭了西方在瓦·埃亚尔施行可恨侵略的最后一批爪牙。", "_t")
 t("For now, peace reigns.  You know that this will not last forever.  You may have repelled its vanguard, but the Kar'Haïb Dominion bides its time waiting for a weakness it can exploit; the smugglers' portals from Maj'Eyal remain undiscovered, and while neither you nor King Tolak has any remaining desire to take the other's continent, the fear of invasion will linger in the backs of your minds.", "眼下，和平降临了。但你知道这不会永远持续下去。虽然你击退了卡尔·亥巴帝国的先锋，它却仍在等待可乘之机；走私者们从马基·埃亚尔通往这里的传送门依然没有被发现。即使你和托拉克国王都已无意夺取对方的大陆，对入侵的恐惧仍会萦绕在你们心底。", "_t")
 t("  The messages of the Lost City give you cause to remain ever vigilant for the threats they warned of, including their authors, and you wonder what your people will do now that their struggle to escape eradication, one that has defined them for their entire recorded history, has ceased to be a concern.", "  来自失落之城的消息让你时刻警惕他们所警告的种种威胁，包括他们自己。你的人民为摆脱灭亡而进行的抗争贯穿了你们有记载以来的全部历史，如今这已不再需要担忧，你不禁思索他们将何去何从。", "_t")
@@ -4427,7 +4427,7 @@ t([[After casting a technomancy spell you store some of its energies that you ca
 		This spell is only usable after casting a technomancy spell and until you use any other spell or talent.
 		The damage will increase with your Spellpower.]], [[每当你释放一个科技法术，你都会储存它一部分的能量，用来超载你的奥术发电机。每消耗 10 点法力值，它产生的蒸汽就增加 4 点，持续 4 回合。
 		此外，这些能量会在你周围 3 码半径内溢出，造成 %0.2f 伤害。（伤害类型基于你使用的科技法术的类型）
-		这个法术只可以在你刚刚施放了一个科技法术，且中途没有释放过其他法术的时候使用。
+		这个法术只能在你施放科技法术之后、且尚未使用任何其他法术或技能时使用。
 		技能伤害受法术强度提升。]], "tformat")
 
 ------------------------------------------------
@@ -4958,10 +4958,9 @@ section "tome-orcs/data/talents/steam/engineering.lua"
 t("Emergency Steam Purge", "紧急蒸汽排出", "talent name")
 t([[You open all steam valves at once, releasing a radius %d wave of superheated steam around yourself which deals %0.2f fire damage (but can not be a critical hit).
 		If you had at least 35 steam, the vapours will be so hot that they can burn sensory organs, blinding affected creatures for %d turns.
-		The effects scale with your current steam value; at 1 steam they are only 15%% as effective as at 50 or more (current factor %d%%).]], [[你打开所有蒸汽阀，释放半径 %d 的蒸汽冲击波，造成 %0.2f 火焰伤害。（这一技能无法暴击）
+		The effects scale with your current steam value; at 1 steam they are only 15%% as effective as at 50 or more (current factor %d%%).]], [[你同时打开所有蒸汽阀，在自身周围释放半径 %d 的过热蒸汽波，造成 %0.2f 火焰伤害（无法暴击）。
 		若你有至少 35 点蒸汽，气体的温度将变得极高，能烧伤感知器官，令受影响的生物目盲 %d 回合。
-		效果受当前蒸汽值加成。1 点蒸汽值时，强度仅为 50 点或更高蒸汽值时的 15%%。
-		当前强度系数 %d%%。]], "tformat")
+		效果受当前蒸汽值加成。1 点蒸汽值时，强度仅为 50 点或更高蒸汽值时的 15%%（当前强度系数 %d%%）。]], "tformat")
 t("Innovation", "创新", "talent name")
 t([[Your knowledge of physical laws allows you to use and improve equipment in ways their creators never dreamed.
 		Increases all stats, saves, armour, and defense bonuses by %d%% on equipment that is crafted by a master or powered by steamtech.]], [[你对物理学的了解令你能以全新的方式改进装备。
@@ -5180,7 +5179,7 @@ t("Boltgun", "爆矢枪", "talent name")
 t("You require heavy ammunition to fire your boltgun.", "你需要重装武器弹药才能使用爆矢枪。", "logPlayer")
 t([[You replace your steamgun and attack with a multi-barreled bolt launcher, firing deadly chemical-infused flechettes.
 		
-		Each attack fires twice for %d%% weapon damage as acid and generates %d steam per hit.]], [[你把你的蒸汽枪替换成一把多管重型枪械，发射注入致命化学物质的子弹。
+		Each attack fires twice for %d%% weapon damage as acid and generates %d steam per hit.]], [[你把你的蒸汽枪替换成一具多管弩箭发射器，发射注入致命化学物质的毒弹。
 
 		每次攻击造成两次 %d%% 酸性武器伤害，击中恢复 %d 蒸汽。]], "tformat")
 t("Flechette Burst", "毒弹爆射", "talent name")
@@ -5259,7 +5258,7 @@ t([[Mount capacitors to your shield that dampen the impact of attacks, increasin
 Activating this ability discharges blocked damage, firing a bolt of lightning dealing %d%% shield damage as lightning to the first target, then projecting a bolt of lightning that arcs to %d other targets dealing lightning damage equal to the stored amount.
 If at maximum charge, this also dazes for 2 turns and the shield strike is a guarenteed critical hit.
 The maximum damage you can absorb will increase with your Steampower.]], [[将电容器放置在你的盾牌上，它们可以减弱攻击的影响。增加 %d%% 的格挡值，并将所格挡伤害的 100%% 转化为电力充能（最多充能 %d 点）。
-启动这一技能将会释放所格挡的伤害，并发射出一道闪电冲击，对第一个目标造成 %d%% 闪电盾牌伤害，并产生一股电弧，对最多 %d 个其他目标产生相当于你存储的伤害量的伤害。
+启动这一技能将会释放所格挡的伤害，并发射出一道闪电冲击，对第一个目标造成 %d%% 闪电盾牌伤害，并产生一股电弧，对最多 %d 个其他目标造成相当于你储存伤害量的闪电伤害。
 如果你的伤害充能满了，被击中的目标还会被眩晕 2 回合，且盾牌攻击必定暴击。
 你能够吸收的最大伤害量受蒸汽强度加成。]], "tformat")
 t("Lightning Web", "闪电之网", "talent name")
@@ -5435,9 +5434,9 @@ t([[Activate the rocket boots, firing huge flames from your boots increasing you
 		Each movement will leave a trail of flames doing %0.2f fire damage for 4 turns.
 		Doing any other actions will break the effect.
 		#{italic}#Burninate them all!#{normal}#]], [[激活火箭靴，从你的靴子上发射巨大的火焰，增加你的移动速度 %d%%。
-每次移动都会留下一道持续 4 回合的火焰，造成 %0.2f 火焰伤害。
-做任何其他行动都会打断效果。
-#{italic}#烧毁他们 !#{normal}#]], "tformat")
+		每次移动都会留下一道持续 4 回合的火焰，造成 %0.2f 火焰伤害。
+		做任何其他行动都会打断效果。
+		#{italic}#把他们统统烧光！#{normal}#]], "tformat")
 t("Iron Grip", "铁腕", "talent name")
 t("%s resists the iron grip!", "%s抵抗了铁腕抓取！", "logSeen")
 t([[Activate the pistons to crush your target for %d turns and dealing %d%% unarmed melee damage.
@@ -5499,8 +5498,9 @@ t([[Shatters the mind of your victim, giving you full control over its actions f
 		When the effect ends, you pull out your mind and the victim's body collapses, dead.
 		This effect does not work on rares, bosses, or undead.
 		.]], [[粉碎受害者的心智，使你完全控制其行动 6 回合。
-　　当效果结束时，你抽离自己的思维，受害者的身体随之倒地死亡。
-　　稀有怪、boss、亡灵不受控制。]], "tformat")
+		当效果结束时，你抽离自己的思维，受害者的身体随之倒地死亡。
+		稀有怪、boss、亡灵不受控制。
+		.]], "tformat")
 t("Shocking Touch", "电击之触", "talent name")
 t([[Touch a creature to release a nasty electrical charge into them, doing %0.2f lightning damage.
 		If this tinker is above tier 1, the electricity can arc to another target up to 2 tiles away.
@@ -5528,8 +5528,8 @@ t("%s resists the explosion!", "%s 抵抗了爆炸！", "logSeen")
 t([[Throw a grenade at your foes, dealing %0.2f physical damage in radius %d.
 		Creatures hit will also be stunned for %d turns.
 		The stun effect is applied with your Steampower.]], [[向你的敌人投掷手榴弹，造成 %0.2f 物理伤害，半径 %d 码。
-　　被击中的生物还会被震慑 %d 回合。
-　　震慑强度受蒸汽强度加成。]], "tformat")
+		被击中的生物还会被震慑 %d 回合。
+		震慑强度受蒸汽强度加成。]], "tformat")
 t("Project Saw", "发射链锯", "talent name")
 t([[You activate hidden springs to project a saw towards your foes.
 		Any creature caught in the beam takes %0.2f physical damage and bleeds for half more in 5 turns.

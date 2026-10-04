@@ -1008,11 +1008,11 @@ t([[Your knowledge of demonic forces grows, allowing you to bind more seeds to y
 		At level 3 it lets you bind a seed to your shield.
 		At level 4 it lets you bind a seed to your second ring.
 		At level 5 it lets you bind a seed to your main body armour.
-		]], [[你对恶魔力量的理解增长了，你可以将更多种子与装备结合，且可以召唤恶魔
-		你能通过恶魔种子来临时召唤对应的恶魔 %d 回合。
+		]], [[你对恶魔力量的理解增长了，你可以将更多种子与装备结合，且可以召唤恶魔。
+		你将奥术腐化之力导入一枚恶魔种子，临时召唤对应的恶魔，持续 %d 回合。
 		召唤出来的恶魔能回复生命，并且保持上一次召唤结束时的生命值。
 		如果恶魔死亡，将不能再使用同一个种子进行召唤，直到它被复活为止。
-		这一技能可以召唤你装备或背包里的任何恶魔种子。
+		这一技能可以通过你装备或背包中任何可用的种子召唤恶魔。
 
 		随着你越来越善于结合种子，你也能使用更多种子：
 		技能等级 2 时你能将种子与第一个戒指结合。
