@@ -1,0 +1,24 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [
+    {
+      "revision_key": "20f6aff19f9b1d9f1a2ad7802d68a2252b42d15a3d64de94994eaae3d2c67bb6",
+      "source": "You replace your steamgun and attack with a multi-barreled bolt launcher, firing deadly chemical-infused flechettes.\n\t\t\n\t\tEach attack fires twice for %d%% weapon damage as acid and generates %d steam per hit.",
+      "target": "你把你的蒸汽枪替换成一具多管弩箭发射器，发射注入致命化学物质的毒弹。\n\n\t\t每次攻击造成两次 %d%% 酸性武器伤害，击中恢复 %d 蒸汽。",
+      "disposition": "advisory",
+      "note": "宿主补充观察：Orcs 公开源码（来源未固定）tome-orcs/data/talents/steam/heavy-weapons.lua 爆矢枪（Boltgun）说明：原文第二行是只含 \\t\\t 的空行（TAB 4），现译该空行为空（TAB 2）。仅缺空行上的行尾 TAB，补回会触发门禁 11 git diff --check，按先例（batch-2812a8e5…，见窗口31）只记 advisory，不登记修复；窗口65 改写的首句与第三行均与原文一致。"
+    }
+  ],
+  "slide_check": "all 1 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "4209c5bc6f6998a2a3732620cb4f647b2b18897e46e4f50777b6382a0b39877a",
+      "stage": "surface",
+      "observation": "原文“The stun effect is applied with your Steampower”描述施加震慑时使用蒸汽强度，译文“震慑强度受蒸汽强度加成”改为震慑强度随之提升，存在含义偏移；具体机制需源码证据确认，本次未核验。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/other.lua:1137 起 雷鸣榴弹（Thunder Grenade）：action 中 target:setEffect(target.EFF_STUNNED, …, {apply_power=self:combatSteampower()})，蒸汽强度作为施加震慑的强度（apply_power，与目标豁免对抗），即“The stun effect is applied with your Steampower”。现译“震慑强度受蒸汽强度加成”中的“震慑强度”即该施加强度，与同树致盲粉（1093 行，“致盲强度受蒸汽强度加成”）、痒痒粉（1132 行，“致痒强度受蒸汽强度加成”）同族译法一致；窗口65 对该条只改了缩进。contextual 判 OK。驳回。"
+    }
+  ]
+}
