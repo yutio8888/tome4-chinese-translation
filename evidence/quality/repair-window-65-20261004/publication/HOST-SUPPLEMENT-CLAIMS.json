@@ -1,0 +1,57 @@
+{
+ "2e202430f808f279ca4650fb20723042584c5f52851c3763fb5abfb79d3acf6a": {
+  "source_batch_id": "batch-f4001cace434a973dcfb",
+  "claim": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/spells/other-technomancy.lua 电子咒式（Electron Incantation）：callbackOnTalentPost（:33-39）在施放任何技能后，只要该技能不是另一个科技法术就把 can_use_electron_incantation 清空，on_pre_use（:40-44）据此禁止施放；即使用任何其他法术或技能都会失效，info :69 也写“until you use any other spell or talent”。现译“且中途没有释放过其他法术”漏掉技能，把失效条件缩窄为法术（contextual 同判）。确认。修复：第三行改为“这个法术只能在你施放科技法术之后、且尚未使用任何其他法术或技能时使用。”，其余（含 \\t\\t）不变。 contextual 同判。",
+  "new_target": "每当你释放一个科技法术，你都会储存它一部分的能量，用来超载你的奥术发电机。每消耗 10 点法力值，它产生的蒸汽就增加 4 点，持续 4 回合。\n\t\t此外，这些能量会在你周围 3 码半径内溢出，造成 %0.2f 伤害。（伤害类型基于你使用的科技法术的类型）\n\t\t这个法术只能在你施放科技法术之后、且尚未使用任何其他法术或技能时使用。\n\t\t技能伤害受法术强度提升。"
+ },
+ "4396f7dfa07c93d5ea4cd2ebf0716e15615fcd76a01623452d720803da0359d8": {
+  "source_batch_id": "batch-f4001cace434a973dcfb",
+  "claim": "宿主补充观察：Orcs 公开源码（来源未固定）tome-orcs/data/talents/steam/other.lua:444 起 火箭靴（Rocket Boots）说明：原文第二至四行行首为 \\t\\t（共 6 个 TAB），现译三行行首的 \\t\\t 全部丢失（TAB 0），违反 LF／TAB 格式不变量；末行“Burninate them all!”译“烧毁他们 !”漏 all 且感叹号前多空格、用半角。surface lane-000-1 判 OK、未进 contextual。本批按惯例记 done（宿主补充不改 disposition），作为宿主补充项登记到窗口65：三行行首补回 \\t\\t，末行改为“#{italic}#把他们统统烧光！#{normal}#”。",
+  "new_target": "激活火箭靴，从你的靴子上发射巨大的火焰，增加你的移动速度 %d%%。\n\t\t每次移动都会留下一道持续 4 回合的火焰，造成 %0.2f 火焰伤害。\n\t\t做任何其他行动都会打断效果。\n\t\t#{italic}#把他们统统烧光！#{normal}#"
+ },
+ "48e944baf872c52257902cecc03e586d13ef41e65c91adac9fc25f79affa4604": {
+  "source_batch_id": "batch-f4001cace434a973dcfb",
+  "claim": "宿主补充观察：Orcs 公开源码（来源未固定）tome-orcs/data/talents/steam/engineering.lua:21 起 紧急蒸汽排出（Emergency Steam Purge）说明：原文 2 个 LF，“(current factor %d%%)”在第三行句内；现译在“15%%。”后另起“\\n\\t\\t当前强度系数 %d%%。”，多 1 个 LF（3 个），违反换行不变量。surface lane-000-1 判 OK、未进 contextual。本批按惯例记 done，作为宿主补充项登记到窗口65：末两行合并为“……强度仅为 50 点或更高蒸汽值时的 15%%（当前强度系数 %d%%）。” 同条整句对照：首行 superheated steam 原译漏“过热”，改为“你同时打开所有蒸汽阀，在自身周围释放半径 %d 的过热蒸汽波，造成 %0.2f 火焰伤害（无法暴击）。”。",
+  "new_target": "你同时打开所有蒸汽阀，在自身周围释放半径 %d 的过热蒸汽波，造成 %0.2f 火焰伤害（无法暴击）。\n\t\t若你有至少 35 点蒸汽，气体的温度将变得极高，能烧伤感知器官，令受影响的生物目盲 %d 回合。\n\t\t效果受当前蒸汽值加成。1 点蒸汽值时，强度仅为 50 点或更高蒸汽值时的 15%%（当前强度系数 %d%%）。"
+ },
+ "557285f8a1f44ef7fc096029eb609cb683a2a233322ccd6c8c910ee4c1c36671": {
+  "source_batch_id": "batch-f4001cace434a973dcfb",
+  "claim": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/magnetism.lua 电力放出（Capacitor Discharge）action :216-232：对每个目标 project DamageType.LIGHTNING_DAZE {dam=储存量}，即电弧伤害为闪电伤害；info :250 亦写“dealing lightning damage equal to the stored amount”。现译“产生相当于你存储的伤害量的伤害”漏掉伤害类型（闪电），属机制信息遗漏。contextual 判 OK，宿主以实现为准确认。修复：改为“并产生一股电弧，对最多 %d 个其他目标造成相当于你储存伤害量的闪电伤害。”，其余不变。",
+  "new_target": "将电容器放置在你的盾牌上，它们可以减弱攻击的影响。增加 %d%% 的格挡值，并将所格挡伤害的 100%% 转化为电力充能（最多充能 %d 点）。\n启动这一技能将会释放所格挡的伤害，并发射出一道闪电冲击，对第一个目标造成 %d%% 闪电盾牌伤害，并产生一股电弧，对最多 %d 个其他目标造成相当于你储存伤害量的闪电伤害。\n如果你的伤害充能满了，被击中的目标还会被眩晕 2 回合，且盾牌攻击必定暴击。\n你能够吸收的最大伤害量受蒸汽强度加成。"
+ },
+ "5c908e08b3e00b9488111b4985ffea41727f710381e3062a5c5c90db18acfa94": {
+  "source_batch_id": "batch-f4001cace434a973dcfb",
+  "claim": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/other.lua 雷鸣榴弹（Thunder Grenade，:1137 起）说明：原文第二、三行行首为 \\t\\t，现译换成两个全角空格 U+3000，破坏 LF／TAB 格式不变量（先例：batch-966a30f506c5616356f4 的 46b5e759b9 与 batch-a56cdce9f90a044bdd63 的 70349db401，同类全角空格缩进均确认）。contextual 判 OK，宿主以格式不变量确认。修复：两处“　　”改回 \\t\\t，文字不变。",
+  "new_target": "向你的敌人投掷手榴弹，造成 %0.2f 物理伤害，半径 %d 码。\n\t\t被击中的生物还会被震慑 %d 回合。\n\t\t震慑强度受蒸汽强度加成。"
+ },
+ "728ac31db24abcb47f113157babc678aa6304651a1e769de1852335ae482b1e6": {
+  "source_batch_id": "batch-3506bffc1094e8909c28",
+  "claim": "Ashes 公开源码（来源未固定）tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua:736 恶魔结合（Bind Demon）info :824 “This spell can summon demons from any seeds available in either your equipment or inventory”——可以用装备或背包中任一可用的种子召唤恶魔；现译“这一技能可以召唤你装备或背包里的任何恶魔种子”把召唤对象由恶魔变成种子，属错译。contextual 判 OK，宿主以原文为准确认。修复：改为“这一技能可以通过你装备或背包中任何可用的种子召唤恶魔。”；同条首行“且可以召唤恶魔”后补句号，其余不变。 同条整句对照：第二行 You channel your arcane corruption through a demon seed 原译漏“导入奥术腐化之力”，补为“你将奥术腐化之力导入一枚恶魔种子，临时召唤对应的恶魔，持续 %d 回合。”。",
+  "new_target": "你对恶魔力量的理解增长了，你可以将更多种子与装备结合，且可以召唤恶魔。\n\t\t你将奥术腐化之力导入一枚恶魔种子，临时召唤对应的恶魔，持续 %d 回合。\n\t\t召唤出来的恶魔能回复生命，并且保持上一次召唤结束时的生命值。\n\t\t如果恶魔死亡，将不能再使用同一个种子进行召唤，直到它被复活为止。\n\t\t这一技能可以通过你装备或背包中任何可用的种子召唤恶魔。\n\n\t\t随着你越来越善于结合种子，你也能使用更多种子：\n\t\t技能等级 2 时你能将种子与第一个戒指结合。\n\t\t技能等级 3 时你能将种子与盾牌结合。\n\t\t技能等级 4 时你能将种子与第二个戒指结合。\n\t\t技能等级 5 时你能将种子与护甲结合。\n\t\t"
+ },
+ "95b2ccbaf055ecb7e97f4f4464e06396c7e0e7f02bf034f0f199d2b94dfc7d5c": {
+  "source_batch_id": "batch-f4001cace434a973dcfb",
+  "claim": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/heavy-weapons.lua:510 说明：“multi-barreled bolt launcher”是多管弩箭发射器，“chemical-infused flechettes”是箭形弹，同族攻击说明本库作“化学毒弹”（tome-orcs.lua:5188）；现译“多管重型枪械”“子弹”改变武器与弹药类型并增“重型”，属错译。contextual 判 OK，宿主按原文与同族译法确认。修复：首句改为“你把你的蒸汽枪替换成一具多管弩箭发射器，发射注入致命化学物质的毒弹。”，其余不变。原文空行上的 \\t\\t 属行尾空白，按门禁 11 先例不补。",
+  "new_target": "你把你的蒸汽枪替换成一具多管弩箭发射器，发射注入致命化学物质的毒弹。\n\n\t\t每次攻击造成两次 %d%% 酸性武器伤害，击中恢复 %d 蒸汽。"
+ },
+ "aaf0b7e246c49c58016365e11a4097067ad216bb7f72b66cb4fb9ebbf01cf78d": {
+  "source_batch_id": "batch-4158eeb47c02308774eb",
+  "claim": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/other.lua:945 起 精神碾压（Mind Crush）说明：原文 3 个 LF、各续行行首 \\t\\t，末行为“\\n\\t\\t.”；现译把两处 \\t\\t 换成全角空格 U+3000，并删去末行“\\n\\t\\t.”（LF 3→2，TAB 6→0），破坏 LF／TAB 格式不变量（同类全角空格缩进先例：batch-966a30f506c5616356f4 的 46b5e759b9、第394批 5c908e08b3）。contextual 判 OK，宿主以格式不变量确认。修复：两处“　　”改回 \\t\\t，并在末尾补回“\\n\\t\\t.”，文字不变。",
+  "new_target": "粉碎受害者的心智，使你完全控制其行动 6 回合。\n\t\t当效果结束时，你抽离自己的思维，受害者的身体随之倒地死亡。\n\t\t稀有怪、boss、亡灵不受控制。\n\t\t."
+ },
+ "cb4aed41a8699493e4e1cb6065491b3ae9fc121a49e965d94d54ac188c64934e": {
+  "source_batch_id": "batch-4158eeb47c02308774eb",
+  "claim": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/quests/amakthel.lua:86 通关描述：“avenged those killed in the attack on Kruk Pride”，现译“为那些在他们残忍袭击中丧生的部落同胞复仇”漏掉遇袭地克鲁克部落（Kruk Pride，tome-orcs.lua:635 译名）并增“残忍”；“the High Priest”指 slumbering-caves/npcs.lua:218 的唯一 NPC Sher'Tul High Priest（本库“夏·图尔高阶祭司”），现译“夏·图尔祭司”所指正确但丢了“高阶”（contextual 同判漏地名与 High）。确认。修复：前两句改为“你挫败了蒸汽巨人灭绝你们的计划，并为在克鲁克部落遇袭时丧生的同胞复仇。他们绝望中与夏·图尔高阶祭司订立的契约也未能阻止你，”其余不变。 contextual 同判。",
+  "new_target": "你挫败了蒸汽巨人灭绝你们的计划，并为在克鲁克部落遇袭时丧生的同胞复仇。他们绝望中与夏·图尔高阶祭司订立的契约也未能阻止你，祭司和他的神倒在你的脚下，你已经确保他们在可预见的将来会#{italic}#一直#{normal}#长眠下去。"
+ },
+ "e1e9720d81539fabbdea5260cc2d4da62ed63afaa11d67bd8c8574f884e3fb5e": {
+  "source_batch_id": "batch-af9aadc82f05ae27f3d8",
+  "claim": "Cults 公开源码（来源未固定）tome-cults/overload/data/texts/unlock-race_krog.lua 克罗格解锁文本：原文“But while they are magic users Ziguranth took pity on them for they had not chosen their fate, it was forced upon them.”的让步“尽管他们是魔法使用者”是本句要点（伊格兰斯敌视魔法却仍同情食人魔），现译“然而，伊格兰斯同情他们被强迫而无法选择的命运。”整段删去，属漏译（contextual 同判）。另下一行“Zigur was finally able to create”现译主语换成“伊格兰斯”，与同条“伊格的坚实保护者”不一，按整句对照一并改回“伊格”。确认。修复：该行改为“然而，尽管食人魔是魔法使用者，伊格兰斯仍同情他们，因为这命运并非他们自己选择，而是被强加于身。”；下一行“伊格兰斯终于创造出”改为“伊格终于创造出”，其余（含 LF 与标记）不变。 contextual 同判。 同条整句对照：种族特点 Drake infused blood that lets them resist the elements themselves 原译“元素魔法伤害”多出“魔法”，改为“元素伤害”。",
+  "new_target": "食人魔在很久以前的厄流战争中被以恐怖的手段制造出来，作为战争的精英战士。他们从生下来身体就灌注着符文能量，没有这些奥术能量就无法生存。\n\n然而，尽管食人魔是魔法使用者，伊格兰斯仍同情他们，因为这命运并非他们自己选择，而是被强加于身。\n在经过无数痛苦但不可避免的实验后，伊格终于创造出食人魔的一个亚种。他们用龙血和自然之力替代了食人魔体内的符文和奥术力量。\n在那之后，被称为克罗格的食人魔们就成为了自然的坚盾和伊格的坚实保护者。这些精英战士能够双持挥舞任何单手武器，摧毁所有自然的敌人！\n\n你从不死生物的魔爪中救下了一群克罗格，你现在可以创造新的#LIGHT_GREEN#克罗格#WHITE# 角色！\n\n种族特点：#YELLOW#\n- 他们的愤怒如此恐怖，任何攻击都能够震慑对手。\n- 他们龙血灌注的身体可以抵抗元素伤害。\n- 他们是自然纹身的大师。\n- 他们是战斗种族，可以双持任何单手武器，在足以杀死大多数其他生物的处境中依旧保持坚韧。\n#WHITE#\n"
+ },
+ "fd75c9b84984c3abb1bb4982a2563fe181083031540ef4eff34bf165cb026f3c": {
+  "source_batch_id": "batch-3506bffc1094e8909c28",
+  "claim": "固定 commit 624a673 game/modules/tome/data/texts/tutorial/objects.lua:26 与 :30 在源文中各为单行（“To select an item, ... press the key next to its name.”“This infusion inscribes you ... but they can easily be replaced.”）；现译在“也可以\\n直接按物品名字旁边的快捷键”与“但\\n你可以轻松地替换它们”处各多插一个硬换行，比源文多 2 个 LF，教程弹窗会把句子从中间断开，违反换行不变量。确认（contextual 同判）。修复：删去这两个多余的 \\n，其余不变。 contextual 同判。",
+  "new_target": "在你的冒险过程中你会获得各种各样的物品。\n每一件物品都有重量。你能携带多少物品取决于你的力量属性：你有一个最大负重上限。\n按下 'g'键来拾取物品，或者当你的人物站在物品上时右键点击你自己并选择拾取物品。\n要查看物品栏，按下 'i'键或者右键点击自己选择物品栏。\n\n你的物品栏被分成两个部分：你装备的物品和背包中的物品。\n要选择物品，可以用移动键选中后按Enter确认，或者直接鼠标左键单击即可，也可以直接按物品名字旁边的快捷键。\n\n你发现的物品是一个纹身，纹身和符文可以将一种能力印刻到你的身上，获得新的技能。\n纹身源于自然之力；符文则使用魔法，刻印后可以无限次使用。\n这个纹身能让你在需要时回复生命值。你只能印刻有限数量的刻印，但你可以轻松地替换它们。\n\n现在继续向西前进。\n"
+ }
+}

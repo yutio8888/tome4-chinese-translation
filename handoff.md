@@ -1,12 +1,12 @@
-# 当前恢复入口（2026-10-03 重新生产复审完成，按用户要求暂停）
+# 当前恢复入口（2026-10-04 修复窗口65 完成，11 个 successor 待重新审核）
 
 用户 2026-10-03 要求“重新再走一轮生产复审流程”，已全部审完：第383–395批共 13 批、**1019 个 successor**（migration `22b293c4…` 的 993 个＋窗口64 migration `629e3b1e…` 的 26 个），队列余 0。来源见[迁移记录](evidence/quality/maintenance-reaudit-20261003/README.md)，每批证据在 `evidence/quality/production-batches/<batch>-host-evidence/`。
 
-结果：完成 981 条，host-block 4 条（`mod-tome/load.lua` 段已登记死键），确认待修 34 条。其中 25 条已在窗口64 修复并推送（`a2671655`），**9 条留给窗口65**，另有宿主补充 2 条（不计积压）。宿主裁决观察：confirmed 57 行、refuted 14 行、advisory 12 行（surface 与 contextual 同判的条目各记一行）。最后一批的收口提交是 `54a2cc9e`，已推送，工作树只剩用户既有改动。`tools/i18n production queue status`（2026-10-03 实测）：queued=0、repair_required=9、blocked=17、done=29802，active writer no。
+结果：完成 981 条，host-block 4 条（`mod-tome/load.lua` 段已登记死键），确认待修 34 条。其中 25 条已在窗口64 修复并推送（`a2671655`），其余 9 条与宿主补充 2 条已在窗口65 修复（2026-10-04，译文 `9079821a`，migration `e437cb51…`，详见 `evidence/quality/repair-window-65-20261004/PUBLICATION.md`）。宿主裁决观察：confirmed 57 行、refuted 14 行、advisory 12 行（surface 与 contextual 同判的条目各记一行）。最后一批的收口提交是 `54a2cc9e`。窗口65 的 11 个 successor 不继承旧 done，须重新审核；生产队列在窗口65 证据提交后由宿主重建。
 
-**用户 2026-10-03 指示：本轮完成后暂停并撰写 handoff。** 当前没有进行中的批次、窗口或 child，所有 child 都已确认归档。恢复前需要用户决定：
+**用户 2026-10-03 指示：本轮完成后暂停并撰写 handoff；2026-10-04 用户指示开窗口65（“现在开”），窗口已完成。** 窗口65 的全部 child 在证据提交前已由宿主确认归档，当前没有进行中的批次、窗口或 child。恢复前需要用户决定：
 
-1. 窗口65 是否现在开。积压 9 条＋补充 2 条，未达 20 条阈值，审核队列也已清空。按 2026-09-24 指示，这种情况要问用户：开小窗口，还是继续等待。
+1. 是否审核窗口65 的 11 个 successor（一个小批，第396批）。暂停指示仍有效，未获指示前不开新批。
 2. 生硬描述扫描 C 档仍待用户决定。
 3. 对外发布：对外版本仍是 0.3.2，此后的译文改动均未发布，无发布授权。
 
@@ -67,7 +67,7 @@
 
 # 翻译审核当前交接
 
-更新时间：2026-10-03（第395批已 finalize，窗口65积压 9 条，继续审核第396批）
+更新时间：2026-10-04（修复窗口65已完成；其 11 个 successor 待重新审核，开批等用户决定）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -85,7 +85,7 @@
 - 审核已闭合至第 **395** 批（`batch-4158eeb47c02308774eb`）：59 条，57 done / 2 repair_required。
   重新复审：successor 59 条（Orcs 59）：surface 55 OK / 4 ISSUE；contextual 2 OK / 2 ISSUE；裁决 confirmed 3、advisory 3；新增修复 2 条，窗口65积压 9；余 0 个 successor。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `6f80e9854c3e38e6c017e4a7bcc45d5c7d986184` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **64**：窗口63（译文 `7a7d8653`）与窗口64（第384–391批重新复审确认 25 条＋宿主补充 1 条，译文 `80b359b0`，migration `629e3b1e…`）均已修复；窗口64 的 26 个 successor 须重新审核，不继承旧 revision 的 done 状态。
+- 修复窗口已闭合至 **65**：窗口64（译文 `80b359b0`，migration `629e3b1e…`）与窗口65（第392–395批重新复审确认 9 条＋宿主补充 2 条，译文 `9079821a`，migration `e437cb51…`）均已修复；窗口65 的 11 个 successor 须重新审核，不继承旧 revision 的 done 状态。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
   - 10 条死键／冻结 MISS（上游改串未重生 locale key 等，已 host-block 登记，不动）；
@@ -143,17 +143,17 @@
 
 ## 三、下一步
 
-1. **重新复审已完成并暂停**（第383–395批，1019/1019）。没有待审 successor；不要自行开新批或开窗口65，等用户决定（见文首）。
-   若用户批准开窗口65：从 `.artifacts/i18n/repair-w64-20261003/` 派生（setup_window64.py、freeze_review.py、wd.sh、w64-tr.sh、w64-close.sh），条目与新译文依据 `/tmp/backlog65.json`（备份 `.artifacts/i18n/continuation-20260923/reaudit-helpers/backlog65.json`）与各批 `HOST-FINAL-DECISIONS.json`；宿主补充 2 条在第394批 `HOST-FINAL-DECISIONS.json` 的 `additional_host_observations` 中。开窗前先全仓 grep 同一 runtime key 的跨组件副本。
+1. **重新复审已完成并暂停**（第383–395批，1019/1019）。窗口65 已按用户指示完成，其 11 个 successor 待重新审核；未获用户指示不开新批（见文首）。
+   窗口65 的派生件在 `.artifacts/i18n/repair-w65-20261004/`（setup_window65.py、freeze_review.py、wd.sh、w65-tr.sh、w65-close.sh、make_handoff_next.py），下一个窗口可从此派生；handoff 改由宿主写好全文、publication child 核对基线 SHA 后整份替换。
    本轮新增经验（第392–395批）：
    - 一批有多个 contextual run 时，`finalize_host_gen_re.py` 与 `/tmp/mkfin_re.py` 已能处理；`close_review<N>.py` 的 `for run in (...)` 仍须按 run 数手改。
    - Orcs、Cults 等 DLC 死键（如 DebugMain section 的 lore 副本）带快照身份，不能 host-block；按第353/368批先例照常审核，被指出的问题记 advisory，并核对生效行。
    - contextual child 因 Claude 会话额度用尽而无输出时：harvest 会拒收，改用 `review_lifecycle.py reject --notified --capture <terminal> --evidence <证据>` → archive-intent → archive → archive-confirm；然后按 attempt 2（`full-001`，`retry_of`）重派，并在 snapshot 脚本中加入 `{batch}-*-rejection-evidence` 收录。fin 中可用 `contextual_reviewer_en` 覆盖 reviewer 描述（第395批先例）。
    - 宿主可对 workset 做 LF／TAB／全角空格的预扫描，这类问题 surface 常漏。没被任何 lane 指出的，只能经 `review<N>-extra.json` 作为宿主补充登记（第394批先例）。
-2. 窗口 64 已完成（26 条：主游戏 25、引擎 1）：第384–391批重新复审确认的 25 条（换行不变量 9 条，忠实性、机制与术语 16 条）＋宿主补充 1 条（骤然生长 fungus“孢子”→“真菌”），新译文均由宿主按整句对照写定、EXECUTOR 逐字替换。复审路径：execute-01 → REVIEW r0a1（GPT-6.1 Sol）26 OK → FINAL f0a2（Opus 5.5）26/26，cycle 0 收敛；门禁 17/17。详见 `evidence/quality/repair-window-64-20261003/PUBLICATION.md`。
-   窗口63（意志之力 maces 1 条）详见 `evidence/quality/repair-window-63-20261001/PUBLICATION.md`；窗口62 教训：killer_message 被 `" "..src.killer_message` 拼在凶手名后，译文不得以标点起头。
+2. 窗口 65 已完成（11 条：Orcs 8、主游戏 1、Ashes 1、Cults 1）：第392–395批重新复审确认的 9 条（换行与缩进不变量 3 条，忠实性与机制 6 条）＋宿主补充 2 条（火箭靴、紧急蒸汽排出），新译文均由宿主按整句对照写定、EXECUTOR 逐字替换。复审路径：execute-01 → REVIEW r0a1（GPT-6.1 Sol）10 OK／1 ISSUE（电力放出目标数为英文与实现不符，宿主判 advisory carry_forward）→ FINAL f0a2（Opus 5.5）11/11，cycle 0 收敛；门禁 17/17。详见 `evidence/quality/repair-window-65-20261004/PUBLICATION.md`。
+   窗口64（重新复审确认 25 条＋补充 1 条）详见 `evidence/quality/repair-window-64-20261003/PUBLICATION.md`；窗口63（意志之力 maces 1 条）详见 `evidence/quality/repair-window-63-20261001/PUBLICATION.md`；窗口62 教训：killer_message 被 `" "..src.killer_message` 拼在凶手名后，译文不得以标点起头。
    窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
-   窗口 65 积压 **9** 条（窗口64后重新计数，主游戏 1、Ashes 1、Cults 1、Orcs 6）：第392批 `fd75c9b849` 物品教程删 2 个多余换行、`728ac31db2` 恶魔结合“召唤恶魔种子”→通过种子召唤恶魔并补句号；第393批 `e1e9720d81` 克罗格解锁文本补译“尽管食人魔是魔法使用者”并把下一行伊格兰斯改回伊格；第394批 `2e202430f8` 电子咒式补“或技能”、`557285f8a1` 电力放出电弧伤害补“闪电”、`5c908e08b3` 雷鸣榴弹全角空格改回 \t\t、`95b2ccbaf0` 多管弩箭发射器与毒弹；宿主补充（不计）`4396f7dfa0` 火箭靴补回 \t\t 并改末句、`48e944baf8` 紧急蒸汽排出删多余换行；第395批 `aaf0b7e246` 精神碾压全角空格改回 \t\t 并补末行、`cb4aed41a8` 通关描述补克鲁克部落与“高阶”；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   下一个修复窗口（66）积压 **0** 条。
    第395批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）167.6 s；finalize 159.0 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。

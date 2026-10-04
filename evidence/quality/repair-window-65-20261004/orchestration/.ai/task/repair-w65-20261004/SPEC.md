@@ -1,0 +1,67 @@
+# 修复窗口 65：重新复审轮确认项（11 条）
+
+Paseo MCP / schema5 translation_contextual_v2 implement。基线 a693b962a3011bfd426e134fce53bb083e8eee58。
+
+## 来源
+
+- 2026-10-03 用户要求“重新再走一轮生产复审流程”：1019 个 successor 已于第383–395批全部审完。
+- 第392–395批宿主确认 9 条（392：2、393：1、394：4、395：2）；第394批宿主补充 2 条（不计积压，见该批 HOST-FINAL-DECISIONS.json 的 additional_host_observations）。
+- 审核队列清空时积压未达 20 条阈值，2026-10-04 用户指示“现在开”。
+
+用户已授权修复、提交与推送；max_cycles=5（用户 2026-09-25 授权）。
+
+## 写入权限
+
+唯一 EXECUTOR 仅可修改以下内容：
+
+- WORKSET.json 列出的 11 个 target（mod-tome.lua 1 条、tome-ashes-urhrok.lua 1 条、tome-cults.lua 1 条、tome-orcs.lua 8 条）；
+- `evidence/quality/repair-window-65-20261004/` 下的修复证据。
+
+不得修改：source、source_tag、section、args_order、运行键、其他译文、术语库、规则工具或旧证据。
+
+不得 stage、commit、push，不得创建 agent，不得修改 .ai/task。无关未跟踪文件保持不动。宿主负责 task 与审核记录、提交发布。
+
+## 改写要求
+
+按 NEW-TARGETS.json 中每条的 new_target 整条替换现有 target（宿主已按各条“修复：”与整句对照写定全文；old_target 为现值）：
+
+- 5 条格式修复（fd75c9b849、4396f7dfa0、48e944baf8、5c908e08b3、aaf0b7e246）的 LF／`\t\t` 结构须与原文一致；
+- 其余 6 条保持现有 LF／`\t\t` 结构不变（95b2ccbaf0 原文空行上的 `\t\t` 属行尾空白，不补）；
+- 所有 `%d`、`%0.1f`、`%s`、`%%` 等占位符，`#COLOR#`、`#{italic}#` 等标记与 `@name@` 令牌保持不变；source_tag 不变。
+
+## 验证要求
+
+- 用 LuaJIT 加载 mod-tome.lua、tome-ashes-urhrok.lua、tome-cults.lua 与 tome-orcs.lua，证明恰 11 个 target 变动、其他记录不变；
+- 执行 strict lint 及 git diff --check。
+
+无需完整门禁，宿主在独立复审后统一运行 17 项。
+
+## 取证范围
+
+- 主游戏源码只从 /workspace/t-engine4 固定 commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 取证；Ashes、Cults、Orcs 公开源码在 /workspace/tome4-dlcs/{ashes-urhrok,cults,orcs}（仓库与 commit 未固定）。
+- 不扫 `/`、`/workspace` 或无关目录。
+
+## 审查安排
+
+- cycle-0 `REVIEW/full` 用 Codex GPT-6.1 Sol（medium）。
+- 收敛后 `FINAL_REVIEW/full` 用 Claude Opus 5.5。
+- v2 FINAL 有任何 ISSUE 时，先修复并完成 RE_REVIEW，再重新 FINAL。max_cycles=5。
+- reviewer 只读冻结译文、术语和契约允许的有限源码，不读 SOURCE-CLAIMS 或其他 reviewer raw。
+
+## 宿主裁决依据
+
+与已记录用户裁决相冲的指摘，宿主按裁决驳回（如 The Master＝领主）。与本窗口修改无关的既有问题记 advisory 并 carry_forward。
+
+## 条目与已确认修复依据
+
+- 2e202430f808f279ca4650fb20723042584c5f52851c3763fb5abfb79d3acf6a | tome-orcs.lua | tome-orcs/data/talents/spells/other-technomancy.lua | Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/spells/other-technomancy.lua 电子咒式（Electron Incantation）：callbackOnTalentPost（:33-39）在施放任何技能后，只要该技能不是另一个科技法术就把 can_use_electron_incantation 清空，on_pre_use（:40-44）据此禁止施放；即使用任何其他法术或技能都会失效，info :69 也写“until you use any other spell or talent”。现译“且中途没有释放过其他法术”漏掉技能，把失效条件缩窄为法术（contextual 同判）。确认。修复：第三行改为“这个法术只能在你施放科技法术之后、且尚未使用任何其他法术或技能时使用。”，其余（含 \t\t）不变。 contextual 同判。
+- 4396f7dfa07c93d5ea4cd2ebf0716e15615fcd76a01623452d720803da0359d8 | tome-orcs.lua | tome-orcs/data/talents/steam/other.lua | 宿主补充观察：Orcs 公开源码（来源未固定）tome-orcs/data/talents/steam/other.lua:444 起 火箭靴（Rocket Boots）说明：原文第二至四行行首为 \t\t（共 6 个 TAB），现译三行行首的 \t\t 全部丢失（TAB 0），违反 LF／TAB 格式不变量；末行“Burninate them all!”译“烧毁他们 !”漏 all 且感叹号前多空格、用半角。surface lane-000-1 判 OK、未进 contextual。本批按惯例记 done（宿主补充不改 disposition），作为宿主补充项登记到窗口65：三行行首补回 \t\t，末行改为“#{italic}#把他们统统烧光！#{normal}#”。
+- 48e944baf872c52257902cecc03e586d13ef41e65c91adac9fc25f79affa4604 | tome-orcs.lua | tome-orcs/data/talents/steam/engineering.lua | 宿主补充观察：Orcs 公开源码（来源未固定）tome-orcs/data/talents/steam/engineering.lua:21 起 紧急蒸汽排出（Emergency Steam Purge）说明：原文 2 个 LF，“(current factor %d%%)”在第三行句内；现译在“15%%。”后另起“\n\t\t当前强度系数 %d%%。”，多 1 个 LF（3 个），违反换行不变量。surface lane-000-1 判 OK、未进 contextual。本批按惯例记 done，作为宿主补充项登记到窗口65：末两行合并为“……强度仅为 50 点或更高蒸汽值时的 15%%（当前强度系数 %d%%）。” 同条整句对照：首行 superheated steam 原译漏“过热”，改为“你同时打开所有蒸汽阀，在自身周围释放半径 %d 的过热蒸汽波，造成 %0.2f 火焰伤害（无法暴击）。”。
+- 557285f8a1f44ef7fc096029eb609cb683a2a233322ccd6c8c910ee4c1c36671 | tome-orcs.lua | tome-orcs/data/talents/steam/magnetism.lua | Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/magnetism.lua 电力放出（Capacitor Discharge）action :216-232：对每个目标 project DamageType.LIGHTNING_DAZE {dam=储存量}，即电弧伤害为闪电伤害；info :250 亦写“dealing lightning damage equal to the stored amount”。现译“产生相当于你存储的伤害量的伤害”漏掉伤害类型（闪电），属机制信息遗漏。contextual 判 OK，宿主以实现为准确认。修复：改为“并产生一股电弧，对最多 %d 个其他目标造成相当于你储存伤害量的闪电伤害。”，其余不变。
+- 5c908e08b3e00b9488111b4985ffea41727f710381e3062a5c5c90db18acfa94 | tome-orcs.lua | tome-orcs/data/talents/steam/other.lua | Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/other.lua 雷鸣榴弹（Thunder Grenade，:1137 起）说明：原文第二、三行行首为 \t\t，现译换成两个全角空格 U+3000，破坏 LF／TAB 格式不变量（先例：batch-966a30f506c5616356f4 的 46b5e759b9 与 batch-a56cdce9f90a044bdd63 的 70349db401，同类全角空格缩进均确认）。contextual 判 OK，宿主以格式不变量确认。修复：两处“　　”改回 \t\t，文字不变。
+- 728ac31db24abcb47f113157babc678aa6304651a1e769de1852335ae482b1e6 | tome-ashes-urhrok.lua | tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua | Ashes 公开源码（来源未固定）tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua:736 恶魔结合（Bind Demon）info :824 “This spell can summon demons from any seeds available in either your equipment or inventory”——可以用装备或背包中任一可用的种子召唤恶魔；现译“这一技能可以召唤你装备或背包里的任何恶魔种子”把召唤对象由恶魔变成种子，属错译。contextual 判 OK，宿主以原文为准确认。修复：改为“这一技能可以通过你装备或背包中任何可用的种子召唤恶魔。”；同条首行“且可以召唤恶魔”后补句号，其余不变。 同条整句对照：第二行 You channel your arcane corruption through a demon seed 原译漏“导入奥术腐化之力”，补为“你将奥术腐化之力导入一枚恶魔种子，临时召唤对应的恶魔，持续 %d 回合。”。
+- 95b2ccbaf055ecb7e97f4f4464e06396c7e0e7f02bf034f0f199d2b94dfc7d5c | tome-orcs.lua | tome-orcs/data/talents/steam/heavy-weapons.lua | Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/heavy-weapons.lua:510 说明：“multi-barreled bolt launcher”是多管弩箭发射器，“chemical-infused flechettes”是箭形弹，同族攻击说明本库作“化学毒弹”（tome-orcs.lua:5188）；现译“多管重型枪械”“子弹”改变武器与弹药类型并增“重型”，属错译。contextual 判 OK，宿主按原文与同族译法确认。修复：首句改为“你把你的蒸汽枪替换成一具多管弩箭发射器，发射注入致命化学物质的毒弹。”，其余不变。原文空行上的 \t\t 属行尾空白，按门禁 11 先例不补。
+- aaf0b7e246c49c58016365e11a4097067ad216bb7f72b66cb4fb9ebbf01cf78d | tome-orcs.lua | tome-orcs/data/talents/steam/other.lua | Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/talents/steam/other.lua:945 起 精神碾压（Mind Crush）说明：原文 3 个 LF、各续行行首 \t\t，末行为“\n\t\t.”；现译把两处 \t\t 换成全角空格 U+3000，并删去末行“\n\t\t.”（LF 3→2，TAB 6→0），破坏 LF／TAB 格式不变量（同类全角空格缩进先例：batch-966a30f506c5616356f4 的 46b5e759b9、第394批 5c908e08b3）。contextual 判 OK，宿主以格式不变量确认。修复：两处“　　”改回 \t\t，并在末尾补回“\n\t\t.”，文字不变。
+- cb4aed41a8699493e4e1cb6065491b3ae9fc121a49e965d94d54ac188c64934e | tome-orcs.lua | tome-orcs/data/quests/amakthel.lua | Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs）tome-orcs/data/quests/amakthel.lua:86 通关描述：“avenged those killed in the attack on Kruk Pride”，现译“为那些在他们残忍袭击中丧生的部落同胞复仇”漏掉遇袭地克鲁克部落（Kruk Pride，tome-orcs.lua:635 译名）并增“残忍”；“the High Priest”指 slumbering-caves/npcs.lua:218 的唯一 NPC Sher'Tul High Priest（本库“夏·图尔高阶祭司”），现译“夏·图尔祭司”所指正确但丢了“高阶”（contextual 同判漏地名与 High）。确认。修复：前两句改为“你挫败了蒸汽巨人灭绝你们的计划，并为在克鲁克部落遇袭时丧生的同胞复仇。他们绝望中与夏·图尔高阶祭司订立的契约也未能阻止你，”其余不变。 contextual 同判。
+- e1e9720d81539fabbdea5260cc2d4da62ed63afaa11d67bd8c8574f884e3fb5e | tome-cults.lua | tome-cults/overload/data/texts/unlock-race_krog.lua | Cults 公开源码（来源未固定）tome-cults/overload/data/texts/unlock-race_krog.lua 克罗格解锁文本：原文“But while they are magic users Ziguranth took pity on them for they had not chosen their fate, it was forced upon them.”的让步“尽管他们是魔法使用者”是本句要点（伊格兰斯敌视魔法却仍同情食人魔），现译“然而，伊格兰斯同情他们被强迫而无法选择的命运。”整段删去，属漏译（contextual 同判）。另下一行“Zigur was finally able to create”现译主语换成“伊格兰斯”，与同条“伊格的坚实保护者”不一，按整句对照一并改回“伊格”。确认。修复：该行改为“然而，尽管食人魔是魔法使用者，伊格兰斯仍同情他们，因为这命运并非他们自己选择，而是被强加于身。”；下一行“伊格兰斯终于创造出”改为“伊格终于创造出”，其余（含 LF 与标记）不变。 contextual 同判。 同条整句对照：种族特点 Drake infused blood that lets them resist the elements themselves 原译“元素魔法伤害”多出“魔法”，改为“元素伤害”。
+- fd75c9b84984c3abb1bb4982a2563fe181083031540ef4eff34bf165cb026f3c | mod-tome.lua | mod-tome/data/texts/tutorial/objects.lua | 固定 commit 624a673 game/modules/tome/data/texts/tutorial/objects.lua:26 与 :30 在源文中各为单行（“To select an item, ... press the key next to its name.”“This infusion inscribes you ... but they can easily be replaced.”）；现译在“也可以\n直接按物品名字旁边的快捷键”与“但\n你可以轻松地替换它们”处各多插一个硬换行，比源文多 2 个 LF，教程弹窗会把句子从中间断开，违反换行不变量。确认（contextual 同判）。修复：删去这两个多余的 \n，其余不变。 contextual 同判。

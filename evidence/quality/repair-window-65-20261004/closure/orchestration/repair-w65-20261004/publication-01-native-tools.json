@@ -1,0 +1,176 @@
+{
+  "dispatch_id": "publication-01",
+  "native_session": "01a1045c-5327-71d0-972e-b700f029ddce",
+  "native_path": "/home/paseo/.codex/sessions/2026/10/04/rollout-2026-10-04T00-42-03-01a1045c-5327-71d0-972e-b700f029ddce.jsonl",
+  "native_sha256": "96bf556dd629d9f9a3142f828fa093c1a16b1ded8e9e38d50737d4ec813b6e6e",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a0e23d548196983f224f4ce0c57b",
+      "status": "completed",
+      "call_id": "call_2c72e55c80294ff2b48e8796efef574e",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '1,240p' /home/paseo/.agents/skills/paseo/SKILL.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074530.241301
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a0e55f20819680162091f6839c57",
+      "status": "completed",
+      "call_id": "call_40b1942cd3844954abe3eab0d7e6430b",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"wc -l .ai/roles/executor.md .ai/task/repair-w65-20261004/PUBLICATION-SCOPE.md && sed -n '1,260p' .ai/roles/executor.md && sed -n '1,320p' .ai/task/repair-w65-20261004/PUBLICATION-SCOPE.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":40000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074533.373883
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a0eaca988196b88f5800523dbaea",
+      "status": "completed",
+      "call_id": "call_5953db3d6b9d4321b727a4a7f554a0aa",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"git status --short && sha256sum handoff.md && python3 - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=Path('.ai/task/repair-w65-20261004/PACK-MANIFEST.json')\\ndata=json.loads(p.read_text())\\nprint('manifest keys:', sorted(data))\\nprint('manifest files:', len(data.get('files', [])))\\nfor i,x in enumerate(data.get('files', []),1): print(i, x)\\nPY\\nfind .artifacts/i18n/repair-window/window65-20261004-candidate-catalog -type f -printf '%P\\\\n' | sort\\nfind .ai/task/repair-w65-20261004 -maxdepth 1 -type f -printf '%f\\\\n' | sort\\nfind .artifacts/i18n/repair-w65-20261004 -maxdepth 1 -type f -printf '%f\\\\n' | sort\\nfind .artifacts/i18n/repair-window -maxdepth 1 -type f -name 'window65-20261004-*' -printf '%f\\\\n' | sort\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":40000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074538.7954335
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a0ef73fc81969ac8e7aafbea8dde",
+      "status": "completed",
+      "call_id": "call_af1c2279bee5403083c7000b143ae4c8",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport hashlib,json,sys\\nroot=Path('.')\\nmanifest_path=root/'.ai/task/repair-w65-20261004/PACK-MANIFEST.json'\\nm=json.loads(manifest_path.read_text())\\nout=root/'evidence/quality/repair-window-65-20261004/orchestration'\\nerrors=[]; existing_same=existing_diff=missing=0\\nfor e in m['files']:\\n    s=root/e['source']; d=out/e['relative_destination']\\n    if not s.is_file(): errors.append(f'MISSING SOURCE {s}'); continue\\n    b=s.read_bytes(); h=hashlib.sha256(b).hexdigest()\\n    if h != e['sha256'] or len(b) != e['bytes']:\\n        errors.append(f'SOURCE MISMATCH {s}: {h} {len(b)} expected {e[\\\"sha256\\\"]} {e[\\\"bytes\\\"]}')\\n    if d.exists():\\n        if d.is_file() and d.read_bytes()==b: existing_same+=1\\n        else:\\n            existing_diff+=1; errors.append(f'EXISTING TARGET DIFFERS {d}')\\n    else: missing+=1\\nprint(f'pack source entries={len(m[\\\"files\\\"])} existing_same={existing_same} existing_diff={existing_diff} missing={missing}')\\n# Required publication sources\\nreq_task=['PUBLICATION-SCOPE.md','CATALOG-CHANGE-VERIFICATION.json','MIGRATION-HOST-VERIFICATION.json','TRANSLATION-COMMIT.json','SCOPE.json','SOURCE-CLAIMS.json','NEW-TARGETS.json']\\nreq_task += sorted(p.name for p in (root/'.ai/task/repair-w65-20261004').glob('ADJUDICATION-*.json'))\\nreq_art=['HOST-SUPPLEMENT-CLAIMS.json','HOST-EXACT-DIFF.json']\\nreq_chain=['window65-20261004-publish-chain.log','window65-20261004-publish-chain-timing.json','window65-20261004-migration.json','window65-20261004-migration-timing.json']\\nfor p in [*(root/'.ai/task/repair-w65-20261004'/n for n in req_task),*(root/'.artifacts/i18n/repair-w65-20261004'/n for n in req_art),*(root/'.artifacts/i18n/repair-window'/n for n in req_chain)]:\\n    if not p.is_file(): errors.append(f'MISSING PUBLICATION SOURCE {p}')\\nprint('publication attachments expected:',len(req_task)+len(req_art)+len(req_chain), req_task+req_art+req_chain)\\nprint('candidate files:', sum(1 for p in (root/'.artifacts/i18n/repair-window/window65-20261004-candidate-catalog').rglob('*') if p.is_file()))\\nfor p in sorted((root/'evidence/quality/repair-window-65-20261004').rglob('*')):\\n    if p.is_file(): print('existing window file',p)\\nif errors:\\n    print('\\\\n'.join(errors)); sys.exit(1)\\nprint('PRECHECK OK')\\nPY\\nsha256sum .ai/task/repair-w65-20261004/HANDOFF-NEXT.md .ai/task/repair-w65-20261004/PACK-MANIFEST.json .artifacts/i18n/repair-window/window65-20261004-migration.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074543.4559124
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a0fc5bf88196987c82c566f1234c",
+      "status": "completed",
+      "call_id": "call_c1b106b905d44f5aa63936b75c2e93f9",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"set -euo pipefail\\npack_root='evidence/quality/repair-window-65-20261004/orchestration'\\nmanifest='.ai/task/repair-w65-20261004/PACK-MANIFEST.json'\\nwhile IFS=$'\\\\t' read -r src rel expected; do\\n  dst=\\\"$pack_root/$rel\\\"\\n  mkdir -p -- \\\"$(dirname -- \\\"$dst\\\")\\\"\\n  cp -- \\\"$src\\\" \\\"$dst\\\"\\n  actual=$(sha256sum -- \\\"$dst\\\" | cut -d' ' -f1)\\n  if [ \\\"$actual\\\" != \\\"$expected\\\" ]; then\\n    echo \\\"SHA MISMATCH: $dst expected=$expected actual=$actual\\\" >&2\\n    exit 1\\n  fi\\ndone < <(jq -r '.files[] | [.source, .relative_destination, .sha256] | @tsv' \\\"$manifest\\\")\\ncp -- \\\"$manifest\\\" 'evidence/quality/repair-window-65-20261004/orchestration-pack-manifest.json'\\nprintf 'installed_and_verified=' \\njq '.files | length' \\\"$manifest\\\"\\nprintf 'manifest_copy_sha256=' \\nsha256sum 'evidence/quality/repair-window-65-20261004/orchestration-pack-manifest.json' | cut -d' ' -f1\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074556.3689506
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a1015c048196aeac0eb66599b7d7",
+      "status": "completed",
+      "call_id": "call_d370aac2604f42e085b4c5041bc53624",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"set -euo pipefail\\ncandidate='.artifacts/i18n/repair-window/window65-20261004-candidate-catalog'\\nwhile IFS= read -r -d '' src; do\\n  rel=${src#\\\"$candidate/\\\"}\\n  mkdir -p -- \\\"$(dirname -- \\\"$rel\\\")\\\"\\n  cp -- \\\"$src\\\" \\\"$rel\\\"\\n  cmp -s -- \\\"$src\\\" \\\"$rel\\\"\\ndone < <(find \\\"$candidate\\\" -type f -print0)\\nmigration_src='.artifacts/i18n/repair-window/window65-20261004-migration.json'\\nmigration_dst='evidence/production-review-v2-lite/migrations/e437cb51838bcc569d772a905f70dfe23b175537a8b2a4a9f1e1b1c19022685f.json'\\nmkdir -p -- \\\"$(dirname -- \\\"$migration_dst\\\")\\\"\\ncp -- \\\"$migration_src\\\" \\\"$migration_dst\\\"\\ncmp -s -- \\\"$migration_src\\\" \\\"$migration_dst\\\"\\npub='evidence/quality/repair-window-65-20261004/publication'\\nmkdir -p -- \\\"$pub\\\"\\nfor name in PUBLICATION-SCOPE.md CATALOG-CHANGE-VERIFICATION.json MIGRATION-HOST-VERIFICATION.json TRANSLATION-COMMIT.json SCOPE.json SOURCE-CLAIMS.json NEW-TARGETS.json ADJUDICATION-F0.json ADJUDICATION-R0.json; do\\n  src=\\\".ai/task/repair-w65-20261004/$name\\\"\\n  cp -- \\\"$src\\\" \\\"$pub/$name\\\"\\n  cmp -s -- \\\"$src\\\" \\\"$pub/$name\\\"\\ndone\\nfor name in HOST-SUPPLEMENT-CLAIMS.json HOST-EXACT-DIFF.json; do\\n  src=\\\".artifacts/i18n/repair-w65-20261004/$name\\\"\\n  cp -- \\\"$src\\\" \\\"$pub/$name\\\"\\n  cmp -s -- \\\"$src\\\" \\\"$pub/$name\\\"\\ndone\\nfor name in publish-chain.log publish-chain-timing.json migration.json migration-timing.json; do\\n  src=\\\".artifacts/i18n/repair-window/window65-20261004-$name\\\"\\n  cp -- \\\"$src\\\" \\\"$pub/$name\\\"\\n  cmp -s -- \\\"$src\\\" \\\"$pub/$name\\\"\\ndone\\nprintf 'candidate_files_copied='; find \\\"$candidate\\\" -type f | wc -l\\nprintf 'publication_attachments_copied='; find \\\"$pub\\\" -maxdepth 1 -type f | wc -l\\nprintf 'migration_sha256='; sha256sum \\\"$migration_dst\\\" | cut -d' ' -f1\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074561.3614538
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a10868b88196a6f5475fad8bcfa0",
+      "status": "completed",
+      "call_id": "call_049ae6970b6d4584b08cb5311dcc46d7",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"find evidence/quality -maxdepth 2 -name PUBLICATION.md -printf '%p\\\\n' | sort | tail -5 && prev=$(find evidence/quality -maxdepth 2 -name PUBLICATION.md -printf '%p\\\\n' | sort | tail -1); if [ -n \\\"$prev\\\" ]; then sed -n '1,240p' \\\"$prev\\\"; fi\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074568.4115155
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a10a7ff081968ffb54afdaecd384",
+      "status": "completed",
+      "call_id": "call_9559037593484edca5cbfdec2c2a6585",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"sed -n '1,260p' evidence/quality/repair-window-64-20261003/PUBLICATION.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074570.5015242
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a10d5474819686025fc2ab8932fd",
+      "status": "completed",
+      "call_id": "call_a34650f99d2d417aba52546c6d37b2d5",
+      "name": "exec",
+      "input": "const patch = \"*** Begin Patch\\n*** Add File: /workspace/tome4-chinese-translation/evidence/quality/repair-window-65-20261004/PUBLICATION.md\\n+# 修复窗口 65 发布记录\\n+\\n+## 范围\\n+\\n+本窗口修复 11 条译文（`tome-orcs.lua` 8 条、`mod-tome.lua` 1 条、\\n+`tome-ashes-urhrok.lua` 1 条、`tome-cults.lua` 1 条），无术语改动。\\n+\\n+- 2026-10-03 重新复审轮第 392–395 批宿主确认 9 条（各批\\n+  `HOST-FINAL-DECISIONS.json`）：\\n+  - 换行与缩进不变量 3 条：物品教程删 2 个多余换行；雷鸣榴弹与精神碾压的全角空格改回\\n+    `\\\\t\\\\t`，精神碾压同时补回末行。\\n+  - 忠实性与机制 6 条：恶魔结合改为通过种子召唤恶魔；克罗格解锁文本补译并把伊格兰斯改回\\n+    伊格；电子咒式补“或技能”；电力放出的电弧伤害补“闪电”；爆矢枪改为多管弩箭发射器与\\n+    毒弹；任务“已死之神在等待”的通关描述补克鲁克部落与“高阶”。\\n+- 宿主补充 2 条（不计积压，第 394 批 `HOST-FINAL-DECISIONS.json` 的\\n+  `additional_host_observations`）：火箭靴补回 `\\\\t\\\\t` 并改末句；紧急蒸汽排出删多余换行并\\n+  整句改写。\\n+- 新译文由宿主按各条“修复：”与整句对照写定\\n+  （[`publication/NEW-TARGETS.json`](publication/NEW-TARGETS.json)），EXECUTOR 逐字替换；\\n+  宿主核验 11 条 after 与 new_target 逐字相等\\n+  （[`publication/HOST-EXACT-DIFF.json`](publication/HOST-EXACT-DIFF.json)）。\\n+- 主游戏按 manifest 固定 commit `624a673` 核验；三个 DLC 源码来源未固定，按公开源码核验并\\n+  如实标注。四个 locale 文件中无同键兄弟。\\n+\\n+## 复审路径\\n+\\n+各轮裁决见 [`publication/ADJUDICATION-R0.json`](publication/ADJUDICATION-R0.json) 与\\n+[`publication/ADJUDICATION-F0.json`](publication/ADJUDICATION-F0.json)：execute-01 →\\n+REVIEW(0) r0a1（GPT-6.1 Sol）10 OK／1 ISSUE → FINAL(0) f0a2（Opus 5.5）11/11，\\n+cycle 0 收敛（max_cycles 5）。r0a1 对 `557285f8a1`（电力放出）的 ISSUE：Orcs 源码最多\\n+连到 nb−1 个其他目标，而英文写 “arcs to %d other targets”，译文与英文一致；按用户\\n+2026-10-03 撤回决定，英文与实现矛盾不在译文中改写，宿主判 advisory carry_forward\\n+（[`publication/ADJUDICATION-R0.json`](publication/ADJUDICATION-R0.json)），FINAL 判该条 OK。\\n+\\n+门禁 17/17 全过，含严格构建；DONE_VERIFIED；全部 reviewer 与 executor 已归档。\\n+\\n+## 标识\\n+\\n+- 译文提交 `9079821a2d8f61ff9b84e1e7e111c2af65bd0cc1`；\\n+- 新 catalog `fa20187008d51eaab572200028302cc7cfdf7bc69a16a4270d1f71013db6bff4`；\\n+- migration `e437cb51838bcc569d772a905f70dfe23b175537a8b2a4a9f1e1b1c19022685f`。\\n+\\n+## 后续\\n+\\n+- 11 个 successor 必须重新审核，不继承旧 done。\\n+- 下一个修复窗口（66）积压 0 条。\\n+- 本 publication child 待宿主归档。\\n*** End Patch\";\ntext(await tools.apply_patch(patch));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074573.3336747
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a118968c8196965eba479afa75a3",
+      "status": "completed",
+      "call_id": "call_3b79d500ac2d4b50bfb3d9bb5c0a717d",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"set -euo pipefail\\nexpected_before='1d238bc1cfd1fe2fc6b29d74983f9aa37ea31fa90d5927789dc6739fb01a812a'\\nexpected_after='480e189f40d1587b4dbdc93404912b2d265656e5bb75d9b8e6fd4cdd34ec2657'\\nactual_before=$(sha256sum handoff.md | cut -d' ' -f1)\\nprintf 'handoff_before=%s\\\\n' \\\"$actual_before\\\"\\nif [ \\\"$actual_before\\\" != \\\"$expected_before\\\" ]; then\\n  echo 'handoff baseline SHA-256 mismatch; stopping' >&2\\n  exit 1\\nfi\\ncp -- .ai/task/repair-w65-20261004/HANDOFF-NEXT.md handoff.md\\nactual_after=$(sha256sum handoff.md | cut -d' ' -f1)\\nprintf 'handoff_after=%s\\\\n' \\\"$actual_after\\\"\\nif [ \\\"$actual_after\\\" != \\\"$expected_after\\\" ]; then\\n  echo 'handoff replacement SHA-256 mismatch' >&2\\n  exit 1\\nfi\\ncmp -s -- .ai/task/repair-w65-20261004/HANDOFF-NEXT.md handoff.md\\nprintf 'handoff_exact_copy=OK\\\\n'\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074584.5902936
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a1232fc881968b437f5691ed3be1",
+      "status": "completed",
+      "call_id": "call_bd61df187c7943b09711721577f25ffb",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport hashlib,json,re,sys\\nroot=Path('.')\\nwindow=root/'evidence/quality/repair-window-65-20261004'\\nerrors=[]\\n# PACK: manifest exact copy, every destination SHA and size.\\nmanifest_src=root/'.ai/task/repair-w65-20261004/PACK-MANIFEST.json'\\nmanifest_dst=window/'orchestration-pack-manifest.json'\\nif manifest_src.read_bytes()!=manifest_dst.read_bytes(): errors.append('pack manifest copy differs')\\nm=json.loads(manifest_src.read_text(encoding='utf-8'))\\nfor e in m['files']:\\n    p=window/'orchestration'/e['relative_destination']\\n    if not p.is_file(): errors.append(f'missing pack target: {p}'); continue\\n    b=p.read_bytes()\\n    if len(b)!=e['bytes']: errors.append(f'pack byte mismatch: {p}')\\n    if hashlib.sha256(b).hexdigest()!=e['sha256']: errors.append(f'pack SHA mismatch: {p}')\\n# candidate exact copies\\ncandidate=root/'.artifacts/i18n/repair-window/window65-20261004-candidate-catalog'\\ncandidate_count=0\\nfor src in candidate.rglob('*'):\\n    if src.is_file():\\n        candidate_count+=1\\n        dst=root/src.relative_to(candidate)\\n        if not dst.is_file() or src.read_bytes()!=dst.read_bytes(): errors.append(f'candidate differs: {dst}')\\n# migration exact copy\\nmigration_src=root/'.artifacts/i18n/repair-window/window65-20261004-migration.json'\\nmigration_dst=root/'evidence/production-review-v2-lite/migrations/e437cb51838bcc569d772a905f70dfe23b175537a8b2a4a9f1e1b1c19022685f.json'\\nif migration_src.read_bytes()!=migration_dst.read_bytes(): errors.append('migration differs')\\n# publication exact attachments\\npub=window/'publication'\\npairs=[]\\nfor n in ['PUBLICATION-SCOPE.md','CATALOG-CHANGE-VERIFICATION.json','MIGRATION-HOST-VERIFICATION.json','TRANSLATION-COMMIT.json','SCOPE.json','SOURCE-CLAIMS.json','NEW-TARGETS.json','ADJUDICATION-F0.json','ADJUDICATION-R0.json']:\\n    pairs.append((root/'.ai/task/repair-w65-20261004'/n,pub/n))\\nfor n in ['HOST-SUPPLEMENT-CLAIMS.json','HOST-EXACT-DIFF.json']:\\n    pairs.append((root/'.artifacts/i18n/repair-w65-20261004'/n,pub/n))\\nfor n in ['publish-chain.log','publish-chain-timing.json','migration.json','migration-timing.json']:\\n    pairs.append((root/'.artifacts/i18n/repair-window'/f'window65-20261004-{n}',pub/n))\\nfor src,dst in pairs:\\n    if not dst.is_file() or src.read_bytes()!=dst.read_bytes(): errors.append(f'publication attachment differs: {dst}')\\nactual_pub_files={p.name for p in pub.iterdir() if p.is_file()}\\nexpected_pub_files={d.name for _,d in pairs}\\nif actual_pub_files!=expected_pub_files:\\n    errors.append(f'publication attachment set mismatch extra={actual_pub_files-expected_pub_files} missing={expected_pub_files-actual_pub_files}')\\n# JSON parse all newly published JSON.\\njson_files=[manifest_dst,migration_dst,*[p for p in root.rglob('*') if False]]\\njson_files += [p for p in pub.iterdir() if p.suffix=='.json']\\njson_files += [root/src.relative_to(candidate) for src in candidate.rglob('*.json')]\\nfor p in json_files:\\n    try: json.loads(p.read_text(encoding='utf-8'))\\n    except Exception as e: errors.append(f'JSON/UTF-8 invalid {p}: {e}')\\n# UTF-8, line ending, and trailing whitespace for authored publication document.\\ndoc=window/'PUBLICATION.md'\\ntry: text=doc.read_text(encoding='utf-8')\\nexcept Exception as e: errors.append(f'PUBLICATION UTF-8 invalid: {e}'); text=''\\nif '\\\\r' in text: errors.append('PUBLICATION contains CR line endings')\\nfor no,line in enumerate(text.splitlines(),1):\\n    if line.endswith((' ', '\\\\t')): errors.append(f'PUBLICATION trailing whitespace line {no}')\\n# Resolve local Markdown links in PUBLICATION.\\nlinks=re.findall(r'\\\\[[^\\\\]]*\\\\]\\\\(([^)]+)\\\\)', text)\\nfor link in links:\\n    if re.match(r'^[a-z]+://',link): continue\\n    target=(doc.parent/link.split('#',1)[0]).resolve()\\n    if not target.exists(): errors.append(f'broken PUBLICATION link: {link}')\\n# handoff exact source and expected digest\\nhandoff=root/'handoff.md'; handoff_source=root/'.ai/task/repair-w65-20261004/HANDOFF-NEXT.md'\\nif handoff.read_bytes()!=handoff_source.read_bytes(): errors.append('handoff differs from source')\\nhandoff_sha=hashlib.sha256(handoff.read_bytes()).hexdigest()\\nif handoff_sha!='480e189f40d1587b4dbdc93404912b2d265656e5bb75d9b8e6fd4cdd34ec2657': errors.append('handoff SHA mismatch')\\n# Required pre-existing files remain present.\\nfor n in ['IMPLEMENTATION.md','VALIDATION.json']:\\n    if not (window/n).is_file(): errors.append(f'missing preserved window file: {n}')\\nif errors:\\n    print('\\\\n'.join(errors)); sys.exit(1)\\nprint(f'PACK_SHA_OK={len(m[\\\"files\\\"])}')\\nprint(f'CANDIDATE_EXACT_OK={candidate_count}')\\nprint('MIGRATION_EXACT_OK=1')\\nprint(f'PUBLICATION_ATTACHMENTS_EXACT_OK={len(pairs)}')\\nprint(f'PUBLICATION_LINKS_OK={len(links)}')\\nprint('UTF8_JSON_WHITESPACE_OK=1')\\nprint(f'HANDOFF_SHA_OK={handoff_sha}')\\nPY\\npython3 -B tools/ai_state_check.py .ai/task/repair-w65-20261004/STATE.json --workspace-root /workspace/tome4-chinese-translation/evidence/quality/repair-window-65-20261004/orchestration --target DONE\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":30000,\"max_output_tokens\":30000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074595.2052104
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a137682881968f4b9388f54dd447",
+      "status": "completed",
+      "call_id": "call_5d591e7a456a4af38991b0ddbf3e2317",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"set -euo pipefail\\nprintf '%s\\\\n' '--- tracked modifications ---'\\ngit diff --name-only\\nprintf '%s\\\\n' '--- staged files ---'\\ngit diff --cached --name-only\\nprintf '%s\\\\n' '--- scoped status ---'\\ngit status --short -- handoff.md evidence/quality/repair-window-65-20261004 evidence/production-review-v2-lite/catalog i18n/quality/production-review-v2-lite/catalog-v1.schema.json i18n/quality/production-review-v2-lite/policy-v1.json evidence/production-review-v2-lite/migrations/e437cb51838bcc569d772a905f70dfe23b175537a8b2a4a9f1e1b1c19022685f.json\\nprintf '%s\\\\n' '--- window file counts ---'\\nprintf 'window_total_files='; find evidence/quality/repair-window-65-20261004 -type f | wc -l\\nprintf 'orchestration_files='; find evidence/quality/repair-window-65-20261004/orchestration -type f | wc -l\\nprintf 'publication_attachment_files='; find evidence/quality/repair-window-65-20261004/publication -type f | wc -l\\nprintf '%s\\\\n' '--- whitespace check (tracked publication targets) ---'\\ngit diff --check -- handoff.md evidence/production-review-v2-lite/catalog i18n/quality/production-review-v2-lite/catalog-v1.schema.json i18n/quality/production-review-v2-lite/policy-v1.json\\nprintf '%s\\\\n' 'tracked_diff_whitespace=OK'\\nprintf '%s\\\\n' '--- catalog and migration facts ---'\\njq '{catalog_id: (.catalog_id // .id // .catalog_sha256), schema_version, entries_count: (.entries_count // .entry_count), exclusions_count: (.exclusions_count // .exclusion_count)}' evidence/production-review-v2-lite/catalog/manifest.json\\njq '{revision_changed, unchanged, queued_successors, ambiguous, unmapped}' evidence/quality/repair-window-65-20261004/publication/migration.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":30000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074615.4090657
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a13dc04c8196a6f89756d986a07d",
+      "status": "completed",
+      "call_id": "call_28b1d49a1ecd4531bd1a83bd338c4f2f",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"jq 'keys' evidence/quality/repair-window-65-20261004/publication/migration.json && jq '.' evidence/quality/repair-window-65-20261004/publication/migration.json | sed -n '1,120p'\\nprintf '%s\\\\n' '--- exact candidate target hashes ---'\\nwhile IFS= read -r -d '' src; do rel=${src#'.artifacts/i18n/repair-window/window65-20261004-candidate-catalog/'}; printf '%s  %s\\\\n' \\\"$(sha256sum \\\"$rel\\\" | cut -d' ' -f1)\\\" \\\"$rel\\\"; done < <(find .artifacts/i18n/repair-window/window65-20261004-candidate-catalog -type f -print0 | sort -z)\\nprintf '%s\\\\n' '--- publication document hash ---'\\nsha256sum evidence/quality/repair-window-65-20261004/PUBLICATION.md\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":20000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074621.7533379
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0e960df41ed5bdfd016ac1a14151dc81969c2993f4ce7706f9",
+      "status": "completed",
+      "call_id": "call_a09ab61665094e6f8568555ee440d03c",
+      "name": "exec",
+      "input": "const r = await tools.exec_command({\"cmd\":\"jq '.' evidence/quality/repair-window-65-20261004/publication/MIGRATION-HOST-VERIFICATION.json\\nprintf '%s\\\\n' '--- migration row dispositions ---'\\njq '[.rows[].disposition] | group_by(.) | map({disposition: .[0], count: length})' evidence/quality/repair-window-65-20261004/publication/migration.json\",\"workdir\":\"/workspace/tome4-chinese-translation\",\"yield_time_ms\":10000,\"max_output_tokens\":12000}); text(r.output);\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1045c-59d4-7a11-b3c5-edff2bf4e752",
+        "create_time": 1791074625.3218648
+      }
+    }
+  ]
+}

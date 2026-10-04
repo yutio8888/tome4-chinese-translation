@@ -1,0 +1,21 @@
+{
+ "cycle": 0,
+ "stage": "REVIEW",
+ "accepted_dispatch_id": "r0a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 10,
+ "raw_issue_count": 1,
+ "decision": "no confirmed finding: 557285f8a1 is an English-versus-implementation mismatch that the translation follows faithfully; per the user's 2026-10-03 rollback decision it is recorded as advisory and not rewritten in this window. The other 10 revisions are OK. Cycle 0 converged; proceed to FINAL_REVIEW(0,2) with Opus 5.5.",
+ "findings": [],
+ "advisories": [
+  {
+   "revision_key": "557285f8a1f44ef7fc096029eb609cb683a2a233322ccd6c8c910ee4c1c36671",
+   "status": "advisory",
+   "tier": 1,
+   "category": "mechanics",
+   "origin": "reviewer r0a1",
+   "carry_forward": true,
+   "reason": "宿主核验公开 Orcs DLC tome-orcs/data/talents/steam/magnetism.lua（来源未固定）：182 行 nb=t.getTargetCount，206–215 行 targets 以首目标起始、for i = 2, nb 最多再加 nb−1 个其他目标；245–253 行英文 “arcs to %d other targets” 直接填入 nb。译文“对最多 %d 个其他目标”与英文一致，误差来自英文与实现不符，不是中文误译。按用户 2026-10-03 撤回决定（evidence/quality/mechanics-rollback-20261003/WITHDRAWAL-DECISION.md），英文／实现矛盾不在译文中直接改写，留待英文与源码差异处理原则讨论；本窗口对该条的改动（电弧伤害补“闪电”）与此无关。记 advisory carry_forward。"
+  }
+ ]
+}

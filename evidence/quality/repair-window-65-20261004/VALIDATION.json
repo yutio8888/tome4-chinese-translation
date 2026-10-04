@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w65-20261004",
+  "baseline_commit": "a693b962a3011bfd426e134fce53bb083e8eee58",
+  "result": "pass",
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "exit_code": 0,
+      "result": "pass",
+      "summary": "Lua 5.1 / LuaJIT 2.1.0-beta3 and LPeg 0.10.2-1 verified; the three public DLC sources were reported as intentionally unpinned."
+    },
+    {
+      "command": "manifest-configured LuaJIT record comparison against .ai/task/repair-w65-20261004/baseline and NEW-TARGETS.json",
+      "exit_code": 0,
+      "result": "pass",
+      "summary": "Loaded four current and four baseline Lua files; record counts, source, source_tag, section, and ordering were unchanged; exactly 11 targets changed and every result matched its frozen new_target byte-for-byte."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "pass",
+      "summary": "No whitespace errors."
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "exit_code": 0,
+      "result": "pass",
+      "summary": "Checked 30308 translations: 0 errors, 0 warnings."
+    }
+  ],
+  "changed_revisions": [
+    "2e202430f808f279ca4650fb20723042584c5f52851c3763fb5abfb79d3acf6a",
+    "4396f7dfa07c93d5ea4cd2ebf0716e15615fcd76a01623452d720803da0359d8",
+    "48e944baf872c52257902cecc03e586d13ef41e65c91adac9fc25f79affa4604",
+    "557285f8a1f44ef7fc096029eb609cb683a2a233322ccd6c8c910ee4c1c36671",
+    "5c908e08b3e00b9488111b4985ffea41727f710381e3062a5c5c90db18acfa94",
+    "728ac31db24abcb47f113157babc678aa6304651a1e769de1852335ae482b1e6",
+    "95b2ccbaf055ecb7e97f4f4464e06396c7e0e7f02bf034f0f199d2b94dfc7d5c",
+    "aaf0b7e246c49c58016365e11a4097067ad216bb7f72b66cb4fb9ebbf01cf78d",
+    "cb4aed41a8699493e4e1cb6065491b3ae9fc121a49e965d94d54ac188c64934e",
+    "e1e9720d81539fabbdea5260cc2d4da62ed63afaa11d67bd8c8574f884e3fb5e",
+    "fd75c9b84984c3abb1bb4982a2563fe181083031540ef4eff34bf165cb026f3c"
+  ]
+}

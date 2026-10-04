@@ -1,0 +1,25 @@
+已完成 `repair-w65-20261004`：11 条 target 均逐字替换为冻结的 `new_target`，未修改 source、source_tag、section、术语库或 `.ai/task`。
+
+变动 revisions：
+
+- `fd75c9b84984…` — `mod-tome.lua`
+- `728ac31db24a…` — `tome-ashes-urhrok.lua`
+- `e1e9720d8153…` — `tome-cults.lua`
+- `2e202430f808…`
+- `4396f7dfa07c…`
+- `48e944baf872…`
+- `557285f8a1f4…`
+- `5c908e08b3e0…`
+- `95b2ccbaf055…`
+- `aaf0b7e246c4…`
+- `cb4aed41a869…` — 后八条均为 `tome-orcs.lua`
+
+验证结果：
+
+- LuaJIT：成功加载当前及 baseline 共 8 个文件；恰有 11 条 target-only 变动，全部逐字匹配 `NEW-TARGETS.json`，其他记录及顺序不变。
+- `git diff --check`：通过。
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 errors、0 warnings。
+- `python3 -B tools/i18n doctor`：通过；三个 DLC 仅有预期的 source-unpinned 警告。
+- 无计划偏差或未解决问题。
+
+证据已写入 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-65-20261004/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-65-20261004/VALIDATION.json)。未 stage、commit、push 或创建 agent；原有无关改动保持不动。
