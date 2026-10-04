@@ -1,4 +1,4 @@
-# 当前恢复入口（2026-10-04 窗口65 successor 已在第396批审完，用户授权对外发布）
+# 当前恢复入口（2026-10-04 窗口65 successor 已在第396批审完，0.3.3 已对外发布）
 
 用户 2026-10-03 要求“重新再走一轮生产复审流程”，已全部审完：第383–395批共 13 批、**1019 个 successor**（migration `22b293c4…` 的 993 个＋窗口64 migration `629e3b1e…` 的 26 个），队列余 0。来源见[迁移记录](evidence/quality/maintenance-reaudit-20261003/README.md)，每批证据在 `evidence/quality/production-batches/<batch>-host-evidence/`。
 
@@ -6,7 +6,7 @@
 
 **用户 2026-10-03 指示：本轮完成后暂停并撰写 handoff；2026-10-04 用户指示开窗口65（“现在开”），窗口已完成；2026-10-04 用户指示“开始审核，审核后即可对外发布”，第396批已审完。** 第396批的 child 均已确认归档，当前没有进行中的批次、窗口或 child。待办与待决：
 
-1. 对外发布：按用户 2026-10-04 授权，第396批收口后发布新版本（发布前对外版本仍是 0.3.2）。
+1. 对外发布已完成：0.3.3 已推送至公开发布仓库 `yutio8888/tome4-chn-mod`，提交 `9d1c9ac`；GitHub Release `v0.3.3` 安装包已回下载核验。凭据见 [`evidence/releases/addon-0.3.3.json`](evidence/releases/addon-0.3.3.json)。
 2. 生硬描述扫描 C 档仍待用户决定。
 3. 下一个修复窗口（66）积压 0 条，未达 20 条阈值；审核队列已无待审 successor。
 
