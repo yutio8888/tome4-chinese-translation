@@ -2185,11 +2185,11 @@ t([[Quekorja was the god of time and possibilities. What stands out about Eyal's
 
 Quekorja was also thought to be responsible for the creat...[i](You know you read this section, but you can't actually remember it. It is almost like something has deliberately erased it from your mind.)[/i]
 
-According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.]], [[奎科加是时间和可能性之神。在埃亚尔关于奎科加的神话传说中，最突出的一点就是它们之间有着极大的矛盾，而在弑神之战之后的传说中它的形象远不如前。有人猜测，这是因为奎科加可能对书写历史感兴趣，并指派了自己的记录者来记录它的故事。但没有关于这座图书馆存在的记录留存下来，因此这一说法被认为只是臆测，缺乏确凿证据。另外还有一些不寻常的记录，本应是同一个作者在同一天写的，但其语调和对此神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录其实是来自别的时间线。这更加增添了奎科加的神秘。
+According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.]], [[奎科加是时间和可能性之神。在埃亚尔关于奎科加的神话传说中，最突出的一点就是它们之间有着极大的矛盾，而在弑神之战之后的传说中它的形象远不如前。有人猜测，这是因为奎科加可能对书写历史感兴趣，并指派了自己的图书管理员来记录它的故事。但没有关于这座图书馆存在的记录留存下来，因此这一说法被认为只是臆测，缺乏确凿证据。另外还有一些不寻常的记录，本应是同一个作者在同一天写的，但其语调和对此神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录可能来自别的时间线。这更加增添了奎科加的神秘。
 
 奎科加也被认为创……[i]（你记得你读过这段文字，但就是记不起其内容，就好像它是被有意从你的脑海中抹去了一样。）[/i]
 
-根据安格列文的记载，奎科加在弑神之战之中被杀死了，它的尸体后来被法师莱娜尼尔发现。她成功通过一个危险的仪式吸收了此神的一小部分力量，而就是这微小的力量也使她成为了无可匹敌的大法师。这也证实了诸神的力量是多么的强大。]], "_t")
+根据安格利文的记载，奎科加在弑神之战之中被杀死了，它的尸体后来被法师莱娜尼尔发现。她成功通过一个危险的仪式吸收了此神的一小部分力量，而就是这微小的力量也使她成为了无可匹敌的大法师。这也证实了诸神的力量是多么的强大。]], "_t")
 t("Researcher Dremnot's Demystification of the Gods: Chapter 9 - Xadoch", "研究员德瑞姆诺特的《揭露诸神》：第九章 亚多契", "_t")
 t([[Xadoch held the title of Blight-Weaver. It loved the creatures which crawled close to the earth and toiled in Eyal's filth, but had no love for its sapient races. As such, it was attributed in many mythologies to the creation of numerous diseases and plagues. Some myths stated that there was necessity to Xadoch's presence, as its plagues prevented any one race dominating the world and kept a balance of sorts. On the other hand, many other myths attest that the god had a cruel curiosity. It spread blight across the world and created diseases just to see what sort of effect they would have on sapient life. If it weren't for the other gods on Eyal, it is believed that Xadoch would have scoured the entire world of sapient life.
 
