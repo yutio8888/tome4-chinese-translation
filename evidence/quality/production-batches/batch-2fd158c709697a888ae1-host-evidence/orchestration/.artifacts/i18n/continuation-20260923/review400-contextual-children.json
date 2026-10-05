@@ -1,0 +1,952 @@
+[
+ {
+  "agent_id": "4b2b9b60-9bb6-4086-804a-a726ec55a0f2",
+  "archive_attempts_started": 1,
+  "archive_confirmed": true,
+  "archive_confirmed_at": "2026-10-05T12:19:54.335384+00:00",
+  "archive_started_at": "2026-10-05T12:19:38.040168+00:00",
+  "archived_at": "2026-10-05T12:19:40.702Z",
+  "archived_capture": {
+   "snapshot": {
+    "activeTurn": null,
+    "archivedAt": "2026-10-05T12:19:40.702Z",
+    "attentionReason": null,
+    "attentionTimestamp": null,
+    "availableModes": [
+     {
+      "description": "Analyze the codebase without executing tools or edits",
+      "id": "plan",
+      "label": "Plan Mode"
+     },
+     {
+      "description": "Prompts for permission the first time a tool is used",
+      "id": "default",
+      "label": "Always Ask"
+     },
+     {
+      "description": "Automatically approves edit-focused tools without prompting",
+      "id": "acceptEdits",
+      "label": "Accept File Edits"
+     },
+     {
+      "description": "Uses a model classifier to review permission prompts automatically",
+      "id": "auto",
+      "label": "Auto mode"
+     },
+     {
+      "description": "Skip all permission prompts (use with caution)",
+      "id": "bypassPermissions",
+      "label": "Bypass"
+     }
+    ],
+    "capabilities": {
+     "supportsDynamicModes": true,
+     "supportsMcpServers": true,
+     "supportsReasoningStream": true,
+     "supportsRewindBoth": true,
+     "supportsRewindConversation": true,
+     "supportsRewindFiles": true,
+     "supportsSessionListing": true,
+     "supportsSessionPersistence": true,
+     "supportsStreaming": true,
+     "supportsToolInvocations": true
+    },
+    "createdAt": "2026-10-05T12:18:54.174Z",
+    "currentModeId": "auto",
+    "cwd": "/workspace/tome4-chinese-translation",
+    "effectiveThinkingOptionId": "medium",
+    "features": [
+     {
+      "description": "Lower latency Opus responses at higher token cost",
+      "icon": "zap",
+      "id": "fast_mode",
+      "label": "Fast",
+      "tooltip": "Toggle fast mode",
+      "type": "toggle",
+      "value": false
+     }
+    ],
+    "id": "4b2b9b60-9bb6-4086-804a-a726ec55a0f2",
+    "labels": {
+     "candidate_identity": "5559bced46edc3e7a905d42df03130b884e3f28859216072f28b838803338df5",
+     "dispatch_id": "full-000",
+     "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+     "purpose": "translation_contextual_v2",
+     "role": "reviewer",
+     "task_id": "batch-2fd158c709697a888ae1-contextual-000"
+    },
+    "lastUsage": {
+     "cachedInputTokens": 144983,
+     "contextWindowMaxTokens": 1000000,
+     "contextWindowUsedTokens": 56956,
+     "inputTokens": 8,
+     "outputTokens": 2452,
+     "totalCostUsd": 0.42374860000000003
+    },
+    "lastUserMessageAt": "2026-10-05T12:18:55.178Z",
+    "model": "claude-opus-5-5",
+    "pendingPermissions": [],
+    "persistence": {
+     "metadata": {
+      "cwd": "/workspace/tome4-chinese-translation",
+      "modeId": "auto",
+      "model": "claude-opus-5-5",
+      "provider": "claude",
+      "thinkingOptionId": "medium",
+      "title": "Review 400 contextual full-000"
+     },
+     "nativeHandle": "e538ba1f-b0dc-4292-800c-5fefecbfbf3f",
+     "provider": "claude",
+     "sessionId": "e538ba1f-b0dc-4292-800c-5fefecbfbf3f"
+    },
+    "provider": "claude",
+    "requiresAttention": false,
+    "runtimeInfo": {
+     "extra": {
+      "runtimeModel": "claude-opus-5-5"
+     },
+     "modeId": "auto",
+     "model": "claude-opus-5-5",
+     "provider": "claude",
+     "sessionId": "e538ba1f-b0dc-4292-800c-5fefecbfbf3f"
+    },
+    "status": "closed",
+    "thinkingOptionId": "medium",
+    "title": "Review 400 contextual full-000",
+    "updatedAt": "2026-10-05T12:19:40.702Z",
+    "workspaceId": "wks_420314270844170b"
+   },
+   "status": "closed"
+  },
+  "attempt": 1,
+  "author_provider_resolution": "not_applicable",
+  "candidate_author_agent_id": null,
+  "candidate_identity": "5559bced46edc3e7a905d42df03130b884e3f28859216072f28b838803338df5",
+  "create_attempts": [
+   {
+    "attempt": 1,
+    "profiles_path": ".artifacts/i18n/continuation-20260923/batch-2fd158c709697a888ae1-contextual-000-full-000-create-1-profiles.json",
+    "profiles_sha256": "7e5296acb85f9764ac9d3f3c6bb0b1adcec86efc5aa99e6a87cb60ffb6c12365",
+    "started_at": "2026-10-05T12:18:34.261229+00:00"
+   }
+  ],
+  "create_attempts_started": 1,
+  "create_parameters": {
+   "cwd": "/workspace/tome4-chinese-translation",
+   "labels": {
+    "candidate_identity": "5559bced46edc3e7a905d42df03130b884e3f28859216072f28b838803338df5",
+    "dispatch_id": "full-000",
+    "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+    "purpose": "translation_contextual_v2",
+    "role": "reviewer",
+    "task_id": "batch-2fd158c709697a888ae1-contextual-000"
+   },
+   "modeId": "auto",
+   "prompt": "任务：审冻结 revision；仅报有据的语义/机制/术语/关系/跨条问题，否则 OK。\n输入：candidate_identity=5559bced46edc3e7a905d42df03130b884e3f28859216072f28b838803338df5；input_path=.ai/task/batch-2fd158c709697a888ae1-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json。只读；可读输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码，仅限输入指定位置；禁从 / 或无关目录全盘搜索，禁读其他 .ai/task/、.ai/reviews/、旧 finding、当前译文/术语库。\n输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；首{末}，无文字/围栏。",
+   "provider": "claude/claude-opus-5-5",
+   "thinkingOptionId": "medium",
+   "workspaceId": "wks_420314270844170b"
+  },
+  "create_prompt_sha256": "88f9620fc2e08632b1cc22a6f1be8a7cd5c876151ce53435c0a2950de3383873",
+  "create_started_at": "2026-10-05T12:18:34.261229+00:00",
+  "creation_transport": "mcp",
+  "cwd": "/workspace/tome4-chinese-translation",
+  "cycle": 0,
+  "dispatch_id": "full-000",
+  "first_live_capture": {
+   "snapshot": {
+    "activeTurn": {
+     "startedAt": "2026-10-05T12:18:55.186Z",
+     "turnId": "foreground-turn-1"
+    },
+    "attentionReason": null,
+    "attentionTimestamp": null,
+    "availableModes": [
+     {
+      "description": "Analyze the codebase without executing tools or edits",
+      "id": "plan",
+      "label": "Plan Mode"
+     },
+     {
+      "description": "Prompts for permission the first time a tool is used",
+      "id": "default",
+      "label": "Always Ask"
+     },
+     {
+      "description": "Automatically approves edit-focused tools without prompting",
+      "id": "acceptEdits",
+      "label": "Accept File Edits"
+     },
+     {
+      "description": "Uses a model classifier to review permission prompts automatically",
+      "id": "auto",
+      "label": "Auto mode"
+     },
+     {
+      "description": "Skip all permission prompts (use with caution)",
+      "id": "bypassPermissions",
+      "label": "Bypass"
+     }
+    ],
+    "capabilities": {
+     "supportsDynamicModes": true,
+     "supportsMcpServers": true,
+     "supportsReasoningStream": true,
+     "supportsRewindBoth": true,
+     "supportsRewindConversation": true,
+     "supportsRewindFiles": true,
+     "supportsSessionListing": true,
+     "supportsSessionPersistence": true,
+     "supportsStreaming": true,
+     "supportsToolInvocations": true
+    },
+    "createdAt": "2026-10-05T12:18:54.174Z",
+    "currentModeId": "auto",
+    "cwd": "/workspace/tome4-chinese-translation",
+    "effectiveThinkingOptionId": "medium",
+    "features": [
+     {
+      "description": "Lower latency Opus responses at higher token cost",
+      "icon": "zap",
+      "id": "fast_mode",
+      "label": "Fast",
+      "tooltip": "Toggle fast mode",
+      "type": "toggle",
+      "value": false
+     }
+    ],
+    "id": "4b2b9b60-9bb6-4086-804a-a726ec55a0f2",
+    "labels": {
+     "candidate_identity": "5559bced46edc3e7a905d42df03130b884e3f28859216072f28b838803338df5",
+     "dispatch_id": "full-000",
+     "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+     "purpose": "translation_contextual_v2",
+     "role": "reviewer",
+     "task_id": "batch-2fd158c709697a888ae1-contextual-000"
+    },
+    "lastUserMessageAt": "2026-10-05T12:18:55.178Z",
+    "model": "claude-opus-5-5",
+    "pendingPermissions": [],
+    "persistence": {
+     "metadata": {
+      "cwd": "/workspace/tome4-chinese-translation",
+      "modeId": "auto",
+      "model": "claude-opus-5-5",
+      "provider": "claude",
+      "thinkingOptionId": "medium",
+      "title": "Review 400 contextual full-000"
+     },
+     "nativeHandle": "e538ba1f-b0dc-4292-800c-5fefecbfbf3f",
+     "provider": "claude",
+     "sessionId": "e538ba1f-b0dc-4292-800c-5fefecbfbf3f"
+    },
+    "provider": "claude",
+    "requiresAttention": false,
+    "runtimeInfo": {
+     "modeId": "auto",
+     "model": null,
+     "provider": "claude",
+     "sessionId": null
+    },
+    "status": "running",
+    "thinkingOptionId": "medium",
+    "title": "Review 400 contextual full-000",
+    "updatedAt": "2026-10-05T12:18:55.191Z",
+    "workspaceId": "wks_420314270844170b"
+   },
+   "status": "running"
+  },
+  "input_path": ".ai/task/batch-2fd158c709697a888ae1-contextual-000/CONTEXTUAL-ENVELOPE-final-full.json",
+  "input_sha256": "0b80f00500bf22e44abd5ab4e9f7f3f69f8b8747452c199af76de0695156d46b",
+  "labels": {
+   "candidate_identity": "5559bced46edc3e7a905d42df03130b884e3f28859216072f28b838803338df5",
+   "dispatch_id": "full-000",
+   "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+   "purpose": "translation_contextual_v2",
+   "role": "reviewer",
+   "task_id": "batch-2fd158c709697a888ae1-contextual-000"
+  },
+  "last_error": null,
+  "lifecycle": "archived",
+  "lineage_verified": true,
+  "live_observation_source": "mcp_status_capture",
+  "native_provenance": {
+   "agent_id": "4b2b9b60-9bb6-4086-804a-a726ec55a0f2",
+   "ai_title_present": false,
+   "complete_line": 42,
+   "completion_basis": "natural_success",
+   "cwd": "/workspace/tome4-chinese-translation",
+   "final_line": 42,
+   "first_live_capture_sha256": "18bc745c85aeb39f3b4dabfef1551dabd399063c35aebb9bba910d83943e2ab0",
+   "input_sha256": "0b80f00500bf22e44abd5ab4e9f7f3f69f8b8747452c199af76de0695156d46b",
+   "key": "batch-2fd158c709697a888ae1-contextual-000|full-000",
+   "labels": {
+    "candidate_identity": "5559bced46edc3e7a905d42df03130b884e3f28859216072f28b838803338df5",
+    "dispatch_id": "full-000",
+    "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+    "purpose": "translation_contextual_v2",
+    "role": "reviewer",
+    "task_id": "batch-2fd158c709697a888ae1-contextual-000"
+   },
+   "last_prompt_present": false,
+   "leaf_uuid": "391e958e-bfa0-4088-b1ae-6149e0c85770",
+   "message_id": "msg_011Cfj5Vmm5RZp9pdH8mYuBL",
+   "message_uuid": "391e958e-bfa0-4088-b1ae-6149e0c85770",
+   "parent_agent_id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+   "parent_uuid": "a3ef7d18-5496-4929-86f2-df5da947b29d",
+   "prompt_line": 3,
+   "prompt_sha256": "88f9620fc2e08632b1cc22a6f1be8a7cd5c876151ce53435c0a2950de3383873",
+   "provider": "claude",
+   "raw_bytes": 828,
+   "raw_sha256": "e3a458852bea3108c26a815ea9b8b097fbe350a22cb349a6bcc06f969c223a7e",
+   "schema_version": 1,
+   "session_id": "e538ba1f-b0dc-4292-800c-5fefecbfbf3f",
+   "source_bytes": 302546,
+   "source_lines": 42,
+   "source_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/e538ba1f-b0dc-4292-800c-5fefecbfbf3f.jsonl",
+   "source_sha256": "44c39b33b13d44df6b7b4c28838aae5c2d756e634306a1095172f9cb77a80295",
+   "terminal_capture_sha256": "936b69323dd5ddc5b5a28bfa33d8a7ef12dd4ab29d926067d7b27a5ca3c68f71",
+   "version": "2.1.284",
+   "workspace_id": "wks_420314270844170b"
+  },
+  "native_raw_path": "/workspace/tome4-chinese-translation/.artifacts/i18n/continuation-20260923/review400-contextual-diag/native/batch-2fd158c709697a888ae1-contextual-000/full-000/terminal.raw",
+  "output_valid": true,
+  "parent_agent_id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+  "prepared_at": "2026-10-05T12:18:34.199684+00:00",
+  "profiles_sha256": "7e5296acb85f9764ac9d3f3c6bb0b1adcec86efc5aa99e6a87cb60ffb6c12365",
+  "purpose": "translation_contextual_v2",
+  "raw_output_path": ".artifacts/i18n/continuation-20260923/review400-contextual-diag/batch-2fd158c709697a888ae1-contextual-000/full-000.raw",
+  "raw_output_sha256": "e3a458852bea3108c26a815ea9b8b097fbe350a22cb349a6bcc06f969c223a7e",
+  "review_kind": "full",
+  "role": "REVIEWER",
+  "runtime_observation": {
+   "capture_status": "captured",
+   "captured_at": "2026-10-05T12:19:03.638846+00:00",
+   "mode": {
+    "presence": "present",
+    "value": "auto"
+   },
+   "model": {
+    "presence": "present",
+    "value": "claude-opus-5-5"
+   },
+   "provider": {
+    "presence": "present",
+    "value": "claude"
+   },
+   "schema_version": 1,
+   "source": "live_agent_metadata",
+   "thinking": {
+    "presence": "present",
+    "value": "medium"
+   }
+  },
+  "status": "dispatched",
+  "task_id": "batch-2fd158c709697a888ae1-contextual-000",
+  "terminal_capture": {
+   "snapshot": {
+    "activeTurn": null,
+    "attentionReason": "finished",
+    "attentionTimestamp": "2026-10-05T12:19:26.423Z",
+    "availableModes": [
+     {
+      "description": "Analyze the codebase without executing tools or edits",
+      "id": "plan",
+      "label": "Plan Mode"
+     },
+     {
+      "description": "Prompts for permission the first time a tool is used",
+      "id": "default",
+      "label": "Always Ask"
+     },
+     {
+      "description": "Automatically approves edit-focused tools without prompting",
+      "id": "acceptEdits",
+      "label": "Accept File Edits"
+     },
+     {
+      "description": "Uses a model classifier to review permission prompts automatically",
+      "id": "auto",
+      "label": "Auto mode"
+     },
+     {
+      "description": "Skip all permission prompts (use with caution)",
+      "id": "bypassPermissions",
+      "label": "Bypass"
+     }
+    ],
+    "capabilities": {
+     "supportsDynamicModes": true,
+     "supportsMcpServers": true,
+     "supportsReasoningStream": true,
+     "supportsRewindBoth": true,
+     "supportsRewindConversation": true,
+     "supportsRewindFiles": true,
+     "supportsSessionListing": true,
+     "supportsSessionPersistence": true,
+     "supportsStreaming": true,
+     "supportsToolInvocations": true
+    },
+    "createdAt": "2026-10-05T12:18:54.174Z",
+    "currentModeId": "auto",
+    "cwd": "/workspace/tome4-chinese-translation",
+    "effectiveThinkingOptionId": "medium",
+    "features": [
+     {
+      "description": "Lower latency Opus responses at higher token cost",
+      "icon": "zap",
+      "id": "fast_mode",
+      "label": "Fast",
+      "tooltip": "Toggle fast mode",
+      "type": "toggle",
+      "value": false
+     }
+    ],
+    "id": "4b2b9b60-9bb6-4086-804a-a726ec55a0f2",
+    "labels": {
+     "candidate_identity": "5559bced46edc3e7a905d42df03130b884e3f28859216072f28b838803338df5",
+     "dispatch_id": "full-000",
+     "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+     "purpose": "translation_contextual_v2",
+     "role": "reviewer",
+     "task_id": "batch-2fd158c709697a888ae1-contextual-000"
+    },
+    "lastUsage": {
+     "cachedInputTokens": 144983,
+     "contextWindowMaxTokens": 1000000,
+     "contextWindowUsedTokens": 56956,
+     "inputTokens": 8,
+     "outputTokens": 2452,
+     "totalCostUsd": 0.42374860000000003
+    },
+    "lastUserMessageAt": "2026-10-05T12:18:55.178Z",
+    "model": "claude-opus-5-5",
+    "pendingPermissions": [],
+    "persistence": {
+     "metadata": {
+      "cwd": "/workspace/tome4-chinese-translation",
+      "modeId": "auto",
+      "model": "claude-opus-5-5",
+      "provider": "claude",
+      "thinkingOptionId": "medium",
+      "title": "Review 400 contextual full-000"
+     },
+     "nativeHandle": "e538ba1f-b0dc-4292-800c-5fefecbfbf3f",
+     "provider": "claude",
+     "sessionId": "e538ba1f-b0dc-4292-800c-5fefecbfbf3f"
+    },
+    "provider": "claude",
+    "requiresAttention": true,
+    "runtimeInfo": {
+     "extra": {
+      "runtimeModel": "claude-opus-5-5"
+     },
+     "modeId": "auto",
+     "model": "claude-opus-5-5",
+     "provider": "claude",
+     "sessionId": "e538ba1f-b0dc-4292-800c-5fefecbfbf3f"
+    },
+    "status": "idle",
+    "thinkingOptionId": "medium",
+    "title": "Review 400 contextual full-000",
+    "updatedAt": "2026-10-05T12:19:26.457Z",
+    "workspaceId": "wks_420314270844170b"
+   },
+   "status": "idle"
+  },
+  "terminal_observed_at": "2026-10-05T12:19:37.954857+00:00",
+  "timing": [
+   {
+    "category": "tool_call",
+    "elapsed_s": 0.008444808074273169,
+    "ended_at": "2026-10-05T12:19:37.943503+00:00",
+    "operation": "native_read",
+    "started_at": "2026-10-05T12:19:37.935062+00:00"
+   },
+   {
+    "category": "harvest_validation",
+    "elapsed_s": 0.004700080957263708,
+    "ended_at": "2026-10-05T12:19:37.959563+00:00",
+    "operation": "strict_result",
+    "started_at": "2026-10-05T12:19:37.954865+00:00"
+   }
+  ],
+  "validation_state": "completed",
+  "workspace_id": "wks_420314270844170b"
+ },
+ {
+  "agent_id": "fe02a1e3-6142-40b5-931e-77ae801828e7",
+  "archive_attempts_started": 1,
+  "archive_confirmed": true,
+  "archive_confirmed_at": "2026-10-05T12:20:47.060409+00:00",
+  "archive_started_at": "2026-10-05T12:20:34.442537+00:00",
+  "archived_at": "2026-10-05T12:20:37.439Z",
+  "archived_capture": {
+   "snapshot": {
+    "activeTurn": null,
+    "archivedAt": "2026-10-05T12:20:37.439Z",
+    "attentionReason": null,
+    "attentionTimestamp": null,
+    "availableModes": [
+     {
+      "description": "Analyze the codebase without executing tools or edits",
+      "id": "plan",
+      "label": "Plan Mode"
+     },
+     {
+      "description": "Prompts for permission the first time a tool is used",
+      "id": "default",
+      "label": "Always Ask"
+     },
+     {
+      "description": "Automatically approves edit-focused tools without prompting",
+      "id": "acceptEdits",
+      "label": "Accept File Edits"
+     },
+     {
+      "description": "Uses a model classifier to review permission prompts automatically",
+      "id": "auto",
+      "label": "Auto mode"
+     },
+     {
+      "description": "Skip all permission prompts (use with caution)",
+      "id": "bypassPermissions",
+      "label": "Bypass"
+     }
+    ],
+    "capabilities": {
+     "supportsDynamicModes": true,
+     "supportsMcpServers": true,
+     "supportsReasoningStream": true,
+     "supportsRewindBoth": true,
+     "supportsRewindConversation": true,
+     "supportsRewindFiles": true,
+     "supportsSessionListing": true,
+     "supportsSessionPersistence": true,
+     "supportsStreaming": true,
+     "supportsToolInvocations": true
+    },
+    "createdAt": "2026-10-05T12:19:10.965Z",
+    "currentModeId": "auto",
+    "cwd": "/workspace/tome4-chinese-translation",
+    "effectiveThinkingOptionId": "medium",
+    "features": [
+     {
+      "description": "Lower latency Opus responses at higher token cost",
+      "icon": "zap",
+      "id": "fast_mode",
+      "label": "Fast",
+      "tooltip": "Toggle fast mode",
+      "type": "toggle",
+      "value": false
+     }
+    ],
+    "id": "fe02a1e3-6142-40b5-931e-77ae801828e7",
+    "labels": {
+     "candidate_identity": "dc08a8c712ef6f01f532154f069f675177462f137a5b61e6fd99b8d63614f0a6",
+     "dispatch_id": "full-001",
+     "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+     "purpose": "translation_contextual_v2",
+     "role": "reviewer",
+     "task_id": "batch-2fd158c709697a888ae1-contextual-001"
+    },
+    "lastUsage": {
+     "cachedInputTokens": 191064,
+     "contextWindowMaxTokens": 1000000,
+     "contextWindowUsedTokens": 60547,
+     "inputTokens": 10,
+     "outputTokens": 4471,
+     "totalCostUsd": 0.47892080000000004
+    },
+    "lastUserMessageAt": "2026-10-05T12:19:12.006Z",
+    "model": "claude-opus-5-5",
+    "pendingPermissions": [],
+    "persistence": {
+     "metadata": {
+      "cwd": "/workspace/tome4-chinese-translation",
+      "modeId": "auto",
+      "model": "claude-opus-5-5",
+      "provider": "claude",
+      "thinkingOptionId": "medium",
+      "title": "Review 400 contextual full-001"
+     },
+     "nativeHandle": "e0b89229-7fa4-4bcc-a4f8-9e8b6bea0077",
+     "provider": "claude",
+     "sessionId": "e0b89229-7fa4-4bcc-a4f8-9e8b6bea0077"
+    },
+    "provider": "claude",
+    "requiresAttention": false,
+    "runtimeInfo": {
+     "extra": {
+      "runtimeModel": "claude-opus-5-5"
+     },
+     "modeId": "auto",
+     "model": "claude-opus-5-5",
+     "provider": "claude",
+     "sessionId": "e0b89229-7fa4-4bcc-a4f8-9e8b6bea0077"
+    },
+    "status": "closed",
+    "thinkingOptionId": "medium",
+    "title": "Review 400 contextual full-001",
+    "updatedAt": "2026-10-05T12:20:37.439Z",
+    "workspaceId": "wks_420314270844170b"
+   },
+   "status": "closed"
+  },
+  "attempt": 1,
+  "author_provider_resolution": "not_applicable",
+  "candidate_author_agent_id": null,
+  "candidate_identity": "dc08a8c712ef6f01f532154f069f675177462f137a5b61e6fd99b8d63614f0a6",
+  "create_attempts": [
+   {
+    "attempt": 1,
+    "profiles_path": ".artifacts/i18n/continuation-20260923/batch-2fd158c709697a888ae1-contextual-001-full-001-create-1-profiles.json",
+    "profiles_sha256": "7e5296acb85f9764ac9d3f3c6bb0b1adcec86efc5aa99e6a87cb60ffb6c12365",
+    "started_at": "2026-10-05T12:19:03.699408+00:00"
+   }
+  ],
+  "create_attempts_started": 1,
+  "create_parameters": {
+   "cwd": "/workspace/tome4-chinese-translation",
+   "labels": {
+    "candidate_identity": "dc08a8c712ef6f01f532154f069f675177462f137a5b61e6fd99b8d63614f0a6",
+    "dispatch_id": "full-001",
+    "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+    "purpose": "translation_contextual_v2",
+    "role": "reviewer",
+    "task_id": "batch-2fd158c709697a888ae1-contextual-001"
+   },
+   "modeId": "auto",
+   "prompt": "任务：审冻结 revision；仅报有据的语义/机制/术语/关系/跨条问题，否则 OK。\n输入：candidate_identity=dc08a8c712ef6f01f532154f069f675177462f137a5b61e6fd99b8d63614f0a6；input_path=.ai/task/batch-2fd158c709697a888ae1-contextual-001/CONTEXTUAL-ENVELOPE-final-full.json。只读；可读输入、精确引用及完整 docs/paseo-translation-context-review-v2-contract.md；可沿调用链查冻结版相关源码，仅限输入指定位置；禁从 / 或无关目录全盘搜索，禁读其他 .ai/task/、.ai/reviews/、旧 finding、当前译文/术语库。\n输出：仅回第六节紧凑 JSON，按序全覆盖、回显 identity；首{末}，无文字/围栏。",
+   "provider": "claude/claude-opus-5-5",
+   "thinkingOptionId": "medium",
+   "workspaceId": "wks_420314270844170b"
+  },
+  "create_prompt_sha256": "38ccd3499834f68a646ac39133fa626c614c5de14f06aeeca7f11656f5494bdf",
+  "create_started_at": "2026-10-05T12:19:03.699408+00:00",
+  "creation_transport": "mcp",
+  "cwd": "/workspace/tome4-chinese-translation",
+  "cycle": 0,
+  "dispatch_id": "full-001",
+  "first_live_capture": {
+   "snapshot": {
+    "activeTurn": {
+     "startedAt": "2026-10-05T12:19:11.998Z",
+     "turnId": "foreground-turn-1"
+    },
+    "attentionReason": null,
+    "attentionTimestamp": null,
+    "availableModes": [
+     {
+      "description": "Analyze the codebase without executing tools or edits",
+      "id": "plan",
+      "label": "Plan Mode"
+     },
+     {
+      "description": "Prompts for permission the first time a tool is used",
+      "id": "default",
+      "label": "Always Ask"
+     },
+     {
+      "description": "Automatically approves edit-focused tools without prompting",
+      "id": "acceptEdits",
+      "label": "Accept File Edits"
+     },
+     {
+      "description": "Uses a model classifier to review permission prompts automatically",
+      "id": "auto",
+      "label": "Auto mode"
+     },
+     {
+      "description": "Skip all permission prompts (use with caution)",
+      "id": "bypassPermissions",
+      "label": "Bypass"
+     }
+    ],
+    "capabilities": {
+     "supportsDynamicModes": true,
+     "supportsMcpServers": true,
+     "supportsReasoningStream": true,
+     "supportsRewindBoth": true,
+     "supportsRewindConversation": true,
+     "supportsRewindFiles": true,
+     "supportsSessionListing": true,
+     "supportsSessionPersistence": true,
+     "supportsStreaming": true,
+     "supportsToolInvocations": true
+    },
+    "createdAt": "2026-10-05T12:19:10.965Z",
+    "currentModeId": "auto",
+    "cwd": "/workspace/tome4-chinese-translation",
+    "effectiveThinkingOptionId": "medium",
+    "features": [
+     {
+      "description": "Lower latency Opus responses at higher token cost",
+      "icon": "zap",
+      "id": "fast_mode",
+      "label": "Fast",
+      "tooltip": "Toggle fast mode",
+      "type": "toggle",
+      "value": false
+     }
+    ],
+    "id": "fe02a1e3-6142-40b5-931e-77ae801828e7",
+    "labels": {
+     "candidate_identity": "dc08a8c712ef6f01f532154f069f675177462f137a5b61e6fd99b8d63614f0a6",
+     "dispatch_id": "full-001",
+     "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+     "purpose": "translation_contextual_v2",
+     "role": "reviewer",
+     "task_id": "batch-2fd158c709697a888ae1-contextual-001"
+    },
+    "lastUserMessageAt": "2026-10-05T12:19:12.006Z",
+    "model": "claude-opus-5-5",
+    "pendingPermissions": [],
+    "persistence": {
+     "metadata": {
+      "cwd": "/workspace/tome4-chinese-translation",
+      "modeId": "auto",
+      "model": "claude-opus-5-5",
+      "provider": "claude",
+      "thinkingOptionId": "medium",
+      "title": "Review 400 contextual full-001"
+     },
+     "nativeHandle": "e0b89229-7fa4-4bcc-a4f8-9e8b6bea0077",
+     "provider": "claude",
+     "sessionId": "e0b89229-7fa4-4bcc-a4f8-9e8b6bea0077"
+    },
+    "provider": "claude",
+    "requiresAttention": false,
+    "runtimeInfo": {
+     "modeId": "auto",
+     "model": null,
+     "provider": "claude",
+     "sessionId": null
+    },
+    "status": "running",
+    "thinkingOptionId": "medium",
+    "title": "Review 400 contextual full-001",
+    "updatedAt": "2026-10-05T12:19:12.018Z",
+    "workspaceId": "wks_420314270844170b"
+   },
+   "status": "running"
+  },
+  "input_path": ".ai/task/batch-2fd158c709697a888ae1-contextual-001/CONTEXTUAL-ENVELOPE-final-full.json",
+  "input_sha256": "4a37f16fbcc0042a014f1b242f40a1455a72463c4ceca008c5c38bdbb4ba686e",
+  "labels": {
+   "candidate_identity": "dc08a8c712ef6f01f532154f069f675177462f137a5b61e6fd99b8d63614f0a6",
+   "dispatch_id": "full-001",
+   "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+   "purpose": "translation_contextual_v2",
+   "role": "reviewer",
+   "task_id": "batch-2fd158c709697a888ae1-contextual-001"
+  },
+  "last_error": null,
+  "lifecycle": "archived",
+  "lineage_verified": true,
+  "live_observation_source": "mcp_status_capture",
+  "native_provenance": {
+   "agent_id": "fe02a1e3-6142-40b5-931e-77ae801828e7",
+   "ai_title_present": false,
+   "complete_line": 45,
+   "completion_basis": "natural_success",
+   "cwd": "/workspace/tome4-chinese-translation",
+   "final_line": 45,
+   "first_live_capture_sha256": "dec24a2bab9a56d543042c8daf6ec92ca77821ae40d9bd517cbbaeeb8dc64abd",
+   "input_sha256": "4a37f16fbcc0042a014f1b242f40a1455a72463c4ceca008c5c38bdbb4ba686e",
+   "key": "batch-2fd158c709697a888ae1-contextual-001|full-001",
+   "labels": {
+    "candidate_identity": "dc08a8c712ef6f01f532154f069f675177462f137a5b61e6fd99b8d63614f0a6",
+    "dispatch_id": "full-001",
+    "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+    "purpose": "translation_contextual_v2",
+    "role": "reviewer",
+    "task_id": "batch-2fd158c709697a888ae1-contextual-001"
+   },
+   "last_prompt_present": false,
+   "leaf_uuid": "95340e11-67aa-4a5d-bd19-7ce3c30d9186",
+   "message_id": "msg_011Cfj5WZMEXykTSrED5TpyF",
+   "message_uuid": "95340e11-67aa-4a5d-bd19-7ce3c30d9186",
+   "parent_agent_id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+   "parent_uuid": "d305b0c4-abf0-4d0f-89e2-d679bc2fcce7",
+   "prompt_line": 3,
+   "prompt_sha256": "38ccd3499834f68a646ac39133fa626c614c5de14f06aeeca7f11656f5494bdf",
+   "provider": "claude",
+   "raw_bytes": 1587,
+   "raw_sha256": "afdf5d81acf1caa5b2154bddd55c46f65250da0b96675f1d0a12d04ab5fd5839",
+   "schema_version": 1,
+   "session_id": "e0b89229-7fa4-4bcc-a4f8-9e8b6bea0077",
+   "source_bytes": 348230,
+   "source_lines": 45,
+   "source_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/e0b89229-7fa4-4bcc-a4f8-9e8b6bea0077.jsonl",
+   "source_sha256": "7d4094f9d76caba4992eac6a4c6885c5dd5a42113335ecf5bd6b24e24895de66",
+   "terminal_capture_sha256": "aec51ce33cb47d9bdc035bfb2fdf0125cba80834a962f36305eaee35e66823d1",
+   "version": "2.1.284",
+   "workspace_id": "wks_420314270844170b"
+  },
+  "native_raw_path": "/workspace/tome4-chinese-translation/.artifacts/i18n/continuation-20260923/review400-contextual-diag/native/batch-2fd158c709697a888ae1-contextual-001/full-001/terminal.raw",
+  "output_valid": true,
+  "parent_agent_id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+  "prepared_at": "2026-10-05T12:18:34.200156+00:00",
+  "profiles_sha256": "7e5296acb85f9764ac9d3f3c6bb0b1adcec86efc5aa99e6a87cb60ffb6c12365",
+  "purpose": "translation_contextual_v2",
+  "raw_output_path": ".artifacts/i18n/continuation-20260923/review400-contextual-diag/batch-2fd158c709697a888ae1-contextual-001/full-001.raw",
+  "raw_output_sha256": "afdf5d81acf1caa5b2154bddd55c46f65250da0b96675f1d0a12d04ab5fd5839",
+  "review_kind": "full",
+  "role": "REVIEWER",
+  "runtime_observation": {
+   "capture_status": "captured",
+   "captured_at": "2026-10-05T12:19:29.321997+00:00",
+   "mode": {
+    "presence": "present",
+    "value": "auto"
+   },
+   "model": {
+    "presence": "present",
+    "value": "claude-opus-5-5"
+   },
+   "provider": {
+    "presence": "present",
+    "value": "claude"
+   },
+   "schema_version": 1,
+   "source": "live_agent_metadata",
+   "thinking": {
+    "presence": "present",
+    "value": "medium"
+   }
+  },
+  "status": "dispatched",
+  "task_id": "batch-2fd158c709697a888ae1-contextual-001",
+  "terminal_capture": {
+   "snapshot": {
+    "activeTurn": null,
+    "attentionReason": "finished",
+    "attentionTimestamp": "2026-10-05T12:20:01.468Z",
+    "availableModes": [
+     {
+      "description": "Analyze the codebase without executing tools or edits",
+      "id": "plan",
+      "label": "Plan Mode"
+     },
+     {
+      "description": "Prompts for permission the first time a tool is used",
+      "id": "default",
+      "label": "Always Ask"
+     },
+     {
+      "description": "Automatically approves edit-focused tools without prompting",
+      "id": "acceptEdits",
+      "label": "Accept File Edits"
+     },
+     {
+      "description": "Uses a model classifier to review permission prompts automatically",
+      "id": "auto",
+      "label": "Auto mode"
+     },
+     {
+      "description": "Skip all permission prompts (use with caution)",
+      "id": "bypassPermissions",
+      "label": "Bypass"
+     }
+    ],
+    "capabilities": {
+     "supportsDynamicModes": true,
+     "supportsMcpServers": true,
+     "supportsReasoningStream": true,
+     "supportsRewindBoth": true,
+     "supportsRewindConversation": true,
+     "supportsRewindFiles": true,
+     "supportsSessionListing": true,
+     "supportsSessionPersistence": true,
+     "supportsStreaming": true,
+     "supportsToolInvocations": true
+    },
+    "createdAt": "2026-10-05T12:19:10.965Z",
+    "currentModeId": "auto",
+    "cwd": "/workspace/tome4-chinese-translation",
+    "effectiveThinkingOptionId": "medium",
+    "features": [
+     {
+      "description": "Lower latency Opus responses at higher token cost",
+      "icon": "zap",
+      "id": "fast_mode",
+      "label": "Fast",
+      "tooltip": "Toggle fast mode",
+      "type": "toggle",
+      "value": false
+     }
+    ],
+    "id": "fe02a1e3-6142-40b5-931e-77ae801828e7",
+    "labels": {
+     "candidate_identity": "dc08a8c712ef6f01f532154f069f675177462f137a5b61e6fd99b8d63614f0a6",
+     "dispatch_id": "full-001",
+     "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d",
+     "purpose": "translation_contextual_v2",
+     "role": "reviewer",
+     "task_id": "batch-2fd158c709697a888ae1-contextual-001"
+    },
+    "lastUsage": {
+     "cachedInputTokens": 191064,
+     "contextWindowMaxTokens": 1000000,
+     "contextWindowUsedTokens": 60547,
+     "inputTokens": 10,
+     "outputTokens": 4471,
+     "totalCostUsd": 0.47892080000000004
+    },
+    "lastUserMessageAt": "2026-10-05T12:19:12.006Z",
+    "model": "claude-opus-5-5",
+    "pendingPermissions": [],
+    "persistence": {
+     "metadata": {
+      "cwd": "/workspace/tome4-chinese-translation",
+      "modeId": "auto",
+      "model": "claude-opus-5-5",
+      "provider": "claude",
+      "thinkingOptionId": "medium",
+      "title": "Review 400 contextual full-001"
+     },
+     "nativeHandle": "e0b89229-7fa4-4bcc-a4f8-9e8b6bea0077",
+     "provider": "claude",
+     "sessionId": "e0b89229-7fa4-4bcc-a4f8-9e8b6bea0077"
+    },
+    "provider": "claude",
+    "requiresAttention": true,
+    "runtimeInfo": {
+     "extra": {
+      "runtimeModel": "claude-opus-5-5"
+     },
+     "modeId": "auto",
+     "model": "claude-opus-5-5",
+     "provider": "claude",
+     "sessionId": "e0b89229-7fa4-4bcc-a4f8-9e8b6bea0077"
+    },
+    "status": "idle",
+    "thinkingOptionId": "medium",
+    "title": "Review 400 contextual full-001",
+    "updatedAt": "2026-10-05T12:20:01.524Z",
+    "workspaceId": "wks_420314270844170b"
+   },
+   "status": "idle"
+  },
+  "terminal_observed_at": "2026-10-05T12:20:34.357163+00:00",
+  "timing": [
+   {
+    "category": "tool_call",
+    "elapsed_s": 0.00857837894000113,
+    "ended_at": "2026-10-05T12:20:34.345667+00:00",
+    "operation": "native_read",
+    "started_at": "2026-10-05T12:20:34.337092+00:00"
+   },
+   {
+    "category": "harvest_validation",
+    "elapsed_s": 0.005053333006799221,
+    "ended_at": "2026-10-05T12:20:34.362224+00:00",
+    "operation": "strict_result",
+    "started_at": "2026-10-05T12:20:34.357173+00:00"
+   }
+  ],
+  "validation_state": "completed",
+  "workspace_id": "wks_420314270844170b"
+ }
+]

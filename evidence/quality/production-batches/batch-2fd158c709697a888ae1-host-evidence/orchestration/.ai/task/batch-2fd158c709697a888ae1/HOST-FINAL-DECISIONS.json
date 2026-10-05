@@ -1,0 +1,138 @@
+{
+  "batch_id": "batch-2fd158c709697a888ae1",
+  "observations": 9,
+  "observation_dispositions": {
+    "refuted": 2,
+    "advisory": 1,
+    "confirmed": 6
+  },
+  "repair_revision_keys": [
+    "201a4359ecaa658001e80ac1f08f2c0690a0045082ecab98482ebd6f295b0e14",
+    "a4ad61026b7ca1ba10908db3ed7207ad7f4611ca7a09af5c8cc4c7350adf6b3b",
+    "e69406df8f8cf1cb707818eed7ce45b4759b1da39598d6f45bb01547ac37ad64"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 77,
+    "repair_required": 3,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "c6edd9d3fd9f51f171204bd57a3d7a7c8c4a6af295b91957bc60b171a035c0a2",
+      "stage": "surface",
+      "observation": "原文“wait for the soldiers to fetch me more”承接试验品，未指明种族；译文“提供更多的人类”增加了人类限定。冻结输入缺少试验品种族的语境证据，无法确认该限定是否成立。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "公开源码 game/modules/tome/data/lore/age-allure.lua@624a6732 第 63–80 行红帕兰日志前文：“There is one upside though - human test subjects!”“Just a shame humans are such messy creatures!”，第七篇时试验品已是人类，“fetch me more”译“提供更多的人类”有据；contextual 判 OK。驳回。"
+    },
+    {
+      "revision_key": "de29c738c9d23ea1fc4604447af8566e32c563c04c2c393a4f133394bd2137d6",
+      "stage": "surface",
+      "observation": "原文“narrowly avert its engineered apocalypses”指勉强阻止它策划的末日发生，译文“堪堪躲过它一手策划的末日”变成自身逃过灾难，改变了行为含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开源码 game/modules/tome/data/lore/misc.lua@624a6732 第 721–735 行加尔萨麦来信附言：“people who narrowly avert its engineered apocalypses”指勉强阻止了它策划的末日，现译“堪堪躲过它一手策划的末日”偏向自身逃过，动作略有偏移，但“凭惊人力量或运气挺过末日”的要旨仍在；contextual 判 OK。记为建议（如“堪堪阻止了它一手策划的末日”），不进入修复。"
+    },
+    {
+      "revision_key": "e69406df8f8cf1cb707818eed7ce45b4759b1da39598d6f45bb01547ac37ad64",
+      "stage": "surface",
+      "observation": "原文 while you've been loafing 指对方一直在偷懒，译文“在你离开的时候”改成了离开期间，丢失了明确的责备含义。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开源码 game/modules/tome/data/chats/alchemist-hermit.lua@624a6732 第 118 行半身人纸条：“while you've been loafing”是责备玩家磨蹭偷懒，与下句“Hurry the hell up next time”构成因果；现译“在你离开的时候”改成中性的不在场，丢了指责（surface 与 contextual 均指出）。修复：“在你离开的时候”改为“趁你磨洋工的工夫”，“下次动作快点”改为“下次给我快点”，占位符顺序不变。"
+    },
+    {
+      "revision_key": "201a4359ecaa658001e80ac1f08f2c0690a0045082ecab98482ebd6f295b0e14",
+      "stage": "surface",
+      "observation": "原文“after a maximum of a couple of weeks”给出的死亡时间上限为两周，译文“最多只要几周的时间”将明确的两周上限泛化为几周。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Ashes 公开源码（来源未固定，/workspace/tome4-dlcs/ashes-urhrok） tome-ashes-urhrok/data/lore/demon.lua:444 起 S 的留言：①“a whole lot of blathering about his accomplishments as a naturalist, and his mysterious disappearance”的主语是碑文（The text here），现译“只不过是一个博物学者喋喋不休地讲述他的成就和谜一般的失踪”变成博物学者本人讲述自己的失踪，逻辑矛盾；②“your inevitable agonizing fate WILL end in death”的 agonizing 译成“可悲”，丢了极度痛苦，也丢了 WILL 的强调；③surface 指出“a couple of weeks”译“几周”过泛，宿主认为可一并改准（contextual 报①②，surface 报③）。修复：①改为“只不过是在絮叨一个博物学者的成就和他谜一般的失踪”；②改为“你们无法逃避的痛苦命运必将以死亡告终”（以“必将”体现强调，不加标记）；③“最多只要几周的时间”改为“最多不过两周左右”。"
+    },
+    {
+      "revision_key": "7a66779ad6daefd710bccaed71e2766ac24cffaa6499df919b67dae12a29ff51",
+      "stage": "surface",
+      "observation": "原文“half-starved wolves”指饥饿难耐的狼，译为“半饥半饱的饿狼”误将严重饥饿表述为半饱。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "Ashes 公开源码（来源未固定，/workspace/tome4-dlcs/ashes-urhrok） tome-ashes-urhrok/data/lore/demon.lua:323–331 欧尼路格：“half-starved wolves”指饿极的狼，现译“半饥半饱的饿狼”中“半饥半饱”即长期吃不饱，加上“饿狼”，饥饿之意完整，并非“半饱”的误读；contextual 判 OK。驳回。"
+    },
+    {
+      "revision_key": "a4ad61026b7ca1ba10908db3ed7207ad7f4611ca7a09af5c8cc4c7350adf6b3b",
+      "stage": "surface",
+      "observation": "原文“Blow all connectors”要求炸毁连接设施，译文“关闭所有链接传送门”改成关闭动作并新增传送门含义；“dispel oxygenation wards”指驱散供氧结界，译文“关闭氧气生成设备”改成关闭设备。冻结原文与译文中的动作及对象明显不符。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Ashes 公开源码（来源未固定，/workspace/tome4-dlcs/ashes-urhrok） tome-ashes-urhrok/data/lore/demon.lua:206–213 恶魔紧急便条：“Blow all connectors, break platform off the continent and dispel oxygenation wards befo--”是炸毁连接结构、驱散供氧结界的破坏指令；现译“关闭所有链接传送门……关闭氧气生成设备，并——”把炸毁弱化为关闭、凭空加“传送门”、把魔法结界说成设备（surface 与 contextual 均指出）。修复：改为“炸毁所有连接结构，将平台从大陆上断开，驱散供氧结界，赶在——”。"
+    },
+    {
+      "revision_key": "e69406df8f8cf1cb707818eed7ce45b4759b1da39598d6f45bb01547ac37ad64",
+      "stage": "contextual",
+      "observation": "语义偏差：源文 'while you've been loafing'（alchemist-hermit.lua@624a6732 第118行，配合下句 'Hurry the hell up next time'）是责备玩家磨蹭偷懒，译文「在你离开的时候」改成了中性的“不在场”，丢失了“你在磨洋工”的指责语气，与后句催促的因果关系断开；宜译作「在你磨蹭的工夫」之类。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开源码 game/modules/tome/data/chats/alchemist-hermit.lua@624a6732 第 118 行半身人纸条：“while you've been loafing”是责备玩家磨蹭偷懒，与下句“Hurry the hell up next time”构成因果；现译“在你离开的时候”改成中性的不在场，丢了指责（surface 与 contextual 均指出）。修复：“在你离开的时候”改为“趁你磨洋工的工夫”，“下次动作快点”改为“下次给我快点”，占位符顺序不变。"
+    },
+    {
+      "revision_key": "201a4359ecaa658001e80ac1f08f2c0690a0045082ecab98482ebd6f295b0e14",
+      "stage": "contextual",
+      "observation": "demon.lua:446 原文说碑文（The text here）是在絮叨（blathering）这位博物学者的成就和他神秘失踪的经过。译文却写成「一个博物学者喋喋不休地讲述他的成就和谜一般的失踪」，说话人从碑文变成了博物学者本人，造成他自己讲述自己失踪的逻辑矛盾。应改为由碑文来讲述他。另外，demon.lua:454 后文「your inevitable agonizing fate WILL end in death」中的 agonizing（极度痛苦的）被译成「可悲」，与下文「在你们感到痛苦之前」所说的痛苦对不上，强调语气 WILL 也丢了。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Ashes 公开源码（来源未固定，/workspace/tome4-dlcs/ashes-urhrok） tome-ashes-urhrok/data/lore/demon.lua:444 起 S 的留言：①“a whole lot of blathering about his accomplishments as a naturalist, and his mysterious disappearance”的主语是碑文（The text here），现译“只不过是一个博物学者喋喋不休地讲述他的成就和谜一般的失踪”变成博物学者本人讲述自己的失踪，逻辑矛盾；②“your inevitable agonizing fate WILL end in death”的 agonizing 译成“可悲”，丢了极度痛苦，也丢了 WILL 的强调；③surface 指出“a couple of weeks”译“几周”过泛，宿主认为可一并改准（contextual 报①②，surface 报③）。修复：①改为“只不过是在絮叨一个博物学者的成就和他谜一般的失踪”；②改为“你们无法逃避的痛苦命运必将以死亡告终”（以“必将”体现强调，不加标记）；③“最多只要几周的时间”改为“最多不过两周左右”。"
+    },
+    {
+      "revision_key": "a4ad61026b7ca1ba10908db3ed7207ad7f4611ca7a09af5c8cc4c7350adf6b3b",
+      "stage": "contextual",
+      "observation": "demon.lua:206 一带的源文「Blow all connectors, break platform off the continent and dispel oxygenation wards」是一道紧急破坏指令：blow 指炸毁连接结构，dispel ... wards 指驱散维持供氧的魔法结界。译文「关闭所有链接传送门……关闭氧气生成设备」把炸毁弱化成了关闭，把魔法结界说成了机械设备，还凭空加了「传送门」。语义偏差较大，建议改为「炸毁所有连接装置……驱散供氧结界」一类译法。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Ashes 公开源码（来源未固定，/workspace/tome4-dlcs/ashes-urhrok） tome-ashes-urhrok/data/lore/demon.lua:206–213 恶魔紧急便条：“Blow all connectors, break platform off the continent and dispel oxygenation wards befo--”是炸毁连接结构、驱散供氧结界的破坏指令；现译“关闭所有链接传送门……关闭氧气生成设备，并——”把炸毁弱化为关闭、凭空加“传送门”、把魔法结界说成设备（surface 与 contextual 均指出）。修复：改为“炸毁所有连接结构，将平台从大陆上断开，驱散供氧结界，赶在——”。"
+    }
+  ],
+  "additional_host_observations": [
+    {
+      "revision_key": "d15beb86fb20898202b98da109d372921ddd07a7ef3dbacac07ffe06ed7c329c",
+      "source": "For too long we have been taught that the Spellblaze was a tragedy, that we are responsible for the deaths of millions and for suffering across the world. These are lies! Lies spread to defame us, to prevent our people from using magic to its rightful degree. The lesser races are jealous of our powers, of our amazing potential, and so they think to keep us underfoot, to stop us from ascending to our rightful place in the world. They fear us.\n\nThe truth is that the Spellblaze was an experiment that went wrong. Many of our greatest mages died from the resulting energies, and some lands nearby were set ablaze. But there was no loss of life amongst the other races - it is their own wars that caused that, and their own squalid societies that brought about the plagues that followed. Many centuries later a great natural earthquake occurred that tore the lands apart, and the other races had the audacity to blame that on us.\n\nFor this reason they persecuted us during the Spellhunt. Many of our mages were killed\nmercilessly, and even those with no affinity to magic were brutally slaughtered in the terrible crusade. Even today we suffer discrimination and persecution, and tales still spread of innocent Shaloren burned at the stake or chopped to pieces. And what does the Council do? It sits in silence and hopes people will just forget.\n\nBut no more! The time will come when the truth shall be known, and retribution will fall on any that deny us our rights.\n\n-- The Inquisitor",
+      "target": "太久以来，我们一直被教导说魔法大爆炸是一场悲剧，说数百万人因此丧命，全世界的苦难都应由我们负责。全是谎言！这些谎言只是为了诋毁我们，阻止我们的人民充分而正当地运用魔法。低等种族嫉妒我们的力量与惊人潜能，便想把我们踩在脚下，不让我们登上在世间应有的位置。他们害怕我们。\n\n真相是，魔法大爆炸不过是一场出了差错的实验。我族许多最伟大的法师死于随之爆发的能量，附近一些土地也燃起大火。但其他种族根本没有因此丧命——夺走他们生命的是他们自己的战争，随后那些瘟疫也是从他们肮脏污秽的社会中滋生的。许多个世纪以后，一场天然大地震撕裂了大地，他们竟还有脸把那也怪罪到我们头上。\n\n正因如此，他们在魔法狩猎期间迫害我们。我族许多法师遭到无情杀害，就连那些没有魔法天赋的人，也在那场可怕的讨伐中被残酷屠杀。即便到了今天，我们仍在遭受歧视和迫害，无辜永恒精灵被绑上火刑柱或剁成碎块的消息仍不时传来。长老会做了什么？他们只是沉默地坐着，指望世人自己忘掉一切。\n\n但到此为止！真相终有大白的一天，任何否认我们权利的人都将遭到报应。\n\n-- 审判者",
+      "disposition": "advisory",
+      "note": "宿主补充观察：公开源码 game/modules/tome/data/lore/rhaloren.lua@624a6732 第 53–62 行审判者宣言：原文“Many of our mages were killed\\nmercilessly”有一处句中硬换行（LF 9），现译把该段并为一行（LF 8），违反换行不变量。surface lane-000-0 判 OK、未进 contextual。本批按惯例记 done（宿主补充不改 disposition），作为宿主补充项登记到窗口66：在“我族许多法师遭到无情杀害，”之后补一个 \\n，文字不变。"
+    },
+    {
+      "revision_key": "d7bd95ff106e9c9bc5975e31b91b5b8bec2492294526697be4a1eec3369ef96b",
+      "source": "#{bold}#AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE.#{normal}#\n\nThe rumours you have heard are true. It is with a heavy heart that I confirm one of our mines, Reknor, has been overtaken and inhabited by a large and organised orcish force. How there could be such a decisive and total failure on our part to stop this threat remains a mystery - the source of the orcish invasion remains unknown. A battalion of soldiers will form a defensive perimeter around Reknor until a force to retake the mine and exterminate the orcs can be mustered. All civilians residing within the surrounding halls are to be evacuated.\n\nThis is a grave and unprecedented issue, so I decree an oath of silence to be laid upon all citizens of the Iron Throne, regardless of class and station: NO NEWS OF THIS INVASION MUST REACH FOREIGN EARS. We must maintain an image of stability and strength with the Allied Kingdom, as any signs of weakness or internal strife would be catastrophic to our alliance and future trade agreements. Any citizen found divulging this information to any outside party will be punished with exile. Rest assured, I will personally send messages to those outside the Throne who can be trusted with this information, and I trust this orcish intrusion shall be dealt with swiftly and decisively. So speaks the ruler of the Iron Throne, long may our empire endure.",
+      "target": "#{bold}#致钢铁王座全体市民的布告。愿帝国长存。#{normal}#\n\n你们听到的传言属实。我怀着沉痛之心确认，我们的一处矿井瑞库纳已被一支规模庞大、组织严密的兽人部队占领。我们在阻止这场威胁时为何会遭遇如此彻底的失败，至今仍是个谜——兽人入侵的源头尚不明确。在集结起足以夺回矿井、消灭兽人的部队之前，一个营的士兵将在瑞库纳周围建立防线。所有居住在周边大厅的平民均须撤离。\n\n这是一起严重且前所未有的事件，因此我下令钢铁王座全体市民，无论阶级与地位，皆须立下缄默誓言：绝不能让外国人听到任何入侵消息。我们必须在联合王国面前维持稳定强盛的形象，因为任何软弱或内乱的迹象，都会给我们的联盟和未来贸易协定带来灾难。\n\n任何向外界泄露这一消息的市民都将被放逐。请放心，我会亲自向王座之外可信任的人传递消息；我相信这次兽人入侵会得到迅速而果断的处置。钢铁王座的统治者如是说：愿帝国长存。",
+      "disposition": "advisory",
+      "note": "宿主补充观察：公开源码 game/modules/tome/data/lore/iron-throne.lua@624a6732 第 75–79 行钢铁王座敕令：原文末段“This is a grave … long may our empire endure.”为一段（LF 4），现译在“带来灾难。”后另起“\\n\\n任何向外界泄露……”成两段（LF 6），违反换行不变量。surface lane-000-1 判 OK、未进 contextual。本批按惯例记 done（宿主补充不改 disposition），作为宿主补充项登记到窗口66：删去“带来灾难。”后的 \\n\\n，与“任何向外界泄露”直接相接。"
+    },
+    {
+      "revision_key": "ea567581080129e9fea76f50d9db62fede16b0e4f85f08fe1d965acfd216683a",
+      "source": "#{bold}#3. Drake and the Conclave Mages.#{normal}#\n\nWith its borders unassailed, ands its coffers rapidly filling with Dwarven gold, many believed that the fortune of Southspar could not increase any further. Drake, however, had one last task to accomplish, and it regarded the Conclave.\n\nFor a long time, a small number of Conclave mages had made their home in Southspar. The remote location and the doddering nature of its old king meant that they could perform experiments and practice magic that would have been disallowed on the mainland. Being reclusive by nature, only a few of their group had heard of the rise of the new king, and none of them had cared much. Drake's royal guards breaking down the door of their study, followed by the king himself, gave them cause to care. Drake had for them an ultimatum:\n\n\"This is the kingdom of Southspar, my kingdom, and so everything within her borders must be within my control. This applies to her people, her land, her resources, and now her magic. I shall allow you to remain here in Southspar on one condition: You become members of my royal court, obey my commands, and use your magic for the betterment of the kingdom. When un-needed you may tend to your Conclave matters as you will, but your greatest loyalty will be to me. Do you accept?\"\n\nThe Conclave mages' response? Laughter. But this laughter was not the mocking laughter of the Dwarves, but laughter of disbelief. As recorded, the mages' response went as:\n\n\"King Drake! You needn't have bothered us with such a stern ultimatum! A simple request would have sufficed. True, in the past we may have chosen to reside here for simple seclusion, but it is hard to ignore Southspar's rising star. This kingdom's glory shall continue to grow, and we want to be a part of it. We accept.\"\n\nFreedom from halfling attacks, Dwarven fortunes, and now the magic of the Conclave blessed Southspar. What, the common people thought, could possibly happen next?\n\nMere weeks after the Conclave joined the royal court, Drake fell ill and died.\n\n#{bold}#4. Drake and the Empty Throne.#{normal}#\n\nDrake was dead, and Southspar's people were struck with depression and outright horror. Their king, who was fast on his way to making their kingdom one of the greatest in Maj'Eyal, was no more. The throne lay empty; not a single soul vied for the now vacant position of king. As far as Southspar's citizens were concerned, it was Drake's throne, nobody else's.\n\nThe norm in tales like this would be that the kingdom slowly managed to get back on its feet, recover from the loss of their king, and finally return to a state resembling normalcy. Not so for Southspar. Drake's demise had left a wound that was not healing, and it was clear that something had to be done. One of the men closest to Drake in his life, his chancellor, left abruptly on a mysterious \"errand\", hoping that the kingdom would not crumble before his return. After a period of some months he did return, and his first port of call? The study of the Conclave mages. He held in his hand a tome, bound in skin and marked with blood-red runes. Its subject matter was obvious: Necromancy. The chancellor had but one command for the mages:\n\n\"Bring him back.\"\n\n#{bold}#5. Drake and the Pale Kingdom.#{normal}#\n\nHere, sadly, definitive facts on Southspar and Drake's fate vanish. Some say that Drake's rebirth was a resounding success, and Southspar's star continued to rise as the now skeletal Drake retook the throne, the gaze from his exposed skull unchanged from his mortal visage. Others believe that the madness that grasps those returned from the grave took him, and with the new powers that the Conclave had blessed him with began a reign of terror that drowned Southspar in blood. The only fact that can be known for certain was the new name his subjects gave to him in his death: Pale King Drake, the Pale King, or simply Pale Drake.\n\nI leave you with a copy of one of the last pieces of Southspar's history, a partially destroyed scrap of parchment, supposedly written moments before the Cataclysm and Southspar's destruction, falling beneath the waves along with the rest of Tar'Eyal.\n\n\"Time grows pressi... ... ome in the boat... ... found. The binding w... a success. Now, to the sea, to l... ... ew, and Dreadfe... ... oble king. Rot in my new du... as you will!\"",
+      "target": "#{bold}#3、德瑞克和孔克雷夫法师。#{normal}#\n\n当它的国界再也没有受到攻击，金库逐渐堆满矮人的金币时，许多人认为南晶岛已经无法更进一步了。然而，德瑞克还有最后一项任务要完成——处理孔克雷夫的事。\n\n一直以来，南晶岛都存在着一批定居于此的孔克雷夫法师。偏远的位置与老国王的昏聩，使他们能够进行大陆上不允许的实验、修习大陆上禁用的魔法。由于法师们基本不问世事，只有少部分人知道新国王的上任，并且他们丝毫不以为意。直到德瑞克的禁卫军踹开了孔克雷夫法师们的书房大门，国王本人随后走了进来，他们才终于重视起来。德瑞克给他们下达了最后通牒：\n\n“这里是南晶国，我的国家，所以她疆界之内的一切都必须在我的掌控之中。包括她的人民，她的土地，她的资源以及她的魔法。我可以允许你们留在这里，但有一个条件：成为我的宫廷法师，遵守我的命令，并使用你们的魔法来改善王国。没有任务时，你们可以随意处理自己的事务，但你们必须首先忠于我。你们接受吗？”\n\n\n孔克雷夫法师们的回应？大笑。但是这笑声并不是矮人们那样嘲笑的声音，而是难以置信的笑声。据说，法师们是这样回答的：\n\n“德瑞克国王！您何必拿如此严厉的最后通牒来打扰我们？只需提一个简单的请求就够了。不错，过去我们选择住在这里，或许只是为了避世，但南晶岛这颗冉冉升起的新星实在不容忽视。这个王国将愈发辉煌，我们也愿置身其中。我们接受。”\n\n摆脱了半身人的袭击，得到了矮人带来的财富，如今又有孔克雷夫的魔法赐福南晶岛。百姓不禁猜想，接下来还会发生什么呢？\n\n孔克雷夫法师加入宫廷才几周，德瑞克便病逝了。\n\n#{bold}#4、德瑞克和空王座#{normal}#\n\n德瑞克死了，南晶岛人民陷入悲恸与彻底的恐慌。他们的国王原本正迅速带领王国跻身马基·埃亚尔最伟大的王国之列，如今却不在了。王座空悬，没有一个人争夺这空缺的王位。在南晶岛民众看来，那是德瑞克的王座，不属于任何其他人。\n\n这类故事发展到此，一般王国会慢慢重新站稳脚跟，从国王去世的打击中恢复，最终回归常态。但南晶岛并非如此。德瑞克之死给南晶岛留下了一道迟迟不愈的创伤，显然必须有人采取行动。德瑞克生前最亲近的人之一——他的宰相——突然为一桩神秘的“差事”离开，只盼王国不至于在他回来前崩溃。几个月后，他果真归来。第一站是哪里？孔克雷夫法师们的书房。他手里捧着一本以皮装订、刻有血红符文的古书，其主题一目了然：死灵术。宰相只对法师们下了一道命令：\n\n“带他回来。”\n\n#{bold}#5、德瑞克和苍白王国#{normal}#\n\n遗憾的是，从这里开始，关于南晶岛和德瑞克命运的确切史实便湮灭了。有人说，德瑞克的复活大获成功；当化为骷髅的德瑞克重登王座时，空洞头骨中的目光与生前毫无二致，南晶岛的国势也继续蒸蒸日上。另一些人则认为，他被从墓中归来者常有的疯狂攫住，并借助孔克雷夫赋予的新力量开始了将南晶岛淹没在鲜血中的恐怖统治。唯一可以确定的事实，是臣民在他死后给他的新称号：苍白之王德瑞克、苍白之王，或干脆叫苍白德瑞克。\n\n最后，我为你附上一份南晶岛末期史料的抄本：一张残缺的羊皮纸，据称写于大灾变爆发、南晶岛随塔·埃亚尔其余地区一同沉入波涛之下的前一刻。\n\n“时间越来越紧迫……书在船上……找到。束缚……成功了。现在，面向大海，对于……额，德雷德菲……高贵的国王。在我的新……里随你腐烂吧！”",
+      "disposition": "advisory",
+      "note": "宿主补充观察：公开源码 game/modules/tome/data/lore/last-hope.lua@624a6732 第 173–203 行德瑞克史话：原文“…you accept?\\\"\\n\\nThe Conclave mages' response”之间只隔一个空行，现译“你们接受吗？”\\n\\n\\n孔克雷夫”多一个 \\n（LF 30→31）。surface lane-000-3 判 OK、未进 contextual。本批按惯例记 done（宿主补充不改 disposition），作为宿主补充项登记到窗口66：删去多出的一个 \\n。"
+    },
+    {
+      "revision_key": "f901245fbaef3549eba82f7b1068a771bacb26a4d7485633b7d88f373ceb5e2a",
+      "source": "#{bold}#Hompalan's Log Entry1#{normal}#\n#{italic}#Age of Allure Year 4537#{normal}#\n\nExcavation of Sher'Tul ruins almost complete. Markings seem to match previous ruins in the south.\nCurrent theory: Possibly a portal of some kind? We have only rumours and myths of the Sher'Tul, and all say they could travel Eyal in the blink of an eye. Mana readings of the place are beyond anything we can even begin to comprehend. Last diviner I sent down there is still in a coma. Must continue studies.\n\n\n#{bold}#Hompalan's Log Entry 2#{normal}#\n#{italic}#Age of Allure Year 4541#{normal}#\n\nTesting of live yeeks has not gone well. Thankfully I can leave the clean-up to my technicians... Four years and it feels like we have not even begun to understand these ruins. I'm worried our research grant will soon be cut. But I have hope that some of the items we've recently uncovered may provide some sort of key to the portals. Or perhaps they were just used for Sher'Tul sports? We shall see.\n\n\n#{bold}#Hompalan's Log Entry 3#{normal}#\n#{italic}#Age of Allure 4542#{normal}#\n\nThird test confirms it - the orb allows transition between portal gates. This is the greatest discovery of my life. We are the first research team to ever unlock such powers from a Sher'Tul ruin! Just a shame about all the yeeks we sent through before. I'm really starting to suspect that pronged instrument was some sort of eating device... Oh well, plenty more dumb yeeks available.\n",
+      "target": "#{bold}#红帕兰的日志记录一#{normal}#\n#{italic}#厄流纪 4537年#{normal}#\n\n夏·图尔遗迹的发掘已近完成。其中的标记似乎与之前在南方遗迹中发现的相符。\n目前的推测是：这会是某种传送门吗？我们对夏·图尔所知的只有传言与神话，而它们都说夏·图尔能在眨眼间游遍埃亚尔。此处的法力读数高得根本令人无法理解。我上次派下去的占卜师仍昏迷不醒。必须继续研究。\n\n\n#{bold}#红帕兰的日志记录二#{normal}#\n#{italic}#厄流纪 4541年#{normal}#\n\n用活体夺心魔进行的测试并不顺利。幸好我可以把清理工作都交给技术员……四年过去了，感觉我们根本还没开始理解这些遗迹。我担心研究经费很快就会被削减。\n但我仍心存希望：最近发掘出的某些物品也许能成为开启传送门的某种钥匙。又或者，它们只是夏·图尔进行某种运动时用的器具？走着瞧吧。\n\n\n#{bold}#红帕兰的日志记录三#{normal}#\n#{italic}#厄流纪 4542年#{normal}#\n\n第三次测试证实了——这个球体能让人在传送门之间转移。这是我一生中最伟大的发现。我们是有史以来第一支从夏·图尔遗迹中解封如此力量的研究团队！只可惜之前送进去了那么多夺心魔。我越来越怀疑，那件带尖叉的器具其实是某种餐具……\n算了，反正愚蠢的夺心魔还有很多。\n",
+      "disposition": "advisory",
+      "note": "宿主补充观察：公开源码 game/modules/tome/data/lore/age-allure.lua@624a6732 第 29–46 行红帕兰日志 1–3：原文第二、三篇正文各为一行，现译在“很快就会被削减。”后、“某种餐具……”后各插一个 \\n（LF 17→19），违反换行不变量。surface lane-000-3 判 OK、未进 contextual。本批按惯例记 done（宿主补充不改 disposition），作为宿主补充项登记到窗口66：删去这两个 \\n，使“但我仍心存希望”“算了，反正愚蠢的夺心魔还有很多”分别与前句相接。"
+    }
+  ],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (8 lanes: surface-000 main game 61 in 16/15/15/15; surface-001 Ashes 19 in 5/5/5/4)",
+    "contextual": "claude/claude-opus-5-5 (2 runs accepted on the first pass: contextual-000, contextual-001; 6 entries)"
+  },
+  "notes": [
+    "Surface screening: 2 groups of codex/gpt-6.1-sol (thinking medium, auto-review), 8 children (main game 16/15/15/15; Ashes 5/5/5/4); 74 OK / 6 ISSUE; every child only read its own envelope and the contract (16 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 6 deep entries (2 runs), accepted on the first pass (3 OK / 3 ISSUE).",
+    "Re-review batch: successors queued by migration 87fb6882 (tier C awkward-description polish and held-item fixes); 174 remain queued after this batch.",
+    "Mixed batch: main game 61 (pinned) and Ashes 19 (source not pinned, /workspace/tome4-dlcs/ashes-urhrok); surface in two groups and contextual in two runs (contextual-000 main game, contextual-001 Ashes).",
+    "The host whitespace pre-scan found four LF mismatches that all surface lanes judged OK (d15beb86fb, d7bd95ff10, ea56758108, f901245fba); all four are registered as host supplements for window 66.",
+    "contextual-001 read its own Claude tool-results spill file once (the overflow of its earlier envelope and contract read); earlier accepted contextual runs did the same, and it did not read DLC source or enumerate /workspace.",
+    "61 pinned entries (61 main game) were verified against the manifest-pinned commit 624a67329fe2ad440c5b344785a9c73fcf22ae63 and all matched the literal in the recorded file; 19 Ashes entries matched the public DLC source file SHA in the workset, with the DLC repositories and commits unpinned.",
+    "3 confirmed repair revisions raise the window 66 backlog from 5 to 8; below the 20 threshold, so no window opens."
+  ]
+}
