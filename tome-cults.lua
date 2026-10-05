@@ -2493,18 +2493,18 @@ t([[Being an adventurer is supposed to be fun. You know, get out there, kill a c
 So, my approach has been to just keep trying different combinations until something eventually works. I'll record the combination down in this journal and then give it a tick or a cross. That way I can keep track of what works and what doesn't. There had better be an amazing reward for all this work...
 
 #{italic}#(The list appears to have nothing but crosses next to combinations, except for the very last one at the bottom. Surprisingly, it has neither a tick nor a cross next to it. Maybe he did not get a chance to test it?)#{normal}#
-%s]], [[当个冒险家本来应该是有趣的。你知道的，就像这样，到处走来走去，杀杀怪物，捡捡战利品，把赚来的钱花个精光，然后再重复一遍。只要你能比别人先行动一步，你总能找到四处掠夺的机会。但是有时候，那些人喜欢把战利品锁在愚蠢的谜题里面，就像这个一样。我坐在这里，不停地尝试着不同的组合。我日夜不休，不停尝试，毫无结果。这种愚蠢的东西根本毫无意义！大部分人如果想要设计个谜题，总得弄点线索吧？可我什么都没找到！
+%s]], [[当个冒险家本来应该是有趣的。你知道的，就像这样，到处走来走去，杀杀怪物，捡捡战利品，把赚来的钱花个精光，然后再重复一遍。只要你能比别人先行动一步，你总能找到四处掠夺的机会。但是有时候，那些人喜欢把战利品锁在愚蠢的谜题里面，就像这个一样。我坐在这里，不停地尝试着不同的组合。我日夜不休，不停尝试，毫无结果。这蠢东西的运作方式根本说不通！大部分人如果想要设计个谜题，总得弄点线索吧？可我什么都没找到！
 
-所以，我唯一的办法就是不停尝试不同的组合，直到奏效为止。我在日志上记录下那些组合，然后给那些组合打钩或者打叉。这样我就知道哪些组合是有用的，而哪些不是。真是种该死的工作，希望最后能给我弄点好点的奖励……
+所以，我唯一的办法就是不停尝试不同的组合，直到奏效为止。我在日志上记录下那些组合，然后给那些组合打钩或者打叉。这样我就知道哪些组合是有用的，而哪些不是。费了这么多工夫，最后最好能有惊人的奖励……
 
-#{italic}#（这个列表上列举着的几乎所有的组合都打着叉，除了最后一行以外。令人奇怪的是，这个组合既没有打钩也没有打叉。也许，他已经没有机会去试试这个组合到底好不好了？）#{normal}#
+#{italic}#（这个列表中，除了最下面的最后一个组合，其余组合旁似乎都只打着叉。令人奇怪的是，这个组合既没有打钩也没有打叉。也许他没机会测试这个组合？）#{normal}#
 %s]], "tformat")
 t("the egress (2)", "出口 (2)", "_t")
-t("Some puzzle this is! I finally enter the right combination and it dumps me in some forsaken corner of the world! I don't even know what to make of my surroundings, they're utterly bizarre! Why did this have to happen to me? I was supposed to be the one who got in first and got the treasure... Now look at me! I've wandered all over this place, but I can't find any exit! It's like this entire place is conspiring to keep me trapped here!", "这是什么鬼谜题！我终于输入了正确的组合，结果它把我扔到了世界遗忘的角落！我甚至不知道该如何理解周围的环境，真见鬼！为什么我要倒这种霉！我本来以为我是第一个到这里的，终于可以有机会搜刮财宝了…现在呢？我在这里到处游荡，结果连出口都找不到！这个地方简直就是为了困死我而设计出来的！", "_t")
+t("Some puzzle this is! I finally enter the right combination and it dumps me in some forsaken corner of the world! I don't even know what to make of my surroundings, they're utterly bizarre! Why did this have to happen to me? I was supposed to be the one who got in first and got the treasure... Now look at me! I've wandered all over this place, but I can't find any exit! It's like this entire place is conspiring to keep me trapped here!", "这是什么鬼谜题！我终于输入了正确的组合，结果它把我扔到了世界遗忘的角落！我甚至搞不清周围是什么地方，这里的环境实在太怪异了！为什么我要倒这种霉！我本来以为我是第一个到这里的，终于可以有机会搜刮财宝了…现在呢？我在这里到处游荡，结果连出口都找不到！这个地方简直就是为了困死我而设计出来的！", "_t")
 t("the truth beyond the veil (1)", "穿透纱幕的真相 (1)", "_t")
 t([[Thought is treasure. Treasure thoughts. Spin fates, tell tales, words of gods, smith into fables. All that is can be rewritten and all writing is defined by what is. Cascades upon cascades which blend into reality, ever altering, ever changing, ever being, ever ceasing.
 
-Words are power. My power is words. I am infinity and its end. Everything is possible.]], [[思想是一种财富。珍惜思想的财富。编织命运，讲述故事，神的语言，编织成传说。一切现实都可以被重写，一切的文字都关联着现实。层叠的层叠融入现实，不断变化，不断改变，永在存续，永在消逝。
+Words are power. My power is words. I am infinity and its end. Everything is possible.]], [[思想是一种财富。珍惜思想的财富。编织命运，讲述故事，神的语言，编织成传说。一切现实都可以被重写，一切的文字都关联着现实。一层又一层交叠，融入现实，不断变化，不断改变，永在存续，永在消逝。
 
 言语就是力量。我的力量就是言语。我是无限，我是终结。一切皆有可能。]], "_t")
 t("the truth beyond the veil (2)", "穿透纱幕的真相 (2)", "_t")
@@ -2522,9 +2522,9 @@ Thoughts are treasure. Treasure thoughts. Thoughtlessness is useless. Thoughtles
 t("an escape from reality (1)", "逃避现实 (1)", "_t")
 t("So, what does an adventurer do when they get bored with it all? For me, I wanted to find a nice castle somewhere out in the countryside and spend the rest of my days in idle contentment. The issue there is that I made a lot of enemies who would have loved for me to settle down in one spot, so I needed to think of a solution.\n\nThat's when I found this place. Everyone else avoided it because people never left once they went inside it. Being used to the adventuring life, I saw such a thing as a challenge. Turns out that this cursed castle, as people referred to it, constantly changes its inside layout. No one really knows how or why it does it, but I'm not really one to question such things. If I could just work out the logic behind how it shifted itself, I could have an unassailable fortress. \n\nHowever, I also found that this still didn't deter people from coming to kill me. They all swarmed in and although a lot of them got lost in the hallways, a few actually managed to reach me. I had grown rather attached to the place at this point, but neither could I stay there. My solution came with a bizarre tome I had found in my adventures. When I opened the cover and pointed it in the right direction, it could suck things into its very pages.\n\nSo, being the savvy adventurer I am, I opened the tome and sucked the entire castle inside of it. It seems like the tome could only suck so much inside its covers, so it could no longer hold anything else in it. Although I had to sacrifice a great treasure, I now had a sanctuary away from the real world which I could escape to whenever I needed shelter.", [[那么，当一个冒险者厌倦了有关冒险的一切时，他们会做什么呢？对我而言，我想在乡村的某个地方找一座漂亮的城堡，并在休闲和娱乐中度过愉快的晚年。问题在于，我有不少仇人，他们可是很乐意见到我呆在一个地方束手就擒，因此我得想出一个解决方案。
 
-所以，我找到了这个地方。其他人都对它避之不及，因为据说进入这里的人从来没有回来过。不过习惯了冒险生活的我看来，这样的事情无疑是一种挑战。事实证明，这个被诅咒的城堡，正如人们所说的那样，正在不断地改变着它的内部布局。没有人真正知道，它是如何做到这一切，以及为什么要这样做的，但我也不是一个非得刨根问底的人。只要我能弄清它改变自身布局背后的逻辑，我就拥有了一个无懈可击的堡垒。
+所以，我找到了这个地方。其他人都对它避之不及，因为据说进入这里的人从来没有回来过。不过，在习惯了冒险生活的我看来，这样的事情无疑是一种挑战。原来，这座被人们称为“被诅咒的城堡”的建筑，一直在不断改变内部布局。没有人真正知道，它是如何做到这一切，以及为什么要这样做的，但我也不是一个非得刨根问底的人。只要我能弄清它改变自身布局背后的逻辑，我就拥有了一个无懈可击的堡垒。
 
-然而我也发现，这仍然没能阻止那些想取我性命的人前来。他们还在蜂拥而入，虽然他们中的大部分人都在走廊中迷路了，但也有一些人真的到达了我的面前。在那时候，我已经相当喜欢这个地方了，但我也不能一直呆在这里。从我在冒险生活中找到的一本怪书里，我寻找到了一个有趣的解决方案。只要我打开书的封面，朝向正确的方向，它就可以把东西吸入书中。
+然而我也发现，这仍然没能阻止那些想取我性命的人前来。他们还在蜂拥而入，虽然他们中的大部分人都在走廊中迷路了，但也有一些人真的到达了我的面前。在那时候，我已经相当喜欢这个地方了，但我也不能一直呆在这里。我在冒险中找到的一本怪书给了我一个解决办法。只要我打开书的封面，朝向正确的方向，它就可以把东西吸入书中。
 
 所以，作为一个精明的冒险家，我打开这本书，把整座城堡吸了进去。这本书的封皮之内似乎只能吸入这么多东西，之后就再也装不下别的东西了。虽然我不得不牺牲这件珍贵的宝物，不过我现在有了一个远离现实世界的庇护所，每当需要藏身时都可以逃进书中。]], "_t")
 t("an escape from reality (2)", "逃避现实 (2)", "_t")
@@ -2532,17 +2532,17 @@ t([[As much as I love this castle, it really does give you a headache after a wh
 
 I sometimes wonder if I'll ever run into the people who entered this place and never left. The shifting rooms themselves aren't that difficult to understand, once you find out the patterns behind their changes. If I could work out, then surely someone else had to as well, right? I do sometimes feel as if I'm not really alone in the castle, despite being the only person who can even reach this place, not to mention the only living thing walking these halls. I haven't seen so much as a mouse since I trapped the castle within my book.
 
-I fear that I'm also starting to develop an unhealthy attachment to this place. I have not been able to have a single day of peace since I began my adventuring career, so the security these glass walls offer is becoming far too alluring to me.]], [[尽管我很喜欢这座城堡，不过这座城堡确实有不少让人头疼的特性。每当我想要装饰房间或整理内部的任何东西时，我都必然会发现那个房间已经到了完全不同的区域。虽然现在我已经可以比较便捷地在这个城堡里导航了，不过在我想要找到某个特定房间的时候，这一点还是非常烦人。
+I fear that I'm also starting to develop an unhealthy attachment to this place. I have not been able to have a single day of peace since I began my adventuring career, so the security these glass walls offer is becoming far too alluring to me.]], [[尽管我很喜欢这座城堡，不过这座城堡确实有不少让人头疼的特性。每当我想要装饰房间或整理内部的任何东西时，我都必然会发现那个房间已经到了完全不同的区域。虽然现在我已经可以比较顺利地在这座城堡里找路了，不过在我想要找到某个特定房间的时候，这一点还是非常烦人。
 
 有时我会想，也许我会遇到那些进入这个地方，再也没有出去的人呢？通过钻研那些房间变化的模式，理解这些移动的房间并不是那么困难。既然我能够猜透，那么肯定也有其他人能够解决，对吧？有时候我甚至会觉得，自己并非独自在城堡里，尽管我是唯一能到达这里的人，更不用说还是唯一在这些大厅里行走的生物。自从我把城堡困在我的书中以后，我连只老鼠都没见到。
 
-我担心，我对这个地方开始产生了一种不健康的依赖感。自从我开始冒险事业以来，我一直无法度过一天的安宁，所以这些安全的玻璃墙对我来说显得非常诱人。]], "_t")
+我担心，我对这个地方开始产生了一种不健康的依赖感。自从我开始冒险事业以来，我就没过上一天安宁日子，所以这些安全的玻璃墙对我来说显得非常诱人。]], "_t")
 t("an escape from reality (3)", "逃避现实 (3)", "_t")
 t([[I knew it. I'm not alone in here. While I was right that I'm the only living thing, this castle does have its own guardians and servitors. Animated golems made of glass wander the halls now, searching for me. My fortress is no longer mine and there is no safety to be found within these walls. I knew that I could never truly find somewhere I could be safe, not in this book or in the outside world. I do not know where these golems came from. Perhaps the castle itself is trying to expel me from it or maybe I triggered some defence by wandering into the wrong room.
 
-My treasure is stored somewhere in this castle, but I just don't care anymore. Escaping with my life will be treasure enough. When I reach the outside world again, maybe I'll drop the tome in a river and hope that no one else tries their luck with this place. I'm sure the spirits that haunt this place will rest easier knowing that there won't be any more victims.]], [[我就知道是这样，我在这里并不孤单。虽然我确实是这里唯一的生物，但是这座城堡确实有自己的守卫和仆人。玻璃制成的傀儡现在正在大厅中漫游，不断搜寻着我的踪迹。我的城堡不再属于我了，在这些墙壁之内也无处安全。我早就知道，无论是在这本书里还是在外面的世界，我永远都找不到真正安全的地方。我不知道这些傀儡从何而来。也许是城堡本身正试图把我驱逐出去，也可能是我误入某个房间，触发了某种防御。
+My treasure is stored somewhere in this castle, but I just don't care anymore. Escaping with my life will be treasure enough. When I reach the outside world again, maybe I'll drop the tome in a river and hope that no one else tries their luck with this place. I'm sure the spirits that haunt this place will rest easier knowing that there won't be any more victims.]], [[我就知道是这样，我在这里并不孤单。虽然我确实是这里唯一的生物，但是这座城堡确实有自己的守卫和仆人。玻璃制成的傀儡现在正在大厅中漫游，不断搜寻着我的踪迹。我的城堡不再属于我了，这些墙壁之内也没有安全的地方。我早就知道，无论是在这本书里还是在外面的世界，我永远都找不到真正安全的地方。我不知道这些傀儡从何而来。也许是城堡本身正试图把我驱逐出去，也可能是我误入某个房间，触发了某种防御。
 
-我的宝藏还保存在城堡里的某个地方，但现在我已经不在乎了。能活着逃出去就是最好的宝藏。当我再次回到外面的世界，也许会把这本书扔进河里，希望不再有人来这里碰运气。我确信，得知不会再有受害者后，萦绕此地的鬼魂也会更得安息。]], "_t")
+我的宝藏还保存在城堡里的某个地方，但现在我已经不在乎了。能活着逃出去就是最好的宝藏。当我再次回到外面的世界，也许会把这本书扔进河里，希望不再有人来这里碰运气。我确信，得知不会再有受害者后，萦绕此地的鬼魂也会安息得更踏实。]], "_t")
 t("Forbidden Tome: \"A View From The Gallery\"", "禁忌之书：《画廊一瞥》", "_t")
 t("An illustrated tome!", "这是一本有插图的书！", "_t")
 t("Forbidden Tome: \"The Illusory Castle\"", "禁忌之书：《虚幻城堡》", "_t")

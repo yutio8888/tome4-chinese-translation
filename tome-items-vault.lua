@@ -12,7 +12,7 @@ t("Adds access to the items vault (donator feature). The items vault will let yo
 ------------------------------------------------
 section "tome-items-vault/overload/data/chats/items-vault-command-orb-offline.lua"
 
-t("Transfering this item will place a level %d requirement on it, since it has no requirements. ", "由于该物品没有等级限制，传输这个物品会给其施加%d的等级限制。", "tformat")
+t("Transfering this item will place a level %d requirement on it, since it has no requirements. ", "由于该物品没有等级限制，传输这个物品后，其等级要求将变为 %d 级。", "tformat")
 t("Some properties of the item will be lost upon transfer, since they are class- or talent-specific. ", "某些物品属性将会在传输的时候丢失，因为它们是部分职业/技能限定的。", "_t")
 t([[*#LIGHT_GREEN#This orb seems to be some kind of interface to an extra-dimentional vault of items.
 All your characters in alternate universes will be able to access it from here.
@@ -37,7 +37,7 @@ t("[Leave the orb alone]", "[离开水晶球]", "_t")
 ------------------------------------------------
 section "tome-items-vault/overload/data/chats/items-vault-command-orb.lua"
 
-t("Transfering this item will place a level %d requirement on it, since it has no requirements. ", "由于该物品没有等级限制，传输这个物品会给其施加%d的等级限制。", "tformat")
+t("Transfering this item will place a level %d requirement on it, since it has no requirements. ", "由于该物品没有等级限制，传输这个物品后，其等级要求将变为 %d 级。", "tformat")
 t("Some properties of the item will be lost upon transfer, since they are class- or talent-specific. ", "某些物品属性将会在传输的时候丢失，因为它们是部分职业/技能限定的。", "_t")
 t([[*#LIGHT_GREEN#This orb seems to be some kind of interface to an extra-dimentional vault of items.
 All your characters in alternate universes will be able to access it from here.
@@ -49,7 +49,7 @@ I, DarkGod, the maker of this game want to personaly thank all donators because 
 只有经过验证的游戏版本中的物品才能上载。#WHITE#*
 
 #GOLD#捐赠者特权#ANCIENT_WHITE#: 物品保存在服务器上，只有捐赠者有权使用此功能，同时存储的物品数量取决于您的慷慨程度。
-我，DarkGod，这个游戏的制作人，想要亲自感谢所有的捐赠者，是你们让这个游戏继续下去。谢谢，好好享受!]], "_t")
+我，DarkGod，这个游戏的制作人，想要亲自感谢所有的捐赠者，是你们让这个游戏继续下去。谢谢，祝你玩得愉快！]], "_t")
 t("\
 #CRIMSON#Note for Steam Players#ANCIENT_WHITE#: This feature requires you to have registered a profile & bound it to steam (automatic if you register ingame) because it needs to store things on the server.\
 Until you do so you will get an error.", "\
