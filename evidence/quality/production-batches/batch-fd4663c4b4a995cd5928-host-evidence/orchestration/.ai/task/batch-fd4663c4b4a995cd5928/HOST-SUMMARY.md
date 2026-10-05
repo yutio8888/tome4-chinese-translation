@@ -1,0 +1,3 @@
+第402批：冻结80条（Orcs 63 条、Cults 17 条；为 2026-10-05 重新复审迁移 87fb6882 排入的 successor），逐条核验80/80：DLC 按本批公开源码文件SHA核验、来源仓库和commit未固定。surface 2组（gpt-6.1-sol）8 个 child：Cults 5/4/4/4、Orcs 16/16/16/15，74 OK、6 ISSUE；各 child 只读自身 envelope 与契约。contextual 2 个 run（Opus 5.5）6 条 deep，首轮通过：3 OK、3 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决9个观察：{'advisory': 3, 'confirmed': 6}；预计76条完成、4条待修复。新增 4 条修复 revision：d2614f771f 诸神“motivated by things just as petty”译成“容易冲动”；e02657942b burnt foliage 译成“燃烧的树叶”，同句丢了 crashing；2152118952 the last century 译成“这个世纪以来”；bb15e6ad6e 漏译氏族名 Krimbul。建议 3（2 个条目）：ca3a3a00c9 not known for making tools 语气略重（surface）；c20e6fec16 毁灭号名被打断处与全名语序一致，可多保留“穿”字（surface、contextual 各一行，两者关于“天空无对应”的说法不成立）。宿主空白预扫发现 1 处，记为宿主补充（不计）：7eb1dc011b 夏·图尔祭司开场旁白多一个 \n（LF 2→1，C 档前已存在）。修复窗口66积压为15，未达20。
