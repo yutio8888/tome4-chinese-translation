@@ -1,0 +1,20 @@
+已完成第 2 轮单条修复。
+
+修改文件：[mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:16925)
+
+- 修改前：`面向大海，对于……额，德雷德菲……`
+- 修改后：`奔向大海，去……，还有恐惧王……`
+- 该条其余文字及换行未变。
+- 未修改术语库、`args_order`、其他记录、`.ai/task` 或 evidence。
+
+验证结果：
+
+- LuaJIT 加载当前及 baseline 四文件：8/8 成功。
+- 相对 baseline 的 target 变动：`14 + 2 + 5 + 4 = 25` 条。
+- 25 条均仅改变 `target`，记录数量及其他字段不变。
+- 指定旧片段命中 0 次，新片段命中 1 次。
+- `git diff --check`：通过。
+- `python3 -B tools/i18n lint --strict`：通过，检查 30,308 条译文，0 errors、0 warnings。
+- 一次辅助 `jq` 汇总命令因括号语法错误未执行；修正后重跑通过，不涉及译文或验证数据问题。
+
+未 stage、commit、push，也未创建 agent。

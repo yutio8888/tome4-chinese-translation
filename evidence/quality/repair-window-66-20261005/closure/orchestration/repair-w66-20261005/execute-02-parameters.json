@@ -1,0 +1,18 @@
+{
+  "title": "W66 execute-02",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w66-20261005 第 1 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w66-20261005/SPEC.md、SCOPE.json、WORKSET.json 与 ADJUDICATION-R0.json。只按 ADJUDICATION-R0 中 1 条 confirmed 修改 target：d2614f771f（tome-cults.lua，诸神前言）“在包括安格列文在内的诸多知识圣地”→“在包括安格利文在内的诸多知识圣地”，该条其余文字不变。其他条目及文件其他记录不动；不改术语库、args_order。可更新 evidence/quality/repair-window-66-20261005/ 下的修复证据。禁止从 /、/workspace 或无关目录搜索。运行有界验证：LuaJIT 加载四个译文文件，相对 .ai/task/repair-w66-20261005/baseline 仍恰 25 条 target 变动且本轮只改上述一条；git diff --check；python3 -B tools/i18n lint --strict。回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w66-20261005",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-02",
+    "paseo.parent-agent-id": "090a2265-4d10-43a2-89ab-bba423828d6d"
+  },
+  "notifyOnFinish": true
+}

@@ -1,0 +1,29 @@
+{
+  "dispatches": [
+    {
+      "dispatch_id": "publication-01",
+      "status": "PASS",
+      "tool_calls": 11,
+      "native_calls_sha256": "f6468e041912f7b7e16975be59b6cc518dc366728f833184ba8bfe5e152c585d",
+      "writes": [
+        "evidence/quality/repair-window-66-20261005/orchestration/* (189 pack files, SHA verified)",
+        "evidence/quality/repair-window-66-20261005/orchestration-pack-manifest.json",
+        "evidence/quality/repair-window-66-20261005/publication/* (23 attachments)",
+        "evidence/quality/repair-window-66-20261005/PUBLICATION.md",
+        "evidence/production-review-v2-lite/catalog/* and i18n/quality/production-review-v2-lite/* (exact copies)",
+        "evidence/production-review-v2-lite/migrations/defcd152….json (exact copy)",
+        "handoff.md"
+      ],
+      "notes": [
+        "handoff: replaced by the host-prepared HANDOFF-NEXT.md after checking the base SHA-256; host reviewed the git diff of handoff.md",
+        "native tool scan: 11 calls, 0 flagged",
+        "host ran harvest and archive-intent by hand: wd_exec_done does not accept the non-numeric dispatch id (same as windows 54-65)",
+        "docs/README.md carries another session uncommitted edit; untouched and never staged",
+        "host corrected one stage label in PUBLICATION.md after the child finished (REVIEW r2a1 -> RE_REVIEW r2a1); the wrong label came from the host scope template, and the packed PUBLICATION-SCOPE.md copy keeps it because pack files are frozen"
+      ],
+      "no_stage_commit_push": true,
+      "no_ai_writes": true,
+      "manually_reviewed": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+已完成第 1 轮修复，仅修改 [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:2158) 中 revision `d2614f771f…`：
+
+- 修改前：`在包括安格列文在内的诸多知识圣地`
+- 修改后：`在包括安格利文在内的诸多知识圣地`
+- 该条其余文字及所有非 target 字段未变。
+
+验证结果：
+
+- LuaJIT 加载 baseline 与当前四个译文文件：通过。
+- 相对 baseline 恰有 25 条 target 变动：`mod-tome.lua 14 / ashes 2 / cults 5 / orcs 4`。
+- 本轮仅上述一处短语替换：通过编辑前 SHA-256 重建核验。
+- `git diff --check`：通过，退出码 0。
+- `python3 -B tools/i18n lint --strict`：通过，30,308 条译文，0 errors、0 warnings。
+
+未修改 `.ai/task`、术语库、`args_order` 或修复证据；未 stage、commit、push，也未创建 agent。无计划偏差或未解决问题。

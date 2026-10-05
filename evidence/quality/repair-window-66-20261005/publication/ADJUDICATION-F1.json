@@ -1,0 +1,20 @@
+{
+ "cycle": 1,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f1a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 24,
+ "raw_issue_count": 1,
+ "decision": "1 confirmed tier-1 terminology/fidelity finding; FINAL failed. One EXECUTOR fix (execute-03), then RE_REVIEW(2,1) and FINAL_REVIEW(2,2).",
+ "findings": [
+  {
+   "revision_key": "ea567581080129e9fea76f50d9db62fede16b0e4f85f08fe1d965acfd216683a",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "terminology",
+   "origin": "reviewer f1a2",
+   "reason": "固定 commit 624a673 game/modules/tome/data/lore/last-hope.lua:172 起《苍白之王（下）》末尾残缺羊皮纸：“Now, to the sea, to l... ... ew, and Dreadfe... ... oble king.” 中 Dreadfe... 是 Dreadfell 的残片，terminology/places.tsv:22 Dreadfell＝恐惧王座（全库 17 处），现译音译为“德雷德菲……”（全库仅此一处），切断了与恐惧王座的关联；“... ew,”是被截断的词尾残片，现译成语气词“额，”属误译，并丢了 and。修复（整句对照）：“面向大海，对于……额，德雷德菲……”→“奔向大海，去……，还有恐惧王……”，即该句改为“现在，奔向大海，去……，还有恐惧王……高贵的国王。”（恐惧王座的残片对应 Dreadfe...，to l... 作“去……”）。本条在本窗口只改了换行，此为既有问题，但 v2 FINAL 有 ISSUE 必须再走 RE_REVIEW，故一并修复。"
+  }
+ ],
+ "advisories": []
+}

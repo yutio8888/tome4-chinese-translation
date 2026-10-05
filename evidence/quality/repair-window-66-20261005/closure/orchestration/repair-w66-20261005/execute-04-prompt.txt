@@ -1,0 +1,5 @@
+你是 Paseo EXECUTOR，任务 repair-w66-20261005 第 3 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w66-20261005/SPEC.md、SCOPE.json、WORKSET.json 与 ADJUDICATION-R2.json。只按 ADJUDICATION-R2 中 3 条 confirmed 修改 target，各条其余文字（含换行）不变：
+1. 201a4359ec（tome-ashes-urhrok.lua，demon.lua 克里尔·费扬雕像便条）“也只有在那时我使用了这个咒语，使暴民们的生命全部枯萎，并将它们转移到克里尔·费扬体内。”→“直到那时我才动用它，一举令暴民们全部枯萎，并将他们的生命强行注入克里尔·费扬体内。”
+2. a4ad61026b（tome-ashes-urhrok.lua，demon.lua 轨道基地战况便条，非恶搞变体）“主要防御力量被击退，应急部队遭受严重损失。计划完全失败。”→“主要防御部队被击退，第二支队伍伤亡惨重。一切都完了。”
+3. bb15e6ad6e（tome-orcs.lua，metash.lua 致谢）“曾无数次直面灭族危机，”→“曾无数次直面几乎注定的死亡，”
+其他条目及文件其他记录不动；不改术语库、args_order。可更新 evidence/quality/repair-window-66-20261005/ 下的修复证据。禁止从 /、/workspace 或无关目录搜索。运行有界验证：LuaJIT 加载四个译文文件，相对 .ai/task/repair-w66-20261005/baseline 仍恰 25 条 target 变动且本轮只改上述三条；git diff --check；python3 -B tools/i18n lint --strict。回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。

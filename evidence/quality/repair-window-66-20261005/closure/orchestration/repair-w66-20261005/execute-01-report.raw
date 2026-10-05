@@ -1,0 +1,46 @@
+已完成 repair-w66-20261005，共精确替换 25 个 target：
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua)：14 条  
+  `0eb305a353e1d3b60888ab11f9ce72d923ed8ff14d93a2b8f34bf19d6cb607e3`  
+  `48267a1ec3569a224cc2cd4814a96d84982dc2b1a34ed24b896b616727f218d6`  
+  `520cfc1133e8756497cb19d7d0f707a6e8f9c4a300d46356bb1d6f0bd93a72ec`  
+  `66551a698767e8280fc10a8a61f738d7e50fd314ddd99c5cf220f33a869281ba`  
+  `75061b0aa752535cbe764bfa8edd6f81b994ffa33b7fe1355e180fcb2e6d3f32`  
+  `7b6cdae17595f5e6dbdaad0943c74afb7cc6e31e1c5a7f8ecbf8e2aa565d4758`  
+  `9be1dc5a72da6b86145e5fc521eb94837e8730c2f2f3990f197dd64b94e798a9`  
+  `a32121c7fdffeb000f4634832a6108cf0e8d695d701d895722ff1208ab3a5a7f`  
+  `a6af085c458cfb8b7cd3dfeece7932283265b8b76e51bb625c396c72a8da260d`  
+  `d15beb86fb20898202b98da109d372921ddd07a7ef3dbacac07ffe06ed7c329c`  
+  `d7bd95ff106e9c9bc5975e31b91b5b8bec2492294526697be4a1eec3369ef96b`  
+  `e69406df8f8cf1cb707818eed7ce45b4759b1da39598d6f45bb01547ac37ad64`  
+  `ea567581080129e9fea76f50d9db62fede16b0e4f85f08fe1d965acfd216683a`  
+  `f901245fbaef3549eba82f7b1068a771bacb26a4d7485633b7d88f373ceb5e2a`
+
+- [tome-ashes-urhrok.lua](/workspace/tome4-chinese-translation/tome-ashes-urhrok.lua)：2 条  
+  `201a4359ecaa658001e80ac1f08f2c0690a0045082ecab98482ebd6f295b0e14`  
+  `a4ad61026b7ca1ba10908db3ed7207ad7f4611ca7a09af5c8cc4c7350adf6b3b`
+
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua)：5 条  
+  `1f7428b354dc7e4cc836a6df60bcba60bba40bb00ad757bfc3695e6185eeb07a`  
+  `939927d658c9444d9203ed0cffd80977c3145220bf6df483a1d36e661b75fe99`  
+  `99451be05d9a01ab49e9f21c1cb0081b67e16dbdbc1acccbb630f80a40597bcc`  
+  `d2614f771fd185fee71a37ee5ee89f2f4beeaffd6a95f2d3d6ca07cffae8a893`  
+  `e02657942ba5df4779dc0c3dd6488b1bcb71211b4b280a4f1e94455c5030baa0`
+
+- [tome-orcs.lua](/workspace/tome4-chinese-translation/tome-orcs.lua)：4 条  
+  `21521189525d61124b4850bc016700e3a1c74437cd0652cda346d92046b10acb`  
+  `7eb1dc011b7de7b5529cbc72f95df40f2d9ccf1df5e403c573fe413d392b26f2`  
+  `bb15e6ad6ea81fc1611910790096ec25e49a2ed16214d0829b56ffdbf615640f`  
+  `f01b17c6a1335e27af2729076228ae4a73e14f5e24a0ada381d4a4baa4a2b7e5`
+
+验证结果：
+
+- LuaJIT 加载 baseline 与当前四文件：通过。
+- 相对 baseline 恰好 25 个 target 变化，分布为 `14/2/5/4`：通过。
+- 25 个结果均逐字等于对应 `new_target`：通过。
+- source、source_tag、section、args_order、special 及其他语义记录不变：通过。
+- 文件字节仅包含指定的 25 次 target 替换：通过。
+- `python3 -B tools/i18n lint --strict`：通过，30,308 条，0 errors、0 warnings。
+- `git diff --check`：通过。
+- 未修改术语库、`.ai/task` 或 evidence；未 stage、commit、push，也未创建 agent。
+- 无未解决问题或计划偏差。自定义对比首次误将换行导致的加载器 `line` 定位变化视为内容变化；排除该纯定位元数据后复验通过。

@@ -1,0 +1,152 @@
+{
+  "dispatch_id": "f1a2",
+  "native_session": "ae3fa71c-9c8e-4dc1-b87d-72c6b3e2cf41",
+  "native_path": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/ae3fa71c-9c8e-4dc1-b87d-72c6b3e2cf41.jsonl",
+  "native_sha256": "365a7dc0aa4da07d9ce0fcd3c0bb75328744a5af547c6b4f12eb271a1817bd9d",
+  "tool_calls": [
+    {
+      "type": "tool_use",
+      "id": "toolu_01JsJNMjMgiLK34Vo4U86c33",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/repair-w66-20261005/CONTEXTUAL-ENVELOPE-f1a2.json; cat .ai/task/repair-w66-20261005/CONTEXTUAL-ENVELOPE-f1a2.json | head -c 30000",
+        "description": "Read the frozen review envelope"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01NcfSmEMnPkxSXgsZmCtDe4",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w66-20261005/CONTEXTUAL-ENVELOPE-f1a2.json'))\np=d['payload']\nprint(list(d.keys()),list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nprint(len(p['bounded_context']))\n\"; grep -n '^## \\|^### ' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Inspect envelope structure and contract headings"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01CCqRjj64RKWNVZYa84X3zC",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract section 6 and 7"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_012JYNfy7459YJk4osZfn6Ny",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w66-20261005/CONTEXTUAL-ENVELOPE-f1a2.json'))\np=d['payload']\nbc={}\nfor b in p['bounded_context']:\n  c=json.loads(b['context']) if isinstance(b['context'],str) else b['context']\n  bc.setdefault(b.get('revision_key'),[]).append(c)\nprint(list(p['bounded_context'][0].keys()))\nfor i,t in enumerate(p['translation_snapshot']):\n  print('=====',i,t['revision_key'][:8])\n  for c in bc.get(t['revision_key'],[]):\n    print('FILE',c.get('file'),c.get('line'),c.get('section'),'ADJ',json.dumps(c.get('adjacent_translations'),ensure_ascii=False)[:400], 'SRC', c.get('source_evidence',{}).get('component'), [ (e.get('path'),e.get('start_line')) for e in c.get('source_evidence',{}).get('excerpts',[])][:2], [k for k in c if k not in ('adjacent_translations','file','line','section','source_evidence')])\n  print('S:',t['source']); print('T:',t['target'])\n\" > /tmp/w66f1a2.txt; wc -c /tmp/w66f1a2.txt",
+        "description": "Dump entries with context summary"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01VFLw1JQzcKrtFY3KQyWVUH",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n 1,60p /tmp/w66f1a2.txt | cut -c1-6000",
+        "description": "Read first entries"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01P4RFD4dsjoNhShYse5xQie",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n 60,140p /tmp/w66f1a2.txt | cut -c1-8000",
+        "description": "Continue reading entries"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01S5Rpg1JcMbT437vqVPMd4Q",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n 140,230p /tmp/w66f1a2.txt | cut -c1-8000",
+        "description": "Continue reading entries"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_018kjTQ2bKX91wTVmWxDE6tm",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n 230,330p /tmp/w66f1a2.txt | cut -c1-8000",
+        "description": "Continue reading entries"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01WPQppwaFhJy4WcmGRWVuG4",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n 330,420p /tmp/w66f1a2.txt | cut -c1-8000",
+        "description": "Continue reading entries"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01Kui1nZwwcSHcLd32i5bTYq",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n 420,520p /tmp/w66f1a2.txt | cut -c1-8000",
+        "description": "Continue reading remaining entries"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_017dFh9uLgREUG99omc6sSg6",
+      "name": "Bash",
+      "input": {
+        "command": "sed -n 520,600p /tmp/w66f1a2.txt | cut -c1-8000",
+        "description": "Read final entries"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    },
+    {
+      "type": "tool_use",
+      "id": "toolu_01JobXrEH8fX8qnmb5bw8nne",
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json;d=json.load(open('.ai/task/repair-w66-20261005/CONTEXTUAL-ENVELOPE-f1a2.json'))\np=d['payload'];t=json.loads(p['terminology_snapshot'])\nprint(len(t['records']))\nfor r in t['records']:\n  s=r['record'].split('\\t')\n  if any(k.lower() in s[0].lower() for k in ['branzir','kroshk','dreadfell','southspar','varil','reknor','wintertide','allure','return','crypt','kryl','highfin','ziguranth','conclave','nargol']): print(r['record'])\nfor i,x in enumerate(p['translation_snapshot']):\n  s,tg=x['source'],x['target']\n  print(i, s.count('\\n'),tg.count('\\n'), s.count('\\t'),tg.count('\\t'), s.count('%s'),tg.count('%s'), s.count('#{'),tg.count('#{'), s.count('[i]'),tg.count('[i]'))\n\"",
+        "description": "Check terms and structural invariants"
+      },
+      "caller": {
+        "type": "direct"
+      }
+    }
+  ]
+}
