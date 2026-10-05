@@ -5952,13 +5952,13 @@ This Fortress is equipped with an exploratory farportal, and now has enough ener
 Beware that the return portal may not be nearby your arrival point; you will need to find it. You can use the rod of recall to try to force an emergency recall, but it has high chances of breaking the exploratory farportal forever.
 You may use the farportal; however, beware - I sense a strange presence in the farportal room.]], [[很久以前，夏·图尔使用远行传送门不仅是为了前往已知地点，还会用它探索世界的未知区域，甚至其他世界。
 这座堡垒配备了一座探索用远行传送门，现在已有足够能量进行一次传送。每次传送都会把你送往宇宙中的随机区域，并消耗 45 点能量。
-注意，返回传送门可能不在抵达点附近，你需要自行寻找。紧急情况下，你可以用回归之杖强制返回，但这很可能会永久损坏探索用远行传送门。
+注意，返回传送门可能不在抵达点附近，你需要自行寻找。你可以用回归之杖尝试紧急强制返回，但这很可能会永久损坏探索用远行传送门。
 你现在可以使用这座远行传送门；不过要小心——我感觉传送门房间里有某种异常存在。]], "_t")
 t("I will check it out, thanks.", "我会去检查一下的，谢谢。", "_t")
 t([[The rod of recall you possess is not a Sher'tul artifact, but it is based on Sher'tul design.
 The Fortress now has enough energy to upgrade it. It can be changed to recall you to the Fortress.]], [[你所拥有的回归之杖并非夏·图尔造物，但它采用了夏·图尔的设计。
 堡垒现在有足够的能量来升级它。升级后，它便能将你传送回堡垒。]], "_t")
-t("I like it the way it is now. Thanks anyway.", "我喜欢保持原样，不过还是谢谢了。", "_t")
+t("I like it the way it is now. Thanks anyway.", "我喜欢它现在的样子，不过还是谢谢了。", "_t")
 t("That could be quite useful. Yes, please do it.", "这很有用。好，就这么办。", "_t")
 t([[Yes master, a training facility is available to the north, but it is not yet powered on.
 I will need to use 50 energy to do this.]], [[是的，主人。北面有一处训练设施，但尚未通电。
@@ -5998,7 +5998,7 @@ t([[#{italic}#As you open the door you stare in amazement at what is beyond. A c
 
 But your wonder is cut short as the Sher'Tul notices you, and you feel its intense concentration bear down on you like an unstoppable force. A voice in your head booms, #{normal}#%s#{italic}#
 
-A wave of mental and magical power blasts into you with the might of a falling star. You are lifted into the air, and intense pressure bears down on every inch of your skin, threatening to crush you into nothingness. You try to resist for a moment, until--#{normal}#]], [[#{italic}#打开门后，你惊讶地凝视着门后的景象。一个生物站在你面前，长着触手般的细长附肢，头部位置只有一个低矮的隆起。它身上散发出极其强烈的力量气息，是你前所未感受过的。它只能是一个夏·图尔。一个活生生的夏·图尔！
+A wave of mental and magical power blasts into you with the might of a falling star. You are lifted into the air, and intense pressure bears down on every inch of your skin, threatening to crush you into nothingness. You try to resist for a moment, until--#{normal}#]], [[#{italic}#打开门后，你惊讶地凝视着门后的景象。一个生物站在你面前，长着触手般的细长附肢，头部位置只有一个低矮的隆起。它身上散发出极其强烈的力量气息，是你从未感受过的。它只能是一个夏·图尔。一个活生生的夏·图尔！
 
 然而，你的惊叹很快被打断：那个夏·图尔注意到了你，你感到它高度集中的意念如不可阻挡的力量般压向你。一个声音在你脑海中轰然响起：#{normal}#%s#{italic}#
 
@@ -6030,7 +6030,7 @@ A shadow appears in a corner of the room! You retract the rod immediately but th
 It looks like the horrors you fought when coming inside, only less degenerated.
 The thing looks roughly humanoid, but it has no head and its limbs look like tentacles. It does not seem hostile.#WHITE#*]], [[*#LIGHT_GREEN#当你将回归之杖靠近水晶球时，水晶球似乎振动起来，并有了反应。
 房间的一角出现了一个影子！你立刻抽回回归之杖，但那个影子仍然留在那里。
-它看起来很像你进来时战斗过的恐魔，只是退化程度较轻。
+它看起来很像你进来时对抗过的恐魔，只是退化程度较轻。
 那东西大致呈人形，却没有头，四肢也如触手一般。它似乎并无敌意。#WHITE#*]], "_t")
 
 ------------------------------------------------
@@ -6103,7 +6103,7 @@ Recently, that water dragon that sent you here started sending "agents" to secur
 t("You do not sound mad to me... could Ukllmswwik have lied?", "听上去你不像是个疯子，难道乌克勒姆斯维奇说谎了么？", "_t")
 t("I will not be deceived by your lies! I will make your pay for your victims!", "我不会被你的谎言蒙骗！我要让你为那些受害者付出代价！", "_t")
 t("As you wish. It did not have to come to this...", "如你所愿吧，本来不至于如此……", "_t")
-t("Use this portal. It will bring you back to his cave; ask him the truth.", "使用这个传送门，可以把你传送回他的洞穴，去问他事情的真相吧。", "_t")
+t("Use this portal. It will bring you back to his cave; ask him the truth.", "使用这个传送门吧，它会把你传送回他的洞穴，去问他事情的真相吧。", "_t")
 t("I will make him pay for his treachery.", "我会让他为自己的背叛付出代价。", "_t")
 t("Thank you for listening to me.", "谢谢你听我说完。", "_t")
 t("The dragon was lying, I can feel it. I have decided to embrace your cause.", "那头巨龙在说谎，我能看出来。我决定支持你的事业。", "_t")
@@ -6135,7 +6135,7 @@ You feel you the gentle warmth of your Distant Sun patron. It speaks directly to
 #YELLOW#你做得很好，%s！你理应得到奖赏！#LAST#
 <<<你感觉脑海中充满了暖意，以及侍奉主上的欲望。>>>
 #YELLOW#但你还必须完成一项任务！#LAST#
-<<<你脑海里的温暖变得剧烈，过于剧烈。你感觉你的理智快要燃烧殆尽！>>>
+<<<你脑海里的暖意越来越强烈，强烈得过了头。你感觉你的理智快要燃烧殆尽！>>>
 #YELLOW#纵身投入传送门！打开道路，让我的力量照耀你的世界！#CRIMSON#照做！#LAST#
 <<<最后那句话有着不可抗拒的力量。你无法反抗！>>>
 ]], "tformat")
@@ -6153,8 +6153,8 @@ t("#LIGHT_GREEN#[In a last incredible display of willpower you fight the Distant
 t([[<<<Through your mind Aeryn sees what the Distant Sun is planning.>>>
 You were a precious ally and a friend. The world will remember your last act of selfless sacrifice. I swear it.
 <<<As she says this she pierces your body with a mighty thrust of her sword, ending the plans of your mad patron.>>>
-]], [[<<<通过你的精神力量，艾琳明白了遥远太阳的计划。>>>
-你是一位珍贵的盟友，也是一位朋友。我发誓，整个世界都会铭记你最后这次无私的牺牲。
+]], [[<<<艾琳通过你的意识看到了遥远太阳的计划。>>>
+你是一位值得珍视的盟友，也是一位朋友。我发誓，整个世界都会铭记你最后这次无私的牺牲。
 <<<说着，她猛然一剑刺穿你的身体，终结了你那疯狂主上的计划。>>>
 ]], "_t")
 t("#LIGHT_GREEN#[slip peacefully into death.]", "#LIGHT_GREEN#[平静地走向死亡。]", "_t")
@@ -6220,7 +6220,7 @@ t([[#LIGHT_GREEN#*The two Sorcerers lie dead before you.*#WHITE#
 You have won the game!
 Both Maj'Eyal and the Far East are safe from the dark schemes of the Sorcerers and their God.]], [[#LIGHT_GREEN#*两名巫师死在你面前。*#WHITE#
 #LIGHT_GREEN#*他们的尸体化成了一缕青烟消失了。*#WHITE#
-你赢得了这个游戏！
+你赢了这场游戏！
 马基·埃亚尔和远东大陆都摆脱了两名巫师及其神明的黑暗阴谋。]], "_t")
 t("Aeryn, are you well?", "艾琳，你还好么？", "_t")
 t("[leave]", "[离开]", "_t")
@@ -6247,7 +6247,7 @@ t("And 'He' would be...?", "那他是……？", "_t")
 t([[The Creator. The God who made this world, He who watched silently as the races fought and burnt the land.
 He who felt great sorrow for this world. He who shall now shatter the barriers of this world to remake it, only better!
 The staff has allowed us to drain enough energy from this world to open the portal to the Void and summon Him through!
-It is already too late. He is coming through as we speak -- it is only a matter of hours!]], [[造物主，创造这个世界的神。他默默注视着各个种族争战不休，将大地付之一炬。
+It is already too late. He is coming through as we speak -- it is only a matter of hours!]], [[造物主，创造这个世界的神。他默默注视着各个种族争战不休、将大地付之一炬。
 他为这个世界深感悲痛。如今他将击碎这个世界的屏障，将它重塑得更加美好！
 这根法杖让我们得以从这个世界抽取足够的能量，打开通往虚空的传送门并召唤他降临！
 已经太迟了。就在我们说话的此刻，他正在穿过传送门——只需几个小时！]], "_t")
@@ -6271,30 +6271,30 @@ section "mod-tome/data/chats/tannen.lua"
 t("#LIGHT_GREEN#*Nobody answers.*#WHITE#", "#LIGHT_GREEN#*没人回答。*#WHITE#", "_t")
 t("[leave]", "[离开]", "_t")
 t("#LIGHT_GREEN#*Nobody answers. Tannen is probably still busy studying the orb.*#WHITE#", "#LIGHT_GREEN#*没人回答，泰恩估计还在忙着研究多元水晶球。*#WHITE#", "_t")
-t("How may I be of service, good @playerdescriptor.race@?", "我能为你提供什么服务？我亲爱的 @playerdescriptor.race@？", "_t")
+t("How may I be of service, good @playerdescriptor.race@?", "我能为你提供什么服务，我亲爱的 @playerdescriptor.race@？", "_t")
 t("[Relate to him the story of the staff and the Orb of Many Ways and the portals.]", "[告诉他关于法杖、多元水晶球和传送门的事。]", "_t")
 t("I have the diamond and the athame. [Hand over the Athame and Diamond]", "我有共鸣钻石和血符仪式匕首。[把血符仪式匕首和共鸣钻石交给他]", "_t")
 t("Thieving, murderous wretch. Prepare to die!", "窃贼，卑鄙的凶手，准备去死吧！", "_t")
-t("How fares your research? Are we ready to create the portal?", "你研究的怎么样了？我们可以创造传送门了么？", "_t")
+t("How fares your research? Are we ready to create the portal?", "你研究得怎么样了？我们可以创造传送门了么？", "_t")
 t("Nothing, excuse me. Bye!", "没事，抱歉打扰了，再见！", "_t")
 t("Astonishing! I have heard tell of this Orb in ancient texts and legends. Might I see it?", "真令人惊讶！我在古代的文献和传说中读到过关于多元水晶球的资料。能让我看看么？", "_t")
 t("[Show him the Orb of Many Ways]", "[给他看多元水晶球]", "_t")
-t("Truly, it is the work of a great master. Perhaps Linaniil herself had a hand in its making. And you say you come bearing instructions in its usage?", "确实，这是一位杰出伟人的杰作。也许莱娜尼尔她自己也曾经参与过建造。你说你带来了它的使用说明？", "_t")
+t("Truly, it is the work of a great master. Perhaps Linaniil herself had a hand in its making. And you say you come bearing instructions in its usage?", "确实，这是一位大师的杰作。也许莱娜尼尔本人也曾参与制作。你说你带来了它的使用说明？", "_t")
 t("I do. [Show him Zemekkys's scribbled notes]", "是的。[给他看泽梅基斯潦草的笔记]", "_t")
 t("#LIGHT_GREEN#*He spends a few minutes reading*#WHITE# Ah! I see. I did not at first grasp this Zemekkys's methods, but I see now that they are sound, and it is simply his penmanship that needs improvement. We can manage to reproduce his work here, but, as he says, we will need the Blood-Runed Athame and a Resonating Diamond.", "#LIGHT_GREEN#*他花了几分钟阅读笔记*#WHITE# 啊！我明白了。一开始我没看懂泽梅基斯的方法，现在看来方法本身没有问题，只是他的字迹需要改进。我们可以在这里重现他的成果，不过，正如他所说，我们需要一把血符仪式匕首和一块共鸣钻石。", "_t")
 t("Have you any idea where they might be found?", "你知道去哪里寻找这两样东西么？", "_t")
 t("If the orcs created a portal in the depths of Reknor, they must have had access to such items. And if these items cannot pass through the portal they created, then it stands to reason that they must still be in Maj'Eyal. I would search Reknor, starting near the portal itself. Perhaps they did not move the Athame and Diamond far after its creation.", "假如兽人在瑞库纳深处制造了这样一个传送门，他们肯定拥有这两样东西。如果这些物品无法穿过他们制造的传送门，那么它们理应还在马基·埃亚尔。我会从传送门附近开始搜寻瑞库纳；或许造好传送门后，他们并没有把仪式匕首和共鸣钻石搬得太远。", "_t")
 t("I'll get searching. Thank you.", "我会去寻找的，谢谢你。", "_t")
-t("One last thing. I will need to hold onto the Orb of Many Ways while you search. I lack the expertise this Chronomancer Zemekkys possesses, and have much learning on the subject to do if I am to follow in his footsteps.", "最后一件事，在你搜寻期间，我得暂时保管多元水晶球并加以研究。我缺少时空法师泽梅基斯所拥有的专业知识，如果我要重复他的工作我必须得花些时间研究这些内容。", "_t")
+t("One last thing. I will need to hold onto the Orb of Many Ways while you search. I lack the expertise this Chronomancer Zemekkys possesses, and have much learning on the subject to do if I am to follow in his footsteps.", "最后一件事，在你搜寻期间，我得暂时保管多元水晶球并加以研究。我缺少时空法师泽梅基斯所拥有的专业知识，要想重现他的成果，就必须在这方面多加学习。", "_t")
 t("[Hand him the Orb] ", "[把多元水晶球交给他] ", "_t")
 t("I still require the Orb for now.", "我现在还需要多元水晶球。", "_t")
 t("Thank you. I will treat it with the utmost care.", "谢谢，我一定会极其小心地保管它。", "_t")
 t("Farewell. I'll return with the Athame and Diamond.", "再见，我会把血符仪式匕首和共鸣钻石带回来的。", "_t")
-t("Very well. There is no hurry. But I will need to spend a number of days studying it before we can create your portal.", "好极了，不用着急。要创造你需要的传送门我还得花上几天来学习一下呢。", "_t")
+t("Very well. There is no hurry. But I will need to spend a number of days studying it before we can create your portal.", "好极了，不用着急。不过，要创造你需要的传送门，我还得先花上几天研究它。", "_t")
 t("I understand. I'll return with the Athame and Diamond.", "我明白了，我会把血符仪式匕首和共鸣钻石带回来的。", "_t")
-t("Excellent. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields,\" return with it and your odds of surviving our portal attempt will go up drastically.", "很好，几天后你回来，我肯定把一切都准备好了。哦，带上这个。#LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖尔塔人封印的地方。要是你在废墟之中找到一份标题是《反转与复原概率场》的文献，请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
+t("Excellent. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields,\" return with it and your odds of surviving our portal attempt will go up drastically.", "很好，几天后再来吧，到时候我会把一切都准备好。哦，带上这个。#LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖尔塔人封印的地方。要是你在废墟之中找到一份标题是《反转与复原概率场》的文献，请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
 t("Thank you, and farewell.", "谢谢，再见。", "_t")
-t("Excellent. Are you yet willing to leave the Orb in my care for a time?", "太好了，那你同意把多元水晶球留给我研究一段时间了？", "_t")
+t("Excellent. Are you yet willing to leave the Orb in my care for a time?", "太好了，那你同意把多元水晶球交给我保管一段时间了？", "_t")
 t("I dare not let it out of my sight. I'm sorry.", "我可不希望它离开我的视线，抱歉。", "_t")
 t("Here it is. Guard it carefully. I must return to the Far East soon.", "给你，小心保护好。我必须得返回远东大陆了。", "_t")
 t("#LIGHT_GREEN#*The old man sighs*#WHITE# Very well. I suppose I must make do with a cursory examination under your supervision.", "#LIGHT_GREEN#*那个老人叹了口气。*#WHITE# 好吧，那我只好在你的监督下对它做个粗略检查了。", "_t")
@@ -6303,7 +6303,7 @@ t("Thank you. Give me a few minutes. #LIGHT_GREEN#*He begins to pace back and fo
 t("[Wait]", "[等待]", "_t")
 t("#LIGHT_GREEN#*He stops pacing and returns the Orb to you.*#WHITE# I believe I know most of what I need to. But I need a few details cleared up. You'll have to return to this Elven Chronomancer and ask him whether he meant an inverted probabilistic field or a reverted probabilistic field. I dare not guess, as the result could be quite unpleasant for you.", "#LIGHT_GREEN#*他停下踱步，把多元水晶球交还给你。*#WHITE# 我想我知道大多数我需要的东西，不过一些细节内容还得搞搞清楚。你得回去找那个精灵时空法师，问问他到底指的是反转概率场还是复原概率场。我可不敢瞎猜，否则后果可能会非常糟糕。", "_t")
 t("I'll return with the answer.", "我会回去寻找答案的。", "_t")
-t("Fear not. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields\", return with it and your odds of surviving our portal attempt will go up drastically.", "别害怕，几天后你回来，我肯定把一切都准备好了。哦，带上这个。#LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖尔塔人封印的地方。要是你在废墟之中找到一份标题是《反转与复原概率场》的文献，请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
+t("Fear not. Return in a few days, and I'll have everything prepared. Oh, take this. #LIGHT_GREEN#*He hands you a key*#WHITE# It opens the ruins of Telmur, which the men of Sholtar sealed many years ago. If you happen to find a text in the ruins entitled \"Inverted and Reverted Probabilistic Fields\", return with it and your odds of surviving our portal attempt will go up drastically.", "别害怕，几天后再来吧，到时候我会把一切都准备好。哦，带上这个。#LIGHT_GREEN#*他交给你一把钥匙。*#WHITE#它可以打开泰尔玛废墟，那是多年前肖尔塔人封印的地方。要是你在废墟之中找到一份标题是《反转与复原概率场》的文献，请帮我带回来，这能大大提高你通过传送门时存活的几率。", "_t")
 t([[I think not, fool. Look down.
 #LIGHT_GREEN#*You notice you're standing on an etched portal.*#WHITE#]], [[我可不这么想，笨蛋，低头看看。
 #LIGHT_GREEN#*你注意到你正站在一个铭文传送门上。*#WHITE#]], "_t")
@@ -6321,17 +6321,17 @@ t([[Yes @playername@, I have heard you plan on going into the wild world, lookin
 This is good, more of us should get out of here once in a while and actually help people out there.
 Say, maybe you might want to get an adventure and help Angolwen?]], [[是的，@playername@，我听说你计划到野外，去寻求冒险。
 这样很好，我们中应该有更多人偶尔走出这里，真正帮助外面的人们。
-这么说，也许你会想进行一场冒险，来帮助安格利文？]], "_t")
+对了，也许你愿意去冒险，帮帮安格利文？]], "_t")
 t("Perhaps, what do you need?", "也许吧，你想要什么？", "_t")
 t([[During the Spellblaze the world was torn apart - literally. A part of it, that we now call the Abashed Expanse, was ripped from the world and thrown into the void between the stars.
 We managed to stabilize it and it is now orbiting Eyal. Recently we have noticed a disturbance there; if we do nothing it will crash onto Eyal, bringing much destruction in its wake.
 Because it was once part of a land we know well we can teleport you there. You will need to stabilize three wormholes by firing any attack spells at them.
 The instability is also to your advantage there, your simple phase door spell will be fully controllable.
 
-So, you think you can help us ?]], [[魔法大爆炸从字面意义上撕裂了这个世界。其中一部分，我们称它为次元浮岛，从这个世界分离了出去，落入了群星之中的无尽虚空。
+So, you think you can help us ?]], [[魔法大爆炸实实在在地撕裂了这个世界。其中一部分，我们称它为次元浮岛，从这个世界分离了出去，落入了群星之中的无尽虚空。
 我们设法让它稳定了下来，如今它正环绕埃亚尔运行。最近我们在那儿也注意到一些骚动，如果我们任其发展它会撞向埃亚尔造成极大的灾难。
 由于我们以前对那块大陆比较熟悉，我们可以将你传送至那里，你需要向三个不稳定的虫洞施放任意攻击法术使它们稳定下来。
-虽然那里的时空很不稳定，它同时也能给你带来好处，你的相位之门法术在那里可以变得完全受你控制。
+那里的不稳定也对你有利，你的相位之门法术在那里可以完全受你控制。
 
 那么，你认为你可以帮助我们么？]], "_t")
 t("Yes Archmage, send me there!", "是的大法师，把我送去那里！", "_t")
@@ -6346,10 +6346,10 @@ section "mod-tome/data/chats/tarelion.lua"
 
 t([[I say, you there. Yes, you, young one!
 You seem like the adventuring fare, up to all sorts of doo-daddle in the outside world, I imagine. Well, don't forget to pay patronage to our good library here in the city. The riches of the world are all well and good, but where would we be without the gift of knowledge? And all proceeds go towards the funding of further research. No greater cause, yes?]], [[我说，那边那个，对对，就是你，年轻人！
-你看上去像一个冒险者之类的，想必在外面的世界里也做过不少稀奇古怪的事。好吧，别忘了为这个城里最好的图书馆捐点钱。世间的财富固然很好，但若没有知识的馈赠，我们又会怎样？所有募集的资金都会直接用于进一步研究。没有比这更崇高的理由了，对吧？]], "_t")
+你看上去像个冒险者，想必在外面的世界里也做过不少稀奇古怪的事。好吧，别忘了为这个城里最好的图书馆捐点钱。世间的财富固然很好，但若没有知识的馈赠，我们又会怎样？所有募集的资金都会直接用于进一步研究。没有比这更崇高的事业了，对吧？]], "_t")
 t("Uh, yes, of course... I'll be moving on now.", "啊，是的，当然……我得继续赶路了。", "_t")
 t("Hold on! You... You're that apprentice mage I met in the wilds!", "打住！你……你不就是那个荒野之中的法师学徒么？", "_t")
-t("Why, well-spotted, whippersnapper! Indeed, when the mood takes me I sometimes travel under the guise of an apprentice. It permits me to traverse the land unnoticed in my research, and if I meet any I deem worthy and sympathetic to Angolwen's cause, then so much the better. And it does provide the odd chortle, I tell you!", "眼力不错嘛，小家伙！的确我有时会心血来潮假扮成一个学徒到处旅行，这样在我的研修旅行中就不会引人注意。如果我遇到值得信赖、且认同安格利文事业的人，那就更好了。而且我告诉你，这偶尔也确实让我觉得好笑！", "_t")
+t("Why, well-spotted, whippersnapper! Indeed, when the mood takes me I sometimes travel under the guise of an apprentice. It permits me to traverse the land unnoticed in my research, and if I meet any I deem worthy and sympathetic to Angolwen's cause, then so much the better. And it does provide the odd chortle, I tell you!", "眼力不错嘛，小家伙！的确，我有时会心血来潮，假扮成一个学徒到处旅行，这样就能在研修途中不引人注意。如果我遇到值得信赖、且认同安格利文事业的人，那就更好了。而且我告诉你，这偶尔也确实让我觉得好笑！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/temporal-rift-end.lua"
@@ -6358,7 +6358,7 @@ t([[#LIGHT_GREEN#*A tall man, glowing like a star, appears out of nowhere.*#WHIT
 You destroyed *it* both? I am sorry for my harsh tone when we first met, but repairing time threads is stressful.
 I cannot stay. I still have much to do. But take this-- it should help you.
 #LIGHT_GREEN#*He disappears again before you can even reply. A rift opens, to Maj'Eyal... you hope.*#WHITE#]], [[#LIGHT_GREEN#*一个高大的男人，全身像星星一样闪耀着光芒，在你面前出现了。*#WHITE#
-你把它们都摧毁了？真抱歉我们刚见面时候我对你有点刻薄，不过修复时间线是件压力很大的事。
+你把它们都摧毁了？真抱歉，初次见面时我对你有点刻薄，不过修复时间线是件压力很大的事。
 我不能留在这里，我还有很多事情要做。带上这个，它也许会对你有帮助。
 #LIGHT_GREEN#*你刚想回答，他就又消失了。面前出现一道时空裂缝，希望是通往马基·埃亚尔的……*#WHITE#]], "_t")
 t("Ok...", "好吧……", "_t")
@@ -6373,7 +6373,7 @@ Do not meddle in the affairs of Time, for it passes swiftly and is easily disrup
 #LIGHT_GREEN#*He looks at you more closely.*#WHITE#
 You seem capable. Help me, fight the abominations while I repair the timeline. It is your only way out!]], [[#LIGHT_GREEN#*一个高大的男人，全身像星星一样闪耀着光芒，在你面前出现了。*#WHITE#
 噢，不，又来了一个“冒险家”！你不该插手超出你理解范围的事物！
-不要搅进有关时间的事物里，时间流逝非常快，而且很容易被搅乱！
+不要干预时间，时间流逝非常快，而且很容易被搅乱！
 #LIGHT_GREEN#*他更仔细地端详着你。*#WHITE#
 你看上去很强，帮帮我，在我修理时间线的时候帮我干掉那些憎恶，只有这样你才能离开这里！]], "_t")
 t("But what is all th...", "但是这一切到底是……", "_t")
@@ -6429,7 +6429,7 @@ Press #GOLD#Escape#WHITE#, then select #GOLD#Save and Exit#WHITE#, and create a 
 
 你已经完成了所有的教程，现在你对ToME4的基本情况应该有所了解了。你现在已经准备好去世界中寻找荣耀和财富，然后被一大群你以为自己能应付的怪物无情地屠杀！
 
-在教学过程中，一些怪物为了教学目的被相应地做过修改，不过在真实的埃亚尔世界中，怪物可不会这么简单！
+在教学过程中，一些怪物根据教学需要做了调整，不过在严酷的埃亚尔世界中，怪物可不会这么好对付！
 
 要是你想看看你的按键设置细节，你可以按下#GOLD#Esc 键#WHITE#进入游戏菜单检查按键绑定，你可以更改设置直到你满意为止。
 
@@ -6461,14 +6461,14 @@ After all, it would be an act of mercy to end his madness.]], [[等下！你看�
 纳鲁精灵种族灭亡了……至少世界上的人都这么认为。事实上他们之中的一些人使用秘藏的古代夏·图尔魔法存活了下来，并改变自身以适应水下生活。
 他们现在被称为娜迦，他们生活在马基·埃亚尔和远东大陆之间的海洋深处。
 他们中的一个，萨拉苏尔，背叛了自己所属的组织，妄图独占水上和水下的整个世界。他发现了一座古老神庙，可能是夏·图尔的遗迹，名为造物者神庙。
-他相信可以利用它来#{italic}#进化#{normal}#娜迦。
+他相信可以利用它让娜迦#{italic}#进化#{normal}#。
 但是他陷入了疯狂，把一切水下智慧生物都视为对他的威胁，包括我自己。
 我不能离开这个圣所，但是也许你能帮我结果了他？
 毕竟，终结他的疯狂也算是一种仁慈。]], "_t")
 t("I would still rather kill you and take your treasure!", "我还是要杀了你，夺取你的财宝！", "_t")
 t("I shall do as you say, but how do I find him?", "我会照着你的话去做，但是去哪儿找他呢？", "_t")
 t("That seems... unwise. My apologies, but I must refuse.", "这似乎不是明智之举，很抱歉，我必须拒绝。", "_t")
-t("I can open a portal to his lair, far away in the western sea, but be warned: this is one-way only. I cannot bring you back. You will have to find your own way.", "我可以为你打开一道传送门，抵达他在西部海洋的巢穴，不过我提醒你：传送是单程的，我没法带你回来，你必须自己去想办法找到返回的路。", "_t")
+t("I can open a portal to his lair, far away in the western sea, but be warned: this is one-way only. I cannot bring you back. You will have to find your own way.", "我可以为你打开一道传送门，通往他远在西部海洋的巢穴，不过我提醒你：传送是单程的，我没法带你回来，你必须自己想办法找到回去的路。", "_t")
 t("I will.", "好的。", "_t")
 t("This is a death trap! Goodbye.", "这是个死亡陷阱！再见。", "_t")
 t("Yes?", "嗯？", "_t")
@@ -6491,9 +6491,9 @@ section "mod-tome/data/chats/undead-start-game.lua"
 
 t([[#LIGHT_GREEN#*Before you stands a Human clothed in black robes. He seems to be ignoring you.*#WHITE#
 #LIGHT_GREEN#*You stand inside some kind of summoning circle, which prevents you from moving.*#WHITE#
-Oh yes! YES, one more for my collection. My collection, yes. A powerful one indeed!]], [[#LIGHT_GREEN#*在你面前站着一个穿着黑色长袍的人类，他目前似乎无视了你。*#WHITE#
+Oh yes! YES, one more for my collection. My collection, yes. A powerful one indeed!]], [[#LIGHT_GREEN#*在你面前站着一个穿着黑色长袍的人类，他似乎没在理会你。*#WHITE#
 #LIGHT_GREEN#*你站在一个召唤法阵里，没法移动。*#WHITE#
-啊，对！好！又一件我的收藏品，没错，的确是很强力的一个！]], "_t")
+啊，对！好！我的收藏又多了一件。我的收藏品，没错，的确是很强力的一件！]], "_t")
 t("[listen]", "[听他说话]", "_t")
 t([[A powerful tool against my enemies. Yes, yes. They all hate me, but I will show them my power!
 I will show them! SHOW THEM!]], [[一个对抗敌人的强力工具，对，没错，他们都仇恨我，我要让他们尝尝我的厉害！
@@ -6518,7 +6518,7 @@ t("No!", "不行！", "_t")
 t([[But, but, you were my... you...
 You need me! What do you think you will do on the surface? Everything you will meet will try to destroy you.
 You are strong but you cannot resist them all!]], [[但……但……你是我的……你……
-你还需要我！你想你到外面会怎么样？所有你见到的东西都会想摧毁你。
+你还需要我！你以为自己到了外面能做什么？你遇到的一切都会试图摧毁你。
 你虽然很强，但是你不可能对抗所有人！]], "_t")
 t("So what do you propose?", "那你的建议呢？", "_t")
 t("[kill him]", "[杀了他]", "_t")
@@ -6557,7 +6557,7 @@ My companions were... were slaughtered by orcs, and I nearly died as well. Thank
 我的伙伴们…都被兽人杀死了，我也差点丧命，再次感谢你的帮助。]], "_t")
 t("It was my pleasure. But may I ask a favor myself? I am not from these lands. I used a farportal guarded by orcs deep below the Iron Throne and was brought here.", "我的荣幸，不过我有个请求。我其实不是这个大陆的人。我使用了钢铁王座地下深处一座由兽人把守的远行传送门，然后就被带到了这里。", "_t")
 t([[Yes, I noticed you were not from here. Your only hope is the Gates of Morning, the last bastion of freedom in this orc territory. When you leave the caves, head southeast; you cannot miss it.
-Tell High Sun Paladin Aeryn that you met me. I'll send word to let you pass.]], [[是的，我也注意到了你不是这里的人。晨曦之门是兽人领地中仅存的自由堡垒，将是你的唯一希望。离开洞穴后往东南走；你绝不会错过它。
+Tell High Sun Paladin Aeryn that you met me. I'll send word to let you pass.]], [[是的，我也注意到了你不是这里的人。晨曦之门是兽人领地中仅存的自由堡垒，将是你的唯一希望。离开洞穴后往东南走；你一定能找到那里。
 告诉高阶太阳骑士艾琳你遇到了我，我会传信让他们放行。]], "_t")
 t("Thank you, I will talk with Aeryn.", "谢谢你，我会找艾琳谈谈的。", "_t")
 t([[Gone? Wait, this face.. you are @playername@! We thought you died in the naga portal explosion!
@@ -6611,7 +6611,7 @@ Why did you save me, stranger? You are not of the Way.]], [[#LIGHT_GREEN#*在你
 t("Well, you seemed to need help.", "你看上去似乎需要帮助。", "_t")
 t("So I could rip your throat myself!", "这样我可以亲自割破你的喉咙！", "_t")
 t([[#LIGHT_GREEN#*The greatsword floats to a less aggressive stance. He seems surprised.*#WHITE#
-Then, on behalf of the Way, I thank you.]], [[#LIGHT_GREEN#*大剑在空中变换到不那么咄咄逼人的架势。他好像很吃惊。*#WHITE#
+Then, on behalf of the Way, I thank you.]], [[#LIGHT_GREEN#*大剑在空中换了个不那么咄咄逼人的架势。他好像很吃惊。*#WHITE#
 那么，我代表维网感谢你。]], "_t")
 t("What is the Way, and what are you?", "维网是什么，你是什么种族？", "_t")
 t("The Way is enlightenment, peace and protection. I am a Yeek. I came through this tunnel to explore this part of the world that was closed to us for centuries.", "维网是启迪、和平和守护，我是一个夺心魔。我穿过隧道，希望探索这个已经与我们隔绝了数个世纪的地方。", "_t")
@@ -6653,16 +6653,16 @@ t("I am sorry, but I cannot do that.", "抱歉，我不能这么做。", "_t")
 section "mod-tome/data/chats/zemekkys.lua"
 
 t([[#LIGHT_GREEN#*A slot in the door opens and a pair of wild eyes peer out.*#WHITE#
-What do you want, @playerdescriptor.race@?]], [[#LIGHT_GREEN#*门上开了一个小洞，一副狂乱的眼睛凝视着你。*#WHITE#
+What do you want, @playerdescriptor.race@?]], [[#LIGHT_GREEN#*门上开了一个小洞，一双狂乱的眼睛凝视着你。*#WHITE#
 你想干什么，@playerdescriptor.race@？]], "_t")
 t("Paladin Aeryn told me that you could help me. I need to get to Maj'Eyal.", "太阳骑士艾琳跟我说你能帮助我，我想去马基·埃亚尔。", "_t")
 t("I found the Blood-Runed Athame, but there was no Resonating Diamond.", "我找到了血符仪式匕首，不过没找到共鸣钻石。", "_t")
 t("I have a Resonating Diamond.", "我找到了共鸣钻石。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_zemekkys")
 t([[Pfaugh! Her goal in life is to waste my time! Maj'Eyal? Why not Narnia or Chicago? Just as easy to send you someplace entirely fictional as Maj'Eyal. Go away.
-#LIGHT_GREEN#*Slot slams shut.*#WHITE#]], [[呸！她的生活目标就是在浪费我的时间！马基·埃亚尔？怎么不是纳尼亚或者芝加哥？把你送到一个完全虚构的地方，和送到马基·埃亚尔一样简单。走开。
+#LIGHT_GREEN#*Slot slams shut.*#WHITE#]], [[呸！她的生活目标就是浪费我的时间！马基·埃亚尔？怎么不是纳尼亚或者芝加哥？把你送到一个完全虚构的地方，和送到马基·埃亚尔一样简单。走开。
 #LIGHT_GREEN#*小洞呯的一声关上了。*#WHITE#]], "_t")
-t("I got here from Maj'Eyal, didn't I? I have this magic Orb I looted from a dead orc, see, and...", "我来自马基·埃亚尔，不是么，我有一个从一个兽人尸体上找到的魔法水晶球，看……", "_t")
+t("I got here from Maj'Eyal, didn't I? I have this magic Orb I looted from a dead orc, see, and...", "我来自马基·埃亚尔，不是么？我有一个从兽人尸体上找到的魔法水晶球，你看……", "_t")
 t([[#LIGHT_GREEN#*Slot opens.*#WHITE#
 Orb, you say? That you used to travel here from Maj'Eyal? Surely you don't possess the Orb of Many Ways! It's been lost for ages!]], [[#LIGHT_GREEN#*小洞打开了。*#WHITE#
 你说水晶球？你说你是从马基·埃亚尔来的？你拿到的肯定不是多元水晶球！它已经消失很多年了！]], "_t")
@@ -6677,23 +6677,23 @@ Besides, I still can't help you unless you have a Blood-Runed Athame to etch a p
 Err, and that portal must be etched on a piece of prepared Resonating Marble.
 The Gates of the Morning has a slab of Marble that once could have served, but a number of, um, incidents have taken their toll.
 It'll require a Resonating Diamond to get it properly prepared. Oh, and I want 100 gold.]], [[你认为我会让一个肮脏的 @playerdescriptor.race@ 带着多元水晶球进我家么？
-谢了，没有那东西在屋里，我已经够经常把自己炸得够呛了。
+谢了，就算屋里没有那东西，我也已经把自己炸得够呛了。
 况且，我没法帮助你，除非你搞到一把血符仪式匕首来刻画这个传送门。
-呃……要想把它准备好，传送门必须刻在一块准备好的共鸣大理石上。
+呃……传送门必须刻在一块准备好的共鸣大理石上。
 晨曦之门原本有一块这样的共鸣大理石，不过过去发生过一些……呃……事故，对它造成了损伤。
 要想妥善处理它，还需要一块共鸣钻石，哦，我还要收取 100 金币费用。]], "_t")
 t("Where can I find all that?", "我上哪儿去找那些东西？", "_t")
-t("Try your purse for the 100 gold. As for an Athame and a Resonating Diamond, I assume the orcs have some if they're cooking up portals to use that Orb on. Try the Vor Armory. It so happens that I know a back way in. Never mind why.", "100 金币嘛……你摸摸自己的钱袋就有了。至于仪式匕首和共鸣钻石，既然那些兽人正准备配合多元水晶球开启传送门，我猜他们手上就有。去沃尔军械库找找吧。碰巧我知道一条后门，别问为什么。", "_t")
+t("Try your purse for the 100 gold. As for an Athame and a Resonating Diamond, I assume the orcs have some if they're cooking up portals to use that Orb on. Try the Vor Armory. It so happens that I know a back way in. Never mind why.", "100 金币嘛……你摸摸自己的钱袋就有了。至于仪式匕首和共鸣钻石，既然那些兽人正准备配合多元水晶球开启传送门，我猜他们手上就有。去沃尔军械库找找吧。碰巧我知道一条从后面进去的路，别问为什么。", "_t")
 t("Thank you.", "谢谢。", "_t")
 t("Of course there was no Resonating Diamond. What makes you think Briagh would let one loose for even a second?", "你当然找不到共鸣钻石，你想想布莱亚怎么可能让一颗钻石溜走？", "_t")
 t("Briagh?", "布莱亚？", "_t")
-t("Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.", "布莱亚，那条巨型沙龙，要不然你认为共鸣钻石是哪里来的？它们原本只是普通的钻石，卡在布莱亚的鳞片间长达几个世纪，逐渐被灌注了生命节律。你看，它正是睡在一堆珍贵宝石和金属上呢。", "_t")
+t("Briagh the Great Sand Wyrm. Where do you think Resonating Diamonds come from? They're just regular diamonds until they get stuck between Briagh's scales for a few centuries and get infused with his life rhythms. He sleeps on a hoard of precious gems and metals, you see.", "布莱亚，那条巨型沙龙。你以为共鸣钻石是从哪里来的？它们原本只是普通的钻石，卡在布莱亚的鳞片间长达几个世纪，逐渐融入了它的生命节律。你看，它就睡在一堆珍贵宝石和金属上。", "_t")
 t("Where might I find Briagh's lair??", "布莱亚的老巢在什么地方？？", "_t")
 t("Well south of the Sunwall. I'll mark it for you on your map.", "在太阳堡垒以南很远的地方，我会在你的地图上给你做个记号。", "_t")
 t("I'll be back with a Resonating Diamond.", "我会带回共鸣钻石。", "_t")
 t("Yes? You got the Athame, the gem and 100 gold?", "怎么，你拿到仪式匕首、宝石和 100 金币了？", "_t")
 t("[Give him the gem, the athame and 100 gold]", "[把宝石、仪式匕首和 100 金币交给他]", "_t")
-t("Sorry, it seems I lack some stuff. I will be back.", "抱歉，我去拿点材料，马上回来。", "_t")
+t("Sorry, it seems I lack some stuff. I will be back.", "抱歉，我好像还缺些材料。我会再来的。", "_t")
 t([[#LIGHT_GREEN#*The door opens and a shabby Elf emerges.*#WHITE#
 Off we go to prepare the portal!]], [[#LIGHT_GREEN#*门开了，一个衣衫褴褛的精灵走了出来。*#WHITE#
 我们去准备制造传送门吧！]], "_t")
@@ -6715,7 +6715,7 @@ t("The shopkeeper spends a great deal of time going over the finer details of ch
 t("He is impressed with your mastery and shows you a few tricks to handle stronger energy flows.", "他对你的熟练程度印象深刻，并向你展示了一些驾驭更强能量流的技巧。", "logPlayer")
 t("I'm already proficient, but I want to be an expert (improves talent mastery by 0.2) - 750 gold.", "我已经熟练掌握了，但我想成为一名专家。（增加技能树系数0.2）- 750 金币。", "_t")
 t("The shopkeeper spends a great deal of time going over the finer details of channeling energy through mindstars with you%s.", "商人花了大量时间，向你讲解引导能量流经灵晶的精妙细节%s。", "tformat")
-t(", and teaches you enhanced mental discipline needed to maintain powerful energy fields", "，并传授你维持强大能量场所需的强化精神修养", "_t")
+t(", and teaches you enhanced mental discipline needed to maintain powerful energy fields", "，并传授你如何加强精神修养，以维持强大的能量场", "_t")
 t("No thanks.", "不用了，谢谢。", "_t")
 
 ------------------------------------------------
@@ -6736,7 +6736,7 @@ You will be challenged against magical foes. Should you defeat them, we will tea
 %s，我们观察了你很久，你很有潜力。
 我们看到，秘术一直是这片大地所经受的一次次磨难的根源，也看到它们终有一天会毁灭我们。因此，我们决定采取行动，借助自然之力对抗那些操纵奥术的人。
 我们可以训练你，但你必须证明自己纯洁无瑕，未受奥术力量沾染，并已准备好与之战斗到底。
-你将面对魔法敌人的挑战。若能击败他们，我们便会传授你我们的道路；从此以后，你将再也不会受魔法玷污，也无法使用魔法。
+你将面对魔法敌人的挑战。若能击败他们，我们便会传授你我们的方法；从此以后，你将再也不会受魔法玷污，也无法使用魔法。
 
 #LIGHT_RED#注：完成此任务会使该角色永久无法使用法术或由奥术之力驱动的物品。作为交换，你将解锁基于精神强度的通用技能树“反魔法”，并能解锁许多反魔法物品的隐藏属性。]], "tformat")
 t("I will face your challenge!", "我接受挑战！", "_t")
@@ -6750,7 +6750,7 @@ Worry not, though, Ogre - we can replace your unclean runes with a newly-discove
 不过别担心，食人魔——我们可以用一种新发现的复合纹身配方替换你的不洁符文，让你不再依赖这些符文。这个过程会让你感到……不适，也会大幅缩短你的寿命，但你终将摆脱奥术令人上瘾的控制！\
 ", "_t")
 t([[We'll also reinforce the infusions you've been granted to replace your runes - the newest mixture should give you about five years of your life that the initial mixture took from you.
-]], [[我们还会加强授予你的那些纹身，用来替代你的符文——最新配方能弥补最初配方从你身上夺走的约五年寿命。
+]], [[我们还会加强那些已授予你、用来替代符文的纹身——最新配方应该能弥补最初配方从你身上夺走的约五年寿命。
 ]], "_t")
 t([[Very well. Before you start, we will make sure no magic can help you:
 - You will not be able to use any spells or magical devices
@@ -6768,7 +6768,7 @@ t([[#VIOLET#*You are grabbed by two olive-clad warriors and thrown into a crude 
 %s! Your training begins! I want to see you prove your superiority over the works of magic! Fight!]], [[#VIOLET#*你被两个身着橄榄色服装的战士抓了起来，扔进了一个简陋的角斗场里！*
 #LIGHT_GREEN#*你听到斗士的声音在你头顶上方响起！*#WHITE#
 %s！你的训练开始了！我要看到你证明自己胜过魔法造物！战斗吧！]], "tformat")
-t("But wha.. [you notice your first opponent is already there]", "但什……[你注意到你的第一个对手已经出现在战场上了]", "_t")
+t("But wha.. [you notice your first opponent is already there]", "可这……[你注意到你的第一个对手已经出现在战场上了]", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/chats/zoisla.lua"
@@ -11432,7 +11432,7 @@ section "mod-tome/data/general/objects/lore/fun.lua"
 t("trollish poem", "巨魔诗歌", "entity name")
 t("A poem written by a... troll?", "一首由……巨魔？所写的诗歌", "_t")
 t("necromancer poem", "死灵法师颂", "entity name")
-t("A poem written by a... Necromancer?", "一首由……死灵法师？所写的诗歌", "_t")
+t("A poem written by a... Necromancer?", "一首诗歌，作者是……死灵法师？", "_t")
 t("rogues do it from behind", "盗贼在你身后", "entity name")
 t("A poem written for a rogue?", "一首写给某个盗贼的诗歌？", "_t")
 t("how to become a necromancer, part %d", "如何成为死灵法师，第%d章", "tformat")
@@ -11459,7 +11459,7 @@ t("An old tale about the fear of magic.", "一则关于人们畏惧魔法的古�
 t("On Adventuring", "关于冒险", "entity name")
 t("Fragments of a fabled traveler.", "一个传说中的旅行者的记录。", "_t")
 t("memories of Artelia Firstborn", "首生者亚特莱的记忆", "entity name")
-t("The memories of the first elf ever to awaken.", "传说中第一个醒来的精灵的记忆。", "_t")
+t("The memories of the first elf ever to awaken.", "第一个醒来的精灵的记忆。", "_t")
 t("human myth of creation", "人类的创世传说", "entity name")
 t("Myth of creation of the humans.", "人类的创世传说。", "_t")
 t("a logical analysis of creation, by philosopher Smythen", "创世传说的逻辑分析，哲学家斯迈森著", "entity name")
@@ -13774,7 +13774,7 @@ Third test confirms it - the orb allows transition between portal gates. This is
 #{bold}#红帕兰的日志记录二#{normal}#
 #{italic}#厄流纪 4541年#{normal}#
 
-用活体夺心魔进行的测试并不顺利。幸好我可以把清理工作都交给技术员……四年过去了，感觉我们对这些遗迹的了解根本还没开始。我担心研究经费很快就会被削减。
+用活体夺心魔进行的测试并不顺利。幸好我可以把清理工作都交给技术员……四年过去了，感觉我们根本还没开始理解这些遗迹。我担心研究经费很快就会被削减。
 但我仍心存希望：最近发掘出的某些物品也许能成为开启传送门的某种钥匙。又或者，它们只是夏·图尔进行某种运动时用的器具？走着瞧吧。
 
 
@@ -13870,7 +13870,7 @@ Subject Z currently raving, but I believe this is due to stressful conditions, n
 试验品 Q：在第一次传送中存活，在传送回来的过程中向内爆裂。
 试验品 R：在第一次传送中死亡。
 试验品 S-T：在返回传送过程中向内爆裂。
-试验品 U：在返回传送中存活。他喃喃说了句似乎听见某个声音的话，便又跳进传送门——随后向内爆裂。真麻烦！
+试验品 U：在返回传送中存活。他喃喃说自己听见了某个声音，便又跳进传送门——随后向内爆裂。真麻烦！
 试验品 V：在传送回来的过程中死亡。
 
 试验品编号的字母快用完了，眼下试验品也已耗尽。必须等待士兵们给我提供更多的人类。
@@ -13913,15 +13913,15 @@ The military are annoying me to no end. I told them to find me more test subject
 #{bold}#红帕兰的日志记录十#{normal}#
 #{italic}#厄流纪 4550年#{normal}#
 
-我开始怀疑试验品 Z 拥有潜在的魔法力量。我曾看见他以远超我对其种族预期的速度移动，还在没有任何明显修理手段的情况下修好损坏的物品。这些都是小事，但我相信传送门可能以某种方式增强了他的基础能力。还需要更多测试。不过他依然看起来相当愚蠢。他说上一次旅程花了 3 天，而明明只过了几秒。此后他便狼吞虎咽地吃了起来。我怀疑他只是贪吃。之前我看见他盯着远行传送门看了很久，但在他造成破坏之前，我就让助手把他拉开了。
+我开始怀疑试验品 Z 拥有潜在的魔法力量。我曾看见他的移动速度远超我原以为其种族所能达到的速度，还在没有任何明显修理手段的情况下修好损坏的物品。这些都是小事，但我相信传送门可能以某种方式增强了他的基础能力。还需要更多测试。不过他依然看起来相当愚蠢。他说上一次旅程花了 3 天，而明明只过了几秒。此后他便狼吞虎咽地吃了起来。我怀疑他只是贪吃。之前我看见他盯着远行传送门看了很久，但在他造成破坏之前，我就让助手把他拉开了。
 
 
 #{bold}#红帕兰的日志记录十一#{normal}#
 #{italic}#厄流纪 4551年#{normal}#
 
-试验品 Z 消失了！真糟糕！这甚至不是发生在传送门转移期间。他看起来只是一步跨入自己的影子，然后就消失了。我的研究毁了！！再也不会有像他一样的试验品了！
+试验品 Z 消失了！真糟糕！他消失时甚至没有在通过传送门。他看起来只是一步跨入自己的影子，然后就消失了。我的研究毁了！！再也不会有像他一样的试验品了！
 
-军方真是把我烦透了。我让他们立即给我找来更多试验品，他们却用附近有敌方巡逻队这种借口推脱。他们以为我会在乎这种琐事吗？！现在我又听见他们在走廊里练习战斗。他们甚至像蠢孩子一样哼哼哈哈，故意发出战斗时的吼叫声。他们难道不知道这座设施有多重要吗？他们难道不明白自己如何打扰了我这位天才的——
+军方真是把我烦透了。我让他们立即给我找来更多试验品，他们却用附近有敌方巡逻队这种借口推脱。他们以为我会在乎这种琐事吗？！现在我又听见他们在走廊里练习战斗。他们甚至像蠢孩子一样哼哼哈哈，故意发出战斗时的吼叫声。他们难道不知道这座设施有多重要吗？他们难道不明白我这位天才是怎样被打扰的——
 ]], "_t")
 t("order for director Hompalan", "给主管红帕兰的命令", "_t")
 t([[#{italic}#To: Research Director Hompalan - #{bold}#TOP PRIORITY#{normal}#
@@ -13941,7 +13941,7 @@ I know you think yourself "above" such "petty politics" like how vital this faci
 
 你的新目标是找出办法，把一支回收小队传送进去搜集物资，然后让他们带着资料安全返回。对方可能已经想出防止传送的封禁手段；随信附上一枚钥匙，万一有必要，可以用它瞄准阻碍与入口之间的一点。我不想听你胡扯什么目标附近没有相连的传送门，所以这事“不可能”；三十年前，你会把如今每天都在做的几乎每件事都说成不可能。
 
-我知道你觉得自己“高于”这种“琐碎政治”，也就是这座设施对我们的生存有多重要之类的事，所以我就不用它对我们有多重要来烦你了。那么，我换个你能听懂的说法：这是命令，你平时那套借口不管用。你的职位可就抵在这上面了。#{bold}#把。它。做。成。#{normal}#
+我知道你自认为“超脱于”这类“琐碎政治”，比如这座设施对我们的生存有多重要，所以我就不强调它的重要性，免得让你厌烦了。那么，我换个你能听懂的说法：这是命令，你平时那套借口不管用。你的职位能不能保住，就看这件事了。#{bold}#把。它。做。成。#{normal}#
 
 ——马特勒普将军
 
@@ -13950,7 +13950,7 @@ I know you think yourself "above" such "petty politics" like how vital this faci
 t("Door to an old Conclave vault", "一座孔克雷夫古老宝库的大门", "_t")
 t("Conclave Vault", "孔克雷夫宝库", "_t")
 t("Arriving at the location given by the coordinates, you see an enormous crack in the ground; peering down, the gleam of exposed metal catches your eye, and you recognize it as a massive door.  It would seem that the Cataclysm's tectonic upheaval has carved a path right to one of its entrances, bypassing the ruined tunnels entirely. You climb down, just outside the door.", "到达坐标指定的位置后，你看见地面上裂开一道巨大缝隙；俯身望下去，裸露金属的闪光吸引了你的目光，你认出那是一扇巨大的门。看来，大灾变引发的地壳剧变直接劈出了一条通往其中一个入口的路，完全绕过了已毁的隧道。你攀爬而下，来到大门外。", "_t")
-t("healer Astelrid log 1", "孔克雷夫治疗师亚斯特莉的日志 第一部分", "_t")
+t("healer Astelrid log 1", "治疗师亚斯特莉的日志 第一部分", "_t")
 t([[Work in a hospital like this is more draining than I thought it'd be.  I thought I'd have no trouble with motivation, helping our wounded get back to health again, but seeing so many of them, and knowing there are some I cannot help...  it weighs heavily on my mind.  It would be difficult to go on, if I did not keep a few things in mind: 
 
 One, that I am truly doing the best I can to minimize the world's suffering, both directly by healing, and indirectly by ensuring that the world will be united under the wise, thoughtful rule of the Conclave.  Ready access to regeneration infusions ensures that even the most dire of wounds can be healed in a matter of days, and the soldiers can return to the battlefield; furthermore, the Overseers have granted us access to their amnesia-inducing spells, allowing us to properly treat those who have been traumatized by the horrors of battle.  May the eyes of the Higher watch over this world for thousands of years to come.
@@ -13961,18 +13961,18 @@ And three, that the war will soon be over, and with it we shall no longer have t
 
 "This is your last chance to back down.  A great tragedy will ensue if you continue to push further, and do not accept our previously-stated terms of peaceful resolution.  Do not force us to do this."
 
-After waging a war of trickery and deceit, those halflings think they can bluff us!  Once their military is broken, we can bring their citizens into our fold and enlighten them, and then the true healing can begin.]], [[在这样的医院工作，比我预想的更令人精疲力竭。我本以为，帮助伤员恢复健康定能让我始终充满动力；可看到他们有这么多，又知道有些人我无能为力……这令我心情沉重。若不是时刻记着几件事，我很难继续坚持。
+After waging a war of trickery and deceit, those halflings think they can bluff us!  Once their military is broken, we can bring their citizens into our fold and enlighten them, and then the true healing can begin.]], [[在这样的医院工作，比我预想的更令人精疲力竭。我本以为，帮助伤员恢复健康定能让我始终充满动力；可看到这么多伤员，又知道有些人我无能为力……这令我心情沉重。若不是时刻记着几件事，我很难继续坚持。
 
-第一，我确实在尽全力减少世间的痛苦：既直接治疗病痛，也间接保证世界将在孔克雷夫明智而深思熟虑的统治下归于一统。随时可用的再生纹身确保即便最严重的伤势也能在几天内治愈，让士兵重返战场；此外，长老会还授予我们使用致人失忆的法术，让我们能够妥善治疗那些被战场恐怖景象创伤的人。愿高等人类的眼睛在未来数千年间守望这个世界。
+第一，我确实在尽全力减少世间的痛苦：既直接治疗病痛，也间接保证世界将在孔克雷夫明智而深思熟虑的统治下归于一统。随时可用的再生纹身确保即便最严重的伤势也能在几天内治愈，让士兵重返战场；此外，长老会还准许我们使用致人失忆的法术，让我们能够妥善治疗那些因战场上的恐怖景象而受到心理创伤的人。愿高等人类的眼睛在未来数千年间守望这个世界。
 
-第二，长老会指派给我的那个“子计划”进展十分顺利。那些同意参加我们的试验性治疗——由英勇纹身与护盾符文的实验性变体独特组合而成——的伤者，在术后体力和耐力都有了轻微的提升，并且这一提升并不随时间消退。尽管如此，还是有一个轻微的副作用令我颇为担忧，虽然我不敢把我的疑虑告诉其他人：其中一部分志愿者已经由于在战斗中表现得过于“士气高涨”而受到了处分。长老会向我保证，这种攻击性其实整体上有助于提高部队士气，因此我可以等到战争结束后再治疗这些攻击倾向。在此期间，我为我的工作深感骄傲。虽然比起创造高等人类种族这实在只能算是微不足道的改进，然而长期而言这也将会给我们的社会带来巨大的福音。
+第二，长老会指派给我的那个“子计划”进展十分顺利。我们的试验性治疗将英勇纹身与护盾符文的实验性变体以独特方式组合使用。同意接受治疗的伤者，体力和耐力都有了轻微的提升，且尚无效果消退的迹象。尽管如此，还是有一个轻微的副作用令我颇为担忧，虽然我不敢把我的疑虑告诉其他人：其中一部分志愿者已经由于在战斗中表现得过于“士气高涨”而受到了处分。长老会向我保证，这种攻击性其实整体上有助于提高部队士气，因此我可以等到战争结束后再治疗这些攻击倾向。在此期间，我为我的工作深感骄傲。虽然这项工作不像创造高等人类种族那样光荣，但从长远来看，它将为我们的社会带来巨大的福音。
 
-第三，战争很快就会结束，我们将不必再忍受骄傲士兵们的残缺，也不必再忍受纳格尔的傲慢。最近几天，我们取得了令人瞩目的领土进展，粉碎了多次伏击，在继续深入纳格尔领土时仍保持着推进势头。当然，没人能确定我们听到的消息有多少经过长老会“润色”，但纳格尔最近的一份声明让我相信战报属实：
+第三，战争很快就会结束，我们将不必再忍受骄傲士兵们的残缺，也不必再忍受纳格尔的傲慢。最近几天，我们在领土扩张上取得了令人瞩目的成果，粉碎了多次伏击，在继续深入纳格尔领土时仍保持着推进势头。当然，没人能确定我们听到的消息有多少经过长老会“润色”，但纳格尔最近的一份声明让我相信战报属实：
 
 “这是你们退让的最后机会。如果你们继续向前推进，拒绝接受我们先前提出的和平解决条件，巨大的悲剧就会随之而来。不要逼我们这么做。”
 
 这些半身人打了一场充满阴谋与欺骗的战争，如今竟以为能吓住我们！等他们的军队被击垮，我们就能将他们的公民纳入自己的怀抱、启蒙他们，届时真正的治愈就会开始。]], "_t")
-t("healer Astelrid log 2", "孔克雷夫治疗师亚斯特莉的日志 第二部分", "_t")
+t("healer Astelrid log 2", "治疗师亚斯特莉的日志 第二部分", "_t")
 t([[The Nargol were not bluffing, and what they did was worse than anything we could've imagined.  The details coming from the survivors - of which there are both far too many and far too few - are conflicting at times, but from what I can tell...
 
 As our forces began their final push, the ground began to rumble and give way behind them, and the bones of the war's fallen (halflings and Conclave alike) began to rise up, then draw their once-discarded weapons and rush at our soldiers in a frenzy.  There were so many...  those who were on higher ground when it happened said it was like a sea of bones and rotting flesh.  Outnumbered, our forces broke ranks and tried to retreat, but with the halflings in front of them and the abominations behind them, we took tremendous losses...  and our humble medical center is overflowing with the gravely wounded.  Many come to us with a terrible sickness passed on by the Nargol's ghouls; there is no cure for this, and I have already had to "mercifully" end the lives of over a dozen men and women to save them from a long, drawn-out death, ending in their transfiguration into one of those horrid creatures...  including--
@@ -13983,14 +13983,14 @@ No...  the real horrid creatures here are the halflings.  We've seen necromancy 
 
 May the Conclave prevail, and may the Empire's fate serve as a warning to all who would defy our wisdom.]], [[纳格尔并非虚张声势，他们所做的事比我们能想象的任何情况都更糟。幸存者既多得过分，又少得过分；他们透露的细节有时互相矛盾，但依我看来……
 
-当我们的部队开始最后推进时，他们身后的地面开始震动、塌陷，战争中死去的人——无论半身人还是孔克雷夫的成员——的骨头站了起来，拿起曾被丢弃的武器，疯狂地冲向我们的士兵。它们实在太多了……当时身处高地的人说，那景象就像一片白骨与腐肉之海。我军寡不敌众，队形溃散并试图撤退，但半身人挡在前面，那些憎恶之物又追在后面，我们伤亡惨重……这座简陋的医疗中心已挤满重伤者。许多人感染了纳格尔食尸鬼传播的可怕疾病；这种病无药可救，我已不得不“仁慈地”结束十多名男女的生命，使他们免受漫长折磨后死去、并最终转化为那种可怕生物的命运……其中还包括——
+当我们的部队开始最后推进时，他们身后的地面开始震动、塌陷，战死者的骸骨——无论属于半身人还是孔克雷夫——纷纷站了起来，拿起曾被丢弃的武器，疯狂地冲向我们的士兵。它们实在太多了……当时身处高地的人说，那景象就像一片白骨与腐肉之海。我军寡不敌众，队形溃散并试图撤退，但半身人挡在前面，那些憎恶之物又追在后面，我们伤亡惨重……这座简陋的医疗中心已挤满重伤者。许多人感染了纳格尔食尸鬼传播的可怕疾病；这种病无药可救，我已不得不“仁慈地”结束十多名男女的生命，使他们免受漫长折磨后死去、并最终转化为那种可怕生物的命运……其中还包括——
 
 [上一段结尾的几行文字被狂怒地涂掉了。]
 
 不……真正可怕的生物是这些半身人。我们以前也见过死灵法术，但大都只是疯狂邪教的小把戏；我们从未想过任何大型组织会容忍它，更别说在每一名高级军官身上暗藏死灵护符。他们从战争开始就在计划这一切，直到现在才发动陷阱……我对新治疗所引发的攻击性的任何疑虑都永远消失了；要把这些恶魔从马基·埃亚尔清除干净，我们再凶猛也不为过。我已申请觐见长老会，以扩大实验范围、提高目标，好尽快粉碎这个邪恶帝国。
 
 愿孔克雷夫获胜，愿这个帝国的命运警示所有胆敢反抗我们智慧的人。]], "_t")
-t("healer Astelrid log 3", "孔克雷夫治疗师亚斯特莉的日志 第三部分", "_t")
+t("healer Astelrid log 3", "治疗师亚斯特莉的日志 第三部分", "_t")
 t([[The Overseers were ecstatic about my ideas!  Our staff have been relocated to a more secure location, deep underground with several extensive tunnels leading in from different locations.  Although this means we can no longer leave to harvest herbs for our infusions, the increased budget the Overseers have given us does more than enough to compensate.  Many wounded are still brought to me through the tunnels, but now our goal is not simply to make them as strong and healthy as they were before, but far stronger and far healthier than they could've dreamed.  They are brought to us unconscious, with amnesia spells already applied to ensure they do not resist our experiments; although they are not told they will be test subjects before being brought here, we are sure they would consent to these experiments, if they knew how valuable they were to help the Conclave.  As such, although this process violates several oaths we have taken as healers, I ultimately do not see any moral problem with this, and nobody else at this facility has expressed any concerns to me.  After all, those who join the Conclave as soldiers have already volunteered to give their lives in service to the Overseers' enlightened rule, and this is surely a much more productive way to do so than dying to a Nargol sling-bullet.
 
 With access to better components, we can make the same basic improvements to their strength as we could before, but the changes do not stop there!  With so many subjects to work with, and the Overseers' encouragement to take risks, we've made them much larger (with associated multiplying effects on their effectiveness in combat), and reinforced their constitution to be capable of bearing more inscriptions without collapsing under the stress.  A fellow researcher had the brilliant idea to use this runic affinity to both enhance their connection to magic's weave, and make them biologically and structurally dependent on it; now, our front-line soldiers can conjure devastating fireballs with little training, and should those hairy-footed vermin attempt to raise one of these soldiers from the dead, they will collapse, having lost the magic that kept them intact when they still lived.  
@@ -14002,15 +14002,15 @@ These Ogres are integrating into our military very well!  The rank-and-file sold
 For the most part, though, our research work is done.  All that's left to do is get a response from the Overseers as to whether to increase their birth rate or not (currently set very low as a precaution against future overpopulation), and improve the training we give freshly-created Ogres for runic magic, given that regular maintenance of their runes is necessary to keep them alive.  This is not to say we have idle staff, however!  Some of us have made a project for after the war ends - a modification to our experimental growth-tanks, rendering them capable of holding a person of Ogric biology indefinitely in a "sleeping" state where they do not age or starve.  We can install tanks filled with these "sleeping" Ogres stationed near bridges that may need regular maintenance, stashed in reserve armories, or any other place where you'd need a batch of dependable workers or guards, without having to incur all the other costs associated with keeping extra citizens around.
 ]], [[长老会对我的想法欣喜若狂！我们的人员已被迁往一个更安全的地方：深藏地下，几条广阔隧道分别从不同地点通往此处。这意味着我们再也无法外出采集制作纹身的草药，但长老会增加的预算足以补偿。仍有许多伤员经隧道被送到我这里，可我们如今的目标不再只是让他们恢复原有的强壮健康，而是让他们变得远比梦想中更强壮、更健康。他们被送来时都昏迷不醒，且已施过失忆法术，以确保不会抵抗实验；他们在被带到这里之前并未被告知将成为试验品，但我们确信，若是知道这些实验对孔克雷夫何等宝贵，他们定会同意。因此，这一过程虽违反了我们作为治疗师立下的几项誓言，我终究看不出它有什么道德问题，设施中的其他人也没向我表达过担忧。毕竟，加入孔克雷夫的士兵早已自愿为长老会的开明统治献出生命，而这显然比死在一枚纳格尔投石索弹丸下有用得多。
 
-有了更好的材料，我们仍能像从前一样对他们的力量作出基础改良，但变化远不止此！有这么多试验品可供研究，加上长老会鼓励我们冒险，我们让他们的体型变得大得多（作战效能也随之成倍提升），还强化了他们的体质，使其能承载更多刻印而不会被负荷压垮。一位同事想出了一个绝妙主意：利用这种符文亲和力，既强化他们与魔法织网的联系，又让他们在生物和身体结构上依赖它；如今，我们的前线士兵稍加训练就能召出毁灭性火球，而若那些毛脚害虫企图从死亡中唤起这些士兵，他们就会因失去生前维系躯体完整的魔力而崩溃。
+有了更好的材料，我们仍能像从前一样对他们的力量作出基础改良，但变化远不止此！有这么多试验品可供研究，加上长老会鼓励我们冒险，我们让他们的体型变得大得多（作战效能也随之成倍提升），还强化了他们的体质，使其能承载更多刻印而不会被负荷压垮。一位同事想出了一个绝妙主意：利用这种符文亲和力，既强化他们与魔法织网的联系，又让他们在生物和身体结构上依赖它；如今，我们的前线士兵稍加训练就能召出毁灭性火球，而若那些毛脚害虫企图让这些士兵死而复生，他们就会因失去生前维系躯体完整的魔力而崩溃。
 
 长老会还亲自与我们合作，对他们的心理作出改变；凭借失忆法术提供的空白心智，我们成功赋予他们一种既适合战争，又适合随后光荣统治的心态。他们在日常生活中无比尽职、乐于助人、追求卓越，却不贪图权力或个人荣耀，明白自己在世界中的位置，不轻易动怒……但在需要时却极其凶猛。高等人被创造为学者与政策制定者，在这一职责上的成功远超孔克雷夫最大胆的梦想；同样，这些被工作人员昵称为“食人魔”的新人种将成为我们的劳工与士兵，以辛勤劳作和尽职执法作为社会的坚实基础。当然，未经改造的各个种族仍将有一席之地；它们天生的适应力正适合填补空缺，成为将其余部分凝聚在一起的粘合剂。
 
-这些食人魔正很好地融入我们的军队！普通士兵明白，过多追问新来的巨人盟友究竟从何而来，只会引起长老会的注意；因此一旦看到这些造物投入战斗，他们很快就接纳了对方。有份报告说，一名食人魔中士活吃了一个特别嚣张的半身人；那人佯装投降后又企图施放闪电法术。这一景象既极大鼓舞了我军士气，又令那名半身人小队的残部士气崩溃、举手投降，所以我还要增强食人魔的消化能力。
+这些食人魔正很好地融入我们的军队！普通士兵明白，过多追问新来的巨人盟友究竟从何而来，只会引起长老会的注意；因此一旦看到这些造物投入战斗，他们很快就接纳了对方。有份报告说，一名食人魔中士活吃了一个特别嚣张的半身人；那人佯装投降后又企图施放闪电法术。这一景象既极大鼓舞了我军士气，又令那名半身人所在小队的残部士气崩溃、举手投降，所以我还要增强食人魔的消化能力。
 
-不过总体而言，研究工作已经完成。剩下的只是等待长老会答复是否提高食人魔的出生率（目前出于防止未来人口过剩的考虑，被设得很低），并改进新生食人魔接受的符文魔法训练，因为定期维护他们的符文是维持生命的必要条件。这并不意味着工作人员无事可做！我们中的一些人为战后准备了一个项目——改造实验用生长槽，使其能让具有食人魔生理构造的人无限期地保持在不会衰老或饥饿的“沉睡”状态。我们可以把装满这些“沉睡”食人魔的槽置于需要定期维护的桥梁附近、藏在后备军械库里，或放在其他任何需要一批可靠工人或守卫的地方，而不必承担供养额外公民的其余费用。
+不过总体而言，研究工作已经完成。剩下的只是等待长老会答复是否提高食人魔的出生率（目前出于防止未来人口过剩的考虑，被设得很低），并改进新生食人魔接受的符文魔法训练，因为定期维护他们的符文是维持生命的必要条件。这并不意味着工作人员无事可做！我们中的一些人为战后准备了一个项目——改造实验用生长槽，使其能让具有食人魔生理构造的人无限期地保持在不会衰老或饥饿的“沉睡”状态。我们可以把装满这些“沉睡”食人魔的槽置于可能需要定期维护的桥梁附近、藏在后备军械库里，或放在其他任何需要一批可靠工人或守卫的地方，而不必承担供养额外公民的其余费用。
 ]], "_t")
-t("healer Astelrid log 4", "孔克雷夫治疗师亚斯特莉的日志 第四部分", "_t")
+t("healer Astelrid log 4", "治疗师亚斯特莉的日志 第四部分", "_t")
 t([[Announcement to All Staff:
 
 I'm sure you've all heard the rumors about what our scryers saw, and why we've been on lockdown the past few days; it is with a heavy heart that I must confirm that they are true.  The Nargol have taken the land above our facility, and are combing the area with golems to find the entrances.  We've already lost one entrance to the failsafe explosive-rune traps set in place to collapse it, and now they'll be looking to defuse those as well.  In short, we have no means of escape, and if allowed the time, they will find the way in, kill us, and steal our precious work for themselves.  The Empire has been enough of a problem without Ogres; we CANNOT take the risk of them finding us and tipping the balance in their favor.
@@ -14034,7 +14034,7 @@ Healer Astelrid]], [[敬告所有工作人员：
 
 这是我的最后一道命令：我已准备好手术傀儡，让它们将食人魔刻印施加在我们身上，并已更新所有记录，使之反映我们对这些刻印的效果与效能所掌握的最新知识。我还让傀儡把所有生长槽——包括正在使用的——升级为最新的“停滞舱”设计，并且通过……处理掉一些存活希望很低的试验品，腾出了足以让我们每人使用一座的空间（我已开始后悔这一行动）。等你看到这张字条时，我本人已经接受了这一过程，正在一座被搬进我办公室的舱中冬眠。如果你不想死，就从军械库取得一件武器，然后照我做的做。陷入沉睡后，我们将不受时间摧残，并准备好迎接终有一天挖到这里并发现我们的人。希望那会是孔克雷夫的援军；若果如此，我们就放下武器，把笔记交给他们，等待后续命令。若来的不是孔克雷夫……就让他们后悔。发出比任何“禁止入内”标志都更有力的警告，然后继续沉睡。
 
-非常荣幸和你们这些杰出的人才一起工作，为这样前无古人后无来者的伟大事业奉献终生。或许我们仍然还有机会做出更多的成就，但总之，我已经对我们目前的成就感到无比自豪——也为伟大的食人魔种族将会对马基·埃亚尔带来的改变无比自豪。
+非常荣幸能和你们这些杰出的人才一起工作，也非常荣幸能为崇高的事业竭尽所能。或许我们仍有一些进展未能完成，但总的来说，我为我们取得的成就感到自豪，也为食人魔种族将为整个马基·埃亚尔作出的贡献感到自豪。
 
 孔克雷夫万岁！
 治疗师 亚斯特莉]], "_t")
@@ -14109,7 +14109,7 @@ They won't work on normal humans
 But we won't age sleeping in these ruins#{normal}#
 
 ...Everyone reacts to grief differently, I guess. #{bold}#-Churrack#{normal}#]], [[寄信人：密探楚拉克
-收件人：长老会忠诚司最高长官，不过我不知道等到我们出来的时候这个职位是谁了。
+收件人：等我们出来时担任长老会忠诚司最高长官的人。
 
 虽然我和这些治疗师一起被困在此处，但我一直在暗中探查，判断他们究竟忠于我们，还是忠于自己。这个案子比该死的洋葱还多层；亚斯特莉虽然的确违抗了一道直接命令（她公布这道命令的存在，又违反了好几道命令），但她提出的备选方案似乎仍符合我们的目标。工作人员的反应不一。大多数人因别无选择，只得不情愿地接受她的计划；但有些人似乎热情地追随她，并在排队等待接受处理时唱起了这首歌：
 
@@ -14125,7 +14125,7 @@ But we won't age sleeping in these ruins#{normal}#
 
 还有那么多没有完成，还有那么多没有体验。
 何不给自己多留一点时间？
-我们可不会在这里引颈自戮。
+我们可不会在这里引颈就戮。
 只要活下去，我们就有出路。
 
 嘿，你，曾是医师，化为食人魔，开始等待。
@@ -14166,7 +14166,7 @@ But we won't age sleeping in these ruins#{normal}#
 
 还有那么多没有完成，还有那么多没有体验。
 何不给自己多留一点时间？
-我们可不会在这里引颈自戮。
+我们可不会在这里引颈就戮。
 只要活下去，我们就有出路。
 
 嘿，你，曾是医师，化为食人魔，开始等待。
@@ -14188,7 +14188,7 @@ t([[This giant golem was constructed by the Halflings during the Pyre Wars to fi
 Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. One of its eyes seems to be missing. At over 40 feet high it towers above you.
 Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]], [[这尊巨型傀儡是由半身人在烈火战争期间为对抗兽人而建造的，但它被吞噬者加库尔击倒了。
 它的身体由大理石制成，关节由坚实的沃瑞钽制成，双眼则由最纯净的红宝石制成。它似乎缺了一只眼睛。它高逾四十英尺，高高耸立在你面前。
-有个蠢货试图重新建造它，但要完成似乎还差一只眼睛。]], "_t")
+有个蠢货试图重新建造它，但似乎还差一只眼睛才能完成。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/angolwen.lua"
@@ -14213,9 +14213,9 @@ Aye, and humility is what I teach to ye now. Know ye well that there are forces 
 
 Our mission is to help the world. Our penance is to act in secret. Old wounds remain and new threats do arise, but all must be dealt with from behind our cloak of silence. The mistrust of our ilk still lies deep in people's minds, and there are even those who hate us with a violent passion. But the world is changing, and perhaps one day we shall be accepted again in society. Until then remember well this lesson of humility, and in the open world keep ye secret, and keep ye safe.]], [[我们最聪慧的两名学生离开安格利文已有数年，他们被我们隐秘的帷幕和无声的职责所玷污。想到他们若留在我们这秘密的圈子里能有何种成就，我心头依然沉重。我只希望他们终有一日归来，并理解我们为何肩负这项庄严的使命。
 
-但我必须思考未来，我遥远的过去已有太多憾事，长期背负它们只会被压垮。我必须想到你们——这些刚开始学习我们知识的年轻学徒。我必须向你们解释我们的使命、目的与理由，让你们明白我们做的一切以及为何要做。我们在秘密中行动，试图治愈过去造成的伤害，试图建立更美好的未来。我们需要做出巨大赎罪，整个埃亚尔都永不应忘记魔法大爆炸的恐怖。
+但我必须思考未来，我遥远的过去已有太多憾事，长期背负它们只会被压垮。我必须想到你们——这些刚开始学习我们知识的年轻学徒。我必须向你们解释我们的使命、目的与理由，让你们明白我们做的一切以及为何要做。我们在秘密中行动，试图治愈过去造成的伤害，试图建立更美好的未来。我们需要付出巨大的努力来赎罪，整个埃亚尔都永不应忘记魔法大爆炸的恐怖。
 
-我对此无比了解，因为那时，身为一个年轻法师我就在现场。我听说了永恒精灵法师在夏·图尔遗迹上的实验。是的，我对他们将发掘出的力量感到无比的嫉妒。年少轻狂的我满脑子都是机遇和荣誉的诱惑，一点也不明白谨慎与小心的重要。看看吧，这样的想法带来了什么样的恶果……
+我对此无比了解，因为那时我就在现场，还是个年轻法师。我听说了永恒精灵法师在夏·图尔遗迹上的实验。是的，我对他们将发掘出的力量感到无比的嫉妒。年少轻狂的我满脑子都是机遇和荣誉的诱惑，一点也不明白谨慎与小心的重要。看看吧，这样的想法带来了什么样的恶果……
 
 两千六百次太阳轮回已从我头顶流过，可我仍无法摆脱那一天天空化为火海、大地被撕成碎片的记忆。我感受到空气中的魔力，感受到远超任何人控制的奥术能量猛然释放。我瞬间明白，永恒精灵已解开远行传送门的力量，但那股力量远超他们的预期。短短几秒间，我看见燃烧的能量洪流撕裂头顶的天空，继而化作绯红的毁灭烟柱倾泻而下。我只来得及给自己罩上护盾，却仍被严重烧伤，疤痕至今尚存。我身边无人生还。我仍记得姐姐尼拉站在我身旁时那声戛然而止的尖叫：可怕的能量剥去她的皮肤，火堆般的烈焰吞没她的身体，她的灰烬被大地的剧烈震动抛散。二十六个世纪过去了，我仍会被那声尖叫惊醒……
 
@@ -14223,11 +14223,11 @@ Our mission is to help the world. Our penance is to act in secret. Old wounds re
 
 魔法大爆炸的影响今日仍随处可见：土地扭曲，大地枯萎。黄昏纪时，情况还要糟得多。新疾病不断出现，瘟疫席卷各座城市，文明化为乌有。所有种族都接近灭绝，知识与启蒙堕入黑暗时代。封建领主和强盗团伙为剩下的少数健康土地争战，枯萎病却继续蹂躏尚存的自由人民。正是在那时，我开始秘密行动，修复世界，弥补我们行为的过错。我们默默访问破碎的土地，用力量治愈，而非毁灭。这耗费了数个世纪，但魔法大爆炸的后果终于开始减退，人们也开始重建。
 
-啊，那时我心中充满希望。可我竟愚蠢地以为事情会如此简单。埃亚尔的伤口比表面的疾病深得多。毒素深入下方，裂缝撕开了我们世界的根基。一个黑暗的风暴日，一场大灾变从东方席卷而来，大地升至天空五百里格之高。整座城市、整个种族被卷入海中，我们只能惊恐地倒吸凉气。各片大陆被生生切开，整个埃亚尔从此永远改变。那番景象，足以令最伟大的大法师也心生谦卑。
+啊，那时我心中充满希望。可我竟愚蠢地以为事情会如此简单。埃亚尔的伤口比表面的疾病深得多。毒素渗入了更深处，裂缝撕开了我们世界的根基。一个黑暗的风暴日，一场大灾变从东方席卷而来，大地升至天空五百里格之高。整座城市、整个种族被卷入海中，我们只能惊恐地倒吸凉气。各片大陆被生生切开，整个埃亚尔从此永远改变。那番景象，足以令最伟大的大法师也心生谦卑。
 
-是的，这就是为何我要让你们学习身为法师的谦卑。让你们了解在绝对的力量下你们是多么渺小。让你们了解这力量无关荣耀与自豪，它终极的破坏力只会带来痛苦与恐惧。
+是的，这就是为何我要让你们学习身为法师的谦卑。让你们了解在绝对的力量下你们是多么渺小。让你们了解这力量无关荣耀与自豪，它是毁灭一切的力量，只会带来痛苦与恐惧。
 
-我们的使命是帮助世界。我们的赎罪是在秘密中行动。旧伤仍在，新威胁又不断出现，但一切都必须在沉默的斗篷后处理。人们心中对我们同类的不信任依然根深蒂固，甚至有人狂热而暴力地憎恨我们。但世界正在改变，也许终有一日，我们会重新被社会接纳。在此之前，牢记这节谦卑之课；踏入外界时保守秘密，保护好自己。]], "_t")
+我们的使命是帮助世界。我们的赎罪是在秘密中行动。旧伤仍在，新威胁又不断出现，但一切都必须在沉默的掩护下处理。人们心中对我们同类的不信任依然根深蒂固，甚至有人狂热而暴力地憎恨我们。但世界正在改变，也许终有一日，我们会重新被社会接纳。在此之前，牢记这节谦卑之课；踏入外界时保守秘密，保护好自己。]], "_t")
 t("Lecture on the nature of magic by Archmage Tarelion", "大法师泰尔兰关于魔法本质的演讲", "_t")
 t([[#{bold}#"What is Magic?"
 #{italic}#A study by Archmage Tazimar Tarelion#{normal}#
@@ -14248,17 +14248,17 @@ Some believe that magic is inherently wrong, that the so-called twisting of the 
 ]], [[#{bold}#“魔法究竟是什么？”
 #{italic}#大法师塔兹玛·泰尔兰的研究报告#{normal}#
 
-这问题听起来多么粗俗平常，可它偏偏是我最常被问到的问题，甚至一些学识最渊博的学生也会询问。我们太常借实践、模仿和对最终效果的专注来教授魔法技艺，却不更详细地教授底层原理。正如音乐家可以快乐地弹奏竖琴，却不知声音如何由琴弦震动产生，法师也可以运用魔法，却不了解其中真正起作用的力量。我希望在这篇文章中教授魔法的本质，以及底层效应如何结出我们所能创造的一切奇妙果实。
+这问题听起来多么粗俗平常，可它偏偏是我最常被问到的问题，甚至一些学识最渊博的学生也会询问。我们教授魔法技艺时，往往让学生实践、模仿，并专注于最终效果，却没有更详细地讲解底层原理。正如音乐家可以快乐地弹奏竖琴，却不知声音如何由琴弦震动产生，法师也可以运用魔法，却不了解其中真正起作用的力量。我希望在这篇文章中教授魔法的本质，以及底层效应如何结出我们所能创造的一切奇妙果实。
 
-炼金师会告诉你这世界是由许多基本材料构成——铅、铜、铁、金等等。他们专注于将物品分解成这些基本成分，研究它们如何相互反应。但这只是世界的一面，这些成分虽然表现了物质面上世界的构成，却不能解释推动万物运动的力量与能量。火之力、冰之力、闪电之力、乃至生命之力都是真实存在的，而这些力量我们称之为埃亚尔元素。真正的大法师专注于元素之力是如何影响这个世界的，并善于操作这股力量为己所用。
+炼金师会告诉你这世界是由许多基本材料构成——铅、铜、铁、金等等。他们专注于将物品分解成这些基本成分，研究它们如何相互反应。但这只是世界的一面，这些成分虽然体现了世界的物质构成，却不能解释推动万物运动的力量与能量。火之力、冰之力、闪电之力、乃至生命之力都是真实存在的，而这些力量我们称之为埃亚尔元素。真正的大法师专注于元素之力是如何影响这个世界的，并善于操作这股力量为己所用。
 
-元素之力天然存在于世界，编织在万物周围，构成一幅无所不包的织布。它们与世界中的物质一同移动、震动与共鸣，彼此的效应互相深刻影响。所有生物都会自然地运用这些元素，但有些生物比其他生物更贴合这些丝线。通过大量训练与实践，我们自己也能更贴合这些狂野力量；如此一来，有些人就能匹敌狼的速度、熊的力量、树人的坚韧，甚至巨龙的浩大自然之力。
+元素之力天然存在于世界，编织在万物周围，构成一幅无所不包的织布。它们与世界中的物质一同移动、震动与共鸣，各自的效应又深刻地影响着彼此。所有生物都会自然地运用这些元素，但有些生物比其他生物更贴合这些丝线。通过大量训练与实践，我们自己也能更贴合这些狂野力量；如此一来，有些人就能匹敌狼的速度、熊的力量、树人的坚韧，甚至巨龙的浩大自然之力。
 
 但还有另一种获得元素之力的方式——一种更直接、虽然有人会称之为不自然的方式。很久以前，人们发现，经过大量训练后，可以集中意志，直接拨动元素丝线。这能释放巨大能量，而这些能量又可被塑造成世界中真实存在的效果。受过适当训练的人可召出火焰烟柱、闪电之箭与寒冰爆流。真正的魔法大师还能走得更远，将多种共鸣力量结合起来，创造复杂的物质效果。
 
-拨动丝线会消耗巨大，需要投入大量意志来维持。我们精通奥术之人将这种专门用于与世界元素互动的精神耐力称为“法力”。持续使用魔法就像不断举起并托住重物，最终会发现自己的能力已被耗尽。练习能让人积累更庞大的法力储备，某些符文与法术也能逐渐积累额外储备，以供需要时调用。
+拨动丝线会带来巨大的消耗，需要付出大量意志力来维持。我们精通奥术之人将这种专门用于与世界元素互动的精神耐力称为“法力”。持续使用魔法就像不断举起并托住重物，最终会发现自己的能力已被耗尽。练习能让人积累更庞大的法力储备，某些符文与法术也能逐渐积累额外储备，以供需要时调用。
 
-魔法符文和物品都被灌注了与某些元素丝线的联系。这需要经验丰富、天赋过人的附魔师进行精巧作业。最精密的魔法神器需要多年制作，以强大精神力将核心材料永久调谐到正确的元素能量。宝石尤其容易用于这种技艺，炼金师常用它们引发元素效应。
+魔法符文和物品都被赋予了与某些元素丝线的联系。这需要经验丰富、天赋过人的附魔师进行精巧作业。最精密的魔法神器需要多年制作，以强大精神力将核心材料永久调谐到正确的元素能量。宝石尤其容易用于这种技艺，炼金师常用它们引发元素效应。
 
 一些人笃信法术的存在本身就是个错误，所谓的凭某人意志扭曲元素之力只能带来可怕的后果。作为安格利文的学生，我想你们都不会认同这种说法！魔法只是自然之力的延伸，我们身为自然生物为何不能去尝试运用它？但你们要谨记魔法的存在仍是一柄双刃剑。作为工具它确实能产生极大的价值——明智地使用它。
 ]], "_t")
@@ -14274,7 +14274,7 @@ In a way, the incident lit a fire under me to pursue my studies and develop my p
 
 这并不是说生活完全没有冲突。几天前，一名伊格兰斯特工伪装成旅行炼金术师，潜入了安格利文；恐怕这是一个令人不快的首例。他用窒息粉制服守卫，并夺去周围法师的声音；要不是莱娜尼尔恰好散步经过，事情可能会变得很糟。那个人几乎没剩下什么……他藏身的树也是如此……老实说，附近的许多建筑也一样。
 
-这件事激发了我继续研究和修行自身力量的欲望，但不得不承认我对练习法杖搏击已是兴趣索然。我的剑术却是日益精进。呼，也许有天我能找个附魔师来为我的老剑附一下魔，说到底剑不就是一柄磨尖了的金属杖吗？]], "_t")
+这件事激发了我继续研究和提升自身力量的欲望，但不得不承认我对练习法杖搏击已是兴趣索然。我的剑术却是日益精进。呼，也许有天我能找个附魔师来为我的老剑附一下魔，说到底剑不就是一柄磨尖了的金属杖吗？]], "_t")
 t("Angolwen Fountain", "安格利文的喷泉", "_t")
 t([[#{italic}#(You see here a large, elaborate fountain.  A statue of Linaniil stands in the center, her arms outstretched to welcome all; around the outside of the fountain stand statues of a dwarf manipulating earthen runes, a human with a simple healer's crosier, an elf with a tall, elaborate staff, and a halfling with a scepter in one hand and a fireball hovering over the other.  The runes and the fireball are not connected to anything, and float in a fixed position in the air.  You see a carving repeating along the border of the fountain, in small print.)#{normal}#
 
@@ -14340,11 +14340,11 @@ Impossible; how could spiders have grown to such an immense size? Not only that,
 
 #{bold}#第四篇#{normal}#
 
-一层浓厚的绿色迷雾帷幕弥漫在洞穴的空气中；我不确定它是如今栖息此处的某种生物所产生的副产物，还是直接来自另一个源头。洞穴中的不同位置似乎还有奥术裂隙不断出现，但我不敢靠近；等我确保这片区域安全后，就留给我们的星月术士评估。我必须承认，我并不期待遭遇这种严重威胁的源头，然而作为太阳骑士，面对前方之物是我誓言承担的职责；即便那将成为我的末日。
+浓厚的绿色迷雾如帷幕般笼罩着洞穴；我不确定它是如今栖息此处的某种生物所产生的副产物，还是直接来自另一个源头。洞穴中的不同位置似乎还有奥术裂隙不断出现，但我不敢靠近；等我确保这片区域安全后，就留给我们的星月术士评估。我必须承认，我并不期待遭遇这种严重威胁的源头，然而作为太阳骑士，面对前方的一切是我立誓承担的职责；即便那将成为我的末日。
 
 #{bold}#第五篇#{normal}#
 
-不可能；蜘蛛怎么会长到如此巨大？不仅如此，它们的斑纹和身体特征与我以前遇到过的任何蛛形动物都不同。我遇到的第一只在初次攻击时几乎夺走我的左臂；要是我的反应再慢片刻，恐怕最糟的情况已经发生。如果晨曦之门不仅遭受兽人进攻，还要遭受这个新发现的蛛形物种攻击，我担心一切希望都将破灭。为了整个埃亚尔，我必须继续深入这座爬满蜘蛛的洞穴，摧毁这场入侵的源头。
+不可能；蜘蛛怎么会长到如此巨大？不仅如此，它们的斑纹和身体特征与我以前遇到过的任何蛛形动物都不同。我遇到的第一只在初次攻击时几乎夺走我的左臂；要是我的反应再慢片刻，恐怕最糟的情况就会发生。如果晨曦之门不仅遭受兽人进攻，还要遭受这个新发现的蛛形物种攻击，我担心一切希望都将破灭。为了整个埃亚尔，我必须继续深入这座爬满蜘蛛的洞穴，摧毁这场入侵的源头。
 ]], "_t")
 t("Rashim Journal (3)", "拉希姆的日记（3）", "_t")
 t([[#{bold}#Journal Entry VI#{normal}#
@@ -14359,21 +14359,21 @@ I have slain dozens of these arachnids, each one seemingly more difficult than t
 
 Incredible, the size of that arachnid is unimaginable; there is no doubt about it, that spider is the matriarch here. I am heavily wounded, but there is no turning back now; I must finish what I started for the sake of all those awaiting my return. If I don't make it back, whoever is now reading this journal, please make High Sun Paladin Aeryn at the Gates of Morning aware of the grave situation... and tell Melnela that I'm sorry.]], [[#{bold}#第六篇#{normal}#
 
-这花了些时间，但我的肌肉已开始适应这些蛛形生物的独特动作，并作出反应。它们的战斗方式就像拥有更高层次的思维，令它们远超低等蛛形生物的基础智力……它们有可能具有知觉吗？它们是独立行动，还是可能受一只更高等的蛛形生物操纵？愿我们祈祷这个物种并非通过蜂巢思维相连，否则这项威胁可能会比我想象的更大。
+这花了些时间，但我的肌肉已开始适应这些蛛形生物的独特动作，并作出反应。它们的战斗方式就像拥有更高层次的思维，令它们远超低等蛛形生物的基础智力……它们有可能具有知觉吗？它们是独立行动，还是可能受一只更高等的蛛形生物操纵？让我们祈祷这个物种并非通过蜂巢思维相连，否则这项威胁可能会比我想象的更大。
 
 #{bold}#第七篇#{normal}#
 
-我已经杀死数打此类蜘蛛，每只都比上一只更难对付。我并不清楚这是否是因为我的疲惫，或是它们已经熟悉适应我的动作与战技。但我不清楚这怎么可能会发生，一只小小的蜘蛛怎么可能适应一位战绩丰富的太阳骑士的战斗技巧，这很显然不合理。
-除此之外，这些蜘蛛的源头令我担心。目前为止我并没找到进入洞穴的其它入口，这意味着它们是通过其它方式来到这里。那些我早些时候找到的奥术裂缝开始令我担忧，当我想到在裂缝另一边等待着我们的可能生物时，我为我们所有人而焦心。我必须要把这些清出我的脑海；分心只会弱化我的坚定。
+我已经杀死数打此类蜘蛛，每只似乎都比上一只更难对付。我不确定是自己疲惫了，还是它们也在适应我的动作与战技。不过，我实在想不通这怎么可能：一只小小的蜘蛛怎么可能适应一位经验丰富的太阳骑士的战斗技巧，这根本不可能。
+除此之外，这些蜘蛛的源头令我担心。目前为止我并没找到进入洞穴的其它入口，这意味着它们是通过其它方式来到这里。那些我早些时候找到的奥术裂缝开始令我担忧，一想到裂缝另一边可能有什么在等待着我们，我就为所有人担忧。我必须抛开这些念头；分心只会动摇我的决心。
 
 #{bold}#第八篇#{normal}#
 
 难以置信，那只蛛形生物的体型大得难以想象；毫无疑问，那只蜘蛛就是此地的族母。我身受重伤，但现在已无法回头；为了所有等待我归来的人，我必须完成自己开始的事。如果我无法回去，无论是谁正在阅读这本日记，请将这严峻的局势告知晨曦之门的高阶太阳骑士艾琳……并告诉梅涅拉，我很抱歉。]], "_t")
 t("scrap of paper", "破纸片", "_t")
 t([[#{italic}#A few tattered scraps of paper lie on the ground, ruined from your fight with the creature carrying it.  It's almost completely illegible, but you can piece some of it together to read:#{normal}#
-"...pheromone signals effective on much Eyalite wildlife ineffective on species 'sun paladin.'  at current planetary core cooling rates, passive study would lead to great loss - next step of emigration program should be cleaning of local 'sun paladin' nest and establishment of..."]], [[#{italic}#地上有一些破烂的纸片，看来在你刚才和那个生物搏斗的时候被打碎了。纸片上的文字几乎完全无法辨认，你只能依稀拼凑出一些文字：#{normal}#
-“…对大部分埃亚尔野生生命体有效的信息素在‘太阳骑士’这种物种的身上被证明无效。在当前的行星核心冷却速率下，被动的研究会导致巨大的损失——移民计划的下一步是清理本地的“太阳骑士”巢穴并建立…”]], "_t")
-t("#{italic}#This pile of tattered paper could theoretically be assembled into something legible, but without more text to draw back on, it'd still be in a language you could never interpret.  If only you had more Spydric text to help translate this...#{normal}#", "#{italic}#原理上，从这些破烂的纸片上可以还原出某些可以理解的信息。但缺少了足够多作为参考的语料，你是永远无法理解这种语言的内容的。也许找到更多蜘蛛语的材料能够帮助你理解这些……#{normal}#", "_t")
+"...pheromone signals effective on much Eyalite wildlife ineffective on species 'sun paladin.'  at current planetary core cooling rates, passive study would lead to great loss - next step of emigration program should be cleaning of local 'sun paladin' nest and establishment of..."]], [[#{italic}#地上有一些破烂的纸片，它们在你与携带这些纸片的生物搏斗时被撕破了。纸片上的文字几乎完全无法辨认，你只能依稀拼凑出一些文字：#{normal}#
+“…对大部分埃亚尔野生生命体有效的信息素信号，对‘太阳骑士’这一物种无效。在当前的行星核心冷却速率下，被动的研究会导致巨大的损失——移民计划的下一步是清理本地的“太阳骑士”巢穴并建立…”]], "_t")
+t("#{italic}#This pile of tattered paper could theoretically be assembled into something legible, but without more text to draw back on, it'd still be in a language you could never interpret.  If only you had more Spydric text to help translate this...#{normal}#", "#{italic}#理论上，这堆破烂的纸片可以拼成可辨认的文字，但没有更多文字可供参考，你仍然无法解读这种语言。要是能找到更多蜘蛛语文本来帮助翻译这些文字就好了……#{normal}#", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/arena.lua"
@@ -14420,8 +14420,8 @@ t("blighted ruins", "荒芜废墟", "newLore category")
 t("note from the Necromancer", "死灵法师的笔记", "_t")
 t("Work on my glorious project has been delayed. This displeases me. The fools from the nearby village are starting to suspect my presence, and have begun guarding their graveyards and cemeteries closely. Whatever meagre remains I can steal away are often too rotted or insubstantial to use for my project, so I have no choice but to use them as sub-par minions instead. Perhaps they will sow enough conflict and discord so that new, fresher remains will become available...", [[我伟大的计划被耽搁了。这令我很不悦。附近村庄里的傻瓜开始怀疑我的存在，严密守卫起他们的坟地和墓园。我能偷走的少量遗骸往往腐烂得太厉害或残缺得无法用于计划，因此只得把它们制成次等仆从。或许这些仆从能制造足够多的冲突和混乱，让我得到更新鲜的遗骸……]], "_t")
 t("The cloak of deception is complete! Truly my finest work, not counting my project of course, it allows my minions to walk amongst the living without arousing their suspicions at all. Already I have taken a stroll to a nearby town alongside a ghoulish thrall, wrapped in the cloak... hah! The fools didn't even bat an eyelid! With this item, acquisition of components for my project shall be all the more simple.", "欺诈斗篷已经完成！当然不算我的计划，这确实是我最杰出的作品。它能让我的仆从行走于活人之间而不引起丝毫怀疑。我已经带着一名裹在斗篷里的食尸鬼奴仆到附近城镇散过步了……哈！那些傻瓜连眼皮都没抬一下！有了这件物品，取得计划所需的材料就简单多了。", "_t")
-t("Fate smiles upon me. What did I come across today but the body of an unfortunate %s? Unfortunate indeed, but rather fortunate for me. The body displays next to no decomposition... it shall be perfect! With this new minion and the cloak of deception, the completion of my project is all but assured. I must prepare for the ritual... my dark menagerie shall soon have a new member.", "命运向我微笑。今天我竟遇上了一具倒霉的%s的尸体。对其而言确实不幸，对我而言却相当幸运。这具尸体几乎没有腐烂……它再完美不过！有了这名新仆从和欺诈斗篷，我的计划几乎必定能够完成。我必须准备仪式……我的黑暗兽群很快就会迎来新成员。", "tformat")
-t("My masterpiece walks! It is glorious, beautiful. While it remains unfinished, it is finished enough to serve in its purpose of protecting my lair. No would-be hero will be able to defeat it, and once it is complete it will be nigh invulnerable! Now all that remains is to animate my newest minion and bend it to my will... then they'll see. They'll ALL see. What can possibly stop me now, I ask? What?!", "我的杰作走起来了！它壮丽而美妙。虽然尚未彻底完成，却已经足以履行守卫我巢穴的使命。没有哪个自诩英雄的人能够击败它；等到它完全完成，更将近乎无敌！现在只剩唤醒我最新的仆从、使其屈从于我的意志……到时他们就会明白。他们全都会明白。我倒要问，如今还有什么能阻止我？什么？！", "_t")
+t("Fate smiles upon me. What did I come across today but the body of an unfortunate %s? Unfortunate indeed, but rather fortunate for me. The body displays next to no decomposition... it shall be perfect! With this new minion and the cloak of deception, the completion of my project is all but assured. I must prepare for the ritual... my dark menagerie shall soon have a new member.", "命运向我微笑。今天我竟遇上了一具尸体，死者是个倒霉的%s。对其而言确实不幸，对我而言却相当幸运。这具尸体几乎没有腐烂……它再完美不过！有了这名新仆从和欺诈斗篷，我的计划几乎必定能够完成。我必须准备仪式……我的黑暗兽群很快就会迎来新成员。", "tformat")
+t("My masterpiece walks! It is glorious, beautiful. While it remains unfinished, it is finished enough to serve in its purpose of protecting my lair. No would-be hero will be able to defeat it, and once it is complete it will be nigh invulnerable! Now all that remains is to animate my newest minion and bend it to my will... then they'll see. They'll ALL see. What can possibly stop me now, I ask? What?!", "我的杰作走起来了！它壮丽而美妙。虽然尚未彻底完成，却已经足以履行守卫我巢穴的使命。没有哪个自诩英雄的人能够击败它；等到它彻底完成，更将近乎无敌！现在只剩唤醒我最新的仆从、使其屈从于我的意志……到时他们就会明白。他们全都会明白。我倒要问，如今还有什么能阻止我？什么？！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/daikara.lua"
@@ -14433,17 +14433,17 @@ Nothing but hatchlings so far. Honestly, if this keeps up we won't have enough d
 到目前为止只遇上了幼龙。老实说，照这样下去，我们得到的龙皮连一条龙都盖不住，更别说弥补损失了。这次我也确实不惜血本：高岚是我认识的最优秀的巡林客之一；至于苏达罗斯特……他的要价高得离谱，不过钢铁王座那群贪财的矮人还能是什么样？我得承认，自己并不了解希安。当地人说这一带没有比她更出色的龙战士，而她在战斗中确实不同凡响。现在只盼她能把操控龙族力量的本事用来找出几条龙！]], "_t")
 t([[#{bold}#Sodelost, Dwarf Rogue#{normal}#
 Can't believe I agreed to this expedition. I suppose it's because I've known Relle for a while. We've crossed paths many times at Derth's trading post. I even gave her a special rate for my services. Sentimental fool! All it's got me is boots filled with snow and a light coinpurse. I still don't understand why these Kingdom types are so enamoured with drakeskin... makes superior armour they say. Pah! If you can't handle metal armour, what business do you have even wearing armour? Leather has about as much use as a halfling tied to a... noises up ahead, must stop writing.]], [[#{bold}#矮人盗贼，苏达罗斯特#{normal}#
-真不敢相信我居然答应参加这次远征。大概是因为我和瑞丽相识已久吧。我们曾多次在德斯镇的贸易站碰面，我甚至还给她的雇佣费打了折。多愁善感的蠢货！结果只换来满靴子的雪和空瘪的钱袋。我还是不明白联合王国那些人为什么如此迷恋飞龙皮……他们说能制成上好的护甲。呸！连金属护甲都承受不了，还有什么资格穿护甲？皮革的用处就跟一个被绑在……前面有动静，得停笔了。]], "_t")
+真不敢相信我居然答应参加这次远征。大概是因为我和瑞丽相识已久吧。我们曾多次在德斯镇的贸易站碰面，我甚至还给她的雇佣费打了折。多愁善感的蠢货！结果只换来满靴子的雪和空瘪的钱袋。我还是不明白联合王国那些人为什么如此迷恋飞龙皮……他们说能制成上好的护甲。呸！连金属护甲都承受不了，还有什么资格穿护甲？皮革的用处就跟一个被绑在……的半身人差不多……前面有动静，得停笔了。]], "_t")
 t([[#{bold}#Gorran, Cornac Archer#{normal}#
 That snake. That addlepated beardling. That coin-hounding, blackhearted, stump-kneed dwarf! A scout he calls himself! The finest eyes of the Iron Throne, able to read the sign of the tavern in Last Hope from the tavern in Derth! Surely someone with such grandiose praise for his own eyesight would have spotted that cold drake waiting in ambush for us! Damnable thing, I'll be lucky if I can ever use my left arm again. I can't use my bow now ... I'm effectively dead wood to the team. I'm beginning to think that Sodelost has ulterior motives... I wouldn't put it past a dwarf to lead us up this forsaken mountain to die just so he could rifle through our pockets! I keep telling Relle, but she won't listen. The fool...]], [[#{bold}#科纳克人弓箭手，高岚#{normal}#
-那个毒蛇。那个没脑子的毛脸小子。那个追着钱跑、心肠漆黑、短腿跛脚的矮人！还自称斥候！还说自己是钢铁王座眼力最好的家伙，坐在德斯镇的酒馆里就能看清最后的希望城酒馆的招牌！如此夸耀自己视力的人，理应发现那条等着伏击我们的寒冰飞龙才对！该死的东西，我这辈子还能用左臂就算走运了。现在我拉不了弓……对队伍而言简直成了废物。我开始怀疑苏达罗斯特另有所图……矮人为了翻我们的口袋，故意把我们领上这座鬼山送死，也不是做不出来！我一再提醒瑞丽，她却听不进去。这个蠢货……]], "_t")
+那条毒蛇。那个没脑子的毛脸小子。那个追着钱跑、心肠漆黑、短腿跛脚的矮人！还自称斥候！还说自己是钢铁王座眼力最好的家伙，坐在德斯镇的酒馆里就能看清最后的希望城酒馆的招牌！如此夸耀自己视力的人，理应发现那条等着伏击我们的寒冰飞龙才对！该死的东西，我这辈子还能用左臂就算走运了。现在我拉不了弓……对队伍而言简直成了废物。我开始怀疑苏达罗斯特另有所图……矮人为了翻我们的口袋，故意把我们领上这座鬼山送死，也不是做不出来！我一再提醒瑞丽，她却听不进去。这个蠢货……]], "_t")
 t([[#{bold}#Relle, Cornac Fighter & Expedition Captain#{normal}#
 Sodelost is dead, and so is Gorran. The former by Gorran's hand, the latter by my hand. Even in these wastes I cannot abide such an act of mutiny. I was aware of Gorran's anger ever since the drake attack, but I never dreamed he would turn on Sodelost like he did. He had taken my longsword as I slept the previous night, strode up to Sodelost, unheeding of I and Xann watching him, ran him through and laughed. Simply laughed. There was nothing for it; I wrenched my sword from his hand and brought it down on his neck. The commotion seems to have stirred up a nearby drake's nest, and now I fear we don't have the strength to repel a concentrated attack. We may have to abandon this expedition.]], [[#{bold}#探险队队长，科纳克人战士瑞丽#{normal}#
 苏达罗斯特死了，高岚也死了。前者死于高岚之手，后者死于我手。即便身处这片荒野，我也不能容忍这种叛乱行为。自从飞龙袭击后，我就知道高岚心怀愤怒，却从未想到他会那样袭击苏达罗斯特。前一晚我熟睡时，他拿走了我的长剑，径直走到苏达罗斯特面前，丝毫不顾我和希安就在一旁看着，一剑将他刺穿，然后放声大笑。只是笑个不停。我别无选择，只得从他手中夺回长剑，挥剑斩向他的脖颈。这场骚乱似乎惊动了附近的飞龙巢，如今我担心我们已无力抵挡它们的集中进攻。我们或许只能放弃这次远征。]], "_t")
 t([[#{bold}#Xann, Shaloren Wyrmic#{normal}# (This entry was scrawled by an unsteady hand)
 #{italic}#impudent fools treading upon dragon's ground. slaying my dear kin just for their skin they will pay they will pay. i called the drake, told it to be cunning, avoid the dwarf's gaze. i laughed as it bit into that ranger's arm ahaahaa. they're killing each other now, simple creatures, simple soft skinned creatures. not like dragons, so perfect, symbols of power, perfection... their captain still lives, but not for long. i will bring her to you to feast.
 
-rantha i will see you soon#{normal}#]], [[#{bold}#永恒精灵龙战士，希安#{normal}#（这篇日记由一只颤抖的手潦草写成）
+rantha i will see you soon#{normal}#]], [[#{bold}#永恒精灵龙战士，希安#{normal}#（这篇日记是用颤抖的手潦草写下的）
 #{italic}#狂妄的蠢货踏上龙族的土地。只为取皮便杀害我亲爱的同族，他们会付出代价，他们会付出代价。我召来那条飞龙，叫它机灵些，避开矮人的目光。当它咬住那个巡林客的手臂时，我笑了，啊哈哈。他们现在正自相残杀，简单的生物，简单的软皮生物。不像龙，龙如此完美，是力量与完美的象征……他们的队长还活着，但活不了多久。我会把她带给你享用。
 
 兰莎，我很快就会见到你#{normal}#]], "_t")
@@ -14510,7 +14510,7 @@ t([[MINIONS: To my newest vampire: burn, foolish adventurer, burn! I bet you are
 
 To the rest of you, there will be punishment. An adventurer got down to my bedroom and surprised me. I, Myself, was hurt and almost had to use My special power. All is well now and I am as dangerous as ever, but you shall suffer for letting him get so low. The next minion I see shall be toasted with my marshmallows. Where then were the special pits of doom I organized? Where were the poisons of my wights or the diseases of my ghouls? Indeed, I should slaughter all of you, and I would, but those who were most foully remiss were already slaughtered by the adventurer. The rest of you? Beware My wrath.]], [[奴才们，致吾最新的吸血鬼：燃烧吧，愚蠢的冒险者，燃烧吧！如今汝定然后悔施放那道火焰法术了，是不是？吾将那火焰还施于汝，好好受苦吧。
 
-至于其余奴才，惩罚必不可少。一个冒险者一路闯到吾的寝室，令吾措手不及。吾，吾本人，受了伤，几乎不得不动用吾的特殊力量。如今一切无恙，吾仍像以往一样危险；但汝等放任他深入至此，必将为之受罚。吾接下来见到的仆从，将会和吾的棉花糖一起被烤熟。吾布置的特殊毁灭陷坑当时在哪里？吾的尸妖之毒在哪里？吾的食尸鬼所施疾病又在哪里？吾的确应该把汝等尽数屠杀，而且吾本会如此；可渎职最为严重的那些废物，已经被那冒险者杀掉了。至于剩下的汝等？小心吾之震怒。]], "_t")
+至于其余奴才，惩罚必不可少。一个冒险者一路闯到吾的寝室，令吾措手不及。吾，吾本人，受了伤，几乎不得不动用吾的特殊力量。如今一切无恙，吾仍像以往一样危险；但汝等放任他深入至此，必将为之受罚。吾接下来见到的仆从，将会和吾的棉花糖一起被烤熟。吾布置的特殊毁灭陷坑当时在哪里？吾的尸妖之毒在哪里？吾的食尸鬼传播的疾病又在哪里？吾的确应该把汝等尽数屠杀，而且吾本会如此；可渎职最为严重的那些废物，已经被那冒险者杀掉了。至于剩下的汝等？小心吾之震怒。]], "_t")
 t("A smudged poem chalked on a dark piece of slate", "一首写在石板上的被弄脏的诗歌", "_t")
 t([[Master of life, Master of death,
 All fall to a word
@@ -14553,9 +14553,9 @@ Need more'n a plaster
 After his attackaster...
 
 Alabaster... raster... pastor? Grr, need more brains...]], [[我爱我主
-他是真正的永生不灭
+他能长存永不灭
 行动起来势如闪电
-快的法师都看不见
+快得法师都看不见
 带来破坏震撼九天
 如你想要与之周旋
 小命不保无人可怨……
@@ -14568,9 +14568,9 @@ Death will catch thee up]], [[没有法杖能救汝
 摆脱傲慢的蒙蔽
 死亡终将追上汝]], "_t")
 t("a note about undead poetry from the Master", "领主关于不死诗歌的笔记", "_t")
-t("As an aside, I notice one of my skeletons has amused himself by writing a poem about me. Whilst my first reaction was to have his bones crunched into dust and what remained of his undead soul sent to the darkest depths of the abyss, I do now realise that there is some merit to this. Every great leader needs tales penned of his brilliant conquest. Therefore I now command you all to write more poetry in my honour, praising my amazing powers, unrivalled leadership, unconquerable strength, etc etc. Any that fail to produce works of sufficient standard shall be annihilated.", "说些题外话，今天吾发现吾的一只小骷髅正在自娱自乐地写一首关于吾的诗。吾的第一反应是将它挫骨扬灰，再把它残存的不死灵魂打入深渊最黑暗之处；但吾现在意识到，此事也有可取之处。每个伟大的领导者都需要有人书写其辉煌征服的传奇。故吾现在命令汝等多作诗歌来歌颂吾，赞美吾惊人的力量、无双的领导力、不可征服的强大，诸如此类。作品不合标准者一律消灭。", "_t")
+t("As an aside, I notice one of my skeletons has amused himself by writing a poem about me. Whilst my first reaction was to have his bones crunched into dust and what remained of his undead soul sent to the darkest depths of the abyss, I do now realise that there is some merit to this. Every great leader needs tales penned of his brilliant conquest. Therefore I now command you all to write more poetry in my honour, praising my amazing powers, unrivalled leadership, unconquerable strength, etc etc. Any that fail to produce works of sufficient standard shall be annihilated.", "说些题外话，今天吾发现吾的一只小骷髅正在自娱自乐地写一首关于吾的诗。吾的第一反应是将它挫骨扬灰，再把它残存的不死灵魂打入深渊最黑暗之处；但吾现在意识到，此事也有可取之处。每个伟大的领导者都需要有人书写其辉煌征服的传奇。故吾现在命令汝等多作诗歌来歌颂吾，赞美吾惊人的力量、无双的领导力、不可战胜的力量，诸如此类。作品不合标准者一律消灭。", "_t")
 t("slain master", "被杀的领主", "_t")
-t("A powerful staff is grabbed from the Master's dead hands.", "一根强大的法杖被从领主僵死的双手中夺走。", "_t")
+t("A powerful staff is grabbed from the Master's dead hands.", "从领主僵死的双手中夺走了一根强大的法杖。", "_t")
 t("a letter to Borfast from the Master", "领主写给波法斯特的信", "_t")
 t([[Ah, my dear Borfast, welcome to your glorious undeath! Your armour a cage, your hopes despair, your axe enslaved to my will, your soul mine to feast upon. How does it feel? Rather lovely I like to imagine! You were a valiant opponent, and though you were little threat to me I do like to honour you with this special treatment. And you do like honour, don't you? I know you wished to honour your people by defeating me and destroying my tower, but I'm sure you realise now that it was a rather vain endeavour.
 
@@ -14580,11 +14580,11 @@ I hope you enjoy your new work. Approach it with gusto, that sort of thing. I kn
 
 Until then, do enjoy the work, try to keep the place clean, and remember - I own you forever.
 
-- The Master]], [[啊，吾亲爱的波法斯特，欢迎迎接汝荣耀的不死新生！汝的护甲成了牢笼，汝的希望化作绝望，汝的斧头受吾意志奴役，汝的灵魂则归吾享用。感觉如何？想必相当美妙！汝曾是英勇的对手，虽然对吾构不成多少威胁，吾仍愿以这番特殊待遇来向汝致敬。汝的确喜欢荣誉，不是吗？吾知道汝曾想通过击败吾、摧毁吾的高塔来荣耀自己的人民；不过如今汝想必明白，那不过是徒劳之举。
+- The Master]], [[啊，吾亲爱的波法斯特，欢迎汝开始荣耀的不死新生！汝的护甲成了牢笼，汝的希望化作绝望，汝的斧头受吾意志奴役，汝的灵魂则归吾享用。感觉如何？想必相当美妙！汝曾是英勇的对手，虽然对吾构不成多少威胁，吾仍愿以这番特殊待遇来向汝致敬。汝的确喜欢荣誉，不是吗？吾知道汝曾想通过击败吾、摧毁吾的高塔来荣耀自己的人民；不过如今汝想必明白，那不过是徒劳之举。
 
-吾对那套可爱的板甲所遭遇的事深表歉意。吾知道它在处置过程中有一点……磨损……但吾实在需要查出汝同伴的下落，只得施加一定的压力。汝当时不太健谈，是不是？可吾很快就让汝开口高歌了，没错。当然，吾大可以用一点占卜魔法得到想要的答案，但吾实在太享受一场精彩的拷问了……而且，每当酸液溅上汝的胡须，汝的尖叫何等悦耳！呵，我们当时笑得很开心，不是吗？不过无妨，吾已命最优秀的骷髅铁匠修好汝的护甲，让吾的新勇士穿上它。
+吾对那套可爱的板甲所遭遇的事深表歉意。吾知道它在处置过程中有一点……磨损……但吾实在需要查出汝同伴的下落，只得施加一定的压力。汝当时不太健谈，是不是？可吾很快就让汝开口高歌了，没错。当然，吾大可以用一点占卜魔法得到想要的答案，但吾实在太喜欢痛快地拷问一番了……而且，每当酸液溅上汝的胡须，汝的尖叫何等悦耳！呵，我们当时笑得很开心，不是吗？不过无妨，吾已命最优秀的骷髅铁匠修好汝的护甲，让吾的新勇士穿上它。
 
-吾希望汝能享受这份新差事。拿出些干劲来，诸如此类。吾知道汝生前总梦想成为传说中的强大英雄。不过，还有什么能比这更加荣耀？汝将作为吾的仆从永远活下去，注定永世守卫吾的王座！那些在吾厅堂里蹒跚游荡的低等食尸鬼都会嫉妒汝。嗯，当然，只到汝被某个闯进来的蠢冒险者杀掉为止……但这正是汝等英雄的妙处：一个英雄闯进来，搞得一团糟，然后吾又有了一个新玩物。下一个取代汝的会是谁呢？
+吾希望汝能享受这份新差事。拿出些干劲来，诸如此类。吾知道汝生前总梦想成为传说中的强大英雄。不过，还有什么能比这更加荣耀？汝将作为吾的仆从永远活下去，注定永世守卫吾的王座！那些在吾厅堂里蹒跚游荡的低等食尸鬼都会嫉妒汝。嗯，当然，这也只能持续到汝被某个闯进来的蠢冒险者杀掉为止……但这正是汝等英雄的妙处：一个英雄闯进来，搞得一团糟，然后吾又有了一个新玩物。下一个取代汝的会是谁呢？
 
 在那之前，好好享受差事，尽力保持此处整洁，并且记住——吾永远拥有汝。
 
@@ -14598,13 +14598,13 @@ Thank you for telling me of Borfast's weaknesses - it shall make overcoming the 
 
 You must feel a little betrayed of course. I promised you power beyond your imaginings, and instead I drained your blood, fed your flesh to my servants, and enthralled your soul to my bidding. Well, we all struggle to manage expectations sometimes, eh? At least be glad I let your tortured essence roam the cold fastness of my fortress, haunting anyone foolish enough to invade. And some power I will impart to you, and it is indeed beyond your imaginings, for your mind could never reach the dark places I can. But open your eyes now, for such dark places shall be with you till the end of time... Welcome, indeed, to the dark place of my heart.
 
-- The Master]], [[啊，甜美的阿蕾塔！汝的鲜血在吾唇上尝起来何等醇厚！吾知道，这不太像汝期待的下一步关系，但惊喜不正是所有浪漫情事真正的乐趣吗？
+- The Master]], [[啊，甜美的阿蕾塔！汝的鲜血在吾唇上，滋味何等醇厚！吾知道，这与汝对我们关系下一步发展的期待不太相符，但惊喜不正是所有浪漫情事真正的乐趣吗？
 
 吾并不怪汝爱上吾，明白吗？即便汝因此背叛了所有同伴。女人向来无法抗拒吾深沉的性情与闪耀的才智。即便生前，吾也颇具魅力；而吾向汝保证，死亡只会让这一切更加出色。吾确实以令人心碎闻名，而且不止一种意义上的心碎……如今汝的心脏将被安置在一个特殊位置，与吾坑穴里的其他内脏为伴。
 
 多谢汝告诉吾波法斯特的弱点——这会让吾更容易击败那个矮人莽夫。汝的盗贼朋友更加难以捉摸，不过他终会被找到并毁灭。汝瞧，吾处理这类事情时总有股锲而不舍的狠劲。此塔中没有一只蟑螂胆敢不服从吾的每一个念头与意志，而吾会确保情形永远如此。
 
-当然，汝想必觉得有些遭到背叛。吾曾许诺赐汝超乎想象的力量，却转而吸干汝的鲜血，把汝的血肉喂给仆从，并奴役汝的灵魂听吾号令。好吧，我们有时都会难以妥善管理他人的期待，是不是？至少汝该庆幸，吾允许汝饱受折磨的精魂游荡于这座冰冷而坚固的堡垒，纠缠每一个胆敢入侵的蠢货。吾也会赐汝一些力量，而且的确超乎汝的想象，因为汝的心智永远无法抵达吾所能触及的黑暗之地。不过现在睁开双眼吧，这等黑暗将伴随汝直到时间尽头……诚挚欢迎汝来到吾内心的黑暗之处。
+当然，汝想必有些被背叛的感觉。吾曾许诺赐汝超乎想象的力量，却转而吸干汝的鲜血，把汝的血肉喂给仆从，并奴役汝的灵魂，令其听吾号令。好吧，我们有时都会难以妥善管理他人的期待，是不是？至少汝该庆幸，吾允许汝饱受折磨的精魂游荡于这座冰冷而坚固的堡垒，纠缠每一个胆敢入侵的蠢货。吾也会赐汝一些力量，而且的确超乎汝的想象，因为汝的心智永远无法抵达吾所能触及的黑暗之地。不过现在睁开双眼吧，这等黑暗将伴随汝直到时间尽头……诚挚欢迎汝来到吾内心的黑暗之处。
 
 ——领主]], "_t")
 t("a letter to Filio from the Master", "领主写给菲里奥的信", "_t")
@@ -14614,11 +14614,11 @@ But ah, it's not truly an end, for you get to experience the wonder of undead en
 
 I have let you keep your little sling, since I know you like to play with it. Such a quaint weapon... But this staff I found in your possession - my, what a treasure you have brought me! I do not know whence you stole this artifact, but you clearly were completely unaware of its value or power. It has a history beyond your very comprehension, and in my hands it shall change the future! Thank you kindly, my servant; already you have served your Master well. I'm sure we shall enjoy a great friendship over the many years to come. Well, not friendship exactly - it more involves eternal agony on your part, and a rise to ultimate power and majesty for me. Such is the fate of the weak and the strong, a lesson you have already learned well. What a great teacher I make...
 
-- The Master]], [[哦，菲里奥，我们这场猫鼠游戏玩得多么愉快！好吧，对汝而言或许是一场生死挣扎；但对吾来说，过去三周耐心地在厅堂中追猎汝，乃是最有趣的消遣。吾很享受这般延长游戏，在认为适当的时候任汝逃脱掌握，看着汝日渐绝望。可惜汝如今已经堕落得太过分，眼看汝为了活命而吞食自己的粪便，实在令人难堪。吾只得让游戏结束——汝想必能够理解。
+- The Master]], [[哦，菲里奥，我们这场猫鼠游戏玩得多么愉快！好吧，对汝而言或许是一场生死挣扎；但对吾来说，过去三周耐心地在厅堂中追猎汝，乃是最有趣的消遣。吾很享受这般延长游戏，在认为适当的时候任汝逃出吾的掌心，看着汝日渐绝望。可惜汝如今已经堕落得太过分，眼看汝为了活命而吞食自己的粪便，实在令人难堪。吾只得让游戏结束——汝想必能够理解。
 
 不过，这并非真正的终结，因为汝将体验被奴役为不死生物的奇妙！岂不令人激动？汝的骨头难道没有因喜悦而颤抖？如今汝只剩下骨头了，因为吾格外偏爱骷髅仆从；但吾已仁慈地在汝的脚跟垫上皮革，让汝依然可以悄无声息地潜行。汝过去多么喜爱潜行！如今汝可以永远做下去，确保今后每个在吾宏伟要塞中游荡的闯入者都大吃一惊。
 
-吾让汝保留那把小投石索，因为吾知道汝喜欢把玩它。多么古朴的武器……不过，吾在汝身上发现的这根法杖——天哪，汝为吾带来了何等珍宝！吾不知道汝从哪里偷来这件神器，但汝显然完全不知其价值与力量。它的历史远超汝的理解，而在吾手中，它将改变未来！多谢了，吾的仆从；汝已经尽心侍奉了自己的主人。吾确信，未来许多年里我们都会享受一段伟大的友谊。好吧，倒也不完全是友谊——更多的是汝承受永恒痛苦，而吾登临至高的力量与威严。这便是弱者与强者的命运，一堂汝已学得很好的课。吾真是位伟大的老师……
+吾让汝保留那把小投石索，因为吾知道汝喜欢把玩它。多么古朴的武器……不过，吾在汝身上发现的这根法杖——天哪，汝为吾带来了何等珍宝！吾不知道汝从哪里偷来这件神器，但汝显然完全不知其价值与力量。它的历史远超汝的理解，而在吾手中，它将改变未来！多谢了，吾的仆从；汝已经尽心侍奉了自己的主人。吾确信，未来许多年里我们都会享受一段伟大的友谊。好吧，倒也不完全是友谊——更多的是汝承受永恒痛苦，而吾获得至高的力量与威严。这便是弱者与强者的命运，也是汝已牢牢记住的教训。吾真是位伟大的老师……
 
 ——领主]], "_t")
 t("#0080FF#On the back of the letter you can just make out a coarsely scrawled and badly faded diagram.#LAST#", "#0080FF#在信件背面，你勉强能辨认出一幅笔触粗糙、严重褪色的示意图。#LAST#", "log")
@@ -14766,11 +14766,11 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 #{bold}#第二章：难忘之夜#{normal}#
 
-三天后的午夜，我在一场噩梦中惊醒。眼前窗户大开，晦暗的光线中丝织的帘幕在晚风中舞动。随着我的眼睛渐渐适应了夜晚微弱的亮光，我看见莱娜尼尔就站在我的床尾，一袭轻薄的蔚蓝长裙在寒夜的空气里紧贴着她的肌肤。她的腰间环绕着镶嵌着蛋白石和苍色符文的羊绒腰带，颈上腕间环绕着闪耀的金制首饰，一根长杖轻轻搁在她的手中，杖首的装饰上嵌着数颗红宝石，熠熠生辉。清风吹拂，她澄澈的眸子中映出我的影子，红色的长发迎风飘荡。
+三天后的午夜，我在一场噩梦中惊醒。眼前窗户大开，晦暗的光线中丝织的帘幕在晚风中舞动。随着我的眼睛渐渐适应了夜晚微弱的亮光，我看见莱娜尼尔就站在我的床尾，一袭轻薄的蔚蓝长裙在寒夜的空气里紧贴着她的肌肤。她腰系羊绒腰带，上面镶嵌着蛋白石，织有苍色符文，颈上腕间佩戴着金制首饰。一根长杖轻轻搁在她的手中，装饰华美的杖首嵌着红宝石，熠熠生辉。她凝视着我，红色的长发在风中飘动。
 
-“你在做什么呢？”我轻轻问道。我并没有打算询问她到底是如何绕过那些卫兵悄悄潜入我的卧房的。我知道，至少得是议会成员，才能在她专心施展幻象时察觉她的存在。
+“你来这里做什么？”我问道。我并没有打算询问她到底是如何绕过那些卫兵悄悄潜入我的卧房的。我知道，至少得是议会成员，才能在她专心施展幻象时察觉她的存在。
 
-她明媚的目光轻柔地凝视着我，接着在屋子的四周扫过，仔细分析着房间里的每一个部分。“有一队兽人正在北方四处劫掠，”她稍有些心不在焉地说道，手中漫不经心地把玩着我在架子上放着的一把装饰用匕首，“他们看起来会给一些外围的精灵聚落惹上麻烦。”
+她缓缓打量了我片刻，接着将目光转向屋内其他地方，仔细审视我的私人空间。“有一队兽人正在北方四处劫掠，”她稍有些心不在焉地说道，一边从架子上拿起一把装饰用匕首，仔细端详，“他们看起来会给一些外围的精灵聚落惹上麻烦。”
 
 “我立刻就召集突击队迎敌。”我说着，不顾礼仪地从床上坐起。
 
@@ -14788,23 +14788,23 @@ She strode forward then, and grabbing me roughly by my hauberk she pulled my lip
 
 “唔，看起来简直就像一只傀儡，”她小声咕哝着，“快来吧，我有点无聊了。”紧接着，她轻巧地越过窗台，优雅地随风而去，在夜空中划出一道弧线。
 
-随后我从剑架上取下我的双手巨剑。乍一眼看上去，这似乎只是一把普通的剑刃，唯一的装饰是剑柄上一颗硕大的月亮石。这把剑由矮人于多年之前所铸，其貌不扬却强韧无比。之后，他们的虚荣和浮华替代了匠人的坚毅，让装备成为了用于炫耀的道具而不是用于战斗的兵器。这把剑的剑锋可以轻易穿透钢铁和骨头，且永不卷刃。它的名字叫做斩月剑，尽管现在已经随着岁月的流逝而不知所踪。我凌空挥动爱剑，随即跃出窗外，在身下唤出气流软垫，迅速追随莱娜尼尔而去。
+随后我从剑架上取下我的双手巨剑。乍看之下，这只是一把外观普通的剑，唯一的装饰是剑柄末端一颗硕大的月亮石。这把剑由矮人于多年之前所铸，其貌不扬却强韧无比。后来，虚荣主导了他们的制作，武器更多用于炫耀，而非战斗。这把剑的剑锋可以轻易穿透钢铁和骨头，且永不卷刃。它的名字叫做斩月剑，尽管如今我已失去了它。我凌空挥动爱剑，随即跃出窗外，在身下唤出气流软垫，迅速追随莱娜尼尔而去。
 
 我们在零散的云层间疾飞，沉默了二十分钟，莱娜尼尔才开始下降。低矮群山之间点缀着营地的篝火；随着我们飞近，兽人的吟唱声渐渐清晰。“我们该怎么接近他们？”我高声问道，想知道这位女魔法师准备采取什么战术。
 
 “直冲进去。”话音刚落，她骤然加速，飞到兽人营地正上方，落在他们中间。我咒骂一声，急忙追上，在她身旁落地并拔出斩月剑；兽人惊怒地起身，纷纷抓起武器。当一圈黑沉沉的刀剑、长矛和戟将我们团团围住时，莱娜尼尔转向我，露出狂野的笑容。“舞会开始了。”
 
-一道紫色的奥术能量从她的右手指尖射出，而她左手高举法杖，杖端如同火炬般被炽焰所缠绕。随着剑刃高举，一团团火焰从我的剑刃上腾跃而起，在我面前呈弧形喷发出来，迅速击倒了最前排的兽人，爆裂的冲击波向他身后的部队席卷而去。我紧逼而前，以咆哮的炽热之风迫退身前的兽人。他们的武器纷纷脱手落地，只能抬手遮挡脸面；我怀着满意的微笑冲上前去，正要斩下他们的头颅。可就在挥剑之际，一团火焰自背后将我击倒。转身望去，只见莱娜尼尔站在熊熊烈火之中，双臂向前伸展，烈焰应之而动。“对你来说是不是有些太热了呢，艾伦尼恩先生？”在她的谈笑之间，周围的兽人纷纷被烈焰吞噬，转瞬便灰飞烟灭。
+一道紫色的奥术能量从她的右手指尖射出，而她左手高举法杖，杖端像火炬一样燃烧。随着剑刃高举，一团团火焰从我的剑刃上腾跃而起，在我面前呈弧形喷发出来，迅速击倒了最前排的兽人，爆裂的冲击波向他身后的部队席卷而去。我紧逼而前，以咆哮的炽热之风迫退身前的兽人。他们的武器纷纷脱手落地，只能抬手遮挡脸面；我怀着满意的微笑冲上前去，正要斩下他们的头颅。可就在挥剑之际，一团火焰自背后将我击倒。转身望去，只见莱娜尼尔站在熊熊烈火之中，双臂向前伸展，烈焰应之而动。“对你来说是不是有些太热了呢，艾伦尼恩先生？”在她的谈笑之间，周围的兽人纷纷被烈焰吞噬，转瞬便灰飞烟灭。
 
 我闷哼一声，将剑刃化为坚冰，以精妙的剑技向她周围的兽人劈出道道凛冽寒流，在火焰触及之前便将他们冻成冰雕，碎裂如玻璃。莱娜尼尔咒骂着我的名字，撤去了周身的火焰。“别抢了我的乐子！”她大喊道，随即传送到兽人营地的另一侧，在那里掀起新一轮烈焰。
 
 我大笑着扑向最近的野兽，每一挥都让大地剧震，兽人在震波中失去平衡纷纷倒下，任凭我的利剑穿透他们的喉咙。紧接着，狂暴的闪电在剑锋聚集，如同投枪一般射出，贯穿兽人们最密集的军列；我沿着它发光的轨迹冲锋，在他们还没来得及反应之前挥剑将这些怪物一一劈倒。我在战斗的狂热中再次大笑，丢掉头盔撕下板甲，享受卸甲后在战场上轻快移动、屠戮这些弱小之敌的快乐。斩月剑在他们的血肉间穿梭舞动，他们的黑血喷涌如泉，节奏欢畅。
 
-远处营地爆炸的烟雾和兽人的惨叫声点缀着莱娜尼尔的足迹；我看见燃烧的断肢飞上半空，道道火光撕裂夜色。烈焰缠绕着女魔法师的周身，她的眸子熠熠生辉，四周跃动的火光让她宛如火灵的仙女下凡一般。此情此景，真是我一生所见最为美好最为震撼的那一刻。
+营地另一侧，莱娜尼尔所到之处尽是爆炸和惨叫；我看见燃烧的断肢飞上半空，道道火光撕裂夜色。烈焰缠绕着女魔法师的周身，她的眸子熠熠生辉，四周跃动的火光让她宛如火焰仙女的化身。我一生从未见过如此美丽而令人敬畏的景象。
 
 剩余的兽人眼看人数锐减，开始逃跑；但我相位移动到他们前方，截断退路，又召来一股洪水，逼他们退回莱娜尼尔的烈焰之中。火墙之前，我将他们击溃，大批兽人如风中落叶般倒下。鲜血大股涌出；斩月剑又刺出几下，莱娜尼尔又轰出几道法术，战斗便结束了。没有一个兽人还能动弹，地上倒着远超四百具尸体。
 
-面对面地，我和莱娜尼尔的身躯矗立在硝烟弥漫的战场上，随着战斗的肾上腺素退去，突如其来的疲惫令两个人气喘吁吁，呼出的气息在空气中凝成雾气。我气喘吁吁地说道：“我已经记不清了，到底是谁杀得更多……”她害羞地微笑着，汗水从泛红的面颊滴落。战斗中的刀伤和灼烧让她的长袍残破不堪，一侧肩带松松垂落。她泛着光泽的胸膛剧烈起伏，深邃的双眼以赤裸的炽烈目光看着我。
+我和莱娜尼尔面对面站着，战斗激起的亢奋渐渐退去，突如其来的疲惫令我们气喘吁吁。我气喘吁吁地说道：“我已经记不清了，到底是谁杀得更多……”她含羞地朝我一笑，汗水顺着脸颊流下。战斗中的刀伤和灼烧让她的长袍残破不堪，一侧肩带松松垂落。她泛着光泽的胸膛随着每次呼吸起伏，深邃的双眼毫不掩饰地炽烈凝视着我。
 
 她大步走来，粗暴地揪住我的锁子甲，把我的双唇拉向她。这一吻火热而激烈；她咬住我的下唇，战斗中奔涌的热血顿时再度沸腾。我又吻住她，一把搂住她的身体，将她紧紧拉向自己，双唇始终交缠。她欲火中烧地撕扯我剩下的护甲，将其甩在地上；我也褪下她的丝绸衣裳，直到我们赤裸着站在群星之下。我们靠在一处岩壁上，紧贴着彼此，仍因刚才的战斗喘息流汗。炽烈的激情中，肌肤交融，我们火热的呻吟升入寒冷的夜空。]], "_t")
 t("The Spellblaze Chronicles(3): The Farportal", "魔法大爆炸纪事(3)：远行传送门", "_t")
@@ -14950,7 +14950,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 若干年前，我们的族人破解了遗迹上不可见的符文，终于叩开了遗迹的大门。遗迹内，壮观的水晶大厅以庄严而又优美的几何图案有规律地排布着。每个表面都闪耀着光芒，就连墙壁似乎也随着能量嗡嗡作响。许多甬道和通路都只能通过飞行才能到达，而其顶端是一个足以容纳整个埃尔瓦拉宫殿的巨大房间。在它的中央是远行传送门，一个直径四十英尺、噼啪涌动着能量的高台，其上缓缓旋转着一片星云。那是何等美丽而可畏，迷人而恐怖的壮观景象。永恒精灵们根本无法理解它工作的真正原理。即使通过小心的实验我们有办法操纵它所具有的能量，我们也永远无法真正知悉到底是什么力量驱动着它。
 
-我和尼耶拉下到塔底，四周笼罩在已发掘遗迹的冰冷阴影中。穿过白色方形入口时，我向卫兵微微点头，尼耶拉则惊奇地睁大了眼睛。这座闪光的大厅的确足够吸引眼球，但是里面空无一物的情景不禁令人感到孤单。我试着去构想许久之前，当这里仍然被夏·图尔人所充满的情景。“为什么夏·图尔人灭亡了呢？”漫步于水晶大厅，我低声问道——这是此前许多人都问过的问题。
+我和尼耶拉下到塔底，四周笼罩在已发掘遗迹的冰冷阴影中。穿过白色方形入口时，我向卫兵微微点头，尼耶拉则惊奇地睁大了眼睛。这座闪光的大厅的确足够吸引眼球，但是里面空无一物的情景不禁令人感到孤单。我试着去构想许久之前，这里满是夏·图尔人时的情景。“为什么夏·图尔人灭亡了呢？”漫步于水晶大厅，我低声问道——这是此前许多人都问过的问题。
 
 尼耶拉听言微笑起来。“这当然是个谜啦！不过，我的母亲曾经告诉我，夏·图尔人在一场宏大的内战中走向了灭亡，他们所使用的魔法超乎我们任何人的想象。”
 
@@ -14978,7 +14978,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 “你现在看到了吗？”伊菲尼亚斯陛下大笑着。“我们可以全方位操纵这个远行传送门的所有能量，无论是最小的细节还是最大的范围，一切尽在掌握之中。还有，你看到地图上所标注的那些白点吗？这是世界上其他的远行传送门，而我们的这个传送门可以与它们中的任何一个链接。经过精心的操纵和悉心的控制，我们可以协调它们全部的能量，并用来实现我们的愿望。恐怕你的剑根本无法与之相比，艾伦尼恩。”
 
-我仍然被我刚才所见到的奇景所震惊，无话可说，只能微微点头。尼耶拉似乎也产生了一样的想法，以和她的孪生姐妹一样的热切眼神望着这座远行传送门。是的，她的想法被改变了。
+刚才所见的奇景仍让我震惊不已，无话可说，只能微微点头。尼耶拉似乎也产生了一样的想法，以和她的孪生姐妹一样的热切眼神望着这座远行传送门。是的，她的想法被改变了。
 
 然而，我的手仍然环绕着斩月剑的剑柄，心头隐隐呢喃着不安之情。]], "_t")
 t("The Spellblaze Chronicles(4): Before the Dawn", "魔法大爆炸纪事(4)：黎明将至", "_t")
@@ -15128,7 +15128,7 @@ But mine was just one voice, one torment, a single note in the great cacophony t
 
 #{bold}#第五章：魔法大爆炸之日#{normal}#
 
-随着军队向前前进，我的斩月剑也将出鞘。我的手中握紧缰绳，以免我的战马因为过于兴奋而向前奔驰，我一旁的侍从也握紧缰绳，神情严肃。空气中弥漫着紧张的气氛。放眼向前望去，在不到一英里的地方，兽人军队的前锋已经清晰可见。我们惊动了他们的巢穴，他们便倾巢而出。他们庞大的军势，宛如一道枯萎的暗影，正在缓缓吞噬着地平线下的一切。他们就像一场滔天瘟疫，眼看就要将这个世界吞噬殆尽。在我们前方的永恒精灵军队在他们庞大的军力面前看起来是那么渺小，但我知道我们的力量可不是由数量决定的。
+随着军队向前行进，我松动了鞘中的斩月剑。我握紧缰绳，勒住战马，以免它因兴奋而抢先奔出；我看到左侧的侍从也在这样做。空气中弥漫着紧张的气氛。放眼向前望去，在不到一英里的地方，兽人军队的前锋已经清晰可见。我们惊动了他们的巢穴，他们便倾巢而出。他们庞大的军势，宛如一道枯萎的暗影，正在缓缓吞噬着地平线下的一切。他们就像一场滔天瘟疫，眼看就要将这个世界吞噬殆尽。我面前的永恒精灵军队相比之下显得那么渺小，但我知道我们的力量可不是由数量决定的。
 
 最前方的壁垒吹响了号角，准备在需要时迎击第一波冲锋。战场北方部署着弓箭手，负责粉碎敌军最初的抵抗；侧翼则是一支法术骑手军团，他们骑在可怖的坐骑上，双手闪耀着奥术能量。南方是常规骑兵、双手剑士、重甲骑士和法师主力，正在准备支援法术。战场各处还散布着资深的战斗法师，随时准备迅速赶往战况最激烈之处，用强大的魔法荡平敌军。任何地方都无需部署两人——他们孤身一人便能轻易消灭二十个兽人。
 
@@ -15138,27 +15138,27 @@ But mine was just one voice, one torment, a single note in the great cacophony t
 
 “就是今天！”我们的一个战士发出了呐喊，很快，周围的士兵也重复了他的呐喊。“就是今天！”他们开始吟唱，期待着即将到来的荣耀。“就是今天！”我的侍从开始歌唱，他的声音充满了年轻的喜悦和希望。“就是今天！”我们合力发出喊声，随着黎明的第一丝曙光从地面升起，永恒精灵王国的荣耀在我们的心头闪耀。“就是今天！就是今天！就是今——”
 
-沉默。我们的声音一齐消失，一股可怕而压抑的沉寂席卷了整个战场。我们每个人都感觉到了——我们的种族与魔法之流是如此契合。那就像肺里的空气被骤然抽空，又像脚下的大地突然消失。我们所有的法力通道都不见了，骤然改变，奥术能量远在一切触及之外。呻吟与低语声开始响起，法师们在突如其来的绝望中抱住了头。我看到我的侍从在他的马鞍上摇摇欲坠，无法控制地呕吐起来，我的军旗也从他的手中滑落。其他人纷纷倒在地上，在剧痛中挣扎。我用尽意志强忍着排山倒海般的偏头痛，视野中只剩下一块块模糊不清的景象。我试图控制自己，寻找新的法力通道。
+沉默。我们的声音一齐消失，一股可怕而压抑的沉寂席卷了整个战场。我们每个人都感觉到了——我们的种族与魔法之流是如此契合。那就像肺里的空气被骤然抽空，又像脚下的大地突然消失。我们所有的法力通道都骤然改变，原有的通道消失了，奥术能量已无法触及。呻吟与低语声开始响起，法师们在突如其来的绝望中抱住了头。我看到我的侍从在他的马鞍上摇摇欲坠，无法控制地呕吐起来，我的军旗也从他的手中滑落。其他人纷纷倒在地上，在剧痛中挣扎。我用尽意志强忍着排山倒海般的偏头痛，视野中只剩下一块块模糊不清的景象。我试图控制自己，寻找新的法力通道。
 
-但是，一定有什么东西出错了，那是多么可怕的错误。整个埃亚尔的魔法流动突然发生了巨大的变化，就像河流突然偏离了自己的河道一样荒谬。究竟是什么导致了这一切？现在，我不得不和我经受多年的魔法训练所抗争。我过去一直依赖着那些已知的魔法流动，然而现在我却必须奋力寻找新的能量源。我用尽全力，把自己仅存的力量试图用于启动侦查系魔法，在那一刻，我发现的一切让我深深感到震惊。
+但是，一定有什么东西出错了，那是多么可怕的错误。整个埃亚尔的魔法流动突然发生了巨大的变化，就像河流突然偏离了自己的河道一样荒谬。究竟是什么导致了这一切？现在，为了寻找新的法力通道和来源，我不得不对抗多年与魔法之流契合、接受训练所形成的习惯，正是这些习惯让我自然而然地依赖已知的魔法流动和路径。在寻找的同时，我将力量用于施展侦查系魔法，而我的发现让我震惊不已。
 
-兽人看到我们混乱不堪的样子，下令全军突击。然而我的注意力很快从兽人所在的东面转移到了西面，试图望向埃尔瓦拉和我们的领袖用来操纵夏·图尔远行传送门的水晶塔。然而，我感觉水晶塔已经消失——它向内坍缩、碎入大地，一股白热的火焰浪潮正从那里扩散开来。兽人几乎没有遇到抵抗便杀入我们的军队，武器撕裂精灵兵士，但他们很快便遭遇了远为强大的毁灭性能量浪潮。
+兽人看到我们混乱不堪的样子，下令全军突击。然而我的注意力很快从兽人所在的东面转移到了西面，试图望向埃尔瓦拉和我们的领袖用来操纵夏·图尔远行传送门的水晶塔。然而，我感觉水晶塔已经消失——它已经坍塌，陷入大地，一股白热的火焰浪潮正从那里扩散开来。兽人几乎没有遇到抵抗便杀入我们的军队，武器撕裂精灵兵士，但他们很快便遭遇了远为强大的毁灭性能量浪潮。
 
 那一刻，天空化为了鲜血般的炽红。“打开护盾！”我试图大喊出声，然而灼热空气的震耳轰鸣迅速盖过了我的声音。当然，即使我能喊出声来也没有多少意义，因为我的军队失去了惯常的魔力来源，几乎毫无防备。烈焰长矛从天而降，瞬间贯穿血肉与钢铁，深深没入大地。地面剧烈震动，岩浆从岩层中被撕开的深孔里喷涌而出。
 
 我竭尽意志，在身周撑起一道奥术护盾。我的侍从也伸出手试图照做，然而一道烈焰瞬间夺走了他的手臂。在他来得及惨叫之前，另一股火浪便烧穿了他的上半身。喷涌的鲜血顷刻蒸发，空气中只剩红雾与烈火。战马嘶鸣着踉跄倒下，在烈焰中化作灰烬；我纵身跃离马背。
 
-又一股冲击波袭来，我试图强化我的护盾，然而这股力量太过强大，直接将我从地上连根拔起，掀飞出去。我被冲击波掀到空中，仿佛暴风中的一片树叶，只能在灾难中颤抖着试图保全自己。我的军队在四周被彻底歼灭，无数士兵和法师被强大的能量烧成灰烬，撕成碎片。兽人的命运也是同样悲惨，大地的裂变将他们的军队吞噬，掉入无尽深渊。岩浆随即轰鸣着冲天而起，又如雨般洒落方圆数英里，化作一条条炽亮的死亡河流，横扫已被吞没的大地。
+又一股冲击波袭来，我试图强化我的护盾，然而这股力量将我掀离地面，抛飞出去。我在空中被甩来甩去，仿佛一片旋转的树叶，只能挣扎着维持防护。我的军队在四周被彻底歼灭，无数士兵和法师被强大的能量烧成灰烬，撕成碎片。兽人的命运同样悲惨，大地上一道巨大的裂口吞噬了他们的大批士兵。岩浆随即轰鸣着冲天而起，又如雨般洒落方圆数英里，化作一条条炽亮的死亡河流，横扫已被吞没的大地。
 
-我不知道，我是怎么在这样恐怖的灾难中幸存的。巨大的冲击力无数次让我几乎失去意识，然而不知是什么样的韧性让我坚持集中注意力，不让自己的防护盾被攻击打破。灾难的景象渐渐在视野中变得模糊，我不知道包裹我的这个小小泡泡是否仍然在这片充满火与血的空气中浮动，还是已经坠入了撕裂的大地中无人知晓的无尽深渊。在经过了对我来说如同一个世纪一样漫长的痛苦折磨之后，一阵阵的冲击波终于停止了。我发现我独自躺在一片被撕裂烧灼的大地上，空气中弥漫着酷热。
+我不知道，我是怎么在这样恐怖的灾难中幸存的。我有好几次几乎失去意识，然而凭着自己从未意识到的精神韧性，我始终保持专注，维持着防护盾。灾难的景象渐渐在视野中变得模糊，我不知道包裹我的这个小小泡泡是否仍然在这片充满火与血的空气中浮动，还是已经坠入了撕裂的大地中无人知晓的无尽深渊。在经过了对我来说如同一个世纪一样漫长的痛苦折磨之后，一阵阵的冲击波终于停止了。我发现我独自躺在一片被撕裂烧灼的大地上，空气中弥漫着酷热。
 
 我挣扎着站起来，环顾四周，只看到四面八方的荒凉景象。蒸汽和烟雾从地面的裂缝中涌出，四周只剩下散落的血肉，残肢和灰烬。周围没有看到任何一个幸存者。我茫然失神，绝望地意识到：不久前站在这里的数十万人中，只剩下我一个幸存者。无论是朋友还是战友，无论是导师还是学生，无论是我从未认识的人还是与我无比亲近的人——一切都逝去了。当我想到莱娜尼尔的时候，一股剧烈的痛苦刺穿了我的心房。她是不会死的，对吧？
 
-我咬紧牙关，召唤了用于悬浮的能量，随着我的身体慢慢升起，我开始在这片面目全非的大地上辨明方向。我慢慢地向东北方向前进，四周尽是满目疮痍。四周焚烧的血肉的气息环绕着我，我竭尽全力试图抓住仅存的一丝理智，然而周围尽是超越我的想象的恐怖景象，废土中无尽的寂静比我听到的最为震耳欲聋的声音更加摧残着我的精神。最终，我找到了卡库罗尔军队曾经驻守的地方仅存的遗迹，在无尽的废土中，我试图寻找仅存的生命的迹象。最终，我发现了一些微弱的信号，那是多么微弱的一丝生命，顺着那个线索，我最终找到了她。
+我咬紧牙关，召唤了用于悬浮的能量，随着我的身体慢慢升起，我开始在这片面目全非的大地上辨明方向。我慢慢地向东北方向前进，沿途满目疮痍。烧焦的血肉与鲜血的气息环绕着我，我竭尽全力维持理智，眼前尽是超乎想象的恐怖景象，那彻底的寂静比我听过的任何声音都更震耳欲聋。终于，我来到卡库罗尔军队先前所在的地方附近，在残破的大地上四处寻找生命的迹象。随后，我隐约察觉到一丝微弱的生命气息，循着它找到了她。
 
-她的衣服几乎全部被烧毁，她的长发一半被烧成了灰烬，鲜血不断从她全身的烧伤处渗出。她的身上还残留着微弱的护盾能量，然而当我跪下，把手放在她身上的时候，那个护盾就消失了。她微弱地呼吸着，呢喃着“尼耶拉”的声音，然后很快陷入了无意识之中。她还活着，但是已经奄奄一息。我向四周望去，没有任何她的孪生姐妹的迹象，也没有任何卡库罗尔的士兵。四周只剩下烧焦的血肉和骨骼化成的焦炭，昭示着魔法大爆炸带来的毁灭。
+她的衣服几乎全部被烧毁，她的长发一半被烧成了灰烬，鲜血不断从她全身的烧伤处渗出。她的身上还残留着微弱的护盾能量，然而当我跪下，把手放在她身上的时候，那个护盾就消失了。她轻轻喘了一口气，低声呢喃着“尼耶拉”，随后陷入昏迷。她还活着，但是已经奄奄一息。我向四周望去，没有任何她的孪生姐妹的迹象，也没有任何卡库罗尔的士兵。四周只剩下烧焦的血肉和骨骼化成的焦炭，昭示着魔法大爆炸带来的毁灭。
 
-我开始在莱娜尼尔身上释放我所有的治疗魔法，但是我知道这些都远远不够，我的能力几乎全失，根本不可能有拯救她的希望。想到发生的这一切恐怖的遭遇，想到在这一瞬间我失去了我曾经拥有的一切，我开始放声痛哭。希望已化为危机，命运的残酷让我无法承受。我把垂死爱人的头捧在膝上，仰面向天发出怒吼。呜咽着嘶哑的嗓音，周围只剩下血肉、白骨和尘埃，我对命运的不公和这场战争的毫无意义发出绝望的咆哮。他们曾是怀有希望与梦想的灵魂与生命，如今都像风中的尘埃般被抛散；我为他们的死亡与我自己的绝望而悲叹。
+我开始对莱娜尼尔施展我能施展的治疗魔法，但是我知道这些远远不够，我衰弱的力量根本无望救活她。想到发生的这一切恐怖的遭遇，想到在这一瞬间我失去了我曾经拥有的一切，我开始放声痛哭。希望已化为危机，命运的残酷让我无法承受。我把垂死爱人的头捧在膝上，仰面向天发出怒吼。我嘶哑的声音中满是痛苦，四周尽是鲜血、白骨和灰烬，我为人生种种不公和战争的徒劳愤怒地咆哮。他们曾是怀有希望与梦想的灵魂与生命，如今都像风中的尘埃般被抛散；我为他们的死亡与我自己的绝望而悲叹。
 
 但我的声音只是其中之一，我的痛苦也只是其中之一，不过是传遍整个大陆的巨大嘈杂中的一个音符。数以百万计的生命逝去、破碎，数以百万计的声音在痛苦、折磨与煎熬中哀号；而那终极的毁灭之力——魔法大爆炸——带来的浩劫，仍在整个马基·埃亚尔蔓延。]], "_t")
 t("The Spellblaze Chronicles(6): A Changed Eyal", "魔法大爆炸纪事(6)：被改变的埃亚尔", "_t")
@@ -15231,25 +15231,25 @@ The Shroud of Elvala was begun, as our whole city was wreathed in cloud and smok
 
 #{bold}#第六章：被改变的埃亚尔#{normal}#
 
-或许，我们永远不会知道当天到底发生了什么。魔法大爆炸后幸存下来的夏·图尔遗迹，自此几乎无人敢碰——这一教训对人们来说已经足够深刻了。我们唯一知道的是，不管伊菲尼亚斯和他的法师们曾经拥有多么精妙和平衡的控制，在那一刻，他们失控了。在他们连接到其他传送门的一瞬间，微小的不平衡迅速被回响，共振，放大，瞬间失去了控制。在不到一秒钟的时间里，水晶塔中的远行传送门向内坍缩，杀死了其中所有人，并压垮四周的大地。随后，夏·图尔遗迹中的能量化作耀眼白光爆发，将空气化为火焰，将大地化为废墟。大火迅速向东袭来，用它势不可挡的毁灭力量将我们战场上的一切全部摧毁，然后直接席卷向自然精灵的领地。夏特尔的远古森林纷纷被连根拔起，从此，那片大地被永远诅咒。
+或许，我们永远不会知道当天到底发生了什么。魔法大爆炸后幸存下来的夏·图尔遗迹，自此几乎无人敢碰——这一教训对人们来说已经足够深刻了。但我们知道，伊菲尼亚斯和他的法师们不知为何失去了控制，施法时维持的精妙平衡也随之瓦解。在他们试图连接其他传送门的一瞬间，这种不平衡引发了回响与共振，被放大到无法控制的程度。在不到一秒钟的时间里，水晶塔中的远行传送门向内坍缩，杀死了其中所有人，并压垮四周的大地。随后，夏·图尔遗迹中的能量化作耀眼白光爆发，将空气化为火焰，将大地化为废墟。大火迅速向东袭来，用它势不可挡的毁灭力量将我们战场上的一切全部摧毁，然后直接席卷向自然精灵的领地。夏特尔的远古森林纷纷被连根拔起，从此，那片大地被永远诅咒。
 
-同时，在马基·埃亚尔的其他远行传送门都纷纷爆发，白色石材纷纷碎裂，大量的能量向外涌出。西部科纳克人王国的土地迅速化为了沙漠，矮人大厅科尔赫克倒塌了，中部的平原隆起成为山脉，中间形成了纳尔湖。在南部，远古高塔德拉斐尔倒塌了，周围的森林化为被永远灼热的岩浆和黑石覆盖的焦土。在遥远的东方，纳鲁精灵所拥有的，整个马基·埃亚尔最大的传送门，被一场剧烈的地震所吞噬。剧烈的地震吞噬了周围数英里内的一切，沸水喷涌而出，填满了地震留下的巨大空腔。
+同时，遍布马基·埃亚尔的其他远行传送门也纷纷爆发，白色石材碎裂，大量能量向外涌出。西部科纳克人王国的土地迅速化为了沙漠，矮人大厅科尔赫克倒塌了，中部的平原隆起成为山脉，中间形成了纳尔湖。在南部，远古高塔德拉斐尔倒塌了，周围的森林化为一道永远翻腾着岩浆、遍布焦黑土地的伤疤。在遥远的东方，纳鲁精灵的传送门——整个马基·埃亚尔最大的传送门——消失在一场剧烈的地震中。地震吞噬了周围数英里内的一切，沸水喷涌而出，填满了地震留下的巨大空腔。
 
 当这场毁灭发生时，惊人的能量扰乱了环绕埃亚尔的所有法力流动。能量的流动曾经遵循相对固定、缓慢变化的路线，如今却忽而洪泛，忽而枯竭，被扭曲、被分裂。元素脉络陷入极度混乱，任何与魔法调谐的人都突然发现，自己已远离惯用的力量之源。
 
-就连苍穹也发生了变化。在星间漫游的沃尔之星消失了，星座也偏离了他们正常的轨道，季节变化变得远比以前更为极端。有人说，从那以后，月亮变得更暗，而太阳也变得更白。我不知道这些。在我眼里，整个世界从那一刻起都变得黯淡了。
+就连苍穹也发生了变化。在星间漫游的沃尔之星消失了，星座也偏离了它们正常的轨道，季节变化变得远比以前更为极端。有人说，从那以后，月亮变得更暗，而太阳也变得更白。我不知道这些。在我眼里，整个世界从那一刻起都变得黯淡了。
 
 死亡人数无法计数。最初的破坏至少夺走了五百万人的生命，而随后的恐怖事件又夺走了更多生命。因为，这不仅是悲剧和无尽灾厄的一天，而且还带来了一个充满黑暗和折磨的血腥时代。
 
-然而，当我在灾难过后躺在地上哭泣，将我唯一在乎的生命抱在膝上时，对这一切还一无所知。在无尽的痛苦中，我试图使用我所有的治疗力量，试图能够挽回她的生命，哪怕只是延长她一秒钟的时间。她的心跳微弱，睁开的双眸如玻璃一样，离我的距离仿佛在两个世界一样那么遥远。
+然而，当我在灾难过后躺在地上哭泣，将我唯一在乎的生命抱在膝上时，对这一切还一无所知。在无尽的痛苦中，我动用了所有能用的治疗力量，只求让她回到我身边，哪怕只有片刻。她的心脏微弱地跳动着，双眸睁开，却显得呆滞而遥远。
 
-“莱娜尼尔，”我轻声低语，她黑色的眼睛转向我的脸庞。我试图呢喃着说出我的道歉，试图说出我无法拯救她的痛苦，但我实在是没有办法说出口。她望向我的目光空洞无物，仿佛穿透了我的身体，然后慢慢转向了另一个地方。她的手中慢慢拿起了她脖子上的一串吊坠，在那一瞬间，吊坠发出了一束光芒，然后碎裂了。她的眼睛再一次闭上，但我能感受到，她刚刚拿着的神器的力量已经灌注进了她的身体里，修复着她的肉体，她的心跳也不再那么微弱。她仍然处在无意识中，仍然身受重伤。然而现在，致命的威胁已经消失了。
+“莱娜尼尔，”我轻声低语，她黑色的眼睛转向我的脸庞。我试图低声向她道歉，说我很抱歉，没能帮上她，但情绪翻涌，让我说不出话来。她望向我的目光空洞无物，仿佛穿透了我的身体，然后慢慢转向了另一个地方。她慢慢抬起一只手，轻触脖子上的吊坠，吊坠随即发出光芒，然后碎裂了。她的眼睛再一次闭上，但我能感受到，神器的力量正灌注进她体内，增强她的心跳，修复她的肉体。她仍然处在无意识中，仍然身受重伤。然而现在，致命的威胁已经消失了。
 
 我的心中百感交集——我为她逃离死神的拥抱感到欣喜，但又担心她的伤势会再度恶化；而在心底深处，她刚才看向我时那空洞的眼神让我感到害怕。她会原谅我在这场灾难中扮演的角色吗？
 
-我小心地抱起她脆弱的身躯，慢慢走向返回埃尔瓦拉的路。在灼烧的废土之上，我走了两天的时间。在路上，我能看到其他的幸存者，他们是逃离自己被摧毁的家园的灾民，正在试图在城市里找到避难所。我试图尽我所能护理莱娜尼尔，在她短暂苏醒时给她喂水，处理着她的伤口，但只有我到达城市的时候才能找到真正的治疗师。
+我小心地抱起她脆弱的身躯，踏上了返回埃尔瓦拉的路。在灼烧的废土之上，我走了两天的时间。在路上，我能看到其他的幸存者，他们是逃离自己被摧毁的家园的灾民，正在试图在城市里找到避难所。我试图尽我所能护理莱娜尼尔，在她短暂苏醒时给她喂水，处理着她的伤口，但只有我到达城市的时候才能找到真正的治疗师。
 
-埃尔瓦拉处在一片寂静的混乱之中，人们被不确定性和恐怖所压倒，每一条街道都弥漫着恐惧的气息。有关我们的军队全军覆灭的消息已经传了开来——他们的家人再也没法看到自己的亲人回到家园，城市的每一个角落里都充满了令人窒息的痛苦哀悼。
+埃尔瓦拉处在一片寂静的混乱之中，人们被不确定性和恐怖所压倒，每一条街道都弥漫着恐惧的气息。我们的军队全军覆灭的消息已经传开——再也没有亲人能归来与家人团聚，城市的每一个角落都能听到压抑的哀悼声。
 
 我把莱娜尼尔直接带到王宫的治疗场所，将她交给医生，并下达了最严格的指令。医院里现在已经满是受伤的灾民，他们对我的指令没有半点疑虑，立刻使用药剂和治疗性的法术处理了她的伤口。
 
@@ -15259,23 +15259,23 @@ The Shroud of Elvala was begun, as our whole city was wreathed in cloud and smok
 
 但我没有理她，我看到那个人类轻碰了莱娜尼尔的手，她的眼睛缓缓张开。“崔岚？”她低声呢喃道。
 
-“嗯，是我，小姐，”他轻声说道。“我是奉你父亲之命来到这里的。他命我把这个交给你。”他的手中拿出了一枚纯金的戒指，上面镶嵌着火焰般的红宝石。我一下子认了出来，正是强大的特塞尔所佩戴的卡库罗尔之戒。莱娜尼尔一下子坐了起来，似乎仍然在痛苦中挣扎，但她的眼睛紧盯着她手中的那枚戒指。
+“嗯，是我，小姐，”他轻声说道。“我是奉你父亲之命来到这里的。他命我把这个交给你。”他拿出了一枚金戒指，上面镶嵌着火焰般的红宝石。我一下子认了出来，正是强大的特塞尔所佩戴的卡库罗尔之戒。莱娜尼尔一下子坐了起来，似乎仍然在痛苦中挣扎，但她的眼睛紧盯着她手中的那枚戒指。
 
 “但是，我父亲……”
 
-“我很抱歉，小姐。向您传达这个消息实在是让人无比悲痛。你的父亲和他王廷里所有的人都已经去世了。他给我最后的指令就是让我把这枚戒指带给你和你的孪生姐妹。尼耶拉……”他向周围看去。“她……？”他看到了莱娜尼尔的目光，失落地慢慢低下头。“我明白了。我真的十分抱歉。那么，我有责任宣布这件事。小姐，我要宣布，你现在就是卡库罗尔的新领袖。”
+“我很抱歉，小姐。向您传达这个消息实在是让人无比悲痛。你的父亲和他王廷里所有的人都已经去世了。他给我的最后一道指令，就是让我把这枚戒指带给你和你的姐妹。尼耶拉……”他向周围看去。“她……？”他看到了莱娜尼尔的目光，失落地慢慢低下头。“我明白了。我真的十分抱歉。那么，小姐，我有责任宣布，你现在就是卡库罗尔的新领袖。”
 
 “艾伦尼恩将军！”佩里萨打断了他的发言，“我真的必须马上和你谈谈！”
 
 “等等！”我怒吼起来，转向崔岚。“到底发生了什么？特塞尔这么强大的人怎么可能被杀？”
 
-那个男人看向我，眼中充满了无尽的悲伤，然后又重新看向莱娜尼尔。“昨天，也就是可怕的魔法大爆炸之后的那一天，我们正要着手重建，大部分人还在努力重新调整自己的法力通道，人群中却开始出现一种流言。他们说：卡库罗尔的法师们背叛了普通人。他们指责我们和永恒精灵合谋，玩弄我们无法控制的可怕力量，故意展开这种邪恶恐怖的屠杀，试图清除所有不是法师的人。我们无法说服他们，他们什么也不肯相信，愤怒地开始了暴动。他们使用农具或者他们能够找到的任何东西攻击我们。我们根本没有能力保护自己，试图反击只是让人群变得更加愤怒。我们撤退到你父亲的宫廷，请求他帮助我们，但是他摇了摇头，说他无法反击。那些人跟随我们，冲进了特塞尔的宫殿，但是特塞尔命令我们放弃抵抗。他把他的戒指交给了我，让我到埃尔瓦拉来找你，然后一个人走了出去，直面了外面的人群。他根本没有抵抗！那些人……他们……他们……”他悲伤地陷入沉默，痛苦地摇着头。他仿佛看上去想要痛哭失声，但是已经失去了眼泪。莱娜尼尔面如死灰，用凝重的眼神注视着那枚戒指。
+那个男人看向我，眼中充满了无尽的悲伤，然后又重新看向莱娜尼尔。“昨天，也就是可怕的魔法大爆炸之后的那一天，我们正要着手重建，大部分人还在努力重新调整自己的法力通道，人群中却开始出现一种流言。他们说：卡库罗尔的法师们背叛了普通人。他们指责我们和永恒精灵合谋，玩弄我们无法控制的可怕力量，故意展开这种邪恶恐怖的屠杀，试图清除所有不是法师的人。我们无法说服他们，他们什么也不肯相信，愤怒地开始了暴动。他们使用农具或者他们能够找到的任何东西攻击我们。我们根本没有能力保护自己，试图反击只是让人群变得更加愤怒。我们撤退到你父亲的宫廷，请求他帮助我们，但是他摇了摇头，说他无法反击。那些人跟随我们，冲进了特塞尔的宫殿，但是特塞尔命令我们放弃抵抗。他把他的戒指交给了我，让我到埃尔瓦拉来找你，然后一个人走了出去，直面了外面的人群。他根本没有抵抗！那些人……他们……他们……”他悲伤地陷入沉默，痛苦地摇着头。他看上去想哭，却已无泪可流。莱娜尼尔面如死灰，用凝重的眼神注视着那枚戒指。
 
-佩里萨抓住我，强制把我的脸转向她的方向。“这就是我要跟你说的事情，艾伦尼恩将军。如果这个人类所说属实的话，那么我们现在已经处在非常危险的境地了！在我们说话的时候，就有哨兵向我们报告，一群人类正在从北方向我们这边过来。照这个人类的说法，他们要寻求复仇——他们要杀光我们！现在，我们的国境已经被愤怒的浪潮所包围，而我们已经毫无防备，孤立无援！我们需要你组织我们的防御，我们要保护我们的城市和我们的人民。”
+佩里萨抓住我，把我转向她。“这就是我要跟你说的事情，艾伦尼恩将军。如果这个人类所说属实的话，那么我们现在已经处在非常危险的境地了！在我们说话的时候，就有哨兵向我们报告，一群人类正在从北方向我们这边过来。照这个人类的说法，他们要寻求复仇——他们要杀光我们！现在，愤怒的浪潮已逼近我们的边境，而我们毫无防备！我们需要你组织我们的防御，我们要保护我们的城市和我们的人民。”
 
 我仍然处于麻木的状态，这一连串的事件把我吓倒了。“但是谁来领导我们？”我问道。
 
-“没有人。即使还有王族还活着，他们也不适合现在的状况。我们现在已经进入了战争的时代，这是我们中间的任何人都没有经历过的可怕的时代。我们需要军人来领导这一切。你，艾伦尼恩将军，你必须成为我们的领袖。”
+“没有人。已知还活着的王族都不适合领导我们。我们正步入一个战争时代，一个我们从未经历过的可怕时代。我们需要军人来领导这一切。你，艾伦尼恩将军，你必须成为我们的领袖。”
 
 我迎上佩里萨的目光，领会到了她话语中的智慧。我作为一个永恒精灵的责任已经很清楚了。但当我看向莱娜尼尔的时候，我的心还是忍不住颤抖。
 
@@ -15283,13 +15283,13 @@ The Shroud of Elvala was begun, as our whole city was wreathed in cloud and smok
 
 “但是你的伤口——”我试图反对。
 
-“那份伤痛永远不会痊愈！”她怒吼着，话语中透露着恨意。她的眼神像一块冰，无法穿透的冰，那是一份内心深处深藏的愤怒。“来吧，崔岚，我们必须离开这个地方。”然后，他们离开了。莱娜尼尔尽管还受着伤，仍然高傲地走着。
+“那份伤痛永远不会痊愈！”她怒吼着，话语中透露着恨意。她的眼神如寒冰般冷冽，无法看透，深处却燃烧着怒火。“来吧，崔岚，我们必须离开这个地方。”然后，他们离开了。莱娜尼尔尽管还受着伤，仍然高傲地走着。
 
 我封闭了我的心房，压制了我的感情。我不能让这些感情压倒我的责任。我还有我必须要做的事情，过去发生的一切都将永远在记忆中被封存。
 
-继位仪式在一小时以内就开始了。我受膏成为埃尔瓦拉最高议会的领导，永恒精灵人民的领袖。在我的指挥下，我们的游侠开始从周围的哨站和定居点撤离幸存者，而我命令剩下的法师围绕我们的城墙开始新的努力。
+继位仪式在一小时以内就开始了。我受膏成为埃尔瓦拉最高议会的领导，永恒精灵人民的领袖。在我的指挥下，我们的游侠开始从周围的哨站和定居点撤离幸存者，而我命令剩下的法师开始围绕城墙开展一项新的工作。
 
-第一波仇恨的浪潮在第二天就席卷而来。人类的农民和工人组成了这群人，装备简陋，笨拙地挥舞着掠来的刀剑和长矛。我独自一人站在城门外，手持斩月剑，迎向他们。当他们冲向我的时候，我将长剑插入大地，在大地上撕开一道裂痕。我们的法师迅速让一层层重叠浓厚的迷雾从地面上升起，环绕了我们的整个城市。当那些农民陷入混乱的时候，弓箭手们开始从城墙上向下射击。少数穿过烟雾与箭雨的人，由我亲自迎战，斩月剑毫不费力地劈开他们的血肉。他们的鲜血从身体中喷出，渗透了周围的大地，沾染了我的身体。我心头沸腾的感情沐浴在鲜血之中，那是一场冲刷我罪孽的血浴。
+第一波仇恨的浪潮在第二天就席卷而来。人类的农民和工人组成了这群人，装备简陋，笨拙地挥舞着掠来的刀剑和长矛。我独自一人站在城门外，手持斩月剑，迎向他们。当他们冲向我的时候，我将长剑插入大地，在大地上撕开一道裂痕。我们的法师召出迷雾与烟气，让它们从地面升起，开始环绕整座城市。当那些农民陷入混乱的时候，弓箭手们开始从城墙上向下射击。少数穿过烟雾与箭雨的人，由我亲自迎战，斩月剑毫不费力地劈开他们的血肉。他们的鲜血从身体中喷出，渗透了周围的大地，沾染了我的身体。我心头沸腾的感情沐浴在鲜血之中，那是一场冲刷我罪孽的血浴。
 
 埃尔瓦拉的帷幕升起了，整座城市被迷雾所覆盖。这是我们的盾牌，我们的面纱，我们的藏身之所。这持续了几个世纪，在此期间，与外界的一切往来都在隐秘中进行。
 ]], "_t")
@@ -15330,31 +15330,31 @@ I took a deep breath and stepped forwards.]], [[#{italic}#摘自埃尔瓦拉最�
 
 #{bold}#第七章：进入黑暗#{normal}#
 
-我们掩藏了自己的罪恶，遮蔽了自己的罪行。虽然我们通过半身人商人和偶尔乔装出行的永恒精灵冒险者与外界保持着些许联系，但面对整个世界，我们依旧沉默，躲在他们谴责的目光之外。可在我们寂静的城墙之外，其他人没有这份藏身的奢侈。魔法狩猎开始了，并且毫无怜悯。
+我们掩藏了自己的罪恶，遮蔽了自己的罪行。虽然我们通过半身人商人和偶尔乔装出行的永恒精灵冒险者与外界保持着些许联系，但面对整个世界，我们依旧沉默，躲在他们谴责的目光之外。可在我们寂静的城墙之外，其他人却无福躲藏避祸。魔法狩猎开始了，并且毫无怜悯。
 
-普通人站了起来，反抗那些他们眼中傲慢的法师，反抗那少数人的力量——正是这种力量毁掉了无数人的生活。任何被怀疑通晓巫术或与奥术有牵连的人都会被残酷对待。他们不同情任何人，许多无辜者都变成了这场不可抑制的报复欲望的受害者。疯狂席卷了整个马基·埃亚尔。
+普通人站了起来，反抗那些他们眼中傲慢的法师，反抗那少数人的力量——正是这种力量毁掉了无数人的生活。任何被怀疑通晓巫术或与奥术有牵连的人都会被残酷对待。他们不同情任何人，许多无辜者都成了无休止的报复欲的受害者。疯狂席卷了整个马基·埃亚尔。
 
-法律和秩序已经完全崩溃。魔法大爆炸带来的灾难肆虐摧毁了无数的军队，领土和城市，许多土地都变得完全无法居住。王国倒台，暴君取而代之。强盗们如同腐烂尸体上的秃鹫，在文明的废墟上四处横行霸道。
+法律和秩序已经完全崩溃。军队、领土乃至整座城市都遭到魔法大爆炸的摧毁或蹂躏，许多土地都变得完全无法居住。王国倒台，暴君取而代之。强盗们如同腐烂尸体上的秃鹫，在文明的废墟上四处横行霸道。
 
 一个名为伊格兰斯、外界以为早已消亡的组织，突然重新兴起。他们在民众反对魔法的狂热中获得了广泛的支持。我听说，有些法师躲藏了起来，但终究难免被揪出来，或是拼命地不断东躲西藏。还有另一些黑暗的故事，那些死灵法师和堕落的巫师为了抵抗或躲避攻击，修筑了地牢和堡垒，开始了恐怖的统治。
 
-我还听到了另一个故事，有一群法师决定团结，一起隐藏起来，然而他们仍然不断在伊格兰斯的袭击下被迫逃跑。在那些外面世界的传说里，那些法师被一个有着火焰一样的头发，烈焰一般的双眼，手中裹挟着火焰的恶魔所领导。她用愤怒的烈焰战斗，没人能够战胜她。我对于这样的描述很是熟悉……
+我还听到了另一个故事，有一群法师决定团结，一起隐藏起来，然而他们仍然不断在伊格兰斯的袭击下被迫逃跑。外界传说，领导那些法师的是一个恶魔，她有着火焰般的头发，双眼炽烈发光，双手包裹着火焰。她用愤怒的烈焰战斗，没人能够战胜她。我对于这样的描述很是熟悉……
 
-我仍然继续着我的统治，继续着我的职责，保护永恒精灵人民。我们已经不用害怕袭击者，可以通过零散的交易确保我们的补给，并且正在慢慢重建我们所失去的东西。但是，畏惧和羞愧仍然让我们不敢向世界展示我们自己。
+我继续执政，履行职责，照顾永恒精灵人民。我们已经不用害怕袭击者，可以通过零散的交易确保我们的补给，并且正在慢慢重建我们所失去的东西。但是，畏惧和羞愧仍然让我们不敢向世界展示我们自己。
 
-十五年后的一个夜晚，我在我的议会室里醒来，看到霜华之月的月牙微光照亮了我床尾附近的一个身影。那是一个高大而苗条的身影，身穿紧身的羊毛与毛皮衣物。她背对着我，深红的长发在空中起舞。我想到了无数年前的夜晚，那是我还更加天真的时代，年轻时的我和年轻时的她第一次如此靠近的那个夜晚。
+十五年后的一个夜晚，我在我的议会室里醒来，看到霜华之月的月牙微光照亮了我床尾附近的一个身影。那是一个高大而苗条的身影，身穿紧身的羊毛与毛皮衣物。她背对着我，深红的长发在空中起舞。我想起了很久以前的一个夜晚，那时我们还更单纯，年轻的我和年轻的她第一次亲近起来。
 
-我简直不敢说出她的名字，生怕这一切都只是我的一场梦境，当我说出那个名字的时候，这个美好的梦境就会破裂而消失殆尽。“莱娜尼尔…”我轻声说道。她的身体转向我，我看到我记忆中的那双黑色的眼睛。然而，那双眼睛周围已布满操劳的皱纹，多年的重压与责任清楚地刻在她的脸上。
+我几乎不敢低声唤出她的名字，生怕她只是幻影或梦境，一句话就可能让她消失。“莱娜尼尔…”我轻声说道。她转身面向我，我看到我记忆中的那双黑色的眼睛。然而，那双眼睛周围已布满操劳的皱纹，多年的重压与责任清楚地刻在她的脸上。
 
-我从床上起来，穿上我的长袍。我朝着她的方向前进了几步，但停了下来，不敢再次继续前进。我想要接近她，想要再一次和她相拥，但那一瞬间，我们之间仿佛又有了一道巨大的藩篱——时间和苦痛的鸿沟已经阻隔了我们。
+我从床上起来，穿上我的长袍。我朝她走了几步，却停了下来，无法再向前迈步。我想靠近她，想伸出双臂拥抱她，却觉得她仿佛站在一道巨大鸿沟的对面——时间与苦痛横亘在我们之间。
 
-“我是来这里请求帮忙的，艾伦尼恩，”她用低沉的声音说道，目光却不大敢与我对视。“我有一些想要寻求的东西，你必须帮我实现它。”我不明白这意味着什么，但我还是点头同意。“穿好衣服，准备出发吧。前面还有很长的一段路要走。”
+“我是来这里请求帮忙的，艾伦尼恩，”她用低沉的声音说道，目光却不大敢与我对视。“我在寻找一样东西，你必须帮我得到它。”我不明白这意味着什么，但我还是点头同意。“穿好衣服，准备出发吧。前面还有很长的一段路要走。”
 
-她走向窗台，再一次背对着我，直到我穿上斯莱特锁甲，拿起我的剑。当她注意到我已经准备好了的时候，她向外飞去，而我也紧随其后。
+她走向窗台，再一次背对着我，等我穿上斯莱特锁甲，拿起我的剑。当她注意到我已经准备好了的时候，她向外飞去，而我也紧随其后。
 
 我们在空中呼啸而过，以极快的速度向北飞行。大地在我们脚下飞掠而过，随着我们向北方越走越远，气候越来越冷。在一片沉默中，时间缓缓流逝，我们飞越白雪皑皑的苔原。我们掠过了白色和灰色的平原，到达了一片低山丘陵。莱娜尼尔在这里减速并下降，我也紧随在她的身后。我们在山脚下的一个黑暗的洞口前停了下来。
 
-莱娜尼尔站在这里，凝望着眼前黑色的山洞。她的脸上散发着些许恐惧，但她的眼睛充满意志和决心。“它在这里，”她用坚定的口气平静地说道。我循着她的目光，试图猜测这个遥远的地方包含着什么秘密，但我没有察觉到任何特别之处。
+莱娜尼尔站在这里，凝望着眼前黑色的山洞。她脸上流露出恐惧，眼神却坚定而决绝。“它在这里，”她用坚定的口气平静地说道。我循着她的目光，试图猜测这个遥远的地方包含着什么秘密，但我没有察觉到任何特别之处。
 
 她不断向前，我紧随其后，直到我们来到了一个被阴影覆盖的入口。莱娜尼尔迟疑了一会儿，望向洞口的黑暗，然后终于走了进去，从视野中消失了。我可以感受到，某种古老的力量正在这里沉睡。我的皮肤一阵刺痛，体内的奥术亲和如同燃烧起来。这个黑暗的洞穴里蕴藏着某种神秘力量，自埃亚尔最古老的时代起便不为人知。这里的某样东西足以改变世界的命运。
 
@@ -15460,7 +15460,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 #{bold}#第八章：禁忌#{normal}#
 
-莱娜尼尔释放了一个照明术，光亮从莱娜尼尔的杖尖射出，照亮了通向洞穴内部的狭长的寒冰通道。周围寒冷刺骨，我们缓步向前，呼出的水汽在空气中结成了云雾。我的皮肤阵阵刺痛，所有感官似乎都绷紧了。
+光亮从莱娜尼尔的杖尖射出，她挥洒出的光芒照亮了一条向下延伸的狭长寒冰通道。周围寒冷刺骨，我们缓步向前，呼出的水汽在空气中结成了云雾。我的皮肤阵阵刺痛，所有感官似乎都绷紧了。
 
 “下面到底是什么？”我怀着好奇心问道。
 
@@ -15472,27 +15472,27 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 当我们经过一个大洞窟时，我感觉到了有什么东西在移动，迅速拔出了斩月剑。那东西看起来像某种脱离身体的断肢，或者某种巨大的蠕虫，可怜地向我们扭动着。莱娜尼尔向它发出一团火球——它发出一声尖叫，再也不动了。
 
-然后，我感受到了更多移动的东西，数量数以百计。从墙壁和天花板上的缝隙和洞里，数十个蠕虫般的生物突然钻了出来。它们蛆一样的身体使劲地拍打着，尖牙张开，发出痛苦的尖叫声。莱娜尼尔咆哮着，开始向正在逼近的虫群发射火焰。我掩护她的背后，切开他们苍白的绿色身体，并向他们发射闪电。不到一分钟，我们就把他们都清除掉了。
+接着，我又察觉到更多动静，数以百计。从墙壁和天花板上的缝隙和洞里，数十个蠕虫般的生物突然钻了出来。它们蛆一样的身体剧烈扭动着，长满尖牙的嘴张开，发出凄厉的尖叫声。莱娜尼尔咆哮着，开始向正在逼近的虫群发射火焰。我掩护她的背后，切开他们苍白的绿色身体，并向他们发射闪电。不到一分钟，我们就把他们都清除掉了。
 
 我用脚踢了一具尸体，尸体化为了污泥。“多么奇怪的动物啊，”我评论道。我看了看莱娜尼尔，希望她能有什么解释，但她只是继续向前走。我紧随其后，手里拿着剑，密切提防着进一步的攻击。
 
 在洞穴的另一端，一堵冰墙堵住了我们的路。莱娜尼尔举起了卡库罗尔的戒指，其上的宝石开始燃烧。冰慢慢融化，露出通向另一个更小的房间的通道。
 
-这是个冰冷的、地宫般的空洞，四周覆盖着光滑闪亮的冰块。这里的墙壁是规整的方形，房间里散布着古老的大理石柱子。在柱子和墙壁上满是风化的符文和符号。我试图靠近研究它们，但我无法认出任何东西来，这超出了我的学识。“这里以前是什么地方？”我转向莱娜尼尔问道，“它看起来甚至比夏·图尔还古老。”
+这是个冰冷的、地宫般的空洞，四周覆盖着光滑闪亮的冰块。这里的墙壁是规整的方形，房间里散布着古老的大理石柱子。在柱子和墙壁上满是风化的符文和符号。我凑近研究了其中一些，却无法凭自己所学的知识辨认它们。“这里以前是什么地方？”我转向莱娜尼尔问道，“它看起来甚至比夏·图尔还古老。”
 
-她将手伸向墙壁，勾勒出一个门的轮廓。“这是奎科加的一座神庙，是一个名字不知为何被我遗忘了的种族之神。远在我们的种族出生之前，这个种族就已被夏·图尔人灭绝了。他们曾经为了纪念奎科加而建造了这座神庙，而他们中的最后一批人为了保卫奎科加本人而在这里战死。”
+她将手伸向墙壁，勾勒出一个门的轮廓。“这是奎科加的一座神庙。奎科加是某个种族的神，那个种族的名字我不知为何想不起来了。远在我们的种族诞生之前，这个种族就已被夏·图尔人灭绝了。他们曾经为了纪念奎科加而建造了这座神庙，而他们中的最后一批人为了保卫奎科加本人而在这里战死。”
 
 我敬畏地看着周围的一切。虽然我曾探索过很多夏·图尔遗址，但我从未见过这样的景象。这座建筑简洁而优雅，表现出一种粗糙的美感。我转身望向莱娜尼尔正在检查的门。
 
-她试图打开这扇门，但好像很难找到一个方法。“一定有某种钥匙……或者靠解决某种难题来打开它，”她喃喃地说。“但我解决不了——这里的秘密已经随着时间流逝而消失了。”她发出愤怒的咆哮，向后退开。她拿出她的法杖，释放出一股奥术力量，强行地将石头门分开，撕开一条通往下一个房间的通道。
+她试图打开这扇门，但显然很难找到办法。“打开它需要某种钥匙……或者解开某个谜题，”她喃喃地说。“但我解决不了——这里的秘密已经随着时间流逝而消失了。”她发出愤怒的咆哮，向后退开。她伸出法杖，释放出一股奥术力量，猛烈劈开石门，打通了通往下一个房间的道路。
 
-在那一瞬间，发生了许多事情。从远处，我感受到了一股能量，一股我从未感受过的巨大力量。莱娜尼尔强烈地关注着这份能量。但很快，四周传来有生物在四处移动的噪音。我们进入的山洞里发出了上百生物的哀嚎和尖啸，我们脚下的地板也开始在颤抖。岩石从天花板上掉下来，从里面冒出来了一些可怕的生物，长着有尖刺的四肢和光滑的三角形脸孔。从颤抖的地面中升起了一个光组成的奇怪的虚幻存在，它有着长长的四肢触手。当我转身面对这些威胁时，我看到在前一个洞穴里的蠕虫已经恢复生机，他们现在正在融合成一大堆腐烂的肉。
+在那一瞬间，发生了许多事情。从远处，我感受到了一股能量，一股我从未感受过的巨大力量。莱娜尼尔全神贯注地感受着那股能量。但四周突然传来了生物活动的声响。我们来时经过的山洞里传出上百个声音的哀嚎和尖啸，我们脚下的地面也开始颤抖。岩石从天花板上掉下来，从里面冒出来了一些可怕的生物，长着有尖刺的四肢和光滑的三角形脸孔。从颤抖的地面中升起了一个由光构成的奇异虚幻生物，以长长的触手为四肢。当我转身面对这些威胁时，我看到在前一个洞穴里的蠕虫已经恢复生机，他们现在正在融合成一大堆腐烂的肉。
 
-我试图斩断那个发光的生物，但我的剑穿过他的身体时似乎没有受到任何阻挡，我召唤的火焰似乎也没有什么效果。它向我伸出一根触手，一束强烈的光线从中发射出来，穿透我的身体，我的血肉感受到灼烧一般的痛苦。我向回跳了一步，向它发出一团冰风，撕下了它的一根触手，并将它推了开来。与此同时，莱娜尼尔将其中一个长着尖刺的生物化为了灰烬，但她的奥术护盾在其他生物的攻击下坍塌了，更多怪物从天花板上涌出。那团翻腾的蠕虫怪物也挤过入口，虫体上的一张张嘴喷出灼热的酸液。
+我试图斩断那个发光的生物，但我的剑穿过他的身体时似乎没有受到任何阻挡，我召唤的火焰似乎也没有什么效果。它向我伸出一根触手，一束强烈的光线从中射出，穿透我的身体，让我的血肉承受着灼烧般的剧痛。我向回跳了一步，向它发出一团冰风，撕下了它的一根触手，并将它推了开来。与此同时，莱娜尼尔将其中一个长着尖刺的生物化为了灰烬，但她的奥术护盾在其他生物的攻击下坍塌了，更多怪物从天花板上涌出。那团翻腾的蠕虫怪物也挤过入口，虫体上的一张张嘴喷出灼热的酸液。
 
-我们在这个狭窄的空间会有很大的被包围的风险，他们的数量实在太多，无法立刻解决。“走这里！”莱娜尼尔大声喊道，冲进了她劈开的那道门。我紧跟向前，挥剑劈开那团蠕虫，使它在痛苦中尖叫起来。同时，我发出一道闪电，穿过了某个长着尖刺的怪物，打破了他的脑袋。它试图继续攻击我，但我格挡了它，切下了它的手臂，在怪物的包围下起舞般闪避着他们的攻击，终于到达了门口。我背对门口，召起一道水墙，让洪水冲进这个房间，把那些恐魔推开，同时向后一跃，穿过了门。
+在这个狭窄的空间里，我们极有可能被包围；它们数量太多，无法同时应付。“走这里！”莱娜尼尔大声喊道，冲进了她劈开的那道门。我紧跟向前，挥剑劈开那团蠕虫，使它痛得尖叫着向后退去。同时，我发出一道闪电，穿透了一个长着尖刺的怪物，劈开了它的脑袋。它继续攻击我，但我挡下攻击，切下了它的手臂，灵巧地绕过它，到达了门口。我背对门口，召起一道水墙，让洪水冲进这个房间，把那些恐魔推开，同时向后一跃，穿过了门。
 
-在我通过的同时，莱娜尼尔将自己的法杖猛戳地面，一根石柱向上升起，封闭了入口。我可以听到另一边发出的撕裂和撞击声，但现在我们似乎已经安全了。“那些东西是什么？！”我怀疑地问道，同时观察这个开放的洞穴，寻找有没有其他生物的迹象。这个洞穴似乎是一个很大的空间，但一切都很平静，我也看不到其他入口。
+在我通过的同时，莱娜尼尔将自己的法杖猛戳地面，一根石柱向上升起，封闭了入口。我可以听到另一边发出的撕裂和撞击声，但现在我们似乎已经安全了。“那些东西是什么？！”我难以置信地问道，同时环顾这个开阔的洞穴，寻找其他生物的迹象。洞穴很大，但一切都很平静，我也看不到其他入口。
 
 “阿马克泰尔的子嗣，”她冷静地回答道。“那位遭到残害的神正挣扎着想要挣脱锁链，但他需要更多的力量……而这个阴暗，被遗忘的地方有着他想要的一部分能量。”
 
@@ -15504,33 +15504,33 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 “是的，就是这样。但即使是已死之神也还残留着力量。你看看后面，艾伦尼恩。”
 
-我转过身，想知道她想让我看到的到底是什么。我花了一点时间才发现了它，但在发现它的一瞬间我惊慌失措。这个巨大洞穴的墙不仅仅是一面墙而已。它被覆盖在厚厚的冰层里，但在冰层的中心，我看到了一个巨大的黄色眼睛。顺着那个眼睛周围搜寻，我找到了这个庞然大物的身体。深灰色的皮肤覆盖着它凸起的头部，顶部有三个巨大的弯角，头部连着一具长而粗壮、生有六肢的身体。它已经死了，冰冷古老的身躯看起来就像是岩石的一部分，而不是某种曾经活着的东西。我不敢相信我看到的东西，但我能够感受到它的存在。在那尸体里仍然有着力量，有着巨大的力量，那是我以前从未感受过的力量。
+我转过身，想知道她想让我看到的到底是什么。我花了一点时间才发现了它，但在发现它的一瞬间我惊慌失措。这个巨大洞穴的墙不仅仅是一面墙而已。它覆盖着厚厚的冰层，但在中央的冰层下，我辨认出了一只巨大的黄色眼睛。顺着那只眼睛向四周看去，我辨认出了这个庞然大物的轮廓。深灰色的皮肤覆盖着它凸起的头部，顶部有三个巨大的弯角，头部连着一具长而粗壮、生有六肢的身体。它已经死了，冰冷古老的身躯看起来就像是岩石的一部分，而不是某种曾经活着的东西。我不敢相信我看到的东西，但我能够感受到它的存在。在那尸体里仍然有着力量，有着巨大的力量，那是我以前从未感受过的力量。
 
-“它就在这里，”莱娜尼尔说道。“这是在马基·埃亚尔还能找到的为数不多的已死之神的尸体。现在，我要取走它的力量为我所用。”
+“它就在这里，”莱娜尼尔说道。“这是在马基·埃亚尔还能找到的为数不多的已死之神的尸体之一。现在，我要取走它的力量为我所用。”
 
 “这太疯狂了！”我大喊出声。“你根本不知道这种力量是否安全。你不知道这种力量会给你带来什么！”
 
-她发出了神秘的笑声。“是的，你说得对。所以我把你带到了这里。”我迷惑地看着她，她又笑了起来。“看来你还是不知道你来这里的目的。你以为我带你来时需要你的保护？你觉得我没法亲自干掉这些恐魔吗？不，我带你来另有别的原因。当我吸收这个尸体的时候，当我夺取它的力量为我所用的时候，我不知道会发生什么。它可能会杀了我，或者可能会让我发疯，甚至可能让我变成某种可怕的东西。如果发生这种情况的话，艾伦尼恩，你是我知道的人中唯一有能力杀死我的人。”
+她发出了神秘的笑声。“是的，你说得对。所以我把你带到了这里。”我迷惑地看着她，她又笑了起来。“看来你还是不知道你来这里的目的。你以为我带你来是为了让你保护我？你觉得我没法独自干掉这些恐魔吗？不，我带你来另有原因。当我吸收这个尸体的时候，当我夺取它的力量为我所用的时候，我不知道会发生什么。它可能会杀了我，或者可能会让我发疯，甚至可能让我变成某种可怕的东西。如果发生这种情况的话，艾伦尼恩，你是我知道的人中唯一有能力杀死我的人。”
 
 这句话对我来说如同当头一棒。“杀了你？但我做不到……”
 
-“但你必须这么做！”她坚定地说。“在你对我做了那样的事情之后……在你给我的生命中带来那么多痛苦之后……这是你欠我的。”我深深地看向她的眼睛，看到了她内心情感的波动，看到了她遭受的无数痛苦和磨难，看到了她对加害者的仇恨和责怪，看到了她不能够帮助更多人时内心无尽的内疚和羞愧……还有，在她内心深处的那仅存的有关我和我们爱的回忆。我伸出手，拂过她柔软的头发，手指轻轻地抚摸着她的脸庞。我靠得很近，她闭上了眼睛，当我将嘴唇移向她的时候，她的脸转向了我。
+“但你必须这么做！”她坚定地说。“在你对我做了那样的事情之后……在你给我的人生带来那么多痛苦之后……这是你欠我的。”我凝视着她的双眼，看到了她内心翻涌的情感，看到了她遭受的无数痛苦和磨难，看到了她对加害者的仇恨和责怪，看到了她因自己未能做得更多而感到的内疚和羞愧……还有她内心深处，对我以及我们共同经历的一切仍存的一丝爱意。我伸出手，拂过她柔软的头发，手指轻轻地抚摸着她的脸庞。我靠得很近，她闭上了眼睛，当我将嘴唇移向她的时候，她的脸转向了我。
 
-“不！”她突然发出一声哀鸣，把我一把推开。“不可能！”她迅速转身背对我，我看到眼泪从她的脸颊划过。“世界已经变了，艾伦尼恩。我肩负着使命，谁也不能陪我走上这条路。”随后，她手持法杖向前跑去，奔向在冰墙中封锁着的巨大眼睛。我试图追上她，但她速度更快。然后，她一跃而起，将自己法杖的一端猛地插入了已死之神的眼睛的中央。
+“不！”她突然发出一声哀鸣，把我一把推开。“不可能！”她迅速转身背对我，我看到眼泪从她的脸颊划过。“世界已经变了，艾伦尼恩。我肩负着使命，谁也不能陪我走上这条路。”随后，她手持法杖向前跑去，奔向冰墙后那只凝固着死寂目光的巨大眼睛。我试图追上她，但她速度更快。然后，她一跃而起，将自己法杖的一端猛地插入了已死之神的眼睛的中央。
 
-冰块破裂时发出震耳欲聋的雷声，巨大的黄色眼睛在爆炸中化为了一团闪烁的光球。白光淹没了房间，冰块的碎片在空中飞舞，我不得不停下来遮住眼睛。我几乎看不见莱娜尼尔的身影，她沐浴在强光之中，单手悬挂在她的法杖上，她的头发和长袍被冲击力向后吹去，而她的另一只手却仍然继续向前伸去，慢慢地，她无畏地把手伸进了眼睛所在的光球的中心，随着岩壁上她影子的飞舞，她的手指环绕住那个发光的球体，紧紧握住。
+冰块破裂时发出震耳欲聋的雷声，巨大的黄色眼睛在爆炸中化为了一团闪烁的光球。白光淹没了房间，冰块的碎片在空中飞舞，我不得不停下来遮住眼睛。我只能隐约看见莱娜尼尔的身影：她沐浴在强光之中，单手抓着法杖悬在空中，头发和长袍向后飞扬，另一只手则向前伸去。她缓慢而无畏地把手伸进光球中央，那正是眼睛原本所在的位置。洞穴中光影摇曳，她用手指扣住那个发光的球体，然后紧紧握住。
 
-山洞开始震动，她的法杖碎裂了，墙壁嘎吱作响，劈裂，然后完全炸开。已死之神的尸体崩溃成一股银色的气流，咆哮着喧嚣地冲向了莱娜尼尔，撕裂了她的长袍，渗入了她的皮肤。随着巨大能量涌入她的肉体，她漂浮在空中，四肢伸展开来。她张开嘴巴，好像正在尖叫，强烈的光线从她的嘴里，眼睛和耳朵中射出。这个洞穴开始危险地震动，岩石从墙壁和天花板上掉下来。但是几秒钟之后，神的尸体完全被吸收了，莱娜尼尔眼中的光线熄灭了，她像一块石头一样掉到了地上。
+山洞开始震动，她的法杖碎裂了，墙壁嘎吱作响，劈裂，然后完全炸开。已死之神的尸体化为一股银色洪流，伴着震耳欲聋的轰鸣冲向莱娜尼尔，撕裂了她的长袍，渗入了她的皮肤。随着巨大能量涌入她的肉体，她漂浮在空中，四肢伸展开来。她张开嘴巴，好像正在尖叫，强烈的光线从她的嘴里，眼睛和耳朵中射出。这个洞穴剧烈震动，险象环生，岩石从墙壁和天花板上掉下来。但是几秒钟之后，神的尸体完全被吸收了，莱娜尼尔眼中的光线熄灭了，她像一块石头一样掉到了地上。
 
 然后，恐魔冲了过来。塌陷的洞穴为他们开了一个洞口，他们饥肠辘辘地冲向莱娜尼尔所在的地方。“不！”我大叫着，冲上去拦截他们。“你们不能夺走她！”
 
-我向莱娜尼尔的身体靠近，同时切下了一个有尖刺的怪物的脑袋，然后用一道火墙阻隔了剩下的怪物。她看上去就像死了一样，没有任何活动和呼吸的迹象，但是我没有时间仔细检查了。那个由光与触手构成的生物毫无阻碍地穿过了我所造出的火墙，我让电火花沿剑身奔流，将剑从这怪物的正中向上劈开。它射出一道光芒穿透了我的身体，我咳出血来，但我奋力将我的剑刃刺入更深，往里面灌注了一道奥术能量，将那个怪物炸了个粉碎。更多长着尖刺的怪物冲了过来，我迈动步伐，在左侧格挡和切开它们的同时，向着右侧射出了一团团火焰。
+我向莱娜尼尔的身体靠近，同时切下了一个有尖刺的怪物的脑袋，然后用一道火墙阻隔了剩下的怪物。她看上去就像死了一样，没有任何活动和呼吸的迹象，但是我没有时间仔细检查了。那个由光与触手构成的生物毫无阻碍地穿过了我所造出的火墙，我让电火花沿剑身奔流，挥剑从正中向上劈开这怪物的身体。它射出一道光芒穿透了我的身体，我咳出血来，但我奋力将我的剑刃刺入更深，往里面灌注了一道奥术能量，将那个怪物炸了个粉碎。更多长着尖刺的怪物冲了过来，我迈动步伐，在左侧格挡和切开它们的同时，向着右侧射出了一团团火焰。
 
-那团蠕虫团穿透了墙壁，伴随着它的是另外两个发光的恐魔，还有一个来自黑暗与噩梦的魔物。我能看到，还有更多的恐魔在朝我们涌来。当那道光线射向我的时候，我打开了一个能量护盾，然后向他们发射了霜冻之球。一个发光的怪物倒下了，而另一个的行动则被减缓了。那个黑暗的东西也走了过来，那团蠕虫团则紧随其后。我把我的剑划过地面，将热能传导到地面上，把地上的石头化为了灼热的岩浆。那个黑暗的存在绕过岩浆，朝我接近过来，我能感受到它的身上散发出致死的寒意。我拼命地砍向它，而它则将长矛般的肢体反刺向我的胸口，仿佛要吸走我全身的力量。我怒吼一声，让一道火焰沿剑刃奔涌而下，将它炸得四分五裂。那些蠕虫踩着岩浆直冲过来，它们中的大部分都被烧成了灰烬，但它们整体的速度没有丝毫减弱。我调整了握剑的手势，准备以轻捷的挥砍将它们挡在攻击范围之外。然而就在这时，一束光线击中了我的大腿，我单膝跪地，发出痛苦的尖叫。那团蠕虫团继续冲向我，我试图用剑刺入蠕虫团的中央，但蠕虫很快爬遍了我的手臂，用他们酸性的牙齿啃噬着我的血肉，接近我的脖子。我用左臂施法，向它们覆下一层火焰，连同尖叫的蠕虫一起灼伤了自己的手臂。虫群微微退开了，但那个发光的生物从另一侧接近了我，它的触手闪耀着光辉的能量。三个长着刺的恐魔围绕在它的后面。我的右臂严重烧伤，我的左腿也受了伤，我的锁甲已经满目疮痍，而我的法力也已经快要消耗光了。但我决心咬牙坚持——在这场战斗中我无路可逃。我紧握手中的剑，冲向那团蠕虫团。
+那团蠕虫冲破了墙壁，随之而来的还有两个发光的恐魔，以及一个来自黑暗与噩梦的魔物。我能看到，还有更多的恐魔在朝我们涌来。当那道光线射向我的时候，我打开了一个能量护盾，然后向他们发射了霜冻之球。一个发光的怪物倒下了，而另一个的行动则被减缓了。那个黑暗的东西迅速逼近，那团蠕虫则紧随其后。我把我的剑划过地面，将热能传导到地面上，把地上的石头化为了灼热的岩浆。那个黑暗的存在绕过岩浆，向我逼近，我能感受到它身上散发出的刺骨寒意。我拼命地砍向它，而它则将长矛般的肢体反刺向我的胸口，仿佛要吸走我全身的力量。我怒吼一声，让一道火焰沿剑刃奔涌而下，将它炸得四分五裂。那些蠕虫越过岩浆直冲过来，大量蠕虫被烧得痛苦尖叫，但它们仍迅速朝我冲来。我调整了握剑的姿势，准备灵巧地挥剑，避开它们的攻击范围。然而就在这时，一束光线击中了我的大腿，我单膝跪地，发出痛苦的尖叫。那团蠕虫继续冲向我，我将剑深深刺入其中，但蠕虫爬上了我的手臂，用带有酸液的牙齿啃噬着我的血肉，朝我的脖子爬去。我用左臂施法，向它们覆下一层火焰，连同尖叫的蠕虫一起灼伤了自己的手臂。虫群微微退开了，但那个发光的生物从另一侧接近了我，它的触手闪耀着光辉的能量。三个长着刺的恐魔跟在它后面。我的右臂严重烧伤，我的左腿也受了伤，我的锁甲已经千疮百孔，而我的法力也已经快要消耗光了。但我决心咬牙坚持——在这场战斗中我无路可逃。我紧握手中的剑，冲向那团蠕虫。
 
-然而，它却在我的面前炸成了一团火焰。一股强大力量的波动席卷了整个山洞，火焰在周围炸开，将其他的恐魔化为了灰烬，甚至连那些发光的存在也不例外——当火焰把它烧尽时，它发出一声低沉的哀鸣。我喘息着，不知道这股强大的烈焰到底从哪里来，直到我回头看到了莱娜尼尔的身影。她正屹立在我的面前，长袍已经被烈焰烧毁。火焰在她的肌肤上上下跃动，她的眼睛放射出明亮的光芒。她的身边散发着灼热的气息。我手中紧握着我的长剑，不知道这到底是我知道的那个莱娜尼尔，还是因为她和已死之神的融合中产生的另一种存在。
+然而，它却在我的面前炸成了一团火焰。一股强大力量的波动席卷了整个山洞，火焰在周围炸开，将其他的恐魔化为了灰烬，甚至连那些发光的存在也不例外——当火焰把它烧尽时，它发出一声低沉的哀鸣。我喘息着，不知道这股强大的烈焰到底从哪里来，直到我回头看到了莱娜尼尔的身影。她正屹立在我的面前，长袍已经被烈焰烧毁。火焰在她的肌肤上上下跃动，她的眼睛放射出明亮的光芒。她的身边散发着灼热的气息。我紧握长剑，不知道这到底是我熟悉的那个莱娜尼尔，还是她与已死之神融合后产生的另一种存在。
 
-她突然笑了，那笑声刺耳而陌生。“我真是个傻瓜，”她像自言自语般说道，“我带你来，是为了万一必要时由你阻止我。可现在……如今我的力量已远远超过你。你根本没有希望与我抗衡！”她低低发出一声，介于笑与叹息之间。“啊，不过你不必担心。我还是我。大体上吧。我历经痛苦与牺牲，终于获得了我渴望的力量，也是我需要的力量。”
+她突然笑了，那笑声刺耳而陌生。“我真是个傻瓜，”她像自言自语般说道，“我带你来，是想着万一需要阻止我，就由你出手。可现在……如今我的力量已远远超过你。你根本没有希望与我抗衡！”她发出一声低低的声响，似笑又似叹息。“啊，不过你不必担心。我还是我。大体上吧。我历经痛苦与牺牲，终于获得了我渴望的力量，也是我需要的力量。”
 
 我垂下剑，大口喘息，释然与不安交织着席卷全身；战斗的激情退去后，我只觉精疲力竭。我打量着莱娜尼尔：她白皙的肌肤如今泛着光，双眼充满能量与活力。我看出她拥有的不只是蛮力，她还承袭了众神不受岁月侵蚀的本质。这份对一切生灵而言都属禁忌的力量，如今只归她一人所有。
 
@@ -15540,19 +15540,19 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 “我们还会再见面吗？”
 
-她忧伤地笑了。“也许会。也许不会。这个世界正在风云变幻之中，我们无法预知会发生什么。但如果我们还会再见面的话，我们会在一个现在还不存在的地方——安格利文魔法城相见。”然后，她伸出一只手，射出一道奥术能量的脉冲。紫罗兰的闪光射向洞穴的顶部，将其射穿，然后一直延伸，直到它彻底击穿了我们上方一英里厚的岩层，露出了天空的姿态。阳光从中倾泻而下，洒落在莱娜尼尔的轻盈身形之上。看来，我们所经历的这个漫漫长夜已经过去了很长时间。
+她忧伤地笑了。“也许会。也许不会。这个世界正在风云变幻之中，我们无法预知会发生什么。但如果我们还会再见面的话，我们会在一个现在还不存在的地方——安格利文魔法城相见。”然后，她伸出一只手，射出一道奥术能量的脉冲。紫罗兰色的光芒射向洞穴顶部，穿透岩石，不断向上，直到彻底击穿上方一英里厚的岩层，露出开阔的天空。阳光从中倾泻而下，洒落在莱娜尼尔的轻盈身形之上。自这个漫漫长夜开始以来，已经过去了许多个小时。
 
 “不过现在，再见了，艾伦尼恩。”她说着，身体慢慢飞向空中，然后加快了速度，消失在了我的视线当中。
 
-我躺在冰冷的石头上，休息了一段时间，慢慢地愈合伤口并恢复力量。我回顾了自昨晚以来发生的一切，回顾了马基·埃亚尔所有种族所经历的磨难。战争，疾病和死亡威胁着我们的每一个人。莱娜尼尔现在超越了这一切吗？永生不死的滋味又会给她什么样的影响呢？
+我躺在冰冷的石头上，休息了一段时间，慢慢疗伤并恢复力量。我回顾了自昨晚以来发生的一切，回顾了马基·埃亚尔所有种族所经历的磨难。战争，疾病和死亡威胁着我们的每一个人。莱娜尼尔现在超越了这一切吗？永生不死的滋味又会给她带来怎样的影响呢？
 
-然后，我想到了有关我们种族的前途。在过去的岁月，我们曾经追求永生的力量。我们古代的领袖曾经多么为此着迷，但那都是出于虚荣，骄傲和对死亡的恐惧。如果我们的种族都能获得永生的恩赐，那么结果又会怎么样呢？永恒的生命会把我们从外部世界的冲突和战争隔绝。它会给我们一种新的视野，超越其他种族琐碎而骄傲的无止境的争执。
+就在那时，我对我们种族的未来有了一个想法。在过去的岁月，我们曾经追求永生的力量。我们古代的领袖曾经多么为此着迷，但那都是出于虚荣，骄傲和对死亡的恐惧。如果我们的种族都能获得永生的恩赐，那么结果又会怎么样呢？永恒的生命或许能让我们远离外部世界的冲突和战争。它会带给我们一种新的视野，让我们超越其他种族琐碎的争执和傲慢的竞争。
 
 我挖开冰块和岩石，发现了已死之神奎科加的力量还有一些残余，尽管所剩的已经十分微弱。我把剩下的遗骸全部收集起来，把它们带回了埃尔瓦拉。在那里，我回到我的实验室，研究遗骸多年，终于揭开了它的秘密。从此，我们的种族获得了不朽的力量，这永远改变了我们对世界的看法。
 
-我们独立于其它种族之间的纷争，并不参与毫无意义的战争，寻求一种对生命的新的尊重。直到吞噬者加库尔在烈火纪袭击了我们的大门，我们才重新开始了大规模战争，而我则亲自在战场上直面了他。
+此后，我们与其它种族保持距离，不参与战争，对生命也有了新的敬意。直到吞噬者加库尔在烈火纪袭击了我们的大门，我们才重新开始了大规模战争，而我则亲自在战场上直面了他。
 
-啊，不过，这就是另一个故事了。那是在漫长而充实的历史之中，马基·埃亚尔的传说中的另一个故事……]], "_t")
+啊，不过，这就是另一个故事了。那只是马基·埃亚尔的传说漫长而丰富的历史中，众多故事之一……]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/fearscape.lua"
@@ -15563,7 +15563,7 @@ t([[You stand in a field of fire, the flames dancing back and forth like blaze-s
 
 In the distance you see looming, demonic shapes of absolute darkness, towering above the blazing land like wardens of doom. The sky is black, but above your head hangs a round world that you recognise as Eyal. Across the burning plains gather armies of fiendish figures, and glowing eyes turn up with hateful glowers to your home world. Suddenly both you and it and seem small and frail. As the flames fill your body with pain your only thought is of escape.]], [[你置身于一片火海，烈焰来回摇曳，仿佛由火焰孕育的禾苗随风起伏。火舌舔舐着你的双脚、肌肤与脸庞，扭曲成细小的形体，撕扯你的血肉，爬入你的喉咙。它在你体内熊熊燃烧，疯狂的念头充斥脑海。它们告诉你，这里是高达勒斯——恶魔空间，而你本不该出现在这里。
 
-远方，一些由纯粹黑暗构成的恶魔轮廓高高耸立，俯瞰着燃烧的大地，如同末日守卫。天空漆黑，但你的头顶悬着一颗球形世界，你认出那就是埃亚尔。恶魔大军集结于燃烧的平原，一双双发光的眼睛仰望你的故乡世界，投去充满仇恨的目光。顿时，你与它都显得如此渺小而脆弱。当烈焰使你的身体充满痛苦时，你唯一的念头就是逃离。]], "_t")
+远方，一些由纯粹黑暗构成的恶魔轮廓高高耸立，俯瞰着燃烧的大地，如同末日守卫。天空漆黑，但你的头顶悬着一颗球形世界，你认出那就是埃亚尔。恶魔大军集结于燃烧的平原，一双双发光的眼睛仰望你的故乡世界，投去充满仇恨的目光。顿时，你与它都显得如此渺小而脆弱。当烈焰灼得你浑身疼痛时，你唯一的念头就是逃离。]], "_t")
 t("sacrificial altar", "献祭坛", "_t")
 t([[You see a female human lying unconscious on a black altar, twisted sigils scored into her naked flesh.
 Around her are several figures in dark robes.
@@ -15681,9 +15681,9 @@ We rule death, we wield the power
 我们修补他们，令其重归人世
 他们匆匆返乡，去见远方故友
 可他们会欢呼吗？会赞扬吗？
-他们只会叫嚷！难道腐肉如此冒犯？
+他们只会叫嚷！难道腐肉让人如此反感？
 
-我们把生命带给无生的白骨
+我们把生命带给没有生命的白骨
 可他们会微笑吗？会赞同吗？
 他们高坐金色王座
 躲避我们，唾弃我们，装作不知
@@ -15760,13 +15760,13 @@ No further aid awaits you, for we do not tolerate the dependent. All that remain
 
 #{italic}#卡·普尔遗迹#{normal}#：这位古老的死灵法师或许早已殒命，他的幽影也早已失去一切理智，但其巢穴仍是黑暗能量汇聚之地，麾下仆从依旧成军。
 
-#{italic}#堕落废墟#{normal}#：一名野心勃勃的业余者在这片废墟中建立了巢穴，据说正梦想着召起一支所向无敌的亡者大军。众所周知，他的手法粗糙而且极易失败；我完全预计一年之内便会听到他死在自己造物手中的消息。
+#{italic}#堕落废墟#{normal}#：一名野心勃勃的业余者在这片废墟中建立了巢穴，据说正梦想着召起一支所向无敌的亡者大军。众所周知，他的手法粗糙而且极易失败；我料定一年之内便会听到他死在自己造物手中的消息。
 
 #{italic}#恐惧王座#{normal}#：史无前例的大批亡灵正聚集在这座废弃高塔。显然，最近有位强者把这里当成了家。不管怎样，我们尚未获得有关这位所谓塔主身份的任何线索。
 
 #{italic}#德斯镇#{normal}#：这座沉寂的乡间村庄虽然没有正式的死灵法师势力，却也从未有修习我道者能在附近顺利开展工作。个中缘由众说纷纭：有人称几乎所有居民都是披着欺诈斗篷的亡灵仆从，也有人说这里是崔恩派死灵法术创始人的秘密基地。不论真相如何，务必当心。
 
-#{italic}#伊格#{normal}#：在这里，敌人的敌人并非我们的朋友。仅仅是所谓的“正常”魔法，就足以让盘踞于此的教团陷入狂躁失控的疯狂；若有死灵法师现身，恐怕足以引发第二个烈火纪！
+#{italic}#伊格#{normal}#：在这里，敌人的敌人并非我们的朋友。仅仅是所谓的“正常”魔法，就足以让盘踞于此的教团陷入狂躁失控的状态；若有死灵法师现身，恐怕足以引发第二个烈火纪！
 
 不会再有任何帮助等着你，因为我们绝不容忍依赖他人者。如今只剩下一件事：证明自己有资格修习这门光荣之术……]], "_t")
 t("of halfling feet", "半身人的脚", "_t")
@@ -15775,9 +15775,9 @@ t([[Some men have said that the feet of halflings can nay be harmed, not by fire
 But women do look upon men and declare them fools. "For how," say they, "Can the foot of a halfling be a lucky thing, when with their large uncomely feet they are not able to wear shoes and footwear of elegant crafts and beauteous materials? And especially 'tis a great misfortune unto them, as with their short stature they could really do with a decent pair of heels..."
 
 And lo, 'tis little mystery why halflings do look upon humans and say "The Big Folk really are very dumb."]], [[有人说半身人的脚不会受伤，火焰、刀剑和魔法都伤不了它。他们觉得此事着实惊人。
-于是一些人认为半身人的脚是一件拥有巨大幸运与守护之力的物品，许多人将它挂在门楣上方或壁炉架上。由于目前大家并不赞成为此捕杀半身人，所以稀有的脚常被视为贵重的传家宝传承下去。
+于是一些人认为半身人的脚是能带来极大好运与庇护的物品，许多人将它挂在门楣上方或壁炉架上。由于目前大家并不赞成为此捕杀半身人，所以半身人的脚被视为贵重的传家宝，由父亲传给儿子。
 
-但女人们却经常一脸不屑地看着男人们，并直言他们的愚蠢：“这些半身人的脚怎么可能象征幸运？瞧他们那双难看的大脚，根本穿不了以精湛工艺和美丽材料制成的鞋履。尤其以他们矮小的身材，着实很需要一双像样的高跟鞋……”
+但女人们却看着男人们，直说他们是傻瓜：“这些半身人的脚怎么可能象征幸运？瞧他们那双难看的大脚，根本穿不了以精湛工艺和美丽材料制成的鞋履。尤其不幸的是，他们身材矮小，着实很需要一双像样的高跟鞋……”
 
 所以，半身人为何看着人类说“这些大个子真蠢”，也就不难理解了。]], "_t")
 t("Rogues do it from behind", "盗贼总爱从背后来", "_t")
@@ -15832,7 +15832,7 @@ But by the names they kill]], [[北方来了一射手，
 他说曾战吸血领主，
 对方扬言折磨多年；
 射手只作冷冷一答：
-利箭径直贯穿脑间。
+利箭径直贯穿脑袋。
 
 南方来了一名战士，
 自称雄威吓退万军；
@@ -15862,7 +15862,7 @@ But by the names they kill]], [[北方来了一射手，
 射手倒地，弓弦未响；
 战士随后也丧了命；
 大法师才发觉毒性，
-猛烈得根本无法驱净。
+强得根本无法驱除。
 
 至今无人知晓盗贼是谁，
 尽管传闻仍未停息；
@@ -15971,7 +15971,7 @@ As to how to actually destroy one? Well, tell you what. If you manage to defeat 
 
 尸妖是不死生物中的异类，往往并非由死灵法师特意创造，而是在条件成熟时自行出现。尸妖绝不是单独的灵魂，而常是某种集合意识的一部分；某片土地经历了足够多的杀戮——无论战场、森林、地宫还是墓园——尸妖便会成群升起，几乎是这片土地所受战争与动荡的实体化身。遗憾的是，死灵法师仍常常促成尸妖诞生，因为没有别的学问或行当会制造如此多的鲜血与死亡。
 
-与尸妖战斗过的人经常将其描述为：一具轮廓模糊的骷髅身形，裹着飘动的褪色长袍，袍角逐渐变淡、虚化，本该是眼睛的位置则跳动着诡异的光。幸存者们则述说靠近它们时会有一种奇特的疲惫感，仿佛仅仅是靠近这些死亡的化身，自己的生命力就会不住地衰减、消逝。不过，尽管如此，尽管尸妖看上去很像鬼魂，已有记录证实它们还是能被武器和腕力所消灭，至少是暂时消除了它们的威胁。无奈的是，这种战斗长远来说只是变相地壮大了尸妖族群而已。
+与尸妖战斗过的人经常将其描述为：一具轮廓模糊的骷髅身形，裹着飘动的褪色长袍，袍角逐渐变淡、虚化，本该是眼睛的位置则跳动着诡异的光。幸存者们则述说靠近它们时会有一种奇特的疲惫感，仿佛仅仅是靠近这些死亡的化身，自己的生命力就会不住地衰减、消逝。不过，尽管如此，尽管尸妖看上去很像鬼魂，已有记录证实它们还是能被武器和腕力消灭，至少能暂时消除它们的威胁。无奈的是，这种战斗长远来说只是变相地壮大了尸妖族群而已。
 
     * * *
 
@@ -16036,7 +16036,7 @@ The pain is fading - little by little, ribs mending minute by minute, I can brea
 
 [...]
 
-I have my theories, unsettling as they are, as to what's coming over me - what I suspect to have invisibly replaced my subconscious already, what I constantly feel my conscious thoughts drifting towards if I'm not focusing, why that ability to hold conscious attention on anything else seems to be slipping more every minute.  Committing suicide or sending myself to an Angolwen asylum (if they were that merciful) are not options - egotistical as this sounds, I know the happiness I bring to Elandar's tragic life is the only thing that keeps him going.  I believe I can use this bond and the #FIREBRICK#painfully unnatural#LAST# urges that come with it...  productively, without breaking my love's heart or leaving a worse world behind.  I will be happy, Elandar will be happy, and #FIREBRICK#he#LAST# will be happy.]], [[#{italic}#触碰这颗仍然湿润的钻石时，你发现自己正在亲历一段不属于你的记忆。记忆逐渐渗入脑海，细节愈发清晰。你分不清笼罩其上的最初朦胧究竟是吸收过程的副作用，还是因为自己在这些记忆中昏昏沉沉、刚从失去意识中醒来……#{normal}#
+I have my theories, unsettling as they are, as to what's coming over me - what I suspect to have invisibly replaced my subconscious already, what I constantly feel my conscious thoughts drifting towards if I'm not focusing, why that ability to hold conscious attention on anything else seems to be slipping more every minute.  Committing suicide or sending myself to an Angolwen asylum (if they were that merciful) are not options - egotistical as this sounds, I know the happiness I bring to Elandar's tragic life is the only thing that keeps him going.  I believe I can use this bond and the #FIREBRICK#painfully unnatural#LAST# urges that come with it...  productively, without breaking my love's heart or leaving a worse world behind.  I will be happy, Elandar will be happy, and #FIREBRICK#he#LAST# will be happy.]], [[#{italic}#触碰这颗仍然湿润的钻石时，你发现自己正在亲历一段不属于你的记忆。记忆逐渐渗入脑海，细节愈发清晰。你分不清起初笼罩记忆的朦胧感究竟是吸收过程的副作用，还是因为自己在这些记忆中昏昏沉沉、刚从昏迷中醒来……#{normal}#
 
 #FIREBRICK#痛#LAST#。无处不在，可哪里最痛……
 
@@ -16044,13 +16044,13 @@ I have my theories, unsettling as they are, as to what's coming over me - what I
 
 [……]
 
-埃兰达俯身看着我；因为我的胸廓，他没法拥抱我。他说我本该已经死了。他找到了一样他认为是传说中生命之血的东西，把它灌进我的喉咙、倒进我的伤口。他说我正在愈合，可是……如果他猜错了，我们就不能回到他们那里。不能回到#{italic}#她#{normal}#身边——上次那件事之后不行。无论他们分析瓶中剩余物时会发现什么，我都不能让他们把我从埃兰达身边夺走，尤其是在他为我做了这一切之后。
+埃兰达俯身看着我；我的肋骨伤势让他没法拥抱我。他说我本该已经死了。他找到了一样他认为是传说中生命之血的东西，把它灌进我的喉咙、倒进我的伤口。他说我正在愈合，可是……如果他猜错了，我们就不能回到他们那里。不能回到#{italic}#她#{normal}#身边——上次那件事之后不行。无论他们分析瓶中剩余物时会发现什么，我都不能让他们把我从埃兰达身边夺走，尤其是在他为我做了这一切之后。
 
-疼痛正在一点点消退，肋骨分分秒秒愈合。我现在可以把气吸得稍深一些，才会#FIREBRICK#撞上#LAST#那堵突如其来的#FIREBRICK#剧痛#LAST#之墙。感觉……很健康，甚至充满力量。不管我的爱人找到了什么，他的馈赠无疑能够滋养生灵……但我也感到了别的东西。受困。迷失。孤独。躺在家中，却仍在思乡。
+疼痛正在一点点消退，肋骨每分钟都在愈合。我现在可以把气吸得稍深一些，才会#FIREBRICK#撞上#LAST#那堵突如其来的#FIREBRICK#剧痛#LAST#之墙。感觉……很健康，甚至充满力量。不管我的爱人找到了什么，他的馈赠无疑能够滋养生灵……但我也感到了别的东西。受困。迷失。孤独。躺在家中，却仍在思乡。
 
 [……]
 
-我对侵袭我的东西已有猜测，尽管这些猜测令人不安——我怀疑它已经悄无声息地取代了我的潜意识；只要不集中精神，我就不断感觉有意识的思绪向它飘去；而我将注意力维持在其他任何事物上的能力，仿佛每分钟都在进一步衰退。自杀，或把自己送进安格利文的疯人院（如果他们肯这么仁慈），都不是选项——听来或许自负，但我知道，我给埃兰达悲惨人生带来的幸福，是支撑他活下去的唯一事物。我相信，我能善加利用这份联结，以及随之而来的那些#FIREBRICK#反常得令人痛苦#LAST#的冲动……既不让爱人心碎，也不留下一个更加糟糕的世界。我会幸福，埃兰达会幸福，#FIREBRICK#他#LAST#也会幸福。]], "_t")
+我对侵袭我的东西已有猜测，尽管这些猜测令人不安——我怀疑它已经悄无声息地取代了我的潜意识；只要不集中精神，我就不断感觉有意识的思绪向它飘去；而我将注意力维持在其他任何事物上的能力，仿佛每分钟都在进一步衰退。自杀，或把自己送进安格利文的疯人院（如果他们肯这么仁慈），都行不通——听来或许自负，但我知道，我给埃兰达悲惨人生带来的幸福，是他活下去的唯一支撑。我相信，我能善加利用这份联结，以及随之而来的那些#FIREBRICK#反常得令人痛苦#LAST#的冲动……既不让爱人心碎，也不留下一个更加糟糕的世界。我会幸福，埃兰达会幸福，#FIREBRICK#他#LAST#也会幸福。]], "_t")
 t("Elandar's journal (1)", "埃兰达的笔记 (1)", "_t")
 t([[I am increasingly certain that what I gave my love was not the Blood of Life.
 
@@ -16060,7 +16060,7 @@ She is terrified of losing me, losing this world, losing #{italic}#herself#{norm
 
 她的举止……变了，却不是预想中的变化。假如我给她的是某位被夏·图尔击伤、放干鲜血作为战利品的神祇精华，或者某个浑身枯萎之力的恶魔精华，又或者任何会影响心智的东西，我本以为她会开始举止反常——变得更加残忍、更加傲慢、少几分#{italic}#人性#{normal}#。然而……她的表现就像知道世界即将毁灭，却不能告诉任何人。她不断喃喃，说必须利用那座遗迹里的东西——我们甚至还不能告诉安格利文这座遗迹#{italic}#存在#{normal}#——建立一种新的魔法统治秩序，就像泰恩所希望的那样，“趁一切还来得及”。有什么东西正啃噬着她，她害怕我会查明真相；可除此之外……她几乎#{italic}#理智得过了头#{normal}#。
 
-她害怕失去我，失去这个世界，失去#{italic}#她自己#{normal}#——可会被什么夺走，我毫无头绪。说到底，她脑中究竟有何念头并不重要；我会研究遗迹里的典籍，寻找召唤仪式、远行传送门图纸，或任何能替她完成计划的东西。她将亲眼见到一次这个“盖里克”——仅此一次；随后他的魔力会被吸收，一切便会结束。不管这个生物是什么，死后就不能再发号施令。]], "_t")
+她害怕失去我，失去这个世界，失去#{italic}#她自己#{normal}#——可会被什么夺走，我毫无头绪。说到底，她脑中究竟有何念头并不重要；我会研究遗迹里的典籍，寻找召唤仪式、远行传送门图纸，或任何能替她完成计划的东西。她将亲眼见到这个“盖里克”一次；随后他的魔力会被吸收，一切便会结束。不管这个生物是什么，死后就不能再发号施令。]], "_t")
 t("Argoniel's blood-runed athame", "艾格尼尔的血符仪式匕首", "_t")
 t([[#{italic}#On touching the blood-dripping knife, memories flood your mind - this time, with incredible intensity.  You drop the knife immediately, thankful you only touched the plain handle, and not the rune-lit blade or the red pool under it.  Moments later, your mind starts parsing and interpreting what it just absorbed:#{normal}#
 
@@ -16145,7 +16145,7 @@ And so the chase continues. Over centuries beyond count Branzir has never stoppe
 
 This passage seems to point to the passage there, it seems to indicate there are no possible exits.
 You should not enter it.]], [[这里有一段铭文：
-在弑神者布兰伊尔和他的暗刃玛卓斯的愤怒面前，欺诈之神瑞尔克退却了，他逃入了地城的深处，甚至走到了尽头。走投无路的瑞尔克动用了自己的力量，深深潜入地下，设置陷阱，召唤怪物企图挫败他的对手。但是布兰伊尔永远不会迷失。他不断的逼迫着他的对手，向地城的更深处追击。无论瑞尔克逃得多快多远，甚至远远越过了认知的边界，弑神者总是跟在他身后，进行无尽的猎杀。
+在弑神者布兰伊尔和他的暗刃玛卓斯的愤怒面前，欺诈之神瑞尔克退却了，他逃入了地城的深处，甚至走到了尽头。走投无路的瑞尔克动用了自己的力量，深深潜入地下，设置陷阱，召唤怪物企图挫败他的对手。但是布兰伊尔永远不会迷失。他紧追猎物，向地城更深处追去。无论瑞尔克逃得多快多远，甚至远远越过了认知的边界，弑神者总是跟在他身后，进行无尽的猎杀。
 
 追击就这样延续至今。数不清的世纪以来，布兰伊尔穿行于无尽之境的重重险阻，追逐猎物，从未停下来休息或睡眠。即便死亡会是可喜的解脱，他心中仍只有狩猎，只有消灭那个懦弱的神。瑞尔克继续逃亡，每一次呼吸都是喘息，每一步都在奔逃；他那背叛者的心脏每次跳动都充满恐惧，只能越逃越深，直至时间的尽头。
 
@@ -16163,11 +16163,11 @@ t([[Thus began the greatest hunt there ever was. Branzir used forceful coercion 
 
 Finally they came to the far shore of Tar'Eyal, and Ralkur fell onto the sandy beach bereft of strength. Depleted of all energy he reverted to his natural form, short and squat, and stumbled across the sand before falling down exhausted. Branzir arose from the water behind, and in spite of his trials he stood tall and fierce, and marched with purpose towards the cowering god. He drew out the fell blade Madrath from its sheath and held it to the throat of his prey.
 
-But Ralkur, in a last desperate effort, took on a pathetic and piteous form, and wailing and crying he begged Branzir for mercy, promising to leave all Eyal and never return. And Branzir, looking on the divine form sunk to such depths, was moved in his heart, and agreed. But he said in a solemn tone, "Get thee then from this world, which we mortals now claim for our own. Remove thyself from all influence in Eyal, and never dare thee to return. But if thou doest break my trust, let thee be afeared. For then not a breath shalt thou take that it will not be a gasp, and not a step shalt thou take that it will not be in flight, and each beat of thy traitorous heart shalt be a pounding of terror. For I shalt come for thee and I shalt find thee and even to the depths of Infinity I shalt hunt thee without rest till my hands are on thy throat and thy life is crushed to dust." And when he spake the wind fell silent and the sky turned black, for when a Sher'Tul speaks so his words become Words of Power, and they can change the world forever. And Ralkur hearing those words was filled with a dread beyond conception, and forgetting all exhaustion he immediately took the form of a swallow and flew high into the sky beyond all sight.]], [[史上最伟大的狩猎就此展开。布兰伊尔以严酷逼供和鲜血查出了敌人的藏身之秘。他一路追踪瑞尔克，来到一处原始聚落；瑞尔克在那里化作弱小种族的一员。布兰伊尔将他揪出，手持玛卓斯逼近。瑞尔克见猎人怒不可遏，又见那柄可怖巨剑，心生恐惧，遂化作羚羊逃过哈流平原。布兰伊尔疾驰追赶，速度更胜一筹，在抵达达明树林前几乎追上了他。瑞尔克在那里变成猴子，跃上树梢；布兰伊尔紧追不舍，闯过敌人留下的陷阱。森林终于退去，他们来到蔚蓝海边；瑞尔克化作海鸥飞越水面，得意地嘎嘎鸣叫。布兰伊尔毫不动摇，一跃入水，竭尽全力游向懦弱的神。二十昼夜，他在海中追逐，靠捕捉水面附近的鱼维生；瑞尔克则在上方乘风振翅。布兰伊尔一次也没有让目标脱离视线，而瑞尔克一天比一天恐惧。
+But Ralkur, in a last desperate effort, took on a pathetic and piteous form, and wailing and crying he begged Branzir for mercy, promising to leave all Eyal and never return. And Branzir, looking on the divine form sunk to such depths, was moved in his heart, and agreed. But he said in a solemn tone, "Get thee then from this world, which we mortals now claim for our own. Remove thyself from all influence in Eyal, and never dare thee to return. But if thou doest break my trust, let thee be afeared. For then not a breath shalt thou take that it will not be a gasp, and not a step shalt thou take that it will not be in flight, and each beat of thy traitorous heart shalt be a pounding of terror. For I shalt come for thee and I shalt find thee and even to the depths of Infinity I shalt hunt thee without rest till my hands are on thy throat and thy life is crushed to dust." And when he spake the wind fell silent and the sky turned black, for when a Sher'Tul speaks so his words become Words of Power, and they can change the world forever. And Ralkur hearing those words was filled with a dread beyond conception, and forgetting all exhaustion he immediately took the form of a swallow and flew high into the sky beyond all sight.]], [[史上最伟大的狩猎就此展开。布兰伊尔通过严酷逼供和杀戮查出了敌人的藏身之处。他一路追踪瑞尔克，来到一处原始聚落；瑞尔克在那里化作弱小种族的一员。布兰伊尔将他揪出，手持玛卓斯逼近。瑞尔克见猎人怒不可遏，又见那柄可怖巨剑，心生恐惧，遂化作羚羊逃过哈流平原。布兰伊尔疾驰追赶，速度更胜一筹，在抵达达明树林前几乎追上了他。瑞尔克在那里变成猴子，跃上树梢；布兰伊尔紧追不舍，闯过敌人留下的陷阱。森林终于退去，他们来到蔚蓝海边；瑞尔克化作海鸥飞越水面，得意地嘎嘎鸣叫。布兰伊尔毫不动摇，一跃入水，竭尽全力游向懦弱的神。二十昼夜，他在海中追逐，靠捕捉水面附近的鱼维生；瑞尔克则在上方乘风振翅。布兰伊尔一次也没有让目标脱离视线，而瑞尔克一天比一天恐惧。
 
-最后，他们抵达塔·埃亚尔的遥远彼岸，瑞尔克力竭坠落在沙滩上。他耗尽力量，变回矮小敦实的本来形貌，踉跄走过沙地，终于精疲力竭地倒下。布兰伊尔从后方水中起身；虽历尽磨难，他仍高大而威猛，目标明确地走向瑟缩的神。布兰伊尔从鞘中拔出凶刃玛卓斯，抵住猎物的咽喉。
+最后，他们抵达塔·埃亚尔的遥远彼岸，瑞尔克力竭坠落在沙滩上。他耗尽力量，变回矮小敦实的本来形貌，踉跄走过沙地，终于精疲力竭地倒下。布兰伊尔从后方水中起身；虽历尽磨难，他仍高大而威猛，径直走向瑟缩的神。布兰伊尔从鞘中拔出凶刃玛卓斯，抵住猎物的咽喉。
 
-瑞尔克作最后的垂死挣扎，化作卑微可怜的模样，哀号哭泣着恳求布兰伊尔饶命，许诺离开埃亚尔、永不归来。布兰伊尔看着神明之躯竟沦落至此，心有所动，答应了他，却以庄严的语调说道：“那便离开这个世界吧，如今我们凡人已宣称它归我们所有。断绝你对埃亚尔的一切影响，再也不得归来。若你辜负我的信任，便当恐惧：届时你每一次呼吸都必是喘息，每一步都必在奔逃，背叛之心每一次跳动都必被恐惧重击。因为我必来寻你，必将找到你；哪怕追至无尽之境的最深处，我也绝不停歇，直至双手扼住你的咽喉，将你的生命碾作尘埃。”他话音落下，风息天黑；因为夏·图尔如此发言时，其话语便成为力量之言，足以永远改变世界。瑞尔克听罢，心中涌起无法想象的恐惧；他忘却一切疲惫，立刻化作燕子，飞上高天，消失在视野之外。]], "_t")
+瑞尔克作最后的垂死挣扎，化作卑微可怜的模样，哀号哭泣着恳求布兰伊尔饶命，许诺离开埃亚尔、永不归来。布兰伊尔看着神明之躯竟沦落至此，心有所动，答应了他，却以庄严的语调说道：“那便离开这个世界吧，如今我们凡人已宣称它归我们所有。断绝你对埃亚尔的一切影响，再也不得归来。若你辜负我的信任，便当恐惧：届时你每一次呼吸都必是喘息，每一步都必在奔逃，你那背叛之心每一次跳动都必因恐惧而剧烈搏动。因为我必来寻你，必将找到你；哪怕追至无尽之境的最深处，我也绝不停歇，直至双手扼住你的咽喉，将你的生命碾作尘埃。”他话音落下，风息天黑；因为夏·图尔如此发言时，其话语便成为力量之言，足以永远改变世界。瑞尔克听罢，心中涌起无法想象的恐惧；他忘却一切疲惫，立刻化作燕子，飞上高天，消失在视野之外。]], "_t")
 t("The Hunter and the Hunted chapter 3", "猎人与猎物　第三章", "_t")
 t([[Branzir returned to his people, and continued the hunt for the other gods, till but one god remained: Amakthel. Then the last great Godhunt began, as the Sher'Tul fought to overcome their maker and master. And this was no easy feat, for Amakthel was by far the strongest of all the gods, and many Sher'Tul were still loyal to their creator. Much blood was spilled before ever the assault on his throne could begin, and much blood would spill still after.
 
@@ -16183,9 +16183,9 @@ He watched with joy as he saw the Sher'Tul armies fall before the forces of Amak
 t("The Hunter and the Hunted chapter 4", "猎人与猎物　第四章", "_t")
 t([[Seeing the full powers of the Sher'Tul Ralkur felt paralysed with fear, and thought his quest for vengeance hopeless. But he bided his time still, and his patience was rewarded as he saw dissention begin to arise in the great race. When Caldizar disappeared and the Godslayers separated he felt his time was ripe, and he came upon the forest keep of Branzir under a storm of wrath. He flew down screeching, and spreading his wings he let loose spikes of steel that rained down on the keep, cutting through wood and stone and flesh. All who were in the keep were killed, and the air was filled with Ralkur's cackling laughter as he flew away.
 
-But the vengeful god had been hasty at the last, for Branzir was out hunting at the time. Coming back the next day he saw his home in ruins, and all his family and servants butchered, and sorrow and torment filled every corner of his being. On hearing reports of what happened he knew well the perpetrator and his fury was incandescent. He sought the aid of the other Godhunters in scouring out the stray god, but they were all divided, and each engaged in the politics that would lay the seeds for war. Perhaps if they had aided him then the popular Branzir could have helped unify the people and stop the madness that was to come. But Caldizar was gone, reportedly aggrieved and repentant at their acts, and the remaining Godslayers thought only of their own powers and making gods of themselves.]], [[目睹夏·图尔的全部力量后，瑞尔克吓得动弹不得，以为复仇之路已毫无希望。但他仍耐心等待，而当这个伟大种族中开始出现纷争时，他的耐心得到了回报。凯尔帝勒消失、弑神者各自分离后，瑞尔克认定时机已到，裹挟着狂怒的风暴袭向布兰伊尔的森林要塞。他尖啸着俯冲而下，展开双翼，放出钢刺如雨般落向要塞，贯穿木石与血肉。要塞中无一生还；瑞尔克飞离时，空中满是他咯咯的狂笑。
+But the vengeful god had been hasty at the last, for Branzir was out hunting at the time. Coming back the next day he saw his home in ruins, and all his family and servants butchered, and sorrow and torment filled every corner of his being. On hearing reports of what happened he knew well the perpetrator and his fury was incandescent. He sought the aid of the other Godhunters in scouring out the stray god, but they were all divided, and each engaged in the politics that would lay the seeds for war. Perhaps if they had aided him then the popular Branzir could have helped unify the people and stop the madness that was to come. But Caldizar was gone, reportedly aggrieved and repentant at their acts, and the remaining Godslayers thought only of their own powers and making gods of themselves.]], [[目睹夏·图尔的全部力量后，瑞尔克吓得动弹不得，以为复仇之路已毫无希望。但他仍耐心等待，而当这个伟大种族中开始出现纷争时，他的耐心得到了回报。凯尔帝勒消失、弑神者各自分离后，瑞尔克认定时机已到，裹挟着狂怒的风暴袭向布兰伊尔的森林要塞。他尖啸着俯冲而下，展开双翼，射出钢刺；钢刺如雨般落向要塞，贯穿木石与血肉。要塞中无一生还；瑞尔克飞离时，空中满是他咯咯的狂笑。
 
-然而复仇之神最后还是操之过急，因为布兰伊尔当时外出狩猎。次日归来，他只见家园已成废墟，家人与仆从尽遭屠戮，悲痛与折磨充斥全身每一处。听完事发经过，他立刻明白凶手是谁，怒火炽烈如白光。他请求其他猎神者相助，搜出这个逃亡之神；但众人早已分裂，各自卷入将为战争埋下种子的政治纷争。倘若他们当时伸出援手，深得人望的布兰伊尔或许还能团结族人，阻止即将到来的疯狂。但凯尔帝勒已经离去，据说他为众人的所作所为而悲恸悔恨；余下的弑神者只想着自身力量，妄图将自己塑成神明。]], "_t")
+然而复仇之神最后还是操之过急，因为布兰伊尔当时外出狩猎。次日归来，他只见家园已成废墟，家人与仆从尽遭屠戮，他的身心每一处都充满悲痛与折磨。听完事发经过，他立刻明白凶手是谁，怒火炽烈如白光。他请求其他猎神者相助，搜出这个逃亡之神；但众人早已分裂，各自卷入将为战争埋下种子的政治纷争。倘若他们当时伸出援手，深得人望的布兰伊尔或许还能团结族人，阻止即将到来的疯狂。但凯尔帝勒已经离去，据说他为众人的所作所为而悲恸悔恨；余下的弑神者只想着自身力量，妄图将自己塑成神明。]], "_t")
 t("The Hunter and the Hunted chapter 5", "猎人与猎物　第五章", "_t")
 t([[So Branzir set out alone, with Madrath in his sheath. It did not take long to find his prey, who had now stopped all attempts at hiding. He came upon the god in a settlement of lesser creatures who worshipped him, and he ruthlessly cut down the pathetic wretches that tried to protect their new deity. Ralkur fled at the sight of Branzir and his dark blade, filled with all-encompassing fright. But Branzir was not to be lost, and chased him into some nearby ruins. There Ralkur laid traps and summoned enemies and fled deeper into the darkness. But Branzir overcame them all and came on faster, till they reached the depths of the dungeons. And being out of space the god created new space and fled further, and kept on fleeing. And Branzir carried on chasing, not letting up for a second as the pursued god continued to delve deeper into the ground.
 
@@ -16211,9 +16211,9 @@ t([[#{bold}#3800: #{normal}#Gold accepted as standard unit of currency amongst a
 #{bold}#4200：#{normal}#新开发的冶炼技术可以从现有矿脉中提取更多斯莱特。必须对其他种族隐瞒这些技术。
 #{bold}#4362：#{normal}#大工匠达克顿发现了为武器和护甲注入魔法效果的新方法。该领域的利润增长潜力极高。
 #{bold}#4550：#{normal}#钢铁王座利润委员会首次召开特别会议。与人类和半身人的战争令人担忧，因为潜在市场规模正在缩小。市场可能彻底消失，迫使我们采取激烈行动——必须停止一切武器贸易。增加建筑材料储备，以待最终和解。
-#{bold}#5967：#{normal}#永恒精灵参战正成为过于严重的风险——夏·图尔造成毁灭的传说恰好提醒我们高等魔法有多么危险。加大对新兴伊格兰斯教团的投资，希望借此对抗这一问题。
+#{bold}#5967：#{normal}#永恒精灵参战正带来过于严重的风险——夏·图尔造成毁灭的传说恰好提醒我们高等魔法有多么危险。加大对新兴伊格兰斯教团的投资，希望借此应对这一问题。
 #{bold}#6550：#{normal}#战争结束。机会已经出现——立即重开贸易，并为所有建筑材料索取高价。预计利润极高。
-#{bold}#6827：#{normal}#杀死了赤红巨龙库洛塔并夺得了他的财宝。财宝价值：两千万金。回收行动损失资源七百万金（按每名损失人员 350 金的标准估算）。净利润：一千三百万金。利润率为 186%！
+#{bold}#6827：#{normal}#杀死了赤红巨龙库洛塔并夺得了他的财宝。财宝价值：两千万金。回收行动损失资源七百万金（按每损失一名人员计 350 金的标准估算）。净利润：一千三百万金。利润率为 186%！
 #{bold}#6980：#{normal}#以巨龙宝藏为来源的资源正在减少。必须下调猎杀指标，让巨龙数量得以恢复。
 #{bold}#7420：#{normal}#兽人的大规模袭击正在破坏贸易安排。在市场稳定之前中止所有合约。
 #{bold}#7494：#{normal}#永恒精灵灾难性地运用魔法，对我们各项经营活动的盈利能力造成了前所未有的冲击。加强保护主义措施，防止经济崩溃。]], "_t")
@@ -16223,7 +16223,7 @@ t([[#{bold}#412: #{normal}#Diseases and food shortages force increased trade wit
 #{bold}#1490: #{normal}#Production now nearing pre-Spellblaze levels. Profits high, and commerce with other races increasing.
 #{bold}#1567: #{normal}#Gigantic earthquakes have completely destroyed many of our major production facilities. Loss of personnel resources is also very tragic, especially key production experts. This is having a very negative effect on our forecasts.]], [[#{bold}#412：#{normal}#疾病和食物短缺迫使我们增加与其他种族的贸易。这是我们伟大历史上第一次出现亏损。民众士气降至历史最低点，严重影响了生产效率。
 #{bold}#1430：#{normal}#数个法师来此造访并用他们的法术解除了折磨我们多个世纪的瘟疫。他们还拒绝了我们的报酬。真是群古怪的家伙。
-#{bold}#1490：#{normal}#现在生产力已经恢复到接近法术大爆炸时期前，利润很高，和其它种族的交易与日俱增。
+#{bold}#1490：#{normal}#现在生产力已经恢复到接近法术大爆炸前的水平，利润很高，和其它种族的交易与日俱增。
 #{bold}#1567：#{normal}#巨大的地震彻底摧毁了许多主要生产设施。人员资源的损失同样惨重，尤其是关键生产专家。这正对我们的预测造成极为不利的影响。]], "_t")
 t("Iron Throne Profits History: Age of Pyre", "钢铁王座的盈利历史　烈火纪", "_t")
 t([[#{bold}#240: #{normal}#Market forecasts recovering better than expected. Increasing expansion in external trade areas.
@@ -16231,7 +16231,7 @@ t([[#{bold}#240: #{normal}#Market forecasts recovering better than expected. Inc
 #{bold}#581: #{normal}#Several key cities overwhelmed from underground by attacks from orcs and strange horrors. Have collapsed lower caverns to prevent further penetration. Working on continued resource protection measures.
 #{bold}#711: #{normal}#Developed key strategic agreements with outside races to help contain orcish threat to resources and infrastructure. Relations with Toknor of the humans are seen to be especially important - have sent him some of our best armour and weapons to ensure a good return on our investments. In hindsight we should have charged more for these.
 #{bold}#713: #{normal}#Orcish threat eliminated. Profits beginning to soar due to increased external trade relations.
-]], [[#{bold}#240：#{normal}#市场预测的恢复好于预期。继续扩大对外贸易领域。
+]], [[#{bold}#240：#{normal}#市场前景的好转超出预期。继续扩大对外贸易领域。
 #{bold}#490：#{normal}#兽人的袭击愈发严重——他们似乎正在运用高等魔法和某些恶魔力量。可能威胁资源。
 #{bold}#581：#{normal}#兽人与怪异的恐魔从地下发动袭击，攻陷了数座重要城市。已使下层洞穴坍塌，以阻止其继续深入。继续制定资源保护措施。
 #{bold}#711：#{normal}#与其他种族达成关键战略协议，协助遏制兽人对资源和基础设施的威胁。与人类图库纳的关系尤其重要——我们已将一些最好的护甲和武器送给他，以确保投资获得良好回报。现在想来，我们本该多收些钱。
@@ -16242,7 +16242,7 @@ t([[#{bold}#28: #{normal}#Mutual defence treaty signed with newly formed Allied 
 #{bold}#115: #{normal}#Noted a return of an orcish presence in the collapsed caverns beneath the Iron Throne. Also increased reports of horrors and demons affecting mining operations. Key strategic decision taken: these must be kept hidden from the other races. Uncertainty will only destabilise the markets. Increase stockpiles of weapons and armour, especially voratun and stralite materials, in case of new war trade.
 #{bold}#120: #{normal}#Orcish raid has stolen many of our stockpiled weapons. Pressures on mining operations have increased, cutting off key stralite veins. Resource protection measures need increasing, whilst threat must be contained beneath us. Profits are stable, but under heavy threat.]], [[#{bold}#28：#{normal}#与新成立的联合王国签署共同防御条约，并开辟了更多贸易路线。本年最后一季度创下有记录以来的最高利润。
 #{bold}#115：#{normal}#注意到兽人重新出现在钢铁王座下方已经坍塌的洞穴中。另有越来越多的报告称，恐魔和恶魔正在影响采矿作业。已作出关键战略决定：必须向其他种族隐瞒这些情况。不确定性只会扰乱市场。增加武器和护甲库存，尤其是沃瑞钽和斯莱特材料，以备新的战时贸易。
-#{bold}#120：#{normal}#兽人突袭夺走了我们库存中的许多武器。采矿作业压力加剧，切断了关键斯莱特矿脉。需要加强资源保护措施，同时必须把威胁封锁在我们下方。利润保持稳定，但正受到严重威胁。]], "_t")
+#{bold}#120：#{normal}#兽人突袭夺走了我们库存中的许多武器。采矿作业承受的压力加剧，关键斯莱特矿脉已无法开采。需要加强资源保护措施，同时必须把威胁封锁在我们下方。利润保持稳定，但正受到严重威胁。]], "_t")
 t("Iron Throne Edict", "钢铁王座布告", "_t")
 t([[#{bold}#AN EDICT TO ALL CITIZENS OF THE IRON THRONE. LONG MAY OUR EMPIRE ENDURE.#{normal}#
 
@@ -16250,7 +16250,7 @@ The rumours you have heard are true. It is with a heavy heart that I confirm one
 
 This is a grave and unprecedented issue, so I decree an oath of silence to be laid upon all citizens of the Iron Throne, regardless of class and station: NO NEWS OF THIS INVASION MUST REACH FOREIGN EARS. We must maintain an image of stability and strength with the Allied Kingdom, as any signs of weakness or internal strife would be catastrophic to our alliance and future trade agreements. Any citizen found divulging this information to any outside party will be punished with exile. Rest assured, I will personally send messages to those outside the Throne who can be trusted with this information, and I trust this orcish intrusion shall be dealt with swiftly and decisively. So speaks the ruler of the Iron Throne, long may our empire endure.]], [[#{bold}#致钢铁王座全体市民的布告。愿帝国长存。#{normal}#
 
-你们听到的传言属实。我怀着沉痛之心确认，我们的一处矿井瑞库纳已被一支规模庞大、组织严密的兽人部队占领。我们为何会如此彻底地未能阻止这场威胁，至今仍是个谜——兽人入侵的源头尚不明确。在集结起足以夺回矿井、消灭兽人的部队之前，一个营的士兵将在瑞库纳周围建立防线。所有居住在周边大厅的平民均须撤离。
+你们听到的传言属实。我怀着沉痛之心确认，我们的一处矿井瑞库纳已被一支规模庞大、组织严密的兽人部队占领。我们在阻止这场威胁时为何会遭遇如此彻底的失败，至今仍是个谜——兽人入侵的源头尚不明确。在集结起足以夺回矿井、消灭兽人的部队之前，一个营的士兵将在瑞库纳周围建立防线。所有居住在周边大厅的平民均须撤离。
 
 这是一起严重且前所未有的事件，因此我下令钢铁王座全体市民，无论阶级与地位，皆须立下缄默誓言：绝不能让外国人听到任何入侵消息。我们必须在联合王国面前维持稳定强盛的形象，因为任何软弱或内乱的迹象，都会给我们的联盟和未来贸易协定带来灾难。
 
@@ -16319,7 +16319,7 @@ Some Sher'Tul relics have been found. Perhaps great profit to be had here! High 
 
 Some miners saying they feel ill, hrm hrm. The drem fools have likely been gorging on too much mead. Will deduct it from their pay, yes yes!
 
--- Foreman Tamoth]], [[初步现场勘察进行到第10天，嗯！最近的震动裂开了新的深邃裂谷，但在开展大型作业之前，必须谨慎确认它们稳定，哦，是的！开局进展顺利，支护正在架设，也未检测到可燃气体，嗯嗯。
+-- Foreman Tamoth]], [[初步现场勘察进行到第10天，嗯！最近的震动形成了新的深邃裂谷，但在开展大型作业之前，必须谨慎确认它们稳定，哦，是的！初期进展顺利，支护正在架设，也未检测到可燃气体，嗯嗯。
 
 发现了一些夏·图尔遗物。也许这里能赚到巨额利润！永恒精灵市场的利润率很高，是的是的。
 
@@ -16335,7 +16335,7 @@ Hmm, that fellow's blood was so red, spilling on the cavernous floor. I wonder w
 
 -- Foreman Tamoth]], [[裂谷通向深处，是的是的。发现了更多遗物，哦，是的。一定会带来巨额利润！但是啊，我的秘密宝藏更好，真的！金子！美丽可爱的金子，埋得很深，那么深……我一直把它藏着，封闭起来，是的。看起来像一座巨大王座的残骸。我摸过它，是的，我甚至用嘴唇贴过它——啊啊啊，这滋味！
 
-但必须保持专注，还有很多工作要做。矿工们躁动不安，嗯！一个德瑞姆傻瓜发了疯，用鹤嘴锄杀死了自己——真麻烦。必须恢复秩序，是的是的！又发现了更多夏·图尔造物，甚至可能还有武器残骸。想想那利润！要把它们藏起来，是的，梦里也是这么说的，藏在黑暗里，秘密地，等等，等到正确的时机……
+但必须保持专注，还有很多工作要做。矿工们躁动不安，嗯！一个德瑞姆傻瓜发了疯，用鹤嘴锄杀死了自己——真麻烦。必须恢复秩序，是的是的！又发现了更多夏·图尔造物，甚至可能还有武器残骸。想想那利润！要把它们藏起来，是的，梦里也是这么说的，藏在黑暗里，秘密地，等待，等待，直到时机成熟……
 
 嗯，那家伙的血真红，洒在洞穴地面上。他们把他埋到哪儿了？我的嘴……它想尝尝，是的是的……
 
