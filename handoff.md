@@ -81,7 +81,7 @@
 
 # 翻译审核当前交接
 
-更新时间：2026-10-05（第399批已 finalize，窗口66积压 5 条，继续审核第400批）
+更新时间：2026-10-05（第400批已 finalize，窗口66积压 8 条，继续审核第401批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -97,9 +97,9 @@
 - 2026-10-01：用户裁定 deeprock 技能树改“深岩”（Deeprock Form 保持“深岩形态”），并要求一并修复 Korbek 实验笔记标题等非阻断问题，开窗口60。
 - 2026-10-01：审核队列清空后，用户要求系统性分析死亡信息表（`cd2d0d7e`）；同意把 12 条句式与拼接缺陷并入积压，开窗口61；随后裁定 pending #50（killer_message 改凶手主语）与 #51（dark Master→黑暗领主）均采用 B，排入窗口62。窗口62 已于同日完成并推送。
 - 2026-10-05：生硬描述 C 档完成并发布 0.3.4 后，用户要求“再走一轮生产复核”。迁移 `87fb6882…`（catalog `47745ecc…`）把 C 档修复包、交叉复核修正与搁置项处理涉及的 494 个 successor 排入队列（证据 `evidence/quality/maintenance-reaudit-20261005/`）。
-- 审核已闭合至第 **399** 批（`batch-32839b9d4e0ed9f6554b`）：80 条，79 done / 1 repair_required。
-  重新复审：successor 80 条（主游戏 80）：surface 78 OK / 2 ISSUE；contextual 1 OK / 1 ISSUE；裁决 confirmed 2、refuted 1；新增修复 1 条，窗口66积压 5；余 254 个 successor。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `2f2b0475371ca0adcb009e265a507cae5ef34fd6` 已 finalize。当前无 active batch。
+- 审核已闭合至第 **400** 批（`batch-2fd158c709697a888ae1`）：80 条，77 done / 3 repair_required。
+  重新复审：successor 80 条（主游戏 61、Ashes 19）：surface 74 OK / 6 ISSUE；contextual 3 OK / 3 ISSUE；裁决 confirmed 6、refuted 2、advisory 1；新增修复 3 条，窗口66积压 8；余 174 个 successor。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `58c5bf78d05cdc10f68f48896101051ea28d157f` 已 finalize。当前无 active batch。
 - 修复窗口已闭合至 **65**：窗口64（译文 `80b359b0`，migration `629e3b1e…`）与窗口65（第392–395批重新复审确认 9 条＋宿主补充 2 条，译文 `9079821a`，migration `e437cb51…`）均已修复；窗口65 的 11 个 successor 须重新审核，不继承旧 revision 的 done 状态。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
@@ -143,6 +143,7 @@
 | 397 | `batch-eb3fc24942d20a7b5e71` | 78 done / 2 repair | 75 OK / 5 ISSUE | 3 OK / 2 ISSUE | 4 confirmed / 3 advisory |
 | 398 | `batch-62c5a69973fcdab9c29f` | 78 done / 2 repair | 77 OK / 3 ISSUE | 1 OK / 2 ISSUE | 4 confirmed / 1 advisory |
 | 399 | `batch-32839b9d4e0ed9f6554b` | 79 done / 1 repair | 78 OK / 2 ISSUE | 1 OK / 1 ISSUE | 2 confirmed / 1 refuted |
+| 400 | `batch-2fd158c709697a888ae1` | 77 done / 3 repair | 74 OK / 6 ISSUE | 3 OK / 3 ISSUE | 6 confirmed / 2 refuted / 1 advisory |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -162,7 +163,7 @@
 
 ## 三、下一步
 
-1. 继续审核第 **400** 批：用户 2026-10-05 要求对 C 档润色再走一轮生产复核，**494 个 successor**排队待审（约 7 批，估算；第397–399批已审 240，余 254）。上一轮（第383–396批，1030/1030）已完成；本轮派生脚本见 `$C/reaudit2-helpers/`（start_re2.sh、derive_re2.sh、mkfin_re2.py），收口用 `finalize_host_gen_re2.py` 与 `close_tpl_re2.sh`。
+1. 继续审核第 **401** 批：用户 2026-10-05 要求对 C 档润色再走一轮生产复核，**494 个 successor**排队待审（约 7 批，估算；第397–400批已审 320，余 174）。上一轮（第383–396批，1030/1030）已完成；本轮派生脚本见 `$C/reaudit2-helpers/`（start_re2.sh、derive_re2.sh、mkfin_re2.py），收口用 `finalize_host_gen_re2.py` 与 `close_tpl_re2.sh`。
    窗口65 的派生件在 `.artifacts/i18n/repair-w65-20261004/`（setup_window65.py、freeze_review.py、wd.sh、w65-tr.sh、w65-close.sh、make_handoff_next.py），下一个窗口可从此派生；handoff 改由宿主写好全文、publication child 核对基线 SHA 后整份替换。
    本轮新增经验（第392–395批）：
    - 一批有多个 contextual run 时，`finalize_host_gen_re.py` 与 `/tmp/mkfin_re.py` 已能处理；`close_review<N>.py` 的 `for run in (...)` 仍须按 run 数手改。
@@ -172,8 +173,8 @@
 2. 窗口 65 已完成（11 条：Orcs 8、主游戏 1、Ashes 1、Cults 1）：第392–395批重新复审确认的 9 条（换行与缩进不变量 3 条，忠实性与机制 6 条）＋宿主补充 2 条（火箭靴、紧急蒸汽排出），新译文均由宿主按整句对照写定、EXECUTOR 逐字替换。复审路径：execute-01 → REVIEW r0a1（GPT-6.1 Sol）10 OK／1 ISSUE（电力放出目标数为英文与实现不符，宿主判 advisory carry_forward）→ FINAL f0a2（Opus 5.5）11/11，cycle 0 收敛；门禁 17/17。详见 `evidence/quality/repair-window-65-20261004/PUBLICATION.md`。
    窗口64（重新复审确认 25 条＋补充 1 条）详见 `evidence/quality/repair-window-64-20261003/PUBLICATION.md`；窗口63（意志之力 maces 1 条）详见 `evidence/quality/repair-window-63-20261001/PUBLICATION.md`；窗口62 教训：killer_message 被 `" "..src.killer_message` 拼在凶手名后，译文不得以标点起头。
    窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
-   窗口 66 积压 **5** 条（窗口65后重新计数，主游戏 5）：第397批 `0eb305a353` 阿尔德胡格尔日志第七篇删多余换行、`48267a1ec3` 纸片内引号统一并补“应当”；第398批 `66551a6987` 《魔法究竟是什么？》元素相互作用等四处、`7b6cdae175` 科斯汀随笔“难以置信”等三处；宿主补充（不计）`520cfc1133`、`75061b0aa7` 各删一个多余换行；第399批 `a32121c7fd` 兽人军官日志删两个多余空行；宿主补充（不计）`9be1dc5a72` 末尾补 \n、`a6af085c45` 竞技场邀约补回 2 个换行；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
-   第399批计时（实测，投影缓存 on）：start 1.9 s；adjudication chain（含 17 项门禁）171.1 s；finalize 164.4 s。
+   窗口 66 积压 **8** 条（窗口65后重新计数，主游戏 6、Ashes 2）：第397批 `0eb305a353` 阿尔德胡格尔日志第七篇删多余换行、`48267a1ec3` 纸片内引号统一并补“应当”；第398批 `66551a6987` 《魔法究竟是什么？》元素相互作用等四处、`7b6cdae175` 科斯汀随笔“难以置信”等三处；宿主补充（不计）`520cfc1133`、`75061b0aa7` 各删一个多余换行；第399批 `a32121c7fd` 兽人军官日志删两个多余空行；宿主补充（不计）`9be1dc5a72` 末尾补 \n、`a6af085c45` 竞技场邀约补回 2 个换行；第400批 `e69406df8f` 半身人纸条补“磨洋工”、`201a4359ec` S 的留言改正碑文主语与“痛苦命运”、`a4ad61026b` 恶魔便条改为“炸毁连接结构／驱散供氧结界”；宿主补充（不计）`d15beb86fb`、`d7bd95ff10`、`ea56758108`、`f901245fba` 换行对齐原文；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
+   第400批计时（实测，投影缓存 on）：start 1.8 s；adjudication chain（含 17 项门禁）171.6 s；finalize 165.0 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。
 
