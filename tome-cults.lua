@@ -935,7 +935,7 @@ t("The exploration of the cavity has been interesting, to say the least. At its 
 
 我们走进这个房间的后部，那里还有更多的管子。令我惊讶的是，管子里是完全成形的生命体。一个留着长胡须的矮人漂浮在管内。他的身体轻轻抽动，仿佛正在梦中。我们越走越远，发现更多矮人睡在管子中，也同时注意到，随着我们继续前进，那些矮人也变得越来越畸形。最终，我们到达了最后一个管子，我们发现里面有一个无脸的矮人——换句话说，一个德瑞姆。
 
-这个巨蛋就是我们的起源。这台机器是为了创造矮人而建造的。我并不了解制造过程，但我亲眼见到了结果。我们德瑞姆一族是异常的产物，是这台年久失修的机器出现故障后产生的副产品。野生德瑞姆一定是从这个巨蛋中出生的。他们冒险进入地下，随后不再依赖巨蛋，自行繁衍生息。从房间里包覆着机器的黑色生长物来看，这些突变的胎儿一定是机器进一步失修和腐化的结果。
+这个巨蛋就是我们的起源。这台机器是为了创造矮人而建造的。我并不了解制造过程，但我亲眼见到了结果。我们德瑞姆一族才是异常的存在，是这台年久失修的机器出现故障后产生的副产品。野生德瑞姆一定是从这个巨蛋中出生的。他们冒险进入地下，随后不再依赖巨蛋，自行繁衍生息。从房间里包覆着机器的黑色生长物来看，这些突变的胎儿一定是机器进一步失修和腐化的结果。
 
 所以，我现在知道了一切。即使这一发现永远无法传出这个房间，我也可以死而无憾。即使我是这台故障机器的产物，我仍很高兴有机会亲眼见证这一刻。如果你找到这些笔记，请把它们带回给我的德瑞姆同胞。我相信他们会很乐意知道真相。]], "_t")
 t("strange picture", "奇怪的图片", "_t")
@@ -1294,7 +1294,7 @@ Moving away from the market I wondered what other scenes of chaos I might see if
 
 这种情况持续了几分钟，第一批警卫才赶来恢复秩序。卫兵们花了几分钟才集合起来，在此期间，难民们继续肆意破坏，市场很大一部分都被捣毁了。当警卫们最终进场清理时，许多难民四散，到处都是瓦砾、受伤的商人和顾客。当现场的秩序终于恢复时，一些卫兵来询问我是否没事，紧接着，其中一个卫兵把我拉到一边，盘问我发生了什么事。我把我所看到的事情都告诉了警卫。听完我的叙述后，他们示意我离开这个地区。
 
-离开市场后，我难以想象，如果我继续留在纳格尔城，我还会看到怎样混乱的景象。虽然我侥幸躲过了危险，但在那个市场里被践踏、被撞倒的很可能就是我。我决定开始往城门走。当我朝大门走去的时候，我注意到前面聚集着一群难民，甚至还有一些市民。我本该从他们身边走过，但在他们身后，我听到一个声音从高处传来。“现在就是采取行动的时候了，我们必须把矛头指向造成这一切伤害的幕后黑手，”听到这些话时我停下脚步，转过头。似乎有某种东西在迫使我留下来，听那个人所说的话。我被那声音吸引，开始向人群的边缘走去。]], "_t")
+离开市场后，我难以想象，如果我继续留在纳格尔城，我还会看到怎样混乱的景象。虽然我侥幸躲过了危险，但在那个市场里被践踏、被撞倒的很可能就是我。我决定开始往城门走。当我朝大门走去的时候，我注意到前面聚集着一群难民，甚至还有一些市民。我本该从他们身边走过，但在他们身后，我听到一个声音从高处传来。“现在就是采取行动的时候了，我们必须把矛头指向造成这一切伤害的幕后黑手的源头，”听到这些话时我停下脚步，转过头。似乎有某种东西在迫使我留下来，听那个人所说的话。我被那声音吸引，开始向人群的边缘走去。]], "_t")
 t("Escapades of Fay Willows [Book 2, Chapter 4] - Despicable Atrocities", "菲·维莉欧斯的冒险 [第2卷，第4章] - 卑鄙的暴行", "_t")
 t([[[i]Was it anger against magic that drove people to the acts of violence against mages in the aftermath of the Spellblaze or was it perhaps something else? While I can't say I am an expert on the humans, halflings, or dwarves; the depravity I would witness on the street leading out of the Nargol Kingdom would go beyond what I would expect to have been possible for any sentient being to do.[/i]
 
@@ -1474,7 +1474,7 @@ Asking him what was wrong the dark blue glow went away from the ogres eyes and I
 
 突然的要求让我措手不及，我只是结结巴巴地说了一句“好吧，好吧。”食人魔瞬间反应过来，立刻对其他人说：“走吧！”很快他抓住我的胳膊，我们开始奔跑，其他食人魔雷鸣般的脚步声随即跟上。我们似乎不顾一切地冲过了这片土地上的死亡陷阱，跳过了小裂口，绕过了锋利的岩石。这段路我先前似乎走了整整一天，我们却仿佛只花了一个小时就走完了。食人魔抓住我的胳膊，不时把我举起来躲避地面上的危险。我们继续跑，直到我看到了海岸线。我用另一只胳膊指出我们需要往西边走，随后整群人迅速转向，开始躲避地上的熔岩块。
 
-这时，抓着我手臂的食人魔开始气喘、脚步踉跄，终于放慢了速度。停下来后，他把头转向我们的后方，同样的深蓝色光芒再次出现在他的眼睛上。我抑制不住好奇的心情，终于问他在做什么。那个食人魔直视着我，深蓝色的光芒立刻消失了，随后他回答道。“我认为你对符文不是很精通。考虑到你们自然精灵有多排斥奥术，我想这也不奇怪。我使用的符文可以让我看到周围的地形，不过我现在不一定是为了这个目的才使用它。”那个食人魔停顿了一下，然后再次回头看去。
+这时，抓着我手臂的食人魔开始气喘、脚步踉跄，终于放慢了速度。停下来后，他把头转向我们的后方，同样的深蓝色光芒再次出现在他的眼睛上。我抑制不住好奇的心情，终于问他在做什么。那个食人魔直视着我，深蓝色的光芒立刻消失了，随后他回答道：“我认为你对符文不是很精通。考虑到你们自然精灵有多排斥奥术，我想这也不奇怪。我使用的符文可以让我看到周围的地形，不过我现在不一定是为了这个目的才使用它。”那个食人魔停顿了一下，然后再次回头看去。
 
 另一个食人魔插嘴继续解释道：“他回头看看那些从营地追我们的狂热者有多远。”我们被追捕了？这正是那些憎恨魔法的狂热者会干的事。无论他们有什么邪恶的意图，看来现在他们非常想夺回食人魔。我开始回想起最近目睹他们犯下的恶行，以及事后那种无比恶心的感觉。我不禁想，这些食人魔在他们手中遭受过怎样的暴行。为了不让自己再想起那些可怕的记忆，我很快地向那食人魔追问他们是怎么知道我们被追赶的。
 
@@ -1830,7 +1830,7 @@ Eventually some veteran shaloren soldiers offered to spar with me too. From that
 
 It would also be within the military that I would get to learn a great deal about controlling my emotions. Enrolled in a program for those with unique abilities, I would slowly begin to learn more about the dark condition affecting my body and how I could use it to my advantage. I would learn about how I could effect my surroundings, both inanimate and living, and in some cases I would even be allowed to practice trying to use the dark thoughts inside me against others. I can't say I ever gained full control over the chaotic energies within me, but through concentration I would learn how to at least direct it away from others and prevent it from affecting people in my vicinity.
 
-When I look back at the many events the occurred after the Spellblaze, I wonder what life might have held for me had I not left to travel as I did. Much time has now passed since the time of my initial journey, but I consider whether now is the time that I will leave Elvala to explore distant lands and see what has become of everything in the world. I wonder how the rest of the people in Eyal are faring and whether the lands have shown any signs of healing, as well as wonder what has happened to my fellow thaloren back home. Whatever may lie in my future I know that I am ready to make my way through it. And when I do, my escapades will continue once more!]], [[[i]随着时间的推移，食人魔和永恒精灵慢慢适应了他们与世隔绝的生活。[/i]永恒精灵从北方被遗弃的定居点秘密地集结起来，带上各自的物品，然后迅速着手制作永久性的工具，以确保隐藏埃尔瓦拉的帷幕能够维持下去。他们随后努力扩大帷幕，使其覆盖埃尔瓦拉周围的所有森林，将永恒精灵半岛与外界隔绝。在那之后，许多永恒精灵开始研究他们曾经释放出来的混乱能量，希望更多地了解它们造成的破坏，以及这些破坏会给埃亚尔留下什么影响。
+When I look back at the many events the occurred after the Spellblaze, I wonder what life might have held for me had I not left to travel as I did. Much time has now passed since the time of my initial journey, but I consider whether now is the time that I will leave Elvala to explore distant lands and see what has become of everything in the world. I wonder how the rest of the people in Eyal are faring and whether the lands have shown any signs of healing, as well as wonder what has happened to my fellow thaloren back home. Whatever may lie in my future I know that I am ready to make my way through it. And when I do, my escapades will continue once more!]], [[[i]随着时间的推移，食人魔和永恒精灵慢慢适应了他们与世隔绝的生活。[/i]永恒精灵慢慢地从北方被遗弃的定居点秘密地集结起来，带上各自的物品，然后迅速着手制作永久性的工具，以确保隐藏埃尔瓦拉的帷幕能够维持下去。他们随后努力扩大帷幕，使其覆盖埃尔瓦拉周围的所有森林，将永恒精灵半岛与外界隔绝。在那之后，许多永恒精灵开始研究他们曾经释放出来的混乱能量，希望更多地了解它们造成的破坏，以及这些破坏会给埃亚尔留下什么影响。
 
 [i]食人魔在半岛南部定居下来，为自己重建新的生活。[/i]他们帮助种植和收获食物来养活每一个人，并从事永恒精灵不适合从事的更辛苦的工作。许多人生下了孩子，大批年幼的食人魔让他们原本有限的人口得以增长。一些食人魔也从事与符文和纹身有关的职业，虽然我对符文的知识还相当有限，但我可以从他们的手艺中看出，他们的纹身知识和技能与我在家乡认识的许多自然精灵一样好。尽管食人魔也有过一些分歧，但他们还是设法与永恒精灵建立了良好的关系，我希望这种关系能长久持续下去。
 

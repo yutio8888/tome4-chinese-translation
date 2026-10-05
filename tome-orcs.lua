@@ -3549,7 +3549,7 @@ You could always give up.  Stop fighting.  Let the Allied Kingdoms have Eyal, an
 
 风暴将至，必成血海。我们没必要亲临，至少在最后一个人遍体鳞伤、筋疲力尽地站在尸堆上之前没有必要。那时，他会成为一个很容易对付的目标。
 
-你随时可以放弃，停止战斗。把埃亚尔让给联合王国，与漫长历史上的种种因素一道阻止我们重生。牺牲你的人民，以免我们存在于埃亚尔，从而“拯救埃亚尔”。但你不会，因为你拥有我们永远不会有的东西：希望。希望你们能击退我们，希望我们的回归不会发生在你有生之年。反正我们的预测也并非百分之百准确；我们又有什么资格夺走你的希望呢？
+你随时可以放弃，停止战斗。把埃亚尔让给联合王国，成为漫长历史上又一个合谋阻止我们重生的因素。牺牲你的人民，以免我们存在于埃亚尔，从而“拯救埃亚尔”。但你不会，因为你拥有我们永远不会有的东西：希望。希望你们能击退我们，希望我们的回归不会发生在你有生之年。反正我们的预测也并非百分之百准确；我们又有什么资格夺走你的希望呢？
 ]], "_t")
 t("telepathic message (5)", "心灵传讯 (5)", "_t")
 t([[Did you wonder what happened to us?  We wouldn't give fate the satisfaction of killing us through some unlikely coincidence.  We killed ourselves - but not before planting our seeds.
@@ -3584,7 +3584,7 @@ t([[If you would indulge us...  Next to you is a tablet that was just carved by 
 
 #{italic}#(You look to your right, and see a tablet which has been broken into fragments.  The fragments are still arranged roughly in the right shape, and you can read a single word; another, larger fragment bears a sentence.)#{normal}#
 
-]], [[如果你还愿意继续听下去的话……你身边有一块石板，是我们的机器在你到来前片刻刚刚雕刻完成的。如果我们的诅咒仍未解除，上面的字将完全无法辨认；如果诅咒已经解除，上面就会刻着我们的名字。那是一个显眼、独特的名字，是我们存在的无可否认的标志；它表明，无论宇宙多么想遗忘，它都无法忘记我们。往你右边看，记住我们的名字：我们比你们更有权利存在，为此付出的抗争也远比你们更多；我们将把钩子深深扎入现实，让现实要么将我们托举起来，要么被我们一同拖进深渊。看吧，这个被存在本身畏惧的名字！
+]], [[如果你还愿意继续听下去的话……你身边有一块石板，是我们的机器在你到来前片刻刚刚雕刻完成的。如果我们的诅咒仍未解除，上面的字将完全无法辨认；如果诅咒已经解除，上面就会刻着我们的名字。那是一个显眼、独特的名字，是我们存在的无可否认的标志；它表明，无论宇宙多么想遗忘，它都无法忘记我们。往你右边看，记住我们的名字：我们远比你们更有权利存在，为此付出的抗争也远比你们更多；我们将把钩子深深扎入现实，让现实要么将我们托举起来，要么被我们一同拖进深渊。看吧，这个被存在本身畏惧的名字！
 
 #{italic}#（你往右看，看到一块破裂成碎片的石板。这些碎片仍大致按原来的形状排列，你可以读到一个词；另一个大一些的碎片上有个句子。）#{normal}#
 
