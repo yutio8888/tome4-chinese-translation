@@ -6,7 +6,7 @@
 
 当前没有进行中的批次、窗口或 child（C 档 194 次派发全部确认归档）。待决：
 
-1. A、B、C 三档润色（A 636、B 323、C 497 条，另有各轮交叉复核修正）在 WP2-Lite 队列中会成为新 revision；是否再走生产复审由用户决定。
+1. 用户随后要求对 C 档润色“再走一轮生产复核”（A、B 档已在第383–395批复审）：迁移 `87fb6882…` 已把 494 个 successor 排入队列，从第397批起审，进度见下文“翻译审核当前交接”。
 2. `mod-tome.lua:422`（护送奖励日志“%s 技能 %s (+%d 等级)”）与已改的同族选项 425 写法不一致；不在用户批准范围内，未改。
 3. 修复窗口 66 积压 0 条。
 
@@ -81,7 +81,7 @@
 
 # 翻译审核当前交接
 
-更新时间：2026-10-04（第396批已 finalize，窗口66积压 0 条；下一步按用户授权对外发布）
+更新时间：2026-10-05（重新复审第二轮：494 个 successor 已入队，开始审核第397批）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -96,6 +96,7 @@
 - 2026-10-01：第376批后按维护者要求暂停；用户“先补术语库”（`8e2fae4e`，181 行），三方讨论改为 gpt-6-astra／opus-5-5／gemini-3.8-flash，同意统一 21 个名称并开窗口59；裁定 Phoenix＝凤凰、“恢复失衡值”保留不改。
 - 2026-10-01：用户裁定 deeprock 技能树改“深岩”（Deeprock Form 保持“深岩形态”），并要求一并修复 Korbek 实验笔记标题等非阻断问题，开窗口60。
 - 2026-10-01：审核队列清空后，用户要求系统性分析死亡信息表（`cd2d0d7e`）；同意把 12 条句式与拼接缺陷并入积压，开窗口61；随后裁定 pending #50（killer_message 改凶手主语）与 #51（dark Master→黑暗领主）均采用 B，排入窗口62。窗口62 已于同日完成并推送。
+- 2026-10-05：生硬描述 C 档完成并发布 0.3.4 后，用户要求“再走一轮生产复核”。迁移 `87fb6882…`（catalog `47745ecc…`）把 C 档修复包、交叉复核修正与搁置项处理涉及的 494 个 successor 排入队列（证据 `evidence/quality/maintenance-reaudit-20261005/`）。
 - 审核已闭合至第 **396** 批（`batch-24e16a565d59243f9467`）：11 条，11 done / 0 repair_required。
   窗口65 successor 审核 11 条（主游戏 1、Orcs 8、Ashes 1、Cults 1）：surface 10 OK / 1 ISSUE；contextual 1 OK / 0 ISSUE；裁决 refuted 1；无新增修复，窗口66积压 0；余 0 个 successor。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `3c2c345833a6b67adf247e1074d98af64a58e8dc` 已 finalize。当前无 active batch。
@@ -158,7 +159,7 @@
 
 ## 三、下一步
 
-1. **重新复审与窗口65 successor 审核均已完成**（第383–396批，1030/1030）。用户 2026-10-04 指示“开始审核，审核后即可对外发布”，下一步对外发布。
+1. 继续审核第 **397** 批：用户 2026-10-05 要求对 C 档润色再走一轮生产复核，**494 个 successor**排队待审（约 7 批，估算）。上一轮（第383–396批，1030/1030）已完成；本轮派生脚本见 `$C/reaudit2-helpers/`（start_re2.sh、derive_re2.sh、mkfin_re2.py），收口用 `finalize_host_gen_re2.py` 与 `close_tpl_re2.sh`。
    窗口65 的派生件在 `.artifacts/i18n/repair-w65-20261004/`（setup_window65.py、freeze_review.py、wd.sh、w65-tr.sh、w65-close.sh、make_handoff_next.py），下一个窗口可从此派生；handoff 改由宿主写好全文、publication child 核对基线 SHA 后整份替换。
    本轮新增经验（第392–395批）：
    - 一批有多个 contextual run 时，`finalize_host_gen_re.py` 与 `/tmp/mkfin_re.py` 已能处理；`close_review<N>.py` 的 `for run in (...)` 仍须按 run 数手改。
@@ -168,7 +169,7 @@
 2. 窗口 65 已完成（11 条：Orcs 8、主游戏 1、Ashes 1、Cults 1）：第392–395批重新复审确认的 9 条（换行与缩进不变量 3 条，忠实性与机制 6 条）＋宿主补充 2 条（火箭靴、紧急蒸汽排出），新译文均由宿主按整句对照写定、EXECUTOR 逐字替换。复审路径：execute-01 → REVIEW r0a1（GPT-6.1 Sol）10 OK／1 ISSUE（电力放出目标数为英文与实现不符，宿主判 advisory carry_forward）→ FINAL f0a2（Opus 5.5）11/11，cycle 0 收敛；门禁 17/17。详见 `evidence/quality/repair-window-65-20261004/PUBLICATION.md`。
    窗口64（重新复审确认 25 条＋补充 1 条）详见 `evidence/quality/repair-window-64-20261003/PUBLICATION.md`；窗口63（意志之力 maces 1 条）详见 `evidence/quality/repair-window-63-20261001/PUBLICATION.md`；窗口62 教训：killer_message 被 `" "..src.killer_message` 拼在凶手名后，译文不得以标点起头。
    窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
-   下一个修复窗口（66）积压 **0** 条。
+   窗口 66 积压 **0** 条（窗口65后重新计数，—）：无；依据见各批 `.ai/task/<batch>/HOST-FINAL-DECISIONS.json`。
    第396批计时（实测，投影缓存 on）：start 1.9 s；adjudication chain（含 17 项门禁）169.7 s；finalize 161.1 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。
@@ -182,6 +183,6 @@
   它们报“commit 不存在、证据不足”时由宿主自查。
 - 未跟踪文件 `.ai/consult/`、`recipe` 与旧的 `evidence/quality/production-batches/*-source-workset.json`（15 个）
   是既有遗留，保持不动。
-- 发布插件：0.3.0 已于 2026-09-29 推送到 tome4-chn-mod（`717078b`，对应本仓库 `ce0b3a34`）；此后的译文改动尚未发布。
+- 发布插件：最新 0.3.4（2026-10-05，tome4-chn-mod `3f031fa`，对应本仓库 `aea17710`），凭据见 `evidence/releases/addon-0.3.4.json`。
 - 历史保留边界：`RW1-SIB-01`、`RW1-SIB-02` 永久排除，不计阈值。
 - 不要打开 reviewer 的 agent tab（会清掉 attentionReason，harvest 失败只能整批 abandon）。
