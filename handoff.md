@@ -1,4 +1,18 @@
-# 当前恢复入口（2026-10-04 窗口65 successor 已在第396批审完，0.3.3 已对外发布）
+# 当前恢复入口（2026-10-05 生硬描述扫描 C 档完成，0.3.4 已对外发布）
+
+用户 2026-10-05 要求开始生硬描述扫描 C 档（对话与 lore），已完成并推送：1,446 条全部裁决，修复包 12–16 修正 485 处，DeepSeek 交叉复核后再修正 8 处；搁置的 21 条由主代理逐条查源码，用户同意后改 16 行（含同运行键同步 1 行），GPT-6.1 Sol 复核无异议。见[扫描报告](evidence/quality/awkward-scan3-20261003/REPORT.md)的“C 档”一节与[搁置项处理](evidence/quality/awkward-scan3-20261003/holds-c.md)。至此 A、B、C 三档全部完成。
+
+用户随后要求发布新版本：0.3.4 已推送至发布仓库 `yutio8888/tome4-chn-mod`（提交 `3f031fa`，由本仓库 `aea17710` 构建，12,450 条＝核心 6,989＋DLC 5,461），GitHub Release `v0.3.4` 安装包已回下载核验。凭据见 [`evidence/releases/addon-0.3.4.json`](evidence/releases/addon-0.3.4.json)。
+
+当前没有进行中的批次、窗口或 child（C 档 194 次派发全部确认归档）。待决：
+
+1. A、B、C 三档润色（A 636、B 323、C 497 条，另有各轮交叉复核修正）在 WP2-Lite 队列中会成为新 revision；是否再走生产复审由用户决定。
+2. `mod-tome.lua:422`（护送奖励日志“%s 技能 %s (+%d 等级)”）与已改的同族选项 425 写法不一致；不在用户批准范围内，未改。
+3. 修复窗口 66 积压 0 条。
+
+---
+
+# 历史恢复入口（2026-10-04 窗口65 successor 已在第396批审完，0.3.3 已对外发布）
 
 用户 2026-10-03 要求“重新再走一轮生产复审流程”，已全部审完：第383–395批共 13 批、**1019 个 successor**（migration `22b293c4…` 的 993 个＋窗口64 migration `629e3b1e…` 的 26 个），队列余 0。来源见[迁移记录](evidence/quality/maintenance-reaudit-20261003/README.md)，每批证据在 `evidence/quality/production-batches/<batch>-host-evidence/`。
 
