@@ -4051,7 +4051,7 @@ section "mod-tome/data/chats/alchemist-hermit.lua"
 
 t("SON OF A RITCH! YOU SHOW UP TEN MINUTES AFTER I GET THE NEWS THAT SOME JACKASS ALREADY FINISHED THE ELIXIRS AND IS GETTING ACCEPTED BY THE BROTHERHOOD. WHAT THE HELL TOOK YOU SO LONG? MIRVENIA'S MAMMARIES, I'LL TAKE THESE AND MAKE YOU YOUR REWARD, BUT ONLY BECAUSE A CURSE WILL KILL ME IF I DON'T. AND IF IT TASTES LIKE PISS, THAT'S YOUR IMAGINATION, I'M SURE.", "见鬼！我刚收到消息说某个蠢货已经制成了药剂、要被兄弟会接纳了，十分钟后你才出现，到底什么该死的事情耽误了你这么久？！把你那些该死的材料给我，要不是不这么做就会被诅咒害死，我才不会帮你做这该死的奖品。要是药水味道尝上去像马尿一样的话那一定是你的错觉，我敢肯定。", "_t")
 t([[#LIGHT_GREEN#*The halfling hands you a note that says, 'Heard %s managed to make a %s while you've been loafing. Hurry the hell up next time.*#WHITE#
-		I STILL CAN'T HEAR A DAMNED THING. FORTUNATELY, YOU DON'T LOOK LIKE THE SORT THAT MAKES INTERESTING CONVERSATION.]], [[#LIGHT_GREEN#*那个半身人递给你一张纸条，上面写着：听说 %s 在你离开的时候制造了 %s。下次动作快点。*#WHITE#
+		I STILL CAN'T HEAR A DAMNED THING. FORTUNATELY, YOU DON'T LOOK LIKE THE SORT THAT MAKES INTERESTING CONVERSATION.]], [[#LIGHT_GREEN#*那个半身人递给你一张纸条，上面写着：听说 %s 趁你磨洋工的工夫制造了 %s。下次给我快点。*#WHITE#
 		我还是什么都听不见。幸运的是，看你的样子，跟你聊天也没什么意思。]], "tformat")
 t([[#LIGHT_GREEN#*After a great deal of pounding, a halfling wrapped in charred, smoking robes opens the door. He looks irritated.*#WHITE#
 IT'S NOT ENOUGH THAT I WORK ALL MORNING TO MAKE A POTION THAT ENDS UP NEARLY BLOWING MY ASS OFF, BUT NOW I'VE GOT IDIOTS BEATING DOWN MY DAMNED FRONT DOOR WITH WHAT SOUNDS LIKE A BATTERING RAM, AND YES, I HEARD IT, THOUGH I CAN HARDLY MAKE OUT A BLEEDING THING WITH THESE BLEEDING, CONCUSSED EARS. WHAT DO YOU WANT?]], [[#LIGHT_GREEN#*你敲了半天的门，终于有个穿着烧焦冒烟长袍的半身人开了门，他看上去很不高兴。*#WHITE#
@@ -4322,8 +4322,10 @@ our men...so, what do you think? Are you up to it?
 竞技场是勇者迎战重重险境的地方。
 我们仍在发展，正缺少挑战者……
 这就像一场赌博，只不过你下注的不是金钱，而是自己的战斗本领，明白吗？
-我们竞技场竭力奉上精彩表演；作为回报……你能赢得足以让你受用几个世纪的财富与荣耀！
-如果你能通过我的小小考验……等你的冒险结束后，我会#LIGHT_RED#准许你加入竞技场。#WHITE#
+我们竞技场竭力奉上精彩表演；作为回报……
+你能赢得足以让你受用几个世纪的财富与荣耀！
+如果你能通过我的小小考验……
+等你的冒险结束后，我会#LIGHT_RED#准许你加入竞技场。#WHITE#
 与我的手下交战，还能让你获得急需的#LIGHT_RED#战斗经验#WHITE#……
 怎么样？你能胜任吗？
 ]], "_t")
@@ -13774,15 +13776,13 @@ Third test confirms it - the orb allows transition between portal gates. This is
 #{bold}#红帕兰的日志记录二#{normal}#
 #{italic}#厄流纪 4541年#{normal}#
 
-用活体夺心魔进行的测试并不顺利。幸好我可以把清理工作都交给技术员……四年过去了，感觉我们根本还没开始理解这些遗迹。我担心研究经费很快就会被削减。
-但我仍心存希望：最近发掘出的某些物品也许能成为开启传送门的某种钥匙。又或者，它们只是夏·图尔进行某种运动时用的器具？走着瞧吧。
+用活体夺心魔进行的测试并不顺利。幸好我可以把清理工作都交给技术员……四年过去了，感觉我们根本还没开始理解这些遗迹。我担心研究经费很快就会被削减。但我仍心存希望：最近发掘出的某些物品也许能成为开启传送门的某种钥匙。又或者，它们只是夏·图尔进行某种运动时用的器具？走着瞧吧。
 
 
 #{bold}#红帕兰的日志记录三#{normal}#
 #{italic}#厄流纪 4542年#{normal}#
 
-第三次测试证实了——这个球体能让人在传送门之间转移。这是我一生中最伟大的发现。我们是有史以来第一支从夏·图尔遗迹中解封如此力量的研究团队！只可惜之前送进去了那么多夺心魔。我越来越怀疑，那件带尖叉的器具其实是某种餐具……
-算了，反正愚蠢的夺心魔还有很多。
+第三次测试证实了——这个球体能让人在传送门之间转移。这是我一生中最伟大的发现。我们是有史以来第一支从夏·图尔遗迹中解封如此力量的研究团队！只可惜之前送进去了那么多夺心魔。我越来越怀疑，那件带尖叉的器具其实是某种餐具……算了，反正愚蠢的夺心魔还有很多。
 ]], "_t")
 t([[#{bold}#Hompalan's Log Entry 4#{normal}#
 #{italic}#Age of Allure 4544#{normal}#
@@ -14250,17 +14250,17 @@ Some believe that magic is inherently wrong, that the so-called twisting of the 
 
 这问题听起来多么粗俗平常，可它偏偏是我最常被问到的问题，甚至一些学识最渊博的学生也会询问。我们教授魔法技艺时，往往让学生实践、模仿，并专注于最终效果，却没有更详细地讲解底层原理。正如音乐家可以快乐地弹奏竖琴，却不知声音如何由琴弦震动产生，法师也可以运用魔法，却不了解其中真正起作用的力量。我希望在这篇文章中教授魔法的本质，以及底层效应如何结出我们所能创造的一切奇妙果实。
 
-炼金师会告诉你这世界是由许多基本材料构成——铅、铜、铁、金等等。他们专注于将物品分解成这些基本成分，研究它们如何相互反应。但这只是世界的一面，这些成分虽然体现了世界的物质构成，却不能解释推动万物运动的力量与能量。火之力、冰之力、闪电之力、乃至生命之力都是真实存在的，而这些力量我们称之为埃亚尔元素。真正的大法师专注于元素之力是如何影响这个世界的，并善于操作这股力量为己所用。
+炼金师会告诉你这世界是由许多基本材料构成——铅、铜、铁、金等等。他们专注于将物品分解成这些基本成分，研究它们如何相互反应。但这只是世界的一面，这些成分虽然体现了世界的物质构成，却不能解释推动万物运动的力量与能量。火之力、冰之力、闪电之力、乃至生命之力都是真实存在的，而这些力量我们称之为埃亚尔元素。真正的大法师关注的是世间元素之力彼此间的相互作用，并操纵它们为己所用。
 
 元素之力天然存在于世界，编织在万物周围，构成一幅无所不包的织布。它们与世界中的物质一同移动、震动与共鸣，各自的效应又深刻地影响着彼此。所有生物都会自然地运用这些元素，但有些生物比其他生物更贴合这些丝线。通过大量训练与实践，我们自己也能更贴合这些狂野力量；如此一来，有些人就能匹敌狼的速度、熊的力量、树人的坚韧，甚至巨龙的浩大自然之力。
 
-但还有另一种获得元素之力的方式——一种更直接、虽然有人会称之为不自然的方式。很久以前，人们发现，经过大量训练后，可以集中意志，直接拨动元素丝线。这能释放巨大能量，而这些能量又可被塑造成世界中真实存在的效果。受过适当训练的人可召出火焰烟柱、闪电之箭与寒冰爆流。真正的魔法大师还能走得更远，将多种共鸣力量结合起来，创造复杂的物质效果。
+但还有另一种获得元素之力的方式——一种更直接、虽然有人会称之为不自然的方式。很久以前，人们发现，经过大量训练后，可以集中意志，直接拨动元素丝线。这能释放巨大能量，而这些能量又可被塑造成世界中真实存在的效果。受过适当训练的人可召出火柱、闪电之箭与寒冰爆流。真正的魔法大师还能走得更远，将多种共鸣力量结合起来，创造复杂的物质效果。
 
 拨动丝线会带来巨大的消耗，需要付出大量意志力来维持。我们精通奥术之人将这种专门用于与世界元素互动的精神耐力称为“法力”。持续使用魔法就像不断举起并托住重物，最终会发现自己的能力已被耗尽。练习能让人积累更庞大的法力储备，某些符文与法术也能逐渐积累额外储备，以供需要时调用。
 
 魔法符文和物品都被赋予了与某些元素丝线的联系。这需要经验丰富、天赋过人的附魔师进行精巧作业。最精密的魔法神器需要多年制作，以强大精神力将核心材料永久调谐到正确的元素能量。宝石尤其容易用于这种技艺，炼金师常用它们引发元素效应。
 
-一些人笃信法术的存在本身就是个错误，所谓的凭某人意志扭曲元素之力只能带来可怕的后果。作为安格利文的学生，我想你们都不会认同这种说法！魔法只是自然之力的延伸，我们身为自然生物为何不能去尝试运用它？但你们要谨记魔法的存在仍是一柄双刃剑。作为工具它确实能产生极大的价值——明智地使用它。
+一些人笃信法术的存在本身就是个错误，所谓的凭某人意志扭曲元素之力只能带来可怕的后果。作为安格利文的学生，我想你们都不会认同这种说法！魔法只是自然之力的延伸，我们不也正是运用它的自然生物吗？但你们要谨记，魔法仍是一股强大的力量，既可用于行善，也可用于作恶。作为工具它确实有着极大的价值——明智地使用它。
 ]], "_t")
 t("The spellblade", "法术之刃", "_t")
 t([[From the desk of Archmage Varil,
@@ -14269,7 +14269,6 @@ Another day dawns on Angolwen. I hesitate to write this, but it almost feels as 
 This is not to say that life has been without conflict at all. An agent of the Ziguranth infiltrated Angolwen under the guise of a travelling alchemist a few days ago; an unhappy first, I'm afraid. Having used choking powder to incapacitate the guards and rob the surrounding mages of their voices, things may have turned ugly if Linaniil hadn't been passing by on one of her walks. Little was left of that man... or the tree he hid behind... or many of the surrounding buildings, to be honest.
 
 In a way, the incident lit a fire under me to pursue my studies and develop my powers, but I must admit that my interest in staff practice has waned as of late. My fencing, on the other hand, improves by the day. Hmm... I wonder if I can get some of the enchanters to help me "augment" my old sword. After all, what is a blade but a sharpened metal staff?]], [[大法师沃利尔书，
-
 安格利文又迎来了一个黎明。我写下这句话时颇为犹豫，但感觉和平似乎正重新回到埃亚尔。这么一说，我几乎以为战争与毁灭会立刻爆发——命运再怎么说也是充满恶意的。不管怎样，我的睡眠正日渐少受魔法狩猎记忆的困扰，如今我能全心全意地改善我们隐居山间的这片社群了。
 
 这并不是说生活完全没有冲突。几天前，一名伊格兰斯特工伪装成旅行炼金术师，潜入了安格利文；恐怕这是一个令人不快的首例。他用窒息粉制服守卫，并夺去周围法师的声音；要不是莱娜尼尔恰好散步经过，事情可能会变得很糟。那个人几乎没剩下什么……他藏身的树也是如此……老实说，附近的许多建筑也一样。
@@ -14363,8 +14362,7 @@ Incredible, the size of that arachnid is unimaginable; there is no doubt about i
 
 #{bold}#第七篇#{normal}#
 
-我已经杀死数打此类蜘蛛，每只似乎都比上一只更难对付。我不确定是自己疲惫了，还是它们也在适应我的动作与战技。不过，我实在想不通这怎么可能：一只小小的蜘蛛怎么可能适应一位经验丰富的太阳骑士的战斗技巧，这根本不可能。
-除此之外，这些蜘蛛的源头令我担心。目前为止我并没找到进入洞穴的其它入口，这意味着它们是通过其它方式来到这里。那些我早些时候找到的奥术裂缝开始令我担忧，一想到裂缝另一边可能有什么在等待着我们，我就为所有人担忧。我必须抛开这些念头；分心只会动摇我的决心。
+我已经杀死数打此类蜘蛛，每只似乎都比上一只更难对付。我不确定是自己疲惫了，还是它们也在适应我的动作与战技。不过，我实在想不通这怎么可能：一只小小的蜘蛛怎么可能适应一位经验丰富的太阳骑士的战斗技巧，这根本不可能。除此之外，这些蜘蛛的源头令我担心。目前为止我并没找到进入洞穴的其它入口，这意味着它们是通过其它方式来到这里。那些我早些时候找到的奥术裂缝开始令我担忧，一想到裂缝另一边可能有什么在等待着我们，我就为所有人担忧。我必须抛开这些念头；分心只会动摇我的决心。
 
 #{bold}#第八篇#{normal}#
 
@@ -14372,7 +14370,7 @@ Incredible, the size of that arachnid is unimaginable; there is no doubt about i
 t("scrap of paper", "破纸片", "_t")
 t([[#{italic}#A few tattered scraps of paper lie on the ground, ruined from your fight with the creature carrying it.  It's almost completely illegible, but you can piece some of it together to read:#{normal}#
 "...pheromone signals effective on much Eyalite wildlife ineffective on species 'sun paladin.'  at current planetary core cooling rates, passive study would lead to great loss - next step of emigration program should be cleaning of local 'sun paladin' nest and establishment of..."]], [[#{italic}#地上有一些破烂的纸片，它们在你与携带这些纸片的生物搏斗时被撕破了。纸片上的文字几乎完全无法辨认，你只能依稀拼凑出一些文字：#{normal}#
-“…对大部分埃亚尔野生生命体有效的信息素信号，对‘太阳骑士’这一物种无效。在当前的行星核心冷却速率下，被动的研究会导致巨大的损失——移民计划的下一步是清理本地的“太阳骑士”巢穴并建立…”]], "_t")
+“…对大部分埃亚尔野生生命体有效的信息素信号，对‘太阳骑士’这一物种无效。在当前的行星核心冷却速率下，被动的研究会导致巨大的损失——移民计划的下一步应当是清理本地的‘太阳骑士’巢穴并建立…”]], "_t")
 t("#{italic}#This pile of tattered paper could theoretically be assembled into something legible, but without more text to draw back on, it'd still be in a language you could never interpret.  If only you had more Spydric text to help translate this...#{normal}#", "#{italic}#理论上，这堆破烂的纸片可以拼成可辨认的文字，但没有更多文字可供参考，你仍然无法解读这种语言。要是能找到更多蜘蛛语文本来帮助翻译这些文字就好了……#{normal}#", "_t")
 
 ------------------------------------------------
@@ -15774,8 +15772,7 @@ t([[Some men have said that the feet of halflings can nay be harmed, not by fire
 
 But women do look upon men and declare them fools. "For how," say they, "Can the foot of a halfling be a lucky thing, when with their large uncomely feet they are not able to wear shoes and footwear of elegant crafts and beauteous materials? And especially 'tis a great misfortune unto them, as with their short stature they could really do with a decent pair of heels..."
 
-And lo, 'tis little mystery why halflings do look upon humans and say "The Big Folk really are very dumb."]], [[有人说半身人的脚不会受伤，火焰、刀剑和魔法都伤不了它。他们觉得此事着实惊人。
-于是一些人认为半身人的脚是能带来极大好运与庇护的物品，许多人将它挂在门楣上方或壁炉架上。由于目前大家并不赞成为此捕杀半身人，所以半身人的脚被视为贵重的传家宝，由父亲传给儿子。
+And lo, 'tis little mystery why halflings do look upon humans and say "The Big Folk really are very dumb."]], [[有人说半身人的脚不会受伤，火焰、刀剑和魔法都伤不了它。他们觉得此事着实惊人。于是一些人认为半身人的脚是能带来极大好运与庇护的物品，许多人将它挂在门楣上方或壁炉架上。由于目前大家并不赞成为此捕杀半身人，所以半身人的脚被视为贵重的传家宝，由父亲传给儿子。
 
 但女人们却看着男人们，直说他们是傻瓜：“这些半身人的脚怎么可能象征幸运？瞧他们那双难看的大脚，根本穿不了以精湛工艺和美丽材料制成的鞋履。尤其不幸的是，他们身材矮小，着实很需要一双像样的高跟鞋……”
 
@@ -16252,9 +16249,7 @@ This is a grave and unprecedented issue, so I decree an oath of silence to be la
 
 你们听到的传言属实。我怀着沉痛之心确认，我们的一处矿井瑞库纳已被一支规模庞大、组织严密的兽人部队占领。我们在阻止这场威胁时为何会遭遇如此彻底的失败，至今仍是个谜——兽人入侵的源头尚不明确。在集结起足以夺回矿井、消灭兽人的部队之前，一个营的士兵将在瑞库纳周围建立防线。所有居住在周边大厅的平民均须撤离。
 
-这是一起严重且前所未有的事件，因此我下令钢铁王座全体市民，无论阶级与地位，皆须立下缄默誓言：绝不能让外国人听到任何入侵消息。我们必须在联合王国面前维持稳定强盛的形象，因为任何软弱或内乱的迹象，都会给我们的联盟和未来贸易协定带来灾难。
-
-任何向外界泄露这一消息的市民都将被放逐。请放心，我会亲自向王座之外可信任的人传递消息；我相信这次兽人入侵会得到迅速而果断的处置。钢铁王座的统治者如是说：愿帝国长存。]], "_t")
+这是一起严重且前所未有的事件，因此我下令钢铁王座全体市民，无论阶级与地位，皆须立下缄默誓言：绝不能让外国人听到任何入侵消息。我们必须在联合王国面前维持稳定强盛的形象，因为任何软弱或内乱的迹象，都会给我们的联盟和未来贸易协定带来灾难。任何向外界泄露这一消息的市民都将被放逐。请放心，我会亲自向王座之外可信任的人传递消息；我相信这次兽人入侵会得到迅速而果断的处置。钢铁王座的统治者如是说：愿帝国长存。]], "_t")
 t("Iron Throne trade ledger", "钢铁王座交易总账", "_t")
 t([[#{bold}#IRON THRONE TRADE LEDGER - Allied Kingdom#{normal}#
 #{italic}#Age of Ascendancy, 121#{normal}#
@@ -16905,7 +16900,6 @@ I leave you with a copy of one of the last pieces of Southspar's history, a part
 
 “这里是南晶国，我的国家，所以她疆界之内的一切都必须在我的掌控之中。包括她的人民，她的土地，她的资源以及她的魔法。我可以允许你们留在这里，但有一个条件：成为我的宫廷法师，遵守我的命令，并使用你们的魔法来改善王国。没有任务时，你们可以随意处理自己的事务，但你们必须首先忠于我。你们接受吗？”
 
-
 孔克雷夫法师们的回应？大笑。但是这笑声并不是矮人们那样嘲笑的声音，而是难以置信的笑声。据说，法师们是这样回答的：
 
 “德瑞克国王！您何必拿如此严厉的最后通牒来打扰我们？只需提一个简单的请求就够了。不错，过去我们选择住在这里，或许只是为了避世，但南晶岛这颗冉冉升起的新星实在不容忽视。这个王国将愈发辉煌，我们也愿置身其中。我们接受。”
@@ -16928,7 +16922,7 @@ I leave you with a copy of one of the last pieces of Southspar's history, a part
 
 最后，我为你附上一份南晶岛末期史料的抄本：一张残缺的羊皮纸，据称写于大灾变爆发、南晶岛随塔·埃亚尔其余地区一同沉入波涛之下的前一刻。
 
-“时间越来越紧迫……书在船上……找到。束缚……成功了。现在，面向大海，对于……额，德雷德菲……高贵的国王。在我的新……里随你腐烂吧！”]], "_t")
+“时间越来越紧迫……书在船上……找到。束缚……成功了。现在，奔向大海，去……，还有恐惧王……高贵的国王。在我的新……里随你腐烂吧！”]], "_t")
 t("Declaration of the Unification of the Allied Kingdoms", "联合王国统一公告", "_t")
 t([[Herewith is set the constitutional declaration of the Allied Kingdoms under the rule of King Toknor and Queen Mirvenia. Any who defy or seek to undermine the laws here set shall suffer torment and death.
 
@@ -18407,9 +18401,9 @@ It is important to remember, that every artifact has a meaning, beings of great 
 
 诸君啊，敬请听我一言。
 
-现在，大多数人根本无法理解，我们身处的这个世界究竟是多么神奇而又美好，远远超出了任何人的想象。亲爱的读者，我可以放心地向你保证：无论你能想出多么狂野的事物，都远不及真实世界。世间的奇迹就是如此广博。若非我亲身在场，我多半会把自己亲眼所见的大半都当作神话；纵然亲历，有时我仍不免怀疑自己的眼睛。
+现在，大多数人根本无法理解，我们身处的这个世界究竟有多么奇妙。它辽阔无边，远超你的想象。亲爱的读者，我可以放心地向你保证：无论你能想出多么狂野的事物，都远不及真实世界。世间的奇迹就是如此广博。若非我亲身在场，我多半会把自己亲眼所见的大半都当作神话；纵然亲历，有时我仍不免怀疑自己的眼睛。
 
-或许，我的描述有些过于模糊，或许，这些保证有些难以置信。毕竟，冒险并不总是充满了探索未知的喜悦——冒险首先意味着危险，意味着始终伴随的死亡威胁，甚至更糟。所以，如果你想要让我用语言描述的话——请想象一下，废弃而崩塌的墓穴、邪教与恶魔、遍布怪物的饥饿森林，以及超越时间与空间的力量。这就是真实的冒险，任何人都会为其壮丽景象所倾倒，为其沉醉——尽管，我们所能了解的实在只是冒险旅途的吉光片羽，毕竟只有极少一部分的人能生还下来，告诉我们他们真实的经历。
+或许，我的描述有些过于模糊，或许，这些保证还远远不够。毕竟，冒险并不总是充满了探索未知的喜悦——冒险首先意味着危险，意味着始终伴随的死亡威胁，甚至更糟。所以，如果你希望我说得更具体些——请想象一下，废弃而崩塌的墓穴、邪教与恶魔、遍布怪物的饥饿森林，以及超越时间与空间的力量。这就是真实的冒险，任何人都会为其壮丽景象所倾倒，为其沉醉——尽管，我们所能了解的实在只是冒险旅途的吉光片羽，毕竟只有极少一部分的人能生还下来，告诉我们他们真实的经历。
 
 那么，最终传到我们手上的并不是人，而是物：那是身怀强大力量的神器，是往昔留下的遗产。当然，任何一个醉鬼喝上一两杯后，都可能乐于讲些故事；然而，一把魔法剑本身就是证据，却不会诉说自己的见闻。所以说，一个伟大的英雄往往很容易辨认，简直就是一本行走的历史书。他身上的装备承载着半个时代的重大事件，而他本人恐怕对此一无所知。
 
@@ -19080,13 +19074,11 @@ In time! Bah! This will be my ruin if it comes to that. If there is any appearan
 
 ……
 
-
 该死！诅咒降临！不知哪个天杀的烈焰杂种盗贼洗劫了废墟！而且竟然是个半身人，一条该死的半身人杂种狗！我真是怒火中烧！
 
 不知怎的，他趁着黄昏潜入了进去，爬过了一条连我的劳工都进不去的狭窄地道。他从废墟里夺走了一根法杖，竟然从我的兽人身边偷偷溜了出去！这个肮脏阴险的潜行者逃之夭夭了，我的前程也随之搭了进去！我已派斥候追踪他，但这厮极其狡猾。但我决不能让他逃脱！这绝对不可饶恕！
 
 ……
-
 
 我们循着那个无赖的踪迹一路追踪。看来他在一个叫德斯镇的地方与一名矮人和一名人类会合，随后一同向东南进发。跟踪他们三个人比跟踪单独一个潜行者容易得多，但我们仍必须格外谨慎以保持隐蔽。最高统帅部的指令严禁我们暴露行踪，且必须尽可能避免战斗。我随身带领着一支训练有素的弓箭手与战士小队，他们懂得如何在林中隐匿。
 
@@ -19140,7 +19132,8 @@ But no more! The time will come when the truth shall be known, and retribution w
 
 真相是，魔法大爆炸不过是一场出了差错的实验。我族许多最伟大的法师死于随之爆发的能量，附近一些土地也燃起大火。但其他种族根本没有因此丧命——夺走他们生命的是他们自己的战争，随后那些瘟疫也是从他们肮脏污秽的社会中滋生的。许多个世纪以后，一场天然大地震撕裂了大地，他们竟还有脸把那也怪罪到我们头上。
 
-正因如此，他们在魔法狩猎期间迫害我们。我族许多法师遭到无情杀害，就连那些没有魔法天赋的人，也在那场可怕的讨伐中被残酷屠杀。即便到了今天，我们仍在遭受歧视和迫害，无辜永恒精灵被绑上火刑柱或剁成碎块的消息仍不时传来。长老会做了什么？他们只是沉默地坐着，指望世人自己忘掉一切。
+正因如此，他们在魔法狩猎期间迫害我们。我族许多法师遭到无情杀害，
+就连那些没有魔法天赋的人，也在那场可怕的讨伐中被残酷屠杀。即便到了今天，我们仍在遭受歧视和迫害，无辜永恒精灵被绑上火刑柱或剁成碎块的消息仍不时传来。长老会做了什么？他们只是沉默地坐着，指望世人自己忘掉一切。
 
 但到此为止！真相终有大白的一天，任何否认我们权利的人都将遭到报应。
 
@@ -19672,7 +19665,8 @@ Well, I won't have it.  I've been selling potions and inscriptions on the side f
 
 我的论辩换来的只有茫然目光，以及越来越多的背后窃窃私语（倒是有一对年轻伴侣突然离开，或许是受到我在一场“伦理”讲座后激情驳斥的启发）。有些人甚至开始避开论点本身，把一切归咎于我魔力不足，还说我花了太多时间研究龙傀儡！他们以为不弄脏双手也能启迪世界、保护它免遭危险；兽人入侵已经证明，他们做不到。我担心一旦恶魔开始大举来袭，恐怕到时我们会更加措手不及。我们甚至畏惧伊格兰斯——无论有多少人死于本可由自由行动的治疗者治好的疾病，也不肯抓来几名伊格兰斯成员，轻易找出绕过他们防御的办法。
 
-好吧，我才不接受这种局面。尽管安格利文有种种规定，我这两年来一直私下出售药水和刻印，终于攒够钱在远离安格利文的地方建一座实验室。在那里，我要做那些胆小怕事的同僚不敢动手的实验。他们肯定不会赞同，可我已经不在乎了——有些事情必须在为时已晚之前弄清楚；只要我的数据长远来看能拯救无数生命，过程中死掉几个狂热分子或罪犯根本无关紧要。明天开始施工。我安排了三批彼此独立的承包商，这样谁都不知道塔的完整布局；我也已经与最后的希望城几位权势商人谈妥，可以公开开展部分实验（他们想要可供贸易使用的传送门，而我让他们相信，我不会因为建造传送门而再引发一次魔法大爆炸），为更……有争议的实验提供方便的掩护。我可以让龙傀儡搬运敏感设备，省得回答棘手问题。我绝不会刚逃离一群自命不凡的蠢货，又让另一群人没收我花重金弄来的骨巨人。]], "_t")
+好吧，我才不接受这种局面。尽管安格利文有种种规定，我这两年来一直私下出售药水和刻印，终于攒够钱在远离安格利文的地方建一座实验室。在那里，我要做那些胆小怕事的同僚不敢动手的实验。他们肯定不会赞同，可我已经不在乎了——有些事情必须在为时已晚之前弄清楚；只要我的数据长远来看能拯救无数生命，过程中死掉几个狂热分子或罪犯根本无关紧要。明天开始施工。我安排了三批彼此独立的承包商，这样谁都不知道塔的完整布局；我也已经与最后的希望城几位权势商人谈妥，可以公开开展部分实验（他们想要可供贸易使用的传送门，而我让他们相信，我不会因为建造传送门而再引发一次魔法大爆炸），为更……有争议的实验提供方便的掩护。我可以让龙傀儡搬运敏感设备，省得回答棘手问题。我绝不会刚逃离一群自命不凡的蠢货，又让另一群人没收我花重金弄来的骨巨人。
+]], "_t")
 t("Personal note (2)", "个人笔记（2）", "_t")
 t([[Well...  that was interesting.
 

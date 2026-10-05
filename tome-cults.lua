@@ -1514,7 +1514,7 @@ The commander didn't give much more time for the other ogres to get themselves r
 
 这些话刺痛了我，使我很生气。我冲着指挥官喊道：“不，我会和你一起战斗。”我不确定是不是我内心的愤怒让我说出了这些话，但我知道我不会让食人魔独自战斗。我可能会在战斗中死去，但我不会逃避。指挥官和其他食人魔很快朝我的方向瞥了一眼，虽然惊讶，但还是很高兴。一个食人魔欢快地喊了一声“加入战斗！”其他的食人魔很快也喊道：“加入战斗！”指挥官微笑着举起手来示意其他食人魔保持沉默，然后向我微微点头并对我说“加入战斗！”
 
-指挥官没有给其他食人魔太多准备时间，很可能是顾虑到身后的追兵。他命令食人魔聚集起来，把他们分成几个小组。我被告知要加入离海最近的小组，而指挥官站到了中间的一个小组里。在食人魔集合后，他下令前进，我们很快就开始在这片土地上前进。大地上的灾害使每一组人无法完全跟上彼此的步伐，但每一组人的行动都相当有纪律。我躲开熔岩，不平坦的地面，燃烧的树叶，滚烫的波浪，试图跟上我的团队。我们就这样继续前进，直到前方那群狂热者映入眼帘。]], "_t")
+指挥官没有给其他食人魔太多准备时间，很可能是顾虑到身后的追兵。他命令食人魔聚集起来，把他们分成几个小组。我被告知要加入离海最近的小组，而指挥官站到了中间的一个小组里。在食人魔集合后，他下令前进，我们很快就开始在这片土地上前进。大地上的灾害使每一组人无法完全跟上彼此的步伐，但每一组人的行动都相当有纪律。我躲避着熔岩、崎岖的地面、烧焦的草木和翻涌而来的沸水浪涛，努力跟上我的小组。我们就这样继续前进，直到前方那群狂热者映入眼帘。]], "_t")
 t("Escapades of Fay Willows [Book 3, Chapter 4] - To Battle!", "菲·维莉欧斯的冒险 [第3卷，第4章] - 加入战斗！", "_t")
 t([[[i]Due to the darkness of the sky and the scorched lands of the battlefield it was hard to see anything, but I still remember the sounds of battle in great detail. The bubbling sounds of the lava and boiling water, the warcries that filled the air, the magical discharges from the ogres runes, the sounds of weapons clashing against each other, and so forth. Of course, none of those sounds compared to the death cries of both the zealots and ogres when their lives ceased to be.[/i]
 
@@ -2042,7 +2042,7 @@ The necromancer continued to talk aloud for several moments as he circled around
 
 当我击倒这个骨巨人时，我又听到了死灵法师的鼓掌声。“很好，做得很好，挺好看的。你的骨头真的值得加在我的杖上，”死灵法师用阴险的语气说。我把头转向死灵法师，大胆地说：“要杀死我，你的骨巨人还远远不够。”死灵法师似乎在琢磨我的话，回答道：“嗯，骨巨人，这个名字很不错。是的，我想这个名字很不错。当然，你好像误解了什么。你所说的骨巨人还没完全死。”听到这些话，我还没来得及反应，就感觉到一记重击从侧面打中了我。
 
-我猛地看向击中我的东西，立刻意识到这个骨巨人并没有被打败，它走上前来站在我和死灵法师之间。更重要的是，它似乎已经重新组合成一个新的恐怖形态，准备好战斗。战斗再次开始，骨巨人逼近我，准备攻击，我听到了死灵法师从后方传来的声音：“你所说的这些骨巨人是很了不起的，不是吗。我从纳格尔人那里得到灵感，这是他们在厄流战争中对抗孔克雷夫时使用的武器。你看，很少有人知道这一点，但纳格尔人实际上利用死灵法术最终赢得了与孔克雷夫的战斗。”
+我猛地看向击中我的东西，立刻意识到这个骨巨人并没有被打败，它走上前来站在我和死灵法师之间。更重要的是，它似乎已经重新组合成一个新的恐怖形态，准备好战斗。战斗再次开始，骨巨人逼近我，准备攻击，我听到了死灵法师从后方传来的声音：“你所说的这些骨巨人是很了不起的，不是吗。我从纳格尔人在厄流战争中对抗孔克雷夫的经历里得到了灵感。你看，很少有人知道这一点，但纳格尔人实际上利用死灵法术最终赢得了与孔克雷夫的战斗。”
 
 我听到死灵法师在后方喘息着，咯咯笑了一会儿，但我更在意的是正在攻击我的骨巨人。第一次击倒它让我有些疲惫，我已经没有力气再次突破它的防御，将它击倒。我慢慢地往后退，以便争取一些时间，并思考还有什么办法能击败它。旋转的骨头屏障已经环绕着它的身体，因此，我知道现在没法对它造成任何持久的伤害。迟早，我必须全力与它交战，而我也知道，我要选择对自己有利的时机。
 
@@ -2052,7 +2052,7 @@ The necromancer continued to talk aloud for several moments as he circled around
 
 骨巨人迅速向我伸出一只骨爪，尖刺再一次撕开我的皮肉，带来剧痛。然而，我丝毫没有因此而气馁，启动了热能射线符文，点燃了它的骨头，更重要的是，这减轻了那一击造成的痛苦。我继续攻击时，听到死灵法师刺耳的声音，似乎是在评论：“嗯，符文……哦！我知道，我会把一些符文装在下一个骨巨人身上！你给了我这么多有趣的想法。”但我仍然专注于我的战斗，一次又一次地打击它，直到最后看到骨巨人崩溃。我不确定它是否会再次复活，于是继续攻击它，直到我完全将其打成粉碎。
 
-不过，我忘记了死灵法师的存在。一瞬间，我突然感觉到身体麻木了，很快就注意到自己的身体周围结冰了。我一动不动地四处张望，发现了对着我伸出一只手的死灵法师。死灵法师慢慢地靠近我，绕到我的左臂旁，那里刻着我的热束符文。死灵法师把手放在我认为是它下巴的地方，说道：“你打败了我的骨巨人，不是一次而是两次。我以前以为你也许能干掉它一次，但能够紧接着再次干掉它，确实出乎我的意料。现在，我真的想知道你是谁？在我看来，你是一个自然精灵，但你在埃尔瓦拉做什么？嗯……”
+不过，我忘记了死灵法师的存在。一瞬间，我突然感觉到身体麻木了，很快就注意到自己的身体周围结冰了。我一动不动地四处张望，发现了对着我伸出一只手的死灵法师。死灵法师慢慢地靠近我，绕到我的左臂旁，那里刻着我的热能射线符文。死灵法师把手放在我认为是它下巴的地方，说道：“你打败了我的骨巨人，不是一次而是两次。我以前以为你也许能干掉它一次，但能够紧接着再次干掉它，确实出乎我的意料。现在，我真的想知道你是谁？在我看来，你是一个自然精灵，但你在埃尔瓦拉做什么？嗯……”
 
 死灵法师从我的前面，慢慢绕到我的右边，继续发出“嗯，嗯”的声音。终于，死灵法师停了下来，又一次说道：“看到你使用符文，真让人惊讶。你该不会是个被从森林里放逐出来的罪犯吧？等等，你刻的第二个符文是什么？”尽管我看不见死灵法师，我能感觉到它凝视着刻在我脖子后面的返回符文。身后传来一句话：“啊，有趣。一个永恒精灵的设计，但从标记来看，如果我没有记错的话，这个符文的铭刻似乎有食人魔的手艺参与其中。很有趣。”
 
@@ -2076,11 +2076,11 @@ I briefly remember when I was initially recovering that I opened my eyes while l
 
 Once more I called out saying his name "Awain". As he roused from his sleep and looked at me an endless amount of tears would begin streaming down his face. In a cracked voice I heard him say, "You're awake, you're still alive." He hurried over to me, putting his hands under me to embrace me tightly, and began sobbing uncontrollably. For the moment I allowed him to cry, feeling that I should hold back on inquiring as to how I had made it back to Elvala. I didn't know how long I had been unconscious but I had the feeling that he had waited the entire time for me, waiting for the moment I would come back to him. I embraced him back and sobbed too as we were reunited once more.]], [[[i]我一直想知道的是，为什么人们要给无生命的物体起名字。在与死灵法师的战斗中，艾伦尼恩失去了他的武器，尽管我不确定他是在战斗的哪个时候失去武器的。就在我写这篇文章的时候，艾伦尼恩还在为他丢失的剑烦恼，好像他失去了一个心爱的人。虽然我能理解一个人会用惯一件武器，但我想，他肯定能找到另一件来代替吧？[/i]
 
-意识到必须立刻行动，我启动了热能射线束符文，融化了周身的冰块，并向死灵法师发射了一股猛烈的火焰。死灵法师在火焰中踉跄后退，我抓住机会，用尽全力将武器向前刺去，却刺了个空，死灵法师突然消失了。在我还没来得及看到死灵法师传送到哪里之前，一股炽热的火焰从后面包围了我。转过身来，我看到了那个死灵法师，他被烧伤了，身上的火却已经熄灭。我的一切举动都被他预测到了，现在我的身体每一寸都在燃烧，我痛得扭动着身体。死灵法师咯咯地笑着，我注意到他伸出的手臂底部刻着热能射线符文。
+意识到必须立刻行动，我启动了热能射线符文，融化了周身的冰块，并向死灵法师发射了一股猛烈的火焰。死灵法师在火焰中踉跄后退，我抓住机会，用尽全力将武器向前刺去，却刺了个空，死灵法师突然消失了。在我还没来得及看到死灵法师传送到哪里之前，一股炽热的火焰从后面包围了我。转过身来，我看到了那个死灵法师，他被烧伤了，身上的火却已经熄灭。我的一切举动都被他预测到了，现在我的身体每一寸都在燃烧，我痛得扭动着身体。死灵法师咯咯地笑着，我注意到他伸出的手臂底部刻着热能射线符文。
 
 被他如此轻易地摆布，让我十分恼火，咬紧牙关朝死灵法师冲去，结果被几个不死生物拦住了。死灵法师又咯咯地笑了几声，释放出一道穿透骷髅和我的黑暗能量束，一阵剧痛贯穿了我的全身。当我在痛苦中畏缩，几乎没有时间做出反应时，死灵法师的仆从们开始从四面八方攻击我。我怒不可遏，开始攻击周围的一切，从不死族中杀出一条血路，一直杀到死灵法师跟前。我面对着那个邪恶的死灵法师，准备给他重重一击，但他只是简单地挥了挥手，我就感觉到一股巨大的力量猛击我的胸膛。
 
-黑暗似乎刺穿了我的心灵，无论我如何努力，都无法抵抗。我被撞得向后飞去，重重撞在墙上。我倒在地上，视野开始模糊。尽管如此，我仍然能听到死灵法师咯咯的笑声，随后他又开始喋喋不休：“你真可怜。战斗不仅仅是用压倒性的力量打击敌人！你确实是一个强大的自然精灵，但力量本身是没有意义的。你的动作太夸张了，你的攻击很容易被反击，你似乎一点也不知道如何在战斗中制定战略。哦，好吧。也许在我杀了你之后，我会复活你的尸体，教你如何正确地投入战斗。”
+黑暗似乎刺穿了我的心灵，无论我如何努力，都无法抵抗。我被撞得向后飞去，重重撞在墙上。我倒在地上，视野开始模糊。尽管如此，我仍然能听到死灵法师咯咯的笑声，随后他又开始喋喋不休：“你真可怜。战斗不仅仅是用压倒性的力量打击敌人！你确实是一个强大的自然精灵，但力量本身是没有意义的。你的动作意图太明显，你的攻击很容易被反击，你似乎一点也不知道如何在战斗中制定战略。哦，好吧。也许在我杀了你之后，我会复活你的尸体，教你如何正确地投入战斗。”
 
 尽管我经常记不住人们对我说的话，但当这些话在我脑海中回响时，我记得很清楚。从某种意义上，我可以说这些话比那天给我造成的任何伤害都更刺痛我，但这并没法描述那一天有多少法术和诅咒轰击了我的身体。我每做一件事，死灵法师都会领先两步，每犯一个错误，我都会付出高昂的代价。随着战斗的进行，我能感觉到我的身体开始变冷，我知道，尽管我很能扛，也无法再坚持战斗多久。死灵法师或许也能像看出其他一切一样，轻易看出我的绝望。
 
@@ -2155,9 +2155,9 @@ It is this dream which keeps Kroshkkur alive. Even as our bodies continue to war
 t("Researcher Dremnot's Demystification of the Gods: Prelude", "研究员德瑞姆诺特的《揭露诸神》：前言", "_t")
 t("Gods are beings which have been frequently mentioned throughout Eyal's history. They are a foreign concept to most readers, since most Eyalites of the current age have not encountered them. The word god gives you the impression of some almighty and obscenely powerful being, which these beings most certainly are. But, there has been little scholarly work dedicated to defining what exactly a god is. Multiple cultures across Eyal's history all have varying descriptions of the gods, despite the same names frequently appearing among them. \n\nAs a scholar of Kroshkkur, I spent much time wandering the surface of Eyal and learning from the surface races regarding the gods, including many famous places of learning such as Anglowen. It was a hard sell, but I even managed to [i]convince[/i] an imp to retrieve certain documentation on Urk'Rok as well. This series of documents has been written to catalogue information regarding the gods and to develop as accurate a picture of them as myth and history will allow and this preface is to give a general impression of what exactly a god is supposed to be.\n\nThere have been many powerful beings who have walked across the surface of Eyal. Being a god isn't simply a question of power, however, despite the enormous strength of these beings. What separates gods from other beings is their ability to reverse entropy. For future reference, we shall refer to this power as antropy. This power also allows them to reshape reality to their own whims and desires. Some gods made their own races, others merely altered beings living on Eyal, playing with their evolution and changing them in unfathomable ways. While some might attribute this behaviour to some greater purpose, there is more than enough evidence to suggest that the gods are fallible and motivated by things just as petty as we mere mortals. In my scholarly opinion, we were simply created for their amusement.\n\nWhile this might drive some to despair and make them believe that mortal will is pointless, it is noted in ancient myth that the gods were slaughtered by the Sher'tul and driven away from our world. Whether or not their absence can be considered a good thing, it cannot be said. There are some surviving stories of the gods' blatant cruelty and complete disregard for the races they made as they squabbled among each other, wracking great scars across the surface of this world. It is also noteworthy that the gods, despite their impressive power, were not always intelligent beings. Some were believed to be barely sapient, or even sentient. One theory about this is that the gods were primitive beings living on Eyal's surface and just so happened to be infused with antropic energies, artificially elevating them above other primitive lifeforms.\n\nWith these things established, we will discuss the gods of Eyal and what influence their actions had, and continue to have, on our world. While I discovered many gods in my studies, it is entirely possible that Eyal had even more gods than what are documented in my findings, but their existence cannot be substantiated by existing scholarly texts.", [[神是埃亚尔历史上经常被提及的存在。它们对大部分读者来说是个陌生的概念，因为当代的大部分埃亚尔人都从未遇见过它们。“神”这个字给人的印象是至高全能的存在，这点它们也名副其实。但是学术上几乎没有对神的具体定义。埃亚尔历史上的诸多文化虽然都提到了许多相同的名讳，但对诸神的描述则各不相同。
 
-作为一名克诺什库尔的学者，我花了许多时间在埃亚尔地表游历，在包括安格列文在内的诸多知识圣地学习了地表种族对神的认识。我甚至[i]说服[/i]了一个小恶魔去取来有关乌鲁洛克的一些文件，尽管过程并不轻松。我博览传说与历史，写下这一系列的文件来尽可能准确地记载诸神的信息，而这章前言则是让读者大致了解神究竟是何物。
+作为一名克诺什库尔的学者，我花了许多时间在埃亚尔地表游历，在包括安格利文在内的诸多知识圣地学习了地表种族对神的认识。我甚至[i]说服[/i]了一个小恶魔去取来有关乌鲁洛克的一些文件，尽管过程并不轻松。我博览传说与历史，写下这一系列的文件来尽可能准确地记载诸神的信息，而这章前言则是让读者大致了解神究竟是何物。
 
-曾经有诸多强大的存在行走于埃亚尔的地表。然而，尽管诸神拥有无与伦比的力量，要成为神也并非只需要力量这么简单。将神与其他生物区分开来的是它们能够逆转熵的力量，我们会在下文中将其称作反熵。这种力量使它们能够根据自己的意志重塑现实。有些神创造了自己的种族，另一些只是改变已有的存在，玩弄着它们的演化或是以其他高深莫测的方法改变它们。有些人认为，神这么做是为了更远大的目标，但也有十足证据表明诸神就和凡人一样容易冲动并犯下错误。依我作为学者的看法，它们创造出我们仅仅是为了娱乐。
+曾经有诸多强大的存在行走于埃亚尔的地表。然而，尽管诸神拥有无与伦比的力量，要成为神也并非只需要力量这么简单。将神与其他生物区分开来的是它们能够逆转熵的力量，我们会在下文中将其称作反熵。这种力量使它们能够根据自己的意志重塑现实。有些神创造了自己的种族，另一些只是改变已有的存在，玩弄着它们的演化或是以其他高深莫测的方法改变它们。有些人认为，神这么做是为了更远大的目标，但也有十足证据表明，诸神同样会犯错，驱使它们的也不过是和我们凡人一样琐碎卑微的东西。依我作为学者的看法，它们创造出我们仅仅是为了娱乐。
 
 虽然这会使某些人相信凡人的意志毫无意义因而陷入绝望，但传说诸神曾被夏·图尔人杀戮并被赶出了我们的世界。它们的消失究竟是好是坏，还不好说。根据一些流传至今的传说，诸神十分残暴，在相互的纷争之中完全不顾它们所创造的种族的生死，还在地面上留下了巨大的伤痕。还值得一提的是，诸神虽然力量强大，但并不一定聪明。有些神被认为几乎没有智能，甚至可能只有些许感知。有一种相关的理论认为诸神原本只是些生活在埃亚尔地表的原始存在，只是碰巧获得了反熵的力量，才让他们高居于其他原始的生命形态之上。
 
@@ -2205,7 +2205,7 @@ Ugg'matho was frequently in conflict with other gods in its myths. Many a story 
 
 When Ugg'matho was slained by Branzir, it is said that its blood took on a life of its own, spreading out into the wilderness in the form of living ooze.]], [[厄格莫斯是创造了巨魔的神。虽然当代大部分埃亚尔居民都认为巨魔只是些愚蠢、野蛮的大块头，它们却经常展现出出人意料的智慧。厄格莫斯的主要领地是埃亚尔的森林和山区，它在古老的文献中被称作“园丁”，因为它深爱着埃亚尔的森林和其他绿地。有人认为它是按照自己的形象创造了巨魔——野蛮而强大的荒野守护者。
 
-有些传说中它会从天空中降临并毁灭文明的聚居点，因为它将文明视作埃亚尔这一片绿色风景上的污点；而在另一些神话中它则选择改变自然来避让文明，并创造出众多的植物和守卫来防止智慧种族去掠夺森林的资源。它的许多传说都有一个共性，那就是它强烈反对智慧生物去打破自然平衡。
+有些传说中它会从天空中降临并毁灭文明的聚居点，因为它将文明视作埃亚尔这一片绿色风景上的污点；而在另一些神话中它则选择改变自然本身来抵御文明，并创造出众多的植物和守卫来防止智慧种族去掠夺森林的资源。它的许多传说都有一个共性，那就是它强烈反对智慧生物去打破自然平衡。
 
 在传说中，厄格莫斯经常与其他神争斗。许多故事讲述了诸神和它们选中的勇士如何在荒野中大举猎杀巨魔，追捕厄格莫斯的孩子，试图将它们从埃亚尔上彻底抹去。虽然这些故事常说他们成功清除了荒野中的巨魔威胁，但历代巨魔数量之多表明，他们可能并没有所说的那么成功。有一则传说声称厄格莫斯最后与其他诸神定下了一个协定——它们不再来侵扰它的森林，而它也不再去侵扰它们的造物；另一则声称厄格莫斯被迫屈服于其他诸神，只能在暗中继续危害它们。
 

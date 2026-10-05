@@ -500,7 +500,7 @@ t("Soft-foot of the Kruk, I come to give you a warning, an apology, and a plea f
 t("[listen]", "[听他说话]", "_t")
 t("The rest of us have fled, hiding in caverns across the peninsula...  I cannot in good conscience ask you to face certain death before his magic for our sakes, but striking first may be the only way to save your people.  He appears to be stalling the invasion, buying you some time, but if you cannot catch him off-guard before he finally commits to it...  I've seen his power cut through a mountain like it was a leaf, soft-foot.  There can be no victory against that kind of magic.  Run, hide, and hope he falls victim to an accident or loses the remaining fragments of his sanity that keep him capable of casting spells.", "我们其他人都已逃走，藏身在半岛各处的洞穴里……凭良心说，我不能为了我们，要求你在他的魔法面前直面必死的命运；但抢先出手或许是拯救你族人的唯一办法。他似乎在拖延入侵，为你争取了一些时间，但如果你不能在他最终发起进攻之前打他个措手不及……软脚者，我曾亲眼看见他的力量像穿过一片树叶一样洞穿山脉。面对那种魔法，不可能取胜。快跑，躲起来，祈祷他遭遇意外，或者失去仍让他能够施法的最后一丝理智吧。", "_t")
 t("I will check it out", "我要去看看", "_t")
-t("We of the Krimbul Clan have faced our near-certain deaths all too many times, even after our hearts stopped beating; this is the first time we have been shown the kindness of utter salvation by an outsider.  Those who were not enthralled by Nektosh and are not delusionally faithful to his \"cause\" will reclaim the Mana Caves in time; until then, we will join your Pride in your revolution.  You have liberated us, and we will not rest until you are freed of your oppressors as well.", "我们氏族曾无数次直面灭族危机，哪怕是在我们的心脏停止跳动之后；然而，这是第一次有外人善意地彻底拯救了我们。那些未被纳克托什蛊惑、也未执迷于他的“事业”的人，终将收复魔法洞穴。在此之前，我们将加入你的部落，参与你的革命。你解放了我们，在你们脱离压迫者之前，我们都不会停下脚步。", "_t")
+t("We of the Krimbul Clan have faced our near-certain deaths all too many times, even after our hearts stopped beating; this is the first time we have been shown the kindness of utter salvation by an outsider.  Those who were not enthralled by Nektosh and are not delusionally faithful to his \"cause\" will reclaim the Mana Caves in time; until then, we will join your Pride in your revolution.  You have liberated us, and we will not rest until you are freed of your oppressors as well.", "我们克里布尔部族曾无数次直面几乎注定的死亡，哪怕是在我们的心脏停止跳动之后；然而，这是第一次有外人善意地彻底拯救了我们。那些未被纳克托什蛊惑、也未执迷于他的“事业”的人，终将收复魔法洞穴。在此之前，我们将加入你的部落，参与你的革命。你解放了我们，在你们脱离压迫者之前，我们都不会停下脚步。", "_t")
 t("Thanks.", "多谢。", "_t")
 t("Thanks.", "多谢。", "chat_metash")
 t("Hail, @playername@!", "嘿，@playername@！", "_t")
@@ -530,8 +530,7 @@ t("#LIGHT_GREEN#*This machine seems to have a slot for some kind of disks.*#WHIT
 section "tome-orcs/data/chats/shertul-priest.lua"
 
 t([[#LIGHT_GREEN#*Before you stands a tentaculous horror which you recognize for what it truly is. A living #{bold}#Sher'Tul#{normal}#!.*#WHITE#
-Who are you, young creature, to stand up to a High Priest of Amakthel? Do you not know that you are before a servant of the Almighty Creator, the Sunfather, the God of Gods, Lord of all Eyal? In the millenia I have lived I have killed whole races like yourself. I have even wrenched the spirits of immortal gods from this world. So who are you, little one, who dare defy me?]], [[#LIGHT_GREEN#*站在你面前的是一个长着触手的恐魔，你认出了他的真实身份：
-一个活着的 #{bold}#夏·图尔人#{normal}#!.*#WHITE#
+Who are you, young creature, to stand up to a High Priest of Amakthel? Do you not know that you are before a servant of the Almighty Creator, the Sunfather, the God of Gods, Lord of all Eyal? In the millenia I have lived I have killed whole races like yourself. I have even wrenched the spirits of immortal gods from this world. So who are you, little one, who dare defy me?]], [[#LIGHT_GREEN#*站在你面前的是一个长着触手的恐魔，你认出了他的真实身份：一个活着的 #{bold}#夏·图尔人#{normal}#!.*#WHITE#
 站在阿马克泰尔的大祭司面前的年轻生物啊，你是谁呢？你难道不清楚，站在你面前的，是伟大的创造者、太阳之父、神上之神、埃亚尔的主人的仆从？千年以来，我曾终结过许多像你这样的种族，我甚至曾将不朽神明的灵魂从这世界扯出。小家伙，你认为自己是谁，竟敢违抗我？]], "_t")
 t("I... am %s, of the seed of Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!", "我……名为%s，是吞噬者加库尔的后裔。加库尔教导我们挑战传奇，面对绝境也绝不退缩。此时此刻，我毫无畏惧与迟疑地面对你，因加库尔之意志在我体内燃烧。以他之名，我必将#{bold}#击垮#{normal}#你！", "tformat")
 t("I... am %s, though I lack my original body my mind is bound to Garkul the Devourer. Garkul taught us to fight legends, and to flinch not from even the most desperate deed. Here and now I face you without fear or hesitation, for the spirit of Garkul burns within me. And in his name I will #{bold}#break#{normal}# you!", "我……名为%s，尽管失去了原本的躯体，我的精神仍与吞噬者加库尔紧密相连。加库尔教导我们挑战传奇，面对绝境也绝不退缩。此时此刻，我毫无畏惧与迟疑地面对你，因加库尔之意志在我体内燃烧。以他之名，我必将#{bold}#击垮#{normal}#你！", "tformat")
@@ -2136,7 +2135,7 @@ t([["...thing on? Okay, good. This is Haze Commander Parmor of the Geothermal Ex
 
 #{italic}#(The door closes.)#{normal}#
 
-"...Yeah, Councillor Tantalos is getting his tea as soon as he can un-kick the hornet's nest that got us into this chaos.  Moving on...  departure was on time, projected journey to the Loyalist's last known position is underway, making a tunnel there from right under the palace.  All systems functioning, except for the tea-maker, and I can't give a slag about that.  End log."]], [[“……这玩意开着吗？好，好的。我是地热探测鼹鼠GEM的阴霾指挥官帕默，我们正在执行的任务是…”她叹了一口气。‘寻找忠诚者，将我们安全地运送到他的避难所，并向他提出按他先前开出的条件达成协议。’如果不用官腔的话，就是‘在恐惧中逃跑，逃向唯一能够把我们从这片混乱中解救出来的家伙那里，别忘了把“眼”带走。’就我个人而言，我可不想把我们的命运交到某个生活在地底下的狂人手里，而且…”她含糊不清地抱怨着。“…这根本他妈的不是我的工作，我可不是某些政治家的仆人——”
+"...Yeah, Councillor Tantalos is getting his tea as soon as he can un-kick the hornet's nest that got us into this chaos.  Moving on...  departure was on time, projected journey to the Loyalist's last known position is underway, making a tunnel there from right under the palace.  All systems functioning, except for the tea-maker, and I can't give a slag about that.  End log."]], [[“……这玩意开着吗？好，好的。我是地热探测鼹鼠GEM的阴霾指挥官帕默，我们正在执行的任务是…”她叹了一口气。“‘寻找忠诚者，将我们安全地运送到他的避难所，并向他提出按他先前开出的条件达成协议。’如果不用官腔的话，就是‘在恐惧中逃跑，逃向唯一能够把我们从这片混乱中解救出来的家伙那里，别忘了把“眼”带走。’就我个人而言，我可不想把我们的命运交到某个生活在地底下的狂人手里，而且…”她含糊不清地抱怨着。“…这根本他妈的不是我的工作，我可不是某些政治家的仆人——”
 
 #{italic}#（你听到了开门的声音，有另一个人的声音响起）#{normal}#
 
@@ -2499,7 +2498,7 @@ The nebula behind the Neira constellation continues its slow fading.  Star Gerly
 
 Aside from these phenomena, all is normal.  The cracks on Mal'Rok and the other Spellblaze-blasted planets in other systems are still slowly fading, and the lights on more distant worlds continue to twinkle.  Stars outside the Neira constellation remain steady, or decay according to standard astronomical models.]], [[在霜华之月背侧，奇怪的运动还在持续——这里是一处阴影，那里是一个小小的斑点或闪光。影像模糊不清，难以分辨。可能是因为某种魔法的干扰，但这到底是在我们这一端，还是霜华之月的那一端，我也没法判断。
 
-尼耶拉星座背后的星云仍在缓慢消散。盖里克-P星消失了，根据目前多数模型的计算，阿马克泰尔-N将会成为下一颗消失的星星。根据这个世纪以来的记录，星星消失的速度正在加快……这是十分令人焦虑的情形，但可能更让人焦虑的是，奎克久拉-B星在骤然爆发的闪光中重新出现，光芒强得足以短暂照亮夜空。它的颜色现在正在绿色和紫色之间震荡，和它原来淡橙色的亮光完全不同，而且，它看起来甚至已经不像是球形……我甚至在这里就能感受到它的力量，就像能感受到山德拉和我们的两个月亮的力量一样，虽然朦胧，却变得越来越强大。我们完全没有办法对这样史无前例的事件进行任何有意义的解释，所以我不准备在这里写下我的理论，但这些假说每一个都让我充满忧虑。
+尼耶拉星座背后的星云仍在缓慢消散。盖里克-P星消失了，根据目前多数模型的计算，阿马克泰尔-N将会成为下一颗消失的星星。从过去一个世纪的情况来看，星星消失的速度正在加快……这是十分令人焦虑的情形，但可能更让人焦虑的是，奎克久拉-B星在骤然爆发的闪光中重新出现，光芒强得足以短暂照亮夜空。它的颜色现在正在绿色和紫色之间震荡，和它原来淡橙色的亮光完全不同，而且，它看起来甚至已经不像是球形……我甚至在这里就能感受到它的力量，就像能感受到山德拉和我们的两个月亮的力量一样，虽然朦胧，却变得越来越强大。我们完全没有办法对这样史无前例的事件进行任何有意义的解释，所以我不准备在这里写下我的理论，但这些假说每一个都让我充满忧虑。
 
 除了这些奇怪的现象之外，星空中的其他一切都很正常。玛·洛克以及其他星系里被魔法大爆炸轰击的行星上的裂缝，仍在慢慢消散。来自更加遥远星球的光亮正在闪烁。尼耶拉星座之外的群星仍然保持稳定，或者按照标准天文学模型的解释慢慢消失。]], "_t")
 t("ureslak's lair", "乌瑞斯拉克的巢穴", "newLore category")
