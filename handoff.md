@@ -1,4 +1,4 @@
-# 当前恢复入口（2026-10-05 修复窗口67 完成，2 个 successor 待第405批重新审核）
+# 当前恢复入口（2026-10-05 窗口67 successor 已在第405批审完）
 
 用户 2026-10-05 要求开始生硬描述扫描 C 档（对话与 lore），已完成并推送：1,446 条全部裁决，修复包 12–16 修正 485 处，DeepSeek 交叉复核后再修正 8 处；搁置的 21 条由主代理逐条查源码，用户同意后改 16 行（含同运行键同步 1 行），GPT-6.1 Sol 复核无异议。见[扫描报告](evidence/quality/awkward-scan3-20261003/REPORT.md)的“C 档”一节与[搁置项处理](evidence/quality/awkward-scan3-20261003/holds-c.md)。至此 A、B、C 三档全部完成。
 
@@ -8,7 +8,7 @@
 
 1. 窗口66 的 25 个 successor 已在第404批（`batch-8a80c5f58e2462772813`）审完：25 done / 0 repair_required，证据提交 `599bfb7b`；审核队列已无待审 successor。
 2. 用户随后选择“小窗口67并含 422 行”：窗口67 已修复 2 条（宿主补充 `9d3fc01bdf` 奎科加章节“安格列文”→“安格利文”；用户授权的 `fc55a88fd6` 即 `mod-tome.lua:422` 护送奖励日志，对齐同族选项写法），复审中另确认同一奎科加条目的 2 处错误并一并修复（译文 `0de585f6`，migration `a0f4f220…`，详见 `evidence/quality/repair-window-67-20261005/PUBLICATION.md`）。窗口67 的全部 child 在证据提交前已由宿主确认归档。
-3. 窗口67 的 2 个 successor 不继承旧 done，须重新审核（第405批）；下一个修复窗口（68）积压 0 条。
+3. 窗口67 的 2 个 successor 已在第405批（`batch-0009fb571152fc15b9a2`）审完：2 done / 0 repair_required，证据提交 `b674f274`；审核队列已无待审 successor。下一个修复窗口（68）积压 0 条，未达 20 条阈值；后续开窗或暂停待用户决定。
 
 ---
 
@@ -81,7 +81,7 @@
 
 # 翻译审核当前交接
 
-更新时间：2026-10-05（修复窗口67已完成，2 个 successor 待第405批重新审核）
+更新时间：2026-10-05（第405批已 finalize，窗口68积压 0 条；审核队列已清空，待用户决定）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -97,10 +97,10 @@
 - 2026-10-01：用户裁定 deeprock 技能树改“深岩”（Deeprock Form 保持“深岩形态”），并要求一并修复 Korbek 实验笔记标题等非阻断问题，开窗口60。
 - 2026-10-01：审核队列清空后，用户要求系统性分析死亡信息表（`cd2d0d7e`）；同意把 12 条句式与拼接缺陷并入积压，开窗口61；随后裁定 pending #50（killer_message 改凶手主语）与 #51（dark Master→黑暗领主）均采用 B，排入窗口62。窗口62 已于同日完成并推送。
 - 2026-10-05：生硬描述 C 档完成并发布 0.3.4 后，用户要求“再走一轮生产复核”。迁移 `87fb6882…`（catalog `47745ecc…`）把 C 档修复包、交叉复核修正与搁置项处理涉及的 494 个 successor 排入队列（证据 `evidence/quality/maintenance-reaudit-20261005/`）。
-- 审核已闭合至第 **404** 批（`batch-8a80c5f58e2462772813`）：25 条，25 done / 0 repair_required。
-  窗口66 successor 审核 25 条（主游戏 14、Orcs 4、Ashes 2、Cults 5）：surface 25 OK / 0 ISSUE；无 deep；无观察；无新增修复，窗口67积压 0；余 0 个 successor。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `599bfb7b6d577b971cacd1f29e28ffe6d58401ee` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **67**：窗口66（第397–403批第二轮重新复审确认 16 条＋宿主补充 9 条，译文 `fd7c6a61`，migration `defcd152…`；25 个 successor 已在第404批审完）与窗口67（宿主补充 1 条＋用户授权 1 条，译文 `0de585f6`，migration `a0f4f220…`）均已修复；窗口67 的 2 个 successor 须重新审核，不继承旧 revision 的 done 状态。
+- 审核已闭合至第 **405** 批（`batch-0009fb571152fc15b9a2`）：2 条，2 done / 0 repair_required。
+  窗口67 successor 审核 2 条（主游戏 1、Cults 1）：surface 2 OK / 0 ISSUE；无 deep；无观察；无新增修复，窗口68积压 0；余 0 个 successor。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `b674f274e26e444110ce26dd762efce8de74b97f` 已 finalize。当前无 active batch。
+- 修复窗口已闭合至 **67**：窗口66（第397–403批第二轮重新复审确认 16 条＋宿主补充 9 条，译文 `fd7c6a61`，migration `defcd152…`；25 个 successor 已在第404批审完）与窗口67（宿主补充 1 条＋用户授权 1 条，译文 `0de585f6`，migration `a0f4f220…`）均已修复；窗口67 的 2 个 successor 已在第405批审完（2 done / 0 repair_required）。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
   - 10 条死键／冻结 MISS（上游改串未重生 locale key 等，已 host-block 登记，不动）；
@@ -148,6 +148,7 @@
 | 402 | `batch-fd4663c4b4a995cd5928` | 76 done / 4 repair | 74 OK / 6 ISSUE | 3 OK / 3 ISSUE | 6 confirmed / 3 advisory |
 | 403 | `batch-9ac9ee56fc05e6b82dbe` | 13 done / 1 repair | 12 OK / 2 ISSUE | 0 OK / 2 ISSUE | 2 confirmed / 2 advisory |
 | 404 | `batch-8a80c5f58e2462772813` | 25 done / 0 repair | 25 OK / 0 ISSUE | 0 OK / 0 ISSUE | — |
+| 405 | `batch-0009fb571152fc15b9a2` | 2 done / 0 repair | 2 OK / 0 ISSUE | 0 OK / 0 ISSUE | — |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -167,7 +168,7 @@
 
 ## 三、下一步
 
-1. **第二轮重新复审已完成**（第397–403批，494/494：478 done、待修 16）。窗口66 已修复，其 25 个 successor 已在第404批审完（25 done / 0 repair_required；surface 全 OK、无 deep 条目，按第360批先例走 surface-only 路径，派生件 `$C/finalize_host_gen_404.py`、`/tmp/mkfin_404.py`、`/tmp/handoff_gen_404.py`、`$C/close_tpl_404.sh`）；本轮派生脚本见 `$C/reaudit2-helpers/`（start_re2.sh、derive_re2.sh、mkfin_re2.py、backlog66.json），收口用 `finalize_host_gen_re2.py` 与 `close_tpl_re2.sh`。
+1. **第二轮重新复审已完成**（第397–403批，494/494：478 done、待修 16）。窗口66 已修复，其 25 个 successor 已在第404批审完（25 done / 0 repair_required；surface 全 OK、无 deep 条目，按第360批先例走 surface-only 路径，派生件 `$C/finalize_host_gen_404.py`、`/tmp/mkfin_404.py`、`/tmp/handoff_gen_404.py`、`$C/close_tpl_404.sh`）；窗口67 的 2 个 successor 已在第405批审完（2 done / 0 repair_required；同样走 surface-only 路径，派生件 `$C/finalize_host_gen_405.py`、`/tmp/mkfin_405.py`、`/tmp/handoff_gen_405.py`、`$C/close_tpl_405.sh`）；本轮派生脚本见 `$C/reaudit2-helpers/`（start_re2.sh、derive_re2.sh、mkfin_re2.py、backlog66.json），收口用 `finalize_host_gen_re2.py` 与 `close_tpl_re2.sh`。
    窗口67 的派生件在 `.artifacts/i18n/repair-w67-20261005/`（rewrites.py、setup_window67.py、freeze_review.py、wd.sh、w67-tr.sh、w67-close.sh、w67-scope.tmpl、make_handoff_next.py），下一个窗口可从此派生；handoff 由宿主写好全文、publication child 核对基线 SHA 后整份替换。
    本轮新增经验（第392–395批）：
    - 一批有多个 contextual run 时，`finalize_host_gen_re.py` 与 `/tmp/mkfin_re.py` 已能处理；`close_review<N>.py` 的 `for run in (...)` 仍须按 run 数手改。
@@ -178,7 +179,7 @@
    窗口66（第二轮重新复审确认 16 条＋补充 9 条，第 3 轮收敛）详见 `evidence/quality/repair-window-66-20261005/PUBLICATION.md`；窗口65（重新复审确认 9 条＋补充 2 条）详见 `evidence/quality/repair-window-65-20261004/PUBLICATION.md`；窗口64 详见 `evidence/quality/repair-window-64-20261003/PUBLICATION.md`；窗口63（意志之力 maces 1 条）详见 `evidence/quality/repair-window-63-20261001/PUBLICATION.md`；窗口62 教训：killer_message 被 `" "..src.killer_message` 拼在凶手名后，译文不得以标点起头。
    窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
    下一个修复窗口（68）积压 **0** 条。主游戏 `mod-tome/load.lua` 段的奎科加旧版副本（`e4824491182e`）是已登记死键（`batch-ac27e658…` 中经 host-block 放行），译文不生效，与 Cults 现行条目措辞不同步属预期，不登记。
-   第404批计时（实测，投影缓存 on）：start 1.9 s（另有一次因 evidence-head 漂移失败的 start，重建队列后重跑）；adjudication（surface-only）＋prepare-evidence（含 17 项门禁）172.0 s；finalize 178.3 s。
+   第405批计时（实测，投影缓存 on）：start 163.8 s；adjudication（surface-only）＋prepare-evidence（含 17 项门禁）168.4 s；finalize 165.7 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。
 
