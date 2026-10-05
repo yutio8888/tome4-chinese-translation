@@ -580,7 +580,7 @@ t("Hum no let me change my mind.", "啊，不，让我再想想。", "_t")
 t("[Allow training of talent category %s (at mastery %0.2f)]", "[允许训练技能树 %s（熟练度 %0.2f）]", "tformat")
 t("Very well. We can teach you a talent.  Which do you want?", "很好。我们能教授你技能。你想学哪个？", "_t")
 t("Very well. We can teach you a talent; which type do you want?", "很好。我们能教授你技能；你想学哪个？", "_t")
-t("[%s talent %s (+%d level(s))]", "[%s 技能 %s (+%d 等级)]", "tformat")
+t("[%s talent %s (+%d level(s))]", "[%s技能 %s（+%d 级）]", "tformat")
 t("Improve", "提升", "_t")
 t("Learn", "学习", "_t")
 t([[Antimagic talents are very special. To learn one means you will never be able to use arcane powered items or talents again.

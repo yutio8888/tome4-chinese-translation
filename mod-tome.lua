@@ -422,7 +422,7 @@ t("[Improve %s save by +%d]", "[提升 %s豁免 +%d]", "tformat")
 t("%s talent %s (+%d level(s))", "%s 技能 %s (+%d 等级)", "tformat")
 t("improved", "提升了", "_t")
 t("learnt", "学习了", "_t")
-t("[%s talent %s (+%d level(s))]", "[%s 技能 %s (+%d 等级)]", "tformat")
+t("[%s talent %s (+%d level(s))]", "[%s技能 %s（+%d 级）]", "tformat")
 t("Improve", "提升", "_t")
 t("Learn", "学习", "_t")
 t("gained talent category %s (at mastery %0.2f)", "解锁技能树 %s（熟练度 %0.2f）", "tformat")
@@ -4641,7 +4641,7 @@ section "mod-tome/data/chats/artifice-mastery.lua"
 
 t("Cancel", "取消", "_t")
 t("#CADET_BLUE#%s already mastered.", "#CADET_BLUE#%s 已经强化过了。", "log")
-t("#LIGHT_BLUE# You enhance your preparation of %s.", "#LIGHT_BLUE# 你强化了对 %s 的准备。", "log")
+t("#LIGHT_BLUE# You enhance your preparation of %s.", "#LIGHT_BLUE# 你强化了已准备的 %s。", "log")
 t("%s[%s -- mastery: %s]#LAST#", "%s[%s -- 强化：%s]#LAST#", "tformat")
 t("Master which tool?", "强化哪件工具？", "_t")
 -- untranslated text
@@ -5400,7 +5400,7 @@ t([[#LIGHT_GREEN#*Melinda appears at the door and kisses you*#WHITE#
 Hi my dear, I'm so happy to see you!]], [[#LIGHT_GREEN#*梅琳达出现在门口，亲吻了你*#WHITE#
 嗨，亲爱的，见到你我太高兴了！]], "_t")
 t("I am still looking out for an explanation of what happened at the beach.", "我还在试着弄清海滩上发生的事。", "_t")
-t("About what happened on the beach, I think I have found something.", "关于海滩上发生的事，我想我找到办法了。", "_t")
+t("About what happened on the beach, I think I have found something.", "关于海滩上发生的事，我想我有些眉目了。", "_t")
 t([[I do not know yet, my father won't let me out until I'm fully healed. I've always wanted to do so many things.
 That is why I got stuck in that crypt, I want to see the world.
 My father gave me some funds so that I can take my future into my own hands. I have some friends in Derth, maybe I will open my own little shop there. ]], [[我现在还不知道，在我完全康复之前我父亲都不准我出门。我一直想做很多事情。
@@ -5985,7 +5985,7 @@ However, I suggest you still carry it with you in case something manages to remo
 不过，我建议你仍将它随身携带，以防有什么东西设法消除你身上的效果。]], "_t")
 t("Not now.", "暂时不用。", "_t")
 t([[Demonic taint. Yes I have a way to help in the archives. However this is a long process, the subject will need to live here for a while.
-She will have to spend 8 hours per day in the regeneration tank.]], [[恶魔污染。是的，我有办法在档案区帮她。不过这个过程很漫长，她需要在这里住上一段时间。
+She will have to spend 8 hours per day in the regeneration tank.]], [[恶魔污染。是的，档案里记载着可以帮她的方法。不过这个过程很漫长，她需要在这里住上一段时间。
 她每天必须在再生槽中待上 8 小时。]], "_t")
 t("This is great news! I will tell her at once.", "太好了！我马上告诉她。", "_t")
 
@@ -11462,7 +11462,7 @@ t("memories of Artelia Firstborn", "首生者亚特莱的记忆", "entity name")
 t("The memories of the first elf ever to awaken.", "第一个醒来的精灵的记忆。", "_t")
 t("human myth of creation", "人类的创世传说", "entity name")
 t("Myth of creation of the humans.", "人类的创世传说。", "_t")
-t("a logical analysis of creation, by philosopher Smythen", "创世传说的逻辑分析，哲学家斯迈森著", "entity name")
+t("a logical analysis of creation, by philosopher Smythen", "对创世的逻辑分析，哲学家斯迈森著", "entity name")
 t("Myth of creation of the halflings.", "半身人的创世传说。", "_t")
 t("Tale of the Moonsisters", "月亮姐妹的传说", "entity name")
 t("The creation of Eyal's moons.", "埃亚尔月亮的创造。", "_t")
@@ -17763,7 +17763,7 @@ But Human did not cry, for the coal in his heart burned hot, and he knew he was 
 盖里克十分难过，他看着人类说：“对不起，现在已不是创世者的时代了，我也必须离开。”
 于是盖里克缓缓步入了黑暗。
 人类并未因此哭泣，因为他胸中的煤炭炽热地燃烧着，而他知道自己并非真正孤单。]], "_t")
-t("a logical analysis of creation, by philosopher Smythen", "创世传说的逻辑分析，哲学家斯迈森著", "_t")
+t("a logical analysis of creation, by philosopher Smythen", "对创世的逻辑分析，哲学家斯迈森著", "_t")
 t([[Many are the tales of how our world was made, from the absurd to the romantic to the horrific. But they are all mere myths, with no more than seeds of truth to even the most reliable. The history of our race goes back far, but it is tantalisingly scant in details from before we met the other races. Indeed, it is only through our battles with the others that we halflings have any ancient records at all.
 
 The elves one would suspect of having the greatest knowledge of elder times, but they are aloof and silent. One must judge from this that either they do not know, or that the truth ashames them. The latter would certainly not surprise me.
@@ -18417,7 +18417,7 @@ It is important to remember, that every artifact has a meaning, beings of great 
 
 ——#{italic}#科斯汀·赫菲因#{normal}#]], "_t")
 t("point zero", "零点圣域", "newLore category")
-t("Warden-Master Galsamae's Orientation Notes", "时空守卫大师加尔萨麦的时空导航笔记", "_t")
+t("Warden-Master Galsamae's Orientation Notes", "时空守卫大师加尔萨麦的新人须知", "_t")
 t([[Congratulations, sir and/or madam. Whether by invitation, discovering it on your own, or simply being enough of a thorn in our side to recruit rather than dispose of, you have gained the secrets of chronomancy. The ultimate power of time - the ability to reset and try again if you fail, the ability to save time by seeing the results of investigations before they happen. Though our powers are bound to post-Spellblaze Eyal, they are those of nigh-omnipotence with enough patience.
 
 But trust me - "enough patience" is one nasty limiting reagent. You're going to be running out of that fast when you've spent the last week trying to dismantle an Age of Dusk-era house-of-cards system of causally interdependent tyrannies without causing dwarven extinction, and a plague just broke out right when you had things almost perfect, for the sixth time--
@@ -19331,20 +19331,20 @@ section "mod-tome/data/lore/shertul.lua"
 t("sher'tul", "夏·图尔", "newLore category")
 t("first mural painting", "第一幅壁画", "_t")
 t([[You see here a mural showing a dark and tortured world. Large, god-like figures with powerful auras fight each other, and the earth is torn beneath their feet.
-There is some text underneath ]], [[你能在这壁画上看到一个黑暗和痛苦的世界。有着强大领域的上古巨神们在互相厮杀，大地在他们脚下龟裂。
-下面有一行文字]], "_t")
+There is some text underneath ]], [[你能在这壁画上看到一个黑暗和痛苦的世界。散发着强大气场、形似神明的巨大身影在互相厮杀，大地在他们脚下龟裂。
+下方写着]], "_t")
 t("which you do not understand: #{italic}#'Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.'#{normal}#", "不明意义的文字：#{italic}#“Sho ch'zun Eyal mor donuth, ik ranaheli donoth trun ze.”#{normal}#", "_t")
 t("#{italic}#'In the beginning the world was dark, and the petty gods fought over their broken lands.'#{normal}#", "#{italic}#“世界之初一片黑暗，伪神们为支离破碎的土地争斗不休。”#{normal}#", "_t")
 t("second mural painting", "第二幅壁画", "_t")
 t([[In this picture a huge god with glowing eyes towers above the land, and in his right hand he holds high the sun. The other gods are running from him, wincing from the light.
 There is some text underneath ]], [[画中，一位双眼发光的巨神高耸于大地之上，右手高举着太阳。众神纷纷逃离他，被光芒刺得直皱眉。
-下面有一行文字]], "_t")
+下方写着]], "_t")
 t("which you do not understand: #{italic}#'Fa AMAKTHEL tabak, ik koru bazan tro yu, ik ranaheli tobol don schek ruun. Ik blana dem Soli as banafel ik goriz uf Eyal ik blod, \"Tro fasa goru domus asam, ik goru domit tro Eyal.\"'#{normal}#", "不明意义的文字：#{italic}#'Fa AMAKTHEL tabak, ik koru bazan tro yu, ik ranaheli tobol don schek ruun. Ik blana dem Soli as banafel ik goriz uf Eyal ik blod, \"Tro fasa goru domus asam, ik goru domit tro Eyal.\"'#{normal}#", "_t")
 t("#{italic}#'But AMAKTHEL came, and his might surpassed all else, and the petty gods fled before his glory. And he made the Sun from his breath and held it above the world and said, \"All that this light touches shall be mine, and this light shall touch all the world.'#{normal}#", "#{italic}#但阿马克泰尔来了，他的力量凌驾万物，伪神在其荣光前逃离。他以气息造出太阳，将它高举于世界之上，说：“光所照之处皆归我有，此光将照遍全世界。”#{normal}#", "_t")
 t("third mural painting", "第三幅壁画", "_t")
 t([[This picture shows the huge god holding some smaller figures in his hands and pointing out at the lands beyond. You imagine these figures must be the Sher'Tul.
 There is some text beneath ]], [[这幅画显示巨神手中托着一些小小的身影，并指向远方的大陆。你猜这些身影一定就是夏·图尔人。
-下面有一行文字]], "_t")
+下方写着]], "_t")
 t("which you do not understand: #{italic}#'Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"'#{normal}#", "不明意义的文字：#{italic}#“Ik AMAKTHEL cosio SHER'TUL, ik baladath peris furko masa bren doth benna zi, ik blod is \"Fen makel ath goru domus ik denz tro ala fron.\"”#{normal}#", "_t")
 t("#{italic}#'And AMAKTHEL made the SHER'TUL, and gave unto us the powers to achieve all that we set our will to, and said to us \"Go forth to where the light touches and take all for your own.\"'#{normal}#", "#{italic}#阿马克泰尔创造了夏·图尔，给予我们实现一切意愿的力量，他对我们说：“走向光所照及之处，为自己取得一切。”#{normal}#", "_t")
 t("fourth mural painting", "第四幅壁画", "_t")
@@ -19356,25 +19356,25 @@ t("#{italic}#'We conquered the world, and built for ourselves towering cities of
 t("fifth mural painting", "第五幅壁画", "_t")
 t([[This mural shows nine Sher'Tul standing side by side, each holding aloft a dark weapon. Your eyes are drawn to a runed staff held by the red-robed figure in the centre. It seems familiar somehow...
 There is some text beneath ]], [[这幅壁画显示了九个夏·图尔人肩并肩站着，每人手里都高举着一件黑色武器。画面中央，红袍者手中的符文法杖吸引了你的注意。它看起来很眼熟……
-下面有一行文字]], "_t")
+下方写着]], "_t")
 t("which you do not understand: #{italic}#'Zubadon koref noch hesen, ik dorudon koref noch pasor. Cosief maro dondreth karatu - Ranaduzil - ik jein belsan ovrienis.'#{normal}#", "不明意义的文字：#{italic}#'Zubadon koref noch hesen, ik dorudon koref noch pasor. Cosief maro dondreth karatu - Ranaduzil - ik jein belsan ovrienis.'#{normal}#", "_t")
 t("#{italic}#'Of pride we accepted no equals, and of greed we accepted no servitude. We made for ourselves terrible weapons - the Godslayers - and nine were chosen to wield them.'#{normal}#", "#{italic}#出于骄傲，我们不接受任何与我们平起平坐者；出于贪婪，我们不接受任何奴役。我们为自己打造了可怕的弑神武器，并选出九名弑神者来使用它们。#{normal}#", "_t")
 t("sixth mural painting", "第六幅壁画", "_t")
 t([[You see images of epic battles, with Sher'Tul warriors fighting and slaying god-like figures over ten times their size.
 There is some text underneath ]], [[你在这幅壁画上看到一幕幕史诗般的战斗——夏·图尔战士们正与体型超过自身十倍、形似神明的存在厮杀，并将其斩灭。
-下面有一行文字]], "_t")
+下方写着]], "_t")
 t("which you do not understand: #{italic}#'Ranaheli meth dondruil ik duzin, ik leisif konru as neremin. Eyal matath bre sun. Ach unu rana soriton...'#{normal}#", "不明意义的文字：#{italic}#'Ranaheli meth dondruil ik duzin, ik leisif konru as neremin. Eyal matath bre sun. Ach unu rana soriton……'#{normal}#", "_t")
 t("#{italic}#'The petty gods were hunted down and slain, and their spirits rent to nothing. The land became our own. But one god remained...'#{normal}#", "#{italic}#伪神们被逐一猎杀，他们的灵魂被撕成虚无。大地终于归我们所有。但是还有一位神存在……#{normal}#", "_t")
 t("seventh mural painting", "第七幅壁画", "_t")
 t([[You see the red-robed Sher'Tul striking the huge god with the dark, runed staff. Bodies litter the floor around them, and the golden throne behind is bathed in blood. The light in the god's eyes seems faded.
 There is some text underneath ]], [[你看到红袍夏·图尔人用那根刻有符文的黑色法杖攻击巨神。周围尸横遍地，后方的黄金王座浸满鲜血。巨神眼中的光芒似乎已经黯淡……
-下面有一行文字]], "_t")
+下方写着]], "_t")
 t("which you do not understand: #{italic}#'Trobazan AMAKTHEL konruata as va aurin leas, ik mab peli zort akan hun, penetar dondeberoth.'#{normal}#", "不明意义的文字：#{italic}#'Trobazan AMAKTHEL konruata as va aurin leas, ik mab peli zort akan hun, penetar dondeberoth.'#{normal}#", "_t")
 t("#{italic}#'The almighty AMAKTHEL was assaulted on his golden throne, and though many died before his feet, he was finally felled.'#{normal}#", "#{italic}#'全能的阿马克泰尔在他的黄金王座上遭到了围攻，尽管无数人死在了他的脚下，他最终还是陨落了。'#{normal}#", "_t")
 t("eighth mural painting", "第八幅壁画", "_t")
 t([[The large mural shows the great god spread on the ground, with the dark staff held against his chest. Sher'Tul surround him, some hacking off his limbs, cutting out his tongue, and binding him with chains. A burst of light flares up from where a tall Sher'Tul warrior is gouging his eye with a black-bladed halberd. In the background a Sher'Tul mage beckons to a huge chasm in the ground.
 The text beneath says simply ]], [[这幅巨大的壁画上，真神瘫倒在地，那根黑色法杖抵在他的胸口。夏·图尔人围绕着他，有的砍下他的肢体，有的割下他的舌头，还有的用锁链将他捆住。一名高大的夏·图尔战士正用黑刃长戟剜他的眼睛，剜眼之处迸发出一阵光芒。远处，一名夏·图尔法师朝地面上的巨大深渊示意。
-下面的文字只有一句]], "_t")
+下面的文字只有一句：]], "_t")
 t("#{italic}#'The Great Sin.'#{normal}#", "#{italic}#大罪。#{normal}#", "_t")
 t("ninth mural painting", "第九幅壁画", "_t")
 t("This final mural has been ruined, with deep scores and scratches etched across its surface. All you can see of the original appears to be flames.", "最后的这块壁画损坏得很严重，表面刻满了深深的刻痕和划痕。你所能辨认出的原始图案似乎只有火焰。", "_t")
