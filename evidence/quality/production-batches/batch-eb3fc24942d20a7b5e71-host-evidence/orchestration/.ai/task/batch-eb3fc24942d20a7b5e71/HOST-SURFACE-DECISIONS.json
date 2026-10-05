@@ -1,0 +1,48 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 5 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "0eb305a353e1d3b60888ab11f9ce72d923ed8ff14d93a2b8f34bf19d6cb607e3",
+      "stage": "surface",
+      "observation": "译文在“这根本不可能。”与“除此之外”之间新增一个换行；原文对应的“it's simply not feasible. Furthermore”位于同一段内且无换行，冻结 source/target 的换行结构不一致。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开源码 game/modules/tome/data/lore/ardhungol.lua@624a6732 第 66 行起日志第七篇（Journal Entry VII）为单一段落，篇内无换行；现译在“这根本不可能。”与“除此之外”之间插入一个 \\n，整条 LF 由源文 10 个变为 11 个，破坏换行不变量（surface 与 contextual 均指出）。修复：删去该 \\n，两句直接相接，文字不变。"
+    },
+    {
+      "revision_key": "15b1d89a08ba44d619e92764901b58cb19190f06158e1a718924b2298cd26024",
+      "stage": "surface",
+      "observation": "5967 年条目将“legends of Sher'Tul destruction”译为“夏·图尔造成毁灭的传说”，存在把夏·图尔遭毁灭译成夏·图尔造成毁灭的方向疑点；冻结文本缺少足以确定施事方向的语境。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开源码 game/modules/tome/data/lore/iron-throne.lua@624a6732 第 32 行“legends of Sher'Tul destruction”有歧义，更可能指夏·图尔自身覆灭的传说；现译读法可通，contextual 判 OK。记为建议：可改作“夏·图尔覆灭的传说”，不进入修复。"
+    },
+    {
+      "revision_key": "2c1b1f50bf045f2ddd1a7e3938d4fde345e5810d5f29f7ec0e77f5bdd068d3cb",
+      "stage": "surface",
+      "observation": "原文“This ritual is intense”描述仪式强烈或耗费精力，译文“仪式非常紧迫”改成了时间紧迫，改变了无法交谈的原因。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "公开源码 game/modules/tome/data/lore/limmir-valley-moon.lua@624a6732 第 21 行“This ritual is intense”译作“仪式非常紧迫”，语义偏向时间压力，属细微偏移；contextual 判 OK。记为建议（如“这个仪式需要全神贯注”），不进入修复。"
+    },
+    {
+      "revision_key": "2c7abd16e2df1f4b8d1df398ee1ae77dddef30a1d9c716df6ac7ae5080de5c1f",
+      "stage": "surface",
+      "observation": "歌词中“you'd better be ready to hit the ground running”意为准备立即行动，译文改为“比起束手就擒，不如关上大门”；“the years'll start coming and they won't stop coming”描述岁月不断流逝，译文“这一天最终总会来到”改成某一天终将到来。这些改写改变了原文明示的行动与时间含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "age-allure 食人魔化（Churrack）歌词为押韵意译，surface 指出逐句不对应；按窗口 58 对同一歌词意译记 advisory 的先例处理，contextual 判 OK。不进入修复。"
+    },
+    {
+      "revision_key": "48267a1ec3569a224cc2cd4814a96d84982dc2b1a34ed24b896b616727f218d6",
+      "stage": "surface",
+      "observation": "译文外层已用双引号引用整段文字，内层“太阳骑士”再次使用双引号，形成同层引号嵌套；原文此处内层使用单引号，译文前一次‘太阳骑士’也使用单引号。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "公开源码 game/modules/tome/data/lore/ardhungol.lua@624a6732 第 77–78 行纸片：'sun paladin' 两次都用单引号；现译第一处为‘太阳骑士’，第二处写成外层“…”内的“太阳骑士”，形成双引号嵌套且前后不一致；另“next step … should be cleaning”的 should 被删，“移民计划的下一步是清理”把建议说成既定（删限定词，同类先例见 dropped-modal 记录）。surface 与 contextual 均指出。修复：“清理本地的“太阳骑士”巢穴”改为“清理本地的‘太阳骑士’巢穴”，“下一步是清理”改为“下一步应当是清理”。"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+第397批：冻结80条（主游戏 80 条；为 2026-10-05 重新复审迁移 87fb6882 排入的 successor），逐条核验80/80：主游戏、引擎与启动按 manifest 固定 commit 624a673 核验。surface 一组（gpt-6.1-sol）4 个 child：主游戏 20×4，75 OK、5 ISSUE；各 child 只读自身 envelope 与契约。contextual 一个 run（Opus 5.5）5 条 deep：首次派发 full-000 在 JSON 前带导语致输出无效，归档后以 attempt 2（full-001）重派通过：3 OK、2 ISSUE。全部 child 已确认归档，原生读取边界已逐条核对。
+
+宿主裁决7个观察：{'confirmed': 4, 'advisory': 3}；预计78条完成、2条待修复。新增 2 条修复 revision：0eb305a353 阿尔德胡格尔日志第七篇在“这根本不可能。”后多插一个换行（LF 10→11）；48267a1ec3 纸片第二处“太阳骑士”误用双引号嵌套，且 should 被删、把“应当清理”说成既定。建议 3：15b1d89a08 “Sher'Tul destruction”所指有歧义；2c1b1f50bf “intense”译“紧迫”略偏；2c7abd16e2 食人魔化歌词押韵意译（同窗口 58 先例）。contextual 首次派发（full-000）在 JSON 前带一句导语致输出无效，已归档，按 attempt 2（full-001）重派后通过。修复窗口66积压为2，未达20。

@@ -1,0 +1,40 @@
+{
+ "workset": "evidence/quality/production-batches/batch-eb3fc24942d20a7b5e71-source-workset.json",
+ "decisions": {
+  "0eb305a353|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开源码 game/modules/tome/data/lore/ardhungol.lua@624a6732 第 66 行起日志第七篇（Journal Entry VII）为单一段落，篇内无换行；现译在“这根本不可能。”与“除此之外”之间插入一个 \\n，整条 LF 由源文 10 个变为 11 个，破坏换行不变量（surface 与 contextual 均指出）。修复：删去该 \\n，两句直接相接，文字不变。"
+  },
+  "0eb305a353|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开源码 game/modules/tome/data/lore/ardhungol.lua@624a6732 第 66 行起日志第七篇（Journal Entry VII）为单一段落，篇内无换行；现译在“这根本不可能。”与“除此之外”之间插入一个 \\n，整条 LF 由源文 10 个变为 11 个，破坏换行不变量（surface 与 contextual 均指出）。修复：删去该 \\n，两句直接相接，文字不变。"
+  },
+  "48267a1ec3|surface": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开源码 game/modules/tome/data/lore/ardhungol.lua@624a6732 第 77–78 行纸片：'sun paladin' 两次都用单引号；现译第一处为‘太阳骑士’，第二处写成外层“…”内的“太阳骑士”，形成双引号嵌套且前后不一致；另“next step … should be cleaning”的 should 被删，“移民计划的下一步是清理”把建议说成既定（删限定词，同类先例见 dropped-modal 记录）。surface 与 contextual 均指出。修复：“清理本地的“太阳骑士”巢穴”改为“清理本地的‘太阳骑士’巢穴”，“下一步是清理”改为“下一步应当是清理”。"
+  },
+  "48267a1ec3|contextual": {
+   "disposition": "confirmed",
+   "repair_required": true,
+   "conclusion": "公开源码 game/modules/tome/data/lore/ardhungol.lua@624a6732 第 77–78 行纸片：'sun paladin' 两次都用单引号；现译第一处为‘太阳骑士’，第二处写成外层“…”内的“太阳骑士”，形成双引号嵌套且前后不一致；另“next step … should be cleaning”的 should 被删，“移民计划的下一步是清理”把建议说成既定（删限定词，同类先例见 dropped-modal 记录）。surface 与 contextual 均指出。修复：“清理本地的“太阳骑士”巢穴”改为“清理本地的‘太阳骑士’巢穴”，“下一步是清理”改为“下一步应当是清理”。"
+  },
+  "15b1d89a08|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开源码 game/modules/tome/data/lore/iron-throne.lua@624a6732 第 32 行“legends of Sher'Tul destruction”有歧义，更可能指夏·图尔自身覆灭的传说；现译读法可通，contextual 判 OK。记为建议：可改作“夏·图尔覆灭的传说”，不进入修复。"
+  },
+  "2c1b1f50bf|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "公开源码 game/modules/tome/data/lore/limmir-valley-moon.lua@624a6732 第 21 行“This ritual is intense”译作“仪式非常紧迫”，语义偏向时间压力，属细微偏移；contextual 判 OK。记为建议（如“这个仪式需要全神贯注”），不进入修复。"
+  },
+  "2c7abd16e2|surface": {
+   "disposition": "advisory",
+   "repair_required": false,
+   "conclusion": "age-allure 食人魔化（Churrack）歌词为押韵意译，surface 指出逐句不对应；按窗口 58 对同一歌词意译记 advisory 的先例处理，contextual 判 OK。不进入修复。"
+  }
+ }
+}
