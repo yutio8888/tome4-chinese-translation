@@ -1,0 +1,28 @@
+{
+ "cycle": 0,
+ "stage": "REVIEW",
+ "accepted_dispatch_id": "r0a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 1,
+ "raw_issue_count": 1,
+ "decision": "1 confirmed tier-1 fidelity finding from r0a1 plus 1 host-confirmed tier-1 fidelity finding in the same entry; one EXECUTOR fix (execute-02), then RE_REVIEW(1,1) and FINAL_REVIEW(1,2).",
+ "findings": [
+  {
+   "revision_key": "9d3fc01bdf37e358131c3837beb44ef55eccf2509a576826c6ce9a31947351a0",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r0a1",
+   "reason": "Cults 公开源码（来源未固定，/workspace/tome4-dlcs/cults）tome-cults/data/lore/kroshkkur.lua:103 奎科加一章：“appointing its own librarians to record its tales. Since there are no surviving records of this library existing”。现译“指派了自己的记录者”漏掉 librarians 的图书馆员身份，后句“这座图书馆”失去指代。主游戏同文死键副本（mod-tome.lua section mod-tome/load.lua，段首带空格，运行时键不同）作“指派了自己的图书管理员来记录它的故事”。修复：“并指派了自己的记录者来记录它的故事”→“并指派了自己的图书管理员来记录它的故事”。"
+  },
+  {
+   "revision_key": "9d3fc01bdf37e358131c3837beb44ef55eccf2509a576826c6ce9a31947351a0",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "host",
+   "reason": "同条同段末句源文“it is thought these notes might be from alternate timelines”，现译“有观点认为这些记录其实是来自别的时间线”把 might be 的推测改成“其实是”的断言，删了限定词。修复：“这些记录其实是来自别的时间线”→“这些记录可能来自别的时间线”。主游戏 mod-tome.lua section mod-tome/load.lua 的同文副本（e4824491182e，旧版 Cults 文本）有同样措辞，但它是已登记死键（batch-ac27e658… 经 host-block 放行），译文不生效，不登记。"
+  }
+ ],
+ "advisories": []
+}

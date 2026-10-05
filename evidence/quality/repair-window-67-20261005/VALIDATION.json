@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w67-20261005",
+  "result": "pass",
+  "changed_entry_revisions": [
+    "fc55a88fd602ed5d2b8326d1f91d116116c44c1c5d2a9a94c4c364e15f21b04d",
+    "9d3fc01bdf37e358131c3837beb44ef55eccf2509a576826c6ce9a31947351a0"
+  ],
+  "checks": [
+    {
+      "name": "luajit_locale_load_and_semantic_baseline_compare",
+      "result": "pass",
+      "files_loaded": 4,
+      "changed_records": 2,
+      "target_only_changes": 2,
+      "window_67_authorized_targets_exact": true,
+      "cycle_1_adjudication_exact": true,
+      "other_records_unchanged": true
+    },
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "result": "pass",
+      "exit_code": 0,
+      "note": "Manifest/runtime/dependencies passed; expected source-unpinned warnings were reported for the three DLCs."
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "result": "pass",
+      "exit_code": 0,
+      "translations_checked": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20261005T231350.357549Z-2-lint/lint.json"
+    }
+  ]
+}

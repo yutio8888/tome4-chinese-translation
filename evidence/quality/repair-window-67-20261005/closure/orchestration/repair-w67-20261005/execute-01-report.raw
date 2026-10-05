@@ -1,0 +1,16 @@
+已按 Paseo EXECUTOR 单写入边界完成 2 条修复：
+
+- `fc55a88…21b04d`：[mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:422) → `%s技能 %s（+%d 级）`
+- `9d3fc01…351a0`：[tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:2192) → “根据安格利文的记载……”
+
+验证全部通过：
+
+- LuaJIT 加载当前文件及基线：通过
+- 基线语义比较：恰 2 条 `target` 变化，逐字等于 `new_target`，其他记录不变
+- `git diff --check`：通过
+- `python3 -B tools/i18n lint --strict`：30,308 条，0 错误、0 警告
+- `tools/i18n doctor`：通过；仅有预期的 DLC 来源未固定警告
+
+证据已写入 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-67-20261005/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-67-20261005/VALIDATION.json)。
+
+未修改术语库或 `.ai/task`，未 stage、commit、push，未创建 agent。无计划偏差或未解决问题。

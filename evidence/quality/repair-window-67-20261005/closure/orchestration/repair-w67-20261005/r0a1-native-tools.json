@@ -1,0 +1,32 @@
+{
+  "dispatch_id": "r0a1",
+  "native_session": "01a10e53-2ac5-7b10-8229-2be5f90949bd",
+  "native_path": "/home/paseo/.codex/sessions/2026/10/05/rollout-2026-10-05T23-08-13-01a10e53-2ac5-7b10-8229-2be5f90949bd.jsonl",
+  "native_sha256": "5c07e64d82fc2b54abea2b7290ad55c49d0cdc7ba6b5afca334357c482692612",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_07ff12a18267865f016ac42de2ec1c87d1820304c4c50270e4",
+      "status": "completed",
+      "call_id": "call_14jk1K7d6mAA1OCegW7ToLYg",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/task/repair-w67-20261005/CONTEXTUAL-ENVELOPE-r0a1.json\",\"max_output_tokens\":22000}));text(await tools.exec_command({cmd:\"cat docs/paseo-translation-context-review-v2-contract.md\",\"max_output_tokens\":24000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10e53-2b07-7263-ba16-b7825ee4eeb6",
+        "create_time": 1791241697.561198
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_07ff12a18267865f016ac42dea730487d1ab8c74f0fb6570b2",
+      "status": "completed",
+      "call_id": "call_Wj57jR1Ve9GqWeRnPJPsg3En",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport hashlib,json\\np='.ai/task/repair-w67-20261005/CONTEXTUAL-ENVELOPE-r0a1.json'\\ne=json.load(open(p))\\nprint('candidate_identity',hashlib.sha256(json.dumps(e['payload'],ensure_ascii=False,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest())\\np='/workspace/tome4-dlcs/cults/tome-cults/data/lore/kroshkkur.lua'\\ntry:\\n b=open(p,'rb').read(); print('source_sha256',hashlib.sha256(b).hexdigest()); print('\\\\n'.join(f'{i}: {x}' for i,x in enumerate(b.decode().splitlines(),1) if 101<=i<=108))\\nexcept FileNotFoundError:\\n print('specified relative public source path not present')\\nPY\",\"max_output_tokens\":2000}));text(await tools.exec_command({cmd:\"git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:game/modules/tome/class/EscortRewards.lua\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a10e53-2b07-7263-ba16-b7825ee4eeb6",
+        "create_time": 1791241700.990135
+      }
+    }
+  ]
+}
