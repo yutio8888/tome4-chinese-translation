@@ -1,0 +1,54 @@
+{
+  "batch_id": "batch-62c5a69973fcdab9c29f",
+  "review_contract": "translation_surface_screen_v1",
+  "checked_at": "2026-10-05T11:48:22.652222+00:00",
+  "launched": 4,
+  "undispatched_prepared": 0,
+  "all_launched_archived": true,
+  "allowed_read_files": "each own frozen envelope and surface contract",
+  "other_commands": "reads of the own envelope and contract only; no writes",
+  "write_or_external_calls_observed": false,
+  "rejected": [],
+  "identity_echo_corrections": [],
+  "manual_review": [
+    {
+      "dispatch_id": "lane-000-2",
+      "pattern_hit": ">>",
+      "conclusion": "false positive: the only '>>' is inside the regex literal r'<<<|>>>' of a read-only python3 heredoc that json.loads its own envelope and compares markup/placeholder tokens; all 5 calls are cat/sed -n/python3 reads of the own envelope and the contract, no redirection or file writes"
+    }
+  ],
+  "items": [
+    {
+      "dispatch_id": "lane-000-0",
+      "agent_id": "8f974dd8-f77f-4d5d-8b04-741882b4b910",
+      "native_tools_sha256": "21ff223f2c4a5152a8866383f145e3a0888925d17e05d427f61f504135eaeb54",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-1",
+      "agent_id": "e649f50b-bbd8-4cfa-afb7-85d8c08a457c",
+      "native_tools_sha256": "3262485eaf831dc3c5943695bbd0d0b8a76d1329fb114a450291836813bb539c",
+      "tool_calls": 5,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-2",
+      "agent_id": "57b8ad35-553e-4d0e-b345-caa181a09a32",
+      "native_tools_sha256": "40185556bb6c1e42752555ff32f322deb1def0440e54d7e4be3c8a5cb2afa76c",
+      "tool_calls": 5,
+      "archive_confirmed": true,
+      "output_valid": true
+    },
+    {
+      "dispatch_id": "lane-000-3",
+      "agent_id": "3ac31148-9852-4add-9d41-8d16a0e2b370",
+      "native_tools_sha256": "c67b247b277638f47006acb8230991183c28b7e5502b08a6d989cad957f29444",
+      "tool_calls": 4,
+      "archive_confirmed": true,
+      "output_valid": true
+    }
+  ]
+}
