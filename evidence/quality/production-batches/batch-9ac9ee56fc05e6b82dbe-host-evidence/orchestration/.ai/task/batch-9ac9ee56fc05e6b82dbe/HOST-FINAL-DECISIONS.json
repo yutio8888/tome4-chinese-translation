@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch-9ac9ee56fc05e6b82dbe",
+  "observations": 4,
+  "observation_dispositions": {
+    "advisory": 2,
+    "confirmed": 2
+  },
+  "repair_revision_keys": [
+    "f01b17c6a1335e27af2729076228ae4a73e14f5e24a0ada381d4a4baa4a2b7e5"
+  ],
+  "pending_revision_keys": [],
+  "expected_final_states": {
+    "done": 13,
+    "repair_required": 1,
+    "blocked": 0
+  },
+  "rows": [
+    {
+      "revision_key": "dd982701168d361c0574ac10f41a28c13df6d7d7c4aabb74fb28cf3c82568465",
+      "stage": "surface",
+      "observation": "冻结 source 中的“gastrointestinal infamy”译为“肠胃糜烂”；infamy 表示恶名或臭名，未表达糜烂，译文改变了原文荒诞症状的含义。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs） tome-orcs/data/lore/emporium.lua:41 拉格卢克博士清淤药水海报的免责声明是一串荒诞症状，“gastrointestinal infamy”是仿病名的文字游戏（infamy 谐 infirmity/infection）。现译“肠胃糜烂”取了病名读法，丢了 infamy 的谐趣，但在这串仿医学症状里不构成误导，C 档前即如此。记为建议（可改作“肠胃臭名昭著”之类保留荒诞感），不进入修复。"
+    },
+    {
+      "revision_key": "f01b17c6a1335e27af2729076228ae4a73e14f5e24a0ada381d4a4baa4a2b7e5",
+      "stage": "surface",
+      "observation": "对白双引号不配对：原文 She sighs. 后有开启对白的双引号；译文“她叹了一口气。”之后直接以单引号开始引用任务，却在“而且…”处保留了关闭对白的双引号，缺少对应的左双引号。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs） tome-orcs/data/lore/gem.lua:24 起帕默日志：“She sighs.”之后用 \" 重新开始帕默的直接引语，先引任务原文 'Find the Loyalist…'，再接 Which is Council-speak…，到 …underground and...\" 才闭合。现译“她叹了一口气。”之后直接写‘寻找忠诚者……’，缺外层左引号“，致使“如果不用官腔的话……而且…”读似旁白，其后的”无从配对（surface 与 contextual 均指出）。这是 C 档修复包 16（a1d40dfc）删去“上面写着，”时连带去掉了左引号造成的回归。修复：在‘寻找忠诚者’前补回“，即“她叹了一口气。“‘寻找忠诚者……”，文字不变。"
+    },
+    {
+      "revision_key": "dd982701168d361c0574ac10f41a28c13df6d7d7c4aabb74fb28cf3c82568465",
+      "stage": "contextual",
+      "observation": "源文第35、41行（tome-orcs/data/lore/emporium.lua，来源未固定）两处 pores 都是护肤广告里人体皮肤的“毛孔”：cleanse your pores 是“清洁毛孔”，minor clogging of the pores 是“毛孔轻微堵塞”。译文两处都写成“气孔”。中文“气孔”通常指植物气孔或机械排气孔，用在人身上会误读，也容易和首行的蒸汽孔（steam-vent）混淆，建议两处统一改为“毛孔”。",
+      "disposition": "advisory",
+      "repair_required": false,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs） tome-orcs/data/lore/emporium.lua:35、41 的 pores 现译两处作“气孔”。contextual 认为应作人体“毛孔”。宿主核对：海报面向蒸汽巨人，Orcs 蒸汽巨人 lore（tome-orcs.lua:2618 条）写明其皮肤上的 pores and vents 能喷出加压蒸汽，首行 steam-vent 亦译“蒸汽孔”，“气孔”在此语境不误导，C 档前即如此；但该 lore 把 pores 译作“毛孔”。记为建议（两处可统一改作“毛孔”），不进入修复。"
+    },
+    {
+      "revision_key": "f01b17c6a1335e27af2729076228ae4a73e14f5e24a0ada381d4a4baa4a2b7e5",
+      "stage": "contextual",
+      "observation": "源文第24行（tome-orcs/data/lore/gem.lua，来源未固定）中，She sighs. 之后用 \" 重新开始帕默的直接引语，其中先引用任务原文 'Find the Loyalist…'，再接 Which is Council-speak…，直到 …underground and...\" 才闭合。译文在“她叹了一口气。”之后直接写‘寻找忠诚者…’，缺少外层左引号“。于是“如果不用官腔的话……而且…”读起来像旁白，后面的”也没有配对，说话人和引语范围不清。应在‘寻找’前补上“。",
+      "disposition": "confirmed",
+      "repair_required": true,
+      "conclusion": "Orcs 公开源码（来源未固定，/workspace/tome4-dlcs/orcs） tome-orcs/data/lore/gem.lua:24 起帕默日志：“She sighs.”之后用 \" 重新开始帕默的直接引语，先引任务原文 'Find the Loyalist…'，再接 Which is Council-speak…，到 …underground and...\" 才闭合。现译“她叹了一口气。”之后直接写‘寻找忠诚者……’，缺外层左引号“，致使“如果不用官腔的话……而且…”读似旁白，其后的”无从配对（surface 与 contextual 均指出）。这是 C 档修复包 16（a1d40dfc）删去“上面写着，”时连带去掉了左引号造成的回归。修复：在‘寻找忠诚者’前补回“，即“她叹了一口气。“‘寻找忠诚者……”，文字不变。"
+    }
+  ],
+  "additional_host_observations": [],
+  "reviewers": {
+    "surface": "codex/gpt-6.1-sol (4 lanes: surface Orcs 14 in 4/4/3/3)",
+    "contextual": "claude/claude-opus-5-5 (one run accepted on the first pass: contextual-000; 2 entries)"
+  },
+  "notes": [
+    "Surface screening: one group of codex/gpt-6.1-sol (thinking medium, auto-review), 4 children (Orcs 4/4/3/3); 12 OK / 2 ISSUE; every child only read its own envelope and the contract (4 native tool calls, no writes, no Paseo terminals).",
+    "Contextual review: claude/claude-opus-5-5 over the 2 deep entries (one run), accepted on the first pass (0 OK / 2 ISSUE).",
+    "Re-review batch: successors queued by migration 87fb6882 (tier C awkward-description polish and held-item fixes); 0 remain queued after this batch.",
+    "Final re-review batch: the last 14 successors (all Orcs, source not pinned); surface in one group of four lanes, contextual in one run over 2 deep entries.",
+    "The confirmed quote defect is a regression from tier C pack 16 (a1d40dfc), which removed '上面写着，' together with the opening quote.",
+    "No pinned entries; 14 Orcs entries matched the public DLC source file SHA in the workset, with the DLC repositories and commits unpinned.",
+    "1 confirmed repair revisions raise the window 66 backlog from 15 to 16; below the 20 threshold, so no window opens."
+  ]
+}

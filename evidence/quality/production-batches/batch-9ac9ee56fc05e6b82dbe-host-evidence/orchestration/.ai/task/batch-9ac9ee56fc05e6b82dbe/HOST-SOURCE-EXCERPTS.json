@@ -1,0 +1,778 @@
+[
+  {
+    "entry_revision_identity": "caabc3016902bdad8bd9b21d106188192fdc3d92ab1810dbc891059afc8b4d96",
+    "public_source_path": "tome-orcs/data/chats/john-surrender.lua",
+    "lines": [
+      {
+        "line": 96,
+        "text": ""
+      },
+      {
+        "line": 97,
+        "text": "newChat{ id=\"welcome\","
+      },
+      {
+        "line": 98,
+        "text": "\ttext = _t[[#LIGHT_GREEN#*The Crimson Templar looks exhausted, nearly dead. You feel the ring attuning to him and suddenly you understand you could absorb his essence to power the ring.*#WHITE#"
+      },
+      {
+        "line": 99,
+        "text": "Go on kill me @playername@! My life is destroyed, my friends are dead, my dear Aeryn is dead. All dead by your murderous hands! Finish me, let me have some #{italic}#rest#{normal}#.]],"
+      },
+      {
+        "line": 100,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 101,
+        "text": "\t\t{_t\"#LIGHT_GREEN#[destroy him to power the ring]#WHITE# So be it!\", action=destroy, jump=\"destroy\"},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d4a1766744233e2dfb538e15cd5e6662fe47dcf70f6ca27b429304440d2e5ffc",
+    "public_source_path": "tome-orcs/data/lore/internment-camp.lua",
+    "lines": [
+      {
+        "line": 26,
+        "text": "\tcategory = \"internment camp\","
+      },
+      {
+        "line": 27,
+        "text": "\tname = _t\"internment camp correspondence (1)\","
+      },
+      {
+        "line": 28,
+        "text": "\tlore = _t[[#{italic}#To: Guard Captain Galsamae"
+      },
+      {
+        "line": 29,
+        "text": "From: Administrator Quellop#{normal}#"
+      },
+      {
+        "line": 30,
+        "text": ""
+      },
+      {
+        "line": 31,
+        "text": "It's good to see that you and your followers have arrived safely! Hopefully you're settling in all right; thank you for coming, and pass my thanks on to the Elvala diplomats for getting you here on such short notice. I hope this is the first step in your kind - you Ogres, of course, but also the Shaloren who sent you here - joining forces with the Allied Kingdoms."
+      },
+      {
+        "line": 32,
+        "text": ""
+      },
+      {
+        "line": 33,
+        "text": "There are no Ziguranth here in the Far East, and the orcs in this camp have been compliant so far, on account of Mindwall's elaborate illusions. It's the most humane way to deal with them that we've found so far - we hope that his influence will have a permanent calming effect on them over time, but until then, they're happy and docile in their little dream-world. All you have to do is protect against any stragglers outside the walls looking to break their kin out of here, and patrol the halls to make sure any orcs who've managed to shake off the illusions are swiftly apprehended and dealt with. This should be a pretty easy job - if you need any particular help or provisions, though, let me know and I'll do what I can!"
+      },
+      {
+        "line": 34,
+        "text": ""
+      },
+      {
+        "line": 35,
+        "text": "Sincerely,"
+      },
+      {
+        "line": 36,
+        "text": "Administrator Quellop"
+      },
+      {
+        "line": 37,
+        "text": ""
+      },
+      {
+        "line": 38,
+        "text": "#{bold}#---#{normal}#"
+      },
+      {
+        "line": 39,
+        "text": ""
+      },
+      {
+        "line": 40,
+        "text": "#{italic}#To: Administrator Quellop"
+      },
+      {
+        "line": 41,
+        "text": "From: Guard Captain Galsamae#{normal}#"
+      },
+      {
+        "line": 42,
+        "text": ""
+      },
+      {
+        "line": 43,
+        "text": "We need four more chairs in the break room."
+      },
+      {
+        "line": 44,
+        "text": ""
+      },
+      {
+        "line": 45,
+        "text": "-Galsamae"
+      },
+      {
+        "line": 46,
+        "text": ""
+      },
+      {
+        "line": 47,
+        "text": "#{bold}#---#{normal}#"
+      },
+      {
+        "line": 48,
+        "text": ""
+      },
+      {
+        "line": 49,
+        "text": "#{italic}#To: Guard Captain Galsamae"
+      },
+      {
+        "line": 50,
+        "text": "From: Administrator Quellop#{normal}#"
+      },
+      {
+        "line": 51,
+        "text": ""
+      },
+      {
+        "line": 52,
+        "text": "I'm sorry, but we can't really afford that, as the budget for amenities and luxuries is stretched pretty thin here as-is. Please try to keep your requests limited to necessities - even with Last Hope's merchants competing on price, the security over by the farportal means it's still not cheap to get things here."
+      },
+      {
+        "line": 53,
+        "text": ""
+      },
+      {
+        "line": 54,
+        "text": "Regretfully,"
+      },
+      {
+        "line": 55,
+        "text": "Administrator Quellop]],"
+      },
+      {
+        "line": 56,
+        "text": "}"
+      },
+      {
+        "line": 57,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "da952806f5001bc34ce2675339c551629d7017ad1241e7f4be7910208a86c385",
+    "public_source_path": "tome-orcs/data/chats/weissi-machine.lua",
+    "lines": [
+      {
+        "line": 290,
+        "text": "\tlocal answers = {}"
+      },
+      {
+        "line": 291,
+        "text": "\tfor _, tid in ipairs(tids) do local t = player:getTalentFromId(tid) local level = math.min(t.points - player:getTalentLevelRaw(tid), 1) if level > 0 then"
+      },
+      {
+        "line": 292,
+        "text": "\t\ttable.insert(answers, {(\"[%s talent %s (+%d level(s))]\"):tformat(game.player:knowTalent(tid) and _t\"Improve\" or _t\"Learn\", t.name, level), action=function(npc, player)"
+      },
+      {
+        "line": 293,
+        "text": "\t\t\t\tlocal function learn()"
+      },
+      {
+        "line": 294,
+        "text": "\t\t\t\t\tgame.party:reward(_t\"Select the party member to receive the reward:\", function(player)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "dd982701168d361c0574ac10f41a28c13df6d7d7c4aabb74fb28cf3c82568465",
+    "public_source_path": "tome-orcs/data/lore/emporium.lua",
+    "lines": [
+      {
+        "line": 26,
+        "text": "\tcategory = \"vaporous emporium\","
+      },
+      {
+        "line": 27,
+        "text": "\tname = _t\"a large poster\","
+      },
+      {
+        "line": 28,
+        "text": "\tlore = _t[[#{bold}#CLOGGING NO MORE!#{normal}#"
+      },
+      {
+        "line": 29,
+        "text": "If steam-vent congestion ails you, avail yourself of:"
+      },
+      {
+        "line": 30,
+        "text": " "
+      },
+      {
+        "line": 31,
+        "text": "#{italic}#[An illustration depicts a rectangular glass bottle, labelled \"DR. RAGLUK's DECLOGGING DRAUGHT\".]#{normal}#"
+      },
+      {
+        "line": 32,
+        "text": " "
+      },
+      {
+        "line": 33,
+        "text": "MADE WITH LOVE, CARE, AND THE PUREST MINERALS FROM THE STEAM QUARRY"
+      },
+      {
+        "line": 34,
+        "text": " "
+      },
+      {
+        "line": 35,
+        "text": "Just one capful will cleanse your pores, flushing toxins out with the steam!"
+      },
+      {
+        "line": 36,
+        "text": " "
+      },
+      {
+        "line": 37,
+        "text": "ALSO EFFECTIVE FOR: Headaches, nausea, ennui, fatigue, aches and pains, and general malaise!"
+      },
+      {
+        "line": 38,
+        "text": " "
+      },
+      {
+        "line": 39,
+        "text": "#{italic}#[A disclaimer occupies the bottom margin of the poster, in print so small you doubt the giants would be able to read it.]#{normal}#"
+      },
+      {
+        "line": 40,
+        "text": " "
+      },
+      {
+        "line": 41,
+        "text": "WARNING: This product has been determined by the Council of Health Authority to be correlated with the following conditions: Inverse vertigo, increased hair flammability, non-vaporous sweating, night terrors, liver dysphoria, headaches, miner's lung, brainlock, day terrors, mitosis, visions of a great butchered being, miner's elbow, skeletal emancipation, gastrointestinal infamy, brittle kidney, pinaciphobia, decreased global speed, teleportitis, miner's tongue, merged nostrils, an ancient and foul curse, lowered steam pressure, fat burning (literal), ocular feathering, Orcish body odor, arcane disruption, gravity loss, bloodlock, malfeasance, rectal carpeting, nihilism, mid-evening terrors, knee rust, and minor clogging of the pores.]],"
+      },
+      {
+        "line": 42,
+        "text": "}"
+      },
+      {
+        "line": 43,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "de96c1679bfe99eb38894f4626efaf3c475a4263437c0df4361f40bbbaa02b18",
+    "public_source_path": "tome-orcs/data/chats/weissi-machine.lua",
+    "lines": [
+      {
+        "line": 350,
+        "text": "\ttable.insert(answers, {_t\"Hum no let me change my mind.\", jump=\"give_re\"})"
+      },
+      {
+        "line": 351,
+        "text": "\tnewChat{ id=\"learn_stats\","
+      },
+      {
+        "line": 352,
+        "text": "\t\ttext = _t[[Very well. We can increase one of your core stats by 4, which one?]],"
+      },
+      {
+        "line": 353,
+        "text": "\t\tanswers = answers"
+      },
+      {
+        "line": 354,
+        "text": "\t}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e1267b9211793c753f7b97b6856fd8cce292cc3e83464e5a8d4efedd2b4983d1",
+    "public_source_path": "tome-orcs/data/lore/palace-fumes.lua",
+    "lines": [
+      {
+        "line": 117,
+        "text": "\tcategory = \"palace of fumes\","
+      },
+      {
+        "line": 118,
+        "text": "\tname = _t\"excerpts from a Council meeting transcript (2)\","
+      },
+      {
+        "line": 119,
+        "text": "\tlore = _t[[(Ink has been spilled on this transcript - you can only read certain passages.)"
+      },
+      {
+        "line": 120,
+        "text": ""
+      },
+      {
+        "line": 121,
+        "text": "???: \"[...]ame me for this!  YOUR mechanics examined that airship, YOUR equipment was used to repair it, and it's YOUR fault it went down!\""
+      },
+      {
+        "line": 122,
+        "text": ""
+      },
+      {
+        "line": 123,
+        "text": "NASHAL: \"Yes, and I told you to call the attack off the moment I heard the news - the Loyalist's wand as a fire-support tool was far too valuable to conduct the invasion without it.  But no, Palaquie had to insist on going right then--\""
+      },
+      {
+        "line": 124,
+        "text": ""
+      },
+      {
+        "line": 125,
+        "text": "PALAQUIE: \"My visions do not lie.  It was the best way forward.  Our odds of success at that point, low as they were, were still better than if we had let Pendor's inflexible, time-dependent plan sit and--\""
+      },
+      {
+        "line": 126,
+        "text": ""
+      },
+      {
+        "line": 127,
+        "text": "PENDOR: \"DON'T YOU EVEN START, YOU YETI-LOVI--[...]\""
+      },
+      {
+        "line": 128,
+        "text": ""
+      },
+      {
+        "line": 129,
+        "text": "[...]"
+      },
+      {
+        "line": 130,
+        "text": ""
+      },
+      {
+        "line": 131,
+        "text": "Motion made to record the statement that Councilor Pendor would not know decent equipment if it shot or stabbed him in the face passed, 3-1, with Councilor Tantalos abstaining."
+      },
+      {
+        "line": 132,
+        "text": ""
+      },
+      {
+        "line": 133,
+        "text": "Motion made to record the statement that Councilor Tormak's robes smell of absinthe and vagrants passed, 3-1, with Councilor Tantalos abstaining."
+      },
+      {
+        "line": 134,
+        "text": ""
+      },
+      {
+        "line": 135,
+        "text": "Motion made to begin an official inquiry passed 3-1, with Councilor Tantalos abstaining.  The first order of business at the next session will be determining whether or not Councilor Nashal's state-of-the-art mining and extracting equipment is capable of extracting her head from her--"
+      },
+      {
+        "line": 136,
+        "text": ""
+      },
+      {
+        "line": 137,
+        "text": "[...]"
+      },
+      {
+        "line": 138,
+        "text": ""
+      },
+      {
+        "line": 139,
+        "text": "TANTALOS: \"If you are all quite finished with this rubbish...  How bad is the situation, exactly?  I want details and facts, not blame.\""
+      },
+      {
+        "line": 140,
+        "text": ""
+      },
+      {
+        "line": 141,
+        "text": "TORMAK: \"You don't want blame because this whole thing was YOUR idea!  It's YOUR fault we--\""
+      },
+      {
+        "line": 142,
+        "text": ""
+      },
+      {
+        "line": 143,
+        "text": "Motion to censure Councilor Tantalos for defenestrating Councilor Tormak has failed, 1-1 (tie broken by Chief Councilor status), with Palaquie, Nashal, and Pendor abstaining."
+      },
+      {
+        "line": 144,
+        "text": ""
+      },
+      {
+        "line": 145,
+        "text": "[...]"
+      },
+      {
+        "line": 146,
+        "text": ""
+      },
+      {
+        "line": 147,
+        "text": "TANTALOS: \"So, a few wastrels in the marketplace are gone, and the Kruk have moved on to the mainland.  As far as I am concerned, they are not presently our responsibility - these 'Allied Kingdoms' and 'Sunwall' folk can deal with them.  Thanks to Pendor's scouts, we have a weapon we can point at the Kruk Pride homeland as a deterrent, which should buy us even more time.  We should use this time to bolster our defenses...  and consider additional options.  Meeting adjourned.\""
+      },
+      {
+        "line": 148,
+        "text": ""
+      },
+      {
+        "line": 149,
+        "text": "PALAQUIE: \"Additional options?\""
+      },
+      {
+        "line": 150,
+        "text": ""
+      },
+      {
+        "line": 151,
+        "text": "TANTALOS: \"The meeting has been adjourned.  You should be training our necropsychs, Councilor.\"]],"
+      },
+      {
+        "line": 152,
+        "text": "}"
+      },
+      {
+        "line": 153,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e3be08a75fa06d3a607dd32b203e6976ae1e7072613074c52cd7ab2c6315d3b0",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 100,
+        "text": "\tcategory = \"var'eyal\","
+      },
+      {
+        "line": 101,
+        "text": "\tname = _t\"severed hand\","
+      },
+      {
+        "line": 102,
+        "text": "\tlore = _t[[[i](You see here a rotting human hand in a black leather glove, severed at the wrist.  It is still clutching a cracked artifact resembling an Orb of Many Ways, with a note folded up between the orb and its palm.)[/i]"
+      },
+      {
+        "line": 103,
+        "text": ""
+      },
+      {
+        "line": 104,
+        "text": "\"Drew the short straw\" for the calibration [i]my entire ass.[/i]  That cheat used translocation magic and everyone there knew it.  If there's one thing I miss about the Ziguranth, it's that with them around, you only had to watch for sleight-of-hand and wear a mind-caging cap to avoid getting ripped off."
+      },
+      {
+        "line": 105,
+        "text": ""
+      },
+      {
+        "line": 106,
+        "text": "Speaking of ripoffs, why are we trusting this corpse-lover anyway? I guess it WOULD cost more to make a fake this convincing than we paid for it, but...  why would Tannen have made a portal that only works on the living, then used it to pay off a necromancer, [i]the only type of person who'd call that a downside?[/i]"
+      },
+      {
+        "line": 107,
+        "text": ""
+      },
+      {
+        "line": 108,
+        "text": "Well, I guess that's what made him a [i]mad[/i] alchemist, and not some rich potion-brewer living comfortably.  Not like anyone can ask him now, except for who we got this altar from."
+      },
+      {
+        "line": 109,
+        "text": ""
+      },
+      {
+        "line": 110,
+        "text": "Anyway...  Korbek, if you're reading this, it means those crotch-heights screwed up again.  Send them back the orb, and hopefully it'll tell them what they need (well, as far as I'm concerned, [i]hopefully[/i] it'll blow them apart).  You got the calibration right on your end, and your poorly-disguised thugs are doing just fine (and stop with the illusions, it's just insulting, we don't care who or what you are as long as your gold glitters).  We just need to get the signal lock straight on our side, and we'll be able to fill the order you sent over, and then some."
+      },
+      {
+        "line": 111,
+        "text": ""
+      },
+      {
+        "line": 112,
+        "text": "Seriously, though, I'm writing this note so even if I get killed from this, I'm doing you a favor.  If I'm dead, I'd appreciate you showing your gratitude by making sure that ankle-biting son-of-a-ritch has played his last game of musical straws."
+      },
+      {
+        "line": 113,
+        "text": "]],"
+      },
+      {
+        "line": 114,
+        "text": "}"
+      },
+      {
+        "line": 115,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e8bf1dda543a9afdcc2e4186329847c0c25e8a0aa92d6afcfa090d9a31e0b240",
+    "public_source_path": "tome-orcs/data/lore/gem.lua",
+    "lines": [
+      {
+        "line": 86,
+        "text": "\tcategory = \"G.E.M\","
+      },
+      {
+        "line": 87,
+        "text": "\tname = _t\"erratic scribblings\","
+      },
+      {
+        "line": 88,
+        "text": "\tlore = _t[[Too many of them.  Couldn't pull more Atmos back in, wasn't safe, couldn't tell them from the others.  Hope we've got enough fuel to get us to the surface.]],"
+      },
+      {
+        "line": 89,
+        "text": "}"
+      },
+      {
+        "line": 90,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e8dcb89c01d57342d2ffd34d0a30d53ce307bc4c98dd1f5ba1cf97c11bd9f062",
+    "public_source_path": "tome-orcs/data/chats/kaltor-shop.lua",
+    "lines": [
+      {
+        "line": 47,
+        "text": ""
+      },
+      {
+        "line": 48,
+        "text": "newChat{ id=\"gem\","
+      },
+      {
+        "line": 49,
+        "text": "\ttext = _t[[#LIGHT_GREEN#*Kaltor is busy packing some of his goods away in crates; he hands one to a worker, carrying it out the back door, before turning to you.*#WHITE#"
+      },
+      {
+        "line": 50,
+        "text": "\tMake it quick, @playername@. Not to be rude, but there's a private airship out there with my name on it, and I'd rather have a bird's-eye view of what you're about to do than a front-row seat.]],"
+      },
+      {
+        "line": 51,
+        "text": "\tanswers = shop_answers,"
+      },
+      {
+        "line": 52,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f01b17c6a1335e27af2729076228ae4a73e14f5e24a0ada381d4a4baa4a2b7e5",
+    "public_source_path": "tome-orcs/data/lore/gem.lua",
+    "lines": [
+      {
+        "line": 22,
+        "text": "\tcategory = \"G.E.M\","
+      },
+      {
+        "line": 23,
+        "text": "\tname = _t\"strange black disk (1)\","
+      },
+      {
+        "line": 24,
+        "text": "\tlore = _t[[\"...thing on? Okay, good. This is Haze Commander Parmor of the Geothermal Exploratory Mole, on a mission to...\"  She sighs. \" 'Find the Loyalist and arrange for our safe transport to his refuge, offering him his previous terms of agreement.' Which is Council-speak for 'flee in terror to the only thing that could bail us out of this mess, and bring the Eye with us.' Personally, I'm not keen on putting our fates in the hands of some nutter who lives underground and...\" Indistinct grumbling. \"...not even my damn job, I didn't sign up to be some politician's valet--\""
+      },
+      {
+        "line": 25,
+        "text": ""
+      },
+      {
+        "line": 26,
+        "text": "#{italic}#(You hear a door opening, and another voice speaks.)#{normal}#"
+      },
+      {
+        "line": 27,
+        "text": ""
+      },
+      {
+        "line": 28,
+        "text": "\"Captain, the tea-maker isn't working!  Get someone on that, post-haste!\""
+      },
+      {
+        "line": 29,
+        "text": ""
+      },
+      {
+        "line": 30,
+        "text": "#{italic}#(The door closes.)#{normal}#"
+      },
+      {
+        "line": 31,
+        "text": ""
+      },
+      {
+        "line": 32,
+        "text": "\"...Yeah, Councillor Tantalos is getting his tea as soon as he can un-kick the hornet's nest that got us into this chaos.  Moving on...  departure was on time, projected journey to the Loyalist's last known position is underway, making a tunnel there from right under the palace.  All systems functioning, except for the tea-maker, and I can't give a slag about that.  End log.\"]],"
+      },
+      {
+        "line": 33,
+        "text": "}"
+      },
+      {
+        "line": 34,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f5de3d695e3896b4b8b729a6d281bfdbceb2fdef82eeeddbb0a93d2acbeb325f",
+    "public_source_path": "tome-orcs/data/lore/slumbering-caves.lua",
+    "lines": [
+      {
+        "line": 39,
+        "text": "\tcategory = \"slumbering caves\","
+      },
+      {
+        "line": 40,
+        "text": "\tname = _t\"a journal (3)\","
+      },
+      {
+        "line": 41,
+        "text": "\tlore = _t[[The work continues, and soon all shall know the name of their new god.  Even handling the one Hand that I have makes me weep for the sins of my brothers, and yet eager to see their work undone...  The bowels of Eyal shall be the forge in which You will be remade, the newly-drained magma channels above shall be its fire."
+      },
+      {
+        "line": 42,
+        "text": ""
+      },
+      {
+        "line": 43,
+        "text": "I can barely bring myself to tell You the indignity I suffer through in service to You...  Unfit savages, ones not of Your creation and thus undeserving of Your mercy, are in possession of one of the last two pieces of Your body.  I met with the \"Atmos,\" and offered them a tiny fraction of Your approval and power in return for it, far more than enough to make up for the geothermal vents emptied to fuel Your rebirth; they fear Your blessings, and rejected my offer.  They are a proud tribe, one that has been proud for so long that they never noticed that they no longer had anything to be proud of.  I have seen such pride before only once, and it is even more misplaced by the Atmos.  They will remain blind and defiant until the moment they fall, and I shall simply wait to sift through the fragments of their dead civilization."
+      },
+      {
+        "line": 44,
+        "text": ""
+      },
+      {
+        "line": 45,
+        "text": "I am sorry, my god - were I in a better position, Your rebirth would not be contingent on #{italic}#negotiating#{normal}# with the unworthy souls trespassing in Your world...  but I cannot afford the risk of using force.  Perhaps it is some minor consolation that You will now be able to personally show them Your fury.]],"
+      },
+      {
+        "line": 46,
+        "text": "}"
+      },
+      {
+        "line": 47,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fe13d9956e8489dccb2f74db25cbefd958f72a3f2c0fa43b76065b54a5c83ad6",
+    "public_source_path": "tome-orcs/data/lore/gem.lua",
+    "lines": [
+      {
+        "line": 61,
+        "text": "\tcategory = \"G.E.M\","
+      },
+      {
+        "line": 62,
+        "text": "\tname = _t\"strange black disk (3)\","
+      },
+      {
+        "line": 63,
+        "text": "\tlore = _t[[#{italic}#(You hear loud, mechanical rumbling; in the distance, you hear sounds of struggling and bludgeoning, swords slicing through flesh, steamguns being fired, and shouts of pain from giant and horror alike.  Parmor sounds panicked.)#{normal}#"
+      },
+      {
+        "line": 64,
+        "text": ""
+      },
+      {
+        "line": 65,
+        "text": "\"Mayday, mayday, we are bailing out!  Tantalos is gone, and we are NOT going back for him!  Scrap the tunnel to the Palace of Fumes, scrap the entire damn council, we're getting as far away from here as we can--\"  Loud hissing.  \"MOTHER OF--!\"  Grunts, squishing, slashing.  \"Flooring it all the way to the damn Sunwall, we're taking the first farportal off this continent whether those tinies like it or not!  Guess this technically counts as treason, mutiny, whatever, but if the Council's hearing this, BLOW IT OUT YOUR STEAM-HOLES, WE'D RATHER LIVE!  Altitude rising, surface approaching, this is H.C. Parmor signing off--\"]],"
+      },
+      {
+        "line": 66,
+        "text": "}"
+      },
+      {
+        "line": 67,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fe708861d51a29a181670867e8c1ac2223d8d225fc45c513aa0bdf2b3af89675",
+    "public_source_path": "tome-orcs/data/chats/metash.lua",
+    "lines": [
+      {
+        "line": 74,
+        "text": ""
+      },
+      {
+        "line": 75,
+        "text": "newChat{ id=\"w-explain2\","
+      },
+      {
+        "line": 76,
+        "text": "\ttext = _t[[Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but I don't believe that bull for a second.  While the great magical power that suddenly awakened within him is as fearsome as it is insanity-inducing,  he has yet to use it to make a shield or teleport himself, and even with his all-powerful beam, his aim isn't always perfect...  I think he has a weakness he's trying to hide.  Fight with courage, fellow Whitehoof, and the Krimbul Clan may be free once more!]],"
+      },
+      {
+        "line": 77,
+        "text": "\tanswers = {"
+      },
+      {
+        "line": 78,
+        "text": "\t\t{_t(\"I will!\", \"chat_metash\"), action=function(npc, player) player:grantQuest(\"orcs+krimbul\") end},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ffd39847fa17ade20876887cf0afe74902fbe495f2d8e351eefa5d9197d6926c",
+    "public_source_path": "tome-orcs/data/lore/misc.lua",
+    "lines": [
+      {
+        "line": 43,
+        "text": "\tcategory = \"var'eyal\","
+      },
+      {
+        "line": 44,
+        "text": "\tname = _t\"dropped demonic orders\","
+      },
+      {
+        "line": 45,
+        "text": "\tlore = _t[[I'm not going to lie to you: things aren't going great.  Between the Doomelf escape incidents, the deaths of Khulmanar and a great deal of our more expensive combatants at the hands of the Anomaly, and the disappearance of the First Duathedlen, we've been set back pretty far this year.  As such, your orders are simple: lay low.  Stay out of sight, and conduct passive observation until we can get a foothold and a new plan."
+      },
+      {
+        "line": 46,
+        "text": ""
+      },
+      {
+        "line": 47,
+        "text": "And regarding the First Duathedlen - quit your murmuring right now.  I've seen his track record, and I know most of you know it too, which is why we can safely say that despite his... nature, his loyalty is [b]not[/b] in question - we can assume his abrupt cessation of communication is a necessary part of his investigations, and not him going rogue.  If you see him, tell us of his whereabouts, but do not interfere."
+      },
+      {
+        "line": 48,
+        "text": ""
+      },
+      {
+        "line": 49,
+        "text": "[i](The letter is signed with an unreadable but formal-looking demonic seal.)[/i] ]],"
+      },
+      {
+        "line": 50,
+        "text": "}"
+      },
+      {
+        "line": 51,
+        "text": ""
+      }
+    ]
+  }
+]
