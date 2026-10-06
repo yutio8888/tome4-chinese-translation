@@ -1,4 +1,4 @@
-# 当前恢复入口（2026-10-05 窗口67 successor 已在第405批审完）
+# 当前恢复入口（2026-10-06 窗口67 successor 已在第405批审完，0.3.6 已对外发布）
 
 用户 2026-10-05 要求开始生硬描述扫描 C 档（对话与 lore），已完成并推送：1,446 条全部裁决，修复包 12–16 修正 485 处，DeepSeek 交叉复核后再修正 8 处；搁置的 21 条由主代理逐条查源码，用户同意后改 16 行（含同运行键同步 1 行），GPT-6.1 Sol 复核无异议。见[扫描报告](evidence/quality/awkward-scan3-20261003/REPORT.md)的“C 档”一节与[搁置项处理](evidence/quality/awkward-scan3-20261003/holds-c.md)。至此 A、B、C 三档全部完成。
 
@@ -9,6 +9,7 @@
 1. 窗口66 的 25 个 successor 已在第404批（`batch-8a80c5f58e2462772813`）审完：25 done / 0 repair_required，证据提交 `599bfb7b`；审核队列已无待审 successor。
 2. 用户随后选择“小窗口67并含 422 行”：窗口67 已修复 2 条（宿主补充 `9d3fc01bdf` 奎科加章节“安格列文”→“安格利文”；用户授权的 `fc55a88fd6` 即 `mod-tome.lua:422` 护送奖励日志，对齐同族选项写法），复审中另确认同一奎科加条目的 2 处错误并一并修复（译文 `0de585f6`，migration `a0f4f220…`，详见 `evidence/quality/repair-window-67-20261005/PUBLICATION.md`）。窗口67 的全部 child 在证据提交前已由宿主确认归档。
 3. 窗口67 的 2 个 successor 已在第405批（`batch-0009fb571152fc15b9a2`）审完：2 done / 0 repair_required，证据提交 `b674f274`；审核队列已无待审 successor。下一个修复窗口（68）积压 0 条，未达 20 条阈值；后续开窗或暂停待用户决定。
+4. 按用户指示发布 0.3.6：发布仓库提交 `6f5a071`（由本仓库 `baf532e1` 构建，12,451 条＝核心 6,990＋DLC 5,461；核心多 1 条是护送奖励日志，改后不再与官方中文 locale 相同），GitHub Release `v0.3.6` 安装包已回下载核验，凭据见 [`evidence/releases/addon-0.3.6.json`](evidence/releases/addon-0.3.6.json)。
 
 ---
 

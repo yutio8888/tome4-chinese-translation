@@ -6,10 +6,10 @@
 按所属契约保存在受跟踪的 `evidence/`。本文件按命令查询，不是每次修改前的必读清单；检查选择见
 [工作流验证矩阵](../docs/agent-workflow.md#验证矩阵)。
 
-最新已推送 addon 版本：**0.3.5**（2026-10-05，发布仓库 tome4-chn-mod `d2575eb`，由本仓库
-`d6def5d9` 经 `tools/i18n publish --apply --bump` 构建：12,450 条＝核心 6,989＋DLC 5,461，sha256 `0855a2be…`）。
-GitHub Release [`v0.3.5`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.5) 附带 `tome-chn-mod.teaa`（tag 指向 `d2575eb`，包 sha256 `0adf7016…`），已回下载核对完整哈希。
-发布凭据见 [`addon-0.3.5.json`](../evidence/releases/addon-0.3.5.json)。打包方式与游戏内置 `utils/te4_pack_module.sh`
+最新已推送 addon 版本：**0.3.6**（2026-10-06，发布仓库 tome4-chn-mod `6f5a071`，由本仓库
+`baf532e1` 经 `tools/i18n publish --apply --bump` 构建：12,451 条＝核心 6,990＋DLC 5,461，sha256 `a2149e36…`）。
+GitHub Release [`v0.3.6`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.6) 附带 `tome-chn-mod.teaa`（tag 指向 `6f5a071`，包 sha256 `8edcb386…`），已回下载核对完整哈希。
+发布凭据见 [`addon-0.3.6.json`](../evidence/releases/addon-0.3.6.json)。打包方式与游戏内置 `utils/te4_pack_module.sh`
 一致：`git archive` 取干净树后在其中 `zip -r -0`，`init.lua` 位于根目录，文件名为 `for_module-short_name.teaa`（引擎只识别 `tome-` 前缀）。
 `publish --bump` 只递增补丁号，次版本号需手动改发布仓库 `init.lua`（该文件为 CRLF 行尾）。
 早期发布计划见 [`deprecated/docs/release-plan.md`](../deprecated/docs/release-plan.md)（已弃用）。manifest 中的 `repositories.addon.commit`
