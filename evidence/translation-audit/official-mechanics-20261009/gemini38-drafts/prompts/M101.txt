@@ -1,0 +1,5 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：accelerate burning effects on all creatures in a radius %d ball within range %d, consuming them to instantly inflict 125%% of all remaining burn damage
+现译：加速射程 %d 内半径 %d 球体中所有生物身上的燃烧效果，消耗它们，立即造成剩余燃烧伤害的125%%。
+修正要求：恢复半径在前射程在后的顺序，或为该键明确配置参数重排。
+源码事实：源码tformat依次传入radius和range，radius=1、range=5；当前无args_order重排表，项目先写射程再写半径，运行时呈现射程1、半径5。

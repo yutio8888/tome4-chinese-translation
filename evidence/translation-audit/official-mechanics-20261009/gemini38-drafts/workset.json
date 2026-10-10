@@ -1,0 +1,1771 @@
+{
+  "task_id": "regression-drafts-20261010-gemini38",
+  "count": 52,
+  "scope": "confirmed project regressions only; proposals only",
+  "entries": [
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "完整中文句明确写“持续 %d 回合”，没有其他语句将第二参数解释为阈值；官方“来自 %d 个目标”也有次数误译，但仍把第二参数当作伤害阈值。项目修正次数时引入了数值维度错误。英文 over 与实现的边界不完全一致，因此建议用“不低于”描述实际代码。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "两个参数分别为 eff.blocks、eff.threshold，第二参数不是持续时间。",
+          "lines": [
+            367,
+            368
+          ],
+          "path": "game/modules/tome/data/timed_effects/magical.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "dam < eff.threshold 时跳过；合格伤害扣除一次 blocks 并返回 dam=0。",
+          "lines": [
+            385,
+            394
+          ],
+          "path": "game/modules/tome/data/timed_effects/magical.lua"
+        }
+      ],
+      "id": "M004",
+      "inventory_index": 1948,
+      "line": 34929,
+      "official_target": "单位被一团风暴保护，可转移来自 %d 个目标的超过 %d 的伤害。",
+      "origin": "project_regression",
+      "priority": "high",
+      "project_target": "目标受到狂暴风暴的保护，可以偏转至多 %d 次伤害，持续 %d 回合。",
+      "recommendation": "“目标受到狂暴风暴保护，可抵消至多 %d 次不低于 %d 点的伤害。”。",
+      "revision_key": "493bc9c65feb48ebb339eecf89090ca1e4041ee1eb33e9ba3d2d11ff3c6ff4df",
+      "source": "The target is protected a raging storm deflecting up to %d instances of damage over %d.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "风暴护盾把伤害阈值译成持续回合数",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M004.txt"
+    },
+    {
+      "args_order": [
+        2,
+        1,
+        3,
+        4
+      ],
+      "component": "tome",
+      "counterevidence": "英文 each time triggered 可以按单支弹体的效果触发理解，但项目完整句写“每次触发该效果时消耗2点”，与前句一次暴击向多个目标发射的结构合起来会表示整次暴击仅消耗2点。官方明确“每个球”与实现相符，项目删除了这一可靠限定。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "for i=1,t.getTargetCount 循环内每发一支光/暗弹体都分别执行 incPositive(-2) 或 incNegative(-2)。",
+          "lines": [
+            107,
+            122
+          ],
+          "path": "game/modules/tome/data/talents/celestial/eclipse.lua"
+        }
+      ],
+      "id": "M005",
+      "inventory_index": 55,
+      "line": 21231,
+      "official_target": "每当你的法术打出暴击时，你会对 %d 码内 %d 个目标发射一颗光球或暗影球，造成 %0.2f 光系或 %0.2f 暗影伤害。 \n\t\t每个球都会消耗 2 点正能量或负能量，当你的正能量或负能量低于 2 时不会触发。 \n\t\t受法术强度影响，伤害按比例加成。\n\t\t该法术造成的伤害不能暴击。",
+      "origin": "project_regression_with_upstream_english_ambiguity",
+      "priority": "medium",
+      "project_target": "每当你的法术打出暴击时，你会向射程 %d 内最多 %d 个目标发射光明或暗影箭矢，每支造成 %0.2f 点光系伤害或 %0.2f 点暗影伤害。\n\t\t每次触发该效果时消耗 2 点正能量或 2 点负能量；当你的正能量或负能量低于 2 时不会触发。\n\t\t受法术强度影响，伤害按比例加成。\n\t\t该法术造成的伤害不能暴击。",
+      "recommendation": "恢复为“每发射一支光明或暗影箭矢，分别消耗2点正能量或负能量”。",
+      "revision_key": "fb06bfdd476351b9167671259044fd1990d04e3ad432569c6c9bdb923fd5a63c",
+      "source": "Each time one of your spells criticals, you project a bolt of light or shadow at up to %d targets within radius %d, doing %0.2f light damage or %0.2f darkness damage per bolt.\n\t\tThis effect costs 2 positive or 2 negative energy each time it's triggered, and will not activate if either your positive or negative energy is below 2.\n\t\tThe damage scales with your Spellpower.\n\t\tThis spell cannot crit.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "日冕把每支弹体资源消耗改为整次触发消耗",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M005.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "英文 chance to shrug off 本身不符合该固定版本实现，但官方“暴击减免”与按比例减免相容；项目新增“几率无视”明确改成概率结算。完整段落没有其他句子校正这种描述。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "ignore_direct_crits 没有随机判定：先除以 crit_power 得到基础伤害，再按 ignore_direct_crits/100 削减 crit_power-1，最后乘回，保留基础伤害。Foresight chronomancy.lua:63 增加这一属性；相关预知效果承接 eff.crits。",
+          "lines": [
+            130,
+            154
+          ],
+          "path": "game/modules/tome/data/damage_types.lua"
+        }
+      ],
+      "id": "M015",
+      "inventory_index": 161,
+      "line": 21877,
+      "official_target": "你预知未来，感知半径 %d 以内的生物和陷阱，持续 %d 回合。\n\t\t如果你学会了深谋远虑，那么在你激活这个技能的时候，你可以获得额外的闪避和暴击减免（数值等于深谋远虑的奖励）。",
+      "origin": "project_regression_with_upstream_english_mismatch",
+      "priority": "medium",
+      "project_target": "你预知未来，感知半径 %d 以内的生物和陷阱，持续 %d 回合。\n\t\t如果你学会了深谋远虑，那么在你激活这个技能的时候，你可以获得额外的闪避和无视暴击伤害几率（数值等于深谋远虑的奖励）。",
+      "recommendation": "说明减免暴击造成的额外伤害；不可写成有概率无视整次暴击伤害。",
+      "revision_key": "0363aafefc40f126f53a772cc27fa5a3563dce126843a0a75dc483fc46e88b5b",
+      "source": "You peer into the future, sensing creatures and traps in a radius of %d for %d turns.\n\t\tIf you know Foresight you'll gain additional defense and chance to shrug off critical hits (equal to your Foresight bonuses) while Precognition is active.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "将暴击额外伤害按比例减免改译为概率免伤",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M015.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "英文 chance to shrug off 本身不符合该固定版本实现，但官方“暴击减免”与按比例减免相容；项目新增“几率无视”明确改成概率结算。完整段落没有其他句子校正这种描述。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "ignore_direct_crits 没有随机判定：先除以 crit_power 得到基础伤害，再按 ignore_direct_crits/100 削减 crit_power-1，最后乘回，保留基础伤害。Foresight chronomancy.lua:63 增加这一属性；相关预知效果承接 eff.crits。",
+          "lines": [
+            130,
+            154
+          ],
+          "path": "game/modules/tome/data/damage_types.lua"
+        }
+      ],
+      "id": "M016",
+      "inventory_index": 162,
+      "line": 21881,
+      "official_target": "获得 %d 闪避  和 %d%% 暴击减免。\n\t\t如果你激活了预知未来或者命运螺旋，那么这些技能也会拥有同样的加成，使你获得额外的闪避和暴击减免。\t\t\n\t\t增益效果受魔力值加成。",
+      "origin": "project_regression_with_upstream_english_mismatch",
+      "priority": "medium",
+      "project_target": "获得 %d 闪避和 %d%% 几率无视暴击伤害。\n\t\t如果你激活了预知未来或者命运螺旋，那么这些技能也会拥有同样的加成，使你获得额外的闪避和无视暴击伤害几率。\n\t\t增益效果受魔力值加成。",
+      "recommendation": "说明减免暴击造成的额外伤害；不可写成有概率无视整次暴击伤害。",
+      "revision_key": "a174ad51b1650d0f6741ebc8a03b367641eab7662bede9f62681d6b3a126b353",
+      "source": "Gain %d defense and %d%% chance to shrug off critical hits.\n\t\tIf you have Precognition or See the Threads active these bonuses will be added to those effects, granting additional defense and chance to shrug off critical hits.\n\t\tThese bonuses scale with your Magic stat.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "将暴击额外伤害按比例减免改译为概率免伤",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M016.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "英文 chance to shrug off 本身不符合该固定版本实现，但官方“暴击减免”与按比例减免相容；项目新增“几率无视”明确改成概率结算。完整段落没有其他句子校正这种描述。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "ignore_direct_crits 没有随机判定：先除以 crit_power 得到基础伤害，再按 ignore_direct_crits/100 削减 crit_power-1，最后乘回，保留基础伤害。Foresight chronomancy.lua:63 增加这一属性；相关预知效果承接 eff.crits。",
+          "lines": [
+            130,
+            154
+          ],
+          "path": "game/modules/tome/data/damage_types.lua"
+        }
+      ],
+      "id": "M017",
+      "inventory_index": 167,
+      "line": 21902,
+      "official_target": "你窥视三种可能的未来，允许你分别进行探索 %d 回合。当效果结束，你选择三者之一成为你的现在。\n\t\t如果你学会了深谋远虑，当你使用命运螺旋时，将获得额外的闪避和暴击减免（数值等于深谋远虑的奖励）。\n\t\t这个法术会使时间线分裂。当此技能激活的时候，使用其他分裂时间线的技能将会失败。\n\t\t如果你在任何一条时间线上死亡，你将使时间线回到你使用技能的地方，并且技能效果结束。\n\t\t这个技能每个楼层只能使用一次。",
+      "origin": "project_regression_with_upstream_english_mismatch",
+      "priority": "medium",
+      "project_target": "你窥视三种可能的未来，允许你分别进行探索 %d 回合。当效果结束，你选择三者之一成为你的现在。\n\t\t如果你学会了深谋远虑，当你使用命运螺旋时，将获得额外的闪避和无视暴击伤害几率（数值等于深谋远虑的奖励）。\n\t\t这个法术会使时间线分裂。当此技能激活的时候，使用其他分裂时间线的技能将会失败。\n\t\t如果你在任何一条时间线上死亡，你将使时间线回到你首次施放技能的时刻，并且技能效果结束。\n\t\t这个技能每个楼层只能使用一次。",
+      "recommendation": "说明减免暴击造成的额外伤害；不可写成有概率无视整次暴击伤害。",
+      "revision_key": "a9223094e63d659ffd3042f09d816f425de0e0ed5bc6fa61ede559aff79c61d9",
+      "source": "You peer into three possible futures, allowing you to explore each for %d turns.  When the effect expires, you'll choose which of the three futures becomes your present.\n\t\tIf you know Foresight you'll gain additional defense and chance to shrug off critical hits (equal to your Foresight values) while See the Threads is active.\n\t\tThis spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.\n\t\tIf you die in any thread you'll revert the timeline to the point when you first cast the spell and the effect will end.\n\t\tThis spell may only be used once per zone level.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "将暴击额外伤害按比例减免改译为概率免伤",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M017.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "英文 poison resistance 有歧义，但这里不是毒系伤害抗性；完整拼接句已分别陈述所有伤害抗性降低和中毒免疫降低。官方“毒素免疫”对应实现，项目改为“毒素抗性”使两项容易被误认成同类伤害抗性。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "该后缀展示第二个临时值 poison_immune 的负值；activate 降低 poison_immune 一半，另一个 resists 临时值已单独降低全部伤害抗性10%。",
+          "lines": [
+            2791,
+            2811
+          ],
+          "path": "game/modules/tome/data/timed_effects/magical.lua"
+        }
+      ],
+      "id": "M019",
+      "inventory_index": 2057,
+      "line": 35344,
+      "official_target": " 毒素免疫下降 %s%%",
+      "origin": "project_regression_with_upstream_english_ambiguity",
+      "priority": "medium",
+      "project_target": "，且毒素抗性下降 %s%%",
+      "recommendation": "恢复“毒素免疫下降”，或明确为“中毒免疫率下降”。",
+      "revision_key": "b11500ef3a324c0c6e31c155d253863b8fae8570bcb513a0e265cfc248e348e3",
+      "source": " and poison resistance is reduced by %s%%",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "魔法毒素将中毒免疫降低改成毒素抗性降低",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M019.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "源串片段末尾逗号接英文 and 正常；官方片段只有尾空格，和官方主句逗号不会重复。项目对标点的各自整理在拼接后引入双逗号，实际数值和效果不变。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "arcane 片段最后拼到 xs；随后代入主句体型增大2级%s，并获得…，片段末尾与主句前缀同时为中文逗号。",
+          "lines": [
+            4344,
+            4355
+          ],
+          "path": "game/modules/tome/data/timed_effects/magical.lua"
+        }
+      ],
+      "id": "M030",
+      "inventory_index": 2136,
+      "line": 35607,
+      "official_target": ", +%d%% 奥术伤害加成和+%d%% 奥术伤害抗性穿透 ",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "，+%d%% 奥术伤害及 +%d%% 奥术伤害穿透，",
+      "recommendation": "去掉奥术片段末尾逗号；以所有片段组合核验渲染。",
+      "revision_key": "b8cac4f7a2401f2b00e434bf4fcf75443ba57903a2b809c14f7b1bee8300e393",
+      "source": ", +%d%% Arcane damage and +%d%% Arcane damage penetration,",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "深岩形态奥术片段拼出双逗号",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M030.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方“距目标等于射程”本来也错，项目改成最远并补回脱离现实5回合与任何传送触发是改善；但新增“向远离目标的方向”承诺了源码不保证的方向，应单独归为回退。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "双持攻击后枚举目标周围弓射程内的格子，限定距自身至少射程一半且可移动并有目标视线，再随机选择；没有沿远离目标方向的限制，射程上限是距目标，不是距自身。射程5、自身(0,0)、目标(1,0)、目的地(6,0)满足距离条件，却跨过目标且移动距离6。",
+          "lines": [
+            76,
+            103
+          ],
+          "path": "game/modules/tome/data/talents/chronomancy/threaded-combat.lua"
+        }
+      ],
+      "id": "M032",
+      "inventory_index": 281,
+      "line": 22529,
+      "official_target": "使用弓或双持武器攻击，造成 %d%% 武器伤害。\n\t\t如果使用弓箭，则你被传送到目标附近。否则传送到和目标距离等于弓的射程的位置。\n\t\t同时，你获得传送后加成：增加 %d 闪避和 %d%% 全体抗性。\n\t\t传送后加成受魔力值加成。",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "使用弓或双持武器攻击，造成 %d%% 武器伤害。\n\t\t如果使用弓箭，你会被传送到目标位置附近；如果使用双持武器，你会向远离目标的方向传送，最远距离等于弓的射程。\n\t\t此外，每次传送后你都会进入“脱离现实”状态 5 回合，获得 %d 闪避和 %d%% 全体抗性。\n\t\t“脱离现实”的加成随魔力属性提高。",
+      "recommendation": "说明双持后随机传送至目标周围弓射程内的有效位置，避免保证远离方向或以自身为射程中心。",
+      "revision_key": "56358a396e2cd372905cda1ced2b9926ddf49422cd7a1533073e9820d76e93dd",
+      "source": "Attack with your bow or dual-weapons for %d%% damage.  If you shoot an arrow you'll teleport near the target location.  If you use your dual-weapons you'll teleport up to your bow's range away.\n\t\tAdditionally you now go Out of Phase for five turns after any teleport, gaining %d defense and %d%% resist all.\n\t\tThe Out of Phase bonuses will scale with your Magic stat.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "双持传送新增了源码不保证的远离方向",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M032.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "技能名称可有意译且冻结术语没有强制词条，但诡计大师将工匠身份换成策略诡计，无法对应同技能正文工具大师；官方强化工具虽非直译，却准确概括作用。此项为名称语义回退，不是数值错误。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "本技能选择一件已准备工具，学习对应的精通技能并强化其能力；正文明确成为工具大师，Artificer 表工匠身份。",
+          "lines": [
+            216,
+            293
+          ],
+          "path": "game/modules/tome/data/talents/cunning/artifice.lua"
+        }
+      ],
+      "id": "M052",
+      "inventory_index": 381,
+      "line": 23154,
+      "official_target": "强化工具",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "诡计大师",
+      "recommendation": "改为工具大师、机关大师等与工具精通语境一致的名称。",
+      "revision_key": "cb846e8cd755a05d40d45b770577ee9448a8c6be98ffb0f7266d237f6f7b6c3e",
+      "source": "Master Artificer",
+      "source_tag": "talent name",
+      "status": "confirmed",
+      "topic": "Master Artificer 新译名偏离工具工匠含义",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M052.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "项目正确补回已经吸收致命打击的过去时，但将官方临时盾具体化为负能量护盾，混同本游戏独立负能量资源，属于新增机制误导。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "SHADOW_DECOY activate 使用 effectTemporaryValue(eff,\"die_at\",-eff.power)，修改死亡生命阈值；没有修改 negative 资源或创建普通吸收护盾。",
+          "lines": [
+            2703,
+            2712
+          ],
+          "path": "game/modules/tome/data/timed_effects/mental.lua"
+        }
+      ],
+      "id": "M053",
+      "inventory_index": 2321,
+      "line": 36272,
+      "official_target": "随机的一个阴影将吸收一次你受到的致命伤害 ,   并给你带来一个 %d 的临时盾.",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "一个随机的阴影为你吸收了一次致命伤害，为你提供一个 %d 强度的负能量护盾。",
+      "recommendation": "写为可承受 %d 点负生命值的保护，或明确死亡阈值降低 %d 点，避免负能量资源含义。",
+      "revision_key": "3416c52ed8ee1a78ef41cc76dc3151cef71a03280c7769273fdb5861574dfde7",
+      "source": "A random shadow absorbed a fatal blow for you, granting you a negative shield of %d.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "阴影诱饵将负生命缓冲写为负能量护盾",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M053.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "项目补回不可抵抗、随致命毒素附加及属性缩放，是完整性改善；官方原来没有这句缩放，项目新补的属性名却写魔法，属于新增低优先级术语问题，不否定其他改善。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "getDamage 使用 combatStatScale(\"mag\",20,50,0.75)，Magic 指魔力属性。",
+          "lines": [
+            574,
+            577
+          ],
+          "path": "game/modules/tome/data/talents/cunning/poisons.lua"
+        }
+      ],
+      "id": "M054",
+      "inventory_index": 456,
+      "line": 23419,
+      "official_target": "在你的武器上涂上脆弱毒素，每回合造成每轮 %0.2f 点奥术伤害且所有伤害抗性将被减少 10%% ，毒素免疫减少 50%% 。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "每当你施加致命毒素时，还会施加一种不可抵抗的魔法毒素。该毒素每回合造成 %0.2f 点奥术伤害（伤害随魔法属性提高），并使所有伤害抗性降低 10%%、毒素免疫降低 50%%。",
+      "recommendation": "将魔法属性改为魔力属性。",
+      "revision_key": "aafdb6636b112888191dad52ba1e1698a57a4c3ba6da94a081acf6cd2c26224a",
+      "source": "Whenever you apply Deadly Poison, you also apply an unresistable magical poison dealing %0.2f arcane damage (based on your Magic) each turn. This poison reduces all damage resistance by 10%% and poison immunity by 50%%.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "脆弱毒素新增的缩放说明误写魔法属性",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M054.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方最高材质等级不准确，项目去掉材质是改善，但相同工具提示内已把列表与准备菜单改成阶级，本主句仍用等级。仅对本族引用一致性裁决，不发起全局重命名。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "trap_mastery_level 存入 tier 并以 Tier %d 作为内嵌列表标题，准备上限对应同一阶级。",
+          "lines": [
+            646,
+            665
+          ],
+          "path": "game/modules/tome/data/talents/cunning/traps.lua"
+        }
+      ],
+      "id": "M058",
+      "inventory_index": 491,
+      "line": 23623,
+      "official_target": "该技能允许你准备 %d 个不同的陷阱，最高材质等级为 %d 。（使用该技能选择需要准备的陷阱。） \n\t\t已知陷阱：\n%s\n\n\t\t准备好的陷阱更难被发现、被解除（ %d 点侦测强度， %d 点解除强度，基于灵巧）。效果被强化 %+d%% ，并有 %d%% 的几率使用不会打破潜行。\n\t\t你免疫自己的陷阱，陷阱可以暴击（使用物理暴击率）。\n\t\t大部分陷阱如果没有触发则会持续 %d 回合。当陷阱消失时，如果效果未触发，回复 80%% 体力消耗。\n\t\t你能在世界上学到许多其他陷阱。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "该技能允许你最多准备 %d 个不同的陷阱，最高等级为 %d。 （使用该技能选择需要准备的陷阱。）\n\t\t已知陷阱：\n%s\n\n\t\t准备好的陷阱更难被发现和解除（侦测强度 %d， 解除强度 %d， 基于灵巧）。它们的效果提高 %+d%%， 且有 %d%% 几率在布设时不打破潜行。\n\t\t你免疫自己陷阱的伤害和负面效果；陷阱可按你的物理暴击率造成暴击。\n\t\t大多数陷阱未触发时持续 %d 回合；到期时返还 80%% 的体力消耗。\n\t\t解除陷阱或向世界各地的特殊导师学习，可以发现更多设计。",
+      "recommendation": "把最高等级改为最高阶级。",
+      "revision_key": "e6bb1ad05cd981d86a4741d764abf9efe64aad7ab146471e19e010106e482faa",
+      "source": "This talent allows you to prepare up to %d different trap(s) of tier %d or less for later deployment. (Use this ability to select which to prepare.)\n\t\tDesigns known:\n%s\n\n\t\tTraps prepared this way are difficult to detect (%d detection 'power') and disarm (%d disarm 'power') based on your Cunning.  They gain %+d%% effectiveness, and can be deployed without breaking stealth %d%% of the time.\n\t\tYou are immune to the damage and negative effects of your traps, and traps may critically strike based on your physical crit chance.\n\t\tMost traps last %d turns if not triggered, and refund 80%% of their stamina cost on expiration.\n\t\tMore designs may be discovered via disarming or learned from special instructors in the world.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "同一陷阱工具提示内 tier 的等级／阶级术语不一致",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M058.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方传送免疫准确，英文teleport resistance字面易混淆；以固定源码为准，应区分这一项与同句伤害抗性。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "ZONE_AURA_OUT_OF_TIME 向 teleport_immune 加 -0.2，物理和时空则写resists。",
+          "lines": [
+            3314,
+            3326
+          ],
+          "path": "game/modules/tome/data/timed_effects/other.lua"
+        }
+      ],
+      "id": "M061",
+      "inventory_index": 2445,
+      "line": 36748,
+      "official_target": "地图效果 : 你似乎处于通常时空之外。 +10% 物理抗性， -10% 时空抗性  , -20% 传送免疫。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "区域效果：你似乎处于通常时空之外。+10% 物理抗性，-10% 时空抗性，-20% 传送抗性。",
+      "recommendation": "恢复传送免疫降低20%。",
+      "revision_key": "8bba03e1b5d56362dc1a5cc03ecefd0714584f88a556bc375379360e142a250f",
+      "source": "Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "时空区域把正确的传送免疫改成传送抗性",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M061.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方投毒纹身没有准确对应英文，项目补回阴险是改善，但该物品仍用毒药，而实际技能、伤害类型、状态均作阴险毒素。只对该实际关联名称裁决。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "实体inscription_talent=INFUSION:_INSIDIOUS_POISON，直接授予misc/inscriptions.lua:1494-1496的Infusion: Insidious Poison，项目技能名为纹身：阴险毒素。",
+          "lines": [
+            511,
+            525
+          ],
+          "path": "game/modules/tome/data/general/objects/scrolls.lua"
+        }
+      ],
+      "id": "M063",
+      "inventory_index": 3188,
+      "line": 12092,
+      "official_target": "投毒纹身",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "阴险毒药纹身",
+      "recommendation": "物品名统一为阴险毒素纹身。",
+      "revision_key": "6c397a6f785411e0acbd86aa2d5f60ee5c8801149f15650238edea9e4301f0b1",
+      "source": "insidious poison infusion",
+      "source_tag": "entity name",
+      "status": "confirmed",
+      "topic": "毒素纹身物品名与实际授予的技能名不一致",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M063.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "项目补回同侪、平民、长期追捕等信息准确，但新增权力之地把法师力量误成政治权势；官方所在之处虽泛化但没有这层推断。不强制与夏图尔places of power绑定同一专名。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "Telos是强大法师，Telmur是其place of power；本描述强调其法师能力、被追捕及残存灵魂，Power指魔法力量据点。",
+          "lines": [
+            27,
+            40
+          ],
+          "path": "game/modules/tome/data/general/objects/special-artifacts.lua"
+        }
+      ],
+      "id": "M064",
+      "inventory_index": 3197,
+      "line": 12147,
+      "official_target": "泰勒斯是黄昏纪的一位强大法师，为对手所嫉恨，为弱者所惧怕。最终，虽然他陨落在了他的所在之处——泰尔玛，但是他的灵魂仍长存于世。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "泰勒斯是黄昏纪的一位极其强大的法师，为同侪所嫉恨，为平民所惧怕；他被追捕了很长时间。最终他陨落于他的权力之地——泰尔玛，但他的灵魂依然徘徊不去。",
+      "recommendation": "改为力量据点或力量之地。",
+      "revision_key": "d1d53abac7691dc32712e91c0df0287738fdcd5e3e60a56b7889c9ecd63fbd36",
+      "source": "Telos was an extremely powerful mage during the Age of Dusk, hated by his peers and feared by the common folk; he was hunted for a long while. He finally fell from his place of power, Telmur, but his spirit still lingers.",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "法师魔力据点 place of power 误成政治权力之地",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M064.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "项目准确补回半径、点数顺序和暗影伤害；此处进入蔓延黑暗与技能名及其他三条进入黑暗之雾不一致，仅统一机制引用，不否定正文用描述性黑暗描写。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "同一creeping dark区域由Creeping Darkness生成，Dark Vision、Dark Torrent、Dark Tendrils均复用相同伤害增幅句。",
+          "lines": [
+            352,
+            478
+          ],
+          "path": "game/modules/tome/data/talents/cursed/darkness.lua"
+        }
+      ],
+      "id": "M065",
+      "inventory_index": 590,
+      "line": 24093,
+      "official_target": "一股黑暗之雾蔓延在目标点和目标点附近 %d 码范围内最多 %d 格。黑暗之雾造成 %0.2f 点伤害，阻挡未掌握黑暗视觉或其他魔法视觉能力目标的视线。 黑暗之雾会随机扩散到相邻格，并随时间消散。\n\t\t伤害受精神强度加成。你对任何进入黑暗之雾的人造成 +%d%% 点伤害。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "一股缓慢蔓延的黑暗会出现在目标位置及其周围最多 %d 处地点，范围半径为 %d 格。黑暗每回合对范围内的一切造成 %0.2f 暗影伤害，并阻挡没有黑暗视觉或其他魔法视觉者的视线。黑暗会随机渗入相邻格，并随时间缓慢消散。\n\t\t伤害随精神强度提高。你对任何进入蔓延黑暗的目标额外造成 +%d%% 伤害。",
+      "recommendation": "末句进入蔓延黑暗改为进入你的黑暗之雾。",
+      "revision_key": "4c4e5e96a252ea0d4279bdc66d9486d695b7e9906886fee7800735e68a6d7101",
+      "source": "Creeping dark slowly spreads from the target location and %d spots in a radius of %d around the targeted location. The dark deals %0.2f darkness damage each turn to anything in its area, and blocks the sight of any who do not possess Dark Vision or some other magical means of seeing. The darkness seeps into adjacent tiles at random and slowly dissipates over time.\n\t\tThe damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "黑暗之雾同族机制引用改成蔓延黑暗",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M065.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方无视恐惧免疫准确。项目补回试图施加和非连续累计是改善，但将免疫改为抗性造成不同机制术语混用。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "施加恐惧时no_fearRes绕过target:canBe(\"fear\")检查；Heighten Fears触发传入该绕过标志，精神豁免判定仍存在。",
+          "lines": [
+            84,
+            88
+          ],
+          "path": "game/modules/tome/data/talents/cursed/fears.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "HEIGHTEN_FEAR超时触发调用tInstillFear.applyEffect(eff.src,tInstillFear,self,true)，明确启用免疫绕过标志。",
+          "lines": [
+            987,
+            999
+          ],
+          "path": "game/modules/tome/data/timed_effects/mental.lua"
+        }
+      ],
+      "id": "M067",
+      "inventory_index": 600,
+      "line": 24172,
+      "official_target": "加深你周围敌人的恐惧。所有被你灌注恐惧的目标若停留在你视野内，并且和你距离不超过 %d ，这样累计达到 %d 回合时，受到 %0.2f 精神和 %0.2f 暗影伤害，并获得一个新的持续 %d 回合的恐惧效果。\n\t\t这一效果无视恐惧免疫，但可以被豁免。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "加深你周围敌人的恐惧。所有你试图施加恐惧的目标若停留在你视野内，并且和你距离不超过 %d， 累计（不必连续）达到 %d 回合时，就会受到 %0.2f 精神和 %0.2f 暗影伤害，并获得一个新的持续 %d 回合的恐惧效果。\n\t\t\t这一效果无视恐惧抗性，但可以被豁免。",
+      "recommendation": "恢复无视恐惧免疫、但可以被豁免。",
+      "revision_key": "425d2c6e6ed23e7313427cbdbf9ec9fac7dc89cb5353c57f371faf408a2c2e93",
+      "source": "Heighten the fears of those near to you. Any foe you attempt to inflict a fear upon and who remains in a radius of %d and in sight of you for %d (non-consecutive) turns, will take %0.2f mind and %0.2f darkness damage and gain a new fear that lasts for %d turns.\n\t\t\tThis effect completely ignores fear resistance, but can be saved against.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "强化恐惧把正确免疫改成抗性",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M067.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "其他内容补回奥术类型并改善叙述合理；仅属性名是新增回退。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "伤害计算显式调用getMag；Magic属性冻结术语为魔力。",
+          "lines": [
+            20,
+            25
+          ],
+          "path": "game/modules/tome/data/talents/cursed/primal-magic.lua"
+        }
+      ],
+      "id": "M077",
+      "inventory_index": 631,
+      "line": 24345,
+      "official_target": "蒸腾你的目标造成 %d 伤害。这个魔法难以驾驭，如果施放失败你会被混乱4回合。\n\t\t伤害受魔力值加成。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "以原始魔法洗礼目标，造成 %d 点奥术伤害。此等狂野魔法难以控制；若你没能保持清醒，就会陷入混乱 4 回合。\n\t\t伤害受魔法属性加成。",
+      "recommendation": "恢复伤害受魔力属性加成。",
+      "revision_key": "d3946e18444f2ae7c9cb320593353dceaa62798eefa75cf67c8ccb5e1dde76c1",
+      "source": "Bathes the target in raw magic inflicting %d damage. Such wild magic is difficult to control and if you fail to keep your wits you will be confused for 4 turns.\n\t\tThe damage will increase with the Magic stat.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "原始魔法伤害属性名由魔力改成魔法",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M077.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "英文bled out容易误读死亡，实际此处是伤害转为后续流血；官方减免虽不够精确，未错误宣告死亡。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "reduce从即时伤害扣除，并以reduce/length施加SELF_JUDGEMENT；delayedLogDamage显示该reduce，不判定死亡。",
+          "lines": [
+            179,
+            194
+          ],
+          "path": "game/modules/tome/data/talents/cursed/self-hatred.lua"
+        }
+      ],
+      "id": "M078",
+      "inventory_index": 647,
+      "line": 24448,
+      "official_target": "%s(%d 减免#LAST#%s)#LAST#",
+      "origin": "project_regression",
+      "priority": "high",
+      "project_target": "%s(%d 流血而死#LAST#%s)#LAST#",
+      "recommendation": "改为转为流血或延后流血伤害，保留占位符。",
+      "revision_key": "e972318a0f07d8759e9b010920ab1870c80e37b324de5432a6577d7f6d9a2bc7",
+      "source": "%s(%d bled out#LAST#%s)#LAST#",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "自我审判延后流血伤害量误译死亡",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M078.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "项目补回曾被法师佩戴，但删去官方首段来自远古时代的信息；第二段远古知识不是帽子流传时代的同义陈述。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "首句明确passed from ancient times，随后才说great mages曾佩戴。",
+          "lines": [
+            1067,
+            1068
+          ],
+          "path": "game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua"
+        }
+      ],
+      "id": "M081",
+      "inventory_index": 3271,
+      "line": 12445,
+      "official_target": "一只传统巫师的尖帽子，由紫色的精灵丝绸制成，上面还有亮银色的装饰物。你意识到它来自远古时代，一个拥有众多伟大法师的时代。通过触摸你可以感受到远古的知识和能量，但仍有一部分被密封着，等待有缘人来释放它。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "一顶传统的巫师尖帽，由精美的紫色精灵丝绸制成，装饰着亮银色的符文。你感觉到它曾经被众多伟大的法师戴在头上。\n通过触摸你可以感受到远古的知识和能量，但仍有一部分被密封着，等待某种契机将其释放。",
+      "recommendation": "补回这顶帽子自远古流传至今。",
+      "revision_key": "2acb29e55d24661eb04a0b25797f2056695c1eb814efb5888fb4a6837ca8f8c2",
+      "source": "A traditional pointed wizard's hat, made of fine purple elven-silk and decorated with bright silver runes. You sense it has been passed from ancient times, and has been born on the heads of great mages.\nTouching the cloth you feel a sense of knowledge and power from bygone ages, yet it is partly sealed away, waiting for a trigger to release it.",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "奥术理解之帽遗漏远古传承背景",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M081.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方片段保留奥术伤害，与主句组合较完整；项目同时改了片段和插入处。未学奥术藤蔓时不出现此问题，普通伤害和意志加成改正合理。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "xs来自同批696的和 %0.1f 奥术，插入主句第3参数；项目主句将片段放到自然伤害后的逗号之后，生成自然伤害，和 Y 奥术持续 Z 回合。",
+          "lines": [
+            65,
+            74
+          ],
+          "path": "game/modules/tome/data/talents/gifts/earthen-vines.lua"
+        }
+      ],
+      "id": "M088",
+      "inventory_index": 697,
+      "line": 24824,
+      "official_target": "你周围的地面开始生成岩石藤蔓。\n\t\t每回合藤蔓将试图抓住半径 %d 内的一个随机目标。\n\t\t受影响的目标将被定身，同时每回合受到 %0.1f 自然伤害 %s, 持续 %d 回合。\n\t\t被岩石藤蔓抓住的生物每回合有一定几率逃脱，如果距离你超过 %d 码则自动逃脱。 \n\t\t定身几率和伤害受法术强度与技能等级加成。",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "你周围的地面开始生成岩石藤蔓。\n\t\t每回合藤蔓将试图抓住半径 %d 内的一个随机目标。\n\t\t受影响的目标将被定身，同时每回合受到 %0.1f 点自然伤害，%s持续 %d 回合。\n\t\t被岩石藤蔓抓住的生物每回合有一定几率逃脱，如果距离你超过 %d 码则自动逃脱。\n\t\t藤蔓抓住目标的几率和伤害随技能等级和意志提高。",
+      "recommendation": "让片段与自然共同修饰伤害，例如每回合受到 X 点自然和 Y 奥术伤害，持续 Z 回合。",
+      "revision_key": "5388d5bf7a324bf6b2ac670bc8820c1894ca8deb530658e58a1780b15acdd214",
+      "source": "From the ground around you, you form living stone vines extending from your feet.\n\t\tEach turn, the vines will attempt to seize a random target within radius %d.\n\t\tAffected creatures are pinned to the ground and take %0.1f nature%s damage each turn for %d turns.\n\t\tA creature entangled by the vines will have a chance to break free each turn, and will automatically succeed if it is more than %d grids away from you.\n\t\tThe chance to affect targets and damage increase with talent level and Willpower.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "岩石藤蔓动态奥术片段与持续时间错误拼接",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M088.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "英文字面other adjacent enemies为复数，容易误导；官方一个临近目标与固定源码一致，项目同时攻击其他相邻敌人未保留单目标上限。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "on_attackTarget遍历相邻敌人，攻击第一个合格secondTarget后立即return；每次触发最多追加攻击一个相邻敌人。",
+          "lines": [
+            350,
+            365
+          ],
+          "path": "game/modules/tome/data/talents/cursed/slaughter.lua"
+        }
+      ],
+      "id": "M089",
+      "inventory_index": 661,
+      "line": 24540,
+      "official_target": "当激活时，你的每一次武器攻击都会攻击一个临近的目标，造成 %d%% （0仇恨值）到 %d%% （100+仇恨值）的物理伤害。不顾一切的杀戮会带给你厄运（-3 幸运）。\n\t\t分裂攻击、杀意涌动和无所畏惧不能同时开启，并且激活一个也会使另外两个进入冷却。\n\t\t当使用双手武器时，分裂攻击会造成 25%% 的额外伤害。\n\t\t分裂攻击伤害受力量值加成。",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "激活时，你的每次武器攻击都会同时攻击其他相邻敌人，造成 %d%% （0 仇恨值）到 %d%% （100 仇恨值）的物理伤害。如此不顾一切的杀戮会带给你厄运（幸运 -3）。\n\t\t分裂攻击、无所畏惧和杀意涌动不能同时开启，并且激活一个也会使另外两个进入冷却。\n\t\t当使用双手武器时，分裂攻击会造成 25%% 的额外伤害。\n\t\t分裂攻击伤害受力量值加成。",
+      "recommendation": "明确每次武器攻击还会攻击另一个相邻敌人。",
+      "revision_key": "65d36ede1903abdf11c56ce35a2e6f737295e8b220e905c4d5b85d3e6f6bb1b5",
+      "source": "While active, every swing of your weapon strikes strikes other adjacent enemies for %d%% (at 0 hate) to %d%% (at 100 hate) physical damage. The recklessness of your attacks brings you bad luck (luck -3).\n\t\tCleave, Repel and Surge cannot be active simultaneously, and activating one will place the others in cooldown.\n\t\tCleave will deal 25%% additional damage while using a two-handed weapon.\n\t\tThe Cleave damage increases with your Strength.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "分裂攻击从一个相邻目标改为泛指多个",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M089.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方减少受到的伤害正确，项目闪避百分比的所有来袭伤害易被理解为攻击未命中或闪避几率；并无相应命中判定。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "效果设置incoming_reduce=eff.reduce；Actor.lua:2472-2473以value乘(100-incoming_reduce)/100，对伤害量按比例减免。",
+          "lines": [
+            3084,
+            3100
+          ],
+          "path": "game/modules/tome/data/timed_effects/physical.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "incoming_reduce直接缩放伤害量，无随机闪避判定。",
+          "lines": [
+            2472,
+            2473
+          ],
+          "path": "game/modules/tome/class/Actor.lua"
+        }
+      ],
+      "id": "M090",
+      "inventory_index": 2596,
+      "line": 37488,
+      "official_target": "目标进行了防御性的滚动，减少 %d%% 受到的伤害。",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "目标处于极端防守姿态，闪避 %d%% 的所有来袭伤害。",
+      "recommendation": "改为所有受到的伤害减少指定百分比。",
+      "revision_key": "e7c4947c704684fb4d7d8fc05a1d5d249595e4d2f85c725164d4c3637bfffd56",
+      "source": "The target is in an extreme defensive posture, avoiding %d%% of all incoming damage.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "防御翻滚伤害减免改写成闪避",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M090.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "两个占位符均为%d，类型校验不能检出语义颠倒；官方半径在前、范围在后与实际参数顺序一致。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "源码tformat依次传入radius和range，radius=1、range=5；当前无args_order重排表，项目先写射程再写半径，运行时呈现射程1、半径5。",
+          "lines": [
+            3215,
+            3227
+          ],
+          "path": "game/modules/tome/data/general/objects/world-artifacts.lua"
+        }
+      ],
+      "id": "M101",
+      "inventory_index": 3402,
+      "line": 12828,
+      "official_target": "加速半径 %d 范围内的所有燃烧效果，范围 %d, 立刻造成 125%% 剩余燃烧伤害。",
+      "origin": "project_regression",
+      "priority": "high",
+      "project_target": "加速射程 %d 内半径 %d 球体中所有生物身上的燃烧效果，消耗它们，立即造成剩余燃烧伤害的125%%。",
+      "recommendation": "恢复半径在前射程在后的顺序，或为该键明确配置参数重排。",
+      "revision_key": "1c00a5491d28add82760639595b89095bdd77011c9a7eb0e11d74787b6d3feef",
+      "source": "accelerate burning effects on all creatures in a radius %d ball within range %d, consuming them to instantly inflict 125%% of all remaining burn damage",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "燃烧加速装备的半径与射程实参颠倒",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M101.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方未写类型名，项目补写时用了冰冷；同条米诺陶斯沿用官方，与同批799/801的米诺陶指同一召唤物但名称不一致。伤害亲和、混乱以及流血每回合数值的改译是合理改善。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "雾凇引爆的ice damage对应summon-distance.lua:649-652的DamageType.ICE，冻结类型名为寒冰；项目新增冰冷伤害不是该类型名。",
+          "lines": [
+            111,
+            124
+          ],
+          "path": "game/modules/tome/data/talents/gifts/summon-augmentation.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "Rimebark的on_detonate调用ICE。",
+          "lines": [
+            649,
+            652
+          ],
+          "path": "game/modules/tome/data/talents/gifts/summon-distance.lua"
+        }
+      ],
+      "id": "M108",
+      "inventory_index": 803,
+      "line": 25530,
+      "official_target": "献祭一只召唤兽，使它在 %d 码范围内爆炸。\n\t\t-火焰里奇：形成一个火球，造成 %d 伤害，并火焰冲击敌人。\n\t\t-三头蛇：范围内所有友方单位获得 %d%% 闪电、酸液和自然伤害吸收，并获得每回合 %d 生命回复，持续 7 回合。\n\t\t-雾凇：形成一个冰球，造成 %d 伤害，可能冰冻敌人。\n\t\t-火龙：形成一片火焰，每回合造成 %d 伤害。\n\t\t-战争猎犬：形成锋利的球，让周围的生物在 6 回合内受到 %0.1f 点流血伤害。\n\t\t-果冻怪：形成一片能减速的淤泥，造成 %d 自然伤害，并使敌人减速 %0.1f%% 。\n\t\t-米诺陶斯：眩晕敌人 5 回合（强度 %d%% ）\n\t\t-岩石傀儡：使周围的友方单位获得 %d 护甲值和 %d%% 护甲强度，持续 5 回合。\n\t\t-乌龟：给所有友方单位提供一个甲壳护盾，所有抗性提升 %d%% ，持续 5 回合。\n\t\t-蜘蛛：将所有敌人击退 %d 格。\n\t\t此外，随机的某个召唤技能会冷却完毕。\n\t\t引爆产生的负面效果不会影响到你或你的召唤兽。\n\t\t效果受精神强度加成，其中一些可以暴击",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "献祭一只召唤兽，使它在 %d 码范围内爆炸。\n\t\t-喷火里奇：形成一个火球，造成 %d 伤害，并使敌人陷入火焰冲击。\n\t\t-三头蛇：范围内所有友方单位获得 %d%% 闪电、酸液和自然伤害亲和，并获得每回合 %d 生命回复，持续 7 回合。\n\t\t-雾凇：形成一个冰球，造成 %d 冰冷伤害，可能冰冻敌人。\n\t\t-火龙：形成一片火焰，每回合造成 %d 伤害。\n\t\t-战争猎犬：形成锋利的球，让周围的生物在 6 回合内每回合受到 %0.1f 点流血伤害。\n\t\t-果冻怪：形成一片能减速的淤泥，造成 %d 自然伤害，并使敌人减速 %0.1f%%。\n\t\t-米诺陶斯：使敌人混乱 5 回合（强度 %d%%）。\n\t\t-岩石傀儡：使周围的友方单位获得 %d 护甲值和 %d%% 护甲强度，持续 5 回合。\n\t\t-乌龟：给所有友方单位提供一个甲壳护盾，所有抗性提升 %d%%， 持续 5 回合。\n\t\t-蜘蛛：将所有敌人击退 %d 格。\n\t\t此外，随机的某个召唤技能会冷却完毕。\n\t\t引爆产生的负面效果不会影响到你或你的召唤兽。\n\t\t效果受精神强度加成，其中一些可以暴击。",
+      "recommendation": "寒冰伤害；同族Minotaur名称统一。",
+      "revision_key": "c868a7df65ea956109b291f250b712cd743e30a9ae903a175c9ccca4891b34b5",
+      "source": "Destroys one of your summons, making it detonate in radius of %d.\n\t\t- Ritch Flamespitter: Explodes into a fireball dealing %d damage, flameshocking damaged foes\n\t\t- Hydra: Grants %d%% lightning, acid, and nature affinity as well as %d life regen per turn to all friendly creatures for 7 turns\n\t\t- Rimebark: Explodes into an iceball dealing %d ice damage, possibly freezing damaged foes\n\t\t- Fire Drake: Explodes into a cloud of lingering fire, dealing %d damage per turn\n\t\t- War Hound: Explodes into a sharp ball, cutting all creatures for %0.1f bleeding damage per turn for 6 turns\n\t\t- Jelly: Explodes into a ball of slowing slime, dealing %d nature damage and slowing foes by %0.1f%%\n\t\t- Minotaur: Confuses foes at %d%% power for 5 turns\n\t\t- Stone Golem: Grants %d armour and %d%% armour hardiness to all friendly creatures for 5 turns\n\t\t- Turtle: Grants a small shell shield to all friendly creatures, granting %d%% all resist for 5 turns\n\t\t- Spider: Knocks back all foes %d tiles\n\t\tIn addition, a random summon will come off cooldown.\n\t\tHostile effects will not hit you or your other summons.\n\t\tThe effects improve with your mindpower, and some can crit.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "引爆雾凇伤害类型与同族召唤物名称不一致",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M108.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方石头吸收虽简略，仍表示吸收；项目转化为石头改变了关系，容易读作石化，没有将伤害变成实物石头的行为。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "EFF_ELDRITCH_STONE按min(value,eff.power)吸收伤害并增加失衡值，日志参数abs是被护盾吸收的伤害量。",
+          "lines": [
+            2978,
+            2989
+          ],
+          "path": "game/modules/tome/class/Actor.lua"
+        }
+      ],
+      "id": "M113",
+      "inventory_index": 3709,
+      "line": 207,
+      "official_target": "#SLATE#(%d 石头吸收)#LAST#",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "#SLATE#(%d 转化为石头)#LAST#",
+      "recommendation": "写为石质护盾吸收，或转移至石质护盾。",
+      "revision_key": "b952467db4016fadabad7c560f57ec36835957551e2361dadf510fb991d8c422",
+      "source": "#SLATE#(%d to stone)#LAST#",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "石质护盾吸收伤害误写成转化为石头",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M113.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "项目补齐十回合正确，但把官方模糊的效果受法术强度改成明确伤害随法术强度，提高了不存在伤害的误导程度。以固定源码为准。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "action只施加EFF_WET十回合，没有伤害计算、伤害投射或Spellpower读取；英文末句本身与机制不符。",
+          "lines": [
+            689,
+            704
+          ],
+          "path": "game/modules/tome/data/talents/misc/horrors.lua"
+        }
+      ],
+      "id": "M123",
+      "inventory_index": 887,
+      "line": 25895,
+      "official_target": "在你身边 %d 范围内制造水流，令所有生物湿润。\n\t\t效果受法术强度加成。",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "在你周围半径 %d 格内激起水浪，使所有生物进入湿润状态 10 回合。\n\t\t伤害将随你的法术强度提高。",
+      "recommendation": "删除不存在的伤害及其法术强度加成说明。",
+      "revision_key": "2a58367d7fd43128613b4b416ca391a644eaeee7b5349aae4a41bbe406c0c2ce",
+      "source": "Blast a wave of water all around you with a radius of %d, making all creatures Wet for 10 turns.\n\t\tThe damage will increase with your Spellpower.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "湿润水浪新增不存在的伤害加成",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M123.txt"
+    },
+    {
+      "args_order": [
+        2,
+        1,
+        3,
+        4
+      ],
+      "component": "tome",
+      "counterevidence": "官方遗漏整个概率条件，项目补齐召唤物和最长时间有益，但新增等级误导为角色等级。args_order保持正确。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "rng.chance(target.rank or 5)依赖目标品阶，非target.level；召唤物绕过这一概率。",
+          "lines": [
+            6898,
+            6903
+          ],
+          "path": "game/modules/tome/data/general/objects/world-artifacts.lua"
+        }
+      ],
+      "id": "M125",
+      "inventory_index": 3519,
+      "line": 13195,
+      "official_target": "对半径%d内所有目标目标造成 %0.2f 时空伤害（基于魔法和紊乱），射程%d。如果仍存活则移出时间线%d回合。",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "尝试对半径 %d 内的所有敌人造成 %0.2f 时空伤害（射程 %d，基于法术强度和紊乱，若有的话；成功率取决于等级，召唤物必定受影响），存活者将被移出时间线最多 %d 回合。",
+      "recommendation": "改为成功率取决于目标品阶。",
+      "revision_key": "91344ca3863477eb8f1f34d765892f4039f130b4c8885c401de67aa17527c074",
+      "source": "attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "放逐戒指成功率的rank误写等级",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M125.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方%s的仍表达所有关系，项目加入量词造成运行时错误。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "实参string.his_her(target)是他的/她的，项目%s枚会显示用他的枚盾牌碎片。",
+          "lines": [
+            1135,
+            1141
+          ],
+          "path": "game/modules/tome/class/interface/Combat.lua"
+        }
+      ],
+      "id": "M127",
+      "inventory_index": 3772,
+      "line": 1392,
+      "official_target": "#Source# 用%s的盾牌碎片反击了 #Target# !",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "#Source#用%s枚盾牌碎片反击了#Target#！",
+      "recommendation": "按物主代词表达，例如用%s盾牌碎片。",
+      "revision_key": "113aae841193bd376318771ff38b26686ad85ca1fd666d21106ff3421ffcc22f",
+      "source": "#Source# counter attacks #Target# with %s shield shards!",
+      "source_tag": "logCombat",
+      "status": "confirmed",
+      "topic": "盾牌碎片日志把物主代词当作数量",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M127.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方出入现实空间虽不够统一但涉及现实；项目改为脱离相位进一步脱离既定名称。码与格计数相同，本轮不把单位偏好单独升为缺陷。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "同样施加EFF_OUT_OF_PHASE，冻结术语要求统一沿用效果定义脱离现实。",
+          "lines": [
+            1383,
+            1397
+          ],
+          "path": "game/modules/tome/data/talents/misc/inscriptions.lua"
+        }
+      ],
+      "id": "M138",
+      "inventory_index": 928,
+      "line": 26074,
+      "official_target": "激活这个符文会使你在 %d 码范围内随机传送。 \n\t\t之后，你会出入现实空间 %d 回合，所有新的负面状态持续时间减少 %d%% ，闪避增加 %d ，全体伤害抗性增加 %d%% 。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "激活这个符文会使你在 %d 码范围内随机传送。\n\t\t之后，你会脱离相位 %d 回合，所有新的负面状态持续时间减少 %d%%， 闪避增加 %d， 全体伤害抗性增加 %d%%。",
+      "recommendation": "改为脱离现实。",
+      "revision_key": "33037b454f34563b1d21349951307a2a8f3172f9881878ebf627166aeaf419dc",
+      "source": "Activate the rune to teleport randomly in a range of %d.\n\t\tAfterwards you stay out of phase for %d turns. In this state all new negative status effects duration is reduced by %d%%, your defense is increased by %d and all your resistances by %d%%.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "随机传送后新译效果名与脱离现实不一致",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M138.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方每点充能正确，项目任意暴击和衰减说明改善正确，但新增总共错误；雷电伤害也不符冻结lightning=闪电术语。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "CAUGHT_LIGHTNING按eff.dur*5加闪电伤害、按eff.dur加全属性；充能dur累加上限10。每点是5%和1点，非所有充能共计5%和1点。",
+          "lines": [
+            8564,
+            8584
+          ],
+          "path": "game/modules/tome/data/general/objects/world-artifacts.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "on_merge累计dur并限制10；activate/on_timeout以dur计算属性加成。",
+          "lines": [
+            3047,
+            3077
+          ],
+          "path": "game/modules/tome/data/timed_effects/mental.lua"
+        }
+      ],
+      "id": "M140",
+      "inventory_index": 3578,
+      "line": 13356,
+      "official_target": "每次接受雷电伤害或造成暴击雷电伤害时获得两点充能，每点充能提供 5%% 雷电伤害加成和 1 点全属性。\n每回合损失一点加成。加成最多10层。",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "受到雷电伤害或造成任意暴击时会获得 2 点充能，这些充能总共提供 5% 雷电伤害加成和 1 点全属性。\n充能每回合衰减 1 点，最多 10 点充能。",
+      "recommendation": "每点充能提供5%闪电伤害和1点全属性。",
+      "revision_key": "d442f8b318ae6978b6a8d3320bd24d3072e3f3ab7c9540643ce41526f2ea59f4",
+      "source": "Taking lightning damage or making critical hits builds 2 energy charges, which give you +5% lightning damage and +1 to all stats.\nThe charges decay at a rate of 1 per turn. Max 10 charges.",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "充能逐点加成误写成总量固定",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M140.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "新增随机选择限定正确；官方湿润原已对应该状态，项目浸湿破坏名称对应。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "随机施加EFF_SHOCKED或EFF_WET，后者状态名应与湿润定义及冰风符文同族描述一致。",
+          "lines": [
+            8042,
+            8047
+          ],
+          "path": "game/modules/tome/data/general/objects/world-artifacts.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "WET效果定义，当前mod-tome.lua:35458-35461的状态名及浮动文本均作湿润。",
+          "lines": [
+            3448,
+            3455
+          ],
+          "path": "game/modules/tome/data/timed_effects/magical.lua"
+        }
+      ],
+      "id": "M141",
+      "inventory_index": 3560,
+      "line": 13315,
+      "official_target": "造成湿润或震撼效果。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "随机造成震撼或浸湿效果。",
+      "recommendation": "随机造成震撼或湿润效果。",
+      "revision_key": "f7f0753fc3d52140d0ceb8f67485dbc413a959d83ab05b84ecdbfd059389ba71",
+      "source": "inflicts either shocked or wet, chosen at random",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "风暴前线随机湿润效果改成浸湿",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M141.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "仅低优先级newline不变量，不认定机制数值错误。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "源串3个换行，项目4个。",
+          "lines": [
+            245,
+            248
+          ],
+          "path": "game/modules/tome/data/talents/misc/inscriptions.lua"
+        }
+      ],
+      "id": "M143",
+      "inventory_index": 934,
+      "line": 26106,
+      "official_target": null,
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。\n\t\t当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。\n\t\t你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%，在生命值降至 0 或更低时最多提高 100%%。\n\t\t（目前 %d 生命值， %d 持续时间）\n\t\t效果结束时，如果你的生命值在 0 以下，会变为 1 点。",
+      "recommendation": "按源串恢复分段。",
+      "revision_key": "9568ef82e166995f6d323448962e284e5ebaab125b064b1ba2a3e88ef4f09254",
+      "source": "Activate the infusion to endure even the most grievous of wounds for %d turns.\n\t\tWhile Heroism is active, you will only die when reaching -%d life.\n\t\tThe duration and life will increase by 1%% for every 1%% life you have lost, to a maximum of 100%% at 0 life or less (currently %d life, %d duration)\n\t\tIf your life is below 0 when this effect wears off it will be set to 1.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "段落换行布局与源串不一致",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M143.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "英文种族概述本身confusion有误；官方震慑定身与源码一致，项目改为混乱眩晕使机制错误扩大。应优先源码，而非按英文校正旧译。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "固定源码效果激活提供stun_immune及pin_immune，非confusion；减伤或近战未命中等触发另一OGRE_FURY暴击加成，不决定基础免疫激活。",
+          "lines": [
+            62,
+            62
+          ],
+          "path": "game/modules/tome/data/birth/races/giant.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "OGRIC_WRATH激活无条件stun_immune/pin_immune各0.2；callback另施加OGRE_FURY。",
+          "lines": [
+            3869,
+            3915
+          ],
+          "path": "game/modules/tome/data/timed_effects/magical.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "技能实际说明区分基础抵抗与Ogre Fury充能条件。",
+          "lines": [
+            1087,
+            1098
+          ],
+          "path": "game/modules/tome/data/talents/misc/races.lua"
+        }
+      ],
+      "id": "M179",
+      "inventory_index": 3976,
+      "line": 3503,
+      "official_target": "他们拥有 #GOLD#怒火中烧 #WHITE# 技能，能提供暴击几率和伤害，并提供震慑定身免疫。",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "他们拥有 #GOLD#食人魔之怒#WHITE# 技能，当他们的攻击落空或被格挡时，该技能会为他们提供暴击几率和暴击伤害，并提高对混乱和眩晕的抗性。",
+      "recommendation": "施放后提高震慑和定身抵抗；暴击加成另按未命中、伤害被减免等条件获得。",
+      "revision_key": "0a7d2c5561cc4d090a29e9846a8f657e416d6488dd6fabd28242d3ea52a5f669",
+      "source": "They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "食人魔之怒抵抗类别与触发条件错误",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M179.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方降低额外伤害更贴近源码；项目有几率完全忽略跟随错误英文，导致机制回退。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "英文chance to ignore与实际实现不一致；damage_types.lua将额外暴击倍率乘以ignore_direct_crits百分比作比例削减，并没有随机判定。",
+          "lines": [
+            318,
+            320
+          ],
+          "path": "game/modules/tome/class/interface/TooltipsData.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "reduce=(crit_power-1)*bound(ignore_direct_crits,0,100)/100；crit_power减reduce，无rng。",
+          "lines": [
+            130,
+            154
+          ],
+          "path": "game/modules/tome/data/damage_types.lua"
+        }
+      ],
+      "id": "M195",
+      "inventory_index": 4187,
+      "line": 1904,
+      "official_target": "#GOLD#暴击摆脱#LAST#\n让你在受到直接暴击伤害时，降低暴击的额外伤害。（无论是近战，法术，远程，精神力量，还是…）\n",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "#GOLD#暴击摆脱#LAST#\n有几率完全忽略任何直接伤害攻击（近战、法术、远程、精神力量……）所造成的额外暴击伤害。\n",
+      "recommendation": "按比例减少直接攻击造成的额外暴击伤害。",
+      "revision_key": "d63d1c8f7b43a9416ad106e365e38c222e028c13162865b2e34f0d11447d0acd",
+      "source": "#GOLD#Crits Shrug Off#LAST#\nGives a chance to ignore the bonus critical damage from any direct damage attacks (melee, spells, ranged, mind powers, ...).\n",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "暴击摆脱由比例减伤改成概率全免",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M195.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "项目增加随机限定符合实现，但丢失原有黑暗光环专名；不能把它理解为暗影伤害。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "RANDOM_GLOOM随机施加GLOOM_CONFUSED/STUNNED/SLOW，均属于黑暗光环效果；冻结Gloom技能名为黑暗光环。",
+          "lines": [
+            2068,
+            2095
+          ],
+          "path": "game/modules/tome/data/damage_types.lua"
+        }
+      ],
+      "id": "M199",
+      "inventory_index": 4096,
+      "line": 6977,
+      "official_target": "%几率黑暗光环",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "%几率随机黑暗效果",
+      "recommendation": "改为%几率随机黑暗光环效果。",
+      "revision_key": "76ded6e70ccc8432081e3bcf63a3f75ef018ff2e15c357b54c63ea35d825964a",
+      "source": "% chance of gloom effects",
+      "source_tag": "damage type",
+      "status": "confirmed",
+      "topic": "黑暗光环减益标签改成泛称黑暗效果",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M199.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方强化虽泛化但没有引入第三个数值名称；不裁决全局术语库，只记录本界面一致性问题。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "learnType对已知技能树调用setTalentTypeMastery加0.2；提示category mastery与category efficiency及本说明mastery均是同一数值。项目4240掌握度、4244精通度、本条熟练度未统一。",
+          "lines": [
+            433,
+            454
+          ],
+          "path": "game/modules/tome/dialogs/LevelupDialog.lua"
+        }
+      ],
+      "id": "M200",
+      "inventory_index": 4256,
+      "line": 42005,
+      "official_target": "一个技能树包括一些你可以学习的技能。你分别在等级达到 10、 20、 34 级时可以获得一个技能分类点数，你也能在游戏中找到技能训练师来学习更多技能。每一点技能分类点数可以解锁一个未知的技能树或者强化一个已知的技能树。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "一个技能树包含你可以学习的技能。你会在 10、20 和 34 级时各获得一个技能树点数，也可以找到训练师或神器来学习更多。\n每一点技能树点数可以用来学习一个新的技能树，或者提升一个已知技能树的熟练度。",
+      "recommendation": "本界面统一数值名称，例如技能树掌握度；保留每点加0.2。",
+      "revision_key": "2ec16d086b8884d99351cdb501576d5fda7521b34b5040da45dcec90d0a99792",
+      "source": "A talent category contains talents you may learn. You gain a talent category point at level 10, 20 and 34. You may also find trainers or artifacts that allow you to learn more.\nA talent category point can be used either to learn a new category or increase the mastery of a known one.",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "技能树掌握度在同一界面使用三个名称",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M200.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "英文说明自身在Dream Shield/Forge Shield间不统一；不能仅据英文表面把同一机制改名。官方熔炉屏障原能对应实际名称。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "Forge Shield技能名与状态名在项目均为熔炉屏障，同批1147也引用熔炉屏障；本条改为梦境屏障，日志另用梦境屏障，无法与实际技能效果名称对应。源码此段Dream Shield实指同一T_FORGE_SHIELD/EFF_FORGE_SHIELD。",
+          "lines": [
+            23,
+            24
+          ],
+          "path": "game/modules/tome/data/talents/psionic/dream-forge.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "两条dream shield日志均在同一个EFF_FORGE_SHIELD触发分支。",
+          "lines": [
+            45,
+            60
+          ],
+          "path": "game/modules/tome/data/talents/psionic/dream-forge.lua"
+        }
+      ],
+      "id": "M202",
+      "inventory_index": 1144,
+      "line": 27228,
+      "official_target": "当你将要承受一次超过 15 %%最大生命值的攻击时，你会锻造一个熔炉屏障来保护自己，减少 %0.2f 点所有该类型攻击伤害于下 %d 回合。 \n\t\t熔炉屏障能够同时格挡多种类型的伤害，但是每一种已拥有的格挡类型会使伤害临界点上升 15 %%。\n\t\t如果你完全格挡了某一攻击者的伤害，则此攻击者受到持续 1 回合的反击 DEBUFF（200 %%普通近身或远程伤害）。\n\t\t在等级 5 时，格挡效果将持续 2 回合。 \n\t\t受精神强度影响，格挡值按比例加成。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "当一次攻击将造成你有效总生命值 15%% 或更多的伤害时，你会锻造梦境屏障保护自己，使该类型的所有攻击减少 %0.2f 点伤害，持续 %d 回合。\n\t\t你可以同时格挡多种伤害类型，但护盾每多格挡一种伤害类型，基础伤害阈值便提高 15%%。\n\t\t若你完全格挡一次攻击的全部伤害，攻击者会进入持续 1 回合的致命反击状态（对其发起的下一次普通近战或远程攻击将造成 200%% 伤害）。\n\t\t技能等级 5 时，格挡效果将持续 2 回合。\n\t\t伤害减免受精神强度加成。",
+      "recommendation": "与技能名和状态名统一为熔炉屏障，并同步本批对应日志。",
+      "revision_key": "ad0911943737b6a49f6fa4f5c6d53d8849af2deabc15a871363d2c24de796a3a",
+      "source": "When an attack would deal 15%% or more of your effective total health, you forge the Dream Shield to protect yourself, reducing the damage of all attacks of that type by %0.2f for the next %d turn(s).\n\t\tYou may block multiple damage types at one time, but the base damage threshold increases by 15%% per damage type the shield is already blocking.\n\t\tIf you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal melee or ranged attack will instead deal 200%% damage) for one turn.\n\t\tAt talent level 5, the block effect will last two turns.\n\t\tThis damage reduction scales with your Mindpower.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "梦境屏障与同一熔炉屏障技能效果名称不一致",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M202.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "不强制限定decaying修饰词，只确认伤害元素名；官方暗影虚弱保留元素名。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "RIGOR_MORTIS明确投射DARKNESS并施加SLOW与RIGOR_MORTIS；darkness伤害术语为暗影，本条衰败黑暗与同族时空暗影不一致。",
+          "lines": [
+            3372,
+            3381
+          ],
+          "path": "game/modules/tome/data/damage_types.lua"
+        }
+      ],
+      "id": "M208",
+      "inventory_index": 4119,
+      "line": 7062,
+      "official_target": "暗影虚弱",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "衰败黑暗",
+      "recommendation": "保留衰败等修饰，使用暗影作为元素名。",
+      "revision_key": "ddd5f2a1209101341d5bdb866d2e96af344a0649c4476e6598d468c825e9e4d7",
+      "source": "decaying darkness",
+      "source_tag": "damage type",
+      "status": "confirmed",
+      "topic": "暗影伤害名称回退为黑暗",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M208.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "entity type运行键可在其他实体处复用，但同键共享译文不能把陷阱分类变成生物；官方元素没有此限制。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "TRAP_ELEMENTAL的type=elemental是压力陷阱分类；投射元素伤害，unided_name=trap，并非元素生物。",
+          "lines": [
+            21,
+            31
+          ],
+          "path": "game/modules/tome/data/general/traps/elemental.lua"
+        }
+      ],
+      "id": "M210",
+      "inventory_index": 4142,
+      "line": 13455,
+      "official_target": "元素",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "元素生物",
+      "recommendation": "该共享类别保持元素或其他兼容陷阱与生物的译名。",
+      "revision_key": "e9820fdf926e163a25a3a1f362ee6fd544e626ff58251bc81580d6bb7f4fc122",
+      "source": "elemental",
+      "source_tag": "entity type",
+      "status": "confirmed",
+      "topic": "元素陷阱类别误作元素生物",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M210.txt"
+    },
+    {
+      "args_order": null,
+      "component": "ashes-urhrok",
+      "counterevidence": "DLC公开源码commit未固定；结论限于本次实际核验快照。",
+      "evidence": [
+        {
+          "commit": null,
+          "fact": "FIERY_TORMENT的fearscape与同DLC技能torture/fearfire/races的Fearscape是同一地点；配套技能现译均恶魔空间，官方本条亦恶魔空间。术语记录属newLore category，不机械套标签，按配套引用关系确认不一致。",
+          "lines": [
+            66,
+            69
+          ],
+          "path": "tome-ashes-urhrok/data/timed_effects.lua",
+          "sha256": "eb183d02dba83a010aac5c7938cf590307b9f99a88de9b7222be7e58f4863f8d",
+          "source_pinning": "unpinned_public_source"
+        }
+      ],
+      "id": "M220",
+      "inventory_index": 4375,
+      "line": 1432,
+      "official_target": "目标的火焰抗性下降 %d%% , 并会被恶魔空间的火焰灼伤。效果结束时将受到 %d 火焰伤害，并追加 %d%% 效果期间受到的总伤害。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "目标的火焰抗性下降 %d%%，并且极易受到恐惧空间火焰的伤害。效果结束时将受到 %d 火焰伤害，该伤害还会增加效果期间所受总伤害的 %d%%。",
+      "recommendation": "统一本条为恶魔空间。",
+      "revision_key": "fb2453b2b58f680fb5288fcba3fa8604c500994531b40f311c88dec159a9327e",
+      "source": "The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "同一恶魔空间专名回退为恐惧空间",
+      "translation_file": "tome-ashes-urhrok.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M220.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "英文概述也未写cone；按固定实际目标形状判定，不照英文删除正确信息。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "target type=cone，radius动态；SPELLKNOCKBACK dist=8。项目正确补8格，但删除官方锥形，只写范围为半径；另源串1换行、项目2换行。",
+          "lines": [
+            143,
+            160
+          ],
+          "path": "game/modules/tome/data/talents/spells/earth.lua"
+        }
+      ],
+      "id": "M232",
+      "inventory_index": 1354,
+      "line": 28570,
+      "official_target": "召唤一次山崩对敌人造成 %0.2f 点物理伤害（ %d 码锥形范围）。 \n\t\t范围内的任何敌人都将被击退。 \n\t\t伤害受法术强度加成。",
+      "origin": "project_regression_with_upstream_english_mismatch",
+      "priority": "low",
+      "project_target": "召唤一次泥石流，造成 %0.2f 点物理伤害，范围为半径 %d。\n\t\t范围内的所有生物都会被击退 8 格。\n\t\t伤害受法术强度加成。",
+      "recommendation": "保留8格击退，恢复锥形范围和源串分段。",
+      "revision_key": "8a59347a22e7157961a85d3a7ee16df27f501e6145997582107af191dcf68206",
+      "source": "Conjures a mudslide, dealing %0.2f physical damage in a radius of %d. Any creatures caught inside will be knocked back 8 spaces.\n\t\tThe damage will increase with your Spellpower.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "泥石流范围改译丢失锥形",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M232.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方指向奇术之球符合实际实现。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "射线仍由施法者复制施放，以球所在坐标为目标；项目以奇术之球为施法点把目标改成施法起点。",
+          "lines": [
+            48,
+            55
+          ],
+          "path": "game/modules/tome/data/talents/spells/thaumaturgy.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "self:forceUseTalent以force_target={x=eff.x,y=eff.y}指定球位置，没有将self施法坐标移动到球。",
+          "lines": [
+            5444,
+            5453
+          ],
+          "path": "game/modules/tome/data/timed_effects/magical.lua"
+        }
+      ],
+      "id": "M273",
+      "inventory_index": 1520,
+      "line": 29726,
+      "official_target": "你放出一个奇术之球，持续 %d 回合。\n\t\t在这个球持续期间，你释放的射线类法术将会被复制一次，指向奇术之球，并造成 %d%% 原伤害。\n\t\t",
+      "origin": "project_regression",
+      "priority": "high",
+      "project_target": "你放出一个奇术之球，持续 %d 回合。\n\t\t在奇术之球持续期间，你施放的任何射线法术都会被复制，并以奇术之球为施法点免费施放，造成通常 %d%% 的伤害。\n\t\t",
+      "recommendation": "改为复制射线指向奇术之球。",
+      "revision_key": "4f80f2eab8df71fbe43207eb955c273ce41057938fb6eb29666fabccdf280c4a",
+      "source": "You create an orb attuned to thaumaturgy for %d turns.\n\t\tWhile it lasts, any beam spell you cast will be duplicated and also cast for free at the orb for %d%% of the normal damage.\n\t\t",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "奇术之球被误作射线施法起点",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M273.txt"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "counterevidence": "DLC公开源码及commit未固定；结论仅适用于本次可核验快照。",
+      "evidence": [
+        {
+          "commit": null,
+          "fact": "SHOES_SLOWLY分别增加combat_armor与combat_def，后者是闪避属性；官方闪避正确，项目防御未对应属性面板。",
+          "lines": [
+            2262,
+            2294
+          ],
+          "path": "tome-cults/data/timed_effects.lua",
+          "sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+          "source_pinning": "unpinned_public_source"
+        }
+      ],
+      "id": "M281",
+      "inventory_index": 4754,
+      "line": 3872,
+      "official_target": "保持警惕，增加 %d 护甲和闪避。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "原地不动，增加 %d 护甲和防御。",
+      "recommendation": "改护甲和闪避，保留原地不动条件修正。",
+      "revision_key": "290ae6fc14944af4a982f9cb2f75326dcc0e8888ddde90a2fd5c5d618f4b5a2d",
+      "source": "Stay put, increasing your armour and defense by %d.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "鞋子效果Defense从闪避改成防御",
+      "translation_file": "tome-cults.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M281.txt"
+    },
+    {
+      "args_order": null,
+      "component": "cults",
+      "counterevidence": "DLC公开源码及commit未固定；结论仅适用于本次可核验快照。",
+      "evidence": [
+        {
+          "commit": null,
+          "fact": "HORRIFIC_FORTRESS修改flat_damage_armor.all并以PHYSICAL负值抵消，提供非物理固定伤害减免；不修改combat_armor。项目护甲降低误作护甲属性下降。",
+          "lines": [
+            2323,
+            2341
+          ],
+          "path": "tome-cults/data/timed_effects.lua",
+          "sha256": "0d3139ebf8a4b1add13f340c166f42efbd90c26c901b7999eb0608f82d76ac9c",
+          "source_pinning": "unpinned_public_source"
+        }
+      ],
+      "id": "M282",
+      "inventory_index": 4759,
+      "line": 3881,
+      "official_target": "#Target#的防御不再被强化。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "#Target#的护甲降低了。",
+      "recommendation": "表达额外防护或非物理减伤消退，避免护甲属性降低。",
+      "revision_key": "3596a17dc20f32651415a50011253a17d242d19a6f195be0e47f21dca63843c8",
+      "source": "#Target# is less armoured.",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "恐怖堡垒结束提示误称护甲属性降低",
+      "translation_file": "tome-cults.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M282.txt"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "counterevidence": "DLC公开源码来源及commit未固定；结论限于本次可核验快照。",
+      "evidence": [
+        {
+          "commit": null,
+          "fact": "源串2换行，项目3换行。",
+          "lines": [
+            43,
+            45
+          ],
+          "path": "tome-orcs/data/talents/steam/bullets-mastery.lua",
+          "sha256": "a2d50b662791d71a2343aa175f71383b1d4e9d24031ed5c70084a3ee2214f31c",
+          "source_pinning": "unpinned_public_source"
+        }
+      ],
+      "id": "M307",
+      "inventory_index": 4961,
+      "line": 4754,
+      "official_target": "使用蒸汽进行子弹的过热处理。\n\t\t接下来的 %d 回合内，你的子弹会点燃目标，在 5 回合内造成 %0.2f 火焰伤害（大多数射击技能一次发射两枚弹药）。\n\t\t一次只能使用一种弹药强化能力。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "使用蒸汽进行子弹的过热处理。\n\t\t接下来的 %d 回合内，你的子弹会点燃目标，在 5 回合内造成 %0.2f 火焰伤害（大多数射击技能一次发射两枚弹药）。\n\t\t伤害随蒸汽强度提高。\n\t\t一次只能使用一种弹药强化能力。",
+      "recommendation": "恢复源分段。",
+      "revision_key": "053af08acf740684b939a7bc18813b8d6dd43ab0503745e4a8f790683a826810",
+      "source": "By sending a stream of hot steam over your bullets you overheat them. For the next %d turns, each bullet will set the target ablaze, making it burn for %0.2f fire damage over 5 turns (most of your shooting talents fire two bullets at once).\n\t\tDamage will increase with Steampower.\n\t\tOnly one bullet enhancement can be used at once.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "段落换行布局与源串不一致",
+      "translation_file": "tome-orcs.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M307.txt"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "counterevidence": "DLC公开源码来源及commit未固定；结论限于本次可核验快照。",
+      "evidence": [
+        {
+          "commit": null,
+          "fact": "筛选非fixed_cooldown、is_steam及tier上限的冷却技能，循环候选为空即break；数量是最多%d，官方明确最多，现译重置%d个。",
+          "lines": [
+            153,
+            173
+          ],
+          "path": "tome-orcs/data/talents/steam/automated-butchery.lua",
+          "sha256": "a429d63fbf7d283ff2e0c23f8bc9667ee2f4c2a31811612ef89cb479dcb5d6f1",
+          "source_pinning": "unpinned_public_source"
+        }
+      ],
+      "id": "M315",
+      "inventory_index": 4937,
+      "line": 4576,
+      "official_target": "你开启全部插件的超频模式，重置最多 %d 个蒸汽科技技能（ %d 层级或以下）的冷却时间 ，直接恢复 %d%% 蒸汽值。\n\t\t在 6 回合内，蒸汽值最大值翻倍，但是恢复值减半。\n\t\t#{italic}#科技至尊、死亡之主！！#{normal}#",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "你解除全部插件的安全限制，从你大部分蒸汽科技技能中重置 %d 个层级不高于 %d 的技能冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。\n\t\t此外，在 6 回合内，蒸汽值上限翻倍，但蒸汽恢复速度减半。\n\t\t#{italic}#科技至尊、死亡之主！#{normal}#",
+      "recommendation": "补回最多限定。",
+      "revision_key": "03bc004f11330892c0d688d7a9e07a9061655c3462246b85cbb3b8ff74abb70e",
+      "source": "You override all security measures of your tinkers, allowing you to reset the cooldown of %d of most of your steamtech talents of tier %d or less and instantly increases your steam level by %d%% of the maximum.\n\t\tIn addition for 6 turns your maximum steam capacity is doubled, but steam regeneration is halved.\n\t\t#{italic}#Master of Tech, Master of Death!#{normal}#",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "科技过载重置数量上限遗漏",
+      "translation_file": "tome-orcs.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M315.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "布局不变量，低优先级，不认定战斗数值错误。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "源串1换行，项目2换行，官方1换行。",
+          "lines": [
+            317,
+            318
+          ],
+          "path": "game/modules/tome/data/talents/techniques/pugilism.lua"
+        }
+      ],
+      "id": "M320",
+      "inventory_index": 1701,
+      "line": 30695,
+      "official_target": " 施展一次毁灭性的踢技，造成 %d%% 伤害。\n\t\t如果攻击命中，对方的大脑受到伤害，不能使用技能，持续 %d 回合，同时你获得 2 连击点。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "施展一次毁灭性的踢技，造成 %d%% 伤害。\n\t\t如果攻击命中，对方的大脑受到伤害，不能使用技能，持续 %d 回合，同时你获得 2 连击点。\n\t\t该效果无法通过豁免抵抗，但可以被闪避，并会检查混乱免疫。",
+      "recommendation": "恢复源分段。",
+      "revision_key": "beebf37bd19abcbe66396e20c0a06804ae69b02c0c6ac22559218a6f2fb74b39",
+      "source": "Deliver a devastating axe kick dealing %d%% damage. If the blow connects your target is brain damaged, causing all talents to fail for %d turns and earning 2 combo points.\n\t\tThis effect cannot be saved against, though it can be dodged and checks confusion immunity.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "段落换行布局与源串不一致",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M320.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "官方提示正确，项目所需的体力更少改变了条件含义。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "on_pre_use在当前体力大于最大体力30%时拒绝使用并显示本提示；stamina=0，要求当前体力更低，不是消耗更少。",
+          "lines": [
+            214,
+            228
+          ],
+          "path": "game/modules/tome/data/talents/techniques/strength-of-the-berserker.lua"
+        }
+      ],
+      "id": "M323",
+      "inventory_index": 1727,
+      "line": 30826,
+      "official_target": "你得在体力更低时使用这个技能。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "使用这个技能所需的体力更少。",
+      "recommendation": "写明当前体力需更低才能使用。",
+      "revision_key": "c6a73b9d57ffb33296d41dec17a7103bc21800671ac634cb25e12872c95cb82f",
+      "source": "You require less stamina to use this talent.",
+      "source_tag": "logPlayer",
+      "status": "confirmed",
+      "topic": "体力使用门槛误作技能体力消耗减少",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M323.txt"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "counterevidence": "DLC公开源码来源及commit未固定，结论限于本次可核验快照。",
+      "evidence": [
+        {
+          "commit": null,
+          "fact": "EFF_MAGNETISED的power同时用于闪避降低及疲劳增加；现译降低其闪避并增加%d点疲劳仅把数值挂在疲劳上。",
+          "lines": [
+            1612,
+            1639
+          ],
+          "path": "tome-orcs/data/talents/steam/other.lua",
+          "sha256": "4a12c05410e5f47e466f2ba9f110c9346964a83a2812bad062dc4650c1992970",
+          "source_pinning": "unpinned_public_source"
+        },
+        {
+          "commit": null,
+          "fact": "combat_def=-eff.power，fatigue=eff.power；同状态long_desc也分别显示相同数值。",
+          "lines": [
+            710,
+            721
+          ],
+          "path": "tome-orcs/data/timed_effects/physical.lua",
+          "sha256": "d3332099148953cd03cb1d14c2bdd2390e091905144fd49311d9bd8c33b6e37e",
+          "source_pinning": "unpinned_public_source"
+        }
+      ],
+      "id": "M324",
+      "inventory_index": 5095,
+      "line": 5608,
+      "official_target": "你使用蒸汽枪发射特殊弹药打击目标造成正常武器伤害。\n目标将磁化 %d 回合。这降低了他们的闪避和疲劳 %d 。\n这个技能不使用弹药 \n技能效果受蒸汽强度加成。",
+      "origin": "project_regression",
+      "priority": "low",
+      "project_target": "你用蒸汽枪向目标发射特殊磁化弹，造成正常武器伤害。\n子弹会使目标磁化 %d 回合，降低其闪避并增加 %d 点疲劳。\n这个技能本身就是弹药，因此不消耗弹药。\n效果强度随蒸汽强度提高。",
+      "recommendation": "写明闪避降低和疲劳增加均为%d点，保留项目修正后的疲劳增加方向。",
+      "revision_key": "9eed8659b8e752958a30dde6c5a98671b5703ef6660273961a4f57d228a52e8e",
+      "source": "You fire a special magnetic shot with your steamgun(s) at a target for normal weapon damage.\n\t\tThe shot will magnetise the target for %d turns. This lowers their defense and increases fatigue by %d.\n\t\tThis talent does not use ammo as it is the ammo.\n\t\tEffect strength scales with Steampower.",
+      "source_tag": "tformat",
+      "status": "confirmed",
+      "topic": "磁化弹药闪避降幅数值限定遗漏",
+      "translation_file": "tome-orcs.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M324.txt"
+    },
+    {
+      "args_order": null,
+      "component": "tome",
+      "counterevidence": "机制以固定源码为准，不因英文写one而判改善。",
+      "evidence": [
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "英文类别说明one为过时描述，项目把官方1到2改为只能一个；Actor在25和42级各给一个unused_prodigies。",
+          "lines": [
+            20,
+            26
+          ],
+          "path": "game/modules/tome/data/talents/uber/uber.lua"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "25和42级分别增加一觉醒点。",
+          "lines": [
+            3963,
+            3966
+          ],
+          "path": "game/modules/tome/class/Actor.lua"
+        }
+      ],
+      "id": "M349",
+      "inventory_index": 1885,
+      "line": 31692,
+      "official_target": " 强大的觉醒技，每个人只能习得 1 到 2 个。",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "终极觉醒技，你只能习得一个。",
+      "recommendation": "说明可习得两个觉醒技，或按实际觉醒点数表述。",
+      "revision_key": "6085dd6b0be971acda0f45751b7f742a20fb149945b518fb547c65dff3979acc",
+      "source": "Ultimate talents you may only know one.",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "觉醒技可学数量改为一个与实现不符",
+      "translation_file": "mod-tome.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M349.txt"
+    },
+    {
+      "args_order": null,
+      "component": "orcs",
+      "counterevidence": "公开DLC来源未固定，结论限于文件SHA所示快照，不声明固定1.7.4版本。",
+      "evidence": [
+        {
+          "commit": null,
+          "fact": "callbackOnMeleeAttack无条件恢复basedam及movement_speed=0，未检查hitted；核心Combat调用回调时传递hitted，miss仍调用。官方攻击后较准确，项目命中目标后不符。",
+          "lines": [
+            1717,
+            1753
+          ],
+          "path": "tome-orcs/data/general/objects/world-artifacts.lua",
+          "sha256": "4d1225a3e95750fde970a5c6610d5e8a24b690c329f86c866e8a2074de70248c",
+          "source_pinning": "unpinned_public_source"
+        },
+        {
+          "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+          "fact": "近战完成时callbackOnMeleeAttack(target,hitted,...)，没有仅命中调用的限制。",
+          "lines": [
+            1143,
+            1149
+          ],
+          "path": "game/modules/tome/class/interface/Combat.lua"
+        }
+      ],
+      "id": "M355",
+      "inventory_index": 5439,
+      "line": 1691,
+      "official_target": "移动会带来移动速度加成(最高25%)和伤害加成(最高50%)。攻击后加成消失。",
+      "origin": "project_regression",
+      "priority": "medium",
+      "project_target": "移动会叠加移动速度加成（最高 25%）和伤害加成（最高使伤害翻倍）。命中目标后加成消失。",
+      "recommendation": "说明近战攻击后加成清空。",
+      "revision_key": "62164baa71b8abfcfea9f5e46664316bd1a2e262ef50ae20e9fd6e0964008ab7",
+      "source": "Moving builds up a stacking movement speed (caps at 25%) and damage bonus (caps at double). Hitting removes the bonus.",
+      "source_tag": "_t",
+      "status": "confirmed",
+      "topic": "加成清空条件从攻击收窄为命中",
+      "translation_file": "tome-orcs.lua",
+      "prompt_path": "evidence/translation-audit/official-mechanics-20261009/gemini38-drafts/prompts/M355.txt"
+    }
+  ]
+}

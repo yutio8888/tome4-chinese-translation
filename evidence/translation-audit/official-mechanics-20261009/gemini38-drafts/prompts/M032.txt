@@ -1,0 +1,10 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：Attack with your bow or dual-weapons for %d%% damage.  If you shoot an arrow you'll teleport near the target location.  If you use your dual-weapons you'll teleport up to your bow's range away.
+		Additionally you now go Out of Phase for five turns after any teleport, gaining %d defense and %d%% resist all.
+		The Out of Phase bonuses will scale with your Magic stat.
+现译：使用弓或双持武器攻击，造成 %d%% 武器伤害。
+		如果使用弓箭，你会被传送到目标位置附近；如果使用双持武器，你会向远离目标的方向传送，最远距离等于弓的射程。
+		此外，每次传送后你都会进入“脱离现实”状态 5 回合，获得 %d 闪避和 %d%% 全体抗性。
+		“脱离现实”的加成随魔力属性提高。
+修正要求：说明双持后随机传送至目标周围弓射程内的有效位置，避免保证远离方向或以自身为射程中心。
+源码事实：双持攻击后枚举目标周围弓射程内的格子，限定距自身至少射程一半且可移动并有目标视线，再随机选择；没有沿远离目标方向的限制，射程上限是距目标，不是距自身。射程5、自身(0,0)、目标(1,0)、目的地(6,0)满足距离条件，却跨过目标且移动距离6。

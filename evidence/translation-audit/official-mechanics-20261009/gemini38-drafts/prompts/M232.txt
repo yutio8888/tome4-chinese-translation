@@ -1,0 +1,8 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：Conjures a mudslide, dealing %0.2f physical damage in a radius of %d. Any creatures caught inside will be knocked back 8 spaces.
+		The damage will increase with your Spellpower.
+现译：召唤一次泥石流，造成 %0.2f 点物理伤害，范围为半径 %d。
+		范围内的所有生物都会被击退 8 格。
+		伤害受法术强度加成。
+修正要求：保留8格击退，恢复锥形范围和源串分段。
+源码事实：target type=cone，radius动态；SPELLKNOCKBACK dist=8。项目正确补8格，但删除官方锥形，只写范围为半径；另源串1换行、项目2换行。

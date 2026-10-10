@@ -1,0 +1,5 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.
+现译：他们拥有 #GOLD#食人魔之怒#WHITE# 技能，当他们的攻击落空或被格挡时，该技能会为他们提供暴击几率和暴击伤害，并提高对混乱和眩晕的抗性。
+修正要求：施放后提高震慑和定身抵抗；暴击加成另按未命中、伤害被减免等条件获得。
+源码事实：固定源码效果激活提供stun_immune及pin_immune，非confusion；减伤或近战未命中等触发另一OGRE_FURY暴击加成，不决定基础免疫激活。；OGRIC_WRATH激活无条件stun_immune/pin_immune各0.2；callback另施加OGRE_FURY。；技能实际说明区分基础抵抗与Ogre Fury充能条件。

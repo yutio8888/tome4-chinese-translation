@@ -1,0 +1,9 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：#GOLD#Crits Shrug Off#LAST#
+Gives a chance to ignore the bonus critical damage from any direct damage attacks (melee, spells, ranged, mind powers, ...).
+
+现译：#GOLD#暴击摆脱#LAST#
+有几率完全忽略任何直接伤害攻击（近战、法术、远程、精神力量……）所造成的额外暴击伤害。
+
+修正要求：按比例减少直接攻击造成的额外暴击伤害。
+源码事实：英文chance to ignore与实际实现不一致；damage_types.lua将额外暴击倍率乘以ignore_direct_crits百分比作比例削减，并没有随机判定。；reduce=(crit_power-1)*bound(ignore_direct_crits,0,100)/100；crit_power减reduce，无rng。

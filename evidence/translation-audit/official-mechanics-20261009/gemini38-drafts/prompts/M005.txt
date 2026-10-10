@@ -1,0 +1,12 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：Each time one of your spells criticals, you project a bolt of light or shadow at up to %d targets within radius %d, doing %0.2f light damage or %0.2f darkness damage per bolt.
+		This effect costs 2 positive or 2 negative energy each time it's triggered, and will not activate if either your positive or negative energy is below 2.
+		The damage scales with your Spellpower.
+		This spell cannot crit.
+现译：每当你的法术打出暴击时，你会向射程 %d 内最多 %d 个目标发射光明或暗影箭矢，每支造成 %0.2f 点光系伤害或 %0.2f 点暗影伤害。
+		每次触发该效果时消耗 2 点正能量或 2 点负能量；当你的正能量或负能量低于 2 时不会触发。
+		受法术强度影响，伤害按比例加成。
+		该法术造成的伤害不能暴击。
+修正要求：恢复为“每发射一支光明或暗影箭矢，分别消耗2点正能量或负能量”。
+源码事实：for i=1,t.getTargetCount 循环内每发一支光/暗弹体都分别执行 incPositive(-2) 或 incNegative(-2)。
+既有参数重排（不改）：[2, 1, 3, 4]

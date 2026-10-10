@@ -1,0 +1,13 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：When an attack would deal 15%% or more of your effective total health, you forge the Dream Shield to protect yourself, reducing the damage of all attacks of that type by %0.2f for the next %d turn(s).
+		You may block multiple damage types at one time, but the base damage threshold increases by 15%% per damage type the shield is already blocking.
+		If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal melee or ranged attack will instead deal 200%% damage) for one turn.
+		At talent level 5, the block effect will last two turns.
+		This damage reduction scales with your Mindpower.
+现译：当一次攻击将造成你有效总生命值 15%% 或更多的伤害时，你会锻造梦境屏障保护自己，使该类型的所有攻击减少 %0.2f 点伤害，持续 %d 回合。
+		你可以同时格挡多种伤害类型，但护盾每多格挡一种伤害类型，基础伤害阈值便提高 15%%。
+		若你完全格挡一次攻击的全部伤害，攻击者会进入持续 1 回合的致命反击状态（对其发起的下一次普通近战或远程攻击将造成 200%% 伤害）。
+		技能等级 5 时，格挡效果将持续 2 回合。
+		伤害减免受精神强度加成。
+修正要求：与技能名和状态名统一为熔炉屏障，并同步本批对应日志。
+源码事实：Forge Shield技能名与状态名在项目均为熔炉屏障，同批1147也引用熔炉屏障；本条改为梦境屏障，日志另用梦境屏障，无法与实际技能效果名称对应。源码此段Dream Shield实指同一T_FORGE_SHIELD/EFF_FORGE_SHIELD。；两条dream shield日志均在同一个EFF_FORGE_SHIELD触发分支。

@@ -1,0 +1,7 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：Heighten the fears of those near to you. Any foe you attempt to inflict a fear upon and who remains in a radius of %d and in sight of you for %d (non-consecutive) turns, will take %0.2f mind and %0.2f darkness damage and gain a new fear that lasts for %d turns.
+			This effect completely ignores fear resistance, but can be saved against.
+现译：加深你周围敌人的恐惧。所有你试图施加恐惧的目标若停留在你视野内，并且和你距离不超过 %d， 累计（不必连续）达到 %d 回合时，就会受到 %0.2f 精神和 %0.2f 暗影伤害，并获得一个新的持续 %d 回合的恐惧效果。
+			这一效果无视恐惧抗性，但可以被豁免。
+修正要求：恢复无视恐惧免疫、但可以被豁免。
+源码事实：施加恐惧时no_fearRes绕过target:canBe("fear")检查；Heighten Fears触发传入该绕过标志，精神豁免判定仍存在。；HEIGHTEN_FEAR超时触发调用tInstillFear.applyEffect(eff.src,tInstillFear,self,true)，明确启用免疫绕过标志。

@@ -1,0 +1,5 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：The target is protected a raging storm deflecting up to %d instances of damage over %d.
+现译：目标受到狂暴风暴的保护，可以偏转至多 %d 次伤害，持续 %d 回合。
+修正要求：“目标受到狂暴风暴保护，可抵消至多 %d 次不低于 %d 点的伤害。”。
+源码事实：两个参数分别为 eff.blocks、eff.threshold，第二参数不是持续时间。；dam < eff.threshold 时跳过；合格伤害扣除一次 blocks 并返回 dam=0。

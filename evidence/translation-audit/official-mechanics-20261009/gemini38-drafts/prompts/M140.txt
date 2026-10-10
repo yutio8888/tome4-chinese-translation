@@ -1,0 +1,7 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：Taking lightning damage or making critical hits builds 2 energy charges, which give you +5% lightning damage and +1 to all stats.
+The charges decay at a rate of 1 per turn. Max 10 charges.
+现译：受到雷电伤害或造成任意暴击时会获得 2 点充能，这些充能总共提供 5% 雷电伤害加成和 1 点全属性。
+充能每回合衰减 1 点，最多 10 点充能。
+修正要求：每点充能提供5%闪电伤害和1点全属性。
+源码事实：CAUGHT_LIGHTNING按eff.dur*5加闪电伤害、按eff.dur加全属性；充能dur累加上限10。每点是5%和1点，非所有充能共计5%和1点。；on_merge累计dur并限制10；activate/on_timeout以dur计算属性加成。

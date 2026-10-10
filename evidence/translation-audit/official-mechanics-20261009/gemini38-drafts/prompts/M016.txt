@@ -1,0 +1,9 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：Gain %d defense and %d%% chance to shrug off critical hits.
+		If you have Precognition or See the Threads active these bonuses will be added to those effects, granting additional defense and chance to shrug off critical hits.
+		These bonuses scale with your Magic stat.
+现译：获得 %d 闪避和 %d%% 几率无视暴击伤害。
+		如果你激活了预知未来或者命运螺旋，那么这些技能也会拥有同样的加成，使你获得额外的闪避和无视暴击伤害几率。
+		增益效果受魔力值加成。
+修正要求：说明减免暴击造成的额外伤害；不可写成有概率无视整次暴击伤害。
+源码事实：ignore_direct_crits 没有随机判定：先除以 crit_power 得到基础伤害，再按 ignore_direct_crits/100 削减 crit_power-1，最后乘回，保留基础伤害。Foresight chronomancy.lua:63 增加这一属性；相关预知效果承接 eff.crits。

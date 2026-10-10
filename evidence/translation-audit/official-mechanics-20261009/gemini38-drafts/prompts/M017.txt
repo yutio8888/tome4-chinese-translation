@@ -1,0 +1,13 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：You peer into three possible futures, allowing you to explore each for %d turns.  When the effect expires, you'll choose which of the three futures becomes your present.
+		If you know Foresight you'll gain additional defense and chance to shrug off critical hits (equal to your Foresight values) while See the Threads is active.
+		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.
+		If you die in any thread you'll revert the timeline to the point when you first cast the spell and the effect will end.
+		This spell may only be used once per zone level.
+现译：你窥视三种可能的未来，允许你分别进行探索 %d 回合。当效果结束，你选择三者之一成为你的现在。
+		如果你学会了深谋远虑，当你使用命运螺旋时，将获得额外的闪避和无视暴击伤害几率（数值等于深谋远虑的奖励）。
+		这个法术会使时间线分裂。当此技能激活的时候，使用其他分裂时间线的技能将会失败。
+		如果你在任何一条时间线上死亡，你将使时间线回到你首次施放技能的时刻，并且技能效果结束。
+		这个技能每个楼层只能使用一次。
+修正要求：说明减免暴击造成的额外伤害；不可写成有概率无视整次暴击伤害。
+源码事实：ignore_direct_crits 没有随机判定：先除以 crit_power 得到基础伤害，再按 ignore_direct_crits/100 削减 crit_power-1，最后乘回，保留基础伤害。Foresight chronomancy.lua:63 增加这一属性；相关预知效果承接 eff.crits。

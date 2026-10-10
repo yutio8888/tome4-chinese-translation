@@ -1,0 +1,9 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：You override all security measures of your tinkers, allowing you to reset the cooldown of %d of most of your steamtech talents of tier %d or less and instantly increases your steam level by %d%% of the maximum.
+		In addition for 6 turns your maximum steam capacity is doubled, but steam regeneration is halved.
+		#{italic}#Master of Tech, Master of Death!#{normal}#
+现译：你解除全部插件的安全限制，从你大部分蒸汽科技技能中重置 %d 个层级不高于 %d 的技能冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。
+		此外，在 6 回合内，蒸汽值上限翻倍，但蒸汽恢复速度减半。
+		#{italic}#科技至尊、死亡之主！#{normal}#
+修正要求：补回最多限定。
+源码事实：筛选非fixed_cooldown、is_steam及tier上限的冷却技能，循环候选为空即break；数量是最多%d，官方明确最多，现译重置%d个。

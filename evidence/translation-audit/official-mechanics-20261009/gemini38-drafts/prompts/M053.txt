@@ -1,0 +1,5 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：A random shadow absorbed a fatal blow for you, granting you a negative shield of %d.
+现译：一个随机的阴影为你吸收了一次致命伤害，为你提供一个 %d 强度的负能量护盾。
+修正要求：写为可承受 %d 点负生命值的保护，或明确死亡阈值降低 %d 点，避免负能量资源含义。
+源码事实：SHADOW_DECOY activate 使用 effectTemporaryValue(eff,"die_at",-eff.power)，修改死亡生命阈值；没有修改 negative 资源或创建普通吸收护盾。

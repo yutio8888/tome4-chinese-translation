@@ -1,0 +1,7 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：Blast a wave of water all around you with a radius of %d, making all creatures Wet for 10 turns.
+		The damage will increase with your Spellpower.
+现译：在你周围半径 %d 格内激起水浪，使所有生物进入湿润状态 10 回合。
+		伤害将随你的法术强度提高。
+修正要求：删除不存在的伤害及其法术强度加成说明。
+源码事实：action只施加EFF_WET十回合，没有伤害计算、伤害投射或Spellpower读取；英文末句本身与机制不符。

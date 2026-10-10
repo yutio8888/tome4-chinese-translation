@@ -1,0 +1,7 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：Creeping dark slowly spreads from the target location and %d spots in a radius of %d around the targeted location. The dark deals %0.2f darkness damage each turn to anything in its area, and blocks the sight of any who do not possess Dark Vision or some other magical means of seeing. The darkness seeps into adjacent tiles at random and slowly dissipates over time.
+		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.
+现译：一股缓慢蔓延的黑暗会出现在目标位置及其周围最多 %d 处地点，范围半径为 %d 格。黑暗每回合对范围内的一切造成 %0.2f 暗影伤害，并阻挡没有黑暗视觉或其他魔法视觉者的视线。黑暗会随机渗入相邻格，并随时间缓慢消散。
+		伤害随精神强度提高。你对任何进入蔓延黑暗的目标额外造成 +%d%% 伤害。
+修正要求：末句进入蔓延黑暗改为进入你的黑暗之雾。
+源码事实：同一creeping dark区域由Creeping Darkness生成，Dark Vision、Dark Torrent、Dark Tendrils均复用相同伤害增幅句。

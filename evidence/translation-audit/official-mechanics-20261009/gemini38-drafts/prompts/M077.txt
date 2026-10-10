@@ -1,0 +1,7 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：Bathes the target in raw magic inflicting %d damage. Such wild magic is difficult to control and if you fail to keep your wits you will be confused for 4 turns.
+		The damage will increase with the Magic stat.
+现译：以原始魔法洗礼目标，造成 %d 点奥术伤害。此等狂野魔法难以控制；若你没能保持清醒，就会陷入混乱 4 回合。
+		伤害受魔法属性加成。
+修正要求：恢复伤害受魔力属性加成。
+源码事实：伤害计算显式调用getMag；Magic属性冻结术语为魔力。

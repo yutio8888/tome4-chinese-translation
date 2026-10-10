@@ -1,0 +1,13 @@
+EXECUTOR；本次仅返回一条修订译文，不用工具、不写文件、不创建子代理。只输出完整中文译文文本，不解释、不加编号或代码块。最小修改，保持占位符类型和参数语义、颜色标记，换行对齐英文；数值占位符前后留 ASCII 空格。
+英文：From the ground around you, you form living stone vines extending from your feet.
+		Each turn, the vines will attempt to seize a random target within radius %d.
+		Affected creatures are pinned to the ground and take %0.1f nature%s damage each turn for %d turns.
+		A creature entangled by the vines will have a chance to break free each turn, and will automatically succeed if it is more than %d grids away from you.
+		The chance to affect targets and damage increase with talent level and Willpower.
+现译：你周围的地面开始生成岩石藤蔓。
+		每回合藤蔓将试图抓住半径 %d 内的一个随机目标。
+		受影响的目标将被定身，同时每回合受到 %0.1f 点自然伤害，%s持续 %d 回合。
+		被岩石藤蔓抓住的生物每回合有一定几率逃脱，如果距离你超过 %d 码则自动逃脱。
+		藤蔓抓住目标的几率和伤害随技能等级和意志提高。
+修正要求：让片段与自然共同修饰伤害，例如每回合受到 X 点自然和 Y 奥术伤害，持续 Z 回合。
+源码事实：xs来自同批696的和 %0.1f 奥术，插入主句第3参数；项目主句将片段放到自然伤害后的逗号之后，生成自然伤害，和 Y 奥术持续 Z 回合。
