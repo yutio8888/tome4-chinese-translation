@@ -1,0 +1,12 @@
+{
+  "status": "INCOMPLETE",
+  "existing_configuration_limitation": true,
+  "checks": [
+    {
+      "command": "python3 -B tools/i18n build --profile addon --component tome --component ashes-urhrok --component cults --component orcs --require-complete",
+      "exit_code": 5,
+      "output": "ERROR: addon artifact is incomplete; see /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261010T092235.074542Z-2-build-addon/build.json\nOK  tome             delta=6989 inherited=12139 override=6868 new=121\nSKIP ashes-urhrok     no pinned official locale/source repository\nSKIP cults            no pinned official locale/source repository\nSKIP orcs             no pinned official locale/source repository\nAddon artifact: INCOMPLETE, 6989 runtime keys, 253f80f58e21e0ad\nOutput: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261010T092235.074542Z-2-build-addon/addon/data/locales/zh_hans.lua\n"
+    }
+  ],
+  "meaning": "DLC strict artifact build unavailable without manifest-backed pinned official locale/source repository; source snapshot and LuaJIT/proposal verification do not establish a complete addon build."
+}

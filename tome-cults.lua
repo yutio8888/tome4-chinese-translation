@@ -3869,7 +3869,7 @@ t("The target is evolved increasing its damage by %d%%.", "目标进化了，全
 t("#Target# is evolved to deal more damage!", "#Target#进化了，伤害增加！", "_t")
 t("#Target# is no longer evolved to deal more damage.", "#Target#解除进化，伤害降低。", "_t")
 t("Shoes of Moving Slowly", "缓步之靴", "_t")
-t("Stay put, increasing your armour and defense by %d.", "原地不动，增加 %d 护甲和防御。", "tformat")
+t("Stay put, increasing your armour and defense by %d.", "原地不动，增加 %d 护甲值和闪避。", "tformat")
 t("Entropic Feedback", "熵能反馈", "_t")
 t("The target healing is distorted by entropy for %d%% of the healing done over 8 turns.", "目标的 %d%% 治疗将被熵扭曲，并在 8 回合内造成等量伤害。", "tformat")
 t("#Target# is enveloped with entropic forces!", "#Target#被熵能覆盖！", "_t")
@@ -3878,7 +3878,7 @@ t("armor", "护甲", "effect subtype")
 t("Horrific Fortress", "恐怖堡垒", "_t")
 t("All damages except physical reduced by %d as long as %s is alive.", "只要%s还存活，受到的所有非物理伤害降低 %d 点。", "tformat", {2,1})
 t("#Target# is bolstered at the sight of the horror!", "#Target#目睹恐魔，防护得到了强化！", "_t")
-t("#Target# is less armoured.", "#Target#的护甲降低了。", "_t")
+t("#Target# is less armoured.", "#Target#的额外防护消退了。", "_t")
 -- untranslated text
 --[==[
 t("S.M.A.C.K.", "S.M.A.C.K.", "_t")

@@ -829,7 +829,7 @@ t("This yeti's claws are coated in sharply carved iron. It glares at you with a 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/hethugoroth.lua"
 
-t("elemental", "元素生物", "entity type")
+t("elemental", "元素", "entity type")
 t("vapour", "蒸汽", "entity subtype")
 t("hethugoroth", "赫斯格鲁斯", "entity name")
 t("A swirling mass of hot vapour animated into a semblance of life.", "一个看似有生命的灼热蒸汽漩涡。", "_t")
@@ -1688,7 +1688,7 @@ They sure seem sharp though.]], [[这套错综复杂的蒸汽链锯以一种几�
 t("Ramroller", "碾压战车", "entity name")
 t("a... chariot?", "一个……战车？", "_t")
 t("\"So we were thinking. You know what's better than saws? Really BIG saws. Unfortunately, no one could lift them. So we came up with an innovative new solution: Mount them on a motorized platform, allowing easy transportation and unparalleled cutting power!\"", "我们曾经这么想：你知道比锯子更好的是什么吗？巨大的锯子。可惜没人能够拿得动它们。所以我们想了一个新颖的主意：将它们安装在一个机动平台上，既便于运输，又能获得无与伦比的切割能力。", "_t")
-t("Moving builds up a stacking movement speed (caps at 25%) and damage bonus (caps at double). Hitting removes the bonus.", "移动会叠加移动速度加成（最高 25%）和伤害加成（最高使伤害翻倍）。命中目标后加成消失。", "_t")
+t("Moving builds up a stacking movement speed (caps at 25%) and damage bonus (caps at double). Hitting removes the bonus.", "移动会叠加移动速度加成（最高 25%）和伤害加成（最高使伤害翻倍）。进行近战攻击后加成消失。", "_t")
 t("Overcutter", "超级切割者", "entity name")
 t("enormous steamsaw", "大型的蒸汽链锯", "_t")
 t("Earlier steamsaws were notably not meant to be used with one hand.", "显然早期的蒸汽链锯不是为单手使用设计的。", "_t")
@@ -4575,7 +4575,7 @@ t([[When you kill a foe with a melee strike you quickly throw some of their rema
 t("Tech Overload", "系统过载", "talent name")
 t([[You override all security measures of your tinkers, allowing you to reset the cooldown of %d of most of your steamtech talents of tier %d or less and instantly increases your steam level by %d%% of the maximum.
 		In addition for 6 turns your maximum steam capacity is doubled, but steam regeneration is halved.
-		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你解除全部插件的安全限制，从你大部分蒸汽科技技能中重置 %d 个层级不高于 %d 的技能冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。
+		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你解除全部插件的安全限制，从你大部分蒸汽科技技能中重置最多 %d 个层级不高于 %d 的技能冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。
 		此外，在 6 回合内，蒸汽值上限翻倍，但蒸汽恢复速度减半。
 		#{italic}#科技至尊、死亡之主！#{normal}#]], "tformat")
 
@@ -4753,8 +4753,7 @@ t("Overheat Bullets", "过热子弹", "talent name")
 t("You must dual wield steamguns for this talent.", "你需要双持蒸汽枪才能使用这一技能。", "logPlayer")
 t([[By sending a stream of hot steam over your bullets you overheat them. For the next %d turns, each bullet will set the target ablaze, making it burn for %0.2f fire damage over 5 turns (most of your shooting talents fire two bullets at once).
 		Damage will increase with Steampower.
-		Only one bullet enhancement can be used at once.]], [[使用蒸汽进行子弹的过热处理。
-		接下来的 %d 回合内，你的子弹会点燃目标，在 5 回合内造成 %0.2f 火焰伤害（大多数射击技能一次发射两枚弹药）。
+		Only one bullet enhancement can be used at once.]], [[使用蒸汽对子弹进行过热处理。接下来的 %d 回合内，你的子弹会点燃目标，在 5 回合内造成 %0.2f 火焰伤害（大多数射击技能一次发射两枚弹药）。
 		伤害随蒸汽强度提高。
 		一次只能使用一种弹药强化能力。]], "tformat")
 t("Supercharge Bullets", "增压子弹", "talent name")
@@ -5609,7 +5608,7 @@ t([[You fire a special magnetic shot with your steamgun(s) at a target for norma
 		The shot will magnetise the target for %d turns. This lowers their defense and increases fatigue by %d.
 		This talent does not use ammo as it is the ammo.
 		Effect strength scales with Steampower.]], [[你用蒸汽枪向目标发射特殊磁化弹，造成正常武器伤害。
-子弹会使目标磁化 %d 回合，降低其闪避并增加 %d 点疲劳。
+子弹会使目标磁化 %d 回合，闪避降低、疲劳增加，变化量均为 %d 点。
 这个技能本身就是弹药，因此不消耗弹药。
 效果强度随蒸汽强度提高。]], "tformat")
 t("Voltaic Shell", "伏特弹", "talent name")

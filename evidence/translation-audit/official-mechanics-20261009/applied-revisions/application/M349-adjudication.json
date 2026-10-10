@@ -1,0 +1,12 @@
+{
+  "status": "confirmed",
+  "finding": "post-apply-M349",
+  "reason": "固定核心源码只检查 unused_prodigies>0 并扣1；无尽地下城可奖励额外点，因此两个不是永久上限。",
+  "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "evidence": [
+    "game/modules/tome/class/Actor.lua:3963-3964",
+    "game/modules/tome/class/GameState.lua:3749-3751",
+    "game/modules/tome/dialogs/UberTalent.lua:272-275"
+  ],
+  "accepted_target": "终极觉醒技，学习需消耗 1 点觉醒点。"
+}
