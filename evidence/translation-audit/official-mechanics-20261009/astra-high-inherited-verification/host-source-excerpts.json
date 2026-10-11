@@ -1,0 +1,53 @@
+[
+  {
+    "finding_id": "M095",
+    "path": "game/modules/tome/data/talents/gifts/cold-drake.lua",
+    "excerpt": "69: \tend,\n70: \tinfo = function(self, t)\n71: \t\treturn ([[You call upon the mighty claw of a cold drake and rake a wave of freezing cold in front of you, doing %d%% weapon damage as Ice damage in a cone of radius %d. Ice damage gives a chance of freezing the target.\n72: \t\tEvery level in Ice Claw additionally raises your Physical Save by 2.\n73: \t\tEach point in cold drake talents also increases your cold resistance by 1%%.\n74: \n75: \t\tThis talent will also attack with your shield, if you have one equipped.]]):tformat(100 * t.damagemult(self, t), self:getTalentRadius(t))\n76: \tend,"
+  },
+  {
+    "finding_id": "M057",
+    "path": "game/modules/tome/data/timed_effects/other.lua",
+    "excerpt": "953: #CRIMSON#Power 2+: %s%+d Luck, %+d Strength, %+d Magic\n954: #CRIMSON#Power 3+: %sLiving Death: Ghoulish retch heals you. Once every %d turns, retch (level %d) when you fall below %d%% health\n955: #CRIMSON#Power 4+: %sReprieve from Death: Humanoids you slay have a %d%% chance to rise to fight beside you as ghouls for 6 turns.]]):tformat(\n956: \t\tdef.getResistsUndead(eff, level),\n957: \t\tbonusLevel >= 1 and \"#WHITE#\" or \"#GREY#\", def.getIncDamageUndead(math.max(level, 1)),\n958: \t\tbonusLevel >= 2 and \"#WHITE#\" or \"#GREY#\", def.getLckChange(eff, math.max(level, 2)), def.getStrChange(math.max(level, 2)), def.getMagChange(math.max(level, 2)),\n959: \t\tbonusLevel >= 3 and \"#WHITE#\" or \"#GREY#\", def.getRetchCD(math.max(level, 3)), def.getRetchLevel(math.max(level, 3)), def.getLivingDeathFactor(math.max(level, 3)) * 100,\n960: \t\tbonusLevel >= 4 and \"#WHITE#\" or \"#GREY#\", def.getReprieveChance(math.max(level, 4)))\n961: \tend,"
+  },
+  {
+    "finding_id": "M309",
+    "path": "game/modules/tome/data/talents/techniques/dualweapon.lua",
+    "excerpt": "182: \t\tlocal tg = {type=\"hit\", range=self:getTalentRange(t)}\n183: \t\tlocal x, y, target = self:getTarget(tg)\n184: \t\tif not x or not y or not target then return nil end\n185: \t\tif core.fov.distance(self.x, self.y, x, y) > 1 then return nil end\n186: \t\t\n187: \t\tlocal dam_mult = t.getDamage(self, t)\n188: \n189: \t\t-- First attack with mainhand\n190: \t\tlocal speed, hit = self:attackTargetWith(target, weapon.combat, nil, dam_mult)\n191: \n192: \t\t-- Then attack unarmed\n193: \t\tspeed, hit = self:attackTargetWith(target, self:getObjectCombat(nil, \"barehand\"), nil, dam_mult+1.25)\n194: \t\tif hit then\n195: \t\t\tif target:canBe(\"confusion\") then\n196: \t\t\t\ttarget:setEffect(target.EFF_CONFUSED, t.getConfuseDuration(self, t), {apply_power=self:combatAttack(), power=t.getConfusePower(self, t)})\n197: \t\t\telse\n198: \t\t\t\tgame.logSeen(target, \"%s resists the surprise strike!\", target:getName():capitalize())\n199: \t\t\tend\n200: \t\tend\n201: \t\treturn true\n202: \tend,\n203: \tinfo = function(self, t)\n204: \t\tlocal dam = 100 * t.getDamage(self, t)\n205: \t\treturn ([[With a quick shift of your momentum, you execute a surprise unarmed strike in place of your normal offhand attack.\n206: \t\tThis allows you to attack with your mainhand weapon for %d%% damage and unarmed for %d%% damage.  If the unarmed attack hits, the target is confused (%d%% power) for %d turns.\n207: \t\tThe chance to confuse increases with your Accuracy.]])\n208: \t\t:tformat(dam, dam*1.25, t.getConfusePower(self, t), t.getConfuseDuration(self, t))\n209: \tend,"
+  },
+  {
+    "finding_id": "M219",
+    "path": "tome-ashes-urhrok/data/talents/corruptions/spellblaze.lua",
+    "excerpt": "88: \tend,\n89: \tcallbackOnDealDamage = function(self, t, val, target, dead, death_note)\n90: \t\tif dead or target == self or not target.life or target.life > target.max_life * 0.33 then return end\n91: \t\tif target:hasEffect(target.EFF_ONLY_ASHES_LEFT) then return end\n92: \t\tif not target.x or not self.x or not game.level or core.fov.distance(target.x, target.y, self.x, self.y) > 4 then return end\n93: \t\ttarget:setEffect(target.EFF_ONLY_ASHES_LEFT, 1, {src=self, power=t.getDam(self, t), max_dist=self:getTalentRadius(t)})\n94: \tend,\n95: \tinfo = function(self, t)\n96: \t\treturn ([[Bringing about the darkest days of the Spellblaze you hasten the death of your foes.\n97: \t\tWhen you deal damage to a creature in radius %d or less around you and it dips below 33%% life you automatically unleash the fury of the Spellblaze.\n98: \t\tAffected foes will start taking %0.2f darkness damage each turn until it dies as long as it remains in radius %d of you.\n99: \t\tThe damage increases with spellpower.]]):\n100: \t\ttformat(self:getTalentRadius(t), damDesc(self, DamageType.DARKNESS, t.getDam(self, t)), self:getTalentRadius(t))\n101: \tend,"
+  },
+  {
+    "finding_id": "M357",
+    "path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "excerpt": "2103: \t\tdammod = {str=1},\n2104: \t\tblock = 50,\n2105: \t\tlifesteal = 0,\n2106: \t\tspecial_on_hit = {desc=_t\"If bleed damage per turn is greater than 5% of max life, attacks cleave.\", on_kill=1, fct=function(combat, who, target, dam)\n2107: \t\t\tlocal cut = who:hasEffect(who.EFF_HEART_CUT)\n2108: \t\t\tif not cut then return end\n2109: \t\t\tlocal cut_percent = cut.power / who.max_life\n2110: \t\t\tif cut_percent < 5 then return end\n2111: \t\t\t\n2112: \t\t\t\n2113: \t\t\tlocal tg = {type=\"cone\", range=0, radius=1, friendlyfire=false, start_x=who.x, start_y=who.y}\n2114: \t\t\tlocal damage = dam * 0.5"
+  },
+  {
+    "finding_id": "M374",
+    "path": "game/modules/tome/class/Actor.lua",
+    "excerpt": "4965: function _M:getObjectOffslot(o)\n4966: \tif o.type == \"armor\" and o.subtype == \"shield\" and self:knowTalent(self.T_STONESHIELD) then return \"MAINHAND\" end\n4967: \tif o.dual_wieldable and self:attr(\"allow_any_dual_weapons\") then\n4968: \t\treturn \"OFFHAND\"\n4969: \telse\n4970: \t\treturn o.offslot\n4971: \tend\n4972: end\n4973: "
+  },
+  {
+    "finding_id": "M294",
+    "path": "tome-cults/data/damage_types.lua",
+    "excerpt": "211: \tend,\n212: }\n213: \n214: newDamageType{\n215: \tname = _t(\"antropy energies\", \"damage type\"), type = \"ENTROPIC_VOID_HELPER\", text_color = \"#GOLD#\",\n216: \tprojector = function(src, x, y, type, dam, state)\n217: \t\tstate = initState(state)\n218: \t\tuseImplicitCrit(src, state)\n219: \n220: \t\tlocal target = game.level.map(x, y, Map.ACTOR)\n221: \t\tif not target then return end\n222: \n223: \t\ttarget:removeEffect(target.EFF_TOTAL_COLLAPSE, false, true)\n224: \n225: \t\tlocal npc = game.level:findEntity{define_as=\"HYPOSTASIS\"}\n226: \t\tif not npc then return end\n227: \n228: \t\tgame.level.data.antropic_accumulation = (game.level.data.antropic_accumulation or 0) + 1\n229: \t\tif game.level.data.antropic_accumulation > 10 then\n230: \t\t\tgame.logSeen(npc, \"#PURPLE#The %s fully awakens as you absorb antropic forces!\", npc.name)"
+  },
+  {
+    "finding_id": "M106",
+    "path": "game/modules/tome/data/talents/gifts/higher-draconic.lua",
+    "excerpt": "98: \t\treturn ([[Unleash raw, chaotic elemental damage upon your enemy.\n99: \t\tYou strike your enemy for %d%% weapon damage in one of blinding sand, disarming acid, freezing and slowing ice, dazing lightning or stunning flames, with equal odds.\n100: \t\tAdditionally, you will cause a burst that deals %0.2f of that damage to creatures in radius %d, regardless of if you hit with the blow.\n101: \t\tLevels in Prismatic Slash increase your Physical and Mental attack speeds by %d%%.\n102: \n103: \t\tThis talent will also attack with your shield, if you have one equipped.]]):tformat(100 * self:combatTalentWeaponDamage(t, 1.2, 2.0), burstdamage, radius, 100*speed)\n104: \tend,"
+  },
+  {
+    "finding_id": "M124",
+    "path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "excerpt": "6598: \tuse_power = { name = function(self, who)\n6599: \t\t\tlocal dam = who:damDesc(engine.DamageType.LIGHT, self.use_power.damage(self, who))\n6600: \t\t\treturn (\"summon a stationary shining orb within range %d for 15 turns that will illuminate its area and deal %d light damage (based on your Magic and Strength) to your foes within radius %d each turn\"):tformat(self.use_power.range, dam, self.use_power.radius)\n6601: \t\tend,\n6602: \t\tpower = 35,\n6603: \t\trange = 5,\n6604: \t\tradius = 5,\n6605: \t\tdamage = function(self, who) return (who:getMag()*2 + who:getStr())/3 + 20 end,\n6606: \t\ttarget = function(self, who) return {type=\"ball\", nowarning=true, range=self.use_power.range, radius=self.use_power.radius, friendlyfire=false, nolock=true} end,"
+  },
+  {
+    "finding_id": "argument-mapping",
+    "path": "game/engines/default/engine/I18N.lua",
+    "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+    "excerpt": "68: \tend\n69: \treturn get(cur_locale, s, tag or \"_t\") or s\n70: end\n71: \n72: _G.default_tformat = function(s, tag, ...)\n73: \tlocal args_order = get(cur_locale_args, s, tag)\n74: \tif args_order then\n75: \t\tlocal sargs = {...}\n76: \t\tlocal args = {}\n77: \t\tfor sidx, didx in pairs(args_order) do\n78: \t\t\targs[sidx] = sargs[didx]\n79: \t\tend\n80: \t\ts = _t(s, tag)\n81: \t\treturn s:format(unpack(args))\n82: \telse\n83: \t\ts = _t(s, tag)"
+  }
+]
