@@ -2906,7 +2906,7 @@ t("Worse, any who approach the Cursed can be driven mad by their terrible aura."
 t("Their most important stats are: Strength and Willpower", "他们最重要的属性是：力量和意志。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +5 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +4 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法，+4 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +4 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔力，+4 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("Doomed", "末日使者", "birth descriptor name")
 t("In shaded places in unknown lands thou must overcome thyself and see thy doom.", "在未知之地的阴影之中，你必须战胜自己，直面自己的末日。", "_t")
@@ -2917,7 +2917,7 @@ t("The Doomed strike from behind a veil of darkness or a host of shadows.", "末
 t("They feed upon their enemies as they unleash their minds on all who confront them.", "他们以敌人为食，并对所有与他们对峙的人释放精神冲击。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +4 Willpower, +5 Cunning", "#LIGHT_BLUE# * +0 魔法，+4 意志，+5 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +4 Willpower, +5 Cunning", "#LIGHT_BLUE# * +0 魔力，+4 意志，+5 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_BLUE# +0", "_t")
 
 ------------------------------------------------
@@ -2933,10 +2933,10 @@ t("Sun Paladins hail from the Gates of Morning, the last bastion of the free peo
 t("Their way of life is well represented by their motto 'The Sun is our giver, our purity, our essence. We carry the light into dark places, and against our strength none shall pass.'", "他们的生活方式集中体现在他们的座右铭中：太阳是我们的赐予者、我们的纯洁、我们的本质。我们为黑暗带去光明，在我们的力量面前，谁也休想通过。", "_t")
 t("They can channel the power of the Sun to smite all who seek to destroy the Sunwall.", "他们能施展太阳之力将任何试图破坏太阳堡垒的力量击退。", "_t")
 t("Competent in both weapon and shield combat and magic, they usually burn their foes from afar before bashing them in melee.", "他们既擅长武器与盾牌格斗，也通晓魔法，通常先从远处灼烧敌人，再近身猛击。", "_t")
-t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
+t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔力。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +5 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔力，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("Anorithil", "星月术士", "birth descriptor name")
 t("The balance of the heavens' powers is a daunting task. Mighty are those that stand in the twilight places, wielding both light and darkness in their mind.", "平衡天空的力量是一件令人望而生畏的任务。强大的是那些驻足于暮光之境的人，心中同时驾驭着光明与黑暗的力量。", "_t")
@@ -2944,9 +2944,9 @@ t("Anorithils hail from the Gates of Morning, the last bastion of the free peopl
 t("Their way of life is well represented by their motto 'We stand betwixt the Sun and Moon, where light and darkness meet. In the grey twilight we seek our destiny.'", "他们的生活方式集中体现在其座右铭中：“我们站在太阳与月亮之间，光暗交替之界。我们在灰色的暮光中寻找命运。”", "_t")
 t("They can channel the power of the Sun and the Moons to burn and tear apart all who seek to destroy the Sunwall.", "他们可以施展太阳、月亮的法术将任何试图破坏太阳堡垒的人消灭。", "_t")
 t("Masters of Sun and Moon magic, they usually burn their foes with Sun rays before calling the fury of the stars.", "他们掌握日月魔法，可以使用灼热的太阳射线和群星的愤怒毁灭对手。", "_t")
-t("Their most important stats are: Magic and Cunning", "他们最重要的属性是：魔法和灵巧。", "_t")
+t("Their most important stats are: Magic and Cunning", "他们最重要的属性是：魔力和灵巧。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +6 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +6 魔法，+0 意志，+3 灵巧", "_t")
+t("#LIGHT_BLUE# * +6 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +6 魔力，+0 意志，+3 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_BLUE# +0", "_t")
 
 ------------------------------------------------
@@ -2962,18 +2962,18 @@ t("A hand may clap alone if it returns to clap itself. Search for the power in t
 t("A Paradox Mage studies the very fabric of spacetime, learning not just to bend it but shape it and remake it.", "时空法师研究时空的结构本身，不仅要学会扭曲它，还要塑造它、重塑它。", "_t")
 t("Most Paradox Mages lack basic skills that others take for granted (like general fighting sense), but they make up for it through control of cosmic forces.", "大多数时空法师缺乏他人习以为常的基本技能（如基本的战斗意识），但他们能通过掌控宇宙力量来弥补。", "_t")
 t("Paradox Mages start off with knowledge of all but the most complex Chronomantic schools.", "时空法师开局便通晓除最复杂的时空学派之外的所有时空学派。", "_t")
-t("Their most important stats are: Magic and Willpower", "他们最重要的属性是：魔法和意志。", "_t")
+t("Their most important stats are: Magic and Willpower", "他们最重要的属性是：魔力和意志。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+2 体质", "_t")
-t("#LIGHT_BLUE# * +5 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +5 魔法，+2 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +5 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +5 魔力，+2 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_BLUE# +0", "_t")
 t("Temporal Warden", "时空守卫", "birth descriptor name")
 t("We preserve the past to protect the future. The hands of time are guarded by the arms of war.", "我们守护过去，以护佑未来。时间之手由战争之臂守卫。", "_t")
 t("Their lifelines braided, Temporal Wardens have learned to work with their other selves across multiple timelines.", "通过缠结不同的时间线，时空守卫可以召唤其他世界线的分身，和自己一同战斗。", "_t")
 t("Through their study of chronomancy, they learn to blend archery and dual-weapon fighting, seamlessly switching from one to the other.", "时空守卫通过学习时空法术，可以将箭术和双持武器战斗联合在一起，在两者之间随意切换。", "_t")
-t("Their most important stats are: Magic, Dexterity, and Willpower", "他们最重要的属性是：魔法、敏捷和意志。", "_t")
+t("Their most important stats are: Magic, Dexterity, and Willpower", "他们最重要的属性是：魔力、敏捷和意志。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+3 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +4 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+2 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +4 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔力，+2 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 
 ------------------------------------------------
@@ -2986,19 +2986,19 @@ t("Reaver", "收割者", "birth descriptor name")
 t("Reap thee the souls of thine enemies, and the powers of darkness shall enter thy flesh.", "收割敌人的灵魂，你会发现黑暗的力量涌入体内。", "_t")
 t("Reavers are terrible foes, charging their enemies with a weapon in each hand.", "收割者是可怕的对手，他们双手各持一把武器向敌人发起冲锋。", "_t")
 t("They can harness the blight of evil, infecting their foes with terrible contagious diseases while crushing their skulls with devastating combat techniques.", "他们可以驾驭邪恶的枯萎术，一边将恐怖的传染病散布给敌人，一边以毁灭性的战斗技巧击碎他们的头颅。", "_t")
-t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
+t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔力。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +4 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +4 力量，+1 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+0 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔力，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("Corruptor", "腐化者", "birth descriptor name")
 t("Blight and depravity hold the greatest powers. Accept temptation and become one with corruption.", "枯萎与堕落蕴藏着最强大的力量。接受诱惑，与腐化融为一体吧。", "_t")
 t("A corruptor is a terrible foe, wielding dark magics that can sap the very soul of her target.", "腐化者是一个恐怖的对手，使用黑暗魔法并汲取目标的灵魂。", "_t")
 t("They can harness the blight of evil, crushing souls, stealing life force to replenish themselves.", "他们驾驭邪恶的枯萎术，粉碎灵魂，偷取生命力量来治疗自己。", "_t")
 t("The most powerful corruptors can even take on some demonic aspects for themselves.", "最强大的腐化者甚至可以掌握恶魔的力量。", "_t")
-t("Their most important stats are: Magic and Willpower", "他们最重要的属性是：魔法和意志。", "_t")
+t("Their most important stats are: Magic and Willpower", "他们最重要的属性是：魔力和意志。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+2 体质", "_t")
-t("#LIGHT_BLUE# * +4 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+3 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +4 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔力，+3 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_BLUE# +0", "_t")
 
 ------------------------------------------------
@@ -3012,10 +3012,10 @@ t("An Alchemist is a manipulator of materials using magic.", "炼金术士使用
 t("They do not use the forbidden arcane arts practised by the mages of old - such perverters of nature have been shunned or actively hunted down since the Spellblaze.", "他们不使用古代法师所施行的被禁止的奥术——自魔法大爆炸以来，这些扭曲自然的人一直被排斥甚至遭到追捕。", "_t")
 t("Alchemists can transmute gems to bring forth elemental effects, turning them into balls of fire, torrents of acid, and other effects.  They can also reinforce armour with magical effects using gems, and channel arcane staffs to produce bolts of energy.", "炼金术士可以将元素力量输入各种宝石，使它们变成火球、酸液和其他效果。另外他们也可以利用宝石来强化装甲并使用法杖发射能量球。", "_t")
 t("Though normally physically weak, most alchemists are accompanied by magical golems which they construct and use as bodyguards.  These golems are enslaved to their master's will, and can grow in power as their master advances through the arts.", "炼金术士自身非常脆弱，但是他们可以建造炼金傀儡来保护他们。傀儡服从主人的意志，并依靠主人来强化它们的力量。", "_t")
-t("Their most important stats are: Magic and Constitution", "他们最重要的属性是：魔法和体质。", "_t")
+t("Their most important stats are: Magic and Constitution", "他们最重要的属性是：魔力和体质。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+3 体质", "_t")
-t("#LIGHT_BLUE# * +5 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +5 魔法，+1 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +5 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +5 魔力，+1 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -1", "#GOLD#每等级生命加值：#LIGHT_BLUE# -1", "_t")
 t("Golem becomes a Drolem", "傀儡成为龙傀儡", "_t")
 t("Archmage", "元素法师", "birth descriptor name")
@@ -3024,9 +3024,9 @@ t("An Archmage devotes his whole life to the study of magic above anything else.
 t("Most Archmagi lack basic skills that others take for granted (like general fighting sense), but they make up for it by their raw magical power.", "元素法师缺乏最基本的物理格斗技能，他们用魔法取而代之。", "_t")
 t("Archmagi start with knowledge of many schools of magic. However, they usually refuse to have anything to do with Necromancy.", "元素法师初始便掌握多个魔法学派的知识。然而，他们通常拒绝与死灵法术有任何关联。", "_t")
 t("Most Archmagi have been trained in the secret town of Angolwen and possess a unique spell to teleport to it directly.", "大多数元素法师在一个名叫安格利文的秘密小镇接受训练，并拥有一个直接传送到那里的独特法术。", "_t")
-t("Their most important stats are: Magic and Willpower", "他们最重要的属性是：魔法和意志。", "_t")
+t("Their most important stats are: Magic and Willpower", "他们最重要的属性是：魔力和意志。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +5 Magic, +3 Willpower, +1 Cunning", "#LIGHT_BLUE# * +5 魔法，+3 意志，+1 灵巧", "_t")
+t("#LIGHT_BLUE# * +5 Magic, +3 Willpower, +1 Cunning", "#LIGHT_BLUE# * +5 魔力，+3 意志，+1 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -4", "#GOLD#每等级生命加值：#LIGHT_BLUE# -4", "_t")
 t("Necromancer", "死灵法师", "birth descriptor name")
 t("The road to necromancy is a macabre path indeed. Walk with the dead, and drink deeply of their black knowledge.", "通往死灵法师的道路是极其可怕的。与死者同行，尽情汲取他们的黑暗知识。", "_t")
@@ -3053,7 +3053,7 @@ t("When Mindslayers do battle, they will most often be found in the thick of the
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +1 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +1 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +4 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+4 意志，+4 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +4 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔力，+4 意志，+4 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -2", "#GOLD#每等级生命加值：#LIGHT_BLUE# -2", "_t")
 t("Solipsist", "织梦者", "birth descriptor name")
 t("Some believe that the world is the collective dream of those that live in it.  Find and wake the sleeper and you'll unlock the potential of your dreams.", "有些人认为，世界是其居民共同的梦。找到并唤醒沉睡者，你就能发掘梦境的潜能。", "_t")
@@ -3061,7 +3061,7 @@ t("The Solipsist believes that reality is malleable and nothing more than the co
 t("They wield this knowledge to both create and destroy, to invade the minds of others, and to manipulate the dreams of those around them.", "他们依靠此理论进行创造和毁灭，侵入他人的思维并操纵他人的梦境。", "_t")
 t("This knowledge comes with a heavy price and the Solipsist must guard his thoughts, lest he come to believe that the world exists only within his own mind.", "使用此理论需要付出巨大的代价，织梦者必须对自己的思维有很强的控制力，否则他会渐渐相信这世界只存在于他自己的心智之中。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +5 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+5 意志，+4 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +5 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔力，+5 意志，+4 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -4 (*special*)", "#GOLD#每等级生命加值：#LIGHT_BLUE# -4 (*特殊*)", "_t")
 
 ------------------------------------------------
@@ -3074,28 +3074,28 @@ t("Rogues usually prefer to dual-wield daggers. They can also become trapping ex
 t("Their most important stats are: Dexterity and Cunning", "他们最重要的属性是：敏捷和灵巧", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +1 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +1 力量，+3 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +5 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+5 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +5 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+5 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_BLUE# +0", "_t")
 t("Shadowblade", "影舞者", "birth descriptor name")
 t("Shadowblades are Rogues that are touched by the gift of magic, able to kill with their daggers under a veil of stealth while casting spells to enhance their performance and survival.", "影舞者是拥有魔法天赋的特殊盗贼，他们可以在阴影之中发动偷袭同时可以施展魔法来强化他们的攻击和生存能力。", "_t")
 t("Their use of magic is innate and not really studied; as such they do not naturally regenerate mana and must use external means of recharging.", "他们的魔法并非习得而是与生俱来的，因此他们的法力无法自然恢复，必须借助外部手段来补充。", "_t")
 t("They use the schools of Phantasm, Temporal, Divination and Conveyance magic to enhance their arts.", "他们使用幻觉、时间、预知和传送技能来增强他们的能力。", "_t")
-t("Their most important stats are: Dexterity, Cunning and Magic", "他们最重要的属性是：敏捷、灵巧和魔法。", "_t")
+t("Their most important stats are: Dexterity, Cunning and Magic", "他们最重要的属性是：敏捷、灵巧和魔力。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+3 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +3 魔法，+0 意志，+3 灵巧", "_t")
+t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +3 魔力，+0 意志，+3 灵巧", "_t")
 t("Marauder", "掠夺者", "birth descriptor name")
 t("I will not hide and I will not sneak - come dance with my blades and we'll see who's weak. Snapping bone and cracking skull, it's the sounds of battle that make life full!", "我不会隐藏也不潜行，与我的双刀起舞看看谁才是最终的强者，撕碎骨头敲碎头颅，战斗的声响让生活丰富多彩！", "_t")
 t("The wilds of Maj'Eyal are not a safe place. Untamed beasts and wandering dragons may seem a great threat, but the true perils walk on two legs. Thieves and brigands, assassins and opportunistic adventurers, even mad wizards and magic-hating zealots all carry danger to those who venture beyond the safety of city walls.", "埃亚尔的野外不是个安全的地方。野兽和到处游荡的龙似乎是巨大的威胁，然而真正危险的是两条腿的人。窃贼、强盗、刺客、投机冒险家、疯狂的巫师，甚至憎恶魔法的狂热者，都会给那些走出安全城墙的冒险者带来危险。", "_t")
 t("Amidst this chaos wanders one class of rogue that has learned to take by force rather than subterfuge. With refined techniques, agile feats and brawn-backed blades the Marauder seeks out his targets and removes them by the most direct methods. He uses dual weapons backed by advanced combat training to become highly effective in battle, and he is unafraid to use the dirtiest tactics when the odds are against him.", "在这混乱之中诞生了一种特殊的盗贼，他们擅于正面交锋而不是使用诡计。拥有精准特技、灵巧步伐和锋利刀刃的掠夺者搜寻他的目标并直接消灭他们。他们通过高等战斗训练使双持武器更加有效，情形不利时他们不会忌讳使用肮脏的手段取得胜利。", "_t")
 t("Their most important stats are: Strength, Dexterity and Cunning", "他们最重要的属性是：力量、敏捷和灵巧。", "_t")
 t("#LIGHT_BLUE# * +4 Strength, +4 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +4 力量，+4 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +1 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+1 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +1 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+1 灵巧", "_t")
 t("Skirmisher", "散兵", "birth descriptor name")
 t("Fleet of foot and strong of throw, overwhelming every foe, from afar we counter, strike and thud, in the chaos'd skirmish spilling blood.", "脚程轻捷，投掷有力，压倒每一个敌人；我们自远处反击、痛打、重创，在混乱的遭遇战中溅洒鲜血。", "_t")
 t("While able to take maximum advantage of their sling by using deft movements to avoid and confuse enemies that try to get close, the Skirmisher truly excels when fighting other ranged users.", "灵活的移动让散兵甩开试图接近的对手，并得以最大程度地发挥投石索的威力，这让他们在与其他远程职业作战时也占据优势。", "_t")
 t("They have mastered the use of their shield as well as their sling and are nearly impossible to defeat in a standoff.", "他们也精通盾牌的使用，这让他们在持久战中也几乎处于不败之地。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+4 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +1 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+1 意志，+4 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +1 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔力，+1 意志，+4 灵巧", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/birth/classes/tutorial.lua"
@@ -3114,7 +3114,7 @@ t("A Berserker usually forfeits all ideas of self-defense to concentrate on what
 t("Their most important stats are: Strength and Constitution", "他们最重要的属性是力量和体质。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +1 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +5 力量，+1 敏捷，+3 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD#每等级生命加值：#LIGHT_BLUE# +3", "_t")
 t("Bulwark", "盾战士", "birth descriptor name")
 t("A Bulwark specializes in weapon and shield combat, rarely leaving the cover of her many protective techniques.", "盾战士精通武器与盾牌格斗，很少离开其诸多防护技巧的庇护。", "_t")
@@ -3128,16 +3128,16 @@ t("Skilled archers can fire special shots that pierce, cripple or pin their foes
 t("Archers can become good with either longbows or slings.", "弓箭手可以专精于长弓或投石索。", "_t")
 t("Their most important stats are: Dexterity and Strength (when using bows) or Cunning (when using slings)", "他们最重要的属性是：敏捷和力量（装备弓时）或灵巧（装备投石索）", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +5 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +2 力量，+5 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +2 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+2 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +2 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+2 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_BLUE# +0", "_t")
 t("Arcane Blade", "奥术之刃", "birth descriptor name")
 t("The Arcane Blade is a warrior who has been touched by the gift of magic.", "奥术之刃是一个拥有魔法的战士。", "_t")
 t("Their use of magic is innate and not really studied; as such they do not naturally regenerate mana and must use external means of recharging.", "他们的魔法并非习得而是与生俱来的，因此他们的法力无法自然恢复，必须借助外部手段来补充。", "_t")
 t("They can cast spells from a limited selection but have the unique capacity to 'channel' their attack spells through their melee attacks.", "他们能施展一些有限的法术，并且独有将攻击法术「导引」进近战攻击的能力。", "_t")
 t("They are adept with two-handed weapons, for the sheer destruction they can bring.", "他们擅长使用双手武器，看重的是其所能带来的纯粹破坏力。", "_t")
-t("Their most important stats are: Strength, Cunning and Magic", "他们最重要的属性是：力量、灵巧和魔法。", "_t")
+t("Their most important stats are: Strength, Cunning and Magic", "他们最重要的属性是：力量、灵巧和魔力。", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +3 魔法，+0 意志，+3 灵巧", "_t")
+t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +3 魔力，+0 意志，+3 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("Brawler", "格斗家", "birth descriptor name")
 t("Though you may fight alone against many, destined to fight till you die, still you do not relent. In a ring of blood you learn that a pair of fists can face the world.", "纵使你独自一人面对千军万马，注定战至最后一刻，你依然绝不退缩。在鲜血之环中，你学会了一双拳头就足以面对整个世界。", "_t")
@@ -3148,7 +3148,7 @@ t("Many of the Brawler's abilities will earn combo points which they can use on 
 t("The unarmed fighting styles the Brawler uses rely on maneuverability and having both hands available. As such, they cannot make use of their training wearing massive armour or while a weapon or shield is equipped.", "格斗家的徒手战斗风格依赖机动性，并需要空出双手，因此在身穿重甲或装备武器、盾牌时，他们无法使用这些训练成果。", "_t")
 t("Their most important stats are: Strength, Dexterity, and Cunning", "他们最重要的属性是：力量、敏捷和灵巧", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，+3 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+3 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+3 灵巧", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/birth/classes/wilder.lua"
@@ -3164,7 +3164,7 @@ t("Summons can range from a combat hound to a fire drake.", "召唤师可以召�
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+1 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +5 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法，+5 意志，+3 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +5 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔力，+5 意志，+3 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_BLUE# +0", "_t")
 t("Max summons: %d", "最大召唤数：%d", "tformat")
 t("Wyrmic", "龙战士", "birth descriptor name")
@@ -3173,14 +3173,14 @@ t("Wyrmics are fighters who have learnt how to mimic some of the aspects of the 
 t("They have access to talents normally belonging to the various kind of drakes.", "他们从不同的龙中学习技能。", "_t")
 t("Their most important stats are: Strength and Willpower", "他们最重要的属性是：力量和意志。", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +5 力量，+0 敏捷，+1 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法，+3 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔力，+3 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +2", "#GOLD#每等级生命加值：#LIGHT_BLUE# +2", "_t")
 t("Oozemancer", "软泥使", "birth descriptor name")
 t("Magic must fail, magic must lose, nothing arcane can face the ooze...", "魔法必定失败，魔法终会消亡，任何奥术能量都不能对抗软泥的力量…", "_t")
 t("Oozemancers separate themselves from normal civilisation so that they be more in harmony with Nature. Arcane force are reviled by them, and their natural attunement to the wilds lets them do battle with abusive magic-users on an equal footing.", "软泥使将自己和正常文明割裂，让自己与自然更加和谐。他们憎恶奥术之力，而与生俱来的自然亲和让他们得以与滥用魔法者势均力敌地交战。", "_t")
 t("They can spawn oozes to protect and attack from a distance while also being adept at harnessing the power of mindstars and psiblades.", "他们能制造软泥怪，来保护自己或远距离攻击对方，同时也能利用灵晶和心灵利刃来强化自己。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +5 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+5 意志，+4 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +5 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔力，+5 意志，+4 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -3", "#GOLD#每等级生命加值：#LIGHT_BLUE# -3", "_t")
 t("Stone Warden", "岩石守卫", "birth descriptor name")
 t([[The Spellblaze's scars may be starting to heal,
@@ -3193,9 +3193,9 @@ and when it comes down to it, gold won't take sides...]], [[魔法大爆炸留�
 t("Stone Wardens are dwarves trained in both the eldritch arts and the worship of nature.", "岩石守卫是同时研习奥术技艺与自然崇拜的矮人。", "_t")
 t("While other races are stuck in their belief that arcane forces and natural forces are meant to oppose, dwarves have found a way to combine them in harmony.", "在其他种族受困于自然和魔法天生对立的偏见时，矮人们已经找到方法让这两种力量和谐共存。", "_t")
 t("Stone Wardens are armoured fighters, dual wielding shields to channel many of their powers.", "岩石守卫是身着重甲的战士，双持盾牌来施展技艺。", "_t")
-t("Their most important stats are: Strength, Magic and Willpower", "他们最重要的属性是：力量，魔法和意志", "_t")
+t("Their most important stats are: Strength, Magic and Willpower", "他们最重要的属性是：力量，魔力和意志", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +2 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +4 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔法，+3 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +4 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * +4 魔力，+3 意志，+0 灵巧", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/birth/descriptors.lua"
@@ -3285,7 +3285,7 @@ t("Runic Golems are creatures made of solid rock and animated using arcane force
 t("They cannot be of any class, but they have many intrinsic abilities.", "它们无法选择任何职业，但是它们有着许多的天赋能力。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -2 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +3 力量，-2 敏捷，+3 体质", "_t")
-t("#LIGHT_BLUE# * +2 Magic, +2 Willpower, -5 Cunning", "#LIGHT_BLUE# * +2 魔法，+2 意志，-5 灵巧", "_t")
+t("#LIGHT_BLUE# * +2 Magic, +2 Willpower, -5 Cunning", "#LIGHT_BLUE# * +2 魔力，+2 意志，-5 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD#每等级生命加值：#LIGHT_BLUE# 13", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 25%", "#GOLD#经验惩罚：#LIGHT_BLUE# 25%", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
@@ -3333,7 +3333,7 @@ t("Special", "特殊", "birth facial category")
 t("They possess the #GOLD#Resilience of the Dwarves#WHITE# which allows them to increase their armour, physical and spell saves for a few turns.", "他们天生掌握 #GOLD#钢筋铁骨#WHITE#，允许他们在短时间内提高护甲、物理豁免和法术豁免。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +4 Strength, -2 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +4 力量，-2 敏捷，+3 体质", "_t")
-t("#LIGHT_BLUE# * -2 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔法，+3 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * -2 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔力，+3 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 14", "#GOLD#每等级生命加值：#LIGHT_BLUE# 14", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 0%", "#GOLD#经验惩罚：#LIGHT_BLUE# 0%", "_t")
 t("Dark Hair 1", "深色头发1", "_t")
@@ -3461,7 +3461,7 @@ t("Yet they remain quiet and try to hide their magic from the world, for they re
 t("They possess the #GOLD#Grace of the Eternals#WHITE# talent which allows them a boost of speed every once in a while.", "他们天生掌握 #GOLD#不朽的恩赐#WHITE#，允许他们每隔一段时间获得一次速度提升。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * -2 力量，+1 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +2 Magic, +3 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔法，+3 意志，+1 灵巧", "_t")
+t("#LIGHT_BLUE# * +2 Magic, +3 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔力，+3 意志，+1 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 9", "#GOLD#每等级生命加值：#LIGHT_BLUE# 9", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚：#LIGHT_BLUE# 12%", "_t")
 t("Thalore", "自然精灵", "birth descriptor name")
@@ -3470,7 +3470,7 @@ t("The ages of the world passed by and yet they remained unchanged.", "世界经
 t("Their affinity for nature and their reclusion have made them great protectors of the natural order, often opposing their Shaloren cousins.", "他们长期隐居在自然中，由于和自然的紧密联系，自然精灵成为自然秩序的保护者，并与他们的近亲永恒精灵处于对立状态。", "_t")
 t("They possess the #GOLD#Gift of the Woods#WHITE# talent, which allows them to regenerate life and increase healing once in a while.", "他们天生掌握 #GOLD#森林的恩赐#WHITE#，允许他们每隔一段时间恢复生命并增强治疗效果。", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +3 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +2 力量，+3 敏捷，+1 体质", "_t")
-t("#LIGHT_BLUE# * -2 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔法，+1 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * -2 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔力，+1 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 11", "#GOLD#每等级生命加值：#LIGHT_BLUE# 11", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 0%", "#GOLD#经验惩罚：#LIGHT_BLUE# 0%", "_t")
 
@@ -3503,7 +3503,7 @@ t("Their preference for simple and direct solutions has given them an undeserved
 t("They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.", "他们拥有 #GOLD#食人魔之怒#WHITE# 技能，施放后会提高对震慑和定身的抗性；当他们的攻击落空、伤害被减免等情况下，该技能还会为他们提供暴击几率和暴击伤害加成。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，-1 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +2 Magic, -2 Willpower, +2 Cunning", "#LIGHT_BLUE# * +2 魔法，-2 意志，+2 灵巧", "_t")
+t("#LIGHT_BLUE# * +2 Magic, -2 Willpower, +2 Cunning", "#LIGHT_BLUE# * +2 魔力，-2 意志，+2 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD#每等级生命加值：#LIGHT_BLUE# 13", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 15%", "#GOLD#经验惩罚：#LIGHT_BLUE# 15%", "_t")
 t("Dark Hair 1", "深色头发1", "_t")
@@ -3591,7 +3591,7 @@ t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("They possess the #GOLD#Luck of the Little Folk#WHITE# which allows them to increase their critical strike chance and saves for a few turns.", "他们天生掌握 #GOLD#小不点的幸运#WHITE# 技能，可以使他们在几个回合内提高暴击几率和豁免。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -3 Strength, +3 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -3 力量，+3 敏捷，+1 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+3 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+3 灵巧", "_t")
 t("#LIGHT_BLUE# * +5 Luck", "#LIGHT_BLUE# * +5 幸运", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 12", "#GOLD#每等级生命加值：#LIGHT_BLUE# 12", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 10%", "#GOLD#经验惩罚：#LIGHT_BLUE# 10%", "_t")
@@ -3663,14 +3663,14 @@ t("They usually do not breed with other Humans, trying to keep their blood 'pure
 t("They possess the #GOLD#Wrath of the Highborn#WHITE# which allows them to increase damage dealt and decrease damage taken once in a while.", "他们天生掌握 #GOLD#高等人类之怒#WHITE#，允许他们每隔一段时间提升造成的伤害并减少受到的伤害。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +1 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +1 力量，+1 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +1 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +1 魔法，+1 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +1 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +1 魔力，+1 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 11", "#GOLD#每等级生命加值：#LIGHT_BLUE# 11", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 0%", "#GOLD#经验惩罚：#LIGHT_BLUE# 0%", "_t")
 t("Cornac", "科纳克人", "birth descriptor name")
 t("Cornacs are Humans from the northern parts of the Allied Kingdoms.", "科纳克人是来自联合王国北部的普通人类。", "_t")
 t("Humans are an inherently very adaptable race and as such they gain a #GOLD#talent category point#WHITE# at birth (others only gain one at levels 10, 20 and 34). They also gain #GOLD#a class and a generic talent point#WHITE# at birth and every 10 levels.", "人类天生适应性强，他们可以在出生时获得1点#GOLD#技能树解锁点#WHITE#（其他种族只能在10、20和34级时获得1点）。此外，出生时以及每10级时，他们可以额外获得1点#GOLD#职业技能点和通用技能点#WHITE#（各1点）。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 10", "#GOLD#每等级生命加值：#LIGHT_BLUE# 10", "_t")
 
 ------------------------------------------------
@@ -3707,7 +3707,7 @@ t("- special ghoul talents: ghoulish leap, gnaw and retch", "- 特殊食尸鬼�
 t("The rotting bodies of ghouls also force them to act a bit more slowly than most creatures.", "食尸鬼腐烂的身体同时使它比别的生物行动要慢一些。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +5 Constitution", "#LIGHT_BLUE# * +3 力量，+1 敏捷，+5 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, -2 Willpower, -2 Cunning", "#LIGHT_BLUE# * +0 魔法，-2 意志，-2 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, -2 Willpower, -2 Cunning", "#LIGHT_BLUE# * +0 魔力，-2 意志，-2 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 14", "#GOLD#每等级生命加值：#LIGHT_BLUE# 14", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚：#LIGHT_BLUE# 12%", "_t")
 t("#GOLD#Speed penalty:#LIGHT_BLUE# -20%", "#GOLD#速度惩罚：#LIGHT_BLUE# -20%", "_t")
@@ -3751,7 +3751,7 @@ t("- poison immunity", "- 毒素免疫", "_t")
 t("- no need to breathe", "- 不需要呼吸", "_t")
 t("- special skeleton talents: bone armour, resilient bones, re-assemble", "- 特殊骷髅技能：骨质盔甲、坚韧骨骼、重组", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +4 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，+4 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔法，+0 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 12", "#GOLD#每等级生命加值：#LIGHT_BLUE# 12", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 20%", "#GOLD#经验惩罚：#LIGHT_BLUE# 20%", "_t")
 t("Eyes 1", "眼睛1", "_t")
@@ -3850,7 +3850,7 @@ t("They possess the #GOLD#Dominant Will#WHITE# talent which allows them to tempo
 t("While Yeeks are not amphibians, they still have an affinity for water, allowing them to survive longer without breathing.", "虽然夺心魔不是两栖生物，但他们天生对水有种特殊的亲和力，使他们能屏息更长时间。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -3 Strength, -2 Dexterity, -5 Constitution", "#LIGHT_BLUE# * -3 力量，-2 敏捷，-5 体质", "_t")
-t("#LIGHT_BLUE# * +0 Magic, +6 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔法，+6 意志，+4 灵巧", "_t")
+t("#LIGHT_BLUE# * +0 Magic, +6 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔力，+6 意志，+4 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 7", "#GOLD#每等级生命加值：#LIGHT_BLUE# 7", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# -15%", "#GOLD#经验惩罚：#LIGHT_BLUE# -15%", "_t")
 t("#GOLD#Confusion resistance:#LIGHT_BLUE# 35%", "#GOLD#混乱抗性：#LIGHT_BLUE# 35%", "_t")
@@ -9181,12 +9181,12 @@ t("With this unbearably bright whip of flame, the demon master Urh'Rok has becom
 t("Storm Fury", "风暴之怒", "entity name")
 t("crackling longbow", "电弧缠绕的长弓", "_t")
 t("This dragonbone longbow is enhanced with bands of steel, which arc with intense lightning. Bolts travel up and down the string, ignorant of you.", "这把龙骨长弓镶有精钢箍，一道道电弧缠绕在其身上，电光沿弓弦上下游走，却对你视若无睹。", "_t")
-t("Automatically fires lightning bolts every game turn at nearby enemies dealing %d to %d lightning damage based on Magic with a chance to inflict Daze.", "每回合自动向附近敌人发射闪电，造成%d到%d基于魔法的闪电伤害，并有几率使其眩晕。", "tformat")
+t("Automatically fires lightning bolts every game turn at nearby enemies dealing %d to %d lightning damage based on Magic with a chance to inflict Daze.", "每回合自动向附近敌人发射闪电，造成%d到%d基于魔力的闪电伤害，并有几率使其眩晕。", "tformat")
 t("#GOLD#A bolt of lightning fires from #Source#'s bow, striking #Target#!", "#GOLD#一道闪电从#Source#的弓中射出，击中了#Target#！", "logCombat")
 t("Frozen Shroud", "冰霜斗篷", "entity name")
 t("chilling cloak", "冰冷的斗篷", "_t")
 t("All that remains of the Glacial Legion. This cloak seems to exude an icy cold vapor that freezes all it touches.", "冰川军团仅存的遗物。这件斗篷仿佛散发着冰冷的寒气，冻结一切触及之物。", "_t")
-t("release a radius %d chilling blast, instantly dealing %0.2f cold damage and condensing the air into freezing vapors that deal %0.2f cold damage (based on Magic) each turn for %d turns", "在半径 %d 范围内吹出冰风，立刻造成 %0.2f 寒冷伤害，并将空气冻结成寒霜冰雾，每回合造成 %0.2f 寒冷伤害（基于魔法），持续 %d 回合。", "tformat")
+t("release a radius %d chilling blast, instantly dealing %0.2f cold damage and condensing the air into freezing vapors that deal %0.2f cold damage (based on Magic) each turn for %d turns", "在半径 %d 范围内吹出冰风，立刻造成 %0.2f 寒冷伤害，并将空气冻结成寒霜冰雾，每回合造成 %0.2f 寒冷伤害（基于魔力），持续 %d 回合。", "tformat")
 t("%s releases an icy blast from %s %s!", "%s从%s%s中释放出冰风！", "logSeen")
 t("icy vapors", "冰霜雾气", "_t")
 t("Blighted Maul", "枯萎之锤", "entity name")
@@ -9225,7 +9225,7 @@ t("#LIGHT_BLUE#Ice and snow form a barrier!", "#LIGHT_BLUE#冰雪组成了屏障
 t("Wintertide Phial", "霜华之瓶", "entity name")
 t("phial filled with darkness", "充满黑暗的瓶子", "_t")
 t("This phial seems filled with darkness, yet it cleanses your thoughts.", "这个小瓶子似乎充满了黑暗，但却净化了你的思想。", "_t")
-t("cleanse your mind of up to %d (based on Magic) detrimental mental effects", "净化你的思想，解除至多%d个（基于魔法）负面精神状态。", "tformat")
+t("cleanse your mind of up to %d (based on Magic) detrimental mental effects", "净化你的思想，解除至多%d个（基于魔力）负面精神状态。", "tformat")
 t("%s uses %s %s to cleanse %s mind!", "%s使用%s%s净化了%s思想！", "logSeen")
 t("Frost Treads", "踏雪", "entity name")
 t("ice-covered boots", "覆盖着冰霜的皮靴", "_t")
@@ -9408,7 +9408,7 @@ t("Upon defeat, Ak'Gishil collapsed into this tiny rift. How it remains stable, 
 t("Blade of Distorted Time", "时光扭曲之刃", "entity name")
 t("time-warped sword", "扭曲时间的剑", "_t")
 t("The remnants of a damaged timeline, this blade shifts and fades at random.", "这把剑由一段损坏的时间线构成，剑身随机地变幻、隐现。", "_t")
-t("deals %d temporal damage and slows enemies in radius 6 of the target by %d%% based on Magic", "造成 %d 时空伤害，并使目标周围 6 码范围内的敌人减速 %d%%（基于魔法）。", "tformat")
+t("deals %d temporal damage and slows enemies in radius 6 of the target by %d%% based on Magic", "造成 %d 时空伤害，并使目标周围 6 码范围内的敌人减速 %d%%（基于魔力）。", "tformat")
 t("Rune of Reflection", "反射符文", "entity name")
 t("You can see your own image mirrored in the surface of this silvery rune.", "你可以在这块银色的符文表面看到自己的倒影。", "_t")
 t("shiny rune", "闪光的符文", "_t")
@@ -9468,7 +9468,7 @@ t("#00FF00#The elixir has improved your eye for an enemy's weak points!", "#00FF
 t("Elixir of Mysticism", "神秘药剂", "entity name")
 t("vial of cyan fluid", "一瓶青色液体", "_t")
 t("A vial of glowing cyan fluid.", "一瓶发光的青色液体。", "_t")
-t("permanently increase your magic and willpower by three", "永久提升你3点魔法和意志点数", "_t")
+t("permanently increase your magic and willpower by three", "永久提升你3点魔力和意志点数", "_t")
 t("#00FF00#The elixir has augmented your magical and mental capacity!", "#00FF00#药剂增加了你的魔法和精神能量！", "logPlayer")
 t("Elixir of the Savior", "守护药剂", "entity name")
 t("vial of grey fluid", "一瓶灰色液体", "_t")
@@ -10810,7 +10810,7 @@ section "mod-tome/data/general/objects/egos/wands-powers.lua"
 
 t(" of clairvoyance", "通彻之", "entity name")
 t("clairvoyance", "通彻", "entity keyword")
-t("reveal the area around you, dispelling darkness (radius %d, power %d based on Magic), and detect the presence of nearby creatures for 10 turns", "揭示周围区域，驱散黑暗（范围%d，强度%d基于魔法），并在10回合内侦察周围生物", "tformat")
+t("reveal the area around you, dispelling darkness (radius %d, power %d based on Magic), and detect the presence of nearby creatures for 10 turns", "揭示周围区域，驱散黑暗（范围%d，强度%d基于魔力），并在10回合内侦察周围生物", "tformat")
 t("%s uses %s %s!", "%s使用了%s%s！", "logSeen")
 t(" of lightning storm", "闪电风暴之", "entity name")
 t("lightning storm", "闪电风暴", "entity keyword")
@@ -12298,7 +12298,7 @@ t("#GOLD#%s draws power from the spilt blood!", "#GOLD#%s从洒出的血液中�
 t("Dawn's Blade", "黎明之刃", "entity name")
 t("shining longsword", "闪光的长剑", "_t")
 t("Said to have been forged in the earliest days of the Sunwall, this longsword shines with the light of daybreak, capable of banishing all shadows.", "传说是在太阳堡垒成立之初打造，这把长剑闪耀着黎明破晓之光，可以破除一切黑暗。", "_t")
-t("invoke dawn, inflicting %0.2f light damage in radius %d (based on Magic) and lighting the area within radius %d", "激发黎明的光芒，在半径%d内造成%0.2f光系伤害（基于魔法），并照明%d码。", "tformat", {2,1,3})
+t("invoke dawn, inflicting %0.2f light damage in radius %d (based on Magic) and lighting the area within radius %d", "激发黎明的光芒，在半径%d内造成%0.2f光系伤害（基于魔力），并照明%d码。", "tformat", {2,1,3})
 t("%s raises %s and sends out a burst of light!", "%s举起%s，放出一阵光芒！", "logSeen")
 t("#GOLD#You feel a swell of positive energy!", "#GOLD#你感受到正能量的波动！", "logPlayer")
 t("If the sun doesn't set, dawn's power lasts forever.", "如果太阳永不落山，黎明的光辉将永恒。", "_t")
@@ -12387,7 +12387,7 @@ t("When the enchanter Razeen was cornered by Spellhunters near the Daikara mount
 t("Gwai's Burninator", "戈瓦的焚烧者", "entity name")
 t("glowing rod", "发光的魔杖", "_t")
 t("Gwai, a Pyromanceress that lived during the Spellhunt, was cornered by group of mage hunters. She fought to her last breath and is said to have killed at least ten people with this wand before she fell.", "戈瓦，一个生活在魔法狩猎时期的火焰术士，她被一群猎魔人逼入了绝境。她战斗至最后一刻，据说她倒下之前用这把魔杖干掉了至少十人。", "_t")
-t("shoot a cone of flames (radius %d) for %0.2f fire damage (based on Magic)", "发射长度 %d 的锥形火焰，造成 %0.2f 火焰伤害（基于魔法）。", "tformat")
+t("shoot a cone of flames (radius %d) for %0.2f fire damage (based on Magic)", "发射长度 %d 的锥形火焰，造成 %0.2f 火焰伤害（基于魔力）。", "tformat")
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Drake's Bane", "屠龙", "entity name")
 t("viciously sharp battle axe", "凶猛的锋利战斧", "_t")
@@ -12418,7 +12418,7 @@ t("#DARK_GREEN#Nessilla's belt seems to come alive as you put it on.", "#DARK_GR
 t("Neira's Memory", "尼耶拉的记忆", "entity name")
 t("crackling belt", "噼啪作响的腰带", "_t")
 t("Ages ago this belt was worn by Linaniil herself in her youth, using its power she shielded herself from the Spellblaze rain of fire, but naught could she do for her sister Neira.", "许多年前这根腰带是年轻时的莱娜尼尔穿戴的，在魔法大爆炸的火焰之中它的力量保护了她，但却保护不了她的姐妹尼耶拉。", "_t")
-t("surround yourself with a magical shield (strength %d, based on Magic) for %d turns", "制造一层魔法护盾（强度%d，基于魔法），持续%d回合。", "tformat")
+t("surround yourself with a magical shield (strength %d, based on Magic) for %d turns", "制造一层魔法护盾（强度%d，基于魔力），持续%d回合。", "tformat")
 t("%s invokes the memory of Neira!", "%s呼唤了尼耶拉的记忆！", "logSeen")
 t("Nature's Blessing", "自然之赐", "entity name")
 t("supple leather armour entwined with willow bark", "与柳树皮交织的柔韧皮甲", "_t")
@@ -12450,7 +12450,7 @@ t("#STEEL_BLUE#The arcane energies surrounding you dissipate.", "#STEEL_BLUE#围
 t("Mirror Shards", "镜影碎片", "entity name")
 t("mirror lined chain", "镶镜锁链", "_t")
 t("Said to have been created by a powerful mage after his home was destroyed by a mob following the Spellblaze. Though he fled, his possessions were crushed, burned, and smashed. When he returned to the ruins, he made this amulet from the remains of his shattered mirror.", "据说由一位强大的法师制作，当时他的家园在魔法大爆炸后被暴民摧毁。虽然他逃走了，但他的财产被压碎、烧毁、砸烂。当他回到废墟时，他用破碎镜子的残骸制作了这枚护符。", "_t")
-t("create a reflective shield (50%% reflection rate, %d strength, based on Magic) for %d turns", "制造反射护盾（50%%反射率，%d吸收量，基于魔法）持续%d回合。", "tformat")
+t("create a reflective shield (50%% reflection rate, %d strength, based on Magic) for %d turns", "制造反射护盾（50%%反射率，%d吸收量，基于魔力）持续%d回合。", "tformat")
 t("%s activates %s, forging a reflective barrier!", "%s激活了%s，制造了一层反射护盾！", "logSeen")
 t("Destala's Scales", "德斯塔拉之鳞片", "entity name")
 t("green dragon-scale cloak", "绿色的龙鳞斗篷", "_t")
@@ -12814,7 +12814,7 @@ t("This steel plated whip arcs with intense electricity. The force feels uncontr
 t("Focus the lightning forces on an enemy", "将雷霆的力量释放在敌人身上", "_t")
 t("The storm is on your side !", "风暴协助了你！", "logPlayer")
 t("The storm betrayed you...", "风暴背叛了你…", "logPlayer")
-t("strike an enemy within range %d (for 100%% weapon damage as lightning) and release a radius %d burst of electricity dealing %0.2f to %0.2f lightning damage (based on Magic and Dexterity)", "攻击距离 %d 内的敌人，造成 100%% 闪电武器伤害并在半径 %d 内释放电弧，造成 %0.2f 到 %0.2f 点闪电伤害（基于魔法和敏捷）", "tformat")
+t("strike an enemy within range %d (for 100%% weapon damage as lightning) and release a radius %d burst of electricity dealing %0.2f to %0.2f lightning damage (based on Magic and Dexterity)", "攻击距离 %d 内的敌人，造成 100%% 闪电武器伤害并在半径 %d 内释放电弧，造成 %0.2f 到 %0.2f 点闪电伤害（基于魔力和敏捷）", "tformat")
 t("#Source# strikes #Target# with %s %s, sending out an arc of lightning!", "#Source#用%s%s攻击了#Target#，触发一阵电弧！", "logCombat")
 t("Focus Whip", "聚灵鞭", "entity name")
 t("gemmed whip handle", "镶有宝石的鞭柄", "_t")
@@ -12856,7 +12856,7 @@ t("#CRIMSON#As you wield the sword, the tentacles on its hilt wrap around your a
 t("Morrigor", "摄魂剑·莫瑞格", "entity name")
 t("jagged, segmented, sword", "锯齿分节的剑", "_t")
 t("This heavy, ridged blade emanates magical power, yet as you grasp the handle an icy chill runs its course through your spine. You feel the disembodied presence of all those slain by it. In unison, they demand company.", "这把沉重的，有着锯齿状刀刃的长剑正在向外散发强大的魔法波动，当你握住剑时，一阵寒意从剑柄传来，直刺灵魂。你仿佛感觉到了葬身剑下的亡灵，他们渴望着更多同伴的到来。", "_t")
-t("deal %0.2f arcane and %0.2f darkness damage (based on Magic) in a radius 1 around the target", "在目标周围1码范围内，造成%0.2f奥术和%0.2f暗影伤害（基于魔法）", "tformat")
+t("deal %0.2f arcane and %0.2f darkness damage (based on Magic) in a radius 1 around the target", "在目标周围1码范围内，造成%0.2f奥术和%0.2f暗影伤害（基于魔力）", "tformat")
 t("swallows the victim's soul, gaining a new power", "吞噬目标的灵魂，获得新的能力。", "_t")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
 t("@Source@ taps the #SALMON#trapped soul#LAST# of %s, xmanifesting %s!", "@Source@汲取了%s的#SALMON#被困灵魂#LAST#，施展%s！", "tformat")
@@ -12936,7 +12936,7 @@ t("%s unshutters %s %s, unleashing a torrent of shadows!", "%s打开了%s%s，�
 t("Spectral Cage", "幽灵牢笼", "entity name")
 t("ethereal blue lantern", "飘渺的蓝色灯笼", "_t")
 t("This ancient, weathered lantern glows with a pale blue light emanating from several ghostly forms trapped within.  The metal is icy cold to the touch.", "这个古老、风化的灯笼放射出淡蓝色的光芒，光芒来自被困在其中的几个幽灵形体。它的金属表面摸上去像冰一样冷。", "_t")
-t("release a will o' the wisp that will explode against your foes for %d cold damage (based on your Magic)", "放出鬼火，可以对你的敌人自爆，造成%d寒冷伤害（基于魔法）", "tformat")
+t("release a will o' the wisp that will explode against your foes for %d cold damage (based on your Magic)", "放出鬼火，可以对你的敌人自爆，造成%d寒冷伤害（基于魔力）", "tformat")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("will o' the wisp", "鬼火", "_t")
 t("A chilling, ghostly form that floats in the air.", "空中悬浮的寒冷鬼火。", "_t")
@@ -12958,7 +12958,7 @@ t("wand", "魔杖", "entity subtype")
 t("Void Shard", "虚空碎片", "entity name")
 t("strange jagged shape", "奇怪的锯齿状碎片", "_t")
 t("This jagged shape looks like a hole in space, yet it is solid, though light in weight.", "这个锯齿状的影像看上去像是时空中的黑洞，但它又是固态的，尽管重量非常的轻。", "_t")
-t("release a radius %d burst of void energy at up to range %d, dealing %0.2f temporal and %0.2f darkness damage (based on Magic)", "释放一片半径 %d 的虚空能量爆发，最远可及 %d 码距离，造成 %0.2f 时空和 %0.2f 暗影伤害。（基于魔法）", "tformat")
+t("release a radius %d burst of void energy at up to range %d, dealing %0.2f temporal and %0.2f darkness damage (based on Magic)", "释放一片半径 %d 的虚空能量爆发，最远可及 %d 码距离，造成 %0.2f 时空和 %0.2f 暗影伤害。（基于魔力）", "tformat")
 t("%s siphons space and time into %s %s!", "%s将时空吸收入%s%s！", "logSeen")
 t("Coral Spray", "云雾珊瑚", "entity name")
 t("thick coral plate", "厚重的珊瑚板甲", "_t")
@@ -13016,7 +13016,7 @@ t("This thick cloak is incredibly tough, yet bends and flows with ease.", "这�
 t("Death's Embrace", "死亡拥抱", "entity name")
 t("black leather armor", "黑色的皮甲", "_t")
 t("This deep black leather armor, wrapped with thick silk, is icy cold to the touch.", "这件黑色的皮甲上覆盖着一层厚厚的丝绸，触感冰凉。", "_t")
-t("turn yourself invisible (power %d, based on Cunning and Magic) for 10 turns", "隐形10回合（强度%d，基于灵巧和魔法）", "tformat")
+t("turn yourself invisible (power %d, based on Cunning and Magic) for 10 turns", "隐形10回合（强度%d，基于灵巧和魔力）", "tformat")
 t("%s pulls %s %s around %s like a dark shroud!", "%s将%s%s环绕%s，形成了黑暗的壁障", "logSeen")
 t("Breath of Eyal", "埃亚尔的呼吸", "entity name")
 t("gauzy green armor", "薄薄的绿色护甲", "_t")
@@ -13168,7 +13168,7 @@ t("#DARK_GREY#Your ring's power fades away.", "#DARK_GREY#你的戒指的力量�
 t("Lightbringer's Wand", "光明使者之棒", "entity name")
 t("bright wand", "明亮的魔棒", "_t")
 t("This gold-tipped wand shines with an unnatural sheen.", "这根金头魔棒闪耀着非自然的光泽。", "_t")
-t("summon a stationary shining orb within range %d for 15 turns that will illuminate its area and deal %d light damage (based on your Magic and Strength) to your foes within radius %d each turn", "在 %d 码范围内召唤一个静止的发光球体，持续15回合，照亮其周围区域，并每回合对半径 %d 内的敌人造成 %d 光系伤害（基于魔法和力量）", "tformat", {1,3,2})
+t("summon a stationary shining orb within range %d for 15 turns that will illuminate its area and deal %d light damage (based on your Magic and Strength) to your foes within radius %d each turn", "在 %d 码范围内召唤一个静止的发光球体，持续15回合，照亮其周围区域，并每回合对半径 %d 内的敌人造成 %d 光系伤害（基于魔力和力量）", "tformat", {1,3,2})
 t("Lightbringer", "光明使者", "_t")
 t("A shining orb.", "一颗发光的球体。", "_t")
 t("#Source# points %s %s at #target#, releasing a brilliant orb of light!", "#Source#将%s%s指向#target#，放出一个耀眼的光球！", "logCombat")
@@ -21147,7 +21147,7 @@ You gain a bonus to Mindpower equal to %d%% of your Magic.
 
 #{italic}#Something is not quite right inside you.  Your solar spells are somehow twisted, but your bloody rites make things clear as day.#{normal}#]], [[你的诅咒汲取着魔法同时又驱动着魔法。
 你获得相当于 %d%% 意志的法术强度加值。
-你获得相当于 %d%% 魔法的精神强度加值。
+你获得相当于 %d%% 魔力的精神强度加值。
 
 #{italic}#你的体内有些不对劲。你的太阳法术不知何故被扭曲了，但你血腥的仪式使得事物如同白昼一样清晰。#{normal}#]], "tformat")
 t("Flee the Sun", "阴走", "talent name")
@@ -21445,7 +21445,7 @@ t("Deals %d physical damage, knocking the target back.", "造成 %d 物理伤害
 t([[You bind light in a glyph on the floor. All enemies walking over the glyph will be hit by a blast that does %0.2f physical damage and knocks them back.
 		The glyph is a hidden trap (%d detection and %d disarm power based on your Magic) and lasts for %d turns.
 		The damage will increase with your Spellpower.]], [[你用光能在地上刻画圣印。所有经过圣印的敌人会受到 %0.2f 物理伤害并被击退。
-		圣印视为隐藏陷阱 （%d 侦查强度， %d 点解除强度，基于魔法）持续 %d 回合。
+		圣印视为隐藏陷阱 （%d 侦查强度， %d 点解除强度，基于魔力）持续 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Glyph of Fatigue", "疲劳圣印", "talent name")
 t("glyph of fatigue", "疲劳圣印", "_t")
@@ -22045,7 +22045,7 @@ t("Vigilance", "严阵以待", "talent name")
 t("#ORCHID#%s has recovered!#LAST#", "#ORCHID#%s恢复了！#LAST#", "logSeen")
 t([[Improves your capacity to see invisible foes by +%d and to see through stealth by +%d.  Additionally you have a %d%% chance to recover from a single negative status effect each turn.
 		Sense abilities will scale with your Magic stat.]], [[增强你的隐形侦测能力 +%d 以及潜行侦测能力 +%d。  此外，每回合你有 %d%% 的几率从一个负面状态中回复。
-		受魔法属性影响，侦测能力按比例增加。]], "tformat")
+		受魔力属性影响，侦测能力按比例增加。]], "tformat")
 t("Warden's Focus", "守卫者专注", "talent name")
 t("You require a weapon to use this talent.", "你需要武器来施展这个技能。", "logPlayer")
 t("You must pick a focus target.", "你必须选择一个集中目标。", "logPlayer")
@@ -22147,8 +22147,7 @@ t("Spacetime Mastery", "时空掌握", "talent name")
 t("Your mastery of spacetime reduces the cooldown of Banish, Dimensional Step, Swap, and Temporal Wake by %d, and the cooldown of Wormhole by %d.  Also improves your Spellpower for purposes of hitting targets with chronomancy effects that may cause continuum destabilization (Banish, Time Skip, etc.), as well as your chance of overcoming continuum destabilization, by %d%%.", "你的时空掌控使放逐、空间跳跃、时空交换和时空尾迹的冷却时间减少 %d 回合，使虫洞穿梭的冷却时间减少 %d 回合。当你用可能造成连续体失稳的时空技能（如放逐、时间跳跃等）命中目标时，判定所用的法术强度以及克服连续体失稳的几率均提高 %d%%。", "tformat")
 t("Quantum Feed", "量子充能", "talent name")
 t([[You've learned to boost your magic through your control over the spacetime continuum.  Increases your Magic and your Spell Save by %d.
-		The effect will scale with your Willpower.]], [[你已经学会通过控制时空的流动来增强魔力。
-		增加 %d 点魔法和法术豁免。
+		The effect will scale with your Willpower.]], [[你已经学会通过控制时空的流动来增强魔力。增加 %d 点魔力和法术豁免。
 		效果受意志加成。]], "tformat")
 t("Moment of Prescience", "预知时刻", "talent name")
 t([[You pull your awareness fully into the moment, increasing your stealth detection, see invisibility, defense, and accuracy by %d for %d turns.
@@ -22257,7 +22256,7 @@ t("Warp Mine Toward", "时空地雷：接近", "talent name")
 t([[Lay Warp Mines in a radius of 1 that teleport enemies to you and inflict %0.2f physical and %0.2f temporal (warp) damage.
 		The mines are hidden traps (%d detection and %d disarm power based on your Magic) and last for %d turns.
 		The damage caused by your Warp Mines will improve with your Spellpower.]], [[在半径 1 的范围内布设时空地雷，将敌人传送到你身边，并造成 %0.2f 物理伤害和 %0.2f 时空（扭曲）伤害。
-		这些地雷是隐藏陷阱（侦测强度为 %d， 解除强度为 %d， 二者均取决于你的魔法属性），持续 %d 回合。
+		这些地雷是隐藏陷阱（侦测强度为 %d， 解除强度为 %d， 二者均取决于你的魔力属性），持续 %d 回合。
 		时空地雷造成的伤害随法术强度提高。]], "tformat")
 t("Warp Mine Away", "时空地雷：远离", "talent name")
 t([[Lay Warp Mines in a radius of 1 that teleport enemies away from you and inflict %0.2f physical and %0.2f temporal (warp) damage.
@@ -23714,7 +23713,7 @@ t("Fires a beam (range 5) at a foe each turn for %0.2f arcane damage.  Lasts %d 
 t([[Lay a magical trap that fires a beam of arcane energy at a random foe (within range 5) each turn for %d turns, inflicting %0.2f arcane damage.
 This trap requires 20 Magic to prepare and does not refund stamina when it expires.
 #YELLOW#Activates immediately when placed.#LAST#]], [[放置魔法陷阱，每回合朝 5 格内的随机敌人射出奥术射线，持续 %d 回合，造成 %0.2f 奥术伤害。
-该陷阱需要 20 魔法才能准备，消失时不返还体力。
+该陷阱需要 20 点魔力才能准备，消失时不返还体力。
 #YELLOW#放置后立刻激活。#LAST#]], "tformat")
 t("Poison Gas Trap", "毒气陷阱", "talent name")
 t("You have learned how to create Poison Gas traps!", "你学会了如何制作毒气陷阱！", "_t")
@@ -26787,7 +26786,7 @@ t("shalore", "永恒精灵", "talent type")
 t("Grace of the Eternals", "不朽的恩赐", "talent name")
 t([[Call upon the grace of the Eternals to increase your global speed by %d%% for 5 turns.
 		The speed bonus will increase with your Dexterity or Magic (whichever is higher).]], [[召唤不朽的恩赐之力来增加你 %d%% 的全局速度，持续 5 回合。
-		受敏捷和魔法中较高一项影响，速度会有额外的提升。]], "tformat")
+		受敏捷和魔力中较高一项影响，速度会有额外的提升。]], "tformat")
 t("Magic of the Eternals", "不朽的魔法", "talent name")
 t([[Reality bends slightly in the presence of a Shaloren due to their inherent magical nature.
 		Increases critical chance by %d%% and critical strike power by %d%%.]], [[因为永恒精灵的自然魔法，现实发生了轻微的扭曲。
@@ -28705,7 +28704,7 @@ t([[Engulfs your hands (and weapons) in a sheath of lightning, dealing %d lightn
 t("Inner Power", "心灵之力", "talent name")
 t([[You concentrate on your inner self, increasing your Strength, Dexterity, Magic, and Cunning by %d.
 		Additionally, you gain a shield absorbing %d damage before you take damage every %d turns.
-		The stat increase and shield will improve with your Spellpower.]], [[你专注于内心，使你的力量、敏捷、魔法和灵巧提高 %d 点。
+		The stat increase and shield will improve with your Spellpower.]], [[你专注于内心，使你的力量、敏捷、魔力和灵巧提高 %d 点。
 		在你受到伤害前，你会产生一个吸收 %d 伤害的护盾，该效果最多每 %d 回合触发一次。
 		属性值增长和护盾强度受法术强度加成。]], "tformat")
 
@@ -30538,12 +30537,13 @@ t([[Raw magical damage channels through the caster's weapon, increasing raw Phys
 		If you are using a shield this will only occur 50%% of the time.
 		If you are dual wielding this will only occur 50%% of the time.
 		At level 5 the ball becomes radius 2.
-		]], [[原始的魔法伤害经由你的武器传导。增加相当于你 %d%% 魔法属性值的物理强度（当前值： %d）。
+		]], [[原始的魔法伤害经由你的武器传导。增加相当于你 %d%% 魔力属性值的基础物理强度（当前加成： %d）。
 		每当你近战攻击暴击时，你会释放一个半径为 %d 码的奥术属性的魔法球，造成 %0.2f 的伤害。
 		增益随法术强度与技能等级提升。
 		当使用盾牌时，只有50%% 的几率触发。
 		当双持武器时，只有50%% 的几率触发。
-		技能等级 5 时，魔法球的半径变成 2。]], "tformat")
+		技能等级 5 时，魔法球的半径变成 2。
+]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/marksmanship.lua"
@@ -31454,7 +31454,7 @@ t([[You have learned to harness your latent arcane powers, channeling them throu
 		Your raw Physical Power is increased by 100%% of your raw Spellpower;
 		Your physical critical chance is increased by 25%% of your bonus spell critical chance.]], [[你学会如何利用自己潜在的奥术力量，将它们注入你的武器。
 		这一技能具有以下效果：
-		所有武器均有额外的 50%% 魔法加成。
+		所有武器均有额外的 50%% 魔力加成。
 		你的基础物理强度增加等同于 100%% 基础法强的数值。
 		你的物理暴击率增加等同于 25%% 额外法术暴击率的数值。]], "tformat")
 t("Temporal Form", "时空形态", "talent name")
@@ -36480,7 +36480,7 @@ t([[An aura of death surrounds you.
 #CRIMSON#Power 4+: %sReprieve from Death: Humanoids you slay have a %d%% chance to rise to fight beside you as ghouls for 6 turns.]], [[一个死亡的光环笼罩着你。
 #CRIMSON# 惩罚：#WHITE# 死亡恐惧：%+d%% 对亡灵的伤害抗性。
 #CRIMSON# 强度 1+：%s 死亡力量：%+d%% 对亡灵的伤害加成。
-#CRIMSON# 强度 2+：%s%+d 幸运 , %+d 力量 , %+d 魔法
+#CRIMSON# 强度 2+：%s%+d 幸运 , %+d 力量 , %+d 魔力
 #CRIMSON# 强度 3+：%s 活死人之躯：腐秽呕吐能治疗你。每 %d 回合一次，当你生命值降至 %d%% 以下时，释放一次等级 %d 的腐秽呕吐。
 #CRIMSON# 强度 4+：%s 死缓：你杀死的人形生物有 %d%% 几率变成食尸鬼并替你作战持续 6 回合。]], "tformat", {1,2,3,4,5,6,7,8,9,11,10,12,13})
 t("walking corpse", "行尸", "_t")
@@ -37800,7 +37800,7 @@ t("A scrap of paper.", "一张纸片。", "_t")
 t("Rod of Spydric Poison", "蜘蛛毒枝", "entity name")
 t("poison dripping wand", "滴着毒液的魔杖", "_t")
 t("This rod carved out of a giant spider fang continuously drips venom.", "这根法杖由巨大蜘蛛的毒牙雕刻而成，不断往下滴落毒液。", "_t")
-t("shoot a bolt of spydric poison out to range %d, dealing %0.2f nature damage (based on Magic) over %d turns while rendering the target unable to move", "发射蜘蛛毒素，对%d码内的敌人造成%0.2f点自然伤害（基于魔法），该伤害在%d回合内分次造成，期间目标无法移动", "tformat")
+t("shoot a bolt of spydric poison out to range %d, dealing %0.2f nature damage (based on Magic) over %d turns while rendering the target unable to move", "发射蜘蛛毒素，对%d码内的敌人造成%0.2f点自然伤害（基于魔力），该伤害在%d回合内分次造成，期间目标无法移动", "tformat")
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 
 ------------------------------------------------
@@ -37897,7 +37897,7 @@ t("armor", "护甲", "entity type")
 t("feet", "脚部", "entity subtype")
 t("A pair of boots made of leather. They seem to be of exceptional quality.", "一双皮革制的靴子。它们似乎品质非凡。", "_t")
 t("a pair of leather boots of phasing", "一双相位的皮靴", "entity name")
-t("blink to a nearby random location within range %d (based on Magic)", "随机传送到%d码范围内的位置（基于魔法）", "tformat")
+t("blink to a nearby random location within range %d (based on Magic)", "随机传送到%d码范围内的位置（基于魔力）", "tformat")
 t("%s uses %s!", "%s 使用了 %s！", "logSeen")
 t("a pair of leather boots of rushing", "一双冲锋的皮靴", "entity name")
 t("elm longbow of piercing arrows", "穿透的榆木长弓", "entity name")
@@ -38241,7 +38241,7 @@ section "mod-tome/data/zones/demon-plane/objects.lua"
 t("Shifting Boots", "闪现靴", "entity name")
 t("pair of shifting boots", "一双可以闪现的靴子", "_t")
 t("Those leather boots can make anybody as annoying as their former possessor, Draebor.", "这双靴子可以使任何人像它以前的主人小恶魔德瑞宝一样淘气。", "_t")
-t("blink to a nearby random location within range %d (based on Magic)", "随机传送到%d码范围内的位置（基于魔法）", "tformat")
+t("blink to a nearby random location within range %d (based on Magic)", "随机传送到%d码范围内的位置（基于魔力）", "tformat")
 t("%s taps %s %s together!", "%s将%s %s相互轻叩！", "logSeen")
 
 ------------------------------------------------
@@ -39595,7 +39595,7 @@ t("drink the vile fluid", "喝下这瓶恶臭液体", "_t")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
 t("#00FFFF#You drink the wyrm bile and feel forever transformed!", "#00FFFF#你喝下了巨龙胆汁，感觉身体发生了永久的变化！", "logPlayer")
 t("You have %d category point(s) to spend. Press p to use them.", "你有%d点技能树解锁点。请按 P 键使用。", "log")
-t("#00FF00#Your stats have changed! (Str %s, Dex %s, Mag %s, Wil %s, Cun %s, Con %s)", "#00FF00#你的属性发生了变化！（力量 %s，敏捷 %s，魔法 %s，意志 %s，灵巧 %s，体质 %s）", "logPlayer")
+t("#00FF00#Your stats have changed! (Str %s, Dex %s, Mag %s, Wil %s, Cun %s, Con %s)", "#00FF00#你的属性发生了变化！（力量 %s，敏捷 %s，魔力 %s，意志 %s，灵巧 %s，体质 %s）", "logPlayer")
 t("red", "红色", "entity subtype")
 t("Atamathon's Lost Ruby Eye", "阿塔玛森丢失的红宝石眼睛", "entity name")
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
@@ -43163,7 +43163,7 @@ t("dex", "敏捷", "stat short_name")
 t("Dexterity defines your character's ability to be agile and alert. It increases your chance to hit, your ability to avoid attacks, and your damage with light or ranged weapons.", "敏捷属性影响你的灵巧和警觉能力，提升敏捷可以提升命中，提升闪避，提升使用轻武器和远程武器造成的伤害。", "_t")
 t("Magic", "魔力", "stat name")
 t("mag", "魔力", "stat short_name")
-t("Magic defines your character's ability to manipulate the magical energy of the world. It increases your spell power, and the effect of spells and other magic items.", "魔法属性影响你驾驭魔法能量的能力，提升魔法可以提高你的法术强度，以及法术和其他魔法物品的效果。", "_t")
+t("Magic defines your character's ability to manipulate the magical energy of the world. It increases your spell power, and the effect of spells and other magic items.", "魔力属性影响你驾驭魔法能量的能力，提升魔力可以提高你的法术强度，以及法术和其他魔法物品的效果。", "_t")
 t("Willpower", "意志", "stat name")
 t("wil", "意志", "stat short_name")
 t("Willpower defines your character's ability to concentrate. It increases your mana, stamina and PSI capacity, and your chance to resist mental attacks.", "意志属性决定你的角色集中精神的能力。它会提高你的法力值、体力值与灵能值上限，并提高精神豁免。", "_t")

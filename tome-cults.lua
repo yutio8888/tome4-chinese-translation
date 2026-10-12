@@ -37,17 +37,17 @@ t("Writhing Ones know that what we call #{italic}#horrors#{normal}# hold the key
 t("In their lust for power they somehow lost a part of themselves, turning more and more into the horrors they study.", "在极度渴求力量的同时，他们似乎失去了部分自我，和他们所研究的恐魔越来越相似。", "_t")
 t("Most of them forgo an entire arm to turn it into a deadly tentacle.", "他们中大部分人选择将一整只手臂化作致命触手。", "_t")
 t("Some are even known to never leave their sanctuary without their own worm that walks friend.", "某些人甚至拒绝在没有蠕虫合体的陪同下离开避难所。", "_t")
-t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔法。", "_t")
+t("Their most important stats are: Strength and Magic", "他们最重要的属性是：力量和魔力。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +3 力量，+0 敏捷，+3 体质", "_t")
-t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔法，+0 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +3 Magic, +0 Willpower, +0 Cunning", "#LIGHT_BLUE# * +3 魔力，+0 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# +3", "#GOLD#每等级生命加值：#LIGHT_BLUE# +3", "_t")
 t("Cultist of Entropy", "熵教徒", "birth descriptor name")
 t("Everything ends eventually. Harness this inevitability.", "万物终将消亡。这一点可以被利用。", "_t")
 t("Cultists of Entropy are doomed beings which have unlocked the secrets of using entropy as a weapon. Their spells cause their bodies to wither away from entropic backlash, but they have learned how to resist this backlash and even pass it onto their foes.", "熵教徒是被诅咒的存在，他们能使用熵作为武器。他们的法术产生熵能反冲伤害自身，但他们学会如何抵抗反冲甚至将其转移至敌人身上。", "_t")
-t("Their most important stats are: Magic and Cunning", "他们最重要的属性是：魔法和灵巧。", "_t")
+t("Their most important stats are: Magic and Cunning", "他们最重要的属性是：魔力和灵巧。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+0 体质", "_t")
-t("#LIGHT_BLUE# * +6 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +6 魔法，+0 意志，+3 灵巧", "_t")
+t("#LIGHT_BLUE# * +6 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +6 魔力，+0 意志，+3 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -4", "#GOLD#每等级生命加值：#LIGHT_BLUE# -4", "_t")
 
 ------------------------------------------------
@@ -64,7 +64,7 @@ t("Drem are mindless mutants who live deep in the earth. It is only recently tha
 t("They possess the #GOLD#Frenzy#WHITE# talent which allows them to ignore cooldowns once in a while.", "他们拥有 #GOLD#狂热#WHITE# 技能，让他们偶尔能无视冷却时间。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +3 力量，+1 敏捷，+1 体质", "_t")
-t("#LIGHT_BLUE# * +2 Magic, -1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +2 魔法，-1 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * +2 Magic, -1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +2 魔力，-1 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 12", "#GOLD#每等级生命加值：#LIGHT_BLUE# 12", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚：#LIGHT_BLUE# 12%", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
@@ -109,7 +109,7 @@ t("Krogs were formerly Ogres, that have been radically changed. Stripped of the 
 t("They possess the #GOLD#Wrath of the Wilds#WHITE# talent which allows them to stun/daze their foes.", "他们拥有 #GOLD#自然之怒#WHITE# 技能，让他们能震慑/眩晕敌人。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量，-1 敏捷，+2 体质", "_t")
-t("#LIGHT_BLUE# * -2 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔法，+2 意志，+0 灵巧", "_t")
+t("#LIGHT_BLUE# * -2 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔力，+2 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 13", "#GOLD#每等级生命加值：#LIGHT_BLUE# 13", "_t")
 t("#GOLD#Experience penalty:#LIGHT_BLUE# 15%", "#GOLD#经验惩罚：#LIGHT_BLUE# 15%", "_t")
 t("Skin Color 1", "皮肤颜色1", "_t")
@@ -3002,13 +3002,11 @@ t([[Each time you cast a non-instant Demented spell, a nether spark begins orbit
 #PURPLE#Netherblast:#LAST# Becomes a deadly lance of void energy, piercing through enemies and dealing an additional %d%% damage over 5 turns.
 #PURPLE#Rift Cutter:#LAST# Those in the rift will be pinned for %d turns, take %0.2f temporal damage each turn, and the rift explosion has %d increased radius.
 #PURPLE#Spatial Distortion:#LAST# An Entropic Maw will be summoned at the rift's exit for %d turns, pulling in and taunting nearby targets with it's tendrils.
-The damage will increase with your Spellpower.  Entropic Maw stats will increase with level and your Magic stat.]], [[每次你施放非瞬发的疯狂法术时，一朵彼世火花将环绕在你周围 10 回合，上限为 5 朵。
-		每个火花增加你 %d%% 暴击率。当你拥有 5 个火花时，你的下一次虚空法术将消耗所有火花来获得强化效果。
+The damage will increase with your Spellpower.  Entropic Maw stats will increase with level and your Magic stat.]], [[每次你施放非瞬发的疯狂法术时，一朵彼世火花将环绕在你周围 10 回合，上限为 5 朵。每个火花增加你 %d%% 暴击率。当你拥有 5 个火花时，你的下一次彼世法术将消耗所有火花来获得强化效果。
 #PURPLE#彼世冲击：#LAST# 成为穿透性虚空能量，并在 5 回合内造成额外 %d%% 伤害。
 #PURPLE#裂缝切割：#LAST# 裂缝内的敌人将定身 %d 回合，每回合受到 %0.2f 时空伤害。裂缝湮灭时爆炸半径增加 %d。
 #PURPLE#空间扭曲：#LAST# 裂缝出口处产生一个持续 %d 回合的熵之胃，能用触须拉近并嘲讽附近的目标。
-伤害受法术强度加成。
-熵之胃的属性受等级和魔法属性加成。]], "tformat")
+伤害受法术强度加成。熵之胃的属性受等级和魔力属性加成。]], "tformat")
 t("Grasping Tendrils", "触须抓取", "talent name")
 t("Grab a target and drag it to your side, dealing %d%% weapon damage and taunting it.", "抓住目标，将其拉到身边，造成 %d%% 武器伤害并嘲讽之。", "tformat")
 
@@ -3028,7 +3026,7 @@ t([[Your Nihil unravels the existence of the target, tearing them apart with ent
 		Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你的空无会解构目标的存在，并以熵能将其撕裂。
 		在空无效果结束之前，如果目标身上被施加了 6 个负面魔法效果，将召唤出持续 %d 回合的破灭之兆。
 		之前已有的负面效果、法术冲击、被奥术之眼观察不会计入总数。刷新同一个效果会计入总数。
-		破灭之兆的所有属性获得等同于你魔法属性的加成。其他属性根据本身等级提升。
+		破灭之兆的所有属性获得等同于你魔力属性的加成。其他属性根据本身等级提升。
 		破灭之兆会继承你的伤害加成、伤害穿透、暴击几率和暴击倍率加成。]], "tformat")
 t("Erase", "抹除", "talent name")
 t([[Those affected by your Nihil find themselves increasingly removed from reality, reducing all damage they deal by %d%% and causing them to take %0.2f temporal damage each turn for each negative magical effect they have.
@@ -3063,7 +3061,7 @@ t([[Your mutations have enhanced your offense even farther.
 		You gain %d Accuracy and %d Spellpower.
 		The effects will increase with your Magic stat.]], [[你的突变强化了你的攻击能力。
 		你获得 %d 命中和 %d 法术强度。
-		技能效果会随着你的魔法属性增强。]], "tformat")
+		技能效果会随着你的魔力属性增强。]], "tformat")
 t("Overgrowth", "过度生长", "talent name")
 t([[You trigger a cascade of rapidly mutating cells in your body for %d turns.
 		Your body grows much bigger, gaining 2 size categories, making you able to walk through walls and increasing all your damage by %d%% and all your resistances by %d%%.
@@ -3446,7 +3444,7 @@ t([[Your skin grows small spikes coated in dark blight.
 		The damage will scale with your Magic stat.]], [[你的皮肤生长出被黑暗和枯萎力量覆盖的尖刺。
 		当你被近战攻击命中时，攻击者开始流出黑血，持续 5 回合，每回合造成 %0.2f 暗影伤害。该效果每回合只能触发一次。
 		同时，目睹黑血会使你受到强化：2 格范围内每个可见的流着黑血的生物，都使你获得 5%% 全部抗性，最多计 %d 个生物。
-		伤害随魔法属性提升。]], "tformat")
+		伤害随魔力属性提升。]], "tformat")
 t("Faceless", "无面", "talent name")
 t([[Your faceless visage is puzzling and emotionless, allowing you to more easily resist mind tricks.
 		You gain %d mental save, %d%% confusion immunity.]], [[你那张没有五官的脸毫无表情，令人困惑。这让你更容易抵抗精神冲击。
@@ -3525,7 +3523,7 @@ t([[You try to bite off your foe with your #{italic}#head#{normal}# for %d%% bli
 		Instant kill chances and regeneration increase with your Constitution stat and weapon damage increases with the highest of your Strength, Dexterity or Magic stat.]], [[你尝试用 #{italic}#头#{normal}# 咬你的敌人，造成 %d%% 枯萎武器伤害。
 		如果目标被咬后生命不足 20%%，你有 %d%% 几率直接杀死它（对 boss 无效）。
 		你咬中以后 5 回合内每回合回复 %0.1f 生命。
-		秒杀几率和生命回复受体质加成，武器伤害受力量、敏捷、魔法中的最高值影响。]], "tformat")
+		秒杀几率和生命回复受体质加成，武器伤害受力量、敏捷、魔力中的最高值影响。]], "tformat")
 t("Ultra Instinct", "终极本能", "talent name")
 t([[Without the distraction of #{bold}#thoughts#{normal}# or #{bold}#self#{normal}# your body reacts faster and better to aggressions.
 		Increases global speed by %d%%.]], [[没有 #{bold}#思维#{normal}# 和 #{bold}#自我#{normal}# 的干扰，你的身体全凭本能行动，反应速度更快。
