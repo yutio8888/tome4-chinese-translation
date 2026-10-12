@@ -1,0 +1,64 @@
+{
+  "status": "host adjudicated surface observations; contextual observations adjudicated separately",
+  "slid_observations": null,
+  "additional_host_observations": [],
+  "slide_check": "all 7 observations checked against their own frozen source/target; none slid",
+  "rows": [
+    {
+      "revision_key": "0219df71271b1d85770c81985ce1cfffba5f25ec4bed5278c6fd1d8bd311827f",
+      "stage": "surface",
+      "observation": "原文说明终极技能只能掌握一个；译文遗漏这一数量限制，改为原文未提及的“学习需消耗 1 点觉醒点”。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/talents/uber/uber.lua:20–26 终极技能类型描述“Ultimate talents you may only know one.”与实现不符：class/Actor.lua:3962–3964 在 25、42 级各给 1 点觉醒点（另有 GameState.lua:3751、birth/worlds.lua:156 等额外来源），dialogs/UberTalent.lua:272–275 每学一个终极技能消耗 1 点，可学不止一个。现译“学习需消耗 1 点觉醒点”贴合实现（c7ea0683b 官方对照审核修订），contextual 判 OK。上游英文问题，驳回。"
+    },
+    {
+      "revision_key": "0bcaa390319f86b6aeae2c4bf740fb63eb429b300a8957ef1a53bcc247b74714",
+      "stage": "surface",
+      "observation": "原文“chance to shrug off critical hits”描述抵御暴击的概率；译文“暴击额外伤害减免”改成伤害减免，未保留概率含义。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "主游戏固定 commit 624a673 chronomancy/chronomancy.lua:54–63 Foresight 以 talentTemporaryValue 提供 ignore_direct_crits；game/modules/tome/data/damage_types.lua:130–151 对 ignore_direct_crits 的处理是把暴击超出 1 倍的部分按 util.bound(值,0,100)/100 的比例扣减（reduce=(crit_power-1)*比例），不掷骰，即“按比例减免暴击额外伤害”；Object.lua:1764 的属性比较也写作 Reduces incoming crit damage。英文 chance to shrug off critical hits 与实现不符，现译“暴击额外伤害减免”贴合实现（c7ea0683b），contextual 判 OK。上游英文问题，驳回。"
+    },
+    {
+      "revision_key": "20f2e74977010962e02255fa94b4e7476f5c521342e5957680089e87b9ef9f2e",
+      "stage": "surface",
+      "observation": "双持武器分支原文仅说传送距离最远为弓的射程；译文增加“随机”和“目标周围”的落点限定。冻结输入不足以确认这些新增限定是否符合实际机制。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/talents/chronomancy/threaded-combat.lua:63–100 Thread Walk 双持分支：以目标坐标为中心、弓射程（无弓时 5）为半径，收集距目标不超过射程、距自身不少于射程一半、可移动且目标可见的格子，再 rng.range 随机取一格传送。现译“随机传送到目标周围弓射程内的有效位置”贴合实现，contextual 判 OK。驳回。"
+    },
+    {
+      "revision_key": "45f63d13c4775180826d0da9d51199c698df73d253504deb4c871df0f7b3bea2",
+      "stage": "surface",
+      "observation": "译文遗漏原文第二句“The damage will increase with your Spellpower.”，同时遗漏该句前的换行与两个制表符。冻结原文明确包含伤害随法术强度提高的信息；其实际机制是否适用无法在本筛查范围内核验。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/talents/misc/horrors.lua:676–704 Drench 的 action 只对范围内生物 setEffect(EFF_WET, 10)，不造成任何伤害；info 第二句“The damage will increase with your Spellpower.”在实现中无对应。现译只保留湿润效果（c7ea0683b 官方对照审核删去该句），贴合实现，contextual 判 OK。上游英文问题，驳回。"
+    },
+    {
+      "revision_key": "74b6a9d30f4b410a2c5149c40d0bf386893ce9d38ce47175babba6198ffdccee",
+      "stage": "surface",
+      "observation": "原文为“Gives a chance to ignore the bonus critical damage”，描述按几率忽略额外暴击伤害；译文“按比例减少”改为按比例减伤，概率与减伤幅度的含义不同。实际机制是否支持译文，冻结输入未提供源码证据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "主游戏固定 commit 624a673 game/modules/tome/class/interface/TooltipsData.lua:318–320 Crits Shrug Off 提示写 Gives a chance to ignore；class/Actor.lua:4093 敏捷提供 ignore_direct_crits，game/modules/tome/data/damage_types.lua:130–151 对 ignore_direct_crits 的处理是把暴击超出 1 倍的部分按 util.bound(值,0,100)/100 的比例扣减（reduce=(crit_power-1)*比例），不掷骰，即“按比例减免暴击额外伤害”；Object.lua:1764 的属性比较也写作 Reduces incoming crit damage。现译“按比例减少……额外暴击伤害”贴合实现（c7ea0683b），contextual 判 OK。上游英文问题，驳回。"
+    },
+    {
+      "revision_key": "7d74ca1cd51670d2dcdd5d9da25e6a5fdc37d6feb1a892b67f3042b09d335e4c",
+      "stage": "surface",
+      "observation": "原文“%d%% chance to shrug off critical hits”中的百分比表示几率，译文“减免 %d%% 的暴击额外伤害”将其表示为减伤幅度，且后文同样把“chance”改为伤害减免。实际机制是否支持译文，冻结输入未提供源码证据。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "主游戏固定 commit 624a673 chronomancy/chronomancy.lua:54–63 Foresight 的 getCritDefense 写入 ignore_direct_crits；game/modules/tome/data/damage_types.lua:130–151 对 ignore_direct_crits 的处理是把暴击超出 1 倍的部分按 util.bound(值,0,100)/100 的比例扣减（reduce=(crit_power-1)*比例），不掷骰，即“按比例减免暴击额外伤害”；Object.lua:1764 的属性比较也写作 Reduces incoming crit damage。现译“减免 %d%% 的暴击额外伤害”及后文的减免说法贴合实现（c7ea0683b），contextual 判 OK。上游英文问题，驳回。"
+    },
+    {
+      "revision_key": "eb3162994c6f20bcab2af4afeac3fb3f5c60497a897d28f78022670f39c08360",
+      "stage": "surface",
+      "observation": "source 写明能量消耗为“each time it's triggered”（每次触发），target 改为“每支箭分别消耗”，在多个目标时两者描述的消耗次数不同。冻结输入未提供源码证据，实际计费单位待核验。",
+      "disposition": "refuted",
+      "repair_required": false,
+      "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/talents/celestial/eclipse.lua:99–112 Corona 在 for i = 1, getTargetCount 循环内每发射一支光明箭 incPositive(-2)、每支暗影箭 incNegative(-2)，即按每支箭计费；英文 each time it's triggered 笼统，现译“每支箭分别消耗”贴合实现（c7ea0683b），contextual 判 OK。驳回。"
+    }
+  ]
+}
