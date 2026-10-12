@@ -1,9 +1,9 @@
-# 当前恢复入口（2026-10-12 修复窗口68 完成，第406批已审 80 个 successor，余 88）
+# 当前恢复入口（2026-10-12 修复窗口68 完成，第406–407批已审 160 个 successor，余 8）
 
 用户 2026-10-12 先要求分析近期改动并评估能否对外发布，随后选择“先开 Magic 属性名修复窗口”。窗口68 已完成并推送：106 条 source 中 Magic 指属性、译文写作“魔法”的条目统一为界面属性名“魔力”（主游戏 78、Ashes 7、Cults 11、Orcs 10；译文 `19fd9ec0`，catalog `6ae69b9a…`，migration `6b99f6e0…`，详见 `evidence/quality/repair-window-68-20261012/PUBLICATION.md`）。复审中另修同批条目的 5 处旧错（Cults 彼世法术、Arcane Destruction 基础物理强度与当前加成、Orcs 光系伤害、3 条换行结构），cycle 4 收敛。窗口68 的全部 child 在证据提交前已由宿主确认归档，当前没有进行中的批次、窗口或 child。待办与待决：
 
-1. 窗口68 的 168 个 successor（修复 106 条＋目录同步 62 条；目录同步的 62 条是 `c7ea0683b` 官方对照审核修订在 WP2-Lite 流程外改过的译文，窗口68 只做 catalog/migration 登记、未改译文）：第406批（`batch-266bad83c925bc67c3bf`）80 条：80 done / 0 repair_required，证据提交 `ae5d0a48`；合计已审 80（80 done、待修 0），余 88 个排队待审。
-2. 下一个修复窗口（69）积压 1 条：`tome-orcs.lua:1411` “造成大量光明伤害”应为“光系伤害”（窗口68 RE_REVIEW r1a1 同族发现）。
+1. 窗口68 的 168 个 successor（修复 106 条＋目录同步 62 条；目录同步的 62 条是 `c7ea0683b` 官方对照审核修订在 WP2-Lite 流程外改过的译文，窗口68 只做 catalog/migration 登记、未改译文）：第406批（`batch-266bad83c925bc67c3bf`）80 条：80 done / 0 repair_required，证据提交 `ae5d0a48`；第407批（`batch-be1e4f20608fd9ddf22b`）80 条：80 done / 0 repair_required，证据提交 `18e295ae`；合计已审 160（160 done、待修 0），余 8 个排队待审。
+2. 下一个修复窗口（69）积压 1 条：`tome-orcs.lua:1411` “造成大量光明伤害”应为“光系伤害”（窗口68 RE_REVIEW r1a1 同族发现）；另宿主补充 1 条：`5a0aebf5c0` Orcs 磁化射击（steam/other.lua:1637）三行行首补回 \t\t（第407批预扫）。
 3. 待用户裁决：官方对照审核（`evidence/translation-audit/official-mechanics-20261009/`）经 GPT 6 Astra 核验仍有 pending 178／需裁决 15 项，其中 Magic 属性名一类已由窗口68 处理；Cults “咬一口”秒杀几率（M264，上游英文与实现矛盾）在窗口68 RE_REVIEW r3a1 再次被报，按 2026-10-03 撤回机制改写的决定记 advisory。
 4. 对外发布仍停在 0.3.6；是否发 0.3.7 待用户决定。
 
@@ -93,7 +93,7 @@
 
 # 翻译审核当前交接
 
-更新时间：2026-10-12（第406批已 finalize，窗口68 successor 已审 80/168、余 88；窗口69积压 1 条）
+更新时间：2026-10-12（第407批已 finalize，窗口68 successor 已审 160/168、余 8；窗口69积压 1 条）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -109,10 +109,10 @@
 - 2026-10-01：用户裁定 deeprock 技能树改“深岩”（Deeprock Form 保持“深岩形态”），并要求一并修复 Korbek 实验笔记标题等非阻断问题，开窗口60。
 - 2026-10-01：审核队列清空后，用户要求系统性分析死亡信息表（`cd2d0d7e`）；同意把 12 条句式与拼接缺陷并入积压，开窗口61；随后裁定 pending #50（killer_message 改凶手主语）与 #51（dark Master→黑暗领主）均采用 B，排入窗口62。窗口62 已于同日完成并推送。
 - 2026-10-05：生硬描述 C 档完成并发布 0.3.4 后，用户要求“再走一轮生产复核”。迁移 `87fb6882…`（catalog `47745ecc…`）把 C 档修复包、交叉复核修正与搁置项处理涉及的 494 个 successor 排入队列（证据 `evidence/quality/maintenance-reaudit-20261005/`）。
-- 审核已闭合至第 **406** 批（`batch-266bad83c925bc67c3bf`）：80 条，80 done / 0 repair_required。
-  窗口68 successor 审核 80 条（主游戏 80）：surface 73 OK / 7 ISSUE；contextual 7 OK / 0 ISSUE；裁决 refuted 7；无新增修复，窗口69积压 1；余 88 个 successor。
-  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `ae5d0a4895a1db7bfc5354c8484515a6e2f6ffd5` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **68**：窗口68（用户 2026-10-12 授权的 Magic 属性名统一 106 条，译文 `19fd9ec0`，migration `6b99f6e0…`；另以目录同步登记 `c7ea0683b` 的 62 条），106＋62 个 successor 第406批已审 80，余 88。此前窗口66（第397–403批第二轮重新复审确认 16 条＋宿主补充 9 条，译文 `fd7c6a61`，migration `defcd152…`；25 个 successor 已在第404批审完）与窗口67（宿主补充 1 条＋用户授权 1 条，译文 `0de585f6`，migration `a0f4f220…`）均已修复；窗口67 的 2 个 successor 已在第405批审完（2 done / 0 repair_required）。
+- 审核已闭合至第 **407** 批（`batch-be1e4f20608fd9ddf22b`）：80 条，80 done / 0 repair_required。
+  窗口68 successor 审核 80 条（主游戏 52、Orcs 7、Ashes 8、Cults 13）：surface 68 OK / 12 ISSUE；contextual 12 OK / 0 ISSUE；裁决 refuted 12；无新增修复，窗口69积压 1；余 8 个 successor。
+  17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `18e295ae198af7244a0b8fbfc3447019e98d558e` 已 finalize。当前无 active batch。
+- 修复窗口已闭合至 **68**：窗口68（用户 2026-10-12 授权的 Magic 属性名统一 106 条，译文 `19fd9ec0`，migration `6b99f6e0…`；另以目录同步登记 `c7ea0683b` 的 62 条），106＋62 个 successor 第406–407批已审 160，余 8。此前窗口66（第397–403批第二轮重新复审确认 16 条＋宿主补充 9 条，译文 `fd7c6a61`，migration `defcd152…`；25 个 successor 已在第404批审完）与窗口67（宿主补充 1 条＋用户授权 1 条，译文 `0de585f6`，migration `a0f4f220…`）均已修复；窗口67 的 2 个 successor 已在第405批审完（2 done / 0 repair_required）。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
   - 10 条死键／冻结 MISS（上游改串未重生 locale key 等，已 host-block 登记，不动）；
@@ -162,6 +162,7 @@
 | 404 | `batch-8a80c5f58e2462772813` | 25 done / 0 repair | 25 OK / 0 ISSUE | 0 OK / 0 ISSUE | — |
 | 405 | `batch-0009fb571152fc15b9a2` | 2 done / 0 repair | 2 OK / 0 ISSUE | 0 OK / 0 ISSUE | — |
 | 406 | `batch-266bad83c925bc67c3bf` | 80 done / 0 repair | 73 OK / 7 ISSUE | 7 OK / 0 ISSUE | 7 refuted |
+| 407 | `batch-be1e4f20608fd9ddf22b` | 80 done / 0 repair | 68 OK / 12 ISSUE | 12 OK / 0 ISSUE | 12 refuted |
 
 每批证据摘要在 `evidence/quality/production-batches/<batch>-host-evidence/summary.md`。
 
@@ -191,8 +192,8 @@
 2. 窗口 67 已完成（2 条：主游戏 1、Cults 1）：宿主补充 `9d3fc01bdf`（Cults 奎科加章节，源文 records of Anglowen，“安格列文”→“安格利文”，按 terminology/places.tsv:20）＋用户 2026-10-05 授权的 `fc55a88fd6`（`mod-tome.lua:422` 护送奖励日志“%s技能 %s（+%d 级）”，对齐 425 行与 tome-orcs.lua:582），新译文由宿主写定、EXECUTOR 逐字替换；窗口内复审另确认奎科加条目的 2 处错误并一并修复。复审路径：REVIEW r0a1（gpt-6.1-sol）1 OK／1 ISSUE，确认忠实性 1 条（奎科加章节 librarians 被译作“记录者”）＋宿主同条确认 1 条（might be 被写成“其实是”），execute-02 → RE_REVIEW r1a1 2/2 OK → FINAL f1a2（Opus 5.5）2/2 OK；第 1 轮收敛（max_cycles 5），无无效尝试；门禁 17/17。详见 `evidence/quality/repair-window-67-20261005/PUBLICATION.md`。
    窗口66（第二轮重新复审确认 16 条＋补充 9 条，第 3 轮收敛）详见 `evidence/quality/repair-window-66-20261005/PUBLICATION.md`；窗口65（重新复审确认 9 条＋补充 2 条）详见 `evidence/quality/repair-window-65-20261004/PUBLICATION.md`；窗口64 详见 `evidence/quality/repair-window-64-20261003/PUBLICATION.md`；窗口63（意志之力 maces 1 条）详见 `evidence/quality/repair-window-63-20261001/PUBLICATION.md`；窗口62 教训：killer_message 被 `" "..src.killer_message` 拼在凶手名后，译文不得以标点起头。
    窗口58遗留的 `2822ed0142` 食人魔化歌意译仍待 successor 审核时再评估。
-   下一个修复窗口（69）积压 **1** 条（窗口68后重新计数，Orcs 1）：`tome-orcs.lua:1411` “造成大量光明伤害”应为“光系伤害”（窗口68 RE_REVIEW r1a1 同族发现）。 主游戏 `mod-tome/load.lua` 段的奎科加旧版副本（`e4824491182e`）是已登记死键（`batch-ac27e658…` 中经 host-block 放行），译文不生效，与 Cults 现行条目措辞不同步属预期，不登记。
-   第406批计时（实测，投影缓存 on）：start 195.6 s；adjudication＋prepare-evidence（含 17 项门禁）197.6 s；finalize 196.8 s。
+   下一个修复窗口（69）积压 **1** 条（窗口68后重新计数，Orcs 1＋宿主补充 Orcs 1）：`tome-orcs.lua:1411` “造成大量光明伤害”应为“光系伤害”（窗口68 RE_REVIEW r1a1 同族发现）；另宿主补充 1 条：`5a0aebf5c0` Orcs 磁化射击（steam/other.lua:1637）三行行首补回 \t\t（第407批预扫）。 主游戏 `mod-tome/load.lua` 段的奎科加旧版副本（`e4824491182e`）是已登记死键（`batch-ac27e658…` 中经 host-block 放行），译文不生效，与 Cults 现行条目措辞不同步属预期，不登记。
+   第407批计时（实测，投影缓存 on）：start 2.0 s；adjudication＋prepare-evidence（含 17 项门禁）198.0 s；finalize 197.4 s。
 3. 窗口56的教训：长篇 lore 进窗口后每轮复审都会冒出旧错，第二轮起宿主应整条对照源文一次补齐；
    Opus FINAL 截断输出记 INVALID 后 attempt+1 重派，不计 max_cycles。
 
