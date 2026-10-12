@@ -1,0 +1,22 @@
+第 3 轮修复完成，仅整条替换指定的两条 target，均与 `new_target` 逐字相等，保留原有 `[[...]]` 形式。
+
+前后差异（`\n`、`\t` 表示实际控制字符）：
+
+- `616edb9a50`：
+  - `上限为 5 朵。\n\t\t每个火花` → `上限为 5 朵。每个火花`
+  - `伤害受法术强度加成。\n熵之胃` → `伤害受法术强度加成。熵之胃`
+  - 换行数 **6 → 4**，各行无行首缩进。
+- `cacc8ec690`：
+  - `来增强魔力。\n\t\t增加` → `来增强魔力。增加`
+  - 换行数 **2 → 1**，末行原有两个制表符保留。
+
+验证全部通过：
+
+- LuaJIT 加载四个译文文件及 baseline：仍恰 **106** 条 target 变动，本轮仅 **2** 条；其他记录和 `args_order` 不变。
+- `git diff --check`：退出码 0。
+- strict lint：检查 **30308** 条，0 错误、0 警告，退出码 0。
+- doctor：通过，保留既有 DLC 来源未固定警告。
+
+为遵守禁止写入 `.artifacts/` 的要求，CLI 经 `runpy` 执行，仅在内存中调整报告存储。完整前后文本及结果已记录于 [IMPLEMENTATION.md](/workspace/tome4-chinese-translation/evidence/quality/repair-window-68-20261012/IMPLEMENTATION.md) 和 [VALIDATION.json](/workspace/tome4-chinese-translation/evidence/quality/repair-window-68-20261012/VALIDATION.json)。
+
+未 stage、commit、push、创建 agent 或修改 `.ai/task`。无未解决问题。

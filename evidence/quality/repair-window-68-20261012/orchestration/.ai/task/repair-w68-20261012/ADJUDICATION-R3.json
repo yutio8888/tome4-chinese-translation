@@ -1,0 +1,19 @@
+{
+ "cycle": 3,
+ "stage": "RE_REVIEW",
+ "accepted_dispatch_id": "r3a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 105,
+ "raw_issue_count": 1,
+ "decision": "No tier-1 confirmed finding (the only ISSUE is an upstream English/implementation conflict, host advisory carry_forward): cycle 3 converged; proceed to FINAL_REVIEW(3,2) with Opus 5.5.",
+ "findings": [],
+ "advisories": [
+  {
+   "revision_key": "2b07ec87adeff79b2a2ab6e0c9542206fbc08f08f68a57d194354a4683076a7a",
+   "status": "advisory",
+   "origin": "reviewer r3a1",
+   "disposition": "carry_forward",
+   "reason": "Cults 公开源码（来源未固定，SHA 59b9b67c…）tome-cults/data/talents/misc/races.lua:381-405：getChance 有定义但 action 未调用，生命低于 20% 的非 boss 目标直接被杀；体质只影响回复量。英文说明本身写“%d%% chances to outright kill … Instant kill chances … increase with your Constitution”，现译“你有 %d%% 几率直接杀死它…秒杀几率和生命回复受体质加成”与英文一致。属上游英文与实现矛盾（官方对照审核 M264，GPT 6 Astra 核验列为需用户裁决），按 2026-10-03 用户撤回机制改写的决定不在译文中改写机制；本窗口只改其中的 Magic 属性名。记入待用户裁决，不计积压。"
+  }
+ ]
+}

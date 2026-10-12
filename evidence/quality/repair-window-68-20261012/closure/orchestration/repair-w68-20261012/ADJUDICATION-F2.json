@@ -1,0 +1,44 @@
+{
+ "cycle": 2,
+ "stage": "FINAL_REVIEW",
+ "accepted_dispatch_id": "f2a2",
+ "invalid_attempts": [],
+ "raw_ok_count": 104,
+ "raw_issue_count": 2,
+ "decision": "2 confirmed tier-1 newline/indent invariant findings from FINAL f2a2 (pre-existing layout drift in workset entries); one EXECUTOR fix (execute-05), then RE_REVIEW(3,1) and FINAL_REVIEW(3,2). max_cycles=5.",
+ "findings": [
+  {
+   "revision_key": "616edb9a5081537ca90bdb45f7b1ec67f3ff4bbd3fe4a5a66fda3956a931c09c",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "newline",
+   "origin": "reviewer f2a2",
+   "reason": "Cults 公开源码（来源与 commit 未固定，SHA 4ee9687b…）tome-cults/data/talents/demented/nether.lua:318-323 info 文本共 4 个换行、行首无缩进；“to a maximum of 5. Each spark…”同行，“Spellpower.  Entropic Maw stats…”同行。现译 6 个换行并在第 2 行带 \\t\\t。修复：“上限为 5 朵。\\n\\t\\t每个火花”→“上限为 5 朵。每个火花”；“伤害受法术强度加成。\\n熵之胃”→“伤害受法术强度加成。熵之胃”。修复后 LF 4、各行缩进与源文一致。（官方对照审核 M247 曾记“分段依源串”。）",
+   "fix": [
+    [
+     "上限为 5 朵。\n\t\t每个火花",
+     "上限为 5 朵。每个火花"
+    ],
+    [
+     "伤害受法术强度加成。\n熵之胃",
+     "伤害受法术强度加成。熵之胃"
+    ]
+   ]
+  },
+  {
+   "revision_key": "cacc8ec690593204227926e9070edd4253d3e410335c469fe741257a61847610",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "newline",
+   "origin": "reviewer f2a2",
+   "reason": "主游戏固定 commit 624a673 game/modules/tome/data/talents/chronomancy/other.lua:231-232：“…spacetime continuum.  Increases your Magic and your Spell Save by %d.”同行，第 232 行以 \\t\\t 另起“The effect will scale…”，共 1 个换行。现译在“来增强魔力。”后多一个 \\n\\t\\t（2 个换行）。修复：“来增强魔力。\\n\\t\\t增加”→“来增强魔力。增加”，修复后 LF 1、缩进 [0,2] 与源文一致。（官方对照审核 M028 曾记“对齐源段布局”。）",
+   "fix": [
+    [
+     "来增强魔力。\n\t\t增加",
+     "来增强魔力。增加"
+    ]
+   ]
+  }
+ ],
+ "advisories": []
+}

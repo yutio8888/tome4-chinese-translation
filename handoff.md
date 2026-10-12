@@ -1,4 +1,15 @@
-# 当前恢复入口（2026-10-06 窗口67 successor 已在第405批审完，0.3.6 已对外发布）
+# 当前恢复入口（2026-10-12 修复窗口68 完成，168 个 successor 待重新审核）
+
+用户 2026-10-12 先要求分析近期改动并评估能否对外发布，随后选择“先开 Magic 属性名修复窗口”。窗口68 已完成并推送：106 条 source 中 Magic 指属性、译文写作“魔法”的条目统一为界面属性名“魔力”（主游戏 78、Ashes 7、Cults 11、Orcs 10；译文 `19fd9ec0`，catalog `6ae69b9a…`，migration `6b99f6e0…`，详见 `evidence/quality/repair-window-68-20261012/PUBLICATION.md`）。复审中另修同批条目的 5 处旧错（Cults 彼世法术、Arcane Destruction 基础物理强度与当前加成、Orcs 光系伤害、3 条换行结构），cycle 4 收敛。窗口68 的全部 child 在证据提交前已由宿主确认归档，当前没有进行中的批次、窗口或 child。待办与待决：
+
+1. 审核队列现有 168 个 successor 待重新审核（窗口68 修复 106 条＋目录同步 62 条）。目录同步的 62 条是 `c7ea0683b`（官方对照审核修订）在 WP2-Lite 流程外改过的译文，本窗口只做 catalog/migration 登记、未改译文；开批前先重建队列。
+2. 下一个修复窗口（69）积压 1 条：`tome-orcs.lua:1411` “造成大量光明伤害”应为“光系伤害”（窗口68 RE_REVIEW r1a1 同族发现，不在当窗 workset）。
+3. 待用户裁决：官方对照审核（`evidence/translation-audit/official-mechanics-20261009/`）经 GPT 6 Astra 核验仍有 pending 178／需裁决 15 项，其中 Magic 属性名一类已由窗口68 处理；Cults “咬一口”秒杀几率（M264，上游英文与实现矛盾）在窗口68 RE_REVIEW r3a1 再次被报，按 2026-10-03 撤回机制改写的决定记 advisory。
+4. 对外发布仍停在 0.3.6；是否发 0.3.7 待用户决定。
+
+---
+
+# 历史恢复入口（2026-10-06 窗口67 successor 已在第405批审完，0.3.6 已对外发布）
 
 用户 2026-10-05 要求开始生硬描述扫描 C 档（对话与 lore），已完成并推送：1,446 条全部裁决，修复包 12–16 修正 485 处，DeepSeek 交叉复核后再修正 8 处；搁置的 21 条由主代理逐条查源码，用户同意后改 16 行（含同运行键同步 1 行），GPT-6.1 Sol 复核无异议。见[扫描报告](evidence/quality/awkward-scan3-20261003/REPORT.md)的“C 档”一节与[搁置项处理](evidence/quality/awkward-scan3-20261003/holds-c.md)。至此 A、B、C 三档全部完成。
 
@@ -82,7 +93,7 @@
 
 # 翻译审核当前交接
 
-更新时间：2026-10-05（第405批已 finalize，窗口68积压 0 条；审核队列已清空，待用户决定）
+更新时间：2026-10-12（修复窗口68已完成，168 个 successor 待重新审核；窗口69积压 1 条）
 
 接手前先读 [`AGENTS.md`](AGENTS.md) 与 [审核操作指南](docs/review-operations-guide.md)。本文只写当前状态、
 授权和待办；操作步骤、判据、生效裁决与已知陷阱都在指南里。上一版交接（含第273–372批逐批结果表、
@@ -101,7 +112,7 @@
 - 审核已闭合至第 **405** 批（`batch-0009fb571152fc15b9a2`）：2 条，2 done / 0 repair_required。
   窗口67 successor 审核 2 条（主游戏 1、Cults 1）：surface 2 OK / 0 ISSUE；无 deep；无观察；无新增修复，窗口68积压 0；余 0 个 successor。
   17 项门禁全过，审核任务快照均重放为 `DONE_VERIFIED`，证据提交 `b674f274e26e444110ce26dd762efce8de74b97f` 已 finalize。当前无 active batch。
-- 修复窗口已闭合至 **67**：窗口66（第397–403批第二轮重新复审确认 16 条＋宿主补充 9 条，译文 `fd7c6a61`，migration `defcd152…`；25 个 successor 已在第404批审完）与窗口67（宿主补充 1 条＋用户授权 1 条，译文 `0de585f6`，migration `a0f4f220…`）均已修复；窗口67 的 2 个 successor 已在第405批审完（2 done / 0 repair_required）。
+- 修复窗口已闭合至 **68**：窗口68（用户 2026-10-12 授权的 Magic 属性名统一 106 条，译文 `19fd9ec0`，migration `6b99f6e0…`；另以目录同步登记 `c7ea0683b` 的 62 条），106＋62 个 successor 待重新审核。。此前窗口66（第397–403批第二轮重新复审确认 16 条＋宿主补充 9 条，译文 `fd7c6a61`，migration `defcd152…`；25 个 successor 已在第404批审完）与窗口67（宿主补充 1 条＋用户授权 1 条，译文 `0de585f6`，migration `a0f4f220…`）均已修复；窗口67 的 2 个 successor 已在第405批审完（2 done / 0 repair_required）。
 - 队列（第372批 finalize 后实测）：eligible 29828，surface 覆盖 29828/29828，done 29812
   （surface_only 28718＋deep_reviewed 1094），pending_repair 0，queued 0，**blocked 16**：
   - 10 条死键／冻结 MISS（上游改串未重生 locale key 等，已 host-block 登记，不动）；

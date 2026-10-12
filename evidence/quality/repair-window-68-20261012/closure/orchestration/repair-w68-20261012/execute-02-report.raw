@@ -1,0 +1,21 @@
+已完成第 1 轮两处 confirmed 修复：
+
+- [tome-cults.lua](/workspace/tome4-chinese-translation/tome-cults.lua:3006)  
+  `你的下一次虚空法术将消耗所有火花`  
+  → `你的下一次彼世法术将消耗所有火花`
+
+- [mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:30541)  
+  `%d%% 魔力属性值的物理强度（当前值： %d）`  
+  → `%d%% 魔力属性值的基础物理强度（当前加成： %d）`
+
+验证结果：
+
+- LuaJIT 语义加载：四个译文文件全部通过。
+- 相对 baseline：仍恰有 106 条 target 变化，分布为 78/7/11/10。
+- 本轮增量：仅上述 2 条；106 条最终 target 全部符合冻结目标和 R0 裁决。
+- 其他记录、换行、缩进、占位符、source、source_tag、section、`args_order` 均未变化。
+- `git diff --check -- ...`：退出码 0，无输出。
+- `python3 -B tools/i18n lint --strict`：检查 30308 条，0 errors、0 warnings。
+- lint 报告：`.artifacts/i18n/runs/20261012T121155.038390Z-2-lint/lint.json`
+
+已更新允许的 `IMPLEMENTATION.md` 和 `VALIDATION.json` 修复证据。未修改 `.ai/task` 或术语库，未 stage、commit、push，也未创建 agent。无未解决问题或计划偏差。

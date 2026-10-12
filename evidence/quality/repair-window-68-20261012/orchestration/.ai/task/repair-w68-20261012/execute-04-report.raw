@@ -1,0 +1,13 @@
+已完成 [tome-orcs.lua:1557](/workspace/tome4-chinese-translation/tome-orcs.lua:1557) 唯一替换：
+
+- 前：在半径2范围内造成等于灵巧加魔力的光明伤害。若目标为不死族，伤害和半径加倍。
+- 后：在半径2范围内造成等于灵巧加魔力的光系伤害。若目标为不死族，伤害和半径加倍。
+
+验证通过：
+
+- LuaJIT 加载四文件：相对 baseline 恰 106 条 target 变动，本轮仅改上述一条；其他记录及 args_order 不变。
+- `git diff --check`：通过。
+- `python3 -B tools/i18n lint --strict`：30308 条，0 错误、0 警告。
+- `doctor`：通过，保留既有 DLC 来源未固定提示。
+
+已更新 IMPLEMENTATION.md、VALIDATION.json。1411 行未改；未 stage、commit、push、创建 agent 或修改 `.ai/task`。无计划偏差或未解决的范围内问题。

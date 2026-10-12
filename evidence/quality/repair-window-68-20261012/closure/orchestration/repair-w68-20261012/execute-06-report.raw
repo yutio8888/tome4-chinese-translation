@@ -1,0 +1,12 @@
+已完成第 4 轮修复：[mod-tome.lua](/workspace/tome4-chinese-translation/mod-tome.lua:30545) 中 `aef0a389a1` 仅追加末尾 LF，保留 `[[...]]`，无新增制表符、空格或行尾空白。
+
+末尾文本（`\n` 表示 LF）：
+- 前：`技能等级 5 时，魔法球的半径变成 2。`
+- 后：`技能等级 5 时，魔法球的半径变成 2。\n`
+
+验证全部通过：
+- LuaJIT 加载四文件：相对 baseline 恰 106 条 target 变动；本轮仅改 1 条，与 `new_target` 逐字相等，换行数 5 → 6；其他记录和 `args_order` 不变。
+- `git diff --check`：退出 0。
+- `python3 -B tools/i18n lint --strict`：退出 0，30308 条，0 错误、0 警告。通过 runpy 执行，仅在内存中调整报告存储，未写 `.artifacts/`。
+
+完整前后文本及结果已记录于获准目录的 `IMPLEMENTATION.md`、`VALIDATION.json`。未 stage、commit、push、创建 agent 或修改 `.ai/task`；无未解决问题。

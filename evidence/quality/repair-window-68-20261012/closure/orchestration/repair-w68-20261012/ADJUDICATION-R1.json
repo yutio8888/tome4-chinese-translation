@@ -1,0 +1,33 @@
+{
+ "cycle": 1,
+ "stage": "RE_REVIEW",
+ "accepted_dispatch_id": "r1a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 105,
+ "raw_issue_count": 1,
+ "decision": "1 confirmed tier-1 terminology finding from r1a1 (pre-existing in a workset entry); one EXECUTOR fix (execute-03), then RE_REVIEW(2,1) and FINAL_REVIEW(2,2).",
+ "findings": [
+  {
+   "revision_key": "e4af0583cf8355c98e9070eb440d20d5f1f6fa85cd43615175b689b3b46cffe9",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "terminology",
+   "origin": "reviewer r1a1",
+   "reason": "Orcs 公开源码（来源与 commit 未固定，/workspace/tome4-dlcs/orcs，文件 SHA 4d1225a3…与冻结证据一致）tome-orcs/data/general/objects/world-artifacts.lua:687-695 special_on_crit 以 engine.DamageType.LIGHT 结算 who:getCun()+who:getMag() 伤害。现译“光明伤害”与 terminology/combat.tsv light＝光系（T.GAME.DAMAGE）及全库“光系伤害”不一致。修复：“灵巧加魔力的光明伤害”→“灵巧加魔力的光系伤害”。",
+   "fix": [
+    "灵巧加魔力的光明伤害",
+    "灵巧加魔力的光系伤害"
+   ]
+  }
+ ],
+ "advisories": [
+  {
+   "file": "tome-orcs.lua",
+   "line": 1411,
+   "source": "Deals high light damage and increases critical multiplier.",
+   "target": "造成大量光明伤害，增加暴击系数。",
+   "status": "carry_forward",
+   "reason": "同一术语问题，不在本窗口 workset；登记进下一窗口积压，不在本窗口扩大范围。"
+  }
+ ]
+}

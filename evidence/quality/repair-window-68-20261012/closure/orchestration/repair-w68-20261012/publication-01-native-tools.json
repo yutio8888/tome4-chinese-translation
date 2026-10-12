@@ -1,0 +1,80 @@
+{
+  "dispatch_id": "publication-01",
+  "native_session": "01a13034-f74d-7e40-a5f8-16ced96b175f",
+  "native_path": "/home/paseo/.codex/sessions/2026/10/12/rollout-2026-10-12T13-02-19-01a13034-f74d-7e40-a5f8-16ced96b175f.jsonl",
+  "native_sha256": "c19e54cd8fbc08d0a0b5d20d69aa076dbaa5689f6e44a478d1d45aad9d6c65c6",
+  "tool_calls": [
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0862d5ab2c475899016accda6544fc8195ab21f49924deef3e",
+      "status": "completed",
+      "call_id": "call_853fdc6e82ca4bb292e66efe408a015d",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat .ai/roles/executor.md .ai/task/repair-w68-20261012/PUBLICATION-SCOPE.md\",max_output_tokens:14000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13034-f7b1-7260-9f29-f2713f87b7a0",
+        "create_time": 1791810149.2719572
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0862d5ab2c475899016accda69e9808195a3c169f0955115a5",
+      "status": "completed",
+      "call_id": "call_b4ad16ae70b34ab492238cdb52cdeb63",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"git status --short\\ncat .ai/task/repair-w68-20261012/PACK-MANIFEST.json\\nrg -n '验证矩阵|完成交付与整理' docs/agent-workflow.md\",max_output_tokens:10000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13034-f7b1-7260-9f29-f2713f87b7a0",
+        "create_time": 1791810153.9178138
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0862d5ab2c475899016accda78a2488195bfae7006fc80a4d1",
+      "status": "completed",
+      "call_id": "call_db061bf1e53b472b85e8e354b0c05467",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"sed -n '78,99p' docs/agent-workflow.md\\nsed -n '254,279p' docs/agent-workflow.md\\ncat .ai/task/repair-w68-20261012/PLAN.md\\npython3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json,hashlib\\np=Path('.ai/task/repair-w68-20261012')\\nm=json.loads((p/'PACK-MANIFEST.json').read_text())\\nprint('manifest:', len(m['files']), 'files;',m['total_bytes'],'bytes')\\nc=Path('.artifacts/i18n/repair-window/window68-20261012-candidate-catalog')\\nprint('candidate files:')\\nfor f in sorted(c.rglob('*')):\\n if f.is_file(): print(f.relative_to(c))\\nprint('existing window files:')\\nfor f in sorted(Path('evidence/quality/repair-window-68-20261012').rglob('*')):\\n if f.is_file(): print(f)\\nprint('handoff baseline SHA-256:',hashlib.sha256(Path('handoff.md').read_bytes()).hexdigest())\\nPY\",\"max_output_tokens\":4000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13034-f7b1-7260-9f29-f2713f87b7a0",
+        "create_time": 1791810168.6367564
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0862d5ab2c475899016accda8cd39881959f02813c8b440dc1",
+      "status": "completed",
+      "call_id": "call_75d34bc5339f4faab36315c13b9118d6",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport hashlib,json,re,subprocess\\nroot=Path.cwd(); task=Path('.ai/task/repair-w68-20261012'); window=Path('evidence/quality/repair-window-68-20261012')\\ndef sha(data): return hashlib.sha256(data).hexdigest()\\ndef need(ok,msg):\\n if not ok: raise SystemExit(msg)\\ndef copy(src,dst):\\n data=src.read_bytes(); dst.parent.mkdir(parents=True,exist_ok=True); dst.write_bytes(data)\\n need(dst.read_bytes()==data,f'Copy mismatch: {dst}')\\nmanifest_path=task/'PACK-MANIFEST.json'; manifest_data=manifest_path.read_bytes(); manifest=json.loads(manifest_data)\\npack=[]\\nfor row in manifest['files']:\\n rel=Path(row['relative_destination']); need(not rel.is_absolute() and '..' not in rel.parts,f'Unsafe destination: {rel}')\\n src=Path(row['source']); data=src.read_bytes(); dst=window/'orchestration'/rel\\n need(sha(data)==row['sha256'] and len(data)==row['bytes'],f'Manifest mismatch: {src}')\\n need(not dst.exists() or dst.read_bytes()==data,f'Existing snapshot differs: {dst}')\\n pack.append((src,dst))\\nneed(sum(x['bytes'] for x in manifest['files'])==manifest['total_bytes'],'Manifest total bytes mismatch')\\nmanifest_dst=window/'orchestration-pack-manifest.json'\\nneed(not manifest_dst.exists() or manifest_dst.read_bytes()==manifest_data,'Existing manifest differs')\\ncandidate=Path('.artifacts/i18n/repair-window/window68-20261012-candidate-catalog')\\nallowed_catalog={Path('evidence/production-review-v2-lite/catalog')/x for x in ('entries.jsonl','exclusions.jsonl','manifest.json')}\\nallowed_catalog|={Path('i18n/quality/production-review-v2-lite')/x for x in ('catalog-v1.schema.json','policy-v1.json')}\\ncatalog=[(p,p.relative_to(candidate)) for p in sorted(candidate.rglob('*')) if p.is_file()]\\nneed({dst for src,dst in catalog}==allowed_catalog,'Unexpected candidate paths')\\nmigration_src=Path('.artifacts/i18n/repair-window/window68-20261012-migration.json')\\nmigration_dst=Path('evidence/production-review-v2-lite/migrations/6b99f6e01debd92e9de588cffe9b86f02a3e3047fd28ddb263c45c3e92858e86.json')\\ntask_names=['PUBLICATION-SCOPE.md','CATALOG-CHANGE-VERIFICATION.json','MIGRATION-HOST-VERIFICATION.json','TRANSLATION-COMMIT.json','SCOPE.json','SOURCE-CLAIMS.json','NEW-TARGETS.json','CATALOG-SYNC.json','FIX3-TARGETS.json','FIX4-TARGETS.json']\\nattachments=[(task/x,window/'publication'/x) for x in task_names]\\nadjudications=sorted(task.glob('ADJUDICATION-*.json')); need(bool(adjudications),'No adjudications')\\nattachments += [(p,window/'publication'/p.name) for p in adjudications]\\nhost=Path('.artifacts/i18n/repair-w68-20261012')\\nhost_names=['HOST-SUPPLEMENT-CLAIMS.json','rewrites.json','HOST-EXACT-DIFF.json']+[f'HOST-EXACT-DIFF-POST-FIX{i}.json' for i in range(1,5)]+['cands.txt']\\nattachments += [(host/x,window/'publication'/x) for x in host_names]\\nchain=Path('.artifacts/i18n/repair-window')\\nattachments += [(chain/('window68-20261012-'+x),window/'publication'/x) for x in ['publish-chain.log','publish-chain-timing.json','migration.json','migration-timing.json']]\\nfor src,dst in catalog+[(migration_src,migration_dst)]+attachments: need(src.is_file(),f'Missing source: {src}')\\nneed(sha(Path('handoff.md').read_bytes())=='1be6e486ce4de653fdf44c02f483bc59de96309ae6998fe7c1c55cca12a743ea','Handoff baseline mismatch')\\nneed(sha((task/'HANDOFF-NEXT.md').read_bytes())=='f8cbe3d5070be22c6e82f12cc438477dbddb63f4047e0024676869039521f3aa','Handoff next mismatch')\\nall_pairs=pack+[(manifest_path,manifest_dst)]+catalog+[(migration_src,migration_dst)]+attachments\\nallowed={dst for src,dst in all_pairs}|{window/'PUBLICATION.md',Path('handoff.md')}\\nexisting=set(Path(x.decode()) for x in subprocess.check_output(['git','ls-files','-z','--cached','--others','--exclude-standard']).split(b'\\\\0') if x)\\nexisting|={p for p in task.rglob('*') if p.is_file()}\\nexisting|={p for p in window.rglob('*') if p.is_file()}\\nprotected={p:sha(p.read_bytes()) for p in existing if p.is_file() and p not in allowed}\\nindex_before=Path('.git/index').read_bytes()\\nfor src,dst in pack:\\n if not dst.exists(): copy(src,dst)\\ncopy(manifest_path,manifest_dst)\\nfor src,dst in catalog+[(migration_src,migration_dst)]+attachments: copy(src,dst)\\nscope=(task/'PUBLICATION-SCOPE.md').read_text(encoding='utf-8')\\nbody=scope.split('4. 写本窗口 `PUBLICATION.md`，内容如下：\\\\n',1)[1].split('\\\\n5. 更新 `handoff.md`：',1)[0]\\nbody='\\\\n'.join(line[3:] if line.startswith('   ') else line for line in body.splitlines())\\npublication='# 窗口68证据发布\\\\n\\\\n'+body+'\\\\n'\\n(window/'PUBLICATION.md').write_text(publication,encoding='utf-8')\\nneed(sha(Path('handoff.md').read_bytes())=='1be6e486ce4de653fdf44c02f483bc59de96309ae6998fe7c1c55cca12a743ea','Handoff baseline changed before replacement')\\ncopy(task/'HANDOFF-NEXT.md',Path('handoff.md'))\\nneed(sha(Path('handoff.md').read_bytes())=='f8cbe3d5070be22c6e82f12cc438477dbddb63f4047e0024676869039521f3aa','Handoff final mismatch')\\nfor src,dst in all_pairs: need(src.read_bytes()==dst.read_bytes(),f'Final byte mismatch: {dst}')\\nfor row in manifest['files']: need(sha((window/'orchestration'/row['relative_destination']).read_bytes())==row['sha256'],f'Final SHA mismatch: {row}')\\nfor p,digest in protected.items(): need(p.is_file() and sha(p.read_bytes())==digest,f'Out of scope change: {p}')\\nneed(Path('.git/index').read_bytes()==index_before,'Git index changed')\\nfor p in [window/'PUBLICATION.md',Path('handoff.md'),window/'publication/PUBLICATION-SCOPE.md']:\\n txt=p.read_bytes().decode('utf-8'); need('\\\\r' not in txt,f'CR detected: {p}'); need(txt.endswith('\\\\n'),f'Missing final LF: {p}')\\n for line in txt.splitlines(): need(line==line.rstrip(),f'Trailing whitespace: {p}')\\n for target in re.findall(r'\\\\]\\\\(([^)]+)\\\\)',txt):\\n  if '://' in target or target.startswith('#'): continue\\n  dest=target.split('#',1)[0]\\n  need(not dest or (p.parent/dest).exists(),f'Broken document link: {p}: {target}')\\nfor name in ['NEW-TARGETS.json','CATALOG-SYNC.json','cands.txt']:\\n need((window/'publication'/name).is_file(),f'Missing publication reference: {name}')\\nneed(len(list((window/'publication').glob('HOST-EXACT-DIFF*.json')))==5,'Missing HOST-EXACT-DIFF reference')\\nprint(json.dumps({'snapshot_files':len(pack),'snapshot_bytes':manifest['total_bytes'],'catalog_files':len(catalog),'migration_files':1,'publication_attachments':len(attachments),'byte_exact_copies_verified':len(all_pairs),'protected_existing_files_unchanged':len(protected),'index_unchanged':True,'documents_utf8_whitespace_links':'PASS','handoff_baseline_sha256':'1be6e486ce4de653fdf44c02f483bc59de96309ae6998fe7c1c55cca12a743ea','handoff_final_sha256':sha(Path('handoff.md').read_bytes())},ensure_ascii=False,indent=2))\\nPY\",\"max_output_tokens\":2000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13034-f7b1-7260-9f29-f2713f87b7a0",
+        "create_time": 1791810188.9550269
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0862d5ab2c475899016accdac251c48195885e9dee62558742",
+      "status": "completed",
+      "call_id": "call_45502cd07dc4448fb52cd4c5b9e8a521",
+      "name": "exec",
+      "input": "const results=await Promise.allSettled([\ntools.exec_command({cmd:\"python3 -B tools/ai_state_check.py .ai/task/repair-w68-20261012/STATE.json --workspace-root /workspace/tome4-chinese-translation/evidence/quality/repair-window-68-20261012/orchestration --target DONE\",max_output_tokens:2000}),\ntools.exec_command({cmd:\"git diff --check -- handoff.md evidence/production-review-v2-lite/catalog i18n/quality/production-review-v2-lite evidence/production-review-v2-lite/migrations/6b99f6e01debd92e9de588cffe9b86f02a3e3047fd28ddb263c45c3e92858e86.json\\ncat evidence/quality/repair-window-68-20261012/PUBLICATION.md\\ngit diff --stat\\ngit status --short -- handoff.md evidence/quality/repair-window-68-20261012 evidence/production-review-v2-lite/catalog i18n/quality/production-review-v2-lite evidence/production-review-v2-lite/migrations/6b99f6e01debd92e9de588cffe9b86f02a3e3047fd28ddb263c45c3e92858e86.json\",max_output_tokens:4000})\n]);for(let i=0;i<results.length;i++)text({check:i,...results[i]});\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13034-f7b1-7260-9f29-f2713f87b7a0",
+        "create_time": 1791810242.3220956
+      }
+    },
+    {
+      "type": "custom_tool_call",
+      "id": "ctc_0862d5ab2c475899016accdad259ac81959d6b8a6fec4ec03a",
+      "status": "completed",
+      "call_id": "call_6ae46b2c72fc495399ebd7825bd1f25b",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport subprocess\\npaths=[Path('evidence/quality/repair-window-68-20261012/PUBLICATION.md'),Path('evidence/quality/repair-window-68-20261012/orchestration-pack-manifest.json'),Path('evidence/production-review-v2-lite/migrations/6b99f6e01debd92e9de588cffe9b86f02a3e3047fd28ddb263c45c3e92858e86.json')]\\npaths += sorted(Path('evidence/quality/repair-window-68-20261012/publication').glob('*.md'))\\nfor path in paths:\\n result=subprocess.run(['git','diff','--no-index','--check','--','/dev/null',str(path)],capture_output=True,text=True)\\n if result.returncode not in (0,1) or result.stdout or result.stderr:\\n  raise SystemExit(f'Whitespace check failed: {path}\\\\n{result.stdout}{result.stderr}')\\nprint(f'New document/manifest/migration whitespace checks: PASS ({len(paths)} files)')\\nPY\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13034-f7b1-7260-9f29-f2713f87b7a0",
+        "create_time": 1791810258.353301
+      }
+    }
+  ]
+}

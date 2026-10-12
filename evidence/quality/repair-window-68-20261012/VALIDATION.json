@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "task_id": "repair-w68-20261012",
+  "baseline_path": ".ai/task/repair-w68-20261012/baseline",
+  "changed_targets": 106,
+  "counts_by_file": {
+    "mod-tome.lua": 78,
+    "tome-ashes-urhrok.lua": 7,
+    "tome-cults.lua": 11,
+    "tome-orcs.lua": 10
+  },
+  "review_cycle_0_repair": {
+    "confirmed_findings": 2,
+    "changed_targets": [
+      "616edb9a5081537ca90bdb45f7b1ec67f3ff4bbd3fe4a5a66fda3956a931c09c",
+      "aef0a389a13fae617b7e8ab32b1f56ab2bde105738f71de2c4b0a601d9f71c8a"
+    ],
+    "only_adjudicated_replacements_changed": true
+  },
+  "checks": {
+    "luajit_baseline_record_comparison": {
+      "result": "passed",
+      "new_targets_exact": true,
+      "other_records_unchanged": true,
+      "review_cycle_0_delta": 2
+    },
+    "git_diff_check": {
+      "command": "git diff --check -- mod-tome.lua tome-ashes-urhrok.lua tome-cults.lua tome-orcs.lua evidence/quality/repair-window-68-20261012",
+      "result": "passed"
+    },
+    "strict_lint": {
+      "command": "python3 -B tools/i18n lint --strict",
+      "result": "passed",
+      "translations_checked": 30308,
+      "errors": 0,
+      "warnings": 0,
+      "report": ".artifacts/i18n/runs/20261012T121155.038390Z-2-lint/lint.json"
+    },
+    "review_cycle_1": {
+      "luajit_baseline_record_comparison": {
+        "result": "passed",
+        "changed_targets": 106,
+        "counts_by_file": {
+          "mod-tome.lua": 78,
+          "tome-ashes-urhrok.lua": 7,
+          "tome-cults.lua": 11,
+          "tome-orcs.lua": 10
+        },
+        "review_cycle_1_delta": 1,
+        "other_records_unchanged": true,
+        "args_order_unchanged": true,
+        "only_adjudicated_replacement_changed": true
+      },
+      "doctor": {
+        "command": "python3 -B tools/i18n doctor",
+        "result": "passed",
+        "warnings": "Existing unpinned DLC sources: ashes-urhrok, cults, orcs."
+      },
+      "git_diff_check": {
+        "command": "git diff --check",
+        "result": "passed"
+      },
+      "strict_lint": {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "passed",
+        "translations_checked": 30308,
+        "errors": 0,
+        "warnings": 0,
+        "report": ".artifacts/i18n/runs/20261012T122113.853365Z-2-lint/lint.json"
+      }
+    },
+    "review_cycle_3": {
+      "luajit_baseline_record_comparison": {
+        "result": "passed",
+        "changed_targets": 106,
+        "counts_by_file": {
+          "mod-tome.lua": 78,
+          "tome-ashes-urhrok.lua": 7,
+          "tome-cults.lua": 11,
+          "tome-orcs.lua": 10
+        },
+        "round_delta": 2,
+        "new_targets_exact": true,
+        "other_records_unchanged": true,
+        "args_order_unchanged": true,
+        "literal_forms_preserved": "[[...]]"
+      },
+      "doctor": {
+        "command": "python3 -B tools/i18n doctor",
+        "result": "passed",
+        "warnings": "Existing unpinned DLC sources: ashes-urhrok, cults, orcs."
+      },
+      "git_diff_check": {
+        "command": "git diff --check",
+        "result": "passed",
+        "exit_code": 0
+      },
+      "strict_lint": {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "passed",
+        "exit_code": 0,
+        "report_storage_note": "Unchanged CLI executed via runpy; only report destination/storage adapted in memory. Full report inline here. Temporary Lua bridge files confined to this evidence directory and automatically removed; no .artifacts writes.",
+        "report": {
+          "ok": true,
+          "version": "tome-1.7.6",
+          "strict": true,
+          "metrics": {
+            "components": {
+              "engine": 1061,
+              "boot": 283,
+              "tome": 21688,
+              "example": 26,
+              "example-realtime": 26,
+              "addon-dev": 101,
+              "ashes-urhrok": 849,
+              "cults": 2043,
+              "items-vault": 69,
+              "orcs": 3904,
+              "possessors": 258
+            },
+            "translations": 30308,
+            "duplicate_runtime_keys": 1711,
+            "errors": 0,
+            "warnings": 0,
+            "copy_fragment_translations": 0,
+            "copy_fragment_components": {
+              "engine": 0,
+              "tome": 0
+            },
+            "copy_fragment_duplicate_runtime_keys": 0,
+            "terminology": {
+              "rows": 916,
+              "contexts": 915,
+              "alternative_contexts": 1
+            }
+          },
+          "issues": [],
+          "run_directory": "/workspace/tome4-chinese-translation/evidence/quality/repair-window-68-20261012"
+        }
+      }
+    },
+    "review_cycle_4": {
+      "luajit_baseline_record_comparison": {
+        "result": "passed",
+        "changed_targets": 106,
+        "counts_by_file": {
+          "mod-tome.lua": 78,
+          "tome-ashes-urhrok.lua": 7,
+          "tome-cults.lua": 11,
+          "tome-orcs.lua": 10
+        },
+        "round_delta": 1,
+        "new_targets_exact": true,
+        "other_records_unchanged": true,
+        "args_order_unchanged": true,
+        "byte_changes_only_expected_literal": true
+      },
+      "git_diff_check": {
+        "command": "git diff --check",
+        "result": "passed",
+        "exit_code": 0
+      },
+      "strict_lint": {
+        "command": "python3 -B tools/i18n lint --strict",
+        "result": "passed",
+        "exit_code": 0,
+        "report_storage_note": "Unchanged CLI executed via runpy; only report destination/storage adapted in memory. Full report inline here. Temporary Lua bridge files confined to this evidence directory and automatically removed; no .artifacts writes.",
+        "report": {
+          "ok": true,
+          "version": "tome-1.7.6",
+          "strict": true,
+          "metrics": {
+            "components": {
+              "engine": 1061,
+              "boot": 283,
+              "tome": 21688,
+              "example": 26,
+              "example-realtime": 26,
+              "addon-dev": 101,
+              "ashes-urhrok": 849,
+              "cults": 2043,
+              "items-vault": 69,
+              "orcs": 3904,
+              "possessors": 258
+            },
+            "translations": 30308,
+            "duplicate_runtime_keys": 1711,
+            "errors": 0,
+            "warnings": 0,
+            "copy_fragment_translations": 0,
+            "copy_fragment_components": {
+              "engine": 0,
+              "tome": 0
+            },
+            "copy_fragment_duplicate_runtime_keys": 0,
+            "terminology": {
+              "rows": 916,
+              "contexts": 915,
+              "alternative_contexts": 1
+            }
+          },
+          "issues": [],
+          "run_directory": "/workspace/tome4-chinese-translation/evidence/quality/repair-window-68-20261012"
+        }
+      }
+    }
+  },
+  "review_cycle_1_repair": {
+    "confirmed_findings": 1,
+    "changed_targets": [
+      "e4af0583cf8355c98e9070eb440d20d5f1f6fa85cd43615175b689b3b46cffe9"
+    ],
+    "only_adjudicated_replacements_changed": true,
+    "before": "在半径2范围内造成等于灵巧加魔力的光明伤害。若目标为不死族，伤害和半径加倍。",
+    "after": "在半径2范围内造成等于灵巧加魔力的光系伤害。若目标为不死族，伤害和半径加倍。",
+    "advisory_1411_unchanged": true
+  },
+  "review_cycle_3_repair": {
+    "confirmed_findings": 2,
+    "changed_targets": [
+      "cacc8ec690593204227926e9070edd4253d3e410335c469fe741257a61847610",
+      "616edb9a5081537ca90bdb45f7b1ec67f3ff4bbd3fe4a5a66fda3956a931c09c"
+    ],
+    "only_adjudicated_replacements_changed": true,
+    "targets": {
+      "cacc8ec690593204227926e9070edd4253d3e410335c469fe741257a61847610": {
+        "file": "mod-tome.lua",
+        "section": "mod-tome/data/talents/chronomancy/other.lua",
+        "old_target": "你已经学会通过控制时空的流动来增强魔力。\n\t\t增加 %d 点魔力和法术豁免。\n\t\t效果受意志加成。",
+        "new_target": "你已经学会通过控制时空的流动来增强魔力。增加 %d 点魔力和法术豁免。\n\t\t效果受意志加成。"
+      },
+      "616edb9a5081537ca90bdb45f7b1ec67f3ff4bbd3fe4a5a66fda3956a931c09c": {
+        "file": "tome-cults.lua",
+        "section": "tome-cults/data/talents/demented/nether.lua",
+        "old_target": "每次你施放非瞬发的疯狂法术时，一朵彼世火花将环绕在你周围 10 回合，上限为 5 朵。\n\t\t每个火花增加你 %d%% 暴击率。当你拥有 5 个火花时，你的下一次彼世法术将消耗所有火花来获得强化效果。\n#PURPLE#彼世冲击：#LAST# 成为穿透性虚空能量，并在 5 回合内造成额外 %d%% 伤害。\n#PURPLE#裂缝切割：#LAST# 裂缝内的敌人将定身 %d 回合，每回合受到 %0.2f 时空伤害。裂缝湮灭时爆炸半径增加 %d。\n#PURPLE#空间扭曲：#LAST# 裂缝出口处产生一个持续 %d 回合的熵之胃，能用触须拉近并嘲讽附近的目标。\n伤害受法术强度加成。\n熵之胃的属性受等级和魔力属性加成。",
+        "new_target": "每次你施放非瞬发的疯狂法术时，一朵彼世火花将环绕在你周围 10 回合，上限为 5 朵。每个火花增加你 %d%% 暴击率。当你拥有 5 个火花时，你的下一次彼世法术将消耗所有火花来获得强化效果。\n#PURPLE#彼世冲击：#LAST# 成为穿透性虚空能量，并在 5 回合内造成额外 %d%% 伤害。\n#PURPLE#裂缝切割：#LAST# 裂缝内的敌人将定身 %d 回合，每回合受到 %0.2f 时空伤害。裂缝湮灭时爆炸半径增加 %d。\n#PURPLE#空间扭曲：#LAST# 裂缝出口处产生一个持续 %d 回合的熵之胃，能用触须拉近并嘲讽附近的目标。\n伤害受法术强度加成。熵之胃的属性受等级和魔力属性加成。"
+      }
+    }
+  },
+  "review_cycle_4_repair": {
+    "confirmed_findings": 1,
+    "changed_targets": [
+      "aef0a389a13fae617b7e8ab32b1f56ab2bde105738f71de2c4b0a601d9f71c8a"
+    ],
+    "only_adjudicated_replacements_changed": true,
+    "replacements": {
+      "aef0a389a13fae617b7e8ab32b1f56ab2bde105738f71de2c4b0a601d9f71c8a": {
+        "file": "mod-tome.lua",
+        "section": "mod-tome/data/talents/techniques/magical-combat.lua",
+        "old_target": "原始的魔法伤害经由你的武器传导。增加相当于你 %d%% 魔力属性值的基础物理强度（当前加成： %d）。\n\t\t每当你近战攻击暴击时，你会释放一个半径为 %d 码的奥术属性的魔法球，造成 %0.2f 的伤害。\n\t\t增益随法术强度与技能等级提升。\n\t\t当使用盾牌时，只有50%% 的几率触发。\n\t\t当双持武器时，只有50%% 的几率触发。\n\t\t技能等级 5 时，魔法球的半径变成 2。",
+        "new_target": "原始的魔法伤害经由你的武器传导。增加相当于你 %d%% 魔力属性值的基础物理强度（当前加成： %d）。\n\t\t每当你近战攻击暴击时，你会释放一个半径为 %d 码的奥术属性的魔法球，造成 %0.2f 的伤害。\n\t\t增益随法术强度与技能等级提升。\n\t\t当使用盾牌时，只有50%% 的几率触发。\n\t\t当双持武器时，只有50%% 的几率触发。\n\t\t技能等级 5 时，魔法球的半径变成 2。\n"
+      }
+    },
+    "newlines_before": 5,
+    "newlines_after": 6,
+    "trailing_tabs_or_spaces_added": false,
+    "literal_forms_preserved": "[[...]]"
+  }
+}

@@ -1,0 +1,36 @@
+{
+ "cycle": 0,
+ "stage": "REVIEW",
+ "accepted_dispatch_id": "r0a1",
+ "invalid_attempts": [],
+ "raw_ok_count": 104,
+ "raw_issue_count": 2,
+ "decision": "2 confirmed tier-1 findings from r0a1 (pre-existing errors in workset entries, not introduced by the Magic rename); one EXECUTOR fix (execute-02), then RE_REVIEW(1,1) and FINAL_REVIEW(1,2).",
+ "findings": [
+  {
+   "revision_key": "616edb9a5081537ca90bdb45f7b1ec67f3ff4bbd3fe4a5a66fda3956a931c09c",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "terminology",
+   "origin": "reviewer r0a1",
+   "reason": "Cults 公开源码（来源与 commit 未固定，/workspace/tome4-dlcs/cults，文件 SHA 4ee9687b…与冻结证据一致）tome-cults/data/talents/demented/nether.lua:318 “on reaching 5 sparks your next Nether spell will consume all sparks”，技能 type 为 demented/nether（同文件:24）。现译“你的下一次虚空法术”把 Nether 技能类别写成 void；terminology/talents.tsv nether＝彼世、void＝虚空（Cults 技能类别名）。同条前文已作“彼世火花”。修复：“你的下一次虚空法术将消耗所有火花”→“你的下一次彼世法术将消耗所有火花”。（官方对照审核 M247 已记同一点。）",
+   "fix": [
+    "你的下一次虚空法术将消耗所有火花",
+    "你的下一次彼世法术将消耗所有火花"
+   ]
+  },
+  {
+   "revision_key": "aef0a389a13fae617b7e8ab32b1f56ab2bde105738f71de2c4b0a601d9f71c8a",
+   "status": "confirmed",
+   "tier": 1,
+   "category": "fidelity",
+   "origin": "reviewer r0a1",
+   "reason": "主游戏固定 commit 624a673 game/modules/tome/data/talents/techniques/magical-combat.lua:241 “increasing raw Physical Power by %d%% of your Magic (current bonus: %d)”，第二参数为 self:getMag()*getSPMult，即加到基础（raw）物理强度上的加值；class/interface/Combat.lua:1717-1766 中该值计入 combatPhysicalpowerRaw，再经 rescaleCombatStats 才得面板物理强度。现译“物理强度（当前值： %d）”漏掉 raw 限定并把 current bonus 写成“当前值”，读者会当成面板物理强度的当前总值。本库同类用语“基础物理强度”（mod-tome.lua uber/mag.lua 段）。修复：“%d%% 魔力属性值的物理强度（当前值： %d）”→“%d%% 魔力属性值的基础物理强度（当前加成： %d）”。",
+   "fix": [
+    "%d%% 魔力属性值的物理强度（当前值： %d）",
+    "%d%% 魔力属性值的基础物理强度（当前加成： %d）"
+   ]
+  }
+ ],
+ "advisories": []
+}

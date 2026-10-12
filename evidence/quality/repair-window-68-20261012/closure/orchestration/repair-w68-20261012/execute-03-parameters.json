@@ -1,0 +1,18 @@
+{
+  "title": "W68 execute-03 复审修复",
+  "provider": "codex/gpt-5.6-sol",
+  "settings": {
+    "modeId": "auto-review",
+    "thinkingOptionId": "medium"
+  },
+  "workspaceId": "wks_420314270844170b",
+  "initialPrompt": "你是 Paseo EXECUTOR，任务 repair-w68-20261012 第 2 轮修复。先读 .ai/roles/executor.md、.ai/task/repair-w68-20261012/SPEC.md、SCOPE.json、WORKSET.json 与 ADJUDICATION-R1.json。只按 ADJUDICATION-R1 中 1 条 confirmed 做一处逐字替换：e4af0583cf（tome-orcs.lua，tome-orcs/data/general/objects/world-artifacts.lua 段，“release a burst of light dealing damage equal to your cunning plus your magic…”）“灵巧加魔力的光明伤害”→“灵巧加魔力的光系伤害”。该条其余文字不变；advisories 所列 tome-orcs.lua:1411 不在 workset，不得修改；其他条目与记录不动；不改术语库、args_order。可更新 evidence/quality/repair-window-68-20261012/ 下的修复证据（IMPLEMENTATION.md、VALIDATION.json）。禁止从 /、/workspace 或无关目录搜索。运行有界验证：LuaJIT 加载四个译文文件，相对 .ai/task/repair-w68-20261012/baseline 仍恰 106 条 target 变动且本轮只改上述一条；git diff --check；python3 -B tools/i18n lint --strict。回报前后文本与命令结果；不 stage、commit、push，不创建 agent，不改 .ai/task。完成后直接返回成果，不要只回计划。",
+  "labels": {
+    "task_id": "repair-w68-20261012",
+    "role": "executor",
+    "purpose": "implement",
+    "dispatch_id": "execute-03",
+    "paseo.parent-agent-id": "c10ef07e-c3a4-436e-b5c8-224ac7fe4f26"
+  },
+  "notifyOnFinish": true
+}
