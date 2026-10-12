@@ -1,0 +1,2302 @@
+[
+  {
+    "entry_revision_identity": "81cc9a975a3270e3be878e8682ff47b75411754763086401d9007431d6ba2e34",
+    "public_source_path": "game/modules/tome/data/talents/psionic/dream-forge.lua",
+    "lines": [
+      {
+        "line": 90,
+        "text": "\t\tlocal power = t.getPower(self, t)"
+      },
+      {
+        "line": 91,
+        "text": "\t\tlocal dur = t.getDuration(self, t)"
+      },
+      {
+        "line": 92,
+        "text": "\t\treturn ([[When an attack would deal 15%% or more of your effective total health, you forge the Dream Shield to protect yourself, reducing the damage of all attacks of that type by %0.2f for the next %d turn(s)."
+      },
+      {
+        "line": 93,
+        "text": "\t\tYou may block multiple damage types at one time, but the base damage threshold increases by 15%% per damage type the shield is already blocking."
+      },
+      {
+        "line": 94,
+        "text": "\t\tIf you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal melee or ranged attack will instead deal 200%% damage) for one turn."
+      },
+      {
+        "line": 95,
+        "text": "\t\tAt talent level 5, the block effect will last two turns."
+      },
+      {
+        "line": 96,
+        "text": "\t\tThis damage reduction scales with your Mindpower.]]):tformat(power, dur)"
+      },
+      {
+        "line": 97,
+        "text": "\tend,"
+      },
+      {
+        "line": 98,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "827a19baa62a0a4ecfe9c5395b61f48e0663722805556da16ef0f6a47ee10d62",
+    "public_source_path": "game/modules/tome/data/birth/classes/rogue.lua",
+    "lines": [
+      {
+        "line": 103,
+        "text": "\t\t_t\"Their use of magic is innate and not really studied; as such they do not naturally regenerate mana and must use external means of recharging.\","
+      },
+      {
+        "line": 104,
+        "text": "\t\t_t\"They use the schools of Phantasm, Temporal, Divination and Conveyance magic to enhance their arts.\","
+      },
+      {
+        "line": 105,
+        "text": "\t\t_t\"Their most important stats are: Dexterity, Cunning and Magic\","
+      },
+      {
+        "line": 106,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 107,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "82b646ae53a8175402ff85db6d2f7ca1795827c07df14a36819c606a44f29abb",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua",
+    "lines": [
+      {
+        "line": 881,
+        "text": "\tmax_power = 20, power_regen = 1,"
+      },
+      {
+        "line": 882,
+        "text": "\tuse_power = {"
+      },
+      {
+        "line": 883,
+        "text": "\t\tname = function(self, who) return (\"surround yourself with a magical shield (strength %d, based on Magic) for %d turns\"):tformat(who:getShieldAmount(self.use_power.shield(self, who)), who:getShieldDuration(10)) end,"
+      },
+      {
+        "line": 884,
+        "text": "\t\tpower = 20,"
+      },
+      {
+        "line": 885,
+        "text": "\t\tshield = function(self, who) return 100 + who:getMag(250) end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "85537c9db29f7c1de172a3d6af5ca816e7724472ed711c04eddfcd30611746f2",
+    "public_source_path": "game/modules/tome/class/Actor.lua",
+    "lines": [
+      {
+        "line": 2987,
+        "text": "\t\t\tself:removeEffect(self.EFF_ELDRITCH_STONE)"
+      },
+      {
+        "line": 2988,
+        "text": "\t\tend"
+      },
+      {
+        "line": 2989,
+        "text": "\t\tgame:delayedLogDamage(src, self, 0, (\"#SLATE#(%d to stone)#LAST#\"):tformat(abs), false)"
+      },
+      {
+        "line": 2990,
+        "text": "\tend"
+      },
+      {
+        "line": 2991,
+        "text": ""
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8b968afcc8df60e41b165d648d09c6f748c50820dfe8995bc4e6fdfe990421fd",
+    "public_source_path": "game/modules/tome/data/zones/ardhungol/objects.lua",
+    "lines": [
+      {
+        "line": 48,
+        "text": "\tmax_power = 25, power_regen = 1,"
+      },
+      {
+        "line": 49,
+        "text": "\tuse_power = {"
+      },
+      {
+        "line": 50,
+        "text": "\t\tname = function(self, who) return (\"shoot a bolt of spydric poison out to range %d, dealing %0.2f nature damage (based on Magic) over %d turns while rendering the target unable to move\"):"
+      },
+      {
+        "line": 51,
+        "text": "\t\t\ttformat(self.use_power.range, engine.interface.ActorTalents.damDesc(who, engine.DamageType.NATURE, self.use_power.damage(self, who)), self.use_power.duration)"
+      },
+      {
+        "line": 52,
+        "text": "\t\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "912180ac103b12ff7d96731337ac5a61e1b2e7d895149e6b1a3ac299a8c086e0",
+    "public_source_path": "game/modules/tome/data/general/objects/boss-artifacts-far-east.lua",
+    "lines": [
+      {
+        "line": 424,
+        "text": "\t\tname = function(self, who)"
+      },
+      {
+        "line": 425,
+        "text": "\t\t\tlocal dam = who:damDesc(engine.DamageType.COLD, self.use_power.damage(self, who))"
+      },
+      {
+        "line": 426,
+        "text": "\t\t\treturn (\"release a radius %d chilling blast, instantly dealing %0.2f cold damage and condensing the air into freezing vapors that deal %0.2f cold damage (based on Magic) each turn for %d turns\"):tformat(self.use_power.radius, dam*3, dam, self.use_power.duration)"
+      },
+      {
+        "line": 427,
+        "text": "\t\tend,"
+      },
+      {
+        "line": 428,
+        "text": "\t\tpower = 30,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "915723f20020ac92f05b518f3c19bed27e0bdd07f61c4c3db28c7d033e0e92c4",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua",
+    "lines": [
+      {
+        "line": 638,
+        "text": "\t\ttactical = {ATTACKAREA = {FIRE = 2}},"
+      },
+      {
+        "line": 639,
+        "text": "\t\tname = function(self, who)"
+      },
+      {
+        "line": 640,
+        "text": "\t\t\treturn (\"shoot a cone of flames (radius %d) for %0.2f fire damage (based on Magic)\"):tformat(self.use_power.radius, engine.interface.ActorTalents.damDesc(who, engine.DamageType.FIRE, self.use_power.damage(self, who)))"
+      },
+      {
+        "line": 641,
+        "text": "\t\tend,"
+      },
+      {
+        "line": 642,
+        "text": "\t\tuse = function(self, who)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "939facbcc6b34558165adba36998f6f98ae4c70f0ede962a45772787f06758da",
+    "public_source_path": "game/modules/tome/data/birth/races/giant.lua",
+    "lines": [
+      {
+        "line": 60,
+        "text": "\t\t_t\"Inscriptions have granted them magical and physical power far beyond their natural limits, but their dependence on runic magic made them a favored target during the Spellhunt, forcing them to take refuge among the Shalore.\","
+      },
+      {
+        "line": 61,
+        "text": "\t\t_t\"Their preference for simple and direct solutions has given them an undeserved reputation as dumb brutes, despite their extraordinary talent with runes and their humble, dutiful nature.\","
+      },
+      {
+        "line": 62,
+        "text": "\t\t_t\"They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.\","
+      },
+      {
+        "line": 63,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 64,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +0 Constitution\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "93ff9becc238bed4be68f4a956cfd9c01cc6e7964e75b7455b64a7f02a7c216c",
+    "public_source_path": "game/modules/tome/data/birth/classes/afflicted.lua",
+    "lines": [
+      {
+        "line": 56,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 57,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 58,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +4 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 59,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +2\","
+      },
+      {
+        "line": 60,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9f17d91a5f2fb63887c1e67aeb79a5b6ed111bf0a30192b44829d257f207a8d9",
+    "public_source_path": "game/modules/tome/data/birth/races/undead.lua",
+    "lines": [
+      {
+        "line": 97,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 98,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +5 Constitution\","
+      },
+      {
+        "line": 99,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, -2 Willpower, -2 Cunning\","
+      },
+      {
+        "line": 100,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 14\","
+      },
+      {
+        "line": 101,
+        "text": "\t\t_t\"#GOLD#Experience penalty:#LIGHT_BLUE# 12%\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9f1979a3c5fd0012d6206c9a6e03b6b4f20b631feb4718fd1de2dac4e4263cb6",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua",
+    "lines": [
+      {
+        "line": 1124,
+        "text": "\tmax_power = 24, power_regen = 1,"
+      },
+      {
+        "line": 1125,
+        "text": "\tuse_power = {"
+      },
+      {
+        "line": 1126,
+        "text": "\t\tname = function(self, who) return (\"create a reflective shield (50%% reflection rate, %d strength, based on Magic) for %d turns\"):tformat(who:getShieldAmount(self.use_power.shield(self, who)), who:getShieldDuration(5)) end,"
+      },
+      {
+        "line": 1127,
+        "text": "\t\tpower = 24,"
+      },
+      {
+        "line": 1128,
+        "text": "\t\tshield = function(self, who) return 150 + 2*who:getMag(100) end,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9f5f7e3d2b2d334763af9eacd23b0ccf78a329b4b9b3ecc433eb9f13d16574bf",
+    "public_source_path": "game/modules/tome/data/general/objects/boss-artifacts.lua",
+    "lines": [
+      {
+        "line": 133,
+        "text": "\t\t\tdesc=function(self, who, special)"
+      },
+      {
+        "line": 134,
+        "text": "\t\t\t\tlocal dam, slow = special.proc_values(who)"
+      },
+      {
+        "line": 135,
+        "text": "\t\t\t\treturn (\"deals %d temporal damage and slows enemies in radius 6 of the target by %d%% based on Magic\"):tformat(dam, slow*100)"
+      },
+      {
+        "line": 136,
+        "text": "\t\t\tend,"
+      },
+      {
+        "line": 137,
+        "text": "\t\t\tproc_values=function(who)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "a1b009910773270eab4e02713013144954503dfa4c83f1a6efcde212211c46b3",
+    "public_source_path": "game/modules/tome/data/birth/classes/chronomancer.lua",
+    "lines": [
+      {
+        "line": 154,
+        "text": "\t\t_t\"Their lifelines braided, Temporal Wardens have learned to work with their other selves across multiple timelines.\","
+      },
+      {
+        "line": 155,
+        "text": "\t\t_t\"Through their study of chronomancy, they learn to blend archery and dual-weapon fighting, seamlessly switching from one to the other.\","
+      },
+      {
+        "line": 156,
+        "text": "\t\t_t\"Their most important stats are: Magic, Dexterity, and Willpower\","
+      },
+      {
+        "line": 157,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 158,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "a1e79ac3c3d236adbeb687674a8cf3b57c1cd4192dfb1f47ff497724e73af636",
+    "public_source_path": "game/modules/tome/data/talents/techniques/pugilism.lua",
+    "lines": [
+      {
+        "line": 315,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 316,
+        "text": "\t\tlocal damage = t.getDamage(self, t) * 100"
+      },
+      {
+        "line": 317,
+        "text": "\t\treturn ([[Deliver a devastating axe kick dealing %d%% damage. If the blow connects your target is brain damaged, causing all talents to fail for %d turns and earning 2 combo points."
+      },
+      {
+        "line": 318,
+        "text": "\t\tThis effect cannot be saved against, though it can be dodged and checks confusion immunity.]])"
+      },
+      {
+        "line": 319,
+        "text": "\t\t:tformat(damage, t.getDuration(self, t))"
+      },
+      {
+        "line": 320,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "a8259a349b7fbca492493a459198a9f60b5e0afcc3eaa527d3451cad4af42e26",
+    "public_source_path": "game/modules/tome/data/birth/classes/mage.lua",
+    "lines": [
+      {
+        "line": 150,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 151,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 152,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +5 Magic, +3 Willpower, +1 Cunning\","
+      },
+      {
+        "line": 153,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# -4\","
+      },
+      {
+        "line": 154,
+        "text": "\t},"
+      },
+      {
+        "line": 251,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 252,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 253,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +5 Magic, +3 Willpower, +1 Cunning\","
+      },
+      {
+        "line": 254,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# -3\","
+      },
+      {
+        "line": 255,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "a8a425c51147fc624c46e0c02dde27bcc0193fde094ced518b146a436adbf192",
+    "public_source_path": "game/modules/tome/data/birth/races/construct.lua",
+    "lines": [
+      {
+        "line": 52,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 53,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, -2 Dexterity, +3 Constitution\","
+      },
+      {
+        "line": 54,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +2 Magic, +2 Willpower, -5 Cunning\","
+      },
+      {
+        "line": 55,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 13\","
+      },
+      {
+        "line": 56,
+        "text": "\t\t_t\"#GOLD#Experience penalty:#LIGHT_BLUE# 25%\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b459bd3f96ca13d6ed2b5de1ac0b610e6eeac12a25769061467786fc3d5290f3",
+    "public_source_path": "game/modules/tome/data/birth/classes/chronomancer.lua",
+    "lines": [
+      {
+        "line": 68,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 69,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +2 Constitution\","
+      },
+      {
+        "line": 70,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +5 Magic, +2 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 71,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +0\","
+      },
+      {
+        "line": 72,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b803ad3af9739f5bfa438ac8eb2d9952278f418e7e57c4e9b2d5f009d1af9b6d",
+    "public_source_path": "game/modules/tome/data/birth/classes/afflicted.lua",
+    "lines": [
+      {
+        "line": 127,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 128,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 129,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +4 Willpower, +5 Cunning\","
+      },
+      {
+        "line": 130,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +0\","
+      },
+      {
+        "line": 131,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b80dd5c548296690e41b1edfd05124021e693ea62126a33eb99c58352b39c843",
+    "public_source_path": "game/modules/tome/data/birth/classes/psionic.lua",
+    "lines": [
+      {
+        "line": 53,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 54,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +1 Strength, +0 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 55,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +4 Willpower, +4 Cunning\","
+      },
+      {
+        "line": 56,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# -2\","
+      },
+      {
+        "line": 57,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b835143069be631ee6c1a03e3ec426308f6d5823d3292aaf5c4b54d0a55cc49b",
+    "public_source_path": "game/modules/tome/data/birth/classes/celestial.lua",
+    "lines": [
+      {
+        "line": 148,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 149,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 150,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +6 Magic, +0 Willpower, +3 Cunning\","
+      },
+      {
+        "line": 151,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +0\","
+      },
+      {
+        "line": 152,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b8b386eaf8c5b72ad6cd6b973b41f79a8de492c9ae138a794308594ad2923fef",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 365,
+        "text": "\tname = \"STORMSHIELD\", image = \"talents/rune__lightning.png\","
+      },
+      {
+        "line": 366,
+        "text": "\tdesc = _t\"Stormshield\","
+      },
+      {
+        "line": 367,
+        "text": "\tlong_desc = function(self, eff) return (\"The target is protected a raging storm deflecting up to %d instances of damage over %d.\"):"
+      },
+      {
+        "line": 368,
+        "text": "\t\ttformat(eff.blocks, eff.threshold) end,"
+      },
+      {
+        "line": 369,
+        "text": "\ttype = \"magical\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ba3a363cc4db7284a6fb633d45984e621a9273bc1cc1cbef181f98810f27ea34",
+    "public_source_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+    "lines": [
+      {
+        "line": 1393,
+        "text": "\t\tlocal data = self:getInscriptionData(t.short_name)"
+      },
+      {
+        "line": 1394,
+        "text": "\t\tlocal power = (data.power or data.range) + data.inc_stat * 3"
+      },
+      {
+        "line": 1395,
+        "text": "\t\treturn ([[Activate the rune to teleport randomly in a range of %d."
+      },
+      {
+        "line": 1396,
+        "text": "\t\tAfterwards you stay out of phase for %d turns. In this state all new negative status effects duration is reduced by %d%%, your defense is increased by %d and all your resistances by %d%%.]]):"
+      },
+      {
+        "line": 1397,
+        "text": "\t\ttformat(data.range + data.inc_stat, data.dur or 3, power, power, power)"
+      },
+      {
+        "line": 1398,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "bec98c2b7a76305287788087b8deb14094912c607ff141b02895b9c1062ee4b5",
+    "public_source_path": "game/modules/tome/data/talents/cursed/fears.lua",
+    "lines": [
+      {
+        "line": 229,
+        "text": "\t\tlocal duration = tInstillFear.getDuration(self, tInstillFear)"
+      },
+      {
+        "line": 230,
+        "text": "\t\tlocal damage = t.getDamage(self, t)"
+      },
+      {
+        "line": 231,
+        "text": "\t\treturn ([[Heighten the fears of those near to you. Any foe you attempt to inflict a fear upon and who remains in a radius of %d and in sight of you for %d (non-consecutive) turns, will take %0.2f mind and %0.2f darkness damage and gain a new fear that lasts for %d turns."
+      },
+      {
+        "line": 232,
+        "text": "\t\t\tThis effect completely ignores fear resistance, but can be saved against.]]):"
+      },
+      {
+        "line": 233,
+        "text": "\t\t\ttformat(range, turnsUntilTrigger, damDesc(self, DamageType.MIND, t.getDamage(self, t) / 2), damDesc(self, DamageType.DARKNESS, t.getDamage(self, t) / 2 ), duration)"
+      },
+      {
+        "line": 234,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c0e2bc8d60db0837928ea6c9e04a08fb7b540fcf0b2469c8e3f696745b8828f4",
+    "public_source_path": "game/modules/tome/data/birth/classes/wilder.lua",
+    "lines": [
+      {
+        "line": 117,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 118,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +1 Constitution\","
+      },
+      {
+        "line": 119,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +3 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 120,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +2\","
+      },
+      {
+        "line": 121,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c5722d0bfe8438c4fd3a8fdbd129faa05bd067377b609f85817a29b86371577b",
+    "public_source_path": "game/modules/tome/data/talents/cunning/poisons.lua",
+    "lines": [
+      {
+        "line": 574,
+        "text": "\tgetDamage = function(self, t) return self:combatStatScale(\"mag\", 20, 50, 0.75) end,"
+      },
+      {
+        "line": 575,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 576,
+        "text": "\treturn ([[Whenever you apply Deadly Poison, you also apply an unresistable magical poison dealing %0.2f arcane damage (based on your Magic) each turn. This poison reduces all damage resistance by 10%% and poison immunity by 50%%.]]):"
+      },
+      {
+        "line": 577,
+        "text": "\ttformat(damDesc(self, DamageType.ARCANE, t.getDamage(self,t)))"
+      },
+      {
+        "line": 578,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c8deee5d94a449583b164f17b7be2f12ea7bd6fda88c5dc289ac0a4e189106c3",
+    "public_source_path": "game/modules/tome/data/talents/spells/thaumaturgy.lua",
+    "lines": [
+      {
+        "line": 44,
+        "text": "\tend,"
+      },
+      {
+        "line": 45,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 46,
+        "text": "\t\treturn ([[You create an orb attuned to thaumaturgy for %d turns."
+      },
+      {
+        "line": 47,
+        "text": "\t\tWhile it lasts, any beam spell you cast will be duplicated and also cast for free at the orb for %d%% of the normal damage."
+      },
+      {
+        "line": 48,
+        "text": "\t\t]]):tformat(t:_getDur(self), 100 - t:_getDamPct(self))"
+      },
+      {
+        "line": 49,
+        "text": "\tend,"
+      },
+      {
+        "line": 50,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c9ea64d2a2f181922d5ffd21d65a44f085f7880bd0f3f56555b73089d100dd02",
+    "public_source_path": "game/modules/tome/data/talents/techniques/magical-combat.lua",
+    "lines": [
+      {
+        "line": 239,
+        "text": "\tgetSPMult = function(self, t) return self:combatTalentScale(t, 1/7, 5/7) end,"
+      },
+      {
+        "line": 240,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 241,
+        "text": "\t\treturn ([[Raw magical damage channels through the caster's weapon, increasing raw Physical Power by %d%% of your Magic (current bonus: %d)."
+      },
+      {
+        "line": 242,
+        "text": "\t\tEach time you crit with a melee blow, you will unleash a radius %d ball of arcane damage, doing %0.2f."
+      },
+      {
+        "line": 243,
+        "text": "\t\tThe bonus scales with your Spellpower and talent level."
+      },
+      {
+        "line": 244,
+        "text": "\t\tIf you are using a shield this will only occur 50%% of the time."
+      },
+      {
+        "line": 245,
+        "text": "\t\tIf you are dual wielding this will only occur 50%% of the time."
+      },
+      {
+        "line": 246,
+        "text": "\t\tAt level 5 the ball becomes radius 2."
+      },
+      {
+        "line": 247,
+        "text": "\t\t]]):"
+      },
+      {
+        "line": 248,
+        "text": "\t\ttformat(t.getSPMult(self, t)*100, self:getMag() * t.getSPMult(self, t), self:getTalentRadius(t), damDesc(self, DamageType.ARCANE, t.getDamage(self, t)) )"
+      },
+      {
+        "line": 249,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ccdad9e7bcb77aebeeedad22b8179978349f8ffbd01d8d7d6590d78948a29ab4",
+    "public_source_path": "game/modules/tome/data/birth/races/yeek.lua",
+    "lines": [
+      {
+        "line": 146,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 147,
+        "text": "\t\t_t\"#LIGHT_BLUE# * -3 Strength, -2 Dexterity, -5 Constitution\","
+      },
+      {
+        "line": 148,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +6 Willpower, +4 Cunning\","
+      },
+      {
+        "line": 149,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 7\","
+      },
+      {
+        "line": 150,
+        "text": "\t\t_t\"#GOLD#Experience penalty:#LIGHT_BLUE# -15%\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d05d622fcefccc3e45694f0ef66b1ebcb6756b3a3ad9a79a3872512d813109bc",
+    "public_source_path": "game/modules/tome/data/birth/classes/chronomancer.lua",
+    "lines": [
+      {
+        "line": 157,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 158,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 159,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +4 Magic, +2 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 160,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +2\","
+      },
+      {
+        "line": 161,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d21e25dbeca1970c2849064b69f16ea06a08d6b041da10d47202f6e85139fccb",
+    "public_source_path": "game/modules/tome/class/interface/Combat.lua",
+    "lines": [
+      {
+        "line": 1136,
+        "text": "\t\tlocal t = target:getTalentFromId(target.T_SHARDS)"
+      },
+      {
+        "line": 1137,
+        "text": "\t\ttarget.turn_procs.shield_shards = true"
+      },
+      {
+        "line": 1138,
+        "text": "\t\tself.logCombat(target, self, \"#Source# counter attacks #Target# with %s shield shards!\", string.his_her(target))"
+      },
+      {
+        "line": 1139,
+        "text": "\t\ttarget:attr(\"ignore_counterstrike\", 1)"
+      },
+      {
+        "line": 1140,
+        "text": "\t\ttarget:attackTarget(self, DamageType.NATURE, self:combatTalentWeaponDamage(t, 0.4, 1), true)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d2233e19e84e77d51053a113325a2587374c15afe71ba85e3a6e308a0406819d",
+    "public_source_path": "game/modules/tome/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 178,
+        "text": "\tend,"
+      },
+      {
+        "line": 179,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 180,
+        "text": "\t\treturn ([[Call upon the grace of the Eternals to increase your global speed by %d%% for 5 turns."
+      },
+      {
+        "line": 181,
+        "text": "\t\tThe speed bonus will increase with your Dexterity or Magic (whichever is higher).]]):"
+      },
+      {
+        "line": 182,
+        "text": "\t\ttformat(t.getSpeed(self, t) * 100)"
+      },
+      {
+        "line": 183,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d5d77c196a6fbb3250e7e9296c1a55867983d921ed97622ebeca0018507fd9e5",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 4762,
+        "text": "\t\tname = function(self, who)"
+      },
+      {
+        "line": 4763,
+        "text": "\t\t\tlocal dam = self.use_power.damage(self, who)/2"
+      },
+      {
+        "line": 4764,
+        "text": "\t\t\treturn (\"release a radius %d burst of void energy at up to range %d, dealing %0.2f temporal and %0.2f darkness damage (based on Magic)\"):tformat(self.use_power.radius, self.use_power.range, who:damDesc(engine.DamageType.TEMPORAL, dam), who:damDesc(engine.DamageType.DARKNESS, dam))"
+      },
+      {
+        "line": 4765,
+        "text": "\t\tend,"
+      },
+      {
+        "line": 4766,
+        "text": "\t\tpower = 20,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "db4f7554659b28f7039f67b37a0eac479224abc70187ecf2ee8e68731a33e40a",
+    "public_source_path": "game/modules/tome/data/talents/celestial/darkside.lua",
+    "lines": [
+      {
+        "line": 73,
+        "text": "\t\tlocal spellpower = t.getSpellpower(self, t)"
+      },
+      {
+        "line": 74,
+        "text": "\t\tlocal mindpower = t.getMindpower(self, t)"
+      },
+      {
+        "line": 75,
+        "text": "\t\treturn ([[Your curse feeds on the magic, which in turn is powered by the curse."
+      },
+      {
+        "line": 76,
+        "text": "You gain a bonus to Spellpower equal to %d%% of your Willpower."
+      },
+      {
+        "line": 77,
+        "text": "You gain a bonus to Mindpower equal to %d%% of your Magic."
+      },
+      {
+        "line": 78,
+        "text": ""
+      },
+      {
+        "line": 79,
+        "text": "#{italic}#Something is not quite right inside you.  Your solar spells are somehow twisted, but your bloody rites make things clear as day.#{normal}#]]):tformat(spellpower, mindpower)"
+      },
+      {
+        "line": 80,
+        "text": "\tend,"
+      },
+      {
+        "line": 81,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ddcd66c6235a4e4bd9375ada99a579c3851208cc94b23857684917ffffb3270b",
+    "public_source_path": "game/modules/tome/data/timed_effects/magical.lua",
+    "lines": [
+      {
+        "line": 4345,
+        "text": "\t\tlocal xs = \"\""
+      },
+      {
+        "line": 4346,
+        "text": "\t\tif eff.arcaneDam and eff.arcanePen then"
+      },
+      {
+        "line": 4347,
+        "text": "\t\t\txs = xs..(\", +%d%% Arcane damage and +%d%% Arcane damage penetration,\"):tformat(eff.arcaneDam, eff.arcanePen)"
+      },
+      {
+        "line": 4348,
+        "text": "\t\tend"
+      },
+      {
+        "line": 4349,
+        "text": "\t\tif eff.natureDam and eff.naturePen then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "df9ff8f09a50d25e54f96dc297652f13ca34acf3d2abc54276d42278bca22722",
+    "public_source_path": "game/modules/tome/data/talents/cunning/artifice.lua",
+    "lines": [
+      {
+        "line": 215,
+        "text": ""
+      },
+      {
+        "line": 216,
+        "text": "newTalent{"
+      },
+      {
+        "line": 217,
+        "text": "\tname = \"Master Artificer\","
+      },
+      {
+        "line": 218,
+        "text": "\ttype = {\"cunning/artifice\", 4},"
+      },
+      {
+        "line": 219,
+        "text": "\trequire = cuns_req_high4,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "dff04ba4e68a2b9d55b26f4ddf589fc50324801631b3132195a6cba2c9031dd6",
+    "public_source_path": "game/modules/tome/dialogs/LevelupDialog.lua",
+    "lines": [
+      {
+        "line": 962,
+        "text": "\tif item.type then"
+      },
+      {
+        "line": 963,
+        "text": "\t\ttext:add({\"color\",0x00,0xFF,0xFF}, _t\"Talent Category\", true)"
+      },
+      {
+        "line": 964,
+        "text": "\t\ttext:add({\"color\",0x00,0xFF,0xFF}, _t\"A talent category contains talents you may learn. You gain a talent category point at level 10, 20 and 34. You may also find trainers or artifacts that allow you to learn more.\\nA talent category point can be used either to learn a new category or increase the mastery of a known one.\", true, true, {\"color\", \"WHITE\"})"
+      },
+      {
+        "line": 965,
+        "text": ""
+      },
+      {
+        "line": 966,
+        "text": "\t\tif self.actor.talents_types_def[item.type].generic then"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e0271f0e57c4eba5ed0bbd74bede04b12b7907321e441bd05a8ce7fdfa2d7731",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 5317,
+        "text": "\tmax_power = 50, power_regen = 1,"
+      },
+      {
+        "line": 5318,
+        "text": "\t\tuse_power = {"
+      },
+      {
+        "line": 5319,
+        "text": "\t\tname = function(self, who) return (\"turn yourself invisible (power %d, based on Cunning and Magic) for 10 turns\"):tformat(self.use_power.invispower(self, who)) end,"
+      },
+      {
+        "line": 5320,
+        "text": "\t\tpower = 50,"
+      },
+      {
+        "line": 5321,
+        "text": "\t\ttactical = {DEFEND = 2, ESCAPE = 2},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e7cfeda25345a1ea86b62647264fc2253cece603dbb1c4ff51cb93d39535eab3",
+    "public_source_path": "game/modules/tome/data/zones/sandworm-lair/objects.lua",
+    "lines": [
+      {
+        "line": 95,
+        "text": "\t\twho:incStat(\"cun\", cun) if cun >= 0 then cun=\"+\"..cun end"
+      },
+      {
+        "line": 96,
+        "text": "\t\twho:incStat(\"con\", con) if con >= 0 then con=\"+\"..con end"
+      },
+      {
+        "line": 97,
+        "text": "\t\tgame.logPlayer(who, \"#00FF00#Your stats have changed! (Str %s, Dex %s, Mag %s, Wil %s, Cun %s, Con %s)\", str, dex, mag, wil, cun, con)"
+      },
+      {
+        "line": 98,
+        "text": ""
+      },
+      {
+        "line": 99,
+        "text": "\t\twho:attr(\"drake_touched\", 1)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e892e9669af517dad34e33437e3905f9065badf93ad310f7f02801afeefcbe32",
+    "public_source_path": "game/modules/tome/data/talents/spells/enhancement.lua",
+    "lines": [
+      {
+        "line": 190,
+        "text": "\t\tlocal statinc = t.getStatIncrease(self, t)"
+      },
+      {
+        "line": 191,
+        "text": "\t\tlocal absorb = self:getShieldAmount(t.getShield(self, t))"
+      },
+      {
+        "line": 192,
+        "text": "\t\treturn ([[You concentrate on your inner self, increasing your Strength, Dexterity, Magic, and Cunning by %d."
+      },
+      {
+        "line": 193,
+        "text": "\t\tAdditionally, you gain a shield absorbing %d damage before you take damage every %d turns."
+      },
+      {
+        "line": 194,
+        "text": "\t\tThe stat increase and shield will improve with your Spellpower.]]):"
+      },
+      {
+        "line": 195,
+        "text": "\t\ttformat(statinc, absorb, self:getTalentCooldown(t) )"
+      },
+      {
+        "line": 196,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e90236a0dfd7c78a999fc06f7b18bee602e7ba70f2892eff8d8cda0fa7ca95b9",
+    "public_source_path": "game/modules/tome/data/talents/misc/inscriptions.lua",
+    "lines": [
+      {
+        "line": 243,
+        "text": "\t\tlocal bonus1 = (data.die_at + data.inc_stat * 30) * bonus"
+      },
+      {
+        "line": 244,
+        "text": "\t\tlocal bonus2 = math.floor(data.dur * bonus)"
+      },
+      {
+        "line": 245,
+        "text": "\t\treturn ([[Activate the infusion to endure even the most grievous of wounds for %d turns."
+      },
+      {
+        "line": 246,
+        "text": "\t\tWhile Heroism is active, you will only die when reaching -%d life."
+      },
+      {
+        "line": 247,
+        "text": "\t\tThe duration and life will increase by 1%% for every 1%% life you have lost, to a maximum of 100%% at 0 life or less (currently %d life, %d duration)"
+      },
+      {
+        "line": 248,
+        "text": "\t\tIf your life is below 0 when this effect wears off it will be set to 1.]]):tformat(data.dur, data.die_at + data.inc_stat * 30, bonus1, bonus2)"
+      },
+      {
+        "line": 249,
+        "text": "\tend,"
+      },
+      {
+        "line": 250,
+        "text": "\tshort_info = function(self, t)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f275cd37743f4db13f22e436293bb50f3b207829426222aa30f337f44f7f0137",
+    "public_source_path": "game/modules/tome/data/birth/classes/wilder.lua",
+    "lines": [
+      {
+        "line": 55,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 56,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +1 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 57,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +5 Willpower, +3 Cunning\","
+      },
+      {
+        "line": 58,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +0\","
+      },
+      {
+        "line": 59,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f383662dca374f428de0a62febfb410d51d50db8587f4a06ee871a232d075eab",
+    "public_source_path": "game/modules/tome/data/talents/techniques/strength-of-the-berserker.lua",
+    "lines": [
+      {
+        "line": 225,
+        "text": "\t\tgame.logPlayer(self, \"You require a two handed weapon to use this talent.\") end return false end"
+      },
+      {
+        "line": 226,
+        "text": "\tif self:getStamina() > self:getMaxStamina() * 0.3 then if not silent then"
+      },
+      {
+        "line": 227,
+        "text": "\t\tgame.logPlayer(self, \"You require less stamina to use this talent.\") end return false end"
+      },
+      {
+        "line": 228,
+        "text": "\treturn true end,"
+      },
+      {
+        "line": 229,
+        "text": "\taction = function(self, t)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f4b95afbe0c9cc54bad0d9575f87d665b560c085ff867095fe6b986c26bef50c",
+    "public_source_path": "game/modules/tome/data/birth/classes/warrior.lua",
+    "lines": [
+      {
+        "line": 263,
+        "text": "\t\t_t\"They can cast spells from a limited selection but have the unique capacity to 'channel' their attack spells through their melee attacks.\","
+      },
+      {
+        "line": 264,
+        "text": "\t\t_t\"They are adept with two-handed weapons, for the sheer destruction they can bring.\","
+      },
+      {
+        "line": 265,
+        "text": "\t\t_t\"Their most important stats are: Strength, Cunning and Magic\","
+      },
+      {
+        "line": 266,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 267,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +0 Constitution\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f7b88280563a7ffa6a513863dae424173c2b302c14163311eede5e770b28f6d5",
+    "public_source_path": "game/modules/tome/data/talents/chronomancy/chronomancy.lua",
+    "lines": [
+      {
+        "line": 46,
+        "text": "\t\tlocal range = self:getTalentRange(t)"
+      },
+      {
+        "line": 47,
+        "text": "\t\tlocal duration = t.getDuration(self, t)"
+      },
+      {
+        "line": 48,
+        "text": "\t\treturn ([[You peer into the future, sensing creatures and traps in a radius of %d for %d turns."
+      },
+      {
+        "line": 49,
+        "text": "\t\tIf you know Foresight you'll gain additional defense and chance to shrug off critical hits (equal to your Foresight bonuses) while Precognition is active.]]):tformat(range, duration)"
+      },
+      {
+        "line": 50,
+        "text": "\tend,"
+      },
+      {
+        "line": 51,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f81fb93f7fb9e33e542ada4c48bbaf19b5443960ae79afe6a472590eadf123b1",
+    "public_source_path": "game/modules/tome/data/damage_types.lua",
+    "lines": [
+      {
+        "line": 2067,
+        "text": ""
+      },
+      {
+        "line": 2068,
+        "text": "newDamageType{"
+      },
+      {
+        "line": 2069,
+        "text": "\tname = _t(\"% chance of gloom effects\", \"damage type\"), type = \"RANDOM_GLOOM\","
+      },
+      {
+        "line": 2070,
+        "text": "\tprojector = function(src, x, y, type, dam, state)"
+      },
+      {
+        "line": 2071,
+        "text": "\t\tstate = initState(state)"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "f9125f99a7f5a09f1ff29dcce6969cdd10d16531ee5c03d718d5579345700995",
+    "public_source_path": "game/modules/tome/data/talents/cursed/darkness.lua",
+    "lines": [
+      {
+        "line": 350,
+        "text": "\t\tlocal darkCount = t.getDarkCount(self, t)"
+      },
+      {
+        "line": 351,
+        "text": "\t\tlocal damageIncrease = getDamageIncrease(self)"
+      },
+      {
+        "line": 352,
+        "text": "\t\treturn ([[Creeping dark slowly spreads from the target location and %d spots in a radius of %d around the targeted location. The dark deals %0.2f darkness damage each turn to anything in its area, and blocks the sight of any who do not possess Dark Vision or some other magical means of seeing. The darkness seeps into adjacent tiles at random and slowly dissipates over time."
+      },
+      {
+        "line": 353,
+        "text": "\t\tThe damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]]):tformat(darkCount, radius, damage, damageIncrease)"
+      },
+      {
+        "line": 354,
+        "text": "\tend,"
+      },
+      {
+        "line": 355,
+        "text": "}"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fb061f4ba5e5594ae53e0c0d9dd05401bf78285b5677519baf5bffc2f8bdd307",
+    "public_source_path": "game/modules/tome/data/timed_effects/other.lua",
+    "lines": [
+      {
+        "line": 3315,
+        "text": "\tdesc = _t\"Out of Time Zone\","
+      },
+      {
+        "line": 3316,
+        "text": "\tno_stop_enter_worlmap = true,"
+      },
+      {
+        "line": 3317,
+        "text": "\tlong_desc = function(self, eff) return (_t\"Zone-wide effect: You seem to be outside the normal spacetime continuum. +10% physical resistance, -10% temporal resistance and -20% teleport resistance.\") end,"
+      },
+      {
+        "line": 3318,
+        "text": "\tdecrease = 0, no_remove = true,"
+      },
+      {
+        "line": 3319,
+        "text": "\ttype = \"other\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fb67a883b0533353edfef0c8f688f5a6aedc38c31fff95fb53d23c10eaed6b6f",
+    "public_source_path": "game/modules/tome/data/talents/cursed/self-hatred.lua",
+    "lines": [
+      {
+        "line": 191,
+        "text": "\t\t\t"
+      },
+      {
+        "line": 192,
+        "text": "\t\t\tlocal d_color = DamageType:get(type).text_color or \"#CRIMSON#\""
+      },
+      {
+        "line": 193,
+        "text": "\t\t\tgame:delayedLogDamage(src, self, 0, (\"%s(%d bled out#LAST#%s)#LAST#\"):tformat(d_color, reduce, d_color), false)"
+      },
+      {
+        "line": 194,
+        "text": "\t\t\treturn {dam = dam}"
+      },
+      {
+        "line": 195,
+        "text": "\t\tend"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fc643514f0c08ceb736d142c84fc7620168cd21330fa0172b497ef5ad5ffa54a",
+    "public_source_path": "game/modules/tome/data/birth/races/elf.lua",
+    "lines": [
+      {
+        "line": 106,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 107,
+        "text": "\t\t_t\"#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 108,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +2 Magic, +3 Willpower, +1 Cunning\","
+      },
+      {
+        "line": 109,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 9\","
+      },
+      {
+        "line": 110,
+        "text": "\t\t_t\"#GOLD#Experience penalty:#LIGHT_BLUE# 12%\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fda79211a710521b9d46192cf77e53783715fe3204fa0f445590cebe1e93bc48",
+    "public_source_path": "game/modules/tome/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 3219,
+        "text": "\tmax_power = 25, power_regen = 1,"
+      },
+      {
+        "line": 3220,
+        "text": "\tuse_power = { --slightly less obviously Pure's copy of Catalepsy"
+      },
+      {
+        "line": 3221,
+        "text": "\t\tname = function(self, who) return (\"accelerate burning effects on all creatures in a radius %d ball within range %d, consuming them to instantly inflict 125%% of all remaining burn damage\"):tformat(self.use_power.radius(self, who), self.use_power.range(self, who)) end,"
+      },
+      {
+        "line": 3222,
+        "text": "\t\tpower = 10,"
+      },
+      {
+        "line": 3223,
+        "text": "\t\trequires_target = true,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "fea791e065583e6fc6c4158671aa5e9fe56ab00825234c310dd74fac783384ea",
+    "public_source_path": "game/modules/tome/data/talents/cursed/slaughter.lua",
+    "lines": [
+      {
+        "line": 367,
+        "text": "\tend,"
+      },
+      {
+        "line": 368,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 369,
+        "text": "\t\treturn ([[While active, every swing of your weapon strikes strikes other adjacent enemies for %d%% (at 0 hate) to %d%% (at 100 hate) physical damage. The recklessness of your attacks brings you bad luck (luck -3)."
+      },
+      {
+        "line": 370,
+        "text": "\t\tCleave, Repel and Surge cannot be active simultaneously, and activating one will place the others in cooldown."
+      },
+      {
+        "line": 371,
+        "text": "\t\tCleave will deal 25%% additional damage while using a two-handed weapon."
+      },
+      {
+        "line": 372,
+        "text": "\t\tThe Cleave damage increases with your Strength.]]):"
+      },
+      {
+        "line": 373,
+        "text": "\t\ttformat( t.getDamageMultiplier(self, t, 0) * 100, t.getDamageMultiplier(self, t, 100) * 100)"
+      },
+      {
+        "line": 374,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ff60c67c815b52e26b052edc1f575801b962e3b7dd69f1d4aaf18ce6618592d0",
+    "public_source_path": "game/modules/tome/data/birth/classes/rogue.lua",
+    "lines": [
+      {
+        "line": 170,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 171,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +4 Strength, +4 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 172,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +0 Willpower, +1 Cunning\","
+      },
+      {
+        "line": 173,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +0\","
+      },
+      {
+        "line": 174,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2605bebe43e74395f10a2bba011e77f59aa23ab03aa5b0e437f89773fb244af9",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 67,
+        "text": "\tname = \"FIERY_TORMENT\","
+      },
+      {
+        "line": 68,
+        "text": "\tdesc = _t\"Fiery Torment\","
+      },
+      {
+        "line": 69,
+        "text": "\tlong_desc = function(self, eff) return (\"The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment\"):tformat(eff.power, eff.finaldam, eff.rate*100) end,"
+      },
+      {
+        "line": 70,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 71,
+        "text": "\tsubtype = { curse=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2837418f95ae7a37339d99e9ac112298cdf0ac3f6e4395c3c07fe7f83f13cea2",
+    "public_source_path": "tome-ashes-urhrok/data/birth/corrupted.lua",
+    "lines": [
+      {
+        "line": 52,
+        "text": "\t\t_t\"Doombringers are engines of war, cleaving and burning their way through entire armies.\","
+      },
+      {
+        "line": 53,
+        "text": "\t\t_t\"The most powerful Doombringers can harness the full power of their demonic ties and transform themselves into a gigantic demon.\","
+      },
+      {
+        "line": 54,
+        "text": "\t\t_t\"Their most important stats are: Strength and Magic\","
+      },
+      {
+        "line": 55,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 56,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +4 Strength, +0 Dexterity, +2 Constitution\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3b0a2a921ed6222f1326b9226e49acbedf898b3b47ab02cb414fed57b45a07f2",
+    "public_source_path": "tome-ashes-urhrok/data/birth/corrupted.lua",
+    "lines": [
+      {
+        "line": 55,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 56,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +4 Strength, +0 Dexterity, +2 Constitution\","
+      },
+      {
+        "line": 57,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +2 Magic, +0 Willpower, +1 Cunning\","
+      },
+      {
+        "line": 58,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +3\","
+      },
+      {
+        "line": 59,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "41daeaa324e37695697377382e9366374731bb8f827b10ec88fe60816f98608b",
+    "public_source_path": "tome-ashes-urhrok/data/birth/corrupted.lua",
+    "lines": [
+      {
+        "line": 119,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 120,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +2 Constitution\","
+      },
+      {
+        "line": 121,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +4 Magic, +0 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 122,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +2\","
+      },
+      {
+        "line": 123,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "6a98d7694e3d7611ce67ab15dbeabd9a2e3a4ceb3b75bb2f7aa140940c7a8734",
+    "public_source_path": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+    "lines": [
+      {
+        "line": 706,
+        "text": "\tend,"
+      },
+      {
+        "line": 707,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 708,
+        "text": "\t\treturn ([[You enchant your shield to grant you power for %d turns."
+      },
+      {
+        "line": 709,
+        "text": "\t\tWhile the effect last your Strength and Magic stats are increased by 10%% of your shield block value.]]):"
+      },
+      {
+        "line": 710,
+        "text": "\t\ttformat(t.getDuration(self, t))"
+      },
+      {
+        "line": 711,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "74b5be794b77a03545bb1e52e124ebc341a3ede2c8cb0c936daa744ac1408b82",
+    "public_source_path": "tome-ashes-urhrok/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 630,
+        "text": "\tname = \"DEMON_SEED_ARMOURED_LEVIATHAN\", image = \"talents/demon_seed_armoured_leviathan.png\","
+      },
+      {
+        "line": 631,
+        "text": "\tdesc = _t\"Armoured Leviathan\","
+      },
+      {
+        "line": 632,
+        "text": "\tlong_desc = function(self, eff) return (\"Increases your Strength and Magic stats by %d.\"):tformat(eff.power) end,"
+      },
+      {
+        "line": 633,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 634,
+        "text": "\tsubtype = { armour=true },"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d5474fb903746488663ca64c4d31406dd997e26d2f2a6bbc3168c06d5d2649d1",
+    "public_source_path": "tome-ashes-urhrok/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 47,
+        "text": "\t\t\t[\"corruption/doom-shield\"] = 0.2,"
+      },
+      {
+        "line": 48,
+        "text": "\t\t},"
+      },
+      {
+        "line": 49,
+        "text": "\t\tspecial_on_hit = {desc=_t\"releases a burst of dark fire, dealing damage equal to your magic stat\", on_kill=1, fct=function(combat, who, target)"
+      },
+      {
+        "line": 50,
+        "text": "\t\t\tlocal tg = {type=\"ball\", range=0, radius=1, selffire=false}"
+      },
+      {
+        "line": 51,
+        "text": "\t\t\tlocal grids = who:project(tg, target.x, target.y, engine.DamageType.SHADOWFLAME, who:getMag())"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e3070e16627a910b6280126e887447c10b5fdfc97925cb748b75d3721662085f",
+    "public_source_path": "tome-ashes-urhrok/data/birth/doomelf.lua",
+    "lines": [
+      {
+        "line": 37,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 38,
+        "text": "\t\t_t\"#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +1 Constitution\","
+      },
+      {
+        "line": 39,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Magic, +2 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 40,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 9\","
+      },
+      {
+        "line": 41,
+        "text": "\t\t_t\"#GOLD#Experience penalty:#LIGHT_BLUE# 12%\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "0ce8c3acb4bd78928438b30903b2d5b3c14777d2e5babc02de9f9a6c88e712c2",
+    "public_source_path": "tome-cults/data/birth/demented.lua",
+    "lines": [
+      {
+        "line": 131,
+        "text": "\tdesc = {"
+      },
+      {
+        "line": 132,
+        "text": "\t\t_t\"Cultists of Entropy are doomed beings which have unlocked the secrets of using entropy as a weapon. Their spells cause their bodies to wither away from entropic backlash, but they have learned how to resist this backlash and even pass it onto their foes.\","
+      },
+      {
+        "line": 133,
+        "text": "\t\t_t\"Their most important stats are: Magic and Cunning\","
+      },
+      {
+        "line": 134,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 135,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "27b641782f24d155f6c4d0bf151039c71ca0fc12c4c82468fd5bff3617a3bc87",
+    "public_source_path": "tome-cults/data/birth/krog.lua",
+    "lines": [
+      {
+        "line": 31,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 32,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution\","
+      },
+      {
+        "line": 33,
+        "text": "\t\t_t\"#LIGHT_BLUE# * -2 Magic, +2 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 34,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 13\",  -- We should really rename this to life rating since life per level is a lie"
+      },
+      {
+        "line": 35,
+        "text": "\t\t_t\"#GOLD#Experience penalty:#LIGHT_BLUE# 15%\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "289bd6e7626099e10862163facf52ebe61ccdcd7fd4bc10ec9e9753d001e1791",
+    "public_source_path": "tome-cults/data/talents/demented/oblivion.lua",
+    "lines": [
+      {
+        "line": 162,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 163,
+        "text": "\t\tlocal dur = t.getDuration(self,t)"
+      },
+      {
+        "line": 164,
+        "text": "\t\treturn ([[Your Nihil unravels the existence of the target, tearing them apart with entropy."
+      },
+      {
+        "line": 165,
+        "text": "\t\tIf 6 negative magical effects are applied before Nihil expires a Herald of Oblivion will be summoned to assist you for %d turns."
+      },
+      {
+        "line": 166,
+        "text": "\t\tCurrently existing debuffs, Spellshocked, and Seen by Arcane Eye will not count towards this total.  Refreshing the same debuff is counted."
+      },
+      {
+        "line": 167,
+        "text": "\t\tThe Herald will have a bonus to all attributes equal to your Magic.  Many other stats will scale with level."
+      },
+      {
+        "line": 168,
+        "text": "\t\tYour increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]]):"
+      },
+      {
+        "line": 169,
+        "text": "\t\ttformat(dur)"
+      },
+      {
+        "line": 170,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3df6aa0310cfa4457259b1e18e3a6dde41956202a229c2436e00fa3d5082ddb4",
+    "public_source_path": "tome-cults/data/birth/drem.lua",
+    "lines": [
+      {
+        "line": 31,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 32,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +1 Constitution\","
+      },
+      {
+        "line": 33,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +2 Magic, -1 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 34,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 12\","
+      },
+      {
+        "line": 35,
+        "text": "\t\t_t\"#GOLD#Experience penalty:#LIGHT_BLUE# 12%\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "3fc93f08068751412a8dff0acfcdfda814dbe74837e0864e1ea764d1bf13c925",
+    "public_source_path": "tome-cults/data/talents/demented/path-of-horror.lua",
+    "lines": [
+      {
+        "line": 112,
+        "text": "\tend,"
+      },
+      {
+        "line": 113,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 114,
+        "text": "\t\treturn ([[Your mutations have enhanced your offense even farther."
+      },
+      {
+        "line": 115,
+        "text": "\t\tYou gain %d Accuracy and %d Spellpower."
+      },
+      {
+        "line": 116,
+        "text": "\t\tThe effects will increase with your Magic stat.]])"
+      },
+      {
+        "line": 117,
+        "text": "\t\t:tformat(t.getAccuracy(self, t), t.getSpellpower(self, t))"
+      },
+      {
+        "line": 118,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5747b7c6e061feb6d7341ef0dd163a4ed262b61db51783f19c8c8d6e03cb9831",
+    "public_source_path": "tome-cults/data/talents/demented/nether.lua",
+    "lines": [
+      {
+        "line": 316,
+        "text": "\tend,"
+      },
+      {
+        "line": 317,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 318,
+        "text": "\t\treturn ([[Each time you cast a non-instant Demented spell, a nether spark begins orbiting around you for 10 turns, to a maximum of 5. Each spark increases your critical strike chance by %d%%, and on reaching 5 sparks your next Nether spell will consume all sparks to empower itself:"
+      },
+      {
+        "line": 319,
+        "text": "#PURPLE#Netherblast:#LAST# Becomes a deadly lance of void energy, piercing through enemies and dealing an additional %d%% damage over 5 turns."
+      },
+      {
+        "line": 320,
+        "text": "#PURPLE#Rift Cutter:#LAST# Those in the rift will be pinned for %d turns, take %0.2f temporal damage each turn, and the rift explosion has %d increased radius."
+      },
+      {
+        "line": 321,
+        "text": "#PURPLE#Spatial Distortion:#LAST# An Entropic Maw will be summoned at the rift's exit for %d turns, pulling in and taunting nearby targets with it's tendrils."
+      },
+      {
+        "line": 322,
+        "text": "The damage will increase with your Spellpower.  Entropic Maw stats will increase with level and your Magic stat.]]):"
+      },
+      {
+        "line": 323,
+        "text": "\t\ttformat(t.getCrit(self,t), t.getSpikeDamage(self,t)*100, t.getPin(self, t), damDesc(self, DamageType.TEMPORAL, t.getRiftDamage(self,t)), t.getRiftRadius(self,t), t.getSpatialDuration(self,t))"
+      },
+      {
+        "line": 324,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8bce9585e9af551f2b9b2eb22b1ab4e9731d3a651779bc1914fa3df41191cb24",
+    "public_source_path": "tome-cults/data/birth/demented.lua",
+    "lines": [
+      {
+        "line": 134,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 135,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 136,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +6 Magic, +0 Willpower, +3 Cunning\","
+      },
+      {
+        "line": 137,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# -4\","
+      },
+      {
+        "line": 138,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "90770fcab2c6bfcf7387158c94bd9b10eefafba30df485d260363ca4b0774452",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 2329,
+        "text": "\tparameters = {power = 10},"
+      },
+      {
+        "line": 2330,
+        "text": "\ton_gain = function(self, err) return _t\"#Target# is bolstered at the sight of the horror!\", true end,"
+      },
+      {
+        "line": 2331,
+        "text": "\ton_lose = function(self, err) return _t\"#Target# is less armoured.\", true end,"
+      },
+      {
+        "line": 2332,
+        "text": "\tactivate = function(self, eff)"
+      },
+      {
+        "line": 2333,
+        "text": "\t\tself:effectTemporaryValue(eff, \"flat_damage_armor\", {all=eff.power, [DamageType.PHYSICAL]=-eff.power})"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "b98f1decec932fe2a5d62691b5365eed25ba16746b6615907c2cb162336ba92a",
+    "public_source_path": "tome-cults/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 406,
+        "text": "\tend,"
+      },
+      {
+        "line": 407,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 408,
+        "text": "\t\treturn ([[You try to bite off your foe with your #{italic}#head#{normal}# for %d%% blight weapon damage."
+      },
+      {
+        "line": 409,
+        "text": "\t\tIf the target falls under 20%% life you have %d%% chances to outright kill it (bosses are immune)."
+      },
+      {
+        "line": 410,
+        "text": "\t\tWhenever you succesfully bite a foe you regenerate %0.1f life per turn for 5 turns."
+      },
+      {
+        "line": 411,
+        "text": "\t\tInstant kill chances and regeneration increase with your Constitution stat and weapon damage increases with the highest of your Strength, Dexterity or Magic stat.]]):"
+      },
+      {
+        "line": 412,
+        "text": "\t\ttformat(t.getDam(self, t) * 100, t.getChance(self, t), t.getRegen(self, t))"
+      },
+      {
+        "line": 413,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "c5c204b0e4fdddbef64ea34b032cf61402105ddfee4dab6e6d52f9bcadcb05c7",
+    "public_source_path": "tome-cults/data/timed_effects.lua",
+    "lines": [
+      {
+        "line": 2262,
+        "text": "\tname = \"SHOES_SLOWLY\","
+      },
+      {
+        "line": 2263,
+        "text": "\tdesc = _t\"Shoes of Moving Slowly\","
+      },
+      {
+        "line": 2264,
+        "text": "\tlong_desc = function(self, eff) return (\"Stay put, increasing your armour and defense by %d.\"):tformat(eff.stacks * 2) end,"
+      },
+      {
+        "line": 2265,
+        "text": "\ttype = \"magical\","
+      },
+      {
+        "line": 2266,
+        "text": "\tstatus = \"beneficial\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "d16a00eb13619dec4f75bf5ee2c9cc80f9e42729a7374c4cb1256a4a482ead86",
+    "public_source_path": "tome-cults/data/birth/demented.lua",
+    "lines": [
+      {
+        "line": 78,
+        "text": "\t\t_t\"Most of them forgo an entire arm to turn it into a deadly tentacle.\","
+      },
+      {
+        "line": 79,
+        "text": "\t\t_t\"Some are even known to never leave their sanctuary without their own worm that walks friend.\","
+      },
+      {
+        "line": 80,
+        "text": "\t\t_t\"Their most important stats are: Strength and Magic\","
+      },
+      {
+        "line": 81,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 82,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +3 Constitution\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "deaedd6729587da9165243fe5982e08a9f4742571437d62479e979efa89a2831",
+    "public_source_path": "tome-cults/data/birth/demented.lua",
+    "lines": [
+      {
+        "line": 81,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 82,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, +0 Dexterity, +3 Constitution\","
+      },
+      {
+        "line": 83,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Magic, +0 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 84,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +3\","
+      },
+      {
+        "line": 85,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "efde3cb1d692978c6cc8e40cb819c68afe5f1e5c3a98d8b7995f092e025cfc74",
+    "public_source_path": "tome-cults/data/talents/misc/races.lua",
+    "lines": [
+      {
+        "line": 72,
+        "text": "\tend,"
+      },
+      {
+        "line": 73,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 74,
+        "text": "\t\treturn ([[Your skin grows small spikes coated in dark blight."
+      },
+      {
+        "line": 75,
+        "text": "\t\tWhen you are hit in melee the attacker starts bleeding black blood for 5 turns that deals %0.2f darkness damage each turn. This effect may only happen once per turn."
+      },
+      {
+        "line": 76,
+        "text": "\t\tYou are empowered by the sight of the black blood, for each bleeding creature in radius 2 you gain 5%% all resistances, limited to %d creatures."
+      },
+      {
+        "line": 77,
+        "text": "\t\tThe damage will scale with your Magic stat.]]):"
+      },
+      {
+        "line": 78,
+        "text": "\t\ttformat(damDesc(self, DamageType.DARKNESS, t.getDamage(self, t)), t.getNb(self, t))"
+      },
+      {
+        "line": 79,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "01f0029825a938a9788677c8279786b7f152d8e212a6edad1d90e665706a20f8",
+    "public_source_path": "tome-orcs/data/birth/races/orc.lua",
+    "lines": [
+      {
+        "line": 116,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 117,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +2 Strength, +1 Dexterity, +1 Constitution\","
+      },
+      {
+        "line": 118,
+        "text": "\t\t_t\"#LIGHT_BLUE# * -1 Magic, +1 Willpower, +1 Cunning\","
+      },
+      {
+        "line": 119,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 12\","
+      },
+      {
+        "line": 120,
+        "text": "\t\t_t\"#GOLD#Experience penalty:#LIGHT_BLUE# 12%\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "1fe741082d341525cb798a2c1aec63300227de1804b5c1da83b4d76c3eb04eda",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 1715,
+        "text": "\tcost = 300,"
+      },
+      {
+        "line": 1716,
+        "text": "\tmaterial_level = 5,"
+      },
+      {
+        "line": 1717,
+        "text": "\tspecial_desc = function(self) return _t\"Moving builds up a stacking movement speed (caps at 25%) and damage bonus (caps at double). Hitting removes the bonus.\" end,"
+      },
+      {
+        "line": 1718,
+        "text": "\tcombat = {"
+      },
+      {
+        "line": 1719,
+        "text": "\t\tdam = 40,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "2060b3a70f6c662d82e1e53d3b85453b2ea9d42156f2331e5f450f51e944e13f",
+    "public_source_path": "tome-orcs/data/birth/races/whitehooves.lua",
+    "lines": [
+      {
+        "line": 119,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 120,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution\","
+      },
+      {
+        "line": 121,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +2 Magic, -3 Willpower, +1 Cunning\","
+      },
+      {
+        "line": 122,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 14\","
+      },
+      {
+        "line": 123,
+        "text": "\t\t_t\"#GOLD#Experience penalty:#LIGHT_BLUE# 15%\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "426abfe47149b8f39563020dc767dbfd1bd6b852f8cbfd1c775d09e8c0f706d3",
+    "public_source_path": "tome-orcs/data/birth/classes/tinker.lua",
+    "lines": [
+      {
+        "line": 131,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 132,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +1 Constitution\","
+      },
+      {
+        "line": 133,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +0 Willpower, +4 Cunning\","
+      },
+      {
+        "line": 134,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# -1\","
+      },
+      {
+        "line": 135,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "43aa6dd27a97a18e464be0b2e661eaab2cd7f9054d2ac3b4ade9ead6b9e1e097",
+    "public_source_path": "tome-orcs/data/birth/classes/tinker.lua",
+    "lines": [
+      {
+        "line": 283,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 284,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 285,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +0 Willpower, +5 Cunning\","
+      },
+      {
+        "line": 286,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# -1\","
+      },
+      {
+        "line": 287,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "5a0aebf5c0941b04ea34ce43473d3281a18be6500c593e6196e8487bb0a6ee1d",
+    "public_source_path": "tome-orcs/data/talents/steam/other.lua",
+    "lines": [
+      {
+        "line": 1635,
+        "text": "\tend,"
+      },
+      {
+        "line": 1636,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 1637,
+        "text": "\t\treturn ([[You fire a special magnetic shot with your steamgun(s) at a target for normal weapon damage."
+      },
+      {
+        "line": 1638,
+        "text": "\t\tThe shot will magnetise the target for %d turns. This lowers their defense and increases fatigue by %d."
+      },
+      {
+        "line": 1639,
+        "text": "\t\tThis talent does not use ammo as it is the ammo."
+      },
+      {
+        "line": 1640,
+        "text": "\t\tEffect strength scales with Steampower.]])"
+      },
+      {
+        "line": 1641,
+        "text": "\t\t:tformat(t.duration(self, t), t.getPower(self, t))"
+      },
+      {
+        "line": 1642,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "61af03f86badca17c824e0708a8871ef6df384cfe75a22c84227fdc53e5ce0cc",
+    "public_source_path": "tome-orcs/data/birth/classes/empyreal.lua",
+    "lines": [
+      {
+        "line": 27,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 28,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +3 Constitution\","
+      },
+      {
+        "line": 29,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +6 Magic, +0 Willpower, +0 Cunning\","
+      },
+      {
+        "line": 30,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# +0\","
+      },
+      {
+        "line": 31,
+        "text": "\t},"
+      }
+    ]
+  }
+]

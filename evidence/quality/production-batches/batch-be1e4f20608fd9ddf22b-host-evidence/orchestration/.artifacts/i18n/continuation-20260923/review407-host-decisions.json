@@ -1,0 +1,65 @@
+{
+ "workset": "evidence/quality/production-batches/batch-be1e4f20608fd9ddf22b-source-workset.json",
+ "decisions": {
+  "81cc9a975a|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/talents/psionic/dream-forge.lua:23 该技能 name 为“Forge Shield”，info（:92）中的 Dream Shield 指的就是本技能锻造的护盾；本库技能名 Forge Shield＝熔炉屏障（mod-tome.lua:27223 talent name），现译与技能名一致，contextual 判 OK。驳回。"
+  },
+  "939facbcc6|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/talents/misc/races.lua:1092–1095 Ogric Wrath 的 info 与实现：施放后提高震慑与定身（stun and pinning）抗性 20%；使用符文/纹身、近战落空或伤害被伤害护盾等减免时获得食人魔之怒层数，每层提供暴击几率与暴击伤害。种族说明英文（birth/races/giant.lua）的 confusion and stuns、miss or are blocked 与技能实现不符，现译贴合技能实现，contextual 判 OK。上游英文问题，驳回。"
+  },
+  "b8b386eaf8|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/timed_effects/magical.lua:365–390 STORMSHIELD 回调 `if dam < eff.threshold then return end`，即伤害大于或等于阈值时被抵消；现译“不低于 %d 点”贴合实现，contextual 判 OK。驳回。"
+  },
+  "bec98c2b7a|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/talents/cursed/fears.lua:85、283 恐惧判定为 canBe(\"fear\")，即 fear_immune 属性；本库界面把该属性统一译作“恐惧免疫”（mod-tome.lua:864 “Fear immunity: ”→“恐惧免疫：”），现译与界面属性名一致，contextual 判 OK。驳回。"
+  },
+  "ddcd66c623|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/timed_effects/magical.lua:4346–4355 DEEPROCK_FORM 的 long_desc 把本片段拼进“…size categories%s and +%d%% Physical…”；英文末尾逗号是为后接 and 而设，本库主串（mod-tome.lua:35607）译作“体型增大 2 级%s，并获得…”，分隔由主串提供，片段若保留逗号会出现“，，”。现译正确，contextual 判 OK。驳回。"
+  },
+  "dff04ba4e6|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "主游戏固定 commit 624a673 game/modules/tome/dialogs/LevelupDialog.lua:453 提升已知技能树掌握度为 setTalentTypeMastery(…+0.2)，同文件:652 的说明也写 improve a known talent category efficiency by 0.2；现译补出的“（每点 +0.2）”与实现一致，contextual 判 OK。驳回。"
+  },
+  "f383662dca|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/talents/techniques/strength-of-the-berserker.lua:221–227 on_pre_use 在当前体力高于最大体力 30% 时拒绝施放并提示本句，即要求当前体力更低；现译“需当前体力更低”贴合实现，contextual 判 OK。驳回。"
+  },
+  "f7b8828056|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/talents/chronomancy/chronomancy.lua:54–63 Foresight 写入 ignore_direct_crits，game/modules/tome/data/damage_types.lua:130–151 对 ignore_direct_crits 按比例扣减暴击超出 1 倍的部分、不掷骰，即按比例减免暴击额外伤害；英文 chance to shrug off critical hits 与实现不符，现译贴合实现，与第406批同族 3 条裁决一致，contextual 判 OK。上游英文问题，驳回。"
+  },
+  "fea791e065|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "主游戏固定 commit 624a673 game/modules/tome/data/talents/cursed/slaughter.lua:350–366 Cleave 的 on_attackTarget 从随机起点遍历 8 个相邻格，命中第一个其他敌人后立即 return，每次挥击只额外攻击一个相邻敌人；英文 other adjacent enemies 与实现不符，现译“另一个相邻敌人”贴合实现，contextual 判 OK。上游英文问题，驳回。"
+  },
+  "90770fcab2|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开源码（来源未固定，/workspace/tome4-dlcs/cults） tome-cults/data/timed_effects.lua:2322–2340 HORRIFIC_FORTRESS 为增益效果，activate 提供 flat_damage_armor（非物理伤害固定减免），on_lose 提示即本句；“less armoured”指这层额外防护结束，现译“额外防护消退了”贴合实现，contextual 判 OK。驳回。"
+  },
+  "efde3cb1d6|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开源码（来源未固定，/workspace/tome4-dlcs/cults） tome-cults/data/talents/misc/races.lua:58–76 计数条件为 self:canSee(act) 且 act 带 EFF_SPIKESKIN_BLACK_BLOOD（本技能施加的黑血效果）且距离不超过 2；现译“2 格范围内每个可见的流着黑血的生物”贴合实现，contextual 判 OK。驳回。"
+  },
+  "1fe741082d|surface": {
+   "disposition": "refuted",
+   "repair_required": false,
+   "conclusion": "公开源码（来源未固定，/workspace/tome4-dlcs/orcs） tome-orcs/data/general/objects/world-artifacts.lua:1717–1752 该神器以 callbackOnMove 叠加移速与伤害，callbackOnMeleeAttack（不读 hitted，命中与否均触发）清除加成；现译“进行近战攻击后加成消失”贴合实现，contextual 判 OK。驳回。"
+  }
+ }
+}
