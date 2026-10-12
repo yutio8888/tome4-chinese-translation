@@ -1,0 +1,226 @@
+[
+  {
+    "entry_revision_identity": "710125ec0049b02c9f7a2c818cb0f4b2ca97d90fa90ef3164ee9110f42eedafe",
+    "public_source_path": "tome-orcs/data/general/npcs/hethugoroth.lua",
+    "lines": [
+      {
+        "line": 22,
+        "text": "newEntity{"
+      },
+      {
+        "line": 23,
+        "text": "\tdefine_as = \"BASE_NPC_HETHUROTH\", -- hethu goroth = foggy terror"
+      },
+      {
+        "line": 24,
+        "text": "\ttype = \"elemental\", subtype = \"vapour\","
+      },
+      {
+        "line": 25,
+        "text": "\tblood_color = colors.ANTIQUE_WHITE,"
+      },
+      {
+        "line": 26,
+        "text": "\tdisplay = \"E\", color=colors.ANTIQUE_WHITE,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "8b3d2c11d6e31f0a060ef2885c6719c0fd8021b93d27dffc22ab98f037cb0a53",
+    "public_source_path": "tome-orcs/data/birth/classes/tinker.lua",
+    "lines": [
+      {
+        "line": 204,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 205,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution\","
+      },
+      {
+        "line": 206,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +3 Willpower, +3 Cunning\","
+      },
+      {
+        "line": 207,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# -1\","
+      },
+      {
+        "line": 208,
+        "text": "\t},"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "9e7e74b3a886fbe5bf7c80e4735c5e7181623a3f5be9b0fe1080d7fc183c658b",
+    "public_source_path": "tome-orcs/data/talents/steam/automated-butchery.lua",
+    "lines": [
+      {
+        "line": 174,
+        "text": "\t\tlocal talentcount = t.getTalentCount(self, t)"
+      },
+      {
+        "line": 175,
+        "text": "\t\tlocal maxlevel = t.getMaxLevel(self, t)"
+      },
+      {
+        "line": 176,
+        "text": "\t\treturn ([[You override all security measures of your tinkers, allowing you to reset the cooldown of %d of most of your steamtech talents of tier %d or less and instantly increases your steam level by %d%% of the maximum."
+      },
+      {
+        "line": 177,
+        "text": "\t\tIn addition for 6 turns your maximum steam capacity is doubled, but steam regeneration is halved."
+      },
+      {
+        "line": 178,
+        "text": "\t\t#{italic}#Master of Tech, Master of Death!#{normal}#]]):"
+      },
+      {
+        "line": 179,
+        "text": "\t\ttformat(talentcount, maxlevel, inc)"
+      },
+      {
+        "line": 180,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "a7b4504a713a99bfdc109550bcef28473c3c5c1863e876bf636c6f701c8f9223",
+    "public_source_path": "tome-orcs/data/birth/races/yeti.lua",
+    "lines": [
+      {
+        "line": 105,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 106,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +5 Strength, -3 Dexterity, +4 Constitution\","
+      },
+      {
+        "line": 107,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +1 Willpower, -1 Cunning\","
+      },
+      {
+        "line": 108,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 13\","
+      },
+      {
+        "line": 109,
+        "text": "\t\t_t\"#GOLD#Experience penalty:#LIGHT_BLUE# 12%\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "afc87d23661098aa61d42f7baa0e362b67707f48899aa8781e770d0970d265b1",
+    "public_source_path": "tome-orcs/data/general/objects/world-artifacts.lua",
+    "lines": [
+      {
+        "line": 685,
+        "text": "\t\tdam_mult = 1,"
+      },
+      {
+        "line": 686,
+        "text": "\t\tinc_damage_type = {undead=25},"
+      },
+      {
+        "line": 687,
+        "text": "\t\tspecial_on_crit = {desc=_t\"release a burst of light dealing damage equal to your cunning plus your magic in a ball of radius 2. If the target is undead, the damage and radius are doubled.\", on_kill=1, fct=function(combat, who, target)"
+      },
+      {
+        "line": 688,
+        "text": "\t\t\tlocal tg = {type=\"ball\", range=0, radius=2, friendlyfire=false, start_x=target.x, start_y=target.y}"
+      },
+      {
+        "line": 689,
+        "text": "\t\t\tlocal damage = who:getCun() + who:getMag()"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "bab2026017993fd93fc63ff72e29f309b4279e41accc356549b3654f3de3bd19",
+    "public_source_path": "tome-orcs/data/talents/steam/bullets-mastery.lua",
+    "lines": [
+      {
+        "line": 41,
+        "text": "\tend,"
+      },
+      {
+        "line": 42,
+        "text": "\tinfo = function(self, t)"
+      },
+      {
+        "line": 43,
+        "text": "\t\treturn ([[By sending a stream of hot steam over your bullets you overheat them. For the next %d turns, each bullet will set the target ablaze, making it burn for %0.2f fire damage over 5 turns (most of your shooting talents fire two bullets at once)."
+      },
+      {
+        "line": 44,
+        "text": "\t\tDamage will increase with Steampower."
+      },
+      {
+        "line": 45,
+        "text": "\t\tOnly one bullet enhancement can be used at once.]]):"
+      },
+      {
+        "line": 46,
+        "text": "\t\ttformat(t.getTurns(self, t), damDesc(self, DamageType.FIRE, t.getDam(self, t)))"
+      },
+      {
+        "line": 47,
+        "text": "\tend,"
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "ccc751dd5be9aec59aca92cc546fe9e8c38a9fb0a72386b1b547308503f40e04",
+    "public_source_path": "tome-orcs/data/birth/classes/empyreal.lua",
+    "lines": [
+      {
+        "line": 24,
+        "text": "\tname = \"Empyreal\","
+      },
+      {
+        "line": 25,
+        "text": "\tdesc = {"
+      },
+      {
+        "line": 26,
+        "text": "\t\t_t\"Their most important stats are: Magic and Constitution\","
+      },
+      {
+        "line": 27,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 28,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +3 Constitution\","
+      }
+    ]
+  },
+  {
+    "entry_revision_identity": "e32431d91a8bff5eae5ff1299d2cb7849948f26900d0c1c3a8860970a76b58e9",
+    "public_source_path": "tome-orcs/data/birth/classes/tinker.lua",
+    "lines": [
+      {
+        "line": 71,
+        "text": "\t\t_t\"#GOLD#Stat modifiers:\","
+      },
+      {
+        "line": 72,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +1 Constitution\","
+      },
+      {
+        "line": 73,
+        "text": "\t\t_t\"#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning\","
+      },
+      {
+        "line": 74,
+        "text": "\t\t_t\"#GOLD#Life per level:#LIGHT_BLUE# 2\","
+      },
+      {
+        "line": 75,
+        "text": "\t},"
+      }
+    ]
+  }
+]
