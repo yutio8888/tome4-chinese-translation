@@ -1,3 +1,11 @@
+## 2026-10-13 全量发行审核当前进度
+
+M0、M1 已 DONE_VERIFIED 并提交。M2 首个奥术机制切片当前 revision 有效 A=12、B=8；
+1 个 B 独有 confirmed 问题已修复、独立初审／最终复审闭合，并通过 fresh A/B 各自完整门禁后计覆盖。
+当前 ledger 为 round-v2，旧 round-v1 冻结；未改覆盖 11A/7B 已验证继承。下一切片 p01s2。
+最终分母和最终候选游戏场景未闭合，连续授权仍有效，未外部写入。
+详见 [执行状态](evidence/full-review/release-20261013/STATUS.md)。以下旧记录按其当时节点理解。
+
 # 当前恢复入口（2026-10-13 全量发行复核 M0 探针完成、待复审闭合）
 
 用户授权按 [全量发行复核计划](docs/full-translation-review-plan-20261013.md) 开始执行。当前 task `full-review-20261013-m1-entry` FIX cycle1：M0已DONE_VERIFIED并提交；M1代码与隔离验证已实现，A/B生产审核均为0，最终分母未冻结，M2仅准备237条未审。恢复先读 [M0 报告](evidence/full-review/release-20261013/m0/REPORT.md)、[基线](evidence/full-review/release-20261013/m0/BASELINE.json)、[M1-SPEC](evidence/full-review/release-20261013/m0/M1-SPEC.md)，由 ORCHESTRATOR 完成独立复审、裁决、状态闭合与提交；本段不宣称任务 DONE 或 child 已归档。

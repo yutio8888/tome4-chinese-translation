@@ -1,6 +1,6 @@
 # 面向汉化版本发布的全量复核计划
 
-日期：2026-10-13。状态：**M0 已 DONE_VERIFIED 并提交；M1 代码与隔离验证已实施，待独立复审和任务闭合；A/B 生产条目审核均为 0**。M0 清点、来源/失败诊断与通路证据见 [M0 报告](../evidence/full-review/release-20261013/m0/REPORT.md)，后续实现见 [M1-SPEC](../evidence/full-review/release-20261013/m0/M1-SPEC.md)；游戏验收缺口仍保留，M1 入口见 [使用说明](../i18n/README.md#全量轮次入口m1离线) 与 [本轮报告](../evidence/full-review/release-20261013/m1/REPORT.md)。方案经 Opus 5.5 提出意见、主代理核验修订。审阅与采纳记录见[反馈](../evidence/plan-review/full-review-plan-opus-20261013/feedback.md)，不将修订稿称为已获 Opus 无异议通过。
+日期：2026-10-13。状态：**M0、M1 已 DONE_VERIFIED 并提交；M2 正在连续执行，当前 revision 有效 A=12、B=8，已修复 1 个 B 独有 confirmed 问题；全轮未完成**。当前证据与后续节点见 [执行状态](../evidence/full-review/release-20261013/STATUS.md)。原计划审阅与采纳记录见[反馈](../evidence/plan-review/full-review-plan-opus-20261013/feedback.md)。
 
 用户已明确：**以发布汉化版本为主，Engine 文本也必须输出**。主交付是包含 Engine 译文、可安装且可验证的汉化包，附简明质量说明及证据索引。推荐采用 **A 遍全量语境审读＋B 遍高风险独立复核＋修复后验收＋实际候选包验证**。包外仓库组件与长篇研究报告列为后续。Engine 已是本轮明确范围，不再作为待授权的范围扩展；当前已开始 M0，后续执行与外部发布按当前授权及 [AGENTS.md](../AGENTS.md) 进行。
 
@@ -127,13 +127,16 @@ M0 探针证明能自动驱动和观察的场景由 AI 完成。仍不能自动�
 | M4：发行候选 | 关系检查、自动验证、最小游戏冒烟、最终包和说明；解决剩余实质决定 |
 | M5：发布 | 授权范围内外部发布、回下载验包；包外仓库复核和长报告另行推进 |
 
-执行授权后的首个工作包是 M0 清点与探针、M1 最小工具 SPEC，现已启动并产出 [M0 证据](../evidence/full-review/release-20261013/m0/REPORT.md)。A/B=0；三个 DLC 经 inner-root 配置更正，原 extract 全部精确通过原 manifest 基线（999/2444/4493），旧“无法归因／需旧快照／停止 DLC”诊断撤回，来源 commit 仍 unpinned。M0 已 DONE_VERIFIED 并提交 `74b81c8b4`；M0 源码树 binary 的 ABI/退出127是历史观察；后续隔离官方1.7.6已启动，prototype Engine早期locale/CJK/“图像设置”标题与原teae精确回退已核验。该能力PASS不计最终candidate或三DLC玩法验收，M4仍须实际加载。
+M0 提交 `74b81c8b4`，M1 提交 `299c1acd5`，首个机制切片与修正提交 `d5dd1fd85`。
+M2 当前后继清单为 `evidence/full-review/release-20261013/round-v2/`；当前有效 A=12、B=8，
+最终分母未冻结。旧 round-v1 为不可变前版。历史 done 不抵本轮 A/B。
 
-本轮 M1 恢复从 `python3 -B tools/full_review.py check --directory evidence/full-review/<round>` 开始。正式轮次 ledger、宿主 source/context/SCOPE、A/B 任务和裁决由 ORCHESTRATOR 生成；当前只运行忽略目录中的实现夹具。M0 提交 `74b81c8b4`；历史 done 不抵本轮 A/B。源码／运行映射闭合前分母未冻结，最终 Engine/game/GUI 证据另行验收。
+三个 DLC 的 inner-root 配置更正后均精确通过原 manifest 提取基线（999/2444/4493），
+旧“无法归因／需旧快照／停止 DLC”诊断已撤回，来源 commit 仍 unpinned。
+隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
+不计最终候选或三 DLC 玩法验收；M4 仍须实际加载最终候选。
 
-M1 FIX cycle1 已补 task-specific full gate/build receipt 及 tracked terminal/source anchors；
-A ISSUE 必做 B、中性 context 与 B policy 分离、successor 合并完成、position guard、安装中断恢复、
-继承文本/query与最终发行证据绑定见 [入口说明](../i18n/README.md#全量轮次入口m1离线)。
-新隔离候选 m1-fix-r1 使用 clean baseline `6f5a071f81ce4e0d1312f89f32cd04a2c76efe08`；
-原m1-delivery保留exact旧bytes。当前等待同candidate两路独立复审和任务闭合，生产A/B=0、
-最终分母未冻结；M2仅准备237条，不能计已审。安装结构检查明确 home-unverified，最终GUI/场景不豁免。
+从当前版本恢复：`python3 -B tools/full_review.py check --directory /workspace/tome4-chinese-translation/evidence/full-review/release-20261013/round-v2`。
+完整 task-gates 使用已验证的 `PATH=/usr/local/bin:$PATH` 与 `TOME_PASEO_WORKSPACE` 环境，
+当前按绝对 directory 调用；相对路径回执返回问题已有有界归因，待小型入口修正。
+执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
