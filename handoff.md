@@ -1,8 +1,8 @@
 ## 2026-10-13 全量发行审核当前进度
 
-M0、M1 已 DONE_VERIFIED 并提交。M2 首个奥术机制切片当前 revision 有效 A=12、B=8；
+M0、M1 已 DONE_VERIFIED 并提交。M2 当前 revision 有效 A=19、B=9；p02s1 审读闭合，六个 confirmed revision 合并待修；
 1 个 B 独有 confirmed 问题已修复、独立初审／最终复审闭合，并通过 fresh A/B 各自完整门禁后计覆盖。
-当前 ledger 为 round-v2，旧 round-v1 冻结；未改覆盖 11A/7B 已验证继承。下一切片 p01s2。
+当前 ledger 为 round-v2，旧 round-v1 冻结；未改覆盖 11A/7B 已验证继承。当前开六条修复窗口-02，之后迁移并重审改过的 revision。
 最终分母和最终候选游戏场景未闭合，连续授权仍有效，未外部写入。
 详见 [执行状态](evidence/full-review/release-20261013/STATUS.md)。以下旧记录按其当时节点理解。
 

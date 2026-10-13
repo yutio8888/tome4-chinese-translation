@@ -1,8 +1,8 @@
 # 面向汉化版本发布的全量复核计划
 
-日期：2026-10-13。状态：**M0、M1 已 DONE_VERIFIED 并提交；M2 正在连续执行，当前 revision 有效 A=12、B=8，已修复 1 个 B 独有 confirmed 问题；全轮未完成**。当前证据与后续节点见 [执行状态](../evidence/full-review/release-20261013/STATUS.md)。原计划审阅与采纳记录见[反馈](../evidence/plan-review/full-review-plan-opus-20261013/feedback.md)。
+日期：2026-10-13。状态：**M0、M1 已 DONE_VERIFIED 并提交；M2 正在连续执行，当前 revision 有效 A=19、B=9，已修复 1 个 B 独有问题，另有六条 confirmed revision 待修；全轮未完成**。当前证据与后续节点见 [执行状态](../evidence/full-review/release-20261013/STATUS.md)。原计划审阅与采纳记录见[反馈](../evidence/plan-review/full-review-plan-opus-20261013/feedback.md)。
 
-用户已明确：**以发布汉化版本为主，Engine 文本也必须输出**。主交付是包含 Engine 译文、可安装且可验证的汉化包，附简明质量说明及证据索引。推荐采用 **A 遍全量语境审读＋B 遍高风险独立复核＋修复后验收＋实际候选包验证**。包外仓库组件与长篇研究报告列为后续。Engine 已是本轮明确范围，不再作为待授权的范围扩展；当前已开始 M0，后续执行与外部发布按当前授权及 [AGENTS.md](../AGENTS.md) 进行。
+用户已明确：**以发布汉化版本为主，Engine 文本也必须输出**。主交付是包含 Engine 译文、可安装且可验证的汉化包，附简明质量说明及证据索引。推荐采用 **A 遍全量语境审读＋B 遍高风险独立复核＋修复后验收＋实际候选包验证**。包外仓库组件与长篇研究报告列为后续。Engine 已是本轮明确范围，不再作为待授权的范围扩展；当前 M2 连续执行，后续执行与外部发布按当前授权及 [AGENTS.md](../AGENTS.md) 进行。
 
 ## 1. 范围：全量审什么
 
@@ -62,7 +62,7 @@ M0 的包是通路探针；M4 用最终译文重新生成验收候选，两者�
 | 完成检查 | 原始、补充、排除、修复后继和最终运行键守恒；拒绝缺项、重复计数、借用旧版本及未归档 child |
 | 有界恢复 | 验证中断恢复、重复导入、输入漂移、错误 hash、部分结果拒收；涉及旧消费者的改动才加相应兼容验证 |
 
-优先用受跟踪 JSON／表格和小型适配、检查脚本，复用加载器、identity、envelope、结果验证与生命周期。人工判断和不可重生成锚点保存在 `evidence/full-review/<round_id>/`，缓存放 `.artifacts/`。离线入口和不可变 evidence 格式已在 M1 实现并经定向测试；正式 ledger 与分母由 ORCHESTRATOR 冻结，当前尚未产生生产条目覆盖。
+优先用受跟踪 JSON／表格和小型适配、检查脚本，复用加载器、identity、envelope、结果验证与生命周期。人工判断和不可重生成锚点保存在 `evidence/full-review/<round_id>/`，缓存放 `.artifacts/`。离线入口和不可变 evidence 格式已在 M1 实现并经定向测试；正式 ledger 与分母由 ORCHESTRATOR 冻结，M1 初始交付时未产生生产条目覆盖，当前执行状态见本文件顶部。
 
 共享流程、身份、证据或发布链路的行为变化，仍按[验证矩阵](agent-workflow.md#验证矩阵)执行完整门禁与相关验证，普通及高级 reviewer 独立交叉复审；角色／契约变更另加契约检查和语义核对。不为节省 B 遍成本改写现有正式批次的门禁语义。
 
@@ -128,7 +128,7 @@ M0 探针证明能自动驱动和观察的场景由 AI 完成。仍不能自动�
 | M5：发布 | 授权范围内外部发布、回下载验包；包外仓库复核和长报告另行推进 |
 
 M0 提交 `74b81c8b4`，M1 提交 `299c1acd5`，首个机制切片与修正提交 `d5dd1fd85`。
-M2 当前后继清单为 `evidence/full-review/release-20261013/round-v2/`；当前有效 A=12、B=8，
+M2 当前后继清单为 `evidence/full-review/release-20261013/round-v2/`；当前有效 A=19、B=9，
 最终分母未冻结。旧 round-v1 为不可变前版。历史 done 不抵本轮 A/B。
 
 三个 DLC 的 inner-root 配置更正后均精确通过原 manifest 提取基线（999/2444/4493），
@@ -136,7 +136,7 @@ M2 当前后继清单为 `evidence/full-review/release-20261013/round-v2/`；当
 隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
 不计最终候选或三 DLC 玩法验收；M4 仍须实际加载最终候选。
 
-从当前版本恢复：`python3 -B tools/full_review.py check --directory /workspace/tome4-chinese-translation/evidence/full-review/release-20261013/round-v2`。
+从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v2`。
 完整 task-gates 使用已验证的 `PATH=/usr/local/bin:$PATH` 与 `TOME_PASEO_WORKSPACE` 环境，
 当前按绝对 directory 调用；相对路径回执返回问题已有有界归因，待小型入口修正。
 执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
