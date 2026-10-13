@@ -26467,7 +26467,7 @@ t("Each time one of your foes bites the dust, you feel a surge of power, increas
 t("Martyrdom", "殉难", "talent name")
 t("Designate a target as a martyr for 10 turns. When the martyr deals damage, it also damages itself for %d%% of the damage dealt.", "将目标标记为殉难者，持续10回合。当殉难者造成伤害时，自身也会受到相当于该伤害 %d%% 的伤害。", "tformat")
 t("Overpower", "压制", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你的盾牌或武器装备不符合这个技能的施展要求。", "logPlayer")
 t("You cannot use Overpower without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
 t([[Hits the target with your weapon doing %d%% damage and two shield strikes doing %d%% damage each, trying to overpower your target.
 		If the last attack hits, the target is knocked back 4 grids. The chance for knockback increases with your Accuracy.]], [[用武器攻击目标，造成 %d%% 武器伤害，再用盾牌攻击两次，每次造成 %d%% 伤害，试图压制目标。
@@ -28346,10 +28346,10 @@ t([[Surround yourself with arcane forces, disrupting any attempts to harm you by
 		The maximum energy storage is based on your total mana (ignoring sustained spells), with a limit at %d effective mana.
 
 		Current shield power: %d
-		Current stored energy: %d]], [[你的身边充满奥术力量，制造出一层能吸收 %d 伤害的护盾。
-		在战斗中你无法集中精力持续维持这层护盾，一旦护盾值消耗归零，则会使用你的法力值来吸收伤害，比例为 %0.2f 法力值吸收一点伤害。
+		Current stored energy: %d]], [[你的身边充满奥术力量，制造出一层由纯粹以太构成、能吸收 %d 伤害的护盾，阻挡对你的伤害。
+		在战斗中你无法集中精力持续维持这层护盾，因此让它自行运作。一旦护盾值消耗归零，则会使用你的法力值来吸收伤害，比例为 %0.2f 法力值吸收一点伤害。
 		每当法力值被该效果消耗时，护盾会储存一定能量（最多 %d）。 当护盾关闭时，这些储存的能量将转化为在你身边 %d 格的奥术风暴，在5回合内每回合造成 20%% 总储存能量的伤害。
-		战斗外该护盾每回合回复 10%%，同时储存的能量迅速消散。
+		战斗外该护盾每回合回复最大护盾值的 10%%，同时储存的能量迅速消散。
 		当你法力值下降到 50%% 以下，或者达到最大能量存储量，护盾会自动关闭。
 		护盾值受法术强度加成。
 		最大储存能量受原始法力值上限加成（无视已经启用的维持技能），在 %d 法力值的时候达到上限。
@@ -31125,7 +31125,7 @@ t([[Your battle cry shatters the will of your foes within a radius of %d, loweri
 section "mod-tome/data/talents/techniques/weaponshield.lua"
 
 t("Shield Pummel", "盾牌连击", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你的盾牌或武器装备不符合这个技能的施展要求。", "logPlayer")
 t("You cannot use Shield Pummel without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
 t("%s resists the shield bash!", "%s抵抗了盾牌猛击！", "logSeen")
 t([[Hits the target with two shield strikes, doing %d%% and %d%% shield damage. If it hits a second time, it stuns the target for %d turns.

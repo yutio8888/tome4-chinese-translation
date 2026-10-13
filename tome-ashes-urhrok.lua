@@ -829,7 +829,7 @@ t([[Whenever you are on an unlit grid you can meld with the shadows, gaining %d 
 		移动会取消该效果。
 		潜行强度受法术强度加成。]], "tformat")
 t("Blood Shield", "鲜血护盾", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你的盾牌或武器装备不符合这个技能的施展要求。", "logPlayer")
 t([[By channeling doom forces in your shield you constantly apply 15%% of its block value as a flat damage reduction against all damage.
 		Whenever you are hit in melee your shield retaliates automatically for %d%% of its block value as fire and darkness damage.]], [[在盾牌中引导毁灭之力，使你受到的全体伤害固定减少，减少量相当于盾牌格挡值的 15%%。
 		每次你被近战攻击命中时，你的盾牌会自动反击，造成相当于格挡值 %d%% 的火焰暗影混合伤害。]], "tformat")
@@ -978,7 +978,7 @@ t("#CRIMSON#You extract a %s and add it to your inventory.", "#CRIMSON#你提取
 t("#CRIMSON#You extract a %s and bind it to your %s.", "#CRIMSON#你提取了一个%s并将其附着于你的%s。", "logPlayer")
 t("#CRIMSON#You feed vim into your %s, increasing its level to %d and healing it.", "#CRIMSON#你将活力注入你的 %s，将其等级提升到 %d，并治疗了它。", "logPlayer")
 t("Demon Seed", "恶魔之种", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你的盾牌或武器装备不符合这个技能的施展要求。", "logPlayer")
 t([[Strike a blow with your weapon for %d%% blight damage.
 		If the attack hits a demonic seed tries to take hold inside your foe and you follow up with a shield strike dealing %d%% damage and dazing your target for %d turns.
 		
@@ -1116,7 +1116,7 @@ t([[When Dread End creates pools of darkness you can focus your raging thoughts 
 section "tome-ashes-urhrok/data/talents/corruptions/doom-shield.lua"
 
 t("Osmosis Shield", "渗透护盾", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你的盾牌或武器装备不符合这个技能的施展要求。", "logPlayer")
 t("#SLATE#(%d turned into osmosis)#LAST#", "#SLATE#(%d 转化为渗透)#LAST#", "tformat")
 t([[You infuse your shield with the energies of Urh'Rok, bringing about a magical shield that heals you for the first points of all damage you receive (based on your shield's block value) over 3 turns. This effect stacks.
 		Amount is 5 + %d%% of your shield block value (currently %d).
@@ -1197,15 +1197,15 @@ section "tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua"
 t("Flame Leash", "火焰束缚", "talent name")
 t([[Tendrils of flame fire from your hands in a narrow cone. Any foes caught inside will be pulled in towards you and have its movement speed reduced by %d%% for 4 turns.
 		Each tendril will leave a trail of fire in its path dealing %0.2f fire damage for 4 turns.
-		The damage increases with spellpower.]], [[火焰触须从你的手中伸出，在锥形范围内伸展。
-		被火焰触须抓住的生物将被拉过来，同时移动速度减少 %d%%， 持续 4 回合。
+		The damage increases with spellpower.]], [[火焰触须从你的手中伸出，在狭窄的锥形范围内伸展。
+		被火焰触须抓住的敌人将被拉过来，同时移动速度减少 %d%%， 持续 4 回合。
 		每个触须会留下火焰痕迹，每回合造成 %0.2f 火焰伤害，持续 4 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Demon Blade", "恶魔之刃", "talent name")
 t([[Imbue your weapon with fire for 5 turns. During this time all your melee hits will trigger a ball of fire of radius 1 dealing %0.2f fire damage.
 		This effect can only happen once per turn.
 		The damage increases with spellpower.]], [[向你的武器灌输火焰之力，持续 5 回合。
-		每次近战攻击时会释放一个火球，在半径 1 的范围内造成 %0.2f 火焰伤害。
+		每次近战攻击命中时会释放一个火球，在半径 1 的范围内造成 %0.2f 火焰伤害。
 		这个效果每回合只能触发一次。
 		伤害受法术强度加成。]], "tformat")
 t("Link of Pain", "苦痛链接", "talent name")
@@ -1213,18 +1213,18 @@ t("Select the source:", "选择源生物：", "logPlayer")
 t("Select the victim:", "选择受害者：", "logPlayer")
 t([[Using demonic forces you create a link of pain from a source creature to a victim for %d turns.
 		Each time the source creature takes damage the victim takes %d%% of the damage.
-		If the victim dies from the effect you gain a burst of energy, reducing all remaining cooldowns by 1.]], [[使用恶魔之力，你在源生物与受害者间构造痛苦链接，持续 %d 回合。
+		If the victim dies from the effect you gain a burst of energy, reducing all remaining cooldowns by 1.]], [[使用恶魔之力，你在源生物与受害者间构造苦痛链接，持续 %d 回合。
 		每次源生物受到伤害时，受害者也会受到该伤害的 %d%%。
 		当受害者因此效果死亡时，你将获得能量，减少所有技能冷却时间 1 回合。]], "tformat")
 t("Demon Horns", "恶魔之角", "talent name")
-t("You require a weapon and a shield to use this talent.", "你需要一把武器和一面盾牌来施展这个技能。", "logPlayer")
+t("You require a weapon and a shield to use this talent.", "你的盾牌或武器装备不符合这个技能的施展要求。", "logPlayer")
 t("%s resists the shield bash!", "%s抵抗了盾牌猛击！", "logSeen")
 t([[Demon horns temporarily grow on your shield as you bash a foe with it for %d%% damage.
 		If the attack hits the creature is impaled by the horns, causing it to bleed black blood for 50%% of the damage done as darkness over 5 turns.
 		Any time you damage this foe in melee while it bleeds you get healed for %d (this can only happen once per turn).
 		The healing power increases with your spellpower.]], [[你的盾牌上暂时长出恶魔之角，你用它猛击敌人，造成 %d%% 伤害。
 		如果攻击命中，目标将被恶魔之角刺穿，在 5 回合内以暗影伤害的形式流失黑血，总量相当于所造成伤害的 50%%。
-		目标流血期间，每当你以近战对其造成伤害，你就会回复 %d 生命（每回合至多 1 次）。
+		目标流血期间，每当你以近战对其造成伤害，你就会回复 %d 生命。
 		治疗效果受法术强度加成。]], "tformat")
 
 ------------------------------------------------
