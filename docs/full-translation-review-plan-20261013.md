@@ -1,6 +1,6 @@
 # 面向汉化版本发布的全量复核计划
 
-日期：2026-10-13。状态：**M0、M1 已 DONE_VERIFIED 并提交；M2 正在连续执行，当前 revision 有效 A=19、B=9，首条法力标签及窗口-02 十一条修正已 DONE_VERIFIED 并提交；round-v3 保留 19A/9B，新 revision 待 fresh A/B；全轮未完成**。当前证据与后续节点见 [执行状态](../evidence/full-review/release-20261013/STATUS.md)。原计划审阅与采纳记录见[反馈](../evidence/plan-review/full-review-plan-opus-20261013/feedback.md)。
+日期：2026-10-13。状态：**M0、M1 已 DONE_VERIFIED 并提交；M2 正在连续执行，当前 revision 有效 A=30、B=20，首条法力标签及窗口-02 十一条修正已 DONE_VERIFIED 并提交；round-v3 保留旧覆盖，十一条 fresh 当前 revision A/B 已闭合；继续 Cults 试运行；全轮未完成**。当前证据与后续节点见 [执行状态](../evidence/full-review/release-20261013/STATUS.md)。原计划审阅与采纳记录见[反馈](../evidence/plan-review/full-review-plan-opus-20261013/feedback.md)。
 
 用户已明确：**以发布汉化版本为主，Engine 文本也必须输出**。主交付是包含 Engine 译文、可安装且可验证的汉化包，附简明质量说明及证据索引。推荐采用 **A 遍全量语境审读＋B 遍高风险独立复核＋修复后验收＋实际候选包验证**。包外仓库组件与长篇研究报告列为后续。Engine 已是本轮明确范围，不再作为待授权的范围扩展；当前 M2 连续执行，后续执行与外部发布按当前授权及 [AGENTS.md](../AGENTS.md) 进行。
 

@@ -1,11 +1,11 @@
 ## 2026-10-13 全量发行审核当前进度
 
-M0、M1 已 DONE_VERIFIED 并提交。M2 当前 revision 有效 A=19、B=9。
+M0、M1 已 DONE_VERIFIED 并提交。M2 当前 revision 有效 A=30、B=20。
 窗口-02 十一条 target 修正已通过独立初审／最终全量复审、完整 17 项门禁含 build 和 DONE_VERIFIED，
 本地提交 `241a069c7`；新增五条仅为同 source/tag 装备提示的运行键同步，既有 dirty 保留。
 当前 ledger 为 round-v3，round-v1/v2 均被冻结；30,297 未改单元、57,879 补充项及 19A/9B 覆盖守恒。
-下一步：window02r 十一条 fresh 当前 revision A/B，各 task 自身完整门禁、归档/DONE、合并裁决后计覆盖；
-再按既定顺序 p03s1 Cults 继续。实现复审不给生产覆盖。恢复检查：
+window02r 十一条 fresh 当前 revision A/B 已闭合：核心3／Ashes8来源分组，四task各自完整17项门禁、
+确认归档和 DONE_VERIFIED，新增11A/11B；下一步按既定顺序 p03s1 Cults 继续。实现复审不给生产覆盖。恢复检查：
 `python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v3`。
 最终分母和最终候选游戏场景未闭合，连续授权仍有效，未外部写入。
 详见 [执行状态](evidence/full-review/release-20261013/STATUS.md)。以下旧记录按其当时节点理解。
