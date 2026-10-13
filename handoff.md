@@ -1,4 +1,14 @@
-# 当前恢复入口（2026-10-12 修复窗口68 完成，168 个 successor 已在第406–408批审完）
+# 当前恢复入口（2026-10-13 全量发行复核 M0 探针完成、待复审闭合）
+
+用户授权按 [全量发行复核计划](docs/full-translation-review-plan-20261013.md) 开始执行。当前 task `full-review-20261013-m0-bootstrap`：M0 清点/来源/通路探针已完成，A/B 生产审核均为 0，M1 仅规格、未实现。恢复先读 [M0 报告](evidence/full-review/release-20261013/m0/REPORT.md)、[基线](evidence/full-review/release-20261013/m0/BASELINE.json)、[M1-SPEC](evidence/full-review/release-20261013/m0/M1-SPEC.md)，由 ORCHESTRATOR 完成独立复审、裁决、状态闭合与提交；本段不宣称任务 DONE 或 child 已归档。
+
+既有 12 条修正（11＋P01 用户裁决）已纳入基线，不计新轮已审。11 文件 loader 清点 30,308 次，审核单元/发行运行键分母未冻结。三个 DLC 的错误输入为外层 wrapper，包含 boot 子包并将 section 前缀翻倍；Ashes 的两项额外记录已定位到 boot init。改用真实 inner addon roots 后，原 extract 三次全部成功，999/2444/4493 及 manifest 原 hash 均一致。旧“未归因／需用户旧快照／停止 DLC”诊断撤回；exact root-layout、归因、doctor、corrected extract 及 smoke 探针原 bytes/hash 已嵌入 BASELINE，并提供便携 TOME_DLC_ROOT 配置和隔离 HEAD＋patch 重放配方。DLC commit 仍 unpinned，wrapper 与 corrected addon 逐文件取证清单明确分开。
+
+Engine full 与隔离 publish/存储式 zip 通路通过；实际 Engine 安装挂载/UI 未测，游戏二进制启动退出 127（动态库/ABI 缺口），GUI 自动化环境未具备。最终候选完成后按 [最小场景](evidence/full-review/release-20261013/m0/SCENARIOS.json) 交付未测项，不提前豁免。这些游戏验收缺口按计划不阻断本地 M1 进入；M1 尚未实施，待 ORCHESTRATOR 复审闭合后继续；不启动生产审核或伪造 surface ISSUE，不借旧 done 抵本轮。未授权外部发行仓库写入/push/PR/发布。历史入口完整保留如下。
+
+---
+
+# 历史恢复入口（2026-10-12 修复窗口68 完成，168 个 successor 已在第406–408批审完）
 
 用户 2026-10-12 先要求分析近期改动并评估能否对外发布，随后选择“先开 Magic 属性名修复窗口”。窗口68 已完成并推送：106 条 source 中 Magic 指属性、译文写作“魔法”的条目统一为界面属性名“魔力”（主游戏 78、Ashes 7、Cults 11、Orcs 10；译文 `19fd9ec0`，catalog `6ae69b9a…`，migration `6b99f6e0…`，详见 `evidence/quality/repair-window-68-20261012/PUBLICATION.md`）。复审中另修同批条目的 5 处旧错（Cults 彼世法术、Arcane Destruction 基础物理强度与当前加成、Orcs 光系伤害、3 条换行结构），cycle 4 收敛。窗口68 的全部 child 在证据提交前已由宿主确认归档，当前没有进行中的批次、窗口或 child。待办与待决：
 
