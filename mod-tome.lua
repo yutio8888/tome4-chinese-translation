@@ -28334,7 +28334,7 @@ t([[Creates a vortex of arcane energies on the target for 6 turns. Each turn the
 t("Disruption Shield", "干扰护盾", "talent name")
 t("#VIOLET#%s's disruption shield collapses and then explodes in a powerful manastorm!", "#VIOLET#%s的干扰护盾破碎并爆炸产生了一股强力的法力风暴！", "logSeen")
 t("#SLATE#(%d absorbed)#LAST#", "#SLATE#(%d 护盾吸收)#LAST#", "tformat")
-t("#PURPLE#(%d mana)#LAST#", "#PURPLE#(%d 法力值)#LAST#", "tformat")
+t("#PURPLE#(%d mana)#LAST#", "#PURPLE#(%d 法力吸收伤害)#LAST#", "tformat")
 t("%s restores Disruption Shield (+%d) and gains %d mana with Aegis!", "%s使用守护印记复原了干扰护盾(+%d)并获得%d法力值！", "logSeen")
 t("%s restores Disruption Shield (+%d) with Aegis!", "%s使用守护印记复原了干扰护盾(+%d)！", "logSeen")
 t([[Surround yourself with arcane forces, disrupting any attempts to harm you by creating a shield of pure aether which can absorb %d damage.
