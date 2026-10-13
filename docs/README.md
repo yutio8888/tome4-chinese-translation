@@ -30,7 +30,7 @@ pi CLI 时代的路由层资产收在 [`archive/`](../archive/README.md)。
 | 文档 | 说明 |
 |---|---|
 | [`translation-production-review-v2-lite-plan.md`](translation-production-review-v2-lite-plan.md) | WP2-Lite 管线设计：catalog、队列、批次、证据与修复边界 |
-| [`full-translation-review-plan-20261013.md`](full-translation-review-plan-20261013.md) | 经 Opus 5.5 意见及用户补充修订的发布方案：Engine 必审并输出、全量 A＋高风险 B、源码覆盖、隔离候选包与最小冒烟；M0 清点与探针完成、待复审闭合，A/B=0；DLC 原基线均通过、来源 unpinned，游戏能力缺口见 [M0 报告](../evidence/full-review/release-20261013/m0/REPORT.md)，后续 [M1-SPEC](../evidence/full-review/release-20261013/m0/M1-SPEC.md) 尚未实施。[审阅反馈与裁决](../evidence/plan-review/full-review-plan-opus-20261013/feedback.md) |
+| [`full-translation-review-plan-20261013.md`](full-translation-review-plan-20261013.md) | 经 Opus 5.5 意见及用户补充修订的发布方案：Engine 必审并输出、全量 A＋高风险 B、源码覆盖、隔离候选包与最小冒烟；M0 已 DONE_VERIFIED 并提交，A/B=0；DLC 原基线均通过、来源 unpinned，游戏能力缺口见 [M0 报告](../evidence/full-review/release-20261013/m0/REPORT.md)，[M1 实现与 FIX 报告](../evidence/full-review/release-20261013/m1/REPORT.md) 已交付代码与隔离验证、待两路复审闭合；官方1.7.6 prototype GUI能力已核验，最终候选/三DLC场景仍未测。[审阅反馈与裁决](../evidence/plan-review/full-review-plan-opus-20261013/feedback.md) |
 | [`runtime-key-collisions.md`](runtime-key-collisions.md) | 运行时键冲突的成因与门禁 `06-runtime-collision-scan` 的依据 |
 | [`project-roadmap.md`](project-roadmap.md) | **历史阶段路线图**；当前入口见审核操作指南 |
 
@@ -62,3 +62,5 @@ pi CLI 时代的路由层资产收在 [`archive/`](../archive/README.md)。
 同类情形还有 `i18n/prompts/pi-*.md` 与 `i18n/quality/rubric-v{1,2,3}.md`：
 它们服务于 pi 时代的质量工具（`pi_quality.py`、`quality_v2.py`、`quality_v3.py`），
 现行两轮审核不使用，但删除或移动会破坏这些工具与其回归测试。
+
+- [M1 全量入口与 Engine 隔离实现报告](../evidence/full-review/release-20261013/m1/REPORT.md)：离线冻结、恢复校验、组装／安装／回退；A/B 仍为 0。

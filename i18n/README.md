@@ -354,3 +354,259 @@ DLC 的 `i18n_list.lua`、`snapshot.jsonl`、merge、workset 和 proposal 虽然
 仍是派生工作 artifact。它们位于已忽略的 `.artifacts/i18n/`，默认不得提交；翻译
 进程只能接收人工选定的 workset；审核流程只经 Paseo 对应 REVIEWER 接收有界翻译
 bundle 或去敏后的公开代码 diff。
+
+### 全量轮次入口（M1，离线）
+
+`python3 -B tools/full_review.py --help` 提供 `inventory / successor / export / task-gates / import / check /
+assemble / install / restore`。它不调用 provider、不创建 child、不写旧 catalog/queue/surface
+状态或 `.ai/`。ORCHESTRATOR 负责 schema 5 的 v2 `review_only`、单一 `REVIEW/full`
+任务、生命周期、独立复审和正式 evidence 提交。实现与验证边界见
+[M1 报告](../evidence/full-review/release-20261013/m1/REPORT.md)；本轮条目 A/B 尚为 0。
+
+恢复入口先跑 `check --directory evidence/full-review/<round>`：重算当前 occurrence 的
+rules-v2 身份与额外 special guard，重验冻结 input/workset/SCOPE、实际源码文件哈希、strict raw、
+任务自身 DONE_VERIFIED 和已归档 producer。task SPEC 必须有且仅有一行
+`full_review_binding=<JSON>`，绑定 export ref 中的
+`round_id, export_id, freeze_sha256, input_sha256`；task SCOPE 须为宿主冻结的确切字节。
+相同 candidate 的历史任务没有本轮 SPEC 绑定也拒收。结果只通过验证时不计有效覆盖。
+相同字节导入幂等；冲突 raw、部分/乱序 verdict、跨轮、旧 revision、未知模型和未归档输出拒收。
+无效终态 child 由宿主归档后 fresh retry，不能续跑。
+
+```bash
+# 重用 M0 已验证快照；不重跑提取。实际新轮由 ORCHESTRATOR 生成。
+python3 -B tools/full_review.py inventory --round-id <round> \
+  --directory evidence/full-review/<round> \
+  --source-provenance evidence/full-review/release-20261013/m0/SOURCE-PROVENANCE.json \
+  --snapshot-report .ai/task/full-review-20261013-m0-bootstrap/validation/extract-fixed-core.json \
+  --snapshot-report .ai/task/full-review-20261013-m0-bootstrap/validation/extract-ashes-corrected.json \
+  --snapshot-report .ai/task/full-review-20261013-m0-bootstrap/validation/extract-cults-corrected.json \
+  --snapshot-report .ai/task/full-review-20261013-m0-bootstrap/validation/extract-orcs-corrected.json
+python3 -B tools/full_review.py export --directory evidence/full-review/<round> \
+  --selection <ordered-unit-ids.json> --source-workset <neutral-workset.json> \
+  --scope <host-SCOPE.json> --export-id <fresh-export> --lane A \
+  --task-id <fresh-task> --dispatch-id <fresh-dispatch> \
+  --workspace-id <workspace> --parent-agent-id <orchestrator>
+python3 -B tools/full_review.py import --directory evidence/full-review/<round> \
+  --export-id <fresh-export> --raw <strict-result.json> --binding <producer-binding.json>
+python3 -B tools/full_review.py check --directory evidence/full-review/<round>
+python3 -B tools/full_review.py check --directory evidence/full-review/<round> --require-complete
+python3 -B tools/full_review.py check --directory evidence/full-review/<round> --require-release-ready
+```
+
+`selection` 是 1–80 个按序 unit_id。workset 是 `{round_id, entries}`；entries 按同序保存
+`unit_id, context, source_files, b_reasons, b_exemption`。context 必须是中性宿主冻结语境，
+数字参数的 quantity kind、方向流和 unknown 由宿主如实披露。source_files 每项含
+`component, public_source_path, sha256`，可用 `line_start / line_end` 指定最多 200 行的片段
+（默认前 100 行）。固定来源读 manifest commit 的 Git blob；DLC 另含绝对 `inner_root`，
+工具只剥离 logical mount 一次，再读 relative tail，不把 mount 重复接到内层 root。
+绝对路径只作为冻结 envelope 的取证位置，受跟踪说明不写本机路径。每个实际来源保留独立
+pin/unpinned 声明和文件哈希，提取 snapshot 不冒充 DLC commit。
+
+B 的适用原因先冻结为 `mechanics / long-text / A-observation`；不适用也要写理由。
+A/B 用不同 fresh dispatch 和不同精确运行 model。binding 必含
+`round_id, export_id, task_id, dispatch_id, workspace_id, parent_agent_id, model,
+input_sha256, raw_sha256, gate_evidence_path, gate_evidence_sha256`，与正式任务和 live runtime observation 核验。
+宿主合并裁决写到本轮 `adjudications/<id>.json`，绑定 `unit_id, revision_key, round_id`、
+各 lane `raw_sha256`、`source_verified, accepted_successor`、`confirmed, blocking_pending`、
+`status=effective-complete`、受跟踪 `evidence=[{path, sha256}]`。
+需要 B 时，只有 A 输出不能先计有效完成。严格 A raw 的 `ISSUE` 强制对应 B，宿主省略或设置
+`a_observation_requires_b=false` 不能取消；该字段为 true 只能扩大义务。B 中性 workset 必须与已验证 A
+的 unit/context/source_files 相同，不能加入 A observation 文本或结论。B policy 可单调扩大，
+不改变中性 source/context 身份或旧 A raw；`A-observation` 原因须有当前 revision 的 validated A ISSUE。
+
+最终分母在宿主冻结 `closure.json` 并通过守恒核验之前保持未冻结。closure 绑定
+`round_id / inventory_sha256 / candidate_path / candidate_sha256`，完整列出 `occurrences`
+与 `supplements`（零遗漏、零重复）、`runtime_keys` 的实际加载层、逐文件哈希和生效 target/
+args_order/special；并提供 `retained_layers / dynamic_contexts / relations / successors`
+的闭合证据。不能把源码可见缺译、官方继承/过滤/去重、wrapper addon、copy 文本或发行保留层
+静默删去。`--require-complete` 只要求语言覆盖和关系守恒；`--require-release-ready` 还要求
+Engine 实际加载、game launch 和最终场景证据（场景未测须有明确用户接受证据）。
+I18N closure 另冻结 `runtime_semantics`：repository=`engine`、commit=`624a67329fe2ad440c5b344785a9c73fcf22ae63`、
+path=`game/engines/default/engine/I18N.lua`、sha256=`a099d023bcf9c91d83592331666aeaa86c901a469eadf59346bcbd279c7ef31d`、
+capability=`fixed-i18n-literal-chain-v1`。工具读取固定 Git blob，在 manifest LuaJIT 中执行，
+拒绝不同 pin/hash；不使用当前 checkout 替代。所有 I18N runtime key 须列出同一个完整、按实际顺序
+冻结的 `layers`（层名唯一），不会只加载含当前 key 的文件；空参数记录可清空影响另一 key 的 tag 桶。
+每项显式给 `query={source, tag, method}`，source 与 key[0] 相同，tag 可为 null 或未知 tag；
+method 为 `_t / default_tformat / string.tformat`，最后一种 tag 必须是 `tformat`。
+query 的 source 与归一化 method/tag 必须绑定 runtime key；null 默认归一化为 `_t`，
+`string.tformat` 对应 `tformat`。真实未知 tag fallback 允许，但 key 也须声明该查询 tag，
+`effective_registration.source_tag` 保留实际回退注册的 tag。宿主须以调用证据冻结查询，
+未解析调用仍由 dynamic_contexts 阻断，不能用注册 tag 代替所有调用。
+`effective_registration={layer, ordinal, line, source_tag}` 记录实际供应 target 的 t 注册行（ordinal
+在层内从1计），回退也保留该行原 tag；没有注册的 source fallback 须显式给 null 和
+`effective_layer=source-fallback`，原文仍进入分母。args_order/special 用固定源码 accessor 查询实际
+桶及 fallback，不从该 target 行推断。`string.tformat` 的特殊分支按实际 nil args fallback 查询。
+query 可加 `arguments`，此时执行真实格式化并要求 mapping 的 `formatted` 精确匹配。
+
+离线能力只涵盖 zh_hans 的受限 locale/section/t、标量 setFlag 与字体包声明；字体声明不检验 GUI。
+`tformat_special` 自定义处理器、其它 locale、未知全局/游戏依赖、tc/t_old、函数元数据等不能证明时
+拒绝 closure，不能假造生效结果；language-bytes 的执行证据与字节锚点路径保持原契约。
+单次重放所有冻结查询，进程15秒超时；仍须宿主证明完整加载链、调用语境与最终游戏场景。
+
+普通 `check` 始终报告剩余项，不把历史 done 或验证过的 raw 当作本轮有效覆盖。
+
+```bash
+python3 -B tools/full_review.py assemble --candidate-id <id> --release-commit <exact-40-hex-commit>
+python3 -B tools/full_review.py install \
+  --candidate .artifacts/i18n/release-candidate/<id> \
+  --target .artifacts/i18n/isolated-game/<id> \
+  --target-spec <target-spec.json> --operation-id <fresh-id>
+python3 -B tools/full_review.py restore --target .artifacts/i18n/isolated-game/<id> \
+  --operation-id <same-id>
+```
+
+assemble 从固定发行 commit `git archive` 创建隔离 addon，建立独立 Git 元数据，跑 doctor、
+publish dry-run/apply（无 commit）与 Engine full，产出 zip -0、根 init.lua、Engine companion
+`engine/data/locales/engine/zh_hans.lua` 和全部文件 hash 清单。candidate 有漂移即拒绝重用。
+target-spec 含 `version=tome-1.7.6, layout=bare|teae, engine_path, original_sha256,
+addon_original_sha256, guards=[{path,sha256}]`；不存在的旧资源 hash 用 null。
+只支持隔离 `game/engines/<bare-name>` 或 `game/engines/te4-1.7.6.teae`，核对固定 loader、
+Engine init/version 字节。Engine 资源位于 loader 先挂载到 `/` 的树中，addon 包进入
+`game/addons/`。全部备份持久化后才发布 intent，之后替换 Engine/addon；回退核对目标、备份和
+当前安装 hash，任一漂移拒收。旧 intent 缺备份仅在资源仍精确等于 before hash 时允许恢复。
+中断后若两份资源均已安装，可重复 install 补成功记录；部分安装先 restore，再选 fresh operation。
+安装仅检查 game-dir 布局，输出 `game-dir-structure-only / home-unverified`；homepath 会参与
+Engine 发现和 VFS 优先级，不能据此声称 actualinit 生效。M0 源码树 binary 退出127是历史观察；
+主代理已启动隔离官方1.7.6并验证 prototype Engine 早期locale、CJK和“图像设置”标题及原teae回退。
+能力/prototype PASS 不替代 exact 最终 candidate、三DLC玩法或M4实际加载验收。
+
+### M1 task 级完整门禁与终态锚点
+
+`review_only/full` 原 DONE 契约保持；语言内容 task 使用 `change_class=standard`。adapter 在既有
+DONE 验证之外追加 task 自己的完整 gate/build 验证，不借 M1 实现门禁或旧队列 receipt。
+ORCHESTRATOR 在冻结 export 后创建 task SPEC/SCOPE/BASELINE-MANIFEST：SPEC 的
+`full_review_binding` 和 SCOPE 字节须精确匹配 ref；BASELINE-MANIFEST 的 `head` 为此次运行实际 HEAD。
+在 task/源码/工具/报告输入稳定后执行（不能在 gate 运行期间改 REPORT）：
+
+```bash
+PATH=/usr/local/bin:$PATH TOME_PASEO_WORKSPACE=<workspace> \
+  python3 -B tools/full_review.py task-gates \
+  --directory evidence/full-review/<round> --export-id <export> \
+  > .artifacts/<task>-gate-binding.json
+# 若仅归档阶段中断，恢复同一 task-bound 运行；不能传普通无绑定或其它 task 的 results。
+python3 -B tools/full_review.py task-gates \
+  --directory evidence/full-review/<round> --export-id <export> \
+  --results .artifacts/i18n/ci-gates/run.<run>/results.json
+```
+
+命令复用现有 runner 与 receipt validator，全检查集含 `12-core-addon-build`，不 skip-build；
+返回 `gate_evidence_path / gate_evidence_sha256`，宿主将两字段加入 import binding。
+独立保存到本轮 `task-gates/<task>/<export>/results.json` 和逐项 `output.log`，不共享任务 receipt。
+绑定精确 task/dispatch/lineage、round/export/freeze、candidate、有序 revisions、guards、input、
+中性 workset、SCOPE、SPEC、工具/配置/测试输入及 task baseline。缺项、错 candidate、跨 task、
+乱序、源码/context/工具漂移、缺 build 或日志不匹配均拒收。归档恢复只复用这个 exact 已执行运行，
+新 prepare/新 task 仍执行自己的门禁；原 review_only 终态语义未放宽。
+首次 import 与 task-gates 严格校验当前 execution_inputs、runner 定义、完整 gate/build 和日志。
+首次成功 import 的 receipt 另冻结 accepted gate_selection；完整 receipt/raw/终态锚点存在且匹配时，
+幂等 import、check/export 预检查与 predecessor 重放使用既有 validate_historical 验证同一 receipt。
+仍精确核对 task/dispatch/round/export/freeze/candidate、有序 revision/guards、input/workset/SCOPE/SPEC/base
+及受跟踪日志 hash；无关工具或 runner 定义变化不会重置已接受覆盖。缺 receipt 的部分写入仍走首次严格校验，
+语言、源码、参数、special 或中性 context 的实质漂移仍拒收。
+
+export 的 `source-anchors/<sha256>.bin` 保存实际公开源码字节（DLC仍标 unpinned）。
+import 另保存 `imports/<export>/task-anchors/` 的 STATE/SPEC/SCOPE/baseline、review records、
+input/raw 和引用终态锚点实际字节；task gate logs 也保留实际字节，不能只引用 ignored 文件 hash。
+正式 records 的文件定位使用 workspace-relative 路径，归档副本可以作为重建根运行
+`ai_state_check.py --workspace-root <重建根>`；恢复生产 check 时按原定位重建这些冻结记录，
+保留原身份及归档事实，不能改成新的 child。小 fixture 的 DONE/拒收/副本重放已由真实 predicate
+验证，模拟命令输出明确标作受控测试，不计生产覆盖。
+
+closure 中非 Boot official-inheritance 文本不能用 loading-only 跳过语言审核。
+outside-release-followup 只允许实际发行外组件；RELEASE 五组件、Boot、release-addon namespace
+和 retained-layer 均不能使用此处置。发行语言仍须真实已审 unit、同一 actualchain 的 shadow 证明，
+或有具体源码字节及行锚点的 unreachable proof。Boot loading-only 与无语言文本的 copy/retained/loading 核查保持。
+非 Boot copy/retained-layer/wrapper-addon 的 `language_literals=[]` 只是声明，不能证明无文本。
+loading-only 会核验 copy 的冻结 content/path/hash 与当前字节、retained 的公开 addon 固定 commit/blob/hash，
+以及 wrapper 显式 `source_file`（component/public_source_path/sha256/inner_root 或固定来源）。
+复用 Lua 字符串及注释词法，只允许字体/locale 控制标识与已知布尔 flag 的有限指令证明无语言；
+table/string flag payload、文字字段及英文同样需要语言审核，未知或动态输入失败关闭。
+LocaleLoader 的 translations=[] 不构成此证明。真实 engine.copy 三行可通过，mod-tome.copy 随机神器词库不可豁免。
+A/B 派发前与已冻结 opposite lane 比较 neutral unit/context/source_files；导入合并及继承合并按各自
+origin/workset hash 再核对。B policy 不进入 neutral identity，但包括尚未导入 exports 的 applicability 不能缩小。
+check 从已逐项 replay 核验的当前冻结 exports 汇总必做 B 义务，独立于 import 状态；当前裁决和
+successor merged completion 共用该义务。兼容 predecessor 的未导入冻结义务按 unchanged revision/guard
+及精确 neutral context/source_files 继承，即使宿主 contexts 遗漏新增 reason，也不能据 A 单独完成或缩小后续 policy。
+独立改变语境或 revision 的 successor 仍按既有规则处理，不继承不兼容义务。
+同语境并行冻结、旧 A 加新 B 与 policy-only 扩大仍可用。
+可声明 `shadowed`，但须绑定 actual ordered chain 中该 official 文件 pin/hash、
+`shadowed_registration` 的 layer/ordinal/tag 和实际 record，消费已复审且与 actual effective
+target/args/special 相符的 unit；无覆盖则阻断。`unreachable` 需具体 `source_proof` 文件 pin/hash
+及 `line_start/line_end`，保留 reason/source_verified 与 tracked evidence，不能无证 N/A。
+
+发行 readiness 的 `engine_actual_loading / game_launch / scenarios[]` 各自是
+`{status, binding, evidence}`（明确接受未测场景使用 `user_acceptance`）。每份测量 JSON 本身
+也必须有相同 binding/status；binding 包含 exact `candidate_sha256, target, spec_sha256,
+operation_id, installed_sha256`，绑定 durable installed.json/intent.json 和确切安装字节。
+旧 prototype、旧 candidate、缺绑定或已回退/漂移 operation 不能通过最终发行 readiness。
+原 GUI 能力记录的 `final_candidate_tested=false` 和 `A_B_credit=0` 保持。
+
+### M1 同轮 successor 与非规范语言 unit
+
+`python3 -B tools/full_review.py successor --directory <冻结前版本> --output <新版本> --request <宿主迁移.json>`
+在同一 `round_id` 下建立独立不可变版本；两个目录均须位于
+`evidence/full-review/` 或 `.artifacts/i18n/` 下，互不包含。
+旧 inventory、export、raw、裁决和 task 记录全部保持原字节。
+迁移前须完成旧版本的证据登记；发布 successor 后旧目录不能追加证据。
+相同请求可重复执行，inventory 写入前中断可恢复；不同请求/旧目录字节漂移拒绝。
+不允许跨 round 迁移，也不将人工 accepted 标志直接兑换覆盖。
+
+宿主 request 必须包含：
+
+- `round_id`、`before_sha256`（旧 inventory 字节）、`evidence`（受跟踪路径与 sha256）。
+- `mapping`：旧/新 unit ID 并集每个一次，字段 `unit_id/status/reason`；status 为
+  `unchanged/changed/added/removed`，guard/revision 自动核对，每次至多 80 个非 unchanged units。
+- `supplements`：完整当前补充记录；`supplement_mapping` 对旧/新 supplement ID 并集守恒，
+  使用 `supplement_id/status/reason`，不能静默遗漏新增、删除或变更记录。
+- `contexts`：当前全部 unit ID → 与 export 中性 workset entry 完全一致的对象，包含
+  `unit_id/context/source_files/b_reasons/b_exemption`，逐文件核验源码。
+- `language_units`：完整当前非规范语言 units（无则 `[]`），格式如下。
+
+未改 unit 仅在 guard/revision、完整中性 workset 和实际源码 hash 均未变时继承原有效 A/B；
+旧 producer 仍须有自身精确绑定 DONE_VERIFIED、归档及裁决证据。
+改变 source/target/args/special 或中性 context/source guard 的 unit 必须在 successor 中重新
+export/import/adjudicate，重新绑定其自己的 task 闭合。无关术语行不改变 rules-v2 revision；
+special 仍单独 guard，既有 catalog 身份函数不变。
+
+非规范 language unit 使用独立 `language_id`（有界 token，稳定标识具体语言 unit），
+不是 canonical `t()` locator，也不生成 surface ISSUE。宿主明确提供：
+
+```json
+{
+  "language_id": "copy-label-one",
+  "origins": ["<实际 supplement_id>"],
+  "language": {"source": "hello", "target": "你好", "source_tag": null,
+               "args_order": null, "special": null},
+  "anchors": {
+    "source": {"path": "<当前实际文本文件>", "sha256": "<文件hash>", "start": 0, "end": 5},
+    "target": {"path": "<当前实际文本文件>", "sha256": "<文件hash>", "start": 6, "end": 12}
+  },
+  "context": "中性的实际使用语境",
+  "source_files": [{"component": "engine", "public_source_path": "engine/test.lua",
+                    "sha256": "<实际固定文件hash>", "line_start": 1, "line_end": 10}],
+  "evidence": [{"path": "evidence/<宿主源码/运行层取证>", "sha256": "<hash>"}]
+}
+```
+
+start/end 是 UTF-8 原始字节半开区间；必须等于当前真实 source/target。
+source-only 缺译用实际运行回落原文作 target，不能虚构中文；继承使用实际不同 target；
+copy 非 `t()` 文本使用实际语言字节及运行层取证。多 origins 合并还须 `merge_reason` 与宿主证据。
+同一文件可有多个不同语言 unit；相同字节锚点/实际五字段不能重复登记，须明确合并来源。
+实际参数、special、来源、语境与宿主证据全部 guard；snapshot 型 source identity 明示其证据集合，
+不将 DLC 源码变成 pinned commit。
+
+导出同时冻结 `preflight.json`（adapter 类型、实际结果、scope/payload hash 与 unit guards），
+回放核对其精确字节并重新执行适用预检；旧无此字段的 exports 保持原验证语义。
+export/import/check 仍走原七键 v2 review_only/full、≤800-byte prompt、strict 完整按序结果、
+producer DONE_VERIFIED 与 A/B 独立 model/dispatch 检查。canonical 使用原 Lua anchor preflight；
+非规范 unit 使用同形 SCOPE 路径验证与独立真实字节 preflight，范围文件不能冒充 `t()` 调用。
+补充 unit 的两个 anchor 文件都须在 `allowed_files` 中；`anchor_scopes` 标明真实语言上下文。
+closure 的 occurrences 映射包括当前新增语言 units，supplements 的 `review_units` 必须消费
+其绑定的全部当前语言 units；未审核时仍阻断 complete。
+非 `t()` runtime key 可明确 `kind: "language-bytes"`，提供 tracked execution `evidence`，
+每层原文件 hash 与 `target_anchor: {start,end}`；普通 Lua runtime 链不变。
+最终实际分母、GUI 和 game readiness 仍须宿主实测闭合，来源存在不抵语言审核。
+
+FIX cycle1 的 successor 先合并来源目录正确的 validated outputs，再统一检查 A/B fresh/model 和裁决。
+完成状态只整体继承当前必需 A/B 齐全的 merged completion；丢掉某 lane 语境时，合法 A 仅保留
+validated 状态，可当前补 B/重新裁决。document_ordinal/line 仅作定位，不进入 semantic guard；
+真实 Lua loader 的前插/删除测试同时验证未改 unit guard/revision 与 successor 覆盖稳定。

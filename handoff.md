@@ -1,10 +1,10 @@
 # 当前恢复入口（2026-10-13 全量发行复核 M0 探针完成、待复审闭合）
 
-用户授权按 [全量发行复核计划](docs/full-translation-review-plan-20261013.md) 开始执行。当前 task `full-review-20261013-m0-bootstrap`：M0 清点/来源/通路探针已完成，A/B 生产审核均为 0，M1 仅规格、未实现。恢复先读 [M0 报告](evidence/full-review/release-20261013/m0/REPORT.md)、[基线](evidence/full-review/release-20261013/m0/BASELINE.json)、[M1-SPEC](evidence/full-review/release-20261013/m0/M1-SPEC.md)，由 ORCHESTRATOR 完成独立复审、裁决、状态闭合与提交；本段不宣称任务 DONE 或 child 已归档。
+用户授权按 [全量发行复核计划](docs/full-translation-review-plan-20261013.md) 开始执行。当前 task `full-review-20261013-m1-entry` FIX cycle1：M0已DONE_VERIFIED并提交；M1代码与隔离验证已实现，A/B生产审核均为0，最终分母未冻结，M2仅准备237条未审。恢复先读 [M0 报告](evidence/full-review/release-20261013/m0/REPORT.md)、[基线](evidence/full-review/release-20261013/m0/BASELINE.json)、[M1-SPEC](evidence/full-review/release-20261013/m0/M1-SPEC.md)，由 ORCHESTRATOR 完成独立复审、裁决、状态闭合与提交；本段不宣称任务 DONE 或 child 已归档。
 
 既有 12 条修正（11＋P01 用户裁决）已纳入基线，不计新轮已审。11 文件 loader 清点 30,308 次，审核单元/发行运行键分母未冻结。三个 DLC 的错误输入为外层 wrapper，包含 boot 子包并将 section 前缀翻倍；Ashes 的两项额外记录已定位到 boot init。改用真实 inner addon roots 后，原 extract 三次全部成功，999/2444/4493 及 manifest 原 hash 均一致。旧“未归因／需用户旧快照／停止 DLC”诊断撤回；exact root-layout、归因、doctor、corrected extract 及 smoke 探针原 bytes/hash 已嵌入 BASELINE，并提供便携 TOME_DLC_ROOT 配置和隔离 HEAD＋patch 重放配方。DLC commit 仍 unpinned，wrapper 与 corrected addon 逐文件取证清单明确分开。
 
-Engine full 与隔离 publish/存储式 zip 通路通过；实际 Engine 安装挂载/UI 未测，游戏二进制启动退出 127（动态库/ABI 缺口），GUI 自动化环境未具备。最终候选完成后按 [最小场景](evidence/full-review/release-20261013/m0/SCENARIOS.json) 交付未测项，不提前豁免。这些游戏验收缺口按计划不阻断本地 M1 进入；M1 尚未实施，待 ORCHESTRATOR 复审闭合后继续；不启动生产审核或伪造 surface ISSUE，不借旧 done 抵本轮。未授权外部发行仓库写入/push/PR/发布。历史入口完整保留如下。
+Engine full与隔离publish/存储式zip通路通过；M0源码树binary启动退出127（动态库/ABI）为历史观察。后续主代理已用隔离官方1.7.6启动并核验prototype Engine早期locale、CJK、“图像设置”标题和原teae精确回退；这是能力PASS，最终candidate/三DLC玩法仍未测。最终候选完成后按 [最小场景](evidence/full-review/release-20261013/m0/SCENARIOS.json) 交付未测项，不提前豁免。这些游戏验收缺口按计划不阻断本地 M1 进入；M1 已实现并完成合并FIX，待 ORCHESTRATOR 同candidate两路复审闭合后继续；不启动生产审核或伪造 surface ISSUE，不借旧 done 抵本轮。未授权外部发行仓库写入/push/PR/发布。历史入口完整保留如下。
 
 ---
 
@@ -220,3 +220,17 @@ Engine full 与隔离 publish/存储式 zip 通路通过；实际 Engine 安装�
 - 发布插件：最新 0.3.4（2026-10-05，tome4-chn-mod `3f031fa`，对应本仓库 `aea17710`），凭据见 `evidence/releases/addon-0.3.4.json`。
 - 历史保留边界：`RW1-SIB-01`、`RW1-SIB-02` 永久排除，不计阈值。
 - 不要打开 reviewer 的 agent tab（会清掉 attentionReason，harvest 失败只能整批 abandon）。
+
+## 2026-10-13 M1 实现恢复入口
+
+`tools/full_review.py` 与 `tools/i18nlib/{full_review,release_candidate}.py` 已实现离线入口。恢复先 `check --directory evidence/full-review/<round>`，不导入历史 done。M0 已提交 `74b81c8b4`；本次 EXECUTOR 不写 `.ai`、不 stage/commit，不创建 child。当前真实生产 A/B=0，分母未冻结。实现夹具、真实候选、两种 Engine VFS 结构安装回退与门禁日志均在忽略 `.artifacts/`；受跟踪 [M1 报告](evidence/full-review/release-20261013/m1/REPORT.md) 区分结构验证与尚未测的最终 Engine/game/GUI。下一步由 ORCHESTRATOR 独立 normal/senior 复审、裁决、任务闭合及生成正式 ledger，再进入 M2。
+
+## 2026-10-13 M1 FIX cycle1 恢复
+
+EXECUTOR m1-executor-04合并解决宿主11项accepted；范围仍为原11文件，未stage/commit/child，
+保留全部既有dirty。复审先看[M1 REPORT](evidence/full-review/release-20261013/m1/REPORT.md)与
+[task-gates/继承/发行绑定说明](i18n/README.md#全量轮次入口m1离线)。fresh候选`m1-fix-r1`基于
+clean `6f5a071f81ce4e0d1312f89f32cd04a2c76efe08`，assemble/publish/Engine full/smoke和bare/teae
+install/restore已跑；旧m1-delivery未改。report先冻结再运行完整gate，不在gate期间追加结果；
+本dispatch最终receipt由ORCHESTRATOR记录。后续normal/senior复审、提交/DONE与真实生产台账
+由ORCHESTRATOR负责；A/B仍0、分母未冻、237条draft不计已审，M4仍要exact最终candidate实测。
