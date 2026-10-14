@@ -128,8 +128,8 @@ M0 探针证明能自动驱动和观察的场景由 AI 完成。仍不能自动�
 | M5：发布 | 授权范围内外部发布、回下载验包；包外仓库复核和长报告另行推进 |
 
 M0 提交 `74b81c8b4`，M1 提交 `299c1acd5`，首个机制切片与修正提交 `d5dd1fd85`。
-M2 当前后继清单为 `evidence/full-review/release-20261013/round-v6/`；当前有效 A=141、B=98，
-最终分母未冻结。旧 round-v1 至 round-v5 均为不可变前版；本次精确迁移继承 107A/77B，
+M2 当前后继清单为 `evidence/full-review/release-20261013/round-v7/`；当前有效 A=143、B=100，
+最终分母未冻结。旧 round-v1 至 round-v6 均为不可变前版；R7 精确迁移继承 141A/98B。此前 R6 迁移继承 107A/77B，
 窗口-05 三条新 revision 按 Ashes 1／Cults 2 分组，四个独立生产 task 新增 3A/3B。
 四处最小修复已 DONE_VERIFIED；旧宿主 key 漂移中止链及 fresh 收尾链证据均保留。
 p08s2 图片标题及说明已新增 2A/2B，无待修；继续原有 237 单元试点的 p11s1，
@@ -143,12 +143,15 @@ p10s1-bound 已闭合：本批新增 18A/5B，确认待修 revision=2；
 
 窗口-06 两条成就计数说明已修复并 DONE_VERIFIED；实现复审不计生产覆盖，待 R7 精确迁移及 fresh2A/2B 后继续 p11s1。
 
+window06r 已闭合：本批新增 2A/2B，确认待修 revision=0；
+源码裁决、生产 A/B 自身完整门禁、DONE／归档／导入均见本轮切片闭合证据。
+
 三个 DLC 的 inner-root 配置更正后均精确通过原 manifest 提取基线（999/2444/4493），
 旧“无法归因／需旧快照／停止 DLC”诊断已撤回，来源 commit 仍 unpinned。
 隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
 不计最终候选或三 DLC 玩法验收；M4 仍须实际加载最终候选。
 
-从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v6`。
+从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v7`。
 完整 task-gates 使用已验证的 `PATH=/usr/local/bin:$PATH` 与 `TOME_PASEO_WORKSPACE` 环境，
 当前按绝对 directory 调用；相对路径回执返回问题已有有界归因，待小型入口修正。
 执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
