@@ -1,6 +1,6 @@
 # 面向汉化版本发布的全量复核计划
 
-日期：2026-10-13。执行更新：2026-10-14 UTC。状态：**M0、M1 已 DONE_VERIFIED 并提交；M2 连续试运行，有效 A=207、B=121。窗口-07 已完成七条修复，待 R8 修改后生产 A/B；全轮尚未完成**。当前证据见[执行状态](../evidence/full-review/release-20261013/STATUS.md)。
+日期：2026-10-13。执行更新：2026-10-14 UTC。状态：**M0、M1 已 DONE_VERIFIED 并提交；M2 连续试运行，有效 A=210、B=124。窗口-07 七条修复与后续生产复审进度见当前证据；全轮尚未完成**。当前证据见[执行状态](../evidence/full-review/release-20261013/STATUS.md)。
 
 用户已明确：**以发布汉化版本为主，Engine 文本也必须输出**。主交付是包含 Engine 译文、可安装且可验证的汉化包，附简明质量说明及证据索引。推荐采用 **A 遍全量语境审读＋B 遍高风险独立复核＋修复后验收＋实际候选包验证**。包外仓库组件与长篇研究报告列为后续。Engine 已是本轮明确范围，不再作为待授权的范围扩展；当前 M2 连续执行，后续执行与外部发布按当前授权及 [AGENTS.md](../AGENTS.md) 进行。
 
@@ -128,7 +128,7 @@ M0 探针证明能自动驱动和观察的场景由 AI 完成。仍不能自动�
 | M5：发布 | 授权范围内外部发布、回下载验包；包外仓库复核和长报告另行推进 |
 
 M0 提交 `74b81c8b4`，M1 提交 `299c1acd5`，首个机制切片与修正提交 `d5dd1fd85`。
-M2 当前后继清单为 `evidence/full-review/release-20261013/round-v7/`；当前有效 A=207、B=121，
+M2 当前后继清单为 `evidence/full-review/release-20261013/round-v8/`；当前有效 A=210、B=124，
 最终分母未冻结。旧 round-v1 至 round-v6 均为不可变前版；R7 精确迁移继承 141A/98B。此前 R6 迁移继承 107A/77B，
 窗口-05 三条新 revision 按 Ashes 1／Cults 2 分组，四个独立生产 task 新增 3A/3B。
 四处最小修复已 DONE_VERIFIED；旧宿主 key 漂移中止链及 fresh 收尾链证据均保留。
@@ -157,12 +157,17 @@ p12s2 已闭合：本批新增 26A/8B，确认待修 revision=1；
 
 窗口-07 七条 UI 译文已修复并 DONE_VERIFIED；实现复审不计生产覆盖，待 R8 精确迁移及按来源分组 fresh3A/3B 与4A/4B 后继续 p12s3～p12s5。
 
+R8 继承207A/121B；七条修复按实际来源分为Orcs3和Engine4重新复审。旧R1～R7均冻结。
+
+window07rorcs 已闭合：本批新增 3A/3B，确认待修 revision=0；
+源码裁决、生产自身完整门禁、DONE／归档／导入均见本轮闭合证据。
+
 三个 DLC 的 inner-root 配置更正后均精确通过原 manifest 提取基线（999/2444/4493），
 旧“无法归因／需旧快照／停止 DLC”诊断已撤回，来源 commit 仍 unpinned。
 隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
 不计最终候选或三 DLC 玩法验收；M4 仍须实际加载最终候选。
 
-从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v7`。
+从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v8`。
 完整 task-gates 使用已验证的 `PATH=/usr/local/bin:$PATH` 与 `TOME_PASEO_WORKSPACE` 环境，
 当前按绝对 directory 调用；相对路径回执返回问题已有有界归因，待小型入口修正。
 执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
