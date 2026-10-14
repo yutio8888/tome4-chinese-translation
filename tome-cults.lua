@@ -3083,7 +3083,7 @@ t([[The sheer power of your entropy tears holes through spacetime, opening this 
 On casting a Demented spell you have a 30%% chance of creating a void rift lasting %d turns in a nearby tile, which will launch void blasts each turn at a random enemy in range 7, dealing %0.2f darkness and %0.2f temporal damage.
 
 You may activate this talent to forcibly destabilize spacetime, spawning %d void rifts around you.]], [[你强大的熵之力撕裂了时空，将这个世界与虚空相连。
-当施放疯狂系法术时，你有 30%% 几率在相邻的空地里打开一个虚空裂隙，持续 %d 回合。它每回合将会对范围 7 内的一个随机敌人释放虚空轰击，造成 %0.2f 点暗影伤害和 %0.2f 点时空伤害。
+当施放疯狂系法术时，你有 30%% 几率在附近的空地里打开一个虚空裂隙，持续 %d 回合。它每回合将会对范围 10 内的一个随机敌人释放虚空轰击，造成 %0.2f 点暗影伤害和 %0.2f 点时空伤害。
 
 你可以主动激活这个技能来强制使得时空不稳定，在你周围创造 %d 个虚空裂隙。]], "tformat")
 t("Quantum Tunnelling", "量子隧道", "talent name")
@@ -3098,18 +3098,18 @@ t("Pierce the Veil", "刺破境界", "talent name")
 t("nether breach", "彼世裂隙", "_t")
 t("temporal vortex", "时空漩涡", "_t")
 t("dimensional gateway", "维度之门", "_t")
-t("void skitterer", "虚空造物", "_t")
+t("void skitterer", "虚空疾行者", "_t")
 t("A bizarre creature covered in writhing tendrils, rapidly teleporting from one place to another as it closes in on its prey.", "一个布满扭动触须的怪异生物，它一边迅速在空间中传送跳跃，一边逼近猎物。", "_t")
 t("Summon", "召唤", "_t")
 t([[Pouring more energy into your rifts, you have a %d%% chance for each one to instead appear as a more powerful type.
 #PURPLE#Nether Breach:#LAST# Fires a beam dealing %0.2f darkness damage at a random target in radius 10.
 #PURPLE#Temporal Vortex:#LAST# Inflicts %0.2f temporal damage each turn to enemies in radius 4 and reduces their global speed by 30%%.
 #PURPLE#Dimensional Gate:#LAST# Has a 50%% chance each turn to summon a voidling lasting %d turns; a fast melee attacker that can teleport.
-The stats of your Void Skitterers will scale with your Magic stat and level.]], [[向你的裂隙注入能量，你将有 %d%% 概率让每一个裂口进化成为更强大的形态。
+The stats of your Void Skitterers will scale with your Magic stat and level.]], [[向你的裂隙注入能量，每个裂隙在生成时都有 %d%% 概率成为更强大的类型。
 #PURPLE#彼世裂隙：#LAST# 向半径 10 内随机敌人发射光束，造成 %0.2f 暗影伤害。
 #PURPLE#时空漩涡：#LAST# 每回合对半径 4 内的敌人造成 %0.2f 时空伤害，并使其全局速度降低 30%%。
-#PURPLE#维度之门：#LAST# 每回合有 50%% 概率召唤一个持续 %d 回合的虚空造物，它是能传送的高速近战攻击者。
-你的虚空造物属性随你的等级和魔力属性提升。]], "tformat")
+#PURPLE#维度之门：#LAST# 每回合有 50%% 概率召唤一个持续 %d 回合的虚空疾行者，它是能传送的高速近战攻击者。
+你的虚空疾行者属性随你的等级和魔力属性提升。]], "tformat")
 t("Dimensional Skitter", "维度迅击", "talent name")
 t("%s's Dimensional Skitter fizzles!", "%s的维度迅击失败了！", "logSeen")
 t("Teleport to a target within range 10 and strike them with your fangs dealing %d%% weapon damage.", "传送到范围 10 内的一个敌人处，并用你的尖牙攻击它，造成 %d%% 武器伤害。", "tformat")
@@ -3118,11 +3118,11 @@ t([[You draw power from the depths of the void causing your Reality Fracture to 
 #GREY#Void Rift:#LAST# Deals %d%% increased damage and projectiles explode in radius 1.
 #PURPLE#Nether Breach:#LAST# Deals %d%% increased damage and chains to 3 targets.
 #PURPLE#Temporal Vortex:#LAST# Deals %d%% increased damage, radius increased by 1, and slow increased to 50%%.
-#PURPLE#Dimensional Gate:#LAST# Voidling Skitterers will be frenzied, increasing their global speed by %d%%.]], [[你从虚空深处汲取能量，每当你激活实境撕裂时，你可以强化任何已存在的裂隙。
+#PURPLE#Dimensional Gate:#LAST# Voidling Skitterers will be frenzied, increasing their global speed by %d%%.]], [[你从虚空深处汲取能量，每当你激活实境撕裂时，会自动强化你已有的裂隙。
 #GREY#虚空裂隙 :#LAST# 造成 %d%% 额外伤害，并且投射物在半径 1 范围内爆炸。
 #PURPLE#彼世裂隙：#LAST# 造成 %d%% 额外伤害，并且连锁至 3 个额外目标。
 #PURPLE#时空漩涡：#LAST# 造成 %d%% 额外伤害，效果半径增加 1，并且减速效果提高至 50%%。
-#PURPLE#维度之门 :#LAST# 虚空造物将会变得狂暴，增加他们 %d%% 的整体速度。]], "tformat")
+#PURPLE#维度之门 :#LAST# 虚空疾行者将会变得狂暴，增加他们 %d%% 的全局速度。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/scourge-drake.lua"
