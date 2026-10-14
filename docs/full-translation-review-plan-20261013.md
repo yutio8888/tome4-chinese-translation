@@ -128,11 +128,12 @@ M0 探针证明能自动驱动和观察的场景由 AI 完成。仍不能自动�
 | M5：发布 | 授权范围内外部发布、回下载验包；包外仓库复核和长报告另行推进 |
 
 M0 提交 `74b81c8b4`，M1 提交 `299c1acd5`，首个机制切片与修正提交 `d5dd1fd85`。
-M2 当前后继清单为 `evidence/full-review/release-20261013/round-v6/`；当前有效 A=110、B=80，
+M2 当前后继清单为 `evidence/full-review/release-20261013/round-v6/`；当前有效 A=112、B=82，
 最终分母未冻结。旧 round-v1 至 round-v5 均为不可变前版；本次精确迁移继承 107A/77B，
 窗口-05 三条新 revision 按 Ashes 1／Cults 2 分组，四个独立生产 task 新增 3A/3B。
 四处最小修复已 DONE_VERIFIED；旧宿主 key 漂移中止链及 fresh 收尾链证据均保留。
-继续原有 237 单元试点的 p08s2，按既定有界顺序推进；历史 done 不抵本轮 A/B。
+p08s2 图片标题及说明已新增 2A/2B，无待修；继续原有 237 单元试点的 p09s1，
+按既定有界顺序推进；历史 done 不抵本轮 A/B。
 
 三个 DLC 的 inner-root 配置更正后均精确通过原 manifest 提取基线（999/2444/4493），
 旧“无法归因／需旧快照／停止 DLC”诊断已撤回，来源 commit 仍 unpinned。
