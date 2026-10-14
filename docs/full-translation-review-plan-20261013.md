@@ -128,16 +128,16 @@ M0 探针证明能自动驱动和观察的场景由 AI 完成。仍不能自动�
 | M5：发布 | 授权范围内外部发布、回下载验包；包外仓库复核和长报告另行推进 |
 
 M0 提交 `74b81c8b4`，M1 提交 `299c1acd5`，首个机制切片与修正提交 `d5dd1fd85`。
-M2 当前后继清单为 `evidence/full-review/release-20261013/round-v4/`；当前有效 A=80、B=50，
-最终分母未冻结。旧 round-v1、round-v2、round-v3 均为不可变前版；本次精确迁移保留 49A/28B，
-四条修改后的生产复审新增 4A/3B。历史 done 不抵本轮 A/B。
+M2 当前后继清单为 `evidence/full-review/release-20261013/round-v5/`；当前有效 A=83、B=53，
+最终分母未冻结。旧 round-v1 至 round-v4 均为不可变前版；本次精确迁移保留 80A/50B，
+窗口-04 三条修改后的生产复审新增 3A/3B。历史 done 不抵本轮 A/B。
 
 三个 DLC 的 inner-root 配置更正后均精确通过原 manifest 提取基线（999/2444/4493），
 旧“无法归因／需旧快照／停止 DLC”诊断已撤回，来源 commit 仍 unpinned。
 隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
 不计最终候选或三 DLC 玩法验收；M4 仍须实际加载最终候选。
 
-从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v4`。
+从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v5`。
 完整 task-gates 使用已验证的 `PATH=/usr/local/bin:$PATH` 与 `TOME_PASEO_WORKSPACE` 环境，
 当前按绝对 directory 调用；相对路径回执返回问题已有有界归因，待小型入口修正。
 执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
