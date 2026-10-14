@@ -4651,7 +4651,7 @@ t([[Throw a small, unstable steam engine on the battlefield that will go critica
 		Any bleeding foe caught in the flames will take 40%% more damage.
 		Damage scales with your Steampower.
 		#{italic}#Tick Tock Tick BOOM!#{normal}#]], [[在战场上投掷一枚两回合后爆炸的微型不稳定蒸汽引擎。
-		爆炸后在 %d 码范围内产生灼热的蒸汽云雾，对范围内敌人造成 %0.2f 的火焰伤害。
+		随后在 %d 码范围内发生一次灼热的蒸汽爆炸，对范围内敌人造成 %0.2f 的火焰伤害。
 		流血状态的敌人会受到 40%% 的额外火焰伤害。
 		伤害受蒸汽强度加成。
 		#{italic}#嘀嗒嘀嗒嘀嗒轰！！#{normal}#]], "tformat")
@@ -4661,7 +4661,7 @@ t([[Explosive Steam Engine vapour now lingers for 5 turns.
 		Any steamtech-using creature will also regenerate %d additional steam per turn while inside the cloud.
 		Damage scales with your Steampower.
 		#{italic}#Modern technology at the service of burnination!#{normal}#]], [[爆炸蒸汽引擎产生的蒸汽云雾现在会持续 5 回合。
-		每回合云雾范围内的流血敌人会受到 %0.2f 火焰伤害。
+		每回合云雾范围内的流血生物会受到 %0.2f 火焰伤害。
 		任何使用蒸汽科技的生物在云雾中每回合额外回复 %d 蒸汽值。
 		伤害受蒸汽强度加成。
 		#{italic}#尝尝最新科技带来的燃烧服务吧！#{normal}#]], "tformat")
@@ -4670,7 +4670,7 @@ t("tremor engine", "巨震引擎", "_t")
 t([[Throw a tremor engine on the battlefield that will trigger after 2 turns.
 		For 5 turns after triggering, it will constantly shake the ground and stun, pin, or disarm any creature in radius %d for %d turns.
 		#{italic}#The ground is mere paper to you!#{normal}#]], [[在战场上投掷一枚 2 回合后触发的巨震引擎。
-		触发后的 5 回合内，它会持续震动地面，使半径 %d 格内的任意生物被震慑、定身或缴械 %d 回合。
+		触发后的 5 回合内，它会持续震动地面，使半径 %d 格内除你以外的任意生物被震慑、定身或缴械 %d 回合。
 		#{italic}#你脚下只是纸张，并非大地。颤抖吧！#{normal}#]], "tformat")
 t("Seismic Activity", "地震爆发", "talent name")
 t("raging volcano", "喷发中的火山", "_t")
