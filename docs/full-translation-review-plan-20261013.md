@@ -141,6 +141,8 @@ p09s1 已闭合：本批新增 11A/11B，确认待修 revision=0；
 p10s1-bound 已闭合：本批新增 18A/5B，确认待修 revision=2；
 源码裁决、生产 A/B 自身完整门禁、DONE／归档／导入均见本轮切片闭合证据。
 
+窗口-06 两条成就计数说明已修复并 DONE_VERIFIED；实现复审不计生产覆盖，待 R7 精确迁移及 fresh2A/2B 后继续 p11s1。
+
 三个 DLC 的 inner-root 配置更正后均精确通过原 manifest 提取基线（999/2444/4493），
 旧“无法归因／需旧快照／停止 DLC”诊断已撤回，来源 commit 仍 unpinned。
 隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
