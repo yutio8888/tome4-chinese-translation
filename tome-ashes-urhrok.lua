@@ -1767,7 +1767,7 @@ A few meters away, you see the bubbles combining and congregating around a trans
 #AQUAMARINE#"我统治海洋的两个障碍……却懦弱得不敢相互厮杀好让我收拾胜者……"#WHITE#
 几米开外，你看见气泡相互融合，聚集在一个透明的身形周围；它此前隐形，如今也只能借由周围沸腾的水流辨认。
 #AQUAMARINE#"真是方便……如此多的夏·图尔魔法任我取用……反过来对付其创造者的魔法……但是现在……出现了一个新的障碍……波涛之下最后一位伟大的战士……"#WHITE#]], "tformat")
-t("The oceans are yours.  The people of Eyal gave up sea travel ages ago!", "海洋是你的了！埃亚尔人早就放弃海洋了！", "_t")
+t("The oceans are yours.  The people of Eyal gave up sea travel ages ago!", "海洋是你的了！埃亚尔人早就放弃海上旅行了！", "_t")
 t("You're the new Lord of the Seas?  What would you have me do?", "你就是海洋新的霸主？你想要我干什么？", "_t")
 t("The seas of Eyal shall know no lord, foul demon!  The chaos and death ends now!", "污秽的恶魔，埃亚尔的海洋绝不臣服于任何领主！混沌与死亡就此终结！", "_t")
 t("Stop bubbling and start dying, you overgrown tea-kettle!  Your treasures are mine!", "别吐泡泡了，去死吧，你这水壶怪！你的财宝是我的了！", "_t")

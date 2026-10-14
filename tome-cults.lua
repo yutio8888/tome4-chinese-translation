@@ -905,7 +905,7 @@ This was not the only discovery we made too. There are multiple tunnels and ther
 
 Multiple scouting parties were sent down the tunnels and it became obvious that all of the tunnels came from a single origin point. They lead into a single large cavity in the earth. The cavity itself has not been fully explored yet, but scouting parties have reported a number of strange ruins sighted within it. The physical description they gave me of the ruin does not match with any other civilisation we have documented...
 
-It is a vague hope, but I hope in my heart of hearts that this place will finally give me the answers I have been seeking about the origin of Dwarves and Drem alike.]], [[废墟周围最近发生了几处塌方。在确认它们安全并可以调查之后，我们在这些洞穴中发现了以前未勘探的隧道。由于我的研究暂时没有取得很大进展，能借此换换心情倒是件好事。
+It is a vague hope, but I hope in my heart of hearts that this place will finally give me the answers I have been seeking about the origin of Dwarves and Drem alike.]], [[废墟周围最近发生了几处塌方。在确认可以安全调查之后，我们发现这些塌方使以前未勘探的隧道显露了出来。由于我的研究暂时没有取得很大进展，能借此换换心情倒是件好事。
 
 让我高兴的是，这些隧道显示出曾经有人居住的迹象！这里面有许多原始的工具和武器，几乎没有风化的迹象。没有头脑的德瑞姆不知道制造工具，所以我得出的结论是，这一定是一系列古老的矮人隧道。在隧道里也有一些洞穴壁画，描绘着粗壮、长着胡须的人型生物与一些画得很粗糙、看似长着触手的野兽搏斗。
 
@@ -925,11 +925,11 @@ t("The exploration of the cavity has been interesting, to say the least. At its 
 
 一些东西从黑暗中爬了出来。我们德瑞姆习惯于应对突如其来的暴力行为。因此，我们还没来得及看清袭击者，就向它们发起了猛烈攻击。我们只受了些轻伤，但仔细观察袭击者后，却大为震惊。它们似乎是矮人、德瑞姆和某种其他生物的奇异杂交体，却有着像孩子一样的古怪身体。我想，它们锯齿状的锋利牙齿恐怕也不完全是天生的。地面上的人可能会被这样的生物吓到，然而，我们不会被吓倒，因为我们曾经见到过凶险得多的东西。
 
-在巨蛋中探索时，我们不得不一路杀死几十个、也许上百个这种怪物。显然，这些怪物有一个来源，它们与我们在外貌上的相似性，激励着我继续战斗。最终，我们来到了一个小房间，看来这里就是这个巨蛋的中心。我们找到了这些怪物的来源。那是一台巨大的机器，连接着几十根玻璃管子，有某种恶性的生长物附着在上面。这些怪物不断从破碎的管子中被吐出来，迅速长到完全长成时的大小，然后向我们冲来。它们各自的形态不同，有的像半成型的矮人，有的像德瑞姆，还有的像某种奇异的、长着触手的恐魔。
+在巨蛋中探索时，我们不得不一路杀死几十个、也许上百个这种怪物。显然，这些怪物有一个来源，它们与我们在外貌上的相似性，激励着我继续战斗。最终，我们来到了一个房间，看来这里就是这个巨蛋的中心。我们找到了这些怪物的来源。那是一台巨大的机器，连接着几十根玻璃管子，有某种恶性的生长物附着在上面。这些怪物不断从破碎的管子中被吐出来，迅速长到完全长成时的大小，然后向我们冲来。它们各自的形态不同，有的像半成型的矮人，有的像德瑞姆，还有的像某种奇异的、长着触手的恐魔。
 
 我们打破了通往玻璃管的管道，不再有怪物从里面出来了。那些液体肯定是滋养这些怪物的物质，失去了那种液体，里面跑出来的只有一些虚弱的、发育不全的胎儿。
 
-但我们只是关闭了一台机器而已。我们尽可能地封闭了房间，但我们可以听到更多怪物袭来的声音。在激烈的战斗中，其中一个生物死死缠住了我的手臂。它传染给了我一种致命的疾病，使我的肌肉萎缩，看起来如同晒干的皮革一般。
+但我们只是关闭了一台机器而已。我们尽可能地封闭了房间，但我们可以听到更多怪物袭来的声音。在激烈的战斗中，其中一个生物死死缠住了我的手臂。它传染给了我一种致命的疾病，使我的皮肉枯萎，看起来如同晒干的皮革一般。
 
 我们的命运已经再清楚不过。我们在战斗中失去了很多同胞，感染这种疾病的人并非只有我一个。我们即将在这个房间里死去。但是，我接受了这样的命运，因为我已经弄清了有关我们起源的真相。
 
