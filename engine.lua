@@ -445,7 +445,7 @@ t("#LIGHT_RED#Mouse input temporarily disabled.", "#LIGHT_RED#暂时禁用鼠标
 ------------------------------------------------
 section "engine/engine/Object.lua"
 
-t("Requires:", "装备需求：", "_t")
+t("Requires:", "需求：", "_t")
 t("%s (level %d)", "%s (等级 %d)", "tformat")
 t("Level %d", "等级 %d", "tformat")
 t("Talent %s (level %d)", "技能 %s (等级 %d)", "tformat")
@@ -936,7 +936,7 @@ section "engine/engine/dialogs/VideoOptions.lua"
 t("Video Options", "图像设置", "_t")
 t("Display resolution.", "显示分辨率。", "_t")
 t("#GOLD##{bold}#Resolution#WHITE##{normal}#", "#GOLD##{bold}#分辨率#WHITE##{normal}#", "_t")
-t("If you have a very high DPI screen you may want to raise this value. Requires a restart to take effect.#WHITE#", "如果你有一个高分辨率的屏幕，你可以调高该数值。重启后生效。#WHITE#", "_t")
+t("If you have a very high DPI screen you may want to raise this value. Requires a restart to take effect.#WHITE#", "如果你的屏幕像素密度很高，可以调高该数值。重启后生效。#WHITE#", "_t")
 t("#GOLD##{bold}#Screen Zoom#WHITE##{normal}#", "#GOLD##{bold}#屏幕缩放#WHITE##{normal}#", "_t")
 t("Enter Zoom %", "输入缩放比例 %", "_t")
 t("From 50 to 400", "从 50 到 400", "_t")
@@ -944,7 +944,7 @@ t([[Request this display refresh rate.
 Set it lower to reduce CPU load, higher to increase interface responsiveness.#WHITE#]], [[请求此显示刷新率。
 降低刷新率可以减轻 CPU 占用，提高刷新率可以提升界面响应速度。#WHITE#]], "_t")
 t("#GOLD##{bold}#Requested FPS#WHITE##{normal}#", "#GOLD##{bold}#FPS设定#WHITE##{normal}#", "_t")
-t("Enter density", "输入密度", "_t")
+t("Enter density", "输入数值", "_t")
 t("From 5 to 60", "从 5 到 60", "_t")
 t([[Controls the particle effects density.
 This option allows to change the density of the many particle effects in the game.
@@ -1008,7 +1008,7 @@ t([[Activates volumetric shaders.
 This option allows for volumetricion effects (like deep starfields). Enabling it will severely reduce performance when shaders are displayed.
 
 #LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[开启体积着色器效果。
-这个选项可以激活一些特殊的视频效果（例如星空特效）。开启它会显著降低运行速度。
+这个选项可以激活体积效果（例如深邃星空）。显示这些着色器效果时，开启它会严重降低性能。
 
 #LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#]], "_t")
 t("#GOLD##{bold}#OpenGL Shaders: Volumetric#WHITE##{normal}#", "#GOLD##{bold}#OpenGL 着色器：体积着色器#WHITE##{normal}#", "_t")

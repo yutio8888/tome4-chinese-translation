@@ -8194,7 +8194,7 @@ section "tome-orcs/overload/mod/dialogs/CreateTinker.lua"
 
 t("Tinkers", "插件", "_t")
 t("Search: ", "搜索：", "_t")
-t("Tinker", "工匠系", "_t")
+t("Tinker", "插件", "_t")
 t("Slot", "槽位", "_t")
 t("School", "学科", "_t")
 t("Status", "状态", "_t")
@@ -8208,10 +8208,10 @@ t("Requires talents:", "需要技能：", "_t")
 t("Requires ingredients:", "需要原材料：", "_t")
 t(" (You have: %s)", " (你有：%s)", "tformat")
 t("Requires items:", "需要物品：", "_t")
-t("Requires:", "装备需求：", "_t")
+t("Requires:", "需求：", "_t")
 t("Example Item:", "样品：", "_t")
 t("body", "躯体", "_t")
-t("create tier( %s )", "材质等级(%s)", "tformat")
+t("create tier( %s )", "可制作材质等级(%s)", "tformat")
 t("missing reqs", "条件不足", "_t")
 -- untranslated text
 --[==[
