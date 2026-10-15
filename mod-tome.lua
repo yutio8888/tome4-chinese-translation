@@ -28754,19 +28754,19 @@ t([[Imbue an alchemist gem with an explosive charge of mana and throw it.
 		伤害受宝石品质和法术强度加成。]], "tformat")
 t("Alchemist Protection", "炼金保护", "talent name")
 t([[Grants %d%% protection to you, your golem and other friendly creatures against the elemental damage of your own bombs, and against external elemental damage (fire, cold, lightning and acid) by %d%%.
-		At talent level 5 it also protects against all side effects of your bombs.]], [[使你、你的傀儡和其他友好生物对你自己炸弹的元素伤害抗性提高 %d%%， 对外界元素伤害（火焰、寒冷、闪电和酸性）的抗性提高 %d%%。
+		At talent level 5 it also protects against all side effects of your bombs.]], [[使你、你的傀儡和其他友好生物获得 %d%% 针对你自己炸弹的防护，并使你对外界元素伤害（火焰、寒冷、闪电和酸性）的抗性提高 %d%%。
 		在技能等级 5 时，它还会保护上述单位免受你的炸弹带来的所有特殊效果。]], "tformat")
 t("Explosion Expert", "爆破专家", "talent name")
 t([[Your alchemist bombs now affect a radius of %d around them.
 		Explosion damage may increase by %d%% (if the explosion is not contained) to %d%% if the area of effect is confined.]], [[炼金炸弹的爆炸半径现在为 %d 码。
 		爆炸伤害可提高 %d%% （爆炸未受限制时）至 %d%% （爆炸范围受限时）。]], "tformat")
 t("Shockwave Bomb", "冲击波炸弹", "talent name")
-t("You need to ready at least two alchemist gems in your quiver.", "至少需要装备两枚炼金宝石。", "logPlayer")
+t("You need to ready at least two alchemist gems in your quiver.", "你需要在箭袋中装填至少两枚炼金宝石。", "logPlayer")
 t([[Crush together two alchemist gems, making them extremely unstable.
 		You then throw them to a target area, where they explode on impact, dealing %0.2f physical damage and knocking back any creatures in the blast radius.
 		Each kind of gem will also provide a specific effect.
-		The damage will improve with better gems and with your Spellpower.]], [[将 2 颗炼金宝石压缩在一起，使它们变的极度不稳定。
-		然后，你将它们扔到指定地点，爆炸会产生 %0.2f 物理伤害并击退爆炸范围内的任何怪物。
+		The damage will improve with better gems and with your Spellpower.]], [[将 2 颗炼金宝石压缩在一起，使它们变得极度不稳定。
+		然后，你将它们扔到指定地点，爆炸会产生 %0.2f 物理伤害并击退爆炸范围内的任何生物。
 		每个种类的宝石都会提供一个特殊的效果。
 		伤害受宝石品质和法术强度加成。]], "tformat")
 
@@ -29737,7 +29737,7 @@ t([[Casting beam spells has become so instinctive for you that you can now easil
 		During Aether Avatar only compatible spells are used.
 
 		Eligible spells: %s]], [[释放射线类法术对你来说如此自然，以至于可以和其他法术穿插释放。
-每当释放射线类法术时，你有 %d%% 几率自动释放一个已习得的其他攻击类法术。
+每当你的射线类法术命中一个目标时，你有 %d%% 几率自动释放一个已习得的其他攻击类法术。
 奇术之球复制的射线类法术也能触发这一效果。
 该效果每回合只能触发一次（有奇术之球时最多触发两次）。
 额外施放会消耗法力，但不消耗回合，也不会触发法术的冷却；即使法术当前处于冷却中也可以触发。
@@ -29751,9 +29751,9 @@ t([[By weaving arcane triggers around you feet you can use the residual energies
 		Each time you cast a beam spell you can move right afterwards without spending a turn.
 		This spell has %d charges. Once all charges are spent it unsustains.
 		If you exit combat with some charges left it will after 10 turn regenerates its charges, if you have enough mana.]], [[你将奥术力量编织于双脚，可以使用射线类法术来进行免费移动。
-		每当你释放一个射线类法术，你可以立刻移动一次，不需要消耗时间。
+		每当你释放的射线类法术命中目标时，你可以立刻移动一次，不需要消耗时间。
 		这一法术有 %d 次充能。当充能耗尽时，这一法术将会解除持续。
-		若你在尚有剩余充能时脱离战斗，则在脱离战斗 10 回合后，只要法力充足便会消耗法力补满充能，否则解除持续。]], "tformat")
+		若你在尚有剩余充能时脱离战斗，则在脱离战斗 10 回合后，只要法力充足便会补满充能，否则解除持续。]], "tformat")
 t("Elemental Array Burst", "元素阵爆发", "talent name")
 t([[Using your near-perfect knowledge of beam spells you combine them all into a powerful 3-wide beam of pure energy.
 		The beam deals %0.2f thaumic damage and always goes as far as possible.
