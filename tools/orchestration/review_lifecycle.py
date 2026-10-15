@@ -1050,13 +1050,30 @@ def _parse_native_final(data, *, provider, session_id, cwd, prompt, natural_succ
             uid = nodes[uid][1]['parentUuid']
         # Parallel tool calls: Claude may log a later tool_use block of the same API
         # message as a side branch (same message id, parent on the chain).
+        # Nested extensions additionally need a known same-API identity.
         chain_ids = {r['message'].get('id') for uid, (i, r) in nodes.items()
                      if uid in chain and r['type'] == 'assistant'}
-        parallel = {uid for uid, (i, r) in nodes.items()
-                    if uid not in chain and r['type'] == 'assistant'
-                    and r['parentUuid'] in chain and r['message'].get('id') in chain_ids
-                    and r['message'].get('id') != message['id']
-                    and all(c.get('type') == 'tool_use' for c in r['message']['content'])}
+        chain_apis = {(r['message']['id'], r['requestId']) for uid, (i, r) in nodes.items()
+                      if uid in chain and r['type'] == 'assistant'
+                      and isinstance(r['message'].get('id'), str) and r['message']['id']
+                      and isinstance(r.get('requestId'), str) and r['requestId']}
+        parallel = set()
+        # Insertion order is log order; every parent was validated strictly backward.
+        # Each node is visited once, and only already accepted parents can extend it.
+        for uid, (i, r) in nodes.items():
+            if uid in chain or r['type'] != 'assistant':
+                continue
+            mid, request = r['message'].get('id'), r.get('requestId')
+            parent = r['parentUuid']
+            nested = False
+            if parent in parallel and isinstance(mid, str) and isinstance(request, str):
+                ancestor = nodes[parent][1]
+                nested = ((mid, request) in chain_apis
+                          and ancestor['message'].get('id') == mid
+                          and ancestor.get('requestId') == request)
+            if ((parent in chain and mid in chain_ids) or nested) and mid != message['id'] \
+                    and all(c.get('type') == 'tool_use' for c in r['message']['content']):
+                parallel.add(uid)
         require(records[prompt_index]['uuid'] in chain
                 and all(uid in chain or uid in parallel or (r['type'] == 'user'
                         and (r['parentUuid'] in chain or r['parentUuid'] in parallel)

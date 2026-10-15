@@ -1074,6 +1074,94 @@ print(json.dumps({'agentId':'fake-cli-child','status':'created'}))
             with self.subTest(bad=bad[0]['message']['id']), self.assertRaises(life.LifecycleError):
                 self.parse_native('claude', rows[:4] + bad + rows[4:])
 
+    def nested_claude_records(self, depth=3, text=' \n{"fixture":true}\t\n'):
+        rows = self.native_records('claude', text)
+        base = {k: rows[1][k] for k in ('sessionId', 'cwd', 'version', 'isSidechain')}
+        branches, results = [], []
+        for n in range(depth):
+            uid = 'parallel-' + str(n)
+            branches.append(dict(type='assistant', uuid=uid,
+                parentUuid='early' if n == 0 else 'parallel-' + str(n - 1),
+                apiBlockIndex=n + 1, requestId='request',
+                message=dict(role='assistant', id='earlier-message', stop_reason='tool_use',
+                    content=[dict(type='tool_use', id='t' + str(n), name='Read', input={})]), **base))
+            results.append(dict(type='user', uuid='side-result-' + str(n), parentUuid=uid,
+                message=dict(role='user', content=[dict(type='tool_result', tool_use_id='t' + str(n),
+                    content='public synthetic source')]), **base))
+        return rows[:4] + branches + results + rows[4:]
+
+    def test_native_claude_nested_same_api_preserves_exact_bytes(self):
+        text = ' \n{"fixture":true}\t\n'
+        for version in ('2.1.259', '2.1.284'):
+            for depth in (0, 1, 3, 32):
+                with self.subTest(version=version, depth=depth):
+                    rows = self.nested_claude_records(depth, text)
+                    for row in rows:
+                        if 'version' in row: row['version'] = version
+                    data = self.native_bytes(rows)
+                    raw, proof = self.parse_native('claude', rows)
+                    self.assertEqual(raw, text.encode())
+                    self.assertEqual(proof['source_sha256'], life.digest(data))
+                    self.assertEqual(proof['source_bytes'], len(data))
+                    self.assertEqual(proof['final_line'], len(rows) - 1)
+                    self.assertEqual(self.native_bytes(rows), data)
+
+    def test_native_claude_nested_rejects_unproven_api_and_branches(self):
+        original = self.nested_claude_records()
+        variants = []
+        # A nested identity must be known on the main chain and match its parent.
+        for index, path, values in (
+            (2, ('requestId',), (None, '', 'foreign', 1)),
+            (4, ('requestId',), (None, '', 'foreign', 1)),
+            (5, ('requestId',), (None, '', 'foreign', 1)),
+            (5, ('message', 'id'), (None, '', 'foreign', 'final-message', [])),
+            (5, ('parentUuid',), ('missing', 'parallel-1', 'parallel-2', 'side-result-0')),
+            (5, ('message', 'content'), ([dict(type='text', text='{}')],
+                [dict(type='thinking', thinking='synthetic')],
+                [dict(type='tool_use'), dict(type='text', text='{}')], [], None)),
+            (5, ('message', 'stop_reason'), ('end_turn', 'unknown')),
+            (8, ('message', 'content'), ([dict(type='text', text='new turn')],)),
+        ):
+            for value in values:
+                bad = deepcopy(original)
+                target = bad[index]
+                for key in path[:-1]: target = target[key]
+                target[path[-1]] = value
+                variants.append(bad)
+        for index in (2, 4, 5):
+            bad = deepcopy(original)
+            del bad[index]['requestId']
+            variants.append(bad)
+        # Equal side identities are insufficient without the same main-chain API.
+        bad = deepcopy(original)
+        for row in bad[4:7]: row['requestId'] = 'foreign'
+        variants.append(bad)
+        # A side tool result cannot parent another side tool result.
+        bad = deepcopy(original)
+        bad[9]['parentUuid'] = 'side-result-0'
+        variants.append(bad)
+        for parent in ('parallel-0', 'side-result-0'):
+            bad = deepcopy(original)
+            attachment = deepcopy(bad[10])
+            attachment.update(uuid='off-chain-attachment', parentUuid=parent)
+            bad.insert(10, attachment)
+            variants.append(bad)
+        for n, bad in enumerate(variants):
+            with self.subTest(case=n), self.assertRaises(life.LifecycleError):
+                self.parse_native('claude', bad)
+
+    def test_native_claude_rejects_backward_tool_result_parent_for_assistant(self):
+        rows = self.nested_claude_records()
+        self.assertEqual(self.parse_native('claude', rows)[0], b' \n{"fixture":true}\t\n')
+        # Same API identity and tool-only content cannot bridge a side result.
+        assistant = deepcopy(rows[5])
+        assistant.update(uuid='result-parent-assistant', parentUuid='side-result-0', apiBlockIndex=4)
+        assistant['message']['content'][0]['id'] = 'result-parent-tool'
+        result_index = next(i for i, row in enumerate(rows) if row.get('uuid') == 'side-result-0')
+        rows.insert(result_index + 1, assistant)
+        with self.assertRaisesRegex(life.LifecycleError, '^ambiguous Claude branch$'):
+            self.parse_native('claude', rows)
+
     def test_native_rejects_partial_json_unknown_provider_and_byte_line_limits(self):
         for provider in ('codex', 'claude'):
             data = self.native_bytes(self.native_records(provider, '{}'))
