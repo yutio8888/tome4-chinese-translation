@@ -24736,7 +24736,7 @@ section "mod-tome/data/talents/gifts/dwarven-nature.lua"
 t("Earthen Missiles", "岩石飞弹", "talent name")
 t([[Conjures %d missile-shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.
 		At talent level 5, you can conjure one additional missile.
-		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害和每回合 %0.2f 流血伤害，持续 5 回合。
+		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，并使可流血的目标每回合受到 %0.2f 流血伤害，持续 5 回合；命中时还会立即造成一次额外的物理伤害，其基础数值与上述每回合流血伤害相同。
 		在等级 5 时，你可以额外释放一个飞弹。
 		伤害受法术强度加成。]], "tformat")
 t("Elemental Split", "元素分裂", "talent name")
@@ -29646,7 +29646,7 @@ section "mod-tome/data/talents/spells/stone.lua"
 t("Earthen Missiles", "岩石飞弹", "talent name")
 t([[Conjures %d missile-shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.
 		At talent level 5, you can conjure one additional missile.
-		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害和每回合 %0.2f 流血伤害，持续 5 回合。
+		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，并使可流血的目标每回合受到 %0.2f 流血伤害，持续 5 回合；命中时还会立即造成一次额外的物理伤害，其基础数值与上述每回合流血伤害相同。
 		在等级 5 时，你可以额外释放一个飞弹。
 		伤害受法术强度加成。]], "tformat")
 t("Body of Stone", "岩石身躯", "talent name")
@@ -29662,7 +29662,7 @@ t([[You root yourself into the earth, and transform your flesh into stone.  Whil
 		抗性随法术强度提升。]], "tformat")
 t("Earthquake", "地震", "talent name")
 t([[Causes a violent earthquake that deals %0.2f physical damage in a radius of %d each turn for %d turns, and potentially stuns any and all creatures it affects.
-		The damage will increase with your Spellpower.]], [[引起一波强烈的地震，每回合造成 %0.2f 物理伤害 （%d 码半径范围），持续 %d 回合。有概率震慑此技能所影响到的怪物。
+		The damage will increase with your Spellpower.]], [[引起一波强烈的地震，每回合造成 %0.2f 物理伤害 （%d 码半径范围），持续 %d 回合。有概率震慑此技能所影响到的所有生物。
 		伤害受法术强度加成。]], "tformat")
 t("Crystalline Focus", "水晶力场", "talent name")
 t([[Concentrate on maintaining a Crystalline Focus, increasing all your physical damage by %0.1f%% and ignoring %d%% physical resistance of your targets.
@@ -29788,8 +29788,8 @@ t([[Hurl ice shards at the targets in the selected area. Each shard travels slow
 		If the target resists being frozen, it instead get wet.
 		If the target is wet the damage increases by 30%% and the ice freeze chance increases to 50%%.
 		This spell will never hit the caster.
-		The damage will increase with your Spellpower.]], [[朝指定区域内的所有目标发射寒冰箭。每根寒冰箭缓慢飞行，命中时会击中目标周围所有相邻单位，造成 %0.2f 冰系伤害，并有 25%% 几率将其冻结。
-		如果目标抵抗了冻结，则会使其湿润。
+		The damage will increase with your Spellpower.]], [[朝指定区域内的所有目标发射寒冰箭。每根寒冰箭缓慢飞行，命中时造成 %0.2f 冰系伤害，并有 25%% 几率将其冻结。
+		若命中后目标未处于冰冻状态，则会使其湿润。
 		如果目标处于湿润状态，伤害增加 30%%，同时冰冻率上升至 50%%。
 		此法术不会伤害施法者。
 		伤害受法术强度加成。]], "tformat")
@@ -29804,7 +29804,7 @@ t("A #LIGHT_BLUE#wave of icy water#LAST# erupts from the ground!", "一股 #LIGH
 t([[A wall of water rushes out from the caster with an initial radius of 1, increasing by 1 per turn to a maximum radius of %d, doing %0.2f cold damage and %0.2f physical damage to all inside, as well as knocking back targets each turn.
 		The tidal wave lasts for %d turns.
 		All creatures hit gain the wet effect, which reduces their stun/freeze immunity by half and interacts with other cold spells.
-		The damage and duration will increase with your Spellpower.]], [[一道水墙以施法者为中心涌出，初始半径为 1 格，每回合扩大 1 格，最大半径为 %d 格；对范围内所有目标造成 %0.2f 寒冷伤害和 %0.2f 物理伤害，并在每回合将其击退。
+		The damage and duration will increase with your Spellpower.]], [[一道水墙以施法者为中心涌出，初始半径为 1 格，每回合扩大 0.5 格，最大半径为 %d 格；对范围内所有目标造成 %0.2f 寒冷伤害和 %0.2f 物理伤害，并在每回合将其击退。
 		潮汐持续 %d 回合。
 		所有被击中的生物都会进入湿润状态，使其震慑与冰冻免疫减半，并会与其他寒冷法术产生互动。
 		伤害与持续时间受法术强度加成。]], "tformat")
