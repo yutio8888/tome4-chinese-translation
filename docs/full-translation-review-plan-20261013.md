@@ -193,3 +193,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-15续：窗口-09五条新revision（含矮人共享条目）fresh生产A5/B5及各自完整17项／构建、DONE、归档和导入闭合；round-v12有效346A/186B，普通target修复队列为空，净化之焰显示／运行1条显式pending仍未计完成。保持Opus5.5/GPT6.1Sol，按连续授权推进下一有界切片。最终分母、补充项和游戏验收仍开放。
 
 2026-10-15 M3phase03完成52A／22B，六个task分别完成full17/build、DONE、归档及导入。新增有效49A／19B至395A／205B，3项确认问题涉及2条target合并window-10修复；凝固时间和净化之焰共2条source/runtime pending，不改游戏代码或formatter。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-03/REPORT.md)。之后fresh生产A/B并连续选择下一有界切片，最终分母、补充项及游戏验收仍开放。
+
+2026-10-15续：窗口-10两条新 revision fresh生产 A2/B2 与各自完整17项／构建、DONE、归档和导入闭合；round-v14 有效397A/207B，普通 target 修复队列为空，两条显示／运行 pending 显式保留。继续使用 Opus5.5/GPT6.1Sol，按既定连续授权推进下一有界切片；最终分母、补充项和游戏验收仍开放。
