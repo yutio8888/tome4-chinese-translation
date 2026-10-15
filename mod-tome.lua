@@ -28698,8 +28698,8 @@ t([[Engulfs your hands (and weapons) in a sheath of fire, dealing %0.2f fire dam
 t("Shock Hands", "闪电之触", "talent name")
 t([[Engulfs your hands (and weapons) in a sheath of lightning, dealing %d lightning damage with a chance to daze (25%%) per melee attack and increasing all lightning damage dealt by %d%%.
 		Each hit will also regenerate %0.2f mana.
-		The effects will increase with your Spellpower.]], [[你的双手笼罩在雷电中，每次近战攻击会造成 %d 闪电伤害（25%% 几率眩晕敌人），并提高 %d%% 所有闪电系伤害。
-		每次攻击同时也会回复 %0.2f 法力值。
+		The effects will increase with your Spellpower.]], [[你的双手（及武器）笼罩在雷电中，每次近战攻击会造成 %d 闪电伤害（25%% 几率眩晕敌人），并提高 %d%% 所有闪电系伤害。
+		每次命中同时也会回复 %0.2f 法力值。
 		效果受法术强度加成。]], "tformat")
 t("Inner Power", "心灵之力", "talent name")
 t([[You concentrate on your inner self, increasing your Strength, Dexterity, Magic, and Cunning by %d.
@@ -29704,7 +29704,7 @@ t([[This intricate spell instantly erects a time shield around the caster, preve
 		Each turn the restoration field is active, you get healed for 10%% of the absorbed damage (Aegis Shielding talent affects the percentage).
 		The shield's max absorption will increase with your Spellpower.]], [[这个复杂的法术在施法者周围立刻制造一个时间盾，阻止你受到的伤害并将其送往未来。
 		一旦达到最大伤害吸收值 （%d） 或持续时间 （%d 回合）结束，储存的伤害会以时间回复力场的形式返还，持续 5 回合。
-		时间回复力场存在的每回合，你将回复总吸收伤害的 10%%（强化护盾技能会影响该系数）。
+		时间回复力场存在的每回合，你将回复总吸收伤害的 10%%。
 		最大吸收值受法术强度加成。]], "tformat")
 t("Time Prison", "时光牢笼", "talent name")
 t([[Removes the target from the flow of time for %d turns. In this state, the target can neither act nor be harmed.
