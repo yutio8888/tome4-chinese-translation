@@ -181,3 +181,5 @@ p12s3 已闭合：本批新增 9A/2B，确认待修 revision=0；
 执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
 
 2026-10-15 用户明确要求继续推进全量审核。M3 phase01 按三个有界源码切片完成48A／24B，指定模型各task独立门禁、构建、DONE、归档和导入闭合，新增有效40A／16B至283A／153B。11个确认问题点涉及8条target，按边界合并window-08修复；名称建议不扩展为改名。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-01/REPORT.md)。完成修复及新revision生产A/B后连续选择下一有界切片；最终分母、补充项及候选游戏验收仍开放。
+
+window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；初审的一项距离单位意见保留advisory，正确编号fresh终审8OK，执行者及宿主最终完整17项含构建通过。宿主终态编号冲突与恢复证据完整保留，未归因为模型或门禁故障。实现复审不给生产覆盖，待R10精确后继及fresh8A/8B后连续推进下一有界切片。见[修复与闭合](../evidence/full-review/release-20261013/repairs/window-08/ORCHESTRATION.json)。

@@ -28136,7 +28136,7 @@ t([[Surround yourself with strengthening arcane forces.
 		Every damage shield, time shield, displacement shield, and disruption shield affecting you has its power increased by %d%%.
 		At level 5, it also increases the duration of all shields by 1 turn.
 		The shield value will increase with your Spellpower.]], [[使你的周身围绕着强烈的奥术能量。
-		你的每个伤害护盾、时间护盾、转移护盾、干扰护盾的强度上升 %d%%。
+		你的每个伤害护盾、时间盾、转移护盾、干扰护盾的强度上升 %d%%。
 		在等级 5 时，它还会使所有护盾的持续时间延长 1 回合。
 		护盾强度受法术强度加成。]], "tformat")
 t("Arcane Shield", "奥术护盾", "talent name")
@@ -28144,8 +28144,8 @@ t([[Surround yourself with protective arcane forces.
 		Each time you receive a direct heal (not a life regeneration effect), you automatically gain a damage shield equal to %d%% of the heal value for 3 turns.
 		This will replace an existing damage shield if the new shield value and duration would be greater than or equal to the old.
 		The shield value will increase with your Spellpower.]], [[使你的周身围绕着保护性的奥术能量。
-		每当你获得一个直接治疗时（非持续恢复效果）你会自动获得一个护盾，护盾强度为治疗量的 %d%%， 持续 3 回合。
-		如果新护盾的量和持续时间比当前护盾大或相等，将会取代之。
+		每当你获得一个直接治疗时（非持续恢复效果）你会自动获得一个伤害护盾，护盾强度为治疗量的 %d%%， 持续 3 回合。
+		如果新护盾的量和持续时间比当前伤害护盾大或相等，将会取代之。
 		护盾强度受法术强度加成。]], "tformat")
 t("Aegis", "守护印记", "talent name")
 t([[Release arcane energies into most magical shields currently protecting you.
@@ -28154,8 +28154,8 @@ t([[Release arcane energies into most magical shields currently protecting you.
 		Disruption Shield: Tap into the stored energies to restore the shield (at a rate of 2 energy per 1 shield power). Any leftover energy is converted back into mana at a rate of %0.2f energy per mana.
 		The charging will increase with your Spellpower.]], [[释放奥术能量充满当前保护你的魔法护盾，进一步强化它。
 		它会影响最多 %d 种护盾效果。
-		伤害护盾，时间护盾，转移护盾：提高 %d%% 最大伤害吸收值。
-		干扰护盾：将储存的能量转化为护盾值（比例为2:1）。剩余能量将以 %0.2f 的比例转化为法力值。
+		伤害护盾、时间盾、转移护盾：增加相当于护盾初始强度 %d%% 的伤害吸收量。
+		干扰护盾：将储存的能量转化为护盾值（比例为2:1）。每 %0.2f 点剩余能量转化为 1 点法力值。
 		充能强度受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -28244,13 +28244,13 @@ section "mod-tome/data/talents/spells/air.lua"
 
 t("Lightning", "闪电术", "talent name")
 t([[Conjures up mana into a powerful beam of lightning, doing %0.2f to %0.2f damage (%0.2f average)
-		The damage will increase with your Spellpower.]], [[用魔法召唤一次强力的闪电造成 %0.2f ～ %0.2f 伤害（平均 %0.2f）。
+		The damage will increase with your Spellpower.]], [[用魔法召唤一道强力的闪电光束造成 %0.2f ～ %0.2f 伤害（平均 %0.2f）。
 		伤害受法术强度加成。]], "tformat")
 t("Chain Lightning", "连锁闪电", "talent name")
 t([[Invokes an arc of lightning doing %0.2f to %0.2f damage (%0.2f average) and chaining to another target.
 		The arc can jump to %d targets at most, up to 10 grids apart, and will never jump to the same target twice, or to the caster. The arc will also strike all creatures between each target.
 		The damage will increase with your Spellpower.]], [[召唤一道闪电链，造成 %0.2f 至 %0.2f 点闪电伤害（平均 %0.2f 点），随后跃向另一个目标。
-		闪电链最多可跃向 %d 个目标，每次跃迁的两个目标之间最多相隔 10 格；不会重复命中同一目标，也不会跃向施法者。每次跃迁还会击中两个目标之间的所有生物。
+		闪电链最多可选取 %d 个不同目标；后续目标均从首个目标周围 10 格内选取，每段光束的投射距离最多为 10 格。光束还会击中路径上的其他生物，但不会伤及施法者。
 		伤害随法术强度提高。]], "tformat")
 t("Feather Wind", "风之羽翼", "talent name")
 t([[A gentle wind circles around the caster, increasing carrying capacity by %d, defense against projectiles by %d, pin immunity by %d%% and stun immunity by %d%%.
@@ -28264,7 +28264,7 @@ t("#0080FF#The furious lightning storm around %s calms down and disappears.", "#
 t([[Conjures a furious, raging lightning storm with a radius of 6 that follows you as long as this spell is active.
 		Each turn, a random lightning bolt will hit up to %d of your foes for 1.00 to %0.2f damage (%0.2f average) in a radius of 1.
 		The damage will increase with your Spellpower.]], [[当此技能激活时，在 6 码半径范围内召唤一阵强烈的闪电风暴跟随你。
-		每回合闪电风暴会随机伤害最多 %d 个敌方单位，对 1 码半径范围造成 1.00 ～ %0.2f 伤害（平均 %0.2f）。
+		每回合闪电风暴会随机选取最多 %d 个敌方单位作为落雷中心，每道闪电对中心周围 1 码半径范围造成 1.00 ～ %0.2f 伤害（平均 %0.2f）。
 		伤害受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -29276,7 +29276,7 @@ section "mod-tome/data/talents/spells/meta.lua"
 t("Disperse Magic", "驱散", "talent name")
 t([[Removes up to %d magical effects (good effects from foes, and bad effects from friends) from the target.
 		At level 3, it can be targeted.
-		]], [[驱散目标身上的 %d 种魔法效果（敌方单位的增益状态和友方单位的负面状态）。
+		]], [[驱散目标身上至多 %d 种魔法效果（敌方单位的增益状态和友方单位的负面状态）。
 		在等级 3 时可以选择目标。]], "tformat")
 t("Spellcraft", "法术亲和", "talent name")
 t([[You learn to finely craft and tune your spells, reducing all their cooldowns by %d%%.
@@ -29686,7 +29686,7 @@ t("Hurricane", "飓风", "talent name")
 t([[Each time one of your lightning spells dazes a target, it has a %d%% chance to creates a chain reaction that summons a mighty Hurricane that lasts for 10 turns around the target with a radius of %d.
 		Each turn, the afflicted creature and all creatures around it will take %0.2f to %0.2f lightning damage (%0.2f average).
 		The damage will increase with your Spellpower.]], [[每当你的闪电法术使目标眩晕时，有 %d%% 概率触发连锁反应，以目标为中心召唤半径 %d 的强力飓风，持续 10 回合。
-		每回合，受影响的生物及其周围所有生物会受到 %0.2f ～ %0.2f 闪电伤害（平均 %0.2f）。
+		每回合，受影响的生物及其周围除施法者外的所有生物会受到 %0.2f ～ %0.2f 闪电伤害（平均 %0.2f）。
 		伤害随法术强度提高。]], "tformat")
 t("Tempest", "无尽风暴", "talent name")
 t([[Surround yourself with a Tempest, increasing all your lightning damage by %d%% and ignoring %d%% lightning resistance of your targets.
