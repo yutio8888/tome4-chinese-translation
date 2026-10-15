@@ -189,3 +189,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-15 M3phase02完成55A／25B，各task指定模型独立门禁、构建、DONE、归档及导入，新增有效50A／20B至341A／181B。5项确认机制问题涉及4条target合并window-09修复；净化之焰显示／运行1条显式pending，不改游戏代码或formatter。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-02/REPORT.md)。随后fresh生产A/B并连续选择下一个有界切片；最终分母、补充项及游戏验收仍开放。
 
 窗口-09五条候选（四条修复及矮人同运行键同步）已 DONE_VERIFIED，独立Opus5.5初审／终审均5OK，执行者与宿主完整17项含构建通过。初始漏列共享键导致的失败门禁及STOP任务保留于[可重放闭合证据](../evidence/full-review/release-20261013/repairs/window-09/ORCHESTRATION.json)；fresh收尾仅同步一条，保留原修复及报告。实现复审不给生产覆盖，待R12精确后继及fresh5A/5B后连续推进下一有界切片。净化之焰显示／运行问题1条继续显式pending，最终分母、补充项和游戏验收仍开放。
+
+2026-10-15续：窗口-09五条新revision（含矮人共享条目）fresh生产A5/B5及各自完整17项／构建、DONE、归档和导入闭合；round-v12有效346A/186B，普通target修复队列为空，净化之焰显示／运行1条显式pending仍未计完成。保持Opus5.5/GPT6.1Sol，按连续授权推进下一有界切片。最终分母、补充项和游戏验收仍开放。
