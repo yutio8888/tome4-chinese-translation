@@ -4334,8 +4334,8 @@ t([[Using your arcane power you force galvanic rods to linger for %d turns. Whil
 		任何被放电射线或放电领域击中的生物都会每回合受到 %0.2f 放电伤害。
 		你最多同时释放三枚放电柱。
 		技能等级 3 时，所有被影响的生物会被震撼，使他们的震慑和定身抗性减半。
-		技能等级 5 时，你的金属武器，或是装载了金属插件的武器，可以作为一个放电柱使用，该放电柱不计入你的放电柱总量。
-		这一法术有 15%% 的几率触发风暴之怒。
+		技能等级 5 时，你的金属武器，或是装载了金属插件的武器，可以作为一个放电柱使用，该放电柱仍计入你的放电柱总量。
+		若风暴之怒已激活，这一法术有 15%% 的几率尝试触发它。
 		技能伤害受法术强度加成。]], "tformat")
 t("Unstable Blast", "不稳定爆破", "talent name")
 t("You need Galvanic Arcing active and at least one rod to cast this spell.", "你需要开启电弧放射并至少有一个放电柱才能释放这一法术。", "logPlayer")
@@ -4370,7 +4370,7 @@ t([[You imbue a steamsaw with arcane and temporal forces, making it spin very fa
 		#{italic}#When you first learn this talent you also learn the Steamsaw tinker creation if you didn't already know it.#{normal}#
 		]], [[你把奥术和时空能量注入一把蒸汽链锯，让它绕着你的腰飞速旋转（无视装备需求）。
 		这把链锯旋转的速度是那么快，它扰乱了你周围的时空。最多增加你 %d 的法术强度， %d 的法术暴击率，和 %0.1f 的法力值恢复（基于蒸汽链锯的材质等级）
-		任何命中你的近战攻击都会自动触发一次必定命中的蒸汽链锯反击，造成 %d%% 玄机（奥术和时空）武器伤害。
+		对你造成伤害的近战攻击命中时，会自动触发一次必定命中的蒸汽链锯反击，造成 %d%% 玄机（奥术和时空）武器伤害；同一攻击者每回合至多触发一次。
 		使用这种方法装备的蒸汽链锯会提供与正常装备时相同的属性加成，但你不能使用它来格挡。
 		增加蒸汽链锯的武器伤害 %d%%， 并在使用蒸汽链锯时用魔力值代替力量值计算伤害。
 		如果你激活了以太之体，所有科技法术：玄机系的技能都可以在其持续期间使用，并且所有玄机伤害都会转化为纯净的奥术伤害。
@@ -4397,7 +4397,7 @@ t([[You reach out through the aether to all creatures in sight that were slowed 
 		Any time the target uses a talent one of your cooling down spells is reduced by 1 (prioritizing Technomancy spells).
 		Each turn the link is up the target and any creature inside the link takes %0.2f occult damage.
 		As long as at least one link is up, the cooldown of your Metaphasic Spin spell is set to 6 turns instead of 30.
-		The damage will increase with your Spellpower.]], [[你通过以太触及视野内所有被现实切裂或时间凝固减速的生物。
+		The damage will increase with your Spellpower.]], [[你通过以太触及视野内所有被现实切裂或时间凝固减速的敌人。
 		你会为每个目标建立一条注入奥术能量的蒸汽链接，持续 %d 回合。
 		每当目标使用技能时，你一个正在冷却的法术便会减少 1 回合冷却时间（优先选择科技法术）。
 		链接存在期间，每回合目标和链接线上的所有生物都会受到 %0.2f 玄机伤害。
@@ -4471,7 +4471,7 @@ t([[You build %d micro spiderbot(s) from the earthly elements around you. Spider
 t("Cryogenic Digs", "低温掘进", "talent name")
 t([[Each time a spiderbot expires it digs around, producing either a Glacial Vapour (%0.2f cold damage and doing 30%% more damage to wet targets) or Earthquake (%0.2f physical damage and 25%% chances to stun for 2 turns) of radius 1 that last for %d turns.
 		Those special kinds of Glacial Vapour and Earthquake do not affect the caster.
-		The damage will increase with your Spellpower.]], [[每当一个蜘蛛机器人的持续时间结束时，它会掘地，在周围产生寒霜冰雾（造成 %0.2f 寒冷伤害，对浸湿目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），半径为 1，持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[每当蜘蛛机器人因持续时间结束、数量超限或机器人冲撞而被移除时，它会掘地，在周围产生寒霜冰雾（造成 %0.2f 寒冷伤害，对浸湿目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），半径为 1，持续 %d 回合。
 		这些特殊的寒霜冰雾和地震不会影响施法者。
 		伤害随法术强度提高。]], "tformat")
 t("Ramming Bot", "机器人冲撞", "talent name")
@@ -4479,7 +4479,7 @@ t("You need an arcane dynamo and an active spiderbot to cast this spell.", "你�
 t([[Command a random spiderbot to jump onto your target at ramming speed. The impact destroys the bot (possibly triggering Cryogenic Digs).
 		This creates a radius %d explosion dealing %0.2f terrene damage to all creatures while also freezing them for %d turns and rendering them wet for %d turns.
 		The cooldown of this spell is affected by Body of Stone.
-		The damage will increase with your Spellpower.]], [[命令一个随机的蜘蛛机器人以冲撞速度跃向目标。撞击会摧毁机器人（可能触发低温掘进）。
+		The damage will increase with your Spellpower.]], [[命令一个剩余持续时间最短的蜘蛛机器人以冲撞速度跃向目标。撞击会摧毁机器人（可能触发低温掘进）。
 		这会产生半径为 %d 的爆炸，对所有生物造成 %0.2f 寒岩伤害，同时将它们冻结 %d 回合并使其浸湿 %d 回合。
 		此法术的冷却时间受岩石身躯影响。
 		伤害随法术强度提高。]], "tformat")
