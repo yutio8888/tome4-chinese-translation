@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "scope": "ordinary bounded plan-document revision; no active Paseo task, tool behavior change or translation production credit",
+  "original_review": {
+    "task_id": "parallel-efficiency-plan-review-20261015-01",
+    "dispatch_id": "plan-opus-02",
+    "agent_id": "1863df87-5e83-4805-aed3-fe0be7e71e77",
+    "model_verified": "claude-opus-5-5",
+    "verdict": "CHANGES_REQUIRED",
+    "candidate_ref": "30041b7560c22eb2462f08a386759b065d17948cbf648287339ab675e44ce636",
+    "preserved_raw_path": "evidence/plan-review/parallel-efficiency-revision-20261016/OPUS-REVIEW.txt",
+    "preserved_raw_sha256": "fc1006a4882a08c6c74d95a32cf6f8c7d41e705bc0645d6b0ca7f49c07874739",
+    "input_metrics_path": "evidence/plan-review/parallel-efficiency-revision-20261016/INPUT-METRICS.json",
+    "input_metrics_sha256": "e103af70aa59a84ce20c5cd09db82014f6ae717bfde20e0231289464371da668",
+    "adjudication_sha256": "6710ffb16bdf94db0424fa0de7542c4f433e40ebe004f6a81fcbd4eb6faaf850",
+    "prior_task_done": true,
+    "all_prior_children_archive_confirmed": true
+  },
+  "revised_document": {
+    "path": "docs/full-review-parallel-efficiency-plan-20261016.md",
+    "sha256": "46be1476d5f65ae8fb5c730a5370c4bd2a3efca2e3d1a03b0e77d1c0d3524e21",
+    "new_independent_review_verdict": null,
+    "performance_trial_status": "not_run"
+  },
+  "findings": [
+    {
+      "finding_id": "F1",
+      "original_severity": "medium",
+      "host_status": "confirmed",
+      "revision_status": "addressed_in_document",
+      "revised_sections": [
+        {
+          "heading": "## 共享工作区的调度规则",
+          "line": 23
+        }
+      ],
+      "accepted_direction": "Require exclusive nonignored/tracked tree publication window during any gate; ignored orchestration or read-only source preparation may continue. Include tracked ignored files because gate binding explicitly includes all cached paths.",
+      "qualification": null,
+      "implementation_status": "not_started"
+    },
+    {
+      "finding_id": "F2",
+      "original_severity": "medium",
+      "host_status": "confirmed",
+      "revision_status": "addressed_in_document",
+      "revised_sections": [
+        {
+          "heading": "### 独立工作区门禁",
+          "line": 66
+        },
+        {
+          "heading": "### 译文修复合并单独处理",
+          "line": 87
+        }
+      ],
+      "accepted_direction": "Separate gate-only worktree workers from translation patch integration. Design exact task/baseline/current-evidence synchronization and receipt/native/environment/root validation before enabling parallel gates. Keep export/import/publication in one authoritative root with one lock; retain wave nonempty apply as a separate future limitation. A receipt-copy experiment alone proves no cross-root production acceptance.",
+      "qualification": null,
+      "implementation_status": "not_started"
+    },
+    {
+      "finding_id": "F3",
+      "original_severity": "medium",
+      "host_status": "confirmed",
+      "revision_status": "addressed_in_document",
+      "revised_sections": [
+        {
+          "heading": "## 现有测量能说明什么",
+          "line": 7
+        },
+        {
+          "heading": "## 先测量并调整批次",
+          "line": 42
+        },
+        {
+          "heading": "### 批量准备入口",
+          "line": 54
+        }
+      ],
+      "accepted_direction": "Measure command-level export and separate historical-check wall times before maintenance investment. Larger coherent batches can amortize fixed per-task overhead. Do not claim all262seconds are replay, do not claim model-only parallelism provides2x.",
+      "qualification": "The approximate1.3x bound is illustrative under assumed serial costs, not an observed throughput bound; the mtime interval may include waiting/other work and gate/test time is not proven invariant for all workloads.",
+      "implementation_status": "not_started"
+    },
+    {
+      "finding_id": "F4",
+      "original_severity": "low",
+      "host_status": "confirmed",
+      "revision_status": "addressed_in_document",
+      "revised_sections": [
+        {
+          "heading": "## 吞吐基线与试点验收",
+          "line": 91
+        }
+      ],
+      "accepted_direction": "Define baseline and timing start at batch preparation before export, ending at scoped commit. Include every necessary validation/retry. Compare source/risk/text-size/A-B mix and control batching versus scheduling/tool changes separately. Treat2x as a pilot target pending measurement.",
+      "qualification": null,
+      "implementation_status": "not_started"
+    }
+  ],
+  "root_advisories_addressed": [
+    {
+      "topic": "capacity provenance",
+      "resolution": "Three active reviewer children is a conservative scheduling budget, not an established Paseo daemon limit."
+    },
+    {
+      "topic": "batch prepare correctness",
+      "resolution": "Same invocation only; authoritative round_lock, sealed-history reuse, live obligation updates, per-task validation and final full replay."
+    }
+  ],
+  "preserved_boundaries": [
+    "fixed exact A/B model preference",
+    "source/context coverage and frozen task membership",
+    "every producer own full gates and strict build",
+    "original immutable task/native/review bytes",
+    "single writer and root publication",
+    "no cross-command cache or receipt patching",
+    "no new review or production credit"
+  ],
+  "validation_basis": "docs/agent-workflow.md verification matrix: pure document revision; facts, links, hashes and whitespace; no role/contract/tool behavior changes"
+}

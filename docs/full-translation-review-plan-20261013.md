@@ -175,7 +175,7 @@ p12s3 已闭合：本批新增 9A/2B，确认待修 revision=0；
 隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
 不计最终候选或三 DLC 玩法验收；M4 仍须实际加载最终候选。
 
-从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v9`。
+从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v17`。
 完整 task-gates 使用已验证的 `PATH=/usr/local/bin:$PATH` 与 `TOME_PASEO_WORKSPACE` 环境，
 当前按绝对 directory 调用；相对路径回执返回问题已有有界归因，待小型入口修正。
 执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
@@ -199,3 +199,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-15 M3phase04完成35A／16B，指定模型六个task各完成full17/build、DONE、归档和导入。累计427A／218B，8项确认问题合并5条target进入window-11；不改代码、formatter、术语库或既有全局命名。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-04/REPORT.md)。两条source/runtime pending、最终分母、补充项及游戏验收仍开放。
 
 2026-10-15续：窗口-11五条新 revision 的 fresh生产 A5/B5 与各自完整17项／构建、DONE、归档及导入闭合；round-v16 有效432A/223B，普通 target 修复队列为空，两条显示／运行 pending 显式保留。继续使用 Opus5.5/GPT6.1Sol 按既定连续授权推进下一有界切片；最终分母、补充项和游戏验收仍开放。
+
+2026-10-16 M3phase05完成27A／13B，七个任务各完成full17/build、DONE、归档和导入。累计454A／231B；8项确认问题合并5条target进入window-12。已实测导出内重复清单读取／解析开销，按[并行提效方案](full-review-parallel-efficiency-plan-20261016.md)另做有界工具维护；保留全部验证、模型与修复边界。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-05/REPORT.md)。两条source/runtime pending、最终分母、补充项及游戏验收仍开放。

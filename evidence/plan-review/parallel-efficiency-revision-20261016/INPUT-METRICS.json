@@ -1,0 +1,50 @@
+{
+  "basis": "Representative window11r production pair; preparation interval inferred from scope/ref file mtimes, gates use receipt timestamps. Serial work sum is not observed end-to-end latency.",
+  "lanes": {
+    "a": {
+      "prepare_mtime_interval_seconds": 262.2,
+      "gate_seconds": 188.9,
+      "gate_receipt": "evidence/full-review/release-20261013/round-v16/task-gates/full-review-20261013-window11r-a/window11r-a/results.json",
+      "agent_create_to_attention_seconds": 119.5
+    },
+    "b": {
+      "prepare_mtime_interval_seconds": 262.0,
+      "gate_seconds": 180.3,
+      "gate_receipt": "evidence/full-review/release-20261013/round-v16/task-gates/full-review-20261013-window11r-b/window11r-b/results.json",
+      "agent_create_to_attention_seconds": 130.5
+    }
+  },
+  "current_tool_call_reuses": false,
+  "quality_constraints_unchanged": true,
+  "plan": {
+    "immediate": {
+      "reviewer_children_max": 3,
+      "initial_allocation": {
+        "A_Opus_5_5": 2,
+        "B_GPT_6_1_Sol": 1
+      },
+      "shared_worktree_gates": "serial, with tracked candidate writes quiesced",
+      "future_batch_sizes": "20-40 mechanics or60-80shortentries, bounded by same source identity, actual preflight and evidence budget; no retroactive merges of frozen tasks",
+      "B_selection": "risk-selected neutral worksets may start with A; add uncovered A-observation units only via a new neutral frozen selection",
+      "writer": "one EXECUTOR per repair window; drain affected baseline reviews before target writes"
+    },
+    "maintenance_required": {
+      "bulk_prepare": "single invocation, one immutable inherited-history replay, validate every task selection/current candidate/coverage binding and final full replay; no gate-receipt reuse or cross-command cache",
+      "isolated_workers": "first two real worktrees/workspaces for gate concurrency, after root-map/native/predecessor/task/gate identity and publication support is implemented and independently reviewed",
+      "production_wave_limit": "existing tools support changes=[] only; nonempty integration apply requires verified implementation before use"
+    },
+    "validation": {
+      "pilot": "three source-comparable future batches; report actual end-to-end units/hour plus prep/model/gate/retry durations",
+      "target": "at least2x observed throughput as an acceptance objective, not a measured claim",
+      "unchanged_requirements": [
+        "exact A/B models",
+        "independent neutral review",
+        "fixed source verification",
+        "own complete17/build receipts",
+        "native identity and archive confirmation",
+        "DONE_VERIFIED and scoped commits",
+        "no duplicate production credit"
+      ]
+    }
+  }
+}

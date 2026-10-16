@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "sample_date": "2026-10-15",
+  "sample_description": "Five-revision repaired production A/B pair, window11r; historical sample only",
+  "original_metrics_path": "evidence/plan-review/parallel-efficiency-revision-20261016/INPUT-METRICS.json",
+  "original_metrics_sha256": "e103af70aa59a84ce20c5cd09db82014f6ae717bfde20e0231289464371da668",
+  "lanes": {
+    "a": {
+      "prepare_interval_seconds": 262.2,
+      "prepare_measurement": "scope/ref file mtime interval; approximate, not isolated export/check cost",
+      "agent_create_to_finished_seconds": 119.5,
+      "agent_measurement": "create to attention finished; includes startup and tool I/O",
+      "gate_wall_seconds": 188.9,
+      "gate_started_at": "2026-10-15T13:49:31.325348+00:00",
+      "gate_finished_at": "2026-10-15T13:52:40.228167+00:00",
+      "gate_receipt": "evidence/full-review/release-20261013/round-v16/task-gates/full-review-20261013-window11r-a/window11r-a/results.json",
+      "gate_receipt_sha256": "c804c44109b9f1379c77c18c5ecdc924bf292ff3c129da2e64701423972b1e5d",
+      "gate_checks": 17,
+      "strict_build": true
+    },
+    "b": {
+      "prepare_interval_seconds": 262.0,
+      "prepare_measurement": "scope/ref file mtime interval; approximate, not isolated export/check cost",
+      "agent_create_to_finished_seconds": 130.5,
+      "agent_measurement": "create to attention finished; includes startup and tool I/O",
+      "gate_wall_seconds": 180.3,
+      "gate_started_at": "2026-10-15T13:54:20.687473+00:00",
+      "gate_finished_at": "2026-10-15T13:57:20.947823+00:00",
+      "gate_receipt": "evidence/full-review/release-20261013/round-v16/task-gates/full-review-20261013-window11r-b/window11r-b/results.json",
+      "gate_receipt_sha256": "90c5e9889ff0002dfbcc5b72de165bfa073bddf00032fa561fc2651bd0b4189c",
+      "gate_checks": 17,
+      "strict_build": true
+    }
+  },
+  "historical_replay_seconds": null,
+  "export_command_wall_seconds": null,
+  "end_to_end_completed_units_per_hour": null,
+  "interpretation": "Do not sum potentially overlapping stages as observed end-to-end latency; source/ref mtime interval does not establish causal cost attribution. Command-level profiling and a comparable end-to-end baseline precede throughput claims."
+}

@@ -1,0 +1,88 @@
+# Opus 5.5 独立复审：并行提效方案（normal_review）
+
+我核对了 SPEC-ATTEMPT-02 冻结的 PLAN.md 与 METRICS.json，以及 SCOPE 允许的引用：`tools/i18nlib/full_review.py`、`tools/i18nlib/gate_results.py`、两份 window11r 门禁 receipt，和 workflow／契约的指定行段。候选 patch 去掉 `+` 前缀后与 PLAN.md 逐字一致。全程只读，没有写入任何文件。
+
+有几处论断与源码一致：
+- **每次导出都重放历史证据**：属实。`export()` 在 `round_lock` 内调用 `check(..., _outputs_only=True)`，`check()` 再对 predecessor 链递归调用 `check(previous, _historical=True)`。
+- **每批 80 条、单一源码身份**：与 `export()` 的 `1..80` 和 `mixed source identities` 校验一致。
+- **B 与 A 同时启动、A-observation 补 B**：可行。`export()` 要求 A 与 B 的中立 entry 一致，且 A-observation 必须先有已验证的 A ISSUE。
+- **wave 只支持 `changes=[]`**：与契约第 310–318 行一致。
+
+以下是 4 项意见。
+
+---
+
+**ID:** F1
+**Severity:** medium
+**File:** `.ai/task/parallel-efficiency-plan-review-20261015-01/PLAN.md`
+**Location:** 第一步第 4 点「模型审核期间，主代理准备下一批源码和上下文。共享工作区的门禁仍串行」；METRICS `shared_worktree_gates: "serial, with tracked candidate writes quiesced"`
+**Problem:** 方案只要求门禁之间串行、受跟踪候选不写入，漏了一条约束：门禁运行期间，同一工作区里任何未忽略的文件都不能写，未跟踪的也算。导出、导入和各类 evidence 写入都会落在 `evidence/full-review/...`，这个目录不在 ignore 中。所以在共享工作区里，门禁也必须和根代理的导出／导入互斥，不能只和别的门禁串行。
+**Evidence:**
+- `gate_results.binding()` 用 `git ls-files --cached --others --exclude-standard` 把未跟踪、未忽略的文件也算进 `worktree_sha256`。
+- `run()` 结束时比较 `result["binding"] != binding(root, ...)`，不一致就报 `gate binding changed during execution`。
+- `export()` 和 `import_result()` 都会用 `immutable()` 往 `evidence/full-review/<round>/exports|imports/` 写文件；当前的 `round-v17/` 正是未跟踪状态。
+- 两份 receipt 显示，A 门禁 13:49:36–13:52:35 与 B 门禁 13:54:26–13:57:14 当时是串行执行的。
+**Impact:** 如果照方案在审核期间准备下一批，又正好碰上另一路门禁在跑，这次门禁会失败关闭，每次重跑约 3 分钟。在共享工作区里，门禁会一直占住根代理这条串行通路，能拿来和审核重叠的只剩约 2 分钟的模型审核时间。
+**Recommended fix:** 在第一步写明：共享工作区里，门禁运行期间不得执行导出、导入或写任何未忽略的 evidence；准备工作只放在模型审核期间、没有门禁运行的时段。METRICS 中的 `tracked candidate writes quiesced` 改为「任何未忽略的工作树写入都暂停（含 evidence 与未跟踪文件）」。
+
+---
+
+**ID:** F2
+**Severity:** medium
+**File:** `.ai/task/parallel-efficiency-plan-review-20261015-01/PLAN.md`
+**Location:** 第三步「这一步需要先补齐生产支持：当前 wave 工具仅支持 changes=[] 的演练，尚不能直接承载实际译文修复的并行合并」
+**Problem:** 第三步要解决的是只写审核 evidence 的 A/B 任务的门禁并行，方案却把它的前置条件说成 wave 的 `changes=[]` 限制。wave 那条限制管的是译文修复的合并，和这里不是一回事。这类任务在独立 worktree 里跑门禁，真正缺的是另外几样东西，第三步正文都没写到。
+**Evidence:**
+- `gate_selection()` 会读 `manifest.root/.ai/task/<task_id>/BASELINE-MANIFEST.json` 和 `SPEC.md`，但 `.gitignore:9` 忽略了 `.ai/task/`，新建的 worktree 里不会有这些文件。
+- `task_gates()` 要求 round 目录位于 `manifest.root/evidence/full-review` 下，并对当前 round 做 `replay_export`。当前 round 的 evidence 还没提交，从 HEAD 新建的 worktree 看不到。
+- `round_lock()` 是按目录加的 `flock`，管不到跨 worktree 的情况；`check()` 的重复覆盖检测也只能看到本地的导出。
+- `validate_task_gates()` 调 `gate_results.validate` 时不传 `root`，所以 worker 产出的 receipt 拿回根工作区后，理论上可以按 selection 校验。这一点说明问题出在输入同步与发布路径上，而不在 wave apply。
+- METRICS `isolated_workers` 写的「root-map/native/predecessor/task/gate identity and publication support」比正文准确。
+**Impact:** 如果后续实现照正文排期，可能先去做 wave 的非空 apply，这项工作量大而且不需要，真正挡路的前置条件反而被漏掉。
+**Recommended fix:**
+- 第三步的前置条件改为：任务记录与 baseline 同步进 worker 且身份不变；当前 round evidence 的只读同步；导出、导入只由根工作区发布并持有锁，worker 只跑门禁；receipt 带回根工作区后按 `validate_task_gates` 校验。
+- wave 的 `changes=[]` 只作为「译文修复并行合并」的另一项独立限制保留。
+- 两路门禁同时跑会争抢 CPU，提速比例必须实测。从 receipt 看，`05-production-shadow-surface-ledger-tests` 一项就约占 90–97 秒，约为门禁的一半。
+
+---
+
+**ID:** F3
+**Severity:** medium
+**File:** `.ai/task/parallel-efficiency-plan-review-20261015-01/PLAN.md`
+**Location:** 第二步「这样才能减少目前每路约 4.4 分钟的重复准备成本」；METRICS `prepare_mtime_interval_seconds`
+**Problem:** 方案把 4.4 分钟整段当成可以消除的重复重放成本，但这个数没有拆开看。它也没算出第一步（3 路审核）在 Amdahl 定律下的收益上限，导致优先级排错了。
+**Evidence:**
+- METRICS 自己注明 4.4 分钟是「inferred from scope/ref file mtimes」：从 scope 文件写出到 `ref.json` 写出的间隔。这段时间里包括 workset／上下文的编写、`round_lock` 等待、源码事实读取和 preflight，不全是历史重放。
+- A、B 两路分别是 262.2 秒和 262.0 秒，几乎相等，也提示里面可能有共用或排队的时段。
+- 每一路在根代理上必须串行完成的工作约为准备 4.4 分钟加门禁 3.0–3.2 分钟，约 7.5 分钟，而模型审核只有约 2.1 分钟。审核路数再多，第一步单独带来的提速也不超过 (7.5+2.1)/7.5 ≈ 1.3 倍。这是估算，不是实测。
+- 门禁全是单元测试和构建，耗时与条目数无关。导出时的 `check()` 重放耗时随历史长度增长，也基本与本批条目数无关。
+**Impact:** 方案的标题是「3 路审核滚动推进」，但现有数据下，第一步真正的主要杠杆是批量从 11 条提到 20–80 条、摊薄每批的固定成本，不是多开审核路数。如果按标题顺序投入，2 倍目标可能落空，原因也说不清。
+**Recommended fix:**
+- 在第二步动工前，对单次 `export` 命令实测墙钟，并单独计时 `check()` 那段。确认真正可消除的部分有多大，再定批量准备工具的收益预期。
+- 在方案里写明：第一步的收益主要来自加大批量；审核路数加到 3 只在根代理串行工作不是瓶颈时才有用。
+
+---
+
+**ID:** F4
+**Severity:** low
+**File:** `.ai/task/parallel-efficiency-plan-review-20261015-01/PLAN.md`
+**Location:** 末段「用连续 3 批记录端到端每小时有效审核条数……先以吞吐提升 2 倍为验收目标」
+**Problem:** 验收目标没有定义基线。METRICS 只有各环节的分项耗时，没有当前「端到端每小时有效审核条数」的实测值。另外，试点批次在批量、源码身份和 A/B 比例上都会和基线不同，指标会被这些差异混淆。
+**Evidence:**
+- METRICS 中 `validation.target` 写的是「acceptance objective, not a measured claim」，`basis` 写明「Serial work sum is not observed end-to-end latency」，全文没有基线吞吐值。
+- `docs/agent-workflow.md` 第 53 行要求分别记录实际命令、投影和门禁的墙钟，只观察到审核提速不能宣称端到端提速。
+**Impact:** 3 批试点结束后，「2 倍」无法判定是否达成；也无法区分提速来自批量变化还是来自调度改动。
+**Recommended fix:** 先用最近几批的提交和 receipt 时间算出同一口径的基线（有效审核条数 ÷ 从第一个导出到最后一次提交的墙钟），写进验收条件。试点时，每批按「批量／路数／是否用批量准备工具」分别记录，至少给出批量单变量下的对照。
+
+---
+
+## 范围划分（AC3）
+
+| 类别 | 方案中的项目 | 依据 |
+| --- | --- | --- |
+| 可以立即调整的调度 | 第一步的配额分配、A/B 同时启动、批量在 80 条和单一源码身份内加大、429 退避 | 现行工具与契约已经支持 |
+| 需要先实现并独立复审 | 第二步的批量准备入口、第三步的独立 worktree 门禁 | 与 SPEC 一致 |
+
+已冻结的任务不回溯合并、不复用 receipt、不跨命令缓存，这几条与 workflow 第 118 行、第 270 行一致。
+
+VERDICT: CHANGES_REQUIRED
