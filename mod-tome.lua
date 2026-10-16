@@ -28533,12 +28533,12 @@ t([[Summon a Dread of level %d that will annoyingly blink around, hexing your fo
 		- 相位之门等级 %d
 		]], "tformat")
 t("Souleater", "噬魂者", "talent name")
-t("#GREY#%s has fed on enough minions and starts to randomly hex foes!", "#GREY#%s吸取了足够多的随从，开始随机对敌人释放邪术！", "logSeen")
+t("#GREY#%s has fed on enough minions and starts to randomly hex foes!", "#GREY#吞噬 %s 的能量后，噩灵吸取了足够多的随从能量，开始随机对敌人释放邪术！", "logSeen")
 t([[Any time one of your minions dies or expires, and even if it is resurrected by a boneyard, the dread feeds on it.
 		Each time it feeds it gets healed for %d and reduces remaining cooldown of its spells by %d.
 		Every 10 minion deaths it casts a random hex on up to %d foes at once, instantly and without triggering a cooldown.]], [[每当你的一个死灵随从死亡或超时的时候，噩灵会吸收它的能量，即使它被大墓地复活了仍然会如此。
 		每当噩灵吸收一个随从，它会恢复 %d 生命值，并降低其法术剩余冷却时间 %d。
-		每当它吸收 10 个死亡的随从，它会立刻朝最多 %d 个敌人释放邪术，不消耗时间，也不会触发技能冷却。]], "tformat")
+		每当它吸收 10 个死亡的随从，它会立刻对最多 %d 个敌人各释放一个随机邪术，不消耗时间，也不会触发技能冷却。]], "tformat")
 t("Neverending Peril", "不灭灾厄", "talent name")
 t("In an effort to make your dread more annoying you focus a shell of darkness around it, rendering it fully invincible for %d turns.", "你使用一层暗影包裹你召唤的噩灵，以便最大限度给敌人带来扰乱。噩灵在 %d 回合内进入无敌状态。", "tformat")
 t("Dreadmaster", "噩灵之王", "talent name")
@@ -28867,14 +28867,14 @@ t([[Conjure a shield of ice around you that can absorb a total of %d damage.
 		The shield strength will increase with your Spellpower.]], [[使用冰块在你的身边形成一道护盾，吸收最多 %d 点伤害。
 		每当其受到伤害，它会对攻击者发射一团冰球，造成 %0.2f 寒冷伤害（每个生物每回合最多触发一次）
 		当你的生命值在 1 以上的时候，护盾只吸收 66.6%% 的伤害。
-		当你的生命值在 1 以下时，护盾吸收 100%% 伤害，还会降低你受到的暴击伤害 %d%%。
-		当你脱离战斗 10 回合后，护盾将会试图消耗魔法和灵魂，将其恢复到满。如果不能满足这一条件，护盾会解除。
+		当你的生命值降至 1 以下时，护盾吸收 100%% 伤害，还会使直接暴击的额外伤害降低 %d%%。
+		脱离战斗 10 回合后，若护盾已吸收过伤害，将再次消耗法力值和灵魂恢复到满；资源不足则解除。
 		护盾强度受法术强度加成。]], "tformat")
 t("Desolate Waste", "荒芜之地", "talent name")
 t([[Every time your shield loses %d%% of its original value a circle of desolate waste will spawn under you, lasting 6 turns, and dealing %0.2f cold damage per turn to foes within radius %d.
 		If a creature is hit by your hiemal shield's retribution bolt while on the waste, the shield feeds of the wasteland to regenerate %0.1f%% of its original value.
 		No more than %d desolate wastes can trigger per shield activation.
-		The damage will increase with your Spellpower.]], [[每当护盾损失相当于原始护盾值 %d%% 的能量时，你脚下会生成一片荒芜之地，持续 6 回合；它每回合对半径 %d 格内的敌人造成 %0.2f 点寒冷伤害。
+		The damage will increase with your Spellpower.]], [[每当护盾损失相当于原始护盾值 %d%% 的能量时，你脚下会生成一片荒芜之地，持续 8 回合；它每回合对半径 %d 格内的敌人造成 %0.2f 点寒冷伤害。
 		若生物站在荒芜之地上被寒冬护盾的反击冰弹命中，护盾会汲取荒地的能量，恢复原始护盾值的 %0.1f%%。
 		每次启用护盾最多触发 %d 片荒芜之地。
 		伤害随你的法术强度提高。]], "tformat", {1,3,2,4,5})
@@ -29019,7 +29019,7 @@ t([[Summon an icy spike directly on a foe, impaling it for %0.2f cold damage.
 t("Chill of the Tomb", "极寒坟墓", "talent name")
 t([[Conjures up a bolt of cold that moves toward the target and explodes into a chilly circle of death, doing %0.2f cold damage in a radius of %d.
 		Necrotic minions caught in the blast do not take damage but are instead coated with a thin layer of ice, reducing all damage they take by %d for 4 turns.
-		The damage will increase with your Spellpower.]], [[召唤一道寒冰箭射向目标，并爆裂成冰冷的死亡之环，对半径 %d 内的生物造成 %0.2f 点寒冷伤害。
+		The damage will increase with your Spellpower.]], [[召唤一道寒冰箭射向目标，并爆裂成冰冷的死亡之环，对半径 %d 内的敌人造成 %0.2f 点寒冷伤害。
 		被爆炸波及的死灵随从不会受到伤害，而会覆盖一层薄冰，使其在 4 回合内受到的所有伤害降低 %d 点。
 		伤害受法术强度加成。]], "tformat", {2,1,3})
 t("Corpselight", "阴燃鬼火", "talent name")
@@ -29096,7 +29096,7 @@ t([[Your mastery of necromancy becomes so total that an aura of undeath radiates
 		In addition when you create new minions they inherit %d%% of your spellpower (applied to any powers), spell crit chance (applied to any crit chances), saves, resists and damage increases (applied to all elements).
 		]], [[你对死灵法术的掌握是如此强大，你可以在周围 %d 格范围内放射出不死能量的光环。
 		所有在光环内的不死随从会被光环保护，增加 %d%% 全体伤害抗性。
-		另外，当你创造不死随从的时候，它们会以 %d%% 比例继承你的法术强度（附加于所有强度），法术暴击率（附加于所有暴击率），豁免，抗性和伤害加成效果（附加于所有伤害加成）。
+		另外，当你创造不死随从的时候，它们会以 %d%% 比例继承你的法术强度（附加于所有强度），法术暴击率（附加于所有暴击率），豁免，抗性和最高伤害加成效果（附加于所有伤害加成）。
 		]], "tformat")
 t("Surge of Undeath", "不死狂潮", "talent name")
 t([[Sends out a surge of undeath energies into your aura.
@@ -29115,11 +29115,11 @@ t([[Sends out a surge of undeath energies into your aura.
 t("Recall Minions", "召回随从", "talent name")
 t([[Tighten the ethereal leash to some of your minions currently within your aura of undeath, pulling them to you and swapping place with any eventual foes in the way.
 		Up to %d minions are affected.
-		When recalling a minion the spell tries to prioritize a spot where there is already a foe, to push it away.]], [[拉紧你与不死光环内部分死灵随从之间的虚幻连接，将它们拉到你的身边，并与路径上的敌人换位。
+		When recalling a minion the spell tries to prioritize a spot where there is already a foe, to push it away.]], [[拉紧你与部分死灵随从之间的虚幻连接，将它们拉到你的身边，并与落点处的敌人交换位置。
 		最多召回 %d 个随从。
 		当你召回随从的时候，会优先选择已有敌人占据的格子，将其推开。]], "tformat")
 t("Suffer For Me", "替死鬼", "talent name")
-t("#GREY#(%d to minion: %s)#LAST#", "#GREY#(%d 到不死随从：%s)#LAST#", "tformat")
+t("#GREY#(%d to minion: %s)#LAST#", "#GREY#(%d 伤害转移给随从：%s)#LAST#", "tformat")
 t([[By creating an arcane link with your minion army you are able to redirect parts of any damage affecting you to them.
 		Anytime you take damage %d%% of it is instead redirected to a random minion within your aura of undeath.
 		The minion takes 300%% damage from that effect.
@@ -29149,7 +29149,7 @@ t([[Call upon the battlefields of old, collecting bones, fusing them with souls,
 		]], [[从古战场中收集白骨，将灵魂附着在白骨上，将其转化为你的骷髅随从。
 		最多召唤 %d 个 %d 级的骷髅战士，且最多可同时掌控 %d 个骷髅。
 		技能等级 3 时，你将会改为召唤武装骷髅战士。
-		技能等级 5 时，每当你召唤 3 个骷髅战士，将会额外召唤一个骷髅法师或骷髅弓箭手，不消耗灵魂。如果这超过了你的骷髅数量上限，会移除一个普通骷髅，并返还其灵魂消耗。
+		技能等级 5 时，每当你召唤 3 个骷髅战士，会额外免费召唤尚缺的骷髅法师或骷髅弓箭手（两者皆无时随机选择）；若两者都有，则额外召唤武装骷髅战士。如果因此超过骷髅数量上限，会移除一个普通骷髅，并返还其灵魂消耗。
 
 		#GREY##{italic}#骷髅的数量比食尸鬼更少，但一般来说更加强韧。#{normal}#
 		]], "tformat")
@@ -29160,7 +29160,7 @@ t([[Any time one of your skeleton or bone giant dies, it shatters in radius %d, 
 		This talent never works when you kill your own minions.
 		]], [[每当你的骷髅或骨巨人死去时，它会在半径 %d 码范围内粉碎，使敌人在5回合内受到 %0.2f 物理流血伤害。
 		如果范围内有其他骷髅或骨巨人，它们会使用这些骸骨强化自己，增加最大和当前生命值 %d， 护甲值 %d， 并获得 %0.2f 物理近战报复效果，持续 20 回合。
-		如果你杀死自己的随从，这一效果不会触发。
+		即使你杀死自己的随从，这一效果也会触发。
 		]], "tformat")
 t("Assemble", "亡灵组合", "talent name")
 t("A towering creature, made from the bones of dozens of dead bodies. It is covered by an unholy aura.", "一个高大的生物，由数十具尸体的骨头构成。它全身围绕着邪恶的气息。", "_t")
@@ -29170,7 +29170,7 @@ t([[Every army of undead minions needs its spearhead. To that end you combine 3 
 		At level 3 an eternal bone giant is created instead.
 		At level 6 a heavy bone giant is created instead.
 		Only one bone giant may be active, and casting this spell while one already exists will destroy it and create a new one.
-		]], [[任何亡灵军队需要领袖。为此，你将 3 个骷髅随从合成成一个等级为 %d 的骨巨人。
+		]], [[每支亡灵军队都需要先锋。为此，你将 3 个骷髅随从合成为一个等级为 %d 的骨巨人。
 		优先选择最弱的不死随从，且不会使用骷髅王作为合成材料。
 		在等级 3 时，会改为制造 1 个永恒骨巨人。
 		在等级 6 时，会改为制造 1 个重型骨巨人。
@@ -29185,7 +29185,7 @@ t([[Consume a soul to empower one of your skeleton, making it into a Lord of Sku
 		At level 3 Archers learn Vital Shot, a devastating attack that can stun and cripple their foes
 		At level 5 Mages learn Meteoric Crash, a destructive spell that crushes and burns foes in a big radius for multiple turns and stuns them
 		At level 6 Bone Giants learn You Shall Be My Weapon!, a massive attack that deals high damage, knockbacks foes and stuns them
-		]], [[消耗一个灵魂强化你的一个骷髅，使其成为骷髅王。
+		]], [[消耗两个灵魂强化你的一个骷髅，使其成为骷髅王。
 		骷髅王额外获得 %d 点生命上限，并立即恢复全部生命。
 		同时只能存在一个骷髅王；对另一个骷髅施放此法术会移除当前骷髅王的效果。
 		技能等级足够高时，它还会获得新技能：
@@ -29211,7 +29211,7 @@ t([[You control dead matter around you, lyring in the ground, decaying.
 		Ghouls, ghasts and ghoulkings last for %d turns.
 		%s
 		#GREY##{italic}#Ghoul minions come in larger numbers than skeleton minions but are generally more frail and disposable.#{normal}#
-		]], [[你操控大地上的死亡血肉，让其腐烂。
+		]], [[你操控周围埋在地下、正在腐烂的死物。
 		你进入战斗时，以及之后每隔 %d 个回合，将会自动召唤一个等级 %d 的食尸鬼来为你而战。
 		技能等级 3 时，你可以主动激活该技能，在身边召唤最多 %d 个妖鬼。
 		技能等级 5 时，你每召唤 4 个食尸鬼或妖鬼，将会额外召唤一个食尸鬼王。
@@ -29226,19 +29226,19 @@ t([[Ghouls are nothing but mere tools to you, for %d turns you render them bloat
 		Only one ghoul may explode per turn. The one with the least time left to live is always the first to do so.
 		The damage and disease power is increased by your Spellpower.
 		]], [[对你来说，食尸鬼只是可以随地丢弃的工具。在 %d 回合内，你让它们的体内充满黑暗的能量。
-		在此期间，每当一个食尸鬼或妖鬼被击中，它会爆炸成为一团碎肉，对 %d 码范围的所有敌人造成 %0.2f 霜暮伤害。
+		在此期间，每回合会从受伤或死亡的食尸鬼或妖鬼中选取一个，使其爆炸成为一团碎肉，对 %d 码范围的所有敌人造成 %0.2f 霜暮伤害。
 		所有被爆炸击中的敌人也会感染持续 6 回合的随机疾病，某一项属性值降低 %d 点，并且累计受到 %0.2f 枯萎伤害。
-		每回合内最多只能有一个食尸鬼爆炸。你会优先让剩余时间最短的食尸鬼爆炸。
+		每回合内最多只能有一个食尸鬼爆炸。你会优先让最早召唤的食尸鬼爆炸。
 		伤害和疾病强度受法术强度加成。
 		]], "tformat", {1,3,2,5,4})
 t("Putrescent Liquefaction", "腐烂液化", "talent name")
-t("#GREY#%s dissolves into the cloud of gore.", "#GREY#%s化为一团血肉的云雾。", "logSeen")
+t("#GREY#%s dissolves into the cloud of gore.", "#GREY#%s溶解并融入血肉云雾。", "logSeen")
 t([[Shattering up to %d ghouls or ghasts you create a putrescent swirling cloud of radius %d that follows you around for 3 turns per dead ghoul plus one turn. Oldest ghouls are prioritized for destruction.
 		Any ghoul or ghast dying or expiring within this cloud increases its duration by %d turn and every two absorbed ghoul/ghast your gain back one soul.
 		The cloud deals %0.2f frostdusk damage to any foes caught inside.
 		The damage will increase with your Spellpower.
 		]], [[你粉碎最多 %d 个食尸鬼或妖鬼，在身边创造出半径 %d 码、并持续跟随你的腐败云雾，持续时间为杀死的食尸鬼数量乘 3 再加一回合。你会优先选择最老的食尸鬼。
-		每个在云雾中死去或到期的食尸鬼或妖鬼会增加它的持续时间 %d 回合，每死亡2个食尸鬼或妖鬼会恢复1点灵魂。
+		每个在云雾中死去或到期的食尸鬼或妖鬼会使云雾的持续时间增加 %d 回合，每吸收2个食尸鬼或妖鬼会恢复1点灵魂。
 		云雾会对其中的所有敌人造成 %0.2f 霜暮伤害。
 		伤害受法术强度加成。
 		]], "tformat")
@@ -29262,7 +29262,7 @@ t([[You control dead matter around you, lying in the ground, decaying.
 		Ghouls, ghasts and ghoulkings last for %d turns.
 		%s
 		#GREY##{italic}#Ghoul minions come in larger numbers than skeleton minions but are generally more frail and disposable.#{normal}#
-		]], [[你操控大地上的死亡血肉，让其腐烂。
+		]], [[你操控周围埋在地下、正在腐烂的死物。
 		你进入战斗时，以及之后每隔 %d 个回合，将会自动召唤一个等级 %d 的食尸鬼来为你而战。
 		技能等级 3 时，你可以主动激活该技能，在身边召唤最多 %d 个妖鬼。
 		技能等级 5 时，你每召唤 4 个食尸鬼或妖鬼，将会额外召唤一个食尸鬼王。
@@ -29350,12 +29350,12 @@ t([[Dark fumes erupt from the ground in radius %d for 5 turns. Any creature ente
 		Banes last for %d turns, and also deal %0.2f darkness damage.
 		The damage will increase with your Spellpower.]], [[黑暗之雾笼罩 %d 码范围的地面 5 回合。任何生物走进去都会受到混乱灾祸或致盲灾祸的影响。
 		同一个生物同时只会被一种灾祸效果影响。
-		灾祸效果持续 %d 回合，造成 %0.2f 暗影伤害。
+		灾祸效果持续 %d 回合，每回合造成 %0.2f 暗影伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Erupting Shadows", "暗影喷发", "talent name")
 t([[Shadows engulf your foes, anytime you deal darkness damage to a creature affected by a bane, the bane's duration is increased by 1 turn and the shadows erupt, dealing an additional %0.2f darkness damage.
 		The damage can only happen once per turn per creature, the turn increase however always happens.
-		The damage will increase with your Spellpower.]], [[暗影吞噬你的敌人。每当你对灾祸影响下的敌人造成暗影伤害时，灾祸会被延长 1 回合，并且触发一次暗影喷发，造成 %0.2f 额外暗影伤害。
+		The damage will increase with your Spellpower.]], [[暗影吞噬你的敌人。每当你对灾祸影响下的敌人造成暗影伤害时（灾祸自身的伤害除外），灾祸会被延长 1 回合，并且触发一次暗影喷发，造成 %0.2f 额外暗影伤害。
 		每回合对同一个生物最多触发一次伤害，但持续时间可以被延长任意多次。
 		伤害受法术强度提升。]], "tformat")
 t("River of Souls", "灵魂之河", "talent name")
