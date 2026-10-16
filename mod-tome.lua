@@ -29348,7 +29348,7 @@ t("Night Sphere", "暗夜笼罩", "talent name")
 t([[Dark fumes erupt from the ground in radius %d for 5 turns. Any creature entering the circle will receive either a bane of confusion or a bane of blindness.
 		Only one bane can affect a creature.
 		Banes last for %d turns, and also deal %0.2f darkness damage.
-		The damage will increase with your Spellpower.]], [[黑暗之雾笼罩 %d 码范围的地面 5 回合。任何生物走进去都会受到混乱灾祸或致盲灾祸的影响。
+		The damage will increase with your Spellpower.]], [[黑暗之雾笼罩 %d 码范围的地面 5 回合。敌人走进去都会受到混乱灾祸或致盲灾祸的影响。
 		同一个生物同时只会被一种灾祸效果影响。
 		灾祸效果持续 %d 回合，每回合造成 %0.2f 暗影伤害。
 		伤害受法术强度加成。]], "tformat")
@@ -29439,15 +29439,15 @@ t([[By crushing one more soul you reinforce your existing rime wraith, duplicati
 		When it is created the current host and all foes in radius %d are blasted for %0.2f cold damage.
 		The damage will increase with your Spellpower.]], [[你粉碎一个灵魂，强化你当前的冰魂，将其从当前的宿主身上复制出来。
 		复制的新冰魂持续 %d 回合，不能被再次复制。
-		当新冰魂创建后，其原来的宿主和周围 %d 码范围内的所有敌人会受到 %0.2f 寒冷伤害。
+		当新冰魂创建后，原宿主周围 %d 码范围内的所有敌人会受到 %0.2f 寒冷伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Permafrost", "永冻极寒", "talent name")
 t([[Hoarfrost now has additional effects:
 		- if friendly: magical and physical saves increased by %d, at level 5 healing factor is also increased by 15%%.
 		- if hostile: magical and physical saves reduced by %d, at level 5 all talents cool down 15%% slower.
 		]], [[寒霜覆盖效果获得以下额外效果：
-		- 友方目标：提升 %d 魔法和物理豁免，技能等级 5 时，还会提升治疗系数 15%%。
-		- 敌对目标：降低 %d 魔法和物理豁免，技能等级 5 时，还会使技能冷却时间延长 15%%。
+		- 友方目标：提升 %d 法术和物理豁免，技能等级 5 时，还会提升治疗系数 15%%。
+		- 敌对目标：降低 %d 法术和物理豁免，技能等级 5 时，还会使技能冷却时间延长 15%%。
 		]], "tformat")
 
 ------------------------------------------------
