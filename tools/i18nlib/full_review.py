@@ -58,6 +58,27 @@ def read(path):
     return contextual.strict_json_bytes(ordinary(path).strip(), label=str(path))
 
 
+class _InventorySnapshot:
+    """One check's parse, bound to the exact ordinary bytes it decoded.
+
+    Only inventory data is retained; export discovery and every replay validator
+    still run. Recursive predecessor checks own separate, stack-local snapshots.
+    """
+    def __init__(self, directory):
+        self.path = Path(directory).absolute() / 'inventory.json'
+        raw = ordinary(self.path)
+        self.digest = sha(raw)
+        self.ledger = contextual.strict_json_bytes(raw.strip(), label=str(self.path))
+
+    def verify(self, directory):
+        if Path(directory).absolute() / 'inventory.json' != self.path:
+            raise FullReviewError('inventory snapshot path mismatch')
+        # Read even on reuse: stat metadata and rewritten refs cannot authorize
+        # a different inventory halfway through a verification invocation.
+        if sha(ordinary(self.path)) != self.digest:
+            raise FullReviewError('inventory snapshot bytes drift')
+
+
 def safe_path(root, relative):
     normalized = identity.normalize_relative_path(relative)
     if normalized != relative:
@@ -646,12 +667,18 @@ def export(manifest, directory, selection, workset_path, scope_path, *, export_i
 
 
 def replay_export(manifest, directory, export_id, live, *, historical=False):
+    return _replay_export(manifest, directory, export_id, live,
+                          _InventorySnapshot(directory), historical=historical)
+
+
+def _replay_export(manifest, directory, export_id, live, inventory, *, historical=False):
     dest = Path(directory) / 'exports' / token(export_id)
     ref = read(dest / 'ref.json')
-    ledger = read(Path(directory) / 'inventory.json')
+    inventory.verify(directory)
+    ledger = inventory.ledger
     if ref.get('freeze_sha256') != sha(canonical({k: v for k, v in ref.items() if k != 'freeze_sha256'})):
         raise FullReviewError('frozen export reference drift')
-    if ref.get('inventory_sha256') != sha(ordinary(Path(directory) / 'inventory.json')):
+    if ref.get('inventory_sha256') != inventory.digest:
         raise FullReviewError('export inventory binding drift')
     if set(ref.get('planned_producer', {})) != {'task_id', 'dispatch_id', 'workspace_id', 'parent_agent_id'}:
         raise FullReviewError('export lacks frozen planned producer')
@@ -898,14 +925,15 @@ def import_result(manifest, directory, export_id, raw_path, binding_path):
 
 def check(manifest, directory, *, require_complete=False, _historical=False, _details=False, _outputs_only=False):
     directory = Path(directory)
-    ledger = read(directory / 'inventory.json')
+    inventory = _InventorySnapshot(directory)
+    ledger = inventory.ledger
     validate_inventory(manifest, ledger)
     live = ({u['unit_id']: u for u in ledger['units']} if _historical else validate_current(manifest, ledger))
     frozen = {}
     obligations = {}
     for path in sorted((directory / 'exports').glob('*/ref.json')):
         export_id = path.parent.name
-        ref, input_raw = replay_export(manifest, directory, export_id, live, historical=_historical)
+        ref, input_raw = _replay_export(manifest, directory, export_id, live, inventory, historical=_historical)
         if ref['export_id'] != export_id:
             raise FullReviewError('export path/reference identity mismatch')
         frozen[export_id] = (ref, input_raw)

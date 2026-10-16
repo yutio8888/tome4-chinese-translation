@@ -607,6 +607,156 @@ class FullRoundTests(unittest.TestCase):
             fr.immutable(self.root/'raw', b'second')
         self.assertEqual((self.root/'raw').read_bytes(), b'first')
 
+    def test_inventory_parse_reused_but_each_replay_reads_exact_bytes(self):
+        self.export('a')
+        self.export('a2')
+        expected = fr.check(self.manifest, self.directory, _details=True)
+        decode = contextual.strict_json_bytes
+        ordinary = fr.ordinary
+        decodes, reads = [], []
+
+        def counted_decode(raw, *, label):
+            if str(label).endswith('/inventory.json'):
+                decodes.append(label)
+            return decode(raw, label=label)
+
+        def counted_read(path):
+            if Path(path) == self.directory/'inventory.json':
+                reads.append(path)
+            return ordinary(path)
+
+        with patch.object(contextual, 'strict_json_bytes', side_effect=counted_decode), patch.object(
+                fr, 'ordinary', side_effect=counted_read):
+            self.assertEqual(fr.check(self.manifest, self.directory, _details=True), expected)
+        self.assertEqual(len(decodes), 1)
+        self.assertEqual(len(reads), 3)  # initial parse plus both independent replay hashes
+        self.assertEqual(len(expected['obligations'][self.key]), 2)
+        self.export('a3')
+        self.assertEqual(len(fr.check(self.manifest, self.directory, _details=True)['obligations'][self.key]), 3)
+        with patch.object(contextual, 'strict_json_bytes', side_effect=counted_decode):
+            ref, raw = fr.replay_export(self.manifest, self.directory, 'a', {self.key: self.unit})
+        self.assertEqual(len(decodes), 2)  # standalone has its own strict parse
+        self.assertEqual(ref['input_sha256'], fr.sha(raw))
+        with self.assertRaisesRegex(fr.FullReviewError, 'stale export revision/guard'):
+            fr.replay_export(self.manifest, self.directory, 'a',
+                             {self.key: dict(self.unit, guard='wrong')})
+
+    def test_reused_inventory_does_not_allow_duplicate_current_lane_coverage(self):
+        for name in ('a', 'a2'):
+            ref = fr.export(self.manifest, self.directory, [self.key], self.root/'workset.json',
+                self.root/'scope.json', export_id=name, lane='A', task_id='task-'+name,
+                dispatch_id='d-'+name, workspace_id='w1', parent_agent_id='parent')
+            self.producer(ref)
+            self.real_done(ref)
+            fr.import_result(self.manifest, self.directory, name, self.root/'raw.json', self.root/'binding.json')
+        with self.assertRaisesRegex(fr.FullReviewError, 'duplicate current lane coverage'):
+            fr.check(self.manifest, self.directory)
+
+    def test_inventory_mutation_between_replays_rejects_even_with_rebound_ref(self):
+        import os
+        self.export('a')
+        self.export('a2')
+        path = self.directory/'inventory.json'
+        original = path.read_bytes()
+        stat = path.stat()
+        ref_path = self.directory/'exports/a2/ref.json'
+        original_ref = ref_path.read_bytes()
+        replay = fr._replay_export
+        for rewrite_ref in (False, True):
+            calls = []
+
+            def mutate(*args, **kwargs):
+                if calls:
+                    changed = original.replace(b'test-round', b'best-round')
+                    if rewrite_ref:
+                        ledger = json.loads(changed)
+                        ledger['inventory_identity'] = fr.sha(fr.canonical({
+                            k: v for k, v in ledger.items() if k != 'inventory_identity'}))
+                        changed = fr.canonical(ledger)
+                    self.assertEqual(len(changed), len(original))
+                    path.write_bytes(changed)
+                    os.utime(path, ns=(stat.st_atime_ns, stat.st_mtime_ns))
+                    if rewrite_ref:
+                        ref = json.loads(original_ref)
+                        ref['inventory_sha256'] = fr.sha(changed)
+                        ref['round_id'] = 'best-round'
+                        ref['freeze_sha256'] = fr.sha(fr.canonical({k: v for k, v in ref.items() if k != 'freeze_sha256'}))
+                        self.save(ref_path, ref)
+                result = replay(*args, **kwargs)
+                calls.append(result)
+                return result
+
+            with self.subTest(rewrite_ref=rewrite_ref), patch.object(fr, '_replay_export', side_effect=mutate):
+                with self.assertRaisesRegex(fr.FullReviewError, 'snapshot bytes drift'):
+                    fr.check(self.manifest, self.directory)
+            self.assertEqual(len(calls), 1)
+            self.assertEqual(path.stat().st_mtime_ns, stat.st_mtime_ns)
+            self.assertFalse((self.directory/'imports').exists())
+            path.write_bytes(original)
+            ref_path.write_bytes(original_ref)
+
+    def test_inventory_strict_bytes_and_snapshot_directory_are_not_caller_dicts(self):
+        self.export()
+        path = self.directory/'inventory.json'
+        original = path.read_bytes()
+        snapshot = fr._InventorySnapshot(self.directory)
+        other = self.root/'other'
+        other.mkdir()
+        (other/'inventory.json').write_bytes(original)
+        with self.assertRaisesRegex(fr.FullReviewError, 'snapshot path mismatch'):
+            snapshot.verify(other)
+        for invalid in (b'{"round_id":"test-round","round_id":"test-round"}', b'{"x":NaN}'):
+            path.write_bytes(invalid)
+            with self.assertRaises(contextual.ContractError):
+                fr.replay_export(self.manifest, self.directory, 'a', {self.key: self.unit})
+        path.write_bytes(original + b'\n')
+        with self.assertRaisesRegex(fr.FullReviewError, 'inventory binding drift'):
+            fr.replay_export(self.manifest, self.directory, 'a', {self.key: self.unit})
+
+    def test_sequential_replays_keep_ref_input_and_source_checks(self):
+        self.export('a')
+        self.export('a2')
+        replay = fr._replay_export
+        dest = self.directory/'exports/a2'
+        for mutation in ('ref', 'round', 'input', 'source', 'preflight'):
+            files = {p: p.read_bytes() for p in dest.rglob('*') if p.is_file()}
+            calls = []
+
+            def mutate(*args, **kwargs):
+                if calls:
+                    if mutation in ('ref', 'round'):
+                        ref = fr.read(dest/'ref.json')
+                        ref['round_id'] = 'wrong-round'
+                        if mutation == 'round':
+                            ref['freeze_sha256'] = fr.sha(fr.canonical({k: v for k, v in ref.items() if k != 'freeze_sha256'}))
+                        self.save(dest/'ref.json', ref)
+                    else:
+                        path = (next((dest/'source-anchors').glob('*.bin')) if mutation == 'source'
+                                else dest/('input.json' if mutation == 'input' else 'preflight.json'))
+                        path.write_bytes(path.read_bytes() + b' ')
+                result = replay(*args, **kwargs)
+                calls.append(result)
+                return result
+
+            with self.subTest(mutation=mutation), patch.object(fr, '_replay_export', side_effect=mutate):
+                with self.assertRaises(fr.FullReviewError):
+                    fr.check(self.manifest, self.directory)
+            self.assertEqual(len(calls), 1)
+            self.assertFalse((self.directory/'imports').exists())
+            for path, raw in files.items():
+                path.write_bytes(raw)
+
+    def test_reused_inventory_still_validates_current_source_for_every_replay(self):
+        self.export('a')
+        self.export('a2')
+        with patch.object(fr, 'source_file', side_effect=[
+                {'content': 'hello', 'sha256': fr.sha(b'hello')},
+                fr.FullReviewError('source file hash mismatch')]) as source:
+            with self.assertRaisesRegex(fr.FullReviewError, 'source file hash mismatch'):
+                fr.check(self.manifest, self.directory)
+        self.assertEqual(source.call_count, 2)
+        self.assertFalse((self.directory/'imports').exists())
+
 
 class SuccessorTests(FullRoundTests):
     def setUp(self):
@@ -690,6 +840,42 @@ class SuccessorTests(FullRoundTests):
             self.migrate(self.request())
             result = fr.check(self.manifest,self.next)
             self.assertEqual((result['A_validated_outputs'],result['A_effective_complete']),(1,1))
+
+    def test_multi_export_predecessor_reuses_parses_and_preserves_seal_validation(self):
+        ref = self.export()
+        self.producer(ref)
+        self.real_done(ref)
+        fr.import_result(self.manifest, self.directory, 'a', self.root/'raw.json', self.root/'binding.json')
+        self.decide(self.directory, {'A': fr.sha(self.raw)})
+        self.export('a2')
+        self.migrate(self.request())
+        with patch.object(fr.batch, '_contextual_done_verified', return_value=True):
+            expected = fr.check(self.manifest, self.next)
+            decode = contextual.strict_json_bytes
+            labels = []
+
+            def counted(raw, *, label):
+                if str(label).endswith('/inventory.json'):
+                    labels.append(str(label))
+                return decode(raw, label=label)
+
+            with patch.object(contextual, 'strict_json_bytes', side_effect=counted):
+                self.assertEqual(fr.check(self.manifest, self.next), expected)
+            self.assertEqual(len(labels), 3)  # successor, mapping read, predecessor snapshot
+            self.assertEqual(expected['A_effective_complete'], 1)
+            original = (self.directory/'exports/a2/input.json').read_bytes()
+            (self.directory/'exports/a2/input.json').write_bytes(original + b' ')
+            with self.assertRaisesRegex(fr.FullReviewError, 'predecessor frozen evidence drift'):
+                fr.check(self.manifest, self.next)
+            (self.directory/'exports/a2/input.json').write_bytes(original)
+        ref = fr.export(self.manifest, self.next, [self.key], self.root/'workset.json',
+            self.root/'scope.json', export_id='new-a', lane='A', task_id='task-new-a',
+            dispatch_id='d-new-a', workspace_id='w1', parent_agent_id='parent')
+        self.producer(ref)
+        self.real_done(ref, self.next)
+        fr.import_result(self.manifest, self.next, 'new-a', self.root/'raw.json', self.root/'binding.json')
+        with self.assertRaisesRegex(fr.FullReviewError, 'duplicate inherited/current coverage'):
+            fr.check(self.manifest, self.next)
 
     def test_concurrent_freeze_pair_complete_and_policy_only_growth(self):
         import copy
