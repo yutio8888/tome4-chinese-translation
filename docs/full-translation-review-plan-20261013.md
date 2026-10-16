@@ -223,3 +223,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-16 M3phase12完成39A／22B，各自full17/build、DONE、归档与导入；累计有效732A／394B，已验证745A／407B。普通队列3条／3claim，10条source/runtime pending排除。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-12/REPORT.md)。按三关联切片／20revision策略继续类别审核。
 
 2026-10-16 M3phase13完成103A／55B，三个独立full17/build任务，合并B完整结果按unit并集计数；累计有效835A／449B，已验证848A／462B。普通队列3条／3claim，10条source/runtime pending排除。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-13/REPORT.md)。按既定边界集中普通修复。
+
+2026-10-16续：窗口-15三条当前revision完成fresh生产A3/B3，各自完整17项／构建、DONE、归档、导入与源码验收。R29有效838A／452B，validated848A／462B，普通队列为空；10条source/runtime pending仍整条排除。核心法术617条已逐条审读，607条接受、10条运行待确认。继续下一有界机制切片，最终分母、补充项与游戏验收仍开放。
