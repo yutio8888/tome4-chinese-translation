@@ -28081,7 +28081,7 @@ t([[When you throw your alchemist bombs, you infuse them with explosive acid tha
 t("Caustic Golem", "酸化傀儡", "talent name")
 t([[While Acid Infusion is active, your bombs coat your golem in acid for %d turns when they hit it.
 		While coated, any melee hit against your golem has a %d%% chance to trigger a radius 4 cone of acid towards the attacker that does %0.1f Acid damage to all caught inside. (This can only happen once per turn.)
-		The effects increase with your talent level and with the Spellpower and damage modifiers of your golem.]], [[当你的酸性充能激活时，若你的炸弹击中了你的傀儡，酸液会覆盖傀儡 %d 回合。
+		The effects increase with your talent level and with the Spellpower and damage modifiers of your golem.]], [[当你的酸液充能激活时，若你的炸弹击中了你的傀儡，酸液会覆盖傀儡 %d 回合。
 		当傀儡被酸液覆盖时，任何命中傀儡的近战攻击有 %d%% 概率朝攻击者方向触发一次范围 4 的锥形酸液喷射，对波及范围内的所有单位造成 %0.1f 点酸性伤害（每回合至多一次）。
 		效果受你的技能等级、法术强度和傀儡的伤害加成影响。]], "tformat")
 t("Caustic Mire", "腐蚀之地", "talent name")
@@ -28783,7 +28783,7 @@ t("Smoke Bomb", "烟雾弹", "talent name")
 t([[Throw a smoke bomb, blocking everyone's line of sight. The smoke dissipates after %d turns.
 		If a creature inside is victim of fire burns the smoke will consume instantly, replicating the burns on all foes and increasing its duration by %d turns.
 		Duration will increase with your Spellpower.]], [[投掷一枚烟雾弹，遮蔽所有人的视线。烟雾在 %d 回合后消散。
-		若目标区域内有生物正被火焰灼烧，烟雾会立即被消耗，并将该灼烧效果复制到区域内所有敌人身上，使其持续时间延长 %d 回合。
+		若目标区域内有生物正被火焰灼烧，烟雾会立即被消耗，并将该灼烧效果复制到区域内尚未灼烧的敌人身上，复制后的持续时间比原效果延长 %d 回合。
 		持续时间随法术强度提高。]], "tformat")
 t("Fire Storm", "火焰风暴", "talent name")
 t("firestorm", "火焰风暴", "_t")
@@ -28797,7 +28797,7 @@ t("#FF8000#%s turns into pure flame!", "#FF8000#%s完全成为了火焰！", "lo
 t("#FF8000#The raging fire around %s calms down and disappears.", "#FF8000#围绕%s的愤怒火焰沉寂了下来并消失了。", "logSeen")
 t([[Turn your body into pure flame, increasing your fire resistance by %d%%, burning any creatures striking you in melee for %0.2f fire damage, and randomly launching up to %d slow-moving fire bolt(s) per turn at targets in sight, each dealing %0.2f fire damage.
 		The projectiles safely go through your friends without harming them.
-		The damage and resistance will increase with your Spellpower.]], [[将身体化为纯粹的火焰，使你的火焰抗性提高 %d%%； 任何以近战攻击你的生物都会受到 %0.2f 点火焰伤害；每回合还会随机向视野内的目标发射最多 %d 枚缓慢移动的火焰弹，每枚造成 %0.2f 点火焰伤害。
+		The damage and resistance will increase with your Spellpower.]], [[将身体化为纯粹的火焰，使你的火焰抗性提高 %d%%； 任何用近战攻击命中你的生物都会受到 %0.2f 点火焰伤害；每回合还会随机向视野内的目标发射最多 %d 枚缓慢移动的火焰弹，每枚造成 %0.2f 点火焰伤害。
 		这些弹体会安全地穿过友方生物，不会对其造成伤害。
 		伤害和抗性随你的法术强度提高。]], "tformat")
 
@@ -28837,8 +28837,8 @@ t("Ice Armour", "寒冰护甲", "talent name")
 t([[While Frost Infusion is active, your bombs deposit a layer of ice on your golem for %d turns when they hit it.
 		This ice provides your golem with %d additional armour, melee attacks against it deal %0.1f Cold damage to the attacker, and 50%% of its damage is converted to Cold.
 		The effects increase with your talent level and with the Spellpower and damage modifiers of your golem.]], [[冰霜充能生效期间，炸弹击中你的傀儡时，会在其身上覆盖一层持续 %d 回合的冰层。
-		冰层使傀儡额外获得 %d 点护甲；对其发动近战攻击的敌人会受到 %0.1f 点寒冷伤害；傀儡造成的伤害有 50%% 转化为寒冷伤害。
-		这些效果随技能等级、傀儡的法术强度和伤害加成提高。]], "tformat")
+		冰层使傀儡额外获得 %d 点护甲；用近战攻击命中傀儡的生物会受到 %0.1f 点寒冷伤害；傀儡造成的伤害有 50%% 转化为寒冷伤害。
+		持续时间、护甲和基础反伤随你的技能等级和法术强度提高；反伤还受傀儡的伤害加成影响。]], "tformat")
 t("Flash Freeze", "极速冻结", "talent name")
 t([[Invoke a blast of cold all around you with a radius of %d, doing %0.1f Cold damage and freezing creatures to the ground for %d turns.
 		Affected creatures can still act, but cannot move.
@@ -28848,9 +28848,9 @@ t([[Invoke a blast of cold all around you with a radius of %d, doing %0.1f Cold 
 t("Ice Core", "冰霜之躯", "talent name")
 t([[Turn your body into pure ice, increasing your Cold damage affinity by %d%% and your physical resistance by %d%%.
 		You have a %d%% chance to shrug off all direct critical hits (physical, mental, spell).
-		The effects increase with your Spellpower.]], [[将你的身体转化为纯净的寒冰体，你受到的寒冰伤害的 %d%% 会治疗你，同时你的物理抗性增加 %d%%。
-		你有 %d%% 几率摆脱暴击伤害（物理，精神，法术）。
-		效果受法术强度加成。]], "tformat")
+		The effects increase with your Spellpower.]], [[将你的身体转化为纯净的寒冰体，你受到的寒冷伤害的 %d%% 会治疗你，同时你的物理抗性增加 %d%%。
+		你受到的直接暴击（物理、精神、法术）的额外伤害降低 %d%%。
+		物理抗性提升量受法术强度加成。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/glacial-waste.lua"
