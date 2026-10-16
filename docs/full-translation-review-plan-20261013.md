@@ -213,3 +213,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-16续：窗口-13十条新revision的fresh生产A10/B10及各自完整17项／构建、DONE、归档和导入闭合；round-v22有效603A／322B，普通修复队列为空，三条显示／运行pending显式保留。按既定连续授权与Opus5.5/GPT6.1Sol模型对推进下一有界切片。最终分母、补充项和游戏验收仍开放。
 
 2026-10-16 M3phase09完成28A／16B，各自full17/build、DONE、归档及导入；累计有效624A／331B。待修5条target／6项claim按三批或二十revision边界合并；5条source/runtime pending排除在外。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-09/REPORT.md)。
+
+2026-10-16 M3phase10完成30A／18B，各自full17/build、DONE、归档及导入；累计有效652A／347B。普通修复保持5条target／6项claim，7条source/runtime pending排除在有效完成外。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-10/REPORT.md)。继续42条相关召唤法术切片，达到三批边界后合并普通修复。
