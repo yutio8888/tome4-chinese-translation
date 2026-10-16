@@ -209,3 +209,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-16 M3phase07完成傀儡关联73A／48B，各自full17/build、DONE、归档及导入；累计有效556A／287B。累计10条待修target／11项claim待合并修复，两项既有runtime pending仍不计完成。继续38条石守卫关联切片，再按三切片边界集中修复。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-07/REPORT.md)。
 
 2026-10-16 M3phase08完成石守卫关联38A／26B，各自full17/build、DONE、归档及导入；累计有效593A／312B。待修10条target／11项claim进入修复窗口13，三条source/runtime pending排除在外。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-08/REPORT.md)。
+
+2026-10-16续：窗口-13十条新revision的fresh生产A10/B10及各自完整17项／构建、DONE、归档和导入闭合；round-v22有效603A／322B，普通修复队列为空，三条显示／运行pending显式保留。按既定连续授权与Opus5.5/GPT6.1Sol模型对推进下一有界切片。最终分母、补充项和游戏验收仍开放。
