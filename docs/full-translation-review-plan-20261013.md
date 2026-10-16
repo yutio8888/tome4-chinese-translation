@@ -217,3 +217,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-16 M3phase10完成30A／18B，各自full17/build、DONE、归档及导入；累计有效652A／347B。普通修复保持5条target／6项claim，7条source/runtime pending排除在有效完成外。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-10/REPORT.md)。继续42条相关召唤法术切片，达到三批边界后合并普通修复。
 
 2026-10-16 M3phase11完成42A／26B，各自full17/build、DONE、归档及导入；累计有效679A／358B，已验证706A／385B。普通修复合并19条target／20项claim，8条source/runtime pending排除。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-11/REPORT.md)。达到三批边界，开始window14集中普通修复。
+
+2026-10-16续：窗口-14的19条当前revision完成fresh生产A19/B19及各自完整17项／构建、DONE、归档、导入；round-v26实测有效697A／376B，接受18完整revision。夜幕球保留原频率修复，新增敌我范围缺陷进入普通队列1条／1claim，整条不计完成；8条source/runtime pending显式保留。按连续授权继续下一39条关联切片并合并后续普通修复，最终分母、补充项和游戏验收仍开放。
