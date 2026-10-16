@@ -28677,7 +28677,7 @@ t([[Infuse your body with lightning energy, bolstering your movement speed by +%
 		每回合半径 %d 内的一个敌人将会被闪电击中，造成 %0.1f 点闪电伤害。
 		另外，你受到的伤害会为你充能。
 		每次你的回合开始时，如果自上个回合以来你损失了至少 %d 点生命（20%% 最大生命值），你将获得 %d%% 个额外回合。
-		上述效果均随法术强度提升。]], "tformat")
+		伤害和获得的额外回合比例随法术强度提高。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/enhancement.lua"
@@ -28898,7 +28898,7 @@ t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t([[Your golem rushes to the target, dealing %d%% damage and knocking it back.
 		Knockback chance will increase with talent level.
 		While rushing the golem becomes ethereal, passing harmlessly through creatures on the path to its target.]], [[你的傀儡冲向目标，造成 %d%% 伤害并将其击退。
-		击退成功率随技能等级提高。
+		击退成功率取决于傀儡的物理强度和目标的物理豁免。
 		冲刺期间，傀儡会化为虚体，安全穿过通往目标路径上的生物。]], "tformat")
 t("Taunt", "嘲讽", "talent name")
 t("#Source# provokes #Target# to attack it.", "#Source#强制#Target#攻击它。", "logCombat")
@@ -28914,7 +28914,7 @@ t("Pound", "敲击", "talent name")
 t("%s resists the dazing blow!", "%s抵抗了眩晕打击！", "logSeen")
 t([[Your golem rushes to the target and creates a shockwave with radius 2, dazing all foes for %d turns and doing %d%% damage.
 		Daze chance increases with talent level.
-		While rushing the golem becomes ethereal, passing harmlessly through creatures on the path to its target.]], [[你的傀儡冲向目标并产生半径 2 格的冲击波，使所有敌人眩晕 %d 回合并造成 %d%% 伤害。
+		While rushing the golem becomes ethereal, passing harmlessly through creatures on the path to its target.]], [[你的傀儡冲向目标并产生冲击波（冲刺后半径为 1 格；若目标原本就在身边，半径为 2 格），使所有敌人眩晕 %d 回合并造成 %d%% 伤害。
 		眩晕成功率随技能等级提高。
 		冲刺期间，傀儡会化为虚体，安全穿过通往目标路径上的生物。]], "tformat")
 t("Eye Beam", "眼睛光束", "talent name")
@@ -28927,7 +28927,7 @@ t("Reflective Skin", "反射皮肤", "talent name")
 t([[Your golem's skin shimmers with eldritch energies.
 		Any damage it takes is partly reflected (%d%%) to the attacker.
 		The golem still takes full damage.
-		Damage returned will increase with your golem's Spellpower.]], [[你的傀儡皮肤闪烁着艾尔德里奇能量。
+		Damage returned will increase with your golem's Spellpower.]], [[你的傀儡皮肤闪烁着诡异的魔法能量。
 		所有对其造成的伤害有 %d%% 被反射给攻击者。
 		傀儡仍然受到全部伤害。
 		伤害反射值受傀儡的法术强度加成。]], "tformat")
@@ -28942,7 +28942,7 @@ t([[Turns the golem's skin into molten rock. The heat generated sets ablaze ever
 		The damage and resistance will increase with your Spellpower.]], [[使傀儡的皮肤化为熔岩。产生的高温会点燃半径 3 格内的一切，使其在 3 回合内受到 %0.2f 点火焰伤害；炽热皮肤持续 %d 回合。
 		灼烧可以叠加；目标处于范围内越久，受到的火焰伤害越高。
 		此外，傀儡获得 %d%% 火焰抗性。
-		炽热皮肤的伤害不会影响友方生物。
+		主人存活时，炽热皮肤的伤害不会影响与主人友好的生物。
 		伤害和抗性随你的法术强度提高。]], "tformat")
 t("Self-destruction", "自爆", "talent name")
 t([[The golem self-destructs, destroying itself and generating a blast of fire in a radius of %d, doing %0.2f fire damage.
@@ -28994,7 +28994,7 @@ t("Improves your golem's armour training, damage resistance, and healing efficie
 t([[Improves your golem's armour training, damage resistance, and healing efficiency.
 		Increases all damage resistance by %d%%; increases Armour value by %d, Armour hardiness by %d%%, reduces chance to be critically hit by %d%% when wearing heavy mail or massive plate armour, and increases healing factor by %d%%.
 		The golem can always use any kind of armour, including massive armours.]], [[提高傀儡护甲熟练度、伤害抗性和治疗系数。
-		增加 %d%% 所有伤害抗性；增加 %d 点护甲和 %d%% 护甲强度；当装备 1 件锁甲或板甲时，减少 %d%% 被暴击率；增加 %d%% 治疗效果。
+		增加 %d%% 所有伤害抗性；当装备 1 件锁甲或板甲时，增加 %d 点护甲和 %d%% 护甲强度，并减少 %d%% 被暴击率；增加 %d%% 治疗效果。
 		傀儡可以使用所有类型的护甲，包括板甲。]], "tformat")
 t("Invoke Golem", "傀儡召返", "talent name")
 t("Your golem is currently inactive.", "你的傀儡当前尚未被激活。", "logPlayer")
@@ -29003,7 +29003,7 @@ t("You invoke your golem to your side, granting it a temporary melee power incre
 t("Golem Portal", "傀儡传送", "talent name")
 t("#Target# focuses on #Source#.", "#Target# 将注意力集中到 #Source#。", "logCombat")
 t("Teleport to your golem, while your golem teleports to your location. Your foes will be confused, and those that were attacking you will have a %d%% chance to target your golem instead.", [[使用此技能后，你和傀儡将会交换位置。
-		你的敌人会被混乱，那些之前攻击你的敌人将有 %d%% 概率转而攻击傀儡。]], "tformat")
+		之前以你为目标的敌人有 %d%% 概率转而以傀儡为目标。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/grave.lua"
@@ -29609,7 +29609,7 @@ t("Create Alchemist Gems", "制造炼金宝石", "talent name")
 t("Use which gem?", "使用哪颗宝石？", "_t")
 t("You create: %s", "你制造了：%s", "logPlayer")
 t([[Carve 40 to 80 alchemist gems out of a natural gemstone.
-		Alchemist gems are used for many other spells, and each gem type creates a different effect.]], [[从自然宝石中制造 40 ～ 80 个炼金宝石。
+		Alchemist gems are used for many other spells, and each gem type creates a different effect.]], [[从自然宝石中制造 41 ～ 81 个炼金宝石。
 		许多法术需要使用炼金宝石，每种宝石拥有不同的特效。]], "tformat")
 t("Extract Gems", "宝石提炼", "talent name")
 t("You extract %s from %s", "你从%s中提炼了%s。", "logPlayer", {2,1})
@@ -29626,7 +29626,7 @@ t("body armour, a belt, or a head piece", "胸甲、腰带或头盔", "_t")
 t("a body armour", "胸甲", "_t")
 t("Gem Portal", "宝石传送", "talent name")
 t("You need to ready 5 alchemist gems in your quiver.", "你需要在箭袋中准备 5 枚炼金宝石。", "logPlayer")
-t("Crush 5 alchemist gems into dust to mark impassable terrain next to you. You immediately enter it and appear on the other side of the obstacle, up to %d grids away.", [[将 5 枚炼金宝石碾碎为粉末，标记你身旁的一块不可通行地形。你立即进入其中并出现在障碍物另一侧，穿越距离至多 %d 格。]], "tformat")
+t("Crush 5 alchemist gems into dust to mark impassable terrain next to you. You immediately enter it and appear on the other side of the obstacle, up to %d grids away.", [[将 5 枚炼金宝石碾碎为粉末，标记你身旁的一块不可通行地形。你立即进入其中，穿过至多 %d 格厚的障碍，并出现在另一侧。]], "tformat")
 t("Stone Touch", "石化之触", "talent name")
 t([[Touch your foe and turn it to stone for %d turns.
 		Stoned creatures are unable to act or regen life, and are very brittle.
@@ -29634,8 +29634,8 @@ t([[Touch your foe and turn it to stone for %d turns.
 		Stoned creatures are highly resistant to fire and lightning, and somewhat resistant to physical attacks.
 		At level 3 the touch will become a beam.
 		This spell may fail against creatures resistant to being stunned, that are specifically immune to stoning, or certain bosses.]], [[触碰敌人，将其石化 %d 回合。
-		石化的生物无法行动或恢复生命，且非常脆弱。
-		如果石化生物受到一次超过其 30%% 生命值的攻击，它会碎裂并被摧毁。
+		石化的生物无法行动，且非常脆弱。
+		如果石化生物受到的一次伤害达到其最大生命值的 30%%，它会碎裂并被摧毁。
 		石化生物对火焰和闪电伤害具有极高抗性，对物理伤害也有一定抗性。
 		技能等级 3 时，此触碰变为一束射线。
 		此法术可能对抵抗震慑、特别免疫石化的生物或某些首领失效。]], "tformat")
