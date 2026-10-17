@@ -227,3 +227,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-16续：窗口-15三条当前revision完成fresh生产A3/B3，各自完整17项／构建、DONE、归档、导入与源码验收。R29有效838A／452B，validated848A／462B，普通队列为空；10条source/runtime pending仍整条排除。核心法术617条已逐条审读，607条接受、10条运行待确认。继续下一有界机制切片，最终分母、补充项与游戏验收仍开放。
 
 2026-10-16 M3phase14完成58A／35B，两路独立full17/build，新增有效53A／30B；累计891A／482B，已验证906A／497B。5条Orcs译文／6claim集中机制修复，4项advisory；DLC来源未固定，10条旧runtime pending不计完成。见[阶段报告](../evidence/full-review/release-20261013/m3/phase-14/REPORT.md)。
+
+2026-10-17续：窗口-16五条新revision完成fresh生产A5/B5，各自完整17项／构建、DONE、归档、导入与源码验收，六项claim闭合。R31有效896A／487B，validated906A／497B，普通队列为空；10条runtime pending仍整条排除。58条Orcs法术切片闭合，DLC来源仍未固定。最终分母、补充项和游戏验收保持开放。
