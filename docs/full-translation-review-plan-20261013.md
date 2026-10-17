@@ -175,7 +175,7 @@ p12s3 已闭合：本批新增 9A/2B，确认待修 revision=0；
 隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
 不计最终候选或三 DLC 玩法验收；M4 仍须实际加载最终候选。
 
-从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v34`。
+从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v35`。
 完整 task-gates 使用已验证的 `PATH=/usr/local/bin:$PATH` 与 `TOME_PASEO_WORKSPACE` 环境，
 当前按绝对 directory 调用；相对路径回执返回问题已有有界归因，待小型入口修正。
 执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
@@ -235,3 +235,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-17续：窗口-17五条新revision完成fresh生产A5/B5，各自完整17项／构建、DONE、归档、导入与源码验收，五项claim闭合。R33有效934A／510B，validated944A／520B，普通队列为空；10条runtime pending仍整条排除。固定624核心／引擎源码已核验。最终分母、补充项和游戏验收保持开放。
 
 2026-10-17 M3phase16完成73A／49B，两路各自full17/build，新增有效65A／41B，累计999A／551B，已验证1017A／569B。确认8claims／7条局部修复，5项advisory，11条runtime pending保持；见[阶段报告](../evidence/full-review/release-20261013/m3/phase-16/REPORT.md)。
+
+2026-10-17续：窗口-18七条修复及两条运行时同键同步完成fresh生产A9/B9，各自完整17项／构建、DONE、归档、导入与源码验收，八项claim闭合；Pin Down普通射击标记前提经源码确认后重新入队（1条）。R35有效1007A／559B，validated1019A／571B；11条runtime pending仍整条排除。固定624核心／引擎源码已核验。最终分母、补充项和游戏验收保持开放。
