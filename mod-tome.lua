@@ -29892,7 +29892,7 @@ t("You cannot use Berserker without a two-handed weapon!", "你需要装备一�
 t([[You enter an aggressive battle stance, increasing Accuracy by %d and Physical Power by %d, at the cost of -10 Defense and -10 Armour.
 		While berserking, you are nearly unstoppable, granting you %d%% stun and pinning resistance.
 		The Accuracy bonus increases with your Dexterity, and the Physical Power bonus with your Strength.]], [[进入狂暴的战斗状态，以减少 10 点闪避和 10 点护甲的代价增加 %d 点命中和 %d 点物理强度。
-		开启狂暴时你无人能挡，增加 %d%% 震慑和定身抵抗。
+		开启狂暴时你几乎无人能挡，增加 %d%% 震慑和定身抵抗。
 		命中受敏捷值加成；
 		物理强度受力量值加成。]], "tformat")
 t("Warshout", "战争怒吼", "talent name")
@@ -29902,19 +29902,19 @@ t("You cannot use Warshout without a two-handed weapon!", "你需要装备一把
 t("Shout your warcry in a frontal cone of radius %d. Any targets caught inside will be confused (power %d%%) for %d turns.", "向前方半径 %d 格的锥形区域发出战吼。范围内的所有目标将陷入混乱（强度 %d%%）， 持续 %d 回合。", "tformat")
 t("Death Blow", "致命打击", "talent name")
 t("You cannot use Death Blow without a two-handed weapon!", "你需要装备一把双手武器来施展致命打击！", "logPlayer")
-t("%s feels the pain of the death blow!", "%s 感受到了死亡一击的疼痛！", "logSeen")
-t("%s resists the death blow!", "%s抵抗了死亡一击！", "logSeen")
+t("%s feels the pain of the death blow!", "%s 感受到了致命打击的疼痛！", "logSeen")
+t("%s resists the death blow!", "%s抵抗了致命打击！", "logSeen")
 t([[Tries to perform a killing blow, doing %d%% weapon damage and dealing an automatic critical hit. If the target ends up with low enough life (<20%%), it might be instantly killed.
 		At level 4, it drains half your remaining stamina, and uses it to increase the blow damage by 100%% of it.
 		The chance to instantly kill will increase with your Physical Power.]], [[试图施展一次致命打击，造成 %d%% 武器伤害，本次攻击自动变成暴击。
 		如果打击后目标生命值低于 20%%，则有可能被直接杀死。
-		在等级 4 时，会消耗你剩余耐力值的一半，并使本次打击的伤害增加所消耗耐力值的 100%%。
+		在等级 4 时，本次攻击会将攻击前剩余体力值的一半按 100%% 折算为临时物理强度加成，攻击后消耗当时剩余体力值的一半。
 		目标即死的概率受物理强度加成。]], "tformat")
 t("Stunning Blow", "震慑打击", "talent name")
 t("You cannot use Stunning Blow without a two-handed weapon!", "你需要装备一把双手武器来施展震慑打击！", "logPlayer")
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
 t([[Hits the target with your weapon, doing %d%% damage. If the attack hits, the target is stunned for %d turns.
-		The stun chance increases with your Physical Power.]], [[用你的武器攻击目标并造成 %d%% 伤害。如果此次攻击命中，则目标会震慑 %d 回合。
+		The stun chance increases with your Physical Power.]], [[用你的武器攻击目标并造成 %d%% 伤害。如果此次攻击命中，则目标会被震慑 %d 回合。
 		震慑概率受物理强度加成。]], "tformat")
 t("Sunder Armour", "破甲", "talent name")
 t("You cannot use Sunder Armour without a two-handed weapon!", "你需要装备一把双手武器来施展破甲！", "logPlayer")
@@ -30017,7 +30017,7 @@ t("Pin Down", "强力定身", "talent name")
 t([[You fire a shot for %d%% damage that attempts to pin your target to the ground for %d turns, as well as giving your next Steady Shot or Shoot 100%% increased chance to critically hit and mark (regardless of whether the pin succeeds).
 		This shot has a 20%% chance to mark the target.
 		The chance to pin increases with your Accuracy.]], [[你朝目标发射定身攻击，造成 %d%% 伤害，并尝试将目标定身 %d 回合。
-		无论定身是否成功，你的下一次稳固射击或射击的暴击率与标记几率都会提高 100%%。
+		无论定身是否成功，在效果持续期间，你下一次对该目标命中的稳固射击或射击，暴击率与标记几率均为 100%%。
 		此次攻击有 20%% 几率标记目标。
 		定身几率受命中加成。]], "tformat")
 t("Fragmentation Shot", "爆裂射击", "talent name")
@@ -30036,7 +30036,7 @@ t([[Fires a wave of projectiles in a radius %d cone, dealing %d%% weapon damage.
 t("Headshot", "爆头", "talent name")
 t([[Fire a precise shot dealing %d%% weapon damage, with 100 increased accuracy. This shot will bypass other enemies between you and your target.
 Only usable against marked targets, and consumes the mark on hit.]], [[进行一次精准射击，造成 %d%% 武器伤害，此次攻击额外获得 100 命中，且能越过你与目标之间的其他敌人。
-只能对被标记的单位使用，命中时消耗该标记。]], "tformat")
+仅当目标被标记或你已激活隐匿时可用；命中时消耗目标已有的标记。]], "tformat")
 t("Volley", "齐射", "talent name")
 t([[You fire countless shots into the sky to rain down around your target, inflicting %d%% weapon damage to all within radius %d.
 If the primary target is marked, you consume the mark to fire a second volley of arrows for %d%% damage at no ammo cost.]], [[你向天空发射无数弹药，如箭雨般落向目标，造成 %d%% 武器伤害，杀伤半径 %d 格。
@@ -30456,8 +30456,8 @@ t([[You spin into a flying leap and deliver a powerful kick dealing %d%% weapon 
 		使用该技能会消耗所有连击点，并且至少需要 1 点连击点才能使用。]], "tformat")
 t("Haymaker", "致命重拳", "talent name")
 t("@Source@ throws a wild haymaker!", "@Source@打出狂暴的重拳！", "_t")
-t("%s feels the pain of the death blow!", "%s 感受到了死亡一击的疼痛！", "logSeen")
-t("%s resists the death blow!", "%s抵抗了死亡一击！", "logSeen")
+t("%s feels the pain of the death blow!", "%s 感受到了致命打击的疼痛！", "logSeen")
+t("%s resists the death blow!", "%s抵抗了致命打击！", "logSeen")
 t([[A vicious finishing strike that deals %d%% damage increased by 20%% per combo point you have up to a max of %d%%. If the target ends up with low enough life (<20%%), it might be instantly killed.
 		Killing a target with Haymaker will instantly restore %d%% to %d%% of your maximum stamina, depending on the amount of combo points you've accumulated.
 		Using this talent removes your combo points.]], [[一次强烈的终结追击，对目标造成 %d%% 伤害，每 1 点连击点额外造成 20%% 的伤害，至多 %d%%。
