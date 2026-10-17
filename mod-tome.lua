@@ -30806,11 +30806,10 @@ t("#Source#'s rage subsides!", "#Source#的愤怒消退了！", "logCombat")
 t([[You enter an aggressive battle rage, increasing Accuracy by %d and Physical Power by %d and making you nearly unstoppable, granting %d%% stun and pinning resistance.
 		Sustaining this rage takes its toll on your body, decreasing your life by 2%% each turn, but for every 1%% of life missing you gain 0.5%% critical hit chance.
 		Even when sustained, this talent is only active when foes are in sight.
-		The Accuracy bonus increases with your Dexterity, and the Physical Power bonus with your Strength.]], [[进入狂暴的战斗状态，增加 %d 点命中和 %d 点物理强度，增加 %d%% 震慑和定身抵抗。
-		同时狂暴的力量会支配你的身体，每回合损失 2%% 生命。同时，你每失去 1%% 生命，增加 0.5%% 暴击率。
-		该技能只在视野内有敌人时生效。
-		命中受敏捷值加成；
-		物理强度受力量值加成。]], "tformat")
+		The Accuracy bonus increases with your Dexterity, and the Physical Power bonus with your Strength.]], [[进入狂暴的战斗状态，增加 %d 点命中和 %d 点物理强度，并使你几乎势不可挡，获得 %d%% 震慑和定身抵抗。
+		维持这种狂暴会损耗你的身体，每回合损失 2%% 生命，但你每失去 1%% 生命，增加 0.5%% 暴击率。
+		即使持续开启，该技能也只在视野内有敌人时生效。
+		命中受敏捷值加成，物理强度受力量值加成。]], "tformat")
 t("Shattering Blow", "破碎震击", "talent name")
 t("#CRIMSON#%s shatters %s shield!", "#CRIMSON#%s粉碎了%s的护盾！", "logSeen")
 t([[Hits the target with your weapon, doing %d%% damage. If the attack hits, the target's armour and saves are reduced by %d for %d turns.
@@ -31112,7 +31111,7 @@ t("Second Wind", "宁神之风", "talent name")
 t("Take a deep breath to recover %d stamina.  The stamina recovery improves with your Strength and Willpower.", "做一次深呼吸并恢复 %d 体力值。该效果受意志和力量加成。", "tformat")
 t("Battle Shout", "战斗鼓舞", "talent name")
 t([[Boost your life and stamina by %0.1f%% for %d turns by bellowing your battle shout.
-		When the effect ends, the additional life and stamina will be lost.]], [[你放声怒吼，生命值和体力值上限提高 %0.1f%%， 持续 %d 回合。
+		When the effect ends, the additional life and stamina will be lost.]], [[你放声怒吼，生命值和体力值及其上限提高 %0.1f%% 并持续 %d 回合。
 		效果结束时，增加的生命和体力会消失。]], "tformat")
 t("Battle Cry", "战斗怒喝", "talent name")
 t([[Your battle cry shatters the will of your foes within a radius of %d, lowering their Defense by %d for 7 turns, making them easier to hit.
