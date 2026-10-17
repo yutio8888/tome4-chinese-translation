@@ -30214,7 +30214,7 @@ t("@Source@ rushes out!", "@Source@冲了出去！", "_t")
 t("You can only rush to a creature.", "你只能冲向生物。", "logPlayer")
 t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")
 t([[Rush toward a target enemy with incredible speed and perform a melee attack for 120%% weapon damage that can daze the target for 3 turns if it hits.
-		You must rush from at least 2 tiles away.]], [[快速冲向敌人，并造成 120%% 基础武器伤害。如果此次攻击命中，那么目标会被眩晕 3 回合。
+		You must rush from at least 2 tiles away.]], [[快速冲向敌人，并造成 120%% 基础武器伤害。如果此次攻击命中，可使目标眩晕 3 回合。
 		你必须从至少 2 码以外开始冲锋。]], "tformat")
 t("Precise Strikes", "精准打击", "talent name")
 t([[You focus your strikes, reducing your attack speed by %d%% and increasing your Accuracy by %d and critical chance by %d%%.
@@ -30225,10 +30225,10 @@ t("You have learned to focus your blows to hit your target, granting +%d accurac
 t("Blinding Speed", "急速", "talent name")
 t("Through rigorous training, you have learned to focus your actions for a short while, increasing your speed by %d%% for 5 turns.", "通过严格的训练，你学会了在短时间内集中行动，速度提高 %d%%， 持续 5 回合。", "tformat")
 t("Quick Recovery", "快速恢复", "talent name")
-t("Your combat focus allows you to keep your hatred burning (%0.1f hate refunded after spending hate on a talent)", "你专注于战斗，使你每次消耗仇恨后，恢复 %0.1f 仇恨。", "tformat")
-t("Your combat focus allows you to regenerate stamina faster (+%0.1f stamina/turn).", "你专注于战斗，使得你可以更快的回复体力 （+%0.1f 体力/回合）。", "tformat")
+t("Your combat focus allows you to keep your hatred burning (%0.1f hate refunded after spending hate on a talent)", "你专注于战斗，使你每次使用消耗仇恨且需要行动时间的主动技能后，恢复 %0.1f 仇恨。", "tformat")
+t("Your combat focus allows you to regenerate stamina faster (+%0.1f stamina/turn).", "你专注于战斗，使得你可以更快地回复体力 （+%0.1f 体力/回合）。", "tformat")
 t("Fast Metabolism", "快速代谢", "talent name")
-t("Your combat focus allows you to regenerate life faster (+%0.1f life/turn).", "你专注于战斗，使你可以更快的回复生命值 （+%0.1f 生命值/回合）。", "tformat")
+t("Your combat focus allows you to regenerate life faster (+%0.1f life/turn).", "你专注于战斗，使你可以更快地回复生命值 （+%0.1f 生命值/回合）。", "tformat")
 t("Spell Shield", "法术抵抗", "talent name")
 t("Rigorous training allows you to be more resistant to some spell effects (+%d spell save).", "严格的训练使得你对某些法术效果具有更高的抗性 （+%d 法术豁免）。", "tformat")
 t("Unending Frenzy", "无尽怒火", "talent name")
@@ -30239,7 +30239,7 @@ t("You revel in the death of your foes, regaining %0.1f stamina with each death 
 section "mod-tome/data/talents/techniques/combat-training.lua"
 
 t("Thick Skin", "硬化皮肤", "talent name")
-t("Your skin becomes more resilient to damage. Increases resistance to all damage by %0.1f%%.", "你的皮肤变的更加坚硬。增加所有伤害抗性 %0.1f%%。", "tformat")
+t("Your skin becomes more resilient to damage. Increases resistance to all damage by %0.1f%%.", "你的皮肤变得更加坚硬。增加所有伤害抗性 %0.1f%%。", "tformat")
 t("Heavy Armour Training", "重甲训练", "talent name")
 t("You cannot use your %s anymore.", "你不能使用你的%s了。", "logPlayer")
 t("(Note that brawlers will be unable to perform many of their talents in massive armour.)", "（请注意，格斗家在身穿板甲的时候，无法使用大部分技能。）", "_t")
