@@ -30114,7 +30114,7 @@ t([[After killing a foe, you have a %d%% chance to gain a 1000%% movement speed 
 		The bonus disappears as soon as any action other than moving is done.
 		Note: since you will be moving very fast, game turns will pass very slowly.]], [[每杀死 1 个敌人你有 %d%% 概率增加 1000%% 移动速度，持续一个标准游戏回合。
 		此效果在你执行除移动外其他动作后立刻结束。
-		注意：由于你的移动非常迅速，游戏回合会过的很慢。]], "tformat")
+		注意：由于你的移动非常迅速，游戏回合会过得很慢。]], "tformat")
 t("Bleeding Edge", "撕裂鞭笞", "talent name")
 t([[Lashes at the target, doing %d%% weapon damage.
 		If the attack hits, the target will bleed for %d%% weapon damage over 7 turns, and all healing will be reduced by %d%%.]], [[割裂目标并造成 %d%% 武器伤害。
@@ -31130,7 +31130,7 @@ t("You cannot use Shield Pummel without a shield!", "必须装备一面盾牌施
 t("%s resists the shield bash!", "%s抵抗了盾牌猛击！", "logSeen")
 t([[Hits the target with two shield strikes, doing %d%% and %d%% shield damage. If it hits a second time, it stuns the target for %d turns.
 		The stun chance increases with your Accuracy and your Strength.]], [[连续使用 2 次盾牌攻击敌人并分别造成 %d%% 和 %d%% 盾牌伤害。
-		如果此技能连续命中目标 2 次则目标会被震慑 %d 回合。
+		如果第 2 击命中目标，则目标会被震慑 %d 回合。
 		震慑几率受命中和力量加成。]], "tformat")
 t("Riposte", "还击", "talent name")
 t([[Improves your ability to perform counterstrikes after blocks in the following ways:
