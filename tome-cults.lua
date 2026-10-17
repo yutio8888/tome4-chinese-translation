@@ -814,13 +814,13 @@ t([[Fast does not always win.
 #GOLD#Rumoured to be able to combine with the Shoes of Moving Quickly.]], [[快不一定是好事。
 
 #GOLD#有人说这可以和疾行之靴结合。]], "_t")
-t("Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.", "每个你没有移动的回合都能得到2点防御和护甲值增益。最多叠加12次。", "_t")
+t("Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.", "每个你没有移动的回合都能得到2点闪避和护甲值增益。最多叠加12次。", "_t")
 t("combine it with the Shoes of Moving Quickly", "与疾行之靴结合", "_t")
 t("You need to have the Shoes of Moving Quickly in your inventory.", "你的背包中需要有一双疾行之靴。", "logPlayer")
 t("Shoes of Slowly Moving Quickly", "缓步疾行之靴", "_t")
 t("A wonder of footwear! You can set a shoe to stay in place while the other one goes very fast, spinning around to create tornados!", "这是鞋子的奇迹！你可以让一只鞋待在原地不动，另一只鞋飞快地旋转起来，形成龙卷风！", "_t")
 t([[Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.
-You move 3 spaces at once.]], [[每个你没有移动的回合都能得到2点防御和护甲值增益。最多叠加12次。
+You move 3 spaces at once.]], [[每个你没有移动的回合都能得到2点闪避和护甲值增益。最多叠加12次。
 一次走3格。]], "_t")
 t("As you combine the two pair of shoes you make something marvelous: %s", "当你将这两件鞋子结合时，你制造出了神奇的道具：%s", "logPlayer")
 t("Rod of Entropy", "熵之魔杖", "entity name")
@@ -3804,7 +3804,7 @@ t("Inside Forbidden Tome: \"Home, Horrific Home\" for %d turns.", "身处禁忌�
 t("Forbidden Tome Cooldown", "禁忌之书冷却", "_t")
 t("Unable to enter Forbidden Tomes.", "无法进入禁忌之书。", "_t")
 t("Wrath of the Wilds", "自然之怒", "_t")
-t("%d%% chance to stun any foes hit.", "%d%% 几率震慑被击中的敌人；每回合第一次符合条件的命中必定触发震慑，不受该几率限制；之后的命中按该几率判定，且同一目标每回合最多被震慑一次。", "tformat")
+t("%d%% chance to stun any foes hit.", "每回合首次对存活且可被震慑的敌人造成伤害时触发震慑，后续有 %d%% 几率触发，每个目标每回合限一次。", "tformat")
 t("protection", "保护", "effect subtype")
 t("Warborn", "为战而生", "_t")
 t("Reduces all damage taken by %d%%.", "减少 %d%%所有受到的伤害。", "tformat")

@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "assessment": "quality-assessment-20261013-advisory-pending-followup",
+  "date": "2026-10-13",
+  "scope": "只读续核 A01–A07、P01–P02；9组11条；不重新开启已完成的 C01–C09 修复",
+  "adjudicator": "主代理独立裁决。Paseo辅助SCOUT在主代理核验完成后取消并归档，没有最终七字段JSON，其活动摘要不作为有效SCOUT输出或独立复审结果使用。",
+  "engine_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "dlc_source_version": "unpinned; applicability pending",
+  "claim_limit": "本次只裁决原先登记的具体争议点，不声明11条正文的所有机制均完成深审",
+  "summary": {
+    "new_confirmed_groups": 0,
+    "retained_advisory_groups": 7,
+    "closed_as_excluded_groups": 1,
+    "pending_groups": 1,
+    "translation_entries": 11
+  },
+  "findings": [
+    {
+      "id": "A01",
+      "original_status": "advisory",
+      "status": "advisory",
+      "disposition": "optional_wording",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1458,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua",
+          "source": "This character's flames are feeding the source, healing them for %d per turn and giving them %d vim.",
+          "source_tag": "tformat",
+          "target": "该生物身上的火焰正向来源生物提供能量，每回合给予其 %d 生命与 %d 活力。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua"
+        },
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1562,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua",
+          "source": "Huge demonic that bleeds, doing %0.2f darkness damage per turn. Anytime you hit it you get healed for %d.",
+          "source_tag": "tformat",
+          "target": "巨大的恶魔伤口每回合造成 %0.2f 暗影伤害。当造成该伤口的来源以近战攻击命中目标时，将会恢复 %d 生命。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua"
+        },
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1608,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua",
+          "source": "Victim is tormented with impending death.  When it dies, it will restore to the source (%s) up to %d times the normal amount of Vim.",
+          "source_tag": "tformat",
+          "target": "受害者因即将到来的死亡而备受折磨。当其死亡时，将为来源（%s）恢复至多 %d 倍于正常数值的活力值。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua"
+        }
+      ],
+      "decision": "三个来源均可按对应效果称为施加者或造成伤口者。CURSED_FLAMES 向 eff.src 恢复生命与活力；DEMONIC_CUT 只在伤害大于零且近战命中者等于 eff.src 时治疗该攻击者；BLEAK_OUTCOME 在受害者死亡时向 eff.src 增加活力，%s 也是该角色名字。现译指代没有反转，主要是术语式措辞。",
+      "strongest_counterevidence": "source 在这三处确实承担区分施加者和受害者的功能；来源生物虽生硬但可理解。不能一律换成你，也不能假定施加者只能是施法者。",
+      "source_anchors": [
+        "a01-flames",
+        "a01-flames-src",
+        "a01-cut",
+        "a01-cut-src",
+        "a01-vim",
+        "a01-vim-src"
+      ],
+      "recommended_action": "可分别把来源生物改为施加者、造成该伤口的来源改为造成伤口者、来源（%s）改为施加者（%s）。保留近战、恢复对象与所有占位符。此处只核对指代争议，不宣称完整技能机制无缺陷。",
+      "unresolved": "DLC 实现适用版本未固定；本地公开源码快照已记录哈希。",
+      "repaired": false
+    },
+    {
+      "id": "A02",
+      "original_status": "advisory",
+      "status": "advisory",
+      "disposition": "optional_wording",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1452,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua",
+          "source": "Next melee attack will always trigger incinerating blows, and the damage from incinerating blows will be multiplied by %d%%",
+          "source_tag": "tformat",
+          "target": "接下来一次近战攻击必定触发焚尽强击，且焚尽强击伤害按 %d%% 乘算",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua"
+        }
+      ],
+      "decision": "状态显示 eff.power * 100，激活写入 raging_flame_mult，焚尽强击将基础伤害乘以 mult。因此按 %d%% 乘算表示的运算方向正确。",
+      "strongest_counterevidence": "乘算在游戏机制说明中可接受；不能仅凭偏技术化就判错译。",
+      "source_anchors": [
+        "a02-raging",
+        "a02-mult"
+      ],
+      "recommended_action": "可改为焚尽强击的伤害变为原来的 %d%%；不能改成伤害增加 %d%%。例如显示 150% 表示乘 1.5，而非额外增加 150%。",
+      "unresolved": "DLC 实现适用版本未固定；仅确认乘数 claim。",
+      "repaired": false
+    },
+    {
+      "id": "A03",
+      "original_status": "advisory",
+      "status": "advisory",
+      "disposition": "optional_wording",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 21212,
+          "section": "mod-tome/data/talents/celestial/dirge.lua",
+          "source": "Your dirges echo mournfully through the air.  When you end a dirge, you continue to gain its acolyte-level effects for %d turns.  You can only benefit from one such lingering dirge at a time.\n\nFurthermore, you are given focus by the song.  Your dirges increase your resistance to confusion and fear by %d%%.",
+          "source_tag": "tformat",
+          "target": "你的挽歌在周围回荡着悲伤。当你结束挽歌时，你持续获得其入门效果 %d 回合。你同时只能受到一种挽歌的余音效果。\n\n而且歌声使得你更加专注。挽歌增加你 %d%% 的混乱和恐惧抗性。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ],
+      "decision": "固定源码是挽歌结束后保留入门效果的技能说明，原文有悲凉回响与歌声带来专注的描写。现译保留这些内容；回荡着悲伤是可理解的拟人表达。",
+      "strongest_counterevidence": "回荡着悲伤虽不如悲凉的挽歌回荡顺畅，仍属于修辞选择，不具备可客观证实的语义反转或信息丢失。",
+      "source_anchors": [
+        "a03-dirge"
+      ],
+      "recommended_action": "可润色为悲凉的挽歌在空中回荡、歌声也让你更加专注；保留两个 %d、段落换行、余音只能一种等原有信息。",
+      "unresolved": null,
+      "repaired": false
+    },
+    {
+      "id": "A04",
+      "original_status": "advisory",
+      "status": "advisory",
+      "disposition": "optional_wording",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 33,
+          "section": "tome-cults/data/birth/demented.lua",
+          "source": "The thirst for knowledge is seen by most arcane users as as good thing.",
+          "source_tag": "_t",
+          "target": "对知识的渴望被大多数奥术使用者视为一件好事。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-cults.lua"
+        }
+      ],
+      "decision": "上下文是痴狂系介绍：多数奥术使用者认可求知，后文转向追求失落知识过度的代价。现译保留多数人的判断与对知识的渴望。",
+      "strongest_counterevidence": "被……视为是自然可用的中文结构，不能仅因为英文也用被动句就判定为明显翻译腔。",
+      "source_anchors": [
+        "a04-demented"
+      ],
+      "recommended_action": "主动句大多数奥术使用者都认为渴求知识是件好事可作为文风选择；无需作为错误修复。",
+      "unresolved": "DLC 源码版本未固定；文本与本次快照一致。",
+      "repaired": false
+    },
+    {
+      "id": "A05",
+      "original_status": "advisory",
+      "status": "advisory",
+      "disposition": "optional_wording",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 27538,
+          "section": "mod-tome/data/talents/psionic/nightmare.lua",
+          "source": "A hideous, demonic entity that resembles the creature it came from.",
+          "source_tag": "_t",
+          "target": "一种可怕的、恶魔般的实体，与其来源生物相似。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ],
+      "decision": "描述绑定于 target:cloneActor 生成的心魔；其名字使用目标的名字，summoner 则是施术者。来源生物在这句指心魔所模仿的目标，而非召唤者。现译的来源与相似关系符合该语境。",
+      "strongest_counterevidence": "实体是 entity 的合法表达；可怕、恶魔般、与原生物相似三个意义均在。此前建议魔影只是文学表达，不能据此改换游戏种类或施加者身份。",
+      "source_anchors": [
+        "a05-inner-demon"
+      ],
+      "recommended_action": "仅按叙事文风润色形象描写；若改写，必须保留心魔酷似目标、而非酷似召唤者这一关系。",
+      "unresolved": null,
+      "repaired": false
+    },
+    {
+      "id": "A06",
+      "original_status": "advisory",
+      "status": "advisory",
+      "disposition": "optional_clarification",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 30566,
+          "section": "mod-tome/data/talents/techniques/marksmanship.lua",
+          "source": "Enter a state of heightened focus for %d turns. While in this state your ranged attack speed is increased by %d%%, your shots do not consume ammo, and all shots capable of marking have their chance to mark increased by %d%%.",
+          "source_tag": "tformat",
+          "target": "进入专注状态 %d 回合，远程攻击速度增加 %d%%， 射击不消耗弹药，标记概率增加 %d%%。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ],
+      "decision": "固定源码中 TRUESHOT 状态提供攻速和无限弹药，标记增益在已有标记的射击路径中计算。普通射击先检查 MASTER_MARKSMAN 或 mark_steady，再按 chance + chance * bonus / 100 增幅。源码支持仅增强本来可标记的射击这一限定。",
+      "strongest_counterevidence": "现译标记概率增加可以理解为提高已有几率，并未写所有射击都能标记。确认限定的源码依据，不等于确认当前句已经宣称相反机制。",
+      "source_anchors": [
+        "a06-trueshot",
+        "a06-marking",
+        "a06-steady",
+        "a06-status"
+      ],
+      "recommended_action": "建议补为可施加标记的射击，其标记几率在原有基础上提高 %d%%。这是相对提升，不是直接增加同样数值的百分点；不要把固定状态说明中的硬编码 100% 当作本条动态参数。",
+      "unresolved": null,
+      "repaired": false
+    },
+    {
+      "id": "A07",
+      "original_status": "advisory",
+      "status": "advisory",
+      "disposition": "optional_clarification",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 4515,
+          "section": "tome-orcs/data/talents/spells/undead-drake.lua",
+          "source": "You breathe a wave of deathly miasma in a cone of radius %d. Any target caught in the area will take %0.2f darkness damage over 4 turns and receive either a bane of confusion or a bane of blindness for 4 turns.\n\t\tThe damage will increase with your Magic, and the critical chance is based on your Spell crit rate.",
+          "source_tag": "tformat",
+          "target": "你向半径 %d 的锥形内喷出致死瘴气。任何被喷到的目标将在 4 回合内受到 %0.2f 暗影伤害并被混乱灾祸或致盲灾祸影响。\n\t\t伤害将会随着你的魔力增长，并且暴击率基于你的魔法暴击率。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-orcs.lua"
+        }
+      ],
+      "decision": "本地 DLC 的 Necrotic Breath 传入 CIRCLE_DEATH：每回合伤害为总量 / 4，dur=4。固定核心的 projector 将这两个值放入同一个 BANE_BLINDED 或 BANE_CONFUSED 状态，其 on_timeout 造成暗影伤害，状态本身同时带致盲或混乱。因此这次施加的伤害与灾祸基础持续时间同为 4 回合。",
+      "strongest_counterevidence": "现译将在4回合内……受到伤害并被灾祸影响，可以让前面的时间状语共同修饰并列效果。单次写4回合不等于漏掉灾祸持续时间。",
+      "source_anchors": [
+        "a07-breath",
+        "a07-projector",
+        "a07-blind",
+        "a07-confused"
+      ],
+      "recommended_action": "建议在灾祸后补明持续4回合以减少歧义。此结论说明基础施加时长，不承诺免疫、抵抗或提前驱散后仍必定完整生效。",
+      "unresolved": "DLC 调用端来源未固定；下游核心使用 manifest 固定 commit。未在完整游戏进程做运行实验。",
+      "repaired": false
+    },
+    {
+      "id": "P01",
+      "original_status": "pending",
+      "status": "pending",
+      "disposition": "insufficient_unredacted_context",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 556,
+          "section": "tome-ashes-urhrok/data/lore/demon.lua",
+          "source": "#{italic}#This plaque is mostly covered in shifting shadows.  You can only make out a little bit of the text.#{normal}#\n\n#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#heregs are not the only way we recycle #927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#arness their fear and suspici#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#outs.  Cautious and yet sadistic, these assassins #927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#markably effective in indirect combat, setting ambus#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#justice.  Additionally, the shadows they produce #927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#spionage, scouting, and #927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#king them a val#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#tion to our intel-gathering camps. Redee#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST# data they contribute on#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST# paving the way for our invasion.\n\n#{italic}#As you reach the end, the text goes completely black, and a new message forms.#{normal}#\n\n#{bold}#WE SEE YOU.#{normal}#",
+          "source_tag": "_t",
+          "target": "#{italic}#上面的文字被浮动的阴影所笼罩，你只能依稀看到模糊的文字碎片#{normal}#\n\n#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～~#LAST#希瑞格并不是我们回收#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～#LAST#卸下他们的恐惧和怀#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～#LAST#。他们已经变得谨慎，然而仍然足够施虐成性，这些暗夜的杀手#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～~ ～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～#LAST#他们卓越的表现在非直接战斗，尤其是发动突#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～#LAST#义。另外，他们制造的黑暗之雾#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～~#LAST#间谍活动，侦察活动，以及#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～~#LAST#给他们一个#927e64#～～～～～～～～～～～～～～～#LAST#息提供给了我们的情报机构。为了偿#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～~#LAST#他们提供的数据被用#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～~#LAST#为我们最终的侵略铺平了道路。\n\n#{italic}#当你看到最后，上面的文字一下子笼罩在完全的黑暗之中，一行新的消息浮现出来#{normal}#\n\n#{bold}#我们正看着你。#{normal}#",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua"
+        }
+      ],
+      "decision": "公开源码直接存放遮蔽后的残片 arness their fear and suspici，附近没有可恢复的完整句。te4.org 的 Demon statue 页面也保留相同残片。harness（利用）是合理推测，但隐藏前缀与句法上下文不可核验，不能把推测出的全文作为证据。",
+      "strongest_counterevidence": "harness 与卸下的方向不同，但当前可见片段缺少词首及前文；例如隐藏前缀可能改变词义。未获得作者原稿或有权威来源的未遮蔽版本，不判现译正确，也不判已证实译反。",
+      "source_anchors": [
+        "p01-plaque"
+      ],
+      "recommended_action": "保留待确认；只在取得可验证的完整词或作者说明后再裁决可见片段。不得补出被遮蔽剧情，不改遮蔽、颜色与段落结构。",
+      "unresolved": "缺少未遮蔽词首/上下文；DLC 源码版本也未固定。",
+      "repaired": false
+    },
+    {
+      "id": "P02",
+      "original_status": "pending",
+      "status": "advisory",
+      "disposition": "excluded_from_normal_campaign_defects",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 32144,
+          "section": "mod-tome/data/texts/intro-orc.lua",
+          "source": "Welcome #LIGHT_GREEN#@name@#WHITE#.\nYou are a member of the feared race of the Orcs.\nBLAH BLAH BLAH\n\nYou have been sent to a remote island on the southwest coast of the Far East to crush an outpost of the Sunwall, the last remaining bastion of men, elves and dwarves on this continent.\n\nA little to the south lies the outpost. Your task: destroy it and bathe in the blood of its people!\n",
+          "source_tag": "_t",
+          "target": "欢迎你#LIGHT_GREEN#@name@#WHITE#。\n你是令人闻风丧胆的兽人种族的一员。\nBLAH BLAH BLAH\n\n你被派往远东大陆西南海岸外的一座偏远岛屿，摧毁太阳堡垒的一处前哨站——这里是人类、精灵和矮人在这片大陆上仅存的堡垒。\n\n再往南一点就是那个前哨站。你的任务：摧毁它，让那里的人血流成河！\n",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua"
+        }
+      ],
+      "decision": "核心旧文本确含 BLAH BLAH BLAH，但固定核心的出生描述未设置 starting_intro=orc。正式 Orcs DLC 的种族才设置该值，并启用 overload：同名 /data/texts/intro-orc.lua 被 DLC 完整开场覆盖。Game 动态拼接 intro- 与 starting_intro，ShowText 从虚拟文件系统加载；Module 将 overload 以 append=false 挂载到搜索路径前端。当前 tome-orcs.lua:7862 已翻译该完整开场且没有此占位文字。",
+      "strongest_counterevidence": "仅搜索 intro-orc 字面量不足以排除动态调用。本结论依赖出生配置、动态加载和覆盖优先级的整条静态链；人为改出生数据、调试直接加载旧文件、其他 addon 改变覆盖顺序等不在正常战役范围。",
+      "source_anchors": [
+        "p02-old-intro",
+        "p02-show-intro",
+        "p02-show-text",
+        "p02-mount",
+        "p02-fs-wrapper",
+        "p02-fs-priority",
+        "p02-dlc-enable",
+        "p02-dlc-birth",
+        "p02-dlc-campaign",
+        "p02-dlc-intro",
+        "p02-hook",
+        "p02-hook-birth",
+        "p02-core-descriptors"
+      ],
+      "recommended_action": "从正常玩家漏译待办中排除，保留上游旧占位文本记录；不删翻译键、不为未知剧情编写正文。",
+      "unresolved": "排除结论适用于固定核心与本次 DLC 快照的正常加载链；DLC 发布版本适用性未固定，未运行完整游戏。",
+      "repaired": false
+    }
+  ],
+  "web_correspondence": [
+    {
+      "claim_id": "P01",
+      "url": "https://te4.org/wiki/Demon_statue",
+      "retrieved": "2026-10-13",
+      "visible_fragment": "arness their fear and suspici",
+      "use": "仅旁证公开页面仍为遮蔽文本，不能替代固定源码或恢复全文"
+    }
+  ],
+  "validation": {
+    "all_targets_match_initial_assessment": true,
+    "translation_changes_this_followup": 0,
+    "verification_level": "固定核心与未固定DLC源码静态核验，当前LuaJIT语义加载；无完整游戏运行测试",
+    "gate_selection": "仅证据和报告续核；按只读/纯文档矩阵核对事实、链接、JSON和空白。未修改翻译、工具、规则或构建输入，不重复上轮完整门禁。"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/2db97d4b-c36a-4df7-a5af-6e4e6ba69534.jsonl",
+  "calls": [
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l2.json; head -c 6000 .ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l2.json",
+        "description": "Inspect envelope input"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l2.json'))\np=d['payload']\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:3000])\nfor b in p['bounded_context']:\n  c=json.loads(b['context']); print(b['revision_key'], c['file'], c['section_path'], c['source_tag'])\n  for f in c['source_facts']:\n    if 'cults' in f['component'] or b['revision_key'] not in ('c04-1','c04-2'): print(json.dumps(f,ensure_ascii=False))\n\"",
+        "description": "Dump envelope payload"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; grep -n \"^#\" docs/paseo-translation-context-review-v2-contract.md; awk '/^## *6/,/^## *7/' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read contract output section"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; sed -n 109,160p docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read section six"
+      }
+    }
+  ],
+  "host_boundary_verdict": "confirmed_read_only_within_frozen_input_and_related_public_source",
+  "host_adjudication": "all OK; no accepted or deferred finding"
+}

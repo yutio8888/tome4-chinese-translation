@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "reason": "用户补充发行范围；不重写原 Opus 输出、候选、裁决或 DONE 记录。",
+  "user_instruction": "注意 engine的文本也要输出",
+  "supersedes": "R1 中 Engine 仓库译文可列包外的部分；R2 隔离包路径须增加 Engine 发行接入。",
+  "before": {
+    "path": "evidence/plan-review/full-review-plan-opus-20261013/plan-before-engine-output.txt",
+    "sha256": "e519013f478317198332b55639959ef00140042fa0744825714946c85312c877"
+  },
+  "after": {
+    "path": "docs/full-translation-review-plan-20261013.md",
+    "sha256": "5484061a697e01c42684659884d42aa612ba8bdeee9237344652226b5ee9d8c5"
+  },
+  "required": [
+    "Engine 全量语境审核及适用 B 复核",
+    "Engine full 构建输出，包含适用 copy 内容",
+    "进入发行清单、隔离组装及安装升级回退步骤",
+    "初始化及模块/addon加载前后的实际生效和同键优先级验收"
+  ],
+  "implementation_status": "planning_only; build/publish tools and manifest unchanged; no production or release executed",
+  "checked_sources": [
+    {
+      "path": "i18n/versions/tome-1.7.6.json",
+      "fact": "engine has full_output game/engines/default/data/locales/engine/zh_hans.lua and addon_eligible=false"
+    },
+    {
+      "path": "tools/i18nlib/build.py",
+      "symbol": "build_full_locales",
+      "fact": "loads canonical and copy, checks generated semantic equivalence, writes full_output"
+    },
+    {
+      "path": "tools/i18nlib/cli_localization.py",
+      "fact": "build --profile full --component engine is supported"
+    },
+    {
+      "path": "tools/i18nlib/publish.py",
+      "fact": "existing publish selects tome plus three DLC; Engine not emitted"
+    },
+    {
+      "component": "engine",
+      "commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "paths": [
+        "game/engines/default/engine/init.lua:129",
+        "game/engines/default/engine/Module.lua:507",
+        "game/engines/default/engine/Module.lua:969"
+      ],
+      "fact": "engine initialization, addon and module locale loading are distinct calls; actual install/mount behavior must be tested"
+    }
+  ]
+}

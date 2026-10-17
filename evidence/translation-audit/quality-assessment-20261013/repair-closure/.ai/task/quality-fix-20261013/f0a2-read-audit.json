@@ -1,0 +1,35 @@
+{
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/31cb0196-86c1-410f-9620-7f1f997a0890.jsonl",
+  "calls": [
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f0a2.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f0a2.json | head -c 20000",
+        "description": "Read envelope and contract sizes"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f0a2.json'))\np=d['payload']\nprint(list(d.keys())); print(list(p.keys()))\nfor k,v in p.items():\n    if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000]); print('---')\nEOF",
+        "description": "Show envelope structure except context"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 - <<'EOF'\nimport json\nd=json.load(open('.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f0a2.json'))\nfor c in d['payload']['bounded_context'][6:]:\n    x=json.loads(c['context']); print(c['revision_key'],x['file'],x['section_path'],x['source_tag'])\n    for f in x['source_facts']: print(f['path'],f['line_start'],f['line_end']); print(f['excerpt']); print('..')\n    print('=====')\nEOF\nsed -n '/^## 6/,/^## 7/p' docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Show remaining contexts and contract section 6"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; cat docs/paseo-translation-context-review-v2-contract.md",
+        "description": "Read v2 contract fully"
+      }
+    }
+  ],
+  "host_boundary_verdict": "confirmed_read_only_within_frozen_input_and_related_public_source",
+  "host_adjudication": "C06 observation partially confirmed: target perspective can be shown in another actor character sheet (fixed core call sites). Empty %s leaves pre-punctuation whitespace. The asserted person of localized %s is unsupported: frozen current fragment is 并被沉默, with no pronoun."
+}

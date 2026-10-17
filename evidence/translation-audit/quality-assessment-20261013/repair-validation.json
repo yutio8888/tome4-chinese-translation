@@ -1,0 +1,786 @@
+{
+  "task_id": "quality-fix-20261013",
+  "status": "DONE_VERIFIED",
+  "mode": "bounded_translation_maintenance",
+  "confirmed_groups": 9,
+  "changed_targets": 11,
+  "locale_files": 4,
+  "cycle": 1,
+  "review_stages": [
+    {
+      "phase": "REVIEW",
+      "cycle": 0,
+      "kind": "lane_group",
+      "members": 4,
+      "result": "PASS"
+    },
+    {
+      "phase": "FINAL_REVIEW",
+      "cycle": 0,
+      "kind": "full",
+      "result": "CHANGES_REQUIRED",
+      "adjudication": "F01 C06 inspected-actor perspective and optional fragment spacing confirmed; fragment pronoun assertion rejected."
+    },
+    {
+      "phase": "RE_REVIEW",
+      "cycle": 1,
+      "kind": "closure",
+      "entries": 1,
+      "result": "PASS"
+    },
+    {
+      "phase": "FINAL_REVIEW",
+      "cycle": 1,
+      "kind": "full",
+      "entries": 11,
+      "result": "PASS"
+    }
+  ],
+  "all_children_archived": true,
+  "child_count": 9,
+  "validation": {
+    "task_id": "quality-fix-20261013",
+    "validation_kind": "bounded_translation_maintenance",
+    "scope": {
+      "confirmed_groups": 9,
+      "changed_targets": 11,
+      "changed_locale_files": 4
+    },
+    "candidate_hashes": {
+      "mod-tome.lua": "8f43ff3b1884c74abfe75e37602cd2cd92d1a5d19c5918e5560307114e5c9440",
+      "tome-ashes-urhrok.lua": "a07cb2f8d0b9560c136b90441751ca2c84a2fa73c055168a4e107952740f2ff4",
+      "tome-cults.lua": "151a185dd7f07144bd418fd61eae47b15283122c1a56ba621d167db337e3784f",
+      "tome-orcs.lua": "52f4ef5f8ca68a0bd29162c3bf6cb0fed1edaf05ed0d445489d945b2ebd5c473"
+    },
+    "source_and_target_scope_verified": true,
+    "frozen_candidate_unchanged": true,
+    "lint": {
+      "path": ".artifacts/i18n/runs/20261013T055913.615580Z-2-lint/lint.json",
+      "sha256": "150e64b5cd27af963a27fc3d6d5f6b473df75e587f9a61bdce8d16ac96a478d8",
+      "strict": true,
+      "translations": 30308,
+      "errors": 0,
+      "warnings": 0
+    },
+    "proposals": [
+      {
+        "component": "cults",
+        "path": ".artifacts/i18n/runs/20261013T054824.930193Z-2-proposal/proposal-validation.json",
+        "sha256": "8590be868aafca74777c1ac70ac68e00ff41cbd8eef1345b1ce5f33824ab40f6",
+        "coverage": {
+          "missing": 0,
+          "proposed": 3,
+          "workset_items": 3
+        },
+        "strict": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      {
+        "component": "orcs",
+        "path": ".artifacts/i18n/runs/20261013T055912.774724Z-2-proposal/proposal-validation.json",
+        "sha256": "8ebd8fac2514bb3217536ff2c1790dc1240718c2d7bdc0bf8e4d5a3bba311f9e",
+        "coverage": {
+          "missing": 0,
+          "proposed": 2,
+          "workset_items": 2
+        },
+        "strict": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      {
+        "component": "ashes-urhrok",
+        "path": ".artifacts/i18n/runs/20261013T054824.931232Z-2-proposal/proposal-validation.json",
+        "sha256": "75d772d1e62a6d9914b86c4b9c617bfa804cc31c2b31876d2109a51937e5af4a",
+        "coverage": {
+          "missing": 0,
+          "proposed": 2,
+          "workset_items": 2
+        },
+        "strict": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      {
+        "component": "tome",
+        "path": ".artifacts/i18n/runs/20261013T054824.937195Z-2-proposal/proposal-validation.json",
+        "sha256": "ff8acbe828217efb6fcd29033204ef7c16fa8e2d9735d1a9a5c9a972a6d3764e",
+        "coverage": {
+          "missing": 0,
+          "proposed": 4,
+          "workset_items": 4
+        },
+        "strict": true,
+        "errors": 0,
+        "warnings": 0
+      }
+    ],
+    "runtime_keys": {
+      "scanned_translations": 30308,
+      "collisions": 0,
+      "duplicate_keys": 1711,
+      "all_duplicate_runtime_values_identical": true
+    },
+    "core_addon_build": {
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "build",
+        "--profile",
+        "addon",
+        "--component",
+        "tome",
+        "--require-complete"
+      ],
+      "exit_code": 0,
+      "stdout": "OK  tome             delta=7007 inherited=12121 override=6886 new=121\nAddon artifact: complete, 7007 runtime keys, 84218edc9b481ed8\nOutput: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261013T054917.475646Z-4-build-addon/addon/data/locales/zh_hans.lua\n",
+      "stderr": "",
+      "translation_hashes": {
+        "mod-tome.lua": "8f43ff3b1884c74abfe75e37602cd2cd92d1a5d19c5918e5560307114e5c9440",
+        "tome-ashes-urhrok.lua": "a07cb2f8d0b9560c136b90441751ca2c84a2fa73c055168a4e107952740f2ff4",
+        "tome-cults.lua": "151a185dd7f07144bd418fd61eae47b15283122c1a56ba621d167db337e3784f",
+        "tome-orcs.lua": "c173584e3310e9c15bc2a345bf51dd22fa55f7020def13495d8950645307fe4c"
+      },
+      "finished_at": "2026-10-13T05:49:17.540400+00:00"
+    },
+    "dlc_build_limitation": {
+      "adjudication": "confirmed_existing_baseline_limitation_not_caused_by_target_edits",
+      "addon_attempt": {
+        "command": [
+          "python3",
+          "-B",
+          "tools/i18n",
+          "build",
+          "--profile",
+          "addon",
+          "--component",
+          "ashes-urhrok",
+          "--component",
+          "cults",
+          "--component",
+          "orcs",
+          "--require-complete"
+        ],
+        "exit_code": 5,
+        "stdout": "",
+        "stderr": "ERROR: no addon component has a pinned official baseline\n",
+        "translation_hashes": {
+          "mod-tome.lua": "8f43ff3b1884c74abfe75e37602cd2cd92d1a5d19c5918e5560307114e5c9440",
+          "tome-ashes-urhrok.lua": "a07cb2f8d0b9560c136b90441751ca2c84a2fa73c055168a4e107952740f2ff4",
+          "tome-cults.lua": "151a185dd7f07144bd418fd61eae47b15283122c1a56ba621d167db337e3784f",
+          "tome-orcs.lua": "c173584e3310e9c15bc2a345bf51dd22fa55f7020def13495d8950645307fe4c"
+        },
+        "finished_at": "2026-10-13T05:49:16.461460+00:00"
+      },
+      "full_attempt": {
+        "command": [
+          "python3",
+          "-B",
+          "tools/i18n",
+          "build",
+          "--profile",
+          "full",
+          "--component",
+          "ashes-urhrok",
+          "--component",
+          "cults",
+          "--component",
+          "orcs",
+          "--require-complete"
+        ],
+        "exit_code": 5,
+        "stdout": "",
+        "stderr": "ERROR: components 'ashes-urhrok', 'cults', 'orcs' have no full_output mapping\n",
+        "translation_hashes": {
+          "mod-tome.lua": "8f43ff3b1884c74abfe75e37602cd2cd92d1a5d19c5918e5560307114e5c9440",
+          "tome-ashes-urhrok.lua": "a07cb2f8d0b9560c136b90441751ca2c84a2fa73c055168a4e107952740f2ff4",
+          "tome-cults.lua": "151a185dd7f07144bd418fd61eae47b15283122c1a56ba621d167db337e3784f",
+          "tome-orcs.lua": "c173584e3310e9c15bc2a345bf51dd22fa55f7020def13495d8950645307fe4c"
+        },
+        "finished_at": "2026-10-13T05:49:16.460286+00:00"
+      },
+      "diagnosis": "The existing manifest declares null source_repository, official_locale and full_output for all three DLC. No strict DLC addon baseline or full-profile mapping exists. No manifest or source-baseline changes are authorized by this bounded task; LuaJIT loading, strict lint/proposal and runtime-key checks cover edited DLC files. No claim of a successful DLC packaging build is made.",
+      "version_applicability": "unpinned; remains pending"
+    },
+    "whitespace": "passed tracked/index and new repair-notes",
+    "untouched_preexisting_changes": true,
+    "commit_or_external_publish": false
+  },
+  "known_limits": [
+    "DLC source repository/commit/version remains unpinned.",
+    "DLC strict addon/full builds cannot run under existing manifest lacking official baselines/output mappings. This is a diagnosed pre-existing packaging limitation; no successful DLC packaging build is claimed."
+  ],
+  "advisory_and_pending_from_original_report": "not changed",
+  "original_report_and_findings": "historical snapshots retained",
+  "not_committed": true,
+  "evidence_restore_note": "repair-closure preserves original .ai relative paths; its copies are audit snapshots. Replay state checker against original paths, or restore this snapshot into a separate repository copy with the matching translation files.",
+  "artifacts": [
+    {
+      "source": ".ai/task/quality-fix-20261013/BASELINE-status.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/BASELINE-status.txt",
+      "sha256": "3550cfc706f9b91b07168a3bd9575d989d73dcdd1fd217751a7f87ca58bfee98"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/BASELINE.patch",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/BASELINE.patch",
+      "sha256": "002b9efaf44232c3d89b1a728c843daa1b1b1a38449030f10c8715075e79fa41"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f0a2.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f0a2.json",
+      "sha256": "2f8c6bbd022b7b3849ba4b53c7e80447657905f3a2de6a54ff0b8eb3b5bf00b0"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f1a2.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f1a2.json",
+      "sha256": "706f2ae37981bd2f85e6090a811fa852e7ef827c5c41d448ae843541a2648f27"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l1.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l1.json",
+      "sha256": "d653327e4a5745ba2fd289331fd95715b8be7a0252ac5d3b57b3d011f74429fb"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l2.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l2.json",
+      "sha256": "e3c8ee7251b6fb276a293c26785600390f00aa203f5e8ccc670c249880d8c9ab"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l3.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l3.json",
+      "sha256": "923b5a1ab6dab24090fa894c3b09afe550e80a94a1f57694f37be3d0d55c5f93"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l4.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r0a1l4.json",
+      "sha256": "1568c4b5d60ee27284536640c6130f4e9744505caaa41834100fcbb26f79b0b8"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r1a1.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-r1a1.json",
+      "sha256": "bbbb7f6f255428d16205f83319c243187bd86e9de55ef1adc10a415aaa5e2cf3"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/CONTEXTUAL-LANE-GROUP-r0a1.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/CONTEXTUAL-LANE-GROUP-r0a1.json",
+      "sha256": "30ce4e902d58dcf261ec5059f0fd35bdb31c1af10bc5158036e7dc50cde7d00c"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/DONE-check.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/DONE-check.txt",
+      "sha256": "ec547b12cd2b129ed2c15b2cac580417ec0201ae2e26bf7a5dd614c9eb0e8b02"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/DONE-preflight.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/DONE-preflight.txt",
+      "sha256": "ec547b12cd2b129ed2c15b2cac580417ec0201ae2e26bf7a5dd614c9eb0e8b02"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/DRAFT-r1.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/DRAFT-r1.json",
+      "sha256": "fe5a3b02d25eb782eb0e3c53962df598ccbf9ded619541103c3c261beb8d54cd"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/DRAFT.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/DRAFT.json",
+      "sha256": "7c35180e25381d84f2e7abc92b2d893facbea493c4b32f83e036f53986825a41"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/F01-evidence.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/F01-evidence.json",
+      "sha256": "badcb632eb8ca5a2138e2177b408d443284e8a384cbedbcf46ddb9b23a8d1b1d"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/FIX-1.md",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/FIX-1.md",
+      "sha256": "f2bc6731fd3e3a39fcd4e4c53c78107e185c089b1599f7c10d22d0a13d3ae9c2"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/PLAN.md",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/PLAN.md",
+      "sha256": "89b7fb7b352e9b26d666c98e2e4acd74fe53f8dd318c4f7250f468eff547bfab"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/SCOPE.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/SCOPE.json",
+      "sha256": "f8429fba49aca5f1aa456ce156264d9e4252729a681cc23bb6ced48b92664268"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/SOURCE-FACTS.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/SOURCE-FACTS.json",
+      "sha256": "1e7ee0abf40c74f0cbf548b4bfedd5a485783ff55feddf13bae3fcdb34600185"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/SPEC.md",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/SPEC.md",
+      "sha256": "b5092f81115f563b344d448dd512ff5c27fdb88238926e31b0c0971e1206fedf"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/STATE.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/STATE.json",
+      "sha256": "4bc8b9caca9afd2072a480a74dbe4fbb1a03ced431fb534fcf55fe37aaefe0f0"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/TARGET-CHANGES-r0.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/TARGET-CHANGES-r0.json",
+      "sha256": "ba964c5ec1c5a13c2b5be5493f6f2cb74f4b3ff186389d2f78f5456e3f566563"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/TARGET-CHANGES.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/TARGET-CHANGES.json",
+      "sha256": "3d5cdbc3fb032e8669550cfd0a424b2c510ccd7272a531d2e1a01164bcf26586"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/TERM-SNAPSHOT.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/TERM-SNAPSHOT.json",
+      "sha256": "3f6255a6a0889a56d926a9c3778e8fb577ef78745b707de322017fce3d9f7d90"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/VALIDATION.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/VALIDATION.json",
+      "sha256": "ebc19b99f0e3754022e9e22a9a3fa7ad142d2218ffa6cf22ec26abb927e2b7a6"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/confirmed-workset.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/confirmed-workset.json",
+      "sha256": "b384f611502f4b515f5390f5614d04631e704580fd7aee5513298772b8ba47b8"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/execute-01-archived.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/execute-01-archived.json",
+      "sha256": "0c07c34da25e43c3b338ad33e722d32473a10c2fcf638f085a052dfa7a6d6ed6"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/execute-01-created.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/execute-01-created.json",
+      "sha256": "c1bdf9ccf83839f597409db764059fc43af570da8b15ceff862becc429bf8cc3"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/execute-01-profiles.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/execute-01-profiles.json",
+      "sha256": "2e0949b13927e2184517664ba2323896170cc61329ad80945f130537e9705883"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/execute-01-report.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/execute-01-report.json",
+      "sha256": "1b7c689caebd80f55d55867395c66576d8e56d76cc80fa66139e13e8ba74e760"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/execute-01-terminal.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/execute-01-terminal.json",
+      "sha256": "17588d9465344adb3d8cc651d57a20806013b4b86b60f82719299afff913ed04"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/execute-02-archived.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/execute-02-archived.json",
+      "sha256": "493284ec8819b7e3a87fbdf7310b58ae8b261434f93d820b62ed2a0b50be4573"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/execute-02-created.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/execute-02-created.json",
+      "sha256": "b36d3cd056da1a45e71b77512921ffe85d0a8f18642a26c174dcccb697e60139"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/execute-02-profiles.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/execute-02-profiles.json",
+      "sha256": "2e0949b13927e2184517664ba2323896170cc61329ad80945f130537e9705883"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/execute-02-report.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/execute-02-report.json",
+      "sha256": "70f5132657023e1d873cc5bd15dc6ccd6faff8bf0c900334f4e5e255326c718b"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/execute-02-terminal.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/execute-02-terminal.json",
+      "sha256": "8504031a36b9e33f3ab836ab3f5edc4db7c304105c3f5f4af8672ab4171dc1e7"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f0a2-archived.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f0a2-archived.json",
+      "sha256": "d05cf5b9f0065e9bdbf2ab0e3217837a699cfd9c05c8cc658189cf476cf0daf7"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f0a2-author-live.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f0a2-author-live.json",
+      "sha256": "0c07c34da25e43c3b338ad33e722d32473a10c2fcf638f085a052dfa7a6d6ed6"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f0a2-create-intent.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f0a2-create-intent.json",
+      "sha256": "5f75d77db771d831ed3513d788ec725fcd57d2ef34682a5ee38c54147d6e846e"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f0a2-created.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f0a2-created.json",
+      "sha256": "ac33ee2b05cb6da8743b12e132b11ee9719ebc8548c48780c71cb867bda6b90a"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f0a2-native-provenance.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f0a2-native-provenance.json",
+      "sha256": "1023857f904bfba5c03aa5dd3d1358944c5fdfd0f2993ee176b9860646a1f824"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f0a2-profiles.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f0a2-profiles.json",
+      "sha256": "d7ca050fbdd893f0c6897677d63a6456210d3546cd19aa797ed503cade434813"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f0a2-prompt.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f0a2-prompt.txt",
+      "sha256": "343e71d1ba260476148c957417a166630cda5cb009bcc34ebeb93df58f13161f"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f0a2-read-audit.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f0a2-read-audit.json",
+      "sha256": "db367a168caaf2908c1edb5d14e0ea20b866c070bcd4026ec84920e44401671b"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f0a2-terminal.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f0a2-terminal.json",
+      "sha256": "aa1c9c51060df138d4e7ebceb5fc8e4949f72c75aeadd565ec005f06b39682e6"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f1a2-archived.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f1a2-archived.json",
+      "sha256": "d0f54b2cd9a7f94346fedd421ea06ed32fa807cf500a0920158d3bcbfee9efbe"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f1a2-author-live.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f1a2-author-live.json",
+      "sha256": "493284ec8819b7e3a87fbdf7310b58ae8b261434f93d820b62ed2a0b50be4573"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f1a2-create-intent.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f1a2-create-intent.json",
+      "sha256": "1ffde5de1011f11c134b82177360a49186e960baf66ff6013ca11a1382c13c4e"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f1a2-created.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f1a2-created.json",
+      "sha256": "ae867254af7aa5f12919cfe92eb6a00ec7a53455cdd2a9503620d0aa576c3389"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f1a2-native-provenance.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f1a2-native-provenance.json",
+      "sha256": "eca33fcaa69b7dd226f0163c1528252d8558ef1b7a9fc6f73d54184d6b8a84f4"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f1a2-profiles.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f1a2-profiles.json",
+      "sha256": "d7ca050fbdd893f0c6897677d63a6456210d3546cd19aa797ed503cade434813"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f1a2-prompt.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f1a2-prompt.txt",
+      "sha256": "c3acc99a9f66a59bbbf2770627d641d7bdde80fa860164e63fb383386c9f0ccf"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f1a2-read-audit.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f1a2-read-audit.json",
+      "sha256": "24294ffca142a240edcf94b23b8b61e25bf57829c3418dca9d25811f0da1bcf3"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/f1a2-terminal.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/f1a2-terminal.json",
+      "sha256": "a7d222506fdfa6b255fc0e5bd26e7a5b8129bde69bb95512c4796831b54dc769"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l1-archived.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l1-archived.json",
+      "sha256": "027948287d77561f6dcf0100ca223a248dd72c84aa44c6b12b3dfa4015e1ce09"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l1-author-live.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l1-author-live.json",
+      "sha256": "0c07c34da25e43c3b338ad33e722d32473a10c2fcf638f085a052dfa7a6d6ed6"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l1-create-intent.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l1-create-intent.json",
+      "sha256": "f02703bdcfbbe5778d92a660ac59fd8fa8f9801d7532782b8d40f532efe5f163"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l1-created.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l1-created.json",
+      "sha256": "02b3ca41c78d12a6bdcb4d7b2ed92da0c7aa2148ec378d24a633488930dbd222"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l1-native-provenance.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l1-native-provenance.json",
+      "sha256": "750c4ffe8ac585d3633cb8eefcf866afbe6a0458e0cb4806d0931742d65b1f00"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l1-profiles.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l1-profiles.json",
+      "sha256": "d7ca050fbdd893f0c6897677d63a6456210d3546cd19aa797ed503cade434813"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l1-prompt.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l1-prompt.txt",
+      "sha256": "00252f4afde5d4cd265f6f08df07f020c5bca7daf631d4d7b33fb9587f5a4709"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l1-read-audit.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l1-read-audit.json",
+      "sha256": "47899c4a8844e71924195c7f5fbec53587807928bff95fd77be8d6e8e714c9d0"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l1-terminal.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l1-terminal.json",
+      "sha256": "b935a806d16a2305d838f61019db6f4535162c55d96caf3904c028d07c58b536"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l2-archived.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l2-archived.json",
+      "sha256": "0ba36291b6664b0ea87a2785ef05c7b5cf0eec26710ea26e2101d0ca0703315e"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l2-author-live.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l2-author-live.json",
+      "sha256": "0c07c34da25e43c3b338ad33e722d32473a10c2fcf638f085a052dfa7a6d6ed6"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l2-create-intent.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l2-create-intent.json",
+      "sha256": "bfdf1df36b012132ff4b2459801d9c67a25cd3551f626f8ae8e17f768322d119"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l2-created.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l2-created.json",
+      "sha256": "920b5b4ba4481cebf4fe2b984a32648fa68911cd18ce37ceb38f84b6b3778648"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l2-native-provenance.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l2-native-provenance.json",
+      "sha256": "22c86e8f28c3136232e905b8e79de25e262ec7b0e05139046853f0aa50d5260f"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l2-profiles.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l2-profiles.json",
+      "sha256": "d7ca050fbdd893f0c6897677d63a6456210d3546cd19aa797ed503cade434813"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l2-prompt.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l2-prompt.txt",
+      "sha256": "7e5417a4a2e1602fd31d4dd15a7e6ab89efb4e7755ce5d7b1e13230646e44254"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l2-read-audit.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l2-read-audit.json",
+      "sha256": "ab19e63dc02dbc45f02a08ef03fc73845d1da7f9b060b0b78437480e4d2c317d"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l2-terminal.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l2-terminal.json",
+      "sha256": "156266b905cd416b31aa46f5da21fa6cfd8876dadf3011e7a701ef184ad848c4"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l3-archived.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l3-archived.json",
+      "sha256": "2402073631b5c72d5967a0b22ed50107c968d146d85509cc3fe6384f96be943c"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l3-author-live.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l3-author-live.json",
+      "sha256": "0c07c34da25e43c3b338ad33e722d32473a10c2fcf638f085a052dfa7a6d6ed6"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l3-create-intent.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l3-create-intent.json",
+      "sha256": "653cb712f6b7c230d66ff626c086775e2d44ba5c6c615303e5b80598ef26b455"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l3-created.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l3-created.json",
+      "sha256": "c4ff6309db5a28965e7272d45b197015698cfd449cc21ddb45ef23f2ef21ff6f"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l3-native-provenance.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l3-native-provenance.json",
+      "sha256": "8e4f2eb17b8908e7094d5cbb360bb307a26621ca57c727598b4805cbf7a7c61f"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l3-profiles.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l3-profiles.json",
+      "sha256": "d7ca050fbdd893f0c6897677d63a6456210d3546cd19aa797ed503cade434813"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l3-prompt.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l3-prompt.txt",
+      "sha256": "b493105f6504833138ef01d62a75799e4726ae7a0c5fa9da83d9bd24d8f6bfd4"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l3-read-audit.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l3-read-audit.json",
+      "sha256": "86f5e312c2eae160be36c2f1fe3f34397fefd3a0ce39bdcc7fb13f95192ea9ee"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l3-terminal.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l3-terminal.json",
+      "sha256": "32c495e5a8dab42a33ebd4ff111482c7ca8937e84148b2125404272f27bca281"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l4-archived.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l4-archived.json",
+      "sha256": "176e52967d0315b8facb063cb43b3fd8b788b8b1aff4b787936ff6f490867a47"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l4-author-live.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l4-author-live.json",
+      "sha256": "0c07c34da25e43c3b338ad33e722d32473a10c2fcf638f085a052dfa7a6d6ed6"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l4-create-intent.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l4-create-intent.json",
+      "sha256": "831bbe95654879aefa627119df4c9c42ee79ec7024ae2dbe84c864889087919a"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l4-created.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l4-created.json",
+      "sha256": "30e8f0f74cfe61401bf37a6d4cc5d20f83203dfa16efc25561b4096cd9d69514"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l4-native-provenance.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l4-native-provenance.json",
+      "sha256": "5949f5be1577e5350a05c5eb5ac929b8f8f82994591a41d696f3eed3c97e66bc"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l4-profiles.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l4-profiles.json",
+      "sha256": "d7ca050fbdd893f0c6897677d63a6456210d3546cd19aa797ed503cade434813"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l4-prompt.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l4-prompt.txt",
+      "sha256": "bd4f6f3b0d4b1eb4c4670c42ed0e0e3696334a1a146984dd32cd1725aed08dc5"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l4-read-audit.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l4-read-audit.json",
+      "sha256": "66c05943f194f0a35c31de956dbb4c863da8ce39efb9ddae9b6971b0f62ed9a9"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r0a1l4-terminal.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r0a1l4-terminal.json",
+      "sha256": "284046453b7691bee3e6d92d463ff9ed7e1ec511f08bf4ee74e714a81f9894eb"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r1a1-archived.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r1a1-archived.json",
+      "sha256": "45ace9d5c10532d8e62005f7b76c3942be740f1a0fbb50fab9caac1586ec9e72"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r1a1-author-live.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r1a1-author-live.json",
+      "sha256": "493284ec8819b7e3a87fbdf7310b58ae8b261434f93d820b62ed2a0b50be4573"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r1a1-create-intent.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r1a1-create-intent.json",
+      "sha256": "e8e208472a190e2e325462fa03f83bb01b25fc676fcb784bfbccfa0aed6ee1a9"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r1a1-created.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r1a1-created.json",
+      "sha256": "d6a0d5f684c11a57fb7d972bf0dc01ebfd8c02bf947ff44b60e18e46fab37353"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r1a1-native-provenance.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r1a1-native-provenance.json",
+      "sha256": "d27cb7260d9cd2f49664f07e5f071892a9134e65427e98e9f00fca57cb658c28"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r1a1-profiles.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r1a1-profiles.json",
+      "sha256": "d7ca050fbdd893f0c6897677d63a6456210d3546cd19aa797ed503cade434813"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r1a1-prompt.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r1a1-prompt.txt",
+      "sha256": "8ff42c24147a456a860f8d7f91e2f7bd307be40b86867e3e21fe080c0727da76"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r1a1-read-audit.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r1a1-read-audit.json",
+      "sha256": "44de3940a616829a5e9f77201708dec92d4b25d56d2a5592ba60a89db2ecfd00"
+    },
+    {
+      "source": ".ai/task/quality-fix-20261013/r1a1-terminal.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/task/quality-fix-20261013/r1a1-terminal.json",
+      "sha256": "745e416703a377b19b672a3715d2c09ddbc873afce24416d3952dc4e2dacbce6"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/f0a2.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/f0a2.json",
+      "sha256": "69ce87bdf4bfb32a2c482b6d57cdb5e4d98c4440dd0e66625bed7dda34d88cce"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/f1a2.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/f1a2.json",
+      "sha256": "12957b821776b4f2c08ba7adbc719fe12a4cd63899a6bd18b0f28be4a5edc294"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/r0a1l1.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/r0a1l1.json",
+      "sha256": "3285dc92c97d23dd262b6f489104b888a9197d361b10efde53b4a6a0d98339e0"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/r0a1l2.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/r0a1l2.json",
+      "sha256": "00b5a272987d11e531f7f147888ed6a068deb0cdf75e6880a6e34c6f40b8c11d"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/r0a1l3.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/r0a1l3.json",
+      "sha256": "72d87ce1261e929fa7e12b106657dcc161b25ba071397353ced4174babdf0dbd"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/r0a1l4.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/r0a1l4.json",
+      "sha256": "33badc9768f7617e6a2c8b26060856ebadb9b9ba9fa83668b00bb0a193eca310"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/r1a1.json",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/r1a1.json",
+      "sha256": "c0a19b5d3aa5719bad577f9a91dc6078842adb27ae7858f446e5ca0ff4605119"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/raw-f0a2.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/raw-f0a2.txt",
+      "sha256": "bc9bc85d33f05d2527354caeeb7da334899cfb033618e8eb2a81962e10ff769f"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/raw-f1a2.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/raw-f1a2.txt",
+      "sha256": "49d7b818b2a8b3759f42ca0743ba8f4ce7949fab72cc9839e95ba97e1360fc73"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/raw-r0a1l1.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/raw-r0a1l1.txt",
+      "sha256": "523740a9c35b60e329ede5519baa83b39493cd225a3183d5d29c612092f29536"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/raw-r0a1l2.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/raw-r0a1l2.txt",
+      "sha256": "4580453ea29746a2cd0bb3c4307cda004825978c7b6c26ca01c603cb561e67fc"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/raw-r0a1l3.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/raw-r0a1l3.txt",
+      "sha256": "91b0bcd7e430c353bf87d603a21c1c9d72a8a213b1819eb43c40661625a6d3a7"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/raw-r0a1l4.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/raw-r0a1l4.txt",
+      "sha256": "e2cf8320669b773606da5a939af308753ad9a6faaa78b694ee567829e105db52"
+    },
+    {
+      "source": ".ai/reviews/quality-fix-20261013/raw-r1a1.txt",
+      "archived_path": "evidence/translation-audit/quality-assessment-20261013/repair-closure/.ai/reviews/quality-fix-20261013/raw-r1a1.txt",
+      "sha256": "b25d95fb462f3e8ccd712327d55d40fb1132904ffe01547a736fbfa9ac9392fb"
+    }
+  ]
+}

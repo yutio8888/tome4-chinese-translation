@@ -1,0 +1,151 @@
+{
+  "date": "2026-10-13",
+  "head": "092098530b918b9ecdf86bd4e7812d76bcdc36cf",
+  "mode": "只读翻译质量评估；非正式生产批次",
+  "canonical_changes": false,
+  "game_runtime_tested": false,
+  "engine_manifest_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+  "engine_worktree_head": "3ff88853bc1c586045c439d21c5c112912c6a5bf",
+  "core_evidence_method": "git show manifest固定commit，不使用当前源码HEAD推断机制",
+  "inventory": [
+    {
+      "component": "engine",
+      "file": "engine.lua",
+      "sha256": "9cfa07746c2698c8484bb632fc7fc2c6938d6c84555010af255f6d4269f7d703",
+      "entries": 1061,
+      "equal": 0,
+      "empty": 0
+    },
+    {
+      "component": "boot",
+      "file": "mod-boot.lua",
+      "sha256": "31debdacf3c8fc79c900a772453012c5c6f122aa20dd49d0d92fc3152cc23723",
+      "entries": 283,
+      "equal": 0,
+      "empty": 0
+    },
+    {
+      "component": "tome",
+      "file": "mod-tome.lua",
+      "sha256": "a864817f06ae98cfb99f52b8657f724090901a44bfc1994ab5bc4b1782347850",
+      "entries": 21688,
+      "equal": 2,
+      "empty": 0
+    },
+    {
+      "component": "example",
+      "file": "mod-example.lua",
+      "sha256": "392bc2b09fc816eb4d100a62a9e22ed7925d4fe98b15c1adc29389fabfcb1c61",
+      "entries": 26,
+      "equal": 0,
+      "empty": 0
+    },
+    {
+      "component": "example-realtime",
+      "file": "mod-example_realtime.lua",
+      "sha256": "4cf1bb84f5c731d55973851bb35009d49a6b343b332cb49eaf0e1c1947ac7bf8",
+      "entries": 26,
+      "equal": 0,
+      "empty": 0
+    },
+    {
+      "component": "addon-dev",
+      "file": "tome-addon-dev.lua",
+      "sha256": "9838b385766352cb1b3233b4b24fb7856ab3600535e1153d0258d4b3c8c0e2cf",
+      "entries": 101,
+      "equal": 0,
+      "empty": 0
+    },
+    {
+      "component": "ashes-urhrok",
+      "file": "tome-ashes-urhrok.lua",
+      "sha256": "2b3c7be60cc730280aa9c9a7b13b5082243bc8659ffa78a21b7e71472514c42a",
+      "entries": 849,
+      "equal": 0,
+      "empty": 0
+    },
+    {
+      "component": "cults",
+      "file": "tome-cults.lua",
+      "sha256": "d3dcd4a9bbd7ff58db4aaa82bc2f7e65e8c1758f1d03eec617cc4b547f161257",
+      "entries": 2043,
+      "equal": 0,
+      "empty": 0
+    },
+    {
+      "component": "items-vault",
+      "file": "tome-items-vault.lua",
+      "sha256": "afc78b562176ca938fc5218e1c7baaf864f61e441eca87fdacde21e317472fe3",
+      "entries": 69,
+      "equal": 0,
+      "empty": 0
+    },
+    {
+      "component": "orcs",
+      "file": "tome-orcs.lua",
+      "sha256": "f0d82ea92b42e5002ba8d7cc49d95f4e21ad07b456c503ad0ff6bb0719d2fa5c",
+      "entries": 3904,
+      "equal": 0,
+      "empty": 0
+    },
+    {
+      "component": "possessors",
+      "file": "tome-possessors.lua",
+      "sha256": "cc278401015ac80fa34538f2452f0248d6edae7fb88a9243eb44db92039d70d5",
+      "entries": 258,
+      "equal": 0,
+      "empty": 0
+    }
+  ],
+  "commands": [
+    {
+      "command": "python3 -B tools/i18n doctor",
+      "result": "通过；三个DLC来源未固定警告；DLC提取失败后重跑结果相同"
+    },
+    {
+      "command": "python3 -B tools/i18n lint --strict",
+      "result": "30308 translations; 0 errors; 0 warnings"
+    },
+    {
+      "command": "python3 -B tools/i18n status",
+      "result": "官方locale差异报告；不是源码完整覆盖率"
+    },
+    {
+      "command": "python3 -B tools/i18n extract --component tome --component engine --component boot",
+      "result": "通过；25543/904/319 tDef occurrences，包含非玩家可见与重复键"
+    },
+    {
+      "command": "python3 -B tools/i18n extract --component ashes-urhrok --component cults --component orcs",
+      "result": "失败关闭于Ashes；实际snapshot 839da22ed0a12cd8e7cea0fc6602fbb4fc6b308c21e3cb4a350660a95b17fdd5 != manifest 104ad8232778010e72f736559c726ea6ba8291265c28de2ecdf2275ec76dc2f2；后续组件未由本次组合命令验证"
+    }
+  ],
+  "screening": {
+    "commentary_candidates": 127,
+    "awkward_candidates": 42,
+    "short_ratio_candidates": 223,
+    "numeric_candidates": 104,
+    "phrase_candidates": 10,
+    "candidate_counts_are_not_errors": true,
+    "candidate_review": "选择性原译/完整语境核对，不宣称全部命中项人工深审",
+    "latin_phrase_scan_result": "2条：调试CHEAT提示、旧intro-orc占位文本；另2个source=target条目均为Boss标签",
+    "stratified_sample": {
+      "count": 72,
+      "components": [
+        "tome",
+        "ashes-urhrok",
+        "cults",
+        "orcs"
+      ],
+      "groups": [
+        "mechanics",
+        "narrative",
+        "flavour"
+      ],
+      "per_component_group": 6,
+      "source_length_min": 70,
+      "source_length_max": 1600,
+      "selection": "按SHA256(qa-20261013\\0 + logical_path + \\0 + line)排序，各层取前6；冻结结果见samples.json",
+      "limitations": "非概率等权样本；偏向中短文本，不能据此估算总体错误率"
+    }
+  }
+}

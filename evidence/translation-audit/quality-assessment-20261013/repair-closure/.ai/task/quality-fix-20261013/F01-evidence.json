@@ -1,0 +1,54 @@
+{
+  "id": "F01",
+  "status": "confirmed",
+  "findings": [
+    "The effect description is shown for arbitrary inspected actors through Game targetmode SHOW_CHARACTER_SHEET_CURSOR -> CharacterSheet.new(target) -> self.actor -> e.long_desc(player,p). The localized subject 你 is therefore ambiguous for an NPC effect; 目标 is accurate for both players and NPCs.",
+    "The literal space preceding %s produces 物理伤害 。 when silence is absent."
+  ],
+  "rejected_subclaim": "Localized fragment 并被沉默 has no pronoun; the claim of mixing third-person Chinese in %s was unsupported.",
+  "source_facts": [
+    {
+      "component": "core",
+      "path": "game/modules/tome/class/Game.lua",
+      "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "dcd6dc85d9b2cf74741e82ac9156128b782193d23a459d53f7cda324b099092a",
+      "ranges": [
+        {
+          "start": 2552,
+          "end": 2561,
+          "excerpt": "\t-- add key bindings for targeting mode\n\tself.targetmode_key:addBinds{\n\t\tSHOW_CHARACTER_SHEET_CURSOR = function()\n\t\t\tlocal target = table.get(self, \"target\", \"target\", \"entity\") -- gets the actor under the targeting reticle\n\t\t\ttarget = target and (config.settings.cheat or self.player:canSee(target)) and target or self.player\n\t\t\tself:registerDialog(require(\"mod.dialogs.CharacterSheet\").new(target))\n\t\tend,\n\t\tSHOW_CHARACTER_SHEET = function()\n\t\t\tself:registerDialog(require(\"mod.dialogs.CharacterSheet\").new(self.player))\n\t\tend,"
+        }
+      ]
+    },
+    {
+      "component": "core",
+      "path": "game/modules/tome/dialogs/CharacterSheet.lua",
+      "source_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+      "file_sha256": "d6c8555c085249893e02be80b079079f6c6a98f2533ac35e2085c724ea5f2582",
+      "ranges": [
+        {
+          "start": 40,
+          "end": 46,
+          "excerpt": "\nfunction _M:init(actor, start_tab)\n\tif actor.showCharacterSheet then actor = actor:showCharacterSheet() end\n\n\tif _M.cs_player_dup and _M.cs_player_dup.name ~= actor.name then _M.cs_player_dup = nil end\n\n\tself.actor = actor"
+        },
+        {
+          "start": 478,
+          "end": 485,
+          "excerpt": "function _M:drawDialog(kind, actor_to_compare)\n--game.log(\"Drawing dialog for %s(%s vs %s)\", self.actor.name, tostring(self.actor), actor_to_compare)\n\tself.c_desc.mouse:reset()\n\tself.c_desc.key:reset()\n\n\tlocal player = self.actor\n\tlocal s = self.c_desc.s\n"
+        },
+        {
+          "start": 875,
+          "end": 887,
+          "excerpt": "\t\t\tend\n\t\tend\n\t\tfor eff_id, p in pairs(player.tmp) do\n\t\t\tlocal e = player.tempeffect_def[eff_id]\n\t\t\tlocal desc = e.long_desc(player, p)\n\t\t\tif e.status == \"detrimental\" then\n\t\t\t\tself:mouseTooltip(desc, s:drawColorStringBlended(self.font, (\"#LIGHT_RED#%s\"):format(e.desc), w, h, 255, 255, 255, true)) h = h + self.font_h\n\t\t\telse\n\t\t\t\tself:mouseTooltip(desc, s:drawColorStringBlended(self.font, (\"#LIGHT_GREEN#%s\"):format(e.desc), w, h, 255, 255, 255, true)) h = h + self.font_h\n\t\t\tend\n\t\tend\n\telseif kind==\"attack\" then\n\t\th = 0"
+        }
+      ]
+    }
+  ],
+  "frozen_composition_fragment": {
+    "source": " and silences it",
+    "target": "并被沉默",
+    "source_tag": "_t",
+    "file": "tome-orcs.lua",
+    "section": "tome-orcs/data/timed_effects/physical.lua"
+  }
+}

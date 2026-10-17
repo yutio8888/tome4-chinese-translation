@@ -1,0 +1,745 @@
+{
+  "assessment_author": "主代理独立裁决；资料整理子任务仅摘录历史文档，不参与译文审核",
+  "findings": [
+    {
+      "id": "C01",
+      "status": "confirmed",
+      "dimension": "fidelity/terminology",
+      "priority": "P1",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 3148,
+          "section": "mod-tome/data/birth/classes/warrior.lua",
+          "source": "The unarmed fighting styles the Brawler uses rely on maneuverability and having both hands available. As such, they cannot make use of their training wearing massive armour or while a weapon or shield is equipped.",
+          "source_tag": "_t",
+          "target": "格斗家的徒手战斗风格依赖机动性，并需要空出双手，因此在身穿重甲或装备武器、盾牌时，他们无法使用这些训练成果。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua",
+          "component": "tome"
+        }
+      ],
+      "problem": "massive armour 译为重甲，混淆 heavy 与 massive 两种装备类别，扩大格斗家的限制。",
+      "strongest_counterevidence": "重甲在一般中文中可以泛指厚重护甲；但本作 UI heavy=重甲、massive=板甲，且同文件30245明确写板甲。固定源码 hasMassiveArmor 仅匹配 massive。",
+      "suggestion": "将此处身穿重甲改为身穿板甲，保持武器和盾牌条件。",
+      "source_anchors": [
+        "core-brawler-desc",
+        "core-unarmed-gate",
+        "core-massive-check"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "C02",
+      "status": "confirmed",
+      "dimension": "fidelity",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 524,
+          "section": "tome-ashes-urhrok/data/lore/demon.lua",
+          "source": "Necromancy. It has been a long practiced artform on our world, though it fell into disuse during the golden years of Urh'Rok. When the Sher'Tul annihilated our home, however, we resumed our studies on the use of this dark art.\n\nOnilugs are Children of Onyx who have completely given themselves over to Death. The transformation process is both horrifying and painful, but the result is a demon fully tuned to manipulating necrotic energies. Their flesh has become dry and emaciated, making them appear as skeletal creatures draped in skin.  We salute those brave enough to undergo the transformation, for their work advances our cause of Eyal's destruction.\n\nAs they are no longer truly alive, onilugs do not fear the void of space. They may wander across the burnt landscape, not afraid of suffocation, the fires of the spellblaze or arcane radiation.\n\nEyalites may be forced to undergo the Onilug transformation as well. It has actually worked out beautifully. Countless half-wit necromancers, too blinded by their own ambition, have willingly come to us, offering their frail Eyalite flesh to undergo the Onilug transformation. Dangle but a drop of power in front of them and they will snap at it like half-starved wolves.\n\nOur onilug researchers continue to elevate the craft of Necromancy to greater heights, designing new undead creatures to unleash in our inevitable invasion of Eyal's surface. It is only a matter of time before their whole world is swept under a tide of the dead.",
+          "source_tag": "_t",
+          "target": "死灵法术是一门在我们的世界流传已久的技艺，尽管在乌鲁洛克的黄金年代里一度不再使用。然而，夏·图尔人毁灭我们的家园后，我们重新开始研究如何运用这一暗黑技艺。\n\n欧尼路格是那些将自己完全献给死亡的缟玛瑙之子。这一转化过程恐怖而痛苦，最终，他们成为了完全适于操纵不死能量的恶魔。他们的肉体变得干枯憔悴，如同只披着一层皮的骷髅一般。我们向勇于接受这一改造的同胞致敬，是他们的献身让我们朝着毁灭埃亚尔的目标更近了一步。\n\n因为他们已经不再是生者，欧尼路格无需惧怕宇宙的虚空。他们可以在烧焦的大地上游走，不需要呼吸，也不再惧怕魔法大爆炸的火焰和奥术的辐射。\n\n埃亚尔人也可以被迫接受欧尼路格的改造。这种做法实际上效果极佳。无数半吊子死灵法师被自己的野心蒙蔽了双眼，心甘情愿地来到我们面前，献出自己虚弱的埃亚尔人肉体，接受欧尼路格改造。只要在他们眼前晃一晃一点点力量，他们就会像半饥半饱的饿狼一样猛扑上来。\n\n我们的欧尼路格研究者继续将死灵法术推向更高境界，设计新的死灵生物，以便在我们必将发动的埃亚尔地表入侵中释放它们。整个世界被死者的尸潮席卷，只是时间问题。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "component": "ashes-urhrok"
+        }
+      ],
+      "problem": "half-starved wolves 译作半饥半饱的饿狼，严重饥饿被弱化成吃不饱也不太饿，削弱恶魔嘲讽死灵法师贪求力量的比喻。",
+      "strongest_counterevidence": "中文仍有饿狼与猛扑，保留渴求的大意；但半饥半饱明确改变饥饿程度。",
+      "suggestion": "可改为饿得半死的狼或饥肠辘辘的饿狼。",
+      "source_anchors": [
+        "ashes-onilug"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "C03",
+      "status": "confirmed",
+      "dimension": "completeness/fidelity",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 4065,
+          "section": "mod-tome/data/chats/alchemist-hermit.lua",
+          "source": "THE BROTHERHOOD KNOWS DAMNED WELL WHAT ADVANCES IN THE FIELD OF ALCHEMY WOULD DO FOR EVERY CIVILIZATION IN EXISTENCE, BUT THEY HOARD THEIR FEW WORTHWHILE SECRETS LIKE A GREAT BROWN WYRM SITTING ON ITS PILE OF CRAP. YOU KNOW WHAT? I DON'T EVEN WANT THE ASS-CURE FOR ME. I'M GOING TO STEAL EVERY SECRET THEY'VE GOT, WRITE THEM DOWN, MAKE A HUNDRED COPIES, AND NAIL ONE TO A TREE IN EVERY VILLAGE IN MAJ'EYAL.",
+          "source_tag": "_t",
+          "target": "兄弟会非常清楚炼金术的进步对每个文明意味着什么，但他们却像一头大棕龙坐在粪堆上一样，把为数不多的有价值秘密捂得严严实实！要知道，其实我才不想要那什么蛋疼的秘方，我准备把他们的秘密都偷出来，写在纸上，抄上一百份，然后贴到马基·埃亚尔所有村庄的树上去。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua",
+          "component": "tome"
+        }
+      ],
+      "problem": "I DON'T EVEN WANT THE ASS-CURE FOR ME 丢失 for me，变成根本不想要秘方；原意是否认出于私利，而非否认想要秘方。",
+      "strongest_counterevidence": "后文把秘密抄送所有村庄仍保留分享知识的动机，但不能恢复前句被删掉的受益者限定。",
+      "suggestion": "保留自利与分享的转折，例如我想要这治屁股的秘方，可不是为了自己。",
+      "source_anchors": [
+        "core-hermit-intro"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "C04",
+      "status": "confirmed",
+      "dimension": "immersion",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 4082,
+          "section": "mod-tome/data/chats/alchemist-hermit.lua",
+          "source": "I'VE COME TO OFFER MORE AID.",
+          "source_tag": "_t",
+          "target": "我来接下一步的任务。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua",
+          "component": "tome"
+        },
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 4098,
+          "section": "mod-tome/data/chats/alchemist-hermit.lua",
+          "source": "WHICH ELIXIR DO YOU WANT TO HELP ME WITH? YOU ARE HERE TO DO JUST THAT, RIGHT? YOU'RE NOT SOME IMBECILE HERE LOOKING FOR A LOVE POTION?",
+          "source_tag": "_t",
+          "target": "你选择哪一个任务？你是来做任务的吧？我想你该不是那些来找春药的蠢货吧？",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua",
+          "component": "tome"
+        }
+      ],
+      "problem": "角色说的继续帮忙、选择协助哪种药剂，被改成接下一步的任务、选择哪一个任务。角色内对话变成任务界面用语。",
+      "strongest_counterevidence": "实际确实属于任务流程，因此不判玩法事实错误；问题是英文的帮忙/药剂语境被替换。",
+      "suggestion": "分别恢复为我来看看还有什么能帮忙的、你想帮我配哪一种药剂。",
+      "source_anchors": [
+        "core-hermit-repeat",
+        "core-hermit-choice"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "C05",
+      "status": "confirmed",
+      "dimension": "immersion/expansion",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 3807,
+          "section": "tome-cults/data/timed_effects.lua",
+          "source": "%d%% chance to stun any foes hit.",
+          "source_tag": "tformat",
+          "target": "%d%% 几率震慑被击中的敌人；每回合第一次符合条件的命中必定触发震慑，不受该几率限制；之后的命中按该几率判定，且同一目标每回合最多被震慑一次。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-cults.lua",
+          "component": "cults"
+        }
+      ],
+      "problem": "原文只有一项震慑几率，中文额外展开每回合首次符合条件命中必定触发、随后按几率、同目标限制等实现分支。状态短说明变成算法旁注。",
+      "strongest_counterevidence": "本地公开源码确有 turn_procs 和随机分支，扩写不是无根据捏造。确认的是英文外显著扩写和阅读负担，不确认新增机制错误，也不撤销既有裁决。DLC版本适用性待确认。",
+      "suggestion": "整理为简短的玩家规则；是否保留原文之外的机制补充应先确定编辑口径。",
+      "source_anchors": [
+        "cults-krog-wrath"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "C06",
+      "status": "confirmed",
+      "dimension": "immersion/expansion",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 6410,
+          "section": "tome-orcs/data/timed_effects/physical.lua",
+          "source": "Target is being assailed by an automated saw blade that cuts its flesh for %0.2f physical damage each turn%s. When the effect expires, the saw will explode for %0.2f fire damage and fly back to its source, pulling the target with it (up to %d tiles).",
+          "source_tag": "tformat",
+          "target": "你被飞锯击伤，每回合受到 %0.2f 物理伤害 %s。仅当持续时间自然结束且施加者仍在场时，飞锯才会爆炸，造成 %0.2f 火焰伤害并飞回其来源；仅当你可被击退时，才会被拉向施加者（最多 %d 格）。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-orcs.lua",
+          "component": "orcs"
+        }
+      ],
+      "problem": "飞锯状态插入仅当持续时间自然结束且施加者仍在场、仅当你可被击退两组分支，原本动作描写被条件审计句打断。",
+      "strongest_counterevidence": "公开实现确实检查持续时间、施加者存活及坐标、击退免疫。不能把这些补充直接列为错译；确认的是表达负担。DLC版本适用性待确认。",
+      "suggestion": "把飞锯回收的主要动作写成自然句子，必要限制集中为一句，详细实现解释保留在审核证据。",
+      "source_anchors": [
+        "orcs-explosive-saw"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "C07",
+      "status": "confirmed",
+      "dimension": "immersion/expansion",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1186,
+          "section": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+          "source": "Your connection to fire nourishes you. Whenever you strike an enemy in melee, you inflict a burning curse upon them. As long as they continue to burn, you gain %0.2f health and %0.2f vim per turn.\n\t\tEach turn they remain within 10 spaces of you, all enemies with cursed flames will spread it to other burning enemies in radius 1, causing you to heal for the same amount for each enemy, as well as dealing %d fire damage on spreading.",
+          "source_tag": "tformat",
+          "target": "恶魔之火滋养着你。每当你的近战攻击命中敌人，便会对其施加诅咒之焰。每个受到诅咒之焰影响的敌人只要仍在燃烧，每回合都会为你恢复 %0.2f 点生命值并提供 %0.2f 点活力值。\n\t\t每回合，你半径 10 内每个受到诅咒之焰影响的敌人都有 50%% 几率，将诅咒传播给其半径 1 内尚未受诅咒的敌人，无论后者此前是否在燃烧。新受诅咒的敌人在持续燃烧期间，也会每回合为你恢复同等生命值并提供同等活力值。传播还会造成总计 %d 点火焰伤害，其中一半立即造成，另一半在接下来的 3 回合内造成。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "component": "ashes-urhrok"
+        }
+      ],
+      "problem": "吞噬烈焰说明增加50%传播几率、尚未受诅咒、无论此前是否燃烧、伤害立即一半/3回合另一半等英文之外的详细解释。",
+      "strongest_counterevidence": "本地实现可见50%分支和FIREBURN调用，存在依据；但本轮未闭合所有治疗/燃烧组合，也未固定DLC源码版本，不据此裁定数值错误。",
+      "suggestion": "以主要效果和必要使用限制为正文，扩展实现分析放证据；保留哪些补充需按既有机制说明口径裁决。",
+      "source_anchors": [
+        "ashes-devouring-flames"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "C08",
+      "status": "confirmed",
+      "dimension": "terminology",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1411,
+          "section": "tome-orcs/data/general/objects/tinkers/smith.lua",
+          "source": "Deals high light damage and increases critical multiplier.",
+          "source_tag": "_t",
+          "target": "造成大量光明伤害，增加暴击系数。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-orcs.lua",
+          "component": "orcs"
+        }
+      ],
+      "problem": "水晶刀刃仍写光明伤害，同类 LIGHT 伤害通常写光系伤害。",
+      "strongest_counterevidence": "光明不是完全无法理解，也与旧官方译文相同；本项是本组件术语一致性，非新伤害类型或数字错误。术语表light damage行scope=core，不将其直接强制扩展到DLC。",
+      "suggestion": "与相同LIGHT机制及本组件现译统一为光系伤害。",
+      "source_anchors": [
+        "orcs-crystal-edge"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "C09",
+      "status": "confirmed",
+      "dimension": "terminology",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 817,
+          "section": "tome-cults/data/general/objects/world-artifacts.lua",
+          "source": "Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.",
+          "source_tag": "_t",
+          "target": "每个你没有移动的回合都能得到2点防御和护甲值增益。最多叠加12次。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-cults.lua",
+          "component": "cults"
+        },
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 822,
+          "section": "tome-cults/data/general/objects/world-artifacts.lua",
+          "source": "Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.\nYou move 3 spaces at once.",
+          "source_tag": "_t",
+          "target": "每个你没有移动的回合都能得到2点防御和护甲值增益。最多叠加12次。\n一次走3格。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-cults.lua",
+          "component": "cults"
+        }
+      ],
+      "problem": "缓步之靴及合成鞋把 defense 写成防御，未与属性名闪避对应；armour 已另列为护甲。",
+      "strongest_counterevidence": "防御可作中文统称，但源码把加成分别写入 combat_def 与 combat_armor，玩家需区分两项属性。term记录是existing且tag不同，判据以实际属性和UI为准。DLC来源版本未固定。",
+      "suggestion": "将这两处2点防御和护甲值改为2点闪避和护甲值，保持数字与叠加规则。",
+      "source_anchors": [
+        "cults-slow-shoes",
+        "cults-slow-shoes-effect"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "A01",
+      "status": "advisory",
+      "dimension": "naturalness",
+      "priority": "P3",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1458,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua",
+          "source": "This character's flames are feeding the source, healing them for %d per turn and giving them %d vim.",
+          "source_tag": "tformat",
+          "target": "该生物身上的火焰正向来源生物提供能量，每回合给予其 %d 生命与 %d 活力。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "component": "ashes-urhrok"
+        },
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1562,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua",
+          "source": "Huge demonic that bleeds, doing %0.2f darkness damage per turn. Anytime you hit it you get healed for %d.",
+          "source_tag": "tformat",
+          "target": "巨大的恶魔伤口每回合造成 %0.2f 暗影伤害。当造成该伤口的来源以近战攻击命中目标时，将会恢复 %d 生命。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "component": "ashes-urhrok"
+        },
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1608,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua",
+          "source": "Victim is tormented with impending death.  When it dies, it will restore to the source (%s) up to %d times the normal amount of Vim.",
+          "source_tag": "tformat",
+          "target": "受害者因即将到来的死亡而备受折磨。当其死亡时，将为来源（%s）恢复至多 %d 倍于正常数值的活力值。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "component": "ashes-urhrok"
+        }
+      ],
+      "problem": "来源生物、造成该伤口的来源、为来源恢复活力等表达显露内部 source 概念。",
+      "strongest_counterevidence": "source确实有必要区分施加者与受害者；不能不经核验统一换成你或施法者。",
+      "suggestion": "逐条核对后优先用施加者、造成伤口者等自然指代。",
+      "source_anchors": [],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "A02",
+      "status": "advisory",
+      "dimension": "naturalness",
+      "priority": "P3",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 1452,
+          "section": "tome-ashes-urhrok/data/timed_effects.lua",
+          "source": "Next melee attack will always trigger incinerating blows, and the damage from incinerating blows will be multiplied by %d%%",
+          "source_tag": "tformat",
+          "target": "接下来一次近战攻击必定触发焚尽强击，且焚尽强击伤害按 %d%% 乘算",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "component": "ashes-urhrok"
+        }
+      ],
+      "problem": "伤害按 %d%% 乘算较像计算说明。",
+      "strongest_counterevidence": "multiplied by 的比例已保留，不能写成增加 %d%%。",
+      "suggestion": "可用伤害变为原来的 %d%%。",
+      "source_anchors": [],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "A03",
+      "status": "advisory",
+      "dimension": "naturalness",
+      "priority": "P3",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 21212,
+          "section": "mod-tome/data/talents/celestial/dirge.lua",
+          "source": "Your dirges echo mournfully through the air.  When you end a dirge, you continue to gain its acolyte-level effects for %d turns.  You can only benefit from one such lingering dirge at a time.\n\nFurthermore, you are given focus by the song.  Your dirges increase your resistance to confusion and fear by %d%%.",
+          "source_tag": "tformat",
+          "target": "你的挽歌在周围回荡着悲伤。当你结束挽歌时，你持续获得其入门效果 %d 回合。你同时只能受到一种挽歌的余音效果。\n\n而且歌声使得你更加专注。挽歌增加你 %d%% 的混乱和恐惧抗性。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua",
+          "component": "tome"
+        }
+      ],
+      "problem": "挽歌在周围回荡着悲伤、使得你更加专注搭配略僵硬。",
+      "strongest_counterevidence": "信息及效果大意可理解，属于表达建议，不判机制错译。",
+      "suggestion": "可用悲凉的挽歌在空中回荡、歌声也让你更加专注。",
+      "source_anchors": [],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "A04",
+      "status": "advisory",
+      "dimension": "naturalness",
+      "priority": "P3",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 33,
+          "section": "tome-cults/data/birth/demented.lua",
+          "source": "The thirst for knowledge is seen by most arcane users as as good thing.",
+          "source_tag": "_t",
+          "target": "对知识的渴望被大多数奥术使用者视为一件好事。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-cults.lua",
+          "component": "cults"
+        }
+      ],
+      "problem": "对知识的渴望被大多数奥术使用者视为一件好事保留较重的英语被动句结构。",
+      "strongest_counterevidence": "原意完整，奥术语境也准确。",
+      "suggestion": "可用大多数奥术使用者都认为渴求知识是件好事。",
+      "source_anchors": [],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "A05",
+      "status": "advisory",
+      "dimension": "naturalness",
+      "priority": "P3",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 27538,
+          "section": "mod-tome/data/talents/psionic/nightmare.lua",
+          "source": "A hideous, demonic entity that resembles the creature it came from.",
+          "source_tag": "_t",
+          "target": "一种可怕的、恶魔般的实体，与其来源生物相似。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua",
+          "component": "tome"
+        }
+      ],
+      "problem": "一种可怕的、恶魔般的实体，与其来源生物相似，形象描写较抽象。",
+      "strongest_counterevidence": "仍保留恶魔、来源和相似三个语义点，不能断言错译。",
+      "suggestion": "可写成这可怕的魔影，模样酷似孕育它的生物。",
+      "source_anchors": [],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "A06",
+      "status": "advisory",
+      "dimension": "completeness/clarity",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 30566,
+          "section": "mod-tome/data/talents/techniques/marksmanship.lua",
+          "source": "Enter a state of heightened focus for %d turns. While in this state your ranged attack speed is increased by %d%%, your shots do not consume ammo, and all shots capable of marking have their chance to mark increased by %d%%.",
+          "source_tag": "tformat",
+          "target": "进入专注状态 %d 回合，远程攻击速度增加 %d%%， 射击不消耗弹药，标记概率增加 %d%%。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua",
+          "component": "tome"
+        }
+      ],
+      "problem": "all shots capable of marking 中本身能够施加标记的射击这一限定没有明说。",
+      "strongest_counterevidence": "标记概率提高可自然理解为提高现有概率，当前句并未明确宣称所有射击新增标记能力；不足以判确认机制错误。",
+      "suggestion": "补出可施加标记的射击，其标记几率提高。",
+      "source_anchors": [
+        "core-trueshot"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "A07",
+      "status": "advisory",
+      "dimension": "completeness/clarity",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 4515,
+          "section": "tome-orcs/data/talents/spells/undead-drake.lua",
+          "source": "You breathe a wave of deathly miasma in a cone of radius %d. Any target caught in the area will take %0.2f darkness damage over 4 turns and receive either a bane of confusion or a bane of blindness for 4 turns.\n\t\tThe damage will increase with your Magic, and the critical chance is based on your Spell crit rate.",
+          "source_tag": "tformat",
+          "target": "你向半径 %d 的锥形内喷出致死瘴气。任何被喷到的目标将在 4 回合内受到 %0.2f 暗影伤害并被混乱灾祸或致盲灾祸影响。\n\t\t伤害将会随着你的魔力增长，并且暴击率基于你的魔法暴击率。",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-orcs.lua",
+          "component": "orcs"
+        }
+      ],
+      "problem": "原文对伤害和混乱/致盲灾祸各写4回合；中文只在伤害前写一次，灾祸持续时间不够明确。",
+      "strongest_counterevidence": "中文共用4回合修饰并列谓语也能读通，因此只记澄清建议。",
+      "suggestion": "把灾祸同样持续4回合明确写出；DLC具体适用版本另核。",
+      "source_anchors": [],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "P01",
+      "status": "pending",
+      "dimension": "fidelity",
+      "priority": "P2",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 556,
+          "section": "tome-ashes-urhrok/data/lore/demon.lua",
+          "source": "#{italic}#This plaque is mostly covered in shifting shadows.  You can only make out a little bit of the text.#{normal}#\n\n#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#heregs are not the only way we recycle #927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#arness their fear and suspici#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#outs.  Cautious and yet sadistic, these assassins #927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#markably effective in indirect combat, setting ambus#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#justice.  Additionally, the shadows they produce #927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#spionage, scouting, and #927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#king them a val#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST#tion to our intel-gathering camps. Redee#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST# data they contribute on#927e64#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#LAST# paving the way for our invasion.\n\n#{italic}#As you reach the end, the text goes completely black, and a new message forms.#{normal}#\n\n#{bold}#WE SEE YOU.#{normal}#",
+          "source_tag": "_t",
+          "target": "#{italic}#上面的文字被浮动的阴影所笼罩，你只能依稀看到模糊的文字碎片#{normal}#\n\n#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～~#LAST#希瑞格并不是我们回收#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～#LAST#卸下他们的恐惧和怀#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～#LAST#。他们已经变得谨慎，然而仍然足够施虐成性，这些暗夜的杀手#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～~ ～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～#LAST#他们卓越的表现在非直接战斗，尤其是发动突#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～#LAST#义。另外，他们制造的黑暗之雾#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～~#LAST#间谍活动，侦察活动，以及#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～~#LAST#给他们一个#927e64#～～～～～～～～～～～～～～～#LAST#息提供给了我们的情报机构。为了偿#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～~#LAST#他们提供的数据被用#927e64#～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～~#LAST#为我们最终的侵略铺平了道路。\n\n#{italic}#当你看到最后，上面的文字一下子笼罩在完全的黑暗之中，一行新的消息浮现出来#{normal}#\n\n#{bold}#我们正看着你。#{normal}#",
+          "args_order": null,
+          "special": null,
+          "logical_path": "tome-ashes-urhrok.lua",
+          "component": "ashes-urhrok"
+        }
+      ],
+      "problem": "阴影遮蔽碑文的 arness their fear and suspici... 对应卸下他们的恐惧和怀，疑似将 harness 方向译反。",
+      "strongest_counterevidence": "可见英文首尾被故意遮蔽，不能把推断出的全文当作实际文本；遮蔽和残句本身不是漏译。",
+      "suggestion": "核实片段词义后仅改可见内容，保留遮蔽，不补写隐藏剧情。",
+      "source_anchors": [
+        "ashes-shadow-plaque"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    },
+    {
+      "id": "P02",
+      "status": "pending",
+      "dimension": "completeness/runtime-reachability",
+      "priority": "P3",
+      "entries": [
+        {
+          "function_name": "t",
+          "kind": "translation",
+          "line": 32144,
+          "section": "mod-tome/data/texts/intro-orc.lua",
+          "source": "Welcome #LIGHT_GREEN#@name@#WHITE#.\nYou are a member of the feared race of the Orcs.\nBLAH BLAH BLAH\n\nYou have been sent to a remote island on the southwest coast of the Far East to crush an outpost of the Sunwall, the last remaining bastion of men, elves and dwarves on this continent.\n\nA little to the south lies the outpost. Your task: destroy it and bathe in the blood of its people!\n",
+          "source_tag": "_t",
+          "target": "欢迎你#LIGHT_GREEN#@name@#WHITE#。\n你是令人闻风丧胆的兽人种族的一员。\nBLAH BLAH BLAH\n\n你被派往远东大陆西南海岸外的一座偏远岛屿，摧毁太阳堡垒的一处前哨站——这里是人类、精灵和矮人在这片大陆上仅存的堡垒。\n\n再往南一点就是那个前哨站。你的任务：摧毁它，让那里的人血流成河！\n",
+          "args_order": null,
+          "special": null,
+          "logical_path": "mod-tome.lua",
+          "component": "tome"
+        }
+      ],
+      "problem": "旧intro-orc文本仍含BLAH BLAH BLAH。",
+      "strongest_counterevidence": "原英文本身即为该占位内容；尚未确认正式兽人战役是否调用此旧intro，因此不能按正常玩家可见漏译计数。",
+      "suggestion": "先确认加载路径与产品范围；若仅上游残留则登记排除，若可见再处理。",
+      "source_anchors": [
+        "core-orc-intro"
+      ],
+      "scope": "报告观察；未授权或实施译文修复"
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "E01",
+      "reason": "两个source=target是Boss标签，不能据英文保留本身判漏译",
+      "locations": [
+        [
+          "mod-tome.lua",
+          2384
+        ],
+        [
+          "mod-tome.lua",
+          2440
+        ]
+      ]
+    },
+    {
+      "id": "E02",
+      "reason": "Imperium courrier在固定Game.lua的config.settings.cheat分支；AI日志、测试vault、纯占位符未作正常玩家漏译",
+      "anchors": [
+        "core-debug-exclusion"
+      ]
+    },
+    {
+      "id": "E03",
+      "reason": "教程和UI原文自带机制说明，科幻装置、蒸汽技术和恶魔摇滚笑话也有原文依据；不因技术/现代词汇判出戏",
+      "sample_refs": [
+        "S46",
+        "S52",
+        "S65"
+      ],
+      "locations": [
+        [
+          "mod-tome.lua",
+          2070
+        ],
+        [
+          "mod-tome.lua",
+          32695
+        ],
+        [
+          "tome-ashes-urhrok.lua",
+          493
+        ]
+      ]
+    },
+    {
+      "id": "E04",
+      "reason": "水浪省去伤害加成句但固定action仅施加WET无伤害；Fearscape Shift英文侦测3回合/中文4回合而本地DLC setEffect(SENSE,4)；火焰护盾英文吸取半径5/中文10而本地DLC target.radius=10。后两项DLC版本未固定；不当作已确认译文新增错误",
+      "locations": [
+        [
+          "mod-tome.lua",
+          25895
+        ],
+        [
+          "tome-ashes-urhrok.lua",
+          1152
+        ],
+        [
+          "tome-ashes-urhrok.lua",
+          1182
+        ]
+      ],
+      "anchors": [
+        "core-water-exclusion",
+        "ashes-vision-exclusion",
+        "ashes-radius-exclusion"
+      ]
+    },
+    {
+      "id": "E05",
+      "reason": "死亡标记eff.dam会由callbackOnHit累积，中文已追加不是简单的漏写加法；不能仅凭英文increased by再加一次",
+      "locations": [
+        [
+          "mod-tome.lua",
+          37517
+        ]
+      ],
+      "anchors": [
+        "core-marked-exclusion"
+      ]
+    }
+  ],
+  "value_flows": [
+    {
+      "finding": "C05",
+      "args_order": null,
+      "placeholders": [
+        {
+          "index": 1,
+          "raw": "%d",
+          "quantity_kind": "probability",
+          "display": "eff.power",
+          "consumer": "rng.percent(eff.power)，但首个符合前置检查的命中跳过此概率分支"
+        }
+      ],
+      "scope": "新增首次/单目标/每回合限定只核实文本扩写；是否最终施加震慑还经目标免疫与setEffect路径",
+      "status": "pending source pin; no exact full-mechanism verdict",
+      "anchor": "cults-krog-wrath"
+    },
+    {
+      "finding": "C06",
+      "args_order": null,
+      "placeholders": [
+        {
+          "index": 1,
+          "raw": "%0.2f",
+          "quantity_kind": "damage",
+          "display": "eff.power",
+          "consumer": "on_timeout -> PHYSICAL.projector(eff.power)"
+        },
+        {
+          "index": 2,
+          "raw": "%s",
+          "quantity_kind": "text",
+          "display": "eff.silence ? and silences it : empty"
+        },
+        {
+          "index": 3,
+          "raw": "%0.2f",
+          "quantity_kind": "damage",
+          "display": "eff.src:damDesc(FIRE,eff.power_final)",
+          "consumer": "deactivate guards -> FIRE.projector(eff.power_final)"
+        },
+        {
+          "index": 4,
+          "raw": "%d",
+          "quantity_kind": "distance",
+          "display": "eff.range",
+          "consumer": "canBe(knockback) -> pull(...,eff.range)"
+        }
+      ],
+      "status": "pending source pin; only expansion/readability confirmed",
+      "anchor": "orcs-explosive-saw"
+    },
+    {
+      "finding": "C07",
+      "args_order": null,
+      "placeholders": [
+        {
+          "index": 1,
+          "raw": "%0.2f",
+          "quantity_kind": "heal",
+          "display": "t.getHeal(self,t)",
+          "consumer": "EFF_CURSED_FLAMES.heal; full timed-effect composition not adjudicated"
+        },
+        {
+          "index": 2,
+          "raw": "%0.2f",
+          "quantity_kind": "resource",
+          "display": "t.getVim(self,t)",
+          "consumer": "EFF_CURSED_FLAMES.vim"
+        },
+        {
+          "index": 3,
+          "raw": "%d",
+          "quantity_kind": "damage",
+          "display": "damDesc(FIRE,t.getDam(self,t))",
+          "consumer": "FIREBURN.projector(...,t.getDam(self,t)); immediate/delayed split not adjudicated in this report"
+        }
+      ],
+      "scope": "新增50%/对象资格/一半立即另一半3回合已确认超出英文；总量和时序判断保留pending",
+      "status": "pending source pin and downstream composition",
+      "anchor": "ashes-devouring-flames"
+    },
+    {
+      "exclusion": "E05",
+      "args_order": null,
+      "placeholders": [
+        {
+          "index": 1,
+          "raw": "%d",
+          "quantity_kind": "damage_modifier_percent",
+          "display": "eff.power"
+        },
+        {
+          "index": 2,
+          "raw": "%0.1f",
+          "quantity_kind": "damage",
+          "display": "eff.dam",
+          "consumer": "callbackOnHit: eff.dam += cb.value*eff.perc; deactivate: PHYSICAL.projector(eff.dam)"
+        },
+        {
+          "index": 3,
+          "raw": "%d",
+          "quantity_kind": "damage_accumulation_percent",
+          "display": "eff.perc*100"
+        }
+      ],
+      "status": "pinned data-flow counterevidence; not an exhaustive runtime proof",
+      "anchor": "core-marked-exclusion"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+ID: R1
+Severity: high
+File: docs/full-translation-review-plan-20261013.md
+Location: 第30、32行（§2.1 表中 Engine／Boot、Possessors／Items Vault 两行）、第38行、第173行（M0）
+Problem: 方案要求把 Engine／Boot 的仓库译文“纳入适用发行范围，不能仅因 addon_eligible=false 排除”，又把 Possessors／Items Vault 是否随包生效列为待调查事项。现有发布链路已能直接回答这两个问题：仓库中这些组件的译文不会进入发行包。
+Evidence: tools/i18nlib/publish.py:382-396 中，`publish_addon` 只对 `component.id == "tome"` 调用 `build_addon_locale`，再合并 `_DLC_COMPONENTS = ("ashes-urhrok","cults","orcs")`（第314行）的 overlay。`_official_locale_keys`（第294-311行）读取 engine／boot 官方 zh_hans 只是为了过滤 DLC 键，并不输出 engine.lua 或 mod-boot.lua。i18n/versions/tome-1.7.6.json 中，engine、boot、possessors、items-vault 都是 `addon_eligible: False`；possessors 和 items-vault 也没有 sources、official_locale 或 full_output。
+Impact: 按原文执行，约 1,344 条 Engine／Boot 译文和 327 条 Possessors／Items Vault 译文会被当成发行必审项做 A／B 双遍审读，但改了也不会改变发行包。“核实是否随包生效”还会让 M0 多出一个本可直接判定的调查分支。如果真想让玩家看到这些译文，就要新增 engine 层输出，这已经超出“发布汉化版本”的既有范围。
+Recommended fix: 把发行必审分母定义为 publish 产物的运行键集合，即 tome delta 加上三 DLC overlay，并引用 publish.py 的这条判定依据。Engine／Boot 只需核验一件事：被过滤的 DLC 或核心键是否正确继承了官方 zh_hans。这属于“官方继承核验”，不纳入 A／B 语境审读。Engine／Boot／Possessors／Items Vault／addon-dev／示例模块的仓库译文直接列为包外后续，删除第32行“核实是否实际随包生效”这个开放调查。若要让 engine 层译文生效，单列为需要用户授权的发行范围扩展决定项。全仓 11 文件的清点和计数要保留，只是不再进入发行分母。
+
+ID: R2
+Severity: high
+File: docs/full-translation-review-plan-20261013.md
+Location: 第54行（M0 构建／加载探针）、第140-142行、第145行、第173行
+Problem: 方案要求“在隔离的本地产物目录生成与拟发布包相同的候选”，并在 M0 做本地构建／加载探针，但没有说明用什么入口完成。现有 publish 只有两种模式：dry-run 什么都不写；`--apply` 直接改写 manifest 指定的发布仓库文件。仓库里也没有工具生成完整的 `.teaa`／zip 包。
+Evidence: publish.py 文件头第4-5行写明“Defaults to a dry run; --apply performs the actual write into the release repository”。第359-364行把目标定为 `manifest.repository_path("addon")`，即 manifest repositories.addon 的默认值 `../tome-chn-mod`，并直接写其中的 `_LOCALE_RELATIVE`。在 tools/i18nlib/*.py 中检索 `teaa` 和打包相关代码，没有任何命中。
+Impact: AI 执行到 M0 探针或 M4 候选包时只剩三种做法，都不行：一是在发布仓库上直接 `--apply`，这是方案自己说“不执行”的外部写入路径，至少也会改写发布仓库工作树；二是临时手工拼包，结果不可复现；三是停下来等待。M0 原本想早发现“修改没进包”，在这个缺口下根本无法落实。
+Recommended fix: 在 §3 的最小能力表中加一行“隔离候选包生成”，作为 M1 工具范围。验收条件包括：可把 publish 目标指向本地临时副本，或输出到 `.artifacts/`；生成的包与发布仓库布局一致；记录哈希和版本标记。第142行改为引用这个入口。M0 探针在入口实现前，只要求 publish dry-run 的计数和运行键去向。同时写明：对发布仓库本身执行 `--apply` 属于发布动作，需要单独授权。
+
+ID: R3
+Severity: high
+File: docs/full-translation-review-plan-20261013.md
+Location: 第99-100行（§4.2 A、B 各建独立 review_only task）、第110行、第116行（每批 SPEC／PLAN／SCOPE／STATE、完整门禁、DONE_VERIFIED、提交／finalize）
+Problem: 方案规定每个工作集的 A、B 两遍各开一个独立 task，并且每个 task 都要跑完整的正式批次闭环。这样，译文完全不变的两遍只读审读，也要各自重复完整门禁、严格构建、DONE_VERIFIED、提交和 finalize 重放。这项成本是方案自己加的，而且是全轮成本中占比最大的一块。
+Evidence: docs/agent-workflow.md 验证矩阵规定，“正式生产批次，包括只写审核 evidence 的批次”须跑完整门禁和严格构建，且“正式批次当前要求 full receipt，不接受 `--skip-build`”。方案第110行自己估算，至少需要 `2 × ceil(N / 80)` 次 full。v2 契约第四节里，single stage 只有 member 0，stage 键是 (cycle, attempt)，契约没有规定同一 task 内放两个互相独立的 full 成员，所以“两个 task”只是方案选的形态，契约并没有要求。
+Impact: 如果 N 在两万条量级，就有数百个 task，每个都要跑完整门禁和构建，而两遍之间门禁检查的对象（target）完全没变。耗时和中断恢复点都会翻倍，AI 长期连续独立执行的可行性也因此明显下降。独立性本来只需要分开 child、互不读取结果，并不需要分开 task 去重复跑门禁。
+Recommended fix: 第99-100行和第116行不要预先定死“两个 review_only task 加各自完整闭环”，改由 M1 工具 SPEC 来定“双遍工作集”的记录形态。不变量保留：A、B 是不同的 fresh child，绑定同一冻结候选，彼此不读对方的 raw 或裁决，各自记录 dispatch、raw 和验收；所有 child 归档后再合并裁决。门禁、构建、DONE_VERIFIED 和提交改为每个工作集或每个修复窗口执行一次，绑定在 target 发生变化的点。若新消费者要用这种合并形态，先作为共享流程变更走第77行规定的完整门禁和交叉复审，不能沿用旧消费者的口径悄悄省掉门禁。
+
+ID: R4
+Severity: medium
+File: docs/full-translation-review-plan-20261013.md
+Location: 第7行（推荐标准）、第83行、第97-100行、第110行
+Problem: “每条适用译文两遍独立语境审读”被写成固定标准，且对短标签、纯界面文本一律适用。用户的要求是全量复核，即每条可追溯地覆盖一次；第二遍全量是否值得做，没有任何数据支撑，方案却把它作为前提，并据此让主体工作量翻倍。
+Evidence: 方案第7行把双遍写成“推荐标准”，不是用户约束，AGENTS.md 也没有要求每条审两遍。方案第165行自己承认，此前 72 条样本的 2/72 不能外推。另外 docs/agent-workflow.md 写明“多路复核共同未报错不能代替覆盖检查”，覆盖靠宿主记录来保证，与审读遍数无关。
+Impact: 在 B 遍边际价值还不知道的情况下，就把全轮 full 次数固定为单遍的 2 倍，有可能把发布周期拉长到无法在授权窗口内完成。
+Recommended fix: 改为 A 遍全量必做，这已经满足全量与可追溯覆盖。B 遍默认覆盖三类条目：含机制陈述的、长对话或长文的、A 遍提出 observation 的。B 遍是否扩展到全量，由 M2 试运行数据决定：按文本类别统计 B 遍独有的 confirmed 发现率，然后作为一个具体的用户决定项提出，不由 AI 自定。第7行和第158行的“A／B 语境覆盖”指标要相应拆开：A 遍覆盖要求 100%；B 遍按冻结的适用集合统计。
+
+ID: R5
+Severity: medium
+File: docs/full-translation-review-plan-20261013.md
+Location: 第132-135行、第163行（完成判据中的“全部必要门禁和发行场景通过”）、第177行（M4）
+Problem: 方案一方面说“缺少游戏环境时保留未测状态”，一方面又把“全部发行场景通过”作为完成条件，两处互相矛盾。场景清单包括游戏内启动、角色创建、存读档、从上一版本升级，以及无 DLC／单 DLC／全 DLC 等多种配置，而方案没有说明哪些步骤 AI 能做、哪些要先验证环境、哪些必须由用户在游戏客户端里执行。
+Evidence: AC2 要求区分“AI 可自主完成”“需先验证环境能力”“依赖用户”这三类，且不得宣称未验证过的 GUI 能力可用。仓库提供的是 LuaJIT 加载与 build／publish 校验（publish.py:396-410 的 pre-write load 和 semantic 校验）；方案第133行也说明“不能用 Lua 加载成功代替游戏内验证”。
+Impact: 如果没有可自动驱动的游戏环境，按第163行的条件，发行永远无法判定“通过”。AI 要么卡在 M4，要么倾向于把“未测”当作“通过”。
+Recommended fix: 在 M0 加入一次性的环境能力探针，确认能否无头或自动启动游戏并加载 addon，记录结论。把发行场景分成两类：一类是 AI 可自动验证的，包括 Lua 加载、格式族渲染用例和包结构；另一类需要游戏客户端。后者整理成一份最小冒烟清单，在 M4 作为一次性的用户执行步骤，明确为用户依赖，不是逐批依赖。第163行改为：自动验证项全部通过，且用户冒烟清单已执行或已被用户明确接受为“未测并在已知问题中披露”。DLC 配置组合收缩为无 DLC 和全部启用两种。只有当单 DLC 加载会改变 section 生效时，才增加单 DLC 用例。
+
+ID: R6
+Severity: medium
+File: docs/full-translation-review-plan-20261013.md
+Location: 第48行（§2.2 第3项）、第52行、第173行（M0 进入条件）
+Problem: 方案要求三 DLC 必须固定到公开 commit，或固定到可重新获取的正式分发包及完整内容哈希，否则构成发行阻断。这比 AGENTS.md 对来源未固定 DLC 的硬约束更严，而且还要先实现 manifest 和工具支持；获取正式分发包也可能依赖用户持有的平台账号。
+Evidence: i18n/versions/tome-1.7.6.json 中，三 DLC 均为 `source_pinning: unpinned`，并已有 `source_baseline`（`protected-extraction-snapshot`、extractor_commit、snapshot_sha256、tdef_count）。AGENTS.md 的规定是：“对来源未固定的 DLC，必须以实际可核验的公开源码证据为准并标明来源未固定”，以及“DLC 来源未固定时如实标注”；它并没有把“固定”作为前提条件。
+Impact: M0 的进入条件和发行完整验收被一个仓库并不要求、AI 也未必能自主拿到的条件卡住，DLC 部分（约 6,800 条）可能整体停在 WAIT_USER。
+Recommended fix: 第48行改为：优先尝试固定来源；无法取得时，按 AGENTS.md 记录本机 checkout 的逐文件 SHA-256、与 manifest `source_baseline` 的快照对照结果，以及“来源未固定”标注，这样即可进入审读和发布。发行说明的已知限制中披露 DLC 来源未固定。是否必须硬固定来源才能发布，作为单独的用户决定项提出，不默认阻断。第52行“只有发行范围内的缺口阻断”中的“缺口”要相应限定为缺键、缺译和运行键去向不明，不包括来源未固定。
+
+ID: R7
+Severity: low
+File: docs/full-translation-review-plan-20261013.md
+Location: 第46行（“本次已完成的 12 条有界修改”）、第95行（“本轮 P01 按用户指定的 `harness` 解释处理”）、第128行
+Problem: 有两处引用了方案外的上下文：“12 条修改”和“P01／harness”在文中没有定义，也没有给出路径。第128行“覆盖全部已识别关系组”也没有说明关系组从哪里枚举，执行时边界不清。
+Evidence: 全文找不到这 12 条修改或 P01 的定义和链接。第128行列出了角色、地点、任务线、属性、技能树等类别，但没有说明从源码数据定义、terminology/ 还是 name= 行来生成关系组清单。
+Impact: 一个独立接手的 AI 执行者无法复现 M0 的基线范围，也无法确认 P01 的用户裁决是什么。全局一致性检查要么没有边界，要么只能靠执行者自行理解，结果不同的执行者会做出实质不同的工作。
+Recommended fix: 第46行和第95行改为链接已跟踪的证据文件或裁决记录，或者直接写出条目清单和裁决原文。如果它们只对本会话有意义，就从方案中删除。第128行补一句：关系组清单在 M1 由冻结的 terminology/ 条目和源码中的实体或技能树定义自动生成并冻结，“全部已识别”以这份冻结清单为分母。
+
+VERDICT: CHANGES_REQUIRED

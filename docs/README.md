@@ -31,8 +31,11 @@ pi CLI 时代的路由层资产收在 [`archive/`](../archive/README.md)。
 |---|---|
 | [`translation-production-review-v2-lite-plan.md`](translation-production-review-v2-lite-plan.md) | WP2-Lite 管线设计：catalog、队列、批次、证据与修复边界 |
 | [`full-translation-review-plan-20261013.md`](full-translation-review-plan-20261013.md) | 经 Opus 5.5 意见及用户补充修订的发布方案：Engine 必审并输出、全量 A＋高风险 B、源码覆盖、隔离候选包与最小冒烟；M0 已 DONE_VERIFIED 并提交，A/B=0；DLC 原基线均通过、来源 unpinned，游戏能力缺口见 [M0 报告](../evidence/full-review/release-20261013/m0/REPORT.md)，[M1 实现与 FIX 报告](../evidence/full-review/release-20261013/m1/REPORT.md) 已交付代码与隔离验证、待两路复审闭合；官方1.7.6 prototype GUI能力已核验，最终候选/三DLC场景仍未测。[审阅反馈与裁决](../evidence/plan-review/full-review-plan-opus-20261013/feedback.md) |
+| [`modified-mechanics-review-plan-20261001.md`](modified-mechanics-review-plan-20261001.md) | 已修改机制译文的专项复核执行方案：选集、风险分层、源码核验、抽查与交付；尚未执行 |
 | [`runtime-key-collisions.md`](runtime-key-collisions.md) | 运行时键冲突的成因与门禁 `06-runtime-collision-scan` 的依据 |
 | [`project-roadmap.md`](project-roadmap.md) | **历史阶段路线图**；当前入口见审核操作指南 |
+
+项目复盘见 [`AI 翻译校对技术报告（2026-09-30）`](ai-translation-proofreading-technical-report-20260930.md)：汇总流程、实验数据、事故与改进建议，不作为操作授权或新契约。
 
 ### 投影与审核工具性能（现行结论）
 

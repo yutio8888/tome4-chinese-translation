@@ -1,0 +1,170 @@
+{
+  "task_id": "quality-fix-20261013",
+  "validation_kind": "bounded_translation_maintenance",
+  "scope": {
+    "confirmed_groups": 9,
+    "changed_targets": 11,
+    "changed_locale_files": 4
+  },
+  "candidate_hashes": {
+    "mod-tome.lua": "8f43ff3b1884c74abfe75e37602cd2cd92d1a5d19c5918e5560307114e5c9440",
+    "tome-ashes-urhrok.lua": "a07cb2f8d0b9560c136b90441751ca2c84a2fa73c055168a4e107952740f2ff4",
+    "tome-cults.lua": "151a185dd7f07144bd418fd61eae47b15283122c1a56ba621d167db337e3784f",
+    "tome-orcs.lua": "52f4ef5f8ca68a0bd29162c3bf6cb0fed1edaf05ed0d445489d945b2ebd5c473"
+  },
+  "source_and_target_scope_verified": true,
+  "frozen_candidate_unchanged": true,
+  "lint": {
+    "path": ".artifacts/i18n/runs/20261013T055913.615580Z-2-lint/lint.json",
+    "sha256": "150e64b5cd27af963a27fc3d6d5f6b473df75e587f9a61bdce8d16ac96a478d8",
+    "strict": true,
+    "translations": 30308,
+    "errors": 0,
+    "warnings": 0
+  },
+  "proposals": [
+    {
+      "component": "cults",
+      "path": ".artifacts/i18n/runs/20261013T054824.930193Z-2-proposal/proposal-validation.json",
+      "sha256": "8590be868aafca74777c1ac70ac68e00ff41cbd8eef1345b1ce5f33824ab40f6",
+      "coverage": {
+        "missing": 0,
+        "proposed": 3,
+        "workset_items": 3
+      },
+      "strict": true,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "component": "orcs",
+      "path": ".artifacts/i18n/runs/20261013T055912.774724Z-2-proposal/proposal-validation.json",
+      "sha256": "8ebd8fac2514bb3217536ff2c1790dc1240718c2d7bdc0bf8e4d5a3bba311f9e",
+      "coverage": {
+        "missing": 0,
+        "proposed": 2,
+        "workset_items": 2
+      },
+      "strict": true,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "component": "ashes-urhrok",
+      "path": ".artifacts/i18n/runs/20261013T054824.931232Z-2-proposal/proposal-validation.json",
+      "sha256": "75d772d1e62a6d9914b86c4b9c617bfa804cc31c2b31876d2109a51937e5af4a",
+      "coverage": {
+        "missing": 0,
+        "proposed": 2,
+        "workset_items": 2
+      },
+      "strict": true,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "component": "tome",
+      "path": ".artifacts/i18n/runs/20261013T054824.937195Z-2-proposal/proposal-validation.json",
+      "sha256": "ff8acbe828217efb6fcd29033204ef7c16fa8e2d9735d1a9a5c9a972a6d3764e",
+      "coverage": {
+        "missing": 0,
+        "proposed": 4,
+        "workset_items": 4
+      },
+      "strict": true,
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "runtime_keys": {
+    "scanned_translations": 30308,
+    "collisions": 0,
+    "duplicate_keys": 1711,
+    "all_duplicate_runtime_values_identical": true
+  },
+  "core_addon_build": {
+    "command": [
+      "python3",
+      "-B",
+      "tools/i18n",
+      "build",
+      "--profile",
+      "addon",
+      "--component",
+      "tome",
+      "--require-complete"
+    ],
+    "exit_code": 0,
+    "stdout": "OK  tome             delta=7007 inherited=12121 override=6886 new=121\nAddon artifact: complete, 7007 runtime keys, 84218edc9b481ed8\nOutput: /workspace/tome4-chinese-translation/.artifacts/i18n/runs/20261013T054917.475646Z-4-build-addon/addon/data/locales/zh_hans.lua\n",
+    "stderr": "",
+    "translation_hashes": {
+      "mod-tome.lua": "8f43ff3b1884c74abfe75e37602cd2cd92d1a5d19c5918e5560307114e5c9440",
+      "tome-ashes-urhrok.lua": "a07cb2f8d0b9560c136b90441751ca2c84a2fa73c055168a4e107952740f2ff4",
+      "tome-cults.lua": "151a185dd7f07144bd418fd61eae47b15283122c1a56ba621d167db337e3784f",
+      "tome-orcs.lua": "c173584e3310e9c15bc2a345bf51dd22fa55f7020def13495d8950645307fe4c"
+    },
+    "finished_at": "2026-10-13T05:49:17.540400+00:00"
+  },
+  "dlc_build_limitation": {
+    "adjudication": "confirmed_existing_baseline_limitation_not_caused_by_target_edits",
+    "addon_attempt": {
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "build",
+        "--profile",
+        "addon",
+        "--component",
+        "ashes-urhrok",
+        "--component",
+        "cults",
+        "--component",
+        "orcs",
+        "--require-complete"
+      ],
+      "exit_code": 5,
+      "stdout": "",
+      "stderr": "ERROR: no addon component has a pinned official baseline\n",
+      "translation_hashes": {
+        "mod-tome.lua": "8f43ff3b1884c74abfe75e37602cd2cd92d1a5d19c5918e5560307114e5c9440",
+        "tome-ashes-urhrok.lua": "a07cb2f8d0b9560c136b90441751ca2c84a2fa73c055168a4e107952740f2ff4",
+        "tome-cults.lua": "151a185dd7f07144bd418fd61eae47b15283122c1a56ba621d167db337e3784f",
+        "tome-orcs.lua": "c173584e3310e9c15bc2a345bf51dd22fa55f7020def13495d8950645307fe4c"
+      },
+      "finished_at": "2026-10-13T05:49:16.461460+00:00"
+    },
+    "full_attempt": {
+      "command": [
+        "python3",
+        "-B",
+        "tools/i18n",
+        "build",
+        "--profile",
+        "full",
+        "--component",
+        "ashes-urhrok",
+        "--component",
+        "cults",
+        "--component",
+        "orcs",
+        "--require-complete"
+      ],
+      "exit_code": 5,
+      "stdout": "",
+      "stderr": "ERROR: components 'ashes-urhrok', 'cults', 'orcs' have no full_output mapping\n",
+      "translation_hashes": {
+        "mod-tome.lua": "8f43ff3b1884c74abfe75e37602cd2cd92d1a5d19c5918e5560307114e5c9440",
+        "tome-ashes-urhrok.lua": "a07cb2f8d0b9560c136b90441751ca2c84a2fa73c055168a4e107952740f2ff4",
+        "tome-cults.lua": "151a185dd7f07144bd418fd61eae47b15283122c1a56ba621d167db337e3784f",
+        "tome-orcs.lua": "c173584e3310e9c15bc2a345bf51dd22fa55f7020def13495d8950645307fe4c"
+      },
+      "finished_at": "2026-10-13T05:49:16.460286+00:00"
+    },
+    "diagnosis": "The existing manifest declares null source_repository, official_locale and full_output for all three DLC. No strict DLC addon baseline or full-profile mapping exists. No manifest or source-baseline changes are authorized by this bounded task; LuaJIT loading, strict lint/proposal and runtime-key checks cover edited DLC files. No claim of a successful DLC packaging build is made.",
+    "version_applicability": "unpinned; remains pending"
+  },
+  "whitespace": "passed tracked/index and new repair-notes",
+  "untouched_preexisting_changes": true,
+  "commit_or_external_publish": false
+}

@@ -1,0 +1,28 @@
+{
+  "native_log": "/home/paseo/.claude/projects/-workspace-tome4-chinese-translation/141483e6-891c-45f7-a65a-97d32b8f9933.jsonl",
+  "calls": [
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; wc -c .ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f1a2.json docs/paseo-translation-context-review-v2-contract.md; cat .ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f1a2.json | head -c 20000",
+        "description": "Read envelope and contract size"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f1a2.json'))\np=d['payload']\nprint(list(d.keys()), list(p.keys()))\nfor k,v in p.items():\n  if k!='bounded_context': print(k, json.dumps(v,ensure_ascii=False)[:6000]); print('---')\n\"",
+        "description": "Show envelope payload keys"
+      }
+    },
+    {
+      "name": "Bash",
+      "input": {
+        "command": "cd /workspace/tome4-chinese-translation; python3 -c \"\nimport json\nd=json.load(open('.ai/task/quality-fix-20261013/CONTEXTUAL-ENVELOPE-f1a2.json'))\nfor b in d['payload']['bounded_context'][5:]:\n  c=json.loads(b['context']); print('=====',b['revision_key'],c['file'],c['section_path'],c['source_tag'])\n  for f in c['source_facts']: print('--',f['path'],f['line_start'],f['line_end']); print(f['excerpt'])\n  for k in c:\n    if k not in ('source_facts','file','section_path','source_tag','source_version_note','reading_scope','format_note'): print(k, json.dumps(c[k],ensure_ascii=False))\n\"; sed -n '/^## 六/,$p' docs/paseo-translation-context-review-v2-contract.md | head -80",
+        "description": "Show remaining contexts and contract output section"
+      }
+    }
+  ],
+  "host_boundary_verdict": "confirmed_read_only_within_frozen_input_and_related_public_source",
+  "host_adjudication": "all OK; no accepted or deferred finding"
+}
