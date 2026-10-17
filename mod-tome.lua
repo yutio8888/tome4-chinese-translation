@@ -30187,9 +30187,9 @@ t("Buckler Expertise", "盾牌训练", "talent name")
 t([[Allows shields to be equipped, using Cunning instead of strength as a requirement.
 			When you are attacked in melee, you have a %d%% chance to deflect the attack with your shield, completely evading it.
 			In addition, as long as you are wearing armour no heavier than leather, you gain %d Armour and %d%% Armour hardiness.
-			The chance to deflect increases with your Cunning.]], [[允许你装备盾牌，使用灵巧作为属性需求。
+			The chance to deflect increases with your Cunning.]], [[允许你装备盾牌，以灵巧代替力量作为属性需求。
 		当你受到近战攻击，你有 %d%% 的几率用盾牌使这次攻击偏斜，并完全躲避它。
-		另外，若你没有装备重甲，你获得 %d 护甲值和 %d%% 护甲强度。
+		另外，只要你穿着不重于皮甲的护甲，你获得 %d 护甲值和 %d%% 护甲强度。
 		受到灵巧影响，偏斜几率有加成。]], "tformat")
 t("Bash and Smash", "击退射击", "talent name")
 t("You require a ranged weapon and a shield to use this talent.", "你必须装备一把远程武器和一面盾牌。", "logPlayer")
@@ -30738,7 +30738,7 @@ t([[Fire off a quick sling bullet for %d%% damage at double your normal attack s
 t("Hurricane Shot", "飓风连射", "talent name")
 t("Take aim and unload up to %d shots for %d%% weapon damage each against random enemies inside a cone. Each enemy can only be hit once (twice for talent level 3 and higher). Using Swift Shot lowers the cooldown by 1.", "最多发射 %d 颗弹矢，随机攻击锥形范围内的敌人，每颗造成 %d%% 武器伤害。每个敌人只能被攻击 1 次（当技能等级在 3 级或更高时为 2 次）。使用快速射击技能会降低冷却时间 1 回合。", "tformat")
 t("Bombardment", "连环炮击", "talent name")
-t("Your Shoot talent now costs %d stamina but fires %d times for %d%% damage per shot.", "你的基础射击技能消耗 %d 体力，发射 %d 石弹，每颗造成 %d%% 伤害。", "tformat")
+t("Your Shoot talent now costs %d stamina but fires %d times for %d%% damage per shot.", "你的基础射击技能消耗 %d 体力，发射 %d 颗石弹，每颗造成 %d%% 伤害。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/sling.lua"
