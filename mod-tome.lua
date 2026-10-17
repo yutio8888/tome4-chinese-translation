@@ -30351,12 +30351,12 @@ t("Flurry", "疾风连刺", "talent name")
 t("You cannot use Flurry without dual wielding!", "你只有在双持状态下才能使用这个技能！", "logPlayer")
 t("Lashes out with a flurry of blows, hitting your target three times with each weapon for %d%% damage.", "对目标进行快速的连刺，每把武器进行 3 次打击，每次打击造成 %d%% 的伤害。", "tformat")
 t("Heartseeker", "追心刺", "talent name")
-t("Swiftly leap to your target and strike at their vital points with both weapons, dealing %d%% weapon damage. This attack deals %d%% increased critical strike damage.", "迅速跃向目标，用两把武器发动一次强力的突刺攻击，造成 %d%% 武器伤害，该次攻击暴击伤害系数增加 %d%%。", "tformat")
+t("Swiftly leap to your target and strike at their vital points with both weapons, dealing %d%% weapon damage. This attack deals %d%% increased critical strike damage.", "迅速跃向目标，用两把武器攻击其要害，造成 %d%% 武器伤害，该次攻击暴击伤害系数增加 %d%%。", "tformat")
 t("Whirlwind", "旋风斩", "talent name")
 t("The target location must be within range and within view.", "目标区域需要在视野内、技能范围内。", "logPlayer")
 t("There is no open space in which to land near there.", "目标周围没有空余空间。", "logPlayer")
 t("%s becomes a whirlwind of weapons!", "%s 化作武器的旋风！", "logSeen")
-t("You quickly move up to %d tiles to arrive adjacent to a target location you can see, leaping around or over anyone in your way.  During your movement, you attack all foes within one grid of your path with both weapons for %d%% weapon damage, causing those struck to bleed for 50%% of the damage dealt over 5 turns.", "你迅速跳跃至 %d 格内可见的目标位置附近，并在移动中用 2 把武器对路径沿途的所有敌人造成 %d%% 武器伤害，使被击中的敌人在 5 回合内流血，流血总量相当于本次伤害的 50%%。", "tformat")
+t("You quickly move up to %d tiles to arrive adjacent to a target location you can see, leaping around or over anyone in your way.  During your movement, you attack all foes within one grid of your path with both weapons for %d%% weapon damage, causing those struck to bleed for 50%% of the damage dealt over 5 turns.", "你迅速跳跃至 %d 格内可见的目标位置附近，途中可绕过或越过挡路者，并在移动中用 2 把武器对路径周围一格内的所有敌人造成 %d%% 武器伤害，使被击中的敌人在 5 回合内流血，流血总量相当于本次伤害的 50%%。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/duelist.lua"
@@ -30365,15 +30365,15 @@ t("Dual Weapon Mastery", "双持掌握", "talent name")
 t([[Your offhand weapon damage penalty is reduced to %d%%.
 		Up to %0.1f times a turn, you have a %d%% chance to parry up to %d damage (based on your offhand weapon damage) from a melee or ranged attack.  The number of parries increases with your Cunning.  (A fractional parry has a reduced chance to succeed.)
 		A successful parry reduces damage like armour (before any attack multipliers) and prevents critical strikes.  It is difficult to parry attacks from unseen attackers and you cannot parry with a mindstar.]], [[你的副手武器伤害惩罚降低至 %d%%。
-		每回合至多 %0.1f 次，你有 %d%% 几率抵挡一次近战或远程攻击的至多 %d 点伤害（基于副手武器伤害）。抵挡次数随灵巧提高；若次数为小数，小数部分对应的抵挡成功率会降低。
-		成功抵挡会像护甲一样在攻击倍率生效前减免伤害，并阻止这次攻击暴击。来自未发现攻击者的攻击很难抵挡，且你无法使用灵晶抵挡。]], "tformat")
+		每回合至多 %0.1f 次，你有 %d%% 几率招架一次近战或远程攻击的至多 %d 点伤害（基于副手武器伤害）。招架次数随灵巧提高；若次数为小数，小数部分对应的招架成功率会降低。
+		成功招架会像护甲一样在攻击倍率生效前减免伤害，并阻止这次攻击暴击。来自未发现攻击者的攻击很难招架，且你无法使用灵晶招架。]], "tformat")
 t("Tempo", "节奏", "talent name")
 t([[The flow of battle invigorates you, allowing you to press your advantage as the fight progresses.
 		Up to once each per turn, while dual wielding, you may:
 		Riposte -- If a melee or archery attack misses you or you parry it, you instantly restore %0.1f stamina and gain %d%% of a turn.
 		Recover -- On performing a critical strike with your offhand weapon, you instantly restore %0.1f stamina.]], [[战斗鼓舞着你，让你在战斗中获得优势。
 		双持武器时，每回合各至多一次，你可以：
-		反击 -- 如果你闪避或抵挡了近战或弓箭攻击，你立刻回复 %0.1f 体力并获得 %d%% 额外回合。
+		反击 -- 如果你闪避或招架了近战或弓箭攻击，你立刻回复 %0.1f 体力并获得 %d%% 额外回合。
 		回复 -- 副手武器暴击时回复 %0.1f 体力。]], "tformat")
 t("Feint", "佯攻", "talent name")
 t("You must be able to move to use this talent.", "你必须处于可以移动的状态才能使用该技能。", "logPlayer")
