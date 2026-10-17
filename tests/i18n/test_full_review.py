@@ -700,6 +700,10 @@ class FullRoundTests(unittest.TestCase):
         path = self.directory/'inventory.json'
         original = path.read_bytes()
         snapshot = fr._InventorySnapshot(self.directory)
+        with self.assertRaises(TypeError):
+            fr.check(self.manifest, self.directory, _inventory=snapshot)
+        with self.assertRaises(TypeError):
+            fr.replay_export(self.manifest, self.directory, 'a', {self.key: self.unit}, _inventory={})
         other = self.root/'other'
         other.mkdir()
         (other/'inventory.json').write_bytes(original)
@@ -861,7 +865,7 @@ class SuccessorTests(FullRoundTests):
 
             with patch.object(contextual, 'strict_json_bytes', side_effect=counted):
                 self.assertEqual(fr.check(self.manifest, self.next), expected)
-            self.assertEqual(len(labels), 3)  # successor, mapping read, predecessor snapshot
+            self.assertEqual(len(labels), 2)  # one strict parse per round, byte recheck on handoff
             self.assertEqual(expected['A_effective_complete'], 1)
             original = (self.directory/'exports/a2/input.json').read_bytes()
             (self.directory/'exports/a2/input.json').write_bytes(original + b' ')
@@ -876,6 +880,145 @@ class SuccessorTests(FullRoundTests):
         fr.import_result(self.manifest, self.next, 'new-a', self.root/'raw.json', self.root/'binding.json')
         with self.assertRaisesRegex(fr.FullReviewError, 'duplicate inherited/current coverage'):
             fr.check(self.manifest, self.next)
+
+    def three_round_chain(self):
+        ref = self.export()
+        self.producer(ref)
+        self.real_done(ref)
+        fr.import_result(self.manifest, self.directory, 'a', self.root/'raw.json', self.root/'binding.json')
+        self.decide(self.directory, {'A': fr.sha(self.raw)})
+        first = self.directory
+        expected = fr.check(self.manifest, first)
+        self.migrate(self.request())
+        self.directory, self.next = self.next, self.root/'third'
+        self.migrate(self.request())
+        return first, self.directory, self.next, expected
+
+    def test_three_round_exact_results_one_decode_each_and_independent_reload(self):
+        first, middle, last, expected = self.three_round_chain()
+        expected_details = fr.check(self.manifest, middle, _details=True)
+        decode = contextual.strict_json_bytes
+        labels = []
+
+        def counted(raw, *, label):
+            if str(label).endswith('/inventory.json'):
+                labels.append(str(label))
+            return decode(raw, label=label)
+
+        with patch.object(contextual, 'strict_json_bytes', side_effect=counted):
+            self.assertEqual(fr.check(self.manifest, last), expected)
+            self.assertEqual(labels, [str(p/'inventory.json') for p in (last, middle, first)])
+            labels.clear()
+            self.assertEqual(fr.check(self.manifest, last, _details=True), expected_details)
+            self.assertEqual(len(labels), 3)  # separate invocation owns fresh snapshots
+        path = last/'inventory.json'
+        original = path.read_bytes()
+        path.write_bytes(b'{"x":NaN}')
+        with self.assertRaises(contextual.ContractError):
+            fr.check(self.manifest, last)
+        path.write_bytes(original)
+        fr.export(self.manifest, last, [self.key], self.root/'workset.json', self.root/'scope.json',
+                  export_id='fresh', lane='A', task_id='fresh', dispatch_id='fresh',
+                  workspace_id='w1', parent_agent_id='parent')
+        self.assertEqual(len(fr.check(self.manifest, last, _details=True)['obligations'][self.key]), 2)
+
+    def test_handoff_rechecks_exact_bytes_and_paths_after_parent_seal(self):
+        import os
+        first, middle, last, expected = self.three_round_chain()
+        check = fr._check
+        for target in (middle, first):
+            path = target/'inventory.json'
+            original = path.read_bytes()
+            stat = path.stat()
+            for mode in ('same-size', 'rebound', 'duplicate', 'nan', 'symlink'):
+                called = []
+                ref_path = first/'exports/a/ref.json'
+                ref_original = ref_path.read_bytes()
+
+                def mutate(manifest, directory, **kwargs):
+                    if Path(directory) == target and kwargs.get('_inventory') is not None:
+                        called.append(directory)
+                        if mode == 'symlink':
+                            backup = self.root/'inventory-copy.json'
+                            backup.write_bytes(original)
+                            path.unlink()
+                            path.symlink_to(backup)
+                        else:
+                            changed = original.replace(b'test-round', b'best-round')
+                            if mode == 'rebound':
+                                ledger = json.loads(changed)
+                                ledger['inventory_identity'] = fr.sha(fr.canonical({
+                                    k: v for k, v in ledger.items() if k != 'inventory_identity'}))
+                                changed = fr.canonical(ledger)
+                                ref = json.loads(ref_original)
+                                ref.update(inventory_sha256=fr.sha(changed), round_id='best-round')
+                                ref['freeze_sha256'] = fr.sha(fr.canonical({
+                                    k: v for k, v in ref.items() if k != 'freeze_sha256'}))
+                                self.save(ref_path, ref)
+                            elif mode == 'duplicate':
+                                changed = b'{"x":1,"x":2}'
+                            elif mode == 'nan':
+                                changed = b'{"x":NaN}'
+                            if mode in ('same-size', 'rebound'):
+                                self.assertEqual(len(changed), len(original))
+                            path.write_bytes(changed)
+                            os.utime(path, ns=(stat.st_atime_ns, stat.st_mtime_ns))
+                    return check(manifest, directory, **kwargs)
+
+                with self.subTest(target=target.name, mode=mode), patch.object(fr, '_check', side_effect=mutate):
+                    with self.assertRaisesRegex(fr.FullReviewError, 'snapshot bytes drift|not an ordinary file'):
+                        fr.check(self.manifest, last)
+                self.assertEqual(len(called), 1)
+                if path.is_symlink():
+                    path.unlink()
+                path.write_bytes(original)
+                os.utime(path, ns=(stat.st_atime_ns, stat.st_mtime_ns))
+                ref_path.write_bytes(ref_original)
+                self.assertEqual(fr.check(self.manifest, last), expected)
+
+    def test_removed_legacy_unit_does_not_gain_new_mapping_field_requirements(self):
+        self.ledger['units'].append({'unit_id': 'retired', 'disposition': 'release-required'})
+        self.ledger.pop('inventory_identity')
+        self.ledger['inventory_identity'] = fr.sha(fr.canonical(self.ledger))
+        self.save(self.directory/'inventory.json', self.ledger)
+        request = self.request()
+        request['mapping'].append({'unit_id': 'retired', 'status': 'removed', 'reason': 'legacy unit removed'})
+        self.migrate(request)
+        self.assertEqual(fr.check(self.manifest, self.next)['provisional_applicable_units'], 1)
+
+    def test_parent_mapping_projection_does_not_alias_child_ledger(self):
+        # Structured guards make shallow copies observably unsafe even though
+        # production guards currently are strings. No private native data used.
+        import copy
+        self.unit['guard'] = {'nested': ['original']}
+        self.ledger.pop('inventory_identity')
+        self.ledger['inventory_identity'] = fr.sha(fr.canonical(self.ledger))
+        self.save(self.directory/'inventory.json', self.ledger)
+        self.migrate(self.request())
+        copied = []
+        check = fr._check
+
+        def project(value):
+            result = copy.deepcopy(value)
+            copied.append(result)
+            return result
+
+        def observe(manifest, directory, **kwargs):
+            snapshot = kwargs.get('_inventory')
+            if snapshot is not None:
+                guard = snapshot.ledger['units'][0]['guard']
+                guard['nested'].append('child')
+                self.assertEqual(copied[-1]['guard'], {'nested': ['original']})
+                copied[-1]['guard']['nested'].append('parent')
+                self.assertEqual(guard['nested'], ['original', 'child'])
+                guard['nested'].pop()
+                copied[-1]['guard']['nested'].pop()
+            return check(manifest, directory, **kwargs)
+
+        with patch.object(fr, 'deepcopy', side_effect=project), patch.object(fr, '_check', side_effect=observe):
+            result = fr.check(self.manifest, self.next)
+        self.assertEqual(len(copied), 1)
+        self.assertEqual(result['A_validated_outputs'], 0)
 
     def test_concurrent_freeze_pair_complete_and_policy_only_growth(self):
         import copy

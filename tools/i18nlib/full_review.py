@@ -8,6 +8,7 @@ from __future__ import annotations
 from bisect import bisect_left
 from collections import Counter
 from contextlib import contextmanager
+from copy import deepcopy
 import fcntl
 import hashlib
 import json
@@ -62,7 +63,8 @@ class _InventorySnapshot:
     """One check's parse, bound to the exact ordinary bytes it decoded.
 
     Only inventory data is retained; export discovery and every replay validator
-    still run. Recursive predecessor checks own separate, stack-local snapshots.
+    still run. A predecessor snapshot is moved into its recursive consumer, never
+    shared with the parent mapping view or retained in an invocation-wide cache.
     """
     def __init__(self, directory):
         self.path = Path(directory).absolute() / 'inventory.json'
@@ -924,8 +926,18 @@ def import_result(manifest, directory, export_id, raw_path, binding_path):
 
 
 def check(manifest, directory, *, require_complete=False, _historical=False, _details=False, _outputs_only=False):
+    return _check(manifest, directory, require_complete=require_complete,
+                  _historical=_historical, _details=_details, _outputs_only=_outputs_only)
+
+
+def _check(manifest, directory, *, require_complete=False, _historical=False,
+           _details=False, _outputs_only=False, _inventory=None):
+    # Only the internal predecessor path supplies a snapshot. Public check/replay
+    # always decode afresh; recursive entry still reads exact ordinary bytes.
     directory = Path(directory)
-    inventory = _InventorySnapshot(directory)
+    inventory = _InventorySnapshot(directory) if _inventory is None else _inventory
+    if _inventory is not None:
+        inventory.verify(directory)
     ledger = inventory.ledger
     validate_inventory(manifest, ledger)
     live = ({u['unit_id']: u for u in ledger['units']} if _historical else validate_current(manifest, ledger))
@@ -975,12 +987,17 @@ def check(manifest, directory, *, require_complete=False, _historical=False, _de
         if read(directory / 'migration.json') != predecessor['request']:
             raise FullReviewError('successor migration freeze drift')
         evidence_files(manifest, predecessor['request']['evidence'])
-        old_ledger = read(previous / 'inventory.json')
-        if old_ledger['round_id'] != ledger['round_id']:
+        # The parent needs only mapping guards, not a second complete object graph.
+        # pop transfers sole ownership before descending; deepcopy keeps even
+        # structured guards independent of the child's mutable parsed objects.
+        handoff = [_InventorySnapshot(previous)]
+        if handoff[0].ledger['round_id'] != ledger['round_id']:
             raise FullReviewError('cross-round predecessor rejected')
-        prior = check(manifest, previous, _historical=True, _details=True, _outputs_only=_outputs_only)
+        old_units = {u['unit_id']: deepcopy({k: u[k] for k in ('revision_key', 'guard') if k in u})
+                     for u in handoff[0].ledger['units']}
+        prior = _check(manifest, previous, _historical=True, _details=True,
+                       _outputs_only=_outputs_only, _inventory=handoff.pop())
         unchanged = {x['unit_id'] for x in predecessor['request']['mapping'] if x['status'] == 'unchanged'}
-        old_units = {u['unit_id']: u for u in old_ledger['units']}
         for unit in unchanged:
             if unit not in live or unit not in old_units or (live[unit]['revision_key'], live[unit]['guard']) != (old_units[unit]['revision_key'], old_units[unit]['guard']):
                 raise FullReviewError('invalid unchanged predecessor mapping')
