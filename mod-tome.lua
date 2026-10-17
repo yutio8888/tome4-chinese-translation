@@ -29977,7 +29977,7 @@ t("Agile Defense", "敏捷防御", "talent name")
 t("%s(%d deflected)#LAST#", "%s(%d 被抵挡)#LAST#", "tformat")
 t([[You are trained in an agile, mobile fighting technique combining sling and shield. This allows shields to be equipped, using Dexterity instead of Strength as a requirement.
 While you have a shield equip and your Block talent is not on cooldown, you have a %d%% chance to deflect any incoming damage, reducing it by 50%% of your shield’s block value.]], [[你学会了在战斗中灵敏使用投石索和盾牌的技巧。允许你装备盾牌，用敏捷代替力量需求。
-当你装备盾牌，且格挡技能未进入冷却时，有 %d%% 几率抵挡攻击，减免 50%% 格挡值的伤害。]], "tformat")
+当你装备盾牌，且格挡技能未进入冷却时，有 %d%% 几率抵挡任何受到的伤害，减免 50%% 格挡值的伤害。]], "tformat")
 t("Vault", "撑杆跳", "talent name")
 t("You require a shield to use this talent.", "你需要一面盾牌来施展这个技能。", "logPlayer")
 t("%s resists the daze!", "%s抵抗了眩晕！", "logSeen")
@@ -30577,10 +30577,10 @@ t("You are not able to Disengage in that direction.", "你不能朝这个方向�
 t([[Jump back up to %d grids from your target, springing over any creatures in your way. 
 		You must disengage in a nearly straight line directly away from your target (which you must be able to see).
 		After moving, you gain %d%% increased movement speed for 3 turns (which ends if you take any actions other than movement), and you may reload your ammo (if any).
-		The extra speed and maximum distance you can move are reduced by your Fatigue level.]], [[指定目标，向后跳跃 %d 格，可以跃过途中所有生物。
+		The extra speed and maximum distance you can move are reduced by your Fatigue level.]], [[指定目标，最多向后跳跃 %d 格，可以跃过途中所有生物。
 		你必须选择可见目标，必须以近乎直线的轨迹后跳。
 		落地后，你获得 3 回合 %d%% 移动速度加成，采取除移动外的行动会提前终止，并可以重新装填弹药（若有）。
-		移动速度和跳跃距离会受疲劳值影响。]], "tformat")
+		额外移动速度和最大跳跃距离会随疲劳值降低。]], "tformat")
 t("Evasion", "闪避", "talent name")
 t([[Your quick wit and reflexes allow you to anticipate attacks against you, granting you a %d%% chance to evade melee and ranged attacks and %d increased defense for %d turns.
 		The chance to evade and defense bonus increase with your Dexterity.]], [[你的战斗技巧和反射神经让你能迅速躲闪攻击，获得 %d%% 几率躲闪近战与远程攻击，闪避值增加 %d， 持续 %d 回合。
@@ -30589,7 +30589,7 @@ t("Tumble", "翻筋斗", "talent name")
 t("You must have an empty space to roll to.", "你必须有一个空的格子才能翻筋斗过去。", "logPlayer")
 t([[In an extreme feat of agility, you move to a spot you can see within range, bounding around, over, or through any enemies in the way.
 		This talent cannot be used while wearing heavy armor, and leaves you exhausted.  The exhaustion increases the cost of your activated Mobility talents by %d%% (stacking), but fades over %d turns.]], [[你迅速地移动至范围内可见的位置，跃过路径上所有敌人。
-		该技能在身着重甲时不能使用，使用后你会进入疲劳状态，增加移动系技能消耗 %d%% （可以叠加）， %d 回合后解除。]], "tformat")
+		该技能在身着重甲时不能使用，使用后你会进入力竭状态，增加主动移动系技能消耗 %d%% （可以叠加），并在 %d 回合内逐渐消退。]], "tformat")
 t("Trained Reactions", "受训反应", "talent name")
 t("#FIREBRICK##Target# reacts to %s from #Source#, mitigating the blow!#LAST#.", "#FIREBRICK##Target# 对#Source#的%s迅速反应，降低了伤害！#LAST#。", "logCombat")
 t("an attack", "一次攻击", "_t")
