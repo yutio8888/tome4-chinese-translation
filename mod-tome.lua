@@ -30017,7 +30017,7 @@ t("Pin Down", "强力定身", "talent name")
 t([[You fire a shot for %d%% damage that attempts to pin your target to the ground for %d turns, as well as giving your next Steady Shot or Shoot 100%% increased chance to critically hit and mark (regardless of whether the pin succeeds).
 		This shot has a 20%% chance to mark the target.
 		The chance to pin increases with your Accuracy.]], [[你朝目标发射定身攻击，造成 %d%% 伤害，并尝试将目标定身 %d 回合。
-		无论定身是否成功，在效果持续期间，你下一次对该目标命中的稳固射击或射击，暴击率与标记几率均为 100%%。
+		无论定身是否成功，在效果持续期间，你下一次对该目标命中的稳固射击或射击，暴击率与标记几率均为 100%%（普通射击需已学会射击精通才会标记）。
 		此次攻击有 20%% 几率标记目标。
 		定身几率受命中加成。]], "tformat")
 t("Fragmentation Shot", "爆裂射击", "talent name")
@@ -30175,7 +30175,7 @@ t("You must wield a bow!", "你必须装备一把弓！", "logPlayer")
 t("You fire an arrow that cuts right through anything, piercing multiple targets if possible with nigh infinite armor penetration, doing %d%% damage.", "你射出一支能穿透任何东西的箭，可以穿透多个目标，造成 %d%% 伤害，且几乎无视护甲。", "tformat")
 t("Dual Arrows", "双重射击", "talent name")
 t([[You fire two arrows at your target, hitting it and a nearby foe if possible, doing %d%% damage
-		This talent does not use any stamina.]], [[你向目标同时射出 2 支箭，对目标及其周围的一个敌人造成 %d%% 伤害。
+		This talent does not use any stamina.]], [[你向目标射出至多 2 支箭，命中目标，并在可能时命中其周围的一个敌人，造成 %d%% 伤害。
 		此技能不消耗体力值。]], "tformat")
 t("Volley of Arrows", "箭雨", "talent name")
 t("You fire multiple arrows at an area of %d radius, doing %d%% damage with each arrow.", "你向 %d 码半径区域内射出多支箭，每支箭造成 %d%% 伤害。", "tformat")
@@ -30560,7 +30560,7 @@ In addition, your Steady Shot, Shoot and Headshot now restore %0.1f stamina on h
 此外，你的稳固射击、射击和爆头现在会在命中时回复 %0.1f 体力。]], "tformat")
 t("Flare", "闪光弹", "talent name")
 t([[Fire a shot at the target tile that blinds enemies for %d turns, marks them for 2 turns and illuminates the area within radius %d for %d turns. Enemies within the illuminated area lose %d defence and stealth power and cannot benefit from concealment.
-		The status chance increases with your Accuracy, and the defense reduction with your Dexterity.]], [[发射闪光弹，致盲敌人 %d 回合，标记他们 2 回合并照亮 %d 格范围 %d 回合。范围内的敌人降低 %d 闪避和潜行强度，不能从隐匿技能得到任何加成。
+		The status chance increases with your Accuracy, and the defense reduction with your Dexterity.]], [[发射闪光弹，致盲敌人 %d 回合，标记他们 2 回合并照亮 %d 格范围 %d 回合。范围内的敌人降低 %d 闪避和潜行强度，也无法再从隐蔽中获益。
 		状态效果几率受命中加成，闪避削减受敏捷加成。]], "tformat")
 t("Trueshot", "专注射击", "talent name")
 t("Enter a state of heightened focus for %d turns. While in this state your ranged attack speed is increased by %d%%, your shots do not consume ammo, and all shots capable of marking have their chance to mark increased by %d%%.", "进入专注状态 %d 回合，远程攻击速度增加 %d%%， 射击不消耗弹药，标记概率增加 %d%%。", "tformat")
@@ -30621,7 +30621,7 @@ The poison damage dealt, armor penetration and save reduction will increase with
 剧毒弹- 命中后，对目标造成 %0.2f 自然伤害并感染麻木毒素，在 5 回合内造成 %0.2f 自然伤害并削弱其 %d%% 的伤害。
 穿甲弹- 命中后，使目标的护甲和豁免减少 %d， 持续 3 回合，你的物理穿透增加 %d%%。
 同时只能装备一种弹药。
-毒素伤害、护甲和豁免削减受物理强度加成。]], "tformat")
+毒素伤害受物理强度加成。]], "tformat")
 t("Incendiary Ammunition", "燃烧弹", "talent name")
 t([[Load incendiary ammunition, causing attacks to deal an additional %d%% weapon damage as fire in a radius %d ball around your target. 
 		This cannot trigger more than once per turn.
@@ -30635,7 +30635,7 @@ t([[Load venomous ammunition, causing ranged attacks to deal %0.2f nature damage
 t("Piercing Ammunition", "穿甲弹", "talent name")
 t([[Load piercing ammunition, causing attacks to reduce the target's armor and saves by %d for 3 turns, and increasing your physical penetration by %d%%.
 		The armor and save reduction will scale with your Physical Power.]], [[装填穿甲弹，使目标的护甲和豁免减少 %d 持续 3 回合，你的物理穿透增加 %d%%。
-		护甲和豁免削减受物理强度加成。]], "tformat")
+		护甲和豁免削减随异种弹药的技能等级提升，不受物理强度影响。]], "tformat")
 t("Explosive Shot", "爆炸射击", "talent name")
 t("You require incendiary, venomous or piercing ammunition to use this talent!", "你需要燃烧弹、剧毒弹或穿甲弹才能使用该技能！", "logPlayer")
 t([[Fires a special shot based on your currently loaded ammo:
@@ -30643,7 +30643,7 @@ Incendiary - Fire a shot that deals %d%% weapon damage as fire and covers target
 Venomous - Fire a shot that deals %d%% weapon damage as nature and explodes into a radius %d cloud of crippling poison for %d turns, dealing %0.2f nature damage each turn and giving affected targets a %d%% chance to fail talent usage.
 Piercing - Fire a shot that explodes into a radius %d burst of shredding shrapnel, dealing %d%% weapon damage as physical and removing %d beneficial physical effects or sustains.
 The poison damage dealt increases with your Physical Power, and status chance increases with your Accuracy.]], [[根据当前装填的弹药进行一次特殊的射击：
-燃烧弹- %d%% 火焰武器伤害。在半径 %d 码范围内用粘稠的沥青包裹敌人 %d 回合，减少 %d%% 全局速度并增加其受到的火焰伤害 %d%%。
+燃烧弹- %d%% 火焰武器伤害。在半径 %d 码范围内用粘稠的沥青包裹目标 %d 回合，减少 %d%% 全局速度并降低其火焰抗性 %d%%。
 剧毒弹- %d%% 自然武器伤害。爆炸会形成半径 %d 的致残毒气云，持续 %d 回合，每回合造成 %0.2f 自然伤害并使目标使用技能有 %d%% 几率失败。
 穿甲弹- 在半径 %d 码范围内爆炸，造成 %d%% 物理武器伤害，并移除 %d 个有益的物理效果或持续技能。
 毒素伤害受物理强度加成，状态触发几率受命中加成。]], "tformat")
@@ -30656,7 +30656,7 @@ You only have a limited amount of this ammo, causing this talent to have a coold
 The damage dealt will increase with your Physical Power, and status chance increases with your Accuracy.]], [[你制造出强化版弹药，获得额外效果：
 燃烧弹- 爆炸范围增加 1，点燃地面每回合额外造成 %0.2f 火焰伤害持续 3 回合。
 剧毒弹- 感染吸血毒素，3 回合内造成 %0.2f 自然伤害，毒素造成的 100%% 伤害会治疗你。
-穿甲弹- 击穿目标护甲，目标受到的所有伤害增加 %d%% 持续 3 回合。
+穿甲弹- 击穿目标护甲，使其所有抗性降低 %d%% 持续 3 回合。
 你的强化版弹药有限，所以技能有冷却时间。
 伤害受物理强度加成，状态触发几率受命中加成。]], "tformat")
 t("Alloyed Munitions", "合金弹药", "talent name")
@@ -30788,7 +30788,7 @@ t("Snipe", "狙击", "talent name")
 t([[Take aim for 1 turn, preparing a deadly shot. During the next turn, this talent will be replaced with the ability to fire a lethal shot dealing %d%% damage and marking the target.
 While aiming, your intense focus causes you to shrug off %d%% incoming damage and all negative effects.
 This requires a bow to use.]], [[瞄准 1 回合，准备射出致命的一箭。下回合，这个技能被替换成标记目标并造成 %d%% 伤害的致命攻击。
-若你处于瞄准姿态，专注力让你无视受到的 %d%% 伤害和所有负面状态。
+瞄准期间，专注力让你无视受到的 %d%% 伤害和所有负面状态。
 该技能需要弓来使用。]], "tformat")
 t("Fire a lethal shot. This shot will bypass other enemies between you and your target, and gains 100 increased accuracy.", "射出一发致命射击。这次射击将绕过你和你的目标之间的其他敌人，并提高 100 命中。", "tformat")
 
