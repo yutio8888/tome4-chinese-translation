@@ -30451,8 +30451,7 @@ t([[A powerful concussive punch that deals %d%% weapon damage to your target. If
 		使用此技能会消耗当前所有连击点。]], "tformat")
 t("Butterfly Kick", "蝴蝶踢", "talent name")
 t([[You spin into a flying leap and deliver a powerful kick dealing %d%% weapon damage to all enemies in a radius of 1 as you land. The range will increase by 1 per combo point and total damage will increase by 10%% per combo point.
-		Using this talent removes your combo points and you must have at least 1 combo point to use it.]], [[你旋转着飞跃而起，落地时以强力踢击对半径 1 格内的所有敌人造成 %d%% 武器伤害。
-		每一点连击点增加 1 点攻击范围和 10%% 伤害。
+		Using this talent removes your combo points and you must have at least 1 combo point to use it.]], [[你旋转着飞跃而起，落地时以强力踢击对半径 1 格内的所有敌人造成 %d%% 武器伤害。每一点连击点使飞跃距离增加 1 格，总伤害增加 10%%。
 		使用该技能会消耗所有连击点，并且至少需要 1 点连击点才能使用。]], "tformat")
 t("Haymaker", "致命重拳", "talent name")
 t("@Source@ throws a wild haymaker!", "@Source@打出狂暴的重拳！", "_t")
@@ -30494,12 +30493,12 @@ t([[Rushes forward and attempts to take the target to the ground, making a melee
 t("Hurricane Throw", "关节技：飓风投", "talent name")
 t("You must be grappling something to use this talent.", "你必须处于抓取中才能使用这个技能。", "logPlayer")
 t("Your grapple victim must be able to move to use this talent.", "要使用这个技能，你抓取的目标必须可以移动。", "logPlayer")
-t("#RED#%s is shaken by the collision and loses a turn!#LAST#", "#RED#%s 被冲击波击中，失去一回合行动机会！#LAST#", "logSeen")
+t("#RED#%s is shaken by the collision and loses a turn!#LAST#", "#RED#%s 因碰撞而受到震荡，失去一回合行动机会！#LAST#", "logSeen")
 t([[In a mighty show of strength you whirl your grappled victim around and throw them into the air causing %d%% damage to them and enemies in radius %d on landing.  
 			If at least 1 other enemy is hit the thrown enemy will be shaken by the impact losing a full turn.
-			You can only throw enemies that could move normally.]], [[你使出全力将抓取的目标扔到空中，对他和着陆点周围半径 %d 的生物造成 %d%% 伤害。
-		如果至少有一个其他敌人被击中，被投掷的敌人将会因为冲击而失去一个回合。
-		你只能投掷那些可以移动的敌人。]], "tformat", {2,1})
+			You can only throw enemies that could move normally.]], [[你使出全力将抓取的目标扔到空中，对他和着陆点周围半径 %d 的敌人造成 %d%% 伤害。
+		只要落点范围内有敌人（被投掷者本身也计入），被投掷的敌人就会因为冲击而失去一个回合。
+		你只能投掷那些本可正常移动的敌人。]], "tformat", {2,1})
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/magical-combat.lua"
@@ -30675,7 +30674,7 @@ section "mod-tome/data/talents/techniques/pugilism.lua"
 
 t("Striking Stance", "攻击姿态", "talent name")
 t([[Increases your Accuracy by %d, the damage multiplier of your striking talents (Pugilism and Finishing Moves) by %d%%, and reduces all damage taken by %d.
-		The offensive bonuses scale with your Dexterity and the damage reduction with your Strength.]], [[增加你 %d 命中。你攻击系技能（拳术、终结技）伤害增加 %d%%， 同时你受到的所有伤害减少 %d。
+		The offensive bonuses scale with your Dexterity and the damage reduction with your Strength.]], [[增加你 %d 命中。你攻击系技能（拳术、终结技）的伤害倍率增加 %d%% 并且你受到的所有伤害减少 %d。
 		攻击加成（命中与伤害）受敏捷加成，伤害减免受力量加成。]], "tformat")
 t("Double Strike", "双重打击", "talent name")
 t("@Source@ throws two quick punches.", "@Source@快速打出两次拳击。", "_t")
@@ -30694,7 +30693,7 @@ t([[Deliver a devastating axe kick dealing %d%% damage. If the blow connects you
 		This effect cannot be saved against, though it can be dodged and checks confusion immunity.]], [[施展一次毁灭性的踢技，造成 %d%% 伤害。如果攻击命中，对方的大脑受到伤害，不能使用技能，持续 %d 回合，同时你获得 2 连击点。
 		该效果无法通过豁免抵抗，但可以被闪避，并会检查混乱免疫。]], "tformat")
 t("Flurry of Fists", "流星拳", "talent name")
-t("@Source@ lashes out with a flurry of fists.", "@Source@冲出去打出流星拳。", "_t")
+t("@Source@ lashes out with a flurry of fists.", "@Source@挥出一阵流星拳。", "_t")
 t([[Lashes out at the target with three quick punches that each deal %d%% damage.
 		Earns one combo point. If your talent level is 4 or greater, this instead earns one combo point per blow that connects.]], [[对目标造成 3 次快速打击，每击造成 %d%% 伤害。
 		此攻击使你获得 1 点连击点；在技能等级 4 或更高时，改为每次命中的打击都使你获得 1 点连击点。]], "tformat")
