@@ -30580,7 +30580,7 @@ t([[Jump back up to %d grids from your target, springing over any creatures in y
 		The extra speed and maximum distance you can move are reduced by your Fatigue level.]], [[指定目标，最多向后跳跃 %d 格，可以跃过途中所有生物。
 		你必须选择可见目标，必须以近乎直线的轨迹后跳。
 		落地后，你获得 3 回合 %d%% 移动速度加成，采取除移动外的行动会提前终止，并可以重新装填弹药（若有）。
-		额外移动速度和最大跳跃距离会随疲劳值降低。]], "tformat")
+		疲劳值会降低额外移动速度和最大跳跃距离。]], "tformat")
 t("Evasion", "闪避", "talent name")
 t([[Your quick wit and reflexes allow you to anticipate attacks against you, granting you a %d%% chance to evade melee and ranged attacks and %d increased defense for %d turns.
 		The chance to evade and defense bonus increase with your Dexterity.]], [[你的战斗技巧和反射神经让你能迅速躲闪攻击，获得 %d%% 几率躲闪近战与远程攻击，闪避值增加 %d， 持续 %d 回合。
