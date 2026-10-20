@@ -23250,7 +23250,7 @@ t([[Strike your opponent in the knee (or other critical point in an ambulatory a
 		这个射击将会穿过你和目标间的其他敌人。
 		减速效果受灵巧加成。]], "tformat")
 t("Kill Shot", "致命狙击", "talent name")
-t("#DARK_ORCHID##Source# snipes #Target# (%+d%%%%%%%% weapon bonus for range)!#LAST#", "#DARK_ORCHID##Source#狙击了#Target#（%+d%%%%%%%% 远程武器伤害加成）！#LAST#", "delayedLogMessage")
+t("#DARK_ORCHID##Source# snipes #Target# (%+d%%%%%%%% weapon bonus for range)!#LAST#", "#DARK_ORCHID##Source#狙击了#Target#（%+d%%%%%%%% 距离武器伤害加成）！#LAST#", "delayedLogMessage")
 t([[Employ a specialized sniping shot at a target.
 		This shot is focused on precision at long range and deals base %d%% ranged damage with a bonus that increases with distance.
 		The ranged bonus is %d%% (penalty) at point blank range, while at your maximum range of %d it is %d%%.
