@@ -907,6 +907,7 @@ class SuccessorTests(FullRoundTests):
 
         with patch.object(contextual, 'strict_json_bytes', side_effect=counted):
             self.assertEqual(fr.check(self.manifest, last), expected)
+            # The digest-bound reload of a released historical parse is not a new strict decode.
             self.assertEqual(labels, [str(p/'inventory.json') for p in (last, middle, first)])
             labels.clear()
             self.assertEqual(fr.check(self.manifest, last, _details=True), expected_details)
@@ -921,6 +922,24 @@ class SuccessorTests(FullRoundTests):
                   export_id='fresh', lane='A', task_id='fresh', dispatch_id='fresh',
                   workspace_id='w1', parent_agent_id='parent')
         self.assertEqual(len(fr.check(self.manifest, last, _details=True)['obligations'][self.key]), 2)
+
+    def test_historical_reread_rejects_inventory_drift_during_descent(self):
+        first, middle, last, _ = self.three_round_chain()
+        decode = contextual.strict_json_bytes
+        path = middle/'inventory.json'
+        original = path.read_bytes()
+
+        def drifting(raw, *, label):
+            if str(label) == str(first/'inventory.json'):
+                path.write_bytes(original + b'\n')
+            return decode(raw, label=label)
+
+        try:
+            with patch.object(contextual, 'strict_json_bytes', side_effect=drifting):
+                with self.assertRaisesRegex(fr.FullReviewError, 'inventory snapshot bytes drift'):
+                    fr.check(self.manifest, last)
+        finally:
+            path.write_bytes(original)
 
     def test_handoff_rechecks_exact_bytes_and_paths_after_parent_seal(self):
         import os

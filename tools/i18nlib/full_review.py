@@ -80,6 +80,17 @@ class _InventorySnapshot:
         if sha(ordinary(self.path)) != self.digest:
             raise FullReviewError('inventory snapshot bytes drift')
 
+    def reload(self, directory):
+        # Restore a released parse. The digest binds these to the exact bytes the
+        # strict decoder already accepted in this invocation, so the plain decoder
+        # yields the identical value without repeating the duplicate-key hook.
+        if Path(directory).absolute() / 'inventory.json' != self.path:
+            raise FullReviewError('inventory snapshot path mismatch')
+        raw = ordinary(self.path)
+        if sha(raw) != self.digest:
+            raise FullReviewError('inventory snapshot bytes drift')
+        self.ledger = json.loads(raw.strip())
+
 
 def safe_path(root, relative):
     normalized = identity.normalize_relative_path(relative)
@@ -995,8 +1006,20 @@ def _check(manifest, directory, *, require_complete=False, _historical=False,
             raise FullReviewError('cross-round predecessor rejected')
         old_units = {u['unit_id']: deepcopy({k: u[k] for k in ('revision_key', 'guard') if k in u})
                      for u in handoff[0].ledger['units']}
+        # Frozen export bytes are consumed by the import loop above. A historical
+        # level also drops its parsed inventory before descending, so the chain
+        # never holds one parse per round; it is re-read and digest-bound after.
+        del frozen
+        if _historical:
+            inventory.ledger = None
+            del ledger, live, predecessor
         prior = _check(manifest, previous, _historical=True, _details=True,
                        _outputs_only=_outputs_only, _inventory=handoff.pop())
+        if _historical:
+            inventory.reload(directory)
+            ledger = inventory.ledger
+            live = {u['unit_id']: u for u in ledger['units']}
+            predecessor = ledger['predecessor']
         unchanged = {x['unit_id'] for x in predecessor['request']['mapping'] if x['status'] == 'unchanged'}
         for unit in unchanged:
             if unit not in live or unit not in old_units or (live[unit]['revision_key'], live[unit]['guard']) != (old_units[unit]['revision_key'], old_units[unit]['guard']):
