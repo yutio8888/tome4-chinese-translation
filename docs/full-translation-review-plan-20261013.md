@@ -1,6 +1,6 @@
 # 面向汉化版本发布的全量复核计划
 
-日期：2026-10-13。执行更新：2026-10-21 UTC。状态：**M3第三十四阶段已闭合；有效1959A／1175B，已验证1988A／1204B；13条局部修复待执行，16条source/runtime pending不计完成。全轮、最终候选与游戏验收尚未完成**。当前证据见[执行状态](../evidence/full-review/release-20261013/STATUS.md)。
+日期：2026-10-13。执行更新：2026-10-21 UTC。状态：**M3第三十五阶段已闭合；有效2028A／1218B，已验证2062A／1252B；18条局部修复待执行，16条source/runtime pending不计完成。全轮、最终候选与游戏验收尚未完成**。当前证据见[执行状态](../evidence/full-review/release-20261013/STATUS.md)。
 
 用户已明确：**以发布汉化版本为主，Engine 文本也必须输出**。主交付是包含 Engine 译文、可安装且可验证的汉化包，附简明质量说明及证据索引。推荐采用 **A 遍全量语境审读＋B 遍高风险独立复核＋修复后验收＋实际候选包验证**。包外仓库组件与长篇研究报告列为后续。Engine 已是本轮明确范围，不再作为待授权的范围扩展；当前 M2 连续执行，后续执行与外部发布按当前授权及 [AGENTS.md](../AGENTS.md) 进行。
 
@@ -175,7 +175,7 @@ p12s3 已闭合：本批新增 9A/2B，确认待修 revision=0；
 隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
 不计最终候选或三 DLC 玩法验收；M4 仍须实际加载最终候选。
 
-从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v67`。
+从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v68`。
 完整 task-gates 使用已验证的 `PATH=/usr/local/bin:$PATH` 与 `TOME_PASEO_WORKSPACE` 环境，
 当前按绝对 directory 调用；相对路径回执返回问题已有有界归因，待小型入口修正。
 执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
@@ -301,3 +301,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-21 M3phase33完成123A／103B（两组切片同轮），四路各自full17/build，新增有效118A／98B，累计1824A／1101B，已验证1846A／1123B。确认4claim／4条局部修复；新增1条死键runtime pending，共16条整条排除。最终分母、补充项和游戏验收保持开放。
 
 2026-10-21 M3phase34完成142A／81B（天体系 Sun Paladin 与 Anorithil 两组同轮），四路各自full17/build，新增有效135A／74B，累计1959A／1175B，已验证1988A／1204B。确认7条局部修复；runtime pending共16条整条排除。最终分母、补充项和游戏验收保持开放。
+
+2026-10-21 M3phase35完成74A／48B（天体系 Fallen 与圣印两组同轮，含1条b-extra），五路各自full17/build，新增有效69A／43B，累计2028A／1218B，已验证2062A／1252B。确认5条局部修复；runtime pending共16条整条排除。最终分母、补充项和游戏验收保持开放。
