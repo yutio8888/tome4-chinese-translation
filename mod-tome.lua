@@ -23295,8 +23295,8 @@ t("survival", "生存", "talent type")
 t("The knowledge of the dangers of the world, and how to best avoid them.", "让你认识到世界中的各种危险，并学会如何有效避免它们。", "_t")
 t("tactical", "战术", "talent type")
 t("Tactical combat abilities.", "战斗中使用的策略技巧。", "_t")
-t("scoundrel", "街头格斗", "talent type")
-t("The use of ungentlemanly techniques.", "街头格斗中使用的卑劣技巧。", "_t")
+t("scoundrel", "无赖", "talent type")
+t("The use of ungentlemanly techniques.", "使用不讲风度的卑劣技巧。", "_t")
 t("artifice", "诡计", "talent type")
 t("Create and use cunning tools.", "制造并使用精巧工具。", "_t")
 t("tools", "工具", "talent type")
@@ -31344,7 +31344,7 @@ t("Have sided with the Assassin Lord", "与刺客领主同流合污", "_t")
 t([[You have friends in low places and have learned some underhanded tricks.
 		Gain 0.2 Category Mastery to the Cunning/Stealth Category (or unlock it, if you have the tree and it is locked), and either gain +0.1 to the Cunning/Scoundrel category or learn and unlock the category at 0.9 if you lack it.
 		Additionally, all of your damage penalties from invisibility are permanently halved.]], [[你结交了狐朋狗友，学到了一些下三滥的技巧。
-		增加灵巧/潜行系 0.2 系数值（若已拥有该技能树但未解锁，则将其解锁），同时增加灵巧/街头格斗系 0.1 系数值（未习得则以 0.9 的技能系数解锁此技能树）。
+		增加灵巧/潜行系 0.2 系数值（若已拥有该技能树但未解锁，则将其解锁），同时增加灵巧/无赖系 0.1 系数值（未习得则以 0.9 的技能系数解锁此技能树）。
 		此外，你隐形时的伤害惩罚永久减半。]], "tformat")
 -- untranslated text
 --[==[
