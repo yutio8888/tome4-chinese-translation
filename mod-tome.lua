@@ -20934,7 +20934,7 @@ t("sunlight", "阳光", "talent type")
 t("Summon the power of the Sun to burn your foes.", "召唤太阳之力灼烧敌人。", "_t")
 t("sun", "太阳", "talent type")
 t("glyphs", "圣印", "talent type")
-t("Bind the brilliant powers into glyphs to trap your foes.", "将璀璨之力束入符文，困住敌人。", "_t")
+t("Bind the brilliant powers into glyphs to trap your foes.", "将璀璨之力束入圣印，困住敌人。", "_t")
 t("twilight", "黄昏", "talent type")
 t("Stand between the darkness and the light, harnessing both.", "立于光明与黑暗之间，同时驾驭二者。", "_t")
 t("star fury", "星怒", "talent type")
@@ -20954,7 +20954,7 @@ t("Darkside", "背光面", "talent type")
 t("Signature magics of the Fallen.  The sun shines for the guilty and the innocent alike.", "堕落者的特有魔法。无论罪恶与否，阳光依然闪耀。", "_t")
 t("Dark Sun", "无光之阳", "talent type")
 t("Celestial combat techniques inspired by the dark places that are not empty.", "并非虚无的黑暗，亦能激发天空系的作战技巧。", "_t")
-t("Sing of death and damnation.", "死亡和毁灭之歌。", "_t")
+t("Sing of death and damnation.", "吟唱死亡与天谴。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/talents/celestial/chants.lua"
@@ -21027,8 +21027,7 @@ t([[Creates a circle of radius %d at your feet; the circle increases your defens
 		The damage will increase with your Spellpower.]], [[在你的脚下创造一个半径 %d 的法阵，使你的闪避和所有豁免提高 %d， 并使范围内除你之外的所有生物每回合受到 %0.2f 点暗影伤害。法阵持续 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Circle of Sanctity", "圣洁之阵", "talent name")
-t("Creates a circle of radius %d at your feet; the circle protects you from silence effects while you remain in its radius while silencing and dealing %d light damage to everyone else who enters. The circle lasts %d turns.", [[在你的脚下制造一个 %d 码半径范围的法阵，当你在法阵内，它会使你免疫沉默效果，并沉默进入此范围的其他所有生物，对其造成 %d 光系伤害。
-		法阵持续 %d 回合。]], "tformat")
+t("Creates a circle of radius %d at your feet; the circle protects you from silence effects while you remain in its radius while silencing and dealing %d light damage to everyone else who enters. The circle lasts %d turns.", [[在你的脚下制造一个 %d 码半径范围的法阵，当你在法阵内，它会使你免疫沉默效果，并沉默进入此范围的其他所有生物，对其造成 %d 光系伤害。法阵持续 %d 回合。]], "tformat")
 t("Circle of Warding", "守护之阵", "talent name")
 t([[Creates a circle of radius %d at your feet; the circle slows incoming projectiles by %d%% and attempts to push all creatures other than yourself out of its radius, inflicting %0.2f light damage and %0.2f darkness damage per turn as it does so.  The circle lasts %d turns.
 		The effects will increase with your Spellpower.]], [[在你的脚下制造一个 %d 码半径范围的法阵，它会减慢 %d%% 抛射物速度并尝试将除你以外的其他生物推出法阵范围，同时每回合造成 %0.2f 光系伤害和 %0.2f 暗影伤害。法阵持续 %d 回合。
@@ -21076,7 +21075,7 @@ t("Any attack that would drop you below 1 hit point instead triggers Second Life
 ------------------------------------------------
 t([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.
 		Additionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.
-		The damage dealt and shield bonus will increase with your Spellpower.]], [[使你的武器充满太阳能量，每击造成 %0.1f 光系伤害。
+		The damage dealt and shield bonus will increase with your Spellpower.]], [[使你的武器充满太阳能量，每次近战命中造成 %0.1f 光系伤害。
 		如果你同时打开了临时伤害护盾，每回合一次，你的近战攻击命中可以增加护盾 %d 强度，并且可以延长当前护盾持续时间至2回合。
 		伤害和护盾加成受法术强度加成。]], "tformat")
 
@@ -21197,7 +21196,7 @@ t([[Even now, something compels you to sing.
 			Dirge of Famine: Increases health regen by %d.
 			Dirge of Conquest: Gives you part of a turn on critical (10%%) or kill (%d%%).
 			Dirge of Pestilence: Shields you for %d when an enemy inflicts a detrimental effect on you (5 turn cooldown).
-			You may only have one Dirge active at a time.]], [[每时每刻，都有什么驱使着你歌唱。
+			You may only have one Dirge active at a time.]], [[即便如今，仍有什么驱使着你歌唱。
 			饥荒挽歌：增加生命回复 %d。
 			征服挽歌：给予你暴击时 10%% 回合或杀戮时 %d%% 回合的时间。
 			瘟疫挽歌：敌人对你造成负面效果时获得 %d 的护盾（5 回合冷却）。
@@ -21205,7 +21204,7 @@ t([[Even now, something compels you to sing.
 t("Dirge Intoner", "挽歌吟诵者", "talent name")
 t([[Your dirges carry the pain within you, which threatens to swallow those who come too close.  Anyone who hits you in melee suffers %0.2f mind damage.
 							You, on the other hand, are steadied by the song.  Your dirges increase your resistance to stun and knockback by %d%%.
-							The damage will increase with your Mindpower and your level.]], [[你的挽歌中寄寓着痛苦，过于接近你的生物可能会被这份痛苦吞噬。任何近战击中你的敌人会受到 %0.2f 精神伤害。
+							The damage will increase with your Mindpower and your level.]], [[你的挽歌中寄寓着痛苦，过于接近你的生物可能会被这份痛苦吞噬。任何近战击中你的生物会受到 %0.2f 精神伤害。
 							而你则被这歌声激励着。挽歌增加你 %d%% 的震慑和击退抗性。
 							伤害受精神强度和等级加成。]], "tformat")
 t("Dirge Adept", "挽歌专家", "talent name")
@@ -21222,7 +21221,7 @@ The damage reduction will increase with your Spellpower.]], [[你的挽歌使你
 ------------------------------------------------
 section "mod-tome/data/talents/celestial/eclipse.lua"
 
-t("Blood Red Moon", "血月唤醒", "talent name")
+t("Blood Red Moon", "血红之月", "talent name")
 t("Increases your spell critical chance by %d%%.", "增加你 %d%% 法术暴击率。", "tformat")
 t("Totality", "日全食", "talent name")
 t([[Increases your light and darkness resistance penetration by %d%% for %d turns, and reduces the cooldown of all Celestial skills by %d.
@@ -21275,8 +21274,7 @@ t("Glyphs of Fury", "愤怒之印", "talent name")
 t([[Your glyphs are imbued with celestial fury; they last %d turns longer and when triggered they will deal damage.
 		#ffd700#Glyph of Sunlight#LAST#:  Deals %0.2f light damage.
 		#7f7f7f#Glyph of Moonlight#LAST#:  Deals %0.2f darkness damage.
-		#9D9DC9#Glyph of Twilight#LAST#:  Deals %0.2f light and %0.2f darkness damage.]], [[你的圣印被注入了来自天空的怒火。
-		它们的持续时间延长 %d 回合，并在触发时造成额外伤害。
+		#9D9DC9#Glyph of Twilight#LAST#:  Deals %0.2f light and %0.2f darkness damage.]], [[你的圣印被注入了来自天空的怒火，持续时间延长 %d 回合，并在触发时造成伤害。
 		#ffd700#日光圣印#LAST#：造成 %0.2f 光系伤害。
 		#7f7f7f#月光圣印#LAST#：造成 %0.2f 暗影伤害。
 		#9D9DC9#暮光圣印#LAST#：造成 %0.2f 光系和 %0.2f 暗影伤害。]], "tformat")
@@ -21288,7 +21286,7 @@ t([[Destabilize your glyphs, triggering every glyph in radius 10 with an enemy s
 		#ffd700#Sunlight#LAST#:  %0.2f light damage.
 		#7f7f7f#Moonlight#LAST#:  %0.2f darkness damage.
 		#9D9DC9#Twilight#LAST#:  %0.2f light and %0.2f darkness damage]], [[激发所有圣印，10格内所有有敌人站在其上的圣印都将被触发。
-		技能等级2时，该效果触发的圣印将在地面遗留能量，在 %d 回合内持续造成伤害。
+		技能等级2时，该效果触发的圣印将在地面遗留能量，每回合造成伤害，持续 %d 回合。
 		#ffd700#日光圣印#LAST#：%0.2f 光系伤害。
 		#7f7f7f#月光圣印#LAST#：%0.2f 暗影伤害。
 		#9D9DC9#暮光圣印#LAST#：%0.2f 光系和 %0.2f 暗影伤害。]], "tformat")
@@ -21307,7 +21305,7 @@ t([[Infuse your shield with light, healing you for %0.2f each time you take dama
 t("Brandish", "剑盾之怒", "talent name")
 t("You cannot use Brandish without a shield!", "没有盾牌就无法使用剑盾之怒！", "logPlayer")
 t([[Hits the target with your weapon doing %d%% damage, and with a shield strike doing %d%% damage. If the shield strike connects, your shield will explode in a burst of light that inflicts %0.2f light damage on all targets except yourself within radius %d of the target, and light up all tiles in that radius.
-		The light damage will increase with your Spellpower.]], [[用你的武器对目标造成 %d%% 伤害，同时盾击目标造成 %d%% 伤害。如果盾牌击中目标，则会产生光系爆炸，对范围内除你以外的所有目标造成 %0.2f 光系范围伤害（半径 %d 码）并照亮受影响区域。
+		The light damage will increase with your Spellpower.]], [[用你的武器对目标造成 %d%% 伤害，同时盾击目标造成 %d%% 伤害。如果盾牌击中目标，则会产生光系爆炸，对范围内除你以外的所有目标造成 %0.2f 光系范围伤害（以目标为中心，半径 %d 码）并照亮受影响区域。
 		光系伤害受法术强度加成。]], "tformat")
 t("Retribution", "惩戒之盾", "talent name")
 t("You cannot use Retribution without a shield!", "没有盾牌就无法使用惩戒之盾！", "logPlayer")
@@ -21373,13 +21371,17 @@ Hymn of Detection: Increases your ability to see stealthy creatures by %d and in
 Hymn of Perseverance: Increases your resistance to stun, confusion and blinding by %d%%.
 
 You may only have one Hymn active at a time.]], [[你学会了三种防御圣诗，以此咏唱对月亮的赞颂：
-		暗影圣诗：增加 %d%% 移动速度和 %d%% 施法速度。
-		侦测圣诗：潜行侦测强度提高 %d， 隐形侦测强度提高 %d， 暴击伤害提高 %d%%。
-		坚毅圣诗：增加 %d%% 震慑、混乱、致盲抗性。
-		你同时只能激活一种圣诗。]], "tformat")
+
+暗影圣诗：增加 %d%% 移动速度和 %d%% 施法速度。
+
+侦测圣诗：潜行侦测强度提高 %d， 隐形侦测强度提高 %d， 暴击伤害提高 %d%%。
+
+坚毅圣诗：增加 %d%% 震慑、混乱、致盲抗性。
+
+你同时只能激活一种圣诗。]], "tformat")
 t("Hymn Incantor", "暗影临近", "talent name")
 t([[Your Hymns now focus darkness near you, which increases your darkness damage by %d%% and does %0.2f darkness damage to anyone who hits you in melee.
-		These values scale with your Spellpower.]], [[圣诗让暗影集中在你身边，你的黑暗伤害增加 %d%%， 并对所有近战攻击你的敌人造成 %0.2f 暗属性伤害。
+		These values scale with your Spellpower.]], [[圣诗让暗影集中在你身边，你的暗影伤害增加 %d%%， 并对所有近战攻击你的生物造成 %0.2f 暗影伤害。
 		效果受法术强度加成。]], "tformat")
 t("Hymn Adept", "圣诗专家", "talent name")
 t([[Your skill in Hymns now improves your sight in darkness, increasing your infravision radius by %d.
@@ -21528,7 +21530,7 @@ t([[Infuse yourself with the raging fury of the Sun, increasing your physical an
 		This effect can only happen once per turn.]], [[让阳光的怒火充满自身，增加 %d%% 物理和法术暴击率。
 		每次物理或法术暴击时，有 %d%% 几率获得阳光之怒效果，持续两回合。
 		当效果激活时，你的阳光烈焰变为瞬间技能，同时伤害增加 25%%。
-		如果阳光烈焰处于冷却中，则减少 1 回合冷却时间。
+		如果阳光烈焰处于冷却中，则改为减少其 1 回合冷却时间。
 		该效果一回合至多触发一次。]], "tformat")
 t("Suncloak", "阳光护体", "talent name")
 t([[You wrap yourself in a cloak of sunlight that empowers your magic and protects you for 6 turns.
@@ -21558,7 +21560,7 @@ t([[Call forth the Sun to summon a fiery beam that pierces to the farthest enemy
 		You will gain %0.2f positive energy each time firebeam or an instant damage proc caused by firebeam deals damage.
 		The damage done will increase with your Spellpower.]], [[汲取太阳之力射出一束太阳真火，贯穿直至最远的敌人，对这条直线上的所有敌人造成 %d 火焰伤害。
 		此法术会在你接下来两个回合的开始时自动再次施放。
-		每当火焰射线或由其触发的即时伤害效果造成伤害时，你获得 %0.2f 正能量。
+		每当阳炎喷射或由其触发的即时伤害效果造成伤害时，你获得 %0.2f 正能量。
 		伤害受法术强度加成。]], "tformat")
 t("Sunburst", "日炎爆发", "talent name")
 t("Release a burst of sunlight beams at %d random foes in radius %d, dealing %d damage to all foes hit and increasing your bonus light damage by %d%% of your bonus darkness damage for %d turns.", "向半径 %d 格内的 %d 个随机敌人释放一簇阳光射线，对所有命中的敌人造成 %d 点伤害，并使你的光系伤害加成提高，数值相当于暗影伤害加成的 %d%%， 持续 %d 回合。", "tformat", {2,1,3,4,5})
@@ -23222,7 +23224,7 @@ t("You must anchor the hook to something solid.", "你需要将钩爪固定在�
 t("Throw a grappling hook up to range %d that drags you towards the target or the target towards you. 8 turn cooldown.", "向最远 %d 格处发射钩爪，将你拉向目标，或将目标拉向你。冷却 8 回合。", "tformat")
 t([[Toss out a grappling hook to a target within range %d.  If this strikes either a wall or a creature that is immovable or larger than you, you will pull yourself towards it, otherwise, you will drag the target towards you.  Creatures struck by the hook will be pinned for 2 turns.
 		Your grapple target must be at least 2 tiles from you.
-#YELLOW#Prepared with: %s#LAST#]], [[朝 %d 格范围内的目标发射钩爪，如果目标是墙壁、目标不能移动或目标体型比你大，你将被拉过去，否则将目标拉过来。之后，目标将被定身 2 回合。
+#YELLOW#Prepared with: %s#LAST#]], [[朝 %d 格范围内的目标发射钩爪，如果目标是墙壁、无法被拉动或体型比你大的生物，你将被拉过去，否则将目标拉过来。被钩爪击中的生物将被定身 2 回合。
 		钩爪至少要发射到两格外。
 #YELLOW#准备于：%s#LAST#]], "tformat")
 t("Grappling Hook Mastery", "钩爪强化", "talent name")
@@ -23383,7 +23385,7 @@ t([[Learn how to enhance your Deadly Poison, adding additional effects. Each lev
 	毒素效果提高 %d%% （具体效果因毒素而异）。
 	调整武器涂层不消耗时间，也不会打破潜行。
 	同时最多激活两种毒素强化；激活第三种时，会随机取消一种已激活的强化。]], "tformat")
-t("Venomous Strike", "毒素爆发", "talent name")
+t("Venomous Strike", "剧毒打击", "talent name")
 t("#GREEN#%s's %s is disrupted by crippling poison!", "#GREEN#%s 的%s被致残毒素打断了！", "logSeen")
 t([[Numbing Poison - Reduces global speed by %d%% for 5 turns.
 		Insidious Poison - Applies a standard poison that deals %0.2f nature damage over 5 turns.
@@ -23602,7 +23604,7 @@ t("shadowy assassin", "阴影刺客", "_t")
 t("A shadowy figure, garbed all in black.", "一名身穿黑衣的刺客。", "_t")
 t("#PINK#A %s materializes from the shadows!", "#PINK#一个%s从阴影中现身！", "logSeen")
 t("bladestorm construct", "剑刃风暴装置", "_t")
-t("A lethal contraption of whirling blades.", "一堆旋转刀片的致命组合。", "_t")
+t("A lethal contraption of whirling blades.", "由旋转刀刃组成的致命装置。", "_t")
 t("Trap Mastery", "陷阱专精", "talent name")
 t("Prepare which traps? (maximum: %d, up to tier %d)%s", "准备什么陷阱？(最多 %d 个，最高阶级 %d)%s", "tformat")
 t("\
@@ -23674,7 +23676,7 @@ t("\
 #YELLOW#Triggers immediately when placed.#LAST#", "\
 #YELLOW#放置后立即触发。#LAST#", "_t")
 t([[Lay a pressure triggered trap that explodes into a radius 2 wave of razor sharp wire, doing %0.2f physical damage. Those struck by the wire may be shredded, reducing accuracy, armor and defence by %d.
-		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置压力感应陷阱，触发后爆开半径 2 格的锋利刀片，造成 %0.2f 物理伤害。被击中的目标可能被刀片切割，命中、护甲和闪避下降 %d。
+		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置压力感应陷阱，触发后爆开半径 2 格的锋利刀片刺网，造成 %0.2f 物理伤害。被刺网击中的目标可能被刀片切割，命中、护甲和闪避下降 %d。
 		该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s]], "tformat")
 t("Bear Trap", "捕熊陷阱", "talent name")
 t("bear trap", "捕熊陷阱", "_t")
@@ -23768,8 +23770,8 @@ t("purging trap", "净化陷阱", "_t")
 t("Radius 2 antimagic: Drains up to %d mana, %d vim, %d positive/negative, deals up to %0.2f arcane damage.  Removes %d magical effects and silences for %d turns.", "半径 2 反魔：吸收至多 %d 法力， %d 活力， %d 正负能量，造成至多 %0.2f 奥术伤害。解除 %d 项魔法效果，沉默 %d 回合。", "tformat")
 t([[Lay a trap that releases a burst of antimagic energies (radius 2), draining up to %d mana, %d vim, %d positive and %d negative energies from affected targets, while inflicting up to %0.2f arcane damage based on the resources drained, silencing for %d turns, and removing up to %d beneficial magical effects or sustains.
 		The draining effect scales with your Willpower, and you must have 25 Willpower to prepare this trap.
-		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个陷阱，触发后释放半径 2 的反魔能量波，吸取至多 %d 法力 , %d 活力 , %d 正能量和 %d 负能量，并造成至多 %0.2f 奥术伤害（基于吸取能量），沉默 %d 回合，并解除至多 %d 项正面魔法状态或者维持技能。
-		吸取效果受意志加成，你需要 25 点意志来使用该技能。
+		This trap can use a primed trigger and a high level lure can trigger it.%s]], [[放置一个陷阱，触发后释放半径 2 的反魔能量波，吸取至多 %d 法力、 %d 活力、 %d 正能量和 %d 负能量，并造成至多 %0.2f 奥术伤害（基于吸取能量），沉默 %d 回合，并解除至多 %d 项正面魔法状态或者维持技能。
+		吸取效果受意志加成，你需要 25 点意志才能准备该陷阱。
 		该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s]], "tformat")
 t("Explosion Trap", "爆炸陷阱", "talent name")
 t("You have learned how to create Explosion traps!", "你学会了如何制作爆炸陷阱！", "_t")
@@ -23784,7 +23786,7 @@ t("catapult trap", "弹射陷阱", "_t")
 t("Target knocked back up to %d grids%s and dazed.", "目标被击退最多 %d 格%s，并眩晕。", "tformat")
 t("%s knocks %s back!", "%s 将 %s 击退！", "logSeen")
 t("%s fails to knock %s back!", "%s 未能将 %s 击退！", "logSeen")
-t("#LIGHT_BLUE#Aim the catapult", "#LIGHT_BLUE#请瞄准弹射陷阱", "logPlayer")
+t("#LIGHT_BLUE#Aim the catapult", "#LIGHT_BLUE#请选择弹射陷阱的弹射落点", "logPlayer")
 t("Target knocked back %d grids and dazed.", "目标被击退 %d 格并眩晕。", "tformat")
 t([[Deploy a hidden spring-loaded catapult that will trigger (by pressure) for any creature passing over it.  Victims will be knocked back towards a target location up to %d grids away and be dazed for 5 turns.
 		This trap has a %d%% chance to reset itself after triggering, but can only trigger once per turn.
@@ -30995,10 +30997,10 @@ t("Venomous Throw", "剧毒飞刀", "_t")
 t([[Throw a knife coated with venom, doing %d%% damage as nature and inflicting additional effects based on your active vile poisons (as per the Venomous Strike talent):
 		
 		%s
-		Using this talent puts your Venomous Strike talent on cooldown.]], [[投掷一把剧毒飞刀，造成 %d%% 自然伤害并根据你当前生效的邪恶毒素附加额外效果（和毒素爆发相同）:
+		Using this talent puts your Venomous Strike talent on cooldown.]], [[投掷一把剧毒飞刀，造成 %d%% 自然伤害并根据你当前生效的邪恶毒素附加额外效果（和剧毒打击相同）:
 
 		%s
-		使用这技能将使毒素爆发进入冷却。]], "tformat")
+		使用这技能将使剧毒打击进入冷却。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/thuggery.lua"
@@ -31439,8 +31441,8 @@ t([[Your study of arcane forces has let you develop a new way of applying your a
 		You learn the following talents:
 %s]], [[通过对奥术之力的研究，你找到了运用自己陷阱与毒药天赋的新方式。
 
-你在灵巧/毒药系和灵巧/陷阱系技能树上获得 1.0 系数。
-		你的毒素爆发技能冷却时间减少 3。
+你在灵巧/毒素系和灵巧/陷阱制作系技能树上获得 1.0 系数。
+		你的剧毒打击技能冷却时间减少 3。
 		你的诱饵技能冷却时间减少 5。
 
 		你将习得以下技能：
@@ -34528,7 +34530,7 @@ Talents:
 
 技能：
 - #YELLOW# 邪恶毒素：#WHITE# 学会调制新的危险而可怕的毒素，将其涂在武器或弹药上，使敌人中毒。
-- #YELLOW# 毒素爆发：#WHITE# 发动一次可怕的攻击，目标身上的中毒效果越多，造成的自然伤害越高。
+- #YELLOW# 剧毒打击：#WHITE# 发动一次可怕的攻击，目标身上的中毒效果越多，造成的自然伤害越高。
 - #YELLOW# 强化毒素：#WHITE# 让你的毒素变得更加致命、起效更快。
 - #YELLOW# 剧毒之死：#WHITE# 将有毒的“快乐”分享给敌人的朋友们！
 ]], "_t")
