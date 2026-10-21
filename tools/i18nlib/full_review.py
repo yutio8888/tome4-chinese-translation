@@ -22,6 +22,7 @@ import contextual_anchor_preflight as anchors
 import surface_screen_result_check as identity
 from orchestration.build_evidence_pack import FixedReader
 from orchestration.review_prompts import build_contextual_prompt
+from . import full_review_cache
 from . import gate_results
 from . import production_review as wp1
 from . import production_review_v2_lite as catalog
@@ -51,7 +52,7 @@ def ordinary(path):
     path = Path(path).absolute()
     if any(p.is_symlink() for p in (path, *path.parents)) or not path.is_file():
         raise FullReviewError(f'not an ordinary file: {path}')
-    return path.read_bytes()
+    return full_review_cache.read_bytes(path)
 
 
 def read(path):
@@ -1010,11 +1011,15 @@ def _check(manifest, directory, *, require_complete=False, _historical=False,
         # level also drops its parsed inventory before descending, so the chain
         # never holds one parse per round; it is re-read and digest-bound after.
         del frozen
+        predecessor_seal = predecessor['seal']
         if _historical:
             inventory.ledger = None
             del ledger, live, predecessor
-        prior = _check(manifest, previous, _historical=True, _details=True,
-                       _outputs_only=_outputs_only, _inventory=handoff.pop())
+        def verify_predecessor():
+            return _check(manifest, previous, _historical=True, _details=True,
+                          _outputs_only=_outputs_only, _inventory=handoff.pop())
+        prior = full_review_cache.predecessor(
+            manifest, previous, predecessor_seal, _outputs_only, verify_predecessor)
         if _historical:
             inventory.reload(directory)
             ledger = inventory.ledger

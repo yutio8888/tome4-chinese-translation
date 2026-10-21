@@ -249,6 +249,13 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   低层原语（如 `pi_file_review._run_file_review_process`、
   `pi_review._canonical_sha256`、`pi_review._stage_validated_json`），详见
   `archive/README.md`。
+- full-review 历史前驱检查缓存默认关闭；仅 `I18N_FULL_REVIEW_CACHE=on` 开启，
+  `I18N_FULL_REVIEW_CACHE_TRACE=1` 将命中、未命中、发布或跳过原因写到 stderr。
+  `.artifacts/i18n/full-review-cache-v1/` 是可删除的派生结果，最多保留最近 6 个键，
+  总量上限 512 MiB。命中仍重新散列文件、列目录和核对路径探测；实现、manifest、
+  前驱 seal 或 `_outputs_only` 改变即失效。只缓存成功的历史递归结果，当前轮的
+  源码、preflight、迁移及 seal 检查照常执行；历史计算触及 Git／FixedReader 时不发布。
+  关闭开关可独立完整重放，不读写或创建缓存目录。缓存不提供生产审核或门禁 credit。
 - `.artifacts/i18n/cache/review-inventory/` 是当前宿主 producer 生成的可信派生缓存，
   自哈希、header 和 slice proof 能阻断缺失、陈旧与随机损坏，但不是抵御同一工作区内
   协调伪造 bundle+cache 的密码学证明。来自外部或不可信工作区的 bundle 不应直接使用，
