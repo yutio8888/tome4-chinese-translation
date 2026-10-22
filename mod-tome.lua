@@ -22743,9 +22743,9 @@ t("Enhanced melee combat through the dark arts.", "利用黑暗力量来增强�
 t("blood", "血", "talent type")
 t("Harness the power of blood, both your own and your foes'.", "操纵你和你目标鲜血的力量。", "_t")
 t("blight", "枯萎", "talent type")
-t("Bring corruption and decay to all who oppose you.", "使任何敌对你的目标腐败和衰弱。", "_t")
+t("Bring corruption and decay to all who oppose you.", "为所有与你为敌者带来腐化与衰败。", "_t")
 t("Shadowflame", "暗影烈焰", "talent type")
-t("Harness the power of the demonic shadowflame.", "学习驾驭恶魔暗影之火的力量。", "_t")
+t("Harness the power of the demonic shadowflame.", "驾驭恶魔暗影烈焰的力量。", "_t")
 t("rot", "腐烂", "talent type")
 t("Become one with rot and decay.", "与腐烂和衰败融为一体。", "_t")
 
@@ -23069,7 +23069,7 @@ t([[Feel the very existence of creatures around you for %d turns, in a radius of
 		邪恶的触碰会使它们的枯萎抗性降低 %d%%、 所有豁免降低 %d 点，但也会让它们察觉到你的存在。
 		抗性和豁免的降低值随法术强度提高。]], "tformat")
 t("Leech", "活力吸取", "talent name")
-t("Each time a creature affected by vimsense hurts you, you regain %0.2f vim and %0.2f health.", "每当被活力感知发现的敌人伤害你时，你回复 %0.2f 活力值和 %0.2f 生命值。", "tformat")
+t("Each time a creature affected by vimsense hurts you, you regain %0.2f vim and %0.2f health.", "每当受活力感知影响的生物伤害你时，你回复 %0.2f 活力值和 %0.2f 生命值。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cunning/ambush.lua"
@@ -23813,7 +23813,7 @@ t("Merge", "融合", "talent name")
 t([[Target a nearby shadow, and command it to merge into a nearby enemy, reducing their damage by %d%% for 5 turns.
 		Killing your shadow releases some of your inner hatred, restoring 8 Hate to yourself.]], [[指定附近的一个阴影，命令它和附近的一个敌人融合，降低其伤害 %d%%， 持续 5 回合。
 杀死阴影释放了你的憎恨，回复 8 点仇恨值。]], "tformat")
-t("Stone", "石化", "talent name")
+t("Stone", "石击", "talent name")
 t([[Target a nearby shadow, and force it to slam into a nearby enemy, dealing %0.1f Physical damage.
 		Your shadow will then set them as their target, and they will target your shadow.
 		Damage increases with your Mindpower.]], [[指定附近的一个阴影，令其攻击附近的一个敌人，造成 %0.1f 物理伤害。
@@ -23897,7 +23897,7 @@ t([[When you kill an enemy, their death forms a cursed magical pattern on the gr
 t("Mark of the Vampire", "吸血鬼印记", "talent name")
 t([[Dooms all enemies within a radius 2 ball for 20 turns. Each time an affected target uses a talent, it takes %0.2f physical damage as its life is drawn out. In addition, any bleed applied to the target will have its power increased by %d%%.
 							The damage will increase with your Spellpower.
-							The chance to apply will increase with your Spellpower.]], [[对半径2码球形内的敌人降下劫数，持续20回合。每次受影响的目标使用技能时，会因其生命被抽出而受到 %0.2f 物理伤害。此外，目标身上的所有流血效果强度增加 %d%%。
+							The chance to apply will increase with your Spellpower.]], [[对半径2码球形内的敌人降下劫数，持续20回合。每次受影响的目标使用技能时，会因其生命被抽出而受到 %0.2f 物理伤害。此外，施加到目标身上的任何流血效果强度增加 %d%%。
 							伤害受法术强度加成。
 							异常状态施加概率受法术强度加成。]], "tformat")
 t("Rosebloom", "血绽", "talent name")
@@ -24104,9 +24104,9 @@ t([[Sends a torrent of searing darkness through your foes, doing %d darkness dam
 		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]], [[向敌人发射一股灼热的黑暗能量，造成 %d 点暗影伤害。黑暗能量有 25%% 概率致盲目标 3 回合并使它们丢失当前目标。
 		如果你掌握黑暗之雾技能，会在射线范围内留下短暂的黑暗尾迹，其伤害等同于黑暗之雾的伤害。
 		伤害受精神强度加成。你对任何进入黑暗之雾的目标造成 +%d%% 伤害。]], "tformat")
-t("Dark Tendrils", "黑暗触手", "talent name")
+t("Dark Tendrils", "黑暗触须", "talent name")
 t([[Spawn tendrils of darkness to pursue a single target for up to 12 turns, leaving behind a trail of creeping darkness as they move. Targets seized by the tendrils are pinned for %d turns and shrouded in darkness. The darkness deals %0.2f damage per turn to those within.
-		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]], [[召唤黑暗触手追逐单个目标，最多持续12回合，并在移动时留下不断蔓延的黑暗之雾。被触手抓住的目标会被定身 %d 回合并被黑暗笼罩。黑暗每回合对其中的目标造成 %0.2f 点伤害。
+		The damage will increase with your Mindpower. You do +%d%% damage to anything that has entered your creeping dark.]], [[召唤黑暗触须追逐单个目标，最多持续12回合，并在移动时留下不断蔓延的黑暗之雾。被触须抓住的目标会被定身 %d 回合并被黑暗笼罩。黑暗每回合对其中的目标造成 %0.2f 点伤害。
 		伤害受精神强度加成。你对任何进入你的黑暗之雾的目标造成 +%d%% 伤害。]], "tformat")
 
 ------------------------------------------------
@@ -24175,7 +24175,7 @@ t([[Heighten the fears of those near to you. Any foe you attempt to inflict a fe
 			这一效果无视恐惧免疫，但可以被豁免。]], "tformat")
 t("Tyrant", "精神专制", "talent name")
 t([[Impose your tyranny on the minds of those who fear you. When a foe gains a new fear, you have a %d%% chance to increase the duration of their heightened fear and one random existing fear effect by %d turns, to a maximum of 8 turns.
-		Additionally, you gain %d Mindpower and Physical power for 5 turns every time you apply a fear, stacking up to %d times.]], [[将你的专制施加于畏惧你的敌人的心智。当一个敌人获得一个新的恐惧效果时，你有 %d%% 的几率将其强化恐惧以及另一个随机的已有恐惧效果的持续时间延长 %d 回合，最多 8 回合。
+		Additionally, you gain %d Mindpower and Physical power for 5 turns every time you apply a fear, stacking up to %d times.]], [[将你的专制施加于畏惧你的敌人的心智。当一个敌人获得一个新的恐惧效果时，你有 %d%% 的几率将其恐惧加深效果以及另一个随机的已有恐惧效果的持续时间延长 %d 回合，最多 8 回合。
 		此外，每当你恐惧一个目标，你获得 %d 精神强度和物理强度，持续 5 回合，最多叠加 %d 层。]], "tformat")
 t("Panic", "惊慌失措", "talent name")
 t("#F53CBE#%s ignores the panic!", "#F53CBE#%s无视惊恐！", "logSeen")
@@ -24188,8 +24188,8 @@ section "mod-tome/data/talents/cursed/force-of-will.lua"
 t("Willful Strike", "偏执打击", "talent name")
 t("#Source# was blasted %d spaces into #Target#!", "#Source# 被轰飞%d格，撞上了#Target#！", "logCombat")
 t("#Source# was blasted into #Target#!", "#Source#撞向#Target#！", "logCombat")
-t("%s was smashed back %d spaces!", "%s被击退%d格！", "logSeen")
-t("%s was smashed!", "%s被粉碎！", "logSeen")
+t("%s was smashed back %d spaces!", "%s被击退%d格后猛撞在障碍上！", "logSeen")
+t("%s was smashed!", "%s被猛撞在障碍上！", "logSeen")
 t("%s was blasted back %d spaces!", "%s被击退%d格！", "logSeen")
 t([[Focusing your hate, you strike your foe with unseen force for %d damage and %d knockback.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
@@ -24198,7 +24198,7 @@ t([[Focusing your hate, you strike your foe with unseen force for %d damage and 
 		伤害受精神强度加成。]], "tformat")
 t("Deflection", "念力折射", "talent name")
 t("Deflection (%d)", "念力折射 (%d)", "tformat")
-t("You have deflected %d incoming damage!", "你偏转了%d所受伤害！", "logPlayer")
+t("You have deflected %d incoming damage!", "你偏转了%d点伤害！", "logPlayer")
 t([[Create a barrier that siphons hate from you at the rate of 0.2 a turn. The barrier will deflect 50%% of incoming damage with the force of your will, up to %d damage. The barrier charges at a rate of 1/%d of its maximum charge per turn.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
 		The maximum damage deflected increases with your Mindpower.]], [[用你的意志力折射 50%% 的伤害。你可以折射最多 %d 点伤害，护盾值每回合回复最大值的 1/%d （技能激活时-0.2仇恨值回复）。
@@ -24207,7 +24207,7 @@ t([[Create a barrier that siphons hate from you at the rate of 0.2 a turn. The b
 t("Blast", "怒火爆炸", "talent name")
 t([[You rage coalesces at a single point, and then explodes outward, blasting enemies within a radius of %d in all directions. The blast causes %d damage and %d knockback at the center, that decreases with distance. Anyone caught in the explosion will also be dazed for 3 turns.
 		In addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)
-		Damage increases with your Mindpower.]], [[你的愤怒汇聚于一点，随后向外爆发，轰击半径 %d 格内四面八方的敌人。爆炸中心造成 %d 点伤害并击退 %d 格，伤害和击退距离随离爆心的距离增加而降低。爆炸范围内的所有生物还会被眩晕 3 回合。
+		Damage increases with your Mindpower.]], [[你的愤怒汇聚于一点，随后向外爆发，轰击半径 %d 格内四面八方的敌人。爆炸中心造成 %d 点伤害并击退 %d 格，击退距离随离爆心的距离增加而降低。爆炸范围内的所有生物还会被眩晕 3 回合。
 		此外，通过此技能引导力量的能力会使你的所有暴击伤害提高 %d%% （当前： %d%%）。
 		伤害随你的精神强度提高。]], "tformat")
 t("Unseen Force", "无形之力", "talent name")
@@ -24336,7 +24336,7 @@ t([[Each turn for 4 turns you fire a bolt of arcane energy at your nearest enemy
 		伤害受魔力值加成。]], "tformat")
 t("Displace", "位移", "talent name")
 t("Selects a displacement location...", "选择位移目的地…", "logPlayer")
-t("Your attempt to displace fails!", "你尝试置换术但是失败了！", "logSeen")
+t("Your attempt to displace fails!", "你的位移尝试失败了！", "logSeen")
 t("Instantaneously displace yourself within line of sight up to 3 squares away.", "瞬间将自己移动到视线内、最多 3 格远的位置。", "tformat")
 t("Primal Skin", "原始皮肤", "talent name")
 t([[Years of magic have permeated your skin leaving it resistant to the physical world. Your armor is increased by %d.
@@ -24369,8 +24369,7 @@ The damage increases with your Mindpower.]], [[用恶毒私语感染目标心智
 t("Agony", "极度痛苦", "talent name")
 t([[Sear your hatred into the mind of a target, dealing escalating Mind damage each turn over %d turns. The victim will suffer %0.1f damage on the first turn, slowly increasing up to %0.1f damage on the last, dealing %d Mind damage in total. Re-applying the effect resets the damage escalation. The victim has a 25%% chance of suffering Brainlock each turn from the unbearable pain.
 
-The damage increases with your Mindpower.]], [[将你的憎恨灼入目标的心智，在 %d 回合内每回合造成不断升级的精神伤害。第一回合会造成 %0.1f 点精神伤害并在最后 1 回合增加至 %0.1f 点，总计 %d 点精神伤害。重复施加这一效果会把伤害重置为初始值。
-被影响的敌人每回合有 25%% 概率附加思维封锁效果。
+The damage increases with your Mindpower.]], [[将你的憎恨灼入目标的心智，在 %d 回合内每回合造成不断升级的精神伤害。第一回合会造成 %0.1f 点精神伤害并在最后 1 回合增加至 %0.1f 点，总计 %d 点精神伤害。重复施加这一效果会把伤害重置为初始值。被影响的敌人每回合有 25%% 概率因难以忍受的痛苦而陷入思维封锁。
 
 伤害受精神强度加成。]], "tformat")
 t("Madness", "疯狂", "talent name")
@@ -24481,8 +24480,7 @@ t("Call Shadows", "召唤阴影", "talent name")
 t("Your hate is too low to call another shadow!", "你的仇恨值不足，无法召唤阴影！", "logPlayer")
 t("Summon", "召唤", "_t")
 t([[While this ability is active, you will continually call up to %d level %d shadows to aid you in battle. Each shadow costs 5 hate to summon. Shadows are weak combatants that can: Use Arcane Reconstruction to heal themselves (level %d), Blindside their opponents (level %d), and Phase Door from place to place.
-		Shadows ignore %d%% of the damage dealt to them by their master.]], [[此技能激活期间，你会持续自动补充至多 %d 个等级为 %d 的阴影来协助战斗。每召唤一个阴影消耗 5 点仇恨值。
-		阴影是脆弱的战士，它们能够：使用奥术重组治疗自己（等级 %d）， 使用闪电突袭攻击敌人（等级 %d）， 使用相位之门进行传送。
+		Shadows ignore %d%% of the damage dealt to them by their master.]], [[此技能激活期间，你会持续自动补充至多 %d 个等级为 %d 的阴影来协助战斗。每召唤一个阴影消耗 5 点仇恨值。阴影是脆弱的战士，它们能够：使用奥术重组治疗自己（等级 %d）， 使用闪电突袭攻击敌人（等级 %d）， 使用相位之门进行传送。
 		阴影无视主人对它们造成的 %d%% 伤害。]], "tformat")
 t("Shadow Warriors", "阴影战士", "talent name")
 t("Instill hate in your shadows, strengthening their attacks. They gain %d%% extra Accuracy and %d%% extra damage. The fury of their attacks gives them the ability to try to Dominate their foes, increasing all damage taken by that foe for 4 turns (level %d, %d%% chance at range 1). They also gain the ability to Fade when hit, avoiding all damage until their next turn (%d turn cooldown).", [[将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。他们疯狂的攻击让他们能够尝试支配对手，被支配目标受到的所有伤害提高，持续 4 回合（等级 %d，%d%% 几率 1 码范围）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。]], "tformat")
@@ -24491,19 +24489,19 @@ t([[Infuse magic into your shadows to give them fearsome spells. Your shadows re
 		Your shadows can strike adjacent foes with Lightning (level %d, %d%% chance at range 1).
 		At level 3 your shadows can sear their enemies from a distance with Flames (level %d, %d%% chance at range 2 to 6).
 		At level 5 when your shadows are struck down they will attempt to Reform, becoming whole again (50%% chance).]], [[灌输魔力给你的阴影使它们学会可怕的法术。你的阴影获得 %d 点法术强度加成。
-		你的阴影可以用闪电术攻击附近的目标（等级 %d，%d%% 几率 1 码范围）。
+		你的阴影可以用暗影闪电攻击附近的目标（等级 %d，%d%% 几率 1 码范围）。
 		等级 3 时你的阴影可以远距离使用暗影之火灼烧你的敌人（等级 %d，%d%% 几率 2 到 6 码范围）。
 		等级 5 时你的阴影在被击倒时有 50%% 几率重组并重新加入战斗。]], "tformat")
 t("Focus Shadows", "聚集阴影", "talent name")
 t("#PINK#The shadows converge on #Target#!", "#PINK#阴影向 #Target# 集中！", "logCombat")
-t("There are no shadows to heed the call!", "没有阴影可以召唤！", "logPlayer")
+t("There are no shadows to heed the call!", "没有阴影响应召唤！", "logPlayer")
 t("#PINK#The shadows form around #Target#!", "#PINK#阴影在 #Target# 周围列阵！", "logCombat")
-t("Their are no shadows to heed the call!", "没有阴影可以召唤！", "logPlayer")
+t("Their are no shadows to heed the call!", "没有阴影响应召唤！", "logPlayer")
 t([[Focus your shadows on a single target. Friendly targets will be defended for %d turns. Hostile targets will be attacked, with a %d%% chance the shadows will blindside the target.
 		If you have less than maximum shadows available, they will automatically be summoned before focusing.
-		This talent has no cost.]], [[将你的阴影聚集至单一目标。如果目标为友善则保护目标 %d 回合。如目标为敌对则有 %d%% 几率使用闪电突袭攻击目标。
+		This talent has no cost.]], [[将你的阴影聚集至单一目标。如果目标为友善则保护目标 %d 回合。如目标为敌对，阴影会攻击目标，并有 %d%% 几率使用闪电突袭。
 		如果你的阴影数目少于最大值，将在聚集前召唤出来。
-		该技能不消耗任何能量。]], "tformat")
+		该技能不消耗任何资源。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/slaughter.lua"
@@ -24531,11 +24529,11 @@ t([[Assault nearby foes with 4 fast attacks for %d%% (at 0 Hate) to %d%% (at 100
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat")
 t("Reckless Charge", "鲁莽冲撞", "talent name")
 t("#Source# knocks back #Target#!", "#Source#击退了#Target#！", "logCombat")
-t("#Target# blocks #Source#!", "#Target# 格挡了 #Source#！", "logCombat")
+t("#Target# blocks #Source#!", "#Target# 挡住了 #Source#！", "logCombat")
 t("Big", "大", "_t")
 t("Medium-sized", "中型", "_t")
 t("Small", "小", "_t")
-t("Charge through your opponents, attacking anyone near your path for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage. %s opponents may be knocked away from your path. You can attack a maximum of %d times, and can hit targets along your path more than once.", "冲过你的目标，途经的所有目标受到 %d%% （0仇恨）至 %d%% （100+仇恨）伤害。%s 体型的目标会被你弹开。你最多可以攻击 %d 次，并且你对路径上的敌人可造成不止 1 次攻击。", "tformat")
+t("Charge through your opponents, attacking anyone near your path for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage. %s opponents may be knocked away from your path. You can attack a maximum of %d times, and can hit targets along your path more than once.", "冲过你的目标，途经的所有目标受到 %d%% （0仇恨）至 %d%% （100+仇恨）伤害。%s 体型的目标可能被你撞离路径。你最多可以攻击 %d 次，并且你对路径上的敌人可造成不止 1 次攻击。", "tformat")
 t("Cleave", "分裂攻击", "talent name")
 t("#Source# cleaves through #Target#!", "#Source#劈中了#Target#！", "logCombat")
 t([[While active, every swing of your weapon strikes strikes other adjacent enemies for %d%% (at 0 hate) to %d%% (at 100 hate) physical damage. The recklessness of your attacks brings you bad luck (luck -3).
