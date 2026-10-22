@@ -21381,7 +21381,7 @@ You may only have one Hymn active at a time.]], [[你学会了三种防御圣诗
 你同时只能激活一种圣诗。]], "tformat")
 t("Hymn Incantor", "暗影临近", "talent name")
 t([[Your Hymns now focus darkness near you, which increases your darkness damage by %d%% and does %0.2f darkness damage to anyone who hits you in melee.
-		These values scale with your Spellpower.]], [[圣诗让暗影集中在你身边，你的暗影伤害增加 %d%%， 并对所有近战攻击你的生物造成 %0.2f 暗影伤害。
+		These values scale with your Spellpower.]], [[圣诗让暗影集中在你身边，你的暗影伤害增加 %d%%， 并对所有近战命中你的生物造成 %0.2f 暗影伤害。
 		效果受法术强度加成。]], "tformat")
 t("Hymn Adept", "圣诗专家", "talent name")
 t([[Your skill in Hymns now improves your sight in darkness, increasing your infravision radius by %d.
@@ -21629,7 +21629,7 @@ t("@Source@ causes a spacetime hiccup.", "@Source@引起了时空轻微重排。
 t("Teleports up to five targets in a radius of %d up to ten tiles away.", "将半径 %d 范围内最多五个单位传送到十格以内。", "tformat")
 t("Anomaly Teleport", "异常：传送", "talent name")
 t("@Source@ shifts reality.", "@Source@改变了现实。", "_t")
-t("Teleports up to five targets in a radius of %d up to %d tiles away.", "将半径 %d 范围内最多五个单位传送到 %d 格外。", "tformat")
+t("Teleports up to five targets in a radius of %d up to %d tiles away.", "将半径 %d 范围内最多五个单位传送到最远 %d 格处。", "tformat")
 t("Anomaly Swap", "异常：换位", "talent name")
 t("@Source@ swaps places with a nearby target.", "@Source@和附近一名目标交换了位置。", "_t")
 t("The spell fizzles!", "法术失败了！", "logSeen")
@@ -21729,7 +21729,7 @@ t("Anomaly Call", "异常：召唤", "talent name")
 t("@Source@ teleports several targets to @Source@'s location.", "@Source@将数名目标传送到@Source@的位置。", "_t")
 t("Teleports between 3 and 6 targets to the caster.", "将三到六个单位传送到施法者身边。", "tformat")
 t("Anomaly Deus Ex", "异常：神佑", "talent name")
-t("The odds have tilted.", "几率发生了倾斜。", "_t")
+t("The odds have tilted.", "胜负的天平发生了倾斜。", "_t")
 t("Substantially toughens and hastes one target for %d turns.", "显著强化和加速目标 %d 回合。", "tformat")
 t("Anomaly Evil Twin", "异常：邪恶双生子", "talent name")
 t("@Source@'s evil twin has come from another timeline.", "@Source@的邪恶双胞胎从另一个时间线赶来。", "_t")
@@ -21786,7 +21786,7 @@ t([[Attack up to three adjacent targets for %d%% weapon damage.  If any attack h
 		从第二个武器命中的目标起，每多命中一个目标，切变伤害便提高 25%%。被切变伤害降至最大生命值 20%% 以下的目标可能会被立即杀死。
 		锥形伤害受法术强度加成。]], "tformat")
 t("Blade Ward", "灵刃守卫", "talent name")
-t("While dual-wielding you have a %d%% chance of completely parrying melee attacks made against you.", "双持时你有 %d%% 几率格挡近战攻击。", "tformat")
+t("While dual-wielding you have a %d%% chance of completely parrying melee attacks made against you.", "双持时你有 %d%% 几率完全招架对你发动的近战攻击。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/chronomancy/bow-threading.lua"
@@ -21828,7 +21828,7 @@ t("A blend of chronomancy and ranged combat.", "将时空之力和远程战斗�
 t("Temporal Combat", "时空格斗", "talent type")
 t("A blend of chronomancy and physical combat.", "将时空之力和物理战斗结合。", "_t")
 t("Temporal Guardian", "时空守卫", "talent type")
-t("Warden combat training and techniques.", "训练时空守卫的专有特技。", "_t")
+t("Warden combat training and techniques.", "时空守卫的战斗训练与技巧。", "_t")
 t("Threaded Combat", "螺旋战斗", "talent type")
 t("A blend of ranged and dual-weapon combat.", "将远程战斗和双持战斗结合。", "_t")
 t("Temporal Hounds", "时空猎犬", "talent type")
@@ -21840,7 +21840,7 @@ t("Call upon the force of gravity to crush, push, and pull your foes.", "召唤�
 t("matter", "物质", "talent type")
 t("Change and shape matter itself.", "改变物质的形态和性质。", "_t")
 t("Spacetime Folding", "时空折叠", "talent type")
-t("Mastery of folding points in space.", "折叠时空。", "_t")
+t("Mastery of folding points in space.", "精通折叠空间中的点。", "_t")
 t("Speed Control", "速度控制", "talent type")
 t("Control how fast objects and creatures move through spacetime.", "控制物体和生物在时空中前进的速度。", "_t")
 t("stasis", "静态时空", "talent type")
@@ -21869,7 +21869,7 @@ t("Temporal Archery", "时空射击", "talent type")
 t("paradox", "紊乱", "talent type")
 t("Break the laws of spacetime.", "打破时空的规律。", "_t")
 t("anomalies", "异常", "talent type")
-t("Spacetime anomalies that can randomly occur when paradox is to high.", "时空变异会在紊乱值较高时随机发生。", "_t")
+t("Spacetime anomalies that can randomly occur when paradox is to high.", "紊乱值过高时可能随机发生的时空异常。", "_t")
 t("%s's temporal clone", "%s的时空克隆体", "tformat")
 t("A creature from another timeline.", "来自另一条时间线的生物。", "_t")
 
@@ -21986,11 +21986,11 @@ t([[If Twist Fate is not on cooldown minor anomalies will be held for %d turns, 
 				
 		Current Anomaly: %s
 		
-		%s]], [[若扭曲命运不在冷却中，微小异变会被延后 %d 回合，使你的法术得以正常施放。异变被延后期间，你可以施放扭曲命运来触发该异变，并选择其目标区域。
-		如果已有一个异变被延后时又发生第二个异变，或延后效果到期，第一个异变会立即触发，并打断你当前的回合或行动。
-		被延后异变带来的紊乱值降低会在其触发时结算。
+		%s]], [[若扭曲命运不在冷却中，微小异常会被延后 %d 回合，使你的法术得以正常施放。异常被延后期间，你可以施放扭曲命运来触发该异常，并选择其目标区域。
+		如果已有一个异常被延后时又发生第二个异常，或延后效果到期，第一个异常会立即触发，并打断你当前的回合或行动。
+		被延后异常带来的紊乱值降低会在其触发时结算。
 
-		当前异变：%s
+		当前异常：%s
 
 		%s]], "tformat")
 
@@ -22040,7 +22040,7 @@ t("#STEEL_BLUE##Source# shares damage with %s guardian!", "#STEEL_BLUE##Source#�
 t("Not enough space to summon warden!", "没有足够的空间召唤守卫！", "logPlayer")
 t([[When a single hit deals more than %d%% of your maximum life another you appears and takes %d%% of the damage as well as %d%% of all damage you take for the next %d turns.
 		The clone is out of phase with this reality and deals 50%% less damage but its arrows will pass through friendly targets.
-		This talent has a cooldown.]], [[当单次攻击对你造成了最大生命值 %d%% 以上的伤害时，另一个你出现，吸收这次伤害的 %d%%， 之后还会吸收你所受全部伤害的 %d%%， 持续 %d 回合。
+		This talent has a cooldown.]], [[当你单次受到超过最大生命值 %d%% 的伤害时，另一个你出现，吸收这次伤害的 %d%%， 之后还会吸收你所受全部伤害的 %d%%， 持续 %d 回合。
 		这个克隆体处于现实位面之外，因此只能造成 50%% 伤害，并且射出的箭矢可以穿过友军。
 		这个技能有冷却时间。]], "tformat")
 t("Vigilance", "严阵以待", "talent name")
@@ -22084,7 +22084,7 @@ t("%s resists the pin!", "%s抵抗了定身！", "logSeen")
 t("%s resists the confusion!", "%s抵抗了混乱！", "logSeen")
 t([[While your cosmic cycle is expanding, creatures in its radius have a %d%% chance to suffer the effects of aging; pinning, blinding, or confusing them for 3 turns.
 		While your cosmic cycle is contracting, creatures in its radius suffer from age regression; reducing their three highest stats by %d.
-		The chance and stat reduction will scale with your Spellpower.]], [[当你的宇宙圈在扩展时，其半径内的生物有 %d%% 的几率受到老化影响，被定身、致盲或陷入混乱 3 回合。
+		The chance and stat reduction will scale with your Spellpower.]], [[当你的宇宙圈膨胀时，其半径内的生物有 %d%% 的几率受到老化影响，被定身、致盲或陷入混乱 3 回合。
 		当你的宇宙圈在收缩时，其半径内的生物会遭受年龄退行，三项最高属性减少 %d。
 		几率和属性降低效果受法术强度加成。]], "tformat")
 
@@ -22130,8 +22130,7 @@ t([[Use to set your preferred Paradox.  While resting or waiting you'll adjust y
 		Willpower Paradox Modifier : -%d
 		Paradox Sustain Modifier : +%d
 		Total Modified Paradox :  %d
-		Current Anomaly Chance :  %d%%]], [[设置自己的紊乱值。
-		休息或等待时，你每回合将自动调节 %d 点紊乱值趋向于你的设定值。
+		Current Anomaly Chance :  %d%%]], [[设定你的期望紊乱值。休息或等待时，你每回合将自动调节 %d 点紊乱值趋向于你的设定值。
 		你的紊乱值修正率影响所有时空法术的持续时间和法术强度。
 
 		设定的紊乱值： %d
@@ -22180,7 +22179,7 @@ t([[You partially remove yourself from the timeline for 10 turns.
 t("Paradox Clone", "悖论分身", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("%s's Paradox Clone", "%s的悖论分身", "tformat")
-t("The real %s... or so %s says.", "真正的%s……或者%s这样说。", "tformat")
+t("The real %s... or so %s says.", "真正的%s……至少%s自己是这么说的。", "tformat")
 t("Paradox Clone", "悖论分身", "_t")
 t([[You summon your future self to fight alongside you for %d turns.  At some point in the future, you'll be pulled into the past to fight alongside your past self after the initial effect ends.
 		This spell splits the timeline.  Attempting to use another spell that also splits the timeline while this effect is active will be unsuccessful.]], [[你召唤未来的自己和你一起战斗，持续 %d 回合。当技能结束后，在未来的某个时间点，你会被拉回到过去，协助你自己战斗。
@@ -22237,7 +22236,7 @@ t([[Destabilizes the target, inflicting %0.2f temporal damage per turn for 10 tu
 		如果目标死亡时处于连续体失稳状态，则爆炸产生的所有伤害会转化为时空伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Quantum Spike", "量子钉刺", "talent name")
-t("%s has been pulled apart at a molecular level!", "%s 被分崩离析！", "logSeen")
+t("%s has been pulled apart at a molecular level!", "%s在分子层面被撕裂了！", "logSeen")
 t("%s resists the quantum spike!", "%s抵抗了量子钉刺！", "logSeen")
 t([[Attempts to pull the target apart at a molecular level, inflicting %0.2f temporal damage and %0.2f physical damage.  If the target ends up with low enough life (<20%%), it might be instantly killed.
 		Quantum Spike deals 50%% additional damage to targets affected by temporal destabilization and/or continuum destabilization.
@@ -22410,14 +22409,14 @@ t([[Inflicts %0.2f temporal damage, and attempts to stun all targets in a radius
 		受法术强度影响，伤害按比例加成。]], "tformat")
 t("Static History", "静态历史", "talent name")
 t([[For the next %d turns you may not create minor anomalies.  You do not regain Paradox or lose the spell you're casting if a random anomaly would normally occur.
-		This spell has no effect on major anomalies.]], [[接下来的 %d 回合中，你不会产生微小异变。  当随机异变正常发生时，不会导致你获得紊乱值或者施法失败。
-		这个技能对重大异变没有影响。]], "tformat")
+		This spell has no effect on major anomalies.]], [[接下来的 %d 回合中，你不会产生微小异常。  当原本会发生随机异常时，你不会因此降低紊乱值，也不会失去正在施放的法术。
+		这个技能对重大异常没有影响。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/chronomancy/temporal-archery.lua"
 
 t("Phase Shot", "相位射击", "talent name")
-t("You fire a shot that phases out of time and space allowing it to virtually ignore armor.  The shot will deal %d%% weapon damage as temporal damage to its target.", "你射出一枚脱离了时间与空间的子弹，这使它几乎可以无视护甲。此次射击会对目标造成 %d%% 时空武器伤害。", "tformat")
+t("You fire a shot that phases out of time and space allowing it to virtually ignore armor.  The shot will deal %d%% weapon damage as temporal damage to its target.", "你进行一次脱离了时间与空间的射击，使其几乎可以无视护甲。此次射击会对目标造成 %d%% 时空武器伤害。", "tformat")
 t("Unerring Shot", "必中射击", "talent name")
 t("You focus your aim and fire a shot with great accuracy, inflicting %d%% weapon damage.  Afterwords your attack will remain improved for one turn as the chronomantic effects linger.", "你集中注意力射出极精准的一箭，造成 %d%% 武器伤害。接下来的一回合内，因时空延续，攻击加成保留。", "tformat")
 t("Perfect Aim", "完美瞄准", "talent name")
@@ -22468,11 +22467,12 @@ t([[You now have a %d%% chance to Fold Fate, Gravity, or Warp into your Weapon F
 		Fold Gravity: Deals %0.2f physical damage to enemies in a radius of %d.  Affected targets will be slowed (%d%%) for %d turns.
 		
 		Each Fold has an eight turn cooldown.  If an effect would be triggered while on cooldown it will reduce the cooldown of the other two Folds by one turn.]], [[你现在有 %d%% 几率将命运、重力或扭曲之力折叠进武器折叠伤害中。
+
 		命运折叠：对半径 %d 内的敌人造成 %0.2f 点时空伤害，并可能使其物理和时空抗性降低 %d%%， 持续 %d 回合。
 		扭曲折叠：对半径 %d 内的敌人造成 %0.2f 点物理伤害和 %0.2f 点时空伤害，并可能使其震慑、致盲、混乱或定身 %d 回合。
 		重力折叠：对半径 %d 内的敌人造成 %0.2f 点物理伤害，并使其减速 %d%%， 持续 %d 回合。
-		每项效果有 8 回合冷却时间。
-		当处于冷却中的效果被触发时，将减少另外两个效果的冷却 1 回合。]], "tformat", {1,3,2,4,5,8,6,7,9,11,10,12,13})
+
+		每项效果有 8 回合冷却时间。当处于冷却中的效果被触发时，将减少另外两个效果的冷却 1 回合。]], "tformat", {1,3,2,4,5,8,6,7,9,11,10,12,13})
 t("Breach", "破防", "talent name")
 t("You require a weapon to use this talent.", "你需要武器来施展这个技能。", "logPlayer")
 t([[Attack the target with either your ranged or melee weapons for %d%% damage.
@@ -22566,8 +22566,8 @@ t([[Rethread the timeline, dealing %0.2f temporal damage to the target before mo
 		伤害受法术强度加成。]], "tformat")
 t("Temporal Fugue", "时间复制", "talent name")
 t("%s's Fugue Clone", "%s 的时间复制体", "tformat")
-t("The real %s... or so %s says.", "真正的%s……或者%s这样说。", "tformat")
-t("Fugue Clone", "时间复制", "_t")
+t("The real %s... or so %s says.", "真正的%s……至少%s自己是这么说的。", "tformat")
+t("Fugue Clone", "时间复制体", "_t")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t([[For the next %d turns two alternate versions of you enter your timeline.  While the effect is active all damage done by you or your copies is reduced by two thirds and all damage received is split between the three of you.
 		Temporal Fugue does not normally cooldown while active.  You may take direct control of your clones, give them orders, and set their talent usage.
@@ -22617,7 +22617,7 @@ t("This talent cannot be used from within the reprieve.", "时空避难所内无
 t("This talent cannot be used here.", "该技能不能在此处使用。", "logPlayer")
 t("The spell fizzles...", "法术失败了……", "logPlayer")
 t("#STEEL_BLUE#You time travel to a quiet place.", "#STEEL_BLUE#你时空旅行到了一个寂静的地方。", "logPlayer")
-t("What the... ugh.", "这什么鬼……额。", "_t")
+t("What the... ugh.", "这什么鬼……呃。", "_t")
 t("Some rookie paradox mage is about to find out that the standard-issue Temporal Reprieve takes you to a random safe-zone, not a fixed one, and left the contents of their pack strewn about the place. Nearly all of it is equipment that your transmutation chest won't process and is unusable by anything with less than twelve limbs, so you kick most of it into the void, but a crumpled note catches your eye...", "某个新手时空法师马上就会发现，标准的时空避难所会把你传送到一个随机的安全区域，而不是固定的地方，而这位法师已经把背包里的东西散落在了此处。这些装备几乎都是你的转化之盒处理不了的、没有十二条肢体根本用不了的东西，所以你把大部分踢进了虚空，但一张皱巴巴的笔记引起了你的注意……", "_t")
 t("Transport yourself to a safe place for %d turns.", "将自己传送至安全的位置，停留 %d 回合。", "tformat")
 t("Echoes From The Past", "往昔回响", "talent name")
@@ -22665,7 +22665,7 @@ section "mod-tome/data/talents/corruptions/blood.lua"
 t("Blood Spray", "鲜血喷射", "talent name")
 t([[You extract corrupted blood from your own body, hitting everything in a frontal cone of radius %d for %0.2f blight damage.
 		Each creature hit has a %d%% chance of being infected by a random disease, doing %0.2f blight damage and weakening either Constitution, Strength or Dexterity for 6 turns.
-		The damage will increase with your Spellpower.]], [[你从自身射出堕落之血，对前方 %d 码半径锥形范围敌人造成 %0.2f 枯萎伤害。
+		The damage will increase with your Spellpower.]], [[你从自身射出堕落之血，对前方 %d 码半径锥形范围内的所有单位造成 %0.2f 枯萎伤害。
 		每个受影响的单位有 %d%% 概率感染 1 种随机疾病，受到 %0.2f 枯萎伤害，并且随机弱化目标体质、力量和敏捷中的一项属性，持续 6 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Blood Grasp", "鲜血支配", "talent name")
@@ -22707,7 +22707,7 @@ t([[Whenever you use a non-instant talent you launch a spear of bone at all enem
 		The damage will increase with your Spellpower.]], [[每当你使用非瞬发技能时，你会朝所有受到 3 个或更多魔法负面效果影响的敌人分别发射骨矛，对骨矛穿过的所有敌人造成 %d 物理伤害。
 		伤害随法术强度提高。]], "tformat")
 t("Bone Shield", "白骨护盾", "talent name")
-t("#SLATE#(%d to bones)#LAST#", "#SLATE#(%d 骨盾)#LAST#", "tformat")
+t("#SLATE#(%d to bones)#LAST#", "#SLATE#(骨盾吸收 %d)#LAST#", "tformat")
 t([[Bone shields start circling around you. They will each fully absorb one instance of damage.
 		%d shield(s) will be generated when first activated.
 		Then every %d turns a new one will be created if not full.
@@ -22889,8 +22889,8 @@ The chance to apply this effect will increase with your Spellpower.]], [[每次�
 技能等级 4 时，该效果对半径 1 内所有目标有效。
 同时，你的蠕虫在近战攻击中有 %d%% 几率附加沉默、致盲、缴械或定身效果，持续 2 回合。
 负面状态施加成功率受法术强度影响。]], "tformat")
-t("Worm Rot", "腐肉虫", "talent name")
-t("%s resists the worm rot!", "%s抵抗了腐肉虫！", "logSeen")
+t("Worm Rot", "蠕虫腐疫", "talent name")
+t("%s resists the worm rot!", "%s抵抗了蠕虫腐疫！", "logSeen")
 t([[Infects the target with parasitic carrion worm larvae for 5 turns.  Each turn the disease will remove a beneficial physical effect and deal %0.2f acid and %0.2f blight damage.
 If not cleared after five turns it will inflict %0.2f blight damage as the larvae hatch, removing the effect but spawning a full grown carrion worm mass near the target's location.
 Even if this disease is removed early, there is still a %d%% chance for the larvae to hatch.
@@ -22907,7 +22907,7 @@ section "mod-tome/data/talents/corruptions/sanguisuge.lua"
 t("Drain", "枯萎吸收", "talent name")
 t([[Fires a bolt of blight, doing %0.2f blight damage and replenishing 20%% of it as vim energy.
 		The amount of vim regained depends on the target's rank (higher ranks give more vim).
-		The effect will increase with your Spellpower.]], [[射出 1 枚枯萎之球，对目标造成 %0.2f 枯萎伤害。同时补充 20%% 伤害值作为活力。
+		The effect will increase with your Spellpower.]], [[射出 1 枚枯萎弹，对目标造成 %0.2f 枯萎伤害。同时补充 20%% 伤害值作为活力。
 		活力回复量受目标分级影响（高级怪提供更多活力）。
 		效果受法术强度加成。]], "tformat")
 t("Bloodcasting", "血祭施法", "talent name")
@@ -22919,7 +22919,7 @@ t([[Absorbs the life force of your foes as you kill them.
 t("Life Tap", "生命分流", "talent name")
 t([[Feed on the pain you cause your foes.
 			For 2 turns you gain %d%% lifesteal on all damage dealt.
-			The lifesteal will increase with your Spellpower.]], [[从你对敌人的痛苦中汲取力量。
+			The lifesteal will increase with your Spellpower.]], [[从你对敌人造成的痛苦中汲取力量。
 			在 2 回合内，你的所有伤害获得 %d%% 的吸血。
 			吸血比例受法术强度加成。]], "tformat")
 
@@ -22931,7 +22931,7 @@ t("You cannot use Virulent Strike without two weapons!", "你需要两把武器�
 t("Strike the target with both weapons dealing %d%% damage with each hit.  Each strike that hits will increase the duration of the lowest duration disease effect by %d.", "向目标挥舞两把武器，每次攻击造成 %d%% 伤害，每次命中都会使目标身上持续时间最短的疾病效果的持续时间延长 %d 回合。", "tformat")
 t("Ruin", "毁伤", "talent name")
 t([[Concentrate on the corruption you bring, enhancing each of your melee strikes with %0.2f blight damage (which also heals you for %0.2f each hit).
-		The damage will increase with your Spellpower.]], [[专注于你带来的瘟疫，每次近战攻击会造成 %0.2f 枯萎伤害（同时每击恢复你 %0.2f 生命值）。
+		The damage will increase with your Spellpower.]], [[专注于你带来的腐蚀，每次近战攻击会造成 %0.2f 枯萎伤害（同时每击恢复你 %0.2f 生命值）。
 		伤害受法术强度加成。]], "tformat")
 t("Acid Strike", "酸性打击", "talent name")
 t("You cannot use Acid Strike without two weapons!", "你需要两把武器来使用酸性打击技能！", "logPlayer")
@@ -22997,8 +22997,7 @@ t("Blood Lock", "鲜血禁锢", "talent name")
 t("Reach out and touch the blood and health of your foes. Any creatures caught in the radius 2 ball will be unable to heal above their current life value (at the time of the casting) for %d turns.", "掌控敌人的血液和肉体。2 码球形范围内的所有生物在 %d 回合内无法被治疗到超过施法时的生命值。", "tformat")
 t("Overkill", "赶尽杀绝", "talent name")
 t([[When you kill a creature, the remainder of the damage done will not be lost. Instead, %d%% of it will splash in a radius 2 as blight damage.
-		The splash damage will increase with your Spellpower.]], [[当你杀死一个敌人后，多余的伤害不会消失。
-		反之 %d%% 的伤害会溅落在 2 码范围内，造成枯萎伤害。
+		The splash damage will increase with your Spellpower.]], [[当你杀死一个生物后，多余的伤害不会消失，而是有 %d%% 会以枯萎伤害的形式溅落在 2 码范围内。
 		伤害受法术强度加成。]], "tformat")
 t("Blood Vengeance", "血之复仇", "talent name")
 t("#RED#The powerful blow energizes %s reducing their cooldowns!#LAST#", "#RED#强大的攻击使 %s 获得能量，技能冷却时间缩短了！#LAST#", "logSeen")
@@ -23070,7 +23069,7 @@ t([[Feel the very existence of creatures around you for %d turns, in a radius of
 		邪恶的触碰会使它们的枯萎抗性降低 %d%%、 所有豁免降低 %d 点，但也会让它们察觉到你的存在。
 		抗性和豁免的降低值随法术强度提高。]], "tformat")
 t("Leech", "活力吸取", "talent name")
-t("Each time a creature affected by vimsense hurts you, you regain %0.2f vim and %0.2f health.", "每当被活力感知发现的敌人攻击你时，你回复 %0.2f 活力值和 %0.2f 生命值。", "tformat")
+t("Each time a creature affected by vimsense hurts you, you regain %0.2f vim and %0.2f health.", "每当被活力感知发现的敌人伤害你时，你回复 %0.2f 活力值和 %0.2f 生命值。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cunning/ambush.lua"
@@ -35265,12 +35264,12 @@ Each non-disease blight damage done to it will spread the disease.]], [[目标�
 每次对其造成非疾病来源的枯萎伤害时，都会传播该疫病。]], "tformat")
 t("#Target# is afflicted by an epidemic!", "#Target#感染了传染病！", "_t")
 t("#Target# is free from the epidemic.", "#Target#摆脱了传染病。", "_t")
-t("Worm Rot", "腐肉虫", "_t")
+t("Worm Rot", "蠕虫腐疫", "_t")
 t([[The target is infected with carrion worm larvae.  Each turn it will lose one beneficial physical effect and %0.2f blight and acid damage will be inflicted.
 After five turns the disease will inflict %0.2f blight damage and spawn a carrion worm mass.]], [[目标被腐肉幼虫感染，每回合会丢失一个物理增益效果并受到 %0.2f 枯萎和酸性伤害。
 5 回合后，该疾病会造成 %0.2f 枯萎伤害并生成一个腐肉虫群。]], "tformat")
-t("#Target# is afflicted by a terrible worm rot!", "#Target#感染了腐肉虫！", "_t")
-t("#Target# is free from the worm rot.", "#Target#摆脱了腐肉虫。", "_t")
+t("#Target# is afflicted by a terrible worm rot!", "#Target#感染了可怕的蠕虫腐疫！", "_t")
+t("#Target# is free from the worm rot.", "#Target#摆脱了蠕虫腐疫。", "_t")
 t("#LIGHT_RED#A carrion worm mass bursts out of %s!", "#LIGHT_RED#腐肉虫群从%s体内爆出！", "logSeen")
 t("Ghoul Rot", "尸鬼腐蚀", "_t")
 t("  If the target dies while ghoul rot is active it will rise as a ghoul.", "  如果目标在尸鬼腐蚀期间死亡，它将作为食尸鬼复活。", "_t")
