@@ -24006,14 +24006,14 @@ t("Your weapon yearns for its next victim.", "你的武器渴望着下一个牺�
 t("endless hunt", "无尽狩猎", "talent type")
 t("Each day, you lift your weary body and begin the unending hunt.", "每天，你拖起疲惫的身体，开始无尽的狩猎。", "_t")
 t("strife", "冲突", "talent type")
-t("The battlefield is your home; death and confusion, your comfort.", "战场就是你的最终归宿，死亡和混乱是你仅有的慰藉。", "_t")
+t("The battlefield is your home; death and confusion, your comfort.", "战场就是你的家，死亡和混乱是你的慰藉。", "_t")
 t("gloom", "黑暗光环", "talent type")
 t("All those in your sight must share your despair.", "强迫你视线内的生物分担你的绝望。", "_t")
 t("rampage", "暴走", "talent type")
 t("Let loose the hate that has grown within.", "释放你内心积聚的仇恨。", "_t")
 t("predator", "猎杀", "talent type")
 t("Track and kill your prey with single-minded focus.", "你集中精神追猎并杀死你的猎物。", "_t")
-t("dark sustenance", "黑暗生存", "talent type")
+t("dark sustenance", "黑暗滋养", "talent type")
 t("The powers of your foes feed your dark will.", "敌人的力量使你的黑暗意志得到增强。", "_t")
 t("force of will", "意志之力", "talent type")
 t("Invoke the powerful force of your will.", "呼唤你意志的力量。", "_t")
@@ -24023,7 +24023,7 @@ t("shadows", "阴影", "talent type")
 t("Summon shadows from the darkness to aid you.", "从黑暗中召唤阴影来协助你战斗。", "_t")
 t("punishments", "惩罚", "talent type")
 t("Your hate becomes punishment in the minds of your foes.", "你的仇恨转变为对你敌人的精神惩罚。", "_t")
-t("one with shadows", "同化阴影", "talent type")
+t("one with shadows", "与影合一", "talent type")
 t("Harness your shadows to their full potential.", "最大程度利用你的阴影。", "_t")
 t("advanced shadowmancy", "阴影进阶", "talent type")
 t("Gain more direct control over your shadows with physical damage talents.", "运用造成物理伤害的技能，更直接地控制你的阴影。", "_t")
@@ -24629,9 +24629,9 @@ t("\
 t([[Drain %d mana, %d vim, %d positive and negative energies from your target, triggering a chain reaction that explodes in a burst of arcane damage.
 		The damage done is equal to 100%% of the mana drained, 200%% of the vim drained, or 400%% of the positive or negative energy drained, whichever is higher. This effect is called a manaburn.
 		The effect will increase with your Mindpower or Physical power (whichever is greater).
-		%s]], [[从目标身上吸收 %d 点法力， %d 点活力， %d 点正负能量，并触发一次链式反应，引发一次奥术对撞。
-		奥术对撞的伤害取以下最高值：吸收法力值的 100%%、吸收活力值的 200%% 或吸收正负能量的 400%%（称为法力燃烧）。
-		效果受精神或物理强度较高者加成。
+		%s]], [[从目标身上吸收 %d 点法力， %d 点活力， %d 点正负能量，并触发一次链式反应，爆发出奥术伤害。
+		伤害取以下最高值：吸收法力值的 100%%、吸收活力值的 200%% 或吸收正负能量的 400%%（称为法力燃烧）。
+		效果受精神强度或物理强度中较高者加成。
 		%s]], "tformat")
 t("Antimagic Adept", "反魔专家", "talent name")
 t("Your Mana Clash talent also removes 4 magical sustains from the target.", "你的奥术对撞技能还会从目标身上移除 4 个持续魔法技能。", "tformat")
@@ -24772,7 +24772,7 @@ t([[You call upon the immediate help of your Halves.
 		此外，作为被动效果，你的分身也会习得与你相同等级的强化命中。]], "tformat")
 t("Mergeback", "重吸收", "talent name")
 t([[Merges your halves back into you, cleansing your body of %d detrimental magical, mental or physical effects.
-		Each half also heals you for %d and releases a shockwave dealing %0.2f Nature damage in a radius 3.]], [[重吸收你的分身，清除合计至多 %d 个负面状态。
+		Each half also heals you for %d and releases a shockwave dealing %0.2f Nature damage in a radius 3.]], [[重吸收你的分身，清除合计至多 %d 个魔法、精神或物理负面状态。
 		每个分身将治疗你 %d 生命值，并在半径 3 的范围内造成 %0.2f 点自然伤害。]], "tformat")
 t("Stone Link", "岩石链接", "talent name")
 t("Creates a shield of radius %d that redirects all damage done to friends inside it to you for 5 turns.", "制造一层半径 %d 的护盾，将友方受到的伤害转移过来，持续 5 回合。", "tformat")
@@ -24892,6 +24892,7 @@ t([[You summon a powerful gust of wind, knocking back your foes within a radius 
 		This talent will also attack with your shield, if you have one equipped.]], [[你召唤一阵强风，击退半径 %d 码内的敌人至多 3 格，并造成 %d%% 武器伤害。
 		同时，每个技能等级增加你的物理强度和命中 2 点。
 		每点火龙系的技能可以使你增加火焰抗性 1%%。
+
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat")
 t("Bellowing Roar", "怒意咆哮", "talent name")
 t("@Source@ roars!", "@Source@发出咆哮！", "_t")
@@ -24953,7 +24954,7 @@ t("wild-gift", "自然", "talent category")
 t("call of the wild", "自然召唤", "talent type")
 t("Be at one with nature.", "与大自然融为一体。", "_t")
 t("harmony", "自然协调", "talent type")
-t("Nature heals and cleans you.", "利用大自然的力量治疗你受到的创伤、清洁你的身体。", "_t")
+t("Nature heals and cleans you.", "利用大自然的力量治疗你受到的创伤、净化你的身体。", "_t")
 t("antimagic", "反魔法", "talent type")
 t("The way to combat magic, or even nullify it.", "对抗乃至使魔法失效的手段。", "_t")
 t("summoning (melee)", "召唤（近战）", "talent type")
@@ -24961,7 +24962,7 @@ t("The art of calling creatures adept in melee combat to your aid.", "召唤近�
 t("summoning (distance)", "召唤（远程）", "talent type")
 t("The art of calling creatures adept in elemental destruction to your aid.", "召唤远程元素攻击类生物来协助你战斗的艺术。", "_t")
 t("summoning (utility)", "召唤（通用）", "talent type")
-t("The art of calling versatile creatures to your aid.", "召唤多种多样的生物来协助你战斗的艺术。", "_t")
+t("The art of calling versatile creatures to your aid.", "召唤用途多样的生物来协助你战斗的艺术。", "_t")
 t("summoning (augmentation)", "召唤（增益）", "talent type")
 t("The art of manipulating the lifespan and location of your summons.", "操纵召唤物寿命和位置的战斗艺术。", "_t")
 t("summoning (advanced)", "高级召唤", "talent type")
@@ -24971,15 +24972,15 @@ t("Through dedicated consumption of slime mold juice, you have gained an affinit
 t("fungus", "真菌", "talent type")
 t("By covering yourself in fungus, you better your healing.", "利用真菌环绕周身，增强你的治疗能力。", "_t")
 t("sand drake aspect", "土龙形态", "talent type")
-t("Take on the defining aspects of a Sand Drake.", "化身成为土龙形态使你能使用土龙技能。", "_t")
+t("Take on the defining aspects of a Sand Drake.", "获得土龙的标志性特质。", "_t")
 t("fire drake aspect", "火龙形态", "talent type")
-t("Take on the defining aspects of a Fire Drake.", "化身成为火龙形态使你能使用火龙技能。", "_t")
+t("Take on the defining aspects of a Fire Drake.", "获得火龙的标志性特质。", "_t")
 t("cold drake aspect", "冰龙形态", "talent type")
-t("Take on the defining aspects of a Cold Drake.", "化身成为冰龙形态使你能使用冰龙技能。", "_t")
+t("Take on the defining aspects of a Cold Drake.", "获得冰龙的标志性特质。", "_t")
 t("storm drake aspect", "雷龙形态", "talent type")
-t("Take on the defining aspects of a Storm Drake.", "化身成为雷龙形态使你能使用雷龙技能。", "_t")
+t("Take on the defining aspects of a Storm Drake.", "获得雷龙的标志性特质。", "_t")
 t("venom drake aspect", "毒龙形态", "talent type")
-t("Take on the defining aspects of a Venom Drake.", "化身成为毒龙形态使你能使用毒龙技能。", "_t")
+t("Take on the defining aspects of a Venom Drake.", "获得毒龙的标志性特质。", "_t")
 t("higher draconic abilities", "高等龙族", "talent type")
 t("Take on the aspects of aged and powerful dragons.", "继承远古真龙的力量使你能使用强大的龙族技能。", "_t")
 t("mindstar mastery", "灵晶掌握", "talent type")
@@ -25061,7 +25062,7 @@ t([[You breathe crippling poison in a frontal cone of radius %d. Any target caug
 		The poison also gives enemies a %d%% chance to fail actions more complicated than basic attacks and movement, while it is in effect.
 		The damage will increase with your Strength, and the critical chance is based on your Mental crit rate.
 		Each point in Venomous Breath also increases your nature resistance by 3%%, and your nature damage by 4%%.]], [[你向 %d 码锥形半径范围的敌人释放剧毒吐息。在攻击范围内的敌人，每回合会受到 %0.2f 自然伤害，持续 6 回合。
-		剧毒令目标有 %d%% 几率行动失败。
+		剧毒生效期间，目标进行普通攻击和移动以外的行动时有 %d%% 几率失败。
 		伤害受力量值加成；技能暴击率基于精神暴击值计算。
 		每提升 1 级剧毒吐息同样增加你 3%% 自然抗性，并增加你自然伤害 4%%。]], "tformat")
 t("Wyrmic Guile", "龙之狡诈", "talent name")
@@ -25564,11 +25565,11 @@ section "mod-tome/data/talents/gifts/summon-distance.lua"
 t("Flamespit", "火焰喷射", "talent name")
 t("@Source@ spits flames!", "@Source@喷射火焰！", "_t")
 t([[Spits a bolt of fire, doing %0.2f fire damage.
-		The damage will increase with your Mindpower.]], [[吐出一枚火球造成 %0.2f 火焰伤害。
+		The damage will increase with your Mindpower.]], [[吐出一道火焰弹造成 %0.2f 火焰伤害。
 		伤害受精神强度加成。]], "tformat")
 t("Flame Fury", "火焰之怒", "talent name")
 t([[A wave of fire emanates from you with radius %d, knocking back anything caught inside and setting them ablaze and doing %0.2f fire damage over 3 turns.
-		The damage will increase with your Mindpower.]], [[发射一道火焰波，范围 %d 码内的敌人被击退并引燃，造成 %0.2f 火焰伤害持续 3 回合。
+		The damage will increase with your Mindpower.]], [[发射一道火焰波，范围 %d 码内的一切目标被击退并引燃，造成 %0.2f 火焰伤害持续 3 回合。
 		伤害受精神强度加成。]], "tformat")
 t("Acid Breath", "酸液吐息", "talent name")
 t("@Source@ breathes acid!", "@Source@呼出酸液！", "_t")
@@ -25603,7 +25604,7 @@ t([[Spit poison on your foes, doing %d damage over a few turns.
 t("Winter's Fury", "严冬之怒", "talent name")
 t([[A furious ice storm rages around the user doing %0.2f cold damage in a radius of 3 each turn for %d turns.
 		It has 25%% chance to freeze damaged targets.
-		The damage and duration will increase with your Willpower.]], [[一阵激烈的冰风暴环绕施法者造成每回合 %0.2f 冰冷伤害，有效范围 3 码，持续 %d 回合。
+		The damage and duration will increase with your Willpower.]], [[一阵激烈的冰风暴环绕施法者造成每回合 %0.2f 寒冷伤害，有效范围 3 码，持续 %d 回合。
 		有 25%% 几率使受伤害目标被冰冻。
 		受意志影响，伤害和持续时间有额外加成。]], "tformat")
 t("Winter's Grasp", "严冬抓握", "talent name")
@@ -25630,8 +25631,7 @@ t("A strange reptilian creature with three smouldering heads.", "长着三颗灼
 t([[Summon a 3-headed Hydra for %d turns to destroy your foes. 3-headed hydras are able to breathe poison, acid and lightning.
 		It will get %d Willpower, %d Constitution and 18 Strength.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Willpower will increase with your Mindpower.]], [[召唤一只三头蛇来摧毁敌人，持续 %d 回合。
-		三头蛇可以喷出毒系、酸系、闪电吐息。
+		Their Willpower will increase with your Mindpower.]], [[召唤一只三头蛇来摧毁敌人，持续 %d 回合。三头蛇可以喷出毒系、酸系、闪电吐息。
 		它拥有 %d 点意志， %d 点体质和 18 点力量。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		三头蛇的意志受精神强度加成。]], "tformat")
@@ -25641,8 +25641,7 @@ t("This huge treant-like being is embedded with the fury of winter itself.", "�
 t([[Summon a Rimebark for %d turns to harass your foes. Rimebarks cannot move, but they have a permanent ice storm around them, damaging and freezing anything coming close in a radius of 3.
 		It will get %d Willpower, %d Cunning and %d Constitution.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Willpower and Cunning will increase with your Mindpower.]], [[召唤 1 棵持续 %d 回合的雾凇骚扰敌人。
-		雾凇不可移动，但是永远有寒冰风暴围绕着它们，伤害并冰冻 3 码半径范围内的任何人。
+		Their Willpower and Cunning will increase with your Mindpower.]], [[召唤 1 棵持续 %d 回合的雾凇骚扰敌人。雾凇不可移动，但是永远有寒冰风暴围绕着它们，伤害并冰冻 3 码半径范围内的任何人。
 		它拥有 %d 点意志， %d 点灵巧和 %d 点体质。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		雾凇的意志和灵巧受精神强度加成。]], "tformat")
@@ -25652,8 +25651,7 @@ t("A mighty fire drake.", "一只强力火龙。", "_t")
 t([[Summon a Fire Drake for %d turns to burn and crush your foes to death. Fire Drakes are behemoths that can burn foes from afar with their fiery breath.
 		It will get %d Strength, %d Constitution and 38 Willpower.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Strength and Constitution will increase with your Mindpower.]], [[召唤一只火龙来摧毁敌人，持续 %d 回合。
-		火龙是可以从很远的地方烧毁敌人的强大生物。
+		Their Strength and Constitution will increase with your Mindpower.]], [[召唤一只火龙来焚烧并碾碎敌人，持续 %d 回合。火龙是体型庞大的生物，能用火焰吐息从远处焚烧敌人。
 		它拥有 %d 点力量， %d 点体质和 38 点意志。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		火龙的力量和体质受精神强度加成。]], "tformat")
@@ -25679,22 +25677,19 @@ t("%s (wild summon)", "%s（野性召唤）", "tformat")
 t([[Summon a War Hound for %d turns to attack your foes. War hounds are good basic melee attackers.
 		It will get %d Strength, %d Dexterity and %d Constitution.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		The hound's Strength and Dexterity will increase with your Mindpower.]], [[召唤一只战争猎犬来攻击敌人，持续 %d 回合。
-		战争猎犬是非常好的基础近战单位。
+		The hound's Strength and Dexterity will increase with your Mindpower.]], [[召唤一只战争猎犬来攻击敌人，持续 %d 回合。战争猎犬是非常好的基础近战单位。
 		它拥有 %d 点力量， %d 点敏捷和 %d 点体质。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		猎犬的力量和敏捷受精神强度加成。]], "tformat")
 t("Jelly", "召唤：果冻怪", "talent name")
 t("@Source@ summons a Jelly!", "@Source@召唤了一只果冻怪！", "_t")
 t("A strange blob on the dungeon floor.", "地板上的一团奇怪胶状物体。", "_t")
-t("#GREEN##Target# absorbs some damage. #Source# is closer to nature.", "#GREEN##Target#吸收了伤害，#Source#更贴近自然了。", "delayedLogMessage")
+t("#GREEN##Target# absorbs some damage. #Source# is closer to nature.", "#GREEN##Target#吸收了部分伤害，#Source#更贴近自然了。", "delayedLogMessage")
 t([[Summon a Jelly for %d turns to attack your foes. Jellies do not move, but your equilibrium will be reduced by 10%% of all damage received by the jelly.
 		It will get %d Constitution and %d Strength.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		The jelly's Constitution will increase with your Mindpower.]], [[召唤一只果冻怪来攻击敌人，持续 %d 回合。
-		果冻怪不会移动。
+		The jelly's Constitution will increase with your Mindpower.]], [[召唤一只果冻怪来攻击敌人，持续 %d 回合。果冻怪不会移动，但每当果冻怪受到伤害时，你的失衡值会降低其所受伤害的 10%%。
 		它拥有 %d 点体质和 %d 点力量。
-		每当果冻怪受到伤害时，你的失衡值会降低其所受伤害的 10%%。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		果冻怪的体质受精神强度加成。]], "tformat")
 t("Minotaur", "召唤：米诺陶", "talent name")
@@ -25740,9 +25735,7 @@ t("%s (wild summon)", "%s（野性召唤）", "tformat")
 t([[Summon a Turtle for %d turns to distract your foes. Turtles are resilient, but not very powerful. However, they will periodically force any foes to attack them, and can protect themselves with their shell.
 		It will get %d Constitution, %d Dexterity and 18 willpower.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Constitution will increase with your Mindpower.]], [[召唤一只乌龟来吸引敌人攻击，持续 %d 回合。
-		乌龟具有很强的生命力，但不能造成很多伤害。
-		然而，它们会周期性的嘲讽敌人并用龟壳保护自己。
+		Their Constitution will increase with your Mindpower.]], [[召唤一只乌龟来吸引敌人攻击，持续 %d 回合。乌龟具有很强的生命力，但不能造成很多伤害。然而，它们会周期性的嘲讽敌人并用龟壳保护自己。
 		它拥有 %d 点体质， %d 点敏捷和 18 点意志。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		乌龟的体质受精神强度加成。]], "tformat")
@@ -25751,8 +25744,7 @@ t("@Source@ summons a Spider!", "@Source@召唤了一只蜘蛛！", "_t")
 t([[Summon a Spider for %d turns to harass your foes. Spiders can poison your foes and throw webs to pin them to the ground.
 		It will get %d Dexterity, %d Strength, 18 Willpower and %d Constitution.
 		Your summons inherit some of your stats: increased damage%%, resistance penetration %%, stun/pin/confusion/blindness resistance, armour penetration.
-		Their Dexterity will increase with your Mindpower.]], [[召唤一只蜘蛛来扰乱敌人，持续 %d 回合。
-		蜘蛛可以使敌人中毒并向目标撒网，将目标固定在地上。
+		Their Dexterity will increase with your Mindpower.]], [[召唤一只蜘蛛来扰乱敌人，持续 %d 回合。蜘蛛可以使敌人中毒并向目标撒网，将目标固定在地上。
 		它拥有 %d 点敏捷， %d 点力量，18 点意志和 %d 点体质。
 		你的召唤物继承你部分属性：增加百分比伤害、抗性穿透、震慑/定身/混乱/致盲抵抗和护甲穿透。
 		蜘蛛的敏捷受精神强度加成。]], "tformat")
@@ -25779,7 +25771,7 @@ t([[Spray forth a glob of acidic moisture at your enemy.
 		Every level in Acidic Spray additionally raises your Mindpower by 4, passively.
 		Each point in acid drake talents also increases your acid resistance by 1%%.]], [[向你的敌人喷出一团酸液。
 		目标会受到 %0.2f 点基于精神强度的酸性伤害。
-		受到攻击的敌人有 25 %%几率被缴械 3 回合，因为酸液将他们的武器给腐蚀了。
+		受到攻击的敌人有 25%% 几率被缴械 3 回合，因为酸液将他们的武器给腐蚀了。
 		在技能等级 5 时，这道酸液可以穿透一条线上的敌人。
 		每点技能等级被动地增加精神强度 4 点。
 		每一点毒龙系技能同时也能增加你的酸性抗性 1%%。]], "tformat")
