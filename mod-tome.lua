@@ -7076,7 +7076,7 @@ t("leaves", "叶片", "damage type")
 t("distorting physical", "物理扭曲", "damage type")
 t("dreamforge", "梦之熔炉", "damage type")
 t("%s resists the forge bellow!", "%s抵抗了熔炉鼓风！", "logSeen")
-t("%s resists the dream forge!", "%s抵抗了梦境熔炉！", "logSeen")
+t("%s resists the dream forge!", "%s抵抗了梦之熔炉！", "logSeen")
 t("natural mucus", "自然粘液", "damage type")
 t("disarming acid", "酸性缴械", "damage type")
 t("%s resists disarming!", "%s抵抗了缴械！", "logSeen")
@@ -25823,12 +25823,12 @@ t("Frenzied Bite", "狂乱撕咬", "talent name")
 t("In a frenzy @Source@ bites at @Target@!", "@Source@在狂热中咬向@Target@！", "_t")
 t([[A nasty bite that hits for %d%% weapon damage, reduces the targets healing by %d%%, and causes the target to bleed for %d%% weapon damage over 5 turns.
 		Only usable while frenzied.]], [[撕咬目标造成 %d%% 武器伤害。减少目标治疗效果 %d%%， 并使其流血，在 5 回合内造成 %d%% 武器伤害。
-		只有在狂乱状态下可以使用。]], "tformat")
+		只有在狂热状态下可以使用。]], "tformat")
 t("Frenzied Leap", "狂乱跳跃", "talent name")
 t("@Source@ leaps forward in a frenzy!", "@Source@在狂热中向前跳跃！", "_t")
 t([[Leaps toward a target within range.
 		Only usable while frenzied.]], [[跳向范围内目标。
-		只有在狂乱状态下可以使用。]], "tformat")
+		只有在狂热状态下可以使用。]], "tformat")
 t("Gnashing Teeth", "咬牙切齿", "talent name")
 t("@Source@ tries to bite @Target@ with razor sharp teeth!", "@Source@尝试用尖锐的牙齿咬 @Target@！", "_t")
 t("The scent of blood sends the %ss into a frenzy!", "鲜血的气味使得%s们变得狂热！", "logSeen")
@@ -26120,7 +26120,7 @@ t("#Source# attacks empty space.", "#Source#打到了空地。", "logCombat")
 t("Hack and slash, baby!", "尽情砍杀吧，宝贝！", "tformat")
 t("Psi Pool", "灵能槽", "talent name")
 t("Feedback Pool", "反馈值槽", "talent name")
-t("Mana Pool", "法术值槽", "talent name")
+t("Mana Pool", "法力值槽", "talent name")
 t("Soul Pool", "灵魂槽", "talent name")
 t("Vim Pool", "活力值槽", "talent name")
 t("Stamina Pool", "体力值槽", "talent name")
@@ -26725,7 +26725,7 @@ t("You are already a Shivgoroth!", "你已经是西弗格罗斯了！", "logPlay
 t([[You absorb latent cold around you, turning into an ice elemental - a shivgoroth - for %d turns.
 		While transformed, you do not need to breathe, gain access to the Ice Storm talent at level %d, gain %d%% resistance to cuts and stuns, gain %d%% cold resistance, and all cold damage heals you for %d%% of the damage done.
 		The power will increase with your Spellpower.]], [[你吸收周围潜藏的寒气，将自己转变为冰元素——西弗格罗斯，持续 %d 回合。
-		转化成元素后，你不需要呼吸并获得等级 %d 的冰雪风暴，获得 %d%% 切割和震慑抵抗， %d%% 寒冷抗性，所有寒冷伤害可对你产生治疗，治疗量基于伤害值的 %d%%。
+		转化成元素后，你不需要呼吸并获得等级 %d 的冰雪风暴，获得 %d%% 流血和震慑抵抗， %d%% 寒冷抗性，所有寒冷伤害可对你产生治疗，治疗量基于伤害值的 %d%%。
 		效果受法术强度加成。]], "tformat")
 t("Mental Refresh", "振作精神", "talent name")
 t("Reset up to 3 wild gift, psionic or cursed talents.", "刷新至多 3 个自然，灵能或诅咒系技能。", "tformat")
@@ -26958,9 +26958,9 @@ t("tutorial", "教程", "talent type")
 t("Tutorial-specific talents.", "只能用于教程的技能。", "_t")
 t("Shove", "击退攻击", "talent name")
 t("%s resists the shove!", "%s抵抗了推挤！", "logSeen")
-t("Give the target a good old-fashioned shove, knocking it back a square.", "给目标一个老式的击退攻击，将它击退一格。", "tformat")
+t("Give the target a good old-fashioned shove, knocking it back a square.", "结结实实地推目标一把，将它击退一格。", "tformat")
 t("Mana Gale", "法力风暴", "talent name")
-t("%s is knocked back by the gale!", "%s 被大风吹了回来！", "logSeen")
+t("%s is knocked back by the gale!", "%s 被大风吹退了！", "logSeen")
 t("%s remains firmly planted in the face of the gale!", "%s 在大风中依然稳稳站立！", "logSeen")
 t("Conjure up a powerful magical wind, pushing the target back a distance of %d.", "施放一股强力的魔法风暴，将目标击退 %d 码。", "tformat")
 t("Telekinetic Punt", "念力推送", "talent name")
@@ -26974,7 +26974,7 @@ t("Attempts to magically teleport a target slightly farther from you.", "尝试�
 t("Fear", "恐惧", "talent name")
 t("%s retreats in terror!", "%s 在恐惧中撤退！", "logSeen")
 t("%s shakes off the fear!", "%s 豁免了恐惧！", "logSeen")
-t("Attempts to briefly terrify a target into retreating.", "尝试恐惧目标使其逃跑。", "tformat")
+t("Attempts to briefly terrify a target into retreating.", "尝试短暂惊吓目标，使其后退。", "tformat")
 t("Bleed", "流血", "talent name")
 t("Inflicts a 10-turn bleed effect.", "制造 10 回合的流血效果。", "tformat")
 t("Confusion", "混乱", "talent name")
@@ -27099,8 +27099,8 @@ t([[For %d turns your electrokinesis transcends your normal limits, increasing y
 		The damage bonus and resistance penetration scale with your Mindpower.
 		Only one Transcendent talent may be in effect at a time.]], [[在 %d 回合内，你的电能操控突破常规极限，使闪电伤害提高 %d%%， 闪电抗性穿透提高 %d%%。
 		额外效果：
-		重置电能护盾、电能吸取、充能光环、电能打击和头脑风暴的冷却时间。
-		充能光环效果的半径增加 1 格。
+		重置电能护盾、电能吸取、电能光环、电能打击和头脑风暴的冷却时间。
+		电能光环效果的半径增加 1 格。
 		你的电能护盾获得 100%% 吸收效率，并吸收两倍于通常数值的伤害。
 		头脑风暴还会造成致盲。
 		电能吸取还会造成混乱（效果强度 %d%%）。
@@ -27234,7 +27234,7 @@ t([[Your Forge Shield talent now increases your Armour by %d, your Defense by %d
 		The bonuses will scale with your Mindpower.]], [[你的熔炉屏障技能现在可以增加你 %d 点护甲， %d 点闪避，并且当你被近战或远程攻击击中时给予你 %0.2f 灵能值。
 		受精神强度影响，增益按比例加成。]], "tformat")
 t("Dreamforge", "梦之熔炉", "talent name")
-t("#GOLD#%s strikes the dreamforge!", "#GOLD#%s锤击着梦境熔炉！", "logSeen")
+t("#GOLD#%s strikes the dreamforge!", "#GOLD#%s锤击着梦之熔炉！", "logSeen")
 t("#GOLD#%s begins breaking dreams!", "#GOLD#%s开始破碎梦境！", "logSeen")
 t([[The pounding forge of thought in your mind is released upon your surroundings.  Each turn that you remain stationary, you'll strike the dreamforge, inflicting mind and burning damage on enemies around you.
 		The effect will build over five turns, until it reaches a maximum radius of %d, maximum mind damage of %0.2f, and maximum burning damage of %0.2f.
@@ -27257,7 +27257,7 @@ t([[Craft a hammer from the dream forge and strike an adjacent foe, inflicting %
 		The base power, Accuracy, Armour penetration, and critical strike chance of the weapon will scale with your Mindpower.
 		
 		Current Dream Hammer Stats:
-		%s]], [[在梦境熔炉中将武器锻造成一柄巨锤砸向附近某个目标，造成 %d%% 武器伤害。如果攻击命中，它会使梦境锻造系的某个随机技能冷却完毕。
+		%s]], [[从梦之熔炉中锻造出一柄巨锤，砸向一名相邻的敌人，造成 %d%% 武器伤害。如果攻击命中，它会使梦境锻造系的某个随机技能冷却完毕。
 		在等级 5 时，此技能会使 2 个随机技能冷却完毕。
 		受精神强度影响，武器的基础攻击力、命中、护甲穿透和暴击率按比例加成。
 
@@ -27266,7 +27266,7 @@ t([[Craft a hammer from the dream forge and strike an adjacent foe, inflicting %
 t("Hammer Toss", "回旋投掷", "talent name")
 t("Hammer Toss", "回旋投掷", "_t")
 t([[Throw your Dream Hammer at a distant location, inflicting %d%% weapon damage on all targets between you and it.  After reaching its destination, the Dream Hammer will return, potentially hitting targets a second time.
-		Learning this talent increases the Accuracy of your Dream Hammer by %d.]], [[将你的梦之巨锤扔向远处，对沿途所有敌方单位造成 %d%% 武器伤害。在到达目标点后，梦之巨锤会飞回，可能再次对沿途目标造成伤害。
+		Learning this talent increases the Accuracy of your Dream Hammer by %d.]], [[将你的梦之巨锤扔向远处，对沿途所有目标造成 %d%% 武器伤害。在到达目标点后，梦之巨锤会飞回，可能再次对沿途目标造成伤害。
 		学习此技能会增加梦之巨锤 %d 点命中。]], "tformat")
 t("Dream Crusher", "梦锤碎击", "talent name")
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
@@ -27311,7 +27311,7 @@ t([[Imprisons all sleeping targets within range in their dream state, effectivel
 		This powerful effect constantly drains %0.2f%% of your maximum Psi (excluding this talent) per turn, and is considered a psionic channel; as such it will break if you move.
 		(Note that sleeping effects that happen each turn, such as Nightmare's damage and Sleep's contagion, will cease to function for the duration of the effect.)]], [[将范围内所有睡眠状态的目标囚禁在梦境牢笼里，在梦境牢笼维持期间有效地延长他们的睡眠效果。
 		这个强大的技能每回合会持续消耗 %0.2f%% 最大灵能值（本技能除外），并且运用了灵能通道，所以当你移动时会中断此技能。
-		（注意：每回合可产生的睡眠附加状态，如梦魇的伤害和入梦的传染效果，将在此效果持续过程中失效。）]], "tformat")
+		（注意：每回合可产生的睡眠附加状态，如梦魇的伤害和睡眠的传染效果，将在此效果持续过程中失效。）]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/psionic/feedback.lua"
@@ -27349,7 +27349,7 @@ t([[Manipulate forces on the molecular level to realign, rebalance, and synergiz
 		The accuracy and damage of any weapon will act as if it were %d higher. (Mindstars cannot be manipulated in this way because they are already in an ideal natural state.)
 		Your total armour will increase by %d and your fatigue will decrease by %d for each body armour and shield worn.
 		The effects increase with your Mindpower.]], [[操纵力量从分子层面重组、平衡、磨砺你的装备。
-		你装备的每一件武器都会提升 %d 的命中和伤害。灵晶不能被调整，因为它们已经是完美的自然形态。
+		任何武器的命中与伤害数值都视为提高 %d 点。灵晶不能被调整，因为它们已经是完美的自然形态。
 		你所穿的躯干护甲与所持的盾牌，每有一件便增加你 %d 护甲，同时减少 %d 疲劳。
 		该技能效果受精神强度影响。]], "tformat")
 t("Matter is Energy", "物能转化", "talent name")
@@ -27382,7 +27382,7 @@ t([[Mentally focus electricity into a ball of plasma and hurl it at the target.
 		The plasma will explode on impact, dealing %0.1f Lightning damage within radius %d.
 		This talent will apply cross tier Brainlock.
 		The damage will increase with your Mindpower.]], [[念力电离空气，将等离子体球掷向敌人。
-		等离子球命中后爆炸，对半径 %d 内的敌人造成 %0.1f 点闪电伤害。
+		等离子球命中后爆炸，对半径 %d 内的目标造成 %0.1f 点闪电伤害。
 		此技能将施加越层效果“思维封锁”。
 		伤害受精神强度加成。]], "tformat", {2,1})
 t("Iron Will", "钢铁意志", "talent name")
@@ -27495,13 +27495,12 @@ t("%s's mind is clear!", "%s的精神被净化了！", "logSeen")
 t("Clears your mind of current mental effects, and blocks additional ones over 6 turns.  At most, %d mental effects will be affected.", [[净化你当前所有的精神状态，并在接下来的 6 回合内免疫新增的精神状态。最多一共（净化和免疫）能影响 %d 种精神状态。]], "tformat")
 t("Projection", "灵魂出窍", "talent name")
 t("Not enough space to invoke your spirit!", "没有足够的空间召唤你的投影！", "logPlayer")
-t("Projection of %s", "%s的投影。", "tformat")
+t("Projection of %s", "%s的投影", "tformat")
 t("A ghostly figure.", "一个隐约的形象。", "_t")
 t([[Activate to project your mind from your body for %d turns.  In this state you're invisible (+%d power), can see invisible and stealthed creatures (+%d detection power), can move through walls, and do not need air to survive.
 		All damage you suffer is shared with your physical body, and while in this form you may only deal damage to 'ghosts' or through an active mind link (mind damage only in the second case.)
-		To return to your body, simply release control of the projection.]], [[激活此技能可以使你的灵魂出窍，持续 %d 回合。在此形态下，你处于隐形状态 （+%d 强度）。
-		你可以看见隐形和潜行的生物 （+%d 侦查强度），穿过墙壁，且无需呼吸。
-		你受到的所有伤害都会与肉身共享；你只能伤害“鬼魂”，或通过已激活的精神链接造成精神伤害。
+		To return to your body, simply release control of the projection.]], [[激活此技能可以使你的灵魂出窍，持续 %d 回合。在此形态下，你处于隐形状态 （+%d 强度），可以看见隐形和潜行的生物 （+%d 侦查强度），能够穿过墙壁，且无需呼吸。
+		你受到的所有伤害都会与肉身共享；你只能伤害“鬼魂”，或通过已激活的精神通道造成精神伤害。
 		要回到你的身体里，只需放弃对灵魂投影的控制。]], "tformat")
 t("Mind Link", "精神通道", "talent name")
 t([[Link minds with the target.  While your minds are linked, you'll inflict %d%% more mind damage to the target and gain telepathy for its creature type.
@@ -27544,10 +27543,10 @@ t([[Inflicts %0.2f darkness damage each turn for %d turns, and has a %d%% chance
 		受精神强度影响，伤害按比例加成。]], "tformat")
 t("Night Terror", "梦魇降临", "talent name")
 t("terror", "暗夜恐魔", "_t")
-t("A formless terror that seems to cut through the air, and its victims, like a knife.", "这只形态模糊的恐魔，将敌人连同周围的空气一起切成两半。", "_t")
+t("A formless terror that seems to cut through the air, and its victims, like a knife.", "这只形态模糊的恐魔仿佛利刃，划破空气，也划开它的猎物。", "_t")
 t("Night Terror", "暗夜恐魔", "_t")
 t([[Increases your damage and resistance penetration on sleeping targets by %d%%.  Additionally, every time you slay a sleeping target, a Night Terror will be summoned for %d turns.
-		The Night Terror's stats will scale with your Mindpower, as will the damage bonus to sleeping targets.]], [[增加 %d%% 你对睡眠状态目标的伤害和抗性穿透效果。另外每当你杀死一个睡眠状态的目标，你可以召唤一只持续 %d 回合的暗夜恐魔。
+		The Night Terror's stats will scale with your Mindpower, as will the damage bonus to sleeping targets.]], [[增加 %d%% 你对睡眠状态目标的伤害和抗性穿透效果。另外每当你杀死一个睡眠状态的目标，就会召唤出一只持续 %d 回合的暗夜恐魔。
 		受精神强度影响，伤害和暗夜恐魔的属性按比例加成。]], "tformat")
 
 ------------------------------------------------
@@ -27624,7 +27623,7 @@ t([[Fills the air around you with reactive currents of force.
 		To turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.
 		You can only have two of these auras active at once.]], [[使你周围的空气中充满能量力场。
 		如果你的灵能武器槽佩戴的是宝石或者灵晶，会对所有相邻的敌人造成 %0.1f 的物理伤害，每个生物消耗 %0.1f 能量。
-		如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的物理伤害，每次攻击消耗 %0.1f 能量。
+		如果你的灵能武器槽佩戴的是武器，每次武器命中附加 %0.1f 的物理伤害，每次命中消耗 %0.1f 能量。
 		当关闭该技能时，如果你拥有最少 %d 点能量，巨大的动能会释放为一个射程为 %d 的射线，击打目标，造成高达 %d 的物理伤害，并击飞他们。
 		#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#
 		如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。
@@ -27643,7 +27642,7 @@ t([[Fills the air around you with reactive currents of furnace-like heat.
 		#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#
 		若要关闭光环而不释放热能冲击，请在关闭时以自己为目标。伤害随着精神强度而增长。
 		你同时只能激活两种此类光环。]], "tformat")
-t("Charged Aura", "充能光环", "talent name")
+t("Charged Aura", "电能光环", "talent name")
 t([[Fills the air around you with crackling energy.
 		If you have a gem or mindstar in your psionically wielded slot, this will do %0.1f Lightning damage to all adjacent enemies, costing %0.1f energy per creature. 
 		If you have a conventional weapon in your psionically wielded slot, this will add %0.1f Lightning damage to all your weapon hits, costing %0.1f energy per hit.
@@ -27661,7 +27660,7 @@ t("Frenzied Focus", "灵能狂热", "talent name")
 t([[Overcharge your psionic focus with energy for %d turns, producing a different effect depending on what it is.
 		A telekinetically wielded melee weapon enters a frenzy, striking up to %d enemies per turn, also increases the radius by %d.
 		A mindstar will attempt to pull in all enemies within its normal range.
-		A gem will fire an energy bolt at a random enemy in range 6, each turn for %0.1f damage. The type is determined by the colour of the gem. Damage scales with Mindpower.]], [[超载你的心灵聚焦 %d 轮，造成特殊效果。
+		A gem will fire an energy bolt at a random enemy in range 6, each turn for %0.1f damage. The type is determined by the colour of the gem. Damage scales with Mindpower.]], [[为你的灵能聚焦超载能量，持续 %d 回合，视其种类产生不同效果。
 		念动近战武器进入狂乱，每回合最多攻击 %d 个敌人，攻击半径同时增加 %d 格。
 		灵晶会尝试将其正常范围内的所有敌人拉到身边。
 		宝石每回合向 6 格内的一个随机敌人发射能量球，造成 %0.1f 伤害。伤害类型取决于宝石的颜色，伤害随精神强度提高。]], "tformat")
@@ -27722,7 +27721,7 @@ t([[Assume a defensive mental state.
 		At talent level 3 you will also disarm the attacker for 3 turns.
 		At talent level 5 you will be able to reflexively block up to one attack per turn with a %d%% chance, based on your cunning. Each trigger requires and uses 10 Psi.
 		This requires a telekinetically-wielded weapon.]], [[用意念进行防御。
-		下一个回合，你的念动武器会完全格挡对你的第一次近战攻击，并反击攻击者造成 %d%% 武器伤害。
+		一回合内，你的念动武器会完全格挡对你的第一次近战攻击，并反击攻击者造成 %d%% 武器伤害。
 		技能等级 3 时你还能缴械攻击者 3 回合。
 		技能等级 5 时每回合你有 %d%% 几率被动格挡一次近战攻击，并消耗 10 点灵能值。几率受灵巧加成。
 		这个技能需要一把念动武器。]], "tformat")
@@ -27911,7 +27910,7 @@ t([[For %d turns your pyrokinesis transcends your normal limits, increasing your
 		Thermal Leech will reduce enemy damage by %d%%.
 		Thermal Strike will have its secondary cold/freeze explode in radius 1.
 		The damage bonus and resistance penetration scale with your Mindpower.
-		Only one Transcendent talent may be in effect at a time.]], [[在 %d 回合内，你的意念燃烧突破常规极限，使火焰与寒冷伤害提高 %d%%， 火焰与寒冷抗性穿透提高 %d%%。
+		Only one Transcendent talent may be in effect at a time.]], [[在 %d 回合内，你的热能操控突破常规极限，使火焰与寒冷伤害提高 %d%%， 火焰与寒冷抗性穿透提高 %d%%。
 		此外：
 		重置热能护盾、热能吸取、热能光环、热能打击和意念燃烧的冷却时间。
 		热能光环的效果半径增加 1 格。
@@ -36525,7 +36524,7 @@ t([[Horrible visions fill your mind.
 #CRIMSON# 强度 3+：%s 折磨：当敌人试图对你施加负面效果时，你的折磨光环会反击半径 10 内的一个随机敌人，造成 %d 精神和 %d 暗影伤害。
 #CRIMSON# 强度 4+：%s 噩梦：每次受到敌人伤害时，有几率（当前 %d%%）触发一个范围为 %d 码的噩梦（召唤恐魔，并有几率减速、造成%d精神伤害和%d暗影伤害）持续 8 回合。触发几率在每次你受到打击时提高，同时随时间下降。]], "tformat")
 t("#F53CBE#%s harrows %s!", "#F53CBE#%s折磨%s！", "logSeen")
-t("A formless terror that seems to cut through the air, and its victims, like a knife.", "这只形态模糊的恐魔，将敌人连同周围的空气一起切成两半。", "_t")
+t("A formless terror that seems to cut through the air, and its victims, like a knife.", "这只形态模糊的恐魔仿佛利刃，划破空气，也划开它的猎物。", "_t")
 t("Nightmare", "梦魇", "_t")
 t("#F53CBE#The air around %s grows cold and terrifying shapes begin to coalesce. A nightmare has begun.", "#F53CBE#%s周围的空气变得冰冷，可怖的形体开始凝聚。噩梦开始了。", "logSeen")
 t("Curse of Misfortune", "厄运诅咒", "_t")
