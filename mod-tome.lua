@@ -24630,7 +24630,7 @@ t([[Drain %d mana, %d vim, %d positive and negative energies from your target, t
 		The damage done is equal to 100%% of the mana drained, 200%% of the vim drained, or 400%% of the positive or negative energy drained, whichever is higher. This effect is called a manaburn.
 		The effect will increase with your Mindpower or Physical power (whichever is greater).
 		%s]], [[从目标身上吸收 %d 点法力， %d 点活力， %d 点正负能量，并触发一次链式反应，爆发出奥术伤害。
-		伤害取以下最高值：吸收法力值的 100%%、吸收活力值的 200%% 或吸收正负能量的 400%%（称为法力燃烧）。
+		伤害取以下最高值：吸收法力值的 100%%、吸收活力值的 200%% 或吸收正能量或负能量的 400%%（称为法力燃烧）。
 		效果受精神强度或物理强度中较高者加成。
 		%s]], "tformat")
 t("Antimagic Adept", "反魔专家", "talent name")
@@ -25970,7 +25970,7 @@ t("Rune: Manasurge", "符文：法力涌动", "talent name")
 t("Your negative mana regeneration rate is unaffected by the rune.", "你的负法力回复率不受符文影响。", "logPlayer")
 t("Your nonexistant mana regeneration rate is unaffected by the rune.", "你没有法力回复率，不受符文影响。", "logPlayer")
 t([[Activate the rune to unleash a manasurge upon yourself, increasing mana regeneration by %d%% for %d turns (%d total) and instantly restoring %d mana.
-			Also when resting your mana will regenerate at 0.5 per turn.]], [[激活这个符文对你自己释放法力回复，增加法力回复 %d%%， 持续 %d 回合（总计 %d）， 并立即回复 %d 点法力值。
+			Also when resting your mana will regenerate at 0.5 per turn.]], [[激活这个符文对你自己释放法力涌动，增加法力回复 %d%%， 持续 %d 回合（总计 %d）， 并立即回复 %d 点法力值。
 			同时，在你休息时法力值每回合回复 0.5。]], "tformat")
 t("regen %d%% over %d turns; mana %d; cd %d", "法力回复 +%d%%， 持续 %d 回合；瞬回 %d 法力；冷却 %d", "tformat")
 t("Rune of the Rift", "符文：时空裂隙", "talent name")
@@ -26067,7 +26067,7 @@ t([[Activate the rune to teleport randomly in a range of %d.
 t("range %d; power %d; dur %d", "范围 %d; 强度 %d; 持续 %d", "tformat")
 t("Rune: Controlled Phase Door", "符文：可控相位之门", "talent name")
 t("The targetted phase door fizzles and works randomly!", "指定的相位之门失效，改为随机传送！", "logPlayer")
-t("Activate the rune to teleport in a range of %d.", "激活这个符文，传送至 %d 码内的指定位置。", "tformat")
+t("Activate the rune to teleport in a range of %d.", "激活这个符文，在 %d 码范围内传送。", "tformat")
 t("range %d", "范围 %d", "tformat")
 t("Rune: Lightning", "符文：闪电", "talent name")
 t([[Activate the rune to fire a beam of lightning, doing %0.2f to %0.2f lightning damage.
@@ -26098,7 +26098,7 @@ t([[Activate the infusion to endure even the most grievous of wounds for %d turn
 		The duration and life will increase by 1%% for every 1%% life you have lost, to a maximum of 100%% at 0 life or less (currently %d life, %d duration)
 		If your life is below 0 when this effect wears off it will be set to 1.]], [[激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。
 		当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。
-		你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%，在生命值降至 0 或更低时最多提高 100%%（目前 %d 生命值， %d 持续时间）。
+		你每失去 1%% 生命值，持续时间和可承受的负生命值就会增加 1%%，在生命值降至 0 或更低时最多提高 100%%（目前 %d 生命值， %d 持续时间）。
 		效果结束时，如果你的生命值在 0 以下，会变为 1 点。]], "tformat")
 
 section "mod-tome/data/talents/misc/misc.lua"
@@ -26231,7 +26231,7 @@ t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t("Hits the target with your weapon doing %d%% damage. If the attack hits, the target is knocked back up to 4 grids.  The chance improves with your Physical Power.", "使用武器打击目标造成 %d%% 伤害，如果攻击命中则可击退目标至多 4 格。击退几率受物理强度加成。", "tformat")
 t("Poisonous Bite", "毒性撕咬", "talent name")
 t("@Source@ bites poison into @target@.", "@Source@撕咬@target@使其中毒。", "_t")
-t("Bites the target (an unarmed attack), doing %d%% damage and injecting it with poison.", "撕咬目标，造成 %d%% 徒手伤害并使其中毒。", "tformat")
+t("Bites the target (an unarmed attack), doing %d%% damage and injecting it with poison.", "撕咬目标（徒手攻击），造成 %d%% 伤害并使其中毒。", "tformat")
 t("Summon", "召唤", "talent name")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
@@ -26301,7 +26301,7 @@ t("Rushing Claws", "冲锋抓击", "talent name")
 t("@Source@ rushes out, claws sharp and ready!", "@Source@冲了出去，利爪蓄势待发！", "_t")
 t("You cannot do that currently.", "你现在不能使用该技能。", "logPlayer")
 t([[Rushes toward your target with incredible speed. If the target is reached, you use your claws to pin it to the ground for 5 turns.
-		You must rush from at least 2 tiles away.]], [[快速向目标冲锋，并使用爪子将目标定身 5 回合。
+		You must rush from at least 2 tiles away.]], [[快速向目标冲锋。若冲到目标身边，就用爪子将其定身 5 回合。
 		至少距离目标 2 码以外才能施放。]], "tformat")
 t("Throw Bones", "投掷白骨", "talent name")
 t([[Throws a pack of bones at your target doing %0.2f physical damage as bleeding within radius %d.
@@ -26311,7 +26311,7 @@ t("Lay Web", "撒网", "talent name")
 t("@Source@ seems to search the ground...", "@Source@好像在地上寻找着什么…", "_t")
 t("sticky web", "粘粘的网", "_t")
 t("@Target@ is caught in a web!", "@Target@陷入网中！", "_t")
-t("Pins non spiderkin for %d turns. Decays over time.", "定身所有非蜘蛛族 %d 回合。会随时间消失。", "tformat")
+t("Pins non spiderkin for %d turns. Decays over time.", "定身所有非蜘蛛族 %d 回合。会随时间逐渐减弱。", "tformat")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t("Lay a concealed web (%d detect 'power', %d disarm 'power') under yourself that lasts %d turns and pins all non-spiderkin that pass through it for %d turns.  The web weakens over time.", "在脚下布置一张隐蔽蛛网（侦测强度 %d， 解除强度 %d）， 持续 %d 回合；所有经过的非蜘蛛族生物会被定身 %d 回合。蛛网会随时间逐渐减弱。", "tformat")
 t("Darkness", "黑暗", "talent name")
@@ -26351,7 +26351,7 @@ t("%s spawns a tentacle!", "%s 产生了一只触手！", "logSeen")
 t("Invoke a tentacle to assault your foes.  If the tentacle is killed, you will lose life equal to 2/3 of it's maximum life.", "召唤一条触手来攻击敌人。如果触手被杀死了，你会失去相当于其2/3最大生命值的生命值。", "tformat")
 t("Explode", "爆炸", "talent name")
 t("@Source@ explodes! @target@ is enveloped in searing light.", "@Source@爆炸了！@target@ 被灼热的光线覆盖了。", "_t")
-t("Causes the user to explode (killing it) in a blinding flash for %0.2f light damage.", "使使用者在致盲闪光中爆炸（并死亡），造成 %0.2f 光系伤害。", "tformat")
+t("Causes the user to explode (killing it) in a blinding flash for %0.2f light damage.", "使使用者在耀眼的闪光中爆炸（并死亡），造成 %0.2f 光系伤害。", "tformat")
 t("Will o' the Wisp Explode", "鬼火自爆", "talent name")
 t("@Source@ explodes! @target@ is enveloped in frost.", "@Source@爆炸了！@target@被冰霜覆盖了。", "_t")
 t("Explode against one target for %0.2f cold damage.", "自爆对单个目标造成 %0.2f 寒冷伤害。", "tformat")
@@ -26439,9 +26439,7 @@ t([[A punch to the body that deals %d%% damage, drains %d of the target's stamin
 		使用此技能会消耗当前所有连击点。]], "tformat")
 t("Combo String", "强化连击", "talent name")
 t([[When gaining a combo point, you have a %d%% chance to gain an extra combo point.  Additionally, your combo points will last %d turns longer before expiring.
-		The chance of building a second combo point will improve with your Cunning.]], [[当获得 1 个连击点时有 %d%% 概率
-		额外获得 1 个连击点。
-		此外你的连击点持续时间会延长 %d 回合。
+		The chance of building a second combo point will improve with your Cunning.]], [[当获得 1 个连击点时，有 %d%% 概率额外获得 1 个连击点。此外，你的连击点持续时间会延长 %d 回合。
 		额外连击点获得概率受灵巧加成。]], "tformat")
 t("Steady Mind", "冷静思维", "talent name")
 t([[Superior cunning and training allows you to outthink and outwit your opponents' physical and mental assaults.  Increases Defense by %d and Mental Save by %d.
@@ -26613,7 +26611,7 @@ t([[You take full control of your own shadow for %d turns.
 		若你提前解除控制，或影子离开你的视野太久，它便会消散。]], "tformat")
 t("Shadow Leash", "暗影束缚", "talent name")
 t([[For an instant, your weapons turn into a shadow leash that tries to grab the target's weapon, disarming it for %d turns.
-		The chance to hit improves with your Accuracy.]], [[使你的武器立刻转化为暗影之缚形态，夺取目标武器，缴械目标 %d 回合。
+		The chance to hit improves with your Accuracy.]], [[一瞬间，你的武器化为暗影之缚，试图夺取目标的武器，使其缴械 %d 回合。
 		技能命中率受命中加成。]], "tformat")
 t("Dismay", "惊骇", "talent name")
 t("Each turn, those caught in your gloom must save against your Mindpower or have an %0.1f%% chance of becoming dismayed for %d turns. When dismayed, the first melee attack against the foe will result in a critical hit.", "在黑暗光环里的每一个目标每回合必须与你的精神强度进行豁免鉴定，未通过鉴定则有 %0.1f%% 概率陷入惊慌失措持续 %d 回合，对处于惊慌失措状态的目标发动的首次近战攻击必定暴击。", "tformat")
@@ -26630,10 +26628,10 @@ t("Blur Sight", "模糊视觉", "talent name")
 t([[The caster's image blurs, granting a %d bonus to Defense.
 		The bonus will increase with your Spellpower.]], [[施法者的身影变得模糊，闪避提高 %d。
 		该加成随法术强度提高。]], "tformat")
-t("Cold Flames", "骨灵冷火", "talent name")
-t("cold flames", "冷火", "_t")
+t("Cold Flames", "冷焰", "talent name")
+t("cold flames", "冷焰", "_t")
 t([[Cold Flames slowly spread from %d spots in a radius of %d around the targeted location. The flames deal %0.2f cold damage, and have a chance of freezing.
-		Damage improves with your Spellpower.]], [[冰冷的火焰从目标位置周围 %d 处地点缓慢扩散，范围半径 %d 格。火焰会造成 %0.2f 冰冷伤害并有几率冰冻目标。
+		Damage improves with your Spellpower.]], [[冷焰从目标位置周围 %d 处地点缓慢扩散，范围半径 %d 格。火焰会造成 %0.2f 寒冷伤害并有几率冰冻目标。
 		伤害受法术强度加成。]], "tformat")
 t("Quicken Spells", "快速施法", "talent name")
 t("Reduces the cooldown of all spells by %d%%.", "所有法术的冷却时间减少 %d%%。", "tformat")
@@ -26678,8 +26676,8 @@ t("Alter the flow of energies through a staff.", "改变法杖中流动的能量
 t("Ward", "守护", "talent name")
 t("Ward", "守护", "_t")
 t([[Bring a damage-type-specific ward into being. The ward will fully negate as many attacks of its element as it has charges.
-		You can activate the following wards: %s]], [[激活指定伤害类型的抵抗状态，可完全抵消该属性的攻击，能抵消的次数等于其充能数。
-		你能激活的伤害类型有：%s]], "tformat")
+		You can activate the following wards: %s]], [[激活一个对应伤害类型的守护，可完全抵消该元素的攻击，能抵消的次数等于其充能数。
+		你能激活的守护有：%s]], "tformat")
 t("Teleport to the ground", "返回地面", "talent name")
 t("Use Yiilkgur's teleporter to teleport to the ground.", "使用伊克格的传送阵传送回地面。", "tformat")
 t("Block", "格挡", "talent name")
@@ -26715,7 +26713,7 @@ This does not take a turn to use.]], [[你进入战斗狂热状态，获得 15%%
 t("Soul Purge", "解放灵魂", "talent name")
 t("Remove any talent Morrigor has absorbed.", "除去 Morrigor 吸收的所有技能。", "tformat")
 t("Dig", "挖掘", "talent name")
-t("You require a digger to dig.", "挖掘需要装备锄头。", "logPlayer")
+t("You require a digger to dig.", "挖掘需要挖掘工具。", "logPlayer")
 t("digging", "正在挖掘", "_t")
 t("dug", "挖掘了", "_t")
 t("You have been interrupted!", "你被打断！", "logPlayer")
@@ -26726,8 +26724,8 @@ t("Shivgoroth Form", "西弗格罗斯形态", "talent name")
 t("You are already a Shivgoroth!", "你已经是西弗格罗斯了！", "logPlayer")
 t([[You absorb latent cold around you, turning into an ice elemental - a shivgoroth - for %d turns.
 		While transformed, you do not need to breathe, gain access to the Ice Storm talent at level %d, gain %d%% resistance to cuts and stuns, gain %d%% cold resistance, and all cold damage heals you for %d%% of the damage done.
-		The power will increase with your Spellpower.]], [[你吸收周围潜藏的寒气，将自己转变为纯粹的冰元素——西弗格罗斯，持续 %d 回合。
-		转化成元素后，你不需要呼吸并获得等级 %d 的冰雪风暴，获得 %d%% 切割和震慑抵抗， %d%% 寒冰抗性，所有冰冷伤害可对你产生治疗，治疗量基于伤害值的 %d%%。
+		The power will increase with your Spellpower.]], [[你吸收周围潜藏的寒气，将自己转变为冰元素——西弗格罗斯，持续 %d 回合。
+		转化成元素后，你不需要呼吸并获得等级 %d 的冰雪风暴，获得 %d%% 切割和震慑抵抗， %d%% 寒冷抗性，所有寒冷伤害可对你产生治疗，治疗量基于伤害值的 %d%%。
 		效果受法术强度加成。]], "tformat")
 t("Mental Refresh", "振作精神", "talent name")
 t("Reset up to 3 wild gift, psionic or cursed talents.", "刷新至多 3 个自然，灵能或诅咒系技能。", "tformat")
@@ -26758,7 +26756,7 @@ t([[While Highers are not meant to rule other humans - and show no particular wi
 		Their nature grants them better senses than other humans.
 		Increase blindness immunity by %d%%, maximum sight range by %d, and increases existing infravision, and heightened senses range by %d.
 		At talent level 5, each time you hit a target you gain telepathy to all similar creatures in radius 15 for 5 turns.]], [[虽然高等人类并非生来就要统治他人——他们也没有特别的意愿去那样做——但是他们经常承担更高的义务。
-		他们的本能使得他们比别人有更强的直觉。
+		他们的天性赋予他们比其他人类更敏锐的感官。
 		增加 %d%% 目盲免疫，提高 %d 点最大视野范围并提高 %d 夜视及感应范围。
 		技能等级 5 时，每次你命中目标，你将获得 15 格范围内同类型生物感知能力，持续 5 回合。]], "tformat")
 t("Born into Magic", "魔法亲和", "talent name")
@@ -26780,7 +26778,7 @@ t([[Call upon the grace of the Eternals to increase your global speed by %d%% fo
 		受敏捷和魔力中较高一项影响，速度会有额外的提升。]], "tformat")
 t("Magic of the Eternals", "不朽的魔法", "talent name")
 t([[Reality bends slightly in the presence of a Shaloren due to their inherent magical nature.
-		Increases critical chance by %d%% and critical strike power by %d%%.]], [[因为永恒精灵的自然魔法，现实发生了轻微的扭曲。
+		Increases critical chance by %d%% and critical strike power by %d%%.]], [[永恒精灵与生俱来的魔法本性，使其身边的现实发生轻微的扭曲。
 		提高 %d%% 的暴击概率和 %d%% 暴击伤害。]], "tformat")
 t("Secrets of the Eternals", "不朽的秘密", "talent name")
 t([[As the only immortal race of Eyal, Shaloren have learnt over the long years to use their innate inner magic to protect themselves.
@@ -26797,7 +26795,7 @@ t([[Call upon nature to regenerate your body for %d life every turn and increase
 		生命恢复量受意志值或体质值中较高一项加成。]], "tformat")
 t("Verdant", "亲近自然", "talent name")
 t([[Thaloren have an affinity for natural elements, allowing them to heal for a portion of damage taken from them.
-		You gain %d%% Nature and Acid damage affinity.]], [[自然精灵对自然元素有亲和力，这让它们在受到伤害时可以获得一定的治疗。
+		You gain %d%% Nature and Acid damage affinity.]], [[自然精灵对自然元素有亲和力，这让它们在受到自然元素伤害时可以获得一定的治疗。
 		获得 %d%% 自然和酸性伤害亲和。]], "tformat")
 t("Guardian of the Wood", "森林守护", "talent name")
 t([[Thaloren are part of the wood; it shields them from corruption.
@@ -26887,7 +26885,7 @@ t([[Call upon the will of all of the Orc Prides to survive this battle.
 t("yeek", "夺心魔", "talent type")
 t("Dominant Will", "主导意志", "talent name")
 t("%s is immune to instakill and mind control effects!", "%s免疫即死和精神控制效果！", "logSeen")
-t("%s must be below 80%% of their max life to be controlled!", "%s无法在超过80%%最大生命的情况下被控制！", "logSeen")
+t("%s must be below 80%% of their max life to be controlled!", "%s的生命值必须低于最大生命的80%%才能被控制！", "logSeen")
 t("%s resists the mental assault!", "%s抵抗了精神攻击！", "logSeen")
 t([[Shatter the mind of your victim, giving you full control of its actions for %s turns (based on your Willpower).
 	When the effect ends, you pull out your mind and the victim's body collapses, dead.
@@ -26909,7 +26907,7 @@ t([[Yeeks live fast, think fast, and sacrifice fast for the Way.
 		受到伤害后，若生命值低于 30%%，你将获得 1.5 个回合。该效果每 %d 回合最多触发一次。]], "tformat")
 t("Wayist", "快速支援", "talent name")
 t("yeek mindslayer", "夺心魔心灵杀手", "_t")
-t("A wayist that came to help.", "赶来帮忙的维网帮手。", "_t")
+t("A wayist that came to help.", "赶来帮忙的维网信徒。", "_t")
 t([[Reach through the collective psionic gestalt of the yeeks, the Way, to call for immediate help.
 		Summons up to 3 yeek mindslayers to your side for 6 turns.
 		All their primary stats will be set to %d (based on your Willpower and Talent Level).
@@ -26942,7 +26940,7 @@ t([[An ogre's body is acclimated to spells and inscriptions.
 		这样做的话，你的命中、物理、法术、精神强度会下降 20%%，体型超过#{italic}#“较大”#{normal}#时，每增加一体型，惩罚减少 5%%。同时你的武器附加伤害减少 50%%。]], "tformat")
 t("Scar-Scripted Flesh", "血肉伤痕", "talent name")
 t([[When you crit you have a %d%% chance to reduce by 1 the remaining cooldown of one of your inscriptions and of any saturations effects.
-		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个刻印 1 回合冷却时间，并减少符文紊乱或纹身紊乱 1 回合持续时间。
+		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个刻印 1 回合冷却时间，并减少符文紊乱和纹身紊乱 1 回合持续时间。
 		该效果每回合最多触发一次。]], "tformat")
 t("Writ Large", "符文亲和", "talent name")
 t("#PURPLE#Your mastery over inscriptions is unmatched! One more inscriptions slot available to buy.", "#PURPLE#你对刻印的掌握无人能及！你可以消耗一个大系点进一步解锁一个刻印位。", "logPlayer")
