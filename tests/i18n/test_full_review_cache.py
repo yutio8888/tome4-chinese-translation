@@ -371,6 +371,12 @@ class CacheTests(unittest.TestCase):
             self.run_cache(seal={'oversized': True})
         self.assertEqual(cache.events[-1]['event'], 'skip')
 
+    def test_caps_retain_export_and_merge_entries_for_recent_rounds(self):
+        # Regression: two ~300 MB keys (outputs-only export, complete merge) for
+        # each of two recent rounds must coexist with headroom for growth.
+        self.assertGreaterEqual(cache.MAX_ENTRIES, 4)
+        self.assertGreaterEqual(cache.MAX_TOTAL_BYTES, 4 * 500 * 1024 * 1024)
+
     def test_real_implementation_identity_and_hot_edit_refusal(self):
         self.identity.stop()
         with tempfile.TemporaryDirectory() as name:

@@ -251,8 +251,8 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   `archive/README.md`。
 - full-review 历史前驱检查缓存默认关闭；仅 `I18N_FULL_REVIEW_CACHE=on` 开启，
   `I18N_FULL_REVIEW_CACHE_TRACE=1` 将命中、未命中、发布或跳过原因写到 stderr。
-  `.artifacts/i18n/full-review-cache-v1/` 是可删除的派生结果，最多保留最近 6 个键，
-  总量上限 512 MiB。命中仍重新散列文件、列目录和核对路径探测；实现、manifest、
+  `.artifacts/i18n/full-review-cache-v1/` 是可删除的派生结果，最多保留最近 8 个键，
+  总量上限 4 GiB（导出与合并的条目键不同、各约 300 MB，须能同时保留）。命中仍重新散列文件、列目录和核对路径探测；实现、manifest、
   前驱 seal 或 `_outputs_only` 改变即失效。只缓存成功的历史递归结果，当前轮的
   源码、preflight、迁移及 seal 检查照常执行；历史计算触及 Git／FixedReader 时不发布。
   关闭开关可独立完整重放，不读写或创建缓存目录。缓存不提供生产审核或门禁 credit。

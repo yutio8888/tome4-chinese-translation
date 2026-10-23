@@ -27,8 +27,12 @@ from . import projection_cache as precedent
 
 CACHE_RELATIVE = Path('.artifacts/i18n/full-review-cache-v1')
 FORMAT = 'verified-historical-predecessor-v1'
-MAX_ENTRIES = 6
-MAX_TOTAL_BYTES = 512 * 1024 * 1024
+# Export (outputs-only) and merge (complete) checks use different keys. Each
+# recent entry is ~300 MB and grows a few MB per round, so the caps must hold
+# both kinds for the latest rounds; at 512 MiB they evicted each other and
+# every merge replayed the chain from round-v1 (measured 2026-10-22).
+MAX_ENTRIES = 8
+MAX_TOTAL_BYTES = 4 * 1024 * 1024 * 1024
 _NAME = re.compile(r'v1-[0-9a-f]{64}\.json\Z')
 _TEMP = re.compile(r'\.v1-tmp-[a-z0-9_]{8}\Z')
 STALE_TEMP_SECONDS = 3600
