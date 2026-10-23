@@ -7405,7 +7405,7 @@ t("Stairs lead downwards into rubble.", "向下通往瓦砾之中的楼梯。", 
 ------------------------------------------------
 section "mod-tome/data/general/events/slimey-pool.lua"
 
-t("slimey pool", "史莱姆之沼", "_t")
+t("slimey pool", "史莱姆池", "_t")
 t("%s (slimey)", "%s（黏滑）", "tformat")
 
 ------------------------------------------------
@@ -27723,7 +27723,7 @@ t([[Assume a defensive mental state.
 		This requires a telekinetically-wielded weapon.]], [[用意念进行防御。
 		一回合内，你的念动武器会完全格挡对你的第一次近战攻击，并反击攻击者造成 %d%% 武器伤害。
 		技能等级 3 时你还能缴械攻击者 3 回合。
-		技能等级 5 时每回合你有 %d%% 几率被动格挡一次近战攻击，并消耗 10 点灵能值。几率受灵巧加成。
+		技能等级 5 时每回合你有 %d%% 几率被动格挡一次近战攻击，每次触发需要并消耗 10 点灵能值。几率受灵巧加成。
 		这个技能需要一把念动武器。]], "tformat")
 t("Impale", "灵能突刺", "talent name")
 t("You cannot do that without a weapon in your telekinetic slot.", "你不能在没有念力武器时这么做。", "logPlayer")
@@ -27754,7 +27754,7 @@ t("augmented striking", "强化打击", "talent type")
 t("Augment melee attacks with psionic enegies.", "使用灵能强化近战攻击。", "_t")
 t("voracity", "贪婪", "talent type")
 t("Pull energy from your surroundings.", "从你周围吸收能量。", "_t")
-t("finer energy manipulations", "能量操控", "talent type")
+t("finer energy manipulations", "精细能量操控", "talent type")
 t("Subtle applications of the psionic arts.", "灵能的精妙运用。", "_t")
 t("other", "其他", "talent type")
 t("Various psionic talents.", "多种灵能技能。", "_t")
@@ -27777,7 +27777,7 @@ t("Directly attack your opponents minds.", "直接攻击敌人的心灵。", "_t
 t("slumber", "沉睡", "talent type")
 t("Force enemies into a deep sleep.", "使敌人进入昏睡。", "_t")
 t("solipsism", "唯我主义", "talent type")
-t("Nothing exists outside the minds ability to perceive it.", "没有任何事物能逃脱精神力量的感知。", "_t")
+t("Nothing exists outside the minds ability to perceive it.", "心灵感知不到的事物，皆不存在。", "_t")
 t("Thought-Forms", "思维形态", "talent type")
 t("Manifest your thoughts as psionic summons.", "使你的思维具象化为灵能召唤物。", "_t")
 t("Dream Forge", "梦之熔炉", "talent type")
@@ -31177,13 +31177,13 @@ t("Your body hardens and recovers quickly. When pushed below 30%% life, you inst
 t("Bloodspring", "血如泉涌", "talent name")
 t("Have let Melinda be sacrificed", "梅琳达被献祭", "_t")
 t([[When a single blow deals more than 15%% of your total life, a torrent of blood gushes from your body, creating a bloody tidal wave for 4 turns that deals %0.2f blight damage, heals you for 50%% of the damage done, and knocks foes back.
-		The damage increases with your Constitution.]], [[当敌人的单次攻击造成超过你 15%% 总生命值伤害时，产生持续 4 回合的血之狂潮，造成 %0.2f 枯萎伤害并治疗你相当于 50%% 伤害值的生命，同时击退敌人。
+		The damage increases with your Constitution.]], [[当单次攻击造成超过你 15%% 总生命值伤害时，产生持续 4 回合的血之狂潮，造成 %0.2f 枯萎伤害并治疗你相当于 50%% 伤害值的生命，同时击退敌人。
 		伤害受体质值加成。]], "tformat")
 t("Eternal Guard", "永恒格挡", "talent name")
 t("Know the Block talent", "掌握格挡技能", "_t")
 t("Your Block talent now lasts for 2 game turns and you can apply Counterstrike to any number of enemies.", "你的格挡技能持续 2 个游戏回合，并且你可以使任意数量的敌人进入可以反击的状态。", "tformat")
 t("Never Stop Running", "永不止步", "talent name")
-t("Know at least 20 levels of stamina-using talents", "掌握至少20级使用体力的技能", "_t")
+t("Know at least 20 levels of stamina-using talents", "掌握的使用体力的技能合计至少20级", "_t")
 t("While this talent is active, you dig deep into your stamina reserves, allowing you to move without taking a turn. However, this costs 12 stamina for each tile that you cross.", "当技能激活时，你可以发掘出体能的极限，移动不会耗费回合，但是每移动一码需消耗 12 点体力。", "tformat")
 t("Armour of Shadows", "影之护甲", "talent name")
 t("Have dealt over 50000 darkness damage", "曾造成超过50000点暗影伤害", "_t")
@@ -31202,8 +31202,8 @@ t([[Fungal spores have colonized your blood, so that each time you use an infusi
 		You may use this prodigy to release the power as a heal (never more than %d life) and remove up to 10 detrimental magical effects.
 		Fungal power lasts for up to 6 turns, losing the greater of 10 potency or 10%% of its power each turn.
 		The amount of fungal power produced and the maximum heal possible increase with your Constitution and maximum life.]], [[真菌充斥在你的血液中，每当使用纹身时你都会储存 %d 的真菌能量。
-		当使用此技能时，可释放能量治愈伤口 (恢复值不超过 %d), 并解除至多 10 个负面魔法效果。
-		真菌之力最多保存 6 回合，每回合减少 10 点或当前真菌之力的 10%%，取较大者。
+		当使用此技能时，可释放能量治愈伤口（恢复值不超过 %d 点生命），并解除至多 10 个负面魔法效果。
+		真菌能量最多保存 6 回合，每回合减少 10 点或当前真菌能量的 10%%，取较大者。
 		真菌能量的产生量和治疗上限随你的体质和最大生命值提高。]], "tformat")
 t("Corrupted Shell", "堕落之壳", "talent name")
 t("Have received at least 3500 blight damage and destroyed Zigur with the Grand Corruptor.", "承受过至少 3500 点枯萎伤害并和大腐化者一起摧毁伊格。", "_t")
@@ -31252,17 +31252,19 @@ t([[Surround yourself with a malevolent aura that stores damage you deal.
 		The damage and effect power increase with your Cunning, the threshold with your level, and the apply power is the highest of your mind or spell power.
 		%s]], [[你被灾厄光环笼罩，存储你造成的伤害。
 		当你积累的某类伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 码，并对其中的敌人附加以下效果之一：
+
 		物理：降低 20%% 攻击、施法和精神速度
 		#GREEN#酸性：#LAST#  每回合受到 %d 酸性伤害，持续 5 回合（总计 %d）。
 		#DARK_GREEN#枯萎：#LAST#  每回合受到 %d 枯萎伤害，力量、体质和敏捷减少 %d， 持续 5 回合
-		#GREY#黑暗：#LAST#  造成的所有伤害减少 %d%%， 持续 5 回合。
+		#GREY#暗影：#LAST#  造成的所有伤害减少 %d%%， 持续 5 回合。
 		#LIGHT_STEEL_BLUE#时空：#LAST#  全局速度降低 %d%%， 持续 5 回合。
 		#ORANGE#精神：#LAST#  混乱（强度 %d%%）， 持续 5 回合。
+
 		同种效果最多每 10 玩家回合触发一次。这不是普通的技能冷却。
 		伤害和效果强度受灵巧值加成，伤害阈值受等级加成，施加附加效果的强度由你的精神强度和法术强度的最高值决定。
 		%s]], "tformat")
 t("Secrets of Telos", "泰勒斯之秘", "talent name")
-t("Possess Telos Top Half, Telos Bottom Half, and Telos Staff Crystal", "找到泰勒斯法杖的上半部，下半部和宝石。", "_t")
+t("Possess Telos Top Half, Telos Bottom Half, and Telos Staff Crystal", "持有泰勒斯法杖的上半部，下半部和宝石。", "_t")
 t("#VIOLET#%s assembles %s!", "#VIOLET#%s 组装出 %s！", "logSeen")
 t("You have obtained the three parts of the Staff of Telos and studied them carefully. You believe that you can merge them back into a single highly potent staff.", "你已获得泰勒斯法杖的三个部件并仔细研究过。你相信自己能将它们重新合成为一根威力强大的法杖。", "tformat")
 t("Elemental Surge", "元素狂潮", "talent name")
@@ -31372,7 +31374,7 @@ t("Windblade", "剑刃风暴", "talent name")
 t("Have dealt over 50000 damage with dual wielded weapons", "曾使用双持武器累计造成超过 50000 点伤害", "_t")
 t("You spin madly, generating a sharp gust of wind with your weapons that deals 320%% weapon damage to all targets within radius 4 and disarms them for 4 turns.", "你挥动武器疯狂旋转，产生剑刃风暴，对 4 码范围内所有目标造成 320%% 的武器伤害，并缴械它们 4 回合。", "tformat")
 t("Windtouched Speed", "疾风之速", "talent name")
-t("Know at least 10 talent levels of equilibrium-using talents", "掌握至少10级使用失衡值的技能", "_t")
+t("Know at least 10 talent levels of equilibrium-using talents", "掌握的使用失衡值的技能合计至少10级", "_t")
 t([[You are attuned with Nature, and she helps you in your fight against the arcane forces.
 		You gain 20%% permanent global speed, 10%% cooldowns reduction and do not trigger pressure traps.]], [[你和大自然产生共鸣，在与奥术势力的战斗中受到她的赐福。
 		你的全局速度永久提高 20%%，技能冷却时间缩短 10%%，且不会触发压力式陷阱。]], "tformat")
@@ -31399,9 +31401,9 @@ t([[You fire a shot straight at your enemy's vital areas, wounding them terribly
 ------------------------------------------------
 section "mod-tome/data/talents/uber/mag.lua"
 
-t("Spectral Shield", "弧光之盾", "talent name")
+t("Spectral Shield", "幽灵之盾", "talent name")
 t("Know the Block talent, have cast 100 spells, and have a block value over 200", "掌握格挡技能，曾释放过 100 个法术，且格挡强度超过 200", "_t")
-t("By infusing your shield with raw magic, your block can now block any damage type.", "向护盾中灌注魔法力量，使格挡技能能够格挡任何类型的伤害。", "tformat")
+t("By infusing your shield with raw magic, your block can now block any damage type.", "向盾牌中灌注魔法力量，使格挡技能能够格挡任何类型的伤害。", "tformat")
 t("Ethereal Form", "虚幻形态", "talent name")
 t("Have an effective defense of at least 40", "有效闪避值至少达到 40", "_t")
 t([[You gain 25%% absolute damage resistance and 25%% all damage penetration.  Each time you are struck by a weapon these bonuses are reduced by 5%% but fully recovered after 8 turns.
@@ -31414,7 +31416,7 @@ t("#ORCHID#Aether Permeation protects %s from a dispel!", "#ORCHID#以太渗透�
 t([[You manifest a thin layer of aether all around you. 
 		Any time you are the target of a dispel effect the aether strengthens around you, protecting you from the dispel and any further ones for 6 turns and unsustaining this spell.
 		While undisturbed the layer of aether provides you with 40 raw spellpower.]], [[你在身边形成薄薄的一层以太。
-		每当你成为解除效果的目标时，以太便会在你周围强化，使你免受该次解除以及此后 6 回合内的任何解除，并同时终止本持续法术。
+		每当你成为驱散效果的目标时，以太便会在你周围强化，使你免受该次驱散以及此后 6 回合内的任何驱散，并同时终止本持续法术。
 		只要不受干扰，这层以太便为你提供 40 点原始法术强度。]], "tformat")
 t("Mystical Cunning", "魔之秘术", "talent name")
 t("Know how to either prepare traps or apply poisons", "掌握陷阱或者毒药技能", "_t")
@@ -31451,7 +31453,7 @@ t([[You can wrap temporal threads around you, assuming the form of a telugoroth 
 		在这种形态中，你对定身、流血、致盲、震慑免疫，获得 30%% 时空抗性和 20%% 的时空抗性穿透。
 		你造成的伤害的 50%% 转化为时空伤害。
 		同时，你的时空伤害增益等于你所有类型的伤害增益中的最大值，此外，还增加 30%% 额外时空伤害增益。
-		你在时空形态下能释放以下异常：异常：重排，异常：时空风暴，异常：不完美设计，异常：重力井和异常：虫洞。]], "tformat")
+		你在时空形态下能释放以下异常：异常：重排，异常：时空风暴，异常：不完美设计，异常：重力牵引和异常：虫洞。]], "tformat")
 t("Blighted Summoning", "枯萎召唤", "talent name")
 t("Have summoned at least 100 creatures. More permanent summons may count as more than 1.", "曾召唤了 100 个以上的召唤生物。更为持久的召唤物可能会被计为多于 1 个。", "_t")
 t([[You infuse blighted energies into all of your summons, granting them Bone Shield (level 3) and a bonus to Spellpower equal to your Magic.
@@ -31505,7 +31507,7 @@ t([[You can now control the recent past. Upon using this prodigy you gain a temp
 		在效果持续时间内，再次使用技能即可回到第一次使用的时间点重新来过。
 		这个法术会使时间线分裂，所以其他同样能使时间线分裂的技能在此期间不能成功释放。]], "tformat")
 t("Unfold History", "改写历史", "talent name")
-t("Rewrite the recent past to go back to when you cast Revisionist History.", "改写历史，返回到修正历史施法点。", "tformat")
+t("Rewrite the recent past to go back to when you cast Revisionist History.", "改写历史，回到你施放修正历史的那一刻。", "tformat")
 t("Cauterize", "灼烧", "talent name")
 t("Have received at least 3500 fire damage and have cast at least 1000 spells", "曾承受过至少 3500 点火焰伤害，并且至少曾释放过 1000 次法术。", "_t")
 t([[Your inner flame is strong. Each time that you receive a blow that would kill you, your body is wreathed in flames.
@@ -31628,8 +31630,8 @@ t("Slasul will be happy to know your faith in his cause. You should return to sp
 t([[You have sided with Slasul and helped him vanquish Ukllmswwik. You are now able to breathe underwater with ease.
 		You have also learned to use tridents and other exotic weapons easily (talent level %d of Exotic Weapon Mastery), and can Spit Poison (talent level %d) as nagas do. These are bonus talent levels that increase with your character level.
 		In addition, should Slasul still live, he may have a further reward for you as thanks...]], [[你站在萨拉苏尔一方并帮助他解决了乌克勒姆斯维奇。你现在可以轻松地在水下呼吸。
-		同时，你能轻易学会如何使用三叉戟和其他特殊武器（获得 %d 级特殊武器掌握），并且可以像娜迦一样喷吐毒素（等级 %d）。 这些是额外的技能等级，随人物等级增长。
-		此外，若萨拉苏尔仍然存活，他还会送你一份大礼…]], "tformat")
+		同时，你已学会轻松使用三叉戟和其他特殊武器（获得 %d 级特殊武器掌握），并且可以像娜迦一样喷吐毒素（等级 %d）。 这些是额外的技能等级，随人物等级增长。
+		此外，若萨拉苏尔仍然存活，他或许还会送你一份谢礼…]], "tformat")
 t("Superpower", "超级力量", "talent name")
 t([[A strong body is key to a strong mind, and a strong mind can be powerful enough to make a strong body.
 		This prodigy grants a Mindpower bonus equal to 60%% of your Strength.
@@ -31697,7 +31699,7 @@ t([[When casting damaging spells or mind attacks, the release of your willpower 
 		You and your allies take no damage from either effect.
 
 		Additionally, your fire damage bonus and resistance penetration is set to your current highest damage bonus and resistance penetration. This applies to all fire damage you deal.
-		The damage scales with your Spellpower or Mindpower.]], [[在施展伤害类魔法或精神攻击时，你会释放意念，召唤一颗陨石砸向附近敌人。
+		The damage scales with your Spellpower or Mindpower.]], [[在施展伤害类魔法或精神攻击时，你释放的意念可以召唤一颗陨石砸向附近敌人。
 		陨石在 2 码半径内造成 %0.2f 火焰和 %0.2f 物理伤害，震慑敌人 3 回合。
 		周围 3 码半径的地形将会被冲击转换成岩浆，每回合造成 %0.2f 火焰伤害，持续 8 回合。此效果会覆盖已有的改造地形。
 		你和你的盟友不会受到陨石或岩浆的伤害。
@@ -36402,17 +36404,17 @@ t("+Out of sight", "+视野外", "_t")
 t("#LIGHT_RED#You lost sight of your golem for too long; direct control is broken!", "#LIGHT_RED#傀儡离开你的视线时间太长，控制被中断了！", "logPlayer")
 t("golem out of sight", "傀儡在视线外", "_t")
 t("Shadow out of sight", "阴影在视线外", "_t")
-t("The shadow is out of sight of its host; direct control will be lost!", "阴影在视线以外，你将失去对它的控制！", "_t")
+t("The shadow is out of sight of its host; direct control will be lost!", "阴影在宿主的视线以外，你将失去对它的控制！", "_t")
 t("#LIGHT_RED#You lost sight of your shadow for too long; it dissipates!", "#LIGHT_RED#阴影脱离视线太久；它消失了！", "logPlayer")
 t("shadow out of sight", "阴影在视线外", "_t")
 t("Continuum Destabilization", "连续体失稳", "_t")
-t("The target has been affected by space or time manipulations and is becoming more resistant to them (+%d).", "目标受时空操纵的影响，提升豁免 (+%d)。", "tformat")
+t("The target has been affected by space or time manipulations and is becoming more resistant to them (+%d).", "目标受时空操纵的影响，对此类效果的豁免提升（+%d）。", "tformat")
 t("#Target# looks a little pale around the edges.", "#Target#看上去变得暗淡了。", "_t")
 t("+Destabilized", "+失稳", "_t")
-t("#Target# is firmly planted in reality.", "#Target#返回了现实世界。", "_t")
+t("#Target# is firmly planted in reality.", "#Target#重新稳固于现实之中。", "_t")
 t("-Destabilized", "-失稳", "_t")
 t("Summoning Destabilization", "召唤失稳", "_t")
-t("The more the target summons creatures the longer it will take to summon more (+%d turns).", "目标召唤的生物越多，施放召唤技能所需时间越长（+%d 回合）。", "tformat")
+t("The more the target summons creatures the longer it will take to summon more (+%d turns).", "目标召唤的生物越多，召唤技能的冷却时间越长（+%d 回合）。", "tformat")
 t("Damage Smearing", "时空转化", "_t")
 t("Damage received in the past is returned as %0.2f temporal damage per turn.", "过去受到的伤害被转化为每回合 %0.2f 时空伤害。", "tformat")
 t("#Target# is taking damage received in the past!", "#Target#受到过去累积的伤害！", "_t")
@@ -36506,7 +36508,7 @@ t([[A shroud of darkness seems to fall across your path.
 t("Shroud of Weakness", "虚弱帷幕", "_t")
 t("The target is enveloped in a shroud that seems to hang upon it like a heavy burden. (Reduces damage dealt by %d%%).", "目标笼罩在虚弱帷幕中，仿佛背负着沉重的负担（造成的伤害降低 %d%%）。", "tformat")
 t("Shroud of Passing", "消逝帷幕", "_t")
-t("The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all).", "笼罩在帷幕中使目标身形逐渐消失（+%d%% 全体抗性）。", "tformat")
+t("The target is enveloped in a shroud that seems to not only obscure it but also to fade its form (+%d%% resist all).", "目标被帷幕笼罩，帷幕似乎不仅遮蔽其身形，还使之逐渐消散（+%d%% 全体抗性）。", "tformat")
 t("Shroud of Death", "死亡帷幕", "_t")
 t("Curse of Nightmares", "噩梦诅咒", "_t")
 t("Nightmares", "噩梦", "_t")
@@ -36583,7 +36585,7 @@ t("potentially fatal loss", "可能致命的损失", "_t")
 t("devastating loss", "毁灭性的损失", "_t")
 t("tremendous loss", "巨大的损失", "_t")
 t("terrible loss", "可怕的损失", "_t")
-t("#LIGHT_RED#%s suffered a %s of self in the Dreamscape!", "#LIGHT_RED#%s在梦境空间中受到了%s！", "logSeen")
+t("#LIGHT_RED#%s suffered a %s of self in the Dreamscape!", "#LIGHT_RED#%s的自我在梦境空间中遭受了%s！", "logSeen")
 t("Revisionist History", "修正历史", "_t")
 t("While this effect holds you can decide recent history did not happen the way it did.", "该效果持续时你可以裁定最近发生的事并非以原本的方式发生。", "_t")
 t("#LIGHT_RED#The spell fizzles.", "#LIGHT_RED#法术失败了。", "logSeen")
