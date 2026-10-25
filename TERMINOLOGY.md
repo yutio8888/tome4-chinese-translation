@@ -67,7 +67,7 @@
 
 | 领域 | 说明 | 主要类别 | 条目数 |
 | --- | --- | --- | --- |
-| `combat` | 战斗机制：伤害类型、状态效果、战斗属性 | `T.GAME.DAMAGE`、`T.GAME.EFFECT`、`T.GAME.STAT` | 174 |
+| `combat` | 战斗机制：伤害类型、状态效果、战斗属性 | `T.GAME.DAMAGE`、`T.GAME.EFFECT`、`T.GAME.STAT` | 175 |
 | `talents` | 技能与技能树 | `T.GAME.TALENT`、`T.GAME.TALENT_CATEGORY` | 348 |
 | `classes` | 职业与成长 | `T.GAME.CLASS` | 45 |
 | `resources` | 角色资源 | `T.GAME.RESOURCE` | 13 |
