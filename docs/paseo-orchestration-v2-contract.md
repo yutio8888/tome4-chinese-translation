@@ -896,7 +896,14 @@ sidecar 的每个复合引用，并把未列出的相关 review、缺失 disposi
 schema 4 translation implement 每个 cycle 还必须在 contextual 派发前重跑 preflight，并运行
 strict lint、scope/source/tag/args/special/markup/placeholder/newline 不变量与
 `git diff --check`。最终门禁在 `FINAL_REVIEW/full` 收敛后按工作流矩阵执行；完整入口已覆盖的
-五步和术语审计不另行重复。正式生产批次仍须提供消费者要求的 full receipt，不接受跨命令缓存。
+五步和术语审计不另行重复。正式生产批次仍须提供消费者要求的 full receipt。仅 full-review task-gates 可在同一 round
+的 task-gates/ 已归档且验证通过的 full receipt 之间复用经读审计的单元测试 PASS；其 identity 必须绑定
+检查读取的每项输入：排除 `evidence/full-review/`、`.ai/task/`、`.ai/reviews/`、`.artifacts/`
+的 tracked／nonignored 文件，以及 HEAD、index、Git 输入、原生程序和显式列出的 ignored 输入。
+未覆盖的外部依赖或符号链接目标不得复用；测试 identity 绑定可覆盖链接的解析目标内容。
+schema 3 必须明确记录源 receipt 路径与 SHA-256、源检查日志 SHA-256 和完全匹配的测试输入 identity；
+拒绝缺失、漂移、失败、跨 round 或循环引用。其余检查（含 build）每份 receipt 均须执行。
+默认启用该有界复用，`I18N_GATE_TEST_REUSE=off` 恢复逐项执行；其他生产消费者保持 schema 2。
 
 完成前：
 

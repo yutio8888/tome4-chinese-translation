@@ -617,3 +617,28 @@ FIX cycle1 的 successor 先合并来源目录正确的 validated outputs，再�
 完成状态只整体继承当前必需 A/B 齐全的 merged completion；丢掉某 lane 语境时，合法 A 仅保留
 validated 状态，可当前补 B/重新裁决。document_ordinal/line 仅作定位，不进入 semantic guard；
 真实 Lua loader 的前插/删除测试同时验证未改 unit guard/revision 与 successor 覆盖稳定。
+
+full-review task-gates 默认生成 schema 3 receipt。可复用经读审计的 registration、semantic-claim、
+contract-suite 和 production-shadow-surface-ledger 四组测试。toolchain 读取 full-review
+路径和可变 ignored inventory cache；quality-facts 读取未绑定的 Pi／Node 安装闭包，两组均每次执行。
+所有其他检查（含 build）也每份 receipt 执行。每组 identity 绑定其读取的全部输入。
+registration identity 包含 tools/、tests/、i18n/ 的全部 tracked 与 nonignored 输入
+（含模式、symlink 和额外 discovered ignored tests／Python bytecode）、argv、Python／工具／runner
+版本和完整环境。另三组扩大为全仓 tracked／nonignored 文件，但排除经读审计确认不依赖的
+`evidence/full-review/`、`.ai/task/`、`.ai/reviews/` 和 `.artifacts/`；另显式绑定 ignored
+`.artifacts/i18n/production-review/reconciliation.json`（含不存在状态）和上述 bytecode。
+扩大身份还绑定 HEAD、index、Git refs／有效配置／exclude／graft／shallow 输入、manifest 固定
+extractor archive 与其仓库 HEAD、Lua runtime／rocks 模块、Git／shell／Node 程序及其动态库字节。身份哈希复用 binding
+的 stat cache；读审计及依赖证明见 maintenance gate-speedup REPORT。
+复用仅取同 round 的 task-gates/ 已归档 full PASS receipt，并绑定其实际字节、日志和测试 identity。
+测试 identity 另绑定符号链接解析目标内容；目标未覆盖或位于未列出的排除目录时，全部测试执行。
+复用记录无自身退出码或时间戳；首次及历史验证均递归检查来源，拒绝循环和跨轮引用。
+完整环境仅参与门禁复用选择及同次执行验证；后续消费／导入验证冻结 identity 与来源链，
+不重新计算消费进程环境的 identity。
+`I18N_GATE_TEST_REUSE=off` 禁用复用。普通 ci-gates 及 production-review-v2-lite 保持 schema 2。
+
+binding 的忽略缓存位于 `.artifacts/i18n/gate-binding-cache.json`，严格 JSON、原子替换；
+文件路径、size、mtime_ns、ctime_ns、inode、device、mode 全部相同才复用内容 hash。
+`I18N_GATE_BINDING_CACHE=off` 使用原始逐字节路径；缓存损坏或写入失败仅影响速度。
+在同用户脚本可信、仅防意外损坏的模型下，若字节被修改却连 ctime 等全部 stat 字段都相同，
+缓存可能漏检；恢复 mtime 但 ctime 变化仍会重算。所有其他绑定字段和执行前后漂移检查保持有效。

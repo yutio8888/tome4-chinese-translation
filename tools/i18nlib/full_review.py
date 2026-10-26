@@ -759,15 +759,35 @@ def task_gates(manifest, directory, export_id, results_path=None):
     ledger = read(directory / 'inventory.json')
     ref, _ = replay_export(manifest, directory, export_id, validate_current(manifest, ledger))
     selected = gate_selection(manifest, ref)
-    result = (gate_results.run(manifest.root, selected=selected, skip_build=False)
-              if results_path is None else read(results_path))
-    gate_results.validate(result, selected=selected, require_full=True, root=manifest.root)
+    result = _execute_task_gates(manifest, directory, selected, results_path)
     if selected != gate_selection(manifest, ref):
         raise FullReviewError('task gate input drift during execution')
-    dest = directory / 'task-gates' / ref['planned_producer']['task_id'] / export_id
+    return _archive_task_gates(manifest, directory, ref['planned_producer']['task_id'], export_id, result)
+
+
+def _execute_task_gates(manifest, directory, selected, results_path=None):
+    """Production receipt boundary, also usable for ignored measurement fixtures.
+
+    Public task_gates performs tracked-directory authorization and export replay;
+    this boundary grants no review, import or coverage credit.
+    """
+    directory = Path(directory)
+    result = (gate_results.run(manifest.root, selected=selected, skip_build=False,
+                               reuse_round=directory.resolve())
+              if results_path is None else read(results_path))
+    gate_results.validate(result, selected=selected, require_full=True, root=manifest.root,
+                          expected_test_identities=gate_results.test_identities(manifest.root)
+                          if result['schema_version'] == 3 else None)
+    if result['schema_version'] == 3 and result['reuse_round'] != directory.resolve().relative_to(manifest.root).as_posix():
+        raise FullReviewError('task gate reuse round drift')
+    return result
+
+
+def _archive_task_gates(manifest, directory, task_id, export_id, result):
+    dest = Path(directory) / 'task-gates' / task_id / export_id
     # Different invocations have different timestamps: never overwrite a frozen receipt.
     for record in result['checks']:
-        immutable(dest / record['id'] / 'output.log', ordinary(safe_path(manifest.root, record['log_path'])))
+        immutable(dest / record['id'] / 'output.log', gate_results.record_output(manifest.root, record))
     immutable(dest / 'results.json', canonical(result))
     return {'gate_evidence_path': (dest / 'results.json').relative_to(manifest.root).as_posix(),
             'gate_evidence_sha256': sha(canonical(result))}
@@ -784,17 +804,23 @@ def validate_task_gates(manifest, ref, binding, *, accepted_selection=None):
     if sha(raw) != binding.get('gate_evidence_sha256'):
         raise FullReviewError('task gate receipt bytes drift')
     result = read(receipt_path)
+    if result.get('schema_version') == 3 and result.get('reuse_round') != path.split('/task-gates/')[0]:
+        raise FullReviewError('task gate reuse round drift')
     try:
         if accepted_selection is None:
             selected = gate_selection(manifest, ref)
-            gate_results.validate(result, selected=selected, require_full=True)
+            gate_results.validate(result, selected=selected, require_full=True,
+                                  root=manifest.root if result.get("schema_version") == 3 else None,
+                                  receipt_path=path if result.get("schema_version") == 3 else None)
         else:
             selected = accepted_selection
             if (not isinstance(selected, dict) or 'execution_inputs' not in selected or
                     {k: v for k, v in selected.items() if k != 'execution_inputs'} !=
                     gate_selection(manifest, ref, execution=False)):
                 raise FullReviewError('accepted task gate identity drift')
-            gate_results.validate_historical(result, selected=selected)
+            gate_results.validate_historical(result, selected=selected,
+                root=manifest.root if result.get("schema_version") == 3 else None,
+                receipt_path=path if result.get("schema_version") == 3 else None)
     except gate_results.GateError as error:
         raise FullReviewError('task full gate/build receipt rejected: ' + str(error)) from error
     for record in result['checks']:

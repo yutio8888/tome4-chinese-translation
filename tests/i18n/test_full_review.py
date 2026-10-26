@@ -142,6 +142,46 @@ class FullRoundTests(unittest.TestCase):
         result = ai_state_check.check_state(self.state_path,workspace_root=self.root)
         self.assertEqual(result.outcome,'DONE_VERIFIED',result.detail)
 
+    def test_schema3_receipt_boundary_replays_archived_reuse(self):
+        import copy
+        gates = fr.gate_results
+        ref = self.export()
+        self.producer(ref)
+        path = self.root / self.binding['gate_evidence_path']
+        first = fr.read(path)
+        first.update(schema_version=3, reuse_round='evidence/full-review/test-round')
+        identities = {name: gates.digest(name) for name in gates.REUSABLE_TESTS}
+        for record in first['checks']:
+            if record['id'] in identities:
+                record['test_identity_sha256'] = identities[record['id']]
+        source = path.parent.parent / 'source' / 'results.json'
+        for record in first['checks']:
+            dest = source.parent / record['id'] / 'output.log'
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes((path.parent / record['id'] / 'output.log').read_bytes())
+        self.save(source, first)
+        second = copy.deepcopy(first)
+        second['started_at'] = second['finished_at'] = first['finished_at']
+        for i, record in enumerate(second['checks']):
+            if record['id'] in identities:
+                second['checks'][i] = {k: record[k] for k in gates.REUSED_FIELDS - {'reuse'}}
+                second['checks'][i]['reuse'] = {'receipt_path': source.relative_to(self.root).as_posix(),
+                    'receipt_sha256': fr.sha(source.read_bytes()), 'log_sha256': record['output_sha256']}
+            else:
+                record['started_at'] = record['finished_at'] = first['finished_at']
+        self.save(path, second)
+        self.binding['gate_evidence_sha256'] = fr.sha(path.read_bytes())
+        import os
+        with patch.dict(os.environ, {'I18N_FULL_REVIEW_CACHE': 'on',
+                                     'I18N_FULL_REVIEW_CACHE_TRACE': '1',
+                                     'GATE_CONSUMER_ENV': 'different'}):
+            selected = fr.validate_task_gates(self.manifest, ref, self.binding)
+        fr.validate_task_gates(self.manifest, ref, self.binding, accepted_selection=selected)
+        log = source.parent / next(iter(identities)) / 'output.log'
+        log.write_bytes(b'accidental source log edit')
+        with self.assertRaises(fr.FullReviewError):
+            fr.validate_task_gates(self.manifest, ref, self.binding, accepted_selection=selected)
+
     def test_real_done_predicate_plus_task_gate_receipt_and_tracked_replay(self):
         ref = self.export()
         self.producer(ref)

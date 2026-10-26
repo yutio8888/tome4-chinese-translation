@@ -158,7 +158,7 @@ class GateResultsTests(unittest.TestCase):
     def test_live_binding_tracks_index_worktree_config_tools_and_untracked(self):
         original = gates.binding(self.root, self.selected)
         ignored = self.root / ".artifacts/prospective"
-        ignored.parent.mkdir(); ignored.write_bytes(b"scratch")
+        ignored.parent.mkdir(exist_ok=True); ignored.write_bytes(b"scratch")
         self.assertEqual(original, gates.binding(self.root, self.selected))
         for name in ("source", "tools/new.py", "tests/i18n/test_groups.json", "i18n/config.json"):
             path = self.root / name; path.parent.mkdir(parents=True, exist_ok=True)
