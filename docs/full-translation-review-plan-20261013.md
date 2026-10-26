@@ -1,6 +1,6 @@
 # 面向汉化版本发布的全量复核计划
 
-日期：2026-10-13。执行更新：2026-10-26 UTC。状态：**M3第九十三阶段已闭合；有效8718A／5690B，已验证8747A／5718B；12条局部修复待执行，16条source/runtime pending不计完成。全轮、最终候选与游戏验收尚未完成**。当前证据见[执行状态](../evidence/full-review/release-20261013/STATUS.md)。
+日期：2026-10-13。执行更新：2026-10-26 UTC。状态：**M3第九十四阶段已闭合；有效8792A／5717B，已验证8827A／5750B；18条局部修复待执行，16条source/runtime pending不计完成。全轮、最终候选与游戏验收尚未完成**。当前证据见[执行状态](../evidence/full-review/release-20261013/STATUS.md)。
 
 用户已明确：**以发布汉化版本为主，Engine 文本也必须输出**。主交付是包含 Engine 译文、可安装且可验证的汉化包，附简明质量说明及证据索引。推荐采用 **A 遍全量语境审读＋B 遍高风险独立复核＋修复后验收＋实际候选包验证**。包外仓库组件与长篇研究报告列为后续。Engine 已是本轮明确范围，不再作为待授权的范围扩展；当前 M2 连续执行，后续执行与外部发布按当前授权及 [AGENTS.md](../AGENTS.md) 进行。
 
@@ -175,7 +175,7 @@ p12s3 已闭合：本批新增 9A/2B，确认待修 revision=0；
 隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
 不计最终候选或三 DLC 玩法验收；M4 仍须实际加载最终候选。
 
-从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v138`。
+从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v139`。
 完整 task-gates 使用已验证的 `PATH=/usr/local/bin:$PATH` 与 `TOME_PASEO_WORKSPACE` 环境，
 当前按绝对 directory 调用；相对路径回执返回问题已有有界归因，待小型入口修正。
 执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
@@ -443,3 +443,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-26 M3phase92完成79A／73B（核心data/damage_types.lua第1组，来源固定），两路结果各自full17/build，新增有效79A／73B，累计8641A／5645B，已验证8669A／5673B。无确认、advisory 6条；修复队列11条，未达开窗线。
 
 2026-10-26 M3phase93完成78A／45B（核心data/damage_types.lua第2组，来源固定；首个A读取缺口拒收，a-r1替代），两路有效结果各自full17/build，新增有效77A／45B，累计8718A／5690B，已验证8747A／5718B。确认1条、advisory 1条；修复队列12条，未达开窗线。
+
+2026-10-26 M3phase94完成80A／32B（核心data/damage_types.lua第3组，来源固定；含定向B 5条），三路结果各自full17/build，新增有效74A／27B，累计8792A／5717B，已验证8827A／5750B。确认6条、advisory 3条；修复队列18条，未达开窗线。
