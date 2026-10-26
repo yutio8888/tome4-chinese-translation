@@ -1838,3 +1838,86 @@ class LoadingOnlyBytesTests(unittest.TestCase):
                             with self.assertRaises(fr.FullReviewError): fr.loading_bytes(manifest,sup,{})
                             (inner/path).write_bytes(b'drift')
                             with self.assertRaises(fr.FullReviewError): fr.loading_bytes(manifest,sup,mapping)
+
+
+class ExactByteParseTests(unittest.TestCase):
+    def test_changed_file_is_reread_and_reparsed_within_scope(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp)/'workset.json'
+            path.write_bytes(b'{"entries":[1]}')
+            original = contextual.strict_json_bytes
+            with patch.object(contextual, 'strict_json_bytes', wraps=original) as parse:
+                with fr._parse_scope():
+                    self.assertEqual(fr.read(path), {'entries': [1]})
+                    self.assertEqual(fr.read(path), {'entries': [1]})
+                    self.assertEqual(parse.call_count, 1)
+                    path.write_bytes(b'{"entries":[2]}')
+                    self.assertEqual(fr.read(path), {'entries': [2]})
+                    self.assertEqual(parse.call_count, 2)
+                    path.write_bytes(b'{"entries":1,"entries":2}')
+                    with self.assertRaises(contextual.ContractError):
+                        fr.read(path)
+                path.write_bytes(b'{"entries":[1]}')
+                fr.read(path)
+                self.assertEqual(parse.call_count, 4)
+
+    def test_result_validation_reuses_only_identical_input_and_raw(self):
+        def decode(before, after):
+            return {'verdicts': [before.decode(), after.decode()]}
+        with patch.object(contextual, 'validate_result_bytes', side_effect=decode) as parse:
+            with fr._parse_scope():
+                self.assertEqual(fr._result_bytes(b'input', b'raw'), fr._result_bytes(b'input', b'raw'))
+                self.assertEqual(parse.call_count, 1)
+                fr._result_bytes(b'changed', b'raw')
+                fr._result_bytes(b'input', b'changed')
+                self.assertEqual(parse.call_count, 3)
+            fr._result_bytes(b'input', b'raw')
+            self.assertEqual(parse.call_count, 4)
+
+
+    def test_whitespace_read_cannot_authorize_strict_workset_parse(self):
+        raw = b' {"entries":[]} '
+        with fr._parse_scope():
+            self.assertEqual(fr._json_bytes(raw, label='read', whitespace=True), {'entries': []})
+            with self.assertRaises(contextual.ContractError):
+                fr._json_bytes(raw, label='strict workset')
+
+
+    def test_lru_entry_and_byte_bounds_and_oversized_skip(self):
+        with patch.object(fr, '_PARSE_ENTRIES', 2), patch.object(fr, '_PARSE_BYTES', 4):
+            with fr._parse_scope():
+                decode = unittest.mock.Mock(side_effect=lambda: object())
+                first = fr._parsed(('json', b'aa'), decode)
+                fr._parsed(('json', b'bb'), decode)
+                self.assertIs(fr._parsed(('json', b'aa'), decode), first)
+                fr._parsed(('json', b'c'), decode)
+                self.assertNotIn(('json', b'bb'), fr._parse_cache.get()[0])
+                fr._parsed(('json', b'ddd'), decode)
+                entries, size = fr._parse_cache.get()
+                self.assertLessEqual(len(entries), 2)
+                self.assertEqual(size, sum(len(k[1]) for k in entries))
+                self.assertLessEqual(size, 4)
+                fr._parsed(('json', b'large'), decode)
+                fr._parsed(('json', b'large'), decode)
+                self.assertNotIn(('json', b'large'), entries)
+                self.assertEqual(decode.call_count, 6)
+
+    def test_failed_parses_retry_and_exception_releases_scope(self):
+        with self.assertRaisesRegex(RuntimeError, 'scope failure'):
+            with fr._parse_scope():
+                original = fr._parse_cache.get()
+                with fr._parse_scope():
+                    self.assertIs(fr._parse_cache.get(), original)
+                with patch.object(contextual, 'strict_json_bytes', side_effect=contextual.ContractError('bad')) as parse:
+                    for _ in range(2):
+                        with self.assertRaises(contextual.ContractError):
+                            fr._json_bytes(b'bad', label='bad')
+                    self.assertEqual(parse.call_count, 2)
+                with patch.object(contextual, 'validate_result_bytes', side_effect=contextual.ContractError('bad')) as parse:
+                    for _ in range(2):
+                        with self.assertRaises(contextual.ContractError):
+                            fr._result_bytes(b'input', b'bad')
+                    self.assertEqual(parse.call_count, 2)
+                self.assertEqual(fr._parse_cache.get()[0], {})
+                raise RuntimeError('scope failure')
+        self.assertIsNone(fr._parse_cache.get())

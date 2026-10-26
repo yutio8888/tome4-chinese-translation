@@ -256,6 +256,15 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   前驱 seal 或 `_outputs_only` 改变即失效。只缓存成功的历史递归结果，当前轮的
   源码、preflight、迁移及 seal 检查照常执行；历史计算触及 Git／FixedReader 时不发布。
   关闭开关可独立完整重放，不读写或创建缓存目录。缓存不提供生产审核或门禁 credit。
+- 修改 `tools/` 下验证代码后，以及每次 release candidate 前，必须运行独立完整重放：
+  `I18N_FULL_REVIEW_CACHE=off python3 -B tools/full_review.py check --directory <round>`。
+- `I18N_FULL_REVIEW_TIMING=1` 将分段计时与调用次数写到 stderr，默认关闭。
+  `exclusive_seconds` 互斥，可相加；`outer_seconds` 包含子分段、同名递归只记最外层，
+  不可跨名称相加。历史 outer 时间可与总墙钟对照，另列 inventory、import、解析、
+  读取、覆盖继承／汇总和 cache key／load／serialization／publish。
+  单次 check 还复用精确相同字节的 JSON 与结果解析，最多保留 4096 项、64 MiB 原始
+  字节键（解析对象另占内存）；inventory 沿用原有有界快照。文件每次仍重新读取并检查
+  路径，失败解析不缓存；退出释放缓存，后续调用重新校验。
 - `.artifacts/i18n/cache/review-inventory/` 是当前宿主 producer 生成的可信派生缓存，
   自哈希、header 和 slice proof 能阻断缺失、陈旧与随机损坏，但不是抵御同一工作区内
   协调伪造 bundle+cache 的密码学证明。来自外部或不可信工作区的 bundle 不应直接使用，

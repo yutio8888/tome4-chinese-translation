@@ -545,3 +545,33 @@ print(json.dumps(c.events))
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class SegmentTimingTests(unittest.TestCase):
+    def test_exclusive_nested_timing_and_default_silence(self):
+        import contextlib
+        import io
+        stream = io.StringIO()
+        with patch.dict(os.environ, I18N_FULL_REVIEW_TIMING='0'), contextlib.redirect_stderr(stream):
+            with cache.timing(), cache.segment('read'):
+                pass
+        self.assertEqual(stream.getvalue(), '')
+        with patch.dict(os.environ, I18N_FULL_REVIEW_TIMING='1'), contextlib.redirect_stderr(stream):
+            with cache.timing():
+                with cache.segment('read'):
+                    with cache.segment('parse'):
+                        pass
+        result = json.loads(stream.getvalue().split(': ', 1)[1])
+        self.assertEqual(result['calls']['read'], 1)
+        self.assertEqual(result['calls']['parse'], 1)
+        self.assertAlmostEqual(sum(result['exclusive_seconds'].values()), result['wall_seconds'], delta=.02)
+        self.assertIsNone(cache._timing.get())
+
+    def test_exception_restores_context(self):
+        import contextlib
+        import io
+        with patch.dict(os.environ, I18N_FULL_REVIEW_TIMING='1'), contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaisesRegex(ValueError, 'broken'):
+                with cache.timing(), cache.segment('read'):
+                    raise ValueError('broken')
+        self.assertIsNone(cache._timing.get())

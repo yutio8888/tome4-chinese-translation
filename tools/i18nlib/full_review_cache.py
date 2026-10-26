@@ -11,6 +11,7 @@ import builtins
 from collections import Counter
 from contextlib import contextmanager
 from contextvars import ContextVar
+from functools import wraps
 import hashlib
 import io
 import sysconfig
@@ -42,6 +43,68 @@ _active = ContextVar('full_review_dependencies', default=None)
 _instrument_lock = threading.RLock()
 _audit_installed = False
 events = []
+
+
+_timing = ContextVar('full_review_timing', default=None)
+
+
+@contextmanager
+def segment(name):
+    state = _timing.get()
+    if state is None:
+        yield
+        return
+    started = time.perf_counter()
+    outer = state['active'][name] == 0
+    state['active'][name] += 1
+    frame = [name, 0.0]
+    state['stack'].append(frame)
+    try:
+        yield
+    finally:
+        elapsed = time.perf_counter() - started
+        state['stack'].pop()
+        state['active'][name] -= 1
+        if outer:
+            state['outer_seconds'][name] += elapsed
+        state['seconds'][name] += elapsed - frame[1]
+        state['calls'][name] += 1
+        if state['stack']:
+            state['stack'][-1][1] += elapsed
+
+
+def timed(name):
+    def decorate(function):
+        @wraps(function)
+        def call(*args, **kwargs):
+            with segment(name):
+                return function(*args, **kwargs)
+        return call
+    return decorate
+
+
+@contextmanager
+def timing():
+    if os.environ.get('I18N_FULL_REVIEW_TIMING') != '1' or _timing.get() is not None:
+        yield
+        return
+    state = {'seconds': Counter(), 'calls': Counter(), 'stack': [],
+             'active': Counter(), 'outer_seconds': Counter()}
+    token = _timing.set(state)
+    started = time.perf_counter()
+    try:
+        with segment('current-validation-and-aggregation'):
+            yield
+    finally:
+        _timing.reset(token)
+        try:
+            print('full-review-timing: ' + canonical({
+                'wall_seconds': time.perf_counter() - started,
+                'exclusive_seconds': dict(state['seconds']),
+                'outer_seconds': dict(state['outer_seconds']),
+                'calls': dict(state['calls'])}).decode(), file=sys.stderr)
+        except (OSError, ValueError):
+            pass
 
 
 def event(kind, reason, **fields):
@@ -445,6 +508,7 @@ def recording(recorder):
                 setattr(obj, name, original)
 
 
+@timed('cache-dependencies')
 def verify(rows):
     if type(rows) is not list or not rows:
         raise ValueError('missing dependencies')
@@ -484,6 +548,7 @@ def _directory(root, create):
     return current
 
 
+@timed('cache-lookup')
 def _load(path, key):
     fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
     with os.fdopen(fd, 'rb') as stream:
@@ -507,6 +572,7 @@ def _load(path, key):
     return result, payload['dependencies'], time.perf_counter() - start
 
 
+@timed('cache-publish')
 def _publish(root, name, raw):
     if len(raw) > MAX_TOTAL_BYTES:
         raise ValueError('oversized entry')
@@ -570,6 +636,7 @@ _identity_frozen = None
 _identity_poisoned = False
 
 
+@timed('cache-key')
 def implementation_identity():
     """Projection identity rules, excluding only the caller's __main__ file."""
     global _identity_frozen, _identity_poisoned
@@ -608,6 +675,7 @@ def implementation_identity():
     return {**identity, 'modules': modules}
 
 
+@timed('historical-recursion')
 def predecessor(manifest, directory, seal, outputs_only, compute):
     """A failure of compute is never caught; all cache faults only cost replay."""
     if not enabled():
@@ -681,11 +749,12 @@ def predecessor(manifest, directory, seal, outputs_only, compute):
             seconds = time.perf_counter() - start
             if implementation_identity() != implementation:
                 raise ValueError('implementation changed')
-            value = pack(result)
-            if pack(unpack(value)) != value:
-                raise ValueError('value is not lossless')
-            payload = {'key': key, 'dependencies': rows, 'value': value}
-            raw = canonical({'payload': payload, 'sha256': digest(canonical(payload))})
+            with segment('cache-serialization'):
+                value = pack(result)
+                if pack(unpack(value)) != value:
+                    raise ValueError('value is not lossless')
+                payload = {'key': key, 'dependencies': rows, 'value': value}
+                raw = canonical({'payload': payload, 'sha256': digest(canonical(payload))})
             _publish(root, name, raw)
             event('publish', 'verified historical result', file=name, bytes=len(raw),
                   dependencies=dict(Counter(r[0] for r in rows)), verification_seconds=seconds)

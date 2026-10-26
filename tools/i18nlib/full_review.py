@@ -6,8 +6,9 @@ bytes, current occurrence guards and the existing task terminal predicate.
 from __future__ import annotations
 
 from bisect import bisect_left
-from collections import Counter
+from collections import Counter, OrderedDict
 from contextlib import contextmanager
+from contextvars import ContextVar
 from copy import deepcopy
 import fcntl
 import hashlib
@@ -48,6 +49,56 @@ def canonical(value):
                       allow_nan=False).encode('utf-8')
 
 
+_parse_cache = ContextVar('full_review_parses', default=None)
+_PARSE_BYTES = 64 * 1024 * 1024
+_PARSE_ENTRIES = 4096
+
+
+@contextmanager
+def _parse_scope():
+    if _parse_cache.get() is not None:
+        yield
+        return
+    token = _parse_cache.set([OrderedDict(), 0])
+    try:
+        yield
+    finally:
+        _parse_cache.reset(token)
+
+
+def _parsed(key, decode):
+    state = _parse_cache.get()
+    if state is None:
+        return decode()
+    entries = state[0]
+    if key in entries:
+        value = entries.pop(key)
+        entries[key] = value
+        return value
+    value = decode()  # Never retain failed parses/validations.
+    size = sum(len(item) for item in key[1:])
+    if size <= _PARSE_BYTES:
+        while entries and (state[1] + size > _PARSE_BYTES or len(entries) >= _PARSE_ENTRIES):
+            old, _ = entries.popitem(last=False)
+            state[1] -= sum(len(item) for item in old[1:])
+        entries[key] = value
+        state[1] += size
+    return value
+
+
+@full_review_cache.timed('json-parsing')
+def _json_bytes(raw, *, label, whitespace=False):
+    stripped = raw.strip() if whitespace else raw
+    mode = 'json-whitespace' if stripped != raw else 'json'
+    return _parsed((mode, raw), lambda: contextual.strict_json_bytes(stripped, label=label))
+
+
+@full_review_cache.timed('import-result-parsing')
+def _result_bytes(envelope, raw):
+    return _parsed(('result', envelope, raw), lambda: contextual.validate_result_bytes(envelope, raw))
+
+
+@full_review_cache.timed('file-reads')
 def ordinary(path):
     path = Path(path).absolute()
     if any(p.is_symlink() for p in (path, *path.parents)) or not path.is_file():
@@ -57,7 +108,7 @@ def ordinary(path):
 
 def read(path):
     # Strict duplicate-key/NaN handling, with ordinary JSON file whitespace.
-    return contextual.strict_json_bytes(ordinary(path).strip(), label=str(path))
+    return _json_bytes(ordinary(path), label=str(path), whitespace=True)
 
 
 class _InventorySnapshot:
@@ -67,6 +118,7 @@ class _InventorySnapshot:
     still run. A predecessor snapshot is moved into its recursive consumer, never
     shared with the parent mapping view or retained in an invocation-wide cache.
     """
+    @full_review_cache.timed('inventory-parsing')
     def __init__(self, directory):
         self.path = Path(directory).absolute() / 'inventory.json'
         raw = ordinary(self.path)
@@ -81,6 +133,7 @@ class _InventorySnapshot:
         if sha(ordinary(self.path)) != self.digest:
             raise FullReviewError('inventory snapshot bytes drift')
 
+    @full_review_cache.timed('inventory-parsing')
     def reload(self, directory):
         # Restore a released parse. The digest binds these to the exact bytes the
         # strict decoder already accepted in this invocation, so the plain decoder
@@ -293,6 +346,7 @@ def inventory(manifest, round_id, output, snapshot_reports, source_provenance=No
             'A': 0, 'B': 0, 'denominator_frozen': False}
 
 
+@full_review_cache.timed('current-inventory-validation')
 def validate_current(manifest, ledger):
     body = {k: v for k, v in ledger.items() if k != 'inventory_identity'}
     if ledger.get('inventory_identity') != sha(canonical(body)):
@@ -479,6 +533,7 @@ def successor(manifest, directory, output, request_path):
         return {'round_id': old['round_id'], 'units': len(units), 'status': 'successor-frozen'}
 
 
+@full_review_cache.timed('inventory-validation')
 def validate_inventory(manifest, ledger):
     body = {k: v for k, v in ledger.items() if k != 'inventory_identity'}
     if ledger.get('inventory_identity') != sha(canonical(body)) or ledger['manifest_sha256'] != sha(manifest.raw_bytes):
@@ -519,13 +574,14 @@ def neutral_entry(entry):
     return {k: entry[k] for k in ('unit_id', 'context', 'source_files')}
 
 
+@full_review_cache.timed('workset-parsing')
 def output_entry(directory, ref, unit):
     """Read the exact frozen origin, including inherited references."""
     origin = Path(ref.get('_directory', directory))
     raw = ordinary(origin / 'exports' / ref['export_id'] / 'workset.json')
     if sha(raw) != ref['workset_sha256']:
         raise FullReviewError('pair origin workset drift')
-    entries = [e for e in contextual.strict_json_bytes(raw, label='pair workset')['entries']
+    entries = [e for e in _json_bytes(raw, label='pair workset')['entries']
                if e['unit_id'] == unit]
     if len(entries) != 1:
         raise FullReviewError('pair origin unit missing/duplicate')
@@ -537,9 +593,10 @@ def match_pair(directory, a, b, unit):
         raise FullReviewError('A/B neutral source/context mismatch')
 
 
+@full_review_cache.timed('raw-result-validation')
 def a_issue(directory, ref, revision):
     origin = Path(ref.get('_directory', directory))
-    result = contextual.validate_result_bytes(ordinary(origin / 'exports' / ref['export_id'] / 'input.json'),
+    result = _result_bytes(ordinary(origin / 'exports' / ref['export_id'] / 'input.json'),
         ordinary(origin / 'imports' / ref['export_id'] / 'raw.json'))
     return any(v['revision_key'] == revision and v['verdict'] == 'ISSUE' for v in result['verdicts'])
 
@@ -685,6 +742,7 @@ def replay_export(manifest, directory, export_id, live, *, historical=False):
                           _InventorySnapshot(directory), historical=historical)
 
 
+@full_review_cache.timed('export-validation')
 def _replay_export(manifest, directory, export_id, live, inventory, *, historical=False):
     dest = Path(directory) / 'exports' / token(export_id)
     ref = read(dest / 'ref.json')
@@ -871,12 +929,14 @@ def task_anchors(manifest, binding):
     return files
 
 
+@full_review_cache.timed('import-validation')
 def validate_terminal_anchors(manifest, binding, dest):
     for name, data in task_anchors(manifest, binding).items():
         if ordinary(safe_path(dest / 'task-anchors', name)) != data:
             raise FullReviewError('tracked task terminal anchor drift')
 
 
+@full_review_cache.timed('import-validation')
 def producer(manifest, ref, binding, input_raw, raw, *, accepted_selection=None):
     # Bind task, fresh dispatch, live identity, workspace and direct lineage.
     task_id = token(binding['task_id'])
@@ -931,7 +991,7 @@ def import_result(manifest, directory, export_id, raw_path, binding_path):
         if (binding.get('round_id'), binding.get('export_id'), binding.get('input_sha256'),
                 binding.get('raw_sha256')) != (ledger['round_id'], export_id, sha(input_raw), sha(raw)):
             raise FullReviewError('exact import binding mismatch')
-        contextual.validate_result_bytes(input_raw, raw)
+        _result_bytes(input_raw, raw)
         if not binding.get('gate_evidence_path'):
             raise FullReviewError('missing task-specific tracked full gate/build receipt')
         dest = directory / 'imports' / export_id
@@ -964,8 +1024,9 @@ def import_result(manifest, directory, export_id, raw_path, binding_path):
 
 
 def check(manifest, directory, *, require_complete=False, _historical=False, _details=False, _outputs_only=False):
-    return _check(manifest, directory, require_complete=require_complete,
-                  _historical=_historical, _details=_details, _outputs_only=_outputs_only)
+    with full_review_cache.timing(), _parse_scope():
+        return _check(manifest, directory, require_complete=require_complete,
+                      _historical=_historical, _details=_details, _outputs_only=_outputs_only)
 
 
 def _check(manifest, directory, *, require_complete=False, _historical=False,
@@ -1001,7 +1062,7 @@ def _check(manifest, directory, *, require_complete=False, _historical=False,
         if ((binding.get('round_id'), binding.get('export_id')) != (ledger['round_id'], ref['export_id']) or
                 sha(raw) != binding['raw_sha256'] or sha(input_raw) != binding['input_sha256']):
             raise FullReviewError('import recovery hash mismatch')
-        contextual.validate_result_bytes(input_raw, raw)
+        _result_bytes(input_raw, raw)
         if (receipt.get('status') != 'output-validated-and-archived' or receipt.get('lane') != ref['lane'] or
                 not isinstance(receipt.get('gate_selection'), dict)):
             raise FullReviewError('incomplete accepted import receipt')
@@ -1051,108 +1112,110 @@ def _check(manifest, directory, *, require_complete=False, _historical=False,
             ledger = inventory.ledger
             live = {u['unit_id']: u for u in ledger['units']}
             predecessor = ledger['predecessor']
-        unchanged = {x['unit_id'] for x in predecessor['request']['mapping'] if x['status'] == 'unchanged'}
-        for unit in unchanged:
-            if unit not in live or unit not in old_units or (live[unit]['revision_key'], live[unit]['guard']) != (old_units[unit]['revision_key'], old_units[unit]['guard']):
-                raise FullReviewError('invalid unchanged predecessor mapping')
-            # Pending frozen lanes carry policy even without any imported output.
-            # Only exact unchanged revision/guard and neutral context can inherit it.
-            for old_ref in prior['obligations'].get(unit, []):
-                if output_entry(previous, old_ref, unit) != neutral_entry(predecessor['request']['contexts'][unit]):
-                    continue
-                origin = Path(old_ref.get('_directory', previous))
-                if not _historical:
-                    for spec in output_entry(previous, old_ref, unit)['source_files']:
-                        source_file(manifest, spec)
-                obligations.setdefault(unit, []).append(dict(old_ref, _directory=str(origin)))
-            for lane in ('A', 'B'):
-                old_ref = prior['outputs'][lane].get(unit)
-                if old_ref is None:
-                    continue
-                origin = Path(old_ref.get('_directory', previous))
-                workset = read(origin / 'exports' / old_ref['export_id'] / 'workset.json')
-                entry = next(e for e in workset['entries'] if e['unit_id'] == unit)
-                if neutral_entry(entry) != neutral_entry(predecessor['request']['contexts'][unit]):
-                    continue
-                if not _historical:
-                    for spec in entry['source_files']:
-                        source_file(manifest, spec)
-                if unit in outputs[lane]:
-                    raise FullReviewError('duplicate inherited/current coverage')
-                outputs[lane][unit] = dict(old_ref, _directory=str(origin))
+        with full_review_cache.segment('coverage-inheritance'):
+            unchanged = {x['unit_id'] for x in predecessor['request']['mapping'] if x['status'] == 'unchanged'}
+            for unit in unchanged:
+                if unit not in live or unit not in old_units or (live[unit]['revision_key'], live[unit]['guard']) != (old_units[unit]['revision_key'], old_units[unit]['guard']):
+                    raise FullReviewError('invalid unchanged predecessor mapping')
+                # Pending frozen lanes carry policy even without any imported output.
+                # Only exact unchanged revision/guard and neutral context can inherit it.
+                for old_ref in prior['obligations'].get(unit, []):
+                    if output_entry(previous, old_ref, unit) != neutral_entry(predecessor['request']['contexts'][unit]):
+                        continue
+                    origin = Path(old_ref.get('_directory', previous))
+                    if not _historical:
+                        for spec in output_entry(previous, old_ref, unit)['source_files']:
+                            source_file(manifest, spec)
+                    obligations.setdefault(unit, []).append(dict(old_ref, _directory=str(origin)))
+                for lane in ('A', 'B'):
+                    old_ref = prior['outputs'][lane].get(unit)
+                    if old_ref is None:
+                        continue
+                    origin = Path(old_ref.get('_directory', previous))
+                    workset = read(origin / 'exports' / old_ref['export_id'] / 'workset.json')
+                    entry = next(e for e in workset['entries'] if e['unit_id'] == unit)
+                    if neutral_entry(entry) != neutral_entry(predecessor['request']['contexts'][unit]):
+                        continue
+                    if not _historical:
+                        for spec in entry['source_files']:
+                            source_file(manifest, spec)
+                    if unit in outputs[lane]:
+                        raise FullReviewError('duplicate inherited/current coverage')
+                    outputs[lane][unit] = dict(old_ref, _directory=str(origin))
 
-    for unit in set(outputs['A']) & set(outputs['B']):
-        refs = [outputs[lane][unit] for lane in ('A', 'B')]
-        match_pair(directory, refs[0], refs[1], unit)
-        bindings = [read(Path(ref.get('_directory', directory)) / 'imports' / ref['export_id'] / 'receipt.json')['binding'] for ref in refs]
-        if any(bindings[0][k] == bindings[1][k] for k in ('model', 'dispatch_id')):
-            raise FullReviewError('inherited A/B require different models and fresh dispatches')
-    inherited_decisions = []
-    if predecessor:
-        for unit, decision in prior['decisions'].items():
-            if unit in unchanged and all(
-                    outputs[lane].get(unit) == prior['outputs'][lane].get(unit) or
-                    outputs[lane].get(unit) == dict(prior['outputs'][lane].get(unit, {}),
-                        _directory=prior['outputs'][lane].get(unit, {}).get('_directory', str(previous)))
-                    for lane in ('A', 'B') if unit in prior['completed'][lane]):
-                a = outputs['A'].get(unit)
-                needed = b_needed(ledger, obligations, unit) or (a is not None and a_issue(directory, a, live[unit]['revision_key'])) or decision.get('a_observation_requires_b') is True
-                if not needed or unit in prior['completed']['B'] and unit in outputs['B']:
-                    inherited_decisions.append(decision)
-    # M1 intentionally does not synthesize host adjudication or denominator closure.
-    # A receipt is output validation, never effective coverage. Host adjudicated evidence
-    # is consumed only with exact raw hashes, source verification and a merged decision.
-    completed = {'A': set(), 'B': set()}
-    decisions = {}
-    current_decisions = [] if _outputs_only else [read(path) for path in sorted((directory / 'adjudications').glob('*.json'))]
-    if _outputs_only:
+    with full_review_cache.segment('coverage-aggregation'):
+        for unit in set(outputs['A']) & set(outputs['B']):
+            refs = [outputs[lane][unit] for lane in ('A', 'B')]
+            match_pair(directory, refs[0], refs[1], unit)
+            bindings = [read(Path(ref.get('_directory', directory)) / 'imports' / ref['export_id'] / 'receipt.json')['binding'] for ref in refs]
+            if any(bindings[0][k] == bindings[1][k] for k in ('model', 'dispatch_id')):
+                raise FullReviewError('inherited A/B require different models and fresh dispatches')
         inherited_decisions = []
-    current_keys = {d.get('unit_id') for d in current_decisions}
-    for decision in [d for d in inherited_decisions if d['unit_id'] not in current_keys] + current_decisions:
-        unit = decision.get('unit_id')
-        if (decision.get('round_id') != ledger['round_id'] or unit not in live or
-                decision.get('revision_key') != live[unit]['revision_key'] or unit in completed['A']):
-            raise FullReviewError('invalid/duplicate adjudication identity')
-        a = outputs['A'].get(unit)
-        if a is None:
-            raise FullReviewError('adjudication requires validated A')
-        needed = b_needed(ledger, obligations, unit) or a_issue(directory, a, live[unit]['revision_key']) or decision.get('a_observation_requires_b') is True
-        b = outputs['B'].get(unit)
-        if needed and b is None:
-            raise FullReviewError('merged adjudication missing required B')
-        for lane, ref in [('A', a), ('B', b if needed else None)]:
-            if ref and decision.get('raw_sha256', {}).get(lane) != sha(ordinary(Path(ref.get('_directory', directory)) / 'imports' / ref['export_id'] / 'raw.json')):
-                raise FullReviewError('adjudication raw binding mismatch')
-        if (decision.get('source_verified') is not True or decision.get('accepted_successor') is not True or
-                decision.get('confirmed') != [] or decision.get('blocking_pending') != [] or
-                decision.get('status') != 'effective-complete' or not decision.get('evidence')):
-            continue
-        for evidence in decision['evidence']:
-            if sha(ordinary(safe_path(manifest.root, evidence['path']))) != evidence['sha256']:
-                raise FullReviewError('adjudicated evidence drift')
-        decisions[unit] = decision
-        completed['A'].add(unit)
-        if needed:
-            completed['B'].add(unit)
-    if _details:
-        return {'outputs': outputs, 'obligations': obligations, 'completed': completed, 'decisions': decisions}
-    applicable = sum(u['disposition'] == 'release-required' for u in live.values())
-    result = {'round_id': ledger['round_id'], 'canonical_occurrences': sum('supplement_spec' not in u for u in live.values()),
-        'provisional_applicable_units': applicable, 'A_validated_outputs': len(outputs['A']),
-        'B_validated_outputs': len(outputs['B']), 'A_effective_complete': len(completed['A']),
-        'B_effective_complete': len(completed['B']), 'A_remaining': applicable - len(completed['A']),
-        'supplements_pending': len(ledger['supplements']), 'denominator_frozen': False,
-        'review_progress_complete': False, 'release_ready': False,
-        'blockers': ['source/runtime conservation not host-closed', 'supplement language units not frozen',
-                     'retained/dynamic layers not host-closed', 'Engine/game final scenarios untested']}
-    closure = None if _historical else closure_check(manifest, directory, ledger, live, completed)
-    if closure is not None:
-        result.update(closure)
-        result.update(denominator_frozen=True, review_progress_complete=True, supplements_pending=0,
-                      blockers=[] if closure['release_ready'] else ['final Engine/game scenarios not measured/accepted'])
-    if require_complete and not result['review_progress_complete']:
-        raise FullReviewError('round incomplete: ' + canonical(result).decode('utf-8'))
-    return result
+        if predecessor:
+            for unit, decision in prior['decisions'].items():
+                if unit in unchanged and all(
+                        outputs[lane].get(unit) == prior['outputs'][lane].get(unit) or
+                        outputs[lane].get(unit) == dict(prior['outputs'][lane].get(unit, {}),
+                            _directory=prior['outputs'][lane].get(unit, {}).get('_directory', str(previous)))
+                        for lane in ('A', 'B') if unit in prior['completed'][lane]):
+                    a = outputs['A'].get(unit)
+                    needed = b_needed(ledger, obligations, unit) or (a is not None and a_issue(directory, a, live[unit]['revision_key'])) or decision.get('a_observation_requires_b') is True
+                    if not needed or unit in prior['completed']['B'] and unit in outputs['B']:
+                        inherited_decisions.append(decision)
+        # M1 intentionally does not synthesize host adjudication or denominator closure.
+        # A receipt is output validation, never effective coverage. Host adjudicated evidence
+        # is consumed only with exact raw hashes, source verification and a merged decision.
+        completed = {'A': set(), 'B': set()}
+        decisions = {}
+        current_decisions = [] if _outputs_only else [read(path) for path in sorted((directory / 'adjudications').glob('*.json'))]
+        if _outputs_only:
+            inherited_decisions = []
+        current_keys = {d.get('unit_id') for d in current_decisions}
+        for decision in [d for d in inherited_decisions if d['unit_id'] not in current_keys] + current_decisions:
+            unit = decision.get('unit_id')
+            if (decision.get('round_id') != ledger['round_id'] or unit not in live or
+                    decision.get('revision_key') != live[unit]['revision_key'] or unit in completed['A']):
+                raise FullReviewError('invalid/duplicate adjudication identity')
+            a = outputs['A'].get(unit)
+            if a is None:
+                raise FullReviewError('adjudication requires validated A')
+            needed = b_needed(ledger, obligations, unit) or a_issue(directory, a, live[unit]['revision_key']) or decision.get('a_observation_requires_b') is True
+            b = outputs['B'].get(unit)
+            if needed and b is None:
+                raise FullReviewError('merged adjudication missing required B')
+            for lane, ref in [('A', a), ('B', b if needed else None)]:
+                if ref and decision.get('raw_sha256', {}).get(lane) != sha(ordinary(Path(ref.get('_directory', directory)) / 'imports' / ref['export_id'] / 'raw.json')):
+                    raise FullReviewError('adjudication raw binding mismatch')
+            if (decision.get('source_verified') is not True or decision.get('accepted_successor') is not True or
+                    decision.get('confirmed') != [] or decision.get('blocking_pending') != [] or
+                    decision.get('status') != 'effective-complete' or not decision.get('evidence')):
+                continue
+            for evidence in decision['evidence']:
+                if sha(ordinary(safe_path(manifest.root, evidence['path']))) != evidence['sha256']:
+                    raise FullReviewError('adjudicated evidence drift')
+            decisions[unit] = decision
+            completed['A'].add(unit)
+            if needed:
+                completed['B'].add(unit)
+        if _details:
+            return {'outputs': outputs, 'obligations': obligations, 'completed': completed, 'decisions': decisions}
+        applicable = sum(u['disposition'] == 'release-required' for u in live.values())
+        result = {'round_id': ledger['round_id'], 'canonical_occurrences': sum('supplement_spec' not in u for u in live.values()),
+            'provisional_applicable_units': applicable, 'A_validated_outputs': len(outputs['A']),
+            'B_validated_outputs': len(outputs['B']), 'A_effective_complete': len(completed['A']),
+            'B_effective_complete': len(completed['B']), 'A_remaining': applicable - len(completed['A']),
+            'supplements_pending': len(ledger['supplements']), 'denominator_frozen': False,
+            'review_progress_complete': False, 'release_ready': False,
+            'blockers': ['source/runtime conservation not host-closed', 'supplement language units not frozen',
+                         'retained/dynamic layers not host-closed', 'Engine/game final scenarios untested']}
+        closure = None if _historical else closure_check(manifest, directory, ledger, live, completed)
+        if closure is not None:
+            result.update(closure)
+            result.update(denominator_frozen=True, review_progress_complete=True, supplements_pending=0,
+                          blockers=[] if closure['release_ready'] else ['final Engine/game scenarios not measured/accepted'])
+        if require_complete and not result['review_progress_complete']:
+            raise FullReviewError('round incomplete: ' + canonical(result).decode('utf-8'))
+        return result
 
 
 def evidence_files(manifest, records):
