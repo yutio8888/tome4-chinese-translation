@@ -617,7 +617,7 @@ t("smoke cloud", "烟雾云", "damage type")
 t("lightning web", "闪电之网", "damage type")
 t("incendiary grenade", "燃烧榴弹", "damage type")
 t("chemical grenade", "化学榴弹", "damage type")
-t("shock grenade", "震荡榴弹", "damage type")
+t("shock grenade", "电击榴弹", "damage type")
 t("phosphorous", "磷火", "damage type")
 t("fire wall", "火墙", "damage type")
 t("volatile fuel", "易燃燃料", "damage type")
@@ -4882,7 +4882,7 @@ t([[You load advanced grenades into your launcher.
 	You can only choose a single type of grenade at a time.]], [[你往你的发射器内装入高级榴弹。
 	燃烧榴弹：在 3 回合内造成火焰伤害，增加所受到的伤害 %d%%。
 	化学榴弹：造成酸性伤害，减速目标 %d%%， 持续 3 回合。
-	震荡榴弹：造成闪电伤害，震撼目标 %d 回合，使目标震慑和定身抗性减少50%%。
+	电击榴弹：造成闪电伤害，震撼目标 %d 回合，使目标震慑和定身抗性减少50%%。
 	另外，你的炮台被摧毁的时候会引发爆炸，对半径 3 码内的敌人造成 %0.2f 物理伤害。
 	你只能同时激活一种榴弹类型。]], "tformat")
 t("Barrage", "榴弹轰炸", "talent name")
@@ -4896,7 +4896,7 @@ t("Incendiary Grenade", "燃烧榴弹", "talent name")
 t("Enhance your grenade with an incendiary agent that burns through armor, dealing fire damage over 3 turns and increasing damage taken while burning by %d%%.", "用高度易燃物质强化榴弹，烧蚀敌人护甲，3回合内造成火焰伤害，在目标燃烧时增加所受到的伤害 %d%%。", "tformat")
 t("Chemical Grenade", "化学榴弹", "talent name")
 t("Enhance your grenade with incapacitating chemicals that deal acid damage and reduce global speed by %d%% for 3 turns.", "用致残化学物质强化榴弹，造成酸性伤害，降低目标全局速度 %d%%， 持续 3 回合。", "tformat")
-t("Shock Grenade", "震荡榴弹", "talent name")
+t("Shock Grenade", "电击榴弹", "talent name")
 t("Enhance your grenade with an electrical charge, causing it to deal lightning damage and shock targets for %d turns, reducing stun and pin resistance by 50%%.", "为你的榴弹充上电荷，使其造成闪电伤害并震撼目标 %d 回合，令其震慑和定身抗性降低 50%%。", "tformat")
 
 ------------------------------------------------
