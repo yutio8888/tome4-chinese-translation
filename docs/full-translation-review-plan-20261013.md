@@ -1,6 +1,6 @@
 # 面向汉化版本发布的全量复核计划
 
-日期：2026-10-13。执行更新：2026-10-26 UTC。状态：**M3第九十七阶段已闭合；有效8928A／5753B，已验证8964A／5787B；19条局部修复待执行，16条source/runtime pending不计完成。全轮、最终候选与游戏验收尚未完成**。当前证据见[执行状态](../evidence/full-review/release-20261013/STATUS.md)。
+日期：2026-10-13。执行更新：2026-10-26 UTC。状态：**M3第九十八阶段已闭合；有效8944A／5759B，已验证8981A／5794B；20条局部修复待执行，16条source/runtime pending不计完成。全轮、最终候选与游戏验收尚未完成**。当前证据见[执行状态](../evidence/full-review/release-20261013/STATUS.md)。
 
 用户已明确：**以发布汉化版本为主，Engine 文本也必须输出**。主交付是包含 Engine 译文、可安装且可验证的汉化包，附简明质量说明及证据索引。推荐采用 **A 遍全量语境审读＋B 遍高风险独立复核＋修复后验收＋实际候选包验证**。包外仓库组件与长篇研究报告列为后续。Engine 已是本轮明确范围，不再作为待授权的范围扩展；当前 M2 连续执行，后续执行与外部发布按当前授权及 [AGENTS.md](../AGENTS.md) 进行。
 
@@ -175,7 +175,7 @@ p12s3 已闭合：本批新增 9A/2B，确认待修 revision=0；
 隔离官方 1.7.6 的 prototype Engine 早期 locale、CJK 标题和精确回退能力已核验，
 不计最终候选或三 DLC 玩法验收；M4 仍须实际加载最终候选。
 
-从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v142`。
+从当前版本恢复：`python3 -B tools/full_review.py check --directory evidence/full-review/release-20261013/round-v143`。
 完整 task-gates 使用已验证的 `PATH=/usr/local/bin:$PATH` 与 `TOME_PASEO_WORKSPACE` 环境，
 当前按绝对 directory 调用；相对路径回执返回问题已有有界归因，待小型入口修正。
 执行记录、门禁和迁移核验见 [当前状态](../evidence/full-review/release-20261013/STATUS.md)。
@@ -451,3 +451,5 @@ window-08八条法术说明、十一项已确认问题修复已DONE_VERIFIED；�
 2026-10-26 M3phase96完成22A／7B（核心data/damage_types.lua第5组即最后一组，来源固定；含定向B 1条），三路结果各自full17/build，新增有效22A／7B，累计8894A／5748B，已验证8929A／5781B。无确认、advisory 1条；data/damage_types.lua 全部审完；修复队列18条，未达开窗线。随后暂停审核生产，进行用户批准的门禁与合并提速维护。
 
 2026-10-26 M3phase97完成35A／6B（Orcs DLC tome-orcs/data/damage_types.lua 整个文件，来源未固定；含定向B 1条），三路结果各自full17/build，新增有效34A／5B，累计8928A／5753B，已验证8964A／5787B。确认1条（震荡榴弹→电击榴弹，Gemini名称裁决）；修复队列19条，未达开窗线。
+
+2026-10-27 M3phase98完成17A／7B（Cults DLC tome-cults/data/damage_types.lua 整个文件，来源未固定；B 由 b-r1 替换被外部归档的原 B；含定向B 1条），三路结果各自full17/build，新增有效16A／6B，累计8944A／5759B，已验证8981A／5794B。确认1条（反熵→反熵能量）；修复队列20条，达开窗线。
