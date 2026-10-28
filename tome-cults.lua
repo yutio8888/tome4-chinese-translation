@@ -830,7 +830,7 @@ t("temporarily causes the target to receive entropic backlash from any healing t
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Seeds of the Black Tree", "黑色树之种", "entity name")
 t("corrupt stone", "被污染的石头", "_t")
-t("This writhing mass of tentacles appears to have infested a mindstar, creating some bizarre fusion between natural and unnatural. The once clear gem now seems more like a shard of black obsidian with tentacles striking out from it like whips. You do not want to think of the implications of this horror being able to fuse with Nature itself.", "这团扭曲的触手似乎寄生在了一块灵晶上，在自然与非自然之间形成了一种奇异的融合。曾经清晰的宝石现在看起来更像一块黑曜石碎片，触手在上面伸出，宛如鞭子一般。你不愿去细想：恐魔竟能与自然本身融合，这意味着什么。", "_t")
+t("This writhing mass of tentacles appears to have infested a mindstar, creating some bizarre fusion between natural and unnatural. The once clear gem now seems more like a shard of black obsidian with tentacles striking out from it like whips. You do not want to think of the implications of this horror being able to fuse with Nature itself.", "这团扭曲的触手似乎寄生在了一块灵晶上，在自然与非自然之间形成了一种奇异的融合。曾经清澈的宝石现在看起来更像一块黑曜石碎片，触手从中向外抽击，宛如鞭子一般。你不愿去细想：恐魔竟能与自然本身融合，这意味着什么。", "_t")
 t("15% chance to cast Tendrils Eruption level 3 on your target", "15%几率对目标施放等级3的触手地狱", "_t")
 -- untranslated text
 --[==[
