@@ -13276,7 +13276,7 @@ t("The Face of Fear", "恐惧之颜", "entity name")
 t("bone mask", "骨质面具", "_t")
 t("This mask appears to be carved out of the skull of a creature that never should have existed, malformed and distorted. You shiver as you look upon it, and its hollow eye sockets seem to stare back into you.", "这件面具似乎是用某种不明生物的头骨制成的，那是一种本不应该存在于世间的可怕生物，畸形并且扭曲。每当你盯着这个面具时，它那空洞的眼窝似乎也在注视着你，令你感到发自内心的颤栗。", "_t")
 t("Cinderfeet", "余烬之足", "entity name")
-t("flame coated sandals", "一双被火焰覆盖的草鞋", "_t")
+t("flame coated sandals", "一双被火焰覆盖的凉鞋", "_t")
 t("A cautionary tale tells of the ancient warlock by the name of Caim, who fancied himself daily walks through Goedalath, both to test himself and the harsh demonic wastes. He was careful to never bring anything back with him, lest it provide a beacon for the demons to find him. Unfortunately, over time, his sandals drenched in the soot and ashes of the fearscape and the fire followed his footsteps outside, drawing in the conclusion of his grim fate.", "这是一个警示故事，讲的是有个叫凯姆的古代术士，他自命不凡，天天到恶魔的老巢高达勒斯散步，既为考验自己，也为探查那片严酷的恶魔荒原。他每次从恶魔位面归来都小心翼翼地不敢带回任何东西，生怕成为恶魔找到他的指引。不幸的是，来回很多次以后，他的草鞋浸满了恶魔空间的烟尘和灰烬。火焰随他的脚步被带到了世间，同时也注定了他悲惨的命运。", "_t")
 t("Each step you take leaves a burning trail behind you lasting 5 turns that deals %d fire damage (based on Spellpower) to foes who enter it.", "你每踏出一步会在脚下留下一条持续5回合的燃烧痕迹，对进入其中的敌人造成 %d 火焰伤害（基于法术强度）。", "tformat")
 t("fire trail", "火焰尾迹", "_t")
@@ -13295,7 +13295,7 @@ t("A large shimmering maul that seems to produce a ringing in your ears.  It is 
 t("Cloud Caller", "唤云者", "entity name")
 t("broad brimmed hat", "宽边帽", "_t")
 t("This hat's broad brim protects you from biting colds and sudden storms.", "这顶帽子宽阔的帽檐能保护你免受刺骨严寒和突如其来的暴风雨侵袭。", "_t")
-t("A small storm cloud follows you, dealing 15 lightning damage to all enemies in a radius of 3 each turn.", "一团小小的风暴包围着你，每回合对周围3码内的敌人造成15闪电伤害。", "_t")
+t("A small storm cloud follows you, dealing 15 lightning damage to all enemies in a radius of 3 each turn.", "一团小小的风暴云跟随着你，每回合对周围3码内的敌人造成15闪电伤害。", "_t")
 t("The Jolt", "震撼", "entity name")
 t("tingling torque", "刺痛项圈", "_t")
 t("This torque feels tingly to the touch, but seems to enhance your thinking.", "这项圈摸起来让人觉得刺痛，但似乎增强了你的思考。", "_t")
@@ -13304,7 +13304,7 @@ Any lightning damage you do that is more than 10% of the victim's maximum life w
 Upon taking lightning damage >10% of your max life, your mind fires back, dealing 30% of the original damage as mind and trying to brainlock the target.
 Upon taking mind damage >10% of your max life, you reflexively trigger the jolt, sending an arc of dazing lightning toward the target (damage based on mindpower).
 This item can have up to 2 charges, with each charge having 4 turn cooldown.]], [[你的精神与电力连接。
-你对敌人造成的超过其最大生命值10%的闪电伤害时，会试图附加思维封锁效果。
+当你造成的闪电伤害超过目标最大生命值10%时，会试图对其附加思维封锁效果。
 当你受到超过最大生命值10%的闪电伤害时，你的精神会发起反击，造成原伤害30%的精神伤害，并试图附加思维封锁效果。
 当你受到超过最大生命值10%的精神伤害时，你会反射性地触发震击，朝目标射出一道致眩闪电（伤害基于精神强度）。
 这个物品可以存储两次充能，每次充能冷却时间4回合。]], "_t")
@@ -13323,7 +13323,7 @@ t("cold mindstar", "寒冰的灵晶", "_t")
 t("This mindstar glows with a dim cool light, but seems somehow incomplete.", "这个灵晶散发着寒冷的微光，但似乎有点残缺。", "_t")
 t("Ruthless Grip", "无情之握", "entity name")
 t("sinister gauntlets", "邪恶的手套", "_t")
-t("Crafted for a warlord who wanted to keep his subjects under a stralite grip. Dark thoughts went into the making of these gauntlets, literally.", "一位军阀为将臣民牢牢掌控于斯莱特之掌中而打造了这副手套。制作过程中确实注入了黑暗的思想。", "_t")
+t("Crafted for a warlord who wanted to keep his subjects under a stralite grip. Dark thoughts went into the making of these gauntlets, literally.", "这副手套为一位军阀打造，他想用斯莱特般的铁腕统治自己的臣民。打造它时，真的注入了黑暗的思想。", "_t")
 t("Icy Kill", "冰冷杀戮", "entity name")
 t("sharpened icicle", "锋利的冰柱", "_t")
 t([[As any scryer knows, the link between the murderer and the murdered is the murder weapon, and a scryer can follow that link from the murdered to the weapon to the murderer.
