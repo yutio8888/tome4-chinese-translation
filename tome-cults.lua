@@ -679,7 +679,7 @@ t("#DARK_SEA_GREEN#While the ring senses battle it grips your finger so hard you
 t("#DARK_SEA_GREEN#As you put the %s on your finger, you feel more attuned to the horror within you.", "#DARK_SEA_GREEN#当你将%s戴在手上，你觉得你和体内的恐魔更加协调了。", "logPlayer")
 t("Staff of Bones", "白骨法杖", "entity name")
 t("bone staff", "骨杖", "_t")
-t("A staff made out of the bones of fallen foes. Disgustingly powerful.", "由被击败的敌人的白骨制成的法杖。令人厌恶而强大。", "_t")
+t("A staff made out of the bones of fallen foes. Disgustingly powerful.", "由被击败的敌人的白骨制成的法杖。强大得令人作呕。", "_t")
 t("It seems willing and able to talk to you (use Command Staff).", "它似乎愿意和你交谈（使用法杖掌控）。", "_t")
 t("Growing more powerful? Still pathetic compared to a True Necromancer!", "变得更强了？你离真正的死灵法师还差得很远！", "_t")
 t("Ahh the rush of power... I love that!", "啊，这股能量……我喜欢这种感觉！", "_t")
@@ -698,7 +698,7 @@ t("Splatter me with the blood of our foes!", "把敌人的血溅到我身上！"
 t("That one wasn't such an impressive kill...", "这次杀戮一点都不让人印象深刻…", "_t")
 t("Getting a bit sloppy on the kills no?", "在杀人这件事上是不是有点马虎了？", "_t")
 t("Forbidden Tome: \"Of Knowledge And Horrors\"", "禁忌之书：《知识与恐怖》", "entity name")
-t("A gross tome of lost knowledge. Even touching it makes you feel sick.", "一本有关逝去的古老知识的书。光是触摸它就足以让你感到不适。", "_t")
+t("A gross tome of lost knowledge. Even touching it makes you feel sick.", "一本记载失落知识、令人作呕的书。光是触摸它就足以让你感到不适。", "_t")
 t([[The book of horrors,
 the book of terrors,
 the book of pain,
@@ -752,7 +752,7 @@ t("misc", "杂项", "entity type")
 t("gross", "恶心的", "entity subtype")
 t("Cut Drem Arm", "被切下来的德瑞姆手臂", "entity name")
 t("bloody arm", "血淋淋的手臂", "_t")
-t("The arm appears desiccated, but you swear that you see something wriggling underneath its ashen skin.", "这条手臂看上去已经风干了，但你可以发誓，你看到有什么东西在它的皮肤下蠕动。", "_t")
+t("The arm appears desiccated, but you swear that you see something wriggling underneath its ashen skin.", "这条手臂看上去已经风干了，但你可以发誓，你看到有什么东西在它灰白的皮肤下蠕动。", "_t")
 t("The arm can sometimes reach out to a foe in radius 5 and grab it to you with a tentacle pull. This action is not your own choice, it has a mind of its own.", "这条手臂有时可以伸向半径5范围内的一个敌人，用触手把他拉到你的身边。这个行为并不出自于你的选择，而是出于它自己的意志。", "_t")
 t("#DARK_SEA_GREEN#The %s reaches for %s with a tentacle!", "#DARK_SEA_GREEN#%s使用触手抓握%s！", "logSeen")
 t("Monolith Armour", "巨石铠甲", "entity name")
@@ -764,7 +764,7 @@ t([[15% chance when hit to shatter reality around you creating rifts to help you
 t("#LIGHT_RED#Your %s is too heavy to carry with your punny constitution anymore. You remove it.", "#LIGHT_RED#你的体质已不足以穿戴沉重的%s，你将它卸下了。", "logPlayer")
 t("Fanged Collar", "利牙项环", "entity name")
 t("a necklace with fangs", "有尖牙的项链", "_t")
-t("This strange creature seems to melt around your neck, keeping its mouth open just wide enough so that its teeth do not touch you. You suspect that in the case your head somehow goes missing, the creature is going to make itself at home in your neck stump.", "这个奇怪的生物围绕着你的脖子，把嘴张到牙齿刚好不会碰到你的程度。你怀疑，如果你哪天掉了脑袋，这个生物就会把你的脖子当做它的家。", "_t")
+t("This strange creature seems to melt around your neck, keeping its mouth open just wide enough so that its teeth do not touch you. You suspect that in the case your head somehow goes missing, the creature is going to make itself at home in your neck stump.", "这个奇怪的生物仿佛融化般裹住你的脖子，把嘴张到牙齿刚好不会碰到你的程度。你怀疑，如果你哪天掉了脑袋，这个生物就会把你的脖子当做它的家。", "_t")
 t("You have died, but that does not bother the collar at all...", "你已经死了，不过看起来这个项环上的生物一点也不在乎…", "_t")
 t("Try to not die...", "你最好不要死……", "_t")
 t("Perseverance", "毅力", "entity name")
@@ -794,10 +794,10 @@ This stake of wood appears to one of those used to prop up one of the executed h
 然而尽管如此，民众仍继续把大自然的敌人活活烧死。当局所不知道的是，那些被处死的肇事者的头颅在他们死后仍然继续传播着他们的讯息。
 
 这根木桩似乎就是当年插着被处决者头颅的木桩之一。它似乎吸收了那颗头颅的意志，拿着它，你可以听到伊格兰斯的讯息在你的脑海中回响。]], "_t")
-t("convince all non arcane users in radius 10 to turn on their spellcasting friends for 6 turns (chance increases with your Mindpower)", "使半径10码范围内的非奥术魔法使用者攻击奥术魔法使用者，持续6回合（几率随精神强度提升）", "tformat")
+t("convince all non arcane users in radius 10 to turn on their spellcasting friends for 6 turns (chance increases with your Mindpower)", "使半径10码范围内的所有不使用奥术的敌人转而攻击其施法同伴，持续6回合（几率随精神强度提升）", "tformat")
 t("Worm Nest", "虫穴", "entity name")
 t("disgusting robe", "恶心的长袍", "_t")
-t("This unusually thick robe constantly wriggles and squirms. Small worms sometimes pop out of it, dropping to the floor. The worms will cushion attacks against your person, but you somehow do not like the idea of having so many parasitic creatures so close to your vulnerable flesh.", "这件异常厚重的长袍不断蠕动。有时会有小蠕虫从里面冒出来，掉到地板上。这些蠕虫会缓冲敌人对你的攻击，但是让这么多寄生生物如此接近你脆弱的肉体……实在是太恶心了。", "_t")
+t("This unusually thick robe constantly wriggles and squirms. Small worms sometimes pop out of it, dropping to the floor. The worms will cushion attacks against your person, but you somehow do not like the idea of having so many parasitic creatures so close to your vulnerable flesh.", "这件异常厚重的长袍不断蠕动。有时会有小蠕虫从里面冒出来，掉到地板上。这些蠕虫会缓冲敌人对你的攻击，但不知为何，你就是不喜欢让这么多寄生生物紧贴着你脆弱的肉体。", "_t")
 t("#GREEN#The worms embed themselves easily in your mutated skin.", "#GREEN#蠕虫很容易嵌入你的变异皮肤中。", "logPlayer")
 t("Light of Revelation", "揭示之光", "entity name")
 t("disturbing lantern", "令人不安的灯笼", "_t")
@@ -822,7 +822,7 @@ t("A wonder of footwear! You can set a shoe to stay in place while the other one
 t([[Each turn you spend not moving gain a buff for 2 defense and armour. Stacks up to 12 times.
 You move 3 spaces at once.]], [[每个你没有移动的回合都能得到2点闪避和护甲值增益。最多叠加12次。
 一次走3格。]], "_t")
-t("As you combine the two pair of shoes you make something marvelous: %s", "当你将这两件鞋子结合时，你制造出了神奇的道具：%s", "logPlayer")
+t("As you combine the two pair of shoes you make something marvelous: %s", "当你将这两双鞋子结合时，你制造出了神奇的道具：%s", "logPlayer")
 t("Rod of Entropy", "熵之魔杖", "entity name")
 t("light sucking rod", "吸收光的魔杖", "_t")
 t("This rod seems to make light die around it. You feel tired just looking at it.", "这根魔杖似乎能够熄灭周围的光。光是看着它你就觉得很累了。", "_t")
@@ -830,7 +830,7 @@ t("temporarily causes the target to receive entropic backlash from any healing t
 t("%s activates %s %s!", "%s激活了%s%s！", "logSeen")
 t("Seeds of the Black Tree", "黑色树之种", "entity name")
 t("corrupt stone", "被污染的石头", "_t")
-t("This writhing mass of tentacles appears to have infested a mindstar, creating some bizarre fusion between natural and unnatural. The once clear gem now seems more like a shard of black obsidian with tentacles striking out from it like whips. You do not want to think of the implications of this horror being able to fuse with Nature itself.", "这团扭曲的触手似乎寄生在了一块灵晶上，在自然和超自然之间形成了一种奇异的混合。曾经清晰的宝石现在看起来更像一块黑曜石碎片，触手在上面伸出，宛如鞭子一般。你无法想象，恐魔竟然能够和大自然混合。", "_t")
+t("This writhing mass of tentacles appears to have infested a mindstar, creating some bizarre fusion between natural and unnatural. The once clear gem now seems more like a shard of black obsidian with tentacles striking out from it like whips. You do not want to think of the implications of this horror being able to fuse with Nature itself.", "这团扭曲的触手似乎寄生在了一块灵晶上，在自然与非自然之间形成了一种奇异的融合。曾经清晰的宝石现在看起来更像一块黑曜石碎片，触手在上面伸出，宛如鞭子一般。你不愿去细想：恐魔竟能与自然本身融合，这意味着什么。", "_t")
 t("15% chance to cast Tendrils Eruption level 3 on your target", "15%几率对目标施放等级3的触手地狱", "_t")
 -- untranslated text
 --[==[
