@@ -1052,13 +1052,13 @@ t("matted fur cloak", "乱蓬蓬的毛皮斗篷", "_t")
 t("This fur cloak is thick and matted, yet remains incredibly soft to the touch.", "这件毛皮斗篷厚实而毛绒蓬乱，摸起来却出奇地柔软。", "_t")
 t("Korbek's Spyglass", "库贝克的小型望远镜", "entity name")
 t("golden telescope", "金色望远镜", "_t")
-t("This antique spyglass is weathered from use, but seems well maintained.", "这个年代久远的小型望远镜由于使用过多有些褪色，但是仍然保养得很好。", "_t")
+t("This antique spyglass is weathered from use, but seems well maintained.", "这具古老的小型望远镜因长年使用而饱经磨损，但看起来保养得很好。", "_t")
 t("Talosis' Counterpoint", "泰勒西斯的反驳", "entity name")
 t("ornate gun", "华丽的枪", "_t")
 t("It's said that Talosis never lost an argument. Now you know why.", "据说泰勒西斯从没有输过一场争吵。现在你知道原因了。", "_t")
 t("The Twisted Blade", "扭曲之刃", "entity name")
 t("vile, twisted steamsaw", "邪恶、扭曲的蒸汽链锯", "_t")
-t("You see flecks of gold in this vile mass of twisted steel, implying a once great origin. Whatever glory it once had is long gone, replaced by something far more sinister...", "你在这块邪恶、扭曲的铁块上发现金色的斑点，暗示着它不同寻常的来历。然而曾经的辉煌，都已经成为了过去，如今已被更加邪恶的东西取代", "_t")
+t("You see flecks of gold in this vile mass of twisted steel, implying a once great origin. Whatever glory it once had is long gone, replaced by something far more sinister...", "你在这团扭曲的邪恶钢铁中看到点点金色，暗示着它曾有过伟大的来历。无论它昔日有过怎样的荣光，如今都已荡然无存，取而代之的是某种远为险恶的东西……", "_t")
 t("Fully heal yourself. (15 turn cooldown)", "完全治疗（15回合冷却）", "_t")
 t("Sunstone", "太阳石", "entity name")
 t("warm stone", "温暖的石头", "_t")
@@ -1359,7 +1359,7 @@ t("%s voltaic shell", "%s 伏特弹", "tformat")
 t("%s antimagic shell", "%s 反魔弹", "tformat")
 t("%s botanical shell", "%s 植物弹", "tformat")
 t("%s corrosive shell", "%s 腐蚀弹", "tformat")
-t("%s toxic shell", "%s 毒气弹", "tformat")
+t("%s toxic shell", "%s 毒性弹", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/general/objects/tinkers/mechanical.lua"
@@ -1373,7 +1373,7 @@ t("FEET", "脚部", "entity on slot")
 t("%s rocket boots", "%s 火箭靴", "tformat")
 t("HANDS", "手部", "entity on slot")
 t("%s hand cannon", "%s 手炮", "tformat")
-t("%s fatal attractor", "%s 致命诱敌装置", "tformat")
+t("%s fatal attractor", "%s 致命诱饵装置", "tformat")
 t("%s grip", "%s 握把", "tformat")
 t("%s grapple", "%s 弹簧飞爪", "tformat")
 t("armor", "护甲", "entity type")
@@ -5170,19 +5170,19 @@ t([[You replace your steamgun and attack with a lightning-charged staff to engag
 t("Stormstrike", "暴风打击", "talent name")
 t([[Sweep your shockstaff, striking all enemies in a frontal arc for %d%% weapon damage as lightning and reducing their damage dealt by %d%% for 3 turns.
 		If you have a shield, you will also strike them.
-		While active this replaces your normal melee attack.]], [[挥舞电击棒，攻击正面所有敌人，造成 %d%% 闪电武器伤害，降低他们所造成的伤害 %d%%， 持续 3 回合。
+		While active this replaces your normal melee attack.]], [[挥舞电击棒，攻击正面弧形范围内的所有敌人，造成 %d%% 闪电武器伤害，降低他们所造成的伤害 %d%%， 持续 3 回合。
 		如果你装备了盾牌，你还会附加一次盾击。
 		该效果持续期间会取代你的普通近战攻击。]], "tformat")
 t("Boltgun", "爆矢枪", "talent name")
 t("You require heavy ammunition to fire your boltgun.", "你需要重装武器弹药才能使用爆矢枪。", "logPlayer")
 t([[You replace your steamgun and attack with a multi-barreled bolt launcher, firing deadly chemical-infused flechettes.
 		
-		Each attack fires twice for %d%% weapon damage as acid and generates %d steam per hit.]], [[你把你的蒸汽枪替换成一具多管弩箭发射器，发射注入致命化学物质的毒弹。
+		Each attack fires twice for %d%% weapon damage as acid and generates %d steam per hit.]], [[你把你的蒸汽枪替换成一具多管弩箭发射器，发射注入致命化学物质的弹矢。
 
 		每次攻击造成两次 %d%% 酸性武器伤害，击中恢复 %d 蒸汽。]], "tformat")
-t("Flechette Burst", "毒弹爆射", "talent name")
+t("Flechette Burst", "弹矢爆射", "talent name")
 t("%s resists the disarm!", "%s抵抗了缴械！", "logSeen")
-t("Fire two chemical flechettes, dealing %d%% weapon damage as acid and generating %d steam per hit.", "发射两枚化学毒弹，造成 %d%% 酸性武器伤害，每次击中恢复 %d 蒸汽。", "tformat")
+t("Fire two chemical flechettes, dealing %d%% weapon damage as acid and generating %d steam per hit.", "发射两枚化学弹矢，造成 %d%% 酸性武器伤害，每次击中恢复 %d 蒸汽。", "tformat")
 t("Heavy Weapon Expertise", "重装武器精通", "talent name")
 t("You require heavy ammunition and a heavy weapon to use this talent.", "你需要重装武器弹药和重装武器才能使用这一技能。", "logPlayer")
 t("%s resists the stunning blow!", "%s抵抗了震慑打击！", "logSeen")
@@ -5192,8 +5192,8 @@ t([[Your advanced training unlocks specialised techniques, triggering an effect 
 #AQUAMARINE#Shockstaff#LAST#: Slam your staff into the target, creating a radius 3 shockwave that deals %d%% shockstaff damage as lightning and stuns those within for %d turns.
 #AQUAMARINE#Boltgun#LAST#: Fire %d boltgun shots dealing %d%% steamgun damage as acid and disarming the target for 5 turns.
 The damage dealt by the fire wall and the chance to apply effects will increase with your Steampower.]], [[你通过特殊训练解锁了新的重装武器战技。你现在可以消耗 1 重装武器弹药，根据你现在装备的重装武器类型，触发以下的效果。
-#AQUAMARINE#喷火器#LAST#: 用喷火器扫射地面，造成 %d%% 火焰蒸汽枪伤害，并产生一道长度为 7 的火墙，持续 5 回合。在火墙内的敌人会受到 %0.2f 的火焰伤害，且它们的火焰伤害抗性会降低 %d%%， 持续 2 回合。
-#AQUAMARINE#电击棒#LAST#: 用电棒猛击目标，在 3 码范围内产生冲击波，造成 %d%% 闪电电击棒伤害，并震慑敌人 %d 回合。
+#AQUAMARINE#火焰喷射器#LAST#: 用火焰喷射器扫射地面，造成 %d%% 火焰蒸汽枪伤害，并产生一道长度为 7 的火墙，持续 5 回合。在火墙内的目标会受到 %0.2f 的火焰伤害，且它们的火焰伤害抗性会降低 %d%%， 持续 2 回合。
+#AQUAMARINE#电击棒#LAST#: 用电击棒猛击目标，在 3 码范围内产生冲击波，造成 %d%% 闪电电击棒伤害，并震慑敌人 %d 回合。
 #AQUAMARINE#爆矢枪#LAST#: 发射 %d 枚爆矢枪子弹，造成 %d%% 酸性蒸汽枪伤害，并缴械目标 5 回合。
 火墙造成的伤害，以及造成异常状态的几率，受蒸汽强度加成。]], "tformat")
 t("Automated Defenses", "自动防御系统", "talent name")
@@ -5205,7 +5205,7 @@ These attacks will not trigger Counterstrike.
 The chance to silence will increase with your Steampower.]], [[你使用重装武器技术强化你的盾牌，在你装备重装武器的时候进行格挡，会触发以下的特殊效果。
 #AQUAMARINE#火焰喷射器#LAST#: 在火焰喷射器攻击半径范围内，释放出燃烧的呛人浓烟。被击中的敌人会受到 %d%% 火焰盾牌伤害，并被沉默 %d 回合。
 #AQUAMARINE#电击棒#LAST#: 为盾牌注入闪电，攻击半径 3 码范围内的所有敌人，造成 %d%% 闪电盾牌伤害，并获得相当于最高伤害值 100%% 的伤害吸收护盾，持续 6 回合。
-#AQUAMARINE#爆矢枪#LAST#: 从盾牌中向半径 7 码内的所有敌人发射一阵腐蚀性毒镖，造成 %d%% 酸性盾牌伤害。每个目标身上会嵌入 %d 枚腐蚀性毒镖，持续 6 回合；目标每被近战或远程攻击命中一次，就会有一枚毒镖爆炸，造成相当于盾牌伤害 50%% 的酸性伤害。
+#AQUAMARINE#爆矢枪#LAST#: 从盾牌中向半径 7 码内的所有敌人发射一阵腐蚀性弹矢，造成 %d%% 酸性盾牌伤害。每个目标身上会嵌入 %d 枚腐蚀性弹矢，持续 6 回合；目标每被近战或远程攻击命中一次，就会有一枚弹矢爆炸，造成相当于此次盾击所造成伤害 50%% 的酸性伤害。
 这些攻击不会触发反击效果。
 沉默几率受蒸汽强度加成。]], "tformat")
 t("Safety Override", "武器过载", "talent name")
@@ -5271,7 +5271,7 @@ section "tome-orcs/data/talents/steam/mecharachnid.lua"
 t("disarmed", "被缴械", "_t")
 t("no ammo", "没有弹药", "_t")
 t("bad ammo", "弹药错误", "_t")
-t("incompatible missile launcher", "导弹发射器不兼容", "_t")
+t("incompatible missile launcher", "远程投射武器不兼容", "_t")
 t("incompatible ammo", "弹药不兼容", "_t")
 t("no shooter", "没有发射器", "_t")
 t("Mecharachnid Link", "机械蜘蛛链接", "talent name")
@@ -5292,7 +5292,7 @@ t([[You build a mighty mechanical arachnid to assist you in combat. You can equi
 If your mecharachnid is dead, this will resurrect it with %d%% of its maximum life. Your mecharachnid is automatically rebuilt at full life when combat ends.
 Your mecharachnid has level %d Steamgun Mastery, Combat Accuracy and Armor Training. The mecharachnid uses Dexterity instead of Strength to equip armor.
 The mecharachnid has an inbuilt teleportation device that will recall it to you when combat ends if it is not nearby.]], [[你建造一台强大的机械蜘蛛，和你并肩作战。你可以给机械蜘蛛装备 2 把蒸汽枪，弹药，以及任何你喜欢的护甲。
-如果机械蜘蛛死了，这一技能会重建它，并恢复它 %d%% 的最大生命值。你的机械蜘蛛会在战斗结束后快速重建，恢复全部生命值。
+如果机械蜘蛛死了，这一技能会重建它，并恢复它 %d%% 的最大生命值。你的机械蜘蛛会在战斗结束后自动重建，恢复全部生命值。
 你的机械蜘蛛获得 %d 级蒸汽枪掌握、强化命中和重甲训练技能。机械蜘蛛使用敏捷代替力量装备护甲。
 机械蜘蛛带有一个内置的传送装置，如果在战斗结束后它不在你的附近，会自动传送到你的身边。]], "tformat")
 t("Stormcoil Generator", "风暴线圈发电机", "talent name")
@@ -5351,7 +5351,7 @@ t("Magnetic Accelerator", "磁性加速", "talent name")
 t("You must have an empty space to leap to.", "你必须有一块空地才能跳跃过去。", "logPlayer")
 t([[Improved power output increases the speed of your projectiles by %d%%, critical damage by %d%%, and allows you to automatically reload each turn.
 		In addition, you can instantly activate this talent to gain a sudden burst of speed, moving to a tile in range %d.]], [[增强你的能量输出，你的抛射物速度加快 %d%%， 暴击伤害增加 %d%%， 你每回合会自动填弹。
-		另外，你可以主动激活这一技能，获得超人的移动速度，立刻移动到 %d 码范围内的某个格子内。]], "tformat")
+		另外，你可以主动激活这一技能，爆发出一阵急速，立刻移动到 %d 码范围内的某个格子内。]], "tformat")
 t("Haywire Missiles", "导弹乱射", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
 t([[Fires a barrage of charged missiles from your tail-mounted steamgun at a radius %d area, dealing %d%% steamgun damage as lightning as well as dazing those within for 2 turns.
@@ -5420,7 +5420,7 @@ t([[Fires your ammo at an enemy in range %d for %d%% weapon damage.  If this tin
 			这次射击是一次远程发动的近战攻击，但也会触发弹药的远程特效。]], "tformat")
 t("Fatal Attractor", "致命诱饵", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
-t("fatal attractor", "致命诱敌装置", "_t")
+t("fatal attractor", "致命诱饵", "_t")
 t("A psionic contraption that reflects damage and forces things to attack it.", "一个反射伤害并迫使周围单位攻击它自身的灵能装置。", "_t")
 t([[Quickly create a psionic-enhanced metal contraption that lures all your foes to it and reflects %d%% of the damage it takes to its attackers.
 		The contraption will have %d life and last 5 turns.
@@ -5532,7 +5532,7 @@ t("Project Saw", "发射链锯", "talent name")
 t([[You activate hidden springs to project a saw towards your foes.
 		Any creature caught in the beam takes %0.2f physical damage and bleeds for half more in 5 turns.
 		The damage increases with your Steampower.]], [[你启动隐藏的弹簧，向敌人射出一片锯刃。
-任何被光束命中的生物都会受到 %0.2f 点物理伤害，并在 5 回合内额外受到相当于一半伤害的流血伤害。
+锯刃直线路径上的任何生物都会受到 %0.2f 点物理伤害，并在 5 回合内额外受到相当于一半伤害的流血伤害。
 伤害随蒸汽强度提高。]], "tformat")
 t("Voltaic Bolt", "伏特电箭", "talent name")
 t([[Fires a bolt of lightning, doing %0.2f lightning damage.
@@ -5600,8 +5600,8 @@ t([[You fire a special hook shot with your steamgun(s) at a target creature or l
 		If you target a creature, they are pulled up to %d tiles towards you.
 		If you target an empty tile, you are pulled up to %d tiles towards it.
 		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪向目标生物或位置发射一枚特殊钩链弹。
-		如果你的目标是一个生物，其会被拉向你最多 %d 码。
-		如果你的目标是一个空地，你会被拉向空地最多 %d 码。
+		如果你的目标是一个生物，其会被拉向你最多 %d 格。
+		如果你的目标是一个空地，你会被拉向空地最多 %d 格。
 		这个技能不使用弹药，因为它本身就是弹药。]], "tformat")
 t("Magnetic Shell", "磁性弹", "talent name")
 t([[You fire a special magnetic shot with your steamgun(s) at a target for normal weapon damage.
@@ -5649,7 +5649,7 @@ t([[You fire a special corrosive shot with your steamgun(s) at a target for %d%%
 		弹丸释放的酸液还会腐蚀目标，使其命中、闪避和护甲降低 %d 点。
 		此技能不会消耗弹药，因为弹丸本身就是弹药。
 		腐蚀强度随蒸汽强度提升。]], "tformat")
-t("Toxic Shell", "毒气弹", "talent name")
+t("Toxic Shell", "毒性弹", "talent name")
 t("%s resists the toxin!", "%s 抵抗了剧毒！", "logSeen")
 t([[You fire a special toxic shot with your steamgun(s) at a target for 100%% weapon damage as blight.
 		The shot will release heavy metals into the target, inflicting %0.2f blight damage per turn and reducing their global speed by %d%% for %d turns.
@@ -5843,7 +5843,7 @@ t("chemical warfare", "化学武器", "talent type")
 t("Unleash toxic steamtech weaponry on your enemies.", "对你的敌人释放剧毒的蒸汽武器。", "_t")
 t("#VIOLET#EUREKA!", "#VIOLET#我发现了！", "log")
 t("#VIOLET#EUREKA!#WHITE# Schematic learnt: #LIGHT_BLUE#%s", "#VIOLET#我发现了！#WHITE# 已学习配方：#LIGHT_BLUE#%s", "saySimple")
-t("This talent is required for the following tinkers (you still need to learn/find the schematics):", "该技能是制造下列附着物的必要条件（你仍然需要找到/学会相应配方）：", "_t")
+t("This talent is required for the following tinkers (you still need to learn/find the schematics):", "该技能是制造下列蒸汽工具的必要条件（你仍然需要找到/学会相应配方）：", "_t")
 t(" #LIGHT_BLUE#(known)#LAST#", " #LIGHT_BLUE#（已学会）#LAST#", "_t")
 t("#{italic}#* ...perhaps more to discover...#{normal}#", "#{italic}#* ……可能还可以找到更多……#{normal}#", "_t")
 
@@ -5939,7 +5939,7 @@ t("Hunker Down", "炮台守卫", "talent name")
 t("guardian turret", "守卫炮台", "_t")
 t("An advanced turret equipped with dual steamguns.", "一个装备双蒸汽枪的高级炮台。", "_t")
 t([[Deploy a defensive emplacement around you, summoning 2 guardian turrets in adjacent tiles for %d turns. Guardian turrets redirect %d%% of all damage taken by other adjacent allies (other than fellow guardian turrets) to themselves, and each is armed with a powerful turret capable of firing piercing bullets.
-			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]], [[进入守备模式，在身边召唤 2 个守卫炮台，持续 %d 回合。守卫炮台会将身边盟友（不包括其他守卫炮台）所受全部伤害的 %d%% 转移到自己身上，并且它们装备有能发射贯穿子弹的强力炮塔。
+			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]], [[在身边部署防御阵地，召唤 2 个守卫炮台，持续 %d 回合。守卫炮台会将身边盟友（不包括其他守卫炮台）所受全部伤害的 %d%% 转移到自己身上，并且它们装备有能发射贯穿子弹的强力炮塔。
 			守卫炮台获得 %0.2f 级蒸汽枪掌握，等级取决于你的炮台守卫技能等级。]], "tformat")
 t("Gauss Cannon", "电磁炮", "talent name")
 t("Fire your twin-linked gauss cannons, dealing 100%% steamgun damage as lightning in a piercing beam that bypasses all armor. This does not harm friendly targets.", "发射你的双联电磁炮，在一条贯穿直线上造成 100%% 闪电蒸汽枪伤害，无视护甲。这一效果不会伤害友好目标。", "tformat")
@@ -6587,8 +6587,8 @@ t("#Target# takes flight!", "#Target#起飞！", "_t")
 t("+Death From Above", "+死亡天降", "_t")
 t("#Target# lands.", "#Target# 落地。", "_t")
 t("-Death From Above", "-死亡天降", "_t")
-t("Corrosive Flechette", "腐蚀性毒镖", "_t")
-t("%d corrosive flechettes are embedded in the target. Each melee and ranged attack against them will cause a flechette to burst for %0.2f acid damage", "目标体内嵌有 %d 枚腐蚀性毒镖。敌方单位的近战或远程攻击命中目标时，其中一枚毒镖会爆裂，造成 %0.2f 点酸性伤害。", "tformat")
+t("Corrosive Flechette", "腐蚀性弹矢", "_t")
+t("%d corrosive flechettes are embedded in the target. Each melee and ranged attack against them will cause a flechette to burst for %0.2f acid damage", "目标体内嵌有 %d 枚腐蚀性弹矢。敌方单位的近战或远程攻击命中目标时，其中一枚弹矢会爆裂，造成 %0.2f 点酸性伤害。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/tinkers/chemistry.lua"
@@ -6703,7 +6703,7 @@ t("Voltaic Shell", "伏特弹", "_t")
 t("A special shot that releases electricity on impact.", "击中时可以放出电流的特殊弹头。", "_t")
 t("Botanical Shell", "植物弹", "_t")
 t("A special shot grows moss on impact.", "击中时会长出苔藓的特殊弹头。", "_t")
-t("Toxic Shell", "毒气弹", "_t")
+t("Toxic Shell", "毒性弹", "_t")
 t("A special shot that contains a deadly toxin.", "带有致命毒素的特殊弹头。", "_t")
 
 ------------------------------------------------
