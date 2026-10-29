@@ -4085,7 +4085,7 @@ t([[Launches a sawblade with intense power doing %0.2f physical damage to all ta
 		The damage will increase with Mindpower]], [[发射一个动能十足的锯刃，对一条线内的所有目标造成 %0.2f 物理伤害。
 		伤害会随着你的精神强度增长。]], "tformat")
 t("Rocket Dash", "火箭突进", "talent name")
-t("@Source@ rockets forward!", "@Source@使用火箭突进向前！", "_t")
+t("@Source@ rockets forward!", "@Source@借助火箭向前突进！", "_t")
 t([[Dash forward using rockets.
 		If the spot is reached and occupied, you will perform a free melee attack against the target there.
 		This attack does 130% weapon damage.
@@ -4107,7 +4107,7 @@ t([[Instantly grow a moss circle of radius %d at target area.
 		This moss is very thick and sticky causing all foes passing through it have their movement speed reduced by %d%% and have a %d%% chance to be pinned to the ground for 4 turns.
 		The moss lasts %d turns.
 		Moss talents are instant but place all other moss talents on cooldown for 3 turns.
-		The damage will increase with your Mindpower.]], [[瞬间在半径 %d 码的区域内长出苔藓圈。
+		The damage will increase with your Mindpower.]], [[瞬间在目标区域长出半径 %d 码的苔藓圈。
 		每回合苔藓会对其中的敌人造成 %0.2f 的自然伤害。
 		这些又厚又粘的苔藓会让穿过其中的敌人移动速度下降 %d%% 并且有 %d%% 的几率被定身 4 回合。
 		苔藓能持续 %d 回合。
@@ -4124,13 +4124,13 @@ t([[You fire an exceptionally lethal shot at an enemy, doing %d%% damage.
 Damage dealt by this talent is increased by half your critical multiplier, if doing so would kill the target.]], [[你向一个敌人射出一发无比致命的子弹，造成 %d%% 伤害。
 如果提高后的伤害足以杀死目标，本技能造成的伤害将提高你暴击伤害系数的一半。]], "tformat")
 t("Rocket Smash", "火箭重击", "talent name")
-t("@Source@ rockets forward!", "@Source@使用火箭突进向前！", "_t")
+t("@Source@ rockets forward!", "@Source@借助火箭向前突进！", "_t")
 t("You are too close to build up momentum!", "距离目标太近，无法蓄势！", "logPlayer")
 t([[Dash forward using rockets.
 		If the spot is reached and occupied, you will perform a free melee attack against the target there and knock them back 4 spaces as well as anyone else they collide with.
 		This attack does 180% weapon damage.
 		You must dash from at least 2 tiles away.]], [[借助火箭向前突击。
-		如果目标地点已被占据，那么你到达的时候会对目标进行一次近战攻击并击退他和任何被他撞到的目标 4 码。
+		如果目标地点已被占据，那么你到达的时候会对目标进行一次不耗回合的近战攻击并击退他和任何被他撞到的目标 4 码。
 		这个攻击会造成 180% 武器伤害。
 		你必须从至少 2 格外开始突击。]], "_t")
 t("Laser Powered Smash", "激光重击", "talent name")
@@ -4542,7 +4542,8 @@ t("Death From Above", "死亡天降", "talent name")
 t([[You use your rocket pods to launch yourself into the air for 3 turns, firing a radius 2 barrage of rockets that deal %d%% steamgun damage as fire in radius 2. 
 		While flying you gain %d%% movement speed, %d%% chance to evade melee and ranged attacks, and can reactivate this talent at will to repeat the rocket barrage.
 		Using any talent other than Rocket Barrage will end this effect immediately.]], [[你启动火箭发射器，将自己发射到天空中，持续 3 回合，同时发射范围为 2 的火箭弹幕，在 2 码半径内造成 %d%% 火焰蒸汽枪伤害。
-		当处在飞行状态的时候，你获得 %d%% 移动速度， %d%% 几率躲闪近战和远程攻击，并且可以重新激活这个技能，再次发射火箭弹幕。使用任何火箭弹幕之外的技能都会提前终止这一效果。]], "tformat")
+		当处在飞行状态的时候，你获得 %d%% 移动速度， %d%% 几率躲闪近战和远程攻击，并且可以重新激活这个技能，再次发射火箭弹幕。
+		使用任何火箭弹幕之外的技能都会提前终止这一效果。]], "tformat")
 t("Rocket Barrage", "火箭弹幕", "talent name")
 t("Fires a barrage of rockets in radius 2, dealing %d%% steamgun damage as fire.", "发射火箭弹幕，在 2 码半径内造成 %d%% 火焰蒸汽枪伤害。", "tformat")
 
@@ -4555,7 +4556,7 @@ t([[You attune your saws to a specific target for 5 turns.
 		Each time you strike this target all damage done with steamsaws (including by other talents) is increased by +%d%%.
 		If you strike any other foe the bonus ends.
 		#{italic}#Metal your foes to death!#{normal}#]], [[将链锯调校至一个指定目标，持续 5 回合。
-		每次用链锯命中该目标时，链锯造成的所有伤害（包括其他技能）提高 %d%%。
+		每次命中该目标时，链锯造成的所有伤害（包括其他技能）提高 %d%%。
 		若你命中任何其他敌人，加成效果结束。
 		#{italic}#切碎他们！！#{normal}#]], "tformat")
 t("Explosive Saw", "爆炸飞锯", "talent name")
@@ -4588,7 +4589,7 @@ t([[Sends a pulse detonator to the target. Upon arrival it explodes in radius 4 
 		伤害受蒸汽强度加成。]], "tformat")
 t("Flying Grapple", "飞爪擒拿", "talent name")
 t("Flying Grapple", "飞爪擒拿", "_t")
-t("A flying grapple pull %s into %s!", "弹簧飞爪将%s拉向%s！", "logSeen")
+t("A flying grapple pull %s into %s!", "飞爪将%s拉得撞上%s！", "logSeen")
 t([[You send a small steam-powered flying grapple to a target. The drone is homing so if the target moves it will follow.
 		When it reaches its target it deploys grapples in all directions around it in radius 4.
 		The grapples latch onto any foes and pull them toward the target. If they are stopped by a creature (or the target) both them and the creature take %0.2f physical damage.
@@ -4623,7 +4624,7 @@ t([[With a gesture of your cloak, you drop a small incendiary device in front of
 		技能等级 5 时，敌人会完全失去你的踪迹。
 		伤害受蒸汽强度加成。]], "tformat")
 t("Embedded Restoration Systems", "嵌入式回复系统", "talent name")
-t("#LIGHT_BLUE#%s's embedded restoration system activate.", "#LIGHT_BLUE#%s的内置恢复系统启动了。", "logSeen")
+t("#LIGHT_BLUE#%s's embedded restoration system activate.", "#LIGHT_BLUE#%s的嵌入式回复系统启动了。", "logSeen")
 t("%s activates %s cloak's restoration systems!", "%s激活了%s披风的恢复系统！", "logSeen")
 t("%s deactivates %s cloak's restoration systems.", "%s关闭了%s披风的恢复系统。", "logSeen")
 t([[Your cloak is lined with an automated health system that activate when no enemies are visible.
@@ -4701,7 +4702,7 @@ t([[Spin your saws wildly around you to create a wall of steamy sawteeth.
 		All melee damage against you is reduced by %d%%, you have %d%% chance to evade projectiles and you can never take a blow that deals more than %d%% of your max life.
 		#{italic}#Split their bones on the saws of death!#{normal}#]], [[围绕自身快速旋转链锯，形成一堵由链锯齿构成的墙壁。
 		所有近战伤害降低 %d%%， 有 %d%% 的概率回避投射物，并且受到的一击伤害不会超过最大生命值的 %d%%。
-		#{italic}#用死亡链锯拆了他们的骨头！！#{normal}#]], "tformat")
+		#{italic}#用死亡链锯拆了他们的骨头！#{normal}#]], "tformat")
 t("Punishment", "惩戒", "talent name")
 t("#CRIMSON#%s unleashes a punishing strike for %d%% bonus damage!", "#CRIMSON#%s释放一次惩罚打击，造成%d%%额外伤害！", "logSeen")
 t([[Slam your saws into your target, dealing 100%% weapon damage + %d%% per physical, magical, or mental effect on them (up to 7 effects).
@@ -4715,10 +4716,10 @@ t([[You have lived through many battles, and your experience makes you a gritty 
 		Grinding Shield lets you live below your normal limits, up to -%d life.
 		Punishment has a %d%% chance to have its cooldown reduced by 1 for each effect.
 		#{italic}#Domination for all!#{normal}#]], [[你是一名坚毅的老兵，经历了大量战争仍然能够幸存，有着丰富的战斗经验。
-		链锯轮滑效果结束时的攻击伤害提高 %d%%。
+		链锯轮滑效果结束时的攻击额外造成 %d%% 武器伤害。
 		利齿护盾让你突破正常生命下限，生命值降至 -%d 时仍能存活。
-		惩戒有 %d%% 的几率：目标每具备一个效果，惩戒的冷却时间就减少 1 回合。
-		#{italic}#一切尽在掌控！！#{normal}#]], "tformat")
+		目标每有一个状态，惩戒都有 %d%% 的几率使冷却时间减少 1 回合。
+		#{italic}#一切尽在掌控！#{normal}#]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/blacksmith.lua"
@@ -4869,7 +4870,7 @@ t("Reactive Armor", "反应式装甲", "talent name")
 t([[You line your armor with explosive plating that detonates when struck. On taking a melee or ranged hit that deals more than 8%% of your maximum life a plate detonates, reducing the damage taken by %d%% and triggering a basic grenade attack in a radius %d cone projected at the target dealing %d%% of its usual damage.
 		This cannot trigger more than once per turn.
 		Blocking an attack with your shield will also trigger the retaliation damage, if it has not already triggered this turn.
-		You have up to 3 plates at a time, and regain one every %d turns.]], [[你在你的护甲上嵌入爆炸物装甲层，在被攻击的时候会发生爆炸。在近战或远程攻击对你造成超过最大生命值 8%% 的伤害的时候，装甲层会发生爆炸，降低所受到的伤害 %d%% 并在目标方向 %d 码范围的扇形区域内触发一次手榴弹攻击，造成正常手榴弹伤害的 %d%%。
+		You have up to 3 plates at a time, and regain one every %d turns.]], [[你在你的护甲上嵌入爆炸物装甲层，在被攻击的时候会发生爆炸。在近战或远程攻击对你造成超过最大生命值 8%% 的伤害的时候，装甲层会发生爆炸，降低所受到的伤害 %d%% 并在目标方向 %d 码范围的扇形区域内触发一次榴弹攻击，造成正常榴弹伤害的 %d%%。
 		每回合最多触发一次该效果。
 		如果该回合内没有触发过这一效果，使用盾牌格挡攻击也可以触发这样的反击伤害。
 		你最多同时能有 3 层护甲层，每 %d 回合会补充一层。]], "tformat")
@@ -6004,15 +6005,15 @@ t([[A small automatic detection system is always looking for incoming projectile
 section "tome-orcs/data/talents/uber/mag.lua"
 
 t("Arcane Amplification Drone Effect", "奥术增幅装置效果", "talent name")
-t("Spell damage done to it ripples in radius 4 doing 130% arcane damage.", "其受到的法术伤害转化为波纹，对半径 4 内的所有目标造成等同于该伤害 130% 的奥术伤害。", "_t")
+t("Spell damage done to it ripples in radius 4 doing 130% arcane damage.", "其受到的法术伤害转化为波纹，对半径 4 内的目标造成等同于该伤害 130% 的奥术伤害。", "_t")
 t("Arcane Amplification Drone", "奥术增幅装置", "talent name")
 t("Have gained the #{italic}#Tales of the Spellblaze#{normal}# achievement with this or any previous character for the current difficulty & permadeath settings.", "当前或之前的角色在当前难度与模式下解锁过 #{italic}#大灾变的故事#{normal}# 这个成就。", "_t")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("arcane amplification drone", "奥术增幅装置", "_t")
-t("Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.", "你对其造成的法术伤害会化为波纹，对半径 4 内的所有目标造成等同于该伤害 130% 的奥术伤害。", "_t")
+t("Any spell damage you deal to it will ripple around in radius 4 as 160% arcane damage.", "你对其造成的法术伤害会化为波纹，对半径 4 内的目标造成等同于该伤害 130% 的奥术伤害。", "_t")
 t([[You create an Arcane Amplification Drone at the selected location for 3 turns.
 		When you cast a spell that damages the drone it will ripple the damage as 130%% arcane damage of the initial hit in radius 4.]], [[你在目标地点放置一个持续 3 回合的奥术增幅装置。
-		每当你释放的法术对其造成伤害时，增幅装置把伤害转化为波纹对半径 4 内的所有目标造成等同于该伤害 130%% 的奥术伤害。]], "tformat")
+		每当你释放的法术对其造成伤害时，增幅装置把伤害转化为波纹对半径 4 内的目标造成等同于该伤害 130%% 的奥术伤害。]], "tformat")
 t("Technomancer", "科技法师", "talent name")
 t("Unlocked the Technomancer evolution", "解锁科技法师职业进阶", "_t")
 t("Technomancer", "科技法师", "_t")
@@ -6046,7 +6047,7 @@ t([[Technomancers are Archmages that dabble in steam technology to enhance their
 		- 蒸汽科技/物理系 （已解锁）
 		- 蒸汽科技/化学系 （未解锁）
 		- 一个便携式自动材料提取仪（A.P.E.）
-		- 1级铁匠技能，2级机械和电力技能。
+		- 物理系技能铁匠 1 个技能点，机械与电力各 2 个技能点。
 		- 法术/科技法术：放电系 （未解锁）- 使用火焰和闪电
 		- 法术/科技法术：寒岩系 （未解锁）- 使用土和水
 		- 法术/科技法术：玄机系 （未解锁）- 使用时间和奥术
