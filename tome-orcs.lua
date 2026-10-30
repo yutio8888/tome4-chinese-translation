@@ -4701,7 +4701,7 @@ t("Grinding Shield", "利齿护盾", "talent name")
 t([[Spin your saws wildly around you to create a wall of steamy sawteeth.
 		All melee damage against you is reduced by %d%%, you have %d%% chance to evade projectiles and you can never take a blow that deals more than %d%% of your max life.
 		#{italic}#Split their bones on the saws of death!#{normal}#]], [[围绕自身快速旋转链锯，形成一堵由链锯齿构成的墙壁。
-		所有近战伤害降低 %d%%， 有 %d%% 的概率回避投射物，并且受到的一击伤害不会超过最大生命值的 %d%%。
+		你受到的所有近战伤害降低 %d%%， 有 %d%% 的概率回避投射物，并且受到的一击伤害不会超过最大生命值的 %d%%。
 		#{italic}#用死亡链锯拆了他们的骨头！#{normal}#]], "tformat")
 t("Punishment", "惩戒", "talent name")
 t("#CRIMSON#%s unleashes a punishing strike for %d%% bonus damage!", "#CRIMSON#%s释放一次惩罚打击，造成%d%%额外伤害！", "logSeen")
@@ -4745,7 +4745,7 @@ t([[You can easily see the weak points in your enemy's defenses. After all, you 
 		This grants %d armour penetration and %d%% critical strike multiplier.
 		At talent level 5, you can also fight stealthed and invisible creatures without penalty.]], [[你能够像找到自己工作的错误一样轻易发现敌人防御的弱点。
 		获得 %d 的护甲穿透和 %d%% 的暴击伤害加成。
-		技能等级 5 时，能够自如的与潜行和隐形生物战斗，无视减免。]], "tformat")
+		技能等级 5 时，能够与潜行和隐形生物自如地战斗，不受惩罚。]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/bullets-mastery.lua"
@@ -4795,7 +4795,7 @@ t([[Continuously swing your steamsaws around you, dealing %d%% weapon damage to 
 		#{italic}#Make the metal talk!#{normal}#]], [[持续挥舞你的链锯，每次你攻击时对周围敌人造成 %d%% 武器伤害。
 		你狂乱的动作使你很难被命中， %d%% 几率无视伤害。
 		伤害无效概率随蒸汽强度提高。
-		#{italic}#感受金属之怒吧！！#{normal}#]], "tformat")
+		#{italic}#感受金属之怒吧！#{normal}#]], "tformat")
 t("Overcharge Saws", "链锯过载", "talent name")
 t([[You temporarily overcharge the saw motors, increasing the effective talent level of all saw talents by %d%% for %d turns.
 		#{italic}#The pain shall never stop!#{normal}#]], [[链锯引擎临时进入过载模式，增加 %d%% 的链锯相关技能有效等级，持续 %d 回合。
@@ -4812,7 +4812,7 @@ t([[You repurpose your steam engine to emit a cloud of toxic, corrosive chemical
 		Miasma duration does not increase on re-apply.
 		When a creature survives the miasma it becomes immune to it for 9 turns.]], [[你改造蒸汽机，使其在你周围释放出一团有毒且具有腐蚀性的化学云雾。
 		每当你使用一个非瞬发的蒸汽科技技能的时候，你会在周围产生半径为 3 码的瘴气，持续 5 回合。所有被包裹入瘴气的敌人治疗效果减少 %d%%， 且会有 %d%% 的几率使用技能失败。
-		瘴气效果叠加的时候，这一技能使用失败的几率也会上升，最多叠加五次，达到 %d%%。
+		瘴气效果叠加的时候，敌人使用技能失败的几率也会上升，最多叠加五次，达到 %d%%。
 		当被瘴气影响的目标每回合第一次被近战或远程攻击击中的时候，瘴气会渗入他们的伤口，造成 %0.2f 额外的酸性伤害。
 		再次施加瘴气时，持续时间不会延长。
 		当一个生物在瘴气效果中存活下来后，它会免疫瘴气效果 9 回合。]], "tformat")
@@ -4913,7 +4913,7 @@ t("Lucid Shot", "醒神射击", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
 t([[Fire a powerful shot at a foe doing %d%% weapon damage.
 		If the creature, or any creatures in radius 3, was affected by a fear or nightmare effect it violently wakes up, shaking it off only to find itself disoriented, unable to discern friends from foes for %d turns.]], [[对一个敌人进行一次强力射击，造成 %d%% 的武器伤害。
-		目标三码范围内被恐惧或者噩梦效果影响的生物将被突然惊醒而处于迷失状态，无法分辨敌我，持续 %d 回合。]], "tformat")
+		目标三码范围内被恐惧或者噩梦效果影响的生物将被突然惊醒并摆脱该效果，却陷入迷失状态，无法分辨敌我，持续 %d 回合。]], "tformat")
 t("Psy Worm", "灵能蠕虫", "talent name")
 t([[Fire a psionic-enhanced shot at a foe doing %d%% mind weapon damage and infecting it with a psy worm for 8 turns.
 		Each turn the worm will do %0.2f mind damage and restore %d psi to you, double if stunned or feared.
@@ -4946,7 +4946,7 @@ t([[In an awesome feat of agility and technological prowess, you toss both of yo
 		蒸汽枪在空中期间，你视为被缴械，不能攻击。
 		这场表演令人眼花缭乱，让敌人难以集中精力对付你，使你的全部抗性提高 %d%%。]], "tformat")
 t("Dazzling Jump", "炫目大跳", "talent name")
-t("%s seems immune to the powerful kick.", "%s对强力的踢腿免疫。", "logSeen")
+t("%s seems immune to the powerful kick.", "%s似乎对强力的踢腿免疫。", "logSeen")
 t([[While your foes are distracted by your Awesome Toss, you use powerful steam motors to jump into the air and kick a target %d tiles away.
 		The impact is so great that it ripples outwards, slowing all creatures in radius 3 by %d%% for 4 turns while the reaction force propels you %d tiles backwards.]], [[当你的敌人被华丽抛枪吸引时，你启动强力的蒸汽引擎，跳向空中，将目标踢走 %d 码。
 		这次攻击冲击力非常大，半径 3 以内所有生物将被减速 %d%%， 持续 4 回合，同时反冲力让你后退 %d 码。]], "tformat")
@@ -4966,7 +4966,7 @@ t([[Your knowledge of physical laws allows you to use and improve equipment in w
 		增加大师制作或者蒸汽科技的装备提供的属性、豁免、护甲和闪避 %d%%。]], "tformat")
 t("Supercharge Tinkers", "插件超频", "talent name")
 t([[Using a huge amount of steam, you temporarily supercharge your tinkers and other steam-powered talents.
-		For %d turns, you gain %d steampower and %d%% steamtech critical chance.]], [[消耗大量蒸汽，令所有配件和蒸汽技能超频工作 %d 回合。
+		For %d turns, you gain %d steampower and %d%% steamtech critical chance.]], [[消耗大量蒸汽，令所有插件和蒸汽技能超频工作 %d 回合。
 		超频期间，你获得 %d 蒸汽强度和 %d%% 蒸汽技能暴击率。]], "tformat")
 t("Last Engineer Standing", "背水一战", "talent name")
 t([[Sometimes, being a master tinker requires taking risks; yours are more calculated than others.
@@ -5046,7 +5046,7 @@ t([[Current exoskeleton life: %d/%d
 t("Hypervision Goggles", "强化视觉护目镜", "talent name")
 t([[Enhance your vision for %d turns, giving you vision of all targets in range %d, even through walls. While the goggles are active you also spot flaws in your opponent's defenses, increasing your resistance penetration by %d%%.
 In addition, the goggles passively increase your stealth, invisibility and trap detection by %d.]], [[强化你的视觉，持续 %d 回合。你将能看到半径 %d 码范围内的所有目标，该效果可以穿墙。当护目镜激活的时候，你也能注意到敌人防御上的弱点，增加你的抗性穿透 %d%%。
-此外，护目镜会被动增加你 %d 点潜行、隐形和陷阱侦测能力。]], "tformat")
+此外，护目镜会被动增加你 %d 点潜行侦测、隐形侦测和陷阱侦测能力。]], "tformat")
 t("AED", "电击除颤器", "talent name")
 t([[Prepare a defensive device that stores an electrical charge for 8 turns.
 If your life falls below 0 while the AED is active it will activate to shock you back into life, negating the triggering attack, restoring %d life and dealing %0.2f lightning damage in radius %d that dazes affected enemies for 3 turns.
@@ -5073,7 +5073,7 @@ Each shot (targeted separately) deals %d%% damage and stuns its target for %d tu
 		震慑几率随蒸汽强度提升。]], "tformat")
 t("Uncanny Reload", "神秘装填", "talent name")
 t([[You focus on managing your steamgun ammo for %d turns.
-		While the effect lasts your attacks do not consume shots.]], [[你集中精力于蒸汽枪弹药 %d 回合。
+		While the effect lasts your attacks do not consume shots.]], [[你专注于管理蒸汽枪弹药，持续 %d 回合。
 		效果持续期间不消耗弹药。]], "tformat")
 t("Static Shot", "静电射击", "talent name")
 t([[You fire a special, electrically charged shot with your steamgun(s) at a spot within range.
@@ -5110,7 +5110,7 @@ t("Evasive Shots", "闪避射击", "talent name")
 t([[Using small engines to augment your reflexes you are able to automatically fire retaliatory shots at your foes doing %d%% weapon damage.
 		Retaliation shots are fired when you evade/are missed by a melee or ranged attack.
 		This can only happen once per turn and uses shots as normal.]], [[开启引擎强化反射神经，你能进行反击射击，造成 %d%% 武器伤害。
-		反击射击是当你闪避或躲闪近战、远程攻击时触发的自动射击。
+		反击射击是当你闪避近战、远程攻击或其未能命中你时触发的自动射击。
 		反击射击一回合只能触发一次，且照常消耗弹药。]], "tformat")
 t("Trick Shot", "魔术射击", "talent name")
 t([[Your cunning and dexterity allow you to fire incredible trick shots that can hit multiple targets.
@@ -5713,7 +5713,7 @@ t("Increases the capacity of your steam tank by %d.", "增加你的蒸汽容量 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/psytech-gunnery.lua"
 
-t("Psyshot", "灵能射手", "talent name")
+t("Psyshot", "灵能射击", "talent name")
 t([[Increases weapon damage by %d%% and Physical Power by 30 when using steamguns.
 		When your bullets hit a target you instinctively reach out to the impact and use the kinetic force to project a mindstar attack doing %d%% damage (guaranteed hit), if you wield one in the offhand.
 		This projection requires a pure mindstar; it will not work if extended into a psiblade.
@@ -5728,9 +5728,8 @@ t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使�
 t([[Using psionic energies you overheat your shot, making it deal %d%% damage.
 		If the shot hits a wet foe it will vaporize, removing the wet effect and dealing %0.2f fire damage in a radius 4.]], [[使用灵能加热子弹，造成 %d%% 武器伤害。
 		子弹命中处于浸湿状态的目标时将气化，除去浸湿状态，在半径 4 范围内造成 %0.2f 火焰伤害。]], "tformat")
-t("Blunt Shot", "迟钝射击", "talent name")
-t("Fire a relatively low-powered shot at a foe doing %d%% weapon damage, if it hits a cone-shaped shockwave of radius 4 emanates from the impact, stunning it and all creatures caught inside for %d turns.", [[发射相对低能量的子弹，造成 %d%% 武器伤害。
-		子弹命中时将产生 4 码锥形冲击波，震慑范围内所有生物 %d 回合。]], "tformat")
+t("Blunt Shot", "钝击射击", "talent name")
+t("Fire a relatively low-powered shot at a foe doing %d%% weapon damage, if it hits a cone-shaped shockwave of radius 4 emanates from the impact, stunning it and all creatures caught inside for %d turns.", [[发射相对低能量的子弹，造成 %d%% 武器伤害。子弹命中时将产生 4 码锥形冲击波，震慑范围内所有生物 %d 回合。]], "tformat")
 t("Vacuum Shot", "真空射击", "talent name")
 t([[Attach a psionic steam device to a shot doing %d%% weapon damage.
 		When it hits a foe the device activates, violently sucking all the air nearby, pulling in all creatures in radius %d.]], [[将灵能蒸汽装置安装在子弹上，造成 %d%% 武器伤害。
@@ -5769,10 +5768,9 @@ t([[You try to sever the spine of your foe, reducing its global speed by %d%% fo
 t("Goresplosion", "爆尸", "talent name")
 t([[When you kill a foe you place small explosives with shrapnels inside its body, making it explode in radius %d.
 		Any foes hit will bleed for %0.2f damage per turn for 6 turns. The shrapnels also damage the vocal cords (or related organ), silencing them for %d turns.
-		#{italic}#Use the finest of wartech now: shrapnels. For blood and mayhem!#{normal}#]], [[每次击杀敌人时，将爆炸物和榴弹封入尸体，引发一场半径 %d 的大爆炸。
-		任何被击中的敌人将在 6 回合内受到 %0.2f 流血伤害。
-		同时榴弹将损伤他们的发声器官，沉默 %d 回合。
-		#{italic}#使用战争技术的精华——榴弹。为了制造血和骚乱！#{normal}#]], "tformat")
+		#{italic}#Use the finest of wartech now: shrapnels. For blood and mayhem!#{normal}#]], [[每次击杀敌人时，将带有弹片的小型爆炸物植入其体内，使其在半径 %d 内爆炸。
+		任何被击中的敌人每回合受到 %0.2f 流血伤害，持续 6 回合。弹片还会损伤他们的声带（或相关器官），使其沉默 %d 回合。
+		#{italic}#使用战争技术的精华——弹片。为了鲜血与混乱！#{normal}#]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/steam.lua"
