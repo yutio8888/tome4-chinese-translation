@@ -3977,12 +3977,12 @@ t("Fires out a bolt of pure energy, dealing %0.2f light and %0.2f darkness damag
 section "tome-orcs/data/talents/celestial/reflection.lua"
 
 t("Diffraction Pulse", "衍射脉冲", "talent name")
-t("Create a distortion at the target tile, knocking back all projectiles and changing their direction to face away if possible.", "在目标地块制造一处扭曲，击退所有投射物，并尽可能使它们转向外侧。", "_t")
+t("Create a distortion at the target tile, knocking back all projectiles and changing their direction to face away if possible.", "在目标地块制造一处扭曲，击退所有抛射物，并尽可能使它们转向外侧。", "_t")
 t("Mirror Wall", "反射镜墙", "talent name")
-t("mirror wall", "镜像之墙", "_t")
-t("Creates a wall %d units long for %d turns, reflecting all projectiles that hit it and blocking sight.", "创造一堵长度为 %d 的墙，持续 %d 回合，反射所有击中此墙的飞行物并且阻挡视线。", "tformat")
+t("mirror wall", "反射镜墙", "_t")
+t("Creates a wall %d units long for %d turns, reflecting all projectiles that hit it and blocking sight.", "创造一堵长度为 %d 的墙，持续 %d 回合，反射所有击中此墙的抛射物并且阻挡视线。", "tformat")
 t("Spatial Prism", "空间棱镜", "talent name")
-t("Target a projectile in mid-flight to clone it and target that projectile independently. You gain ownership over the new projectile.", "选择一个飞行中的抛射物，复制它，并指定新抛射物的目标。你获得新的抛射物所有权。", "_t")
+t("Target a projectile in mid-flight to clone it and target that projectile independently. You gain ownership over the new projectile.", "选择一个飞行中的抛射物，复制它，并指定新抛射物的目标。你获得新抛射物的所有权。", "_t")
 t("Mirror Self", "自我镜像", "talent name")
 t("Mirror Image (%s)", "镜像 (%s)", "tformat")
 t("A cloned image of you.", "你的克隆影像。", "_t")
@@ -3994,7 +3994,7 @@ section "tome-orcs/data/talents/celestial/sol.lua"
 
 t("Solar Orb", "日光球", "talent name")
 t("Solar Orb", "日光球", "_t")
-t("Fire out an orb of light that deals %0.2f light damage and then returns, dealing the same amount of damage again and reducing the cooldown by half (%d) when it reaches you. The damage will increase with your spellpower. The ball will travel at most %d distance to return to you.", "发射一个光球造成 %0.2f 的光伤害然后折返，再次造成相同的伤害，并在回到你身边时使冷却时间减少一半 (%d)。伤害受法术强度加成。球体最多飞行 %d 码后折返回你身边。", "tformat")
+t("Fire out an orb of light that deals %0.2f light damage and then returns, dealing the same amount of damage again and reducing the cooldown by half (%d) when it reaches you. The damage will increase with your spellpower. The ball will travel at most %d distance to return to you.", "发射一个光球造成 %0.2f 的光系伤害然后折返，再次造成相同的伤害，并在回到你身边时使冷却时间减少一半 (%d)。伤害受法术强度加成。球体返回你身边时最多飞行 %d 码。", "tformat")
 t("Solar Wind", "太阳风", "talent name")
 t("While sustained, this ability speeds up outgoing projectiles by %d%% while slowing incoming projectiles by %d%%. The increase and decrease improve with your spellpower", "开启时，增加发射出去的抛射物 %d%% 速度，减少射向你的抛射物 %d%% 速度。增加和减少随着你的法术强度提高。", "tformat")
 t("Lucent Wrath", "光之愤怒", "talent name")
@@ -4020,7 +4020,7 @@ Dark damage creates an effect at the tile for %d turns which deals %d%% of the d
 暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标继续受到此效果或其他来源的伤害，该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。]], "tformat")
 t("Starscape", "星界领域", "talent name")
 t("This spell cannot be cast here.", "该技能不能在这里使用。", "logPlayer")
-t("Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.", "在 %d 范围内召唤一片星界领域。 %d 回合内，这个区域存在于正常时间之外，且重力为零。除了零重力之外，抛射物和生物的活动比平时慢 3 倍。法术和攻击不能逃脱范围，直到效果结束。", "tformat")
+t("Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.", "在周围半径 %d 的区域内召唤一片星界领域。 %d 回合内，这个区域存在于正常时间之外，且重力为零。除了零重力之外，抛射物和其他生物的移动速度降为平时的 1/3。法术和攻击在效果结束前无法离开该范围。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/misc/npcs.lua"
@@ -4270,17 +4270,16 @@ t([[You concentrate your will to psychoport some of the steam of your generator 
 		When you deactivate the effect you release the accumulated psionic and steam energies, instantly switching places with the target location and releasing the charges in a fiery explosion of hot wet steam in radius 4.
 		The explosion will do %0.2f fire damage, multiplied by 33%% (diminutive) for each charge and apply the wet effect.
 		The effect will fizzle if the charged grid is currently occupied by a creature or not in sight.
-		The damage will increase with your Steampower.]], [[你集中意志，将发动机中的部分蒸汽精神传送至远处。
-		每回合蒸汽都会在那里累积，最多 %d 层。
+		The damage will increase with your Steampower.]], [[你集中意志，将发动机中的部分蒸汽精神传送至远处。每回合蒸汽都会在那里累积，最多 %d 层。
 		当你解除该效果时，你会释放积累的灵能与蒸汽能量，瞬间移动到该地点，并制造一次半径 4 码的炽热湿蒸汽爆炸。
-		爆炸造成 %0.2f 火焰伤害；每层充能都会以递减方式使伤害乘以 33%%，并施加浸湿效果。
+		爆炸造成 %0.2f 火焰伤害；每层充能都会使伤害提高 33%%（逐层递减），并施加浸湿效果。
 		如果目标地点已经被占据或不在视线之内，则技能将失败。
 		伤害随蒸汽强度提高。]], "tformat")
 t("Inhale Vapours", "吸入蒸汽", "talent name")
 t([[When you deactivate Vaporous Step, if the psychoport succeeds you inhale some of the vapours, regenerating %d steam and %d life.
 		The effects will be multiplied by 33%% (diminutive) for each charge of Vaporous Step.
 		The healing done will increase with your Mindpower.]], [[当你解除蒸汽步时，如果精神传送成功，你会吸入部分蒸汽，回复 %d 点蒸汽与 %d 点生命。
-		蒸汽步每有一层充能，效果就会乘以 33%%（逐层递减）。
+		蒸汽步每有一层充能，效果就会提高 33%%（逐层递减）。
 		治疗量随精神强度提高。]], "tformat")
 t("Psionic Fog", "灵能之雾", "talent name")
 t([[Using the steam of your generators you shape it into a psionic fog that lasts %d turns. Any foes caught inside will take %0.2f damage per turn and be seared, reducing their fire resistance by %d%% and and mind save by %d.
@@ -5984,9 +5983,9 @@ t([[Set up some cunning contingency plans in case of death.
 		When rising this way you will keep access to your racial tree and gain access to the ghoul or skeleton racial tree with 2 levels of each talents already learnt.
 		As undead will not able to use infusions anymore.
 		If you choose to become a skeleton, the Re-assemble talent will consider that you already used your resurrection.]], [[准备一个应对死亡的应急方案。
-		如果你死了，你可以选择从死亡归来一次，代价则是你将成为一个骷髅或者食尸鬼（由你选择）。
+		如果你死了，你可以选择从死亡中归来一次，方式是成为骷髅或食尸鬼（由你选择）。
 		以这种方式复活时，你会保留原有的种族技能树，并获得食尸鬼或骷髅的种族技能树，其中每项技能均已习得 2 级。
-		成为亡灵后，你将无法再使用纹身。
+		成为不死族后，你将无法再使用纹身。
 		如果选择成为骷髅，重组技能会视为你已经使用过一次复活。]], "tformat")
 t("All steamtech criticals reduce the remaining cooldown of a random steamtech talent by 1.", "每次蒸汽科技暴击都会使一个随机蒸汽科技技能的剩余冷却时间减少 1 回合。", "_t")
 

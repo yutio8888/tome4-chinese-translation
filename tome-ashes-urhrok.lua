@@ -733,13 +733,12 @@ t([[Send out a claw of fire, striking in a line doing %0.2f damage leading to a 
 		技能等级 4 级以后，目标同时会被沉默。
 		射线伤害和持续伤害受法术强度加成。]], "tformat")
 t("Reckless Strike", "舍身一击", "talent name")
-t("#CRIMSON#(%d reckless backlash)#LAST#", "#CRIMSON#(%d 舍身一击反伤)#LAST#", "tformat")
-t("Hits the target doing %d%% weapon damage. This attack cannot miss, and ignores all armor and resistances on the target. However, you take damage equal to %d%% of the damage dealt, or 30%% of your current HP, whichever is lower.", [[攻击目标，造成 %d%% 武器伤害。本次攻击必中，且无视目标护甲和抗性。
-	但是，你自己会受到输出伤害的 %d%% 或者当前生命值 30%% 的伤害，取数值较低者。]], "tformat")
+t("#CRIMSON#(%d reckless backlash)#LAST#", "#CRIMSON#(%d 舍身一击反噬)#LAST#", "tformat")
+t("Hits the target doing %d%% weapon damage. This attack cannot miss, and ignores all armor and resistances on the target. However, you take damage equal to %d%% of the damage dealt, or 30%% of your current HP, whichever is lower.", [[攻击目标，造成 %d%% 武器伤害。本次攻击必中，且无视目标护甲和抗性。但是，你自己会受到输出伤害的 %d%% 或者当前生命值 30%% 的伤害，取数值较低者。]], "tformat")
 t("Share the Pain", "以眼还眼", "talent name")
 t([[You revel in the heat of battle. Whenever an enemy damages you within melee range, you have a %d%% chance to counter with an attack for %d%% weapon damage.
 		You get once chance to deal this damage to a particular target each turn.]], [[你沉迷于战争的狂热。当一个近身的敌对生物伤害你时，有 %d%% 几率自动反击，造成 %d%% 武器伤害。
-	此效果每回合对同一目标触发一次。]], "tformat")
+	每回合对同一目标只有一次触发机会。]], "tformat")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/talents/corruptions/corruptions.lua"
@@ -1058,7 +1057,7 @@ t([[Use your stored vim to supercharge your body, recovering %d stamina and %d l
 		These values will increase with your Spellpower.
 		Spell criticals with this talent also effect the stamina gain.]], [[你使用体内蕴藏的活力强化自己的身体，恢复 %d 点体力值和 %d 点生命值。
 	同时让你在 -%d 生命时才会死亡，此效果持续 8 回合。
-	恢复值受法术强度加成。
+	以上数值受法术强度加成。
 	法术暴击也会增加这一技能恢复的体力值。]], "tformat")
 t("Demonic Blood", "恶魔之血", "talent name")
 t([[Demonic Blood flows through your veins, increasing your spellpower by %d and your maximum vim by %d.
