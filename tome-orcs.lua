@@ -4271,9 +4271,9 @@ t([[You concentrate your will to psychoport some of the steam of your generator 
 		The explosion will do %0.2f fire damage, multiplied by 33%% (diminutive) for each charge and apply the wet effect.
 		The effect will fizzle if the charged grid is currently occupied by a creature or not in sight.
 		The damage will increase with your Steampower.]], [[你集中意志，将发动机中的部分蒸汽精神传送至远处。每回合蒸汽都会在那里累积，最多 %d 层。
-		当你解除该效果时，你会释放积累的灵能与蒸汽能量，瞬间移动到该地点，并制造一次半径 4 码的炽热湿蒸汽爆炸。
+		当你解除该效果时，你会释放积累的灵能与蒸汽能量，瞬间与该地点互换位置，并在你原来的位置制造一次半径 4 码的炽热湿蒸汽爆炸。
 		爆炸造成 %0.2f 火焰伤害；每层充能都会使伤害提高 33%%（逐层递减），并施加浸湿效果。
-		如果目标地点已经被占据或不在视线之内，则技能将失败。
+		如果目标地点已被生物占据或不在视线之内，则技能将失败。
 		伤害随蒸汽强度提高。]], "tformat")
 t("Inhale Vapours", "吸入蒸汽", "talent name")
 t([[When you deactivate Vaporous Step, if the psychoport succeeds you inhale some of the vapours, regenerating %d steam and %d life.

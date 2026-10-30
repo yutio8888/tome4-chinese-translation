@@ -757,7 +757,7 @@ t("That Old Black Magic.", "古老的黑魔法。", "_t")
 t("doom covenant", "末日契约", "talent type")
 t("Control darkness to crush your foes.", "使用黑暗之力击溃敌人。", "_t")
 t("spellblaze", "魔法大爆炸", "talent type")
-t("Use the very power of the Spellblaze to destroy your foes.", "调用魔法大爆炸的特殊力量摧毁敌人。", "_t")
+t("Use the very power of the Spellblaze to destroy your foes.", "调用魔法大爆炸本身的力量摧毁敌人。", "_t")
 t("brutality", "残暴", "talent type")
 t("Devastating two-handed physical attacks fueled by demonic power.", "用恶魔之力驱使双手武器，施展毁灭性的打击。", "_t")
 t("torture", "折磨", "talent type")
@@ -767,7 +767,7 @@ t("Destroy your enemies with intense two-handed physical attacks fueled by demon
 t("Fearfire", "恐惧之炎", "talent type")
 t("Call upon the flames of the Fearscape, incinerating all.", "召唤恶魔空间的火炎，燃尽一切。", "_t")
 t("Heart of Fire", "狱火之核", "talent type")
-t("Fire is your lifeblood; it revitalizes you as it burns your foes.", "火是你的生命之源，它给予你力量，同时灼烧敌人。", "_t")
+t("Fire is your lifeblood; it revitalizes you as it burns your foes.", "火是你的生命之源，它令你重焕生机，同时灼烧敌人。", "_t")
 t("demonic strength", "恶魔之力", "talent type")
 t("Infuse your body with the power of Demons.", "使用恶魔之力强化自身。", "_t")
 t("Oppression", "压制", "talent type")
@@ -823,7 +823,7 @@ t([[Whenever you are on an unlit grid you can meld with the shadows, gaining %d 
 		Your equiped lite does not count and will be turned off when activating.
 		Moving will cancel the effect.
 		Stealth power depends on Spellpower.]], [[每当你站在黑暗地形时，你能与黑暗融合，获得 %d 潜行强度。
-		当你潜行时，黑暗在你身周形成一道防御屏障，你有 %d%% 几率摆脱物理或魔法负面效果。
+		当你潜行时，黑暗在你身周形成一道防御屏障，你有 %d%% 几率无视物理或魔法负面效果。
 		你的灯具不会计算在内，同时效果激活时灯具将自动关闭。
 		移动会取消该效果。
 		潜行强度受法术强度加成。]], "tformat")
@@ -1082,7 +1082,7 @@ t([[Your affinity for the shadows grow stronger.
 		每次你使用法术造成暗影伤害时，你有 %d%% 几率获得 8%% 全体伤害亲和，持续 8 回合。
 		如果你用暗影伤害杀死一个生物，这一效果必定触发。
 		你每回合最多只能获得一层黑暗支配效果。
-		这个效果能叠加至最多 %d 层。]], "tformat")
+		这个效果以乘法方式叠加，最多 %d 层。]], "tformat")
 t("Dread End", "黑暗终结", "talent name")
 t([[You learn to use death around you to an even greater advantage. 
 		Each time you kill or deal damage above %d%% of a creatures max life with non-darkness damage while Dark Reign is active the death will create a pool of dark energies of radius 1 for 5 turns.
@@ -1139,7 +1139,8 @@ t([[You spin around madly with your shield, bashing all those around you for %d%
 t("Blighted Shield", "枯萎之盾", "talent name")
 t([[Your shield is infused with a powerful blight. Anytime you block and apply a counterstrike effect the target is also afflicted by a curse of impotence.
 		Cursed creatures have all their damage decreased by %d%% for 5 turns.
-		The effects will improve with your Spellpower.]], [[你的盾牌充满强大的枯萎能量。每次你格挡并附加反击状态时，目标还会受到虚弱诅咒，5 回合内降低 %d%% 伤害。
+		The effects will improve with your Spellpower.]], [[你的盾牌充满强大的枯萎能量。每次你格挡并附加反击状态时，目标还会受到虚弱诅咒。
+		被诅咒的生物在 10 回合内造成的全部伤害降低 %d%%。
 		效果受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -1165,7 +1166,7 @@ t([[Exhale a wave of dark fire with radius %d, lasting 4 turns. Any non-demon ca
 		伤害受力量加成，该技能使用魔法暴击率。]], "tformat")
 t("Maw of Urh'rok", "乌鲁洛克之口", "talent name")
 t([[Your body becomes a nexus for the Fearscape, causing you to drag enemies towards you in a cone with a radius of %d, dealing %0.2f fire damage every turn.
-		The damage will increase with your Spellpower.]], [[你的身体成为恶魔空间与现实的纽带，将 %d 码的锥形范围内的敌人抓过来，同时每回合造成 %0.2f 点火焰伤害。
+		The damage will increase with your Spellpower.]], [[你的身体成为恶魔空间与现实的纽带，每回合将 %d 码锥形范围内的敌人向你拖近，并造成 %0.2f 点火焰伤害。
 伤害受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -1183,7 +1184,7 @@ t([[Draw in the raging fires and envelop yourself in them. Remove all burns from
 		当护盾效果结束时，将在半径 %d 范围内释放一次火焰爆炸，灼烧范围内的所有敌方生物 3 回合，造成等于护盾初始值的伤害。]], "tformat")
 t("Devouring Flames", "吞噬之焰", "talent name")
 t([[Your connection to fire nourishes you. Whenever you strike an enemy in melee, you inflict a burning curse upon them. As long as they continue to burn, you gain %0.2f health and %0.2f vim per turn.
-		Each turn they remain within 10 spaces of you, all enemies with cursed flames will spread it to other burning enemies in radius 1, causing you to heal for the same amount for each enemy, as well as dealing %d fire damage on spreading.]], [[恶魔之火滋养着你。近战命中敌人会施加诅咒之焰，每个受诅咒的敌人每回合为你恢复 %0.2f 点生命值和 %0.2f 点活力值；不再燃烧时，诅咒消失。
+		Each turn they remain within 10 spaces of you, all enemies with cursed flames will spread it to other burning enemies in radius 1, causing you to heal for the same amount for each enemy, as well as dealing %d fire damage on spreading.]], [[你与火焰的联系滋养着你。近战命中敌人会施加诅咒之焰，每个受诅咒的敌人每回合为你恢复 %0.2f 点生命值和 %0.2f 点活力值；不再燃烧时，诅咒消失。
 		每回合，你半径 10 内的受诅咒敌人有 50%% 几率将诅咒传播给其半径 1 内尚未受诅咒的敌人，使其燃烧并造成总计 %d 点火焰伤害。]], "tformat")
 t("Blazing Rebirth", "烈焰重生", "talent name")
 t("Restore yourself to full health, but take damage equal to the damage healed over %d turns. This damage is split evenly among you and all burning enemies in radius %d. Damage you take is irresistable. Damage to enemies is fire damage.", [[生命值恢复为满值，但治疗值转化为持续 %d 回合的伤害。
@@ -1231,15 +1232,15 @@ section "tome-ashes-urhrok/data/talents/corruptions/npcs.lua"
 
 t("Soul Eater", "灵魂吞噬者", "talent name")
 t("#CRIMSON#%s is bound to %s will.", "#CRIMSON#%s被绑定到%s的意志。", "logSeen")
-t("#PURPLE#As %s falls down you see %s reach to it, devour its essence and raise it back as a demonic husk.", "#PURPLE#当%s倒下时，你看到%s靠向它，吞噬了它的精华，并将其复活为恶魔躯壳。", "logSeen")
+t("#PURPLE#As %s falls down you see %s reach to it, devour its essence and raise it back as a demonic husk.", "#PURPLE#当%s倒下时，你看到%s靠向它，吞噬了它的精华，并将其复活为恶魔尸傀。", "logSeen")
 t("%s (demonic husk)", "%s（恶魔尸傀）", "tformat")
 t([[Any nearby allied creature that is not a summon will be bound to your will.
 		Each time a creature bound to your will dies it is resurrected as a demonic husk.
 		Demonic husks have:
 		- slow movement speed
 		- more life
-		- new demonic talents]], [[任何附近的友方非召唤生物将与你的意志链接。
-		每次与你意志链接的生物死亡时，将会以恶魔尸傀的形式复活。
+		- new demonic talents]], [[任何附近的友方非召唤生物将被绑定到你的意志。
+		每次被绑定到你意志的生物死亡时，将会以恶魔尸傀的形式复活。
 		恶魔尸傀具有如下性质：
 		- 缓慢的移动速度
 		- 更多生命值
@@ -1264,8 +1265,7 @@ t("Mass Hysteria", "恐惧之潮", "talent name")
 t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%%， 持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 码内所有敌对生物。", "tformat")
 t("Fearfeast", "恐惧盛宴", "talent name")
 t("You gain %.1f turns!", "你获得了%.1f个回合！", "logPlayer")
-t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[汲取 %d 码内敌对生物身上的恐惧，每汲取一层恐惧，恢复 %d 生命并获得 %0.1f%% 额外回合。
-	至多能获得 %.1f 个额外回合。]], "tformat")
+t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[汲取 %d 码内敌对生物身上的恐惧，每汲取一层恐惧，恢复 %d 生命并获得 %0.1f%% 额外回合，至多能获得 %.1f 个额外回合。]], "tformat")
 t("Hope Wanes", "绝望碾压", "talent name")
 t([[You crush the spirit of a target with at least %d fear stacks, consuming all stacks and making it unable to act for %d turns.
 		This talent ignores saves and immunities.]], [[击溃恐惧叠加至少 %d 层的目标的精神，消耗其全部恐惧层数，使目标 %d 回合无法行动。
@@ -1374,7 +1374,7 @@ t([[Your body overflows with the power of the Fearscape, turning you into a powe
 		-锁魂之链：如果命中，额外附加 %d 次 35%% 武器伤害的攻击。
 		-焚尽强击：增加额外伤害几率至 %d%%。
 		-恐惧盛宴：每汲取一层叠加的恐惧，获得 %0.1f 点活力。
-		-乌鲁洛克之口：角度增加 %d。]], "tformat")
+		-乌鲁洛克之口：锥形角度增加 %d 度。]], "tformat")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/talents/misc/races.lua"
@@ -1387,14 +1387,14 @@ t("You must have an empty space to teleport to.", "你必须寻找一片空地�
 t([[Hasten yourself out of phase, teleporting you to a specific location up to %d spaces away.
 		You can activate this talent up to twice within the same turn, but the second activation will not be instant.
 		Afterwards you stay out of phase for 5 turns. In this state your defense is increased by %d and all your resistances by %d%%.
-		The bonus will increase with your Willpower.]], [[加速自身以脱离空间，传送至 %d 码内的指定位置。
+		The bonus will increase with your Willpower.]], [[加速自身以脱离现实，传送至 %d 码内的指定位置。
 		你在同一回合内至多连用两次该技能，且第二次使用会消耗时间。
 		之后，你进入“脱离现实”状态 5 回合，闪避增加 %d， 全体抗性增加 %d%%。
 		效果受意志加成。]], "tformat")
-t("Resilience of the Doomed", "强韧", "talent name")
+t("Resilience of the Doomed", "末日强韧", "talent name")
 t([[The tortures you had to endure on the Fearscape have increased your resilience.
 		All detrimental status effects last %d%% less on you and all direct critical hits (physical, mental, spells) against you have a %d%% lower critical multiplier (but always do at least normal damage).]], [[你在恶魔空间忍受的折磨让你更加强韧。
-		所有负面状态持续时间减少 %d%%， 所有直接暴击（物理、精神、法术）的暴击倍率降低 %d%% （但至少仍会造成普通伤害）。]], "tformat")
+		所有负面状态持续时间减少 %d%%， 所有对你造成的直接暴击（物理、精神、法术）的暴击倍率降低 %d%% （但至少仍会造成普通伤害）。]], "tformat")
 t("Corruption of the Doomed", "末日腐化", "talent name")
 t([[Your original invisibility talent was corrupted and twisted.
 		You have %d%% chance to turn into a dúathedlen for 5 turns, when hit by a blow doing at least 10%% of your total life.
