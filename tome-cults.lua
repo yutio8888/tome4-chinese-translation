@@ -2647,7 +2647,7 @@ t("Atrophy", "衰亡", "talent name")
 t("%s has been cut from the timeline!", "%s被从时间线中切除", "logSeen")
 t([[You are surrounded by a vortex of entropic energy that feeds on the timelines of others. Each time you cast a spell random targets in radius 10 begin rapidly aging and decaying, reducing all stats by %d for 8 turns, stacking up to %d times.
 			Up to %d stacks total will be applied to enemies each cast with a max of 2 stacks on the same target.]], [[吸收他人时间的熵能漩涡围绕着你。当你释放法术时，半径 10 格内的随机目标将迅速老化、凋零，所有属性降低 %d， 持续 8 回合，效果可叠加 %d 层。
-			每次施法可以释放最多 %d 层加速衰老，但同一目标一次最多增加 2 层效果。]], "tformat")
+			每次施法可以释放最多 %d 层衰亡，但同一目标一次最多增加 2 层效果。]], "tformat")
 t("Severed Threads", "断绝", "talent name")
 t("On applying atrophy to a target below %d%% of their maximum life you will sever their lifeline, slaying them instantly. You will then feast on the remnants of their timeline for %d turns, increasing your life regeneration by %0.1f and causing talents without fixed cooldowns to refresh twice as fast.", "当对生命值低于最大生命值 %d%% 的目标释放衰亡时，你将尝试切断目标的生命线，立刻杀死目标。在接下来的 %d 回合中，你将会享用目标残余的时间线，增加你的生命回复 %0.1f 并使没有固定冷却时间的技能冷却速度加倍。", "tformat")
 t("Temporal Feast", "时空盛宴", "talent name")
@@ -2688,7 +2688,7 @@ Your increased damage, damage penetration, critical strike chance, and critical 
 它将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。
 		]], "tformat")
 t("Horrific Display", "恐魔具现化", "talent name")
-t("%s resists the horrific assault!", "%s抵抗了恐怖袭击！", "logSeen")
+t("%s resists the horrific assault!", "%s抵抗了骇人的侵袭！", "logSeen")
 t([[You forcefully try to turn a creature into an horror.
 If the target fails a magical save against your Spellpower, its appearance turns into that of a horror for %d turns, making all other creatures hostile to it.
 Enemies near the target will have their target cleared on application.
@@ -2702,7 +2702,7 @@ At talent level 3, your Decaying Devourers spell will summon 4 additional Devour
 At talent level 5, victims of your Horrific Display spell will pull enemies in radius 10 1 space towards them each turn.
 The damage increase is based on your Spellpower.]], [[你使你的恐魔与已死之神阿马克泰尔相协调，增加你召唤的恐魔 %d%% 伤害。
 技能等级 3 后，你的腐败的吞噬者法术将在附近随机敌人身边额外召唤四名吞噬者，你的浮肿恐魔将学会极度痛苦。
-技能等级 5 后，恐怖展示的受害者每回合会把范围 10 码内的敌人拉近 1 码。
+技能等级 5 后，恐魔具现化的受害者每回合会把范围 10 码内的敌人拉近 1 码。
 伤害加成受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -2893,18 +2893,18 @@ t([[You invoke a long standing pact with a fellow horror, a Worm that Walks, to 
 		使用该法术将复活你已死亡的友方恐魔，使其恢复 %d%% 生命。
 		原始技能等级提升将带来更多装备格：
 
-		等级 1：主手 /副手武器
+		等级 1：主手、副手
 		等级 2：躯体
 		等级 3：腰带
-		等级 4：戒指 /戒指
-		等级 5：戒指 /戒指/ 饰品
+		等级 4：戒指、戒指
+		等级 5：戒指、戒指、饰品
 
 		要改变其装备和技能，先将装备从你的物品栏转交给它，再切换控制。]], "tformat")
 t("Foul Convergence", "污秽夹击", "talent name")
 t("Your friendly horror is dead.", "你的恐魔伙伴死了。", "logPlayer")
 t("%s's teleport fizzles!", "%s的传送失败了！", "logSeen")
 t([[You and your Worm that Walks both teleport to an enemy in range %d and make a melee attack for %d%% damage.
-			Your Worm that Walks' Blindside talent cooldown is reduced by %d.]], [[你和蠕虫合体同时传送至 %d 内的目标处，各进行一次近战攻击，造成 %d%% 伤害。
+			Your Worm that Walks' Blindside talent cooldown is reduced by %d.]], [[你和蠕虫合体同时传送至 %d 码范围内的一名敌人身边，各进行一次近战攻击，造成 %d%% 伤害。
 			你的蠕虫合体的闪电突袭技能冷却时间减少 %d。]], "tformat")
 t("Shared Insanity", "共享疯狂", "talent name")
 t([[You establish a powerful mental link with your Worm that Walks.
@@ -2934,9 +2934,8 @@ t([[You shed the outer layer of your mutated skin and empower it to act as a dam
 t("Pustulent Growth", "脓包生长", "talent name")
 t([[Each time your shed skin looses %d%% of its max power or you take damage over 15%% of your maximum life a black putrescent pustule grows on your body for 5 turns.
 		Each pustule increases all your resistances by %d%%. You can have up to %d pustules at once.
-		Resistance scales with your Spellpower.]], [[每次你的蜕皮护盾损失 %d%% 护盾量或者你受到超过 15%% 最大生命值的伤害时，一个黑色的腐败脓包将在你身上生长 5 回合。
-		每个脓包增加你 %d%% 全体伤害抗性。
-		你最多能同时拥有 %d 个脓包。
+		Resistance scales with your Spellpower.]], [[每次你的蜕皮护盾损失其最大护盾量的 %d%% 或者你受到超过 15%% 最大生命值的伤害时，一个黑色的腐败脓包将在你身上生长 5 回合。
+		每个脓包增加你 %d%% 全体伤害抗性。你最多能同时拥有 %d 个脓包。
 		抗性受法术强度加成。]], "tformat")
 t("Pustulent Fulmination", "脓包爆裂", "talent name")
 t("You make all your putrescent pustules explode at once, splashing all creatures in radius %d with black fluids that deal %0.2f darkness damage per pustule and healing you for %0.1f per pustule.", "你同时引爆身上所有脓包，将黑色液体溅射到半径 %d 格内的所有生物身上，每个脓包造成 %0.2f 暗影伤害并治疗你 %0.1f 生命。", "tformat")
@@ -2945,8 +2944,8 @@ t([[When you make your pustules explode you leave a pool of defiled blood on the
 		Foes caught inside get assaulted by black tentacles every turn, dealing %d%% darkness tentacle damage and covering them in your black blood for 2 turns.
 		Creatures that hit you while covered in your blood heal you for %d%% of the damage done.
 		The healing received increases with your Spellpower.]], [[每次脓包爆裂时，你会在地上留下一滩持续 5 回合的污血。
-		范围内的敌人每回合将被污血中产生的触手纠缠，受到 %d%% 暗影触手伤害并被污血覆盖 2 回合。
-		被污血覆盖的敌人击中你时，你回复相当于该伤害 %d%% 的生命值。
+		范围内的敌人每回合会遭到黑色触手攻击，受到 %d%% 暗影触手伤害并被污血覆盖 2 回合。
+		被污血覆盖的生物击中你时，你回复相当于该伤害 %d%% 的生命值。
 		治疗系数受法术强度影响。]], "tformat")
 
 ------------------------------------------------
@@ -3030,7 +3029,7 @@ t([[Your Nihil unravels the existence of the target, tearing them apart with ent
 		破灭之兆会继承你的伤害加成、伤害穿透、暴击几率和暴击倍率加成。]], "tformat")
 t("Erase", "抹除", "talent name")
 t([[Those affected by your Nihil find themselves increasingly removed from reality, reducing all damage they deal by %d%% and causing them to take %0.2f temporal damage each turn for each negative magical effect they have.
-		The damage will scale with your Spellpower.]], [[受到你空无影响的生物逐渐从现实中被抹除，造成的伤害降低 %d%%。 同时目标每具有一个负面魔法效果，则每回合受到 %0.2f 时空伤害。
+		The damage will scale with your Spellpower.]], [[受到你空无影响的生物逐渐从现实中被抹除：每具有一个负面魔法效果，其造成的伤害降低 %d%%， 并每回合受到 %0.2f 时空伤害。
 		伤害受到法术强度加成。]], "tformat")
 t("All is Dust", "尽归尘土", "talent name")
 t("%s's entropic storm", "%s的湮灭风暴", "tformat")
@@ -3038,9 +3037,8 @@ t("#ORCHID#The entropic storm destroys %s!#LAST#", "#ORCHID#湮灭风暴摧毁�
 t("a projectile", "一个抛射物", "_t")
 t([[Summon a radius 4 storm of all-consuming oblivion at the targeted location for %d turns, reducing those within to nothing. Targets within will take %0.2f darkness damage and %0.2f temporal damage each turn.  Walls and other terrain within the storm will be disintegrated.
 		Each time the storm deals damage enemies will have any detrimental magical effect with less than 3 duration set to 3 duration, and all enemy projectiles will be destroyed.
-		The damage will scale with your Spellpower.]], [[在目标区域召唤出范围 4 码、持续 %d 回合的湮灭风暴，使受到影响的物质化为虚无，每回合造成 %0.2f 暗影和 %0.2f 时空伤害。
-		范围内的墙壁和部分其他地形将被粉碎。
-		每次受到风暴伤害时，敌人身上不足 3 回合的负面魔法效果都将重置为 3 回合。风暴范围内敌人的投射物都将被扯碎。
+		The damage will scale with your Spellpower.]], [[在目标区域召唤出范围 4 码、持续 %d 回合的湮灭风暴，使受到影响的物质化为虚无，每回合造成 %0.2f 暗影和 %0.2f 时空伤害。范围内的墙壁和其他地形将被粉碎。
+		每次受到风暴伤害时，敌人身上不足 3 回合的负面魔法效果都将重置为 3 回合。风暴范围内敌人的抛射物都将被摧毁。
 		伤害受到法术强度加成。]], "tformat")
 t("Void Crash", "虚空撞击", "talent name")
 t("Slam your weapons into the ground, creating a radius 2 explosion of void energy dealing %d%% damage split between darkness and temporal.", "用武器撞击地面，产生 2 码的虚空爆炸，造成 %d%% 武器伤害，分摊为暗影和时空伤害。", "tformat")
@@ -3048,14 +3046,14 @@ t("Slam your weapons into the ground, creating a radius 2 explosion of void ener
 ------------------------------------------------
 section "tome-cults/data/talents/demented/path-of-horror.lua"
 
-t("Carrion Feet", "蠕动之足", "talent name")
+t("Carrion Feet", "腐肉之足", "talent name")
 t([[Your feet start to continuously produce carrion worms that are constantly crushed as you walk, passively increasing movement speed by %d%%.
 		You can also activate this talent to instantly destroy more worms, letting you jump in range %d to visible terrain.
 		Upon landing you crush more worms, creating a radius 2 cone of gore; any creatures caught inside deals 70%% less damage for one turn.
 		If at least 1 enemy is effected by the cone you gain an additional 20 insanity.]], [[蠕虫在你脚下不断产生，它们在你行走的时候不断爆裂，被动增加你 %d%% 移动速度。
-		你也可以激活这个技能来引爆更多的蠕虫，让你跳跃到 %d 码外的可见地形。
-		着陆时会有更多的蠕虫爆裂，形成范围 2 码的脓液喷射；范围内的生物下回合造成的伤害降低 70%%。
-		如果有敌人受到脓液喷射的影响，你会得到额外 20 点疯狂值。]], "tformat")
+		你也可以激活这个技能来引爆更多的蠕虫，让你跳跃到 %d 码内的可见地形。
+		着陆时会有更多的蠕虫爆裂，形成半径 2 码的锥形血肉喷溅；范围内的生物下回合造成的伤害降低 70%%。
+		如果有敌人受到血肉喷溅的影响，你会得到额外 20 点疯狂值。]], "tformat")
 t("Horrific Evolution", "恐怖进化", "talent name")
 t([[Your mutations have enhanced your offense even farther.
 		You gain %d Accuracy and %d Spellpower.
@@ -3168,8 +3166,8 @@ t([[The pain you inflict to the victim you are digesting is so intense something
 		At talent level 5 you can choose which talent to use.
 		You may not steal a talent which you already know.
 		The stolen talent will not use any resources to activate.
-		]], [[正在被你消化的目标承受着极大的痛苦，内部器官不断破损，让你能趁机侵入它的思维。
-		你可以窃取并使用它的一个随机技能（技能等级 %d）。
+		]], [[正在被你消化的目标承受着极大的痛苦，其体内有什么东西崩溃了，让你能趁机侵入它的思维。
+		消化时，你可以窃取并使用它的一个随机技能（技能等级 %d）。
 		技能等级 5 时，你可以指定窃取的技能。
 		你不能窃取你已知的技能。
 		窃取的技能使用时不消耗资源。
@@ -3207,14 +3205,16 @@ t([[Your left hand mutates into a disgusting mass of tentacles.
 
 		你的触手当前属性%s：
 		%s]], "tformat")
-t(", #CRIMSON# but is currently disabled due to non-empty offhand#WHITE#", "，#CRIMSON#由于副手非空，该技能暂时被禁用#WHITE#", "_t")
+t(", #CRIMSON# but is currently disabled due to non-empty offhand#WHITE#", "，#CRIMSON#但由于副手非空，目前处于禁用状态#WHITE#", "_t")
 t("Lash Out", "旋风鞭挞", "talent name")
 t("You require an empty offhand to use your tentacle hand.", "你需要副手空手才能使用触手。", "logPlayer")
 t("You require a weapon and an empty offhand!", "你必须有一把武器和一只空手！", "logPlayer")
 t("Spin around, extending your weapon and damaging all targets around you for %d%% weapon damage while your tentacle hand extends and hits all targets in radius 3 for %d%% tentacle damage.\n\t\t\t\t\n\t\t\t\tIf the mainhand attack hits at least one enemy you gain %d insanity.\n\t\t\t\tIf the tentacle attack hits at least one enemy you gain %d insanity.\n\t\t\n\t\t#YELLOW_GREEN#When constricting:#WHITE# Your tentacle attack is centered around your constricted target (but not your weapon attack) and only in radius 1 but it also dazes anything hit for 5 turns.", [[飞速旋转，伸展武器对周围单位造成 %d%% 武器伤害，并且伸展触手对 3 码内单位造成 %d%% 触手伤害。
+
 		如果武器击中敌人，你获得 %d 疯狂值。
 		如果触手击中敌人，你获得 %d 疯狂值。
-		#YELLOW_GREEN# 当触手处于缠绕状态 :#WHITE# 你的触手攻击以被缠绕目标为中心展开，攻击范围只有 1 码（武器攻击除外），但是会使被击中单位眩晕 5 回合。]], "tformat")
+
+		#YELLOW_GREEN#当触手处于缠绕状态：#WHITE#你的触手攻击改为以被缠绕目标为中心展开（武器攻击除外），并使范围内的敌人眩晕 5 回合。]], "tformat")
 t("Tendrils Eruption", "触手地狱", "talent name")
 t("%s resists the slimy tendril!", "%s抵挡了黏液触手！", "logSeen")
 t([[You plant your tentacle hand in the ground where it splits up and extends to a target zone of radius %d.
@@ -3306,7 +3306,7 @@ t([[You rend the very essence of the target, drawing on their life and convertin
 ------------------------------------------------
 section "tome-cults/data/talents/demented/writhing-body.lua"
 
-t(", #CRIMSON# but is currently disabled due to non-empty offhand#WHITE#", "，#CRIMSON#由于副手非空，该技能暂时被禁用#WHITE#", "_t")
+t(", #CRIMSON# but is currently disabled due to non-empty offhand#WHITE#", "，#CRIMSON#但由于副手非空，目前处于禁用状态#WHITE#", "_t")
 t("You require an empty offhand to use your tentacle hand.", "你需要副手空手才能使用触手。", "logPlayer")
 t("You require a weapon and an empty offhand!", "你必须有一把武器和一只空手！", "logPlayer")
 t("The diseases of %s spread!", "%s的疾病在传播！", "logSeen")
@@ -3569,7 +3569,7 @@ t("Tentacle Constriction", "触手缠绕", "_t")
 t("Caught by a tentacle from %s that deals %d%% tentacle damage and pulls you 1 space towards them each turn.", "被 %s 的触手缠绕，每回合造成 %d%% 触手伤害并将你拉近一码。", "tformat")
 t("#Target# is constricted by a tentacle.", "#Target#被触手缠绕。", "_t")
 t("#Target# is free from the tentacle constriction.", "#Target#逃脱了触手缠绕。", "_t")
-t("Carrion Feet", "蠕动之足", "_t")
+t("Carrion Feet", "腐肉之足", "_t")
 t("Caught disgusting worms, reducing all damage by %d%%.", "被恶心的蠕虫抓住，造成的伤害减少 %d%%。", "tformat")
 t("#Target# is caught in gore.", "#Target#被血肉覆盖。", "_t")
 t("#Target# is free from the gore.", "#Target#不再被血肉覆盖。", "_t")
