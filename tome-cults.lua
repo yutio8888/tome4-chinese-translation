@@ -3382,7 +3382,7 @@ t([[Allows to teleport to Kroshkkur.
 	该法术需要 40 回合生效。施放时及传送生效时，你都必须处于任何其他生物的视线之外。]], "_t")
 t("Call of Amakthel", "阿马克泰尔的呼唤", "talent name")
 t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
-t("Pull all foes within radius 10 2 grids towards you.", "将10码范围内所有的目标朝你拉近2格。", "_t")
+t("Pull all foes within radius 10 2 grids towards you.", "将10码范围内的所有敌人朝你拉近2格。", "_t")
 t("Crumble", "瓦解", "talent name")
 t([[Fire a blast of darkness at an enemy dealing %0.2f damage and destroying any walls in radius 3 around them.
 		The damage will increase with your Spellpower.]], [[发射暗影能量，对目标造成 %0.2f 伤害并破坏 3 格范围内的墙壁。
@@ -3510,7 +3510,7 @@ t("Drakeblood Strike", "龙血打击", "talent name")
 t([[You were created by ziguranth for one purpose only, to wage war on magic!
 			Strike your target dealing %d%% %s weapon damage and silencing them for %d turns.
 			The damage type will change with your drake aspect.
-			The chance to silence will increase with the highest of your physical or mind power.]], [[伊格制造你只有一个目的：向魔法开战！
+			The chance to silence will increase with the highest of your physical or mind power.]], [[伊格兰斯制造你只有一个目的：向魔法开战！
 		打击你的敌人，造成 %d%% %s 武器伤害，并沉默它们 %d 回合。
 		伤害类型根据龙血的类型而决定。
 		沉默的几率受物理强度或精神强度的最高值加成。]], "tformat")
@@ -3543,7 +3543,7 @@ t([[Creates a shell around you, absorbing %d damage. Lasts for 10 turns.
 section "tome-cults/data/talents/spell/necro.lua"
 
 t("The massive ribcage in the middle beats with loud, audible cracks, as many a skeletal hand protrude forth, entwining, fusing, forming long skeletal appendages to support itself, while others crumble and collapse inward. During all this, somehow, it seems they grasp for you.", "中央的巨大胸腔伴随着响亮而清晰的碎裂声搏动着，许多骷髅手臂从中伸出，缠绕、融合，形成长长的骨骼肢体支撑自身，而其他部分则碎裂、向内坍塌。在此期间，它们似乎都想抓住你。", "_t")
-t("#VIOLET#As the bone horror is destroyed you see the remaining bones reassembling in the form of new skeletons!", "#VIOLET#白骨恐魔被摧毁了，你看到剩余的骨头重新组装成了新的骷髅！", "logSeen")
+t("#VIOLET#As the bone horror is destroyed you see the remaining bones reassembling in the form of new skeletons!", "#VIOLET#骨灵恐魔被摧毁了，你看到剩余的骨头重新组装成了新的骷髅！", "logSeen")
 
 ------------------------------------------------
 section "tome-cults/data/timed_effects.lua"
