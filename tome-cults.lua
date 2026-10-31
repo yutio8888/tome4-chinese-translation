@@ -2636,7 +2636,7 @@ t([[Each time you apply Jinx to an enemy, you have a %d%% chance to siphon some 
 t("Fatebreaker", "打破宿命", "talent name")
 t([[You form a link between yourself and the chosen target for %d turns, tying your fates together. If during this time you receive fatal damage, you reflexively warp reality, ending the effect and attempting to force them to die in your place.
 		As long as your target remains alive this redirects all damage you take to it as temporal and darkness damage for 1 turn.
-		Any Fortune stacks you have and any Jinx stacks the enemy have will then be consumed to heal you for %d life per stack.]], [[在你和目标之间建立一个持续 %d 回合的命运链接。如果在这期间你受到了致命的伤害，你将条件反射般扭曲现实，中断连接并尝试迫使目标替你死去。
+		Any Fortune stacks you have and any Jinx stacks the enemy have will then be consumed to heal you for %d life per stack.]], [[在你和目标之间建立一个持续 %d 回合的命运链接。如果在这期间你受到了致命的伤害，你将条件反射般扭曲现实，中断链接并尝试迫使目标替你死去。
 		在 1 回合内，只要目标还活着，你会将所有受到的伤害作为时空和暗影伤害转移给目标。
 		同时，你身上的幸运效果和目标携带的厄运效果将被消耗，每层效果将会治疗 %d 点生命值。]], "tformat")
 
@@ -2720,7 +2720,7 @@ t("Enhance your body and tentacle with new attacks and horrific growths.", "用�
 t("path of horror", "恐魔之路", "talent type")
 t("Continue your journey on the side of horror.", "继续你成为恐魔的旅程。", "_t")
 t("controlled horrors", "恐魔操控", "talent type")
-t("Summon decaying horrors to do your bidding!", "召唤堕落的恐魔来执行你的命令！", "_t")
+t("Summon decaying horrors to do your bidding!", "召唤腐朽的恐魔来执行你的命令！", "_t")
 t("slow death", "慢性死亡", "talent type")
 t("Turn the insides of your body into a digesting weapon of pain!", "将你的体内变成一件带来痛苦的消化武器！", "_t")
 t("disfigured face", "毁容", "talent type")
@@ -2742,13 +2742,13 @@ t("Channel the essence of entropy to reduce your foes to dust.", "引导熵的�
 t("rift", "裂隙", "talent type")
 t("Tear holes in space and time to unleash devastating forces on your foes.", "在空间和时间上撕开破洞，向你的敌人释放毁灭性的力量。", "_t")
 t("chronophage", "噬宙", "talent type")
-t("Feast upon the ruined timelines of your enemies.", "享受你敌人毁灭的时间线。", "_t")
+t("Feast upon the ruined timelines of your enemies.", "吞噬你敌人被毁的时间线。", "_t")
 t("scourge drake", "天谴龙", "talent type")
 t("Take on the defining aspects of a Scourge Drake.", "获得天谴龙的标志性特征。", "_t")
 t("doom", "末日", "talent type")
 t("Foretell the dire fate of your enemies.", "预言你敌人的悲惨命运。", "_t")
 t("prophecy", "预言", "talent type")
-t("The various prophecies you can tell.", "各种各样的预言。", "_t")
+t("The various prophecies you can tell.", "你能作出的各种预言。", "_t")
 t("calamity", "不幸", "talent type")
 t("Stack the odds in your favour.", "操控偶然性来协助你战斗。", "_t")
 t("beyond sanity", "非理性", "talent type")
@@ -2816,13 +2816,14 @@ t([[Utter a prophecy of the impending treachery of your target. For the next 6 t
 		一个目标只能同时被一个预言影响。]], "tformat")
 t("Grand Oration", "隆重演说", "talent name")
 t("None", "无", "_t")
-t("You speak a chosen prophecy to the masses. When applying this prophecy, it will spread to all targets in radius %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[你隆重地宣读某种预言，令其在周围 %d 格内传播。
-		同一种预言只能以一种方式进行强化，隆重演说，双重诅咒或者天启。
+t("You speak a chosen prophecy to the masses. When applying this prophecy, it will spread to all targets in radius %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[你隆重地宣读某种预言，令其在目标周围 %d 格内传播。
+		同一种预言只能被隆重演说、双重诅咒或天启中的一种强化。
 
 		当前预言 : %s]], "tformat")
 t("Twofold Curse", "双重诅咒", "talent name")
-t("Weave your chosen prophecy into your speech, dooming your foe twice over. The chosen prophecy will apply instantly to your primary target whenever you cast any other prophecy at talent level %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[对你的听众施加双重诅咒。每当你施加其他预言时，你选择的预言将同时施加给主要目标 (技能等级 %d)。
-		同一种预言只能以一种方式进行强化，隆重演说，双重诅咒或者天启。
+t("Weave your chosen prophecy into your speech, dooming your foe twice over. The chosen prophecy will apply instantly to your primary target whenever you cast any other prophecy at talent level %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[将你选择的预言融入言辞，令敌人双重受咒。每当你施加其他预言时，你选择的预言将同时施加给主要目标 (技能等级 %d)。
+		同一种预言只能被隆重演说、双重诅咒或天启中的一种强化。
+
 		当前预言 : %s]], "tformat")
 t("Revelation", "天启", "talent name")
 t("As you speak the chosen prophecy whispers from the void guide you in how to bring about the downfall of your foe. The chosen prophecy will grant one of the following effects.\n\t\tProphecy of Madness. Each time the target uses a talent one of your talents on cooldown has its cooldown reduced by %d turns.\n\t\tProphecy of Ruin. Each time the target takes damage you are healed for %d%% of the damage dealt.\n\t\tProphecy of Treason: %d%% of all damage you take is redirected to a random target affected by Prophecy of Treason.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\n\t\tCurrent prophecy: %s", [[当你宣读预言时，来自虚空的回响将指引你带来敌人的末日。你选择的预言将提供以下三种加成之一。
@@ -2954,7 +2955,8 @@ section "tome-cults/data/talents/demented/madness.lua"
 t("Dark Whispers", "黑暗低语", "talent name")
 t([[Terrible visions and maddening voices fill the minds of enemies within a radius %d area, inflicting %0.2f darkness damage each turn for 5 turns. In addition, this distraction will reduce physical, spell and mindpower of those affected by %d.
 The power loss caused by this spell can stack, to a maximum of %d powers.
-		The effect will increase with your Spellpower.]], [[令半径 %d 格内敌人的心灵充满可怕的幻觉和疯狂的低语，5 回合内每回合受到 %0.2f 暗影伤害。同时，该效果将使其物理强度、法术强度和精神强度各降低 %d 点，最多可叠加至 %d 点。
+		The effect will increase with your Spellpower.]], [[令半径 %d 格内敌人的心灵充满可怕的幻觉和疯狂的低语，5 回合内每回合受到 %0.2f 暗影伤害。同时，该效果将使其物理强度、法术强度和精神强度各降低 %d 点。
+该法术造成的强度削减可以叠加，最多 %d 点。
 		技能效果受法术强度加成。]], "tformat")
 t("Hideous Visions", "惊骇幻象", "talent name")
 t("hallucination", "幻象", "_t")
@@ -2989,8 +2991,8 @@ t("Select a teleport location...", "选择传送位置…", "logPlayer")
 t("The spell fizzles on %s!", "法术在 %s 上失败了！", "logSeen")
 t("#CRIMSON#%s is swallowed by a portal!", "#CRIMSON#%s被传送门吞噬！", "logSeen")
 t("%s resists the warp!", "%s抵抗了传送！", "logSeen")
-t("entropic maw", "熵之胃", "_t")
-t("Tendrils lash around the mouth of this gigantic beast, seeking prey to devour.", "卷须从怪物的嘴中伸出，正在寻找猎物。", "_t")
+t("entropic maw", "熵之巨口", "_t")
+t("Tendrils lash around the mouth of this gigantic beast, seeking prey to devour.", "这头巨兽的嘴边触须狂舞，搜寻可吞噬的猎物。", "_t")
 t([[Briefly open a radius %d rift in spacetime that teleports those within to the targeted location. Enemies will take %0.2f darkness and %0.2f temporal damage.
 		The power of this spell inflicts entropic backlash on you, causing you to take %d damage over 8 turns. This damage counts as entropy for the purpose of Entropic Gift.
 		The damage will improve with your Spellpower.]], [[在时空中临时打开半径 %d 的裂缝，将范围内目标传送至指定位置。敌人将受到 %0.2f 暗影伤害和 %0.2f 时空伤害。
@@ -3002,10 +3004,10 @@ t([[Each time you cast a non-instant Demented spell, a nether spark begins orbit
 #PURPLE#Rift Cutter:#LAST# Those in the rift will be pinned for %d turns, take %0.2f temporal damage each turn, and the rift explosion has %d increased radius.
 #PURPLE#Spatial Distortion:#LAST# An Entropic Maw will be summoned at the rift's exit for %d turns, pulling in and taunting nearby targets with it's tendrils.
 The damage will increase with your Spellpower.  Entropic Maw stats will increase with level and your Magic stat.]], [[每次你施放非瞬发的疯狂法术时，一朵彼世火花将环绕在你周围 10 回合，上限为 5 朵。每个火花增加你 %d%% 暴击率。当你拥有 5 个火花时，你的下一次彼世法术将消耗所有火花来获得强化效果。
-#PURPLE#彼世冲击：#LAST# 成为穿透性虚空能量，并在 5 回合内造成额外 %d%% 伤害。
-#PURPLE#裂缝切割：#LAST# 裂缝内的敌人将定身 %d 回合，每回合受到 %0.2f 时空伤害。裂缝湮灭时爆炸半径增加 %d。
-#PURPLE#空间扭曲：#LAST# 裂缝出口处产生一个持续 %d 回合的熵之胃，能用触须拉近并嘲讽附近的目标。
-伤害受法术强度加成。熵之胃的属性受等级和魔力属性加成。]], "tformat")
+#PURPLE#彼世冲击：#LAST# 化为一道致命的虚空能量长枪，穿透敌人，并在 5 回合内造成额外 %d%% 伤害。
+#PURPLE#裂缝切割：#LAST# 裂缝内的敌人将定身 %d 回合，每回合受到 %0.2f 时空伤害。裂缝的爆炸半径增加 %d。
+#PURPLE#空间扭曲：#LAST# 裂缝出口处产生一个持续 %d 回合的熵之巨口，能用触须拉近并嘲讽附近的目标。
+伤害受法术强度加成。熵之巨口的属性受等级和魔力属性加成。]], "tformat")
 t("Grasping Tendrils", "触须抓取", "talent name")
 t("Grab a target and drag it to your side, dealing %d%% weapon damage and taunting it.", "抓住目标，将其拉到身边，造成 %d%% 武器伤害并嘲讽之。", "tformat")
 
@@ -3262,7 +3264,7 @@ t([[You freeze yourself in time for %d turns, preventing you from taking any act
 				负面效果持续时间和技能冷却时间会正常扣减，正面效果持续时间不变。]], "tformat")
 t("Split", "分裂", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
-t("You can't clone summons!", "你不能克隆召唤物", "logPlayer")
+t("You can't clone summons!", "你不能克隆召唤物！", "logPlayer")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t("#LIGHT_STEEL_BLUE#%s's Temporal Clone#LAST#", "#LIGHT_STEEL_BLUE#%s的时空克隆#LAST#", "tformat")
 t("A warped image resembling the creature it appeared from, its features a flickering blur of all possible futures.", "一个扭曲的影像，形似它所源自的生物，其面貌是所有可能未来交织闪烁的模糊残影。", "_t")
@@ -3291,16 +3293,16 @@ Each time your void stars are fully depleted, you gain a shield absorbing the ne
 t("Black Monolith", "黑色巨石", "talent name")
 t("You must have at least 1 void star to summon a monolith.", "你必须有一颗虚空之星才能召唤巨石。", "logPlayer")
 t("Not enough space to summon your monolith!", "没有足够空间，无法召唤巨石", "logPlayer")
-t("void monolith", "虚无巨石", "_t")
+t("void monolith", "虚空巨石", "_t")
 t("This bizarre oblong shape floats in the air, defying gravity. Its form seems to subtly shift, and you feel an intense desire to move towards it.", "这个奇异的长方体无视重力漂浮在空气中。它的形态似乎正在微妙地转换着，你感受到向着它走去的强烈愿望。", "_t")
 t("Summon", "召唤", "_t")
 t([[Consuming a void star, you use it to summon a void monolith at the targeted location for %d turns. The monolith is very durable, and while immobile it will attempt to daze enemies within radius %d for 2 turns every half a turn using your spellpower.
-			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚无巨石。巨石非常坚固，无法移动，每半回合尝试对 %d 码范围内敌人施加 2 回合眩晕（基于你的法术强度）。
+			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚空巨石。巨石非常坚固，无法移动，每半回合尝试对 %d 码范围内敌人施加 2 回合眩晕（基于你的法术强度）。
 			基于你的魔力属性，巨石获得 %d 生命成长和 %d%% 全体抗性。]], "tformat")
 t("Essence Reave", "精华收割", "talent name")
 t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星！", "logSeen")
 t([[You rend the very essence of the target, drawing on their life and converting it to void stars. The target takes %0.2f darkness and %0.2f temporal damage, and you gain %d void star(s).
-		The damage will increase with your Spellpower.]], [[你撕裂目标的本质，汲取其生命并转化为虚空之星。目标受到 %0.2f 暗影和 %0.2f 时空伤害，你获得 %d 虚空之星。
+		The damage will increase with your Spellpower.]], [[你撕裂目标的本质，汲取其生命并转化为虚空之星。目标受到 %0.2f 暗影和 %0.2f 时空伤害，你获得 %d 颗虚空之星。
 		伤害随法术强度升高。]], "tformat")
 
 ------------------------------------------------
