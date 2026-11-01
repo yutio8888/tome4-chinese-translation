@@ -1,0 +1,21 @@
+{
+ "confirmed": [
+  {
+   "id": "06381cc9793e",
+   "edit": [
+    [
+     "t(\"trigger\", \"按钮\", \"entity type\")",
+     "t(\"trigger\", \"触发器\", \"entity type\")"
+    ],
+    [
+     "t(\"trigger\", \"按钮\", \"entity subtype\")",
+     "t(\"trigger\", \"触发器\", \"entity subtype\")"
+    ]
+   ],
+   "evidence": "gothic.lua:346-353 GOTHIC_GENERIC_TRIGGER_BOOL fires on_move, as do basic.lua:451-458 and slimy_walls.lua:348; Orcs krimbul/grids.lua:44 (on_door_opened) and primal-forest/grids.lua:120 (on_move AUTOCLIMB) are also non-button triggers (DLC source unpinned, local public checkout). The (trigger, entity type) key is synced in mod-tome.lua (3) and tome-orcs.lua (2); the Orcs entity subtype rows follow for consistency. Resolves the 0071 advisory on 8b1811c6b3d0."
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "core 624a6732; Orcs DLC unpinned"
+}

@@ -7525,7 +7525,7 @@ t("This door seems to have been sealed off. You need to find a way to close it."
 t("#VIOLET#You hear a door closing.", "#VIOLET#你听到一扇门被关上了。", "log")
 t("lever", "拉杆", "entity type")
 t("huge lever", "巨大的拉杆", "entity name")
-t("trigger", "按钮", "entity type")
+t("trigger", "触发器", "entity type")
 t("bool", "布尔", "entity subtype")
 
 ------------------------------------------------
@@ -7658,7 +7658,7 @@ t("This door seems to have been sealed off. You need to find a way to close it."
 t("#VIOLET#You hear a door closing.", "#VIOLET#你听到一扇门被关上了。", "log")
 t("lever", "拉杆", "entity type")
 t("huge lever", "巨大的拉杆", "entity name")
-t("trigger", "按钮", "entity type")
+t("trigger", "触发器", "entity type")
 t("bool", "布尔", "entity subtype")
 
 ------------------------------------------------
@@ -7842,7 +7842,7 @@ t("This door seems to have been sealed off. You need to find a way to close it."
 t("#VIOLET#You hear a door closing.", "#VIOLET#你听到一扇门被关上了。", "log")
 t("lever", "拉杆", "entity type")
 t("huge lever", "巨大的拉杆", "entity name")
-t("trigger", "按钮", "entity type")
+t("trigger", "触发器", "entity type")
 t("bool", "布尔", "entity subtype")
 
 ------------------------------------------------
