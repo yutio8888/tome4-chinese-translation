@@ -1,0 +1,60 @@
+{
+ "confirmed": [
+  {
+   "id": "7d7ff8995225",
+   "edit": [
+    "t(\"Weisman\", \"魏斯曼\", \"_t\")",
+    "t(\"Weisman\", \"威斯曼\", \"_t\")"
+   ],
+   "evidence": "lore/fun.lua:63-66 _t\"Weisman\" fills \"letter to %s (%d)\"; the letter lore titles/bodies use 威斯曼 (16 occurrences)"
+  },
+  {
+   "id": "00ec88c5a08e",
+   "edit": [
+    "\"猎魔人指南第一部分：怎样辨别法师\", \"entity name\"",
+    "\"魔法猎手指南第一部分：如何识别织法者\", \"entity name\""
+   ],
+   "evidence": "objects/lore/spellhunt.lua item name must match its lore title (mod-tome.lua:19509); Spellhunt=魔法狩猎 (places.tsv:50)"
+  },
+  {
+   "id": "5302a3eca698",
+   "edit": [
+    "\"猎魔人指南第二部分：怎样与法师战斗\", \"entity name\"",
+    "\"魔法猎手指南第二部分：如何与施法者战斗\", \"entity name\""
+   ],
+   "evidence": "lore title mod-tome.lua:19561; Magic-User = 施法者"
+  },
+  {
+   "id": "e37534f8eb00",
+   "edit": [
+    "\"猎魔人指南第三部分：如何杀死法师\", \"entity name\"",
+    "\"魔法猎手指南第三部分：如何杀死施法者\", \"entity name\""
+   ],
+   "evidence": "lore title mod-tome.lua:19579"
+  },
+  {
+   "id": "95ebc4098a3f",
+   "edit": [
+    "t(\"rogues do it from behind\", \"盗贼在你身后\"",
+    "t(\"rogues do it from behind\", \"盗贼从背后下手\""
+   ],
+   "evidence": "objects/lore/fun.lua:37 rogue-poem; lore/fun.lua:197-205 the rogue strikes with a concealed blade: the title describes the act, not a position"
+  },
+  {
+   "id": "30122d3ad866",
+   "edit": [
+    "\"博学者温罗提的报告\"",
+    "\"博学者温罗提的笔记\""
+   ],
+   "evidence": "lore/sunwall.lua:28 calls it a notebook / my journal, distinct from the official chronicle; rows 11487/19610 synced"
+  }
+ ],
+ "advisory": [
+  {
+   "id": "181310f87a05",
+   "reason": "generic lore-object description; 手札 is the house wording for these lore pickups (cf. \"This parchment contains some lore.\" = 这张卷轴里包含了一些手札); changing one row alone breaks the family"
+  }
+ ],
+ "rejected": [],
+ "notes": "Spellhunter is still 猎魔人 in artifact descriptions mod-tome.lua:12379/12388 (outside this batch); recorded for a later consistency pass"
+}

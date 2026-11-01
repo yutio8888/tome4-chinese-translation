@@ -11437,14 +11437,14 @@ t("trollish poem", "巨魔诗歌", "entity name")
 t("A poem written by a... troll?", "一首由……巨魔？所写的诗歌", "_t")
 t("necromancer poem", "死灵法师颂", "entity name")
 t("A poem written by a... Necromancer?", "一首诗歌，作者是……死灵法师？", "_t")
-t("rogues do it from behind", "盗贼在你身后", "entity name")
+t("rogues do it from behind", "盗贼从背后下手", "entity name")
 t("A poem written for a rogue?", "一首写给某个盗贼的诗歌？", "_t")
 t("how to become a necromancer, part %d", "如何成为死灵法师，第%d章", "tformat")
 t("How to become a powerful Necromancer!", "如何成为强大的死灵法师！", "_t")
 t("\"Dust to Dust\", an undead hunter's guide, by Aslabor Borys", "“尘归尘”，亡灵猎手指南，作者：阿斯拉伯·波利斯", "entity name")
 t("An undead hunter's guide, by Aslabor Borys.", "亡灵猎手指南，作者：阿斯拉伯·波利斯。", "_t")
 t("Rolf", "罗尔夫", "_t")
-t("Weisman", "魏斯曼", "_t")
+t("Weisman", "威斯曼", "_t")
 t("letter to %s (%d)", "给%s的信 (%d)", "tformat")
 t("A part of the correspondence between two adventurers.", "两个冒险者之间的一部分通信。", "_t")
 t("of halfling feet", "半身人的脚", "entity name")
@@ -11476,15 +11476,15 @@ section "mod-tome/data/general/objects/lore/spellhunt.lua"
 
 t("memories of archmage Varil", "大法师沃利尔的回忆录", "entity name")
 t("A collection of thoughts and memories of the archmage Varil, during the Age of Dusk.", "黄昏纪中大法师沃利尔的想法和记忆。", "_t")
-t("Spellhunter's Guide part 1: How to Detect a Spellweaver", "猎魔人指南第一部分：怎样辨别法师", "entity name")
+t("Spellhunter's Guide part 1: How to Detect a Spellweaver", "魔法猎手指南第一部分：如何识别织法者", "entity name")
 t("The definitive guide to hunting magic users.", "狩猎魔法使用者的权威指南。", "_t")
-t("Spellhunter's Guide part 2: How to Battle a Magic-User", "猎魔人指南第二部分：怎样与法师战斗", "entity name")
-t("Spellhunter's Guide part 3: How to Kill a Magic-User", "猎魔人指南第三部分：如何杀死法师", "entity name")
+t("Spellhunter's Guide part 2: How to Battle a Magic-User", "魔法猎手指南第二部分：如何与施法者战斗", "entity name")
+t("Spellhunter's Guide part 3: How to Kill a Magic-User", "魔法猎手指南第三部分：如何杀死施法者", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/general/objects/lore/sunwall.lua"
 
-t("Loremaster Verutir's note", "博学者温罗提的报告", "entity name")
+t("Loremaster Verutir's note", "博学者温罗提的笔记", "entity name")
 t("A paper scrap containing some lore.", "包含了一些手札的纸片。", "_t")
 
 ------------------------------------------------
@@ -19607,7 +19607,7 @@ The best method, if time and situation allows, is to very slowly slice the caste
 section "mod-tome/data/lore/sunwall.lua"
 
 t("history of the Sunwall", "太阳堡垒的历史", "newLore category")
-t("Loremaster Verutir's note", "博学者温罗提的报告", "_t")
+t("Loremaster Verutir's note", "博学者温罗提的笔记", "_t")
 t([[Loremaster Verutir here. I have been assigned to write an official chronicle of the history of the Sunwall. This will be my notebook as I interview people and travel from place to place. If you are reading this, you are either my patron (thanks again, sir!), a sneak (get out of my journal!), or the finder of my corpse. If the last, please take this to Lord Forosyth of the town of the Sunwall for a reward, tell my wife how I died, and tell the kids that I love them.
 With that said I shall be starting this project by investigating the Elves and their connection to the Sunwall. They should be one of the easier races to interview considering their life expectancy and their penchant for remembering their own history. Of course, there aren't as many of them around as there used to be.
 ...
