@@ -6648,7 +6648,7 @@ t("Whatever.", "无所谓。", "chat_zemekkys-done")
 section "mod-tome/data/chats/zemekkys-start-chronomancers.lua"
 
 t([[@playername@, you are called to serve. The nearby unhallowed morass inhabitants are growing restless.
-You must go there and find the source.]], [[@playername@，你效力的时候到了。附近不洁沼泽中的居民正在蠢蠢欲动。
+You must go there and find the source.]], [[@playername@，你效力的时候到了。附近混沌之沼中的居民正在蠢蠢欲动。
 你必须去那里，找到这一切的源头。]], "_t")
 t("I will, Grand Keeper.", "我会的，现实至高守护者。", "_t")
 t("I am sorry, but I cannot do that.", "抱歉，我不能这么做。", "_t")
