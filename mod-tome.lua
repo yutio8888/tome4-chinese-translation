@@ -8577,9 +8577,9 @@ t("orc summoner", "兽人召唤师", "entity name")
 t("A fierce orc attuned to the wilds.", "一个凶猛、与荒野相通的兽人。", "_t")
 t("orc grand summoner", "高阶兽人召唤师", "entity name")
 t("orc master wyrmic", "兽人龙战士大师", "entity name")
-t("A fierce soldier-orc highly trained in the discipline of dragons.", "一个彪悍的、经过龙战士训练的兽人士兵。", "_t")
+t("A fierce soldier-orc highly trained in the discipline of dragons.", "一个彪悍的、受过严格龙战士训练的兽人士兵。", "_t")
 t("orc mage-hunter", "兽人猎法者", "entity name")
-t("An orc clad in massive armour. Magic seems to die down all around him.", "一只穿着板甲的兽人，魔法能量在它的周围湮灭。", "_t")
+t("An orc clad in massive armour. Magic seems to die down all around him.", "一只穿着板甲的兽人，魔法似乎在它周围渐渐衰弱。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/orc-grushnak.lua"
@@ -8587,7 +8587,7 @@ section "mod-tome/data/general/npcs/orc-grushnak.lua"
 t("humanoid", "人形生物", "entity type")
 t("orc", "兽人", "entity subtype")
 t("orc fighter", "兽人斗士", "entity name")
-t("An orc clad in massive armour, wielding a shield and a deadly axe.", "一只身穿板甲的兽人，装备有一面盾牌和一个致命的斧头。", "_t")
+t("An orc clad in massive armour, wielding a shield and a deadly axe.", "一只身穿板甲的兽人，手持一面盾牌和一把致命的战斧。", "_t")
 t("orc elite fighter", "精英兽人斗士", "entity name")
 t("orc berserker", "兽人狂战士", "entity name")
 t("An orc clad in massive armour, wielding a huge axe.", "一只身穿板甲的兽人，手里握着一把巨斧。", "_t")
@@ -8635,14 +8635,14 @@ t("An orc trained in the secret ways of assassination, stealthy and deadly.", "�
 t("orc master assassin", "兽人刺客大师", "entity name")
 t("orc grand master assassin", "高阶兽人刺客大师", "entity name")
 t("Kra'Tor the Gluttonous", "贪吃的克拉塔", "entity name")
-t("A morbidly obese orc with greasy pockmarked skin and oily long black hair.  He's clad in plate mail and carries a huge granite battleaxe that's nearly as large as he is.", "一只肥胖过度的兽人，他有一头油乎乎的黑色长发，皮肤油腻且长满了痘痘。他身穿板甲，手握一把几乎和他一样大的花岗岩双手斧。", "_t")
+t("A morbidly obese orc with greasy pockmarked skin and oily long black hair.  He's clad in plate mail and carries a huge granite battleaxe that's nearly as large as he is.", "一只肥胖过度的兽人，他有一头油乎乎的黑色长发，皮肤油腻且布满麻坑。他身穿板甲，手握一把几乎和他一样大的花岗岩双手斧。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/plant.lua"
 
 t("immovable", "静态类", "entity type")
 t("plants", "植物", "entity subtype")
-t("A not-so-strange growth on the dungeon floor.", "地板上的不奇怪的植物。", "_t")
+t("A not-so-strange growth on the dungeon floor.", "地牢地面上一片不怎么奇怪的植物。", "_t")
 t("giant venus flytrap", "巨大捕蝇草", "entity name")
 t("This flesh-eating plant has grown to enormous proportions and seeks to quell its hunger.", "这棵巨大的肉食性植物正在寻找果腹的东西。", "_t")
 t("treant", "树人", "entity name")
