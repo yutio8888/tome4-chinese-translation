@@ -458,7 +458,7 @@ t("#YELLOW#Connection to online server established.", "#YELLOW#已连接至在�
 t("#YELLOW#Connection to online server lost, trying to reconnect.", "#YELLOW#与在线服务器的连接丢失，尝试重新连接。", "log")
 t("no online profile active", "未开启在线账户", "_t")
 t("cheat mode active", "已开启作弊模式", "_t")
-t("savefile tainted", "存档文件被修改", "_t")
+t("savefile tainted", "存档带有作弊记录", "_t")
 t("bad game version", "游戏版本错误", "_t")
 t("bad game addon version", "游戏插件版本错误", "_t")
 t("nothing to update", "无需更新", "_t")
