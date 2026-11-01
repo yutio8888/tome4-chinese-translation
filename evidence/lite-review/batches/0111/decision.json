@@ -1,0 +1,39 @@
+{
+ "confirmed": [
+  {
+   "id": "afa9a4315950",
+   "edit": [
+    "打断激活的技能。",
+    "扰乱主动技能，使其进入冷却。"
+   ],
+   "evidence": "traps/annoy.lua:34-44 picks up to 3 non-cooling mode==\"activated\" talents and sets 4-7 turn cooldowns; Activated = 主动技能 (mod-tome.lua:297)"
+  },
+  {
+   "id": "605b8babf88c",
+   "edit": [
+    "毒性孢子的能量似乎被抽取了。",
+    "毒性孢子看起来有些枯竭了。"
+   ],
+   "evidence": "traps/complex.lua:184-200 nb=3 decremented per firePoison; message on exhaustion, nothing drains it"
+  },
+  {
+   "id": "bf9149766834",
+   "edit": [
+    "@target@的周围出现了冰冷火焰。",
+    "@target@的周围出现了冷焰。"
+   ],
+   "evidence": "complex.lua:281-287 uses T_COLD_FLAMES = 冷焰 (mod-tome.lua:26631); trap name 冷焰陷阱"
+  },
+  {
+   "id": "56b9863705f1",
+   "edit": [
+    "冷火焰在半径%d格范围内的%d点缓慢扩散，火焰造成%d点寒冷伤害并有机会冻结。",
+    "冷焰从半径%d格范围内的%d处地点缓慢扩散，火焰造成%d点寒冷伤害并有几率冻结目标。"
+   ],
+   "evidence": "complex.lua:282-285 first %d = pts (getDarkCount spawn spots), args_order {2,1,3} unchanged; 冷焰 name and 处地点 as in the talent desc (mod-tome.lua:26634)"
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": ""
+}
