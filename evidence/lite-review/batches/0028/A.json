@@ -1,0 +1,305 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "4bfd6816ee29",
+   "verdict": "OK"
+  },
+  {
+   "id": "587d3934f52c",
+   "verdict": "OK"
+  },
+  {
+   "id": "29bd79d90b25",
+   "verdict": "OK"
+  },
+  {
+   "id": "c13da61f9d34",
+   "verdict": "OK"
+  },
+  {
+   "id": "7bf1ba49a759",
+   "verdict": "OK"
+  },
+  {
+   "id": "1e43da4cc8a5",
+   "verdict": "OK"
+  },
+  {
+   "id": "537000fa3541",
+   "verdict": "OK"
+  },
+  {
+   "id": "3161e0b92b4a",
+   "verdict": "OK"
+  },
+  {
+   "id": "1c834a624014",
+   "verdict": "OK"
+  },
+  {
+   "id": "6368e7ee7981",
+   "verdict": "OK"
+  },
+  {
+   "id": "d7eb6cfb195a",
+   "verdict": "OK"
+  },
+  {
+   "id": "1e80c2fb7f24",
+   "verdict": "OK"
+  },
+  {
+   "id": "97a94b9f120b",
+   "verdict": "OK"
+  },
+  {
+   "id": "1da322df3f99",
+   "verdict": "OK"
+  },
+  {
+   "id": "11921b898bc1",
+   "verdict": "OK"
+  },
+  {
+   "id": "892206880bac",
+   "verdict": "OK"
+  },
+  {
+   "id": "b69e13e9c2a9",
+   "verdict": "OK"
+  },
+  {
+   "id": "5c85eb96a930",
+   "verdict": "OK"
+  },
+  {
+   "id": "64910ceae6c7",
+   "verdict": "OK"
+  },
+  {
+   "id": "3d3819a8cb80",
+   "verdict": "OK"
+  },
+  {
+   "id": "81c8246871d3",
+   "verdict": "OK"
+  },
+  {
+   "id": "f8da18b030a6",
+   "verdict": "OK"
+  },
+  {
+   "id": "7761156d4bbf",
+   "verdict": "OK"
+  },
+  {
+   "id": "16bbc72733b1",
+   "verdict": "OK"
+  },
+  {
+   "id": "1ebc57d6f226",
+   "verdict": "OK"
+  },
+  {
+   "id": "2237544f5ab5",
+   "verdict": "OK"
+  },
+  {
+   "id": "a5cb6e38195f",
+   "verdict": "OK"
+  },
+  {
+   "id": "ee54edc466c3",
+   "verdict": "OK"
+  },
+  {
+   "id": "19e810d89ca2",
+   "verdict": "OK"
+  },
+  {
+   "id": "0aa47789b8c6",
+   "verdict": "OK"
+  },
+  {
+   "id": "4df2dc874906",
+   "verdict": "OK"
+  },
+  {
+   "id": "02cb754f349f",
+   "verdict": "ISSUE",
+   "observation": "Trap.lua:148 用 res:add 把 Disarm 段直接接在 Detect 段（Trap.lua:146）之后、中间无换行，原文开头的空格是两段之间唯一的分隔；译文删掉该空格，提示框会显示成「侦测：12解除：20」连在一起。",
+   "suggestion": "#YELLOW# 解除：%d#WHITE#"
+  },
+  {
+   "id": "28f91a1b6b1a",
+   "verdict": "ISSUE",
+   "observation": "Trap.lua:204 把它作为 restInit 的 what 参数传入；engine/interface/PlayerRest.lua:37 套用「You are %s, press Enter to stop.」（engine.lua:1302 译作「你正在%s，请按回车键停止。」），:37 也套用「%s...」（「%s中…」），:43 套用「%s starts...」。译文自带「正在」，会显示成「你正在正在拆除」「正在拆除中…」。参照 resting→「休息」（engine.lua:1299），应只写动词。",
+   "suggestion": "拆除"
+  },
+  {
+   "id": "7d3fc6fecd6f",
+   "verdict": "OK"
+  },
+  {
+   "id": "6029836f0cad",
+   "verdict": "OK"
+  },
+  {
+   "id": "6ed840dd9dd3",
+   "verdict": "OK"
+  },
+  {
+   "id": "e0b33913e7bf",
+   "verdict": "OK"
+  },
+  {
+   "id": "a5cf853dd684",
+   "verdict": "OK"
+  },
+  {
+   "id": "44d6cecfb9cd",
+   "verdict": "OK"
+  },
+  {
+   "id": "5a8d579666a0",
+   "verdict": "OK"
+  },
+  {
+   "id": "070f8313fefc",
+   "verdict": "ISSUE",
+   "observation": "Trap.lua:228–229 中，同一对话框的正文把 disarm 译成「解除陷阱」、dismantle 译成「拆解」，陷阱提示框里 Disarm 也是「解除」（Trap.lua:148）；标题却把 disarm 译成「拆除」，而「拆除」又是本批 dismantle 的译法（Dismantling/dismantled/Dismantle Carefully），等于把两种操作混为一谈。",
+   "suggestion": "正在解除陷阱：%s"
+  },
+  {
+   "id": "13acee5a8926",
+   "verdict": "OK"
+  },
+  {
+   "id": "6c5a306b64eb",
+   "verdict": "OK"
+  },
+  {
+   "id": "5fbe5b943108",
+   "verdict": "OK"
+  },
+  {
+   "id": "3a7a272bfc57",
+   "verdict": "OK"
+  },
+  {
+   "id": "5ec90d9c209b",
+   "verdict": "OK"
+  },
+  {
+   "id": "3efd292e017f",
+   "verdict": "OK"
+  },
+  {
+   "id": "1b9f02c94242",
+   "verdict": "ISSUE",
+   "observation": "Trap.lua:261 中，这两个按钮分别是「仔细拆解以学习陷阱」（Dismantle Carefully）和「按常规解除」（Disarm Normally）。现在两个按钮都译成「拆除」，只靠「小心地/普通地」区分，玩家看不出这其实是两种操作；正文（Trap.lua:229）把 disarm 译为「解除」。",
+   "suggestion": "正常解除"
+  },
+  {
+   "id": "88b9550ede97",
+   "verdict": "OK"
+  },
+  {
+   "id": "c12e15e0266b",
+   "verdict": "OK"
+  },
+  {
+   "id": "9e1add060194",
+   "verdict": "OK"
+  },
+  {
+   "id": "38cfd6f09f65",
+   "verdict": "OK"
+  },
+  {
+   "id": "2c1e198f9b7c",
+   "verdict": "OK"
+  },
+  {
+   "id": "c5137438097b",
+   "verdict": "OK"
+  },
+  {
+   "id": "7f8b02e91ed7",
+   "verdict": "OK"
+  },
+  {
+   "id": "32dcbf9adeb3",
+   "verdict": "OK"
+  },
+  {
+   "id": "a198d0a9c655",
+   "verdict": "OK"
+  },
+  {
+   "id": "f2f6ad6524c1",
+   "verdict": "OK"
+  },
+  {
+   "id": "0414798ac88c",
+   "verdict": "OK"
+  },
+  {
+   "id": "8df42ecbe4d4",
+   "verdict": "OK"
+  },
+  {
+   "id": "80e1bdfd8abe",
+   "verdict": "OK"
+  },
+  {
+   "id": "713b43c8acdc",
+   "verdict": "OK"
+  },
+  {
+   "id": "43c25fee1ed0",
+   "verdict": "OK"
+  },
+  {
+   "id": "6c5ab2cae1b4",
+   "verdict": "OK"
+  },
+  {
+   "id": "ec65ade2b344",
+   "verdict": "OK"
+  },
+  {
+   "id": "5a0d83488429",
+   "verdict": "OK"
+  },
+  {
+   "id": "e93d69ff1f59",
+   "verdict": "OK"
+  },
+  {
+   "id": "03ab15b5fccc",
+   "verdict": "OK"
+  },
+  {
+   "id": "c5f30b5010da",
+   "verdict": "OK"
+  },
+  {
+   "id": "5d62fb2394a2",
+   "verdict": "OK"
+  },
+  {
+   "id": "9245d55f2817",
+   "verdict": "OK"
+  },
+  {
+   "id": "5a2c7c2ae690",
+   "verdict": "OK"
+  },
+  {
+   "id": "b35ceededd20",
+   "verdict": "OK"
+  }
+ ]
+}

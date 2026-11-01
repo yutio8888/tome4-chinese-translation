@@ -1,0 +1,12 @@
+{
+ "confirmed": [
+  {"id": "02cb754f349f", "edit": ["#YELLOW#解除：%d#WHITE#", "#YELLOW# 解除：%d#WHITE#"], "evidence": "Raised by A. Trap.lua:146-148 @624a6732: Disarm is res:add-ed on the same line right after Detect; the leading space is the only separator."},
+  {"id": "28f91a1b6b1a", "edit": ["正在拆除", "拆解"], "evidence": "Raised by A. Trap.lua:204 passes it as restInit what; PlayerRest.lua:37/43 wrap it in 你正在%s / %s中… / %s开始了…, so the built-in 正在 doubled. Rendered 拆解 to match the dismantle wording of the dialog body (仔细拆解)."},
+  {"id": "070f8313fefc", "edit": ["正在拆除陷阱：%s", "正在解除陷阱：%s"], "evidence": "Raised by A. Trap.lua:228-229: disarm is 解除 in the body and tooltip; 拆除/拆解 belongs to dismantle."},
+  {"id": "1b9f02c94242", "edit": ["普通地拆除", "正常解除"], "evidence": "Raised by A. Trap.lua:261 buttons Dismantle Carefully / Disarm Normally are two different actions."},
+  {"id": "3efd292e017f", "edit": ["小心地拆除", "仔细拆解"], "evidence": "Host addition (A and B judged OK; whole-dialog rule with 1b9f02c94242): the sibling button Dismantle Carefully (Trap.lua:261) now reads 仔细拆解, matching the body 仔细拆解它."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "A 4 ISSUE, B 0 (B also re-reviewed the three batch-0027 repairs OK)."
+}
