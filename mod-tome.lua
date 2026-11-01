@@ -6396,12 +6396,12 @@ section "mod-tome/data/chats/trap-priming.lua"
 t("[Cancel]", "[取消]", "_t")
 t("#LIGHT_BLUE#You cannot prepare this trap: %s.", "#LIGHT_BLUE#你不能准备这个陷阱：%s。", "logPlayer")
 t("Not Prepared", "未准备", "_t")
-t("Primed Trigger", "即爆机关", "_t")
+t("Primed Trigger", "即爆启动机关", "_t")
 t("Not Usable", "无法使用", "_t")
 t("Normal Trigger", "常规机关", "_t")
 t("%s[%s: %s]#LAST#", "%s[%s：%s]#LAST#", "tformat")
 t([[Choose a trap to prepare with a primed (instant) trigger or to dismantle.
-#YELLOW#Newly prepared traps are placed on cooldown.#LAST#]], [[选择一个陷阱，以即爆机关将其准备好，或将其拆解。
+#YELLOW#Newly prepared traps are placed on cooldown.#LAST#]], [[选择一个陷阱，以即爆启动机关（立即触发）将其准备好，或将其拆解。
 #YELLOW#新准备的陷阱将进入冷却。#LAST#]], "_t")
 -- untranslated text
 --[==[
