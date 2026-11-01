@@ -168,7 +168,7 @@ t("Your Obliterating Smash can destroy walls.", "你的歼灭挥斩能摧毁墙�
 t("Fearfire Mantle", "恐惧之焰", "entity name")
 t("cloak shaped flames", "斗篷状的火焰", "_t")
 t("Black fires born of a blackened heart.", "黑色的火焰从漆黑的心脏中涌出。", "_t")
-t("All enemies in radius 2 take 20 fire damage each turn and healing you for 10% of the damage dealt.", "2码范围内的敌人每回合受到20点火焰伤害，你回复相当于该伤害值10%的生命值。", "_t")
+t("All enemies in radius 2 take 20 fire damage each turn and healing you for 10% of the damage dealt.", "2格范围内的敌人每回合受到20点火焰伤害，你回复相当于该伤害值10%的生命值。", "_t")
 t("Plague-Fire Sceptre", "疫火权杖", "entity name")
 t("darkness infused staff", "充满黑暗气息的法杖", "_t")
 t("The flames of Mal'Rok can be more stubborn than most. When they run out of fuel they have been known go out of their way to find more.", "玛·洛克的火焰比一般的火焰更加顽强。燃料耗尽时，它们甚至会特意去寻找更多燃料。", "_t")
@@ -810,7 +810,7 @@ t([[Each time you walk or move you gain a blight charge. You can store up to %d 
 		The damage scales with your Spellpower.]], [[每次你行走、移动时，你获得一次枯萎充能。你最多能积累 %d 次充能。
 		当你取消该技能时，你会消耗这些充能，选择造成以下效果之一
 		- 每层充能恢复 %0.2f 活力值
-		- 对 %d 码内的一个目标，每层充能造成 %0.2f 枯萎伤害。
+		- 对 %d 格内的一个目标，每层充能造成 %0.2f 枯萎伤害。
 		- 制造护盾，每层充能吸收 %d 伤害，并将一半的伤害返还给攻击者。
 		伤害受法术强度加成。]], "tformat", {1,2,4,3,5})
 t("Corrupt Light", "腐化之光", "talent name")
@@ -844,7 +844,7 @@ t([[Create two interlinked portals for %d turns.
 t("Doom Tendrils", "末日触须", "talent name")
 t([[You turn into a pillar of doom, sprouting flame tendrils in radius 2 around you.
 		All foes hit by the tendrils take %0.2f fire damage per turn.
-		If the creature suffers damage from the fire it is pinned to the ground.]], [[你化身为末日之柱，在周围 2 码的范围内产生火焰触须。
+		If the creature suffers damage from the fire it is pinned to the ground.]], [[你化身为末日之柱，在周围 2 格的范围内产生火焰触须。
 		被火焰触须击中的敌人每回合受到 %0.2f 火焰伤害。
 		受到伤害的生物同时会被定身。]], "tformat")
 t("Doomed Nature", "自然末日", "talent name")
@@ -874,7 +874,7 @@ t([[Each time your kill a creature with non-fire damage you gain a blackice char
 t("Doomfire", "毁灭之火", "talent name")
 t([[Raging flames burn foes and allies alike, doing %0.2f fire damage in a radius of %d each turn for %d turns.
 		Demons standing in the doomfire will instead be healed.
-		The damage will increase with your Spellpower.]], [[向地上释放一片火焰，每回合可对敌我双方造成 %0.2f 火焰伤害，半径 %d 码，持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[向地上释放一片火焰，每回合可对敌我双方造成 %0.2f 火焰伤害，半径 %d 格，持续 %d 回合。
 		站在毁灭之火中的恶魔不会被伤害，而会被治疗。
 		伤害受法术强度加成。]], "tformat")
 t("Pain Affinity", "痛苦协调", "talent name")
@@ -893,13 +893,13 @@ t("Doom Storm", "毁灭风暴", "talent name")
 t("firestorm", "火焰风暴", "_t")
 t([[A furious fire storm rages around the caster, doing %0.2f fire damage in a radius of 3 each turn for %d turns.
 		You closely control the firestorm, preventing it from harming your party members.
-		The damage and duration will increase with your Spellpower.]], [[制造一片激烈的火焰风暴，每回合对施法者周围 3 码范围内的目标造成 %0.2f 火焰伤害，持续 %d 回合。
+		The damage and duration will increase with your Spellpower.]], [[制造一片激烈的火焰风暴，每回合对施法者周围 3 格范围内的目标造成 %0.2f 火焰伤害，持续 %d 回合。
 		你精确地操控火焰风暴，阻止它伤害你的队友。
 		伤害和持续时间受法术强度加成。]], "tformat")
 t("Frostfire Nova", "霜火爆炸", "talent name")
 t([[Fire a blast of frostfire in radius %d, doing %0.2f fire damage and freezing creatures in ice blocks for 4 turns.
 		For each frozen creature you regenerate %d vim.
-		The damage will increase with your Spellpower.]], [[在半径 %d 码范围内发射一团霜火，造成 %0.2f 火焰伤害，并冻结敌人 4 回合。
+		The damage will increase with your Spellpower.]], [[在半径 %d 格范围内发射一团霜火，造成 %0.2f 火焰伤害，并冻结敌人 4 回合。
 		你每冻结一个敌人，就恢复 %d 活力值。
 		伤害受法术强度加成。]], "tformat")
 t("Fetid Breath", "恶臭吐息", "talent name")
@@ -907,7 +907,7 @@ t("@Source@ breathes fetid matter!", "@Source@吐出恶臭的物质！", "_t")
 t([[You breathe a mix of darkness and flight in a frontal cone of radius %d. Any target caught in the area will take %0.2f darkness/blight damage.
 		In addition each time you do a melee attack there is a 10%% chance to trigger the breath at no cost.
 		The damage will increase with your Spellpower.
-		]], [[你朝前方 %d 码锥形区域吐出一团黑暗的疫气。所有被击中的目标会受到 %0.2f 暗影/枯萎伤害。
+		]], [[你朝前方 %d 格锥形区域吐出一团黑暗的疫气。所有被击中的目标会受到 %0.2f 暗影/枯萎伤害。
 		此外，你进行近战攻击的时候有 10%% 几率免费触发一次吐息。
 		伤害受法术强度加成。
 		]], "tformat")
@@ -921,7 +921,7 @@ t("Meteor Slam", "落星重击", "talent name")
 t("You cannot use Meteor Slam without a shield!", "你没有盾牌，无法使用落星重击！", "logPlayer")
 t([[Using demonic forces you jump high in the sky and fall down on your target as a meteor, slamming the ground with your shield.
 		The impact is so powerful it shakes the ground in radius %d, dealing a %d%% fire and physical shield attack to all foes and turning the ground into lava.]], [[你使用恶魔的力量跳上天空，然后落下，如流星一般使用盾牌重击敌人。
-		这一打击无比强大，震撼 %d 码范围的地面，对所有敌人造成 %d%% 火焰物理盾牌伤害，并将地面变成岩浆。]], "tformat")
+		这一打击无比强大，震撼 %d 格范围的地面，对所有敌人造成 %d%% 火焰物理盾牌伤害，并将地面变成岩浆。]], "tformat")
 t("Blazing Phase", "烈焰突袭", "talent name")
 t([[By seathing yourself in flames you phase to a distant location.
 		Any creature caught in the way is burnt for %0.2f fire damage which you use to regain %d vim.
@@ -1151,8 +1151,8 @@ t("You can't move there.", "你不能移动至那里。", "logSeen")
 t("The spell fizzles!", "法术失败了！", "logSeen")
 t([[Open a gateway to the Fearscape, stepping through it to a nearby location. As you step out, a burst of fire will leave with you, dealing %0.2f demonfire damage to everyone within %d spaces and leaving flames which will deal an additional %0.2f demonfire damage over 4 turns.
 		Additionally, shifting through reality enhances your awareness, allowing you to see all enemies within %d spaces for the next 3 turns.
-		The damage will scale with your Spellpower and the range will increase with the talent level.]], [[开启通往恶魔空间的炼狱之门，踏入并传送到附近位置。当你踏出炼狱之门时，炼狱之火随之喷发，造成 %0.2f 恶魔之火伤害，影响 %d 码内所有生物，并留下余烬，在 4 回合内额外造成 %0.2f 恶魔之火伤害。
-		穿越空间增强了你的直觉，让你能够在 4 回合内觉察到 %d 码内的所有敌对生物。
+		The damage will scale with your Spellpower and the range will increase with the talent level.]], [[开启通往恶魔空间的炼狱之门，踏入并传送到附近位置。当你踏出炼狱之门时，炼狱之火随之喷发，造成 %0.2f 恶魔之火伤害，影响 %d 格内所有生物，并留下余烬，在 4 回合内额外造成 %0.2f 恶魔之火伤害。
+		穿越空间增强了你的直觉，让你能够在 4 回合内觉察到 %d 格内的所有敌对生物。
 		伤害受法术强度加成，范围随技能等级增大。]], "tformat")
 t("Cauterize Spirit", "灵魂焚净", "talent name")
 t([[Removes all detrimental effects but causes you to burn for %d%% of your max health per effect, over 7 turns.
@@ -1162,11 +1162,11 @@ t([[Removes all detrimental effects but causes you to burn for %d%% of your max 
 		此技能瞬发。]], "tformat")
 t("Infernal Breath", "地狱吐息", "talent name")
 t([[Exhale a wave of dark fire with radius %d, lasting 4 turns. Any non-demon caught in the area will take %0.2f fire damage, and flames will be left dealing a further %0.2f each turn. Demons will be healed for the same amount.
-		The damage will increase with your Strength Stat, but critically hit as a spell.]], [[在 %d 码的锥形范围内，喷出持续 4 回合的暗黑火焰。范围内所有的非恶魔生物受到 %0.2f 火焰伤害，同时火焰会造成每回合 %0.2f 的灼烧伤害。恶魔受到等量的治疗。
+		The damage will increase with your Strength Stat, but critically hit as a spell.]], [[在 %d 格的锥形范围内，喷出持续 4 回合的暗黑火焰。范围内所有的非恶魔生物受到 %0.2f 火焰伤害，同时火焰会造成每回合 %0.2f 的灼烧伤害。恶魔受到等量的治疗。
 		伤害受力量加成，该技能使用魔法暴击率。]], "tformat")
 t("Maw of Urh'rok", "乌鲁洛克之口", "talent name")
 t([[Your body becomes a nexus for the Fearscape, causing you to drag enemies towards you in a cone with a radius of %d, dealing %0.2f fire damage every turn.
-		The damage will increase with your Spellpower.]], [[你的身体成为恶魔空间与现实的纽带，每回合将 %d 码锥形范围内的敌人向你拖近，并造成 %0.2f 点火焰伤害。
+		The damage will increase with your Spellpower.]], [[你的身体成为恶魔空间与现实的纽带，每回合将 %d 格锥形范围内的敌人向你拖近，并造成 %0.2f 点火焰伤害。
 伤害受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -1188,7 +1188,7 @@ t([[Your connection to fire nourishes you. Whenever you strike an enemy in melee
 		每回合，你半径 10 内的受诅咒敌人有 50%% 几率将诅咒传播给其半径 1 内尚未受诅咒的敌人，使其燃烧并造成总计 %d 点火焰伤害。]], "tformat")
 t("Blazing Rebirth", "烈焰重生", "talent name")
 t("Restore yourself to full health, but take damage equal to the damage healed over %d turns. This damage is split evenly among you and all burning enemies in radius %d. Damage you take is irresistable. Damage to enemies is fire damage.", [[生命值恢复为满值，但治疗值转化为持续 %d 回合的伤害。
-	伤害会平均分配给你自己和 %d 码范围内的燃烧敌对生物。
+	伤害会平均分配给你自己和 %d 格范围内的燃烧敌对生物。
 	你受到的伤害无法减免，敌对生物受到火焰伤害。]], "tformat")
 
 ------------------------------------------------
@@ -1262,10 +1262,10 @@ t([[Your successful melee hits apply a stacking effect that decreases damage don
 		此技能无视豁免和免疫。
 		]], "tformat")
 t("Mass Hysteria", "恐惧之潮", "talent name")
-t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%%， 持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 码内所有敌对生物。", "tformat")
+t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%%， 持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 格内所有敌对生物。", "tformat")
 t("Fearfeast", "恐惧盛宴", "talent name")
 t("You gain %.1f turns!", "你获得了%.1f个回合！", "logPlayer")
-t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[汲取 %d 码内敌对生物身上的恐惧，每汲取一层恐惧，恢复 %d 生命并获得 %0.1f%% 额外回合，至多能获得 %.1f 个额外回合。]], "tformat")
+t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[汲取 %d 格内敌对生物身上的恐惧，每汲取一层恐惧，恢复 %d 生命并获得 %0.1f%% 额外回合，至多能获得 %.1f 个额外回合。]], "tformat")
 t("Hope Wanes", "绝望碾压", "talent name")
 t([[You crush the spirit of a target with at least %d fear stacks, consuming all stacks and making it unable to act for %d turns.
 		This talent ignores saves and immunities.]], [[击溃恐惧叠加至少 %d 层的目标的精神，消耗其全部恐惧层数，使目标 %d 回合无法行动。
@@ -1339,7 +1339,7 @@ t("Obliterating Smash", "歼灭挥斩", "talent name")
 t("You require a two handed weapon to use this talent.", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
 t([[Swing your weapon with incredible force, striking all enemies in a radius %d semicircle, dealing %d%% weapon damage to all targets.
 		Starting from talent level 5, all targets hit will have their armour and saves reduced by %d.
-		This attack can not miss.]], [[用无与伦比的力量挥动武器，打击正面半圆 %d 码范围内所有敌对生物，对所有目标造成 %d%% 武器伤害。
+		This attack can not miss.]], [[用无与伦比的力量挥动武器，打击正面半圆 %d 格范围内所有敌对生物，对所有目标造成 %d%% 武器伤害。
 	技能 5 级时，被击中敌对生物的护甲和豁免会降低 %d 点。
 	此攻击必中。]], "tformat")
 t("Detonating Charge", "爆裂冲锋", "talent name")
@@ -1349,8 +1349,8 @@ t("You are too close to build up momentum!", "距离目标太近，无法蓄势�
 t([[Launch yourself toward a target. If the target is reached you get a free attack doing %d%% weapon damage.
 		If the attack hits you release a massive burst of fire in radius %d, knocking away all enemies except your target and dealing %d damage.
 		You must charge from at least 2 tiles away.]], [[向目标冲锋，如果到达目标位置，则攻击目标造成 %d%% 武器伤害。
-		若攻击命中，将释放半径 3 码的强烈火焰冲击，将目标以外的所有敌对生物击退 %d 码，并对范围内的敌人（包括目标）造成 %d 点火焰伤害。
-		至少要从 2 码外开始冲锋。]], "tformat")
+		若攻击命中，将释放半径 3 格的强烈火焰冲击，将目标以外的所有敌对生物击退 %d 格，并对范围内的敌人（包括目标）造成 %d 点火焰伤害。
+		至少要从 2 格外开始冲锋。]], "tformat")
 t("Voracious Blade", "饕餮之刃", "talent name")
 t([[Your blade drinks in death. Whenever you score a kill with this talent off cooldown, your next %d melee attacks within 6 turns will always critically strike, and you gain %d%% critical multiplier for the duration.
 		Additionally, you gain an extra %d vim per kill.]], [[你的利刃渴饮死亡。该技能未处于冷却时，每当你完成击杀，接下来 6 回合内的 %d 次近战攻击必定暴击，并在此期间获得 %d%% 暴击倍率。
@@ -1387,7 +1387,7 @@ t("You must have an empty space to teleport to.", "你必须寻找一片空地�
 t([[Hasten yourself out of phase, teleporting you to a specific location up to %d spaces away.
 		You can activate this talent up to twice within the same turn, but the second activation will not be instant.
 		Afterwards you stay out of phase for 5 turns. In this state your defense is increased by %d and all your resistances by %d%%.
-		The bonus will increase with your Willpower.]], [[加速自身以脱离现实，传送至 %d 码内的指定位置。
+		The bonus will increase with your Willpower.]], [[加速自身以脱离现实，传送至 %d 格内的指定位置。
 		你在同一回合内至多连用两次该技能，且第二次使用会消耗时间。
 		之后，你进入“脱离现实”状态 5 回合，闪避增加 %d， 全体抗性增加 %d%%。
 		效果受意志加成。]], "tformat")

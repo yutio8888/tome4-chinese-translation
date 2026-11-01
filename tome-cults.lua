@@ -794,7 +794,7 @@ This stake of wood appears to one of those used to prop up one of the executed h
 然而尽管如此，民众仍继续把大自然的敌人活活烧死。当局所不知道的是，那些被处死的肇事者的头颅在他们死后仍然继续传播着他们的讯息。
 
 这根木桩似乎就是当年插着被处决者头颅的木桩之一。它似乎吸收了那颗头颅的意志，拿着它，你可以听到伊格兰斯的讯息在你的脑海中回响。]], "_t")
-t("convince all non arcane users in radius 10 to turn on their spellcasting friends for 6 turns (chance increases with your Mindpower)", "使半径10码范围内的所有不使用奥术的敌人转而攻击其施法同伴，持续6回合（几率随精神强度提升）", "tformat")
+t("convince all non arcane users in radius 10 to turn on their spellcasting friends for 6 turns (chance increases with your Mindpower)", "使半径10格范围内的所有不使用奥术的敌人转而攻击其施法同伴，持续6回合（几率随精神强度提升）", "tformat")
 t("Worm Nest", "虫穴", "entity name")
 t("disgusting robe", "恶心的长袍", "_t")
 t("This unusually thick robe constantly wriggles and squirms. Small worms sometimes pop out of it, dropping to the floor. The worms will cushion attacks against your person, but you somehow do not like the idea of having so many parasitic creatures so close to your vulnerable flesh.", "这件异常厚重的长袍不断蠕动。有时会有小蠕虫从里面冒出来，掉到地板上。这些蠕虫会缓冲敌人对你的攻击，但不知为何，你就是不喜欢让这么多寄生生物紧贴着你脆弱的肉体。", "_t")
@@ -2702,7 +2702,7 @@ At talent level 3, your Decaying Devourers spell will summon 4 additional Devour
 At talent level 5, victims of your Horrific Display spell will pull enemies in radius 10 1 space towards them each turn.
 The damage increase is based on your Spellpower.]], [[你使你的恐魔与已死之神阿马克泰尔相协调，增加你召唤的恐魔 %d%% 伤害。
 技能等级 3 后，你的腐败的吞噬者法术将在附近随机敌人身边额外召唤四名吞噬者，你的浮肿恐魔将学会极度痛苦。
-技能等级 5 后，恐魔具现化的受害者每回合会把范围 10 码内的敌人拉近 1 码。
+技能等级 5 后，恐魔具现化的受害者每回合会把范围 10 格内的敌人拉近 1 格。
 伤害加成受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -2905,7 +2905,7 @@ t("Foul Convergence", "污秽夹击", "talent name")
 t("Your friendly horror is dead.", "你的恐魔伙伴死了。", "logPlayer")
 t("%s's teleport fizzles!", "%s的传送失败了！", "logSeen")
 t([[You and your Worm that Walks both teleport to an enemy in range %d and make a melee attack for %d%% damage.
-			Your Worm that Walks' Blindside talent cooldown is reduced by %d.]], [[你和蠕虫合体同时传送至 %d 码范围内的一名敌人身边，各进行一次近战攻击，造成 %d%% 伤害。
+			Your Worm that Walks' Blindside talent cooldown is reduced by %d.]], [[你和蠕虫合体同时传送至 %d 格范围内的一名敌人身边，各进行一次近战攻击，造成 %d%% 伤害。
 			你的蠕虫合体的闪电突袭技能冷却时间减少 %d。]], "tformat")
 t("Shared Insanity", "共享疯狂", "talent name")
 t([[You establish a powerful mental link with your Worm that Walks.
@@ -3015,7 +3015,7 @@ t("Grab a target and drag it to your side, dealing %d%% weapon damage and taunti
 section "tome-cults/data/talents/demented/oblivion.lua"
 
 t("Nihil", "空无", "talent name")
-t("Your entropy bleeds into the world around you. On having entropic backlash applied or increased to you, %d random enemies you can see within radius 10 will be shrouded in entropic forces for 8 turns. This increases the duration of new negative effects and reduces the duration of new beneficial effects applied to the target by %d%%.", "将你身体上的熵能向周围辐射。每当你被施加熵能反冲或其强度增加时，在你半径 10 码内随机的 %d 个可见敌人都将被熵能侵蚀 8 回合。这会使施加于目标的新负面效果持续时间增加、正面效果持续时间减少 %d%%。", "tformat")
+t("Your entropy bleeds into the world around you. On having entropic backlash applied or increased to you, %d random enemies you can see within radius 10 will be shrouded in entropic forces for 8 turns. This increases the duration of new negative effects and reduces the duration of new beneficial effects applied to the target by %d%%.", "将你身体上的熵能向周围辐射。每当你被施加熵能反冲或其强度增加时，在你半径 10 格内随机的 %d 个可见敌人都将被熵能侵蚀 8 回合。这会使施加于目标的新负面效果持续时间增加、正面效果持续时间减少 %d%%。", "tformat")
 t("Unravel Existence", "解构存在", "talent name")
 t("herald of oblivion", "破灭之兆", "_t")
 t("Space warps and blurs around this titanic being, as if reality itself was struggling against it.", "时空在这个巨大的生物的周围扭曲模糊，仿佛现实本身正在和它斗争。", "_t")
@@ -3039,11 +3039,11 @@ t("#ORCHID#The entropic storm destroys %s!#LAST#", "#ORCHID#湮灭风暴摧毁�
 t("a projectile", "一个抛射物", "_t")
 t([[Summon a radius 4 storm of all-consuming oblivion at the targeted location for %d turns, reducing those within to nothing. Targets within will take %0.2f darkness damage and %0.2f temporal damage each turn.  Walls and other terrain within the storm will be disintegrated.
 		Each time the storm deals damage enemies will have any detrimental magical effect with less than 3 duration set to 3 duration, and all enemy projectiles will be destroyed.
-		The damage will scale with your Spellpower.]], [[在目标区域召唤出范围 4 码、持续 %d 回合的湮灭风暴，使受到影响的物质化为虚无，每回合造成 %0.2f 暗影和 %0.2f 时空伤害。范围内的墙壁和其他地形将被粉碎。
+		The damage will scale with your Spellpower.]], [[在目标区域召唤出范围 4 格、持续 %d 回合的湮灭风暴，使受到影响的物质化为虚无，每回合造成 %0.2f 暗影和 %0.2f 时空伤害。范围内的墙壁和其他地形将被粉碎。
 		每次受到风暴伤害时，敌人身上不足 3 回合的负面魔法效果都将重置为 3 回合。风暴范围内敌人的抛射物都将被摧毁。
 		伤害受到法术强度加成。]], "tformat")
 t("Void Crash", "虚空撞击", "talent name")
-t("Slam your weapons into the ground, creating a radius 2 explosion of void energy dealing %d%% damage split between darkness and temporal.", "用武器撞击地面，产生 2 码的虚空爆炸，造成 %d%% 武器伤害，分摊为暗影和时空伤害。", "tformat")
+t("Slam your weapons into the ground, creating a radius 2 explosion of void energy dealing %d%% damage split between darkness and temporal.", "用武器撞击地面，产生 2 格的虚空爆炸，造成 %d%% 武器伤害，分摊为暗影和时空伤害。", "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/path-of-horror.lua"
@@ -3053,8 +3053,8 @@ t([[Your feet start to continuously produce carrion worms that are constantly cr
 		You can also activate this talent to instantly destroy more worms, letting you jump in range %d to visible terrain.
 		Upon landing you crush more worms, creating a radius 2 cone of gore; any creatures caught inside deals 70%% less damage for one turn.
 		If at least 1 enemy is effected by the cone you gain an additional 20 insanity.]], [[蠕虫在你脚下不断产生，它们在你行走的时候不断爆裂，被动增加你 %d%% 移动速度。
-		你也可以激活这个技能来引爆更多的蠕虫，让你跳跃到 %d 码内的可见地形。
-		着陆时会有更多的蠕虫爆裂，形成半径 2 码的锥形血肉喷溅；范围内的生物下回合造成的伤害降低 70%%。
+		你也可以激活这个技能来引爆更多的蠕虫，让你跳跃到 %d 格内的可见地形。
+		着陆时会有更多的蠕虫爆裂，形成半径 2 格的锥形血肉喷溅；范围内的生物下回合造成的伤害降低 70%%。
 		如果有敌人受到血肉喷溅的影响，你会得到额外 20 点疯狂值。]], "tformat")
 t("Horrific Evolution", "恐怖进化", "talent name")
 t([[Your mutations have enhanced your offense even farther.
@@ -3211,7 +3211,7 @@ t(", #CRIMSON# but is currently disabled due to non-empty offhand#WHITE#", "，#
 t("Lash Out", "旋风鞭挞", "talent name")
 t("You require an empty offhand to use your tentacle hand.", "你需要副手空手才能使用触手。", "logPlayer")
 t("You require a weapon and an empty offhand!", "你必须有一把武器和一只空手！", "logPlayer")
-t("Spin around, extending your weapon and damaging all targets around you for %d%% weapon damage while your tentacle hand extends and hits all targets in radius 3 for %d%% tentacle damage.\n\t\t\t\t\n\t\t\t\tIf the mainhand attack hits at least one enemy you gain %d insanity.\n\t\t\t\tIf the tentacle attack hits at least one enemy you gain %d insanity.\n\t\t\n\t\t#YELLOW_GREEN#When constricting:#WHITE# Your tentacle attack is centered around your constricted target (but not your weapon attack) and only in radius 1 but it also dazes anything hit for 5 turns.", [[飞速旋转，伸展武器对周围单位造成 %d%% 武器伤害，并且伸展触手对 3 码内单位造成 %d%% 触手伤害。
+t("Spin around, extending your weapon and damaging all targets around you for %d%% weapon damage while your tentacle hand extends and hits all targets in radius 3 for %d%% tentacle damage.\n\t\t\t\t\n\t\t\t\tIf the mainhand attack hits at least one enemy you gain %d insanity.\n\t\t\t\tIf the tentacle attack hits at least one enemy you gain %d insanity.\n\t\t\n\t\t#YELLOW_GREEN#When constricting:#WHITE# Your tentacle attack is centered around your constricted target (but not your weapon attack) and only in radius 1 but it also dazes anything hit for 5 turns.", [[飞速旋转，伸展武器对周围单位造成 %d%% 武器伤害，并且伸展触手对 3 格内单位造成 %d%% 触手伤害。
 
 		如果武器击中敌人，你获得 %d 疯狂值。
 		如果触手击中敌人，你获得 %d 疯狂值。
@@ -3225,7 +3225,7 @@ t([[You plant your tentacle hand in the ground where it splits up and extends to
 
 		If at least one enemy is hit you gain %d insanity.
 
-		#YELLOW_GREEN#When constricting:#WHITE#The tendrils pummel your constricted target for %d%% tentacle damage and if adjacent you make an additional mainhand weapon attack.  Talent cooldown reduced to 10.]], [[你的触手钻入地下，分布到 %d 码范围的目标区域。
+		#YELLOW_GREEN#When constricting:#WHITE#The tendrils pummel your constricted target for %d%% tentacle damage and if adjacent you make an additional mainhand weapon attack.  Talent cooldown reduced to 10.]], [[你的触手钻入地下，分布到 %d 格范围的目标区域。
 		该区域喷发出大量黑色触手，对区域内所有敌人造成 %d%% 触手伤害。
 		被触手击中的生物需要进行法术检定，检定失败将被麻木，5 回合内伤害降低 %d%%。
 
@@ -3242,7 +3242,7 @@ t([[You extend your tentacle to grab a distant target, pulling it to you.
 		While constricting you cannot use your tentacle to enhance your normal attacks but you deal %d%% tentacle damage each turn to your target.
 		Enemies can resist the attempt to pull them but Constrict will always work for purposes of modifying your talents.
 		Your other tentacle talents may act differently when used while constricting (check their descriptions).]], [[伸展触手缠住一个远处的目标，将其拖向你。
-		只要缠绕技能保持激活，目标就会被触手束缚；它可以尝试向远处移动，但每回合都会被你拉回一码。
+		只要缠绕技能保持激活，目标就会被触手束缚；它可以尝试向远处移动，但每回合都会被你拉回一格。
 		当缠绕了敌人，普通攻击不会额外附加触手攻击，但每回合对缠绕敌人造成 %d%% 触手伤害。
 		敌人可以抵抗触手拖拽，但即使抵抗成功，缠绕对你技能的修改效果仍会照常生效。
 		其他触手技能在缠绕状态下会发生变化，具体请查看相应技能描述。]], "tformat")
@@ -3253,11 +3253,11 @@ section "tome-cults/data/talents/demented/timethief.lua"
 t("Accelerate", "窃速", "talent name")
 t([[Distorting spacetime around yourself, you reduce the movement speed of all enemies in radius %d by 50%% for %d turns.
 You use the siphoned speed to grant yourself incredible quickness for 1 turn, increasing movement speed by %d%%, increased by a further %d%% for each enemy slowed, to a maximum of 4.
-Any actions other than movement will cancel the effect.]], [[扭曲周围时空，周围 %d 码内敌人移动速度降低 50%%，持续 %d 回合。
+Any actions other than movement will cancel the effect.]], [[扭曲周围时空，周围 %d 格内敌人移动速度降低 50%%，持续 %d 回合。
 		你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%， 每减速一个敌人额外提高 %d%%， 最多计 4 个敌人。
 		移动外的任何行动将终止加速效果。]], "tformat")
 t("Switch", "偷换", "talent name")
-t("Release a surge of entropy, cleansing yourself of afflictions while draining the energy from others. All enemies in range 10 will have the duration of %d beneficial effects reduced by %d turns, while you will have an equal number of detrimental effects reduced by the same duration.", "释放熵的浪潮，清除自己的灾祸，同时吸取他人的能量。10 码内所有敌人的 %d 项有益效果持续时间缩短 %d 回合。自身同等数量的有害效果持续时间缩短同等回合。", "tformat")
+t("Release a surge of entropy, cleansing yourself of afflictions while draining the energy from others. All enemies in range 10 will have the duration of %d beneficial effects reduced by %d turns, while you will have an equal number of detrimental effects reduced by the same duration.", "释放熵的浪潮，清除自己的灾祸，同时吸取他人的能量。10 格内所有敌人的 %d 项有益效果持续时间缩短 %d 回合。自身同等数量的有害效果持续时间缩短同等回合。", "tformat")
 t("Suspend", "暂停", "talent name")
 t([[You freeze yourself in time for %d turns, preventing you from taking any action but preventing any damage taken.
 				Negative effects and cooldowns will decrease in duration, while beneficial effects will remain at their current duration.]], [[你在时间中凝固 %d 回合，无法行动但也无法被伤害。
@@ -3297,7 +3297,7 @@ t("void monolith", "虚空巨石", "_t")
 t("This bizarre oblong shape floats in the air, defying gravity. Its form seems to subtly shift, and you feel an intense desire to move towards it.", "这个奇异的长方体无视重力漂浮在空气中。它的形态似乎正在微妙地转换着，你感受到向着它走去的强烈愿望。", "_t")
 t("Summon", "召唤", "_t")
 t([[Consuming a void star, you use it to summon a void monolith at the targeted location for %d turns. The monolith is very durable, and while immobile it will attempt to daze enemies within radius %d for 2 turns every half a turn using your spellpower.
-			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚空巨石。巨石非常坚固，无法移动，每半回合尝试对 %d 码范围内敌人施加 2 回合眩晕（基于你的法术强度）。
+			The monolith will gain %d life rating and %d%% all resist based on your Magic stat.]], [[消耗一枚虚空之星，在目标位置召唤持续 %d 回合的虚空巨石。巨石非常坚固，无法移动，每半回合尝试对 %d 格范围内敌人施加 2 回合眩晕（基于你的法术强度）。
 			基于你的魔力属性，巨石获得 %d 生命成长和 %d%% 全体抗性。]], "tformat")
 t("Essence Reave", "精华收割", "talent name")
 t("%s rends the essence of %s, restoring %d void shards!", "%s撕裂了%s的精华，恢复%d个虚空之星！", "logSeen")
@@ -3334,11 +3334,11 @@ t([[		Also increases Physical Power by %d, and increases weapon damage by %d%% f
 		%s]], "tformat")
 t("Lash Outrthrthrth", "旋风鞭挞", "talent name")
 t([[Spin around, extending your weapon and damaging all targets around you for %d%% weapon damage while your tentacle hand extends and hits all targets in radius 3 for %d%% tentacle damage.
-		]], [[飞速旋转，伸展武器对周围单位造成 %d%% 武器伤害，并且伸展触手对 3 码内单位造成 %d%% 触手伤害。
+		]], [[飞速旋转，伸展武器对周围单位造成 %d%% 武器伤害，并且伸展触手对 3 格内单位造成 %d%% 触手伤害。
 		]], "tformat")
 t("Piercing Tentacle", "穿刺触手", "talent name")
 t([[You quickly extend your tentacle hand up to range %d, impaling all creatures in the way.
-		Impaled creatures take %d%% tentacle damage and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.]], [[你迅速伸长触手，最远达到 %d 码，刺穿沿途所有生物。
+		Impaled creatures take %d%% tentacle damage and get sick, gaining a random disease for %d turns that deals %0.2f blight damage per turn and reduces strength, dexterity or constitution by %d.]], [[你迅速伸长触手，最远达到 %d 格，刺穿沿途所有生物。
 		被刺穿的生物受到 %d%% 触手伤害，并感染一种随机疾病，持续 %d 回合；该疾病每回合造成 %0.2f 枯萎伤害，并使力量、敏捷或体质降低 %d 点。]], "tformat")
 t("Tentaclesrsthrhrhrh Ground", "地下触手", "talent name")
 -- untranslated text
@@ -3382,7 +3382,7 @@ t([[Allows to teleport to Kroshkkur.
 	该法术需要 40 回合生效。施放时及传送生效时，你都必须处于任何其他生物的视线之外。]], "_t")
 t("Call of Amakthel", "阿马克泰尔的呼唤", "talent name")
 t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
-t("Pull all foes within radius 10 2 grids towards you.", "将10码范围内的所有敌人朝你拉近2格。", "_t")
+t("Pull all foes within radius 10 2 grids towards you.", "将10格范围内的所有敌人朝你拉近2格。", "_t")
 t("Crumble", "瓦解", "talent name")
 t([[Fire a blast of darkness at an enemy dealing %0.2f damage and destroying any walls in radius 3 around them.
 		The damage will increase with your Spellpower.]], [[发射暗影能量，对目标造成 %0.2f 伤害并破坏 3 格范围内的墙壁。
@@ -3390,7 +3390,7 @@ t([[Fire a blast of darkness at an enemy dealing %0.2f damage and destroying any
 t("Blightlash", "枯萎鞭挞", "talent name")
 t("You require an empty offhand to use your tentacle hand.", "你需要副手空手才能使用触手。", "logPlayer")
 t("You require a weapon and an empty offhand!", "你必须有一把武器和一只空手！", "logPlayer")
-t("Lash an enemy within range 10 with your tentacle, dealing %d%% blight damage.", "用触手打击 10 码范围内的一个敌人，造成 %d%% 枯萎伤害。", "tformat")
+t("Lash an enemy within range 10 with your tentacle, dealing %d%% blight damage.", "用触手打击 10 格范围内的一个敌人，造成 %d%% 枯萎伤害。", "tformat")
 t("Twisted Evolution", "扭曲进化", "talent name")
 t([[Evolve %d allies within radius 10 in random ways for 5 turns.
 		#ORCHID#Speed:#LAST# Increases global speed by %d%%.
@@ -3459,7 +3459,7 @@ t([[Your affinity with things that dwell deep beneath the surface allows you to 
 		The mouth has %d bonus life, lasts for %d turns, and deals no damage.
 		Each turn the mouth will draw all enemies in radius 10 2 spaces towards itself.
 		Its bonus life depends on your Constitution stat and talent level.  Many other stats will scale with level.]], [[你同地下深处某物的联系让你能召唤一只饥饿巨口。
-		每回合它将周围 10 码内所有敌人朝自身拉近 2 码。
+		每回合它将周围 10 格内所有敌人朝自身拉近 2 格。
 		它有 %d 额外生命，存在 %d 回合，不造成伤害。
 		它的额外生命取决于你的体质和技能等级。许多其他属性受等级影响。]], "tformat")
 t("\
@@ -3568,7 +3568,7 @@ t("Caught in a slimy tendril, reducing all damage by %d%%.", "被触须抓住，
 t("#Target# is caught by a slimy tendril.", "#Target#被黏稠触须捕获。", "_t")
 t("#Target# is free from the tendril.", "#Target#逃脱黏稠触须。", "_t")
 t("Tentacle Constriction", "触手缠绕", "_t")
-t("Caught by a tentacle from %s that deals %d%% tentacle damage and pulls you 1 space towards them each turn.", "被 %s 的触手缠绕，每回合造成 %d%% 触手伤害并将你拉近一码。", "tformat")
+t("Caught by a tentacle from %s that deals %d%% tentacle damage and pulls you 1 space towards them each turn.", "被 %s 的触手缠绕，每回合造成 %d%% 触手伤害并将你拉近一格。", "tformat")
 t("#Target# is constricted by a tentacle.", "#Target#被触手缠绕。", "_t")
 t("#Target# is free from the tentacle constriction.", "#Target#逃脱了触手缠绕。", "_t")
 t("Carrion Feet", "腐肉之足", "_t")
@@ -3820,7 +3820,7 @@ Each turn a radius 2 explosion will occur in a random space dealing %0.2f darkne
 
 施加该效果时，移除所有负面效果并重置所有技能冷却时间。
 
-每回合，一个半径 2 码的爆炸会在一个随机空间爆发，造成 %0.2f 暗影和时空伤害，并摧毁所有可挖掘的墙。]], "tformat")
+每回合，一个半径 2 格的爆炸会在一个随机空间爆发，造成 %0.2f 暗影和时空伤害，并摧毁所有可挖掘的墙。]], "tformat")
 t("entropy", "熵", "effect subtype")
 t("Total Collapse", "完全崩溃", "_t")
 t("Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.", "你的身体无法正常运转，被逐渐损耗。每回合你受到 %0.2f 虚空伤害，任何新施加的负面效果持续时间延长 %d%%。每回合这些惩罚都会增长，直到效果结束。", "tformat")
