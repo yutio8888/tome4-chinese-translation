@@ -9190,7 +9190,7 @@ t("release a radius %d chilling blast, instantly dealing %0.2f cold damage and c
 t("%s releases an icy blast from %s %s!", "%s从%s%s中释放出冰风！", "logSeen")
 t("icy vapors", "冰霜雾气", "_t")
 t("Blighted Maul", "枯萎之锤", "entity name")
-t("rotten stone limb", "腐烂的石化肢体", "_t")
+t("rotten stone limb", "腐烂的石质肢体", "_t")
 t("The massive stone limb of the Rotting Titan, a mass of stone and rotting flesh. You think you can lift it, but it is very heavy.", "腐烂泰坦巨大的石质肢体，一大块石头与腐肉的混合体。你觉得自己举得动它，但它非常沉重。", "_t")
 t("Blasts creatures in a radius 1 shockwave around your target for %0.2f to %0.2f physical damage (based on Strength).", "在目标周围制造半径 1 的冲击波，轰击范围内的生物，造成 %0.2f 到 %0.2f 物理伤害（基于力量）。", "tformat")
 t("%s's %s shakes the ground with its impact!", "%s的%s震动了大地！", "logSeen")
@@ -12965,7 +12965,7 @@ t("30% chance to spray freezing water (radius 4 cone) at the target.", "30% 几�
 t("A wave of icy water sprays out from #Source# towards #Target#!", "一束冰冷的水流从#Source#处喷向#Target#！", "logCombat")
 t("Shard of Insanity", "狂乱碎片", "entity name")
 t("cracked black amulet", "损坏的黑色项链", "_t")
-t("A deep red light glows from within this damaged amulet of black stone. When you touch it, you can hear voices whispering within your mind.", "从这条损坏的黑色项链上放出暗红色的光亮，当你触摸它时，你能听到脑海里的窃窃私语。", "_t")
+t("A deep red light glows from within this damaged amulet of black stone. When you touch it, you can hear voices whispering within your mind.", "这条破损的黑石项链内透出暗红色的光芒，当你触摸它时，你能听到脑海里的窃窃私语。", "_t")
 t("Pouch of the Subconscious", "潜意识之袋", "entity name")
 t("familiar pouch", "熟悉的弹药袋", "_t")
 t("You find yourself constantly fighting an urge to handle this strange pouch of shot.", "你发现自己在不断抵抗摆弄这袋奇异弹丸的冲动。", "_t")
@@ -13076,7 +13076,7 @@ t("a sparkling, golden cloak", "闪耀光辉的金色斗篷", "_t")
 t("This pristine golden cloak flows with a wind that seems to be conjured from nowhere. Its inner surface is a completely plain white, but the outside shines with intense light.", "这件纯净的金色斗篷随一股仿佛凭空召唤来的风飘动。它的内侧是完全朴素的白色，外侧则闪耀着强烈的光芒。", "_t")
 t("Unbreakable Greaves", "牢不可破之护胫", "entity name")
 t("huge stony boots", "巨大的石靴", "_t")
-t("These titanic boots appear to have been carved from stone. They appear weathered and cracked, but easily deflect all blows.", "这对巨大的靴子似乎是用石头雕刻而成的，尽管已经风化破裂，但仍旧能抵抗一切伤害。", "_t")
+t("These titanic boots appear to have been carved from stone. They appear weathered and cracked, but easily deflect all blows.", "这对巨大的靴子似乎是用石头雕刻而成的，尽管已经风化破裂，但仍能轻易挡开一切打击。", "_t")
 t("The Untouchable", "不可触及", "entity name")
 t("tough leather coat", "硬皮甲", "_t")
 t([[This rugged jacket is the subject of many a rural legend.
@@ -13102,7 +13102,7 @@ t("This is a string of ancient, hardened clay beads, cracked and faded with age.
 t("Enhances the effectiveness of Meditation by 20%", "强化冥想效果20%", "_t")
 t("Hand of the World-Shaper", "世界塑形之手", "entity name")
 t("otherworldly stone gauntlets", "异世界的石质手套", "_t")
-t("These heavy stone gauntlets make the very ground beneath you bend and warp as they move.", "当这双沉重的手套移动时，大地会随之扭曲。", "_t")
+t("These heavy stone gauntlets make the very ground beneath you bend and warp as they move.", "这双沉重的石质手套移动时，会使你脚下的大地随之扭曲变形。", "_t")
 t("Guise of the Hated", "被憎恨者的伪装", "entity name")
 t("gloomy black cloak", "阴郁的黑色斗篷", "_t")
 t([[Forget the moons, the starry sky,
@@ -13194,7 +13194,7 @@ t("insignia ring", "徽记戒指", "_t")
 t("attempt to inflict %0.2f temporal damage (based on Spellpower and Paradox, if any) on foes in a radius %d ball out to range %d (chance depends on rank, summons are always affected), removing any that survive from time for up to %d turn(s)", "尝试对半径 %d 内的所有敌人造成 %0.2f 时空伤害（射程 %d，基于法术强度和紊乱，若有的话；成功率取决于目标品阶，召唤物必定受影响），存活者将被移出时间线最多 %d 回合。", "tformat", {2,1,3,4})
 t("%s focuses time flows through %s %s!", "%s通过%s%s聚焦时间之流！", "logSeen")
 t("Piercing Gaze", "锐利目光", "entity name")
-t("stone-eyed shield", "刻有岩石眼的盾牌", "_t")
+t("stone-eyed shield", "嵌着石眼的盾牌", "_t")
 t("This gigantic shield has a stone eye embedded in it.", "这个巨大的盾牌上嵌有一个石质的眼睛。", "_t")
 t("30% chance of petrifying the attacker.", "30%几率石化攻击者。", "_t")
 t("The eye locks onto %s, freezing it in place!", "眼睛凝视着%s，将其石化了", "logSeen")
@@ -13277,7 +13277,7 @@ t("bone mask", "骨质面具", "_t")
 t("This mask appears to be carved out of the skull of a creature that never should have existed, malformed and distorted. You shiver as you look upon it, and its hollow eye sockets seem to stare back into you.", "这件面具似乎是用某种不明生物的头骨制成的，那是一种本不应该存在于世间的可怕生物，畸形并且扭曲。每当你盯着这个面具时，它那空洞的眼窝似乎也在注视着你，令你感到发自内心的颤栗。", "_t")
 t("Cinderfeet", "余烬之足", "entity name")
 t("flame coated sandals", "一双被火焰覆盖的凉鞋", "_t")
-t("A cautionary tale tells of the ancient warlock by the name of Caim, who fancied himself daily walks through Goedalath, both to test himself and the harsh demonic wastes. He was careful to never bring anything back with him, lest it provide a beacon for the demons to find him. Unfortunately, over time, his sandals drenched in the soot and ashes of the fearscape and the fire followed his footsteps outside, drawing in the conclusion of his grim fate.", "这是一个警示故事，讲的是有个叫凯姆的古代术士，他自命不凡，天天到恶魔的老巢高达勒斯散步，既为考验自己，也为探查那片严酷的恶魔荒原。他每次从恶魔位面归来都小心翼翼地不敢带回任何东西，生怕成为恶魔找到他的指引。不幸的是，来回很多次以后，他的草鞋浸满了恶魔空间的烟尘和灰烬。火焰随他的脚步被带到了世间，同时也注定了他悲惨的命运。", "_t")
+t("A cautionary tale tells of the ancient warlock by the name of Caim, who fancied himself daily walks through Goedalath, both to test himself and the harsh demonic wastes. He was careful to never bring anything back with him, lest it provide a beacon for the demons to find him. Unfortunately, over time, his sandals drenched in the soot and ashes of the fearscape and the fire followed his footsteps outside, drawing in the conclusion of his grim fate.", "这是一个警示故事，讲的是有个叫凯姆的古代术士，他喜欢每天到恶魔的老巢高达勒斯散步，既为考验自己，也为考验那片严酷的恶魔荒原。他每次从恶魔位面归来都小心翼翼地不敢带回任何东西，生怕成为恶魔找到他的指引。不幸的是，来回很多次以后，他的凉鞋浸满了恶魔空间的烟尘和灰烬。火焰随他的脚步被带到了世间，同时也注定了他悲惨的命运。", "_t")
 t("Each step you take leaves a burning trail behind you lasting 5 turns that deals %d fire damage (based on Spellpower) to foes who enter it.", "你每踏出一步会在脚下留下一条持续5回合的燃烧痕迹，对进入其中的敌人造成 %d 火焰伤害（基于法术强度）。", "tformat")
 t("fire trail", "火焰尾迹", "_t")
 t("Cuirass of the Dark Lord", "黑暗领主胸甲", "entity name")
@@ -15521,7 +15521,7 @@ But ah, that is another tale, one indeed of many tales, in the long and rich his
 
 然后，恐魔冲了过来。塌陷的洞穴为他们开了一个洞口，他们饥肠辘辘地冲向莱娜尼尔所在的地方。“不！”我大叫着，冲上去拦截他们。“你们不能夺走她！”
 
-我向莱娜尼尔的身体靠近，同时切下了一个有尖刺的怪物的脑袋，然后用一道火墙阻隔了剩下的怪物。她看上去就像死了一样，没有任何活动和呼吸的迹象，但是我没有时间仔细检查了。那个由光与触手构成的生物毫无阻碍地穿过了我所造出的火墙，我让电火花沿剑身奔流，挥剑从正中向上劈开这怪物的身体。它射出一道光芒穿透了我的身体，我咳出血来，但我奋力将我的剑刃刺入更深，往里面灌注了一道奥术能量，将那个怪物炸了个粉碎。更多长着尖刺的怪物冲了过来，我迈动步伐，在左侧格挡和切开它们的同时，向着右侧射出了一团团火焰。
+我向莱娜尼尔的身体靠近，同时切下了一个有尖刺的怪物的脑袋，然后用一道火墙阻隔了剩下的怪物。她看上去就像死了一样，没有任何活动和呼吸的迹象，但是我没有时间仔细检查了。那个由光与触手构成的生物毫无阻碍地穿过了我所造出的火墙，我让电火花沿剑身奔流，挥剑从正中向上劈开这怪物的身体。它射出一道光芒穿透了我的身体，我咳出血来，但我奋力将我的剑刃刺入更深，往里面灌注了一道奥术能量，将那个怪物炸了个粉碎。更多长着尖刺的怪物冲了过来，我迈动步伐，在左侧招架和切开它们的同时，向着右侧射出了一团团火焰。
 
 那团蠕虫冲破了墙壁，随之而来的还有两个发光的恐魔，以及一个来自黑暗与噩梦的魔物。我能看到，还有更多的恐魔在朝我们涌来。当那道光线射向我的时候，我打开了一个能量护盾，然后向他们发射了霜冻之球。一个发光的怪物倒下了，而另一个的行动则被减缓了。那个黑暗的东西迅速逼近，那团蠕虫则紧随其后。我把我的剑划过地面，将热能传导到地面上，把地上的石头化为了灼热的岩浆。那个黑暗的存在绕过岩浆，向我逼近，我能感受到它身上散发出的刺骨寒意。我拼命地砍向它，而它则将长矛般的肢体反刺向我的胸口，仿佛要吸走我全身的力量。我怒吼一声，让一道火焰沿剑刃奔涌而下，将它炸得四分五裂。那些蠕虫越过岩浆直冲过来，大量蠕虫被烧得痛苦尖叫，但它们仍迅速朝我冲来。我调整了握剑的姿势，准备灵巧地挥剑，避开它们的攻击范围。然而就在这时，一束光线击中了我的大腿，我单膝跪地，发出痛苦的尖叫。那团蠕虫继续冲向我，我将剑深深刺入其中，但蠕虫爬上了我的手臂，用带有酸液的牙齿啃噬着我的血肉，朝我的脖子爬去。我用左臂施法，向它们覆下一层火焰，连同尖叫的蠕虫一起灼伤了自己的手臂。虫群微微退开了，但那个发光的生物从另一侧接近了我，它的触手闪耀着光辉的能量。三个长着刺的恐魔跟在它后面。我的右臂严重烧伤，我的左腿也受了伤，我的锁甲已经千疮百孔，而我的法力也已经快要消耗光了。但我决心咬牙坚持——在这场战斗中我无路可逃。我紧握手中的剑，冲向那团蠕虫。
 

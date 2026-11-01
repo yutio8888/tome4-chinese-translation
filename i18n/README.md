@@ -195,6 +195,9 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
 - `proposal` 校验 Pi 或人工返回的结构化译文：workset 内容身份、条目覆盖率、原文、
   `source_tag`、Lua 值、printf 参数及首选术语。成功后只生成内容寻址的
   `*.validated.json`；`--allow-partial` 允许分批返回，`--strict` 会阻断警告。
+  首选术语按词边界匹配，散文里的普通词（材质 stone、短语 by the name of 的 name）
+  可能只是拼写相同；宿主核实后把 (entry_id, 术语) 登记进 `i18n/term-sense-exemptions.json`，
+  该对不再报 preferred-term-missing，报告的 `term_sense_exemptions` 列出实际生效的登记。
 - `claims check` 对机制 claim、anchors-only reviewer briefing 与 runtime composition
   registry 执行无外部依赖的 exact-schema 校验。默认 registry 锚定 repository root 下的
   `evidence/quality/semantic-claim-regressions-v1.json`，因此从仓库外 CWD 调用绝对 `tools/i18n` 仍可用；

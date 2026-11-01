@@ -10,7 +10,7 @@ from typing import Any
 from . import TOOL_VERSION
 from .build import _lua_value
 from .config import Manifest
-from .errors import ValidationError
+from .errors import ConfigurationError, ValidationError
 from .lint import Issue, lint_documents, load_policy
 from .locale_model import LocaleDocument
 from .report import create_run_directory, write_json
@@ -23,6 +23,10 @@ PROPOSAL_FIELDS = frozenset(
 )
 PROPOSAL_ROOT_FIELDS = frozenset({"schema_version", "workset_id", "proposals"})
 MAX_JSON_BYTES = 16 * 1024 * 1024
+TERM_SENSE_EXEMPTIONS = "i18n/term-sense-exemptions.json"
+TERM_SENSE_EXEMPTION_FIELDS = frozenset(
+    {"entry_id", "term_source", "term_source_tag", "excerpt", "reason"}
+)
 
 
 def _reject_json_constant(value: str) -> None:
@@ -118,6 +122,44 @@ def read_json_object(path: Path, label: str) -> tuple[Path, dict[str, Any], byte
     ):
         raise ValidationError(f"unsupported {label} schema: {resolved}")
     return resolved, value, raw
+
+
+def load_term_sense_exemptions(root: Path) -> dict[tuple[str, str, str], dict[str, Any]]:
+    """Host-registered entries where an ordinary English word only matches a preferred term by spelling.
+
+    The preferred-term check matches term sources by word boundary, so a material "stone" or the phrase
+    "by the name of" in prose hits the Stoning or Name label rows; each listed (entry, term) pair is exempt.
+    """
+    path = root / TERM_SENSE_EXEMPTIONS
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_bytes())
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ConfigurationError(f"invalid term sense exemptions: {path}: {error}") from error
+    rows = data.get("exemptions") if isinstance(data, dict) else None
+    if (
+        not isinstance(data, dict)
+        or type(data.get("schema_version")) is not int
+        or data["schema_version"] != 1
+        or not isinstance(rows, list)
+    ):
+        raise ConfigurationError(f"unsupported term sense exemptions schema: {path}")
+    result: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for row in rows:
+        if (
+            not isinstance(row, dict)
+            or set(row) != TERM_SENSE_EXEMPTION_FIELDS
+            or not all(isinstance(row[key], str) and row[key] for key in ("entry_id", "term_source", "reason"))
+            or not isinstance(row["term_source_tag"], str)
+            or not isinstance(row["excerpt"], str)
+        ):
+            raise ConfigurationError(f"invalid term sense exemption row: {row!r}")
+        key = (row["entry_id"], row["term_source"].casefold(), row["term_source_tag"])
+        if key in result:
+            raise ConfigurationError(f"duplicate term sense exemption: {key!r}")
+        result[key] = row
+    return result
 
 
 def _proposal_issue(
@@ -376,6 +418,8 @@ def validate_proposal(
     issues.extend(lint_issues)
 
     terminology = workset.get("terminology", [])
+    exemptions = load_term_sense_exemptions(manifest.root)
+    exempted: list[dict[str, str]] = []
     if isinstance(terminology, list):
         proposals_by_id = {item["entry_id"]: item for item in normalized}
         for term in terminology:
@@ -390,6 +434,15 @@ def validate_proposal(
                 if normalized_item is None:
                     continue
                 if preferred_target not in normalized_item["target"]:
+                    exemption = exemptions.get(
+                        (entry_id, str(term.get("source", "")).casefold(), str(term.get("source_tag", "")))
+                    )
+                    if exemption is not None:
+                        exempted.append(
+                            {"entry_id": entry_id, "term_source": exemption["term_source"],
+                             "reason": exemption["reason"]}
+                        )
+                        continue
                     issues.append(
                         _proposal_issue(
                             "warning",
@@ -435,6 +488,7 @@ def validate_proposal(
         "errors": errors,
         "warnings": warnings,
         "issues": [issue.to_dict() for issue in issues],
+        "term_sense_exemptions": exempted,
         "normalized_proposals": normalized,
         "run_directory": str(run_directory),
     }

@@ -18,7 +18,10 @@ from i18nlib.context import resolve_context, validate_context_options
 from i18nlib.cli import main as cli_main
 from i18nlib.errors import ConfigurationError, ValidationError
 from i18nlib.locale_model import LocaleDocument, LocaleLoader
-from i18nlib.proposal import read_json_object, validate_proposal
+import i18nlib.proposal as proposal_module
+from i18nlib.lint import stable_entry_id
+from i18nlib.proposal import load_term_sense_exemptions, read_json_object, validate_proposal
+from i18nlib.workset import create_workset
 from i18nlib.workset import (
     ADDON_COMPONENTS,
     DLC_COMPONENTS,
@@ -592,6 +595,69 @@ class ProposalTests(unittest.TestCase):
         codes = {issue["code"] for issue in report["issues"]}
         self.assertFalse(report["ok"])
         self.assertIn("proposal-args-order", codes)
+
+    def _stone_material_proposal(self, directory: Path) -> tuple[str, Path, Path]:
+        component, section, source = "tome", "fixture/artifacts.lua", "Boots carved from stone."
+        entry_id = stable_entry_id(component, section, source, "_t")
+        item = {"entry_id": entry_id, "component": component, "section": section, "source": source,
+                "source_tag": "_t", "classification": "added",
+                "origins": [{"document": "generated:fixture", "kind": "extracted", "line": 1}]}
+        fixture_root = toolchain_fixtures.TEST_FIXTURE_ROOT / directory.name
+        fixture_root.mkdir(parents=True, exist_ok=True)
+        merge_path = fixture_root / "merge.json"
+        merge_path.write_text(json.dumps({"schema_version": 1, "merge_id": "b" * 64, "component": component,
+                                          "untranslated": [item]}), encoding="utf-8")
+        workset = create_workset(self.manifest, merge_report_path=merge_path, limit=10,
+                                 section_prefix=None, classification="all")
+        self.assertIn("stone", {term["source"] for term in workset["terminology"]})
+        proposal_path = directory / "proposal.json"
+        proposal = json.loads(Path(str(workset["proposal_template"])).read_text())
+        proposal["proposals"][0]["target"] = "用石头雕成的靴子。"
+        proposal_path.write_text(json.dumps(proposal, ensure_ascii=False), encoding="utf-8")
+        return entry_id, Path(str(workset["output"])), proposal_path
+
+    def test_term_sense_exemption_skips_only_the_registered_pair(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-proposal-test-") as temporary:
+            entry_id, workset_path, proposal_path = self._stone_material_proposal(Path(temporary))
+            arguments = dict(workset_path=workset_path, proposal_path=proposal_path,
+                             allow_partial=False, strict=True)
+            with patch.object(proposal_module, "load_term_sense_exemptions", return_value={}):
+                plain = validate_proposal(self.manifest, **arguments)
+            exemption = {"entry_id": entry_id, "term_source": "stone", "term_source_tag": "_t",
+                         "excerpt": "carved from stone", "reason": "material"}
+            with patch.object(proposal_module, "load_term_sense_exemptions",
+                              return_value={(entry_id, "stone", "_t"): exemption}):
+                exempt = validate_proposal(self.manifest, **arguments)
+            other = {("0" * 64, "stone", "_t"): exemption}
+            with patch.object(proposal_module, "load_term_sense_exemptions", return_value=other):
+                unrelated = validate_proposal(self.manifest, **arguments)
+        self.assertFalse(plain["ok"])
+        self.assertIn("preferred-term-missing", {issue["code"] for issue in plain["issues"]})
+        self.assertTrue(exempt["ok"])
+        self.assertEqual(exempt["warnings"], 0)
+        self.assertEqual([row["entry_id"] for row in exempt["term_sense_exemptions"]], [entry_id])
+        self.assertFalse(unrelated["ok"])
+        self.assertEqual(unrelated["term_sense_exemptions"], [])
+
+    def test_term_sense_exemption_registry_is_strict(self) -> None:
+        row = {"entry_id": "e" * 64, "term_source": "Stone", "term_source_tag": "_t", "excerpt": "x",
+               "reason": "material"}
+        with tempfile.TemporaryDirectory(prefix="tome4-exemptions-") as temporary:
+            root = Path(temporary)
+            self.assertEqual(load_term_sense_exemptions(root), {})
+            path = root / proposal_module.TERM_SENSE_EXEMPTIONS
+            path.parent.mkdir(parents=True)
+            path.write_text(json.dumps({"schema_version": 1, "exemptions": [row]}), encoding="utf-8")
+            self.assertEqual(set(load_term_sense_exemptions(root)), {("e" * 64, "stone", "_t")})
+            for document in ({"schema_version": 2, "exemptions": [row]},
+                             {"schema_version": 1, "exemptions": [row, row]},
+                             {"schema_version": 1, "exemptions": [{**row, "extra": 1}]},
+                             {"schema_version": 1, "exemptions": [{**row, "reason": ""}]}):
+                with self.subTest(document=document):
+                    path.write_text(json.dumps(document), encoding="utf-8")
+                    with self.assertRaises(ConfigurationError):
+                        load_term_sense_exemptions(root)
+        self.assertTrue(load_term_sense_exemptions(proposal_module.Path(self.manifest.root)))
 
     def test_tampered_workset_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory(prefix="tome4-proposal-test-") as temporary:
