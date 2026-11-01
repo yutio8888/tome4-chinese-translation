@@ -1,0 +1,58 @@
+{
+ "confirmed": [
+  {
+   "id": "c006750306ec",
+   "edit": [
+    "在-7视野下",
+    "在视野范围减少 7 的情况下"
+   ],
+   "evidence": "Raised by B. game/modules/tome/class/GameState.lua:3584-3590 @624a6732 applies effectTemporaryValue(eff, 'sight', -7): sight is reduced by 7, not set to -7."
+  },
+  {
+   "id": "81d959e61374",
+   "edit": [
+    "在-7视野下",
+    "在视野范围减少 7 的情况下"
+   ],
+   "evidence": "Same as c006750306ec (quest description)."
+  },
+  {
+   "id": "124a7aa44f88",
+   "edit": [
+    "在杀死精英或更高级别的怪物之前 / 稀有奖励",
+    "在杀死任何其他精英或更高级别的怪物之前 / 少见的奖励"
+   ],
+   "evidence": "Raised by A and B. game/modules/tome/class/GameState.lua:3640-3644 spawns the targets as random elites; game/modules/tome/class/GameState.lua:3678 fails only on rank >= 3 kills that are not the headhunter spawns, so 'any other' matters. uncommon is not 稀有 (the rare item tier)."
+  },
+  {
+   "id": "b9489afd1d65",
+   "edit": [
+    "在杀死任何精英怪物之前",
+    "在杀死任何其他精英怪物之前"
+   ],
+   "evidence": "Raised by B. Short quest text omits 'other' in English too, but the mechanism (game/modules/tome/class/GameState.lua:3678) excludes the spawns themselves; the translation follows the implementation and the long text."
+  },
+  {
+   "id": "f4f28013fb9a",
+   "edit": [
+    "所有敌人都有复制能力",
+    "所有敌人都拥有繁殖技能！"
+   ],
+   "evidence": "Raised by A. The challenge teaches foes T_MULTIPLY, whose talent name is 繁殖 (mod-tome.lua:26198); the exclamation mark restored."
+  },
+  {
+   "id": "0cd4664dad04",
+   "edit": [
+    "为什么他们突然变得邪恶了",
+    "其为何突然变得邪恶了"
+   ],
+   "evidence": "Raised by A. game/modules/tome/class/GameState.lua:3525-3531: killer_message of the single Mirror Challenge clone (singular they); 他们 suggested a group. The same runtime key is the killer_message of the Rak'Shor Cultist (shadow-crypt/npcs.lua:30, mod-tome.lua:39631), so a neutral singular 其 is used instead of A's 它 / 这个镜像."
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "A 3 ISSUE, B 4 (one shared). Includes the re-review of the two batch-0020 repairs (OK in A and B).",
+ "runtime_key_sync": [
+  "mod-tome.lua:39631 but nobody knew why they suddenly became evil (_t)"
+ ]
+}
