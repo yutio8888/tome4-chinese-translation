@@ -3457,7 +3457,7 @@ t("Redhead Hair 5", "红发5", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Shalore", "永恒精灵", "birth descriptor name")
 t("Shaloren elves have close ties with the magic of the world, and produced in the past many great mages.", "永恒精灵与这个世界的魔法有着很强的联系，曾一度出现过许多伟大的魔法师。", "_t")
-t("Yet they remain quiet and try to hide their magic from the world, for they remember too well the Spellblaze - and the Spellhunt that followed.", "尽管如此，他们仍试图保持避世并隐藏他们的魔法能力。因为他们深深记得那一段血腥的历史——魔法大爆炸还有紧随其后的猎魔行动。", "_t")
+t("Yet they remain quiet and try to hide their magic from the world, for they remember too well the Spellblaze - and the Spellhunt that followed.", "尽管如此，他们仍保持低调，试图向世人隐藏自己的魔法，因为他们对魔法大爆炸及随后发生的魔法狩猎仍记忆犹新。", "_t")
 t("They possess the #GOLD#Grace of the Eternals#WHITE# talent which allows them a boost of speed every once in a while.", "他们天生掌握 #GOLD#不朽的恩赐#WHITE#，允许他们每隔一段时间获得一次速度提升。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * -2 力量，+1 敏捷，+0 体质", "_t")
@@ -3467,7 +3467,7 @@ t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚：#LIGHT_BLUE
 t("Thalore", "自然精灵", "birth descriptor name")
 t("Thaloren elves have spent most of the ages hidden within their forests, seldom leaving them.", "在大部分岁月里，自然精灵隐藏在丛林里，很少离开。", "_t")
 t("The ages of the world passed by and yet they remained unchanged.", "世界经历了一个又一个时代，他们却始终不变。", "_t")
-t("Their affinity for nature and their reclusion have made them great protectors of the natural order, often opposing their Shaloren cousins.", "他们长期隐居在自然中，由于和自然的紧密联系，自然精灵成为自然秩序的保护者，并与他们的近亲永恒精灵处于对立状态。", "_t")
+t("Their affinity for nature and their reclusion have made them great protectors of the natural order, often opposing their Shaloren cousins.", "他们长期隐居在自然中，由于和自然的紧密联系，自然精灵成为自然秩序的保护者，也使他们经常与近亲永恒精灵对立。", "_t")
 t("They possess the #GOLD#Gift of the Woods#WHITE# talent, which allows them to regenerate life and increase healing once in a while.", "他们天生掌握 #GOLD#森林的恩赐#WHITE#，允许他们每隔一段时间恢复生命并增强治疗效果。", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +3 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +2 力量，+3 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * -2 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔力，+1 意志，+0 灵巧", "_t")
@@ -3479,7 +3479,7 @@ section "mod-tome/data/birth/races/giant.lua"
 
 t("Giant", "巨人", "birth descriptor name")
 t("Powerful beings that tower over all, but the bigger they are, the harder they fall...", "庞然的巨物傲视着渺小的生灵。然而须知，个头越大，摔得越狠……", "_t")
-t("#{italic}#\"Giant\"#{normal}# is a catch-all term for humanoids which are typically over eight feet in height.  Their origins, cultures, and relationships to other races differ wildly, but they tend to live as refugees and outcasts, shunned by smaller sentient races who usually see them as a threat.", "#{italic}#\"巨人\"#{normal}# 是对那些身高超过八英尺的人型生物的统称。他们的起源、文化和关系与其他种族迥异。他们被其他矮小的种族视为威胁而躲避，作为避难的流浪者而生存。", "_t")
+t("#{italic}#\"Giant\"#{normal}# is a catch-all term for humanoids which are typically over eight feet in height.  Their origins, cultures, and relationships to other races differ wildly, but they tend to live as refugees and outcasts, shunned by smaller sentient races who usually see them as a threat.", "#{italic}#\"巨人\"#{normal}# 是对身高通常超过八英尺的人型生物的统称。巨人各族的起源、文化以及与其他种族的关系千差万别，但他们往往以难民和被排斥者的身份生活，体型较小的智慧种族通常视他们为威胁，对他们避之不及。", "_t")
 t("Skin", "皮肤", "birth facial category")
 t("Hairs", "发型", "birth facial category")
 t("Facial features", "脸部特征", "birth facial category")
@@ -3491,14 +3491,14 @@ made for a war that they've come to outlast.
 Their forgotten birthplace lies deep underground,
 its tunnels ruined so it wouldn't be found.
 Past burglars have failed, but their data's immortal;
-to start, look where halflings once tinkered with portals...]], [[他们铸造于数千年的仇恨之中，
-为一场现在已经结束的战争而造。
+to start, look where halflings once tinkered with portals...]], [[他们铸造于久远年代的仇恨之中，
+为一场战争而造，却比那场战争存在得更久。
 他们被遗忘的诞生地深埋于地下，
-那些隧道已经腐朽，无处寻觅。
+为免被人发现，通往那里的隧道已遭毁坏。
 过去的窃贼失败了，但他们的数据将永远保存；
 要想找到它们，先去半身人曾经摆弄传送门的地方找找……]], "_t")
 t("Ogres are an altered form of Human, created in the Age of Allure as workers and warriors for the Conclave.", "食人魔是变种人类，在厄流纪被孔克雷夫作为工人和战士而制造。", "_t")
-t("Inscriptions have granted them magical and physical power far beyond their natural limits, but their dependence on runic magic made them a favored target during the Spellhunt, forcing them to take refuge among the Shalore.", "刻印赋予他们远超自然极限的魔法与物理力量，但他们对符文魔法的依赖使之成为猎魔行动绝佳的目标，而不得不依附于永恒精灵。", "_t")
+t("Inscriptions have granted them magical and physical power far beyond their natural limits, but their dependence on runic magic made them a favored target during the Spellhunt, forcing them to take refuge among the Shalore.", "刻印赋予他们远超自然极限的魔法与物理力量，但他们对符文魔法的依赖使他们在魔法狩猎期间成为首要目标，迫使他们到永恒精灵之中寻求庇护。", "_t")
 t("Their preference for simple and direct solutions has given them an undeserved reputation as dumb brutes, despite their extraordinary talent with runes and their humble, dutiful nature.", "他们偏爱简单直接的解决办法，这让他们被不公平地冠以蠢笨蛮牛的恶名，尽管他们对符文有着惊人的天赋，而且天性谦逊尽责。", "_t")
 t("They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.", "他们拥有 #GOLD#食人魔之怒#WHITE# 技能，施放后会提高对震慑和定身的抗性；当他们的攻击落空、伤害被减免等情况下，该技能还会为他们提供暴击几率和暴击伤害加成。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
