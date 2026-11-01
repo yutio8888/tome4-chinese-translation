@@ -8817,12 +8817,12 @@ section "mod-tome/data/general/npcs/storm-drake.lua"
 
 t("dragon", "龙", "entity type")
 t("storm", "风暴", "entity subtype")
-t("storm drake hatchling", "风暴幼龙", "entity name")
+t("storm drake hatchling", "风暴龙幼仔", "entity name")
 t("A drake hatchling. Not too powerful by itself, but it usually comes with its brothers and sisters.", "一条幼龙。它本身并不强大，但它通常与兄弟姐妹结伴出现。", "_t")
-t("storm drake", "风暴翼龙", "entity name")
-t("A mature storm drake, armed with deadly breath and nasty claws.", "一条成年风暴巨龙，拥有致命的吐息和锋利的爪子。", "_t")
+t("storm drake", "风暴龙", "entity name")
+t("A mature storm drake, armed with deadly breath and nasty claws.", "一条成年风暴龙，拥有致命的吐息和锋利的爪子。", "_t")
 t("storm wyrm", "风暴巨龙", "entity name")
-t("An old and powerful storm drake, armed with deadly breath and nasty claws.", "一条年长且强大的风暴巨龙，拥有致命的吐息和锋利的爪子。", "_t")
+t("An old and powerful storm drake, armed with deadly breath and nasty claws.", "一条年长且强大的风暴龙，拥有致命的吐息和锋利的爪子。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/sunwall-town.lua"
@@ -8844,12 +8844,12 @@ section "mod-tome/data/general/npcs/swarm.lua"
 t("insect", "昆虫", "entity type")
 t("swarms", "虫群", "entity subtype")
 t("Buzzzzzzzzzzzzzzzzzzzzzzzzzzz.", "嗡嗡嗡嗡嗡嗡嗡嗡嗡嗡嗡嗡嗡嗡。", "_t")
-t("midge swarm", "蚊群", "entity name")
-t("A swarm of midges; they want blood.", "一群蚊子，它们渴望鲜血。", "_t")
+t("midge swarm", "蠓群", "entity name")
+t("A swarm of midges; they want blood.", "一群蠓，它们渴望鲜血。", "_t")
 t("bee swarm", "蜜蜂群", "entity name")
 t("They buzz at you threateningly, as you have gotten too close to their hive.", "它们向你发出嗡嗡的警告声，因为你离它们的巢穴太近了。", "_t")
 t("hornet swarm", "黄蜂群", "entity name")
-t("You have intruded on their ground, and they will defend it at all costs.", "你已经闯入了它们的地盘，它们会不择手段的攻击你。", "_t")
+t("You have intruded on their ground, and they will defend it at all costs.", "你已经闯入了它们的地盘，它们会不惜一切代价保卫这里。", "_t")
 t("hummerhorn", "大黄蜂", "entity name")
 t("A giant buzzing wasp, its stinger dripping venom.", "一只巨大的黄蜂，它的尾刺滴着毒液。", "_t")
 
