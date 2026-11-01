@@ -71,7 +71,7 @@ PLACE_ENTITY = {
 }
 # 物品/材料/装备类 source（entity type / subtype / name）
 ITEM_SOURCES = {
-    "armours", "mainhand", "offhand", "weapons", "armor", "ammo", "book", "charm",
+    "armours", "mainhand", "offhand", "weapons", "armor", "ammo", "book", "charm", "gem",
     "potion", "scroll", "weapon", "steamgun", "staff", "tome", "light", "tinker",
     "flesh", "steamsaw", "schematic", "d.steel", "stralite", "mastercraft",
     "throwing knives", "Spellblaze Crystal", "Choker of Dread",

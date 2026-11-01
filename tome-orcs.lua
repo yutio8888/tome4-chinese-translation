@@ -4299,7 +4299,7 @@ section "tome-orcs/data/talents/psionic/psionic.lua"
 t("psionic", "灵能", "talent category")
 t("gestalt", "格式塔", "talent type")
 t("Harness steam energies to power your own mind.", "利用蒸汽能量来驱动你自己的思想。", "_t")
-t("action at a distance", "远程动作", "talent type")
+t("action at a distance", "超距作用", "talent type")
 t("Focus your mental energies to make things happen. Or combust.", "集中精神使事情发生。或者燃烧。", "_t")
 t("psionic fog", "灵能之雾", "talent type")
 t("Psionically manipulate steam to harass your foes and protect yourself.", "灵能操控蒸汽骚扰敌人并保护自己。", "_t")
