@@ -4058,7 +4058,7 @@ IT'S NOT ENOUGH THAT I WORK ALL MORNING TO MAKE A POTION THAT ENDS UP NEARLY BLO
 这一上午搞这天杀的药剂差点搞得我屁股开花，我听到有个白痴敲我家的门敲得跟攻城槌一样，行了！我听见了！虽然我的耳朵已经差不多快聋掉了！找我有什么事么？]], "_t")
 t("Perhaps there's something that I can help you with.", "也许我能帮上什么忙。", "_t")
 t("[leave]", "[离开]", "_t")
-t("SPEAK UP, HAMBRAIN. I'VE JUST GOTTEN MY EARDRUMS BLOWN OUT BY YET ANOTHER BY-THE-PYRE POTION GONE SOUTH, REMEMBER? THRICE-DAMNED THING WAS GOING PERFECTLY, TOO. TOKNOR'S TACKLE!", "说大声点，笨蛋！我的耳膜刚又被一瓶该死的药剂炸破了，记得吗？那该死的东西本来一切顺利！托克纳的钓具！", "_t")
+t("SPEAK UP, HAMBRAIN. I'VE JUST GOTTEN MY EARDRUMS BLOWN OUT BY YET ANOTHER BY-THE-PYRE POTION GONE SOUTH, REMEMBER? THRICE-DAMNED THING WAS GOING PERFECTLY, TOO. TOKNOR'S TACKLE!", "说大声点，笨蛋！我的耳膜刚又被一瓶该死的药剂炸破了，记得吗？那该死的东西本来一切顺利！图库纳的命根子！", "_t")
 t("I SAID, MAYBE THERE'S SOMETHING THAT I CAN HELP YOU WITH!", "我说，也许我能帮上什么忙！！", "_t")
 t("STILL CAN'T HEAR YOU, BUT LISTEN UP. THE BROTHERHOOD OF ALCHEMISTS IS ACCEPTING THE FIRST NEW APPLICANT TO DEMONSTRATE, AMONG OTHER THINGS, THREE VERY COMPLICATED ELIXIRS. I WOULDN'T BOTHER TRYING TO JOIN SUCH A BUNCH OF ADDLE-BRAINED DEGENERATES, BUT IT SO HAPPENS THAT THE BROTHERHOOD OF ALCHEMISTS HOLDS THE SECRET CURE FOR THE COMMON BLOWN-OFF ASS, WHICH IT SO HAPPENS IS OF SOME INTEREST TO ME.", "还是听不见，不过听着，炼金术士兄弟会最近会吸收最先做好三瓶指定药剂的炼金师作为会员。我本来对那些呆瓜组成的团体没什么兴趣，不过碰巧兄弟会有一种治疗烂屁股的秘方，我对这个很感兴趣。", "_t")
 t("HOW CAN I HELP?", "我怎么帮你？", "_t")
@@ -4070,7 +4070,7 @@ t("I CANNOT AID YOU AT THIS TIME.", "我暂时无法帮助你。", "_t")
 t([[#LIGHT_GREEN#*He hands you a slip of paper with the names and properties of some elixirs on it.*#WHITE#
 THE INGREDIENTS TO THESE SUCKERS ARE SORT OF A TRADE SECRET, SO I'LL TELL YOU ABOUT ONE AND WE'LL SEE HOW THAT GOES. OH, AND I'LL MAKE ENOUGH FOR YOU TO HAVE A SWIG WHEN I'M DONE, SO GOOD FOR YOU. WHICH ONE WILL IT BE? JUST POINT AT THE DAMNED LIST. I HAVEN'T HEARD A THING YOU'VE SAID YET. I HOPE TO HELL YOU'RE NOT STANDING THERE TRYING TO SELL ME SOMETHING.]], [[#LIGHT_GREEN#*他递给你一张写着药剂名称和特性的纸片。*#WHITE#
 这些配方的材料算是商业机密，所以一次我只给你一个，看看效果怎么样。哦，等我做好了，会多做一份让你也喝上一口，算你走运。好了，你现在选哪一个？你只要用手点一下这该死的列表就可以了，你说的话我一个字都没听见。但愿你不是站在那儿想向我推销什么东西。]], "_t")
-t("[Indicate the %s.]", "[指向 %s.]", "tformat")
+t("[Indicate the %s.]", "[指向 %s。]", "tformat")
 t("HERE'S A LIST OF THE STUFF I NEED. MOST OF IT WILL TRY TO KILL YOU, SO I HOPE YOU'RE NOT INCOMPETENT. I'VE GOT PLENTY OF INCOMPETENT HELP ALREADY. I HOPE FOR YOUR SAKE THAT YOU'RE SMARTER AND FASTER THAN THEM.", "这里有一张我需要的材料清单，其中大多数都会想要你的小命，但愿你没那么挫，我已经有一票挫子帮手了。希望你比他们要聪明，动作麻利点。", "_t")
 t("I'LL BE OFF.", "我走了。", "_t")
 t("#LIGHT_GREEN#*The door is locked and nobody responds to your knocks*#WHITE#", "#LIGHT_GREEN#*门锁着，无人回应你的敲门声*#WHITE#", "_t")
@@ -4095,7 +4095,7 @@ t("THANK YOU. I'LL BE OFF.", "谢谢，我走了。", "_t")
 t([[#LIGHT_GREEN#*The halfling finally returns with a vial and a small pouch.*#WHITE#
 YOUR DOSE OF THE ELIXIR, AS WELL AS SOMETHING ELSE. THIS INFUSION IS RARE AS HELL, SO DON'T GO WASTING IT.]], [[#LIGHT_GREEN#*那个半身人终于拿着一个瓶子和一个袋子回来了。*#WHITE#
 这是你那份药剂，另外还有个东西给你。这个纹身可稀有了，千万别浪费了。]], "_t")
-t("WHICH ELIXIR DO YOU WANT TO HELP ME WITH? YOU ARE HERE TO DO JUST THAT, RIGHT? YOU'RE NOT SOME IMBECILE HERE LOOKING FOR A LOVE POTION?", "你想帮我配哪一种药剂？你是来帮忙的吧？我想你该不是那些来找春药的蠢货吧？", "_t")
+t("WHICH ELIXIR DO YOU WANT TO HELP ME WITH? YOU ARE HERE TO DO JUST THAT, RIGHT? YOU'RE NOT SOME IMBECILE HERE LOOKING FOR A LOVE POTION?", "你想帮我配哪一种药剂？你是来帮忙的吧？你该不会是来求迷情药水的蠢货吧？", "_t")
 t("TAKE THIS LIST OF INGREDIENTS, AND HURRY THE HELL UP.", "拿好配料清单，动作快点。", "_t")
 t("TOO SLOW, HAMBRAIN. ELIXIR'S MADE ALREADY, AND SOMEBODY ELSE WALKED OFF WITH THE REWARD. IF YOU'RE FEELING SORRY FOR YOURSELF, ASK WHETHER THIS IS MORE OR LESS PLEASANT THAN GETTING APPRECIABLE CHUNKS OF YOUR ANATOMY BLASTED CLEAN OFF YOUR BODY THIS MORNING. THAT'S RIGHT. BYE.", "太慢了，蠢蛋，药剂我已经做好了。已经有人来拿走了奖励。如果你觉得委屈，就问问自己：这比起今天早上身上被炸掉好几大块，是更愉快还是更不愉快。没错。再见。", "_t")
 t("Hrmph.", "哼。", "_t")
