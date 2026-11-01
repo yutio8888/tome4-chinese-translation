@@ -7447,7 +7447,7 @@ t("nearly collapsed hidden vault", "近乎坍塌的隐藏宝库", "_t")
 section "mod-tome/data/general/events/thunderstorm.lua"
 
 t("Thunderstorm", "闪电风暴", "_t")
-t("As you walk into the area you notice a huge thunderstorm over your head. Beware!", "当你进入这个区域时，你感觉到一股暴风雨在你的头顶盘旋。小心！", "_t")
+t("As you walk into the area you notice a huge thunderstorm over your head. Beware!", "当你进入这个区域时，你注意到头顶上有一场巨大的雷暴。小心！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/tombstones.lua"
@@ -7456,7 +7456,7 @@ t("grave", "坟墓", "_t")
 t("Grave", "坟墓", "_t")
 t("Do you wish to disturb the grave?", "你想要挖掘这个坟墓吗？", "_t")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
-t("grave (opened)", "已打开的墓穴", "_t")
+t("grave (opened)", "坟墓（已打开）", "_t")
 t("There is nothing there.", "那里什么也没有。", "log")
 t("You were not the first here: the corpse was turned into an undead.", "你不是第一个来到这里的：那个人的尸体已经变成了亡灵。", "log")
 
@@ -7464,7 +7464,7 @@ t("You were not the first here: the corpse was turned into an undead.", "你不�
 section "mod-tome/data/general/events/weird-pedestals.lua"
 
 t("weird pedestal", "奇怪的基座", "_t")
-t("Weird Pedestal", "怪异的基座", "_t")
+t("Weird Pedestal", "奇怪的基座", "_t")
 t("Do you wish to inspect the pedestal?", "你想要检查基座吗？", "_t")
 t("inspecting", "正在检查", "_t")
 t("inspected", "检查了", "_t")
@@ -7524,7 +7524,7 @@ t("#VIOLET#You hear a door opening.", "#VIOLET#你听到一扇门被打开了。
 t("This door seems to have been sealed off. You need to find a way to close it.", "这扇门似乎被封住了，你需要设法关闭它。", "_t")
 t("#VIOLET#You hear a door closing.", "#VIOLET#你听到一扇门被关上了。", "log")
 t("lever", "拉杆", "entity type")
-t("huge lever", "巨大的控制杆", "entity name")
+t("huge lever", "巨大的拉杆", "entity name")
 t("trigger", "按钮", "entity type")
 t("bool", "布尔", "entity subtype")
 
@@ -7545,7 +7545,7 @@ t("#VIOLET#You hear a door opening.", "#VIOLET#你听到一扇门被打开了。
 t("This door seems to have been sealed off. You need to find a way to close it.", "这扇门似乎被封住了，你需要设法关闭它。", "_t")
 t("#VIOLET#You hear a door closing.", "#VIOLET#你听到一扇门被关上了。", "log")
 t("lever", "拉杆", "entity type")
-t("huge lever", "巨大的控制杆", "entity name")
+t("huge lever", "巨大的拉杆", "entity name")
 t("#VIOLET#You hear a mechanism clicking.", "#VIOLET#你听到了机械转动的声音。", "log")
 t("exit to the worldmap", "通往世界地图的出口", "entity name")
 t("way to the previous level", "通往上一层的路", "entity name")
@@ -7657,7 +7657,7 @@ t("#VIOLET#You hear a door opening.", "#VIOLET#你听到一扇门被打开了。
 t("This door seems to have been sealed off. You need to find a way to close it.", "这扇门似乎被封住了，你需要设法关闭它。", "_t")
 t("#VIOLET#You hear a door closing.", "#VIOLET#你听到一扇门被关上了。", "log")
 t("lever", "拉杆", "entity type")
-t("huge lever", "巨大的控制杆", "entity name")
+t("huge lever", "巨大的拉杆", "entity name")
 t("trigger", "按钮", "entity type")
 t("bool", "布尔", "entity subtype")
 
@@ -7841,7 +7841,7 @@ t("#VIOLET#You hear a door opening.", "#VIOLET#你听到一扇门被打开了。
 t("This door seems to have been sealed off. You need to find a way to close it.", "这扇门似乎被封住了，你需要设法关闭它。", "_t")
 t("#VIOLET#You hear a door closing.", "#VIOLET#你听到一扇门被关上了。", "log")
 t("lever", "拉杆", "entity type")
-t("huge lever", "巨大的控制杆", "entity name")
+t("huge lever", "巨大的拉杆", "entity name")
 t("trigger", "按钮", "entity type")
 t("bool", "布尔", "entity subtype")
 

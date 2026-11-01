@@ -1,0 +1,48 @@
+{
+ "confirmed": [
+  {
+   "id": "0ae834f8bae8",
+   "edit": [
+    "你感觉到一股暴风雨在你的头顶盘旋。小心！",
+    "你注意到头顶上有一场巨大的雷暴。小心！"
+   ],
+   "evidence": "thunderstorm.lua:25-33 spawns lightning with thunder sounds; :67 notice; thunderstorm is a lightning storm, not a rainstorm; huge and notice restored."
+  },
+  {
+   "id": "ce5a4735a162",
+   "edit": [
+    "t(\"grave (opened)\", \"已打开的墓穴\", \"_t\")",
+    "t(\"grave (opened)\", \"坟墓（已打开）\", \"_t\")"
+   ],
+   "evidence": "tombstones.lua:32,54 the same grid is renamed from grave (坟墓) to grave (opened)."
+  },
+  {
+   "id": "a74ab7c97b62",
+   "edit": [
+    "t(\"Weird Pedestal\", \"怪异的基座\", \"_t\")",
+    "t(\"Weird Pedestal\", \"奇怪的基座\", \"_t\")"
+   ],
+   "evidence": "weird-pedestals.lua:45,62,68,96,128 popup title names the same weird pedestal grid (奇怪的基座)."
+  },
+  {
+   "id": "960d39802106",
+   "edit": [
+    "t(\"huge lever\", \"巨大的控制杆\", \"entity name\")",
+    "t(\"huge lever\", \"巨大的拉杆\", \"entity name\")"
+   ],
+   "evidence": "basic.lua:426-427 GENERIC_LEVER type lever = 拉杆; same runtime key at 4 rows synced."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "90f508468758",
+   "reason": "Bringer of Doom is a coined boss title (also achievement rows mod-tome.lua:2578-2579); the suggested 末日使者 is already the Doomed class name, so it needs a coined-name decision (Gemini 4 Argon) before any change. Pending."
+  },
+  {
+   "id": "8b1811c6b3d0",
+   "reason": "basic.lua:451-458 trigger is an on_move Map.TRIGGER grid, so 触发器 fits better than 按钮; the (trigger, entity type) key also spans tome-orcs.lua:7172,7329 whose DLC use is unverified and entity type is rarely shown. Deferred."
+  }
+ ],
+ "rejected": [],
+ "notes": "core 624a6732"
+}
