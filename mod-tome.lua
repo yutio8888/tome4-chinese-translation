@@ -8406,7 +8406,7 @@ t("Only the most powerful spellcasters raised to unlife become liches. Doomed to
 t("lich", "巫妖", "entity name")
 t("Having thought to discover life eternal, these beings have allowed undeath to rob them of the joys of life. Now they seek to destroy it as well.", "这些存在本以为能求得永生，却让不死之身夺走了生之乐趣。现在，他们也试图毁灭生命。", "_t")
 t("ancient lich", "远古巫妖", "entity name")
-t("An elder being from a now-forgotten age, filled and fueled by its hate and rage toward all things living, it seeks to deprive all others of a prize it cannot have... life.", "一位存活了不知多少岁月的巫妖，它对这个世界和生者充满了仇恨，所以它试图去剥夺生者所拥有而它所没有的财富——生命。", "_t")
+t("An elder being from a now-forgotten age, filled and fueled by its hate and rage toward all things living, it seeks to deprive all others of a prize it cannot have... life.", "一个来自早已被遗忘的时代的古老存在，对一切生者的仇恨与怒火充斥并驱动着它；它试图剥夺其他一切存在所拥有、而它无法拥有的珍宝……生命。", "_t")
 t("archlich", "高阶巫妖", "entity name")
 t("Blacker than the deepest night, this cold cruel form of darkness approaches.  Long ago it laid aside its mortality, but it has not forgotten its power; rather, its malice and hate have bent this undead entity on the destruction of all things living.", "比最深沉的暗夜还要漆黑，这个冰冷残忍的黑暗形体正在逼近。很久以前它抛弃了自己的凡躯，但并未忘却自身的力量；恰恰相反，它的恶意与仇恨驱使这个不死存在一心毁灭所有活物。", "_t")
 t("blood lich", "血巫妖", "entity name")
@@ -8420,7 +8420,7 @@ t("void", "虚空", "entity subtype")
 t("Losgoroth are mighty void elementals, native to the void between the stars. They are rarely seen on a planet's surface.", "洛斯格罗斯是强大的虚空元素生物，原生于群星之间的虚空。在星球表面几乎看不到这种生物。", "_t")
 t("losgoroth", "洛斯格罗斯", "entity name")
 t("manaworm", "法力蠕虫", "entity name")
-t("Manaworms are losgoroth which feed on the mana of arcane users. If they ever come in contact with a spellcaster, they latch on and start draining mana away.", "法力蠕虫是以奥术使用者的法力值为食的洛斯格罗斯。如果它们近距离接触到施法者，就会缠上去吸干对方的法力值。", "_t")
+t("Manaworms are losgoroth which feed on the mana of arcane users. If they ever come in contact with a spellcaster, they latch on and start draining mana away.", "法力蠕虫是以奥术使用者的法力值为食的洛斯格罗斯。如果它们近距离接触到施法者，就会缠上去，开始吸取对方的法力值。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/major-demon.lua"
@@ -8433,7 +8433,7 @@ t("dúathedlen", "多瑟顿", "entity name")
 t("Under a shroud of darkness you discern an evil shape.", "在一片黑暗的笼罩下，依稀可见一道邪恶的身影。", "_t")
 t("uruivellas", "乌尔维拉斯", "entity name")
 t([[This demon would look like a minotaur, if a minotaur had a fiery aura surrounding it and horns all over its body.
-Oh, and it is twice as big, too.]], "这只恶魔长得像一只米诺陶斯，如果米诺陶斯周身环绕着炽焰光环、全身长满尖角的话。\n哦，而且它还有两倍大。", "_t")
+Oh, and it is twice as big, too.]], "这只恶魔长得像一只米诺陶，如果米诺陶周身环绕着炽焰光环、全身长满尖角的话。\n哦，而且它还有两倍大。", "_t")
 t("thaurhereg", "修尔希瑞格", "entity name")
 t("This terrible demon is covered in blood, which flows *on* its skin in ever-changing patterns that disturb you simply when looking at it.", "这只可怕的恶魔浑身是血，鲜血在其皮肤*表面*以不断变化的图案流淌，光是看着就让你浑身不舒服。", "_t")
 t("daelach", "达莱奇", "entity name")
@@ -8444,7 +8444,7 @@ t("One of Urh'Rok's own champions. A thousand nightmares made flesh and screamin
 t("forge-giant", "锻造巨人", "entity name")
 t("A burning giant wielding a forge hammer of the underworld in each hand -- weapons imbued by Urh'Rok himself with the power to crush and shape felsteel. Enter their range at your peril.", "一个浑身燃烧的巨人，双手各持一柄来自地底的锻造巨锤——由乌鲁洛克亲自赋予碾碎和锻造魔钢之力的武器。踏入它们的攻击范围，后果自负。", "_t")
 t("Khulmanar, General of Urh'Rok", "库马纳，乌鲁洛克的将军", "entity name")
-t("This massive form, sheathed in dark flames, stands tall above a legion of lesser demons. In his hands he holds a massive blackened battleaxe, flames dancing around the blades.", "这个庞大的躯体笼罩在黑暗之炎中，他在一群小恶魔中显得鹤立鸡群。在他手里握着一柄沉重的双手斧，火焰在刀锋处舞动。", "_t")
+t("This massive form, sheathed in dark flames, stands tall above a legion of lesser demons. In his hands he holds a massive blackened battleaxe, flames dancing around the blades.", "这个庞大的身躯笼罩在黑暗之炎中，高高耸立于一支低阶恶魔军团之上。他手中握着一柄巨大的发黑战斧，火焰在斧刃周围舞动。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/minor-demon.lua"
@@ -8470,7 +8470,7 @@ t("minotaur", "米诺陶", "entity subtype")
 t("minotaur", "米诺陶", "entity name")
 t("It is a cross between a human and a bull.", "它拥有人类和牛的特征。", "_t")
 t("maulotaur", "玛诺陶", "entity name")
-t("A belligerent minotaur with a destructive magical arsenal, and armed with a hammer.", "好战的米诺陶，装备有一柄巨锤且拥有强力的魔法。", "_t")
+t("A belligerent minotaur with a destructive magical arsenal, and armed with a hammer.", "好战的米诺陶，手持巨锤，拥有毁灭性的魔法手段。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/molds.lua"
@@ -25547,7 +25547,7 @@ t([[Destroys one of your summons, making it detonate in radius of %d.
 		-火龙：形成一片火焰，每回合造成 %d 伤害。
 		-战争猎犬：形成锋利的球，让周围的生物在 6 回合内每回合受到 %0.1f 点流血伤害。
 		-果冻怪：形成一片能减速的淤泥，造成 %d 自然伤害，并使敌人减速 %0.1f%%。
-		-米诺陶斯：使敌人混乱 5 回合（强度 %d%%）。
+		-米诺陶：使敌人混乱 5 回合（强度 %d%%）。
 		-岩石傀儡：使周围的友方单位获得 %d 护甲值和 %d%% 护甲强度，持续 5 回合。
 		-乌龟：给所有友方单位提供一个甲壳护盾，所有抗性提升 %d%%， 持续 5 回合。
 		-蜘蛛：将所有敌人击退 %d 格。
