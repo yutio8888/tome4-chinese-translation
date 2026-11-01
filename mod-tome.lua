@@ -1630,8 +1630,8 @@ t([[#GOLD#Necrotic Aura#LAST#
 Represents the raw materials for creating undead minions.
 It increases each time you or your minions kill something that is inside the aura radius.
 ]], [[#GOLD#死灵光环#LAST#
-代表召唤死灵生物的原材料。
-每当你或你的随从杀死光环范围内的生物时，光环会增强。
+代表制造亡灵随从的原材料。
+每当你或你的随从杀死光环范围内的生物时，原材料就会增加。
 ]], "_t")
 t([[#GOLD#Fortress Energy#LAST#
 The energy of the Sher'Tul Fortress. It is replenished by transmogrifying items and used to power all the Fortress systems.
@@ -1643,7 +1643,7 @@ Each time you kill a creature that is over your own level - 5 you gain some expe
 When you reach enough experience you advance to the next level. There is a maximum of 50 levels you can gain.
 Each time you level you gain stat and talent points to use to improve your character.
 ]], [[#GOLD#等级和经验值#LAST#
-每次击杀一个不低于你5级的生物你可以获得经验值。
+每次击杀等级高于“你的等级减 5”的生物，你都可以获得一些经验值。
 当你的经验值条满时，你可以提升到新的等级。你最多可以提升至50级。
 每提升一个等级你将获得属性和技能点数奖励，利用这些点数可以提升你的角色。
 ]], "_t")
@@ -1685,7 +1685,7 @@ Some activated talents take no time to use, being activated with but a thought.
 Unlike most talents, instant talents are never put on cooldown from being stunned, and may be usable when most other talents are not.
 Specific information on each talent appears its tooltip.]], [[#GOLD#瞬间技能#LAST#
 使用有些主动技能不需要时间，瞬间就能发动。
-和其他技能不同，瞬间技能不会被震慑而进入冷却状态，并且在大部分技能都不能使用的时候仍然可以使用。
+和其他技能不同，瞬间技能不会因震慑而进入冷却状态，并且在大部分技能都不能使用的时候仍有可能使用。
 有关技能的详细信息，请参阅技能的提示框。]], "_t")
 t([[#GOLD#Passive Talents#LAST#
 When learned, passive talents permanently alter the user in some way.
@@ -1778,7 +1778,7 @@ Magic defines your character's ability to manipulate the magical energy of the w
 t([[#GOLD#Willpower#LAST#
 Willpower defines your character's ability to concentrate. It increases your mana, stamina, psi capacity, Mindpower, Spell Save, and Mental Save.
 ]], [[#GOLD#意志#LAST#
-意志属性是你的专注能力，提升意志可以提升你的法力值、体力值、灵能量、精神力、法术豁免和精神豁免。
+意志属性是你的专注能力，提升意志可以提升你的法力值、体力值、灵能值上限、精神强度、法术豁免和精神豁免。
 ]], "_t")
 t([[#GOLD#Cunning#LAST#
 Cunning defines your character's ability to learn, think, and react. It allows you to learn many worldly abilities, and increases your Mindpower, Mental Save, and critical chance.
@@ -1839,7 +1839,7 @@ Each time you deal damage you have a chance to make a critical hit that deals ex
 Some talents allow you to increase this percentage.
 It is improved by Cunning.
 ]], [[#GOLD#暴击率#LAST#
-每次造成伤害时，你都有一定几率造成一次附带额外伤害的致命攻击。
+每次造成伤害时，你都有一定几率造成一次附带额外伤害的暴击。
 一些技能可以提高这个几率。
 提升灵巧属性值可以提高暴击率。
 ]], "_t")
@@ -1868,7 +1868,7 @@ Bows and slings must be reloaded when this reaches 0, which you will do automati
 Alchemists use specially prepared gems as ammunition to throw bombs, which must be reloaded manually.
 ]], [[#GOLD#弹药剩余#LAST#
 表示你剩余的弹药数量。
-弓和投石索在弹药耗尽的时候必须装填，当你休息或移动的时候会自动装填。
+弓和投石索在弹药耗尽的时候必须装填；在你休息、原地等待或只进行移动的每个回合，都会自动装填。
 炼金术士使用特殊的炼金宝石来作为弹药使用，必须手动装填。
 ]], "_t")
 t([[#GOLD#Fatigue#LAST#

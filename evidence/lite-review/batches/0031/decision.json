@@ -1,0 +1,16 @@
+{
+ "confirmed": [
+  {"id": "8fdab30baac2", "edit": ["灵能量、精神力", "灵能值上限、精神强度"], "evidence": "Raised by A and B. Mindpower is the preferred term 精神强度 (terminology/combat.tsv:134), as in the Cunning and Mindpower tooltips of the same file; psi capacity is the Psi maximum."},
+  {"id": "b62845e908ee", "edit": ["致命攻击", "暴击"], "evidence": "Raised by A. critical = 暴击 (combat.tsv:151); title and sibling crit tooltips use 暴击; 致命一击 is the Coup de Grace name."},
+  {"id": "4945638e6770", "edit": ["当你休息或移动的时候会自动装填", "在你休息、原地等待或只进行移动的每个回合，都会自动装填"], "evidence": "Raised by A. Actor.lua @624a6732 calls reload on movement (1439-1442), waitTurn (1529-1532) and resting (561-563): 'don't perform a non-movement action' includes waiting."},
+  {"id": "5b426e09c390", "edit": ["光环会增强", "原材料就会增加"], "evidence": "Raised by B. TooltipsData.lua:136-139: the value is the raw material for creating undead minions and it increases on kills; the aura itself is not strengthened. 召唤死灵生物 → 制造亡灵随从 to follow the source."},
+  {"id": "f7df754fd679", "edit": ["每次击杀一个不低于你5级的生物你可以获得经验值。", "每次击杀等级高于“你的等级减 5”的生物，你都可以获得一些经验值。"], "evidence": "Raised by B. TooltipsData.lua:146-147: kills of creatures over your own level - 5 give experience; 不低于你5级 reads as at least five levels above."},
+  {"id": "485f23529842", "edit": ["仍然可以使用", "仍有可能使用"], "evidence": "Raised by B. TooltipsData.lua:181 'may be usable when most other talents are not': dropped modal qualifier (defect class)."}
+ ],
+ "advisory": [
+  {"id": "f4fc6224ec2c", "reason": "B: Vim formula 30%/half rank differs from pinned TooltipsData.lua:101 (50%, full rank) and Actor.lua:3427-3430. The row is a stale pre-pinned English key (mod-tome.lua:1572); the live pinned key is a separate row in the same section (mod-tome.lua:2254) with its own translation. The stale translation is faithful to its own source and never matches at runtime; candidate for the residual-row exclusion when the final denominator is frozen."},
+  {"id": "9977313de918", "reason": "B: old Shield Block Value text (physical only) vs pinned TooltipsData.lua:268-270 (mind cannot be blocked, 50% bonus). Same stale-key situation: mod-tome.lua:1824 is the old English, the live pinned key is mod-tome.lua:2272. No change; residual-row candidate."}
+ ],
+ "rejected": [],
+ "notes": "A 3 ISSUE, B 7 (one shared with A). The four batch-0030 repairs re-reviewed OK by A and B."
+}
