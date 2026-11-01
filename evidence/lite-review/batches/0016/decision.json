@@ -1,0 +1,12 @@
+{
+ "confirmed": [
+  {"id": "e92ff2764b3d", "edit": ["%s活力值：%d#LAST#", "%s击杀可获活力：%d#LAST#"], "evidence": "Raised by A and B. tome class/Actor.lua:2070 @624a6732 shows (player Wil*0.5+1)*rank, the same formula used when the killer gains vim on death (Actor.lua:3430); it is the vim gained by killing the target, not the target's vim (the tooltip's resource line is also 活力值)."},
+  {"id": "aa7478d399fc", "edit": ["暴击加成：", "暴击倍率："], "evidence": "Raised by A. Actor.lua:2137-2138 shows 150 + combat_critical_power as a percentage, the whole critical multiplier; the character sheet already says 暴击倍率 (mod-tome.lua:41400). Same runtime key in tome-possessors.lua:489 synced."},
+  {"id": "2b43f586accc", "edit": ["将部分伤害转化为灵能值！", "将部分伤害转由灵能承受！"], "evidence": "Raised by B. Actor.lua:2820-2836: Solipsism deducts psi (incPsi(-damage_to_psi*resist)) and logs this; damage is absorbed by psi, not converted into gained psi (solipsism.lua:60-61 calls it Psi damage)."},
+  {"id": "19cd46c3bed3", "edit": ["到灵能值", "由灵能承受"], "evidence": "Raised by B. Actor.lua:2836 appends this to the deducted amount in the damage log (\"%d to psi\")."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "runtime_key_sync": ["tome-possessors.lua:489 Critical Mult: (_t)"],
+ "notes": "A 2 ISSUE, B 3 (one shared). Includes the re-review of the two batch-0015 repairs (OK in A and B)."
+}
