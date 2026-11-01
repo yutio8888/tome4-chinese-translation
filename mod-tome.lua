@@ -5602,8 +5602,7 @@ This was such a lovely idea!
 I have had a wonderful time with you today.
 
 #LIGHT_GREEN#*She looks longingly into your eyes.*#WHITE#]], [[#LIGHT_GREEN#*你们两个在沙滩上放松了一阵子。
-空气清新，沙滩闪闪发光，
-海浪发出轻柔的涛声。*#WHITE#
+空气清新，沙滩闪闪发光，海浪发出轻柔的涛声。*#WHITE#
 
 来海边真是个好主意！
 今天和你玩得很开心啊。
@@ -5744,7 +5743,7 @@ t("You have too many of this type of inscription. You can only override an exist
 t([[You have reached your maximum number of inscriptions (infusions/runes).
 If you have unassigned #{bold}#talent category points#{normal}# you can use one to create a new slot (up to 5).
 You can replace an existing one or cancel.
-The old inscription will be lost.]], [[你的刻印（注入/符文）数量已经达到上限。
+The old inscription will be lost.]], [[你的刻印（纹身/符文）数量已经达到上限。
 如果你还有未分配的#{bold}#技能树解锁点#{normal}#，可以花费 1 个来创建新刻印位（最多 5 个）。
 你可以替换一个现有刻印，也可以取消。
 旧刻印将会消失。]], "_t")
