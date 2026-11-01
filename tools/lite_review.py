@@ -30,6 +30,7 @@ ENGINE_REPO = Path('/workspace/t-engine4')
 DLC = {'tome-cults': Path('/workspace/tome4-dlcs/cults'), 'tome-orcs': Path('/workspace/tome4-dlcs/orcs'),
        'tome-ashes-urhrok': Path('/workspace/tome4-dlcs/ashes-urhrok')}
 MAX = 80
+FILL = 20   # smallest remainder worth filling from a section that does not fit whole
 
 
 def units():
@@ -67,7 +68,8 @@ def select(us, done, max_n, path=None):
             or u['occurrence']['section'].startswith(path)]
     if not rest:
         return []
-    # group by section in file order; take whole sections while they fit, split a section only if it alone exceeds max
+    # group by section in file order; take whole sections while they fit; when the next section does not fit and
+    # at least FILL slots remain, fill the batch with its head (the rest of that section starts the next batch)
     groups, seen = [], {}
     for u in rest:
         s = u['occurrence']['section']
@@ -79,6 +81,8 @@ def select(us, done, max_n, path=None):
         if not out and len(g) > max_n:
             return g[:max_n]
         if len(out) + len(g) > max_n:
+            if max_n - len(out) >= FILL:
+                out += g[:max_n - len(out)]
             break
         out += g
     return out
