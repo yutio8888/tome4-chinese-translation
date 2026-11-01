@@ -11579,7 +11579,7 @@ t("mummy", "木乃伊", "entity short_name")
 section "mod-tome/data/general/objects/objects-far-east.lua"
 
 t("tome", "书册", "entity subtype")
-t("Ancient Tome titled 'Gems and their uses'", "远古之书《宝石之秘》", "entity name")
+t("Ancient Tome titled 'Gems and their uses'", "远古之书《宝石及其用途》", "entity name")
 t("ancient tome", "远古之书", "_t")
 
 ------------------------------------------------
