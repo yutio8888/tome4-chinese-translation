@@ -1,0 +1,15 @@
+{
+ "confirmed": [
+  {"id": "0ac763dca38b", "edit": ["在线商城", "在线商店"], "evidence": "Raised by A. The same store UI titles itself '%s Online Store' -> 在线商店 (engine.lua:1109, game/engines/default/engine/dialogs/microtxn/ShowPurchasable.lua:51) and its text uses 在线商店; the bare 'Online Store' popup titles (MTXMain.lua:55; ShowPurchasable.lua:188,195,203,459,464,510) used 在线商城. Same runtime key also at engine.lua:1189, synced."},
+  {"id": "672a2bb907e2", "edit": ["在线商城", "在线商店"], "evidence": "Same runtime key as 0ac763dca38b."},
+  {"id": "caf1ee5171ed", "edit": ["额外共享装备格 / 更多在线共享装备格", "额外在线仓库格 / 更多在线仓库格"], "evidence": "Raised by A. 'Vault space' is the online item vault (ShowPurchasable.lua:36-37 vault slot -> 在线仓库空间/在线仓库格, a9d0856f1dac, b065b4f3d9b7); 共享装备格 reads as equipment slots. Only those two phrases change."},
+  {"id": "e2109be11182", "edit": ["在线共享装备空间", "在线仓库空间"], "evidence": "Raised by A. ShowPurchasable.lua:371-372: effect == 'vaultspace'; same vault wording as caf1ee5171ed."},
+  {"id": "92fc82c992fd", "edit": ["这个扩展包", "该内容包"], "evidence": "Raised by A. ShowPurchasable.lua:366-368 shows this only for item.is_shimmer or item.is_uipack (cosmetic/UI packs); 扩展包 is the library word for DLC expansions (engine.lua:1787,1810,1835)."},
+  {"id": "b065b4f3d9b7", "edit": ["每次购买 %s，你都会", "每消费 %s，你就会"], "evidence": "Raised by B. ShowPurchasable.lua:114 fills %s with currencyDisplay(2), an amount; updateCart (251-262) sums spending, so the bonus is per amount spent, not per purchase."},
+  {"id": "74236b12457a", "edit": ["该事件为你后续游戏进程增加了部分内容。即使你在接触到新增内容前就死去也无法退款。", "该事件会添加新内容，需要你通过探索去寻找。如果你在找到这些内容之前死去，也无法退款。"], "evidence": "Raised by A and B. ShowPurchasable.lua:488-489: non_immediate events add content 'that you have to find by exploration'; the condition was dropped."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "runtime_key_sync": ["engine.lua:1189 Online Store (_t)"],
+ "notes": "Microtransaction dialogs. A 6 ISSUE, B 2 (one shared). Includes the re-review of the four batch-0008 hotkey repairs (OK in A and B)."
+}

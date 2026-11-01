@@ -1062,7 +1062,7 @@ t("High Scores", "高分榜", "_t")
 section "engine/engine/dialogs/microtxn/MTXMain.lua"
 
 t("%s #GOLD#Purchasables#LAST#", "%s #GOLD#可购买物品#LAST#", "tformat")
-t("Online Store", "在线商城", "_t")
+t("Online Store", "在线商店", "_t")
 t([[Welcome!
 
 I am #{italic}##ANTIQUE_WHITE#DarkGod#LAST##{normal}#, the creator of the game and before you go on your merry way I wish to take a few seconds of your time to explain why there are microtransactions in the game.
@@ -1089,7 +1089,7 @@ Thanks, and have fun!]], [[欢迎！
 目前，我提供了以下几种内购项：
 - #GOLD#时装#LAST#：除了游戏内现有的种族、物品时装之外，你可以获得更多时装效果，让你看起来更靓！
 - #GOLD#氪金速死#LAST#：已经不想玩这个角色了吗？用这个选项来迎接一个帅气的终结吧！
-- #GOLD#额外共享装备格#LAST#：对于捐赠者而言，可以把那些“无用”的捐赠换成更多在线共享装备格。
+- #GOLD#额外在线仓库格#LAST#：对于捐赠者而言，可以把那些“无用”的捐赠换成更多在线仓库格。
 - #GOLD#社区事件#LAST#：服务器会自动触发部分在线事件，而你可以强制让服务器触发特定事件。当然，当前在线的所有玩家都会收到该事件！
 
 我希望这些能说服你，我并没有什么邪恶的想法（虽然我名为DarkGod）。我不得不说，做内购让我感觉很龌龊，即使是上面这些无伤大雅的内购也不例外，但为了游戏的未来，我必须想尽一切办法。
@@ -1100,7 +1100,7 @@ section "engine/engine/dialogs/microtxn/ShowPurchasable.lua"
 
 t("#{italic}##UMBER#Bonus vault slots from this order: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#这项购买提供的额外在线仓库空间：#ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every purchase of #{italic}##GREY#%s#LAST##{normal}# you gain a permanent additional vault slot.
-#GOLD##{italic}#Because why not!#{normal}#]], [[每次购买 #{italic}##GREY#%s#LAST##{normal}#，你都会永久获得一个额外的在线仓库格。
+#GOLD##{italic}#Because why not!#{normal}#]], [[每消费 #{italic}##GREY#%s#LAST##{normal}#，你就会永久获得一个额外的在线仓库格。
 #GOLD##{italic}#为什么不呢！#{normal}#]], "_t")
 t("#{italic}##UMBER#Voratun Coins available from your donations: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#可用沃瑞钽硬币数：#ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every donations you've ever made you have earned voratun coins. These can be spent purchasing expansions or options on the online store. This is the amount you have left, if your purchase total is below this number you'll instantly get your purchase validated, if not you'll need to donate some more first.
@@ -1112,7 +1112,7 @@ t("Purchase", "购买", "_t")
 t("Name", "名称", "_t")
 t("Price", "价格", "_t")
 t("Qty", "数量", "_t")
-t("Online Store", "在线商城", "_t")
+t("Online Store", "在线商店", "_t")
 t("You need to be logged in before using the store. Please go back to the main menu and login.", "需要登录游戏账号才能使用商店，请退回主菜单登录。", "_t")
 t("Steam users need to link their profiles to their steam account. This is very easy in just a few clicks. Once this is done, simply restart the game.", "Steam用户需要将游戏账号和Steam账号绑定。这非常简单，只需要数次点击，完成后重启游戏即可。", "_t")
 t("Let's do it! (Opens in your browser)", "开始吧！（在浏览器中打开）", "_t")
@@ -1133,9 +1133,9 @@ t([[Could not dynamically link addon to current character, maybe the installatio
 You can fix that by manually downloading the addon from https://te4.org/ and placing it in game/addons/ folder.]], [[无法自动将插件链接至当前角色，可能安装失败了。
 你可以在 https://te4.org/ 手动下载该插件并放置于 game/addons/ 目录下来解决这个问题。]], "_t")
 t("Downloading cosmetic pack: #LIGHT_GREEN#%s", "时装包下载中：#LIGHT_GREEN#%s", "tformat")
-t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: The pack should be downloading or even finished by now.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#：这个扩展包现在应该正在下载，甚至已经下载完成了。", "tformat")
+t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: The pack should be downloading or even finished by now.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#：该内容包现在应该正在下载，甚至已经下载完成了。", "tformat")
 t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: You can now trigger it whenever you are ready.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#：准备好的时候就可以触发它。", "tformat")
-t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: Your available vault space has increased.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#：你可用的在线共享装备空间增加了。", "tformat")
+t("- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#: Your available vault space has increased.", "- #{bold}##ROYAL_BLUE#%s #SLATE#x%d#WHITE##{normal}#：你可用的在线仓库空间增加了。", "tformat")
 t("Payment", "付款", "_t")
 t([[Payment accepted.
 %s]], [[支付已确认。
@@ -1157,7 +1157,7 @@ To activate it you will need to have your online events option set to "all" (whi
 t([[#{bold}##GOLD#Event#WHITE##{normal}#: Once you have purchased an event you will be able to trigger it at any later date, on whichever character you choose.
 To activate it you will need to have your online events option set to "all" (which is the default value).]], [[#{bold}##GOLD#事件#WHITE##{normal}#：成功购买一次事件后，你可以在任何时间、任何角色上触发。
 你需要将在线事件选项设置为“全部”才能激活这个效果，注意，默认值即为“全部”。]], "_t")
-t("#{bold}##GOLD#Non Immediate#WHITE##{normal}#: This events adds new content that you have to find by exploration. If you die before finding it, there can be no refunds.", "#{bold}##GOLD#非即时#WHITE##{normal}#：该事件为你后续游戏进程增加了部分内容。即使你在接触到新增内容前就死去也无法退款。", "_t")
+t("#{bold}##GOLD#Non Immediate#WHITE##{normal}#: This events adds new content that you have to find by exploration. If you die before finding it, there can be no refunds.", "#{bold}##GOLD#非即时#WHITE##{normal}#：该事件会添加新内容，需要你通过探索去寻找。如果你在找到这些内容之前死去，也无法退款。", "_t")
 t("#{bold}##GOLD#Once per Character#WHITE##{normal}#: This event can only be received #{bold}#once per character#{normal}#. Usualy because it adds a new zone or effect to the game that would not make sense to duplicate.", "#{bold}##GOLD#每角色限一次#WHITE##{normal}#：这个事件 #{bold}#每名角色只能接收一次#{normal}#。通常是因为它添加了新地城或者其他游戏内不能重复添加的效果。", "_t")
 t([[#{bold}##GOLD#Shimmer Pack#WHITE##{normal}#: Once purchased the game will automatically install the shimmer pack to your game and enable it for your current character too (you will still need to use the Mirror of Reflection to switch them on).
 #LIGHT_GREEN#Bonus perk:#LAST# purchasing any shimmer pack will also give your characters a portable Mirror of Reflection to be able to change your appearance anywhere, anytime!]], [[#{bold}##GOLD#时装包#WHITE##{normal}#：购买后游戏会自动安装时装包，同时为当前角色自动开启。仍然需要使用反射之镜来切换。
@@ -1186,7 +1186,7 @@ t("You are about to use a charge of this option. You currently have %d charges r
 t("Please wait while contacting the server...", "请稍候，正在与服务器进行通信", "_t")
 t("The option has been activated.", "选项已激活。", "_t")
 t("There was an error from the server: %s", "服务器发生错误：%s", "tformat")
-t("Online Store", "在线商城", "_t")
+t("Online Store", "在线商店", "_t")
 t("#LIGHT_GREEN#Installed", "#LIGHT_GREEN#已安装", "_t")
 t("#YELLOW#Installable", "#YELLOW#可以安装", "_t")
 t("You have not purchased any usable options yet. Would you like to see the store?", "你还没有购买任何选项。你要浏览商城吗？", "_t")
