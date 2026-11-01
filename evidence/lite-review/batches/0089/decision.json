@@ -1,0 +1,52 @@
+{
+ "confirmed": [
+  {
+   "id": "aef3ddf2e19f",
+   "edit": [
+    "t(\"deep-steel trident\", \"矮人钢三叉戟\"",
+    "t(\"deep-steel trident\", \"深钢三叉戟\""
+   ],
+   "evidence": "2htridents.lua:24,42-102 tridents use the sea-metal series coral -> blue-steel (蓝钢) -> deep-steel -> orite, distinct from dwarven-steel; the 0088 alignment to 矮人钢 was wrong and is reverted to a literal 深钢. The shared d.steel short name stays 矮人钢 (11 dwarven-steel items)."
+  },
+  {
+   "id": "48f359e25783",
+   "edit": [
+    "t(\"iron waraxe\", \"铁斧\"",
+    "t(\"iron waraxe\", \"铁战斧\""
+   ],
+   "evidence": "axes.lua:23,31,79,93 waraxe subtype = 战斧; stralite/voratun waraxe are 斯莱特战斧/沃瑞钽战斧."
+  },
+  {
+   "id": "ffa0b99ce9db",
+   "edit": [
+    "t(\"steel waraxe\", \"钢斧\"",
+    "t(\"steel waraxe\", \"钢战斧\""
+   ],
+   "evidence": "axes.lua:51 same waraxe family."
+  },
+  {
+   "id": "de5720625d5c",
+   "edit": [
+    "t(\"dwarven-steel waraxe\", \"矮人钢斧\"",
+    "t(\"dwarven-steel waraxe\", \"矮人钢战斧\""
+   ],
+   "evidence": "axes.lua:65 same waraxe family."
+  },
+  {
+   "id": "b4ea8ca56f38",
+   "edit": [
+    "\"箭矢可用来射穿敌人。\"",
+    "\"箭矢与弓配合使用，用来射穿敌人。\""
+   ],
+   "evidence": "bows.lua:113-114 archery_ammo bow; used with bows was dropped."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "5868572041aa",
+   "reason": "d.steel short_name is shared by the deep-steel trident and 11 dwarven-steel items; it stays 矮人钢, so the trident short name reads 矮人钢 (known shared-key limitation)."
+  }
+ ],
+ "rejected": [],
+ "notes": "core 624a6732; corrects the 0088 host decision on the trident"
+}
