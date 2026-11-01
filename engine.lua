@@ -1189,7 +1189,7 @@ t("There was an error from the server: %s", "服务器发生错误：%s", "tform
 t("Online Store", "在线商店", "_t")
 t("#LIGHT_GREEN#Installed", "#LIGHT_GREEN#已安装", "_t")
 t("#YELLOW#Installable", "#YELLOW#可以安装", "_t")
-t("You have not purchased any usable options yet. Would you like to see the store?", "你还没有购买任何选项。你要浏览商城吗？", "_t")
+t("You have not purchased any usable options yet. Would you like to see the store?", "你还没有购买任何可用的选项。你要浏览在线商店吗？", "_t")
 
 ------------------------------------------------
 section "engine/engine/interface/ActorInventory.lua"
@@ -1210,7 +1210,7 @@ t("%s is not wearable.", "%s无法装备。", "logSeen")
 t("%s can not wear %s.", "%s不能装备%s。", "logSeen")
 t("%s can not wear (%s): %s (%s).", "%s无法装备（%s）：%s（%s）。", "logSeen")
 t("%s wears: %s.", "%s装备了：%s。", "logSeen")
-t("%s wears (offslot): %s.", "%s副手装备了：%s。", "logSeen")
+t("%s wears (offslot): %s.", "%s在备用栏位装备了：%s。", "logSeen")
 t("%s wears (replacing %s): %s.", "%s装备了（替换%s）：%s。", "logSeen")
 t("%s can not wear: %s.", "%s不能装备%s。", "logSeen")
 

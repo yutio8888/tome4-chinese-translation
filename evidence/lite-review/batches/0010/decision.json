@@ -1,0 +1,9 @@
+{
+ "confirmed": [
+  {"id": "47378e1c6059", "edit": ["你还没有购买任何选项。你要浏览商城吗？", "你还没有购买任何可用的选项。你要浏览在线商店吗？"], "evidence": "Raised by A and B. microtxn/UsePurchased.lua:124-158 @624a6732 shows this when the actionables list (get_actionables) is empty, so it is about usable purchases, not all purchases; the popup title is Online Store, 在线商店 since batch 0009."},
+  {"id": "74afaf3c9039", "edit": ["%s副手装备了：%s。", "%s在备用栏位装备了：%s。"], "evidence": "Raised by A and B. engine/interface/ActorInventory.lua:540-542 logs this when the item goes to its offslot (getObjectOffslot); tome class/Actor.lua:4965-4971 returns MAINHAND for shields with Stoneshield, so the offslot is not always the off-hand."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "A 2 ISSUE, B 2 (same two). Includes the re-review of the seven batch-0009 repairs (OK in A and B)."
+}
