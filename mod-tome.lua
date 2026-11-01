@@ -4996,7 +4996,7 @@ So take this orb (#LIGHT_GREEN#*she gives you an orb of scrying*#WHITE#). You ca
 I get to see many interesting things, and you get to know what your items do. We both win! Isn't it sweet?
 Oh yes, the orb will also identify mundane items for you, as long as you carry it.]], [[等等，@playername@，你看起来是个相当了不起的冒险家。也许我们能互相帮助。
 你看，我#{bold}#超——喜欢#{normal}#学习新的传说知识、搜寻古老强大的神器，但我自己可算不上什么冒险家，到外头去肯定会送命的。
-所以拿着这颗水晶球吧（#LIGHT_GREEN#*她递给你一颗占卜水晶球*#WHITE#）。你可以在世界上的任何地方用它与我通话！这样你就能随时向我展示你新找到的闪亮宝贝了！
+所以拿着这颗水晶球吧（#LIGHT_GREEN#*她递给你一颗鉴定水晶球*#WHITE#）。你可以在世界上的任何地方用它与我通话！这样你就能随时向我展示你新找到的闪亮宝贝了！
 我能见识到许多有趣的事物，而你也能弄清楚物品的用途。我们双赢！这不是两全其美吗？
 而且，只要你随身携带，这颗水晶球还会为你自动鉴定普通物品。]], "_t")
 t("Woah, thanks, Elisa. This is really nice!", "哇，多谢你，埃莉萨。这真是太棒了！", "_t")
