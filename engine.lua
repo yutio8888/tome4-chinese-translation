@@ -273,7 +273,7 @@ t("Quick switch to Hotkey Page 3", "快速切换到快捷键第3页", "_t")
 ------------------------------------------------
 section "engine/data/keybinds/interface.lua"
 
-t("Toggle list of seen creatures", "切换至视野内生物列表", "_t")
+t("Toggle list of seen creatures", "开关视野内生物列表", "_t")
 t("Show message log", "显示消息记录", "_t")
 t("Take a screenshot", "屏幕截图", "_t")
 t("Show map", "显示地图", "_t")
