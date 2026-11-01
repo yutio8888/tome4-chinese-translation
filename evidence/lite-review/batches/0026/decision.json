@@ -1,0 +1,11 @@
+{
+ "confirmed": [
+  {"id": "9f5849072cbb", "edit": ["生命值回复增加 %d%% 最大生命值", "回复 %d%% 最大生命值"], "evidence": "Raised by A and B. Object.lua:2080 @624a6732 shows alchemist_bomb.leech; explosives.lua:129 calls self:heal(min(max_life*leech/100, dam_done)) once per bomb, not a regeneration-rate increase."},
+  {"id": "f214de7aca82", "edit": ["技能（自然）命中后释放：%s (%d%% 几率等级 %d)。", "技能（自然）命中后释放：%s（%d%% 几率等级 %d）。"], "evidence": "Raised by A. The spell and mindpower siblings (mod-tome.lua:987/989) use full-width brackets; this row alone used half-width."},
+  {"id": "607715899584", "edit": ["%s 的最大活动范围被设定为 %d。", "%s 的最大行动范围被设定为 %d。"], "evidence": "Raised by A. Same tactic leash setting is 设置行动范围 (Party.lua:367) and 行动范围 (PartyMember.lua:47)."},
+  {"id": "305462994511", "edit": ["%s 将会待在 %s 身边。", "%s 将会待在 %s 附近。"], "evidence": "Raised by B. Party.lua:373-382 @624a6732: the anchor is an actor or a map spot named _t\"that location\" (这个位置); 身边 only fits a person, near → 附近."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "A 3 ISSUE, B 2 (one shared). 64 units (section end at Party/PartyMember)."
+}
