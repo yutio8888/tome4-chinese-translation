@@ -1,0 +1,11 @@
+{
+ "confirmed": [
+  {"id": "0eeff26f43f1", "edit": ["请输入鼠标手势（使用鼠标右键）或者按键 (或按ESC取消) 以绑定 %s 的键位", "请用鼠标右键画出鼠标手势，或直接输入手势（按ESC取消），为 %s 绑定鼠标手势"],
+   "evidence": "Raised by A and B. engine/dialogs/KeyBinder.lua:134-160 @624a6732: the curcol==3 branch opens GetText with a Gesture box whose filter accepts only U/D/L/R and passes the text to makeGestureString; 'type it' means typing the gesture, not pressing a key, and the binding is a gesture, not a key. Keeps the library term 鼠标手势 (engine.lua:715,1343)."},
+  {"id": "72b86e1fb6a1", "edit": ["启动调试目录", "启动调试菜单"],
+   "evidence": "Raised by A. engine/dialogs/GameMenu.lua developer-mode text: CTRL+A brings up a menu of debug tasks; 目录 means a catalogue/table of contents. Only that clause changes; the #CRIMSON#/#LAST# markers and seven newlines are untouched."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "80 units; A 2 ISSUE, B 1 ISSUE (shared). Includes the re-review of the batch-0006 tainted-savefile repair (OK in A and B)."
+}

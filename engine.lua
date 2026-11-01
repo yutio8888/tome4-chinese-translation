@@ -664,7 +664,7 @@ When activated you will have access to special commands:
 启用开发者模式时，所有读取的存档都会成为#CRIMSON#作弊状态#LAST#。
 在开发者模式下，你可以使用以下几种特殊指令：
 - CTRL+L：启动Lua控制台，可以让你探索和修改游戏物件，并执行任意Lua脚本……
-- CTRL+A：启动调试目录，可以让你方便地进行各种操作(创建NPC，传送到地图，等等…)
+- CTRL+A：启动调试菜单，可以让你方便地进行各种操作(创建NPC，传送到地图，等等…)
 - CTRL+鼠标左键：传送到点击的位置。
 ]], "_t")
 t("No", "否", "_t")
@@ -711,7 +711,7 @@ t("Key bindings", "键位绑定", "_t")
 t("      Press a key (escape to cancel, backspace to remove) for: %s", "      请按键（Esc 键取消，退格键删除）以绑定 %s 的键位", "tformat")
 t("Bind key", "绑定键位", "_t")
 t("Bind alternate key", "绑定替代键位", "_t")
-t("Make gesture (using right mouse button) or type it (or escape) for: %s", "请输入鼠标手势（使用鼠标右键）或者按键 (或按ESC取消) 以绑定 %s 的键位", "tformat")
+t("Make gesture (using right mouse button) or type it (or escape) for: %s", "请用鼠标右键画出鼠标手势，或直接输入手势（按ESC取消），为 %s 绑定鼠标手势", "tformat")
 t("Gesture", "鼠标手势", "_t")
 
 ------------------------------------------------
