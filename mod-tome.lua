@@ -7154,7 +7154,7 @@ t("orc pride", "兽人部落", "entity subtype")
 ------------------------------------------------
 section "mod-tome/data/general/encounters/fareast.lua"
 
-t("Underwater Cave", "水下山洞", "entity name")
+t("Underwater Cave", "水下洞穴", "entity name")
 t("harmless", "无害", "entity type")
 t("special", "特殊", "entity subtype")
 t("Entrance to an underwater cave", "水下洞穴入口", "_t")
@@ -7174,7 +7174,7 @@ t("adventurers party", "冒险家分队", "entity name")
 t("hostile", "敌对", "entity type")
 t("humanoid", "人形生物", "entity subtype")
 t("ziguranth patrol", "伊格兰斯巡逻队", "entity name")
-t("You have got nothing to fear if you are not using filthy arcane magic. Otherwise: DIE!", "如果你没有使用肮脏的魔法，那不用害怕他们。否则的话：去死吧！", "_t")
+t("You have got nothing to fear if you are not using filthy arcane magic. Otherwise: DIE!", "如果你没有使用肮脏的奥术魔法，那就不用害怕他们。否则的话：去死吧！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/encounters/maj-eyal.lua"
@@ -7214,9 +7214,9 @@ t("Golem Graveyard", "傀儡墓地", "_t")
 t("Agrimley the Hermit", "隐居者亚格雷姆利", "entity name")
 t("Agrimley the Hermit", "隐居者亚格雷姆利", "_t")
 t("Ring of Blood", "鲜血之环", "entity name")
-t("Hidden compound", "隐藏的竞技场", "_t")
+t("Hidden compound", "隐藏的营地", "_t")
 t("Tranquil Meadow", "宁静的草地", "entity name")
-t("tranquil meadow", "宁静的草原", "_t")
+t("tranquil meadow", "宁静的草地", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/antimagic-bush.lua"
@@ -7258,7 +7258,7 @@ t("This demon would be very attractive if not for the hovering crown of flames, 
 t("and used for her perverted desires", "并将其用于满足她的变态欲望", "_t")
 t("Crown of Burning Pain", "燃烧痛苦之冠", "_t")
 t("burning crown", "燃烧王冠", "_t")
-t("This crown of pure flames possesses a myriad of small molten rocks floating wildly above it. Each can be removed to throw as a true meteor.", "这顶由纯粹火焰所打造的王冠上漂浮着许多小小的熔融石块，每个都可以用意念扔出，化作一块真实的陨石砸向大地。", "_t")
+t("This crown of pure flames possesses a myriad of small molten rocks floating wildly above it. Each can be removed to throw as a true meteor.", "这顶由纯粹火焰所打造的王冠上漂浮着许多小小的熔融石块，每一块都可以取下，当作一颗真正的陨石投掷出去。", "_t")
 t([[A terrible shout thunders across the level: 'Come my darling, come, I will be ssssooo *nice* to you!'
 You should flee from this level!]], [[一个恐怖的声音突然自空中传来：“来吧，亲爱的，来吧，我会好好地‘疼’你的。”
 你必须逃离此地！]], "_t")
@@ -7267,7 +7267,7 @@ t("%s pulls a dagger and opens his own chest, piercing his beating heart. The st
 ------------------------------------------------
 section "mod-tome/data/general/events/damp-cave.lua"
 
-t("ladder back to %s", "返回%s的楼梯", "tformat")
+t("ladder back to %s", "返回%s的梯子", "tformat")
 t("Damp Cave", "潮湿洞穴", "_t")
 t("damp cave", "潮湿洞穴", "_t")
 
@@ -7275,7 +7275,7 @@ t("damp cave", "潮湿洞穴", "_t")
 section "mod-tome/data/general/events/drake-cave.lua"
 
 t("Intimidating Cave", "恐怖地穴", "_t")
-t("ladder back to %s", "返回%s的楼梯", "_t")
+t("ladder back to %s", "返回%s的梯子", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/events/fearscape-portal.lua"
@@ -16355,7 +16355,7 @@ Must stay down here to be close to the dreams, yes yes. Must plant my mouth in t
 section "mod-tome/data/lore/keepsake.lua"
 
 t("keepsake", "往昔信物", "newLore category")
-t("A Tranquil Meadow", "宁静的草原", "_t")
+t("A Tranquil Meadow", "宁静的草地", "_t")
 t([[You've entered a tranquil meadow. Something about this place seems familiar but you're not quite sure.
 The only thing that you are sure of is that it has offered you a moment of rest from the long suffering of your cursed life.
 You feel the hate inside you melt away. You feel as if the curse has subsided for a moment.
@@ -16447,7 +16447,7 @@ He had a sanctuary: a cave where he would store his 'profits'. Perhaps you could
 
 As you look around the meadow you realize what this place is and perhaps what drew you here.
 Kyless had taken you this way once. On the north side of the meadow was a secret path that led to his cave.
-]], [[你在宁静的草原醒来，感到浑身轻松。梦境似乎让你摆脱了一直背负着的重担。
+]], [[你在宁静的草地醒来，感到浑身轻松。梦境似乎让你摆脱了一直背负着的重担。
 当你躺在那里时，你发现自己正在手中转动着什么。那居然是——梦境中的那颗小铁橡果。
 你摊开手掌，发现橡果上沾上了别人的鲜血。你将橡果握得更紧，直到冰冷的铁硌得掌心生疼。
 

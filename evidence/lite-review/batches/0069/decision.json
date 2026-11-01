@@ -1,0 +1,73 @@
+{
+ "confirmed": [
+  {
+   "id": "624bb45a2ad3",
+   "edit": [
+    "t(\"Underwater Cave\", \"水下山洞\", \"entity name\")",
+    "t(\"Underwater Cave\", \"水下洞穴\", \"entity name\")"
+   ],
+   "evidence": "fareast.lua:21 encounter Underwater Cave; its terrain at :34 and log line are 水下洞穴."
+  },
+  {
+   "id": "ff1c700561f3",
+   "edit": [
+    "如果你没有使用肮脏的魔法，那不用害怕他们。",
+    "如果你没有使用肮脏的奥术魔法，那就不用害怕他们。"
+   ],
+   "evidence": "maj-eyal-npcs.lua:117,124-125 Ziguranth patrol hates_arcane; Actor.lua:1771 checks arcane knowledge only; arcane was dropped."
+  },
+  {
+   "id": "da792f61769b",
+   "edit": [
+    "t(\"Hidden compound\", \"隐藏的竞技场\", \"_t\")",
+    "t(\"Hidden compound\", \"隐藏的营地\", \"_t\")"
+   ],
+   "evidence": "maj-eyal.lua:251 terrain to ring-of-blood (Slavers Compound = 奴隶贩子营地, mod-tome.lua:39446); compound is a camp, 竞技场 is an addition."
+  },
+  {
+   "id": "4e4198ba39f0",
+   "edit": [
+    [
+     "t(\"tranquil meadow\", \"宁静的草原\", \"_t\")",
+     "t(\"tranquil meadow\", \"宁静的草地\", \"_t\")"
+    ],
+    [
+     "t(\"A Tranquil Meadow\", \"宁静的草原\", \"_t\")",
+     "t(\"A Tranquil Meadow\", \"宁静的草地\", \"_t\")"
+    ],
+    [
+     "你在宁静的草原醒来",
+     "你在宁静的草地醒来"
+    ]
+   ],
+   "evidence": "maj-eyal.lua:265,278-280 terrain of the Tranquil Meadow encounter to keepsake-meadow, zone name 宁静的草地 (mod-tome.lua:7218, 38918). Same place in the keepsake lore title (mod-tome.lua:16358); synced. Same place in the keepsake lore text (mod-tome.lua:16450); synced."
+  },
+  {
+   "id": "2db42ceee859",
+   "edit": [
+    "每个都可以用意念扔出，化作一块真实的陨石砸向大地。",
+    "每一块都可以取下，当作一颗真正的陨石投掷出去。"
+   ],
+   "evidence": "cultists.lua:207 \"Each can be removed to throw as a true meteor\": no mind or ground in the source."
+  },
+  {
+   "id": "10ab95e8966b",
+   "edit": [
+    "t(\"ladder back to %s\", \"返回%s的楼梯\", \"tformat\")",
+    "t(\"ladder back to %s\", \"返回%s的梯子\", \"tformat\")"
+   ],
+   "evidence": "damp-cave.lua:34 CAVE_LADDER_UP_WILDERNESS is a ladder (梯子 as in ladder to worldmap); same runtime key in tome-cults.lua:354 synced."
+  },
+  {
+   "id": "d6ce5c080b15",
+   "edit": [
+    "t(\"ladder back to %s\", \"返回%s的楼梯\", \"_t\")",
+    "t(\"ladder back to %s\", \"返回%s的梯子\", \"_t\")"
+   ],
+   "evidence": "drake-cave.lua:78 goback with CAVE_LADDER_UP_WILDERNESS, a ladder."
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "core 624a6732; tranquil meadow synced in the keepsake lore rows; ladder tformat key synced in tome-cults.lua"
+}

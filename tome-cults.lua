@@ -351,7 +351,7 @@ You are fairly sure that the dwarves aren't capable of making something like thi
 
 你很肯定矮人不会做出这样的东西，而且他们绝对不会穿那样的衣服。那么，这个奇怪的矮人是从哪里来的？仔细观察，你会发现一个奇怪的装置附在矮人的手臂上。你费了不小的力气才把它取下来。它和你见过的任何东西都不一样，你也不知道该怎么做。如果你留下它，也许你以后可以辨别出它的功能。]], "_t")
 t("previous level", "前往上一层", "_t")
-t("ladder back to %s", "返回%s的楼梯", "tformat")
+t("ladder back to %s", "返回%s的梯子", "tformat")
 t("Eerie Cave", "诡异洞穴", "_t")
 t("eerie cave", "诡异的洞穴", "_t")
 
