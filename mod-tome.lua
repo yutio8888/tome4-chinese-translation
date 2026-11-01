@@ -1383,14 +1383,14 @@ t("#ORCHID#%s instinctively hardens %s skin and ignores the attack!#LAST#", "#OR
 t("#Target# repels an attack from #Source#.", "#Target#击退了#Source#的进攻。", "logCombat")
 t("#Target# evades #Source#.", "#Target#躲闪了#Source#。", "logCombat")
 t("%s(%d parried#LAST#)", "%s(%d 点伤害被招架#LAST#)", "tformat")
-t("%s(%d gestured#LAST#)", "%s(%d 手势格挡#LAST#)", "tformat")
+t("%s(%d gestured#LAST#)", "%s(%d 点伤害被守护手势抵挡#LAST#)", "tformat")
 t("#{bold}##Source# performs a melee critical strike against #Target#!#{normal}#", "#{bold}##Source#向#Target#发起一次近战暴击！#{normal}#", "logCombat")
 t("#Source# misses #Target#.", "#Source#未命中#Target#。", "logCombat")
 t("The shattering blow creates a shockwave!", "这次攻击引发了冲击波！", "logSeen")
 t("#F53CBE#You revel in attacking a weakened foe! (+%d hate)", "#F53CBE#你沉醉于攻击一个虚弱的敌人！（+%d 仇恨）", "logPlayer")
 t("#F53CBE#Your rampage is invigorated by your fierce attack! (+1 duration)", "#F53CBE#你强力的攻击延长了你的暴走时间！（+1持续时间）", "logPlayer")
 t("#Source# counter attacks #Target# with %s shield shards!", "#Source#用%s盾牌碎片反击了#Target#！", "logCombat")
-t("#{bold}#%s's spell attains critical power!#{normal}#", "#{bold}#%s的法术造成了致命一击！#{normal}#", "logSeen")
+t("#{bold}#%s's spell attains critical power!#{normal}#", "#{bold}#%s的法术迸发出暴击之力！#{normal}#", "logSeen")
 t("#{bold}#%s's mind surges with critical power!#{normal}#", "#{bold}#%s的精神迸发出暴击之力！#{normal}#", "logSeen")
 t("#Source#'s grapple fails because #Target# is too big!", "#Source#的抓取失败了，因为#Target#体型过大！", "logCombat")
 t("%s resists the grapple!", "%s抵抗了抓取！", "logSeen")
@@ -1432,7 +1432,7 @@ t("You collect a new ingredient: #LIGHT_GREEN#%s%s (%d)#WHITE#.", "你搜集了�
 section "mod-tome/class/interface/PartyLore.lua"
 
 t("Lore found: #0080FF#%s", "发现手札：#0080FF#%s", "logPlayer")
-t("You can read all your collected lore in the game menu, by pressing Escape.", "按 Esc 键进入游戏菜单，即可查看你已收集的所有札记。", "logPlayer")
+t("You can read all your collected lore in the game menu, by pressing Escape.", "按 Esc 键进入游戏菜单，即可查看你已收集的所有手札。", "logPlayer")
 t("learnt lore", "发现手札", "_t")
 
 ------------------------------------------------
@@ -1445,7 +1445,7 @@ t("Running...", "跑步中……", "_t")
 t("You are exploring, press any key to stop.", "你正在自动探索，请按任意键停止。", "_t")
 t("checked door", "被检查的门", "_t")
 t("at %s", "在 %s", "tformat")
-t("at object (diggable)", "可挖掘的地形", "_t")
+t("at object (diggable)", "到达物品处（需挖掘）", "_t")
 t("the path is blocked", "路被挡住了", "_t")
 
 ------------------------------------------------

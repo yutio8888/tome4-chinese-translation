@@ -1,0 +1,13 @@
+{
+ "confirmed": [
+  {"id": "3a24f8d3e96d", "edit": ["%s(%d 手势格挡#LAST#)", "%s(%d 点伤害被守护手势抵挡#LAST#)"], "evidence": "Raised by A. Combat.lua:536-539 @624a6732 logs g_deflect, damage absorbed by Gesture of Guarding (守护手势), in the same format as the parry line (%d 点伤害被招架); 格挡 is reserved for Block."},
+  {"id": "5ea508dd1e13", "edit": ["#{bold}#%s的法术造成了致命一击！#{normal}#", "#{bold}#%s的法术迸发出暴击之力！#{normal}#"], "evidence": "Raised by A and B. Combat.lua:2025-2030 logs every spellCrit, also used for heals and shields (celestial/light.lua:33,107); sibling mind line is 迸发出暴击之力; 致命一击 is the Coup de Grace talent name."},
+  {"id": "92624ab15967", "edit": ["已收集的所有札记。", "已收集的所有手札。"], "evidence": "Raised by A and B. PartyLore.lua:125-128 follows 发现手札; lore is 手札 library-wide."},
+  {"id": "eff4ae90a11f", "edit": ["可挖掘的地形", "到达物品处（需挖掘）"], "evidence": "Raised by A and B. PlayerExplore.lua:2600-2611: explore=='object' reached the path end and the object lies on block_move terrain; the stop reason is arrival at the object."}
+ ],
+ "advisory": [],
+ "rejected": [
+  {"id": "a9f11a35c22a", "reason": "B: _t\"her\" in the #sex# objective use. Closed by the 2026-11-01 user decision: the shared her key reads 她的 everywhere, objective awkwardness accepted (memory her-possessive-hanzi-de)."}
+ ],
+ "notes": "A 4 ISSUE, B 4 (3 shared). The three batch-0029 repairs re-reviewed OK by A and B."
+}
