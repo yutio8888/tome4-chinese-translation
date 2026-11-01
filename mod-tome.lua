@@ -5463,7 +5463,7 @@ t("Welcome @playername@ to my shop.", "@playername@，欢迎来到我的商店�
 t("Let me see your wares.", "让我看看你的商品吧。", "_t")
 t("I am looking for martial training.", "我在寻求战斗训练。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_last-hope-weapon-store")
-t("I can indeed offer some martial training (talent category Technique/Combat-training) for a fee of 50 gold pieces; or the basic usage of bows and slings (Shoot talent) for 8 gold pieces.", "我的确可以为你提供战斗训练（技巧/战斗训练系），你需要花费50金币，或者可以学习使用弓和投石索（射击天赋），花费8金币。", "_t")
+t("I can indeed offer some martial training (talent category Technique/Combat-training) for a fee of 50 gold pieces; or the basic usage of bows and slings (Shoot talent) for 8 gold pieces.", "我的确可以为你提供战斗训练（格斗/战斗训练系），你需要花费50金币，或者可以学习使用弓和投石索（射击天赋），花费8金币。", "_t")
 t("Please train me in generic weapons and armour usage.", "请教我通用武器和护甲的使用方法。", "_t")
 t("The smith spends some time with you, teaching you the basics of armour and weapon usage.", "铁匠花了一些时间，教你武器和护甲的基础使用方法。", "logPlayer")
 t("Please train me in the basic usage of bows and slings.", "请教我弓和投石索的基础使用方法。", "_t")
@@ -5473,7 +5473,7 @@ t("No thanks.", "不用了，谢谢。", "_t")
 ------------------------------------------------
 section "mod-tome/data/chats/limmir-valley-moon.lua"
 
-t("I do not have time to talk. This ritual is intense, and we are not alone here. Stop them!", "我没时间和你说话。仪式非常紧迫，而且这里还有别人，阻止他们！", "_t")
+t("I do not have time to talk. This ritual is intense, and we are not alone here. Stop them!", "我没时间和你说话。这个仪式非常耗神，而且这里不止我们，拦住他们！", "_t")
 t("I will not let you down!", "我不会让你失望的！", "_t")
 t("[leave]", "[离开]", "_t")
 
@@ -5493,7 +5493,7 @@ section "mod-tome/data/chats/lumberjack-quest-done.lua"
 t([[#LIGHT_GREEN#*Ben lies defeated at your feet*#WHITE#
 T...thank you for... *cough*... saving me from the curse.
 I did no... not want for this to...
-#LIGHT_GREEN#*he coughs one last time and dies, a smile on his face as his curse is gone.*#WHITE#]], [[#LIGHT_GREEN#*本恩倒在你的脚下。*#WHITE#
+#LIGHT_GREEN#*he coughs one last time and dies, a smile on his face as his curse is gone.*#WHITE#]], [[#LIGHT_GREEN#*本倒在你的脚下。*#WHITE#
 谢……谢谢你……*咳嗽*……救我摆脱了诅咒。
 我不……不想让事情变成……
 #LIGHT_GREEN#*他最后咳嗽一声，含笑死去，诅咒终于消散。*#WHITE#]], "_t")
