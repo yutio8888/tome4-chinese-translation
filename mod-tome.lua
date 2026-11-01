@@ -4202,7 +4202,7 @@ t("Let me see your wares.", "让我看看你的商品吧。", "_t")
 t("I am looking for staff training.", "我想寻求法杖战斗训练。", "_t")
 t("Sorry, I have to go!", "抱歉，我得走了！", "chat_angolwen-staves-store")
 t("I can teach you staff combat (talent category Spell/Staff combat).  Learning the basics costs 100 gold, while more intensive tutelage to gain proficiency costs 500 gold.  Once you're proficient, I can teach you more refined techniques for an additional 750 gold.", "我可以传授你法杖格斗技巧（技能类别：法术/法杖格斗）。学习基础需要 100 金币，而要接受更深入的指导、达到熟练掌握，则需 500 金币。一旦你达到熟练，再额外支付 750 金币，我便能传授你更精湛的技巧。", "_t")
-t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（揭示锁定的技能树）- 100 金币。", "_t")
+t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（揭示锁定的技能类别）- 100 金币。", "_t")
 t("The staff carver spends some time with you, teaching you the basics of staff combat.", "制杖师花了一些时间指导你，向你传授法杖格斗的基础技巧。", "logPlayer")
 t("He is surprised at how quickly you are able to follow his tutelage.", "他对你能如此迅速领会他的指导感到惊讶。", "logPlayer")
 t("Please teach me what I need to know (unlocks talent category) - %d gold.", "请传授我所需知晓的一切（解锁技能类别）- %d 金币。", "tformat")
@@ -4256,7 +4256,7 @@ t("I've got to go. Bye.", "我得走了。再见。", "_t")
 t([[My husband, Rashim, is a Sun Paladin. He was sent to clear the spider lair of Ardhungol to the north of this town.
 It has been three days now. He should be back by now. I have a feeling something terrible has happened to him. Please find him!
 He should have a magical stone given by the Anorithil to create a portal back here, yet he did not use it!]], [[我的丈夫拉希姆是一名太阳骑士。他被派去清理本镇北方的阿尔德胡格蜘蛛巢穴。
-如今已经过去三天了。按理说他现在早该回来了。我有一种不祥的预感，他一定是遭遇了可怕的不测。求求你帮我找到他！
+如今已经过去三天了。按理说他现在早该回来了。我有一种不祥的预感，他可能遭遇了可怕的不测。求求你帮我找到他！
 他身上本该携带着星月术士所赠的魔法石，用来开启返回此地的传送门，可他却一直没有使用！]], "_t")
 t("I will see if I can find him.", "我去看看能否找到他。", "_t")
 t("Spiders? Eww, sorry, but he is probably dead now.", "蜘蛛？恶……抱歉，但他现在恐怕凶多吉少了。", "_t")
@@ -4290,7 +4290,8 @@ All you need to do is beat three of my men in battle, and you shall be rewarded.
 ]], [[#LIGHT_GREEN#*一个高大、头戴兜帽的男人注视着你*#WHITE#
 是的……是的……你的确像是一名很有潜力的战士……
 我有个提议，@playerdescriptor.race@。
-你看……我是竞技场的招募员，专门寻找能为观众献上精彩表演的潜力战士。或许你足够强大，能够加入我们。
+你看……我是竞技场的招募员，专门寻找有潜力的战士，
+为观众献上精彩表演。或许你足够强大，能够加入我们。
 你只需在战斗中击败我的三名手下，就能获得奖励。
 #LIGHT_GREEN#*你思量了片刻这个神秘兜帽人的提议*
 ]], "_t")
@@ -4340,7 +4341,8 @@ If I am still around, we can have a deal. Think about it, @playerdescriptor.race
 真遗憾。我们本可以用上你这样的人。
 你正是观众喜欢的类型，本可以成为一名冠军。
 唉，如果你坚持这个选择，我们就再也不会见面了。
-不过，如果你改变主意……我还会#YELLOW#在德斯镇多待一小段时间。#WHITE#
+不过，如果你改变主意……我还会#YELLOW#在德斯镇多待
+一小段时间。#WHITE#
 只要我还在，我们就仍可谈成这笔交易。好好想想吧，@playerdescriptor.race@。
 ]], "_t")
 t("We'll see. [Leave]", "再说吧。[离开]", "_t")
@@ -4376,7 +4378,8 @@ Good luck in your adventures, and come visit us when you are done!
 干得漂亮，@playerdescriptor.race@！我就知道你有潜力。
 #LIGHT_GREEN#*盗贼摘下兜帽，露出一张颇为年轻、
 #LIGHT_GREEN#却显然久经战阵的男人面孔。#WHITE#
-我叫瑞吉。我为竞技场招募优秀斗士：他们既要能奉上精彩表演……也不能挨两下就死。你的确就是这种人！
+我叫瑞吉。我为竞技场招募优秀斗士，
+他们既要能奉上精彩表演……也不能挨两下就死。你的确就是这种人！
 我不会耽误你继续冒险。很久以前，我也曾踏上冒险之路。
 但我们能把你培养成真正的冠军，让你受万众爱戴、坐拥无数钻石。
 
@@ -6709,7 +6712,7 @@ t("Let me see your wares.", "让我看看你的商品吧。", "_t")
 t("I am looking for mindstar training.", "我是来学习灵晶掌握的。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_zigur-mindstar-store")
 t("I can teach you mindstar mastery (talent category Wild-gift/Mindstar mastery).  Learning the basics costs 100 gold, while more intensive training to gain proficiency costs 500 gold.  Once you're proficient, I can teach you some additional skills for 750 gold.", "我能教授你灵晶掌握（自然/灵晶掌握 技能树）。基础训练需要 100 金币，进一步训练至熟练需要 500 金币。熟练之后，我还能以 750 金币的价格教你一些额外技巧。", "_t")
-t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（揭示锁定的技能树）- 100 金币。", "_t")
+t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（揭示锁定的技能类别）- 100 金币。", "_t")
 t("The shopkeeper spends some time with you, teaching you the basics of channeling energy through mindstars.", "商人花了一些时间，教授你引导能量流经灵晶的基础方法。", "logPlayer")
 t("He is impressed with your affinity for natural forces.", "他对你与自然力量的亲和度印象深刻。", "logPlayer")
 t("Please teach me what I need to know (unlocks talent category) - 500 gold.", "请教授我需要知道的一切（解锁技能树）- 500 金币。", "_t")
