@@ -1,0 +1,10 @@
+{
+ "confirmed": [
+  {"id": "4bfd6816ee29", "edit": ["你不能在有敌人的情况下使用水晶球(#Target#在%s%s)", "视野内有敌人时，你不能使用水晶球（#Target#在%s%s）"], "evidence": "Raised by B. Player.lua:917-925 @624a6732 collects only hostile actors in the sight circle that the player can see on seen map tiles; the Orb is refused only when that list is non-empty."},
+  {"id": "587d3934f52c", "edit": ["击中发射者队友几率：", "影响发射者友方及中立单位的几率："], "evidence": "Raised by B. friendlyfire is checked in ActorProject.lua:493-494 against reactionToward(act) >= 0, so neutral actors count as well as party members."},
+  {"id": "29bd79d90b25", "edit": [" 瞄准：%s(%s, %s)", " 追踪：%s(%s, %s)"], "evidence": "Raised by B. engine Projectile.lua:235-244 moves a homing projectile toward the target's current position every step and hits on arrival: tracking, not aiming."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "A 0 ISSUE (including the re-review of the four batch-0026 repairs), B 3."
+}
