@@ -5055,7 +5055,7 @@ t("Tell me more about the Gates of Morning.", "告诉我更多有关晨曦之门
 t("Before I came here, I happened upon members of the Sunwall in Maj'Eyal. Do you know of this?.", "在我来这里之前，我在马基·埃亚尔遇到了太阳堡垒的成员。你知道这件事么？", "_t")
 t("I need help in my hunt for clues about the staff.", "我在搜集法杖的线索，我需要你的帮助。", "_t")
 t("I have destroyed the leaders of all the Orc Prides.", "我已经消灭了所有兽人部落的首领。", "_t")
-t("I am back from the Charred Scar, where the orcs took the staff.", "我从灼烧之痕回来，兽人在那里抢走了法杖。", "_t")
+t("I am back from the Charred Scar, where the orcs took the staff.", "我从灼烧之痕回来了，兽人把法杖带到了那里。", "_t")
 t("A dying paladin gave me this map; something about orc breeding pits. [tell her the story]", "一位濒死的太阳骑士给了我这张地图，提到了兽人育种棚。[告诉她事情的经过]", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_gates-of-morning-main")
 t([[@playername@! We thought you had died in the portal explosion. I am glad we were wrong. You saved the Sunwall.
@@ -5091,14 +5091,14 @@ He also said the only way to enter the peak and de-activate the shield is throug
 ]], [[我的确已经得到了消息，真令人难以置信，我们和兽人已经战斗得太久了。
 他们现在都死了么？仅凭一个 @playerdescriptor.race@ 的力量？你的力量真让我惊叹。
 当你忙于解决那些兽人的时候，我们设法从那个兽人俘虏那里获得了一些线索。
-他提起了有关巅峰保护罩的事。似乎那个护罩是受“指令水晶球”操控的，那些指令水晶就在兽人各大部落首领的手中。
-他还说想要进入顶层并关闭护罩的唯一通道是“史莱姆通道”，位于某一个兽人部落内，有可能是格鲁希纳克的部落。
+他提起了有关巅峰保护罩的事。似乎那个护罩是受“指令水晶球”操控的，那些指令水晶球就在兽人各大部落首领的手中。
+他还说想要进入巅峰并关闭护罩的唯一通道是“史莱姆通道”，位于某一个兽人部落内，有可能是格鲁希纳克的部落。
 ]], "_t")
 t("Thanks, my lady. I have not been able to find all of the orbs of command in my travels; could you have some of your men search for me?", "谢谢，女士。我没能找到所有的指令水晶球；请问你可以让你们的人来帮我寻找一下吗？", "_t")
 t("Thanks, my lady. I will look for the tunnel and venture inside the Peak.", "谢谢，女士，我会找到那条通道，向巅峰内部挺进。", "_t")
 t([[I have already sent parties to clear out the remainder of the prides as you progressed, and have instructed to keep a sharp eye out for any orbs of command you may have missed.
 	Which do you not have? I can check with the parties if they found any. Our sources indicate that you should have four: one of Undeath, one of Destruction, one of Dragons, and one of Elemental might.]], [[我们已经派出部队，清理那些被你所击溃的部落的残军。我命令他们仔细搜查，留意任何你可能遗漏的指令水晶球。
-	你缺少了什么水晶球？我会去问问他们，看看他们有没有找到什么线索。根据我们得到的情报，你应该有四颗指令水晶球：亡灵水晶球，毁灭水晶球，巨龙水晶球，元素水晶球。]], "_t")
+	你缺少了什么水晶球？我会去问问他们，看看他们有没有找到。根据我们得到的情报，你应该有四颗指令水晶球：亡灵水晶球，毁灭水晶球，巨龙水晶球，元素水晶球。]], "_t")
 t("The orb of Undeath.", "亡灵水晶球。", "_t")
 t("The orb of Destruction.", "毁灭水晶球。", "_t")
 t("The orb of Dragons.", "巨龙水晶球。", "_t")
