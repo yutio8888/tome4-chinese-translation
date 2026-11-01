@@ -1,0 +1,12 @@
+{
+ "confirmed": [
+  {"id": "8c4ed782bba4", "edit": ["键位 %s 已绑定", "快捷键 %s 已绑定"], "evidence": "Raised by A. ShowEquipInven.lua:107 / UseTalents.lua:81-82 @624a6732: id is the hotkey slot (self.actor.hotkey[id]); the slots are named 快捷键 1-10 (engine.lua:184-193) and the UseTalents help text (74cdbe83fb8f) says 快捷键."},
+  {"id": "d5ba7aaea08e", "edit": ["%s 已绑定到键位 %s", "%s 已绑定到快捷键 %s"], "evidence": "Same as 8c4ed782bba4."},
+  {"id": "03bff3b58e6c", "edit": ["键位 %s 已绑定", "快捷键 %s 已绑定"], "evidence": "Same as 8c4ed782bba4 (UseTalents.lua:82)."},
+  {"id": "2394f00d8afa", "edit": ["%s 已绑定到键位 %s", "%s 已绑定到快捷键 %s"], "evidence": "Same as 8c4ed782bba4 (UseTalents.lua:82)."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "runtime_key_sync": ["mod-tome.lua:42151 Hotkey %s assigned (tformat)", "mod-tome.lua:42347 Hotkey %s assigned (tformat)", "mod-tome.lua:42348 %s assigned to hotkey %s (tformat)"],
+ "notes": "79 units; A 4 ISSUE, B 0. Same-key rows in mod-tome.lua changed together (outside this batch; covered by ci-gates strict lint, re-reviewed when their sections come up). Includes the re-review of the two batch-0007 repairs (OK in A and B)."
+}

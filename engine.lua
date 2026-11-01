@@ -756,8 +756,8 @@ t("Inventory", "物品栏", "_t")
 t("Category", "分类", "_t")
 t("Enc.", "负重", "_t")
 t("Equipment", "装备", "_t")
-t("Hotkey %s assigned", "键位 %s 已绑定", "tformat")
-t("%s assigned to hotkey %s", "%s 已绑定到键位 %s", "tformat")
+t("Hotkey %s assigned", "快捷键 %s 已绑定", "tformat")
+t("%s assigned to hotkey %s", "%s 已绑定到快捷键 %s", "tformat")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -909,8 +909,8 @@ Check out the keybinding screen in the game menu to bind hotkeys to a key (defau
 ]], "_t")
 t("Talent", "技能", "_t")
 t("Status", "状态", "_t")
-t("Hotkey %s assigned", "键位 %s 已绑定", "tformat")
-t("%s assigned to hotkey %s", "%s 已绑定到键位 %s", "tformat")
+t("Hotkey %s assigned", "快捷键 %s 已绑定", "tformat")
+t("%s assigned to hotkey %s", "%s 已绑定到快捷键 %s", "tformat")
 -- untranslated text
 --[==[
 t("", "", "_t")

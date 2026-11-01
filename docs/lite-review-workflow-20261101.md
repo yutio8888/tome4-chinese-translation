@@ -11,8 +11,14 @@
   每批的全部条目同时派给 A 和 B（不再区分免 B 项，也就不需要补派 B）。
 - **宿主独立裁决**：模型结论不是事实；`confirmed` 才进修复，名称题交 Gemini 4 Argon 讨论。
 - **运行时键同步**：同一 (source, tag) 的所有出现必须同改。
-- **门禁与严格校验**：修改译文的提交跑一次 `tools/ci-gates.sh`（含 strict lint/build）；
-  修复目标先过 `tools/i18n proposal --strict`。
+- **门禁与严格校验**：修复目标先过 `tools/i18n proposal --strict`（`lite_review.py strict`）；
+  有改动的提交跑 `tools/lite_gates.py`（2026-11-01 用户同意精简）。只改译文数据（根目录 `*.lua`、
+  `terminology/*.tsv`、`evidence/lite-review/`）且 `tools/`、`tests/`、`i18n/` 与上次完整 PASS 相同时，
+  只跑验证矩阵「有界译文修改」要求的检查：doctor、strict lint、语义声明登记、运行键扫描与分类、
+  三项术语审计、空白检查、严格核心构建（实测约 5 s）。改动触及其他路径、工具树变化、距上次完整 PASS
+  满 10 批或显式 `--full` 时，跑完整 `tools/ci-gates.sh`（含工具单测，实测约 170 s），通过后记入
+  `evidence/lite-review/full-gates.json`。DLC 组件当前无法单独构建（缺固定官方基线），DLC 译文改动由
+  strict lint 覆盖加载与格式；引擎组件不进 addon，同样由 lint 覆盖。
 
 ## 去掉什么
 
@@ -36,7 +42,7 @@
 2. 生成输入：每条附 section、源文、译文、tag 及源码位置提示，由工具自动定位。
 3. 并行派 A、B（Paseo），完成后取最终 JSON。
 4. 宿主逐条核对 ISSUE 的源码证据，写裁决；确认项直接修改译文，并同步同键条目。
-5. 有译文改动时跑 strict proposal 与 ci-gates；然后一次 git 提交（账本＋译文）。
+5. 有译文改动时跑 strict proposal 与 `tools/lite_gates.py`；然后一次 git 提交（账本＋译文）。
 6. 改过的单元在下一批自动重审。
 
 ## 进度
