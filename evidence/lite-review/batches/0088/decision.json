@@ -1,0 +1,44 @@
+{
+ "confirmed": [
+  {
+   "id": "b0c8392f6612",
+   "edit": [
+    "\"它呈幽灵形态，那双眼睛令你挥之不去。\"",
+    "\"它呈幽灵形态，那双眼睛在你脑海中挥之不去。\""
+   ],
+   "evidence": "wight.lua:79-81 eyes that haunt you; the 0087 wording attached 挥之不去 to the wrong object."
+  },
+  {
+   "id": "749a082b526f",
+   "edit": [
+    "t(\"steel battleaxe\", \"钢化双手斧\"",
+    "t(\"steel battleaxe\", \"钢双手斧\""
+   ],
+   "evidence": "2haxes.lua:54 steel (tier 2, terminology items.tsv:55 steel = 钢 preferred); 钢化 means tempered; aligned with 钢巨锤/钢斧/钢剑."
+  },
+  {
+   "id": "b3d559eb85a8",
+   "edit": [
+    "t(\"steel greatsword\", \"钢化大剑\"",
+    "t(\"steel greatsword\", \"钢大剑\""
+   ],
+   "evidence": "2hswords.lua:54 steel = 钢; aligned with 钢巨锤/钢剑."
+  },
+  {
+   "id": "aef3ddf2e19f",
+   "edit": [
+    "t(\"deep-steel trident\", \"精钢三叉戟\"",
+    "t(\"deep-steel trident\", \"矮人钢三叉戟\""
+   ],
+   "evidence": "2htridents.lua:70 the tier-3 trident (level 20-30, the dwarven-steel tier) shares short_name d.steel with the dwarven-steel weapons; d.steel = 矮人钢 preferred (items.tsv:44, which rejects 精钢); full name aligned with the short name."
+  }
+ ],
+ "advisory": [],
+ "rejected": [
+  {
+   "id": "5868572041aa",
+   "reason": "d.steel is one runtime key used as short_name by 11 dwarven-steel items and the deep-steel trident (2haxes.lua:68 ... 2htridents.lua:70); 矮人钢 is the preferred term (items.tsv:44). Changing it to 精钢 would mislabel every dwarven-steel item; the trident full name was aligned instead (aef3ddf2e19f)."
+  }
+ ],
+ "notes": "core 624a6732"
+}
