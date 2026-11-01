@@ -29,8 +29,8 @@
 
 ## 输出
 
-把下面格式的 JSON 写到提示里给出的 `/tmp/lite-review/<批次>-<lane>.json`，并把同一 JSON 作为最终回复，
-不要在 JSON 前后加任何文字：
+把下面格式的 JSON 写到提示里给出的 `/tmp/lite-review/<批次>-<lane>.json`，文件内不要在 JSON 前后加任何文字。
+宿主从该文件收取结果；最终回复只写一行摘要（`<批次> <lane>: N verdicts, ISSUE k: [id, ...]`），不要再贴 JSON：
 
 ```json
 {"batch":"0001","lane":"A","verdicts":[

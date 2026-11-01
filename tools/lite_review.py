@@ -163,7 +163,7 @@ def entry(u):
 
 PROMPT = """轻量审核 {lane}（{batch}）。逐条审 {path} 中的译文，有源码或语境证据的问题报 ISSUE，否则 OK。
 读完 docs/lite-review-reviewer.md 的规则后开始。核心源码只用固定提交（git -C /workspace/t-engine4 show {core}:<path>），DLC 读 /workspace/tome4-dlcs 下公开检出。
-仓库只读；把结果 JSON 写到 {out}，并把同一 JSON 作为最终回复（不加其他文字）。"""
+仓库只读；把结果 JSON 写到 {out}。最终回复只写一行摘要，不要贴 JSON：`{batch} {lane}: N verdicts, ISSUE k: [id, ...]`。"""
 
 
 def prepare(batch, max_n, path, units_file):

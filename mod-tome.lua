@@ -17486,9 +17486,7 @@ I remember hearing that this labyrinth used to be a prison used by the halfling 
 
 不过这地方真够脏的。我已经碰上了几个强盗和几条蛇，但这些还威胁不到我这样的三级小法师。
 
-我记得听人说过，这座迷宫在黄昏纪曾是半身人国王洛帕的监狱。那时法纪荡然，俘虏一送进来就只能在这里慢慢腐烂。
-
-还有人说，一道魔法诅咒侵染了这里，把囚犯变成了公牛般的怪物；直到今天，它们仍在这些厅堂里巡游。太刺激了！！
+我记得听人说过，这座迷宫在黄昏纪曾是半身人国王洛帕的监狱。那时法纪荡然，俘虏一送进来就只能在这里慢慢腐烂。还有人说，一道魔法诅咒侵染了这里，把囚犯变成了公牛般的怪物；直到今天，它们仍在这些厅堂里巡游。太刺激了！！
 ]], "_t")
 t([[I'm having so much fun! Probability Travel is making this little trip a breeze. And you should have seen the look on that bandit's face when I came out one wall, disappeared through another, and came around behind him! Hee hee hee...
 
@@ -17516,26 +17514,24 @@ I seem to have misplaced one though... I'm sure it must be close by.
 No, NO! I have - I --- acci--- pain, such pa--______
 
 
-#{italic}#You find a dusty case filled with many small vials of powder. They seem serviceable.#{normal}#]], [[我终于为那头在厅堂间出没的长角野兽设计出了完美陷阱！它绝不可能躲过这件惊人装置——这是精湛技艺与自然致命馈赠的完美结合。
+#{italic}#You find a dusty case filled with many small vials of powder. They seem serviceable.#{normal}#]], [[我终于为那头在厅堂间出没的长角野兽设计出了完美陷阱！它绝不可能躲过这件惊人装置——这是精湛技艺与自然致命馈赠的完美结合。啊，我已经等不及要把那怪物的头挂上墙了——它必将成为我最得意的藏品！
 
-啊，我已经等不及要把那怪物的头挂上墙了——它必将成为我最得意的藏品！
-
-这装置精巧而简单，配方却耗费了我数月才臻于完美。两个小瓶连在一起：一瓶装着磨得极细的毒芹，另一瓶装着精心调制的锌化合物。瓶子一破，两种物质便与空气反应，喷出一大团剧毒气体！
-
-这个毒气陷阱效力绝佳，几分钟内便能置猎物于死地。我只需把小瓶藏在一片薄石板下，等猎物踩上去——砰，死定了！
+这装置精巧而简单，配方却耗费了我数月才臻于完美。两个小瓶连在一起：一瓶装着磨得极细的毒芹，另一瓶装着精心调制的锌化合物。瓶子一破，两种物质便与空气反应，喷出一大团剧毒气体！这个毒气陷阱效力绝佳，几分钟内便能置猎物于死地。我只需把小瓶藏在一片薄石板下，等猎物踩上去——砰，死定了！
 
 我备下了许多小瓶，足够用上整个狩猎季。到明年这个时候，我的战利品收藏就能与诸王的收藏相媲美了！
 
 不过有一瓶好像不见了……我敢肯定它就在附近。
 
+
 不，不！我——我——意---好痛，好---______
+
 
 #{italic}#你找到一只落满灰尘的匣子，里面装着许多盛有粉末的小瓶。它们似乎还能使用。#{normal}#]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/misc.lua"
 
-t("temple of creation", "造物主神庙", "newLore category")
+t("temple of creation", "造物者神庙", "newLore category")
 t("tract of destruction", "毁灭之卷", "_t")
 t([[#{bold}#Tract of Destruction#{normal}#
 
@@ -17559,7 +17555,7 @@ Faced with the idea of their great race failing – another victim of the Spellb
 
 The Nalorën received no answer.]], [[#{bold}#无序之卷#{normal}#
 
-大灾难之后的那些年里，混乱当道。他们的文化，他们的生活方式，都如同这片大地本身一样支离破碎。纳鲁文明只剩下几个孤立而脆弱的定居点，在土地、心智与肉体都遭到扭曲的境况中勉强求生。
+大灾变之后的那些年里，混乱当道。他们的文化，他们的生活方式，都如同这片大地本身一样支离破碎。纳鲁文明只剩下几个孤立而脆弱的定居点，在土地、心智与肉体都遭到扭曲的境况中勉强求生。
 
 面对自己这个伟大种族行将覆灭的前景——沦为魔法大爆炸的又一个牺牲品，史书上的一个脚注——他们恳切地向兄弟种族永恒精灵与自然精灵求援。他们甚至向彼时正深陷自家琐碎内斗的人类和半身人求助。
 
@@ -17576,8 +17572,8 @@ The same force that destroyed the Nalorën would save them. Through the Sher'Tul
 那毁灭纳鲁的力量，同样可以拯救他们。通过夏·图尔魔法，纳鲁们可以像呼吸空气一样在水中呼吸。他们的身体适应了水下生活，双腿变成了蛇一般的长尾。你或许会觉得，如此剧烈的变化自然会令人恐惧。然而，纳鲁们看到了新形态带来的可能——他们沉没的大陆再次归他们所有。家园将会重建，文明将会重生。他们不再是纳鲁人；这沉没王国的居民，此后将被世人称作“娜迦”……]], "_t")
 t("personal note (Slasul)", "萨拉苏尔的个人笔记", "_t")
 t([[At long last, the temple finally reveals its secrets to me, and my plans can be set in motion. Lithe in form, faultless in combat, unmatched in speed both above the waves and beneath... nature couldn't have hoped to create such a race as nagas. With the Temple of Creation now open to me however, we may become so much more. With my guidance, my careful shaping of the Sher'Tul's magicks, under my expert hand our great race shall soon reach its zenith. A new tract shall soon be written: The Tract of the Devourer.
-]], "终于，神庙向我敞开了神秘之门，我的计划终于可以实施了。柔软的身体，完美的战斗能力，无与伦比的两栖机动性……大自然也无法奢望创造出娜迦这般出众的种族。不管怎样，当造物主神庙之门为我打开，我们可以变得更加强大。在我的指引和对夏·图尔魔法的仔细改造下，我们的伟大种族会很快趋于巅峰。新的篇章即将写就：《吞噬者之卷》。\n", "_t")
-t("adventures", "冒险家", "newLore category")
+]], "终于，神庙向我敞开了神秘之门，我的计划终于可以实施了。柔软的身体，完美的战斗能力，无与伦比的两栖机动性……大自然也无法奢望创造出娜迦这般出众的种族。然而，如今造物者神庙之门已为我打开，我们可以变得更加强大。在我的指引和对夏·图尔魔法的仔细改造下，我们的伟大种族会很快趋于巅峰。新的篇章即将写就：《吞噬者之卷》。\n", "_t")
+t("adventures", "冒险故事", "newLore category")
 t("letter to Rolf (1)", "写给罗尔夫的信 (1)", "_t")
 t([[Dear Rolf,
 
@@ -17628,7 +17624,7 @@ Such a magnificent sight! With wings of fire, leaving the air itself hissing and
 Learn from my experiences,
 Weisman]], [[亲爱的弑蚁者罗尔夫，
 
-哈！你克服了何等的艰难险阻！先别提巨龙与恶魔，这下我们有了一位战胜了蚂蚁的英雄！我真该用最快速度将你这英雄事迹传到最后的希望，也许那里的人会为你的壮举准备一场隆重的庆典！
+哈！你克服了何等的艰难险阻！先别提巨龙与恶魔，这下我们有了一位从蚂蚁手下活下来的英雄！我真该用最快速度将你这英雄事迹传到最后的希望，也许那里的人会为你的壮举准备一场隆重的庆典！
 
 我希望你听懂了我之前话语中的讽刺，不过对一个连虫子都对付不了的人，我显然也指望不了太多。请允许在下向你介绍一种更值得真正冒险家一见的野兽吧。我一路向南。一天晚上，我走在一条废弃的山道上，正想着第二天可能遇到什么宝藏与考验，突然眼前满是耀眼的光芒！我站在这光芒之中，周围被照得几乎亮如白昼，就在这时，我看见了它。
 
@@ -17684,6 +17680,7 @@ Weisman.]], [[罗尔夫，
 那场战斗我什么都不记得了，唯一记得的就是靠近那个恐怖而强大的东西时的纯粹恐惧。在根本不可能战胜的敌人面前逃跑，不丢人吧？去客栈喝麦酒也许是个好主意，但也许彻底战胜自己的恐惧才是更好的选择……希望你能原谅我，但我必须打倒这个怪物，哪怕穷尽余生。
 
 衷心祝你和你的麦酒一切安好，就此别过，
+
 威斯曼。]], "_t")
 t("letter to Weisman (4)", "写给威斯曼的信 (4)", "_t")
 t([[Weisman,
@@ -17731,7 +17728,7 @@ In all those centuries I still searched for the woman and found no trace. I know
 
 她一说完我便立刻再次陷入沉睡，当我醒来时发现世界变了，空中燃起了一道耀眼的光芒——这就是新生的太阳。接着我看到周围许许多多和我一样的人们，还有一些人虽然长相相同却有着迥异的能力与个性。我将他们唤醒并聚集起来，我们都为有同伴而感到高兴，并决定称呼自己为阿洛。但是那个女人已经离去了，除了我没有任何人见过她，我对她踪迹的一切搜寻都徒劳无果。
 
-时光如水，岁月如梭，我们发现了其它生物，但它们往往邪恶而凶残，于是我们对其发动了战争。接着我们发现了夏·图尔，他们倾慕于我们的美丽，并传授了我们艺术之道。随后战争爆发，我们中的一些人帮助他们作战，但很快我们便发现，自己无力与这些大师并肩作战。于是我们退回丛林，而战争仍在激烈进行，最终以灾难告终。
+时光如水，岁月如梭，我们发现了其它生物，但它们往往邪恶而凶残，于是我们对其发动了战争。接着我们发现了夏·图尔，他们倾慕于我们的美丽，并传授了我们魔法技艺。随后战争爆发，我们中的一些人帮助他们作战，但很快我们便发现，自己无力与这些大师并肩作战。于是我们退回丛林，而战争仍在激烈进行，最终以灾难告终。
 
 在数个世纪里我都在不停的寻找那个女人，但却一无所获。我知道所有的神明都已经被猎杀，也记得夏·图尔在圣战中的彻底搜捕。现在我也老了，与我一同醒来的人中，有些已经逝去，每个夜晚都是那么的清冷孤寂，但每每在我沉睡之时我仍能看到她的面容，听到她的声音，总有一天我会再次见到她。]], "_t")
 t("human myth of creation", "人类的创世传说", "_t")
@@ -20796,7 +20793,7 @@ t("Slasul bound his lifeforce to yours and gave your a powerful trident in retur
 t("#LIGHT_GREEN#* You have killed both Ukllmswwik and Slasul, betraying them both.#WHITE#", "#LIGHT_GREEN#* 你把乌克勒姆斯维奇和萨拉苏尔都杀掉了，同时背叛了他们两个。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have sided with Ukllmswwik and killed Slasul.#WHITE#", "#LIGHT_GREEN#* 你选择相信乌克勒姆斯维奇并杀死了萨拉苏尔。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have sided with Slasul and killed Ukllmswwik.#WHITE#", "#LIGHT_GREEN#* 你选择相信萨拉苏尔并杀死了乌克勒姆斯维奇。#WHITE#", "_t")
-t("Portal to the Temple of Creation", "通向造物主神庙的传送门", "_t")
+t("Portal to the Temple of Creation", "通向造物者神庙的传送门", "_t")
 t("A portal opens behind Ukllmswwik.", "乌克勒姆斯维奇身后开启了一道传送门。", "logPlayer")
 t("Portal to the Flooded Cave", "通向淹没的洞穴的传送门", "_t")
 t("A portal opens to the flooded cave.", "一道通往被淹没洞穴的传送门开启了。", "logPlayer")
@@ -40020,7 +40017,7 @@ section "mod-tome/data/zones/temple-of-creation/objects.lua"
 
 t("Eldritch Pearl", "骇异珍珠", "entity name")
 t("bright pearl", "闪亮的珍珠", "_t")
-t("Thousands of years spent inside the temple of creation have infused this pearl with the fury of rushing water. It pulses light.", "在造物主神庙中度过的数千年，为这颗珍珠注入了奔流之水的怒火。它散发着脉动的光芒。", "_t")
+t("Thousands of years spent inside the temple of creation have infused this pearl with the fury of rushing water. It pulses light.", "在造物者神庙中度过的数千年，为这颗珍珠注入了奔流之水的怒火。它散发着脉动的光芒。", "_t")
 t("tract", "小短文", "entity name")
 t("A tract revealing the history of the Nagas.", "一篇讲述娜迦历史的小短文。", "_t")
 t("note", "笔记", "entity name")
