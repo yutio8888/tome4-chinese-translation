@@ -7810,7 +7810,7 @@ t("way to the next level", "通往下一层的路", "entity name")
 section "mod-tome/data/general/grids/slime.lua"
 
 t("floor", "地板", "entity type")
-t("slime", "史莱姆", "entity subtype")
+t("slime", "烂泥", "entity subtype")
 t("slime floor", "烂泥地", "entity name")
 t("wall", "墙壁", "entity type")
 t("slime wall", "烂泥墙", "entity name")
