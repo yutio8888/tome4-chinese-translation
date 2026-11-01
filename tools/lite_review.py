@@ -6,6 +6,7 @@ Subcommands:
   prepare BATCH [--max N] [--path P] [--units FILE]
                               freeze batches/BATCH/input.json and the A/B prompts
   collect BATCH LANE RAW      extract the lane JSON (first JSON object in RAW) into batches/BATCH/LANE.json
+  strict BATCH                validate the confirmed edits of batches/BATCH/decision.json with `tools/i18n proposal --strict`
   record BATCH                append reviewed units to ledger.jsonl from batches/BATCH/decision.json
 
 A unit is reviewed for a lane when (unit_id, revision_key) is in the R296 seed or the ledger for that lane.
@@ -124,9 +125,31 @@ def locate(text, source):
     return hits[:5]
 
 
+def grep_core(source):
+    """Hints for sections with no single source file (.always_merge etc.): quoted literal hits at the pinned core."""
+    first = source.split('\n')[0]
+    if len(first.strip()) < 3:
+        return []
+    r = subprocess.run(['git', '-C', str(ENGINE_REPO), 'grep', '-n', '-F', '-e', f'"{first}"', '-e', f"'{first}'",
+                        CORE, '--', 'game/', ':(exclude,glob)**/locales/**'], capture_output=True)
+    hits = []
+    for line in r.stdout.decode('utf-8', 'replace').splitlines()[:5]:
+        _, path, number, _ = line.split(':', 3)     # <commit>:<path>:<line>:<text>
+        hits.append(f'{path}:{number}')
+    return hits
+
+
 def entry(u):
     o = u['occurrence']
     text, loc = source_text(o['section'])
+    if loc is None:
+        hits = grep_core(o['source'])
+        return {'id': u['unit_id'][:12], 'unit_id': u['unit_id'], 'revision_key': u['revision_key'],
+                'translation_file': o['translation_path'], 'translation_line': u['line'],
+                'section': o['section'], 'source_tag': o['source_tag'], 'args_order': o['args_order'],
+                'source': o['source'], 'target': o['target'],
+                'source_file': f'git grep @ {CORE[:12]} (pinned core; no single source file)' if hits else None,
+                'source_lines': hits}
     return {'id': u['unit_id'][:12], 'unit_id': u['unit_id'], 'revision_key': u['revision_key'],
             'translation_file': o['translation_path'], 'translation_line': u['line'],
             'section': o['section'], 'source_tag': o['source_tag'], 'args_order': o['args_order'],
@@ -214,9 +237,12 @@ def record(batch):
     lanes = {lane: json.loads((d / f'{lane}.json').read_text()) for lane in ('A', 'B')}
     conf = {c['id'] for c in dec.get('confirmed', [])}
     adv = {c['id'] for c in dec.get('advisory', [])}
+    rej = {c['id'] if isinstance(c, dict) else c for c in dec.get('rejected', [])}   # {"id","reason"} or a bare id
     issues = {k for lane in lanes.values() for v in lane['verdicts'] if v['verdict'] == 'ISSUE' for k in [v['id']]}
-    if not issues <= conf | adv | set(dec.get('rejected', [])):
-        raise SystemExit(f'unadjudicated ISSUE: {sorted(issues - conf - adv - set(dec.get("rejected", [])))}')
+    if not issues <= conf | adv | rej:
+        raise SystemExit(f'unadjudicated ISSUE: {sorted(issues - conf - adv - rej)}')
+    if conf and not (d / 'strict-result.json').exists():
+        raise SystemExit('confirmed edits need `lite_review.py strict BATCH` first')
     already = set()
     if LEDGER.exists():
         for line in LEDGER.read_text().splitlines():
@@ -229,12 +255,69 @@ def record(batch):
             if e['unit_id'] in already:
                 continue
             v = {lane: next(x for x in lanes[lane]['verdicts'] if x['id'] == e['id'])['verdict'] for lane in lanes}
-            status = 'confirmed' if e['id'] in conf else 'advisory' if e['id'] in adv else 'ok'
+            status = ('confirmed' if e['id'] in conf else 'advisory' if e['id'] in adv
+                      else 'rejected' if e['id'] in rej else 'ok')
             fh.write(json.dumps({'batch': batch, 'unit_id': e['unit_id'], 'revision_key': e['revision_key'],
                                  'section': e['section'], 'lanes': ['A', 'B'], 'verdicts': v, 'host': status},
                                 ensure_ascii=False, sort_keys=True) + '\n')
             n += 1
     print(f'recorded {n} units ({len(conf)} confirmed, {len(adv)} advisory)')
+
+
+def strict(batch):
+    """Strict proposal validation of the confirmed edits, in the validator shape used by the W63 repairs."""
+    from i18nlib import full_review as f
+    from i18nlib.workset import create_workset, proposal_template_for
+    from i18nlib.lint import stable_entry_id
+    d = LITE / 'batches' / batch
+    inp = {e['id']: e for e in json.loads((d / 'input.json').read_text())['entries']}
+    dec = json.loads((d / 'decision.json').read_text())
+    m = load_manifest()
+    comp = {c.translation: c.id for c in m.components}
+    live = {u['unit_id']: u for u in units()}
+    groups = {}
+    for c in dec.get('confirmed', []):
+        e = inp[c['id']]
+        o = live[e['unit_id']]['occurrence']
+        if o['target'] == e['target']:
+            raise SystemExit(f'{c["id"]}: target not edited yet')
+        groups.setdefault(comp[e['translation_file']], []).append((c, e, o))
+    results = []
+    for component, rows in groups.items():
+        items, targets = [], {}
+        for c, e, o in rows:
+            eid = stable_entry_id(component, e['section'], e['source'], e['source_tag'])
+            targets[eid] = o['target']
+            items.append({'entry_id': eid, 'component': component, 'section': e['section'], 'source': e['source'],
+                          'source_tag': e['source_tag'], 'previous_target': e['target'],
+                          'previous_args_order': e['args_order'], 'previous_special': o.get('special'),
+                          'host_repair_unit_id': e['unit_id']})
+        out = ROOT / '.artifacts/i18n/lite-review' / batch / component
+        out.mkdir(parents=True, exist_ok=True)
+        report = {'schema_version': 1, 'component': component, 'untranslated': items,
+                  'derivation_kind': 'host-confirmed-target-repair-selection in merge-report-compatible validator shape',
+                  'meaning': 'untranslated is the required validator container name only: these items already have '
+                             'translations. Lite review batch ' + batch + ' confirmed edits.',
+                  'provenance': [{'host_record': str((d / 'decision.json').relative_to(ROOT))}]}
+        report['merge_id'] = f.sha(f.canonical(report))
+        rp = out / 'confirmed-repair-selection.json'
+        rp.write_bytes(f.canonical(report))
+        w = create_workset(m, merge_report_path=rp, limit=len(items), section_prefix=None, classification='all')
+        proposal = proposal_template_for(w)
+        for p in proposal['proposals']:
+            p['target'] = targets[p['entry_id']]
+            p['notes'] = f'Lite review batch {batch} host-confirmed edit'
+        pp = out / 'proposal.json'
+        pp.write_bytes(f.canonical(proposal))
+        r = subprocess.run(['python3', '-B', 'tools/i18n', 'proposal', '--workset', str(w['output']), '--proposal', str(pp),
+                            '--strict', '--json'], capture_output=True, text=True, cwd=ROOT)
+        results.append({'component': component, 'units': [e['unit_id'] for _, e, _ in rows], 'exit_code': r.returncode,
+                        'stdout': r.stdout[-4000:], 'stderr': r.stderr[-4000:]})
+        if r.returncode:
+            print(r.stdout[-3000:], r.stderr[-3000:])
+            raise SystemExit(f'strict proposal failed for {component}')
+    (d / 'strict-result.json').write_text(json.dumps(results, ensure_ascii=False, indent=1) + '\n')
+    print('strict ok:', {g: len(v) for g, v in groups.items()})
 
 
 def status():
@@ -259,6 +342,7 @@ def main():
     p = sp.add_parser('prepare'); p.add_argument('batch'); p.add_argument('--max', type=int, default=MAX); p.add_argument('--path'); p.add_argument('--units')
     c = sp.add_parser('collect'); c.add_argument('batch'); c.add_argument('lane', choices=['A', 'B']); c.add_argument('raw')
     r = sp.add_parser('record'); r.add_argument('batch')
+    s = sp.add_parser('strict'); s.add_argument('batch')
     a = ap.parse_args()
     if a.cmd == 'status':
         status()
@@ -271,6 +355,8 @@ def main():
         prepare(a.batch, a.max, a.path, a.units)
     elif a.cmd == 'collect':
         collect(a.batch, a.lane, a.raw)
+    elif a.cmd == 'strict':
+        strict(a.batch)
     elif a.cmd == 'record':
         record(a.batch)
 

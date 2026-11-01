@@ -1,0 +1,13 @@
+{
+ "confirmed": [
+  {"id": "dbe6e1a89a33", "edit": ["现实守卫", "现实守护者"],
+   "evidence": "Faction name from game/modules/tome/data/factions.lua:22 @624a6732, shown through engine/Faction.lua _t(t.name). terminology/society.tsv:35 Keeper of Reality=现实守护者 (preferred); mod-tome.lua already uses 现实守护者 (31964-31965, 35365-35366), and 现实守卫 is taken by 'guardian of reality' (mod-tome.lua:40490)."},
+  {"id": "7169f112eada", "edit": ["卓越纪%s年，%s%s。", "卓越纪%s年，%s第%s天。"],
+   "evidence": "engine/Calendar.lua:69-71 @624a6732 tformats (day:ordinal(), month name, year:ordinal(), hour, min); ordinal() resolves through _t'%dth' etc. which this library maps to a bare %d (engine.lua:1398-1401), so the day number had no unit. Day-of-period wording because several periods are not months (霜华, 平衡之日, 采购祭, 复兴日). args_order {3,2,1,4,5} unchanged."}
+ ],
+ "advisory": [],
+ "rejected": [
+  {"id": "40b111d4fac2", "reason": "Vargh Republic is the naga faction (naga-portal.lua:96,181; murgol-lair/npcs.lua:91 faction vargh-republic @624a6732). 瓦尔弗娜迦共和国 keeps the 瓦尔弗 stem used for Vargh elsewhere and equals the official zh_hans locale (engine zh_hans.lua:49); the added 娜迦 states a source fact and does not mislead."}
+ ],
+ "notes": "Pilot batch of the lightweight flow (.always_merge names). B returned 80 OK; A raised 3 ISSUEs."
+}

@@ -18,7 +18,7 @@ t("Fearscape", "恶魔空间", "nil")
 t("Hall of Reflection", "反射之间", "nil")
 t("Horrors", "恐魔", "nil")
 t("Iron Throne", "钢铁王座", "nil")
-t("Keepers of Reality", "现实守卫", "nil")
+t("Keepers of Reality", "现实守护者", "nil")
 t("MAINHAND", "主手", "nil")
 t("Marus of Elvala", "埃尔瓦拉的马鲁斯", "nil")
 t("OFFHAND", "副手", "nil")
@@ -38,7 +38,7 @@ t("Temple of Creation", "造物者神庙", "nil")
 t("Thalore", "自然精灵", "nil")
 t("The Way", "维网", "nil")
 t([[Today is the %s %s of the %s year of the Age of Ascendancy of Maj'Eyal.
-The time is %02d:%02d.]], [[今天是马基·埃亚尔卓越纪%s年，%s%s。
+The time is %02d:%02d.]], [[今天是马基·埃亚尔卓越纪%s年，%s第%s天。
 当前时间 %02d:%02d。]], "nil", {3,2,1,4,5})
 t("Undead", "不死族", "nil")
 t("Ungrol of Last Hope", "最后的希望城的温格洛", "nil")
