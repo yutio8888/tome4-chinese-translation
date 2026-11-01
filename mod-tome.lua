@@ -3324,7 +3324,7 @@ section "mod-tome/data/birth/races/dwarf.lua"
 
 t("Dwarf", "矮人", "birth descriptor name")
 t("Dwarves are a secretive people, hailing from their underground home of the Iron Throne.", "矮人是一支隐秘的种族，生活于地下世界钢铁王座。", "_t")
-t("They are a sturdy race and are known for their masterwork, yet they are not well loved, having left other races to fend for themselves in past conflicts.", "他们是支强壮的种族并以大师级手艺而闻名，但是，由于在过去的战乱中为了自身利益抛弃了其他种族，他们仍然不受欢迎。", "_t")
+t("They are a sturdy race and are known for their masterwork, yet they are not well loved, having left other races to fend for themselves in past conflicts.", "他们是支强壮的种族，以大师级手艺而闻名，但由于在过去的冲突中任由其他种族自生自灭，他们并不受人喜爱。", "_t")
 t("All dwarves are united under the Empire and their love of money.", "所有矮人都团结在帝国之下，也团结在对金钱的热爱之下。", "_t")
 t("Skin", "皮肤", "birth facial category")
 t("Hairs", "发型", "birth facial category")
