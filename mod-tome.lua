@@ -7965,7 +7965,7 @@ t("It's a large black ant.", "一只巨大的黑色蚂蚁。", "_t")
 t("giant fire ant", "火焰巨蚁", "entity name")
 t("It's a large red ant, wreathed in flames.", "一只巨大的红色蚂蚁，全身燃烧着火焰。", "_t")
 t("giant ice ant", "寒冰巨蚁", "entity name")
-t("It's a large white ant. The air is frigid around it.", "一只巨大的白色蚂蚁，它四周的空气都凝固了。", "_t")
+t("It's a large white ant. The air is frigid around it.", "一只巨大的白色蚂蚁，它四周的空气寒冷刺骨。", "_t")
 t("giant lightning ant", "闪电巨蚁", "entity name")
 t("It's a large yellow ant with sparks arcing across its body.", "一只巨大的黄色蚂蚁，身体闪耀着电火花。", "_t")
 t("giant acid ant", "强酸巨蚁", "entity name")
@@ -7973,7 +7973,7 @@ t("It's a large black ant.  Its porous skin oozes acid.", "一只巨大的黑色
 t("giant army ant", "行军巨蚁", "entity name")
 t("It's a large ant with a heavy exoskeleton, geared for war.", "一只巨大的蚂蚁，有厚重的用于战斗的外壳。", "_t")
 t("Queen Ant", "蚁后", "entity name")
-t("Queen of the ants, queen of the biting death!", "蚂蚁皇后，掌控死亡之啮的皇后！", "_t")
+t("Queen of the ants, queen of the biting death!", "蚁群之后，掌控死亡之啮的女王！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/aquatic_critter.lua"
