@@ -6050,7 +6050,7 @@ section "mod-tome/data/chats/shertul-fortress-shimmer.lua"
 t("[Alter the appearance of %s]", "[改变%s的外观]", "tformat")
 t("[Alter the appearance of your body]", "[改变你的身体外观]", "_t")
 t("[Alter the appearance of your facial features]", "[改变你的面部特征]", "_t")
-t("[Alter the appearance of your hair]", "[改变你的发型。]", "_t")
+t("[Alter the appearance of your hair]", "[改变你的发型]", "_t")
 t("[Alter the appearance of your cosmetic aura]", "[改变你的装饰光环]", "_t")
 t("[Load/Save outfit]", "[读取/保存装束]", "_t")
 t("[Disable the visual effects of your sustains]", "[禁用持续技能的视觉效果]", "_t")
