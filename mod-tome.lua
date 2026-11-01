@@ -5317,7 +5317,7 @@ By the way, ", "\n顺带一提，", "_t")
 t("during our escape I found the plans for an #YELLOW#Ambush Trap#LAST#", "在逃亡途中我找到了一份#YELLOW#伏击陷阱#LAST#的设计图", "_t")
 t(" and while", "，同时在", "_t")
 t("while", "在", "_t")
-t(" organizing my inventory, I came across some #YELLOW#Smelly Toxin#LAST# that a colleague claimed could actually turn creatures to stone.  Truly exotic!", " 整理货物时，我偶然发现了一些#YELLOW#恶臭毒素#LAST#，一位同行声称它竟然能将生物变成石头。真是奇特！", "_t")
+t(" organizing my inventory, I came across some #YELLOW#Smelly Toxin#LAST# that a colleague claimed could actually turn creatures to stone.  Truly exotic!", "整理货物时，我偶然发现了一些#YELLOW#恶臭毒素#LAST#，一位同行声称它竟然能将生物石化。真是奇特！", "_t")
 t("\
 You would not happen to be interested, by any chance?", "\n不知你是否会感兴趣？", "_t")
 t("\
