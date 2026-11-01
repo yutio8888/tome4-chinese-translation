@@ -8963,7 +8963,7 @@ t([[A terrible robed undead figure, this creature has existed in its unlife for 
 It can summon the very shades of its victims from beyond the grave to come enslaved to its aid.]], [[这个身披长袍的可怕不死生物，靠窃取他人的生命在亡者之身中存在了数百年。
 它能从坟墓彼端召唤受害者的阴影，使其臣服前来协助自己。]], "_t")
 t("vampire lord", "吸血鬼领主", "entity name")
-t("A foul wind chills your bones as this ghastly figure approaches.", "当这只可怕的生物靠近时，你感到脊背一阵发凉。", "_t")
+t("A foul wind chills your bones as this ghastly figure approaches.", "当这个可怕的身影逼近时，一股污浊的阴风令你寒彻骨髓。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/venom-drake.lua"
@@ -8973,9 +8973,9 @@ t("venom", "毒液", "entity subtype")
 t("venom drake hatchling", "毒龙幼仔", "entity name")
 t("A corrosive venom drake hatchling; not too powerful by itself, but it usually comes with its brothers and sisters.", "一只腐蚀性的毒龙幼仔。它独自行动时并不强大，但通常有兄弟姐妹相伴。", "_t")
 t("venom drake", "毒龙", "entity name")
-t("A mature corrosive venom drake, armed with deadly breath and nasty claws.", "一条成年毒龙，拥有致命的吐息和锋利的爪子。", "_t")
+t("A mature corrosive venom drake, armed with deadly breath and nasty claws.", "一条具有腐蚀性的成年毒龙，拥有致命的吐息和锋利的爪子。", "_t")
 t("venom wyrm", "猛毒巨龙", "entity name")
-t("An old and powerful corrosive venom drake, armed with deadly breath and nasty claws.", "一条年长且强大的毒龙，拥有致命的吐息和锋利的爪子。", "_t")
+t("An old and powerful corrosive venom drake, armed with deadly breath and nasty claws.", "一条年长且强大的腐蚀性毒龙，拥有致命的吐息和锋利的爪子。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/vermin.lua"
@@ -8996,7 +8996,7 @@ t("These be white wights.", "这些是白色的尸妖。", "_t")
 t("forest wight", "森林尸妖", "entity name")
 t("It is a ghostly apparition with a humanoid form.", "它是一个有着人形的幽灵幻影。", "_t")
 t("grave wight", "墓穴尸妖", "entity name")
-t("It is a ghostly form with eyes that haunt you.", "它呈幽灵形态，眼睛一直盯着你。", "_t")
+t("It is a ghostly form with eyes that haunt you.", "它呈幽灵形态，那双眼睛令你挥之不去。", "_t")
 t("barrow wight", "古墓尸妖", "entity name")
 t("It is a ghostly nightmare of an entity.", "它是幽灵般的梦魇。", "_t")
 t("emperor wight", "帝王尸妖", "entity name")
@@ -9020,11 +9020,11 @@ t("xorn", "索尔石怪", "entity subtype")
 t("umber hulk", "褐色巨兽", "entity name")
 t("This bizarre creature has glaring eyes and large mandibles capable of slicing through rock.", "这只怪异的生物长着一双怒睁的眼睛和几只能咬穿岩石的巨大口器。", "_t")
 t("xorn", "索尔石怪", "entity name")
-t("A huge creature of the element Earth. Able to merge with its element, it has four huge arms protruding from its enormous torso.", "一只巨大的土元素。它有四只巨大的手臂，并且可以融合泥土。", "_t")
+t("A huge creature of the element Earth. Able to merge with its element, it has four huge arms protruding from its enormous torso.", "一只巨大的土元素生物。它能与自身元素融为一体，庞大的躯干上伸出四只巨大的手臂。", "_t")
 t("xaren", "钻石索尔石怪", "entity name")
 t("It is a tougher relative of the Xorn. Its hide glitters with metal ores.", "它是索尔石怪更难对付的近亲，表皮闪烁着金属矿石的光泽。", "_t")
 t("The Fragmented Essence of Harkor'Zun", "哈卡祖的精华碎片", "entity name")
-t("Fragmented essence... maybe it'd be best if it stayed fragmented.", "精华碎片……如果它仍然呈碎裂状态就好了。", "_t")
+t("Fragmented essence... maybe it'd be best if it stayed fragmented.", "精华碎片……或许让它保持碎裂才是最好的。", "_t")
 t("#AQUAMARINE#%s absorbs the energy of the destroyed fragment!", "#AQUAMARINE#%s 吸收了被摧毁的碎片的能量！", "logSeen")
 t("#AQUAMARINE#%s is infused with all the energies of the fragments. The real Harkor'Zun is reconstituted!", "#AQUAMARINE#%s吸收了所有碎片的能量，真正的哈卡祖重生了！", "logSeen")
 t("demon", "恶魔", "entity type")
