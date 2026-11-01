@@ -8028,7 +8028,7 @@ t("animal", "动物", "entity type")
 t("bird", "飞禽", "entity subtype")
 t("Phoenix", "凤凰", "entity name")
 t("Ever burning, ever dying, ever reviving, the Phoenix swoops down upon you, seeking to share its fiery fate with you.", "永远在燃烧，永远在死去，永远在重生，凤凰向你俯冲而来，想让你分享它炽烈的命运。", "_t")
-t("#LIGHT_RED#%s raises from the dead!", "#LIGHT_RED#%s 从尸体中站了起来！", "logSeen")
+t("#LIGHT_RED#%s raises from the dead!", "#LIGHT_RED#%s 死而复生！", "logSeen")
 t("RESURRECT!", "复活！", "_t")
 
 ------------------------------------------------
@@ -8056,13 +8056,13 @@ t("Larger than a normal wolf, it prowls and snaps at you.", "它比普通的狼�
 t("dire wolf", "狂狼", "entity name")
 t("Easily as big as a horse, this wolf menaces you with its claws and fangs.", "这只狼像马一样大，用它的爪子和獠牙来威胁你。", "_t")
 t("white wolf", "白狼", "entity name")
-t("A large and muscled wolf from the northern wastes. Its breath is cold and icy, and its fur coated in frost.", "一头来自北部荒野的狼，它膘肥身健，体型匀称。它呼吸冰冷，毛覆寒霜。", "_t")
+t("A large and muscled wolf from the northern wastes. Its breath is cold and icy, and its fur coated in frost.", "一头来自北部荒野、体型巨大且肌肉发达的狼。它呼吸冰冷，毛覆寒霜。", "_t")
 t("warg", "座狼", "entity name")
 t("It is a large wolf with eyes full of cunning.", "这是一只狡猾且体型巨大的狼。", "_t")
 t("fox", "狐狸", "entity name")
 t("The quick brown fox jumps over the lazy dog.", "这只灵巧的棕色狐狸从一只懒狗身上跳了过去。", "_t")
 t("Rungof the Warg Titan", "泰坦座狼郎格夫", "entity name")
-t("It is a large wolf with eyes full of cunning, thrice the size of a normal warg.", "一只超级大狼，眼睛里充满了狡猾，比普通座狼大两倍。", "_t")
+t("It is a large wolf with eyes full of cunning, thrice the size of a normal warg.", "一只体型巨大的狼，眼中满是狡黠，体型是普通座狼的三倍。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/cold-drake.lua"
