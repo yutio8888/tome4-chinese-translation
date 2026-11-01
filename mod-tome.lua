@@ -368,7 +368,7 @@ t("Destroy", "摧毁", "_t")
 t("%s drops on the floor: %s.", "%s把%s丢在了地上。", "logSeen")
 t("You cannot change your equipment while sleeping!", "你不能在睡眠中切换装备！", "logPlayer")
 t("You cannot change your equipment!", "你不能切换装备！", "logPlayer")
-t("You had to drop %s due to lack of space.", "由于空间不足，你必须丢下%s。", "logPlayer")
+t("You had to drop %s due to lack of space.", "由于空间不足，你不得不丢下了%s。", "logPlayer")
 t("%s - %sEncumbrance %d/%d", "%s-%s负重 %d/%d", "tformat")
 t("You extract %s from %s", "你从%s中提炼了%s。", "logPlayer", {2,1})
 t("You gain %0.2f gold from the transmogrification of %s.", "你获得了%0.2f金币，转化了%s。", "log")
@@ -392,10 +392,10 @@ t("%s%d %s#LAST#", "%s%d %s#LAST#", "tformat")
 ------------------------------------------------
 section "mod-tome/class/EscortRewards.lua"
 
-t("Please help me! I am afraid I lost myself in this place. I know there is a recall portal left around here by a friend, but I have fought too many battles, and I fear I will not make it. Would you help me?", "帮帮我！我在这地方迷路了，我有个朋友给我留下了一个传送门，不过我打了太多仗，恐怕靠我自己是到不了那里了，你能帮我一下吗？", "_t")
+t("Please help me! I am afraid I lost myself in this place. I know there is a recall portal left around here by a friend, but I have fought too many battles, and I fear I will not make it. Would you help me?", "帮帮我！我在这地方迷路了，我有个朋友在这附近给我留下了一个召回传送门，不过我打了太多仗，恐怕靠我自己是到不了那里了，你能帮我一下吗？", "_t")
 t("%s, the lost warrior", "%s，迷路的战士", "_t")
 t("He looks tired and wounded.", "他看起来疲惫又受伤。", "_t")
-t("Please help me! I am afraid I lost myself in this place. I know there is a recall portal left around here by a friend, but I will not be able to continue the road alone. Would you help me?", "帮帮我！我在这地方迷路了，我有个朋友给我留下了一个传送门，不过恐怕靠我自己是到不了那里了，你能帮我一下吗？", "_t")
+t("Please help me! I am afraid I lost myself in this place. I know there is a recall portal left around here by a friend, but I will not be able to continue the road alone. Would you help me?", "帮帮我！我在这地方迷路了，我有个朋友在这附近给我留下了一个召回传送门，不过恐怕靠我自己是到不了那里了，你能帮我一下吗？", "_t")
 t("%s, the injured seer", "%s，受伤的先知", "_t")
 t("She looks tired and wounded.", "她看起来疲惫又受伤。", "_t")
 t("%s, the repented thief", "%s，忏悔的盗贼", "_t")
@@ -407,7 +407,7 @@ t([[Oh but you are ... are you ?! ME?!
 		So I was right, this is not my original time-thread!
 		Please help me! I am afraid I lost myself in this place. I know there is a temporal portal left around here by a friend, but I have fought too many battles, and I fear I will not make it. Would you help me? Would you help .. yourself?]], [[天哪，你……你是另一个我吗？!
 		看来我想的没错，这里已经不是我所在的时间线了！
-		帮帮我！我在这地方迷路了，我有个朋友给我留下了一个传送门，不过我打了太多仗，恐怕靠我自己是到不了那里了，你能帮我一下吗？你能……帮自己一下吗？]], "_t")
+		帮帮我！我在这地方迷路了，我有个朋友在这附近给我留下了一个时空传送门，不过我打了太多仗，恐怕靠我自己是到不了那里了，你能帮我一下吗？你能……帮自己一下吗？]], "_t")
 t("%s, temporal explorer", "%s，时空旅行者", "_t")
 t("She looks tired and wounded. She is so similar to you and yet completely different. Weird.", "她看起来疲惫又受伤。她跟你是如此的相像，但完全不一样。好奇怪。", "_t")
 t("%s, the worried loremaster", "%s，担忧的贤者", "_t")
@@ -425,7 +425,7 @@ t("learnt", "学习了", "_t")
 t("[%s talent %s (+%d level(s))]", "[%s技能 %s（+%d 级）]", "tformat")
 t("Improve", "提升", "_t")
 t("Learn", "学习", "_t")
-t("gained talent category %s (at mastery %0.2f)", "解锁技能树 %s（熟练度 %0.2f）", "tformat")
+t("gained talent category %s (at mastery %0.2f)", "获得技能树 %s（熟练度 %0.2f）", "tformat")
 t("[Allow training of talent category %s (at mastery %0.2f)]", "[允许训练技能树 %s（熟练度 %0.2f）]", "tformat")
 t([[#GOLD#%s / %s#LAST#
 %s]], [[#GOLD#%s/%s#LAST#

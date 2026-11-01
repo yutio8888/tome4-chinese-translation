@@ -1,0 +1,331 @@
+{
+  "batch": "0019",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "40744a0fb786",
+      "verdict": "ISSUE",
+      "observation": "固定核心提交的 game/engines/default/engine/utils.lua:939-949 中，his_her 和 him_her 共用同一个 _t\"her\"；前者是所有格，后者是宾格。译为“她的”会使宾格调用错误，例如 game/modules/tome/data/general/objects/world-artifacts.lua:8312 的武器返回提示将变成“返回到她的”。需要按语境区分翻译键，单一“她的”不能覆盖两个用途。"
+    },
+    {
+      "id": "150d4969dbf2",
+      "verdict": "OK"
+    },
+    {
+      "id": "b9ec2f699f1a",
+      "verdict": "OK"
+    },
+    {
+      "id": "2112bc9702d0",
+      "verdict": "OK"
+    },
+    {
+      "id": "3898cf960b27",
+      "verdict": "OK"
+    },
+    {
+      "id": "660fc6bcd5fb",
+      "verdict": "OK"
+    },
+    {
+      "id": "95a798731652",
+      "verdict": "OK"
+    },
+    {
+      "id": "c4479534ba0f",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/class/Actor.lua:8031-8037（固定核心提交）在 addObject 失败后直接把剩余物品放到地上；这是通知已经自动发生的丢弃。译文“你必须丢下”容易理解成要求玩家接下来手动丢弃，未表达 had to drop 的已发生结果。",
+      "suggestion": "由于空间不足，你不得不丢下了%s。"
+    },
+    {
+      "id": "7974f0148600",
+      "verdict": "OK"
+    },
+    {
+      "id": "36634ef53ecf",
+      "verdict": "OK"
+    },
+    {
+      "id": "0a9ffc62a233",
+      "verdict": "OK"
+    },
+    {
+      "id": "0690ed900226",
+      "verdict": "OK"
+    },
+    {
+      "id": "274c3dbf14d8",
+      "verdict": "OK"
+    },
+    {
+      "id": "81b6de81d307",
+      "verdict": "OK"
+    },
+    {
+      "id": "1f84a18e7886",
+      "verdict": "OK"
+    },
+    {
+      "id": "f5258f294d4e",
+      "verdict": "OK"
+    },
+    {
+      "id": "37c3360658b0",
+      "verdict": "OK"
+    },
+    {
+      "id": "6147871f24d0",
+      "verdict": "OK"
+    },
+    {
+      "id": "f07667871679",
+      "verdict": "OK"
+    },
+    {
+      "id": "ee8e5f90a706",
+      "verdict": "OK"
+    },
+    {
+      "id": "b53be1a70a8b",
+      "verdict": "OK"
+    },
+    {
+      "id": "dc0674a755d3",
+      "verdict": "OK"
+    },
+    {
+      "id": "1d1fb008701e",
+      "verdict": "OK"
+    },
+    {
+      "id": "e82ae593e5de",
+      "verdict": "OK"
+    },
+    {
+      "id": "0441dd8334e4",
+      "verdict": "OK"
+    },
+    {
+      "id": "371a0e6cc53e",
+      "verdict": "OK"
+    },
+    {
+      "id": "dfd56dcecabb",
+      "verdict": "OK"
+    },
+    {
+      "id": "aa098cd5a53c",
+      "verdict": "OK"
+    },
+    {
+      "id": "c61b21ee06e6",
+      "verdict": "OK"
+    },
+    {
+      "id": "f847a0299429",
+      "verdict": "OK"
+    },
+    {
+      "id": "f57433f3fb0b",
+      "verdict": "OK"
+    },
+    {
+      "id": "eb2175a76304",
+      "verdict": "OK"
+    },
+    {
+      "id": "b934624497ff",
+      "verdict": "OK"
+    },
+    {
+      "id": "5a5bc06d2dc3",
+      "verdict": "OK"
+    },
+    {
+      "id": "5972ca134b2c",
+      "verdict": "OK"
+    },
+    {
+      "id": "34eaf99489a2",
+      "verdict": "OK"
+    },
+    {
+      "id": "07a6d91d5614",
+      "verdict": "OK"
+    },
+    {
+      "id": "8cc591eb8b70",
+      "verdict": "OK"
+    },
+    {
+      "id": "f76e8bc7e556",
+      "verdict": "OK"
+    },
+    {
+      "id": "dde954abc31e",
+      "verdict": "OK"
+    },
+    {
+      "id": "d0561e5265f6",
+      "verdict": "OK"
+    },
+    {
+      "id": "6c0873207bcd",
+      "verdict": "OK"
+    },
+    {
+      "id": "5889c3131f88",
+      "verdict": "OK"
+    },
+    {
+      "id": "0918521344c3",
+      "verdict": "OK"
+    },
+    {
+      "id": "c69ebcc964e0",
+      "verdict": "OK"
+    },
+    {
+      "id": "db74b18f9d0e",
+      "verdict": "OK"
+    },
+    {
+      "id": "1e7e448db24b",
+      "verdict": "OK"
+    },
+    {
+      "id": "63d241b9c780",
+      "verdict": "OK"
+    },
+    {
+      "id": "e4ad10ee456d",
+      "verdict": "OK"
+    },
+    {
+      "id": "31ffba0ea400",
+      "verdict": "OK"
+    },
+    {
+      "id": "e674cb991fe9",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/class/EscortRewards.lua:558-560（固定核心提交）实际调用 learnTalentType(tt, false)。game/engines/default/engine/interface/ActorTalents.lua:987-990 将该技能树状态设为 false；game/modules/tome/dialogs/LevelupDialog.lua:448-457 表明之后仍须花费技能树点学习。奖励只是获得一棵尚未解锁的技能树，“解锁技能树”误报为已解锁。",
+      "suggestion": "获得技能树 %s（熟练度 %0.2f）"
+    },
+    {
+      "id": "a95a6d599509",
+      "verdict": "OK"
+    },
+    {
+      "id": "4f4543707d6c",
+      "verdict": "OK"
+    },
+    {
+      "id": "dc8487b721e1",
+      "verdict": "OK"
+    },
+    {
+      "id": "e6f195e77136",
+      "verdict": "OK"
+    },
+    {
+      "id": "3e6e86238424",
+      "verdict": "OK"
+    },
+    {
+      "id": "fcc9e34146fe",
+      "verdict": "OK"
+    },
+    {
+      "id": "ca17b1d80b7f",
+      "verdict": "OK"
+    },
+    {
+      "id": "c2a02446dc0a",
+      "verdict": "OK"
+    },
+    {
+      "id": "172e45ba5fcc",
+      "verdict": "OK"
+    },
+    {
+      "id": "eab5104b9d73",
+      "verdict": "OK"
+    },
+    {
+      "id": "d0122b872312",
+      "verdict": "OK"
+    },
+    {
+      "id": "1108d53b2230",
+      "verdict": "OK"
+    },
+    {
+      "id": "424102a9c112",
+      "verdict": "OK"
+    },
+    {
+      "id": "3463cb1ad219",
+      "verdict": "OK"
+    },
+    {
+      "id": "9f2a2a3134d7",
+      "verdict": "OK"
+    },
+    {
+      "id": "54e2f3bc7a2b",
+      "verdict": "OK"
+    },
+    {
+      "id": "988b454dee6f",
+      "verdict": "OK"
+    },
+    {
+      "id": "d9f108d37f42",
+      "verdict": "OK"
+    },
+    {
+      "id": "ba13dc0d6028",
+      "verdict": "OK"
+    },
+    {
+      "id": "f9c24a1df0b4",
+      "verdict": "OK"
+    },
+    {
+      "id": "c649cbea35f8",
+      "verdict": "OK"
+    },
+    {
+      "id": "325f60ad43c1",
+      "verdict": "OK"
+    },
+    {
+      "id": "ced3f90ba8e9",
+      "verdict": "OK"
+    },
+    {
+      "id": "9886ae3ad137",
+      "verdict": "OK"
+    },
+    {
+      "id": "c3bd6e6aeb68",
+      "verdict": "OK"
+    },
+    {
+      "id": "10dec83763c1",
+      "verdict": "OK"
+    },
+    {
+      "id": "6c7e48c65513",
+      "verdict": "OK"
+    },
+    {
+      "id": "357e517540cf",
+      "verdict": "OK"
+    },
+    {
+      "id": "945f6b9a92f3",
+      "verdict": "OK"
+    }
+  ]
+}
