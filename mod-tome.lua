@@ -3846,7 +3846,7 @@ t("Redfur", "红毛", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Yeeks are a mysterious race native to the tropical island of Rel.", "夺心魔是一支神秘的种族，生活于热带岛屿瑞尔。", "_t")
 t("Although they are now nearly unheard of in Maj'Eyal, they spent many centuries as secret slaves to the Halfling nation of Nargol.", "尽管如今在马基·埃亚尔几乎无人知晓他们，但他们曾作为纳格尔半身人王国的秘密奴隶度过数百年。", "_t")
-t("They possess the #GOLD#Dominant Will#WHITE# talent which allows them to temporarily subvert the mind of a lesser creature. When the effect ends, the creature dies.", "他们天生掌握 #GOLD# 主导思维#WHITE#，使他们能在短时间内控制一个较弱生物的思维。当效果结束时，被控制目标死亡。", "_t")
+t("They possess the #GOLD#Dominant Will#WHITE# talent which allows them to temporarily subvert the mind of a lesser creature. When the effect ends, the creature dies.", "他们天生掌握#GOLD#主导意志#WHITE#技能，使他们能在短时间内控制一个较弱生物的思维。当效果结束时，被控制目标死亡。", "_t")
 t("While Yeeks are not amphibians, they still have an affinity for water, allowing them to survive longer without breathing.", "虽然夺心魔不是两栖生物，但他们天生对水有种特殊的亲和力，使他们能屏息更长时间。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -3 Strength, -2 Dexterity, -5 Constitution", "#LIGHT_BLUE# * -3 力量，-2 敏捷，-5 体质", "_t")
@@ -3869,7 +3869,7 @@ section "mod-tome/data/birth/worlds.lua"
 
 t("Maj'Eyal: The Age of Ascendancy", "马基·埃亚尔：卓越纪", "_t")
 t("The people of Maj'Eyal: Humans, Halflings, Elves and Dwarves.", "马基·埃亚尔生活着人类、半身人、精灵和矮人。", "_t")
-t("The known world has been at relative peace for over one hundred years, and people are prospering again.", "世界已经保持了超过一百年的和平，各大种族再次繁荣起来。", "_t")
+t("The known world has been at relative peace for over one hundred years, and people are prospering again.", "已知世界已经保持了一百多年的相对和平，人们再次繁荣起来。", "_t")
 t("You are an adventurer, setting out to find lost treasure and glory.", "你是一位冒险者，出发去寻找失落的宝藏和荣耀。", "_t")
 t("But what lurks in the shadows of the world?", "在世界的阴影之下究竟潜伏着什么呢？", "_t")
 t("Infinite Dungeon: The Neverending Descent", "无尽地下城：永无止境的下降", "_t")
@@ -3884,7 +3884,7 @@ t("Blood spilled on sand, only the strong survive. Prove yourself worthy to ente
 t("Play as a lone warrior facing the Arena's challenge!", "孤身一人直面竞技场的挑战！", "_t")
 t("You can use any class and race for it.", "你可以使用任何职业和种族。", "_t")
 t("See how far you can go! Can you become the new Master of the Arena?", "看看你能前进多远！你能成为新的竞技场主宰么？", "_t")
-t("If so, you will battle your own champion next time!", "如果这样，下一场战斗你的对手就是你自己的冠军角色！", "_t")
+t("If so, you will battle your own champion next time!", "如果成功，下次挑战竞技场时，你将与自己的冠军角色交战！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/calendar_allied.lua"
@@ -3893,14 +3893,14 @@ t("Wintertide", "霜华", "calendar allied")
 t("Allure", "厄流月", "calendar allied")
 t("Regrowth", "复苏月", "calendar allied")
 t("Time of Balance", "平衡之日", "calendar allied")
-t("Pyre", "派尔月", "calendar allied")
+t("Pyre", "烈火月", "calendar allied")
 t("Mirth", "狂欢月", "calendar allied")
 t("Summertide", "炎华", "calendar allied")
 t("Flare", "辉耀月", "calendar allied")
 t("Dusk", "黄昏月", "calendar allied")
 t("Time of Equilibrium", "均衡之日", "calendar allied")
 t("Haze", "混沌月", "calendar allied")
-t("Decay", "霜至月", "calendar allied")
+t("Decay", "凋零月", "calendar allied")
 
 ------------------------------------------------
 section "mod-tome/data/calendar_dwarf.lua"
