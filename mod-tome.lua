@@ -16224,7 +16224,7 @@ t([[#{bold}#412: #{normal}#Diseases and food shortages force increased trade wit
 #{bold}#1430: #{normal}#Several mages visited and used their arts to cure many of the plagues we have suffered for centuries. When offered payment they refused. How very odd...
 #{bold}#1490: #{normal}#Production now nearing pre-Spellblaze levels. Profits high, and commerce with other races increasing.
 #{bold}#1567: #{normal}#Gigantic earthquakes have completely destroyed many of our major production facilities. Loss of personnel resources is also very tragic, especially key production experts. This is having a very negative effect on our forecasts.]], [[#{bold}#412：#{normal}#疾病和食物短缺迫使我们增加与其他种族的贸易。这是我们伟大历史上第一次出现亏损。民众士气降至历史最低点，严重影响了生产效率。
-#{bold}#1430：#{normal}#数个法师来此造访并用他们的法术解除了折磨我们多个世纪的瘟疫。他们还拒绝了我们的报酬。真是群古怪的家伙。
+#{bold}#1430：#{normal}#数个法师来此造访并用他们的法术治愈了折磨我们数百年的许多瘟疫。他们还拒绝了我们的报酬。真是群古怪的家伙。
 #{bold}#1490：#{normal}#现在生产力已经恢复到接近魔法大爆炸前的水平，利润很高，和其它种族的交易与日俱增。
 #{bold}#1567：#{normal}#巨大的地震彻底摧毁了许多主要生产设施。人员资源的损失同样惨重，尤其是关键生产专家。这正对我们的预测造成极为不利的影响。]], "_t")
 t("Iron Throne Profits History: Age of Pyre", "钢铁王座的盈利历史　烈火纪", "_t")
@@ -16286,26 +16286,26 @@ yes to diamonds. arm our merchants in the caravan, no extra guards. profits are 
 #{italic}#卓越纪 121年#{normal}#
 
 #{bold}#最后的希望——出口清单#{normal}#
-      钢制板甲（人类）- 500pcs.
-      钢制板甲（半身人）- 460pcs.
+      钢制板甲（人类）- 500件
+      钢制板甲（半身人）- 460件
       钢制武器 -
-      * 长剑 - 170pcs.
-      * 长矛 - 200pcs.
-      * 钉头锤 - 150pcs.
-      工艺品、杂货 - 2,200pcs.
+      * 长剑 - 170把
+      * 长矛 - 200支
+      * 钉头锤 - 150把
+      工艺品、杂货 - 2,200件
 
 #{bold}#德斯镇——出口清单#{normal}#
-      铁制手斧 - 50pcs.
-      工具、杂货 - 65pcs.
+      铁制手斧 - 50把
+      工具、杂货 - 65件
 
 #{bold}#最后的希望——进口清单#{normal}#
-      黄金 - 500,000pcs.
-      谷物等 - 1,000tons
+      黄金 - 500,000枚
+      谷物等 - 1,000吨
 
 #{bold}#机密事项：安格利文——出口#{normal}#
-      石榴石 - 50pcs.
-      红宝石 - 40pcs.
-      钻石 - 20pcs.
+      石榴石 - 50颗
+      红宝石 - 40颗
+      钻石 - 20颗
 
 今年钻石产量很低——加价50%？伊格兰斯袭击了我们上一支安格利文商队——增派守卫？——D
 钻石同意加价。武装商队里的商人，不增派守卫。利润已经够薄了！——S]], "_t")
@@ -16366,7 +16366,7 @@ You feel the hate inside you melt away. You feel as if the curse has subsided fo
 This place makes you wonder if there is a way to end the curse.
 And if you can't overcome it you might be able to master it and take back a part of your life.
 Either way, you feel the time has come to do something more about this curse.
-]], [[映入眼帘的，是一片宁静祥和的草原。这里似乎有什么令你感到熟悉，但你并不十分确定。
+]], [[映入眼帘的，是一片宁静的草地。这里似乎有什么令你感到熟悉，但你并不十分确定。
 唯一可以确定的是，它让你从受诅咒的人生所带来的漫长苦难中得到了片刻喘息。
 你感到体内的仇恨渐渐消融，仿佛连诅咒也暂时消退了。
 
@@ -16686,7 +16686,7 @@ It's not fleeing, it's just tactical repositioning...
 ]], "_t")
 t([[Kor'Pul, Kor'Pul... When the farmer told me what this place was called it reminded me of something, and I think it's coming back to me now. My mother used to tell me a story about our ancestors, how they fled by ship to escape the grasp of an evil sorcerer who dominated the lands. The sorcerer was a vile necromancer who took advantage of the destruction from the Spellblaze and the Cataclysm to create huge armies of undead. The people fought against him time and time again, but though he would be defeated he would still come back, sometimes after hundreds of years. And that sorcerer's name was.... Kor'Pul.
 
-Probably just a coincidence.]], [[卡·普尔，卡·普尔……农夫告诉我这里的名字时，我觉得有些耳熟，现在好像渐渐想起来了。妈妈曾给我讲过我们祖先如何乘船逃离一名称霸大陆的邪恶巫师之手的故事。这名卑鄙的死灵法师利用法术大爆炸和大灾变造成的毁灭，建立了庞大的不死军团。人们无数次地与他斗争，但即使他被打败了，仍会卷土重来，有时甚至隔了数百年。那个巫师的名字就是……卡·普尔。
+Probably just a coincidence.]], [[卡·普尔，卡·普尔……农夫告诉我这里的名字时，我觉得有些耳熟，现在好像渐渐想起来了。妈妈曾给我讲过我们祖先如何乘船逃离一名称霸大陆的邪恶巫师之手的故事。这名卑鄙的死灵法师利用魔法大爆炸和大灾变造成的毁灭，建立了庞大的不死军团。人们无数次地与他斗争，但即使他被打败了，仍会卷土重来，有时甚至隔了数百年。那个巫师的名字就是……卡·普尔。
 
 ——大概是个巧合吧。]], "_t")
 t([[It's quiet down here. And dark... very dark. I suppose I should have brought a lantern. Our motto is to bring light into dark places, but I guess I should have thought about that in practical terms. I've cleared out pretty much all of this area, and there's not much left to explore beyond this last room.
@@ -17050,7 +17050,8 @@ Shall never dim
 #{normal}#]], [[#{bold}#
 领主格拉希恩·贝斯泰勒
 #{normal}#41 - 112#{italic}#
-对最伟大之人的怀念永不消逝
+对最伟大之人的怀念
+永不消逝
 #{normal}#]], "_t")
 t([[#{bold}#
 Inilasac Salocin
