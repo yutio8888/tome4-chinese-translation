@@ -1,0 +1,12 @@
+{
+ "confirmed": [
+  {"id": "d0aedb599cad", "edit": ["当该武器击中：%s (%d%% 几率等级 %d)。", "该武器击中时：%s（%d%% 几率，等级 %d）。"], "evidence": "Raised by A. game/modules/tome/class/Object.lua:948,955 @624a6732 passes talent_on_hit chance and level as two arguments; 几率等级 fused them and 当该武器击中： was not a sentence."},
+  {"id": "43cab4082bbd", "edit": ["当该武器暴击时：%s (%d%% 几率等级 %d)。", "该武器暴击时：%s（%d%% 几率，等级 %d）。"], "evidence": "Same as d0aedb599cad for talent_on_crit (game/modules/tome/class/Object.lua:967,974)."},
+  {"id": "7fb8cd240f2c", "edit": ["能当作单手武器和副手使用。", "能同时作为主手武器和副手武器使用。"], "evidence": "Raised by A. double_weapon items are twohanded with slot_forbid OFFHAND (tome-orcs world-artifacts.lua:769 etc.) and are also used as the offhand weapon (Combat.lua:179-200); 单手 contradicts that."},
+  {"id": "145712caeb88", "edit": ["近战击中时触发特殊效果", "战斗中击中时可能触发特殊效果"], "evidence": "Raised by A and B. game/modules/tome/class/Object.lua:1245-1260 shows this for melee_project or ranged_project and chance-based on-hit/crit/kill effects; not melee-only, and 'can' was dropped."},
+  {"id": "2624ae8cb92f", "edit": ["近战格挡时触发特殊效果", "格挡近战攻击时可能触发特殊效果"], "evidence": "Raised by B. game/modules/tome/class/Object.lua:1262-1263 shows this whenever on_block exists; on_block effects can be chance-based (world-artifacts.lua:4817-4818, 30%), so 'can' is kept."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "A 4 ISSUE, B 2 (one shared). Includes the re-review of the two batch-0022 repairs (OK in A and B)."
+}
