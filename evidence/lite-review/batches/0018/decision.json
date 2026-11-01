@@ -1,0 +1,12 @@
+{
+ "confirmed": [
+  {"id": "150d4969dbf2", "edit": ["%s%s.#{normal}#", "%s%s。#{normal}#"], "evidence": "Raised by A. Half-width full stop in the use-talent log (tome class/Actor.lua:6041 @624a6732); the paired cast log was fixed to 。 in batch 0017."},
+  {"id": "b9ec2f699f1a", "edit": ["吸收", "消耗"], "evidence": "Raised by A and B. Actor.lua:6769-6775 labels the drain_prop of a sustain for non-inverted resources; Actor.lua:6398-6424 subtracts it from the user's regen every turn, so it is a cost, not a gain. Siblings: Generates 产生, Removes 移除, Replenishes 补充."},
+  {"id": "2112bc9702d0", "edit": ["%s 抵抗了 %s 的解除效果！", "%s 抵抗了对 %s 的解除！"], "evidence": "Raised by B. Actor.lua:7318-7345: the second %s is eff.desc / t.name of the effect or sustain being dispelled, not the source of a dispel effect. The library word 解除 is kept (81 uses vs 19 驱散; no term entry)."},
+  {"id": "3898cf960b27", "edit": ["%s窒息了！", "%s开始窒息！"], "evidence": "Raised by A. Actor.lua:7398-7405: logged when air reaches 0 and EFF_SUFFOCATING is first applied (damage over later turns); the actor is not dead yet."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "user_decision": "2026-11-01 user: _t'her' -> 她的 (batch 0011 pending item 40744a0fb786). Changed in all rows of the runtime key: engine.lua:1406, mod-tome.lua:683,1402,4954, tome-orcs.lua:2955; objective uses (him_her, 7 call sites) accepted as 她的.",
+ "notes": "A 3 ISSUE, B 2 (one shared). Includes the re-review of the six batch-0017 repairs (OK in A and B)."
+}
