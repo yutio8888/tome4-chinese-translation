@@ -545,7 +545,7 @@ Again, thank you, and enjoy Eyal!
 你的捐款总额为#LIGHT_GREEN#%0.2f 欧元#WHITE# 相当于 #ROYAL_BLUE#%d 个沃瑞钽币#WHITE#，可以在 te4.org 上消费。
 你的共享仓库有 #TEAL#%d 个槽位#WHITE#。
 
-再次感谢你，祝你在埃亚尔玩的开心！
+再次感谢你，祝你在埃亚尔玩得开心！
 
 #{italic}#你的邪恶的黑暗之神，#GOLD#DarkGod#{normal}#]], "tformat")
 t("Thank you!", "谢谢你！", "_t")
@@ -1283,7 +1283,7 @@ t("the path is blocked", "路被挡住了", "_t")
 ------------------------------------------------
 section "engine/engine/interface/PlayerHotkeys.lua"
 
-t("Hotkey not defined", "按键未定义", "_t")
+t("Hotkey not defined", "快捷键未定义", "_t")
 t("You may define a hotkey by pressing 'm' and following the instructions there.", "你可以按 M 键打开技能窗口，按其中的提示绑定快捷键。", "_t")
 t("Item not found", "找不到物品", "_t")
 t("You do not have any %s .", "你的物品栏里没有%s。", "tformat")
@@ -1352,9 +1352,8 @@ Gestures movements are color coded to better display which movement to do:
 #d6ed15##{italic}#yellow#{normal}##LAST#: moving right
 
 If you do not wish to see gestures anymore, you can hide them in the UI section of the Game Options.
-]], [[你开始试着绘制鼠标手势了！
-鼠标手势可以让你通过简单的鼠标动作释放技能或执行键盘操作。
-你只需要#{bold}#右击并拖动#{normal}#就可以绘制鼠标手势。
+]], [[你第一次开始绘制鼠标手势了！
+鼠标手势可以让你通过简单的鼠标动作释放技能或执行键盘操作。你只需要#{bold}#按住右键并拖动#{normal}#就可以绘制鼠标手势。
 默认情况下，鼠标手势没有绑定到任何操作。如果你需要使用鼠标手势，你可以在“按键绑定”中添加一些，操作简单又有趣！
 
 手势动作以颜色编码，方便你更清楚地看出该做哪个动作：
@@ -1390,7 +1389,7 @@ t("Are you sure you want to install this module: #LIGHT_GREEN##{bold}#%s#{normal
 t("Addon installed!", "插件安装完成！", "_t")
 t("Addon installation successful. New addons are only active for new characters.", "插件安装成功。新插件只对新角色生效。", "_t")
 t("Game installed!", "游戏安装完成！", "_t")
-t("Game installation successful. Have fun!", "游戏安装完成。玩的开心！", "_t")
+t("Game installation successful. Have fun!", "游戏安装完成。玩得开心！", "_t")
 
 ------------------------------------------------
 section "engine/engine/utils.lua"

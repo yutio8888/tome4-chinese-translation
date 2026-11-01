@@ -1,0 +1,12 @@
+{
+ "confirmed": [
+  {"id": "ec76a8c8a2c4", "edit": ["按键未定义", "快捷键未定义"], "evidence": "Raised by A. engine/interface/PlayerHotkeys.lua:160-165 @624a6732: popup title when self.hotkey[id] is empty, i.e. an unbound hotkey slot; slots are 快捷键 (batch 0008) and the popup body already says 快捷键."},
+  {"id": "6a522548f5ba", "edit": ["你开始试着绘制鼠标手势了！ / 第二段拆成两行 / 右击并拖动", "你第一次开始绘制鼠标手势了！ / 第二段合为一行 / 按住右键并拖动"], "evidence": "Raised by A and B. engine/ui/Gestures.lua:276-286: the source has 11 newlines, the target had 12 (source line 2 split in two); 'for the first time' was dropped; 'hold right click + move' is press-and-drag, not a click. Newline count now 11, markers unchanged."},
+  {"id": "cae5d4ee01f6", "edit": ["玩的开心", "玩得开心"], "evidence": "Raised by A. 的/得 misuse (complement of a verb takes 得). The same typo in engine.lua:548 (another unit) fixed with it; that unit returns to the queue for re-review."}
+ ],
+ "advisory": [
+  {"id": "40744a0fb786", "note": "PENDING USER DECISION (raised by B). engine/utils.lua:939-951: _t'her' is one runtime key used both by his_her (possessive; 76 call sites, e.g. tome Actor.lua:4532 '%s switches %s weapons') and him_her (objective; 7 call sites). Templates are written for possessives that include 的 (his -> 他的, its -> 它的), so female actors read '切换她武器'; changing her -> 她的 would break the objective uses. Rows sharing the key: engine.lua:1407, mod-tome.lua:683,1402,4954, tome-orcs.lua:2955. Not changed in this batch."}
+ ],
+ "rejected": [],
+ "notes": "A 3 ISSUE, B 2 (gesture text shared). Includes the re-review of the two batch-0010 repairs (OK in A and B)."
+}
