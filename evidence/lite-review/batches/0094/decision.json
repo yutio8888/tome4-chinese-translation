@@ -1,0 +1,37 @@
+{
+ "confirmed": [
+  {
+   "id": "616f0b8346db",
+   "edit": [
+    "t(\"acid-proof \", \"耐酸的 \", \"entity name\")",
+    "t(\"acid-proof \", \"耐酸的\", \"entity name\")"
+   ],
+   "evidence": "egos/potions.lua:21 prefix; every other prefix target has no trailing space, so the name showed 耐酸的 X."
+  },
+  {
+   "id": "437e3cea6e96",
+   "edit": [
+    "t(\"giant \", \"巨大的 \", \"entity name\")",
+    "t(\"giant \", \"巨大的\", \"entity name\")"
+   ],
+   "evidence": "egos/potions.lua:29 prefix; same trailing-space issue."
+  },
+  {
+   "id": "7cfa32b4eb33",
+   "edit": [
+    [
+     "t(\"penetrating \", \"穿透的\", \"entity name\")",
+     "t(\"penetrating \", \"贯穿的\", \"entity name\")"
+    ],
+    [
+     "t(\"penetrating\", \"穿透\", \"entity keyword\")",
+     "t(\"penetrating\", \"贯穿\", \"entity keyword\")"
+    ]
+   ],
+   "evidence": "egos/ranged.lua:111,193 penetrating (greater prefix) and of piercing (greater suffix) can share an item; both keywords were 穿透, and Object.lua:638-646 joins translated keywords into the short name; penetrating = 贯穿 to tell them apart (name and keyword together)."
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "core 624a6732; the penetrating name row is outside this batch and changes with its keyword"
+}

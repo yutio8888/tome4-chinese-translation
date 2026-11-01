@@ -10381,8 +10381,8 @@ t("nightfall", "黄昏", "entity keyword")
 ------------------------------------------------
 section "mod-tome/data/general/objects/egos/potions.lua"
 
-t("acid-proof ", "耐酸的 ", "entity name")
-t("giant ", "巨大的 ", "entity name")
+t("acid-proof ", "耐酸的", "entity name")
+t("giant ", "巨大的", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/general/objects/egos/ranged.lua"
@@ -10407,8 +10407,8 @@ t(" of acid", "强酸之", "entity name")
 t("acid", "酸性", "entity keyword")
 t(" of lightning", "闪电之", "entity name")
 t("lightning", "闪电", "entity keyword")
-t("penetrating ", "穿透的", "entity name")
-t("penetrating", "穿透", "entity keyword")
+t("penetrating ", "贯穿的", "entity name")
+t("penetrating", "贯穿", "entity keyword")
 t("runic ", "符文的", "entity name")
 t("runic", "符文", "entity keyword")
 t("warden's ", "时空守卫的", "entity name")
