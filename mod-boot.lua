@@ -242,9 +242,9 @@ t("Addon", "插件", "_t")
 t("Active", "激活", "_t")
 t("#GREY#Developer tool", "#GREY#开发者工具", "_t")
 t("#LIGHT_RED#Donator Status: Disabled", "#LIGHT_RED#捐赠者状态：禁用", "_t")
-t("#LIGHT_GREEN#Manual: Active", "#LIGHT_GREEN#手动：启动", "_t")
+t("#LIGHT_GREEN#Manual: Active", "#LIGHT_GREEN#手动：启用", "_t")
 t("#LIGHT_RED#Manual: Disabled", "#LIGHT_RED#手动：禁用", "_t")
-t("#LIGHT_GREEN#Auto: Active", "#LIGHT_GREEN#自动：启动", "_t")
+t("#LIGHT_GREEN#Auto: Active", "#LIGHT_GREEN#自动：启用", "_t")
 t("#LIGHT_RED#Auto: Incompatible", "#LIGHT_RED#自动：不兼容", "_t")
 t("Addon Version", "插件版本", "_t")
 t("Game Version", "游戏版本", "_t")
@@ -296,7 +296,7 @@ This includes, but is not limited to:
 If you disable this option you can always re-activate it in the Online category of the Game Options menu later on.]], [[即将禁止所有网络请求。
 包括但不仅限于：
 - 用户信息：不能登录或者注册。
-- 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。
+- 角色仓库：不能将任何角色上传到在线仓库来展示你的荣耀。
 - 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。
 - 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
 - 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。

@@ -1,0 +1,11 @@
+{
+ "confirmed": [
+  {"id": "5d06127c4ad2", "edit": ["#LIGHT_GREEN#手动：启动", "#LIGHT_GREEN#手动：启用"], "evidence": "Raised by A. boot/dialogs/Addons.lua:66-75 @624a6732: values of the Active column, paired with Manual: Disabled -> 手动：禁用; 启动 means starting a program, not an enabled state."},
+  {"id": "140f34ffc6bc", "edit": ["#LIGHT_GREEN#自动：启动", "#LIGHT_GREEN#自动：启用"], "evidence": "Same column as 5d06127c4ad2 (Auto: Active vs Auto: Incompatible)."},
+  {"id": "5e07e08c52d4", "edit": ["- 角色备份：不能在te4.org上保存你的角色信息（用来给其他人分享你的炫酷角色）。", "- 角色仓库：不能将任何角色上传到在线仓库来展示你的荣耀。"], "evidence": "Raised by B. boot/dialogs/FirstRun.lua:54: Characters vault uploads characters online 'to show your glory'; 备份 suggests a save backup. Wording follows the existing mod-tome.lua:41788 line of the similar online-options text. Only that line changes."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "runtime_key_sync": ["mod-boot.lua:245 Manual: Active", "mod-boot.lua:247 Auto: Active", "mod-boot.lua:285 FirstRun connectivity text"],
+ "notes": "A 2 ISSUE, B 1. Same runtime keys in mod-boot.lua changed together."
+}
