@@ -1291,8 +1291,8 @@ t("OVERKILL", "超杀", "_t")
 t("#LIGHT_GREEN#Your powerful attack completely obliterates #WHITE#%s#LIGHT_GREEN#!", "#LIGHT_GREEN#你强力的攻击将#WHITE#%s#LIGHT_GREEN#完全毁灭！", "log")
 t("#LIGHT_GREEN#The audience cheers!", "#LIGHT_GREEN#观众发出欢呼！", "log")
 t("#LIGHT_GREEN#You destroy #WHITE#%s#LIGHT_GREEN# in a single blow!", "#LIGHT_GREEN#你一击秒杀了#WHITE#%s#LIGHT_GREEN#！", "log")
-t("#LIGHT_GREEN#Your score multiplier increases by #WHITE#%d#LIGHT_GREEN#!", "#LIGHT_GREEN#你的分数加成增加了#WHITE#%d#LIGHT_GREEN#！", "log")
-t("#LIGHT_GREEN#Your score multiplier increases by #WHITE#0.1#LIGHT_GREEN#!", "#LIGHT_GREEN#你的分数加成增加了#WHITE#0.1#LIGHT_GREEN#！", "log")
+t("#LIGHT_GREEN#Your score multiplier increases by #WHITE#%d#LIGHT_GREEN#!", "#LIGHT_GREEN#你的分数倍率增加了#WHITE#%d#LIGHT_GREEN#！", "log")
+t("#LIGHT_GREEN#Your score multiplier increases by #WHITE#0.1#LIGHT_GREEN#!", "#LIGHT_GREEN#你的分数倍率增加了#WHITE#0.1#LIGHT_GREEN#！", "log")
 t("#YELLOW#You defeat an experienced enemy!", "#YELLOW#你杀死了一名老练的敌人！", "log")
 -- untranslated text
 --[==[
@@ -1313,7 +1313,7 @@ t("Limmir summons a blast of holy light!", "利米尔召唤出一道圣光！", 
 ------------------------------------------------
 section "mod-tome/class/interface/ActorAI.lua"
 
-t("#Source# shoves #Target# aside.", "#Source#击退了#Target#。", "logCombat")
+t("#Source# shoves #Target# aside.", "#Source#将#Target#推到了一旁。", "logCombat")
 -- untranslated text
 --[==[
 t("%s #PINK#searching for safer grids [radius %s from (%s, %s), val = %s], dam_wt=%s, air_wt=%s, dist_weight=%s, want_closer=%s", "%s #PINK#searching for safer grids [radius %s from (%s, %s), val = %s], dam_wt=%s, air_wt=%s, dist_weight=%s, want_closer=%s", "log")
