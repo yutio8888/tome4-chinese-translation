@@ -1,0 +1,337 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "ef0ccedafeb0",
+   "verdict": "OK"
+  },
+  {
+   "id": "bc8de87a4423",
+   "verdict": "OK"
+  },
+  {
+   "id": "e85d0abcbfb8",
+   "verdict": "OK"
+  },
+  {
+   "id": "6fa74cb89933",
+   "verdict": "OK"
+  },
+  {
+   "id": "d61450fdf76c",
+   "verdict": "OK"
+  },
+  {
+   "id": "e8bd5e463e65",
+   "verdict": "OK"
+  },
+  {
+   "id": "74bca6bc74e6",
+   "verdict": "OK"
+  },
+  {
+   "id": "d8b22f6a48da",
+   "verdict": "OK"
+  },
+  {
+   "id": "1794fb169214",
+   "verdict": "OK"
+  },
+  {
+   "id": "f5095c3cd5f4",
+   "verdict": "OK"
+  },
+  {
+   "id": "a36f360f2ef0",
+   "verdict": "OK"
+  },
+  {
+   "id": "8748999fc394",
+   "verdict": "OK"
+  },
+  {
+   "id": "0e5866f92070",
+   "verdict": "OK"
+  },
+  {
+   "id": "08619e95a6fc",
+   "verdict": "OK"
+  },
+  {
+   "id": "d0078b038df3",
+   "verdict": "OK"
+  },
+  {
+   "id": "120c6d246f7c",
+   "verdict": "OK"
+  },
+  {
+   "id": "5855a3df4e6f",
+   "verdict": "OK"
+  },
+  {
+   "id": "d979bfc0ea17",
+   "verdict": "OK"
+  },
+  {
+   "id": "035f75404f87",
+   "verdict": "OK"
+  },
+  {
+   "id": "6f5f6d784671",
+   "verdict": "OK"
+  },
+  {
+   "id": "45f9c0b313f0",
+   "verdict": "OK"
+  },
+  {
+   "id": "545037c963aa",
+   "verdict": "OK"
+  },
+  {
+   "id": "a505f70068b7",
+   "verdict": "OK"
+  },
+  {
+   "id": "6d3b82d7ca6d",
+   "verdict": "OK"
+  },
+  {
+   "id": "da33bb50a9b1",
+   "verdict": "OK"
+  },
+  {
+   "id": "7398f4b9a8b8",
+   "verdict": "ISSUE",
+   "observation": "ClassicPlayerDisplay.lua:338 用 ('%-8.8s:'):tformat(res_def.name) 生成资源条标签；Lua string.format 的 .8 精度按字节截断，中文资源名为 3 字时占 9 字节（如「失衡值」「仇恨值」「紊乱值」「灵能值」，mod-tome.lua:20880–20895），会被截在第三个汉字中间产生残缺 UTF-8 字节、显示乱码。译文保留了 %-8.8s，运行时缺陷未消除。",
+   "suggestion": "%s："
+  },
+  {
+   "id": "ca3804c0704a",
+   "verdict": "OK"
+  },
+  {
+   "id": "251820b10b90",
+   "verdict": "ISSUE",
+   "observation": "ClassicPlayerDisplay.lua:357 该标签仅在已学 T_UNNATURAL_BODY 时显示，即技能 Unnatural Body；库内技能名为「诅咒之体」（mod-tome.lua:23982），此处写作「诅咒身躯」，同一技能名称不一致。",
+   "suggestion": "#c00000#诅咒之体："
+  },
+  {
+   "id": "4fc340909dd8",
+   "verdict": "OK"
+  },
+  {
+   "id": "479bbd96c144",
+   "verdict": "OK"
+  },
+  {
+   "id": "1a37b318b1f7",
+   "verdict": "OK"
+  },
+  {
+   "id": "cb750f755146",
+   "verdict": "OK"
+  },
+  {
+   "id": "b72ceebc6ec7",
+   "verdict": "OK"
+  },
+  {
+   "id": "3e5a5111e060",
+   "verdict": "ISSUE",
+   "observation": "ClassicPlayerDisplay.lua:435 当前分数超过历史最高分时显示；「(TOP)」未翻译，且同批 Minimalist 对应的 Wave(TOP) 已译为「（最高）」，前后不一致。",
+   "suggestion": "分数（最高）：%d"
+  },
+  {
+   "id": "699d19106840",
+   "verdict": "OK"
+  },
+  {
+   "id": "19aa06106c13",
+   "verdict": "ISSUE",
+   "observation": "ClassicPlayerDisplay.lua:440 当前波次超过历史最佳波次（world.arena.bestWave）时显示；「(TOP)」未翻译，同批 Minimalist.lua:1081 的同一提示译为「波次（最高）%d %s」，两套界面不一致。",
+   "suggestion": "波次（最高）%d"
+  },
+  {
+   "id": "e41ed4c0eec3",
+   "verdict": "OK"
+  },
+  {
+   "id": "7348f323e9f7",
+   "verdict": "OK"
+  },
+  {
+   "id": "1aa9104babce",
+   "verdict": "OK"
+  },
+  {
+   "id": "28e166741a49",
+   "verdict": "OK"
+  },
+  {
+   "id": "69f257430e38",
+   "verdict": "OK"
+  },
+  {
+   "id": "123ca3cdbe1d",
+   "verdict": "OK"
+  },
+  {
+   "id": "baf693311a04",
+   "verdict": "ISSUE",
+   "observation": "ClassicPlayerDisplay.lua:467 显示竞技场头衔 arena.printRank(...)（arena/zone.lua:130 ranks 为 rat stomper/gladiator 等称号）；同一显示在 Minimalist.lua:1099 的 _t\"Rank: \" 译为「层级：」，本条译「分级：」，两套界面同一字段不一致，且「分级」是库内生物 rank 的译法（如 Vim 说明「该生物的分级」），易误解为生物分级。",
+   "suggestion": "层级：%s"
+  },
+  {
+   "id": "4f1565d0f69b",
+   "verdict": "OK"
+  },
+  {
+   "id": "13ee42896620",
+   "verdict": "OK"
+  },
+  {
+   "id": "0db6c83faa73",
+   "verdict": "OK"
+  },
+  {
+   "id": "496114dc898c",
+   "verdict": "OK"
+  },
+  {
+   "id": "b2f9be3eec4c",
+   "verdict": "OK"
+  },
+  {
+   "id": "f50d7d81a529",
+   "verdict": "OK"
+  },
+  {
+   "id": "faaca938df8b",
+   "verdict": "OK"
+  },
+  {
+   "id": "78173e06eb36",
+   "verdict": "OK"
+  },
+  {
+   "id": "9446c737d8bb",
+   "verdict": "OK"
+  },
+  {
+   "id": "305f5955b2e1",
+   "verdict": "OK"
+  },
+  {
+   "id": "0e9479d633f6",
+   "verdict": "OK"
+  },
+  {
+   "id": "f98c36eb8de1",
+   "verdict": "OK"
+  },
+  {
+   "id": "a1017d9c2bba",
+   "verdict": "OK"
+  },
+  {
+   "id": "f2d110c8d8c8",
+   "verdict": "OK"
+  },
+  {
+   "id": "f2feb0f97710",
+   "verdict": "OK"
+  },
+  {
+   "id": "46d465646277",
+   "verdict": "OK"
+  },
+  {
+   "id": "5377490b017b",
+   "verdict": "OK"
+  },
+  {
+   "id": "bb4dbe423b15",
+   "verdict": "OK"
+  },
+  {
+   "id": "a56481e15394",
+   "verdict": "OK"
+  },
+  {
+   "id": "a2d8adce4e3a",
+   "verdict": "OK"
+  },
+  {
+   "id": "96ef8a6ad0e7",
+   "verdict": "OK"
+  },
+  {
+   "id": "1e9eb19b6127",
+   "verdict": "OK"
+  },
+  {
+   "id": "4ed646664af5",
+   "verdict": "OK"
+  },
+  {
+   "id": "68c74ebdc5df",
+   "verdict": "OK"
+  },
+  {
+   "id": "00be9663c80c",
+   "verdict": "OK"
+  },
+  {
+   "id": "2d1558e41540",
+   "verdict": "ISSUE",
+   "observation": "Minimalist.lua:1076 arena.event==3 时的最终 Boss 波标记；ClassicPlayerDisplay.lua:452 的同一标记 ' [Final]' 译为「最终战」，此处只译「最终」，同一竞技场事件名称前后不一致且语义不完整。",
+   "suggestion": "[最终战]"
+  },
+  {
+   "id": "68471c06c279",
+   "verdict": "OK"
+  },
+  {
+   "id": "ae247de07521",
+   "verdict": "OK"
+  },
+  {
+   "id": "f2031083e177",
+   "verdict": "OK"
+  },
+  {
+   "id": "3180ac2f875a",
+   "verdict": "OK"
+  },
+  {
+   "id": "97171ef35c6c",
+   "verdict": "OK"
+  },
+  {
+   "id": "d6cdde9ebd73",
+   "verdict": "OK"
+  },
+  {
+   "id": "b8f44d0ed262",
+   "verdict": "OK"
+  },
+  {
+   "id": "7ec6b3bf9a1e",
+   "verdict": "OK"
+  },
+  {
+   "id": "1ac9cf0b87a6",
+   "verdict": "OK"
+  },
+  {
+   "id": "9babbbe6bc45",
+   "verdict": "OK"
+  },
+  {
+   "id": "8c73b84565b8",
+   "verdict": "OK"
+  }
+ ]
+}

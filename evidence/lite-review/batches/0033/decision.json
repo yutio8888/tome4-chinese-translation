@@ -1,0 +1,15 @@
+{
+ "confirmed": [
+  {"id": "251820b10b90", "edit": ["#c00000#诅咒身躯：", "#c00000#诅咒之体："], "evidence": "Raised by A and B. ClassicPlayerDisplay.lua:354-357 @624a6732 shows this bar only with T_UNNATURAL_BODY, the talent Unnatural Body = 诅咒之体 (mod-tome.lua:23982)."},
+  {"id": "97171ef35c6c", "edit": ["层级：", "分级："], "evidence": "Raised by B. The shared key _t\"Rank: \" (Actor.lua:2038, WorldNPC.lua:177, Minimalist.lua:1099; 3 rows synced) labels the creature rank and the arena rank, rendered 分级 like Rank: %s (ClassicPlayerDisplay.lua:467) and every creature-rank mention; 层级 is the library word for combat-stat tiers."},
+  {"id": "7398f4b9a8b8", "edit": ["%-8.8s：", "%s："], "evidence": "Raised by A. ClassicPlayerDisplay.lua:338 formats res_def.name, which is translated (_t names in data/resources.lua); %-8.8s truncates by bytes, and LuaJIT measured: 失衡值/生命值/灵能值 (9 bytes) become two characters plus a broken UTF-8 byte. Width shape exemption added in i18n/policy.json allowed_format_mismatches for this entry."},
+  {"id": "3e5a5111e060", "edit": ["分数(TOP)：%d", "分数（最高）：%d"], "evidence": "Raised by A. (TOP) was untranslated; the Minimalist counterpart reads 波次（最高）."},
+  {"id": "19aa06106c13", "edit": ["波次(TOP) %d", "波次（最高）%d"], "evidence": "Raised by A. Same; matches Minimalist.lua:1081 波次（最高）%d %s."},
+  {"id": "2d1558e41540", "edit": ["[最终]", "[最终战]"], "evidence": "Raised by A. arena.event==3 final wave marker; ClassicPlayerDisplay.lua:452 ' [Final]' is 最终战."}
+ ],
+ "advisory": [],
+ "rejected": [
+  {"id": "baf693311a04", "reason": "A asked to unify Rank: %s to 层级; B asked the reverse. Host chose 分级 for both keys: 层级 already names combat-stat tiers (层级 1-5) and creature rank is 分级 library-wide; Rank: %s stays 分级：%s."}
+ ],
+ "notes": "A 6 ISSUE, B 2 (one shared). The batch-0032 Vim repair re-reviewed OK by A and B."
+}
