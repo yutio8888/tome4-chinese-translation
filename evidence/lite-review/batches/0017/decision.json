@@ -1,0 +1,13 @@
+{
+ "confirmed": [
+  {"id": "40e67f9511c1", "edit": ["(%d 转移至石质护盾)", "(%d 被岩盾吸收)"], "evidence": "Raised by A. tome class/Actor.lua:2978-2989 @624a6732: EFF_ELDRITCH_STONE absorbs up to its power and logs the absorbed amount; nothing is transferred. Eldritch Stone (Shield) -> 奥术岩盾 (preferred, talents.tsv:175, combat.tsv:101)."},
+  {"id": "9f0de2fc6c90", "edit": ["%s%s.#{normal}#", "%s%s。#{normal}#"], "evidence": "Raised by A. Half-width full stop left in a Chinese log line; the sibling cast log (4f5c64b295c5, Actor.lua:6030) ends with 。."},
+  {"id": "fcfb87f684e6", "edit": ["获得觉醒技！", "获得觉醒点！"], "evidence": "Raised by B. Actor.lua:3963-3966: at level 25/42 only unused_prodigies is increased and the popup body says 'gained a prodigy point' (觉醒点, mod-tome.lua:240,631); no prodigy is learned yet."},
+  {"id": "89d531be0243", "edit": ["身穿重甲", "身穿板甲"], "evidence": "Raised by B. Actor.lua:5786-5791 blocks only when hasMassiveArmor() (Combat.lua:2692-2698 checks subtype massive); massive armour is 板甲 in the library (Massive armour training -> 板甲训练), heavy armour is not blocked."},
+  {"id": "bb162ca3c1d0", "edit": ["太高，无法", "已预留量过多，无法"], "evidence": "Raised by B. Actor.lua:5807-5819: the check is min + sustain cost > max, i.e. committed (reserved) resource, not the current value; fragment of 'You %s %s to activate %s.' -> 你的%s%s使用%s (args {2,1,3})."},
+  {"id": "f2458bbea582", "edit": ["太低，无法", "可用（未预留）量不足，无法"], "evidence": "Same check as bb162ca3c1d0, non-inverted resources."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "A 2 ISSUE, B 4. Includes the re-review of the four batch-0016 repairs (OK in A and B)."
+}
