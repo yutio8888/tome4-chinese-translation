@@ -27,6 +27,8 @@ TERM_SENSE_EXEMPTIONS = "i18n/term-sense-exemptions.json"
 TERM_SENSE_EXEMPTION_FIELDS = frozenset(
     {"entry_id", "term_source", "term_source_tag", "excerpt", "reason"}
 )
+TERM_MATCH_SCOPE = "i18n/term-match-scope.json"
+TERM_MATCH_SCOPE_FIELDS = frozenset({"term_source", "term_source_tag", "reason"})
 
 
 def _reject_json_constant(value: str) -> None:
@@ -158,6 +160,44 @@ def load_term_sense_exemptions(root: Path) -> dict[tuple[str, str, str], dict[st
         key = (row["entry_id"], row["term_source"].casefold(), row["term_source_tag"])
         if key in result:
             raise ConfigurationError(f"duplicate term sense exemption: {key!r}")
+        result[key] = row
+    return result
+
+
+def load_term_match_scope(root: Path) -> dict[tuple[str, str], dict[str, Any]]:
+    """Preferred terms whose English source is a common word, checked only on exact-label entries.
+
+    Words such as "stone" or "life" hit these rows by spelling in names and prose almost everywhere; for the
+    listed (term, tag) pairs the preferred-term check applies only when the entry source, stripped and
+    case-folded, equals the term source (2026-11-01 user decision).
+    """
+    path = root / TERM_MATCH_SCOPE
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_bytes())
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ConfigurationError(f"invalid term match scope: {path}: {error}") from error
+    rows = data.get("exact_label_only") if isinstance(data, dict) else None
+    if (
+        not isinstance(data, dict)
+        or type(data.get("schema_version")) is not int
+        or data["schema_version"] != 1
+        or not isinstance(rows, list)
+    ):
+        raise ConfigurationError(f"unsupported term match scope schema: {path}")
+    result: dict[tuple[str, str], dict[str, Any]] = {}
+    for row in rows:
+        if (
+            not isinstance(row, dict)
+            or set(row) != TERM_MATCH_SCOPE_FIELDS
+            or not all(isinstance(row[key], str) and row[key] for key in ("term_source", "reason"))
+            or not isinstance(row["term_source_tag"], str)
+        ):
+            raise ConfigurationError(f"invalid term match scope row: {row!r}")
+        key = (row["term_source"].casefold(), row["term_source_tag"])
+        if key in result:
+            raise ConfigurationError(f"duplicate term match scope: {key!r}")
         result[key] = row
     return result
 
@@ -419,6 +459,7 @@ def validate_proposal(
 
     terminology = workset.get("terminology", [])
     exemptions = load_term_sense_exemptions(manifest.root)
+    exact_only = load_term_match_scope(manifest.root)
     exempted: list[dict[str, str]] = []
     if isinstance(terminology, list):
         proposals_by_id = {item["entry_id"]: item for item in normalized}
@@ -429,9 +470,13 @@ def validate_proposal(
             matched_ids = term.get("matched_entry_ids")
             if not isinstance(preferred_target, str) or not isinstance(matched_ids, list):
                 continue
+            term_source = str(term.get("source", "")).casefold()
+            label_only = (term_source, str(term.get("source_tag", ""))) in exact_only
             for entry_id in matched_ids:
                 normalized_item = proposals_by_id.get(entry_id)
                 if normalized_item is None:
+                    continue
+                if label_only and str(normalized_item.get("source", "")).strip().casefold() != term_source:
                     continue
                 if preferred_target not in normalized_item["target"]:
                     exemption = exemptions.get(

@@ -198,6 +198,9 @@ mismatch 属预期，重建基线即可（tdef_count 不变）。
   首选术语按词边界匹配，散文里的普通词（材质 stone、短语 by the name of 的 name）
   可能只是拼写相同；宿主核实后把 (entry_id, 术语) 登记进 `i18n/term-sense-exemptions.json`，
   该对不再报 preferred-term-missing，报告的 `term_sense_exemptions` 列出实际生效的登记。
+  英文原词是常见词的标签术语（stone、Life、Name、Exhaustion、Air、unknown）登记在
+  `i18n/term-match-scope.json` 的 `exact_label_only`：只有条目源文去首尾空白、忽略大小写后
+  恰好等于原词时才检查（2026-11-01 用户决定），名称与散文中的同形词不再逐条登记豁免。
 - `claims check` 对机制 claim、anchors-only reviewer briefing 与 runtime composition
   registry 执行无外部依赖的 exact-schema 校验。默认 registry 锚定 repository root 下的
   `evidence/quality/semantic-claim-regressions-v1.json`，因此从仓库外 CWD 调用绝对 `tools/i18n` 仍可用；

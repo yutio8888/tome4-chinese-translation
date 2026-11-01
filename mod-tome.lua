@@ -17876,7 +17876,7 @@ Last night I spotted a red star in the early dawn. How very peculiar... Could th
 
 我们的先祖通过潜心研究群星获得了力量，然而如今的人们似乎只关心如何将这些力量用于战斗。我知道我们与兽人交战的局势十分严峻，但我们不能忘记自身的力量源于苍穹！唯有通过太阳、月亮和群星，我们才能获得智慧与力量。
 
-唉，总之，我至少可以在这里安心研究。我制作的隐形戒指能让我避开所有兽人巡逻队的耳目，月亮石周围的山洞也足够安静。我已经在月亮山谷的露天处架起了望远镜。
+唉，总之，我至少可以在这里安心研究。我制作的隐形戒指能让我避开所有兽人巡逻队的耳目，月亮石周围的山洞也足够安静。我已经在月之山谷的露天处架起了望远镜。
 
 昨夜，天刚蒙蒙亮时，我发现了一颗红色的星星。真奇怪……这会不会是一个可供研究的新天体？]], "_t")
 t("Rassir's journal part 2", "拉希尔的旅行日记 第二部分", "_t")
@@ -17961,7 +17961,7 @@ All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and 
 
 科纳克人基本身高在5英尺9英寸左右，有着黑色的头发、棕色的眼睛以及红润的肌肤。大多数科纳克人选择商人、农民或者其他体力劳动职业。不幸的是，大部分强盗团伙往往由科纳克人把持。科纳克人的家族很庞大，并且自黄昏纪以来他们的人口增长极快，特别是在西部农业地区和南部的最后的希望一带，这种现象尤为明显。
 
-肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大灾变将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、注能物工匠或龙战士猎手行走于世。
+肖尔塔人基本身高在5英尺11英寸左右，黑皮肤黑头发黑眼睛。他们起源于马基·埃亚尔的东南地区，自从大灾变将他们大部分土地沉入海洋后，他们的数量急剧减少。他们以自然亲和著称，并且经常作为治疗师、纹身工匠或龙战士猎手行走于世。
 
 在黄昏纪的魔法狩猎与瘟疫之后，马卓普人几乎灭绝。他们以强大的施法者著称，也因此成为魔法猎手的首要目标。不管怎样，他们的血统特征——火红的头发以及生有雀斑的皮肤，仍会出现在遥远后裔的身上。据传，仍有少数马卓普人在偏远之地拥有城堡和高塔。
 
@@ -17999,7 +17999,7 @@ Their skill with metal is renowned above all else. Dwarven steel is considered t
 
 As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非付出重金贿赂，否则他们不会谈论任何与己有关的事。历史上，他们曾多次因不为人知的缘由切断与外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的几位公会首领交谈。
 
-矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以极强的忍受肉体痛苦的能力而闻名于世。他们的性别通常较难区分，但可以通过编入胡须的珠饰来辨认。所有的矮人都以自己的大胡子为荣，并且十分爱护胡子。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
+矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以极强的忍受肉体痛苦的能力而闻名于世。矮人女性与男性通常较难区分，但一般可以通过编入她们胡须的珠饰来辨认。所有的矮人都以自己的大胡子为荣，并且十分爱护胡子。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。
 
@@ -18031,7 +18031,7 @@ Their capital city is Shatur, hidden deep within the northern woods, and they ar
 
 Those who choose to leave the fastness of the forest tend to be of unique disposition with unusual attitudes and traits. Oft they are musicians, bowmasters or skilled warriors. However they are sometimes mistrusted heavily, as rumour has it that many of those who leave Shatur are actually criminals expelled for the very worst crimes. In any case they tend to be natural loners who wander the world on their own personal quests.
 
-The Thaloren do business very rarely with the outside world, but when they do it is normally for metals and certain foodstuffs that they cannot get themselves. Usually in trade they sell woodcraft and fine silks. This is the only legal source of elven-wood, a rare commodity that is often sought after for fletchwork. Black market sources rely on poachers to cut trees from the Shatur forest - an immensely risky business, but also very profitable for the high prices paid by Shaloren mages for an elven-wood staff.]], [[自然精灵（或木精灵——字面意为「愤怒的同胞」）平均身高约 6 英尺 4 英寸，有着深棕色的头发和淡褐色或绿色的眼睛。他们大多体格健硕，以强悍的体魄闻名。他们以喜怒无常的性情著称——既会骤然陷入狂暴的杀戮，也会骤然欢快地放声高歌。他们与永恒精灵的关系尤为紧张，因为他们强烈反对同族对魔法的使用。
+The Thaloren do business very rarely with the outside world, but when they do it is normally for metals and certain foodstuffs that they cannot get themselves. Usually in trade they sell woodcraft and fine silks. This is the only legal source of elven-wood, a rare commodity that is often sought after for fletchwork. Black market sources rely on poachers to cut trees from the Shatur forest - an immensely risky business, but also very profitable for the high prices paid by Shaloren mages for an elven-wood staff.]], [[自然精灵（又称 Thalore，字面意为“愤怒的兄弟姐妹”）平均身高约 6 英尺 4 英寸，有着深棕色的头发和淡褐色或绿色的眼睛。他们大多体格健硕，以强悍的体魄闻名。他们以喜怒无常的性情著称——既会骤然陷入狂暴的杀戮，也会骤然欢快地放声高歌。他们与永恒精灵的关系尤为紧张，因为他们强烈反对同族对魔法的使用。
 
 他们的首都是夏特尔，深藏于北方的丛林之中；他们厌恶任何外来者，甚至不容外人接近周围的森林。弓箭手与战士小心地巡守边界，随时准备从树上向任何入侵者倾泻死亡。他们的领袖是女王奈希拉·坦泰兰，据说他们居住在雕凿于巨树之中的宽敞居所里，但外界对他们的社会所知甚少。
 
@@ -18045,7 +18045,7 @@ Naloren elves were around 5'10", with blonde hair and green eyes. They were incr
 
 They traded little with the other races, and were very protective of their coastal lands. They most especially guarded jealously an ancient Sher'Tul ruin that lay in the centre of their territories. The Shaloren were in particular keen to study this relic, but the Naloren always refused them access, though they were too afraid to touch it themselves. The orcs were said to encroach on their lands often, but were always fought back by their mail-clad warriors wielding vicious tridents.
 
-Alas their love of the sea was to be their undoing. When the Cataclysm came the whole of the coastal kingdom was shorn away and fell into the sea, annihilating almost the entire race. What small numbers survived committed suicide soon after by leaping from the eastern cliffs into the ocean, following their fallen brothers and sisters. Almost no evidence of their civilisation remains.]], [[纳鲁精灵（或纳精灵——字面意为「精魂同胞」）如今已是绝迹的种族，他们的家园在大灾变中被卷入大海。不过作为一支独立的精灵种族，他们仍有诸多值得研究之处，尽管留存的记载十分稀少。如今关于纳鲁精灵的说法大多掺杂着神话，但仍能从中推断出某些史实。
+Alas their love of the sea was to be their undoing. When the Cataclysm came the whole of the coastal kingdom was shorn away and fell into the sea, annihilating almost the entire race. What small numbers survived committed suicide soon after by leaping from the eastern cliffs into the ocean, following their fallen brothers and sisters. Almost no evidence of their civilisation remains.]], [[纳鲁精灵（又称 Nalore，字面意为“精魂的兄弟姐妹”）如今已是绝迹的种族，他们的家园在大灾变中被卷入大海。不过作为一支独立的精灵种族，他们仍有诸多值得研究之处，尽管留存的记载十分稀少。如今关于纳鲁精灵的说法大多掺杂着神话，但仍能从中推断出某些史实。
 
 纳鲁精灵身高约 5 英尺 10 英寸，有着亚麻色的头发和绿色的眼睛。他们身形极为纤瘦，却以迅捷灵巧的身手著称。他们的王国位于马基·埃亚尔的东部，所有城镇都濒海而建或横跨大河。他们以捕鱼、采海绵、航海和奏乐为业。他们以能在水下连续停留数小时而闻名，而那些拥有奥术之力者据说能无限期地潜藏于水中。
 
@@ -18434,7 +18434,7 @@ PS: You might encounter a... benefactor of sorts in your travels. You'll know it
 
 听着。关键在于，那些任务说明和邀请之所以不是由一线人员撰写的，是有原因的——而你很幸运，你的上司懂得你需要的灵活性远超理想主义所能容许的程度。我们小队明白，想保持理智，就得知道什么时候“时间以每秒一秒的速度向前流逝”并不是我们唯一需要打破的规则。而且，如果你已经预见到有罪判决，通常可以跳过审判，按你认为合适的方式处置那个危害时间线的混蛋——只要你真正着手调查时证据确凿就行（你也确实得偶尔亲自干活，否则你只会看到自己在拖延）。另外，如果你只是想要一个不被监视的地方，你知道，黄昏纪中的几十年被我们和其他几个小队视为可以随意下手、不受约束的时段——无论你想要做什么样的实验，或者想要给其他人带来怎样的恐怖，只要把这些事限于那个充斥着无尽邪恶、却早已被遗忘的时段，就不会影响大局。相信我，我们已经确认了——这段时间发生的一切事情都无足轻重，除非你真有本事引发第二次魔法大爆炸。
 
-不过你还是要知道一些最重要的事情：虽然泽梅基斯比我还懒，但他得维护自己的威望。如果你不停违抗他的意志，总有一天，你会被告知，你已经被抓到了，请你停止抵抗。接受他为你安排的命运。如果你仍不收手，终有一天他会不得不拿你杀一儆百，严厉到整个宇宙都会注意到你的不复存在。显然，我们没法确定他对我们中多少人这样做过（如果真有的话），也不知道这是怎么做到的，不过，我们可以确定，你的命运会和某个以“W-”开头的东西差不多。
+不过你还是要知道一些最重要的事情：虽然泽梅基斯比我还懒，但他得维护自己的威望。如果你不停违抗他的意志，总有一天，你会被告知，你已经被抓到了，请你停止抵抗。接受他为你安排的命运。如果你仍不收手，终有一天他会不得不拿你杀一儆百，严厉到整个宇宙都会注意到你的不复存在。显然，我们没法确定他对我们中多少人这样做过（如果真有的话），也不知道这是怎么做到的，不过，我们相当肯定，你的命运会和某个以“W-”开头的东西差不多。
 
 这里的所有人都有一致的目标——保持时空稳定，享受自己的力量，在几次彩票上作弊——但是我们得维持掩护身份，并且，理论上来说，一旦有什么东西让夏·图尔防护罩出现裂缝，或者Greigu找到了绕过传送门过滤器的方法，我们是真的有正事要做的。别人帮了你的忙，你也要记得还回去；但别把动静弄得太大，免得整个系统在你头顶崩塌。如此这般的话，你就能享受这份永恒。
 
@@ -43223,7 +43223,7 @@ t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk
 
  As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故地切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的几位公会首领对话。
 
- 矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以超强的物理抵抗能力而闻名于世。他们的性别通常较难区分，但可以通过编入胡须的珠饰来辨认。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
+ 矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以超强的物理抵抗能力而闻名于世。矮人女性与男性通常较难区分，但一般可以通过编入她们胡须的珠饰来辨认。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
  矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的事几乎闻所未闻。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。
 

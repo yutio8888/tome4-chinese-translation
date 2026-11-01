@@ -20,7 +20,7 @@ from i18nlib.errors import ConfigurationError, ValidationError
 from i18nlib.locale_model import LocaleDocument, LocaleLoader
 import i18nlib.proposal as proposal_module
 from i18nlib.lint import stable_entry_id
-from i18nlib.proposal import load_term_sense_exemptions, read_json_object, validate_proposal
+from i18nlib.proposal import load_term_match_scope, load_term_sense_exemptions, read_json_object, validate_proposal
 from i18nlib.workset import create_workset
 from i18nlib.workset import (
     ADDON_COMPONENTS,
@@ -596,8 +596,9 @@ class ProposalTests(unittest.TestCase):
         self.assertFalse(report["ok"])
         self.assertIn("proposal-args-order", codes)
 
-    def _stone_material_proposal(self, directory: Path) -> tuple[str, Path, Path]:
-        component, section, source = "tome", "fixture/artifacts.lua", "Boots carved from stone."
+    def _stone_material_proposal(self, directory: Path, source: str = "Boots carved from stone.",
+                                 target: str = "用石头雕成的靴子。") -> tuple[str, Path, Path]:
+        component, section = "tome", "fixture/artifacts.lua"
         entry_id = stable_entry_id(component, section, source, "_t")
         item = {"entry_id": entry_id, "component": component, "section": section, "source": source,
                 "source_tag": "_t", "classification": "added",
@@ -612,7 +613,7 @@ class ProposalTests(unittest.TestCase):
         self.assertIn("stone", {term["source"] for term in workset["terminology"]})
         proposal_path = directory / "proposal.json"
         proposal = json.loads(Path(str(workset["proposal_template"])).read_text())
-        proposal["proposals"][0]["target"] = "用石头雕成的靴子。"
+        proposal["proposals"][0]["target"] = target
         proposal_path.write_text(json.dumps(proposal, ensure_ascii=False), encoding="utf-8")
         return entry_id, Path(str(workset["output"])), proposal_path
 
@@ -621,6 +622,9 @@ class ProposalTests(unittest.TestCase):
             entry_id, workset_path, proposal_path = self._stone_material_proposal(Path(temporary))
             arguments = dict(workset_path=workset_path, proposal_path=proposal_path,
                              allow_partial=False, strict=True)
+            no_scope = patch.object(proposal_module, "load_term_match_scope", return_value={})
+            no_scope.start()
+            self.addCleanup(no_scope.stop)
             with patch.object(proposal_module, "load_term_sense_exemptions", return_value={}):
                 plain = validate_proposal(self.manifest, **arguments)
             exemption = {"entry_id": entry_id, "term_source": "stone", "term_source_tag": "_t",
@@ -638,6 +642,44 @@ class ProposalTests(unittest.TestCase):
         self.assertEqual([row["entry_id"] for row in exempt["term_sense_exemptions"]], [entry_id])
         self.assertFalse(unrelated["ok"])
         self.assertEqual(unrelated["term_sense_exemptions"], [])
+
+    def test_exact_label_scope_skips_prose_but_checks_the_label(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="tome4-proposal-test-") as temporary:
+            root = Path(temporary)
+            (root / "prose").mkdir()
+            (root / "label").mkdir()
+            _, prose_workset, prose_proposal = self._stone_material_proposal(root / "prose")
+            _, label_workset, label_proposal = self._stone_material_proposal(root / "label", source="Stone",
+                                                                              target="石头")
+            scope = {("stone", "_t"): {"term_source": "stone", "term_source_tag": "_t", "reason": "label"}}
+            with patch.object(proposal_module, "load_term_sense_exemptions", return_value={}), \
+                    patch.object(proposal_module, "load_term_match_scope", return_value=scope):
+                prose = validate_proposal(self.manifest, workset_path=prose_workset, proposal_path=prose_proposal,
+                                          allow_partial=False, strict=True)
+                label = validate_proposal(self.manifest, workset_path=label_workset, proposal_path=label_proposal,
+                                          allow_partial=False, strict=True)
+        self.assertTrue(prose["ok"])
+        self.assertEqual(prose["warnings"], 0)
+        self.assertIn("preferred-term-missing", {issue["code"] for issue in label["issues"]})
+
+    def test_term_match_scope_registry_is_strict(self) -> None:
+        row = {"term_source": "Stone", "term_source_tag": "_t", "reason": "label"}
+        with tempfile.TemporaryDirectory(prefix="tome4-scope-") as temporary:
+            root = Path(temporary)
+            self.assertEqual(load_term_match_scope(root), {})
+            path = root / proposal_module.TERM_MATCH_SCOPE
+            path.parent.mkdir(parents=True)
+            path.write_text(json.dumps({"schema_version": 1, "exact_label_only": [row]}), encoding="utf-8")
+            self.assertEqual(set(load_term_match_scope(root)), {("stone", "_t")})
+            for document in ({"schema_version": 2, "exact_label_only": [row]},
+                             {"schema_version": 1, "exact_label_only": [row, row]},
+                             {"schema_version": 1, "exact_label_only": [{**row, "extra": 1}]},
+                             {"schema_version": 1, "exact_label_only": [{**row, "reason": ""}]}):
+                with self.subTest(document=document):
+                    path.write_text(json.dumps(document), encoding="utf-8")
+                    with self.assertRaises(ConfigurationError):
+                        load_term_match_scope(root)
+        self.assertTrue(load_term_match_scope(proposal_module.Path(self.manifest.root)))
 
     def test_term_sense_exemption_registry_is_strict(self) -> None:
         row = {"entry_id": "e" * 64, "term_source": "Stone", "term_source_tag": "_t", "excerpt": "x",
