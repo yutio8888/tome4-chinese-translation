@@ -8742,7 +8742,7 @@ t("Nobody scavenged the high-quality bow from this archer before it was raised f
 t("skeleton magus", "骷髅魔导师", "entity name")
 t("This skeleton has been imbued with far more magical energy than normal, and serves as a conduit of its master's spellcasting prowess.", "这只骷髅的身上充盈着远超常规的魔法力量，充当其主人施法威能的导管。", "_t")
 t("armoured skeleton warrior", "装甲骷髅战士", "entity name")
-t("It feels no pain.  It moves with fluidity and strength that would tear natural muscles apart.  It must be from a fresh corpse, since its bones, armor, and weapon are all in pristine condition.  And it's furious.", "它感觉不到疼痛。它的动作流畅而有力，足以撕裂天然的肌肉。它一定来自一具新鲜的尸体，因为它的骨头、装甲和武器都完好如新。而且，它怒不可遏。", "_t")
+t("It feels no pain.  It moves with fluidity and strength that would tear natural muscles apart.  It must be from a fresh corpse, since its bones, armor, and weapon are all in pristine condition.  And it's furious.", "它感觉不到疼痛。它的动作流畅而有力，若是血肉之躯，肌肉早已不堪承受而撕裂。它一定来自一具新鲜的尸体，因为它的骨头、装甲和武器都完好如新。而且，它怒不可遏。", "_t")
 t("skeleton master archer", "骷髅弓箭手大师", "entity name")
 t("This skeleton can fire arrows and nock new ones with blinding speed.  Arcane forces pull its bones with unnatural precision - its arms will never tremble or get tired.", "这只骷髅可以飞速地拈弓射箭，奥术的力量使它的身躯达到了常人无法企及的精确度——它的手臂永远不会颤抖，也永远不会疲累。", "_t")
 t("skeleton assassin", "骷髅刺客", "entity name")
