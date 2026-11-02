@@ -1,0 +1,57 @@
+{
+ "confirmed": [
+  {
+   "id": "85c1f4997ade",
+   "edit": [
+    [
+     "t(\"Endgamify\", \"游戏后期\", \"_t\")",
+     "t(\"Endgamify\", \"一键进入游戏后期\", \"_t\")"
+    ]
+   ],
+   "evidence": "debug/Endgamify.lua:27-40 直接升到 50 级、给终局装备并完成相关任务，是动作而非名词"
+  },
+  {
+   "id": "fd2d6414d7a3",
+   "edit": [
+    [
+     "#LIGHT_BLUE#基础过滤器#LAST#用于过滤生成的随机角色。]]",
+     "#LIGHT_BLUE#基础筛选器#LAST#用于过滤生成的随机角色。]]"
+    ]
+   ],
+   "evidence": "RandomActor.lua:66/141 同文件控件标签作基础筛选器"
+  },
+  {
+   "id": "413c74acce09",
+   "edit": [
+    [
+     "以基础物品或基础过滤器加上随机神器数据作为输入。",
+     "以基础物品或基础筛选器加上随机神器数据作为输入。"
+    ]
+   ],
+   "evidence": "RandomObject.lua:88/255/310 同上"
+  },
+  {
+   "id": "f5d0fd676e91",
+   "edit": [
+    [
+     "\"技能数值属性表：%s (技能树系数 %0.1f)\"",
+     "\"技能数值曲线图：%s (技能树系数 %0.1f)\""
+    ]
+   ],
+   "evidence": "debug/PlotTalent.lua:32/94-136 按等级绘制数值曲线"
+  },
+  {
+   "id": "3315ae20ebdc",
+   "edit": [
+    [
+     "\"#LIGHT_GREEN#(来自 %-10.60s, 行数：%s):#LAST#\"",
+     "\"#LIGHT_GREEN#(来自 %-10.60s，第%s行):#LAST#\""
+    ]
+   ],
+   "evidence": "RandomObject.lua:44-55 f_lnum = DebugConsole.lua:495 info.linedefined 行号"
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": ""
+}

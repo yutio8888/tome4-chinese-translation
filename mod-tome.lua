@@ -42541,7 +42541,7 @@ t("Give Sher'tul fortress energy", "获得夏·图尔堡垒能量", "_t")
 t("Give all ingredients", "获得所有材料", "_t")
 t("Weakdamage", "伤害减弱", "_t")
 t("Spawn Event", "触发事件", "_t")
-t("Endgamify", "游戏后期", "_t")
+t("Endgamify", "一键进入游戏后期", "_t")
 t("Reload/regenerate Zone and level", "重新加载/重新生成地图和楼层", "_t")
 t("Automatically Clear Zones", "自动清图", "_t")
 
@@ -42561,7 +42561,7 @@ t("Debug -- Grant/Alter Quest", "调试模式 -- 获得/修改任务", "_t")
 ------------------------------------------------
 section "mod-tome/dialogs/debug/PlotTalent.lua"
 
-t("Values plot for: %s (mastery %0.1f)", "技能数值属性表：%s (技能树系数 %0.1f)", "tformat")
+t("Values plot for: %s (mastery %0.1f)", "技能数值曲线图：%s (技能树系数 %0.1f)", "tformat")
 t("TL: ", "技能等级： ", "_t")
 
 ------------------------------------------------
@@ -42585,7 +42585,7 @@ The #LIGHT_BLUE#Base Filter#LAST# is used to filter the actor randomly generated
 鼠标移动查看角色预览（放置到楼层时可能会被进一步调整）。
 （请按 #GOLD#'L'#LAST# 在Lua中检查，或按 #GOLD#'C'#LAST# 打开角色面板）
 
-#LIGHT_BLUE#基础过滤器#LAST#用于过滤生成的随机角色。]], "_t")
+#LIGHT_BLUE#基础筛选器#LAST#用于过滤生成的随机角色。]], "_t")
 t("#GREY#None#LAST#", "#GREY#无#LAST#", "_t")
 t("Current Base Actor: %s", "目前基础角色：%s", "tformat")
 t("Generate", "生成", "_t")
@@ -42621,7 +42621,7 @@ t([[#LIGHT_BLUE#ERROR: Random Boss could not be generated with data [%s].
 ------------------------------------------------
 section "mod-tome/dialogs/debug/RandomObject.lua"
 
-t("#LIGHT_GREEN#(From %-10.60s, line: %s):#LAST#", "#LIGHT_GREEN#(来自 %-10.60s, 行数：%s):#LAST#", "tformat")
+t("#LIGHT_GREEN#(From %-10.60s, line: %s):#LAST#", "#LIGHT_GREEN#(来自 %-10.60s，第%s行):#LAST#", "tformat")
 t("unknown", "未知", "_t")
 t("None", "无", "_t")
 t("Don't apply a resolver", "不使用解析器", "_t")
@@ -42634,7 +42634,7 @@ t("Object added to main inventory (dropped on death)", "物品加入主要物品
 t("Attach Tinker", "装载插件", "_t")
 t("Tinker will be attached to a worn object", "插件会附加到一件已穿戴的物品上。", "_t")
 t("Drop Randart (auto data)", "掉落随机神器（自动数据）", "_t")
-t("Random Artifact (dropped on death) added to main inventory, uses the Base Object or Base Filter plus Randart Data as input", "随机神器（死亡后掉落）会放入主要物品栏，以基础物品或基础过滤器加上随机神器数据作为输入。", "_t")
+t("Random Artifact (dropped on death) added to main inventory, uses the Base Object or Base Filter plus Randart Data as input", "随机神器（死亡后掉落）会放入主要物品栏，以基础物品或基础筛选器加上随机神器数据作为输入。", "_t")
 t("Drop Randart", "掉落随机神器", "_t")
 t("Random Artifact (dropped on death) added to main inventory", "随机神器（死亡后掉落）将会被加入到主要物品栏", "_t")
 t("DEBUG -- Create Random Object", "调试模式 -- 创建随机物品", "_t")
