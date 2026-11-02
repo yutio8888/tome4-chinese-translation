@@ -11608,7 +11608,7 @@ t("orb", "水晶球", "entity subtype")
 t("Orb of Many Ways", "多元水晶球", "entity name")
 t("swirling orb", "涡流水晶球", "_t")
 t([[The orb projects images of distant places, some that seem to be not of this world, switching rapidly.
-If used near a portal it could probably activate it.]], "这个球体投射出远方的景象，并快速地切换着，有些景象甚至不属于这个世界。\n如果你在传送门附近使用它，它也许能激活传送门。", "_t")
+If used near a portal it could probably activate it.]], "这个球体投射出远方的景象，并快速地切换着，有些景象似乎不属于这个世界。\n如果你在传送门附近使用它，它也许能激活传送门。", "_t")
 t("activate a portal", "激活一个传送门", "_t")
 t("There is no portal to activate here.", "这里没有可用的传送门。", "logPlayer")
 t("#VIOLET#The world twists sickeningly around you and you find yourself someplace unexpected! It felt nothing like your previous uses of the Orb of Many Ways. Tannen must have switched the Orb out for a fake!", "#VIOLET#你周围的世界令人作呕地扭曲起来，你发现自己出现在了意料之外的地方！这和之前你使用多元水晶球时的情形完全不同，泰恩肯定用假水晶球掉了包！", "_t")
@@ -39875,7 +39875,7 @@ t("One of the moons of Eyal.", "埃亚尔的一个卫星。", "_t")
 t("Wintertide (Moon of Eyal)", "霜华（埃亚尔的卫星）", "entity name")
 t("Kolal (Planet)", "克拉尔（星球）", "entity name")
 t("Luxam (Planet)", "卢克萨姆（星球）", "entity name")
-t("Ponx (Gaz Planet)", "波尼克斯（气态巨星）", "entity name")
+t("Ponx (Gaz Planet)", "波尼克斯（气态行星）", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/zones/stellar-system-shandral/zone.lua"
@@ -39922,7 +39922,7 @@ t("orb", "水晶球", "entity subtype")
 t("Orb of Many Ways", "多元水晶球", "entity name")
 t("swirling orb", "涡流水晶球", "_t")
 t([[The orb projects images of distant places, some that seem not to be of this world, switching rapidly.
-If used near a portal, it could probably activate it.]], "这个球体可以投射出远方的景象，并快速地切换着，有些景象甚至不属于这个世界。\n如果你在传送门附近使用它，它也许能激活传送门。", "_t")
+If used near a portal, it could probably activate it.]], "这个球体可以投射出远方的景象，并快速地切换着，有些景象似乎不属于这个世界。\n如果你在传送门附近使用它，它也许能激活传送门。", "_t")
 t("activate a portal", "激活一个传送门", "_t")
 t("There is no portal to activate here.", "这里没有可用的传送门。", "logPlayer")
 t("tattered paper scrap", "破烂的碎纸片", "entity name")
