@@ -3321,7 +3321,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 仍有一群兽人存在。一个小小的兽人部落——其实更像一座小镇——躲过了救世主的怒火……如整洁花园边缘的一株杂草，又像威胁点燃整片大陆的一点余烬。托拉克国王试图树立比复仇心切的父亲更好榜样，志向固然高尚；可若他经历过我们所经历的一切，我怀疑他是否还会冒险去拯救兽人。联合王国不知道活在四大部落阴影下是什么滋味，不知道太阳堡垒随时可能被攻陷、我们的头颅被割下当作战利品的恐惧。他们有远行传送门可作屏障，无需担心家园和亲人遭遇我们一生都在抗争的同样恐怖。如果他们也要担这种心……只消说，在大陆真正安全之前，他们绝不会费心为幸存兽人搭起舒适营地。
 
-以太阳之名……经历这一切之后，我们的至高太阳骑士为何还会同意这份条约？
+以太阳之名……经历这一切之后，我们的高阶太阳骑士为何还会同意这份条约？
 
 兽人斥候越来越大胆。他们逃走前会靠得更近，出现得也更频繁。虽然尚未交战，却只是时间问题……而我获准做的只有坐在这座难看的小桥上等待；西方人则从另一个大陆远远观望。就像盯着一道敞开的伤口，等它感染，只因他们宁愿把绷带系成漂亮的蝴蝶结。]], "tformat")
 t("hero", "英雄", "_t")
@@ -3347,7 +3347,7 @@ I'll spare you the speech about insubordination, lying, and bypassing the chain 
 
 -Outpost Leader John]], [[特瑞尔，
 
-我尊重你的本意，也尊重你为保障我们安全所付出的努力；这是我没有立刻把这封信交给艾琳的唯一原因。你对这份条约为我们换来了什么，哪怕有一点概念吗？你真以为没有托拉克国王的帮助，我们还能阻止各部落残余联合起来，并至少在未来几十年里成为我们的巨大麻烦吗？就算我不同意艾琳女士认为兽人应当获得救赎机会的看法，这份条约也确保了我们能从一个国家那里获得[i]巨量[/i]援助——而就在去年，这个国家还在容忍四处游荡的法师私刑团伙。
+我尊重你的本意，也尊重你为保障我们安全所付出的努力；这是我没有立刻把这封信交给艾琳的唯一原因。你对这份条约为我们换来了什么，哪怕有一点概念吗？你真以为没有托拉克国王的帮助，我们还能阻止各部落残余联合起来，并至少在未来几十年里成为我们的巨大麻烦吗？就算我不同意艾琳女士认为兽人应当获得救赎机会的看法，这份条约也确保了我们能从一个国家那里获得[i]巨量[/i]援助——而就在去年，这个国家还在容忍四处游荡、对法师施以私刑的团伙。
 
 关于抗命、撒谎和越过指挥链，我就不训斥你了，因为：第一，严格来说你“只是”在要求我犯下这些过错；第二，我有更要紧的事要做，而不是给一个我[i]确信[/i]完全清楚自己错在哪里的人写一篇长篇大论的斥责。我就直说了：永远别再想干这种事。我会留着你的信；如果你今后牵涉任何可疑的武力使用，我就会把它作为证据提交。我原以为你不至于如此。
 
@@ -3398,7 +3398,7 @@ Unofficially?  I'm going to #{italic}#enjoy#{normal}# this.]], [[好吧。原来
 
 非官方说法？我会#{italic}#好好享受#{normal}#这一切。]], "_t")
 t("a torn page from John's journal", "约翰日记中撕下的一页", "_t")
-t("Aeryn, my love...  I fear Trelle may be right, but I will hold this bridge without resorting to betraying you.  Still, though, I will remain vigilant of approaching attacks, and prepare to strike first if a battle really does seem inevitable.  As long as I stand, no Orc will ever harm you again.  We will have a bright and shining future ahead of us, walking hand in hand into the dawn of a new, peaceful age...  and while I hope the Kruk Pride has a place there, I will not let them put this new age in jeopardy.", "艾琳，我的爱人…我开始担心，特瑞尔说的可能是对的，但我会坚守这座桥，绝不会背叛你的信赖。尽管如此，我仍会警惕可能到来的袭击，如果战斗看来真的不可避免，我也会准备先发制人。只要我还在这里，我绝对不会让任何兽人伤害你。我们将拥有光明璀璨的未来，携手走向和平新时代的黎明……尽管我希望克鲁克部族也能在其中占有一席之地，但我绝不会容许他们危及这个新时代。", "_t")
+t("Aeryn, my love...  I fear Trelle may be right, but I will hold this bridge without resorting to betraying you.  Still, though, I will remain vigilant of approaching attacks, and prepare to strike first if a battle really does seem inevitable.  As long as I stand, no Orc will ever harm you again.  We will have a bright and shining future ahead of us, walking hand in hand into the dawn of a new, peaceful age...  and while I hope the Kruk Pride has a place there, I will not let them put this new age in jeopardy.", "艾琳，我的爱人……我开始担心，特瑞尔说的可能是对的，但我会坚守这座桥，绝不会背叛你的信赖。尽管如此，我仍会警惕可能到来的袭击，如果战斗看来真的不可避免，我也会准备先发制人。只要我还在这里，我绝对不会让任何兽人伤害你。我们将拥有光明璀璨的未来，携手走向和平新时代的黎明……尽管我希望克鲁克部落也能在其中占有一席之地，但我绝不会容许他们危及这个新时代。", "_t")
 t("King Tolak's Condemnation", "托拉克国王的谴责书", "_t")
 t([[(As you approach the farportal, a herald emerges, holding an envelope; he doesn't quite hand it to you as much as throw it at you from a safe distance, then salutes and retreats back into the swirling rift.  The letter bears the royal seal of the Allied Kingdoms.)
 
@@ -3447,14 +3447,14 @@ Anyway, my advice is to request permission to send a few Shining Inquisitors to 
 ……从未见过？算了。
 
 总之，我建议申请许可，派几名日光裁判官前往托拉克国王处，协助他们那边的调查。从逮捕人数不断上升来看，无论走私者在东方如何避开侦测，他们到了西方要么无法再用同样手段，要么只是回家后放松了警惕。我们可以帮助联合王国打击这条链上的薄弱环节，也让裁判官顺便留意马基·埃亚尔的动向。倒不是说我不相信托拉克国王会履行承诺，绝不让那些邪恶的伊格兰斯再制造日落大屠杀那样的惨剧，但……唉，在联合王国眼皮底下，远行传送门祭坛都流入了黑市，幕后还可能是一个几乎就住在国王隔壁的疯狂炼金术师；要说他们能把一群秘密狂热分子从那个貌似无害的“修复者”组织掩护下拖到阳光中，我实在信心不足。我相信他们已经竭尽全力；我只是建议我们也这么做。]], "_t")
-t("journal of High Sun Paladin Aeryn", "至高太阳骑士艾琳的日记", "_t")
+t("journal of High Sun Paladin Aeryn", "高阶太阳骑士艾琳的日记", "_t")
 t([[This is it...  the day I've dreaded for most of my life is here, and yet it still comes as a shock.  I expected it for almost every day of my life...  until last year.  The Scourge from the West defeated the Prides, raced down the Charred Scar, and stormed the tower of High Peak to fight by my side against a threat far greater than I dreamed possible.  We'd been reunited with a cooperative and nearly-unified Maj'Eyal, led by a king willing and able to help us in any way, armed with a plan to keep the orcs completely under control...  it's as if the Sun had begun to creep over the horizon to start the dawn of peace in Var'Eyal, right before going dark forever and taking the moons with it.  The love of my life is presumed dead; the candle in the night of the years before has been snuffed out. Nothing - no plan that hasn't been shattered, no inspiration that hasn't fallen, no hope that hasn't turned to despair - is left to guide me.
 
 I must be that light for my allies' sake.  I must be strong, resolute, giving them whatever tiny amounts of hope I can.  Not only to keep their morale up and give us a chance of prevailing against the unstoppable menace which the Sunwall has stood against for ages...  but so that their last thoughts in death might be that their sacrifice has saved us all.  Maybe one of them will be right.
 
 All I can hope is that King Tolak has learned something about the Orcs, before his kingdom falls as well.  I do not begrudge him, everything he did was rooted in wisdom and kindness...  and would have worked for any species but the Orcs.  They are the sole exception that deserves no mercy.]], [[这一切……我大半生都在恐惧的这一天终于来临了，但它依然让我无比震惊。过去的几乎每一日，我都以为这一天很快就要到来……但直到去年，事情出现了变化。西方天灾击败了四大兽人部落，飞速穿越灼烧之痕，攻上巅峰之塔，与我并肩迎战远比我所能想象的更强大的威胁。我们终于与一个愿意合作、近乎统一的马基·埃亚尔重新建立了联系；它由一位愿意且有能力全力帮助我们的国王领导，并制定了一个将兽人完全控制住的计划……回想起来，这一切就好像太阳缓缓从地平线上升起，仿佛要给瓦·埃亚尔带来和平的曙光，但紧接着，永恒的黑暗降临，就连最后闪烁的月光也被黑暗笼罩。我的爱人恐怕已经死了；曾经在我生命的黑暗中照耀多年的点点烛光，就这样熄灭在无尽的黑夜中。什么都没有了——所有过去的计划都被践踏了，所有过去的梦想都化为了泡影，所有过去照耀的希望，现在都变成了绝望——已经没有谁能指引我了。
 
-为了我的战友，我必须成为他们希望的光芒。我必须振作起来，坚强，坚定，将我所有的任何一点微小的希望，一同分享给他们。这不仅是为了保持他们的士气，让我们有机会战胜太阳堡垒长久以来一直抵挡的、无法阻止的威胁……也是为了让他们相信，他们临死时最后想到的或许是自己的牺牲拯救了我们所有人。也许他们中会有一个人的想法是对的。
+为了我的战友，我必须成为他们希望的光芒。我必须振作起来，坚强，坚定，将我所有的任何一点微小的希望，一同分享给他们。这不仅是为了保持他们的士气，让我们有机会战胜太阳堡垒长久以来一直抵挡的、无法阻止的威胁……也是为了让他们临死前的最后一个念头能够是：自己的牺牲拯救了我们所有人。也许他们中会有一个人的想法是对的。
 
 我唯一希望的是，在他自己的国家也走向毁灭之前，托拉克国王能够从兽人的身上吸取一点教训。我并不准备苛责他，他所做的一切都源于智慧与仁慈……换作兽人以外的任何种族，本都会奏效。但兽人是唯一的例外，他们不配得到我们的任何仁慈。]], "_t")
 t("kindness", "善意", "_t")
@@ -3529,7 +3529,7 @@ In most, it was the Sher'Tul, eliminating their closest competitor, or the Mal'R
 
 We don't advise learning psychic prognostication with such commitment as we did.  To see this many possibilities, to gaze into infinity with such detail without infinity gazing back...  you have to feel it.  Every spear through our hearts, every limb burned off...  and we all did it together, linking our minds to accomplish this, so all of us have suffered through this.  And after all that, we still can't be 100% sure it's accurate, although we've gotten to more 9s after 99.9% than we can actually count.]], [[你知道你曾杀死过我们吗？在一个可能的未来里，确实是你：你高踞钢铁巨龙之上，下令灭绝我们。在其他未来里，动手的是巨魔帝国、联合王国、火筑工业、伊格-自然精灵联盟，或无数其他转瞬即逝的凡人城邦。我们曾被盖里克撕碎，也曾在艾格尼尔校长或“大天才”泰恩（没错，那个自鸣得意的蠢货真这么称呼自己）的指示下被安格利文解剖。我们曾被亚斯特莉圣母统治的新孔克雷夫吞噬——无论字面还是比喻意义上；曾被大腐化者制造的瘟疫抹杀；曾在纳鲁精灵淹没世界时溺亡；也曾被重生的赤红龙族烧成灰烬。我们曾被恶魔和领主的亡灵仆从抓去当折磨取乐的玩具，被瑞库纳联邦猎杀以充当魔法材料，又被大蒸汽共和国当作计算器使用。
 
-你应该感谢西方天灾。我们当然感谢她。
+你应该感谢西方天灾。我们当然很感谢。
 
 在大多数未来里，是夏·图尔人为了消灭最接近的竞争对手，或是玛·洛克人为了独占埃亚尔而毁灭我们。在少数我们赢下每场战争的未来里，毁灭埃亚尔的则是一颗陨石——如今，那颗陨石已被你们所谓魔法大爆炸留下的碎片拦截。不用谢——我们的一群族人把玛·洛克人压制了足够长的时间，才让这件事得以发生。若想看看这个世界有多么执意要抹除我们，只管去问他们对“尘埃法师”知道些什么。
 
@@ -3568,7 +3568,7 @@ Would you expect anything less from the physical incarnations of spiteful determ
 
 在此之前我们成就斐然，也不想从头再做一遍。当然，若把一切集中一处，诅咒便会察觉并将其抹除——于是我们把自身和成就拆成碎片，以数千年的进化与隐秘操纵将它们遮掩起来。你大概已经见过其中一块：躯体。强壮。坚韧。能适应任何环境。快速愈合。青春永驻。而且，一旦时机成熟，极其容易通过心灵转移接管……你也许正考虑命令部落尽可能灭绝所有雪人。尽管去做吧；消灭所有免费劳力，再看看当巨魔帝国役使奴隶、联合王国拥有食人魔和矮人时，你们会落得怎样。再次说明，它是否帮助我们并不重要，因为你们需要它才能生存。
 
-不过，这只是我们得以保存之物的三分之一。其次是我们的心智处理能力：适于灵能的头脑，以及快速评估信息、进行逻辑分析的能力。你们永远无法灭绝夺心魔——相信我们，我们试过了。他们仿佛像我们遭受诅咒那样得到了赐福，只不过若只是试图藏在他们体内，我们仍注定灭亡。真可惜。无论如何，他们的大脑及其承载的系统都会延续下去；在我们缺席时，他们会维系我们的维网。
+不过，这只是我们得以保存之物的三分之一。其次是我们的心智处理能力：适于灵能的头脑，以及快速评估信息、进行逻辑分析的能力。你们永远无法灭绝夺心魔——相信我们，我们查证过了。他们仿佛像我们遭受诅咒那样得到了赐福，只不过若只是试图藏在他们体内，我们仍注定灭亡。真可惜。无论如何，他们的大脑及其承载的系统都会延续下去；在我们缺席时，他们会维系我们的维网。
 
 最后是我们的文化、我们的发现。所有未被写入躯体或大脑的知识，我们都存放在……另一个族群中。一个向群星之外扩张的族群；我们向他们散播了无数经过隐秘编码的信息片段；他们的备份遍布宇宙……他们会把足够的信息送回故乡。夺心魔会吸收这些信息，而我们将在他们的心智中重生，直到他们能把我们放进更优越的躯体。
 
@@ -3624,18 +3624,18 @@ t("Clork Peninsula", "克拉克半岛", "_t")
 section "tome-orcs/data/quests/amakthel.lua"
 
 t("The Dead God Awaits", "已死之神在等待", "_t")
-t("Deep within Eyal you found a huge cavern containing some of the remains of the great dead god Amakthel...", "在埃亚尔的深处，你找到了一个巨大的山洞，那里面深埋着已死的巨神阿马克泰尔的遗骸。", "_t")
-t("Along with what appears to be a living Sher'tul that seems to be trying to resurrect him.", "在那里，还有一个活生生的夏·图尔人，它试图复活这尊古神。", "_t")
+t("Deep within Eyal you found a huge cavern containing some of the remains of the great dead god Amakthel...", "在埃亚尔的深处，你找到了一个巨大的山洞，那里面有已死的巨神阿马克泰尔的部分遗骸……", "_t")
+t("Along with what appears to be a living Sher'tul that seems to be trying to resurrect him.", "此外还有一个看似活着的夏·图尔人，似乎正试图复活这尊古神。", "_t")
 t("It must be stopped at all cost, the Prides only just got their freedom back, you can not allow anything to take it away again!", "必须不惜一切代价阻止他的可怕行径，部落才刚重获自由，你绝不能让任何东西再次夺走它！", "_t")
 t("The Sher'tul Priest has been taken care of, Amakthel will keep on sleeping forever now. The Prides and the world are safe.", "夏·图尔祭司已经被妥善处置，阿马克泰尔将永久继续沉睡。部落和世界的和平得到了确保。", "_t")
 t("#LIGHT_GREEN#You have won the game!.#WHITE#", "#LIGHT_GREEN#你通关了！#WHITE#", "_t")
-t("#CRIMSON#You feel as if your Rod of Recall is working again in this area.", "#CRIMSON#你感觉到你的召回之杖可以继续在这个区域运作了。", "log")
+t("#CRIMSON#You feel as if your Rod of Recall is working again in this area.", "#CRIMSON#你感觉到你的回归之杖似乎又能在这个区域使用了。", "log")
 t("Orc Warrior", "兽人战士", "_t")
 t("Winner", "游戏胜利", "_t")
 t("#GOLD#Well done! You have won the Tales of Maj'Eyal: Embers of Rage!#WHITE#", "#GOLD#干得不错！你通关了马基·埃亚尔的传说：余烬怒火#WHITE#", "_t")
 t("You have thwarted the Steam Giants' genocidal plans, and avenged those killed in the attack on Kruk Pride.  Their desperate pact with the High Priest did nothing to stop you; the priest and his god lay dead at your feet, and you have ensured they will #{italic}#stay#{normal}# dead for the foreseeable future.", "你挫败了蒸汽巨人灭绝你们的计划，并为在克鲁克部落遇袭时丧生的同胞复仇。他们绝望中与夏·图尔高阶祭司订立的契约也未能阻止你，祭司和他的神倒在你的脚下，你已经确保他们在可预见的将来会#{italic}#一直#{normal}#长眠下去。", "_t")
 t("The humans, elves, and halflings will not be able to hurt your people again.  By destroying the farportal and denying King Tolak's army its glorious battle, you have ensured the safety of your people from the Allied Kingdoms, and by storming the Gates of Morning you have eliminated the last bearers of the West's hateful aggression in Var'Eyal.", "无论是人类、精灵还是半身人，都再也无法伤害你的族人。你摧毁了远行传送门，使托拉克国王的军队失去了这场光荣的战斗，从而确保族人免受联合王国侵害。你攻下晨曦之门，也消灭了西方在瓦·埃亚尔施行可恨侵略的最后一批爪牙。", "_t")
-t("For now, peace reigns.  You know that this will not last forever.  You may have repelled its vanguard, but the Kar'Haïb Dominion bides its time waiting for a weakness it can exploit; the smugglers' portals from Maj'Eyal remain undiscovered, and while neither you nor King Tolak has any remaining desire to take the other's continent, the fear of invasion will linger in the backs of your minds.", "眼下，和平降临了。但你知道这不会永远持续下去。虽然你击退了卡尔·亥巴帝国的先锋，它却仍在等待可乘之机；走私者们从马基·埃亚尔通往这里的传送门依然没有被发现。即使你和托拉克国王都已无意夺取对方的大陆，对入侵的恐惧仍会萦绕在你们心底。", "_t")
+t("For now, peace reigns.  You know that this will not last forever.  You may have repelled its vanguard, but the Kar'Haïb Dominion bides its time waiting for a weakness it can exploit; the smugglers' portals from Maj'Eyal remain undiscovered, and while neither you nor King Tolak has any remaining desire to take the other's continent, the fear of invasion will linger in the backs of your minds.", "眼下，和平降临了。但你知道这不会永远持续下去。虽然你击退了卡尔·亥巴巨魔帝国的先锋，它却仍在等待可乘之机；走私者们从马基·埃亚尔通往这里的传送门依然没有被发现。即使你和托拉克国王都已无意夺取对方的大陆，对入侵的恐惧仍会萦绕在你们心底。", "_t")
 t("  The messages of the Lost City give you cause to remain ever vigilant for the threats they warned of, including their authors, and you wonder what your people will do now that their struggle to escape eradication, one that has defined them for their entire recorded history, has ceased to be a concern.", "  来自失落之城的消息让你时刻警惕他们所警告的种种威胁，包括他们自己。你的人民为摆脱灭亡而进行的抗争贯穿了你们有记载以来的全部历史，如今这已不再需要担忧，你不禁思索他们将何去何从。", "_t")
 t("Regardless...  You just killed a god and gave your people the first chance to relax in thousands of years.  It's been a pretty good day.", "不管怎样…你杀死了一个神，而你的人民在数千年的征战中终于有了放松的机会。多么愉快的一天。", "_t")
 t("You may continue playing and enjoy the rest of the world.  Your soldiers may want to speak with you outside...", "你可以继续游戏，享受这个世界。你的士兵在外面，有些话要说……", "_t")
