@@ -38050,7 +38050,7 @@ t("Improves the contribution of primary stats on infusions and runes by 15%", "�
 ------------------------------------------------
 section "mod-tome/data/zones/conclave-vault/zone.lua"
 
-t("Old Conclave Vault", "古老的孔克雷夫地下实验室", "_t")
+t("Old Conclave Vault", "古老的孔克雷夫宝库", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/crypt-kryl-feijan/grids.lua"
@@ -38070,14 +38070,14 @@ t("and devoured as a demonic breakfast", "并将其当作恶魔早餐吞噬", "_
 t("Melinda", "梅琳达", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("A female Human with twisted sigils scored into her naked flesh. Her wrists and ankles are sore and hurt by ropes and chains. You can discern great beauty beyond the stains of blood covering her skin.", "一位赤裸并且全身刻有扭曲符文的女人。她的四肢被镣铐绑在了祭台上。尽管她的皮肤上满是鲜血，你仍然能发现她的美丽。", "_t")
+t("A female Human with twisted sigils scored into her naked flesh. Her wrists and ankles are sore and hurt by ropes and chains. You can discern great beauty beyond the stains of blood covering her skin.", "一位人类女子，赤裸的肌肤上刻满了扭曲的符文。她的手腕和脚踝被绳索与锁链勒得伤痕累累。透过皮肤上斑斑的血迹，你仍能看出她的绝美容颜。", "_t")
 t("Acolyte of the Sect of Kryl-Feijan", "克里尔·费扬的邪教徒", "entity name")
 t("elf", "精灵", "entity subtype")
 t("Black-robed Elves with a mad look in their eyes.", "穿着黑色长袍的精灵，他们的眼中满是疯狂。", "_t")
 t("Melinda", "梅琳达", "_t")
 t([[The woman seems to be freed from her bonds.
-She stumbles on her feet, her naked body still dripping in blood. 'Please get me out of here!']], [[这个女人从镣铐束缚中解脱了。
-她蹒跚着向你走来，鲜血从她赤裸的皮肤上滴落。“请带我离开这里！”]], "_t")
+She stumbles on her feet, her naked body still dripping in blood. 'Please get me out of here!']], [[这个女人似乎已摆脱了束缚。
+她踉跄着站立不稳，赤裸的身体仍在滴血。“请带我离开这里！”]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/crypt-kryl-feijan/objects.lua"
@@ -38112,12 +38112,12 @@ section "mod-tome/data/zones/daikara/npcs.lua"
 t("dragon", "龙", "entity type")
 t("ice", "寒冰", "entity subtype")
 t("Rantha the Worm", "巨龙兰莎", "entity name")
-t("Claws and teeth. Ice and death. Dragons are not all extinct it seems...", "尖牙利齿，冰冷致命。似乎龙族并没有完全灭绝……", "_t")
+t("Claws and teeth. Ice and death. Dragons are not all extinct it seems...", "利爪与尖牙，寒冰与死亡。似乎龙族并没有完全灭绝……", "_t")
 t("and fed to the hatchlings", "并将其喂给幼龙们分食", "_t")
 t("I have heard there is a dragon hunter in the Daikara that is unhappy about the wyrm being already dead.", "我听说有一名弑龙者来到了岱卡拉，他对于这里栖息的巨龙已经被干掉这件事沮丧不已。", "_t")
 t("fire", "火焰", "entity subtype")
 t("Varsha the Writhing", "蜷曲的瓦莎", "entity name")
-t("Claws and teeth. Fire and death. Dragons are not all extinct it seems...", "尖牙利齿，火焰致命。似乎龙族并没有灭绝……", "_t")
+t("Claws and teeth. Fire and death. Dragons are not all extinct it seems...", "利爪与尖牙，烈焰与死亡。似乎龙族并没有完全灭绝……", "_t")
 t("Massok the Dragonslayer", "弑龙者马萨克", "entity name")
 t("A huge and heavily-scarred orc with a gigantic sword. His helm is fashioned from a dragon's skull.", "一个手持巨剑的高大兽人，浑身伤疤。他的头盔由龙的头骨制成。", "_t")
 
@@ -40030,7 +40030,7 @@ t("Ben Cruthdar, the Abomination", "本·克鲁塞达尔，憎恶形态", "entit
 t("This crazed madman seems twisted and corrupted by temporal energy, his body shifting and phasing in and out of reality.", "这个疯子似乎被时空能量扭曲并侵蚀，他的身体不断变换，在现实中时隐时现。", "_t")
 t("dragon", "龙", "entity type")
 t("Rantha the Abomination", "兰莎，憎恶形态", "entity name")
-t("Claws and teeth. Ice and death. Dragons are not all extinct it seems...  and this one seems to have been corrupted by the time rift.", "尖牙利齿，冰冷致命。似乎龙族并没有完全灭绝……而这一只似乎已被时空裂隙所腐蚀。", "_t")
+t("Claws and teeth. Ice and death. Dragons are not all extinct it seems...  and this one seems to have been corrupted by the time rift.", "利爪与尖牙，寒冰与死亡。似乎龙族并没有完全灭绝……而这一只似乎已被时空裂隙所腐蚀。", "_t")
 t("Chronolith Twin", "双生琼纳里斯", "entity name")
 t("A six-armed creature, dressed in robes, with black insectile eyes.", "身穿长袍、有着黑色昆虫样眼睛的六臂生物。", "_t")
 t("Chronolith Clone", "克隆琼纳里斯", "entity name")
