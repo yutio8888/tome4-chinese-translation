@@ -2505,7 +2505,7 @@ t("ureslak's lair", "乌瑞斯拉克的巢穴", "newLore category")
 t("a note lying in a puddle", "水坑里的纸条", "_t")
 t([[If you think I'd just leave my plans lying around for anyone to find them, you're an even greater buffoon than Rak'Shor's followers.  You, unlike them, are of no use to me.  [b]Die.[/b]
 
-[i](The bottom half of the paper is illegibly smudged, on account of water dripping onto it from a stalactite above, but has the approximate shape of an explosive-rune trap.  You drop the note, wary of any lingering power it might still have.)[/i] ]], [[如果你以为我会把我的计划写在纸条上，让其他人找到它们，你就是比拉克·肖的追随者还要可笑的小丑。不过你和他们不一样，你对我没有任何用处。[b]去死吧！[/b]
+[i](The bottom half of the paper is illegibly smudged, on account of water dripping onto it from a stalactite above, but has the approximate shape of an explosive-rune trap.  You drop the note, wary of any lingering power it might still have.)[/i] ]], [[如果你以为我会把计划随手乱放，让谁都能找到，那你就是比拉克·肖的追随者还要可笑的小丑。不过你和他们不一样，你对我没有任何用处。[b]去死吧！[/b]
 
 [i](这张纸的下半部被弄脏了，难以辨认，看来是上方的钟乳石柱滴下的水弄潮了这张纸。但你可以依稀看到一个爆炸符文陷阱的形状。你赶紧把纸条扔在了地上，生怕纸条上还残留着什么力量。)[/i] ]], "_t")
 t("var'eyal", "瓦·埃亚尔", "newLore category")
@@ -7154,7 +7154,7 @@ section "tome-orcs/data/zones/kaltor-shop/objects.lua"
 t("Pressure-enhanced Slashproof Combat Suit", "压力强化型防斩击作战服", "entity name")
 t("steam-enhanced leather coat", "蒸汽强化皮衣", "_t")
 t("A simple leather armour of excellent facture that has been craftily enhanced with hidden miniature steam engines to enhance reflexes and provide safety features.", "一件制作精良的简洁皮甲，巧妙嵌入了隐藏的微型蒸汽引擎，既能提升反应速度，又提供了多项安全功能。", "_t")
-t("When you take a hit of more than 10% of your total life the suit's motors activate for the next turn, displacing you before any blow could hit you.", "当你受到超过总生命值 10% 的单次伤害后，作战服的马达会在下一回合启动，在攻击命中之前让你移位闪开。", "_t")
+t("When you take a hit of more than 10% of your total life the suit's motors activate for the next turn, displacing you before any blow could hit you.", "当你受到超过总生命值 10% 的单次伤害后，作战服的马达会启动并持续一回合，在攻击命中之前让你移位闪开。", "_t")
 t("Brilliant Auto-loading Orc Expeller", "精良的自动装填式兽人驱逐装置", "entity name")
 t("expensive gun", "昂贵的枪", "_t")
 t("A finely crafted gun, designed specifically to kill orcs. And giants somehow!", "一把精心打造的枪，专为杀死兽人而设计。不知怎的，对巨人也一样管用！", "_t")
@@ -7167,7 +7167,7 @@ t("Kaltor's Shop", "卡托尔的商店", "_t")
 ------------------------------------------------
 section "tome-orcs/data/zones/krimbul/grids.lua"
 
-t("airship hull", "飞艇", "entity name")
+t("airship hull", "飞艇船体", "entity name")
 t("breach into the airship hull", "通往飞艇内部的缺口", "entity name")
 t("trigger", "触发器", "entity type")
 t("trigger", "触发器", "entity subtype")
@@ -7413,7 +7413,7 @@ section "tome-orcs/data/zones/shertul-cave/objects.lua"
 t("Pressure-enhanced Slashproof Combat Suit", "压力强化型防斩击作战服", "entity name")
 t("steam-enhanced leather coat", "蒸汽强化皮衣", "_t")
 t("A simple leather armour of excellent facture that has been craftily enhanced with hidden miniature steam engines to enhance reflexes and provide safety features.", "一件制作精良的简洁皮甲，巧妙嵌入了隐藏的微型蒸汽引擎，既能提升反应速度，又提供了多项安全功能。", "_t")
-t("When you take a hit of more than 10% of your total life the suit's motors activate fo the next turn, displacing you before any blow could hit you.", "当你受到超过总生命值 10% 的单次伤害后，作战服的马达会在下一回合启动，在攻击命中之前让你移位闪开。", "_t")
+t("When you take a hit of more than 10% of your total life the suit's motors activate fo the next turn, displacing you before any blow could hit you.", "当你受到超过总生命值 10% 的单次伤害后，作战服的马达会启动并持续一回合，在攻击命中之前让你移位闪开。", "_t")
 t("Brilliant Auto-loading Orc Expeller", "精良的自动装填式兽人驱逐装置", "entity name")
 t("expensive gun", "昂贵的枪", "_t")
 t("A finely crafted gun, designed specifically to kill orcs. And giants somehow!", "一把精心打造的枪，专为杀死兽人而设计。不知怎的，对巨人也一样管用！", "_t")
