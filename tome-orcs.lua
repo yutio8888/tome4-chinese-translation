@@ -3808,7 +3808,7 @@ t("A Ritch Party", "里奇派对", "_t")
 t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地铲除太阳堡垒。", "_t")
 t("To do that we will prepare a special surprise to help our final attack.", "为此，我们必须为最终的突袭做好准备，给他们一个“惊喜”。", "_t")
 t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠以北群山中的里奇巢穴，收集大量的里奇虫卵。大约 30 个可孵化的虫卵便已足够。", "_t")
-t("When you have enough, find a tunnel leading north and use the special sand shredder gloves tinker to open a path under the Gates of Morning.", "当你有了足够的里奇虫卵，找到一条向北的隧道，使用特殊的挖沙手套插件来挖出一条通向晨曦之门的道路。", "_t")
+t("When you have enough, find a tunnel leading north and use the special sand shredder gloves tinker to open a path under the Gates of Morning.", "当你有了足够的里奇虫卵，找到一条向北的隧道，使用特殊的掘沙者手套插件，在晨曦之门下方挖出一条通道。", "_t")
 t("Finally, place the eggs in a protected spot to hatch.  With luck, they will provide a distraction while you later assault the city.", "最后，将虫卵放在安全的地方让它们孵化。运气好的话，等你日后进攻城市时，它们能帮你分散敌人的注意力。", "_t")
 t("#LIGHT_GREEN#* You have collected enough eggs.#WHITE#", "#LIGHT_GREEN#* 你收集了足够多的虫卵#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have tunnelled close enough to the Gates of Morning.#WHITE#", "#LIGHT_GREEN#* 你的隧道已经向北挖到足够接近晨曦之门的位置。#WHITE#", "_t")
@@ -3839,7 +3839,7 @@ section "tome-orcs/data/quests/sunwall-observatory.lua"
 
 t("Stargazers", "观星者", "_t")
 t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地铲除太阳堡垒。", "_t")
-t("Our scouts have noticed the Gates of Morning is being reinforced with sun and moon orbs.", "我们的哨兵注意到晨曦之门使用太阳球和月亮球来进行防护。", "_t")
+t("Our scouts have noticed the Gates of Morning is being reinforced with sun and moon orbs.", "我们的斥候注意到，晨曦之门正在用太阳球和月亮球加固防御。", "_t")
 t("Go to the Sunwall Observatory and destroy everything there to reduce their supplies.", "前往太阳堡垒观星台，摧毁那里的一切，以削减他们的补给。", "_t")
 t("#LIGHT_GREEN#* You have destroyed the Observatory, the Gates of Morning defenses will be weakened.#WHITE#", "#LIGHT_GREEN#* 你摧毁了观星台，晨曦之门的防御被削弱了。#WHITE#", "_t")
 -- untranslated text
@@ -3852,7 +3852,7 @@ t("", "", "_t")
 section "tome-orcs/data/quests/to-mainland.lua"
 
 t("You Shall Pass!", "你必须通过！", "_t")
-t("The Atmos tribe is not our sole problem. The Sunwall as grown in strength since the Scourge from the West came and murdered the other Prides leaders.", "气之部族不是我们唯一的问题。自从西方来的灾星来到这里并屠杀了其他兽人部落的领袖，太阳堡垒便日益壮大。", "_t")
+t("The Atmos tribe is not our sole problem. The Sunwall as grown in strength since the Scourge from the West came and murdered the other Prides leaders.", "气之部族不是我们唯一的问题。自从西方天灾到来并屠杀了其他兽人部落的领袖，太阳堡垒便日益壮大。", "_t")
 t("Our brothers on the mainland lay enslaved, but before we free them you must secure a way to the mainland.", "我们在大陆上的兄弟惨遭奴役；在解放他们之前，你必须先打通前往大陆的道路。", "_t")
 t([[Go to the sunwall outpost. Show them the wrath of Garkul, show no mercy for they have none for us.
 ]], [[前去太阳堡垒前哨站。让他们领教加库尔的怒火，绝不仁慈，因为他们对我们也不曾仁慈。
@@ -3888,7 +3888,7 @@ t("", "", "_t")
 section "tome-orcs/data/quests/yeti-abduction.lua"
 
 t("Yeti Reinforcements", "雪人援军", "_t")
-t("You found a yeti mind control tinker. If you can tame 8 wild yetis and send them back to Kruk Pride they can be trained and sent back to you at your request using a psychoportation beacon.", "你找到了一个雪人心灵控制器配件。如果你能驯服 8 只野生雪人并将它们送回克鲁克部落，它们便可接受训练；之后你可以通过精神传送信标，随时将它们召回身边。", "_t")
+t("You found a yeti mind control tinker. If you can tame 8 wild yetis and send them back to Kruk Pride they can be trained and sent back to you at your request using a psychoportation beacon.", "你找到了一个雪人精神控制仪配件。如果你能驯服 8 只野生雪人并将它们送回克鲁克部落，它们便可接受训练；之后你可以通过精神传送信标，随时将它们召回身边。", "_t")
 t("Wild yetis are mostly found in yeti's caves.", "野生雪人主要出现在雪人洞穴。", "_t")
 t("#LIGHT_GREEN#* Captured eight yetis (will be available to summon at level 20).#WHITE#", "#LIGHT_GREEN#* 抓住了八只雪人（你至少需要20级才能召唤他们）#WHITE#", "_t")
 t("#LIGHT_GREY#* Captured %d/8 yetis.#WHITE#", "#LIGHT_GREY#* 捕获了 %d/8 个雪人。#WHITE#", "tformat")
@@ -3898,7 +3898,7 @@ t("Yetis left to call: %d", "剩余可召唤的雪人：%d", "tformat")
 t("call a trained yeti for help", "召唤受训练的雪人来帮助你", "_t")
 t("The yetis are not ready yet.", "雪人还没有准备好。", "log")
 t("Yeti", "雪人", "_t")
-t("You extract the psychoportation beacon from the mind controller. Yetis will require some time to train before being usable.", "你从精神控制器上提取精神传送信标。雪人需要训练一段时间才能投入使用。", "log")
+t("You extract the psychoportation beacon from the mind controller. Yetis will require some time to train before being usable.", "你从精神控制仪上取下了精神传送信标。雪人需要训练一段时间才能投入使用。", "log")
 -- untranslated text
 --[==[
 t("", "", "_t")
