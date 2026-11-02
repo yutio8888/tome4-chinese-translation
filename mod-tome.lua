@@ -399,7 +399,7 @@ t("Please help me! I am afraid I lost myself in this place. I know there is a re
 t("%s, the injured seer", "%s，受伤的先知", "_t")
 t("She looks tired and wounded.", "她看起来疲惫又受伤。", "_t")
 t("%s, the repented thief", "%s，忏悔的盗贼", "_t")
-t("%s, the lone alchemist", "%s，落单的炼金术师", "_t")
+t("%s, the lone alchemist", "%s，落单的炼金术士", "_t")
 t("%s, the lost sun paladin", "%s，迷路的太阳骑士", "_t")
 t("%s, the lost defiler", "%s，迷路的堕落者", "_t")
 t("temporal portal", "时空传送门", "_t")
@@ -627,7 +627,7 @@ t("Random Artifact: %s", "随机神器：%s", "tformat")
 t("+3 Stat Points", "+3 属性点", "_t")
 t("+1 Class Point", "+1 职业技能点", "_t")
 t("+1 Generic Point", "+1 通用技能点", "_t")
-t("+1 Category Point", "+1 大系点", "_t")
+t("+1 Category Point", "+1 技能树解锁点", "_t")
 t("+1 Prodigy Point", "+1 觉醒点", "_t")
 t(" and ", "和", "_t")
 t("Rewards", "奖励", "_t")
@@ -2349,7 +2349,7 @@ Unused categories: %d]], [[#GOLD##{bold}#%s
 #WHITE##{normal}#未使用属性点：%d
 未使用职业技能点：%d
 未使用通用技能点：%d
-未使用大系点：%d]], "tformat")
+未使用技能树解锁点：%d]], "tformat")
 t("Level / Exp: #00ff00#%s / %2d%%", "等级/经验：#00ff00#%s/%2d%%", "tformat")
 t("Gold: #00ff00#%0.2f", "金币：#00ff00#%0.2f", "tformat")
 t("Accuracy:", "命中：", "_t")
@@ -2575,8 +2575,8 @@ t("The Rat Lich", "鼠巫妖", "achievement name")
 t("Killed the terrible Rat Lich.", "杀死可怕的鼠巫妖。", "_t")
 t("Shasshhiy'Kaish", "莎西·凯希", "achievement name")
 t("Killed Shasshhiy'Kaish after letting her grow as powerful as possible.", "在莎西·凯希成长到尽可能强大之后杀死她。", "_t")
-t("Bringer of Doom", "末日行者", "achievement name")
-t("Killed a Bringer of Doom.", "杀死一名末日行者。", "_t")
+t("Bringer of Doom", "末日招来者", "achievement name")
+t("Killed a Bringer of Doom.", "杀死一名末日招来者。", "_t")
 t("A living one!", "一个活着的！", "achievement name")
 t("Was teleported into Caldizar's Fortress, far into the void between the stars.", "传送进凯尔帝勒的堡垒，群星中的虚空地带。", "_t")
 t("Slimefest", "史莱姆狂欢节", "achievement name")
@@ -2724,7 +2724,7 @@ t("Died on the Eidolon Plane.", "在艾德隆位面死亡。", "_t")
 t("Fool of a Took!", "蠢货！", "achievement name")
 t("Killed oneself as a halfling.", "选择半身人种族并杀死自己。", "_t")
 t("Emancipation", "自由了！", "achievement name")
-t("Had the golem kill a boss while its master was already dead.", "当傀儡杀死BOSS时，炼金术师已死亡。", "_t")
+t("Had the golem kill a boss while its master was already dead.", "当傀儡杀死BOSS时，炼金术士已死亡。", "_t")
 t("Take you with me", "同归于尽", "achievement name")
 t("Killed a boss while already dead.", "在已死亡的状态下杀死一个BOSS。", "_t")
 t("Look at me, I'm playing a roguelike!", "看！我正在玩Roguelike！", "achievement name")
@@ -3007,11 +3007,11 @@ section "mod-tome/data/birth/classes/mage.lua"
 t("Mage", "法师系", "birth descriptor name")
 t("Mages are the wielders of arcane powers, able to cast powerful spells of destruction or to heal their wounds with nothing but a thought.", "法师们用奥术魔法来武装自己，只要一闪念就能够释放破坏性的法术或者治疗自己。", "_t")
 t("Golem", "傀儡", "birth facial category")
-t("Alchemist", "炼金术师", "birth descriptor name")
-t("An Alchemist is a manipulator of materials using magic.", "炼金术师是使用魔法操纵物质的人。", "_t")
+t("Alchemist", "炼金术士", "birth descriptor name")
+t("An Alchemist is a manipulator of materials using magic.", "炼金术士是使用魔法操纵物质的人。", "_t")
 t("They do not use the forbidden arcane arts practised by the mages of old - such perverters of nature have been shunned or actively hunted down since the Spellblaze.", "他们不使用古代法师所施行的被禁止的奥术——自魔法大爆炸以来，这些扭曲自然的人一直被排斥甚至遭到追捕。", "_t")
-t("Alchemists can transmute gems to bring forth elemental effects, turning them into balls of fire, torrents of acid, and other effects.  They can also reinforce armour with magical effects using gems, and channel arcane staffs to produce bolts of energy.", "炼金术师能转化宝石，产生火球、酸液洪流等元素效果。他们还可以利用宝石为护甲附加魔法效果，并通过奥术法杖发射能量弹。", "_t")
-t("Though normally physically weak, most alchemists are accompanied by magical golems which they construct and use as bodyguards.  These golems are enslaved to their master's will, and can grow in power as their master advances through the arts.", "炼金术师通常体质孱弱，但大多数炼金术师身边都有亲手建造的魔法傀儡充当保镖。这些傀儡服从主人的意志，并会随着主人技艺精进而变得更加强大。", "_t")
+t("Alchemists can transmute gems to bring forth elemental effects, turning them into balls of fire, torrents of acid, and other effects.  They can also reinforce armour with magical effects using gems, and channel arcane staffs to produce bolts of energy.", "炼金术士能转化宝石，产生火球、酸液洪流等元素效果。他们还可以利用宝石为护甲附加魔法效果，并通过奥术法杖发射能量弹。", "_t")
+t("Though normally physically weak, most alchemists are accompanied by magical golems which they construct and use as bodyguards.  These golems are enslaved to their master's will, and can grow in power as their master advances through the arts.", "炼金术士通常体质孱弱，但大多数炼金术士身边都有亲手建造的魔法傀儡充当保镖。这些傀儡服从主人的意志，并会随着主人技艺精进而变得更加强大。", "_t")
 t("Their most important stats are: Magic and Constitution", "他们最重要的属性是：魔力和体质。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +0 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +0 力量，+0 敏捷，+3 体质", "_t")
@@ -7477,7 +7477,7 @@ t("My life for His!", "我的生命属于他！", "_t")
 t("Die intruder!", "去死吧，闯入者！", "_t")
 t("weird pedestal (glowing)", "奇怪的发光基座", "_t")
 t("%s's soul is absorbed by the pedestal. A glowing orb appears.", "%s的灵魂被基座吸收了。一个发光的球体出现了。", "logSeen")
-t("#rng# the Bringer of Doom", "末日行者#rng#", "_t")
+t("#rng# the Bringer of Doom", "末日招来者#rng#", "_t")
 t("You hear a terrible voice saying 'Their lives are mine! I am coming!'", "你听到一个可怕而低沉的声音：“他们的生死由吾掌控！吾即将降临！”", "_t")
 
 ------------------------------------------------
@@ -8439,8 +8439,8 @@ t("This terrible demon is covered in blood, which flows *on* its skin in ever-ch
 t("daelach", "达莱奇", "entity name")
 t([[You can only guess at the real shape of this demon. Its body is surrounded by a cloud of fiery darkness.
 It moves swiftly toward you, casting terrible spells and swinging its weapons at you.]], "你只能猜测这只恶魔的真实形态。它的身体被一层炽热的黑暗所笼罩。\n它迅速向你逼近，一边施放可怕的法术，一边挥舞武器攻击你。", "_t")
-t("champion of Urh'Rok", "乌鲁洛克的冠军", "entity name")
-t("One of Urh'Rok's own champions. A thousand nightmares made flesh and screaming steel tower before you in the form of a massive, armored humanoid.", "乌鲁洛克麾下的冠军之一。一千个噩梦化作血肉与尖啸的钢铁，以庞大的装甲人形之姿耸立在你面前。", "_t")
+t("champion of Urh'Rok", "乌鲁洛克的精英卫兵", "entity name")
+t("One of Urh'Rok's own champions. A thousand nightmares made flesh and screaming steel tower before you in the form of a massive, armored humanoid.", "乌鲁洛克麾下的精英卫兵之一。一千个噩梦化作血肉与尖啸的钢铁，以庞大的装甲人形之姿耸立在你面前。", "_t")
 t("forge-giant", "锻造巨人", "entity name")
 t("A burning giant wielding a forge hammer of the underworld in each hand -- weapons imbued by Urh'Rok himself with the power to crush and shape felsteel. Enter their range at your peril.", "一个浑身燃烧的巨人，双手各持一柄来自地底的锻造巨锤——由乌鲁洛克亲自赋予碾碎和锻造魔钢之力的武器。踏入它们的攻击范围，后果自负。", "_t")
 t("Khulmanar, General of Urh'Rok", "库马纳，乌鲁洛克的将军", "entity name")
@@ -8501,7 +8501,7 @@ t("multi-hued drake", "七彩龙", "entity name")
 t("A mature multi-hued drake, armed with many deadly breath weapons and nasty claws.", "一条成年七彩龙，拥有许多致命的吐息和锋利的爪子。", "_t")
 t("greater multi-hued wyrm", "强化七彩巨龙", "entity name")
 t("An old and powerful multi-hued drake, armed with many deadly breath weapons and nasty claws.", "一条年长且强大的七彩龙，拥有许多致命的吐息和锋利的爪子。", "_t")
-t("Ureslak the Prismatic", "七色闪光，乌瑞斯拉克", "entity name")
+t("Ureslak the Prismatic", "棱彩的乌瑞斯拉克", "entity name")
 t("A huge multi-hued drake. It seems to shift color rapidly.", "一只巨大的七彩龙。它似乎在快速地变幻颜色。", "_t")
 t("#YELLOW#%s's skin turns %s!", "#YELLOW#%s的皮肤变成了 %s！", "logSeen")
 
@@ -10084,8 +10084,8 @@ t(" of war-making", "征战之", "entity name")
 t("war", "战争", "entity keyword")
 t(" of the iron hand", "铁腕之", "entity name")
 t("iron", "铁", "entity keyword")
-t("alchemist's ", "炼金术师的", "entity name")
-t("alchemist", "炼金术师", "entity keyword")
+t("alchemist's ", "炼金术士的", "entity name")
+t("alchemist", "炼金术士", "entity keyword")
 t("brawler's ", "格斗家的", "entity name")
 t("brawler", "格斗家", "entity keyword")
 t(" of butchering", "屠杀之", "entity name")
@@ -11424,7 +11424,7 @@ t("brass lantern", "黄铜灯笼", "entity name")
 t("brass", "黄铜", "entity short_name")
 t("A brass container with a wick emerging from it, protected from draughts by a sheet of greased paper. It can be carried by a handle.", "一个黄铜容器，灯芯从中伸出，用一张涂油的纸挡风。它有一只把手，可以提着。", "_t")
 t("alchemist's lamp", "炼金灯笼", "entity name")
-t("alchemist", "炼金术师", "entity short_name")
+t("alchemist", "炼金术士", "entity short_name")
 t("A normal brass lantern, enhanced by alchemy to make it brighter.", "一个普通的黄铜灯笼，炼金的力量增强了它的亮度。", "_t")
 t("dwarven lantern", "矮人灯笼", "entity name")
 t("dwarven", "矮人", "entity short_name")
@@ -12228,7 +12228,7 @@ section "mod-tome/data/general/objects/wands.lua"
 t("charm", "护符", "entity type")
 t("wand", "魔杖", "entity subtype")
 t("wand", "魔杖", "_t")
-t("Magical wands are made by powerful Alchemists and Archmagi to store spells. Anybody can use them to release the spells.", "魔杖由强大的炼金术师和大法师制造，用于储存法术。任何人都可以用它释放其中的法术。", "_t")
+t("Magical wands are made by powerful Alchemists and Archmagi to store spells. Anybody can use them to release the spells.", "魔杖由强大的炼金术士和大法师制造，用于储存法术。任何人都可以用它释放其中的法术。", "_t")
 t("elm wand", "榆木魔杖", "entity name")
 t("elm", "榆木", "entity short_name")
 t("ash wand", "白蜡魔杖", "entity name")
@@ -12382,7 +12382,7 @@ t("Fists of the Desert Scorpion", "沙蝎之拳", "entity name")
 t("viciously spiked gauntlets", "有着锋利尖刺的拳套", "_t")
 t([[These wickedly spiked gauntlets belonged to an orc captain in the Age of Pyre who conquered the western sands, using them as a base to lay raids on Elvala to the south.  Known as The Scorpion, he seemed unconquerable in battle, able to pull enemies towards him with vicious mental force and lay down lethal blows on them.  Often a flurry of these yellow and black gauntlets would be the last thing great Shaloren mages would see before having the life crushed from them.
 
-Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这副凶恶的尖刺拳套属于烈火纪的一位兽人队长，他征服了西部沙地，并以此为基地向南方的埃尔瓦拉发动劫掠。他人称“沙蝎”，在战斗中似乎不可战胜，能以凶狠的精神之力将敌人拉向自己，再施以致命打击。永恒精灵的伟大法师们临死之前，最后看到的往往就是这对黄黑相间的拳套化作的一阵连击。\n\n最终，沙蝎被炼金术师奈瑟莉亚击败——她独自前去面对这个凶残的兽人。队长发出残暴的怪笑，将这名精灵拉向自己，但还没来得及将她活活打死，她便扯开长袍，露出绑在身上的八十枚燃烧弹。她指尖迸出一点火花，引发了数里之外都能看见的大爆炸。时至今日，奈瑟莉亚为保护族人而牺牲自己不朽生命的事迹，仍被人们传唱于歌谣之中。", "_t")
+Finally The Scorpion was defeated by the alchemist Nessylia, who went to face the fiendish orc alone.  The captain pulled the elf towards him with a brutish cackle, but before he could batter the life from her flesh she tore off her robes, revealing eighty incendiary bombs strapped to her flesh.  With a spark from her fingers she triggered an explosion that could be seen for miles around.  To this day Nessylia is still remembered in song for the sacrifice of her immortal life to protect her people.]], "这副凶恶的尖刺拳套属于烈火纪的一位兽人队长，他征服了西部沙地，并以此为基地向南方的埃尔瓦拉发动劫掠。他人称“沙蝎”，在战斗中似乎不可战胜，能以凶狠的精神之力将敌人拉向自己，再施以致命打击。永恒精灵的伟大法师们临死之前，最后看到的往往就是这对黄黑相间的拳套化作的一阵连击。\n\n最终，沙蝎被炼金术士奈瑟莉亚击败——她独自前去面对这个凶残的兽人。队长发出残暴的怪笑，将这名精灵拉向自己，但还没来得及将她活活打死，她便扯开长袍，露出绑在身上的八十枚燃烧弹。她指尖迸出一点火花，引发了数里之外都能看见的大爆炸。时至今日，奈瑟莉亚为保护族人而牺牲自己不朽生命的事迹，仍被人们传唱于歌谣之中。", "_t")
 t("Wind's Whisper", "风之密语", "entity name")
 t("flowing light cloak", "流彩斗篷", "_t")
 t("When the enchanter Razeen was cornered by Spellhunters near the Daikara mountain pass she wrapped her cloak about her and fled down a narrow ravine.  The hunters fired volley after volley of arrows at her, but by miracle or magic they all missed.  Razeen was able to escape and flee to the hidden city in the west.", "当魔法师瑞兹恩被猎魔人在岱卡拉的山隘逼入绝境时，她用斗篷包裹着自己逃下了峡谷。猎手们接连不断的把箭射向她，但由于奇迹或是魔法，他们全部射空了。瑞兹恩得以逃生并躲进了西部的隐秘之城。", "_t")
@@ -13828,15 +13828,15 @@ We're really getting somewhere here... Just a shame humans are such messy creatu
 #{bold}#红帕兰的日志记录六#{normal}#
 #{italic}#厄流纪 4546年#{normal}#
 
-试验品 A-C：在传送过程中向内爆裂。
-试验品 D：在传送过程中爆炸。
-试验品 E：一半传送走了，一半留在原地。这算部分成功？
-试验品 F：在传送过程中向内爆裂。
-试验品 G：在传送过程中变成肉酱。
-试验品 H-K：在传送过程中向内爆裂。
-试验品 L：在传送过程中被冻结。
-试验品 M：在第一次传送中存活，2秒后向内爆裂，总算是有点进展了。
-试验品 N：在第一次传送中存活，但昏迷不醒，于4天后死亡。
+实验体 A-C：在传送过程中向内爆裂。
+实验体 D：在传送过程中爆炸。
+实验体 E：一半传送走了，一半留在原地。这算部分成功？
+实验体 F：在传送过程中向内爆裂。
+实验体 G：在传送过程中变成肉酱。
+实验体 H-K：在传送过程中向内爆裂。
+实验体 L：在传送过程中被冻结。
+实验体 M：在第一次传送中存活，2秒后向内爆裂，总算是有点进展了。
+实验体 N：在第一次传送中存活，但昏迷不醒，于4天后死亡。
 
 我们的实验真的有进展了……只可惜人类真是肮脏的生物！说真的，他们到底需要多少肠子？！明年初就开始测试下一批试验品。
 ]], "_t")
@@ -13866,26 +13866,26 @@ Subject Z currently raving, but I believe this is due to stressful conditions, n
 ]], [[#{bold}#红帕兰的日志记录七#{normal}#
 #{italic}#厄流纪 4547年#{normal}#
 
-试验品 O：在传送过程中向内爆裂。
-试验品 P：在第一次传送中存活，但疯了，不得不被处死。
-试验品 Q：在第一次传送中存活，在传送回来的过程中向内爆裂。
-试验品 R：在第一次传送中死亡。
-试验品 S-T：在返回传送过程中向内爆裂。
-试验品 U：在返回传送中存活。他喃喃说自己听见了某个声音，便又跳进传送门——随后向内爆裂。真麻烦！
-试验品 V：在传送回来的过程中死亡。
+实验体 O：在传送过程中向内爆裂。
+实验体 P：在第一次传送中存活，但疯了，不得不被处死。
+实验体 Q：在第一次传送中存活，在传送回来的过程中向内爆裂。
+实验体 R：在第一次传送中死亡。
+实验体 S-T：在返回传送过程中向内爆裂。
+实验体 U：在返回传送中存活。他喃喃说自己听见了某个声音，便又跳进传送门——随后向内爆裂。真麻烦！
+实验体 V：在传送回来的过程中死亡。
 
-试验品编号的字母快用完了，眼下试验品也已耗尽。必须等待士兵们给我提供更多的人类。
+实验体编号的字母快用完了，眼下试验品也已耗尽。必须等待士兵们给我提供更多的人类。
 
 
 #{bold}#红帕兰的日志记录八#{normal}#
 #{italic}#厄流纪 4548年#{normal}#
 
-试验品 W：在第一次传送中缩小，随后爆炸。（校准错误？）
-试验品 X：在传送回来时头没了，真古怪。
-试验品 Y：在传送过程中消失不见。
-试验品 Z：在两次传送中都存活了下来。了不起！
+实验体 W：在第一次传送中缩小，随后爆炸。（校准错误？）
+实验体 X：在传送回来时头没了，真古怪。
+实验体 Y：在传送过程中消失不见。
+实验体 Z：在两次传送中都存活了下来。了不起！
 
-试验品 Z 目前仍在胡言乱语，但我相信这是紧张环境所致，而非使用传送门直接侵蚀了他的心智。还需进一步研究。
+实验体 Z 目前仍在胡言乱语，但我相信这是紧张环境所致，而非使用传送门直接侵蚀了他的心智。还需进一步研究。
 ]], "_t")
 t([[#{bold}#Hompalan's Log Entry 9#{normal}#
 #{italic}#Age of Allure 4549#{normal}#
@@ -13908,19 +13908,19 @@ The military are annoying me to no end. I told them to find me more test subject
 ]], [[#{bold}#红帕兰的日志记录九#{normal}#
 #{italic}#厄流纪 4549年#{normal}#
 
-试验品 Z 状态依然良好。已经让他完成了许多次后续传送。他偶尔能进行有条理的对话，尽管他的种族智力颇为有限。他似乎根本不知道发生了什么，而且总在问现在是什么时候。真是个傻瓜……我猜，人类长得太高，血液根本泵不到他们的大脑。不过，我暂时仍不敢冒险把半身人送进传送门，而此后送进去的人类又全都死了。
+实验体 Z 状态依然良好。已经让他完成了许多次后续传送。他偶尔能进行有条理的对话，尽管他的种族智力颇为有限。他似乎根本不知道发生了什么，而且总在问现在是什么时候。真是个傻瓜……我猜，人类长得太高，血液根本泵不到他们的大脑。不过，我暂时仍不敢冒险把半身人送进传送门，而此后送进去的人类又全都死了。
 
 
 #{bold}#红帕兰的日志记录十#{normal}#
 #{italic}#厄流纪 4550年#{normal}#
 
-我开始怀疑试验品 Z 拥有潜在的魔法力量。我曾看见他的移动速度远超我原以为其种族所能达到的速度，还在没有任何明显修理手段的情况下修好损坏的物品。这些都是小事，但我相信传送门可能以某种方式增强了他的基础能力。还需要更多测试。不过他依然看起来相当愚蠢。他说上一次旅程花了 3 天，而明明只过了几秒。此后他便狼吞虎咽地吃了起来。我怀疑他只是贪吃。之前我看见他盯着远行传送门看了很久，但在他造成破坏之前，我就让助手把他拉开了。
+我开始怀疑实验体 Z 拥有潜在的魔法力量。我曾看见他的移动速度远超我原以为其种族所能达到的速度，还在没有任何明显修理手段的情况下修好损坏的物品。这些都是小事，但我相信传送门可能以某种方式增强了他的基础能力。还需要更多测试。不过他依然看起来相当愚蠢。他说上一次旅程花了 3 天，而明明只过了几秒。此后他便狼吞虎咽地吃了起来。我怀疑他只是贪吃。之前我看见他盯着远行传送门看了很久，但在他造成破坏之前，我就让助手把他拉开了。
 
 
 #{bold}#红帕兰的日志记录十一#{normal}#
 #{italic}#厄流纪 4551年#{normal}#
 
-试验品 Z 消失了！真糟糕！他消失时甚至没有在通过传送门。他看起来只是一步跨入自己的影子，然后就消失了。我的研究毁了！！再也不会有像他一样的试验品了！
+实验体 Z 消失了！真糟糕！他消失时甚至没有在通过传送门。他看起来只是一步跨入自己的影子，然后就消失了。我的研究毁了！！再也不会有像他一样的试验品了！
 
 军方真是把我烦透了。我让他们立即给我找来更多试验品，他们却用附近有敌方巡逻队这种借口推脱。他们以为我会在乎这种琐事吗？！现在我又听见他们在走廊里练习战斗。他们甚至像蠢孩子一样哼哼哈哈，故意发出战斗时的吼叫声。他们难道不知道这座设施有多重要吗？他们难道不明白我这位天才是怎样被打扰的——
 ]], "_t")
@@ -13938,7 +13938,7 @@ I know you think yourself "above" such "petty politics" like how vital this faci
 #{italic}#(Some coordinates are enclosed, along with a large, magic-infused key.  You think you can figure out, roughly, where this sealed Conclave facility is.)#{normal}#
 ]], [[#{italic}#致：研究主管红帕兰——#{bold}#最高优先级#{normal}#
 
-我们的一支侦察队打了孔克雷夫一名中尉所率小队一个措手不及，因此找到了通往一座值得注意的地下实验室的路线；那里如今刚成为纳格尔领土。不幸的是，这帮长腿在我们到达前就破坏了入口。即使我们能把地卜师从前线召回来动工——而我们做不到——要挖进去也得花上好几年。
+我们的一支侦察队打了孔克雷夫一名中尉所率小队一个措手不及，因此找到了通往一座值得注意的地下实验室的路线；那里如今刚成为纳格尔领土。不幸的是，这帮长腿在我们到达前就破坏了入口。即使我们能把大地法师从前线召回来动工——而我们做不到——要挖进去也得花上好几年。
 
 你的新目标是找出办法，把一支回收小队传送进去搜集物资，然后让他们带着资料安全返回。对方可能已经想出防止传送的封禁手段；随信附上一枚钥匙，万一有必要，可以用它瞄准阻碍与入口之间的一点。我不想听你胡扯什么目标附近没有相连的传送门，所以这事“不可能”；三十年前，你会把如今每天都在做的几乎每件事都说成不可能。
 
@@ -14272,7 +14272,7 @@ This is not to say that life has been without conflict at all. An agent of the Z
 In a way, the incident lit a fire under me to pursue my studies and develop my powers, but I must admit that my interest in staff practice has waned as of late. My fencing, on the other hand, improves by the day. Hmm... I wonder if I can get some of the enchanters to help me "augment" my old sword. After all, what is a blade but a sharpened metal staff?]], [[大法师沃利尔书，
 安格利文又迎来了一个黎明。我写下这句话时颇为犹豫，但感觉和平似乎正重新回到埃亚尔。这么一说，我几乎以为战争与毁灭会立刻爆发——命运再怎么说也是充满恶意的。不管怎样，我的睡眠正日渐少受魔法狩猎记忆的困扰，如今我能全心全意地改善我们隐居山间的这片社群了。
 
-这并不是说生活完全没有冲突。几天前，一名伊格兰斯特工伪装成旅行炼金术师，潜入了安格利文；恐怕这是一个令人不快的首例。他用窒息粉制服守卫，并夺去周围法师的声音；要不是莱娜尼尔恰好散步经过，事情可能会变得很糟。那个人几乎没剩下什么……他藏身的树也是如此……老实说，附近的许多建筑也一样。
+这并不是说生活完全没有冲突。几天前，一名伊格兰斯特工伪装成旅行炼金术士，潜入了安格利文；恐怕这是一个令人不快的首例。他用窒息粉制服守卫，并夺去周围法师的声音；要不是莱娜尼尔恰好散步经过，事情可能会变得很糟。那个人几乎没剩下什么……他藏身的树也是如此……老实说，附近的许多建筑也一样。
 
 这件事激发了我继续研究和提升自身力量的欲望，但不得不承认我对练习法杖搏击已是兴趣索然。我的剑术却是日益精进。呼，也许有天我能找个附魔师来为我的老剑附一下魔，说到底剑不就是一柄磨尖了的金属杖吗？]], "_t")
 t("Angolwen Fountain", "安格利文的喷泉", "_t")
@@ -17984,7 +17984,7 @@ The most famous of all halflings is Queen Mirvenia, most famed for her saving of
 
 艾德瑞尔人曾经在大陆的北面有一个王国，但是大部分在兽人战争时期被完全摧毁，只有少部分重建。不过他们仍拥有许多如德斯镇这样的农业聚居地，尽管是与其他种族共居。艾德瑞尔人以出色的治疗师和农夫著称，并且他们的投石者被认为是世界上最优秀的。
 
-纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在烈火纪遭受的苦难比艾德瑞尔人少，他们仍然失去了很多人，大量人口聚居区就此凋敝。最后的希望的崛起加速了这一进程，许多聚居区被并入了这座城市的近郊。纳格尔人以出色的珠宝匠、炼金术师和符文师著称，并且在所有种族中拥有最出色的战术头脑。许多将军和军事顾问都出自他们的王国。
+纳格尔人曾经在马基·埃亚尔的南部建造了坚固的防御工事，虽然他们在烈火纪遭受的苦难比艾德瑞尔人少，他们仍然失去了很多人，大量人口聚居区就此凋敝。最后的希望的崛起加速了这一进程，许多聚居区被并入了这座城市的近郊。纳格尔人以出色的珠宝匠、炼金术士和符文师著称，并且在所有种族中拥有最出色的战术头脑。许多将军和军事顾问都出自他们的王国。
 
 半身人中最著名的是米雯尼雅女王，她最为人称道的事迹是在最后的希望的兽人围城之战中救出了勇者图库纳国王。她如何带领军队穿越凛冬的浮冰，及时抵达要塞救下图库纳，始终是个未解之谜。有人猜想她请来了一些术士，但是她的军队之后从未有人透露过关于那次援救的详细情况。她在卓越纪的第二年嫁给了勇者图库纳国王，并生下了有记载以来的第一个混血孩子——公正之王托拉克。
 ]], "_t")
@@ -18602,7 +18602,7 @@ Rumours are growing of trees roaming in its depths, moving as you or I would. So
 
 #{normal}#夏·图尔。他们是谁？从何而来？又去了哪里？围绕这个古老种族的谜团几乎无穷无尽。我们掌握的寥寥资料，只隐约指向一个强盛而遍及世界的文明，他们驾驭着难以想象的力量与魔法。然而如今，他们只剩下遭人遗忘、饱受风蚀的废墟；其技术最细微的片段，也被封存在离群索居的贤者书斋中。亲爱的读者，你是否也像我一样，对他们的谜团充满好奇？
 
-我的探寻将我带进了古老森林。对于一个叫作“古老森林”的地方，还能说些什么？它是一片森林，而且很古老。只看这毫无新意的名字，你就能猜到德斯人有多么重视这里：当地经常走入林荫之下的，只有寻找材料的新手炼金术师，外加偶尔几个志向不高的猎人。不过，这片古老森林的故事如今有了更有趣的转折……
+我的探寻将我带进了古老森林。对于一个叫作“古老森林”的地方，还能说些什么？它是一片森林，而且很古老。只看这毫无新意的名字，你就能猜到德斯人有多么重视这里：当地经常走入林荫之下的，只有寻找材料的新手炼金术士，外加偶尔几个志向不高的猎人。不过，这片古老森林的故事如今有了更有趣的转折……
 
 越来越多的传言声称，森林深处的树会像你我一样四处行走。甚至有人说，它们如今已经萌生了心智。传说夏·图尔拥有赋予万物灵性的力量……这难道只是巧合？]], "_t")
 t([[#{italic}#From the notes of Darwood Oakton, explorer:
@@ -26937,12 +26937,12 @@ t([[When you crit you have a %d%% chance to reduce by 1 the remaining cooldown o
 		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个刻印 1 回合冷却时间，并减少符文紊乱和纹身紊乱 1 回合持续时间。
 		该效果每回合最多触发一次。]], "tformat")
 t("Writ Large", "符文亲和", "talent name")
-t("#PURPLE#Your mastery over inscriptions is unmatched! One more inscriptions slot available to buy.", "#PURPLE#你对刻印的掌握无人能及！你可以消耗一个大系点进一步解锁一个刻印位。", "logPlayer")
+t("#PURPLE#Your mastery over inscriptions is unmatched! One more inscriptions slot available to buy.", "#PURPLE#你对刻印的掌握无人能及！你可以消耗一个技能树解锁点进一步解锁一个刻印位。", "logPlayer")
 t([[Instantly removes runic and infusion saturations.
 		For %d turns your inscriptions cool down twice as fast.
 		At level 5 your command over inscriptions is so good that you can use one more (you still need a category point to unlock it; you need to exit the levelup screen to validate it).]], [[立刻解除符文紊乱和纹身紊乱。
 		接下来 %d 回合内，你的刻印冷却速度翻倍。
-		技能达到 5 级时，你对刻印的掌控使你可以再使用一个刻印；仍需消耗一个大系点解锁，而且必须退出升级界面后才会生效。]], "tformat")
+		技能达到 5 级时，你对刻印的掌控使你可以再使用一个刻印；仍需消耗一个技能树解锁点解锁，而且必须退出升级界面后才会生效。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/misc/tutorial.lua"
@@ -33841,10 +33841,10 @@ You may now create alchemist characters with a drolem instead of a golem.
 Drolems look awesome and can eventually learn to breathe poison.
 
 #LIGHT_GREEN#This is only available to donators. Thanks for your support!
-]], [[你使用炼金术师职业打败了泰恩，并花了一些时间研究他是如何制造出强大的龙傀儡的。
+]], [[你使用炼金术士职业打败了泰恩，并花了一些时间研究他是如何制造出强大的龙傀儡的。
 龙傀儡是巨龙形状的傀儡，可以朝敌人喷出强力的毒息。
 
-你现在可以创建使用龙傀儡代替普通傀儡的炼金术师角色。
+你现在可以创建使用龙傀儡代替普通傀儡的炼金术士角色。
 龙傀儡看起来更炫酷，并且最终可以学会喷吐毒液。
 
 #LIGHT_GREEN#这项功能仅对捐赠者可用。感谢你的支持！
@@ -36368,7 +36368,7 @@ t("The fabric of time around #target# returns to normal.", "#target#周围的时
 t("-Temporal Restoration Field", "-时间恢复场", "_t")
 t("miscellaneous", "杂项", "effect subtype")
 t("Golem out of sight", "傀儡在视线外", "_t")
-t("The golem is out of sight of the alchemist; direct control will be lost!", "傀儡在炼金术师的视线以外，你将失去对它的控制！", "_t")
+t("The golem is out of sight of the alchemist; direct control will be lost!", "傀儡在炼金术士的视线以外，你将失去对它的控制！", "_t")
 t("#LIGHT_RED##Target# is out of sight of its master; direct control will break!", "#LIGHT_RED##Target#在主人视野外；直接控制即将中断！", "_t")
 t("+Out of sight", "+视野外", "_t")
 t("#LIGHT_RED#You lost sight of your golem for too long; direct control is broken!", "#LIGHT_RED#傀儡离开你的视线时间太长，控制被中断了！", "logPlayer")
@@ -37814,7 +37814,7 @@ t("A Cornac fighter of respectable talent. He emerged from nowhere and became th
 t("slinger", "投石者", "entity name")
 t("Ranged fighters coming to the arena looking for wealth and glory, just like you.", "前来竞技场寻求财富和荣誉的远程斗士，就像你一样。", "_t")
 t("high slinger", "高阶投石者", "entity name")
-t("alchemist", "炼金术师", "entity name")
+t("alchemist", "炼金术士", "entity name")
 t("blood mage", "血法师", "entity name")
 t("A man dressed in black robes. You feel weak as you hear his ominous chanting.", "一位穿着黑色长袍的人。当你听到他不祥的吟唱时，你感到一阵虚弱。", "_t")
 t("hexer", "诅咒者", "entity name")
@@ -38554,10 +38554,10 @@ t("Grushnak Pride", "格鲁希纳克部落", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/halfling-ruins/npcs.lua"
 
-t("Subject Z", "代号“Z”", "entity name")
+t("Subject Z", "实验体 Z", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("This seems to be the 'subject Z' the notes spoke about. He looks human, but this cannot be -- he would be about five thousand years old!", "这似乎就是笔记中提到的“试验品 Z”。他看起来像人类，但这不可能——他应该有大约五千岁了！", "_t")
+t("This seems to be the 'subject Z' the notes spoke about. He looks human, but this cannot be -- he would be about five thousand years old!", "这似乎就是笔记中提到的“实验体 Z”。他看起来像人类，但这不可能——他应该有大约五千岁了！", "_t")
 t("and bloodily smeared across the granite walls", "并将其血淋淋地涂抹在花岗岩墙壁上", "_t")
 t("Sacrifice for the Way!", "为维网而献身！", "_t")
 t("#LIGHT_RED#Intense fight", "#LIGHT_RED#激烈的战斗", "_t")
@@ -39066,7 +39066,7 @@ t("naga tidecaller", "娜迦潮汐呼唤者", "entity name")
 t("A slithering noise accompanies the movement of this strange creature, whose snake-like tail gives rise to the body of a beautiful elf-like woman. As she moves her delicate hands water rises from the ground, and you feel that here is no mere monster, but a creature of awe and power.", "这只奇怪的生物移动时发出滑行的声响，蛇一样的尾巴之上是美丽精灵般的躯体。当她移动纤细的双手时，水从地面升起，你感到面前的并非普通怪物，而是一个令人敬畏而强大的生物。", "_t")
 t("naga nereid", "娜迦海卫", "entity name")
 t("Green eyes stare out from behind strands of long, golden hair, which falls down in waves over smooth, pale skin. Your eyes are drawn to the bare flesh, but as they look further they see dark scales stretching out into a long serpent's tail. You look up as she moves, her hair parting to reveal a slim and beautiful face with high cheekbones and full lips. Yet for all the allure of this wondrous creature the terror of the serpentine tail sends shivers down your spine.", "一双绿色的眼睛从缕缕金色长发后凝视着你，那长发如波浪般垂落在光洁苍白的肌肤上。你的目光被裸露的肌肤吸引，但再往下看，就会见到黑色的鳞片一路延伸，化作长长的蛇尾。她一动，发丝分开，露出一张清瘦而美丽的脸庞，颧骨高耸，双唇丰润。然而，纵使这奇异生灵如此诱人，那蛇一般的尾巴带来的恐惧仍让你脊背发凉。", "_t")
-t("Lady Nashva the Streambender", "激流盘旋者纳纱瓦女士", "entity name")
+t("Lady Nashva the Streambender", "驭流者纳纱瓦女士", "entity name")
 t("Water circles slowly on the ground around this naga's tail. Her dark tail is coiled tight, making her look short, but her calm and confident stare assure you that she will not be easily overcome. As the water begins to rise around her the air starts to shimmer, and you feel her dark eyes are penetrating into you deeper than is comfortable.", "水流缓慢的围绕着这位娜迦的尾巴旋转。她黑色的尾巴蜷缩起来，使她看起来较为矮小，但是她沉着而自信的眼神让你确信她不是轻易就能被击败的。当周围的水位开始上涨，空气开始闪烁微光，你感到她漆黑的目光洞穿了你，让你很不自在。", "_t")
 t("and brought back to Vargh for experimentations", "并将其带回瓦尔弗做实验", "_t")
 
@@ -39244,7 +39244,7 @@ t("Glacial Legion", "冰川军团", "entity name")
 t("A massive, shifting, ethereal form floats in the air around an orb of frozen blood.  The air around it condenses into freezing pools on the floor beneath it.", "一个巨大的、变幻不定的灵体漂浮在半空，环绕着一颗冰封的血球。它周围的空气凝结成它脚下地板上的一滩滩寒冰。", "_t")
 t("Heavy Sentinel", "重型哨兵", "entity name")
 t("A towering creature, made from the bones of countless bodies. An aura of flame billows from within its chest.", "一个高耸的生物，由无数尸体的骸骨构成。一股火焰气息从它的胸腔内翻涌而出。", "_t")
-t("Arch Zephyr", "阿克·伊法", "entity name")
+t("Arch Zephyr", "西风大君", "entity name")
 t("The robes of this ancient vampire billow with intense winds. Bolts of lightning arc along its body. In its hand it holds a bow, electricity streaking across it.", "这只远古吸血鬼的长袍在强风中鼓荡翻涌。闪电在他的周身环绕。他手里握着一把长弓，电弧在这把弓上流转。", "_t")
 t("Void Spectre", "虚空亡魂", "entity name")
 t("Intense Arcane energy whirls in the air around this ethereal form.", "强烈的奥术能量在这个灵体周围的空气中旋转翻涌。", "_t")
@@ -39665,7 +39665,7 @@ t("Fortress Shadow", "堡垒之影", "entity name")
 t("The shadow created by the fortress, it resembles somewhat the horrors you saw previously, but it is not the same.", "堡垒制造出的阴影，与你之前见过的恐怖生物有几分相似，但并不相同。", "_t")
 t("training", "训练", "entity type")
 t("dummy", "傀儡", "entity subtype")
-t("Training Dummy", "训练用傀儡", "entity name")
+t("Training Dummy", "训练假人", "entity name")
 t("Training dummy.", "训练假人。", "_t")
 t("Pumpkin, the little kitty", "小南瓜，可爱的小猫咪", "entity name")
 t("An orange kitty with a white star blaze on his chest. Has a strange affinity for licking your face whenever possible.", "一只橙色的小猫咪，胸前有一颗白色的星星。只要有机会就会舔你的脸颊。", "_t")
@@ -40118,7 +40118,7 @@ t("pyromancer", "烈焰术士", "entity name")
 t("An archmage specializing in fire magic.", "一位精通火焰法术的大法师。", "_t")
 t("cryomancer", "冰霜术士", "entity name")
 t("An archmage specializing in ice magic.", "一位精通冰系法术的大法师。", "_t")
-t("geomancer", "地卜师", "entity name")
+t("geomancer", "大地法师", "entity name")
 t("An archmage specializing in earth magic.", "一位精通土系法术的大法师。", "_t")
 t("tempest", "风暴术士", "entity name")
 t("An archmage specializing in lightning magic.", "一位精通闪电法术的大法师。", "_t")
@@ -40138,7 +40138,7 @@ t("Rune of Dissipation", "消散符文", "entity name")
 section "mod-tome/data/zones/town-angolwen/traps.lua"
 
 t("Shining Jewel", "闪光的珠宝", "entity name")
-t("Alchemist", "炼金术师", "entity name")
+t("Alchemist", "炼金术士", "entity name")
 t("Library", "图书馆", "entity name")
 t("Tools of the Art", "秘法工具", "entity name")
 
@@ -40969,7 +40969,7 @@ t("reading candle", "阅读蜡烛", "entity name")
 ------------------------------------------------
 section "mod-tome/data/zones/vor-pride/npcs.lua"
 
-t("Vor, Grand Geomancer of the Pride", "部落高阶地卜师沃尔", "entity name")
+t("Vor, Grand Geomancer of the Pride", "部落高阶大地法师沃尔", "entity name")
 t("An old orc, wearing multi-colored robes. Ice shards fly around him, leaving a trail of fire and lightning bursts.", "一名身穿彩色长袍的年老兽人。冰晶在他周围飞舞，在身后留下一道燃烧着火焰与闪电的轨迹。", "_t")
 t("and used as target practice for initiate mages", "并将其当作新兵法师的人肉靶子", "_t")
 
@@ -42282,7 +42282,7 @@ t("Use", "使用", "_t")
 t("Wield/Wear", "装备/穿戴", "_t")
 t("Take off", "脱下", "_t")
 t("Detach from item", "从物品上解除附加", "_t")
-t("Detach tinker", "移除插件", "_t")
+t("Detach tinker", "移除配件", "_t")
 t("Drop", "丢下", "_t")
 t("Transfer to party", "转交给队伍成员", "_t")
 t("%s now", "现在%s", "tformat")
@@ -42629,8 +42629,8 @@ t("Inventory", "物品栏", "_t")
 t("Object added to main inventory", "物品加入主要物品栏", "_t")
 t("Drops", "掉落", "_t")
 t("Object added to main inventory (dropped on death)", "物品加入主要物品栏，并在死亡时掉落", "_t")
-t("Attach Tinker", "装载插件", "_t")
-t("Tinker will be attached to a worn object", "插件会附加到一件已穿戴的物品上。", "_t")
+t("Attach Tinker", "装载配件", "_t")
+t("Tinker will be attached to a worn object", "配件会附加到一件已穿戴的物品上。", "_t")
 t("Drop Randart (auto data)", "掉落随机神器（自动数据）", "_t")
 t("Random Artifact (dropped on death) added to main inventory, uses the Base Object or Base Filter plus Randart Data as input", "随机神器（死亡后掉落）会放入主要物品栏，以基础物品或基础筛选器加上随机神器数据作为输入。", "_t")
 t("Drop Randart", "掉落随机神器", "_t")
@@ -43136,7 +43136,7 @@ t("All kinds of armours", "各种类型的护甲", "_t")
 t("Rings and Amulets", "戒指和项链", "_t")
 t("Gems", "宝石", "_t")
 t("Infusions, Runes, ...", "纹身，符文，…", "_t")
-t("Tinkers", "插件", "_t")
+t("Tinkers", "配件", "_t")
 t("Miscellaneous", "杂项", "_t")
 t("Quest and plot related items", "任务和剧情物品", "_t")
 t("Transmogrification Chest", "转化之盒", "_t")

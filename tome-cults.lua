@@ -539,7 +539,7 @@ t("mastocytic feeder", "肥大胞吞噬者", "entity name")
 t("A reddish attack cell that will crawl to you to distract you while the rest of the organism attacks.", "一团红色的攻击细胞，它会爬到你的身边，在这个生物体的其余部分发动攻击时分散你的注意力。", "_t")
 t("protoplasmic controller", "原生质操控者", "entity name")
 t("Acid. Fire. Pain.", "酸液。火焰。痛苦。", "_t")
-t("dendritic hemospinner", "树突胞递呈者", "entity name")
+t("dendritic hemospinner", "树突胞织血者", "entity name")
 t("This strange cell can somehow connect to Eyal itself.", "这个奇怪的细胞似乎可以通过某种方法连接到埃亚尔本身。", "_t")
 t("acidic digestor", "酸胞消化者", "entity name")
 t("You look like nutriments.", "你看起来像是营养成分。", "_t")
@@ -558,7 +558,7 @@ t("corrupted mastocytic feeder", "腐化的肥大胞吞噬者", "entity name")
 t("A reddish attack cell that will crawl to you to distract you while the rest of the organism attacks.", "一团红色的攻击细胞，它会爬到你的身边，在这个生物体的其余部分发动攻击时分散你的注意力。", "_t")
 t("corrupted protoplasmic controller", "腐化的原生质操控者", "entity name")
 t("Acid. Fire. Pain.", "酸液。火焰。痛苦。", "_t")
-t("corrupted dendritic hemospinner", "腐化的树突胞递呈者", "entity name")
+t("corrupted dendritic hemospinner", "腐化的树突胞织血者", "entity name")
 t("This strange cell can somehow connect to Eyal itself.", "这个奇怪的细胞似乎可以通过某种方法连接到埃亚尔本身。", "_t")
 t("corrupted acidic digestor", "腐化的酸胞消化者", "entity name")
 t("You look like nutriments.", "你看起来像是营养成分。", "_t")
@@ -3970,8 +3970,8 @@ t("The Teacher", "导师", "entity name")
 t("A being from another world, or so it claims. Despite its wholly alien appearance, it is not particularly threatening nor does it appear to be malevolent. It will not say how it learned to manipulate the powers of entropy, merely stating that it has been to many different places and experienced many different things.", "这是一位来自另一个世界的生物，起码它是这么说的。尽管它的外形十分怪异，但它看上去并不怎么危险，似乎也没有恶意。它从不说出自己是怎么获得操纵熵的力量的，只是告诉你它曾经去过无数不同的地方，经历过无数不同的事情。", "_t")
 t("training", "训练", "entity type")
 t("dummy", "傀儡", "entity subtype")
-t("Training Dummy", "训练用傀儡", "entity name")
-t("Training dummy. Use it to train.", "训练用傀儡。用它来训练吧。", "_t")
+t("Training Dummy", "训练假人", "entity name")
+t("Training dummy. Use it to train.", "训练假人。用它来训练吧。", "_t")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("human student", "人类学徒", "entity name")
@@ -4651,9 +4651,9 @@ t([[You have defeated the Glass Golem with your Alchemist and took some time to 
 
 You may now create alchemist characters with a glass golem instead of a golem.
 Glass Golems look awesome and can eventually learn Glass Splinter talent to disrupt and damage their foes.
-]], [[你用你的炼金术师击败了玻璃傀儡，并花了一点时间研究它是怎么制造的。
+]], [[你用你的炼金术士击败了玻璃傀儡，并花了一点时间研究它是怎么制造的。
 
-你现在可以创建使用玻璃傀儡代替普通傀儡的炼金术师角色。
+你现在可以创建使用玻璃傀儡代替普通傀儡的炼金术士角色。
 玻璃傀儡看起来更加炫酷，并且可以学习玻璃碎片技能来干扰并伤害敌人。
 ]], "_t")
 
@@ -4932,7 +4932,7 @@ t("Class: Cultist of Entropy", "职业：熵教徒", "_t")
 t("Race: Drem", "种族：德瑞姆", "_t")
 t("Race: Krog", "种族：克罗格", "_t")
 t("Class tree: Scourge drake", "职业技能树：天谴龙", "_t")
-t("Class feature: Alchemist's Glass Golem", "职业特性：炼金术师的玻璃傀儡", "_t")
+t("Class feature: Alchemist's Glass Golem", "职业特性：炼金术士的玻璃傀儡", "_t")
 t("Saving is not possible in the S.M.A.C.K. Do you want to cancel the fight?", "不能在S.M.A.C.K里面存档。你确定要取消这场战斗吗？", "_t")
 t("Urgent affair in Zigur", "发生在伊格的紧急事件", "_t")
 t([[As you enter Last Hope a courier finds you to deliver a letter from Protector Myssil of Zigur:

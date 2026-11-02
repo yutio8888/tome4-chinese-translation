@@ -295,8 +295,8 @@ section "tome-orcs/data/chats/aaf.lua"
 
 t([[#LIGHT_GREEN#*Before you stands a strange triangular device, some kind of automated facility.*#WHITE#
 It seems to be able to teach you the tinker crafting techniques, but requires input to do so (500 gold and a talent category point).]], [[#LIGHT_GREEN#*你面前有一个奇怪的三角形设备，似乎是某种自动设施。*#WHITE#
-它似乎能教授你插件制作技巧，但需要你付出一些代价（500金币和一点大系点）。]], "_t")
-t("[pay 500 gold and a talent category points]", "[支付500金币和一点大系点]", "_t")
+它似乎能教授你配件制作技巧，但需要你付出一些代价（500金币和一点技能树解锁点）。]], "_t")
+t("[pay 500 gold and a talent category points]", "[支付500金币和一点技能树解锁点]", "_t")
 t("#PURPLE#The %s teaches you: #GOLD#Steamtech/Physics#LAST#, #GOLD#Steamtech/Chemistry#LAST# and two starter crafting talents.", "#PURPLE#%s教会你：#GOLD#蒸汽科技/物理#LAST#, #GOLD#蒸汽科技/化学#LAST#和两项入门制造技能。", "log")
 t("[access store]", "[进入商店]", "_t")
 t("[leave]", "[离开]", "_t")
@@ -305,7 +305,7 @@ It seems to be used to break down metallic items into lumps of metal and infusio
 
 #{bold}#You will have to choose to use it or the Transmogrification Chest when you destroy items. You can choose the default one by using it with no items to destroy.#{normal}#
 ]], [[机械交给你一个小金属盒，上面写着 #{italic}#"便携式自动材料提取仪"#{normal}#。
-它似乎能将金属物品拆解成金属块，将纹身拆解成用于制作插件的草药。
+它似乎能将金属物品拆解成金属块，将纹身拆解成用于制作配件的草药。
 
 #{bold}#摧毁物品时，你必须选择使用它或转化之盒。没有可摧毁的物品时使用它，可以将其设为默认选项。#{normal}#
 ]], "_t")
@@ -670,7 +670,7 @@ section "tome-orcs/data/general/events/AAA.lua"
 
 t("steamtech weaponry", "蒸汽科技武器", "_t")
 t("defensive items", "防御物品", "_t")
-t("tinkers", "蒸汽工具", "_t")
+t("tinkers", "配件", "_t")
 t("arcane and psi", "奥术和灵能", "_t")
 t("runes and infusions", "符文和纹身", "_t")
 t("tools", "工具", "_t")
@@ -1134,13 +1134,13 @@ t("drakeskin", "龙皮", "entity short_name")
 ------------------------------------------------
 section "tome-orcs/data/general/objects/quest-artifacts.lua"
 
-t("tinker", "蒸汽工具", "entity type")
+t("tinker", "配件", "entity type")
 t("power", "能量", "entity subtype")
 t("Automated Portable Extractor", "便携式自动材料提取仪", "entity name")
 t([[The APE is a multifunction tinker toolbox. It can store temporarily any amount of items and when requested melt them down using metallurgic and chemical processes.
 The metals are melted into lumps of ore to server for the creation of tinkers.
 Any remains are melted and turned into valuable materials.]], [[APE 是一个多功能工匠工具箱，可以临时存放任意数量的物品，并在需要时通过冶金和化学工艺将它们熔解。
-金属会被熔成矿块，用于制造蒸汽工具。
+金属会被熔成矿块，用于制造配件。
 任何残余都会被熔解并转化为有价值的材料。]], "_t")
 t("melt all the items in the APE at once (also done automatically when you change level)", "立刻融化提取仪内的所有道具（在你切换楼层的时候会自动融化）", "_t")
 t("Make the Automated Portable Extractor the default item's destroyer?", "将便携式自动材料提取仪设置为默认物品转化选项？", "_t")
@@ -1224,9 +1224,9 @@ t("voratun", "沃瑞钽", "entity short_name")
 ------------------------------------------------
 section "tome-orcs/data/general/objects/tinker.lua"
 
-t("tinker", "蒸汽工具", "entity type")
+t("tinker", "配件", "entity type")
 t("steamtech", "蒸汽科技", "entity subtype")
-t("Tinkers can be attached to normal items to improve them with steam power!", "蒸汽工具可以被安装到普通物品上，用蒸汽力量强化它！", "_t")
+t("Tinkers can be attached to normal items to improve them with steam power!", "配件可以被安装到普通物品上，用蒸汽力量强化它！", "_t")
 t("misc", "杂项", "entity type")
 t("salve", "药剂", "entity subtype")
 t("salve", "药剂", "_t")
@@ -1301,7 +1301,7 @@ t("%s shocking touch", "%s 电击之触装置", "tformat")
 t("BELT", "腰带", "entity on slot")
 t("%s deflection field", "%s 偏转力场仪", "tformat")
 t("%s galvanic retributor", "%s 电力反击装置", "tformat")
-t("Unleash a lightning nova of radius equal to the tinker tier.", "放出半径相当于插件等级的闪电攻击。", "_t")
+t("Unleash a lightning nova of radius equal to the tinker tier.", "放出半径相当于配件等级的闪电攻击。", "_t")
 t("#Source# unleashes GALVANIC RETRIBUTION!", "#Source#引发了电力反击！", "logCombat")
 t("%s shocking edge", "%s 电击之刃", "tformat")
 t("Deals lightning damage and drains resources.", "造成闪电伤害，削减敌人的资源。", "_t")
@@ -1799,7 +1799,7 @@ section "tome-orcs/data/general/stores/orcs.lua"
 t("library", "图书馆", "entity name")
 t("forge", "锻炉", "entity name")
 t("smith", "铁匠", "entity name")
-t("tinker", "蒸汽工具", "entity name")
+t("tinker", "工匠", "entity name")
 t("expensive goods", "昂贵货物", "entity name")
 t("aracane psi collector", "奥术灵能收集者", "entity name")
 t("rune and infusion collector", "符文和纹身收集者", "entity name")
@@ -2975,7 +2975,7 @@ Once upon a time, there was a Doomelf by the name of <?=Lore.pocket_time_winner.
 
 Once upon a time, there was a Shalore Adventurer by the name of <?=Lore.pocket_time_winner.name?>, who was quite certain of what he was doing.  He'd learned an extremely uncommon set of abilities - great talent with unarmed martial arts, some psychic potential to swing a staff in the air while leaving his hands free, stone magic that used his punches as a focus to blast foes with a hailstorm of earthen missiles - and once he had enough practice to master a few of these, he started effortlessly destroying any foe he faced... until he encountered the Weirdling Beast.  The battle was intense, and soon, both were on the verge of death, on opposite sides of the fortress's foyer; the Adventurer knew he couldn't afford to rush in close to finish the beast off, so he launched a pair of earthen missiles at it instead.  However, the moment they left his hands, he felt the grip of hard bone around his waist, legs, and back, pulling him at an incomprehensible speed into the Weirdling Beast's grasp.  Perhaps <?=Lore.pocket_time_winner.name?> could have survived an ensuing fistfight, but he had been pulled faster than his own missiles could fly, and now he found himself between the stony projectiles and their original target--
 
-Once upon a time, a great spirit put down its pen and closed its notebook, sighing in frustration.]], [[<? Lore.init_pocket_time_data() ?>从前，有个半身人炼金术师叫做<?=Lore.pocket_time_winner.name?>。她与可靠的傀儡一起向巨魔沼泽进发，把沿途的敌人消灭殆尽；不过，遇到普洛克斯时，他弯下腰来，在离她的脸仅几英寸、完全处于炸弹爆炸范围内的地方大吼，她顿时慌了，从腰带上拽下一个炼金瓶————
+Once upon a time, a great spirit put down its pen and closed its notebook, sighing in frustration.]], [[<? Lore.init_pocket_time_data() ?>从前，有个半身人炼金术士叫做<?=Lore.pocket_time_winner.name?>。她与可靠的傀儡一起向巨魔沼泽进发，把沿途的敌人消灭殆尽；不过，遇到普洛克斯时，他弯下腰来，在离她的脸仅几英寸、完全处于炸弹爆炸范围内的地方大吼，她顿时慌了，从腰带上拽下一个炼金瓶————
 
 从前，有个矮人狂战士名叫<?=Lore.pocket_time_winner.name?>。当他的朋友被兽人战士砍倒时，他正穿过瑞库纳的大厅逃命，却迎面撞上了两个兽人，然后————
 
@@ -2983,7 +2983,7 @@ Once upon a time, a great spirit put down its pen and closed its notebook, sighi
 
 从前————
 
-从前，有个大英雄，一个矮人岩石守卫名叫<?=Lore.pocket_time_winner.name?>，在开始她的旅程时含糊不清地咒骂了一通不公平，然后耸肩继续前进。她与最亲近的同伴一道从瑞库纳逃离，用自然能力清除了深渊咆哮与迷宫里的堕落之力，从嗜杀的实验体Z的魔掌中救出了一个叫做“夺心魔”的奇怪新生物，甚至连岱卡拉的巨人向她扔来的巨石也没能阻挡她。她势不可挡地向前推进，消灭了众多曾经伤害过许多人的威胁。她发现了失落的孔克雷夫宝库，让最后几个最初被造出来的食人魔安息，从克里尔·费扬邪教徒的魔掌中救出了一个姑娘，最终站在了恐惧王座的塔门前，技艺历经锤炼，满载旅程中找到的各种珍奇装备。她一边向上攀登，一边与一波波蹒跚的不死生物战斗，终于与领主正面交锋。这时，一个骷髅战士从后袭来。它用战锤使出一记震慑打击，恰好砸中了她唯一的野性纹身所在之处。她头昏眼花，脚步踉跄，试图激活纹身的力量；直到一阵可怕的寒流蔓延到四肢，将她封在冰中，她才清醒过来————
+从前，有个大英雄，一个矮人岩石守卫名叫<?=Lore.pocket_time_winner.name?>，在开始她的旅程时含糊不清地咒骂了一通不公平，然后耸肩继续前进。她与最亲近的同伴一道从瑞库纳逃离，用自然能力清除了深渊咆哮与迷宫里的堕落之力，从嗜杀的实验体 Z的魔掌中救出了一个叫做“夺心魔”的奇怪新生物，甚至连岱卡拉的巨人向她扔来的巨石也没能阻挡她。她势不可挡地向前推进，消灭了众多曾经伤害过许多人的威胁。她发现了失落的孔克雷夫宝库，让最后几个最初被造出来的食人魔安息，从克里尔·费扬邪教徒的魔掌中救出了一个姑娘，最终站在了恐惧王座的塔门前，技艺历经锤炼，满载旅程中找到的各种珍奇装备。她一边向上攀登，一边与一波波蹒跚的不死生物战斗，终于与领主正面交锋。这时，一个骷髅战士从后袭来。它用战锤使出一记震慑打击，恰好砸中了她唯一的野性纹身所在之处。她头昏眼花，脚步踉跄，试图激活纹身的力量；直到一阵可怕的寒流蔓延到四肢，将她封在冰中，她才清醒过来————
 
 从前，有个自然精灵召唤师叫做<?=Lore.pocket_time_winner.name?>，在一条蛇旁开始了旅程，这条蛇对时间魔法的精通程度异乎寻常————
 
@@ -3174,7 +3174,7 @@ In the meantime, paying off Stone Warden trainers and buying enough mindstars an
 
 又一张遭到破坏的海报。说我们是叛徒、通敌者，宣称他们自己才是真正的伊格兰斯。全都是蠢货。
 
-我建立修复者，并不是因为我认为少数恰好品行端正的魔法使用者的出现，就能推翻我在伊格所受的教诲或在夏特尔童年时学到的任何东西。我也没有突然忘记：任何源自奥术魔法的东西，不论是否裹着一套关于天体的玄虚说辞，都有变异成足以令魔法大爆炸相形见绌之物的风险。我这样做，是因为那些疯子长期无视政治风向的变化，眼看自己逐渐变得无足轻重，又凭那场鲁莽的暗杀直接从无足轻重跃升为人人唾弃。他们尽可以怪罪远东，但那只是棺材上的最后一颗钉子；符文已广为接受，炼金术师也早已在整片大陆公开活动。
+我建立修复者，并不是因为我认为少数恰好品行端正的魔法使用者的出现，就能推翻我在伊格所受的教诲或在夏特尔童年时学到的任何东西。我也没有突然忘记：任何源自奥术魔法的东西，不论是否裹着一套关于天体的玄虚说辞，都有变异成足以令魔法大爆炸相形见绌之物的风险。我这样做，是因为那些疯子长期无视政治风向的变化，眼看自己逐渐变得无足轻重，又凭那场鲁莽的暗杀直接从无足轻重跃升为人人唾弃。他们尽可以怪罪远东，但那只是棺材上的最后一颗钉子；符文已广为接受，炼金术士也早已在整片大陆公开活动。
 
 我欣赏他们的奉献，也理解他们的挫败：眼看世人将魔法视为常态，只会让他们更想诉诸暴力。但事实是，对伊格的袭击是一场安乐死，阻止狂热分子继续败坏我们在公众眼中的形象。威吓早已不可能让我们有所作为，所以必须尝试新办法。既然魔法大爆炸和黄昏纪已从公众记忆中淡去，以魔法的恐怖警醒世人不再有效，我们就该提醒他们自然的奇迹——那些今天便能亲眼见到的奇迹。公众若不相信魔法邪恶，至少可以相信自然更好。我们若不能把魔法变成禁忌，就能让它变得过时……而这一切会为我们争取原本缺少的支持，吸引渴望了解自然之美、听取奥术危害警示的好奇心灵。
 
@@ -3446,7 +3446,7 @@ Anyway, my advice is to request permission to send a few Shining Inquisitors to 
 
 ……从未见过？算了。
 
-总之，我建议申请许可，派几名日光裁判官前往托拉克国王处，协助他们那边的调查。从逮捕人数不断上升来看，无论走私者在东方如何避开侦测，他们到了西方要么无法再用同样手段，要么只是回家后放松了警惕。我们可以帮助联合王国打击这条链上的薄弱环节，也让裁判官顺便留意马基·埃亚尔的动向。倒不是说我不相信托拉克国王会履行承诺，绝不让那些邪恶的伊格兰斯再制造日落大屠杀那样的惨剧，但……唉，在联合王国眼皮底下，远行传送门祭坛都流入了黑市，幕后还可能是一个几乎就住在国王隔壁的疯狂炼金术师；要说他们能把一群秘密狂热分子从那个貌似无害的“修复者”组织掩护下拖到阳光中，我实在信心不足。我相信他们已经竭尽全力；我只是建议我们也这么做。]], "_t")
+总之，我建议申请许可，派几名日光裁判官前往托拉克国王处，协助他们那边的调查。从逮捕人数不断上升来看，无论走私者在东方如何避开侦测，他们到了西方要么无法再用同样手段，要么只是回家后放松了警惕。我们可以帮助联合王国打击这条链上的薄弱环节，也让裁判官顺便留意马基·埃亚尔的动向。倒不是说我不相信托拉克国王会履行承诺，绝不让那些邪恶的伊格兰斯再制造日落大屠杀那样的惨剧，但……唉，在联合王国眼皮底下，远行传送门祭坛都流入了黑市，幕后还可能是一个几乎就住在国王隔壁的疯狂炼金术士；要说他们能把一群秘密狂热分子从那个貌似无害的“修复者”组织掩护下拖到阳光中，我实在信心不足。我相信他们已经竭尽全力；我只是建议我们也这么做。]], "_t")
 t("journal of High Sun Paladin Aeryn", "高阶太阳骑士艾琳的日记", "_t")
 t([[This is it...  the day I've dreaded for most of my life is here, and yet it still comes as a shock.  I expected it for almost every day of my life...  until last year.  The Scourge from the West defeated the Prides, raced down the Charred Scar, and stormed the tower of High Peak to fight by my side against a threat far greater than I dreamed possible.  We'd been reunited with a cooperative and nearly-unified Maj'Eyal, led by a king willing and able to help us in any way, armed with a plan to keep the orcs completely under control...  it's as if the Sun had begun to creep over the horizon to start the dawn of peace in Var'Eyal, right before going dark forever and taking the moons with it.  The love of my life is presumed dead; the candle in the night of the years before has been snuffed out. Nothing - no plan that hasn't been shattered, no inspiration that hasn't fallen, no hope that hasn't turned to despair - is left to guide me.
 
@@ -3808,7 +3808,7 @@ t("A Ritch Party", "里奇派对", "_t")
 t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地铲除太阳堡垒。", "_t")
 t("To do that we will prepare a special surprise to help our final attack.", "为此，我们必须为最终的突袭做好准备，给他们一个“惊喜”。", "_t")
 t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠以北群山中的里奇巢穴，收集大量的里奇虫卵。大约 30 个可孵化的虫卵便已足够。", "_t")
-t("When you have enough, find a tunnel leading north and use the special sand shredder gloves tinker to open a path under the Gates of Morning.", "当你有了足够的里奇虫卵，找到一条向北的隧道，使用特殊的掘沙者手套插件，在晨曦之门下方挖出一条通道。", "_t")
+t("When you have enough, find a tunnel leading north and use the special sand shredder gloves tinker to open a path under the Gates of Morning.", "当你有了足够的里奇虫卵，找到一条向北的隧道，使用特殊的掘沙者手套配件，在晨曦之门下方挖出一条通道。", "_t")
 t("Finally, place the eggs in a protected spot to hatch.  With luck, they will provide a distraction while you later assault the city.", "最后，将虫卵放在安全的地方让它们孵化。运气好的话，等你日后进攻城市时，它们能帮你分散敌人的注意力。", "_t")
 t("#LIGHT_GREEN#* You have collected enough eggs.#WHITE#", "#LIGHT_GREEN#* 你收集了足够多的虫卵#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have tunnelled close enough to the Gates of Morning.#WHITE#", "#LIGHT_GREEN#* 你的隧道已经向北挖到足够接近晨曦之门的位置。#WHITE#", "_t")
@@ -4333,7 +4333,7 @@ t([[Using your arcane power you force galvanic rods to linger for %d turns. Whil
 		任何被放电射线或放电领域击中的生物都会每回合受到 %0.2f 放电伤害。
 		你最多同时释放三枚放电柱。
 		技能等级 3 时，所有被影响的生物会被震撼，使他们的震慑和定身抗性减半。
-		技能等级 5 时，你的金属武器，或是装载了金属插件的武器，可以作为一个放电柱使用，该放电柱仍计入你的放电柱总量。
+		技能等级 5 时，你的金属武器，或是装载了金属配件的武器，可以作为一个放电柱使用，该放电柱仍计入你的放电柱总量。
 		若飓风已激活，这一法术有 15%% 的几率尝试触发它。
 		技能伤害受法术强度加成。]], "tformat")
 t("Unstable Blast", "不稳定爆破", "talent name")
@@ -4575,7 +4575,7 @@ t([[When you kill a foe with a melee strike you quickly throw some of their rema
 t("Tech Overload", "系统过载", "talent name")
 t([[You override all security measures of your tinkers, allowing you to reset the cooldown of %d of most of your steamtech talents of tier %d or less and instantly increases your steam level by %d%% of the maximum.
 		In addition for 6 turns your maximum steam capacity is doubled, but steam regeneration is halved.
-		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你解除全部插件的安全限制，从你大部分蒸汽科技技能中重置最多 %d 个层级不高于 %d 的技能冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。
+		#{italic}#Master of Tech, Master of Death!#{normal}#]], [[你解除全部配件的安全限制，从你大部分蒸汽科技技能中重置最多 %d 个层级不高于 %d 的技能冷却时间，并立即获得相当于最大蒸汽值 %d%% 的蒸汽。
 		此外，在 6 回合内，蒸汽值上限翻倍，但蒸汽恢复速度减半。
 		#{italic}#科技至尊、死亡之主！#{normal}#]], "tformat")
 
@@ -4833,7 +4833,7 @@ t("Therapeutics", "治疗学", "talent name")
 t([[Allows you to create therapeutic tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的治疗学蒸汽工具。
+		%s]], [[允许你制造 %d 等级的治疗学配件。
 		你将在 1 级时学会一个新配方。
 		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
@@ -4841,7 +4841,7 @@ t("Chemistry", "化学", "talent name")
 t([[Allows you to create chemical tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的化学蒸汽工具。
+		%s]], [[允许你制造 %d 等级的化学配件。
 		你将在 1 级时学会一个新配方。
 		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
@@ -4849,7 +4849,7 @@ t("Explosives", "爆炸学", "talent name")
 t([[Allows you to create explosive tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的爆炸学蒸汽工具。
+		%s]], [[允许你制造 %d 等级的爆炸学配件。
 		你将在 1 级时学会一个新配方。
 		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
@@ -4963,9 +4963,9 @@ t("Innovation", "创新", "talent name")
 t([[Your knowledge of physical laws allows you to use and improve equipment in ways their creators never dreamed.
 		Increases all stats, saves, armour, and defense bonuses by %d%% on equipment that is crafted by a master or powered by steamtech.]], [[你对物理学的了解令你能以全新的方式改进装备。
 		增加大师制作或者蒸汽科技的装备提供的属性、豁免、护甲和闪避 %d%%。]], "tformat")
-t("Supercharge Tinkers", "插件超频", "talent name")
+t("Supercharge Tinkers", "配件超频", "talent name")
 t([[Using a huge amount of steam, you temporarily supercharge your tinkers and other steam-powered talents.
-		For %d turns, you gain %d steampower and %d%% steamtech critical chance.]], [[消耗大量蒸汽，令所有插件和蒸汽技能超频工作 %d 回合。
+		For %d turns, you gain %d steampower and %d%% steamtech critical chance.]], [[消耗大量蒸汽，令所有配件和蒸汽技能超频工作 %d 回合。
 		超频期间，你获得 %d 蒸汽强度和 %d%% 蒸汽技能暴击率。]], "tformat")
 t("Last Engineer Standing", "背水一战", "talent name")
 t([[Sometimes, being a master tinker requires taking risks; yours are more calculated than others.
@@ -5402,8 +5402,8 @@ t("The medical urgency vest allows using therapeutics with %d%% efficiency and c
 t("Life Support", "生命支持系统", "talent name")
 t("#LIGHT_BLUE#Life Support Suit selected to be used first by salves.", "#LIGHT_BLUE#已将生命支持服设置为药剂的首选注射器。", "saySimple")
 t("The life support suit allows using therapeutics with %d%% efficiency and cooldown mod of %d%%.", "生命支持服能以 %d%% 的效率使用药物，冷却时间修正为 %d%%。", "tformat")
-t("Create Tinker", "制造蒸汽工具", "talent name")
-t("Allows you to create tinkers.", "允许你制造蒸汽工具。", "_t")
+t("Create Tinker", "制造配件", "talent name")
+t("Allows you to create tinkers.", "允许你制造配件。", "_t")
 t("Weapon Automaton: One Handed", "武装机器人：单手模式", "talent name")
 t("You cannot use %s without a one handed melee weapon in your inventory!", "你的物品栏里面没有单手武器，无法使用%s！", "logPlayer")
 t("Select a weapon for your Automaton", "选择用于武装机器人的武器", "_t")
@@ -5505,8 +5505,8 @@ t([[Touch a creature to release a nasty electrical charge into them, doing %0.2f
 		If this tinker is above tier 1, the electricity can arc to another target up to 2 tiles away.
 		The number of enemies hit is at most the tinker tier.
 		The damage increases with your Steampower.]], [[触碰一个生物，将猛烈的电流注入其体内，造成 %0.2f 点闪电伤害。
-		如果这件蒸汽工具高于 1 级，电流可以跳向最远 2 格内的另一个目标。
-		命中的敌人数量最多等于蒸汽工具的等级。
+		如果这件配件高于 1 级，电流可以跳向最远 2 格内的另一个目标。
+		命中的敌人数量最多等于配件的等级。
 		伤害随蒸汽强度提高。]], "tformat")
 t("Flash Powder", "闪光粉", "talent name")
 t("%s resists the blinding light!", "%s抵抗了致盲！", "logSeen")
@@ -5687,7 +5687,7 @@ t("Smith", "铁匠", "talent name")
 t([[Allows you to create smithed tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的铁匠蒸汽工具。
+		%s]], [[允许你制造 %d 等级的铁匠配件。
 		你将在 1 级时学会一个新配方。
 		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
@@ -5695,7 +5695,7 @@ t("Mechanical", "机械", "talent name")
 t([[Allows you to create mechanical tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的机械蒸汽工具。
+		%s]], [[允许你制造 %d 等级的机械配件。
 		你将在 1 级时学会一个新配方。
 		之后每提升一个技能等级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会（除非已学会全部配方）。
 		%s]], "tformat")
@@ -5703,7 +5703,7 @@ t("Electricity", "电力", "talent name")
 t([[Allows you to create electrical tinkers of level %d.
 		You will learn a new schematic at level 1.
 		Each other talent level, you have a 20%% chance to learn one more random schematic, if you have not gained it by level 5 you are guaranteed it (unless all are known).
-		%s]], [[允许你制造 %d 等级的电力蒸汽工具。
+		%s]], [[允许你制造 %d 等级的电力配件。
 		你将在 1 级时学会一个新配方。
 		此后每升一级，你有 20%% 的概率再学会一个随机配方；如果到 5 级仍未学会，则必定学会一个（除非已学会全部配方）。
 		%s]], "tformat")
@@ -5800,7 +5800,7 @@ t("Use steam powered saws to maneuver around the battlefield, gaining strategic 
 t("battle machinery", "战术机械", "talent type")
 t("Use steam powered engines to tilt the battle in your favour.", "使用蒸汽动力引擎让战局向对你有利的方向倾斜。", "_t")
 t("automated butchery", "自动化屠杀", "talent type")
-t("Improve your saws and tinkers with automated processes to help shred your foes.", "利用自动化流程改进你的链锯和蒸汽工具，助你撕碎敌人。", "_t")
+t("Improve your saws and tinkers with automated processes to help shred your foes.", "利用自动化流程改进你的链锯和配件，助你撕碎敌人。", "_t")
 t("furnace", "熔炉", "talent type")
 t("Harness the power of fire.", "掌握火焰的力量。", "_t")
 t("gunner training", "枪支训练", "talent type")
@@ -5842,7 +5842,7 @@ t("chemical warfare", "化学武器", "talent type")
 t("Unleash toxic steamtech weaponry on your enemies.", "对你的敌人释放剧毒的蒸汽武器。", "_t")
 t("#VIOLET#EUREKA!", "#VIOLET#我发现了！", "log")
 t("#VIOLET#EUREKA!#WHITE# Schematic learnt: #LIGHT_BLUE#%s", "#VIOLET#我发现了！#WHITE# 已学习配方：#LIGHT_BLUE#%s", "saySimple")
-t("This talent is required for the following tinkers (you still need to learn/find the schematics):", "该技能是制造下列蒸汽工具的必要条件（你仍然需要找到/学会相应配方）：", "_t")
+t("This talent is required for the following tinkers (you still need to learn/find the schematics):", "该技能是制造下列配件的必要条件（你仍然需要找到/学会相应配方）：", "_t")
 t(" #LIGHT_BLUE#(known)#LAST#", " #LIGHT_BLUE#（已学会）#LAST#", "_t")
 t("#{italic}#* ...perhaps more to discover...#{normal}#", "#{italic}#* ……可能还可以找到更多……#{normal}#", "_t")
 
@@ -6041,7 +6041,7 @@ t([[Technomancers are Archmages that dabble in steam technology to enhance their
 
 		#{bold}#As soon as this evolution is used you will need to craft the Arcane Dynamo to place in a robe to benefit from all the powers of the Technomancer.#{normal}#]], [[科技法师是涉猎蒸汽科技的元素法师，他们用科技来强化自己本已强大的法术武库。
 		当你选择这一项进阶职业的时候，你获得以下能力：
-		- 奥术发电机蒸汽工具配方
+		- 奥术发电机配件配方
 		- 蒸汽科技/物理系 （已解锁）
 		- 蒸汽科技/化学系 （未解锁）
 		- 一个便携式自动材料提取仪（A.P.E.）
@@ -6374,12 +6374,12 @@ t("-Unstoppable Force", "-势不可挡", "_t")
 t("slow", "减速", "effect subtype")
 t("Slow Talents", "技能减速", "_t")
 t("Attacking, casting and mind speed have been reduced by %d%%.", "攻击，施法和精神速度下降 %d%%。", "tformat")
-t("Supercharge Tinkers", "插件超频", "_t")
+t("Supercharge Tinkers", "配件超频", "_t")
 t("Increases steampower by %d and steam crit by %d%%.", "获得 %d 蒸汽强度和 %d%% 蒸汽技能暴击率。", "tformat")
-t("#Target# supercharges all tinkers.", "#Target#超频了所有插件。", "_t")
-t("+Supercharge Tinkers", "+插件超频", "_t")
+t("#Target# supercharges all tinkers.", "#Target#超频了所有配件。", "_t")
+t("+Supercharge Tinkers", "+配件超频", "_t")
 t("#Target#'s supercharge is fading.", "#Target#的超频正在消退。", "_t")
-t("-Supercharge Tinkers", "-插件超频", "_t")
+t("-Supercharge Tinkers", "-配件超频", "_t")
 t("Overcharge Saws", "链锯过载", "_t")
 t("Increases all saws talent levels by %d%%.", "增加 %d%% 链锯相关技能有效等级。", "tformat")
 t("#Target# overcharges saw motors.", "#Target# 超频了链锯引擎。", "_t")
@@ -6847,7 +6847,7 @@ t("shadow of pain", "痛之影", "entity name")
 t("A shadowy embodiment of pain.", "一团由痛苦具现成的阴影。", "_t")
 t("shadow of hate", "恨之影", "entity name")
 t("A shadowy embodiment of hate.", "一团由恨意具现成的阴影。", "_t")
-t("shadow of despair", "惘之影", "entity name")
+t("shadow of despair", "绝之影", "entity name")
 t("A shadowy embodiment of despair.", "一团由绝望具现成的阴影。", "_t")
 t("shadow of remorse", "悔之影", "entity name")
 t("A shadowy embodiment of remorse.", "一团由悔恨具现成的阴影。", "_t")
@@ -7680,7 +7680,7 @@ t("schematic: Hands of Creation", "配方：创造之手", "entity name")
 ------------------------------------------------
 section "tome-orcs/data/zones/ureslak-host/zone.lua"
 
-t("Ureslak's Host", "乌瑞斯拉克沉睡处", "_t")
+t("Ureslak's Host", "乌瑞斯拉克的驻地", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/vaporous-emporium/grids.lua"
@@ -7735,7 +7735,7 @@ t("Entrance to the Pride's Internment Camp", "部落拘留营入口", "entity na
 t("Gates of Morning (Town)", "晨曦之门（城镇）", "entity name")
 t("A massive hole in the Sunwall.", "太阳堡垒群山中的一个巨大洞口。", "_t")
 t("Strange mechanical mole", "奇怪的机械鼹鼠", "entity name")
-t("Path to a Ureslak's Host", "通往乌瑞斯拉克宿主处的道路", "entity name")
+t("Path to a Ureslak's Host", "通往乌瑞斯拉克驻地的道路", "entity name")
 t("Entrance to the Steam Quarry", "蒸汽采石场入口", "entity name")
 t("Entrance to the Palace of Fumes", "烟雾宫殿入口", "entity name")
 t("Way into a primal forest", "通往原始森林的路", "entity name")
@@ -7936,7 +7936,7 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 - 科技法术：放电系——使用放电柱，链接出死亡的领域，用火焰和闪电的力量烧毁敌人。
 - 科技法术：寒岩系——制造并控制微型蜘蛛机器人虫群，用水和土的力量伤害并削弱敌人。
 - 奥术发电机：施放法术会制造蒸汽，蒸汽会提升法术强度。
-- 获得物理学和化学技术：所有科技法师都掌握制作插件的基础技术。
+- 获得物理学和化学技术：所有科技法师都掌握制作配件的基础技术。
 #WHITE#
 
 职业进阶是一种觉醒技，它们可以给予你新的方法来强化你的职业。只有相关的职业才能看到它们。
@@ -8152,7 +8152,7 @@ t("lost tinker", "迷路的工匠", "_t")
 t("Please help me! I am afraid I lost myself in this place while testing some new steamtech. I know there is a recall portal left around here by a friend, but I have fought too many battles, and I fear I will not make it. Would you help me?", "帮帮我！我在测试一种新的蒸汽科技时，在这地方迷路了。我有个朋友在这附近给我留下了一个召回传送门，不过我打了太多仗，恐怕靠我自己是到不了那里了，你能帮我一下吗？", "_t")
 t("%s, the experimenting tinker", "%s，做实验的工匠", "_t")
 t("She looks tired and wounded.", "她看起来疲惫又受伤。", "_t")
-t("[Ask where to learn tinkers crafting]", "[询问哪里可以学习蒸汽工具制作]", "_t")
+t("[Ask where to learn tinkers crafting]", "[询问哪里可以学习配件制作]", "_t")
 t("Reveal the location of a teacher.", "揭示工匠大师的位置。", "_t")
 t("Tinker's Master", "工匠大师", "_t")
 t("She points a location on your map, in a remote area to the north.", "她指出了地图上的一个位置，在北方的某地。", "_t")
@@ -8177,23 +8177,23 @@ t("Oh well, maybe later then.", "好吧，以后再说。", "_t")
 ------------------------------------------------
 section "tome-orcs/overload/mod/class/interface/PartyTinker.lua"
 
-t("unknown tinker", "未知插件", "_t")
+t("unknown tinker", "未知配件", "_t")
 t("can not create tier %d", "无法制作材质等级 %d 的物品", "tformat")
 t("requires %s level %d", "需要%s等级%d", "tformat")
 t("requires %d %s", "需要%d个%s", "tformat")
 t("requires %s", "需要%s", "tformat")
 t("Impossible to create %s(%s)", "无法创造 %s(%s)", "tformat")
-t("Created tinker: %s", "创造插件：%s", "log")
-t("Created tinker: %s", "创造插件：%s", "saySimple")
+t("Created tinker: %s", "创造配件：%s", "log")
+t("Created tinker: %s", "创造配件：%s", "saySimple")
 t("Learnt new tinker schematic: #LIGHT_GREEN#%s", "已学习新的配方：#LIGHT_GREEN#%s", "log")
 t("Learnt new tinker schematic: #LIGHT_GREEN#%s", "已学习新的配方：#LIGHT_GREEN#%s", "saySimple")
 
 ------------------------------------------------
 section "tome-orcs/overload/mod/dialogs/CreateTinker.lua"
 
-t("Tinkers", "插件", "_t")
+t("Tinkers", "配件", "_t")
 t("Search: ", "搜索：", "_t")
-t("Tinker", "插件", "_t")
+t("Tinker", "配件", "_t")
 t("Slot", "槽位", "_t")
 t("School", "学科", "_t")
 t("Status", "状态", "_t")
@@ -8271,7 +8271,7 @@ t("%s is knocked back!", "%s 被击退！", "logSeen")
 ------------------------------------------------
 section "tome-orcs/superload/mod/class/interface/Combat.lua"
 
-t("#{bold}#%s's tinker attains critical power!#{normal}#", "#{bold}#%s的蒸汽工具迸发出暴击之力！#{normal}#", "logSeen")
+t("#{bold}#%s's tinker attains critical power!#{normal}#", "#{bold}#%s的配件迸发出暴击之力！#{normal}#", "logSeen")
 
 ------------------------------------------------
 section "tome-orcs/superload/mod/class/interface/TooltipsData.lua"
