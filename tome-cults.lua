@@ -532,7 +532,7 @@ section "tome-cults/data/general/npcs/blobs.lua"
 
 t("vermin", "害虫", "entity type")
 t("blob", "生物质团", "entity subtype")
-t("Ewwww.", "额…", "_t")
+t("Ewwww.", "呕……", "_t")
 t("plasmic disruptor", "浆胞破坏者", "entity name")
 t("A green oozing defence cell of the Maggot.", "这团绿泥是巨大蛆虫的防御细胞。", "_t")
 t("mastocytic feeder", "肥大胞吞噬者", "entity name")
@@ -551,7 +551,7 @@ section "tome-cults/data/general/npcs/corrupted_blobs.lua"
 
 t("vermin", "害虫", "entity type")
 t("blob", "生物质团", "entity subtype")
-t("Ewwww.", "额…", "_t")
+t("Ewwww.", "呕……", "_t")
 t("corrupted plasmic disruptor", "腐化的浆胞破坏者", "entity name")
 t("A green oozing defence cell of the Maggot.", "这团绿泥是巨大蛆虫的防御细胞。", "_t")
 t("corrupted mastocytic feeder", "腐化的肥大胞吞噬者", "entity name")
@@ -562,7 +562,7 @@ t("corrupted dendritic hemospinner", "腐化的树突胞递呈者", "entity name
 t("This strange cell can somehow connect to Eyal itself.", "这个奇怪的细胞似乎可以通过某种方法连接到埃亚尔本身。", "_t")
 t("corrupted acidic digestor", "腐化的酸胞消化者", "entity name")
 t("You look like nutriments.", "你看起来像是营养成分。", "_t")
-t("corrupted protosentient globula", "腐化的原球胞", "entity name")
+t("corrupted protosentient globula", "腐化的原知觉球体", "entity name")
 t("A huge globula of protoplasma. You can feel a kind of protosentience emanating from it, and you can tell it is hungry.", "一大团原生质球体。你能感觉到某种原始感知从它身上散发出来，并且能看出它很饥饿。", "_t")
 
 ------------------------------------------------
