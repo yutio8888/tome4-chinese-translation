@@ -40638,7 +40638,7 @@ t("half-dead forest troll", "半死的森林巨魔", "entity name")
 t([[Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.
 He looks hurt.]], "绿皮丑陋，这只巨大的人形生物正盯着你，握紧了满是肉瘤的绿色拳头。\n他看起来受伤了。", "_t")
 t("Lone Wolf", "孤狼", "entity name")
-t("It is a large wolf with eyes full of cunning, only 3 times bigger than a normal wolf. It looks hungry. You look tasty!", "这是一只狡诈的狼，只有普通狼的3倍大。它看起来很饥渴，而你——很美味！", "_t")
+t("It is a large wolf with eyes full of cunning, only 3 times bigger than a normal wolf. It looks hungry. You look tasty!", "这是一只眼中满是狡黠的大狼，也就比普通狼大3倍而已。它看起来很饿，而你——看起来很美味！", "_t")
 t("Tutorial: Finish", "教程：完成", "_t")
 
 ------------------------------------------------
@@ -40723,7 +40723,7 @@ t("half-dead forest troll", "半死的森林巨魔", "entity name")
 t([[Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.
 He looks hurt.]], "绿皮丑陋，这只巨大的人形生物正盯着你，握紧了满是肉瘤的绿色拳头。\n他看起来受伤了。", "_t")
 t("Lone Wolf", "孤狼", "entity name")
-t("It is a large wolf with eyes full of cunning, only 3 times bigger than a normal wolf. It looks hungry. You look tasty!", "这是一只狡诈的狼，只有普通狼的3倍大。它看起来很饥渴，而你——很美味！", "_t")
+t("It is a large wolf with eyes full of cunning, only 3 times bigger than a normal wolf. It looks hungry. You look tasty!", "这是一只眼中满是狡黠的大狼，也就比普通狼大3倍而已。它看起来很饿，而你——看起来很美味！", "_t")
 t("Orc", "兽人", "entity name")
 t("Quick-healing orc", "快速自愈的兽人", "entity name")
 t("Robe-clad elf", "披着长袍的精灵", "entity name")
