@@ -1,0 +1,183 @@
+{
+ "kind": "maintenance",
+ "date": "2026-11-02",
+ "authorization": "User 2026-11-02「开始进行第三项复审」: verify the unverified side findings from the 0241 implementation-rewrite drafting; rewrite per the 2026-11-02 actual-behaviour rule.",
+ "method": "Read-only subagent verification (/tmp/oos-verify.json, 19 items) then host spot-check of key evidence: cults timed_effects.lua:1020-1037, gravity.lua:160-168, damage_types.lua:4445-4465, npcs.lua:3373-3378, orcs steam/other.lua:370-377, orcs timed_effects/magical.lua:125-140. Core pinned 624a6732; Cults/Orcs DLC unpinned public checkouts.",
+ "applied": [
+  {
+   "finding": "1 Prophecy of Treason chance is an accumulating timer (Prophecy summary)",
+   "talent": "Prophecy (demented/doom) summary line",
+   "translation_file": "tome-cults.lua",
+   "line": 2793,
+   "evidence": "tome-cults/data/timed_effects.lua:1023-1036 (unpinned Cults DLC checkout /workspace/tome4-dlcs/cults/tome-cults): callbackOnAct sets eff.timer = rng.float(0,100) on first act, then each act adds eff.power (or eff.power*0.5 when not self:checkHit(src spellpower, target spell save) i.e. target resists), and only when eff.timer > 100 subtracts 100 and attacks (attackTarget(target,nil,0.1,false) on first adjacent actor of any faction, else itself). No per-turn random chance roll. power = Prophecy.getTreasonChance (doom.lua:30, combatTalentScale 10-25); attackTarget with noenergy=false uses energy (core Combat.lua:93-112). Displayed %d%% = tchance = getTreasonChance (doom.lua:56-62).",
+   "sync_locations": [
+    "tome-cults.lua:2793"
+   ]
+  },
+  {
+   "finding": "1 Prophecy of Treason chance is an accumulating timer (talent info)",
+   "talent": "Prophecy of Treason",
+   "translation_file": "tome-cults.lua",
+   "line": 2814,
+   "evidence": "tome-cults/data/timed_effects.lua:1023-1036 (unpinned Cults DLC checkout /workspace/tome4-dlcs/cults/tome-cults): callbackOnAct sets eff.timer = rng.float(0,100) on first act, then each act adds eff.power (or eff.power*0.5 when not self:checkHit(src spellpower, target spell save) i.e. target resists), and only when eff.timer > 100 subtracts 100 and attacks (attackTarget(target,nil,0.1,false) on first adjacent actor of any faction, else itself). No per-turn random chance roll. power = Prophecy.getTreasonChance (doom.lua:30, combatTalentScale 10-25); attackTarget with noenergy=false uses energy (core Combat.lua:93-112). Talent info doom.lua:288-292 passes getChance (= getTreasonChance).",
+   "sync_locations": [
+    "tome-cults.lua:2814"
+   ]
+  },
+  {
+   "finding": "1 Prophecy of Treason chance is an accumulating timer (effect long_desc)",
+   "talent": "EFF_PROPHECY_OF_TREASON long_desc",
+   "translation_file": "tome-cults.lua",
+   "line": 3711,
+   "evidence": "tome-cults/data/timed_effects.lua:1023-1036 (unpinned Cults DLC checkout /workspace/tome4-dlcs/cults/tome-cults): callbackOnAct sets eff.timer = rng.float(0,100) on first act, then each act adds eff.power (or eff.power*0.5 when not self:checkHit(src spellpower, target spell save) i.e. target resists), and only when eff.timer > 100 subtracts 100 and attacks (attackTarget(target,nil,0.1,false) on first adjacent actor of any faction, else itself). No per-turn random chance roll. power = Prophecy.getTreasonChance (doom.lua:30, combatTalentScale 10-25); attackTarget with noenergy=false uses energy (core Combat.lua:93-112). long_desc timed_effects.lua:996 passes eff.power.",
+   "sync_locations": [
+    "tome-cults.lua:3711"
+   ]
+  },
+  {
+   "finding": "4 Twilit Echoes: tile echo hard-coded 4 turns vs %d=3; any source's damage echoes",
+   "talent": "Twilit Echoes (talent info)",
+   "translation_file": "tome-orcs.lua",
+   "line": 3956,
+   "evidence": "Orcs DLC unpinned (/workspace/tome4-dlcs/orcs/tome-orcs). data/talents/celestial/void.lua:142 (and identical crepescula.lua:23) setEffect(EFF_TWILIT_ECHOES, dur, {echo_dur=3,...}); info :144-154 tformat(duration, slow_per*100, echo_dur, slow_max*100, slow_max/slow_per, echo_dur, 100*echo_factor). data/timed_effects/magical.lua:125-158 doEcho: new dark echo map:addEffect(src, x, y, 4, DARKNESS, dam*dam_factor, ...) (hard-coded 4); existing echo refreshed only when 0 < echo.duration < echo_dur, new per-turn = (dam*dam_factor*echo_dur + old remaining)/echo_dur. Hook overload/mod/class/OrcCampaign.lua:354-360 hookDamageProjectorFinal fires for any data.src whose LIGHT/DARKNESS damage >=1 lands on the target's grid; no check that src is the Twilit Echoes caster. ECHOED_LIGHT (magical.lua:162-181) on_merge sums power up to max.",
+   "sync_locations": [
+    "tome-orcs.lua:3956",
+    "tome-orcs.lua:4014"
+   ]
+  },
+  {
+   "finding": "6b Collapse: pull is conditional and damage is per turn",
+   "talent": "Collapse (celestial/dark-sun)",
+   "translation_file": "mod-tome.lua",
+   "line": 21109,
+   "evidence": "core pinned 624a6732 dark-sun.lua:76-97 act(): every turn radius grows then all hostile actors (summoner:reactionToward < 0) in radius are hit; damage_types.lua:4456-4462 pull only if target:checkHit(src physical power, target physical save) and canBe('knockback'), else 'resists the gravity'; damage applied regardless (:4464). Gravity Locus holders are skipped entirely (:4447).",
+   "sync_locations": [
+    "mod-tome.lua:21109"
+   ]
+  },
+  {
+   "finding": "7 Gravity Spike: '20% less per tile' sentence vs dist_factor formula",
+   "talent": "Gravity Spike (chronomancy/gravity)",
+   "translation_file": "mod-tome.lua",
+   "line": 22010,
+   "evidence": "core pinned 624a6732 game/modules/tome/data/talents/chronomancy/gravity.lua:163-167 dist_factor = 1 + distance/5; damage = dam/dist_factor (83.3% at 1 tile, 71.4% at 2, 50% at 5), not a flat 20% per tile; info :174-180 same English sentence as Singularity Arrow.",
+   "sync_locations": [
+    "mod-tome.lua:22010"
+   ]
+  },
+  {
+   "finding": "8b Defensive Throw chance scales with Cunning, not Accuracy",
+   "talent": "Defensive Throw",
+   "translation_file": "mod-tome.lua",
+   "line": 26578,
+   "evidence": "core pinned 624a6732 game/modules/tome/data/talents/misc/npcs.lua:3375-3377 getchance = combatLimit(TL*(5+getCun(5,true)),100,...); timed_effects/physical.lua:2502-2505,2519-2520 EFF_DEFENSIVE_GRAPPLING uses that chance; npcs.lua:3384-3386 landing uses checkHit(combatAttack, target defense) (+ evasion unless grappled).",
+   "sync_locations": [
+    "mod-tome.lua:26578"
+   ]
+  },
+  {
+   "finding": "8c Fatal Attractor: damage does not scale with Steampower",
+   "talent": "Fatal Attractor (TINKER_FATAL_ATTRACTOR)",
+   "translation_file": "tome-orcs.lua",
+   "line": 5426,
+   "evidence": "Orcs DLC unpinned. tome-orcs/data/talents/steam/other.lua:373-376 getHP/getResist/getArmor use combatTalentSteamDamage, getReflection returns constant 30; :392-421 the NPC only has reflect_damage and forced Taunt (no attacks, 'no AI, just Taunt').",
+   "sync_locations": [
+    "tome-orcs.lua:5426"
+   ]
+  },
+  {
+   "finding": "8d Ethereal Steam: innate talents excluded",
+   "talent": "Ethereal Steam effect",
+   "translation_file": "tome-orcs.lua",
+   "line": 6139,
+   "evidence": "Orcs DLC unpinned. tome-orcs/data/timed_effects/magical.lua:473-479 callbackOnTalentPost returns early if ab.innate. innate=true talents: core Attack (misc/misc.lua:41), Shoot (archery.lua:28), Reload (npcs.lua:2702), Disarm Trap (survival.lua:145), Empty Hand (unarmed-training.lua:25); Orcs steamgun/heavy-weapon shots (heavy-weapons.lua:167,362,523).",
+   "sync_locations": [
+    "tome-orcs.lua:6139"
+   ]
+  },
+  {
+   "finding": "8e Dirge summary: 'other'-type exclusion not stated (Pestilence line)",
+   "talent": "Dirge Acolyte summary (celestial/dirge)",
+   "translation_file": "mod-tome.lua",
+   "line": 21194,
+   "evidence": "core pinned 624a6732 game/modules/tome/data/talents/celestial/dirge.lua:164-167 Dirge of Pestilence triggers only if e_def.status=='detrimental' and e_def.type ~= 'other' and eff.src ~= self.",
+   "sync_locations": [
+    "mod-tome.lua:21194"
+   ]
+  },
+  {
+   "finding": "8f Spine of the World: cross-tier effects excluded",
+   "talent": "Spine of the World (uber/const)",
+   "translation_file": "mod-tome.lua",
+   "line": 31185,
+   "evidence": "core pinned 624a6732 class/Actor.lua:7742-7743 trigger requires not e.subtype['cross tier'] and detrimental physical; immunity checks :7605-7606 and :7728 also skip cross-tier; timed_effects/physical.lua:2700-2712 effect sets physical_negative_status_effect_immune.",
+   "sync_locations": [
+    "mod-tome.lua:31185"
+   ]
+  }
+ ],
+ "not_changed": [
+  {
+   "finding": "2 Missing selffire=false lets caster stun itself",
+   "talent": "Terrible Sight (Cults friend-of-the-worm, chunk4 #19)",
+   "verdict": "refuted",
+   "evidence": "Engine (pinned 624a6732) engine/Target.lua:678-683 defaults selffire=true, friendlyfire=true (cone type forces selffire=false, :616-620); engine/interface/ActorProject.lua:254-255 skips act==self only if selffire false, but next skips any act with self:reactionToward(act) >= 0 when friendlyfire is false. tome class/Actor.lua:1762-1781 + engine/Faction.lua:84-86 give reactionToward(self)=100 (same faction always 100; hates_everybody/hated_by_everybody exclude rtarget==rsrc). So friendlyfire=false already excludes the caster. Terrible Sight: tome-cults/data/talents/demented/friend-of-the-worm.lua:562 target {type='ball', radius=range, friendlyfire=false}; :566-571 projects stun at self.x,self.y (unpinned Cults DLC).",
+   "notes": "Caster is never hit. Translation needs no change for this point (current already says 2 格以内 for the on_pre_use bound)."
+  },
+  {
+   "finding": "2 Missing selffire=false lets caster mind-blast itself",
+   "talent": "Mindwave (Orcs yeti racial, chunk4 #35)",
+   "verdict": "refuted",
+   "evidence": "Engine (pinned 624a6732) engine/Target.lua:678-683 defaults selffire=true, friendlyfire=true (cone type forces selffire=false, :616-620); engine/interface/ActorProject.lua:254-255 skips act==self only if selffire false, but next skips any act with self:reactionToward(act) >= 0 when friendlyfire is false. tome class/Actor.lua:1762-1781 + engine/Faction.lua:84-86 give reactionToward(self)=100 (same faction always 100; hates_everybody/hated_by_everybody exclude rtarget==rsrc). So friendlyfire=false already excludes the caster. Mindwave: tome-orcs/data/talents/misc/races.lua:101 target {type='ball', radius=5, range=0, friendlyfire=false}; :104-112 both projections at self.x,self.y (unpinned Orcs DLC).",
+   "notes": "Neither damage nor confusion applies to the caster (or its allies). Current translation already says circle radius around you (圆形范围) and 敌人."
+  },
+  {
+   "finding": "3 Taint: Telepathy duration hard-coded 5 while text shows data.dur",
+   "talent": "Taint: Telepathy",
+   "verdict": "unfixable",
+   "evidence": "core pinned 624a6732 game/modules/tome/data/talents/misc/inscriptions.lua:1203-1210 action: takeHit(max_life*0.2), setEffect(EFF_SENSE, 5, {range=getTalentRange (10), actor=1}), setEffect(EFF_WEAKENED_MIND, 10, {save=10, power=35}); info :1212-1215 passes data.dur as first %d. WEAKENED_MIND (timed_effects/mental.lua:1563-1577) does -10 mind save, +35 mindpower: matches.",
+   "notes": "Error is in the placeholder argument (data.dur, never used by the action). Could only be fixed by dropping/repurposing the first %d. No core item or DLC grants this taint (git grep TAINT_TELEPATHY: none outside locales/talent definition), so data.dur is unverifiable and the talent is effectively unreachable. Advisory."
+  },
+  {
+   "finding": "5 Petrifying Gaze cone radius 0",
+   "talent": "Petrifying Gaze (Orcs npcs, chunk4 #32)",
+   "verdict": "refuted",
+   "evidence": "Orcs DLC unpinned. tome-orcs/data/talents/misc/npcs.lua:30-35 radius=scale(3,8) but target {type='cone', radius=getTalentRange(t)} with range=0 -> cone radius 0. Engine pinned 624a6732 engine/interface/ActorProject.lua:177 only builds the cone when typ.cone > 0; otherwise single_target stays true and :229 adds the stop grid, i.e. it degenerates into a single-target projection on the chosen grid (path limited by default range 20, Target.lua:680 / block_path :492-497). It does not hit nothing.",
+   "notes": "Real behaviour: single-target stun (EFF_STUNNED, physical power) on the targeted creature, not a cone. Neither English nor Chinese ('凝视敌人') claims a cone/area or radius, so no translatable contradiction for this side point. The main claim (it applies STUNNED, not stoning; lines 2-4 describe nothing real) is still unfixed at tome-orcs.lua:4029 (current text still says 石化) because the 30%% literal must be kept - that remains a caller decision."
+  },
+  {
+   "finding": "6 Collapse: description shows half the actual damage",
+   "talent": "Collapse (celestial/dark-sun)",
+   "verdict": "unfixable",
+   "evidence": "core pinned 624a6732 game/modules/tome/data/talents/celestial/dark-sun.lua:41-44 dam = spellCrit(getDamage); :86-90 each act projects BLACK_HOLE_GRAVITY with full self.dam; info :125-133 shows getDamage/2. damage_types.lua:4438-4465 BLACK_HOLE_GRAVITY deals PHYSICAL dam.dam in full.",
+   "notes": "Displayed number is the placeholder argument (getDamage/2); actual per-tick damage is twice that. Only fixable with an arithmetic clause such as '受到相当于 %0.2f 两倍的重力伤害' (precedent: Ashes Spellblaze proposal used a 'half the shown value' clause); caller decision. See separate item 6b for the fixable parts of the same row."
+  },
+  {
+   "finding": "8a BREACH long_desc wrongly lists armor hardiness",
+   "talent": "Breach effect (EFF_BREACH)",
+   "verdict": "refuted",
+   "evidence": "core pinned 624a6732 game/modules/tome/class/interface/Combat.lua:1355-1358 combatArmorHardiness: if hasEffect(EFF_BREACH) then multi = 0.5 -> armor hardiness is halved; magical.lua:3540-3553 halves stun/confusion/blind/pin immunity.",
+   "notes": "Effect description is correct. The 0241 rewrite that removed 护甲强度 from the talent text was already reverted in batch 0242 (decision a2cafed258ef). Side note: current talent text mod-tome.lua:22476 now says '...免疫减半' with no %% while the English has '50%%'; it passed batch 0242 gates, so presumably acceptable, but the %%-token count differs from the English."
+  },
+  {
+   "finding": "8g Accelerate slow requires failing a spell save",
+   "talent": "Accelerate (Cults timethief)",
+   "verdict": "refuted",
+   "evidence": "Already applied: tome-cults.lua:3253 current target says '未免疫减速且未通过法术豁免的其他生物（包括友方）' (batch 0243 confirmed).",
+   "notes": "No action."
+  },
+  {
+   "finding": "8h Sever Spine slow 5 turns vs 4; sustain removal may repeat",
+   "talent": "Sever Spine (Orcs sawmaiming)",
+   "verdict": "refuted",
+   "evidence": "Orcs DLC unpinned. sawmaiming.lua:126 setEffect(EFF_SLOW, 5); :157-163 rng.table without removal. Current tome-orcs.lua:5761 already says '持续 5 回合' and '至多 %d 项非精神类维持技能', which covers duplicate picks.",
+   "notes": "Already reflected; no action."
+  }
+ ],
+ "host_notes": [
+  "Breach talent row mod-tome.lua:22476 writes 减半 for English 50%% (no %% token in target); lint passes, meaning equivalent — advisory, unchanged.",
+  "Twilit Echoes action() never returns true upstream (code bug, not text) — advisory.",
+  "Collapse info displays getDamage/2 while each turn deals full damage — placeholder argument error, unfixable per rule."
+ ],
+ "followup": "Changed rows re-reviewed by A/B from batch 0253."
+}

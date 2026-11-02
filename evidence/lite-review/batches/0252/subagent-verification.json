@@ -1,0 +1,271 @@
+{
+ "items": [
+  {
+   "finding": "1 Prophecy of Treason chance is an accumulating timer (Prophecy summary)",
+   "talent": "Prophecy (demented/doom) summary line",
+   "verdict": "confirmed_fixable",
+   "evidence": "tome-cults/data/timed_effects.lua:1023-1036 (unpinned Cults DLC checkout /workspace/tome4-dlcs/cults/tome-cults): callbackOnAct sets eff.timer = rng.float(0,100) on first act, then each act adds eff.power (or eff.power*0.5 when not self:checkHit(src spellpower, target spell save) i.e. target resists), and only when eff.timer > 100 subtracts 100 and attacks (attackTarget(target,nil,0.1,false) on first adjacent actor of any faction, else itself). No per-turn random chance roll. power = Prophecy.getTreasonChance (doom.lua:30, combatTalentScale 10-25); attackTarget with noenergy=false uses energy (core Combat.lua:93-112). Displayed %d%% = tchance = getTreasonChance (doom.lua:56-62).",
+   "translation_file": "tome-cults.lua",
+   "line": 2793,
+   "current_target": "对目标释放熵能力量，你预言了它无可避免的末日。随着技能等级提升，你能解锁更多预言。同一目标不能同时处于两种预言下。\n技能等级 1：毁灭预言。当生命值降至最大生命的 75%%、50%% 或 25%% 以下时，造成 %0.2f 伤害。\n技能等级 3：背叛预言。每回合有 %d%% 几率攻击一名相邻的生物（无论敌友），没有相邻生物时攻击自身。\n技能等级 5：疯狂预言。增加 %d%% 技能冷却时间。",
+   "new_target": "对目标释放熵能力量，你预言了它无可避免的末日。随着技能等级提升，你能解锁更多预言。同一目标不能同时处于两种预言下。\n技能等级 1：毁灭预言。当生命值降至最大生命的 75%%、50%% 或 25%% 以下时，造成 %0.2f 伤害。\n技能等级 3：背叛预言。目标每回合累积 %d%% 背叛进度（通过法术豁免时只累积一半），进度满时攻击一名相邻的生物（无论敌友），没有相邻生物时攻击自身。\n技能等级 5：疯狂预言。增加 %d%% 技能冷却时间。",
+   "sync_locations": [
+    "tome-cults.lua:2793"
+   ],
+   "notes": "DLC source unpinned. Long-run average trigger rate equals power% per turn (half when target saves), but it is a deterministic accumulator with a random starting offset, not an independent per-turn roll. Keeps all placeholders; only line 3 changed."
+  },
+  {
+   "finding": "1 Prophecy of Treason chance is an accumulating timer (talent info)",
+   "talent": "Prophecy of Treason",
+   "verdict": "confirmed_fixable",
+   "evidence": "tome-cults/data/timed_effects.lua:1023-1036 (unpinned Cults DLC checkout /workspace/tome4-dlcs/cults/tome-cults): callbackOnAct sets eff.timer = rng.float(0,100) on first act, then each act adds eff.power (or eff.power*0.5 when not self:checkHit(src spellpower, target spell save) i.e. target resists), and only when eff.timer > 100 subtracts 100 and attacks (attackTarget(target,nil,0.1,false) on first adjacent actor of any faction, else itself). No per-turn random chance roll. power = Prophecy.getTreasonChance (doom.lua:30, combatTalentScale 10-25); attackTarget with noenergy=false uses energy (core Combat.lua:93-112). Talent info doom.lua:288-292 passes getChance (= getTreasonChance).",
+   "translation_file": "tome-cults.lua",
+   "line": 2814,
+   "current_target": "对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合有 %d%% 几率浪费该回合，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。\n\t\t一个目标只能同时被一个预言影响。",
+   "new_target": "对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合累积 %d%% 背叛进度（初始进度随机；通过法术豁免时只累积一半），进度满时便浪费该回合，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。\n\t\t一个目标只能同时被一个预言影响。",
+   "sync_locations": [
+    "tome-cults.lua:2814"
+   ],
+   "notes": "Same mechanism as summary line. Not in the original chunk but same false 'chance' claim."
+  },
+  {
+   "finding": "1 Prophecy of Treason chance is an accumulating timer (effect long_desc)",
+   "talent": "EFF_PROPHECY_OF_TREASON long_desc",
+   "verdict": "confirmed_fixable",
+   "evidence": "tome-cults/data/timed_effects.lua:1023-1036 (unpinned Cults DLC checkout /workspace/tome4-dlcs/cults/tome-cults): callbackOnAct sets eff.timer = rng.float(0,100) on first act, then each act adds eff.power (or eff.power*0.5 when not self:checkHit(src spellpower, target spell save) i.e. target resists), and only when eff.timer > 100 subtracts 100 and attacks (attackTarget(target,nil,0.1,false) on first adjacent actor of any faction, else itself). No per-turn random chance roll. power = Prophecy.getTreasonChance (doom.lua:30, combatTalentScale 10-25); attackTarget with noenergy=false uses energy (core Combat.lua:93-112). long_desc timed_effects.lua:996 passes eff.power.",
+   "translation_file": "tome-cults.lua",
+   "line": 3711,
+   "current_target": "目标被诅咒进入背叛状态。每回合有 %d%% 几率攻击一个相邻生物；若周围没有相邻生物，则会攻击自身。",
+   "new_target": "目标被诅咒进入背叛状态。每回合累积 %d%% 背叛进度（通过法术豁免时只累积一半），进度满时攻击一个相邻生物；若周围没有相邻生物，则会攻击自身。",
+   "sync_locations": [
+    "tome-cults.lua:3711"
+   ],
+   "notes": "Effect description, same mechanism. English uses two spaces before 'If'; translation has no spaces either way."
+  },
+  {
+   "finding": "2 Missing selffire=false lets caster stun itself",
+   "talent": "Terrible Sight (Cults friend-of-the-worm, chunk4 #19)",
+   "verdict": "refuted",
+   "evidence": "Engine (pinned 624a6732) engine/Target.lua:678-683 defaults selffire=true, friendlyfire=true (cone type forces selffire=false, :616-620); engine/interface/ActorProject.lua:254-255 skips act==self only if selffire false, but next skips any act with self:reactionToward(act) >= 0 when friendlyfire is false. tome class/Actor.lua:1762-1781 + engine/Faction.lua:84-86 give reactionToward(self)=100 (same faction always 100; hates_everybody/hated_by_everybody exclude rtarget==rsrc). So friendlyfire=false already excludes the caster. Terrible Sight: tome-cults/data/talents/demented/friend-of-the-worm.lua:562 target {type='ball', radius=range, friendlyfire=false}; :566-571 projects stun at self.x,self.y (unpinned Cults DLC).",
+   "translation_file": "tome-cults.lua",
+   "line": 2918,
+   "current_target": "当你与蠕虫合体相距 2 格以内时，你可以制造恐怖光环。\n\t\t看到两个疯狂恐魔并肩作战将令周围 %d 格的敌人震慑 %d 回合，除非它们的物理豁免成功对抗了你的法术强度。\n\n\t\t此外，你的共享疯狂效果将令 3 格内的敌人在 3 回合里失去 %d 法术豁免和 %d 闪避。",
+   "new_target": null,
+   "sync_locations": [
+    "tome-cults.lua:2918"
+   ],
+   "notes": "Caster is never hit. Translation needs no change for this point (current already says 2 格以内 for the on_pre_use bound)."
+  },
+  {
+   "finding": "2 Missing selffire=false lets caster mind-blast itself",
+   "talent": "Mindwave (Orcs yeti racial, chunk4 #35)",
+   "verdict": "refuted",
+   "evidence": "Engine (pinned 624a6732) engine/Target.lua:678-683 defaults selffire=true, friendlyfire=true (cone type forces selffire=false, :616-620); engine/interface/ActorProject.lua:254-255 skips act==self only if selffire false, but next skips any act with self:reactionToward(act) >= 0 when friendlyfire is false. tome class/Actor.lua:1762-1781 + engine/Faction.lua:84-86 give reactionToward(self)=100 (same faction always 100; hates_everybody/hated_by_everybody exclude rtarget==rsrc). So friendlyfire=false already excludes the caster. Mindwave: tome-orcs/data/talents/misc/races.lua:101 target {type='ball', radius=5, range=0, friendlyfire=false}; :104-112 both projections at self.x,self.y (unpinned Orcs DLC).",
+   "translation_file": "tome-orcs.lua",
+   "line": 4167,
+   "current_target": "你主动烧灼雪人大脑的一小部分，向周围半径 %d 的圆形范围释放强大的灵能冲击。\n\t\t冲击范围内的所有敌人受到 %0.2f 点精神伤害，并陷入混乱（35%% 强度） %d 回合。\n\t\t伤害随体质提高；施加混乱时的检定强度取你的精神强度、法术强度或物理强度中的最高值。",
+   "new_target": null,
+   "sync_locations": [
+    "tome-orcs.lua:4167"
+   ],
+   "notes": "Neither damage nor confusion applies to the caster (or its allies). Current translation already says circle radius around you (圆形范围) and 敌人."
+  },
+  {
+   "finding": "3 Taint: Telepathy duration hard-coded 5 while text shows data.dur",
+   "talent": "Taint: Telepathy",
+   "verdict": "unfixable",
+   "evidence": "core pinned 624a6732 game/modules/tome/data/talents/misc/inscriptions.lua:1203-1210 action: takeHit(max_life*0.2), setEffect(EFF_SENSE, 5, {range=getTalentRange (10), actor=1}), setEffect(EFF_WEAKENED_MIND, 10, {save=10, power=35}); info :1212-1215 passes data.dur as first %d. WEAKENED_MIND (timed_effects/mental.lua:1563-1577) does -10 mind save, +35 mindpower: matches.",
+   "translation_file": "mod-tome.lua",
+   "line": 26038,
+   "current_target": "使用时你会先受到相当于自身最大生命值五分之一的伤害，然后卸除你心灵上的防护屏障 %d 回合，感应 %d 格范围内所有生物的思维；精神豁免降低 %d， 精神强度提高 %d， 持续 10 回合。",
+   "new_target": null,
+   "sync_locations": [
+    "mod-tome.lua:26038"
+   ],
+   "notes": "Error is in the placeholder argument (data.dur, never used by the action). Could only be fixed by dropping/repurposing the first %d. No core item or DLC grants this taint (git grep TAINT_TELEPATHY: none outside locales/talent definition), so data.dur is unverifiable and the talent is effectively unreachable. Advisory."
+  },
+  {
+   "finding": "4 Twilit Echoes: tile echo hard-coded 4 turns vs %d=3; any source's damage echoes",
+   "talent": "Twilit Echoes (talent info)",
+   "verdict": "confirmed_fixable",
+   "evidence": "Orcs DLC unpinned (/workspace/tome4-dlcs/orcs/tome-orcs). data/talents/celestial/void.lua:142 (and identical crepescula.lua:23) setEffect(EFF_TWILIT_ECHOES, dur, {echo_dur=3,...}); info :144-154 tformat(duration, slow_per*100, echo_dur, slow_max*100, slow_max/slow_per, echo_dur, 100*echo_factor). data/timed_effects/magical.lua:125-158 doEcho: new dark echo map:addEffect(src, x, y, 4, DARKNESS, dam*dam_factor, ...) (hard-coded 4); existing echo refreshed only when 0 < echo.duration < echo_dur, new per-turn = (dam*dam_factor*echo_dur + old remaining)/echo_dur. Hook overload/mod/class/OrcCampaign.lua:354-360 hookDamageProjectorFinal fires for any data.src whose LIGHT/DARKNESS damage >=1 lands on the target's grid; no check that src is the Twilit Echoes caster. ECHOED_LIGHT (magical.lua:162-181) on_merge sums power up to max.",
+   "translation_file": "tome-orcs.lua",
+   "line": 3956,
+   "current_target": "目标会感受到你造成的所有光系和暗影伤害的回响，持续 %d 回合。\n\n每造成 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 造成 %d 点伤害时达到上限。\n暗影伤害会在目标所在格产生一个持续 %d 回合的效果，每回合造成该次伤害的 %d%%。 在暮光回响生效期间，只要目标在该格继续受到暗影伤害（包括此效果本身造成的伤害），该地块效果就会刷新；剩余伤害和新伤害会一并分摊到新的持续时间内。",
+   "new_target": "目标会感受到其所受的所有光系和暗影伤害的回响（不论伤害来源），持续 %d 回合。\n\n每受到 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。\n暗影伤害会在目标所在格生成一个初始持续 4 回合的效果；在暮光回响生效期间，目标仍在该格并再次受到暗影伤害（包括此效果本身造成的伤害）时，若该效果剩余时间不足 %d 回合，就会刷新持续时间，并将剩余伤害与新一轮伤害合并均摊。新一轮伤害每回合按该次暗影伤害的 %d%% 计算。",
+   "sync_locations": [
+    "tome-orcs.lua:3956",
+    "tome-orcs.lua:4014"
+   ],
+   "notes": "Both rows (sections crepescula.lua and void.lua, tag tformat, identical English) must get the same target. Second %d of the dark line (echo_dur=3) is repurposed as the refresh threshold/duration, mirroring the already-rewritten effect long_desc at tome-orcs.lua:6110. The 4-turn initial duration is written as a literal (no new placeholder). Note: action() at void.lua:135-143 returns nil (no 'return true'), which likely means no cost/cooldown is consumed - upstream bug, not a text issue. Effect long_desc tome-orcs.lua:6110 already says 其所受 (any source) and 初始持续 4 回合; no change needed there."
+  },
+  {
+   "finding": "5 Petrifying Gaze cone radius 0",
+   "talent": "Petrifying Gaze (Orcs npcs, chunk4 #32)",
+   "verdict": "refuted",
+   "evidence": "Orcs DLC unpinned. tome-orcs/data/talents/misc/npcs.lua:30-35 radius=scale(3,8) but target {type='cone', radius=getTalentRange(t)} with range=0 -> cone radius 0. Engine pinned 624a6732 engine/interface/ActorProject.lua:177 only builds the cone when typ.cone > 0; otherwise single_target stays true and :229 adds the stop grid, i.e. it degenerates into a single-target projection on the chosen grid (path limited by default range 20, Target.lua:680 / block_path :492-497). It does not hit nothing.",
+   "translation_file": "tome-orcs.lua",
+   "line": 4029,
+   "current_target": "凝视敌人，将其石化 %d 回合。\n\t\t被石化的生物无法行动或恢复生命，而且非常脆弱。\n\t\t如果一次攻击对被石化生物造成超过其生命值 30%% 的伤害，它就会碎裂并被摧毁。\n\t\t被石化生物对火焰和闪电具有极高抗性，对物理攻击也具有一定抗性。\n\t\t此法术可能无法作用于具有震慑抵抗、石化免疫的生物或某些首领。",
+   "new_target": null,
+   "sync_locations": [
+    "tome-orcs.lua:4029"
+   ],
+   "notes": "Real behaviour: single-target stun (EFF_STUNNED, physical power) on the targeted creature, not a cone. Neither English nor Chinese ('凝视敌人') claims a cone/area or radius, so no translatable contradiction for this side point. The main claim (it applies STUNNED, not stoning; lines 2-4 describe nothing real) is still unfixed at tome-orcs.lua:4029 (current text still says 石化) because the 30%% literal must be kept - that remains a caller decision."
+  },
+  {
+   "finding": "6 Collapse: description shows half the actual damage",
+   "talent": "Collapse (celestial/dark-sun)",
+   "verdict": "unfixable",
+   "evidence": "core pinned 624a6732 game/modules/tome/data/talents/celestial/dark-sun.lua:41-44 dam = spellCrit(getDamage); :86-90 each act projects BLACK_HOLE_GRAVITY with full self.dam; info :125-133 shows getDamage/2. damage_types.lua:4438-4465 BLACK_HOLE_GRAVITY deals PHYSICAL dam.dam in full.",
+   "translation_file": "mod-tome.lua",
+   "line": 21109,
+   "current_target": "在目标地点开启半径1的时空裂缝，持续 %d 回合。每回合半径增加1，最大 %d。\n\t\t所有被裂缝波及的敌人都会被朝中心牵引，受到 %0.2f 重力伤害。\n伤害受法术强度加成。",
+   "new_target": null,
+   "sync_locations": [
+    "mod-tome.lua:21109"
+   ],
+   "notes": "Displayed number is the placeholder argument (getDamage/2); actual per-tick damage is twice that. Only fixable with an arithmetic clause such as '受到相当于 %0.2f 两倍的重力伤害' (precedent: Ashes Spellblaze proposal used a 'half the shown value' clause); caller decision. See separate item 6b for the fixable parts of the same row."
+  },
+  {
+   "finding": "6b Collapse: pull is conditional and damage is per turn",
+   "talent": "Collapse (celestial/dark-sun)",
+   "verdict": "confirmed_fixable",
+   "evidence": "core pinned 624a6732 dark-sun.lua:76-97 act(): every turn radius grows then all hostile actors (summoner:reactionToward < 0) in radius are hit; damage_types.lua:4456-4462 pull only if target:checkHit(src physical power, target physical save) and canBe('knockback'), else 'resists the gravity'; damage applied regardless (:4464). Gravity Locus holders are skipped entirely (:4447).",
+   "translation_file": "mod-tome.lua",
+   "line": 21109,
+   "current_target": "在目标地点开启半径1的时空裂缝，持续 %d 回合。每回合半径增加1，最大 %d。\n\t\t所有被裂缝波及的敌人都会被朝中心牵引，受到 %0.2f 重力伤害。\n伤害受法术强度加成。",
+   "new_target": "在目标地点开启半径1的时空裂缝，持续 %d 回合。每回合半径增加1，最大 %d。\n\t\t裂缝每回合对范围内的所有敌人造成 %0.2f 重力伤害，并将未通过物理豁免且未免疫击退的敌人朝中心牵引。\n伤害受法术强度加成。",
+   "sync_locations": [
+    "mod-tome.lua:21109"
+   ],
+   "notes": "Current '所有被裂缝波及的敌人都会被朝中心牵引' overstates the pull (save + knockback immunity) and omits that damage repeats each turn. Proposed text does not touch the half-damage display issue. Optional combined version if the caller accepts the 2x clause: replace '造成 %0.2f 重力伤害' with '造成相当于 %0.2f 两倍的重力伤害'. Minor, not added: first tick already grows the radius to 2 (radius increments before damage) when max>1."
+  },
+  {
+   "finding": "7 Gravity Spike: '20% less per tile' sentence vs dist_factor formula",
+   "talent": "Gravity Spike (chronomancy/gravity)",
+   "verdict": "confirmed_fixable",
+   "evidence": "core pinned 624a6732 game/modules/tome/data/talents/chronomancy/gravity.lua:163-167 dist_factor = 1 + distance/5; damage = dam/dist_factor (83.3% at 1 tile, 71.4% at 2, 50% at 5), not a flat 20% per tile; info :174-180 same English sentence as Singularity Arrow.",
+   "translation_file": "mod-tome.lua",
+   "line": 22010,
+   "current_target": "在半径 %d 范围内制造一个重力钉刺，将所有目标牵引至法术中心，造成 %0.2f 物理（重力）伤害。\n\t\t从第二个单位起，每牵引一个单位将会使伤害增加 %0.2f (最多增加 %0.2f 额外伤害)。\n\t\t离法术中心越远，目标受到的伤害越少（每格减少 20%%）。\n\t\t受法术强度影响，伤害按比例加成。",
+   "new_target": "在半径 %d 范围内制造一个重力钉刺，将所有目标牵引至法术中心，造成 %0.2f 物理（重力）伤害。\n\t\t从第二个单位起，每牵引一个单位将会使伤害增加 %0.2f (最多增加 %0.2f 额外伤害)。\n\t\t离法术中心越远，目标受到的伤害越少（伤害除以 1 + 距离格数 × 20%%）。\n\t\t受法术强度影响，伤害按比例加成。",
+   "sync_locations": [
+    "mod-tome.lua:22010"
+   ],
+   "notes": "Same wording as the already-applied Singularity Arrow fix (mod-tome.lua:21804). Also true but not changed: only targets that fail the physical save vs paradox spellpower and can be knocked back are pulled (gravity.lua:141-151), Gravity Locus holders are skipped (:132), and the caster may be hit depending on spellFriendlyFire (:120); optional rewrite of line 1: '将未通过物理豁免且未免疫击退的目标牵引至法术中心'."
+  },
+  {
+   "finding": "8a BREACH long_desc wrongly lists armor hardiness",
+   "talent": "Breach effect (EFF_BREACH)",
+   "verdict": "refuted",
+   "evidence": "core pinned 624a6732 game/modules/tome/class/interface/Combat.lua:1355-1358 combatArmorHardiness: if hasEffect(EFF_BREACH) then multi = 0.5 -> armor hardiness is halved; magical.lua:3540-3553 halves stun/confusion/blind/pin immunity.",
+   "translation_file": "mod-tome.lua",
+   "line": 35432,
+   "current_target": "目标的防御被削弱了，护甲强度以及震慑、定身、致盲、混乱免疫降低 50%%。",
+   "new_target": null,
+   "sync_locations": [
+    "mod-tome.lua:35432"
+   ],
+   "notes": "Effect description is correct. The 0241 rewrite that removed 护甲强度 from the talent text was already reverted in batch 0242 (decision a2cafed258ef). Side note: current talent text mod-tome.lua:22476 now says '...免疫减半' with no %% while the English has '50%%'; it passed batch 0242 gates, so presumably acceptable, but the %%-token count differs from the English."
+  },
+  {
+   "finding": "8b Defensive Throw chance scales with Cunning, not Accuracy",
+   "talent": "Defensive Throw",
+   "verdict": "confirmed_fixable",
+   "evidence": "core pinned 624a6732 game/modules/tome/data/talents/misc/npcs.lua:3375-3377 getchance = combatLimit(TL*(5+getCun(5,true)),100,...); timed_effects/physical.lua:2502-2505,2519-2520 EFF_DEFENSIVE_GRAPPLING uses that chance; npcs.lua:3384-3386 landing uses checkHit(combatAttack, target defense) (+ evasion unless grappled).",
+   "translation_file": "mod-tome.lua",
+   "line": 26578,
+   "current_target": "当你空手闪避一次近战攻击时，有 %d%% 概率将目标摔倒。若投掷成功，未被抓取的目标受到 %0.2f 伤害并眩晕 2 回合；被抓取的目标则受到 %0.2f 伤害并震慑 2 回合。每回合最多尝试 %0.1f 次投掷。\n\t\t投掷概率随命中提高，伤害随物理强度提高，尝试次数随力量和敏捷提高。",
+   "new_target": "当你空手闪避一次近战攻击时，有 %d%% 概率将目标摔倒。若投掷成功，未被抓取的目标受到 %0.2f 伤害并眩晕 2 回合；被抓取的目标则受到 %0.2f 伤害并震慑 2 回合。每回合最多尝试 %0.1f 次投掷。\n\t\t投掷概率随灵巧提高（投掷能否命中取决于你的命中与目标闪避），伤害随物理强度提高，尝试次数随力量和敏捷提高。",
+   "sync_locations": [
+    "mod-tome.lua:26578"
+   ],
+   "notes": "Only the scaling clause changes. The known unfixable issue (first %0.2f getDamage never dealt; always getDamageTwo, npcs.lua:3391) remains and is untouched."
+  },
+  {
+   "finding": "8c Fatal Attractor: damage does not scale with Steampower",
+   "talent": "Fatal Attractor (TINKER_FATAL_ATTRACTOR)",
+   "verdict": "confirmed_fixable",
+   "evidence": "Orcs DLC unpinned. tome-orcs/data/talents/steam/other.lua:373-376 getHP/getResist/getArmor use combatTalentSteamDamage, getReflection returns constant 30; :392-421 the NPC only has reflect_damage and forced Taunt (no attacks, 'no AI, just Taunt').",
+   "translation_file": "tome-orcs.lua",
+   "line": 5426,
+   "current_target": "快速制造一个灵能强化的金属装置，吸引所有敌人攻击它，并将其所受伤害的 %d%% 反弹给攻击者。\n\t\t该装置拥有 %d 点生命值，持续 8 回合。\n\t\t其伤害、生命值、抗性和护甲随你的蒸汽强度提升。",
+   "new_target": "快速制造一个灵能强化的金属装置，吸引所有敌人攻击它，并将其所受伤害的 %d%% 反弹给攻击者。\n\t\t该装置拥有 %d 点生命值，持续 8 回合。\n\t\t其生命值、抗性和护甲随你的蒸汽强度提升。",
+   "sync_locations": [
+    "tome-orcs.lua:5426"
+   ],
+   "notes": "The device deals only reflected damage (fixed 30% of damage taken), which does not scale with Steampower."
+  },
+  {
+   "finding": "8d Ethereal Steam: innate talents excluded",
+   "talent": "Ethereal Steam effect",
+   "verdict": "confirmed_fixable",
+   "evidence": "Orcs DLC unpinned. tome-orcs/data/timed_effects/magical.lua:473-479 callbackOnTalentPost returns early if ab.innate. innate=true talents: core Attack (misc/misc.lua:41), Shoot (archery.lua:28), Reload (npcs.lua:2702), Disarm Trap (survival.lua:145), Empty Hand (unarmed-training.lua:25); Orcs steamgun/heavy-weapon shots (heavy-weapons.lua:167,362,523).",
+   "translation_file": "tome-orcs.lua",
+   "line": 6139,
+   "current_target": "每回合造成 %0.2f 玄机伤害；目标每次使用技能时，施加者一个随机冷却中科技法术（若没有则为法术）的冷却时间减少 1 回合。",
+   "new_target": "每回合造成 %0.2f 玄机伤害；目标每次使用技能（攻击、射击、装填等基础动作除外）时，施加者一个随机冷却中科技法术（若没有则为法术）的冷却时间减少 1 回合。",
+   "sync_locations": [
+    "tome-orcs.lua:6139"
+   ],
+   "notes": "Low importance. No settled term for 'innate'; wording lists the concrete basic actions instead. Caller may prefer advisory."
+  },
+  {
+   "finding": "8e Dirge summary: 'other'-type exclusion not stated (Pestilence line)",
+   "talent": "Dirge Acolyte summary (celestial/dirge)",
+   "verdict": "confirmed_fixable",
+   "evidence": "core pinned 624a6732 game/modules/tome/data/talents/celestial/dirge.lua:164-167 Dirge of Pestilence triggers only if e_def.status=='detrimental' and e_def.type ~= 'other' and eff.src ~= self.",
+   "translation_file": "mod-tome.lua",
+   "line": 21194,
+   "current_target": "即便如今，仍有什么驱使着你歌唱。\n\t\t\t饥荒挽歌：增加生命回复 %d。\n\t\t\t征服挽歌：给予你暴击时 10%% 回合或杀戮时 %d%% 回合的时间。\n\t\t\t瘟疫挽歌：你受到非自身施加的负面效果时获得 %d 的护盾（5 回合冷却）。\n\t\t\t你同时只能激活一种挽歌。",
+   "new_target": "即便如今，仍有什么驱使着你歌唱。\n\t\t\t饥荒挽歌：增加生命回复 %d。\n\t\t\t征服挽歌：给予你暴击时 10%% 回合或杀戮时 %d%% 回合的时间。\n\t\t\t瘟疫挽歌：你受到非自身施加、且不属于“其他”类型的负面效果时获得 %d 的护盾（5 回合冷却）。\n\t\t\t你同时只能激活一种挽歌。",
+   "sync_locations": [
+    "mod-tome.lua:21194"
+   ],
+   "notes": "Drafter's note said 'Dirge of Famine' but the exclusion belongs to the Pestilence line. Wording copies the Pestilence talent's own row (mod-tome.lua:21188 '非自身施加、且不属于“其他”类型的负面状态'). Low importance."
+  },
+  {
+   "finding": "8f Spine of the World: cross-tier effects excluded",
+   "talent": "Spine of the World (uber/const)",
+   "verdict": "confirmed_fixable",
+   "evidence": "core pinned 624a6732 class/Actor.lua:7742-7743 trigger requires not e.subtype['cross tier'] and detrimental physical; immunity checks :7605-7606 and :7728 also skip cross-tier; timed_effects/physical.lua:2700-2712 effect sets physical_negative_status_effect_immune.",
+   "translation_file": "mod-tome.lua",
+   "line": 31185,
+   "current_target": "你的后背坚若磐石。当你受到物理负面状态影响时，你的身体会硬化，在 5 回合内对所有其他物理负面状态免疫。",
+   "new_target": "你的后背坚若磐石。当你受到物理负面状态（越层效果除外）影响时，你的身体会硬化，在 5 回合内对所有其他物理负面状态（越层效果除外）免疫。",
+   "sync_locations": [
+    "mod-tome.lua:31185"
+   ],
+   "notes": "Minor (drafter noted it). Term 越层效果 per existing mod-tome usage. Caller may leave as advisory."
+  },
+  {
+   "finding": "8g Accelerate slow requires failing a spell save",
+   "talent": "Accelerate (Cults timethief)",
+   "verdict": "refuted",
+   "evidence": "Already applied: tome-cults.lua:3253 current target says '未免疫减速且未通过法术豁免的其他生物（包括友方）' (batch 0243 confirmed).",
+   "translation_file": "tome-cults.lua",
+   "line": 3253,
+   "current_target": "扭曲周围时空，周围 %d 格内未免疫减速且未通过法术豁免的其他生物（包括友方）移动速度降低 50%%，持续 %d 回合。\n\t\t你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%， 每减速一个目标额外提高 %d%%， 最多计 4 个目标。\n\t\t移动外的任何行动将终止加速效果。",
+   "new_target": null,
+   "sync_locations": [
+    "tome-cults.lua:3253"
+   ],
+   "notes": "No action."
+  },
+  {
+   "finding": "8h Sever Spine slow 5 turns vs 4; sustain removal may repeat",
+   "talent": "Sever Spine (Orcs sawmaiming)",
+   "verdict": "refuted",
+   "evidence": "Orcs DLC unpinned. sawmaiming.lua:126 setEffect(EFF_SLOW, 5); :157-163 rng.table without removal. Current tome-orcs.lua:5761 already says '持续 5 回合' and '至多 %d 项非精神类维持技能', which covers duplicate picks.",
+   "translation_file": "tome-orcs.lua",
+   "line": 5761,
+   "current_target": "你尝试撕裂敌人的脊柱，若命中，使其全局速度降低 %d%%， 持续 5 回合，并造成 %d%% 武器伤害。\n\t\t这一击的力量还会移除至多 %d 项物理增益效果。\n\t\t若技能等级至少为 3，还会移除至多 %d 项非精神类维持技能。\n\t\t#{italic}#切碎他们，折磨他们，收割他们！#{normal}#",
+   "new_target": null,
+   "sync_locations": [
+    "tome-orcs.lua:5761"
+   ],
+   "notes": "Already reflected; no action."
+  }
+ ]
+}

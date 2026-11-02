@@ -21109,7 +21109,7 @@ t("Collapse", "坍缩", "talent name")
 t([[Open a radius 1 rift in spacetime at the targeted location for %d turns, increasing in radius by 1 each turn to a maximum of %d.
 		All caught within the rift are pulled towards the center and take %0.2f gravity damage.
 The damage will increase with your Spellpower.]], [[在目标地点开启半径1的时空裂缝，持续 %d 回合。每回合半径增加1，最大 %d。
-		所有被裂缝波及的敌人都会被朝中心牵引，受到 %0.2f 重力伤害。
+		裂缝每回合对范围内的所有敌人造成 %0.2f 重力伤害，并将未通过物理豁免且未免疫击退的敌人朝中心牵引。
 伤害受法术强度加成。]], "tformat")
 t("Devourer Stance", "势吞干戈", "talent name")
 t([[Attune yourself to the endless hunger of distant dead suns.  For the next %d turns, your attacks will inflict an additional %0.2f gravity damage and attempt to pull enemies closer.  After three turns, you will recover half of all damage taken during this effect.
@@ -21198,7 +21198,7 @@ t([[Even now, something compels you to sing.
 			You may only have one Dirge active at a time.]], [[即便如今，仍有什么驱使着你歌唱。
 			饥荒挽歌：增加生命回复 %d。
 			征服挽歌：给予你暴击时 10%% 回合或杀戮时 %d%% 回合的时间。
-			瘟疫挽歌：你受到非自身施加的负面效果时获得 %d 的护盾（5 回合冷却）。
+			瘟疫挽歌：你受到非自身施加、且不属于“其他”类型的负面效果时获得 %d 的护盾（5 回合冷却）。
 			你同时只能激活一种挽歌。]], "tformat")
 t("Dirge Intoner", "挽歌吟诵者", "talent name")
 t([[Your dirges carry the pain within you, which threatens to swallow those who come too close.  Anyone who hits you in melee suffers %0.2f mind damage.
@@ -22012,7 +22012,7 @@ t([[Creates a gravity spike in a radius of %d that moves all targets towards the
 		Targets take reduced damage the further they are from the epicenter (20%% less per tile).
 		The damage dealt will scale with your Spellpower.]], [[在半径 %d 范围内制造一个重力钉刺，将所有目标牵引至法术中心，造成 %0.2f 物理（重力）伤害。
 		从第二个单位起，每牵引一个单位将会使伤害增加 %0.2f (最多增加 %0.2f 额外伤害)。
-		离法术中心越远，目标受到的伤害越少（每格减少 20%%）。
+		离法术中心越远，目标受到的伤害越少（伤害除以 1 + 距离格数 × 20%%）。
 		受法术强度影响，伤害按比例加成。]], "tformat")
 t("Gravity Locus", "重力核心", "talent name")
 t([[Create a gravity field around you that converts %d%% all damage you deal into physical damage, slows incoming projectiles by %d%%, and protects you from all gravity damage and effects.
@@ -26577,7 +26577,7 @@ t("#Source# throws #Target# to the ground!", "#Source#将#Target#扔到地上！
 t("#Source# misses a defensive throw against #Target#!", "#Source#对#Target#发动的闪身投掷没有命中！", "logCombat")
 t([[When you avoid a melee blow while unarmed, you have a %d%% chance to throw the target to the ground.  If the throw lands, the target will take %0.2f damage and be dazed for 2 turns, or %0.2f damage and be stunned for 2 turns if the target is grappled.  You may attempt up to %0.1f throws per turn.
 		The chance of throwing increases with your Accuracy, the damage scales with your Physical Power, and the number of attempts with your Strength and Dexterity.]], [[当你空手闪避一次近战攻击时，有 %d%% 概率将目标摔倒。若投掷成功，未被抓取的目标受到 %0.2f 伤害并眩晕 2 回合；被抓取的目标则受到 %0.2f 伤害并震慑 2 回合。每回合最多尝试 %0.1f 次投掷。
-		投掷概率随命中提高，伤害随物理强度提高，尝试次数随力量和敏捷提高。]], "tformat")
+		投掷概率随灵巧提高（投掷能否命中取决于你的命中与目标闪避），伤害随物理强度提高，尝试次数随力量和敏捷提高。]], "tformat")
 t("Roundhouse Kick", "回旋踢", "talent name")
 t([[Attack your foes in a frontal arc with a roundhouse kick, which deals %0.2f physical damage and knocks your foes back 4 grids. This will break any grapples you're maintaining
 		The damage improves with your Physical Power.]], [[施展回旋踢攻击前方敌人，造成 %0.2f 物理伤害并击退目标4格。这项攻击会取消你的抓取效果。
@@ -31182,7 +31182,7 @@ t([[You know how to protect yourself with the deepest shadows. As long as you st
 		被动增加 %d 潜行强度。
 		护甲加值受体质加成。]], "tformat")
 t("Spine of the World", "世界之脊", "talent name")
-t("Your back is as hard as stone. Each time that you are affected by a physical effect, your body hardens, making you immune to all other physical effects for 5 turns.", "你的后背坚若磐石。当你受到物理负面状态影响时，你的身体会硬化，在 5 回合内对所有其他物理负面状态免疫。", "tformat")
+t("Your back is as hard as stone. Each time that you are affected by a physical effect, your body hardens, making you immune to all other physical effects for 5 turns.", "你的后背坚若磐石。当你受到物理负面状态（越层效果除外）影响时，你的身体会硬化，在 5 回合内对所有其他物理负面状态（越层效果除外）免疫。", "tformat")
 t("Fungal Blood", "真菌血液", "talent name")
 t("Be able to use infusions", "能使用纹身", "_t")
 t([[Fungal spores have colonized your blood, so that each time you use an infusion you store %d fungal power.

@@ -2795,7 +2795,7 @@ Level 1: Prophecy of Ruin. Deals %0.2f damage on falling below 75%%, 50%% or 25%
 Level 3: Prophecy of Treason. %d%% chance each turn to attack an ally or themselves.
 Level 5: Prophecy of Madness. Increases talent cooldowns by %d%%.]], [[对目标释放熵能力量，你预言了它无可避免的末日。随着技能等级提升，你能解锁更多预言。同一目标不能同时处于两种预言下。
 技能等级 1：毁灭预言。当生命值降至最大生命的 75%%、50%% 或 25%% 以下时，造成 %0.2f 伤害。
-技能等级 3：背叛预言。每回合有 %d%% 几率攻击一名相邻的生物（无论敌友），没有相邻生物时攻击自身。
+技能等级 3：背叛预言。目标每回合累积 %d%% 背叛进度（通过法术豁免时只累积一半），进度满时攻击一名相邻的生物（无论敌友），没有相邻生物时攻击自身。
 技能等级 5：疯狂预言。增加 %d%% 技能冷却时间。]], "tformat")
 t("Prophecy of Madness", "疯狂预言", "talent name")
 t([[Utter a prophecy of the impending madness of your target, increasing the cooldown of all their talents by %d%% for 6 turns.
@@ -2812,7 +2812,7 @@ t([[Utter a prophecy of the impending demise of your target that lasts 6 turns.
 t("Prophecy of Treason", "背叛预言", "talent name")
 t("%s(%d treason)#LAST#", "%s(%d 背叛)#LAST#", "tformat")
 t([[Utter a prophecy of the impending treachery of your target. For the next 6 turns, they will have a %d%% each turn to waste their turn attempting to attack an adjacent creature for 10%% weapon damage, or even themself if no creature is present.
-		A target can only be affected by a single prophecy at a time.]], [[对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合有 %d%% 几率浪费该回合，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。
+		A target can only be affected by a single prophecy at a time.]], [[对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合累积 %d%% 背叛进度（初始进度随机；通过法术豁免时只累积一半），进度满时便浪费该回合，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。
 		一个目标只能同时被一个预言影响。]], "tformat")
 t("Grand Oration", "隆重演说", "talent name")
 t("None", "无", "_t")
@@ -3708,7 +3708,7 @@ t("#Target# is doomed to ruin!", "#Target#被预言毁灭！", "_t")
 t("+Prophecy of Ruin", "+毁灭预言", "_t")
 t("-Prophecy of Ruin", "-毁灭预言", "_t")
 t("Prophecy of Treason", "背叛预言", "_t")
-t("The target is doomed to treason. Each turn they have a %d%% chance to attack an adjacent creature.  If no creatures are adjacent they will attack themself.", "目标被诅咒进入背叛状态。每回合有 %d%% 几率攻击一个相邻生物；若周围没有相邻生物，则会攻击自身。", "tformat")
+t("The target is doomed to treason. Each turn they have a %d%% chance to attack an adjacent creature.  If no creatures are adjacent they will attack themself.", "目标被诅咒进入背叛状态。每回合累积 %d%% 背叛进度（通过法术豁免时只累积一半），进度满时攻击一个相邻生物；若周围没有相邻生物，则会攻击自身。", "tformat")
 t("#Target# is doomed to treason!", "#Target#因预言背叛！", "_t")
 t("+Prophecy of Treason", "+背叛预言", "_t")
 t("-Prophecy of Treason", "-背叛预言", "_t")
