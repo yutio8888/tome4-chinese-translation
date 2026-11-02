@@ -4078,7 +4078,7 @@ t("You have fought against other tribes before, but the bloodshed you saw then i
 t("You do not have the words you need to articulate your horror.", "你无法用语言表达你的恐惧。", "_t")
 t("Are the many tentacled ones using these creatures against each another?", "那些触手怪物是不是在用这些生物互相攻击？", "_t")
 t("Little of what you're seeing makes sense to you. You simply don't have the words to articulate the terror you're feeling.", "你所看到的一切都无法理解。你根本无法用语言表达你所感受到的恐惧。", "_t")
-t("Great blasts of light come from the sky.", "天空发出巨大的光。", "_t")
+t("Great blasts of light come from the sky.", "天空中迸发出阵阵强光。", "_t")
 t("Indescribable things are emerging from the darkness.", "无法形容的东西正在从黑暗中浮现。", "_t")
 t("Looking up, you see something writhing between the stars. You look away before curiosity gets the better of you.", "抬头一看，你看到星星间有东西在扭动。趁好奇心尚未占据上风，你移开了目光。", "_t")
 t("The lights nearly blind you as cascades of swirling colours explode in the darkness above your head.", "当漩涡般的色彩在你头顶的黑暗中爆发时，强光几乎使你失明。", "_t")
