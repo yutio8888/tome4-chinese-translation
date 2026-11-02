@@ -188,7 +188,7 @@ t("[Offer to teach her '%s'.]", "[同意教她 '%s'。]", "tformat")
 t("[Offer her stat increases.]", "[你决定增加她的属性。]", "_t")
 t("[Offer her nothing.]", "[你什么也不给她。]", "_t")
 t("Oh this will sure come in handy! Thanks!", "哦，这个技能很有用！谢谢！", "_t")
-t("Take care!", "那就这样吧，再见！", "_t")
+t("Take care!", "保重！", "_t")
 t("I always did want to learn how to do these kind of things!", "我一直都想学会怎么做这种事！", "_t")
 t("Oh, I suddenly feel like I have potential to grow.", "哦，我觉得我的潜能增长了。", "_t")
 t("...Fine, be that way. Good luck out there, though.", "…好吧，就这样吧。祝你一路顺风。", "_t")
@@ -285,7 +285,7 @@ t("Godfeaster", "噬神者", "entity name")
 t("hostile", "敌对", "entity type")
 t("Encounter", "遭遇", "_t")
 t([[The ground suddenly shakes under your feet and a giant worm appears to gobble you up!
-You could try to escape using the Rod of Recall or accept your fate.]], [[你脚下的大地在颤动，一只巨大的蠕虫突然出现，将你吞了进去！
+You could try to escape using the Rod of Recall or accept your fate.]], [[你脚下的大地突然震动，一只巨大的蠕虫出现，要将你一口吞下！
 你可以尝试使用回归之杖来逃离，或者接受你的命运。]], "_t")
 t("You manage in extremis to activate the rod in emergency. As you keep on falling towards the maw of the worm the rod finishes charging up and you re-appear nearby, safe from the monstrosity.", "你在千钧一发之际启动了回归之杖。当你不断坠向虫子的巨口时，回归之杖充能完毕，你在附近重新出现，脱离了那怪物的威胁。", "log")
 t("Accept your fate", "接受你的命运", "_t")
@@ -344,12 +344,12 @@ t("floor", "地板", "_t")
 t("wall", "墙壁", "_t")
 t("strange metallic capsule", "诡异的金属舱", "_t")
 t("Strange metallic capsule", "诡异的金属舱", "_t")
-t("You have already scavenged what you could understand and use.", "你已经找遍了你能理解和使用的东西。", "_t")
+t("You have already scavenged what you could understand and use.", "你已经搜刮走了所有你能理解并使用的东西。", "_t")
 t([[The thing in front of you appears to be a strange dome made from green glass. Judging by the crater around it, this dome must have crashed into the earth with tremendous force. Stranger still is the figure seated inside it. It appears to be wearing a suit made of an unknown material and a glass dome over its head. Looking inside the dome, you can plainly see that the figure is a dwarf! There is no mistaking that oversized nose. Judging by the smell, he has been dead for quite some time.
 
-You are fairly sure that the dwarves aren't capable of making something like this and they definitely don't dress like that. So, where did this odd dwarf come from? Taking a closer look, you find a strange device attached to the dwarf's arm. You remove it with no small amount of effort. It is completely unlike anything you have seen before and you're not really sure what to make of it. Perhaps if you hold onto it, you might be able to discern its functionality later.]], [[出现在你眼前的是一个被绿色玻璃遮罩的太空舱，根据附近的弹坑判断，这个太空舱曾以极快的速度撞击地面，里面仍坐着一个奇怪的生物，穿着不明材质的衣服，戴着绿色玻璃做成的头罩。透过绿色的玻璃看去，能看到矮人标志性的大鼻子，你清楚地发现这是一个矮人！从气味判断，他已经死了很久了。
+You are fairly sure that the dwarves aren't capable of making something like this and they definitely don't dress like that. So, where did this odd dwarf come from? Taking a closer look, you find a strange device attached to the dwarf's arm. You remove it with no small amount of effort. It is completely unlike anything you have seen before and you're not really sure what to make of it. Perhaps if you hold onto it, you might be able to discern its functionality later.]], [[出现在你眼前的是一个由绿色玻璃制成的奇怪圆顶。根据周围的坑判断，这个圆顶一定是以巨大的力量撞进地面的。更奇怪的是坐在里面的身影：它似乎穿着一套不明材质的服装，头上罩着一个玻璃罩。透过圆顶往里看，你清楚地看出这个身影是一个矮人！那个硕大的鼻子绝不会认错。从气味判断，他已经死了很久了。
 
-你很肯定矮人不会做出这样的东西，而且他们绝对不会穿那样的衣服。那么，这个奇怪的矮人是从哪里来的？仔细观察，你会发现一个奇怪的装置附在矮人的手臂上。你费了不小的力气才把它取下来。它和你见过的任何东西都不一样，你也不知道该怎么做。如果你留下它，也许你以后可以辨别出它的功能。]], "_t")
+你很肯定矮人造不出这样的东西，而且他们绝对不会这样穿衣服。那么，这个奇怪的矮人是从哪里来的？仔细观察，你发现矮人的手臂上附着一个奇怪的装置。你费了不小的力气才把它取下来。它和你见过的任何东西都不一样，你也不太确定它是什么。如果你留着它，也许以后能弄清它的用途。]], "_t")
 t("previous level", "前往上一层", "_t")
 t("ladder back to %s", "返回%s的梯子", "tformat")
 t("Eerie Cave", "诡异洞穴", "_t")
