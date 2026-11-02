@@ -26934,13 +26934,13 @@ t([[An ogre's body is acclimated to spells and inscriptions.
 		这样做的话，你的命中、物理、法术、精神强度会下降 20%%，体型超过#{italic}#“较大”#{normal}#时，每增加一体型，惩罚减少 5%%。同时你的武器附加伤害减少 50%%。]], "tformat")
 t("Scar-Scripted Flesh", "血肉伤痕", "talent name")
 t([[When you crit you have a %d%% chance to reduce by 1 the remaining cooldown of one of your inscriptions and of any saturations effects.
-		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个刻印 1 回合冷却时间，并减少符文紊乱和纹身紊乱 1 回合持续时间。
+		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个刻印 1 回合冷却时间，并减少符文饱和与纹身饱和 1 回合持续时间。
 		该效果每回合最多触发一次。]], "tformat")
 t("Writ Large", "符文亲和", "talent name")
 t("#PURPLE#Your mastery over inscriptions is unmatched! One more inscriptions slot available to buy.", "#PURPLE#你对刻印的掌握无人能及！你可以消耗一个技能树解锁点进一步解锁一个刻印位。", "logPlayer")
 t([[Instantly removes runic and infusion saturations.
 		For %d turns your inscriptions cool down twice as fast.
-		At level 5 your command over inscriptions is so good that you can use one more (you still need a category point to unlock it; you need to exit the levelup screen to validate it).]], [[立刻解除符文紊乱和纹身紊乱。
+		At level 5 your command over inscriptions is so good that you can use one more (you still need a category point to unlock it; you need to exit the levelup screen to validate it).]], [[立刻解除符文饱和与纹身饱和。
 		接下来 %d 回合内，你的刻印冷却速度翻倍。
 		技能达到 5 级时，你对刻印的掌控使你可以再使用一个刻印；仍需消耗一个技能树解锁点解锁，而且必须退出升级界面后才会生效。]], "tformat")
 
