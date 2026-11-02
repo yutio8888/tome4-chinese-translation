@@ -4190,7 +4190,7 @@ t("#YELLOW#As you close the book you feel the castle shaking.", "#YELLOW#当你�
 t("#CRIMSON#As you close the book the castle shakes again and this time feels more ... 'solid'.", "#CRIMSON#当你合上这本书时，城堡再次颤抖，这一次感觉更加……“坚实”。", "say")
 t("floor", "地板", "entity subtype")
 t("locked chest", "上锁的箱子", "entity name")
-t("Locked Chest", "锁上的箱子", "_t")
+t("Locked Chest", "上锁的箱子", "_t")
 t("Open the chest now that the guardian golem is no more?", "守卫的傀儡已经不在了，打开这个宝箱？", "_t")
 t("#GOLD#An object rolls from the chest!", "#GOLD#一件物品从宝箱中掉了出来！", "logSeen")
 t("chest (opened)", "打开的箱子", "_t")
