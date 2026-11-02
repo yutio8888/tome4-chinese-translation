@@ -19973,7 +19973,7 @@ t("Tortured Mass #rng#", "被折磨的血肉#rng#", "_t")
 ------------------------------------------------
 section "mod-tome/data/maps/vaults/renegade-wyrmics.lua"
 
-t("#rng# the Herald", "先锋#rng#", "_t")
+t("#rng# the Herald", "传令官#rng#", "_t")
 t("Beastmaster #rng#", "兽王#rng#", "_t")
 t("#rng# the Flame Terror", "#rng#火焰恐怖", "_t")
 t("#rng# the Storm Terror", "#rng#风暴恐怖", "_t")
