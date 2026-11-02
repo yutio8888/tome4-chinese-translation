@@ -1,0 +1,328 @@
+{
+  "batch": "0231",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "40fefb970369",
+      "verdict": "OK"
+    },
+    {
+      "id": "cdc7dd0da4d5",
+      "verdict": "ISSUE",
+      "observation": "译文写成“超过…10%”才触发，并笼统声称在攻击命中前移位闪开。公开 DLC 源码（来源未固定）tome-orcs/data/zones/kaltor-shop/objects.lua:45-46 仅排除自身伤害和小于 max_life/10 的伤害，故恰好 10% 也触发；tome-orcs/data/timed_effects/physical.lua:549-558 赋予 phase_shift=1。核心固定提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/class/Actor.lua:2430-2440 通过 turn_procs.phase_shift 限制每回合首次伤害才尝试移位，且只有找到相邻空位才返回 0 免除伤害，并非这一回合所有攻击均能闪开。英文说明也有同样的不精确处，此判定以实际机制为据。",
+      "suggestion": "当你受到非自身造成、不低于最大生命值 10% 的单次伤害后，作战服的马达会在当前时刻结束时启动，持续一回合。期间首次受到伤害时，若相邻位置有空位，就会让你移位并免除该次伤害。"
+    },
+    {
+      "id": "4a8a08533b66",
+      "verdict": "OK"
+    },
+    {
+      "id": "b9f48913b797",
+      "verdict": "OK"
+    },
+    {
+      "id": "6e7492790bb0",
+      "verdict": "OK"
+    },
+    {
+      "id": "b87a5d45086f",
+      "verdict": "OK"
+    },
+    {
+      "id": "b85371ba2e41",
+      "verdict": "OK"
+    },
+    {
+      "id": "9a480cda0eb8",
+      "verdict": "OK"
+    },
+    {
+      "id": "68871abe65cd",
+      "verdict": "OK"
+    },
+    {
+      "id": "2ae5bd011500",
+      "verdict": "OK"
+    },
+    {
+      "id": "34caccf99a62",
+      "verdict": "OK"
+    },
+    {
+      "id": "4555a57b6273",
+      "verdict": "OK"
+    },
+    {
+      "id": "0c0aa34bb2e7",
+      "verdict": "OK"
+    },
+    {
+      "id": "4ed02ef517f5",
+      "verdict": "OK"
+    },
+    {
+      "id": "afdaa8f69079",
+      "verdict": "OK"
+    },
+    {
+      "id": "e71acc6f2ace",
+      "verdict": "ISSUE",
+      "observation": "该短语是受害玩家的死亡结果，不是玩家主动把别人分散。公开 DLC 源码（来源未固定）tome-orcs/data/zones/pocket-time/npcs.lua:51-57 将其设为 Maltoth 的 killer_message；核心固定提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/class/interface/PartyDeath.lua:94、107-121 把它接在玩家被凶手杀死的句子后。“并将其分散”引入了无对应对象的“其”，并颠倒了动作方向。",
+      "suggestion": "并被分散到各条时间线中"
+    },
+    {
+      "id": "3780c2a21e65",
+      "verdict": "OK"
+    },
+    {
+      "id": "a249a185304b",
+      "verdict": "OK"
+    },
+    {
+      "id": "2ffb18ab69b8",
+      "verdict": "OK"
+    },
+    {
+      "id": "b5767e1c6270",
+      "verdict": "OK"
+    },
+    {
+      "id": "55b79b8fe5ca",
+      "verdict": "OK"
+    },
+    {
+      "id": "a04cc1c0fc53",
+      "verdict": "OK"
+    },
+    {
+      "id": "0131c17820ed",
+      "verdict": "OK"
+    },
+    {
+      "id": "ff0ec349099f",
+      "verdict": "OK"
+    },
+    {
+      "id": "964782630f15",
+      "verdict": "OK"
+    },
+    {
+      "id": "e13f39e10932",
+      "verdict": "OK"
+    },
+    {
+      "id": "b0cb0a385508",
+      "verdict": "OK"
+    },
+    {
+      "id": "5abdd063fa5a",
+      "verdict": "OK"
+    },
+    {
+      "id": "103725f70d0c",
+      "verdict": "OK"
+    },
+    {
+      "id": "9f8950fb9b5c",
+      "verdict": "OK"
+    },
+    {
+      "id": "440f31b55abd",
+      "verdict": "OK"
+    },
+    {
+      "id": "d14c26866c85",
+      "verdict": "OK"
+    },
+    {
+      "id": "451ef176deef",
+      "verdict": "OK"
+    },
+    {
+      "id": "c32d7e1d5fd9",
+      "verdict": "OK"
+    },
+    {
+      "id": "23a7fe6ce396",
+      "verdict": "OK"
+    },
+    {
+      "id": "d57010cc4bb9",
+      "verdict": "OK"
+    },
+    {
+      "id": "b59ca4465197",
+      "verdict": "OK"
+    },
+    {
+      "id": "ce5fa134e0b0",
+      "verdict": "OK"
+    },
+    {
+      "id": "3caf9a1d5c44",
+      "verdict": "OK"
+    },
+    {
+      "id": "1a484cb9cfba",
+      "verdict": "OK"
+    },
+    {
+      "id": "593ea74902c4",
+      "verdict": "OK"
+    },
+    {
+      "id": "e92469e0f357",
+      "verdict": "OK"
+    },
+    {
+      "id": "36dbe6b8dc10",
+      "verdict": "OK"
+    },
+    {
+      "id": "f8cbc689a1d9",
+      "verdict": "OK"
+    },
+    {
+      "id": "55c726a2d46a",
+      "verdict": "OK"
+    },
+    {
+      "id": "48cfedbcdf8f",
+      "verdict": "OK"
+    },
+    {
+      "id": "eb121516d7b6",
+      "verdict": "OK"
+    },
+    {
+      "id": "451e92bfa407",
+      "verdict": "OK"
+    },
+    {
+      "id": "16d69421391e",
+      "verdict": "OK"
+    },
+    {
+      "id": "5235568d7ffe",
+      "verdict": "OK"
+    },
+    {
+      "id": "24a3861f4d16",
+      "verdict": "OK"
+    },
+    {
+      "id": "bb6d9e71cbdc",
+      "verdict": "OK"
+    },
+    {
+      "id": "6e341bbc6087",
+      "verdict": "OK"
+    },
+    {
+      "id": "47f10a4635be",
+      "verdict": "OK"
+    },
+    {
+      "id": "c5c6394bab98",
+      "verdict": "OK"
+    },
+    {
+      "id": "925c53bd87a6",
+      "verdict": "OK"
+    },
+    {
+      "id": "4c3fed152974",
+      "verdict": "OK"
+    },
+    {
+      "id": "46dc0a36a820",
+      "verdict": "OK"
+    },
+    {
+      "id": "626c9c43909a",
+      "verdict": "OK"
+    },
+    {
+      "id": "0ef87d0fe81e",
+      "verdict": "OK"
+    },
+    {
+      "id": "6a32c3466155",
+      "verdict": "OK"
+    },
+    {
+      "id": "d2021be5bc4d",
+      "verdict": "OK"
+    },
+    {
+      "id": "db4cbe3c66b3",
+      "verdict": "OK"
+    },
+    {
+      "id": "c10b87e37ca3",
+      "verdict": "OK"
+    },
+    {
+      "id": "cd80122c5086",
+      "verdict": "OK"
+    },
+    {
+      "id": "9a9bd762c16b",
+      "verdict": "OK"
+    },
+    {
+      "id": "5829d6f5f92c",
+      "verdict": "OK"
+    },
+    {
+      "id": "7208edb3d36a",
+      "verdict": "OK"
+    },
+    {
+      "id": "26739307e251",
+      "verdict": "OK"
+    },
+    {
+      "id": "72a9bb1dcbf0",
+      "verdict": "OK"
+    },
+    {
+      "id": "09e2a737e9fb",
+      "verdict": "OK"
+    },
+    {
+      "id": "306bc164e5a7",
+      "verdict": "OK"
+    },
+    {
+      "id": "c6d8cd9853d3",
+      "verdict": "OK"
+    },
+    {
+      "id": "0823d72e2a2c",
+      "verdict": "ISSUE",
+      "observation": "译文写成“超过…10%”才触发，并笼统声称在攻击命中前移位闪开。公开 DLC 源码（来源未固定）tome-orcs/data/zones/shertul-cave/objects.lua:44-45 仅排除自身伤害和小于 max_life/10 的伤害，故恰好 10% 也触发；tome-orcs/data/timed_effects/physical.lua:549-558 赋予 phase_shift=1。核心固定提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/class/Actor.lua:2430-2440 通过 turn_procs.phase_shift 限制每回合首次伤害才尝试移位，且只有找到相邻空位才返回 0 免除伤害，并非这一回合所有攻击均能闪开。英文说明也有同样的不精确处，此判定以实际机制为据。",
+      "suggestion": "当你受到非自身造成、不低于最大生命值 10% 的单次伤害后，作战服的马达会在当前时刻结束时启动，持续一回合。期间首次受到伤害时，若相邻位置有空位，就会让你移位并免除该次伤害。"
+    },
+    {
+      "id": "a52b70a886cb",
+      "verdict": "OK"
+    },
+    {
+      "id": "63e5116d75fa",
+      "verdict": "OK"
+    },
+    {
+      "id": "7585377f8799",
+      "verdict": "OK"
+    },
+    {
+      "id": "4fc5ec0da63f",
+      "verdict": "OK"
+    },
+    {
+      "id": "e2d1ac8e3b32",
+      "verdict": "OK"
+    }
+  ]
+}
