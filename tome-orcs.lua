@@ -5331,7 +5331,7 @@ t("You require a tail-mounted steamsaw for this talent.", "你必须在尾部安
 t("Your mecharachnid cannot do that currently.", "你的机械蜘蛛目前不能这么做。", "logPlayer")
 t("#Source# provokes #Target# to attack it.", "#Source#强制#Target#攻击它。", "logCombat")
 t([[You rush to the target and strike with your tailsaw, dealing %d%% damage and taunting enemies within radius %d.
-		You now also use your Dexterity in place of Strength when equipping Steamsaws as well as when calculating weapon damage, and have your Steamsaw damage increased by %d%% and Physical Power by %d.]], [[你冲向敌人，用尾部蒸汽链锯进行攻击，造成 %d%% 伤害，并嘲讽该目标（标示的嘲讽半径为 %d 格，但实际只对被击中的目标生效）。
+		You now also use your Dexterity in place of Strength when equipping Steamsaws as well as when calculating weapon damage, and have your Steamsaw damage increased by %d%% and Physical Power by %d.]], [[你冲向敌人，用尾部蒸汽链锯进行攻击，造成 %d%% 伤害，并嘲讽该目标（标示的嘲讽半径为 %d 格，但实际只对所攻击的目标生效，无论是否命中）。
 		装备蒸汽链锯的时候，你以敏捷代替力量来计算装备需求和武器伤害，并且增加你蒸汽链锯的伤害 %d%%， 物理强度 %d。]], "tformat")
 t("Defensive Protocol", "防御协议", "talent name")
 t("Enhancements to your mecharachnid combat skill increases your melee and ranged evasion by %d%%, and causes you to automatically strike adjacent enemies with your tailsaw for %d%% damage each turn.", "强化机械蜘蛛的近身战斗能力，增加 %d%% 概率躲闪近战和远程攻击，你每回合会自动用尾部的蒸汽链锯打击临近的敌人，造成 %d%% 伤害。", "tformat")
