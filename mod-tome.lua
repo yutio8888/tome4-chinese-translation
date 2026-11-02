@@ -20602,7 +20602,7 @@ t("A portal appears right under you, and Rashim rushes through.", "一道传送�
 ------------------------------------------------
 section "mod-tome/data/quests/staff-absorption.lua"
 
-t("A mysterious staff", "奇怪的法杖", "_t")
+t("A mysterious staff", "神秘的法杖", "_t")
 t("Deep in the Dreadfell you fought and destroyed the Master, a powerful vampire.", "在恐惧王座深处你与领主——一个强大的吸血鬼——战斗并消灭了他。", "_t")
 t("On your way out of the Dreadfell you were ambushed by a band of orcs.", "当你走出恐惧王座时，你遭到一队兽人伏击。", "_t")
 t("They asked about the staff.", "他们问起了法杖的事。", "_t")
@@ -20634,7 +20634,7 @@ t([[Explore the caves below the ruins of Kor'Pul and the Trollmire in search of 
 t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Shax the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了巨魔沼泽并击败了巨魔夏克斯。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Trollmire and vanquished Prox the Troll.#WHITE#", "#LIGHT_GREEN#* 你已经探索了巨魔沼泽并击败了巨魔普罗克斯。#WHITE#", "_t")
 t("#SLATE#* You must explore the Trollmire and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须进入巨魔沼泽去调查那里潜伏着什么怪物并找到那里的宝藏！#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Possessed.#WHITE#", "#LIGHT_GREEN#* 你探索了卡·普尔废墟并击败了恶灵附身的强盗头目。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Possessed.#WHITE#", "#LIGHT_GREEN#* 你探索了卡·普尔废墟并击败了幽灵附体的强盗头目。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the ruins of Kor'Pul and vanquished the Shade.#WHITE#", "#LIGHT_GREEN#* 你探索了卡·普尔废墟并击败了暗影骷髅。#WHITE#", "_t")
 t("#SLATE#* You must explore the ruins of Kor'Pul and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须进入卡·普尔废墟去调查那里潜伏着什么怪物并找到那里的宝藏！#WHITE#", "_t")
 
@@ -20652,7 +20652,7 @@ t([[You have entered it and must now stabilize three wormholes by firing any spe
 ]], [[你已经进入了那里，现在必须对三个虫洞施法以稳定它们。
 ]], "_t")
 t([[Remember, the floating islands are not stable and might teleport randomly. However, the disturbances also help you: your Phase Door spell is fully controllable even if not of high level yet.
-]], [[记住，浮岛上很不稳定，有可能将你随机传送，不过也有一个好处，你可以完全控制你的相位门技能，就算你的技能等级不够高也没关系。
+]], [[记住，浮岛并不稳定，可能会随机传送。不过这种扰动也对你有利：即使你的相位之门法术等级还不高，也能完全控制传送位置。
 ]], "_t")
 t("#LIGHT_GREEN#* You have explored the expanse and closed all three wormholes.#WHITE#", "#LIGHT_GREEN#* 你已经探索了整个浮岛并关闭了所有三个虫洞。#WHITE#", "_t")
 t("#SLATE#* You have closed %s wormhole(s).#WHITE#", "#SLATE#* 你关闭了 %s 个虫洞。#WHITE#", "tformat")
@@ -20715,8 +20715,8 @@ t([[The Thaloren forest is disrupted. Corruption is spreading. Norgos the guardi
 t([[On the western border of the forest a gloomy aura has been set up. Things inside are... twisted.
 ]], [[有人在森林的西部边境布下了一个黑暗光环，里面的东西已陷入了扭曲。
 ]], "_t")
-t("#LIGHT_GREEN#* You have explored Norgos' Lair and stopped the shivgoroth invasion.#WHITE#", "#LIGHT_GREEN#* 你已经探索了诺尔格斯的巢穴并阻止了寒冰元素的侵略。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have explored Norgos' Lair and put it to rest.#WHITE#", "#LIGHT_GREEN#* 你已经探索了诺尔格斯的巢穴并埋葬了它。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have explored Norgos' Lair and stopped the shivgoroth invasion.#WHITE#", "#LIGHT_GREEN#* 你已经探索了诺尔格斯的巢穴并阻止了西弗格罗斯的入侵。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have explored Norgos' Lair and put it to rest.#WHITE#", "#LIGHT_GREEN#* 你已经探索了诺尔格斯的巢穴，并让诺尔格斯安息了。#WHITE#", "_t")
 t("#SLATE#* You must explore Norgos' Lair.#WHITE#", "#SLATE#* 你必须调查诺尔格斯的巢穴。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Heart of the Gloom and slain the Dreaming One.#WHITE#", "#LIGHT_GREEN#* 你已经探索了黑暗之心并杀死了梦境者。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Heart of the Gloom and slain the Withering Thing.#WHITE#", "#LIGHT_GREEN#* 你已经探索了黑暗之心并杀死了凋零之物。#WHITE#", "_t")
