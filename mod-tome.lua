@@ -42953,7 +42953,7 @@ section "mod-tome/dialogs/talents/MagicalCombatArcaneCombat.lua"
 
 t("Arcane Combat", "奥术格斗", "_t")
 t([[You may select a spell for Arcane Combat to automatically trigger with melee attacks.  Otherwise, select 'Random spells' to have a spell selected automatically with each attack.
-]], [[你可以选择一项法术，在奥术格斗中进行近战攻击时自动施放。如果你选择随机法术，每次攻击时会随机施放一个法术。
+]], [[你可以为奥术格斗选择一个法术，在近战攻击触发奥术格斗时自动施放。也可以选择“随机法术”，在每次触发时随机选择一个法术施放。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("Random spells", "随机法术", "_t")
