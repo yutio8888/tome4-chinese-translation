@@ -1,0 +1,61 @@
+{
+ "confirmed": [
+  {
+   "id": "5733ce87b31a",
+   "edit": [
+    [
+     "这是个看上去很像蜘蛛的八腿机械构造体。它正向你飞速冲来并准备用颚部的旋转锯刃将你撕成碎片。",
+     "这个八腿机械构造体看上去像极了蜘蛛——一只哐当作响的巨大蜘蛛，正飞速向你冲来，准备用取代双颚的两把旋转锯刃将你切成碎片。"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/npcs/steam-drone.lua:52-60: huge clonking spider, two steamsaws equipped in place of mandibles; same runtime key as 5644dc5578b8 (both rows synced)."
+  },
+  {
+   "id": "5644dc5578b8",
+   "edit": [],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/npcs/steam-spiders.lua:54: same (source, tag) as 5733ce87b31a; synced by that edit."
+  },
+  {
+   "id": "bdd271fa5114",
+   "edit": [
+    [
+     "#LIGHT_DARK#当%s倒下时，你看到他的灵魂寻求复仇。",
+     "#LIGHT_DARK#%s倒下时，你看到其灵魂升起，前来复仇。"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/npcs/steam-giant-arcane.lua:97-108: on_die spawns STEAM_GIANT_NECROPSYCH_GHOST at the corpse then logs; \"rising\" was dropped."
+  },
+  {
+   "id": "bb9e81a4df56",
+   "edit": [
+    [
+     "\"阿特姆斯复仇者\"",
+     "\"气之部族复仇者\""
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/npcs/steam-giant-gunner.lua:28,122 faction atmos-tribe; factions.lua:24 Atmos Tribe; terminology society.tsv:12 preferred 气之部族."
+  },
+  {
+   "id": "4d675db790cf",
+   "edit": [
+    [
+     "她来此唯一的目的就是消灭任何对阿特姆斯部落的威胁。",
+     "她来此是为了铲除一切针对气之部族的侵犯。"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/npcs/steam-giant-gunner.lua:123 Atmos tribe = preferred 气之部族; \"aggression\" rendered as 侵犯, removed added 唯一."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "de266c2e6d14",
+   "reason": "steam drone name 蒸汽机器人 collides with engine steambot; A proposes 蒸汽无人机 (match subtype 无人机), B argues the walking spider is not a 无人机 (fbc2bba69a49). Conflicting naming; pending Gemini naming decision, logged in repair backlog."
+  },
+  {
+   "id": "fbc2bba69a49",
+   "reason": "subtype drone 无人机 vs ground spider form; tied to de266c2e6d14 naming decision; pending."
+  }
+ ],
+ "rejected": [],
+ "notes": "0211 host adjudication; B re-dispatched after capacity error (attempt-1 archived); DLC sources unpinned public checkout."
+}

@@ -878,7 +878,7 @@ section "tome-orcs/data/general/npcs/steam-drone.lua"
 t("mechanical", "机械", "entity type")
 t("drone", "无人机", "entity subtype")
 t("steam drone", "蒸汽机器人", "entity name")
-t("This eight legged mechanical construct looks suspiciously like a spider. A huge clonking spider that runs to you at great speed ready to cut you to pieces with its two rotating saws in place of mandibles.", "这是个看上去很像蜘蛛的八腿机械构造体。它正向你飞速冲来并准备用颚部的旋转锯刃将你撕成碎片。", "_t")
+t("This eight legged mechanical construct looks suspiciously like a spider. A huge clonking spider that runs to you at great speed ready to cut you to pieces with its two rotating saws in place of mandibles.", "这个八腿机械构造体看上去像极了蜘蛛——一只哐当作响的巨大蜘蛛，正飞速向你冲来，准备用取代双颚的两把旋转锯刃将你切成碎片。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/steam-giant-arcane.lua"
@@ -891,7 +891,7 @@ t("ghost", "幽灵", "entity subtype")
 t("The spirit of a recently deceased necropsych. It moans painfully but seems impervious to most worldly things.", "这是一个近期死亡的通灵师的灵魂。它痛苦地哀鸣着，但似乎不受大多数凡俗之物影响。", "_t")
 t("steam giant necropsych", "蒸汽巨人通灵师", "entity name")
 t("Covered in arcane runes of death, this steam giant means business.", "这个被死亡符文所覆盖的蒸汽巨人是个大麻烦。", "_t")
-t("#LIGHT_DARK#As %s falls you see its spirit rising for revenge.", "#LIGHT_DARK#当%s倒下时，你看到他的灵魂寻求复仇。", "logSeen")
+t("#LIGHT_DARK#As %s falls you see its spirit rising for revenge.", "#LIGHT_DARK#%s倒下时，你看到其灵魂升起，前来复仇。", "logSeen")
 t("steam giant blood carver", "蒸汽巨人血雕者", "entity name")
 t("Blood seems to ooze from the towering giant, yet seemingly to no ill effect.", "尽管血液不停地从这个高大的巨人身上渗出，他看上去却没有任何不适。", "_t")
 
@@ -906,8 +906,8 @@ t("steam giant gunslinger", "蒸汽巨人快枪手", "entity name")
 t("This steam giant carries a steamgun in each hand.", "这个蒸汽巨人双手各拿着一把蒸汽枪。", "_t")
 t("steam giant flameshot", "蒸汽巨人火焰射手", "entity name")
 t("This steam giant carries a steamgun in each hand. The barrels appear to be flaming.", "这个蒸汽巨人双手各拿着一把枪管在燃烧的蒸汽枪。", "_t")
-t("retaliator of Atmos", "阿特姆斯复仇者", "entity name")
-t("This steam giant carries a steamgun in each hand. She is here to eliminate any and all aggression towards the Atmos tribe.", "这个蒸汽巨人双手各拿着一把蒸汽枪。她来此唯一的目的就是消灭任何对阿特姆斯部落的威胁。", "_t")
+t("retaliator of Atmos", "气之部族复仇者", "entity name")
+t("This steam giant carries a steamgun in each hand. She is here to eliminate any and all aggression towards the Atmos tribe.", "这个蒸汽巨人双手各拿着一把蒸汽枪。她来此是为了铲除一切针对气之部族的侵犯。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/steam-giant-warrior.lua"
@@ -927,7 +927,7 @@ section "tome-orcs/data/general/npcs/steam-spiders.lua"
 t("mechanical", "机械", "entity type")
 t("arachnid", "蜘蛛", "entity subtype")
 t("mecharachnid warrior", "机械蛛武士", "entity name")
-t("This eight legged mechanical construct looks suspiciously like a spider. A huge clonking spider that runs to you at great speed ready to cut you to pieces with its two rotating saws in place of mandibles.", "这是个看上去很像蜘蛛的八腿机械构造体。它正向你飞速冲来并准备用颚部的旋转锯刃将你撕成碎片。", "_t")
+t("This eight legged mechanical construct looks suspiciously like a spider. A huge clonking spider that runs to you at great speed ready to cut you to pieces with its two rotating saws in place of mandibles.", "这个八腿机械构造体看上去像极了蜘蛛——一只哐当作响的巨大蜘蛛，正飞速向你冲来，准备用取代双颚的两把旋转锯刃将你切成碎片。", "_t")
 t("mecharachnid flame thrower", "机械蛛喷火者", "entity name")
 t("This eight legged mechanical construct looks suspiciously like a spider. The huge flame thrower mounted on its back however is definitively un-spider-like.", "这个八足机械构造体看起来很像蜘蛛，但背上安装的巨型火焰喷射器显然一点也不像蜘蛛该有的东西。", "_t")
 t("mecharachnid destroyer", "机械蛛毁灭者", "entity name")
