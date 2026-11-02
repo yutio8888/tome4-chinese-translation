@@ -4759,11 +4759,11 @@ Race features:#YELLOW#
 ------------------------------------------------
 section "tome-cults/overload/data/texts/unlock-wyrmic_scourge.lua"
 
-t("New Talent Category: #LIGHT_GREEN#Scourge Drake", "新技能树：#LIGHT_GREEN#天谴之龙", "_t")
+t("New Talent Category: #LIGHT_GREEN#Scourge Drake", "新技能树：#LIGHT_GREEN#天谴龙", "_t")
 t("Drakes are forces of Nature, the ultimate apex predators. But even they can be corrupted beyond hope.\nYou have encountered the horror that came out of Kroltar, the mightiest wyrm, and vanquished it.\n\nYou can now master Scourge Drake magic and create new Wyrmic characters that can learn the #LIGHT_GREEN#Scourge Drake talents#WHITE#.\n\nTalents:\n- #YELLOW#Tentacled Wings: #WHITE#Project slimy tentacles to pull your foes to you\n- #YELLOW#Decaying Grounds: #WHITE#Cover the ground in blighted energies, increasing cooldowns\n- #YELLOW#Augment Despair: #WHITE#Hit where it hurts, doing more damage based on detrimental effects\n- #YELLOW#Maggot Breath: #WHITE#Breath maggots to slow down your foes\n", [[龙是自然力量的化身，是究极的捕食者。然而，就连他们也可能腐化到无可救药。
 你遇到了从最强大的巨龙库洛塔身上产生的恐魔，并击败了它。
 
-你现在可以掌握天谴之龙魔法，并创建能够学习#LIGHT_GREEN#天谴之龙技能#WHITE#的新龙战士角色。
+你现在可以掌握天谴龙魔法，并创建能够学习#LIGHT_GREEN#天谴龙技能#WHITE#的新龙战士角色。
 
 技能列表：
 - #YELLOW#触手之翼：#WHITE#伸出黏滑的触手，将敌人拉向你
@@ -4799,7 +4799,7 @@ t("#CRIMSON#[The parasite is hungry and promptly swallows and eat %s].", "#CRIMS
 t("#CRIMSON#[The parasite is hungry and takes over the conversation.]#LAST# I smelled a weakling here and wanted a nice meal. [point your finger at the captured merchant]", "#CRIMSON#[寄生兽很饿，接管了你们的对话。]#LAST#我闻到这里有股弱者的味道，我想要一顿美餐。[用手指向被抓住的商人]", "_t")
 t("Ah I see, you are a ...thing... of special tastes. Very well, I'd rather have you as a friend so have your meal and someday we may have some more business to do together.", "啊，我明白了，你是一个…品味独特的…家伙。很好，我希望你是我的朋友，所以吃吧，总有一天我们会有更多的生意要做。", "_t")
 t("[eat the merchant]", "[吃掉商人]", "_t")
-t("#CRIMSON#[The parasite is hungry and promptly swallows and eat Fillarel]#LAST# No I have not...", "#CRIMSON#[寄生兽很饿，直接吃掉了菲拉瑞尔]#LAST# 不，我不…", "_t")
+t("#CRIMSON#[The parasite is hungry and promptly swallows and eat Fillarel]#LAST# No I have not...", "#CRIMSON#[寄生兽很饿，直接吃掉了菲拉瑞尔]#LAST# 不，我没有……", "_t")
 t("#CRIMSON#[The parasite is hungry and promptly swallows and eat the yeek wayist]#LAST# I 'saved' you to get a nice meal...", "#CRIMSON#[寄生兽很饿，直接吃掉了夺心魔维网信徒]#LAST# 我“救你”是为了美餐一顿……", "_t")
 t("#RED#You can't enter a Forbidden Tome from here!#LAST#", "#RED#你不能在这里进入禁忌之书！#LAST#", "log")
 t("The protagonist of the story is dead.", "故事的主角死了。", "_t")
@@ -4932,7 +4932,7 @@ section "tome-cults/superload/mod/class/Game.lua"
 t("Class: Cultist of Entropy", "职业：熵教徒", "_t")
 t("Race: Drem", "种族：德瑞姆", "_t")
 t("Race: Krog", "种族：克罗格", "_t")
-t("Class tree: Scourge drake", "职业技能树：天谴之龙", "_t")
+t("Class tree: Scourge drake", "职业技能树：天谴龙", "_t")
 t("Class feature: Alchemist's Glass Golem", "职业特性：炼金术师的玻璃傀儡", "_t")
 t("Saving is not possible in the S.M.A.C.K. Do you want to cancel the fight?", "不能在S.M.A.C.K里面存档。你确定要取消这场战斗吗？", "_t")
 t("Urgent affair in Zigur", "发生在伊格的紧急事件", "_t")
