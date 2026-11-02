@@ -8063,9 +8063,9 @@ All Tinker classes use Steam for their powers.
 ]], [[研究过众多敌人的残骸后，你找到了把真正的“战斗之火”带给敌人的新方法！
 现在可以创建#LIGHT_GREEN#歼灭者#WHITE#职业的新角色。
 
-歼灭者是能够制造和使用重型武器（火焰喷射器、电击法杖和爆矢枪）的工匠，还能运用工艺知识创造先进的战争装置。
+歼灭者是能够制造和使用重装武器（火焰喷射器、电击棒和爆矢枪）的工匠，还能运用工艺知识创造先进的战争装置。
 职业特色：#YELLOW#
-- 释放重型武器的威力
+- 释放重装武器的威力
 - 建造用于战斗甚至医疗的自动炮台
 - 制造机械蜘蛛机器人协助战斗；它既可自主行动，也可由你直接驾驶
 - 用种种新手段折磨敌人：向他们发射火箭和手榴弹、装备外骨骼……#WHITE#
@@ -8148,8 +8148,8 @@ t("Steam each turn: ", "每回合蒸汽回复：", "_t")
 t("Maximum steam: ", "蒸汽容量：", "_t")
 t("You may not shoot while using a heavy weapon.", "使用重装武器的时候，你无法使用普通射击。", "logPlayer")
 t("lost tinker", "迷路的工匠", "_t")
-t("Please help me! I am afraid I lost myself in this place while testing some new steamtech. I know there is a recall portal left around here by a friend, but I have fought too many battles, and I fear I will not make it. Would you help me?", "帮帮我！我在测试某种蒸汽科技，结果在这地方迷路了。我有个朋友给我留下了一个传送门，不过我打了太多仗，恐怕靠我自己是到不了那里了，你能帮我一下吗？", "_t")
-t("%s, the experimenting tinker", "%s，实验的工匠", "_t")
+t("Please help me! I am afraid I lost myself in this place while testing some new steamtech. I know there is a recall portal left around here by a friend, but I have fought too many battles, and I fear I will not make it. Would you help me?", "帮帮我！我在测试一种新的蒸汽科技时，在这地方迷路了。我有个朋友在这附近给我留下了一个召回传送门，不过我打了太多仗，恐怕靠我自己是到不了那里了，你能帮我一下吗？", "_t")
+t("%s, the experimenting tinker", "%s，做实验的工匠", "_t")
 t("She looks tired and wounded.", "她看起来疲惫又受伤。", "_t")
 t("[Ask where to learn tinkers crafting]", "[询问哪里可以学习蒸汽工具制作]", "_t")
 t("Reveal the location of a teacher.", "揭示工匠大师的位置。", "_t")
@@ -8177,7 +8177,7 @@ t("Oh well, maybe later then.", "好吧，以后再说。", "_t")
 section "tome-orcs/overload/mod/class/interface/PartyTinker.lua"
 
 t("unknown tinker", "未知插件", "_t")
-t("can not create tier %d", "无法创建等级%d", "tformat")
+t("can not create tier %d", "无法制作材质等级 %d 的物品", "tformat")
 t("requires %s level %d", "需要%s等级%d", "tformat")
 t("requires %d %s", "需要%d个%s", "tformat")
 t("requires %s", "需要%s", "tformat")
