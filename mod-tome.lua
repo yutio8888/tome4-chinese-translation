@@ -20499,13 +20499,13 @@ section "mod-tome/data/quests/paradoxology.lua"
 
 t("The Way We Weren't", "穿越时空", "_t")
 t([[You have met what seems to be a future version of yourself.
-]], [[你看到了一个未来的自己。
+]], [[你遇到了一个似乎是未来的自己的人。
 ]], "_t")
 t([[You tried to kill yourself to prevent you from doing something, or going somewhere... you were not very clear.
 ]], [[你尝试杀掉自己，以阻止自己做某件事，或去往某个地方……你说得不太清楚。
 ]], "_t")
 t([[You were killed by your future self, and thus this event never occured.
-]], [[你被未来的自己杀掉了，这件事就像没有发生过一样。
+]], [[你被未来的自己杀掉了，因此这件事从未发生过。
 ]], "_t")
 t([[You killed your future self. In the future, you might wish to avoid time-traveling back to this moment...
 ]], [[你杀死了未来的自己，在未来，你可不希望再穿越时空到这个时间点……
@@ -20514,10 +20514,10 @@ t("%s the Paradox Mage", "时空法师%s", "tformat")
 t("A later (less fortunate?) version of %s, possibly going mad.", "某个未来的（并且不太走运的？）%s，恐怕已经陷入了疯狂。", "tformat")
 t("but nobody knew why #sex# suddenly became evil", "但是没有人知道为什么#sex#突然变得邪恶了", "_t")
 t("#LIGHT_BLUE#Killing your own future self does feel weird, but you know that you can avoid this future. Just do not time travel.", "#LIGHT_BLUE#杀死未来的自己确实感觉很怪，但你知道自己可以避免这样的未来。只要别穿越时间。", "logSeen")
-t("Meet the guardian!", "去见时空守卫！", "_t")
+t("Meet the guardian!", "去见守护者！", "_t")
 t("#LIGHT_BLUE#Your future self kills you! The timestreams are broken by the paradox!", "#LIGHT_BLUE#你未来的自己杀死了你！时间流被这个悖论所打破！", "logSeen")
 t("#LIGHT_BLUE#All those events never happened. Except they did, somewhen.", "#LIGHT_BLUE#所有这些事件都从未发生过，只不过它们确实在某个时候发生了。", "logSeen")
-t("This rift in time has been created by the paradox. You dare not enter it; it could make things worse. Another Warden will have to fix your mess.", "这个时间裂隙是时空紊乱造成的。你不敢进入，事情可能会变得更糟，另外一个守卫将不得不前去修复混乱。", "log")
+t("This rift in time has been created by the paradox. You dare not enter it; it could make things worse. Another Warden will have to fix your mess.", "这道时间裂隙是悖论造成的。你不敢进入，那可能会让事情变得更糟。只能让另一位时空守卫来收拾这个烂摊子了。", "log")
 
 ------------------------------------------------
 section "mod-tome/data/quests/pre-charred-scar.lua"
@@ -20568,7 +20568,7 @@ t("#LIGHT_GREEN#* You have activated what seems to be a ... butler? with your ro
 t("#LIGHT_GREEN#* You have bound the transmogrification chest to the Fortress power system.#WHITE#", "#LIGHT_GREEN#* 你把转化之盒连接到了堡垒的能量系统#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have upgraded the transmogrification chest to automatically transmute metallic items into gems before transmogrifying them.#WHITE#", "#LIGHT_GREEN#* 你升级了转化之盒，现在它会在转化之前自动把金属物品变成宝石了。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have unlocked the training room.#WHITE#", "#LIGHT_GREEN#* 你解锁了训练室。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have unlocked the hall of reflections.#WHITE#", "#LIGHT_GREEN#* 你解锁了反射之镜的大厅。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have unlocked the hall of reflections.#WHITE#", "#LIGHT_GREEN#* 你解锁了反射之间。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have upgraded your rod of recall to transport you to the fortress.#WHITE#", "#LIGHT_GREEN#* 你升级了回归之杖，现在可以用它传送到堡垒。#WHITE#", "_t")
 t("#SLATE#* The fortress shadow has asked that you come back as soon as possible.#WHITE#", "#SLATE#* 堡垒之影希望你尽快回来。#WHITE#", "_t")
 t("#RED#* You have forced a recall while in an exploratory farportal zone. The farportal was rendered unusable in the process.#WHITE#", "#RED#* 你在探索用远行传送门区域内强制启动了回归之杖，导致这座远行传送门彻底无法使用。#WHITE#", "_t")
@@ -20576,7 +20576,7 @@ t("#LIGHT_GREEN#* You have entered the exploratory farportal room and defeated t
 t("#LIGHT_GREEN#* You have re-enabled the fortress flight systems. You can now fly around in your fortress!#WHITE#", "#LIGHT_GREEN#* 你重新激活了堡垒的飞行系统。你可以操控你的堡垒飞行了！#WHITE#", "_t")
 t("#SLATE#* The fortress shadow has asked that you find an Ancient Storm Sapphire, along with at least 250 energy, to re-enable the fortress flight systems.#WHITE#", "#SLATE#* 堡垒之影需要你找到远古风暴蓝宝石，并准备至少 250 点能量，才能重启堡垒飞行系统。#WHITE#", "_t")
 t("\
-The fortress's current energy level is: #LIGHT_GREEN#%d#WHITE#.", "\n当前堡垒能量等级：#LIGHT_GREEN#%d#WHITE#。", "tformat")
+The fortress's current energy level is: #LIGHT_GREEN#%d#WHITE#.", "\n堡垒当前能量：#LIGHT_GREEN#%d#WHITE#。", "tformat")
 t("Fortress Shadow", "堡垒之影", "_t")
 t("Master, you have sent enough energy to improve your rod of recall. Please return to the fortress.", "主人，你已经收集了足够升级回归之杖的能量。请尽快回到堡垒来。", "_t")
 t([[Master, you have sent enough energy to activate the exploratory farportal.
