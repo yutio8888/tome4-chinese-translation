@@ -5139,7 +5139,7 @@ t([[You gain the ability to equip one of 3 heavy weapons listed below, temporari
 		#AQUAMARINE#爆矢枪#LAST#：发射高效化学灌注弹矢的多管蒸汽枪。连续射击两次，每次造成相当于 %d%% 蒸汽枪武器伤害的酸性伤害；每次命中产生 %d 点蒸汽。
 
 		重装武器造成的伤害以当前装备的弹药为基础；在武器掌握技能和其他效果的判定中，它们均视为蒸汽枪。
-		使用蒸汽枪射击会立即卸下重装武器。
+		装备重装武器时无法使用普通蒸汽枪射击。
 ]], "tformat")
 t("Flamethrower", "火焰喷射器", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
