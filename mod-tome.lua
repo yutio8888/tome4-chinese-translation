@@ -20758,15 +20758,15 @@ t("The Sandworm Lair is to the far west of Derth, near the sea.", "在德斯镇�
 t("The Daikara is on the eastern borders of the Thaloren forest.", "岱卡拉位于自然精灵树林的东部边境。", "_t")
 t("#LIGHT_GREEN#* You have explored the Old Forest and vanquished Shardskin.#WHITE#", "#LIGHT_GREEN#* 你已经探索了古老森林并杀死了水晶树精。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Old Forest and vanquished Wrathroot.#WHITE#", "#LIGHT_GREEN#* 你已经探索了古老森林并杀死了狂怒树精。#WHITE#", "_t")
-t("#SLATE#* You must explore the Old Forest and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你应当探索古老森林，查清那里潜伏的危险，并获得那里的宝藏！#WHITE#", "_t")
+t("#SLATE#* You must explore the Old Forest and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须探索古老森林，查明那里潜伏着什么，以及能获得什么宝藏！#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Maze and vanquished the Horned Horror.#WHITE#", "#LIGHT_GREEN#* 你已经探索了迷宫并杀死了长角恐魔。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Maze and vanquished the Minotaur.#WHITE#", "#LIGHT_GREEN#* 你已经探索了迷宫并杀死了米诺陶。#WHITE#", "_t")
-t("#SLATE#* You must explore the Maze and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你应当探索迷宫，查清那里潜伏的危险，并获得那里的宝藏！#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have explored the Sandworm Lair and vanquished their Queen.#WHITE#", "#LIGHT_GREEN#* 你已经探索了沙虫巢穴并杀死了沙虫女王。#WHITE#", "_t")
+t("#SLATE#* You must explore the Maze and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须探索迷宫，查明那里潜伏着什么，以及能获得什么宝藏！#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have explored the Sandworm Lair and vanquished their Queen.#WHITE#", "#LIGHT_GREEN#* 你已经探索了沙虫巢穴并杀死了沙虫女皇。#WHITE#", "_t")
 t("#SLATE#* You must explore the Sandworm Lair and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须探索沙虫巢穴，查明那里潜伏着什么，以及能获得什么宝藏！#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have explored the Daikara and vanquished the huge fire dragon that dwelled there.#WHITE#", "#LIGHT_GREEN#* 你已经探索了岱卡拉并杀死了盘踞在那里的巨型火龙。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have explored the Daikara and vanquished the huge ice dragon that dwelled there.#WHITE#", "#LIGHT_GREEN#* 你已经探索了岱卡拉并杀死了这里的冰龙。#WHITE#", "_t")
-t("#SLATE#* You must explore the Daikara and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你应当探索岱卡拉，查清那里潜伏的危险，并获得那里的宝藏！#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have explored the Daikara and vanquished the huge ice dragon that dwelled there.#WHITE#", "#LIGHT_GREEN#* 你已经探索了岱卡拉并杀死了盘踞在那里的巨型冰龙。#WHITE#", "_t")
+t("#SLATE#* You must explore the Daikara and find out what lurks there and what treasures are to be gained!#WHITE#", "#SLATE#* 你必须探索岱卡拉，查明那里潜伏着什么，以及能获得什么宝藏！#WHITE#", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/quests/strange-new-world.lua"
@@ -20777,7 +20777,7 @@ t("Upon arrival you met an Elf and an orc fighting.", "抵达时，你碰到一�
 t("You decided to side with the Elven lady.", "你决定帮助那位精灵女士。", "_t")
 t("You decided to side with the orc.", "你决定帮助那个兽人。", "_t")
 t("Fillarel told you to go to the southeast and meet with High Sun Paladin Aeryn.", "菲拉瑞尔告诉你去东南方会见高阶太阳骑士艾琳。", "_t")
-t("Krogar told you to go to the west and look for the Kruk Pride.", "克洛加尔告诉你去西面寻找克鲁克部落。", "_t")
+t("Krogar told you to go to the west and look for the Kruk Pride.", "克罗加尔告诉你去西面寻找克鲁克部落。", "_t")
 t("%s go to the west, and find Kruk Pride!", "%s，去西边，寻找克鲁克部落！", "tformat")
 t("%s go to the southeast, and tell Aeryn what happened to me!", "%s，去东南方，告诉艾琳我的遭遇！", "tformat")
 
@@ -20801,7 +20801,7 @@ section "mod-tome/data/quests/temporal-rift.lua"
 
 t("Back and Back and Back to the Future", "回到、回到、回到未来", "_t")
 t([[After passing through some kind of time anomaly you met a temporal warden who told you to destroy the abominations of this alternate timeline.
-]], [[穿过某种时间异常后，你碰到了一个时空守卫，他告诉你去摧毁这个变换时间线里的怪物。
+]], [[穿过某种时间异常后，你碰到了一个时空守卫，他告诉你去摧毁另一条时间线里的怪物。
 ]], "_t")
 t("Temporal Warden", "时空守卫", "_t")
 
@@ -20815,7 +20815,7 @@ t("You have slain Bill. His treasure is yours for the taking.", "你已经干掉
 t("way to the hidden trollmire treasure", "通往巨魔沼泽隐藏宝藏的路", "_t")
 t("Beware!", "小心！", "_t")
 t("Danger...", "小心……", "_t")
-t("This way leads to the lair of a mighty troll. Traces of blood are everywhere. Are you sure?", "这条路通往巨魔的巢穴，一路上到处都是血迹，你确定要进去么？", "_t")
+t("This way leads to the lair of a mighty troll. Traces of blood are everywhere. Are you sure?", "这条路通往一头强大巨魔的巢穴，到处都是血迹，你确定要进去吗？", "_t")
 t("The way to the treasure is to the east. But beware, death probably awaits there.", "通向宝藏的路在东边。但是请当心，死亡很可能就在那里等着你。", "_t")
 
 ------------------------------------------------
