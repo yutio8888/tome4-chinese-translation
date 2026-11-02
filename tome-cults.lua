@@ -4,9 +4,9 @@ section "tome-cults/data/achievements/all.lua"
 t("You were not supposed to see that!", "你不应该看这些！", "achievement name")
 t("Read a Forbidden Tome.", "读一本禁忌之书。", "_t")
 t("Bookception!", "书中之书！", "achievement name")
-t("Found the Forbidden Tome reward inside the Forbidden Tome: \"Of Knowledge And Horrors\".", "在禁忌之书《知识与恐怖》中，找到禁忌之书的奖励。", "_t")
+t("Found the Forbidden Tome reward inside the Forbidden Tome: \"Of Knowledge And Horrors\".", "在禁忌之书《知识与恐怖》中，找到了作为奖励的另一本禁忌之书。", "_t")
 t("Recursive Home of Recursion", "递归之家", "achievement name")
-t("Left the Forbidden Tome: \"Home, Horrific Home\" on the floor of The Home Which Is Not.", "将禁忌之书《家，可怕的家》留在了“非家之家”的地板上。", "_t")
+t("Left the Forbidden Tome: \"Home, Horrific Home\" on the floor of The Home Which Is Not.", "将禁忌之书《家，可怕的家》留在了“非之家”的地板上。", "_t")
 t("They Came From Outer Space!", "他们来自外太空！", "achievement name")
 t("Discovered the true origin of dwarves and drems.", "发现矮人和德瑞姆的来历。", "_t")
 t("The True Coward", "真正的懦夫", "achievement name")
@@ -18,13 +18,13 @@ t("Got saved from death in the Godfeaster by Malyu and managed to escape.", "在
 t("Not Really Yourself", "并非自我", "achievement name")
 t("Let a parasitic horror take over your body and watch it grow in power.", "让寄生恐魔占据身体，日渐强大。", "_t")
 t("Myths of an age past", "神代奥秘", "achievement name")
-t("Learned all there is to learn about the Gods and the Godslayers.", "了解目前关于神和噬神者的所有信息。", "_t")
+t("Learned all there is to learn about the Gods and the Godslayers.", "了解了关于诸神与弑神者的一切。", "_t")
 t("Dethroned", "废黜", "achievement name")
 t("Vanquished the Glass Golem without letting it use the glass throne to heal.", "在不让玻璃傀儡借助玻璃王座治疗的情况下击败它。", "_t")
 t("A View From The Gallery", "画廊一瞥", "achievement name")
 t("Briefly lived as a lowly halfling during the time of the Sher'tuls.", "短暂地作为一名半身人活在夏·图尔的时代。", "_t")
 t("Entropy's End", "熵之终结", "achievement name")
-t("Destroyed the Hypostasis of Entropy.", "消灭熵的本质。", "_t")
+t("Destroyed the Hypostasis of Entropy.", "消灭了熵之源质。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/birth/demented.lua"
