@@ -42060,7 +42060,7 @@ section "mod-tome/dialogs/SentientWeapon.lua"
 t("Points left: #00FF00#%d#WHITE#", "剩余点数：#00FF00#%d#WHITE#", "_t")
 t([[Keyboard: #00FF00#up key/down key#FFFFFF# to select a stat; #00FF00#right key#FFFFFF# to increase stat; #00FF00#left key#FFFFFF# to decrease a stat.
 Mouse: #00FF00#Left click#FFFFFF# to increase a stat; #00FF00#right click#FFFFFF# to decrease a stat.
-]], [[键盘：#00FF00#上/下键#FFFFFF#选择属性，#00FF00#右键#FFFFFF#增加属性，#00FF00#左键#FFFFFF#降低属性。
+]], [[键盘：#00FF00#上/下方向键#FFFFFF#选择属性，#00FF00#右方向键#FFFFFF#增加属性，#00FF00#左方向键#FFFFFF#降低属性。
 鼠标：#00FF00#左键点击#FFFFFF#增加属性，#00FF00#右键点击#FFFFFF#降低属性。
 ]], "_t")
 t("Stat", "属性值", "_t")
@@ -42163,7 +42163,7 @@ t("Category", "分类", "_t")
 t([[#GOLD#Category:#AQUAMARINE# %s
 #GOLD#Found as:#0080FF# %s
 #GOLD#Text:#ANTIQUE_WHITE# %s]], [[#GOLD#分类：#AQUAMARINE# %s
-#GOLD#发现于：#0080FF# %s
+#GOLD#名称：#0080FF# %s
 #GOLD#文本：#ANTIQUE_WHITE# %s]], "tformat")
 -- untranslated text
 --[==[

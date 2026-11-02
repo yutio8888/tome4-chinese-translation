@@ -1,0 +1,32 @@
+{
+ "confirmed": [
+  {
+   "id": "94a9459f15ed",
+   "edit": [
+    [
+     "键盘：#00FF00#上/下键#FFFFFF#选择属性，#00FF00#右键#FFFFFF#增加属性，#00FF00#左键#FFFFFF#降低属性。",
+     "键盘：#00FF00#上/下方向键#FFFFFF#选择属性，#00FF00#右方向键#FFFFFF#增加属性，#00FF00#左方向键#FFFFFF#降低属性。"
+    ]
+   ],
+   "evidence": "SentientWeapon.lua:54/195 键盘 left/right 指方向键，与下一行鼠标左右键区分"
+  },
+  {
+   "id": "c78238c0bf2e",
+   "edit": [
+    [
+     "#GOLD#发现于：#0080FF# %s",
+     "#GOLD#名称：#0080FF# %s"
+    ]
+   ],
+   "evidence": "ShowLore.lua:85/102 第二个 %s 为 item.name（手札名称），非地点"
+  }
+ ],
+ "advisory": [
+  {
+   "id": "e4389199a395",
+   "reason": "PartyOrder.lua:35 Dismiss 确为遣散队员（Party.lua:407-409）；但 _t\"Dismiss\" 同键还用于 Birther.lua:1732 捐赠提示的关闭按钮，「遣散」不适用该处；现译「放弃」两处都可读，运行键无法拆分，不改"
+  }
+ ],
+ "rejected": [],
+ "notes": ""
+}
