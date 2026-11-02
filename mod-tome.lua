@@ -39018,10 +39018,10 @@ t("teleporting circle to the surface", "通往地面的传送阵", "entity name"
 t("wall", "墙壁", "entity type")
 t("cracks", "裂缝", "entity subtype")
 t("huge crack in the floor", "地面上的巨大裂缝", "entity name")
-t("Crack in the floor", "地板上的洞", "_t")
+t("Crack in the floor", "地面上的裂缝", "_t")
 t([[This area appears to have been hit by a huge tremor, breaking the floor in a huge crack.
-You think you can jump to the level below.]], [[这块区域似乎经历过巨大的震动，将地板砸出了一个大洞。
-你觉得你可以跳进下面的楼层。]], "_t")
+You think you can jump to the level below.]], [[这块区域似乎经历过一场剧烈的震动，地面裂开了一道巨大的裂缝。
+你觉得你可以跳到下一层去。]], "_t")
 t("Jump", "跳下", "_t")
 t("Stay", "呆在这里", "_t")
 
@@ -39076,18 +39076,18 @@ t("and brought back to Vargh for experimentations", "并将其带回瓦尔弗做
 section "mod-tome/data/zones/murgol-lair/zone.lua"
 
 t("Murgol Lair", "穆格尔巢穴", "_t")
-t("As you enter the lair you can hear the distorted sound of fighting. Somebody is already invading the lair.", "当你进入巢穴时你听到了打斗的兵器撞击声。似乎已经有人入侵了这里。", "_t")
+t("As you enter the lair you can hear the distorted sound of fighting. Somebody is already invading the lair.", "当你进入巢穴时，你听到了模糊失真的打斗声。已经有人在入侵这座巢穴了。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/norgos-lair/npcs.lua"
 
 t("Norgos, the Frozen", "冰冻者诺尔格斯", "entity name")
 t([[This ancient bear long guarded the western side of the forest, but as of late he started growing mad, attacking even the Thaloren.
-It seems to have fallen prey to the shivgoroth invading the area. Dead and frozen, it seems like a statue, animated by the elementals.]], [[这只远古巨熊一直守护着西边的丛林，但是不知何时他变得疯狂并到处攻击自然精灵们。
-它似乎已经成为了进入这片领地的寒冰元素的牺牲品，死去并且冻结，就像一座雕塑，被元素能量所支配。]], "_t")
+It seems to have fallen prey to the shivgoroth invading the area. Dead and frozen, it seems like a statue, animated by the elementals.]], [[这只远古巨熊长久以来守护着森林的西侧，但最近他开始变得疯狂，甚至连自然精灵都会攻击。
+它似乎已沦为入侵此地的西弗格罗斯的猎物。它已死去并被冻结，看上去像一座雕像，由那些元素生物驱动着。]], "_t")
 t("and was turned into icicles", "并将其冻成了冰柱", "_t")
 t("Norgos, the Guardian", "守护者诺尔格斯", "entity name")
-t("This ancient bear long guarded the western side of the forest, but as of late he started growing mad, attacking even the Thaloren.", "这只远古巨熊一直守护着西边的丛林，但是不知何时他变的疯狂并到处攻击自然精灵们。", "_t")
+t("This ancient bear long guarded the western side of the forest, but as of late he started growing mad, attacking even the Thaloren.", "这只远古巨熊长久以来守护着森林的西侧，但最近他开始变得疯狂，甚至连自然精灵都会攻击。", "_t")
 t("and was feasted upon by wolves", "并任由群狼分食其尸", "_t")
 
 ------------------------------------------------
