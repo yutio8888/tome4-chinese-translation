@@ -41412,7 +41412,7 @@ t("Instant", "瞬发技能", "_t")
 t("Activated", "主动技能", "_t")
 t("Sustained", "持续技能", "_t")
 t("Passive", "被动技能", "_t")
-t("Character dump complete", "玩家数据导出完成", "_t")
+t("Character dump complete", "角色信息导出完成", "_t")
 t("File: %s", "文件：%s", "tformat")
 -- untranslated text
 --[==[
@@ -41476,7 +41476,7 @@ t("Exit to main menu", "退回主菜单", "_t")
 section "mod-tome/dialogs/Donation.lua"
 
 t("Donations", "捐赠", "_t")
-t("#GOLD#Character cosmetic customization and special tiles#WHITE#", "#GOLD#角色时装和自定义角色图像。#WHITE#", "_t")
+t("#GOLD#Character cosmetic customization and special tiles#WHITE#", "#GOLD#角色时装和自定义角色图像#WHITE#", "_t")
 t("#GOLD#Exploration mode (infinite lives)#WHITE#", "#GOLD#探索模式（无限命）#WHITE#", "_t")
 t("#GOLD#Item's appearance change (Shimmering)#WHITE#", "#GOLD#改变物品外观（幻化）#WHITE#", "_t")
 t([[Hi, I am Nicolas (DarkGod), the maker of this game.
