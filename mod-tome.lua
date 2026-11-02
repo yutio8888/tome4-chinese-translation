@@ -20225,7 +20225,7 @@ t("???", "???", "_t")
 ------------------------------------------------
 section "mod-tome/data/quests/grave-necromancer.lua"
 
-t("And now for a grave", "绝望的坟墓", "_t")
+t("And now for a grave", "接下来，是一座坟墓", "_t")
 t("Ungrol of Last Hope asked you to look for his wife's friend Celia, who has been reported missing. She frequently visits her late husband's mausoleum, in the graveyard near Last Hope.", "最后的希望城的温格洛请你寻找他妻子的朋友赛利亚；据说她失踪了。赛利亚常去最后的希望附近墓地中她亡夫的陵墓。", "_t")
 t("You searched for Celia in the graveyard near Last Hope, and found a note. In it, Celia reveals that she has been conducting experiments in the dark arts, in an attempt to extend her life... also, she is pregnant.", "你在最后的希望附近的墓地寻找赛利亚，并发现了一张字条。字条中，赛利亚透露自己一直在研究黑暗法术，试图延长寿命……而且她怀孕了。", "_t")
 t("You have tracked Celia to her husband's mausoleum in the graveyard near Last Hope. It seems she has taken some liberties with the corpses there.", "你跟踪赛利亚，找到了她亡夫位于最后的希望附近墓地中的陵墓。看来她对那里的尸体做了些出格的事。", "_t")
@@ -20256,7 +20256,7 @@ t("Winner", "游戏胜利", "_t")
 t("#GOLD#Well done! You have won the Tales of Maj'Eyal: The Age of Ascendancy#WHITE#", "#GOLD#干得好！你赢得了《马基·埃亚尔的传说：卓越纪》#WHITE#", "_t")
 t("The Sorcerers are dead, and the Orc Pride lies in ruins, thanks to your efforts.", "巫师们已经死去，兽人部落也沦为废墟，这都归功于你的努力。", "_t")
 t("Your patron's plan worked. As your body was crushed by the raw forces of the void portal it opened wide. In an instant the connection was made and waves of heat came through.", "你的庇护者的计划成功了。你的身体被虚空传送门的原始力量碾碎，传送门随之完全开启。连接转瞬建立，滚滚热浪从门中涌出。", "_t")
-t("The mad sun brought forth all its power through the portal, turning the High Peak into a giant searing needle!", "疯狂的太阳带着所有力量穿越了传送门，将巅峰化为一根灼烧的巨针！", "_t")
+t("The mad sun brought forth all its power through the portal, turning the High Peak into a giant searing needle!", "疯狂的太阳通过传送门释放出全部力量，将巅峰化为一根灼热的巨针！", "_t")
 t("A few minutes later the whole world was set ablaze, nothing survived except Faeros elementals.", "几分钟后，整个世界都被点燃，除了法罗元素，没有任何幸存者。", "_t")
 t("In the aftermath of the battle the Distant Sun tried to force you to open the portal to bring it forth onto Eyal.", "战斗结束后，遥远的太阳试图强迫你开启传送门，让它降临埃亚尔。", "_t")
 t("Through an incredible display of willpower you resisted long enough to ask Aeryn to kill you.", "你凭借惊人的意志力抵抗了足够久，终于得以请求艾琳杀死你。", "_t")
@@ -20267,7 +20267,7 @@ t("Your sacrifice worked. Your mental energies were imbued with farportal energi
 t("Every sentient being in Eyal is now part of the Way. Peace and happiness are enforced for all.", "所有埃亚尔有知觉的生物都成为了维网的一部分，和平与幸福被强加于所有生物。", "_t")
 t("Only the mages of Angolwen were able to withstand the mental shock and thus are the only unsafe people left. But what can they do against the might of the Way?", "只有安格利文的法师能够抵制住这道精神冲击，从而他们成为了仅存的危险人类，不过他们又能对强大的维网怎么样呢？", "_t")
 t("In the aftermath of the battle the Way tried to force you to act as a vessel to bring the Way to every sentient being.", "在战斗结束后，维网试图强迫你充当载体，将维网带给所有知觉生物。", "_t")
-t("You have prevented the portal to the Void from opening and thus stopped the Creator from bringing about the end of the world.", "你阻止了虚空传送门的开启，并终止了世界末日的到来。", "_t")
+t("You have prevented the portal to the Void from opening and thus stopped the Creator from bringing about the end of the world.", "你阻止了虚空传送门的开启，从而阻止了造物主毁灭世界。", "_t")
 t("In a selfless act, High Sun Paladin Aeryn sacrificed herself to close the portal to the Void and thus stopped the Creator from bringing about the end of the world.", "高阶太阳骑士艾琳无私地牺牲了自己，关闭通往虚空的传送门，从而阻止造物主毁灭世界。", "_t")
 t("In a selfless act, you sacrificed yourself to close the portal to the Void and thus stopped the Creator from bringing about the end of the world.", "你无私地牺牲了自己，关闭通往虚空的传送门，从而阻止造物主毁灭世界。", "_t")
 t("The Gates of Morning have been destroyed and the Sunwall has fallen. The last remnants of the free people in the Far East will surely diminish, and soon only orcs will inhabit this land.", "晨曦之门已被摧毁，太阳堡垒已经陷落。远东自由人民最后的残余势力必将衰亡，不久后，这片土地上将只剩兽人。", "_t")
@@ -20284,7 +20284,7 @@ t("", "", "_t")
 section "mod-tome/data/quests/infinite-dungeon.lua"
 
 t("The Infinite Dungeon", "无尽地下城", "_t")
-t("You have entered the Infinite Dungeon. There is no going back now.", "你进入了无限地下城。你已不能再走回头路了。", "_t")
+t("You have entered the Infinite Dungeon. There is no going back now.", "你进入了无尽地下城。你已不能再走回头路了。", "_t")
 t("Go deep, fight, win or die in a blaze of glory!", "深入地下城去战斗吧，胜利或者为荣耀而死！", "_t")
 
 ------------------------------------------------
