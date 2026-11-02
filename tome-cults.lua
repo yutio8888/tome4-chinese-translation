@@ -4375,7 +4375,7 @@ t("%s (dead)", "死去的%s", "tformat")
 section "tome-cults/data/zones/maggot/npcs.lua"
 
 t("The Spinal Cord", "脊髓", "entity name")
-t("One of the centers of the nervous system of the Maggot, if severed the Maggot will surely wither and die.", "巨大蛆虫的神经中枢。如果将其摧毁，巨大蛆虫也会死去。", "_t")
+t("One of the centers of the nervous system of the Maggot, if severed the Maggot will surely wither and die.", "巨大蛆虫的神经中枢之一。如果将其切断，巨大蛆虫必将枯萎死去。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/zones/maggot/objects.lua"
@@ -4428,7 +4428,7 @@ section "tome-cults/data/zones/occult-egress/grids.lua"
 
 t("Occult Egress", "神秘的出口", "entity name")
 t("The strange device looks inactive.", "奇怪的设备停止了。", "_t")
-t("The strange device looks active.", "奇怪的设备活动起来了。", "_t")
+t("The strange device looks active.", "这个奇怪的装置看起来已被激活。", "_t")
 t("Strange Glyph", "奇怪的符号", "entity name")
 
 ------------------------------------------------
@@ -4441,7 +4441,7 @@ t("A paper scrap.", "一张碎纸片。", "_t")
 section "tome-cults/data/zones/occult-egress/zone.lua"
 
 t("Occult Egress", "神秘的出口", "_t")
-t("#CRIMSON#The ground shakes as you finish the glyph sequence %s%s%s%s!", "#CRIMSON#你完成了印记序列%s%s%s%s，地面震动了起来！", "say")
+t("#CRIMSON#The ground shakes as you finish the glyph sequence %s%s%s%s!", "#CRIMSON#你完成了符号序列%s%s%s%s，地面震动了起来！", "say")
 
 ------------------------------------------------
 section "tome-cults/data/zones/scourged-pits/npcs.lua"
@@ -4451,7 +4451,7 @@ t("One of the tentacle tree has awakened!", "其中一棵触手树活起来了�
 t("dragon", "龙", "entity type")
 t("scourge", "天谴", "entity subtype")
 t("Kroltar the Scourge", "天灾巨龙库洛塔", "entity name")
-t("Kroltar, the mightiest fire wyrm to have ever walked Eyal. It was said that a group of dwarves had slain him, but something has taken up residence in the once proud creature's body, reanimating it into a twisted new lifeform.", "库洛塔，埃亚尔历史上最为伟大的火龙。传说矮人远征队杀死了他，不过另外一些东西似乎占据了这个曾经骄傲的巨龙的躯体，使其复苏成了一种扭曲的新生命形态。", "_t")
+t("Kroltar, the mightiest fire wyrm to have ever walked Eyal. It was said that a group of dwarves had slain him, but something has taken up residence in the once proud creature's body, reanimating it into a twisted new lifeform.", "库洛塔，埃亚尔历史上最强大的火龙。据说一群矮人杀死了他，但某种东西占据了这个曾经骄傲的巨龙的躯体，使其复苏成了一种扭曲的新生命形态。", "_t")
 t("and fed to the corrupt writhing tentacles", "并将其喂给了腐化的扭动触手", "_t")
 
 ------------------------------------------------
