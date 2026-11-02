@@ -33178,7 +33178,7 @@ If not, then consider the following questions:
 2) What tiers are these #GOLD#combat stats#WHITE#?
 
 Feel free to go batter those spiders some more if you need further experimentation!
-]], [[你能发现这些持续效果的作用机制么？
+]], [[你弄清楚是什么导致了这些新的持续效果了吗？
 
 如果没有的话，请思考一下下面几个问题：
 
@@ -34433,7 +34433,7 @@ Race features:#YELLOW#
 在厄流战争中，孔克雷夫创造了食人魔作为工人和战士，但最后他们成为了被遗弃的种族。他们庞大的体型和身上闪光的符文让他们在魔法狩猎期间无处藏身，只有那些逃去永恒精灵领地的少量族群幸免于难。
 因为他们必须要维护自己身上的刻印存活下去，他们操纵刻印的能力无可比拟，并且这份知识一直世代传承下去。他们解决问题的时候习惯使用最简单直接的手段，再加上他们……暴躁的脾性，这一切让他们获得了“愚蠢粗暴的野蛮人”这一不公的名声。然而，日益发展的刻印制作贸易正逐渐消除这种印象。
 
-你了解了食人魔过往的详情，并让他们那惊恐万分的创造者得以安息。随着孔克雷夫最后残余的毁灭，厄流战争终于迎来了真正的结束。现在，你可以创造新的#LIGHT_GREEN#食人魔#WHITE#角色，在实战中发挥他们的魔法力量吧！
+你了解了食人魔过往的详情，并让他们那惊恐万分的创造者得以安息。你消灭了孔克雷夫最后的残余，从名义上为这场早该结束的厄流战争画上了句号。现在，你可以创造新的#LIGHT_GREEN#食人魔#WHITE#角色，在实战中发挥他们的魔法力量吧！
 
 种族特色：#YELLOW#
 - 强壮但不愚笨
@@ -34460,8 +34460,7 @@ Marauders use stamina to fuel their techniques, which replenishes slowly over ti
 
 你已经明白在战斗中造成巨大伤害的价值，现在你在创建人物时可以选择新的职业 #LIGHT_GREEN#掠夺者#WHITE#。
 
-掠夺者是机动性极高的盗贼，掌握着各种灵巧的技术与战术。
-职业特点：#YELLOW#
+掠夺者是机动性极高的盗贼，掌握着各种灵巧的技术与战术。职业特点：#YELLOW#
 - 轻松穿行战场，在敌人之间起舞并避开他们的攻击。
 - 双持武器，对敌人施展毁灭性的技法。
 - 依靠纯粹的暴力重创敌人，再将其击倒。#WHITE#
@@ -34498,7 +34497,7 @@ Talents:
 ------------------------------------------------
 section "mod-tome/data/texts/unlock-rogue_skirmisher.lua"
 
-t("New Class: #LIGHT_GREEN#Skirmisher (Rogue)", "新职业：#LIGHT_GREEN#散兵（盗贼）", "_t")
+t("New Class: #LIGHT_GREEN#Skirmisher (Rogue)", "新职业：#LIGHT_GREEN#散兵（盗贼系）", "_t")
 t([[In Maj'Eyal threats are everywhere when you walk the wildlands, some rogues prefer to forgo the use of stealth instead using their cunning skills to kill silently from afar with a sling well protected with a buckler.
 
 You have learned the power of counterstriking from afar and can now create characters with the #LIGHT_GREEN#Skirmisher class#WHITE#.
@@ -34519,7 +34518,8 @@ Skirmisher use stamina to fuel their techniques, which replenishes slowly over t
 散兵是高度机动的盗贼，运用游击战术的好手，利用手中的投石索袭扰、削弱并消耗敌人，再以极快的攻击将其终结。
 
 职业特点：#YELLOW#
-- 跃过并翻滚绕开敌人，始终领先一步，保持在攻击范围之外
+- 跃过并翻滚绕开敌人，始终领先一步，保持在攻击
+范围之外
 - 致残对手，并射出一阵投石索弹幕
 - 凭借盾牌专精挡住敌人的远程攻击并反击#WHITE#
 
@@ -34529,7 +34529,7 @@ Skirmisher use stamina to fuel their techniques, which replenishes slowly over t
 ------------------------------------------------
 section "mod-tome/data/texts/unlock-undead_ghoul.lua"
 
-t("New Race: #LIGHT_GREEN#Ghoul (Undead)", "新种族：#LIGHT_GREEN#食尸鬼（不死亡灵）", "_t")
+t("New Race: #LIGHT_GREEN#Ghoul (Undead)", "新种族：#LIGHT_GREEN#食尸鬼（不死族）", "_t")
 t([[Ghouls are evil undead creatures. Usually raised by Necromancers to serve as mindless servants, some manage to keep their sentience and roam the world in a blazing path of destruction.
 You have killed the Master, a malevolent undead creature. You can now create a new character with the #LIGHT_GREEN#Ghoul race#WHITE#.
 
@@ -34540,7 +34540,7 @@ Race features:#YELLOW#
 - Fear immunity
 - Special ghoul talents: ghoulish leap, gnaw and retch#WHITE#
 ]], [[食尸鬼是邪恶的不死亡灵。通常被死灵法师复活为无意识的仆从，但有些食尸鬼设法保留了意识，在世界上留下一条燃烧的毁灭之路。
-你杀死了主人，一个恶毒的不死亡灵。现在你在创建人物时可以选择新的种族：#LIGHT_GREEN#食尸鬼#WHITE#。
+你杀死了领主，一个恶毒的不死亡灵。现在你在创建人物时可以选择新的种族：#LIGHT_GREEN#食尸鬼#WHITE#。
 
 种族特色：#YELLOW#
 - 强大的毒素抗性
@@ -34553,7 +34553,7 @@ Race features:#YELLOW#
 ------------------------------------------------
 section "mod-tome/data/texts/unlock-undead_skeleton.lua"
 
-t("New Race: #LIGHT_GREEN#Skeleton (Undead)", "新种族：#LIGHT_GREEN#骷髅（不死亡灵）", "_t")
+t("New Race: #LIGHT_GREEN#Skeleton (Undead)", "新种族：#LIGHT_GREEN#骷髅（不死族）", "_t")
 t([[Skeletons are evil undead creatures. Usually raised by Necromancers to serve as mindless servants, some manage to keep their sentience and roam the world in a blazing path of destruction.
 You have killed the Master, a malevolent undead creature. You can now create a new character with the #LIGHT_GREEN#Skeleton race#WHITE#.
 
@@ -34564,7 +34564,7 @@ Race features:#YELLOW#
 - No need to breathe
 - Special skeleton talents: bone armour, resilient bones, re-assemble#WHITE#
 ]], [[骷髅是邪恶的不死亡灵。通常被死灵法师复活为无意识的仆从，但有些骷髅设法保留了意识，在世界上留下一条燃烧的毁灭之路。
-你杀死了主人，一个恶毒的不死亡灵。现在你在创建人物时可以选择新的种族：#LIGHT_GREEN#骷髅#WHITE#。
+你杀死了领主，一个恶毒的不死亡灵。现在你在创建人物时可以选择新的种族：#LIGHT_GREEN#骷髅#WHITE#。
 
 种族特色：#YELLOW#
 - 毒素免疫
@@ -34687,7 +34687,7 @@ Stone Wardens also use Mana.
 - 变化成巨大的岩石元素，召唤火山。
 - 这是矮人专属的职业，只有在创建角色画面选择矮人才能看到。#WHITE#
 
-所有野性系职业使用自然失衡值作为其能量，它与自然之间的联系密切相关。
+所有野性系职业使用自然失衡值作为其能量，它代表着他们与自然之间的联系。
 失衡值越高，他们与自然越不平衡。失衡值过高可能导致能力使用失败并损失一个回合。
 岩石守卫同样使用法力值。
 ]], "_t")
@@ -34716,7 +34716,7 @@ The higher it gets the more off-balance they are with it. A high Equilibrium mak
 - 能直接控制你的召唤物
 - 使用不同的方式强化你的召唤物#WHITE#
 
-所有野性系职业使用自然失衡值作为其能量，它与自然之间的联系密切相关。
+所有野性系职业使用自然失衡值作为其能量，它代表着他们与自然之间的联系。
 失衡值越高，他们与自然越不平衡。失衡值过高可能导致能力使用失败并损失一个回合。
 ]], "_t")
 
@@ -37679,7 +37679,7 @@ section "mod-tome/data/zones/abashed-expanse/objects.lua"
 
 t("Void Star", "虚空之星", "entity name")
 t("tiny black star", "小巧的黑色星星", "_t")
-t("It looks like a very tiny star -- deep black -- and yet it somehow shines.", "它看起来像是一颗非常小巧的星星——深邃而黑暗——不时闪着光芒。", "_t")
+t("It looks like a very tiny star -- deep black -- and yet it somehow shines.", "它看起来像是一颗非常小巧的星星——深邃而黑暗——却不知为何闪着光芒。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/abashed-expanse/zone.lua"
@@ -40847,7 +40847,7 @@ section "mod-tome/data/zones/unhallowed-morass/objects.lua"
 
 t("Void Star", "虚空之星", "entity name")
 t("tiny black star", "小巧的黑色星星", "_t")
-t("It looks like a very tiny star -- deep black -- and yet it somehow shines.", "它看起来像是一颗非常小巧的星星——深邃而黑暗——不时闪着光芒。", "_t")
+t("It looks like a very tiny star -- deep black -- and yet it somehow shines.", "它看起来像是一颗非常小巧的星星——深邃而黑暗——却不知为何闪着光芒。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/unhallowed-morass/zone.lua"
