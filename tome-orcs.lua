@@ -7432,9 +7432,9 @@ t("god", "神", "entity type")
 t("eyal", "埃亚尔", "entity subtype")
 t([[You never thought this could even exist. You certainly never thought you'd encounter it. But this is true, in front of you stands a piece of Amakthel himself.
 The god that myths say was slain by the Sher'tul, themselves nothing but a myth.
-But there it is, half alive, half dead but you can feel his thoughts in your head, there is no mistake: #{bold}#The Dead God is here!#{normal}#]], [[你从没想象这样的事情居然会发生，你不相信你居然会遇到它。但是这是真的，在你面前矗立着的就是阿马克泰尔肢体的一部分。
-神话说，夏·图尔人杀死了阿马克泰尔，他们已经消逝在神话中。
-但是他就在这里，处于生死交接的沉眠中。你可以在脑海中感受到他的思维，没有错：#{bold}#已死之神就在这里！#{normal}#]], "_t")
+But there it is, half alive, half dead but you can feel his thoughts in your head, there is no mistake: #{bold}#The Dead God is here!#{normal}#]], [[你从没想过这种东西竟然真的存在，更没想过自己会遇到它。但这是真的，矗立在你面前的正是阿马克泰尔本体的一部分。
+神话说，这位神被夏·图尔人杀死，而夏·图尔人本身也不过是个神话。
+但他就在这里，半生半死，而你能在脑海中感受到他的思维，没有错：#{bold}#已死之神就在这里！#{normal}#]], "_t")
 t("Amakthel's Mouth", "阿马克泰尔的嘴", "entity name")
 t("#PURPLE#%s shouts: 'YOU DO NOT GET AWAY!'", "#PURPLE#%s叫着：“你逃不掉的！”", "saySimple")
 t("#PURPLE#%s shouts: 'YOU DO NOT GET AWAY!'", "#PURPLE#%s叫着：“你逃不掉的！”", "log")
@@ -7460,9 +7460,9 @@ t("pure white amulet", "纯白项链", "_t")
 t([["#{italic}#When Amakthel arrived, he created the Sun and brought life to this world.
 You carry a piece of His Sun with you now. Do not forget who gave it to you, lest you become like those wretched fools who would forsake Him.#{normal}#"]], [["#{italic}#阿马克泰尔降临，他创造了太阳，为世界带来生命。
 现在，你带着他的一片太阳。不要忘了是谁将它给予你，免得你落得和那些抛弃他的可怜虫一样。#{normal}#"]], "_t")
-t("When worn, gives you an additional prodigy point.", "装备时，获得一点觉醒技能点。", "_t")
-t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#护符的光辉充盈着你的全身，然后渐渐消退。你感觉更加强大了。（+1觉醒点）", "logPlayer")
-t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#护符的光芒笼罩了你，随后渐渐消退。你感觉更加强大了。（+1觉醒点）", "saySimple")
+t("When worn, gives you an additional prodigy point.", "装备时，获得一点觉醒点。", "_t")
+t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#项链的光芒笼罩了你，随后渐渐消退。你感觉更加强大了。（+1觉醒点）", "logPlayer")
+t("#GOLD#The light of the Amulet envelops you, then subsides. You feel stronger. (+1 Prodigy Points)", "#GOLD#项链的光芒笼罩了你，随后渐渐消退。你感觉更加强大了。（+1觉醒点）", "saySimple")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/slumbering-caves/zone.lua"
@@ -7471,7 +7471,7 @@ t("The Slumbering Caves", "沉睡之穴", "_t")
 t("The Slumbering Caves (%d)", "沉睡之穴 (%d)", "tformat")
 t("Amakthel's Prison", "阿马克泰尔封印处", "_t")
 t("Fall", "坠落", "_t")
-t("The end of the staircase was trapped, you fell for a long time, luckily not breaking anything. But you have no way back now...", "楼梯底部是个陷阱。你坠落了好一会，好在没有损坏什么东西。但你现在被困住了…", "_t")
+t("The end of the staircase was trapped, you fell for a long time, luckily not breaking anything. But you have no way back now...", "楼梯尽头设有陷阱，你坠落了很久，幸好没摔断哪里。但你现在已经无路可回了……", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/steam-quarry/grids.lua"
@@ -7490,7 +7490,7 @@ section "tome-orcs/data/zones/steam-quarry/objects.lua"
 
 t("a very old journal", "非常古老的日志", "entity name")
 t("A journal.", "一份记录。", "_t")
-t("schematic: Stormcutter", "配方：风暴切裂者", "entity name")
+t("schematic: Stormcutter", "配方：风暴切割者", "entity name")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/steam-quarry/zone.lua"
@@ -7519,7 +7519,7 @@ t("elf", "精灵", "entity subtype")
 t("Star Gazer", "观星者", "entity name")
 t("This astromancer radiates the power of all celestial bodies. You can discern a distinct elven shape under the hood and robes.", "这个星术师散发着所有天体的力量。你可以在兜帽和长袍下辨认出清晰的精灵身形。", "_t")
 t("Astral-Infused Yeti", "星辰雪人", "entity name")
-t("You wonder how this yeti can have wandered so far from its native habitat in the Clork Peninsula. You also wonder what happened to it that produced the celestial energies-wielding creature you angrily marching towards you.", "你想知道为什么雪人会从它在克拉克半岛的栖息地跋山涉水来到这里。你还想知道为什么这个被注入了强大的天空力量的雪人会愤怒地向你冲来。", "_t")
+t("You wonder how this yeti can have wandered so far from its native habitat in the Clork Peninsula. You also wonder what happened to it that produced the celestial energies-wielding creature you angrily marching towards you.", "你不禁好奇，这只雪人怎么会离开克拉克半岛的原生栖息地，游荡到如此遥远的地方。你还想知道，它究竟经历了什么，才变成眼前这个驾驭天体能量、正愤怒地向你走来的生物。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/sunwall-observatory/objects.lua"
@@ -7534,7 +7534,7 @@ With it you can spend your time stargazing without fear.]], [[为了避免在凝
 t("Allows you to resist the most terrible assaults on your mind.", "让你抵抗最可怕的精神攻击。", "_t")
 t("flesh", "肉", "entity type")
 t("muscle", "肌肉", "entity subtype")
-t("Yeti's Muscle Tissue (Astral)", "雪人族的肌肉组织（星界）", "entity name")
+t("Yeti's Muscle Tissue (Astral)", "雪人族肌肉组织（星界）", "entity name")
 t("flesh", "肉", "_t")
 t("Muscle tissue, extracted from a powerful yeti. Somewhere, somebody or something is bound to be interested!", "从一只强大雪人身上提取的肌肉组织。某个地方的某个人，或者某种东西，一定会对此感兴趣！", "_t")
 t("You cannot bring yourself to drop the %s", "你无法丢弃 %s", "logPlayer")
