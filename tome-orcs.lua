@@ -6945,7 +6945,7 @@ t("Farportal: Last Hope", "远行传送门：最后的希望", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go near the town of Last Hope in Maj'Eyal.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
 这座传送门似乎通往马基·埃亚尔最后的希望城附近。]], "_t")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你回到了最后的希望的郊外，传送的踪迹再不可寻……", "_t")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已踏上最后的希望的郊外，传送门却已无迹可寻……", "_t")
 t("wall", "墙壁", "entity type")
 t("cracks", "裂缝", "entity subtype")
 t("huge crack in the floor", "地面上的巨大裂缝", "entity name")
@@ -6961,7 +6961,7 @@ t("#LIGHT_RED#%s concentrates and casts a powerful shield!", "#LIGHT_RED#%s集�
 t("#GOLD#Before she falls, Aeryn manages to cast a powerful shield!", "#GOLD#在她倒下前，艾琳召唤出强力的护盾！", "saySimple")
 t("halfling pyremaster", "半身人火魔导师", "entity name")
 t("halfling", "半身人", "entity subtype")
-t("This tiny ball of fiery hatred came to the Sunwall as reinforcement from the Allied Kingdoms. He shall regret it!", "这团火热的小球看来是联合王国派来支援太阳堡垒的援军。他一定会后悔来到这里的！", "_t")
+t("This tiny ball of fiery hatred came to the Sunwall as reinforcement from the Allied Kingdoms. He shall regret it!", "这个满怀炽烈仇恨的小家伙是联合王国派来增援太阳堡垒的援军。他会为此后悔的！", "_t")
 t("shalore liberator", "永恒精灵解放者", "entity name")
 t("shalore", "永恒精灵", "entity subtype")
 t("A powerful shalore brawler that came to the Sunwall as reinforcement from the Allied Kingdoms. He shall regret it!", "一名强大的永恒精灵格斗家，由联合王国派来增援太阳堡垒。他会为此后悔的！", "_t")
@@ -7026,7 +7026,7 @@ section "tome-orcs/data/zones/gem/npcs.lua"
 t("Haze Commander Parmor", "阴霾指挥官帕默", "entity name")
 t("The Commander of the G.E.M. this noble looking giant looks down upon you in contempt. She wields two huge rotating saws still covered in various horror entrails.", "G.E.M.的指挥官。这个高贵的巨人用藐视的眼神居高临下地看着你。她手里拿着两个巨大的旋转圆锯，上面还带有恐魔的内脏。", "_t")
 t("Half-Mechanized Yeti", "半机械化雪人", "entity name")
-t("Whoever tortured and tormented this yeti did an amazing job of pain and destruction. As you gaze upon its fur you notice several vital spots reinforced with stralite plating. One of its arms has been replaced with a steamsaw.", "虽然不知道是谁把这个雪人折磨成这样，它的确变成了一个恐怖的杀戮机器。当你凝视着它的皮毛，你注意到它身上的重要部分都被斯莱特装甲所覆盖。它的一只手臂也被替换成了蒸汽链锯。", "_t")
+t("Whoever tortured and tormented this yeti did an amazing job of pain and destruction. As you gaze upon its fur you notice several vital spots reinforced with stralite plating. One of its arms has been replaced with a steamsaw.", "不管是谁折磨了这只雪人，此人在制造痛苦与破坏方面可谓干得出色。当你凝视它的皮毛时，你注意到它身上有几处要害部位用斯莱特装甲板加固过。它的一只手臂也被换成了蒸汽链锯。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/gem/objects.lua"
