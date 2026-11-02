@@ -2118,7 +2118,7 @@ Outside of the various movements of such distasteful groups, some of the shalore
 
 关于那些憎恨魔法的狂热者的谣言比比皆是，他们犯下的令人发指的暴行也是如此。他们的势力范围很广，据信他们正在影响许多人类王国和艾德瑞尔半身人的政治。他们不再满足于在黑暗中行动，派出训练有素的反魔法战士，在各地搜捕任何施放魔法或拥有奥术装备的人。奇怪的是，有人说还有一些食人魔会在他们的队伍中战斗，尽管我不知道这是怎么做到的。不过，如果我遇到他们的巡逻队，还是要万分小心，因为这肯定会是一场艰难的战斗。
 
-除了这些令人厌恶的群体的各种活动之外，一些研究魔法大爆炸所造成影响的永恒精灵人认为，最普遍的破坏痕迹很可能出现在埃尔瓦拉以东变黑的海岸线上。这是魔法大爆炸破坏能量的最初路径，前往这片区域，或许能更深入地了解魔法大爆炸的影响。然而，永恒精灵人知道，冒险穿过帷幕已经足够危险，更不用说那些土地有多危险了。尽管危险重重，但重要的是要知道魔法大爆炸给我们的世界带来了什么样的持久伤害。
+除了这些令人厌恶的群体的各种活动之外，一些研究魔法大爆炸所造成影响的永恒精灵人认为，最普遍的破坏痕迹很可能出现在埃尔瓦拉以东的黑暗的海岸一带。这是魔法大爆炸破坏能量的最初路径，前往这片区域，或许能更深入地了解魔法大爆炸的影响。然而，永恒精灵人知道，冒险穿过帷幕已经足够危险，更不用说那些土地有多危险了。尽管危险重重，但重要的是要知道魔法大爆炸给我们的世界带来了什么样的持久伤害。
 
 [i]我不会因为败给了死灵法师就气馁而不再离开埃尔瓦拉，但这也并不意味着我会轻率地葬送自己的生命。有人需要帮助，也有邪恶计划需要挫败，如果我能帮助完成这些任务，那么我就会竭尽全力。无论我在外面的世界里追求什么，我都会小心翼翼。我可以向你保证，艾尔温，我很快就会写另一本关于我的冒险的书。等我回来，亲爱的丈夫，你知道我要做的第一件事就是回到你的怀抱。但现在，我要从这片被我称为家园的土地出发，尽我所能地为这个世界提供帮助。[/i] ]], "_t")
 
@@ -2449,7 +2449,7 @@ t([[It's cold. Terribly cold. The unreality around you seems to be draining you 
 As you get your bearings, you can sense that there is something in here with you. Its presence looms over this entire void, filling you with a primordial sense of dread. The battle that will be fought here will be unlike any you have been through. And perhaps it will be your last.]], [[周围很冷，寒冷刺骨。环绕着你的非现实感，正在慢慢抽光你的一切。你的身体僵硬，四肢麻木。这里是被熵支配的场所，但是，你能看到几小片光亮在无尽的黑暗中坚强挺立。这份温暖的光芒给予了你力量，驱散了环绕全身的刺骨寒冷。这里一定有反熵的力量，那是唯一能够战胜熵的东西。你可以看到，它正在一场必败的战斗中顽强地抗争着。
 
 在你重新辨明方向时，你感觉到这里还有别的东西与你同在。它的存在笼罩着整个虚空，让你的心中涌满了来自本能的恐惧。你明白，在这里发生的这场战斗，和你所经历的任何一次都不同，可能也将是你的最后一场战斗。]], "_t")
-t("hypostasis of entropy", "熵的本质", "_t")
+t("hypostasis of entropy", "熵之源质", "_t")
 t("A towering manifestation of entropy stands before you. You feel tiny.", "一个高耸的熵之化身矗立在你面前。你感到自己无比渺小。", "_t")
 t("a new threat (1)", "新的威胁 (1)", "_t")
 t([[Long have we dwelt in the earth, the light of the surface never touching our sanctuary. We have sought power which few can even guess at and learned to wield the power of the dark ones squirming in the void. But, after our long seclusion, a creature from the depths has come to destroy our fortress. This 'maggot' is a creature which consumes anything in front of it, sliding through the earth and carving a path of destruction. This shall be where it stops. With the power we have gathered, we shall slay this intruder.
@@ -2585,8 +2585,8 @@ t("The Worm That Devours", "吞噬蠕虫", "_t")
 t([[A huge mindless and corrupted worm is heading toward Kroshkkur!
 It has to be stopped or the Sanctuary will fall, digested in the bowels of giant worm, its forbidden knowledge lost forever.]], [[一只巨大的无心智的腐化蠕虫正向克诺什库尔前进！
 它必须被阻拦，否则避难所将终结在它胃中，禁忌知识将永远消失。]], "_t")
-t("#LIGHT_GREEN#* You have destroyed the Worm's neural spine, preventing the doom of the Sanctuary.#WHITE#", "#LIGHT_GREEN#* 你成功地摧毁了虫子的脊髓，避难所免遭末日。#WHITE#", "_t")
-t("#LIGHT_RED#* You have failed to destroy the Worm in time, the Sanctuary has been destroyed.#WHITE#", "#LIGHT_RED#* 你没能及时摧毁虫子，避难所被摧毁了。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have destroyed the Worm's neural spine, preventing the doom of the Sanctuary.#WHITE#", "#LIGHT_GREEN#* 你成功地摧毁了蠕虫的神经脊髓，避难所免遭末日。#WHITE#", "_t")
+t("#LIGHT_RED#* You have failed to destroy the Worm in time, the Sanctuary has been destroyed.#WHITE#", "#LIGHT_RED#* 你没能及时摧毁蠕虫，避难所被摧毁了。#WHITE#", "_t")
 t("#SLATE#* You have to destroy the Worm's neural spine.#WHITE#", "#SLATE#* 你必须摧毁蠕虫的神经脊髓。#WHITE#", "_t")
 
 ------------------------------------------------
