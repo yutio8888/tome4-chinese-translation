@@ -41093,7 +41093,7 @@ t("Entrance to Rak'shor Pride bastion", "拉克·肖部落基地入口", "entity
 t("Entrance to Gorbat Pride bastion", "加伯特部落基地入口", "entity name")
 t("Entrance to Grushnak Pride bastion", "格鲁希纳克部落基地入口", "entity name")
 t("Entrance to Vor Pride bastion", "沃尔部落基地入口", "entity name")
-t("Backdoor to the Vor Armoury", "沃尔军工厂后门", "entity name")
+t("Backdoor to the Vor Armoury", "沃尔军械库后门", "entity name")
 t("Entrance into the sandpit of Briagh", "布莱亚沙坑入口", "entity name")
 t("Cavern leading to the valley of the moon", "通向月之山谷的洞穴", "entity name")
 t("A way into the caverns of Ardhungol", "通向阿尔德胡格洞穴的路", "entity name")
@@ -41156,7 +41156,7 @@ t([[#CRIMSON#Playing this class with the race you selected does not make much se
 t("Characters Vault", "角色仓库", "_t")
 t(" Load ", " 读取 ", "_t")
 t("Delete", "删除", "_t")
-t("Really delete premade: %s", "确认删除预设：%s", "tformat")
+t("Really delete premade: %s", "确认删除预存角色：%s", "tformat")
 t("Exploration mode", "探索模式", "_t")
 t([[Exploration mode provides the characters using it with infinite lives.
 Tales of Maj'Eyal is meant to be a very replayable game in which you get better by learning from mistakes (and thus from dying too).
@@ -41172,8 +41172,8 @@ Donators will also gain access to the custom tiles for their characters.]], [[�
 我觉得这款游戏可能不会被所有人接受并且在收到多次请求后，我决定开放探索模式给捐赠者，因为它允许喜欢这款游戏的玩家能全面地体验这款游戏。
 不过要注意的是，无限的生命并不意味着难度的减少，只意味着你可以随意尝试，而不必重新开始。
 
-如果你愿意使用这项功能并且觉得这款游戏很好，你可以考虑捐赠。
-这会帮助延长这款游戏的寿命。尽管这只是我自娱自乐所做的一款游戏，但如果它能帮我稍微贴补家用，我当然不会有怨言，毕竟现实生活有时很艰难。
+如果你愿意使用这项功能并且觉得这款游戏很好，你可以考虑捐赠。这会帮助延长这款游戏的寿命。
+尽管这只是我自娱自乐所做的一款游戏，但如果它能帮我稍微贴补家用，我当然不会有怨言，毕竟现实生活有时很艰难。
 你需要一个已激活并保持连接的在线档案，贴图选择器才能启用。如果你现在选择捐赠，你需要重启游戏才能获得权限。
 
 捐赠者还能为自己的角色使用自定义贴图。]], "_t")
@@ -41211,7 +41211,7 @@ Once you have done so, simply restart the game and the tiles will be listed at t
 ——必须以PNG格式保存
 ——必须放置在文件夹#LIGHT_BLUE#%s#WHITE#中
 
-完成操作后，重启游戏，列表中就会出现你的图像文件。]], "tformat")
+完成操作后，重启游戏，你的图像文件就会出现在列表底部。]], "tformat")
 t("Cosmetic Options", "外观设置", "_t")
 t("Name", "名称", "_t")
 t("Donator Feature", "捐赠者特权", "_t")
