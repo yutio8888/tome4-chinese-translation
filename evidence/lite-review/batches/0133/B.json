@@ -1,0 +1,349 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "93fb56fa35e1",
+   "verdict": "OK"
+  },
+  {
+   "id": "158294c09ae7",
+   "verdict": "OK"
+  },
+  {
+   "id": "2c480b66d41f",
+   "verdict": "OK"
+  },
+  {
+   "id": "048779747bc4",
+   "verdict": "OK"
+  },
+  {
+   "id": "b82904d03d14",
+   "verdict": "OK"
+  },
+  {
+   "id": "39bcc3a5f4f6",
+   "verdict": "OK"
+  },
+  {
+   "id": "5404e9a83e0e",
+   "verdict": "OK"
+  },
+  {
+   "id": "8c37795c40cc",
+   "verdict": "OK"
+  },
+  {
+   "id": "da9826315514",
+   "verdict": "OK"
+  },
+  {
+   "id": "5b7d7e7b957a",
+   "verdict": "OK"
+  },
+  {
+   "id": "ee4e285759e1",
+   "verdict": "ISSUE",
+   "observation": "换行数量由原文的 6 个变成 5 个，违反本次审核要求的换行不变量。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/cunning/ambush.lua:191–197 可核对原文段落边界；建议恢复原换行数量。",
+   "suggestion": "你融入阴影，并被其支配。\n\t\t使用该技能时以及接下来的 %d 个回合内，你将会自动闪烁到一个附近的敌人身边（离第一个击中的目标的位置在 %d 格之内），攻击并造成 %d%% 暗影武器伤害。\n\t\t融入阴影时，你免疫所有异常状态，并获得 %d%% 全体伤害抗性。\n\t\t在此技能激活时，你无法控制你的角色，并且无法主动中断技能，直到死亡或持续时间结束。\n\t\t如果找不到攻击目标，效果就会结束。\n\t\t这个技能不视为传送。\n\t\t抗性提升效果受法术强度加成。"
+  },
+  {
+   "id": "e6a094575555",
+   "verdict": "OK"
+  },
+  {
+   "id": "6453eb246e29",
+   "verdict": "OK"
+  },
+  {
+   "id": "37c3674cd9e0",
+   "verdict": "OK"
+  },
+  {
+   "id": "4d0f59f712d4",
+   "verdict": "ISSUE",
+   "observation": "“触发距离最小为1”把触发上限译成下限；“lasting up to”也应保留“最多”。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/cunning/traps.lua:1695–1702 使用 radius=1 检测附近目标，1759–1760 的同一 short_info（已将原文 damgae 拼写修正为 damage）明确写 Triggers out to range 1。",
+   "suggestion": "制造半径 5 格的重力异常，最多持续 %d 回合。敌对生物受到 %d 时空伤害并被拉向中心。敌人进入 1 格范围内时触发。"
+  },
+  {
+   "id": "166db8caf764",
+   "verdict": "OK"
+  },
+  {
+   "id": "b6f4c3a00f69",
+   "verdict": "OK"
+  },
+  {
+   "id": "f18407c64d41",
+   "verdict": "ISSUE",
+   "observation": "换行数量由原文的 0 个变成 1 个，违反本次审核要求的换行不变量。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/cursed/cursed-aura.lua:349 可核对原文段落边界；建议恢复原换行数量。",
+   "suggestion": "诅咒你周围 %d 格半径范围的大地，持续 %d 回合。任何站在这片大地上的目标都会陷入虚弱，造成的伤害减少 %d%%。"
+  },
+  {
+   "id": "8a55ee791351",
+   "verdict": "OK"
+  },
+  {
+   "id": "bd7d0bb83e3b",
+   "verdict": "ISSUE",
+   "observation": "换行数量由原文的 0 个变成 1 个，违反本次审核要求的换行不变量。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/cursed/dark-figure.lua:143 可核对原文段落边界；建议恢复原换行数量。",
+   "suggestion": "你收起可怕的本质伪装成可怜虫。那些在 %d 格外看到你的敌人将忽略你。当你攻击或使用技能时，它们会看穿你的本质，怜悯技能将失效。"
+  },
+  {
+   "id": "23e49f3d7bd1",
+   "verdict": "OK"
+  },
+  {
+   "id": "dd224221be7e",
+   "verdict": "OK"
+  },
+  {
+   "id": "813af5f6dfec",
+   "verdict": "OK"
+  },
+  {
+   "id": "7ba7d655cfb0",
+   "verdict": "OK"
+  },
+  {
+   "id": "c42295df24a6",
+   "verdict": "ISSUE",
+   "observation": "伤害和范围的两个 %d 在译文中颠倒，且 args_order 为 null。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/cursed/punishments.lua:64–66 按“精神伤害、范围、递减百分比”传参；现译会把伤害值显示为范围，把范围值显示为伤害。",
+   "suggestion": "你对任何敢于靠近的敌人释放可怕的诅咒，造成 %d 精神伤害，影响半径 %d 格内的目标。受影响目标的结算顺序随机；从第二个目标起，每个目标受到的伤害都比前一个减少 %d%%，且每个目标都有 25%% 几率遭受思维封锁。\n\n伤害受精神强度加成。"
+  },
+  {
+   "id": "474f6bdaaa49",
+   "verdict": "OK"
+  },
+  {
+   "id": "e60e9872f1d7",
+   "verdict": "OK"
+  },
+  {
+   "id": "c0655746430c",
+   "verdict": "OK"
+  },
+  {
+   "id": "cc2002c4fb42",
+   "verdict": "ISSUE",
+   "observation": "换行数量由原文的 2 个变成 4 个，违反本次审核要求的换行不变量。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/cursed/strife.lua:102–104 可核对原文段落边界；建议恢复原换行数量。",
+   "suggestion": "你的超自然感官能帮助你搜寻下一个猎物。你能感觉到 %0.1f 格半径范围内的敌人。在 10 格半径范围内你总能看见被追踪的目标。\n\t\t同时增加你的侦测潜行等级 %d， 侦测隐形等级 %d。\n\t\t侦测强度受意志加成。"
+  },
+  {
+   "id": "c9e1749f2ac5",
+   "verdict": "ISSUE",
+   "observation": "换行数量由原文的 1 个变成 2 个，违反本次审核要求的换行不变量。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/cursed/strife.lua:276–277 可核对原文段落边界；建议恢复原换行数量。",
+   "suggestion": "你闪电般地出现在 %d 格范围内的敌人身边，造成 %d%% （0仇恨）～ %d%% （100+仇恨）的伤害。你闪电般的突袭让敌人猝不及防，使你获得 %d 点额外闪避，持续 1 回合。\n\t\t闪避值受力量值加成。"
+  },
+  {
+   "id": "8dd0eb830b69",
+   "verdict": "OK"
+  },
+  {
+   "id": "6bc1eb8aa309",
+   "verdict": "OK"
+  },
+  {
+   "id": "8e8c9e039928",
+   "verdict": "OK"
+  },
+  {
+   "id": "471207ebf16d",
+   "verdict": "OK"
+  },
+  {
+   "id": "343e0bb015bf",
+   "verdict": "OK"
+  },
+  {
+   "id": "bfeabad922b3",
+   "verdict": "OK"
+  },
+  {
+   "id": "6082deb485c3",
+   "verdict": "OK"
+  },
+  {
+   "id": "e8af619aa573",
+   "verdict": "OK"
+  },
+  {
+   "id": "5d4f0f79b9dd",
+   "verdict": "OK"
+  },
+  {
+   "id": "2ad1a2b1ae84",
+   "verdict": "OK"
+  },
+  {
+   "id": "d1c6057f85e7",
+   "verdict": "OK"
+  },
+  {
+   "id": "022d4d09b415",
+   "verdict": "ISSUE",
+   "observation": "换行数量由原文的 5 个变成 4 个，违反本次审核要求的换行不变量。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/gifts/storm-drake.lua:194–199 可核对原文段落边界；建议恢复原换行数量。",
+   "suggestion": "召唤一个龙卷风，它会向着目标极为缓慢地移动，并在目标移动时跟随目标。\n\t\t每当它移动时，半径2范围内的所有敌人会受到 %0.2f 闪电伤害，并被击退2格。\n\t\t当它碰到目标的时候，会在 %d 格范围内引发爆炸，击退目标，并造成 %0.2f 闪电和 %0.2f 物理伤害。\n\t\t龙卷风最多移动20次。\n\t\t伤害受精神强度加成。\n\t\t每点雷龙系的天赋可以使你增加闪电抗性 1%%。"
+  },
+  {
+   "id": "e07c51d88c74",
+   "verdict": "OK"
+  },
+  {
+   "id": "42f6e525a018",
+   "verdict": "OK"
+  },
+  {
+   "id": "a6f33806b1be",
+   "verdict": "OK"
+  },
+  {
+   "id": "310427036df7",
+   "verdict": "OK"
+  },
+  {
+   "id": "b48e351b1e65",
+   "verdict": "ISSUE",
+   "observation": "原文用于表示百分比属性的两处 %% 均被删除，抗性穿透的百分比维度也未明确保留。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/gifts/summon-distance.lua:735–739 明列 increased damage%%、resistance penetration %%；本次规则要求保留 %% 不变量。",
+   "suggestion": "召唤 1 棵持续 %d 回合的雾凇骚扰敌人。雾凇不可移动，但是永远有寒冰风暴围绕着它们，伤害并冰冻 3 格半径范围内的任何人。\n\t\t它拥有 %d 点意志， %d 点灵巧和 %d 点体质。\n\t\t你的召唤物继承你部分属性：伤害加成%%、抗性穿透%%、震慑/定身/混乱/致盲抵抗和护甲穿透。\n\t\t雾凇的意志和灵巧受精神强度加成。"
+  },
+  {
+   "id": "8ea1ce3c4e66",
+   "verdict": "OK"
+  },
+  {
+   "id": "4785a5af54d1",
+   "verdict": "OK"
+  },
+  {
+   "id": "dadaf3aab224",
+   "verdict": "OK"
+  },
+  {
+   "id": "3255bfdca0dc",
+   "verdict": "OK"
+  },
+  {
+   "id": "0897b8d33305",
+   "verdict": "OK"
+  },
+  {
+   "id": "437a85365531",
+   "verdict": "OK"
+  },
+  {
+   "id": "6446a75bcc0a",
+   "verdict": "OK"
+  },
+  {
+   "id": "41215825bae1",
+   "verdict": "OK"
+  },
+  {
+   "id": "fd1ef9522422",
+   "verdict": "OK"
+  },
+  {
+   "id": "1b75068eb872",
+   "verdict": "OK"
+  },
+  {
+   "id": "591286d896e9",
+   "verdict": "OK"
+  },
+  {
+   "id": "840f5906c23c",
+   "verdict": "OK"
+  },
+  {
+   "id": "f3c60b14c981",
+   "verdict": "OK"
+  },
+  {
+   "id": "5977c8ecfecf",
+   "verdict": "OK"
+  },
+  {
+   "id": "d009d09bf421",
+   "verdict": "OK"
+  },
+  {
+   "id": "ae3a5e5cfbbd",
+   "verdict": "OK"
+  },
+  {
+   "id": "28b52f4407a1",
+   "verdict": "OK"
+  },
+  {
+   "id": "4e72f419390f",
+   "verdict": "OK"
+  },
+  {
+   "id": "f8571a4c5332",
+   "verdict": "OK"
+  },
+  {
+   "id": "6af0762b624b",
+   "verdict": "ISSUE",
+   "observation": "换行数量由原文的 1 个变成 2 个，违反本次审核要求的换行不变量。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/misc/npcs.lua:3746–3747 可核对原文段落边界；建议恢复原换行数量。",
+   "suggestion": "在你的脚下制造一个 %d 格半径的法阵，它会照亮范围区域，每回合增加 %d 正能量，并对范围内除你之外的所有生物每回合造成 %0.2f 光系伤害和 %0.2f 火焰伤害。阵法持续 %d 回合。\n\t\t伤害受法术强度加成。"
+  },
+  {
+   "id": "8a58466de5d6",
+   "verdict": "OK"
+  },
+  {
+   "id": "f6150a26f24b",
+   "verdict": "ISSUE",
+   "observation": "换行数量由原文的 2 个变成 3 个，违反本次审核要求的换行不变量。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/psionic/discharge.lua:179–181 可核对原文段落边界；建议恢复原换行数量。",
+   "suggestion": "你的潜意识会报复那些伤害你的人。当攻击者在 %d 格范围内时，你会对目标造成精神伤害，伤害值为因承受此攻击而获得的反馈数值（但不超过 %0.2f）。\n\t\t此效果每回合对同一生物最多只能触发 1 次。\n\t\t受精神强度影响，伤害按比例加成。"
+  },
+  {
+   "id": "1685f005358e",
+   "verdict": "OK"
+  },
+  {
+   "id": "7739040e4f2c",
+   "verdict": "OK"
+  },
+  {
+   "id": "1b1fb4b31a5d",
+   "verdict": "OK"
+  },
+  {
+   "id": "341e7064d1d9",
+   "verdict": "OK"
+  },
+  {
+   "id": "c5de31ea6297",
+   "verdict": "ISSUE",
+   "observation": "换行数量由原文的 4 个变成 6 个，违反本次审核要求的换行不变量。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/psionic/dream-forge.lua:279–283 可核对原文段落边界；建议恢复原换行数量。",
+   "suggestion": "你将脑海里锻造的冲击波向四周释放。每回合当你保持静止，你将会锤击梦之熔炉，对周围敌人造成精神和燃烧伤害。\n\t\t此效果将递增 5 个回合，直至 %d 格最大范围， %0.2f 最大精神伤害和 %0.2f 最大燃烧伤害。\n\t\t此刻，你将会打破那些听到熔炉声的敌人梦境，减少它们 %d 精神豁免，并且由于敲击熔炉的巨大回声，它们将获得一个 %d%% 的法术失败率，持续 %d 回合。\n\t\t梦境破碎有 %d%% 几率对你的敌人产生思维封锁效果。\n\t\t受精神强度影响，伤害和梦境打破效果按比例加成。"
+  },
+  {
+   "id": "74598e2ab1ee",
+   "verdict": "OK"
+  },
+  {
+   "id": "e8349709cae7",
+   "verdict": "OK"
+  },
+  {
+   "id": "8942e709e489",
+   "verdict": "OK"
+  },
+  {
+   "id": "c557df4bd9aa",
+   "verdict": "OK"
+  },
+  {
+   "id": "63684cd957f5",
+   "verdict": "OK"
+  },
+  {
+   "id": "6301a219cda1",
+   "verdict": "OK"
+  }
+ ]
+}

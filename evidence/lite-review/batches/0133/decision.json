@@ -1,0 +1,124 @@
+{
+ "confirmed": [
+  {
+   "id": "ee4e285759e1",
+   "edit": [
+    [
+     "\t\t在此技能激活时，你无法控制你的角色，并且无法主动中断技能，直到死亡、持续时间结束、或者找不到攻击的目标。\n",
+     "\t\t在此期间，除非被杀死，否则你不会被阻止，你也无法控制你的角色。\n\t\t如果找不到目标，此效果结束。\n"
+    ]
+   ],
+   "evidence": "ambush.lua:191-197 6 LF; the separate line \"If a target isn't found this effect ends.\" restored"
+  },
+  {
+   "id": "f18407c64d41",
+   "edit": [
+    [
+     "持续 %d 回合。\n\t\t任何站在这片大地上的目标都会陷入虚弱",
+     "持续 %d 回合。任何站在这片大地上的目标都会陷入虚弱"
+    ]
+   ],
+   "evidence": "cursed-aura.lua:349 single line, 0 LF"
+  },
+  {
+   "id": "bd7d0bb83e3b",
+   "edit": [
+    [
+     "将忽略你。\n\t\t当你攻击或使用技能时",
+     "将忽略你。当你攻击或使用技能时"
+    ]
+   ],
+   "evidence": "dark-figure.lua:143 single line, 0 LF"
+  },
+  {
+   "id": "cc2002c4fb42",
+   "edit": [
+    [
+     "你的超自然感官能帮助你搜寻下一个猎物。\n\t\t你能感觉到 %0.1f 格半径范围内的敌人。\n\t\t在 10 格半径范围内",
+     "你的超自然感官能帮助你搜寻下一个猎物。你能感觉到 %0.1f 格半径范围内的敌人。在 10 格半径范围内"
+    ]
+   ],
+   "evidence": "strife.lua:102-104 2 LF"
+  },
+  {
+   "id": "c9e1749f2ac5",
+   "edit": [
+    [
+     "（100+仇恨）的伤害。\n\t\t你闪电般的突袭",
+     "（100+仇恨）的伤害。你闪电般的突袭"
+    ]
+   ],
+   "evidence": "strife.lua:276-277 1 LF"
+  },
+  {
+   "id": "022d4d09b415",
+   "edit": [
+    [
+     "并在目标移动时跟随目标，最多移动20次。",
+     "并在目标移动时跟随目标。"
+    ],
+    [
+     "引发爆炸，击退目标，并造成 %0.2f 闪电和 %0.2f 物理伤害。\n\t\t伤害受精神强度加成。",
+     "引发爆炸，击退目标，并造成 %0.2f 闪电和 %0.2f 物理伤害。\n\t\t龙卷风最多移动 20 次。\n\t\t伤害受精神强度加成。"
+    ]
+   ],
+   "evidence": "storm-drake.lua:194-199 5 LF; the \"maximum of 20 times\" line restored in place"
+  },
+  {
+   "id": "6af0762b624b",
+   "edit": [
+    [
+     "每回合造成 %0.2f 光系伤害和 %0.2f 火焰伤害。\n\t\t阵法持续 %d 回合。",
+     "每回合造成 %0.2f 光系伤害和 %0.2f 火焰伤害。阵法持续 %d 回合。"
+    ]
+   ],
+   "evidence": "npcs.lua:3746-3747 1 LF"
+  },
+  {
+   "id": "f6150a26f24b",
+   "edit": [
+    [
+     "你的潜意识会报复那些伤害你的人。\n\t\t当攻击者在",
+     "你的潜意识会报复那些伤害你的人。当攻击者在"
+    ]
+   ],
+   "evidence": "discharge.lua:179-181 2 LF"
+  },
+  {
+   "id": "c5de31ea6297",
+   "edit": [
+    [
+     "你将脑海里锻造的冲击波向四周释放。\n\t\t每回合当你保持静止",
+     "你脑海中轰鸣的思想熔炉向四周释放。每回合当你保持静止"
+    ],
+    [
+     "并且由于敲击熔炉的\n\t\t巨大回声",
+     "并且由于敲击熔炉的巨大回声"
+    ]
+   ],
+   "evidence": "dream-forge.lua:279-283 4 LF; mid-sentence break removed; \"pounding forge of thought\" = 轰鸣的思想熔炉"
+  },
+  {
+   "id": "4d0f59f712d4",
+   "edit": [
+    [
+     "制造范围 5 的重力异常，持续 %d 回合。敌对生物受到 %d 时空伤害并被拉过去。触发距离最小为1。",
+     "制造范围 5 的重力异常，最多持续 %d 回合。敌对生物受到 %d 时空伤害并被拉过去。敌人进入 1 格范围内时触发。"
+    ]
+   ],
+   "evidence": "traps.lua:1695-1702/1759-1763 radius=1 trigger (\"Triggers out to range 1\"), \"lasting up to\""
+  }
+ ],
+ "advisory": [],
+ "rejected": [
+  {
+   "id": "c42295df24a6",
+   "reason": "row carries args_order {2,1,3}; damage and radius render in the right places"
+  },
+  {
+   "id": "b48e351b1e65",
+   "reason": "the two %% are the literal labels \"damage%\"/\"penetration %\" (not format arguments); 百分比伤害 conveys them and lint passes"
+  }
+ ],
+ "notes": "newline-count findings verified against the frozen source/target LF counts"
+}

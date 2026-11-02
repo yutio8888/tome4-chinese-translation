@@ -23102,7 +23102,8 @@ t([[You veil yourself in shadows and let them control you.
 		The resistance will increase with your Spellpower stat.]], [[你融入阴影，并被其支配。
 		使用该技能时以及接下来的 %d 个回合内，你将会自动闪烁到一个附近的敌人身边（离第一个击中的目标的位置在 %d 格之内），攻击并造成 %d%% 暗影武器伤害。
 		融入阴影时，你免疫所有异常状态，并获得 %d%% 全体伤害抗性。
-		在此技能激活时，你无法控制你的角色，并且无法主动中断技能，直到死亡、持续时间结束、或者找不到攻击的目标。
+		在此期间，除非被杀死，否则你不会被阻止，你也无法控制你的角色。
+		如果找不到目标，此效果结束。
 		这个技能不视为传送。
 		抗性提升效果受法术强度加成。]], "tformat")
 
@@ -23745,7 +23746,7 @@ t("gravitic trap", "引力陷阱", "_t")
 t("#LIGHT_STEEL_BLUE#%s distorts time and space!", "#LIGHT_STEEL_BLUE#%s 扭曲了时空！", "logSeen")
 t("#LIGHT_STEEL_BLUE##Target# pulls #Source# in!", "#LIGHT_STEEL_BLUE##Target# 将#Source#拉了过来！", "logCombat")
 t("#LIGHT_STEEL_BLUE##Source# resists the pull of #Target#!", "#LIGHT_STEEL_BLUE##Source#抵抗了#Target#的拉力！", "logCombat")
-t("Creates a radius 5 gravitic anomaly lasting up to %d turns.  Hostile creatures are dealt %d temporal damgae and pulled in.  Triggers out to range 1.", "制造范围 5 的重力异常，持续 %d 回合。敌对生物受到 %d 时空伤害并被拉过去。触发距离最小为1。", "tformat")
+t("Creates a radius 5 gravitic anomaly lasting up to %d turns.  Hostile creatures are dealt %d temporal damgae and pulled in.  Triggers out to range 1.", "制造范围 5 的重力异常，最多持续 %d 回合。敌对生物受到 %d 时空伤害并被拉过去。敌人进入 1 格范围内时触发。", "tformat")
 t([[Lay a trap that creates a radius 5 gravitic anomaly when triggered by foes approaching within range 1.  Each turn, the anomaly deals %0.2f temporal damage (based on your Magic) to foes while pulling them towards its center (chance increases with your combat accuracy or spell power, whichever is higher).
 		Each anomaly lasts %d turns (up to the amount of time since the last anomaly dissipated, based on your Trap Mastery skill).
 		The trap may trigger more than once, but requires at least 2 turns to recharge between activations.
@@ -23954,8 +23955,7 @@ t([[Your curses bring you dark gifts. Unlocks bonus level %d effects on all of y
 		在等级 5 时，因诅咒带来的幸运惩罚降到 1。
 		等级 5 以上时为诅咒增加额外能量等级，增强其效果（当前增加 %0.1f）。]], "tformat")
 t("Ruined Earth", "毁灭大地", "talent name")
-t("Curse the earth around you in a radius of %d for %d turns. Any who stand upon it are weakened, reducing the damage they inflict by %d%%", [[诅咒你周围 %d 格半径范围的大地，持续 %d 回合。
-		任何站在这片大地上的目标都会陷入虚弱，造成的伤害减少 %d%%。]], "tformat")
+t("Curse the earth around you in a radius of %d for %d turns. Any who stand upon it are weakened, reducing the damage they inflict by %d%%", [[诅咒你周围 %d 格半径范围的大地，持续 %d 回合。任何站在这片大地上的目标都会陷入虚弱，造成的伤害减少 %d%%。]], "tformat")
 t("Choose Cursed Sentry", "选择诅咒护卫", "talent name")
 t("Which weapon will be your sentry?", "选择哪把武器作为诅咒护卫？", "_t")
 t("Choose a sentry to instill your affliction into.", "选择一个护卫，将你的苦难灌注其中。", "_t")
@@ -24055,8 +24055,7 @@ t("The time you have spent suppressing the curse has taught you self control. Th
 t("Cruel Vigor", "残酷活力", "talent name")
 t("You are invigorated by the death around you. Each life you take grants %d%% speed for %d more turns.", "你受到周遭死亡的激励。每夺取一条生命，便获得 %d%% 速度，持续时间再延长 %d 回合。", "tformat")
 t("Pity", "怜悯", "talent name")
-t("You hide your terrible nature behind a pitiful figure. Those that see you from a distance of %d will ignore you. If you attack or use a talent they will see you for what you are and pity will be deactivated.", [[你收起可怕的本质伪装成可怜虫。那些在 %d 格外看到你的敌人将忽略你。
-		当你攻击或使用技能时，它们会看穿你的本质，怜悯技能将失效。]], "tformat")
+t("You hide your terrible nature behind a pitiful figure. Those that see you from a distance of %d will ignore you. If you attack or use a talent they will see you for what you are and pity will be deactivated.", [[你收起可怕的本质伪装成可怜虫。那些在 %d 格外看到你的敌人将忽略你。当你攻击或使用技能时，它们会看穿你的本质，怜悯技能将失效。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/dark-sustenance.lua"
@@ -24556,16 +24555,13 @@ t([[Turn your attention to a nearby foe, and dominate them with your overwhelmin
 t("Preternatural Senses", "第七感觉", "talent name")
 t([[Your preternatural senses aid you in your hunt for the next victim. You sense foes in a radius of %0.1f. You will always sense a stalked victim in a radius of 10.
 		Also increases stealth detection by %d and invisibility detection by %d.
-		Stealth and invisibility detection improves with your Willpower]], [[你的超自然感官能帮助你搜寻下一个猎物。
-		你能感觉到 %0.1f 格半径范围内的敌人。
-		在 10 格半径范围内你总能看见被追踪的目标。
+		Stealth and invisibility detection improves with your Willpower]], [[你的超自然感官能帮助你搜寻下一个猎物。你能感觉到 %0.1f 格半径范围内的敌人。在 10 格半径范围内你总能看见被追踪的目标。
 		同时增加你的侦测潜行等级 %d， 侦测隐形等级 %d。
 		侦测强度受意志加成。]], "tformat")
 t("Blindside", "闪电突袭", "talent name")
 t("The blindside fizzles!", "闪电突袭失败了！", "logSeen")
 t([[With blinding speed, you suddenly appear next to a target up to %d spaces away and attack for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage. Your sudden appearance catches everyone off-guard, giving you %d extra Defense for 1 turn.
-		The Defense boost improves with your Strength.]], [[你闪电般地出现在 %d 格范围内的敌人身边，造成 %d%% （0仇恨）～ %d%% （100+仇恨）的伤害。
-		你闪电般的突袭让敌人猝不及防，使你获得 %d 点额外闪避，持续 1 回合。
+		The Defense boost improves with your Strength.]], [[你闪电般地出现在 %d 格范围内的敌人身边，造成 %d%% （0仇恨）～ %d%% （100+仇恨）的伤害。你闪电般的突袭让敌人猝不及防，使你获得 %d 点额外闪避，持续 1 回合。
 		闪避值受力量值加成。]], "tformat")
 t("Repel", "无所畏惧", "talent name")
 t([[Rather than hide from the onslaught, you face down every threat. While active you have a %d%% chance of repelling a melee attack. The recklessness of your defense brings you bad luck (Luck -3).
@@ -25437,9 +25433,10 @@ t([[Summon a tornado that moves very slowly towards the target, following it if 
 		When it reaches the target it explodes in a radius of %d, knocking back targets and dealing %0.2f lightning and %0.2f physical damage.
 		The tornado will move a maximum of 20 times.
 		Damage will increase with your Mindpower.
-		Each point in storm drake talents also increases your lightning resistance by 1%%.]], [[召唤一个龙卷风，它会向着目标极为缓慢地移动，并在目标移动时跟随目标，最多移动20次。
+		Each point in storm drake talents also increases your lightning resistance by 1%%.]], [[召唤一个龙卷风，它会向着目标极为缓慢地移动，并在目标移动时跟随目标。
 		每当它移动时，半径2范围内的所有敌人会受到 %0.2f 闪电伤害，并被击退2格。
 		当它碰到目标的时候，会在 %d 格范围内引发爆炸，击退目标，并造成 %0.2f 闪电和 %0.2f 物理伤害。
+		龙卷风最多移动 20 次。
 		伤害受精神强度加成。
 		每点雷龙系的天赋可以使你增加闪电抗性 1%%。]], "tformat")
 t("Lightning Breath", "闪电吐息", "talent name")
@@ -26619,8 +26616,7 @@ t([[You are linked to your shadows for %d turns, diverting %d%% of all damage yo
 		效果随精神强度提高。]], "tformat")
 t("Circle of Blazing Light", "炽焰之阵", "talent name")
 t([[Creates a circle of radius %d at your feet; the circle lights up affected tiles, increases your positive energy by %d each turn and deals %0.2f light damage and %0.2f fire damage per turn to everyone else within its radius.  The circle lasts %d turns.
-		The damage will increase with your Spellpower.]], [[在你的脚下制造一个 %d 格半径的法阵，它会照亮范围区域，每回合增加 %d 正能量，并对范围内除你之外的所有生物每回合造成 %0.2f 光系伤害和 %0.2f 火焰伤害。
-		阵法持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[在你的脚下制造一个 %d 格半径的法阵，它会照亮范围区域，每回合增加 %d 正能量，并对范围内除你之外的所有生物每回合造成 %0.2f 光系伤害和 %0.2f 火焰伤害。阵法持续 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Blur Sight", "模糊视觉", "talent name")
 t([[The caster's image blurs, granting a %d bonus to Defense.
@@ -27147,8 +27143,7 @@ t([[Activate to invert your Feedback decay for %d turns.  This effect can be a c
 t("Backlash", "灵能反击", "talent name")
 t([[Your subconscious now retaliates when you take damage.  If the attacker is within range (%d), you'll inflict mind damage equal to the Feedback gained from the attack or %0.2f, whichever is lower.
 		This effect can only happen once per creature per turn.
-		The damage will scale with your Mindpower.]], [[你的潜意识会报复那些伤害你的人。
-		当攻击者在 %d 格范围内时，你会对目标造成精神伤害，伤害值为因承受此攻击而获得的反馈数值（但不超过 %0.2f）。
+		The damage will scale with your Mindpower.]], [[你的潜意识会报复那些伤害你的人。当攻击者在 %d 格范围内时，你会对目标造成精神伤害，伤害值为因承受此攻击而获得的反馈数值（但不超过 %0.2f）。
 		此效果每回合对同一生物最多只能触发 1 次。
 		受精神强度影响，伤害按比例加成。]], "tformat")
 t("Focused Wrath", "集火", "talent name")
@@ -27238,11 +27233,9 @@ t([[The pounding forge of thought in your mind is released upon your surrounding
 		The effect will build over five turns, until it reaches a maximum radius of %d, maximum mind damage of %0.2f, and maximum burning damage of %0.2f.
 		At this point you'll begin breaking the dreams of enemies who hear the forge, reducing their Mental Save by %d and giving them a %d%% chance of spell failure due to the tremendous echo in their minds for %d turns.
 		Broken Dreams has a %d%% chance to brainlock your enemies.
-		The damage and dream breaking effect will scale with your Mindpower.]], [[你将脑海里锻造的冲击波向四周释放。
-		每回合当你保持静止，你将会锤击梦之熔炉，对周围敌人造成精神和燃烧伤害。
+		The damage and dream breaking effect will scale with your Mindpower.]], [[你脑海中轰鸣的思想熔炉向四周释放。每回合当你保持静止，你将会锤击梦之熔炉，对周围敌人造成精神和燃烧伤害。
 		此效果将递增 5 个回合，直至 %d 格最大范围， %0.2f 最大精神伤害和 %0.2f 最大燃烧伤害。
-		此刻，你将会打破那些听到熔炉声的敌人梦境，减少它们 %d 精神豁免，并且由于敲击熔炉的
-		巨大回声，它们将获得一个 %d%% 的法术失败率，持续 %d 回合。
+		此刻，你将会打破那些听到熔炉声的敌人梦境，减少它们 %d 精神豁免，并且由于敲击熔炉的巨大回声，它们将获得一个 %d%% 的法术失败率，持续 %d 回合。
 		梦境破碎有 %d%% 几率对你的敌人产生思维封锁效果。
 		受精神强度影响，伤害和梦境打破效果按比例加成。]], "tformat")
 
