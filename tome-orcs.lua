@@ -491,7 +491,7 @@ t("No thanks.", "不用了，谢谢。", "_t")
 section "tome-orcs/data/chats/metash.lua"
 
 t([[#LIGHT_GREEN#*Before you stands an impressive undead minotaur.*#WHITE#
-I would like to talk to you.]], [[#LIGHT_GREEN#*在你面前站着一位引人注目的亡灵牛头人。*#WHITE#
+I would like to talk to you.]], [[#LIGHT_GREEN#*在你面前站着一位引人注目的亡灵米诺陶。*#WHITE#
 我有一些话想对你说。]], "_t")
 t("Yes?", "嗯？", "_t")
 t("Your clan is free Metash, the tyrant is no more.", "梅塔什，你的氏族被解放了，暴君已经不复存在。", "_t")
@@ -949,7 +949,7 @@ t("A mage dressed in ornate robes depicting both light and darkness.", "一个�
 t("astral conjurer", "星空魔术师", "entity name")
 t("human", "人类", "entity subtype")
 t("elven astromancer", "精灵星术师", "entity name")
-t("A mage who has studied all there is to know about the stars and their working.", "一个将毕生精力投入到了对星辰及其原理的学习中的法师。", "_t")
+t("A mage who has studied all there is to know about the stars and their working.", "一个已通晓星辰及其运行之理的法师。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/sunwall-warrior.lua"
@@ -980,7 +980,7 @@ t("While a titan usually look like a corrupted steam giant, this one looks more 
 t("titan searing seer", "泰坦炙热先知", "entity name")
 t("Wreathed in arcane flames you can feel the intense psionic forces ripping at your mind emanating from this titan.", "被奥术烈焰缠绕的泰坦散发出强烈的灵能力量，正撕扯着你的心灵。", "_t")
 t("titan vile spewer", "泰坦呕吐魔", "entity name")
-t("The wretched titan's skin is of a sickly green, full of ever-oozing wounds, cracks and pustules. Worms and all kind of vile things crawl over it.", "这个恶心的泰坦皮肤呈病态的绿色，满是不停渗液的伤口、裂缝和脓疱。蠕虫和其他各种卑劣的东西在他身上爬来爬去。", "_t")
+t("The wretched titan's skin is of a sickly green, full of ever-oozing wounds, cracks and pustules. Worms and all kind of vile things crawl over it.", "这个恶心的泰坦皮肤呈病态的绿色，满是不停渗液的伤口、裂缝和脓疱。蠕虫和其他各种污秽之物在他身上爬来爬去。", "_t")
 t("titan dreadnought", "泰坦无畏勇士", "entity name")
 t("One of the biggest titans you have seen yet, it is fully clad in deep black stralite full plate, charging menacingly towards you at a terrible pace.", "这是你迄今见过的最大泰坦之一，它身披一整套深黑色斯莱特板甲，正以骇人的速度向你猛冲而来。", "_t")
 t("sher'tan", "夏尔泰坦", "entity name")
@@ -1022,9 +1022,9 @@ section "tome-orcs/data/general/npcs/whitehooves.lua"
 t("undead", "亡灵", "entity type")
 t("minotaur", "米诺陶", "entity subtype")
 t("whitehoof ghoul", "白蹄尸鬼", "entity name")
-t("It is a cross between a human and a bull, but more ... dead.", "他像是人类和公牛组合出来的，除了更……死。", "_t")
-t("whitehoof maulotaur", "巨锤白蹄", "entity name")
-t("This big undead minotaur is carrying a nasty looking hammer, imbued with lightning.", "这个巨大的亡灵牛头人拿着一把灌注了闪电的可怕巨锤。", "_t")
+t("It is a cross between a human and a bull, but more ... dead.", "它是人类与公牛的混种，只不过更……死一些。", "_t")
+t("whitehoof maulotaur", "白蹄玛诺陶", "entity name")
+t("This big undead minotaur is carrying a nasty looking hammer, imbued with lightning.", "这个巨大的亡灵米诺陶拿着一把灌注了闪电的可怕巨锤。", "_t")
 t("whitehoof invoker", "白蹄唤魔者", "entity name")
 t("Vortexes of sickly arcane energies circle this great undead frame.", "病态的奥术能量漩涡环绕着这具庞大的亡灵躯体。", "_t")
 t("whitehoof hailstorm", "白蹄霜雹使", "entity name")
@@ -7630,7 +7630,7 @@ t("A nasty looking orc armed with double steamguns.", "一个面目凶恶的兽�
 t("Commander Fralor", "指挥官法罗尔", "entity name")
 t("This heavily armored steam giant carries a huge battleaxe, swinging it menacingly towards you.", "这个身披重甲的蒸汽巨人手持一柄巨大的战斧，正恶狠狠地朝你挥舞。", "_t")
 t("Metash the Maulotaur", "玛诺陶梅塔什", "entity name")
-t("This big undead minotaur is carrying a nasty looking hammer, imbued with lightning.", "这个巨大的亡灵牛头人拿着一把灌注了闪电的可怕巨锤。", "_t")
+t("This big undead minotaur is carrying a nasty looking hammer, imbued with lightning.", "这个巨大的亡灵米诺陶拿着一把灌注了闪电的可怕巨锤。", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/town-kruk/objects.lua"
