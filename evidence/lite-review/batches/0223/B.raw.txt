@@ -1,0 +1,303 @@
+{
+  "batch": "0223",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "f13fac1a8c20",
+      "verdict": "OK"
+    },
+    {
+      "id": "3a4119d5986a",
+      "verdict": "OK"
+    },
+    {
+      "id": "74625f45e725",
+      "verdict": "OK"
+    },
+    {
+      "id": "f0b757aac54e",
+      "verdict": "OK"
+    },
+    {
+      "id": "8fb599e0f28e",
+      "verdict": "OK"
+    },
+    {
+      "id": "2d665288b449",
+      "verdict": "OK"
+    },
+    {
+      "id": "02b600d39031",
+      "verdict": "OK"
+    },
+    {
+      "id": "5c3cdfa723e9",
+      "verdict": "OK"
+    },
+    {
+      "id": "9a907346150c",
+      "verdict": "OK"
+    },
+    {
+      "id": "af735b6f1e05",
+      "verdict": "OK"
+    },
+    {
+      "id": "5592d018da2d",
+      "verdict": "OK"
+    },
+    {
+      "id": "fc6259317305",
+      "verdict": "OK"
+    },
+    {
+      "id": "6a0691792fb1",
+      "verdict": "OK"
+    },
+    {
+      "id": "cd5305ff9c67",
+      "verdict": "ISSUE",
+      "observation": "译文的“180% 武器伤害”与实际攻击倍率不符。tome-orcs/data/talents/misc/objects.lua:174-177 实际调用 attackTarget(target, nil, 1.3, true)，即 130% 武器伤害；英文说明在 :186 也写成 180%，属于沿用原文的机制错误。 所据 DLC 为 /workspace/tome4-dlcs/orcs 下公开检出，来源及提交未固定。",
+      "suggestion": "借助火箭向前突击。\n\t\t如果目标地点已被占据，那么你到达的时候会对目标进行一次不耗回合的近战攻击并击退他和任何被他撞到的目标 4 格。\n\t\t这个攻击会造成 130% 武器伤害。\n\t\t你必须从至少 2 格外开始突击。"
+    },
+    {
+      "id": "cda2e044a4aa",
+      "verdict": "OK"
+    },
+    {
+      "id": "1ef53098302e",
+      "verdict": "OK"
+    },
+    {
+      "id": "c67c12cc5f9b",
+      "verdict": "OK"
+    },
+    {
+      "id": "ca7f8f568c0b",
+      "verdict": "OK"
+    },
+    {
+      "id": "54b7bd04f15a",
+      "verdict": "OK"
+    },
+    {
+      "id": "8218e6cb4eac",
+      "verdict": "OK"
+    },
+    {
+      "id": "ddb69318932e",
+      "verdict": "OK"
+    },
+    {
+      "id": "90006e0ccda8",
+      "verdict": "OK"
+    },
+    {
+      "id": "449d38b9ca51",
+      "verdict": "OK"
+    },
+    {
+      "id": "3cd0ffa73d84",
+      "verdict": "OK"
+    },
+    {
+      "id": "6740020a8667",
+      "verdict": "OK"
+    },
+    {
+      "id": "d543c8fc0b05",
+      "verdict": "OK"
+    },
+    {
+      "id": "9724be97dd1d",
+      "verdict": "OK"
+    },
+    {
+      "id": "538480ca8ea2",
+      "verdict": "OK"
+    },
+    {
+      "id": "74e77ba22bc3",
+      "verdict": "ISSUE",
+      "observation": "飞爪搜寻敌人的半径是 3 格，译文写为 4 格，扩大了能抓取敌人的范围。tome-orcs/data/talents/steam/automation.lua:90-92 使用 radius=3 收集敌人，:97 的 pull(..., 4, ...) 是拉扯距离，不能作为搜寻半径。英文说明 :110 同样误写为 4。 所据 DLC 为 /workspace/tome4-dlcs/orcs 下公开检出，来源及提交未固定。",
+      "suggestion": "向目标发射一枚小型蒸汽动力飞爪无人机。无人机会自动追踪，目标移动时会跟随。\n\t\t命中目标后，无人机朝周围 3 格范围内的各个方向发射金属飞爪。\n\t\t飞爪会抓住范围内任何敌人，并将它们向目标拉扯。如果被其他生物（或目标本身）阻挡，两者均受到 %0.2f 物理伤害。\n\t\t"
+    },
+    {
+      "id": "15ebbd16e594",
+      "verdict": "OK"
+    },
+    {
+      "id": "79d68b2db473",
+      "verdict": "OK"
+    },
+    {
+      "id": "4be0b71fd846",
+      "verdict": "OK"
+    },
+    {
+      "id": "5b4f6f1bcaed",
+      "verdict": "OK"
+    },
+    {
+      "id": "05762c670563",
+      "verdict": "ISSUE",
+      "observation": "译文把周围瘴气云的持续时间写成 5 回合，混淆了自身引擎光环与敌方瘴气状态。tome-orcs/data/talents/steam/chemical-warfare.lua:35-37 施加的 EFF_MIASMA_ENGINE 持续 3 回合；tome-orcs/data/timed_effects/physical.lua:1423-1429 再次触发时刷新引擎持续时间，:1438-1443 则由该引擎向敌人施加持续 5 回合的 EFF_MIASMA。5 回合是敌方状态的时长；英文说明 :55 也混淆了两者。 所据 DLC 为 /workspace/tome4-dlcs/orcs 下公开检出，来源及提交未固定。",
+      "suggestion": "你改造蒸汽机，使其在你周围释放出一团有毒且具有腐蚀性的化学云雾。\n\t\t每当你使用一个非瞬发的蒸汽科技技能的时候，你会在周围产生半径为 3 格的瘴气云，持续 3 回合。云内敌人会受到持续 5 回合的瘴气效果，治疗效果减少 %d%%， 且会有 %d%% 的几率使用技能失败。\n\t\t瘴气效果叠加的时候，敌人使用技能失败的几率也会上升，最多叠加五次，达到 %d%%。\n\t\t当被瘴气影响的目标每回合第一次被近战或远程攻击击中的时候，瘴气会渗入他们的伤口，造成 %0.2f 额外的酸性伤害。\n\t\t再次施加瘴气时，持续时间不会延长。\n\t\t当一个生物在瘴气效果中存活下来后，它会免疫瘴气效果 9 回合。"
+    },
+    {
+      "id": "36c87524c167",
+      "verdict": "OK"
+    },
+    {
+      "id": "1962e198d5aa",
+      "verdict": "ISSUE",
+      "observation": "参数重排 [2,1,3,4] 正确，但“第一层之外每多叠加一层”与实际加成起点不符。tome-orcs/data/talents/steam/chemical-warfare.lua:195 使用 base + base*eff.stacks/2，:196 传入 nb=1+eff.stacks；:158-166 按 nb 次进行移除判定。因此第一层也增加 50% 基础伤害，并在基础一次判定之外增加一次移除判定。原英文 :212 同样漏算第一层。 所据 DLC 为 /workspace/tome4-dlcs/orcs 下公开检出，来源及提交未固定。",
+      "suggestion": "你消耗所有瘴气引擎的叠加效果，并用你的蒸汽枪发射出毁灭性的腐蚀爆炸，在 %d 格范围的扇形区域内造成 %d%% 酸性武器伤害，并有 %d%% 的几率移除一个随机的有益物理或精神效果。每层瘴气引擎都会使伤害增加上述基础值的 50%%，并额外进行一次 %d%% 几率移除一个效果的判定。\n\t\t这一攻击无视敌人护甲，你至少需要有一层瘴气引擎效果才能使用这个技能。"
+    },
+    {
+      "id": "800986799940",
+      "verdict": "OK"
+    },
+    {
+      "id": "0dae2695dd6c",
+      "verdict": "OK"
+    },
+    {
+      "id": "1676e8671e78",
+      "verdict": "OK"
+    },
+    {
+      "id": "d3716bb7cc8b",
+      "verdict": "OK"
+    },
+    {
+      "id": "17fb5801548a",
+      "verdict": "OK"
+    },
+    {
+      "id": "7a8a57abf280",
+      "verdict": "ISSUE",
+      "observation": "“传播给……一名敌人”错误限定了传播数量。tome-orcs/data/timed_effects/mental.lua:184-189 仅进行一次 25% 随机判定，成功后遍历半径 3 格内所有生物，向与宿主同阵营且尚未感染的目标逐一施加 EFF_PSY_WORM，没有选取单个目标或成功后退出。英文说明使用单数 nearby foe 也不准确。 所据 DLC 为 /workspace/tome4-dlcs/orcs 下公开检出，来源及提交未固定。",
+      "suggestion": "对一个敌人进行一次灵能强化射击，造成 %d%% 精神武器伤害，同时使目标感染持续 8 回合的灵能蠕虫。\n\t\t蠕虫每回合造成 %0.2f 精神伤害，并为你回复 %d 点灵能；若目标被震慑或恐惧，效果翻倍。\n\t\t此外，蠕虫每回合有 25%% 几率传播给宿主半径 3 格内所有尚未感染的敌人。\n\t\t感染灵能蠕虫的生物死亡时，蠕虫会传播给半径 3 格内的所有敌人。"
+    },
+    {
+      "id": "dabf6b7ade57",
+      "verdict": "OK"
+    },
+    {
+      "id": "bc242809b4fc",
+      "verdict": "OK"
+    },
+    {
+      "id": "fb73cd66f772",
+      "verdict": "OK"
+    },
+    {
+      "id": "97bea10b0ea5",
+      "verdict": "OK"
+    },
+    {
+      "id": "5fe0284df3cc",
+      "verdict": "OK"
+    },
+    {
+      "id": "a364b91d8720",
+      "verdict": "OK"
+    },
+    {
+      "id": "a1f742e2cad0",
+      "verdict": "OK"
+    },
+    {
+      "id": "1c2f1c0b6d49",
+      "verdict": "OK"
+    },
+    {
+      "id": "70fedf02312e",
+      "verdict": "OK"
+    },
+    {
+      "id": "52b664c93fc6",
+      "verdict": "ISSUE",
+      "observation": "“嘲讽半径 %d 格内的所有敌人”没有被实际执行。tome-orcs/data/talents/steam/mecharachnid.lua:724-725 的 tg 是 bolt；:760 虽构造范围嘲讽用的 ball 类型 tg2，但 :761 仍将 tg 而非 tg2 传给 project，:762-768 因而只对该投射命中的敌人设置目标，未按所显示的半径执行范围嘲讽。英文说明 :775 同样描述了未实现的范围效果。 所据 DLC 为 /workspace/tome4-dlcs/orcs 下公开检出，来源及提交未固定。"
+    },
+    {
+      "id": "20a1a0ae71b6",
+      "verdict": "OK"
+    },
+    {
+      "id": "26f130ae9692",
+      "verdict": "OK"
+    },
+    {
+      "id": "d0571bbe05b0",
+      "verdict": "OK"
+    },
+    {
+      "id": "01c00b67dd21",
+      "verdict": "OK"
+    },
+    {
+      "id": "9eac8295d9fb",
+      "verdict": "OK"
+    },
+    {
+      "id": "6331a920c3a8",
+      "verdict": "OK"
+    },
+    {
+      "id": "d2fa12359fda",
+      "verdict": "OK"
+    },
+    {
+      "id": "8416169ac413",
+      "verdict": "OK"
+    },
+    {
+      "id": "4ea35e1e4479",
+      "verdict": "OK"
+    },
+    {
+      "id": "8521f9e92383",
+      "verdict": "OK"
+    },
+    {
+      "id": "284d89d4d482",
+      "verdict": "OK"
+    },
+    {
+      "id": "99f493f9c39d",
+      "verdict": "OK"
+    },
+    {
+      "id": "1f9b5ec76808",
+      "verdict": "OK"
+    },
+    {
+      "id": "8e9f56c5f1f4",
+      "verdict": "ISSUE",
+      "observation": "“视野内所有炮台”给出了实现中不存在的视野限制。tome-orcs/data/talents/steam/turrets.lua:688-695 遍历队伍成员或当前层实体，只检查 summoner==self 与 turret，随后直接 apply；没有 canSee、LOS 或距离检查。因此视野外的自有炮台同样会延时并获得护盾。英文说明 :702 也多写了 in sight 限制。 所据 DLC 为 /workspace/tome4-dlcs/orcs 下公开检出，来源及提交未固定。",
+      "suggestion": "向你召唤的所有炮台注入能量，使其持续时间延长 %d 回合，并获得一个吸收 %d 伤害的护盾，持续 10 回合。在护盾消失之前，每个炮台每回合都会向半径 6 格内的随机敌人发射闪电弹，造成 %0.2f 闪电伤害，并有 25%% 的几率眩晕敌人。\n\t\t这一效果随蒸汽强度提升。"
+    },
+    {
+      "id": "e0a734327ec0",
+      "verdict": "OK"
+    },
+    {
+      "id": "e526fa066120",
+      "verdict": "OK"
+    },
+    {
+      "id": "e545d3a81599",
+      "verdict": "OK"
+    },
+    {
+      "id": "f88dda7de6ee",
+      "verdict": "OK"
+    },
+    {
+      "id": "6b278672b9b0",
+      "verdict": "OK"
+    }
+  ]
+}

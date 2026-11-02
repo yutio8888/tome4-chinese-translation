@@ -4316,7 +4316,7 @@ t([[You summon a galvanic rod at a location. Upon arrival the rod releases a sho
 		The damage will increase with your Spellpower.]], [[你在指定位置召唤放电柱。放电柱会在 %d 格半径范围内释放电击，对所有生物造成 %0.2f 放电（火焰和闪电）伤害。
 		你有 3 枚放电柱，它们各自有 %d 回合的冷却时间。
 		这一技能可以触发无尽之焰效果。
-		若风暴之怒已激活，这一法术有 25%% 的几率尝试触发它。
+		若飓风已激活，这一法术有 25%% 的几率尝试触发它。
 		技能伤害受法术强度加成。]], "tformat")
 t("Galvanic Arcing", "电弧放射", "talent name")
 t([[Using your arcane power you force galvanic rods to linger for %d turns. While lingering they are inert, but can link up to other rods.
@@ -4334,7 +4334,7 @@ t([[Using your arcane power you force galvanic rods to linger for %d turns. Whil
 		你最多同时释放三枚放电柱。
 		技能等级 3 时，所有被影响的生物会被震撼，使他们的震慑和定身抗性减半。
 		技能等级 5 时，你的金属武器，或是装载了金属插件的武器，可以作为一个放电柱使用，该放电柱仍计入你的放电柱总量。
-		若风暴之怒已激活，这一法术有 15%% 的几率尝试触发它。
+		若飓风已激活，这一法术有 15%% 的几率尝试触发它。
 		技能伤害受法术强度加成。]], "tformat")
 t("Unstable Blast", "不稳定爆破", "talent name")
 t("You need Galvanic Arcing active and at least one rod to cast this spell.", "你需要开启电弧放射并至少有一个放电柱才能释放这一法术。", "logPlayer")

@@ -1,0 +1,56 @@
+{
+ "confirmed": [
+  {
+   "id": "8218e6cb4eac",
+   "edit": [
+    [
+     "若风暴之怒已激活，这一法术有 25%% 的几率尝试触发它",
+     "若飓风已激活，这一法术有 25%% 的几率尝试触发它"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/talents/spells/galvanic-technomancy.lua:78-79,106 isTalentActive(T_HURRICANE); core talent Hurricane = 飓风 (mod-tome.lua); 风暴之怒 is Storm Fury."
+  },
+  {
+   "id": "ddb69318932e",
+   "edit": [
+    [
+     "若风暴之怒已激活，这一法术有 15%% 的几率尝试触发它",
+     "若飓风已激活，这一法术有 15%% 的几率尝试触发它"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/talents/spells/galvanic-technomancy.lua:162,372 isTalentActive(T_HURRICANE); Hurricane = 飓风."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "cd5305ff9c67",
+   "reason": "Translation matches upstream English; implementation differs (upstream text/implementation gap, same handling as 0216/0217, pending user policy): talents/misc/objects.lua:174-177 attacks at 1.3 (130%) while text says 180%."
+  },
+  {
+   "id": "74e77ba22bc3",
+   "reason": "Translation matches upstream English; implementation differs (upstream text/implementation gap, same handling as 0216/0217, pending user policy): talents/steam/automation.lua:90-92 grabs within radius 3; text says 4 (4 is the pull distance)."
+  },
+  {
+   "id": "05762c670563",
+   "reason": "Translation matches upstream English; implementation differs (upstream text/implementation gap, same handling as 0216/0217, pending user policy): chemical-warfare.lua:35-37 engine aura lasts 3 turns; the 5 turns is the enemy MIASMA effect (physical.lua:1423-1443)."
+  },
+  {
+   "id": "1962e198d5aa",
+   "reason": "Translation matches upstream English; implementation differs (upstream text/implementation gap, same handling as 0216/0217, pending user policy): chemical-warfare.lua:195-196 bonus counts every stack (base*stacks/2, nb=1+stacks); text says beyond the first."
+  },
+  {
+   "id": "7a8a57abf280",
+   "reason": "Translation matches upstream English; implementation differs (upstream text/implementation gap, same handling as 0216/0217, pending user policy): timed_effects/mental.lua:184-189 one 25% roll then spreads to all uninfected foes in radius 3; text says a nearby foe."
+  },
+  {
+   "id": "52b664c93fc6",
+   "reason": "Translation matches upstream English; implementation differs (upstream text/implementation gap, same handling as 0216/0217, pending user policy): mecharachnid.lua:760-768 builds ball tg2 but projects bolt tg, so radius taunt is not executed; text describes radius taunt."
+  },
+  {
+   "id": "8e9f56c5f1f4",
+   "reason": "Translation matches upstream English; implementation differs (upstream text/implementation gap, same handling as 0216/0217, pending user policy): turrets.lua:688-695 no LOS/sight check; text says turrets in sight."
+  }
+ ],
+ "rejected": [],
+ "notes": "0223 host adjudication; DLC sources unpinned public checkout."
+}
