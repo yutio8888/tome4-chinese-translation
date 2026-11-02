@@ -3926,7 +3926,7 @@ t("Strange Machine", "奇怪的机器", "_t")
 section "tome-cults/data/zones/entropic-void/grids.lua"
 
 t("Temporal Rift", "时空裂隙", "entity name")
-t("The rift leads... somewhere.", "裂缝通向…某个地方。", "_t")
+t("The rift leads... somewhere.", "这道裂隙通向……某个地方。", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/zones/entropic-void/npcs.lua"

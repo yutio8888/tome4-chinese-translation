@@ -38101,7 +38101,7 @@ t("You cannot abandon Melinda here!", "你不能放弃梅琳达！", "_t")
 section "mod-tome/data/zones/daikara/grids.lua"
 
 t("Temporal Rift", "时空裂隙", "entity name")
-t("The rift leads... somewhere.", "裂缝通向…某个地方。", "_t")
+t("The rift leads... somewhere.", "这道裂隙通向……某个地方。", "_t")
 t("Temporal Rift", "时空裂隙", "_t")
 t("Are you sure you want to enter? There's no telling where you will end up or if you will be able to make it back.", "你确定要进去么？没人知道这会把你带到哪里，你也无法知道你是否还能设法返回。", "_t")
 t("The rift is too unstable to cross it.", "裂隙太不稳定而无法穿越。", "log")
@@ -39209,7 +39209,7 @@ t("You arrive in a small underground structure. There are orcs there and as soon
 section "mod-tome/data/zones/paradox-plane/grids.lua"
 
 t("Temporal Rift", "时空裂隙", "entity name")
-t("The rift leads... somewhere.", "裂缝通向…某个地方。", "_t")
+t("The rift leads... somewhere.", "这道裂隙通向……某个地方。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/paradox-plane/npcs.lua"
@@ -40018,7 +40018,7 @@ t("Temporal Reprieve", "时空避难所", "_t")
 section "mod-tome/data/zones/temporal-rift/grids.lua"
 
 t("Temporal Rift", "时空裂隙", "entity name")
-t("The rift leads... somewhere.", "裂缝通向…某个地方。", "_t")
+t("The rift leads... somewhere.", "这道裂隙通向……某个地方。", "_t")
 t("Temporal Warden", "时空守卫", "_t")
 
 ------------------------------------------------
@@ -40917,7 +40917,7 @@ t("Caverns to the hidden valley", "通往隐秘山谷的山洞", "_t")
 section "mod-tome/data/zones/void/grids.lua"
 
 t("Temporal Rift", "时空裂隙", "entity name")
-t("The rift leads... somewhere.", "裂缝通向…某个地方。", "_t")
+t("The rift leads... somewhere.", "这道裂隙通向……某个地方。", "_t")
 t("Temporal Warden", "时空守卫", "_t")
 
 ------------------------------------------------
