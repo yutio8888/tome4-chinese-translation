@@ -41692,27 +41692,27 @@ t([[Auto-validate targets. If you fire an arrow/talent/... it will automatically
 Default target is always either one of:
  - The last creature hovered by the mouse
  - The last attacked creature
- - The closest creature]], [[自动选择目标。使用技能、装备等时不再要求指定目标。
+ - The closest creature]], [[自动确认目标。射箭、使用技能等操作会直接使用默认目标，无需再次确认。
 #LIGHT_RED#注意：这非常危险。除非你确切知道自己在做什么，否则不要启用。#WHITE#
 
-默认目标会遵循以下规则选择：
- - 最后一个鼠标划过的目标。
- - 最后一个攻击的目标
- - 最近的目标]], "_t")
-t("#GOLD##{bold}#Auto-accept target#WHITE##{normal}#", "#GOLD##{bold}#自动选择目标#WHITE##{normal}#", "_t")
+默认目标总是以下生物之一：
+ - 最后一个鼠标划过的生物
+ - 最后一个攻击的生物
+ - 最近的生物]], "_t")
+t("#GOLD##{bold}#Auto-accept target#WHITE##{normal}#", "#GOLD##{bold}#自动确认目标#WHITE##{normal}#", "_t")
 t("New games begin with some talent points auto-assigned.#WHITE#", "新游戏开始时部分技能点自动分配。#WHITE#", "_t")
 t("#GOLD##{bold}#Auto-assign talent points at birth#WHITE##{normal}#", "#GOLD##{bold}#出生自动分配技能点#WHITE##{normal}#", "_t")
 t("Always rest to full before auto-exploring.#WHITE#", "自动探索前休息至尽可能满状态。#WHITE#", "_t")
 t("#GOLD##{bold}#Rest before auto-explore#WHITE##{normal}#", "#GOLD##{bold}#自动探索前休息#WHITE##{normal}#", "_t")
-t("When swapping an item with a tinker attached, swap the tinker to the newly worn item automatically.#WHITE#", "当切换一件带有附着物的装备时，自动将附着物切换至新装备上。#WHITE#", "_t")
-t("#GOLD##{bold}#Swap tinkers#WHITE##{normal}#", "#GOLD##{bold}#附着物自动切换#WHITE##{normal}#", "_t")
+t("When swapping an item with a tinker attached, swap the tinker to the newly worn item automatically.#WHITE#", "当切换一件装有配件的装备时，自动将配件转移到新穿戴的装备上。#WHITE#", "_t")
+t("#GOLD##{bold}#Swap tinkers#WHITE##{normal}#", "#GOLD##{bold}#配件自动转移#WHITE##{normal}#", "_t")
 t("Configure the chat filters to select what kind of messages to see.#WHITE#", "设置聊天信息过滤器，选择接受信息的类型。#WHITE#", "_t")
 t("#GOLD##{bold}#Chat message filters#WHITE##{normal}#", "#GOLD##{bold}#聊天消息过滤器#WHITE##{normal}#", "_t")
 t("select to configure", "选择进行设置", "_t")
 t("Deaths", "死亡", "_t")
 t("Object & Creatures links", "物品和生物链接", "_t")
 t("Configure the chat ignore filter.#WHITE#", "设置聊天信息屏蔽器。#WHITE#", "_t")
-t("#GOLD##{bold}#Chat ignore list#WHITE##{normal}#", "#GOLD##{bold}#聊天信息屏蔽列表：#WHITE##{normal}#", "_t")
+t("#GOLD##{bold}#Chat ignore list#WHITE##{normal}#", "#GOLD##{bold}#聊天信息屏蔽列表#WHITE##{normal}#", "_t")
 t("Configure the chat channels to listen to.#WHITE#", "设置聊天信息接受频道。#WHITE#", "_t")
 t("#GOLD##{bold}#Chat channels#WHITE##{normal}#", "#GOLD##{bold}#聊天信息频道#WHITE##{normal}#", "_t")
 t([[Open links in external browser instead of the embedded one.

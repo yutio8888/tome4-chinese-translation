@@ -1,0 +1,61 @@
+{
+ "confirmed": [
+  {
+   "id": "db8b44cf75ca",
+   "edit": [
+    [
+     "\"当切换一件带有附着物的装备时，自动将附着物切换至新装备上。#WHITE#\"",
+     "\"当切换一件装有配件的装备时，自动将配件转移到新穿戴的装备上。#WHITE#\""
+    ]
+   ],
+   "evidence": "GameOptions.lua:588 tinker_auto_switch；核心消息 tinker=配件（mod-tome.lua:379/381/382/12888）"
+  },
+  {
+   "id": "7efeaedcc5c3",
+   "edit": [
+    [
+     "\"#GOLD##{bold}#附着物自动切换#WHITE##{normal}#\"",
+     "\"#GOLD##{bold}#配件自动转移#WHITE##{normal}#\""
+    ]
+   ],
+   "evidence": "GameOptions.lua:589 同上"
+  },
+  {
+   "id": "4c41e114d962",
+   "edit": [
+    [
+     "\"#GOLD##{bold}#聊天信息屏蔽列表：#WHITE##{normal}#\"",
+     "\"#GOLD##{bold}#聊天信息屏蔽列表#WHITE##{normal}#\""
+    ]
+   ],
+   "evidence": "GameOptions.lua:616 标题无冒号，同组 606/621 一致"
+  },
+  {
+   "id": "0fb236573619",
+   "edit": [
+    [
+     "[[自动选择目标。使用技能、装备等时不再要求指定目标。\n",
+     "[[自动确认目标。射箭、使用技能等操作会直接使用默认目标，无需再次确认。\n"
+    ],
+    [
+     "默认目标会遵循以下规则选择：\n - 最后一个鼠标划过的目标。\n - 最后一个攻击的目标\n - 最近的目标]]",
+     "默认目标总是以下生物之一：\n - 最后一个鼠标划过的生物\n - 最后一个攻击的生物\n - 最近的生物]]"
+    ]
+   ],
+   "evidence": "GameOptions.lua:561 auto-validate；GameTargeting.lua:299-321 auto_accept_target 取得默认目标后直接返回跳过确认；creature"
+  },
+  {
+   "id": "95adfceea2ae",
+   "edit": [
+    [
+     "\"#GOLD##{bold}#自动选择目标#WHITE##{normal}#\"",
+     "\"#GOLD##{bold}#自动确认目标#WHITE##{normal}#\""
+    ]
+   ],
+   "evidence": "GameOptions.lua:562-566 auto_accept_target"
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": ""
+}
