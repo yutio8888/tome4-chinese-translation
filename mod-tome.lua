@@ -40381,16 +40381,16 @@ t("halfling guard", "半身人守卫", "entity name")
 t("halfling", "半身人", "entity subtype")
 t("A Halfling, with a sling. Beware.", "一位携带投石索的半身人。当心。", "_t")
 t("human citizen", "人类市民", "entity name")
-t("A clean-looking Human resident of Last Hope.", "一位面容清秀的最后希望市民。", "_t")
+t("A clean-looking Human resident of Last Hope.", "一位穿着整洁的最后的希望人类居民。", "_t")
 t("halfling citizen", "半身人市民", "entity name")
-t("A clean-looking Halfling resident of Last Hope.", "一位穿着整洁的最后希望半身人居民。", "_t")
+t("A clean-looking Halfling resident of Last Hope.", "一位穿着整洁的最后的希望半身人居民。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-last-hope/objects.lua"
 
 t("last hope foundation", "最后的希望的建立", "entity subtype")
-t("The Diaries of King Toknor the Brave (%d)", "勇敢者图库纳王的日记 (%d)", "tformat")
-t("A part of the history of Last Hope, and King Toknor the Brave.", "这是关于最后的希望与勇敢者图库纳王的一段历史。", "_t")
+t("The Diaries of King Toknor the Brave (%d)", "勇者图库纳国王的日记 (%d)", "tformat")
+t("A part of the history of Last Hope, and King Toknor the Brave.", "这是关于最后的希望与勇者图库纳国王的一段历史。", "_t")
 t("analysis", "分析", "entity subtype")
 t("southspar", "南晶岛", "entity subtype")
 t("the Pale King part %s", "苍白之王 第%s章", "tformat")
@@ -40411,7 +40411,7 @@ t("Herk's Cutting Edge", "赫克武器店", "entity name")
 t("Yulek's Tools of the Night", "约勒克黑夜工具店", "entity name")
 t("Vortal's Trees Choppers", "沃塔尔刀斧店", "entity name")
 t("Raber's Blunt Paradise", "雷柏钝器天堂", "entity name")
-t("Dala's Far Reaching Implements", "达拉远及工具店", "entity name")
+t("Dala's Far Reaching Implements", "达拉远射兵器店", "entity name")
 t("Sarah's Herbal Infusions", "萨拉的草药纹身店", "entity name")
 t("Sook's Runes and other Harmless Contraptions", "苏克的符文与其他无害小玩意", "entity name")
 t("Library", "图书馆", "entity name")
@@ -40419,7 +40419,7 @@ t("The Elder", "长老的寓所", "entity name")
 t("Tannen's Door", "泰恩的门", "entity name")
 t("Home of Ungrol the Alchemist", "炼金师温格洛的家", "entity name")
 t("Rich merchant", "富商的家", "entity name")
-t("Urthol's Wondrous Emporium", "乌瑟尔商场", "entity name")
+t("Urthol's Wondrous Emporium", "乌瑟尔奇珍商场", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-last-hope/zone.lua"
