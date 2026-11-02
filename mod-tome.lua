@@ -22288,8 +22288,7 @@ t("The spell fizzles on %s!", "法术在 %s 上失败了！", "logSeen")
 t("#CRIMSON#%s has been banished!", "#CRIMSON#%s 被放逐了！", "logSeen")
 t("%s resists the banishment!", "%s抵抗了放逐！", "logSeen")
 t([[Randomly teleports all enemies within a radius of three.  Enemies will be teleported between %d and %d tiles from you and may be stunned, blinded, confused, or pinned for %d turns.
-		The chance of teleportion will scale with your Spellpower.]], [[将半径 3 以内的敌人随机传送。
-		敌人将会传送至距离你 %d 至 %d 格的范围内，并可能被震慑、致盲、混乱或定身 %d 回合。
+		The chance of teleportion will scale with your Spellpower.]], [[将半径 3 以内的敌人随机传送。敌人将会传送至距离你 %d 至 %d 格的范围内，并可能被震慑、致盲、混乱或定身 %d 回合。
 		传送几率与法术强度相关。]], "tformat")
 t("Dimensional Anchor", "时空锚", "talent name")
 t([[Create a radius three anti-teleport field for %d turns and daze all enemies in the area of effect for two turns.
