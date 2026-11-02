@@ -28305,8 +28305,7 @@ t("Arcane Vortex", "奥术漩涡", "talent name")
 t([[Creates a vortex of arcane energies on the target for 6 turns. Each turn the vortex will look for another foe in sight and fire a manathrust doing %0.2f arcane damage to all foes in line.
 		If no foes are found, the target will take 50%% more arcane damage.
 		If the target dies, the vortex explodes, releasing all remaining damage in a radius 2 ball of arcane force.
-		The damage will increase with your Spellpower.]], [[在目标身上放置一个持续 6 回合的奥术漩涡。
-		每回合，奥术漩涡会随机寻找视野内的另一个敌人，并且释放一次奥术射线，对一条线上的所有敌人造成 %0.2f 奥术伤害。
+		The damage will increase with your Spellpower.]], [[在目标身上放置一个持续 6 回合的奥术漩涡。每回合，奥术漩涡会随机寻找视野内的另一个敌人，并且释放一次奥术射线，对一条线上的所有敌人造成 %0.2f 奥术伤害。
 		若没有发现其他敌人，则目标会额外承受 50%% 奥术伤害。
 		若目标死亡，则奥术漩涡爆炸并释放所有的剩余奥术伤害，在 2 格半径范围内形成奥术爆炸。
 		伤害受法术强度加成。]], "tformat")
@@ -28791,8 +28790,7 @@ t([[Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire d
 		伤害受法术强度加成。]], "tformat")
 t("Flameshock", "火焰冲击", "talent name")
 t([[Conjures up a cone of flame with radius %d. Any targets caught in the area will suffer Burning Shock, stunning them and dealing %0.2f fire damage over %d turns.
-		The damage will increase with your Spellpower.]], [[在你前方制造一片 %d 格半径锥形范围的火焰。
-		任何在此范围的目标会被燃烧的火焰冲击震慑，共受到 %0.2f 点火焰伤害，持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[在你前方制造一片 %d 格半径锥形范围的火焰。任何在此范围的目标会被燃烧的火焰冲击震慑，共受到 %0.2f 点火焰伤害，持续 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Fireflash", "爆裂火球", "talent name")
 t([[Conjures up a bolt of fire that moves toward the target and explodes into a flash of fire, doing %0.2f fire damage in a radius of %d.
@@ -28865,8 +28863,8 @@ t([[Your desolate wastes are now rapidly crumbling.
 		伤害受法术强度加成。]], "tformat")
 t("Bleak Guard", "冰寒守卫", "talent name")
 t([[Your hiemal shield is stronger, taking %d%% less damage from all attacks.
-		When under 1 life this effect is increased to %d%%.]], [[你进一步强化寒冬护盾的效果，所受所有伤害降低 %d%%。
-		当生命值在 1 以下时，这一效果提升 %d%%。]], "tformat")
+		When under 1 life this effect is increased to %d%%.]], [[你进一步强化寒冬护盾，护盾受到的所有伤害降低 %d%%。
+		当生命值在 1 以下时，这一效果提升至 %d%%。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/golem.lua"
@@ -29327,7 +29325,7 @@ t("Night Sphere", "暗夜笼罩", "talent name")
 t([[Dark fumes erupt from the ground in radius %d for 5 turns. Any creature entering the circle will receive either a bane of confusion or a bane of blindness.
 		Only one bane can affect a creature.
 		Banes last for %d turns, and also deal %0.2f darkness damage.
-		The damage will increase with your Spellpower.]], [[黑暗之雾笼罩 %d 格范围的地面 5 回合。敌人走进去都会受到混乱灾祸或致盲灾祸的影响。
+		The damage will increase with your Spellpower.]], [[黑暗之雾笼罩 %d 格范围的地面 5 回合。任何生物走进去都会受到混乱灾祸或致盲灾祸的影响。
 		同一个生物同时只会被一种灾祸效果影响。
 		灾祸效果持续 %d 回合，每回合造成 %0.2f 暗影伤害。
 		伤害受法术强度加成。]], "tformat")
@@ -30182,7 +30180,7 @@ t("When you are hit by a projectile, physical or otherwise, you have a %d%% chan
 t("Counter Shot", "以牙还牙", "talent name")
 t("#ORCHID##Source# follows up with a countershot.#LAST#", "#ORCHID##Source#追加了一次反击射击。#LAST#", "logCombat")
 t([[Any time you block an attack with Buckler Expertise or Buckler Mastery you instantly counterattack with your sling for %d%% damage  This can only occur up to %d time(s) per turn.
-			]], [[每当你的格挡专家或者格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合最多只能发动 %d 次反击。
+			]], [[每当你的盾牌训练或格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合最多只能发动 %d 次反击。
 			]], "tformat")
 
 ------------------------------------------------

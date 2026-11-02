@@ -8,7 +8,8 @@
 
 - `id`：12 位短标识，结果里原样回填。
 - `source`：英文原文。`target`：当前中文译文。`source_tag`：调用类型（如 `_t`、`tformat`、
-  `entity name`、`talent name`、`logPlayer`）。`args_order`：参数重排。
+  `entity name`、`talent name`、`logPlayer`）。`args_order`：参数重排。非空时（如 `[2,1,3]`），译文第 k 个占位符显示源参数 `args_order[k]`，
+  所以译文里占位符的语义顺序与原文不同是正常的；只有为空（null）时译文顺序才必须与原文一致。
 - `section`：译文所属源文件。`source_file` 和 `source_lines` 是工具自动找到的源码位置提示，
   可能为空或不准；以你自己在源码中找到的实际位置为准。
 - `previously_reviewed`：该单元的旧版本是否审过（仅供参考，不能代替本次审核）。
