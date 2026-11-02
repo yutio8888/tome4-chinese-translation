@@ -1,0 +1,40 @@
+{
+ "confirmed": [
+  {
+   "id": "55968c1270b7",
+   "edit": [
+    [
+     "\"(%d 回合冷却完毕)\"",
+     "\"（%d 回合后就绪）\""
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua:182: shown when power < min_power_to_trigger, i.e. N turns remaining until ready; 冷却完毕 read as already ready. Full-width parens match sibling （15回合冷却时间）."
+  },
+  {
+   "id": "cc328c95fedd",
+   "edit": [
+    [
+     "\"%s 苔藓之足\"",
+     "\"%s 苔藓之踏\""
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua:282 grants T_TINKER_MOSS_TREAD; talent/effect/schematic Moss Tread=苔藓之踏 (tome-orcs.lua:5661,6500,6819)."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "16732e9883bf",
+   "reason": "Translation matches upstream English (30%); therapeutics.lua:205 actually heals max_life*0.2. Upstream text/implementation gap, not a translation defect (same handling as 0216)."
+  },
+  {
+   "id": "7fdde4b833b8",
+   "reason": "Translation matches upstream English (15 turn cooldown); max_power=20, power_regen=1 gives base 20. Upstream text gap; advisory."
+  },
+  {
+   "id": "7e584954fca2",
+   "reason": "Store name tinker=蒸汽工具 reads as item category; candidate 工匠. Tied to pending user decision on tinker naming (配件/蒸汽工具/插件); logged in repair backlog."
+  }
+ ],
+ "rejected": [],
+ "notes": "0217 host adjudication; DLC sources unpinned public checkout."
+}

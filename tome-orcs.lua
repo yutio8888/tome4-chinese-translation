@@ -1452,7 +1452,7 @@ t("\"We've done it, men. We cured death.\"", "“我们做到了，伙计们。�
 t([[You cannot bleed.
 When you take damage, if your life is under 20%%, heal for 30%% of your max life. %s]], [[你免疫流血伤害。
 当你受到伤害的时候，如果你的生命值低于20%%，将会恢复30%%的最大生命值。%s]], "tformat")
-t("(%d turns until ready)", "(%d 回合冷却完毕)", "tformat")
+t("(%d turns until ready)", "（%d 回合后就绪）", "tformat")
 t("(15 turn cooldown)", "（15回合冷却时间）", "_t")
 t("BODY", "躯体", "entity on slot")
 t("%s second skin", "%s 第二皮肤", "tformat")
@@ -1460,7 +1460,7 @@ t("HEAD", "头部", "entity on slot")
 t("%s air recycler", "%s 空气循环装置", "tformat")
 t("Returns %d air each turn.", "每回合恢复%d空气。", "tformat")
 t("FEET", "脚部", "entity on slot")
-t("%s moss tread", "%s 苔藓之足", "tformat")
+t("%s moss tread", "%s 苔藓之踏", "tformat")
 t("BELT", "腰带", "entity on slot")
 t("%s fungal web", "%s 真菌之网", "tformat")
 t("Heals you for %d life when you use a salve.", "当你使用药剂的时候，恢复%d生命值。", "tformat")
