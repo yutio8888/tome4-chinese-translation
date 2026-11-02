@@ -20072,7 +20072,7 @@ t("You decided to side with the Grand Corruptor and joined forces to assault the
 t("The Grand Corruptor died during the attack before he had time to teach you his ways.", "大腐化者还没来得及传授他的手段，便在进攻中战死了。", "_t")
 t("The defenders of Zigur were crushed, the Ziguranth scattered and weakened.", "伊格的守军被击溃，伊格兰斯四散而逃，元气大伤。", "_t")
 t("In the aftermath you turned against the Grand Corruptor and dispatched him.", "事后，你转而与大腐化者为敌，并杀死了他。", "_t")
-t("Select the party member to receive the hexes generic talent tree:", "选择接受邪术技能树的队伍成员：", "_t")
+t("Select the party member to receive the hexes generic talent tree:", "选择接受邪术通用技能树的队伍成员：", "_t")
 t("Grand Corruptor", "大腐化者", "_t")
 t("#LIGHT_GREEN#The Grand Corruptor gazes upon you. You feel knowledge flowing in your mind. You can now train some corruption powers.", "#LIGHT_GREEN#大腐化者凝视着你。你感觉到知识在你的脑海里流动。你可以学习一些堕落能力了。", "_t")
 t("Victory is mine!", "胜利是属于我的！", "_t")
@@ -20124,7 +20124,7 @@ t("#RED#%s has completed an %s without your aid.#WHITE#", "#RED#%s已经制造�
 t("#SLATE#Having failed to gain admittance to the Brotherhood of the Alchemists, %s no longer needs your help making the %s.", "#SLATE#无法获得炼金术士兄弟会的承认，%s不再需要你帮忙制作 %s。", "tformat")
 t("%s needs your help making an %s. He has given you some notes on the ingredients:", "%s 需要你帮忙制作 %s。他给了你一张写着配方的小纸条：", "tformat")
 t("#SLATE#  * 'Needed: one %s. %s'#WHITE#", "#SLATE#  * '需要：一个%s。%s'#WHITE#", "tformat")
-t("#LIGHT_GREEN#  * You've found the needed %s.#WHITE#", "#LIGHT_GREEN# * 你找到了所需要的%s。#WHITE#", "tformat")
+t("#LIGHT_GREEN#  * You've found the needed %s.#WHITE#", "#LIGHT_GREEN#  * 你找到了所需要的%s。#WHITE#", "tformat")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
 t("#VIOLET#You can check the ingredients you possess by pressing Escape and selecting 'Show ingredients'.", "#VIOLET#你现在可以按 Esc 键调出游戏菜单，选择“查看材料”检查自己所拥有的材料。", "log")
 t("You receive: %s", "你收到：%s。", "logPlayer")
@@ -20145,7 +20145,7 @@ t("elixir of foundations", "领悟药剂", "_t")
 section "mod-tome/data/quests/charred-scar.lua"
 
 t("The Doom of the World!", "世界末日！", "_t")
-t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", "你被送到了灼烧之痕，其中心是一座巨大的火山——烈火纪元时，喷发的火山摧毁了当时矗立于此的古老夏·图尔遗址，并吸收了其中潜藏的大量魔法。", "_t")
+t("You were sent to the Charred Scar at the heart of which lies a huge volcano. In the Age of Pyre it destroyed the old Sher'Tul ruins that stood there, absorbing much of their latent magic.", "你被送到了灼烧之痕，其中心是一座巨大的火山——烈火纪时，喷发的火山摧毁了当时矗立于此的古老夏·图尔遗址，并吸收了其中潜藏的大量魔法。", "_t")
 t("This place is still full of that power and the orcs intend to absorb this power using the Staff of Absorption!", "这里仍然充满了那种能量，兽人打算用吸能法杖的力量来吸收这里的能量！", "_t")
 t("Whatever their plan may be, they must be stopped at all cost.", "不管他们有何图谋，必须不惜一切代价阻止他们。", "_t")
 t("The volcano is attacked by orcs. A few Sun Paladins made it there with you. They will hold the line at the cost of their lives to buy you some time.", "火山正遭到兽人的攻击。几名太阳骑士与你一同赶到了这里，他们将不惜牺牲生命坚守防线，为你争取一些时间。", "_t")
@@ -20174,7 +20174,7 @@ t("None that you know of has come back yet, but you did survive Reknor. You are 
 section "mod-tome/data/quests/dreadfell.lua"
 
 t("The Island of Dread", "恐怖之岛", "_t")
-t("You have heard that near the Charred Scar, to the south, lies a ruined tower known as the Dreadfell.", "你听说在灼烧之痕南部有一个叫做恐惧王座的荒塔废墟。", "_t")
+t("You have heard that near the Charred Scar, to the south, lies a ruined tower known as the Dreadfell.", "你听说在南方的灼烧之痕附近，有一座被称为恐惧王座的废弃高塔。", "_t")
 t("There are disturbing rumors of greater undead, and nobody who reached it ever returned.", "传说那里有强大的亡灵生物，凡是到达那里的人都有去无回。", "_t")
 t("Perhaps you should explore it and find the truth, and the treasures, for yourself!", "也许你应该去那里一探究竟，顺便可以找到埋藏在那里的财宝！", "_t")
 
