@@ -7698,7 +7698,7 @@ t("steam giant commoner", "蒸汽巨人平民", "entity name")
 t("Pockets of gold jingle around the waist of this giant.", "巨人的腰间传来了金币的叮当响。", "_t")
 t("You won't get my gold!", "别想要拿到我的钱！", "_t")
 t("steam giant scribe", "蒸汽巨人书记员", "entity name")
-t("This well-dressed giant is is covered in ink smudges and looks somewhat alarmed.", "这个精心打扮的巨人身上满是墨水的污渍，看起来十分惊慌。", "_t")
+t("This well-dressed giant is is covered in ink smudges and looks somewhat alarmed.", "这个精心打扮的巨人身上满是墨水的污渍，看起来有些惊慌。", "_t")
 t("Stay back, I'm warning you!", "退后，我警告你！", "_t")
 t("High Guard Talosis", "高阶守卫泰勒西斯", "entity name")
 t("This heavily armored steam giant carries a gun in each hand. The gun in his right hand is ornate and well worn.", "这个身穿重甲的蒸汽巨人双手各持一把枪，右手的枪装饰华丽，显然已使用多年。", "_t")
@@ -7761,7 +7761,7 @@ section "tome-orcs/data/zones/yeti-caves/objects.lua"
 
 t("flesh", "肉", "entity type")
 t("muscle", "肌肉", "entity subtype")
-t("Yeti's Muscle Tissue (Patriarch)", "雪人族的肌肉组织（族长）", "entity name")
+t("Yeti's Muscle Tissue (Patriarch)", "雪人族肌肉组织（族长）", "entity name")
 t("flesh", "肉", "_t")
 t("Muscle tissue, extracted from a powerful yeti. Somewhere, somebody or something is bound to be interested!", "从一只强大雪人身上提取的肌肉组织。某个地方的某个人，或者某种东西，一定会对此感兴趣！", "_t")
 t("You cannot bring yourself to drop the %s", "你无法丢弃 %s", "logPlayer")
@@ -7812,11 +7812,11 @@ For the Krimbul Clan !
 ]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#。
 你是生活在他人的贱视和追杀中的米诺陶一族。你的部落借助死灵魔法找到了生存之道。
 
-兽人是唯一对你们表示过尊重的种族，而如今你们的部落已落入一位疯狂领袖的控制之下。
+兽人是唯一对你们表示过尊重的种族，即便谈不上善意；而如今你们的部落已落入一位疯狂领袖的控制之下。
 你希望，只要你帮兽人解决他们的难题，他们也会帮你解决你的难题；这是为了你们两族的共同利益。
 
 你被送去蒸汽商场造成破坏以摧垮巨人们的士气。
-为了克里布尔部落！
+为了克里布尔部族！
 ]], "_t")
 
 ------------------------------------------------
