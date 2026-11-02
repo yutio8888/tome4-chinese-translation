@@ -39169,7 +39169,7 @@ t("A paper scrap, left by an adventurer.", "由冒险者留下的碎纸片。", 
 ------------------------------------------------
 section "mod-tome/data/zones/old-forest/zone.lua"
 
-t("Old Forest", "古老树林", "_t")
+t("Old Forest", "古老森林", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/orc-breeding-pit/npcs.lua"
@@ -39179,15 +39179,15 @@ t("orc", "兽人", "entity subtype")
 t("orc baby", "兽人宝宝", "entity name")
 t("Crawling on all fours, this green-skinned creature is far from cute, with vicious little sharp teeth and nails, and slime still sticking to its skin.", "这只绿皮生物四肢着地爬行，却与可爱毫不沾边。它有着锋利的牙齿和指甲，并且它的皮肤上沾了一层粘糊糊的液体。", "_t")
 t("orc child", "兽人儿童", "entity name")
-t("This small orc has a malicious and greedy look in its eyes. Its veins pulse with new life and it moves with surprising speed. Though not fully developed you can still see the muscles forming on its long limbs, leading to clawed fingers and toes.", "这只小兽人的眼里透露着怨恨和贪婪。它有着旺盛的活力并能以惊人的速度移动。虽然还没完全长大，但是你仍能看到他修长四肢上正在成形的肌肉，末端连着带爪的手指和脚趾。", "_t")
+t("This small orc has a malicious and greedy look in its eyes. Its veins pulse with new life and it moves with surprising speed. Though not fully developed you can still see the muscles forming on its long limbs, leading to clawed fingers and toes.", "这只小兽人的眼里透露着恶毒和贪婪。它有着旺盛的活力并能以惊人的速度移动。虽然还没完全长大，但是你仍能看到它修长四肢上正在成形的肌肉，末端连着带爪的手指和脚趾。", "_t")
 t("young orc", "年轻兽人", "entity name")
 t("This young orc is almost fully formed, with hard muscles prominently visible beneath its thick skin. Whilst it has lost some of the wild energy of its younger siblings you can see the gleams of intelligence and cold calculation behind its dark eyes.", "这只年轻兽人已近乎成年，厚实的皮肤下肌肉贲张。虽然它已不像年幼的同类那样野性十足，但你能从它漆黑的双眼背后看到智慧与冷酷算计的光芒。", "_t")
 t("orc mother", "兽人母体", "entity name")
 t([[This giant, bloated form towers above you. Mucus and slime ooze from every orifice, dripping onto the cavern floor. Orc children fight over the right to feed from her distended teats whilst small babies are regularly emerge from folds of flesh. The sight and the smell make you retch.
-Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]], "这个巨大臃肿的身影耸立在你面前。粘液和脓液从它身上的每个孔洞渗出，滴落在洞穴的地面上。兽人幼崽们争抢着吸奶的权利，婴儿从它的肉褶中出生，眼前的景象和气味令人作呕。\n站在你面前的是一只跟龙差不多体型的怪物。浮肿的皮肤隆起成厚厚的褶皱，粗大的毛孔渗出粘稠的液体。上百个垂挂的乳头喂养着一群争吵打斗的年轻兽人——只有最强壮的才能获得宝贵的营养变得更强，弱小的只能在发霉的地面上枯萎。在这只庞然大物的顶端是一颗枯萎的头颅，覆着一头蓬乱纠结的长发。茫然的眼神中混合着悲伤与痛苦，但当它们锁定你时，便转为愤怒，这张脸因护崽的强烈渴望而扭曲。", "_t")
+Here stands a tremendous form almost the size of a dragon. Bloated skin rises in thick folds, seeping viscous slime from its wide pores. Hundreds of hanging teats feed a small army of squabbling, fighting young orcs - only the toughest of them are able to gain the precious nutrients to grow stronger, the weaker ones left to wither on the mouldy floor. At the top of this towering hulk is a shrivelled head coated in long tangled hair. Dazed eyes peer out with a mixture of sadness and pain, but as they fix on you they turn to anger, the creature's face contorted with the fierce desire to protect its young.]], "这个巨大臃肿的身影耸立在你面前。黏液从它身上的每个孔洞渗出，滴落在洞穴的地面上。兽人幼崽们争抢着吸奶的权利，婴儿从它的肉褶中出生，眼前的景象和气味令人作呕。\n站在你面前的是一只跟龙差不多体型的怪物。浮肿的皮肤隆起成厚厚的褶皱，粗大的毛孔渗出粘稠的液体。上百个垂挂的乳头喂养着一群争吵打斗的年轻兽人——只有最强壮的才能获得宝贵的营养变得更强，弱小的只能在发霉的地面上枯萎。在这只庞然大物的顶端是一颗枯萎的头颅，覆着一头蓬乱纠结的长发。茫然的眼神中混合着悲伤与痛苦，但当它们锁定你时，便转为愤怒，这张脸因护崽的强烈渴望而扭曲。", "_t")
 t("Orc Greatmother", "巨型兽人母体", "entity name")
 t("and given to the children as a plaything", "并将其交给孩子们当玩具", "_t")
-t("#PURPLE#As the orc greatmother falls you realize you have dealt a crippling blow to the orcs.", "#PURPLE#当兽人母体倒下时你意识到你对兽人部落造成了致命的打击。", "log")
+t("#PURPLE#As the orc greatmother falls you realize you have dealt a crippling blow to the orcs.", "#PURPLE#当巨型兽人母体倒下时，你意识到你对兽人部落造成了致命的打击。", "log")
 
 ------------------------------------------------
 section "mod-tome/data/zones/orc-breeding-pit/objects.lua"
@@ -39225,8 +39225,8 @@ section "mod-tome/data/zones/paradox-plane/objects.lua"
 t("Epoch's Curve", "亚伯契之弧", "entity name")
 t("white ash longbow", "白蜡长弓", "_t")
 t([[Epoch's Curve has served the Wardens for generations and was passed from Warden to Warden for many years before being lost.
-According to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal.]], [[在亚伯契之弧失踪前，它已经世世代代服务于守卫，在守卫之间辗转相传多年。
-根据传说，它是用魔法大爆炸后第一棵抽芽的白蜡树苗制成，拥有时空和恢复的力量。]], "_t")
+According to legend it was made from the first ash sapling to sprout after the Spellblaze and carries powers of both time and renewal.]], [[在亚伯契之弧失踪前，它已经世世代代服务于时空守卫，在时空守卫之间辗转相传多年。
+根据传说，它是用魔法大爆炸后第一棵抽芽的白蜡树苗制成，同时拥有时间与新生的力量。]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/paradox-plane/zone.lua"
