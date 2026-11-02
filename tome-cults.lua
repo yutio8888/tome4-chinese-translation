@@ -4946,14 +4946,14 @@ All our other elite fighting forces are currently abroad, you are their only hop
 Please, go there at once, free them and show the necromancers filth the True Wrath of the Ziguranth!
 
 #{italic}#Protector Myssil#{normal}#
-]], [[当你进入最后的希望时，一个信使找到你并给你一份来自守护者米歇尔的信：
+]], [[当你进入最后的希望时，一个信使找到你并给你一份来自伊格的守护者米歇尔的信：
 
 %s，当你在外面打击肮脏的奥术势力时，我收到了一个令人震惊的消息。
-一群克罗格遭到伏击并被带到伊格附近的萨希海东海岸隐藏的废墟中。
+一群克罗格遭到伏击并被带到伊格附近的萨希之海东岸一处隐藏的废墟中。
 侦察员看见他们被一群死灵法师带走，可能会对他们进行邪恶的实验。
 
 我们其他所有的精英部队都在外面，你是他们唯一的希望。
-请立刻去那里解救他们，并让死灵法师见识一下伊格兰斯的愤怒！
+请立刻去那里解救他们，并让死灵法师见识一下伊格兰斯真正的愤怒！
 
 #{italic}#守护者米歇尔#{normal}#
 ]], "_t")
