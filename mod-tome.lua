@@ -22034,7 +22034,7 @@ t([[Increases weapon damage by %d%% and physical power by 30 when using swords, 
 		以上加成会取代而非叠加武器掌握、匕首掌握和弓箭掌握的加成。]], "tformat")
 t("Guardian Unity", "守卫联合", "talent name")
 t("#STEEL_BLUE#(%d shared)#LAST#", "#STEEL_BLUE#(%d 伤害共享)#LAST#", "tformat")
-t("Guardian", "守卫", "_t")
+t("Guardian", "守护者", "_t")
 t("#STEEL_BLUE##Source# shares damage with %s guardian!", "#STEEL_BLUE##Source#和%s的守卫共享伤害！", "delayedLogMessage")
 t("Not enough space to summon warden!", "没有足够的空间召唤守卫！", "logPlayer")
 t([[When a single hit deals more than %d%% of your maximum life another you appears and takes %d%% of the damage as well as %d%% of all damage you take for the next %d turns.
@@ -39470,7 +39470,7 @@ section "mod-tome/data/zones/ruined-dungeon/zone.lua"
 
 t("Ruined Dungeon", "废弃地城", "_t")
 t("#rng# the Guardian", "守护者#rng#", "_t")
-t("Guardian", "守卫", "_t")
+t("Guardian", "守护者", "_t")
 t("You can hear a magical trigger firing off.", "你听到了魔力开关触动的声音。", "_t")
 t("Strange Orb", "奇特的水晶球", "_t")
 t("The orb seems to react badly to your touch; there is a high shriek!", "这只水晶球在你的触摸下反应很糟；你听到了一声尖叫！", "_t")
@@ -39494,7 +39494,7 @@ t("He is the leader of a gang of bandits that killed the Shade of Kor'Pul, howev
 t("and used as a new host", "并将其作为新的宿主", "_t")
 t("ghost", "幽灵", "entity subtype")
 t("Kor's Fury", "卡·普尔之怒", "entity name")
-t("The Shade's colossal will keeps it anchored to this world, now as a vengeful, insane spirit.", "暗影的巨大意志使它锚定在这个世界上，如今它是一个充满复仇与疯狂的灵魂。", "_t")
+t("The Shade's colossal will keeps it anchored to this world, now as a vengeful, insane spirit.", "暗影骷髅强大的意志使它滞留于这个世界，如今它化作了一个充满复仇欲的疯狂灵魂。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/ruins-kor-pul/objects.lua"
@@ -39522,7 +39522,7 @@ t("Before you stands the queen of the sandworms. Massive and bloated, she slithe
 t("and swallowed whole", "并将其整个吞下", "_t")
 t("Rumbling...", "轰隆隆…", "_t")
 t("The ground shakes.  Something very large is stirring in the distance.", "大地震颤起来。远处似乎有什么庞然大物正在蠢动。", "_t")
-t("Did you hear? Something seems to have devoured all the last sandworms!", "你听说了吗？有什么东西把所有剩下的沙虫都吞噬了！", "_t")
+t("Did you hear? Something seems to have devoured all the last sandworms!", "你听说了吗？似乎有什么东西把剩下的沙虫全都吞噬了！", "_t")
 t("dragon", "龙", "entity type")
 t("sand", "沙", "entity subtype")
 t("Corrupted Sand Wyrm", "堕落沙龙", "entity name")
@@ -39539,14 +39539,14 @@ t("Heart of the Sandworm Queen", "沙虫女皇之心", "entity name")
 t("pulsing organ", "跳动的器官", "_t")
 t([[The heart of the Sandworm Queen, ripped from her dead body.
 You could ... consume it, should you feel mad enough or you could try to corrupt it somewhere.]], [[从沙虫女皇尸体上割下的心脏。
-你可以……吃了它，如果你足够疯的话，你还可以在别的地方腐化它。]], "_t")
+如果你足够疯狂，可以……吃下它；或者，你也可以试着找个地方腐化它。]], "_t")
 t("consume the heart", "吃下心脏", "_t")
 t("#00FFFF#You consume the heart and feel the knowledge of this very old creature fill you!", "#00FFFF#你吃下了心脏，你感觉被这个古老生物的知识充满！", "logPlayer")
 t("You have %d stat point(s) to spend. Press p to use them.", "你有 %d 属性点数，按 P 键使用。", "logPlayer")
 t("You have %d class talent point(s) to spend. Press p to use them.", "你有 %d 职业技能点数，按 P 键使用。", "logPlayer")
 t("You have %d generic talent point(s) to spend. Press p to use them.", "你有 %d 通用技能点数，按 P 键使用。", "logPlayer")
 t("You are transformed by the heart of the Queen!", "你被沙虫女皇之心所转化！", "logPlayer")
-t("#00FF00#You gain an affinity for nature. You can now learn new Harmony talents (press p).", "#00FF00#你获得了与自然的紧密联系，现在你可以学习新的元素和谐技能（按 P 键）。", "logPlayer")
+t("#00FF00#You gain an affinity for nature. You can now learn new Harmony talents (press p).", "#00FF00#你获得了与自然的紧密联系，现在你可以学习新的自然协调系技能（按 P 键）。", "logPlayer")
 t("blood", "血", "entity subtype")
 t("Wyrm Bile", "巨龙胆汁", "entity name")
 t("putrescent potion", "腐烂的液体", "_t")
@@ -39559,7 +39559,7 @@ t("#00FF00#Your stats have changed! (Str %s, Dex %s, Mag %s, Wil %s, Cun %s, Con
 t("red", "红色", "entity subtype")
 t("Atamathon's Lost Ruby Eye", "阿塔玛森丢失的红宝石眼睛", "entity name")
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
-It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[传奇巨像阿塔玛森的红宝石眼睛之一。
+It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[传奇巨型傀儡阿塔玛森的红宝石眼睛之一。
 据说阿塔玛森是半身人在烈火纪为了对抗兽人所造的武器。这具傀儡虽然最终被毁，但还是成功杀死了兽人首领吞噬者加库尔，给兽人以重创。]], "_t")
 
 ------------------------------------------------
