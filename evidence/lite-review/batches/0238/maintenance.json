@@ -1,0 +1,113 @@
+{
+ "kind": "maintenance",
+ "date": "2026-11-02",
+ "authorization": "User decision 2026-11-02: when the upstream English description contradicts the source implementation, the translation follows the actual implementation (按实际效果改写).",
+ "scope": "Lite-review advisories classified as upstream text/implementation gaps (batches 0216, 0217, 0223, 0224, 0231).",
+ "edits": [
+  {
+   "id": "71a3116784d2",
+   "old": "二者各等于你的蒸汽强度。",
+   "new": "二者各等于你的蒸汽强度除以本回合已触发此效果的次数。",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/smith.lua:202-210 damage = steampower / turn_procs.hands_creation."
+  },
+  {
+   "id": "16732e9883bf",
+   "old": "当你受到伤害的时候，如果你的生命值低于20%%，将会恢复30%%的最大生命值。%s",
+   "new": "当你受到伤害时，如果这次伤害会使你的生命值低于20%%，将会恢复20%%的最大生命值。%s",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua:200-206 triggers when (life-dam)/max_life < 0.2 and heals max_life*0.2."
+  },
+  {
+   "id": "7fdde4b833b8",
+   "old": "（15回合冷却时间）",
+   "new": "（基础冷却时间 20 回合）",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua:200-212 max_power=20, power_regen=1, threshold scaled by use_object_cooldown_reduce; power reset to 0 on trigger."
+  },
+  {
+   "id": "cd5305ff9c67",
+   "old": "这个攻击会造成 180% 武器伤害。",
+   "new": "这个攻击会造成 130% 武器伤害。",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/talents/misc/objects.lua:174-177 attackTarget(target, nil, 1.3, true)."
+  },
+  {
+   "id": "74e77ba22bc3",
+   "old": "命中目标后，无人机朝周围 4 格范围内的各个方向发射金属飞爪。",
+   "new": "命中目标后，无人机朝周围 3 格范围内的各个方向发射金属飞爪，将敌人最多拉近 4 格。",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/talents/steam/automation.lua:90-97 collects foes in radius 3, pull distance 4."
+  },
+  {
+   "id": "05762c670563",
+   "old": "你会在周围产生半径为 3 格的瘴气，持续 5 回合。所有被包裹入瘴气的敌人治疗效果减少",
+   "new": "你会在周围产生半径为 3 格的瘴气云，持续 3 回合（重复触发时刷新）；云中的敌人会受到持续 5 回合的瘴气效果，治疗效果减少",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/talents/steam/chemical-warfare.lua:35-37 EFF_MIASMA_ENGINE 3 turns; timed_effects/physical.lua:1423-1443 refresh on merge, enemies get EFF_MIASMA for 5 turns."
+  },
+  {
+   "id": "1962e198d5aa",
+   "old": "瘴气引擎在第一层之外每多叠加一层，伤害就增加 50%%，并有 %d%% 几率额外移除一个效果。",
+   "new": "每层瘴气引擎都会使伤害增加基础值的 50%%，并额外进行一次 %d%% 几率移除效果的判定。",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/talents/steam/chemical-warfare.lua:195-196 mult = base + base*stacks/2, nb = 1+stacks (every stack counts)."
+  },
+  {
+   "id": "7a8a57abf280",
+   "old": "此外，蠕虫每回合有 25%% 几率传播给半径 3 格内的一名敌人。",
+   "new": "此外，蠕虫每回合有 25%% 几率传播给宿主半径 3 格内所有尚未感染的敌人。",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/timed_effects/mental.lua:184-189 one 25% roll, then infects every uninfected ally of the host in radius 3."
+  },
+  {
+   "id": "52b664c93fc6",
+   "old": "造成 %d%% 伤害，并嘲讽半径 %d 格内的所有敌人。",
+   "new": "造成 %d%% 伤害，并嘲讽该目标（标示的嘲讽半径为 %d 格，但实际只对被击中的目标生效）。",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/talents/steam/mecharachnid.lua:760-768 builds ball tg2 but projects bolt tg; only the struck target is taunted. Radius placeholder kept."
+  },
+  {
+   "id": "8e9f56c5f1f4",
+   "old": "向视野内所有炮台注入能量，",
+   "new": "向你召唤的所有炮台注入能量（不受视野限制），",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/talents/steam/turrets.lua:688-695 iterates party members / level entities with summoner==self, no LOS check."
+  },
+  {
+   "id": "a4825021da52",
+   "old": "但每次击中还会使敌人损失十分之一个回合。",
+   "new": "但击中时还会使敌人损失十分之一个回合（每回合最多触发一次）。",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/chemistry.lua:119-129 turn_procs guard: once per turn."
+  },
+  {
+   "id": "986714eadee1",
+   "old": "并在法术命中时施放一道闪电法术。",
+   "new": "并在法术命中时有 25% 的几率施放一道闪电法术。",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/electricity.lua:85,91-93 chance=25."
+  },
+  {
+   "id": "d9f818838c57",
+   "old": "在他们之间连锁并震慑他们！",
+   "new": "在他们之间连锁，并有 25% 的几率使他们眩晕！",
+   "rows": 1,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/electricity.lua:262,300 LIGHTNING_DAZE daze=25; core 624a6732 damage_types.lua:1564-1567 EFF_DAZED."
+  },
+  {
+   "id": "cdc7dd0da4d5",
+   "old": "当你受到超过总生命值 10% 的单次伤害后，作战服的马达会启动并持续一回合，在攻击命中之前让你移位闪开。",
+   "new": "当你受到他人造成的、不低于总生命值 10% 的单次伤害后，作战服的马达会启动并持续一回合；期间每回合首次受到伤害时，若身边有空位，就会让你移位闪开该次伤害。",
+   "rows": 2,
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/zones/kaltor-shop/objects.lua:44-46 and zones/shertul-cave/objects.lua:44-45 (skip self damage and < max_life/10); timed_effects/physical.lua:549-558 phase_shift=1; core 624a6732 Actor.lua:2430-2440 once per turn, needs free adjacent grid. Both rows (cdc7dd0da4d5, 0823d72e2a2c) share this target."
+  }
+ ],
+ "kept_advisory": [
+  {
+   "id": "9ed2ab105973",
+   "reason": "therapeutics.lua:84 passes 4+ceil(ml/2) to the duration placeholder while :85 applies 2+ceil(ml/2); the wrong value is the placeholder argument itself, which the translation cannot correct while preserving placeholders."
+  }
+ ],
+ "followup": "Changed rows return to pending and are re-reviewed by A/B in the next lite batch."
+}
