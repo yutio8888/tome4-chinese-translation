@@ -1,0 +1,42 @@
+{
+ "confirmed": [
+  {
+   "id": "2b376d605b20",
+   "edit": [
+    [
+     "\"啊呃……咔咔……呜呃……！\"",
+     "\"拉克·科尔·默克·祖尔！！！\""
+    ]
+   ],
+   "evidence": "shadow-crypt/npcs.lua:125-126 邪教徒复制玩家阴影时的 doEmote 咒文，非受创呻吟；音译保留咒语形态"
+  },
+  {
+   "id": "19ae80f15fd7",
+   "edit": [
+    [
+     "一眨眼功夫你发现你到了一个陌生的空地…",
+     "一眨眼功夫，你便置身于一片陌生的虚空之中…"
+    ]
+   ],
+   "evidence": "shertul-fortress/grids.lua:128-134 goToEidolon 分支，empty space 指虚空位面"
+  },
+  {
+   "id": "a8dc09a5ce75",
+   "edit": [
+    [
+     "#LIGHT_RED#随着怪诞野兽的倒下，它发出了最后一声尖叫。它身后的门被炸开，里面出现了一个房间，楼梯消失了！",
+     "#LIGHT_RED#随着异形触手倒下，它发出了最后一声尖叫，身后的门随之碎裂炸开，露出了后面的房间。向上的楼梯消失了！"
+    ]
+   ],
+   "evidence": "shertul-fortress/npcs.lua:24-26 Weirdling Beast=异形触手（mod-tome.lua:39660），:93 on_die；shatters and explodes / stair up"
+  }
+ ],
+ "advisory": [
+  {
+   "id": "06a0008acf53",
+   "reason": "实体名 Training Dummy=训练用傀儡 与描述「训练假人」确不一致，但库内成就（mod-tome.lua:2693）、训练对话（6069-6075）与 Cults 训练文本均作训练假人，名称才是少数派；改描述会加剧不一致，统一名称涉及跨组件专名，记待定"
+  }
+ ],
+ "rejected": [],
+ "notes": "Training Dummy 实体名（tome/cults 两处）建议统一为训练假人，待用户决定"
+}

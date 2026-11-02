@@ -39605,7 +39605,7 @@ t("An old orc, wearing black robes. He seems to be responsible for the creation 
 t("but nobody knew why they suddenly became evil", "但是没有人知道其为何突然变得邪恶了", "_t")
 t("As your shade dies, the magical veil protecting the stairs out vanishes.", "随着你的阴影死去，保护出口楼梯的魔法护罩消失了。", "logSeen")
 t("#GREY#The #Source# looks deep into your eyes. You feel torn apart!", "#GREY##Source#凝视着你的眼睛。你感觉你被撕裂了！", "logCombat")
-t("Ra'kk kor merk ZUR!!!", "啊呃……咔咔……呜呃……！", "_t")
+t("Ra'kk kor merk ZUR!!!", "拉克·科尔·默克·祖尔！！！", "_t")
 t("FOR THE WAY! Die cultist!", "为了维网！去死吧，邪教徒！", "_t")
 t("#PURPLE#The #Source# looks afraid, he did not plan on his creation turning against him!", "#PURPLE##Source#看起来充满了恐惧，他没想到自己的创造竟然背叛了自己！", "logCombat")
 
@@ -39629,7 +39629,7 @@ It should automatically create a portal back, but it might not be near your arri
 这道远行传送门没有和其他传送门相连，它是为探索而建造的，你无法知道它会把你送到哪里。
 它应该会自动建立一道返程传送门，但那道门未必在你抵达区域的附近。]], "_t")
 t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in a strangely familiar zone, right next to a farportal...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个莫名熟悉的地方，在另一个远行传送门旁边……", "log")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in strange empty space...", "#VIOLET#你进入了传送漩涡，一眨眼功夫你发现你到了一个陌生的空地…", "log")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot in strange empty space...", "#VIOLET#你进入了传送漩涡，一眨眼功夫，你便置身于一片陌生的虚空之中…", "log")
 t("Exploratory Farportal", "探索用远行传送门", "_t")
 t("The farportal seems to be inactive", "这个远行传送门关闭着", "_t")
 t("The farportal is broken and will not be usable anymore.", "远行传送门损坏了，已经无法使用。", "_t")
@@ -39660,7 +39660,7 @@ section "mod-tome/data/zones/shertul-fortress/npcs.lua"
 t("Weirdling Beast", "异形触手", "entity name")
 t("A roughly humanoid creature, with tentacle-like appendages in the place of arms and legs. You gasp in horror as you notice it has no head. Putrid warts form quickly on its skin and explode as quickly.", "一只大致呈人形的生物，四肢的位置长着触须般的附肢。当你发现它没有头时，倒吸了一口凉气。腐臭的肉疣在它皮肤上迅速鼓起，又迅速炸开。", "_t")
 t("and slowly consumed", "并将其慢慢消化", "_t")
-t("#LIGHT_RED#As the Weirdling beast falls it shrieks one last time and the door behind it shatters and explodes, revealing the room behind it. The stair up vanishes!", "#LIGHT_RED#随着怪诞野兽的倒下，它发出了最后一声尖叫。它身后的门被炸开，里面出现了一个房间，楼梯消失了！", "log")
+t("#LIGHT_RED#As the Weirdling beast falls it shrieks one last time and the door behind it shatters and explodes, revealing the room behind it. The stair up vanishes!", "#LIGHT_RED#随着异形触手倒下，它发出了最后一声尖叫，身后的门随之碎裂炸开，露出了后面的房间。向上的楼梯消失了！", "log")
 t("Teleportation portal to the Sher'Tul Fortress", "通向夏·图尔堡垒的传送阵", "_t")
 t("Sher'Tul", "夏·图尔", "entity subtype")
 t("Fortress Shadow", "堡垒之影", "entity name")
