@@ -1796,7 +1796,7 @@ The sound of laughter fades under the roaring of water boiling around him as he 
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/intro-ashes-urhrok.lua"
 
-t("Welcome to Tales of Maj'Eyal - #CRIMSON#Ashes of Urh'Rok", "欢迎来到马基埃亚尔 - #CRIMSON#乌鲁洛克之烬", "_t")
+t("Welcome to Tales of Maj'Eyal - #CRIMSON#Ashes of Urh'Rok", "欢迎来到马基埃亚尔的传说 - #CRIMSON#乌鲁洛克之烬", "_t")
 t([[Welcome #LIGHT_GREEN#@name@#WHITE#.
 You do not remember much of your life before you were on this burning continent, floating in the void between worlds.  You have been helping demons, happily participating in their experiments to shatter some sort of shield preventing them from taking their righteous revenge on Eyal.
 
@@ -1818,7 +1818,7 @@ As you recover, and your platform of searing earth splits from the main continen
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/unlock-corrupter_demonologist.lua"
 
-t("New Class: #LIGHT_GREEN#Corruptor (Demonologist)", "新职业：#LIGHT_GREEN#堕落系（恶魔使者）", "_t")
+t("New Class: #LIGHT_GREEN#Corruptor (Demonologist)", "新职业：#LIGHT_GREEN#腐化者（恶魔使者）", "_t")
 t([[Demons in their invasion of Eyal have abducted natives of the planet and mindwiped them to serve as double agents.
 Trained in the use of the demon's own forces they have created many dark cults to spread fear and terror.
 Some have managed to escape their programming and chose to follow their own desires instead.
@@ -1854,7 +1854,7 @@ Vim is the life force of all beings. It does not regenerate, and can only be sto
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/unlock-cosmetic_doomhorns.lua"
 
-t("New Cosmetic Race Option: #LIGHT_GREEN#Doomhorns", "新的种族皮肤 : #LIGHT_GREEN#恶魔之角", "_t")
+t("New Cosmetic Race Option: #LIGHT_GREEN#Doomhorns", "新的种族外观选项：#LIGHT_GREEN#恶魔之角", "_t")
 t([[You have killed a creature by infusing your shield with demon horns, and you loved it!
 
 You can now create new characters with a pair of demonic horns.
@@ -1866,7 +1866,7 @@ You can now create new characters with a pair of demonic horns.
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/unlock-cosmetic_red_skin.lua"
 
-t("New Cosmetic Race Option: #LIGHT_GREEN#Red Skin", "新的种族皮肤 : #LIGHT_GREEN#红色皮肤", "_t")
+t("New Cosmetic Race Option: #LIGHT_GREEN#Red Skin", "新的种族外观选项：#LIGHT_GREEN#红色皮肤", "_t")
 t([[You have used a lot of demon seeds to increase your power, proving your devotion to the corrupting forces.
 
 You can now create new characters with a demonic red skin.
