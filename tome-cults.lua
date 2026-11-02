@@ -2975,8 +2975,7 @@ section "tome-cults/data/talents/demented/nether.lua"
 
 t("Netherblast", "彼世冲击", "talent name")
 t([[Fire a burst of unstable void energy, dealing %0.2f darkness and %0.2f temporal damage to the target. The power of this spell inflicts entropic backlash on you, causing you to take %d damage over 8 turns. This damage counts as entropy for the purpose of Entropic Gift.
-		The damage will increase with your Spellpower.]], [[发射一束不稳定的虚空能量，造成 %0.2f 暗影和 %0.2f 时空伤害。
-		在战斗中施放时，该法术会对你产生熵能反冲，在 8 回合内造成 %d 伤害。此伤害对熵之礼物而言视为熵。
+		The damage will increase with your Spellpower.]], [[发射一束不稳定的虚空能量，造成 %0.2f 暗影和 %0.2f 时空伤害。在战斗中施放时，该法术会对你产生熵能反冲，在 8 回合内造成 %d 伤害。此伤害对熵之礼物而言视为熵。
 		伤害受法术强度加成。]], "tformat")
 t("Rift Cutter", "裂缝切割", "talent name")
 t([[Fire a beam of energy that rakes across the ground, dealing %0.2f darkness damage to enemies within and leaving behind an unstable rift. After 3 turns the rift detonates, dealing %0.2f temporal damage to adjacent enemies.
@@ -3253,7 +3252,7 @@ section "tome-cults/data/talents/demented/timethief.lua"
 t("Accelerate", "窃速", "talent name")
 t([[Distorting spacetime around yourself, you reduce the movement speed of all enemies in radius %d by 50%% for %d turns.
 You use the siphoned speed to grant yourself incredible quickness for 1 turn, increasing movement speed by %d%%, increased by a further %d%% for each enemy slowed, to a maximum of 4.
-Any actions other than movement will cancel the effect.]], [[扭曲周围时空，周围 %d 格内的其他生物（包括友方）移动速度降低 50%%，持续 %d 回合。
+Any actions other than movement will cancel the effect.]], [[扭曲周围时空，周围 %d 格内未免疫减速且未通过法术豁免的其他生物（包括友方）移动速度降低 50%%，持续 %d 回合。
 		你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%， 每减速一个目标额外提高 %d%%， 最多计 4 个目标。
 		移动外的任何行动将终止加速效果。]], "tformat")
 t("Switch", "偷换", "talent name")
