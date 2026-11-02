@@ -4004,8 +4004,8 @@ t([[Lesson 2: Netherblast
 %d/4 netherblasts used]], [[第二课：彼世冲击
 %d/4 彼世冲击已使用]], "tformat")
 t([[Lesson 3: Fatebreaker
-%d/2 fatebreakers used]], [[第三课：打破命运
-%d/2 打破命运已使用]], "tformat")
+%d/2 fatebreakers used]], [[第三课：打破宿命
+%d/2 打破宿命已使用]], "tformat")
 t([[Lesson 4: Unravel Existence
 Coordonate with students]], [[第四课：解构存在
 与其他学生合作]], "_t")
