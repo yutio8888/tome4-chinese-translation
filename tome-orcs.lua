@@ -253,7 +253,7 @@ t("Demonic Horns 7", "恶魔角7", "_t")
 t("Demonic Horns 8", "恶魔角8", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Kruk Yeti", "克鲁克雪人", "birth descriptor name")
-t("Yetis are a towering mass of muscle. While normal yetis are non-sentient beasts this kind is special.", "雪人族具有强大的肉体。通常，他们只是无知觉的野兽，但这种有所不同。", "_t")
+t("Yetis are a towering mass of muscle. While normal yetis are non-sentient beasts this kind is special.", "雪人身躯高大，肌肉发达。普通雪人只是缺乏智慧的野兽，但这一种有所不同。", "_t")
 t("A few orcs of the Kruk pride have mastered techno-psionics, allowing them to literally hijack a yeti's mind and transfer their own mind inside.", "少数克鲁克部落的兽人掌握了科技灵能，能够真正劫持一只雪人的心智，并把自己的心智转移进去。", "_t")
 t("Doing so drains their old knowledge and they need to start afresh, gaining considerable strength in the process; for the good of the Prides.", "这样做会耗尽他们旧有的知识，必须重新开始，但在此过程中能获得强大的力量；这一切都是为了部落的利益。", "_t")
 t("They possess the #GOLD#Algid Rage#WHITE# talent which allows them to encase their foes in blocks of ice.", "他们拥有 #GOLD#寒冰之怒#WHITE#技能，让他们能将敌人封在冰块中。", "_t")
@@ -316,8 +316,8 @@ section "tome-orcs/data/chats/destructicus-lead.lua"
 
 t([[#LIGHT_GREEN#*Several loyal Orcs are eagerly waiting outside the palace to meet you; one steps forward, handing you a set of keys.  The word 'DESTRUCTICUS' is etched into one.*#WHITE#
 Chief @playername@!  The Giants are fleeing, and we intercepted a scout carrying this!  We believe they can be used with...  well, you should see for yourself!  Please, come with us to the mountains just south of Kruk Pride!
-#LIGHT_GREEN#*This sounds important.  You should probably head there right away!*#WHITE#]], [[#LIGHT_GREEN#*数名忠诚的兽人在宫殿外焦急地等待着你；其中一名兽人走上前，交给你一串钥匙，上面写着“毁灭号”。*#WHITE#
-@playername@首领！巨人们在逃跑，我们抓住了一名侦查兵，他身上带着这个！我们认为它是用于……算了，您应该亲自来看看！请跟我们来克鲁克部落南边的山脉！
+#LIGHT_GREEN#*This sounds important.  You should probably head there right away!*#WHITE#]], [[#LIGHT_GREEN#*数名忠诚的兽人在宫殿外急切地等待着你；其中一名兽人走上前，交给你一串钥匙，其中一把上刻着“毁灭号”。*#WHITE#
+@playername@首领！巨人们在逃跑，我们截住了一名侦察兵，他身上带着这个！我们认为它是用于……算了，您应该亲自来看看！请跟我们来克鲁克部落南边的山脉！
 #LIGHT_GREEN#*这听起来非常重要，你应该马上过去*#WHITE#]], "_t")
 t("Lead the way.", "带路吧。", "_t")
 
