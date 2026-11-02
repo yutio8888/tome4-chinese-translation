@@ -1,0 +1,56 @@
+{
+ "confirmed": [
+  {
+   "id": "5468070fc343",
+   "edit": [
+    [
+     "\"%s 握把\"",
+     "\"%s 铁腕\""
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/mechanical.lua:85-93 TINKER_IRON_GRIP grants T_TINKER_IRON_GRIP (library 铁腕, tome-orcs.lua:5438/6314/6716); talents/steam/other.lua:496-512 clamps the foe — a grip device, not a handle. Item name aligned with granted talent like sibling tinkers."
+  },
+  {
+   "id": "902b9ffdcd8c",
+   "edit": [
+    [
+     "使用小型蒸汽机和你最新发现的自动化技术，你可以制造蒸汽动力装甲。这个板甲增强你的行动能力并提供强大的防护能力。",
+     "借助小型蒸汽机与最新自动化技术的奇迹，你可以制造出蒸汽动力装甲。这是一套能辅助你行动并配有内置防护机构的全身板甲。"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/mechanical.lua:127: \"miracles of the latest automation discoveries\" not \"you discovered\"; intrinsic protection mechanisms; aligned with schematic text tome-orcs.lua:6721."
+  },
+  {
+   "id": "456980230a9b",
+   "edit": [
+    [
+     "t(\"great\", \"强大的\", \"_t\")",
+     "t(\"great\", \"卓越的\", \"_t\")"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua:26 medical tier prefixes simple/potent/powerful/great/amazing; powerful=强大 and great=强大的 were indistinguishable. Unique key (only row)."
+  },
+  {
+   "id": "6a3e865cf593",
+   "edit": [
+    [
+     "增加全豁免%d点，增加一半治疗系数",
+     "增加全豁免%d点，并使治疗系数提高该数值的一半（按百分比计）"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua:154-155 power=charm power; timed_effects/physical.lua:227,235-238 healing_factor += power/2 (%), not +50%."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "71a3116784d2",
+   "reason": "Translation faithfully renders the English; smith.lua:202-210 divides steampower by turn_procs.hands_creation (diminishing per hit in a turn), which the upstream English also omits. Upstream text/implementation gap, not a translation defect; not adding unstated mechanics."
+  },
+  {
+   "id": "9ed2ab105973",
+   "reason": "therapeutics.lua:84 passes 4+ceil(ml/2) to the duration placeholder while :85 applies 2+ceil(ml/2); upstream argument bug, not fixable in translation while preserving placeholders."
+  }
+ ],
+ "rejected": [],
+ "notes": "0216 host adjudication; DLC sources unpinned public checkout."
+}
