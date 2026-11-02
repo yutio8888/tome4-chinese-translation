@@ -469,7 +469,7 @@ t([[#LIGHT_GREEN#*Kaltor is busy packing some of his goods away in crates; he ha
 	快点吧，@playername@。无意冒犯，但外面有一艘为我准备的私人飞船，我宁愿在上面鸟瞰你要做的事情，也不想坐在前排近距离观赏。]], "_t")
 t([[#LIGHT_GREEN#*He frowns in mock disappointment, as he presses a button on his stylish coat; it hisses, and you hear motors whirring*#WHITE#
 Oh, what a pity.  Guards?  Ten thousand gold to whoever gets the killing blow.  Store credit, of course.]], [[#LIGHT_GREEN#*他假装失望地皱起眉头，按下外套上的按钮。它发出嘶嘶声，你听见引擎的轰鸣。*#WHITE#
-真遗憾。警卫？谁杀了他，就有一万金的赏钱。当然，记在商店账上。]], "_t")
+真遗憾。警卫？谁杀了他，就有一万金的赏钱。当然，只能在本店消费。]], "_t")
 t("DEATH!", "去死吧！", "_t")
 
 ------------------------------------------------
@@ -510,7 +510,7 @@ t([[I came here to warn the Kruk Pride of the threat Nektosh poses and ask for t
 Unfortunately, they cannot afford to spare the warriors to retake the Mana Caves from that tyrant, and I need to stay here to help them defend their land.  The task of freeing our clan is in your hands, when you feel ready for it.]], [[我来这里是为了提醒克鲁克部落警惕独角者纳克托什的威胁，并请求他们的帮助。但他们有更迫切的威胁需要处理……我们应该帮他们抵抗蒸汽巨人。他们是唯一尊重我们、顾及我们尊严的人，如果他们被气之部族或者联合王国摧毁，下一个就是我们。他们的成功就是我们的生存希望。
 
 不幸的是，他们现在没有空闲的战士来帮我们从暴君手中夺回魔法洞穴。我需要留在这保护他们。解放我们氏族的任务就交给你了，等你准备好了再去吧。]], "_t")
-t("Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but I don't believe that bull for a second.  While the great magical power that suddenly awakened within him is as fearsome as it is insanity-inducing,  he has yet to use it to make a shield or teleport himself, and even with his all-powerful beam, his aim isn't always perfect...  I think he has a weakness he's trying to hide.  Fight with courage, fellow Whitehoof, and the Krimbul Clan may be free once more!", "独角者纳克托什声称他是无可战胜无所不能的独角兽后裔。但他说的每一句话我都不信。尽管他体内突然觉醒的魔法力量既强大得可怕又令人疯狂，但他还从未用它制造过护盾或传送自己；即便使用他那全能的射线，他的准头也不总是那么准……我想他有个想要隐藏的弱点。勇敢战斗吧，我的白蹄伙伴，克林布尔氏族也许就能重获自由！", "_t")
+t("Nektosh claims he is the invincible, omnipotent descendant of a unicorn, but I don't believe that bull for a second.  While the great magical power that suddenly awakened within him is as fearsome as it is insanity-inducing,  he has yet to use it to make a shield or teleport himself, and even with his all-powerful beam, his aim isn't always perfect...  I think he has a weakness he's trying to hide.  Fight with courage, fellow Whitehoof, and the Krimbul Clan may be free once more!", "独角者纳克托什声称他是无可战胜无所不能的独角兽后裔。但他说的每一句话我都不信。尽管他体内突然觉醒的魔法力量既强大得可怕又令人疯狂，但他还从未用它制造过护盾或传送自己；即便使用他那全能的射线，他的准头也不总是那么准……我想他有个想要隐藏的弱点。勇敢战斗吧，我的白蹄伙伴，克里布尔部族也许就能重获自由！", "_t")
 t("I will!", "我会的！", "_t")
 t("I will!", "我会的！", "chat_metash")
 t([[He...  he found a wand?  And he realized it was running dry, but only after taking over the tribe?  I pity him, but I cannot forgive him for being willing to sacrifice so many Whitehooves and Orcs to escape the consequences of his brief lapse into madness...  still, as a personal request I ask that you not tell others of his last thoughts.  The Nektosh we once knew saved our tribe from the corrupted magic deep under Eyal; he deserves to, at worst, be remembered as one who tragically succumbed to its influence.
