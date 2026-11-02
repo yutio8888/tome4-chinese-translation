@@ -41923,15 +41923,14 @@ Some races or items may increase them as well.]], [[技能树解锁点有以下�
 某些种族和物品可以获得额外的点数。]], "_t")
 t([[Prodigies are special talents that only the most powerful of characters can attain.
 All of them require at least 50 in a core stat and many also have more special demands. You can learn a new prodigy at level 25 and 42.]], [[觉醒技是角色足够强大时才能获得的特殊技能。
-所有觉醒技都要求某项核心属性达到 50 点，其中许多还有更特殊的额外要求。
-你可以在人物等级达到 25 级和 42 级时各获得一个觉醒技能点。]], "_t")
+所有觉醒技都要求某项核心属性达到 50 点，其中许多还有更特殊的额外要求。你可以在人物等级达到 25 级和 42 级时各获得一个觉醒技能点。]], "_t")
 t("You can use a category point to unlock a new inscription slot (up to 5 slots).", "你可以消耗 1 个技能树解锁点来解锁一个新的刻印位（最多 5 个）。", "_t")
 t("Prodigies", "觉醒技", "_t")
 t("Inscriptions", "刻印", "_t")
 t("You have learnt all the inscription slots you could.", "你已经解锁了所有的刻印位。", "_t")
-t("You can learn %d new slot(s). Do you wish to buy one with one category point?", "您可以解锁 %d 个新的刻印位。你希望用 1 个技能树点数解锁 1 个刻印位吗？", "tformat")
+t("You can learn %d new slot(s). Do you wish to buy one with one category point?", "你可以解锁 %d 个新的刻印位。要消耗 1 个技能树解锁点解锁 1 个刻印位吗？", "tformat")
 t("Category points: %s", "技能树解锁点：%s", "tformat")
-t("You can still learn %d new slot(s) but you need a category point.", "你还可以解锁 %d 个新的刻印位，但你需要一个技能树点数。", "tformat")
+t("You can still learn %d new slot(s) but you need a category point.", "你还可以解锁 %d 个新的刻印位，但你需要 1 个技能树解锁点。", "tformat")
 t("Stats: %s", "属性：%s", "tformat")
 t("Class points: %s", "职业点：%s", "tformat")
 t("Generic points: %s", "通用点：%s", "tformat")
@@ -41959,8 +41958,8 @@ t("Shrug off criticals chance: ", "暴击摆脱率：", "_t")
 t("Class powers:", "职业能力：", "_t")
 t("Talent Category", "技能树", "_t")
 t([[A talent category contains talents you may learn. You gain a talent category point at level 10, 20 and 34. You may also find trainers or artifacts that allow you to learn more.
-A talent category point can be used either to learn a new category or increase the mastery of a known one.]], [[一个技能树包含你可以学习的技能。你会在 10、20 和 34 级时各获得一个技能树点数，也可以找到训练师或神器来学习更多。
-每一点技能树点数可以用来学习一个新的技能树，或者提升一个已知技能树的掌握度（每点 +0.2）。]], "_t")
+A talent category point can be used either to learn a new category or increase the mastery of a known one.]], [[一个技能树包含你可以学习的技能。你会在 10、20 和 34 级时各获得一个技能树解锁点，也可以找到训练师或神器来学习更多。
+每一点技能树解锁点可以用来学习一个新的技能树，或者提升一个已知技能树的掌握度（每点 +0.2）。]], "_t")
 t("Generic talent tree", "通用技能树", "_t")
 t("A generic talent allows you to perform various utility actions and improve your character. It represents a skill anybody can learn (should you find a trainer for it). You gain one point every level (except every 5th level). You may also find trainers or artifacts that allow you to learn more.", "通用技能让你能够执行各种实用动作并强化角色。它代表任何人都能学习的技能（只要能找到训练师）。你每升 1 级获得一点通用技能点（每第 5 级除外），也可以通过训练师或神器获得更多。", "_t")
 t("Class talent tree", "职业技能树", "_t")
