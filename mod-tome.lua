@@ -40885,7 +40885,7 @@ section "mod-tome/data/zones/valley-moon/npcs.lua"
 t("demon", "恶魔", "entity type")
 t("major", "大恶魔", "entity subtype")
 t("Corrupted Daelach", "堕落达莱奇", "entity name")
-t("Shadow and flames. The huge beast of fire moves speedily toward you, its huge shadowy wings deployed.", "阴影和火焰。这团火焰怪物向你冲来，它的巨大暗影翅膀逐渐张开。", "_t")
+t("Shadow and flames. The huge beast of fire moves speedily toward you, its huge shadowy wings deployed.", "阴影和火焰。这头巨大的火焰猛兽张着硕大的暗影双翼，飞速向你冲来。", "_t")
 t("humanoid", "人形生物", "entity type")
 t("elf", "精灵", "entity subtype")
 t("Limmir the Jeweler", "珠宝匠利米尔", "entity name")
