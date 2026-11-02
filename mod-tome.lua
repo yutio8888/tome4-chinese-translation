@@ -39766,7 +39766,7 @@ section "mod-tome/data/zones/slime-tunnels/grids.lua"
 t("Strange Pedestal", "奇怪的基座", "_t")
 t("This pedestal looks old, you can see the shape of an orb carved on it.", "这个基座看上去很古老，你能看到上面铭刻着一个水晶球的图案。", "_t")
 t([[The pedestal seems to react to something in your bag. After some tests you notice it is the %s.
-Do you wish to use the orb on the pedestal?]], [[这个基座似乎对你包里的东西有反应。经过测试后，你发现是包里的%s.
+Do you wish to use the orb on the pedestal?]], [[这个基座似乎对你包里的东西有反应。经过测试后，你发现是包里的%s。
 你想在这个基座上使用这个水晶球吗？]], "tformat")
 t("orb pedestal (dragon)", "水晶球基座：龙", "entity name")
 t("#rng# the Fearsome", "恐怖的#rng#", "_t")
@@ -39796,7 +39796,7 @@ section "mod-tome/data/zones/sludgenest/grids.lua"
 t("Strange Pedestal", "奇怪的基座", "_t")
 t("This pedestal looks old, you can see the shape of an orb carved on it.", "这个基座看上去很古老，你能看到上面铭刻着一个水晶球的图案。", "_t")
 t([[The pedestal seems to react to something in your bag. After some tests you notice it is the %s.
-Do you wish to use the orb on the pedestal?]], [[这个基座似乎对你包里的东西有反应。经过测试后，你发现是包里的%s.
+Do you wish to use the orb on the pedestal?]], [[这个基座似乎对你包里的东西有反应。经过测试后，你发现是包里的%s。
 你想在这个基座上使用这个水晶球吗？]], "tformat")
 t("orb pedestal (dragon)", "水晶球基座：龙", "entity name")
 t("#rng# the Fearsome", "恐怖的#rng#", "_t")
