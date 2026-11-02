@@ -1,0 +1,37 @@
+{
+ "confirmed": [
+  {
+   "id": "879ccb5acf8e",
+   "edit": [
+    [
+     "\"调试模式 -- 切换阵营\"",
+     "\"调试模式 -- 修改阵营关系\""
+    ]
+   ],
+   "evidence": "debug/AlterFaction.lua:66-70 仅 setFactionReaction 改玩家阵营对所选阵营的关系"
+  },
+  {
+   "id": "1c73291a855d",
+   "edit": [
+    [
+     "t(\"Alter Faction\", \"改变阵营\", \"_t\")",
+     "t(\"Alter Faction\", \"修改阵营关系\", \"_t\")"
+    ]
+   ],
+   "evidence": "DebugMain.lua:175 打开 AlterFaction，同上；与对话框标题一致"
+  },
+  {
+   "id": "1534015bb580",
+   "edit": [
+    [
+     "\"#LIGHT_BLUE#弱伤害模式：开启\"",
+     "\"#LIGHT_BLUE#伤害减弱模式打开\""
+    ]
+   ],
+   "evidence": "DebugMain.lua:81-87 EFF_WEAK_GODMODE 开关成对日志，与 OFF「伤害减弱模式关闭」及菜单「伤害减弱」一致"
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": ""
+}
