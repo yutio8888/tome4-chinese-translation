@@ -37902,7 +37902,7 @@ t("human", "人类", "entity subtype")
 t("A menacing man in heavy armor, wielding a mace. He looks battle-hardened.", "一个身着重甲、手持钉头锤的凶悍男人。他看上去久经沙场。", "_t")
 t("halfling slinger", "半身人投石者", "entity name")
 t("halfling", "半身人", "entity subtype")
-t("A Halfling slinger. He seems adept at combat.", "一位半身人投石者，他似乎很擅长角斗。", "_t")
+t("A Halfling slinger. He seems adept at combat.", "一位半身人投石者，他似乎很擅长战斗。", "_t")
 t("arcane blade", "奥术之刃", "entity name")
 t("A Human Arcane Blade. His body shows multiple scars from battle.", "一位人类奥术之刃。他身上伤痕累累，都是战斗留下的。", "_t")
 t("Cornac rogue", "科纳克人盗贼", "_t")
@@ -37996,9 +37996,9 @@ t("Elandar", "埃兰达", "entity name")
 t("Renegade mages from Angolwen, the Sorcerers have set up in the Far East, slowly growing corrupt. Now they must be stopped.", "来自安格利文的叛逃法师——巫师们已在远东立足，并逐渐腐化堕落。现在必须阻止他们。", "_t")
 t("Damn you, you only postpone your death! Fyrk!", "该死，你只是在拖延你的死亡而已！弗莱克！", "_t")
 t("Argoniel", "艾格尼尔", "entity name")
-t("Fyrk, Faeros High Guard", "炎魔守卫弗莱克", "entity name")
+t("Fyrk, Faeros High Guard", "法罗高阶守卫弗莱克", "entity name")
 t([[Faeros are highly intelligent fire elementals, rarely seen outside volcanoes. They are probably not native to this world.
-This one looks even nastier and looks toward you with what seems to be disdain. Flames swirl all around him.]], [[炎魔是高智慧的火焰元素，在火山以外的其他地方很少看到。它们很可能不属于这个世界。
+This one looks even nastier and looks toward you with what seems to be disdain. Flames swirl all around him.]], [[法罗是高智慧的火焰元素，在火山以外的其他地方很少看到。它们很可能不属于这个世界。
 这只看起来更加凶残，它用蔑视的眼神看着你。火焰在它的身上流转。]], "_t")
 t("and a sole piece of char was sent to his masters as a totem", "并只把一块焦炭作为信物送到了他的主人那里", "_t")
 
