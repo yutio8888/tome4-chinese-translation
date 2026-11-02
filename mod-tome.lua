@@ -18968,7 +18968,7 @@ Our forces never full recovered from the loss of our great leader. The wars cont
 
 随后炼金术士向他投掷炸弹，灼热的烈火烧焦了他的皮肉。弓箭手与投石手瞄准他疯狂齐射，箭矢刺穿他的皮肤，弹丸砸伤他的躯体。但加库尔爆发出震天动地的战吼，漫天飞射的箭矢弹丸在半空中被当场震碎，面前的大地也随之崩裂。他从身旁倒下的尸体上抓起两把战斧扑向袭击者，双手挥斧，向敌人劈下一记又一记重击。半身人将他重重围困，攻击从四面八方席卷而来，但他依然疯狂鏖战。
 
-然而战斗不可能无休止地持续下去。利剑的一记刺击废掉了他的腿脚，炸弹的爆炸炸瞎了他仅剩的那只眼睛；尽管他踏着四周层层叠叠的尸体继续浴血奋战，鲜血已从他全身各处的伤口中汩汩渗出。他手中战斧的斧刃开裂卷刃，只能握着斧柄当作战棍挥舞。他挥舞木柄在眼前的敌军中拼杀，直到动作逐渐放缓，最终停下，炼金术士们倾泻下一枚又一枚炸弹，直到他焦黑的残躯再也不动分毫。吞噬者加库尔就这样战死了，但即便死去他的身躯依然屹立不倒，高举武器过顶，傲立在万具尸骸堆积的战场之巅。半身人事后清点人数时，幸存者仅剩寥寥数百人。
+然而战斗不可能无休止地持续下去。利剑的一记刺击废掉了他的腿脚，炸弹的爆炸炸瞎了他的眼睛；尽管他踏着四周层层叠叠的尸体继续浴血奋战，鲜血已从他全身各处的伤口中汩汩渗出。他手中战斧的斧刃开裂卷刃，只能握着斧柄当作战棍挥舞。他挥舞木柄在眼前的敌军中拼杀，直到动作逐渐放缓，最终停下，炼金术士们倾泻下一枚又一枚炸弹，直到他焦黑的残躯再也不动分毫。吞噬者加库尔就这样战死了，但即便死去他的身躯依然屹立不倒，高举武器过顶，傲立在万具尸骸堆积的战场之巅。半身人事后清点人数时，幸存者仅剩寥寥数百人。
 
 失去伟大领袖后，我军再也未能完全从沉重打击中恢复元气。战争仍在继续，但失去了他的谋略，失败变得愈发频繁。最终其他种族展开了反扑，我们的将士被逐出了故土。但加库尔的意志永远与我们同在，他的教诲永驻我们的心头与脑海。终有一天，我们将重返他的诞生之地，完成他开启的荣耀伟业——马基·埃亚尔终将属于我们。]], "_t")
 t("Clinician Korbek's experimental notes part one", "巫医库贝克的实验笔记，第一部分", "_t")
@@ -19612,7 +19612,6 @@ t([[Loremaster Verutir here. I have been assigned to write an official chronicle
 With that said I shall be starting this project by investigating the Elves and their connection to the Sunwall. They should be one of the easier races to interview considering their life expectancy and their penchant for remembering their own history. Of course, there aren't as many of them around as there used to be.
 ...
 Unfortunately though, our local Elves are also unwilling to talk to me about their history, saying they do not have records of the earlier times. However, there is a fellow Thanchir who I hear would be happy to help. The only problem is that he lies on the other side of a huge encampment of orcs, so I will need an escort to help me. We will see how that goes. I have heard things about those adventurer escorts ...]], [[博学者温罗提在此。我受命撰写一部太阳堡垒官方史。这本笔记将记录我四处旅行、采访众人的过程。如果你正在读它，那你要么是我的资助人（再次感谢您，先生！），要么是个偷看者（滚出我的日记！），要么是发现我尸体的人。若是最后一种，请把它带给太阳堡垒城的弗洛萨斯领主领取酬谢，告诉我的妻子我是怎么死的，再告诉孩子们我爱他们。
-
 闲话到此，我将从调查精灵及其与太阳堡垒的联系开始这项工作。考虑到精灵的寿命和他们热衷于铭记自身历史的性情，他们应该是较容易采访的种族之一。当然，如今这里的精灵已经不像过去那么多了。
 ……
 然而不幸的是，当地精灵也不愿向我讲述他们的历史，说他们没有早期时代的记录。不过我听说，有位名叫桑切尔的人很乐意帮忙。唯一的问题是，他人在一座庞大兽人营地的另一边，所以我需要一名护卫协助。到时候再看吧。我可听说过有关那些冒险者护卫的传闻……]], "_t")
@@ -19851,7 +19850,7 @@ t("Melnela", "梅涅拉", "_t")
 section "mod-tome/data/maps/towns/last-hope.lua"
 
 t("Statue of King Tolak the Fair", "公正王托拉克的雕像", "_t")
-t("Statue of King Toknor the Brave", "勇气之王图库纳的雕像", "_t")
+t("Statue of King Toknor the Brave", "勇者图库纳国王的雕像", "_t")
 t("Statue of Queen Mirvenia the Inspirer", "鼓舞者米雯尼雅女王的雕像", "_t")
 t("Declaration of the Unification of the Allied Kingdoms", "联合王国统一公告", "_t")
 
@@ -19871,7 +19870,7 @@ section "mod-tome/data/maps/vaults/auto/greater/living-weapons.lua"
 t("Poltergeist %s", "作祟的 %s", "tformat")
 t("Animated %s", "活化的 %s", "tformat")
 t("Moving %s", "移动的 %s", "tformat")
-t("Poltergeist's %s", "作祟的 %s", "tformat")
+t("Poltergeist's %s", "作祟者的 %s", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/maps/vaults/auto/greater/orc-hatred.lua"
