@@ -1,0 +1,55 @@
+{
+ "confirmed": [
+  {
+   "id": "095e1f703d16",
+   "edit": [
+    [
+     "能量分配器V2可以确保你在任何需要的时候拥有充足的能源，并且不会像V1那样",
+     "能量分配装置 V2 可以确保你在任何需要的时候拥有充足的能源，并且不会像 V1 那样"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/tinkers/electricity.lua:185-186 POWER_DISTRIBUTOR name = 能量分配装置."
+  },
+  {
+   "id": "cfa40e938e91",
+   "edit": [
+    [
+     "能够分散你敌人的注意力，让他们无法完成复杂的行动。",
+     "能够分散敌人的注意力，干扰他们进行复杂的行动。"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/tinkers/chemistry.lua:125 \"distract your enemies from any complicated actions\" (cf. talents/steam/other.lua:1110-1132 talent fail chance); 无法完成 overstated the English."
+  },
+  {
+   "id": "f00c1d61f394",
+   "edit": [
+    [
+     "在近战暴击时施放短程的闪电。",
+     "在近战暴击时释放一道短程闪电射线。"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/tinkers/electricity.lua:23 \"short range beam\"; general/objects/tinkers/electricity.lua:37-62 type=\"beam\", range=3."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "a4825021da52",
+   "reason": "Translation matches upstream English; implementation differs (upstream text/implementation gap, pending user policy): general/objects/tinkers/chemistry.lua:119-129 triggers once per turn (turn_procs) while text says each blow."
+  },
+  {
+   "id": "986714eadee1",
+   "reason": "Translation matches upstream English; implementation differs (upstream text/implementation gap, pending user policy): general/objects/tinkers/electricity.lua:85,91-93 25% chance; English omits it."
+  },
+  {
+   "id": "d9f818838c57",
+   "reason": "Translation matches upstream English; implementation differs (upstream text/implementation gap, pending user policy): general/objects/tinkers/electricity.lua:262,300 LIGHTNING_DAZE daze=25 (core damage_types.lua:1564-1567 EFF_DAZED); English says stunning."
+  }
+ ],
+ "rejected": [
+  {
+   "id": "ddb69318932e",
+   "reason": "English says the weapon rod does not count towards the maximum, but galvanic-technomancy.lua:271-276 only inserts the weapon rod when #p.rods<3 and :352 caps total at 3, so it does occupy a slot. The translation (仍计入总量) matches the implementation; per source-is-final rule, not changed."
+  }
+ ],
+ "notes": "0224 host adjudication; DLC sources unpinned public checkout."
+}

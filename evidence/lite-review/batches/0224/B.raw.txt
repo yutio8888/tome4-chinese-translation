@@ -1,0 +1,264 @@
+{
+  "batch": "0224",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "8218e6cb4eac",
+      "verdict": "OK"
+    },
+    {
+      "id": "ddb69318932e",
+      "verdict": "OK"
+    },
+    {
+      "id": "51891d0ecbdd",
+      "verdict": "OK"
+    },
+    {
+      "id": "a4825021da52",
+      "verdict": "ISSUE",
+      "observation": "“每次击中”会让人理解为多次攻击均能扣除行动能量，但插件每回合只触发一次：tome-orcs/data/general/objects/tinkers/chemistry.lua:119-129 在 turn_procs 已设置时直接返回，首次触发才扣除 game.energy_to_act * 0.1。英文配方说明同样过于宽泛，应按实现限定。DLC 为 /workspace/tome4-dlcs 下公开检出，来源未固定。",
+      "suggestion": "热量就是能量。运用你的物理学、化学和锻造知识，你可以为武器加上一道寒冷锋刃。它造成的伤害相对较低，但击中还会使敌人损失十分之一个回合；每回合最多触发一次。"
+    },
+    {
+      "id": "5d9f5cc2b1f5",
+      "verdict": "OK"
+    },
+    {
+      "id": "3cf87801d000",
+      "verdict": "OK"
+    },
+    {
+      "id": "527f2111b85a",
+      "verdict": "OK"
+    },
+    {
+      "id": "37eb31627bde",
+      "verdict": "OK"
+    },
+    {
+      "id": "c03508f64f28",
+      "verdict": "OK"
+    },
+    {
+      "id": "82f95559c76a",
+      "verdict": "OK"
+    },
+    {
+      "id": "90e67721b480",
+      "verdict": "OK"
+    },
+    {
+      "id": "34845d97163b",
+      "verdict": "OK"
+    },
+    {
+      "id": "3b5e4a945479",
+      "verdict": "OK"
+    },
+    {
+      "id": "158785f67bfe",
+      "verdict": "OK"
+    },
+    {
+      "id": "f170ac78e0f5",
+      "verdict": "OK"
+    },
+    {
+      "id": "b5439ebf03a2",
+      "verdict": "OK"
+    },
+    {
+      "id": "506504aed6e2",
+      "verdict": "OK"
+    },
+    {
+      "id": "cfa40e938e91",
+      "verdict": "ISSUE",
+      "observation": "“让他们无法完成复杂的行动”把干扰说成了必然阻止。tome-orcs/data/talents/steam/other.lua:1110、1119、1130-1132 明确为一定概率技能失败，tome-orcs/data/timed_effects/physical.lua:685-689 仅增加 talent_fail_chance，并非封锁行动。DLC 为 /workspace/tome4-dlcs 下公开检出，来源未固定。",
+      "suggestion": "这个“爬行的蚂蚁”牌痒痒粉能够分散敌人的注意力，使其有一定几率无法完成复杂的行动。"
+    },
+    {
+      "id": "d1bd81d759de",
+      "verdict": "OK"
+    },
+    {
+      "id": "45494336023b",
+      "verdict": "OK"
+    },
+    {
+      "id": "36583e324b5c",
+      "verdict": "OK"
+    },
+    {
+      "id": "6a53b13a8bca",
+      "verdict": "OK"
+    },
+    {
+      "id": "a086e0760544",
+      "verdict": "OK"
+    },
+    {
+      "id": "e8b38cd6912d",
+      "verdict": "OK"
+    },
+    {
+      "id": "7d3ebdcfa27c",
+      "verdict": "OK"
+    },
+    {
+      "id": "b15e7cb89777",
+      "verdict": "OK"
+    },
+    {
+      "id": "47f1a9c5141c",
+      "verdict": "OK"
+    },
+    {
+      "id": "65149a0859ca",
+      "verdict": "OK"
+    },
+    {
+      "id": "6ae0aaa63f40",
+      "verdict": "OK"
+    },
+    {
+      "id": "ba7ccf390eaf",
+      "verdict": "OK"
+    },
+    {
+      "id": "f668fa467787",
+      "verdict": "OK"
+    },
+    {
+      "id": "a7e2f6b27097",
+      "verdict": "OK"
+    },
+    {
+      "id": "f00c1d61f394",
+      "verdict": "ISSUE",
+      "observation": "译文漏掉 beam 的射线形状，未说明闪电会沿直线穿透影响目标。tome-orcs/data/tinkers/electricity.lua:23 明确为短程电流射线；实际插件在 tome-orcs/data/general/objects/tinkers/electricity.lua:37、41-42、62 使用 type=\"beam\"、range=3 投射伤害。DLC 为 /workspace/tome4-dlcs 下公开检出，来源未固定。",
+      "suggestion": "闪电线圈可以安装在近战武器上，在近战暴击时释放一道短程闪电射线。"
+    },
+    {
+      "id": "83cb963006c8",
+      "verdict": "OK"
+    },
+    {
+      "id": "986714eadee1",
+      "verdict": "ISSUE",
+      "observation": "“在法术命中时施放”缺少概率限定，容易理解成每次命中均施放。tome-orcs/data/general/objects/tinkers/electricity.lua:85 明示 25% 几率，91-93 的 talent_on_spell 配置也为 chance=25。英文配方说明省略了此条件，应依实现补足。DLC 为 /workspace/tome4-dlcs 下公开检出，来源未固定。",
+      "suggestion": "魔力线圈可以安装在法杖上，提高法力回复，并在法术命中时有 25% 的几率施放一道闪电法术。"
+    },
+    {
+      "id": "d2ef31590350",
+      "verdict": "OK"
+    },
+    {
+      "id": "1b22b9727f4f",
+      "verdict": "OK"
+    },
+    {
+      "id": "e6c45e4576b9",
+      "verdict": "OK"
+    },
+    {
+      "id": "aa310d084de8",
+      "verdict": "OK"
+    },
+    {
+      "id": "206add4e3a90",
+      "verdict": "OK"
+    },
+    {
+      "id": "4ccb01db97f5",
+      "verdict": "OK"
+    },
+    {
+      "id": "76b41e273ffa",
+      "verdict": "OK"
+    },
+    {
+      "id": "2197b6076cb9",
+      "verdict": "OK"
+    },
+    {
+      "id": "7746dbe1647a",
+      "verdict": "OK"
+    },
+    {
+      "id": "ac95038cdc02",
+      "verdict": "OK"
+    },
+    {
+      "id": "b93969a6fe7e",
+      "verdict": "OK"
+    },
+    {
+      "id": "6b8c40ba3b4c",
+      "verdict": "OK"
+    },
+    {
+      "id": "ef806781b1a0",
+      "verdict": "OK"
+    },
+    {
+      "id": "d9f818838c57",
+      "verdict": "ISSUE",
+      "observation": "“震慑他们”误述了控制类型并漏掉概率。tome-orcs/data/general/objects/tinkers/electricity.lua:262、300 明确为 LIGHTNING_DAZE、daze=25；核心固定提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/damage_types.lua:1564-1567 按该概率施加 EFF_DAZED，而非 EFF_STUNNED。terminology/combat.tsv 的 preferred daze 为“眩晕”。DLC 为 /workspace/tome4-dlcs 下公开检出，来源未固定。",
+      "suggestion": "蒸汽链锯技术的巅峰之作。你的每一击都会向敌人释放风暴之力，在他们之间连锁，并有 25% 的几率使他们眩晕！"
+    },
+    {
+      "id": "a3f4ec643498",
+      "verdict": "OK"
+    },
+    {
+      "id": "7d1a9dec31be",
+      "verdict": "OK"
+    },
+    {
+      "id": "1ecb82f65cf4",
+      "verdict": "OK"
+    },
+    {
+      "id": "bbe9a97b99e5",
+      "verdict": "OK"
+    },
+    {
+      "id": "9ed8b9fe6cd5",
+      "verdict": "OK"
+    },
+    {
+      "id": "6f32aaee2d84",
+      "verdict": "OK"
+    },
+    {
+      "id": "47362267c4f1",
+      "verdict": "OK"
+    },
+    {
+      "id": "708cc90e58bf",
+      "verdict": "OK"
+    },
+    {
+      "id": "7ff47595b9da",
+      "verdict": "OK"
+    },
+    {
+      "id": "52ef8ce78c49",
+      "verdict": "OK"
+    },
+    {
+      "id": "095e1f703d16",
+      "verdict": "OK"
+    },
+    {
+      "id": "91fa5093f4a4",
+      "verdict": "OK"
+    },
+    {
+      "id": "3f7838597503",
+      "verdict": "OK"
+    }
+  ]
+}

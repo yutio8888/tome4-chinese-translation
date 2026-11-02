@@ -6606,7 +6606,7 @@ t("New cloak doesn't have all the resistances you wanted? A fireproof coating it
 t("Flash Powder", "闪光粉", "_t")
 t("What is better than throwing sand in someone's face? Throwing sand that shines as bright as the Sun!", "有什么比往别人脸上扔沙更有效？扔出会像太阳一样闪耀的沙子！", "_t")
 t("Itching Powder", "痒痒粉", "_t")
-t("The 'Crawling Ants' itching powder will distract your enemies from any complicated actions.", "这个“爬行的蚂蚁”牌痒痒粉能够分散你敌人的注意力，让他们无法完成复杂的行动。", "_t")
+t("The 'Crawling Ants' itching powder will distract your enemies from any complicated actions.", "这个“爬行的蚂蚁”牌痒痒粉能够分散敌人的注意力，干扰他们进行复杂的行动。", "_t")
 t("Rogue's Gallery", "盗贼画廊", "_t")
 t("Lined with reactive mechanisms, this cloak is equipped for any situation you might possibly encounter, and several you couldn't possibly encounter!", "内衬各种机械装置，这件披风足以应对你可能遇到的任何情况，甚至还能应对几种你根本不可能遇到的情况！", "_t")
 t("flash powder", "闪光粉", "_t")
@@ -6625,7 +6625,7 @@ t("Make the invisible visible.", "使隐形之物现身。", "_t")
 section "tome-orcs/data/tinkers/electricity.lua"
 
 t("Lightning Coil", "闪电线圈", "_t")
-t("Lightning coils can be attached to melee weapons to generate a short range beam of electricity on melee crits.", "闪电线圈可以被安装在近战武器上，在近战暴击时施放短程的闪电。", "_t")
+t("Lightning coils can be attached to melee weapons to generate a short range beam of electricity on melee crits.", "闪电线圈可以被安装在近战武器上，在近战暴击时释放一道短程闪电射线。", "_t")
 t("Mana Coil", "魔力线圈", "_t")
 t("Mana coils can be attached to staves to improve mana regeneration and cast a lightning spell on spell hits.", "魔力线圈可以安装在法杖上，提高法力回复，并在法术命中时施放一道闪电法术。", "_t")
 t("sapphire", "蓝宝石", "_t")
@@ -6652,7 +6652,7 @@ t("Just drop it down and watch the sparks fly when your enemies get near.", "把
 t("Mental Stimulator", "精神刺激装置", "_t")
 t("Supercharge your thinking and give your brain a boost with the Mental Stimulator!", "强化你的思考能力，加速你的大脑！", "_t")
 t("Power Distributor", "能量分配装置", "_t")
-t("The Power Distributor V2 ensures you have the energy where and when you need it, without any of the side effects like V1 had.", "能量分配器V2可以确保你在任何需要的时候拥有充足的能源，并且不会像V1那样有什么负面作用。", "_t")
+t("The Power Distributor V2 ensures you have the energy where and when you need it, without any of the side effects like V1 had.", "能量分配装置 V2 可以确保你在任何需要的时候拥有充足的能源，并且不会像 V1 那样有什么负面作用。", "_t")
 t("White Light Emitter", "白光发射装置", "_t")
 t("Add more light to your light!", "给你的灯具加点光亮！", "_t")
 
