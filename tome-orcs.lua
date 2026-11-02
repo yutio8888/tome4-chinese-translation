@@ -8270,7 +8270,7 @@ t("%s is knocked back!", "%s 被击退！", "logSeen")
 ------------------------------------------------
 section "tome-orcs/superload/mod/class/interface/Combat.lua"
 
-t("#{bold}#%s's tinker attains critical power!#{normal}#", "#{bold}#%s的蒸汽工具造成了致命一击！#{normal}#", "logSeen")
+t("#{bold}#%s's tinker attains critical power!#{normal}#", "#{bold}#%s的蒸汽工具迸发出暴击之力！#{normal}#", "logSeen")
 
 ------------------------------------------------
 section "tome-orcs/superload/mod/class/interface/TooltipsData.lua"
