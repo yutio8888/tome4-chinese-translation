@@ -4505,7 +4505,7 @@ t("statue", "雕像", "entity name")
 t("teleporter to the surface", "到地面的传送门", "entity name")
 t("previous level", "前往上一层", "entity name")
 t("next level", "前往下一层", "entity name")
-t("portal to the Maggot", "到蛆虫内的传送门", "entity name")
+t("portal to the Maggot", "通向巨大蛆虫的传送门", "entity name")
 
 ------------------------------------------------
 section "tome-cults/data/zones/town-kroshkkur/npcs.lua"
@@ -4518,7 +4518,7 @@ t("A drem cultist.", "一位德瑞姆邪教徒。", "_t")
 t("drem seeker of knowledge", "德瑞姆知识探求者", "entity name")
 t("A drem in long red robes, minding its own business.", "一位身穿红袍的德瑞姆，正在自顾自地做自己的事。", "_t")
 t("disfigured creature", "畸形生物", "entity name")
-t("A vaguely humanoid shape, wandering around to some unknown goals.", "一个模糊的人形生物，怀着某些未知的目的四处游荡。", "_t")
+t("A vaguely humanoid shape, wandering around to some unknown goals.", "一个隐约呈人形的生物，怀着某些不为人知的目的四处游荡。", "_t")
 t("That Which Teaches History", "教历史的东西", "entity name")
 t("This creature manages the sanctuary's library.", "这个生物掌管着避难所的图书馆。", "_t")
 t("The Sightless Acolyte", "盲目的侍僧", "entity name")
@@ -4558,8 +4558,8 @@ t("The Maggot", "巨大蛆虫", "_t")
 section "tome-cults/hooks/bonestaff.lua"
 
 t("#GREY##{italic}#You feel the bones of the staff creeking and vibrating in your hand.#{normal}##LAST# Yes... #{italic}#\"master\"#{normal}#.", "#GREY##{italic}#你感到手中骨杖的骨头嘎吱作响、不住颤动。#{normal}##LAST# 是的……#{italic}#“主人”#{normal}#。", "_t")
-t("#GREY##{italic}#The vibrations feel like a shrug.#{normal}##LAST# By magic #{bold}#obviously#{normal}#. What kind of necromancer might you be to ask such #{bold}#stupid#{normal}# questions?", "#GREY##{italic}#骨杖发出了像是耸肩的颤动#{normal}##LAST# #{bold}#当然是#{normal}#被死灵魔法变成这样的。什么样的死灵法师会问出这样#{bold}#愚蠢#{normal}#的问题？", "_t")
-t("#GREY##{italic}#The vibrations intensify.#{normal}##LAST# As long as this means more deaths and bones, I will agree to change aspect. Which do you choose?", "#GREY##{italic}#颤动加强了。#{normal}##LAST#只要这意味着更多的死亡和骨头，我会同意改变类型。你选哪一个？", "_t")
+t("#GREY##{italic}#The vibrations feel like a shrug.#{normal}##LAST# By magic #{bold}#obviously#{normal}#. What kind of necromancer might you be to ask such #{bold}#stupid#{normal}# questions?", "#GREY##{italic}#骨杖的颤动像是在耸肩。#{normal}##LAST# #{bold}#显然#{normal}#是靠魔法。什么样的死灵法师会问出这样#{bold}#愚蠢#{normal}#的问题？", "_t")
+t("#GREY##{italic}#The vibrations intensify.#{normal}##LAST# As long as this means more deaths and bones, I will agree to change aspect. Which do you choose?", "#GREY##{italic}#颤动加强了。#{normal}##LAST#只要这意味着更多的死亡和骨头，我就同意改变形态。你选哪一个？", "_t")
 t("Is there anything else you can do?", "你还能做什么吗？", "_t")
 t("#GREY##{italic}#The staff shudders.#{normal}##LAST# My finest services are only available to real necromancers. Stop bothering me, inferior creature.", "#GREY##{italic}#法杖抖动了一下。#{normal}##LAST# 我最好的服务只提供给真正的死灵法师。别烦我了，低等生物。", "_t")
 t("I am ready to use your powers!", "我准备好使用你的力量了！", "_t")
@@ -4570,7 +4570,7 @@ Anytime you use your Create Minions spell I will make sure one of them is a Bone
 
 #ANTIQUE_WHITE#The Bone Horror is a powerful undead bone construct with multiple bone-based attacks and a bone shield. Upon death it splits into 3 skeleton minions.
 #GREY#You have captured %d souls out of the 100 needed.]], [[#GREY##{italic}#你感受到手中的法杖怀着黑暗的意图扭动。#{normal}##LAST# 一旦你收集了100个灵魂和一个职业技能点，我将能够增强你可怜的召唤能力，让你可以召唤骨灵恐魔！
-任何时候，当你使用召唤不死随从的技能时，如果当前没有骨灵恐魔，我会确保其中一个是骨灵恐魔。
+每当你使用召唤骷髅随从的法术时，如果当前没有骨灵恐魔，我会确保其中一个是骨灵恐魔。
 
 #ANTIQUE_WHITE#骨灵恐魔是强大的不死白骨生物，拥有多种骨系攻击技能，并且具有骨盾。骨灵恐魔死亡的时候会分裂出三个骷髅随从。
 #GREY#你已经收集了%d个灵魂，共需要收集100个灵魂。]], "tformat")
