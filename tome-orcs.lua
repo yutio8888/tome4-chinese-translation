@@ -3675,7 +3675,7 @@ t("To ensure a future, any future, for our race they must be freed.", "为了我
 t("The internment camp is located somewhere to the north. The orcs are subdued into obedience by a powerful #{halfling}# psionic, Mindwall, and guarded by elite Sunwall troops.", "拘留营位于北方某处。兽人受到一名强大的 #{halfling}#半身人灵能者“意念之墙”的精神压制，被迫服从，并由太阳堡垒的精锐部队看守。", "_t")
 t("Mindwall must be taken care of and the prides set free.", "必须除掉意念之墙，让被囚禁的各部落重获自由。", "_t")
 t("But #{bold}#BEFORE#{normal}# that you should go and destroy the Sunwall Observatory to the east, as our spies have found a way to resist Mindwall's psionic powers which requries #{italic}#ingredients#{normal}# from there.", "但在那#{bold}#之前#{normal}#，你应该前往东边摧毁太阳堡垒观星台。我们的间谍已经找到了抵抗意念之墙灵能力量的方法，但需要从那里取得#{italic}#材料#{normal}#。", "_t")
-t("#LIGHT_GREEN#* You have destroyed Mindwall body but he managed to split his mind into many pieces and taken direct control of the subdued orcs. Destroy the pillars in each level four other levels.#WHITE#", "#LIGHT_GREEN#* 你摧毁了意念之墙的身躯，但他设法把自己的心智分裂成许多块，直接控制了那些被他压服的兽人。摧毁其他四个关卡的水晶柱。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have destroyed Mindwall body but he managed to split his mind into many pieces and taken direct control of the subdued orcs. Destroy the pillars in each level four other levels.#WHITE#", "#LIGHT_GREEN#* 你摧毁了意念之墙的身躯，但他设法把自己的心智分裂成许多块，直接控制了那些被他压服的兽人。摧毁其他四个关卡中的心灵控制柱。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have freed all the Vor Pride orcs.#WHITE#", "#LIGHT_GREEN#* 你解放了沃尔部落的兽人。#WHITE#", "_t")
 t("#GREY#* You need to have free the Vor Pride orcs.#WHITE#", "#GREY#* 你必须解放沃尔部落的兽人。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have freed all the Rak'Shor Pride orcs.#WHITE#", "#LIGHT_GREEN#* 你解放了拉克·肖部落的兽人。#WHITE#", "_t")
@@ -3729,7 +3729,7 @@ t("place the bomb on the structural weakness.", "将炸弹放在建筑的弱点�
 t("Sewer Detonator", "下水道炸弹", "_t")
 t("You must first locate the structural weakness in the Dominion's port tower.", "你需要先找到塔楼的结构弱点。", "_t")
 t([[You place the detonator, you have 100 turns to get out or be destroyed by the explosion.
-Use your #{bold}##GOLD#Rod of Recall#LAST##{normal}#!]], [[你安置了引爆器；你有 100 回合撤离，否则会被爆炸摧毁。
+Use your #{bold}##GOLD#Rod of Recall#LAST##{normal}#!]], [[你安置了炸弹；你有 100 回合撤离，否则会被爆炸摧毁。
 使用#{bold}##GOLD#回归之杖#LAST##{normal}#！]], "_t")
 -- untranslated text
 --[==[
@@ -3741,9 +3741,9 @@ t("", "", "_t")
 section "tome-orcs/data/quests/krimbul.lua"
 
 t("Clan of the Unicorn", "独角兽部族", "_t")
-t("Metash has asked you to investigate the Krimbul Clan, south of the peninsula.", "梅塔什希望你调查半岛南部的克里布尔部落。", "_t")
-t("A whitehoof turned mad with power is trying to lead them in a war against Kruk Pride.", "一名因力量而疯狂的白蹄族人正企图带领全族向克鲁克部族开战。", "_t")
-t("#LIGHT_GREEN#* You have stopped the pitiful Nektosh, ensuring one less threat for the Pride and a future for the Whitehooves.#WHITE#", "#LIGHT_GREEN#* 你阻止了可怜的纳克托什，克鲁克部族从此少了一个威胁，白蹄族也因此有了未来。#WHITE#", "_t")
+t("Metash has asked you to investigate the Krimbul Clan, south of the peninsula.", "梅塔什希望你调查半岛南部的克里布尔部族。", "_t")
+t("A whitehoof turned mad with power is trying to lead them in a war against Kruk Pride.", "一名因力量而疯狂的白蹄族人正企图带领全族向克鲁克部落开战。", "_t")
+t("#LIGHT_GREEN#* You have stopped the pitiful Nektosh, ensuring one less threat for the Pride and a future for the Whitehooves.#WHITE#", "#LIGHT_GREEN#* 你阻止了可怜的纳克托什，克鲁克部落从此少了一个威胁，白蹄族也因此有了未来。#WHITE#", "_t")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -3754,7 +3754,7 @@ t("", "", "_t")
 section "tome-orcs/data/quests/kruk-invasion.lua"
 
 t("Homeland", "家园", "_t")
-t("The giants have breached the mountain-side of Kruk pride!", "巨人们已经攻破了克鲁克部族依山的一侧！", "_t")
+t("The giants have breached the mountain-side of Kruk pride!", "巨人们已经攻破了克鲁克部落依山的一侧！", "_t")
 t("They are invading the town just when most of our forces are outside.", "他们偏在我军大部分兵力都在外面时进攻城镇。", "_t")
 t([[Only you and few others are left to close the breach by collapsing the tunnel from the inside.
 ]], [[只有你和少量同伴还留在这里，必须炸毁他们的隧道，封锁突破口。
@@ -3764,7 +3764,7 @@ t("#LIGHT_GREY#* You must place the bomb at the end of the tunnel to destroy it.
 t("Cave Detonator", "洞穴炸弹", "_t")
 t("This bomb was tailored to crumble the tunnel used by the Steam Giants to invade Kruk Pride.", "这枚炸弹是为粉碎蒸汽巨人用来入侵克鲁克部落的隧道而特制的。", "_t")
 t([[You place the detonator, you have 220 turns to get out or be destroyed by the explosion.
-Use your #{bold}##GOLD#Rod of Recall#LAST##{normal}#!]], [[你成功安装了炸弹，将于220回合后爆炸。你需要在爆炸前离开。
+Use your #{bold}##GOLD#Rod of Recall#LAST##{normal}#!]], [[你安置了炸弹；你有 220 回合撤离，否则会被爆炸摧毁。
 使用 #{bold}##GOLD#回归之杖#LAST##{normal}#！]], "_t")
 t("#LIGHT_GREEN#Kruk Pride is safe for now. Now is time for revenge!", "#LIGHT_GREEN#克鲁克部落暂时安全了。现在是复仇的时刻！", "saySimple")
 
