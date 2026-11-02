@@ -1,0 +1,32 @@
+{
+ "confirmed": [
+  {
+   "id": "5a472e66f0ff",
+   "edit": [
+    [
+     "\" （需要更多技能）\"",
+     "\" （技能等级不足）\""
+    ]
+   ],
+   "evidence": "TrapsSelect.lua:41/122-124 item.tier > mastery_level（陷阱准备技能等级）时显示"
+  },
+  {
+   "id": "b426a6f7ed36",
+   "edit": [
+    [
+     "其中许多还有更特殊的额外要求。\n你可以在人物等级达到25级和42级时各获得一个觉醒技能点。",
+     "其中许多还有更特殊的额外要求。你可以在人物等级达到 25 级和 42 级时各获得一个觉醒技能点。"
+    ]
+   ],
+   "evidence": "UberTalent.lua:192-194 源文 2 个换行；与 0174 LevelupDialog 同族说明一致"
+  }
+ ],
+ "advisory": [
+  {
+   "id": "613ff2c7af2a",
+   "reason": "UseTalents.lua:35 状态列 Active 指可用的主动技能，「主动」更准；但 _t\"Active\" 同键还用于 boot Addons.lua:66 插件启用列与 ShimmerRemoveSustains.lua:40 持续技能激活列，「激活」在那两处正确；运行键无法拆分，不改"
+  }
+ ],
+ "rejected": [],
+ "notes": ""
+}

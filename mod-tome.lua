@@ -42228,7 +42228,7 @@ t(" (primed trigger)", " （即爆启动机关）", "_t")
 t(" (prepared)", " （准备完毕）", "_t")
 t(" (preparing)", " （准备中）", "_t")
 t(" (dismantling)", " （分解中）", "_t")
-t(" (need more skill)", " （需要更多技能）", "_t")
+t(" (need more skill)", " （技能等级不足）", "_t")
 t("%s) Tier %d: %s%s", "%s) 等级 %d：%s%s", "tformat")
 t("#LIGHT_BLUE#You cannot prepare this trap: %s.", "#LIGHT_BLUE#你不能准备这个陷阱：%s。", "logPlayer")
 t("#LIGHT_BLUE#You need more skill to prepare this trap.", "#LIGHT_BLUE#你的技能等级不足，无法准备这个陷阱。", "logPlayer")
@@ -42252,8 +42252,7 @@ t([[#LIGHT_GREEN#Number available: %d#LAST#
 Prodigies are special talents that only the most powerful of characters can attain.%s
 All of them require at least 50 in a core stat and many also have more special demands. You can learn a new prodigy at level 25 and 42.]], [[#LIGHT_GREEN#当前可用觉醒技能点：%d#LAST#
 觉醒技是角色足够强大时才能获得的特殊技能。%s
-所有觉醒技都要求某项核心属性达到 50 点，其中许多还有更特殊的额外要求。
-你可以在人物等级达到25级和42级时各获得一个觉醒技能点。]], "_t")
+所有觉醒技都要求某项核心属性达到 50 点，其中许多还有更特殊的额外要求。你可以在人物等级达到 25 级和 42 级时各获得一个觉醒技能点。]], "_t")
 t("\
 Evolutions are special prodigies specific to a class or race. Only one evolution can be choosen, if any are available at all.", "\
 进阶是特殊的觉醒技，只有特定职业种族才能学习。即使有多项进阶可能，每名角色最多只能选择一项进阶。", "_t")
