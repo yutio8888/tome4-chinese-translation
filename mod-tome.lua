@@ -38882,7 +38882,7 @@ t("creeping darkness", "黑暗之雾", "entity name")
 t("trap", "陷阱", "_t")
 t("A creeping darkness spreads through the air!", "一股黑暗之雾在空气中弥漫！", "_t")
 t("summon shadow", "召唤阴影", "entity name")
-t("A shadow traces across the floor.", "地板上留下了阴影的痕迹。", "_t")
+t("A shadow traces across the floor.", "一道阴影从地板上掠过。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/keepsake-meadow/zone.lua"
@@ -38908,7 +38908,7 @@ section "mod-tome/data/zones/lake-nur/zone.lua"
 
 t("Lake of Nur", "纳尔湖", "_t")
 t("You descend into the submerged ruins. The walls look extremely ancient, yet you feel power within this place.", "你进入了水中的废墟。这些墙看起来十分古老，但你仍旧可以感受到此处的能量。", "_t")
-t("As you descend to the next level you traverse a kind of magical barrier keeping the water away. The barrier seems to be failing however and the next level is flooded too.", "当你进入下一层时你感受到了一股奇异的屏障试图隔离湖水。然而奇异的屏障似乎被破坏了，下一层也已经被水淹没。", "_t")
+t("As you descend to the next level you traverse a kind of magical barrier keeping the water away. The barrier seems to be failing however and the next level is flooded too.", "当你下到下一层时，你穿过了一道阻挡湖水的魔法屏障。然而这道屏障似乎正在失效，下一层同样被水淹没了。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/last-hope-graveyard/grids.lua"
@@ -38947,7 +38947,7 @@ t("A letter.", "一封信。", "_t")
 t("misc", "杂项", "entity type")
 t("heart", "心脏", "entity subtype")
 t("Celia's Still Beating Heart", "赛利亚的跳动心脏", "entity name")
-t("bloody heart", "鲜红的心脏", "_t")
+t("bloody heart", "血淋淋的心脏", "_t")
 t("The living heart of the necromancer Celia, carved out of her chest and preserved with magic.", "死灵法师赛利亚的跳动心脏，从她胸膛中挖出，并以魔法加以保存。", "_t")
 t("extract a tiny part of Celia's soul", "抽取赛利亚灵魂的一小块", "_t")
 t("You squeeze Celia's heart in your hand, absorbing part of her soul into your necrotic aura.", "你把赛利亚的心脏放在手中挤压，将她的部分灵魂吸收进你的死灵光环里。", "logPlayer")
@@ -38961,7 +38961,7 @@ t("You were not the first here: the corpse was turned into an undead.", "你不�
 t("There is nothing there.", "那里什么也没有。", "log")
 t("The corpse had a treasure!", "尸体上有宝物！", "log")
 t("Open the coffin", "打开棺材", "_t")
-t("In rich families the dead are sometimes put to rest with some treasures. However they also sometime protect the coffins with powerful curses. Open?", "一些富有人家在埋葬尸体时有时会用一些财宝陪葬。然而他们为了保护棺材同样也施予了强大的诅咒，你确定要打开么？", "_t")
+t("In rich families the dead are sometimes put to rest with some treasures. However they also sometime protect the coffins with powerful curses. Open?", "富裕人家有时会以财宝为死者陪葬。然而他们有时也会用强大的诅咒来守护棺材。要打开吗？", "_t")
 t("#YELLOW#You hear all the doors being shattered into pieces.", "#YELLOW#你听到所有的门都被打碎了。", "log")
 t([[As you tread softly down the stairs a large stone slab slides into place behind you, blocking all retreat. The air is still and stuffy, and in this tight space you feel as if in a coffin, buried alive.
 
