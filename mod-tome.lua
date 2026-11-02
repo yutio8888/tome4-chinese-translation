@@ -31908,7 +31908,7 @@ You want to see the world, maybe even help in what ways you can.
 But for now Angolwen still needs you. The Abashed Expanse, a part of Eyal that was torn apart and thrown into the void during the Spellblaze, is quickly becoming unstable.
 You have been tasked to investigate and fix the problem.
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
-你是一个生活在仍然畏惧魔法的世界中的大法师。两千多年来，安格利文的人们一直试图修复这个世界，但他们始终秘密行事。
+你是一个生活在仍然畏惧魔法的世界中的元素法师。两千多年来，安格利文的人们一直试图修复这个世界，但他们始终秘密行事。
 
 你在安格利文生活并受到训练，那里的很多人是你的朋友，但你不安于现在的生活。
 你想周游世界，并看看你能帮这个世界做点什么。
@@ -31931,8 +31931,7 @@ The public roars in anticipation....
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
 当你往前走时，你听到外面传来越来越高的欢呼声。
 当你走入竞技场，灼热的阳光让你一时睁不开眼睛。
-你抬头往前看，与你的对手四目相对。
-竞技场主宰，小心翼翼地打量着这个新来的对手。
+你抬头往前看，与你的对手四目相对：竞技场主宰正小心翼翼地打量着这个新来的对手。
 他得意地一笑，并开始把他的兴趣转移到其他的斗士身上。
 击败竞技场主宰的人将获得最高的荣誉。
 怀着必胜的决心，你拿起了你的武器，并勇敢的往前迈进。
@@ -32000,10 +31999,9 @@ Away from all those orcs....
 你来自于钢铁王座的矮人帝国，被派去调查古老的瑞库纳堡垒，那里已被兽人占领。
 
 抵达瑞库纳后，你的大部分队友都被杀害了；你必须设法返回钢铁议会，报告在那里所见的一切。
-只有诺尔甘——一个矮人狂战士和你幸存了下来，但是兽人不会让你们轻而易举的逃走。
+只有你和矮人狂战士同伴诺尔甘幸存了下来，但是兽人不会让你们轻而易举的逃走。
 
 你发誓，假如你能活着回到钢铁议会，你会开始你的冒险生涯，去寻求名声和古老的宝藏。
-
 远离那些兽人……
 ]], "_t")
 
@@ -32047,7 +32045,8 @@ After days of travel, you have found the forest and entered it. What will you fi
 
 你被那些关于龙、黄金以及古老废墟中宝藏的传说所吸引，你决定前往那些古老而荒野的地方，寻找名声和荣耀。
 
-你来到了自然精灵森林西部边境一个叫做德斯荒野的地方，寻找巨魔沼泽。这是一个被巨魔和野生动物占据的古老树林。向西走还有另一个危险的区域：卡·普尔废墟。你听说那里的地下盘踞着大量的害虫和亡灵生物。
+你来到了自然精灵森林西部边境一个叫做德斯荒野的地方，寻找巨魔沼泽。这是一个被巨魔和野生动物占据的古老树林。
+向西走还有另一个危险的区域：卡·普尔废墟。你听说那里的地下盘踞着大量的害虫和亡灵生物。
 
 经过了几天的旅行，你终于发现并进入了这个树林，你会在那里发现什么呢……
 ]], "_t")
@@ -32188,11 +32187,9 @@ Nagas have been sighted in the Slazish Fens on the other side of the Sunwall Mou
 
 By the power of the Sun and the blessings of the Moons you step forth to find your fate.
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
-你是太阳堡垒的成员，和许多同龄人一样，你受过战斗与魔法训练。
-这是一段残酷的生活，你有时梦想去遥远的土地冒险，但你也知道你的使命是帮助抵御兽人部落凶猛的攻势、保卫前哨站。但现在，高阶太阳骑士艾琳告诉了你一个新的威胁。
+你是太阳堡垒的成员，和许多同龄人一样，你受过战斗与魔法训练。这是一段残酷的生活，你有时梦想去遥远的土地冒险，但你也知道你的使命是帮助抵御兽人部落凶猛的攻势、保卫前哨站。但现在，高阶太阳骑士艾琳告诉了你一个新的威胁。
 
-在太阳堡垒群山的另一边斯拉伊什沼泽发现了娜迦的踪迹。他们的目的还未查明，但在这个对你的人民至关重要的时刻，如果同时受到两边夹击，后果将是毁灭性的。
-但是已经很难从前线对付兽人部落的部队里抽调人员了，你自愿前去调查娜迦的威胁，如有必要就阻止他们。
+在太阳堡垒群山的另一边斯拉伊什沼泽发现了娜迦的踪迹。他们的目的还未查明，但在这个对你的人民至关重要的时刻，如果同时受到两边夹击，后果将是毁灭性的。但是已经很难从前线对付兽人部落的部队里抽调人员了，你自愿前去调查娜迦的威胁，如有必要就阻止他们。
 
 在太阳之力和月亮的祝福下，你迈步向前寻找你的宿命。
 ]], "_t")
@@ -32212,8 +32209,7 @@ To the east of Shatur, the Thaloren Capital, lies a dark part of the woods. Ever
 
 After days of travel, you have found Norgos' Lair and entered it. What will you find there...?
 ]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
-你是一个自然精灵，精灵族中与大自然最亲近的亚种。你的人民在森林中生活了几千年，
-几乎从不与外面的世界发生联系。
+你是一个自然精灵，精灵族中与大自然最亲近的亚种。你的人民在森林中生活了几千年，几乎从不与外面的世界发生联系。
 但是当他们的家园受到威胁时，自然精灵们会证明他们是令人生畏的战士。
 你在森林深处宁静地生活了许多年，但近来你变得有些不安分，想接触外面的世界。
 
@@ -32320,9 +32316,7 @@ This calls for urgency; should you find this Golbug or the portal, please invest
 我们的长老从古老文献中查找你提到的那个法杖的线索。
 它的确是一件非常强大的物品，可以吸收地点和生物的力量。
 所以它绝对不能落入坏人的手中，很显然包括兽人。
-你不在的时候，我们的一个巡逻队遭遇了乌克鲁克带领的一群兽人，
-我们没法阻止他们，不过我们抓了他们中的一个。
-
+你不在的时候，我们的一个巡逻队遭遇了乌克鲁克带领的一群兽人，我们没法阻止他们，不过我们抓了他们中的一个。
 他知道的不多，但他提到了远东大陆的“主人”。
 他提到了与高尔布格会面——貌似是瑞库纳的一位战争领主——以便将一个“包裹”送过传送门。
 
@@ -32657,13 +32651,11 @@ t([[Many times when you perform an attack, or suffer one, the success of the att
 What about the other #GOLD#combat stats#WHITE#?
 
 They're a little harder to pin down. #LIGHT_GREEN#Physical save#WHITE#,  #LIGHT_GREEN#Spell save#WHITE#,  and #LIGHT_GREEN#Mental save#WHITE# are generally used by a defender when there's some sort of unpleasant effect at stake-- say, getting pinned to the ground or blinded or knocked flying. The #GOLD#combat stat#WHITE# used by the attacker in such cases depends on the source of the attack. Let's consider a few examples...
-]], [[很多时候，当你发动攻击或承受攻击时，攻击是否成功取决于比较攻击者和防御者的 #GOLD#战斗属性#WHITE# 数值。
-我们已经看到物理攻击（如近身的打击和远程射箭）需要将攻击者的 #LIGHT_GREEN#命中#WHITE# 与防御者的 #LIGHT_GREEN#闪避#WHITE# 值进行比较。
+]], [[很多时候，当你发动攻击或承受攻击时，攻击是否成功取决于比较攻击者和防御者的 #GOLD#战斗属性#WHITE# 数值。我们已经看到物理攻击（如近身的打击和远程射箭）需要将攻击者的 #LIGHT_GREEN#命中#WHITE# 与防御者的 #LIGHT_GREEN#闪避#WHITE# 值进行比较。
 
 那么其他 #GOLD#战斗属性#WHITE#呢？
 
-它们有点难以确定。#LIGHT_GREEN#物理豁免#WHITE#、#LIGHT_GREEN#法术豁免#WHITE#和#LIGHT_GREEN#精神豁免#WHITE# 一般在防御者面临定身、致盲或被击飞之类的不良效果时使用。
-攻击者在这种情况下使用的#GOLD#战斗属性#WHITE#取决于攻击来源，我们来看几个例子……
+它们有点难以确定。#LIGHT_GREEN#物理豁免#WHITE#、#LIGHT_GREEN#法术豁免#WHITE#和#LIGHT_GREEN#精神豁免#WHITE# 一般在防御者面临定身、致盲或被击飞之类的不良效果时使用。攻击者在这种情况下使用的#GOLD#战斗属性#WHITE#取决于攻击来源，我们来看几个例子……
 ]], "_t")
 
 ------------------------------------------------
@@ -32712,14 +32704,9 @@ This spell does fire damage, which is determined by your #LIGHT_GREEN#Spellpower
 The spell will also attempt to stun the target. Stunning, you recall, is a physical effect, so the target defends with their #LIGHT_GREEN#Physical save#WHITE#. However, unlike the previous example, the source of this stun is a spell. You will thus compare your #LIGHT_GREEN#Spellpower#WHITE# to the target's #LIGHT_GREEN#Physical save#WHITE# to determine the success of the stun.
 ]], [[假如你是一个元素法师，你用火焰冲击打击某个目标。
 
-法术造成的火焰伤害由你的 #LIGHT_GREEN#法术强度#WHITE#决定。
-#GOLD#战斗属性#WHITE# 并不是用来减轻伤害的，所以防御者会受到全部法术伤害，
-实际受到伤害量与火焰抗性相关（这是另一个教程的主题）。
+法术造成的火焰伤害由你的 #LIGHT_GREEN#法术强度#WHITE#决定。#GOLD#战斗属性#WHITE# 并不是用来减轻伤害的，所以防御者会受到全部法术伤害，实际受到伤害量与火焰抗性相关（这是另一个教程的主题）。
 
-法术另外也会尝试震慑目标，你应该还记得，震慑是一种物理效果，所以目标
-以 #LIGHT_GREEN#物理豁免#WHITE# 来计算。
-然而和前面的例子不同，震慑的来源是一个法术，所以你用你的 #LIGHT_GREEN#法术强度#WHITE# 与目标的
-#LIGHT_GREEN#物理豁免#WHITE# 来决定震慑的成功率。
+法术另外也会尝试震慑目标，你应该还记得，震慑是一种物理效果，所以目标以 #LIGHT_GREEN#物理豁免#WHITE# 来计算。然而和前面的例子不同，震慑的来源是一个法术，所以你用你的 #LIGHT_GREEN#法术强度#WHITE# 与目标的#LIGHT_GREEN#物理豁免#WHITE# 来决定震慑的成功率。
 ]], "_t")
 
 ------------------------------------------------
@@ -32758,8 +32745,7 @@ But don't worry. It's usually easy to know what will get used for two reasons:
 
 #GOLD#1)#WHITE#  防御性 #GOLD#战斗属性#WHITE#的使用方式相当固定：无论来源是什么，物理效果使用 #LIGHT_GREEN#物理豁免#WHITE#，魔法效果使用 #LIGHT_GREEN#法术豁免#WHITE#，精神效果使用 #LIGHT_GREEN#精神豁免#WHITE#。
 
-#GOLD#2)#WHITE#  大多数情况下，每个职业都只使用单一的攻击性 #GOLD#战斗属性#WHITE#，所以也不太会混淆。
-狂战士只会用 #LIGHT_GREEN#物理强度#WHITE# 判定效果，而元素法师只会使用 #LIGHT_GREEN#法术强度#WHITE#。
+#GOLD#2)#WHITE#  大多数情况下，每个职业都只使用单一的攻击性 #GOLD#战斗属性#WHITE#，所以也不太会混淆。狂战士只会用 #LIGHT_GREEN#物理强度#WHITE# 判定效果，而元素法师只会使用 #LIGHT_GREEN#法术强度#WHITE#。
 ]], "_t")
 
 ------------------------------------------------
@@ -32781,7 +32767,7 @@ t([[It's finally time to stab something.
 There's an orc up ahead; make sure you're wearing your #GOLD#Helmet of Accuracy (+6)#WHITE# from earlier, and go attack him!
 ]], [[终于可以攻击点什么东西了……
 
-前面有个兽人，确定你装备了 #GOLD#命中之盔 (+6)#WHITE# 后去攻击他！
+前面有个兽人，确定你装备了 #GOLD#命中之头盔（+6）#WHITE# 后去攻击他！
 ]], "_t")
 
 ------------------------------------------------
@@ -32835,7 +32821,7 @@ section "mod-tome/data/texts/tutorial/stats-calc/calc2.lua"
 t([[If you were wearing your #GOLD#Helmet of Accuracy (+6)#WHITE#, then you should have #LIGHT_GREEN#38 Accuracy#WHITE#, while the orc has #LIGHT_GREEN#48 Defense#WHITE#. The difference is ten in the orc's favor, which is apparently too much for you to be able to hit him.
 
 There's another orc ahead with slightly lower defense. Go get him!
-]], [[如果你戴上了你的 #GOLD#命中之盔 (+6)#WHITE#，那么你应该拥有 #LIGHT_GREEN#38 命中#WHITE#，而兽人拥有 #LIGHT_GREEN#48 闪避#WHITE#。两者的差值是对兽人有利的 10 点，这显然相差过大，导致你无法命中它。
+]], [[如果你戴上了你的 #GOLD#命中之头盔（+6）#WHITE#，那么你应该拥有 #LIGHT_GREEN#38 命中#WHITE#，而兽人拥有 #LIGHT_GREEN#48 闪避#WHITE#。两者的差值是对兽人有利的 10 点，这显然相差过大，导致你无法命中它。
 
 前面还有另一个闪避稍低一些的兽人。去搞定它！
 ]], "_t")
@@ -33033,8 +33019,7 @@ section "mod-tome/data/texts/tutorial/stats-scale/scale3.lua"
 t([[#GOLD#Combat stat#WHITE# scores are between one and one-hundred, with special color coding applied for each interval of twenty. The colors are the same hues as those used in inventory text to indicate gear quality.
 
 These subintervals of twenty we'll call #GOLD#tiers#WHITE# from now on.
-]], [[#GOLD#战斗属性#WHITE# 范围为1～100，每隔20会用一种不同颜色来显示，在装备提示文字中也
-用类似的色调来表示装备的品质。
+]], [[#GOLD#战斗属性#WHITE# 范围为1～100，每隔20会用一种不同颜色来显示，在装备提示文字中也用类似的色调来表示装备的品质。
 
 现在起这每个20的间隔，我们称之为 #GOLD#层级#WHITE#。
 ]], "_t")
