@@ -38150,14 +38150,14 @@ t("\"From bellow, it devours.\"", "“来自深渊，吞噬四方。”", "_t")
 t("and revived as a screeching drem bat", "并将其复活为一只尖啸的德瑞姆蝙蝠", "_t")
 t("#CRIMSON#%s seems invulnerable, there must be an other way to kill it!", "#CRIMSON#%s 似乎无懈可击，一定有什么其他方法可以杀死它！", "logSeen")
 t("I have heard a dwarf whispering about some abomination in the deep bellow.", "我听到有个矮人正悄悄谈论深渊咆哮里的某种憎恶。", "_t")
-t("slimy crawler", "泥泞爬行怪", "entity name")
+t("slimy crawler", "黏糊糊的爬虫", "entity name")
 t([[This disgusting... thing crawls on the floor toward you with great speed.
 It seems to come from the digestive system of the mouth.]], [[这只恶心的……东西在地板上迅速的向你爬来。
 它似乎是从“大嘴怪”的消化系统中出来的。]], "_t")
 t("#AQUAMARINE#With the Mouth's death its crawler also falls lifeless on the ground!", "#AQUAMARINE#当大嘴怪死去时，它的爬虫也毫无生机的倒在了地上！", "logSeen")
 t("#AQUAMARINE#As #Source# falls you notice that #Target# seems to shudder in pain!", "#AQUAMARINE#当#Source#倒下时，你发现#Target#似乎因为痛苦而颤抖！", "logCombat")
 t("The Abomination", "憎恶", "entity name")
-t("A horrid mass of pustulent flesh, sinew, and bone; this creature seems to constantly be in pain. Two heads glare malevolently at you, an intruder in its domain.", "一只由无数碎肉、肌腱和骨头组成的恐怖混合体，它看起来痛苦万分。它的双头恶毒的看着你，因为你闯入了它的地盘。", "_t")
+t("A horrid mass of pustulent flesh, sinew, and bone; this creature seems to constantly be in pain. Two heads glare malevolently at you, an intruder in its domain.", "一团由化脓的血肉、肌腱和骨头组成的恐怖混合体，这只生物似乎无时无刻不在承受痛苦。它的两个脑袋恶狠狠地瞪着你这个闯入其领地的不速之客。", "_t")
 t("A parchment falls to the floor near The Abomination.", "一张羊皮纸掉落在了憎恶的身边。", "logSeen")
 
 ------------------------------------------------
@@ -38200,7 +38200,7 @@ section "mod-tome/data/zones/demon-plane/objects.lua"
 
 t("Shifting Boots", "闪现靴", "entity name")
 t("pair of shifting boots", "一双可以闪现的靴子", "_t")
-t("Those leather boots can make anybody as annoying as their former possessor, Draebor.", "这双靴子可以使任何人像它以前的主人小恶魔德瑞宝一样淘气。", "_t")
+t("Those leather boots can make anybody as annoying as their former possessor, Draebor.", "这双皮靴能让任何人都变得像它的前任主人小恶魔德瑞宝一样惹人厌烦。", "_t")
 t("blink to a nearby random location within range %d (based on Magic)", "随机传送到%d格范围内的位置（基于魔力）", "tformat")
 t("%s taps %s %s together!", "%s将%s %s相互轻叩！", "logSeen")
 
@@ -38236,9 +38236,9 @@ t("and raised as his tortured undead thrall", "并将其复活为他饱受折磨
 t("It has been months since the hero cleansed the Dreadfell, yet rumours are growing: evil is back.", "自从英雄肃清了恐惧王座后已经过去数个月了，但是仍然流传着谣言：有一股恶势力重新掌握了那里。", "_t")
 t("skeleton", "骷髅", "entity subtype")
 t("Pale Drake", "苍白德瑞克", "entity name")
-t("A malevolent skeleton archmage that has taken control of the Dreadfell since the Master's demise.", "一位邪恶的骷髅法师，自从领主大人死后，他便继承了恐惧王座。", "_t")
+t("A malevolent skeleton archmage that has taken control of the Dreadfell since the Master's demise.", "一位邪恶的骷髅大法师，自领主死后便掌控了恐惧王座。", "_t")
 t("ghoul", "食尸鬼", "entity subtype")
-t("Borfast the Broken", "扭曲的波法斯特", "entity name")
+t("Borfast the Broken", "残破的波法斯特", "entity name")
 t([[Thick skin hangs loosely from this short, shambling form. Tufts of hair sticking out from its chin give evidence of a once magnificent dwarven beard. Half its face seems to have been seared in acid at some point, the flesh melted away from the skull and an eyeball drooping low from its socket. There is a unique sadness to its eyes, and a slump of resignation to its gait.
 What proud hero of renown was this before he was condemned to such a terrible fate?]], "在你面前的是一只身形矮小、步履蹒跚的怪物，厚厚的皮肤松松垮垮地挂在身上。从它下巴伸出的一簇簇毛发，昭示着它曾经拥有过一副壮丽的矮人胡须。它的半边脸似乎曾被酸液灼烧过，血肉从头骨上融化剥落，一只眼球从眼窝中低垂下来。它的双眼中有一种独特的悲伤，步态里透着颓丧与认命。\n在被判以如此可怕的命运之前，这曾是一位怎样声名远扬的骄傲英雄？", "_t")
 t("and offered to his dark Master", "并将其献祭给他的黑暗领主", "_t")
@@ -38246,7 +38246,7 @@ t("ghost", "幽灵", "entity subtype")
 t("Aletta Soultorn", "阿蕾塔·苏尔顿", "entity name")
 t([[What once must have been an enchantingly beautiful Higher woman now looks to be a ghost of utter despair. Her thin, elegant form ripples gently in the air, whilst her tattered robes seem oddly still. The ghost's face looks jittery and pained whilst her wild, glowing eyes move rapidly back and forth in their sockets.
 Now and then she seems to see something and her jaw pulls back, her whole face splitting apart as she shrieks an unholy cry of pain and torment.]], [[这位曾经想必美得摄人心魄的高等人类女子，如今看上去只是一只彻底绝望的幽灵。她瘦弱而优雅的身躯在空中轻轻荡漾，破烂的长袍却诡异地纹丝不动。她的脸上满是抽搐与痛苦，狂乱而发亮的眼睛在眼眶里飞快地来回转动。
-有时她会看到一些东西，她的下巴会突然收缩，分裂的脸部会发出一阵充满痛苦和折磨的哀嚎。]], "_t")
+她不时像是看到了什么，下颌随之向后扯开，整张脸仿佛裂成两半，发出一声充满痛苦与折磨的邪异尖啸。]], "_t")
 t("and offered to her dark Master", "并将其献祭给她的黑暗领主", "_t")
 t("Filio Flightfond", "菲里奥·弗莱特冯德", "entity name")
 t([[A short, furtive-looking skeleton with padded feet. He moves quickly and silently, and seems to meld into the shadows with ease. In one hand he holds a sling, and the other a short dagger.
@@ -38261,7 +38261,7 @@ t("A smudged poem chalked on a dark piece of slate", "一首写在石板上的�
 t("A poem written in scribbled, child-like writing", "像小孩子写的潦草诗歌", "_t")
 t("A poem written in an elegant Gothic script", "高雅的哥特体诗歌", "_t")
 t("a letter from the Master", "领主的信", "entity name")
-t("A letter written in a bold, commanding script", "用粗体的命令性文字写的信", "_t")
+t("A letter written in a bold, commanding script", "一封字迹遒劲、透着威严的信", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/dreadfell/zone.lua"
