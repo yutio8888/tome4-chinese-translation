@@ -21067,7 +21067,7 @@ t([[Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP a
 		Targets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.
 		The bonus damage can only occur once per turn.]], [[你的近战攻击命中时，造成相当于 %d%% 你已损失的生命值的额外火焰伤害（至多 %d 点，当前 %d 点）。
 		同时令目标进入殉难状态，受到 %d%% 自己造成的伤害，持续 4 回合。
-		额外伤害与殉难效果每回合最多触发一次。]], "tformat")
+		额外伤害每回合最多触发一次；触发额外伤害后，本回合不再施加殉难效果。]], "tformat")
 t("Second Life", "第二生命", "talent name")
 t("Any attack that would drop you below 1 hit point instead triggers Second Life, deactivating the talent, setting your hit points to 1, then healing you for %d.", "任何使你生命值降到 1 点以下的攻击都会激活第二生命，自动中断此技能并将你的生命值恢复到 1 点，然后受到 %d 点治疗。", "tformat")
 
@@ -21261,7 +21261,7 @@ t([[When one of your spells goes critical, you bind glyphs in radius 1 centered 
 		]], [[每当你的法术暴击时，若你的正能量和负能量均不低于 5 点，你会在范围 %d 内的随机目标周围 1 格半径的区域内放置随机圣印。
 		圣印持续 %d 回合，当敌人踩上时，会对其产生特殊效果。
 		圣印只会在不与已有圣印相邻的敌人处产生。
-		每 %d 游戏回合最多触发一次该效果。
+		每 %d 回合最多触发一次该效果。
 		圣印效果受法术强度加成。
 
 		有以下几种可用的圣印：
@@ -22476,7 +22476,7 @@ t("You require a weapon to use this talent.", "你需要武器来施展这个技
 t([[Attack the target with either your ranged or melee weapons for %d%% damage.
 		If the attack hits you'll breach the target's immunities, reducing armor hardiness, stun, pin, blindness, and confusion immunity by 50%% for %d turns.
 		Breach chance scales with your Spellpower.]], [[使用远程或近战武器攻击目标，造成 %d%% 武器伤害。
-		若攻击命中，你会破坏目标的免疫力，使其震慑、定身、致盲和混乱免疫降低 50%%，持续 %d 回合。
+		若攻击命中，你会破坏目标的免疫力，使其护甲强度以及震慑、定身、致盲和混乱免疫减半，持续 %d 回合。
 		突破几率随法术强度提高。]], "tformat")
 
 ------------------------------------------------
@@ -27523,8 +27523,7 @@ t([[Brings the target's inner demons to the surface.  Each turn, for %d turns, t
 		The summon chance will scale with your Mindpower and the demon's life will scale with the target's rank.
 		If a demon manifests the sheer terror will remove all sleep effects from the victim, but not the Inner Demons.]], [[使目标的心魔浮现。在 %d 回合内，每回合有 %d%% 的几率会召唤一个心魔，需要目标进行一次精神豁免鉴定，失败则心魔具现化。
 		如果目标处于睡眠状态，不出现心魔的几率减半，心魔出现时目标无法豁免，且无视目标的恐惧免疫。若目标未处于睡眠状态且豁免鉴定成功，则心魔的效果提前结束。
-		受精神强度影响，召唤几率按比例加成。
-		心魔的生命值受目标分级加成。
+		受精神强度影响，召唤几率按比例加成；心魔的生命值受目标分级加成。
 		心魔具现化时，会移除目标身上至多 3 个睡眠类效果，本技能除外。]], "tformat")
 t("Waking Nightmare", "清醒梦魇", "talent name")
 t([[Inflicts %0.2f darkness damage each turn for %d turns, and has a %d%% chance to randomly cause blindness, stun, or confusion (lasting 3 turns).
@@ -27944,7 +27943,7 @@ t("thought-forged bowman", "精神体弓箭手", "_t")
 t("A thought-forged bowman.  It appears ready for battle.", "一位精神体弓箭手。他时刻准备着战斗。", "_t")
 t([[Forge a bowman, clad in leather armor, from your thoughts.  The bowman learns Bow Mastery, Combat Accuracy, Steady Shot, Crippling Shot, and Rapid Shot as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
 		Activating this talent will put all other thought-forms on cooldown.
-		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位身穿皮甲的精神体弓箭手。当精神体弓箭手到达对应等级时可习得弓术掌握、强化命中、稳固射击、致残射击和瞄准姿态，并且可增加 %d 点力量、 %d 点敏捷和 %d 体质。
+		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位身穿皮甲的精神体弓箭手。当精神体弓箭手到达对应等级时可习得弓术专精、强化命中、稳固射击、致残射击和瞄准姿态，并且可增加 %d 点力量、 %d 点敏捷和 %d 体质。
 		激活此技能会使其他思维形态技能进入冷却。
 		属性增益受精神强度加成。]], "tformat")
 t("Thought-Form: Warrior", "思维形态：战士", "talent name")
@@ -29976,7 +29975,7 @@ t("Rapid Shot", "速射姿态", "talent name")
 t("You cannot use Rapid Fire without a bow or sling!", "你需要装备弓或投石索才能使用速射姿态！", "logPlayer")
 t([[Enter a fluid, mobile shooting stance that excels at close combat. Your ranged attack speed is increased by %d%% and each time you shoot you gain %d%% increased movement speed for 2 turns.
 Ranged attacks against targets will also grant you up to %d%% of a turn. This is 100%% effective against targets within 3 tiles, and decreases by 20%% for each tile beyond that (to 0%% at 8 tiles). This cannot occur more than once per turn.
-Requires a sling to use.]], [[进入流畅灵活的射击姿势，擅长近距离射击。你的远程攻击速度增加 %d%%， 每次射击令你在两回合内移动速度增加 %d%%。
+Requires a sling to use.]], [[进入流畅灵活的射击姿势，擅长近距离射击。你的远程攻击速度增加 %d%%， 每次射击令你在 1 回合内移动速度增加 %d%%。
 命中敌人的远程攻击将给你带来最多 %d%% 额外回合，该效果对三格以内的目标有 100%% 效果，每增加 1 格距离，效果降低 20%%（8 格降为 0%%）。该效果对同一目标每回合只能生效一次。
 该技能需要投石索。]], "tformat")
 
@@ -30661,8 +30660,7 @@ t([[Deliver two quick punches that deal %d%% damage each, and switch your stance
 t("Spinning Backhand", "旋风打击", "talent name")
 t("@Source@ lashes out with a spinning backhand.", "@Source@冲出去打出旋风打击。", "_t")
 t([[Attack your foes in a frontal arc with a spinning backhand, doing %d%% damage. If you're not adjacent to the target, you'll step forward as you spin, gaining up to %d%% bonus damage, which increases the farther you move.
-		This attack will remove any grapples you're maintaining, and earn one combo point (or one combo point per attack that connects, if the talent level is 4 or greater).]], [[对你面前的敌人使用一次旋风打击，造成 %d%% 伤害。
-		如果你没有紧邻目标，旋转时会向前迈步；移动越远，伤害加成越高，最多增加 %d%%。
+		This attack will remove any grapples you're maintaining, and earn one combo point (or one combo point per attack that connects, if the talent level is 4 or greater).]], [[对你面前的敌人使用一次旋风打击，造成 %d%% 伤害。如果你没有紧邻目标，旋转时会向前迈步；移动越远，伤害加成越高，最多增加 %d%%。
 		此次攻击会解除你正在维持的所有抓取，并在至少一次攻击命中时获得 1 点连击点（技能等级达到 4 级后，每次命中的攻击各获得 1 点连击点）。]], "tformat")
 t("Axe Kick", "斧踢", "talent name")
 t("@Source@ raises their leg and snaps it downward in a devastating axe kick.", "@Source@抬起腿，猛地向下劈出一记毁灭性的斧踢。", "_t")

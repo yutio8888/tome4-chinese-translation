@@ -1,0 +1,82 @@
+{
+ "confirmed": [
+  {
+   "id": "667937d7bc2a",
+   "edit": [
+    [
+     "每 %d 游戏回合最多触发一次该效果。",
+     "每 %d 回合最多触发一次该效果。"
+    ]
+   ],
+   "evidence": "core 624a6732 game/modules/tome/data/talents/celestial/glyphs.lua:38,68 cooldown compares (game.turn-last)/10 (player turns) with getGlyphCD=4."
+  },
+  {
+   "id": "447e2748bcf1",
+   "edit": [
+    [
+     "可习得弓术掌握、",
+     "可习得弓术专精、"
+    ]
+   ],
+   "evidence": "core 624a6732 game/modules/tome/data/talents/psionic/thought-forms.lua:218 T_BOW_MASTERY = 弓术专精 (mod-tome.lua:30146)."
+  },
+  {
+   "id": "e864df73e149",
+   "edit": [
+    [
+     "每次射击令你在两回合内移动速度增加",
+     "每次射击令你在 1 回合内移动速度增加"
+    ]
+   ],
+   "evidence": "core 624a6732 game/modules/tome/data/talents/techniques/agility.lua:274-276 EFF_RAPID_MOVEMENT duration 1."
+  },
+  {
+   "id": "0544ce0402bd",
+   "edit": [
+    [
+     "\n\t\t额外伤害与殉难效果每回合最多触发一次。",
+     "\n\t\t额外伤害每回合最多触发一次；触发额外伤害后，本回合不再施加殉难效果。"
+    ]
+   ],
+   "evidence": "core 624a6732 game/modules/tome/data/talents/celestial/combat.lua:203-210 martyrdom applied before damage check; flag set only after extra damage, so zero-damage hits keep applying martyrdom."
+  },
+  {
+   "id": "a2cafed258ef",
+   "edit": [
+    [
+     "使其震慑、定身、致盲和混乱免疫降低 50%%，",
+     "使其护甲强度以及震慑、定身、致盲和混乱免疫减半，"
+    ]
+   ],
+   "evidence": "core 624a6732 game/modules/tome/class/interface/Combat.lua:1355-1358 EFF_BREACH halves armor hardiness; restores clause lost in 0241."
+  },
+  {
+   "id": "a1bcca7fcebf",
+   "edit": [
+    [
+     "受精神强度影响，召唤几率按比例加成。\n\t\t心魔的生命值受目标分级加成。",
+     "受精神强度影响，召唤几率按比例加成；心魔的生命值受目标分级加成。"
+    ]
+   ],
+   "evidence": "core 624a6732 game/modules/tome/data/talents/psionic/nightmare.lua:185-188 source has 3 newlines; restored count."
+  },
+  {
+   "id": "2fe50c477ccc",
+   "edit": [
+    [
+     "造成 %d%% 伤害。\n\t\t如果你没有紧邻目标",
+     "造成 %d%% 伤害。如果你没有紧邻目标"
+    ]
+   ],
+   "evidence": "core 624a6732 game/modules/tome/data/talents/techniques/pugilism.lua:260-261 source has 1 newline; restored count."
+  }
+ ],
+ "advisory": [],
+ "rejected": [
+  {
+   "id": "8852683cbaad",
+   "reason": "hymns.lua:174 sets attribute 'blindfight', but the combat checks read 'blind_fight' (Combat.lua:510, Archery.lua:326); nothing reads 'blindfight', so the unseen-attack benefit does not exist. Omission matches implementation (2026-11-02 rule)."
+  }
+ ],
+ "notes": "0242: A/B re-review of 0241 implementation rewrites."
+}

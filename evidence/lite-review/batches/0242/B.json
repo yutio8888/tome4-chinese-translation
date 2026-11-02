@@ -1,0 +1,335 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "652dfa390e1b",
+   "verdict": "OK"
+  },
+  {
+   "id": "0544ce0402bd",
+   "verdict": "ISSUE",
+   "observation": "固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63，game/modules/tome/data/talents/celestial/combat.lua:203-210：先施加殉难，再检查额外伤害；伤害为 0 时在第 207 行返回，不设置第 210 行的每回合触发标记。因此满生命等额外伤害为 0 的情况下，同回合多次近战命中仍可施加殉难。译文将殉难也无条件限定为每回合一次，范围过严。",
+   "suggestion": "你的近战攻击命中时，造成相当于 %d%% 你已损失的生命值的额外火焰伤害（至多 %d 点，当前 %d 点）。\n\t\t同时令目标进入殉难状态，受到 %d%% 自己造成的伤害，持续 4 回合。\n\t\t额外伤害每回合最多触发一次；触发额外伤害后，本回合不再施加殉难效果。"
+  },
+  {
+   "id": "dd9496c32748",
+   "verdict": "OK"
+  },
+  {
+   "id": "0dc04246ac2a",
+   "verdict": "OK"
+  },
+  {
+   "id": "e947e796e2ef",
+   "verdict": "OK"
+  },
+  {
+   "id": "4637ef47ae01",
+   "verdict": "OK"
+  },
+  {
+   "id": "9e3b30f6cf37",
+   "verdict": "OK"
+  },
+  {
+   "id": "47851d7697c3",
+   "verdict": "OK"
+  },
+  {
+   "id": "0bcfc9bab7e3",
+   "verdict": "OK"
+  },
+  {
+   "id": "5b62f1bb8a82",
+   "verdict": "OK"
+  },
+  {
+   "id": "667937d7bc2a",
+   "verdict": "OK"
+  },
+  {
+   "id": "12b7e3944a58",
+   "verdict": "OK"
+  },
+  {
+   "id": "8852683cbaad",
+   "verdict": "ISSUE",
+   "observation": "固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63，game/modules/tome/data/talents/celestial/hymns.lua:174 将 blindfight 设为 1，209-210 行描述明确包含攻击不可见生物不受惩罚。译文完全漏掉这项独立收益。",
+   "suggestion": "赞颂月之荣耀，使你的潜行侦测强度提高 %d， 隐形侦测强度提高 %d。\n\t\t你攻击看不见的生物时也不会受到惩罚，且暴击伤害提高 %d%%。\n\t\t同时只能激活一种圣诗。\n\t\t潜行与隐形侦测强度随法术强度提高。"
+  },
+  {
+   "id": "ee1e2617e575",
+   "verdict": "OK"
+  },
+  {
+   "id": "3b1e52e54bcd",
+   "verdict": "OK"
+  },
+  {
+   "id": "b6c2a8844a30",
+   "verdict": "OK"
+  },
+  {
+   "id": "96fce16251cf",
+   "verdict": "OK"
+  },
+  {
+   "id": "ea6f51aede2a",
+   "verdict": "OK"
+  },
+  {
+   "id": "51c6e451aafb",
+   "verdict": "OK"
+  },
+  {
+   "id": "ec66063480d4",
+   "verdict": "OK"
+  },
+  {
+   "id": "802360531eec",
+   "verdict": "OK"
+  },
+  {
+   "id": "e50fb1c371d4",
+   "verdict": "OK"
+  },
+  {
+   "id": "a2cafed258ef",
+   "verdict": "ISSUE",
+   "observation": "固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63，game/modules/tome/class/interface/Combat.lua:1355-1358：存在 EFF_BREACH 时将护甲强度倍率设为 0.5。技能原文 game/modules/tome/data/talents/chronomancy/temporal-combat.lua:344 也明确列出 armor hardiness。译文漏译护甲强度减半。",
+   "suggestion": "使用远程或近战武器攻击目标，造成 %d%% 武器伤害。\n\t\t若攻击命中，你会破坏目标的免疫力，使其护甲强度以及震慑、定身、致盲和混乱免疫减半，持续 %d 回合。\n\t\t突破几率随法术强度提高。"
+  },
+  {
+   "id": "bc09df707664",
+   "verdict": "OK"
+  },
+  {
+   "id": "dc7226f46f82",
+   "verdict": "OK"
+  },
+  {
+   "id": "527f6e1004f5",
+   "verdict": "OK"
+  },
+  {
+   "id": "13a368149517",
+   "verdict": "OK"
+  },
+  {
+   "id": "a78fd92ea620",
+   "verdict": "OK"
+  },
+  {
+   "id": "9f47d417401c",
+   "verdict": "OK"
+  },
+  {
+   "id": "e001e4d0b243",
+   "verdict": "OK"
+  },
+  {
+   "id": "813af5f6dfec",
+   "verdict": "OK"
+  },
+  {
+   "id": "40b71f457fe6",
+   "verdict": "OK"
+  },
+  {
+   "id": "40f2bb8ab5b6",
+   "verdict": "OK"
+  },
+  {
+   "id": "65b326a019b5",
+   "verdict": "OK"
+  },
+  {
+   "id": "13b0833228c6",
+   "verdict": "OK"
+  },
+  {
+   "id": "a54458d592bd",
+   "verdict": "OK"
+  },
+  {
+   "id": "a8536c45bd78",
+   "verdict": "OK"
+  },
+  {
+   "id": "10303757f197",
+   "verdict": "OK"
+  },
+  {
+   "id": "cefa34778314",
+   "verdict": "OK"
+  },
+  {
+   "id": "8e8c9e039928",
+   "verdict": "OK"
+  },
+  {
+   "id": "471207ebf16d",
+   "verdict": "OK"
+  },
+  {
+   "id": "8790c49c17e9",
+   "verdict": "OK"
+  },
+  {
+   "id": "00863fdf0e16",
+   "verdict": "OK"
+  },
+  {
+   "id": "310427036df7",
+   "verdict": "OK"
+  },
+  {
+   "id": "d31c2a3adb69",
+   "verdict": "OK"
+  },
+  {
+   "id": "c905b1220b9d",
+   "verdict": "OK"
+  },
+  {
+   "id": "6b0eb341899a",
+   "verdict": "OK"
+  },
+  {
+   "id": "437a85365531",
+   "verdict": "OK"
+  },
+  {
+   "id": "a7492db3392f",
+   "verdict": "OK"
+  },
+  {
+   "id": "6d7b57ead42a",
+   "verdict": "OK"
+  },
+  {
+   "id": "e7b56ce4f7de",
+   "verdict": "OK"
+  },
+  {
+   "id": "0cb3f735bd3a",
+   "verdict": "OK"
+  },
+  {
+   "id": "0f6d3eb3dc9f",
+   "verdict": "OK"
+  },
+  {
+   "id": "bcbe23cb30fb",
+   "verdict": "OK"
+  },
+  {
+   "id": "047ec74491be",
+   "verdict": "OK"
+  },
+  {
+   "id": "4f2e3d067010",
+   "verdict": "OK"
+  },
+  {
+   "id": "bfc7643f3797",
+   "verdict": "OK"
+  },
+  {
+   "id": "591286d896e9",
+   "verdict": "OK"
+  },
+  {
+   "id": "efabd0c654da",
+   "verdict": "OK"
+  },
+  {
+   "id": "8cd16f353518",
+   "verdict": "OK"
+  },
+  {
+   "id": "9a7191f6c965",
+   "verdict": "OK"
+  },
+  {
+   "id": "78369b708ecd",
+   "verdict": "OK"
+  },
+  {
+   "id": "45acc6a16e6b",
+   "verdict": "OK"
+  },
+  {
+   "id": "19ceb6ef35d6",
+   "verdict": "OK"
+  },
+  {
+   "id": "a7d0a74c2c23",
+   "verdict": "OK"
+  },
+  {
+   "id": "a1bcca7fcebf",
+   "verdict": "ISSUE",
+   "observation": "换行数量违反审核规则：固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63，game/modules/tome/data/talents/psionic/nightmare.lua:185-188 的原文有 3 个换行，译文有 4 个；译文在“心魔的生命值受目标分级加成”前额外换行。其睡眠目标机制与 timed_effects/mental.lua:1659-1668 的实现相符，本条仅需恢复换行数量。",
+   "suggestion": "使目标的心魔浮现。在 %d 回合内，每回合有 %d%% 的几率会召唤一个心魔，需要目标进行一次精神豁免鉴定，失败则心魔具现化。\n\t\t如果目标处于睡眠状态，不出现心魔的几率减半，心魔出现时目标无法豁免，且无视目标的恐惧免疫。若目标未处于睡眠状态且豁免鉴定成功，则心魔的效果提前结束。\n\t\t受精神强度影响，召唤几率按比例加成；心魔的生命值受目标分级加成。\n\t\t心魔具现化时，会移除目标身上至多 3 个睡眠类效果，本技能除外。"
+  },
+  {
+   "id": "7637d078be9b",
+   "verdict": "OK"
+  },
+  {
+   "id": "b8f874c6ca7a",
+   "verdict": "OK"
+  },
+  {
+   "id": "75c20adfc804",
+   "verdict": "OK"
+  },
+  {
+   "id": "fdbeea5953de",
+   "verdict": "OK"
+  },
+  {
+   "id": "e800180f27f4",
+   "verdict": "OK"
+  },
+  {
+   "id": "447e2748bcf1",
+   "verdict": "OK"
+  },
+  {
+   "id": "e864df73e149",
+   "verdict": "OK"
+  },
+  {
+   "id": "442604a4282d",
+   "verdict": "OK"
+  },
+  {
+   "id": "4ec604da0a44",
+   "verdict": "OK"
+  },
+  {
+   "id": "96b37d44d2b8",
+   "verdict": "OK"
+  },
+  {
+   "id": "5226bc196a79",
+   "verdict": "OK"
+  },
+  {
+   "id": "e468dc9a6c6d",
+   "verdict": "OK"
+  },
+  {
+   "id": "2fe50c477ccc",
+   "verdict": "ISSUE",
+   "observation": "换行数量违反审核规则：固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63，game/modules/tome/data/talents/techniques/pugilism.lua:260-261 的原文仅有 1 个换行，译文有 2 个；在“如果你没有紧邻目标”前新增了换行。命中才获得连击点的说明与该文件 241-252 行实现相符，本条仅需恢复换行数量。",
+   "suggestion": "对你面前的敌人使用一次旋风打击，造成 %d%% 伤害。如果你没有紧邻目标，旋转时会向前迈步；移动越远，伤害加成越高，最多增加 %d%%。\n\t\t此次攻击会解除你正在维持的所有抓取，并在至少一次攻击命中时获得 1 点连击点（技能等级达到 4 级后，每次命中的攻击各获得 1 点连击点）。"
+  },
+  {
+   "id": "730939634b86",
+   "verdict": "OK"
+  }
+ ]
+}
