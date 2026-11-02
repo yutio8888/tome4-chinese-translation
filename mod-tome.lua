@@ -41784,11 +41784,11 @@ This makes it save more often but the game will use less memory when deep in a d
 
 #LIGHT_RED#Changing this option will not affect already visited zones.
 *THIS DOES NOT MAKE A FULL SAVE EACH LEVEL*.
-#LIGHT_RED#Disabling it is not recommended#WHITE#]], [[在地图的每一层自动存档。
-会增加存档次数，但在深入地下城时占用更少内存。
+#LIGHT_RED#Disabling it is not recommended#WHITE#]], [[强制游戏按地图层而非按区域保存。
+这会增加存档次数，但在深入地下城时占用更少内存。
 
-#LIGHT_RED#不影响已探索区域。
-*注意：并不会在每一层完整存档！*.
+#LIGHT_RED#更改此选项不会影响已访问过的区域。
+*注意：并不会在每一层完整存档！*
 #LIGHT_RED#不建议关闭。#WHITE#]], "_t")
 t("#GOLD##{bold}#Zone save per level#WHITE##{normal}#", "#GOLD##{bold}#每层地图自动存档#WHITE##{normal}#", "_t")
 t("Disallow boot images that could be found 'offensive'.#WHITE#", "不允许可能令人不快的启动画面图片。#WHITE#", "_t")
