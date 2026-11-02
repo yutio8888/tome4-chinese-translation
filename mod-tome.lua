@@ -20438,9 +20438,9 @@ section "mod-tome/data/quests/master-jeweler.lua"
 t("Lost Knowledge", "遗失的知识", "_t")
 t("You found an ancient tome about gems.", "你发现了一本关于宝石的古籍。", "_t")
 t("You should bring it to the jeweler in the Gates of Morning.", "你应该把这本书带给晨曦之门的珠宝匠看看。", "_t")
-t("Limmir told you to look for the Valley of the Moon in the southern mountains.", "利米尔让你去南部山脉寻找新月峡谷。", "_t")
+t("Limmir told you to look for the Valley of the Moon in the southern mountains.", "利米尔让你去南部山脉寻找月之山谷。", "_t")
 t("#VIOLET#This tome seems to be about the power of gems. Maybe you should bring it to the jeweler in the Gates of Morning.", "#VIOLET#这本册子似乎讲述了宝石的力量。也许应该带给晨曦之门的珠宝匠看看。", "logPlayer")
-t("Limmir points to the entrance to a cave on your map. This is supposed to be the way to the valley.", "利米尔在你的地图上指出了山洞的入口。这是一条通往山谷的路。", "logPlayer")
+t("Limmir points to the entrance to a cave on your map. This is supposed to be the way to the valley.", "利米尔在你的地图上指出了一个山洞的入口。据说这就是通往山谷的路。", "logPlayer")
 t("You must be near the moonstone to summon Limmir.", "你必须在月亮石附近召唤利米尔。", "logPlayer")
 t("You do not have the summoning scroll!", "你没有召唤卷轴！", "logPlayer")
 t("Limmir (Quest)", "利米尔（任务）", "_t")
@@ -20449,8 +20449,8 @@ t("Limmir the Master Jeweler", "珠宝匠人利米尔", "_t")
 ------------------------------------------------
 section "mod-tome/data/quests/orb-command.lua"
 
-t("The Orbs of Command", "指令水晶", "_t")
-t("You have found an orb of command that seems to be used to open the shield protecting the High Peak.", "你找到了一个指令水晶球，似乎是用来开启巅峰护盾的钥匙。", "_t")
+t("The Orbs of Command", "指令水晶球", "_t")
+t("You have found an orb of command that seems to be used to open the shield protecting the High Peak.", "你找到了一个指令水晶球，似乎可以用来解除保护巅峰的护盾。", "_t")
 t("There seems to be a total of four of them. The more you have the weaker the shield will be.", "似乎一共有四个水晶球，你得到的越多，护盾的防御力越弱。", "_t")
 t("#LIGHT_BLUE#There is a loud crack. The way is open.", "#LIGHT_BLUE#随着一声巨响，道路被打开了。", "logPlayer")
 
@@ -20469,7 +20469,7 @@ t("Entrance to the orc breeding pit", "兽人育种棚的入口", "_t")
 section "mod-tome/data/quests/orc-hunt.lua"
 
 t("Let's hunt some Orc", "狩猎兽人", "_t")
-t("The elder in Last Hope sent you to the old Dwarven kingdom of Reknor, deep under the Iron Throne, to investigate the orc presence.", "最后的希望城的长者派你前往钢铁王座地下深处的古老矮人王国瑞库纳，调查兽人的踪迹。", "_t")
+t("The elder in Last Hope sent you to the old Dwarven kingdom of Reknor, deep under the Iron Throne, to investigate the orc presence.", "最后的希望的长老派你前往钢铁王座地下深处的古老矮人王国瑞库纳，调查兽人的踪迹。", "_t")
 t("Find out if they are in any way linked to the lost staff.", "查清楚他们是不是和遗失的法杖有关。", "_t")
 t("But be careful -- even the Dwarves have not ventured in these old halls for many years.", "小心，矮人们已经很多年没有进过那些古老的大厅了。", "_t")
 t("The elder points to Reknor on your map, to the north on the western side of the Iron Throne.", "长老在你的地图上指出了瑞库纳的位置，在钢铁王座西部边境的北部。", "logPlayer")
