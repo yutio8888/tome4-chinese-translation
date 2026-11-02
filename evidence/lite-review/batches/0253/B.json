@@ -1,0 +1,55 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "4637ef47ae01",
+   "verdict": "OK"
+  },
+  {
+   "id": "0bcfc9bab7e3",
+   "verdict": "OK"
+  },
+  {
+   "id": "f183fd1fbd98",
+   "verdict": "OK"
+  },
+  {
+   "id": "5690894e7a5d",
+   "verdict": "ISSUE",
+   "observation": "译文将未被抓取目标的伤害写成第二个格式参数（getDamage 的较低伤害），但固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/misc/npcs.lua:3390-3402 在命中后无条件使用 getDamageTwo 造成伤害；是否被抓取只决定震慑/眩晕分支。该文件:3373-3374 定义两个不同伤害值，:3412-3416 仍把较低值传给第二个格式参数，因此当前译文会低报未被抓取目标所受伤害。英文描述也有此偏差，以固定源码实际行为为准。",
+   "suggestion": "将伤害说明改为两种目标均受到 getDamageTwo 对应的伤害，保留未抓取时眩晕、被抓取时震慑的区别；需同时把第二个伤害显示绑定至第三个源参数，例如采用 args_order=[1,3,3,4]，不能只改中文而继续显示较低的第二个参数。"
+  },
+  {
+   "id": "051f2e99c533",
+   "verdict": "OK"
+  },
+  {
+   "id": "43ac61d72388",
+   "verdict": "OK"
+  },
+  {
+   "id": "0fdf8ffcaa4d",
+   "verdict": "OK"
+  },
+  {
+   "id": "c23187962a04",
+   "verdict": "OK"
+  },
+  {
+   "id": "c6f45e0ce7a1",
+   "verdict": "OK"
+  },
+  {
+   "id": "508b32654c00",
+   "verdict": "OK"
+  },
+  {
+   "id": "6493ad8a1ee5",
+   "verdict": "OK"
+  },
+  {
+   "id": "9d5b88674f8d",
+   "verdict": "OK"
+  }
+ ]
+}

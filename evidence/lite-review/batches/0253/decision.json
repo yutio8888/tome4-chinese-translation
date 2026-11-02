@@ -1,0 +1,17 @@
+{
+ "confirmed": [
+  {
+   "id": "9d5b88674f8d",
+   "edit": "Ethereal Steam exclusion widened to all innate talents incl. 火焰喷射、暴风打击、弹矢爆射",
+   "evidence": "orcs timed_effects/magical.lua:473 returns on ab.innate; heavy-weapons.lua:161/357/517 Flame Jet, Stormstrike, Flechette Burst innate=true (unpinned DLC)"
+  }
+ ],
+ "advisory": [
+  {
+   "id": "5690894e7a5d",
+   "reason": "Confirmed in source (npcs.lua:3390 always deals getDamageTwo; grappled only switches daze/stun) but the error is in the value passed to the 2nd placeholder (info :3412-3416 passes getDamage). Per 2026-11-02 rule placeholder-argument errors stay advisory; args_order duplication not used."
+  }
+ ],
+ "rejected": [],
+ "notes": "Re-review of 0252 side-finding rewrites."
+}
