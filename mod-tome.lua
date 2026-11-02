@@ -20690,7 +20690,7 @@ t([[There are also rumours of a renegade Shaloren camp to the west.
 ]], "_t")
 t("#LIGHT_GREEN#* You have explored the scintillating caves and destroyed the Spellblaze Crystal.#WHITE#", "#LIGHT_GREEN#* 你已经探索了闪光洞穴，并摧毁了魔法大爆炸水晶。#WHITE#", "_t")
 t("#SLATE#* You must explore the scintillating caves.#WHITE#", "#SLATE#* 你必须探索闪光洞穴。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have explored the Rhaloren camp and killed the Inquisitor.#WHITE#", "#LIGHT_GREEN#* 你已经探索了罗兰精灵营地并杀死了检察官。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have explored the Rhaloren camp and killed the Inquisitor.#WHITE#", "#LIGHT_GREEN#* 你已经探索了罗兰精灵营地并杀死了审判官。#WHITE#", "_t")
 t("#SLATE#* You must explore the renegade Shaloren camp.#WHITE#", "#SLATE#* 你必须探索那些堕落的永恒精灵的营地。#WHITE#", "_t")
 
 ------------------------------------------------
@@ -39244,8 +39244,8 @@ t("This gigantic mass of flesh and stone moves slowly, the ground rumbling with 
 t("The ground shakes as %s steps!", "当 %s前进时，大地在震动！", "logSeen")
 t("Glacial Legion", "冰川军团", "entity name")
 t("A massive, shifting, ethereal form floats in the air around an orb of frozen blood.  The air around it condenses into freezing pools on the floor beneath it.", "一个巨大的、变幻不定的灵体漂浮在半空，环绕着一颗冰封的血球。它周围的空气凝结成它脚下地板上的一滩滩寒冰。", "_t")
-t("Heavy Sentinel", "笨重的森提内尔", "entity name")
-t("A towering creature, made from the bones of countless bodies. An aura of flame billows from within its chest.", "像铁塔一样的生物，由数不清的骨头构成。它的胸前缠绕着一圈烈焰。", "_t")
+t("Heavy Sentinel", "重型哨兵", "entity name")
+t("A towering creature, made from the bones of countless bodies. An aura of flame billows from within its chest.", "一个高耸的生物，由无数尸体的骸骨构成。一股火焰气息从它的胸腔内翻涌而出。", "_t")
 t("Arch Zephyr", "阿克·伊法", "entity name")
 t("The robes of this ancient vampire billow with intense winds. Bolts of lightning arc along its body. In its hand it holds a bow, electricity streaking across it.", "这只远古吸血鬼的长袍在强风中鼓荡翻涌。闪电在他的周身环绕。他手里握着一把长弓，电弧在这把弓上流转。", "_t")
 t("Void Spectre", "虚空亡魂", "entity name")
@@ -39311,7 +39311,7 @@ t("A journal of the profits history of the Iron Throne dwarves.", "有关钢铁�
 t("Iron Throne trade ledger", "钢铁王座交易总账", "entity name")
 t("A trade ledger of the Iron Throne dwarves.", "钢铁王座矮人贸易账本。", "_t")
 t("Iron Throne Reknor expedition, last words", "钢铁王座瑞库纳远征军的遗言", "entity name")
-t("Last words of a dwarven expedition to secure Reknor.", "保卫瑞库纳的矮人探险队的最后记录。", "_t")
+t("Last words of a dwarven expedition to secure Reknor.", "前往夺回瑞库纳的矮人远征队留下的最后记录。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/reknor/zone.lua"
@@ -39352,7 +39352,7 @@ section "mod-tome/data/zones/rhaloren-camp/npcs.lua"
 
 t("humanoid", "人形生物", "entity type")
 t("shalore", "永恒精灵", "entity subtype")
-t("Rhaloren Inquisitor", "罗兰精灵检察官", "entity name")
+t("Rhaloren Inquisitor", "罗兰精灵审判官", "entity name")
 t("This tall elf rushes at you, wielding both her greatsword and magical spells.", "这位高大的精灵冲向你，挥舞着她的大剑，同时施放法术。", "_t")
 t("and hung from the rafters", "并将其挂在了椽子上", "_t")
 
