@@ -38586,7 +38586,7 @@ t("order for Director Hompalan", "致红帕兰主管的命令", "entity name")
 t("A very faded note, nearly unreadable.", "极度磨损的笔记，几乎无法阅读。", "_t")
 t("Yeek-fur Robe", "夺心魔皮袍", "entity name")
 t("sleek fur robe", "光滑的毛皮袍子", "_t")
-t("A beautifully soft robe of fine white fur. It looks designed for a halfling noble, with glorious sapphires sewn across the hems. But entrancing as it is, you can't help but feel a little queasy wearing it.", "美丽、柔软、洁白，这显然是为半身人贵族设计的衣物，褶边上还缀着几颗明亮的蓝宝石。尽管它是如此迷人，当你披上它时却忍不住有些恶心。", "_t")
+t("A beautifully soft robe of fine white fur. It looks designed for a halfling noble, with glorious sapphires sewn across the hems. But entrancing as it is, you can't help but feel a little queasy wearing it.", "一件由上等白色毛皮制成的长袍，柔软而美丽。它看起来是为半身人贵族设计的，衣边缀满了华美的蓝宝石。尽管它是如此迷人，穿上它时你却忍不住有些恶心。", "_t")
 t("#RED#You feel disgusted touching this thing!", "#RED#当你触摸到这件物品时，你感到一阵恶心！", "logPlayer")
 t("#LIGHT_BLUE#You feel this robe was made for you!", "#LIGHT_BLUE#你感觉这件袍子就是为你制作的！", "logPlayer")
 
@@ -38617,7 +38617,7 @@ t("and corrupted into a pile of writhing worms", "并将其腐化成了一堆蠕
 t("horror", "恐魔", "entity type")
 t("eldritch", "骇异", "entity subtype")
 t("The Dreaming One", "梦境者", "entity name")
-t("This strange globe of blue light seems to be alive and asleep. Nothing about it moves, yet you can feel the crushing power of its dreams assaulting your mind.", "这个奇怪的发光球体似乎是活的，而且正在熟睡。不过，尽管它还没有移动，你已经感受到它梦境的力量在冲击自己的精神。", "_t")
+t("This strange globe of blue light seems to be alive and asleep. Nothing about it moves, yet you can feel the crushing power of its dreams assaulting your mind.", "这个奇怪的蓝色光球似乎是活的，而且正在熟睡。它纹丝不动，你却能感受到它梦境中那股压倒性的力量正冲击着你的精神。", "_t")
 t("and absorbed into nightmares forever", "并将其永远吸入了噩梦之中", "_t")
 
 ------------------------------------------------
@@ -38645,7 +38645,7 @@ This one seems to go to an unknown place, seemingly out of this world. You dare 
 t("#LIGHT_BLUE#You use the orb on the portal, shutting it down easily.", "#LIGHT_BLUE#你在传送门上使用了水晶球，很轻易的关闭了它。", "logPlayer")
 t("%s (disabled)", "%s（已禁用）", "tformat")
 t("Invocation Portal: Undeath", "召唤传送门：亡灵", "entity name")
-t("An invocation portal, perpetually summoning beings through it.", "一个仪式传送门，不断地从另一边召唤生物。", "_t")
+t("An invocation portal, perpetually summoning beings through it.", "一个召唤传送门，不断地从中召唤出生物。", "_t")
 t("Invocation Portal: Elements", "召唤传送门：元素", "entity name")
 t("Invocation Portal: Dragons", "召唤传送门：龙", "entity name")
 t("Invocation Portal: Destruction", "召唤传送门：毁灭", "entity name")
@@ -38669,7 +38669,7 @@ t("Fallen Sun Paladin Aeryn", "堕落太阳骑士艾琳", "entity name")
 t("A beautiful woman, clad in shining plate armour. Power radiates from her.", "一位身披闪亮板甲的美女。力量从她身上散发出来。", "_t")
 t("High Sun Paladin Aeryn", "高阶太阳骑士艾琳", "entity name")
 t("Caldizar", "凯尔帝勒", "entity name")
-t("A creature stands before you, with long tentacle-like appendages and a squat bump in place of a head. An intense aura of power radiates from this being unlike anything you've ever felt before. It can only be a Sher'Tul. A living Sher'Tul!", "四肢是触须，头部由某种突起代替的奇怪生物。一种强烈的能量在他周围流动，这股能量不同于你之前认识的任何一种。他只能是夏·图尔人。一名活生生的夏·图尔人！", "_t")
+t("A creature stands before you, with long tentacle-like appendages and a squat bump in place of a head. An intense aura of power radiates from this being unlike anything you've ever felt before. It can only be a Sher'Tul. A living Sher'Tul!", "一个生物站在你面前，它有着长长的、类似触须的附肢，头部的位置只有一个矮墩墩的突起。一股强烈的力量从它身上散发出来，与你以往感受过的任何力量都截然不同。它只可能是夏·图尔人。一名活生生的夏·图尔人！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/high-peak/objects.lua"
@@ -39708,7 +39708,7 @@ t("The farportal seems to be inactive", "这个远行传送门关闭着", "_t")
 section "mod-tome/data/zones/shertul-fortress-caldizar/npcs.lua"
 
 t("Caldizar", "凯尔帝勒", "entity name")
-t("A creature stands before you, with long tentacle-like appendages and a squat bump in place of a head. An intense aura of power radiates from this being unlike anything you've ever felt before. It can only be a Sher'Tul. A living Sher'Tul!", "四肢是触须，头部由某种突起代替的奇怪生物。一种强烈的能量在他周围流动，这股能量不同于你之前认识的任何一种。他只能是夏·图尔人。一名活生生的夏·图尔人！", "_t")
+t("A creature stands before you, with long tentacle-like appendages and a squat bump in place of a head. An intense aura of power radiates from this being unlike anything you've ever felt before. It can only be a Sher'Tul. A living Sher'Tul!", "一个生物站在你面前，它有着长长的、类似触须的附肢，头部的位置只有一个矮墩墩的突起。一股强烈的力量从它身上散发出来，与你以往感受过的任何力量都截然不同。它只可能是夏·图尔人。一名活生生的夏·图尔人！", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/shertul-fortress-caldizar/zone.lua"
@@ -40877,7 +40877,7 @@ t("moonstone", "月亮石", "entity name")
 t("floor", "地板", "entity type")
 t("grass", "草地", "entity subtype")
 t("Fearscape Portal", "恶魔空间传送门", "entity name")
-t("An invocation portal, perpetually summoning beings through it.", "一个仪式传送门，不断地从另一边召唤生物。", "_t")
+t("An invocation portal, perpetually summoning beings through it.", "一个召唤传送门，不断地从中召唤出生物。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/valley-moon/npcs.lua"
