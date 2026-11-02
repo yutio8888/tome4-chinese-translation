@@ -1,0 +1,27 @@
+{
+ "confirmed": [
+  {
+   "id": "f64560e724d3",
+   "edit": [
+    [
+     "t(\"%d category point(s)\", \"%d 大系点\", \"tformat\")",
+     "t(\"%d category point(s)\", \"%d 技能树解锁点\", \"tformat\")"
+    ]
+   ],
+   "evidence": "debug/AdvanceActor.lua:389 unused_talents_types；升级界面按钮与 0174 已作技能树解锁点；同键两行（239/42411）同步"
+  },
+  {
+   "id": "b83bec246e67",
+   "edit": [
+    [
+     "\"%s:  楼层 %0.2f 到 %0.2f (#LIGHT_STEEL_BLUE#+%0.2f#LAST#)\"",
+     "\"%s:  等级 %0.2f 到 %0.2f (#LIGHT_STEEL_BLUE#+%0.2f#LAST#)\""
+    ]
+   ],
+   "evidence": "debug/AdvanceZones.lua:48/216-218/260-261 start/end_level 为角色等级（含经验小数）"
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "category point 库内并存「大系点」（mod-tome.lua:630/2352/26940/26945，tome-orcs.lua:298/299）与「技能树解锁点」；全库统一属跨批次策略，记待用户决定"
+}
