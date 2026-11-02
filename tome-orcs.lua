@@ -607,7 +607,7 @@ t("blighted needles", "枯萎之针", "damage type")
 t("infective darkness", "传染黑暗", "damage type")
 t("fiery vapour", "火焰蒸汽", "damage type")
 t("repairing", "修复", "damage type")
-t("mind drone", "精神无人机", "damage type")
+t("mind drone", "精神无人机械", "damage type")
 t("20% chance of physical repulsion", "20% 几率物理排斥", "damage type")
 t("temporal ripples", "时空波纹", "damage type")
 t("curse of amakthel", "阿马克泰尔的诅咒", "damage type")
@@ -876,8 +876,8 @@ t("#{italic}##ANTIQUE_WHITE#From a bygone era it slithers...#LAST##{normal}#", "
 section "tome-orcs/data/general/npcs/steam-drone.lua"
 
 t("mechanical", "机械", "entity type")
-t("drone", "无人机", "entity subtype")
-t("steam drone", "蒸汽机器人", "entity name")
+t("drone", "无人机械", "entity subtype")
+t("steam drone", "蒸汽无人机械", "entity name")
 t("This eight legged mechanical construct looks suspiciously like a spider. A huge clonking spider that runs to you at great speed ready to cut you to pieces with its two rotating saws in place of mandibles.", "这个八腿机械构造体看上去像极了蜘蛛——一只哐当作响的巨大蜘蛛，正飞速向你冲来，准备用取代双颚的两把旋转锯刃将你切成碎片。", "_t")
 
 ------------------------------------------------
@@ -4592,8 +4592,8 @@ t("A flying grapple pull %s into %s!", "飞爪将%s拉得撞上%s！", "logSeen"
 t([[You send a small steam-powered flying grapple to a target. The drone is homing so if the target moves it will follow.
 		When it reaches its target it deploys grapples in all directions around it in radius 4.
 		The grapples latch onto any foes and pull them toward the target. If they are stopped by a creature (or the target) both them and the creature take %0.2f physical damage.
-		]], [[向目标发射一枚小型蒸汽动力飞爪无人机。无人机会自动追踪，目标移动时会跟随。
-		命中目标后，无人机朝周围 3 格范围内的各个方向发射金属飞爪，将敌人最多拉近 4 格。
+		]], [[向目标发射一枚小型蒸汽动力飞爪无人机械。无人机械会自动追踪，目标移动时会跟随。
+		命中目标后，无人机械朝周围 3 格范围内的各个方向发射金属飞爪，将敌人最多拉近 4 格。
 		飞爪会抓住范围内任何敌人，并将它们向目标拉扯。如果被其他生物（或目标本身）阻挡，两者均受到 %0.2f 物理伤害。
 		]], "tformat")
 t("Net Projector", "束网弹射器", "talent name")
@@ -5857,11 +5857,11 @@ t([[Using psionic energies you temporarily alter your blood, turning it into mol
 		处于铁水血液状态时，所有近战命中你的生物都会受到 %0.2f 点火焰伤害；你的所有伤害抗性提高 %d%%， 且新施加于你的所有负面效果持续时间缩短 %d%%。
 		伤害随蒸汽强度提高。
 		]], "tformat")
-t("Mind Drones", "精神无人机", "talent name")
+t("Mind Drones", "精神无人机械", "talent name")
 t([[Melding psionics with steamtech you create 5 mind drones at your sides that fly towards your target.
 		If they encounter a creature they will latch on it and bore into its skull for 6 turns, disrupting its thoughts.
-		Disrupted creatures have %d%% chances to fail to use talents and suffer a -%d%% reduction to fear and sleep immunity.]], [[将灵能和蒸汽科技结合，你在身边制造 5 架精神无人机飞向目标。
-		无人机接触到生物时，会附着其上并钻入其颅骨 6 回合，干扰思考能力。
+		Disrupted creatures have %d%% chances to fail to use talents and suffer a -%d%% reduction to fear and sleep immunity.]], [[将灵能和蒸汽科技结合，你在身边制造 5 架精神无人机械飞向目标。
+		无人机械接触到生物时，会附着其上并钻入其颅骨 6 回合，干扰思考能力。
 		受影响的生物有 %d%% 几率使用技能失败，同时恐惧和睡眠免疫减少 %d%%。]], "tformat")
 t("Psionic Mirror", "灵能之镜", "talent name")
 t([[You cleanse your mind of %d mental debuffs.
@@ -6172,10 +6172,10 @@ t("#Target# is drained of all powers.", "#Target#的全部强度被吸干了。"
 t("#Target# is more powerful.", "#Target#的强度恢复了。", "_t")
 t("steam", "蒸汽", "effect subtype")
 t("disrupt", "干扰", "effect subtype")
-t("Mind Drone", "精神无人机", "_t")
+t("Mind Drone", "精神无人机械", "_t")
 t("Talents fail chance %d%%, fear and sleep immunity reduced by %d%%.", "技能失败率 %d%%，恐惧和睡眠免疫下降 %d%%。", "tformat")
-t("A mind drone bores into #Target#!", "一架精神无人机钻入了#Target#！", "_t")
-t("#Target# is free from the mind drone.", "#Target#脱离精神无人机影响。", "_t")
+t("A mind drone bores into #Target#!", "一架精神无人机械钻入了#Target#！", "_t")
+t("#Target# is free from the mind drone.", "#Target#脱离精神无人机械影响。", "_t")
 t("biologic", "生物", "effect subtype")
 t("physical", "物理", "effect subtype")
 t("save", "豁免", "effect subtype")
