@@ -1,0 +1,66 @@
+{
+ "confirmed": [
+  {
+   "id": "3c5b970094a9",
+   "edit": [
+    [
+     "t(\"off\", \"副手\", \"_t\")",
+     "t(\"off\", \"备用\", \"_t\")"
+    ],
+    [
+     "t(\"[E]quipment: %s set\", \"装备[E]：%s 套装\", \"tformat\")",
+     "t(\"[E]quipment: %s set\", \"装备[E]：%s武器组\", \"tformat\")"
+    ]
+   ],
+   "evidence": "CharacterSheet.lua:63-74/366-390 off/main 指整组武器（off_weapon_slots，quickSwitchWeapons），每组含 MAINHAND/OFFHAND；标签页 set 同步改武器组，避免与物品套装混淆"
+  },
+  {
+   "id": "5c78760eb854",
+   "edit": [
+    [
+     "t(\"main\", \"主手\", \"_t\")",
+     "t(\"main\", \"主用\", \"_t\")"
+    ]
+   ],
+   "evidence": "同上，main 为主用武器组"
+  },
+  {
+   "id": "ef2b39fa412c",
+   "edit": [
+    [
+     "\"#RED#展示 %s 套装给 %s 看（装备未切换）\"",
+     "\"#RED#正在显示%s武器组（角色：%s，装备未切换）\""
+    ]
+   ],
+   "evidence": "CharacterSheet.lua:74 第二个 %s 为 self.actor:getName()，所属角色；参数顺序不变"
+  },
+  {
+   "id": "6af8f70beb22",
+   "edit": [
+    [
+     "鼠标滑动查看数据。\n]]",
+     "鼠标悬停在属性上可查看说明。\n]]"
+    ]
+   ],
+   "evidence": "CharacterSheet.lua:112 Hover over stat for info（各行 mouseTooltip）"
+  },
+  {
+   "id": "033679223873",
+   "edit": [
+    [
+     "#GOLD#冒险日/月：#LAST# %d/%s",
+     "#GOLD#冒险天数/当前月份：#LAST# %d/%s"
+    ]
+   ],
+   "evidence": "CharacterSheet.lua:136-142 game.turn/DAY 天数与 getMonthName 月份"
+  }
+ ],
+ "advisory": [
+  {
+   "id": "7ecee1f3301d",
+   "reason": "CharacterSheet.lua:673 %-8.8s 按字节截断三字中文资源名（9 字节）确会切出乱码，属真实缺陷；但改为 %s 触发 strict 的 format-shape-difference（宽度/精度须与源一致），需工具维护放行，未授权不改，记待用户决定（先例 mod-tome.lua:2371 早于 strict 校验）"
+  }
+ ],
+ "rejected": [],
+ "notes": "上游缺陷记录：CharacterSheet.lua:71/366 用英文 \"off\" 比较已翻译的 equip_set，非英文界面首次切换后 equip_set 会变成未翻译的 \"off\"/\"main\"；译文无法修复，仅记录"
+}

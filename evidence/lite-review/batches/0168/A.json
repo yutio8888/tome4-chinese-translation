@@ -1,0 +1,337 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "6ddd5f1c9077",
+   "verdict": "OK"
+  },
+  {
+   "id": "30e3e994b416",
+   "verdict": "OK"
+  },
+  {
+   "id": "e7c2762154a1",
+   "verdict": "OK"
+  },
+  {
+   "id": "8d3fcc5fef0c",
+   "verdict": "OK"
+  },
+  {
+   "id": "a976e8a190f2",
+   "verdict": "OK"
+  },
+  {
+   "id": "9fc73fa74242",
+   "verdict": "OK"
+  },
+  {
+   "id": "bd0536c3b65c",
+   "verdict": "OK"
+  },
+  {
+   "id": "1f10f53e3af2",
+   "verdict": "OK"
+  },
+  {
+   "id": "1c82c9a5b3ca",
+   "verdict": "OK"
+  },
+  {
+   "id": "3c5b970094a9",
+   "verdict": "ISSUE",
+   "observation": "CharacterSheet.lua:63-64 中 _t\"off\" 只用于标签页标题 \"[E]quipment: %s set\"，表示 off_weapon_slots（第二套武器/备用武器组，quickSwitchWeapons 切换），不是副手槽位；译「副手」会显示成「装备[E]：副手 套装」，与副手（OFFHAND）概念混淆。库内同一机制译作「第二套武器」「武器套」（mod-tome.lua:43108-43111）。",
+   "suggestion": "备用"
+  },
+  {
+   "id": "5c78760eb854",
+   "verdict": "ISSUE",
+   "observation": "CharacterSheet.lua:63-64 中 _t\"main\" 与 _t\"off\" 成对，指主武器组（非 off_weapon_slots），用于「[E]quipment: %s set」；译「主手」会与主手槽位混淆，显示为「装备[E]：主手 套装」。应译作武器组含义，与 off 配套。",
+   "suggestion": "主要"
+  },
+  {
+   "id": "836d549537c6",
+   "verdict": "OK"
+  },
+  {
+   "id": "ef2b39fa412c",
+   "verdict": "ISSUE",
+   "observation": "CharacterSheet.lua:74：game.logPlayer(..., \"Displaying %s set for %s ...\", self.equip_set, self.actor:getName())，意为「正在显示〔角色〕的 %s 武器组」，第二个 %s 是装备所属角色名，不是观看者；「展示 %s 套装给 %s 看」把所属关系误译成展示对象。args_order 为空，需保持参数顺序。",
+   "suggestion": "#RED#正在显示%s套装（角色：%s，装备未切换）"
+  },
+  {
+   "id": "beb0f7a1ecbb",
+   "verdict": "OK"
+  },
+  {
+   "id": "60e5f9feea95",
+   "verdict": "OK"
+  },
+  {
+   "id": "5e68e13b085b",
+   "verdict": "OK"
+  },
+  {
+   "id": "5b8f3775e697",
+   "verdict": "OK"
+  },
+  {
+   "id": "ea5d2d9cdace",
+   "verdict": "OK"
+  },
+  {
+   "id": "80bd5184553e",
+   "verdict": "OK"
+  },
+  {
+   "id": "81283247db6f",
+   "verdict": "OK"
+  },
+  {
+   "id": "6af8f70beb22",
+   "verdict": "ISSUE",
+   "observation": "CharacterSheet.lua:112 \"Mouse: Hover over stat for info\" 指鼠标悬停在某项属性上显示其说明（各行均绑定 mouseTooltip）；「鼠标滑动查看数据」把悬停误为滑动，且丢失「属性上」「说明」，读者不知如何操作。",
+   "suggestion": "括号#00FF00#( )#LAST#内显示的是与上次打开角色面板时相比的属性值变化。\n按键盘(#00FF00#u#LAST#)键来保存角色资料，按(#00FF00#TAB#LAST#)键在各分类面板中切换。\n鼠标悬停在属性上可查看说明。\n"
+  },
+  {
+   "id": "9b79576d4cad",
+   "verdict": "OK"
+  },
+  {
+   "id": "fbd3e114336d",
+   "verdict": "OK"
+  },
+  {
+   "id": "795b6e320d6a",
+   "verdict": "OK"
+  },
+  {
+   "id": "53eea4181862",
+   "verdict": "OK"
+  },
+  {
+   "id": "63e07f3eb144",
+   "verdict": "OK"
+  },
+  {
+   "id": "65b9f5513fc2",
+   "verdict": "OK"
+  },
+  {
+   "id": "7124cb3c4c47",
+   "verdict": "OK"
+  },
+  {
+   "id": "55c25c905d3f",
+   "verdict": "OK"
+  },
+  {
+   "id": "033679223873",
+   "verdict": "ISSUE",
+   "observation": "CharacterSheet.lua:136-142：第一个 %d 是 game.turn / game.calendar.DAY（已冒险天数），%s 是 getMonthName（当前月份名）。「冒险日/月」读作「冒险的日/月」，看不出前者是天数、后者是当前月份。",
+   "suggestion": "#GOLD#冒险天数/当前月份：#LAST# %d/%s\n#GOLD#游戏时间：#LAST# %s\n#GOLD#杀死的总生物数：          #ANTIQUE_WHITE#%d\n#GOLD#杀死的精英/稀有/Boss数：#YELLOW#%d/#SALMON#%d/#ORANGE#%d\n"
+  },
+  {
+   "id": "48ed23cb9691",
+   "verdict": "OK"
+  },
+  {
+   "id": "f04f204b8693",
+   "verdict": "OK"
+  },
+  {
+   "id": "fdb24eeb3294",
+   "verdict": "OK"
+  },
+  {
+   "id": "a00f35776c51",
+   "verdict": "OK"
+  },
+  {
+   "id": "15fe14ba9ce7",
+   "verdict": "OK"
+  },
+  {
+   "id": "3a213f22e848",
+   "verdict": "OK"
+  },
+  {
+   "id": "3f8aad1fa151",
+   "verdict": "OK"
+  },
+  {
+   "id": "1fd8557cccb1",
+   "verdict": "OK"
+  },
+  {
+   "id": "39ced15ae9ac",
+   "verdict": "OK"
+  },
+  {
+   "id": "fb9a6239e8f3",
+   "verdict": "OK"
+  },
+  {
+   "id": "212d16553b35",
+   "verdict": "OK"
+  },
+  {
+   "id": "df48ef0d115f",
+   "verdict": "OK"
+  },
+  {
+   "id": "4d22b6adfc6f",
+   "verdict": "OK"
+  },
+  {
+   "id": "867d3c701707",
+   "verdict": "OK"
+  },
+  {
+   "id": "e19cbc834b54",
+   "verdict": "OK"
+  },
+  {
+   "id": "a6a01818311c",
+   "verdict": "OK"
+  },
+  {
+   "id": "309b98ed60c8",
+   "verdict": "OK"
+  },
+  {
+   "id": "e185f788e279",
+   "verdict": "OK"
+  },
+  {
+   "id": "e9f099130885",
+   "verdict": "OK"
+  },
+  {
+   "id": "f924c7c7bf42",
+   "verdict": "OK"
+  },
+  {
+   "id": "834cbf0d0d28",
+   "verdict": "OK"
+  },
+  {
+   "id": "feec2501ca38",
+   "verdict": "OK"
+  },
+  {
+   "id": "8c300bc3dfb8",
+   "verdict": "OK"
+  },
+  {
+   "id": "d6ea41b03e46",
+   "verdict": "OK"
+  },
+  {
+   "id": "d5b41ae118f0",
+   "verdict": "OK"
+  },
+  {
+   "id": "33087640994f",
+   "verdict": "OK"
+  },
+  {
+   "id": "080e41e7e6ff",
+   "verdict": "OK"
+  },
+  {
+   "id": "32af01784edc",
+   "verdict": "OK"
+  },
+  {
+   "id": "e5f297b5fa15",
+   "verdict": "OK"
+  },
+  {
+   "id": "b96728991c9a",
+   "verdict": "OK"
+  },
+  {
+   "id": "5d75b1aeceac",
+   "verdict": "OK"
+  },
+  {
+   "id": "f40694e1223b",
+   "verdict": "OK"
+  },
+  {
+   "id": "cf751a70a35c",
+   "verdict": "OK"
+  },
+  {
+   "id": "f71ed5243d7d",
+   "verdict": "OK"
+  },
+  {
+   "id": "57b712fd494a",
+   "verdict": "OK"
+  },
+  {
+   "id": "f55f74b307ee",
+   "verdict": "OK"
+  },
+  {
+   "id": "7b953b2f2793",
+   "verdict": "OK"
+  },
+  {
+   "id": "12e4536998b3",
+   "verdict": "OK"
+  },
+  {
+   "id": "a31f2c2cf8b8",
+   "verdict": "OK"
+  },
+  {
+   "id": "97c9eb124894",
+   "verdict": "OK"
+  },
+  {
+   "id": "c1ce8526ec5a",
+   "verdict": "OK"
+  },
+  {
+   "id": "1a40ee5531aa",
+   "verdict": "OK"
+  },
+  {
+   "id": "d5b04ea206b4",
+   "verdict": "OK"
+  },
+  {
+   "id": "bc2c03cf2e69",
+   "verdict": "OK"
+  },
+  {
+   "id": "7ecee1f3301d",
+   "verdict": "ISSUE",
+   "observation": "CharacterSheet.lua:673 用 %-8.8s 截断 res_def.name，Lua 按字节截断；中文资源名多为 3 个汉字（如 体力值/法力值/失衡值/紊乱值，mod-tome.lua:20877-20893，各 9 字节 UTF-8），被截到 8 字节会切断最后一个汉字产生乱码。库内同类串 \"%-8.8s:\" 已改为 \"%s：\"（mod-tome.lua:2371），上游 zh_hans.lua:41319 也译为 \"%s%s：#00ff00#%s \"。",
+   "suggestion": "%s%s：#00ff00#%s "
+  },
+  {
+   "id": "a5be3aa24cc2",
+   "verdict": "OK"
+  },
+  {
+   "id": "890659c78ec0",
+   "verdict": "OK"
+  },
+  {
+   "id": "a962ff9e02e7",
+   "verdict": "OK"
+  },
+  {
+   "id": "54622ed3ed67",
+   "verdict": "OK"
+  },
+  {
+   "id": "ea7afbd6fbb4",
+   "verdict": "OK"
+  }
+ ]
+}

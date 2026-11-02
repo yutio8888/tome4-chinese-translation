@@ -41230,10 +41230,10 @@ t("[G]eneral", "常规[G]", "_t")
 t("[A]ttack", "攻击[A]", "_t")
 t("[D]efense", "防御[D]", "_t")
 t("[T]alents", "技能[T]", "_t")
-t("off", "副手", "_t")
-t("main", "主手", "_t")
-t("[E]quipment: %s set", "装备[E]：%s 套装", "tformat")
-t("#RED#Displaying %s set for %s (equipment NOT switched)", "#RED#展示 %s 套装给 %s 看（装备未切换）", "logPlayer")
+t("off", "备用", "_t")
+t("main", "主用", "_t")
+t("[E]quipment: %s set", "装备[E]：%s武器组", "tformat")
+t("#RED#Displaying %s set for %s (equipment NOT switched)", "#RED#正在显示%s武器组（角色：%s，装备未切换）", "logPlayer")
 t("Sort: %s", "排序：%s", "tformat")
 t("Groups", "分组", "_t")
 t("Name", "名称", "_t")
@@ -41246,7 +41246,7 @@ Keyboard: #00FF00#'u'#LAST# to save character dump. #00FF00#TAB key#LAST# to swi
 Mouse: Hover over stat for info
 ]], [[括号#00FF00#( )#LAST#内显示的是与上次打开角色面板时相比的属性值变化。
 按键盘(#00FF00#u#LAST#)键来保存角色资料，按(#00FF00#TAB#LAST#)键在各分类面板中切换。
-鼠标滑动查看数据。
+鼠标悬停在属性上可查看说明。
 ]], "_t")
 t("days", "天", "_t")
 t("day", "天", "_t")
@@ -41260,7 +41260,7 @@ t([[#GOLD#Days adventuring / current month:#LAST# %d / %s
 #GOLD#Time playing:#LAST# %s
 #GOLD#Creatures killed:           #ANTIQUE_WHITE#%d
 #GOLD#Elites/Rares/Bosses killed: #YELLOW#%d/#SALMON#%d/#ORANGE#%d
-]], [[#GOLD#冒险日/月：#LAST# %d/%s
+]], [[#GOLD#冒险天数/当前月份：#LAST# %d/%s
 #GOLD#游戏时间：#LAST# %s
 #GOLD#杀死的总生物数：          #ANTIQUE_WHITE#%d
 #GOLD#杀死的精英/稀有/Boss数：#YELLOW#%d/#SALMON#%d/#ORANGE#%d
