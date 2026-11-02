@@ -40798,7 +40798,7 @@ t("Mechanics tutorial", "机制教程", "entity name")
 t("Mechanics Tutorial", "机制教程", "entity name")
 t("Combat Stats", "战斗属性", "entity name")
 t("Combat Stat Tooltips", "战斗属性提示", "entity name")
-t("Combat Stat Scale", "战斗属性提升", "entity name")
+t("Combat Stat Scale", "战斗属性尺度", "entity name")
 t("Combat Stat Calculations", "战斗属性计算", "entity name")
 t("Timed Effects", "临时效果", "entity name")
 t("Cross-Tier Effects", "越层效果", "entity name")
@@ -40817,7 +40817,7 @@ t("The rift leads to another part of the morass.", "裂隙通往混沌之沼的�
 t("Point Zero", "零点圣域", "_t")
 t([[The rift has brought you back to Point Zero, and the source of the disturbances.
 A temporal defiler is attacking the town, all the Keepers in range are attacking it!]], [[这个裂隙将你带回到了零点圣域，你看到了这些混乱的源头。
-一只时空污秽魔正在攻击圣域，附近所有的守卫都在攻击它！]], "_t")
+一只时空污秽魔正在攻击圣域，附近所有的现实守护者都在攻击它！]], "_t")
 t("wall", "墙壁", "entity type")
 t("rift", "裂隙", "entity subtype")
 t("crack in spacetime", "时空裂隙", "entity name")
@@ -40840,7 +40840,7 @@ t("fate weaver", "命运编织者", "entity name")
 t("A large white spider.", "一只巨大的白色蜘蛛。", "_t")
 t("Weaver Queen", "织网蛛后", "entity name")
 t("Weaver Queen", "织网蛛后", "_t")
-t("As you vanquish the queen you notice a temporal thread that seems to have been controlling her. It seems to go through a rift.", "当你杀死织网蛛后时，你注意到某根时间线曾控制着她。这根线似乎来自某个裂隙。", "_t")
+t("As you vanquish the queen you notice a temporal thread that seems to have been controlling her. It seems to go through a rift.", "当你杀死织网蛛后时，你注意到一根似乎一直在操控她的时间丝线。这根丝线似乎穿过了一道裂隙。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/unhallowed-morass/objects.lua"
