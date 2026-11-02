@@ -1041,7 +1041,7 @@ t("yeti", "雪人", "entity name")
 t("This large humanoid form is coated with a thick white fur.", "这个大型的类人生物身上长着厚实的白毛。", "_t")
 t("yeti warrior", "雪人勇士", "entity name")
 t("This huge humanoid form is coated with a thick white fur, with large, vicious claws. It looks angry.", "这个巨大的类人生物身上长着厚实的白毛，和危险的巨爪。他看上去十分愤怒。", "_t")
-t("yeti demolisher", "雪人爆破者", "entity name")
+t("yeti demolisher", "雪人摧毁者", "entity name")
 t("This huge humanoid form is coated with a thick white fur, with large, vicious claws. Will you welcome the embrace of its large muscular arms?", "这个巨大的类人生物身上长着厚实的白毛，和危险的巨爪。你会喜欢被他肌肉满满的双臂拥抱一下吗？", "_t")
 
 ------------------------------------------------
