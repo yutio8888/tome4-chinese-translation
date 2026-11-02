@@ -908,7 +908,7 @@ t([[You breathe a mix of darkness and flight in a frontal cone of radius %d. Any
 		In addition each time you do a melee attack there is a 10%% chance to trigger the breath at no cost.
 		The damage will increase with your Spellpower.
 		]], [[你朝前方 %d 格锥形区域吐出一团黑暗的疫气。所有被击中的目标会受到 %0.2f 暗影/枯萎伤害。
-		此外，你进行近战攻击的时候有 10%% 几率免费触发一次吐息。
+		此外，你的近战攻击命中时有 10%% 几率免费触发一次吐息。
 		伤害受法术强度加成。
 		]], "tformat")
 t("Blood Drinker", "饮血者", "talent name")
@@ -927,7 +927,7 @@ t([[By seathing yourself in flames you phase to a distant location.
 		Any creature caught in the way is burnt for %0.2f fire damage which you use to regain %d vim.
 		The damage will increase with your Spellpower.
 		]], [[你将自己化为一团火焰，传送到目标位置。
-		任何路径上的生物都会被灼烧，受到 %0.2f 火焰伤害，你恢复 %d 活力值。
+		任何路径上的生物都会被灼烧，受到 %0.2f 火焰伤害；每灼烧一个生物，你恢复 %d 活力值。
 		伤害受法术强度加成。
 		]], "tformat")
 t("Frost Grab", "冰霜飞爪", "talent name")
@@ -950,7 +950,7 @@ t([[For every turn where you take damage you have a %d%% chance to store a seism
 		You can activate this spell to consume the charges, spawning a raging volcano that lasts for 2 turns per charges.
 		Each turn the volcano spews 2 flaming boulders that deal %0.2f fire and %0.2f physical damage.
 		The charges quickly fade when outside of combat.
-		The damage increases with your spellpower.]], [[每个你受到伤害的回合，你有 %d%% 的几率存储一次地震能量。
+		The damage increases with your spellpower.]], [[每次受到伤害时，你有 %d%% 的几率存储一次地震能量，每回合至多存储一次。
 		你可以主动使用这一技能，释放地震充能，召唤出一个火山，每层充能持续 2 回合。
 		每个回合，火山会发射出 2 个熔岩巨岩，造成 %0.2f 火焰和 %0.2f 物理伤害。
 		充能会在战斗外快速消退。
@@ -991,7 +991,7 @@ t([[Strike a blow with your weapon for %d%% blight damage.
 		If you already have a seed of the same time in your inventory or equipment it will instead increase its level if the host was of higher level than the seed and the demon inside will regenerate %d%% health and resurrect if it was dead.
 
 		Higher talent levels allow for more powerful demon types.
-		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], "用武器打击目标，造成 %d%% 枯萎伤害。\n\t\t如果攻击命中，一颗恶魔种子会尝试在敌人体内扎根；随后你用盾牌猛击目标，造成 %d%% 伤害并使其眩晕 %d 回合。\n\t\t\n\t\t种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。\n\t\t种子扎根的几率取决于生物的级别：\n\t\t%s普通生物#LAST#:  5%%\n\t\t%s精英生物#LAST#:  20%%\n\t\t%s稀有#LAST#或%s史诗生物#LAST#:  50%%\n\t\t%sBoss#LAST#:  100%%\n\t\t当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。\n\t\t如果你的背包或装备上已经有了同类的恶魔种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d%% 生命值，若已死亡则会复活。\n\n\t\t技能等级越高，可获得的恶魔种类越强大。\n\t\t如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。", "tformat")
+		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], "用武器打击目标，造成 %d%% 枯萎伤害。\n\t\t如果攻击命中，一颗恶魔种子会尝试在敌人体内扎根；随后你用盾牌猛击目标，造成 %d%% 伤害并使其眩晕 %d 回合。\n\t\t\n\t\t种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。\n\t\t种子扎根的几率取决于生物的级别：\n\t\t%s普通生物#LAST#:  5%%\n\t\t%s精英生物#LAST#:  20%%\n\t\t%s稀有#LAST#或%s史诗生物#LAST#:  50%%\n\t\t%sBoss#LAST#:  100%%\n\t\t当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。\n\t\t如果你的背包或装备上已经有了同种恶魔且对应同一装备部位的恶魔种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d%% 生命值，若已死亡则会复活。\n\n\t\t技能等级越高，可获得的恶魔种类越强大。\n\t\t如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。", "tformat")
 t("Bind Demon", "恶魔结合", "talent name")
 t("Summon demon", "召唤恶魔", "_t")
 t("Which seed to use:", "使用哪个恶魔种子：", "_t")
@@ -1091,7 +1091,7 @@ t([[You learn to use death around you to an even greater advantage.
 		This effect can only happen once per turn.
 		The damage increases with spellpower.
 		At talent level 3 your Dark Reign buff also protects you from death until reaching %d life per stack.]], [[你学会利用死亡来获取力量。
-		当黑暗支配开启，每次你使用非暗影伤害杀死生物或造成超过 %d%% 最大生命的伤害时，产生半径 1 的黑暗能量池，持续 5 回合。
+		当黑暗支配开启，每次你以任意类型的伤害杀死敌对生物或对其造成超过 %d%% 最大生命的伤害时，产生半径 1 的黑暗能量池，持续 5 回合。
 		能量池将在半径 %d 范围内的随机敌人处生成。
 		任何站在里面的敌人每回合将受到 %0.2f 点暗影伤害。
 		这个效果每回合最多触发一次。
@@ -1127,7 +1127,7 @@ t([[You infuse your shield with the energies of Urh'Rok, bringing about a magica
 		技能等级 3 时，如果伤害在治疗量两倍以上，有 %d%% 几率额外移除一个物理负面效果。此效果每回合只能触发一次。
 		在休息和跑步时，该技能自动终止。
 		#{bold}#开启护盾不消耗时间，关闭护盾消耗时间。#{normal}#
-		伤害受法术强度加成。]], "tformat")
+		治疗量不受法术强度影响。]], "tformat")
 t("Hardened Core", "硬化之核", "talent name")
 t([[Taking example from Mal'Rok, the demon's homeworld you harden yourself.
 		Increases total armour by %d%% + 10 and spellpower by %d.]], [[从恶魔家乡玛·洛克中学习，强化自身。
@@ -1157,7 +1157,7 @@ t([[Open a gateway to the Fearscape, stepping through it to a nearby location. A
 t("Cauterize Spirit", "灵魂焚净", "talent name")
 t([[Removes all detrimental effects but causes you to burn for %d%% of your max health per effect, over 7 turns.
 		This ignores all resists, defenses, and affinities.
-		This does not take a turn.]], [[移除所有负面状态，但每移除一个状态，会在 7 回合内灼烧自身，受到合计 %d%% 最大生命值的伤害。
+		This does not take a turn.]], [[移除除“其他”类与越层效果以外的所有负面状态，但每移除一个状态，会在 7 回合内灼烧自身，受到合计 %d%% 最大生命值的伤害。
 		伤害无视一切抗性、防御效果和伤害亲和。
 		此技能瞬发。]], "tformat")
 t("Infernal Breath", "地狱吐息", "talent name")
@@ -1263,7 +1263,7 @@ t("Mass Hysteria", "恐惧之潮", "talent name")
 t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%%， 持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 格内所有敌对生物。", "tformat")
 t("Fearfeast", "恐惧盛宴", "talent name")
 t("You gain %.1f turns!", "你获得了%.1f个回合！", "logPlayer")
-t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[汲取 %d 格内敌对生物身上的恐惧，每汲取一层恐惧，恢复 %d 生命并获得 %0.1f%% 额外回合，至多能获得 %.1f 个额外回合。]], "tformat")
+t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[依据 %d 格内敌对生物身上的恐惧层数（恐惧不会被移除），每有一层恐惧，恢复 %d 生命并获得 %0.1f%% 额外回合，至多能获得 %.1f 个额外回合。]], "tformat")
 t("Hope Wanes", "绝望碾压", "talent name")
 t([[You crush the spirit of a target with at least %d fear stacks, consuming all stacks and making it unable to act for %d turns.
 		This talent ignores saves and immunities.]], [[击溃恐惧叠加至少 %d 层的目标的精神，消耗其全部恐惧层数，使目标 %d 回合无法行动。
@@ -1277,7 +1277,7 @@ t([[You unleash the fury of the Spellblaze, constantly draining your vim.
 		While this spell is active at most two meteors will fall near your per turn, dealing %0.2f physical and %0.2f fire damage in radius 2.
 		This spell disabled automatically on rest or run.
 		The effects increase with spellpower.]], [[你释放魔法大爆炸的力量，持续消耗活力。
-		当技能开启时，每回合至多有 2 个陨石坠落在你身边，在半径 2 的范围内造成 %0.2f 物理与 %0.2f 火焰伤害。
+		当技能开启时，每回合至多有 2 个陨石坠落在你身边，在半径 2 的范围内造成物理与火焰伤害，数值分别为 %0.2f 与 %0.2f 的一半。
 		这项法术在休息或跑步时自动关闭。
 		效果受法术强度加成。]], "tformat")
 t("Only Ashes Left", "唯余灰烬", "talent name")
@@ -1285,7 +1285,7 @@ t([[Bringing about the darkest days of the Spellblaze you hasten the death of yo
 		When you deal damage to a creature in radius %d or less around you and it dips below 33%% life you automatically unleash the fury of the Spellblaze.
 		Affected foes will start taking %0.2f darkness damage each turn until it dies as long as it remains in radius %d of you.
 		The damage increases with spellpower.]], [[重现魔法大爆炸最黑暗的时刻，加速敌人的死亡。
-		当你对周围半径 %d 内的生物造成伤害，使其生命值降至 33%% 以下时，会自动向其释放魔法大爆炸之怒。
+		魔法大爆炸之怒的作用半径为 %d： 当你对周围 4 格内的生物造成伤害后，若其生命值不高于 33%%，会自动向其释放此力量。
 		受影响的敌人每回合受到 %0.2f 点暗影伤害；只要它仍在你周围半径 %d 内，伤害就会持续至其死亡。
 		伤害受法术强度加成。]], "tformat")
 t("Shattered Mind", "精神破碎", "talent name")
@@ -1337,8 +1337,8 @@ t("Obliterating Smash", "歼灭挥斩", "talent name")
 t("You require a two handed weapon to use this talent.", "你需要装备一把双手武器来施展这个技能。", "logPlayer")
 t([[Swing your weapon with incredible force, striking all enemies in a radius %d semicircle, dealing %d%% weapon damage to all targets.
 		Starting from talent level 5, all targets hit will have their armour and saves reduced by %d.
-		This attack can not miss.]], [[用无与伦比的力量挥动武器，打击正面半圆 %d 格范围内所有敌对生物，对所有目标造成 %d%% 武器伤害。
-	技能等级高于 5 时，被击中敌对生物的护甲和豁免会降低 %d 点。
+		This attack can not miss.]], [[用无与伦比的力量挥动武器，打击正面半圆 %d 格范围内的所有生物（友方也会被击中），对所有目标造成 %d%% 武器伤害。
+	技能等级高于 5 时，被击中目标的护甲和豁免会降低 %d 点。
 	此攻击必中。]], "tformat")
 t("Detonating Charge", "爆裂冲锋", "talent name")
 t("You require a two handed weapon and being able to move to use this talent.", "你需要装备一把双手武器且可以移动，才能施展这个技能。", "logPlayer")
