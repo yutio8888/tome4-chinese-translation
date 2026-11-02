@@ -408,7 +408,7 @@ t("entropic breach", "熵之裂口", "entity name")
 t("Entropic Wormhole Control Orb", "熵虫洞控制球", "entity name")
 t("#CRIMSON#The entropic forces are already at work. FIGHT!", "#CRIMSON#熵已经在起作用了。战斗！", "say")
 t("#CRIMSON#The entropic control orb seems unresponsive...", "#CRIMSON#熵控制球看上去不对你起反应……", "say")
-t("#PURPLE#Make sure you are connected and joined the main Tales of Maj'Eyal chat channel.", "#PURPLE#确认你连接到了网络，并加入了马基·埃亚尔聊天频道。", "log")
+t("#PURPLE#Make sure you are connected and joined the main Tales of Maj'Eyal chat channel.", "#PURPLE#确认你连接到了网络，并加入了马基埃亚尔的传说的主聊天频道。", "log")
 
 ------------------------------------------------
 section "tome-cults/data/general/grids/godfeaster.lua"
