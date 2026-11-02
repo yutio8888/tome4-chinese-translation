@@ -38440,7 +38440,7 @@ section "mod-tome/data/zones/golem-graveyard/grids.lua"
 t("the remains of Atamathon", "阿塔玛森的遗骸", "entity name")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its sole eye of purest ruby; the other one seems to be missing. At over 40 feet tall, it towers above you.
-Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.]], [[这尊巨型傀儡是由半身人在烈火战争中为对抗兽族制造的，但它却被吞噬者加库尔所摧毁。
+Someone foolish has tried to reconstruct it, but was unable to complete the task; the golem needs another eye to be complete.]], [[这尊巨型傀儡是由半身人在烈火战争中为对抗兽人制造的，但它却被吞噬者加库尔所摧毁。
 它的身躯由大理石制成，关节由坚固的沃瑞钽打造，仅有的一只眼睛由纯净的红宝石构成，另一只眼睛似乎已经遗失。它高达四十多英尺，巍然耸立在你面前。
 某个蠢货曾试图重建它，却没能完成；这尊傀儡还需要另一只眼睛才能完整。]], "_t")
 t("Atamathon", "阿塔玛森", "_t")
@@ -38495,7 +38495,7 @@ t("open door", "敞开的门", "entity name")
 t("sand", "沙", "entity subtype")
 t("huge loose rock", "巨大的松动石头", "entity name")
 t("This rock seems to have been sealed off. You need to find a way to open it.", "这块石头被封锁了。你需要找到一种方法来打开它。", "_t")
-t("#VIOLET#You hear a rock crumbling opening.", "#VIOLET#你听到了石头破碎的声音。", "log")
+t("#VIOLET#You hear a rock crumbling opening.", "#VIOLET#你听到了岩石崩裂、通路打开的声音。", "log")
 
 ------------------------------------------------
 section "mod-tome/data/zones/gorbat-pride/npcs.lua"
@@ -38546,7 +38546,7 @@ section "mod-tome/data/zones/grushnak-pride/objects.lua"
 t("draft note", "草稿笔记", "entity name")
 t("A note.", "一份笔记。", "_t")
 t("The Legend of Garkul", "加库尔的传说", "entity name")
-t("The Legend of Garkul the Devourer, mightiest of all orcs.", "吞噬者加库尔，兽人最伟大英雄的传奇。", "_t")
+t("The Legend of Garkul the Devourer, mightiest of all orcs.", "吞噬者加库尔——所有兽人中最强大者——的传说。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/grushnak-pride/zone.lua"
@@ -38559,7 +38559,7 @@ section "mod-tome/data/zones/halfling-ruins/npcs.lua"
 t("Subject Z", "代号“Z”", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("This seems to be the 'subject Z' the notes spoke about. He looks human, but this cannot be -- he would be about five thousand years old!", "这个似乎是文献中提到的“Z号实验体”。他看起来像人类，但这不可能——他应该有大约五千岁了！", "_t")
+t("This seems to be the 'subject Z' the notes spoke about. He looks human, but this cannot be -- he would be about five thousand years old!", "这似乎就是笔记中提到的“试验品 Z”。他看起来像人类，但这不可能——他应该有大约五千岁了！", "_t")
 t("and bloodily smeared across the granite walls", "并将其血淋淋地涂抹在花岗岩墙壁上", "_t")
 t("Sacrifice for the Way!", "为维网而献身！", "_t")
 t("#LIGHT_RED#Intense fight", "#LIGHT_RED#激烈的战斗", "_t")
