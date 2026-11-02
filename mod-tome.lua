@@ -40128,9 +40128,9 @@ t("An archmage specializing in lightning magic.", "一位精通闪电法术的�
 ------------------------------------------------
 section "mod-tome/data/zones/town-angolwen/objects.lua"
 
-t("lecture on humility", "关于谦逊的讲座", "entity subtype")
+t("lecture on humility", "关于谦卑的演讲", "entity subtype")
 t("Lecture on Humility by Archmage Linaniil", "大法师莱娜尼尔关于谦卑的演讲", "entity name")
-t("Lecture on Humility by Archmage Linaniil. A tale of the first ages and the Spellblaze.", "大法师莱娜尼尔关于谦卑的演讲。这是有关过去的时代和魔法大爆炸的传说。", "_t")
+t("Lecture on Humility by Archmage Linaniil. A tale of the first ages and the Spellblaze.", "大法师莱娜尼尔关于谦卑的演讲。这是有关上古时代和魔法大爆炸的传说。", "_t")
 t("magic teaching", "魔法教学", "entity subtype")
 t("'What is Magic' by Archmage Tarelion", "大法师泰尔兰关于“什么是魔法”的演讲", "entity name")
 t("Lecture on the nature of magic by Archmage Tarelion.", "大法师泰尔兰关于魔法本质的演讲。", "_t")
