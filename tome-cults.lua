@@ -2112,7 +2112,7 @@ Outside of the various movements of such distasteful groups, some of the shalore
 
 艾尔温的眼睛飞快地转来转去，说话也结结巴巴，我看着他的眼睛，走过去与他相吻。我抬起头，平静地对他说：“只要你还爱我，我不在乎我的样子，这一点就足够了。”在这一刻，他的身体放松了下来，我慢慢俯身，再次亲吻他，他将我拥入怀中。我贴近他的身体，他平静地回答说：“是的，菲，我仍然爱你”，然后他终于开始回应我的亲吻。那晚是我一生中最珍贵的时刻之一。尽管此前我有过许多旅行和人生经历，但我绝不会拿那一夜去交换任何东西。
 
-然而，尽管这件事让我濒临死亡，但我心里明白，我渴望再次离开埃尔瓦拉去冒险。有人可能会觉得很奇怪，但当我与艾伦尼恩一起离开前往帷幕外面的那一刻，我想起了最初带我去埃尔瓦拉的旅行。虽然我花了几十年的时间才恢复过来，但现在我准备再一次走出帷幕去探索这个世界。艾尔温不同意我离开的决定，但出于他对我的爱，他不会阻止我离开。我也知道，如果我真的发现自己处于危险之中，我可以使用仍然刻在我身上的返回符文脱离险境。
+然而，尽管这件事让我濒临死亡，但我心里明白，我渴望再次离开埃尔瓦拉去冒险。有人可能会觉得很奇怪，但当我与艾伦尼恩一起从帷幕外撤离的那一刻，我想起了最初带我去埃尔瓦拉的旅行。虽然我花了几十年的时间才恢复过来，但现在我准备再一次走出帷幕去探索这个世界。艾尔温不同意我离开的决定，但出于他对我的爱，他不会阻止我离开。我也知道，如果我真的发现自己处于危险之中，我可以使用仍然刻在我身上的返回符文脱离险境。
 
 根据我从永恒精灵侦察兵那里听到的消息，现在，在埃尔瓦拉的城墙外发生了值得我关注的事情。一群法外狂徒正在附近的土地上游荡，有些人因绝望而沦为土匪，另一些人则因为纳格尔人无法像以前那样掌控自己的领土，看到了趁机掠夺他人的机会。尽管我们与世隔绝，但这个问题也影响着身在埃尔瓦拉的我们，让我们与外界仅有的少许往来变得更加困难。据信，这里北边的古老森林是这群土匪的一处主要藏身处，也是他们发动攻击的集结地。
 
@@ -2149,7 +2149,7 @@ To that end, we all gather here. Are we spiteful for how this world openly rejec
 t("the history of Kroshkkur (3)", "克诺什库尔的历史(3)", "_t")
 t([[Why do we struggle on? What is Kroshkkur's plan? It is simple. We will take the knowledge other races have rejected and use it to transform ourselves. No more shall we be the wretches who hide away from the light. We will become the new gods, the ones to bask in the sun's embrace, proudly standing atop of the civilisation we built. We will surely find our answer among these ancient ruins, and when we do, we shall be as far from the surface dwellers as they are from worms.
 
-It is this dream which keeps Kroshkkur alive. Even as our bodies continue to warp and decay, we hold onto the hope that we will find a way to reshape ourselves into something better. We will not need anyone's permission to exist on that day.]], [[我们为何而奋斗？克诺什库尔的计划是什么？答案很简单，我们将接受被其他种族所排斥的知识，并利用它们来转变自己。我们将不再是躲避着光明的怪胎。我们将成为新的神明，沐浴在日光之中，以我们所建立的文明为傲。我们定会在这些古老的废墟之中找到我们的答案；到那时，我们将远离地表居民，就像他们远离着害虫一样。
+It is this dream which keeps Kroshkkur alive. Even as our bodies continue to warp and decay, we hold onto the hope that we will find a way to reshape ourselves into something better. We will not need anyone's permission to exist on that day.]], [[我们为何而奋斗？克诺什库尔的计划是什么？答案很简单，我们将接受被其他种族所排斥的知识，并利用它们来转变自己。我们将不再是躲避着光明的怪胎。我们将成为新的神明，沐浴在日光之中，以我们所建立的文明为傲。我们定会在这些古老的废墟之中找到我们的答案；到那时，我们与地表居民之间的差距，将如同他们与蠕虫之间的差距一样悬殊。
 
 这就是让克诺什库尔保持生机的梦想。即使我们的身体不断变异、衰败，我们也依然怀着希望，相信能找到方法将自己重塑得更好。到了那时，我们的存在将不需要任何人的许可。]], "_t")
 t("Researcher Dremnot's Demystification of the Gods: Prelude", "研究员德瑞姆诺特的《揭露诸神》：前言", "_t")
@@ -2334,19 +2334,19 @@ Out of charity and kindness, it agreed to teach them how to wield the power of e
 
 Hithre was one of The Teacher's pupils, a Shalore who became one of the first to wield entropic magic in the entirety of Eyal.]], [[黄昏纪对于埃亚尔的大部分住民来说都是世界末日一般。魔法大爆炸带来的破坏烧灼大地，带来一片枯萎。食物稀缺，疾病蔓延，人们生活在绝望之中。然而，对于一些人来说，一位不速之客成为了他们的拯救者。一位后来被他们称为“导师”的存在，穿越了远古的夏·图尔传送门，从群星间来到了埃亚尔。他在埃亚尔的深处找到了一群幸存者，那些幸存者向他祈求知识，希望利用这些知识对抗肆虐世界的恐怖之物。
 
-出于慈悲与善意，导师同意教导他们如何掌控熵的力量。然而，导师告诉他们，这种力量并不能够轻易掌握，很有可能导致他们的毁灭。但走投无路的学生们毫不犹豫地同意了，丝毫不考虑这可能带来的后果。
+出于慈悲与善意，导师同意教导他们如何掌控熵的力量。然而，导师告诉他们，这股力量绝不可轻率对待，很有可能导致他们的毁灭。但走投无路的学生们毫不犹豫地同意了，丝毫不考虑这可能带来的后果。
 
-永恒精灵希瑟尔也是导师的一个学生，他是埃亚尔历史上最早掌握熵魔法的人之一。]], "_t")
+永恒精灵希瑟尔也是导师的一个学生，她是埃亚尔历史上最早掌握熵魔法的人之一。]], "_t")
 t("Lessons of Inevitability - Entropic Backlash and Healing", "有关必然性的课程——熵能反冲和治疗", "_t")
 t([[My first lesson to you, my students, is to understand what it means to wield entropy. When using its power, it's impossible to escape its withering touch. Your bodies will suffer from the backlash of your spells and carry a residue of those energies at all times. As such, your ability to recover from wounds and injury will be significantly impaired. However, you can learn to resist this backlash and even manipulate the threads of fate to pass it on to your enemies.
 
-#{italic}#Go check your new spell for detailed information.#{normal}#]], [[孩子们，第一堂课我要教你们理解运用熵的力量意味着什么。当你们使用它的力量时，也不可避免地会受到它的凋零影响。你的身体将承受法术的反馈，并始终留有这些能量的残余。因此，你从创伤中恢复的能力将会严重受到影响。然而，你可以学会抵抗这种反馈，甚至操纵命运之线，将反馈转移给你的敌人。
+#{italic}#Go check your new spell for detailed information.#{normal}#]], [[孩子们，第一堂课我要教你们理解运用熵的力量意味着什么。当你们使用它的力量时，也不可避免地会受到它的凋零影响。你的身体将承受法术的反冲，并始终留有这些能量的残余。因此，你从创伤中恢复的能力将会严重受到影响。然而，你可以学会抵抗这种反冲，甚至操纵命运之线，将反冲转移给你的敌人。
 
 #{italic}#查看你的新法术，了解详情。#{normal}#]], "_t")
 t("Lessons of Inevitability - Netherblast", "有关必然性的课程——彼世冲击", "_t")
 t([[For this exercise, you will learn how to manipulate and direct entropic energies. This spell will be your main defence against your foes and will teach you to manage the backlash from using it. Few beings in existence are capable of defending themselves against the Netherblast, so practice with it frequently until you have perfected it.
 
-#{italic}#Go check your new spell for detailed information.#{normal}#]], [[在这个练习中，你将学会如何直接操纵和利用熵的能量。这个法术将会是你用来抵御敌人的主要手段，并且会教会你如何应对使用法术对你造成的反馈。很少有人能抵挡“彼世冲击”的威力，所以一定要勤加练习，直到你完全掌握为止。
+#{italic}#Go check your new spell for detailed information.#{normal}#]], [[在这个练习中，你将学会如何操纵和引导熵的能量。这个法术将会是你用来抵御敌人的主要手段，并且会教会你如何应对使用法术对你造成的反冲。很少有人能抵挡“彼世冲击”的威力，所以一定要勤加练习，直到你完全掌握为止。
 
 #{italic}#查看你的新法术，了解详情。#{normal}#]], "_t")
 t("Lessons of Inevitability - Fatebreaker", "有关必然性的课程——打破宿命", "_t")
@@ -2354,7 +2354,7 @@ t([[This spell will be the most important you will learn from me. Fate is a forc
 
 The target dummies have been imbued with fake void energies; use your Fatebreaker on them and then use Netherblast on yourself while low on life. This is a difficult exercise, students. Be aware that you are now risking your life if you execute it wrong.
 
-#{italic}#Go check your new spell for detailed information.#{normal}#]], [[这个法术将是你向我学到的最重要的法术。命运是由无数世界线组成的力量。只要你理解这些世界线如何相互连接，就能操纵命运来实现自己的目的。这个法术能让你将注定毁灭自己的世界线转移到对手身上，从而逃脱命中注定的死亡。请记住，这个法术不应该被轻率使用，有些世界线不屈从于任何人的意志，你花再大的力气也永远无法操纵它们。
+#{italic}#Go check your new spell for detailed information.#{normal}#]], [[这个法术将是你向我学到的最重要的法术。命运是由无数命运之线组成的力量。只要你理解这些命运之线如何相互连接，就能操纵命运来实现自己的目的。这个法术能让你将注定毁灭自己的命运之线转移到对手身上，从而逃脱命中注定的死亡。请记住，这个法术不应该被轻率使用，有些命运之线不屈从于任何人的意志，你花再大的力气也永远无法操纵它们。
 
 这些训练假人身上灌注着虚假的虚空能量。在它们身上使用“打破宿命”，然后在你的血量很低的时候对自己使用彼世冲击。孩子们，这个练习很困难。务必注意，操作失误会让你面临生命危险。
 
