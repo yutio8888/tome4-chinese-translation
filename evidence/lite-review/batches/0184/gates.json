@@ -1,0 +1,152 @@
+{
+ "batch": "0184",
+ "mode": "subset",
+ "passed": true,
+ "checks": [
+  {
+   "check": "01-doctor",
+   "argv": [
+    "python3",
+    "-B",
+    "tools/i18n",
+    "doctor"
+   ],
+   "exit_code": 0,
+   "seconds": 0.11,
+   "tail": ""
+  },
+  {
+   "check": "02-strict-lint",
+   "argv": [
+    "python3",
+    "-B",
+    "tools/i18n",
+    "lint",
+    "--strict"
+   ],
+   "exit_code": 0,
+   "seconds": 0.81,
+   "tail": ""
+  },
+  {
+   "check": "04-semantic-claims-strict-registry",
+   "argv": [
+    "python3",
+    "-B",
+    "tools/i18n",
+    "claims",
+    "check",
+    "--registry",
+    "evidence/quality/semantic-claim-regressions-v1.json",
+    "--strict"
+   ],
+   "exit_code": 0,
+   "seconds": 0.07,
+   "tail": ""
+  },
+  {
+   "check": "06-runtime-collision-scan",
+   "argv": [
+    "python3",
+    "-B",
+    "tools/scan_runtime_collisions.py"
+   ],
+   "exit_code": 0,
+   "seconds": 0.67,
+   "tail": ""
+  },
+  {
+   "check": "07-runtime-key-classification",
+   "argv": [
+    "python3",
+    "-B",
+    "tools/classify_runtime_keys.py"
+   ],
+   "exit_code": 0,
+   "seconds": 0.59,
+   "tail": ""
+  },
+  {
+   "check": "08-terminology-static-audit",
+   "argv": [
+    "python3",
+    "-B",
+    "tools/audit_static.py"
+   ],
+   "exit_code": 0,
+   "seconds": 0.05,
+   "tail": ""
+  },
+  {
+   "check": "09-terminology-dynamic-audit",
+   "argv": [
+    "python3",
+    "-B",
+    "tools/audit_dynamic.py"
+   ],
+   "exit_code": 0,
+   "seconds": 1.18,
+   "tail": ""
+  },
+  {
+   "check": "10-domain-annotation",
+   "argv": [
+    "python3",
+    "-B",
+    "tools/annotate_domains.py"
+   ],
+   "exit_code": 0,
+   "seconds": 0.05,
+   "tail": ""
+  },
+  {
+   "check": "11-worktree-whitespace",
+   "argv": [
+    "git",
+    "diff",
+    "--check"
+   ],
+   "exit_code": 0,
+   "seconds": 0.04,
+   "tail": ""
+  },
+  {
+   "check": "11-staged-whitespace",
+   "argv": [
+    "git",
+    "diff",
+    "--cached",
+    "--check"
+   ],
+   "exit_code": 0,
+   "seconds": 0.01,
+   "tail": ""
+  },
+  {
+   "check": "12-core-addon-build",
+   "argv": [
+    "python3",
+    "-B",
+    "tools/i18n",
+    "build",
+    "--profile",
+    "addon",
+    "--component",
+    "tome",
+    "--require-complete"
+   ],
+   "exit_code": 0,
+   "seconds": 1.24,
+   "tail": ""
+  }
+ ],
+ "skipped": [
+  "03-test-group-registration",
+  "03-toolchain-unit-tests",
+  "04-quality-facts-unit-tests",
+  "04-semantic-claim-unit-tests",
+  "05-contract-suite-unit-tests",
+  "05-production-shadow-surface-ledger-tests"
+ ],
+ "skip_basis": "tool unit-test groups test tools/ and tests/ code with fixtures; unchanged since the last full PASS recorded in full-gates.json"
+}

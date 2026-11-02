@@ -53,13 +53,13 @@ One rages and torments in deep oceans blue,
 one fights for the third with the cultists she taught.
 Silence these beings, maintain your deception,
 and then you may witness a new elf's conception...]], [[玛·洛克的恶魔绝不会对你施以祝福！
-三者可以诉说精灵所带来的恐怖
-之一在无尽的深海中永远咆哮
-之一召集邪徒为复活另一者而战
-静默他们的声音，隐藏你的踪影
-新的精灵终将诞生…]], "_t")
+三者能向他们诉说精灵犯下的恐怖罪行。
+其一在湛蓝深海中狂怒肆虐，
+其一率领她亲手教出的邪徒为第三者而战。
+让这些存在归于沉寂，继续维持你的伪装，
+你便能见证一位新精灵的诞生……]], "_t")
 t("Doomelves are not a real race, they are Shaloren that have been taken by demons and transformed into harbingers of doom.", "魔化精灵并不是一个真正的种族，他们本是永恒精灵，被恶魔抓去后变成了末日的使者。", "_t")
-t("They enjoy unleashing torments and suffering on their victims.", "他们对折磨敌人感到享受。", "_t")
+t("They enjoy unleashing torments and suffering on their victims.", "他们以折磨受害者、使其痛苦为乐。", "_t")
 t("They possess the #GOLD#Haste of the Doomed#WHITE# talent which allows them to phase away once in a while.", "他们拥有#GOLD#末日加速#WHITE#技能，可以不时脱离相位并传送。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -2 力量，+1 敏捷，+1 体质", "_t")
@@ -92,8 +92,8 @@ t("Demonic Tatoos 8", "恶魔纹身8", "_t")
 section "tome-ashes-urhrok/data/general/events/demon-statue.lua"
 
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
-t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving no traces.", "#CRIMSON#恐惧空间的力量触及了%s，然后消褪了，没留下一点痕迹。", "logSeen")
-t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a nasty looking %s nearby.", "#CRIMSON#恐惧空间的力量触及了%s，随后消散，在附近留下了一个面目狰狞的%s。", "logSeen")
+t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving no traces.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，没留下一点痕迹。", "logSeen")
+t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a nasty looking %s nearby.", "#CRIMSON#恶魔空间的力量触及了%s，随后消散，在附近留下了一个面目狰狞的%s。", "logSeen")
 t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a nasty effect upon you.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，留下一个负面效果。", "logPlayer")
 t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a strange effect upon you.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，留下一个奇怪的效果。", "logPlayer")
 t("#CRIMSON#The power of the Fearscape touches %s and fades away, leaving a strange item behind.", "#CRIMSON#恶魔空间的力量触及了%s，然后消褪了，留下一个奇怪的物品。", "logSeen")
