@@ -33182,8 +33182,7 @@ Feel free to go batter those spiders some more if you need further experimentati
 
 如果没有的话，请思考一下下面几个问题：
 
-1) 你作为一个攻击者，使用的是哪一种 #GOLD#战斗属性#WHITE#？
-而那些蜘蛛作为防御者又用的是哪一种 #GOLD#战斗属性#WHITE#？
+1) 你作为一个攻击者，使用的是哪一种 #GOLD#战斗属性#WHITE#？而那些蜘蛛作为防御者又用的是哪一种 #GOLD#战斗属性#WHITE#？
 
 2) 那些 #GOLD#战斗属性#WHITE# 又是哪一个层级的呢？
 
@@ -33235,8 +33234,7 @@ The effects last one turn per tier difference in the attacker's and defender's #
 
 精神效果造成 "思维封锁" 效果。
 
-攻击者和防御者的 #GOLD#战斗属性#WHITE# 每相差一个层级，这些效果就持续 1 回合。
-例如，以 #8d55ff#层级 5#WHITE# #LIGHT_GREEN#法术强度#WHITE# 对一个 #B4B4B4#层级 1#WHITE# #LIGHT_GREEN#物理豁免#WHITE#的目标施放法力风暴，会施加持续 4 回合的“失去平衡”效果。
+攻击者和防御者的 #GOLD#战斗属性#WHITE# 每相差一个层级，这些效果就持续 1 回合。例如，以 #8d55ff#层级 5#WHITE# #LIGHT_GREEN#法术强度#WHITE# 对一个 #B4B4B4#层级 1#WHITE# #LIGHT_GREEN#物理豁免#WHITE#的目标施放法力风暴，会施加持续 4 回合的“失去平衡”效果。
 
 ]], "_t")
 
@@ -33279,8 +33277,7 @@ section "mod-tome/data/texts/tutorial/stats-timed/timed0.lua"
 t([[Detrimental #GOLD#timed effects#WHITE# are conditions which cause various short-term problems, such as blindness, confusion, stunning, poisoning, slowing, and much more. Much of what we've seen so far applies to them; the type of effect determines what defensive #GOLD#combat stat#WHITE# the defender uses, and the source of the effect determines what offensive #GOLD#combat stat#WHITE# the attacker uses.
 
 Let's experiment to find out more. Move on to learn a new talent. Be sure to read its description!
-]], [[有害的 #GOLD#持续效果#WHITE# 是会造成各种短期困扰的状态，例如致盲、混乱、震慑、中毒、减速等等。
-我们此前看到的许多规则同样适用：效果的类型决定防御者使用哪项防御性 #GOLD#战斗属性#WHITE#；效果的来源决定攻击者使用哪项攻击性 #GOLD#战斗属性#WHITE#。
+]], [[有害的 #GOLD#持续效果#WHITE# 是会造成各种短期困扰的状态，例如致盲、混乱、震慑、中毒、减速等等。我们此前看到的许多规则同样适用：效果的类型决定防御者使用哪项防御性 #GOLD#战斗属性#WHITE#；效果的来源决定攻击者使用哪项攻击性 #GOLD#战斗属性#WHITE#。
 
 我们来弄清楚更多机制，继续前进学习一个新的技能，请仔细阅读它的描述文字！
 ]], "_t")
@@ -33630,7 +33627,8 @@ Campaign features:#YELLOW#
 - Pure hack and slash MAYHEM!
 - Your champion becomes the new master of the arena, allowing you to challenge your own champions!
 ]], [[竞技场是一种暴力娱乐方式。
-它令观众欣喜，是财富与荣耀之源。在那里，有志之士、以前的冒险家和那些受永远战斗之诅咒的人互相厮杀。
+它令观众欣喜，是财富与荣耀之源。在那里，有志之士、以前的冒险家和那些受永远战斗之诅咒的人
+永无休止地聚在一起互相厮杀。
 
 你解锁了竞技场，现在你可以创建一个新人物进行新的战役模式：#LIGHT_GREEN#竞技场#WHITE#。
 
@@ -34060,7 +34058,7 @@ All mages use mana to cast their spells.
 It slowly replenishes over time.
 ]], [[魔法狩猎之后魔法并没有从马基·埃亚尔消失。
 
-在黄昏纪元，当魔法狩猎接近尾声时，卡·克鲁尔的强大法师莱娜尼尔为各种族仅存的少数法师建立了一个避风港。
+在黄昏纪，当魔法狩猎接近尾声时，卡·克鲁尔的强大法师莱娜尼尔为各种族仅存的少数法师建立了一个避风港。
 这个地方就是安格利文，魔法之城，在这里，两千多年来一直传授魔法，以保存并发扬它。
 
 现在，你已经知道了这个故事，你可以在创建人物时选择新的职业 #LIGHT_GREEN#元素法师#WHITE#。
@@ -34158,7 +34156,7 @@ It slowly replenishes over time.
 ]], [[死灵法术，被禁忌的魔法。
 死灵法术，黑暗的魔法。
 
-在黄昏纪元和烈火纪元，世界进入了一个扭曲的时代。国家分裂，整个种族遭到压迫，疫病肆虐，杀死了数百万人。
+在黄昏纪和烈火纪，世界进入了一个扭曲的时代。国家分裂，整个种族遭到压迫，疫病肆虐，杀死了数百万人。
 这是一个黑暗的时代，恐怖的制造者——死灵法师来到了这个混乱的时代。
 死灵法师过去一直存在，将来也永远存在，只要灵魂仍向诱惑敞开。而那才是他们真正的荣耀岁月。
 那些所谓的“高贵”的元素法师们认为死灵法师是他们走入歧途的兄弟，必须予以纠正或者消灭。但是死灵法师们认为自己是被误解的从业者，他们深入了别人不敢或者没有能力掌控的魔法领域，而正是这种魔法给他们带来了强大的力量。
@@ -34770,8 +34768,8 @@ Race features:#YELLOW#
 - Frail body#WHITE#
 ]], [[夺心魔是热带瑞尔岛上的原住民，一个神秘的小型人形种族。
 他们的身体长着白色的毛发，另外，不成比例的巨大脑袋使他们看上去有点滑稽。不过他们是非常灵巧而且意志强大的种族。
-尽管在马基·埃亚尔几乎没有听说过他们，但在烈火纪元之前的漫长岁月里，他们曾是半身人国家纳格尔的秘密奴隶。
-他们在烈火纪元获得了自由，并从此遵循“维网”——一种由他们强大的灵能维系的心灵统一。
+尽管在马基·埃亚尔几乎没有听说过他们，但在烈火纪之前的漫长岁月里，他们曾是半身人国家纳格尔的秘密奴隶。
+他们在烈火纪获得了自由，并从此遵循“维网”——一种由他们强大的灵能维系的心灵统一。
 
 你帮助了一名夺心魔维网信徒，现在你可以在创建人物时选择新的种族：#LIGHT_GREEN#夺心魔#WHITE#。
 
