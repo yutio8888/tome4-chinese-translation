@@ -20307,7 +20307,7 @@ t("#VIOLET#The time has come to learn the true nature of your curse.", "#VIOLET#
 t("#VIOLET#You find yourself in a dream.", "#VIOLET#你发现你在一个梦境里。", "logPlayer")
 t("#VIOLET#Your hate surges. You refuse to succumb to death!", "#VIOLET#你的仇恨涌动，你拒绝向死亡屈服！", "logPlayer")
 t("#VIOLET#You have discovered a small iron acorn, a link to your past.", "#VIOLET#你发现了一个小铁橡果，它和你的过去有关。", "logPlayer")
-t("#VIOLET#The merchant caravan from the past has appeared in your dream.", "#VIOLET#很久以前商队的往事出现在你的梦里。", "logPlayer")
+t("#VIOLET#The merchant caravan from the past has appeared in your dream.", "#VIOLET#昔日的商队出现在你的梦中。", "logPlayer")
 t("Last of the Caravan", "商队的最后一人", "_t")
 t("secret path to the cave", "通向山洞的秘密通道", "_t")
 t("#VIOLET#You have begun your hunt for Kyless!", "#VIOLET#你开始追杀凯勒斯！", "logPlayer")
@@ -20341,7 +20341,7 @@ t("The affairs of this mortal world are trifling compared to your true goal: To 
 t("Your studies have uncovered much surrounding this subject, but now you must prepare for your glorious rebirth.", "你关于这个主题的研究已经令你发现了很多东西，现在，你必须准备你辉煌的重生仪式。", "_t")
 t("You will need:", "你需要：", "_t")
 t("#LIGHT_GREEN#* You are experienced enough.#WHITE#", "#LIGHT_GREEN#* 你有足够的经验。#WHITE#", "_t")
-t("#SLATE#* The ceremony will require that you are worthy, experienced, and possessed of a certain amount of power (level 25, Magic over 50, Willpower over 25 and one prodigy point available).#WHITE#", "#SLATE#* 仪式要求你具备资格、经验丰富，并拥有足够的力量（达到 25 级、魔力超过 50、意志超过 25，且有 1 点可用的觉醒点）。#WHITE#", "_t")
+t("#SLATE#* The ceremony will require that you are worthy, experienced, and possessed of a certain amount of power (level 25, Magic over 50, Willpower over 25 and one prodigy point available).#WHITE#", "#SLATE#* 仪式要求你具备资格、经验丰富，并拥有足够的力量（达到 25 级、魔力至少 50、意志至少 25，且有 1 点可用的觉醒点）。#WHITE#", "_t")
 t("#LIGHT_GREEN#* You have 'extracted' the heart of one of your fellow necromancers.#WHITE#", "#LIGHT_GREEN#* 你已经“取出”了一位死灵法师同类的心脏。#WHITE#", "_t")
 t("#SLATE#* The beating heart of a powerful necromancer.#WHITE#", "#SLATE#* 一颗强大死灵法师跳动的心脏。#WHITE#", "_t")
 t("#LIGHT_GREEN#* Yiilkgur the Sher'tul Fortress is a suitable location.#WHITE#", "#LIGHT_GREEN#* 夏·图尔堡垒伊克格是个合适的地方。#WHITE#", "_t")
@@ -20384,7 +20384,7 @@ Derth is free of the storm cloud.]], [[似乎法师们遵守了他们的诺言�
 ------------------------------------------------
 section "mod-tome/data/quests/lost-merchant.lua"
 
-t("Trapped!", "陷阱！", "_t")
+t("Trapped!", "被困！", "_t")
 t("You heard a plea for help and decided to investigate...", "你听到了求救声，决定去调查一下……", "_t")
 t("Only to find yourself trapped inside an unknown tunnel complex.", "却发现自己被困在一片陌生的地下通道群中。", "_t")
 t("A stairway out appears at your feet. The Lord says: 'And remember, you are MINE. I will call you.'", "一道通往外界的楼梯出现在你脚下。刺客领主说道：“记住，你是我的人。我会召唤你的。”", "logPlayer")
