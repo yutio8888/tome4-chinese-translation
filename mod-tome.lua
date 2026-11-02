@@ -42676,7 +42676,7 @@ t("Dropdown text", "下拉文字", "_t")
 t("No Tooltip", "没有提示", "_t")
 t("Use this selector to choose which resolver to use", "使用这个选项选择想要使用的解析器。", "_t")
 t([[#ORANGE#Randart Data#LAST# contains parameters used to generate a Randart (interpreted by game.state:generateRandart).
-The #LIGHT_BLUE#Base Object#LAST# will be used if possible.]], [[#ORANGE#随机神器数据#LAST# 包含了用于生成随机神器的额外参数 (由game.state:generateRandart)解析。
+The #LIGHT_BLUE#Base Object#LAST# will be used if possible.]], [[#ORANGE#随机神器数据#LAST#包含用于生成随机神器的参数（由 game.state:generateRandart 解析）。
 如果可能，将会使用#LIGHT_BLUE#基础物品#LAST#作为基础。]], "tformat")
 t("Default Data", "默认数据", "_t")
 t("#ORANGE#Randart Data:#LAST# ", "#ORANGE#随机神器数据：#LAST# ", "_t")
