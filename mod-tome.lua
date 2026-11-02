@@ -41476,7 +41476,7 @@ t("Exit to main menu", "退回主菜单", "_t")
 section "mod-tome/dialogs/Donation.lua"
 
 t("Donations", "捐赠", "_t")
-t("#GOLD#Character cosmetic customization and special tiles#WHITE#", "#GOLD#角色时装和自定义角色图像#WHITE#", "_t")
+t("#GOLD#Character cosmetic customization and special tiles#WHITE#", "#GOLD#角色外观定制和特殊角色图像#WHITE#", "_t")
 t("#GOLD#Exploration mode (infinite lives)#WHITE#", "#GOLD#探索模式（无限命）#WHITE#", "_t")
 t("#GOLD#Item's appearance change (Shimmering)#WHITE#", "#GOLD#改变物品外观（幻化）#WHITE#", "_t")
 t([[Hi, I am Nicolas (DarkGod), the maker of this game.
@@ -41527,8 +41527,7 @@ The higher this value the slower the movements will appear.
 Note: This does not affect the turn-based idea of the game. You can move again while your character is still moving, and it will correctly update and compute a new animation.]], [[令生物和抛射物的移动更加平滑。设置为0时，移动看起来是瞬间完成的。
 数值越高，画面显示的移动速度越慢。
 
-注意：这并不会改变该游戏的回合制机制。
-你可以在角色仍在移动时再次移动，游戏会正确更新并计算新的动画。]], "_t")
+注意：这并不会改变该游戏的回合制机制。你可以在角色仍在移动时再次移动，游戏会正确更新并计算新的动画。]], "_t")
 t("#GOLD##{bold}#Smooth creatures movement#WHITE##{normal}#", "#GOLD##{bold}#平滑生物移动#WHITE##{normal}#", "_t")
 t("Enter movement speed(lower is faster)", "设置动画速度（越低越快）", "_t")
 t("From 0 to 60", "从 0 到 60", "_t")
@@ -41540,7 +41539,7 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 t([[Enables smooth fog-of-war.
 Disabling it will make the fog of war look 'blocky' but might gain a slight performance increase.#WHITE#]], [[开启平滑战争迷雾。
-关闭它会让雾看起来像是方块，同时让速度得到轻微的提升。#WHITE#]], "_t")
+关闭它会让战争迷雾看起来呈方块状，但可能会略微提升性能。#WHITE#]], "_t")
 t("#GOLD##{bold}#Smooth fog of war#WHITE##{normal}#", "#GOLD##{bold}#平滑战争迷雾#WHITE##{normal}#", "_t")
 t([[Select the interface look. Metal is the default one. Simple is basic but takes less screen space.
 You must restart the game for the change to take effect.]], [[界面样式，默认为金属，设置为简单可以节省屏幕空间。
@@ -41553,12 +41552,12 @@ t("Simple", "简单", "_t")
 t("Interface style", "界面样式", "_t")
 t("Select style", "选择样式", "_t")
 t([[Select the HUD look. 'Minimalist' is the default one.
-#LIGHT_RED#This will take effect on next restart.]], [[界面风格。默认界面风格“精简”。
+#LIGHT_RED#This will take effect on next restart.]], [[选择 HUD 风格。默认为“精简”。
 #LIGHT_RED#重启游戏后生效。]], "_t")
-t("#GOLD##{bold}#HUD Style#WHITE##{normal}#", "#GOLD##{bold}#界面风格#WHITE##{normal}#", "_t")
+t("#GOLD##{bold}#HUD Style#WHITE##{normal}#", "#GOLD##{bold}#HUD 风格#WHITE##{normal}#", "_t")
 t("Minimalist", "精简", "_t")
 t("Classic", "经典", "_t")
-t("HUD style", "界面风格", "_t")
+t("HUD style", "HUD 风格", "_t")
 t("The number of lines to display in the combat log (for the Classic HUD).", "战斗日志显示行数 (只用于经典HUD)。", "_t")
 t("#GOLD##{bold}#Log lines#WHITE##{normal}#", "#GOLD##{bold}#日志行数#WHITE##{normal}#", "_t")
 t("Log lines", "日志行数", "_t")
@@ -41599,7 +41598,7 @@ t("Number of rows to show in the icons hotkeys toolbar.#WHITE#", "调整快捷�
 t("#GOLD##{bold}#Icons hotkey toolbar rows#WHITE##{normal}#", "#GOLD##{bold}#图标快捷栏行数#WHITE##{normal}#", "_t")
 t("Number of icons rows", "图标栏行数", "_t")
 t("From 1 to 4", "从 1 到 4", "_t")
-t("When you activate a hotkey, either by keyboard or click a visual feedback will appear over it in the hotkeys bar.#WHITE#", "当你点击快捷栏或者使用快捷键时，将在快捷栏对应技能上有视觉反馈。#WHITE#", "_t")
+t("When you activate a hotkey, either by keyboard or click a visual feedback will appear over it in the hotkeys bar.#WHITE#", "当你通过键盘或鼠标点击激活快捷键时，快捷栏中对应的格子上会出现视觉反馈。#WHITE#", "_t")
 t("#GOLD##{bold}#Visual hotkeys feedback#WHITE##{normal}#", "#GOLD##{bold}#可视化快捷键反馈#WHITE##{normal}#", "_t")
 t("When the player or an NPC uses a talent shows a quick popup with the talent's icon and name over its head.#WHITE#", "当玩家或NPC使用技能时，会在其头顶弹出带有技能图标和名称的快捷提示。#WHITE#", "_t")
 t("#GOLD##{bold}#Talents activations map display#WHITE##{normal}#", "#GOLD##{bold}#地图显示使用技能#WHITE##{normal}#", "_t")
