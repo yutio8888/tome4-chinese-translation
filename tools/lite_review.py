@@ -3,8 +3,9 @@
 Subcommands:
   status                      progress against the current translation files
   next [--max N] [--path P]   print the next unreviewed slice (release-required units, file order)
-  prepare BATCH [--max N] [--path P] [--units FILE]
-                              freeze batches/BATCH/input.json and the A/B prompts
+  prepare BATCH [--max N] [--path P] [--units FILE] [--lane B]
+                              freeze batches/BATCH/input.json and the A/B prompts; --lane B freezes a B-only
+                              backfill batch of units A already reviewed at their current revision (2026-11-02)
   collect BATCH LANE RAW      extract the lane JSON (first JSON object in RAW) into batches/BATCH/LANE.json
   strict BATCH                validate the confirmed edits of batches/BATCH/decision.json with `tools/i18n proposal --strict`
   record BATCH                append reviewed units to ledger.jsonl from batches/BATCH/decision.json
@@ -59,12 +60,15 @@ def order_key(u):
     return (o['translation_path'], o['document_ordinal'])
 
 
-def pending(us, done):
+def pending(us, done, lane='A'):
+    if lane == 'B':   # B backfill: only units A has already reviewed at this revision
+        return sorted((u for u in us if (u['unit_id'], u['revision_key']) in done['A']
+                       and (u['unit_id'], u['revision_key']) not in done['B']), key=order_key)
     return sorted((u for u in us if (u['unit_id'], u['revision_key']) not in done['A']), key=order_key)
 
 
-def select(us, done, max_n, path=None):
-    rest = [u for u in pending(us, done) if path is None or u['occurrence']['section'] == path
+def select(us, done, max_n, path=None, lane='A'):
+    rest = [u for u in pending(us, done, lane) if path is None or u['occurrence']['section'] == path
             or u['occurrence']['section'].startswith(path)]
     if not rest:
         return []
@@ -166,14 +170,14 @@ PROMPT = """轻量审核 {lane}（{batch}）。逐条审 {path} 中的译文，�
 仓库只读；把结果 JSON 写到 {out}。最终回复只写一行摘要，不要贴 JSON：`{batch} {lane}: N verdicts, ISSUE k: [id, ...]`。"""
 
 
-def prepare(batch, max_n, path, units_file):
+def prepare(batch, max_n, path, units_file, lane=None):
     us = units()
     done = reviewed()
     if units_file:
         want = set(json.loads(Path(units_file).read_text()))
         chosen = sorted((u for u in us if u['unit_id'] in want or u['unit_id'][:12] in want), key=order_key)
     else:
-        chosen = select(us, done, max_n, path)
+        chosen = select(us, done, max_n, path, lane or 'A')
     if not chosen:
         raise SystemExit('nothing pending')
     d = LITE / 'batches' / batch
@@ -183,12 +187,13 @@ def prepare(batch, max_n, path, units_file):
     entries = [entry(u) for u in chosen]
     for e in entries:
         e['previously_reviewed'] = {lane: any(k[0] == e['unit_id'] for k in done[lane]) for lane in ('A', 'B')}
-    data = {'batch': batch, 'core_commit': CORE, 'count': len(entries),
+    lanes = [lane] if lane else ['A', 'B']
+    data = {'batch': batch, 'core_commit': CORE, 'count': len(entries), 'lanes': lanes,
             'sections': sorted({e['section'] for e in entries}), 'entries': entries}
     (d / 'input.json').write_text(json.dumps(data, ensure_ascii=False, indent=1) + '\n')
-    for lane in ('A', 'B'):
-        out = f'/tmp/lite-review/{batch}-{lane}.json'
-        (d / f'prompt-{lane}.txt').write_text(PROMPT.format(lane=lane, batch=batch, path=str(d / 'input.json').replace(str(ROOT) + '/', ''),
+    for ln in lanes:
+        out = f'/tmp/lite-review/{batch}-{ln}.json'
+        (d / f'prompt-{ln}.txt').write_text(PROMPT.format(lane=ln, batch=batch, path=str(d / 'input.json').replace(str(ROOT) + '/', ''),
                                                             core=CORE, out=out))
     Path('/tmp/lite-review').mkdir(exist_ok=True)
     print(json.dumps({'batch': batch, 'count': len(entries), 'sections': data['sections']}, ensure_ascii=False))
@@ -238,7 +243,7 @@ def record(batch):
     d = LITE / 'batches' / batch
     inp = json.loads((d / 'input.json').read_text())
     dec = json.loads((d / 'decision.json').read_text())
-    lanes = {lane: json.loads((d / f'{lane}.json').read_text()) for lane in ('A', 'B')}
+    lanes = {lane: json.loads((d / f'{lane}.json').read_text()) for lane in inp.get('lanes', ['A', 'B'])}
     conf = {c['id'] for c in dec.get('confirmed', [])}
     adv = {c['id'] for c in dec.get('advisory', [])}
     rej = {c['id'] if isinstance(c, dict) else c for c in dec.get('rejected', [])}   # {"id","reason"} or a bare id
@@ -262,7 +267,7 @@ def record(batch):
             status = ('confirmed' if e['id'] in conf else 'advisory' if e['id'] in adv
                       else 'rejected' if e['id'] in rej else 'ok')
             fh.write(json.dumps({'batch': batch, 'unit_id': e['unit_id'], 'revision_key': e['revision_key'],
-                                 'section': e['section'], 'lanes': ['A', 'B'], 'verdicts': v, 'host': status},
+                                 'section': e['section'], 'lanes': sorted(lanes), 'verdicts': v, 'host': status},
                                 ensure_ascii=False, sort_keys=True) + '\n')
             n += 1
     print(f'recorded {n} units ({len(conf)} confirmed, {len(adv)} advisory)')
@@ -334,6 +339,7 @@ def status():
     for u in p:
         by[u['occurrence']['translation_path']] = by.get(u['occurrence']['translation_path'], 0) + 1
     print(json.dumps({'release_required_units': len(us), 'reviewed_A': a, 'reviewed_B': b, 'pending_A': len(p),
+                      'pending_B_backfill': len(pending(us, done, 'B')),
                       'pending_by_file': by, 'next_sections': list(dict.fromkeys(u['occurrence']['section'] for u in p))[:8]},
                      ensure_ascii=False, indent=1))
 
@@ -343,7 +349,7 @@ def main():
     sp = ap.add_subparsers(dest='cmd', required=True)
     sp.add_parser('status')
     n = sp.add_parser('next'); n.add_argument('--max', type=int, default=MAX); n.add_argument('--path')
-    p = sp.add_parser('prepare'); p.add_argument('batch'); p.add_argument('--max', type=int, default=MAX); p.add_argument('--path'); p.add_argument('--units')
+    p = sp.add_parser('prepare'); p.add_argument('batch'); p.add_argument('--max', type=int, default=MAX); p.add_argument('--path'); p.add_argument('--units'); p.add_argument('--lane', choices=['B'])
     c = sp.add_parser('collect'); c.add_argument('batch'); c.add_argument('lane', choices=['A', 'B']); c.add_argument('raw')
     r = sp.add_parser('record'); r.add_argument('batch')
     s = sp.add_parser('strict'); s.add_argument('batch')
@@ -356,7 +362,7 @@ def main():
     elif a.cmd == 'prepare':
         if not re.fullmatch(r'\d{4}', a.batch):
             raise SystemExit('batch must be 4 digits')
-        prepare(a.batch, a.max, a.path, a.units)
+        prepare(a.batch, a.max, a.path, a.units, a.lane)
     elif a.cmd == 'collect':
         collect(a.batch, a.lane, a.raw)
     elif a.cmd == 'strict':

@@ -46,6 +46,12 @@
 5. 有译文改动时跑 strict proposal 与 `tools/lite_gates.py`；然后一次 git 提交（账本＋译文）。
 6. 改过的单元在下一批自动重审。
 
+## B 补审（2026-11-02 起）
+
+旧流程中免 B 的约 4450 个名称类单元只有 A 结论。用户 2026-11-02 要求补做 B 审：
+`lite_review.py prepare BATCH --lane B` 只选 A 已在当前 revision 审过、B 未审的单元，输入记 `"lanes": ["B"]`，
+只派 B；`record` 按输入的 lanes 记账。裁决、修复与提交与普通批次相同，改过的单元回到 A／B 双审队列。
+
 ## 进度
 
 `python3 -B tools/lite_review.py status` 报告：当前单元总数、已审（A）、已审（B）、待审。
