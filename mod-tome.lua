@@ -38318,7 +38318,7 @@ t("Do you have anything worth living for?", "你有什么值得为之活下去�
 t("GRrrrrrllllll!", "噶呃～！", "_t")
 t("lost wife", "迷路的妻子", "entity name")
 t("bloated horror", "浮肿恐魔", "entity subtype")
-t("Your wife has been turned into a giant, bloated form that towers above you. Mucus and slime ooze from every orifice, dripping onto the floor. The sight and the smell make you retch.", "你的妻子变成了一只铁塔般的浮肿怪物。黏液和粘稠的液体从每个孔洞向外渗出，不断滴落在地板上。此情此景使你异常反胃。", "_t")
+t("Your wife has been turned into a giant, bloated form that towers above you. Mucus and slime ooze from every orifice, dripping onto the floor. The sight and the smell make you retch.", "你的妻子变成了一只铁塔般的浮肿怪物。黏液和粘稠的液体从每个孔洞向外渗出，不断滴落在地板上。眼前的景象和扑鼻的气味使你异常反胃。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/dreams/zone.lua"
@@ -38392,7 +38392,7 @@ section "mod-tome/data/zones/eruan/grids.lua"
 t("Farportal: Charred Scar", "远行传送门：灼烧之痕", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go to the west, to Charred Scar. A fiery volcano that can only spell death...]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
-这道门似乎通向西方，通向灼烧之痕——一个能带来死亡的活火山……]], "_t")
+这道门似乎通向西方，通向灼烧之痕——一座烈焰翻腾的火山，去了只有死路一条……]], "_t")
 t("#VIOLET#You enter the swirling portal while it fades away and in the blink of an eye you set foot on hellish land, the heart of a volcano...", "#VIOLET#你进入了正在消逝的传送漩涡，转瞬间便踏上了地狱般的土地——一座火山的腹地……", "_t")
 
 ------------------------------------------------
