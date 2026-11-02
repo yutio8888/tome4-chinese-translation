@@ -1,0 +1,37 @@
+{
+ "confirmed": [
+  {
+   "id": "b965d76c99f3",
+   "edit": [
+    [
+     "伤害以当前装备的弹药为基础；在武器掌握技能和其他效果的判定中，它们均视为蒸汽枪。\n\t\t使用蒸汽枪射击会立即卸下重装武器。",
+     "害以当前装备的弹药为基础；在武器掌握技能和其他效果的判定中，它们均视为蒸汽枪。\n\t\t使用蒸汽枪射击会立即卸下重装武器。\n"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/talents/steam/heavy-weapons.lua:72-80 source ends with a newline (8 LF); restored the trailing newline."
+  },
+  {
+   "id": "309fa192c28d",
+   "edit": [
+    [
+     " 3，还会移除 %d 项物理或魔法维持技能。\n\t\t#{italic}#切碎他们，折磨他们，收割他们！#{normal}#",
+     "3，还会移除至多 %d 项非精神类维持技能。\n\t\t#{italic}#切碎他们，折磨他们，收割他们！#{normal}#"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/talents/steam/sawmaiming.lua:123-162 slow 5 turns on hit; sustains = all non-mind sustains picked with rng.table (may repeat), so 至多."
+  },
+  {
+   "id": "7c9cc912b25c",
+   "edit": [
+    [
+     "当于该次暗影伤害 %d%% 的伤害。只要目标仍在该地格并继续受到暗影伤害（无论来自该效果还是其他来源），该效果就会刷新。",
+     "不足 %d 回合，就会刷新持续时间，并将剩余伤害与新一轮伤害合并均摊。新一轮伤害每回合按本次暗影伤害的 %d%% 计算。"
+    ]
+   ],
+   "evidence": "DLC public checkout (unpinned) orcs/tome-orcs/data/timed_effects/magical.lua:121-155 initial addEffect duration 4; refresh to echo_dur only when remaining < echo_dur, merging old remaining damage."
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "0244: A/B re-review of implementation rewrites, part 3."
+}

@@ -5139,7 +5139,8 @@ t([[You gain the ability to equip one of 3 heavy weapons listed below, temporari
 		#AQUAMARINE#爆矢枪#LAST#：发射高效化学灌注弹矢的多管蒸汽枪。连续射击两次，每次造成相当于 %d%% 蒸汽枪武器伤害的酸性伤害；每次命中产生 %d 点蒸汽。
 
 		重装武器造成的伤害以当前装备的弹药为基础；在武器掌握技能和其他效果的判定中，它们均视为蒸汽枪。
-		使用蒸汽枪射击会立即卸下重装武器。]], "tformat")
+		使用蒸汽枪射击会立即卸下重装武器。
+]], "tformat")
 t("Flamethrower", "火焰喷射器", "talent name")
 t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使用这一技能。", "logPlayer")
 t("You require heavy ammunition to use this talent.", "你需要重装武器弹药才能使用这一技能。", "logPlayer")
@@ -5760,9 +5761,9 @@ t("Spinal Break", "断脊", "talent name")
 t([[You try to sever the spine of your foe, reducing its global speed by %d%% for 4 turns and dealing %d%% weapon damage.
 		The power of the blow also removes up to %d physical effects.
 		If your talent level is at least 3 %d physical or magical sustains are also removed.
-		#{italic}#Break them, grind them, mow them down!#{normal}#]], [[你尝试撕裂敌人的脊柱，使其全局速度降低 %d%%， 持续 4 回合，并造成 %d%% 武器伤害。
+		#{italic}#Break them, grind them, mow them down!#{normal}#]], [[你尝试撕裂敌人的脊柱，若命中，使其全局速度降低 %d%%， 持续 5 回合，并造成 %d%% 武器伤害。
 		这一击的力量还会移除至多 %d 项物理增益效果。
-		若技能等级至少为 3，还会移除 %d 项物理或魔法维持技能。
+		若技能等级至少为 3，还会移除至多 %d 项非精神类维持技能。
 		#{italic}#切碎他们，折磨他们，收割他们！#{normal}#]], "tformat")
 t("Goresplosion", "爆尸", "talent name")
 t([[When you kill a foe you place small explosives with shrapnels inside its body, making it explode in radius %d.
@@ -6106,7 +6107,7 @@ t("-Shield", "-护盾", "_t")
 t("dark", "黑暗", "effect subtype")
 t("light", "光系", "effect subtype")
 t("Twilit Echoes", "暮光回响", "_t")
-t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，累计受到 %d 点伤害时达到上限。暗影伤害会在目标地格生成一个持续 %d 回合的效果，每回合造成相当于该次暗影伤害 %d%% 的伤害。只要目标仍在该地格并继续受到暗影伤害（无论来自该效果还是其他来源），该效果就会刷新。", "tformat")
+t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，累计受到 %d 点伤害时达到上限。暗影伤害会在目标地格生成一个初始持续 4 回合的效果；目标仍在该地格并再次受到暗影伤害时，若效果剩余时间不足 %d 回合，就会刷新持续时间，并将剩余伤害与新一轮伤害合并均摊。新一轮伤害每回合按本次暗影伤害的 %d%% 计算。", "tformat")
 t("slow", "减速", "effect subtype")
 t("Echoed Light", "光明回响", "_t")
 t("The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.", "目标受到的光系伤害产生回响，使其减速 %d%%。在暮光回响期间受到更多光系伤害将会增加减速效果，最大叠加到 %d%%。", "tformat")
