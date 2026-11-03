@@ -18,7 +18,7 @@ advisory 70、rejected 29。当前没有进行中的批次或 child（各 lane �
    涌动的、堕落印记→污印 10 处、唯我论、重建傀儡提示、恶魔空间之荣耀等）；23 个自拟名入队后在 0313 交 Gemini 改 22 个
    （混合螺旋按 Threading＝螺旋惯例保留），0315 按用户要求把 Shattered Remains 技能名统一为「碎骨遗骸」。
 
-**现行授权与规则。** 连续推进不逐批确认；每批一次提交并推送（只用 `tools/push_github.sh`，不发布插件，0.3.7 未发）。
+**现行授权与规则。** 连续推进不逐批确认；每批一次提交并推送（只用 `tools/push_github.sh`，对外发布须用户指示；0.3.7 已于 11-03 发布）。
 宿主逐条按源码裁决（核心用固定提交 `624a6732…`，DLC 用 `/workspace/tome4-dlcs` 公开检出并标未固定）；运行时键全文件同改；
 英文与实现不符按实现改写、占位符参数错误记 advisory；自拟名交 Gemini 4 Argon。生效的用户裁决见记忆与
 `docs/review-operations-guide.md` 裁决表，近期新增：her＝她的、码→格、killer_message 凶手主语主动句、宝石、超距作用、
@@ -31,7 +31,7 @@ Exhaustion＝力竭、Parry＝招架、Summon＝召唤、Archmage＝元素法师
 **待用户决定／未完成：**
 
 1. 最终分母冻结、补充行分类与最终候选的游戏场景验收（`evidence/full-review/release-20261013/m0/SCENARIOS.json`）。
-2. 是否发布 0.3.7（发布仓库仍为 0.3.6）。
+2. 0.3.7 已于 2026-11-03 按用户指示发布（发布仓库 `d98780e`，由 `9fe51e84` 构建，13,242 条＝核心 7,781＋DLC 5,461），GitHub Release `v0.3.7` 已回下载核验，凭据 [`evidence/releases/addon-0.3.7.json`](evidence/releases/addon-0.3.7.json)。
 3. 0168：CharacterSheet `%-8.8s` 按字节截断中文资源名出乱码；改 `%s` 会被 strict format-shape-difference 拦截，需授权校验器放行。
 4. 无法在译文修正的上游问题（advisory）：Taint: Telepathy 持续回合写死 5、坍缩显示值为实际一半、防御投掷两处伤害实为同值、
    石化凝视实为震慑、暮光回响 action 不返回 true（疑似不进冷却）等，清单在 0241／0252／0253 的 maintenance 或 decision。
@@ -69,7 +69,7 @@ Engine full与隔离publish/存储式zip通路通过；M0源码树binary启动�
 1. 窗口68 的 168 个 successor（修复 106 条＋目录同步 62 条；目录同步的 62 条是 `c7ea0683b` 官方对照审核修订在 WP2-Lite 流程外改过的译文，窗口68 只做 catalog/migration 登记、未改译文）：第406批（`batch-266bad83c925bc67c3bf`）80 条：80 done / 0 repair_required，证据提交 `ae5d0a48`；第407批（`batch-be1e4f20608fd9ddf22b`）80 条：80 done / 0 repair_required，证据提交 `18e295ae`；第408批（`batch-b16d21ce8d7beaefe449`）8 条：8 done / 0 repair_required，证据提交 `20d724e0`；合计已审 168（168 done、待修 0），审核队列已无待审 successor。
 2. 下一个修复窗口（69）积压 1 条：`tome-orcs.lua:1411` “造成大量光明伤害”应为“光系伤害”（窗口68 RE_REVIEW r1a1 同族发现）；另宿主补充 1 条：`5a0aebf5c0` Orcs 磁化射击（steam/other.lua:1637）三行行首补回 \t\t（第407批预扫）。
 3. 待用户裁决：官方对照审核（`evidence/translation-audit/official-mechanics-20261009/`）经 GPT 6 Astra 核验仍有 pending 178／需裁决 15 项，其中 Magic 属性名一类已由窗口68 处理；Cults “咬一口”秒杀几率（M264，上游英文与实现矛盾）在窗口68 RE_REVIEW r3a1 再次被报，按 2026-10-03 撤回机制改写的决定记 advisory。
-4. 对外发布仍停在 0.3.6；是否发 0.3.7 待用户决定。
+4. 对外发布仍停在 0.3.6；是否发 0.3.7 待用户决定（已于 2026-11-03 发布，见顶部）。
 
 ---
 
