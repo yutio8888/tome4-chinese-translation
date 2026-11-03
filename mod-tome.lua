@@ -29129,7 +29129,7 @@ t([[Call upon the battlefields of old, collecting bones, fusing them with souls,
 
 		#GREY##{italic}#骷髅的数量比食尸鬼更少，但一般来说更加强韧。#{normal}#
 		]], "tformat")
-t("Shattered Remains", "粉碎骸骨", "talent name")
+t("Shattered Remains", "碎骨遗骸", "talent name")
 t("#GREY#%s shatters!", "#GREY#%s 粉碎了！", "logSeen")
 t([[Any time one of your skeleton or bone giant dies, it shatters in radius %d, making any foe bleed for %0.2f physical damage over 5 turns.
 		If any other skeleton or bone giant minion is in the radius it will pickup some of the bones to enhance itself, increasing maximum and current life by %d, armour by %d and gain %0.2f physical melee retaliation for 20 turns.
