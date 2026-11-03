@@ -3,7 +3,7 @@ section "tome-ashes-urhrok/data/achievements/all.lua"
 
 t("A Fist Full of Demons", "恶魔杀戮者", "achievement name")
 t("Killed 1000 demons.", "杀死1000个恶魔。", "_t")
-t("Glory to the Fearscape", "恐惧长廊之荣耀", "achievement name")
+t("Glory to the Fearscape", "恶魔空间之荣耀", "achievement name")
 t("Activated all 23 different kinds of demon statues.", "累计激活23座恶魔雕像。", "_t")
 t("Well Seeded", "种子培育专家", "achievement name")
 t("Created 500 demon seeds.", "累计生成或更新恶魔种子500次。", "_t")
