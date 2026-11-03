@@ -12357,7 +12357,7 @@ t("Mages sometimes have funny ideas. Archmage Varil once learned how to handle a
 t("Genocide", "兽人末日", "entity name")
 t("pitch black blade", "漆黑的剑", "_t")
 t("Farian was King Toknor's captain, and fought by his side in the great Battle of Last Hope.  However, when he returned after the battle to find his hometown burnt in an orcish pyre, a madness overtook him.  The desire for vengeance made him quit the army and strike out on his own, lightly armoured and carrying nought but his sword.  Most thought him dead until the reports came back of a fell figure tearing through the orcish encampments, slaughtering all before him and mercilessly butchering the corpses after.  It is said his blade drank the blood of 100 orcs each day until finally all of Maj'Eyal was cleared of their presence.  When the final orc was slain and no more were to be found, Farian at the last turned the blade on himself and stuck it through his chest.  Those nearby said his body shook with convulsions as he did so, though they could not tell whether he was laughing or crying.", "法瑞安曾是图库纳国王的指挥官，在最后希望的伟大战役中跟随国王并肩作战。然而，当他在战役结束后归来时，却发现故乡已被兽人付之一炬，他陷入了疯狂。复仇的欲望使他离开军队，孤身一人踏上了征程，他轻装上阵，除了一柄剑之外别无他物。大多数人都以为他已经死了，直到有消息称有一个毁灭者般的身影正在摧残兽人的营地，他屠杀了所有见到的兽人并残忍地肢解对方的尸体。据说他每天要用100个兽人的鲜血来祭刀，直到杀光马基·埃亚尔的兽人。当最后一个兽人被杀死并且没有发现更多的时候，法瑞安最终把利刃转向了自己——那把剑刺穿了他的胸膛。那些在附近的目击者说，当法瑞安这样做的时候身体伴随着阵阵痉挛，他们说不清他到底是哭是笑。", "_t")
-t("Bolbum's Big Knocker", "鲍尔本的大门扣", "entity name")
+t("Bolbum's Big Knocker", "鲍尔本的大敲杖", "entity name")
 t("thick staff", "一根厚重的法杖", "_t")
 t("A thick staff with a heavy knob on the end.  It was said to be used by the grand alchemist Bolbum in the Age of Allure.  Much renowned is the fear of his students for their master, and the high rate of cranial injuries amongst them.  Bolbum died with seven daggers in his back and his much-cursed staff went missing after.", "这是一根末端带着沉重瘤状杖头的粗大法杖。据说是大炼金师鲍尔本在厄流纪使用的法杖。它最为人所知的，是鲍尔本的学生们对他的恐惧，以及他们被打伤脑袋的超高几率。鲍尔本死时后背插着7把匕首，那根被众人诅咒的法杖也从此消失不见。", "_t")
 t("Guidance", "指引者", "entity name")
@@ -12370,7 +12370,7 @@ t("Eldoral Last Resort", "艾德瑞尔的最后手段", "entity name")
 t("well-made sling", "精良的投石器", "_t")
 t("A sling with an inscription on its handle: 'May the wielder be granted cunning in his fight against the darkness'.", "投石器的把手上有一段铭文：“愿持有者在对抗黑暗之时被赐予机智。”", "_t")
 t("When dropping below 30% max HP, you gain 20% attack speed, lose 100% fatigue, and your shots don't consume ammo for 5 turns. 30 turns cd.", "当你的生命值低于最大生命值的30%时，在5回合内你获得20%攻击速度、100%疲劳减免，且射击不消耗弹药。冷却时间30回合。", "_t")
-t("Orc Feller", "兽人砍伐者", "entity name")
+t("Orc Feller", "兽人斩杀者", "entity name")
 t("shining dagger", "光辉的匕首", "_t")
 t("During the invasion of Eldoral the Halfling Rogue Herah is said to have slain over one hundred orcs while defending a group of refugees.", "据说在艾德瑞尔战争中，半身人盗贼赫拉在保护一群难民时杀死了100多个兽人。", "_t")
 t("#LIGHT_BLUE#Herah's guile and luck is with you, her successor!", "#LIGHT_BLUE#赫拉的狡诈和幸运与你同在，她的继承人！", "logPlayer")
@@ -12685,7 +12685,7 @@ t("Scale Mail of Kroltar", "库洛塔的龙鳞甲", "entity name")
 t("perfectly-wrought suit of dragon scales", "锻造精良的龙鳞铠甲", "_t")
 t("A heavy shirt of scale mail constructed from the remains of Kroltar, whose armour was like tenfold shields.", "一件用库洛塔的遗骸打造的厚重鳞甲，他的护甲坚如十重盾牌。", "_t")
 t("Kroltar's head would turn up the heat.", "若再配上库洛塔的龙盔，火势会更旺。", "_t")
-t("Cuirass of the Thronesmen", "钢铁战士胸甲", "entity name")
+t("Cuirass of the Thronesmen", "钢铁王座子民胸甲", "entity name")
 t("heavy dwarven-steel armour", "重型矮人钢护甲", "_t")
 t("This heavy dwarven-steel armour was created in the deepest forges of the Iron Throne. While it grants incomparable protection, it demands that you rely only on your own strength.", "这件沉重的矮人钢护甲打造于钢铁王座最深的熔炉。虽然它能提供举世无双的防护，但它要求你只依靠自身的力量。", "_t")
 t("#LIGHT_BLUE#You feel your dwarven power swelling to meet the challenge of this armor!", "#LIGHT_BLUE#你感到你的矮人力量在这件护甲的挑战面前被激发！", "logPlayer")
@@ -12802,7 +12802,7 @@ t("%s resists the shadowy cut", "%s抵抗了阴影切割", "logSeen")
 t("Emblem of Evasion", "闪避徽记", "entity name")
 t("gold coated emblem", "镀金的徽记", "_t")
 t("Said to have belonged to a master of avoiding attacks, this gilded steel emblem symbolizes his talent.", "据说它曾属于一位闪避大师，这枚镀金的钢徽记象征着他的才能。", "_t")
-t("Surefire", "神火", "entity name")
+t("Surefire", "神射", "entity name")
 t("high-quality bow", "制作精良的弓", "_t")
 t("This tightly strung bow appears to have been crafted by someone of considerable talent. When you pull the string, you feel incredible power behind it.", "这把弓的弦绷得很紧，看起来出自一位技艺高超者之手。当你拉动弓弦时，你能感受到蕴藏其中的惊人力量。", "_t")
 t("Frozen Shards", "冰极碎", "entity name")
@@ -22163,11 +22163,11 @@ t([[You begin to gather energy from other timelines. Your Spellpower will increa
 		此效果会因为施放法术而中断，否则会在 5 回合后结束。
 		当此效果激活时，每回合你的紊乱值会降低 %d 点。
 		此法术不会打断时空调谐，激活时空调谐也同样不会打断此法术。]], "tformat")
-t("Entropic Field", "熵光领域", "talent name")
+t("Entropic Field", "熵能领域", "talent name")
 t([[You encase yourself in a field that slows incoming projectiles by %d%%, and increases your physical resistance by %d%%.
 		The effect will scale with your Spellpower.]], [[制造一个领域围绕自己，减少所有抛射物 %d%% 的速度并增加 %d%% 物理伤害抗性。
 		效果受法术强度加成。]], "tformat")
-t("Fade From Time", "时光凋零", "talent name")
+t("Fade From Time", "淡出时间", "talent name")
 t([[You partially remove yourself from the timeline for 10 turns.
 		This increases your resistance to all damage by %d%%, reduces the duration of all detrimental effects on you by %d%%, and reduces all damage you deal by 20%%.
 		The resistance bonus, effect reduction, and damage penalty will gradually lose power over the duration of the spell.
@@ -22538,7 +22538,7 @@ t([[Each time you hit with an arrow you reduce the cooldown of one Blade Threadi
 		This effect can only occur %d times per turn.]], [[每次你的箭命中时，减少一个螺旋灵刃系技能一回合的冷却。
 		每次你的近战武器命中时，减少一个螺旋灵弓系技能一回合的冷却。
 		这个效果一回合最多触发 %d 次。]], "tformat")
-t("Thread the Needle", "针型聚焦", "talent name")
+t("Thread the Needle", "穿针引线", "talent name")
 t("You cannot use Thread the Needle without an appropriate weapon!", "你需要装备合适的武器来使用该技能", "logPlayer")
 t("Attack with your bow or dual-weapons for %d%% damage.  If you use your bow you'll shoot all targets in a beam.  If you use your dual-weapons you'll attack all targets within a radius of one around you.", [[使用弓箭或者双持武器攻击造成 %d%% 武器伤害。
 		如果使用弓箭，你的箭将成为具有穿透性的射线。
@@ -24317,7 +24317,7 @@ t([[Upon making a critical melee attack the savagery of your predation causes a 
 		诅咒瘴气会从 %d 个地点渗出（包括你所在位置），这些地点位于 %d 格半径内。瘴气会造成 %0.2f 点伤害，由暗影与精神伤害各占一半，并阻挡视线。
 		迷失在瘴气中的猎物有 %d%% 几率失去你的踪迹，并可能将友方错认成敌人。
 		触发凶残猎手会消耗 #ffa0ff#8 点仇恨值#LAST#，且你身处诅咒瘴气中时不会触发。]], "tformat")
-t("Shrouded Hunter", "障壁猎手", "talent name")
+t("Shrouded Hunter", "隐匿猎手", "talent name")
 t([[While shrouded in cursed miasma you gain stealth (%d power) and %d physical power.
 		The stealth power and physical power will increase with your mindpower.]], [[当你被包裹在诅咒瘴气中时，你获得潜行 (%d 强度)，并获得 %d 物理强度。
 		潜行强度和物理强度受精神强度加成。]], "tformat")
@@ -24398,7 +24398,7 @@ t([[Nothing will stop your rampage.
 		The amount of damage you can shrug off improves with your Strength.]], [[你的暴走变得势不可挡。
 		暴走加成：暴走状态下每回合你最多可以无视 %d 伤害，当你无视超过 %d 伤害时，暴走效果延长 1 回合。
 		可无视的伤害量受力量加成。]], "tformat")
-t("Slam", "猛力抨击", "talent name")
+t("Slam", "猛力重击", "talent name")
 t("You must be rampaging to use this talant.", "只有在暴走状态下才能使用这个技能。", "logPlayer")
 t("#F53CBE#%s slams %s!", "#F53CBE#%s 猛击了 %s！", "logSeen")
 t("#F53CBE#%s resists the stunning blow!", "#F53CBE#%s抵抗了震慑一击！", "logSeen")
@@ -24579,7 +24579,7 @@ t("Hardened", "坚韧", "talent name")
 t("Your travels have hardened you. You gain +%d armor.", "你的经历使你的护甲值增加 +%d。", "tformat")
 t("Wary", "谨慎", "talent name")
 t("You have become wary of danger in your journeys. You have a %d%% chance of not triggering traps.", "你的行动变得更加谨慎，有 %d%% 几率不会触发陷阱。", "tformat")
-t("Weathered", "风化", "talent name")
+t("Weathered", "饱经风霜", "talent name")
 t("You have become weathered by the elements. Your Cold and Fire resistance is increased by %d%%", "你更适应元素攻击，你的火焰和寒冷抗性提高 %d%%。", "tformat")
 t("Savvy", "领悟", "talent name")
 t("You have become a keen observer in your travels. Each kill gives you %d%% more experience.", "你在旅途中逐渐成长为一个敏锐的观察者，杀死敌人获得 %d%% 更多经验值。", "tformat")
@@ -24843,7 +24843,7 @@ t([[Merge your target (within range %d) with one of your stone vines that has se
 ------------------------------------------------
 section "mod-tome/data/talents/gifts/eyals-fury.lua"
 
-t("Reclaim", "沙化", "talent name")
+t("Reclaim", "自然回收", "talent name")
 t([[You focus the inexorable pull of nature against a single creature, eroding it and allowing it to be reclaimed by the cycle of life.
 		This deals %0.1f Nature and %0.1f Acid damage to the target, and is particularly devastating against undead and constructs, dealing %d%% more damage to them.
 		The damage increases with your Mindpower.]], [[你将自然无情的力量集中于某个目标上，腐蚀他并让他重归生命轮回。
@@ -26936,7 +26936,7 @@ t("Scar-Scripted Flesh", "血肉伤痕", "talent name")
 t([[When you crit you have a %d%% chance to reduce by 1 the remaining cooldown of one of your inscriptions and of any saturations effects.
 		This effect can only happen once per turn.]], [[每次暴击时有 %d%% 几率减少随机一个刻印 1 回合冷却时间，并减少符文饱和与纹身饱和 1 回合持续时间。
 		该效果每回合最多触发一次。]], "tformat")
-t("Writ Large", "符文亲和", "talent name")
+t("Writ Large", "刻印亲和", "talent name")
 t("#PURPLE#Your mastery over inscriptions is unmatched! One more inscriptions slot available to buy.", "#PURPLE#你对刻印的掌握无人能及！你可以消耗一个技能树解锁点进一步解锁一个刻印位。", "logPlayer")
 t([[Instantly removes runic and infusion saturations.
 		For %d turns your inscriptions cool down twice as fast.
@@ -28450,7 +28450,7 @@ t("Boulder Rock", "岩石投掷", "talent name")
 t([[When you turn into a Deeprock elemental your Nature damage is increased by %0.1f%%, Nature damage penetration by %0.1f%% and you gain the power to throw boulders:
 		%s]], [[当你进入深岩元素形态时，增加 %0.1f%% 自然伤害和 %0.1f%% 自然抗性穿透，同时获得投掷巨石的能力：
 		%s]], "tformat")
-t("Mountainhewn", "山崩地裂", "talent name")
+t("Mountainhewn", "山岩之躯", "talent name")
 t([[While in deeprock form, you become indomitable, granting you %d%% resistance to cuts, poisons, diseases and stuns.
 		At level 5 and higher, while Deeprock Form is active, all incoming damage is applied against physical resistance instead of the normal resistance type.]], [[处于深岩形态时，你获得 %d%% 流血、毒素、疾病和震慑免疫。
 		技能等级 5 或以上时，在深岩形态下，你将用物理抗性取代其他伤害抗性。]], "tformat")
@@ -35490,10 +35490,10 @@ t("#Target# calms down.", "#Target#冷静了下来。", "_t")
 t("-Ogric Wrath", "-食人魔之怒", "_t")
 t("Ogre Fury", "食人魔的怒火", "_t")
 t("Increases crit chance by %d%% and critical power by %d%%. %d charge(s).", "暴击率提高 %d%%，暴击伤害加成提高 %d%%。充能：%d。", "tformat")
-t("Writ Large", "符文亲和", "_t")
+t("Writ Large", "刻印亲和", "_t")
 t("Inscriptions cooldown twice as fast.", "刻印冷却速度加倍。", "tformat")
-t("+Writ Large", "+符文亲和", "_t")
-t("-Writ Large", "-符文亲和", "_t")
+t("+Writ Large", "+刻印亲和", "_t")
+t("-Writ Large", "-刻印亲和", "_t")
 t("Static History", "静态历史", "_t")
 t("Chronomancy spells cast by the target will not produce minor anomalies.", "时空法术不会制造小异常。", "tformat")
 t("Spacetime has stabilized around #Target#.", "#Target#周围的时空变得稳定。", "_t")
@@ -35700,7 +35700,7 @@ t("#Target# stops bleeding ice.", "#Target# 不再渗出寒冰。", "_t")
 t("-Frost Cut", "-寒霜流血", "_t")
 t("skeleton", "骷髅", "effect subtype")
 t("bone", "骨", "effect subtype")
-t("Shattered Remains", "骸骨粉碎", "_t")
+t("Shattered Remains", "碎骨遗骸", "_t")
 t("health increased by %d, armour by %d and melee retaliation by %d.", "生命增加 %d，护甲增加 %d，近战反击伤害增加 %d。", "tformat")
 t("#Target# picks up the remains of its fallen comrade.", "#Target# 捡起了同伴的骨头。", "_t")
 t("#Target# drops its additional bones.", "#Target# 身上额外的骨头碎落了。", "_t")
@@ -36409,12 +36409,12 @@ t("Sever Lifeline", "生命离断", "_t")
 t("The target's lifeline is being cut. When the effect ends %d temporal damage will hit the target.", "目标的生命线被切断，效果结束时对目标造成 %d 时空伤害。", "tformat")
 t("#Target#'s lifeline is being severed!", "#Target#的生命线正被切断！", "_t")
 t("+Sever Lifeline", "+生命离断", "_t")
-t("Fade From Time", "时光凋零", "_t")
+t("Fade From Time", "淡出时间", "_t")
 t("The target is partially removed from the timeline, reducing all damage dealt by %d%%, all damage received by %d%%, and the duration of all detrimental effects by %d%%.", "目标被部分移出时间线，造成的伤害减少 %d%%，受到的伤害减少 %d%%，所有不良效果的持续时间缩短 %d%%。", "tformat")
 t("#Target# has partially removed itself from the timeline.", "#Target#部分从时间线中消失。", "_t")
-t("+Fade From Time", "+时光凋零", "_t")
+t("+Fade From Time", "+淡出时间", "_t")
 t("#Target# has returned fully to the timeline.", "#Target#完全返回了时间线内。", "_t")
-t("-Fade From Time", "-时光凋零", "_t")
+t("-Fade From Time", "-淡出时间", "_t")
 t("darkness", "暗影", "effect subtype")
 t("Shadow Veil", "暗影面纱", "_t")
 t("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character.", "你融入暗影并被其支配，当你笼罩在阴影里时你对所有负面状态（「其他」类除外）免疫，并减少 %d%% 所受伤害，每回合你会闪现到半径 %d 内的 1 个附近敌人身边，对其造成 %d%% 暗影武器伤害。当此技能激活时除非死亡否则无法被打断，且你无法控制你的角色。", "tformat")
@@ -36534,7 +36534,7 @@ t("+Faded", "+隐匿", "_t")
 t("arcane", "奥术", "effect subtype")
 t("Highborn's Bloom", "高等人类之绽放", "_t")
 t("The target is using talents without consuming resources.", "目标使用技能时不消耗资源。", "_t")
-t("Victory Rush", "胜利冲锋", "_t")
+t("Victory Rush", "胜利的狂喜", "_t")
 t("The thrill of victory makes this creature invulnerable.", "胜利的激励使目标刀枪不入。", "_t")
 t("psionic", "灵能", "effect subtype")
 t("Solipsism", "唯我论", "_t")
@@ -37012,7 +37012,7 @@ t("#Target# takes cover under its shell.", "#Target#以它的甲壳作为护盾�
 t("+Shell Shield", "+甲壳护盾", "_t")
 t("#Target# leaves the cover of its shell.", "#Target#失去了甲壳护盾。", "_t")
 t("-Shell Shield", "-甲壳护盾", "_t")
-t("Serpentine Nature", "巨蟒特质", "_t")
+t("Serpentine Nature", "蛇类特质", "_t")
 t("The target takes on the properties of the hydra, gaining %d%% affinity to lightning, acid, and nature damage and regenerating %d life per turn.", "目标展现出多头蛇的特性，获得 %d%% 闪电、酸性和自然伤害亲和，每回合回复 %d 生命。", "tformat")
 t("Pain Suppression", "痛苦压制", "_t")
 t("The target ignores pain, reducing all damage taken by %d%%.", "目标忽视疼痛，减少所受伤害 %d%%。", "tformat")
@@ -37196,7 +37196,7 @@ t("-Recovery", "-恢复", "_t")
 t("Reflexive Dodging", "闪避反射", "_t")
 t("+Reflexive Dodging", "+闪避反射", "_t")
 t("-Reflexive Dodging", "-闪避反射", "_t")
-t("Weakened Defenses", "碎甲", "_t")
+t("Weakened Defenses", "防御削弱", "_t")
 t("The target's physical resistance has been reduced by %d%%.", "目标物理抗性下降 %d%%。", "tformat")
 t("Waters of Life", "生命之水", "_t")
 t("The target purifies all diseases and poisons, turning them into healing effects.", "目标净化所有毒素和疾病效果，并将它们转化为治疗。", "_t")

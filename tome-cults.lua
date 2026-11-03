@@ -21,7 +21,7 @@ t("Myths of an age past", "神代奥秘", "achievement name")
 t("Learned all there is to learn about the Gods and the Godslayers.", "了解了关于诸神与弑神者的一切。", "_t")
 t("Dethroned", "废黜", "achievement name")
 t("Vanquished the Glass Golem without letting it use the glass throne to heal.", "在不让玻璃傀儡借助玻璃王座治疗的情况下击败它。", "_t")
-t("A View From The Gallery", "画廊一瞥", "achievement name")
+t("A View From The Gallery", "旁观者一瞥", "achievement name")
 t("Briefly lived as a lowly halfling during the time of the Sher'tuls.", "短暂地作为一名半身人活在夏·图尔的时代。", "_t")
 t("Entropy's End", "熵之终结", "achievement name")
 t("Destroyed the Hypostasis of Entropy.", "消灭了熵之源质。", "_t")
@@ -730,7 +730,7 @@ t("The importance of magic (+5 magic)", "魔法的重要性（+5 魔力）", "_t
 t("The importance of wisdom (+5 willpower)", "智慧的重要性（+5 意志）", "_t")
 t("The Day It Came", "到来之日", "_t")
 t("This chapter has taught your some important lesson. What did you learn?", "这一章教会了你重要的一课。你学到了什么？", "_t")
-t("Forbidden Tome: \"A View From The Gallery\"", "禁忌之书：《画廊一瞥》", "entity name")
+t("Forbidden Tome: \"A View From The Gallery\"", "禁忌之书：《旁观者一瞥》", "entity name")
 t("The story of Grung, a halfling separated from his tribe that is just trying to survive while a terrible war, very long ago, rages on.", "这本书讲述着格朗格的故事，他是远古时代的一个半身人，从部落中走散。他只是想生存下去，然而一场毁天灭地的大战正在他的身边肆虐。", "_t")
 t("It's a cold night and you did not find anything to eat during the day. Your fur pelt doesn't do much to keep the cold out either. You're about to go out to hunt, but everyone else has warned you that you must not do that. The night is dangerous and there appears to be strange lights in the sky. An ill omen, to say the least. Food has been hard to come by lately, so everyone is just as famished as you are.", "今天晚上很冷，白天你没有找到吃的东西，身上的皮衣此时也起不到什么御寒的作用。你正准备出去打猎，但其他人都警告你千万不要这样做。夜晚很危险，天空中似乎有奇怪的光线。至少，可以说是一个不好的预兆。但是，最近食物难得，所以大家和你一样饥肠辘辘。", "_t")
 t("Poor Grung. All he wanted was food, but what he found instead was death.", "可怜的格朗格。他只想要得到食物，但是他得到的却是死亡。", "_t")
@@ -739,7 +739,7 @@ t("The importance of evading blows (+10 defense)", "闪避攻击的重要性（+
 t("The importance of speed (+10% movement speed)", "速度的重要性（+10% 移动速度）", "_t")
 t("The importance of reflexes (+5 dexterity)", "反应力的重要性（+5 敏捷）", "_t")
 t("The importance of a honed mind (+5 cunning)", "磨砺心智的重要性（+5 灵巧）", "_t")
-t("A View From The Gallery", "画廊一瞥", "_t")
+t("A View From The Gallery", "旁观者一瞥", "_t")
 t("This chapter has taught your some survival tips. What did you learn?", "这一章教会你一些生存技巧。你学到了什么？", "_t")
 t("Forbidden Tome: \"The Illusory Castle\"", "禁忌之书：《虚幻城堡》", "entity name")
 t("The tome in front of you seems to be as much made of dreamstuff as it is from leather and parchment. Crystalline shards dance underneath its surface, giving you an impression of a world altering itself to the tune of some indiscernable logic.", "你面前的这本书既像由皮革和羊皮纸制成，也像由梦境物质构成。水晶碎片在它的表面下方舞动，让你觉得世界正以一种难以理解的逻辑在你眼前改变。", "_t")
@@ -2543,14 +2543,14 @@ t([[I knew it. I'm not alone in here. While I was right that I'm the only living
 My treasure is stored somewhere in this castle, but I just don't care anymore. Escaping with my life will be treasure enough. When I reach the outside world again, maybe I'll drop the tome in a river and hope that no one else tries their luck with this place. I'm sure the spirits that haunt this place will rest easier knowing that there won't be any more victims.]], [[我就知道是这样，我在这里并不孤单。虽然我确实是这里唯一的生物，但是这座城堡确实有自己的守卫和仆人。玻璃制成的傀儡现在正在大厅中漫游，不断搜寻着我的踪迹。我的城堡不再属于我了，这些墙壁之内也没有安全的地方。我早就知道，无论是在这本书里还是在外面的世界，我永远都找不到真正安全的地方。我不知道这些傀儡从何而来。也许是城堡本身正试图把我驱逐出去，也可能是我误入某个房间，触发了某种防御。
 
 我的宝藏还保存在城堡里的某个地方，但现在我已经不在乎了。能活着逃出去就是最好的宝藏。当我再次回到外面的世界，也许会把这本书扔进河里，希望不再有人来这里碰运气。我确信，得知不会再有受害者后，萦绕此地的鬼魂也会安息得更踏实。]], "_t")
-t("Forbidden Tome: \"A View From The Gallery\"", "禁忌之书：《画廊一瞥》", "_t")
+t("Forbidden Tome: \"A View From The Gallery\"", "禁忌之书：《旁观者一瞥》", "_t")
 t("An illustrated tome!", "这是一本有插图的书！", "_t")
 t("Forbidden Tome: \"The Illusory Castle\"", "禁忌之书：《虚幻城堡》", "_t")
 
 ------------------------------------------------
 section "tome-cults/data/quests/grung.lua"
 
-t("A View From The Gallery", "画廊一瞥", "_t")
+t("A View From The Gallery", "旁观者一瞥", "_t")
 t([[You are Grung, a halfling from the Age of Haze. You must gather food or die but outside there is a terrible war being fought.
 A war between incomprehensible beings for incomprehensible reasons. All you can hope to do is gather food while avoiding to get crushed.]], [[你是格朗格，一名来自混沌纪的半身人。你必须收集食物，否则你会死。但是外面正在激烈地交战。
 那是一场由无法理解的存在、为了无法理解的理由而进行的战争。你唯一能做的，就是在收集食物的同时，避免被碾碎。]], "_t")

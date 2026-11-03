@@ -1513,7 +1513,7 @@ t("Glacia", "冰川", "entity name")
 t("frozen gun", "冰冻的枪", "_t")
 t("Strange coils encircle this extremely cold gun.", "奇怪的线圈环绕着这把极其冰冷的枪。", "_t")
 t("deal cold damage equal to 100 + the higher of your steam or spellpower, and attempt to freeze the target (20% chance).", "造成100+蒸汽强度或法术强度较高项的寒冷伤害，并有20%几率尝试冰冻目标。", "_t")
-t("Tinkerer's Twinblaster", "工程师的双重爆破", "entity name")
+t("Tinkerer's Twinblaster", "工匠的双管枪", "entity name")
 t("two barreled steamgun", "双管蒸汽枪", "_t")
 t([[This gun seems to be some experiment in firing multiple shots simultaneously.
 The design is somewhat rudimentary, but it seems to work.]], [[这把枪使用了实验性的技术一次射出多发子弹。
@@ -1580,7 +1580,7 @@ t("gigantic many barreled gun", "巨大的多管蒸汽枪", "_t")
 t("This gun features a wheel with several barrels attached and seems to be powered by an engine. It looks... impressive.", "这把枪的转轮上附有多支枪管，似乎由引擎驱动。看起来……令人印象深刻。", "_t")
 t("Fire rate increases while firing, up to 5 shots per turn. Resets after 5 turns without firing.", "攻击频率随着射击而增加，一回合最多射5次。5回合未射击则效果消失。", "_t")
 t("50% chance to reload 1 ammo", "50% 几率装填1发弹药", "_t")
-t("The Shotgonne", "火枪", "entity name")
+t("The Shotgonne", "霰弹枪", "entity name")
 t("huge gun", "巨型枪", "_t")
 t([[This huge steamgun can be loaded with more than one bullet so that multiple shots can be fired in a nasty cone of death.
 It also seems to have been carefully balanced to work like a dual gun set.]], [[这把巨大的蒸汽枪一次能装填多发子弹，并以锥形弹幕射出。
