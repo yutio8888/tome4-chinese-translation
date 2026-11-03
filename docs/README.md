@@ -10,7 +10,9 @@ pi CLI 时代的路由层资产收在 [`archive/`](../archive/README.md)。
 |---|---|
 | [`AGENTS.md`](../AGENTS.md) | 最高规则与硬约束，与其他文档冲突时以本文为准 |
 | [`../handoff.md`](../handoff.md) | 当前状态、现行授权与下一步 |
-| [`review-operations-guide.md`](review-operations-guide.md) | **当前操作入口**：审核批次与合并修复窗口的命令顺序、裁决判据、生效裁决表、已知陷阱 |
+| [`lite-review-workflow-20261101.md`](lite-review-workflow-20261101.md) | **当前操作入口**（2026-11-01 起轻量审核）：每批步骤、B 补审、裁决补充规则、驱动脚本与进度 |
+| [`lite-review-reviewer.md`](lite-review-reviewer.md) | 轻量审核 A/B reviewer 规则（lane prompt 引用） |
+| [`review-operations-guide.md`](review-operations-guide.md) | 旧 WP2-Lite／全量审计流程的操作指南；生效裁决表仍可查，批次命令已被轻量流程取代 |
 | [`../tools/orchestration/README.md`](../tools/orchestration/README.md) | 编排脚本清单与每批流程；哪些脚本已废弃 |
 | [`agent-workflow.md`](agent-workflow.md) | 工作流与验证矩阵；门禁触发条件 |
 | [`lessons-learned.md`](lessons-learned.md) | 实际踩过的操作陷阱，按需查询 |
@@ -33,7 +35,7 @@ pi CLI 时代的路由层资产收在 [`archive/`](../archive/README.md)。
 | [`full-translation-review-plan-20261013.md`](full-translation-review-plan-20261013.md) | 经 Opus 5.5 意见及用户补充修订的发布方案：Engine 必审并输出、全量 A＋高风险 B、源码覆盖、隔离候选包与最小冒烟；M0 已 DONE_VERIFIED 并提交，A/B=0；DLC 原基线均通过、来源 unpinned，游戏能力缺口见 [M0 报告](../evidence/full-review/release-20261013/m0/REPORT.md)，[M1 实现与 FIX 报告](../evidence/full-review/release-20261013/m1/REPORT.md) 已交付代码与隔离验证、待两路复审闭合；官方1.7.6 prototype GUI能力已核验，最终候选/三DLC场景仍未测。[审阅反馈与裁决](../evidence/plan-review/full-review-plan-opus-20261013/feedback.md) |
 | [`modified-mechanics-review-plan-20261001.md`](modified-mechanics-review-plan-20261001.md) | 已修改机制译文的专项复核执行方案：选集、风险分层、源码核验、抽查与交付；尚未执行 |
 | [`runtime-key-collisions.md`](runtime-key-collisions.md) | 运行时键冲突的成因与门禁 `06-runtime-collision-scan` 的依据 |
-| [`project-roadmap.md`](project-roadmap.md) | **历史阶段路线图**；当前入口见审核操作指南 |
+| [`project-roadmap.md`](project-roadmap.md) | **历史阶段路线图**；当前入口见轻量审核流程 |
 
 项目复盘见 [`AI 翻译校对技术报告（2026-09-30）`](ai-translation-proofreading-technical-report-20260930.md)：汇总流程、实验数据、事故与改进建议，不作为操作授权或新契约。
 

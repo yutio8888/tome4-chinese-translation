@@ -46,13 +46,51 @@
 5. 有译文改动时跑 strict proposal 与 `tools/lite_gates.py`；然后一次 git 提交（账本＋译文）。
 6. 改过的单元在下一批自动重审。
 
-## B 补审（2026-11-02 起）
+## B 补审（2026-11-02 至 11-03，已完成）
 
-旧流程中免 B 的约 4450 个名称类单元只有 A 结论。用户 2026-11-02 要求补做 B 审：
+旧流程中免 B 的 4,450 个名称类单元原先只有 A 结论。用户 2026-11-02 要求补做 B 审：
 `lite_review.py prepare BATCH --lane B` 只选 A 已在当前 revision 审过、B 未审的单元，输入记 `"lanes": ["B"]`，
 只派 B；`record` 按输入的 lanes 记账。裁决、修复与提交与普通批次相同，改过的单元回到 A／B 双审队列。
+第 0255–0312 批完成补审；`status` 的 `pending_B_backfill` 归零后不再需要 `--lane B`。
+
+## 宿主裁决的现行补充规则
+
+- **英文与实现不符**（用户 2026-11-02）：译文按源码实际效果改写，证据写源码行并注明 upstream text differs；
+  占位符必须保留，错误在传给占位符的数值本身时（如显示值与实际伤害不同）译文无法纠正，记 advisory。
+- **自拟名称**（物品、神器、技能、效果名等）：按常驻规则交 Gemini 4 Argon（`pi/opencode-go/gemini-4-argon`，
+  thinking high，经 `mcpcall.py create_agent`；antigravity 通道曾 OOM，勿用）。连续批次中不逐条停下：
+  当批记 advisory 并入队（`tools/lite_queue_names.sh`），攒够一轮后交 Gemini，宿主做双向撞名检查，
+  再开维护批执行。与库内既有译名、术语表 preferred 不一致的客观错误当批直接改。
+- **维护批**：不经 A/B 的成批改动（命名轮、按实现改写、用户裁决）写
+  `batches/NNNN/maintenance.json`（授权、改动清单、未改项与理由），随后由 `lite_close.sh` 提交；
+  改过的单元下一批自动进入 A/B 复审。
+- 运行时键 (source, tag) 在所有组件文件（含 `engine.lua`、`mod-boot.lua`）同改；修复对照整句；
+  改写前比对英文原文的换行数。
+
+## 驱动脚本（2026-11-03 收入 `tools/`）
+
+| 脚本 | 作用 |
+|---|---|
+| `tools/lite_dispatch.sh BATCH` | 派 A、B（`LITE_LANE=B` 只派 B），等待、收取、归档 |
+| `tools/lite_close.sh BATCH NEXT "subject" "body"` | 门禁（有译文或工具改动时）、提交、标记完整门禁、经 `tools/push_github.sh` 推送；NEXT 非空时 prepare 并派发 |
+| `tools/lite_loop.sh START [N]` | 无 ISSUE 的批自动记账、提交、派下一批；有 ISSUE 时以退出码 2（NEEDS-ADJUDICATION）停下 |
+| `tools/lite_queue_names.sh BATCH` | B 补审批的 ISSUE 全是自拟名时：入队、记 advisory、收口并继续循环 |
+
+环境需导出 `PASEO_AGENT_ID`（当前编排者）与 `TOME_PASEO_WORKSPACE`，并 `unset I18N_FULL_REVIEW_CACHE OLDPWD LANES`；
+脚本自行去掉 PATH 中的 `/opt/agents/bin`。有 ISSUE 的批：读 `batches/N/{input,A,B}.json`，核源码，改译文，
+写 `decision.json`，依次跑 `tools/scan_runtime_collisions.py`、`lite_review.py strict N`、`lite_review.py record N`，
+再在后台运行 `lite_close.sh N N+1 ... && lite_loop.sh N+1 20`。队列空时 `lite_close.sh` 在 prepare 处报
+`nothing pending`，循环以 CLOSE-FAIL 结束，属正常收尾。单条 lane 因模型满载报错时：确认已归档，把该 lane 的
+`/tmp/lite-review/N/*-LANE*` 移到 `attempt-1-LANE/`，用 `LITE_LANE=<lane> tools/lite_dispatch.sh N` 重派；
+继续循环前若原批是双审批要 `unset LITE_LANE`。
 
 ## 进度
 
 `python3 -B tools/lite_review.py status` 报告：当前单元总数、已审（A）、已审（B）、待审。
 最终分母、补充行分类与游戏验收仍在全部条目审完后单独进行。
+
+### 2026-11-03 状态
+
+当前 29,545 个 release-required 单元 A、B 全部覆盖（`status`：`pending_A` 0、`pending_B_backfill` 0），
+第 0001–0316 批，账本 22,533 行（ok 21,580、confirmed 854、advisory 70、rejected 29），维护批 7 个
+（0238、0241 按实现改写；0247、0250、0313、0315 命名；0252 组外发现核实）。最终分母、补充行分类与游戏验收仍未做。

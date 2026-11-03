@@ -1,4 +1,46 @@
-## 2026-10-13 全量发行审核当前进度
+# 当前恢复入口（2026-11-03 轻量审核 A/B 双审全覆盖，队列空）
+
+**状态。** 用户 2026-11-01 授权把全量审核改为轻量流程（方案 B，见
+[轻量审核流程](docs/lite-review-workflow-20261101.md)）；旧审计证据冻结在 R296（`fab80aa3`），原样保留。
+第 0001–0316 批已全部提交并经 `tools/push_github.sh` 推送（最新 `2fe3a7b20`）。29,545 个 release-required 单元
+A（Opus 5.5）与 B（GPT 6.1 Sol）全部覆盖，`python3 -B tools/lite_review.py status` 显示 `pending_A` 0、
+`pending_B_backfill` 0。账本 `evidence/lite-review/ledger.jsonl` 22,533 行：ok 21,580、confirmed 854、
+advisory 70、rejected 29。当前没有进行中的批次或 child（各 lane 由 `tools/lite_dispatch.sh` 收取后归档）。
+
+**本阶段完成的专项（均为维护批，改过的单元已由 A/B 复审）：**
+
+1. 按实现改写（用户 11-02 定「按实际效果改写」）：0238 轻量 14 条、0241 旧流程 177 条（不改 25 条及理由在
+   `batches/0241/maintenance.json`），复审 0239–0246 再修 15 条；组外发现核实 0252（19 条：改 11 行，驳回 selffire、
+   石化凝视半径、BREACH 等），复审 0253 再修 1 条。
+2. 命名积压交 Gemini 4 Argon：0247（15 项，含 末日招来者、实验体 Z、技能树解锁点、炼金术士、tinker＝配件／商店＝工匠），
+   0250（用户采纳：steam drone＝蒸汽无人机械、drone＝无人机械、Mind Drones＝精神无人机械，取代 09-28 的「精神无人机」）。
+3. B 补审（用户 11-02「请补做B审」）：0255–0312 共 58 批 4,450 单元；当批直改 9 处客观不一致（大嘴怪之牙、揭弱的、
+   涌动的、堕落印记→污印 10 处、唯我论、重建傀儡提示、恶魔空间之荣耀等）；23 个自拟名入队后在 0313 交 Gemini 改 22 个
+   （混合螺旋按 Threading＝螺旋惯例保留），0315 按用户要求把 Shattered Remains 技能名统一为「碎骨遗骸」。
+
+**现行授权与规则。** 连续推进不逐批确认；每批一次提交并推送（只用 `tools/push_github.sh`，不发布插件，0.3.7 未发）。
+宿主逐条按源码裁决（核心用固定提交 `624a6732…`，DLC 用 `/workspace/tome4-dlcs` 公开检出并标未固定）；运行时键全文件同改；
+英文与实现不符按实现改写、占位符参数错误记 advisory；自拟名交 Gemini 4 Argon。生效的用户裁决见记忆与
+`docs/review-operations-guide.md` 裁决表，近期新增：her＝她的、码→格、killer_message 凶手主语主动句、宝石、超距作用、
+Exhaustion＝力竭、Parry＝招架、Summon＝召唤、Archmage＝元素法师、源码无法确认的跳过（Possessors 未公开）。
+
+**恢复方法。** 驱动脚本已收入 `tools/`（`lite_dispatch.sh`／`lite_close.sh`／`lite_loop.sh`／`lite_queue_names.sh`），
+用法见流程文档「驱动脚本」一节；须导出自己的 `PASEO_AGENT_ID` 与 `TOME_PASEO_WORKSPACE`。若译文再有改动，
+`lite_review.py status` 会把改过的单元列为待审，按普通批次 `prepare N` → `lite_dispatch.sh N` → 裁决 → `lite_close.sh` 处理。
+
+**待用户决定／未完成：**
+
+1. 最终分母冻结、补充行分类与最终候选的游戏场景验收（`evidence/full-review/release-20261013/m0/SCENARIOS.json`）。
+2. 是否发布 0.3.7（发布仓库仍为 0.3.6）。
+3. 0168：CharacterSheet `%-8.8s` 按字节截断中文资源名出乱码；改 `%s` 会被 strict format-shape-difference 拦截，需授权校验器放行。
+4. 无法在译文修正的上游问题（advisory）：Taint: Telepathy 持续回合写死 5、坍缩显示值为实际一半、防御投掷两处伤害实为同值、
+   石化凝视实为震慑、暮光回响 action 不返回 true（疑似不进冷却）等，清单在 0241／0252／0253 的 maintenance 或 decision。
+5. 残留行／死键候选（最终分母时处理）：0031 TooltipsData 旧键、0236 tome-orcs.lua DebugMain 旧 lore 副本；0036 超强七彩龙实体名待复核（拉克·肖译名已全库一致，无需再对齐）。
+6. `AGENTS.md`、`docs/agent-workflow.md` 仍描述旧 Paseo 正式批次流程，尚未按轻量流程修订（规则文件，需用户授权）。
+
+---
+
+# 历史恢复入口（2026-10-13 全量发行审核，旧审计流程已于 R296 冻结）
 
 M0、M1 已 DONE_VERIFIED 并提交。M2 当前 revision 有效 A=30、B=20。
 窗口-02 十一条 target 修正已通过独立初审／最终全量复审、完整 17 项门禁含 build 和 DONE_VERIFIED，
