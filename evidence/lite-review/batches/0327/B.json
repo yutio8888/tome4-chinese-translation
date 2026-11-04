@@ -1,0 +1,77 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "e9fa67aee0d0",
+   "verdict": "OK"
+  },
+  {
+   "id": "974dfc5b1500",
+   "verdict": "OK"
+  },
+  {
+   "id": "4a990674d418",
+   "verdict": "OK"
+  },
+  {
+   "id": "04698ef1ddfd",
+   "verdict": "OK"
+  },
+  {
+   "id": "1108d53b2230",
+   "verdict": "ISSUE",
+   "observation": "固定核心源码 game/modules/tome/class/Game.lua:812-819 表明末两项分别为楼层号和区域名；args_order 已正确将区域名调至楼层号之前。但“第 %s 层”在占位符两侧加入多余空格，代入后成为“正在探索古老森林第 12 层”，将“第12层”这一中文词组断开，按本次严格语句规则应修正。",
+   "suggestion": "%s，等级%d，%s %s。\n难度：%s / %s\n战役：%s\n正在探索%s第%s层。"
+  },
+  {
+   "id": "cd7b9b01ab3f",
+   "verdict": "OK"
+  },
+  {
+   "id": "c0956b1fde14",
+   "verdict": "OK"
+  },
+  {
+   "id": "9874663448a9",
+   "verdict": "OK"
+  },
+  {
+   "id": "4c41e114d962",
+   "verdict": "OK"
+  },
+  {
+   "id": "64e53782a9f3",
+   "verdict": "OK"
+  },
+  {
+   "id": "064e6d05a591",
+   "verdict": "OK"
+  },
+  {
+   "id": "351e94974d6d",
+   "verdict": "OK"
+  },
+  {
+   "id": "a8546cde9052",
+   "verdict": "OK"
+  },
+  {
+   "id": "f36387c40dae",
+   "verdict": "OK"
+  },
+  {
+   "id": "626d3f6b370d",
+   "verdict": "OK"
+  },
+  {
+   "id": "9ed2ab105973",
+   "verdict": "ISSUE",
+   "observation": "公开 DLC（来源未固定）orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua:84-85 为药剂效果说明，data/timed_effects/physical.lua:149、157-158 确认参数描述负生命阈值与全体抗性。译文“效果持续 %d 回合”代入后为“效果持续 5 回合”，占位符两侧的多余空格将“5回合”数量短语断开；“获得 %d%%%% 全体伤害抗性”也有同类空格。依本次严格规则应清理。",
+   "suggestion": "让你在生命值降至-%%d之前仍能继续战斗，同时获得%d%%%%全体伤害抗性。效果持续%d回合，使用不消耗时间。"
+  },
+  {
+   "id": "f0c4957fac5c",
+   "verdict": "OK"
+  }
+ ]
+}
