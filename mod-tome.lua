@@ -459,7 +459,7 @@ Campaign: %s
 Exploring level %s of %s.]], [[%s 等级%d，%s %s。
 难度：%s / %s
 战役：%s
-正在探索楼层 %s，%s。]], "tformat")
+正在探索%s第 %s 层。]], "tformat", {1,2,3,4,5,6,7,9,8})
 t("%s the %s %s", "%s，%s %s", "tformat")
 t([[%s the %s %s.
 Difficulty: %s / %s
@@ -41443,7 +41443,7 @@ section "mod-tome/dialogs/DeathDialog.lua"
 t("You have #LIGHT_RED#died#LAST#!", "你已经#LIGHT_RED#死了#LAST#！", "_t")
 t([[Death in #{bold}#Tales of Maj'Eyal#{normal}# is usually permanent, but if you have a means of resurrection it will be proposed in the menu below.
 You can dump your character data to a file to remember her/him forever, or you can exit and try once again to survive in the wilds!
-]], [[在 #{bold}#马基·埃亚尔的传说#{normal}# 里，死亡通常是永久的。但是，如果你有某种复活的方法，它会在下方的菜单上显示出来。
+]], [[在#{bold}#马基·埃亚尔的传说#{normal}#里，死亡通常是永久的。但是，如果你有某种复活的方法，它会在下方的菜单上显示出来。
 你可以将你的角色数据存起来留作纪念，或者你可以退出并再次尝试野外生存！
 ]], "_t")
 t([[#LIGHT_GREEN#During your game you#WHITE#:
@@ -41704,15 +41704,15 @@ t("Always rest to full before auto-exploring.#WHITE#", "自动探索前休息至
 t("#GOLD##{bold}#Rest before auto-explore#WHITE##{normal}#", "#GOLD##{bold}#自动探索前休息#WHITE##{normal}#", "_t")
 t("When swapping an item with a tinker attached, swap the tinker to the newly worn item automatically.#WHITE#", "当切换一件装有配件的装备时，自动将配件转移到新穿戴的装备上。#WHITE#", "_t")
 t("#GOLD##{bold}#Swap tinkers#WHITE##{normal}#", "#GOLD##{bold}#配件自动转移#WHITE##{normal}#", "_t")
-t("Configure the chat filters to select what kind of messages to see.#WHITE#", "设置聊天信息过滤器，选择接受信息的类型。#WHITE#", "_t")
+t("Configure the chat filters to select what kind of messages to see.#WHITE#", "设置聊天消息过滤器，选择接收消息的类型。#WHITE#", "_t")
 t("#GOLD##{bold}#Chat message filters#WHITE##{normal}#", "#GOLD##{bold}#聊天消息过滤器#WHITE##{normal}#", "_t")
 t("select to configure", "选择进行设置", "_t")
 t("Deaths", "死亡", "_t")
 t("Object & Creatures links", "物品和生物链接", "_t")
-t("Configure the chat ignore filter.#WHITE#", "设置聊天信息屏蔽器。#WHITE#", "_t")
-t("#GOLD##{bold}#Chat ignore list#WHITE##{normal}#", "#GOLD##{bold}#聊天信息屏蔽列表#WHITE##{normal}#", "_t")
-t("Configure the chat channels to listen to.#WHITE#", "设置聊天信息接受频道。#WHITE#", "_t")
-t("#GOLD##{bold}#Chat channels#WHITE##{normal}#", "#GOLD##{bold}#聊天信息频道#WHITE##{normal}#", "_t")
+t("Configure the chat ignore filter.#WHITE#", "设置聊天消息屏蔽器。#WHITE#", "_t")
+t("#GOLD##{bold}#Chat ignore list#WHITE##{normal}#", "#GOLD##{bold}#聊天消息屏蔽列表#WHITE##{normal}#", "_t")
+t("Configure the chat channels to listen to.#WHITE#", "设置聊天消息接收频道。#WHITE#", "_t")
+t("#GOLD##{bold}#Chat channels#WHITE##{normal}#", "#GOLD##{bold}#聊天消息频道#WHITE##{normal}#", "_t")
 t([[Open links in external browser instead of the embedded one.
 This does not affect addons browse and installation which always stays ingame.]], [[点击超链接时用外部浏览器打开。
 不会影响插件的浏览和安装，这些必定会在游戏内浏览器中进行。]], "_t")
@@ -41724,14 +41724,14 @@ t("#GOLD##{bold}#Discord's Rich Presence#WHITE##{normal}#", "#GOLD##{bold}#Disco
 t([[Keep a copy of your character sheets (not the whole savefile) on the online vault at te4.org.
 For each character you will be given a link to this online character sheet so that you can brag about your heroic deeds or sad deaths to your friends or the whole community.#WHITE#]], [[在te4.org上保存一份你的角色信息（不是整个存档）。
 每个角色你都会得到一个链接，用来向你的朋友或整个社区炫耀你的英雄事迹或悲壮之死。#WHITE#]], "_t")
-t("#GOLD##{bold}#Upload characters sheets to the online vault#WHITE##{normal}#", "#GOLD##{bold}#上传角色信息到在线角色库#WHITE##{normal}#", "_t")
+t("#GOLD##{bold}#Upload characters sheets to the online vault#WHITE##{normal}#", "#GOLD##{bold}#上传角色信息到在线角色仓库#WHITE##{normal}#", "_t")
 t([[Allow various events that are pushed by the server when playing online
 #{bold}#All#{normal}#: Allow all server events (bonus zones, random events, ...)
 #{bold}#Technical help only#{normal}#: Allow administrator to help in case of bugs or weirdness and allows website services (data reset, steam achievements push, ...) to work.
 #{bold}#Disabled#{normal}#: Disallow all.
 #WHITE#]], [[在线游戏的时候，允许服务器向你推送各种事件
 #{bold}#全部#{normal}#：允许各种服务器事件（活动地图，随机事件，…）
-#{bold}#仅技术支持#{normal}#：允许管理员来解决你的游戏Bug和问题，并且允许网站服务（数据重置，Steam成就推送等）发挥作用。
+#{bold}#仅技术支持#{normal}#：允许管理员来解决你的游戏Bug和问题，并且允许网站服务（数据重置、Steam 成就推送等）发挥作用。
 #{bold}#禁用#{normal}#：全部不允许。
 #WHITE#]], "_t")
 t("#GOLD##{bold}#Allow online events#WHITE##{normal}#", "#GOLD##{bold}#允许在线事件#WHITE##{normal}#", "_t")
@@ -41753,10 +41753,10 @@ Note that this setting only affects the game itself. If you use the game launche
 If you do not want that, simply run the game directly: the #{bold}#only#{normal}# use of the launcher is to update the game.
 
 #{bold}##CRIMSON#This is an extremely restrictive setting. It is recommended you only activate it if you have no other choice as it will remove many fun and acclaimed features.
-A full exit and restart of the game is neccessary to apply this setting.#{normal}#]], [[禁止所有网络请求
+A full exit and restart of the game is neccessary to apply this setting.#{normal}#]], [[禁用所有网络连接。
 包括但不仅限于：
 - 用户信息：不能登录或者注册。
-- 角色仓库：不能将任何角色上传到在线仓库来展示你的荣耀。
+- 角色仓库：不能将任何角色上传到在线角色仓库来展示你的荣耀。
 - 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。
 - 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
 - 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。

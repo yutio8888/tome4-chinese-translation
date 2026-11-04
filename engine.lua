@@ -435,7 +435,7 @@ t("There are currently %d people playing online", "现在有%d人正在在线游
 t("The character's vault has registered a total of #RED#%d#WHITE# character's deaths", "官网角色库中记录了#RED#%d#WHITE#个角色的死亡", "tformat")
 t("The character's vault has registered a total of #LIGHT_BLUE#%d#WHITE# winners for the current version", "官网角色库中共有#LIGHT_BLUE#%d#WHITE#个赢得当前版本的游戏的角色", "tformat")
 t("The latest donator is #LIGHT_GREEN#%s#WHITE#. Many thanks to all donators, you are keeping this game alive!", "最近的捐赠者是#LIGHT_GREEN#%s#WHITE#。感谢所有捐赠者，是你们延续了这个游戏的生命！", "tformat")
-t("#LIGHT_RED#Online profile disabled(switching to offline profile) due to %s.", "#LIGHT_RED#由于 %s，在线账户已禁用（切换至离线账户）。", "log")
+t("#LIGHT_RED#Online profile disabled(switching to offline profile) due to %s.", "#LIGHT_RED#由于%s，在线账户已禁用（切换至离线账户）。", "log")
 
 ------------------------------------------------
 section "engine/engine/Mouse.lua"
@@ -1013,9 +1013,9 @@ This option allows for volumetricion effects (like deep starfields). Enabling it
 #LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#]], "_t")
 t("#GOLD##{bold}#OpenGL Shaders: Volumetric#WHITE##{normal}#", "#GOLD##{bold}#OpenGL 着色器：体积着色器#WHITE##{normal}#", "_t")
 t([[Use the custom cursor.
-Disabling it will use your normal operating system cursor.#WHITE#]], [[使用自定义鼠标贴图。
-关闭这个选项将使用系统默认鼠标。#WHITE#]], "_t")
-t("#GOLD##{bold}#Mouse cursor#WHITE##{normal}#", "#GOLD##{bold}#鼠标贴图#WHITE##{normal}#", "_t")
+Disabling it will use your normal operating system cursor.#WHITE#]], [[使用自定义鼠标光标。
+关闭此选项将使用系统默认光标。#WHITE#]], "_t")
+t("#GOLD##{bold}#Mouse cursor#WHITE##{normal}#", "#GOLD##{bold}#鼠标光标#WHITE##{normal}#", "_t")
 t([[Gamma correction setting.
 Increase this to get a brighter display.#WHITE#]], [[亮度矫正设定。
 提高数值会使画面变亮。#WHITE#]], "_t")
@@ -1301,7 +1301,7 @@ t("rested", "休息了", "_t")
 t("%s...", "%s中…", "tformat")
 t("You are %s, press Enter to stop.", "你正在%s，请按回车键停止。", "tformat")
 t("%s starts...", "%s开始了…", "log")
-t("%s for %d turns (stop reason: %s).", "%s%d回合 (停止原因：%s)。", "log")
+t("%s for %d turns (stop reason: %s).", "%s%d回合（停止原因：%s）。", "log")
 t("%s for %d turns.", "%s%d回合。", "log")
 
 ------------------------------------------------

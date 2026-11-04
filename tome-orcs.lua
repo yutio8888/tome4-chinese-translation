@@ -1142,7 +1142,7 @@ The metals are melted into lumps of ore to server for the creation of tinkers.
 Any remains are melted and turned into valuable materials.]], [[APE 是一个多功能工匠工具箱，可以临时存放任意数量的物品，并在需要时通过冶金和化学工艺将它们熔解。
 金属会被熔成矿块，用于制造配件。
 任何残余都会被熔解并转化为有价值的材料。]], "_t")
-t("melt all the items in the APE at once (also done automatically when you change level)", "立刻融化提取仪内的所有道具（在你切换楼层的时候会自动融化）", "_t")
+t("melt all the items in the APE at once (also done automatically when you change level)", "立刻熔解提取仪内的所有物品（切换楼层时也会自动熔解）", "_t")
 t("Make the Automated Portable Extractor the default item's destroyer?", "将便携式自动材料提取仪设置为默认物品转化选项？", "_t")
 t("You do not have any items to melt in your APE or on the floor.", "便携式自动材料提取仪和地上没有任何可以被转化的物品。", "_t")
 t("Melt all %d item(s) on the floor?", "转化地面上的%d件物品吗？", "tformat")
@@ -1435,7 +1435,7 @@ t("amazing", "惊人的", "_t")
 t("%s healing salve", "%s治疗药剂", "tformat")
 t("heal %d", "治疗 %d 点生命值", "_t")
 t("%s pain suppressor salve", "%s痛苦压制药剂", "tformat")
-t("let you fight up to -%%d life and reduces all damage by %d%%%% for %d turns (takes no time to activate)", "让你能继续战斗直到-%%d生命值，同时获得%d%%%%全体伤害抗性。效果持续%d回合，使用不消耗时间。", "tformat")
+t("let you fight up to -%%d life and reduces all damage by %d%%%% for %d turns (takes no time to activate)", "让你在生命值降至 -%%d 之前仍能继续战斗，同时获得 %d%%%% 全体伤害抗性。效果持续 %d 回合，使用不消耗时间。", "tformat")
 t("%s frost salve", "%s寒霜药剂", "tformat")
 t("remove %d physical effects and grants a frost aura (%s cold, darkness and nature affinity)", "清除%d项物理负面效果并制造寒霜光环，获得%s寒冷、暗影和自然伤害亲和。", "tformat")
 t("%s fiery salve", "%s烈火药剂", "tformat")
@@ -8320,7 +8320,7 @@ To begin your steamy adventures of hot metal mayhem simply select the #LIGHT_GRE
 Have fun crushing the foes of the Pride!
 ]], [[感谢你购买#CRIMSON#余烬怒火#WHITE#，《马基·埃亚尔的传说》的第二个扩展包。
 
-想要开始你那些炽热金属轰鸣的蒸汽冒险，请选择#LIGHT_GREEN#兽人战役·余烬怒火#WHITE#，开始追寻荣耀的旅程吧！
+选择#LIGHT_GREEN#兽人战役·余烬怒火#WHITE#，投身蒸汽与炽热金属交织的混战，踏上追寻荣耀的冒险之旅吧！
 
 祝你愉快地粉碎部落的一切敌人！
 ]], "tformat")
