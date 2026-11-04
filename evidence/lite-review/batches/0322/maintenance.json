@@ -1,0 +1,14 @@
+{
+ "kind": "maintenance",
+ "date": "2026-11-04",
+ "authorization": "User 2026-11-04「审核规则进行调整，对于语序问题和病句要求严格审核不允许列为风格偏好，改写后请改写者带入占位符通读一轮」;「审核员的prompt不应该暴露修改标准，应该采用盲审原则」",
+ "applied": [],
+ "docs": [
+  "docs/lite-review-reviewer.md: blind-review section; word-order errors and ungrammatical sentences are always ISSUE (not style); read placeholder lines with example values; previously_reviewed removed",
+  "docs/lite-review-workflow-20261101.md: host rules for blind review and read-through after rewrites"
+ ],
+ "tools": [
+  "tools/lite_review.py: prepare no longer writes previously_reviewed; reviewer prompt limits reading to this batch, sources, terminology and the rules"
+ ],
+ "notes": "Cause: 0241 rewrite inserted 每类各 into the tattoo line (对 %s 效果每类各解除你随机一个); 0242 A/B both OK; found by the 2026-11-04 live test. A blind DeepSeek fluency recheck of the 197 units changed by the implementation rewrites (33af8a9f9, 7acfac72b, 408082782) is running separately."
+}
