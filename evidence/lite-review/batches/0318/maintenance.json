@@ -1,0 +1,16 @@
+{
+ "kind": "maintenance",
+ "date": "2026-11-04",
+ "authorization": "User 2026-11-04「接下来开始实机测试……记录并修复发现的翻译问题」; engine route「检查直接在原翻译文本后追加engine和overload两种方式，由你判断采用哪一种」; release「对外发布0.3.8」",
+ "applied": [
+  "aa29cbd12: 40+ translation fixes from the live game test (evidence/quality/live-test-20261104/disposition.json)",
+  "names per Gemini 4 Argon: Unending Frenzy=不休狂热; Gunslinger/gunslinging=快枪手 (terminology/classes.tsv preferred)",
+  "%-8.8s width dropped on the resource line (mod-tome.lua:41310), allowlisted in i18n/policy.json"
+ ],
+ "tools": [
+  "tools/i18nlib/publish.py: engine entries that differ from the official engine locale are written into the addon locale (plain nil-tag entries as _t; tome collisions skipped)",
+  "tests/i18n/test_toolchain_build.py: publish tests patch _engine_overlay_entries; dry-run count includes engine entries"
+ ],
+ "release": "addon 0.3.8 published (evidence/releases/addon-0.3.8.json)",
+ "notes": "Changed units return to the A/B queue (61 pending A at 2026-11-04) and are reviewed from batch 0319. Hardcoded English (17 findings) recorded, not handled per user 2026-11-04."
+}
