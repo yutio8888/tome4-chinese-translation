@@ -1796,7 +1796,7 @@ The sound of laughter fades under the roaring of water boiling around him as he 
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/data/texts/intro-ashes-urhrok.lua"
 
-t("Welcome to Tales of Maj'Eyal - #CRIMSON#Ashes of Urh'Rok", "欢迎来到马基埃亚尔的传说 - #CRIMSON#乌鲁洛克之烬", "_t")
+t("Welcome to Tales of Maj'Eyal - #CRIMSON#Ashes of Urh'Rok", "欢迎来到马基·埃亚尔的传说 - #CRIMSON#乌鲁洛克之烬", "_t")
 t([[Welcome #LIGHT_GREEN#@name@#WHITE#.
 You do not remember much of your life before you were on this burning continent, floating in the void between worlds.  You have been helping demons, happily participating in their experiments to shatter some sort of shield preventing them from taking their righteous revenge on Eyal.
 
@@ -1812,7 +1812,7 @@ As you recover, and your platform of searing earth splits from the main continen
 
 当你逐渐恢复意识、脚下这块灼热土地构成的平台正从主大陆分裂时，旧日的记忆涌入脑海。你终于清醒过来——恶魔们要毁灭你的故乡！
 
-#{bold}#你必须逃离这里！#{normal}#。
+#{bold}#你必须逃离这里！#{normal}#
 ]], "_t")
 
 ------------------------------------------------
@@ -1938,7 +1938,7 @@ t([[Thank you for purchasing #CRIMSON#Ashes of Urh'Rok#WHITE#, the first expansi
 To begin your adventures as a fiery bringer of doom simply create a character with the class #LIGHT_GREEN#Doombringer#WHITE# (in the Defiler category) and a race of #LIGHT_BLUE#%s#WHITE#.
 
 Have fun crushing your foes!
-]], [[感谢你购买#CRIMSON#乌鲁洛克之烬#WHITE#，《马基埃亚尔的传说》的第一个扩展包。
+]], [[感谢你购买#CRIMSON#乌鲁洛克之烬#WHITE#，《马基·埃亚尔的传说》的第一个扩展包。
 
 要以带来毁灭的烈焰使者身份开始冒险，只需创建一个角色：职业选择#LIGHT_GREEN#毁灭使者#WHITE#（堕落系），种族选择#LIGHT_BLUE#%s#WHITE#。
 

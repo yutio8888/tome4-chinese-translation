@@ -582,9 +582,10 @@ class AddonBuildTests(unittest.TestCase):
             commit=False,
         )
         self.assertGreater(report["dlc_entries"], 0)
+        self.assertGreater(report["engine_entries"], 0)
         self.assertEqual(
             report["new_entries"],
-            report["delta_runtime_keys"] + report["dlc_entries"],
+            report["delta_runtime_keys"] + report["engine_entries"] + report["dlc_entries"],
         )
         for component_id in ("ashes-urhrok", "cults", "orcs"):
             self.assertGreater(report["dlc_entries_by_component"][component_id], 0)
@@ -840,6 +841,9 @@ class AddonBuildTests(unittest.TestCase):
                     patch.object(
                         publish_module, "_dlc_overlay_entries", return_value=[]
                     ),
+                    patch.object(
+                        publish_module, "_engine_overlay_entries", return_value=([], 0)
+                    ),
                 ):
                     report = publish_module.publish_addon(
                         manifest,
@@ -986,6 +990,7 @@ class AddonBuildTests(unittest.TestCase):
                 ),
                 patch.object(publish_module, "_official_locale_keys", return_value=set()),
                 patch.object(publish_module, "_dlc_overlay_entries", return_value=[]),
+                patch.object(publish_module, "_engine_overlay_entries", return_value=([], 0)),
                 patch.object(
                     publish_module,
                     "_read_file_snapshot",
@@ -1052,6 +1057,7 @@ class AddonBuildTests(unittest.TestCase):
                 ),
                 patch.object(publish_module, "_official_locale_keys", return_value=set()),
                 patch.object(publish_module, "_dlc_overlay_entries", return_value=[]),
+                patch.object(publish_module, "_engine_overlay_entries", return_value=([], 0)),
                 patch.object(
                     publish_module,
                     "_atomic_replace_bytes",
@@ -1132,6 +1138,7 @@ class AddonBuildTests(unittest.TestCase):
                 ),
                 patch.object(publish_module, "_official_locale_keys", return_value=set()),
                 patch.object(publish_module, "_dlc_overlay_entries", return_value=[]),
+                patch.object(publish_module, "_engine_overlay_entries", return_value=([], 0)),
                 patch.object(
                     publish_module.os,
                     "replace",
@@ -1237,6 +1244,7 @@ class AddonBuildTests(unittest.TestCase):
                 ),
                 patch.object(publish_module, "_official_locale_keys", return_value=set()),
                 patch.object(publish_module, "_dlc_overlay_entries", return_value=[]),
+                patch.object(publish_module, "_engine_overlay_entries", return_value=([], 0)),
             ):
                 with self.assertRaisesRegex(
                     ValidationError,
@@ -1329,6 +1337,7 @@ class AddonBuildTests(unittest.TestCase):
                 ),
                 patch.object(publish_module, "_official_locale_keys", return_value=set()),
                 patch.object(publish_module, "_dlc_overlay_entries", return_value=[]),
+                patch.object(publish_module, "_engine_overlay_entries", return_value=([], 0)),
                 patch.object(
                     publish_module.subprocess,
                     "run",
@@ -1398,6 +1407,7 @@ class AddonBuildTests(unittest.TestCase):
                 ),
                 patch.object(publish_module, "_official_locale_keys", return_value=set()),
                 patch.object(publish_module, "_dlc_overlay_entries", return_value=[]),
+                patch.object(publish_module, "_engine_overlay_entries", return_value=([], 0)),
                 patch.object(
                     publish_module,
                     "_verify_file_snapshot",
@@ -1477,6 +1487,7 @@ class AddonBuildTests(unittest.TestCase):
                 ),
                 patch.object(publish_module, "_official_locale_keys", return_value=set()),
                 patch.object(publish_module, "_dlc_overlay_entries", return_value=[]),
+                patch.object(publish_module, "_engine_overlay_entries", return_value=([], 0)),
                 patch.object(
                     publish_module,
                     "_atomic_replace_bytes",
@@ -1563,6 +1574,7 @@ class AddonBuildTests(unittest.TestCase):
                 ),
                 patch.object(publish_module, "_official_locale_keys", return_value=set()),
                 patch.object(publish_module, "_dlc_overlay_entries", return_value=[]),
+                patch.object(publish_module, "_engine_overlay_entries", return_value=([], 0)),
                 patch.object(
                     publish_module,
                     "_render_addon_locale",
@@ -1672,6 +1684,7 @@ class AddonBuildTests(unittest.TestCase):
                 ),
                 patch.object(publish_module, "_official_locale_keys", return_value=set()),
                 patch.object(publish_module, "_dlc_overlay_entries", return_value=[]),
+                patch.object(publish_module, "_engine_overlay_entries", return_value=([], 0)),
                 patch.object(publish_module, "subprocess", git_subprocess),
             ):
                 with self.assertRaisesRegex(

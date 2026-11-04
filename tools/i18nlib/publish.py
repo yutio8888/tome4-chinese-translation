@@ -25,12 +25,13 @@ from pathlib import Path
 from subprocess import SubprocessError
 from typing import Any, Iterable
 
-from .build import _render_addon_locale, build_addon_locale
+from .build import _final_entries, _render_addon_locale, build_addon_locale
 from .config import Manifest
 from .errors import ValidationError
 from .git_source import GitRepository
-from .locale_model import LocaleDocument, LocaleLoader
+from .locale_model import LocaleDocument, LocaleLoader, runtime_map
 from .report import write_json
+from .semantics import runtime_semantic_signature
 
 _LOCALE_RELATIVE = "data/locales/zh_hans.lua"
 _INIT_RELATIVE = "init.lua"
@@ -311,6 +312,65 @@ def _official_locale_keys(manifest: Manifest, loader: LocaleLoader) -> set[tuple
     return keys
 
 
+def _engine_overlay_entries(
+    manifest: Manifest,
+    loader: LocaleLoader,
+) -> tuple[list[dict[str, Any]], int]:
+    """Engine entries that differ from the official engine locale (2026-11-04).
+
+    The engine locale is loaded before addons are mounted, so an overload of
+    /data/locales/engine/zh_hans.lua never runs; entries in the addon locale do
+    override it for every in-module engine string (verified in game). Two engine
+    I18N quirks shape the output:
+    - I18N:t() without args_order empties the args table of its tag, and lookups
+      fall back to the "nil" table, so plain "nil"-tagged entries would drop the
+      argument order of every earlier entry (official tome tformat lines, the
+      calendar line). Plain "nil" entries are written as "_t": set() fills the
+      "nil" table either way, so lookups resolve identically.
+    - The "nil" table is shared by every tag, so an engine text whose source also
+      exists in the tome layers keeps the tome translation (same rule as DLCs).
+    Returns the entries and the number skipped for tome collisions.
+    """
+    repository = GitRepository(manifest.repository_path("engine"))
+    commit = manifest.repositories["engine"].commit
+    tome = manifest.component("tome")
+    tome_sources = {
+        entry.get("source")
+        for document in (
+            loader.load_bytes(
+                repository.read_blob(commit, tome.official_locale),
+                logical_path=f"tome:{tome.official_locale}",
+            ),
+            loader.load_path(manifest.root / tome.translation, logical_path=tome.translation),
+        )
+        for entry in document.translations
+    }
+    component = manifest.component("engine")
+    official = loader.load_bytes(
+        repository.read_blob(commit, component.official_locale),
+        logical_path=f"engine:{component.official_locale}",
+    )
+    official_map = runtime_map([official])
+    document = loader.load_path(
+        manifest.root / component.translation, logical_path=component.translation
+    )
+    entries: list[dict[str, Any]] = []
+    skipped = 0
+    for entry in _final_entries(document):
+        key = (entry.get("source"), entry.get("source_tag"))
+        if key in official_map and runtime_semantic_signature(entry) == runtime_semantic_signature(official_map[key]):
+            continue
+        if entry.get("source") in tome_sources:
+            skipped += 1
+            continue
+        rendered = dict(entry)
+        rendered["section"] = "engine"
+        if rendered.get("source_tag") == "nil" and rendered.get("args_order") is None and rendered.get("special") is None:
+            rendered["source_tag"] = "_t"
+        entries.append(rendered)
+    return entries, skipped
+
+
 _DLC_COMPONENTS = ("ashes-urhrok", "cults", "orcs")
 
 
@@ -392,7 +452,8 @@ def publish_addon(
     # into the same zh_hans.lua, in their own sections.
     official_keys = _official_locale_keys(manifest, loader)
     dlc_entries = _dlc_overlay_entries(manifest, loader, official_keys)
-    merged_entries = list(build_report["delta_entries"]) + dlc_entries
+    engine_entries, engine_skipped = _engine_overlay_entries(manifest, loader)
+    merged_entries = list(build_report["delta_entries"]) + engine_entries + dlc_entries
     artifact_bytes = _render_addon_locale(manifest, merged_entries, skipped=[])
     new_entries = len(merged_entries)
     try:
@@ -469,6 +530,8 @@ def publish_addon(
         "delta_runtime_keys": sum(
             c["delta_entries"] for c in build_report["components"]
         ),
+        "engine_entries": len(engine_entries),
+        "engine_entries_skipped_tome_collision": engine_skipped,
         "dlc_entries": len(dlc_entries),
         "dlc_entries_by_component": dlc_entries_by_component,
         "override_entries": build_report["override_entries"],

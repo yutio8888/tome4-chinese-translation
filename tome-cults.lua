@@ -61,7 +61,7 @@ t("Special", "特殊", "birth facial category")
 t("Drem", "德瑞姆", "birth descriptor name")
 t("Faceless, but not mindless.", "没有面孔，但并非无脑。", "_t")
 t("Drem are mindless mutants who live deep in the earth. It is only recently that thinking Drem have appeared among them. They still remain deep below Eyal's surface, believing that they would not be welcomed among the surface races.", "德瑞姆是生存于地底深处、没有心智的异变种，直到最近才在其中出现具有思维能力的个体。他们仍生存于地底，认为他们不会被地上种族欢迎。", "_t")
-t("They possess the #GOLD#Frenzy#WHITE# talent which allows them to ignore cooldowns once in a while.", "他们拥有 #GOLD#狂热#WHITE# 技能，让他们偶尔能无视冷却时间。", "_t")
+t("They possess the #GOLD#Frenzy#WHITE# talent which allows them to ignore cooldowns once in a while.", "他们拥有#GOLD#狂热#WHITE#技能，让他们偶尔能无视冷却时间。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +3 力量，+1 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, -1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +2 魔力，-1 意志，+0 灵巧", "_t")
@@ -106,7 +106,7 @@ t("Special", "特殊", "birth facial category")
 t("Krog", "克罗格", "birth descriptor name")
 t("Once an abomination, now a weapon.", "曾为憎恶，现为兵器。", "_t")
 t("Krogs were formerly Ogres, that have been radically changed. Stripped of the runes from their bodies, the Ziguranth have managed to prevent the Krog from dying by injecting them with a concoction of natural infusions and drake blood. The Krog are entirely devoted to the anti-magic cause and seemingly know of nothing else in their lives.", "克罗格由食人魔彻底转变而来。伊格兰斯去除他们身上的符文，并为他们注射纹身与龙血的混合物以防止他们死亡。克罗格完全献身于反魔事业，生活中似乎对其他事物一无所知。", "_t")
-t("They possess the #GOLD#Wrath of the Wilds#WHITE# talent which allows them to stun/daze their foes.", "他们拥有 #GOLD#自然之怒#WHITE# 技能，让他们能震慑/眩晕敌人。", "_t")
+t("They possess the #GOLD#Wrath of the Wilds#WHITE# talent which allows them to stun/daze their foes.", "他们拥有#GOLD#自然之怒#WHITE#技能，让他们能震慑/眩晕敌人。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +2 Constitution", "#LIGHT_BLUE# * +3 力量，-1 敏捷，+2 体质", "_t")
 t("#LIGHT_BLUE# * -2 Magic, +2 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔力，+2 意志，+0 灵巧", "_t")
@@ -408,7 +408,7 @@ t("entropic breach", "熵之裂口", "entity name")
 t("Entropic Wormhole Control Orb", "熵虫洞控制球", "entity name")
 t("#CRIMSON#The entropic forces are already at work. FIGHT!", "#CRIMSON#熵已经在起作用了。战斗！", "say")
 t("#CRIMSON#The entropic control orb seems unresponsive...", "#CRIMSON#熵控制球看上去不对你起反应……", "say")
-t("#PURPLE#Make sure you are connected and joined the main Tales of Maj'Eyal chat channel.", "#PURPLE#确认你连接到了网络，并加入了马基埃亚尔的传说的主聊天频道。", "log")
+t("#PURPLE#Make sure you are connected and joined the main Tales of Maj'Eyal chat channel.", "#PURPLE#确认你连接到了网络，并加入了马基·埃亚尔的传说的主聊天频道。", "log")
 
 ------------------------------------------------
 section "tome-cults/data/general/grids/godfeaster.lua"
@@ -2947,7 +2947,7 @@ t([[When you make your pustules explode you leave a pool of defiled blood on the
 		The healing received increases with your Spellpower.]], [[每次脓包爆裂时，你会在地上留下一滩持续 5 回合的污血。
 		范围内的敌人每回合会遭到黑色触手攻击，受到 %d%% 暗影触手伤害并被污血覆盖 2 回合。
 		被污血覆盖的生物击中你时，你回复相当于该伤害 %d%% 的生命值。
-		治疗系数受法术强度影响。]], "tformat")
+		回复量随法术强度提高。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/madness.lua"
@@ -3202,7 +3202,7 @@ t([[Your left hand mutates into a disgusting mass of tentacles.
 		副手空闲时，当使用普通攻击，触手会自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。
 		物理强度提高 %d， 触手武器伤害提高 %d%%。
 		每次触手攻击时，获得 %d 疯狂值。
-		附近有 #{italic}# 普通人 #{normal}# 时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。
+		附近有#{italic}#“文明人”#{normal}#时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。
 
 		你的触手当前属性%s：
 		%s]], "tformat")
@@ -4869,22 +4869,22 @@ t("So you want to spend #GOLD#%s gold#LAST# to reroll this set of properties?", 
 t(" (Greater)", " （高级词缀）", "_t")
 t("Type: %s / %s", "类型：%s/%s", "tformat")
 t([[Powered by #VIOLET#arcane forces#LAST#
-]], [[装备力量来源 #VIOLET#奥术力量#LAST#
+]], [[力量来源：#VIOLET#奥术力量#LAST#
 ]], "_t")
 t([[Infused by #OLIVE_DRAB#nature#LAST#
-]], [[装备力量来源 #OLIVE_DRAB#自然力量#LAST#
+]], [[力量来源：#OLIVE_DRAB#自然力量#LAST#
 ]], "_t")
 t([[Infused by #ORCHID#arcane disrupting forces#LAST#
-]], [[装备力量来源 #ORCHID#反魔法力量#LAST#
+]], [[力量来源：#ORCHID#反魔法力量#LAST#
 ]], "_t")
 t([[Crafted by #LIGHT_UMBER#a master#LAST#
-]], [[装备制造者 #LIGHT_UMBER#某位大师#LAST#
+]], [[制造者：#LIGHT_UMBER#某位大师#LAST#
 ]], "_t")
 t([[Infused by #YELLOW#psionic forces#LAST#
-]], [[装备力量来源 #YELLOW#灵能#LAST#
+]], [[力量来源：#YELLOW#灵能#LAST#
 ]], "_t")
 t([[Powered by #CRIMSON#unknown forces#LAST#
-]], [[装备力量来源 #CRIMSON#未知力量#LAST#
+]], [[力量来源：#CRIMSON#未知力量#LAST#
 ]], "_t")
 t("#CRIMSON#Your timetravel has no effect on pre-determined outcomes such as this.", "#CRIMSON#你的时间穿越对这种已经预设好的结局没有任何作用。", "_t")
 t("Select a properties set", "选择属性", "_t")

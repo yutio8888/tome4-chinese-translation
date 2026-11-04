@@ -273,7 +273,7 @@ t("Others", "其他", "_t")
 ------------------------------------------------
 section "mod-boot/dialogs/FirstRun.lua"
 
-t("Welcome to Tales of Maj'Eyal", "欢迎来到马基埃亚尔的传说", "_t")
+t("Welcome to Tales of Maj'Eyal", "欢迎来到马基·埃亚尔的传说", "_t")
 t("Register now!", "现在注册！", "_t")
 t("Login existing account", "登录已有账户", "_t")
 t("Maybe later", "以后再说", "_t")
@@ -398,7 +398,7 @@ t([[#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！
-#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，粉碎那些胆敢反抗部落的人吧！
+#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，快枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，粉碎那些胆敢反抗部落的人吧！
 #LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。
 #LIGHT_UMBER#配件系统：#WHITE# 合成强大的配件，用于强化你的物品。包括给你的靴子安装火箭、给你的手套安装抓取系统等等。
 #LIGHT_UMBER#药剂系统：#WHITE# 在配件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。
