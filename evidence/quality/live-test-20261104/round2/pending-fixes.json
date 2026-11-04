@@ -10,11 +10,24 @@
    "target": "退出菜单",
    "cause": "按键名在引擎启动时求值：game/engines/default/engine/init.lua:128-130 只加载官方引擎 locale，:159 engine.KeyBind:load(...) 立即执行 keybinds/actions.lua:128 的 _t\"Exit menu\" 并把结果存进 binds_def（KeyBind.lua:33-41），此时插件 locale 尚未加载；binds_loaded 缓存使之后不会重载。官方 engine/zh_hans.lua:168 为「退出目录」。本库 engine.lua:166 与发布插件 locale:26866 已是「退出菜单」，但对按键名不生效。（核心固定提交 624a67329fe2）",
    "same_cause": [
-    {"english": "Toggle list of seen creatures", "official": "切换至视野内生物列表", "ours": "开关视野内生物列表"}
+    {
+     "english": "Toggle list of seen creatures",
+     "official": "切换至视野内生物列表",
+     "ours": "开关视野内生物列表"
+    }
    ],
-   "fix_route": "改 locale 无效，需插件代码钩子：插件加载后遍历 engine.KeyBind.binds_def，按 keybinds 定义文件的英文 name 重新 _t（或对上述 2 条直接改写 name/desc）。与 17 条硬编码英文同属 pending-code-hook。"
+   "fix_route": "改 locale 无效，需插件代码钩子：插件加载后遍历 engine.KeyBind.binds_def，按 keybinds 定义文件的英文 name 重新 _t（或对上述 2 条直接改写 name/desc）。与 17 条硬编码英文同属 pending-code-hook。",
+   "status": "deferred — 用户 2026-11-04「暂不处理addon code部分」；与 17 条硬编码英文同列 pending-code-hook"
   },
-  {"id": "r2-sonnet-01", "summary": "休息日志「休息了0回合 (停止原因：…)」半角括号与空格", "status": "待核实修复"},
-  {"id": "r2-sonnet-02", "summary": "余烬怒火欢迎框「炽热金属轰鸣」措辞", "status": "待核实修复"}
+  {
+   "id": "r2-sonnet-01",
+   "summary": "休息日志「休息了0回合 (停止原因：…)」半角括号与空格",
+   "status": "待核实修复"
+  },
+  {
+   "id": "r2-sonnet-02",
+   "summary": "余烬怒火欢迎框「炽热金属轰鸣」措辞",
+   "status": "待核实修复"
+  }
  ]
 }

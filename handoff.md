@@ -40,7 +40,7 @@ Exhaustion＝力竭、Parry＝招架、Summon＝召唤、Archmage＝元素法师
 - 第二轮实测（结果在 `evidence/quality/live-test-20261104/round2/`）：r2-gpt 完成，1 条（纹身语序，已于 0323 修）；r2-sonnet 完成，2 条**未修**：
   r2-sonnet-01 休息日志「休息了0回合 (停止原因：…)」半角括号／缺空格；r2-sonnet-02 余烬怒火欢迎框「炽热金属轰鸣」措辞。
   r2-ds（DeepSeek）跑约 3 小时未写 findings 即因关机强制归档，无结果；如需可重开。
-- 11-04 GPU 重跑 r2-ds（`TL_GPU=1`，60 fps 帽）；按键绑定「退出目录」(Exit menu) 已记录待改，属引擎启动期求值、需代码钩子，见 `round2/pending-fixes.json`。
+- 11-04 GPU 重跑 r2-ds（`TL_GPU=1`，60 fps 帽）；按键绑定「退出目录」(Exit menu) 已记录，属引擎启动期求值、需代码钩子，用户 11-04 定暂不处理，见 `round2/pending-fixes.json`。
 - 规则：11-04 用户授权允许唤醒已停止（idle 未归档）的 agent，AGENTS.md 与 Paseo 契约已改；仍不得向运行中的 agent 发消息。
 - 下一步：核实并修复 r2-sonnet-01/02 → 轻量批 0326 盲审 → 视用户指示再测或发布 0.3.9。实机环境 `~/tome-live` 在容器外是否保留未知，重建见记忆 live-game-test-env。
 
