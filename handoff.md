@@ -31,7 +31,16 @@ Exhaustion＝力竭、Parry＝招架、Summon＝召唤、Archmage＝元素法师
 **2026-11-04 实机测试。** 官方 1.7.6＋汉化 0.3.7＋三 DLC 在 `~/tome-live`（Xvfb，见记忆 live-game-test-env）由三个测试员实测，67 条发现，处置见
 [`evidence/quality/live-test-20261104/`](evidence/quality/live-test-20261104/REPORT.md)；修复提交 `aa29cbd12`（含 publish 把 engine 差异条目写进插件、
 %-8.8s 放行、不休狂热、快枪手）。0.3.8 已于 2026-11-04 按用户指示发布（发布仓库 `f27c7dc`，13,439 条，凭据 `evidence/releases/addon-0.3.8.json`；含 null_translation.lua 删 21 条遮蔽项），
-候选包复测 6 过 1 部分 1 未触发。改动的 61 个单元待 A/B 复审。
+候选包复测 6 过 1 部分 1 未触发。改动的 61 个单元已在 0319–0321 复审。
+
+**2026-11-04 第二轮（容器为接入显卡关闭前保存，最新提交 `bacfa7d65`）。**
+- 规则：0322 盲审（prompt 不透露修改原因／已知问题）、语序与病句必报、改写者代入占位符通读（记忆 blind-review-and-rewrite-readthrough）。
+- DeepSeek 盲审流畅度复查 197 个改写单元：0323 改 26 条、驳 9 条（证据 `evidence/quality/fluency-recheck-20261104/`）；0324 盲审再修 3 条，0325 无问题。
+  `lite_review.py status` 队列为空（A／B 均 29,545）。
+- 第二轮实测（结果在 `evidence/quality/live-test-20261104/round2/`）：r2-gpt 完成，1 条（纹身语序，已于 0323 修）；r2-sonnet 完成，2 条**未修**：
+  r2-sonnet-01 休息日志「休息了0回合 (停止原因：…)」半角括号／缺空格；r2-sonnet-02 余烬怒火欢迎框「炽热金属轰鸣」措辞。
+  r2-ds（DeepSeek）跑约 3 小时未写 findings 即因关机强制归档，无结果；如需可重开。
+- 下一步：核实并修复 r2-sonnet-01/02 → 轻量批 0326 盲审 → 视用户指示再测或发布 0.3.9。实机环境 `~/tome-live` 在容器外是否保留未知，重建见记忆 live-game-test-env。
 
 **待用户决定／未完成：**
 
