@@ -53,9 +53,12 @@ Paseo 角色行为、最小规则、任务记录格式和外发边界的完整�
 - 只有在重新查询后确认仍有进行中的运行且无进展时，才可按挂起处理；字段陈旧本身不是挂起证据。
 
 EXECUTOR 结束但未产出工作成果（无 diff、无报告，或只回了计划／进度说明）时，该次
-dispatch 的输出无效：按单次运行规则先归档，再创建 fresh retry child，保持相同 role、
-purpose、workspace 与 lineage。已结束的 child 即使仍为 idle 且尚未归档，也不得发送
-follow-up 续跑——一次运行结束就不是可继续的会话。
+dispatch 的输出无效：可以唤醒该 child（向仍为 idle、尚未归档的 child 发送 follow-up，
+要求在同一 role、purpose、workspace 与 lineage 下补完），也可以先归档再创建 fresh retry child。
+唤醒须在 dispatch 记录中登记（唤醒次数、原因），收取时以唤醒后的最终输出为准；已归档的 child
+不得恢复。不得向仍在运行的 child 发消息——Paseo 投递 prompt 会先取消其当前运行。
+契约要求单次运行收取（harvest 绑定一次运行）的 REVIEWER lane，若工具无法收取唤醒后的输出，
+仍按 fresh retry 处理。（2026-11-04 用户授权允许唤醒已停止的 agent。）
 
 任何已写入记录的故障归因一旦被事实推翻，必须在同一轮立即更正记录并向用户说明，
 不得让已撤回的诊断留在 STATE、review 记录或交接文档中。

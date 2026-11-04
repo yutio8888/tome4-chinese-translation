@@ -46,7 +46,8 @@
 3. **不要在界面里打开 reviewer 的 agent tab**。打开会把 `attentionReason` 清成 null，
    harvest／reject／archive 三条路都会失败，只能整批 abandon。
 4. **reviewer 结束后先记 archive-intent 再归档**，归档后必须回读 `closed` + `archivedAt` 再 confirm。
-   一次运行结束的 child 不得发 follow-up 续跑；无效输出按「归档 → fresh retry（attempt=2）」处理。
+   一次运行结束、尚未归档的 child 可唤醒补完（登记唤醒次数与原因）；harvest 绑定单次运行无法收取时，
+   无效输出按「归档 → fresh retry（attempt=2）」处理。不得向运行中的 child 发 prompt（会取消当前运行）。
 5. **派发必须显式传 `--mode`**，否则子 agent 卡在权限弹窗。
 6. **修复前全仓库 grep**：同一 runtime key 可能横跨 tome／cults／orcs 等 11 个组件，漏改会触发
    `06-runtime-collision-scan`。

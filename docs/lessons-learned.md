@@ -155,8 +155,8 @@ git diff --stat
 ```
 
 字段长时间未更新本身不是挂起证据。EXECUTOR 结束却无工作成果（无 diff、无报告，或只回了
-计划／进度说明）时输出无效：先归档，再创建 fresh retry；已结束的 child 即使仍为 idle 且未
-归档也不得发 follow-up 续跑。已写入的故障归因被推翻时，必须同一轮更正 STATE 与
+计划／进度说明）时输出无效：唤醒该 idle 未归档 child 补完（2026-11-04 起允许），或先归档再
+创建 fresh retry。不得向运行中的 child 发 prompt：2026-11-04 r2-ds 测试员因此被取消当前运行、无产出。已写入的故障归因被推翻时，必须同一轮更正 STATE 与
 `child_dispatches.last_error` 并向用户说明。
 
 规则已写入 [`AGENTS.md`](../AGENTS.md)、

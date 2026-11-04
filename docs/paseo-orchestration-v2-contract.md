@@ -770,8 +770,11 @@ role、purpose、workspace、lineage 和 candidate binding。
 
 child 结束但输出无效——包括 EXECUTOR 未产出任何改动、未给出报告，或只回了计划／进度说明
 ——时，按本节的无效输出处理：先归档，再创建 fresh retry child，保持相同 role、purpose、
-workspace、parent lineage 与候选绑定。已结束的运行不是可继续的会话：即使 child 仍为 idle 且
-尚未归档，也不得对其发送 follow-up 让它续跑，也不得据此跳过归档。
+workspace、parent lineage 与候选绑定；或在 child 仍为 idle 且尚未归档时唤醒它（发送 follow-up
+在同一 role、purpose、workspace、lineage 下补完），并在 dispatch 记录登记唤醒次数与原因，收取以
+唤醒后的最终输出为准，完成后照常归档。harvest 绑定单次运行的语境 REVIEWER 若无法收取唤醒后的
+输出，仍走 fresh retry。不得向运行中的 child 发送 prompt（投递会取消其当前运行）。
+（2026-11-04 用户授权允许唤醒已停止的 agent。）
 
 已写入 STATE、`child_dispatches.last_error` 或 review 记录的故障归因被事实推翻时，必须在同一
 轮立即更正该记录，写明实际终态与撤回的结论，并向用户说明；不得让已撤回的诊断继续留存。

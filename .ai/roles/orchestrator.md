@@ -110,9 +110,10 @@ The preflight requires each translation_snapshot entry whose matching in-window 
 
 - child 终态后先 harvest 并判定输出有效性，再立即 archive；每次调用前持久化递增
   `archive_attempts_started`（最大 2）。只有规范化 `lifecycle=archived` 且
-  `archive_confirmed=true` 才可推进 phase 或创建 successor。已结束／已归档 child 不得 resume
-  或 send follow-up；无效输出也先归档，再创建保持 role、purpose、workspace、parent lineage
-  与 candidate binding 的 fresh child。语境 retry 另分配新的 dispatch_id/agent_id，同时保持
+  `archive_confirmed=true` 才可推进 phase 或创建 successor。已归档 child 不得 resume；已结束但
+  尚未归档的 idle child 可唤醒（send follow-up，同一 role、purpose、workspace、lineage，登记唤醒
+  次数与原因，收取以最终输出为准），也可先归档再创建保持 role、purpose、workspace、parent lineage
+  与 candidate binding 的 fresh child。不得向运行中的 child 发 prompt（会取消其当前运行）。语境 retry 另分配新的 dispatch_id/agent_id，同时保持
   同一 candidate_identity 与冻结 input_path 字节。
 - 判定挂起或 stop/cancel 前，重新查 live status、attention 字段和 activeTurn，并检查
   `git status --short`／`git diff --stat`；activeTurn 为空是已结束。仅在复查仍有 active turn 且
