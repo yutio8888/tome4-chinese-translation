@@ -951,8 +951,8 @@ t([[For every turn where you take damage you have a %d%% chance to store a seism
 		Each turn the volcano spews 2 flaming boulders that deal %0.2f fire and %0.2f physical damage.
 		The charges quickly fade when outside of combat.
 		The damage increases with your spellpower.]], [[每次受到伤害时，你有 %d%% 的几率存储一次地震能量，每回合至多存储一次。
-		你可以主动使用这一技能，释放地震充能，召唤出一个火山，每层充能持续 2 回合。
-		每个回合，火山会发射出 2 个熔岩巨岩，造成 %0.2f 火焰和 %0.2f 物理伤害。
+		你可以主动使用这一技能，释放地震充能，召唤出一座火山，每层充能持续 2 回合。
+		每个回合，火山会喷出 2 块熔岩巨岩，造成 %0.2f 火焰和 %0.2f 物理伤害。
 		充能会在战斗外快速消退。
 		伤害受法术强度加成。]], "tformat")
 -- untranslated text
@@ -991,7 +991,7 @@ t([[Strike a blow with your weapon for %d%% blight damage.
 		If you already have a seed of the same time in your inventory or equipment it will instead increase its level if the host was of higher level than the seed and the demon inside will regenerate %d%% health and resurrect if it was dead.
 
 		Higher talent levels allow for more powerful demon types.
-		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], "用武器打击目标，造成 %d%% 枯萎伤害。\n\t\t如果攻击命中，一颗恶魔种子会尝试在敌人体内扎根；随后你用盾牌猛击目标，造成 %d%% 伤害并使其眩晕 %d 回合。\n\t\t\n\t\t种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。\n\t\t种子扎根的几率取决于生物的级别：\n\t\t%s普通生物#LAST#:  5%%\n\t\t%s精英生物#LAST#:  20%%\n\t\t%s稀有#LAST#或%s史诗生物#LAST#:  50%%\n\t\t%sBoss#LAST#:  100%%\n\t\t当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。\n\t\t如果你的背包或装备上已经有了同种恶魔且对应同一装备部位的恶魔种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d%% 生命值，若已死亡则会复活。\n\n\t\t技能等级越高，可获得的恶魔种类越强大。\n\t\t如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。", "tformat")
+		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], "用武器打击目标，造成 %d%% 枯萎伤害。\n\t\t如果攻击命中，一颗恶魔种子会尝试在敌人体内扎根；随后你用盾牌猛击目标，造成 %d%% 伤害并使其眩晕 %d 回合。\n\t\t\n\t\t种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。\n\t\t种子扎根的几率取决于生物的级别：\n\t\t%s普通生物#LAST#:  5%%\n\t\t%s精英生物#LAST#:  20%%\n\t\t%s稀有#LAST#或%s史诗生物#LAST#:  50%%\n\t\t%sBoss#LAST#:  100%%\n\t\t当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。\n\t\t如果你的背包或装备中已有一颗恶魔种类与装备部位都相同的种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d%% 生命值，若已死亡则会复活。\n\n\t\t技能等级越高，可获得的恶魔种类越强大。\n\t\t如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。", "tformat")
 t("Bind Demon", "恶魔结合", "talent name")
 t("Summon demon", "召唤恶魔", "_t")
 t("Which seed to use:", "使用哪个恶魔种子：", "_t")
@@ -1096,7 +1096,7 @@ t([[You learn to use death around you to an even greater advantage.
 		任何站在里面的敌人每回合将受到 %0.2f 点暗影伤害。
 		这个效果每回合最多触发一次。
 		伤害受法术强度加成。
-		技能等级 3 或以上时，当你处于黑暗支配状态下，每一层状态使你获得 -%d 生命底限。]], "tformat")
+		技能等级 3 或以上时，黑暗支配还能保护你免于死亡：每层使你的死亡下限降低 %d 点生命值。]], "tformat")
 t("Blood Pact", "鲜血契约", "talent name")
 t([[Pay %d%% of your current life and gain 100%% darkness damage conversion for 1 turns.
 			If Dark Reign is active you also gain %d stamina and %d vim per stack.]], [[支付 %d%% 当前生命值，1 回合内你造成的所有伤害转化为暗影伤害。
@@ -1263,7 +1263,7 @@ t("Mass Hysteria", "恐惧之潮", "talent name")
 t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%%， 持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 格内所有敌对生物。", "tformat")
 t("Fearfeast", "恐惧盛宴", "talent name")
 t("You gain %.1f turns!", "你获得了%.1f个回合！", "logPlayer")
-t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[依据 %d 格内敌对生物身上的恐惧层数（恐惧不会被移除），每有一层恐惧，恢复 %d 生命并获得 %0.1f%% 额外回合，至多能获得 %.1f 个额外回合。]], "tformat")
+t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[依据 %d 格内敌对生物身上的恐惧层数（恐惧不会被移除），每有一层恐惧，恢复 %d 生命，并获得相当于一回合 %0.1f%% 的额外行动时间，至多能获得 %.1f 个额外回合。]], "tformat")
 t("Hope Wanes", "绝望碾压", "talent name")
 t([[You crush the spirit of a target with at least %d fear stacks, consuming all stacks and making it unable to act for %d turns.
 		This talent ignores saves and immunities.]], [[击溃恐惧叠加至少 %d 层的目标的精神，消耗其全部恐惧层数，使目标 %d 回合无法行动。
@@ -1277,7 +1277,7 @@ t([[You unleash the fury of the Spellblaze, constantly draining your vim.
 		While this spell is active at most two meteors will fall near your per turn, dealing %0.2f physical and %0.2f fire damage in radius 2.
 		This spell disabled automatically on rest or run.
 		The effects increase with spellpower.]], [[你释放魔法大爆炸的力量，持续消耗活力。
-		当技能开启时，每回合至多有 2 个陨石坠落在你身边，在半径 2 的范围内造成物理与火焰伤害，数值分别为 %0.2f 与 %0.2f 的一半。
+		当技能开启时，每回合至多有 2 个陨石坠落在你身边，在半径 2 的范围内造成物理与火焰伤害，数值分别为 %0.2f 的一半与 %0.2f 的一半。
 		这项法术在休息或跑步时自动关闭。
 		效果受法术强度加成。]], "tformat")
 t("Only Ashes Left", "唯余灰烬", "talent name")

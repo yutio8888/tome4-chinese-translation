@@ -20994,7 +20994,7 @@ t([[You have learned to sing the praises of the Sun, in the form of three defens
 			You may only have one Chant active at a time.]], [[你学会了三种防御赞歌，以此咏唱对太阳的赞颂：
 			坚韧赞歌：增加 %d 精神豁免， %d%% 最大生命值
 			堡垒赞歌：增加 %d 物理豁免， %d%% 物理抗性， %d 护甲，15%% 护甲强度
-			元素赞歌：增加 %d 法术豁免， %d%% 火焰 /寒冷 /闪电 /酸性抗性，距离三格及以上的敌人对你造成的伤害变化 %d%%。
+			元素赞歌：增加 %d 法术豁免， %d%% 火焰/寒冷/闪电/酸性抗性，距离三格及以上的敌人对你造成的伤害变化 %d%%。
 			你同时只能激活一种赞歌。]], "tformat")
 t("Chant Illuminate", "初现光芒", "talent name")
 t([[Your Chants now bathe you in a cloak of light, which increases your stamina and mana regenerations by %0.2f per turn and does %0.2f light damage to anyone who hits you in melee.
@@ -21065,8 +21065,8 @@ t([[In a pure display of power, you project a ranged melee attack, doing %d%% we
 t("Weapon of Wrath", "愤怒之刃", "talent name")
 t([[Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP as additional Fire damage (up to %d, Current:  %d).
 		Targets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.
-		The bonus damage can only occur once per turn.]], [[你的近战攻击命中时，造成相当于 %d%% 你已损失的生命值的额外火焰伤害（至多 %d 点，当前 %d 点）。
-		同时令目标进入殉难状态，受到 %d%% 自己造成的伤害，持续 4 回合。
+		The bonus damage can only occur once per turn.]], [[你的近战攻击命中时，造成相当于你已损失生命值 %d%% 的额外火焰伤害（至多 %d 点，当前 %d 点）。
+		同时令目标进入殉难状态，持续 4 回合：其每次造成伤害，自身也会受到相当于该伤害 %d%% 的伤害。
 		额外伤害每回合最多触发一次；触发额外伤害后，本回合不再施加殉难效果。]], "tformat")
 t("Second Life", "第二生命", "talent name")
 t("Any attack that would drop you below 1 hit point instead triggers Second Life, deactivating the talent, setting your hit points to 1, then healing you for %d.", "任何使你生命值降到 1 点以下的攻击都会激活第二生命，自动中断此技能并将你的生命值恢复到 1 点，然后受到 %d 点治疗。", "tformat")
@@ -21197,7 +21197,7 @@ t([[Even now, something compels you to sing.
 			Dirge of Pestilence: Shields you for %d when an enemy inflicts a detrimental effect on you (5 turn cooldown).
 			You may only have one Dirge active at a time.]], [[即便如今，仍有什么驱使着你歌唱。
 			饥荒挽歌：增加生命回复 %d。
-			征服挽歌：给予你暴击时 10%% 回合或杀戮时 %d%% 回合的时间。
+			征服挽歌：暴击时获得 10%% 回合的行动时间，杀死敌人时获得 %d%% 回合的行动时间。
 			瘟疫挽歌：你受到非自身施加、且不属于“其他”类型的负面效果时获得 %d 的护盾（5 回合冷却）。
 			你同时只能激活一种挽歌。]], "tformat")
 t("Dirge Intoner", "挽歌吟诵者", "talent name")
@@ -21469,8 +21469,8 @@ t([[You are so infused with sunlight that your body glows permanently in radius 
 t("Judgement", "裁决", "talent name")
 t("Judgement", "裁决", "_t")
 t([[Fire a glowing orb of light at each enemy within your Radiance.  Each orb will slowly follow its target until it connects, dealing %d light damage to anything else it contacts along the way.  When the target is reached the orb will explode dealing %d light damage in radius 1 and healing you for 50%% of the damage dealt.
-		All targets struck by your Judgement will be blighted by light, reducing saves by %d, reducing critical power by %d%%, and causing light damage received to splash in radius 2 for %d%% damage against all hostile targets for 4 turns.]], [[在你的光辉中，向每一个敌人发射一个发光的球体。球体会缓慢追踪目标，直到击中目标，对它沿途接触到的其他物体造成 %d 点光系伤害。当到达目标时，球体将爆炸，在半径 1 格范围内造成 %d 点光系伤害，并治疗你 50%% 伤害量的生命值。
-		每个球体追踪的目标都会受到光之枯萎：全豁免降低 %d， 暴击伤害加成降低 %d%%； 其受到你造成的超过 80 点的光系伤害时，会以 %d%% 的伤害溅射至半径 2 内的所有敌对目标（每回合最多一次），持续 4 回合。]], "tformat")
+		All targets struck by your Judgement will be blighted by light, reducing saves by %d, reducing critical power by %d%%, and causing light damage received to splash in radius 2 for %d%% damage against all hostile targets for 4 turns.]], [[在你的光辉中，向每一个敌人发射一个发光的球体。球体会缓慢追踪目标，直到击中目标，对它沿途接触到的其他物体造成 %d 点光系伤害。当到达目标时，球体将爆炸，在半径 1 格范围内造成 %d 点光系伤害，并为你恢复相当于该伤害 50%% 的生命值。
+		每个球体追踪的目标都会受到光之枯萎：全豁免降低 %d， 暴击伤害加成降低 %d%%； 其受到你造成的超过 80 点的光系伤害时，该伤害的 %d%% 会溅射至半径 2 内的所有敌对目标（每回合最多一次），持续 4 回合。]], "tformat")
 t("Searing Sight", "灼热之视", "talent name")
 t([[Your Radiance is so powerful it burns all foes caught in it, dealing %0.1f light damage to all foes caught inside every turn.
 		Each enemy effected has a %d%% chance of being dazed and blinded by the light for 3 turns. The daze and blind can be applied to each enemy at most once every 7 turns.
@@ -25599,7 +25599,7 @@ t([[Spit poison on your foes, doing %d damage over a few turns.
 t("Winter's Fury", "严冬之怒", "talent name")
 t([[A furious ice storm rages around the user doing %0.2f cold damage in a radius of 3 each turn for %d turns.
 		It has 25%% chance to freeze damaged targets.
-		The damage and duration will increase with your Willpower.]], [[一阵激烈的冰风暴环绕施法者造成每回合 %0.2f 寒冷伤害，有效范围 3 格，持续 %d 回合。
+		The damage and duration will increase with your Willpower.]], [[一阵激烈的冰风暴环绕施法者，每回合在 3 格范围内造成 %0.2f 寒冷伤害，持续 %d 回合。
 		有 25%% 几率使受伤害目标被冰冻。
 		受意志影响，伤害有额外加成。]], "tformat")
 t("Winter's Grasp", "严冬抓握", "talent name")
@@ -25832,7 +25832,7 @@ t([[Bites the target for %d%% weapon damage, potentially causing it to bleed for
 		If the target is affected by the bleed it will send the devourer into a frenzy for %d turns (which in turn will frenzy other nearby devourers).
 		The frenzy will increase global speed by %d%%, physical crit chance by %d%%, and prevent death until -%d%% life.]], [[咬伤目标，造成 %d%% 武器伤害，可能让目标进入流血状态，在五回合内造成 %d%% 武器伤害。
 		如果咬中且目标未免疫流血，吞噬者就会进入狂热状态 %d 回合（也会让周围的其他吞噬者进入狂热状态）。
-		狂热状态会增加全局速度 %d%%， 物理暴击率 %d%%， 并使其生命降至 -%d%% 时才会死亡。]], "tformat")
+		狂热状态会增加全局速度 %d%%， 物理暴击率 %d%%， 并使其在生命值降至 -%d%% 时才会死亡。]], "tformat")
 t("Abyssal Shroud", "深渊裹幕", "talent name")
 t("Creates a shroud of darkness over a radius 3 area that lasts %d turns.  The shroud causes %0.2f darkness damage each turn, reduces light radius by %d, and darkness resistance by %d%% of those within.", "在半径 3 格区域制造一片持续 %d 回合的暗影帷幕。帷幕每回合造成 %0.2f 点暗影伤害，使区域内生物的光照半径降低 %d、 暗影抗性降低 %d%%。", "tformat")
 t("Echoes From The Void", "虚空回响", "talent name")
@@ -25843,7 +25843,7 @@ t("@Source@ summons void shards.", "@Source@召唤出虚空碎片。", "_t")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("void shard", "虚空碎片", "_t")
 t("It looks like a small hole in the fabric of spacetime.", "看起来像时空结构中的一个小洞。", "_t")
-t("Summons %d void shards.  The void shards come into being destabilized and will suffer %0.2f temporal damage each turn for five turns.  If they die while destabilized they'll explode for %0.2f temporal and %0.2f physical damage in a radius of 4.", "召唤 %d 个虚空碎片。碎片生成时处于不稳定状态，2 回合后开始每回合受到 %0.2f 时空伤害，持续 5 回合。若它们在此受伤阶段死亡，会爆炸并对半径 4 格内造成 %0.2f 时空伤害和 %0.2f 物理伤害。", "tformat")
+t("Summons %d void shards.  The void shards come into being destabilized and will suffer %0.2f temporal damage each turn for five turns.  If they die while destabilized they'll explode for %0.2f temporal and %0.2f physical damage in a radius of 4.", "召唤 %d 个虚空碎片。碎片生成时处于不稳定状态，2 回合后开始每回合受到 %0.2f 时空伤害，持续 5 回合。若它们在此受伤阶段死亡，会爆炸，对半径 4 格内的所有生物造成 %0.2f 时空伤害和 %0.2f 物理伤害。", "tformat")
 t("Knife Storm", "刀刃风暴", "talent name")
 t([[Summon a storm of swirling blades to slice your foes, inflicting %d physical damage and bleeding to anyone who approaches for %d turns.
 		The damage and duration will increase with your Mindpower.]], [[召唤旋转剑刃风暴将敌人切成碎片，对靠近的任何人造成 %d 点物理伤害并使其流血，风暴持续 %d 回合。
@@ -25909,7 +25909,7 @@ t("Infusion: Wild", "纹身：野性", "talent name")
 t("%s is cured!", "%s 被治愈！", "logSeen")
 t(" and ", "和", "_t")
 t([[Activate the infusion to cure yourself of one random %s effect and reduce all damage taken by %d%% for %d turns.
-Also removes cross-tier effects of the affected types for free.]], [[激活纹身，对 %s 效果每类各解除你随机一个，并减少受到的所有伤害 %d%%， 持续 %d 回合。
+Also removes cross-tier effects of the affected types for free.]], [[激活纹身，随机解除你身上的%s负面效果各一个，并减少受到的所有伤害 %d%%， 持续 %d 回合。
 同时除去对应类型的越层效果。]], "tformat")
 t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%; 解除 %s; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Primal", "纹身：原初", "talent name")
@@ -25991,7 +25991,7 @@ t("power %d; resist %d%%; move %d%%; dur %d; cd %d", "强度 %d; 抗性 %d%%; �
 t("Rune: Stormshield", "符文：风暴护盾", "talent name")
 t([[Activate the rune to summon a protective storm around you for %d turns.
 			While active the storm will completely block all damage over %d up to %d times.]], [[启动这个符文，在你的身边召唤一团保护性的风暴，持续 %d 回合。
-			当符文生效时，风暴可以抵挡不低于 %d 的任何伤害最多 %d 次。]], "tformat")
+			当符文生效时，风暴可以完全抵挡不低于 %d 点的伤害，最多 %d 次。]], "tformat")
 t("threshold %d; blocks %d; dur %d; cd %d", "阈值 %d; 次数 %d; 持续 %d; 冷却 %d", "tformat")
 t("Rune: Prismatic", "符文：棱彩", "talent name")
 t("Activate the rune to create a shield for %d turns blocking several instances of damage of the following types:%s", "激活符文展开一个护盾，在 %d 回合内，按次数抵挡以下类型的伤害 : %s", "tformat")
@@ -27536,7 +27536,7 @@ t("terror", "暗夜恐魔", "_t")
 t("A formless terror that seems to cut through the air, and its victims, like a knife.", "这只形态模糊的恐魔仿佛利刃，划破空气，也划开它的猎物。", "_t")
 t("Night Terror", "暗夜恐魔", "_t")
 t([[Increases your damage and resistance penetration on sleeping targets by %d%%.  Additionally, every time you slay a sleeping target, a Night Terror will be summoned for %d turns.
-		The Night Terror's stats will scale with your Mindpower, as will the damage bonus to sleeping targets.]], [[增加 %d%% 你对睡眠状态目标的伤害和抗性穿透效果。另外每当你杀死一个睡眠状态的目标，就会召唤出一只持续 %d 回合的暗夜恐魔。
+		The Night Terror's stats will scale with your Mindpower, as will the damage bonus to sleeping targets.]], [[你对睡眠状态目标造成的伤害和抗性穿透提高 %d%%。 另外每当你杀死一个睡眠状态的目标，就会召唤出一只持续 %d 回合的暗夜恐魔。
 		受精神强度影响，伤害按比例加成；暗夜恐魔的强度随你的等级提升。]], "tformat")
 
 ------------------------------------------------
@@ -31277,7 +31277,7 @@ t([[Surround yourself with an elemental aura that stores damage you deal.
 		Each effect can only happen once per 10 player turns.  This does not count as a typical cooldown.
 		The damage and some effect powers increase with your Cunning and the threshold with your level.
 		%s]], [[你被元素光环笼罩，存储你造成的伤害。
-		当你积累的某类伤害达到 %d 时，你会向一个随机的敌人发射一次强力的爆炸，造成 %d 的该类型伤害，爆炸半径 %d 格，并使你获得以下效果之一：
+		当你积累的某类伤害达到 %d 时，你会对一名随机敌人释放一次强力爆炸，造成 %d 点该类型伤害，爆炸半径 %d 格，并使你获得以下效果之一：
 
 		物理：		清除 1 个物理负面特效并给予 2 回合物理负面状态免疫。
 		#PURPLE#奥术：#LAST#		增加你的精神和施法速度 30%%，持续 3 回合。
@@ -31588,7 +31588,7 @@ t([[You deal a massive blow to your foe, smashing it for 350%% weapon damage, kn
 t("Massive Blow", "巨力重击", "talent name")
 t("Have dug at least 30 walls/trees/etc. and have dealt over 50000 damage with two-handed weapons", "曾挖掉至少 30 块石头/树木/等等，并且使用双手武器造成超过 50000 点伤害", "_t")
 t([[You deal a massive blow to your foe, smashing it for 150%% weapon damage and knocking it back 4 tiles (ignoring knockback resistance or physical save).
-		If the knockback makes it hit a wall, it will smash down the wall, deal an additional 350%% weapon damage and apply the Counterstrike effect.]], [[对敌人进行一次猛击，造成 150%% 的武器伤害并击退目标 4 格。（无视击退免疫和物理豁免）攻击命中时会对目标附加被反击特效。
+		If the knockback makes it hit a wall, it will smash down the wall, deal an additional 350%% weapon damage and apply the Counterstrike effect.]], [[对敌人进行一次猛击，造成 150%% 的武器伤害并击退目标 4 格（无视击退免疫和物理豁免）；攻击命中时还会对目标附加被反击特效。
 		如果敌人在击退时撞上墙壁，墙壁会被撞毁且对敌人造成额外的 350%% 武器伤害。]], "tformat")
 t("Steamroller", "压路机", "talent name")
 t("Know the Rush talent", "习得冲锋技能", "_t")
@@ -36417,7 +36417,7 @@ t("#Target# has returned fully to the timeline.", "#Target#完全返回了时间
 t("-Fade From Time", "-淡出时间", "_t")
 t("darkness", "暗影", "effect subtype")
 t("Shadow Veil", "暗影面纱", "_t")
-t("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character.", "你融入暗影并被其支配，当你笼罩在阴影里时你对所有负面状态（「其他」类除外）免疫，并减少 %d%% 所受伤害，每回合你会闪现到半径 %d 内的 1 个附近敌人身边，对其造成 %d%% 暗影武器伤害。当此技能激活时除非死亡否则无法被打断，且你无法控制你的角色。", "tformat")
+t("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character.", "你融入暗影并被其支配。笼罩在阴影中时，你对所有负面状态（「其他」类除外）免疫，并减少 %d%% 所受伤害；每回合你会闪现到半径 %d 内的一个敌人身边，对其造成 %d%% 暗影武器伤害。此技能激活期间，除非死亡，否则你无法被打断，且你无法控制你的角色。", "tformat")
 t("#Target# is covered in a veil of shadows!", "#Target#笼罩在暗影之中！", "_t")
 t("+Assail", "+暗影笼罩", "_t")
 t("#Target# is no longer covered by shadows.", "#Target#不再被暗影笼罩。", "_t")

@@ -2773,7 +2773,7 @@ t([[For a brief moment horrific hairs grow on your head, each of them ending wit
 		Brittle targets have a 35%% chance for any damage they take to be increased by %d%%.
 		This cannot be saved against.
 		]], [[短时间内你的头上生长出恐怖的头发，每根头发的末梢长着一只令人毛骨悚然的眼睛。
-		你用这些眼睛凝视目标区域，部分石化范围内目标，降低其 %d%% 移速并使其处于 7 回合的脆弱状态。
+		你用这些眼睛凝视目标区域，使范围内的目标部分石化，降低其 %d%% 移速并使其处于 7 回合的脆弱状态。
 		脆弱状态的目标每次受到伤害时有 35%% 几率使该次伤害变为原来的 %d%%。
 		该效果不能被豁免。
 		]], "tformat")
@@ -2819,12 +2819,12 @@ t("None", "无", "_t")
 t("You speak a chosen prophecy to the masses. When applying this prophecy, it will spread to all targets in radius %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[你隆重地宣读某种预言，令其在目标周围 %d 格内传播。
 		同一种预言只能被隆重演说、双重诅咒或天启中的一种强化。
 
-		当前预言 : %s]], "tformat")
+		当前预言：%s]], "tformat")
 t("Twofold Curse", "双重诅咒", "talent name")
 t("Weave your chosen prophecy into your speech, dooming your foe twice over. The chosen prophecy will apply instantly to your primary target whenever you cast any other prophecy at talent level %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[将你选择的预言融入言辞，令敌人双重受咒。每当你施加其他预言时，你选择的预言将同时施加给主要目标 (技能等级 %d)。
 		同一种预言只能被隆重演说、双重诅咒或天启中的一种强化。
 
-		当前预言 : %s]], "tformat")
+		当前预言：%s]], "tformat")
 t("Revelation", "天启", "talent name")
 t("As you speak the chosen prophecy whispers from the void guide you in how to bring about the downfall of your foe. The chosen prophecy will grant one of the following effects.\n\t\tProphecy of Madness. Each time the target uses a talent one of your talents on cooldown has its cooldown reduced by %d turns.\n\t\tProphecy of Ruin. Each time the target takes damage you are healed for %d%% of the damage dealt.\n\t\tProphecy of Treason: %d%% of all damage you take is redirected to a random target affected by Prophecy of Treason.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\n\t\tCurrent prophecy: %s", [[当你宣读预言时，来自虚空的回响将指引你带来敌人的末日。你选择的预言将提供以下三种加成之一。
 		疯狂预言：每次目标使用技能时，你的一个正在冷却中的技能将减少 %d 回合冷却时间。
@@ -2832,7 +2832,7 @@ t("As you speak the chosen prophecy whispers from the void guide you in how to b
 		背叛预言：你受到的 %d%% 伤害将转移至周围随机受背叛预言影响的目标。
 		同一种预言只能被隆重演说、双重诅咒或天启中的一种强化。
 
-		当前预言 : %s]], "tformat")
+		当前预言：%s]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/entropy.lua"
