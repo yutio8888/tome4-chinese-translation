@@ -1,0 +1,17 @@
+{
+ "confirmed": [
+  {
+   "id": "462e8d702c56",
+   "edit": "来自西方的天灾 → 西方天灾到来",
+   "evidence": "terminology/society.tsv:34 Scourge from the West=西方天灾 (preferred); same batch MainMenu intro uses 西方天灾; source tome-orcs/data/birth/races/orc.lua:28 (DLC unpinned). Lane A."
+  },
+  {
+   "id": "f9e9e4c6d70e",
+   "edit": "每次触手攻击时，获得 %d 疯狂值。 → 触手攻击非友方目标时获得 %d 疯狂值，每回合至多一次。",
+   "evidence": "tome-cults/superload/mod/class/interface/Combat.lua:52-54 (DLC unpinned): incInsanity only when reactionToward(target) <= 0 and not turn_procs.tentacle_insanity_gain, then sets the flag; upstream text differs from implementation, rewritten per user 2026-11-02 rule. Lane B."
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "0319 reviews the 61 units changed by the 2026-11-04 live game test fixes (maintenance 0318). A 1 ISSUE, B 1 ISSUE (different units), both confirmed."
+}
