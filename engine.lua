@@ -1315,7 +1315,7 @@ t("didn't move", "没有移动", "_t")
 t("trap spotted", "发现陷阱", "_t")
 t("terrain change on the left", "左侧地形变化", "_t")
 t("terrain change on the right", "右侧地形变化", "_t")
-t("at %s", "在 %s", "tformat")
+t("at %s", "到达%s", "tformat")
 t("Ran for %d turns (stop reason: %s).", "奔跑了%d回合（中断原因：%s）。", "log")
 
 ------------------------------------------------
