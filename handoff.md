@@ -28,11 +28,16 @@ Exhaustion＝力竭、Parry＝招架、Summon＝召唤、Archmage＝元素法师
 用法见流程文档「驱动脚本」一节；须导出自己的 `PASEO_AGENT_ID` 与 `TOME_PASEO_WORKSPACE`。若译文再有改动，
 `lite_review.py status` 会把改过的单元列为待审，按普通批次 `prepare N` → `lite_dispatch.sh N` → 裁决 → `lite_close.sh` 处理。
 
+**2026-11-04 实机测试。** 官方 1.7.6＋汉化 0.3.7＋三 DLC 在 `~/tome-live`（Xvfb，见记忆 live-game-test-env）由三个测试员实测，67 条发现，处置见
+[`evidence/quality/live-test-20261104/`](evidence/quality/live-test-20261104/REPORT.md)；修复提交 `aa29cbd12`（含 publish 把 engine 差异条目写进插件、
+%-8.8s 放行、不休狂热、快枪手）。发布仓库本地已生成 0.3.8 候选（13,439 条，未提交未推送；含 null_translation.lua 删 21 条遮蔽项），
+候选包复测 6 过 1 部分 1 未触发。改动的 61 个单元待 A/B 复审。
+
 **待用户决定／未完成：**
 
 1. 最终分母冻结、补充行分类与最终候选的游戏场景验收（`evidence/full-review/release-20261013/m0/SCENARIOS.json`）。
 2. 0.3.7 已于 2026-11-03 按用户指示发布（发布仓库 `d98780e`，由 `9fe51e84` 构建，13,242 条＝核心 7,781＋DLC 5,461），GitHub Release `v0.3.7` 已回下载核验，凭据 [`evidence/releases/addon-0.3.7.json`](evidence/releases/addon-0.3.7.json)。
-3. 0168：CharacterSheet `%-8.8s` 按字节截断中文资源名出乱码；改 `%s` 会被 strict format-shape-difference 拦截，需授权校验器放行。
+3. 0168 已于 2026-11-04 实机测试中修复（policy 逐条放行）。另待决：17 条硬编码英文需插件 superload（H.Key、按键分组、成就分类、对话头像名等），是否发布 0.3.8。
 4. 无法在译文修正的上游问题（advisory）：Taint: Telepathy 持续回合写死 5、坍缩显示值为实际一半、防御投掷两处伤害实为同值、
    石化凝视实为震慑、暮光回响 action 不返回 true（疑似不进冷却）等，清单在 0241／0252／0253 的 maintenance 或 decision。
 5. 残留行／死键候选（最终分母时处理）：0031 TooltipsData 旧键、0236 tome-orcs.lua DebugMain 旧 lore 副本；0036 超强七彩龙实体名待复核（拉克·肖译名已全库一致，无需再对齐）。
