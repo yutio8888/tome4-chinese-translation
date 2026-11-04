@@ -1,0 +1,121 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "652dfa390e1b",
+   "verdict": "OK"
+  },
+  {
+   "id": "0544ce0402bd",
+   "verdict": "OK"
+  },
+  {
+   "id": "0bcfc9bab7e3",
+   "verdict": "ISSUE",
+   "observation": "征服挽歌未说明暴击与击杀的行动时间奖励各自每回合最多触发一次，容易理解为每次暴击或击杀都能获得奖励。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/celestial/dirge.lua:103-117 分别用 fallen_conquest_on_crit 和 fallen_conquest_on_kill 限制每回合触发一次。",
+   "suggestion": "即便如今，仍有什么驱使着你歌唱。\n\t\t\t饥荒挽歌：增加生命回复 %d。\n\t\t\t征服挽歌：暴击时获得 10%% 回合的行动时间，杀死敌人时获得 %d%% 回合的行动时间；两种奖励各自每回合最多触发一次。\n\t\t\t瘟疫挽歌：你受到非自身施加、且不属于“其他”类型的负面效果时获得 %d 的护盾（5 回合冷却）。\n\t\t\t你同时只能激活一种挽歌。"
+  },
+  {
+   "id": "ee1e2617e575",
+   "verdict": "OK"
+  },
+  {
+   "id": "310427036df7",
+   "verdict": "OK"
+  },
+  {
+   "id": "d31c2a3adb69",
+   "verdict": "OK"
+  },
+  {
+   "id": "6b0eb341899a",
+   "verdict": "OK"
+  },
+  {
+   "id": "e7b56ce4f7de",
+   "verdict": "OK"
+  },
+  {
+   "id": "0f6d3eb3dc9f",
+   "verdict": "OK"
+  },
+  {
+   "id": "7637d078be9b",
+   "verdict": "OK"
+  },
+  {
+   "id": "883875aa41f6",
+   "verdict": "OK"
+  },
+  {
+   "id": "58a7a2ab91ec",
+   "verdict": "OK"
+  },
+  {
+   "id": "725dee21625e",
+   "verdict": "OK"
+  },
+  {
+   "id": "44c22cd26a20",
+   "verdict": "OK"
+  },
+  {
+   "id": "aabcd1bb7bf9",
+   "verdict": "ISSUE",
+   "observation": "恶魔恢复生命的数值单位有误：译文写成 %d%% 生命值，实际为 %d 点基础治疗量。公开 DLC 检出（来源未固定）/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua:605 定义 getHeal 为约 10 至 30 的数值，updateSeed 在 :466-467 直接调用 demon:heal(t:_getHeal(self), self)，没有乘以最大生命值。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/engines/default/engine/interface/ActorLife.lua:56-58 将 heal 参数作为生命点数相加。英文自身也误写了百分比，但实际机制应以源码为准。",
+   "suggestion": "用武器打击目标，造成 %d%% 枯萎伤害。\n\t\t如果攻击命中，一颗恶魔种子会尝试在敌人体内扎根；随后你用盾牌猛击目标，造成 %d%% 伤害并使其眩晕 %d 回合。\n\t\t\n\t\t种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。\n\t\t种子扎根的几率取决于生物的级别：\n\t\t%s普通生物#LAST#:  5%%\n\t\t%s精英生物#LAST#:  20%%\n\t\t%s稀有#LAST#或%s史诗生物#LAST#:  50%%\n\t\t%sBoss#LAST#:  100%%\n\t\t当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。\n\t\t如果你的背包或装备中已有一颗恶魔种类与装备部位都相同的种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d 点生命值，若已死亡则会复活。\n\n\t\t技能等级越高，可获得的恶魔种类越强大。\n\t\t如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。"
+  },
+  {
+   "id": "f3cc677a6ad8",
+   "verdict": "OK"
+  },
+  {
+   "id": "4a01abb4a933",
+   "verdict": "OK"
+  },
+  {
+   "id": "834c67d10e66",
+   "verdict": "OK"
+  },
+  {
+   "id": "6a2312c7bf30",
+   "verdict": "OK"
+  },
+  {
+   "id": "d22031492563",
+   "verdict": "OK"
+  },
+  {
+   "id": "c29a62773d56",
+   "verdict": "OK"
+  },
+  {
+   "id": "46f2797e4ff9",
+   "verdict": "OK"
+  },
+  {
+   "id": "7aecd1c6efd1",
+   "verdict": "OK"
+  },
+  {
+   "id": "05762c670563",
+   "verdict": "OK"
+  },
+  {
+   "id": "1962e198d5aa",
+   "verdict": "OK"
+  },
+  {
+   "id": "9bfe43177991",
+   "verdict": "OK"
+  },
+  {
+   "id": "52b664c93fc6",
+   "verdict": "OK"
+  },
+  {
+   "id": "9d5b88674f8d",
+   "verdict": "OK"
+  }
+ ]
+}

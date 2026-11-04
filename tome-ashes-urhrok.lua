@@ -950,8 +950,8 @@ t([[For every turn where you take damage you have a %d%% chance to store a seism
 		You can activate this spell to consume the charges, spawning a raging volcano that lasts for 2 turns per charges.
 		Each turn the volcano spews 2 flaming boulders that deal %0.2f fire and %0.2f physical damage.
 		The charges quickly fade when outside of combat.
-		The damage increases with your spellpower.]], [[每次受到伤害时，你有 %d%% 的几率存储一次地震能量，每回合至多存储一次。
-		你可以主动使用这一技能，释放地震充能，召唤出一座火山，每层充能持续 2 回合。
+		The damage increases with your spellpower.]], [[每次受到伤害时，你有 %d%% 的几率存储一层地震充能，每回合至多存储一层。
+		你可以主动使用这一技能，消耗所有地震充能，召唤出一座火山，每层充能使火山持续 2 回合。
 		每个回合，火山会喷出 2 块熔岩巨岩，造成 %0.2f 火焰和 %0.2f 物理伤害。
 		充能会在战斗外快速消退。
 		伤害受法术强度加成。]], "tformat")
@@ -991,7 +991,7 @@ t([[Strike a blow with your weapon for %d%% blight damage.
 		If you already have a seed of the same time in your inventory or equipment it will instead increase its level if the host was of higher level than the seed and the demon inside will regenerate %d%% health and resurrect if it was dead.
 
 		Higher talent levels allow for more powerful demon types.
-		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], "用武器打击目标，造成 %d%% 枯萎伤害。\n\t\t如果攻击命中，一颗恶魔种子会尝试在敌人体内扎根；随后你用盾牌猛击目标，造成 %d%% 伤害并使其眩晕 %d 回合。\n\t\t\n\t\t种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。\n\t\t种子扎根的几率取决于生物的级别：\n\t\t%s普通生物#LAST#:  5%%\n\t\t%s精英生物#LAST#:  20%%\n\t\t%s稀有#LAST#或%s史诗生物#LAST#:  50%%\n\t\t%sBoss#LAST#:  100%%\n\t\t当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。\n\t\t如果你的背包或装备中已有一颗恶魔种类与装备部位都相同的种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d%% 生命值，若已死亡则会复活。\n\n\t\t技能等级越高，可获得的恶魔种类越强大。\n\t\t如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。", "tformat")
+		Implanting a seed into unique demons, if successful, will always try to grant a seed of that type, if available.]], "用武器打击目标，造成 %d%% 枯萎伤害。\n\t\t如果攻击命中，一颗恶魔种子会尝试在敌人体内扎根；随后你用盾牌猛击目标，造成 %d%% 伤害并使其眩晕 %d 回合。\n\t\t\n\t\t种子需要足够强大的宿主来成长，它只能寄生在值得获取经验值的生物体内，不能寄生在被召唤的恶魔体内。\n\t\t种子扎根的几率取决于生物的级别：\n\t\t%s普通生物#LAST#:  5%%\n\t\t%s精英生物#LAST#:  20%%\n\t\t%s稀有#LAST#或%s史诗生物#LAST#:  50%%\n\t\t%sBoss#LAST#:  100%%\n\t\t当宿主死亡时，种子将吸收宿主的活力，成长为一个特定的恶魔种子，能用于召唤恶魔。\n\t\t如果你的背包或装备中已有一颗恶魔种类与装备部位都相同的种子，则不会获得新种子，仅在宿主等级高于现有种子时提升其等级；同时，其中的恶魔会恢复 %d 点生命值，若已死亡则会复活。\n\n\t\t技能等级越高，可获得的恶魔种类越强大。\n\t\t如果成功将种子植入恶魔体内，总会尝试给予与该恶魔同类型的种子（若有）。", "tformat")
 t("Bind Demon", "恶魔结合", "talent name")
 t("Summon demon", "召唤恶魔", "_t")
 t("Which seed to use:", "使用哪个恶魔种子：", "_t")

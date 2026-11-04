@@ -1,0 +1,10 @@
+{
+ "confirmed": [
+  {"id": "44c22cd26a20", "edit": "存储一次地震能量/释放地震充能/每层充能持续 2 回合 → 存储一层地震充能/消耗所有地震充能/每层充能使火山持续 2 回合", "evidence": "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua:1323 _makeVolcano(self, self.x, self.y, eff.stacks * 2) (DLC unpinned): duration is stacks x 2; charges are stacks. Lane A."},
+  {"id": "0bcfc9bab7e3", "edit": "征服挽歌 adds 两种奖励各自每回合最多触发一次", "evidence": "624a67329fe2 game/modules/tome/data/talents/celestial/dirge.lua:103-117 turn_procs.fallen_conquest_on_crit / on_kill gate each once per turn. Lane B."},
+  {"id": "aabcd1bb7bf9", "edit": "恢复 %d%% 生命值 → 恢复 %d 点生命值", "evidence": "tome-ashes-urhrok/data/talents/corruptions/demonic-pact.lua:605 getHeal = floor(combatTalentScale(t,10,30)), :467 demon:heal(t:_getHeal(self)) flat points (DLC unpinned); English says %% but implementation is flat. Lane B."}
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "Blind review of the 28 units from maintenance 0323. A 1 ISSUE, B 2 ISSUE; all confirmed. Host read-through with placeholders substituted."
+}
