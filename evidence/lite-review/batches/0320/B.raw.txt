@@ -1,0 +1,16 @@
+{
+  "batch": "0320",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "f9e9e4c6d70e",
+      "verdict": "ISSUE",
+      "observation": "“触手攻击非友方目标时获得 %d 疯狂值”把该收益泛化到了所有触手攻击。公开 DLC 检出（来源未固定）cults/tome-cults/superload/mod/class/interface/Combat.lua:32-55 将这笔疯狂值限定在非触手武器攻击触发触手追加攻击的分支，并按主目标 reactionToward <= 0 判断，每回合一次。主动触手攻击并不通用地获得该数值：cults/tome-cults/data/talents/demented/tentacles.lua:96-97、118、131、151-152 的 Lash Out 使用独立的命中收益（触手部分为 5），而 Mutated Hand 的 getInsanityBonus 在同文件:38 为 10。应明确这里是武器触发的触手追加攻击收益。",
+      "suggestion": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，当使用普通攻击，触手会自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t武器攻击非友方主目标并触发触手追加攻击时，获得 %d 疯狂值，每回合至多一次。\n\t\t附近有#{italic}#“文明人”#{normal}#时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s"
+    },
+    {
+      "id": "462e8d702c56",
+      "verdict": "OK"
+    }
+  ]
+}

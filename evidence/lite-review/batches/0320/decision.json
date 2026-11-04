@@ -1,0 +1,12 @@
+{
+ "confirmed": [
+  {
+   "id": "f9e9e4c6d70e",
+   "edit": "触手攻击非友方目标时获得 → 触手自动追加攻击时（主目标非友方），获得",
+   "evidence": "tome-cults/superload/mod/class/interface/Combat.lua:31-55 (DLC unpinned): the bonus is in the branch where a non-tentacle weapon attack triggers the tentacle follow-up (weapon.talented ~= 'tentacles'), main target reactionToward <= 0, once per turn; Lash Out has separate gains (tentacles.lua:96-97, 151-152). Lane B; refines the 0319 rewrite."
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "A no ISSUE; B 1 ISSUE confirmed (scope of the 0319 rewrite)."
+}
