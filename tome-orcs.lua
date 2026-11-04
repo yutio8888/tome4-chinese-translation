@@ -7873,7 +7873,7 @@ They must be stopped at any cost, if Kruk falls the Orc race dies with it.
 
 You grabbed a bomb from the stocks and now you must enter the tunnel and detonate it on a weak spot to make it crumble.
 For the orcs, for Garkul's legacy !
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#。
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#。
 你是骄傲但逐渐凋零的兽人一族的成员。
 
 在历史的长河中，你的种族遭其他种族憎恨、猎捕和无情屠戮。你的种族也曾犯下许多暴行，造成无数破坏。

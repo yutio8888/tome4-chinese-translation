@@ -1090,7 +1090,7 @@ t("died", "死亡", "_t")
 t("suffocating", "窒息", "_t")
 t("chat started", "开始聊天", "_t")
 t("%s available", "%s可用", "tformat")
-t("#00ff00#%sTalent %s is ready to use.", "#00ff00#%s技能 %s 已经可以使用。", "log")
+t("#00ff00#%sTalent %s is ready to use.", "#00ff00#%s技能%s已经可以使用了。", "log")
 t("Automatic use of talent %s #DARK_RED#skipped#LAST#: cooldown too low (%d).", "%s 的自动施法被#DARK_RED#跳过#LAST#了：冷却时间太低(%d)。", "logPlayer")
 t("dialog is displayed", "有开启的对话框", "_t")
 t("hostile spotted to the %s (%s%s)", "在%s有敌对目标（%s%s）", "tformat")
@@ -3214,7 +3214,7 @@ t("Use it if you feel uneasy tackling the harder modes.", "其他难度游戏困
 t("All damage done to the player decreased by 30%", "角色所受所有伤害减少 30%", "_t")
 t("All healing for the player increased by 30%", "角色所受所有治疗增加 30%", "_t")
 t("All detrimental status effects durations reduced by 50%", "所有负面状态持续时间减少 50%", "_t")
-t("Achievements are not granted.", "不能完成游戏成就。", "_t")
+t("Achievements are not granted.", "不会获得游戏成就。", "_t")
 t("Normal", "普通", "birth descriptor name")
 t("#GOLD##{bold}#Normal mode#WHITE##{normal}#", "#GOLD##{bold}#普通难度#WHITE##{normal}#", "_t")
 t("Provides the normal level of challenges.", "普通难度的挑战。", "_t")
@@ -31905,7 +31905,7 @@ You want to see the world, maybe even help in what ways you can.
 
 But for now Angolwen still needs you. The Abashed Expanse, a part of Eyal that was torn apart and thrown into the void during the Spellblaze, is quickly becoming unstable.
 You have been tasked to investigate and fix the problem.
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你是一个生活在仍然畏惧魔法的世界中的元素法师。两千多年来，安格利文的人们一直试图修复这个世界，但他们始终秘密行事。
 
 你在安格利文生活并受到训练，那里的很多人是你的朋友，但你不安于现在的生活。
@@ -31926,7 +31926,7 @@ the newcomer. He smirks, and starts looking at the other fighters with interest.
 Whoever defeats the Master of Arena will achieve utmost glory. 
 Determined to win, you draw your weapons and advance defiantly. 
 The public roars in anticipation....
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 当你往前走时，你听到外面传来越来越高的欢呼声。
 当你走入竞技场，灼热的阳光让你一时睁不开眼睛。
 你抬头往前看，与你的对手四目相对：竞技场主宰正小心翼翼地打量着这个新来的对手。
@@ -31970,7 +31970,7 @@ You have come to a land called the Derthfields on the western border of the Thal
 To the west lies another dangerous place: the old ruins of Kor'Pul. You heard the caves below it were infested by vermin and undead.
 
 After days of travel, you have found the forest and entered it. What will you find there...?
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你是联合王国北部地区的一个居民，那里是人类和半身人平静的家园。你来自于一个叫做德斯的小镇。
 人类是这片土地上最主要的种族，而你就是其中的一员。为了证明你的价值，你决定到野外那些古老的地方去冒险，寻找财富和荣耀。
 
@@ -31992,7 +31992,7 @@ Only you and Norgan, a fellow Dwarf berserker, have survived, but the orcs will 
 
 You have sworn that once you reach the Iron Council safely you will take on a life of adventure, looking for fame and treasures of old.
 Away from all those orcs....
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你是骄傲而神秘的矮人一族。
 你来自于钢铁王座的矮人帝国，被派去调查古老的瑞库纳堡垒，那里已被兽人占领。
 
@@ -32013,7 +32013,7 @@ Your Necromancer master has plans for you, but something is wrong: you seem to h
 Get rid of this evil mage and try to find a place in the world.
 
 You have been raised in a place called the Blighted Scar, on the northern border of the Shaloren lands. Escape this forsaken pit and try your luck in old forgotten places.
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你早已死去，但死亡没能阻止你。你被唤醒为一个亡灵食尸鬼。
 
 你的死灵法师主人对你另有安排，但出了点问题：你似乎保留了自由意志。
@@ -32036,7 +32036,7 @@ You have come to a land called the Derthfields on the western border of the Thal
 To the west lies another dangerous place: the old ruins of Kor'Pul. You heard the caves below it were infested by vermin and undead.
 
 After days of travel, you have found the forest and entered it. What will you find there...?
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你是来自德斯小镇的一个半身人。大多数人认为半身人是热爱和平的农民，从来不会离开他们的农庄。
 但历史证明，半身人也是不好对付的，他们仍然保留有强大的军队。
 你选择了一条异于常人的道路：成为一名冒险者，半身人很少选择这种寂寞的生活。
@@ -32059,7 +32059,7 @@ Not you. You want more; you need to prove your worth and make your own place in 
 You have come to a land called the Derthfields on the western border of the Thaloren forest, in search of the Trollmire. It is an old forest infested with trolls and all kinds of wild animals.
 To the west lies another dangerous place: the old ruins of Kor'Pul. You heard the caves below it were infested by vermin and undead.
 
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你是高等人类中的一员，这是人类中最强大、最受尊敬的血统。你的许多同类都在联合王国各大城市担任高级顾问。
 但你不是。你想要更多；你需要证明自己的价值，并在这个世界上找到属于自己的立足之地。你决定深入那些古老而荒野的地方，寻找古老的宝藏和荣耀。
 
@@ -32077,7 +32077,7 @@ Your life outside did not satisfy you, so you came here looking for adventure.
 While you know this is a one way trip, you hope to go in a blaze of glory!
 
 Go forth, venture into the depths of the dungeon and see how far you can get before the end.
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你来到了无尽地下城。
 外面的生活无法满足你，所以你到了这里寻求冒险。
 你很清楚，这是一条有去无回的道路，却希望能轰轰烈烈地结束这一生！
@@ -32099,7 +32099,7 @@ You have come to the north of the Shaloren capital city of Elvala, in search of 
 To the west lies another dangerous place: a camp of Rhaloren. They are renegade Shaloren who do not wish to restrict their magic usage. Stopping them would be good for the world in general, but especially for your Shaloren benefactors.
 
 After days of travel, you have found the caves and entered it. What will you find there...?
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#。
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#。
 你是一名食人魔，来自埃尔瓦拉。
 
 你的同族从未亏待过这个世界，你却要面对它的轻蔑和恐惧；若非永恒精灵表示同情并允许你的祖先在埃尔瓦拉避难，魔法狩猎本会将你的种族彻底灭绝。
@@ -32144,7 +32144,7 @@ You have come to the north of the Shaloren capital city of Elvala, in search of 
 To the west lies another dangerous place: a camp of Rhaloren. They are renegade Shaloren who do not wish to restrict their magic usage. Stopping them is good for both your race and your treasure hunt.
 
 After days of travel, you have found the caves and entered it. What will you find there...?
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你是一个永恒精灵，精灵种族中与魔法联系最紧密的一个亚种，你被人鄙视。
 虽然你的人民与其他王国和平相处，但许多人仍未忘记，正是你们的族人在数千年前引发了可怕的魔法大爆炸。
 
@@ -32166,7 +32166,7 @@ Your Necromancer master has plans for you, but something is wrong: you seem to h
 Get rid of this evil mage and try to find a place in the world.
 
 You have been raised in a place called the Blighted Scar, on the northern border of the Shaloren lands. Escape this forsaken pit and try your luck in old forgotten places.
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你早已死去，但死亡没能阻止你。你被唤醒为一个亡灵骷髅。
 
 你的死灵法师主人对你另有安排，但出了点问题：你似乎保留了自由意志。
@@ -32184,7 +32184,7 @@ You are a citizen of the Sunwall, and like many of your age you have been traine
 Nagas have been sighted in the Slazish Fens on the other side of the Sunwall Mountains. Their objective is unclear, but an assault from both sides would be truly devastating at such a pivotal time for your people. Though there are few forces to spare on the front line against the Prides, you have volunteered to investigate the naga threat and stop them if need be.
 
 By the power of the Sun and the blessings of the Moons you step forth to find your fate.
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你是太阳堡垒的成员，和许多同龄人一样，你受过战斗与魔法训练。这是一段残酷的生活，你有时梦想去遥远的土地冒险，但你也知道你的使命是帮助抵御兽人部落凶猛的攻势、保卫前哨站。但现在，高阶太阳骑士艾琳告诉了你一个新的威胁。
 
 在太阳堡垒群山的另一边斯拉伊什沼泽发现了娜迦的踪迹。他们的目的还未查明，但在这个对你的人民至关重要的时刻，如果同时受到两边夹击，后果将是毁灭性的。但是已经很难从前线对付兽人部落的部队里抽调人员了，你自愿前去调查娜迦的威胁，如有必要就阻止他们。
@@ -32206,7 +32206,7 @@ You have come to the western side of the Thaloren forest, to the lair of Norgos.
 To the east of Shatur, the Thaloren Capital, lies a dark part of the woods. Ever since the Spellblaze this area has been corrupted. The wildlife there has been transformed.
 
 After days of travel, you have found Norgos' Lair and entered it. What will you find there...?
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你是一个自然精灵，精灵族中与大自然最亲近的亚种。你的人民在森林中生活了几千年，几乎从不与外面的世界发生联系。
 但是当他们的家园受到威胁时，自然精灵们会证明他们是令人生畏的战士。
 你在森林深处宁静地生活了许多年，但近来你变得有些不安分，想接触外面的世界。
@@ -32268,7 +32268,7 @@ All Yeeks follow the Way, which is both a global psionic link that unifies the w
 Your whole life is dedicated to serving the Yeek race. You feel compelled by the Way to protect your race at all costs - even your own life.
 
 You have been tasked to vanquish Murgol, an abomination from the deeps, and to clear the ritch tunnels before their blight spreads to the whole island.
-]], [[欢迎你 #LIGHT_GREEN#@name@#WHITE#！
+]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
 你是来自伊尔克的夺心魔维网信徒。
 所有夺心魔都遵循维网；维网既是将整个夺心魔族联系在一起的全球灵能链接，也是一种生活方式。
 你的一生都奉献给了夺心魔族。维网驱使你不惜一切代价保护族群，甚至牺牲自己的生命。
