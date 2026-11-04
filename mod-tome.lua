@@ -32145,7 +32145,7 @@ To the west lies another dangerous place: a camp of Rhaloren. They are renegade 
 
 After days of travel, you have found the caves and entered it. What will you find there...?
 ]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
-你是一个永恒精灵，精灵种族中与魔法联系最紧密的一个亚种，你被人鄙视。
+你出身于永恒精灵一族，这是精灵种族中与魔法联系最紧密的一支，而你们为人所鄙视。
 虽然你的人民与其他王国和平相处，但许多人仍未忘记，正是你们的族人在数千年前引发了可怕的魔法大爆炸。
 
 你决定前往那些古老而荒僻的地方，寻找古老的宝藏和荣耀。
@@ -32207,7 +32207,7 @@ To the east of Shatur, the Thaloren Capital, lies a dark part of the woods. Ever
 
 After days of travel, you have found Norgos' Lair and entered it. What will you find there...?
 ]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#！
-你是一个自然精灵，精灵族中与大自然最亲近的亚种。你的人民在森林中生活了几千年，很少参与外界事务。
+你出身于自然精灵一族，这是精灵族中与大自然最亲近的一支。你的人民在森林中生活了几千年，很少参与外界事务。
 但是当他们的家园受到威胁时，自然精灵们会证明他们是令人生畏的战士。
 你在森林深处宁静地生活了许多年，但近来你变得有些不安分，想接触外面的世界。
 
