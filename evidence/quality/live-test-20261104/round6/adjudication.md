@@ -1,0 +1,2 @@
+r6-opus (Opus 5.5, halfling Anorithil, 2026-11-05 03:35–07:40 incl. 1 wake; level 8, Kor'Pul cleared, Heart of the Gloom 2)
+All 13 confirmed. 03 (args-order residue) fixed by host with explicit {1,2} on the only 3 affected entries (full scan of 68 official non-identity orders). 08 fixed only for the 7 named "%s is knocked back!" entries; the remaining ~63 logSeen "%s " leading-space entries need a user decision for a cross-batch sweep.

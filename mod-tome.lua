@@ -740,7 +740,7 @@ t("%d%% %s", "%d%%%s", "tformat")
 t("Power: %3d%% (%s)  Range: %.1fx (%s)", "威力：%3d%% (%s)  浮动：%.1fx (%s)", "tformat")
 t("Power: %3d%%  Range: %.1fx", "威力：%3d%%  浮动：%.1fx", "tformat")
 t("Base power: %.1f - %.1f", "基础伤害：%.1f-%.1f", "tformat")
-t("Uses %s: %s", "使用%s: %s", "tformat")
+t("Uses %s: %s", "使用%s：%s", "tformat")
 t("stats", "属性", "_t")
 t("stat", "属性", "_t")
 t("Damage type: ", "伤害类型：", "_t")
@@ -840,7 +840,7 @@ t("Talents", "技能", "_t")
 t("Talent", "技能", "_t")
 t("turns", "回合", "_t")
 t("turn", "回合", "_t")
-t("%s granted: ", "获得%s: ", "tformat")
+t("%s granted: ", "获得%s：", "tformat")
 t("Allows you to breathe in: ", "可以在以下环境呼吸：", "_t")
 t("Critical mult.: ", "暴击伤害加成：", "_t")
 t("Reduces incoming crit damage: ", "降低受到的暴击伤害：", "_t")
@@ -961,7 +961,7 @@ t("Allows you to speak and read the old Sher'Tul language.", "让你学会古老
 t("When used to modify unarmed attacks:", "当用于徒手攻击时：", "_t")
 t("Learn an unarmed attack talent or enable 'Always show glove combat' to see combat stats.", "学习徒手攻击技能，或者开启 '强制显示手套战斗数据' 选项来查看战斗数据。", "_t")
 t("When used to attack (with talents):", "使用技能攻击时：", "_t")
-t("Learn shield attack talent or enable 'Always show shield combat' to see combat stats.", "学习盾牌攻击技能，或者开启 '强制显示盾牌战斗数据' 选项来查看战斗数据。", "_t")
+t("Learn shield attack talent or enable 'Always show shield combat' to see combat stats.", "学习盾牌攻击技能，或开启“强制显示盾牌战斗数据”选项来查看战斗数据。", "_t")
 t("It is immune to teleportation, if you teleport it will fall on the ground.", "此物品无法传送，传送时会自动掉落。", "_t")
 t("When wielded/worn:", "当使用或装备时：", "_t")
 t("Skullcracker multiplicator: ", "铁头功加成：", "_t")
@@ -1005,7 +1005,7 @@ t("It can be used to %s.", "它可以用于%s。", "tformat")
 t("Power cost: ", "能量消耗：", "_t")
 t("%d out of %d/%d.", "%d（当前 %d/%d）。", "tformat")
 t("It can be used to activate talent %s, placing all other charms into a %s cooldown :", "它可以用于触发技能%s，将所有其他护符置入%s回合冷却：", "tformat")
-t("It can be used to activate talent %s (costing %s power out of %s/%s) :", "它可以用于触发技能%s (消耗%s能量，总计%s/%s)：", "tformat")
+t("It can be used to activate talent %s (costing %s power out of %s/%s) :", "它可以用于触发技能%s（消耗 %s 能量，当前 %s/%s）：", "tformat")
 t("When used:", "当使用时：", "_t")
 t("%s%% chance to %s", "%s%% 几率触发 %s", "tformat")
 t("Newly picked up", "最近拾取", "_t")
@@ -3332,7 +3332,7 @@ t("Skin", "皮肤", "birth facial category")
 t("Hairs", "发型", "birth facial category")
 t("Facial features", "脸部特征", "birth facial category")
 t("Special", "特殊", "birth facial category")
-t("They possess the #GOLD#Resilience of the Dwarves#WHITE# which allows them to increase their armour, physical and spell saves for a few turns.", "他们天生掌握 #GOLD#钢筋铁骨#WHITE#，允许他们在短时间内提高护甲、物理豁免和法术豁免。", "_t")
+t("They possess the #GOLD#Resilience of the Dwarves#WHITE# which allows them to increase their armour, physical and spell saves for a few turns.", "他们天生掌握#GOLD#钢筋铁骨#WHITE#，允许他们在短时间内提高护甲、物理豁免和法术豁免。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +4 Strength, -2 Dexterity, +3 Constitution", "#LIGHT_BLUE# * +4 力量，-2 敏捷，+3 体质", "_t")
 t("#LIGHT_BLUE# * -2 Magic, +3 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔力，+3 意志，+0 灵巧", "_t")
@@ -3460,7 +3460,7 @@ t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Shalore", "永恒精灵", "birth descriptor name")
 t("Shaloren elves have close ties with the magic of the world, and produced in the past many great mages.", "永恒精灵与这个世界的魔法有着很强的联系，曾一度出现过许多伟大的魔法师。", "_t")
 t("Yet they remain quiet and try to hide their magic from the world, for they remember too well the Spellblaze - and the Spellhunt that followed.", "尽管如此，他们仍保持低调，试图向世人隐藏自己的魔法，因为他们对魔法大爆炸及随后发生的魔法狩猎仍记忆犹新。", "_t")
-t("They possess the #GOLD#Grace of the Eternals#WHITE# talent which allows them a boost of speed every once in a while.", "他们天生掌握 #GOLD#不朽的恩赐#WHITE#，允许他们每隔一段时间获得一次速度提升。", "_t")
+t("They possess the #GOLD#Grace of the Eternals#WHITE# talent which allows them a boost of speed every once in a while.", "他们天生掌握#GOLD#不朽的恩赐#WHITE#，允许他们每隔一段时间获得一次速度提升。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -2 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * -2 力量，+1 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, +3 Willpower, +1 Cunning", "#LIGHT_BLUE# * +2 魔力，+3 意志，+1 灵巧", "_t")
@@ -3470,7 +3470,7 @@ t("Thalore", "自然精灵", "birth descriptor name")
 t("Thaloren elves have spent most of the ages hidden within their forests, seldom leaving them.", "在大部分岁月里，自然精灵隐藏在丛林里，很少离开。", "_t")
 t("The ages of the world passed by and yet they remained unchanged.", "世界经历了一个又一个时代，他们却始终不变。", "_t")
 t("Their affinity for nature and their reclusion have made them great protectors of the natural order, often opposing their Shaloren cousins.", "他们长期隐居在自然中，由于和自然的紧密联系，自然精灵成为自然秩序的保护者，也使他们经常与近亲永恒精灵对立。", "_t")
-t("They possess the #GOLD#Gift of the Woods#WHITE# talent, which allows them to regenerate life and increase healing once in a while.", "他们天生掌握 #GOLD#森林的恩赐#WHITE#，允许他们每隔一段时间恢复生命并增强治疗效果。", "_t")
+t("They possess the #GOLD#Gift of the Woods#WHITE# talent, which allows them to regenerate life and increase healing once in a while.", "他们天生掌握#GOLD#森林的恩赐#WHITE#，允许他们每隔一段时间恢复生命并增强治疗效果。", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +3 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +2 力量，+3 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * -2 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔力，+1 意志，+0 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 11", "#GOLD#每等级生命加值：#LIGHT_BLUE# 11", "_t")
@@ -3502,7 +3502,7 @@ to start, look where halflings once tinkered with portals...]], [[他们铸造�
 t("Ogres are an altered form of Human, created in the Age of Allure as workers and warriors for the Conclave.", "食人魔是变种人类，在厄流纪被孔克雷夫作为工人和战士而制造。", "_t")
 t("Inscriptions have granted them magical and physical power far beyond their natural limits, but their dependence on runic magic made them a favored target during the Spellhunt, forcing them to take refuge among the Shalore.", "刻印赋予他们远超自然极限的魔法与物理力量，但他们对符文魔法的依赖使他们在魔法狩猎期间成为首要目标，迫使他们到永恒精灵之中寻求庇护。", "_t")
 t("Their preference for simple and direct solutions has given them an undeserved reputation as dumb brutes, despite their extraordinary talent with runes and their humble, dutiful nature.", "他们偏爱简单直接的解决办法，这让他们被不公平地冠以蠢笨蛮牛的恶名，尽管他们对符文有着惊人的天赋，而且天性谦逊尽责。", "_t")
-t("They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.", "他们拥有 #GOLD#食人魔之怒#WHITE# 技能，施放后会提高对震慑和定身的抗性；当他们的攻击落空、伤害被减免等情况下，该技能还会为他们提供暴击几率和暴击伤害加成。", "_t")
+t("They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.", "他们拥有#GOLD#食人魔之怒#WHITE#技能，施放后会提高对震慑和定身的抗性；当他们的攻击落空、伤害被减免等情况下，该技能还会为他们提供暴击几率和暴击伤害加成。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，-1 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, -2 Willpower, +2 Cunning", "#LIGHT_BLUE# * +2 魔力，-2 意志，+2 灵巧", "_t")
@@ -3590,7 +3590,7 @@ t("Redhead 2", "红发2", "_t")
 t("Redhead 3", "红发3", "_t")
 t("Redhead 4", "红发4", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
-t("They possess the #GOLD#Luck of the Little Folk#WHITE# which allows them to increase their critical strike chance and saves for a few turns.", "他们天生掌握 #GOLD#小不点的幸运#WHITE# 技能，可以使他们在几个回合内提高暴击几率和豁免。", "_t")
+t("They possess the #GOLD#Luck of the Little Folk#WHITE# which allows them to increase their critical strike chance and saves for a few turns.", "他们天生掌握#GOLD#小不点的幸运#WHITE#技能，可以使他们在几个回合内提高暴击几率和豁免。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * -3 Strength, +3 Dexterity, +1 Constitution", "#LIGHT_BLUE# * -3 力量，+3 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+3 灵巧", "_t")
@@ -3662,7 +3662,7 @@ t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
 t("Higher", "高等人类", "birth descriptor name")
 t("Highers are a special branch of Humans that have been imbued with latent magic since the Age of Allure.", "自厄流纪起，高等人类就是人类种族的一支特殊分支，他们的身体里潜藏着魔力。", "_t")
 t("They usually do not breed with other Humans, trying to keep their blood 'pure'.", "为了保持血统的纯正，他们一般不和普通人类通婚。", "_t")
-t("They possess the #GOLD#Wrath of the Highborn#WHITE# which allows them to increase damage dealt and decrease damage taken once in a while.", "他们天生掌握 #GOLD#高等人类之怒#WHITE#，允许他们每隔一段时间提升造成的伤害并减少受到的伤害。", "_t")
+t("They possess the #GOLD#Wrath of the Highborn#WHITE# which allows them to increase damage dealt and decrease damage taken once in a while.", "他们天生掌握#GOLD#高等人类之怒#WHITE#，允许他们每隔一段时间提升造成的伤害并减少受到的伤害。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +1 Strength, +1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +1 力量，+1 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +1 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * +1 魔力，+1 意志，+0 灵巧", "_t")
@@ -3700,7 +3700,7 @@ t("Tatoos", "纹身", "birth facial category")
 t("Ghoul", "食尸鬼", "birth descriptor name")
 t("Slow to shuffle, quick to bite, learn from master, rule the night!", "蹒跚而行，利齿如刀，师从主人，统治黑夜！", "_t")
 t("Ghouls are dumb, but resilient, rotting undead creatures, making good fighters.", "食尸鬼是愚钝但坚韧的腐烂不死生物，适合成为战士。", "_t")
-t("They have access to #GOLD#special ghoul talents#WHITE# and a wide range of undead abilities:", "他们能使用 #GOLD#特殊的食尸鬼技能#WHITE# 和种类繁多的不死系能力：", "_t")
+t("They have access to #GOLD#special ghoul talents#WHITE# and a wide range of undead abilities:", "他们能使用#GOLD#特殊的食尸鬼技能#WHITE#和种类繁多的不死系能力：", "_t")
 t("- great poison resistance", "- 极高的中毒免疫率", "_t")
 t("- bleeding immunity", "- 流血免疫", "_t")
 t("- stun resistance", "- 震慑抵抗", "_t")
@@ -6950,7 +6950,7 @@ t("blinding darkness", "致盲暗影", "damage type")
 t("blinding light", "致盲之光", "damage type")
 t("dazing lightning", "闪电眩晕", "damage type")
 t("cold repulsion", "寒冷排斥", "damage type")
-t("%s is knocked back!", "%s 被击退！", "logSeen")
+t("%s is knocked back!", "%s被击退！", "logSeen")
 t("%s resists the wave!", "%s抵抗了冲击！", "logSeen")
 t("bloodspring", "血如泉涌", "damage type")
 t("%s resists the bloody wave!", "%s抵抗了血浪！", "logSeen")
@@ -11051,7 +11051,7 @@ t("spinneret", "吐丝器", "_t")
 t("An ugly, ripped-out chunk of giant spider. Bits of silk protrude from an orifice.", "从巨型蜘蛛身上扯下的一大块丑陋的器官，少量的丝线从某个洞中伸出。", "_t")
 t("honey tree root", "蜂蜜树的根", "entity name")
 t("dirty root", "脏兮兮的树根", "_t")
-t("The severed end of one of a honey tree's roots. It wriggles around occasionally, seemingly unwilling to admit that it's dead... and a *plant*.", "从蜂蜜树的一根树根上切下来的断端。它偶尔会蠕动下，似乎不承认它已经死了，而且还是个“植物”。", "_t")
+t("The severed end of one of a honey tree's roots. It wriggles around occasionally, seemingly unwilling to admit that it's dead... and a *plant*.", "从蜂蜜树的一根树根上切下来的断端。它时不时扭动一下，似乎不愿承认自己已经死了……更不愿承认自己只是株*植物*。", "_t")
 t("bloated horror heart", "浮肿的恐魔心脏", "entity name")
 t("Diseased-looking and reeking. It seems to be decaying as you watch.", "病变且散发着恶臭的心脏，在你注视它时似乎仍在腐烂。", "_t")
 t("electric eel tail", "电鳗尾巴", "entity name")
@@ -13645,7 +13645,7 @@ t("giant spider spinneret", "巨型蜘蛛的吐丝器", "entity name")
 t("An ugly, ripped-out chunk of giant spider. Bits of silk protrude from an orifice.", "从巨型蜘蛛身上扯下的一大块丑陋的器官，少量的丝线从某个洞中伸出。", "_t")
 t("The spiders in your barn won't do. You'll know a giant spider when you see one, though they're rare in Maj'Eyal.", "你家仓库里的蜘蛛是不行的。当你看到一只时，你就会明白什么是巨型蜘蛛，尽管在马基·埃亚尔这种蜘蛛很稀少。", "_t")
 t("honey tree root", "蜂蜜树的根", "entity name")
-t("The severed end of one of a honey tree's roots. It wriggles around occasionally, seemingly unwilling to admit that it's dead... and a *plant*.", "从蜂蜜树的一根树根上切下来的断端。它偶尔会蠕动下，似乎不承认它已经死了，而且还是个“植物”。", "_t")
+t("The severed end of one of a honey tree's roots. It wriggles around occasionally, seemingly unwilling to admit that it's dead... and a *plant*.", "从蜂蜜树的一根树根上切下来的断端。它时不时扭动一下，似乎不愿承认自己已经死了……更不愿承认自己只是株*植物*。", "_t")
 t("Keep a firm grip on it. These things will dig themselves right back into the ground if you drop them.", "牢牢地抓住它，如果你不小心把它掉在地上，它会立刻挖地逃走。", "_t")
 t("bloated horror heart", "浮肿的恐魔心脏", "entity name")
 t("Diseased-looking and reeking. It seems to be decaying as you watch.", "病变且散发着恶臭的心脏，在你注视它时似乎仍在腐烂。", "_t")
@@ -20217,7 +20217,7 @@ section "mod-tome/data/quests/escort-duty.lua"
 t("You successfully escorted the %s to the recall portal on level %s.", "你成功地将%s护送到了%s的召回传送门。", "tformat")
 t("As a reward you %s.", "作为奖励，你%s。", "tformat")
 t("You abandoned %s, to death.", "你抛下了%s，任其死去。", "tformat")
-t("You failed to protect the %s from death by %s.", "你未能保护%s，他被%s杀死了。", "tformat")
+t("You failed to protect the %s from death by %s.", "你未能保护好%s，%s杀死了对方。", "tformat")
 t("Escort the %s to the recall portal on level %s.", "将%s护送到%s的召回传送门。", "tformat")
 t("#LIGHT_RED#%s is dead, quest failed!", "#LIGHT_RED#%s 死了，任务失败了！", "logPlayer")
 t("something", "某物", "_t")
@@ -21426,7 +21426,7 @@ t([[A magical zone of Sunlight appears around you, healing and shielding all wit
 		如果已经存在护盾，则护盾将会增加等量数值，如果护盾持续时间不足 2 回合，会延长至 2 回合。
 		当同一个护盾被刷新 20 次后，将会因为不稳定而破碎。
 		它同时会照亮此区域。
-		治疗量受魔力值加成。]], "tformat")
+		治疗量受法术强度加成。]], "tformat")
 t("Barrier", "护盾术", "talent name")
 t([[A protective shield forms around you that lasts for up to %d turns and negates %d damage.
  		The total damage the barrier can absorb will increase with your Spellpower and can crit.]], [[一个持续 %d 回合的保护性圣盾围绕着你，可吸收 %d 点伤害。
@@ -21560,7 +21560,7 @@ t([[Invokes the Sun to cause a flare within radius %d, blinding your foes for %d
 		At talent level 3 you gain %d%% light, darkness, and fire resistance for %d turns.
 		The damage done and resistances will increase with your Spellpower.]], [[祈祷太阳之力，在 %d 格半径范围内致盲目标，持续 %d 回合并照亮你的周围区域。
 		范围内的敌人将会受到 %0.2f 光系伤害。
-		等级 3 时，你将获得 %d%% 光系、暗影和火焰伤害抗性，持续 %d 回合。
+		技能等级 3 时，你将获得 %d%% 光系、暗影和火焰伤害抗性，持续 %d 回合。
 		伤害和抗性受法术强度加成。]], "tformat")
 t("Firebeam", "阳炎喷射", "talent name")
 t([[Call forth the Sun to summon a fiery beam that pierces to the farthest enemy dealing %d fire damage to all enemies hit.
@@ -21589,7 +21589,7 @@ t([[Create a shadow jumpgate at your current location. As long as you sustain th
 		Note that any stairs underneath the jumpgate will be unusable while the spell is sustained, and you may need to cancel this sustain in order to leave certain locations.
 		At talent level 4, you learn to create and sustain a second jumpgate.]], [[在你的位置制造 1 个阴影跃迁之门，当你激活这个技能时你可以使用“跃迁之门：传送”技能立即传送至此（跃迁之门必须在你 %d 格范围以内）。
 		注意：当此技能激活且楼梯位于跃迁之门下方时，楼梯将不可使用。在某些区域，你可能需要取消此技能才能离开。
-		在等级 4 时，你可以制造 2 个跃迁之门。]], "tformat")
+		技能等级 4 时，你可以制造 2 个跃迁之门。]], "tformat")
 t("Mind Blast", "心灵震爆", "talent name")
 t([[Let out a mental cry that shatters the will of your targets within radius %d, dealing %0.2f darkness damage and confusing (%d%% to act randomly) them for %d turns.
 		The damage will improve with your spellpower and the duration will improve with your Cunning.]], [[在 %d 格半径范围内释放一股精神冲击，摧毁目标的意志，对其造成 %0.2f 暗影伤害，并使其混乱 (%d%% 几率随机行动)，持续 %d 回合。
@@ -22007,7 +22007,7 @@ section "mod-tome/data/talents/chronomancy/gravity.lua"
 
 t("Repulsion Blast", "排斥冲击", "talent name")
 t("%s slams into something solid!", "%s撞到了某个坚实的物体！", "logSeen")
-t("%s is knocked back!", "%s 被击退！", "logSeen")
+t("%s is knocked back!", "%s被击退！", "logSeen")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t([[Sends out a blast wave of gravity in a radius %d cone, dealing %0.2f base physical (gravity) damage and knocking back targets caught in the area.
 		Targets knocked into walls or other targets take 25%% additional damage and deal 25%% damage to targets they're knocked into.
@@ -23790,7 +23790,7 @@ t([[Lay a simple yet effective trap that explodes in a radius 2 on contact, sett
 t("Catapult Trap", "弹射陷阱", "talent name")
 t("You have learned how to create Catapult traps!", "你学会了如何制作弹射陷阱！", "_t")
 t("catapult trap", "弹射陷阱", "_t")
-t("Target knocked back up to %d grids%s and dazed.", "目标被击退最多 %d 格%s，并眩晕。", "tformat")
+t("Target knocked back up to %d grids%s and dazed.", "目标被击退最多 %d 格%s，并眩晕。", "tformat", {1,2})
 t("%s knocks %s back!", "%s 将 %s 击退！", "logSeen")
 t("%s fails to knock %s back!", "%s 未能将 %s 击退！", "logSeen")
 t("#LIGHT_BLUE#Aim the catapult", "#LIGHT_BLUE#请选择弹射陷阱的弹射落点", "logPlayer")
@@ -23961,8 +23961,8 @@ t([[Your defiling touch permeates everything around you, permanently imparting a
 t("Dark Gifts", "黑暗礼物", "talent name")
 t([[Your curses bring you dark gifts. Unlocks bonus level %d effects on all of your curses, allowing you to gain that effect when the power level of your curse reaches that level. At talent level 5, the luck penalty of cursed effects is reduced to 1.
 		Talent levels above 5 add bonus power levels to your curses, increasing their effects (currently %0.1f).]], [[你的诅咒带来黑暗的礼物。解锁所有诅咒第 %d 层效果，并允许你在诅咒达到该等级时获得此效果。
-		在等级 5 时，因诅咒带来的幸运惩罚降到 1。
-		等级 5 以上时为诅咒增加额外能量等级，增强其效果（当前增加 %0.1f）。]], "tformat")
+		技能等级 5 时，因诅咒带来的幸运惩罚降到 1。
+		技能等级 5 以上时为诅咒增加额外能量等级，增强其效果（当前增加 %0.1f）。]], "tformat")
 t("Ruined Earth", "毁灭大地", "talent name")
 t("Curse the earth around you in a radius of %d for %d turns. Any who stand upon it are weakened, reducing the damage they inflict by %d%%", [[诅咒你周围 %d 格半径范围的大地，持续 %d 回合。任何站在这片大地上的目标都会陷入虚弱，造成的伤害减少 %d%%。]], "tformat")
 t("Choose Cursed Sentry", "选择诅咒护卫", "talent name")
@@ -24739,7 +24739,7 @@ t("Earthen Missiles", "岩石飞弹", "talent name")
 t([[Conjures %d missile-shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.
 		At talent level 5, you can conjure one additional missile.
 		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，并使可流血的目标每回合受到 %0.2f 流血伤害，持续 5 回合；命中时还会立即造成一次额外的物理伤害，其基础数值与上述每回合流血伤害相同。
-		在等级 5 时，你可以额外释放一个飞弹。
+		技能等级 5 时，你可以额外释放一个飞弹。
 		伤害受法术强度加成。]], "tformat")
 t("Elemental Split", "元素分裂", "talent name")
 t("Crystaline Half (%s)", "水晶分身 (%s)", "tformat")
@@ -25435,7 +25435,7 @@ t([[Generate an electrical field around you in a radius of %d. Any creature caug
 		每投入 1 点雷龙系技能，还会使你的闪电伤害抗性提高 1%%。]], "tformat")
 t("Tornado", "龙卷风", "talent name")
 t("Tornado", "龙卷风", "_t")
-t("%s is knocked back!", "%s 被击退！", "logSeen")
+t("%s is knocked back!", "%s被击退！", "logSeen")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t([[Summon a tornado that moves very slowly towards the target, following it if it changes position.
 		Each time it moves every foes within radius 2 takes %0.2f lightning damage and is knocked back 2 spaces.
@@ -26021,7 +26021,7 @@ t([[Activate the rune to instantly dissipate the energy of your ailments, cleans
 		You use the dissipated energy to create a shield lasting %d turns and blocking %d damage per debuff cleansed (not counting cross-tier ones).
 		If there were only cross-tier effects to cleanse, no shield is created and the rune goes on a 75%% reduced cooldown.]], [[激活符文，立刻消散你身上负面状态的能量，清除所有越层效果，以及物理、精神和魔法负面效果各 1 个。
 		你会利用消散的能量获得一个护盾，持续 %d 回合，每清除一个负面效果（不计越层效果）可抵挡 %d 点伤害。
-		如果只清除了越层效果，不会产生护盾，且符文冷却时间减少 75%%。]], "tformat")
+		如果只清除了越层效果，不会产生护盾，且符文冷却时间减少 75%%。]], "tformat", {1,2})
 t("absorb %d; cd %d", "吸收 %d； 冷却 %d", "tformat")
 t("Rune: Dissipation", "符文：消散", "talent name")
 t("Activate the rune to remove 8 beneficial magical sustains from an enemy target or all magical debuffs from you.", "激活这个符文，从敌人身上移除 8 个正面魔法持续技能，或从你自己或其他非敌对目标身上移除所有魔法负面效果。", "tformat")
@@ -27175,7 +27175,7 @@ t([[Fire a bolt of distortion that ignores resistance and inflicts %0.2f physica
 		The damage will scale with your Mindpower.]], [[射出一枚无视抵抗的扭曲飞弹并造成 %0.2f 物理伤害。此技能会扭曲目标，减少对方物理抗性 %d%%， 并使其在 2 回合内受到扭曲效果时会产生额外的负面影响。
 		如果飞弹命中已存在扭曲效果的目标，则会在 %d 格范围内产生 150%% 基础伤害的爆炸。
 		在该技能投入点数会增加你所有扭曲效果的降抗效果。
-		在等级 5 时，你学会控制你的扭曲效果，防止扭曲效果攻击到你或友军。
+		技能等级 5 时，你学会控制你的扭曲效果，防止扭曲效果攻击到你或友军。
 		受精神强度影响，伤害按比例加成。]], "tformat")
 t("Distortion Wave", "扭曲之涛", "talent name")
 t([[Creates a distortion wave in a radius %d cone that deals %0.2f physical damage and knocks back targets in the blast radius.
@@ -27258,7 +27258,7 @@ t([[Craft a hammer from the dream forge and strike an adjacent foe, inflicting %
 		
 		Current Dream Hammer Stats:
 		%s]], [[从梦之熔炉中锻造出一柄巨锤，砸向一名相邻的敌人，造成 %d%% 武器伤害。如果攻击命中，它会使梦境锻造系的某个随机技能冷却完毕。
-		在等级 5 时，此技能会使 2 个随机技能冷却完毕。
+		技能等级 5 时，此技能会使 2 个随机技能冷却完毕。
 		受精神强度影响，武器的基础攻击力、命中、护甲穿透和暴击率按比例加成。
 
 		当前梦之巨锤属性：
@@ -27292,7 +27292,7 @@ t([[Puts targets in a radius of %d to sleep for %d turns, rendering them unable 
 		At talent level 5 Sleep will become contagious and has a 25%% chance to spread to nearby targets each turn.
 		The damage threshold will scale with your Mindpower.]], [[使 %d 格半径范围内的目标陷入 %d 回合的睡眠状态中，使它们无法行动。它们每承受 %d 点伤害，睡眠的持续时间减少一回合。
 		当睡眠结束时，目标会饱受失眠的痛苦，持续回合等于已睡眠的回合数（但最多 10 回合），失眠状态的每一个剩余回合数会让目标获得 %d%% 睡眠免疫。
-		在等级 5 时，睡眠会具有传染性，每回合有 25%% 几率传播向附近的目标。
+		技能等级 5 时，睡眠会具有传染性，每回合有 25%% 几率传播向附近的目标。
 		受精神强度影响，伤害临界点按比例加成。]], "tformat")
 t("Lucid Dreamer", "清晰梦境", "talent name")
 t([[Slip into a lucid dream.  While in this state, you are considered sleeping, but can still act, are immune to insomnia, inflict %d%% more damage to targets under the effects of Insomnia, and your Physical, Mental, and Spell saves are increased by %d.
@@ -27404,7 +27404,7 @@ t([[Use finely controlled forces to augment both your flesh-and-blood grip, and 
 		]], [[用细致的操控来增加你的肉体支配和灵能支配。此技能有以下效果：
 		增加 %d%% 缴械免疫。
 		当使用灵能武器造成伤害时，用 %d%% 意志和灵巧（通常60%%）来代替力量和敏捷决定伤害。
-		在等级5时，意念装备的宝石或灵晶的品质提升一级。
+		技能等级 5 时，意念装备的宝石或灵晶的品质提升一级。
 		]], "tformat")
 
 ------------------------------------------------
@@ -27976,7 +27976,7 @@ t([[Forge a guardian from your thoughts alone.  Your guardian's primary stat wil
 		At talent level one, you may forge a mighty bowman clad in leather armor; at level three a powerful warrior wielding a two-handed weapon; and at level five a strong defender using a sword and shield.
 		Thought forms can only be maintained up to a range of %d, and will rematerialize next to you if this range is exceeded.
 		Only one thought-form may be active at a time, and the stat bonuses will improve with your Mindpower.]], [[仅凭思维塑造一名守护者。守护者的主属性会增加 %d， 两项副属性各增加 %d， 并且其魔力、灵巧和意志将分别等同于你的相应属性。
-		技能等级 1 时，你可以塑造一名身着皮甲的威猛弓箭手；等级 3 时，塑造一名手持双手武器的强大战士；等级 5 时，塑造一名使用剑盾的强健盾战士。
+		技能等级 1 时，你可以塑造一名身着皮甲的威猛弓箭手；技能等级 3 时，塑造一名手持双手武器的强大战士；技能等级 5 时，塑造一名使用剑盾的强健盾战士。
 		思维形态只能维持在 %d 格范围内，超出此范围时会在你身边重新实体化。
 		同一时间只能有一种思维形态处于激活状态，属性加成会随你的精神强度提高。]], "tformat")
 t("Transcendent Thought-Forms", "卓越思维形态", "talent name")
@@ -27987,9 +27987,9 @@ t([[Take direct control of your active thought-form, improving its damage, attac
 		At talent level 1, any Feedback your Thought-Forms gain will be given to you as well. At level 3, your Thought-Forms gain a bonus to all saves equal to your Mental Save. At level 5, they gain a bonus to all damage equal to your bonus mind damage.
 		The secondary bonuses apply whether or not this talent is currently active.
 		The life, damage, and speed bonus will improve with your Mindpower.]], [[直接控制当前的精神体，增加其 %d%% 伤害、攻速以及最大生命值，但你的身体会变成毫无防御的空壳。
-		在等级 1 时，你的精神体所获得的任何反馈值也会传递给你。
-		在等级 3 时，你的精神体会获得所有豁免的增益效果，数值等同你精神豁免的大小。
-		在等级 5 时，它们会获得所有伤害加成，数值等同你的额外精神伤害。
+		技能等级 1 时，你的精神体所获得的任何反馈值也会传递给你。
+		技能等级 3 时，你的精神体会获得所有豁免的增益效果，数值等同你精神豁免的大小。
+		技能等级 5 时，它们会获得所有伤害加成，数值等同你的额外精神伤害。
 		这些次级增益无论此技能是否激活均有效。
 		上述生命、伤害与速度加成受精神强度加成。]], "tformat")
 t("Thought-Form Unity", "思维形态共鸣", "talent name")
@@ -29632,7 +29632,7 @@ t("Earthen Missiles", "岩石飞弹", "talent name")
 t([[Conjures %d missile-shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.
 		At talent level 5, you can conjure one additional missile.
 		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，并使可流血的目标每回合受到 %0.2f 流血伤害，持续 5 回合；命中时还会立即造成一次额外的物理伤害，其基础数值与上述每回合流血伤害相同。
-		在等级 5 时，你可以额外释放一个飞弹。
+		技能等级 5 时，你可以额外释放一个飞弹。
 		伤害受法术强度加成。]], "tformat")
 t("Body of Stone", "岩石身躯", "talent name")
 t([[You root yourself into the earth, and transform your flesh into stone.  While this spell is sustained, you may not move, and any forced movement will end the effect.
@@ -30272,9 +30272,9 @@ t([[You've learned to recover quickly from effects that would disable you. Each 
 		Effects will be cleansed with the priority order Stun > Blind > Confusion > Pin > Disarm > Slow.
 		Only one effect may be recovered from each turn, and the chance to recover from an effect scales with your Constitution.]], [[你学会从负面状态中快速恢复。
 		每回合你有 %d%% 几率从震慑效果中恢复。
-		在等级 2 时，也可以从致盲效果中恢复。
-		在等级 3 时，也可以从混乱和定身效果中恢复。
-		在等级 4 时，也可以从缴械和减速效果中恢复。
+		技能等级 2 时，也可以从致盲效果中恢复。
+		技能等级 3 时，也可以从混乱和定身效果中恢复。
+		技能等级 4 时，也可以从缴械和减速效果中恢复。
 		解除负面状态的优先级是 震慑 > 致盲 > 混乱 > 定身 > 缴械 > 减速
 		每回合你只能摆脱 1 种状态。
 		受体质影响，恢复概率按比例加成。]], "tformat")
@@ -30665,7 +30665,7 @@ t("Double Strike", "双重打击", "talent name")
 t("@Source@ throws two quick punches.", "@Source@快速打出两次拳击。", "_t")
 t([[Deliver two quick punches that deal %d%% damage each, and switch your stance to Striking Stance. If you already have Striking Stance active and Double Strike isn't on cooldown, this talent will automatically replace your normal attacks (and trigger the cooldown).
 		If either jab connects, you earn one combo point. At talent level 4 or greater, if both jabs connect, you'll earn two combo points.]], [[对目标进行 2 次快速打击，每次打击造成 %d%% 伤害并使你的姿态切换为攻击姿态，如果你已经在攻击姿态且此技能已就绪，那么此技能会自动取代你的普通攻击（并触发冷却）。
-		若任一次打击命中，你获得 1 点连击点。在等级 4 或更高等级时，若两次打击都命中，则获得 2 点连击点。]], "tformat")
+		若任一次打击命中，你获得 1 点连击点。技能等级 4 或更高等级时，若两次打击都命中，则获得 2 点连击点。]], "tformat")
 t("Spinning Backhand", "旋风打击", "talent name")
 t("@Source@ lashes out with a spinning backhand.", "@Source@冲出去打出旋风打击。", "_t")
 t([[Attack your foes in a frontal arc with a spinning backhand, doing %d%% damage. If you're not adjacent to the target, you'll step forward as you spin, gaining up to %d%% bonus damage, which increases the farther you move.
@@ -30737,7 +30737,7 @@ t([[You fire a shot into your target's eyes, blinding it for %d turns and doing 
 		The blind chance increases with your Accuracy.]], [[你对目标的眼睛射出一发子弹，致盲目标 %d 回合并造成 %d%% 伤害。
 		致盲概率受命中加成。]], "tformat")
 t("Inertial Shot", "惯性射击", "talent name")
-t("%s is knocked back!", "%s 被击退！", "logSeen")
+t("%s is knocked back!", "%s被击退！", "logSeen")
 t("%s stands firm!", "%s 稳稳站在原地！", "logSeen")
 t([[You fire a mighty shot at your target, doing %d%% damage and knocking it back.
 		The knockback chance increases with your Accuracy.]], [[你射出一发强力的子弹，对目标造成 %d%% 伤害并击退目标。
@@ -31038,8 +31038,8 @@ t([[Unleash a flurry of disruptive kicks at your target's vulnerable areas. For 
 			At talent level 3 #DARK_ORCHID#Magical#LAST# sustains will also be effected.
 			At talent level 5 #YELLOW#Mental#LAST# sustains will also be effected.
 			Using this talent removes your combo points.]], [[对目标的要害部位释放一连串破坏性踢击。每有一个连击点，对目标造成 %d%% 武器伤害，并解除目标一项物理持续技能。
-		等级 3 时，#DARK_ORCHID#魔法#LAST#持续技能也会受影响。
-		等级 5 时，#YELLOW#精神#LAST#持续技能也会受影响。
+		技能等级 3 时，#DARK_ORCHID#魔法#LAST#持续技能也会受影响。
+		技能等级 5 时，#YELLOW#精神#LAST#持续技能也会受影响。
 		使用该技能将除去全部连击点。]], "tformat")
 t("Relentless Strikes", "无情打击", "talent name")
 t("When gaining a combo point, you have a %d%% chance to gain an extra combo point. Additionally, every time you earn a combo point, you will regain %0.2f stamina, or %0.2f stamina if you would exceed 5 combo points.", "每当获得连击点时，你有 %d%% 几率额外获得 1 点。此外，每次获得连击点时，你会恢复 %0.2f 体力，触发本技能的额外连击点时恢复量翻倍；若此次获得会使连击点总数超过 5，则恢复量再翻倍（未触发额外连击点时为 %0.2f 体力）。", "tformat")
@@ -41868,7 +41868,7 @@ t("Already known", "已学会", "_t")
 t("You already fully know this talent!", "你已完全掌握此技能！", "_t")
 t("You do not know this talent!", "你还没学会这个技能！", "_t")
 t("Impossible here", "不能在这里这么做", "_t")
-t("You must be out of combat or in a quiet place like a #{bold}#town#{normal}# to unlearn this talent.", "你只能在战斗外或在 #{bold}#城市#{normal}# 这样安全的地方遗忘这个技能。", "_t")
+t("You must be out of combat or in a quiet place like a #{bold}#town#{normal}# to unlearn this talent.", "你只能在战斗外或在#{bold}#城镇#{normal}#这样安全的地方遗忘这个技能。", "_t")
 t("You cannot unlearn this talent!", "你不能遗忘这个技能！", "_t")
 t("You cannot unlearn this talent because of talent(s): ", "由于以下技能，你不能遗忘这个技能：", "_t")
 t("You can only improve a category mastery once!", "你只能提升一次技能类别掌握度！", "_t")
@@ -41976,7 +41976,7 @@ t("The last %d %s talents you learnt are always unlearnable.", "你最近学习�
 t(" generic", " 通用", "_t")
 t(" class", " 职业", "_t")
 t("This talent can alter the world in a permanent way; as such, you can never unlearn it once known.", "本技能会永久性地改变这个世界，因此一旦学会就无法遗忘。", "_t")
-t("This talent was recently learnt; you can still unlearn it if you are out of combat or in a quiet area like a #{bold}#town#{normal}#.", "你刚在此技能上加点，你还可以在战斗外或者#{bold}#城市#{normal}#这样安全的地方遗忘它。", "_t")
+t("This talent was recently learnt; you can still unlearn it if you are out of combat or in a quiet area like a #{bold}#town#{normal}#.", "你刚在此技能上加点，你还可以在战斗外或者#{bold}#城镇#{normal}#这样安全的地方遗忘它。", "_t")
 t("Current talent level: ", "当前技能等级： ", "_t")
 t(" (%+0.1f bonus level)", " (%+0.1f 额外等级)", "tformat")
 t("<Press 'x' to swap to simple display>", "<按 X 键切换简单显示>", "_t")
@@ -42269,7 +42269,7 @@ t("#{bold}##LIGHT_STEEL_BLUE#Evolutions#{normal}#", "#{bold}##LIGHT_STEEL_BLUE#�
 ------------------------------------------------
 section "mod-tome/dialogs/UnlockDialog.lua"
 
-t("#VIOLET#Option unlocked: %s", "#VIOLET#游戏选项已解锁：%s", "logPlayer")
+t("#VIOLET#Option unlocked: %s", "#VIOLET#选项已解锁：%s", "logPlayer")
 t("Option unlocked: %s", "选项已解锁：%s", "tformat")
 
 ------------------------------------------------
@@ -42316,7 +42316,7 @@ Check out the keybinding screen in the game menu to bind hotkeys to a key (defau
 Right click or press '~' to configure talent confirmation and automatic use.
 ]], [[你可以通过选中技能时按下对应快捷键，或右键点击技能，将非被动技能绑定到快捷键上。
 请到游戏菜单的快捷键绑定设置中查看（默认情况下的快捷键是0～9，以及 Ctrl、Shift 或 Alt 与数字的组合键）。
-右键点击或按'~'键可配置技能确认和自动使用。
+右键点击或按“~”键可配置技能确认和自动使用。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("Status", "状态", "_t")

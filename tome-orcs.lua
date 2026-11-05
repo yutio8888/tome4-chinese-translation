@@ -593,7 +593,7 @@ t("Very well. We can increase one of your core stats by 4, which one?", "很好�
 section "tome-orcs/data/damage_types.lua"
 
 t("pulse detonator", "脉冲爆弹", "damage type")
-t("%s is knocked back!", "%s 被击退！", "logSeen")
+t("%s is knocked back!", "%s被击退！", "logSeen")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t("darkness pull", "黑暗抓取", "damage type")
 t("%s is pulled!", "%s被拖动！", "logSeen")
@@ -4864,7 +4864,7 @@ t([[You mount a grenade launcher on your steamgun that launches high explosive r
 		This talent also reinforces the armor of you and your minions to give you immunity to your own grenades.
 		You can only fire a single grenade once every 9 turns.]], [[你在蒸汽枪上安装一个发射高爆弹的榴弹发射器。每当你用蒸汽枪进行普通攻击或使用重装武器攻击时，都会向目标发射一枚榴弹，造成 %d%% 蒸汽枪伤害，作用半径 %d 格。
 		此技能还会强化你和随从的护甲，使你与随从免疫你自己发射的榴弹。
-		每 9 回合只能发射一枚榴弹。]], "tformat")
+		每 9 回合只能发射一枚榴弹。]], "tformat", {1,2})
 t("Reactive Armor", "反应式装甲", "talent name")
 t([[You line your armor with explosive plating that detonates when struck. On taking a melee or ranged hit that deals more than 8%% of your maximum life a plate detonates, reducing the damage taken by %d%% and triggering a basic grenade attack in a radius %d cone projected at the target dealing %d%% of its usual damage.
 		This cannot trigger more than once per turn.
@@ -5576,7 +5576,7 @@ t([[You fire a special explosive shot with your steamgun(s) at a spot within ran
 		这些装药很快就会爆炸，对各自半径 1 格内的目标造成 %0.2f 点火焰伤害。
 		这个技能本身就是弹药，因此不消耗弹药。]], "tformat")
 t("Solid Shell", "固实弹", "talent name")
-t("%s is knocked back!", "%s 被击退！", "logSeen")
+t("%s is knocked back!", "%s被击退！", "logSeen")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t([[You fire a special solid shot with your steamgun(s) at a target for %d%% physical weapon damage.
 		The weight of the shot will knock the target back %d tiles.
@@ -8266,7 +8266,7 @@ t("#PURPLE#Automated Reflex System activated!", "#PURPLE#自动化反射系统�
 ------------------------------------------------
 section "tome-orcs/superload/mod/class/interface/Archery.lua"
 
-t("%s is knocked back!", "%s 被击退！", "logSeen")
+t("%s is knocked back!", "%s被击退！", "logSeen")
 
 ------------------------------------------------
 section "tome-orcs/superload/mod/class/interface/Combat.lua"
