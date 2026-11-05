@@ -21084,7 +21084,7 @@ t("Any attack that would drop you below 1 hit point instead triggers Second Life
 t([[Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.
 		Additionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.
 		The damage dealt and shield bonus will increase with your Spellpower.]], [[使你的武器充满太阳能量，每次近战命中造成 %0.1f 光系伤害。
-		如果你同时打开了临时伤害护盾，每回合一次，你的近战攻击命中可以增加护盾 %d 强度，并且可以延长当前护盾持续时间至2回合。
+		此外，若你身上有临时伤害护盾，近战命中会使其强度提高 %d 点，并将其持续时间延长至至少 2 回合，每回合限一次。
 		伤害和护盾加成受法术强度加成。]], "tformat")
 
 section "mod-tome/data/talents/celestial/crusader.lua"
