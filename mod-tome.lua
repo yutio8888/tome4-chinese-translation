@@ -37378,7 +37378,7 @@ t("Resets Rush cooldown if killed.", "被杀时重置冲锋冷却时间。", "_t
 t("Grants a +%d%% damage bonus.", "获得 +%d%% 伤害加成。", "tformat")
 t("Spine of the World", "世界之脊", "_t")
 t("Immune to physical effects.", "对物理负面效果免疫。", "_t")
-t("#Target# become impervious to physical effects.", "#Target#对物理负面状态免疫。", "_t")
+t("#Target# become impervious to physical effects.", "#Target#对物理负面效果免疫。", "_t")
 t("+Spine of the World", "+世界之脊", "_t")
 t("#Target# is less impervious to physical effects.", "#Target#不再对物理负面效果免疫。", "_t")
 t("-Spine of the World", "-世界之脊", "_t")
