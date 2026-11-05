@@ -3502,7 +3502,7 @@ to start, look where halflings once tinkered with portals...]], [[他们铸造�
 t("Ogres are an altered form of Human, created in the Age of Allure as workers and warriors for the Conclave.", "食人魔是变种人类，在厄流纪被孔克雷夫作为工人和战士而制造。", "_t")
 t("Inscriptions have granted them magical and physical power far beyond their natural limits, but their dependence on runic magic made them a favored target during the Spellhunt, forcing them to take refuge among the Shalore.", "刻印赋予他们远超自然极限的魔法与物理力量，但他们对符文魔法的依赖使他们在魔法狩猎期间成为首要目标，迫使他们到永恒精灵之中寻求庇护。", "_t")
 t("Their preference for simple and direct solutions has given them an undeserved reputation as dumb brutes, despite their extraordinary talent with runes and their humble, dutiful nature.", "他们偏爱简单直接的解决办法，这让他们被不公平地冠以蠢笨蛮牛的恶名，尽管他们对符文有着惊人的天赋，而且天性谦逊尽责。", "_t")
-t("They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.", "他们拥有#GOLD#食人魔之怒#WHITE#技能，施放后会提高对震慑和定身的抗性；在他们的攻击落空或造成的伤害被护盾减免等情况下，该技能还会为他们提供暴击几率和暴击伤害加成。", "_t")
+t("They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.", "他们拥有#GOLD#食人魔之怒#WHITE#技能，开启后提高震慑与定身抗性，并在攻击落空或被护盾抵挡时获得暴击率和暴击伤害加成。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，-1 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, -2 Willpower, +2 Cunning", "#LIGHT_BLUE# * +2 魔力，-2 意志，+2 灵巧", "_t")
