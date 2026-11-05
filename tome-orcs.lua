@@ -2932,11 +2932,11 @@ TANTALOS: "As I thought.  Nashal, prepare the G.E.M. and a retinue of guards and
 
 纳沙尔：“我不能同意这样做，坦塔洛斯议员，您的前任的观点确实有道理————”
 
-坦塔洛斯：挥拳砸桌子，把讲台砸烂了。“那个走不稳路的老懦夫什么也不知道！”停顿；叹气。“我们也都不知道。我们知道的是，这个眼几乎肯定还有别的用途，不只是用它的泪水来做清淤药水，而想要它的人，能随手挖出通向埃亚尔地心的洞。我们已经试过了所有方案；是时候动用最后的手段了，我们急需一个奇迹。这个……“忠诚者”是我们身边唯一可能创造奇迹的人，如果他能提供无限能源、在星球上打出贯穿的洞，那么处理掉那群野蛮人应该非常简单。”
+坦塔洛斯：挥拳砸桌子，把讲台砸烂了。“那个走不稳路的老懦夫什么也不知道！”停顿；叹气。“我们也都不知道。我们知道的是，这只眼睛几乎肯定还有别的用途，不只是用它的泪水来做清淤药水，而想要它的人，能随手挖出通向埃亚尔地心的洞。我们已经试过了所有方案；是时候动用最后的手段了，我们急需一个奇迹。这个……“忠诚者”是我们身边唯一可能创造奇迹的人，如果他能提供无限能源、在星球上打出贯穿的洞，那么处理掉那群野蛮人应该非常简单。”
 
 帕拉奎：“如果我们的祖先可信的话，这可能比我们自身的毁灭更糟糕————”
 
-坦塔洛斯：“你们这些想不出#{italic}#更好#{normal}#主意的人能不能闭上叽叽喳喳的嘴，在我来#{italic}#帮你们#{normal}#闭上之前？”
+坦塔洛斯：“你们这些想不出#{italic}#更好#{normal}#主意的人，能不能在我来#{italic}#帮你们#{normal}#闭上之前，先闭上叽叽喳喳的嘴？”
 
 [沉默。]
 
@@ -2975,11 +2975,11 @@ Once upon a time, there was a Doomelf by the name of <?=Lore.pocket_time_winner.
 
 Once upon a time, there was a Shalore Adventurer by the name of <?=Lore.pocket_time_winner.name?>, who was quite certain of what he was doing.  He'd learned an extremely uncommon set of abilities - great talent with unarmed martial arts, some psychic potential to swing a staff in the air while leaving his hands free, stone magic that used his punches as a focus to blast foes with a hailstorm of earthen missiles - and once he had enough practice to master a few of these, he started effortlessly destroying any foe he faced... until he encountered the Weirdling Beast.  The battle was intense, and soon, both were on the verge of death, on opposite sides of the fortress's foyer; the Adventurer knew he couldn't afford to rush in close to finish the beast off, so he launched a pair of earthen missiles at it instead.  However, the moment they left his hands, he felt the grip of hard bone around his waist, legs, and back, pulling him at an incomprehensible speed into the Weirdling Beast's grasp.  Perhaps <?=Lore.pocket_time_winner.name?> could have survived an ensuing fistfight, but he had been pulled faster than his own missiles could fly, and now he found himself between the stony projectiles and their original target--
 
-Once upon a time, a great spirit put down its pen and closed its notebook, sighing in frustration.]], [[<? Lore.init_pocket_time_data() ?>从前，有个半身人炼金术士叫做<?=Lore.pocket_time_winner.name?>。她与可靠的傀儡一起向巨魔沼泽进发，把沿途的敌人消灭殆尽；不过，遇到普洛克斯时，他弯下腰来，在离她的脸仅几英寸、完全处于炸弹爆炸范围内的地方大吼，她顿时慌了，从腰带上拽下一个炼金瓶————
+Once upon a time, a great spirit put down its pen and closed its notebook, sighing in frustration.]], [[<? Lore.init_pocket_time_data() ?>从前，有个半身人炼金术士叫做<?=Lore.pocket_time_winner.name?>。她与可靠的傀儡一起向巨魔沼泽进发，把沿途的敌人消灭殆尽；不过，遇到普罗克斯时，他弯下腰来，在离她的脸仅几英寸、完全处于炸弹爆炸范围内的地方大吼，她顿时慌了，从腰带上拽下一个炼金瓶————
 
 从前，有个矮人狂战士名叫<?=Lore.pocket_time_winner.name?>。当他的朋友被兽人战士砍倒时，他正穿过瑞库纳的大厅逃命，却迎面撞上了两个兽人，然后————
 
-从前，有个科纳克人盗贼名叫<?=Lore.pocket_time_winner.name?>。他的陷阱很快解决了普洛克斯，但当岩石巨魔比尔在巢穴里把他扔来扔去时，他晕头转向，踩在了————
+从前，有个科纳克人盗贼名叫<?=Lore.pocket_time_winner.name?>。他的陷阱很快解决了普罗克斯，但当岩石巨魔比尔在巢穴里把他扔来扔去时，他晕头转向，踩在了————
 
 从前————
 
@@ -3018,9 +3018,9 @@ The three of them clashed in a fight for the fate of Eyal.  Even with Argoniel's
 None on Eyal would ever know of <?=Lore.pocket_time_winner.hisher?> sacrifice, or that they were ever in danger...  but thanks to our champion, they could live happily ever after.
 <? end ?>
 <? if Lore.pocket_time_winner.is_yeek then ?>[i]...Well, let's just assume that's how it went, anyway.  The alternative would make it quite difficult to tell the next story.[/i]<? end ?>
-]], [[<? Lore.init_pocket_time_data() ?>从前，有一位名叫<?=Lore.pocket_time_winner.name?>的<?=Lore.pocket_time_winner.race?> <?=Lore.pocket_time_winner.class?>。<?=Lore.pocket_time_winner.HeShe?>出身卑微，起初只应对一些小威胁，例如疯狂的自然守护者诺尔格斯或者卡·普尔的又一个化身。随着<?=Lore.pocket_time_winner.heshe?>继续周游各地，<?=Lore.pocket_time_winner.heshe?>变得越来越强大，越来越熟练，开始尝试挑战越来越强大的对手。<?=Lore.pocket_time_winner.HeShe?>清除了伊克格中堕落的恐魔，并将这座被遗忘已久的飞行堡垒据为己有，但这也仅仅是通往恐惧王座之塔途中的一块垫脚石。“领主”，一个拥有可怕力量、施虐欲更为可怕的死灵法师，正带领着一支庞大的不死军队在那里等待着<?=Lore.pocket_time_winner.heshe?>，手握一把具有强大力量的远古神器……但是<?=Lore.pocket_time_winner.name?>勇敢地继续前进，穿过成群的骷髅和食尸鬼，在许多人失败的地方获得了成功。最终，<?=Lore.pocket_time_winner.heshe?>光荣地站在那具吸血鬼的尸体之上，并带走了吸能法杖，使其免于落入不死族之手。马基·埃亚尔再次恢复了和平。
+]], [[<? Lore.init_pocket_time_data() ?>从前，有一位名叫<?=Lore.pocket_time_winner.name?>的<?=Lore.pocket_time_winner.race?><?=Lore.pocket_time_winner.class?>。<?=Lore.pocket_time_winner.HeShe?>出身卑微，起初只应对一些小威胁，例如疯狂的自然守护者诺尔格斯或者卡·普尔的又一个化身。随着<?=Lore.pocket_time_winner.heshe?>继续周游各地，<?=Lore.pocket_time_winner.heshe?>变得越来越强大，越来越熟练，开始尝试挑战越来越强大的对手。<?=Lore.pocket_time_winner.HeShe?>清除了伊克格中堕落的恐魔，并将这座被遗忘已久的飞行堡垒据为己有，但这也仅仅是通往恐惧王座之塔途中的一块垫脚石。“领主”，一个拥有可怕力量、施虐欲更为可怕的死灵法师，正带领着一支庞大的不死军队在那里等待着<?=Lore.pocket_time_winner.heshe?>，手握一把具有强大力量的远古神器……但是<?=Lore.pocket_time_winner.name?>勇敢地继续前进，穿过成群的骷髅和食尸鬼，在许多人失败的地方获得了成功。最终，<?=Lore.pocket_time_winner.heshe?>光荣地站在那具吸血鬼的尸体之上，并带走了吸能法杖，使其免于落入不死族之手。马基·埃亚尔再次恢复了和平。
 
-不幸的是，接下来等待着<?=Lore.pocket_time_winner.heshe?>的是一项关系更加重大的任务。兽人，这个曾被认为已被消灭的威胁，在马基·埃亚尔大举重现！尽管 <?=Lore.pocket_time_winner.name?>竭力将法杖存放在安全的地方，兽人们还是设法偷走了它，<?=Lore.pocket_time_winner.name?>不得不追随着他们，穿过一座古老而先进得难以置信的远行传送门，试图追回法杖。远行传送门在<?=Lore.pocket_time_winner.name?>高举多元水晶球将其激活时劈啪作响、旋转起来；<?=Lore.pocket_time_winner.heshe?>深吸一口气，闭上<?=Lore.pocket_time_winner.heshe?>的双眼。片刻之后，<?=Lore.pocket_time_winner.heshe?>成为了几个世纪以来第一个从马基·埃亚尔前往瓦·埃亚尔——遥远的远东大陆——的人。
+不幸的是，接下来等待着<?=Lore.pocket_time_winner.heshe?>的是一项关系更加重大的任务。兽人，这个曾被认为已被消灭的威胁，在马基·埃亚尔大举重现！尽管<?=Lore.pocket_time_winner.name?>竭力将法杖存放在安全的地方，兽人们还是设法偷走了它，<?=Lore.pocket_time_winner.name?>不得不追随着他们，穿过一座古老而先进得难以置信的远行传送门，试图追回法杖。远行传送门在<?=Lore.pocket_time_winner.name?>高举多元水晶球将其激活时劈啪作响、旋转起来；<?=Lore.pocket_time_winner.heshe?>深吸一口气，闭上<?=Lore.pocket_time_winner.heshe?>的双眼。片刻之后，<?=Lore.pocket_time_winner.heshe?>成为了几个世纪以来第一个从马基·埃亚尔前往瓦·埃亚尔——遥远的远东大陆——的人。
 
 在那里等待着<?=Lore.pocket_time_winner.heshe?>的，有着失落已久的盟友，太阳堡垒的人们——也有四支庞大的兽人军队。又一次，世界的命运落在了<?=Lore.pocket_time_winner.heshe?>手中，而<?=Lore.pocket_time_winner.heshe?>绝不愿向困难屈服。在接受了高阶太阳骑士艾琳的祝福之后，<?=Lore.pocket_time_winner.heshe?>出发前去进攻兽人部落，夺回被夺走的吸能法杖。在<?=Lore.pocket_time_winner.heshe?>前去挑战大魔导师沃尔的路上，火焰与冰霜的风暴不断袭击<?=Lore.pocket_time_winner.heshe?>；沃尔是一个能召唤天穹之力将<?=Lore.pocket_time_winner.heshe?>碾碎的敌人，但他的陨石也未能阻止<?=Lore.pocket_time_winner.heshe?>。加伯特部落的驯龙师——对自然之力的掌控无人能及的龙战士大师——也只是给了<?=Lore.pocket_time_winner.name?>成为世上最有成就的屠龙者的机会。当<?=Lore.pocket_time_winner.heshe?>让拉克·肖部落白骨堡垒中的居民得到安息时，堡垒随之崩塌。即便在格鲁希纳克部落，兽人们挡在<?=Lore.pocket_time_winner.heshe?>面前，施展他们最为人所知的本领——以力量与钢铁蛮攻——这股蛮力也不足以阻挡其前进。
 <? if not Lore.pocket_time_winner.sacrifice then ?>
@@ -3051,11 +3051,11 @@ And what then?  A master of battle has nothing to do once the battle is won.  <?
 
 Of course, a character like that can't simply be thrown away.  The story may be over, but it can be told again and again, and as such there would be as many Heroes of Maj'Eyal as there were people who'd listen to the story, each hearing it and imagining it slightly differently from the next.  Even the storyteller would dream up more situations for the Hero of Maj'Eyal, always wondering - what if I found an even match for this first warrior?  Don't I owe <?=Lore.pocket_time_winner.himher?> the reward of a fight <?=Lore.pocket_time_winner.heshe?> would be eager to participate in, and one that would give <?=Lore.pocket_time_winner.himher?> the challenge <?=Lore.pocket_time_winner.heshe?> craved so dearly?  Wouldn't such a duel be worth writing about?  And so, it kept <?=Lore.pocket_time_winner.name?> in mind, promising to remember <?=Lore.pocket_time_winner.himher?> whenever it found or created a threat worthy of <?=Lore.pocket_time_winner.himher?>.
 
-[b]<?=player.name?>[/b], you crave the thrill and tension of a close fight as much as <?=Lore.pocket_time_winner.heshe?> does.  I owe this opportunity to you in life, and the Scourge from the West in <?=Lore.pocket_time_winner.hisher?> legend; all I ask in return is that the two of you give me a battle that the people of Eyal will sing songs about.]], [[<? Lore.init_pocket_time_data() ?>从前，有一个叫做艾德隆的灵魂，比埃亚尔的一切都要古老。有人称之为救世主，是秩序和正义的使者；也有人称之为黑暗之神，传播恐怖以自娱自乐。这样的凡人分类，是无可救药地不足以描述一个几乎和时间一样古老的存在那不可思议的长远动机的……但是，如果你亲自问它的话，它会自称是一个讲故事的人。
+[b]<?=player.name?>[/b], you crave the thrill and tension of a close fight as much as <?=Lore.pocket_time_winner.heshe?> does.  I owe this opportunity to you in life, and the Scourge from the West in <?=Lore.pocket_time_winner.hisher?> legend; all I ask in return is that the two of you give me a battle that the people of Eyal will sing songs about.]], [[<? Lore.init_pocket_time_data() ?>从前，有一个叫做艾德隆的灵魂，比埃亚尔的一切都要古老。有人称之为救世主，是秩序和正义的使者；也有人称之为黑暗之神，传播恐怖以自娱自乐。凡人的这些分类，根本无法描述一个几乎与时间本身一样古老的存在那深远得令人难以理解的动机……但是，如果你亲自问它的话，它会自称是一个讲故事的人。
 
 不管这个故事是只存在于它的脑海里，还是反映在整个珊德拉星系之中，没有人知道——但是，艾德隆的故事里需要英雄，一直都是这样。今天，它所需要的英雄是一位战斗的大师，一位从吞噬者加库尔的时代以来就未曾出现的大师。它考虑了几个不同的人选，认定其中许多都不合格，有些在原谅几处失误后或许勉强称职，而最终被选中的只有一个。被它所选中的主角战胜了摆在<?=Lore.pocket_time_winner.heshe?>面前的一切挑战，有时举重若轻，有时艰难取胜，也有的时候则透过运气勉强通过。但最终，<?=Lore.pocket_time_winner.heshe?>站在了巅峰之上，<? if Lore.pocket_time_winner.sacrifice then ?>通过牺牲<?=Lore.pocket_time_winner.heshe?>的生命来关闭了巫师们的远行传送门，<? end ?>从而把埃亚尔从其所面临的最大的威胁面前解救出来。
 <? if not Lore.pocket_time_winner.sacrifice then ?>
-之后呢？在战斗胜利之后，这位为战斗而生的大师就无事可做了。<?=Lore.pocket_time_winner.HeShe?> 本可以找到更加强大的敌人，但<?=Lore.pocket_time_winner.heshe?>可能找到的对手要么根本不值一战，要么会直接危害埃亚尔的居民，都不会给故事增添任何内容。艾德隆也可以安排一个强大到足以最终消灭<?=Lore.pocket_time_winner.heshe?>的敌人，但这又是什么样的结局呢？最终，艾德隆决定遵循<?=Lore.pocket_time_winner.heshe?>的意愿，让这位英雄从此退休……无论<?=Lore.pocket_time_winner.heshe?>是选择深入无尽地下城、走向必然的毁灭，是尝试去击杀像阿塔玛森或莱娜尼尔这样不可能战胜的敌人，还是就此在重新夺回的夏·图尔堡垒中度过余生。无论是哪一种，这个故事都结束了，<?=Lore.pocket_time_winner.name?>的故事就此走到了尽头。<? end ?>
+之后呢？在战斗胜利之后，这位为战斗而生的大师就无事可做了。<?=Lore.pocket_time_winner.HeShe?>本可以找到更加强大的敌人，但<?=Lore.pocket_time_winner.heshe?>可能找到的对手要么根本不值一战，要么会直接危害埃亚尔的居民，都不会给故事增添任何内容。艾德隆也可以安排一个强大到足以最终消灭<?=Lore.pocket_time_winner.heshe?>的敌人，但这又是什么样的结局呢？最终，艾德隆决定遵循<?=Lore.pocket_time_winner.heshe?>的意愿，让这位英雄从此退休……无论<?=Lore.pocket_time_winner.heshe?>是选择深入无尽地下城、走向必然的毁灭，是尝试去击杀像阿塔玛森或莱娜尼尔这样不可能战胜的敌人，还是就此在重新夺回的夏·图尔堡垒中度过余生。无论是哪一种，这个故事都结束了，<?=Lore.pocket_time_winner.name?>的故事就此走到了尽头。<? end ?>
 
 当然，这样的角色不能简单地被抛弃。故事可能已经结束了，但它可以一次又一次地被讲述。这样一来，每有一个愿意听故事的，就会出现一位马基·埃亚尔的英雄。每个人都听到了故事，并且对它的想象与下一个略有不同。即使是讲故事的人，也会为马基·埃亚尔的英雄设想更多的场景，总是在想——我是否能给这第一位战士找到一位势均力敌的对手呢？我是否正欠<?=Lore.pocket_time_winner.heshe?>一个奖赏，一场真正能够让<?=Lore.pocket_time_winner.heshe?>兴奋地参与的战斗，一个<?=Lore.pocket_time_winner.heshe?>渴望已久的终极挑战呢？这样的战斗，难道不值得记述下来吗？因此，它将<?=Lore.pocket_time_winner.name?>记在心里，承诺每当它找到或创造出配得上<?=Lore.pocket_time_winner.heshe?>的威胁时，都会想起<?=Lore.pocket_time_winner.heshe?>。
 
@@ -3319,7 +3319,7 @@ The Orcish scouts are getting bolder.  They've been approaching closer before fl
 
 然而……
 
-仍有一群兽人存在。一个小小的兽人部落——其实更像一座小镇——躲过了救世主的怒火……如整洁花园边缘的一株杂草，又像威胁点燃整片大陆的一点余烬。托拉克国王试图树立比复仇心切的父亲更好榜样，志向固然高尚；可若他经历过我们所经历的一切，我怀疑他是否还会冒险去拯救兽人。联合王国不知道活在四大部落阴影下是什么滋味，不知道太阳堡垒随时可能被攻陷、我们的头颅被割下当作战利品的恐惧。他们有远行传送门可作屏障，无需担心家园和亲人遭遇我们一生都在抗争的同样恐怖。如果他们也要担这种心……只消说，在大陆真正安全之前，他们绝不会费心为幸存兽人搭起舒适营地。
+仍有一群兽人存在。一个小小的兽人部落——其实更像一座小镇——躲过了救世主的怒火……如整洁花园边缘的一株杂草，又像威胁点燃整片大陆的一点余烬。托拉克国王试图树立比复仇心切的父亲更好的榜样，志向固然高尚；可若他经历过我们所经历的一切，我怀疑他是否还会冒险去拯救兽人。联合王国不知道活在四大部落阴影下是什么滋味，不知道太阳堡垒随时可能被攻陷、我们的头颅被割下当作战利品的恐惧。他们有远行传送门可作屏障，无需担心家园和亲人遭遇我们一生都在抗争的同样恐怖。如果他们也要担这种心……只消说，在大陆真正安全之前，他们绝不会费心为幸存兽人搭起舒适营地。
 
 以太阳之名……经历这一切之后，我们的高阶太阳骑士为何还会同意这份条约？
 
@@ -3454,7 +3454,7 @@ I must be that light for my allies' sake.  I must be strong, resolute, giving th
 
 All I can hope is that King Tolak has learned something about the Orcs, before his kingdom falls as well.  I do not begrudge him, everything he did was rooted in wisdom and kindness...  and would have worked for any species but the Orcs.  They are the sole exception that deserves no mercy.]], [[这一切……我大半生都在恐惧的这一天终于来临了，但它依然让我无比震惊。过去的几乎每一日，我都以为这一天很快就要到来……但直到去年，事情出现了变化。西方天灾击败了四大兽人部落，飞速穿越灼烧之痕，攻上巅峰之塔，与我并肩迎战远比我所能想象的更强大的威胁。我们终于与一个愿意合作、近乎统一的马基·埃亚尔重新建立了联系；它由一位愿意且有能力全力帮助我们的国王领导，并制定了一个将兽人完全控制住的计划……回想起来，这一切就好像太阳缓缓从地平线上升起，仿佛要给瓦·埃亚尔带来和平的曙光，但紧接着，永恒的黑暗降临，就连最后闪烁的月光也被黑暗笼罩。我的爱人恐怕已经死了；曾经在我生命的黑暗中照耀多年的点点烛光，就这样熄灭在无尽的黑夜中。什么都没有了——所有过去的计划都被践踏了，所有过去的梦想都化为了泡影，所有过去照耀的希望，现在都变成了绝望——已经没有谁能指引我了。
 
-为了我的战友，我必须成为他们希望的光芒。我必须振作起来，坚强，坚定，将我所有的任何一点微小的希望，一同分享给他们。这不仅是为了保持他们的士气，让我们有机会战胜太阳堡垒长久以来一直抵挡的、无法阻止的威胁……也是为了让他们临死前的最后一个念头能够是：自己的牺牲拯救了我们所有人。也许他们中会有一个人的想法是对的。
+为了我的战友，我必须成为他们希望的光芒。我必须振作起来，坚强，坚定，尽我所能，给他们哪怕一丝微小的希望。这不仅是为了保持他们的士气，让我们有机会战胜太阳堡垒长久以来一直抵挡的、无法阻止的威胁……也是为了让他们临死前的最后一个念头能够是：自己的牺牲拯救了我们所有人。也许他们中会有一个人的想法是对的。
 
 我唯一希望的是，在他自己的国家也走向毁灭之前，托拉克国王能够从兽人的身上吸取一点教训。我并不准备苛责他，他所做的一切都源于智慧与仁慈……换作兽人以外的任何种族，本都会奏效。但兽人是唯一的例外，他们不配得到我们的任何仁慈。]], "_t")
 t("kindness", "善意", "_t")
@@ -3568,7 +3568,7 @@ Would you expect anything less from the physical incarnations of spiteful determ
 
 在此之前我们成就斐然，也不想从头再做一遍。当然，若把一切集中一处，诅咒便会察觉并将其抹除——于是我们把自身和成就拆成碎片，以数千年的进化与隐秘操纵将它们遮掩起来。你大概已经见过其中一块：躯体。强壮。坚韧。能适应任何环境。快速愈合。青春永驻。而且，一旦时机成熟，极其容易通过心灵转移接管……你也许正考虑命令部落尽可能灭绝所有雪人。尽管去做吧；消灭所有免费劳力，再看看当巨魔帝国役使奴隶、联合王国拥有食人魔和矮人时，你们会落得怎样。再次说明，它是否帮助我们并不重要，因为你们需要它才能生存。
 
-不过，这只是我们得以保存之物的三分之一。其次是我们的心智处理能力：适于灵能的头脑，以及快速评估信息、进行逻辑分析的能力。你们永远无法灭绝夺心魔——相信我们，我们查证过了。他们仿佛像我们遭受诅咒那样得到了赐福，只不过若只是试图藏在他们体内，我们仍注定灭亡。真可惜。无论如何，他们的大脑及其承载的系统都会延续下去；在我们缺席时，他们会维系我们的维网。
+不过，这只是我们得以保存之物的三分之一。其次是我们的心智处理能力：适于灵能的头脑，以及快速评估信息、进行逻辑分析的能力。你们永远无法灭绝夺心魔——相信我们，我们查证过了。我们遭受的诅咒有多深，他们受到的赐福似乎就有多厚，只不过若只是试图藏在他们体内，我们仍注定灭亡。真可惜。无论如何，他们的大脑及其承载的系统都会延续下去；在我们缺席时，他们会维系我们的维网。
 
 最后是我们的文化、我们的发现。所有未被写入躯体或大脑的知识，我们都存放在……另一个族群中。一个向群星之外扩张的族群；我们向他们散播了无数经过隐秘编码的信息片段；他们的备份遍布宇宙……他们会把足够的信息送回故乡。夺心魔会吸收这些信息，而我们将在他们的心智中重生，直到他们能把我们放进更优越的躯体。
 
@@ -5664,7 +5664,7 @@ t([[For %d turns, you lay down Grasping Moss where you walk or stand.
 		The moss is placed automatically every step and lasts %d turns.
 		Each turn the moss deals %0.2f nature damage to each foe standing on it.
 		This moss is very thick and sticky causing all foes passing through it have their movement speed reduced by %d%% and have a %d%% chance to be pinned to the ground for 4 turns.
-		The damage scales with your Steampower.]], [[在 %d 回合内，你会在走过的位置铺下缠绕苔藓。
+		The damage scales with your Steampower.]], [[在 %d 回合内，你会在走过的位置铺下减速苔藓。
 		每走一步都会自动铺下苔藓，持续 %d 回合。
 		苔藓每回合对站在其上的每个敌人造成 %0.2f 自然伤害。
 		苔藓极其浓密黏稠，所有穿过它的敌人移动速度降低 %d%%， 并有 %d%% 几率被定身 4 回合。

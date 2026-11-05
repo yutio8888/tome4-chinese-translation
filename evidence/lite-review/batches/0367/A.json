@@ -1,0 +1,363 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "e365a648b347",
+   "verdict": "OK"
+  },
+  {
+   "id": "218bdcd9df42",
+   "verdict": "OK"
+  },
+  {
+   "id": "8d6b9fc7fd55",
+   "verdict": "ISSUE",
+   "observation": "病句与语义偏移（tome-cults/data/lore/fay-willows.lua:312 lore 正文）：①“人类突然打断了半身人的说话”搭配不当，“打断”的宾语应为“话”，不能是“说话”；②关键台词 \"Because nature has suffered enough, has it not?\" 译为“因为大自然已经受够了，不是吗？”，“受够了”在中文里是“忍无可忍/厌烦”之意，原文是“自然所受的苦难已经够多了”，下一段‘我’正是因‘自然所受的伤害’而触动，现译意思偏移。",
+   "suggestion": "仅改两处，其余不变：①“人类突然打断了半身人的说话，愤怒地喊道”→“人类突然打断了半身人的话，愤怒地喊道”；②“因为大自然已经受够了，不是吗？”→“因为大自然受的苦已经够多了，不是吗？”"
+  },
+  {
+   "id": "1b1ff170caef",
+   "verdict": "OK"
+  },
+  {
+   "id": "7ce48026fa06",
+   "verdict": "OK"
+  },
+  {
+   "id": "8090bc445520",
+   "verdict": "ISSUE",
+   "observation": "病句（tome-orcs/data/lore/palace-fumes.lua:158）：①“这个眼几乎肯定还有别的用途”量词搭配不当，单字“眼”不能受“这个”修饰，应为“这只眼睛”；②“你们这些想不出更好主意的人能不能闭上叽叽喳喳的嘴，在我来帮你们闭上之前？”把时间状语“在……之前”甩到问句末尾，属状语错位的翻译腔。",
+   "suggestion": "仅改两处，其余不变：①“这个眼几乎肯定还有别的用途”→“这只眼睛几乎肯定还有别的用途”；②该句改为“坦塔洛斯：“在我#{italic}#替你们#{normal}#闭上嘴之前，想不出#{italic}#更好#{normal}#主意的人，都给我停止那叽叽喳喳！””（保留两处 italic 标记）"
+  },
+  {
+   "id": "7fe5fa459c12",
+   "verdict": "OK"
+  },
+  {
+   "id": "b4f019ed8b5c",
+   "verdict": "ISSUE",
+   "observation": "专名不一致（tome-orcs/data/lore/pocket-time.lua:47）：Prox 在本条两处译为“普洛克斯”，而库内同一角色统一为“普罗克斯”（mod-tome.lua: t(\"Prox the Mighty\", \"大力巨魔普罗克斯\")、\"Prox staggers...\"→“普罗克斯蹒跚了几步”等 4 处），“普洛克斯”全库仅见于本条。",
+   "suggestion": "把本条中两处“普洛克斯”改为“普罗克斯”（“不过，遇到普罗克斯时……”“他的陷阱很快解决了普罗克斯……”），其余不变。"
+  },
+  {
+   "id": "6ce08a958476",
+   "verdict": "OK"
+  },
+  {
+   "id": "de6c5e1751b8",
+   "verdict": "ISSUE",
+   "observation": "占位符两侧多余空格（tome-orcs/data/lore/pocket-time.lua:72）：①“名叫<?=Lore.pocket_time_winner.name?>的<?=Lore.pocket_time_winner.race?> <?=Lore.pocket_time_winner.class?>”在种族与职业之间保留了英文空格，代入后成“人类 狂战士”，把中文词组断开；②“尽管 <?=Lore.pocket_time_winner.name?>竭力……”在名字前多一个空格，同段其余名字占位符均无空格。",
+   "suggestion": "①改为“从前，有一位名叫<?=Lore.pocket_time_winner.name?>的<?=Lore.pocket_time_winner.race?><?=Lore.pocket_time_winner.class?>。”；②“尽管 <?=Lore.pocket_time_winner.name?>竭力”→“尽管<?=Lore.pocket_time_winner.name?>竭力”；其余不变。"
+  },
+  {
+   "id": "6f7d0fa4bf40",
+   "verdict": "OK"
+  },
+  {
+   "id": "db51b1e7e52a",
+   "verdict": "ISSUE",
+   "observation": "占位符后多余空格与句式杂糅（tome-orcs/data/lore/pocket-time.lua:102）：①“<?=Lore.pocket_time_winner.HeShe?> 本可以找到更加强大的敌人”代词占位符后多一个空格，代入后成“他 本可以”，同条其余代词均紧接中文；②“这样的凡人分类，是无可救药地不足以描述一个几乎和时间一样古老的存在那不可思议的长远动机的……”以“是……的”包裹超长状中结构，句式杂糅、读来生硬。",
+   "suggestion": "①“<?=Lore.pocket_time_winner.HeShe?> 本可以”→“<?=Lore.pocket_time_winner.HeShe?>本可以”；②该句改为“一个几乎与时间同样古老的存在，其动机之深远超乎想象，凡人的这些分类根本不足以描述……”；其余不变。"
+  },
+  {
+   "id": "80132c47f95b",
+   "verdict": "OK"
+  },
+  {
+   "id": "ee168a5b4fab",
+   "verdict": "OK"
+  },
+  {
+   "id": "692dab86d24f",
+   "verdict": "OK"
+  },
+  {
+   "id": "d529872dd87c",
+   "verdict": "ISSUE",
+   "observation": "成分残缺（tome-orcs/data/lore/sunwall.lua:31）：“托拉克国王试图树立比复仇心切的父亲更好榜样”比较结构中“更好”与“榜样”之间缺“的”，且宾语中心语不完整，读来不通。",
+   "suggestion": "仅改此句：“托拉克国王想要树立一个比他那复仇心切的父亲更好的榜样，志向固然高尚；可若他经历过我们所经历的一切，我怀疑他是否还会冒险去拯救兽人。”其余不变。"
+  },
+  {
+   "id": "59f4b0a2c334",
+   "verdict": "OK"
+  },
+  {
+   "id": "d8d34e4d9b98",
+   "verdict": "OK"
+  },
+  {
+   "id": "4c29a1d38eed",
+   "verdict": "OK"
+  },
+  {
+   "id": "a0e069bfbcdc",
+   "verdict": "OK"
+  },
+  {
+   "id": "c7e789579c79",
+   "verdict": "ISSUE",
+   "observation": "成分多余（tome-orcs/data/lore/sunwall.lua:167）：“将我所有的任何一点微小的希望，一同分享给他们”中“所有的”“任何一点”“微小的”三重限定叠加，语义重复、搭配杂糅（原文 giving them whatever tiny amounts of hope I can）。",
+   "suggestion": "仅改此句：“我必须振作起来，坚强而坚定，把我能给的每一丝希望都分给他们。”其余不变。"
+  },
+  {
+   "id": "4b632fc46c50",
+   "verdict": "OK"
+  },
+  {
+   "id": "524d4ae7e534",
+   "verdict": "ISSUE",
+   "observation": "成分多余致语义含混（tome-orcs/data/lore/weissi.lua:86）：“他们仿佛像我们遭受诅咒那样得到了赐福”中“仿佛”“像”重复，且把 as blessed as we are cursed 的对照（我们受诅咒有多深，他们受赐福就有多深）说成了比喻，读来不通。",
+   "suggestion": "仅改此句：“我们受到的诅咒有多深，他们得到的赐福似乎就有多厚，只不过若只是试图藏在他们体内，我们仍注定灭亡。”其余不变。"
+  },
+  {
+   "id": "2b6dd9e69a01",
+   "verdict": "OK"
+  },
+  {
+   "id": "0433b827fd30",
+   "verdict": "OK"
+  },
+  {
+   "id": "01be1dd28b0d",
+   "verdict": "OK"
+  },
+  {
+   "id": "064f9b02c5d0",
+   "verdict": "OK"
+  },
+  {
+   "id": "9003a2cbee90",
+   "verdict": "OK"
+  },
+  {
+   "id": "c5a31a8ba19f",
+   "verdict": "OK"
+  },
+  {
+   "id": "f7b59112b726",
+   "verdict": "OK"
+  },
+  {
+   "id": "89ca889e1b1c",
+   "verdict": "OK"
+  },
+  {
+   "id": "14e98aafd2db",
+   "verdict": "OK"
+  },
+  {
+   "id": "d4fccf5c5b33",
+   "verdict": "OK"
+  },
+  {
+   "id": "3b130b311426",
+   "verdict": "OK"
+  },
+  {
+   "id": "f13fac1a8c20",
+   "verdict": "OK"
+  },
+  {
+   "id": "3a4119d5986a",
+   "verdict": "OK"
+  },
+  {
+   "id": "74625f45e725",
+   "verdict": "OK"
+  },
+  {
+   "id": "f0b757aac54e",
+   "verdict": "OK"
+  },
+  {
+   "id": "8fb599e0f28e",
+   "verdict": "OK"
+  },
+  {
+   "id": "c6f45e0ce7a1",
+   "verdict": "OK"
+  },
+  {
+   "id": "508b32654c00",
+   "verdict": "OK"
+  },
+  {
+   "id": "6a0691792fb1",
+   "verdict": "OK"
+  },
+  {
+   "id": "cd5305ff9c67",
+   "verdict": "OK"
+  },
+  {
+   "id": "cda2e044a4aa",
+   "verdict": "OK"
+  },
+  {
+   "id": "806d4351108f",
+   "verdict": "OK"
+  },
+  {
+   "id": "a5c939a2a277",
+   "verdict": "OK"
+  },
+  {
+   "id": "8218e6cb4eac",
+   "verdict": "OK"
+  },
+  {
+   "id": "ddb69318932e",
+   "verdict": "OK"
+  },
+  {
+   "id": "2049882820d8",
+   "verdict": "OK"
+  },
+  {
+   "id": "d47c26d7ac48",
+   "verdict": "OK"
+  },
+  {
+   "id": "74e77ba22bc3",
+   "verdict": "OK"
+  },
+  {
+   "id": "031d1556e662",
+   "verdict": "OK"
+  },
+  {
+   "id": "bbe1ec794e87",
+   "verdict": "OK"
+  },
+  {
+   "id": "370166aae626",
+   "verdict": "OK"
+  },
+  {
+   "id": "a3443a1bed15",
+   "verdict": "OK"
+  },
+  {
+   "id": "11f3af9d077a",
+   "verdict": "OK"
+  },
+  {
+   "id": "071fa2df210b",
+   "verdict": "OK"
+  },
+  {
+   "id": "d3716bb7cc8b",
+   "verdict": "OK"
+  },
+  {
+   "id": "7a8a57abf280",
+   "verdict": "OK"
+  },
+  {
+   "id": "6f1c75046e63",
+   "verdict": "OK"
+  },
+  {
+   "id": "9ab58f741c2a",
+   "verdict": "OK"
+  },
+  {
+   "id": "dabf6b7ade57",
+   "verdict": "OK"
+  },
+  {
+   "id": "f2336eb70894",
+   "verdict": "OK"
+  },
+  {
+   "id": "b225c6494d3a",
+   "verdict": "OK"
+  },
+  {
+   "id": "7a9c85ece704",
+   "verdict": "OK"
+  },
+  {
+   "id": "68a52caee258",
+   "verdict": "OK"
+  },
+  {
+   "id": "6a4f5c9299c0",
+   "verdict": "OK"
+  },
+  {
+   "id": "b965d76c99f3",
+   "verdict": "OK"
+  },
+  {
+   "id": "2a457709cb93",
+   "verdict": "OK"
+  },
+  {
+   "id": "a860fc316a46",
+   "verdict": "OK"
+  },
+  {
+   "id": "3d2cb2c50c94",
+   "verdict": "OK"
+  },
+  {
+   "id": "254662b049a4",
+   "verdict": "OK"
+  },
+  {
+   "id": "21b97c65fce9",
+   "verdict": "OK"
+  },
+  {
+   "id": "d247bcf25a88",
+   "verdict": "OK"
+  },
+  {
+   "id": "bc627e0e1feb",
+   "verdict": "OK"
+  },
+  {
+   "id": "e26488dc0aeb",
+   "verdict": "OK"
+  },
+  {
+   "id": "2dab8dee1fc3",
+   "verdict": "OK"
+  },
+  {
+   "id": "6493ad8a1ee5",
+   "verdict": "OK"
+  },
+  {
+   "id": "8f5edaa7fdb0",
+   "verdict": "OK"
+  },
+  {
+   "id": "cfa9c09510ef",
+   "verdict": "OK"
+  },
+  {
+   "id": "d0571bbe05b0",
+   "verdict": "OK"
+  },
+  {
+   "id": "acbe660443a6",
+   "verdict": "OK"
+  },
+  {
+   "id": "98eefafa92f0",
+   "verdict": "OK"
+  },
+  {
+   "id": "c89a9f9cbe1d",
+   "verdict": "ISSUE",
+   "observation": "技能名不一致（tome-orcs/data/talents/steam/other.lua:1889，Moss Tread 说明）：原文 Grasping Moss 是技能名（同文件 1874 行使用 DamageType.GRASPING_MOSS，核心技能同名），库内技能名为 t(\"Grasping Moss\", \"减速苔藓\", \"talent name\")；本条译作“缠绕苔藓”，全库仅此一处。机制核验：MOSS_TREAD 效果仅在 callbackOnMove 实际移动时铺苔（timed_effects/physical.lua:841-843），“走过的位置”与实现一致。",
+   "suggestion": "在 %d 回合内，你会在走过的位置铺下减速苔藓。\n\t\t每走一步都会自动铺下苔藓，持续 %d 回合。\n\t\t苔藓每回合对站在其上的每个敌人造成 %0.2f 自然伤害。\n\t\t苔藓极其浓密黏稠，所有穿过它的敌人移动速度降低 %d%%， 并有 %d%% 几率被定身 4 回合。\n\t\t伤害随蒸汽强度提升。"
+  },
+  {
+   "id": "51d75fb9162b",
+   "verdict": "OK"
+  }
+ ]
+}
