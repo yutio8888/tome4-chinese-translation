@@ -93,7 +93,7 @@ t("#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+4 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -1", "#GOLD#每等级生命加值：#LIGHT_BLUE# -1", "_t")
 t("Psyshot", "灵能射手", "birth descriptor name")
-t("Bend the mind, bend the tech. All around inspire dread.", "扭曲精神，扭曲科技，令四周心生恐惧。", "_t")
+t("Bend the mind, bend the tech. All around inspire dread.", "扭曲精神，扭曲科技，令周围的人心生恐惧。", "_t")
 t("Powerful psionics are able to enter a gestalt with steam generators and technology to enhance their own mental prowess.", "强大的灵能使用者能够与蒸汽发生器和科技形成格式塔联结，以增强自身的精神力量。", "_t")
 t("The Psyshot combines this ability to gestalt to enhance his mindstar all the while shooting her steamgun to devastate the enemy lines.", "灵能射手运用这种格式塔联结能力强化灵晶，同时以蒸汽枪射击，摧毁敌方阵线。", "_t")
 t("Their most important stats are: Cunning, Willpower and Dexterity", "他们最重要的属性是：灵巧、意志和敏捷", "_t")

@@ -18012,7 +18012,7 @@ As well as the many merchant dwarves one may meet there are also a great deal of
 
 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。
 
-他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们以首都钢铁王座为据点，大量贩卖自己的工艺品，却不允许任何外人入城——相反，他们会派出无数商队前往各个城市兜售货物。
+他们的金属加工技艺最为举世闻名。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们以首都钢铁王座为据点，大量贩卖自己的工艺品，却不允许任何外人入城——相反，他们会派出无数商队前往各个城市兜售货物。
 
 除了人们可能遇到的众多矮人商人，也有许多年轻矮人走出他们的石砌厅堂去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了配合他们的“市场调查策略”。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 4 - Shaloren", "博学者格雷诺特关于种族的调查——第四章——永恒精灵", "_t")
@@ -43202,7 +43202,7 @@ t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk
 
  矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的事几乎闻所未闻。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。
 
- 他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们以首都钢铁王座为据点，大量贩卖自己的工艺品，却不允许任何外人入城——相反，他们会派出无数商队前往各个城市兜售货物。
+ 他们的金属加工技艺最为举世闻名。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们以首都钢铁王座为据点，大量贩卖自己的工艺品，却不允许任何外人入城——相反，他们会派出无数商队前往各个城市兜售货物。
 
  除了随处可见的矮人商人，还有大量年轻矮人走出他们的石厅去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了配合他们的“市场调查策略”。]], "_t")
 t([[Quekorja was the god of time and possibilities. What stands out about Eyal's myths regarding Quekorja is how wildly inconsistent they are. In particular, tales after the Godhunt tend to have a far less favourable outlook of the god than pre-Godhunt myths. Speculation regarding this is due to Quekorja supposedly taking an interest in written history and appointing its own librarians to record its tales. Since there are no surviving records of this library existing, this theory is considered to be pure conjecture and has no concrete evidence to validate it. There have been some unusual records found too, supposedly written by the same authors on the same dates, but wildly varying in their tone and their description of the god itself. Given the god's ability to control time, it is thought these notes might be from alternate timelines, further obscuring the truth about the god itself.
