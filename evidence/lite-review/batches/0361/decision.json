@@ -1,0 +1,47 @@
+{
+ "confirmed": [
+  {
+   "id": "c5de31ea6297",
+   "edit": "整段语序重写：你每原地不动一回合……该效果会在 5 回合内逐步增强，最终范围达到 %d 格，精神伤害和燃烧伤害分别达到 %0.2f 和 %0.2f 点。此后……",
+   "evidence": "@624a67329fe2 talents/psionic/dream-forge.lua:236-284; lanes A+B"
+  },
+  {
+   "id": "93cb10bcd04f",
+   "edit": "从现在起，我们把这些 20 点的区间称为层级",
+   "evidence": "@624a67329fe2 texts/tutorial/stats-scale/scale3.lua:21-23; lanes A+B"
+  },
+  {
+   "id": "311917c4e4d3",
+   "edit": "由于他们必须维护自己身上的刻印才能存活……这份知识也代代相传",
+   "evidence": "@624a67329fe2 texts/unlock-race_ogre.lua:22-25; lanes A+B"
+  },
+  {
+   "id": "1951fb1d984c",
+   "edit": "你已经掌握了从远处发动反击的力量，现在创建人物时可以选择散兵职业。",
+   "evidence": "@624a67329fe2 texts/unlock-rogue_skirmisher.lua:21-23; lanes A+B"
+  },
+  {
+   "id": "d891137303c7",
+   "edit": "它们→他们；盾牌打击攻击→盾击攻击",
+   "evidence": "@624a67329fe2 texts/unlock-wilder_stone_warden.lua:21; lane A"
+  },
+  {
+   "id": "75c20adfc804",
+   "edit": "向你的灵能聚焦物注入过量能量",
+   "evidence": "@624a67329fe2 talents/psionic/projection.lua:597-601; lane B"
+  },
+  {
+   "id": "5aee27a2e1b4",
+   "edit": "每回合最多可发动 %d + 1 次反击（按实现改写，用户 2026-11-02 裁决）",
+   "evidence": "@624a67329fe2 talents/techniques/buckler-training.lua:227-244 counter_shot > getBlocks 才阻止，实际上限 getBlocks+1; lane B"
+  }
+ ],
+ "advisory": [
+  {
+   "id": "5690894e7a5d",
+   "reason": "源码 talents/misc/npcs.lua:3385-3416：命中时一律造成 getDamageTwo，第一个 %0.2f 取 getDamage 从未生效；英文同错。占位符参数错误无法仅靠译文修正（用户 2026-11-02：此类仍 advisory），记待 addon 代码处理。"
+  }
+ ],
+ "rejected": [],
+ "notes": "Fluency recheck P1 chunk 8/16 (+re-checks, 82 units). A 5, B 7 ISSUE (union 8); 7 confirmed, 1 advisory."
+}

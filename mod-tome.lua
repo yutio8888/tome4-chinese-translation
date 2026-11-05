@@ -27242,11 +27242,11 @@ t([[The pounding forge of thought in your mind is released upon your surrounding
 		The effect will build over five turns, until it reaches a maximum radius of %d, maximum mind damage of %0.2f, and maximum burning damage of %0.2f.
 		At this point you'll begin breaking the dreams of enemies who hear the forge, reducing their Mental Save by %d and giving them a %d%% chance of spell failure due to the tremendous echo in their minds for %d turns.
 		Broken Dreams has a %d%% chance to brainlock your enemies.
-		The damage and dream breaking effect will scale with your Mindpower.]], [[你脑海中轰鸣的思想熔炉向四周释放。每回合当你保持静止，你将会锤击梦之熔炉，对周围敌人造成精神和燃烧伤害。
-		此效果将递增 5 个回合，直至 %d 格最大范围， %0.2f 最大精神伤害和 %0.2f 最大燃烧伤害。
-		此刻，你将会打破那些听到熔炉声的敌人梦境，减少它们 %d 精神豁免，并且由于敲击熔炉的巨大回声，它们将获得一个 %d%% 的法术失败率，持续 %d 回合。
-		梦境破碎有 %d%% 几率对你的敌人产生思维封锁效果。
-		受精神强度影响，伤害和梦境打破效果按比例加成。]], "tformat")
+		The damage and dream breaking effect will scale with your Mindpower.]], [[你脑海中轰鸣的思想熔炉向四周释放。你每原地不动一回合，就会锤击一次梦之熔炉，对周围的敌人造成精神和燃烧伤害。
+		该效果会在 5 回合内逐步增强，最终范围达到 %d 格，精神伤害和燃烧伤害分别达到 %0.2f 和 %0.2f 点。
+		此后，你会开始打破听到熔炉声的敌人的梦境：由于熔炉的巨大回响，它们的精神豁免降低 %d， 并获得 %d%% 的法术失败率，持续 %d 回合。
+		梦境破碎有 %d%% 几率使敌人陷入思维封锁。
+		伤害和梦境打破效果受精神强度加成。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/psionic/dream-smith.lua"
@@ -27659,7 +27659,7 @@ t("Frenzied Focus", "灵能狂热", "talent name")
 t([[Overcharge your psionic focus with energy for %d turns, producing a different effect depending on what it is.
 		A telekinetically wielded melee weapon enters a frenzy, striking up to %d enemies per turn, also increases the radius by %d.
 		A mindstar will attempt to pull in all enemies within its normal range.
-		A gem will fire an energy bolt at a random enemy in range 6, each turn for %0.1f damage. The type is determined by the colour of the gem. Damage scales with Mindpower.]], [[为你的灵能聚焦超载能量，持续 %d 回合，视其种类产生不同效果。
+		A gem will fire an energy bolt at a random enemy in range 6, each turn for %0.1f damage. The type is determined by the colour of the gem. Damage scales with Mindpower.]], [[向你的灵能聚焦物注入过量能量，持续 %d 回合，视其种类产生不同效果。
 		念动近战武器进入狂乱，每回合最多攻击 %d 个敌人，攻击半径变为 %d 格。
 		灵晶会尝试将其正常范围内的所有敌人拉到身边。
 		宝石每回合向 6 格内最近的敌人发射能量球，造成 %0.1f 伤害。伤害类型取决于宝石的颜色，伤害随精神强度提高。]], "tformat")
@@ -30188,7 +30188,7 @@ t("When you are hit by a projectile, physical or otherwise, you have a %d%% chan
 t("Counter Shot", "以牙还牙", "talent name")
 t("#ORCHID##Source# follows up with a countershot.#LAST#", "#ORCHID##Source#追加了一次反击射击。#LAST#", "logCombat")
 t([[Any time you block an attack with Buckler Expertise or Buckler Mastery you instantly counterattack with your sling for %d%% damage  This can only occur up to %d time(s) per turn.
-			]], [[每当你的盾牌训练或格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合最多只能发动 %d 次反击。
+			]], [[每当你的盾牌训练或格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合最多可发动 %d + 1 次反击。
 			]], "tformat")
 
 ------------------------------------------------
@@ -33028,7 +33028,7 @@ t([[#GOLD#Combat stat#WHITE# scores are between one and one-hundred, with specia
 These subintervals of twenty we'll call #GOLD#tiers#WHITE# from now on.
 ]], [[#GOLD#战斗属性#WHITE# 范围为1～100，每隔20会用一种不同颜色来显示，在装备提示文字中也用类似的色调来表示装备的品质。
 
-现在起这每个20的间隔，我们称之为 #GOLD#层级#WHITE#。
+从现在起，我们把这些 20 点的区间称为#GOLD#层级#WHITE#。
 ]], "_t")
 
 ------------------------------------------------
@@ -34438,7 +34438,7 @@ Race features:#YELLOW#
 ]], [[食人魔是被魔法改变的人类，在埃尔瓦拉与永恒精灵为伴避难。
 他们庞大的身躯由覆盖皮肤的复杂发光符文网络强化（也依赖于这套符文网络），外表令人生畏，却掩盖了他们认真而谦逊的天性。
 在厄流战争中，孔克雷夫创造了食人魔作为工人和战士，但最后他们成为了被遗弃的种族。他们庞大的体型和身上闪光的符文让他们在魔法狩猎期间无处藏身，只有那些逃去永恒精灵领地的少量族群幸免于难。
-因为他们必须要维护自己身上的刻印存活下去，他们操纵刻印的能力无可比拟，并且这份知识一直世代传承下去。他们解决问题的时候习惯使用最简单直接的手段，再加上他们……暴躁的脾性，这一切让他们获得了“愚蠢粗暴的野蛮人”这一不公的名声。然而，日益发展的刻印制作贸易正逐渐消除这种印象。
+由于他们必须维护自己身上的刻印才能存活，他们运用刻印的能力无可比拟，这份知识也代代相传。他们解决问题的时候习惯使用最简单直接的手段，再加上他们……暴躁的脾性，这一切让他们获得了“愚蠢粗暴的野蛮人”这一不公的名声。然而，日益发展的刻印制作贸易正逐渐消除这种印象。
 
 你了解了食人魔过往的详情，并让他们那惊恐万分的创造者得以安息。你消灭了孔克雷夫最后的残余，从名义上为这场早该结束的厄流战争画上了句号。现在，你可以创造新的#LIGHT_GREEN#食人魔#WHITE#角色，在实战中发挥他们的魔法力量吧！
 
@@ -34520,7 +34520,7 @@ reach
 Skirmisher use stamina to fuel their techniques, which replenishes slowly over time.
 ]], [[当你漫步在马基·埃亚尔大陆上广袤的荒野之地时，你会发现威胁无处不在。一些盗贼放弃了传统的潜行手段，转而凭借诡诈的技能，在盾牌的保护下用投石索从远处悄然击杀对手。
 
-你已经学会了从远处发动反击的能力，并且现在可以创建#LIGHT_GREEN#散兵#WHITE#这个角色
+你已经掌握了从远处发动反击的力量，现在创建人物时可以选择#LIGHT_GREEN#散兵#WHITE#职业。
 
 散兵是高度机动的盗贼，运用游击战术的好手，利用手中的投石索袭扰、削弱并消耗敌人，再以极快的攻击将其终结。
 
@@ -34686,9 +34686,9 @@ Stone Wardens also use Mana.
 
 你已经初步掌握了一些奥术与自然技能，现在创建的新矮人角色可以选择#LIGHT_GREEN#岩石守卫职业#WHITE#。
 
-岩石守卫是野性系职业，它们植根于自然，从自然和奥术的联结中汲取力量。
+岩石守卫是野性系职业，他们植根于自然，从自然和奥术的联结中汲取力量。
 职业特性：#YELLOW#
-- 双持盾牌，使用奥术强化的盾牌打击攻击敌人
+- 双持盾牌，用奥术强化的盾击攻击敌人
 - 结合奥术和自然的力量，产生两个强大的分身。
 - 使用岩石藤蔓抓取并攻击敌人。
 - 变化成巨大的岩石元素，召唤火山。
