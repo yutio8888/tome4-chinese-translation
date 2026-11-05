@@ -21803,8 +21803,8 @@ t("Arrow Stitching", "重叠灵矢", "talent name")
 t([[Fire an arrow for %d%% weapon damage and call up to 2 wardens, depending on available space, that will each fire a single arrow before returning to their timelines.
 		The wardens are out of phase with normal reality and deal %d%% less damage but shoot through friendly targets. All your arrows, including arrows from Shoot and other talents, now phase through friendly targets without causing them harm.
 		
-		Bow Threading talents will freely swap to your bow when activated if you have one in your secondary slot. You may use the Shoot talent in a similar manner.]], [[发射一支灵矢造成 %d%% 武器伤害，并且根据可用空间，召唤最多两个守卫，各自发射一枚灵矢然后回到他们自己的时间线中。
-		守卫处在现实位面之外，灵矢的伤害减少 %d%%， 但能够穿过友方目标。同时，你发射的所有来自射击或者其他技能的箭矢，都可以穿过友方目标且不会对其造成伤害。
+		Bow Threading talents will freely swap to your bow when activated if you have one in your secondary slot. You may use the Shoot talent in a similar manner.]], [[发射一支灵矢造成 %d%% 武器伤害，并且根据可用空间，召唤最多两个守卫，各自发射一支灵矢然后回到他们自己的时间线中。
+		守卫处在现实位面之外，造成的伤害减少 %d%%， 但他们的灵矢能够穿过友方目标。同时，你发射的所有来自射击或者其他技能的箭矢，都可以穿过友方目标且不会对其造成伤害。
 
 		激活螺旋灵弓系技能时，如果副武器栏位中有弓，便会自动切换至弓。射击技能也能以同样方式切换。]], "tformat")
 t("Singularity Arrow", "奇点之矢", "talent name")
