@@ -1103,7 +1103,7 @@ t("Blood of Undeath", "不死之血", "entity name")
 t("crimson phial", "猩红的药瓶", "_t")
 t("This vial of corrupted blood reeks of death and decay. Yet somehow you feel drawn to it... Is it the tentalizing notion of eternal life? Or power? You can not tell, but the urge to drink it is great.", "这瓶腐败的血散发着死亡和腐烂的气味。但不知怎的，你觉得被它吸引了……是永生这个诱人的念头吗？还是强大的力量？你说不出来，但你充满了想喝它的冲动。", "_t")
 t("quaff the Blood of Undeath to prepare your body for undeath", "喝下不死之血，让自己的身体为不死做好准备", "_t")
-t("%s quaffs the %s!", "%s大口喝下 %s！", "logSeen")
+t("%s quaffs the %s!", "%s大口喝下%s！", "logSeen")
 t("#CRIMSON#You feel the Blood of Undeath rushing through your veins. Your can feel your life wither away a little (-50 maximum life, -120 minimum life).", "#CRIMSON#你感受到不死之血在你的血管里流淌。你的生命渐渐流逝了（-50最大生命值，-120生命值下限）。", "logPlayer")
 t("#CRIMSON#The Blood of Undeath strengthens your undead body (-60 maximum life, -140 minimum life).", "#CRIMSON#不死之血强化了你的不死之躯（-60最大生命值，-140生命值下限）。", "logPlayer")
 

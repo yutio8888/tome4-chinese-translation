@@ -1,0 +1,102 @@
+{
+ "confirmed": [
+  {
+   "id": "2112bc9702d0",
+   "edit": "去掉占位符两侧空格",
+   "evidence": "@624a67329fe2 Actor.lua:7325; lane B"
+  },
+  {
+   "id": "305462994511",
+   "edit": "去掉占位符两侧空格",
+   "evidence": "@624a67329fe2 Party.lua:382; lane B"
+  },
+  {
+   "id": "69f5fd94aa57",
+   "edit": "冷却时间太低(%d) → 冷却时间太短（%d）",
+   "evidence": "@624a67329fe2 Player.lua:968-971 cd 为时长; lane B"
+  },
+  {
+   "id": "d5c026f4c0e4",
+   "edit": "去掉空格；同 key mod-tome.lua:37868 (arena) 同步",
+   "evidence": "@624a67329fe2 belt.lua:383; lane B"
+  },
+  {
+   "id": "0d7ee6e6ac0d",
+   "edit": "去掉空格",
+   "evidence": "@624a67329fe2 boots.lua:93; lane B"
+  },
+  {
+   "id": "9abb071ddbce",
+   "edit": "去掉空格",
+   "evidence": "@624a67329fe2 cloak.lua:436; lane B"
+  },
+  {
+   "id": "45aa22255d8d",
+   "edit": "去掉空格",
+   "evidence": "@624a67329fe2 torques-powers.lua:28; lane B"
+  },
+  {
+   "id": "55e63cecbbdb",
+   "edit": "去掉空格",
+   "evidence": "@624a67329fe2 world-artifacts-maj-eyal.lua:200; lane B"
+  },
+  {
+   "id": "4acc0223dfa9",
+   "edit": "%s挥舞起%s，光芒向四面八方放射！",
+   "evidence": "@624a67329fe2 world-artifacts.lua:399-421 Burning Star 放光; lane B"
+  },
+  {
+   "id": "188a5f62fa06",
+   "edit": "去掉空格；同 key mod-tome.lua:38763 (infinite-dungeon) 同步",
+   "evidence": "@624a67329fe2 world-artifacts.lua:500; lane B"
+  },
+  {
+   "id": "d483781c213b",
+   "edit": "%s的%s受到了能量吸收的干扰！",
+   "evidence": "@624a67329fe2 energy.lua:93-106 设 talents_cd，非打断施法; lane B"
+  },
+  {
+   "id": "dae87f1c2853",
+   "edit": "#GREEN#%s的%s受到了致残毒素的干扰！",
+   "evidence": "@624a67329fe2 poisons.lua:331-344 设 talents_cd; lane B（A 建议打断，按源码机制采用干扰，三条统一）"
+  },
+  {
+   "id": "f1f990fdaa02",
+   "edit": "#CRIMSON#%s的%s受到了%s伤口的干扰！#LAST#",
+   "evidence": "@624a67329fe2 scoundrel.lua:79,99 第三参数 his_her()→他的（engine.lua:1406-1408），原译「他的的伤口」; lanes A+B"
+  },
+  {
+   "id": "dbca00062b93",
+   "edit": "去掉空格",
+   "evidence": "@624a67329fe2 scoundrel.lua:132-135; lane B"
+  },
+  {
+   "id": "993c0f875a98",
+   "edit": "%s被半埋在坍塌的落穴中！",
+   "evidence": "@624a67329fe2 traps.lua:1091-1095 partially buried + PINNED; lane B"
+  },
+  {
+   "id": "ab378514096e",
+   "edit": "去掉空格",
+   "evidence": "@624a67329fe2 traps.lua:2104; lane B"
+  },
+  {
+   "id": "9412b529343a",
+   "edit": "去掉空格",
+   "evidence": "@624a67329fe2 traps.lua:2108; lane B"
+  },
+  {
+   "id": "972aa1110d77",
+   "edit": "去掉空格",
+   "evidence": "@624a67329fe2 rampage.lua:191; lane B"
+  },
+  {
+   "id": "2ad091e9001c",
+   "edit": "%s赖以活动的魔力被扰乱了！",
+   "evidence": "@624a67329fe2 objects.lua:421-425 仅亡灵/构装体; lanes A+B"
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "Blind review of 0348 sweep units (77). A 2 ISSUE, B 19 ISSUE (union 19), all confirmed; mostly residual placeholder spaces in the swept lines plus disrupted→talents_cd wording unified as 干扰."
+}
