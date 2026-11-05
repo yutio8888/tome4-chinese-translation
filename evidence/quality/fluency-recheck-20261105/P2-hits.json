@@ -1,0 +1,1645 @@
+[
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/general/objects/world-artifacts-maj-eyal.lua",
+   "%s uses %s %s, curing %s afflictions!",
+   "logSeen",
+   1
+  ],
+  "old": "%s使用了%s%s，治疗了%s项疾病！",
+  "new": "%s使用了%s%s，治愈了%s疾病和毒素！",
+  "hits": {
+   "R2近距重复词": [
+    "奥普斯使用了奥普斯"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/psionic/projection.lua",
+   "Fills the air around you with reactive currents of force.\\n\\t\\tIf you have a gem or mindstar in your psionically wielded slot, this will do %0.1f Physical damage to all adjacent enemies, costing %0.1f energy per creature. \\n\\t\\tIf you have a conventional weapon in your psionically wielded slot, this will add %0.1f Physical damage to all your weapon hits, costing %0.1f energy per hit.\\n\\t\\tWhen deactivated, if you have at least %d energy, a massive spike of kinetic energy is released as a range %d beam, smashing targets for up to %d physical damage and sending them flying.\\n\\t\\t#{bold}#Activating the aura takes no time but de-activating it does.#{normal}#\\n\\t\\tTo turn off an aura without spiking it, deactivate it and target yourself. The damage will improve with your Mindpower.\\n\\t\\tYou can only have two of these auras active at once.",
+   "tformat",
+   1
+  ],
+  "old": "使你周围的空气中充满能量力场。\\n\\t\\t如果你的灵能武器槽佩戴的是宝石或者灵晶，会对所有相邻的敌人造成 %0.1f 的物理伤害，每个生物消耗 %0.1f 能量。\\n\\t\\t如果你的灵能武器槽佩戴的是武器，每次攻击附加 %0.1f 的物理伤害，每次攻击消耗 %0.1f 能量。\\n\\t\\t当关闭该技能时，如果你拥有最少 %d 点能量，巨大的动能会释放为一个射程为 %d 的射线，击打目标，造成高达 %d 的物理伤害，并击飞他们。\\n\\t\\t#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#\\n\\t\\t如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。\\n\\t\\t你同时只能激活两种此类光环。",
+  "new": "使你周围的空气中充满能量力场。\\n\\t\\t如果你的灵能武器槽佩戴的是宝石或者灵晶，会对所有相邻的敌人造成 %0.1f 的物理伤害，每个生物消耗 %0.1f 能量。\\n\\t\\t如果你的灵能武器槽佩戴的是武器，每次武器命中附加 %0.1f 的物理伤害，每次命中消耗 %0.1f 能量。\\n\\t\\t当关闭该技能时，如果你拥有最少 %d 点能量，巨大的动能会释放为一个射程为 %d 的射线，击打目标，造成高达 %d 的物理伤害，并击飞他们。\\n\\t\\t#{bold}#激活光环是不消耗时间的，但是关闭它则需要消耗时间。#{normal}#\\n\\t\\t如果要关闭光环且不发射射线，关闭它并选择你自己为目标。伤害随着精神强度而增长。\\n\\t\\t你同时只能激活两种此类光环。",
+  "hits": {
+   "R6一逗到底": [
+    "\\n\\t\\t当关闭该技能时，如果你拥有最少 12 点能量，巨大的动能会释放为一个…"
+   ],
+   "R2近距重复词": [
+    "武器槽佩戴的是武器"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/techniques/archery.lua",
+   "You fire a shot for %d%% damage that attempts to pin your target to the ground for %d turns, as well as giving your next Steady Shot or Shoot 100%% increased chance to critically hit and mark (regardless of whether the pin succeeds).\\n\\t\\tThis shot has a 20%% chance to mark the target.\\n\\t\\tThe chance to pin increases with your Accuracy.",
+   "tformat",
+   1
+  ],
+  "old": "你朝目标发射定身攻击，造成 %d%% 伤害，并尝试将目标定身 %d 回合。\\n\\t\\t无论定身是否成功，你的下一次稳固射击或射击的暴击率与标记几率都会提高 100%%。\\n\\t\\t此次攻击有 20%% 几率标记目标。\\n\\t\\t定身几率受命中加成。",
+  "new": "你朝目标发射定身攻击，造成 %d%% 伤害，并尝试将目标定身 %d 回合。\\n\\t\\t无论定身是否成功，在效果持续期间，你下一次对该目标命中的稳固射击或射击，暴击率与标记几率均为 100%%（普通射击需已学会射击精通才会标记）。\\n\\t\\t此次攻击有 20%% 几率标记目标。\\n\\t\\t定身几率受命中加成。",
+  "hits": {
+   "R2近距重复词": [
+    "射击或射击",
+    "射击需已学会射击"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/air.lua",
+   "Invokes an arc of lightning doing %0.2f to %0.2f damage (%0.2f average) and chaining to another target.\\n\\t\\tThe arc can jump to %d targets at most, up to 10 grids apart, and will never jump to the same target twice, or to the caster. The arc will also strike all creatures between each target.\\n\\t\\tThe damage will increase with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "召唤一道闪电链，造成 %0.2f 至 %0.2f 点闪电伤害（平均 %0.2f 点），随后跃向另一个目标。\\n\\t\\t闪电链最多可跃向 %d 个目标，每次跃迁的两个目标之间最多相隔 10 格；不会重复命中同一目标，也不会跃向施法者。每次跃迁还会击中两个目标之间的所有生物。\\n\\t\\t伤害随法术强度提高。",
+  "new": "召唤一道闪电链，造成 %0.2f 至 %0.2f 点闪电伤害（平均 %0.2f 点），随后跃向另一个目标。\\n\\t\\t闪电链最多可选取 %d 个不同目标；后续目标均从首个目标周围 10 格内选取，每段光束的投射距离最多为 10 格。光束还会击中路径上的其他生物，但不会伤及施法者。\\n\\t\\t伤害随法术强度提高。",
+  "hits": {
+   "R2近距重复词": [
+    "目标均从首个目标"
+   ]
+  },
+  "regression": [
+   "R2近距重复词"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/celestial/glyphs.lua",
+   "Your glyphs are imbued with celestial fury; they last %d turns longer and when triggered they will deal damage.\\n\\t\\t#ffd700#Glyph of Sunlight#LAST#:  Deals %0.2f light damage.\\n\\t\\t#7f7f7f#Glyph of Moonlight#LAST#:  Deals %0.2f darkness damage.\\n\\t\\t#9D9DC9#Glyph of Twilight#LAST#:  Deals %0.2f light and %0.2f darkness damage.",
+   "tformat",
+   1
+  ],
+  "old": "你的圣印被注入了来自天空的怒火。\\n\\t\\t它们的持续时间延长 %d 回合，并在触发时造成额外伤害。\\n\\t\\t#ffd700#日光圣印#LAST#：造成 %0.2f 光系伤害。\\n\\t\\t#7f7f7f#月光圣印#LAST#：造成 %0.2f 暗影伤害。\\n\\t\\t#9D9DC9#暮光圣印#LAST#：造成 %0.2f 光系和 %0.2f 暗影伤害。",
+  "new": "你的圣印被注入了来自天空的怒火，持续时间延长 %d 回合，并在触发时造成伤害。\\n\\t\\t#ffd700#日光圣印#LAST#：造成 %0.2f 光系伤害。\\n\\t\\t#7f7f7f#月光圣印#LAST#：造成 %0.2f 暗影伤害。\\n\\t\\t#9D9DC9#暮光圣印#LAST#：造成 %0.2f 光系和 %0.2f 暗影伤害。",
+  "hits": {
+   "R7英文残留": [
+    "ffd"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/general/objects/world-artifacts.lua",
+   "strike all targets in a line (for 100%% weapon damage as mind) out to range 4",
+   "_t",
+   1
+  ],
+  "old": "打击一条长度为4码的直线上的所有目标，\\n造成相当于100%%武器伤害的精神伤害。",
+  "new": "打击一条直线上范围4以内的所有目标，造成相当于100%%武器伤害的精神伤害。",
+  "hits": {
+   "R2近距重复词": [
+    "伤害的精神伤害"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/misc/objects.lua",
+   "You absorb latent cold around you, turning into an ice elemental - a shivgoroth - for %d turns.\\n\\t\\tWhile transformed, you do not need to breathe, gain access to the Ice Storm talent at level %d, gain %d%% resistance to cuts and stuns, gain %d%% cold resistance, and all cold damage heals you for %d%% of the damage done.\\n\\t\\tThe power will increase with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "你吸收周围潜藏的寒气，将自己转变为纯粹的冰元素——西弗格罗斯，持续 %d 回合。\\n\\t\\t转化成元素后，你不需要呼吸并获得等级 %d 的冰雪风暴，获得 %d%% 切割和震慑抵抗， %d%% 寒冰抗性，所有冰冷伤害可对你产生治疗，治疗量基于伤害值的 %d%%。\\n\\t\\t效果受法术强度加成。",
+  "new": "你吸收周围潜藏的寒气，将自己转变为冰元素——西弗格罗斯，持续 %d 回合。\\n\\t\\t转化成元素后，你不需要呼吸并获得等级 %d 的冰雪风暴，获得 %d%% 流血和震慑抵抗， %d%% 寒冷抗性，所有寒冷伤害可对你产生治疗，治疗量基于伤害值的 %d%%。\\n\\t\\t效果受法术强度加成。",
+  "hits": {
+   "R6一逗到底": [
+    "\\n\\t\\t转化成元素后，你不需要呼吸并获得等级 12 的冰雪风暴，获得 12%…"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/techniques/duelist.lua",
+   "Your offhand weapon damage penalty is reduced to %d%%.\\n\\t\\tUp to %0.1f times a turn, you have a %d%% chance to parry up to %d damage (based on your offhand weapon damage) from a melee or ranged attack.  The number of parries increases with your Cunning.  (A fractional parry has a reduced chance to succeed.)\\n\\t\\tA successful parry reduces damage like armour (before any attack multipliers) and prevents critical strikes.  It is difficult to parry attacks from unseen attackers and you cannot parry with a mindstar.",
+   "tformat",
+   1
+  ],
+  "old": "你的副手武器伤害惩罚降低至 %d%%。\\n\\t\\t每回合至多 %0.1f 次，你有 %d%% 几率抵挡一次近战或远程攻击的至多 %d 点伤害（基于副手武器伤害）。抵挡次数随灵巧提高；若次数为小数，小数部分对应的抵挡成功率会降低。\\n\\t\\t成功抵挡会像护甲一样在攻击倍率生效前减免伤害，并阻止这次攻击暴击。来自未发现攻击者的攻击很难抵挡，且你无法使用灵晶抵挡。",
+  "new": "你的副手武器伤害惩罚降低至 %d%%。\\n\\t\\t每回合至多 %0.1f 次，你有 %d%% 几率招架一次近战或远程攻击的至多 %d 点伤害（基于副手武器伤害）。招架次数随灵巧提高；若次数为小数，小数部分对应的招架成功率会降低。\\n\\t\\t成功招架会像护甲一样在攻击倍率生效前减免伤害，并阻止这次攻击暴击。来自未发现攻击者的攻击很难招架，且你无法使用灵晶招架。",
+  "hits": {
+   "R2近距重复词": [
+    "攻击者的攻击"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/timed_effects/physical.lua",
+   "Preemptively reacts to %s damage, increasing the appropriate resistance by %d for 5 turns.",
+   "tformat",
+   1
+  ],
+  "old": "对 %s 伤害共振，相应抗性提高 %d，持续 5 回合。",
+  "new": "预先对 %s 伤害作出反应，相应抗性提高 %d，持续 5 回合。",
+  "hits": {
+   "R5中文间空格": [
+    "对 奥",
+    "斯 伤"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/timed_effects/mental.lua",
+   "Stalking %s. Bonus level %d: +%d accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit.",
+   "tformat",
+   1
+  ],
+  "old": "追踪 %s. 等级 %d：+%d 命中，+%d%% 近战伤害，攻击目标时 +%0.2f 仇恨/回合。",
+  "new": "追踪 %s。增益层数 %d：+%d 命中，+%d%% 近战伤害，命中猎物的每回合 +%0.2f 仇恨值。",
+  "hits": {
+   "R5中文间空格": [
+    "踪 奥"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/misc/npcs.lua",
+   "For an instant, your weapons turn into a shadow leash that tries to grab the target's weapon, disarming it for %d turns.\\n\\t\\tThe chance to hit improves with your Accuracy.",
+   "tformat",
+   1
+  ],
+  "old": "使你的武器立刻转化为暗影之缚形态，夺取目标武器，缴械目标 %d 回合。\\n\\t\\t技能命中率受命中加成。",
+  "new": "一瞬间，你的武器化为暗影之缚，试图夺取目标的武器，使其缴械 %d 回合。\\n\\t\\t技能命中率受命中加成。",
+  "hits": {
+   "R2近距重复词": [
+    "命中率受命中"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/class/interface/Combat.lua",
+   "#ORCHID#%s parries the attack with %s dual weapons!#LAST#",
+   "logSeen",
+   1
+  ],
+  "old": "#ORCHID#%s用%s双持武器使这次攻击发生偏斜！#LAST#",
+  "new": "#ORCHID#%s用%s双持武器招架了这次攻击！#LAST#",
+  "hits": {
+   "R2近距重复词": [
+    "奥普斯用奥普斯"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/golemancy.lua",
+   "Improves your golem's armour training, damage resistance, and healing efficiency.\\n\\t\\tIncreases all damage resistance by %d%%; increases Armour value by %d, Armour hardiness by %d%%, reduces chance to be critically hit by %d%% when wearing heavy mail or massive plate armour, and increases healing factor by %d%%.\\n\\t\\tThe golem can always use any kind of armour, including massive armours.",
+   "tformat",
+   1
+  ],
+  "old": "提高傀儡护甲熟练度、伤害抗性和治疗系数。\\n\\t\\t增加 %d%% 所有伤害抗性；增加 %d 点护甲和 %d%% 护甲强度；当装备 1 件锁甲或板甲时，减少 %d%% 被暴击率；增加 %d%% 治疗效果。\\n\\t\\t傀儡可以使用所有类型的护甲，包括板甲。",
+  "new": "提高傀儡护甲熟练度、伤害抗性和治疗系数。\\n\\t\\t增加 %d%% 所有伤害抗性；当装备 1 件锁甲或板甲时，增加 %d 点护甲和 %d%% 护甲强度，并减少 %d%% 被暴击率；增加 %d%% 治疗效果。\\n\\t\\t傀儡可以使用所有类型的护甲，包括板甲。",
+  "hits": {
+   "R2近距重复词": [
+    "护甲和 12% 护甲"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/psionic/dreaming.lua",
+   "Slip into a lucid dream.  While in this state, you are considered sleeping, but can still act, are immune to insomnia, inflict %d%% more damage to targets under the effects of Insomnia, and your Physical, Mental, and Spell saves are increased by %d.\\n\\t\\tNote that being asleep may make you more vulnerable to certain effects (such as Inner Demons, Night Terror, and Waking Nightmare).\\n\\t\\tThe saving throw bonuses scale with your Mindpower.",
+   "tformat",
+   1
+  ],
+  "old": "你进入清晰梦境。在此状态下，你虽然处于睡眠状态但仍可以行动，并且对失眠免疫，对失眠状态下的目标附加 %d%% 伤害，同时，你的物理、法术和精神豁免增加 %d 点。\\n\\t\\t注意在睡眠状态下会使你降低对特定负面状态的抵抗（例如心魔，梦魇复苏和梦魇降临）。\\n\\t\\t受精神强度影响，豁免增益效果按比例加成。",
+  "new": "你进入清晰梦境。在此状态下，你虽然处于睡眠状态但仍可以行动，并且对失眠免疫，对失眠状态下的目标附加 %d%% 伤害，同时，你的物理、法术和精神豁免增加 %d 点。\\n\\t\\t注意在睡眠状态下会使你降低对特定负面状态的抵抗（例如心魔，清醒梦魇和梦魇降临）。\\n\\t\\t受精神强度影响，豁免增益效果按比例加成。",
+  "hits": {
+   "R6一逗到底": [
+    "在此状态下，你虽然处于睡眠状态但仍可以行动，并且对失眠免疫，对失眠状态下的目标附…"
+   ],
+   "R2近距重复词": [
+    "梦魇和梦魇"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/misc/races.lua",
+   "While Highers are not meant to rule other humans - and show no particular will to do so - they are frequently called to higher duties.\\n\\t\\tTheir nature grants them better senses than other humans.\\n\\t\\tIncrease blindness immunity by %d%%, maximum sight range by %d, and increases existing infravision, and heightened senses range by %d.\\n\\t\\tAt talent level 5, each time you hit a target you gain telepathy to all similar creatures in radius 15 for 5 turns.",
+   "tformat",
+   1
+  ],
+  "old": "虽然高等人类并非生来就要统治他人——他们也没有特别的意愿去那样做——但是他们经常承担更高的义务。\\n\\t\\t他们的本能使得他们比别人有更强的直觉。\\n\\t\\t增加 %d%% 目盲免疫，提高 %d 点最大视野范围并提高 %d 夜视及感应范围。\\n\\t\\t技能等级 5 时，每次你命中目标，你将获得 15 格范围内同类型生物感知能力，持续 5 回合。",
+  "new": "虽然高等人类并非生来就要统治他人——他们也没有特别的意愿去那样做——但是他们经常承担更高的义务。\\n\\t\\t他们的天性赋予他们比其他人类更敏锐的感官。\\n\\t\\t增加 %d%% 目盲免疫，提高 %d 点最大视野范围并提高 %d 夜视及感应范围。\\n\\t\\t技能等级 5 时，每次你命中目标，你将获得 15 格范围内同类型生物感知能力，持续 5 回合。",
+  "hits": {
+   "R2近距重复词": [
+    "他们的天性赋予他们"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/chronomancy/timeline-threading.lua",
+   "The real %s... or so %s says.",
+   "tformat",
+   1
+  ],
+  "old": "真正的%s……或者%s这样说。",
+  "new": "真正的%s……至少%s自己是这么说的。",
+  "hits": {
+   "R2近距重复词": [
+    "奥普斯……至少奥普斯"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/techniques/combat-techniques.lua",
+   "Your combat focus allows you to regenerate life faster (+%0.1f life/turn).",
+   "tformat",
+   1
+  ],
+  "old": "你专注于战斗，使你可以更快的回复生命值 （+%0.1f 生命值/回合）。",
+  "new": "你专注于战斗，使你可以更快地回复生命值 （+%0.1f 生命值/回合）。",
+  "hits": {
+   "R2近距重复词": [
+    "生命值 （+12 生命值"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/celestial/glyphs.lua",
+   "Destabilize your glyphs, triggering every glyph in radius 10 with an enemy standing on it.\\n\\t\\tAt talent level 2 glyphs triggered this way will leave a residue of themselves on the ground, dealing damage each turn for %d turns.\\n\\t\\t#ffd700#Sunlight#LAST#:  %0.2f light damage.\\n\\t\\t#7f7f7f#Moonlight#LAST#:  %0.2f darkness damage.\\n\\t\\t#9D9DC9#Twilight#LAST#:  %0.2f light and %0.2f darkness damage",
+   "tformat",
+   1
+  ],
+  "old": "激发所有圣印，10格内所有有敌人站在其上的圣印都将被触发。\\n\\t\\t技能等级2时，该效果触发的圣印将在地面遗留能量，在 %d 回合内持续造成伤害。\\n\\t\\t#ffd700#日光圣印#LAST#：%0.2f 光系伤害。\\n\\t\\t#7f7f7f#月光圣印#LAST#：%0.2f 暗影伤害。\\n\\t\\t#9D9DC9#暮光圣印#LAST#：%0.2f 光系和 %0.2f 暗影伤害。",
+  "new": "激发所有圣印，10格内所有有敌人站在其上的圣印都将被触发。\\n\\t\\t技能等级2时，该效果触发的圣印将在地面遗留能量，每回合造成伤害，持续 %d 回合。\\n\\t\\t#ffd700#日光圣印#LAST#：%0.2f 光系伤害。\\n\\t\\t#7f7f7f#月光圣印#LAST#：%0.2f 暗影伤害。\\n\\t\\t#9D9DC9#暮光圣印#LAST#：%0.2f 光系和 %0.2f 暗影伤害。",
+  "hits": {
+   "R7英文残留": [
+    "ffd"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/techniques/pugilism.lua",
+   "@Source@ lashes out with a flurry of fists.",
+   "_t",
+   1
+  ],
+  "old": "@Source@冲出去打出流星拳。",
+  "new": "@Source@挥出一阵流星拳。",
+  "hits": {
+   "R7英文残留": [
+    "Source"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/acid-alchemy.lua",
+   "While Acid Infusion is active, your bombs coat your golem in acid for %d turns when they hit it.\\n\\t\\tWhile coated, any melee hit against your golem has a %d%% chance to trigger a radius 4 cone of acid towards the attacker that does %0.1f Acid damage to all caught inside. (This can only happen once per turn.)\\n\\t\\tThe effects increase with your talent level and with the Spellpower and damage modifiers of your golem.",
+   "tformat",
+   1
+  ],
+  "old": "当你的酸性充能激活时，若你的炸弹击中了你的傀儡，酸液会覆盖傀儡 %d 回合。\\n\\t\\t当傀儡被酸液覆盖时，任何命中傀儡的近战攻击有 %d%% 概率朝攻击者方向触发一次范围 4 的锥形酸液喷射，对波及范围内的所有单位造成 %0.1f 点酸性伤害（每回合至多一次）。\\n\\t\\t效果受你的技能等级、法术强度和傀儡的伤害加成影响。",
+  "new": "当你的酸液充能激活时，若你的炸弹击中了你的傀儡，酸液会覆盖傀儡 %d 回合。\\n\\t\\t当傀儡被酸液覆盖时，任何命中傀儡的近战攻击有 %d%% 概率朝攻击者方向触发一次范围 4 的锥形酸液喷射，对波及范围内的所有单位造成 %0.1f 点酸性伤害（每回合至多一次）。\\n\\t\\t效果受你的技能等级、法术强度和傀儡的伤害加成影响。",
+  "hits": {
+   "R2近距重复词": [
+    "你的炸弹击中了你的"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/timed_effects/mental.lua",
+   "%s is writhing in agony, suffering from %d to %d damage over %d turns.",
+   "tformat",
+   1
+  ],
+  "old": "%s 陷入挣扎，遭受 %d 至 %d 伤害持续 %d 回合。",
+  "new": "%s 陷入极度痛苦，承受的伤害从 %d 逐步升至 %d，持续 %d 回合。",
+  "hits": {
+   "R5中文间空格": [
+    "斯 陷"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/techniques/techniques.lua",
+   "Your ammo is incompatible with your missile launcher.",
+   "_t",
+   1
+  ],
+  "old": "你的弹药与你的远程发射武器不匹配。",
+  "new": "你的弹药与你的远程投射武器不匹配。",
+  "hits": {
+   "R2近距重复词": [
+    "你的弹药与你的"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/psionic/charged-mastery.lua",
+   "For %d turns your electrokinesis transcends your normal limits, increasing your Lightning damage by %d%% and your Lightning resistance penetration by %d%%.\\n\\t\\tIn addition:\\n\\t\\tThe cooldowns of Charged Shield, Charged Leech, Charged Aura, Charged Strike and Brainstorm are reset.\\n\\t\\tCharged Aura effects will have their radius increased by 1.\\n\\t\\tYour Charged Shield will have 100%% absorption efficiency and will absorb twice the normal amount of damage.\\n\\t\\tBrainstorm will also inflict blindness.\\n\\t\\tCharge Leech will also inflict confusion (%d%% effect).\\n\\t\\tCharged Strike will have its secondary lightning burst chain to up to 3 targets in a radius of 3.\\n\\t\\tThe damage bonus and resistance penetration scale with your Mindpower.\\n\\t\\tOnly one Transcendent talent may be in effect at a time.",
+   "tformat",
+   1
+  ],
+  "old": "在 %d 回合内，你的电能操控突破常规极限，使闪电伤害提高 %d%%， 闪电抗性穿透提高 %d%%。\\n\\t\\t额外效果：\\n\\t\\t重置电能护盾、电能吸取、充能光环、电能打击和头脑风暴的冷却时间。\\n\\t\\t充能光环效果的半径增加 1 格。\\n\\t\\t你的电能护盾获得 100%% 吸收效率，并吸收两倍于通常数值的伤害。\\n\\t\\t头脑风暴还会造成致盲。\\n\\t\\t电能吸取还会造成混乱（效果强度 %d%%）。\\n\\t\\t电能打击的次级闪电爆发会向半径 3 格内最多 3 个目标连锁。\\n\\t\\t伤害加成和抗性穿透受精神强度加成。\\n\\t\\t同一时间只能有一个卓越技能生效。",
+  "new": "在 %d 回合内，你的电能操控突破常规极限，使闪电伤害提高 %d%%， 闪电抗性穿透提高 %d%%。\\n\\t\\t额外效果：\\n\\t\\t重置电能护盾、电能吸取、电能光环、电能打击和头脑风暴的冷却时间。\\n\\t\\t电能光环效果的半径增加 1 格。\\n\\t\\t你的电能护盾获得 100%% 吸收效率，并吸收两倍于通常数值的伤害。\\n\\t\\t头脑风暴还会造成致盲。\\n\\t\\t电能吸取还会造成混乱（效果强度 %d%%）。\\n\\t\\t电能打击的次级闪电爆发会向半径 3 格内最多 3 个目标连锁。\\n\\t\\t伤害加成和抗性穿透受精神强度加成。\\n\\t\\t同一时间只能有一个卓越技能生效。",
+  "hits": {
+   "R2近距重复词": [
+    "电能护盾、电能",
+    "电能光环、电能"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/misc/races.lua",
+   "Thaloren have an affinity for natural elements, allowing them to heal for a portion of damage taken from them.\\n\\t\\tYou gain %d%% Nature and Acid damage affinity.",
+   "tformat",
+   1
+  ],
+  "old": "自然精灵对自然元素有亲和力，这让它们在受到伤害时可以获得一定的治疗。\\n\\t\\t获得 %d%% 自然和酸性伤害亲和。",
+  "new": "自然精灵对自然元素有亲和力，这让它们在受到自然元素伤害时可以获得一定的治疗。\\n\\t\\t获得 %d%% 自然和酸性伤害亲和。",
+  "hits": {
+   "R2近距重复词": [
+    "自然精灵对自然"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/aegis.lua",
+   "Surround yourself with strengthening arcane forces.\\n\\t\\tEvery damage shield, time shield, displacement shield, and disruption shield affecting you has its power increased by %d%%.\\n\\t\\tAt level 5, it also increases the duration of all shields by 1 turn.\\n\\t\\tThe shield value will increase with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "使你的周身围绕着强烈的奥术能量。\\n\\t\\t你的每个伤害护盾、时间护盾、转移护盾、干扰护盾的强度上升 %d%%。\\n\\t\\t在等级 5 时，它还会使所有护盾的持续时间延长 1 回合。\\n\\t\\t护盾强度受法术强度加成。",
+  "new": "使你的周身围绕着强烈的奥术能量。\\n\\t\\t你的每个伤害护盾、时间盾、转移护盾、干扰护盾的强度上升 %d%%。\\n\\t\\t在等级 5 时，它还会使所有护盾的持续时间延长 1 回合。\\n\\t\\t护盾强度受法术强度加成。",
+  "hits": {
+   "R2近距重复词": [
+    "护盾、干扰护盾",
+    "强度受法术强度"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/master-necromancer.lua",
+   "Your mastery of necromancy becomes so total that an aura of undeath radiates around you in radius %d.\\n\\t\\tAny undead minion standing inside of it is protected, increasing all their resistances by %d%%.\\n\\t\\tIn addition when you create new minions they inherit %d%% of your spellpower (applied to any powers), spell crit chance (applied to any crit chances), saves, resists and damage increases (applied to all elements).\\n\\t\\t",
+   "tformat",
+   1
+  ],
+  "old": "你对死灵法术的掌握是如此强大，你可以在周围 %d 格范围内放射出不死能量的光环。\\n\\t\\t所有在光环内的不死随从会被光环保护，增加 %d%% 全体伤害抗性。\\n\\t\\t另外，当你创造不死随从的时候，它们会以 %d%% 比例继承你的法术强度（附加于所有强度），法术暴击率（附加于所有暴击率），豁免，抗性和伤害加成效果（附加于所有伤害加成）。\\n\\t\\t",
+  "new": "你对死灵法术的掌握是如此强大，你可以在周围 %d 格范围内放射出不死能量的光环。\\n\\t\\t所有在光环内的不死随从会被光环保护，增加 %d%% 全体伤害抗性。\\n\\t\\t另外，当你创造不死随从的时候，它们会以 %d%% 比例继承你的法术强度（附加于所有强度），法术暴击率（附加于所有暴击率），豁免，抗性和最高伤害加成效果（附加于所有伤害加成）。\\n\\t\\t",
+  "hits": {
+   "R6一逗到底": [
+    "\\n\\t\\t另外，当你创造不死随从的时候，它们会以 12% 比例继承你的法术强度…"
+   ],
+   "R2近距重复词": [
+    "强度（附加于所有强度",
+    "暴击率（附加于所有暴击率"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/general/objects/world-artifacts.lua",
+   "Your mind is attuned to electricity.\\nAny lightning damage you do that is more than 10% of the victim's maximum life will attempt to brainlock the target.\\nUpon taking lightning damage >10% of your max life, your mind fires back, dealing 30% of the original damage as mind and trying to brainlock the target.\\nUpon taking mind damage >10% of your max life, you reflexively trigger the jolt, sending an arc of dazing lightning toward the target (damage based on mindpower).\\nThis item can have up to 2 charges, with each charge having 4 turn cooldown.",
+   "_t",
+   1
+  ],
+  "old": "你的精神与电力连接。\\n你对敌人造成的超过其最大生命值10%的闪电伤害时，会试图附加思维封锁效果。\\n当你受到超过最大生命值10%的闪电伤害时，你的精神会发起反击，造成原伤害30%的精神伤害，并试图附加思维封锁效果。\\n当你受到超过最大生命值10%的精神伤害时，你会反射性地触发震击，朝目标射出一道致眩闪电（伤害基于精神强度）。\\n这个物品可以存储两次充能，每次充能冷却时间4回合。",
+  "new": "你的精神与电力连接。\\n当你造成的闪电伤害超过目标最大生命值10%时，会试图对其附加思维封锁效果。\\n当你受到超过最大生命值10%的闪电伤害时，你的精神会发起反击，造成原伤害30%的精神伤害，并试图附加思维封锁效果。\\n当你受到超过最大生命值10%的精神伤害时，你会反射性地触发震击，朝目标射出一道致眩闪电（伤害基于精神强度）。\\n这个物品可以存储两次充能，每次充能冷却时间4回合。",
+  "hits": {
+   "R2近距重复词": [
+    "伤害30%的精神伤害"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/cursed/force-of-will.lua",
+   "You rage coalesces at a single point, and then explodes outward, blasting enemies within a radius of %d in all directions. The blast causes %d damage and %d knockback at the center, that decreases with distance. Anyone caught in the explosion will also be dazed for 3 turns.\\n\\t\\tIn addition, your ability to channel force with this talent increases all critical damage by %d%% (currently: %d%%)\\n\\t\\tDamage increases with your Mindpower.",
+   "tformat",
+   1
+  ],
+  "old": "你的愤怒汇聚于一点，随后向外爆发，轰击半径 %d 格内四面八方的敌人。爆炸中心造成 %d 点伤害并击退 %d 格，伤害和击退距离随离爆心的距离增加而降低。爆炸范围内的所有生物还会被眩晕 3 回合。\\n\\t\\t此外，通过此技能引导力量的能力会使你的所有暴击伤害提高 %d%% （当前： %d%%）。\\n\\t\\t伤害随你的精神强度提高。",
+  "new": "你的愤怒汇聚于一点，随后向外爆发，轰击半径 %d 格内四面八方的敌人。爆炸中心造成 %d 点伤害并击退 %d 格，击退距离随离爆心的距离增加而降低。爆炸范围内的所有生物还会被眩晕 3 回合。\\n\\t\\t此外，通过此技能引导力量的能力会使你的所有暴击伤害提高 %d%% （当前： %d%%）。\\n\\t\\t伤害随你的精神强度提高。",
+  "hits": {
+   "R2近距重复词": [
+    "距离随离爆心的距离"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/general/objects/world-artifacts.lua",
+   "%s pulls %s %s around %s like a dark shroud!",
+   "logSeen",
+   1
+  ],
+  "old": "%s将%s%s环绕%s，形成了黑暗的壁障",
+  "new": "%s将%s%s裹在%s身上，宛如一层黑暗的帷幕！",
+  "hits": {
+   "R2近距重复词": [
+    "奥普斯将奥普斯",
+    "奥普斯裹在奥普斯"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/psionic/thermal-mastery.lua",
+   "For %d turns your pyrokinesis transcends your normal limits, increasing your Fire and Cold damage by %d%% and your Fire and Cold resistance penetration by %d%%.\\n\\t\\tIn addition:\\n\\t\\tThe cooldowns of Thermal Shield, Thermal Leech, Thermal Aura, Thermal Strike and Pyrokinesis are reset.\\n\\t\\tThermal Aura effects will have their radius increased by 1.\\n\\t\\tYour Thermal Shield will have 100%% absorption efficiency and will absorb twice the normal amount of damage.\\n\\t\\tPyrokinesis will inflict Flameshock.\\n\\t\\tThermal Leech will reduce enemy damage by %d%%.\\n\\t\\tThermal Strike will have its secondary cold/freeze explode in radius 1.\\n\\t\\tThe damage bonus and resistance penetration scale with your Mindpower.\\n\\t\\tOnly one Transcendent talent may be in effect at a time.",
+   "tformat",
+   1
+  ],
+  "old": "在 %d 回合内，你的意念燃烧突破常规极限，使火焰与寒冷伤害提高 %d%%， 火焰与寒冷抗性穿透提高 %d%%。\\n\\t\\t此外：\\n\\t\\t重置热能护盾、热能吸取、热能光环、热能打击和意念燃烧的冷却时间。\\n\\t\\t热能光环的效果半径增加 1 格。\\n\\t\\t热能护盾的吸收效率提高至 100%%，并可吸收通常两倍的伤害。\\n\\t\\t意念燃烧会施加火焰冲击。\\n\\t\\t热能吸取会使敌人造成的伤害降低 %d%%。\\n\\t\\t热能打击的次要寒冷/冻结效果会产生半径 1 格的爆炸。\\n\\t\\t伤害加成与抗性穿透受精神强度加成。\\n\\t\\t同一时间只能有一个卓越技能生效。",
+  "new": "在 %d 回合内，你的热能操控突破常规极限，使火焰与寒冷伤害提高 %d%%， 火焰与寒冷抗性穿透提高 %d%%。\\n\\t\\t此外：\\n\\t\\t重置热能护盾、热能吸取、热能光环、热能打击和意念燃烧的冷却时间。\\n\\t\\t热能光环的效果半径增加 1 格。\\n\\t\\t热能护盾的吸收效率提高至 100%%，并可吸收通常两倍的伤害。\\n\\t\\t意念燃烧会施加火焰冲击。\\n\\t\\t热能吸取会使敌人造成的伤害降低 %d%%。\\n\\t\\t热能打击的次要寒冷/冻结效果会产生半径 1 格的爆炸。\\n\\t\\t伤害加成与抗性穿透受精神强度加成。\\n\\t\\t同一时间只能有一个卓越技能生效。",
+  "hits": {
+   "R2近距重复词": [
+    "热能护盾、热能",
+    "热能光环、热能"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/chronomancy/other.lua",
+   "The real %s... or so %s says.",
+   "tformat",
+   1
+  ],
+  "old": "真正的%s……或者%s这样说。",
+  "new": "真正的%s……至少%s自己是这么说的。",
+  "hits": {
+   "R2近距重复词": [
+    "奥普斯……至少奥普斯"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/cunning/traps.lua",
+   "#LIGHT_BLUE#Aim the catapult",
+   "logPlayer",
+   1
+  ],
+  "old": "#LIGHT_BLUE#请瞄准弹射陷阱",
+  "new": "#LIGHT_BLUE#请选择弹射陷阱的弹射落点",
+  "hits": {
+   "R2近距重复词": [
+    "弹射陷阱的弹射"
+   ]
+  },
+  "regression": [
+   "R2近距重复词"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/uber/mag.lua",
+   "You can wrap temporal threads around you, assuming the form of a telugoroth for 10 turns.\\n\\t\\tWhile in this form you gain pinning, bleeding, blindness and stun immunity, 30%% temporal resistance, your temporal damage bonus is set to your current highest damage bonus + 30%%, 50%% of the damage you deal becomes temporal, and you gain 20%% temporal resistance penetration.\\n\\t\\tYou also are able to cast anomalies: Anomaly Rearrange, Anomaly Temporal Storm, Anomaly Flawed Design, Anomaly Gravity Pull and Anomaly Wormhole.",
+   "tformat",
+   1
+  ],
+  "old": "你可以扭曲周围的时间线，转换成时空元素“泰鲁戈洛斯”形态，持续 10 回合。\\n\\t\\t在这种形态中，你对定身、流血、致盲、震慑免疫，获得 30%% 时空抗性和 20%% 的时空抗性穿透。\\n\\t\\t你造成的伤害的 50%% 转化为时空伤害。\\n\\t\\t同时，你的时空伤害增益等于你所有类型的伤害增益中的最大值，此外，还增加 30%% 额外时空伤害增益。\\n\\t\\t你在时空形态下能释放以下异常：异常：重排，异常：时空风暴，异常：不完美设计，异常：重力井和异常：虫洞。",
+  "new": "你可以扭曲周围的时间线，转换成时空元素“泰鲁戈洛斯”形态，持续 10 回合。\\n\\t\\t在这种形态中，你对定身、流血、致盲、震慑免疫，获得 30%% 时空抗性和 20%% 的时空抗性穿透。\\n\\t\\t你造成的伤害的 50%% 转化为时空伤害。\\n\\t\\t同时，你的时空伤害增益等于你所有类型的伤害增益中的最大值，此外，还增加 30%% 额外时空伤害增益。\\n\\t\\t你在时空形态下能释放以下异常：异常：重排，异常：时空风暴，异常：不完美设计，异常：重力牵引和异常：虫洞。",
+  "hits": {
+   "R2近距重复词": [
+    "异常：异常",
+    "异常：重力牵引和异常"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/master-of-bones.lua",
+   "Consume a soul to empower one of your skeleton, making it into a Lord of Skulls.\\n\\t\\tThe Lord of Skulls gains %d more life and is instantly healed to full.\\n\\t\\tThere can be only one active Lord of Skulls, casting this spell on another skeleton removes the effect from the current one.\\n\\t\\tIt also gains a new talent if high enough:\\n\\t\\tAt level 2 Warriors learn Giant Leap, a powerful jump attack that deals damage and dazes on impact and frees the skeleton from any stun, daze and pin effects they may have\\n\\t\\tAt level 3 Archers learn Vital Shot, a devastating attack that can stun and cripple their foes\\n\\t\\tAt level 5 Mages learn Meteoric Crash, a destructive spell that crushes and burns foes in a big radius for multiple turns and stuns them\\n\\t\\tAt level 6 Bone Giants learn You Shall Be My Weapon!, a massive attack that deals high damage, knockbacks foes and stuns them\\n\\t\\t",
+   "tformat",
+   1
+  ],
+  "old": "消耗一个灵魂强化你的一个骷髅，使其成为骷髅王。\\n\\t\\t骷髅王额外获得 %d 点生命上限，并立即恢复全部生命。\\n\\t\\t同时只能存在一个骷髅王；对另一个骷髅施放此法术会移除当前骷髅王的效果。\\n\\t\\t技能等级足够高时，它还会获得新技能：\\n\\t\\t- 技能等级 2 时，战士学会“巨人飞跃”，一个强力的跳跃攻击，会在落地时造成伤害并使敌人眩晕，还会解除骷髅身上的震慑、眩晕和定身效果。\\n\\t\\t- 技能等级 3 时，弓箭手学会“要害射击”，一记毁灭性的攻击，能够震慑并致残敌人。\\n\\t\\t- 技能等级 5 时，法师学会“落星”，一个毁灭性法术，会在大范围内碾压并灼烧敌人多个回合，同时震慑他们。\\n\\t\\t- 技能等级 6 时，骨巨人学会“你将成为我的武器！”，一记威力巨大的攻击，会造成高额伤害、击退并震慑敌人。\\n\\t\\t",
+  "new": "消耗两个灵魂强化你的一个骷髅，使其成为骷髅王。\\n\\t\\t骷髅王额外获得 %d 点生命上限，并立即恢复全部生命。\\n\\t\\t同时只能存在一个骷髅王；对另一个骷髅施放此法术会移除当前骷髅王的效果。\\n\\t\\t技能等级足够高时，它还会获得新技能：\\n\\t\\t- 技能等级 2 时，战士学会“巨人飞跃”，一个强力的跳跃攻击，会在落地时造成伤害并使敌人眩晕，还会解除骷髅身上的震慑、眩晕和定身效果。\\n\\t\\t- 技能等级 3 时，弓箭手学会“要害射击”，一记毁灭性的攻击，能够震慑并致残敌人。\\n\\t\\t- 技能等级 5 时，法师学会“落星”，一个毁灭性法术，会在大范围内碾压并灼烧敌人多个回合，同时震慑他们。\\n\\t\\t- 技能等级 6 时，骨巨人学会“你将成为我的武器！”，一记威力巨大的攻击，会造成高额伤害、击退并震慑敌人。\\n\\t\\t",
+  "hits": {
+   "R6一逗到底": [
+    "\\n\\t\\t技能等级足够高时，它还会获得新技能：\\n\\t\\t- 技能等级 2 时…"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/aegis.lua",
+   "Release arcane energies into most magical shields currently protecting you.\\n\\t\\tIt will affect at most %d shield effects.\\n\\t\\tDamage Shield, Time Shield, Displacement Shield:  Increase the damage absorption value by %d%%.\\n\\t\\tDisruption Shield: Tap into the stored energies to restore the shield (at a rate of 2 energy per 1 shield power). Any leftover energy is converted back into mana at a rate of %0.2f energy per mana.\\n\\t\\tThe charging will increase with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "释放奥术能量充满当前保护你的魔法护盾，进一步强化它。\\n\\t\\t它会影响最多 %d 种护盾效果。\\n\\t\\t伤害护盾，时间护盾，转移护盾：提高 %d%% 最大伤害吸收值。\\n\\t\\t干扰护盾：将储存的能量转化为护盾值（比例为2:1）。剩余能量将以 %0.2f 的比例转化为法力值。\\n\\t\\t充能强度受法术强度加成。",
+  "new": "释放奥术能量充满当前保护你的魔法护盾，进一步强化它。\\n\\t\\t它会影响最多 %d 种护盾效果。\\n\\t\\t伤害护盾、时间盾、转移护盾：增加相当于护盾初始强度 %d%% 的伤害吸收量。\\n\\t\\t干扰护盾：将储存的能量转化为护盾值（比例为2:1）。每 %0.2f 点剩余能量转化为 1 点法力值。\\n\\t\\t充能强度受法术强度加成。",
+  "hits": {
+   "R2近距重复词": [
+    "护盾：增加相当于护盾",
+    "强度受法术强度"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/master-of-bones.lua",
+   "Call upon the battlefields of old, collecting bones, fusing them with souls, and forging them into skeletal minions.\\n\\t\\tUp to %d skeleton warriors of level %d are summoned, and up to %d skeletons can be controlled at once.\\n\\t\\tAt level 3 the summons become armoured skeletons warriors.\\n\\t\\tAt level 5, for every 3 skeleton warriors, a skeleton mage or archer will also be created without costing any souls. If this makes you go over your skeleton limit, a normal skeleton will be removed and its soul refunded.\\n\\n\\t\\t#GREY##{italic}#Skeleton minions come in fewer numbers than ghoul minions but are generally more durable.#{normal}#\\n\\t\\t",
+   "tformat",
+   1
+  ],
+  "old": "从古战场中收集白骨，将灵魂附着在白骨上，将其转化为你的骷髅随从。\\n\\t\\t最多召唤 %d 个 %d 级的骷髅战士，且最多可同时掌控 %d 个骷髅。\\n\\t\\t技能等级 3 时，你将会改为召唤武装骷髅战士。\\n\\t\\t技能等级 5 时，每当你召唤 3 个骷髅战士，将会额外召唤一个骷髅法师或骷髅弓箭手，不消耗灵魂。如果这超过了你的骷髅数量上限，会移除一个普通骷髅，并返还其灵魂消耗。\\n\\n\\t\\t#GREY##{italic}#骷髅的数量比食尸鬼更少，但一般来说更加强韧。#{normal}#\\n\\t\\t",
+  "new": "从古战场中收集白骨，将灵魂附着在白骨上，将其转化为你的骷髅随从。\\n\\t\\t最多召唤 %d 个 %d 级的骷髅战士，且最多可同时掌控 %d 个骷髅。\\n\\t\\t技能等级 3 时，你将会改为召唤武装骷髅战士。\\n\\t\\t技能等级 5 时，每当你召唤 3 个骷髅战士，会额外免费召唤尚缺的骷髅法师或骷髅弓箭手（两者皆无时随机选择）；若两者都有，则额外召唤武装骷髅战士。如果因此超过骷髅数量上限，会移除一个普通骷髅，并返还其灵魂消耗。\\n\\n\\t\\t#GREY##{italic}#骷髅的数量比食尸鬼更少，但一般来说更加强韧。#{normal}#\\n\\t\\t",
+  "hits": {
+   "R2近距重复词": [
+    "骷髅法师或骷髅"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/psionic/mentalism.lua",
+   "Activate to project your mind from your body for %d turns.  In this state you're invisible (+%d power), can see invisible and stealthed creatures (+%d detection power), can move through walls, and do not need air to survive.\\n\\t\\tAll damage you suffer is shared with your physical body, and while in this form you may only deal damage to 'ghosts' or through an active mind link (mind damage only in the second case.)\\n\\t\\tTo return to your body, simply release control of the projection.",
+   "tformat",
+   1
+  ],
+  "old": "激活此技能可以使你的灵魂出窍，持续 %d 回合。在此形态下，你处于隐形状态 （+%d 强度）。\\n\\t\\t你可以看见隐形和潜行的生物 （+%d 侦查强度），穿过墙壁，且无需呼吸。\\n\\t\\t你受到的所有伤害都会与肉身共享；你只能伤害“鬼魂”，或通过已激活的精神链接造成精神伤害。\\n\\t\\t要回到你的身体里，只需放弃对灵魂投影的控制。",
+  "new": "激活此技能可以使你的灵魂出窍，持续 %d 回合。在此形态下，你处于隐形状态 （+%d 强度），可以看见隐形和潜行的生物 （+%d 侦查强度），能够穿过墙壁，且无需呼吸。\\n\\t\\t你受到的所有伤害都会与肉身共享；你只能伤害“鬼魂”，或通过已激活的精神通道造成精神伤害。\\n\\t\\t要回到你的身体里，只需放弃对灵魂投影的控制。",
+  "hits": {
+   "R2近距重复词": [
+    "精神通道造成精神"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/general/objects/boss-artifacts-maj-eyal.lua",
+   "Crystals splinter off of %s's %s and animate!",
+   "logSeen",
+   1
+  ],
+  "old": "%s的%s上的水晶碎片活动了起来！",
+  "new": "水晶碎片从%s的%s上剥落，活了过来！",
+  "hits": {
+   "R2近距重复词": [
+    "奥普斯的奥普斯"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/timed_effects/magical.lua",
+   "Host of a Rime Wraith (Gelid Host)!",
+   "_t",
+   1
+  ],
+  "old": "远古冰魂的宿主（霜寒宿主）！",
+  "new": "凛霜冰魂的宿主（霜寒宿主）！",
+  "hits": {
+   "R2近距重复词": [
+    "宿主（霜寒宿主"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/cursed/fears.lua",
+   "Impose your tyranny on the minds of those who fear you. When a foe gains a new fear, you have a %d%% chance to increase the duration of their heightened fear and one random existing fear effect by %d turns, to a maximum of 8 turns.\\n\\t\\tAdditionally, you gain %d Mindpower and Physical power for 5 turns every time you apply a fear, stacking up to %d times.",
+   "tformat",
+   1
+  ],
+  "old": "将你的专制施加于畏惧你的敌人的心智。当一个敌人获得一个新的恐惧效果时，你有 %d%% 的几率将其强化恐惧以及另一个随机的已有恐惧效果的持续时间延长 %d 回合，最多 8 回合。\\n\\t\\t此外，每当你恐惧一个目标，你获得 %d 精神强度和物理强度，持续 5 回合，最多叠加 %d 层。",
+  "new": "将你的专制施加于畏惧你的敌人的心智。当一个敌人获得一个新的恐惧效果时，你有 %d%% 的几率将其恐惧加深效果以及另一个随机的已有恐惧效果的持续时间延长 %d 回合，最多 8 回合。\\n\\t\\t此外，每当你恐惧一个目标，你获得 %d 精神强度和物理强度，持续 5 回合，最多叠加 %d 层。",
+  "hits": {
+   "R2近距重复词": [
+    "强度和物理强度"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/uber/mag.lua",
+   "Your study of arcane forces has let you develop a new way of applying your aptitude for trapping and poisons.\\n\\n\\t\\tYou gain 1.0 mastery in the Cunning/Poisons and Cunning/Trapping talent trees.\\n\\t\\tYour Venomous Strike talent cooldown is reduced by 3.\\n\\t\\tYour Lure talent cooldown is reduced by 5.\\n\\n\\t\\tYou learn the following talents:\\n%s",
+   "tformat",
+   1
+  ],
+  "old": "通过对奥术之力的研究，你找到了运用自己陷阱与毒药天赋的新方式。\\n\\n你在灵巧/毒药系和灵巧/陷阱系技能树上获得 1.0 系数。\\n\\t\\t你的毒素爆发技能冷却时间减少 3。\\n\\t\\t你的诱饵技能冷却时间减少 5。\\n\\n\\t\\t你将习得以下技能：\\n%s",
+  "new": "通过对奥术之力的研究，你找到了运用自己陷阱与毒药天赋的新方式。\\n\\n你在灵巧/毒素系和灵巧/陷阱制作系技能树上获得 1.0 系数。\\n\\t\\t你的剧毒打击技能冷却时间减少 3。\\n\\t\\t你的诱饵技能冷却时间减少 5。\\n\\n\\t\\t你将习得以下技能：\\n%s",
+  "hits": {
+   "R2近距重复词": [
+    "灵巧/毒素系和灵巧"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/celestial/hymns.lua",
+   "You have learned to sing the praises of the Moons, in the form of three defensive Hymns:\\n\\nHymn of Shadows: Increases your movement speed by %d%% and your spell casting speed by %d%%.\\n\\nHymn of Detection: Increases your ability to see stealthy creatures by %d and invisible creatures by %d, and increases your critical power by %d%%.\\n\\nHymn of Perseverance: Increases your resistance to stun, confusion and blinding by %d%%.\\n\\nYou may only have one Hymn active at a time.",
+   "tformat",
+   1
+  ],
+  "old": "你学会了三种防御圣诗，以此咏唱对月亮的赞颂：\\n\\t\\t暗影圣诗：增加 %d%% 移动速度和 %d%% 施法速度。\\n\\t\\t侦测圣诗：潜行侦测强度提高 %d， 隐形侦测强度提高 %d， 暴击伤害提高 %d%%。\\n\\t\\t坚毅圣诗：增加 %d%% 震慑、混乱、致盲抗性。\\n\\t\\t你同时只能激活一种圣诗。",
+  "new": "你学会了三种防御圣诗，以此咏唱对月亮的赞颂：\\n\\n暗影圣诗：增加 %d%% 移动速度和 %d%% 施法速度。\\n\\n侦测圣诗：潜行侦测强度提高 %d， 隐形侦测强度提高 %d， 暴击伤害提高 %d%%。\\n\\n坚毅圣诗：增加 %d%% 震慑、混乱、致盲抗性。\\n\\n你同时只能激活一种圣诗。",
+  "hits": {
+   "R2近距重复词": [
+    "侦测圣诗：潜行侦测"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/techniques/combat-techniques.lua",
+   "Your combat focus allows you to regenerate stamina faster (+%0.1f stamina/turn).",
+   "tformat",
+   1
+  ],
+  "old": "你专注于战斗，使得你可以更快的回复体力 （+%0.1f 体力/回合）。",
+  "new": "你专注于战斗，使得你可以更快地回复体力 （+%0.1f 体力/回合）。",
+  "hits": {
+   "R2近距重复词": [
+    "体力 （+12 体力"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/dreadmaster.lua",
+   "#GREY#%s has fed on enough minions and starts to randomly hex foes!",
+   "logSeen",
+   1
+  ],
+  "old": "#GREY#%s吸取了足够多的随从，开始随机对敌人释放邪术！",
+  "new": "#GREY#吞噬 %s 的能量后，噩灵吸取了足够多的随从能量，开始随机对敌人释放邪术！",
+  "hits": {
+   "R5中文间空格": [
+    "噬 奥",
+    "斯 的"
+   ]
+  },
+  "regression": [
+   "R5中文间空格"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/rime-wraith.lua",
+   "Hoarfrost now has additional effects:\\n\\t\\t- if friendly: magical and physical saves increased by %d, at level 5 healing factor is also increased by 15%%.\\n\\t\\t- if hostile: magical and physical saves reduced by %d, at level 5 all talents cool down 15%% slower.\\n\\t\\t",
+   "tformat",
+   1
+  ],
+  "old": "寒霜覆盖效果获得以下额外效果：\\n\\t\\t- 友方目标：提升 %d 魔法和物理豁免，技能等级 5 时，还会提升治疗系数 15%%。\\n\\t\\t- 敌对目标：降低 %d 魔法和物理豁免，技能等级 5 时，还会使技能冷却时间延长 15%%。\\n\\t\\t",
+  "new": "寒霜覆盖效果获得以下额外效果：\\n\\t\\t- 友方目标：提升 %d 法术和物理豁免，技能等级 5 时，还会提升治疗系数 15%%。\\n\\t\\t- 敌对目标：降低 %d 法术和物理豁免，技能等级 5 时，还会使技能冷却时间延长 15%%。\\n\\t\\t",
+  "hits": {
+   "R2近距重复词": [
+    "效果获得以下额外效果"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/celestial/combat.lua",
+   "Infuse your weapon with the power of the Sun, adding %0.1f light damage on each melee hit.\\n\\t\\tAdditionally, if you have a temporary damage shield active, melee hits will increase its power by %d and set its duration to 2 (if not already higher), once per turn.\\n\\t\\tThe damage dealt and shield bonus will increase with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "使你的武器充满太阳能量，每击造成 %0.1f 光系伤害。\\n\\t\\t如果你同时打开了临时伤害护盾，每回合一次，你的近战攻击命中可以增加护盾 %d 强度，并且可以延长当前护盾持续时间至2回合。\\n\\t\\t伤害和护盾加成受法术强度加成。",
+  "new": "使你的武器充满太阳能量，每次近战命中造成 %0.1f 光系伤害。\\n\\t\\t如果你同时打开了临时伤害护盾，每回合一次，你的近战攻击命中可以增加护盾 %d 强度，并且可以延长当前护盾持续时间至2回合。\\n\\t\\t伤害和护盾加成受法术强度加成。",
+  "hits": {
+   "R2近距重复词": [
+    "加成受法术强度加成"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/golem.lua",
+   "Your golem rushes to the target, dealing %d%% damage and knocking it back.\\n\\t\\tKnockback chance will increase with talent level.\\n\\t\\tWhile rushing the golem becomes ethereal, passing harmlessly through creatures on the path to its target.",
+   "tformat",
+   1
+  ],
+  "old": "你的傀儡冲向目标，造成 %d%% 伤害并将其击退。\\n\\t\\t击退成功率随技能等级提高。\\n\\t\\t冲刺期间，傀儡会化为虚体，安全穿过通往目标路径上的生物。",
+  "new": "你的傀儡冲向目标，造成 %d%% 伤害并将其击退。\\n\\t\\t击退成功率取决于傀儡的物理强度和目标的物理豁免。\\n\\t\\t冲刺期间，傀儡会化为虚体，安全穿过通往目标路径上的生物。",
+  "hits": {
+   "R2近距重复词": [
+    "的物理强度和目标的物理"
+   ]
+  },
+  "regression": [
+   "R2近距重复词"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/misc/objects.lua",
+   "You require a digger to dig.",
+   "logPlayer",
+   1
+  ],
+  "old": "挖掘需要装备锄头。",
+  "new": "挖掘需要挖掘工具。",
+  "hits": {
+   "R2近距重复词": [
+    "挖掘需要挖掘"
+   ]
+  },
+  "regression": [
+   "R2近距重复词"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/uber/mag.lua",
+   "By infusing your shield with raw magic, your block can now block any damage type.",
+   "tformat",
+   1
+  ],
+  "old": "向护盾中灌注魔法力量，使格挡技能能够格挡任何类型的伤害。",
+  "new": "向盾牌中灌注魔法力量，使格挡技能能够格挡任何类型的伤害。",
+  "hits": {
+   "R2近距重复词": [
+    "格挡技能能够格挡"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/cursed/shadows.lua",
+   "Focus your shadows on a single target. Friendly targets will be defended for %d turns. Hostile targets will be attacked, with a %d%% chance the shadows will blindside the target.\\n\\t\\tIf you have less than maximum shadows available, they will automatically be summoned before focusing.\\n\\t\\tThis talent has no cost.",
+   "tformat",
+   1
+  ],
+  "old": "将你的阴影聚集至单一目标。如果目标为友善则保护目标 %d 回合。如目标为敌对则有 %d%% 几率使用闪电突袭攻击目标。\\n\\t\\t如果你的阴影数目少于最大值，将在聚集前召唤出来。\\n\\t\\t该技能不消耗任何能量。",
+  "new": "将你的阴影聚集至单一目标。如果目标为友善则保护目标 %d 回合。如目标为敌对，阴影会攻击目标，并有 %d%% 几率使用闪电突袭。\\n\\t\\t如果你的阴影数目少于最大值，将在聚集前召唤出来。\\n\\t\\t该技能不消耗任何资源。",
+  "hits": {
+   "R2近距重复词": [
+    "目标为友善则保护目标"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/texts/unlock-rogue_poisons.lua",
+   "Extracted from plants, wildlife or more exotic locations, poisons have always existed.\\nMany creatures use them, along with some shady people.\\n\\nYou have made a deal with such a person and can now create new Rogue or Archer characters that can learn the #LIGHT_GREEN#Poisons talents#WHITE#.\\n\\nTalents:\\n- #YELLOW#Vile Poisons: #WHITE#Learn new dangerous and terrible poisons to coat your weapons or ammo with, infecting your foes\\n- #YELLOW#Venomous Strike: #WHITE#A terrible strike that deals increased nature damage based on the number of poison effects\\n- #YELLOW#Empower Poisons: #WHITE#Learn to make your poisons even more lethal and fast\\n- #YELLOW#Toxic Death: #WHITE#Spread the toxic joy to your foe's friends!\\n",
+   "_t",
+   1
+  ],
+  "old": "毒素取自植物、野生动物或更奇异的所在，自古便已存在。\\n许多生物会使用毒素，一些见不得光的人也一样。\\n\\n你与这样的人做了交易，现在可以创建能学习 #LIGHT_GREEN#毒素系技能#WHITE# 的盗贼或弓箭手角色。\\n\\n技能：\\n- #YELLOW# 邪恶毒素：#WHITE# 学会调制新的危险而可怕的毒素，将其涂在武器或弹药上，使敌人中毒。\\n- #YELLOW# 毒素爆发：#WHITE# 发动一次可怕的攻击，目标身上的中毒效果越多，造成的自然伤害越高。\\n- #YELLOW# 强化毒素：#WHITE# 让你的毒素变得更加致命、起效更快。\\n- #YELLOW# 剧毒之死：#WHITE# 将有毒的“快乐”分享给敌人的朋友们！\\n",
+  "new": "毒素取自植物、野生动物或更奇异的所在，自古便已存在。\\n许多生物会使用毒素，一些见不得光的人也一样。\\n\\n你与这样的人做了交易，现在可以创建能学习 #LIGHT_GREEN#毒素系技能#WHITE# 的盗贼或弓箭手角色。\\n\\n技能：\\n- #YELLOW# 邪恶毒素：#WHITE# 学会调制新的危险而可怕的毒素，将其涂在武器或弹药上，使敌人中毒。\\n- #YELLOW# 剧毒打击：#WHITE# 发动一次可怕的攻击，目标身上的中毒效果越多，造成的自然伤害越高。\\n- #YELLOW# 强化毒素：#WHITE# 让你的毒素变得更加致命、起效更快。\\n- #YELLOW# 剧毒之死：#WHITE# 将有毒的“快乐”分享给敌人的朋友们！\\n",
+  "hits": {
+   "R5中文间空格": [
+    "习 毒",
+    "能 的"
+   ],
+   "R2近距重复词": [
+    "毒素： 让你的毒素"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/rime-wraith.lua",
+   "You summon a Rime Wraith inside of you, an intangible creature, that haunts both foes and allies for %d turns.\\n\\t\\tEvery turn the wraith will select a new target and jump to it.\\n\\t\\tWhen the wraith enters a creature they are covered in hoarfrost for 3 turns:\\n\\t\\t- if friendly: increases cold resistance by %d%%, converts all damage done to cold and increases cold damage by %d%%.\\n\\t\\t- if hostile: reduces cold resistance by %d%% and move %d%% slower\\n\\t\\tWhen selecting a target the wraith prefers one that is not affected by hoarfrost if possible.\\n\\t\\t",
+   "tformat",
+   1
+  ],
+  "old": "你在体内召唤远古冰魂，这是一种无形的生物，可以对敌人和盟友造成影响，持续 %d 回合。\\n\\t\\t每一回合，冰魂会选择一个新的目标，然后跳向那个目标。\\n\\t\\t当冰魂进入一个生物体内，那个生物将会被寒霜覆盖，持续 3 回合。\\n\\t\\t- 友方目标：获得 %d%% 寒冷伤害抗性，所造成的所有伤害转化成寒冷伤害，增加寒冷伤害 %d%%。\\n\\t\\t- 敌对目标：降低 %d%% 寒冷伤害抗性，移动速度降低 %d%%。\\n\\t\\t冰魂会优先选择没有被寒霜覆盖的目标。\\n\\t\\t",
+  "new": "你在体内召唤凛霜冰魂，这是一种无形的生物，可以对敌人和盟友造成影响，持续 %d 回合。\\n\\t\\t每一回合，冰魂会选择一个新的目标，然后跳向那个目标。\\n\\t\\t当冰魂进入一个生物体内，那个生物将会被寒霜覆盖，持续 3 回合。\\n\\t\\t- 友方目标：获得 %d%% 寒冷伤害抗性，所造成的所有伤害转化成寒冷伤害，增加寒冷伤害 %d%%。\\n\\t\\t- 敌对目标：降低 %d%% 寒冷伤害抗性，移动速度降低 %d%%。\\n\\t\\t冰魂会优先选择没有被寒霜覆盖的目标。\\n\\t\\t",
+  "hits": {
+   "R2近距重复词": [
+    "伤害转化成寒冷伤害"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/general/objects/world-artifacts.lua",
+   "An ancient set of robes that has survived from the Age of Allure. Primal magic forces inhabit it.\\nIt was made by Humans for Humans; only they can harness the true power of the robes.",
+   "_t",
+   1
+  ],
+  "old": "这件古老的礼服从厄流纪保存了下来。上古的魔法力量占据着它。它由人类专门为人类制造；只有他们才能驾驭这件长袍的真正力量。",
+  "new": "这件古老的长袍从厄流纪保存了下来。上古的魔法力量占据着它。\\n它由人类专门为人类制造；只有他们才能驾驭这件长袍的真正力量。",
+  "hits": {
+   "R2近距重复词": [
+    "人类专门为人类"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/chronomancy/other.lua",
+   "Use to set your preferred Paradox.  While resting or waiting you'll adjust your Paradox towards this number at the rate of %d per turn.\\n\\t\\tYour Paradox modifier is factored into the duration and spellpower of all chronomancy spells.\\n\\n\\t\\tPreferred Paradox :  %d\\n\\t\\tParadox Modifier :  %d%%\\n\\t\\tSpellpower for Chronomancy :  %d\\n\\t\\tWillpower Paradox Modifier : -%d\\n\\t\\tParadox Sustain Modifier : +%d\\n\\t\\tTotal Modified Paradox :  %d\\n\\t\\tCurrent Anomaly Chance :  %d%%",
+   "tformat",
+   1
+  ],
+  "old": "设置自己的紊乱值。\\n\\t\\t休息或等待时，你每回合将自动调节 %d 点紊乱值趋向于你的设定值。\\n\\t\\t你的紊乱值修正率影响所有时空法术的持续时间和法术强度。\\n\\n\\t\\t设定的紊乱值： %d\\n\\t\\t紊乱值修正率： %d%%\\n\\t\\t时空法术强度： %d\\n\\t\\t意志修正数值： -%d\\n\\t\\t紊乱维持数值： +%d\\n\\t\\t修正后紊乱值： %d\\n\\t\\t当前异常几率： %d%%",
+  "new": "设定你的期望紊乱值。休息或等待时，你每回合将自动调节 %d 点紊乱值趋向于你的设定值。\\n\\t\\t你的紊乱值修正率影响所有时空法术的持续时间和法术强度。\\n\\n\\t\\t设定的紊乱值： %d\\n\\t\\t紊乱值修正率： %d%%\\n\\t\\t时空法术强度： %d\\n\\t\\t意志修正数值： -%d\\n\\t\\t紊乱维持数值： +%d\\n\\t\\t修正后紊乱值： %d\\n\\t\\t当前异常几率： %d%%",
+  "hits": {
+   "R2近距重复词": [
+    "法术的持续时间和法术"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/aegis.lua",
+   "Surround yourself with protective arcane forces.\\n\\t\\tEach time you receive a direct heal (not a life regeneration effect), you automatically gain a damage shield equal to %d%% of the heal value for 3 turns.\\n\\t\\tThis will replace an existing damage shield if the new shield value and duration would be greater than or equal to the old.\\n\\t\\tThe shield value will increase with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "使你的周身围绕着保护性的奥术能量。\\n\\t\\t每当你获得一个直接治疗时（非持续恢复效果）你会自动获得一个护盾，护盾强度为治疗量的 %d%%， 持续 3 回合。\\n\\t\\t如果新护盾的量和持续时间比当前护盾大或相等，将会取代之。\\n\\t\\t护盾强度受法术强度加成。",
+  "new": "使你的周身围绕着保护性的奥术能量。\\n\\t\\t每当你获得一个直接治疗时（非持续恢复效果）你会自动获得一个伤害护盾，护盾强度为治疗量的 %d%%， 持续 3 回合。\\n\\t\\t如果新护盾的量和持续时间比当前伤害护盾大或相等，将会取代之。\\n\\t\\t护盾强度受法术强度加成。",
+  "hits": {
+   "R2近距重复词": [
+    "强度受法术强度"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/general/objects/world-artifacts.lua",
+   "Anmalice focuses its mind-piercing eye on #Target#!",
+   "logCombat",
+   1
+  ],
+  "old": "扭曲之刃·圣灵之眼将它穿透灵魂的目光集中在了 #Target# 上！",
+  "new": "扭曲之刃·圣灵之眼将它穿透心智的目光集中在了 #Target# 上！",
+  "hits": {
+   "R5中文间空格": [
+    "了 米",
+    "陶 上"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/uber/cun.lua",
+   "You have friends in low places and have learned some underhanded tricks.\\n\\t\\tGain 0.2 Category Mastery to the Cunning/Stealth Category (or unlock it, if you have the tree and it is locked), and either gain +0.1 to the Cunning/Scoundrel category or learn and unlock the category at 0.9 if you lack it.\\n\\t\\tAdditionally, all of your damage penalties from invisibility are permanently halved.",
+   "tformat",
+   1
+  ],
+  "old": "你结交了狐朋狗友，学到了一些下三滥的技巧。\\n\\t\\t增加灵巧/潜行系 0.2 系数值（若已拥有该技能树但未解锁，则将其解锁），同时增加灵巧/街头格斗系 0.1 系数值（未习得则以 0.9 的技能系数解锁此技能树）。\\n\\t\\t此外，你隐形时的伤害惩罚永久减半。",
+  "new": "你结交了狐朋狗友，学到了一些下三滥的技巧。\\n\\t\\t增加灵巧/潜行系 0.2 系数值（若已拥有该技能树但未解锁，则将其解锁），同时增加灵巧/无赖系 0.1 系数值（未习得则以 0.9 的技能系数解锁此技能树）。\\n\\t\\t此外，你隐形时的伤害惩罚永久减半。",
+  "hits": {
+   "R2近距重复词": [
+    "技能系数解锁此技能"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/cunning/traps.lua",
+   "Lay a trap that releases a burst of antimagic energies (radius 2), draining up to %d mana, %d vim, %d positive and %d negative energies from affected targets, while inflicting up to %0.2f arcane damage based on the resources drained, silencing for %d turns, and removing up to %d beneficial magical effects or sustains.\\n\\t\\tThe draining effect scales with your Willpower, and you must have 25 Willpower to prepare this trap.\\n\\t\\tThis trap can use a primed trigger and a high level lure can trigger it.%s",
+   "tformat",
+   1
+  ],
+  "old": "放置一个陷阱，触发后释放半径 2 的反魔能量波，吸取至多 %d 法力 , %d 活力 , %d 正能量和 %d 负能量，并造成至多 %0.2f 奥术伤害（基于吸取能量），沉默 %d 回合，并解除至多 %d 项正面魔法状态或者维持技能。\\n\\t\\t吸取效果受意志加成，你需要 25 点意志来使用该技能。\\n\\t\\t该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s",
+  "new": "放置一个陷阱，触发后释放半径 2 的反魔能量波，吸取至多 %d 法力、 %d 活力、 %d 正能量和 %d 负能量，并造成至多 %0.2f 奥术伤害（基于吸取能量），沉默 %d 回合，并解除至多 %d 项正面魔法状态或者维持技能。\\n\\t\\t吸取效果受意志加成，你需要 25 点意志才能准备该陷阱。\\n\\t\\t该陷阱可以被设置为直接激活，也可以被高等级诱饵激活。%s",
+  "hits": {
+   "R6一逗到底": [
+    "放置一个陷阱，触发后释放半径 2 的反魔能量波，吸取至多 12 法力、 12 活…"
+   ],
+   "R2近距重复词": [
+    "能量和 12 负能量"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/celestial/sunlight.lua",
+   "Call forth the Sun to summon a fiery beam that pierces to the farthest enemy dealing %d fire damage to all enemies hit.\\n\\t\\tThis spell will automatically cast again at the start of your next two turns.\\n\\t\\tYou will gain %0.2f positive energy each time firebeam or an instant damage proc caused by firebeam deals damage.\\n\\t\\tThe damage done will increase with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "汲取太阳之力射出一束太阳真火，贯穿直至最远的敌人，对这条直线上的所有敌人造成 %d 火焰伤害。\\n\\t\\t此法术会在你接下来两个回合的开始时自动再次施放。\\n\\t\\t每当火焰射线或由其触发的即时伤害效果造成伤害时，你获得 %0.2f 正能量。\\n\\t\\t伤害受法术强度加成。",
+  "new": "汲取太阳之力射出一束太阳真火，贯穿直至最远的敌人，对这条直线上的所有敌人造成 %d 火焰伤害。\\n\\t\\t此法术会在你接下来两个回合的开始时自动再次施放。\\n\\t\\t每当阳炎喷射或由其触发的即时伤害效果造成伤害时，你获得 %0.2f 正能量。\\n\\t\\t伤害受法术强度加成。",
+  "hits": {
+   "R2近距重复词": [
+    "太阳之力射出一束太阳",
+    "伤害效果造成伤害"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/spells/glacial-waste.lua",
+   "Conjure a shield of ice around you that can absorb a total of %d damage.\\n\\t\\tAnytime it does it retaliates by sending a bolt of ice at the attacker, dealing %0.2f cold damage (this can only happen once per turn per creature).\\n\\t\\tWhen you are above 1 life it only affects 66.6%% of the damage, letting through the rest.\\n\\t\\tWhen you are under 1 life it affects 100%% of the damage and also reduces the damage of critical hits by %d%%.\\n\\t\\t10 turns after leaving combat the shield will consume its mana and soul cost again to fully regenerate if needed. if that cost can not be matched, it unsustains.\\n\\t\\tThe shield strength will increase with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "使用冰块在你的身边形成一道护盾，吸收最多 %d 点伤害。\\n\\t\\t每当其受到伤害，它会对攻击者发射一团冰球，造成 %0.2f 寒冷伤害（每个生物每回合最多触发一次）\\n\\t\\t当你的生命值在 1 以上的时候，护盾只吸收 66.6%% 的伤害。\\n\\t\\t当你的生命值在 1 以下时，护盾吸收 100%% 伤害，还会降低你受到的暴击伤害 %d%%。\\n\\t\\t当你脱离战斗 10 回合后，护盾将会试图消耗魔法和灵魂，将其恢复到满。如果不能满足这一条件，护盾会解除。\\n\\t\\t护盾强度受法术强度加成。",
+  "new": "使用冰块在你的身边形成一道护盾，吸收最多 %d 点伤害。\\n\\t\\t每当其受到伤害，它会对攻击者发射一团冰球，造成 %0.2f 寒冷伤害（每个生物每回合最多触发一次）\\n\\t\\t当你的生命值在 1 以上的时候，护盾只吸收 66.6%% 的伤害。\\n\\t\\t当你的生命值降至 1 以下时，护盾吸收 100%% 伤害，还会使直接暴击的额外伤害降低 %d%%。\\n\\t\\t脱离战斗 10 回合后，若护盾已吸收过伤害，将再次消耗法力值和灵魂恢复到满；资源不足则解除。\\n\\t\\t护盾强度受法术强度加成。",
+  "hits": {
+   "R2近距重复词": [
+    "强度受法术强度"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/cursed/slaughter.lua",
+   "Charge through your opponents, attacking anyone near your path for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage. %s opponents may be knocked away from your path. You can attack a maximum of %d times, and can hit targets along your path more than once.",
+   "tformat",
+   1
+  ],
+  "old": "冲过你的目标，途经的所有目标受到 %d%% （0仇恨）至 %d%% （100+仇恨）伤害。%s 体型的目标会被你弹开。你最多可以攻击 %d 次，并且你对路径上的敌人可造成不止 1 次攻击。",
+  "new": "冲过你的目标，途经的所有目标受到 %d%% （0仇恨）至 %d%% （100+仇恨）伤害。%s 体型的目标可能被你撞离路径。你最多可以攻击 %d 次，并且你对路径上的敌人可造成不止 1 次攻击。",
+  "hits": {
+   "R5中文间空格": [
+    "斯 体"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/timed_effects/mental.lua",
+   "Being stalked by %s. Stalker bonus level %d: +%d accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit.",
+   "tformat",
+   1
+  ],
+  "old": "目标被 %s 追踪。追踪等级 %d：+%d 命中，+%d%% 近战伤害，击中目标时 +%0.2f 仇恨/回合。",
+  "new": "目标被 %s 追踪。追踪者增益层数 %d：+%d 命中，+%d%% 近战伤害，命中猎物的每回合 +%0.2f 仇恨值。",
+  "hits": {
+   "R5中文间空格": [
+    "被 奥",
+    "斯 追"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/timed_effects/mental.lua",
+   "Your tyranny is increasing your Mindpower and Physicalpower by 2 for each fear applied, for a total of %d",
+   "tformat",
+   1
+  ],
+  "old": "每施加一种恐惧增加2点物理和精神强度，合计 %d点。",
+  "new": "你的专制使你的精神强度和物理强度每施加一次恐惧提升2点，合计 %d点。",
+  "hits": {
+   "R2近距重复词": [
+    "你的专制使你的",
+    "强度和物理强度"
+   ]
+  },
+  "regression": [
+   "R2近距重复词"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/chronomancy/temporal-combat.lua",
+   "You now have a %d%% chance to Fold Fate, Gravity, or Warp into your Weapon Folding damage.\\n\\t\\t\\n\\t\\tFold Fate: Deals %0.2f temporal damage to enemies in a radius of %d.  Affected targets may lose %d%% physical and temporal resistance for %d turns.\\n\\t\\tFold Warp: Deals %0.2f physical and %0.2f temporal damage to enemies in a radius of %d.  Affected targets may be stunned, blinded, confused, or pinned for %d turns.\\n\\t\\tFold Gravity: Deals %0.2f physical damage to enemies in a radius of %d.  Affected targets will be slowed (%d%%) for %d turns.\\n\\t\\t\\n\\t\\tEach Fold has an eight turn cooldown.  If an effect would be triggered while on cooldown it will reduce the cooldown of the other two Folds by one turn.",
+   "tformat",
+   1
+  ],
+  "old": "你现在有 %d%% 几率将命运、重力或扭曲之力折叠进武器折叠伤害中。\\n\\t\\t命运折叠：对半径 %d 内的敌人造成 %0.2f 点时空伤害，并可能使其物理和时空抗性降低 %d%%， 持续 %d 回合。\\n\\t\\t扭曲折叠：对半径 %d 内的敌人造成 %0.2f 点物理伤害和 %0.2f 点时空伤害，并可能使其震慑、致盲、混乱或定身 %d 回合。\\n\\t\\t重力折叠：对半径 %d 内的敌人造成 %0.2f 点物理伤害，并使其减速 %d%%， 持续 %d 回合。\\n\\t\\t每项效果有 8 回合冷却时间。\\n\\t\\t当处于冷却中的效果被触发时，将减少另外两个效果的冷却 1 回合。",
+  "new": "你现在有 %d%% 几率将命运、重力或扭曲之力折叠进武器折叠伤害中。\\n\\n\\t\\t命运折叠：对半径 %d 内的敌人造成 %0.2f 点时空伤害，并可能使其物理和时空抗性降低 %d%%， 持续 %d 回合。\\n\\t\\t扭曲折叠：对半径 %d 内的敌人造成 %0.2f 点物理伤害和 %0.2f 点时空伤害，并可能使其震慑、致盲、混乱或定身 %d 回合。\\n\\t\\t重力折叠：对半径 %d 内的敌人造成 %0.2f 点物理伤害，并使其减速 %d%%， 持续 %d 回合。\\n\\n\\t\\t每项效果有 8 回合冷却时间。当处于冷却中的效果被触发时，将减少另外两个效果的冷却 1 回合。",
+  "hits": {
+   "R2近距重复词": [
+    "折叠进武器折叠"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/gifts/antimagic.lua",
+   "Drain %d mana, %d vim, %d positive and negative energies from your target, triggering a chain reaction that explodes in a burst of arcane damage.\\n\\t\\tThe damage done is equal to 100%% of the mana drained, 200%% of the vim drained, or 400%% of the positive or negative energy drained, whichever is higher. This effect is called a manaburn.\\n\\t\\tThe effect will increase with your Mindpower or Physical power (whichever is greater).\\n\\t\\t%s",
+   "tformat",
+   1
+  ],
+  "old": "从目标身上吸收 %d 点法力， %d 点活力， %d 点正负能量，并触发一次链式反应，引发一次奥术对撞。\\n\\t\\t奥术对撞的伤害取以下最高值：吸收法力值的 100%%、吸收活力值的 200%% 或吸收正负能量的 400%%（称为法力燃烧）。\\n\\t\\t效果受精神或物理强度较高者加成。\\n\\t\\t%s",
+  "new": "从目标身上吸收 %d 点法力， %d 点活力， %d 点正负能量，并触发一次链式反应，爆发出奥术伤害。\\n\\t\\t伤害取以下最高值：吸收法力值的 100%%、吸收活力值的 200%% 或吸收正能量或负能量的 400%%（称为法力燃烧）。\\n\\t\\t效果受精神强度或物理强度中较高者加成。\\n\\t\\t%s",
+  "hits": {
+   "R2近距重复词": [
+    "能量或负能量",
+    "强度或物理强度"
+   ]
+  },
+  "regression": [
+   "R2近距重复词"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/talents/techniques/2hweapon.lua",
+   "Tries to perform a killing blow, doing %d%% weapon damage and dealing an automatic critical hit. If the target ends up with low enough life (<20%%), it might be instantly killed.\\n\\t\\tAt level 4, it drains half your remaining stamina, and uses it to increase the blow damage by 100%% of it.\\n\\t\\tThe chance to instantly kill will increase with your Physical Power.",
+   "tformat",
+   1
+  ],
+  "old": "试图施展一次致命打击，造成 %d%% 武器伤害，本次攻击自动变成暴击。\\n\\t\\t如果打击后目标生命值低于 20%%，则有可能被直接杀死。\\n\\t\\t在等级 4 时，会消耗你剩余耐力值的一半，并使本次打击的伤害增加所消耗耐力值的 100%%。\\n\\t\\t目标即死的概率受物理强度加成。",
+  "new": "试图施展一次致命打击，造成 %d%% 武器伤害，本次攻击自动变成暴击。\\n\\t\\t如果打击后目标生命值低于 20%%，则有可能被直接杀死。\\n\\t\\t在等级 4 时，本次攻击会将攻击前剩余体力值的一半按 100%% 折算为临时物理强度加成，攻击后消耗当时剩余体力值的一半。\\n\\t\\t目标即死的概率受物理强度加成。",
+  "hits": {
+   "R2近距重复词": [
+    "攻击会将攻击"
+   ]
+  },
+  "regression": [
+   "R2近距重复词"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/timed_effects/mental.lua",
+   "The target has been panicked by %s, causing them to have a %d%% chance of fleeing in terror instead of acting.",
+   "tformat",
+   1
+  ],
+  "old": "目标对 %s 感到恐慌，使其有 %d%% 概率因为害怕而逃跑。",
+  "new": "目标对 %s 感到恐慌，使其有 %d%% 概率因为害怕而逃跑，无法正常行动。",
+  "hits": {
+   "R5中文间空格": [
+    "对 奥",
+    "斯 感"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "mod-tome.lua",
+   "mod-tome/data/general/objects/world-artifacts.lua",
+   "This black hat once belonged to a powerful mage named Malslek, in the Age of Dusk, who was known to deal with beings from other planes. In particular, he dealt with many powerful demons, until one of them, tired of his affairs, betrayed him and stole his power. In his rage, Malslek set fire to his own tower in an attempt to kill the demon. This charred hat is all that remained in the ruins.",
+   "_t",
+   1
+  ],
+  "old": "这顶黑色的帽子曾属于黄昏纪一名强大的法师马斯拉克，他以与异界生物打交道而著称。尤其是，他与许多强大的恶魔做过交易。直到某一天，一名恶魔厌烦了契约的约束而背叛了他并偷走了马斯拉克的力量。马斯拉克一气之下烧毁了自己的高塔，意图杀死这只恶魔。最终，废墟中只剩下了这顶帽子流传至今。",
+  "new": "这顶黑色的帽子曾属于黄昏纪一名强大的法师马斯拉克，他以与异界生物打交道而著称。尤其是，他与许多强大的恶魔做过交易。直到某一天，一名恶魔厌倦了与他的纠葛，背叛了他并偷走了他的力量。马斯拉克一气之下烧毁了自己的高塔，意图杀死这只恶魔。废墟中只剩下了这顶烧焦的帽子。",
+  "hits": {
+   "R2近距重复词": [
+    "了他并偷走了他"
+   ]
+  },
+  "regression": [
+   "R2近距重复词"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-ashes-urhrok.lua",
+   "tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua",
+   "Whenever you are on an unlit grid you can meld with the shadows, gaining %d stealth power.\\n\\t\\tWhile stealthed you wrap shadows around you in a defensive cloak, giving you a %d%% chance to ignore physical or magical detrimental effects.\\n\\t\\tYour equiped lite does not count and will be turned off when activating.\\n\\t\\tMoving will cancel the effect.\\n\\t\\tStealth power depends on Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "每当你站在黑暗地形时，你能与黑暗融合，获得 %d 潜行强度。\\n\\t\\t当你潜行时，黑暗在你身周形成一道防御屏障，你有 %d%% 几率摆脱物理或魔法负面效果。\\n\\t\\t你的灯具不会计算在内，同时效果激活时灯具将自动关闭。\\n\\t\\t移动会取消该效果。\\n\\t\\t潜行强度受法术强度加成。",
+  "new": "每当你站在黑暗地形时，你能与黑暗融合，获得 %d 潜行强度。\\n\\t\\t当你潜行时，黑暗在你身周形成一道防御屏障，你有 %d%% 几率无视物理或魔法负面效果。\\n\\t\\t你的灯具不会计算在内，同时效果激活时灯具将自动关闭。\\n\\t\\t移动会取消该效果。\\n\\t\\t潜行强度受法术强度加成。",
+  "hits": {
+   "R2近距重复词": [
+    "强度受法术强度"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-cults.lua",
+   "tome-cults/data/talents/demented/friend-of-the-worm.lua",
+   "You invoke a long standing pact with a fellow horror, a Worm that Walks, to help you in your travels.\\n\\t\\tYou can fully control, level, and equip it.\\n\\t\\tUsing this spell will ressurect your friendly horror if it died, giving it back %d%% life.\\n\\t\\tHigher raw talent levels will give your horror more equipment slots:\\n\\n\\t\\tLevel 1:  Mainhand, Offhand\\n\\t\\tLevel 2:  Body\\n\\t\\tLevel 3:  Belt\\n\\t\\tLevel 4:  Ring, Ring\\n\\t\\tLevel 5:  Ring, Ring, Trinket\\n\\n\\t\\tTo change your horror's equipment and talents first transfer the equipment from your inventory then take control of it.",
+   "tformat",
+   1
+  ],
+  "old": "你启用与恐魔同伴蠕虫合体之间的长期契约，令其在旅途中协助你。\\n\\t\\t你可以完全控制、升级、更换它的装备和技能。\\n\\t\\t使用该法术将复活你已死亡的友方恐魔，使其恢复 %d%% 生命。\\n\\t\\t原始技能等级提升将带来更多装备格：\\n\\n\\t\\t等级 1：主手 /副手武器\\n\\t\\t等级 2：躯体\\n\\t\\t等级 3：腰带\\n\\t\\t等级 4：戒指 /戒指\\n\\t\\t等级 5：戒指 /戒指/ 饰品\\n\\n\\t\\t要改变其装备和技能，先将装备从你的物品栏转交给它，再切换控制。",
+  "new": "你启用与恐魔同伴蠕虫合体之间的长期契约，令其在旅途中协助你。\\n\\t\\t你可以完全控制、升级、更换它的装备和技能。\\n\\t\\t使用该法术将复活你已死亡的友方恐魔，使其恢复 %d%% 生命。\\n\\t\\t原始技能等级提升将带来更多装备格：\\n\\n\\t\\t等级 1：主手、副手\\n\\t\\t等级 2：躯体\\n\\t\\t等级 3：腰带\\n\\t\\t等级 4：戒指、戒指\\n\\t\\t等级 5：戒指、戒指、饰品\\n\\n\\t\\t要改变其装备和技能，先将装备从你的物品栏转交给它，再切换控制。",
+  "hits": {
+   "R2近距重复词": [
+    "戒指、戒指",
+    "戒指、戒指"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-cults.lua",
+   "tome-cults/data/talents/demented/madness.lua",
+   "Terrible visions and maddening voices fill the minds of enemies within a radius %d area, inflicting %0.2f darkness damage each turn for 5 turns. In addition, this distraction will reduce physical, spell and mindpower of those affected by %d.\\nThe power loss caused by this spell can stack, to a maximum of %d powers.\\n\\t\\tThe effect will increase with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "令半径 %d 格内敌人的心灵充满可怕的幻觉和疯狂的低语，5 回合内每回合受到 %0.2f 暗影伤害。同时，该效果将使其物理强度、法术强度和精神强度各降低 %d 点，最多可叠加至 %d 点。\\n\\t\\t技能效果受法术强度加成。",
+  "new": "令半径 %d 格内敌人的心灵充满可怕的幻觉和疯狂的低语，5 回合内每回合受到 %0.2f 暗影伤害。同时，该效果将使其物理强度、法术强度和精神强度各降低 %d 点。\\n该法术造成的强度削减可以叠加，最多 %d 点。\\n\\t\\t技能效果受法术强度加成。",
+  "hits": {
+   "R2近距重复词": [
+    "强度、法术强度"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-cults.lua",
+   "tome-cults/data/talents/misc/races.lua",
+   "You were created by ziguranth for one purpose only, to wage war on magic!\\n\\t\\t\\tStrike your target dealing %d%% %s weapon damage and silencing them for %d turns.\\n\\t\\t\\tThe damage type will change with your drake aspect.\\n\\t\\t\\tThe chance to silence will increase with the highest of your physical or mind power.",
+   "tformat",
+   1
+  ],
+  "old": "伊格制造你只有一个目的：向魔法开战！\\n\\t\\t打击你的敌人，造成 %d%% %s 武器伤害，并沉默它们 %d 回合。\\n\\t\\t伤害类型根据龙血的类型而决定。\\n\\t\\t沉默的几率受物理强度或精神强度的最高值加成。",
+  "new": "伊格兰斯制造你只有一个目的：向魔法开战！\\n\\t\\t打击你的敌人，造成 %d%% %s 武器伤害，并沉默它们 %d 回合。\\n\\t\\t伤害类型根据龙血的类型而决定。\\n\\t\\t沉默的几率受物理强度或精神强度的最高值加成。",
+  "hits": {
+   "R5中文间空格": [
+    "斯 武"
+   ],
+   "R2近距重复词": [
+    "类型根据龙血的类型",
+    "强度或精神强度"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-cults.lua",
+   "tome-cults/data/talents/demented/slow-death.lua",
+   "The pain you inflict to the victim you are digesting is so intense something breaks inside it, giving you a way into its mind.\\n\\t\\tWhen you digest you can steal a random talent from your victim and can use it for yourself at talent level %d.\\n\\t\\tAt talent level 5 you can choose which talent to use.\\n\\t\\tYou may not steal a talent which you already know.\\n\\t\\tThe stolen talent will not use any resources to activate.\\n\\t\\t",
+   "tformat",
+   1
+  ],
+  "old": "正在被你消化的目标承受着极大的痛苦，内部器官不断破损，让你能趁机侵入它的思维。\\n\\t\\t你可以窃取并使用它的一个随机技能（技能等级 %d）。\\n\\t\\t技能等级 5 时，你可以指定窃取的技能。\\n\\t\\t你不能窃取你已知的技能。\\n\\t\\t窃取的技能使用时不消耗资源。\\n\\t\\t",
+  "new": "正在被你消化的目标承受着极大的痛苦，其体内有什么东西崩溃了，让你能趁机侵入它的思维。\\n\\t\\t消化时，你可以窃取并使用它的一个随机技能（技能等级 %d）。\\n\\t\\t技能等级 5 时，你可以指定窃取的技能。\\n\\t\\t你不能窃取你已知的技能。\\n\\t\\t窃取的技能使用时不消耗资源。\\n\\t\\t",
+  "hits": {
+   "R2近距重复词": [
+    "技能（技能"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-cults.lua",
+   "tome-cults/data/talents/demented/horrific-body.lua",
+   "Each time your shed skin looses %d%% of its max power or you take damage over 15%% of your maximum life a black putrescent pustule grows on your body for 5 turns.\\n\\t\\tEach pustule increases all your resistances by %d%%. You can have up to %d pustules at once.\\n\\t\\tResistance scales with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "每次你的蜕皮护盾损失 %d%% 护盾量或者你受到超过 15%% 最大生命值的伤害时，一个黑色的腐败脓包将在你身上生长 5 回合。\\n\\t\\t每个脓包增加你 %d%% 全体伤害抗性。\\n\\t\\t你最多能同时拥有 %d 个脓包。\\n\\t\\t抗性受法术强度加成。",
+  "new": "每次你的蜕皮护盾损失其最大护盾量的 %d%% 或者你受到超过 15%% 最大生命值的伤害时，一个黑色的腐败脓包将在你身上生长 5 回合。\\n\\t\\t每个脓包增加你 %d%% 全体伤害抗性。你最多能同时拥有 %d 个脓包。\\n\\t\\t抗性受法术强度加成。",
+  "hits": {
+   "R2近距重复词": [
+    "护盾损失其最大护盾"
+   ]
+  },
+  "regression": [
+   "R2近距重复词"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-cults.lua",
+   "tome-cults/data/general/objects/world-artifacts.lua",
+   "This writhing mass of tentacles appears to have infested a mindstar, creating some bizarre fusion between natural and unnatural. The once clear gem now seems more like a shard of black obsidian with tentacles striking out from it like whips. You do not want to think of the implications of this horror being able to fuse with Nature itself.",
+   "_t",
+   1
+  ],
+  "old": "这团扭曲的触手似乎寄生在了一块灵晶上，在自然和超自然之间形成了一种奇异的混合。曾经清晰的宝石现在看起来更像一块黑曜石碎片，触手在上面伸出，宛如鞭子一般。你无法想象，恐魔竟然能够和大自然混合。",
+  "new": "这团扭曲的触手似乎寄生在了一块灵晶上，在自然与非自然之间形成了一种奇异的融合。曾经清澈的宝石现在看起来更像一块黑曜石碎片，触手从中向外抽击，宛如鞭子一般。你不愿去细想：恐魔竟能与自然本身融合，这意味着什么。",
+  "hits": {
+   "R2近距重复词": [
+    "自然与非自然"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/talents/steam/automation.lua",
+   "A flying grapple pull %s into %s!",
+   "logSeen",
+   1
+  ],
+  "old": "弹簧飞爪将%s拉向%s！",
+  "new": "飞爪将%s拉得撞上%s！",
+  "hits": {
+   "R2近距重复词": [
+    "奥普斯拉得撞上奥普斯"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/talents/misc/objects.lua",
+   "@Source@ rockets forward!",
+   "_t",
+   1
+  ],
+  "old": "@Source@使用火箭突进向前！",
+  "new": "@Source@借助火箭向前突进！",
+  "hits": {
+   "R7英文残留": [
+    "Source"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/general/objects/world-artifacts.lua",
+   "deal cold damage equal to 100 + the higher of your steam or spellpower, and attempt to freeze the target (20% chance).",
+   "_t",
+   1
+  ],
+  "old": "造成100+蒸汽强度或法术强度较高项的寒冷伤害，并有20%几率冰冻目标。",
+  "new": "造成100+蒸汽强度或法术强度较高项的寒冷伤害，并有20%几率尝试冰冻目标。",
+  "hits": {
+   "R2近距重复词": [
+    "强度或法术强度"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/general/objects/tinkers/explosive.lua",
+   "%s toxic shell",
+   "tformat",
+   1
+  ],
+  "old": "%s 毒气弹",
+  "new": "%s 毒性弹",
+  "hits": {
+   "R5中文间空格": [
+    "斯 毒"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/general/objects/world-artifacts.lua",
+   "deal a melee attack against all other enemies in a circle around you",
+   "_t",
+   1
+  ],
+  "old": "对周围一圈敌人进行近战攻击。",
+  "new": "对周围一圈的其他敌人进行近战攻击。",
+  "hits": {
+   "R8对进行": [
+    "对周围一圈的其他敌人进行"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/talents/spells/terrene-technomancy.lua",
+   "Each time a spiderbot expires it digs around, producing either a Glacial Vapour (%0.2f cold damage and doing 30%% more damage to wet targets) or Earthquake (%0.2f physical damage and 25%% chances to stun for 2 turns) of radius 1 that last for %d turns.\\n\\t\\tThose special kinds of Glacial Vapour and Earthquake do not affect the caster.\\n\\t\\tThe damage will increase with your Spellpower.",
+   "tformat",
+   1
+  ],
+  "old": "每当一个蜘蛛机器人的持续时间结束时，它会掘地，在周围产生寒霜冰雾（造成 %0.2f 寒冷伤害，对浸湿目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），半径为 1，持续 %d 回合。\\n\\t\\t这些特殊的寒霜冰雾和地震不会影响施法者。\\n\\t\\t伤害随法术强度提高。",
+  "new": "每当蜘蛛机器人因持续时间结束、数量超限或机器人冲撞而被移除时，它会掘地，在周围产生寒霜冰雾（造成 %0.2f 寒冷伤害，对浸湿目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），半径为 1，持续 %d 回合。\\n\\t\\t这些特殊的寒霜冰雾和地震不会影响施法者。\\n\\t\\t伤害随法术强度提高。",
+  "hits": {
+   "R6一逗到底": [
+    "每当蜘蛛机器人因持续时间结束、数量超限或机器人冲撞而被移除时，它会掘地，在周围产…"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/general/objects/tinkers/mechanical.lua",
+   "%s fatal attractor",
+   "tformat",
+   1
+  ],
+  "old": "%s 致命诱敌装置",
+  "new": "%s 致命诱饵装置",
+  "hits": {
+   "R5中文间空格": [
+    "斯 致"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/talents/misc/npcs.lua",
+   "@Source@ rockets forward!",
+   "_t",
+   1
+  ],
+  "old": "@Source@使用火箭突进向前！",
+  "new": "@Source@借助火箭向前突进！",
+  "hits": {
+   "R7英文残留": [
+    "Source"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/timed_effects/mental.lua",
+   "#Target# is drains all powers around #himher#.",
+   "_t",
+   1
+  ],
+  "old": "#Target#从#himher#周围吸收能量。",
+  "new": "#Target#从#himher#周围吸取全部强度。",
+  "hits": {
+   "R7英文残留": [
+    "himher"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/talents/steam/other.lua",
+   "You activate hidden springs to project a saw towards your foes.\\n\\t\\tAny creature caught in the beam takes %0.2f physical damage and bleeds for half more in 5 turns.\\n\\t\\tThe damage increases with your Steampower.",
+   "tformat",
+   1
+  ],
+  "old": "你启动隐藏的弹簧，向敌人射出一片锯刃。\\n任何被光束命中的生物都会受到 %0.2f 点物理伤害，并在 5 回合内额外受到相当于一半伤害的流血伤害。\\n伤害随蒸汽强度提高。",
+  "new": "你启动隐藏的弹簧，向敌人射出一片锯刃。\\n锯刃直线路径上的任何生物都会受到 %0.2f 点物理伤害，并在 5 回合内额外受到相当于一半伤害的流血伤害。\\n伤害随蒸汽强度提高。",
+  "hits": {
+   "R2近距重复词": [
+    "伤害的流血伤害"
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/general/objects/world-artifacts.lua",
+   "The discovery of rockets has proved incredibly dangerous. It is not always clear for whom.",
+   "_t",
+   1
+  ],
+  "old": "火箭的发明被证明为极其危险。尚不清楚对谁。",
+  "new": "火箭的发明已被证明极其危险——只是对谁危险，并不总是那么清楚。",
+  "hits": {
+   "R2近距重复词": [
+    "危险——只是对谁危险"
+   ]
+  },
+  "regression": [
+   "R2近距重复词"
+  ],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/overload/mod/dialogs/CreateTinker.lua",
+   "create tier( %s )",
+   "tformat",
+   1
+  ],
+  "old": "材质等级(%s)",
+  "new": "可制作材质等级(%s)",
+  "hits": {
+   "R3半角标点贴中文": [
+    "级("
+   ]
+  },
+  "regression": [],
+  "date": null
+ },
+ {
+  "key": [
+   "tome-orcs.lua",
+   "tome-orcs/data/talents/steam/battle-machinery.lua",
+   "Explosive Steam Engine vapour now lingers for 5 turns.\\n\\t\\tEach turn, bleeding foes inside the cloud will take %0.2f fire damage.\\n\\t\\tAny steamtech-using creature will also regenerate %d additional steam per turn while inside the cloud.\\n\\t\\tDamage scales with your Steampower.\\n\\t\\t#{italic}#Modern technology at the service of burnination!#{normal}#",
+   "tformat",
+   1
+  ],
+  "old": "爆炸蒸汽引擎产生的蒸汽云雾现在会持续 5 回合。\\n\\t\\t每回合云雾范围内的流血敌人会受到 %0.2f 火焰伤害。\\n\\t\\t任何使用蒸汽科技的生物在云雾中每回合额外回复 %d 蒸汽值。\\n\\t\\t伤害受蒸汽强度加成。\\n\\t\\t#{italic}#尝尝最新科技带来的燃烧服务吧！#{normal}#",
+  "new": "爆炸蒸汽引擎产生的蒸汽云雾现在会持续 5 回合。\\n\\t\\t每回合云雾范围内的流血生物会受到 %0.2f 火焰伤害。\\n\\t\\t任何使用蒸汽科技的生物在云雾中每回合额外回复 %d 蒸汽值。\\n\\t\\t伤害受蒸汽强度加成。\\n\\t\\t#{italic}#尝尝最新科技带来的燃烧服务吧！#{normal}#",
+  "hits": {
+   "R2近距重复词": [
+    "蒸汽引擎产生的蒸汽"
+   ]
+  },
+  "regression": [],
+  "date": null
+ }
+]
