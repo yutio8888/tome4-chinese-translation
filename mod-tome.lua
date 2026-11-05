@@ -1683,9 +1683,9 @@ Specific information on each talent appears its tooltip.]], [[#GOLD#主动技能
 t([[#GOLD#Instant Talents#LAST#
 Some activated talents take no time to use, being activated with but a thought.
 Unlike most talents, instant talents are never put on cooldown from being stunned, and may be usable when most other talents are not.
-Specific information on each talent appears its tooltip.]], [[#GOLD#瞬间技能#LAST#
+Specific information on each talent appears its tooltip.]], [[#GOLD#瞬发技能#LAST#
 有些主动技能使用时不消耗时间，一念之间即可发动。
-和其他技能不同，瞬间技能不会因震慑而进入冷却状态，并且在大部分技能都不能使用的时候仍有可能使用。
+和其他技能不同，瞬发技能不会因震慑而进入冷却状态，并且在大部分技能都不能使用的时候仍有可能使用。
 有关技能的详细信息，请参阅技能的提示框。]], "_t")
 t([[#GOLD#Passive Talents#LAST#
 When learned, passive talents permanently alter the user in some way.
@@ -3326,7 +3326,7 @@ section "mod-tome/data/birth/races/dwarf.lua"
 
 t("Dwarf", "矮人", "birth descriptor name")
 t("Dwarves are a secretive people, hailing from their underground home of the Iron Throne.", "矮人是一支隐秘的种族，生活于地下世界钢铁王座。", "_t")
-t("They are a sturdy race and are known for their masterwork, yet they are not well loved, having left other races to fend for themselves in past conflicts.", "他们是支强壮的种族，以大师级手艺而闻名，但由于在过去的冲突中任由其他种族自生自灭，他们并不受人喜爱。", "_t")
+t("They are a sturdy race and are known for their masterwork, yet they are not well loved, having left other races to fend for themselves in past conflicts.", "他们是一支强健的种族，以大师级手艺而闻名，但由于在过去的冲突中任由其他种族自生自灭，他们并不受人喜爱。", "_t")
 t("All dwarves are united under the Empire and their love of money.", "所有矮人都团结在帝国之下，也团结在对金钱的热爱之下。", "_t")
 t("Skin", "皮肤", "birth facial category")
 t("Hairs", "发型", "birth facial category")
@@ -3469,7 +3469,7 @@ t("#GOLD#Experience penalty:#LIGHT_BLUE# 12%", "#GOLD#经验惩罚：#LIGHT_BLUE
 t("Thalore", "自然精灵", "birth descriptor name")
 t("Thaloren elves have spent most of the ages hidden within their forests, seldom leaving them.", "在大部分岁月里，自然精灵隐藏在丛林里，很少离开。", "_t")
 t("The ages of the world passed by and yet they remained unchanged.", "世界经历了一个又一个时代，他们却始终不变。", "_t")
-t("Their affinity for nature and their reclusion have made them great protectors of the natural order, often opposing their Shaloren cousins.", "他们长期隐居在自然中，由于和自然的紧密联系，自然精灵成为自然秩序的保护者，也使他们经常与近亲永恒精灵对立。", "_t")
+t("Their affinity for nature and their reclusion have made them great protectors of the natural order, often opposing their Shaloren cousins.", "他们对自然的亲近以及长期隐居的生活，使自然精灵成为自然秩序的守护者，也使他们经常与近亲永恒精灵对立。", "_t")
 t("They possess the #GOLD#Gift of the Woods#WHITE# talent, which allows them to regenerate life and increase healing once in a while.", "他们天生掌握#GOLD#森林的恩赐#WHITE#，允许他们每隔一段时间恢复生命并增强治疗效果。", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +3 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +2 力量，+3 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * -2 Magic, +1 Willpower, +0 Cunning", "#LIGHT_BLUE# * -2 魔力，+1 意志，+0 灵巧", "_t")
@@ -3871,7 +3871,7 @@ section "mod-tome/data/birth/worlds.lua"
 
 t("Maj'Eyal: The Age of Ascendancy", "马基·埃亚尔：卓越纪", "_t")
 t("The people of Maj'Eyal: Humans, Halflings, Elves and Dwarves.", "马基·埃亚尔生活着人类、半身人、精灵和矮人。", "_t")
-t("The known world has been at relative peace for over one hundred years, and people are prospering again.", "已知世界已经保持了一百多年的相对和平，人们再次繁荣起来。", "_t")
+t("The known world has been at relative peace for over one hundred years, and people are prospering again.", "已知世界已经保持了一百多年的相对和平，人们的生活再度富足起来。", "_t")
 t("You are an adventurer, setting out to find lost treasure and glory.", "你是一位冒险者，出发去寻找失落的宝藏和荣耀。", "_t")
 t("But what lurks in the shadows of the world?", "在世界的阴影之下究竟潜伏着什么呢？", "_t")
 t("Infinite Dungeon: The Neverending Descent", "无尽地下城：永无止境的下降", "_t")
@@ -4295,7 +4295,7 @@ All you need to do is beat three of my men in battle, and you shall be rewarded.
 你看……我是竞技场的招募员，专门寻找有潜力的战士，
 为观众献上精彩表演。或许你足够强大，能够加入我们。
 你只需在战斗中击败我的三名手下，就能获得奖励。
-#LIGHT_GREEN#*你思量了片刻这个神秘兜帽人的提议*
+#LIGHT_GREEN#*你对这个神秘兜帽人的提议思量了片刻*
 ]], "_t")
 t("Interesting. Tell me more about that Arena.", "有意思。多说说竞技场吧。", "_t")
 t("I am strong! What do you have to offer?", "我很强！你能给我什么？", "_t")
@@ -5091,7 +5091,7 @@ While you were busy bringing an end to the orcs, we managed to discover some par
 He talked about the shield protecting the High Peak. It seems to be controlled by "orbs of command" which the masters of the Prides had in their possession.
 He also said the only way to enter the peak and de-activate the shield is through the "slime tunnels", located somewhere in one of the Prides, probably Grushnak.
 ]], [[我的确已经得到了消息，真令人难以置信，我们和兽人已经战斗得太久了。
-他们现在都死了么？仅凭一个 @playerdescriptor.race@ 的力量？你的力量真让我惊叹。
+他们现在都死了么？仅凭一个@playerdescriptor.race@的力量？你的力量真让我惊叹。
 当你忙于解决那些兽人的时候，我们设法从那个兽人俘虏那里获得了一些线索。
 他提起了有关巅峰保护罩的事。似乎那个护罩是受“指令水晶球”操控的，那些指令水晶球就在兽人各大部落首领的手中。
 他还说想要进入巅峰并关闭护罩的唯一通道是“史莱姆通道”，位于某一个兽人部落内，有可能是格鲁希纳克的部落。
@@ -5465,7 +5465,7 @@ t("Welcome @playername@ to my shop.", "@playername@，欢迎来到我的商店�
 t("Let me see your wares.", "让我看看你的商品吧。", "_t")
 t("I am looking for martial training.", "我在寻求战斗训练。", "_t")
 t("Sorry, I have to go!", "抱歉，我要走了！", "chat_last-hope-weapon-store")
-t("I can indeed offer some martial training (talent category Technique/Combat-training) for a fee of 50 gold pieces; or the basic usage of bows and slings (Shoot talent) for 8 gold pieces.", "我的确可以为你提供战斗训练（格斗/战斗训练系），你需要花费50金币，或者可以学习使用弓和投石索（射击天赋），花费8金币。", "_t")
+t("I can indeed offer some martial training (talent category Technique/Combat-training) for a fee of 50 gold pieces; or the basic usage of bows and slings (Shoot talent) for 8 gold pieces.", "我的确可以为你提供战斗训练（格斗/战斗训练系），你需要花费50金币，或者可以学习使用弓和投石索（射击技能），花费8金币。", "_t")
 t("Please train me in generic weapons and armour usage.", "请教我通用武器和护甲的使用方法。", "_t")
 t("The smith spends some time with you, teaching you the basics of armour and weapon usage.", "铁匠花了一些时间，教你武器和护甲的基础使用方法。", "logPlayer")
 t("Please train me in the basic usage of bows and slings.", "请教我弓和投石索的基础使用方法。", "_t")
@@ -21806,7 +21806,7 @@ t([[Fire an arrow for %d%% weapon damage and call up to 2 wardens, depending on 
 		Bow Threading talents will freely swap to your bow when activated if you have one in your secondary slot. You may use the Shoot talent in a similar manner.]], [[发射一支灵矢造成 %d%% 武器伤害，并且根据可用空间，召唤最多两个守卫，各自发射一枚灵矢然后回到他们自己的时间线中。
 		守卫处在现实位面之外，灵矢的伤害减少 %d%%， 但能够穿过友好目标。同时，你发射的所有来自射击或者其他技能的箭矢，都可以穿透友军并且不会造成伤害。
 
-		激活螺旋灵弓技能可以自由切换到你的弓（必须装备在副武器栏位上）。此外，当你使用射击天赋时也会触发这个效果。]], "tformat")
+		激活螺旋灵弓技能可以自由切换到你的弓（必须装备在副武器栏位上）。此外，当你使用射击技能时也会触发这个效果。]], "tformat")
 t("Singularity Arrow", "奇点之矢", "talent name")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t("%s is drawn in by the singularity!", "%s被拖向时空奇点！", "logSeen")
