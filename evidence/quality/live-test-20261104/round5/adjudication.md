@@ -4,3 +4,4 @@ Fixed in 0338: 01 02 03 04 05 07 08 09 10 11 12 13 14 15 16 19 20 21 22 23 (see 
 17 advisory: upstream :format branch in effect tooltip (Minimalist.lua:1166, ClassicPlayerDisplay.lua:180) needs a code hook.
 18 advisory: Actor.lua:6803-6809 _t(speed_type) without tag falls back to the I18N nil table, last registered shield = effect subtype 护盾; changing the fallback would affect other untagged lookups.
 14/22/23 held: the fixes need 9 new t() entries; first close of 0338 failed gate 05 (formal current version vector drift observed=(30317,29837,480) expected=(30308,29828,480)). Additions removed from 0338 and listed in pending-additions.txt until the user decides on bumping the frozen vector.
+06/14/22/23 applied in 0341 after user approval 2026-11-05 (vector bumped to 30317).

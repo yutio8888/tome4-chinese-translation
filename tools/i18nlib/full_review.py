@@ -247,8 +247,8 @@ def current_units(manifest):
 def inventory(manifest, round_id, output, snapshot_reports, source_provenance=None):
     token(round_id)
     units, terms = current_units(manifest)
-    if len(units) != 30308 or len({u['occurrence']['component'] for u in units}) != 11:
-        raise FullReviewError('canonical 11-component/30308 vector drift')
+    if len(units) != 30317 or len({u['occurrence']['component'] for u in units}) != 11:
+        raise FullReviewError('canonical 11-component/30317 vector drift')
     loader = LocaleLoader(LuaRuntime(manifest))
     supplements, inputs = [], []
     for report_path in snapshot_reports:

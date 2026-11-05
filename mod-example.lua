@@ -56,8 +56,8 @@ t("%s hits %s for %s%0.2f %s damage#LAST#.", "%s hits %s for %s%0.2f %s damage#L
 ------------------------------------------------
 section "mod-example/data/general/grids/basic.lua"
 
-t("previous level", "前往上一层", "entity name")
-t("next level", "前往下一层", "entity name")
+t("previous level", "通往上一层的通道", "entity name")
+t("next level", "通往下一层的通道", "entity name")
 t("floor", "地板", "entity name")
 t("wall", "墙壁", "entity name")
 t("door", "门", "entity name")
