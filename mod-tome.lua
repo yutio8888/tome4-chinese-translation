@@ -171,8 +171,8 @@ t("Faction: ", "阵营：", "_t")
 t("Personal reaction: ", "个人关系：", "_t")
 t("Sustained Talents: ", "持续技能：", "_t")
 t("Temporary Status Effects: ", "临时状态效果：", "_t")
-t("#LIGHT_GREEN#%d healing #LAST##AQUAMARINE#(%d psi heal)#LAST#", "#LIGHT_GREEN#%d 治疗 #LAST##AQUAMARINE#(%d 灵能值治疗)#LAST#", "tformat")
-t("#LIGHT_GREEN#%d healing#LAST#", "#LIGHT_GREEN#%d 治疗#LAST#", "tformat")
+t("#LIGHT_GREEN#%d healing #LAST##AQUAMARINE#(%d psi heal)#LAST#", "#LIGHT_GREEN#%d 点治疗#LAST##AQUAMARINE#（%d 点灵能值治疗）#LAST#", "tformat")
+t("#LIGHT_GREEN#%d healing#LAST#", "#LIGHT_GREEN#%d 点治疗#LAST#", "tformat")
 t("#STEEL_BLUE#(%d shifted)#LAST#", "#STEEL_BLUE#(%d 相位切换减伤)#LAST#", "tformat")
 t("#SLATE#(%d absorbed)#LAST#", "#SLATE#(%d 护盾吸收)#LAST#", "tformat")
 t("%s unleashes the stored damage in retribution!", "%s释放累积的伤害进行报复性攻击！", "logSeen")
@@ -498,7 +498,7 @@ t("#Source# hits #Target# for %s (#RED##{bold}#%0.0f#LAST##{normal}# total damag
 t(" #LIGHT_GREEN#[%0.0f healing]#LAST#", " #LIGHT_GREEN#[%0.0f 治疗]#LAST#", "tformat")
 t("#Source# hits #Target# for %s damage.", "#Source#击中#Target#造成%s伤害。", "logMessage")
 t("#Source# receives %s.", "#Source#受到%s。", "logMessage")
-t("#Target# receives %s from #Source#.", "#Target#受到来自#Source#的%s。", "logMessage")
+t("#Target# receives %s from #Source#.", "#Target#从#Source#获得%s。", "logMessage")
 t("Kill (%d)!", "杀死（%d）！", "tformat")
 t("#{bold}##Source# killed #Target#!#{normal}#", "#{bold}##Source#击杀了#Target#！#{normal}#", "_t")
 t("Showing big healthbars and tactical borders.", "显示大血条和战术边框。", "log")
@@ -714,11 +714,11 @@ t("%d-%d power", "%d-%d 伤害", "tformat")
 t(" / ", "/", "_t")
 t("%0.2f %s", "%0.2f%s", "tformat")
 t("%s%0.2f/turn", "%s%0.2f/回合", "tformat")
-t("%s, %s apr", "%s, %s 护甲穿透", "tformat")
-t("%d/%d, %s, %s apr", "%d/%d, %s, %s 护甲穿透", "tformat")
+t("%s, %s apr", "%s，%s 护甲穿透", "tformat")
+t("%d/%d, %s, %s apr", "%d/%d，%s，%s 护甲穿透", "tformat")
 t("%s, %d apr, %s damage", "%s，%d 护甲穿透，%s 伤害", "tformat")
 t("%s, %d apr, %s element", "%s，%d 护甲穿透，%s 元素", "tformat")
-t("%s, %s block", "%s, %s 格挡", "tformat")
+t("%s, %s block", "%s，%s 格挡", "tformat")
 t("%s block", "%s 格挡", "tformat")
 t("%s def, %s armour", "%s 闪避，%s 护甲", "tformat")
 t("%s accuracy, %s apr, %s power", "%s 命中，%s 护甲穿透，%s 强度", "tformat")
@@ -832,7 +832,7 @@ t("Change telepathy range by : ", "心灵感应范围改变：", "_t")
 t("All", "所有", "_t")
 
 t("Grants telepathy: ", "获得心灵感应：", "_t")
-t("Talent %s: ", "技能%s: ", "tformat")
+t("Talent %s: ", "技能%s：", "tformat")
 t("masteries", "精通", "_t")
 t("mastery", "精通", "_t")
 t("%s cooldown:", "%s冷却：", "tformat")
@@ -1076,7 +1076,7 @@ t("Action radius: %d", "行动范围：%d", "tformat")
 section "mod-tome/class/Player.lua"
 
 t("There is an item here: %s", "发现物品：%s。", "logSeen")
-t("#YELLOW_GREEN#There is %s here (press '<', '>' or right click to use).", "#YELLOW_GREEN#这里有%s(按 '<', '>' 或右键使用)。", "logPlayer")
+t("#YELLOW_GREEN#There is %s here (press '<', '>' or right click to use).", "#YELLOW_GREEN#这里有%s（按“<”“>”键或右键使用）。", "logPlayer")
 t("Level change (%s)!", "地图切换 (%s)！", "tformat")
 t("#FF0000#You carry too much--you are encumbered!", "#FF0000#你拿了太多东西——超重了！", "logPlayer")
 t("#FF0000#Drop some of your items.", "#FF0000#丢弃一些东西。", "logPlayer")
@@ -1763,7 +1763,7 @@ Strength defines your character's ability to apply physical force. It increases 
 t([[#GOLD#Dexterity#LAST#
 Dexterity defines your character's ability to be agile and alert. It increases Accuracy, Defense, chance to shrug off critical hits and your damage with light weapons.
 ]], [[#GOLD#敏捷#LAST#
-敏捷属性影响你的灵巧和警觉能力，提升敏捷可以提升命中，提升闪避，提升摆脱暴击伤害的几率，提升使用轻武器造成的伤害。
+敏捷属性体现你身手灵活、反应警觉的能力，提升敏捷可以提升命中，提升闪避，提升摆脱暴击伤害的几率，提升使用轻武器造成的伤害。
 ]], "_t")
 t([[#GOLD#Constitution#LAST#
 Constitution defines your character's ability to withstand and resist damage. It increases your maximum life, Physical Save and Healing mod.
@@ -3889,13 +3889,13 @@ t("If so, you will battle your own champion next time!", "如果成功，下次�
 ------------------------------------------------
 section "mod-tome/data/calendar_allied.lua"
 
-t("Wintertide", "霜华", "calendar allied")
+t("Wintertide", "霜华月", "calendar allied")
 t("Allure", "厄流月", "calendar allied")
 t("Regrowth", "复苏月", "calendar allied")
 t("Time of Balance", "平衡之日", "calendar allied")
 t("Pyre", "烈火月", "calendar allied")
 t("Mirth", "狂欢月", "calendar allied")
-t("Summertide", "炎华", "calendar allied")
+t("Summertide", "炎华月", "calendar allied")
 t("Flare", "辉耀月", "calendar allied")
 t("Dusk", "黄昏月", "calendar allied")
 t("Time of Equilibrium", "均衡之日", "calendar allied")
@@ -11052,7 +11052,7 @@ t("Slimy, wriggling, and crackling with electricity.", "黏滑、蠕动的尾巴
 t("vial of squid ink", "一瓶乌贼墨汁", "entity name")
 t("black liquid", "黑色液体", "_t")
 t("Thick, black and opaque.", "粘稠、黑色且不透明。", "_t")
-t("bear paw", "熊爪", "entity name")
+t("bear paw", "熊掌", "entity name")
 t("large, clawed paw", "巨大的、长有利爪的脚掌", "_t")
 t("Large and hairy with flesh-rending claws. It smells slightly of fish.", "这只熊掌又大又多毛，长着能撕裂血肉的利爪，闻起来略带鱼腥味。", "_t")
 t("ice wyrm tooth", "冰霜巨龙的牙齿", "entity name")
@@ -11445,7 +11445,7 @@ t("\"Dust to Dust\", an undead hunter's guide, by Aslabor Borys", "“尘归尘�
 t("An undead hunter's guide, by Aslabor Borys.", "亡灵猎手指南，作者：阿斯拉伯·波利斯。", "_t")
 t("Rolf", "罗尔夫", "_t")
 t("Weisman", "威斯曼", "_t")
-t("letter to %s (%d)", "给%s的信 (%d)", "tformat")
+t("letter to %s (%d)", "写给%s的信 (%d)", "tformat")
 t("A part of the correspondence between two adventurers.", "两个冒险者之间的一部分通信。", "_t")
 t("of halfling feet", "半身人的脚", "entity name")
 t("Notes about... Halfling feet??", "有关…半身人的脚？？的笔记", "_t")
@@ -13578,7 +13578,7 @@ t("honey tree root", "蜂蜜树的根", "ingredient name")
 t("bloated horror heart", "浮肿的恐魔心脏", "ingredient name")
 t("electric eel tail", "电鳗尾巴", "ingredient name")
 t("vial of squid ink", "一瓶乌贼墨汁", "ingredient name")
-t("bear paw", "熊爪", "ingredient name")
+t("bear paw", "熊掌", "ingredient name")
 t("ice wyrm tooth", "冰霜巨龙的牙齿", "ingredient name")
 t("red crystal shard", "红色水晶碎片", "ingredient name")
 t("vial of fire wyrm saliva", "一瓶火焰巨龙的唾液", "ingredient name")
@@ -13647,7 +13647,7 @@ t("I know, I know. Where does the eel stop and the tail start? It doesn't much m
 t("vial of squid ink", "一瓶乌贼墨汁", "entity name")
 t("Thick, black and opaque.", "粘稠、黑色且不透明。", "_t")
 t("However annoying this will be for you to gather, I promise that the reek it produces in my lab will prove even more annoying.", "不管采集它会让你多么恼火，我保证它在我实验室里散发的恶臭会更令人受不了。", "_t")
-t("bear paw", "熊爪", "entity name")
+t("bear paw", "熊掌", "entity name")
 t("Large and hairy with flesh-rending claws. It smells slightly of fish.", "这只熊掌又大又多毛，长着能撕裂血肉的利爪，闻起来略带鱼腥味。", "_t")
 t("You'd think I could get one of these from a local hunter, but they've had no luck. Don't get eaten.", "你大概以为我能从本地猎户手上弄到一个，可他们一直没那个运气。可别被吃掉了。", "_t")
 t("ice wyrm tooth", "冰霜巨龙的牙齿", "entity name")
@@ -16650,7 +16650,7 @@ You rise and prepare to kill again.
 section "mod-tome/data/lore/kor-pul.lua"
 
 t("kor'pul", "卡·普尔", "newLore category")
-t("journal page (kor'pul)", "日记页（卡·普尔）", "_t")
+t("journal page (kor'pul)", "日记书页（卡·普尔）", "_t")
 t([[Damn that Zemekkys! Damn his insane experiments!! Why in the blackest night did I ever agree to take part in them?!
 
 Oh yeah, because I was broke. Bah...
@@ -19704,7 +19704,7 @@ Your orders are to play along.  Keep giving him what he says he wants - more com
 section "mod-tome/data/lore/trollmire.lua"
 
 t("trollmire", "巨魔沼泽", "newLore category")
-t("tattered paper scrap (trollmire)", "残破的纸片（巨魔沼泽）", "_t")
+t("tattered paper scrap (trollmire)", "破烂的碎纸片（巨魔沼泽）", "_t")
 t([[You find a tattered page scrap. Perhaps this is part of a diary entry.
 "...is a gorgeous glade, but I could swear that looked like a part of a human femur.
 
@@ -20214,7 +20214,7 @@ t("#LIGHT_RED#%s is dead, quest failed!", "#LIGHT_RED#%s 死了，任务失败�
 t("something", "某物", "_t")
 t("Recall Portal", "召回传送门", "_t")
 t("%s of %s", "%s的第%s层", "tformat", {2,1})
-t("Escort: %s (level %s)", "护送：%s (%s)", "tformat")
+t("Escort: %s (level %s)", "护送：%s（%s）", "tformat")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -24526,7 +24526,7 @@ t([[Assault nearby foes with 4 fast attacks for %d%% (at 0 Hate) to %d%% (at 100
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat")
 t("Reckless Charge", "鲁莽冲撞", "talent name")
 t("#Source# knocks back #Target#!", "#Source#击退了#Target#！", "logCombat")
-t("#Target# blocks #Source#!", "#Target# 挡住了 #Source#！", "logCombat")
+t("#Target# blocks #Source#!", "#Target#挡住了#Source#！", "logCombat")
 t("Big", "大", "_t")
 t("Medium-sized", "中型", "_t")
 t("Small", "小", "_t")
@@ -25901,20 +25901,20 @@ Its effects scale with your %s stat.", "\
 效果随你的%s属性提升。", "tformat")
 t("Infusion: Regeneration", "纹身：回复", "talent name")
 t("Activate the infusion to heal yourself for %d life over %d turns.", "激活纹身治疗你自己 %d 生命值，持续 %d 回合。", "tformat")
-t("heal %d; %d cd", "治疗 %d; 冷却 %d", "tformat")
+t("heal %d; %d cd", "治疗 %d； 冷却 %d", "tformat")
 t("Infusion: Healing", "纹身：治疗", "talent name")
 t("Activate the infusion to instantly heal yourself for %d then cleanse 1 wound, poison, and disease effect.", "激活纹身立即治疗你 %d 生命值，然后去除一个创伤、毒素和疾病效果。", "tformat")
-t("heal %d; cd %d", "治疗 %d; 冷却 %d", "tformat")
+t("heal %d; cd %d", "治疗 %d； 冷却 %d", "tformat")
 t("Infusion: Wild", "纹身：野性", "talent name")
 t("%s is cured!", "%s 被治愈！", "logSeen")
 t(" and ", "和", "_t")
 t([[Activate the infusion to cure yourself of one random %s effect and reduce all damage taken by %d%% for %d turns.
 Also removes cross-tier effects of the affected types for free.]], [[激活纹身，随机解除你身上的%s负面效果各一个，并减少受到的所有伤害 %d%%， 持续 %d 回合。
 同时除去对应类型的越层效果。]], "tformat")
-t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%; 解除 %s; 持续 %d; 冷却 %d", "tformat")
+t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%； 解除 %s； 持续 %d； 冷却 %d", "tformat")
 t("Infusion: Primal", "纹身：原初", "talent name")
 t("Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.", "激活这个纹身，使你受到伤害时恢复相当于该次伤害（抗性减免前计算） %d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。", "tformat")
-t("affinity %d%%; reduction %d; dur %d; cd %d", "伤害亲和 %d%%; 减少 %d; 持续 %d; 冷却 %d", "tformat")
+t("affinity %d%%; reduction %d; dur %d; cd %d", "伤害亲和 %d%%； 减少 %d； 持续 %d； 冷却 %d", "tformat")
 t("Infusion: Movement", "纹身：移动", "talent name")
 t([[Activate the infusion to increase movement speed by %d%% for 1 game turn.
 		You gain 100%% stun, daze, and pin immunity during the effect.
@@ -25923,7 +25923,7 @@ t([[Activate the infusion to increase movement speed by %d%% for 1 game turn.
 		同时获得 100%% 眩晕、震慑和定身免疫。
 		除移动以外其他动作会取消这个效果。
 		注意：由于你的速度非常快，游戏回合会相对很慢。]], "tformat")
-t("speed %d%%; cd %d", "%d%% 加速 ; %d 冷却", "tformat")
+t("speed %d%%; cd %d", "加速 %d%%； 冷却 %d", "tformat")
 t("Infusion: Heroism", "纹身：英勇", "talent name")
 t([[Activate the infusion to endure even the most grievous of wounds for %d turns.
 		While Heroism is active, you will only die when reaching -%d life.
@@ -25933,28 +25933,28 @@ t([[Activate the infusion to endure even the most grievous of wounds for %d turn
 		你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%。
 		（目前 %d 生命值， %d 持续时间）
 		效果结束时，如果你的生命值在 0 以下，会变为 1 点。]], "tformat")
-t("die at -%d; dur %d; cd %d", "-%d 死亡底线; 持续 %d; 冷却 %d", "tformat")
+t("die at -%d; dur %d; cd %d", "死亡底线 -%d； 持续 %d； 冷却 %d", "tformat")
 t("Infusion: Wild Growth", "纹身：野性生长", "talent name")
 t([[Causes thick vines to spring from the ground and entangle all targets within %d squares for %d turns, pinning them in place for 5 turns and dealing %0.2f physical damage and %0.2f nature damage.
 		The vines also grow all around you, increasing your armour by %d and armour hardiness by %d.]], [[从土地中召唤坚硬的藤蔓，缠绕 %d 格范围内的所有敌人，并在你身边生长 %d 回合。被缠绕的敌人会被定身 5 回合，并受到 %0.2f 物理伤害和 %0.2f 自然伤害。
 		你身边的藤蔓会增加你 %d 护甲和 %d 护甲强度。]], "tformat")
-t("rad %d; dur %d;", "范围 %d 持续 %d", "tformat")
+t("rad %d; dur %d;", "范围 %d； 持续 %d", "tformat")
 t("Rune: Teleportation", "符文：传送", "talent name")
 t("Activate the rune to teleport randomly in a range of %d with a minimum range of 15.", "激活这个符文随机传送 %d 格范围内位置，至少传送 15 格以外。", "tformat")
-t("range %d; cd %d", "范围 %d; 冷却 %d", "tformat")
+t("range %d; cd %d", "范围 %d； 冷却 %d", "tformat")
 t("Rune: Shielding", "符文：护盾", "talent name")
 t("Activate the rune to create a protective shield absorbing at most %d damage for %d turns.", "激活这个符文产生一个防护护盾，吸收最多 %d 伤害持续 %d 回合。", "tformat")
-t("absorb %d; dur %d; cd %d", "吸收 %d; 持续 %d; 冷却 %d", "tformat")
+t("absorb %d; dur %d; cd %d", "吸收 %d； 持续 %d； 冷却 %d", "tformat")
 t("Rune: Reflection Shield", "符文：反射护盾", "talent name")
 t("Activate the rune to create a protective shield absorbing and reflecting at most %d damage for %d turns.", "激活这个符文产生一个防御护盾，吸收并反弹最多 %d 伤害值，持续 %d 回合。", "tformat")
-t("absorb and reflect %d; dur %d; cd %d", "吸收并反弹 %d 持续 %d ; 冷却 %d", "tformat")
+t("absorb and reflect %d; dur %d; cd %d", "吸收并反弹 %d； 持续 %d； 冷却 %d", "tformat")
 t("Rune: Biting Gale", "符文：冰风", "talent name")
 t([[Activate the rune to direct a cone of chilling stormwind doing %0.2f cold damage.
 			The storm will soak enemies hit reducing their resistance to stuns by 50%% then attempt to freeze them for %d turns.
 			These effects can be resisted but not saved against.]], [[激活这个符文，形成一股锥形寒风，造成 %0.2f 寒冷伤害。
 			寒风会浸湿被击中的敌人，使其震慑抗性降低 50%%，并试图冻结他们 %d 回合。
 			效果可以被抵抗，但不能被豁免。]], "tformat")
-t("damage %d; dur %d; cd %d", "伤害 %d; 持续 %d; 冷却 %d", "tformat")
+t("damage %d; dur %d; cd %d", "伤害 %d； 持续 %d； 冷却 %d", "tformat")
 t("Rune: Acid Wave", "符文：酸浪", "talent name")
 t([[Activate the rune to unleash a cone dealing %0.2f acid damage.
 			The corrosive acid will also disarm enemies struck for %d turns.
@@ -25967,7 +25967,7 @@ t("Your nonexistant mana regeneration rate is unaffected by the rune.", "你没�
 t([[Activate the rune to unleash a manasurge upon yourself, increasing mana regeneration by %d%% for %d turns (%d total) and instantly restoring %d mana.
 			Also when resting your mana will regenerate at 0.5 per turn.]], [[激活这个符文对你自己释放法力涌动，增加法力回复 %d%%， 持续 %d 回合（总计 %d）， 并立即回复 %d 点法力值。
 			同时，在你休息时法力值每回合回复 0.5。]], "tformat")
-t("regen %d%% over %d turns; mana %d; cd %d", "法力回复 +%d%%， 持续 %d 回合；瞬回 %d 法力；冷却 %d", "tformat")
+t("regen %d%% over %d turns; mana %d; cd %d", "法力回复 %d%%； 持续 %d； 瞬回法力 %d； 冷却 %d", "tformat")
 t("Rune of the Rift", "符文：时空裂隙", "talent name")
 t("%s is immune!", "%s 免疫了！", "logSeen")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
@@ -25982,20 +25982,20 @@ t([[Inflicts %0.2f temporal damage.  If your target survives, it will be sent %d
 t("%0.2f temporal damage, removed from time %d turns", "%0.2f 时空伤害，从时间中移除 %d 回合", "tformat")
 t("Rune: Blink", "符文：闪烁", "talent name")
 t("Activate the rune to teleport up to %d spaces within line of sight.  Afterwards you stay out of phase for %d turns. In this state all new negative status effects duration is reduced by %d%%, your defense is increased by %d and all your resistances by %d%%.", "激活符文，传送到视野内 %d 格内的指定位置。之后，你会脱离相位 %d 回合。在这种状态下，所有新的负面效果的持续时间减少 %d%%， 你的闪避增加 %d， 你的全体伤害抗性增加 %d%%。", "tformat")
-t("range %d; phase %d; cd %d", "范围 %d; 相位 %d; 冷却 %d", "tformat")
+t("range %d; phase %d; cd %d", "范围 %d； 相位 %d； 冷却 %d", "tformat")
 t("Rune: Ethereal", "符文：虚幻", "talent name")
 t([[Activate the rune to become ethereal for %d turns.
 		While ethereal all damage you deal is reduced by %d%%, you gain %d%% all resistance, you move %d%% faster, and you are invisible (power %d).]], [[启动符文，使你变得虚幻，持续 %d 回合。
 		在虚幻状态下，你造成的伤害减少 %d%%， 你获得 %d%% 全体伤害抗性，你的移动速度提升 %d%%， 你获得隐形 (强度 %d)。]], "tformat")
-t("power %d; resist %d%%; move %d%%; dur %d; cd %d", "强度 %d; 抗性 %d%%; 移动 %d%%; 持续 %d; 冷却 %d", "tformat")
+t("power %d; resist %d%%; move %d%%; dur %d; cd %d", "强度 %d； 抗性 %d%%； 移动 %d%%； 持续 %d； 冷却 %d", "tformat")
 t("Rune: Stormshield", "符文：风暴护盾", "talent name")
 t([[Activate the rune to summon a protective storm around you for %d turns.
 			While active the storm will completely block all damage over %d up to %d times.]], [[启动这个符文，在你的身边召唤一团保护性的风暴，持续 %d 回合。
 			当符文生效时，风暴可以完全抵挡不低于 %d 点的伤害，最多 %d 次。]], "tformat")
-t("threshold %d; blocks %d; dur %d; cd %d", "阈值 %d; 次数 %d; 持续 %d; 冷却 %d", "tformat")
+t("threshold %d; blocks %d; dur %d; cd %d", "阈值 %d； 次数 %d； 持续 %d； 冷却 %d", "tformat")
 t("Rune: Prismatic", "符文：棱彩", "talent name")
 t("Activate the rune to create a shield for %d turns blocking several instances of damage of the following types:%s", "激活符文展开一个护盾，在 %d 回合内，按次数抵挡以下类型的伤害 : %s", "tformat")
-t("%d turns; %s", "%d 回合；%s", "tformat")
+t("%d turns; %s", "持续 %d； %s", "tformat")
 t("Rune: Mirror Image", "符文：镜像", "talent name")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("Mirror Image", "镜像", "_t")
@@ -26006,14 +26006,14 @@ t([[Activate the rune to create up to 3 images of yourself that taunt nearby ene
 			Images inherit all of your life, resistance, armor, defense, and armor hardiness.]], [[激活符文，最多召唤你的 3 个镜像，镜像会在每回合以及被召唤后立即嘲讽附近的敌人。
 			在你视野半径内每有一个敌人才能召唤一个镜像，每个镜像会被召唤在随机选中的一个敌人附近。
 			镜像继承你的生命值、抗性、护甲、闪避和护甲强度。]], "tformat")
-t("dur %d; cd %d", "持续 %d; 冷却 %d", "tformat")
+t("dur %d; cd %d", "持续 %d； 冷却 %d", "tformat")
 t("Rune: Shatter Afflictions", "符文：粉碎痛苦", "talent name")
 t([[Activate the rune to instantly dissipate the energy of your ailments, cleansing all cross tier effects and 1 physical, mental, and magical effect.
 		You use the dissipated energy to create a shield lasting %d turns and blocking %d damage per debuff cleansed (not counting cross-tier ones).
 		If there were only cross-tier effects to cleanse, no shield is created and the rune goes on a 75%% reduced cooldown.]], [[激活符文，立刻消散你身上负面状态的能量，清除所有越层效果，以及物理、精神和魔法负面效果各 1 个。
 		你会利用消散的能量获得一个护盾，持续 %d 回合，每清除一个负面效果（不计越层效果）可抵挡 %d 点伤害。
 		如果只清除了越层效果，不会产生护盾，且符文冷却时间减少 75%%。]], "tformat")
-t("absorb %d; cd %d", "吸收 %d; 冷却 %d", "tformat")
+t("absorb %d; cd %d", "吸收 %d； 冷却 %d", "tformat")
 t("Rune: Dissipation", "符文：消散", "talent name")
 t("Activate the rune to remove 8 beneficial magical sustains from an enemy target or all magical debuffs from you.", "激活这个符文，从敌人身上移除 8 个正面魔法持续技能，或从你自己或其他非敌对目标身上移除所有魔法负面效果。", "tformat")
 t("Taint: Devourer", "污印：吞噬", "talent name")
@@ -26732,7 +26732,7 @@ t("#CRIMSON#%s's shield deflects the blow!", "#CRIMSON#%s的盾牌让攻击发�
 t("Can block up to 1 hit per 10 turns.", "每 10 回合能自动抵抗一次攻击。", "tformat")
 t("Psionic Maelstrom", "灵能风暴", "talent name")
 t("For the next 8 turns, powerful blasts of psionic energies will erupt from you, doing %d damage.", "接下来 8 回合内，强大的灵能能量在你身边爆发，造成 %d 伤害。", "tformat")
-t("Melee retaliation", "近战报复", "talent name")
+t("Melee retaliation", "近战反伤", "talent name")
 t("Intermediary for melee retaliation.", "近战反伤的中介。", "tformat")
 
 ------------------------------------------------
@@ -29776,7 +29776,7 @@ t([[Glacial fumes rise from the ground, doing %0.2f cold damage in a radius of 3
 		处于湿润状态的生物承受额外 30%% 伤害，并有 15%% 几率被冻结。
 		伤害受法术强度加成。]], "tformat")
 t("Tidal Wave", "潮汐", "talent name")
-t("A #LIGHT_BLUE#wave of icy water#LAST# erupts from the ground!", "一股 #LIGHT_BLUE#冰冷的水流#LAST# 从地面上涌现！", "logSeen")
+t("A #LIGHT_BLUE#wave of icy water#LAST# erupts from the ground!", "一股#LIGHT_BLUE#冰冷的水流#LAST#从地面涌出！", "logSeen")
 t([[A wall of water rushes out from the caster with an initial radius of 1, increasing by 1 per turn to a maximum radius of %d, doing %0.2f cold damage and %0.2f physical damage to all inside, as well as knocking back targets each turn.
 		The tidal wave lasts for %d turns.
 		All creatures hit gain the wet effect, which reduces their stun/freeze immunity by half and interacts with other cold spells.
@@ -42044,11 +42044,11 @@ t(" #YELLOW#[NO ROOM]#LAST#", " #YELLOW#[没有空间]#LAST#", "_t")
 ------------------------------------------------
 section "mod-tome/dialogs/QuestPopup.lua"
 
-t("#LIGHT_GREEN#New#LAST# Quest!", "#LIGHT_GREEN#新#LAST# 任务！", "_t")
-t("Quest #AQUAMARINE#Updated!", "任务 #AQUAMARINE#更新了！", "_t")
-t("Quest #LIGHT_GREEN#Completed!", "任务 #LIGHT_GREEN#已完成！", "_t")
-t("Quest #LIGHT_GREEN#Done!", "任务 #LIGHT_GREEN#完成！", "_t")
-t("Quest #CIMSON#Failed!", "任务 #CIMSON#失败了！", "_t")
+t("#LIGHT_GREEN#New#LAST# Quest!", "#LIGHT_GREEN#新#LAST#任务！", "_t")
+t("Quest #AQUAMARINE#Updated!", "任务#AQUAMARINE#更新了！", "_t")
+t("Quest #LIGHT_GREEN#Completed!", "任务#LIGHT_GREEN#已完成！", "_t")
+t("Quest #LIGHT_GREEN#Done!", "任务#LIGHT_GREEN#完成！", "_t")
+t("Quest #CIMSON#Failed!", "任务#CIMSON#失败了！", "_t")
 t("#ANTIQUE_WHITE#Quest: #AQUAMARINE#%s", "#ANTIQUE_WHITE#任务：#AQUAMARINE#%s", "tformat")
 t("#ANTIQUE_WHITE#(See your Journal for further details or click here)", "#ANTIQUE_WHITE#（点击此处或者打开任务面板查看详情）", "_t")
 
@@ -43115,7 +43115,7 @@ t("str", "力量", "stat short_name")
 t("Strength defines your character's ability to apply physical force. It increases your melee damage, damage done with heavy weapons, your chance to resist physical effects, and carrying capacity.", "力量属性影响你的角色的物理能力，提升力量可以提高物理强度，提高使用重型武器造成的伤害，提高物理豁免，同时提高你的负重量。", "_t")
 t("Dexterity", "敏捷", "stat name")
 t("dex", "敏捷", "stat short_name")
-t("Dexterity defines your character's ability to be agile and alert. It increases your chance to hit, your ability to avoid attacks, and your damage with light or ranged weapons.", "敏捷属性影响你的灵巧和警觉能力，提升敏捷可以提升命中，提升闪避，提升使用轻武器和远程武器造成的伤害。", "_t")
+t("Dexterity defines your character's ability to be agile and alert. It increases your chance to hit, your ability to avoid attacks, and your damage with light or ranged weapons.", "敏捷属性体现你身手灵活、反应警觉的能力，提升敏捷可以提升命中，提升闪避，提升使用轻武器和远程武器造成的伤害。", "_t")
 t("Magic", "魔力", "stat name")
 t("mag", "魔力", "stat short_name")
 t("Magic defines your character's ability to manipulate the magical energy of the world. It increases your spell power, and the effect of spells and other magic items.", "魔力属性影响你驾驭魔法能量的能力，提升魔力可以提高你的法术强度，以及法术和其他魔法物品的效果。", "_t")
