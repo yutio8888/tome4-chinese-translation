@@ -4368,7 +4368,7 @@ t([[You imbue a steamsaw with arcane and temporal forces, making it spin very fa
 
 		#{italic}#When you first learn this talent you also learn the Steamsaw tinker creation if you didn't already know it.#{normal}#
 		]], [[你把奥术和时空能量注入一把蒸汽链锯，让它绕着你的腰飞速旋转（无视装备需求）。
-		这把链锯旋转的速度是那么快，它扰乱了你周围的时空。最多增加你 %d 的法术强度， %d 的法术暴击率，和 %0.1f 的法力值恢复（基于蒸汽链锯的材质等级）
+		链锯的高速旋转扰乱了你周围的时空，使你的法术强度最多提高 %d， 法术暴击率最多提高 %d， 法力回复最多提高 %0.1f （取决于蒸汽链锯的材质等级）。
 		对你造成伤害的近战攻击命中时，会自动触发一次必定命中的蒸汽链锯反击，造成 %d%% 玄机（奥术和时空）武器伤害；同一攻击者每回合至多触发一次。
 		使用这种方法装备的蒸汽链锯会提供与正常装备时相同的属性加成，但你不能使用它来格挡。
 		增加蒸汽链锯的武器伤害 %d%%， 并在使用蒸汽链锯时用魔力值代替力量值计算伤害。
@@ -5601,8 +5601,8 @@ t([[You fire a special hook shot with your steamgun(s) at a target creature or l
 		If you target a creature, they are pulled up to %d tiles towards you.
 		If you target an empty tile, you are pulled up to %d tiles towards it.
 		This talent does not use ammo as it is the ammo.]], [[你使用蒸汽枪向目标生物或位置发射一枚特殊钩链弹。
-		如果你的目标是一个生物，其会被拉向你最多 %d 格。
-		如果你的目标是一个空地，你会被拉向空地最多 %d 格。
+		如果目标是生物，它会被向你拉动最多 %d 格。
+		如果目标是一块空地，你会被向该位置拉动最多 %d 格。
 		这个技能不使用弹药，因为它本身就是弹药。]], "tformat")
 t("Magnetic Shell", "磁性弹", "talent name")
 t([[You fire a special magnetic shot with your steamgun(s) at a target for normal weapon damage.
@@ -6165,7 +6165,7 @@ t("Gestalt", "格式塔", "_t")
 t("Steampower increased by %d.", "获得 %d 蒸汽强度。", "tformat")
 t("Forced Gestalt", "强制格式塔", "_t")
 t("All powers increased by %d.", "获得 %d 全体强度。", "tformat")
-t("#Target# is drains all powers around #himher#.", "#Target#从#himher#周围吸取全部强度。", "_t")
+t("#Target# is drains all powers around #himher#.", "#Target#正在吸取#himher#周围的各种力量。", "_t")
 t("#Target# is less powerful.", "#Target#的强化消失了。", "_t")
 t("All powers reduced by %d.", "全体强度下降%d。", "tformat")
 t("#Target# is drained of all powers.", "#Target#的全部强度被吸干了。", "_t")
