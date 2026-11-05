@@ -21329,7 +21329,7 @@ t([[You demonstrate your dedication to the light with a measured attack striking
 			If the first strike connects %d random talent cooldowns are reduced by 1.
 			If the second strike connects you are cleansed of %d debuffs.]], [[你以一次沉稳的攻击展现对圣光的奉献：先用武器攻击造成 %d%% 光系伤害，再用盾牌攻击造成 %d%% 光系伤害。
 			如果第一次攻击命中，随机 %d 个技能冷却时间减少1回合。
-			第二次攻击后（无论是否命中），除去你身上至多 %d 个负面状态。]], "tformat")
+			如果第二次攻击命中，除去你身上至多 %d 个负面状态。]], "tformat")
 t("Avatar Distant Sun Unlock Checker", "日耀神使解锁检查", "talent name")
 t("#CRIMSON#As your \"talk\" with the star ends, you feel its power, the whole area around you erupts in flames, burning your foes to cinders!", "#CRIMSON#当你和遥远恒星的\"交谈\"结束后，你感受到了它的力量，火焰在你周围爆发，将敌人烧成灰烬！", "log")
 
@@ -21349,7 +21349,7 @@ t([[Chant the glory of the Moons, granting you stealth detection (+%d power), an
 		You may also attack creatures you cannot see without penalty and your critical hits do %d%% more damage.
 		You may only have one Hymn active at once.
 		The stealth and invisibility detection will increase with your Spellpower.]], [[赞颂月之荣耀，使你的潜行侦测强度提高 %d， 隐形侦测强度提高 %d。
-		同时使你的暴击伤害提高 %d%%。
+		你还可以无惩罚地攻击看不见的生物，且暴击伤害提高 %d%%。
 		同时只能激活一种圣诗。
 		潜行与隐形侦测强度随法术强度提高。]], "tformat")
 t("Hymn of Perseverance", "坚毅圣诗", "talent name")
@@ -23211,7 +23211,7 @@ t("%s resists the sedation!", "%s抵抗了镇静！", "logSeen")
 t("Fire a poisoned dart dealing %0.2f physical damage that puts the target to sleep for 4 turns. 10 turn cooldown.", "发射毒镖，造成 %0.2f 物理伤害，沉睡 4 回合。10 回合冷却时间。", "tformat")
 t([[Fire a poisoned dart from a silent, concealed launcher on your person that deals %0.2f physical damage and puts the target (living only) to sleep for 4 turns, rendering them unable to act. Every %d points of damage the target takes brings it closer to waking by 1 turn.
 This can be used without breaking stealth.
-#YELLOW#Prepared with: %s#LAST#]], [[从身上隐蔽的无声发射器中射出毒镖，造成 %0.2f 物理伤害，并使目标（需不免疫沉睡与中毒）沉睡 4 回合，期间无法行动。目标每受到 %d 点伤害，距离苏醒便提前 1 回合。
+#YELLOW#Prepared with: %s#LAST#]], [[从身上隐蔽的无声发射器中射出毒镖，造成 %0.2f 物理伤害，并使目标沉睡 4 回合，期间无法行动（目标需不免疫沉睡与中毒；学会毒镖强化后可无视这两种免疫）。目标每受到 %d 点伤害，剩余沉睡时间便缩短 1 回合。
 使用该技能不解除潜行。
 #YELLOW#准备于：%s#LAST#]], "tformat")
 t("Dart Launcher Mastery", "毒镖强化", "talent name")
