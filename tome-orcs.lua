@@ -6946,7 +6946,7 @@ t("Farportal: Last Hope", "远行传送门：最后的希望", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go near the town of Last Hope in Maj'Eyal.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
 这座传送门似乎通往马基·埃亚尔最后的希望城附近。]], "_t")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已踏上最后的希望的郊外，传送门却已无迹可寻……", "_t")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫便来到了最后的希望的郊外，传送门却已无迹可寻……", "_t")
 t("wall", "墙壁", "entity type")
 t("cracks", "裂缝", "entity subtype")
 t("huge crack in the floor", "地面上的巨大裂缝", "entity name")

@@ -40244,7 +40244,7 @@ t("Farportal: Last Hope", "远行传送门：最后的希望", "entity name")
 t([[A farportal is a way to travel incredible distances in the blink of an eye. They usually require an external item to use. You have no idea if it is even two-way.
 This one seems to go near the town of Last Hope in Maj'Eyal.]], [[远行传送门能让人眨眼间跨越难以想象的距离。它们通常需要借助外部物品才能使用。你不知道这道门是否为双向的。
 这座传送门似乎通往马基·埃亚尔最后的希望城附近。]], "_t")
-t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫你已踏上最后的希望的郊外，传送门却已无迹可寻……", "_t")
+t("#VIOLET#You enter the swirling portal and in the blink of an eye you set foot on the outskirts of Last Hope, with no trace of the portal...", "#VIOLET#你进入了传送漩涡，一眨眼的功夫便来到了最后的希望的郊外，传送门却已无迹可寻……", "_t")
 t("rockwall", "岩石墙", "entity type")
 t("grass", "草地", "entity subtype")
 t("Sunwall mountain", "太阳堡垒群山", "entity name")
@@ -41176,7 +41176,7 @@ You will need an online profile active and connected for the tile selector to en
 
 Donators will also gain access to the custom tiles for their characters.]], [[探索模式提供给角色无限的生命数。
 马基·埃亚尔的故事是一款非常耐玩的游戏，你会在错误中（因而也包括在死亡中）不断学习、不断进步。
-我觉得这款游戏可能不会被所有人接受并且在收到多次请求后，我决定开放探索模式给捐赠者，因为它允许喜欢这款游戏的玩家能全面地体验这款游戏。
+我明白，并非所有人都喜欢这种玩法。在收到多次请求后，我决定向捐赠者开放探索模式，让喜欢这款游戏的玩家可以按自己的意愿体验游戏的全部内容。
 不过要注意的是，无限的生命并不意味着难度的减少，只意味着你可以随意尝试，而不必重新开始。
 
 如果你愿意使用这项功能并且觉得这款游戏很好，你可以考虑捐赠。这会帮助延长这款游戏的寿命。
