@@ -26761,7 +26761,7 @@ t([[While Highers are not meant to rule other humans - and show no particular wi
 		At talent level 5, each time you hit a target you gain telepathy to all similar creatures in radius 15 for 5 turns.]], [[虽然高等人类并非生来就要统治他人——他们也没有特别的意愿去那样做——但是他们经常承担更高的义务。
 		他们的天性赋予他们比其他人类更敏锐的感官。
 		增加 %d%% 目盲免疫，最大视野范围提高 %d 格，夜视及感应范围提高 %d 格。
-		技能等级 5 时，每次你命中目标，你将获得 15 格范围内同类型生物感知能力，持续 5 回合。]], "tformat")
+		技能等级 5 时，每次你命中目标，你将获得对 15 格范围内所有同类生物的感知能力，持续 5 回合。]], "tformat")
 t("Born into Magic", "魔法亲和", "talent name")
 t([[Highers were originally created during the Age of Allure by the human Conclave. They are imbued with magic at the very core of their being.
 		Increase spell save by %d and arcane resistance by %d%%.
@@ -29961,7 +29961,7 @@ t("Agile Defense", "敏捷防御", "talent name")
 t("%s(%d deflected)#LAST#", "%s(%d 被抵挡)#LAST#", "tformat")
 t([[You are trained in an agile, mobile fighting technique combining sling and shield. This allows shields to be equipped, using Dexterity instead of Strength as a requirement.
 While you have a shield equip and your Block talent is not on cooldown, you have a %d%% chance to deflect any incoming damage, reducing it by 50%% of your shield’s block value.]], [[你学会了在战斗中灵敏使用投石索和盾牌的技巧。允许你装备盾牌，用敏捷代替力量需求。
-当你装备盾牌，且格挡技能未进入冷却时，有 %d%% 几率抵挡任何受到的伤害，减免 50%% 格挡值的伤害。]], "tformat")
+当你装备盾牌，且格挡技能未进入冷却时，有 %d%% 几率偏转任何受到的伤害，减免相当于盾牌格挡值 50%% 的伤害。]], "tformat")
 t("Vault", "撑杆跳", "talent name")
 t("You require a shield to use this talent.", "你需要一面盾牌来施展这个技能。", "logPlayer")
 t("%s resists the daze!", "%s抵抗了眩晕！", "logSeen")
@@ -31814,7 +31814,7 @@ t([[Gnaw your target for %d%% damage.  If your attack hits, the target may be in
 		The blight damage scales with your Constitution.]], [[啃噬目标，造成 %d%% 伤害。如果你的攻击命中，目标可能感染食尸鬼腐疫，持续 %d 回合。
 		食尸鬼腐疫每回合造成 %0.2f 枯萎伤害。
 		感染食尸鬼腐疫的目标被杀死时，会变成为你作战的友方食尸鬼。
-		食尸鬼傀儡持续 %d 回合，可以使用啃噬、食尸鬼跳跃、震慑和腐烂疫病。
+		这些食尸鬼持续 %d 回合，可以使用啃噬、食尸鬼跳跃、震慑和腐烂疫病。
 		受体质影响，枯萎伤害按比例加成。]], "tformat")
 
 ------------------------------------------------
