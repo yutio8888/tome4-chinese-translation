@@ -520,9 +520,9 @@ t("Sell %d %s", "出售%d个%s", "tformat")
 ------------------------------------------------
 section "engine/engine/Trap.lua"
 
-t("%s fails to disarm a trap (%s).", "%s 拆除陷阱（%s）失败。", "logSeen")
-t("%s disarms a trap (%s).", "%s 拆除了陷阱（%s）。", "logSeen")
-t("%s triggers a trap (%s)!", "%s 触发了陷阱（%s）！", "logSeen")
+t("%s fails to disarm a trap (%s).", "%s拆除陷阱（%s）失败。", "logSeen")
+t("%s disarms a trap (%s).", "%s拆除了陷阱（%s）。", "logSeen")
+t("%s triggers a trap (%s)!", "%s触发了陷阱（%s）！", "logSeen")
 -- untranslated text
 --[==[
 t("%s", "%s", "logSeen")
@@ -1270,8 +1270,8 @@ t("It can be used to %s, with %d charges out of %d.", "可以用于 %s，剩余 
 t("It can be used to %s, costing %d power out of %d/%d.", "可以用于 %s，消耗 %d 点能量（当前 %d/%d）。", "tformat")
 t("It can be used to activate talent: %s (level %d).", "可以用于激活技能：%s（等级 %d）。", "tformat")
 t("It can be used to activate talent: %s (level %d), costing %d power out of %d/%d.", "可以用于激活技能：%s（等级 %d），消耗 %d 点能量（当前 %d/%d）。", "tformat")
-t("%s is still recharging.", "%s 还在充能。", "logPlayer")
-t("%s can not be used anymore.", "%s 无法再继续使用了。", "logPlayer")
+t("%s is still recharging.", "%s还在充能。", "logPlayer")
+t("%s can not be used anymore.", "%s无法再继续使用了。", "logPlayer")
 
 ------------------------------------------------
 section "engine/engine/interface/PlayerExplore.lua"

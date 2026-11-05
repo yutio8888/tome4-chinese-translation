@@ -1103,7 +1103,7 @@ t("Blood of Undeath", "不死之血", "entity name")
 t("crimson phial", "猩红的药瓶", "_t")
 t("This vial of corrupted blood reeks of death and decay. Yet somehow you feel drawn to it... Is it the tentalizing notion of eternal life? Or power? You can not tell, but the urge to drink it is great.", "这瓶腐败的血散发着死亡和腐烂的气味。但不知怎的，你觉得被它吸引了……是永生这个诱人的念头吗？还是强大的力量？你说不出来，但你充满了想喝它的冲动。", "_t")
 t("quaff the Blood of Undeath to prepare your body for undeath", "喝下不死之血，让自己的身体为不死做好准备", "_t")
-t("%s quaffs the %s!", "%s 大口喝下 %s！", "logSeen")
+t("%s quaffs the %s!", "%s大口喝下 %s！", "logSeen")
 t("#CRIMSON#You feel the Blood of Undeath rushing through your veins. Your can feel your life wither away a little (-50 maximum life, -120 minimum life).", "#CRIMSON#你感受到不死之血在你的血管里流淌。你的生命渐渐流逝了（-50最大生命值，-120生命值下限）。", "logPlayer")
 t("#CRIMSON#The Blood of Undeath strengthens your undead body (-60 maximum life, -140 minimum life).", "#CRIMSON#不死之血强化了你的不死之躯（-60最大生命值，-140生命值下限）。", "logPlayer")
 
@@ -5477,7 +5477,7 @@ t([[You fire a cone of blighted needles, hitting everything in a frontal cone of
 		每个命中目标都有 %d%% 几率感染一种随机疾病，每回合造成 %0.2f 枯萎伤害，同时降低体质、力量或敏捷 %d 点，持续 20 回合。
 		伤害和疾病效果受蒸汽强度加成。]], "tformat")
 t("Sand Shredder", "砂土粉碎", "talent name")
-t("%s shreds through sandwalls!", "%s 挖开沙墙！", "logSeen")
+t("%s shreds through sandwalls!", "%s挖开沙墙！", "logSeen")
 t("You shred pieces of sandwalls. Brrrmmm!.", "你碎裂了沙墙。布鲁——！", "_t")
 t("Flamethrower", "火焰喷射器", "talent name")
 t([[Throw a cone of flame with radius %d
@@ -5516,14 +5516,14 @@ t([[Throw a handful of dust that rapidly oxidises, releasing a blinding light.
 		致盲锥形半径 %d 格内的生物 %d 回合。
 		致盲强度受蒸汽强度加成。]], "tformat")
 t("Itching Powder", "痒痒粉", "talent name")
-t("%s resists the itching powder!", "%s 抵抗了痒痒粉！", "logSeen")
+t("%s resists the itching powder!", "%s抵抗了痒痒粉！", "logSeen")
 t([[Throw a handful of dust that is very itchy to touch.
 		Creatures in a cone of radius %d are itchy for %d turns, causing them to fail talents %d%% of the time.
 		The itchiness effect is applied with your Steampower.]], [[释放一把痒痒粉。
 		锥形半径 %d 格内的生物 将瘙痒 %d 回合，使其使用技能时有 %d%% 几率失败。
 		致痒强度受蒸汽强度加成。]], "tformat")
 t("Thunder Grenade", "雷鸣榴弹", "talent name")
-t("%s resists the explosion!", "%s 抵抗了爆炸！", "logSeen")
+t("%s resists the explosion!", "%s抵抗了爆炸！", "logSeen")
 t([[Throw a grenade at your foes, dealing %0.2f physical damage in radius %d.
 		Creatures hit will also be stunned for %d turns.
 		The stun effect is applied with your Steampower.]], [[向你的敌人投掷手榴弹，造成 %0.2f 物理伤害，半径 %d 格。
@@ -5651,7 +5651,7 @@ t([[You fire a special corrosive shot with your steamgun(s) at a target for %d%%
 		此技能不会消耗弹药，因为弹丸本身就是弹药。
 		腐蚀强度随蒸汽强度提升。]], "tformat")
 t("Toxic Shell", "毒性弹", "talent name")
-t("%s resists the toxin!", "%s 抵抗了剧毒！", "logSeen")
+t("%s resists the toxin!", "%s抵抗了剧毒！", "logSeen")
 t([[You fire a special toxic shot with your steamgun(s) at a target for 100%% weapon damage as blight.
 		The shot will release heavy metals into the target, inflicting %0.2f blight damage per turn and reducing their global speed by %d%% for %d turns.
 		This talent does not use ammo as it is the ammo.
@@ -6266,7 +6266,7 @@ t("#LIGHT_RED#You lost sight of your mecharachnid for too long; direct control i
 t("mecharachnid out of sight", "机械蜘蛛在视野外", "_t")
 t("Piloted", "被驾驶中", "_t")
 t("Currently piloted.", "当前正被驾驶。", "tformat")
-t("#GREEN#%s takes direct control of their mecharachnid!", "#GREEN#%s 直接控制机械蜘蛛！", "logSeen")
+t("#GREEN#%s takes direct control of their mecharachnid!", "#GREEN#%s直接控制机械蜘蛛！", "logSeen")
 t("Direct Control", "直接控制", "_t")
 t("Direct control by the pilot increases damage by %d%% and resistances by %d%%.", "机械蜘蛛被驾驶员直接控制，增加全部伤害 %d%%，增加全部抗性 %d%%。", "tformat")
 t("Heavy Ammunition", "重装武器弹药", "_t")
@@ -6308,7 +6308,7 @@ section "tome-orcs/data/timed_effects/physical.lua"
 t("technique", "技巧", "effect subtype")
 t("Strafing", "扫射中", "_t")
 t("The target is moving while shooting, and will reload %sammo when finished strafing.", "目标在移动中射击，效果结束后恢复 %s 弹药。", "tformat")
-t("%s reloads.", "%s 装载弹药。", "logSeen")
+t("%s reloads.", "%s装载弹药。", "logSeen")
 t("Startled", "惊讶", "_t")
 t("The target is startled after being strangely missed by a shot. The next shot it takes will deal %d%% more damage.", "目标因一发子弹莫名其妙地没有命中而受到惊吓。下一发命中它的子弹将额外造成 %d%% 伤害。", "tformat")
 t("steamtech", "蒸汽科技", "effect subtype")

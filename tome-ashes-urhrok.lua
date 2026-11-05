@@ -726,7 +726,7 @@ t("You require a two handed weapon to use this talent.", "你需要装备一把�
 t("Hits the target twice, doing %d%% weapon damage each hit. You gain life equal to %d%% of the damage dealt, and you gain %d vim for each attack that hits.", "对目标攻击两次，每次造成 %d%% 武器伤害，吸取 %d%% 的伤害回复生命，同时每次击中均回复 %d 活力。", "tformat")
 t("Fiery Grasp", "炙炎之牢", "talent name")
 t("%s resists the silence!", "%s抵抗了沉默！", "logSeen")
-t("%s resists the grasp!", "%s 抵抗了抓取！", "logSeen")
+t("%s resists the grasp!", "%s抵抗了抓取！", "logSeen")
 t([[Send out a claw of fire, striking in a line doing %0.2f damage leading to a target. The target is caught in the claw's grasp, taking %d%% weapon damage as fire damage and becoming unable to move for %d turns, while also taking %0.2f damage per turn.
 		Starting from talent level 4, it will also silence.
 		The beam damage and damage over time will increase with your Spellpower.]], [[对目标伸出一只火炎之爪，对直线上的生物造成 %0.2f 点火焰伤害。目标被火炎之爪抓住后，受到 %d%% 火焰武器伤害，并在 %d 回合不能移动，同时每回合受到 %0.2f 点火焰伤害。
@@ -782,7 +782,7 @@ t([[Randomly (%d%% chance) hurls up to %d flame bolts dealing %0.2f fire damage 
 		The damage will increase with your Spellpower.]], [[当你近战攻击命中时，有 %d%% 几率向视野内的敌人发射至多 %d 个火焰飞弹，造成 %0.2f 点火焰伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Fiery Cleansing", "火焰净化", "talent name")
-t("%s is cured!", "%s 被治愈！", "logSeen")
+t("%s is cured!", "%s被治愈！", "logSeen")
 t("Deals 20%% of your total life to cleanse your afflictions, removing up to %d physical, mental or magical detrimental effects.", "消耗 20%% 最大生命值来净化自己，移除最多 %d 个物理，精神或魔法负面效果。", "tformat")
 t("Farstrike", "远程打击", "talent name")
 t("You send your weapon flying to the target, dealing %d%% weapon damage.", "扔出武器攻击远处敌人，造成 %d%% 武器伤害。", "tformat")
@@ -1479,7 +1479,7 @@ t("-Fire", "-火焰", "_t")
 t("Damage from soulburn.", "来自灵魂燃烧的伤害。", "_t")
 t("Blazing Rebirth", "烈焰重生", "_t")
 t("The target is burning, taking %d damage per turn, split among it and burning foes in radius %d.", "目标正在燃烧，每回合受到 %d 伤害，由其与半径 %d 内正在燃烧的敌人分摊。", "tformat")
-t("%s loses %d health to the soulburn.", "%s 因为灵魂燃烧流失 %d 生命值。", "logSeen")
+t("%s loses %d health to the soulburn.", "%s因为灵魂燃烧流失 %d 生命值。", "logSeen")
 t("pin", "定身", "effect subtype")
 t("Fiery Grasp", "炙炎之牢", "_t")
 t("The target is pinned and on fire, taking %0.2f fire damage per turn. They are also silenced.", "目标被定身并着火，每回合受到 %0.2f 点火焰伤害，并被沉默。", "tformat")

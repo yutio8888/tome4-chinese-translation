@@ -3380,7 +3380,7 @@ t([[Allows to teleport to Kroshkkur.
 	该法术必须保持机密；绝不能在未入门的目击者视野内使用。
 	该法术需要 40 回合生效。施放时及传送生效时，你都必须处于任何其他生物的视线之外。]], "_t")
 t("Call of Amakthel", "阿马克泰尔的呼唤", "talent name")
-t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
+t("%s is pulled in!", "%s被拉了进去！", "logSeen")
 t("Pull all foes within radius 10 2 grids towards you.", "将10格范围内的所有敌人朝你拉近2格。", "_t")
 t("Crumble", "瓦解", "talent name")
 t([[Fire a blast of darkness at an enemy dealing %0.2f damage and destroying any walls in radius 3 around them.
@@ -3402,7 +3402,7 @@ t("golem", "傀儡", "talent category")
 t("glass", "玻璃", "talent type")
 t("Glass Golem basic capacity.", "玻璃傀儡的基础能力。", "_t")
 t("Glass Splinters", "玻璃碎片", "talent name")
-t("%s resists the splinters!", "%s 抵抗了玻璃碎片！", "logSeen")
+t("%s resists the splinters!", "%s抵抗了玻璃碎片！", "logSeen")
 t([[Smash your target with a splintering glass attack doing %d%% arcane weapon damage.
 		If this attack hits the target will have glass splinters for 6 turns.
 		Each turn the target will bleed for 8%% of the attack damage. The splinters are very painful and if the target moves it will instantly take %d%% of the attack damage.
@@ -3631,7 +3631,7 @@ t("Horrific Display", "恐魔具现化", "_t")
 t("Appearance changed to an horror, everything is hostile to it.", "外貌变为恐魔，所有生物都与其敌对。", "tformat")
 t("#PURPLE##Target# turns into an horror.", "#PURPLE##Target#变成了恐魔。", "_t")
 t("#Target# is back to normal.", "#Target#恢复了正常。", "_t")
-t("%s is pulled in!", "%s 被拉了进去！", "logSeen")
+t("%s is pulled in!", "%s被拉了进去！", "logSeen")
 t("darkness", "暗影", "effect subtype")
 t("gore", "血肉", "effect subtype")
 t("Dissolved Face", "溶解之脸", "_t")
