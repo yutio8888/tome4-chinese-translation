@@ -5090,9 +5090,9 @@ Now they are dead? At the hands of just one @playerdescriptor.race@? Truly I am 
 While you were busy bringing an end to the orcs, we managed to discover some parts of the truth from a captive orc.
 He talked about the shield protecting the High Peak. It seems to be controlled by "orbs of command" which the masters of the Prides had in their possession.
 He also said the only way to enter the peak and de-activate the shield is through the "slime tunnels", located somewhere in one of the Prides, probably Grushnak.
-]], [[我的确已经得到了消息，真令人难以置信，我们和兽人已经战斗得太久了。
+]], [[消息确实已经传到我这里了。我们与兽人部落交战了那么久，我简直不敢相信。
 他们现在都死了么？仅凭一个@playerdescriptor.race@的力量？你的力量真让我惊叹。
-当你忙于解决那些兽人的时候，我们设法从那个兽人俘虏那里获得了一些线索。
+当你忙于解决那些兽人的时候，我们设法从一名兽人俘虏那里获得了一些线索。
 他提起了有关巅峰保护罩的事。似乎那个护罩是受“指令水晶球”操控的，那些指令水晶球就在兽人各大部落首领的手中。
 他还说想要进入巅峰并关闭护罩的唯一通道是“史莱姆通道”，位于某一个兽人部落内，有可能是格鲁希纳克的部落。
 ]], "_t")
@@ -21804,9 +21804,9 @@ t([[Fire an arrow for %d%% weapon damage and call up to 2 wardens, depending on 
 		The wardens are out of phase with normal reality and deal %d%% less damage but shoot through friendly targets. All your arrows, including arrows from Shoot and other talents, now phase through friendly targets without causing them harm.
 		
 		Bow Threading talents will freely swap to your bow when activated if you have one in your secondary slot. You may use the Shoot talent in a similar manner.]], [[发射一支灵矢造成 %d%% 武器伤害，并且根据可用空间，召唤最多两个守卫，各自发射一枚灵矢然后回到他们自己的时间线中。
-		守卫处在现实位面之外，灵矢的伤害减少 %d%%， 但能够穿过友好目标。同时，你发射的所有来自射击或者其他技能的箭矢，都可以穿透友军并且不会造成伤害。
+		守卫处在现实位面之外，灵矢的伤害减少 %d%%， 但能够穿过友方目标。同时，你发射的所有来自射击或者其他技能的箭矢，都可以穿过友方目标且不会对其造成伤害。
 
-		激活螺旋灵弓技能可以自由切换到你的弓（必须装备在副武器栏位上）。此外，当你使用射击技能时也会触发这个效果。]], "tformat")
+		激活螺旋灵弓系技能时，如果副武器栏位中有弓，便会自动切换至弓。射击技能也能以同样方式切换。]], "tformat")
 t("Singularity Arrow", "奇点之矢", "talent name")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t("%s is drawn in by the singularity!", "%s被拖向时空奇点！", "logSeen")
