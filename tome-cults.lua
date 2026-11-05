@@ -1392,7 +1392,7 @@ I don't know what made me more angry at that point, the seemingly callous nature
 
 With this the halfling turned to leave the tent. The anger within me had not subsided much, but I made no further attempt to confront the halfling. Battered and bruised I sank down to the ground and rested a moment. Pulling one of the infusions I had recently purchased from the market, I began to treat my wounds. When I felt I was in better shape I got up again and left the tent. Looking up I noticed the evening sky, and decided that I would be staying one more night in the Nargol Kingdom. I made my way back to the inn where I slept in a bed until the next day. When I left I headed straight to the gates of the city to make my way out. There I pondered where my next destination would be, before finally heading south.]], [[[i]随着时间推移，纳格尔王国显然抓获了策划那些扭曲事件的幕后黑手——除了我亲眼目睹的那些，在我离开后还接连发生了更多。他们公开处决了自己认定的罪魁祸首，并将这些人的头颅插在城墙内的木桩上。然而即便如此，市民们自己却开始自发掀起火刑事件，并干出其他种种堕落行径。传讯者或许已被杀死，但他们散播的讯息却挥之不去。[/i]
 
-冷不防地，根本没给半身人半点回应的时间，那个人类便冲着半身人咆哮起来：“你该不会当真想饶她一命吧？她跟永恒精灵是一伙的，她跟魔法是一伙的！”随着这番斥责继续下去，那个人类的语气愈发激动：“你难道忘了我们的使命，忘了我们肩负的职责吗？这个自然精灵背叛了大自然！她必须死——”半身人抬起一只手示意打住，那个人类便停下了话头；随后，半身人用一种完全超出我对这般矮小身躯预料的低沉嗓音，平静地回道：“够了。”听到这话，那个人类缩了缩身子；虽有面具遮挡，我仍能从那肢体语言中感受到难以置信与沮丧。
+冷不防地，根本没给半身人半点回应的时间，那个人类便冲着半身人咆哮起来：“你该不会当真想饶她一命吧？她跟永恒精灵是一伙的，她跟魔法是一伙的！”随着这番斥责继续下去，那个人类的语气愈发激动：“你难道忘了我们的使命，忘了我们肩负的职责吗？这个自然精灵背叛了大自然！她必须死——”半身人抬起一只手示意打住，那个人类便停下了话头；随后，半身人平静地回道，嗓音之低沉，远超我对这般矮小身材之人的预想：“够了。”听到这话，那个人类缩了缩身子；虽有面具遮挡，我仍能从那肢体语言中感受到难以置信与沮丧。
 
 半身人放下手，这才开口解释道：“我们的使命是铲除肮脏的奥术修习者，确保魔法的弊端不会再酿成更多悲剧。”半身人深吸了一口气，接着说道：“这个自然精灵并非施法——”那个人类猛地打断了半身人的话，暴怒地吼道：“那又怎样！？她跟永恒精灵有牵连！就是那帮引发了魔法大——”半身人再一次抬起手，那个人类便又一次闭上了嘴。待四周终于安静下来，半身人放下手，我慢慢感觉到压在自己身上的力道松开了一些。那个人类浑身紧绷，最终厌恶地转过身，朝帐篷入口走去。
 
