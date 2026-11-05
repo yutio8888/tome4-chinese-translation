@@ -26760,7 +26760,7 @@ t([[While Highers are not meant to rule other humans - and show no particular wi
 		Increase blindness immunity by %d%%, maximum sight range by %d, and increases existing infravision, and heightened senses range by %d.
 		At talent level 5, each time you hit a target you gain telepathy to all similar creatures in radius 15 for 5 turns.]], [[虽然高等人类并非生来就要统治他人——他们也没有特别的意愿去那样做——但是他们经常承担更高的义务。
 		他们的天性赋予他们比其他人类更敏锐的感官。
-		增加 %d%% 目盲免疫，提高 %d 点最大视野范围并提高 %d 夜视及感应范围。
+		增加 %d%% 目盲免疫，最大视野范围提高 %d 格，夜视及感应范围提高 %d 格。
 		技能等级 5 时，每次你命中目标，你将获得 15 格范围内同类型生物感知能力，持续 5 回合。]], "tformat")
 t("Born into Magic", "魔法亲和", "talent name")
 t([[Highers were originally created during the Age of Allure by the human Conclave. They are imbued with magic at the very core of their being.
@@ -27298,7 +27298,7 @@ t("Lucid Dreamer", "清晰梦境", "talent name")
 t([[Slip into a lucid dream.  While in this state, you are considered sleeping, but can still act, are immune to insomnia, inflict %d%% more damage to targets under the effects of Insomnia, and your Physical, Mental, and Spell saves are increased by %d.
 		Note that being asleep may make you more vulnerable to certain effects (such as Inner Demons, Night Terror, and Waking Nightmare).
 		The saving throw bonuses scale with your Mindpower.]], [[你进入清晰梦境。在此状态下，你虽然处于睡眠状态但仍可以行动，并且对失眠免疫，对失眠状态下的目标附加 %d%% 伤害，同时，你的物理、法术和精神豁免增加 %d 点。
-		注意在睡眠状态下会使你降低对特定负面状态的抵抗（例如心魔，清醒梦魇和梦魇降临）。
+		注意：处于睡眠状态可能使你更容易受到某些效果的影响（例如心魔、梦魇降临和清醒梦魇）。
 		受精神强度影响，豁免增益效果按比例加成。]], "tformat")
 t("Dream Walk", "梦境穿梭", "talent name")
 t("You may only dream walk to an open space within your line of sight.", "你只能梦境穿梭至视野内的空地。", "logPlayer")
@@ -28987,8 +28987,7 @@ t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
 t("You invoke your golem to your side, granting it a temporary melee power increase of %d for 5 turns.", "你将傀儡拉到你身边，使它暂时性增加 %d 点近战物理强度，持续 5 回合。", "tformat")
 t("Golem Portal", "傀儡传送", "talent name")
 t("#Target# focuses on #Source#.", "#Target# 将注意力集中到 #Source#。", "logCombat")
-t("Teleport to your golem, while your golem teleports to your location. Your foes will be confused, and those that were attacking you will have a %d%% chance to target your golem instead.", [[使用此技能后，你和傀儡将会交换位置。
-		之前以你为目标的敌人有 %d%% 概率转而以傀儡为目标。]], "tformat")
+t("Teleport to your golem, while your golem teleports to your location. Your foes will be confused, and those that were attacking you will have a %d%% chance to target your golem instead.", [[使用此技能后，你和傀儡将会交换位置。之前以你为目标的敌人有 %d%% 概率转而以傀儡为目标。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/spells/grave.lua"
