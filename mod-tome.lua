@@ -1091,7 +1091,7 @@ t("suffocating", "窒息", "_t")
 t("chat started", "开始聊天", "_t")
 t("%s available", "%s可用", "tformat")
 t("#00ff00#%sTalent %s is ready to use.", "#00ff00#%s技能%s已经可以使用了。", "log")
-t("Automatic use of talent %s #DARK_RED#skipped#LAST#: cooldown too low (%d).", "%s的自动施法被#DARK_RED#跳过#LAST#了：冷却时间太短（%d）。", "logPlayer")
+t("Automatic use of talent %s #DARK_RED#skipped#LAST#: cooldown too low (%d).", "技能%s的自动使用被#DARK_RED#跳过#LAST#：冷却时间太短（%d）。", "logPlayer")
 t("dialog is displayed", "有开启的对话框", "_t")
 t("hostile spotted to the %s (%s%s)", "在%s有敌对目标（%s%s）", "tformat")
 t(" - offscreen", " - 屏幕外", "_t")
@@ -26968,7 +26968,7 @@ t("%s remains firmly planted in the face of the gale!", "%s在大风中依然稳
 t("Conjure up a powerful magical wind, pushing the target back a distance of %d.", "施放一股强力的魔法风暴，将目标击退 %d 格。", "tformat")
 t("Telekinetic Punt", "念力推送", "talent name")
 t("%s is knocked back by the telekinetic blow!", "%s被念力打击击退！", "logSeen")
-t("%s holds its ground!", "%s站稳在了原地！", "logSeen")
+t("%s holds its ground!", "%s在原地站稳了！", "logSeen")
 t("Knock the target backwards with a powerful telekinetic blow.", "使用强大的念力攻击，将目标击退。", "tformat")
 t("Blink", "闪烁", "talent name")
 t("%s is teleported a short distance!", "%s传送了一小段距离！", "logSeen")
@@ -27212,8 +27212,8 @@ t([[Create a powerful maelstorm for %d turns.  Each turn, the maelstrom will pul
 section "mod-tome/data/talents/psionic/dream-forge.lua"
 
 t("Forge Shield", "熔炉屏障", "talent name")
-t("#ORANGE#%s forges a dream shield to block the attack!", "#ORANGE#%s产生了一个梦境屏障来格挡攻击！", "logSeen")
-t("#ORANGE#%s's dream shield has been strengthened by the attack!", "#ORANGE#%s的梦境屏障被攻击强化了！", "logSeen")
+t("#ORANGE#%s forges a dream shield to block the attack!", "#ORANGE#%s锻造出熔炉屏障来格挡攻击！", "logSeen")
+t("#ORANGE#%s's dream shield has been strengthened by the attack!", "#ORANGE#%s的熔炉屏障被攻击强化了！", "logSeen")
 t([[When an attack would deal 15%% or more of your effective total health, you forge the Dream Shield to protect yourself, reducing the damage of all attacks of that type by %0.2f for the next %d turn(s).
 		You may block multiple damage types at one time, but the base damage threshold increases by 15%% per damage type the shield is already blocking.
 		If you block all of an attack's damage, the attacker will be vulnerable to a deadly counterstrike (a normal melee or ranged attack will instead deal 200%% damage) for one turn.
@@ -31213,7 +31213,7 @@ t([[Thanks to your newfound knowledge of corruption, you've learned some tricks 
 section "mod-tome/data/talents/uber/cun.lua"
 
 t("Fast As Lightning", "迅如雷电", "talent name")
-t("#LIGHT_BLUE#%s slows from critical velocity!", "#LIGHT_BLUE#%s从临界速度减慢！", "logSeen")
+t("#LIGHT_BLUE#%s slows from critical velocity!", "#LIGHT_BLUE#%s脱离了临界速度，慢了下来！", "logSeen")
 t("#LIGHT_BLUE#%s reaches critical velocity!", "#LIGHT_BLUE#%s达到了临界速度！", "logSeen")
 t([[When moving over 800%% speed for at least 3 steps in the same direction, you become so fast you can blink through obstacles as if they were not there.
 		While moving this fast you have 50%% chances to fully ignore an attack by displacing yourself (this may only happen once per turn).
@@ -31261,7 +31261,7 @@ t([[Surround yourself with a malevolent aura that stores damage you deal.
 		%s]], "tformat")
 t("Secrets of Telos", "泰勒斯之秘", "talent name")
 t("Possess Telos Top Half, Telos Bottom Half, and Telos Staff Crystal", "持有泰勒斯法杖的上半部，下半部和宝石。", "_t")
-t("#VIOLET#%s assembles %s!", "#VIOLET#%s组装出 %s！", "logSeen")
+t("#VIOLET#%s assembles %s!", "#VIOLET#%s组装出%s！", "logSeen")
 t("You have obtained the three parts of the Staff of Telos and studied them carefully. You believe that you can merge them back into a single highly potent staff.", "你已获得泰勒斯法杖的三个部件并仔细研究过。你相信自己能将它们重新合成为一根威力强大的法杖。", "tformat")
 t("Elemental Surge", "元素狂潮", "talent name")
 t("Have dealt over 10000 arcane, fire, cold, lightning, light or nature damage", "曾造成超过 10000 点奥术、火焰、冰冷、闪电、光系或自然伤害", "_t")
@@ -36101,7 +36101,7 @@ t("#F53CBE##Target# begins rampaging!", "#F53CBE##Target#开始暴走！", "_t")
 t("+Rampage", "+暴走", "_t")
 t("#F53CBE##Target# is no longer rampaging.", "#F53CBE##Target#停止了暴走。", "_t")
 t("-Rampage", "-暴走", "_t")
-t("%s has shrugged off %d damage and is ready for more.", "%s无视了 %d 伤害，似乎仍意犹未尽。", "logSeen")
+t("%s has shrugged off %d damage and is ready for more.", "%s无视了 %d 点伤害，似乎仍意犹未尽。", "logSeen")
 t("#F53CBE#Your rampage is invigorated by the intense onslaught! (+1 duration)", "#F53CBE#承受的猛烈攻击强化了你的暴走！（+1持续时间）", "logPlayer")
 t("#RED#(%d rampage shugs off#LAST#)", "#RED#(%d 暴走摆脱伤害#LAST#)", "tformat")
 t("#F53CBE#You feel your rampage slowing down. (-1 duration)", "#F53CBE#你感觉你的暴走正在消退。（-1持续时间）", "logPlayer")
@@ -42417,7 +42417,7 @@ t("%d class talent point(s)", "%d 职业技能点", "tformat")
 t("%d generic talent point(s)", "%d 通用技能点", "tformat")
 t("%d category point(s)", "%d 技能树解锁点", "tformat")
 t("#ORCHID#%d prodigy point(s)#LAST#", "#ORCHID#%d 觉醒点#LAST#", "tformat")
-t("#LIGHT_BLUE#%s has %s to spend", "#LIGHT_BLUE#%s有 %s 可以使用", "log")
+t("#LIGHT_BLUE#%s has %s to spend", "#LIGHT_BLUE#%s有%s可以使用", "log")
 t(", and ", ", 和 ", "_t")
 -- untranslated text
 --[==[
@@ -42751,7 +42751,7 @@ t("???", "???", "_t")
 section "mod-tome/dialogs/orders/Behavior.lua"
 
 t("Set behavior: %s", "设置行为：%s", "tformat")
-t("%s behavior set to %s.", "%s的行为被设定为 %s。", "logPlayer")
+t("%s behavior set to %s.", "%s的行为被设定为%s。", "logPlayer")
 t("Default", "默认", "_t")
 t("Melee", "近战", "_t")
 t("Ranged", "远程", "_t")
