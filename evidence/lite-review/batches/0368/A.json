@@ -1,0 +1,373 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "e365a648b347",
+   "verdict": "OK"
+  },
+  {
+   "id": "8d6b9fc7fd55",
+   "verdict": "ISSUE",
+   "observation": "量词搭配不当且漏译限定词：原文 'Pulling one of the infusions I had recently purchased from the market'，译文「我拿出一只市场上买的纹身」——「纹身」（Infusion，见 terminology/items.tsv 与 talents.tsv 的 infusion＝纹身）不能用量词「只」，且漏了 recently（最近）。tome-cults/data/lore/fay-willows.lua:312。其余段落无问题。",
+   "suggestion": "将该句改为「我拿出一个最近在市场上买的纹身，开始治疗伤口。」，全文其余部分保持不变。"
+  },
+  {
+   "id": "8090bc445520",
+   "verdict": "OK"
+  },
+  {
+   "id": "b4f019ed8b5c",
+   "verdict": "OK"
+  },
+  {
+   "id": "de6c5e1751b8",
+   "verdict": "ISSUE",
+   "observation": "的/得误用：两处「这比征服世界还要可怕的多」应作「可怕得多」（补语用「得」），对应原文 'ones far more dangerous than mere global domination'，tome-orcs/data/lore/pocket-time.lua:72 起的两个分支各出现一次。",
+   "suggestion": "把两处「这比征服世界还要可怕的多——不，」改为「这比征服世界还要可怕得多——不，」，其余不变。"
+  },
+  {
+   "id": "db51b1e7e52a",
+   "verdict": "OK"
+  },
+  {
+   "id": "d529872dd87c",
+   "verdict": "OK"
+  },
+  {
+   "id": "c7e789579c79",
+   "verdict": "OK"
+  },
+  {
+   "id": "524d4ae7e534",
+   "verdict": "OK"
+  },
+  {
+   "id": "c89a9f9cbe1d",
+   "verdict": "OK"
+  },
+  {
+   "id": "d64940935838",
+   "verdict": "OK"
+  },
+  {
+   "id": "e9e755d304d0",
+   "verdict": "OK"
+  },
+  {
+   "id": "309fa192c28d",
+   "verdict": "OK"
+  },
+  {
+   "id": "aa7684009dc2",
+   "verdict": "OK"
+  },
+  {
+   "id": "beeabb9776d3",
+   "verdict": "OK"
+  },
+  {
+   "id": "87729ed21101",
+   "verdict": "OK"
+  },
+  {
+   "id": "2cfab85ded7a",
+   "verdict": "OK"
+  },
+  {
+   "id": "37fafc6a3102",
+   "verdict": "OK"
+  },
+  {
+   "id": "8e9f56c5f1f4",
+   "verdict": "OK"
+  },
+  {
+   "id": "e0a734327ec0",
+   "verdict": "OK"
+  },
+  {
+   "id": "0453ea0bd35c",
+   "verdict": "OK"
+  },
+  {
+   "id": "5ee4a32912b3",
+   "verdict": "OK"
+  },
+  {
+   "id": "7c9cc912b25c",
+   "verdict": "ISSUE",
+   "observation": "暗影部分改写后漏掉了初次生成效果的伤害：tome-orcs/data/timed_effects/magical.lua:120-150 中，首次 addEffect 就以 dam*dam_factor 每回合造成伤害、持续 4 回合；刷新分支只在该地格已有回响且剩余时间 < echo_dur 时把持续时间设为 echo_dur 并合并剩余伤害。译文只说「新一轮伤害每回合按本次暗影伤害的 %d%% 计算」，「新一轮」只指刷新，读者无从得知初始效果每回合造成多少伤害；整句「目标仍在该地格并再次受到暗影伤害时……新一轮伤害……」也绕得影响理解。占位符顺序（echo_dur 在 dam_factor 之前）须保持。",
+   "suggestion": "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，累计受到 %d 点伤害时达到上限。暗影伤害会在所在地格留下持续 4 回合的回响；若目标在同一地格再次受到暗影伤害，且该回响剩余时间不足 %d 回合，则将其持续时间刷新至该时长，并把剩余伤害与新增伤害合并均摊。回响每回合造成所受暗影伤害的 %d%%。"
+  },
+  {
+   "id": "3c56705cce6d",
+   "verdict": "OK"
+  },
+  {
+   "id": "afaad5737ad1",
+   "verdict": "OK"
+  },
+  {
+   "id": "3f592a4b39a4",
+   "verdict": "OK"
+  },
+  {
+   "id": "1a7a57dff159",
+   "verdict": "OK"
+  },
+  {
+   "id": "c7d779f2ba70",
+   "verdict": "OK"
+  },
+  {
+   "id": "c10f291fecb5",
+   "verdict": "OK"
+  },
+  {
+   "id": "ffa68d4a8750",
+   "verdict": "OK"
+  },
+  {
+   "id": "2737bc788344",
+   "verdict": "OK"
+  },
+  {
+   "id": "0611697167f0",
+   "verdict": "OK"
+  },
+  {
+   "id": "4b1e06ab0f5f",
+   "verdict": "OK"
+  },
+  {
+   "id": "f3f5e65c9ec5",
+   "verdict": "OK"
+  },
+  {
+   "id": "a4825021da52",
+   "verdict": "OK"
+  },
+  {
+   "id": "cfa40e938e91",
+   "verdict": "OK"
+  },
+  {
+   "id": "f00c1d61f394",
+   "verdict": "OK"
+  },
+  {
+   "id": "986714eadee1",
+   "verdict": "OK"
+  },
+  {
+   "id": "d9f818838c57",
+   "verdict": "OK"
+  },
+  {
+   "id": "095e1f703d16",
+   "verdict": "OK"
+  },
+  {
+   "id": "4f78d7464a6e",
+   "verdict": "OK"
+  },
+  {
+   "id": "033ff1644dc2",
+   "verdict": "OK"
+  },
+  {
+   "id": "0b6c9bcc518e",
+   "verdict": "OK"
+  },
+  {
+   "id": "3f073d06c912",
+   "verdict": "OK"
+  },
+  {
+   "id": "82d2ae250b86",
+   "verdict": "OK"
+  },
+  {
+   "id": "b23eea187ebb",
+   "verdict": "OK"
+  },
+  {
+   "id": "3fc62624de24",
+   "verdict": "OK"
+  },
+  {
+   "id": "a73edfa07a04",
+   "verdict": "OK"
+  },
+  {
+   "id": "91075720208b",
+   "verdict": "OK"
+  },
+  {
+   "id": "9489e867602a",
+   "verdict": "OK"
+  },
+  {
+   "id": "ff00d7810edb",
+   "verdict": "OK"
+  },
+  {
+   "id": "8e0e21b01045",
+   "verdict": "OK"
+  },
+  {
+   "id": "f5746c501296",
+   "verdict": "OK"
+  },
+  {
+   "id": "a925d076c83b",
+   "verdict": "OK"
+  },
+  {
+   "id": "d5ff2fa8c157",
+   "verdict": "OK"
+  },
+  {
+   "id": "662989e629ee",
+   "verdict": "OK"
+  },
+  {
+   "id": "50824caeca8e",
+   "verdict": "OK"
+  },
+  {
+   "id": "60744577eabe",
+   "verdict": "OK"
+  },
+  {
+   "id": "2057e4ba3a68",
+   "verdict": "OK"
+  },
+  {
+   "id": "622649d7790c",
+   "verdict": "OK"
+  },
+  {
+   "id": "cdc7dd0da4d5",
+   "verdict": "OK"
+  },
+  {
+   "id": "4a8a08533b66",
+   "verdict": "OK"
+  },
+  {
+   "id": "1746bd528df7",
+   "verdict": "OK"
+  },
+  {
+   "id": "5c2502d5f957",
+   "verdict": "OK"
+  },
+  {
+   "id": "4ed02ef517f5",
+   "verdict": "OK"
+  },
+  {
+   "id": "b0cb0a385508",
+   "verdict": "OK"
+  },
+  {
+   "id": "5abdd063fa5a",
+   "verdict": "OK"
+  },
+  {
+   "id": "0823d72e2a2c",
+   "verdict": "OK"
+  },
+  {
+   "id": "128367aeddff",
+   "verdict": "OK"
+  },
+  {
+   "id": "68af44937ce9",
+   "verdict": "OK"
+  },
+  {
+   "id": "113b7b3ff568",
+   "verdict": "OK"
+  },
+  {
+   "id": "0f363ae59b2b",
+   "verdict": "OK"
+  },
+  {
+   "id": "4b4f14673a20",
+   "verdict": "OK"
+  },
+  {
+   "id": "ee208a3db1fa",
+   "verdict": "OK"
+  },
+  {
+   "id": "5a19ec5fa7a9",
+   "verdict": "OK"
+  },
+  {
+   "id": "a04c70eae736",
+   "verdict": "OK"
+  },
+  {
+   "id": "54c1c1646673",
+   "verdict": "OK"
+  },
+  {
+   "id": "32ea2f757227",
+   "verdict": "OK"
+  },
+  {
+   "id": "64c52904b277",
+   "verdict": "OK"
+  },
+  {
+   "id": "cbbaad419e9e",
+   "verdict": "OK"
+  },
+  {
+   "id": "9f82bc665c92",
+   "verdict": "OK"
+  },
+  {
+   "id": "d9451e56b42e",
+   "verdict": "OK"
+  },
+  {
+   "id": "d6ac91c300c3",
+   "verdict": "OK"
+  },
+  {
+   "id": "2aa85e5958f7",
+   "verdict": "ISSUE",
+   "observation": "颜色标记内多了一个空格：「#LIGHT_GREEN#科技法师 职业进阶#WHITE#」把「科技法师职业进阶」断开；库内同类解锁文本均写作「堕落者职业进阶」「日耀神使职业进阶」，无空格（tome-orcs/overload/data/texts/unlock-mage_technomancer.lua:21）。",
+   "suggestion": "将「#LIGHT_GREEN#科技法师 职业进阶#WHITE#」改为「#LIGHT_GREEN#科技法师职业进阶#WHITE#」，其余不变。"
+  },
+  {
+   "id": "f460c1b50043",
+   "verdict": "OK"
+  },
+  {
+   "id": "5d0e6257d5b4",
+   "verdict": "OK"
+  },
+  {
+   "id": "cec24692e30c",
+   "verdict": "OK"
+  },
+  {
+   "id": "6b55d969815d",
+   "verdict": "OK"
+  },
+  {
+   "id": "1f41e065e072",
+   "verdict": "OK"
+  },
+  {
+   "id": "489c9a1d8337",
+   "verdict": "OK"
+  }
+ ]
+}

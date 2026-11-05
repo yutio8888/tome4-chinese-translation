@@ -3026,15 +3026,15 @@ None on Eyal would ever know of <?=Lore.pocket_time_winner.hisher?> sacrifice, o
 <? if not Lore.pocket_time_winner.sacrifice then ?>
 但是正当<?=Lore.pocket_time_winner.heshe?>准备攀爬高塔时，<?=Lore.pocket_time_winner.heshe?>收到了来自高阶太阳骑士艾琳的紧急消息。<?=Lore.pocket_time_winner.HeShe?>急忙穿越了艾露安的荒原，到达了另一座远行传送门的面前。<?=Lore.pocket_time_winner.name?>奉艾琳之命冲进了传送门，全然没有考虑它会通向何方；<?=Lore.pocket_time_winner.heshe?>发现自己身处一片广阔的火焰与岩浆平原，狭长的土地通往远方。在<?=Lore.pocket_time_winner.heshe?>身后，<?=Lore.pocket_time_winner.heshe?>听见了兵器的碰撞声：那是追随<?=Lore.pocket_time_winner.heshe?>到达这里的兽人军队，太阳骑士们正英勇地坚守防线，试图阻止敌军靠近。那些太阳骑士只告诉<?=Lore.pocket_time_winner.heshe?>一件事：快跑！于是，<?=Lore.pocket_time_winner.heshe?>不顾一切地奋勇向前冲去，一路杀过或绕过无数红色巨龙，灼热的岩浆在危险的石桥两侧喷涌而出。在石桥尽头，<?=Lore.pocket_time_winner.heshe?>自离开马基·埃亚尔后第一次看到了吸能法杖——然而，令人惊讶的是，真正的幕后黑手竟然是一个精灵和一个人类！那两名巫师受到善意、彻底的疯狂与悲剧爱情的共同驱使，操纵兽人部落为他们偷取法杖——他们的目的到底是什么，<?=Lore.pocket_time_winner.heshe?>仍不清楚。然而，他们所施展的法术被阻止了，<?=Lore.pocket_time_winner.heshe?>得胜返回了远东大陆，准备突袭这两名巫师位于巅峰之塔的巢穴。
 
-在那里等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.heshe?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.heshe?>的防御做出挑战。在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>不会被任何东西阻挡，在最后的攀登中冲破了一切。在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两名巫师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.heshe?>有关法杖的真正计划，这比征服世界还要可怕的多——不，他们企图召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，一位因长久孤绝而陷入疯狂的神明。他们的计划必须被阻止！
+在那里等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.heshe?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.heshe?>的防御做出挑战。每一层都有各种可怕的怪物严加把守，但是<?=Lore.pocket_time_winner.heshe?>不会被任何东西阻挡，在最后的攀登中冲破了一切。在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两名巫师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.heshe?>有关法杖的真正计划，这比征服世界还要可怕得多——不，他们企图召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，一位因长久孤绝而陷入疯狂的神明。他们的计划必须被阻止！
 
 幸运的是，<?=Lore.pocket_time_winner.name?>并未独自战斗。高阶太阳骑士艾琳来到了这里，与<?=Lore.pocket_time_winner.heshe?>并肩作战，四人为了埃亚尔的命运展开了一场激战。艾格尼尔恐怖的骨甲环绕在她的四周，埃兰达强大的法术在空中飞舞，四周的传送门不断召唤各种敌人加入战场……最终，正义取得了胜利。巫师们被打败了，传送门也被永久封印了。
 
 埃亚尔因<?=Lore.pocket_time_winner.name?>而获救了。世上大多数人或许并不知道巅峰之上发生了什么，但他们确曾身陷危难，而如今已摆脱了危难。没有人知道我们的英雄此后做了些什么……但是，无论如何，<?=Lore.pocket_time_winner.heshe?>，以及埃亚尔的所有生灵，一直幸福地生活了下去。
 <? else ?>
-在巅峰之塔中等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.heshe?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.heshe?>的防御做出挑战。在每一层，都有着一切可能出现的可怕怪物的严加守卫，但是<?=Lore.pocket_time_winner.heshe?>不会被任何东西阻挡，在最后的攀登中冲破了一切。唉，其中最艰难的考验出现在倒数第二层：高阶太阳骑士艾琳。晨曦之门被摧毁了，因为<?=Lore.pocket_time_winner.name?>未能阻止巫师们在灼烧之痕举行的仪式，尽管<?=Lore.pocket_time_winner.heshe?>听到了呼唤<?=Lore.pocket_time_winner.heshe?>前去相助的声音。艾琳将责任归咎于<?=Lore.pocket_time_winner.name?>，两人展开了激烈的战斗……但当<?=Lore.pocket_time_winner.heshe?>意识到<?=Lore.pocket_time_winner.heshe?>已经落败后，艾琳罢手了。
+在巅峰之塔中等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.heshe?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.heshe?>的防御做出挑战。每一层都有各种可怕的怪物严加把守，但是<?=Lore.pocket_time_winner.heshe?>不会被任何东西阻挡，在最后的攀登中冲破了一切。唉，其中最艰难的考验出现在倒数第二层：高阶太阳骑士艾琳。晨曦之门被摧毁了，因为<?=Lore.pocket_time_winner.name?>未能阻止巫师们在灼烧之痕举行的仪式，尽管<?=Lore.pocket_time_winner.heshe?>听到了呼唤<?=Lore.pocket_time_winner.heshe?>前去相助的声音。艾琳将责任归咎于<?=Lore.pocket_time_winner.name?>，两人展开了激烈的战斗……但当<?=Lore.pocket_time_winner.heshe?>意识到<?=Lore.pocket_time_winner.heshe?>已经落败后，艾琳罢手了。
 
-在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两名巫师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.heshe?>有关法杖的真正计划，这比征服世界还要可怕的多——不，他们企图召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，一位因长久孤绝而陷入疯狂的神明。他们的计划必须被阻止！
+在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两名巫师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.heshe?>有关法杖的真正计划，这比征服世界还要可怕得多——不，他们企图召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，一位因长久孤绝而陷入疯狂的神明。他们的计划必须被阻止！
 
 三人为了埃亚尔的命运展开了一场激战。艾格尼尔恐怖的骨甲环绕在她的四周，埃兰达强大的法术在空中飞舞，四周的传送门不断召唤各种敌人加入战场……最终，正义取得了胜利。巫师们被打败了，传送门也被永久封印了……但是，付出的代价是惨重的。<?=Lore.pocket_time_winner.name?>看到了远行传送门的景象——两名巫师为它注入了太多的能量，光使用吸能法杖已经无法阻止它了。<?=Lore.pocket_time_winner.HeShe?>无私地做出了终极的牺牲，以<?=Lore.pocket_time_winner.heshe?>的生命为代价，摧毁了传送门。
 
@@ -6107,7 +6107,7 @@ t("-Shield", "-护盾", "_t")
 t("dark", "黑暗", "effect subtype")
 t("light", "光系", "effect subtype")
 t("Twilit Echoes", "暮光回响", "_t")
-t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，累计受到 %d 点伤害时达到上限。暗影伤害会在目标地格生成一个初始持续 4 回合的效果；目标仍在该地格并再次受到暗影伤害时，若效果剩余时间不足 %d 回合，就会刷新持续时间，并将剩余伤害与新一轮伤害合并均摊。新一轮伤害每回合按本次暗影伤害的 %d%% 计算。", "tformat")
+t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，累计受到 %d 点伤害时达到上限。暗影伤害会在所在地格留下持续 4 回合的回响；若目标在同一地格再次受到暗影伤害，且该回响剩余时间不足 %d 回合，则将其持续时间刷新至该时长，并把剩余伤害与新增伤害合并均摊。回响每回合造成所受暗影伤害的 %d%%。", "tformat")
 t("slow", "减速", "effect subtype")
 t("Echoed Light", "光明回响", "_t")
 t("The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.", "目标受到的光系伤害产生回响，使其减速 %d%%。在暮光回响期间受到更多光系伤害将会增加减速效果，最大叠加到 %d%%。", "tformat")
@@ -6847,7 +6847,7 @@ t("shadow of pain", "痛之影", "entity name")
 t("A shadowy embodiment of pain.", "一团由痛苦具现成的阴影。", "_t")
 t("shadow of hate", "恨之影", "entity name")
 t("A shadowy embodiment of hate.", "一团由恨意具现成的阴影。", "_t")
-t("shadow of despair", "绝之影", "entity name")
+t("shadow of despair", "绝望之影", "entity name")
 t("A shadowy embodiment of despair.", "一团由绝望具现成的阴影。", "_t")
 t("shadow of remorse", "悔之影", "entity name")
 t("A shadowy embodiment of remorse.", "一团由悔恨具现成的阴影。", "_t")
@@ -7811,7 +7811,7 @@ If you help the Orcs with their problems you hope they will with yours; for the 
 You have been sent to the Vaporous Emporium to wreak havoc and demoralize the giants.
 For the Krimbul Clan !
 ]], [[欢迎你，#LIGHT_GREEN#@name@#WHITE#。
-你是生活在他人的贱视和追杀中的米诺陶一族。你的部落借助死灵魔法找到了生存之道。
+你是米诺陶一族的一员，一直遭受他人的轻视和追杀。你的部落借助死灵魔法找到了生存之道。
 
 兽人是唯一对你们表示过尊重的种族，即便谈不上善意；而如今你们的部落已落入一位疯狂领袖的控制之下。
 你希望，只要你帮兽人解决他们的难题，他们也会帮你解决你的难题；这是为了你们两族的共同利益。
@@ -7929,7 +7929,7 @@ Class evolutions are selected as prodigies and grant new ways to build and expan
 作为一个元素法师，你在多年的训练中掌握了周围奥术力量的深奥知识，而作为一个工匠，你也掌握了建造和创造的能力。突然间，你灵光一闪！
 #{italic}#你掌握了把魔法和科技结合起来的技术！#{normal}#
 
-你解锁了元素法师的#LIGHT_GREEN#科技法师 职业进阶#WHITE#。
+你解锁了元素法师的#LIGHT_GREEN#科技法师职业进阶#WHITE#。
 
 职业特性：#YELLOW#
 - 科技法术：玄机系——使用高速旋转的蒸汽链锯切裂现实，用奥术和时空的力量撕碎敌人。
