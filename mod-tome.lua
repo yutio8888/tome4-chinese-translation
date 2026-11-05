@@ -4418,7 +4418,7 @@ t([[#LIGHT_GREEN#*A gigantic bone giant walks through the main gate.
 #LIGHT_GREEN#You have heard of him. Ryal the Towering, your first obstacle!
 #LIGHT_GREEN#As an eerie blue glow fills where its eyes should be, the undead giant
 #LIGHT_GREEN#roars and multiple bones fly in your general direction!*
-]], [[#LIGHT_GREEN#*一个庞大的骸骨巨人穿过正门。
+]], [[#LIGHT_GREEN#*一个庞大的骨巨人穿过正门。
 #LIGHT_GREEN#它的身形繁复而尖锐，形似一头龙，
 #LIGHT_GREEN#却以无数骨刺代替了双翼。
 #LIGHT_GREEN#这具巨大的不死生物注视着你，目光中透出异乎寻常的……智慧。
@@ -4442,7 +4442,7 @@ t([[#LIGHT_GREEN#*After taking several hits, the undead giant finally succumbs
 #WHITE#呵呵呵……干得好，@playerdescriptor.race@。
 #LIGHT_GREEN#*瑞尔默默转向大门离去，看起来毫发无损*
 ]], "_t")
-t("It was fun, bone giant!", "打得痛快，骸骨巨人！", "_t")
+t("It was fun, bone giant!", "打得痛快，骨巨人！", "_t")
 t("...what? unharmed?", "……什么？毫发无损？", "_t")
 t([[#LIGHT_GREEN#*The wind chills as a young girl walks calmly through the gate.
 #LIGHT_GREEN#She looks surprisingly young, with extremely pale skin and contrasting
@@ -15724,7 +15724,7 @@ Still not sure what to do? Then suffer and perish. Necromancy does not abide the
 
 要明白，死灵法术并不全是编织强大的亡灵法术、身披飘逸黑袍，再让雄壮的亡灵大军把整个国家踏在脚下；你同样得亲自动手干些脏活。最初几具尸体必须亲自偷来，因为很少有人愿意协助死灵法师，即使愿意，也极少能胜任。小镇和村庄的墓地很适合作为最初的取材地点；若时间紧迫，也别怕用锋利的刀或沉重的钝器亲手“制作”几具样本。一旦第一批仆从开始替你办事，就再也不必为素材发愁；练习这门艺术的机会很快便会名副其实地堆积起来。
 
-尸体本身的养护同样重要。严格来说，这并非必需，因为足够强的附魔甚至能让最残破不全的遗骸活动起来；然而，确保未来仆从的关节和各处连接能够顺畅活动，会大幅减少令其复生所需的意志力。若你日后想展开更庞大、更大胆的计划，这也能提供坚固可靠的基础（参见第 46 章《骸骨巨人与您》）。
+尸体本身的养护同样重要。严格来说，这并非必需，因为足够强的附魔甚至能让最残破不全的遗骸活动起来；然而，确保未来仆从的关节和各处连接能够顺畅活动，会大幅减少令其复生所需的意志力。若你日后想展开更庞大、更大胆的计划，这也能提供坚固可靠的基础（参见第 46 章《骨巨人与您》）。
 
 还是不知该怎么办？那便受苦并死去吧。死灵法术容不下无能之辈。]], "_t")
 t("how to be a necromancer, part 2", "怎样成为死灵法师　第二章", "_t")
@@ -16007,11 +16007,11 @@ As to how to actually destroy one? Well, tell you what. If you manage to defeat 
     * * *
 
 
-#{bold}#6、骸骨巨人#{normal}#
+#{bold}#6、骨巨人#{normal}#
 
-死灵法师所谓的“艺术”中最恐怖、最令人作呕的表现之一，就是骸骨巨人。有些野心勃勃的死灵法师不满足于只亵渎一具遗骸，便把无数骷髅的骨架缚在一起，造出比常人高出数倍的丑恶毁灭机器。
+死灵法师所谓的“艺术”中最恐怖、最令人作呕的表现之一，就是骨巨人。有些野心勃勃的死灵法师不满足于只亵渎一具遗骸，便把无数骷髅的骨架缚在一起，造出比常人高出数倍的丑恶毁灭机器。
 
-将这些可憎之物比作炼金术士和大法师使用的傀儡，是致命的错误。普通法师虽任性古怪，却往往只为实用和自保制造傀儡；死灵法师创造骸骨巨人的唯一目的则是制造死亡，而其破坏力的唯一限制，就是创造者扭曲的想象力。你有没有与雪巨人战斗过？那就想象一下长着六只胳膊的骸骨巨人吧——手指由削尖的肋骨制成，如刀刃般锋利；再想象无数头颅布满这具骸骨巨人可憎躯体的每一寸，全都尖叫着要你血流满地，而它还用畸形的双手挥舞脊柱作鞭！你若有幸见识了这扭曲的混合体，恐怕会巴不得回到岱卡拉，去欺负那些头脑简单、浑身覆霜的低等类人生物。
+将这些可憎之物比作炼金术士和大法师使用的傀儡，是致命的错误。普通法师虽任性古怪，却往往只为实用和自保制造傀儡；死灵法师创造骨巨人的唯一目的则是制造死亡，而其破坏力的唯一限制，就是创造者扭曲的想象力。你有没有与雪巨人战斗过？那就想象一下长着六只胳膊的骨巨人吧——手指由削尖的肋骨制成，如刀刃般锋利；再想象无数头颅布满这具骨巨人可憎躯体的每一寸，全都尖叫着要你血流满地，而它还用畸形的双手挥舞脊柱作鞭！你若有幸见识了这扭曲的混合体，恐怕会巴不得回到岱卡拉，去欺负那些头脑简单、浑身覆霜的低等类人生物。
 
     * * *
 
@@ -16020,7 +16020,7 @@ As to how to actually destroy one? Well, tell you what. If you manage to defeat 
 
 他的身体由憎恨组成，他是纯粹的邪恶、死亡的化身，死灵法师的无上杰作。不论你对巫妖有何认识，我都能告诉你：围绕其可怖身影的无数神话与传说都远远不及它。巫妖远比传说更加可怖。
 
-当一名强大的死灵法师最终超越了生死界限后，他从前只能零星借用的地狱力量一下子完全服从于他。传说中，大地莫名的震颤、谷物奇怪的枯萎、树叶的同时凋零都预示着一只巫妖的诞生。作为至高的不死之主，巫妖能瞬间泯灭食尸鬼与骷髅，眨眼间将噩灵驱散，片刻就使骸骨巨人灰飞烟灭。
+当一名强大的死灵法师最终超越了生死界限后，他从前只能零星借用的地狱力量一下子完全服从于他。传说中，大地莫名的震颤、谷物奇怪的枯萎、树叶的同时凋零都预示着一只巫妖的诞生。作为至高的不死之主，巫妖能瞬间泯灭食尸鬼与骷髅，眨眼间将噩灵驱散，片刻就使骨巨人灰飞烟灭。
 
 至于消灭巫妖的确切方法嘛……这么说吧，如果你成功地摧毁了这样的怪物，劳驾行个好，为我写一篇指南吧。因为我真的，完全，没有办法。
 
@@ -19879,7 +19879,7 @@ section "mod-tome/data/maps/vaults/auto/greater/living-weapons.lua"
 t("Poltergeist %s", "作祟的 %s", "tformat")
 t("Animated %s", "活化的 %s", "tformat")
 t("Moving %s", "移动的 %s", "tformat")
-t("Poltergeist's %s", "作祟者的 %s", "tformat")
+t("Poltergeist's %s", "作祟者的%s", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/maps/vaults/auto/greater/orc-hatred.lua"
@@ -21779,7 +21779,7 @@ t([[Attack with your melee weapons for %d%% weapon damage as physical and tempor
 		
 		Blade Threading talents will freely swap to your dual-weapons when activated if you have them in your secondary slots.  Additionally you may use the Attack talent in a similar manner.]], [[使用近战武器攻击目标，造成 %d%% 物理和时空（扭曲）属性的武器伤害。如果任意一次攻击命中，你可以使目标震慑、致盲、定身或混乱 %d 回合。
 
-		激活螺旋灵刃系技能时，如果副武器栏位中有双持武器，便会自动切换至它们。普通攻击技能也能以同样方式切换。]], "tformat")
+		激活螺旋灵刃系技能时，如果副武器栏位中有双持武器，便会自动切换至它们，且不消耗时间。普通攻击技能也能以同样方式切换。]], "tformat")
 t("Blink Blade", "闪烁灵刃", "talent name")
 t("The spell fizzles!", "法术失败了！", "logSeen")
 t([[Teleport to the target and attack with your melee weapons for %d%% damage.  Then teleport next to a second random enemy, attacking for %d%% damage.
@@ -21806,7 +21806,7 @@ t([[Fire an arrow for %d%% weapon damage and call up to 2 wardens, depending on 
 		Bow Threading talents will freely swap to your bow when activated if you have one in your secondary slot. You may use the Shoot talent in a similar manner.]], [[发射一支灵矢造成 %d%% 武器伤害，并且根据可用空间，召唤最多两个守卫，各自发射一支灵矢然后回到他们自己的时间线中。
 		守卫处在现实位面之外，造成的伤害减少 %d%%， 但他们的灵矢能够穿过友方目标。同时，你发射的所有来自射击或者其他技能的箭矢，都可以穿过友方目标且不会对其造成伤害。
 
-		激活螺旋灵弓系技能时，如果副武器栏位中有弓，便会自动切换至弓。射击技能也能以同样方式切换。]], "tformat")
+		激活螺旋灵弓系技能时，如果副武器栏位中有弓，便会自动切换至弓，且不消耗时间。射击技能也能以同样方式切换。]], "tformat")
 t("Singularity Arrow", "奇点之矢", "talent name")
 t("%s resists the knockback!", "%s抵抗了击退！", "logSeen")
 t("%s is drawn in by the singularity!", "%s被拖向时空奇点！", "logSeen")
