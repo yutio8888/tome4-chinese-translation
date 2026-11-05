@@ -41703,7 +41703,7 @@ Default target is always either one of:
 #LIGHT_RED#注意：这非常危险。除非你确切知道自己在做什么，否则不要启用。#WHITE#
 
 默认目标总是以下生物之一：
- - 最后一个鼠标划过的生物
+ - 鼠标最后悬停过的生物
  - 你最后攻击的生物
  - 最近的生物]], "_t")
 t("#GOLD##{bold}#Auto-accept target#WHITE##{normal}#", "#GOLD##{bold}#自动确认目标#WHITE##{normal}#", "_t")
@@ -43204,7 +43204,7 @@ t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk
 
  他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们以首都钢铁王座为据点，大量贩卖自己的工艺品，却不允许任何外人入城——相反，他们会派出无数商队前往各个城市兜售货物。
 
- 除了随处可见的矮人商人，还有大量年轻矮人走出他们的石厅去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了帮助他们的“市场调查策略”。]], "_t")
+ 除了随处可见的矮人商人，还有大量年轻矮人走出他们的石厅去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了配合他们的“市场调查策略”。]], "_t")
 t([[Quekorja was the god of time and possibilities. What stands out about Eyal's myths regarding Quekorja is how wildly inconsistent they are. In particular, tales after the Godhunt tend to have a far less favourable outlook of the god than pre-Godhunt myths. Speculation regarding this is due to Quekorja supposedly taking an interest in written history and appointing its own librarians to record its tales. Since there are no surviving records of this library existing, this theory is considered to be pure conjecture and has no concrete evidence to validate it. There have been some unusual records found too, supposedly written by the same authors on the same dates, but wildly varying in their tone and their description of the god itself. Given the god's ability to control time, it is thought these notes might be from alternate timelines, further obscuring the truth about the god itself.
 
  Quekorja was also thought to be responsible for the creat...[i](You know you read this section, but you can't actually remember it. It is almost like something has deliberately erased it from your mind.)[/i]
