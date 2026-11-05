@@ -18008,11 +18008,11 @@ Their skill with metal is renowned above all else. Dwarven steel is considered t
 
 As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非付出重金贿赂，否则他们不会谈论任何与己有关的事。历史上，他们曾多次因不为人知的缘由切断与外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的几位公会首领交谈。
 
-矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以极强的忍受肉体痛苦的能力而闻名于世。矮人女性与男性通常较难区分，但一般可以通过编入她们胡须的珠饰来辨认。所有的矮人都以自己的大胡子为荣，并且十分爱护胡子。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
+矮人的身高一般在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以极强的忍受肉体痛苦的能力而闻名于世。矮人女性与男性通常较难区分，但一般可以通过编入她们胡须的珠饰来辨认。所有的矮人都以自己的大胡子为荣，并且十分爱护胡子。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
 矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的个人几乎从未听说过。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。
 
-他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派无数商队到各个城市去售卖货物。
+他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们以首都钢铁王座为据点，大量贩卖自己的工艺品，却不允许任何外人入城——相反，他们会派出无数商队前往各个城市兜售货物。
 
 除了人们可能遇到的众多矮人商人，也有许多年轻矮人走出他们的石砌厅堂去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了配合他们的“市场调查策略”。]], "_t")
 t("Loremaster Greynot's Analysis of the Races - Chapter 4 - Shaloren", "博学者格雷诺特关于种族的调查——第四章——永恒精灵", "_t")
@@ -41180,7 +41180,7 @@ Donators will also gain access to the custom tiles for their characters.]], [[�
 不过要注意的是，无限的生命并不意味着难度的减少，只意味着你可以随意尝试，而不必重新开始。
 
 如果你愿意使用这项功能并且觉得这款游戏很好，你可以考虑捐赠。这会帮助延长这款游戏的寿命。
-尽管这只是我自娱自乐所做的一款游戏，但如果它能帮我稍微贴补家用，我当然不会有怨言，毕竟现实生活有时很艰难。
+尽管这是我自娱自乐制作的一款免费游戏，但如果它能帮我稍微贴补家用，我当然不会有怨言，毕竟现实生活有时很艰难。
 你需要一个已激活并保持连接的在线档案，贴图选择器才能启用。如果你现在选择捐赠，你需要重启游戏才能获得权限。
 
 捐赠者还能为自己的角色使用自定义贴图。]], "_t")
@@ -41704,7 +41704,7 @@ Default target is always either one of:
 
 默认目标总是以下生物之一：
  - 最后一个鼠标划过的生物
- - 最后一个攻击的生物
+ - 你最后攻击的生物
  - 最近的生物]], "_t")
 t("#GOLD##{bold}#Auto-accept target#WHITE##{normal}#", "#GOLD##{bold}#自动确认目标#WHITE##{normal}#", "_t")
 t("New games begin with some talent points auto-assigned.#WHITE#", "新游戏开始时部分技能点自动分配。#WHITE#", "_t")
@@ -42589,7 +42589,7 @@ The #LIGHT_BLUE#Base Filter#LAST# is used to filter the actor randomly generated
 #ORANGE#Boss数据：#LAST#由 game.state:createRandomBoss, game.state:applyRandomClass, 和 Actor.levelupClass处理。
 生成过程在 _G 环境下进行（也是 Lua 控制台使用的环境），并使用当前地图的#LIGHT_GREEN#npc_list#LAST#。
 请按#GOLD#'F1'#LAST#获得帮助。
-鼠标移动查看角色预览（放置到楼层时可能会被进一步调整）。
+将鼠标悬停在各控件上可预览角色（放置到楼层时可能会被进一步调整）。
 （请按 #GOLD#'L'#LAST# 在Lua中检查，或按 #GOLD#'C'#LAST# 打开角色面板）
 
 #LIGHT_BLUE#基础筛选器#LAST#用于过滤生成的随机角色。]], "_t")
@@ -43196,13 +43196,13 @@ t([[The dwarves are an exceptionally secretive and quiet race, reluctant to talk
 
  Their skill with metal is renowned above all else. Dwarven steel is considered the most durable material for use in construction, and dwarves are the finest workers with stralite and voratun, precious metals of immense value. They trade heavily in their crafts from their capital the Iron Throne, but allow no outsiders in - instead they send innumerable merchant caravans out to all the cities to ply their wares.
 
- As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非你给他们点好处，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次无缘无故地切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的几位公会首领对话。
+ As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]], [[矮人是非常神秘且低调的种族，一般来说，除非付给他们一大笔贿赂，否则他们不会谈论任何与己有关的事。历史上，他们曾经多次出于不为外人所知的原因切断和外界的联系，落下的钢铁大门隔绝了外界的交易通道以及通往他们矿井和地下城市的道路。不过，近来他们对外界越来越开放，我甚至获得了进入他们首都——钢铁王座的殊荣，并有幸与他们的几位公会首领对话。
 
- 矮人们基本身高在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以超强的物理抵抗能力而闻名于世。矮人女性与男性通常较难区分，但一般可以通过编入她们胡须的珠饰来辨认。所有的矮人都非常自豪于他们的大胡子，并且对他们的胡子非常爱护。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
+ 矮人的身高一般在5英尺左右，有着棕色或灰色的头发。他们通常身材敦实、肌肉结实，并以对身体痛苦的强大忍耐力而闻名于世。矮人女性与男性通常较难区分，但一般可以通过编入她们胡须的珠饰来辨认。所有矮人都以自己的大胡子为傲，并将其打理得一丝不苟。对于矮人来说，贬低他的胡子就是最大的侮辱，而矮人极度痛苦时会撕扯自己的胡子。
 
  矮人擅长锻造和精工，这一点在所有种族中都是无与伦比的。他们同时精于商业，擅长讨价还价。他们的社会有着相当严格的等级制度，家庭通常会隶属于矿业公会、冶炼公会、工匠公会等等，脱离出身公会另谋生计的事几乎闻所未闻。不过，在公会之间并无地位不平等之说，各公会在统领众公会的公会委员会中拥有平等的代表权。谁实际担任名义领袖，外人不得而知，再多的贿赂也不能使任何矮人就此开口。当话题偶然被提及时，他们对那位领袖的暗示几乎总带着一种近乎信仰的敬畏。
 
- 他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们在首都——钢铁王座中进行大量的交易，但是从不欢迎外来者——相反，他们会指派无数商队到各个城市去售卖货物。
+ 他们对金属的加工技艺也是举世闻名的。矮人钢被认为是建筑中最耐久的材料，而矮人也是加工斯莱特和沃瑞钽这两种价值连城的贵金属的最佳工匠。他们以首都钢铁王座为据点，大量贩卖自己的工艺品，却不允许任何外人入城——相反，他们会派出无数商队前往各个城市兜售货物。
 
  除了随处可见的矮人商人，还有大量年轻矮人走出他们的石厅去冒险。他们一般以探险为业，在矮人社会中，一个人在年轻的时候出去闯荡是值得鼓励和赞扬的。矮人称这种经历为在“世界之砧”上锤炼自己。不过私下里，一些年长的矮人承认推广这项活动是为了帮助他们的“市场调查策略”。]], "_t")
 t([[Quekorja was the god of time and possibilities. What stands out about Eyal's myths regarding Quekorja is how wildly inconsistent they are. In particular, tales after the Godhunt tend to have a far less favourable outlook of the god than pre-Godhunt myths. Speculation regarding this is due to Quekorja supposedly taking an interest in written history and appointing its own librarians to record its tales. Since there are no surviving records of this library existing, this theory is considered to be pure conjecture and has no concrete evidence to validate it. There have been some unusual records found too, supposedly written by the same authors on the same dates, but wildly varying in their tone and their description of the god itself. Given the god's ability to control time, it is thought these notes might be from alternate timelines, further obscuring the truth about the god itself.

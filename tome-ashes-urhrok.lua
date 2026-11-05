@@ -1122,9 +1122,9 @@ t([[You infuse your shield with the energies of Urh'Rok, bringing about a magica
 		At level 3 if a damage dealt is at least twice as high you have %d%% chance to also remove a physical detrimental effect. This effect can only happen once per turn.
 		This spell disabled automatically on rest or run.
 		#{bold}#Activating the shield takes no time but de-activating it does.#{normal}#
-		The damage increases with spellpower.]], [[你的盾牌充满了乌鲁洛克的能量，带来一层魔法护盾：你受到的每次伤害中，最先承受的若干点伤害（基于你的盾牌格挡值）会转化为在 3 回合内生效的治疗。此效果可以叠加。
+		The damage increases with spellpower.]], [[你的盾牌充满了乌鲁洛克的能量，带来一层魔法护盾：你每次受到伤害时，其中最先的若干点（上限基于你的盾牌格挡值）会在 3 回合内为你恢复等量的生命值，但不会减少当次伤害。此效果可以叠加。
 		治疗量等于 5 + %d%% 格挡值（当前 %d 点）。
-		技能等级 3 时，如果伤害在治疗量两倍以上，有 %d%% 几率额外移除一个物理负面效果。此效果每回合只能触发一次。
+		技能等级达到 3 时，如果单次伤害超过治疗量上限的两倍，有 %d%% 几率额外移除一个物理负面效果。此效果每回合只能触发一次。
 		在休息和跑步时，该技能自动终止。
 		#{bold}#开启护盾不消耗时间，关闭护盾消耗时间。#{normal}#
 		治疗量不受法术强度影响。]], "tformat")
