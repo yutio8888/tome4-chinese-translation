@@ -1,0 +1,27 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "60682e63f4c5",
+   "verdict": "OK"
+  },
+  {
+   "id": "30b17d2bbaab",
+   "verdict": "OK"
+  },
+  {
+   "id": "65066dc20db2",
+   "verdict": "OK"
+  },
+  {
+   "id": "83de4f7ea83d",
+   "verdict": "ISSUE",
+   "observation": "换行数量被改动：原文共 3 个 \\n（4 行），译文把第三行末尾的括号说明「(currently %d life, %d duration)」拆成单独一行，共 4 个 \\n（5 行），违反换行数不变量。对照固定提交 game/modules/tome/data/talents/misc/inscriptions.lua:241-245（Infusion: Heroism info），该括号与「每失去 1%% 生命值」同属一行。另一条同族条目 39095a3d094b 正确地把括号留在同一行。",
+   "suggestion": "激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。\n\t\t当英勇纹身激活时，只有生命值降低到 -%d 时，你才会死亡。\n\t\t你每失去 1%% 生命值，持续时间和可承受的负生命值就会增加 1%%（目前可承受 %d 点负生命值，持续 %d 回合）。\n\t\t效果结束时，如果你的生命值在 0 以下，会变为 1 点。"
+  },
+  {
+   "id": "39095a3d094b",
+   "verdict": "OK"
+  }
+ ]
+}

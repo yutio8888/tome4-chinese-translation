@@ -1,0 +1,28 @@
+{
+  "batch": "0379",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "60682e63f4c5",
+      "verdict": "OK"
+    },
+    {
+      "id": "30b17d2bbaab",
+      "verdict": "OK"
+    },
+    {
+      "id": "65066dc20db2",
+      "verdict": "OK"
+    },
+    {
+      "id": "83de4f7ea83d",
+      "verdict": "ISSUE",
+      "observation": "“生命值下限就会增加”把方向说反：固定提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/misc/inscriptions.lua:236-244 将可承受的负生命值幅度乘以 bonus；game/modules/tome/data/timed_effects/physical.lua:988-989 再以 -eff.die_at 设置死亡阈值，失血后阈值会更低，而非增加。此外输入原文有 3 个换行，译文在“目前”前额外插入换行，变为 4 个，违反换行数量不变量。",
+      "suggestion": "激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。\n\t\t当英勇纹身激活时，只有生命值降低到 -%d 时，你才会死亡。\n\t\t你每失去 1%% 生命值，持续时间和可承受的负生命值就会增加 1%%（目前可承受 %d 点负生命值，持续 %d 回合）。\n\t\t效果结束时，如果你的生命值在 0 以下，会变为 1 点。"
+    },
+    {
+      "id": "39095a3d094b",
+      "verdict": "OK"
+    }
+  ]
+}

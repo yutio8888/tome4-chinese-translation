@@ -25939,8 +25939,7 @@ t([[Activate the infusion to endure even the most grievous of wounds for %d turn
 		The duration and life will increase by 1%% for every 1%% life you have lost (currently %d life, %d duration)
 		If your life is below 0 when this effect wears off it will be set to 1.]], [[激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。
 		当英勇纹身激活时，只有生命值降低到 -%d 时，你才会死亡。
-		你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%。
-		（目前可承受 %d 点负生命值，持续 %d 回合）
+		你每失去 1%% 生命值，持续时间和可承受的负生命值就会增加 1%%（目前可承受 %d 点负生命值，持续 %d 回合）。
 		效果结束时，如果你的生命值在 0 以下，会变为 1 点。]], "tformat")
 t("die at -%d; dur %d; cd %d", "死亡底线 -%d； 持续 %d； 冷却 %d", "tformat")
 t("Infusion: Wild Growth", "纹身：野性生长", "talent name")
