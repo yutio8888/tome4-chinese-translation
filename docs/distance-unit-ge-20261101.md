@@ -31,3 +31,9 @@
 译文门禁子集（`tools/lite_gates.py` 的 SUBSET，覆盖 strict lint、运行键扫描与分类、术语审计、空白、严格核心构建）的
 结果记录在 `evidence/lite-review/repairs/ma-to-ge-20261101/gates.json`。改动过的单元 revision 都变了，
 会在轻量审核的后续批次里自动重审。
+
+## 例外：lore 散文中的 yard（2026-11-05）
+
+用户 2026-11-05 决定：lore 叙事中的现实长度 yard 可以译为「码」（「格」是游戏地图单位）。据此恢复
+`mod-tome/data/lore/misc.lua` 罗尔夫信件（mere yards away →「几码之外」）和
+`tome-orcs/data/lore/misc.lua` 市场来信（not ten yards away →「不到十码之外」）两处；技能、物品与界面中的距离仍统一用「格」。
