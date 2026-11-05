@@ -1763,7 +1763,7 @@ Strength defines your character's ability to apply physical force. It increases 
 t([[#GOLD#Dexterity#LAST#
 Dexterity defines your character's ability to be agile and alert. It increases Accuracy, Defense, chance to shrug off critical hits and your damage with light weapons.
 ]], [[#GOLD#敏捷#LAST#
-敏捷属性体现你身手灵活、反应警觉的能力，提升敏捷可以提升命中，提升闪避，提升摆脱暴击伤害的几率，提升使用轻武器造成的伤害。
+敏捷属性体现你身手灵活、反应警觉的能力。提升敏捷可以提升命中和闪避，降低受到的暴击额外伤害，并提升使用轻武器造成的伤害。
 ]], "_t")
 t([[#GOLD#Constitution#LAST#
 Constitution defines your character's ability to withstand and resist damage. It increases your maximum life, Physical Save and Healing mod.
@@ -25911,7 +25911,7 @@ t(" and ", "和", "_t")
 t([[Activate the infusion to cure yourself of one random %s effect and reduce all damage taken by %d%% for %d turns.
 Also removes cross-tier effects of the affected types for free.]], [[激活纹身，随机解除你身上的%s负面效果各一个，并减少受到的所有伤害 %d%%， 持续 %d 回合。
 同时除去对应类型的越层效果。]], "tformat")
-t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%； 解除 %s； 持续 %d； 冷却 %d", "tformat")
+t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%； 解除%s负面效果； 持续 %d； 冷却 %d", "tformat")
 t("Infusion: Primal", "纹身：原初", "talent name")
 t("Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.", "激活这个纹身，使你受到伤害时恢复相当于该次伤害（抗性减免前计算） %d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。", "tformat")
 t("affinity %d%%; reduction %d; dur %d; cd %d", "伤害亲和 %d%%； 减少 %d； 持续 %d； 冷却 %d", "tformat")

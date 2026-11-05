@@ -1,0 +1,17 @@
+{
+ "confirmed": [
+  {
+   "id": "c240209e194f",
+   "edit": "提升摆脱暴击伤害的几率 → 降低受到的暴击额外伤害 (sentence restructured)",
+   "evidence": "624a67329fe2 class/Actor.lua:4092-4093 ignore_direct_crits += 0.3*DEX; data/damage_types.lua:130-135 reduces post-crit multiplier, no chance roll; English text outdated, rewritten per implementation (user ruling 2026-11-02). Lane B."
+  },
+  {
+   "id": "7213f7560d52",
+   "edit": "解除 %s → 解除%s负面效果 (space after ； kept for lint talent-placeholder-spacing)",
+   "evidence": "624a67329fe2 talents/misc/inscriptions.lua:156-158,175-177: %s is the list of effect types whose detrimental effects are removed. Lane B."
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "Blind review of the 45 units changed in 0338; A no ISSUE, B 2 ISSUE confirmed."
+}
