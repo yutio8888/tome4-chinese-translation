@@ -1684,7 +1684,7 @@ t([[#GOLD#Instant Talents#LAST#
 Some activated talents take no time to use, being activated with but a thought.
 Unlike most talents, instant talents are never put on cooldown from being stunned, and may be usable when most other talents are not.
 Specific information on each talent appears its tooltip.]], [[#GOLD#瞬间技能#LAST#
-使用有些主动技能不需要时间，瞬间就能发动。
+有些主动技能使用时不消耗时间，一念之间即可发动。
 和其他技能不同，瞬间技能不会因震慑而进入冷却状态，并且在大部分技能都不能使用的时候仍有可能使用。
 有关技能的详细信息，请参阅技能的提示框。]], "_t")
 t([[#GOLD#Passive Talents#LAST#
@@ -1869,7 +1869,7 @@ Alchemists use specially prepared gems as ammunition to throw bombs, which must 
 ]], [[#GOLD#弹药剩余#LAST#
 表示你剩余的弹药数量。
 弓和投石索在弹药耗尽的时候必须装填；在你休息、原地等待或只进行移动的每个回合，都会自动装填。
-炼金术士使用特殊的炼金宝石来作为弹药使用，必须手动装填。
+炼金术士使用特制的宝石作为投掷炸弹的弹药，必须手动装填。
 ]], "_t")
 t([[#GOLD#Fatigue#LAST#
 Fatigue is a percentile value that increases the cost of your talents and spells.
