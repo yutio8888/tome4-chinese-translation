@@ -3032,7 +3032,7 @@ None on Eyal would ever know of <?=Lore.pocket_time_winner.hisher?> sacrifice, o
 
 埃亚尔因<?=Lore.pocket_time_winner.name?>而获救了。世上大多数人或许并不知道巅峰之上发生了什么，但他们确曾身陷危难，而如今已摆脱了危难。没有人知道我们的英雄此后做了些什么……但是，无论如何，<?=Lore.pocket_time_winner.heshe?>，以及埃亚尔的所有生灵，一直幸福地生活了下去。
 <? else ?>
-在巅峰之塔中等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.heshe?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.heshe?>的防御做出挑战。每一层都有各种可怕的怪物严加把守，但是<?=Lore.pocket_time_winner.heshe?>不会被任何东西阻挡，在最后的攀登中冲破了一切。唉，其中最艰难的考验出现在倒数第二层：高阶太阳骑士艾琳。晨曦之门被摧毁了，因为<?=Lore.pocket_time_winner.name?>未能阻止巫师们在灼烧之痕举行的仪式，尽管<?=Lore.pocket_time_winner.heshe?>听到了呼唤<?=Lore.pocket_time_winner.heshe?>前去相助的声音。艾琳将责任归咎于<?=Lore.pocket_time_winner.name?>，两人展开了激烈的战斗……但当<?=Lore.pocket_time_winner.heshe?>意识到<?=Lore.pocket_time_winner.heshe?>已经落败后，艾琳罢手了。
+在巅峰之塔中等待着的，是远胜于<?=Lore.pocket_time_winner.heshe?>之前所见过的一切的恐怖挑战。高塔本身正在试图阻挡着<?=Lore.pocket_time_winner.heshe?>，在每一层不断切换着环境，对<?=Lore.pocket_time_winner.heshe?>的防御做出挑战。每一层都有各种可怕的怪物严加把守，但是<?=Lore.pocket_time_winner.heshe?>不会被任何东西阻挡，在最后的攀登中冲破了一切。唉，其中最艰难的考验出现在倒数第二层：高阶太阳骑士艾琳。晨曦之门被摧毁了，因为<?=Lore.pocket_time_winner.name?>未能阻止巫师们在灼烧之痕举行的仪式，尽管<?=Lore.pocket_time_winner.heshe?>听到了呼唤<?=Lore.pocket_time_winner.heshe?>前去相助的声音。艾琳将责任归咎于<?=Lore.pocket_time_winner.name?>，两人展开了激烈的战斗……但当艾琳意识到自己已经落败后，她罢手了。
 
 在顶层，<?=Lore.pocket_time_winner.heshe?>终于见到了那两名巫师，埃兰达和艾格尼尔。他们告诉了<?=Lore.pocket_time_winner.heshe?>有关法杖的真正计划，这比征服世界还要可怕得多——不，他们企图召回只有消失已久的夏·图尔人才能应对的远古威胁。那是被世人遗忘，流浪在群星中的恐怖：盖里克，一位因长久孤绝而陷入疯狂的神明。他们的计划必须被阻止！
 
@@ -7926,14 +7926,14 @@ Features:#YELLOW#
 Class evolutions are selected as prodigies and grant new ways to build and expand your class and are only visible to the concerned class.
 ]], [[#{bold}##GOLD#我发现了！#LAST##{normal}#
 
-作为一个元素法师，你在多年的训练中掌握了周围奥术力量的深奥知识，而作为一个工匠，你也掌握了建造和创造的能力。突然间，你灵光一闪！
+作为一个元素法师，你在多年的训练中掌握了奥术力量的精妙奥秘，而作为一个工匠，你也掌握了建造和创造的能力。突然间，你灵光一闪！
 #{italic}#你掌握了把魔法和科技结合起来的技术！#{normal}#
 
 你解锁了元素法师的#LIGHT_GREEN#科技法师职业进阶#WHITE#。
 
 职业特性：#YELLOW#
 - 科技法术：玄机系——使用高速旋转的蒸汽链锯切裂现实，用奥术和时空的力量撕碎敌人。
-- 科技法术：放电系——使用放电柱，链接出死亡的领域，用火焰和闪电的力量烧毁敌人。
+- 科技法术：放电系——放置可相互连接的放电柱，形成致命的火焰与闪电力场，烧毁敌人。
 - 科技法术：寒岩系——制造并控制微型蜘蛛机器人虫群，用水和土的力量伤害并削弱敌人。
 - 奥术发电机：施放法术会制造蒸汽，蒸汽会提升法术强度。
 - 获得物理学和化学技术：所有科技法师都掌握制作配件的基础技术。
