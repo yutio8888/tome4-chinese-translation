@@ -3502,7 +3502,7 @@ to start, look where halflings once tinkered with portals...]], [[他们铸造�
 t("Ogres are an altered form of Human, created in the Age of Allure as workers and warriors for the Conclave.", "食人魔是变种人类，在厄流纪被孔克雷夫作为工人和战士而制造。", "_t")
 t("Inscriptions have granted them magical and physical power far beyond their natural limits, but their dependence on runic magic made them a favored target during the Spellhunt, forcing them to take refuge among the Shalore.", "刻印赋予他们远超自然极限的魔法与物理力量，但他们对符文魔法的依赖使他们在魔法狩猎期间成为首要目标，迫使他们到永恒精灵之中寻求庇护。", "_t")
 t("Their preference for simple and direct solutions has given them an undeserved reputation as dumb brutes, despite their extraordinary talent with runes and their humble, dutiful nature.", "他们偏爱简单直接的解决办法，这让他们被不公平地冠以蠢笨蛮牛的恶名，尽管他们对符文有着惊人的天赋，而且天性谦逊尽责。", "_t")
-t("They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.", "他们拥有#GOLD#食人魔之怒#WHITE#技能，施放后会提高对震慑和定身的抗性；当他们的攻击落空、伤害被减免等情况下，该技能还会为他们提供暴击几率和暴击伤害加成。", "_t")
+t("They possess the #GOLD#Ogric Wrath#WHITE# talent, which grants them critical chance and power, as well as resistance to confusion and stuns, when their attacks miss or are blocked.", "他们拥有#GOLD#食人魔之怒#WHITE#技能，施放后会提高对震慑和定身的抗性；在他们的攻击落空或造成的伤害被护盾减免等情况下，该技能还会为他们提供暴击几率和暴击伤害加成。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +3 Strength, -1 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +3 力量，-1 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +2 Magic, -2 Willpower, +2 Cunning", "#LIGHT_BLUE# * +2 魔力，-2 意志，+2 灵巧", "_t")
@@ -27290,10 +27290,10 @@ t("%s resists the sleep!", "%s抵抗了睡眠！", "logSeen")
 t([[Puts targets in a radius of %d to sleep for %d turns, rendering them unable to act.  Every %d points of damage the target suffers will reduce the effect duration by one turn.
 		When Sleep ends, the target will suffer from Insomnia for a number of turns equal to the amount of time it was asleep (up to ten turns max), granting it %d%% sleep immunity for each turn of the Insomnia effect.
 		At talent level 5 Sleep will become contagious and has a 25%% chance to spread to nearby targets each turn.
-		The damage threshold will scale with your Mindpower.]], [[使 %d 格半径范围内的目标陷入 %d 回合的睡眠状态中，使它们无法行动。它们每承受 %d 点伤害，睡眠的持续时间减少一回合。
-		当睡眠结束时，目标会饱受失眠的痛苦，持续回合等于已睡眠的回合数（但最多 10 回合），失眠状态的每一个剩余回合数会让目标获得 %d%% 睡眠免疫。
-		技能等级 5 时，睡眠会具有传染性，每回合有 25%% 几率传播向附近的目标。
-		受精神强度影响，伤害临界点按比例加成。]], "tformat")
+		The damage threshold will scale with your Mindpower.]], [[使 %d 格半径范围内的目标陷入 %d 回合的睡眠状态，使它们无法行动。它们每承受 %d 点伤害，睡眠的持续时间减少一回合。
+		当睡眠结束时，目标会进入失眠状态，持续回合数等于已睡眠的回合数（最多 10 回合）；失眠状态每剩余 1 回合，目标就获得 %d%% 睡眠免疫。
+		技能等级 5 时，睡眠会具有传染性，每回合有 25%% 几率传播到附近的目标。
+		伤害阈值受精神强度加成。]], "tformat")
 t("Lucid Dreamer", "清晰梦境", "talent name")
 t([[Slip into a lucid dream.  While in this state, you are considered sleeping, but can still act, are immune to insomnia, inflict %d%% more damage to targets under the effects of Insomnia, and your Physical, Mental, and Spell saves are increased by %d.
 		Note that being asleep may make you more vulnerable to certain effects (such as Inner Demons, Night Terror, and Waking Nightmare).

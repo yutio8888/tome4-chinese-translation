@@ -1,0 +1,30 @@
+{
+ "confirmed": [
+  {
+   "id": "729c782bffbf",
+   "edit": "当…等情况下 → 在他们的攻击落空或造成的伤害被护盾减免等情况下",
+   "evidence": "624a67329fe2 talents/misc/races.lua:1092-1094 (Ogric Wrath charges on miss, inscription use, or damage reduced by shields). Lane A."
+  },
+  {
+   "id": "e8349709cae7",
+   "edit": "insomnia sentence: 失眠状态每剩余 1 回合，目标就获得 %d%% 睡眠免疫; 传播到; 伤害阈值受精神强度加成",
+   "evidence": "624a67329fe2 talents/psionic/dreaming.lua:94-97; timed_effects/mental.lua:2499-2517 (immunity = power x remaining dur). Lane B."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "c92c742014ce",
+   "note": "Extra line break vs source (1 vs 2) predates 0343 (present at 4a0ea048c); lint has no newline-count rule, display-neutral (one talent-level sentence per line). Not introduced by this change."
+  },
+  {
+   "id": "1752024445cd",
+   "note": "Same: 3 vs 5 line breaks, pre-existing, display-neutral."
+  },
+  {
+   "id": "9d9a89c1d148",
+   "note": "Same: 3 vs 7 line breaks, pre-existing, display-neutral."
+  }
+ ],
+ "rejected": [],
+ "notes": "Blind review of 43 units changed in 0343. A 1 ISSUE, B 4 ISSUE; 2 confirmed, 3 advisory (pre-existing line-break layout)."
+}

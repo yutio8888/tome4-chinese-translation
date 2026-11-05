@@ -1,0 +1,185 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "cb363e0615ab",
+   "verdict": "OK"
+  },
+  {
+   "id": "2aac2c4f6e5d",
+   "verdict": "OK"
+  },
+  {
+   "id": "88d9986d0bd6",
+   "verdict": "OK"
+  },
+  {
+   "id": "ddb614241ec1",
+   "verdict": "OK"
+  },
+  {
+   "id": "0a7691c0856c",
+   "verdict": "OK"
+  },
+  {
+   "id": "26edba656f7d",
+   "verdict": "OK"
+  },
+  {
+   "id": "f5ec55902cbd",
+   "verdict": "OK"
+  },
+  {
+   "id": "729c782bffbf",
+   "verdict": "OK"
+  },
+  {
+   "id": "45cf93f3c70b",
+   "verdict": "OK"
+  },
+  {
+   "id": "cd193a18a470",
+   "verdict": "OK"
+  },
+  {
+   "id": "4d3451ac68c6",
+   "verdict": "OK"
+  },
+  {
+   "id": "3ed7c0800c8c",
+   "verdict": "OK"
+  },
+  {
+   "id": "7d32185c6c47",
+   "verdict": "OK"
+  },
+  {
+   "id": "15aed63da31f",
+   "verdict": "OK"
+  },
+  {
+   "id": "13a2c2996cd0",
+   "verdict": "OK"
+  },
+  {
+   "id": "7cb514ee080d",
+   "verdict": "OK"
+  },
+  {
+   "id": "41ab46e72805",
+   "verdict": "OK"
+  },
+  {
+   "id": "fa971b5484d5",
+   "verdict": "OK"
+  },
+  {
+   "id": "4e55bf5c7110",
+   "verdict": "OK"
+  },
+  {
+   "id": "0ef09016206d",
+   "verdict": "OK"
+  },
+  {
+   "id": "c92c742014ce",
+   "verdict": "ISSUE",
+   "observation": "固定核心源码 game/modules/tome/data/talents/cursed/cursed-aura.lua:299-300 的说明只有 1 个换行，译文有 2 个换行，额外拆开了技能等级 5 的句子，违反本次审核要求的换行数量不变量。",
+   "suggestion": "你的诅咒带来黑暗的礼物。解锁所有诅咒第 %d 层效果，并允许你在诅咒达到该等级时获得此效果。技能等级 5 时，因诅咒带来的幸运惩罚降到 1。\n\t\t技能等级 5 以上时为诅咒增加额外能量等级，增强其效果（当前增加 %0.1f）。"
+  },
+  {
+   "id": "3ff4d37173a0",
+   "verdict": "OK"
+  },
+  {
+   "id": "4fb236237f22",
+   "verdict": "OK"
+  },
+  {
+   "id": "6d06f895ce5f",
+   "verdict": "OK"
+  },
+  {
+   "id": "1685f005358e",
+   "verdict": "OK"
+  },
+  {
+   "id": "b5d8abded28b",
+   "verdict": "OK"
+  },
+  {
+   "id": "e8349709cae7",
+   "verdict": "ISSUE",
+   "observation": "“失眠状态的每一个剩余回合数会让目标获得……”中，“每一个”与表示数量的“回合数”搭配不当；应为每剩余一回合提供一定免疫。“传播向附近的目标”也存在动词与趋向成分搭配不当。固定核心源码 game/modules/tome/data/talents/psionic/dreaming.lua:94-97 给出睡眠说明，data/timed_effects/mental.lua:2499-2506、2509-2517 明确按 power × 剩余 dur 计算睡眠免疫。",
+   "suggestion": "使 %d 格半径范围内的目标陷入 %d 回合的睡眠状态，使它们无法行动。它们每承受 %d 点伤害，睡眠的持续时间减少一回合。\n\t\t当睡眠结束时，目标会进入失眠状态，持续回合数等于已睡眠的回合数（最多 10 回合）；失眠状态每剩余 1 回合，目标就获得 %d%% 睡眠免疫。\n\t\t技能等级 5 时，睡眠会具有传染性，每回合有 25%% 几率传播到附近的目标。\n\t\t伤害阈值受精神强度加成。"
+  },
+  {
+   "id": "4a70a8a4d7c4",
+   "verdict": "OK"
+  },
+  {
+   "id": "a2c012d89dcd",
+   "verdict": "OK"
+  },
+  {
+   "id": "1752024445cd",
+   "verdict": "ISSUE",
+   "observation": "固定核心源码 game/modules/tome/data/talents/psionic/thought-forms.lua:600-603 的说明有 3 个换行，技能等级 1、3、5 的效果在同一段；译文拆为三段，共 5 个换行，违反本次审核要求的换行数量不变量。",
+   "suggestion": "直接控制当前的精神体，增加其 %d%% 伤害、攻速以及最大生命值，但你的身体会变成毫无防御的空壳。\n\t\t技能等级 1 时，你的精神体所获得的任何反馈值也会传递给你。技能等级 3 时，你的精神体所有豁免获得加成，数值等同于你的精神豁免。技能等级 5 时，它们获得所有伤害加成，数值等同于你的精神伤害加成。\n\t\t这些次级增益无论此技能是否激活均有效。\n\t\t上述生命、伤害与速度加成受精神强度加成。"
+  },
+  {
+   "id": "3a80a9a05076",
+   "verdict": "OK"
+  },
+  {
+   "id": "9d9a89c1d148",
+   "verdict": "ISSUE",
+   "observation": "固定核心源码 game/modules/tome/data/talents/techniques/conditioning.lua:91-94 的说明有 3 个换行，译文拆成了 8 段，共 7 个换行，违反本次审核要求的换行数量不变量。",
+   "suggestion": "你学会从负面状态中快速恢复。每回合你有 %d%% 几率解除一个震慑效果。\n\t\t技能等级 2 时，也可以解除致盲；技能等级 3 时，也可以解除混乱和定身；技能等级 4 时，也可以解除缴械和减速。\n\t\t解除负面状态的优先级是：震慑 > 致盲 > 混乱 > 定身 > 缴械 > 减速。\n\t\t每回合只能解除一个效果，恢复概率受体质加成。"
+  },
+  {
+   "id": "dfe04d1e714f",
+   "verdict": "OK"
+  },
+  {
+   "id": "74fa04b24951",
+   "verdict": "OK"
+  },
+  {
+   "id": "ee5186ecfb7f",
+   "verdict": "OK"
+  },
+  {
+   "id": "e5c770ab777f",
+   "verdict": "OK"
+  },
+  {
+   "id": "79fd7b43f87e",
+   "verdict": "OK"
+  },
+  {
+   "id": "ee20c32a60d2",
+   "verdict": "OK"
+  },
+  {
+   "id": "a27b8c6691b8",
+   "verdict": "OK"
+  },
+  {
+   "id": "c93f2f4ecdcf",
+   "verdict": "OK"
+  },
+  {
+   "id": "800986799940",
+   "verdict": "OK"
+  },
+  {
+   "id": "e70ef2a117e2",
+   "verdict": "OK"
+  },
+  {
+   "id": "73e9872e8b46",
+   "verdict": "OK"
+  }
+ ]
+}
