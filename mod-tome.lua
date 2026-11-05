@@ -37424,7 +37424,7 @@ t("#Target#'s skin returns to normal.", "#Target#的皮肤恢复了正常状态�
 t("-Juggernaut", "-战场主宰", "_t")
 t("Natural Replenishment", "自然充能", "_t")
 t("The target has been directly exposed to arcane energies and has responded by reasserting it's connection to nature, restoring %0.1f Equilibrium per turn.", "目标被奥术力量伤害，重新联系自然，每回合回复 %0.1f 失衡值。", "tformat")
-t("#Target# defiantly reasserts %s connection to nature!", "#Target#倔强地重新建立起%s自然联系！", "tformat")
+t("#Target# defiantly reasserts %s connection to nature!", "#Target#倔强地重新确立了%s那份与自然的联系！", "tformat")
 t("+Nature Replenishment", "+自然充能", "_t")
 t("#Target# stops restoring Equilibrium.", "#Target#不再回复失衡值。", "_t")
 t("-Nature Replenishment", "-自然充能", "_t")

@@ -3118,10 +3118,10 @@ t([[You draw power from the depths of the void causing your Reality Fracture to 
 #PURPLE#Nether Breach:#LAST# Deals %d%% increased damage and chains to 3 targets.
 #PURPLE#Temporal Vortex:#LAST# Deals %d%% increased damage, radius increased by 1, and slow increased to 50%%.
 #PURPLE#Dimensional Gate:#LAST# Voidling Skitterers will be frenzied, increasing their global speed by %d%%.]], [[你从虚空深处汲取能量，每当你激活实境撕裂时，会自动强化你已有的裂隙。
-#GREY#虚空裂隙 :#LAST# 造成 %d%% 额外伤害，并且投射物在半径 1 范围内爆炸。
+#GREY#虚空裂隙：#LAST# 造成 %d%% 额外伤害，并且投射物在半径 1 范围内爆炸。
 #PURPLE#彼世裂隙：#LAST# 造成 %d%% 额外伤害，并且连锁至 3 个额外目标。
 #PURPLE#时空漩涡：#LAST# 造成 %d%% 额外伤害，效果半径增加 1，并且减速效果提高至 50%%。
-#PURPLE#维度之门 :#LAST# 虚空疾行者将会变得狂暴，增加他们 %d%% 的全局速度。]], "tformat")
+#PURPLE#维度之门：#LAST# 虚空疾行者将会变得狂暴，增加他们 %d%% 的全局速度。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/scourge-drake.lua"
