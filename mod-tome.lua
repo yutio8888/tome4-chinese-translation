@@ -22938,7 +22938,7 @@ t("You cannot use Virulent Strike without two weapons!", "你需要两把武器�
 t("Strike the target with both weapons dealing %d%% damage with each hit.  Each strike that hits will increase the duration of the lowest duration disease effect by %d.", "向目标挥舞两把武器，每次攻击造成 %d%% 伤害，每次命中都会使目标身上持续时间最短的疾病效果的持续时间延长 %d 回合。", "tformat")
 t("Ruin", "毁伤", "talent name")
 t([[Concentrate on the corruption you bring, enhancing each of your melee strikes with %0.2f blight damage (which also heals you for %0.2f each hit).
-		The damage will increase with your Spellpower.]], [[专注于你带来的腐蚀，每次近战攻击会造成 %0.2f 枯萎伤害（同时每击恢复你 %0.2f 生命值）。
+		The damage will increase with your Spellpower.]], [[专注于你带来的腐蚀，每次近战攻击会造成 %0.2f 枯萎伤害（同时每击为你恢复 %0.2f 生命值）。
 		伤害受法术强度加成。]], "tformat")
 t("Acid Strike", "酸性打击", "talent name")
 t("You cannot use Acid Strike without two weapons!", "你需要两把武器来使用酸性打击技能！", "logPlayer")
@@ -24505,7 +24505,7 @@ t("#PINK#The shadows form around #Target#!", "#PINK#阴影在 #Target# 周围列
 t("Their are no shadows to heed the call!", "没有阴影响应召唤！", "logPlayer")
 t([[Focus your shadows on a single target. Friendly targets will be defended for %d turns. Hostile targets will be attacked, with a %d%% chance the shadows will blindside the target.
 		If you have less than maximum shadows available, they will automatically be summoned before focusing.
-		This talent has no cost.]], [[将你的阴影聚集至单一目标。如果目标为友善则保护目标 %d 回合。如目标为敌对，阴影会攻击目标，并有 %d%% 几率使用闪电突袭。
+		This talent has no cost.]], [[将你的阴影聚集至单一目标。如果目标是友方，阴影会保护目标 %d 回合。如果目标是敌方，阴影会攻击目标，并有 %d%% 几率使用闪电突袭。
 		如果你的阴影数目少于最大值，将在聚集前召唤出来。
 		该技能不消耗任何资源。]], "tformat")
 
@@ -24539,7 +24539,7 @@ t("#Target# blocks #Source#!", "#Target#挡住了#Source#！", "logCombat")
 t("Big", "大", "_t")
 t("Medium-sized", "中型", "_t")
 t("Small", "小", "_t")
-t("Charge through your opponents, attacking anyone near your path for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage. %s opponents may be knocked away from your path. You can attack a maximum of %d times, and can hit targets along your path more than once.", "冲过你的目标，途经的所有目标受到 %d%% （0仇恨）至 %d%% （100+仇恨）伤害。%s 体型的目标可能被你撞离路径。你最多可以攻击 %d 次，并且你对路径上的敌人可造成不止 1 次攻击。", "tformat")
+t("Charge through your opponents, attacking anyone near your path for %d%% (at 0 Hate) to %d%% (at 100+ Hate) damage. %s opponents may be knocked away from your path. You can attack a maximum of %d times, and can hit targets along your path more than once.", "冲过你的目标，攻击路径附近的所有敌人，造成 %d%% （0仇恨）至 %d%% （100+仇恨）伤害。体型为%s或更小的目标可能被你撞离路径。你最多可以攻击 %d 次，并且可以多次攻击路径上的同一敌人。", "tformat")
 t("Cleave", "分裂攻击", "talent name")
 t("#Source# cleaves through #Target#!", "#Source#劈中了#Target#！", "logCombat")
 t([[While active, every swing of your weapon strikes strikes other adjacent enemies for %d%% (at 0 hate) to %d%% (at 100 hate) physical damage. The recklessness of your attacks brings you bad luck (luck -3).
@@ -25938,9 +25938,9 @@ t([[Activate the infusion to endure even the most grievous of wounds for %d turn
 		While Heroism is active, you will only die when reaching -%d life.
 		The duration and life will increase by 1%% for every 1%% life you have lost (currently %d life, %d duration)
 		If your life is below 0 when this effect wears off it will be set to 1.]], [[激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。
-		当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。
+		当英勇纹身激活时，只有生命值降低到 -%d 时，你才会死亡。
 		你每失去 1%% 生命值，持续时间和生命值下限就会增加 1%%。
-		（目前 %d 生命值， %d 持续时间）
+		（目前可承受 %d 点负生命值，持续 %d 回合）
 		效果结束时，如果你的生命值在 0 以下，会变为 1 点。]], "tformat")
 t("die at -%d; dur %d; cd %d", "死亡底线 -%d； 持续 %d； 冷却 %d", "tformat")
 t("Infusion: Wild Growth", "纹身：野性生长", "talent name")
@@ -26101,8 +26101,8 @@ t([[Activate the infusion to endure even the most grievous of wounds for %d turn
 		While Heroism is active, you will only die when reaching -%d life.
 		The duration and life will increase by 1%% for every 1%% life you have lost, to a maximum of 100%% at 0 life or less (currently %d life, %d duration)
 		If your life is below 0 when this effect wears off it will be set to 1.]], [[激活这个纹身可以让你忍受致死的伤害，持续 %d 回合。
-		当英勇纹身激活时，你的生命值只有在降低到 -%d 生命时才会死亡。
-		你每失去 1%% 生命值，持续时间和可承受的负生命值就会增加 1%%，在生命值降至 0 或更低时最多提高 100%%（目前 %d 生命值， %d 持续时间）。
+		当英勇纹身激活时，只有生命值降低到 -%d 时，你才会死亡。
+		你每失去 1%% 生命值，持续时间和可承受的负生命值就会增加 1%%，在生命值降至 0 或更低时最多提高 100%%（目前可承受 %d 点负生命值，持续 %d 回合）。
 		效果结束时，如果你的生命值在 0 以下，会变为 1 点。]], "tformat")
 
 section "mod-tome/data/talents/misc/misc.lua"

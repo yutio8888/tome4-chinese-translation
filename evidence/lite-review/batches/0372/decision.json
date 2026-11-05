@@ -1,0 +1,27 @@
+{
+ "confirmed": [
+  {
+   "id": "60682e63f4c5",
+   "edit": "每击为你恢复",
+   "evidence": "@624a67329fe2 talents/corruptions/scourge.lua:115-117; lane B"
+  },
+  {
+   "id": "30b17d2bbaab",
+   "edit": "如果目标是友方……如果目标是敌方",
+   "evidence": "@624a67329fe2 talents/cursed/shadows.lua:683-685; lane B"
+  },
+  {
+   "id": "65066dc20db2",
+   "edit": "体型为%s或更小的目标可能被撞离；可以多次攻击路径上的同一敌人",
+   "evidence": "@624a67329fe2 talents/cursed/slaughter.lua:197-205 size_category <= maxSize, 259-268; lanes A+B"
+  },
+  {
+   "id": "39095a3d094b",
+   "edit": "只有生命值降低到 -%d 时，你才会死亡；目前可承受 %d 点负生命值，持续 %d 回合（同名纹身另一版本 mod-tome.lua:25937 同步）",
+   "evidence": "@624a67329fe2 talents/misc/inscriptions.lua:245-248; lane B"
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "Fluency recheck P2 chunk 3/9 (+re-checks, 81 units). A 1, B 4 ISSUE (union 4); all confirmed. Applied late (2026-11-05): the original apply step aborted on a duplicate-string assertion, the pipeline masked the failure, and commit 08d9b5ad8 carried only the review inputs; fixed and recorded in a follow-up commit."
+}
