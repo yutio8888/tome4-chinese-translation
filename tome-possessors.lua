@@ -396,7 +396,7 @@ t("#PURPLE##Source# shatters #Target#'s mind and takes possession of its body.",
 t("#PURPLE##Source# shatters #Target#'s mind, utterly destroying it.", "#PURPLE##Source#粉碎了#Target#的精神，完全摧毁了它。", "logCombat")
 t("Psychic Wipe", "精神抹除", "_t")
 t("Ethereal fingers destroy the brain dealing %0.2f mind damage per turn and reducing mental save by %d.", "空灵手指摧毁目标大脑，每回合造成 %0.2f 精神伤害，并减少 %d 精神豁免。", "tformat")
-t("#Target# suddently feels strange in the brain.", "#Target# 突然觉得脑袋里很奇怪。", "_t")
+t("#Target# suddently feels strange in the brain.", "#Target#突然觉得脑袋里很奇怪。", "_t")
 t("#Target# feels less strange.", "#Target#不再觉得奇怪。", "_t")
 t("Ghastly Wail", "恐怖嚎叫", "_t")
 t("The target is dazed, rendering it unable to move, halving all damage done, defense, saves, accuracy, spell, mind and physical power. Any damage will remove the daze.", "目标被眩晕，无法移动，造成的所有伤害、闪避、豁免、命中、法术、精神和物理强度减半。任何伤害均会打断眩晕效果。", "_t")
