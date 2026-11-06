@@ -907,7 +907,7 @@ Multiple scouting parties were sent down the tunnels and it became obvious that 
 
 It is a vague hope, but I hope in my heart of hearts that this place will finally give me the answers I have been seeking about the origin of Dwarves and Drem alike.]], [[废墟周围最近发生了几处塌方。在确认可以安全调查之后，我们发现这些塌方使以前未勘探的隧道显露了出来。由于我的研究暂时没有取得很大进展，能借此换换心情倒是件好事。
 
-让我高兴的是，这些隧道显示出曾经有人居住的迹象！这里面有许多原始的工具和武器，几乎没有风化的迹象。没有头脑的德瑞姆不知道制造工具，所以我得出的结论是，这一定是一系列古老的矮人隧道。在隧道里也有一些洞穴壁画，描绘着粗壮、长着胡须的人型生物与一些画得很粗糙、看似长着触手的野兽搏斗。
+让我高兴的是，这些隧道显示出曾经有人居住的迹象！这里面有许多原始的工具和武器，几乎没有风化的迹象。我从未听说无意识的德瑞姆会制造工具，因此认定这一定是一系列古老的矮人隧道。在隧道里也有一些洞穴壁画，描绘着粗壮、长着胡须的人型生物与一些画得很粗糙、看似长着触手的野兽搏斗。
 
 这并不是我们唯一的发现。这里有多条隧道，有证据表明，它们是手工凿出来的。矮人精于采矿，这一点众所周知，但想到原始的矮人竟能如此轻易地凿开岩石，实在令人惊叹。
 
@@ -925,7 +925,7 @@ t("The exploration of the cavity has been interesting, to say the least. At its 
 
 一些东西从黑暗中爬了出来。我们德瑞姆习惯于应对突如其来的暴力行为。因此，我们还没来得及看清袭击者，就向它们发起了猛烈攻击。我们只受了些轻伤，但仔细观察袭击者后，却大为震惊。它们似乎是矮人、德瑞姆和某种其他生物的奇异杂交体，却有着像孩子一样的古怪身体。我想，它们锯齿状的锋利牙齿恐怕也不完全是天生的。地面上的人可能会被这样的生物吓到，然而，我们不会被吓倒，因为我们曾经见到过凶险得多的东西。
 
-在巨蛋中探索时，我们不得不一路杀死几十个、也许上百个这种怪物。显然，这些怪物有一个来源，它们与我们在外貌上的相似性，激励着我继续战斗。最终，我们来到了一个房间，看来这里就是这个巨蛋的中心。我们找到了这些怪物的来源。那是一台巨大的机器，连接着几十根玻璃管子，有某种恶性的生长物附着在上面。这些怪物不断从破碎的管子中被吐出来，迅速长到完全长成时的大小，然后向我们冲来。它们各自的形态不同，有的像半成型的矮人，有的像德瑞姆，还有的像某种奇异的、长着触手的恐魔。
+在巨蛋中探索时，我们不得不一路杀死几十个、也许上百个这种怪物。显然，这些怪物有一个来源，它们与我们在外貌上的相似性，激励着我继续战斗。最终，我们来到了一个房间，看来这里就是这个巨蛋的中心。我们找到了这些怪物的来源。那是一台巨大的机器，连接着几十根玻璃管子，有某种恶性的生长物附着在上面。这些怪物不断从破碎的管子中被吐出来，迅速长成，随即向我们冲来。它们各自的形态不同，有的像半成型的矮人，有的像德瑞姆，还有的像某种奇异的、长着触手的恐魔。
 
 我们打破了通往玻璃管的管道，不再有怪物从里面出来了。那些液体肯定是滋养这些怪物的物质，失去了那种液体，里面跑出来的只有一些虚弱的、发育不全的胎儿。
 
@@ -972,17 +972,17 @@ Giving notice to the two wolves fleeing, the other wolves soon turned tail as we
 
 A bit perplexed by this I sat there looking confused. For a moment we stared at each other in silence before the shalore finally exclaimed "You're a thalore." I blinked a couple of times at this before I replied yes. Seemingly in shock for a brief moment before finally coming to his senses, I was soon asked what I was doing here. Upon hearing that question, I wondered what I should answer. I then realized I no longer knew the answer to why I had come here, as the anger that had driven me to come had mostly dissipated. After a while I finally gave an answer. "I've come to find out why." ]], [[[i]我还记得我第一次前往埃尔瓦拉旅行时所见证的灾难。没有一个灵魂能逃过魔法大爆炸的侵袭，也没有人比自然精灵更能感受到这片土地的痛苦和悲伤。我知道那些留在家里的人仍然怒火中烧，即使是现在，我有时仍能感受到当时的情绪。这是一个可怕的日子，我希望我能忘记这一天，但我永远做不到。[/i]
 
-如果要描述我在出生地度过的成长岁月，用“无聊、平淡、重复”就能轻易概括。我生长在一片现在已经不再存在的森林里，从倒下的树木和枯树上采集木材，同时栽种新树，培育它们成长。我收集的木材储存在我家后面的一个大仓库里，由住在附近、技艺娴熟的其他自然精灵制成木棍或弓箭，销往国外。我们出口的收入，被用来购买我们在森林或附近人类或半身人的土地上找不到的东西。
+如果要描述我在出生地度过的成长岁月，用“无聊、平淡、重复”就能轻易概括。我生长在一片现在已经不再存在的森林里，从倒下的树木和枯树上采集木材，同时栽种新树，培育它们成长。我收集的木材堆放在屋后的大木料堆里，由附近技艺娴熟的自然精灵制成法杖或弓，销往国外。我们出口的收入，被用来购买我们在森林或附近人类或半身人的土地上找不到的东西。
 
 有一天，当天空变成深紫色的时候，一切都变了。在我的头顶上，我所照料的所有树木的树冠骤然迸发出一片杂乱刺目、令人作呕的色彩。在我脚下，大地从根基开始震动，地面撕裂，树木被连根拔起，轰然倒下。或许最糟糕的是周围呼啸的空气：一股黑风蔓延开来，带着病潮席卷树木，使大地扭曲，让万物腐烂。我全凭运气在灾难中幸免于难，连自己也不太清楚是怎么活下来的，但当时和我在一起的许多自然精灵同胞没能挺过去。
 
-我住的房子和收集的木头都被摧毁了。我所种的树，或是早在之前便已屹立了几代的树，都化为了一片焦土。我周围只剩下枯树的残骸、化为废墟的家乡，还有一些昔日相识者腐烂、变形的尸体。我和那些幸存下来的人一起前去营救我们能救的人，但很多人在我们找到他们之前就因伤重而死，也有很多人在获救后伤重不治。我记得，当我们开始埋葬尸体时，人们因失去亲人而发出了痛苦的哭喊，更不用说周围大自然遭到毁灭带来的悲痛了。
+我住的房子和收集的木头都被摧毁了。无论是我亲手栽种的树，还是早已屹立了几代的古树，也都被毁了。我周围只剩下枯树的残骸、化为废墟的家乡，还有一些昔日相识者腐烂、变形的尸体。我和那些幸存下来的人一起前去营救我们能救的人，但很多人在我们找到他们之前就因伤重而死，也有很多人在获救后伤重不治。我记得，当我们开始埋葬尸体时，人们因失去亲人而发出了痛苦的哭喊，更不用说周围大自然遭到毁灭带来的悲痛了。
 
 最后，一群士兵找到了我们，带我们前往首都避难，远离那片曾是我们家园、如今却已遭到污染的土地。我来到这座城市时，看到了一幅真正混乱的画面，难民从他们各自的家乡涌入这里，伤员排在街道两旁，每个人都在这种情况下陷入了疯狂。一开始我有点困惑，不明白为什么伤员没有得到照顾，难民也没有得到安置。不久，我就知道了为什么：那些人发出声嘶力竭的呐喊，告诉我们这场灾难是永恒精灵法师造成的。直到现在回想起来，我仍能感受到当时我的那种急切的、不假思索的愤怒。
 
 就在那时，我决定前往永恒精灵的土地。我当时觉得，我是自愿做出这个决定的，要对永恒精灵实施报复，不过现在我不知道这是否是真的。不管我的理由如何，我回到家里收集我在瓦砾中找到的东西，第二天我离开了森林的边界。在接下来的几天里，我穿过了黑暗焦灼的土地，几乎找不到吃的和喝的。大地上散落的残骸拖慢了行程，更不用说搜寻食物有多困难了。当我看到一个逃过毁灭的小定居点时，我已经饿坏了。
 
-我进了我遇到的第一家旅馆，很快就买了些食物。当我吃完饭时，我无意中听到几个顾客在争论最近发生的事情。一个人类高声喊道：“即使是兽人也不可能带来这种毁灭！”我转过头去听，很快听到一个半身人反驳道：“话是这么说，但兽人很快就会到达这些地方，你早就死了，根本顾不上这些。”“是的，好吧，现在多亏了那些被诅咒的法师，不计其数的人都死了。死了！”“兽人杀的更多，他们不会留下任何一个活口。你至少还有一些朋友和亲人幸存下来，而我曾经认识的人全都死了。死了！”
+我进了我遇到的第一家旅馆，很快就买了些食物。吃饭时，我无意中听到两位顾客在争论最近发生的事情。一个人类高声喊道：“即使是兽人也不可能带来这种毁灭！”我转过头去听，很快听到一个半身人反驳道：“话是这么说，可要是没拦住兽人，他们很快就会打到这里。到时候你早没命了，哪还顾得上这些。”“是的，好吧，现在多亏了那些被诅咒的法师，不计其数的人都死了。死了！”“兽人杀的人更多，他们一个活口也没留。你至少还有一些朋友和亲人幸存下来，而我曾经认识的人全都死了。死了！”
 
 空气中弥漫着寂静。我能感觉到人类内心的愤怒，就像我能感觉到自己的愤怒一样，但他很快就起身离开了。我希望我可以说我也做了同样的事，但不幸的是，我不能。当那半身人开始收拾他的东西离开时，我跟着他走出了旅馆。他似乎察觉到我在跟踪他，在外面拦住了我。我们之间激烈地争吵，然后开始大喊大叫。我不太记得接下来发生了什么，但我记得自己看着沾满鲜血的手，那个半身人已经倒在地上死了。意识到自己做了什么后，我迅速逃离了定居点。
 
@@ -1018,25 +1018,25 @@ I was awestruck at this, this indifferent tone, but I held my tongue as I heard 
 
 Reaching into my pack to pull out some more infusions to finish my job I heard the leaders voice call out "That's enough." Snapping my head back in amazement I held my tongue no longer saying "Did you not wish for me to treat them?" Diplomatically I received the reply "They don't look like they are going to die anymore now do they? Those infusions you have, they are a finite resource. Maybe you should save them for those who are nearer to death." Calming down a bit I wondered what the shalore was getting at. So I asked the question "What do you mean, save them for who?"]], [[[i]我真的不明白，为什么人们这么容易说出自己的名字。在自然精灵中，我几乎不知道任何人的名字，除了家人或那些被我看做和家人一样重要的人的名字。我记得一个矮人商人曾经来过我的家乡，他似乎认为他所拥有的一切头衔都是有意义的。其实名字毫无意义，我和人类或半身人商人做生意，与和那位矮人做生意没有什么区别。我不需要知道你的名字也能和你交流。[/i]
 
-我们又沉默了片刻。他似乎在心里琢磨那番话的含义，但似乎明白我想问什么。在他思考的时候，我打量着他的外貌。那个永恒精灵的脸和衣服都很粗糙，我注意到他身边有一个箭袋和一把匕首。我本以为他是个猎人，但他说话的方式似乎有着很强的纪律性。他可能有军事背景，很可能是永恒精灵军队的侦察兵。我还注意到，他手臂上有一道未经处理的伤口，鲜血正顺着胳膊流下。
+我们又沉默了片刻。他似乎在心里琢磨那番话的含义，但似乎明白我想问什么。在他思考的时候，我打量着他的外貌。那个永恒精灵面容粗犷，衣着粗陋，腰侧带着箭袋和匕首。我本以为他是个猎人，但他说话的方式似乎有着很强的纪律性。他可能有军事背景，很可能是永恒精灵军队的侦察兵。我还注意到，他手臂上有一道未经处理的伤口，鲜血正顺着胳膊流下。
 
 我说：“你应该赶紧处理它。”那人瞥了一眼他的胳膊，只是咕哝着说：“我很快就包扎好。”他所说的“包扎好”使我感到困惑，但我还没来得及问起，他很快就说：“跟我走吧，这里的动物很危险。”他从我身边走过，开始往南走，示意我跟着。听到远处的狼嚎声，我决定最好还是跟着他。我们离开了废弃的楼房。有一些动物注意到了我们，但它们只是看着我们离开这片定居点。
 
 我们在一条饱经风霜的路上走了几个小时。一路上，那人做了自我介绍。他说出了自己的名字，其他种族似乎通常都会这样做。他说自己是一名游侠，被派去寻找任何留在首都城墙外的永恒精灵。不幸的是，当他聚集人们离开时，狼群袭来并杀死了那座定居点里的所有人。我到来时，他已经丢了弓，是唯一还活着的人；他来救的其他永恒精灵都被狼吃掉了。听完他的故事，我们心情沉重，继续默默前行。又走了一个小时，前方出现了一处有人活动的营地。
 
-当我们走近时，几个穿着斗篷的人从我们身后走出。又有几个手持长剑的人从前方向我们走来，他们停下来朝我的方向看了一会儿。最后一个人很快走了过来，这位永恒精灵似乎是这个组织的领袖。那位领袖声音嘶哑地说：“居民在哪里？”“死了，成了狼的食物。”侦察兵回答说，“我本来也会死的。”首领朝我的方向瞥了一眼，然后说：“我想，这个人和你能够平安回来有关。来吧，我们去营地谈谈。”
+当我们走近时，几个穿着斗篷的人从我们身后走出。又有几个手持长剑的人从前方向我们走来，他们停下来朝我的方向看了一会儿。最后又走出一名男性永恒精灵，似乎是这支小队的领队。那位领队声音嘶哑地说：“居民在哪里？”“死了，成了狼的食物。”侦察兵回答说，“我本来也会死的。”领队朝我的方向瞥了一眼，然后说：“我想，这个人和你能够平安回来有关。来吧，我们去营地谈谈。”
 
-领袖转身走开了。侦察兵再次示意我跟着他，我们朝着一堆缓缓燃烧的篝火走去。一帮衣衫褴褛的永恒精灵围坐在火堆旁，一个和其他人一样披着厚斗篷的永恒精灵手持长弓在旁守卫。在附近，又有几个永恒精灵躺在看起来是匆忙搭建的简陋棚屋下。他们身上包扎伤口的绷带沾着点点血迹。领袖走到附近的一个箱子旁，取出一把弓和一些新绷带递给侦察兵。我脸上很快又出现了困惑的表情，那位领袖似乎注意到了这一点。
+领队转身走开了。侦察兵再次示意我跟着他，我们朝着一堆缓缓燃烧的篝火走去。一帮衣衫褴褛的永恒精灵围坐在火堆旁，一个和其他人一样披着厚斗篷的永恒精灵手持长弓在旁守卫。在附近，又有几个永恒精灵躺在看起来是匆忙搭建的简陋棚屋下。他们身上包扎伤口的绷带沾着点点血迹。领队走到附近的一个箱子旁，取出一把弓和一些新绷带递给侦察兵。我脸上很快又出现了困惑的表情，那位领队似乎注意到了这一点。
 
-领袖问：“自然精灵，你有什么问题吗？”最终，我决定弄清楚他们为什么不用纹身，很快我就回答说：“怎么还在用绷带，你们没有纹身吗？”领袖似乎对此颇感好笑，反驳道：“永恒精灵用纹身？”他笑了起来，好像我讲了什么笑话似的。我能听到一些穿着斗篷的人在背后咯咯笑。领袖接着说：“虽说我理解你们可能会用纹身，但我们天性如此，力求超越此类造物。”
+领队问：“自然精灵，你有什么问题吗？”最终，我决定弄清楚他们为什么不用纹身，很快我就回答说：“怎么还在用绷带，你们没有纹身吗？”领队似乎对此颇感好笑，反驳道：“永恒精灵用纹身？”他笑了起来，好像我讲了什么笑话似的。我能听到一些穿着斗篷的人在背后咯咯笑。领队接着说：“虽说我理解你们可能会用纹身，但我们天性如此，力求超越此类造物。”
 
-我对这个反应感到困惑。听到附近受伤的永恒精灵发出的咳嗽，我克制住自己，礼貌地说：“即使可能会因不用而死，你们也坚持不用吗？”听到这句话，领袖的脸上展露出凝重的神情，低头看了看棚屋下的永恒精灵。回过头来，领队平静地回答说：“当然不会。”我看向那位永恒精灵，用坚定的语调继续说：“那么，为什么那些受伤的永恒精灵还躺在那里？”听到这句话，他平静地给出了回应：“因为永恒精灵不会随身携带纹身。”
+我对这个反应感到困惑。听到附近受伤的永恒精灵发出的咳嗽，我克制住自己，礼貌地说：“即使可能会因不用而死，你们也坚持不用吗？”听到这句话，领队的脸上展露出凝重的神情，低头看了看棚屋下的永恒精灵。回过头来，领队平静地回答说：“当然不会。”我看向那位永恒精灵，用坚定的语调继续说：“那么，为什么那些受伤的永恒精灵还躺在那里？”听到这句话，他平静地给出了回应：“因为永恒精灵不会随身携带纹身。”
 
-真是一群愚蠢的家伙。我知道半身人以骄傲著称，但即使是他们也不会这样鲁莽。我把手伸进背包里，拿出了几支纹身，展现在手中。那些永恒精灵看着我手中的纹身，眼神中带着某种奇怪的鄙夷，但他们一句话也没说。最后，我身后的那位侦察兵发话了：“已经死了够多人了，以那两个人的伤势，恐怕撑不过今晚。”我看到领袖脸上立刻浮现出不适的表情，但他闭上了眼睛，说道：“自然精灵，如果你希望治疗他们，就随你便吧。”
+真是一群愚蠢的家伙。我知道半身人以骄傲著称，但即使是他们也不会这样鲁莽。我把手伸进背包里，拿出了几支纹身，展现在手中。那些永恒精灵看着我手中的纹身，眼神中带着某种奇怪的鄙夷，但他们一句话也没说。最后，我身后的那位侦察兵发话了：“已经死了够多人了，以那两个人的伤势，恐怕撑不过今晚。”我看到领队脸上立刻浮现出不适的表情，但他闭上了眼睛，说道：“自然精灵，如果你希望治疗他们，就随你便吧。”
 
 我被这样冷漠的语气惊到了，但听着那位受伤的永恒精灵的咳嗽声，我没有多说什么。我知道，现在最应该做的就是治疗受伤的永恒精灵，于是我径直走向简陋棚屋。我迅速拆掉了绷带，使用纹身治疗他们的伤口，他们皮肤上的创口很快就闭合了，身体也开始恢复。当我的纹身用完之后，尽管他们还没有完全痊愈，但是比起先前已经好了很多。
 
-我把手伸进包里，想要拿出更多的纹身来完成治疗，但领袖的声音传来：“够了。”我惊讶地猛然回头，再也按捺不住说道：“难道你不想让我治好他们吗？”他委婉地答道：“他们看起来已经没有生命危险了，不是吗？你的纹身是有限的资源，也许你应该把它们留给那些离死亡更近的人。”我冷静下来，想弄清永恒精灵的意图，于是问道：“你这是什么意思，要把它们留给谁？”]], "_t")
+我把手伸进包里，想要拿出更多的纹身来完成治疗，但领队的声音传来：“够了。”我惊讶地猛然回头，再也按捺不住说道：“难道你不想让我治好他们吗？”他委婉地答道：“他们看起来已经没有生命危险了，不是吗？你的纹身是有限的资源，也许你应该把它们留给那些离死亡更近的人。”我冷静下来，想弄清永恒精灵的意图，于是问道：“你这是什么意思，要把它们留给谁？”]], "_t")
 t("Escapades of Fay Willows [Book 1, Chapter 3] - Shaloren Suffering", "菲·维莉欧斯的冒险 [第1卷，第3章] - 痛苦中的永恒精灵", "_t")
 t([[[i]While the shaloren are no longer as lost as they seemingly were when I first entered Elvala, I can still see the searching expressions on their faces even now as I write this. It is as if they feel a similar loss to whatever it is they are connected to in the same way the thalore feel the devastation of nature. I do not know what connection the arcane and nature have, but I know it is shared relationship, and strain on one will result in strain on the other. [/i]
 
@@ -1096,27 +1096,27 @@ I don't know much about the arcane even now or how it works, but apparently some
 
 After a while the number of wounded soldiers began to dwindle as most of them didn't require rest after healing themselves. When their numbers began to reach more manageable amounts, the chief healer approached to thank me on behalf of the Shaloren for my efforts. Suddenly remembering the entire reason I had come here to begin with, I noted that I had been fulfilling my end of the bargain. Nodding to this the chief healer looked behind me as a soldier approached and responded "The lieutenant will escort you to the general." I was taken aback by this somewhat but assumed this general held the answers as to the events that had taken place.
 
-The soldier led me to the center of the city where a grand building lay. After meeting with a couple of the guards clad head to toe in shiny plate armor, we were let in. It took several minutes walking through the building’s halls, seemingly walking the building’s entire length to the end of it. Eventually I came to a luxurious looking room, decorations made of stralite and gold lining the walls and displayed pictures of what I assumed to be important figures in Shaloren history. Here I was told to wait, and left by the lieutenant as he entered a nearby room.]], [[[i]我仍然对永恒精灵反对纹身的程度感到十分震惊。似乎他们宁愿冒险赌命，也要避免使用它们。纹身的目的之一是在受伤后恢复健康，但对于永恒精灵来说，这更是避免死亡的最后手段。更重要的是，他们似乎不明白，拖着不用纹身，长此以往只会让他们用掉更多纹身，因为纹身除了修复他们的皮肉，还得抵御开放伤口的感染。[/i]
+The soldier led me to the center of the city where a grand building lay. After meeting with a couple of the guards clad head to toe in shiny plate armor, we were let in. It took several minutes walking through the building’s halls, seemingly walking the building’s entire length to the end of it. Eventually I came to a luxurious looking room, decorations made of stralite and gold lining the walls and displayed pictures of what I assumed to be important figures in Shaloren history. Here I was told to wait, and left by the lieutenant as he entered a nearby room.]], [[[i]我仍然对永恒精灵反对纹身的程度感到十分震惊。似乎他们宁愿冒险赌命，也要避免使用它们。纹身的用途之一是帮助伤者恢复健康，可在永恒精灵看来，它更像是保命的最后手段。更重要的是，他们似乎不明白，拖着不用纹身，长此以往只会让他们用掉更多纹身，因为纹身除了修复他们的皮肉，还得抵御开放伤口的感染。[/i]
 
 在接下来的几天里，我混合并制作了一些纹身，供永恒精灵使用。工作间里备齐了睡觉所需的一应设施，治疗师经常给我带来基本的主食和饮料。好吧，对永恒精灵来说，这或许只是基本的食物和饮料，但按照自然精灵的标准，我享受到了相当优厚的待遇。我是说，我知道矮人把酒当作日常饮食的一部分；从我拿到的葡萄酒数量来看，永恒精灵显然也一样。不管怎样，我受到的待遇比我预料的要好得多。
 
-大约到了第四天，我已经做了大量纹身，他们便叫我上去帮忙使用它们。我治疗的许多人已濒临死亡，他们的伤口只做了包扎，没有得到其他处理，已经感染化脓。和我在那个简易安置点里对待受伤的永恒精灵的方式类似，我只是尽可能用纹身把他们从鬼门关带回来而已。这并不是因为缺少纹身，而是因为永恒精灵似乎出于某种原因对纹身有着固执的心态。
+大约到了第四天，我已经做了大量纹身，他们便叫我上去帮忙使用它们。我治疗的许多人已濒临死亡，他们的伤口只做了包扎，没有得到其他处理，已经感染化脓。和在简陋棚屋中治疗那些永恒精灵时一样，我只用纹身把伤者从鬼门关拉回来便停手了。这并非因为纹身不够用，而是永恒精灵不知为何始终固执地排斥纹身。
 
 大约一个星期后，大多数难民都已接受治疗，这时传来消息：一支永恒精灵分遣队与兽人交战后归来了。据说，魔法大爆炸发生时，他们一直在大陆的东部和东部的人类王国并肩作战。事后少数仍然活着的人已经动身返回埃尔瓦拉，但由于无法直接穿越大陆中部而耽搁了。在那些幸存下来的人中，只有几百人设法活着回来。
 
 到了这时，我已治疗了数百人，至少对这些人有了些同情。但更吸引我注意的是他们所说的自己无法直接前往埃尔瓦拉这一点。米德瓦尔平原位于大陆中部，是一片广阔的平地，放眼望去真的只能看到一片开阔的原野。根据我对这片大陆的基本了解，这片平原是完全开放的，很容易穿越。除非有一支庞大的兽人军队幸存下来并封锁了他们的道路，否则根本没有必要向北绕过这一地区。
 
-我没有想太久，一个助理治疗师就走过来，递给我一堆装在皮包里的奇怪平板。我把其中一个拿出来，注意到上面刻着一个发光的徽章，似乎涌动着奥术的力量。当我转过身去问这些是干什么用的时候，却发现治疗师已不在身边，而是去照料进入大楼的士兵了。对于该如何处理这些奇怪的平板，我感到困惑不解。正在这时，一个士兵拍了拍我的肩膀，吸引了我的注意。他的手很快伸过来，从袋子里拿出一片奇怪的平板。
+没等我想多久，一名助理治疗师走过来，递给我一个皮袋，里面装着许多奇怪的符片。我取出一片，发现上面刻着发光的印记，似乎有奥术力量在其中流转。当我转过身去问这些是干什么用的时候，却发现治疗师已不在身边，而是去照料进入大楼的士兵了。我正为不知该如何处理这些奇怪的符片而困惑，一名士兵拍了拍我的肩膀，引起了我的注意。随后，他伸手从袋中取出一片。
 
-我转过身去看那个士兵在干什么，注意到他穿的焦黑盔甲上有几道巨大的裂口。有一瞬间，我有些手足无措，因为我的手都拿着符文，无法抓起任何纹身，但随后，我注意到一个奇怪的现象。令人惊讶的是，平板上的徽章似乎在闪烁和移动，然后不知怎么地与士兵的手融为一体。一种淡蓝色的光芒似乎笼罩了士兵的双眼，一股奇怪的能量似乎在他的身体里流动。接下来发生的事情真的让我措手不及，士兵开始喃喃自语，他深深的伤口开始自行愈合。
+我转过身去看那个士兵在干什么，注意到他穿的焦黑盔甲上有几道巨大的裂口。有一瞬间，我有些手足无措，因为我的手都拿着符文，无法抓起任何纹身，但随后，我注意到一个奇怪的现象。令人惊讶的是，符片上的印记似乎闪动着变换了形状，随后不知怎么就与士兵的手融为一体。一种淡蓝色的光芒似乎笼罩了士兵的双眼，一股奇怪的能量似乎在他的身体里流动。接下来发生的事情真的让我措手不及，士兵开始喃喃自语，他深深的伤口开始自行愈合。
 
-我对于士兵身上发生的一切完全不知所措，这名士兵似乎正在我面前自我治愈。随着时间的流逝，淡蓝色的光芒从他的眼睛中消失，双眼恢复了正常的颜色，他的伤口不仅愈合了，而且完全没有受伤的迹象。这是我第一次目睹有人使用符文或治疗法术。我以前听说过法术的使用，但在那时，我甚至不知道符文的存在。我很快就知道，我得到的平板被称为法力涌动符文，它们可以恢复人体内的法力通路。
+我对于士兵身上发生的一切完全不知所措，这名士兵似乎正在我面前自我治愈。随着时间的流逝，淡蓝色的光芒从他的眼睛中消失，双眼恢复了正常的颜色，他的伤口不仅愈合了，而且完全没有受伤的迹象。这是我第一次目睹有人使用符文或治疗法术。我以前听说过法术的使用，但在那时，我甚至不知道符文的存在。我很快便得知，这些符片叫作法力涌动符文，能恢复人体内的法力通路。
 
 直到现在，我对奥术魔法都不太了解，也不知道它是如何工作的，但据说魔法大爆炸中的某种变化从那时起永久改变了这个世界上魔法的运作方式，虽然通过训练仍然可以召唤魔法的力量，但这比以前困难得多。其他受伤的士兵也以同样的方式接受治疗，他们拿起法力涌动符文，让发光的印记嵌入手、胳膊、腿，或者任何他们想要的身体部位，然后开始施法，迅速治愈自己，有时也治愈其他士兵。
 
 过了一段时间，受伤的士兵开始减少，因为他们中的大多数人在痊愈后不需要休息。当伤员人数减少到可以应付的程度时，主治医师代表永恒精灵来感谢我的努力。我突然想起我来这里的全部原因，提醒对方我已履行了我这一方的约定。主治医师对此点了点头，并望向我身后；这时一名士兵正走近。主治医师回答说：“中尉会护送你去见将军。”我对此感到有些吃惊，但我猜想这位将军掌握着这些事件的答案。
 
-士兵把我带到市中心，那里有一座宏伟的建筑物。在会见了几个从头到脚都穿戴着闪亮装甲的警卫后，我们被允许进入。我们在大楼的大厅里走了几分钟，似乎走到了大楼的尽头。最后，我来到了一个豪华的房间，墙壁上有着斯莱特和黄金做成的装饰，并展示了一些我认为是永恒精灵历史上重要人物的画像。在这里，中尉让我等着，然后走进附近的一个房间。]], "_t")
+士兵把我带到市中心，那里有一座宏伟的建筑物。与几名全身穿戴着闪亮板甲的守卫交谈后，我们获准进入。我们沿着楼内的走廊走了几分钟，仿佛穿过了整座建筑，才来到尽头。最后，我来到了一个豪华的房间，墙壁上有着斯莱特和黄金做成的装饰，并展示了一些我认为是永恒精灵历史上重要人物的画像。在这里，中尉让我等着，然后走进附近的一个房间。]], "_t")
 t("Escapades of Fay Willows [Book 1, Chapter 5] - General Aranion Gawaeil", "菲·维莉欧斯的冒险 [第1卷，第5章] - 艾伦尼恩·加威尔将军", "_t")
 t([[[i]General Aranion Gaweil, leader of the Grand Council of Elvala. This was perhaps the first name I ever learned from someone outside my family. While Aranion never gave his name to me personally, the rest of the shaloren certainly banter it around enough to the point that I eventually remembered it. While perhaps there is little to acknowledge from one who readily gives their name, I can perhaps respect Aranion whose name I learned from those around him, and the idolization and fondness that they seemed to speak it with.[/i]
 
@@ -1136,13 +1136,13 @@ Quietly I listened as I was told all of this until everything was relayed to me.
 
 The discomfort within my mind was obviously made clear across the desk, but the general refrained from saying anything, perhaps out of some underlying guilt for his part in the Spellblaze or just due to being unable to say anything that could aid in my aligning my thoughts. For a time we sat in silence, though before long he soon got up and headed towards the window. His back turned I couldn't see his expression, but I could tell he thought heavily in regards to how events had unfolded. [i]Aranion if you are reading this now, know that at least I have forgiven you.[/i] ]], [[[i]艾伦尼恩·加威尔将军，埃尔瓦拉最高议会领袖。这也许是我从家人以外的人口中得知的第一个名字。虽然艾伦尼恩从未亲自告诉我他的名字，但其他永恒精灵实在提起过太多次，以至于我最终记住了。主动报上姓名的人或许没什么值得称道，但艾伦尼恩的名字是我从他周围的人口中得知的，他们提起这个名字时似乎满怀憧憬和热爱，因此他或许值得我尊重。[/i]
 
-不久，士兵又出现了，我被领进了一个更朴素的房间。房间中央有一张桌子，后面有一排窗户，可以看到北面的森林。房间的一边放着一件看起来令人印象深刻的盔甲，中间摆着一件看起来凶悍的武器。我走进办公室，看见了应该是将军的人，他正在浏览放在房间一侧桌子上的一些文字。他的周围似乎散发出一种明亮的光环，使周围的永恒精灵看起来黯然失色，尽管我能感觉到，他的心头似乎始终挂着某种沉重的东西。
+不久，士兵又出现了，我被领进了一个更朴素的房间。房间中央有一张桌子，后面有一排窗户，可以看到北面的森林。房间的一边放着一件看起来令人印象深刻的盔甲，中间摆着一件看起来凶悍的武器。走进办公室，我看见一名想来就是将军的人，正在房间角落的一张桌旁翻阅文件。他的周围似乎散发出一种明亮的光环，使周围的永恒精灵看起来黯然失色，尽管我能感觉到，他的心头似乎始终挂着某种沉重的东西。
 
 他用一种严肃而敏锐的目光上下打量着我，然后把我引向房间中间桌子旁边的一个座位。他朝中尉的方向点了点头，护送我前来的中尉便悄悄地离开了房间，关上了门，让我们两个人呆着。我依言坐下，而那个人坐在另一边的另一张椅子上。几乎就在他坐下的同时，他开始说道：“根据治疗师告诉我的情况，和游侠们给我的报告，你花了几天时间帮助照顾许多受伤的永恒精灵，为此我向你表示真诚的感谢。”
 
 我还没来得及说什么，那位永恒精灵又接着说了下去，“我不得不说，当我得知你的消息时，我有些难以置信。我的几个顾问提出要见你，但得知来了一个自然精灵，我决定亲自来看看你。据我所知，在过去的四千年里，你们中很少有人踏出森林。你可能是我有生之年见到的唯一一个自然精灵，我可不会错过亲眼见一见你们自然精灵的机会。”说完这句话，永恒精灵轻轻笑了起来，但我感到十分恼火。如果我来这里是有原因的话，这原因显然不是被别人当做珍奇动物一样盯着看。
 
-将军深吸一口气，继续说道：“然而，在继续讨论之前，我觉得有必要问，为什么？是什么迫使你离开了森林，来到永恒精灵的土地？”他的问题使我停顿了一会儿。魔法大爆炸最初造成的破坏曾让我满心嗜血的欲望，如今这欲望已经消退了。真的，我已经再也没有理由来这里了。过了一会儿，我用严厉的语气回答说：“我需要说明什么理由吗？”这个相当直截了当的回答，似乎让他迅速露出一丝坏笑。
+将军深吸一口气，继续说道：“然而，在继续讨论之前，我觉得有必要问，为什么？是什么迫使你离开了森林，来到永恒精灵的土地？”他的问题使我停顿了一会儿。初见魔法大爆炸的惨状时，我曾满心渴望杀戮，如今那份嗜血的冲动早已消退。真的，我已经再也没有理由来这里了。过了一会儿，我用严厉的语气回答说：“我需要说明什么理由吗？”这个相当直截了当的回答，似乎让他迅速露出一丝坏笑。
 
 他狡黠地说：“好吧，我想如果一个自然精灵有任何理由离开你的森林来到这里，那就是血腥屠杀他们遇到的任何一个永恒精灵。”我想那时的我就像一本摊开的书，他透过我的外表，把我内心的想法看得一清二楚。我退缩了一点，似乎证实他看透了我内心的想法。对此，他似乎放松了一点，然后说：“很明显，有些事情改变了你的想法，因为据我所知，你没有杀害任何永恒精灵，事实上还为我的人民提供了珍贵的帮助。为此，我会告诉你我所知道的一切。”
 
@@ -1150,7 +1150,7 @@ The discomfort within my mind was obviously made clear across the desk, but the 
 
 我静静地听着，直到他把这一切讲完。当他给我讲完魔法大爆炸的故事时，对于该如何评价永恒精灵的行为，我心情复杂。一方面，魔法大爆炸的破坏在世界各地蔓延开来，留下了或许永远无法愈合的伤疤，但我明白，他们采取行动是为了阻止他所认为的前所未有的威胁。由于他们的行为，我知道所有的永恒精灵现在都在承受着极其巨大的困难，我想，这样的惩罚对于他们已经足够了。
 
-坐在桌子另一边的将军显然看出了我心里的不安，但是将军什么也没说。也许，这是因为他在魔法大爆炸中所扮演的角色带来的潜在的内疚感，或者，这仅仅是因为他不能说任何有助于我理顺思路的话。我们沉默地坐了一会儿，不久他就站起来朝窗户走去。他背对着我，我看不出他的表情，但我可以看出他正在对事态的发展深思熟虑。[i]艾伦尼恩，如果你现在正在读这本书的话，请知道，至少我已经原谅了你。[/i] ]], "_t")
+坐在桌子另一边的将军显然看出了我心里的不安，但是将军什么也没说。也许，这是因为他在魔法大爆炸中所扮演的角色带来的潜在的内疚感，或者，这仅仅是因为他不能说任何有助于我理顺思路的话。我们沉默地坐了一会儿，不久他就站起来朝窗户走去。他背对着我，我看不到他的表情，却能察觉他正心情沉重地思索着事态如何演变至此。[i]艾伦尼恩，如果你现在正在读这本书的话，请知道，至少我已经原谅了你。[/i] ]], "_t")
 t("Escapades of Fay Willows [Book 1, Chapter 6] - Leaving Elvala", "菲·维莉欧斯的冒险 [第1卷，第6章] - 离开埃尔瓦拉", "_t")
 t([[[i]At the time I had thought Aranion to be quite paranoid, but his ability to perceive the thoughts of others and the activities taking place in the world can be described as unnaturally accurate. While the group that instigates the Spellhunt remains unknown while I write this, they were out there and I would witness their activities firsthand.[/i]
 
@@ -1180,7 +1180,7 @@ Putting the chest in my pack, I began to make my way towards the road leading to
 
 我能感觉到他的语气变得沉重，他继续说：“然后他们来到埃尔瓦拉，想要对我们做同样的事情。也许你穿过埃尔瓦拉帷幕进来时，已经看到了他们的一些尸体。”他沉默了片刻，我也渐渐体会到了他这番话的分量。紧接着，他又用正常的语气继续说：“当然，让我无法派出特使的，并不只是人们一时的愤怒，还有人在煽动其他地方的人民采取行动。我不知道是谁，也不知道是什么组织在这么做，但是我听到了那些人类高喊着的口号，所以深感忧虑。”
 
-将军的视线和我交汇，他严肃的态度吸引了我。我迫不及待地问：“他们喊了什么？”他用和之前一样严肃的语气说：“他们高喊，‘永恒精灵要为魔法大爆炸付出代价！’”我有点笨拙地问：“他们对你发怒本就有理由，你为什么要害怕几句表达愤怒的话呢？”对此，我得到了坚定的回答，“因为只有少数人知道，我们把我们的宏伟计划称为‘魔法大爆炸’。对于其他种族的领袖，甚至是你的国王和王后，我们只提到，我们将利用夏·图尔废墟来完成一项伟大的魔法壮举。有人告诉那些人类平民，我们对此负有责任，但他们说漏了嘴。我看得出，有人正在针对我的族人进行某种秘密行动。”
+将军的视线和我交汇，他严肃的态度吸引了我。我迫不及待地问：“他们喊了什么？”他用和之前一样严肃的语气说：“他们高喊，‘永恒精灵要为魔法大爆炸付出代价！’”我有些不解地问：“他们对你发怒本就有理由，你为什么要害怕几句表达愤怒的话呢？”对此，我得到了坚定的回答，“因为只有少数人知道，我们把我们的宏伟计划称为‘魔法大爆炸’。对于其他种族的领袖，甚至是你的国王和王后，我们只提到，我们将利用夏·图尔废墟来完成一项伟大的魔法壮举。有人告诉那些人类平民，我们对此负有责任，但他们说漏了嘴。我看得出，有人正在针对我的族人进行某种秘密行动。”
 
 我沉默了一会儿，最后才从座位上站起来。我做出了最后的决定，坚定地说：“那我就替你运输你的援助物资。你要我怎么办？”将军放松下来，马上回答我说：“想必你也清楚，永恒精灵并不常用纹身或其他任何自然疗法。不过，我们确实储存了不少原料，把它们送去援助其他地方，更能派上用场。我会采购一个特殊的箱子，可以用来储存所有能匀出来的原料，让你把它送到附近的纳格尔王国。现在，许多来自其他种族的难民涌入他们的首都，他们可能没有足够的原料来制造他们需要的所有纹身。”
 
@@ -1190,9 +1190,9 @@ Putting the chest in my pack, I began to make my way towards the road leading to
 
 当我问起这个问题时，其中一个法师走近我，从我身上取下这个箱子，并展示了它的用途。他拿出了一些储存在里面的纹身材料——看起来远远超过了箱子本身的容量。当他把装满的箱子还给我的时候，将军告诉我，当我到达纳格尔王国的大门时，我所要做的就是出示文件，纳格尔的卫兵会拿走箱子。我很可能会被允许进入他们的首都，并可以从那里购买任何我可能需要的额外用品。说完，将军就递给我一袋金币。
 
-我感谢将军，然后被护送到一个画有符文图案的小圆圈中。法师们开始吟诵，双手交织比划。我周围的环境开始起舞，视野中也变得一片模糊。随后，随着埃尔瓦拉的景象渐渐消散，枯死的树木和附近一条黑色的河流在我眼前逐渐清晰起来。当我的视力恢复时，我听到了完全不同的声音，意识到自己到了一个全新的地方。我走出去，走进一片空地，下面是一片被炸毁的山坡。当我环顾四周寻找方向时，我可以看到许多矮人、人类和半身人朝着一座大城市的破败城门涌去，看来这座城市就是纳格尔王国的首都。
+我感谢将军，然后被护送到一个画有符文图案的小圆圈中。法师们开始吟诵，双手交织比划。我的视线模糊起来，四周的景物仿佛也在舞动。随后，随着埃尔瓦拉的景象渐渐消散，枯死的树木和附近一条黑色的河流在我眼前逐渐清晰起来。当我的视力恢复时，我听到了完全不同的声音，意识到自己到了一个全新的地方。我走出去，走进一片空地，下面是一片被炸毁的山坡。当我环顾四周寻找方向时，我可以看到许多矮人、人类和半身人朝着一座大城市的破败城门涌去，看来这座城市就是纳格尔王国的首都。
 
-我把箱子放进背包里，开始朝通往大门的路走去。我原以为这只是我回到家乡森林的路途中的短暂停留，却不知道这预示着我又一次冒险的开始。我在纳格尔王国境内目睹了种种暴行，其规模也只有魔法大爆炸造成的破坏能够盖过。这就是后来被称为魔法狩猎之事件的开端；它至今仍在马基·埃亚尔蔓延，并有可能把各个种族推向毁灭的边缘。]], "_t")
+我把箱子放进背包里，开始朝通往大门的路走去。我原以为这只是我回到家乡森林的路途中的短暂停留，却不知道这预示着我又一次冒险的开始。我在纳格尔王国境内目睹了种种暴行，其规模也只有魔法大爆炸造成的破坏能够盖过。这便是后来被称为魔法狩猎的事件的开端；它至今仍在马基·埃亚尔蔓延，并有可能把各个种族推向毁灭的边缘。]], "_t")
 t("Escapades of Fay Willows [Book 2, Chapter 1] - At The Gates", "菲·维莉欧斯的冒险 [第2卷，第1章] - 大门口", "_t")
 t([[[i]While on the surface the Nargols appeared to be in total control of the situation, underneath it all this was very much not the case. In order to attempt to mitigate trouble they actively attempted to confiscate any and all magical items they could find from the refugees entering the city, and hide their leaders from being assassinated for their parts in the Spellblaze. Spellcasters in their army were sent underground, mindful of the danger they were in, but also not wishing to incite angry citizens further.[/i]
 
@@ -1246,7 +1246,7 @@ Cautiously I asked in as angry of a voice as I could muster, "Spellblaze, is tha
 
 Obviously the messenger was likely part of whatever group the shalore general had feared. I could tell that the messenger most definitely was in whatever schemes were being orchestrated too, and possibly ones that required secrecy as confirmed from the cloaked man from before. I considered going to his little gathering of friends, but I wasn't really interested in participating in whatever scheme they were going to partake in, and I could sense a feeling of danger as well. "I thank you for the offer, but I must decline" I finally said. To this I got a raised eyebrow as he quickly stated back, "Really, I would think a thalore such as yourself would jump at a chance to exact retribution against any who defile nature as has been done?"
 
-His words made me think for a moment, but I simply got up and left. I remember him calling out that should I change my mind, that I would be 'welcomed as a new initiate for sure'. The sun had begun to set in the sky as I left the building. Figuring I should look for a place to stay for the night I found an inn and purchased a room. I figured that in the morning I would go to the market and buy some food and supplies for my journey home. I slept soundly until early in the morning before the sun had begun to rise when the sounds of screaming filled my ears. Wondering what was going on I looked out the window of my room to see fire and smoke rising from a large building in the distance.]], [[[i]你知道吗，了解一个人真的很难。我很快就发现那个信使就是一个很好的例子。我原来以为他是一个因为遭受了魔法大爆炸而心怀不满的人。实际上，他不仅仅是内心不满，我相信他或许还是那个煽动魔法狩猎的组织的成员。我很确信，他以及其他随那个黑袍人类离开的人，都因参与一场我次日才得知的邪恶阴谋而死。但他是自愿死去的吗？这是我如今想到他时真正思考的问题。[/i]
+His words made me think for a moment, but I simply got up and left. I remember him calling out that should I change my mind, that I would be 'welcomed as a new initiate for sure'. The sun had begun to set in the sky as I left the building. Figuring I should look for a place to stay for the night I found an inn and purchased a room. I figured that in the morning I would go to the market and buy some food and supplies for my journey home. I slept soundly until early in the morning before the sun had begun to rise when the sounds of screaming filled my ears. Wondering what was going on I looked out the window of my room to see fire and smoke rising from a large building in the distance.]], [[[i]你知道吗，了解一个人真的很难。我很快就发现那个信使就是一个很好的例子。我原来以为他是一个因为遭受了魔法大爆炸而心怀不满的人。实际上，他不仅仅是内心不满，我相信他或许还是那个煽动魔法狩猎的组织的成员。我很确信，他以及其他随那个披着深色斗篷的人类离开的人，都因参与一场我次日才得知的邪恶阴谋而死。但他是自愿死去的吗？这是我如今想到他时真正思考的问题。[/i]
 
 吃完饭，我决定向这个信使打探消息。他结束最后一通激昂斥责后，我问道：“这里的情况怎么样？”那人叹了口气，回答说：“纳格尔人看起来把一切都控制住了。他们设法为不断涌入的所有难民弄到了足够的食物，甚至还给那些矮人弄了些酒。不得不说，在这里看到他们真让人意外。我不知道除了钢铁王座之外，他们在大陆其他地方是不是还有家园。不过矮人如此守口如瓶，实在很难弄清楚。”
 
@@ -1256,15 +1256,15 @@ His words made me think for a moment, but I simply got up and left. I remember h
 
 他摇摇头，继续自言自语道：“纳格尔人正积极没收魔法物品，想借此安抚住在这里的半身人。他们说，平民携带这种物品太危险了。我倒觉得任何人携带都太危险，包括他们自己。当然，他们傲慢得懒得要求城里原有的半身人交出这类东西，只指望那些人‘自愿’上缴。实际上，被夺走财物的只有矮人、城外来的半身人难民，还有我们人类。”那个人类说完便笑了起来。
 
-一个披着深色斗篷的人走近，俯身对他说了些什么，信使便止住笑声，向那人点头答道：“我晚点赶上。等我们准备好时，把计划传回来给我。”黑袍人鞠了一躬，匆匆走到另一张坐着两个半身人的桌旁，又去了一个矮人的桌旁，随后离开酒馆，不见踪影。两个半身人和那个矮人吃完食物，收拾好东西，也悄悄离开了。我正琢磨这个信使究竟是什么人，瞥向他时却看到一双审视的眼睛也正望着我。信使用轻松的语气说道：“别管他们，我们聊得这么愉快，可别让别人搅了兴致。”
+一个披着深色斗篷的人走近，俯身对他说了些什么，信使便止住笑声，向那人点头答道：“我晚点赶上。等我们准备好时，把计划传回来给我。”那披着深色斗篷的人鞠了一躬，匆匆走到另一张坐着两个半身人的桌旁，又去了一个矮人的桌旁，随后离开酒馆，不见踪影。两个半身人和那个矮人吃完食物，收拾好东西，也悄悄离开了。我正琢磨这个信使究竟是什么人，瞥向他时却看到一双审视的眼睛也正望着我。信使用轻松的语气说道：“别管他们，我们聊得这么愉快，可别让别人搅了兴致。”
 
 那一刻，我意识到这个信使远不止我最初以为的那么简单，也许比我估计的更加危险。我有些冒失地决定试探他究竟知道多少，于是低声问道：“你们是否碰巧有对付永恒精灵的计划？”信使的站姿几乎立刻改变了，他换了种语气说道：“啊，要是能把那些可悲的混账从埃亚尔表面抹去，该有多好。我猜你离开森林，是因为知道他们才是罪魁祸首，只想沐浴在他们的鲜血里。我们大多数人不都如此吗？迟早他们要为在马基·埃亚尔引发魔法大爆炸付出全部代价。”
 
-我小心翼翼地尽可能用愤怒的语气问道：“你们把那个叫做魔法大爆炸？”他迅速肯定了这一说法：“是的，至少别人是这样告诉我的。”这个男人看起来很愿意聊天，我等着他吐露更多的消息。“我告诉你，或许你应该和我一起去参加那个小型的朋友聚会，一起讨论这个问题。我们已经有了一个计划，很快就会付诸行动，确保大自然不再遭受如此深重的苦难。我相信，身为自然精灵，你一定能感受到它的痛苦。你知道，永恒精灵无疑要对此负责，但其他种族也不是对他们所谓的伟大计划一无所知。或许除了矮人，每一个种族都对魔法大爆炸有一定了解。”
+我小心翼翼地尽可能用愤怒的语气问道：“魔法大爆炸，他们是这么叫的？”他迅速肯定了这一说法：“是的，至少别人是这样告诉我的。”这个男人看起来很愿意聊天，我等着他吐露更多的消息。“我告诉你，或许你应该和我一起去参加那个小型的朋友聚会，一起讨论这个问题。我们已经有了一个计划，很快就会付诸行动，确保大自然不再遭受如此深重的苦难。我相信，身为自然精灵，你一定能感受到它的痛苦。你知道，永恒精灵无疑要对此负责，但其他种族也不是对他们所谓的伟大计划一无所知。或许除了矮人，每一个种族都对魔法大爆炸有一定了解。”
 
-很显然，这个信使很可能就是永恒精灵将军所担心的那个组织的一员。我看得出，信使也确实参与了正在筹划的某些阴谋，而且可能参与的是需要保密的阴谋——先前那个黑袍人的举动印证了这一点。我考虑过参加他的朋友聚会，但并不想卷入他们准备实施的任何阴谋，也感到一丝危险。“感谢你的邀请，但是我必须拒绝。”我最终说道。听到这个回答，信使挑了下眉，立刻回答：“说真的，像你这样的自然精灵，难道不想抓住机会，报复任何像这样玷污自然的人吗？”
+很显然，这个信使很可能就是永恒精灵将军所担心的那个组织的一员。我看得出，信使也确实参与了正在筹划的某些阴谋，而且可能参与的是需要保密的阴谋——先前那个披着深色斗篷的人的举动印证了这一点。我考虑过参加他的朋友聚会，但并不想卷入他们准备实施的任何阴谋，也感到一丝危险。“感谢你的邀请，但是我必须拒绝。”我最终说道。听到这个回答，信使挑了下眉，立刻回答：“说真的，像你这样的自然精灵，难道不想抓住机会，报复任何像这样玷污自然的人吗？”
 
-他的话让我想了一会儿，但是我最终站起来，然后离开了。我记得他大声喊道，如果我改变主意，就“肯定会作为新成员受到欢迎”。当我离开酒馆时，太阳已经开始落山了。考虑到我应该找一个地方过夜，我找到一个旅店然后开了一个房间。我打算早上的时候去市场买一些食物和补给为回家做准备。我一直睡得很沉，直到清晨太阳还没升起时，被阵阵尖叫声惊醒。我想知道发生了什么事情，我向房间窗外望去，看见远处的大楼燃起了大火，冒着浓烟。]], "_t")
+他的话让我想了一会儿，但是我最终站起来，然后离开了。我记得他大声喊道，如果我改变主意，就“肯定会作为新成员受到欢迎”。当我离开酒馆时，太阳已经开始落山了。考虑到我应该找一个地方过夜，我找到一个旅店然后开了一个房间。我打算早上的时候去市场买一些食物和补给为回家做准备。我一直睡得很沉，直到清晨太阳还没升起时，被阵阵尖叫声惊醒。我不知出了什么事，便朝房间窗外望去，只见远处一栋大楼燃起大火，冒着浓烟。]], "_t")
 t("Escapades of Fay Willows [Book 2, Chapter 3] - Blazing Madness", "菲·维莉欧斯的冒险 [第2卷，第3章] - 燃烧的疯狂", "_t")
 t([[[i]In the market I purchased several items to help me for when I forged my way back towards Thaloren lands. I bought about three weeks worth of rations for myself as I had planned to perhaps 'explore' a little bit before finally arriving home. I also procured a fine steel utility knife and a steel hatchet. I wasn't sure I would really need this much for my journey, I could likely have explored the entirety of Maj'Eyal with it, but I never imagined what role everything I bought in that market would soon come to play in the future.[/i]
 
@@ -1280,21 +1280,21 @@ The halfling stopped talking to look up at something with a concerned expression
 
 This continued for several minutes before the first guards appeared to have restored order. It took the guards several minutes to assemble themselves, within which the refugees continued to wreck a good deal of the market. When the guards finally moved in to clear them out, many of the refugees scattered, leaving debris and injured merchants and patrons everywhere. As order was restored to the scene, some guards came to check to see if I was alright before one of the guards pulled me aside to interrogate me as to what had happened. I relayed back to the guard the events as I had seen them unfolded. After telling my account I was directed to leave the area.
 
-Moving away from the market I wondered what other scenes of chaos I might see if I remained within the Nargol city. While I had evaded danger, it could have very well been me getting trampled or knocked aside in that market. I made a decision then to begin making my way back towards the city gates. As I made my way towards the gates though I noticed a gathering mob of refugees and even some citizens in front of me. I should have headed past them but beyond them I heard a voice ringing out above. "The time has come for action, but it must be directed at the source of those behind all the harm." I stopped and turned my head as I heard the words, something compelling me to stay and listen to what was being said. Drawn in by the voice I began to make my way towards the outskirt of the crowd.]], [[[i]在市场上，我买了几件东西，为返回自然精灵的土地做准备。我给自己买了大约三个星期的口粮，因为我原本想着，也许可以在到家之前先“探索”一番。我还采购了一把精致的钢制实用刀和一把钢制斧头。我不确定这趟旅程是否真的需要这么多东西，这些物资很可能足够我探索整个马基·埃亚尔，但我从未想过，在那个市场买的东西很快会派上怎样的用场。[/i]
+Moving away from the market I wondered what other scenes of chaos I might see if I remained within the Nargol city. While I had evaded danger, it could have very well been me getting trampled or knocked aside in that market. I made a decision then to begin making my way back towards the city gates. As I made my way towards the gates though I noticed a gathering mob of refugees and even some citizens in front of me. I should have headed past them but beyond them I heard a voice ringing out above. "The time has come for action, but it must be directed at the source of those behind all the harm." I stopped and turned my head as I heard the words, something compelling me to stay and listen to what was being said. Drawn in by the voice I began to make my way towards the outskirt of the crowd.]], [[[i]在市场上，我买了几件东西，为返回自然精灵的土地做准备。我给自己买了大约三个星期的口粮，因为我原本想着，也许可以在到家之前先“探索”一番。我还买了一把精良的钢制多用途小刀和一把钢制手斧。我不确定这趟旅程是否真的需要这么多东西，这些物资很可能足够我探索整个马基·埃亚尔，但我从未想过，在那个市场买的东西很快会派上怎样的用场。[/i]
 
-透过窗户，我看到城里许多居民跑去帮忙灭火。他们很快就封锁了这一地区，防止火势进一步蔓延，但尽管他们努力灭火，仍有许多房屋在火势得到完全控制之前被烈焰吞没。不久，许多士兵赶到并推开了所有人，包括那些帮助灭火的居民。大火又烧了一会儿，不过火势很快就开始减弱。我不知道他们是怎么做到的，但大火不久之后便逐渐平息了。也许是一些法师从藏身处出来，秘密地用水魔法把它扑灭了？很难想出其他的解释。
+透过窗户，我看到城里许多居民跑去帮忙灭火。他们迅速封锁这片区域，阻止火势继续蔓延。尽管尽力扑救，仍有许多房屋在火势完全受控前被烈焰吞没。不久，许多士兵赶到并推开了所有人，包括那些帮助灭火的居民。大火又烧了一会儿，不过火势很快就开始减弱。我不知道他们是怎么做到的，但大火不久之后便逐渐平息了。也许是一些法师从藏身处出来，秘密地用水魔法把它扑灭了？很难想出其他的解释。
 
-当火势逐渐减弱时，一些士兵前去检查烧毁的房屋，搜寻可能没能逃出火海的人。在那之后，他们继续调查起火的那栋楼。我注意到在一些士兵进入大楼后，他们拿出了几捆裹着毯子的包裹。我后来知道，这些包裹是那些涉嫌引发火灾之人的遗骸。无论是意外还是故意，他们都是被自己的纵火行为烧死的。我知道那些被烧死的人包括一个人类、两个半身人和一个矮人。我很高兴，我及时离开了那个信使身边。
+当火势逐渐减弱时，一些士兵前去检查烧毁的房屋，搜寻可能没能逃出火海的人。在那之后，他们继续调查起火的那栋楼。我看见几名士兵进了大楼，随后从里面搬出几团用毯子包裹的东西。后来我才知道，毯子里裹着的，是那些涉嫌引发火灾之人的遗骸。无论是意外还是故意，他们都是被自己的纵火行为烧死的。我还得知，被烧死的是一个人类、两个半身人和一个矮人。我真庆幸自己当时就离开了那个信使。
 
 这段时间我一直呆在房间里。当我最后离开时，我和店主谈了这件事，得知这栋楼里存放着许多从难民手中没收的财物。当我离开旅馆时，我能听到街上许多居民的谈话，他们都在说，仓库里的魔法物品几乎全被摧毁了。他们还低声议论，说附近一些住户，以及几名最初前来帮忙灭火的居民，可能已被大火烧死。
 
-在我去纳格尔市场的路上，人们不断地谈论这场火灾。就连市场里的许多商人和顾客，也还在谈论这件事。在我买完东西后，我想起另一位顾客提到过难民们相当不满。我转身走向那位顾客，说：“难民们为什么会心烦意乱呢？”这位顾客是一个半身人，穿着相当漂亮的衣服，但看样子是干普通营生的；他转过身来，一脸惊愕地看着我。我叹了口气，很快就说：“是的，我是自然精灵，难民怎么了。”“你真的是，”半身人很快就说：“我不知道他们为什么这么不高兴。我以为他们会满足于得到食物和饮水，以及被允许在城市里搭起那些可怜的帐篷。可是，刚才那场火灾似乎把他们惹火了。”
+在我去纳格尔市场的路上，人们不断地谈论这场火灾。就连市场里的许多商人和顾客，也还在谈论这件事。在我买完东西后，我想起另一位顾客提到过难民们相当不满。我转身走向那位顾客，说：“难民们为什么会心烦意乱呢？”这位顾客是一个半身人，穿着相当漂亮的衣服，但看样子是干普通营生的；他转过身来，一脸惊愕地看着我。我叹了口气，很快就说：“是的，我是自然精灵，难民怎么了。”“还真是，”半身人立刻说道：“我不知道他们为什么这么不高兴。我以为他们会满足于得到食物和饮水，以及被允许在城市里搭起那些可怜的帐篷。可是，刚才那场火灾似乎把他们惹火了。”
 
 那半身人停止说话，神色忧虑地抬头看着某样东西，然后转过身，突然跑了起来。在半身人逃跑时，我很快就听到身后的喊声。我转过身来，看到一大群衣衫褴褛的难民冲过摊位，商人们开始逃跑。难民们所过之处，摊位的木头被砸碎，布也被撕破。我朝相反的方向离开了他们，但是那些走不开的顾客和商人被暴民撞倒和践踏。一些人试图反抗暴民或保护他们的摊位，结果被推倒在地，打得遍体鳞伤。
 
-这种情况持续了几分钟，第一批警卫才赶来恢复秩序。卫兵们花了几分钟才集合起来，在此期间，难民们继续肆意破坏，市场很大一部分都被捣毁了。当警卫们最终进场清理时，许多难民四散，到处都是瓦砾、受伤的商人和顾客。当现场的秩序终于恢复时，一些卫兵来询问我是否没事，紧接着，其中一个卫兵把我拉到一边，盘问我发生了什么事。我把我所看到的事情都告诉了警卫。听完我的叙述后，他们示意我离开这个地区。
+这种情况持续了几分钟，第一批守卫才赶来恢复秩序。守卫们花了几分钟才集合起来，在此期间，难民们继续肆意破坏，市场很大一部分都被捣毁了。当守卫们最终进场清理时，许多难民四散，到处都是瓦砾、受伤的商人和顾客。当现场的秩序终于恢复时，一些守卫来询问我是否没事，紧接着，其中一个守卫把我拉到一边，盘问我发生了什么事。我把我所看到的事情都告诉了守卫。听完我的叙述后，他们示意我离开这个地区。
 
-离开市场后，我难以想象，如果我继续留在纳格尔城，我还会看到怎样混乱的景象。虽然我侥幸躲过了危险，但在那个市场里被践踏、被撞倒的很可能就是我。我决定开始往城门走。当我朝大门走去的时候，我注意到前面聚集着一群难民，甚至还有一些市民。我本该从他们身边走过，但在他们身后，我听到一个声音从高处传来。“现在就是采取行动的时候了，我们必须把矛头指向造成这一切伤害的幕后黑手的源头，”听到这些话时我停下脚步，转过头。似乎有某种东西在迫使我留下来，听那个人所说的话。我被那声音吸引，开始向人群的边缘走去。]], "_t")
+离开市场后，我难以想象，如果我继续留在纳格尔城，我还会看到怎样混乱的景象。虽然我侥幸躲过了危险，但在那个市场里被践踏、被撞倒的很可能就是我。我决定开始往城门走。当我朝大门走去的时候，我注意到前面聚集着一群难民，甚至还有一些市民。我本该从他们身边走过，但在他们身后，我听到一个声音从高处传来。“现在是采取行动的时候了，我们必须把矛头指向造成这一切伤害的根源。”听到这番话，我停下脚步，转过头去。似乎有某种东西在迫使我留下来，听那个人所说的话。我被那声音吸引，开始向人群的边缘走去。]], "_t")
 t("Escapades of Fay Willows [Book 2, Chapter 4] - Despicable Atrocities", "菲·维莉欧斯的冒险 [第2卷，第4章] - 卑鄙的暴行", "_t")
 t([[[i]Was it anger against magic that drove people to the acts of violence against mages in the aftermath of the Spellblaze or was it perhaps something else? While I can't say I am an expert on the humans, halflings, or dwarves; the depravity I would witness on the street leading out of the Nargol Kingdom would go beyond what I would expect to have been possible for any sentient being to do.[/i]
 
@@ -1316,15 +1316,15 @@ The burning victims immediately began to let loose a torrent of screams as the s
 
 The horribleness of the act truly sickened me to my very being, but I was perhaps more sickened by what the voice would come to say next. "You all have done well, but it will take more than this to make our world safe" the voice said. "If you wish you can join me in the fight for nature and we can ensure that arcane forces like those that have brought us misery will never threaten the world again. Find me and be welcomed as a new initiate for our cause to save Eyal." I remember that I could see many of the masked individuals disappear into the crowds at this point, their aims achieved. I would come to learn very quickly as well just how much of an impact there words would have on that mob in front of me too.
 
-A group of the Nargol Guards would eventual appear and they began to gather themselves to disperse the crowd and restore order. The crowd offered little resistance to the encroaching force of guards that rushed forward, and many fled into the dark alleys of buildings or through the tents of the refugees. As the guards took control of the area, their attention turned towards the simmering fire and the charred corpses. Cries of anguish came from individuals who I assumed to be loved ones and friends of those killed. At this point I could take no more of the events that were unfolding in front of me, and I turned to leave the area and the fiery carnage that had taken place. However as I passed by a tent a hand reached out of its opening, throwing me inside.]], [[[i]是对魔法的愤怒，驱使人们在魔法大爆炸后对法师施暴，还是其他原因？虽然我不能说我是人类、半身人或矮人的专家，但在通往纳格尔王国外的街道上，我目睹的暴行如此堕落，超出了我对任何智慧生物所能做出的恶行的想象。[/i]
+A group of the Nargol Guards would eventual appear and they began to gather themselves to disperse the crowd and restore order. The crowd offered little resistance to the encroaching force of guards that rushed forward, and many fled into the dark alleys of buildings or through the tents of the refugees. As the guards took control of the area, their attention turned towards the simmering fire and the charred corpses. Cries of anguish came from individuals who I assumed to be loved ones and friends of those killed. At this point I could take no more of the events that were unfolding in front of me, and I turned to leave the area and the fiery carnage that had taken place. However as I passed by a tent a hand reached out of its opening, throwing me inside.]], [[[i]是对魔法的愤怒，驱使人们在魔法大爆炸后对法师施暴，还是其他原因？虽然我谈不上熟悉人类、半身人或矮人，但在通往纳格尔王国外的街道上，我将要目睹的恶行之残酷，远远超出了我对任何智慧生物的想象。[/i]
 
-当我凝视时，声音又响起了。“你们胡乱地把怒火指向不该受责难的人，我说，应当把怒火指向造成所有悲剧的根源。”我开始在人群中挤过去，想知道谁在说话，他们在说什么。声音继续说：“无论在哪里发现魔法，它最终都会失败并带来灾难。今早发生的火灾就是一个例子，一群难民闯进仓库，试图取回他们被没收的魔法物品。因为他们的狂妄，他们借助其中物品蕴含的奥术力量烧毁了这座建筑。”
+当我凝视时，声音又响起了。“你们胡乱地把怒火指向不该受责难的人，我说，应当把怒火指向造成所有悲剧的根源。”我开始在人群中挤过去，想知道谁在说话，他们在说什么。声音继续说：“无论魔法存在于何处，它迟早都会失控，带来灾难。今早发生的火灾就是一个例子，一群难民闯进仓库，试图取回他们被没收的魔法物品。因为他们的狂妄，他们借助其中物品蕴含的奥术力量烧毁了这座建筑。”
 
 我朝中间走去，抬头看见一个半身人和一个人正对着人群。他们都戴着面具，隐藏了身份，但我认出了人类穿的深色斗篷。见那个人类举起手臂，我猜是他在说话，但我不能肯定，因为面具遮住了他们的面部表情。声音又响了起来：“这场大火夺去了许多在附近家中熟睡的居民的生命，又有更多人死于魔法。这件事唯一称得上好事的是，他们试图拿走的那些魔法物品，有许多在随后的大火中被焚毁，再也不会玷污这个世界。”
 
-那些话刺入我的脑海，随着那人继续说下去，我能感觉到他声音中的愤怒。我看到周围的人也被这些话及其中的情绪所左右。很多人开始高叫着：“魔法就是一切的罪魁祸首”和“消灭所有魔法”这样的话，声音又在继续，“当然，你也亲眼见到了魔法所带来的一切灾难。就像刚才那些导致仓库被烧毁的行为一样，是永恒精灵法师发动了魔法大爆炸，摧毁了土地，扭曲了天空。正如我刚才说的，无论在哪里有魔法，它最终都会失败并带来灾难。”
+那些话刺入我的脑海，随着那人继续说下去，我能感觉到他声音中的愤怒。我看到周围的人也被这些话及其中的情绪所左右。很多人开始高叫着：“魔法就是一切的罪魁祸首”和“消灭所有魔法”这样的话，声音又在继续，“当然，你们早已亲眼见识过那些灾难，何须我再多说。就像刚才那些导致仓库被烧毁的行为一样，是永恒精灵法师发动了魔法大爆炸，摧毁了土地，扭曲了天空。正如我一直在说的，无论魔法存在于何处，它迟早都会失控，带来灾难。”
 
-那人继续说了下去，说话的速度越来越快，越来越有激情。“不可否认，摆脱魔法的影响，我们会过得更好，以免我们看到的这些灾难继续重演。纳格尔摄政者在搜寻时不会对这座城市内的半身人采取任何行动。如果我们要保护我们的世界，我们就必须自己承担这个任务。任何带有魔法性质的神器或物品都必须被识别并立即销毁，以防造成伤害。我们还必须确保那些学习魔法，或者与可悲的奥术魔法活动有任何联系的人都被清洗，以免他们在傲慢中引发另一场灾难。”
+那人继续说了下去，说话的速度越来越快，越来越有激情。“不可否认，摆脱魔法的影响，我们才能过得更好；我们必须这么做，免得这些灾难一再重演。纳格尔摄政者在搜寻时不会对这座城市内的半身人采取任何行动。如果我们要保护我们的世界，我们就必须自己承担这个任务。任何带有魔法性质的神器或物品都必须被识别并立即销毁，以防造成伤害。那些施展奥术魔法，或与这些可憎行径有任何牵连的人，我们也必须一并处置，以免他们因傲慢而引发另一场灾难。”
 
 这时，人群开始大喊“摧毁奥术魔法”、“杀光法师们！”和“结束一切魔法！”。我自己也开始感受到这种情绪，但还是克制住了加入他们的冲动。很快，这个声音开始发出指令，要求把木头运到街上，并开始审判。人群开始在附近的建筑物中散开，他们开始把木头堆在地上。更多戴面具的人开始向前走，肩上扛着木桩和一大捆绳子。我看着那些木桩被竖立在堆好的木头中，高高指向天空，心里充满了疑惑。
 
@@ -1334,7 +1334,7 @@ A group of the Nargol Guards would eventual appear and they began to gather them
 
 当灼热沿着身体蔓延、皮肤开始变黑并燃烧时，火刑的受害者立即发出一连串痛苦的尖叫。当这一切发生的时候，我听见那个煽动周围人实施这些暴行的声音发出一声凄厉的叫喊，在我的脑海中回荡。其他人也跟着呐喊起来，他们的高叫声逐渐增强，以至于在受害者慢慢死去的过程中，我只能听到他们的叫喊声。我记得，自己摇摇晃晃地走到一栋楼旁，控制不住地干呕起来。
 
-这种可怕的行为确实让我感到无比恶心，但那个声音接下来说的话，或许更令我感到反胃。“你们都做得很好，但要使我们的世界安全，我们还需要更多的努力，”那个声音说道：“如果你愿意，你可以和我一起为自然而战，我们可以确保，像那些曾给我们带来痛苦的奥术力量一样的力量，永远不会再次威胁世界。加入我们，成为我们拯救埃亚尔的事业的新兵吧！”我看到许多蒙面人在此时消失在人群中，他们的目标实现了。我很快就会明白，这些话对我面前的暴徒也会产生多大的影响。
+这种可怕的行为确实让我感到无比恶心，但那个声音接下来说的话，或许更令我感到反胃。“你们都做得很好，但要使我们的世界安全，我们还需要更多的努力，”那个声音说道：“如果你们愿意，可以和我一起为自然而战，让曾给我们带来苦难的那类奥术力量永远无法再威胁这个世界。来找我吧，我们欢迎你们成为新成员，为拯救埃亚尔而奋斗！”我看到许多蒙面人在此时消失在人群中，他们的目标实现了。我很快就会明白，这些话对我面前的暴徒也会产生多大的影响。
 
 一群纳格尔王国的卫兵最终出现了，他们开始聚集起来驱散人群，恢复秩序。人群对冲锋而来的卫兵几乎没有抵抗，许多人逃到建筑物的黑暗小巷或难民的帐篷里。卫兵控制了这一地区，他们的注意力转向了尚有余火的火堆和烧焦的尸体。一些人发出了痛苦的哭声，我猜他们是死者的亲人和朋友。此时此刻，我再也无法忍受眼前发生的一切，我转身离开了这片区域，远离这场烈火中的屠杀。然而，当我经过一个帐篷时，一只手伸出帐篷的开口，把我抓了进去。]], "_t")
 t("Escapades of Fay Willows [Book 2, Chapter 5] - Psionic Trickery", "菲·维莉欧斯的冒险 [第2卷，第5章] - 灵能诡计", "_t")
