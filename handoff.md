@@ -50,6 +50,8 @@ Exhaustion＝力竭、Parry＝招架、Summon＝召唤、Archmage＝元素法师
 - 11-05 流畅度定向复查（用户「请按照之前拟定的优先级开始扫描」）：P1（11-01 后 AI 改写、11-04 严格盲审前最后修改，1,205 单元）＋P2（10-13～10-31 修复窗口，646 单元）在 0354–0381 全部盲审完毕，confirmed 90 / advisory 10 / rejected 9，见 evidence/quality/fluency-recheck-20261105/README.md。0372 修复曾因管道吞错未落地，已补。用户 11-05 裁决：lore 中 equilibrium 两种译法均可（不改）；fay-willows 8d6b9fc7fd55 交 Gemini 4 Argon 整段重译（0382，0383 再修 1 句，0384 无问题）；lore 中 yard 译「码」（全库仅 2 处，已改，见 docs/distance-unit-ge-20261101.md 例外节）。
 - 11-05 Lore 单独筛查（evidence/quality/lore-screen-20261105/）：16 条需整体重译（retranslate-list.md，orcs 1c73f145ab27/4ca4e02e13e6 互换对须同步重译），169 条 LOCAL 待执行器分批修，均待用户批准。
 - 11-05/06 第六轮实机第三段（r6-opus，角色 Opus 10 级永久死亡，需新角色再测）：r6-opus-19..29 中 8 条在 0385 修复，0386–0388 盲审连带修 17 条（伤害吸收日志标签语序统一为「（X 抵消 %d 点）」、#Target# 空格、！#LAST#。双标点等），0389 收敛；r6-opus-25/29 为插件代码问题延后，21 advisory。Barrier 首行源串含「空格+TAB」，改该行会挂门禁 11，「最多」改由第二行表述。
+- 11-06 Lore 单独审核收尾（用户「交给gemini 4进行重译」「局部修改需慎重，复审又有问题应考虑重译」）：Gemini 4 Argon 共整篇重译 34 条（筛查 16＋局部修改后复审仍有意思错误或执行器标 ESCALATE 的 18 条），见 evidence/quality/lore-retranslate-20261106/；169 条 LOCAL 由 codex 执行器分 9 块修（fixed 160、escalate 9），见 evidence/quality/lore-local-20261106/；盲审 0386–0421 收敛，队列空。规则：复审后仍有意思错误或问题遍布→重译；短条目单句或用词问题→原地改。lore 中 foot/feet 用「英尺/英寸」（曾在 Gemini 提示中误写「尺」，已全部更正）。0386 起漏跑的 strict/record 已于 0420 补记。
+- 11-06 第七轮实机（r7-opus，兽人链锯屠夫，余烬怒火）进行中；用户 11-06：战斗日志 (%d 护盾吸收) 式短标签保持，6797/6801–6805 已改回。
 - 下一步：视用户指示发布 0.3.9 或再测（未覆盖：工匠商店购买、深层区域／Boss、手札大部分）。
 
 **待用户决定／未完成：**
