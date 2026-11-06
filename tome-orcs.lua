@@ -6507,7 +6507,7 @@ t("Resisting pain, reducing all incoming damage by %0.2f. When the effect ends, 
 t("maimed", "被致残", "effect subtype")
 t("To The Arms", "切臂", "_t")
 t("Damage reduced by %d%%.", "伤害减少 %d%%。", "tformat")
-t("#Target# is suffering and fails to concentrate on dealing damage.", "#Target#忍受痛苦，不能集中精力制造伤害。", "_t")
+t("#Target# is suffering and fails to concentrate on dealing damage.", "#Target#忍受痛苦，不能集中精力造成伤害。", "_t")
 t("#Target# is suffering less.", "#Target#的痛苦减轻了。", "_t")
 t("acid", "酸性", "effect subtype")
 t("Acid Burn", "酸液灼烧", "_t")

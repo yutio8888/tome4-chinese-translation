@@ -6794,11 +6794,11 @@ DIE !]], [[传送门在爆炸前把我们随机传送到了某个地方。
 ------------------------------------------------
 section "mod-tome/data/damage_types.lua"
 
-t("%s(%d warded)#LAST#", "%s（%d 被守护）#LAST#", "tformat")
+t("%s(%d warded)#LAST#", "%s（守护抵消 %d 点）#LAST#", "tformat")
 t("#Source# strikes #Target# in the darkness (%+d%%%%%%%% damage).", "#Source#在黑暗中打击了#Target#(%+d%%%%%%%% 伤害)。", "delayedLogMessage")
 t("Something", "某物", "_t")
 t("%s forces the iceblock to shatter.", "%s将冰块打破。", "logSeen")
-t("%s(%d to psi shield)#LAST#", "%s（%d 灵能盾吸收）#LAST#", "tformat")
+t("%s(%d to psi shield)#LAST#", "%s（灵能盾吸收 %d 点）#LAST#", "tformat")
 t("%s(%d blocked)#LAST#", "%s（%d 格挡）#LAST#", "tformat")
 t("%s(%d abyssal shield)#LAST#", "%s（%d 深渊护盾）#LAST#", "tformat")
 t("%s(%d antimagic)#LAST#", "%s（%d 反魔盾）#LAST#", "tformat")
@@ -24448,7 +24448,7 @@ This strength comes at a cost: you lose %d%% of your maximum life every turn.  T
 
 #{italic}#如果你走运，代价就是你的一切。#{normal}#]], "tformat")
 t("Self-Judgement", "自我审判", "talent name")
-t("#CRIMSON##Target# suffers from %s from #Source#, mitigating the blow!#LAST#.", "#CRIMSON##Target#承受了来自#Source#的 %s，降低了伤害！#LAST#。", "logCombat")
+t("#CRIMSON##Target# suffers from %s from #Source#, mitigating the blow!#LAST#.", "#CRIMSON##Target#承受了来自#Source#的%s，降低了伤害！#LAST#。", "logCombat")
 t("an attack", "一次攻击", "_t")
 t("damage", "伤害", "_t")
 t("%s(%d bled out#LAST#%s)#LAST#", "%s(%d 转为流血伤害#LAST#%s)#LAST#", "tformat")
@@ -28985,7 +28985,7 @@ t("Your golem is currently inactive.", "你的傀儡当前尚未被激活。", "
 t("Not enough space to invoke!", "没有足够的空间召唤！", "logPlayer")
 t("You invoke your golem to your side, granting it a temporary melee power increase of %d for 5 turns.", "你将傀儡拉到你身边，使它暂时性增加 %d 点近战物理强度，持续 5 回合。", "tformat")
 t("Golem Portal", "傀儡传送", "talent name")
-t("#Target# focuses on #Source#.", "#Target#将注意力集中到 #Source#。", "logCombat")
+t("#Target# focuses on #Source#.", "#Target#将注意力集中到#Source#身上。", "logCombat")
 t("Teleport to your golem, while your golem teleports to your location. Your foes will be confused, and those that were attacking you will have a %d%% chance to target your golem instead.", [[使用此技能后，你和傀儡将会交换位置。之前以你为目标的敌人有 %d%% 概率转而以傀儡为目标。]], "tformat")
 
 ------------------------------------------------
