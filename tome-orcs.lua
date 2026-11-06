@@ -6447,7 +6447,7 @@ t("#Target# no longer has molten iron blood.", "#Target#的血液不再是融化
 t("Seared", "烧焦", "_t")
 t("Fire resistance decreased by %d%% and mind save by %d.", "火焰抗性下降 %d%%，精神豁免下降 %d。", "tformat")
 t("#Target# is seared.", "#Target#烧焦了。", "_t")
-t("#Target# is no longer seared.", "#Target#不再烧焦。", "_t")
+t("#Target# is no longer seared.", "#Target#的烧焦状态解除了。", "_t")
 t("awesome", "惊人", "effect subtype")
 t("Awesome Toss", "华丽抛枪", "_t")
 t("All resistances increased by %d%%, randomly attacks two foes each turn at random.", "全部抗性提高 %d%%，每回合随机攻击敌人两次（可能是同一个敌人）。", "tformat")
