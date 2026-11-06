@@ -4233,7 +4233,7 @@ t([[You let your mind tap into your steam generators for energy, increasing your
 		Using a psionic talent will feedback into your generators, increasing your Steam power by %d for your next steamtech talent.
 		Using a steamtech talent will feedback into psionic focus, increasing your psi level by %d.
 		The effects increase with your Willpower.]], [[你让心灵从蒸汽发生器中汲取能量，按照当前蒸汽值的比例提高精神强度：蒸汽全满时提高 %d 点，蒸汽为 0 时不提高。
-		使用灵能技能会向发动机反馈，为你的下一个蒸汽科技技能提高 %d 点蒸汽强度。
+		使用灵能技能会向发生器反馈，为你的下一个蒸汽科技技能提高 %d 点蒸汽强度。
 		使用蒸汽科技技能会向灵能焦点反馈，使你的灵能值提高 %d 点。
 		效果随意志提高。]], "tformat")
 t("Improved Gestalt", "强化格式塔", "talent name")
@@ -4270,7 +4270,7 @@ t([[You concentrate your will to psychoport some of the steam of your generator 
 		When you deactivate the effect you release the accumulated psionic and steam energies, instantly switching places with the target location and releasing the charges in a fiery explosion of hot wet steam in radius 4.
 		The explosion will do %0.2f fire damage, multiplied by 33%% (diminutive) for each charge and apply the wet effect.
 		The effect will fizzle if the charged grid is currently occupied by a creature or not in sight.
-		The damage will increase with your Steampower.]], [[你集中意志，将发动机中的部分蒸汽精神传送至远处。每回合蒸汽都会在那里累积，最多 %d 层。
+		The damage will increase with your Steampower.]], [[你集中意志，将发生器中的部分蒸汽精神传送至远处。每回合蒸汽都会在那里累积，最多 %d 层。
 		当你解除该效果时，你会释放积累的灵能与蒸汽能量，瞬间与该地点互换位置，并在你原来的位置制造一次半径 4 格的炽热湿蒸汽爆炸。
 		爆炸造成 %0.2f 火焰伤害；每层充能都会使伤害提高 33%%（逐层递减），并施加浸湿效果。
 		如果目标地点已被生物占据或不在视线之内，则技能将失败。
@@ -4283,7 +4283,7 @@ t([[When you deactivate Vaporous Step, if the psychoport succeeds you inhale som
 		治疗量随精神强度提高。]], "tformat")
 t("Psionic Fog", "灵能之雾", "talent name")
 t([[Using the steam of your generators you shape it into a psionic fog that lasts %d turns. Any foes caught inside will take %0.2f damage per turn and be seared, reducing their fire resistance by %d%% and and mind save by %d.
-		The damage will increase with your Mindpower.]], [[你利用发动机产生的蒸汽，将其塑成持续 %d 回合的灵能之雾。任何陷入其中的敌人每回合都会受到 %0.2f 的伤害，并被烧焦，降低他们 %d%% 火焰抗性和 %d 精神豁免。
+		The damage will increase with your Mindpower.]], [[你利用发生器产生的蒸汽，将其塑成持续 %d 回合的灵能之雾。任何陷入其中的敌人每回合都会受到 %0.2f 的伤害，并被烧焦，降低他们 %d%% 火焰抗性和 %d 精神豁免。
 		伤害受精神强度加成。]], "tformat")
 t("Uncertainty Principle", "测不准原理", "talent name")
 t("#STEEL_BLUE#(%d quantum shifted)#LAST#", "#STEEL_BLUE#(%d 量子转移)#LAST#", "tformat")
@@ -8281,7 +8281,7 @@ Steam is created by special generators and is used to power most technological t
 It is very hard to increase your maximum steam capacity, but it regenerates quickly.
 Use it or lose it fast.
 ]], [[#GOLD#蒸汽#LAST#
-蒸汽是由特殊的发动机产生的，用来为大多数科技产品提供动力。
+蒸汽是由特殊的发生器产生的，用来为大多数科技产品提供动力。
 增加最大蒸汽容量是非常困难的，但它再生很快。
 要么使用它，要么很快失去它。
 ]], "_t")
