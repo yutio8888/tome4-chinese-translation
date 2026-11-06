@@ -13,5 +13,5 @@
 11 级（目标 14 级未达成），4 次死亡后冒险模式生命耗尽；泰勒西斯未击败。复核：02、05、06 及背部支撑架已生效。新增 4 条：
 - r7-opus-09 confirmed：「Created tinker: %s」两处（log/saySimple）「创造配件」→「配件制造完成：%s」，与技能名「制造配件」一致。
 - r7-opus-10 confirmed：manacave ground「法力山洞地面」→「魔法洞穴地面」，与对话、手札的 Mana Caves＝魔法洞穴一致。
-- r7-opus-11 pending（待用户决定，涉及术语统一）：steam generator 在库内有 蒸汽制造机／蒸汽机／蒸汽发生器 等译法。
+- r7-opus-11 confirmed（用户 2026-11-06「第11点开始修复」）：steam generator 统一为「蒸汽发生器」，terminology/items.tsv 新增 preferred 行；tome-orcs 6 处改动（蒸汽发生器植入物、植入物：蒸汽发生器及其说明、灵能、熔炉、武器连接三处技能说明），其余 3 处原已是蒸汽发生器。
 - r7-opus-08 confirmed，延后（插件代码）：vaporous-emporium/npcs.lua:60 男性平民 emote_random 为裸字符串，未包 _t。
