@@ -1534,25 +1534,25 @@ The mere sight of the commander in action inspired the other ogres, who immediat
 
 One by one other ogres began to join a growing chorus of agonizing cries as something set upon them. Peering out into the shadows I could see a small image rushing all around the battlefield in the direction of their origin. Suddenly as the image came to stop near a lake of lava I realized it was the masked halfling on leather armor. Catching an ogre nearby to the lava unaware, the halfling somehow knocked the ogre over, sending the ogre into the hot pool of burning death. Out of the darkness a couple more ogres appeared and one attempted to clobber the halfling with a violent blow. With a simple crouch the halfling ducked before quickly jabbing at the ogres stomach, and jumping up to land a devastating kick against the ogres head.
 
-The other ogre soon moved to attack the halfling, but with a sidestep the halfling simply moved out of the way before disappearing into the darkness. The ogre followed, but from the grunting and yelling it seemed that the ogre did not fare well either. The halfling would emerge again and again, knocking ogres down with seemingly ease, before escaping from counterattack. Ogres in the darkness would be attacked and shout in pain while those who strayed too close to the hazards of the landscape would soon find themselves sent spiraling into the deathtraps of the land. In an instant the battle had shifted in the fanatics favor, and panic and fear was beginning sweep over the ogres.]], [[[i]由于天空的黑暗和战场的焦土，很难看到任何东西，但我仍然非常详细地记得战斗的声音。熔岩和沸水的冒泡声，空气中充斥的战吼声，食人魔符文的魔法释放声，武器相互碰撞的声音，等等。当然，这些声音都比不上狂热者和食人魔临死时的哀嚎声。[/i]
+The other ogre soon moved to attack the halfling, but with a sidestep the halfling simply moved out of the way before disappearing into the darkness. The ogre followed, but from the grunting and yelling it seemed that the ogre did not fare well either. The halfling would emerge again and again, knocking ogres down with seemingly ease, before escaping from counterattack. Ogres in the darkness would be attacked and shout in pain while those who strayed too close to the hazards of the landscape would soon find themselves sent spiraling into the deathtraps of the land. In an instant the battle had shifted in the fanatics favor, and panic and fear was beginning sweep over the ogres.]], [[[i]由于天空昏暗，战场又是一片焦土，当时很难看清任何东西，但我依然清晰地记得交战时的种种声响，连细节都历历在目。熔岩与沸水翻腾冒泡的声音、回荡在空气中的战吼声、食人魔身上符文释放魔法的迸发声，以及兵刃相交的碰撞声，诸如此类。当然，这些声音都比不上狂热者与食人魔生命终结时的临死哀嚎。[/i]
 
-当我们接近的时候，我可以辨认出敌对势力中的狂热战士的形象。他们的战线由两排组成，前面是战士，后面是弓箭手。敌方人数远多于我们，看起来他们占了上风，不过我不确定事实是否真是如此。许多人没有戴面具，他们破烂的衣服让我想起纳格尔王国的难民。也许他们是一群新兵，被与他们站在一起的蒙面狂热者的话语所左右。这些新兵都挥舞着武器，但即使是我也能看出，他们根本不知道如何正确地使用武器。
+随着我们逼近，我渐渐能看清对面严阵以待的敌军中一个个狂热战士的模样。他们的战线排成两列，近战战士在前，弓箭手在后。我们在人数上远处于劣势，表面上看似乎是他们占了上风，不过我怀疑实际情况是否真是如此。他们当中许多人没有戴面具，一身破衣烂衫让我想起了纳格尔王国的难民。或许他们只是刚入伙的新兵，是被身边那些蒙面狂热者的话语煽动才加入进来的。这些新兵全都拿着武器，但就连我也看得出来，他们根本不懂该如何正确握持。
 
-小队里戴着面具的狂热者则是另一回事。他们娴熟地使用着武器，其中一些人穿着盔甲。周围熔岩的光从金属板、铁链和铆钉上反射出来，金属在黑暗中闪闪发光。他们大多数人站在前线，就连一些手持弓箭或投石索的人也不例外，或许是想身先士卒，鼓舞新兵。在那些脸上戴着面具的人中，我认出了一个熟人——那是我在纳格尔王国帐篷里遇到的半身人。与其他人不同的是，半身人仍然穿着我们第一次见面时的皮甲。我还记得那半身人敏锐的动作，不禁想，这可能会是一场多么艰难而血腥的战斗。
+队伍里那些戴着面具的狂热者则是另一回事。他们握持武器的架势很娴熟，其中几人还披着护甲。四周熔岩的火光映照在他们身上的甲片、锁链与铆钉上，反射出的金属光泽在黑暗中闪闪发亮。他们大多站在前排，就连一些手拿弓或投石索的人也是如此，八成是想身先士卒，以此激励那些新兵。在这些蒙面人当中，我还认出了一个身影——正是我曾在纳格尔王国的帐篷里遇到过的那个半身人。与其他人不同，这名半身人身上穿的依然是我们初次见面时的那套皮甲。我回想起那半身人矫捷迅敏的身手，暗自思忖这一战究竟会变得多么艰难而又血腥。
 
-狂热者高声喊叫，指挥周围的新兵做好自卫准备。当我们前进时，弹丸和箭矢以闪电般的速度向我们飞来，当两个食人魔被来袭的火力击中时，他们嚎叫起来。那些在我们队伍中使用临时投石索的食人魔很快就开始向对方投掷石块。他们的射击射中了前方的新兵们，那些被击中的人发出痛苦的叫喊，在茫然和困惑中摇摇晃晃，给狂热者的队伍里带来了混乱。然后我听到指挥官的一个命令，让我们停在离他们队伍不远的地方。狂热者看着突然停下的食人魔露出了困惑的表情，我必须承认我也陷入了困惑不解之中，直到我注意到几个食人魔举起了自己手臂。
+狂热者们高声呼喝，督促身边的新兵做好防御准备。随着我们向前推进，弹丸与箭矢如闪电般迎面袭来，几名食人魔被飞来的远程火力击中，发出了痛吼声。我们队伍里那些拿着简易投石索的食人魔也很快开始向敌阵投掷石块。大量石块密集地砸中前排的新兵，被砸中的人痛得大喊大叫，头晕目眩、不知所措地东倒西歪，把狂热者的阵线搅得一片混乱。这时我听到我们指挥官的一声号令，让我们在距离对方战线不远的地方停了下来。狂热者们满脸困惑地看着食人魔，老实说我也一样摸不着头脑，直到我注意到有几名食人魔举起了手臂。
 
-他们的符文覆盖的皮肤上的纹样开始发光，多彩的光芒立刻照亮了我们黑暗的环境。当我看向身边的一只食人魔时，我看到一道浅绿色的光芒环绕着她的手臂，突然间一股酸液喷涌出来。酸液扑向了几个狂热分子，浸透了他们的身体，使他们暴露在外的皮肤严重灼伤。紧接着，一道闪电从我身后射出，穿透了一个狂热者和他身后的一个新兵。一瞬间，我们面前的许多狂热者开始四处寻找掩护，无法应付食人魔向他们释放的力量的冲击。许多新兵在魔法齐射中倒下，而其他人则开始从敌阵中脱离，试图逃跑。
+刹那间，他们布满符文的皮肤上的印记开始发光，五颜六色的光芒照亮了我们原本昏暗的四周。我看向身边的一名食人魔，只见一道浅绿色的光芒环绕着她的手臂，紧接着便涌出一股酸液洪流。酸液猛烈地泼向几名狂热者，浇透了他们的身躯，使他们裸露在外的皮肤肉眼可见地灼烧起来。随后一道闪电从我身后向前疾射而出，瞬间贯穿了一名狂热者以及他身后的一名新兵。一时间，我们面前的许多狂热者纷纷四散寻找掩护，根本招架不住食人魔向他们倾泻而出的猛烈威能。许多新兵倒在了这轮魔法齐射之下，其余人则纷纷脱离敌方战线，四散奔逃。
 
-看起来，我们似乎重创了那群狂热分子，但接下来，我听到一声刺耳的叫声，非常像我在纳格尔王国听到的声音。当我环顾四周调查现在发生的事情时，突然发现周围的环境又变暗了。我可以看到，身边的一些食人魔试图举起他们的手臂，但他们皮肤上的纹样发出的光现在已经变暗，再也不起作用了。在我们面前，许多狂热分子受伤或死亡，倒在地上，但他们中的许多人仍然准备战斗。他们似乎立刻欢呼并高举剑刃，显然没有被食人魔对他们的攻击所吓倒。在我的余光中，我看到一个人影向前冲去。
+看起来我们似乎已迫使这群狂热者陷入被动，可就在这时，我听到了一声刺耳的尖啸，那凄厉的叫声与我此前在纳格尔王国听到过的声音极为相似。当我环顾四周、试图弄清眼下的状况时，突然发觉周围的景象又重新暗了下来。我看见身边的几名食人魔试图举起手臂，但他们皮肤上那些印记的光芒已经黯淡下去，再也无法奏效了。在我们前方，许多狂热者非死即伤地倒在地上，但仍有不少人屹立原地，随时准备再战。刹那间，他们似乎纷纷欢呼起来，敲击着手中的刀剑，显然并未因食人魔针对他们的攻势而气馁。不过，我眼角的余光瞥见一道身影正猛冲上前。
 
-在熔岩的光亮映照下，我认出这是我们的指挥官，他咬紧牙关，手里拿着我的斧头，在熔岩的光芒下闪闪发光。他高举手臂，冲向其中一个蒙面的狂热者，给了他一记重击，使他在空中向后翻滚，掉进一滩熔岩中。当我看到第一个狂热者被活活烧死时，我产生了一种黑暗的满足感；此人很可能参与过我先前目睹的火刑，这样的下场对他再合适不过。敌人的喊叫声停止了，指挥官转向他身边一个颤抖的新兵。食人魔用斧头轻轻一挥，就把新兵的头从身体上划开，头颅飞过半空，落在相当远的地方。
+那身影从一片熔岩旁奔过，我看清那是我们的指挥官，他咬紧牙关，手中紧握着我的手斧，斧刃在熔岩的火光映照下闪闪发亮。他向后抡起手臂，逼近一名蒙面狂热者，一记重击将对方凌空打得倒飞出去，直坠入一处熔岩池中。我记得当看到这第一个狂热者被活活烧死时，心底涌起了一股阴暗的快意；对于一个十有八九参与过我此前亲眼目睹的那些火刑的人来说，这样的下场再合适不过。敌阵中的呼喝叫嚣声顿时戛然而止，而指挥官则转向身旁一名吓得发抖的新兵。这名食人魔只是拿手斧随手一挥，便将那新兵的头颅从躯体上利落地斩下，头颅在半空中飞过，落在了相当远的地方。
 
-指挥官的行动激发了其他食人魔的勇气，他们立即加入了屠杀。在这些巨人的面前，许多其他的新兵们立刻被恐惧压倒了，当食人魔靠近时，他们迅速逃跑。许多蒙面的狂热者留下来战斗，但他们很快就被用拳头和树干殴打致死。那些身穿盔甲的狂热者仍然坚守阵线，但也一个接一个被打倒。敌人在我们面前一个个倒下，我确信这场战斗快要胜利了。直到我看到一位食人魔在我头顶的空中飞过，坠落到附近沸腾的海水中。
+单是看到指挥官大发神威的模样，便极大地鼓舞了其他食人魔，他们当即发起了冲锋，投入到这场屠杀之中。面对高墙般压过来的庞大身躯，残存的新兵们明显慌了神，随着食人魔逼近，许多人开始掉头逃窜。许多蒙面狂热者留下来死战，但很快便遭到围攻，被铁拳和树干活活砸死。那些身披护甲的狂热者还能多撑一会儿，但也在被一个接一个地解决掉。敌人在我们面前纷纷倒下，我确信这场战斗已经胜券在握。直到我看见一名食人魔从我头顶的半空中飞过，一头栽进了附近沸腾的海水里。
 
-食人魔一个接一个地遭到某物袭击，痛苦的哀嚎汇成一片。透过阴影，我可以看到一个小小的身影在战场上四处奔腾，朝惨叫传来的方向冲去。当这个身影停在熔岩湖边时，我注意到那是一个身穿皮甲的蒙面半身人。半身人趁熔岩附近的一只食人魔不备，不知用什么手段将其打翻，然后将食人魔扔进了灼热的死亡池。黑暗中又出现了几个食人魔，其中一个试图用猛烈的攻击击打半身人。半身人轻松地蹲下躲开了，迅速地戳向食人魔的腹部，然后跳起来向食人魔的头部踢去毁灭性的一脚。
+随着某个东西向他们发起袭击，其他食人魔也一个接一个地发出痛苦的哀嚎，惨叫声此起彼伏、愈演愈烈。我凝神望向阴影深处，只见顺着惨叫声传来的方向，有一个矮小的身影正在战场上四处疾奔。突然间，那道身影在一片熔岩湖旁停下脚步，我这才看清那正是身穿皮甲的蒙面半身人。半身人趁熔岩旁的一名食人魔猝不及防，不知用什么手法将他掀翻在地，直接送进了那处灼热夺命的熔岩池中。黑暗中又冲出几名食人魔，其中一人挥起猛烈的一击，企图将半身人砸死。半身人只是轻轻一蹲便闪开了攻击，紧接着疾刺食人魔的腹部，随后高高跃起，朝着食人魔的脑袋踢出了极具毁灭性的一脚。
 
-另一只食人魔很快上前攻击半身人，但半身人向旁边一闪，轻易躲过，随后消失在黑暗中。食人魔紧随其后，但从咕哝和叫喊看来，食人魔的战斗似乎很不顺利。半身人一次又一次地出现，看似轻松地击倒食人魔，然后躲开反击。黑暗中的食人魔不断遭到攻击，发出痛苦的叫喊，而那些离地形险处太近的食人魔很快就会发现自己被卷进这片土地的死亡陷阱。一刹那间，这场战争的天平一下子倒向了狂热分子那边，恐慌和恐惧开始席卷食人魔。]], "_t")
+另一名食人魔立刻上前攻击半身人，但半身人只是一记侧步便轻松闪过，随即隐没在黑暗之中。那名食人魔追了上去，但从传来的闷哼与惨叫声来看，他的下场似乎也好不到哪儿去。那半身人一次又一次地现身，看似毫不费力地将食人魔击倒，又在反击到来之前全身而退。黑暗中的食人魔频频遇袭、痛呼不止，而那些离险恶地形太近的食人魔，很快便发现自己被打得天旋地转，坠入这片土地上的死亡陷阱之中。转瞬之间，战局已彻底倒向狂热者一方，恐慌与畏惧开始在食人魔之间蔓延开来。]], "_t")
 t("Escapades of Fay Willows [Book 3, Chapter 5] - Dark Resolve", "菲·维莉欧斯的冒险 [第3卷，第5章] - 黑暗的决心", "_t")
 t([[[i]It is hard to describe the sensation that came over me. It was still me, but I didn't feel in control. That other me, it seemed to thrive on the violence I inflicted or received, and wanted nothing more than to endlessly kill. It caused me sadness as I inflicted misery and terror on those in front of me as they died screaming in agony and pain. It is someone I hope to never become again.[/i]
 
@@ -1576,29 +1576,29 @@ I used my axe to sweep the shield from the humans hands, knocking it away so he 
 
 The human’s swordarm fell away from his body, causing him to cry out before dropping to the ground to hold where his arm use to be. The red blood spurted and bubbled from his severed arm as the sword still lay clutched in the closed hand. The human tried to crawl away, and then I noticed the lovely pool of lava nearby. I smiled a little as I kicked at his body sending him spiraling in. I felt a strange sense of joy as he burned alive in front of me, yet simultaneously felt disdain for what I had just done. I felt another surge of energy coarse through me as the man finally died, and I felt a greater urge to kill even more. I wondered at this point if I could stop myself or if I could be stopped?
 
-I could hear the screams of terror of others around me and noticed that the sounds weren't coming from those wearing masks either - easy pickings to satisfy my urge to kill. I began to approach them as they yelled at me, my intense hatred building with each step. Suddenly though I felt a strong pull on my arm, preventing me from moving forward. Looking to see what I had got caught on, I noticed the masked halfling, clutching my arm. Hatred surged within me and all I could think about was how I should pay this halfling back for what had been done to me in that tent from before. I forgot about the others weaklings, focusing all my attention towards my new prey.]], [[[i]我很难形容那种感觉。我仍然是我，但我感觉无法控制自己。另一个我，似乎靠我施加或承受的暴力滋养壮大，她只想进行没完没了的杀戮。她让我感到悲伤，因为我给其他的人带来了痛苦和恐惧，他们在绝望和痛苦中尖叫着死去。这是我希望永远不再成为的人。[/i]
+I could hear the screams of terror of others around me and noticed that the sounds weren't coming from those wearing masks either - easy pickings to satisfy my urge to kill. I began to approach them as they yelled at me, my intense hatred building with each step. Suddenly though I felt a strong pull on my arm, preventing me from moving forward. Looking to see what I had got caught on, I noticed the masked halfling, clutching my arm. Hatred surged within me and all I could think about was how I should pay this halfling back for what had been done to me in that tent from before. I forgot about the others weaklings, focusing all my attention towards my new prey.]], [[[i]我很难形容当时袭来的那种感觉。我依然是我，却感觉自己失去了控制。另一个我似乎靠着我施加或承受的暴力滋长壮大，满心只想无休止地杀戮。当我把苦难与恐惧加诸眼前之人，看着他们在极度的煎熬与剧痛中惨叫着死去时，我心中充满了悲伤。我希望自己永远不要再变成那样的人。[/i]
 
-在我周围，我可以看到我身边的食人魔开始失去战意。更糟糕的是，一些逃走的新兵现在已经回来了。他们开始再次击打盾牌，一边喊着一边摆出姿势为半身人欢呼。我从其中一个人那里听到一句话：“大自然的战士万岁！”他们还会喊出其他的短语，比如“自然的力量终将胜利！”或者“食人魔给埃亚尔带来的魔法污染终将终结！”半身人的力量和新兵们的呼喊使食人魔更加不安，以至于有些人开始害怕地颤抖，再次变得懦弱起来。在我面前，一个食人魔甚至丢下武器，倒在地上，失去了一切希望。
+环顾四周，我看到身旁的食人魔正开始彻底失去战意。更糟的是，先前逃跑的一些新兵现在又回来了。他们再次敲打起盾牌，大呼小叫、装腔作势地为那个半身人呐喊助威。我听到其中一人高喊：“大自然的勇士万岁！”他们还叫嚷着其他口号，比如“自然之力必胜”或是“食人魔对埃亚尔的魔法玷污到此为止了！”半身人展现出的压倒性力量与新兵们的叫喊声，进一步瓦解了食人魔的勇气，以至于有些食人魔开始恐惧地发抖，再一次变成了懦夫。在我面前，一个食人魔甚至扔下了她的武器，瘫倒在地，失去了一切希望。
 
-我能感觉到眼泪开始顺着我的眼睛流下来。我能感觉到食人魔的痛苦和沮丧，以及指向他们的仇恨情绪。我还记得在纳格尔王国发生的火刑事件，以及狂热者如何煽动我所目睹的第一次猎魔行动。这让我充满愤怒，对那些造成痛苦的人，以及对它们拙劣的借口充满愤怒。食人魔不应该受到这样的对待，被那些狂热分子活活烧死的无辜受害者也是这样。那些人用痛苦给其他人带来折磨，制造了这些暴行，它们是令人无法忍受的害虫，更何况，它们在这样做的时候诋毁了大自然的名字。我觉得我必须做些什么来阻止这种事情再次发生：我觉得我需要杀死他们。
+我能感觉到眼泪开始从眼眶滑落。我能感受到食人魔的痛苦与绝望，也能感受到那些正朝他们倾泻而来的仇恨情绪。我想起了当初在纳格尔王国发生的火刑事件，以及那些狂热者是如何煽动起我所目睹的那些最初行径的。这让我感到愤怒，对那些施加痛苦的人感到愤怒，气他们竟为了自己狭隘卑劣的理由而制造痛苦。食人魔不该遭受这些，之前被那些狂热分子活活烧死的无辜受害者同样不该。那些施加痛苦、制造这些暴行的人，不过是一群令人难以忍受的蚊蝇，更可恶的是，他们这么做的时候还玷污了大自然的名义。我觉得自己必须做点什么来阻止这种事再次发生；我觉得我必须杀了他们。
 
-“小自然精灵，想逃跑吗？”我听到一个声音对我说。“你想要回你的小树林里去，对吧？”我抬头看到一个蒙面矮人，手里拿着斧头和盾牌。“我们知道你，菲·维莉欧斯。你的身上没有魔法力量的印记，但你真的是大自然的盟友吗？从你的立场看，你似乎是食人魔的盟友。”矮人挥舞着武器狂野地继续说，“你知道，也许我不该责怪你。我敢肯定食人魔给你讲了一些荒诞的故事，这只是个误会。我们只是想帮助食人魔，你知道的，而且他们现在似乎变得更愿意合作了。他们中有几个人不得不死去，这真是太可惜了，但我们必须向他们发出一个信息。”矮人说完话，开始咯咯地笑了起来。
+“小自然精灵这是想走吗？”我听到一个声音对我说，“是不是想跑回你那片小树林去？”我抬起头，看到一个戴着面具、手持战斧和盾牌的矮人。“我们听说过你，菲·维莉欧斯。你身上没有半点魔法污秽，可你算是大自然的盟友吗？看你站的位置，你倒像是那帮食人魔的盟友啊。”那矮人一边继续说话，一边疯狂地挥舞着武器，“也是，也许我不该怪你。我敢肯定食人魔跟你编了些荒唐故事，这不过是个误会罢了。要知道，我们只是想帮帮食人魔，而且他们现在看起来也配合多了。虽说有几个食人魔不得不死，怪可惜的，但我们总得向他们传递出警告。”话说完，那矮人似乎低声笑了片刻。
 
-矮人停止了笑声，继续说：“你还是和我们合作吧，怎么样，小——精灵？如果不愿意的话，我恐怕得伤[b]啊啊啊啊啊！[/b]”
+矮人收起笑声，接着说道：“你也跟我们配合一下怎么样，小精灵？不然的话，我恐怕就得伤——[b]呃啊啊啊啊！[/b]”
 
-当我全神贯注于眼前的矮人时，战斗的声音似乎一下子消失了。向前看，我只能看到一片鲜血。我手上、胳膊上、插在矮人喉咙里的匕首上、矮人戴的面具上全是血，矮人咳血时，血还从面具下涌出。矮人放下斧头和盾牌试图抓住匕首，想要呼吸，但却哽咽了。我慢慢弯腰捡起斧头，双手把斧头高举过头顶。然后，我用尽全力把斧头砍在矮人的头上。矮人死于这一击时，一种奇怪的感觉在我体内涌动，贯穿了我的每一根纤维。
+当我把注意力全都集中在眼前的矮人身上时，战场上的声音仿佛瞬间消失了。放眼望去，我满眼都是鲜血。血沾在我的手上、手臂上、深深刺入矮人咽喉的匕首上，也溅在矮人戴着的面具上；随着矮人不断咳血，鲜血还从面具底下涌了出来。矮人丢下战斧和盾牌去抓那把匕首，拼命想要呼吸，却被血呛得喘不上气。我缓缓弯腰捡起战斧，双手握住，高举到脑后。随后，我使出全身力气，竭尽全力将战斧朝矮人的脑袋劈了下去。当矮人死在这一击之下时，我感到体内涌起一股异样的感觉，瞬间传遍了全身上下。
 
-在那一刻，我想起了我第一次从家里旅行时杀死的艾德瑞尔半身人。我讨厌他那些支持魔法大爆炸的理由，那些胡说八道的话让我怒不可遏。我从旁边的桌子上拿了一把牛排刀，跟着半身人走了出来……我杀了他。夺去生命是一种可怕的感觉，然而一股黑暗的能量涌向我，想驱使我去杀更多的人。这种杀戮的冲动，才是我逃离那片定居点的真正原因。我怕自己会杀掉某个罪不至死的人。我杀的那个半身人罪不至死。但是，这些狂热者难道不是罪有应得吗？
+那一刻，我想起了自己最初离家远行时杀死的那个艾德瑞尔半身人。我痛恨那些支持魔法大爆炸的理由，对那个满嘴胡言乱语的家伙更是怒不可遏。我从旁边的桌上拿起一把牛排刀，尾随那个半身人走了出去，然后……我杀了他。夺人性命的感觉糟透了，然而当时却有一股黑暗的能量在我体内奔涌，想要驱使我去杀更多的人。这种杀戮的冲动，才是我逃离那个定居点的真正原因。我害怕自己会杀人，杀掉某个不该死的人。被我杀死的那个半身人本不该死。可是，这些狂热者，他们难道不是死有余辜吗？
 
-在那一刻，我想自己的理智崩断了。我记得自己笑得很大声。那种感觉很可怕。我可能也在哭。我不知道自己或自己的情绪究竟发生了什么，也怀疑自己是否疯了；老实说，直到现在我仍有这种疑问。但那并不重要。我周围的食人魔已经无法再战斗了，我知道如果什么都不做，他们就会死，或者遭遇更糟的命运。这些狂热者、这些折磨与疯狂的煽动者，以及盲目追随他们的新兵……没有一个是无辜的。我完全可以问心无愧地杀光他们，也许还能满足内心的杀戮欲望。之后一切都会好起来，也许食人魔甚至会感谢我救了他们。
+我想，就在那一刻，我脑子里有什么东西崩断了。我记得自己笑得很大声。那种感觉非常可怕。我当时或许也在哭。我分不清自己和自己的情绪究竟怎么了，甚至怀疑自己是不是疯了；老实说，直到现在我依然这么怀疑。但那并不重要。我身边的食人魔已经无力再战，我知道如果什么都不做，他们就会死，甚至落得更惨的下场。这些狂热者、这些煽动折磨与疯狂的元凶，还有那些盲目追随他们的新兵，他们当中没有一个是无辜的。我大可以问心无愧地把他们统统杀光，但愿还能借此满足我内心的杀戮冲动。在那之后，我就会恢复正常，或许食人魔还会感谢我救了他们。
 
-然后我注意到一个戴着面具的人类狂热者，正看着我和地上矮人的尸体。我开始走过去，那个人似乎在用一种威胁的方式挥舞着一把剑。出于某种原因，我觉得这有点好笑，尽管这本应让我强烈担心自身安危。我能听到那个人类的低沉的声音，尽管我不能分辨出他们在说什么。当我走近时，我看到那个人类因恐惧而颤抖，抖得面具歪到一边，让我能看见下方一部分面孔。在他举起盾牌试图躲藏之前，我看见了他眼中的恐惧。我记得那种恐惧给我带来的快乐。
+这时，我注意到一个戴面具的人类狂热者正看着我和地上那具矮人的尸体。我开始朝他走去，那个人类似乎正单手挥舞着长剑，摆出威胁的架势。本来这种状况应该让我为自身安危感到极度恐惧，但不知为何，我却觉得这有点滑稽。我能听到那个人类发出沉闷的喊叫声，却听不清他在喊些什么。当我走近时，我看到那个人类浑身发抖，抖得连面具都歪了，让我能看到底下那个男人的部分面容。在那个人类举起盾牌试图把自己藏起来之前，我看到了他眼中的恐惧。我还记得自己从那种恐惧中体会到的快感。
 
-我用我的斧头把盾牌从人类手中扫开，敲落在地。他在我的目光中已经无处躲藏，这样我就可以享受他的恐惧了。我想，我那时在微笑……疯狂地咧嘴笑着，看着恐惧压倒那个人类的心头。同时，我内心的悲伤也在越来越多地堆积起来，威胁着我陷入黑暗的深处。那人吓坏了，想冲上前去攻击我，他冲过来时大叫了一声……他到底在攻击哪个方向？我想他是想攻击我，但他最后扑了个空。我轻松举起手中的斧头，像以前一样使出挥砍，对着他肩膀上来了一记重击。
+我用战斧扫开那个人类手里的盾牌，把它击飞出去，让他再也无法避开我的目光，好让我尽情品味他的恐惧。我想自己当时正在微笑，随着那个人类心中的恐惧不断加剧，我正疯狂地咧嘴笑着。可与此同时，我内心的悲伤也越积越深，几乎要将我拖入黑暗的深渊。那个人类吓坏了，大叫着试图挺剑前刺来攻击我，猛扑向……他到底在往哪儿攻？我想他原本是打算攻击我的，结果却偏到了旁边。我只是举起手中的战斧，像刚才那样猛劈下去，深深砍进了他的肩膀。
 
-这个人持剑的手臂从身体上断落，他惨叫着倒在地上，抱住原本长着手臂的地方。他的剑仍然紧握在断落的手中，鲜血从断臂的伤口喷涌而出。人类试图爬走，然后我注意到附近可爱的熔岩池。我笑了笑，一脚踢向他的身体，他的身躯盘旋着跌入了岩浆之中。他在我面前活生生地燃烧着，我感到一种奇怪的喜悦，但同时也对我刚才所做的感到不屑。当那个人最终死去时，我感觉到另一股能量涌向我，让我更强烈地想杀人。我在想，已经到这一步了，我还可以阻止自己，或者说，还有人能阻止我吗？
+那个人类持剑的手臂脱离了身体，他惨叫一声摔倒在地，捂住了原本长着手臂的地方。鲜红的血液从他的断臂处喷涌而出，冒着血泡，而那把剑依然紧握在他紧攥的断手里。那个人类试图爬走，就在这时，我注意到了附近那片迷人的熔岩池。我微微一笑，一脚踢在他身上，让他打着旋儿跌进了池中。看着他在我面前被活活烧死，我感到一种诡异的喜悦，但同时又对自己刚才的行为感到鄙夷。当那个男人终于死去时，我感到又一股能量在体内奔涌而过，心中涌起了更强烈的冲动，想要杀更多的人。到了这一步，我不禁怀疑自己还能不能停下来，或者还有没有人能阻止我？
 
-我能听到周围其他人恐惧的尖叫声，注意到这些声音也不是来自那些戴着面具的人——这些弱者是满足我杀人的欲望的合适目标。听着他们绝望的喊叫声，我开始接近他们，强烈的仇恨灌注着我的脚步。突然间，我感觉到手臂上有一股强大的拉力，阻止了我向前移动。我想看看是什么东西抓住了我，发现是那个戴着面具的半身人抓着我的胳膊。仇恨涌上心头，我满脑子想的都是该如何向这个半身人报复他之前在帐篷里对我所做的一切。我忘记了其他弱者，把所有的注意力都集中在我的新猎物上。]], "_t")
+我能听到周围其他人发出惊恐的尖叫，而且注意到这些声音并非来自那些戴面具的人——全是可以轻易得手的目标，正好用来满足我的杀戮冲动。他们在冲我大喊大叫，我则开始朝他们逼近，每迈出一步，心中强烈的仇恨便更盛一分。然而就在这时，我突然感到手臂上传来一股强大的拉力，阻止了我继续向前。我转头去看自己被什么东西拽住了，结果看到了那个戴面具的半身人，正紧紧抓着我的手臂。仇恨在我心中翻涌，我满脑子想的都是该如何向这个半身人讨还先前在那个帐篷里对我所做的一切。我把其他那些弱者抛在脑后，将所有注意力都集中在了这个新猎物身上。]], "_t")
 t("Escapades of Fay Willows [Book 3, Chapter 6] - Hateful Wrath", "菲·维莉欧斯的冒险 [第3卷，第6章] - 满怀仇恨的愤怒", "_t")
 t([[[i]I'm not sure how big the fanatics’ group was when we battled them, though out of them only about twenty or so wore masks. What I do know is that when I first saw the ogres that they numbered over fifty. After the battle there was only nine of them with me when we made our escape. This isn't to say that all the other ogres were killed though and I wonder what cruel end they met at the hands of those fanatics we had left them in.[/i]
 
@@ -1650,23 +1650,23 @@ The commander and strategist then approached from behind one of the buildings. T
 
 After a little while of searching through the nearby buildings I noticed a trapdoor with a rusty lock. Breaking it and descending a ladder I found a cellar, untouched since the time the original shaloren inhabitants had lived here. I found several bottles of wine as well as some old vegetables and dried fruit. I brushed away some cobwebs from a nearby chair and table to eat my fill, before carrying a bundle of vegetables and fruit back to the ogres campsite. The commander was already assembling the other ogres, and I could see that a couple of recently killed carcasses slung on their shoulders. Seeing me carrying food, the commander and strategist came over to help take the load and ask where I had found it.
 
-I relayed to them the location of the cellar which I had found and its contents. The commander, while interested in acquiring food, was quite disinterested in the fact that it was located in a shaloren cellar. Concerned with the time it would take to bring it up, he noted that an ogre wouldn't be able to easily fit through any of the doors in the settlement here, let alone a trap door to one of the cellars. The strategist though noted that I had fit through and insisted that we take the food to ensure that there was enough to eat for the remainder of our journey. The commander was hesitant at staying any longer but consented. After spending another hour I was able to bring up all the food before we continued on towards Elvala.   ]], [[[i]食人魔的忍耐力是相当惊人的。当我因精疲力竭而倒下时，那些食人魔们仍然坚持着，设法保持清醒，直到我们到达一个废弃的定居点。尤其是当许多食人魔和我一起设法获得了一些睡眠时，指挥官和战略家在前往埃尔瓦拉的路程中一直保持清醒，直到到达目的地才最终因精疲力竭而崩溃。我真的不相信其他种族能保持清醒那么长时间，更不用说还能一直行动了。[/i]
+I relayed to them the location of the cellar which I had found and its contents. The commander, while interested in acquiring food, was quite disinterested in the fact that it was located in a shaloren cellar. Concerned with the time it would take to bring it up, he noted that an ogre wouldn't be able to easily fit through any of the doors in the settlement here, let alone a trap door to one of the cellars. The strategist though noted that I had fit through and insisted that we take the food to ensure that there was enough to eat for the remainder of our journey. The commander was hesitant at staying any longer but consented. After spending another hour I was able to bring up all the food before we continued on towards Elvala.   ]], [[[i]食人魔的耐力相当惊人。我早已因精疲力竭而昏倒，食人魔们却坚持了下来，一直撑着没合眼，直到我们抵达一处废弃的定居点。不仅如此，其他不少食人魔好歹还和我一样睡上了一觉，指挥官与战略家却硬是撑完了前往埃尔瓦拉的全程，最后才终于体力不支倒下。老实说，我不相信还有哪个种族能这么长时间不睡，更别说还一直保持行动了。[/i]
 
-我不知道我在那可怕的海岸线上呆了多久，也许几天，甚至一个星期。当我们继续前往纳格尔土地以南的地区时，我很高兴再次看到一些绿色植物和活生生的自然景观。我在天空的自然阳光下晒了一会儿，才感觉到肚子里的隆隆声，以及跑了那么久的疲惫感。食人魔表面看起来一点也不累也不饿，但经过了这么长时间的旅行，我怀疑事实是否真的如此。我伸手去拿背包，拿出食物放在地上，几乎立刻就注意到食人魔们饥饿的目光。
+我不知道自己在那片地狱般的海岸上待了多久；或许有好几天，甚至一个星期。随着我们继续前行，踏入纳格尔领地正南方的区域，能再次看到些许绿意和生机勃勃的自然景象，真让人欣慰。我稍稍沐浴了一会儿天空中洒下的自然阳光，随即感到腹中雷鸣，一路狂奔积累的沉重倦意也袭了上来。反观那些食人魔，他们看起来丝毫不觉得疲惫或饥饿，但经过如此漫长的跋涉，我不禁怀疑他们是不是真的没事。我伸手探向背包，掏出干粮摊在地上。几乎就在同时，我注意到了食人魔们饥饿的目光。
 
-你见过饥饿的食人魔吗？他们会在一瞬间吃掉面前的任何食物。我几乎没来得及让开，他们就聚拢在一起吃那些他们看来如此美味的食物。当我下一次回头看的时候，我注意到我已经准备好的东西都不见了，食人魔们正在我的背包里翻来翻去，看能不能找到更多。在找不到任何东西之后，他们又一次露出一副彬彬有礼的样子。指挥官起身走过来，感谢我提供食物，并请我原谅他和其他人刚才过于心急的举动。这对我自己的饥饿没有任何帮助，但看他们吃得心满意足，我想我还是挺高兴的。
+你见过饥饿的食人魔吗？转眼之间，他们就能把眼前的任何食物一扫而空。我才刚勉强闪开，整群食人魔就已经一拥而上，扑向了出现在他们视野里的美味吃食。等我再回头看时，我摊出来的干粮已经全都消失不见，而食人魔们正翻找着我的背包，想看看还能不能找出更多吃的。一无所获之后，他们才重新恢复了几分体面。指挥官起身走过来，感谢我拿出的食物，并请我原谅他和其他人刚才的急不可耐。这并不能缓解我自己的饥饿，但既然他们吃得开心、填饱了肚子，我想我也算欣慰吧。
 
-战略家从后面走过来，手里拿着我包里的一份口粮，想要拿给我吃。我立刻就把它抢走，狼吞虎咽地吃了下去。这份食物已经被咬了一半，但考虑到我有多饿，我真的不在乎。指挥官和战略家似乎都在笑。不过，当他们恢复平静时，我看见他们脸上又悄悄浮现出对眼前处境的忧虑。我又一次看到，当指挥官朝南部海岸线方向看去时，眼睛上出现了深蓝色的光芒。“有他们的迹象吗？”战略家问道。“不，但这并不意味着我们是安全的，”指挥官回答。
+这时，战略家从后面走了过来，手里紧紧攥着从我包里拿的一份口粮。我一眼瞥见，等他刚递过来便一把抓过那份食物，狼吞虎咽地吃了起来。那份口粮已经被吃掉了一半，但考虑到我当时饿坏了，也就顾不上那么多了。指挥官和战略家见状似乎都轻笑了起来。不过，当他们收起笑容时，我看到严峻的现实又悄然浮现在他们脸上。指挥官朝南边的海岸线望去，我再次看到他脸上的双眸泛起深蓝色的光芒。“有他们的踪影吗？”战略家问道。“没有，但这并不意味着我们已经脱离险境了，”指挥官回答。
 
-之后的事情我就不记得了。我记得指挥官和战略家曾交谈过一段时间，但很明显，在他们的谈话中，我睡着了。当我醒来的时候，我就在篝火旁的一堆床垫上和几个食人魔睡在一起。一只狼串在烤肉叉上，在火上缓缓转动，看到我醒了，负责转动烤肉叉的食人魔便喊着告诉大家我醒了。环顾四周，我注意到几只食人魔正酣睡在各种临时床上和椅子上，从地上成堆的草到靠墙支撑的桌子，应有尽有。我发现，我们现在在一个废弃的永恒精灵定居点，这让我想知道自己昏迷了多久，以及期间发生了什么。
+那之后的事我就记不太清了。我只记得指挥官和战略家聊了一会儿，但显然在他们交谈期间我就昏睡了过去。等我醒来时，自己正躺在篝火旁的几张床垫上，夹在几个食人魔中间。火堆上方架着一只串起来的狼，正缓缓转动着；负责转烤肉叉的食人魔见我醒来，便大声招呼大家说我醒了。我环顾四周，发现好几个食人魔正睡得香甜，身下是各式各样临时凑合的床铺和座椅——既有铺在地上的草堆，也有斜靠在墙边的桌子。我看得出，我们眼下身处一处废弃的永恒精灵定居点里，这不禁让我纳闷自己究竟昏迷了多久，这期间又发生了什么事。
 
-指挥官和战略家随后从其中一座建筑后面靠近。战略家喊道：“你怎么样，自然精灵？你休息得好吗？”我醒来时有点昏昏欲睡，但我回答说：“等我们到了埃尔瓦拉，我会好好休息的。发生了什么事？”他们简短地向我说明了情况，说我们到达了永恒精灵领地的边缘，在我倒下后，食人魔把我带到了这里。我不时地从后面看到指挥官借助视野符文朝各个方向望去，仍然在寻找任何追兵。这位战略家指出，似乎有狂热者的侦察兵一直在跟踪我们，但一直在远处徘徊。
+随后，指挥官和战略家从一栋建筑后面走了过来。战略家喊道：“感觉怎么样，自然精灵？休息得好吗？”我刚醒过来，脑子还有些昏沉，但还是回答道：“等到了埃尔瓦拉，我会休息得更好。发生什么事了？”对方简短地给我讲了讲经过，表示我们已经抵达永恒精灵领地的边缘，而且在我昏倒之后，是食人魔们一路把我抬到了这里。我看到在后面的指挥官不时用视野符文朝各个方向张望，依然在提防可能出现的麻烦。战略家提到，似乎有狂热者的侦察兵一直在尾随我们，只是远远地缀在后面。
 
-“我们不能在这里逗留下去了。”战略家评论道。看着战略家，我问道：“我们下一步什么时候出发？”战略家还没来得及回答，指挥官就在他身后用洪亮的声音说道：“等你吃了点东西之后。”我从指挥官的面部表情可以看出，他是在暗示在篝火上挂着的烧肉。我对这个想法有点反感，所以告诉他们我会自己去找食物。说完这句话后，指挥官看了我一眼，停顿了一会儿，但他叹了口气，告诉我“快点”，然后转身离开，继续把熟睡的食人魔从睡梦中唤醒。
+“我们不能在这儿耽搁太久了。”战略家说道。我看着战略家问道：“那我们什么时候再出发？”战略家还没来得及回答，指挥官洪亮的声音就从他身后传来：“等你吃完东西立刻出发。”从指挥官脸上的表情我看得出，他指的是火堆上正在烤的肉。一想到要吃那个我就有些反胃，于是表示要自己去找点吃的。指挥官听我这么说，看着我顿了一下，但还是叹了口气，对我说了声“动作快点”，随后便转身去叫醒还在熟睡的食人魔了。
 
-在附近的建筑物里搜寻了一会儿后，我注意到一个锁生锈了的活板门。我打破了它，从梯子上下来，发现了一个地窖，自原先的永恒精灵居民居住于此以来一直未被触动。我发现了几瓶酒，还有一些老蔬菜和干果。我拂去附近椅子和桌子上的蜘蛛网，坐下来饱餐一顿，然后把一捆蔬菜和水果带回食人魔营地。指挥官已经在集合其他的食人魔了，我可以看到一些最近被杀死的动物尸体挂在他们的肩膀上。指挥官和战略家看见我提着食物，就过来帮忙拿东西，问我在哪里找到的。
+在附近的建筑里搜寻了一小会儿后，我注意到一扇挂着生锈锁头的活板门。我砸开锁，顺着梯子爬下去，发现了一间自原本的永恒精灵居民在此生活以来就再无人动过的地窖。我在里面找到了几瓶酒，还有一些存放已久的蔬菜和果干。我拂去旁边桌椅上的蛛网，坐下来饱餐了一顿，随后捆好一包蔬菜和果干带回食人魔的营地。指挥官已经在召集其他食人魔了，我看到他们肩上扛着几具刚猎杀的野兽尸体。见我带着食物回来，指挥官和战略家走上前来帮我分担重物，并询问我是在哪里找到这些吃食的。
 
-我把找到的地窖的位置和里面的东西转告他们。指挥官虽然对获得食物感兴趣，但对它位于永恒精灵地窖一事却相当不感兴趣。他担心搬出食物太费时间，便指出，食人魔很难穿过这个定居点的任何一扇门，更不用说一个地窖的活板门了。不过，这位战略家指出我能够通过那扇门，坚持要我们带上食物，以确保剩下的旅程有足够的食物吃。指挥官迟疑不肯再留下来，但最终还是同意了。又过了一个小时，我把所有的食物都端上来，然后我们继续朝埃尔瓦拉走去。]], "_t")
+我向他们告知了地窖的位置以及里面的储藏。指挥官虽然对获取食物很感兴趣，但一听东西在永恒精灵的地窖里，就有些兴致缺缺了。他担心把食物搬上来太花时间，并指出食人魔连这处定居点里的普通房门都很难钻进去，更别提通往地窖的活板门了。不过战略家指出我能钻进去，并坚持要把食物带上，以确保我们剩下的路程有充足的口粮。指挥官对继续逗留颇为犹豫，但最终还是同意了。我又花了一个小时才把所有食物都搬上来，随后我们便继续向埃尔瓦拉进发。]], "_t")
 t("Escapades of Fay Willows [Book 4, Chapter 2] - Seeking Sanctuary", "菲·维莉欧斯的冒险 [第4卷，第2章] - 寻求庇护", "_t")
 t([[[i]I want to emphasize that I come from a society where there is little if any practiced magic, let alone any products of it such as runes. While there were thalore who could use magic, their knowledge was self-taught and done in secret; not to mention that thaloren users of magic were generally ostracized from the rest of the community, if not exiled from Thaloren lands. Even now I still don't know much about the inner workings of the Rune of Return that is grafted to me, though I am working to learn the basics of runes and the greater subject of the arcane forces behind them.[/i]
 
@@ -1684,23 +1684,23 @@ With a smile I replied back "I'm sure you will be let in. Tell me what it is I n
 
 Then from behind me came a voice, "What is this about ogres?" I turned around to see a young female shalore, who I recognized as being one of the mages who saw me off from Elvala. Seeing me, she seemed to oddly cool a bit and address me saying "Ooo, you're that thalore. We've never personally met but I helped teleport you out of Elvala a short while ago. Welcome back to Elvala." Catching my breathe I explained the situation involving the ogres outside, the zealots chasing them, and how they were looking to seek refuge in Elvala. As I finished talking the young shalore stated, "Judging from what you have told me, it would likely be best if those ogres were brought in quickly."
 
-Approaching the guards to communicate something, their bewildered faces quickly became somewhat distressed both by the actions and words of the shalore woman. I don't know what the mage had said, but it seemed as if the guards were almost pleading with the young shaloren woman about something. Eventually she called for me to follow her and began to move in the direction I had come when I entered the city with the Rune of Return. I could tell that this shalore seemed to have some plan in mind, perhaps one that would allow the ogres passage into the city. Before turning to follow her, I noticed the two guards murmer something to each other before one of them rushed inside the building. The other seemed to look at worriedly in the direction of me and the mage as we walked away.]], [[[i]我想强调的是，我来自一个几乎没有任何魔法实践的社会，更不用说像符文这样的魔法产品了。虽然有自然精灵可以使用魔法，但他们的知识全靠自学，也只能偷偷施展；更不用说，使用魔法的自然精灵通常会被社区的其他成员排斥，乃至被赶出自然精灵的领土。即使是现在，我仍然不太了解移植到我身上的返回符文的内部运作，尽管我正在努力学习符文的基础知识，以及其背后奥术力量这门更宏大的学问。[/i]
+Approaching the guards to communicate something, their bewildered faces quickly became somewhat distressed both by the actions and words of the shalore woman. I don't know what the mage had said, but it seemed as if the guards were almost pleading with the young shaloren woman about something. Eventually she called for me to follow her and began to move in the direction I had come when I entered the city with the Rune of Return. I could tell that this shalore seemed to have some plan in mind, perhaps one that would allow the ogres passage into the city. Before turning to follow her, I noticed the two guards murmer something to each other before one of them rushed inside the building. The other seemed to look at worriedly in the direction of me and the mage as we walked away.]], [[[i]我想强调一点，我来自一个几乎没有魔法实践的社会，更别提符文这类魔法造物了。虽然也有自然精灵懂得使用魔法，但他们的知识全靠自学，且只能在暗中施展；更不必说，使用魔法的自然精灵通常会被族群里的其他人排斥，甚至被驱逐出自然精灵的领地。即便到了现在，我对移植在自己身上的这枚返回符文的内部原理依然知之甚少，不过我正在努力学习符文的基础知识，以及其背后奥术力量这门更宏大的学问。[/i]
 
-我们继续深入到永恒精灵的领土，狂热分子的侦察兵继续跟踪我们，但总是小心翼翼地保持距离，决不走得太近。再过几天我们才能到达埃尔瓦拉帷幕的边缘，在移动到我第一次穿过迷雾之墙进入城市的地方之后，我把手伸进背包，找回了很久以前收到的返回符文。我伸出手，把它递向食人魔指挥官。我本以为他会接受的，但他只是点了点头，说了句：“一个返回符文。”片刻之后，我仍然站着伸出手保持着刚才的动作，指挥官似乎和我一样对这番互动感到困惑。直到这位战略家最后插嘴说：“你根本不知道你持有的那个符文是怎么运作的，是吗？”
+我们继续向永恒精灵的领地深处行进，狂热者的侦察兵仍在一路尾随，但始终小心翼翼地坠在后面，从不靠得太近。又过了几天，我们才抵达帷幕的边缘。我寻路来到当初第一次穿过迷雾之墙进入城市的地方，把手伸进背包，取出那枚很久以前得到的返回符文。我伸出手，将它递向食人魔指挥官。我本以为他会接过去，可他只是点了点头，说道：“一枚返回符文。”接下来的片刻间，我就那样伸着手站在原地，指挥官对我们之间的这番互动似乎也和我一样满头雾水。直到军师最后插话，事情才搞清楚：“你压根不知道手里拿的这枚符文是怎么运作的，对吧？”
 
-这时，指挥官在意识到情况后眨了眨眼，然后说：“对，你完全是一个新手。”我可以感觉到我脸上的茫然表情，而食人魔似乎意识到了这一点。“到这里来，自然精灵，”一个声音喊道。我转过头去看是谁在叫我，然后注意到是一个我之前帮助过的女食人魔，“让我们看看你得到的符文。”我有点困惑，但还是走了过去，拿出了符文。她一只手拿着，继续检查了一下符文，然后把它还给我。“对，”食人魔开始说，“这个符文是和你结合在一起的，所以只有你才能把它刻在身上。完成后，你可以用符文进入埃尔瓦拉并为我们请求进入的权限。”
+听到这话，指挥官眨了眨眼，随即反应过来，说道：“也对，你完全是个门外汉。”我能感觉到自己脸上挂着一副茫然的表情，而食人魔们显然也看出来了。“过来这边，自然精灵，”一个声音喊道。我转过头去看是谁在叫我，发现是我之前帮过的一名女食人魔，“让我看看你拿的那个符文。”我有些困惑，但还是走了过去，把符文递给她。她单手接过，仔细端详了一番，随后又交还给我。“好了，”这名食人魔开口道，“这枚符文已经和你绑定了，所以只有你自己能将它铭刻在身上。铭刻完之后，你就可以用它进入埃尔瓦拉，替我们请求通行。”
 
-我感觉这个食人魔嘴里冒出来的话，像是某种外语。最终，这个后来成为我的老师的食人魔，对符文给出了一系列的解释，最终决定最好还是直接把返回符文铭刻到我身上，而不是给我上一堂符文理论的课。为了确保我在激活符文时遇到最小的麻烦，食人魔选择把它移植到我脖子下面的背上。我记得那次经历是多么痛苦，我脊背上的神经被反复刺戳。尽管疼痛，我也记得身体第一次被奥术力量触碰时的那份兴奋。
+这名食人魔嘴里蹦出来的话，听在我耳中简直像是完全不同的另一种语言。这位后来成为我导师的食人魔就符文做了一连串解释，但最后还是决定，与其给我上一堂符文理论课，倒不如直接把返回符文移植到我身上。为了确保我在激活符文时尽可能顺畅，她选择将符文移植在我后颈下方的背上。我还记得当时的过程有多么痛苦，脊椎后方的神经被不断刺扎、戳弄。不过，尽管疼痛难忍，我也依然记得自己的身体第一次被奥术力量触碰时所感受到的那股振奋。
 
-“就这样，结束了。”食人魔对她的工作很满意，绕着我转了一圈，把她的手放在我的肩膀上：“你要做的就是通过这个关卡，向他们提出让我们进入的要求。自然精灵，在我告诉你如何激活符文之前，你要知道，我们感谢你帮助我们走到这一步。如果不是你，我——我们食人魔……我们很可能都死了。”我看到那食人魔脸上的泪水开始往下流，她继续说，“看来我们的生命又一次掌握在你手中了……我希望你能说服永恒精灵人让我们进去，但即使你不能，我也要感谢你，我们都要感谢你。”在我周围，其他食人魔也纷纷低下头来。
+“好啦，大功告成。”食人魔对自己的手艺颇为满意，绕到我身前，把双手搭在我的肩膀上，“现在，你只需要穿过这道屏障，替我们请求进入许可就行了。自然精灵，在我教你如何激活符文之前，我想让你知道，我非常感谢你帮我们一路走到这里。要是没有你，我——我们这些食人魔……恐怕早就全死了。”我看到泪水开始顺着这名食人魔的脸庞滑落，她继续说道：“看来，我们的性命又一次交到你手里了。我希望你能说服永恒精灵放我们进去，但就算没能成功，我也想谢谢你，我们大家都想谢谢你。”我看到周围的其他食人魔纷纷低下了头。
 
-我微笑着回答道：“我相信你们会被接纳的，告诉我，我需要做什么。”她抬起头，擦去脸上的泪水，她一步步指导我如何激活符文。我庄严地点头，然后亲自完成了这些步骤。不一会儿，我的周围环境完全改变了，因为我能听到周围永恒精灵的喧闹声。我能感觉到我脖子上刻着符文的地方有一种沉重的感觉，但除此之外，我没有感觉到什么不同。有几个永恒精灵转向我的方向，似乎对我的进入感到惊讶，尽管没有我想象的那么多。其中一个永恒精灵很快喊道：“你就是那个从前帮助我们的自然精灵？欢迎回来！”
+我微笑着回答：“我确信他们会放你们进去的。告诉我该怎么做吧。”她抬起头，拭去脸上的泪水，一步步教我如何激活符文。我向食人魔们郑重地点了点头，随后照着步骤亲自操作起来。转瞬之间，周遭的景象彻底变了，耳畔传来了永恒精灵熙熙攘攘的喧闹声。除了脖颈上铭刻着符文的地方有一股沉甸甸的感觉之外，我并没有感到其他异样。几个永恒精灵转头朝我这边看来，似乎对我的出现有些惊讶，但并没有我预想的那么吃惊。其中一个永恒精灵很快喊道：“你就是之前帮过我们的那个自然精灵吧？欢迎回来！”
 
-“哦，啊，谢谢你，”我回答道，慢慢地适应了我突然进入埃尔瓦拉的事实。很快，我意识到食人魔还在埃尔瓦拉的外面等我。我告了声罪，继续跑到城市中央，在那里我以前见过将军。楼房外仍像从前一样站着卫兵，不过我走近时他们认出了我。我停下来喘了口气，平复呼吸，然后上气不接下气地匆忙说道：“食人魔……寻求庇护……在这里……埃尔瓦拉。”我前面的警卫听到我说的那句话后，不知所措地站在那里，似乎领会了我说的话，但无法决定该怎么做。
+“哦，啊，谢谢你。”我回应道，一边慢慢适应自己突然来到埃尔瓦拉这一事实。我很快回过神来，食人魔们还在埃尔瓦拉外面等着我。我道了声失陪，便朝城中心跑去——我之前就是在那里见到的将军。那栋建筑外一如既往地站着几名卫兵，不过在我走近时，他们便认出了我。我跑得上气不接下气，先深呼吸了片刻平复气息，随后喘着粗气说道：“食人魔……寻求庇护……就在……埃尔瓦拉。”面前的卫兵听到我蹦出的这句话，全都愣在了原地，似乎听懂了我的意思，却拿不定主意该怎么办。
 
-从我身后传来一个声音：“食人魔怎么了？”我转过身去，看到一个年轻的女永恒精灵，我认出她是从埃尔瓦拉送我出去的法师之一。看到我，她似乎有点奇怪地冷静，对我说：“哦，你就是那个自然精灵。我们从来没有见过面，但不久前我帮你传送出埃尔瓦拉过。欢迎回到埃尔瓦拉。”我缓过气来，解释了外面的食人魔，狂热者追逐他们的情况，以及他们是如何寻求在埃尔瓦拉避难的。我说完，年轻的永恒精灵说：“从你告诉我的情况来看，最好尽快把那些食人魔带进来。”
+就在这时，我身后传来一个声音：“你说食人魔怎么了？”我转过身，看到一名年轻的女永恒精灵，我认出她是当初送我离开埃尔瓦拉的法师之一。看到是我，她的神色似乎莫名地缓和了几分，向我招呼道：“噢，你就是那个自然精灵。我们之前没正式认识过，但不久前把你传送出埃尔瓦拉的时候，我也出了一份力。欢迎回到埃尔瓦拉。”我喘匀了气，向她解释了外面的食人魔、追捕他们的狂热者，以及他们希望在埃尔瓦拉寻求庇护的情况。听完我的讲述，这名年轻的永恒精灵说道：“从你所说的情况来看，最好还是尽快把那些食人魔接进来。”
 
-那个女永恒精灵，走近卫兵并和他们交流，他们困惑的脸似乎因为她的言行变得有点痛苦。我不知道法师说了些什么，但似乎卫兵们几乎是在向年轻的永恒精灵女人求情。最后，她叫我跟着她，并开始向我使用返回符文进入城市的方向移动。我猜想，这个永恒精灵似乎有一些计划，一个或许能让食人魔进入城市的计划。在转身跟上她之前，我注意到两名卫兵互相低语，随后其中一人冲进了楼内。我们走开时，另一人似乎忧心忡忡地望着我和法师。]], "_t")
+这位永恒精灵女子走上前去和卫兵交谈了几句，她的一言一行很快让卫兵们原本迷茫的脸上显出几分焦急与为难。我不知道这位法师说了些什么，但看那架势，卫兵们简直像是在就某件事苦苦恳求这名年轻的永恒精灵女子。最终，她招呼我跟上她，随后便朝着我用返回符文进城时的来路走去。我看得出来，这个永恒精灵心里似乎有了某种盘算，或许正是能让食人魔获准进城的办法。在转身跟上她之前，我注意到那两名卫兵彼此低声交谈了几句，紧接着其中一人便匆匆冲进了建筑里。而当我们走远时，另一名卫兵似乎正朝我和法师离去的方向忧心忡忡地张望着。]], "_t")
 t("Escapades of Fay Willows [Book 4, Chapter 3] - The Enchantress", "菲·维莉欧斯的冒险 [第4卷，第3章] - 女巫", "_t")
 t([[[i]Alreiwen Taeil the foolhardy enchantress. Easily the worst conversationalist I have ever met, and among all the shaloren I know of none that has a greater ego than hers. Still, I respect her sense of justice as well as her gifted abilities in the arcane. Who knows what fate may have happened to the ogres had she not been present when I made the request for their entry.[/i]
 
@@ -1900,23 +1900,23 @@ As we ran down one of Elvala's narrow streets, the watch captain saw an opportun
 
 The guttural sounds of ghouls began to fill the air and along with these ghouls walked another couple legions of skeletons. However, it was behind them that a truly frightening undead began to move, hulking figures of towering bone that stood as high as many of Elvala's buildings. A final line of skeletons also appeared too, but unlike the others they appeared to be armed with staves and bows. Quickly the undead began to organize themselves before moving lockstep with each other in our direction. Our mages attempted to ready another set of spells but quickly found this quite difficult as arrows and spells from the undead rained down on them. Realizing we would have to engage the undead fully we raised our shields and proceeded to step forward.
 
-As the front lines drew closer, we would be caught off guard when the ghouls made giant leaps over our entire formation. We soon found ourselves boxed in as ghouls clawed us in the back while the remaining undead forces collided into us from the front. With little room to maneuver, shaloren archers and mages behind us were cut down, while soldiers in front could do little more than keep their shields in front of them to block attacks. Panicking, those who could teleport broke from the line, leaving the rest of us to fend off the encroaching undead horde. The situation was looking quite bleak as we found ourselves trapped by the undead and everything was thrown into complete disarray.]], [[[i]撇开亡灵的可怖本性不谈，我多少能体会到他们所采用的战术和策略有多精妙。一切似乎都是事先精心策划好的，作为不死族，他们能够以预定的方式完美地行动。这使得控制他们的死灵法师在战斗期间安全地远离伤害。[/i]
+As the front lines drew closer, we would be caught off guard when the ghouls made giant leaps over our entire formation. We soon found ourselves boxed in as ghouls clawed us in the back while the remaining undead forces collided into us from the front. With little room to maneuver, shaloren archers and mages behind us were cut down, while soldiers in front could do little more than keep their shields in front of them to block attacks. Panicking, those who could teleport broke from the line, leaving the rest of us to fend off the encroaching undead horde. The situation was looking quite bleak as we found ourselves trapped by the undead and everything was thrown into complete disarray.]], [[[i]抛开亡灵那骇人的本质不谈，我多少有些钦佩它们所运用的战术与策略之精妙。一切似乎都已在事前经过周密筹划，而身为亡灵，它们能够完全按照既定的方式分毫不差地行动。这使得操控它们的死灵法师在整个战斗期间都能安全地远离险境，置身于战场之外。[/i]
 
-突然，我注意到队长的眼睛眯得很窄，紧紧地盯着烟雾中的东西，我也转头看去，注意到了那些颤动的扭曲。突然，随着守望队长大喊一声“开火”，许多弓箭手和法师开始发射弓箭并施法，随着弓箭和魔法的猛烈撞击，眼前的骚乱变成了旋转的漩涡。尽管遭到了猛烈的攻击，一排闪闪发光的骨头和破烂的盔甲还是穿过迷雾出现在了我们面前，显露出排成防御阵形的几排骷髅。他们高举盾牌，步调一致地缓缓向城墙逼近。
+突然，我注意到队长眯起双眼，死死盯住烟雾中的某样东西；我转过头去，也注意到了那些颤动扭曲的异象。紧接着，随着守望队长高喊一声“开火”，众多弓箭手和法师纷纷放箭、施展法术，箭矢与魔法猛烈轰入那片异动之中，将其搅成了一团飞旋的漩涡。尽管火力猛烈，一个由活动白骨与破烂盔甲组成的方阵仍闪着微光浮现出来，显露出几排结成防御阵型的骷髅。它们将盾牌高举过头顶，步伐一致地缓缓向城墙逼近。
 
-守军继续越过城墙倾泻他们所能使出的一切攻击，但每把一个骷髅打得粉碎或击碎成散落在战场上的骨头，后面仿佛就会出现两具骷髅。这些亡灵敌人没有自由意志，无论倒下多少，都继续向我们挺进。当它们走近城墙时，士兵们从下面开始把岩石和石头堆成一大堆，随着骷髅越来越近，士兵们开始把碎片从城墙上扔下来。骷髅虽能抵挡箭矢和法术，却无法承受砸在身上的重物，许多骷髅接二连三被压个粉碎。
+守军继续从城墙上倾泻一切可用的攻击，但每有一具骷髅被击得粉碎、骨头散落战场，它身后就仿佛会再冒出两具来。作为没有自我意志的无生命之敌，无论倒下多少，它们依然不停地朝我们推进。随着骷髅逼近城墙，城下的士兵开始推车运来大石与碎石，堆成一座座石堆；等骷髅越靠越近，士兵们便将这些石块从城墙上往下砸去。与面对箭矢和法术时不同，骷髅无法承受当头砸下的重物，许多骷髅随即被砸得粉碎。
 
-队长低头看着他们，似乎在沉思着形势，然后喃喃地说：“我没看到他们带着任何攻城梯，但从他们向城墙进军的样子来看，他们肯定有计划了。”我继续监视他们，听到空气中传来沙哑的声音，附近突然传来惊慌失措的声音，墙上的人开始喊他们受到了袭击。环顾四周，我看不到任何袭击者，但我知道附近有敌人。然后我立刻感觉到有东西在我和守望队长身后移动。我迅速地拔出武器，在他们其中一人所在的地方向身后砍去，虽然我看不见敌人，但当我的武器从空中划过时，我听到一声低沉的喘息。
+队长低头看着它们，似乎在揣摩眼下的局势，随后低声咕哝道：“我没见它们带什么云梯，但看它们向城墙进军的架势，肯定有什么计划。”我继续盯着它们，却察觉到空气中响起了沙哑的声音；突然间，附近城墙上的人惊慌失措地大喊起来，说是遭到了袭击。我环顾四周，看不到任何袭击者的踪影，却能断定附近就有敌人。紧接着，我猛然感觉到有什么东西隐约正在我和守望队长身后移动。我迅速拔出武器，朝身后其中一个气息所在的位置挥砍过去；虽然看不见敌人，但当武器划破空气时，我听到了一声低沉的抽气声。
 
-当意识到发生了什么事时，守望队长对城垛上的守军喊道：“我们正受到幽影的攻击，立即自卫！”一瞬间，城垛上的每个人都转向应对新的威胁，而忽略了下面的骷髅。那些能够确定隐藏敌人在哪里的人，很快将攻击集中在敌人身上；而那些无法确定目标的人，则向四周发动难以躲避的大范围攻击。不久之后，一股死亡的呐喊声弥漫在空气中，但很快，我们就知道，这些敌人只是在分散我们的注意力。因为下面的骷髅开始移动，建造梯子，并形成由骨头组成的金字塔。
+守望队长意识到发生了什么，当即向城垛上的守军大喊：“我们遭到了幽影的袭击，注意防卫！”刹那间，城垛上的所有人都转而应付这一新的威胁，不再理会下方的骷髅。那些能判断出隐形敌人位置的人，迅速集中攻击直接将其解决；而无法找准位置的人，则挥出难以躲避的大范围攻击。没过多久，空气中便响起了一连串临死前的惨叫，但我们很快就明白过来，这些敌人不过是个幌子——下方的骷髅已趁机展开行动，用白骨搭起了云梯，还垒成了白骨金字塔。
 
-现在他们有了攻击我们的方法，骷髅纷纷攀爬上来，登上了城垛，凭借人数优势将我们逼退。看到我们被压得喘不过气来，守望队长下令放弃围墙，导致大家争先恐后，试图以任何可能的方式从城墙上下来。不幸的是，在混乱中，许多仍然在战斗或受伤的人无法逃脱，随后被砍成了碎片。在城垛失去控制后，一小队骷髅转而去夺取城门，让外面的其他不死生物进入，而其余的骷髅则开始跳下追赶我们，想要追上我们。
+如今有了接近我们的手段，骷髅纷纷攀爬上来、登上城垛，仗着数量优势将我们逼退。眼看我方抵挡不住，守望队长下令放弃城墙，众人顿时争先恐后地想尽一切办法撤下城墙。不幸的是，混乱之中，许多仍在缠斗或是负伤在身的人没能脱身，随即被砍成了碎片。城垛失守后，一小股骷髅前去夺取城门，好让外面的其余亡灵进城，而剩下的骷髅则纷纷从城墙上跳下，紧追在我们身后，企图将我们追上截杀。
 
-当我们沿着埃尔瓦拉的一条狭窄的街道奔跑时，守望队长看到了一个机会，命令法师们排成射击队列。穿过街道追击着我们的骷髅排成了一个紧密的队形，给我们提供了一个绝佳的机会，可以用一连串的咒语来对付他们。闪电、火焰和寒潮席卷战场，将它们的骨头轰得散落在街上。看到大部分骷髅被击败，防守队员们爆发出一片欢呼，直到他们意识到还有更多的东西要来。透过倒下的骷髅，我们可以看到一股亡灵洪流正穿过城门涌入城内。
+当我们沿着埃尔瓦拉的一条狭窄街道奔逃时，守望队长看到了可乘之机，下令法师们列成射击阵线。紧追不舍的骷髅跟着我们涌入街道，挤成了密集的队形，恰好为我们倾泻法术提供了绝佳机会。一波波闪电、火焰与寒冰法术席卷那片战场，将它们的骨头轰得满街飞散。见大部分骷髅已被消灭，守军爆发出震耳欲聋的欢呼声，直到众人意识到后面还有更多敌人。越过倒地的骷髅望去，只见一股亡灵洪流正从城门汹涌而入。
 
-食尸鬼的喉音开始弥漫在空气中，与这些食尸鬼一同行进的还有另外几支骷髅军团。然而，正是在他们身后，真正可怕的不死族开始移动——那是一个个高耸的白骨巨影，和埃尔瓦拉的许多建筑一样高。最后一排骷髅也出现了，但与其他骷髅不同的是，这些骷髅似乎配备了法杖和弓箭。很快，不死族开始组织自己，然后步调一致地朝我们的方向推进。我们的法师试图准备另一轮法术，但亡灵的箭矢和法术如雨般落下，很快便让他们发现这相当困难。意识到我们必须与不死族充分交战，我们举起盾牌，继续向前迈进。
+空气中开始弥漫起食尸鬼喉咙深处发出的低吼声，与这些食尸鬼同行的是另外几个军团的骷髅。然而，真正令人胆寒的亡灵此时才在它们身后动了起来——那是一具具高耸的庞大白骨身躯，足有埃尔瓦拉的许多建筑那么高。最后一排骷髅也随之现身，但与其他骷髅不同的是，它们手中拿着的似乎是法杖和弓。亡灵很快便整顿好队形，随后步调一致地朝我们这边推进。我方法师试图准备下一轮法术，但亡灵射出的箭矢与法术如雨点般袭来，让他们很快便发现这难以办到。意识到必须与亡灵全面交战，我们举起盾牌，迈步上前。
 
-随着前线越来越近，食尸鬼从我们的队伍上方跳过，让我们措手不及。我们很快发现自己被包围了起来，食尸鬼在后面抓我们，而剩下的不死力量从前面撞向我们。我们后面的永恒精灵弓箭手和法师几乎没有任何回旋的余地，他们被砍倒了，而前面的士兵只能把盾牌放在前面阻挡攻击。惊慌失措之时，那些可以传送的人脱离了防线，留下我们其他人来抵御步步逼近的亡灵大军。我们发现自己被不死生物困住了，一切都乱成一团，情况看起来相当惨淡。]], "_t")
+随着双方前线越靠越近，食尸鬼突然高高跃起，直接跳过了我们的整个阵型，打得我们措手不及。食尸鬼在背后挥爪猛抓，其余亡灵部队则从正面撞上来，我们很快便发现自己陷入了重围。身后的永恒精灵弓箭手和法师几乎没有腾挪周旋的余地，纷纷被砍倒在地，而前排的士兵也只能勉强将盾牌举在身前抵挡攻击。惊慌之下，那些能够传送的人脱离了阵线，留下我们其余人独自抵御步步紧逼的亡灵大军。我们发现自己已被亡灵困住，一切彻底陷入混乱，局势看起来一片黯淡。]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 3] - Leadership From The Front", "菲·维莉欧斯的冒险 [第5卷，第3章] - 前线的领袖", "_t")
 t([[[i]As an experienced commander would tell me long after the battle with the undead "the winner of a battle is not necessarily dictated by the amount of enemies slain but rather by which side breaks first." While the quality of an armies ability to fight is important it means nothing should its soldiers lose the will to fight. We had been lucky in the defense of Elvala with the aid from the ogres and eventually rallying leadership of Aranion.  Without them all hope of victory would have surely been lost.[/i]
 
@@ -1934,23 +1934,23 @@ Then, in a rather surprisingly loud voice for a shalore he yelled, "DEFENDERS! F
 
 Seeing this display I immediately began to regain my will to fight, and following the order given I charged forward. However, before I could reach the undead ranged supporters a couple armored skeletons step forward with shields raised to meet me. Looking to break through them I stepped forward with a heavy strike only to have my attack deflected and my footing thrown off balance. Seeing an opportunity, one of the skeletons dropped its shield down and prepared to launch a counterattack against me. Before its attack could connect though, a heavy swipe flew over my head, sending its skull sailing away. From behind me another one of the ogres stepped forward and together we converged on the other skeleton.
 
-After sending bones flying, I nodded to the ogre, and we continued on towards the waiting archers and mages. Along with the other ogres and shaloren we dove deep within the enemy ranks, hewing our weapons through their undefended line. Perhaps realizing that they had no hope of winning, the skeletons turned around and began to move away, seemingly entering into a retreat. Getting ready to pursue them, we were stopped by the remaining ghouls who jumped into our way, and the remaining bone giants that had not yet been dispatched. While the undead had been weakened enough to no longer be a threat, they would buy enough time for the skeleton archers and mages to escape out the gate and into the Shroud.]], [[[i]正如一位经验丰富的指挥官在与不死生物的战斗结束很久后才告诉我的那样，“战斗的胜利者不一定取决于被杀敌人的数量，而是取决于哪一方坚持到最后。”虽然军队的战斗能力很重要，但如果士兵们失去战斗意志，这种能力就毫无意义。我们很幸运在食人魔的帮助，以及艾伦尼恩最终重振士气的领导之下保卫了埃尔瓦拉。没有他们，胜利的希望肯定会破灭。[/i]
+After sending bones flying, I nodded to the ogre, and we continued on towards the waiting archers and mages. Along with the other ogres and shaloren we dove deep within the enemy ranks, hewing our weapons through their undefended line. Perhaps realizing that they had no hope of winning, the skeletons turned around and began to move away, seemingly entering into a retreat. Getting ready to pursue them, we were stopped by the remaining ghouls who jumped into our way, and the remaining bone giants that had not yet been dispatched. While the undead had been weakened enough to no longer be a threat, they would buy enough time for the skeleton archers and mages to escape out the gate and into the Shroud.]], [[[i]与亡灵的那场战斗过去许久之后，一位经验丰富的指挥官曾对我说过：“一场战斗的胜负未必取决于斩杀敌人的数量，而在于哪一方先崩溃。”尽管一支军队的作战能力十分重要，可一旦士兵丧失斗志，再强的战力也毫无意义。在埃尔瓦拉保卫战中，我们很庆幸得到了食人魔的援助，并最终迎来艾伦尼恩振奋人心的统帅。若是没有他们，胜利的希望必定早已破灭。[/i]
 
-当敌人从前面和后面进攻时，我内心的仇恨开始积聚。然而，我也有自己的问题要处理，其中一个骨巨人（我姑且这么称呼它们）走上前来，试图把我打倒。我设法避免了第一次攻击，集中了我体内混乱的能量，并释放出一个强大的打击，摧毁了它的下半身的一大部分。不过，这似乎毫无用处，因为这个骨巨人先重组、挪动身体的骨骼形成保护屏障，随后似乎开始自我重建。骨巨人接着又对我发动了一次攻击，把我打晕，一时无法做出反应。我陷入被动，事情又因一个食尸鬼从后面靠近我并深深咬进我的肩膀而变得更糟了。
+敌人从前后夹击而来，我内心的仇恨也随之不断积聚。然而，我眼下还有自己的麻烦要应付：其中一具骨巨人（我姑且这么称呼它们）走上前来，要把我砸扁。我设法躲过第一记攻击，随即凝聚体内的混乱能量，轰出一记重击，摧毁了它大半个下半身。但这似乎无济于事，那具骨巨人重新排布并挪动身上的骨骼，筑起一道防护屏障，随后仿佛又开始自我重组。紧接着，骨巨人又向我发动了一记猛击，将我震得头晕目眩，一时无法做出反应。我本就陷入被动，一只食尸鬼又从身后逼近，狠狠咬进我的肩膀，令局势雪上加霜。
 
-当时的情况看起来很绝望，但我从后面听到一个声音喊叫，眼角看到一个食尸鬼从我身边冲过。一道寒霜冲了出来，在食尸鬼身上炸了一个洞，还把我面前那个骨巨人的一只胳膊给炸飞了。我瞥了一眼侧面，注意到一个年轻的食人魔走上前来，我可以听到那些食人魔的巨大的脚步声，它们正朝着战场疾驰而去。我没有太多的时间去观察周围发生的事情，但是骨巨人把注意力转向了我和那个食人魔。那个大得多的骨巨人开始攻击，用另一只胳膊击倒了食人魔，像对待一个布娃娃一样把食人魔打飞。
+局势看似已然绝望，但我身后忽然传来一声呐喊，眼角余光里只见一只食尸鬼猛地从我身旁掠过。一道寒霜闪光激射而出，将那只食尸鬼轰穿了一个窟窿，还顺势炸断了我面前那具骨巨人的一条手臂。我向旁瞥了一眼，只见一名年轻的食人魔走上前来，同时耳边传来大群食人魔奔赴战局时的沉重脚步声。不过我没多少时间观察周围的动静，因为骨巨人已经把注意力转向了我和那名食人魔。体型庞大得多的骨巨人率先向那名食人魔发难，挥起另一条手臂猛砸下来，像甩布娃娃一样将食人魔击飞出去。
 
-我抓住这个机会，再次冲向骨巨人，但这几乎没有效果，因为我几乎没有力量造成任何伤害，骨巨人身体周围的骨头屏障吸收了整个打击。骨巨人随即反击，又一记强力攻击把我打得连连后退。又一次，食人魔帮助了我，冲向这个骨巨人，在它能发动后续攻击之前把它从我身边推开。看到我精疲力尽的样子，食人魔回头冲我喊，让我快跑，然后启动了一枚护盾符文，准备好迎接即将到来的报复。我遍体鳞伤，开始退开恢复体力。
+骨巨人向我这一侧露出了破绽，我趁机再次猛扑上去发起攻击，却几乎毫无效果——我已无力造成什么伤害，而环绕在骨巨人周身的骸骨屏障更是将这一击悉数吸收。作为对我这番进攻的回击，骨巨人紧接着又是一记重击，将我打得踉跄倒退。然而那名食人魔再一次赶来救我，一头撞向骨巨人庞大的身躯，在它发动追击之前将其从我身边撞退。见我已是精疲力竭，食人魔回头冲我大喊让我快跑，随后激活了一枚护盾符文，摆好架势准备迎接即将到来的报复。遍体鳞伤的我开始退开，以恢复体力。
 
-在离那片战场有一段距离后，我转过身来，审视整个战场。不死军队的阵线已经被前来帮助我们的冲锋食人魔严重破坏，但我们的防线有很多人受伤或死亡。许多被传送出去的永恒精灵现在回到战场上，在不死军团的四面八方进行小规模的战斗，让不死军团失去平衡。然而，不死军队的骷髅弓箭手和法师队列基本上保持完整，现在他们正在无人看守的侧翼狙击我们的卫兵。现场一片混乱，我不知道我们是赢是输，但我仍然能听到我的队友们在我周围死去的尖叫声。
+拉开一段距离、脱离那场混战之后，我转过身审视整个战场。赶来支援的食人魔发起冲锋，将亡灵的阵线冲得七零八落，但我方防线上的守军也已死伤大半。许多先前传送离开的永恒精灵如今也已重返战场，结成小队在亡灵大军的四面八方展开交战，打乱了亡灵的阵脚。然而，亡灵部队中由骷髅弓箭手与法师组成的队列依然大体完好，此刻正不断从毫无防备的侧翼点杀落单的守军。现场一片混乱，我根本分不清我们究竟是占了上风还是落了下风，但耳边到处都是守军同胞临死前的惨叫声。
 
-“看来这已经变成了一场真正的战争，”一个声音从我身后传来。话音刚落，我突然感觉到自己被一种明亮的光芒包围着，我的瘀伤消失了，伤口开始愈合。我转身面向声音来处，眼前是一个穿着盔甲的永恒精灵，举着一只发光的手，朝我的方向伸出。我认出他所穿的盔甲和手持武器，是我在最高议会会议厅看到的同一套。永恒精灵放下手，继续说，“我不是医生，但这应该足以让你坚持战斗，直到战斗结束。现在，让我们看看……”他停了一会儿，看着战场，然后深吸了一口气。
+“看来这已经演变成一场恶战了。”一个声音从我身后传来。话音响起的同时，我忽然感到全身被一团耀眼的光芒笼罩，身上的淤伤随之消退，伤口也开始愈合。我循声转过身去，只见一名身披铠甲的永恒精灵正面对着我，朝我的方向伸出一只发光的手。我认出他身上的铠甲与手中的武器，正是在最高议会会议厅见过的那一套。那名永恒精灵放下手，继续说道：“我不是医生，但这应该足以让你撑到战斗结束了。那么，让我看看……”他停顿片刻，目光扫过战场，随后深吸了一口气。
 
-然后，他以对永恒精灵而言出奇响亮的声音喊道：“守军们！把你们的精力集中在粉碎骷髅弓箭手和法师身上，把那些巨大的骨头怪物和装甲骷髅战士留给我吧！”在我还没来得及理解所说的话之前，永恒精灵就传送到了帮助我的食人魔面前，并在瞬间击中了骨巨人的侧面。突然，一股强烈的色彩在这个骨巨人周围爆炸了，把这个怪物的碎片炸得满街都是。那个永恒精灵毫不停顿，迅速扑向附近的下一个骨巨人，也毫不费力地将它击倒。
+紧接着，他用一种对永恒精灵而言出奇洪亮的声音高喊道：“守军们！集中力量碾碎那些骷髅弓箭手和法师，把那些笨重的骸骨巨怪和装甲骷髅交给我！”我甚至还没来得及领会他话中的意思，那名永恒精灵便已传送到先前救我的食人魔身前，瞬间击中了骨巨人的身侧。刹那间，绚烂而猛烈的彩光在骨巨人周身轰然炸裂，将这头巨怪炸得粉碎，残骸散落满街。那名永恒精灵毫不停顿，迅速扑向附近的下一具骨巨人，同样轻而易举地将其击倒。
 
-看到这一幕，我立刻恢复了战斗的意志，按照命令向前冲去。然而，在我接触到不死族的远程部队之前，一对带盾牌的装甲骷髅走上前迎接我。为了突破他们，我上前一记重击，但是我的进攻偏斜了，双脚失去了平衡。看到机会，其中一具骷髅放下盾牌，准备对我发起反击。在它的攻击击中我之前，一记重击从我的头顶飞过，把它的头骨打飞了。从我身后，另一个食人魔走上前去，我们同时干掉了另一个骷髅。
+目睹这一幕，我立刻重燃斗志，听从刚才的命令向前冲去。然而，还没等我冲到亡灵的远程支援部队面前，两具装甲骷髅便举着盾牌上前迎击。我想强行突破它们，便踏步上前劈出一记重击，不料攻击却被格开，连脚下也失去了平衡。其中一具骷髅见有机可乘，放下盾牌，准备向我发起反击。但它的攻击还未落到我身上，一记势大力沉的横扫便从我头顶掠过，将它的头骨直接击飞出去。另一名食人魔从我身后迈步上前，我们一同夹击剩下的那具骷髅。
 
-在击飞了那具骨架之后，我向食人魔点了点头，继续向前方的弓箭手和法师那里杀去。我们与其他食人魔和永恒精灵一起深入敌阵，挥舞着武器切开它们未设防的战线。骷髅们也许意识到已无胜算，转身离开，似乎开始撤退。我们正准备追击，却被跳出来挡路的残余食尸鬼和尚未被消灭的骨巨人拦住了。尽管这些亡灵已被削弱到不足为患，它们仍为骷髅弓箭手和法师们赢得足够的时间逃离大门，进入帷幕之中。]], "_t")
+将骨头击得四处飞散后，我向食人魔点了点头，两人继续朝着严阵以待的弓箭手和法师杀去。我们与其他食人魔和永恒精灵一道深入敌阵，挥舞武器劈开它们毫无防备的战线。那些骷髅或许意识到自己已毫无胜算，纷纷掉头撤离，看样子是开始撤退了。我们正准备追击，却被跳出来拦路的残余食尸鬼以及尚未被解决的残余骨巨人挡住了去路。尽管这些亡灵已被大幅削弱，不再构成威胁，但它们还是争取到了足够的时间，让骷髅弓箭手和法师得以逃出大门，隐入帷幕之中。]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 4] - Confrontation", "菲·维莉欧斯的冒险 [第5卷，第4章] - 对峙", "_t")
 t([[[i]I was oddly able to get back on my feet quite easily after receiving the initial healing spell cast on me, perhaps even quicker than what was normally possibly. This would hold true to the additional healing I would receive moments after. There is something about the chaotic energies within me that interacts with my body and allows it to mend quicker with the more hate I feel. This isn't something I can easily take advantage of however and should the hatred within me dissipate before I receive any medical attention it will result in a long and arduous recovery time.[/i]
 
@@ -1968,23 +1968,23 @@ Without hesitation Aranion immediately began charging forwards. Reacting to the 
 
 I'm not entirely sure of what had happened, but what I do know is that there was an explosion of energy that erupted between Aranion and the necromancer, creating a shock wave that ripped through the remnants of the settlement. Finding myself within one of the buildings I stumbled to my feet and attempted to reorient myself. When I was able to, I made my way out to the hole in the wall I had been thrown through to survey what had happened outside. Looking around all I could see was a scene of destruction as torn ground, ruined buildings, and charred air remained. Stepping out from the building my foot crushed one of many shattered bones that now lay strewn about the battlefield. This would unfortunately be noticed by several skeletons that had survived the blast.
 
-When they raised their weapons in my general direction I knew I needed to act quickly. I approached a couple of the closer ones and deftly broke them into pieces with a couple well placed strikes. I was about to charge towards the rest but then I noticed a couple of the skeletons raising staves in my direction. Rapidly I dove behind the rubble of a nearby building and hid from the barrage of magic that lit up the space I had just been in. Getting to my feet and holding my weapon tightly I could hear them advancing towards my position. I readied myself and waited for the skeletons to come closer and watched for the moment when they would appear around the corner.]], [[[i]奇怪的是，当我接受了最初的治疗法术后，我能很容易地重新站起来，也许比正常情况下更快。片刻之后我受到的额外治疗也是如此。看来，我体内的混乱能量与我的身体相互作用，让我的身体随着仇恨的增加而更快地恢复。然而，我无法轻易利用这一点，如果我内心的仇恨在我接受任何治疗之前消散，我的康复过程将会变得漫长而艰难。[/i]
+When they raised their weapons in my general direction I knew I needed to act quickly. I approached a couple of the closer ones and deftly broke them into pieces with a couple well placed strikes. I was about to charge towards the rest but then I noticed a couple of the skeletons raising staves in my direction. Rapidly I dove behind the rubble of a nearby building and hid from the barrage of magic that lit up the space I had just been in. Getting to my feet and holding my weapon tightly I could hear them advancing towards my position. I readied myself and waited for the skeletons to come closer and watched for the moment when they would appear around the corner.]], [[[i]在接受了施放在我身上的第一道治疗法术后，我竟出奇轻松地重新站了起来，甚至可能比正常情况下所能做到的还要快。片刻之后我受到的后续治疗也是如此。我体内的混乱能量会以某种方式与身体相互作用，让我心中的仇恨越强烈，伤势就愈合得越快。不过我并不能轻易利用这一点，一旦心中的仇恨在我得到任何救治之前消散，恢复期就会变得漫长而艰难。[/i]
 
-就在那一刻，我知道我们赢了。剩下的骨巨人仍然构成相当大的威胁，但我们最终凭借足以压倒他们的力量击穿了他们的防御并击败了他们。当最后一个不死生物被击倒时，守军再次爆发出胜利的欢呼。我正要加入他们，但我注意到另一个治疗咒语的明亮光芒再次笼罩着我。转过身来，我注意到这一次咒语是由其中一个治疗者施放的。“让菲尽快康复，医生，我希望她尽快恢复到巅峰状态。”听到我的名字，我想知道这个永恒精灵是谁。在埃尔瓦拉，知道我的名字的人很少。
+战斗进行到那一刻，我知道我们已经赢了。残存的骨巨人依然是个不小的威胁，但凭借压倒性的力量，我们最终突破了它们的防线并将其击败。随着最后一批不死生物倒下，守军中再次爆发出胜利的欢呼。我刚要加入他们，却发现又一道治疗法术的耀眼光芒再次将我笼罩。我转过身，注意到这次施法的是其中一名治疗者。“医生，尽快把菲治好，我要她以最快的速度恢复到最佳状态。”听到自己的名字，我不禁纳闷这名永恒精灵究竟是谁，因为在埃尔瓦拉没几个人知道我的名字。
 
-当永恒精灵摘下头盔时，我马上就认出了艾伦尼恩·加威尔的脸。他很快地对我说：“我们将通过帷幕离开，看看是否能抓住这次袭击的幕后黑手。观察不死生物的行为，很可能发动这些攻击的人一定就在附近。”我听明白了他的话，默默地向他点头，然后他重新戴上头盔，朝帷幕的方向望去。当治疗者的治疗咒语结束后，艾伦尼恩指示治疗者把伤员送到治疗场，然后向我的方向伸出手。我准备好了，深吸了一口气，握住他的手。
+那名永恒精灵摘下头盔，我一眼就认出了艾伦尼恩·加威尔的脸。他语速飞快地对我说道：“我们要穿过帷幕出去，看看能不能抓到这次袭击的幕后主使。从那些不死生物的举动来看，发动这几波袭击的家伙很可能就在附近。”我听明白他的话，默默向他点了点头，随后他便重新戴上头盔，朝帷幕的方向望去。等治疗者的治疗法术施放完毕，艾伦尼恩吩咐治疗者把伤员送往疗伤场地，接着朝我的方向伸出了手。我做好准备，深吸一口气，握住了他的手。
 
-一瞬间，艾伦尼恩施了一个咒语，把我们传送到帷幕的另一边。我们花了一点时间来辨认方位，没过多久就注意到了正在撤退的不死族，以及在他们中间移动的一个穿着长袍的人。我还没来得及仔细打量周围的环境，艾伦尼恩就示意我跟上。我们与不死生物之间保持了一定的距离，跟着他们向西北方向走去。几天来，我们在纳格尔边界以西旅行，经过许多被摧毁的定居点，这些定居点显示出最近受到袭击的迹象。我猜纳格尔人曾试图夺回这些定居点，结果遭到攻击，他们的居民变成了不死军团的奴隶，这些不死奴隶可能就是袭击了埃尔瓦拉的那一批。
+转瞬之间，艾伦尼恩施展法术，将我们传送到了帷幕的另一侧。我稍作定神辨清方向，没过多久，我们就注意到了那群正在撤退的不死生物，以及混在它们中间独行的披斗篷身影。我还没来得及多看几眼周围的环境，艾伦尼恩就示意我跟上。我们保持着相当一段距离，暗中尾随这群不死生物向西北方行进。一连几天，我们都在纳格尔边境以西不远处跋涉，途中经过了许多被毁的定居点，全都留有近期遇袭的迹象。我猜测纳格尔人曾试图收复这些定居点，不料却遭到袭击，那里的居民也全都被转化成了不死仆从，袭击埃尔瓦拉的很可能就是同一批。
 
-过了一段时间，我们慢慢跟在不死军团后面进入另一个定居点，却发现他们停在那里。当我们靠近一座建筑物的边缘，设法观察他们在做些什么的时候，我们在一口井附近发现了这个穿着长袍的人。几具骷髅从其中一栋楼里走了出来，端着一个盛有一些食物的盘子。艾伦尼恩低声说：“看来，我们的这位朋友还活着，和跟在他后面的不死生物不同。”仿佛是听了艾伦尼恩的话，这个穿着长袍的人用低沉沙哑的声音说道：“是的，非常的活着。”之后很长一段时间，除了那个人吃东西的声音，空气中弥漫着死寂。
+又过了一段时间，我们跟在这支不死大军后面慢慢潜入另一处定居点，却发现它们在里面停了下来。我们贴近一栋建筑的边缘，想看一眼它们在做什么，结果瞥见那个披斗篷的身影正待在一口井旁。几具骷髅从其中一栋建筑里走了出来，端着一只盛有食物的盘子。艾伦尼恩压低嗓音轻声说道：“看来，和跟着他的那些不死生物不同，咱们这位朋友可是活着的。”仿佛是在回应艾伦尼恩的话，披斗篷的身影中传出低沉沙哑的嗓音：“没错，活得好得很。”此后好半天，空气中都弥漫着死一般的寂静，只听见那人吃东西的声响。
 
-在这整个过程中，不死生物一动不动地站着。艾伦尼恩察觉那个人想要交谈，便走到对方能清楚看见的地方，手按在武器上，但还没拔出来。看到艾伦尼恩出现在自己的视线中，他说：“啊，你是那个能够一下子粉碎我的创造物的人，我必须说，我没想到有人能做到这一点，干得好。虽然你的潜行能力也许没有那么出色。”艾伦尼恩拔出剑，站在那里说，“我也很想粉碎它们的创造者。”穿着长袍的人发出一声刺耳的嗤笑，伸出一只手，示意艾伦尼恩去尝试。
+在这整个过程中，那些不死生物始终一动不动地站着。艾伦尼恩察觉到那人有意交谈，便迈步走到明处，手按在武器上，但尚未拔出。见艾伦尼恩现身，那人开口道：“啊，原来你就是那个能一击粉碎我造物的人。不得不说，我没料到有人能做到这种地步，干得漂亮。只不过，你潜行匿迹的本事恐怕就没那么高明了。”就在这时，艾伦尼恩拔出长剑，摆好架势说道：“我倒也很想把它们的创造者一并粉碎。”披斗篷的人闻言发出一声沙哑的冷笑，随后伸出一只手，冲艾伦尼恩比划了一下，示意他尽管一试。
 
-艾伦尼恩毫不犹豫地立即开始向前冲锋。不死族迅速移动，对这突如其来的移动做出反应，形成了一道防线，阻挡了艾伦尼恩的接近。这些不死族此时主要是法师和弓箭手，他们朝艾伦尼恩射出大量箭矢并施放魔法。在短短的一瞬间，艾伦尼恩将自己传送到了穿着长袍的人旁边，完全避开了这一切。穿着长袍的人随即凝聚出一个防护用的魔法能量球，抵挡艾伦尼恩的攻击。艾伦尼恩双手紧握剑，将剑举过头顶，猛力劈下。当两个强大的战士碰撞时，一道明亮的闪光向前射出，在那之后，我不知道发生了什么。
+艾伦尼恩毫不犹豫，当即向前发起冲锋。面对这突如其来的动作，不死生物迅速行动起来，结成一道防线阻拦艾伦尼恩逼近。此时它们当中大多是法师和弓箭手，当即朝艾伦尼恩的方向倾泻出一轮投射物与魔法齐射。仅在一瞬之间，艾伦尼恩便将自己传送到了那披斗篷的人身旁，将所有攻击尽数避开。那披斗篷的人立刻做出反应，撑起一团防护性的魔法能量球来迎击艾伦尼恩的攻势。艾伦尼恩双手紧握长剑，高举过顶，势大力沉地猛劈而下。随后两名强者交锋碰撞，一道耀眼的强光向前迸射而出，至于之后发生了什么，我就不得而知了。
 
-我不完全确定发生了什么，但我知道的是，艾伦尼恩和死灵法师之间的能量轰然爆炸，产生的冲击波横扫了定居点的残余部分。我发现自己摔倒在一栋楼里，跌跌撞撞地站了起来，试图重新辨清方向。等我辨清方向后，我走出了那个我被震飞时撞穿的墙洞，想要调查外面发生了什么。环顾四周，我看到的是一片废墟，残破的土地，残破的建筑物，空气中仍然弥漫着烧焦的气息。从大楼里走出，我的脚碾碎了一块散落在战场上的碎骨头。不幸的是，在爆炸中幸存下来的几具骷髅注意到了这一点。
+我并不完全确定当时发生了什么，但我知道的是，艾伦尼恩与那名死灵法师之间爆发出一场能量爆炸，掀起的冲击波席卷了定居点的残垣断壁。回过神来时，我发现自己身处一栋建筑之内，便跌跌撞撞地站起身，试图重新辨认方向。等缓过劲来，我走向自己被震飞进来时撞穿的墙洞，想要查看外面的情况。环顾四周，映入眼帘的尽是毁灭的景象，只剩下撕裂的地面、损毁的建筑，以及焦灼的空气。我迈步走出建筑，脚下踩碎了一截散落在战场各处的碎骨。不幸的是，这一动静被几具在爆炸中幸存下来的骷髅注意到了。
 
-当他们向我的方向举起武器时，我知道，必须迅速采取行动。我走近两个离我比较近的骷髅，灵巧地击中了他们的要害，将他们击碎。我正要冲向其余骷髅，但我注意到有几具骷髅朝我的方向举起了法杖。我迅速地躲在附近一座建筑的瓦砾后面，躲开了命中我刚才所处地方的魔法。我站起身来，紧紧握住武器，听到他们朝我的位置走去。我做好了准备，等待骷髅走近，并观察它们何时会出现在拐角处。]], "_t")
+见它们朝我所在的大致方向举起武器，我知道自己必须迅速行动。我逼近几具离得较近的骷髅，灵巧地挥出几记精准的攻击，将它们打得粉碎。我正要冲向其余骷髅，却注意到有几具骷髅朝我的方向举起了法杖。我迅速飞身扑到附近一栋建筑的瓦砾堆后，避开了那阵照亮我方才所处位置的密集魔法。我站起身，紧紧握住武器，听见它们正朝我的位置逼近。我做好准备，等待着那些骷髅走近，紧盯着它们从拐角处现身的那一刻。]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 5] - Staff of Bones", "菲·维莉欧斯的冒险 [第5卷，第5章] - 白骨法杖", "_t")
 t([[[i]First rule of combat, always have a plan of escape ready in case you get into trouble. Second rule of combat, understand when escape is not an option. Third rule of combat, don't put yourself in a position where you will get flanked on multiple sides. Fourth rule of combat, don't exhaust yourselves before the conclusion of a fight. Fifth rule of combat, don't die.[/i]
 
