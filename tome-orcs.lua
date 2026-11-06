@@ -3170,19 +3170,19 @@ So maybe the old guard's been overrun with Thaloren, youths, and others who care
 
 Perhaps most meaningfully of all, there are [i]far[/i] more Menders now than there were Ziguranth in the last century.  These allies will help us support Nature to an incredible degree, and we've started offering volunteer courses in classical anti-magic training, allowing them to further refine our techniques for dealing with rogue mages.  If and when arcane magic causes another catastrophe, these allies will rally behind us as we defend Nature from those who threaten it...  And, who knows, maybe we actually CAN teach mages to show a sane level of restraint without wiping them all out.  I'm keeping my eyes open for ways to make that happen, no matter how unlikely they may be.
 
-In the meantime, paying off Stone Warden trainers and buying enough mindstars and herbal infusions for our initiates isn't cheap.  I'm not proud of what I'm doing to pay the bills, and am fully aware of what it'd do to the organization if someone saw me, but this is the fastest and easiest money I've ever made.  Ten minutes of concentration, a few hours to re-establish my equilibrium, and I can grow enough cheerblossom to cover our expenses for a week.]], [[[i]（你看到一本以树叶装订的日志；打开的瞬间，它便开始枯萎碎裂。你设法撕下一页；它仍在分解，但速度很慢，足以让你在它化为尘土前读完。）[/i]
+In the meantime, paying off Stone Warden trainers and buying enough mindstars and herbal infusions for our initiates isn't cheap.  I'm not proud of what I'm doing to pay the bills, and am fully aware of what it'd do to the organization if someone saw me, but this is the fastest and easiest money I've ever made.  Ten minutes of concentration, a few hours to re-establish my equilibrium, and I can grow enough cheerblossom to cover our expenses for a week.]], [[[i]（你在这里看到一本以树叶装订的日记；你刚一翻开，它就开始枯萎崩碎。你设法扯下了其中一页；这一页仍在渐渐消解，但好在速度够慢，足以让你在它化为尘土前读完。）[/i]
 
-又一张遭到破坏的海报。说我们是叛徒、通敌者，宣称他们自己才是真正的伊格兰斯。全都是蠢货。
+又有一张海报遭人蓄意涂毁了。上面骂我们是叛徒、通敌者，还自诩为真正的伊格兰斯。这帮人全都是蠢货。
 
-我建立修复者，并不是因为我认为少数恰好品行端正的魔法使用者的出现，就能推翻我在伊格所受的教诲或在夏特尔童年时学到的任何东西。我也没有突然忘记：任何源自奥术魔法的东西，不论是否裹着一套关于天体的玄虚说辞，都有变异成足以令魔法大爆炸相形见绌之物的风险。我这样做，是因为那些疯子长期无视政治风向的变化，眼看自己逐渐变得无足轻重，又凭那场鲁莽的暗杀直接从无足轻重沦为人人唾弃的对象。他们尽可以怪罪远东，但那只是棺材上的最后一颗钉子；符文已广为接受，炼金术士也早已在整片大陆公开活动。
+当初我创立修复者时，并不是因为我觉得冒出寥寥几个碰巧为人正直的施法者，就能证伪伊格的教导或是我儿时在夏特尔所学到的一切。更不是因为我突然忘记了，凡是源于奥术魔法的事物，不管有没有用那套关于天界的故弄玄虚之词加以包装，都潜藏着发生异变的风险，可能化作令魔法大爆炸都相形见绌的可怕事物。真正的原因是，那帮疯子长久以来一直无视政治局势的变迁，发觉自己正一步步滑向无足轻重的境地，随后又因为那场有勇无谋的暗杀企图，干脆跳过无足轻重的阶段，直接沦落到人人唾弃的地步。他们尽可以把一切归咎于远东，但在符文已被广泛接纳、炼金术士也在整片大陆公然活动的当下，那不过是钉上棺材板的最后一颗钉子罢了。
 
-我欣赏他们的奉献，也理解他们的挫败：眼看世人将魔法视为常态，只会让他们更想诉诸暴力。但事实是，对伊格的袭击是一场安乐死，阻止狂热分子继续败坏我们在公众眼中的形象。威吓早已不可能让我们有所作为，所以必须尝试新办法。既然魔法大爆炸和黄昏纪已从公众记忆中淡去，以魔法的恐怖警醒世人不再有效，我们就该提醒他们自然的奇迹——那些今天便能亲眼见到的奇迹。公众若不相信魔法邪恶，至少可以相信自然更好。我们若不能把魔法变成禁忌，就能让它变得过时……而这一切会为我们争取原本缺少的支持，吸引渴望了解自然之美、听取奥术危害警示的好奇心灵。
+我能理解他们的执着。我也能体会他们的挫败感，明白眼看着整个世界对使用魔法习以为常，只会驱使他们变本加厉地诉诸暴力——但事实是，对伊格的那场突袭其实是一次安乐死，阻止了那帮狂热分子把我们在公众眼中的形象败坏得更加不堪。靠恐吓威胁来达成目的的阶段早已过去了——因此我们必须尝试新的途径。既然魔法大爆炸和黄昏纪在大众记忆中早已模糊不清，向世人重提魔法的恐怖已不再奏效，那我们就该转而向他们展现自然的奇迹——那些就在今天、他们能够亲眼见证的奇迹。倘若民众不愿相信魔法是邪恶的，他们至少可以相信自然更好。既然我们无法让魔法成为禁忌，那就可以让魔法变得过时……而这一切都能为我们汇聚起原本无从企及的支持，吸引来一颗颗充满好奇的心灵，等待着我们去传授自然之美，并告诫他们奥术的隐患。
 
-所以，老班底也许已经被涌入的自然精灵、年轻人，以及那些认为热爱自然比憎恨魔法重要得多的人淹没了。我不明白这有什么问题——让自然更加强大，也会让它更有能力抵御魔法可能造成的伤害。我们让支持自然胜过魔法的理念挺过了联合王国与晨曦之门的条约、对伊格的袭击，以及对伊格兰斯巡逻队的攻击。我们把自己塑造成一个无私、慈善、为众人福祉而工作的组织；这份声誉带来的公信力，远胜过去那群疯狂狂热分子的公众形象。
+好吧，或许原来的老班底确实已经被大批自然精灵、年轻人，以及其他那些把热爱自然看得远比痛恨魔法更重的人给淹没了。可我看不出这有什么问题——让自然变得更加强大，就能让它更有能力抵御魔法可能造成的破坏。经历了联合王国与晨曦之门缔结条约、伊格遇袭以及伊格兰斯巡逻队受创等重重变故，我们依然让推崇自然而非魔法的理念得以存续。如今，我们已在世人心中树立起无私行善、造福大众的组织形象；相比于从前在公众眼里那副疯魔狂热分子的模样，这样的声誉显然能为我们赢得高得多的公信力。
 
-也许最重要的是，如今修复者的人数比上个世纪的伊格兰斯成员[i]多得多[/i]。这些盟友将帮助我们给予自然极大的支持；我们也开始开设自愿参加的传统反魔训练课程，让他们进一步完善我们对付不法法师的技巧。如果奥术魔法再次造成灾难，这些盟友会团结在我们身后，与我们一道保卫自然、抵御威胁……而且，谁知道呢，也许我们确实能够教会法师保持合理的克制，而不必把他们全部消灭。无论可能性多低，我都会继续留意实现这一点的办法。
+或许最有意义的一点在于，如今修复者的人数，比起上个世纪的伊格兰斯要[i]多出太多[/i]了。有了这些盟友相助，我们对自然的扶持将达到难以想象的程度；同时，我们也已开始提供自愿报名的传统反魔训练课程，让他们能够进一步改良我们对付不法法师的技艺。一旦将来奥术魔法再度引发大祸，当我们挺身而出、保卫自然免遭威胁者侵害时，这些盟友便会团结在我们身后……况且，谁说得准呢，说不定我们当真能够教会法师们保持理智的克制，而不必将他们赶尽杀绝。不管这种可能性有多么渺茫，我都会一直留心去寻找能将其变为现实的办法。
 
-与此同时，付钱给岩石守卫训练师，再为新成员购买足够的灵晶和草本纹身，代价并不便宜。我并不为自己支付账单的手段感到自豪，也完全清楚一旦被人看见会给组织造成什么后果，但我从未赚钱赚得如此快、如此轻松。只需专注十分钟，再花几小时恢复自身平衡，我便能种出足够的鼓舞之花，支付整整一周的开销。]], "_t")
+与此同时，结清岩石守卫训练师的酬劳，再为新入门的成员购置足够的灵晶与草本纹身，可一点也不便宜。为了付清账单而干的这桩事，我自己也觉得并不光彩，而且我完全清楚万一被人撞见会对组织造成怎样的冲击；但这是我这辈子来钱最快、也最轻松的门路了。只需集中精力十分钟，再花上几个小时重新恢复自身的平衡，我就能培育出足够支付我们整整一周开销的鼓舞之花。]], "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/lore/quarry.lua"
@@ -3452,7 +3452,7 @@ t([[This is it...  the day I've dreaded for most of my life is here, and yet it 
 
 I must be that light for my allies' sake.  I must be strong, resolute, giving them whatever tiny amounts of hope I can.  Not only to keep their morale up and give us a chance of prevailing against the unstoppable menace which the Sunwall has stood against for ages...  but so that their last thoughts in death might be that their sacrifice has saved us all.  Maybe one of them will be right.
 
-All I can hope is that King Tolak has learned something about the Orcs, before his kingdom falls as well.  I do not begrudge him, everything he did was rooted in wisdom and kindness...  and would have worked for any species but the Orcs.  They are the sole exception that deserves no mercy.]], [[这一刻终于来了……我大半生都在畏惧的这一天已然降临，却依然令我震惊不已。在我生命中的几乎每一天里，我都预料着它的到来……直到去年。西方天灾击败了兽人部落，疾驰穿过灼烧之痕，攻入巅峰，与我并肩作战，共同对抗一个远超我想象的巨大威胁。我们与一个乐于合作、近乎统一的马基·埃亚尔重聚，那里的国王既有心也有力在各个方面向我们伸出援手，还备有一套能将兽人完全置于控制之下的计划……这就仿佛太阳才刚刚爬上地平线，即将在瓦·埃亚尔揭开和平的黎明，却在下一刻陷入永恒的黑暗，把月亮也一并带走。我一生的挚爱恐已遇难；往昔岁月里照亮黑夜的那支烛火，已经被掐灭了。什么都不剩了——没有哪项计划未曾破碎，没有哪份感召未曾陨落，没有哪丝希望未曾化为绝望——再也没有什么能指引我了。
+All I can hope is that King Tolak has learned something about the Orcs, before his kingdom falls as well.  I do not begrudge him, everything he did was rooted in wisdom and kindness...  and would have worked for any species but the Orcs.  They are the sole exception that deserves no mercy.]], [[这一刻终于来了……我大半生都在畏惧的这一天已然降临，却依然令我震惊不已。在我生命中的几乎每一天里，我都预料着它的到来……直到去年。西方天灾击败了兽人部落，疾驰穿过灼烧之痕，攻入巅峰，与我并肩作战，共同对抗一个远超我想象的巨大威胁。我们与一个乐于合作、近乎统一的马基·埃亚尔重聚，那里的国王既有心也有力在各个方面向我们伸出援手，还备有一套能将兽人完全置于控制之下的计划……这就仿佛太阳才刚刚爬上地平线，即将在瓦·埃亚尔揭开和平的黎明，却在下一刻陷入永恒的黑暗，把月亮也一并带走。我一生的挚爱恐已遇难；往昔岁月里照亮黑夜的那支烛火，已经被掐灭了。什么都不剩了——没有哪项计划未曾破碎，没有哪份鼓舞未曾消逝，没有哪丝希望未曾化为绝望——再也没有什么能指引我了。
 
 为了我的盟友们，我必须成为那道光。我必须坚强、果决，尽我所能给予他们哪怕最微弱的一丝希望。这不仅是为了维持他们的士气，让我们有一线机会去战胜太阳堡垒世代抵御至今的那股势不可挡的威胁……更是为了让他们在临死前最后的念头里能够相信，自己的牺牲拯救了我们所有人。或许，他们之中会有一个人是对的。
 
