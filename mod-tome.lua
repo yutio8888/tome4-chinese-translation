@@ -12125,7 +12125,7 @@ section "mod-tome/data/general/objects/slings.lua"
 t("weapon", "武器", "entity type")
 t("sling", "投石索", "entity subtype")
 t("sling", "投石索", "entity combat talented")
-t("Slings are used to hurl stones or metal shots at your foes.", "投石索用来向敌人投掷石质或金属子弹。", "_t")
+t("Slings are used to hurl stones or metal shots at your foes.", "投石索用来向敌人投掷石块或金属弹丸。", "_t")
 t("rough leather sling", "粗皮投石索", "entity name")
 t("rough", "粗制", "entity short_name")
 t("cured leather sling", "鞣皮投石索", "entity name")
@@ -12137,17 +12137,17 @@ t("reinforced", "强化", "entity short_name")
 t("drakeskin leather sling", "龙皮投石索", "entity name")
 t("drakeskin", "龙皮", "entity short_name")
 t("ammo", "弹药", "entity type")
-t("shot", "子弹", "entity subtype")
+t("shot", "弹丸", "entity subtype")
 t("Shots are used with slings to pummel your foes to death.", "弹丸配合投石索使用，用来把敌人砸死。", "_t")
-t("pouch of iron shots", "铁制子弹", "entity name")
+t("pouch of iron shots", "铁制弹丸", "entity name")
 t("iron", "铁", "entity short_name")
-t("pouch of steel shots", "钢制子弹", "entity name")
+t("pouch of steel shots", "钢制弹丸", "entity name")
 t("steel", "钢", "entity short_name")
-t("pouch of dwarven-steel shots", "矮人钢子弹", "entity name")
+t("pouch of dwarven-steel shots", "矮人钢弹丸", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("pouch of stralite shots", "斯莱特子弹", "entity name")
+t("pouch of stralite shots", "斯莱特弹丸", "entity name")
 t("stralite", "斯莱特", "entity short_name")
-t("pouch of voratun shots", "沃瑞钽子弹", "entity name")
+t("pouch of voratun shots", "沃瑞钽弹丸", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
 ------------------------------------------------
@@ -12766,7 +12766,7 @@ t("%s is purged of diseases!", "%s除去了疾病！", "logSeen")
 t("#DARK_GREEN#You feel nature's power protecting you!", "#DARK_GREEN#你感到自然之力庇护着你！", "logPlayer")
 t("Star Shot", "星辰弹", "entity name")
 t("blazing shot", "炽热的弹药", "_t")
-t("Intense heat radiates from this powerful shot.", "子弹中放射出极高的热量。", "_t")
+t("Intense heat radiates from this powerful shot.", "这枚强大的弹丸散发着灼人的热量。", "_t")
 t("sets off a powerful explosion", "产生一次猛烈的爆炸", "_t")
 t("Nexus of the Way", "维网之核", "entity name")
 t("brilliant green mindstar", "闪耀的绿色灵晶", "_t")
@@ -30733,16 +30733,16 @@ t("Eye Shot", "致盲射击", "talent name")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
 t("You must wield a sling!", "你必须装备投石索！", "logPlayer")
 t([[You fire a shot into your target's eyes, blinding it for %d turns and doing %d%% damage.
-		The blind chance increases with your Accuracy.]], [[你对目标的眼睛射出一发子弹，致盲目标 %d 回合并造成 %d%% 伤害。
+		The blind chance increases with your Accuracy.]], [[你对目标的眼睛射出一枚弹丸，致盲目标 %d 回合并造成 %d%% 伤害。
 		致盲概率受命中加成。]], "tformat")
 t("Inertial Shot", "惯性射击", "talent name")
 t("%s is knocked back!", "%s被击退！", "logSeen")
 t("%s stands firm!", "%s稳稳站在原地！", "logSeen")
 t([[You fire a mighty shot at your target, doing %d%% damage and knocking it back.
-		The knockback chance increases with your Accuracy.]], [[你射出一发强力的子弹，对目标造成 %d%% 伤害并击退目标。
+		The knockback chance increases with your Accuracy.]], [[你射出一枚强力的弹丸，对目标造成 %d%% 伤害并击退目标。
 		击退概率受命中加成。]], "tformat")
 t("Multishot", "多重射击", "talent name")
-t("You fire an average of %0.1f shots at your target, doing %d%% damage with each shot.", "你平均向目标射出 %0.1f 发子弹，每发造成 %d%% 伤害。", "tformat")
+t("You fire an average of %0.1f shots at your target, doing %d%% damage with each shot.", "你平均向目标射出 %0.1f 枚弹丸，每发造成 %d%% 伤害。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/sniper.lua"
