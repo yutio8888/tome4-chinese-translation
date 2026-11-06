@@ -988,7 +988,7 @@ A bit perplexed by this I sat there looking confused. For a moment we stared at 
 
 在接下来的两天里，我不吃不眠。我穿过了好几座如今已死寂一片的聚居地，幸存下来的人似乎都已将其遗弃。我无法停止去想那个被我杀死的半身人；尽管永恒精灵依然是我怒火的焦点，但我开始质疑自己究竟在做什么。很快，随着我来到一处新近的战场，更多的疑问涌上了心头。地上散落着数不清的焦尸，我猜那都是兽人。而在这些尸体的对面，我很快又看到了永恒精灵士兵的尸体，这让我倍感困惑。
 
-我原本对永恒精灵怀有的怒火，如今已化作了困惑。究竟是怎样的疯狂行径导致了他们的死亡？他们是为了消灭兽人而作出的牺牲吗？他们是出于自愿这么做的吗？永恒精灵当真罪责难逃吗？我一边迷茫着自己接下来该怎么办，一边任由这些疑问在脑海中飞速闪过，却连一个答案也想不通。最终我继续前行，来到了一座永恒精灵聚居地的外围。透过坍塌的建筑，我看见群狼正在啃食尸体的残骸，我猜那些死者便是这里的居民。与此同时，我还听到远处传来了呼救声。
+我原本对永恒精灵怀有的怒火，如今已化作了困惑。究竟是怎样的疯狂行径导致了他们的死亡？他们是为了消灭兽人而作出的牺牲吗？他们是出于自愿这么做的吗？永恒精灵当真罪责难逃吗？我一边思索着自己接下来该怎么办，一边任由这些疑问在脑海中飞速闪过，却一个答案也想不出来。最终我继续前行，来到了一座永恒精灵聚居地的外围。透过坍塌的建筑，我看见群狼正在啃食尸体的残骸，我猜那些死者便是这里的居民。与此同时，我还听到远处传来了呼救声。
 
 我朝着声音传来的方向赶去，看见一名男性永恒精灵正被一群饿狼围困。其中两只狼朝我的方向望了一眼，随即飞快地向我扑来。我过去有过对付凶猛野兽的经验，因此在第一只狼扑向我时迅速闪身避开，并顺势重重一击，打得它踉跄后退了几步。第二只狼从侧面绕过来袭击我，一口死死咬住了我的左臂。我猛力一推，将它狠狠撞在一栋建筑残破的墙面上，疼得它惨叫一声松开了口。意识到我不好惹，这两只狼很快便仓皇逃窜了。
 
@@ -1622,7 +1622,7 @@ Making my way over to the ogre I was quick to treat her wounds. The ogre command
 
 我几乎立刻站了起来，满心暴戾，随时准备发泄出来。我不知道接下来发生了什么，但我立刻击中了半身人的后背，不知怎么的，仿佛在一瞬间就移动到了那里。那一击命中时，半身人发出一阵痛苦的嚎叫。半身人试图挥拳猛击我，我却只用空着的那只手便挡开了这些软弱无力的攻击，随即展开猛攻。一次又一次的打击击中了我的猎物，在半身人的盔甲上留下了深深的裂口。这时，我记得我脸上的笑容以一种不自然的方式扯动着我的面部肌肉，每一次打击都会释放出我内心的仇恨。
 
-半身人在我一连串的进攻面前，试图用一系列的踢腿反击。我记得我的身体受到了几次打击，但我几乎没有感觉到痛苦。我立即回击了半身人，但这一击被轻易躲开，随后一阵拳头向我袭来。我的心中充满怒火，疯狂地用斧头砍了一刀；当我的攻击命中、劈开皮甲并深深切入下面的血肉时，半身人的尖叫声令我无比快意。半身人身受重伤，开始咳血。我能感觉到我的仇恨在半身人的身体里燃烧，从我刚刚造成的伤口里撕裂他的内脏。这是一种令人陶醉的感觉。
+半身人在我一连串的进攻面前，试图用一系列的踢腿反击。我记得我的身体受到了几次打击，但我几乎没有感觉到痛苦。我立即回击了半身人，但这一击被轻易躲开，随后一阵拳头向我袭来。我的心中充满怒火，疯狂地挥斧乱劈；当我的攻击命中、劈开皮甲并深深切入下面的血肉时，半身人的尖叫声令我无比快意。半身人身受重伤，开始咳血。我能感觉到我的仇恨在半身人的身体里燃烧，从我刚刚造成的伤口里撕裂他的内脏。这是一种令人陶醉的感觉。
 
 当我开始毫不留情地挥舞斧头、根本不在乎砍中了什么时，我的情绪完全笼罩了我。那个半身人试图躲开我的打击，但有相当数量的攻击命中了目标。我挥斧砍向半身人，鲜血飞溅，可能也砍中了其他一些不幸挡在我面前的狂热分子。半身人终于受够了这一切，迅速地向另一个方向移动，想逃离我，试图逃避我带来的复仇。他伏低身子，几乎贴着地面，我造成的伤势已开始拖累他的行动。我也能听到周围的低语，注意到所有狂热分子，包括新兵和狂热者，都退后了。
 
@@ -1810,7 +1810,7 @@ Making my way back to my dwelling I felt in control of myself and my actions. Wh
 
 食人魔跳完舞后，两个永恒精灵走上前去为人群助兴。一个先唱出悦耳的和弦，随后停下；另一个又唱出同样的和弦，只是音调更低。第二个和弦结束后，两个永恒精灵同时唱起各自的和弦，彼此和声，汇成优美的旋律，流过整个人群。那一刻，我终于仿佛只能听见自己的心声。随着表演继续，我感觉自己正在拾回曾经失去的部分。毫无疑问，那种攫住我的折磨仍然存在，但每过一刻，它似乎都变得不那么重要。很长一段时间以来，我第一次感到快乐；即使庆典渐渐平息并结束，我的快乐仍未消退。
 
-回到我的住处，我感觉自己能够掌控自身及自己的行为。无论我内心的谜团是什么，它没有，也不会主宰我。当走到警卫面前时，我微笑着做了一个友好的手势。虽然此刻我正往屋里走，但我知道自己明天会再次离开这所房子。虽然一谈到往事，食人魔总会马上提起我救了他们，但实际上我相信，他们才是真正救了我的人。食人魔们很快就把这当作是一种谦虚，但自从我参加那个节日以来，我一直在努力完全控制自己，重新掌控自己的生活。为此我向他们表示感谢。]], "_t")
+回到我的住处，我感觉自己能够掌控自身及自己的行为。无论我内心的谜团是什么，它没有，也不会主宰我。当走到警卫面前时，我微笑着做了一个友好的手势。虽然此刻我正往屋里走，但我知道自己明天会再次离开这所房子。虽然一谈到往事，食人魔总会马上提起我救了他们，但实际上我相信，他们才是真正救了我的人。食人魔们很快就把这当作是一种谦虚，但自从我参加那场庆典以来，我一直在努力完全控制自己，重新掌控自己的生活。为此我向他们表示感谢。]], "_t")
 t("Escapades of Fay Willows [Book 4, Chapter 6] - Rebuilding Anew", "菲·维莉欧斯的冒险 [第4卷，第6章] - 焕然一新", "_t")
 t([[[i]As time passed, both ogre and shalore slowly adapted to their secluded lives from the outside world.[/i] The shaloren slowly gathered themselves and their belongings in secret from the abandoned settlements in the north, and then quickly worked to create permanent implements that would ensure that the Shroud concealing Elvala would stay in place. They then worked to expand the Shroud to encompass all the forests surrounding Elvala and lock off the Shaloren Peninsula from the outside world. After that, many shaloren began to study the chaotic energies that had been unleashed in hopes of learning more about the damage they had caused and what effects it would leave in Eyal.
 
@@ -1844,11 +1844,11 @@ When I look back at the many events the occurred after the Spellblaze, I wonder 
 
 从永恒精灵那里，我学习了各种技能，尤其是战斗装备方面的技能。一个武器匠给我上了一些基础课，教我如何在战斗中挥舞和操控武器，然后让我练习用从大剑和锤子到小匕首和棍棒的各种武器击打训练假人。一位铸甲师向我展示了各种衣物和盔甲，也让我看到了这些盔甲被武器击中时不同的防护效果。我甚至还穿着铸甲师借给我的一整套板甲跑了一段小型训练路线，学习如何活动和奔跑而不把自己彻底累垮。
 
-最后，一些永恒精灵的老兵也提出要和我交锋。从那一刻起，我把学到的一切都付诸实践。有一段时间，我会参加模拟战斗，学习如何分配体力，以及何时使用符文让自己在战斗中获得优势，或者弥补自身的劣势。不久之后，我就可以自己作战，即使是对训练有素的士兵也毫不逊色。在这个时候，他们很快问我，我是否有兴趣加入永恒精灵军队。因为我没有太多的事情要做，又觉得这将有助于提高我的战斗技能，我便接受了邀请，随后在埃尔瓦拉当了几年士兵。
+最后，一些永恒精灵的老兵也提出要和我交锋。从那一刻起，我把学到的一切都付诸实践。有一段时间，我会参加模拟战斗，学习如何分配体力，以及何时使用符文让自己在战斗中获得优势，或者弥补自身的劣势。不久之后，即使面对身经百战、训练有素的士兵，我也能在交手时不落下风。于是，他们很快便问我愿不愿意加入永恒精灵军队。因为我没有太多的事情要做，又觉得这将有助于提高我的战斗技能，我便接受了邀请，随后在埃尔瓦拉当了几年士兵。
 
 我也在军队里学到很多控制情绪的方法。我参加了一个为那些有独特能力的人而设的项目，慢慢地开始更多地了解影响我身体的黑暗状况，以及如何让这种力量为我所用。我学习了如何影响周围的环境，包括无生命的物体和有生命的生物；在某些情况下，我甚至会被允许练习用内心的黑暗思想来对付别人。我不能说我已经完全控制了我内心的混乱能量，但通过集中注意力，我至少学会了如何把它从别人身边引开，防止它影响到我周围的人。
 
-当我回顾魔法大爆炸之后发生的许多事情时，我不知道如果我没有像以前那样离开家乡去旅行，我的生活会怎样。从我最初的旅程到现在，已经过去了很多时间，但我在考虑，现在是否正是我离开埃尔瓦拉，探索遥远土地、看看世间万物如今变成什么模样的时候。我想知道埃亚尔的其他人是怎么生活的，这些土地是否显示出任何治愈的迹象，也想知道我在家乡的其他自然精灵的身上发生了什么。不管将来会发生什么，我知道我已经准备好了。到那时，我将会继续我的冒险！]], "_t")
+当我回顾魔法大爆炸之后发生的许多事情时，我不知道如果我没有像以前那样离开家乡去旅行，我的生活会怎样。从我最初的旅程到现在，已经过去了很多时间，但我在考虑，现在是否正是我离开埃尔瓦拉，探索遥远土地、看看世间万物如今变成什么模样的时候。我想知道埃亚尔的其他人过得怎样，这片土地是否有了复苏的迹象，也想知道家乡的自然精灵同胞们如今境况如何。不管将来会发生什么，我知道我已经准备好了。到那时，我将会继续我的冒险！]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 1] - Dead On Arrival", "菲·维莉欧斯的冒险 [第5卷，第1章] - 亡者来袭", "_t")
 t([[[i]Truly there is nothing more horrid than the experience of encountering ghouls. You will likely smell them as they emit a horrible stench, else if you are lucky you'll just hear them as they groan in a low painful sounding tone. Casting your eyes upon them you will be presented with a truly horrible display as you witness rows of hanging flesh and dripping puss surrounding a vaguely humanoid figure. The worst of it though is the touch and feel of ghouls. I bet any ordinary individual would feel grossly unsettled just poking them with a stick, let alone engaging up close to them in combat as I did.[/i]
 
@@ -1868,19 +1868,19 @@ Realizing the danger that was headed to Elvala, I quickly activated the Rune of 
 
 I turned towards the soldier who nodded in the direction of the main battlement line facing towards Elvala's northern forests. Nodding back, I proceeded to make my way to the tower above the main gate where I suspected the watch captain would be. I quickly made my way through the host of gathering soldiers forming below the walls and made my way up along with the mages and archers who were climbing the stairs to get to their positions. Noticing me as I made my way up, the watch captain called out in my direction, and I hurried over to his position to relay to him what had occurred. The captain tensed his face as I gave him my report and cursed as he turned his head to look out towards the Shroud.]], [[[i]真的没有什么比遇到食尸鬼更可怕的了。如果你幸运的话，你只会听到它们低沉痛苦的呻吟声，否则你可能会闻到它们散发出可怕的臭味。看向它们，你会看到一幅真正可怕的景象：依稀有人形的躯体上垂挂着一条条腐肉，脓液不断滴落。但最糟糕的还是触碰食尸鬼时的感觉。我敢打赌，任何一个普通人哪怕只是用棍子戳它们，都会感到非常不安，更不用说像我那样与它们近身作战了。[/i]
 
-当我沿着树林边缘走的时候，我回想起了让我开始这些日常巡逻的往事。魔法大爆炸的灾变已经过去了三十三年，但这一刻的痛苦仍然在我的头脑和身体中燃烧。我在这场灾难和随后发生的事件中幸存了下来，来到了埃尔瓦拉，与这里的永恒精灵彼此关心、互相照顾。我爱上了一个和我一起训练的士兵，后来将他视作家人。然而，我想知道埃尔瓦拉以外的其他人是如何受苦的，家里的那些自然精灵是如何生活的，我想，我也许应该像我曾经希望的那样，再次离开这里去探索这个世界。
+当我沿着树林边缘走的时候，我回想起了让我开始这些日常巡逻的往事。魔法大爆炸的灾变已经过去了三十三年，但这一刻的痛苦仍然在我的头脑和身体中燃烧。我在这场灾难和随后发生的事件中幸存了下来，来到了埃尔瓦拉，与这里的永恒精灵彼此关心、互相照顾。我爱上了一个和我一起训练的士兵，后来将他视作家人。然而，我仍惦记着埃尔瓦拉以外的人们正遭受怎样的苦难，家乡的自然精灵过得如何，也在想自己是否该像当初盼望的那样，再次离开这里去探索世界。
 
-巡逻返回时，我朝穿过森林的老路走去，注意到远处有两名埃尔瓦拉的官员和一队卫兵。走近他们时，我很快注意到他们脚下有一具腐烂的尸体。我瞥了一眼那具尸体，感觉到一种寒冷，一种黑暗的力量，比我所经历过的任何事情都要糟糕，包括我内心的混沌能量。看到我，一个官员转向我，直截了当地说：“菲，我需要你迅速地从帷幕中离开，快速地巡视周围，然后报告你看到的任何不寻常的东西。”我察觉到这一请求颇为紧迫，于是立即转向帷幕，毫不犹豫地走了进去。
+巡逻返回时，我朝穿过森林的老路走去，注意到远处有两名埃尔瓦拉的官员和一队卫兵。走近他们时，我很快注意到他们脚下有一具腐烂的尸体。我瞥了一眼那具尸体，便感到一股寒意，察觉到一种黑暗的力量。它带来的感觉比我以往经历过的一切都更可怕，甚至超过了我体内的混沌能量。看到我，一个官员转向我，直截了当地说：“菲，你得赶快穿过帷幕到外面去，巡视一下周围，回来报告你看到的任何异常情况。”我察觉到这一请求颇为紧迫，于是立即转向帷幕，毫不犹豫地走了进去。
 
-在弥漫的烟雾中穿行时，我想起了第一次离开埃尔瓦拉的情景。我曾多次穿过这道魔法的屏障，去营救那些被困在墙外的人，或是为纳格尔的使者和商人充当护卫，但我能感觉到周围有一种巨大的紧张气氛。在接下来的两个小时里，我慢慢地穿过烟雾，只有自己的思绪与我作伴，直到最后到达另一边，看到前方的外部世界开始展现出来。在靠近烟的外缘时，我听到附近传来一声喉音，然后我瞥见一个憔悴的人影朝我扑过来，双臂朝我的方向摆动。
+在弥漫的烟雾中穿行时，我想起了第一次离开埃尔瓦拉的情景。我曾多次穿过这道魔法的屏障，去营救那些被困在墙外的人，或是为纳格尔的使者和商人充当护卫，但我能感觉到周围有一种巨大的紧张气氛。在接下来的两个小时里，我慢慢地穿过烟雾，只有自己的思绪与我作伴，直到最后到达另一边，看到前方的外部世界开始展现出来。快到烟雾边缘时，我听见附近传来一声低沉的吼叫，随即瞥见一个瘦削的人影朝我扑来，挥舞着双臂向我打来。
 
 我未能立即躲开攻击，一条手臂打向了我的胸口，以巨大的力量击中了我。那一击在我的钢制胸甲里回荡，震动了我的全身，使我完全失去了平衡。这生物似乎毫不停顿，猛地把脸凑向我的胳膊，用牙齿使劲咬住，不知怎的咬破了我的钢臂铠。我的左臂疼痛难忍，似乎还有某种东西在体内流动，消耗着我的力量，使我行动迟缓。我不知道袭击者是谁，但我能感觉到我内心的仇恨开始积聚。剩下要做的就是释放它。
 
 我准备开始反击，激活了左手的热能射线符文。那生物很快松开了我的手臂，浑身被火焰吞噬，开始大叫起来。紧接着，在它胡乱挥舞着手臂试图反击的时候，我用一阵狂风暴雨般的猛击迅速压制了它。我乘胜追击，使出毁灭性的一击，狠狠地划破了它的身体。我停了一会儿，以为那生物会倒下死去，却惊讶地发现它似乎又恢复过来，再次试图攻击我。不过，我轻松地躲过了这次袭击，用一记简单的斩击将它的头砍得与身体只剩部分相连，终于杀死了它。
 
-终于，我有机会仔细观察这个生物。我注意到它的一只眼睛从其中一个眼窝向外瞪着。我眨着眼睛，看着它的其他部分，终于意识到我一直在和一具腐烂的尸体搏斗。我想知道周围是否还有不死生物，于是开始环顾周围。我看到周围零星游荡着几具死尸，它们还没有注意到我的存在。我决定干掉他们，试图悄悄地接近他们，但意识到这将是一件多么困难的事，因为这里的土地满是泥泞。就在这个时候，我开始思考为什么所有的地面都是泥泞的，然后我才发现许多足迹和脚印，都通向帷幕内。
+终于，我有机会仔细观察这个生物。我注意到它的一只眼睛从其中一个眼窝向外瞪着。我眨着眼睛，看着它的其他部分，终于意识到我一直在和一具腐烂的尸体搏斗。我想知道周围是否还有不死生物，于是开始环顾周围。我看到周围零星游荡着几具死尸，它们还没有注意到我的存在。我决定干掉它们，便试着悄悄靠近，却发现这里满地泥泞，想要不出声地接近实在困难。就在这个时候，我开始思考为什么所有的地面都是泥泞的，然后我才发现许多足迹和脚印，都通向帷幕内。
 
-意识到埃尔瓦拉正面临它们逼近的危险，我很快启动了食人魔印刻在我脖子上的返回符文，一瞬间，我再次出现在城墙内。我还没来得及认清自己的方位，一个永恒精灵士兵就与我撞在一起，把我撞倒在地。士兵很快站起身来，说了声“我很抱歉”，然后在我的左肩下伸出一只手来扶我起来。注意到我手臂上的溃烂咬痕，士兵的眼神很快凝重起来，继续说道：“司令部希望你立即报告你遇到的不死生物。你在侦察的时候，我们又有几只不死生物穿过帷幕游荡进了城。”
+意识到埃尔瓦拉正面临它们逼近的危险，我很快启动了食人魔印刻在我脖子上的返回符文，一瞬间，我再次出现在城墙内。我还没来得及认清自己的方位，一个永恒精灵士兵就与我撞在一起，把我撞倒在地。士兵很快站起身来，说了声“我很抱歉”，然后在我的左肩下伸出一只手来扶我起来。注意到我手臂上的溃烂咬痕，士兵的眼神很快凝重起来，继续说道：“司令部希望你立即报告你遇到的不死生物。你在侦察的时候，又有几只不死生物穿过帷幕，游荡进了城。”
 
 我转向士兵，他朝着面向埃尔瓦拉北部森林的主城垛方向点了一下头。我点了点头，继续向大门上方的塔楼走去，守望队长应该就在那里。我很快穿过墙下聚集的士兵，和那些正在爬楼梯的法师和弓箭手们一起爬上去。当我走上前去时，守望队长注意到我，朝我的方向叫了一声，我急忙跑到他的位置，把发生的事转告他。听我汇报时，队长绷紧了脸，转头望向帷幕，骂了一句。]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 2] - Elvala Under Attack", "菲·维莉欧斯的冒险 [第5卷，第2章] - 被攻击的埃尔瓦拉", "_t")
@@ -2004,13 +2004,13 @@ Much like before in Elvala however, this bone giant too would shift its bones ar
 
 The bone giant quickly began to falter and become clumsy, my chaotic energies interfering with its ability to move. Trying to attack me while under the pressure of my hatred its attacks became slow and readable and I was able to dodge them. Now on the offensive I slashed heavily against the creature all over its body in an attempt to overwhelm it. Once again a barrier of bones formed to defend it, but not the least bit discouraged I relentlessly continued my attack, eventually breaking through. Unable to withstand my continual ferocity its bones flew in all directions as I tore through it from front to back. Now standing facing the necromancer, I could hear the bone giant behind me collapse back into a pile of bones once more.]], [[[i]战斗准则第一条，随时准备好逃跑计划，以防遇到麻烦。战斗准则第二条，要明白什么时候已经无路可逃。战斗准则第三条，不要让自己处在会遭到多面夹击的位置。战斗准则第四条，不要在战斗结束前精疲力尽。战斗准则第五条，不要死。[/i]
 
-不幸的是，这些骷髅不像我想象的那样愚蠢，它们懂得在转过拐角时与我保持距离。我咒骂着，开始以最快的速度奔跑，试图以最快的速度拉近距离，而骷髅正朝我接连施放法术。这一刻，我的愤怒爆发了，一股混乱的能量涌向我的全身，在接下来的一刻，我从侧面用武器劈开了一个法师的身体。另一具骷髅没有错过机会，迅速地转向新的方向，释放出一道灼热的奥术能量射线，擦过我的肩膀。我正准备干掉另一具骷髅，但一支箭刺穿我的脚，把我钉在地上。
+不幸的是，这些骷髅不像我想象的那样愚蠢，它们懂得在转过拐角时与我保持距离。骷髅朝我接连施放法术，我咒骂着拔腿狂奔，想尽快拉近距离。这一刻，我的愤怒爆发了，一股混乱的能量涌向我的全身，在接下来的一刻，我从侧面用武器劈开了一个法师的身体。另一具骷髅没有错过机会，迅速地转向新的方向，释放出一道灼热的奥术能量射线，擦过我的肩膀。我正准备干掉另一具骷髅，但一支箭刺穿我的脚，把我钉在地上。
 
-意识到我需要尽快结束这一切，我举起我的手臂，立即将我的热能射线符文释放到另一个法师身上，然后冲向已经射出箭的弓箭手。看到我冲过来，它又朝我的方向射出一支箭，我轻松地避开了。下一刻，我冲到弓箭手面前，疯狂地接连猛击，直到将它打倒。当弓箭手被干掉后，我再次转向骷髅法师的方向。我轻松走到它跟前，伸出胳膊，在它有机会施展另一个咒语之前，把它的头骨从骨架上敲了下来。
+意识到必须速战速决，我举起手臂，立即启动热能射线符文，将射线射向另一名法师，随即冲向刚才放箭的弓箭手。看到我冲过来，它又朝我的方向射出一支箭，我轻松地避开了。下一刻，我冲到弓箭手面前，疯狂地接连猛击，直到将它打倒。当弓箭手被干掉后，我再次转向骷髅法师的方向。我轻松走到它跟前，伸出胳膊，在它有机会施展另一个咒语之前，把它的头骨从骨架上敲了下来。
 
-接下来的片刻里，我喘着粗气，因为我内心的仇恨又开始慢慢平息。我慢慢缓过气来，随后听到清晰的掌声，循声望去，发现了附近穿着长袍的死灵法师。拍手声结束后，死灵法师开始说：“干得好，干得好。”我环顾四周，没有看到艾伦尼恩，不知道他到底怎么了。我决定询问艾伦尼恩的下落，问道：“艾伦尼恩在哪儿？”对此，我得到的回答是：“哦？你说艾伦尼恩·加威尔？嗯，将军现在正忙着，至少目前是这样。他很可能很快就会回来，不过现在我想先和你好好玩玩。”
+接下来的片刻里，我大口喘息着，心中的仇恨也渐渐平息。我慢慢缓过气来，忽然听到清晰的掌声，循声望去，发现死灵法师正披着斗篷站在附近。拍手声结束后，死灵法师开始说：“干得好，干得好。”我环顾四周，没有看到艾伦尼恩，不知道他到底怎么了。我决定询问艾伦尼恩的下落，问道：“艾伦尼恩在哪儿？”对此，我得到的回答是：“哦？你说艾伦尼恩·加威尔？嗯，将军现在正忙着，至少目前是这样。他很可能很快就会回来，不过现在我想先和你好好玩玩。”
 
-死灵法师说完这句话，突然喘息着咯咯笑起来，我立刻感到一阵寒意。我拿着武器走近，准备挥击，死灵法师却把手伸进长袍，传送到一堆碎骨旁。当我看见死灵法师拿出一样东西的时候，我感受到了一种黑暗的力量而愣住了。我知道那样东西拥有巨大的力量，巨大而可怕。我试着辨认出那东西，看到那是一根又短又细的法杖，但它的材质却不同于我以前见过的任何法杖。也许是察觉到我感知到了这根法杖的力量，死灵法师又对我说：“哦？你好像不是法师，但你能感觉到这种黑暗力量，不是吗？”
+死灵法师说完这句话，突然喘息着咯咯笑起来，我立刻感到一阵寒意。我握着武器上前，正要挥击，死灵法师却把手伸进斗篷，传送到一堆碎骨旁。他拿出一样东西，一股黑暗的感觉顿时让我僵在原地。我知道，那东西蕴藏着强大而可怕的力量。我试着辨认出那东西，看到那是一根又短又细的法杖，但它的材质却不同于我以前见过的任何法杖。也许是察觉到我感知到了这根法杖的力量，死灵法师又对我说：“哦？你好像不是法师，但你能感觉到这种黑暗力量，不是吗？”
 
 “骨头很有趣，你知道，它们能告诉你很多关于一个人的事情。你可以了解骨头主人的身份，他们生活的地点和年代，他们去世时的年龄，他们生前遭受的伤害和苦难，等等。真的很迷人，当然，研究它们很遭人非议，确实相当麻烦。”死灵法师咳嗽、喘息了几声，然后继续说道。“我碰到的一些最奇特的骨头，都被我装在了我的法杖里。而当我找到更多奇特的骨头时，我想，我会给我的法杖加上……”话说到这里便没了下文，死灵法师开始咯咯地笑起来。随后，一股寒意沿着我的脊背袭来，我能感觉到死灵法师的黑暗意图正指向我。
 
@@ -2040,7 +2040,7 @@ Continuing around me to stand in front before circling around to my right, necro
 
 The necromancer continued to talk aloud for several moments as he circled around me again and again, which was fine by me. I could feel the arcane energy replenishing within my heat beam rune, and when I had the chance I would activate it and release myself from my icy imprisonment. Perhaps aware of my intent though the necromancer quickly glanced at my eyes before stating, "You are quite an oddity aren't you? However, you aren't much the conversationalist so there is little reason for me to keep you alive. I can easily study your corpse instead of leaving you alive you see." I could sense the magic beginning to accumulate in one of the necromancer's hands as he concluded by saying, "Farewell thalore." ]], [[[i]我遇到的死灵法师，除了完全邪恶之外，实在没有别的办法来形容。有人可能会认为我在早前的书中写的那些讨厌魔法的狂热分子是邪恶的，但即使是从他们身上，我也能感觉到他们试图带来一个更美好的世界，尽管他们的行为可能十分扭曲。不过，在这个不死之魔那里，我感觉不到任何善意，他所采取的行动似乎只是为了个人娱乐。从我在魔法中感受到的情绪来看，我认为死灵法术只会被完全邪恶之人使用。[/i]
 
-当我击倒这个骨巨人时，我又听到了死灵法师的鼓掌声。“很好，做得很好，挺好看的。你的骨头真的值得加在我的杖上，”死灵法师用阴险的语气说。我把头转向死灵法师，大胆地说：“要杀死我，你的骨巨人还远远不够。”死灵法师似乎在琢磨我的话，回答道：“嗯，骨巨人，这个名字很不错。是的，我想这个名字很不错。当然，你好像误解了什么。你所说的骨巨人还没完全死。”听到这些话，我还没来得及反应，就感觉到一记重击从侧面打中了我。
+当我击倒这个骨巨人时，我又听到了死灵法师的鼓掌声。“很好，干得好，真是一番精彩的表演。你的骨头确实值得加到我的法杖上，”死灵法师用阴险的语气说。我把头转向死灵法师，大胆地说：“要杀死我，你的骨巨人还远远不够。”死灵法师似乎在琢磨我的话，回答道：“嗯，骨巨人，好个名字。对，就用这个名字再合适不过了。当然，你好像误解了什么。你所说的骨巨人还没完全死。”听到这些话，我还没来得及反应，就感觉到一记重击从侧面打中了我。
 
 我猛地看向击中我的东西，立刻意识到这个骨巨人并没有被打败，它走上前来站在我和死灵法师之间。更重要的是，它似乎已经重新组合成一个新的恐怖形态，准备好战斗。战斗再次开始，骨巨人逼近我，准备攻击，我听到了死灵法师从后方传来的声音：“你所说的这些骨巨人是很了不起的，不是吗。我从纳格尔人在厄流战争中对抗孔克雷夫的经历里得到了灵感。你看，很少有人知道这一点，但纳格尔人实际上利用死灵法术最终赢得了与孔克雷夫的战斗。”
 
@@ -2052,11 +2052,11 @@ The necromancer continued to talk aloud for several moments as he circled around
 
 骨巨人迅速向我伸出一只骨爪，尖刺再一次撕开我的皮肉，带来剧痛。然而，我丝毫没有因此而气馁，启动了热能射线符文，点燃了它的骨头，更重要的是，这减轻了那一击造成的痛苦。我继续攻击时，听到死灵法师刺耳的声音，似乎是在评论：“嗯，符文……哦！我知道，我会把一些符文装在下一个骨巨人身上！你给了我这么多有趣的想法。”但我仍然专注于我的战斗，一次又一次地打击它，直到最后看到骨巨人崩溃。我不确定它是否会再次复活，于是继续攻击它，直到我完全将其打成粉碎。
 
-不过，我忘记了死灵法师的存在。一瞬间，我突然感觉到身体麻木了，很快就注意到自己的身体周围结冰了。我一动不动地四处张望，发现了对着我伸出一只手的死灵法师。死灵法师慢慢地靠近我，绕到我的左臂旁，那里刻着我的热能射线符文。死灵法师把手放在我认为是它下巴的地方，说道：“你打败了我的骨巨人，不是一次而是两次。我以前以为你也许能干掉它一次，但能够紧接着再次干掉它，确实出乎我的意料。现在，我真的想知道你是谁？在我看来，你是一个自然精灵，但你在埃尔瓦拉做什么？嗯……”
+不过，我忘记了死灵法师的存在。一瞬间，我突然感觉到身体麻木了，很快就注意到自己的身体周围结冰了。我被冻得动弹不得，只能转动眼睛四下搜寻，终于发现死灵法师正对着我伸出一只手。死灵法师慢慢地靠近我，绕到我的左臂旁，那里刻着我的热能射线符文。死灵法师把手放在我认为是它下巴的地方，说道：“你打败了我的骨巨人，不是一次而是两次。我以前以为你也许能干掉它一次，但能够紧接着再次干掉它，确实出乎我的意料。现在，我真的想知道你是谁？在我看来，你是一个自然精灵，但你在埃尔瓦拉做什么？嗯……”
 
-死灵法师从我的前面，慢慢绕到我的右边，继续发出“嗯，嗯”的声音。终于，死灵法师停了下来，又一次说道：“看到你使用符文，真让人惊讶。你该不会是个被从森林里放逐出来的罪犯吧？等等，你刻的第二个符文是什么？”尽管我看不见死灵法师，我能感觉到它凝视着刻在我脖子后面的返回符文。身后传来一句话：“啊，有趣。一个永恒精灵的设计，但从标记来看，如果我没有记错的话，这个符文的铭刻似乎有食人魔的手艺参与其中。很有趣。”
+死灵法师从我的前面，慢慢绕到我的右边，继续发出“嗯，嗯”的声音。终于，死灵法师停了下来，又一次说道：“看到你使用符文，真让人惊讶。你该不会是个被从森林里放逐出来的罪犯吧？等等，你刻的第二个符文是什么？”尽管我看不见死灵法师，我能感觉到它凝视着刻在我脖子后面的返回符文。身后传来一句话：“啊，有趣。这是永恒精灵的设计，但从刻痕来看，如果我判断没错，这个符文的铭刻似乎出自食人魔之手。真有趣。”
 
-死灵法师一圈又一圈地绕着我转，继续大声说了一阵子，我倒乐得如此。我能感觉到我的热能射线符文中的奥术能量正在恢复，一有机会，我就会激活它，让自己脱离这冰冷的监牢。或许感受到了我的意图，死灵法师很快瞥了我一眼，然后说：“你真是个怪人，不是吗？不过，你不太健谈，所以我没什么理由让你活着。我可以很容易地研究你的尸体，而不需要让你活着，”我可以感觉到死灵法师的一只手开始积聚魔法，他最后说，“永别了，自然精灵。”]], "_t")
+死灵法师一圈又一圈地绕着我转，继续大声说了一阵子，我倒乐得如此。我能感觉到我的热能射线符文中的奥术能量正在恢复，一有机会，我就会激活它，让自己脱离这冰冷的监牢。或许感受到了我的意图，死灵法师很快瞥了我一眼，然后说：“你真是个怪人，不是吗？不过，你不太健谈，所以我没什么理由让你活着。研究你的尸体对我来说轻而易举，何必让你活着呢。”我能感觉到魔力开始在死灵法师的一只手中汇聚，他最后说道：“永别了，自然精灵。”]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 7] - Powers of Undeath", "菲·维莉欧斯的冒险 [第5卷，第7章] - 不死的力量", "_t")
 t([[[i]Something that I have always wondered about is why people give names to inanimate objects. Aranion would lose hold of his weapon at some point during the fight with the Necromancer, though I'm not specifically sure at what time in the fight this would be. Even now as I write this, Aranion frets over his lost sword as if he had lost a loved one. While I can understand how one can get accustomed to a weapon, surely he can find another to use instead?[/i]
 
@@ -2076,19 +2076,19 @@ I briefly remember when I was initially recovering that I opened my eyes while l
 
 Once more I called out saying his name "Awain". As he roused from his sleep and looked at me an endless amount of tears would begin streaming down his face. In a cracked voice I heard him say, "You're awake, you're still alive." He hurried over to me, putting his hands under me to embrace me tightly, and began sobbing uncontrollably. For the moment I allowed him to cry, feeling that I should hold back on inquiring as to how I had made it back to Elvala. I didn't know how long I had been unconscious but I had the feeling that he had waited the entire time for me, waiting for the moment I would come back to him. I embraced him back and sobbed too as we were reunited once more.]], [[[i]我一直想知道的是，为什么人们要给无生命的物体起名字。在与死灵法师的战斗中，艾伦尼恩失去了他的武器，尽管我不确定他是在战斗的哪个时候失去武器的。就在我写这篇文章的时候，艾伦尼恩还在为他丢失的剑烦恼，好像他失去了一个心爱的人。虽然我能理解一个人会用惯一件武器，但我想，他肯定能找到另一件来代替吧？[/i]
 
-意识到必须立刻行动，我启动了热能射线符文，融化了周身的冰块，并向死灵法师发射了一股猛烈的火焰。死灵法师在火焰中踉跄后退，我抓住机会，用尽全力将武器向前刺去，却刺了个空，死灵法师突然消失了。在我还没来得及看到死灵法师传送到哪里之前，一股炽热的火焰从后面包围了我。转过身来，我看到了那个死灵法师，他被烧伤了，身上的火却已经熄灭。我的一切举动都被他预测到了，现在我的身体每一寸都在燃烧，我痛得扭动着身体。死灵法师咯咯地笑着，我注意到他伸出的手臂底部刻着热能射线符文。
+意识到必须立刻行动，我启动了热能射线符文，融化了周身的冰块，并向死灵法师发射了一股猛烈的火焰。死灵法师在火焰中踉跄后退，我抓住机会，用尽全力将武器向前刺去，却刺了个空，死灵法师突然消失了。在我还没来得及看到死灵法师传送到哪里之前，一股炽热的火焰从后面包围了我。转过身来，我看到了那个死灵法师，他被烧伤了，身上的火却已经熄灭。我的一切举动都被他预测到了，现在我的身体每一寸都在燃烧，我痛得扭动着身体。死灵法师咯咯地笑着，我注意到他伸出的手臂下侧刻着热能射线符文。
 
-被他如此轻易地摆布，让我十分恼火，咬紧牙关朝死灵法师冲去，结果被几个不死生物拦住了。死灵法师又咯咯地笑了几声，释放出一道穿透骷髅和我的黑暗能量束，一阵剧痛贯穿了我的全身。当我在痛苦中畏缩，几乎没有时间做出反应时，死灵法师的仆从们开始从四面八方攻击我。我怒不可遏，开始攻击周围的一切，从不死族中杀出一条血路，一直杀到死灵法师跟前。我面对着那个邪恶的死灵法师，准备给他重重一击，但他只是简单地挥了挥手，我就感觉到一股巨大的力量猛击我的胸膛。
+我恼恨自己竟被他如此轻易地摆布，便咬紧牙关朝死灵法师冲去，却被几个不死生物挡住了去路。死灵法师又咯咯地笑了几声，释放出一道穿透骷髅和我的黑暗能量束，一阵剧痛贯穿了我的全身。当我在痛苦中畏缩，几乎没有时间做出反应时，死灵法师的仆从们开始从四面八方攻击我。我怒不可遏，开始攻击周围的一切，从不死族中杀出一条血路，一直杀到死灵法师跟前。我面对着那个邪恶的死灵法师，准备给他重重一击，但他只是简单地挥了挥手，我就感觉到一股巨大的力量猛击我的胸膛。
 
-黑暗似乎刺穿了我的心灵，无论我如何努力，都无法抵抗。我被撞得向后飞去，重重撞在墙上。我倒在地上，视野开始模糊。尽管如此，我仍然能听到死灵法师咯咯的笑声，随后他又开始喋喋不休：“你真可怜。战斗不仅仅是用压倒性的力量打击敌人！你确实是一个强大的自然精灵，但力量本身是没有意义的。你的动作意图太明显，你的攻击很容易被反击，你似乎一点也不知道如何在战斗中制定战略。哦，好吧。也许在我杀了你之后，我会复活你的尸体，教你如何正确地投入战斗。”
+黑暗似乎刺穿了我的心灵，无论我如何努力，都无法抵抗。我被撞得向后飞去，重重撞在墙上。我倒在地上，视野开始模糊。尽管如此，我仍然能听到死灵法师咯咯的笑声，随后他又开始喋喋不休：“你真可怜。战斗不仅仅是用压倒性的力量打击敌人！你确实是一个强大的自然精灵，但力量本身是没有意义的。你的招式意图太明显，攻击很容易被化解，似乎根本不懂得在战斗中运用战术。哦，好吧。也许在我杀了你之后，我会复活你的尸体，教你如何正确地投入战斗。”
 
 尽管我经常记不住人们对我说的话，但当这些话在我脑海中回响时，我记得很清楚。从某种意义上，我可以说这些话比那天给我造成的任何伤害都更刺痛我，但这并没法描述那一天有多少法术和诅咒轰击了我的身体。我每做一件事，死灵法师都会领先两步，每犯一个错误，我都会付出高昂的代价。随着战斗的进行，我能感觉到我的身体开始变冷，我知道，尽管我很能扛，也无法再坚持战斗多久。死灵法师或许也能像看出其他一切一样，轻易看出我的绝望。
 
-最后，我的身体再也支撑不住了，瘫倒在地上无法动弹。寒冷和黑暗的能量波在我的体内循环，我意识到，自己是多么接近死亡的边缘。我记得在那一刻，我想起了生命中的往事，想起魔法大爆炸之前，我和自然精灵同胞一起生活在森林里的日子，那时的生活确实更简单、更平静。我不想死，也不想遭受这个死灵法师可能为我安排的任何疯狂折磨。但是现在我什么也做不了了，死灵法师慢慢地走近我，站在我面前说：“你的努力都是徒劳。也许随着时间的推移，你会成为一个著名的传奇英雄。但现在，你要死了。”
+最后，我的身体再也支撑不住了，瘫倒在地上无法动弹。寒冷和黑暗的能量波在我的体内循环，我意识到，自己是多么接近死亡的边缘。我记得在那一刻，我想起了生命中的往事，想起魔法大爆炸之前，我和自然精灵同胞一起生活在森林里的日子，那时的生活确实更简单、更平静。我不想死，也不想遭受这个死灵法师可能为我安排的任何疯狂折磨。但此刻我已经无能为力，只能看着死灵法师慢慢走近，站在倒地的我身旁，居高临下地说道：“你的努力都是徒劳。也许随着时间的推移，你会成为一个著名的传奇英雄。但现在，你要死了。”
 
 接下来的一刻，死灵法师释放出一种死亡魔法，折磨着我全身上下的每一处，那种痛苦无法向你描述。剧痛将我吞没，我的意识逐渐模糊，离死亡越来越近。如果艾伦尼恩没有及时回来，打断死灵法师对我的施法的话，我可能已经被杀死了。我不知道接下来发生了什么事情的细节，只知道艾伦尼恩不知用了什么办法，带着我逃出了死灵法师的魔爪。不知怎的，在那之后，我撑到了艾伦尼恩给我施放一个基本的治疗咒语，这足以让我活着回到埃尔瓦拉。
 
-我只模糊地记得，刚开始恢复时，我躺在埃尔瓦拉的一张病床上睁开了眼睛。在旁边的椅子上，我看见我的丈夫在睡觉，他在等着我。我试着说话，但却只能发出一声尖叫。我丈夫叫人来医治我，因为我受了太多的伤，身体各处都疼得要命。之后，我睡了很长一段时间，不知道睡了多久，但下次醒来时，我发现在家中自己的房间里。再次环顾四周，我发现那是晚上了，我丈夫又坐在椅子上睡着了，他还在等着我。我不知道他等了多久。
+我只模糊地记得，刚开始恢复时，我躺在埃尔瓦拉的一张病床上睁开了眼睛。在旁边的椅子上，我看见我的丈夫在睡觉，他在等着我。我试着说话，但却只能发出一声尖叫。我丈夫叫人来医治我，因为我受了太多的伤，身体各处都疼得要命。之后我又睡了很久，不知过了多长时间。再次醒来时，我发现自己已经回到家中的房间里。再次环顾四周，我发现那是晚上了，我丈夫又坐在椅子上睡着了，他还在等着我。我不知道他等了多久。
 
 我再一次喊出他的名字：“艾尔温”。当他从睡梦中醒来，看着我时，泪水便从他脸上不断滑落。我听见他用嘶哑的声音说：“你醒了，你还活着。”他急忙走到我跟前，将双手伸到我身下，把我紧紧抱住，开始止不住地抽泣。我暂且任他哭着，觉得应该先不问自己是怎么回到埃尔瓦拉的。我不知道自己昏迷了多久，但我能感觉到他一直在等我，等我回到他身边的那一刻。我们终于再次团聚，我也回抱住他，抽泣起来。]], "_t")
 t("Escapades of Fay Willows [Book 5, Chapter 8] - From the Brink of Death", "菲·维莉欧斯的冒险 [第5卷，第8章] - 从死亡边缘归来", "_t")
@@ -2108,17 +2108,17 @@ Outside of the various movements of such distasteful groups, some of the shalore
 
 [i]I won't be discouraged from leaving Elvala because of the battle I lost with the necromancer, though that doesn't mean I will rashly throw my life away either. There are people who need help and villainous schemes to be thwarted and if I can help with this task then I shall. I will be cautious in whatever I pursue in the outside world and you can be sure, Awain, that I will soon be writing another book of my escapades. Wait for me my dear husband for when I come home you know that the first thing I will do is return to your arms. But for now I set off from this land I call home to offer aid where I can.[/i] ]], [[最后，听了丈夫的讲述，我才详细了解了战斗后发生的事情。死灵法师显然已经逃走了，或者也许，他默许了艾伦尼恩和我一起撤退回埃尔瓦拉。我差点就要死了，但是治疗人员不知疲倦地工作来稳定我的病情，尽管由于魔法大爆炸对我的身体产生的奇怪影响，以及死灵法师的咒语对我身体造成的可怕伤害，他们的工作十分艰难。我在医疗机构呆了很多天，医生们努力挽救我的生命，最后才被送回自己家里，由丈夫照顾。
 
-这时，我丈夫神情沉重，目光落在了我的身体上。掀开被子，我很快就明白了为什么，因为我看到了自己的身体上刻着的黑色伤疤，这是我最近的战斗带来的结果。他谦恭地告诉我，虽然治疗师确信我会活着，但我身上的伤口会留下永远无法愈合的畸形疤痕。我静静地坐了一会儿，想着说什么。然后，我微笑着抬起头，毫不犹豫地扯下被子，起身站立。疼痛袭来，但我还是站在了丈夫面前。
+这时，我丈夫神情沉重，目光落在了我的身体上。掀开被子，我很快就明白了为什么，因为我看到了自己的身体上刻着的黑色伤疤，这是我最近的战斗带来的结果。他怯怯地告诉我，虽然治疗师确信我能活下来，但那些伤口会留下扭曲的疤痕，永远无法消退。我静静地坐了一会儿，想着说什么。然后，我微笑着抬起头，毫不犹豫地扯下被子，起身站立。疼痛袭来，但我还是站在了丈夫面前。
 
-艾尔温的眼睛飞快地转来转去，说话也结结巴巴，我看着他的眼睛，走过去与他相吻。我抬起头，平静地对他说：“只要你还爱我，我不在乎我的样子，这一点就足够了。”在这一刻，他的身体放松了下来，我慢慢俯身，再次亲吻他，他将我拥入怀中。我贴近他的身体，他平静地回答说：“是的，菲，我仍然爱你”，然后他终于开始回应我的亲吻。那晚是我一生中最珍贵的时刻之一。尽管此前我有过许多旅行和人生经历，但我绝不会拿那一夜去交换任何东西。
+艾尔温的眼睛飞快地转来转去，说话也结结巴巴，我看着他的眼睛，走过去与他相吻。我抬起头，轻声对他说：“只要你还爱我，我不在乎我的样子，这一点就足够了。”在这一刻，他的身体放松了下来，我慢慢俯身，再次亲吻他，他将我拥入怀中。我贴近他的身体，他轻声回答说：“是的，菲，我仍然爱你”，然后他终于开始回应我的亲吻。那晚是我一生中最珍贵的时刻之一。尽管此前我有过许多旅行和人生经历，但我绝不会拿那一夜去交换任何东西。
 
 然而，尽管这件事让我濒临死亡，但我心里明白，我渴望再次离开埃尔瓦拉去冒险。有人可能会觉得很奇怪，但当我与艾伦尼恩一起从帷幕外撤离的那一刻，我想起了最初带我去埃尔瓦拉的旅行。虽然我花了几十年的时间才恢复过来，但现在我准备再一次走出帷幕去探索这个世界。艾尔温不同意我离开的决定，但出于他对我的爱，他不会阻止我离开。我也知道，如果我真的发现自己处于危险之中，我可以使用仍然刻在我身上的返回符文脱离险境。
 
 根据我从永恒精灵侦察兵那里听到的消息，现在，在埃尔瓦拉的城墙外发生了值得我关注的事情。一群法外狂徒正在附近的土地上游荡，有些人因绝望而沦为土匪，另一些人则因为纳格尔人无法像以前那样掌控自己的领土，看到了趁机掠夺他人的机会。尽管我们与世隔绝，但这个问题也影响着身在埃尔瓦拉的我们，让我们与外界仅有的少许往来变得更加困难。据信，这里北边的古老森林是这群土匪的一处主要藏身处，也是他们发动攻击的集结地。
 
-关于那些憎恨魔法的狂热者的谣言比比皆是，他们犯下的令人发指的暴行也是如此。他们的势力范围很广，据信他们正在影响许多人类王国和艾德瑞尔半身人的政治。他们不再满足于在黑暗中行动，派出训练有素的反魔法战士，在各地搜捕任何施放魔法或拥有奥术装备的人。奇怪的是，有人说还有一些食人魔会在他们的队伍中战斗，尽管我不知道这是怎么做到的。不过，如果我遇到他们的巡逻队，还是要万分小心，因为这肯定会是一场艰难的战斗。
+关于那些憎恨魔法的狂热者的谣言比比皆是，他们犯下的令人发指的暴行也是如此。他们的势力范围很广，据信他们正在影响许多人类王国和艾德瑞尔半身人的政治。他们不再满足于在黑暗中行动，派出训练有素的反魔法战士，在各地搜捕任何施放魔法或拥有奥术装备的人。奇怪的是，有人说还有一些食人魔会在他们的队伍中战斗，尽管我不知道这是怎么做到的。不过，要是在路上碰到他们的队伍，我还是得万分小心，因为免不了一场苦战。
 
-除了这些令人厌恶的群体的各种活动之外，一些研究魔法大爆炸所造成影响的永恒精灵人认为，最普遍的破坏痕迹很可能出现在埃尔瓦拉以东的黑暗的海岸一带。这是魔法大爆炸破坏能量的最初路径，前往这片区域，或许能更深入地了解魔法大爆炸的影响。然而，永恒精灵人知道，冒险穿过帷幕已经足够危险，更不用说那些土地有多危险了。尽管危险重重，但重要的是要知道魔法大爆炸给我们的世界带来了什么样的持久伤害。
+除了这些令人厌恶的群体的各种活动之外，一些研究魔法大爆炸影响的永恒精灵认为，最普遍的破坏痕迹很可能出现在埃尔瓦拉以东的黑暗的海岸一带。这是魔法大爆炸破坏能量的最初路径，前往这片区域，或许能更深入地了解魔法大爆炸的影响。然而，永恒精灵知道，冒险走出帷幕本就危险，更何况那片土地本身也危机四伏。尽管危险重重，但重要的是要知道魔法大爆炸给我们的世界带来了什么样的持久伤害。
 
 [i]我不会因为败给了死灵法师就气馁而不再离开埃尔瓦拉，但这也并不意味着我会轻率地葬送自己的生命。有人需要帮助，也有邪恶计划需要挫败，如果我能帮助完成这些任务，那么我就会竭尽全力。无论我在外面的世界里追求什么，我都会小心翼翼。我可以向你保证，艾尔温，我很快就会写另一本关于我的冒险的书。等我回来，亲爱的丈夫，你知道我要做的第一件事就是回到你的怀抱。但现在，我要从这片被我称为家园的土地出发，尽我所能地为这个世界提供帮助。[/i] ]], "_t")
 
@@ -2145,11 +2145,11 @@ t([[We were few once. Just outcasts from some crevices and dark places that ever
 
 To that end, we all gather here. Are we spiteful for how this world openly rejects us? It would be a lie if we said no. To that end, we shall plunge head first into the places no one else dares look. We shall use the dark secrets of this world to carve out our own place in it. We shall create wonders while the world above us rests in fitful dreams.]], [[我们曾经只有少数人，只是来自早已被遗忘的阴暗缝隙之人。在我们占据了这座城堡后，有更多人前来加入了我们。他们不是恐魔，也不是地表居民，而是介于两者之间的存在。我们有些人是生来如此，而另一些则是被一些我们无法理解的力量变成了这样。我们唯一的共同点，就是我们在哪里都格格不入。我们有着清醒的头脑，可以理解埃亚尔深处潜藏的恐怖；我们有着扭曲、堕落的身躯，没有“文明人”愿意忍受与我们同处。但当我们居住在克诺什库尔中时，我们就是工匠、学者、隐士、诗人和战士。
 
-因此，我们聚集在这里。要问我们是否憎恨这个如此排斥我们的世界，说“不”那只能是在说谎。因此，我们投身其他人看都不敢看的深渊，用这个世界阴暗的秘密来创造自己的容身之处。当上方的世界还在睡梦中时，我们正在创造着奇迹。]], "_t")
+因此，我们聚集在这里。要问我们是否憎恨这个如此排斥我们的世界，说“不”那只能是在说谎。因此，我们投身其他人看都不敢看的深渊，用这个世界阴暗的秘密来创造自己的容身之处。当地表世界仍在不安的梦境中辗转时，我们正在创造奇迹。]], "_t")
 t("the history of Kroshkkur (3)", "克诺什库尔的历史(3)", "_t")
 t([[Why do we struggle on? What is Kroshkkur's plan? It is simple. We will take the knowledge other races have rejected and use it to transform ourselves. No more shall we be the wretches who hide away from the light. We will become the new gods, the ones to bask in the sun's embrace, proudly standing atop of the civilisation we built. We will surely find our answer among these ancient ruins, and when we do, we shall be as far from the surface dwellers as they are from worms.
 
-It is this dream which keeps Kroshkkur alive. Even as our bodies continue to warp and decay, we hold onto the hope that we will find a way to reshape ourselves into something better. We will not need anyone's permission to exist on that day.]], [[我们为何而奋斗？克诺什库尔的计划是什么？答案很简单，我们将接受被其他种族所排斥的知识，并利用它们来转变自己。我们将不再是躲避着光明的怪胎。我们将成为新的神明，沐浴在日光之中，以我们所建立的文明为傲。我们定会在这些古老的废墟之中找到我们的答案；到那时，我们与地表居民之间的差距，将如同他们与蠕虫之间的差距一样悬殊。
+It is this dream which keeps Kroshkkur alive. Even as our bodies continue to warp and decay, we hold onto the hope that we will find a way to reshape ourselves into something better. We will not need anyone's permission to exist on that day.]], [[我们为何而奋斗？克诺什库尔的计划是什么？答案很简单，我们将接受被其他种族所排斥的知识，并利用它们来转变自己。我们将不再是躲避着光明的怪胎。我们将成为新的神明，沐浴在阳光的怀抱中，傲然屹立于我们亲手建立的文明之巅。我们定会在这些古老的废墟之中找到我们的答案；到那时，我们与地表居民之间的差距，将如同他们与蠕虫之间的差距一样悬殊。
 
 这就是让克诺什库尔保持生机的梦想。即使我们的身体不断变异、衰败，我们也依然怀着希望，相信能找到方法将自己重塑得更好。到了那时，我们的存在将不需要任何人的许可。]], "_t")
 t("Researcher Dremnot's Demystification of the Gods: Prelude", "研究员德瑞姆诺特的《揭露诸神》：前言", "_t")
@@ -2159,15 +2159,15 @@ t("Gods are beings which have been frequently mentioned throughout Eyal's histor
 
 曾经有诸多强大的存在行走于埃亚尔的地表。然而，尽管诸神拥有无与伦比的力量，要成为神也并非只需要力量这么简单。将神与其他生物区分开来的是它们能够逆转熵的力量，我们会在下文中将其称作反熵。这种力量使它们能够根据自己的意志重塑现实。有些神创造了自己的种族，另一些只是改变已有的存在，玩弄着它们的演化或是以其他高深莫测的方法改变它们。有些人认为，神这么做是为了更远大的目标，但也有十足证据表明，诸神同样会犯错，驱使它们的也不过是和我们凡人一样琐碎卑微的东西。依我作为学者的看法，它们创造出我们仅仅是为了娱乐。
 
-虽然这会使某些人相信凡人的意志毫无意义因而陷入绝望，但传说诸神曾被夏·图尔人杀戮并被赶出了我们的世界。它们的消失究竟是好是坏，还不好说。根据一些流传至今的传说，诸神十分残暴，在相互的纷争之中完全不顾它们所创造的种族的生死，还在地面上留下了巨大的伤痕。还值得一提的是，诸神虽然力量强大，但并不一定聪明。有些神被认为几乎没有智能，甚至可能只有些许感知。有一种相关的理论认为诸神原本只是些生活在埃亚尔地表的原始存在，只是碰巧获得了反熵的力量，才让他们高居于其他原始的生命形态之上。
+虽然这会使某些人相信凡人的意志毫无意义因而陷入绝望，但传说诸神曾被夏·图尔人杀戮并被赶出了我们的世界。它们的消失究竟是好是坏，还不好说。根据一些流传至今的传说，诸神十分残暴，在相互的纷争之中完全不顾它们所创造的种族的生死，还在地面上留下了巨大的伤痕。还值得一提的是，诸神虽然力量强大，但并不一定聪明。有些神被认为几乎没有智能，甚至可能只有些许感知。有一种相关理论认为，诸神原本只是生活在埃亚尔地表的原始存在，只因碰巧获得了反熵能量的灌注，才被提升到其他原始生命形态之上。
 
 在这些概念的基础之上，我们将继续讨论埃亚尔的诸神，以及它们的行为曾给我们的世界带来怎样的影响，又如何继续影响着这个世界。虽然我在研究中发现了许多神，但埃亚尔完全可能存在更多我记载之外的神，只是现有学术文献无法证实它们的存在。]], "_t")
 t("Researcher Dremnot's Demystification of the Gods: Chapter 1 - Amakthel", "研究员德瑞姆诺特的《揭露诸神》：第一章 阿马克泰尔", "_t")
 t([[Even among the gods, there was one that towered above them all. Its name was Amakthel, mightiest of Eyal's gods. It was said that it was the creator of the Sher'Tul, that ancient and mysterious race whose true nature is still unknown to this day. More than any other god, Amakthel appears as a creation figure in ancient myths, more readily interfering with mortal beings than any other god. Nearly every race has some myth of Amakthel coming into contact with them, some describing it as a glowing, divine being while others declared it as a bringer of ill omens. Its touch seemed to curse as readily as it blessed according to these different sources, altering beings in ways that only made sense to Amakthel itself. As such, it is difficult to get a clear picture of Amakthel's true personality and disposition towards mortals.
 
-How exactly Amakthel's downfall came is not certain. Some myths say that the Sher'Thul were commanded by their creator to kill the gods, while others suggest that the Sher'Tul openly rebelled against them. ]], [[即使在诸神之中，也有一个凌驾于其他所有神之上的存在，其名为阿马克泰尔，埃亚尔诸神中的最强者。据说正是它创造了夏·图尔人，那个我们至今仍然知之甚少的古老而神秘的种族。在古老的传说中，相比其他神，阿马克泰尔宛如真正的造物主，时刻准备着干预凡间的事物。几乎所有种族都有阿马克泰尔与他们接触的传说，有些将其描述为浑身散发着光芒的神圣存在，另一些则声称它是不祥预兆的使者。在不同的记述中，它的触碰似乎既能降下诅咒，也能赐予祝福，以只有阿马克泰尔自己理解的方式改变着生灵。因此，很难清楚地描述阿马克泰尔的真实个性及其对凡人的态度。
+How exactly Amakthel's downfall came is not certain. Some myths say that the Sher'Thul were commanded by their creator to kill the gods, while others suggest that the Sher'Tul openly rebelled against them. ]], [[即使在诸神之中，也有一个凌驾于其他所有神之上的存在，其名为阿马克泰尔，埃亚尔诸神中的最强者。据说正是它创造了夏·图尔人，那个我们至今仍然知之甚少的古老而神秘的种族。在古老的传说中，阿马克泰尔比其他神更常以造物主的形象出现，也更积极地干预凡人的生活。几乎所有种族都有阿马克泰尔与他们接触的传说，有些将其描述为浑身散发着光芒的神圣存在，另一些则声称它是不祥预兆的使者。在不同的记述中，它的触碰似乎既能降下诅咒，也能赐予祝福，以只有阿马克泰尔自己理解的方式改变着生灵。因此，很难清楚地描述阿马克泰尔的真实个性及其对凡人的态度。
 
-阿马克泰尔究竟是如何覆殁的并不清楚。有些传说称，夏·图尔人奉其创造者之命杀死了诸神，另一些则说夏·图尔人公开起义反抗诸神。]], "_t")
+阿马克泰尔究竟如何陨落，至今仍不清楚。有些传说称，夏·图尔人奉其创造者之命杀死了诸神，另一些则说夏·图尔人公开起义反抗诸神。]], "_t")
 t("Researcher Dremnot's Demystification of the Gods: Chapter 2 - Ralkur", "研究员德瑞姆诺特的《揭露诸神》：第二章 瑞尔克", "_t")
 t([[Ralkur, the god of illusions and deceit, was perhaps the most petty god of Eyal. The myths of Ralkur are often tragedies, describing the downfall of its titular character after trusting a mysterious stranger. Due to the consistency of these stories, it can be concluded that Ralkur did not care for meddling with things on a large scale, but preferred a much smaller one. It delighted in understanding what drove mortal races and how it could bring a single person to ruin with nothing but words and clever lies. It always revealed itself at the end of the tale, its hapless victim realising that they had been fooled all along. In this sense, Ralkur was cruel in a way that was distinct from the other gods.
 
@@ -2185,7 +2185,7 @@ t([[Quekorja was the god of time and possibilities. What stands out about Eyal's
 
 Quekorja was also thought to be responsible for the creat...[i](You know you read this section, but you can't actually remember it. It is almost like something has deliberately erased it from your mind.)[/i]
 
-According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.]], [[奎科加是时间和可能性之神。在埃亚尔关于奎科加的神话传说中，最突出的一点就是它们之间有着极大的矛盾，而在弑神之战之后的传说中它的形象远不如前。有人猜测，这是因为奎科加可能对书写历史感兴趣，并指派了自己的图书管理员来记录它的故事。但没有关于这座图书馆存在的记录留存下来，因此这一说法被认为只是臆测，缺乏确凿证据。另外还有一些不寻常的记录，本应是同一个作者在同一天写的，但其语调和对此神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录可能来自别的时间线。这更加增添了奎科加的神秘。
+According to the records of Anglowen, Quekorja was slain during the Godhunt and its body discovered by the mage Linaniil. Linaniil managed to absorb a small portion of the god's power through a dangerous ritual. This tiny shard of power she acquired made her an archmage without peer, a testament to the sheer might of the gods.]], [[奎科加是时间和可能性之神。在埃亚尔关于奎科加的神话传说中，最突出的一点就是它们之间有着极大的矛盾，而在弑神之战之后的传说中它的形象远不如前。有人猜测，这是因为奎科加可能对书写历史感兴趣，并指派了自己的图书管理员来记录它的故事。但没有关于这座图书馆存在的记录留存下来，因此这一说法被认为只是臆测，缺乏确凿证据。另外还发现了一些不寻常的记录，据称出自相同的作者，写于相同的日期，但其语调和对这位神的描述却大相径庭。由于奎科加能够操控时间，因而有观点认为这些记录可能来自别的时间线。这更加增添了奎科加的神秘。
 
 奎科加也被认为创……[i]（你记得你读过这段文字，但就是记不起其内容，就好像它是被有意从你的脑海中抹去了一样。）[/i]
 
@@ -2243,11 +2243,11 @@ t([[Oslrey the Wanderer was considered to be mythical even among the Sher'tul th
 
 He too was asked to become a Godslayer, for his prowess with his staff was the stuff of legends. He refused politely, but again and again, the requests for his assistance kept coming. After watching the land he wandered burn around him, he finally chose to take a stand against the Gods of Eyal. He was presented with Ythral, a uniquely made staff with a crescent blade on one end.
 
-When he fought against the Gods, he acted completely without passion. His staff hammered them down, sliced them open and slaughtered them. He killed without mercy and without malice. When the last of the gods were dead, he returned to his wanderings, carrying Ythral and his old iron staff with him.]], [[“飘荡者”奥斯雷在夏·图尔人当中也是个神秘的存在。他大部分时间都在埃亚尔漂荡，安静地观察着刚刚脱离野蛮的年轻种族。虽然大部分夏·图尔人都选择远离他们所认为的“低等”种族，奥斯雷却愿意与他们同行，甚至交谈。无论走向何处，他都随身携带一柄简朴的铁杖，这把武器虽然老旧，但他十分爱惜。
+When he fought against the Gods, he acted completely without passion. His staff hammered them down, sliced them open and slaughtered them. He killed without mercy and without malice. When the last of the gods were dead, he returned to his wanderings, carrying Ythral and his old iron staff with him.]], [[“飘荡者”奥斯雷即使在夏·图尔人眼中，也是一位传说般的人物。他大部分时间都在埃亚尔地表飘荡，静静观察着刚刚脱离野蛮的年轻种族。虽然大部分夏·图尔人都选择远离他们所认为的“低等”种族，奥斯雷却愿意与他们同行，甚至交谈。无论走向何处，他都随身携带一柄简朴的铁杖，这把武器虽然老旧，但他十分爱惜。
 
 他也受邀成为一名弑神者，因为他使用铁杖的本领早已成为传奇。他礼貌地拒绝了，但请他相助的请求仍一次又一次地传来。在看到了他曾经走过的土地只剩下焦土之时，他终于选择了去对抗埃亚尔的诸神。他被赐予伊斯拉尔，一柄在头端有着新月形利刃的独特长杖。
 
-在与诸神的作战中他毫无激情，既无仁慈又无怨恨地用伊斯拉尔击倒它们、割开它们、杀死它们。当最后一名神死去之时，他又开始四处漂荡，随身带着伊斯拉尔和他自己那柄老旧的铁杖。]], "_t")
+在与诸神的作战中他毫无激情，既无仁慈又无怨恨地用伊斯拉尔击倒它们、割开它们、杀死它们。当最后一名神死去之时，他又开始四处飘荡，随身带着伊斯拉尔和自己那柄老旧的铁杖。]], "_t")
 t("Mightier than Gods: Murtas", "比诸神更加强大：穆尔塔斯", "_t")
 t([[Murtas the Unfathomable came from a famous line of Sher'tul warriors, dating back to the days of the race when they had barely risen out of barbarism. As such, she was a prominent military leader, having decades of experience and prestige behind her. Her expertise in battle tactics proved to be invaluable numerous times to the Sher'tul. She was often described as a calculating and inscrutable individual, someone who did not share her thoughts openly.
 
@@ -2255,7 +2255,7 @@ When the Godhunt was under way, she was the one who supplied the finest smiths s
 
 From there, she outwitted the Gods numerous times, springing ambushes and herding them to the exact locations she wanted them. The Gods, for all of their power, lacked the cunning to match Murtas' tactics, leading to them being cornered and slaughtered like helpless animals.]], [[“莫测者”穆尔塔斯出身于夏·图尔人的一个著名战士家族，这个家族的历史可以追溯到夏·图尔人刚刚脱离野蛮之时。因此，她是一位杰出的军事领袖，积累了数十年的经验和威望。她精湛的战术曾多次为夏·图尔人发挥不可替代的作用。她通常被形容为一个心思缜密而难以捉摸的人，从不展露出自己的真实想法。
 
-在为弑神之战准备之时，是她提供了最优秀的铁匠来铸造能够杀死神的武器。她自己也获得了一把弑神武器，利刃希图拉克。如果没有她的铁匠和她自己锻造武器的高超技术，这些武器根本不可能完成。
+弑神之战进行期间，她召集了能找到的最优秀的铁匠，铸造能够给予神明致命一击的武器。她自己也获得了一把弑神武器，利刃希图拉克。如果没有她的铁匠和她自己锻造武器的高超技术，这些武器根本不可能完成。
 
 之后，她数次计败诸神，准确地把它们引诱到伏击之中将其围剿。诸神虽然有着强大的力量，但缺少能够与穆尔塔斯匹敌的智谋，使得它们一次次地被逼入绝境，然后像被困的野兽一样被杀死。]], "_t")
 t("Mightier than Gods: Harqel", "比诸神更加强大：哈奎尔", "_t")
@@ -2263,9 +2263,9 @@ t([[Harqel, according to myths, lead a life of hardship and misery. He was quiet
 
 Upon agreeing, the great shield Anvgrea was forged for him. He stood before the gods and challenged their power, unfazed and unyielding. Scorching flames, freezing cold, rotting blight and burning acid did not faze him or stop his advance. He bore everyone's pain so that they might rid the world of these titanic, uncaring deities. Nothing ever went past him or his mighty shield.
 
-When the Godhunt ended, Harqel returned to a quiet life. The surviving Sher'tul treated the Godslayers as heroes and each were rewarded generously, but Harqel simply requested for a hidden abode somewhere in the stars, somewhere where he would not be disturbed by anyone.]], [[根据神话，哈奎尔的一生悲惨而艰辛，他安静、本分而从不计较，这种温和的举止似乎与未来弑神者的身份并不相称。他的个性使他经常被同伴欺凌，但不论他们干出何事他都会原谅他们。不论他挨了多么毒的打，受了多么重的伤，他总是能挺过去。当弑神之战开始时，有人找到他并给了他成为弑神者的机会。他一开始认为可以理服诸神，但当他目睹了它们毫无意义的内斗造成的灾难之时，他便毅然投身于弑神之战之中。
+When the Godhunt ended, Harqel returned to a quiet life. The surviving Sher'tul treated the Godslayers as heroes and each were rewarded generously, but Harqel simply requested for a hidden abode somewhere in the stars, somewhere where he would not be disturbed by anyone.]], [[根据神话，哈奎尔的一生悲惨而艰辛，他安静、本分而从不计较，这种温和的举止似乎与未来弑神者的身份并不相称。他的个性使他经常被同伴欺凌，但不论他们干出何事他都会原谅他们。不论他挨了多么毒的打，受了多么重的伤，他总是能挺过去。当弑神之战开始时，有人找到他并给了他成为弑神者的机会。他起初认为可以与诸神讲道理，但目睹了它们毫无意义的内斗酿成的灾难后，便毅然投身弑神之战。
 
-在他同意之后，人们为他铸造了巨盾安格列塔。他站立在诸神面前，坚定不移地挑战着它们的神威。无论是炽热的火焰、刺骨的寒冰，还是枯萎的腐败、灼蚀的强酸，都无法动摇他，也无法阻止他前进。他承受着所有人的痛苦，让他们有机会为世界除去这些巨大而冷漠的神祇。他的身躯和他那强大的盾牌能够抵挡下任何东西。
+在他同意之后，人们为他铸造了巨盾安格列塔。他站立在诸神面前，坚定不移地挑战着它们的神威。无论是炽热的火焰、刺骨的严寒，还是令人腐烂的枯萎之力、灼蚀的强酸，都无法动摇他，也无法阻止他前进。他承受着所有人的痛苦，让他们有机会为世界除去这些巨大而冷漠的神祇。他的身躯和他那强大的盾牌能够抵挡下任何东西。
 
 当弑神之战结束之后，哈奎尔回归了他安静的生活。存活的夏·图尔人将弑神者们视作英雄，每一位都获得了丰厚的奖赏，但哈奎尔只要求在群星之中得到一处隐蔽的居所，能在那里不受任何人打扰。]], "_t")
 t("Mightier than Gods: Frosat", "比诸神更加强大：弗洛萨特", "_t")
@@ -2273,7 +2273,7 @@ t([[The Sher'Tul were a people who possessed many exceptional individuals. The t
 
 He was a consultant on the creation of the Godslayer weapons. His understanding of antropic power was unparalleled among his peers, so his advice proved invaluable to the mighty weaponsmiths who forged these instruments. There were going to be eight Godslayers at first, but he asked for one more weapon to be made. He wished to test the fruit of his research himself, so the staff Frosatur was made and named in his honour.
 
-His fate after the Godhunt is unknown. Some sources speculate that he still remains in his library today, waiting for a student worthy of learning the full contents of his archives.]], [[夏·图尔人这个群体中有着许多奇特的人。弗洛萨特的故事比起其他弑神者要平淡许多。他是一位学者，大部分时间都投身于阅读、研究和教学。弗洛萨特的藏书馆是一座知识的圣殿，他一生积攒下的知识都记录在那里。他学术生涯中最引人注目的，或许是对反熵本质的研究；这股力量只有诸神才拥有。
+His fate after the Godhunt is unknown. Some sources speculate that he still remains in his library today, waiting for a student worthy of learning the full contents of his archives.]], [[夏·图尔人当中曾涌现过许多非凡的人物。弗洛萨特的故事比起其他弑神者要平淡许多。他是一位学者，大部分时间都投身于阅读、研究和教学。弗洛萨特的藏书馆是一座知识的圣殿，他一生积攒下的知识都记录在那里。他学术生涯中最引人注目的，或许是对反熵本质的研究；这股力量只有诸神才拥有。
 
 他在铸造弑神武器时担任顾问。在他的同僚中，无人对反熵的理解能超过他，因而他的建议对铸造着这些神兵利器的铁匠而言是无价之宝。最初弑神者只有八个，但他要求为自己多铸造一件武器，因为他想亲自检验自己的研究成果，于是就有了以他的名字命名的法杖弗洛萨特尔。
 
@@ -2320,13 +2320,13 @@ I have #{italic}#"found"#{normal}# a strange glyph sequence that to me looks lik
 
 Good luck on your future #{italic}#acquisitions of properties#{normal}#.]], [[亲爱的%s，
 
-从上次我们相见以来你成长了很多。我为你感到非常骄傲。
-我最近#{italic}#“找到了”#{normal}#一些奇怪的符号序列，看上去像是某种密码。我相信你一定能解明其含义，希望你能利用它推进我们的事业。
+自从我们相识以来，你已经成长了许多。我为你感到非常骄傲。
+我最近#{italic}#“找到了”#{normal}#一些奇怪的符号序列，看上去像是某种密码。我相信你一定能破解其中的含义，并希望你能借此推进我们的事业。
 
 %s
 
 
-祝你#{italic}#追寻财富#{normal}#的旅途一帆风顺。]], "tformat")
+祝你今后#{italic}#置办财产#{normal}#时一切顺利。]], "tformat")
 t("Lessons of Inevitability - Introduction", "有关必然性的课程——导论", "_t")
 t([[In the Age of Dusk, it seemed that the world was ending to many of Eyal's inhabitants. The destruction caused by the Spellblaze left the land withered and scorched. Food was scarce, disease was rampant and everyone was desperate. For a select few, their salvation came from an unlikely visitor. An entity they simply came to knew as The Teacher visited Eyal from somewhere beyond the stars, emerging from an ancient Sher'tul farportal. It discovered a group of survivors in the depths of Eyal which begged it for knowledge, anything they could use as a weapon against the horrors ravaging their world.
 
@@ -2366,7 +2366,7 @@ I am somewhat hesitant to teach this spell, but all of you have been performing 
 
 Please all focus your attention on the central target dummy. Hithre you will cast Netherblast at it to keep Nihil on it while the other students will use a Dark Whisper spell on it.
 
-#{italic}#Go check your new spells for detailed information.#{normal}#]], [[构成万物的基本要素由无数自然法则维系在一起。这些法则支配着整个现实，在大多数情况下不可改变。然而，只要妥善运用魔法，你完全可以打破这些束缚，违抗自然法则，解构你敌人的存在。不仅你的敌人会受到影响，而且周围的空间也会为之撕裂。这将会在现实中撕开一条裂缝，允许事物从中穿过。你必须趁此时向虚空呼唤，召唤出生物来帮助你战斗。
+#{italic}#Go check your new spells for detailed information.#{normal}#]], [[构成万物的基本要素由无数自然法则维系在一起。这些法则支配着整个现实，在大多数情况下不可改变。然而，只要妥善运用魔法，你完全可以打破这些束缚，违抗自然法则，解构你敌人的存在。受到影响的不只是敌人，还有它们周围的区域。现实会因此出现裂缝，让某些东西得以从中溜过。你必须趁此时向虚空呼唤，召唤出生物来帮助你战斗。
 
 我有些犹豫要不要教你们这个法术，但你们所有人目前为止表现都很好。你[i]一定[/i]不能轻率使用这个法术。你一定要在头脑中清晰地想象出要召唤的生物，否则就只能任由虚空摆布。群星之间生活着无数实体，其中许多都没有心智，也毫无怜悯。
 
@@ -2428,7 +2428,7 @@ My first instinct was to lead a charge into the crag and cleanse this terrible p
 
 当我们走近岩谷时，立刻就能闻到空气中枯萎的气息。微弱的阳光射入了岩谷，照亮了……某种怪物。我眼前看到的是一大团令人作呕的触须，不断扭动，互相缠卷。接下来在我眼前展现出的一切，让我的心中充满了恶心和痛苦。一头巨龙傲然挺立在那团触须之中，但它本该是头部的地方却只有一团卷须。它的皮肤之下仿佛裹着某种怪物蠕动的肉团。这头巨龙本是大自然最骄傲的生灵之一，却被扭曲成了亵渎世间一切自然与美好的怪物。
 
-强烈的本能，让我想要直接冲进岩谷，净化这个可怕的地方。但我知道这会是个错误。此刻按兵不动会让我们所有人深感痛心，但白白送命毫无意义。现在，我们必须建立营地，观察这种可怕的威胁。]], "_t")
+我的第一反应是率众冲进岩谷，净化这个可怕的地方，但我知道那样做是个错误。此刻按兵不动会让我们所有人深感痛心，但白白送命毫无意义。现在，我们必须建立营地，观察这种可怕的威胁。]], "_t")
 t("page from a logbook (2)", "日志上的一页 (2)", "_t")
 t("In my dreams, I saw the inside of the pits. How the hatchlings devoured each other in a cannibalistic frenzy, how the weak and frail ones were dragged underneath the surface of that mass of tentacles... All I could do is gape in horror. But there was one fiendish shape which towered above them all, a nightmarish fusion between dragon and tentacle... I could not bear to look at it, yet I could not look away. It whispered to me, speaking words that a mortal's tongue could never hope to mimic.\n\nI am not the only one who has been dreaming about the pits. One of my men was hysterical today, whispering about the black gulfs of space and how it has chosen its vessel to conquer this world. He had to be forcefully sedated. \n\nWhatever is here is touching our minds. Any fool could guess that. I woke up to find that I had been writing notes in my sleep. I do not wish to guess what unspeakable blasphemies these symbols represent. It wants me to keep writing. It wants me to do its bidding. I can feel its whispers gnawing at the back of my head. We must act while we can still think for ourselves. I dread what will become of us if we succumb to the whispers... The whispers. They won't stop.\n\n[i](He appears to have attached those notes he mentioned to this letter. What you see is a series of incomprehensible scribbles and symbols which don't resemble any language you have seen before. Such an bizarre script could have only been produced by a madman or something that thinks in ways completely alien to your own.)[/i] ", [[在我的梦中，我看到了坑的内部。那些幼龙疯狂地互相吞噬，弱小的个体被拖入那团触手之下……我只能惊恐地张大嘴巴。但有一个魔鬼般的身影高耸于它们之上，那是龙与触手噩梦般的融合体……我不忍看它，却又无法移开视线。它朝我发出不可名状的低语，那是凡人永远无法模仿的语言。
 
@@ -2440,13 +2440,13 @@ t("In my dreams, I saw the inside of the pits. How the hatchlings devoured each 
 t("page from a logbook (3)", "日志上的一页 (3)", "_t")
 t([[The whispers... Even as I'm running away, the whispers don't stop. It echoes over and over again. I can feel the walls of my mind crumbling down. It wants me to go back. I won't go back, not after what happened. All of them died, melted and devoured, broken and torn asunder... The writhing mass, the endless aberrant things... One drake towered above them all. It whispered to me, just like in my dreams... It had no eyes, but it looked right through me. All of my mortal emotions, thoughts and dreams were laid bare before its hideous visage... And it laughed. It laughed with a horrid, psychic shriek.
 
-It wants me to go back. It wants me to return so it can finish what it started. No, no, no. I must write this report. Tell the Ziguranth. I must send this away, I... I... I must go back it wants me to go back I-I-I [i](Nothing but a series of erratic and completely incoherent scribblings follow. Judging by where you found this letter, he did not make it back to Zigur.)[/i] ]], [[那些低语……即使我正在逃跑，这些低语也丝毫没有停止。它在我的脑海中不断回响。我能感受到我心灵的壁垒摇摇欲坠。它想要我回去。经历了那些事，我绝不会回去。他们都死了。融解，吞噬，破损，撕裂……扭动的肉块，无穷无尽的憎恶……还有，高耸于那些恐怖存在之上的一条巨龙。它朝我发出耳语，就像之前出现在我梦中的情景一样……它没有眼睛，但它仿佛已经看穿了我。我作为凡人的一切情感、思绪与梦想，都在它那丑陋的面容前暴露无遗……它发出了笑声。它笑着，发出恐怖的灵能尖啸。
+It wants me to go back. It wants me to return so it can finish what it started. No, no, no. I must write this report. Tell the Ziguranth. I must send this away, I... I... I must go back it wants me to go back I-I-I [i](Nothing but a series of erratic and completely incoherent scribblings follow. Judging by where you found this letter, he did not make it back to Zigur.)[/i] ]], [[那些低语……即使我正在逃跑，这些低语也丝毫没有停止。它在我的脑海中不断回响。我能感受到我心灵的壁垒摇摇欲坠。它想要我回去。经历了那些事，我绝不会回去。他们都死了。融解，吞噬，破损，撕裂……扭动的肉块，无穷无尽的畸变之物……还有，高耸于那些恐怖存在之上的一条巨龙。它朝我发出耳语，就像之前出现在我梦中的情景一样……它没有眼睛，但它仿佛已经看穿了我。我作为凡人的一切情感、思绪与梦想，都在它那丑陋的面容前暴露无遗……它发出了笑声。它笑着，发出恐怖的灵能尖啸。
 
-它要我回去。它要我回去，好让它完成已经开始的事情。不，不，不。我必须写完这份报告。我必须把这份报告交给伊格兰斯。我…我…我…我必须回去。它希望我回去。我—我—我 [i]（接下来只有一连串杂乱无章、完全无法理解的涂写。从你找到这封信的位置来看，恐怕，他并没能把这个消息带回伊格。）[/i] ]], "_t")
+它要我回去。它要我回去，好让它完成已经开始的事情。不，不，不。我必须写完这份报告。我必须把这份报告交给伊格兰斯。我…我…我…我必须回去。它希望我回去。我—我—我 [i]（接下来只有一连串杂乱无章、完全无法理解的涂写。从你找到这封信的位置来看，他并没能回到伊格。）[/i] ]], "_t")
 t("entropic void", "熵之虚空", "_t")
 t([[It's cold. Terribly cold. The unreality around you seems to be draining you slowly, making your body lock up and your limbs go stiff. There is entropy at work here, but you can see small patches of light defiantly standing out against the darkness. The warm glow infuses you with vigour, driving away the terrible cold. There must be an antropic force at work here, the only thing which can defeat entropy. You can plainly see that it is fighting a losing battle.
 
-As you get your bearings, you can sense that there is something in here with you. Its presence looms over this entire void, filling you with a primordial sense of dread. The battle that will be fought here will be unlike any you have been through. And perhaps it will be your last.]], [[周围很冷，寒冷刺骨。环绕着你的非现实感，正在慢慢抽光你的一切。你的身体僵硬，四肢麻木。这里是被熵支配的场所，但是，你能看到几小片光亮在无尽的黑暗中坚强挺立。这份温暖的光芒给予了你力量，驱散了环绕全身的刺骨寒冷。这里一定有反熵的力量，那是唯一能够战胜熵的东西。你可以看到，它正在一场必败的战斗中顽强地抗争着。
+As you get your bearings, you can sense that there is something in here with you. Its presence looms over this entire void, filling you with a primordial sense of dread. The battle that will be fought here will be unlike any you have been through. And perhaps it will be your last.]], [[周围很冷，寒冷刺骨。包围着你的这片非现实空间似乎正慢慢耗尽你的力量，让你的身体僵硬，四肢无法活动。这里是被熵支配的场所，但是，你能看到几小片光亮在无尽的黑暗中坚强挺立。这份温暖的光芒给予了你力量，驱散了环绕全身的刺骨寒冷。这里一定有反熵的力量，那是唯一能够战胜熵的东西。你可以看到，它正在一场必败的战斗中顽强地抗争着。
 
 在你重新辨明方向时，你感觉到这里还有别的东西与你同在。它的存在笼罩着整个虚空，让你的心中涌满了来自本能的恐惧。你明白，在这里发生的这场战斗，和你所经历的任何一次都不同，可能也将是你的最后一场战斗。]], "_t")
 t("hypostasis of entropy", "熵之源质", "_t")
@@ -2460,13 +2460,13 @@ While the hide of the creature has proven too tough to break through, we have de
 t("a new threat (2)", "新的威胁 (2)", "_t")
 t([[We have managed to enter the beast. Alas, we were not prepared for the creature itself to have natural defences. Pieces of its own flesh came to destroy us. We called upon the dark beyond and it answered, withering the Maggot's flesh right in front of our eyes! But, for all of our power, the flesh kept coming. A lot of researchers were lost.
 
-It seems that it falls to me alone to deal with this creature. Only my entropic power could hope to put an end to it. The density of its fleshling defenders grows and grows as we push our way to the creature's brain. If we destroy that, then this will be over in an instant.]], [[我们成功进入了怪物的身体。可惜，我们没料到这个生物自身也有天然的防御机制。它身体里的肉块和组织活动起来，前来消灭我们。我们呼唤彼方的黑暗，它回应了我们，让蛆虫的肉块在我们眼前枯萎！但是，尽管我们已经竭尽全力，肉块还是不断袭来。许多研究员都失踪了。
+It seems that it falls to me alone to deal with this creature. Only my entropic power could hope to put an end to it. The density of its fleshling defenders grows and grows as we push our way to the creature's brain. If we destroy that, then this will be over in an instant.]], [[我们成功进入了怪物的身体。可惜，我们没料到这个生物自身也有天然的防御机制。它身体里的肉块和组织活动起来，前来消灭我们。我们呼唤彼方的黑暗，它回应了我们，让蛆虫的肉块在我们眼前枯萎！然而，任凭我们施展力量，肉块仍不断袭来，许多研究员就此丧命。
 
 看来，现在只有我能亲自对付这个怪物了，只有我掌握的熵能力量有战胜它的希望。在我们向怪物大脑的方向前进的时候，那些肉块防御者的数量也越来越多。如果我们能够摧毁怪物的大脑，这一切都会瞬间结束。]], "_t")
 t("a new threat (3)", "新的威胁 (3)", "_t")
 t([[We have been trapped inside the maggot for a few days now. I'm the only one who seems to be still set on destroying this creature. Those that remain here conspire against me. I hear them whisper among themselves. They intend to abandon me and make their way back to the portal, which is surely swarming with defenders by now. Tomorrow, I will goad them into following me for one last charge. We would have a better chance at going for the brain than we would getting back to the portal.
 
-When we return to the Sanctuary triumphant, we shall be hailed as saviours and they shall see their error in doubting the power we have obtained.]], [[我们已经在蛆虫的肚子里困了好几天了。看来，我现在是唯一一个还在努力战胜这个怪物的人。其他留在这里的人正在密谋反对我，我能听到他们的窃窃私语。他们准备扔下我，回到通向入口的传送门，但那里肯定早就被大量的肉块防御者占据了。明天，我会下令让他们跟随我进行最后的冲锋。比起退回传送门，冲向大脑反倒更有胜算。
+When we return to the Sanctuary triumphant, we shall be hailed as saviours and they shall see their error in doubting the power we have obtained.]], [[我们已经在蛆虫的肚子里困了好几天了。看来，我现在是唯一一个还在努力战胜这个怪物的人。其他留在这里的人正在密谋反对我，我能听到他们的窃窃私语。他们打算抛下我，退回传送门，但那里现在肯定挤满了防御者。明天，我要用激将法让他们跟着我再冲锋一次。比起退回传送门，冲向大脑反倒更有胜算。
 
 当我们得胜回到避难所的时候，我们一定会被视为救世主。那些人将会知道，小看我们的力量是一种多么大的错误。]], "_t")
 t("arrrrrrghhhhhh", "啊啊啊啊啊啊啊", "_t")
@@ -2500,17 +2500,17 @@ So, my approach has been to just keep trying different combinations until someth
 #{italic}#（这个列表中，除了最下面的最后一个组合，其余组合旁似乎都只打着叉。令人奇怪的是，这个组合既没有打钩也没有打叉。也许他没机会测试这个组合？）#{normal}#
 %s]], "tformat")
 t("the egress (2)", "出口 (2)", "_t")
-t("Some puzzle this is! I finally enter the right combination and it dumps me in some forsaken corner of the world! I don't even know what to make of my surroundings, they're utterly bizarre! Why did this have to happen to me? I was supposed to be the one who got in first and got the treasure... Now look at me! I've wandered all over this place, but I can't find any exit! It's like this entire place is conspiring to keep me trapped here!", "这是什么鬼谜题！我终于输入了正确的组合，结果它把我扔到了世界遗忘的角落！我甚至搞不清周围是什么地方，这里的环境实在太怪异了！为什么我要倒这种霉！我本来以为我是第一个到这里的，终于可以有机会搜刮财宝了…现在呢？我在这里到处游荡，结果连出口都找不到！这个地方简直就是为了困死我而设计出来的！", "_t")
+t("Some puzzle this is! I finally enter the right combination and it dumps me in some forsaken corner of the world! I don't even know what to make of my surroundings, they're utterly bizarre! Why did this have to happen to me? I was supposed to be the one who got in first and got the treasure... Now look at me! I've wandered all over this place, but I can't find any exit! It's like this entire place is conspiring to keep me trapped here!", "这是什么鬼谜题！我好不容易输入了正确的组合，结果它竟把我扔到一个被世界遗忘的角落！我甚至搞不清周围是什么地方，这里的环境实在太怪异了！为什么我要倒这种霉！我本来以为我是第一个到这里的，终于可以有机会搜刮财宝了…现在呢？我在这里到处游荡，结果连出口都找不到！这个地方简直就是为了困死我而设计出来的！", "_t")
 t("the truth beyond the veil (1)", "穿透纱幕的真相 (1)", "_t")
 t([[Thought is treasure. Treasure thoughts. Spin fates, tell tales, words of gods, smith into fables. All that is can be rewritten and all writing is defined by what is. Cascades upon cascades which blend into reality, ever altering, ever changing, ever being, ever ceasing.
 
-Words are power. My power is words. I am infinity and its end. Everything is possible.]], [[思想是一种财富。珍惜思想的财富。编织命运，讲述故事，神的语言，编织成传说。一切现实都可以被重写，一切的文字都关联着现实。一层又一层交叠，融入现实，不断变化，不断改变，永在存续，永在消逝。
+Words are power. My power is words. I am infinity and its end. Everything is possible.]], [[思想是一种财富。珍惜思想的财富。编织命运，讲述故事，将诸神的言语锻造成寓言。一切现实都可以被重写，一切文字又都由现实界定。一层又一层交叠，融入现实，不断变化，不断改变，永在存续，永在消逝。
 
 言语就是力量。我的力量就是言语。我是无限，我是终结。一切皆有可能。]], "_t")
 t("the truth beyond the veil (2)", "穿透纱幕的真相 (2)", "_t")
 t([[It spins. It all spins. Around and around. Fleshlings write tripe. Meaningless. Waste of existence. No life in their words. No understanding. Breathe the story, they shall. Understand the story. I shall show them. They shall see. See, they shall. Again and again. Until they understand.
 
-The unworthy will not understand.]], [[它在旋转，一切都在旋转。周回往复。凡人书写庸俗之言。毫无意义。存在的浪费。他们的言语没有价值。没有理解。他们应该，感受故事，理解故事。我将会向他们展现。他们将会见证。他们，必将见证。一次又一次，直到他们理解。
+The unworthy will not understand.]], [[它在旋转，一切都在旋转。周而复始。凡人书写庸俗之言。毫无意义。存在的浪费。他们的言语毫无生气。毫无理解。他们将把故事吸入肺腑，理解故事。我将会向他们展现。他们将会见证。他们，必将见证。一次又一次，直到他们理解。
 
 不配理解的人永远不会理解。]], "_t")
 t("the truth beyond the veil (3)", "穿透纱幕的真相 (3)", "_t")
@@ -2520,9 +2520,9 @@ Thoughts are treasure. Treasure thoughts. Thoughtlessness is useless. Thoughtles
 
 思想是财富。珍惜思想。毫无思想的人毫无意义。毫无思想的人一文不值。毫无思想的人永远无法穿透纱幕，见到世界的真相。]], "_t")
 t("an escape from reality (1)", "逃避现实 (1)", "_t")
-t("So, what does an adventurer do when they get bored with it all? For me, I wanted to find a nice castle somewhere out in the countryside and spend the rest of my days in idle contentment. The issue there is that I made a lot of enemies who would have loved for me to settle down in one spot, so I needed to think of a solution.\n\nThat's when I found this place. Everyone else avoided it because people never left once they went inside it. Being used to the adventuring life, I saw such a thing as a challenge. Turns out that this cursed castle, as people referred to it, constantly changes its inside layout. No one really knows how or why it does it, but I'm not really one to question such things. If I could just work out the logic behind how it shifted itself, I could have an unassailable fortress. \n\nHowever, I also found that this still didn't deter people from coming to kill me. They all swarmed in and although a lot of them got lost in the hallways, a few actually managed to reach me. I had grown rather attached to the place at this point, but neither could I stay there. My solution came with a bizarre tome I had found in my adventures. When I opened the cover and pointed it in the right direction, it could suck things into its very pages.\n\nSo, being the savvy adventurer I am, I opened the tome and sucked the entire castle inside of it. It seems like the tome could only suck so much inside its covers, so it could no longer hold anything else in it. Although I had to sacrifice a great treasure, I now had a sanctuary away from the real world which I could escape to whenever I needed shelter.", [[那么，当一个冒险者厌倦了有关冒险的一切时，他们会做什么呢？对我而言，我想在乡村的某个地方找一座漂亮的城堡，并在休闲和娱乐中度过愉快的晚年。问题在于，我有不少仇人，他们可是很乐意见到我呆在一个地方束手就擒，因此我得想出一个解决方案。
+t("So, what does an adventurer do when they get bored with it all? For me, I wanted to find a nice castle somewhere out in the countryside and spend the rest of my days in idle contentment. The issue there is that I made a lot of enemies who would have loved for me to settle down in one spot, so I needed to think of a solution.\n\nThat's when I found this place. Everyone else avoided it because people never left once they went inside it. Being used to the adventuring life, I saw such a thing as a challenge. Turns out that this cursed castle, as people referred to it, constantly changes its inside layout. No one really knows how or why it does it, but I'm not really one to question such things. If I could just work out the logic behind how it shifted itself, I could have an unassailable fortress. \n\nHowever, I also found that this still didn't deter people from coming to kill me. They all swarmed in and although a lot of them got lost in the hallways, a few actually managed to reach me. I had grown rather attached to the place at this point, but neither could I stay there. My solution came with a bizarre tome I had found in my adventures. When I opened the cover and pointed it in the right direction, it could suck things into its very pages.\n\nSo, being the savvy adventurer I am, I opened the tome and sucked the entire castle inside of it. It seems like the tome could only suck so much inside its covers, so it could no longer hold anything else in it. Although I had to sacrifice a great treasure, I now had a sanctuary away from the real world which I could escape to whenever I needed shelter.", [[那么，当一个冒险者厌倦了冒险的一切时，会做些什么呢？对我而言，我想在乡村的某个地方找一座漂亮的城堡，并在休闲和娱乐中度过愉快的晚年。问题在于，我有不少仇人，他们可是很乐意见到我呆在一个地方束手就擒，因此我得想出一个解决方案。
 
-所以，我找到了这个地方。其他人都对它避之不及，因为据说进入这里的人从来没有回来过。不过，在习惯了冒险生活的我看来，这样的事情无疑是一种挑战。原来，这座被人们称为“被诅咒的城堡”的建筑，一直在不断改变内部布局。没有人真正知道，它是如何做到这一切，以及为什么要这样做的，但我也不是一个非得刨根问底的人。只要我能弄清它改变自身布局背后的逻辑，我就拥有了一个无懈可击的堡垒。
+就在那时，我发现了这个地方。其他人都对它避之不及，因为据说进入这里的人从来没有回来过。不过，在习惯了冒险生活的我看来，这样的事情无疑是一种挑战。原来，这座被人们称为“被诅咒的城堡”的建筑，一直在不断改变内部布局。没有人真正知道，它是如何做到这一切，以及为什么要这样做的，但我也不是一个非得刨根问底的人。只要我能弄清它改变自身布局背后的逻辑，我就拥有了一个无懈可击的堡垒。
 
 然而我也发现，这仍然没能阻止那些想取我性命的人前来。他们还在蜂拥而入，虽然他们中的大部分人都在走廊中迷路了，但也有一些人真的到达了我的面前。在那时候，我已经相当喜欢这个地方了，但我也不能一直呆在这里。我在冒险中找到的一本怪书给了我一个解决办法。只要我打开书的封面，朝向正确的方向，它就可以把东西吸入书中。
 
