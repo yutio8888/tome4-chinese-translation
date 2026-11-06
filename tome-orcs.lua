@@ -2585,7 +2585,7 @@ Seriously, though, I'm writing this note so even if I get killed from this, I'm 
 
 不管怎么样……库贝克，如果你读到这份信的话，说明那些死矮子又搞砸了。把水晶球交回给他们，希望它能告诉他们所需的信息（好吧，如果要我说的话，[i]希望这东西把他们全炸死[/i]）。你那边的校准没有问题，你那些伪装得很差的暴徒也干得不错（别再放幻术了，这简直是一种侮辱。只要你们肯出钱，我们根本不关心你是谁或者是什么。）我们只需要把自己这边的信号锁调准，就能满足你送来的订单，甚至还能多供一些货。
 
-不过，说真的，我写这份信，就是想让你知道，即使我因此丧命，也算是帮了你一个忙。如果我真的死了，希望你能报答我，确保那个里奇养的小瘪三再也没机会在抽签时出千。对此，我会非常感激。
+不过，说真的，我写这份信，就是想让你知道，即使我因此丧命，也算是帮了你一个忙。如果我真的死了，希望你能报答我，确保那个里奇养的小瘪三再也活不到下一次抽签。对此，我会非常感激。
 ]], "_t")
 t("?...secar", "？……族种", "newLore category")
 t("stnaiG maetS :84 retpahC ,seicepS eht fo tnemssessA s'tonyarG ralohcS", "人巨汽蒸——章八十四第——查调的种人于关特诺雷格者学博", "_t")
@@ -3099,7 +3099,7 @@ PS: If you wouldn't mind doing me a personal favor, please destroy any written a
 
 -不幸的是，那些树人已经不再理会敌我之分了。在它们眼中，任何并非源自自然的事物都是潜在的感染源，必须彻底肃清，它们才能再度陷入沉睡。我知道，光靠嘴上说句“求你了”，实在不足以要求你放弃自卫……但还是请尽量把破坏降到最低，好让它们能治愈这片曾遭此恶疾肆虐的土地。如果你想避开它们，就尽快离开地面、进入树冠层；只要它们在林地上看不到可供攻击的目标，就不会活化苏醒。还有，千万不要尝试钻取树芯样本！在这点上请务必相信我——尽管我当时非常想弄清感染究竟蔓延到了多深的地方，是已经穿透了整棵巨树，还是已经被尽数逼到了树顶，但这一举动简直就像愚蠢的决定吸引永恒精灵一样，把树人全都招到了我身边。
 
--造成这场破坏的元凶是一群活化的奥术水晶，与先前在闪光洞穴中有过记载的属于同一类型。它们形成的具体过程尚不明确，但可以肯定的是，它们与魔法大爆炸引发的大量枯萎能量涌潮息息相关，同时也证明了哪怕时至今日，那场浩劫造成的破坏恐怕仍比我们所能确知的还要严重。要是你没有极其出色的闪避本领，就做好承受各类强力魔法轰击的准备吧；万幸的是，尽管它们会频繁传送，但在两次闪烁之间完全无法移动。如果有一颗水晶传送到你附近，要么找掩体躲避，要么在它再次转移位置之前将其摧毁。
+-造成这场破坏的元凶是一群活化的奥术水晶，与先前在闪光洞穴中有过记载的属于同一类型。它们形成的具体过程尚不明确，但可以放心推断，它们与魔法大爆炸引发的大量枯萎能量涌潮息息相关，同时也证明了哪怕时至今日，那场浩劫造成的破坏恐怕仍比我们所能确知的还要严重。要是你没有极其出色的闪避本领，就做好承受各类强力魔法轰击的准备吧；万幸的是，尽管它们会频繁传送，但在两次闪烁之间完全无法移动。如果有一颗水晶传送到你附近，要么找掩体躲避，要么在它再次转移位置之前将其摧毁。
 
 -放任此事不管的后果将是灾难性的。即便这棵巨树的生长确实标志着这颗星球正成功地将感染排出体外、抵御其侵蚀，那些水晶化身也完全可以顺着树干爬下来，将自己埋入地底，令埃亚尔再度染病。而要是埃亚尔正在落败……尽管我极其不情愿这么说，但或许那帮永恒精灵纵火狂总算能在他们过于漫长的生命里干上一回好事，把这片区域连根彻底烧灼干净。当然，前提是他们能想出办法，在不把太阳炸上天的情况下做到这一点。
 
@@ -3125,21 +3125,21 @@ Volunteers who prefer a more hands-on approach can expect to start making a diff
 ABILITY, RESPONSIBILITY, AND ACCEPTANCE
 
 The wilds of Eyal are a dangerous place; we do not expect our scholars to go into them defenseless!  For those who are already accustomed to use of the arcane, our partnership with the Living Fossils allows us to identify safe and responsible methods of using magic, and provide them with an introduction to the ways of Nature, and those who are already adept with Nature can always hone their skills with our veteran members.  If you have no ability with either, you're in luck!  We're eager to show you how to accept Nature's favors to defend yourself.  Anyone can learn to summon loyal beasts or channel wyrmic strength if they're willing to try!  These abilities can be used without giving up your attunement to the arcane, but you may find that you don't need your spells anymore, once you've seen how effective Nature's power is.  We will never force you to give up magic, but if you happen to be looking for a greater commitment, speak to your instructor about following the path of the oozemancer.
-]], [[[b]埃亚尔需要你！[/b]
+]], [[埃亚尔需要你！
 
-在马基·埃亚尔的英雄让闪光洞穴、诺尔格斯巢穴以及无数其他地方重新变得安全、可供探索后，那些地方遗留的破坏直到现在才清晰显现。如今和平已经降临这些土地，埃亚尔开始愈合——但是，随着我们那些使用魔法的东部同胞到来，加上联合王国日益接受魔法，平衡可能再次滑向毁灭——不过，[b]你的[/b]帮助能让埃亚尔保持健康！加入修复者，从今天开始帮助这颗星球吧！
+闪光洞穴、诺尔格斯巢穴以及无数其他地方遗留下的创伤，直到马基·埃亚尔的英雄令这些地方再次变得可以安全探索之后，才在如今彻底显露出来。既然这些土地已重归和平，埃亚尔也正开始逐步复原——然而，随着东方那些使用魔法的同胞到来，再加上联合王国日益接纳魔法，天平恐怕会再度向毁灭倾斜——但有了你的相助，就能让埃亚尔保持健康！加入修复者，从今天起开始帮助这颗星球吧！
 
-[b]学习与观察[/b]
+学习与观察
 
-我们的创始人曾是夏特尔的守护者，他们一直深知维持生态系统平衡的重要性。你喜欢观鸟、探索荒野、欣赏自然植物吗？我们可以为你提供一份值得关注的动物、植物和真菌清单；你只需外出探索，记下探索地点、时间，以及见到这些物种的数量。我们经验丰富的自然学家能利用这些信息追踪迁徙模式，并监测这些物种的扩散或衰退，让我们能在某种生物濒危或成为入侵物种时采取行动；他们已经在努力恢复因马基·埃亚尔的英雄不断猎杀当地野生生物而遭破坏的平衡。变化是自然秩序固有的一部分；我们的专家明白，只有当某种变化会对生态系统造成剧烈且毁灭性的伤害时才应介入。大自然能自行解决大多数问题，但偶尔也需要我们扶它一把（尤其是应对不加节制地滥用奥术魔法所造成的变异）。如果你想进一步了解自然秩序，我们拥有一个多元且知识渊博的自然学家社群，他们乐于回答问题或提供更深入的教导。
+我们的创立者们曾是夏特尔的守护者，向来深知维系生态平衡有多么重要。你的业余爱好里是否包括观鸟、探索荒野，以及饱览自然界的草木风光？我们可以向你提供一份需要重点关注的动物、植物与真菌名录；你只需走进野外，把你踏足的地点、时间，以及沿途见到的相关物种数量记录下来即可。我们经验老到的自然学家会借助这些资料来追踪生物的迁徙规律，监测各个物种的繁衍扩散与数量衰退，以便在某个物种面临濒危或演变为入侵物种时及时采取行动；对于马基·埃亚尔的英雄接连斩杀当地野生生物所打破的生态平衡，他们眼下也已经在着手修复了。变化本就是自然秩序与生俱来的一部分；我们的专家心里很清楚，唯有当某种变化将对生态系统造成剧烈且具毁灭性的损害时，才应当出手干预。大自然绝大多数时候都能自行化解问题，但偶尔也需要我们帮衬一把（尤其是在应对因肆无忌惮地使用奥术魔法而引发的生物变异时）。如果你希望进一步了解自然秩序，我们这里汇聚了背景各异、学识渊博的众多自然学家，他们随时乐意为你答疑解惑，或是提供更为系统深入的指导。
 
-[b]修复与治疗[/b]
+修复与疗愈
 
-喜欢亲自动手的志愿者可以加入我们的修复和净化工作，立即为改善环境出一份力。众所周知，马基·埃亚尔的英雄所经历的众多战斗带来了不幸的代价。许多地方到处都是被魔法污染的物件和尸体，还有些地方的土地本身也遭到了残留法术效应的污染。当然，那些试图阻止英雄的野兽和不法之徒烧毁的树木等等就更不用说了！你可以通过摧毁危险的魔法物品，重新种植树木，杀死那些破坏生态的野兽（比如诺尔格斯）以及参加我们的净化仪式，来加快这个世界愈合的进程。
+更倾向于亲自动手实践的志愿者，可以通过参与我们的生态复垦与去污净化行动，立刻投身其中、发挥实效。众所周知，马基·埃亚尔的英雄历经的无数次战斗留下了令人惋惜的恶果；许多地方至今仍散落着受魔法污染的器物与尸骸，更有一些地方连大地本身都被这些法术的残留效应所污染。（当然，这还没算上那些企图阻拦那位英雄的凶兽与歹徒所烧毁的林木等等！）你可以协助我们销毁具有危险魔力的物品、植树造林、讨伐破坏生态的野兽（例如诺尔格斯），以及参与净化仪式，从而加速愈合进程。
 
-[b]能力、责任与认可[/b]
+能力、责任与接纳
 
-埃亚尔的野外是一个危险的场所；我们可不希望我们的学者手无寸铁地走进荒野！对于那些已经习惯于使用奥术魔法的人，我们和那些活化石的合作，让我们可以找出安全、负责任地使用魔法的方法，并向你们展示自然之道的基础。对于那些已经精通自然力量的人，你们可以和我们的老成员之间相互切磋，磨练技巧。如果你两者都不了解的话，那么你就走运了！我们十分乐意向你展示如何使用自然的力量来保护自己。只要你愿意尝试，每个人都有机会掌握召唤忠诚野兽的能力，或是引导巨龙的力量！这些能力在你不放弃奥术魔法的情况下也可以尽情使用；不过一旦见识到自然之力有多么有效，你也许会发现自己再也用不着那些法术了。我们绝不会强迫你放弃魔法，但如果你愿意更进一步地投身自然之道，可以找导师谈谈如何走上软泥使之路。
+埃亚尔的荒野危机四伏；我们可不会要求旗下的学者们毫无防备地涉足其中！对于那些已经习惯使用奥术的人，我们与活化石公会的合作使我们得以甄别出安全且负责任的施法方式，并引导他们初步领略自然之道；至于那些本就娴熟于自然之力的成员，也随时可以同我们的资深前辈切磋磨砺、精进技艺。如果你这两方面的能力都不具备，那你可真是走运了！我们非常乐意教你如何接纳大自然的恩赐来保护自己。只要肯尝试，任何人都能学会召唤忠实的野兽，或是导引龙族的力量！施展这些能力并不需要你放弃自身与奥术的调谐，不过一旦亲眼见识过自然之力有多么管用，你或许就会发现自己再也用不上那些法术了。我们绝不会强迫你舍弃魔法，但倘若你恰巧渴望更深入地投身其中，不妨找你的导师聊聊如何踏上软泥使之路。
 ]], "_t")
 t("'On Tolerance'", "《有关容忍》", "_t")
 t([[We recognize that times are changing.  Within a year, the Allied Kingdoms have gone from begrudgingly tolerating magic to openly embracing it, due to the influence of our rediscovered allies in the East.  Furthermore, if the reports are to be believed, the ecosystem of Var'Eyal remains healthy and intact, despite millennia of continuous magic-use.  Therefore, our views and approach must change with the times; we are not ignorant to new knowledge.
@@ -3174,7 +3174,7 @@ In the meantime, paying off Stone Warden trainers and buying enough mindstars an
 
 又一张遭到破坏的海报。说我们是叛徒、通敌者，宣称他们自己才是真正的伊格兰斯。全都是蠢货。
 
-我建立修复者，并不是因为我认为少数恰好品行端正的魔法使用者的出现，就能推翻我在伊格所受的教诲或在夏特尔童年时学到的任何东西。我也没有突然忘记：任何源自奥术魔法的东西，不论是否裹着一套关于天体的玄虚说辞，都有变异成足以令魔法大爆炸相形见绌之物的风险。我这样做，是因为那些疯子长期无视政治风向的变化，眼看自己逐渐变得无足轻重，又凭那场鲁莽的暗杀直接从无足轻重跃升为人人唾弃。他们尽可以怪罪远东，但那只是棺材上的最后一颗钉子；符文已广为接受，炼金术士也早已在整片大陆公开活动。
+我建立修复者，并不是因为我认为少数恰好品行端正的魔法使用者的出现，就能推翻我在伊格所受的教诲或在夏特尔童年时学到的任何东西。我也没有突然忘记：任何源自奥术魔法的东西，不论是否裹着一套关于天体的玄虚说辞，都有变异成足以令魔法大爆炸相形见绌之物的风险。我这样做，是因为那些疯子长期无视政治风向的变化，眼看自己逐渐变得无足轻重，又凭那场鲁莽的暗杀直接从无足轻重沦为人人唾弃的对象。他们尽可以怪罪远东，但那只是棺材上的最后一颗钉子；符文已广为接受，炼金术士也早已在整片大陆公开活动。
 
 我欣赏他们的奉献，也理解他们的挫败：眼看世人将魔法视为常态，只会让他们更想诉诸暴力。但事实是，对伊格的袭击是一场安乐死，阻止狂热分子继续败坏我们在公众眼中的形象。威吓早已不可能让我们有所作为，所以必须尝试新办法。既然魔法大爆炸和黄昏纪已从公众记忆中淡去，以魔法的恐怖警醒世人不再有效，我们就该提醒他们自然的奇迹——那些今天便能亲眼见到的奇迹。公众若不相信魔法邪恶，至少可以相信自然更好。我们若不能把魔法变成禁忌，就能让它变得过时……而这一切会为我们争取原本缺少的支持，吸引渴望了解自然之美、听取奥术危害警示的好奇心灵。
 
@@ -3223,9 +3223,9 @@ t("a journal (2)", "一份日志 (2)", "_t")
 t([[Great #CRIMSON#AMAKTHEL#LAST#, forgive me, for I could not prevent the actions of my brethren.  I tried.  We tried.  When they spoke of committing the Great Sin, we argued ferociously, until Caldizar and his apostates did it before we could react in time.  We did our best to avenge this foul deed, and used the Magic of Creativity on as many as we could, blessing them with new forms, and blessing ourselves such that we could do battle with their fortresses; alas, it was nonetheless a war we eventually lost, for what chance did we have against weaponry, power, and mercilessness to which even You fell?  Please, Your Brilliance, understand that we did everything we could.  
 
 Our planet lay in ruins, with even the apostates abandoning Eyal for other worlds.  Every one of Your followers fought to our deaths...  except me, coward that I was in those days.  Now, I am all that remains, along with the apostates we blessed with Your magic.  I will not beg for Your forgiveness; as an inventor You are concerned with results over words, and I will prove to You that my moment of weakness will soon have a wondrous result.  With the sinful apostates gone, You will have the time to secure this world for Yourself, purging the creations of the lesser gods...  and preparing to exact justice on the sinners when they return.  
-]], [[伟大的#CRIMSON#阿马克泰尔#LAST#，请原谅我，我没能阻止我的同胞犯下恶行。我尽力了。我们尽力了。当他们提出要犯下大罪的时候，我们激烈争辩，然而凯尔帝勒和他的背教者们在我们还没来得及反应之前抢先犯下了滔天大罪。我们尽最大的努力为他们的恶行复仇，对尽可能多的人施以创造魔法，赋予他们新的形态，也转化了我们自己，这样我们才能和他们的堡垒抗衡。唉，尽管如此，这场战争最终仍以我们的失败告终；连你都败在了他们的武器、力量与冷酷无情之下，我们又怎能与之抗衡？伟大的神，请明白我们已经尽力了。
+]], [[伟大的#CRIMSON#阿马克泰尔#LAST#，请宽恕我，因为我未能阻止同胞们的行径。我尽力了。我们都尽力了。当他们谈及要犯下大罪时，我们曾激烈争论，直到凯尔帝勒和他的背教者们赶在我们来得及反应之前便已付诸行动。我们竭尽全力要为这桩恶行讨回血债，对尽可能多的人施展了创造魔法，赐予他们全新的形态，同时也祝福了我们自身，使我们能够迎战他们的堡垒；唉，这场战争我们最终还是败了——连您都倒在了那样的武器、力量与冷酷无情之下，我们又能有什么胜算呢？光辉的尊主，请您理解，我们已经竭尽所能了。
 
-我们的星球化为了废墟，连背教者也离开了埃亚尔，前往了其他世界。你的追随者全都战斗到了生命的最后一刻……只有我例外，那时的我是个懦夫。现在，只剩下我，还有那些被我们以你的魔法祝福的背教者们。我不会乞求你的原谅；你是一位发明者，你关心的是结果而非言辞，我会亲自向你证明，我那一时的软弱很快就会带来一个美好的结果。那些犯下罪行的背教者已经离开了，你将终于有机会亲自夺回这个世界，清除那些劣等神祇的低劣造物……并且准备好在那些罪人归来之时对其实施正义的制裁。
+我们的星球沦为废墟，就连背教者们也抛弃了埃亚尔，前往其他世界。您的每一位追随者都战至身死……除了我，那时的我是个懦夫。如今，只剩下我，以及那些曾被我们用您的魔法祝福过的背教者。我不会乞求您的宽恕；作为一名发明家，您看重的是结果而非言辞，而我将向您证明，我一时的软弱很快就会带来奇妙的结果。随着罪恶的背教者离去，您将有时间把这个世界稳稳掌控在自己手中，肃清那些次等神明的造物……并做好准备，在那些罪人归来时向他们降下正义的制裁。
 ]], "_t")
 t("a journal (3)", "一份日志 (3)", "_t")
 t([[The work continues, and soon all shall know the name of their new god.  Even handling the one Hand that I have makes me weep for the sins of my brothers, and yet eager to see their work undone...  The bowels of Eyal shall be the forge in which You will be remade, the newly-drained magma channels above shall be its fire.
@@ -3424,9 +3424,9 @@ You want your revenge on my father's people, foul cur?  #{italic}#Come and get i
 
 我不会再犯同样的错误。
 
-你让我看到，兽人之心除了对死亡和毁灭的渴望外空无一物；不论眼前铺开怎样美好的未来，你们都会为了享受与那些希望实现这一未来的理性之人交战的刺激，将其舍弃。你让我看到，我努力超越的偏见从一开始就是对的。你让我看到，父亲唯一的错误，是做得还不够彻底——仅让一个大陆摆脱兽人，并不足以保障我们的安全。你们必须从整个埃亚尔被肃清；而这场战争无可避免，因为无论我们怎样努力保留和平的可能，你们都会不断把事态推向战争。然而……你也让我理解了你们为何用这种方式看待世人，把其他所有人都当作威胁自身存续的无理敌人——因为这正是我们对待你们的唯一正确方式。
+你让我看到，兽人之心除了对死亡和毁灭的渴望外空无一物；不论眼前铺开怎样美好的未来，你们都会为了享受与那些希望实现这一未来的理性之人交战的刺激，将其舍弃。你让我看到，我努力超越的偏见从一开始就是对的。你让我看到，父亲唯一的错误，是做得还不够彻底——仅让一个大陆摆脱兽人，并不足以保障我们的安全。必须把你们这一族从整个埃亚尔彻底清除；而这场战争无可避免，因为无论我们怎样努力保留和平的可能，你们都会不断把事态推向战争。然而……你也让我理解了你们为何用这种方式看待世人，把其他所有人都当作威胁自身存续的无理敌人——因为这正是我们对待你们的唯一正确方式。
 
-我们不会再给你第二次机会。相反，我们会给你一直想要的唯一东西：一场战斗。传送门另一侧，联合王国的军队正等着你。我们过去或为仇敌，或只是勉强共居，如今却因怀有你们永远无法理解的和平与合作愿望而成为真正盟友。我们在开阔战场上列阵，准备展示联合起来的力量。埃尔瓦拉的永恒精灵准备法术，食人魔握紧棍棒；德斯镇与最后的希望城的半身人和人类已经忘却古老敌对，携手调制炼金炸弹、建造巨型傀儡，或带着弓与投石索各就各位；钢铁王座的矮人和夏特尔的自然精灵此前甚至算不上我们的正式盟友，如今也意识到你们的威胁不容忽视。我们的阵线中满是能召唤无数野兽与树人的自然之力强者，以及#{italic}#绝不#{normal}#退让的勇猛战士。就连太阳堡垒也加入了我们，派出一支精锐增援阵线，并迅速训练士兵掌握他们多年来磨炼的魔法技艺——而你们这些无可救赎的野蛮人，正是他们的磨刀石。
+我们不会再给你第二次机会。相反，我们会给你一直想要的唯一东西：一场战斗。传送门另一侧，联合王国的军队正等着你。我们过去或为仇敌，或只是勉强共居，如今却因怀有你们永远无法理解的和平与合作愿望而成为真正盟友。我们在开阔战场上列阵，准备展示联合起来的力量。埃尔瓦拉的永恒精灵准备法术，食人魔握紧棍棒；德斯镇与最后的希望城的半身人和人类已经忘却古老敌对，携手调制炼金炸弹、建造巨型傀儡，或带着弓与投石索各就各位；钢铁王座的矮人和夏特尔的自然精灵此前甚至算不上我们的正式盟友，如今也意识到你们的威胁不容忽视。我们的阵线中满是能召唤无数野兽与树人的野性系能力者，以及#{italic}#绝不#{normal}#退让的勇猛战士。就连太阳堡垒也加入了我们，派出一支精锐增援阵线，并迅速训练士兵掌握他们多年来磨炼的魔法技艺——而你们这些无可救赎的野蛮人，正是他们的磨刀石。
 
 我会手持长剑，等在这光荣联盟的最前线。我，公正之王托拉克，曾把你们从马基·埃亚尔肃清的图库纳之子；我，曾为让你们免于奴役或灭绝而战，如今迫不及待要完成父亲开创的事业。若我战死，图库纳的血脉也将随我断绝；为了彻底决定埃亚尔所有文明人民的命运，我愿意——不，我#{italic}#期待#{normal}#——冒这个风险。
 
@@ -3452,11 +3452,11 @@ t([[This is it...  the day I've dreaded for most of my life is here, and yet it 
 
 I must be that light for my allies' sake.  I must be strong, resolute, giving them whatever tiny amounts of hope I can.  Not only to keep their morale up and give us a chance of prevailing against the unstoppable menace which the Sunwall has stood against for ages...  but so that their last thoughts in death might be that their sacrifice has saved us all.  Maybe one of them will be right.
 
-All I can hope is that King Tolak has learned something about the Orcs, before his kingdom falls as well.  I do not begrudge him, everything he did was rooted in wisdom and kindness...  and would have worked for any species but the Orcs.  They are the sole exception that deserves no mercy.]], [[这一切……我大半生都在恐惧的这一天终于来临了，但它依然让我无比震惊。过去的几乎每一日，我都以为这一天很快就要到来……但直到去年，事情出现了变化。西方天灾击败了四大兽人部落，飞速穿越灼烧之痕，攻上巅峰之塔，与我并肩迎战远比我所能想象的更强大的威胁。我们终于与一个愿意合作、近乎统一的马基·埃亚尔重新建立了联系；它由一位愿意且有能力全力帮助我们的国王领导，并制定了一个将兽人完全控制住的计划……回想起来，这一切就好像太阳缓缓从地平线上升起，仿佛要给瓦·埃亚尔带来和平的曙光，但紧接着，永恒的黑暗降临，就连最后闪烁的月光也被黑暗笼罩。我的爱人恐怕已经死了；曾经在我生命的黑暗中照耀多年的点点烛光，就这样熄灭在无尽的黑夜中。什么都没有了——所有过去的计划都被践踏了，所有过去的梦想都化为了泡影，所有过去照耀的希望，现在都变成了绝望——已经没有谁能指引我了。
+All I can hope is that King Tolak has learned something about the Orcs, before his kingdom falls as well.  I do not begrudge him, everything he did was rooted in wisdom and kindness...  and would have worked for any species but the Orcs.  They are the sole exception that deserves no mercy.]], [[这一刻终于来了……我大半生都在畏惧的这一天已然降临，却依然令我震惊不已。在我生命中的几乎每一天里，我都预料着它的到来……直到去年。西方天灾击败了兽人部落，疾驰穿过灼烧之痕，攻入巅峰，与我并肩作战，共同对抗一个远超我想象的巨大威胁。我们与一个乐于合作、近乎统一的马基·埃亚尔重聚，那里的国王既有心也有力在各个方面向我们伸出援手，还备有一套能将兽人完全置于控制之下的计划……这就仿佛太阳才刚刚爬上地平线，即将在瓦·埃亚尔揭开和平的黎明，却在下一刻陷入永恒的黑暗，把月亮也一并带走。我一生的挚爱恐已遇难；往昔岁月里照亮黑夜的那支烛火，已经被掐灭了。什么都不剩了——没有哪项计划未曾破碎，没有哪份感召未曾陨落，没有哪丝希望未曾化为绝望——再也没有什么能指引我了。
 
-为了我的战友，我必须成为他们希望的光芒。我必须振作起来，坚强，坚定，尽我所能，给他们哪怕一丝微小的希望。这不仅是为了保持他们的士气，让我们有机会战胜太阳堡垒长久以来一直抵挡的、无法阻止的威胁……也是为了让他们临死前的最后一个念头能够是：自己的牺牲拯救了我们所有人。也许他们中会有一个人的想法是对的。
+为了我的盟友们，我必须成为那道光。我必须坚强、果决，尽我所能给予他们哪怕最微弱的一丝希望。这不仅是为了维持他们的士气，让我们有一线机会去战胜太阳堡垒世代抵御至今的那股势不可挡的威胁……更是为了让他们在临死前最后的念头里能够相信，自己的牺牲拯救了我们所有人。或许，他们之中会有一个人是对的。
 
-我唯一希望的是，在他自己的国家也走向毁灭之前，托拉克国王能够从兽人的身上吸取一点教训。我并不准备苛责他，他所做的一切都源于智慧与仁慈……换作兽人以外的任何种族，本都会奏效。但兽人是唯一的例外，他们不配得到我们的任何仁慈。]], "_t")
+我唯一能祈望的，是托拉克国王在他的王国也随之覆灭之前，已经从兽人身上吸取了一些教训。我并不怨恨他，他所做的一切都植根于智慧与善意……而且换作除兽人之外的任何种族，原本都会奏效。他们是唯一不配得到任何怜悯的例外。]], "_t")
 t("kindness", "善意", "_t")
 t([[I stuck up for you. I wanted to forgive you, to give you time and safety to see we meant no harm.  I forgave you for the ages we spent in fear, the lives we lost, for I imagined I could have been tempted to do the same in your position.
 
