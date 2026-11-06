@@ -14409,13 +14409,13 @@ Good luck!
 
 #{normal}#竞技场的规则很简单。
 在每一波里，大门将打开，并放出一些敌人。当大门关上时，你将得到一些奖励分。
-奖励分将会#YELLOW#每回合减少 #LAST#，
+奖励分将会#YELLOW#每回合减少#LAST#，
 但#YELLOW#此时被你杀死的敌人#LAST#会提高奖励分。
 当你击败所有敌人时，你将获得奖励分乘以奖励倍率所得的分数。
 
 每隔几轮就会有一轮小头目战。经过两轮小头目战后，四名头目之一将会出现。
 #YELLOW#在大门关上前击杀敌人#LAST#以提高分数倍率！
-#YELLOW#一次击杀多个敌人或非常强大的敌人#LAST#以取悦观众并提高你的等级！
+#YELLOW#一次击杀多个敌人或非常强大的敌人#LAST#以取悦观众并提升你的分级！
 #YELLOW#收集金币#LAST#以在每轮结束时提高分数并获得更多资源。
 #YELLOW#迅速击杀敌人以获得更高分数！
 #YELLOW#好好利用场地中心的陷阱！
@@ -14915,7 +14915,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 我看着她，对这突如其来的一问颇感意外。方才那场云雨的余热尚未散去，我的思绪一时有些转不过弯来，难以招架这个古怪的问题。“我为什么要做领袖？”我反问道。
 
-“当然是因为你很强，”她答道，“依我看，论领兵作战，你的族人里没一个比得上你。有这样的实力，就该由你来统治。”
+“当然是因为你很强，”她答道，“依我看，论战斗实力，你的族人里没一个比得上你。有这样的实力，就该由你来统治。”
 
 我轻笑了一声。“要统治一族之人，光靠实力可远远不够。那需要担当责任、审慎决断，而且最重要的是——懂得政治。我对这些事毫无兴趣，伊菲尼亚斯远比我适合处理这类事务。只要给我一把剑，再给我一队士兵随我冲锋陷阵，我就心满意足了。至于我的剑锋该指向何方，就让领袖们去操心吧。”
 
@@ -14961,7 +14961,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 在已发现的夏·图尔遗迹中，鲜有哪一处在规模与气势上能与埃尔瓦拉附近的这座相提并论。我的族人耗费了数个世纪向地底深处发掘，始终小心翼翼，生怕损毁或惊动其中的遗物。遗迹的核心是水晶塔。从地表望去，只能看见一个宽阔的正方形平面，清理掉覆土后，显露出一种比大理石还要光滑的白色石材。然而考古学者向下深挖时，却发现它笔直地深入地底，深达半英里。那浑然一体的白石表面不带一丝印记或雕纹，直到尽头处才戛然而止，下方竟没有任何地基。整座高塔宛如与大地隔绝，像是一件从天而降的星辰异物，静静地沉睡在泥土之下。
 
-数年前，族人破解了开启高塔的无形符文，展现在眼前的是内壁镶满水晶的宏伟厅堂与密室，按绝美的几何图形排列分布。每一处表面都闪耀着点点光芒，连墙壁似乎也因充盈的能量而嗡嗡低鸣。许多竖井与通道唯有依靠飞行方能穿行，而在塔顶则有一间宏大的厅堂，宽敞得足以装下整座埃尔瓦拉王宫。大厅中央便是远行传送门——一座直径四十尺、电光噼啪作响的高台，上方缓缓旋转着一团星云。它美丽而又可怖，迷人而又骇人。永恒精灵穷尽一切力量也无法洞悉它的运转原理；尽管通过审慎的实验，我们已经能够操纵它的能量，却始终未能真正参透潜藏在表象之下的伟力。
+数年前，族人破解了开启高塔的无形符文，展现在眼前的是内壁镶满水晶的宏伟厅堂与密室，按绝美的几何图形排列分布。每一处表面都闪耀着点点光芒，连墙壁似乎也因充盈的能量而嗡嗡低鸣。许多竖井与通道唯有依靠飞行方能穿行，而在塔顶则有一间宏大的厅堂，宽敞得足以装下整座埃尔瓦拉王宫。大厅中央便是远行传送门——一座直径四十英尺、电光噼啪作响的高台，上方缓缓旋转着一团星云。它美丽而又可怖，迷人而又骇人。永恒精灵穷尽一切力量也无法洞悉它的运转原理；尽管通过审慎的实验，我们已经能够操纵它的能量，却始终未能真正参透潜藏在表象之下的伟力。
 
 我和尼耶拉下到塔底，四周笼罩在已发掘遗迹的冰冷阴影之中。穿过白色的方形入口时，我向守卫点头致意，尼耶拉则顿时惊叹地睁大了眼睛。这些璀璨生辉的厅室固然夺目，却也透着一股荒凉与空旷。我试着想象当年这里遍布夏·图尔人时会是何等景象。“他们究竟是怎么灭绝的？”穿过水晶厅堂时，我低声自语道——这也是此前无数人问过的问题。
 
@@ -14969,7 +14969,7 @@ Yet my hand strayed across the hilt of Mooncutter, and my heart still murmured w
 
 “那可难说，”我说道。我们自然留存着自己的记载，只是从未向较为年轻的种族透露过；不过即便在这些记载中，真相也远不如千百年来流传的诸多神话那般清晰分明。
 
-我们来到中央竖井，从那里悬浮而起，向上掠过一层又一层废弃的厅室、起居间、工坊、储藏室，以及许多连我们的博学者也参不透用途的区域。上升了数分钟后，我们终于升入远行传送门所在的宏伟大厅，眼前的恢弘规模让尼耶拉不禁倒吸了一口凉气。她的目光很快落在了那座巨大的夏·图尔远行传送门上，从中溅出的火花映亮了数百尺高的穹顶。许多身着丝绸长袍的永恒精灵法师正围绕着传送门忙碌奔走，而伊菲尼亚斯正在亲自坐镇指挥。
+我们来到中央竖井，从那里悬浮而起，向上掠过一层又一层废弃的厅室、起居间、工坊、储藏室，以及许多连我们的博学者也参不透用途的区域。上升了数分钟后，我们终于升入远行传送门所在的宏伟大厅，眼前的恢弘规模让尼耶拉不禁倒吸了一口凉气。她的目光很快落在了那座巨大的夏·图尔远行传送门上，从中溅出的火花映亮了数百英尺高的穹顶。许多身着丝绸长袍的永恒精灵法师正围绕着传送门忙碌奔走，而伊菲尼亚斯正在亲自坐镇指挥。
 
 他见我们到来，便离开身旁的顾问，面带自信的微笑大步向我们走来。尽管他身上穿的是研究法师的灰色长袍，手中却依然握着那根宏伟的金色法杖“辉光杖”——那是他身为国王的象征。
 
@@ -15137,11 +15137,11 @@ Her clothes had been mostly burned off, her hair half turned to ash, and blood w
 
 I began to cast what healing spells I could on Linaniil, but I could tell it was not enough, and my weakened powers could not hope to save her.  I began to cry openly, thinking of all I had lost this day, all that had gone so terribly wrong.  Hope had turned to crisis, and the cruelty of fate was far too much for me to bear.  Cradling my dying love’s head in my lap I turned my face to the sky and screamed.  Torment was in my cracked voice, and I raged against all the injustice of life and the futility of war, surrounded on all sides by blood and bones and ashes.  They had once been souls and lives with hopes and dreams, now all cast away like dust in the wind, and I lamented their deaths and my despair.
 
-But mine was just one voice, one torment, a single note in the great cacophony that spread across the continent.  Millions of lives lost and shattered, millions of voices raised in anguish and torture and suffering, as the devastation continued over all Maj’Eyal from the ultimate force of destruction, the Spellblaze.]], [[#{italic}#节选自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#
+But mine was just one voice, one torment, a single note in the great cacophony that spread across the continent.  Millions of lives lost and shattered, millions of voices raised in anguish and torture and suffering, as the devastation continued over all Maj’Eyal from the ultimate force of destruction, the Spellblaze.]], [[#{italic}#摘自埃尔瓦拉最高议会领袖艾伦尼恩·加威尔的回忆录#{normal}#
 
 #{bold}#第五章：魔法大爆炸之日#{normal}#
 
-大军向前开进时，我将鞘中的斩月剑按松了些。我攥紧缰绳，控住胯下战马，免得它一时亢奋脱缰狂奔；往左看去，我的侍从也正做着同样的动作。空气中紧绷的气氛几乎凝若实质。在我们前方不到一英里处，兽人大军的前锋已然映入眼帘。我们惊动了他们的巢穴，引得他们倾巢出动。他们好似一片吞没地平线的黑影枯疫，又如一场要将整个世界蚕食殆尽的浩大瘟疫。相比之下，我眼前的永恒精灵大军显得颇为渺小，但我深知，我们的实力绝非单靠人数来衡量。
+大军向前开进时，我将斩月剑在鞘中略略拔松。我攥紧缰绳，控住胯下战马，免得它一时亢奋脱缰狂奔；往左看去，我的侍从也正做着同样的动作。空气中紧绷的气氛几乎凝若实质。在我们前方不到一英里处，兽人大军的前锋已然映入眼帘。我们惊动了他们的巢穴，引得他们倾巢出动。他们好似一片吞没地平线的黑影枯疫，又如一场要将整个世界蚕食殆尽的浩大瘟疫。相比之下，我眼前的永恒精灵大军显得颇为渺小，但我深知，我们的实力绝非单靠人数来衡量。
 
 最前方的防线号角齐鸣，严阵以待，准备随时迎战敌军的第一波攻势。北面部署着弓箭手，负责瓦解敌军最初的抵抗；他们侧翼则是一支法术骑兵军团，骑士们端坐于骇人的骏马之上，双掌闪耀着奥术能量的光芒。南面是常规骑兵、巨剑士、重甲骑士以及我方法师的主力，正蓄势准备支援法术。高阶战斗法师零星散布在阵中各处，随时准备疾驰支援交战最激烈的地方，将敌军轰杀殆尽。任何一处都无需配置超过一名高阶战斗法师——仅凭他们一人之力，便能轻而易举地歼灭二十名兽人。
 
@@ -18073,7 +18073,7 @@ While Shalore use of magic is (arguably) a choice, Ogres have no such luxury.  T
 
 Due to the safety and comfort of Elvala, and their mistrust of much of the outside world, most Ogres who leave their home do so for trade purposes; no longer using Shaloren as couriers, some have begun to enter the growing market of runes and infusions, and have proven very successful thanks to their natural talent in this area.  Those few who could be considered "adventurers" tend to pack up their things and leave abruptly, not for glory or riches, but because they see a recurring source of misery in the world and wish to dispose of it themselves as a public service.  It is not uncommon for an Ogre to sigh in frustration after hearing about a hijacked shipment of grain, head out, return a few days later with the blood of a once-persistent bandit clan stuck to his club, and go right back to tending his crops.]], [[食人魔从来都不是一个兴盛的种族，自他们在厄流纪战争期间作为孔克雷夫的士兵与劳工突然现身起便是如此（除了孔克雷夫的监督者讲过一个关于失落山地部落、极不可信的故事外，其来历再无其他解释）。战争结束后，他们既无家园，也未受过正规的符文训练，只能被迫建立起自己的部落，自行重新摸索符文与纹身的制作领域；尽管人口急剧减少，他们还是作为游牧的符文商人在短暂的一段时期里过得颇为顺遂，几乎没有受到魔法大爆炸的影响。然而，魔法狩猎险些给他们带来灭顶之灾，因为庞大骇人的体型和布满符文的皮肤使他们成了众矢之的；世人曾以为他们已经灭绝，直到近几年，埃尔瓦拉城才透露当年曾有一些食人魔在那里避难。他们的后代延续至今，虽然仍惧怕遭受迫害，但无数岁月以来首次开始渐渐走出埃尔瓦拉，探索外界。
 
-食人魔最引人注目的特征是他们的体型，远超其他任何智慧种族；他们平均身高约为8尺4寸，而且大多肌肉虬结，身宽几乎达到身高的一半。他们的肤色范围与人类相近，只是整体略偏灰暗；毛发多为深褐色或黑色，眼睛的颜色则从黑色、亮蓝色一直跨度到紫色，想来是符文转录出错所引起的副作用。他们棱角分明的面部特征——强健的下颌线条、大得不成比例的嘴与牙齿，以及方正的头颅——常招来一些与兽人相提并论的无礼比较，但除此之外，他们的相貌与人类颇为相似。描述食人魔的外貌时，若不提及他们从头到脚遍布全身皮肤的繁复发光符文图案，那就是我的疏忽了，尽管这些图案的具体样式与颜色因人而异。
+食人魔最引人注目的特征是他们的体型，远超其他任何智慧种族；他们平均身高约为8英尺4英寸，而且大多肌肉虬结，身宽几乎达到身高的一半。他们的肤色范围与人类相近，只是整体略偏灰暗；毛发多为深褐色或黑色，眼睛的颜色则从黑色、亮蓝色到紫色都有，想来是符文转录出错所引起的副作用。他们棱角分明的面部特征——强健的下颌线条、大得不成比例的嘴与牙齿，以及方正的头颅——常招来一些与兽人相提并论的无礼比较，但除此之外，他们的相貌与人类颇为相似。描述食人魔的外貌时，若不提及他们从头到脚遍布全身皮肤的繁复发光符文图案，那就是我的疏忽了，尽管这些图案的具体样式与颜色因人而异。
 
 尽管出于显而易见的原因，他们很擅长体力活，而且精细铭刻的需要也造就了他们相当惊人的手指灵巧度（以及书写功底），但受庞大的体型所限，他们的四肢动作往往迟缓而笨拙，在繁重的劳作中一旦用力过猛，很快就会疲惫不堪。他们说话慢条斯理、食量惊人，加上对艺术和大多数学术问题缺乏兴趣，导致人们误以为他们头脑迟钝；然而，被迫从事钻研性工作的食人魔都有着令人赞叹的表现，而且只需看看他们身上的符文图案，便能知晓只要有恰当的动力，他们完全能够展现出耐心的钻研精神与艺术眼光。这或许与该种族仿佛与生俱来的谦逊、尽责的心态有关——大多数食人魔对领导他人或博取他人赞赏毫无兴趣，只求以最稳妥可靠的方式完成任务，而这类策略往往相当简单。
 
@@ -18145,7 +18145,7 @@ Attacks from dragons on humans and halfling settlements are fairly rare, but whe
 
 Dragons are regularly hunted for their thick scales and their elementally imbued bones. Dragonskin leather is prized amongst armour-workers, as when properly treated it is both light and tough, and oft retains some inkling of the original wyrm's power. Dragon-bone is highly favoured by staff-crafters for its natural attunement to elemental forces, and is sometimes used by fletchers in the crafting of the most delicate yet resilient bows and arrows. However the hunting of dragons for their skin and bones is greatly opposed by many wyrmics, and there is an increasing market for "naturally harvested" drake materials - those taken from dragons which have died of natural causes. Still, demand for all dragon materials is strong with exceptionally high prices paid, and many are the greedy souls that lose their lives each year at the fangs and claws of these magnificent creatures.]], [[常人或许会对将龙归为智慧种族的想法嗤之以鼻，但经验丰富的龙战士深知事实并非如此。龙是极其长寿的生物，已知有些龙能存活数千年之久。尽管它们在生命早期天性近乎野兽，但随着岁月推移、历经数个世纪的成长，它们的心智会变得愈发敏锐、成熟。最年长的古龙有时被视为马基·埃亚尔最为深沉睿智的生物，具备心灵感应交流与高阶精神能力，龙战士谈及它们时总是怀着最崇高的敬意。
 
-龙的形态与体型多种多样，通常从5尺长的幼龙成长为20尺长的成年龙，而一些最庞大的巨龙体长甚至超过40尺。它们通常生有双翼，长着蜥蜴般的巨口，前后肢都生有锋利的爪子。它们往往因鳞片亮丽的色泽而引人注目，这通常代表着它们与埃亚尔某一种主要元素的亲和。这种亲和力在任何其他种族身上都未曾得见，一些学者认为龙先于其他所有种族存在，是在世界之初作为自然元素的原初具现而形成的。然而，这一理论或许纯粹源于某些研究这种生物太久的龙战士的狂热妄想。
+龙的形态与体型多种多样，通常从5英尺长的幼龙成长为20英尺长的成年龙，而一些最庞大的巨龙体长甚至超过40英尺。它们通常生有双翼，长着蜥蜴般的巨口，前后肢都生有锋利的爪子。它们往往因鳞片亮丽的色泽而引人注目，这通常代表着它们与埃亚尔某一种主要元素的亲和。这种亲和力在任何其他种族身上都未曾得见，一些学者认为龙先于其他所有种族存在，是在世界之初作为自然元素的原初具现而形成的。然而，这一理论或许纯粹源于某些研究这种生物太久的龙战士的狂热妄想。
 
 马基·埃亚尔的各个角落都能见到不同种类龙族的踪迹。岱卡拉隘口及周边山脉栖息着大量的冰龙与风暴龙。西部沙漠与丘陵地带分布着许多沙龙与红龙，此外还有诸多报告称最深邃的大洋中存在着体型巨大的海龙，尤其是在南方海域。
 

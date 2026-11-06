@@ -2601,7 +2601,7 @@ t([[.elpoep sih yduts ot ecneserp ym detseuqer eh dna ,htiw railimafnu erew elpo
 
 .emoc ot ega na rof su htiw seilla gnirudne eb lliw yeht taht derusne sah [b]SNEVAEH EHT FO REGAVAR TNEDUPMI ,SUTALOMMI[/b] reednammoc ot stpmetta s'redael rieht gnitrawht dna noillebeR kurK eht gnihsurc ni pleh riehT  .sevlesmeht rof seitic rieht ees ot dewolla eb noos lliw flesym naht rehto sredistuo spahrep dna ,nosrep ni meht fo erom teem ot ytinutroppo eht niag noos lliw ew ,spihsria morf deppord stcurtsnoc aiv enod llits si somtA eht htiw tcatnoc ruo fo tsom hguohtla ,esac eht revetahW  ?sesoprup lasopsid rof latropraf yrotarolpxe na gnisu tuoba gnihtemos - layE'jaM fo oreH eht htiw gniteem a degnarra sah eh rof ,regnol yna em ynapmocca tonnac eh em sllet sorysaK  .siht naht erom nrael ot hguone gnol rof meht yduts ot elba ton saw I ,salA]], [[。究研开展人族的他对，往前自亲我邀便他后随，解了本基个有种物个各的悉熟不尚人族对他让好，目过人本长议斯罗西卡给拿作著的我将人有幸所。门送传的东远往通用使能可不乎几民平介一则否，人商的眼只一闭眼只一睁卫守通买能币金的多够足有是或，亲血的王国克拉托、民公的垒堡阳太是你非除来看——少多松轻得变作工究研的我让未并近之此如离距，过不！下底皮眼的们我在藏就乎几明文的达发度高个一样这，到想能谁
 
-。汽蒸压高团一或股一出射喷会还，外之安不人令为颇着看了除这，开张幅大或合闭密严其将意心随以可们他但；气排不本根或雾薄的柔轻出逸会只，辨难眼肉乎几口孔些这，下态状静平在：象现一这制控识意凭上度程定一在能们他。口气排与孔气的汽蒸压高出喷够能多许着布分上肤皮的们他——来而此由也名族其，汽蒸的上身是就疑无征特理生的著显最们他。（同不然截人巨的壮强奇出却长瘦似看些那拉卡岱与这）似相地人惊人巨汽蒸与会就样模，些一实敦微略格体、高尺01至8到长类人设假
+。汽蒸压高团一或股一出射喷会还，外之安不人令为颇着看了除这，开张幅大或合闭密严其将意心随以可们他但；气排不本根或雾薄的柔轻出逸会只，辨难眼肉乎几口孔些这，下态状静平在：象现一这制控识意凭上度程定一在能们他。口气排与孔气的汽蒸压高出喷够能多许着布分上肤皮的们他——来而此由也名族其，汽蒸的上身是就疑无征特理生的著显最们他。（同不然截人巨的壮强奇出却长瘦似看些那拉卡岱与这）似相地人惊人巨汽蒸与会就样模，些一实敦微略格体、高尺英01至8到长类人设假
 
 。果成的硕丰般这得取此凭地易轻此如够能们他让才，能本的般觉直种这是正许或；然自般吸呼如却言而人巨汽蒸对切一这而，节调与神留刻时要需式方种那但，果效的似类到达能也水烧炉熔用，上论理。置装械机的杂复越来越了出制研又而继，器洁清材石压加种一了明发们他，上础基此在；子哨的单简个一是只“技科汽蒸”的早最，说所们他据但，失佚中难灾他其及灾火的发偶在已献文的老古最们人巨管尽。法办的械机属金类各控操并动驱来汽蒸种这用利了出索摸们他，是的妙巧为颇
 
@@ -2624,7 +2624,7 @@ While this isolation has given them peace to let their society develop, it has a
 
 Alas, I was not able to study them for long enough to learn more than this.  Kasyros tells me he cannot accompany me any longer, for he has arranged a meeting with the Hero of Maj'Eyal - something about using an exploratory farportal for disposal purposes?  Whatever the case, although most of our contact with the Atmos is still done via constructs dropped from airships, we will soon gain the opportunity to meet more of them in person, and perhaps outsiders other than myself will soon be allowed to see their cities for themselves.  Their help in crushing the Kruk Rebellion and thwarting their leader's attempts to commandeer [b]IMMOLATUS, IMPUDENT RAVAGER OF THE HEAVENS[/b] has ensured that they will be enduring allies with us for an age to come.]], [[谁能想到，这样一个高度发达的文明几乎就藏在我们的眼皮底下！不过，距离如此之近并未让我的研究工作变得轻松多少——看来除非你是太阳堡垒的公民、托拉克国王的血亲，或是有足够多的金币能买通守卫睁一只眼闭一只眼的商人，否则一介平民几乎不可能使用通往远东的传送门。所幸有人将我的著作拿给卡西罗斯议长本人过目，好让他对族人尚不熟悉的各个物种有个基本了解，随后他便邀我亲自前往，对他的族人展开研究。
 
-假设人类长到8至10尺高、体格略微敦实一些，模样就会与蒸汽巨人惊人地相似（这与岱卡拉那些看似瘦长却出奇强壮的巨人截然不同）。他们最显著的生理特征无疑就是身上的蒸汽，其族名也由此而来——他们的皮肤上分布着许多能够喷出高压蒸汽的气孔与排气口。他们能在一定程度上凭意识控制这一现象：在平静状态下，这些孔口几乎肉眼难辨，只会逸出轻柔的薄雾或根本不排气；但他们可以随心意将其严密闭合或大幅张开，这除了看着颇为令人不安之外，还会喷射出一股或一团高压蒸汽。
+假设人类长到8至10英尺高、体格略微敦实一些，模样就会与蒸汽巨人惊人地相似（这与岱卡拉那些看似瘦长却出奇强壮的巨人截然不同）。他们最显著的生理特征无疑就是身上的蒸汽，其族名也由此而来——他们的皮肤上分布着许多能够喷出高压蒸汽的气孔与排气口。他们能在一定程度上凭意识控制这一现象：在平静状态下，这些孔口几乎肉眼难辨，只会逸出轻柔的薄雾或根本不排气；但他们可以随心意将其严密闭合或大幅张开，这除了看着颇为令人不安之外，还会喷射出一股或一团高压蒸汽。
 
 颇为巧妙的是，他们摸索出了利用这种蒸汽来驱动并操控各类金属机械的办法。尽管巨人们最古老的文献已在偶发的火灾及其他灾难中佚失，但据他们所说，最早的“蒸汽科技”只是一个简单的哨子；在此基础上，他们发明了一种加压石材清洁器，继而又研制出了越来越复杂的机械装置。理论上，用熔炉烧水也能达到类似的效果，但那种方式需要时刻留神与调节，而这一切对蒸汽巨人而言却如呼吸般自然；或许正是这种直觉般的本能，才让他们能够如此轻易地凭此取得这般丰硕的成果。
 
