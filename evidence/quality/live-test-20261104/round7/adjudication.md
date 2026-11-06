@@ -7,3 +7,11 @@
 - r7-opus-05 confirmed（用户 2026-11-06「同意建议」）：配件 attach 统一为「安装」：日志「你将%s安装到%s上。」「你未能将%s安装到%s上。」、菜单「安装到物品」「从物品上拆下」「安装配件」、弹窗与提示；「装有配件时不能这么做，请先移除配件。」。物品名「附着尖刺」与恶魔种子说明未改。
 - r7-opus-06 confirmed：共享键「Not now.」（谢尔图管家、骨杖、梅塔什三处）改为「以后再说。」，三处语境都通顺；三个组件文件同步。
 - r7-opus-01、03、07 confirmed，延后（插件代码）：被锁职业 locked_desc 裸字符串「Once freed, twice shy.」（worlds.lua:147/170 未包 _t）；工匠商店 kruk-tinker-shop.lua:25 `store:interact(player)` 用商店实体自身 name（未经翻译，锻炉商店走 npc.name 所以正常）；开局「角色切换至 player」为改名前的运行时名字。
+
+## 第二段（2026-11-06 08:42–10:55，agent 703811c4，同一角色 Opus7）
+
+11 级（目标 14 级未达成），4 次死亡后冒险模式生命耗尽；泰勒西斯未击败。复核：02、05、06 及背部支撑架已生效。新增 4 条：
+- r7-opus-09 confirmed：「Created tinker: %s」两处（log/saySimple）「创造配件」→「配件制造完成：%s」，与技能名「制造配件」一致。
+- r7-opus-10 confirmed：manacave ground「法力山洞地面」→「魔法洞穴地面」，与对话、手札的 Mana Caves＝魔法洞穴一致。
+- r7-opus-11 pending（待用户决定，涉及术语统一）：steam generator 在库内有 蒸汽制造机／蒸汽机／蒸汽发生器 等译法。
+- r7-opus-08 confirmed，延后（插件代码）：vaporous-emporium/npcs.lua:60 男性平民 emote_random 为裸字符串，未包 _t。
