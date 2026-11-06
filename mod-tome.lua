@@ -1165,11 +1165,11 @@ t("You do not have the %0.2f gold needed!", "你没有所需的 %0.2f 金币！"
 t(" (%0.2f each)", " (每个%0.2f)", "tformat")
 t("Buy", "购买", "_t")
 t("Buy %d %s for %0.2f gold%s?", "你要购买%d个%s，花费 %0.2f 金币%s吗？", "tformat")
-t("Bought: %s %s for %0.2f gold.", "已购买：%s %s 价格 %0.2f 金币。", "log")
+t("Bought: %s %s for %0.2f gold.", "已购买：%s%s，花费 %0.2f 金币。", "log")
 t("Cancel", "取消", "_t")
 t("Sell", "出售", "_t")
 t("Sell %d %s for %0.2f gold%s?", "你要出售%d个%s，获得 %0.2f 金币%s吗？", "tformat")
-t("Sold: %s %s for %0.2f gold.", "已出售：%s %s 价格 %0.2f 金币。", "log")
+t("Sold: %s %s for %0.2f gold.", "已出售：%s%s，获得 %0.2f 金币。", "log")
 t("Buy for: %0.2f gold (You have %0.2f gold)", "购买价：%0.2f 金币 (你有 %0.2f 金币)", "tformat")
 t("Sell for: %0.2f gold (You have %0.2f gold)", "出售价：%0.2f 金币 (你有 %0.2f 金币)", "tformat")
 t("This entity can not access inventories.", "该实体无法使用物品栏。", "logPlayer")
@@ -1366,7 +1366,7 @@ t("#ORCHID#Target out of range.  Hold <ctrl> to force your weapon to fire at tar
 t("#ORCHID#You COULD NOT SHOOT your %s (Resource: %s%s#LAST#).", "#ORCHID#无法使用%s射击(资源：%s%s#LAST#)。", "logPlayer")
 t("%s(%d parried#LAST#)", "%s(%d 点伤害被招架#LAST#)", "tformat")
 t("#{bold}##Source# performs a ranged critical strike against #Target#!#{normal}#", "#{bold}##Source#对#Target#发起一次远程暴击！#{normal}#", "logCombat")
-t("#Source# misses #target#.", "#Source#没有命中#target#。", "logCombat")
+t("#Source# misses #target#.", "#Source#未命中#target#。", "logCombat")
 t("The siege arrow creates a shockwave!", "攻城矢引发了冲击波！", "logSeen")
 t("You are disarmed!", "你被缴械了！", "logPlayer")
 t("You must wield a ranged weapon (%s)!", "你必须装备一件远程武器(%s)！", "logPlayer")
@@ -9448,11 +9448,11 @@ t("dragonbone", "龙骨", "entity short_name")
 t("ammo", "弹药", "entity type")
 t("arrow", "箭矢", "entity subtype")
 t("Arrows are used with bows to pierce your foes to death.", "箭矢与弓配合使用，用来射穿敌人。", "_t")
-t("quiver of elm arrows", "一袋榆木箭矢", "entity name")
-t("quiver of ash arrows", "一袋白蜡箭矢", "entity name")
-t("quiver of yew arrows", "一袋紫杉箭矢", "entity name")
-t("quiver of elven-wood arrows", "一袋精灵木箭矢", "entity name")
-t("quiver of dragonbone arrows", "一袋龙骨箭矢", "entity name")
+t("quiver of elm arrows", "榆木箭矢", "entity name")
+t("quiver of ash arrows", "白蜡箭矢", "entity name")
+t("quiver of yew arrows", "紫杉箭矢", "entity name")
+t("quiver of elven-wood arrows", "精灵木箭矢", "entity name")
+t("quiver of dragonbone arrows", "龙骨箭矢", "entity name")
 
 ------------------------------------------------
 section "mod-tome/data/general/objects/brotherhood-artifacts.lua"
@@ -12139,15 +12139,15 @@ t("drakeskin", "龙皮", "entity short_name")
 t("ammo", "弹药", "entity type")
 t("shot", "子弹", "entity subtype")
 t("Shots are used with slings to pummel your foes to death.", "弹丸配合投石索使用，用来把敌人砸死。", "_t")
-t("pouch of iron shots", "一袋铁制子弹", "entity name")
+t("pouch of iron shots", "铁制子弹", "entity name")
 t("iron", "铁", "entity short_name")
-t("pouch of steel shots", "一袋钢制子弹", "entity name")
+t("pouch of steel shots", "钢制子弹", "entity name")
 t("steel", "钢", "entity short_name")
-t("pouch of dwarven-steel shots", "一袋矮人钢子弹", "entity name")
+t("pouch of dwarven-steel shots", "矮人钢子弹", "entity name")
 t("d.steel", "矮人钢", "entity short_name")
-t("pouch of stralite shots", "一袋斯莱特子弹", "entity name")
+t("pouch of stralite shots", "斯莱特子弹", "entity name")
 t("stralite", "斯莱特", "entity short_name")
-t("pouch of voratun shots", "一袋沃瑞钽子弹", "entity name")
+t("pouch of voratun shots", "沃瑞钽子弹", "entity name")
 t("voratun", "沃瑞钽", "entity short_name")
 
 ------------------------------------------------
@@ -21398,10 +21398,10 @@ t([[Your skill in Hymns now improves your sight in darkness, increasing your inf
 		Hymn of Shadows increases your movement speed by %d%% for one turn.
 		Hymn of Detection makes you invisible (power %d) for %d turns.
 		Hymn of Perseverance grants a damage shield (power %d) for %d turns.]], [[咏唱圣诗的娴熟技艺让黑暗不再阻碍你的视线，增加 %d 暗视半径。
-		每次你结束旧的圣诗时，你将获得圣诗提供的增益效果。
+		此外，每当你结束一首圣诗时，你将根据所结束的圣诗获得相应的增益效果：
 		暗影圣诗：增加 %d%% 移动速度，持续 1 回合。
 		侦测圣诗：获得强度 %d 的隐形，持续 %d 回合。
-		坚毅圣诗：护盾 (%d 强度) 持续 %d 回合。]], "tformat")
+		坚毅圣诗：获得强度 %d 的伤害护盾，持续 %d 回合。]], "tformat")
 t("Hymn Nocturnalist", "暗夜流光", "talent name")
 t([[Your passion for singing the praises of the Moons reaches its zenith.
 		Your Hymns now fire shadowy beams that will hit up to %d of your foes within radius 5 for %0.2f damage, with a 25%% chance of blinding.
@@ -40195,7 +40195,7 @@ t("Home of Stire the Alchemist", "炼金师斯泰尔的家", "entity name")
 ------------------------------------------------
 section "mod-tome/data/zones/town-derth/zone.lua"
 
-t("Derth", "德斯", "_t")
+t("Derth", "德斯镇", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/zones/town-elvala/npcs.lua"
@@ -41017,7 +41017,7 @@ t("low hills", "丘陵", "entity name")
 t("wall", "墙壁", "entity type")
 t("forest", "森林", "entity name")
 t("pine forest", "松林", "entity name")
-t("Old forest", "远古森林", "entity name")
+t("Old forest", "古老森林", "entity name")
 t("lava", "岩浆", "entity subtype")
 t("Charred Scar", "灼烧之痕", "entity name")
 t("burnt forest", "被烧毁的森林", "entity name")
@@ -41085,7 +41085,7 @@ t("Charred Scar Volcano", "灼烧之痕火山", "entity name")
 t("Tunnel to Maj'Eyal", "马基·埃亚尔通道", "entity name")
 t("Long tunnel", "漫长的通道", "_t")
 t("You cannot abandon the yeeks of Rel to the dangers that lie within the island.", "你不能丢下瑞尔岛的夺心魔，任由他们面对岛上潜藏的危险。", "_t")
-t("Unremarkable cave", "不显眼的山洞", "entity name")
+t("Unremarkable cave", "不起眼的洞穴", "entity name")
 t("A gate into the old kingdom of Reknor", "古代王国瑞库纳的大门", "entity name")
 t("Entrance into Telmur, tower of Telos", "泰勒斯之塔泰尔玛的入口", "entity name")
 t("Way into the lair of Murgol", "穆格尔巢穴的入口", "entity name")
