@@ -1,12 +1,31 @@
 {
  "confirmed": [
-  {"id": "4bf89d75f0fc", "edit": "（%d 被守护）→（守护抵消 %d 点）", "evidence": "damage_types.lua:201-205 lastdam-dam = amount absorbed by ward; lane B"},
-  {"id": "5952a4d78367", "edit": "（%d 灵能盾吸收）→（灵能盾吸收 %d 点）", "evidence": "damage_types.lua:400-406 lastdam-dam = amount absorbed by psi shield; lane B"},
-  {"id": "21f0525fe289", "edit": "的 %s→的%s", "evidence": "cursed/self-hatred.lua:187 %s = an attack/damage noun; lanes A+B"},
-  {"id": "2255c6cdbf77", "edit": "集中到 #Source#→集中到#Source#身上", "evidence": "spells/golemancy.lua:496-501 #Source# = golem; lanes A+B"},
-  {"id": "d1341cb25cd9", "edit": "制造伤害→造成伤害", "evidence": "orcs timed_effects/physical.lua:875-886 TO_THE_ARMS generic_damage_penalty; lane B (DLC source not pinned)"}
+  {
+   "id": "21f0525fe289",
+   "edit": "的 %s→的%s",
+   "evidence": "cursed/self-hatred.lua:187 %s = an attack/damage noun; lanes A+B"
+  },
+  {
+   "id": "2255c6cdbf77",
+   "edit": "集中到 #Source#→集中到#Source#身上",
+   "evidence": "spells/golemancy.lua:496-501 #Source# = golem; lanes A+B"
+  },
+  {
+   "id": "d1341cb25cd9",
+   "edit": "制造伤害→造成伤害",
+   "evidence": "orcs timed_effects/physical.lua:875-886 TO_THE_ARMS generic_damage_penalty; lane B (DLC source not pinned)"
+  }
  ],
  "advisory": [],
- "rejected": [],
- "notes": "Blind review of batch 0385 live-test round 6 part 3 fixes (64 units). Host applied the edits; re-checked in 0387."
+ "rejected": [
+  {
+   "id": "4bf89d75f0fc",
+   "reason": "Superseded: edit reverted to the short form per user 2026-11-06「先改回短格式」 ((%d absorbed)-style tags accepted by players); recorded as rejected"
+  },
+  {
+   "id": "5952a4d78367",
+   "reason": "Superseded: edit reverted to the short form per user 2026-11-06「先改回短格式」 ((%d absorbed)-style tags accepted by players); recorded as rejected"
+  }
+ ],
+ "notes": "Blind review of batch 0385 live-test round 6 part 3 fixes (64 units). Host applied the edits; re-checked in 0387. Correction 2026-11-06: the log-tag reorderings were reverted by user instruction; moved to rejected when recording."
 }

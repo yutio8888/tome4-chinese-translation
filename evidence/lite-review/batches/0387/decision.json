@@ -1,11 +1,25 @@
 {
  "confirmed": [
-  {"id": "ccdc29f0a308", "edit": "（%d 格挡）→（格挡 %d 点）", "evidence": "damage_types.lua:410-420 lastdam-dam = blocked amount; lane B; family with 0386 ward/psi shield"},
-  {"id": "440023270834", "edit": "（%d 深渊护盾）→（深渊护盾抵消 %d 点）", "evidence": "damage_types.lua:424-429 demon_block; lane B"},
-  {"id": "f06e2c001f53", "edit": "（%d 反魔盾）→（反魔盾抵消 %d 点）", "evidence": "damage_types.lua:433-437 T_ANTIMAGIC_SHIELD.on_damage; lane B"},
-  {"id": "cd4b52165f8a", "edit": "不再烧焦→的烧焦状态解除了", "evidence": "orcs timed_effects/physical.lua:582-586 SEARED end message; lane A (DLC source not pinned)"}
+  {
+   "id": "cd4b52165f8a",
+   "edit": "不再烧焦→的烧焦状态解除了",
+   "evidence": "orcs timed_effects/physical.lua:582-586 SEARED end message; lane A (DLC source not pinned)"
+  }
  ],
  "advisory": [],
- "rejected": [],
- "notes": "Host also aligned the same-family tag (%d flat reduction) to （固定减伤 %d 点） for consistency (unflagged sibling, damage_types.lua same block). Re-checked in 0388."
+ "rejected": [
+  {
+   "id": "ccdc29f0a308",
+   "reason": "Superseded: edit reverted to the short form per user 2026-11-06「先改回短格式」 ((%d absorbed)-style tags accepted by players); recorded as rejected"
+  },
+  {
+   "id": "440023270834",
+   "reason": "Superseded: edit reverted to the short form per user 2026-11-06「先改回短格式」 ((%d absorbed)-style tags accepted by players); recorded as rejected"
+  },
+  {
+   "id": "f06e2c001f53",
+   "reason": "Superseded: edit reverted to the short form per user 2026-11-06「先改回短格式」 ((%d absorbed)-style tags accepted by players); recorded as rejected"
+  }
+ ],
+ "notes": "Host also aligned the same-family tag (%d flat reduction) to （固定减伤 %d 点） for consistency (unflagged sibling, damage_types.lua same block). Re-checked in 0388. Correction 2026-11-06: the log-tag reorderings were reverted by user instruction; moved to rejected when recording."
 }
