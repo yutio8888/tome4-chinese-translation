@@ -4587,7 +4587,7 @@ Do you wish to imbue me with a class talent point to finally become a real necro
 ]], "_t")
 t("I do. (#YELLOW#spend 1 class point#LAST#)", "好的。(#YELLOW#消耗1点职业技能点。#LAST#)", "_t")
 t("I can't. (#LIGHT_RED#you need one class point#LAST#)", "我不行。(#LIGHT_RED#你没有职业技能点#LAST#)", "_t")
-t("Not now.", "暂时不用。", "_t")
+t("Not now.", "以后再说。", "_t")
 t("#GREY##{italic}#The staff shudders.#{normal}##LAST# Pathetic.", "#GREY##{italic}#法杖颤抖着。#{normal}##LAST# 真可怜。", "_t")
 t([[#GREY##{italic}#The staff vibrates with great intensity.#{normal}##LAST# POWER! YES!
 ALL SHALL BOW BEFORE MY MIGH... your might.]], [[#GREY##{italic}#法杖剧烈地颤动着#{normal}##LAST# 力量！是的！
