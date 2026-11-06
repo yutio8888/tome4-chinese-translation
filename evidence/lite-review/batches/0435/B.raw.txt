@@ -1,0 +1,70 @@
+{
+  "batch": "0435",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "07b44372de7f",
+      "verdict": "OK"
+    },
+    {
+      "id": "425c582cb0e8",
+      "verdict": "OK"
+    },
+    {
+      "id": "0c301a014367",
+      "verdict": "OK"
+    },
+    {
+      "id": "b9e76123567a",
+      "verdict": "OK"
+    },
+    {
+      "id": "93d93b174276",
+      "verdict": "OK"
+    },
+    {
+      "id": "9609e18074a8",
+      "verdict": "OK"
+    },
+    {
+      "id": "ed7a691abd91",
+      "verdict": "OK"
+    },
+    {
+      "id": "ace931217051",
+      "verdict": "OK"
+    },
+    {
+      "id": "53d8cecbcf96",
+      "verdict": "OK"
+    },
+    {
+      "id": "c81466193fab",
+      "verdict": "ISSUE",
+      "observation": "原文描述通过咬击注入枯萎毒素，译文仅剩“注入”，遗漏了攻击方式。固定核心 game/modules/tome/data/talents/corruptions/rot.lua:21、24 将技能命名为 Infectious Bite 并明确写 bites；42–45 先执行近战攻击，命中后才施加枯萎毒素。",
+      "suggestion": "@Source@咬住@target@，注入枯萎毒素。"
+    },
+    {
+      "id": "d4aba78e6c9a",
+      "verdict": "OK"
+    },
+    {
+      "id": "092c32b90498",
+      "verdict": "OK"
+    },
+    {
+      "id": "dfa6e77468d4",
+      "verdict": "OK"
+    },
+    {
+      "id": "858a9306b5d7",
+      "verdict": "OK"
+    },
+    {
+      "id": "9b540da52c98",
+      "verdict": "ISSUE",
+      "observation": "“绞杀了”把开始勒颈控制写成了杀死目标。固定核心 game/modules/tome/data/timed_effects/physical.lua:3240 是 Garrote 状态的 on_gain；3233 描述目标正在被勒颈、无法移动并每回合受攻击，3243 添加定身，3255–3261 后续仍检查距离并持续攻击，故此处并非击杀消息。",
+      "suggestion": "%s勒住了#Target#的脖子！"
+    }
+  ]
+}

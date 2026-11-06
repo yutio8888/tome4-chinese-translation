@@ -22866,7 +22866,7 @@ t([[Your blood turns into an acidic mixture. When you get hit, the attacker is s
 section "mod-tome/data/talents/corruptions/rot.lua"
 
 t("Infectious Bite", "传染性啃咬", "talent name")
-t("@Source@ bites blight poison into @target@.", "@Source@将枯萎毒素注入@target@。", "_t")
+t("@Source@ bites blight poison into @target@.", "@Source@咬住@target@，注入枯萎毒素。", "_t")
 t([[Bite the target, dealing %d%% melee damage  
 		If the attack hits you'll inject blight poison into the target, dealing %0.2f blight damage and a further %0.2f blight damage over 4 turns.
 		The bonus damage improves with your Spellpower.]], [[啃咬目标，造成 %d%% 近战伤害。
@@ -37471,9 +37471,9 @@ t("+Parasitic Leeches", "+寄生水蛭", "_t")
 t("Some leeches drop off %s!", "一些寄生水蛭从%s身上脱落！", "logSeen")
 t("Garrote", "绞杀", "_t")
 t("  It is silenced for the next %d turn(s), preventing it from casting spells and using some vocal talents.", "  目标还会被沉默 %d 回合，无法施放法术或使用部分发声类技能。", "tformat")
-t("The target is being garrotted by %s, rendering it unable to move and subject to an automatic unarmed attack (at %d%% damage) each turn.%s", "目标被 %s 绞杀，无法移动，每回合会受到一次自动的徒手打击（造成 %d%% 武器伤害）。%s", "tformat")
+t("The target is being garrotted by %s, rendering it unable to move and subject to an automatic unarmed attack (at %d%% damage) each turn.%s", "目标正被%s勒住喉咙，无法移动，每回合会受到一次自动的徒手打击（造成 %d%% 武器伤害）。%s", "tformat")
 t("something", "某物", "_t")
-t("%s has garroted #Target#!", "%s绞杀了#Target#！", "tformat")
+t("%s has garroted #Target#!", "%s勒住了#Target#的喉咙！", "tformat")
 t("Something", "某物", "_t")
 t("+Garrote", "+绞杀", "_t")
 t("#Target# is free from %s's garrote.", "#Target#从%s的绞杀中脱离。", "tformat")
