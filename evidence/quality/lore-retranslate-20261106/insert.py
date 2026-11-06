@@ -21,6 +21,8 @@ for k in IDS:
         assert d.replace('%s','').strip('[]')=='' or True
         close=d.split('%s')[1]
         assert close not in new, (k,'delimiter in text')
-        s=s.replace(o,d%new); done=True; break
+        nd=d if not new.endswith(']') else '[=[%s]=]'
+        if nd!=d: assert ']=]' not in new
+        s=s.replace(o,nd%new); done=True; break
     assert done,(k,'target not found uniquely')
     open(p,'w',encoding='utf-8').write(s); print('inserted',k,p)
