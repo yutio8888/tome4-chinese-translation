@@ -78,7 +78,7 @@ ITEM_SOURCES = {
     "Infusion of Wild Growth", "wild infusion", "acid wave rune", "biting gale rune",
     "manasurge rune", "Viral Injector", "vial of wight ectoplasm",
     "Deflection Field", "Shocking Edge", "Ureslak's Focus", "medical injector implant",
-    "medical injector", "Rod of Recall", "Recall Portal", "exploratory farportal",
+    "medical injector", "steam generator", "Rod of Recall", "Recall Portal", "exploratory farportal",
     "Gloryhammer", "Ablative Armour", "Payload", "psychoportation beacon",
     "Frost Salve", "Blood-Runed Athame", "Athame", "athame",
     "Brilliant Auto-loading Orc Expeller",

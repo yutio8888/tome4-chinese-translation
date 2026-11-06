@@ -1115,7 +1115,7 @@ t("implant", "植入物", "entity subtype")
 t("implant", "植入物", "_t")
 t("Steamtech implants can be grafted on the users skin..", "蒸汽科技的植入物可以移植到使用者皮肤上……", "_t")
 t("implant on your skin.", "植入到皮肤上", "_t")
-t("steam generator implant", "蒸汽机植入物", "entity name")
+t("steam generator implant", "蒸汽发生器植入物", "entity name")
 t("medical injector implant", "医疗注射器植入体", "entity name")
 
 ------------------------------------------------
@@ -4232,7 +4232,7 @@ t("Gestalt", "格式塔", "talent name")
 t([[You let your mind tap into your steam generators for energy, increasing your Mindpower in proportion to your steam level: %d when at full steam and 0 when at 0 steam.
 		Using a psionic talent will feedback into your generators, increasing your Steam power by %d for your next steamtech talent.
 		Using a steamtech talent will feedback into psionic focus, increasing your psi level by %d.
-		The effects increase with your Willpower.]], [[你让心灵从蒸汽发动机中汲取能量，按照当前蒸汽值的比例提高精神强度：蒸汽全满时提高 %d 点，蒸汽为 0 时不提高。
+		The effects increase with your Willpower.]], [[你让心灵从蒸汽发生器中汲取能量，按照当前蒸汽值的比例提高精神强度：蒸汽全满时提高 %d 点，蒸汽为 0 时不提高。
 		使用灵能技能会向发动机反馈，为你的下一个蒸汽科技技能提高 %d 点蒸汽强度。
 		使用蒸汽科技技能会向灵能焦点反馈，使你的灵能值提高 %d 点。
 		效果随意志提高。]], "tformat")
@@ -4979,7 +4979,7 @@ t("Furnace", "熔炉", "talent name")
 t([[You add a portable furnace to your steam generators.
 		While it is active your fire and physical damage increases by %d%% and your fire and physical resistance penetration by %d%%.
 		#{italic}#Burninate all with awesome Steam power!#{normal}#
-		]], [[你往蒸汽制造机中安装一个便携式熔炉。
+		]], [[你往蒸汽发生器中安装一个便携式熔炉。
 		熔炉激活时，你的物理和火焰伤害增加 %d%%， 物理和火焰抗性穿透增加 %d%%。
 		#{italic}#用蒸汽烧尽一切！#{normal}#
 		]], "tformat")
@@ -5027,7 +5027,7 @@ t([[You link your weapons and shield to your steam generators, using them to loa
 		Each time you fire a Heavy Weapon you reload %d ammo.
 		Each time you raise your shield to block, you reload 1 Heavy Weapon ammo.
 		This also increases weapon damage by %d%% and Physical Power by 30 when using steamguns or heavy weapons.
-		In addition, your steamgun and heavy weapon shots now bypass friendly targets harmlessly.]], [[你将武器和盾牌连接到蒸汽机，使用它们来为你的武器填充弹药，并强化武器的能力。
+		In addition, your steamgun and heavy weapon shots now bypass friendly targets harmlessly.]], [[你将武器和盾牌连接到蒸汽发生器，使用它们来为你的武器填充弹药，并强化武器的能力。
 		每当你使用蒸汽枪射击的时候，有 %d%% 的几率填充一枚重装武器的弹药。
 		每当你使用重装武器射击的时候，会填充 %d 枚弹药。
 		每当你使用盾牌格挡的时候，会填充一枚重装武器的弹药。
@@ -5226,9 +5226,9 @@ section "tome-orcs/data/talents/steam/inscriptions.lua"
 t("\
 Its effects scale with your %s stat.", "\
 效果随你的%s属性提升。", "tformat")
-t("Implant: Steam Generator", "植入物：蒸汽制造机", "talent name")
+t("Implant: Steam Generator", "植入物：蒸汽发生器", "talent name")
 t([[Steam generator that permanently creates %0.1f steam per turn.
-		Can be activated for an instant burst of %d steam.]], [[蒸汽制造机每回合制造 %0.1f 点蒸汽。
+		Can be activated for an instant burst of %d steam.]], [[蒸汽发生器每回合制造 %0.1f 点蒸汽。
 		能直接使用，立即制造 %d 蒸汽。]], "tformat")
 t("steam %d", "蒸汽 %d", "tformat")
 t("Implant: Medical Injector", "植入物：医疗注射器", "talent name")
