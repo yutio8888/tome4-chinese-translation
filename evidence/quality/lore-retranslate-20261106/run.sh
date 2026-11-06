@@ -7,6 +7,6 @@ for k in ${RUN_IDS}; do
   echo "$(date +%T) START $k $id"
   paseo wait $id --timeout 3600 >/dev/null 2>&1; echo "$(date +%T) WAIT-RC $? $k"
   if [ -s $k/out.txt ]; then echo "OUT $k nl=$(grep -c '' $k/out.txt) src_nl=$(grep -c '' $k/source.txt)"; else echo "NO-OUT $k"; fi
-  echo $id > $k/agent.id
+  echo $id > $k/agent.id; paseo archive $id >/dev/null 2>&1
 done
 echo ALL-DONE
