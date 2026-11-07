@@ -1,0 +1,843 @@
+[
+ {
+  "id": "cls02-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:3074",
+   "mod-tome.lua:3114",
+   "mod-tome.lua:3129",
+   "mod-tome.lua:3090",
+   "mod-tome.lua:3149"
+  ],
+  "old": "\"他们最重要的属性是：敏捷和灵巧\", \"_t\" ‖ \"他们最重要的属性是力量和体质。\" ‖ \"他们最重要的属性是：敏捷和力量（装备弓时）或灵巧（装备投石索）\" ‖ \"他们最重要的属性是：力量、敏捷和灵巧\", \"_t\"",
+  "new": "\"他们最重要的属性是：敏捷和灵巧。\", \"_t\" ‖ \"他们最重要的属性是：力量和体质。\" ‖ \"他们最重要的属性是：敏捷和力量（装备弓时）或灵巧（装备投石索时）。\" ‖ \"他们最重要的属性是：力量、敏捷和灵巧。\", \"_t\"",
+  "note": "统一为「他们最重要的属性是：…。」（冒号、顿号、句号）；弓箭手条补「时」并加句号。"
+ },
+ {
+  "id": "cls09-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:3196"
+  ],
+  "old": "\"他们最重要的属性是：力量，魔力和意志\"",
+  "new": "\"他们最重要的属性是：力量、魔力和意志。\"",
+  "note": "力量、魔力和意志。（顿号＋句号）"
+ },
+ {
+  "id": "cls02-01+similar",
+  "status": "applied",
+  "files": [
+   "tome-orcs.lua:84",
+   "tome-orcs.lua:91",
+   "tome-orcs.lua:99"
+  ],
+  "old": "\"他们最重要的属性是：力量和灵巧\" ‖ \"他们最重要的属性是：灵巧和敏捷\" ‖ \"他们最重要的属性是：灵巧、意志和敏捷\"",
+  "new": "\"他们最重要的属性是：力量和灵巧。\" ‖ \"他们最重要的属性是：灵巧和敏捷。\" ‖ \"他们最重要的属性是：灵巧、意志和敏捷。\"",
+  "note": "tome-orcs.lua 三条工匠系职业同句式缺句号，补齐。tome-possessors.lua 不在范围（源码未公开）。"
+ },
+ {
+  "id": "cls01-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:1712",
+   "mod-tome.lua:2268"
+  ],
+  "old": "所以在200%的全局速度下，您可以执行",
+  "new": "所以在200%的全局速度下，你可以执行",
+  "note": "两条同文全局速度提示中「您」改「你」；其余 16 处「您」为对话/NPC 敬称，未改。"
+ },
+ {
+  "id": "cls01-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:1901"
+  ],
+  "old": "[[#GOLD#暴击抵抗#LAST#\n暴击抵抗使你减少受近身或远程暴击的概率。",
+  "new": "[[#GOLD#暴击减免#LAST#\n暴击减免使你减少受近身或远程暴击的概率。",
+  "note": "面板行标签与提示标题英文同为 Crit Reduction，全库仅两处，按界面行标签统一为「暴击减免」。"
+ },
+ {
+  "id": "cls01-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:30101"
+  ],
+  "old": "如果攻击命中目标，则目标会持续流血 7 回合，\n\t\t造成总计 %d%% 武器伤害。在此过程中，任何对目标的治疗效果减少 %d%%。]]",
+  "new": "如果攻击命中目标，则目标会在 7 回合内持续流血，共计受到 %d%% 武器伤害，且受到的所有治疗效果减少 %d%%。]]",
+  "note": "源串目标段仅 1 个换行，译文多插一行；合并为一行，换行数 = 源串（1）。"
+ },
+ {
+  "id": "cls01-04",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:30034"
+  ],
+  "old": "并随机减少 %d 个战斗技巧系技能的冷却时间 %d 回合。",
+  "new": "并随机减少 %d 个格斗系技能的冷却时间 %d 回合。",
+  "note": "archery.lua:682 Bullseye 按 tt.type[1]:find('^technique/') 筛选；technique 类别库内译「格斗」，改「格斗系技能」。"
+ },
+ {
+  "id": "cls01-05",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:23661"
+  ],
+  "old": "你能在最远 %d 格外放置陷阱，",
+  "new": "你可以在距你至多 %d 格的位置放置陷阱，",
+  "note": "up to %d grids＝至多 N 格以内；改为「距你至多 %d 格的位置」。"
+ },
+ {
+  "id": "cls01-05+similar",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:25883"
+  ],
+  "old": "并在最远 %d 格外重新现身，位置误差为 %d 格。",
+  "new": "并在 %d 格范围内的某处重新现身，位置误差为 %d 格。",
+  "note": "同类「最远 %d 格外」（slimy roots, in a range of %d）改为「%d 格范围内」。"
+ },
+ {
+  "id": "cls02-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:31897"
+  ],
+  "old": "t(\"usable during Aether Avatar\", \"可以在以太之体下使用\", \"_t\")",
+  "new": "t(\"usable during Aether Avatar\", \"以太之体下可用\", \"_t\")",
+  "note": "use_only_arcane 改名词性短语「以太之体下可用」，拼接为「类型：法术和以太之体下可用」。同一 _t 键，覆盖 cls03-02、cls04-03。"
+ },
+ {
+  "id": "cls02-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:29650"
+  ],
+  "old": "同时增加你 %d 点物理和魔法豁免。",
+  "new": "同时增加你 %d 点物理和法术豁免。",
+  "note": "角色面板 Spell save＝法术豁免（库内 51 处）。"
+ },
+ {
+  "id": "cls02-03+similar",
+  "status": "applied",
+  "files": [
+   "tome-orcs.lua:4157",
+   "tome-cults.lua:2696"
+  ],
+  "old": " %d%% 物理抗性和 %d 魔法豁免。\" ‖ 如果目标生物未能通过对抗你法术强度的魔法豁免，",
+  "new": " %d%% 物理抗性和 %d 法术豁免。\" ‖ 如果目标生物未能通过对抗你法术强度的法术豁免，",
+  "note": "tome-orcs.lua 雪人毛皮 magical save、tome-cults.lua 恐魔化法术豁免同改「法术豁免」。"
+ },
+ {
+  "id": "cls02-04",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:26845"
+  ],
+  "old": "t(\"Duck and Dodge\", \"闪避\", \"talent name\")",
+  "new": "t(\"Duck and Dodge\", \"俯身闪躲\", \"talent name\")",
+  "note": "races.lua:599 Duck and Dodge 改「俯身闪躲」（授权改名）；状态 EFF_EVASION 与 Evasion 共用，不涉及。terminology 无对应行。"
+ },
+ {
+  "id": "cls02-05",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:26847"
+  ],
+  "old": "半身人强大的人品在关键时刻总能保他们一命。",
+  "new": "半身人不可思议的好运总会在关键时刻救他们一命。",
+  "note": "删除网络俚语「人品」，改为「不可思议的好运」。"
+ },
+ {
+  "id": "cls02-06",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:30452",
+   "mod-tome.lua:30466",
+   "mod-tome.lua:30471"
+  ],
+  "old": "t(\"Clinch\", \"关节技：锁钳\", \"talent name\") ‖ t(\"Take Down\", \"关节技：抱摔\", \"talent name\") ‖ t(\"Hurricane Throw\", \"关节技：飓风投\", \"talent name\")",
+  "new": "t(\"Clinch\", \"锁钳\", \"talent name\") ‖ t(\"Take Down\", \"抱摔\", \"talent name\") ‖ t(\"Hurricane Throw\", \"飓风投\", \"talent name\")",
+  "note": "三个技能名去掉「关节技：」前缀；全库无其他带前缀引用。"
+ },
+ {
+  "id": "cls02-07",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:11267",
+   "mod-tome.lua:12129"
+  ],
+  "old": "t(\"rough leather gloves\", \"粗糙皮手套\", \"entity name\") ‖ t(\"rough leather sling\", \"粗皮投石索\", \"entity name\")",
+  "new": "t(\"rough leather gloves\", \"粗制皮手套\", \"entity name\") ‖ t(\"rough leather sling\", \"粗制皮投石索\", \"entity name\")",
+  "note": "rough leather 系列统一「粗制皮…」：手套、投石索。"
+ },
+ {
+  "id": "cls02-07+similar",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:37864"
+  ],
+  "old": "t(\"rough leather sling of flare\", \"闪光弹的粗皮投石索\", \"entity name\")",
+  "new": "t(\"rough leather sling of flare\", \"闪光弹的粗制皮投石索\", \"entity name\")",
+  "note": "rough leather sling of flare 同步「粗制皮投石索」。"
+ },
+ {
+  "id": "cls02-08",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:36049",
+   "mod-tome.lua:36050"
+  ],
+  "old": "t(\"Halflings's Luck\", \"小不点的好运\", \"_t\") ‖ \"目标的好运和机智使其暴击率提高 %d%%，豁免提高 %d。\"",
+  "new": "t(\"Halflings's Luck\", \"小不点的幸运\", \"_t\") ‖ \"目标的幸运和机智使其暴击率提高 %d%%，豁免提高 %d。\"",
+  "note": "效果 HALFLING_LUCK 名与说明统一为「幸运」，与技能名「小不点的幸运」一致。"
+ },
+ {
+  "id": "cls02-09",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:23462"
+  ],
+  "old": "[[你的近程和远程攻击会让敌人难以集中精力",
+  "new": "[[你的近战和远程攻击会让敌人难以集中精力",
+  "note": "Fumble 首句 melee 改「近战」（覆盖 cls03-04）；另一处 24579（Repel）在 cls06-03 中修改。"
+ },
+ {
+  "id": "cls02-10",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:25952"
+  ],
+  "old": "\"激活这个符文产生一个防护护盾，吸收最多 %d 伤害持续 %d 回合。\"",
+  "new": "\"激活符文，产生一个防护护盾，最多吸收 %d 点伤害，持续 %d 回合。\"",
+  "note": "改为「最多吸收 %d 点伤害，持续 %d 回合」，参数顺序不变（覆盖 cls03-03、cls04-10）。"
+ },
+ {
+  "id": "cls06-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:24578"
+  ],
+  "old": "[[在猛烈的攻击面前，你选择直面威胁而不是躲藏。\n\t\t当技能激活时，你有 %d%% 概率抵挡一次近程攻击。不顾一切的防御会带给你厄运（-3幸运）。\n\t\t分裂攻击，无所畏惧和杀意涌动不能同时开启，并且激活其中一个也会使另外两个进入冷却。\n\t\t抵挡概率受力量加成。\n\t\t装备盾牌时，抵挡概率增加 20%%。]]",
+  "new": "[[在猛烈的攻击面前，你选择直面威胁而不是躲藏。当技能激活时，你有 %d%% 概率抵挡一次近战攻击。不顾一切的防御会带给你厄运（幸运 -3）。\n\t\t分裂攻击、无所畏惧和杀意涌动不能同时开启，并且激活其中一个也会使另外两个进入冷却。\n\t\t抵挡概率受力量加成，装备盾牌时还会提高 20%%。]]",
+  "note": "Repel：近程→近战、（-3幸运）→（幸运 -3）、列举逗号→顿号；同时把原有的 4 个换行合并为 2 个（= 源串）。"
+ },
+ {
+  "id": "cls06-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:24149"
+  ],
+  "old": "不顾一切的移动会带给你厄运（-3 幸运）。",
+  "new": "不顾一切的移动会带给你厄运（幸运 -3）。",
+  "note": "杀意涌动「（-3 幸运）」→「（幸运 -3）」；无所畏惧在 cls06-03 一并修改；分裂攻击原本就是「（幸运 -3）」。"
+ },
+ {
+  "id": "cls06-05",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:26814",
+   "mod-tome.lua:22777",
+   "mod-tome.lua:24244"
+  ],
+  "old": "树人的全体抗性等于你的枯萎抗性 ‖ [[诅咒目标，使其所有抵抗降低 %d%%， 持续 7 回合。 ‖ 任何受到痛苦手势攻击的目标会降低 %d%% 所有抵抗，持续 %d 回合。 ‖ 目标所有抗性降低 %d%%，持续 %d 回合。",
+  "new": "树人的所有抗性等于你的枯萎抗性 ‖ [[诅咒目标，使其所有抗性降低 %d%%， 持续 7 回合。 ‖ 任何受到痛苦手势攻击的目标所有抗性降低 %d%%，持续 %d 回合。 ‖ 目标所有抗性降低 %d%%， 持续 %d 回合。",
+  "note": "按裁决统一「所有抗性」：自然的骄傲、弱点诅咒、怨恨手势。注意 terminology/combat.tsv 中 All Resists 的 preferred 译名为「全部抗性」，库内 全体抗性 18／所有抗性 17／全部抗性 14 三者并存，未做全库统一（需要跨批策略决定）。"
+ },
+ {
+  "id": "cls06-05+similar",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:933"
+  ],
+  "old": "t(\"Resist all after a teleport: \", \"传送后增加所有抵抗：\", \"_t\")",
+  "new": "t(\"Resist all after a teleport: \", \"传送后增加所有抗性：\", \"_t\")",
+  "note": "角色面板「传送后增加所有抵抗」→「所有抗性」。"
+ },
+ {
+  "id": "cls03-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:23087"
+  ],
+  "old": "[[你的黑暗亲和技能，让你在离开潜行时获得 25%% 所有伤害抗性。",
+  "new": "[[你的黑暗亲和技能效果现在还会在你离开潜行时提供 25%% 全体伤害抗性。",
+  "note": "补谓语与 now 的强化含义；all damage resistance 用库内多数「全体伤害抗性」。"
+ },
+ {
+  "id": "cls03-05",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:26920"
+  ],
+  "old": "[[你将精神与维网链接，能暂时获得你们一族所有的知识\n\t\t让你能鉴定所有物品。]]",
+  "new": "[[你的心智与维网短暂相融，整个夺心魔族的知识汇聚于你的脑海，\n\t\t让你能够鉴定任何你自己认不出的物品。]]",
+  "note": "保持 1 个换行；第一行末加逗号，补「你自己认不出的」限定；yeek 按术语用「夺心魔」。"
+ },
+ {
+  "id": "cls04-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:28101"
+  ],
+  "old": "如果你的傀儡死亡，它会立刻复活，复活时保留 %d%% 生命值。",
+  "new": "如果施放时你的傀儡已经死亡，它会立刻复活，并保留 %d%% 生命值。",
+  "note": "advanced-golemancy.lua Supercharge Golem action 仅施放时检查 hasEntity/dead 并复活；改为「如果施放时你的傀儡已经死亡」。"
+ },
+ {
+  "id": "cls04-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:28661",
+   "mod-tome.lua:28662"
+  ],
+  "old": "你将获得 %d%% 个额外回合。 ‖ 伤害和获得的额外回合比例随法术强度提高。",
+  "new": "你将获得相当于 %d%% 个回合的额外行动时间。 ‖ 伤害和获得的额外行动时间随法术强度提高。",
+  "note": "energy-alchemy.lua:183 energy.value += getTurn*energy_to_act/100，即获得一个回合的 N%；同条末句同步「额外行动时间」。"
+ },
+ {
+  "id": "cls04-04",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:37533"
+  ],
+  "old": "t(\"Dwarven Resilience\", \"矮人坚韧\", \"_t\")",
+  "new": "t(\"Dwarven Resilience\", \"钢筋铁骨\", \"_t\")",
+  "note": "状态 Dwarven Resilience 与技能 Resilience of the Dwarves 统一为「钢筋铁骨」。"
+ },
+ {
+  "id": "cls04-05",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:28337",
+   "mod-tome.lua:23780",
+   "mod-tome.lua:35465"
+  ],
+  "old": "（无视已经启用的维持技能） ‖ 项正面魔法状态或者维持技能。 ‖ \"每回合失去一项维持技能。\"",
+  "new": "（无视已启用的持续技能） ‖ 项正面魔法状态或者持续技能。 ‖ \"每回合失去一项持续技能。\"",
+  "note": "sustain 统一「持续技能」（库内 36 处）：干扰护盾、反魔陷阱、失去持续效果状态。"
+ },
+ {
+  "id": "cls04-05+similar",
+  "status": "applied",
+  "files": [
+   "tome-orcs.lua:3968",
+   "tome-orcs.lua:5766"
+  ],
+  "old": "。 维持技能占用的能量仍计入上限。\" ‖ 还会移除至多 %d 项非精神类维持技能。",
+  "new": "。 持续技能占用的能量仍计入上限。\" ‖ 还会移除至多 %d 项非精神类持续技能。",
+  "note": "tome-orcs.lua 两处「维持技能」同改。"
+ },
+ {
+  "id": "cls04-07",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:29042",
+   "mod-tome.lua:29779",
+   "mod-tome.lua:29808",
+   "mod-tome.lua:34787"
+  ],
+  "old": "对目标造成 %0.2f 冰冷伤害并冻结它们的双脚 ‖ 每回合造成 %0.2f 冰冷伤害，持续 %d 回合。 ‖ 每回合对目标造成 %0.2f 冰冷伤害，持续 %d 回合。 ‖ 提供 20%的冰冷伤害穿透",
+  "new": "对目标造成 %0.2f 寒冷伤害并冻结它们的双脚 ‖ 每回合造成 %0.2f 寒冷伤害，持续 %d 回合。 ‖ 每回合对目标造成 %0.2f 寒冷伤害，持续 %d 回合。 ‖ 提供 20%的寒冷伤害穿透",
+  "note": "cold damage 统一「寒冷伤害」（库内 78 处）：冻结大地、寒霜冰雾、冰雪风暴、冰面状态穿透。"
+ },
+ {
+  "id": "cls04-08",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:28122",
+   "mod-tome.lua:28140"
+  ],
+  "old": "你的每个伤害护盾、时间盾、转移护盾、干扰护盾 ‖ 伤害护盾、时间盾、转移护盾：增加",
+  "new": "你的每个伤害护盾、时间盾、偏转护盾、干扰护盾 ‖ 伤害护盾、时间盾、偏转护盾：增加",
+  "note": "Displacement Shield 技能名「偏转护盾」，两处引用同步。"
+ },
+ {
+  "id": "cls04-09",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:6343"
+  ],
+  "old": "\"是的大法师，把我送去那里！\"",
+  "new": "\"是的，大法师，把我送去那里！\"",
+  "note": "呼语前加逗号。"
+ },
+ {
+  "id": "cls04-11",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:28525"
+  ],
+  "old": "噩灵在 %d 回合内进入无敌状态。\"",
+  "new": "使噩灵完全无敌，持续 %d 回合。\"",
+  "note": "改为「使噩灵完全无敌，持续 %d 回合」，补 fully。"
+ },
+ {
+  "id": "cls04-12",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:28865"
+  ],
+  "old": "[[你的荒芜大地开始破碎。\n\t\t在荒芜大地上移动",
+  "new": "[[你的荒芜之地现在会迅速崩裂。\n\t\t在荒芜之地上移动",
+  "note": "引用改技能实际名「荒芜之地」，补译 rapidly（迅速崩裂）。"
+ },
+ {
+  "id": "cls04-13",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:29098"
+  ],
+  "old": "[[拉紧你与部分死灵随从之间的虚幻连接，",
+  "new": "[[拉紧你与当前处于你不死光环内的部分死灵随从之间的虚幻连接，",
+  "note": "master-necromancer.lua Recall Minions 以 NECROTIC_AURA 半径为范围；补「当前处于你不死光环内的」。"
+ },
+ {
+  "id": "cls04-14",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:29451"
+  ],
+  "old": "\"使用游魂行走——返回时，",
+  "new": "\"使用「游魂行走 - 返回」时，",
+  "note": "引用写成技能实际名「游魂行走 - 返回」（加「」）。"
+ },
+ {
+  "id": "cls04-15",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:29306"
+  ],
+  "old": "你身上的每个符文提供 -%d 生命底线和 %0.1f%% 法术暴击率。 ‖ 使死亡底线降低 %d，并提高 %0.1f%% 法术暴击率。",
+  "new": "你身上的每个符文使死亡底线降低 %d，并提高 %0.1f%% 法术暴击率。 ‖ 使死亡底线降低 %d， 并提高 %0.1f%% 法术暴击率。",
+  "note": "die_at 统一「死亡底线」（角色面板、技能说明）；源串 -%d 的字面负号不保留，写作「使死亡底线降低 %d」。"
+ },
+ {
+  "id": "cls04-06+similar",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:27194",
+   "mod-tome.lua:27229",
+   "mod-tome.lua:27864",
+   "mod-tome.lua:27868",
+   "mod-tome.lua:27860"
+  ],
+  "old": "\t\t如果目标身上已存在扭曲效果，则伤害提升 50 %%，并且目标每回合会丢失一种物理增益效果或持续技能效果。 ‖ \t\t空旷的地面有 50 %%几率转化为持续 %d 回合的熔炉外壁。熔炉外壁阻挡移动，并对周围敌人造成 %0.2f 的精神伤害和 %0.2f 的火焰伤害。 ‖ \t\t学习此技能时，你的唯我临界点会增加 20 %%（当前 %d%%）， 你的灵能值每低于这个临界点 1 %%，你的全局速度减少 1 %%。]], \"tformat\") ‖ \t\tLearning this talent also increases your solipsism threshold by 10%% (currently %d%%).]], [[你现在使用 %d%% 精神豁免值来替代 %d%% 物理和法术豁免（即 100 %%时精神豁免完全替代所有豁免）。 ‖ [[你相信你的心灵是世间万物的中心。\n\t\t每级永久性增加你",
+  "new": "\t\t如果目标身上已存在扭曲效果，则伤害提升 50%%，并且目标每回合会丢失一种物理增益效果或持续技能效果。 ‖ \t\t空旷的地面有 50%%几率转化为持续 %d 回合的熔炉外壁。熔炉外壁阻挡移动，并对周围敌人造成 %0.2f 的精神伤害和 %0.2f 的火焰伤害。 ‖ \t\t学习此技能时，你的唯我临界点会增加 20%%（当前 %d%%）， 你的灵能值每低于这个临界点 1%%，你的全局速度减少 1%%。]], \"tformat\") ‖ \t\tLearning this talent also increases your solipsism threshold by 10%% (currently %d%%).]], [[你现在使用 %d%% 精神豁免值来替代 %d%% 物理和法术豁免（即 100%%时精神豁免完全替代所有豁免）。 ‖ [[你相信你的心灵是世间万物的中心。每级永久性增加你",
+  "note": "同类固定数字＋空格＋%%：mod-tome.lua 27194/27229/27865(×3)/27869；27856 唯我论因此被修改，顺带合并多出的一行使换行数 = 源串（4）。"
+ },
+ {
+  "id": "cls04-06",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:28154",
+   "mod-tome.lua:28155",
+   "mod-tome.lua:28156"
+  ],
+  "old": "\t\tThe damage will increase with your Spellpower.]], [[你凝聚以太能量，释放出一道旋转的奥术光束，对被它穿透的生物造成 %0.2f 奥术伤害并且有 25 %%几率将其沉默。 ‖ \t\t该光束每回合也会对中心点造成 10 %%的伤害（但是不会沉默目标）。 ‖ \t\t该光束以难以置信的速度旋转（1600 %% 速度），对同一目标在其两个回合之间最多命中 3 次。",
+  "new": "\t\tThe damage will increase with your Spellpower.]], [[你凝聚以太能量，释放出一道旋转的奥术光束，对被它穿透的生物造成 %0.2f 奥术伤害并且有 25%%几率将其沉默。 ‖ \t\t该光束每回合也会对中心点造成 10%%的伤害（但是不会沉默目标）。 ‖ \t\t该光束以难以置信的速度旋转（1600%% 速度），对同一目标在其两个回合之间最多命中 3 次。",
+  "note": "以太螺旋三处固定数字与 %% 之间的空格删除。"
+ },
+ {
+  "id": "cls06-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:24542"
+  ],
+  "old": "体型为%s或更小的目标可能被你撞离路径。",
+  "new": "体型为 %s 或更小的目标可能被你撞离路径。",
+  "note": "%s 两侧加 ASCII 空格，使体型词成为独立的预览 token。"
+ },
+ {
+  "id": "cls06-04",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:24210"
+  ],
+  "old": "护盾值每回合回复最大值的 1/%d （充能期间",
+  "new": "护盾值每回合回复最大值的 %d 分之一（充能期间",
+  "note": "1/%d 改「%d 分之一」，预览不再出现残缺的「1/」。"
+ },
+ {
+  "id": "cls06-06",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:24492"
+  ],
+  "old": "[[将仇恨注入你的阴影，强化他们的攻击。他们获得 %d%% 额外命中和 %d%% 额外伤害加成。他们疯狂的攻击让他们能够尝试支配对手，",
+  "new": "[[将仇恨注入你的阴影，强化它们的攻击。它们获得 %d%% 额外命中和 %d%% 额外伤害加成。它们疯狂的攻击让它们能够尝试支配对手，",
+  "note": "阴影全段统一用「它们」（同树召唤阴影用「它们」）。"
+ },
+ {
+  "id": "cls07-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:27552"
+  ],
+  "old": "\"念力之握抓握哪件物品？\"",
+  "new": "\"用念力抓取哪件物品？\"",
+  "note": "副词 Telekinetically 不再译成技能名，改「用念力抓取哪件物品？」。"
+ },
+ {
+  "id": "cls07b-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:21839"
+  ],
+  "old": "t(\"Temporal Guardian\", \"时空守卫\", \"talent type\")",
+  "new": "t(\"Temporal Guardian\", \"时空守护\", \"talent type\")",
+  "note": "技能树 Temporal Guardian 改「时空守护」；职业名仍为「时空守卫」。terminology 无对应行。"
+ },
+ {
+  "id": "cls07b-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:21827",
+   "mod-tome.lua:22402"
+  ],
+  "old": "将会使你的紊乱值向预设值调谐 %0.2f 点。 ‖ [[每回合自动将你的紊乱值向偏好值调整 %0.2f 点。",
+  "new": "将会使你的紊乱值向设定值调谐 %0.2f 点。 ‖ [[每回合自动将你的紊乱值向设定值调整 %0.2f 点。",
+  "note": "预设值／偏好值各 1 处，打平；时空调谐（设定该数值的技能）正文用「设定值／设定的紊乱值」，两处统一为「设定值」。"
+ },
+ {
+  "id": "cls07b-04",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:22269",
+   "mod-tome.lua:22275",
+   "mod-tome.lua:22283"
+  ],
+  "old": "这些地雷是隐藏陷阱（侦测强度为 %d， 解除强度为 %d， 二者均取决于你的魔力属性），持续 %d 回合。 ‖ 地雷是隐藏的陷阱（侦查强度 %d， 解除强度 %d， 基于你的魔力），持续 %d 回合。 ‖ 地雷是隐藏的陷阱（侦查强度 %d、 解除强度 %d， 基于你的魔力），持续 %d 回合，",
+  "new": "这些地雷是隐藏陷阱（侦测强度 %d， 解除强度 %d， 基于你的魔力），持续 %d 回合。 ‖ 地雷是隐藏的陷阱（侦测强度 %d， 解除强度 %d， 基于你的魔力），持续 %d 回合。 ‖ 地雷是隐藏的陷阱（侦测强度 %d， 解除强度 %d， 基于你的魔力），持续 %d 回合，",
+  "note": "detection 统一「侦测强度」（库内 10:7）；时空地雷三条句式统一为「（侦测强度 %d， 解除强度 %d， 基于你的魔力）」，%d 后的空格保留（lint 要求）。"
+ },
+ {
+  "id": "cls07b-04+similar",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:21452",
+   "mod-tome.lua:21459",
+   "mod-tome.lua:21466",
+   "mod-tome.lua:26570",
+   "mod-tome.lua:27499"
+  ],
+  "old": "圣印视为隐藏陷阱 （%d 侦查强度， %d 点解除强度，基于魔力） ‖ 你的侦查强度受灵巧加成。 ‖ （+%d 侦查强度）",
+  "new": "圣印视为隐藏陷阱 （%d 侦测强度， %d 点解除强度，基于魔力） ‖ 你的侦测强度受灵巧加成。 ‖ （+%d 侦测强度）",
+  "note": "同为 detection power 的 7 处「侦查强度」全部改「侦测强度」：圣印×3、洞察视界、灵魂出窍。"
+ },
+ {
+  "id": "cls07b-05",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:7094",
+   "mod-tome.lua:22303",
+   "mod-tome.lua:35427",
+   "mod-tome.lua:35429",
+   "mod-tome.lua:35430",
+   "mod-tome.lua:35431",
+   "mod-tome.lua:35432",
+   "mod-tome.lua:22287",
+   "mod-tome.lua:22288",
+   "mod-tome.lua:22289",
+   "mod-tome.lua:22290",
+   "mod-tome.lua:35526",
+   "mod-tome.lua:35528",
+   "mod-tome.lua:35530"
+  ],
+  "old": "t(\"dimensional anchor\", \"时空锚\", \"damage type\") ‖ t(\"Dimensional Anchor\", \"时空锚\", \"talent name\") ‖ t(\"Dimensional Anchor\", \"时空锚\", \"_t\") ‖ \"#Target#被时空锚锁定。\" ‖ t(\"+Anchor\", \"+时空锚\", \"_t\") ‖ \"#Target#不再被时空锚锁定。\" ‖ t(\"-Anchor\", \"-时空锚\", \"_t\") ‖ t(\"Spatial Tether\", \"时空系绳\", \"talent name\") ‖ \"你不能在这里放置时空系绳。\" ‖ \"%s的时空系绳\" ‖ \"#CRIMSON#%s被时空系绳拉了回去！\" ‖ t(\"Spatial Tether\", \"时空系绳\", \"_t\") ‖ \"#Target#被时空系绳固定！\" ‖ \"#Target#不再被时空系绳固定。\"",
+  "new": "t(\"dimensional anchor\", \"空间之锚\", \"damage type\") ‖ t(\"Dimensional Anchor\", \"空间之锚\", \"talent name\") ‖ t(\"Dimensional Anchor\", \"空间之锚\", \"_t\") ‖ \"#Target#被空间之锚锁定。\" ‖ t(\"+Anchor\", \"+空间之锚\", \"_t\") ‖ \"#Target#不再被空间之锚锁定。\" ‖ t(\"-Anchor\", \"-空间之锚\", \"_t\") ‖ t(\"Spatial Tether\", \"空间系绳\", \"talent name\") ‖ \"你不能在这里放置空间系绳。\" ‖ \"%s的空间系绳\" ‖ \"#CRIMSON#%s被空间系绳拉了回去！\" ‖ t(\"Spatial Tether\", \"空间系绳\", \"_t\") ‖ \"#Target#被空间系绳固定！\" ‖ \"#Target#不再被空间系绳固定。\"",
+  "note": "Dimensional Anchor→空间之锚、Spatial Tether→空间系绳：技能名、_t 状态名、+/- 状态提示、日志、damage type「dimensional anchor」。terminology/combat.tsv:173 的 dimensional anchor 行（注明与技能名统一）target 已改为「空间之锚」并在 notes 中加日期标注；talents.tsv 无对应行。"
+ },
+ {
+  "id": "cls07b-08",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:27767",
+   "mod-tome.lua:27779",
+   "mod-tome.lua:27257"
+  ],
+  "old": "t(\"Dream Smith\", \"梦境锻造\", \"talent type\") ‖ t(\"Dream Forge\", \"梦之熔炉\", \"talent type\") ‖ 它会使梦境锻造系的某个随机技能冷却完毕。",
+  "new": "t(\"Dream Smith\", \"梦境铁匠\", \"talent type\") ‖ t(\"Dream Forge\", \"梦境熔炉\", \"talent type\") ‖ 它会使梦境铁匠系的某个随机技能冷却完毕。",
+  "note": "Dream Smith→梦境铁匠、Dream Forge（技能树）→梦境熔炉；梦之巨锤说明中「梦境锻造系」→「梦境铁匠系」。技能 Dreamforge 与伤害类型 dreamforge 保持「梦之熔炉」；物品词缀 dream-smith's「梦境锻造的」不是技能树，未改。"
+ },
+ {
+  "id": "cls07b-08+similar",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:36196"
+  ],
+  "old": "\"目标被梦境熔炉打破梦境，",
+  "new": "\"目标被梦之熔炉打破梦境，",
+  "note": "Broken Dream 状态说明中指 dreamforge 伤害的「梦境熔炉」改回「梦之熔炉」，避免与新技能树名混淆。"
+ },
+ {
+  "id": "cls09-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:29551",
+   "mod-tome.lua:29553"
+  ],
+  "old": "t(\"eldritch shield\", \"魔力盾牌\", \"talent type\") ‖ t(\"eldritch stone\", \"魔法岩石\", \"talent type\")",
+  "new": "t(\"eldritch shield\", \"奥术之盾\", \"talent type\") ‖ t(\"eldritch stone\", \"奥术岩石\", \"talent type\")",
+  "note": "eldritch shield→奥术之盾、eldritch stone→奥术岩石（技能 Eldritch Stone 奥术岩盾保持不变）。"
+ },
+ {
+  "id": "cls09-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:26822",
+   "mod-tome.lua:36986"
+  ],
+  "old": "t(\"Stoneskin\", \"石化皮肤\", \"talent name\") ‖ t(\"Stoneskin\", \"石化皮肤\", \"_t\")",
+  "new": "t(\"Stoneskin\", \"坚石肌肤\", \"talent name\") ‖ t(\"Stoneskin\", \"坚石肌肤\", \"_t\")",
+  "note": "矮人 Stoneskin：技能名与 _t 状态名（physical.lua:679 STONE_SKIN，Combat.lua:495 auto_stoneskin 触发）改「坚石肌肤」；法术 Stone Skin 保持「石化皮肤」；物品 Elixir of Stoneskin 不涉及。"
+ },
+ {
+  "id": "cls09-04",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:25005"
+  ],
+  "old": "t(\"earthen vines\", \"岩石藤蔓\", \"talent type\")",
+  "new": "t(\"earthen vines\", \"大地藤蔓\", \"talent type\")",
+  "note": "技能树 earthen vines→大地藤蔓；技能 Stone Vines 及其状态和日志保持「岩石藤蔓」。"
+ },
+ {
+  "id": "cls09-05",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:22810"
+  ],
+  "old": "并降低其一项物理能力值（力量、体质、敏捷） %d。 三种疾病可以叠加。",
+  "new": "并使其一项物理属性（力量、体质或敏捷）降低 %d 点。三种疾病可以叠加。",
+  "note": "剧毒瘟疫统一为「使其一项物理属性（力量、体质或敏捷）降低 %d 点」，与黑暗之门一致。"
+ },
+ {
+  "id": "cls09-06",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:31784"
+  ],
+  "old": "你的身体对伤害抗性极高，任何一次伤害不会让你失去超过 %d%% 最大生命。]]",
+  "new": "你的身体也会变得对伤害极具抵抗力：任何一次攻击对你造成的伤害都不会超过你最大生命值的 %d%%。]]",
+  "note": "改为「任何一次攻击对你造成的伤害都不会超过你最大生命值的 %d%%」。"
+ },
+ {
+  "id": "cls09-07",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:23008"
+  ],
+  "old": "多余的伤害不会消失，而是有 %d%% 会以枯萎伤害的形式溅落在 2 格范围内。",
+  "new": "多余的伤害不会消失，而是将其中 %d%% 以枯萎伤害的形式溅射到半径 2 格范围内。",
+  "note": "去掉「有…会」叠用，改为「将其中 %d%% … 溅射到半径 2 格范围内」。"
+ },
+ {
+  "id": "cls11-02",
+  "status": "applied",
+  "files": [
+   "tome-orcs.lua:5771"
+  ],
+  "old": "使其在半径 %d 内爆炸。",
+  "new": "使其在半径 %d 格内爆炸。",
+  "note": "补量词「格」。"
+ },
+ {
+  "id": "cls11-03",
+  "status": "applied",
+  "files": [
+   "tome-orcs.lua:4936"
+  ],
+  "old": "半径 %d 内每有一个你能看见的敌人",
+  "new": "半径 %d 格内每有一个你能看见的敌人",
+  "note": "补量词「格」。"
+ },
+ {
+  "id": "cls11-02+similar",
+  "status": "applied",
+  "files": [
+   "tome-orcs.lua:4201",
+   "tome-orcs.lua:5640"
+  ],
+  "old": "[[在半径 %d 内的敌人周围凝聚炽热蒸汽 ‖ 在半径 %d 内长出生命苔藓",
+  "new": "[[在半径 %d 格内的敌人周围凝聚炽热蒸汽 ‖ 在半径 %d 格内长出生命苔藓",
+  "note": "tome-orcs.lua 另两处「半径 %d 内」补「格」（共 4 处，覆盖 cls11-03）。tome-ashes-urhrok.lua 有 5 处、mod-tome.lua 有 33 处同句型（mod-tome 中「格内」是少数，18 处），不在本批范围，未改。"
+ },
+ {
+  "id": "cls11b-01",
+  "status": "applied",
+  "files": [
+   "tome-cults.lua:2863"
+  ],
+  "old": "战斗中每施放一个非瞬间的主动法术会带来",
+  "new": "战斗中每施放一个非瞬发的主动法术会带来",
+  "note": "非瞬间→非瞬发。"
+ },
+ {
+  "id": "cls11b-01+similar",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:22352",
+   "mod-tome.lua:30695"
+  ],
+  "old": "[[当你使用非瞬间时空系法术， ‖ 当其使用非瞬间技能时，",
+  "new": "[[当你使用非瞬发时空系法术， ‖ 当其使用非瞬发技能时，",
+  "note": "mod-tome.lua 两处指法术或技能的「非瞬间」同改；潜行规则中的「非瞬间非移动行动」指行动，未改。"
+ },
+ {
+  "id": "cls12-01",
+  "status": "applied",
+  "files": [
+   "tome-orcs.lua:153",
+   "tome-orcs.lua:205",
+   "tome-orcs.lua:259"
+  ],
+  "old": "\"他们拥有 #GOLD#兽人狂暴#WHITE#，让他们 ‖ \"他们拥有 #GOLD# 特殊天赋#WHITE# 和一系列不死族能力：\" ‖ \"他们拥有 #GOLD#寒冰之怒#WHITE#技能，",
+  "new": "\"他们拥有#GOLD#兽人狂暴#WHITE#，让他们 ‖ \"他们拥有#GOLD#特殊天赋#WHITE#和一系列不死族能力：\" ‖ \"他们拥有#GOLD#寒冰之怒#WHITE#技能，",
+  "note": "#GOLD# 内外的多余空格删除：白蹄、兽人、克鲁克雪人。"
+ },
+ {
+  "id": "cls12-03",
+  "status": "applied",
+  "files": [
+   "tome-orcs.lua:77"
+  ],
+  "old": "\"工匠们使用蒸汽科技来强化攻击、防御，……\"",
+  "new": "\"工匠们使用蒸汽科技来强化攻击、防御……\"",
+  "note": "删除省略号前的逗号。"
+ },
+ {
+  "id": "cls12-04",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:41969",
+   "mod-tome.lua:41970"
+  ],
+  "old": "t(\" generic\", \" 通用\", \"_t\") ‖ t(\" class\", \" 职业\", \"_t\")",
+  "new": "t(\" generic\", \"通用\", \"_t\") ‖ t(\" class\", \"职业\", \"_t\")",
+  "note": "LevelupDialog.lua:982/987 是 _t\" class\"／_t\" generic\" 的唯一使用处（固定 commit 与三个 DLC 中均无其他引用），去掉前导空格。"
+ },
+ {
+  "id": "cls03-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:31897"
+  ],
+  "old": "",
+  "new": "",
+  "note": "与 cls02-02 是同一个 _t 键，已随 cls02-02 修改。"
+ },
+ {
+  "id": "cls04-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:31897"
+  ],
+  "old": "",
+  "new": "",
+  "note": "与 cls02-02 是同一个 _t 键，已随 cls02-02 修改。"
+ },
+ {
+  "id": "cls03-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:25952"
+  ],
+  "old": "",
+  "new": "",
+  "note": "与 cls02-10 是同一条，已随 cls02-10 修改。"
+ },
+ {
+  "id": "cls04-10",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:25952"
+  ],
+  "old": "",
+  "new": "",
+  "note": "与 cls02-10 是同一条，已随 cls02-10 修改。"
+ },
+ {
+  "id": "cls03-04",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:23462"
+  ],
+  "old": "",
+  "new": "",
+  "note": "与 cls02-09 是同一条，已随 cls02-09 修改。"
+ },
+ {
+  "id": "cls07b-03",
+  "status": "rejected",
+  "files": [
+   "mod-tome.lua:21895"
+  ],
+  "old": "",
+  "new": "",
+  "note": "finding 不成立：chronomancy.lua:63 写入 ignore_direct_crits，damage_types.lua:131-151 的实现是 reduce = (crit_power-1) * ignore_direct_crits/100，即按比例削减暴击的额外伤害，并不是按几率无视暴击；现译「减免 %d%% 的暴击额外伤害」与实现一致（Object.lua:1764 的标签也是 Reduces incoming crit damage）。按『原文与实现不符按实现』的既有裁决保留。"
+ },
+ {
+  "id": "cls07b-06",
+  "status": "rejected",
+  "files": [
+   "mod-tome.lua:31954"
+  ],
+  "old": "",
+  "new": "",
+  "note": "finding 引用的英文有误：intro-chronomancer.lua:21 原文是 \"You are a chronomancer\"，不是 Temporal Warden；chronomancer.lua:49 的 starting_intro=\"chronomancer\" 由时空系的 Paradox Mage 和 Temporal Warden 两个职业共用。改成「时空守卫」会让悖论法师看到错误的职业名，因此不改。"
+ },
+ {
+  "id": "cls07b-07",
+  "status": "deferred",
+  "files": [],
+  "old": "",
+  "new": "",
+  "note": "引擎折行把数字拆开，要在插件代码侧处理（已延后）。"
+ },
+ {
+  "id": "cls10-01",
+  "status": "rejected",
+  "files": [
+   "tome-ashes-urhrok.lua:1183"
+  ],
+  "old": "",
+  "new": "",
+  "note": "DLC 源码（tome4-dlcs/ashes-urhrok，来源未固定）heart-of-fire.lua:73 的 action 实际用 radius = 10，info 文本写的 5 与实现不符；现译「半径 10」贴合实现，按 2026-11-02『原文与实现不符按实现改写』的裁决保留。"
+ },
+ {
+  "id": "cls10-02",
+  "status": "rejected",
+  "files": [
+   "tome-ashes-urhrok.lua:1155"
+  ],
+  "old": "",
+  "new": "",
+  "note": "DLC 源码（来源未固定）fearfire.lua:75 实际是 setEffect(EFF_SENSE, 4, …)，持续 4 回合，info 文本写的 3 与实现不符；现译「4 回合」贴合实现，保留。"
+ },
+ {
+  "id": "cls11-01",
+  "status": "deferred",
+  "files": [],
+  "old": "",
+  "new": "",
+  "note": "上游 %%%% 转义缺陷，属于插件代码（已延后）。"
+ },
+ {
+  "id": "cls11b-02",
+  "status": "deferred",
+  "files": [],
+  "old": "",
+  "new": "",
+  "note": "main/off 武器组名由引擎传入，要在插件侧映射（已延后）。"
+ },
+ {
+  "id": "cls12-02",
+  "status": "rejected",
+  "files": [
+   "tome-orcs.lua:5389"
+  ],
+  "old": "",
+  "new": "",
+  "note": "DLC 源码（来源未固定）timed_effects/physical.lua:757 的实现是 incSteam(steam * 0.3 ^ nb_done)，即每多一名受害者减少 70%；info 文本写的 66% 与实现不符，现译 70% 贴合实现，保留。"
+ }
+]
