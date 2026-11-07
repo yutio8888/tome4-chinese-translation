@@ -24494,10 +24494,10 @@ t("Shadow Mages", "阴影法师", "talent name")
 t([[Infuse magic into your shadows to give them fearsome spells. Your shadows receive a bonus of %d to their Spellpower.
 		Your shadows can strike adjacent foes with Lightning (level %d, %d%% chance at range 1).
 		At level 3 your shadows can sear their enemies from a distance with Flames (level %d, %d%% chance at range 2 to 6).
-		At level 5 when your shadows are struck down they will attempt to Reform, becoming whole again (50%% chance).]], [[灌输魔力给你的阴影使它们学会可怕的法术。你的阴影获得 %d 点法术强度加成。
-		你的阴影可以用暗影闪电攻击附近的目标（等级 %d， 在 1 格范围内有 %d%% 几率触发）。
-		等级 3 时你的阴影可以远距离使用暗影之火灼烧你的敌人（等级 %d， 在 2 到 6 格范围内有 %d%% 几率触发）。
-		等级 5 时你的阴影在被击倒时有 50%% 几率重组并重新加入战斗。]], "tformat")
+		At level 5 when your shadows are struck down they will attempt to Reform, becoming whole again (50%% chance).]], [[将魔力灌注到你的阴影中，使它们掌握可怕的法术。你的阴影获得 %d 点法术强度加成。
+		你的阴影可以用暗影闪电攻击相邻的敌人（等级 %d， 在 1 格范围内有 %d%% 几率触发）。
+		等级 3 时，你的阴影可以从远处用暗影之火灼烧敌人（等级 %d， 在 2 到 6 格范围内有 %d%% 几率触发）。
+		等级 5 时，你的阴影被击倒时会尝试重组，恢复完好如初（50%% 几率）。]], "tformat")
 t("Focus Shadows", "聚集阴影", "talent name")
 t("#PINK#The shadows converge on #Target#!", "#PINK#阴影向#Target#集中！", "logCombat")
 t("There are no shadows to heed the call!", "没有阴影响应召唤！", "logPlayer")

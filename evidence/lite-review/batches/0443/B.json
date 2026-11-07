@@ -1,0 +1,11 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "c0655746430c",
+   "verdict": "ISSUE",
+   "observation": "末句将 becoming whole again 仅译为“重新加入战斗”，漏掉重组后恢复全部生命值的效果。固定核心提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/talents/cursed/shadows.lua:602 明示 becoming whole again；同文件:178 说明 reform unhurt；实际实现 game/modules/tome/class/Actor.lua:2894-2898 在受到致命伤害且重组判定成功时令 value = 0，并将 self.life 设为 self.max_life。",
+   "suggestion": "灌输魔力给你的阴影，使它们学会可怕的法术。你的阴影获得 %d 点法术强度加成。\n\t\t你的阴影可以用暗影闪电攻击相邻的敌人（等级 %d，在 1 格范围内有 %d%% 几率触发）。\n\t\t等级 3 时，你的阴影可以远距离使用暗影之火灼烧敌人（等级 %d，在 2 到 6 格范围内有 %d%% 几率触发）。\n\t\t等级 5 时，你的阴影受到致命伤害时有 50%% 几率重组，恢复全部生命值。"
+  }
+ ]
+}
