@@ -4160,7 +4160,7 @@ t([[Your yeti's body is very resilient to detrimental effects.
 		Each time you are hit by a physical, magical, or mental detrimental effect your body reacts with a burst of healing.
 		This effect heals for %d and can only occur up to 3 times per turn.
 		It increases with your Constitution stat.]], [[你的雪人身躯面对负面状态十分坚韧。
-		每当你被一个负面的物理，魔法或精神状态击中时，你的身体会反射性地触发恢复之力。
+		每当你被物理、魔法或精神负面状态击中时，你的身体会反射性地触发恢复之力。
 		这个效果会治疗你 %d 生命值，且每回合最多触发 3 次。
 		治疗值会受体质值加成。]], "tformat")
 t("Mindwave", "脑波冲击", "talent name")
@@ -4313,7 +4313,7 @@ t([[You summon a galvanic rod at a location. Upon arrival the rod releases a sho
 		You have 3 rods each with their own %d turns cooldown.
 		This spell works with Burning Wake.
 		This spell has 25%% chance to try to activate Hurricane, if used.
-		The damage will increase with your Spellpower.]], [[你在指定位置召唤放电柱。放电柱会在 %d 格半径范围内释放电击，对所有生物造成 %0.2f 放电（火焰和闪电）伤害。
+		The damage will increase with your Spellpower.]], [[你在指定位置召唤放电柱。放电柱会在半径 %d 格范围内释放电击，对所有生物造成 %0.2f 放电（火焰和闪电）伤害。
 		你有 3 枚放电柱，它们各自有 %d 回合的冷却时间。
 		这一技能可以触发无尽之焰效果。
 		若飓风已激活，这一法术有 25%% 的几率尝试触发它。
@@ -4342,7 +4342,7 @@ t([[Reaching through the aether you temporarily destabilize a galvanic rod's con
 		This creates a blast in radius 1 around it, or through all connected rods if they are linked dealing %0.2f galvanic damage to all creatures and stunning them for %d turns.
 		This spell works with Burning Wake.
 		The damage will increase with your Spellpower.]], [[你召唤以太的能量，暂时使一枚放电柱的控制系统不稳定化。（你用作放电柱的武器不能作为该技能的目标）
-		这将会在 1 格半径内，或是在链接到的所有放电柱的领域内，产生一股冲击波。对所有生物造成 %0.2f 放电伤害，并震慑它们 %d 回合。
+		这将会在半径 1 格内，或是在链接到的所有放电柱的领域内，产生一股冲击波。对所有生物造成 %0.2f 放电伤害，并震慑它们 %d 回合。
 		这一法术可以触发无尽之焰效果。
 		技能伤害受法术强度加成。]], "tformat")
 t("Energy Mass Conversion", "质能转换", "talent name")
@@ -4424,7 +4424,7 @@ t([[After casting a technomancy spell you store some of its energies that you ca
 		In addition the energies spills outward in radius 3, dealing %0.2f damage (damage type based on the type of technomancy spell used).
 		This spell is only usable after casting a technomancy spell and until you use any other spell or talent.
 		The damage will increase with your Spellpower.]], [[每当你释放一个科技法术，你都会储存它一部分的能量，用来超载你的奥术发电机。每消耗 10 点法力值，它产生的蒸汽就增加 4 点，持续 4 回合。
-		此外，这些能量会在你周围 3 格半径内溢出，造成 %0.2f 伤害。（伤害类型基于你使用的科技法术的类型）
+		此外，这些能量会在你周围半径 3 格内溢出，造成 %0.2f 伤害。（伤害类型基于你使用的科技法术的类型）
 		这个法术只能在你施放科技法术之后、且尚未使用任何其他法术或技能时使用。
 		技能伤害受法术强度提升。]], "tformat")
 
@@ -4540,11 +4540,11 @@ The defense loss will increase with your Steampower.]], [[让你的火箭发射�
 t("Death From Above", "死亡天降", "talent name")
 t([[You use your rocket pods to launch yourself into the air for 3 turns, firing a radius 2 barrage of rockets that deal %d%% steamgun damage as fire in radius 2. 
 		While flying you gain %d%% movement speed, %d%% chance to evade melee and ranged attacks, and can reactivate this talent at will to repeat the rocket barrage.
-		Using any talent other than Rocket Barrage will end this effect immediately.]], [[你启动火箭发射器，将自己发射到天空中，持续 3 回合，同时发射范围为 2 的火箭弹幕，在 2 格半径内造成 %d%% 火焰蒸汽枪伤害。
+		Using any talent other than Rocket Barrage will end this effect immediately.]], [[你启动火箭发射器，将自己发射到天空中，持续 3 回合，同时发射范围为 2 的火箭弹幕，在半径 2 格内造成 %d%% 火焰蒸汽枪伤害。
 		当处在飞行状态的时候，你获得 %d%% 移动速度， %d%% 几率躲闪近战和远程攻击，并且可以重新激活这个技能，再次发射火箭弹幕。
 		使用任何火箭弹幕之外的技能都会提前终止这一效果。]], "tformat")
 t("Rocket Barrage", "火箭弹幕", "talent name")
-t("Fires a barrage of rockets in radius 2, dealing %d%% steamgun damage as fire.", "发射火箭弹幕，在 2 格半径内造成 %d%% 火焰蒸汽枪伤害。", "tformat")
+t("Fires a barrage of rockets in radius 2, dealing %d%% steamgun damage as fire.", "发射火箭弹幕，在半径 2 格内造成 %d%% 火焰蒸汽枪伤害。", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/automated-butchery.lua"
@@ -8141,7 +8141,7 @@ t("Crit. chance: #00ff00#%s", "暴击率：#00ff00#%s", "tformat")
 t("Steam speed : #00ff00#%s", "蒸汽速度：#00ff00#%s", "tformat")
 t("Powered by ", "力量来源：", "_t")
 t("steamtech", "蒸汽科技", "_t")
-t("%+d #LAST#(%+d eff.)", "%+d#LAST#(%+d有效值)", "_t")
+t("%+d #LAST#(%+d eff.)", "%+d #LAST#(%+d 有效值)", "_t")
 t("Steampower: ", "蒸汽强度：", "_t")
 t("Steam crit. chance: ", "蒸汽暴击几率：", "_t")
 t("Steamtech Speed: ", "蒸汽速度：", "_t")

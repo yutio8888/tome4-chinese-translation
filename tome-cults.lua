@@ -3199,7 +3199,7 @@ t([[Your left hand mutates into a disgusting mass of tentacles.
 
 		Your tentacle hand currently has these stats%s:
 		%s]], [[你的左手异变成为一坨恶心的触手。
-		副手空闲时，当使用普通攻击，触手会自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。
+		副手空闲时，使用普通攻击会让触手自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。
 		物理强度提高 %d， 触手武器伤害提高 %d%%。
 		触手自动追加攻击时（主目标非友方），获得 %d 疯狂值，每回合至多一次。
 		附近有#{italic}#“文明人”#{normal}#时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。
@@ -3242,7 +3242,7 @@ t([[You extend your tentacle to grab a distant target, pulling it to you.
 		Enemies can resist the attempt to pull them but Constrict will always work for purposes of modifying your talents.
 		Your other tentacle talents may act differently when used while constricting (check their descriptions).]], [[伸展触手缠住一个远处的目标，将其拖向你。
 		只要缠绕技能保持激活，目标就会被触手束缚；它可以尝试向远处移动，但每回合都会被你拉回一格。
-		当缠绕了敌人，普通攻击不会额外附加触手攻击，但每回合对缠绕敌人造成 %d%% 触手伤害。
+		缠绕敌人期间，普通攻击不会额外附加触手攻击，但每回合会对被缠绕的敌人造成 %d%% 触手伤害。
 		敌人可以抵抗触手拖拽，但即使抵抗成功，缠绕对你技能的修改效果仍会照常生效。
 		其他触手技能在缠绕状态下会发生变化，具体请查看相应技能描述。]], "tformat")
 
@@ -4625,7 +4625,7 @@ As with all things here, nothing restrains you in what path you #{bold}#ultimate
 
 无论研究什么主题、采用什么方法，这里都没有规则限制任何人的做法。这促使人们开展许多地表居民认为疯狂且绝对禁止的实验。如果克诺什库尔被发现，它一定会被摧毁。因此，避难所真正存在的规则只有保守秘密，以及保护在此积累的知识。
 
-然而今天，避难所却面临着一条正直接挖向克诺什库尔的巨型蠕虫的威胁。如果不采取行动，它将撞上并摧毁古代堡垒的残骸。对付蠕虫的一种办法，是将某个人传送进它体内，一路前往蠕虫的脑簇并将其摧毁。或者，你也可以考虑在蠕虫抵达前离开，去外面的世界寻找自己的目标。
+然而今天，避难所却面临着一条正径直挖向克诺什库尔的巨型蠕虫的威胁。如果不采取行动，它将撞上并摧毁古代堡垒的残骸。对付蠕虫的一种办法，是将某个人传送进它体内，一路前往蠕虫的脑簇并将其摧毁。或者，你也可以考虑在蠕虫抵达前离开，去外面的世界寻找自己的目标。
 
 和这里的一切一样，没有什么会限制#{bold}#你最终选择的道路#{normal}#。问题在于，你是要踏入#{bold}#传送进蠕虫体内的传送门#{normal}#，还是趁现在还安全时离开，任由#{bold}#克诺什库尔被摧毁#{normal}#。
 ]], "_t")

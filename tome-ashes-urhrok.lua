@@ -673,7 +673,7 @@ t("#LIGHT_GREEN#*#WHITE#", "#LIGHT_GREEN#*#WHITE#", "_t")
 ------------------------------------------------
 section "tome-ashes-urhrok/data/quests/start-ashes.lua"
 
-t("Ashes in the Wind", "风中灰", "_t")
+t("Ashes in the Wind", "风中灰烬", "_t")
 t([[You do not remember much of your life before you were on this burning continent, floating in the void between worlds.  You have been helping demons, happily participating in their experiments to shatter some sort of shield preventing them from taking their righteous revenge on Eyal.
 
 You are being taken by your handler to the torture-pits to help them figure out how to cause the most pain to those on Eyal, when you hear a roaring above you; you look up and see a burning meteor, flying closer, and the demons' spells failing to divert its course!  It lands near you, knocking you off your feet with its shockwave and killing your handler instantly.
@@ -1041,7 +1041,7 @@ t([[You use your demon seeds to the fullest of their potential.
 		The healing is based on your Spellpower.]], [[你发挥你恶魔种子的全部力量。
 		每当你进入战斗的时候，你将会自动从装备的种子中召唤一个随机恶魔，持续 %d 回合。恶魔只有在生命值大于 70%% 的时候才可以被召唤，且末日契约同时最多召唤一个恶魔。
 		每当你杀死一个生物，你装备的不满血的随机恶魔种子将会恢复 %d%% 生命值。如果目标是精英怪以上，你可以复活一个恶魔。
-		此外，每当一个恶魔降临，离开或死亡的时候，你将会受到 %d 点治疗。
+		此外，每当你的恶魔降临、离开或死亡时，你都会恢复 %d 点生命值。
 		治疗量受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -1412,7 +1412,7 @@ t([[Your original invisibility talent was corrupted and twisted.
 t("Pitiless", "无情", "talent name")
 t([[You launch a mental assault on the target.
 		The assult increases the cooldown of any already cooling down talents by %d, the duration of any magical, physical or mental detrimental effects by %d (max 4x duration) and decreases the duration of any magical, physical or mental beneficial effects by %d.]], [[你对目标发动精神冲击。
-		他所有正在冷却中的技能冷却时间延长 %d 回合，所有负面魔法、物理、精神效果延长 %d 回合（最多延长至原持续时间的 4 倍），所有正面魔法、物理、精神效果缩短 %d 回合。]], "tformat")
+		目标所有正在冷却中的技能冷却时间延长 %d 回合，所有负面魔法、物理、精神效果延长 %d 回合（最多延长至原持续时间的 4 倍），所有正面魔法、物理、精神效果缩短 %d 回合。]], "tformat")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/data/timed_effects.lua"
