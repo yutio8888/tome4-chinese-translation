@@ -401,7 +401,7 @@ t("She looks tired and wounded.", "她看起来疲惫又受伤。", "_t")
 t("%s, the repented thief", "%s，忏悔的盗贼", "_t")
 t("%s, the lone alchemist", "%s，落单的炼金术士", "_t")
 t("%s, the lost sun paladin", "%s，迷路的太阳骑士", "_t")
-t("%s, the lost defiler", "%s，迷路的堕落者", "_t")
+t("%s, the lost defiler", "%s，迷路的堕落术士", "_t")
 t("temporal portal", "时空传送门", "_t")
 t([[Oh but you are ... are you ?! ME?!
 		So I was right, this is not my original time-thread!
@@ -1146,7 +1146,7 @@ section "mod-tome/class/Projectile.lua"
 
 t("Projectile: ", "抛射物：", "_t")
 t("Origin: ", "发射者：", "_t")
-t("Speed: %d%% %s", "速度：%d%%%s", "tformat")
+t("Speed: %d%% %s", "速度：%d%%，方向：%s", "tformat")
 t("Affect origin chance: ", "击中发射者几率：", "_t")
 t("Affect origin's friends chance: ", "影响发射者友方及中立单位的几率：", "_t")
 t("UID: ", "UID：", "_t")
@@ -20095,7 +20095,7 @@ section "mod-tome/data/quests/antimagic.lua"
 
 t("The Curse of Magic", "魔法的诅咒", "_t")
 t("You have been invited to join a group called the Ziguranth, dedicated to opposing magic.", "你被邀请参加一个叫做伊格兰斯的组织，致力于对抗魔法。", "_t")
-t("Grim-looking fighter", "面目狰狞的斗士", "_t")
+t("Grim-looking fighter", "面色阴沉的斗士", "_t")
 t("#VIOLET#A foe is summoned to the arena!", "#VIOLET#一个对手被召唤进了竞技场！", "logSeen")
 t("#VIOLET#Another foe is summoned to the arena!", "#VIOLET#又一个对手被召唤进了竞技场！", "logSeen")
 
@@ -23568,7 +23568,7 @@ t("#CADET_BLUE#You cannot disarm traps in grids you cannot enter.", "#CADET_BLUE
 t("#CADET_BLUE#You don't see a trap there.", "#CADET_BLUE#你在这里并没有发现陷阱。", "logPlayer")
 t([[You search a nearby grid for a hidden trap (%d detection 'power') and disarm it if possible (%d disarm 'power', based on your skill with %s).
 		Disarming a trap requires at least a minimum skill level, and you must be able to enter the trap's grid to manipulate it, though you stay in your current location.  A failed attempt to disarm a trap may trigger it.
-		Your skill improves with your your Cunning.]], [[你搜索周围地格的陷阱 （%d 侦察强度），并尝试解除 (%d 解除强度，基于技能 %s)。
+		Your skill improves with your your Cunning.]], [[你搜索邻近的一个地格中隐藏的陷阱（侦察强度 %d）， 并在可能时将其解除（解除强度 %d， 取决于你的%s技能）。
 		解除陷阱有最低技能等级需求，且你必须能够移动到陷阱的所在格，尽管你仍然留在你的当前位置。
 		解除陷阱失败可能会触发陷阱。
 		解除能力随灵巧值提升。]], "tformat")
@@ -30167,7 +30167,7 @@ t("You fire multiple arrows at an area of %d radius, doing %d%% damage with each
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/buckler-training.lua"
 
-t("Buckler Expertise", "盾牌训练", "talent name")
+t("Buckler Expertise", "格挡专精", "talent name")
 t([[Allows shields to be equipped, using Cunning instead of strength as a requirement.
 			When you are attacked in melee, you have a %d%% chance to deflect the attack with your shield, completely evading it.
 			In addition, as long as you are wearing armour no heavier than leather, you gain %d Armour and %d%% Armour hardiness.
@@ -30187,7 +30187,7 @@ t("When you are hit by a projectile, physical or otherwise, you have a %d%% chan
 t("Counter Shot", "以牙还牙", "talent name")
 t("#ORCHID##Source# follows up with a countershot.#LAST#", "#ORCHID##Source#追加了一次反击射击。#LAST#", "logCombat")
 t([[Any time you block an attack with Buckler Expertise or Buckler Mastery you instantly counterattack with your sling for %d%% damage  This can only occur up to %d time(s) per turn.
-			]], [[每当你的盾牌训练或格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合最多可发动 %d + 1 次反击。
+			]], [[每当你的格挡专精或格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合最多可发动 %d 次反击，外加 1 次。
 			]], "tformat")
 
 ------------------------------------------------
@@ -30234,7 +30234,7 @@ t([[You become better at using your armour to deflect blows and protect your vit
 		At level 2, it allows you to wear shields.
 		At level 3, it allows you to wear massive plate armour.
 		%s]], [[你使用防具来偏转攻击和保护重要部位的能力加强了。
-		根据现有防具，提高 %d 护甲值和 %d%% 护甲强度，并减少 %d%% 近战和远程攻击的暴击几率。
+		根据现有防具，提高 %d 护甲值和 %d%% 护甲强度，并使近战或远程攻击对你造成暴击的几率降低 %d%%。
 		（这项技能只对重甲或板甲提供加成。）
 		在等级 1 时，能使你装备重甲、金属手套、头盔和重靴。
 		在等级 2 时，能使你装备盾牌。
@@ -30713,14 +30713,14 @@ t([[Increases weapon damage by %d%% and physical power by 30 when using slings.
 		Also, increases your reload rate by %d.]], [[使用投石索时提高 %d%% 武器伤害，获得 30 物理强度。
 		同时，每次装填额外恢复 %d 枚弹药。]], "tformat")
 t("Swift Shot", "快速射击", "talent name")
-t("Double Archery (#LIGHT_GREEN#%d%%#LAST# of a turn)", "双倍弓箭速度 (#LIGHT_GREEN#%d%%#LAST# 回合)", "tformat")
+t("Double Archery (#LIGHT_GREEN#%d%%#LAST# of a turn)", "双倍弓箭(#LIGHT_GREEN#%d%%#LAST#回合)", "tformat")
 t([[Fire off a quick sling bullet for %d%% damage at double your normal attack speed, as well as increasing your attack speed by %d%% for 5 turns.
-		Each time you move, the cooldown of this talent is reduced by 1.]], [[发射一枚快速的石弹，造成 %d%% 伤害，攻击速度是你普通攻击的两倍。增加你攻击速度 %d%%， 持续5回合。
+		Each time you move, the cooldown of this talent is reduced by 1.]], [[发射一枚快速的弹丸，造成 %d%% 伤害，攻击速度是你普通攻击的两倍。增加你攻击速度 %d%%， 持续5回合。
 		移动将会降低技能冷却 1 回合。]], "tformat")
 t("Hurricane Shot", "飓风连射", "talent name")
-t("Take aim and unload up to %d shots for %d%% weapon damage each against random enemies inside a cone. Each enemy can only be hit once (twice for talent level 3 and higher). Using Swift Shot lowers the cooldown by 1.", "最多发射 %d 颗弹矢，随机攻击锥形范围内的敌人，每颗造成 %d%% 武器伤害。每个敌人只能被攻击 1 次（当技能等级在 3 级或更高时为 2 次）。使用快速射击技能会降低冷却时间 1 回合。", "tformat")
+t("Take aim and unload up to %d shots for %d%% weapon damage each against random enemies inside a cone. Each enemy can only be hit once (twice for talent level 3 and higher). Using Swift Shot lowers the cooldown by 1.", "最多发射 %d 颗弹丸，随机攻击锥形范围内的敌人，每颗造成 %d%% 武器伤害。每个敌人只能被攻击 1 次（当技能等级在 3 级或更高时为 2 次）。使用快速射击技能会降低冷却时间 1 回合。", "tformat")
 t("Bombardment", "连环炮击", "talent name")
-t("Your Shoot talent now costs %d stamina but fires %d times for %d%% damage per shot.", "你的基础射击技能消耗 %d 体力，发射 %d 颗石弹，每颗造成 %d%% 伤害。", "tformat")
+t("Your Shoot talent now costs %d stamina but fires %d times for %d%% damage per shot.", "你的基础射击技能消耗 %d 体力，发射 %d 颗弹丸，每颗造成 %d%% 伤害。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/sling.lua"
@@ -40581,7 +40581,7 @@ t("A Million Cuts", "千刀万剐", "entity name")
 t("Purification Tools", "净化的工具", "entity name")
 t("Library", "图书馆", "entity name")
 t("Trainer", "训练师", "entity name")
-t("Grim-looking fighter", "面目狰狞的斗士", "_t")
+t("Grim-looking fighter", "面色阴沉的斗士", "_t")
 t("Nature's Emporium", "自然大百货", "entity name")
 
 ------------------------------------------------
