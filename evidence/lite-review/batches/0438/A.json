@@ -1,0 +1,59 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "f57433f3fb0b",
+   "verdict": "OK"
+  },
+  {
+   "id": "2e6416e07f50",
+   "verdict": "OK"
+  },
+  {
+   "id": "a8ca862779f7",
+   "verdict": "OK"
+  },
+  {
+   "id": "681bd48373e4",
+   "verdict": "OK"
+  },
+  {
+   "id": "bead9adbcf62",
+   "verdict": "OK"
+  },
+  {
+   "id": "5aee27a2e1b4",
+   "verdict": "OK"
+  },
+  {
+   "id": "183a632f696b",
+   "verdict": "OK"
+  },
+  {
+   "id": "ddce7713d6b0",
+   "verdict": "ISSUE",
+   "observation": "skirmisher-slings.lua:67-70 display_speed 显示 Swift Shot 的出手耗时：speed = getSpeed('archery')*0.5，即以两倍射速射击（耗时为普通射击的一半）。\"Double Archery\" 指双倍射速，译成「双倍弓箭」意为两把弓／两倍弓箭，意思错误，且该技能用的是投石索而不是弓。",
+   "suggestion": "双倍射速(#LIGHT_GREEN#%d%%#LAST#回合)"
+  },
+  {
+   "id": "4b163d5a87e5",
+   "verdict": "ISSUE",
+   "observation": "skirmisher-slings.lua:59-65 callbackOnMove：每次实际移动都会让冷却减少 1（force 移动或原地不动除外）。原文是 \"Each time you move\"，译文「移动将会降低技能冷却 1 回合」丢掉了「每次」，读起来像只减一次。另外「增加你攻击速度 %d%%」语序生硬。",
+   "suggestion": "发射一枚快速的弹丸，造成 %d%% 伤害，射击速度是你普通攻击的两倍，并使你的攻击速度提高 %d%%，持续 5 回合。\n\t\t你每移动一次，本技能的冷却时间减少 1 回合。"
+  },
+  {
+   "id": "e060f09382fd",
+   "verdict": "OK"
+  },
+  {
+   "id": "295c1d583c37",
+   "verdict": "ISSUE",
+   "observation": "skirmisher-slings.lua:202-203 说的是 Shoot 技能，库内技能名是「射击」（mod-tome.lua:29993），译文写成「基础射击技能」，和技能名对不上。另外原文 \"now costs ... but fires\" 表示开启这个持续技能后射击方式改变，「现在」和「但」被删，没有交代这是开启后才生效的效果。",
+   "suggestion": "你的射击技能现在消耗 %d 体力，但会发射 %d 次，每次造成 %d%% 伤害。"
+  },
+  {
+   "id": "f9db850b8fd4",
+   "verdict": "OK"
+  }
+ ]
+}

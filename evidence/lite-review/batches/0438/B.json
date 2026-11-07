@@ -1,0 +1,61 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "f57433f3fb0b",
+   "verdict": "OK"
+  },
+  {
+   "id": "2e6416e07f50",
+   "verdict": "OK"
+  },
+  {
+   "id": "a8ca862779f7",
+   "verdict": "OK"
+  },
+  {
+   "id": "681bd48373e4",
+   "verdict": "ISSUE",
+   "observation": "固定源码 game/modules/tome/data/talents/cunning/survival.lua:189-191 的说明共含 2 个换行；译文将“解除陷阱失败可能会触发陷阱”另起一行，变成 3 个换行，违反换行数量不变量。",
+   "suggestion": "你搜索邻近的一个地格中隐藏的陷阱（侦察强度 %d），并在可能时将其解除（解除强度 %d，取决于你的%s技能）。\n\t\t解除陷阱有最低技能等级需求，且你必须能够进入陷阱所在的地格才能操作，但实际仍留在当前位置。解除陷阱失败可能会触发陷阱。\n\t\t解除能力随灵巧值提升。"
+  },
+  {
+   "id": "bead9adbcf62",
+   "verdict": "OK"
+  },
+  {
+   "id": "5aee27a2e1b4",
+   "verdict": "OK"
+  },
+  {
+   "id": "183a632f696b",
+   "verdict": "ISSUE",
+   "observation": "固定源码 game/modules/tome/data/talents/techniques/combat-training.lua:106-111 的说明共含 5 个换行，第一句与数值加成同段；译文在第一句后额外换行，共 6 个换行，违反换行数量不变量。",
+   "suggestion": "你使用防具来偏转攻击和保护重要部位的能力加强了。根据当前穿戴的躯干护甲，提高 %d 护甲值和 %d%% 护甲强度，并使近战或远程攻击对你造成暴击的几率降低 %d%%。\n\t\t（这项技能只对重甲或板甲提供加成。）\n\t\t在等级 1 时，能使你装备重甲、金属手套、头盔和重靴。\n\t\t在等级 2 时，能使你装备盾牌。\n\t\t在等级 3 时，能使你装备板甲。\n\t\t%s"
+  },
+  {
+   "id": "ddce7713d6b0",
+   "verdict": "ISSUE",
+   "observation": "固定源码 game/modules/tome/data/talents/techniques/skirmisher-slings.lua:66-70 是行动速度标签：消耗普通射击一半的时间，显示双倍射击速度。该技能使用投石索（55、78、90 行）。“双倍弓箭”将速度类型译成武器数量，未表达双倍射击速度。",
+   "suggestion": "双倍射击速度（#LIGHT_GREEN#%d%%#LAST#回合）"
+  },
+  {
+   "id": "4b163d5a87e5",
+   "verdict": "ISSUE",
+   "observation": "固定源码 game/modules/tome/data/talents/techniques/skirmisher-slings.lua:86、90-92 表示使玩家的攻击速度提高指定百分比，持续 5 回合。译文“增加你攻击速度 %d%%”中“你”与“攻击速度”之间缺少结构助词，且增幅放在宾语后导致搭配生硬；代入数值后“增加你攻击速度 20%”仍是病句。",
+   "suggestion": "以普通攻击两倍的速度发射一枚投石索弹丸，造成 %d%% 伤害，并使你的攻击速度提高 %d%%，持续5回合。\n\t\t每次移动都会使此技能的冷却时间缩短 1 回合。"
+  },
+  {
+   "id": "e060f09382fd",
+   "verdict": "OK"
+  },
+  {
+   "id": "295c1d583c37",
+   "verdict": "OK"
+  },
+  {
+   "id": "f9db850b8fd4",
+   "verdict": "OK"
+  }
+ ]
+}

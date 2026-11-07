@@ -23569,8 +23569,7 @@ t("#CADET_BLUE#You don't see a trap there.", "#CADET_BLUE#你在这里并没有�
 t([[You search a nearby grid for a hidden trap (%d detection 'power') and disarm it if possible (%d disarm 'power', based on your skill with %s).
 		Disarming a trap requires at least a minimum skill level, and you must be able to enter the trap's grid to manipulate it, though you stay in your current location.  A failed attempt to disarm a trap may trigger it.
 		Your skill improves with your your Cunning.]], [[你搜索邻近的一个地格中隐藏的陷阱（侦察强度 %d）， 并在可能时将其解除（解除强度 %d， 取决于你的%s技能）。
-		解除陷阱有最低技能等级需求，且你必须能够移动到陷阱的所在格，尽管你仍然留在你的当前位置。
-		解除陷阱失败可能会触发陷阱。
+		解除陷阱有最低技能等级需求，且你必须能够进入陷阱所在的地格才能操作，但实际仍留在当前位置。解除陷阱失败可能会触发陷阱。
 		解除能力随灵巧值提升。]], "tformat")
 
 ------------------------------------------------
@@ -30233,8 +30232,7 @@ t([[You become better at using your armour to deflect blows and protect your vit
 		At level 1, it allows you to wear heavy mail armour, gauntlets, helms, and heavy boots.
 		At level 2, it allows you to wear shields.
 		At level 3, it allows you to wear massive plate armour.
-		%s]], [[你使用防具来偏转攻击和保护重要部位的能力加强了。
-		根据现有防具，提高 %d 护甲值和 %d%% 护甲强度，并使近战或远程攻击对你造成暴击的几率降低 %d%%。
+		%s]], [[你使用防具来偏转攻击和保护重要部位的能力加强了。根据当前穿戴的躯干护甲，提高 %d 护甲值和 %d%% 护甲强度，并使近战或远程攻击对你造成暴击的几率降低 %d%%。
 		（这项技能只对重甲或板甲提供加成。）
 		在等级 1 时，能使你装备重甲、金属手套、头盔和重靴。
 		在等级 2 时，能使你装备盾牌。
@@ -30713,14 +30711,14 @@ t([[Increases weapon damage by %d%% and physical power by 30 when using slings.
 		Also, increases your reload rate by %d.]], [[使用投石索时提高 %d%% 武器伤害，获得 30 物理强度。
 		同时，每次装填额外恢复 %d 枚弹药。]], "tformat")
 t("Swift Shot", "快速射击", "talent name")
-t("Double Archery (#LIGHT_GREEN#%d%%#LAST# of a turn)", "双倍弓箭(#LIGHT_GREEN#%d%%#LAST#回合)", "tformat")
+t("Double Archery (#LIGHT_GREEN#%d%%#LAST# of a turn)", "双倍射速(#LIGHT_GREEN#%d%%#LAST#回合)", "tformat")
 t([[Fire off a quick sling bullet for %d%% damage at double your normal attack speed, as well as increasing your attack speed by %d%% for 5 turns.
-		Each time you move, the cooldown of this talent is reduced by 1.]], [[发射一枚快速的弹丸，造成 %d%% 伤害，攻击速度是你普通攻击的两倍。增加你攻击速度 %d%%， 持续5回合。
-		移动将会降低技能冷却 1 回合。]], "tformat")
+		Each time you move, the cooldown of this talent is reduced by 1.]], [[以普通攻击两倍的速度发射一枚弹丸，造成 %d%% 伤害，并使你的攻击速度提高 %d%%， 持续 5 回合。
+		你每移动一次，本技能的冷却时间减少 1 回合。]], "tformat")
 t("Hurricane Shot", "飓风连射", "talent name")
 t("Take aim and unload up to %d shots for %d%% weapon damage each against random enemies inside a cone. Each enemy can only be hit once (twice for talent level 3 and higher). Using Swift Shot lowers the cooldown by 1.", "最多发射 %d 颗弹丸，随机攻击锥形范围内的敌人，每颗造成 %d%% 武器伤害。每个敌人只能被攻击 1 次（当技能等级在 3 级或更高时为 2 次）。使用快速射击技能会降低冷却时间 1 回合。", "tformat")
 t("Bombardment", "连环炮击", "talent name")
-t("Your Shoot talent now costs %d stamina but fires %d times for %d%% damage per shot.", "你的基础射击技能消耗 %d 体力，发射 %d 颗弹丸，每颗造成 %d%% 伤害。", "tformat")
+t("Your Shoot talent now costs %d stamina but fires %d times for %d%% damage per shot.", "你的射击技能现在消耗 %d 体力，但会发射 %d 颗弹丸，每颗造成 %d%% 伤害。", "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/techniques/sling.lua"

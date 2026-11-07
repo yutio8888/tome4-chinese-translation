@@ -1,0 +1,38 @@
+{
+ "confirmed": [
+  {
+   "id": "681bd48373e4",
+   "edit": "trap-disarm description: merge 3rd line, LF 3→2; wording 进入陷阱所在的地格才能操作",
+   "evidence": "survival.lua:189-191 has 2 LF; lane B"
+  },
+  {
+   "id": "183a632f696b",
+   "edit": "Armour Training: first sentence joined with bonus line, LF 6→5; 根据当前穿戴的躯干护甲",
+   "evidence": "combat-training.lua:106-111 has 5 LF; 'with your current body armour'; lane B"
+  },
+  {
+   "id": "ddce7713d6b0",
+   "edit": [
+    "双倍弓箭(…回合)",
+    "双倍射速(…回合)"
+   ],
+   "evidence": "skirmisher-slings.lua:66-70 display_speed = archery speed * 0.5, sling talent; lanes A+B"
+  },
+  {
+   "id": "4b163d5a87e5",
+   "edit": "Swift Shot rewritten: 以普通攻击两倍的速度发射…并使你的攻击速度提高 %d%%， 持续 5 回合 / 你每移动一次，本技能的冷却时间减少 1 回合",
+   "evidence": "skirmisher-slings.lua:59-65 callbackOnMove each move; 86,90-92; lanes A+B"
+  },
+  {
+   "id": "295c1d583c37",
+   "edit": [
+    "你的基础射击技能消耗…发射",
+    "你的射击技能现在消耗…但会发射"
+   ],
+   "evidence": "skirmisher-slings.lua:202-203 Shoot = 射击 (mod-tome.lua talent name); lane A"
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "Space after 「%d%%，」 kept per talent-placeholder-spacing rule. Re-checked in 0439."
+}
