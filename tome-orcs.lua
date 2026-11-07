@@ -4341,8 +4341,8 @@ t("You need Galvanic Arcing active and at least one rod to cast this spell.", "�
 t([[Reaching through the aether you temporarily destabilize a galvanic rod's control systems. (Using your weapon as a rod does not count as a valid target)
 		This creates a blast in radius 1 around it, or through all connected rods if they are linked dealing %0.2f galvanic damage to all creatures and stunning them for %d turns.
 		This spell works with Burning Wake.
-		The damage will increase with your Spellpower.]], [[你召唤以太的能量，暂时使一枚放电柱的控制系统不稳定化。（你用作放电柱的武器不能作为该技能的目标）
-		这将会在半径 1 格内，或是在链接到的所有放电柱的领域内，产生一股冲击波。对所有生物造成 %0.2f 放电伤害，并震慑它们 %d 回合。
+		The damage will increase with your Spellpower.]], [[你借助以太的力量，暂时扰乱一枚放电柱的控制系统。（用作放电柱的武器不能作为该技能的目标）
+		这会在该放电柱周围半径 1 格内引发爆炸；若放电柱之间已相互链接，爆炸则贯穿所有相连放电柱之间的区域，对其中所有生物造成 %0.2f 放电伤害，并使其震慑 %d 回合。
 		这一法术可以触发无尽之焰效果。
 		技能伤害受法术强度加成。]], "tformat")
 t("Energy Mass Conversion", "质能转换", "talent name")
@@ -4426,7 +4426,7 @@ t([[After casting a technomancy spell you store some of its energies that you ca
 		The damage will increase with your Spellpower.]], [[每当你释放一个科技法术，你都会储存它一部分的能量，用来超载你的奥术发电机。每消耗 10 点法力值，它产生的蒸汽就增加 4 点，持续 4 回合。
 		此外，这些能量会在你周围半径 3 格内溢出，造成 %0.2f 伤害。（伤害类型基于你使用的科技法术的类型）
 		这个法术只能在你施放科技法术之后、且尚未使用任何其他法术或技能时使用。
-		技能伤害受法术强度提升。]], "tformat")
+		技能伤害受法术强度加成。]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/spells/spells.lua"
