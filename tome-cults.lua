@@ -2693,7 +2693,7 @@ t([[You forcefully try to turn a creature into an horror.
 If the target fails a magical save against your Spellpower, its appearance turns into that of a horror for %d turns, making all other creatures hostile to it.
 Enemies near the target will have their target cleared on application.
 This spell does not work on horrors.]], [[你强行让一个生物变化为恐魔。
-如果目标生物未能通过对抗你法术强度的魔法豁免， %d 回合内它的相貌将转变为恐魔，令其他所有生物与之敌对。
+如果目标生物未能通过对抗你法术强度的法术豁免， %d 回合内它的相貌将转变为恐魔，令其他所有生物与之敌对。
 目标生物周围的敌人将重新考虑其攻击目标。
 该法术对恐魔无效。]], "tformat")
 t("Call of Amakthel", "阿马克泰尔的呼唤", "talent name")
@@ -2860,7 +2860,7 @@ t([[On casting Entropic Gift, a radius 1 rift in spacetime will be opened undern
 		All caught within the rift are pulled towards the center and take %0.2f darkness and %0.2f temporal damage, plus %d%% of your total entropy each turn (currently %d).]], [[每次释放熵之礼物，会在目标处产生一个持续 %d 回合、半径为 1 的时空裂隙，每回合半径增加 1 直到 %d。
 		所有范围内的敌对生物每回合将被拉向裂隙中心并受到 %0.2f 暗影、 %0.2f 时空伤害以及相当于你熵总量 %d%% 的伤害（当前 %d）。]], "tformat")
 t("Power Overwhelming", "能量过载", "talent name")
-t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，战斗中每施放一个非瞬间的主动法术会带来 %0.2f 熵能反冲。]], "tformat")
+t("You empower your spells with dangerous levels of entropic energy, increasing your darkness and temporal damage by %d%% and resistance penetration by %d%% at the cost of suffering %0.2f entropic backlash for each non-instant spell.", [[你用危险的熵能大幅强化你的法术，增加 %d%% 暗影和时空伤害与 %d%% 抗性穿透。作为代价，战斗中每施放一个非瞬发的主动法术会带来 %0.2f 熵能反冲。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/friend-of-the-worm.lua"

@@ -74,21 +74,21 @@ t("#GOLD#Life per level:#LIGHT_BLUE# +0", "#GOLD#每等级生命加值：#LIGHT_
 section "tome-orcs/data/birth/classes/tinker.lua"
 
 t("Tinker", "工匠系", "birth descriptor name")
-t("Tinkers use steamtech to power their attacks, defenses, ...", "工匠们使用蒸汽科技来强化攻击、防御，……", "_t")
+t("Tinkers use steamtech to power their attacks, defenses, ...", "工匠们使用蒸汽科技来强化攻击、防御……", "_t")
 t("Build, experiment, discover. The path of inventions is never over!", "制造、实验、发现。创造之路永无止境！", "_t")
 t("%s healing salve", "%s治疗药剂", "tformat")
 t("simple", "简单的", "_t")
 t("%s frost salve", "%s寒霜药剂", "tformat")
 t("Sawbutcher", "链锯屠夫", "birth descriptor name")
 t("A formidable behemoth of war using steamsaws to improve his deadliness.", "可怕的战争巨兽，使用蒸汽链锯增加致命杀伤力。", "_t")
-t("Their most important stats are: Strength and Cunning", "他们最重要的属性是：力量和灵巧", "_t")
+t("Their most important stats are: Strength and Cunning", "他们最重要的属性是：力量和灵巧。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +5 力量，+0 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+3 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 2", "#GOLD#每等级生命加值：#LIGHT_BLUE# 2", "_t")
 t("Gunslinger", "快枪手", "birth descriptor name")
 t("A tinker who dual-wields steamguns to great effect.", "双持蒸汽枪的工匠。", "_t")
-t("Their most important stats are: Cunning and Dexterity", "他们最重要的属性是：灵巧和敏捷", "_t")
+t("Their most important stats are: Cunning and Dexterity", "他们最重要的属性是：灵巧和敏捷。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +0 力量，+4 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +4 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+4 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# -1", "#GOLD#每等级生命加值：#LIGHT_BLUE# -1", "_t")
@@ -96,7 +96,7 @@ t("Psyshot", "灵能射手", "birth descriptor name")
 t("Bend the mind, bend the tech. All around inspire dread.", "扭曲精神，扭曲科技，令周围的人心生恐惧。", "_t")
 t("Powerful psionics are able to enter a gestalt with steam generators and technology to enhance their own mental prowess.", "强大的灵能使用者能够与蒸汽发生器和科技形成格式塔联结，以增强自身的精神力量。", "_t")
 t("The Psyshot combines this ability to gestalt to enhance his mindstar all the while shooting her steamgun to devastate the enemy lines.", "灵能射手运用这种格式塔联结能力强化灵晶，同时以蒸汽枪射击，摧毁敌方阵线。", "_t")
-t("Their most important stats are: Cunning, Willpower and Dexterity", "他们最重要的属性是：灵巧、意志和敏捷", "_t")
+t("Their most important stats are: Cunning, Willpower and Dexterity", "他们最重要的属性是：灵巧、意志和敏捷。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +3 Dexterity, +0 Constitution", "#LIGHT_BLUE# * +0 力量，+3 敏捷，+0 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +3 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔力，+3 意志，+3 灵巧", "_t")
 t("Annihilator", "歼灭者", "birth descriptor name")
@@ -150,7 +150,7 @@ t("Demonic Horns 6", "恶魔角6", "_t")
 t("Demonic Horns 7", "恶魔角7", "_t")
 t("Demonic Horns 8", "恶魔角8", "_t")
 t("Bikini / Mankini", "比基尼/男性比基尼", "_t")
-t("They possess the #GOLD#Orcish Fury#WHITE# which allows them to increase all their damage for a few turns.", "他们拥有 #GOLD#兽人狂暴#WHITE#，让他们能在几回合内提高造成的全部伤害。", "_t")
+t("They possess the #GOLD#Orcish Fury#WHITE# which allows them to increase all their damage for a few turns.", "他们拥有#GOLD#兽人狂暴#WHITE#，让他们能在几回合内提高造成的全部伤害。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +2 Strength, +1 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +2 力量，+1 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * -1 Magic, +1 Willpower, +1 Cunning", "#LIGHT_BLUE# * -1 魔力，+1 意志，+1 灵巧", "_t")
@@ -202,7 +202,7 @@ t("Whitehoof", "白蹄", "birth descriptor name")
 t("A clan of minotaurs turned to necromancy when faced with imminent destruction.", "一支米诺陶氏族在灭亡迫近时转而研究死灵法术。", "_t")
 t("Whitehooves are resilient and magic imbued undead, hardened by their trials and made stronger by their undeath.", "白蹄族是强韧而充满魔法力量的亡灵，在磨砺中变得坚韧，因不死而更加强大。", "_t")
 t("They now seek to help their orc allies, in hope they will help them back.", "他们现在试图帮助兽人盟友，希望兽人将来也能回报他们。", "_t")
-t("They have access to #GOLD#special talents#WHITE# and a wide range of undead abilities:", "他们拥有 #GOLD# 特殊天赋#WHITE# 和一系列不死族能力：", "_t")
+t("They have access to #GOLD#special talents#WHITE# and a wide range of undead abilities:", "他们拥有#GOLD#特殊天赋#WHITE#和一系列不死族能力：", "_t")
 t("- silence resistance", "- 沉默抗性", "_t")
 t("- bleeding immunity", "- 流血免疫", "_t")
 t("- fear immunity", "- 恐惧免疫", "_t")
@@ -256,7 +256,7 @@ t("Kruk Yeti", "克鲁克雪人", "birth descriptor name")
 t("Yetis are a towering mass of muscle. While normal yetis are non-sentient beasts this kind is special.", "雪人身躯高大，肌肉发达。普通雪人只是缺乏智慧的野兽，但这一种有所不同。", "_t")
 t("A few orcs of the Kruk pride have mastered techno-psionics, allowing them to literally hijack a yeti's mind and transfer their own mind inside.", "少数克鲁克部落的兽人掌握了科技灵能，能够真正劫持一只雪人的心智，并把自己的心智转移进去。", "_t")
 t("Doing so drains their old knowledge and they need to start afresh, gaining considerable strength in the process; for the good of the Prides.", "这样做会耗尽他们旧有的知识，必须重新开始，但在此过程中能获得强大的力量；这一切都是为了部落的利益。", "_t")
-t("They possess the #GOLD#Algid Rage#WHITE# talent which allows them to encase their foes in blocks of ice.", "他们拥有 #GOLD#寒冰之怒#WHITE#技能，让他们能将敌人封在冰块中。", "_t")
+t("They possess the #GOLD#Algid Rage#WHITE# talent which allows them to encase their foes in blocks of ice.", "他们拥有#GOLD#寒冰之怒#WHITE#技能，让他们能将敌人封在冰块中。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, -3 Dexterity, +4 Constitution", "#LIGHT_BLUE# * +5 力量，-3 敏捷，+4 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +1 Willpower, -1 Cunning", "#LIGHT_BLUE# * +0 魔力，+1 意志，-1 灵巧", "_t")
@@ -3965,7 +3965,7 @@ Dark damage creates an effect at the tile for %d turns which deals %d%% of the d
 section "tome-orcs/data/talents/celestial/energies.lua"
 
 t("Celestial Acceleration", "天体加速", "talent name")
-t("Increases your movement speed by %0.2f%% per percent of positive energy and your casting speed by %0.2f%% per percent of negative energy, up to a maximum of %0.2f%% at 80%%. Sustained energy still counts toward the maximum.", "每 1%% 的正能量增加 %0.2f%% 的移动速度，每 1%% 的负能量增加 %0.2f%% 施法速度，在 80%% 时达到最大值，为 %0.2f%%。 维持技能占用的能量仍计入上限。", "tformat")
+t("Increases your movement speed by %0.2f%% per percent of positive energy and your casting speed by %0.2f%% per percent of negative energy, up to a maximum of %0.2f%% at 80%%. Sustained energy still counts toward the maximum.", "每 1%% 的正能量增加 %0.2f%% 的移动速度，每 1%% 的负能量增加 %0.2f%% 施法速度，在 80%% 时达到最大值，为 %0.2f%%。 持续技能占用的能量仍计入上限。", "tformat")
 t("Polarization", "偏振", "talent name")
 t("Whichever of your positive and negative energies is a higher percentage regenerates towards its max instead of its normal resting value (%d positive, %d negative). Your negative and positive regeneration/degeneration rates are increased to %0.2f.", "你的正负能量中，当前百分比较高的一种将向其最大值恢复，而非向通常的静止值恢复 （%d 正能量， %d 负能量）。你的负能量和正能量回复/消退速度增加至 %0.2f。", "tformat")
 t("Magnetic Inversion", "磁反转", "talent name")
@@ -4154,7 +4154,7 @@ t([[Your yeti is attuned to the cold climates.
 		寒冰之怒生效期间，你可以轻松穿透冰块，使冰块吸收的伤害减少 50%%。
 		数值会随着你的意志提升。]], "tformat")
 t("Thick Fur", "厚实毛皮", "talent name")
-t("Your yeti's fur acts like a shield, providing %d%% cold resistance, %d%% physical resistance and %d magical save.", "你厚实的雪人毛皮能像盾牌一样保护你，为你提供 %d%% 寒冷抗性， %d%% 物理抗性和 %d 魔法豁免。", "tformat")
+t("Your yeti's fur acts like a shield, providing %d%% cold resistance, %d%% physical resistance and %d magical save.", "你厚实的雪人毛皮能像盾牌一样保护你，为你提供 %d%% 寒冷抗性， %d%% 物理抗性和 %d 法术豁免。", "tformat")
 t("Resilient Body", "坚韧身躯", "talent name")
 t([[Your yeti's body is very resilient to detrimental effects.
 		Each time you are hit by a physical, magical, or mental detrimental effect your body reacts with a burst of healing.
@@ -4198,7 +4198,7 @@ section "tome-orcs/data/talents/psionic/action-at-a-distance.lua"
 
 t("Condensate", "冷凝", "talent name")
 t([[Condensate hot steam around your foes in radius %d, burning them for %0.2f fire damage and applying the wet effect for 4 turns, halving their stun resistances.
-		The damage will increase with your Mindpower.]], [[在半径 %d 内的敌人周围凝聚炽热蒸汽，造成 %0.2f 点火焰伤害并施加 4 回合的浸湿效果，使其震慑抗性减半。
+		The damage will increase with your Mindpower.]], [[在半径 %d 格内的敌人周围凝聚炽热蒸汽，造成 %0.2f 点火焰伤害并施加 4 回合的浸湿效果，使其震慑抗性减半。
 		伤害随精神强度提高。]], "tformat")
 t("Solidify Air", "固化空气", "talent name")
 t("solid air", "固化空气", "_t")
@@ -4933,7 +4933,7 @@ t([[Using small steam motors to enhance your movements, you are able to slip pas
 		穿过这些目标后，会急速前进 %d 格。]], "tformat")
 t("Agile Gunner", "动若脱兔", "talent name")
 t([[The thrill of the hunt invigorates you. For each foe in radius %d around you, you gain 20%% movement speed (up to %d%%).
-		Current bonus: %d%%.]], [[狩猎的快感令你精神焕发。半径 %d 内每有一个你能看见的敌人，你获得 20%% 移动速度（最多 %d%%）。
+		Current bonus: %d%%.]], [[狩猎的快感令你精神焕发。半径 %d 格内每有一个你能看见的敌人，你获得 20%% 移动速度（最多 %d%%）。
 		当前加成： %d%%。]], "tformat")
 t("Awesome Toss", "华丽抛枪", "talent name")
 t("You require two steamguns for this talent.", "你需要两把蒸汽枪才能使用这一技能。", "logPlayer")
@@ -5637,7 +5637,7 @@ t([[You fire a special botanical shot with your steamgun(s) at a target for 100%
 		This moss has vampiric properties and heals the user for %d%% of the damage done.
 		This talent does not use ammo as it is the ammo.
 		Moss damage scales with Steampower.]], [[你用蒸汽枪向目标发射一枚特殊植物弹，造成 100%% 武器伤害（自然属性）。
-		弹丸会释放孢子，在半径 %d 内长出生命苔藓，持续 %d 回合。
+		弹丸会释放孢子，在半径 %d 格内长出生命苔藓，持续 %d 回合。
 		苔藓每回合对范围内每个敌人造成 %0.2f 自然伤害。
 		这种苔藓具有吸血特性，按所造成伤害的 %d%% 治疗使用者。
 		此技能不消耗弹药，因为它本身就是弹药。
@@ -5763,12 +5763,12 @@ t([[You try to sever the spine of your foe, reducing its global speed by %d%% fo
 		If your talent level is at least 3 %d physical or magical sustains are also removed.
 		#{italic}#Break them, grind them, mow them down!#{normal}#]], [[你尝试撕裂敌人的脊柱，若命中，使其全局速度降低 %d%%， 持续 5 回合，并造成 %d%% 武器伤害。
 		这一击的力量还会移除至多 %d 项物理增益效果。
-		若技能等级至少为 3，还会移除至多 %d 项非精神类维持技能。
+		若技能等级至少为 3，还会移除至多 %d 项非精神类持续技能。
 		#{italic}#切碎他们，折磨他们，收割他们！#{normal}#]], "tformat")
 t("Goresplosion", "爆尸", "talent name")
 t([[When you kill a foe you place small explosives with shrapnels inside its body, making it explode in radius %d.
 		Any foes hit will bleed for %0.2f damage per turn for 6 turns. The shrapnels also damage the vocal cords (or related organ), silencing them for %d turns.
-		#{italic}#Use the finest of wartech now: shrapnels. For blood and mayhem!#{normal}#]], [[每次以武器攻击击杀敌人时，将带有弹片的小型爆炸物植入其体内，使其在半径 %d 内爆炸。
+		#{italic}#Use the finest of wartech now: shrapnels. For blood and mayhem!#{normal}#]], [[每次以武器攻击击杀敌人时，将带有弹片的小型爆炸物植入其体内，使其在半径 %d 格内爆炸。
 		爆炸范围内除你以外的所有生物（包括友方）每回合受到 %0.2f 流血伤害，持续 6 回合。弹片还会损伤他们的声带（或相关器官），使其沉默 %d 回合。
 		#{italic}#使用战争技术的精华——弹片。为了鲜血与混乱！#{normal}#]], "tformat")
 
