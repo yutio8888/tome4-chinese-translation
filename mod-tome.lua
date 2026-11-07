@@ -1899,7 +1899,7 @@ Absorbs (hardiness)% of incoming weapon damage, up to a maximum of (armour) dama
 t([[#GOLD#Crit Reduction#LAST#
 Crit reduction reduces the chance an opponent has of landing a critical strike with a melee or ranged attack.
 ]], [[#GOLD#暴击减免#LAST#
-暴击减免使你减少受近身或远程暴击的概率。
+暴击减免降低你受到近战或远程攻击暴击的概率。
 ]], "_t")
 t([[#GOLD#Crits Shrug Off#LAST#
 Gives a chance to ignore the bonus critical damage from any direct damage attacks (melee, spells, ranged, mind powers, ...).
@@ -22279,7 +22279,7 @@ t([[Learn to lay Warp Mines in a radius of 1.  Warp Mines teleport targets that 
 		The mines are hidden traps (%d detection and %d disarm power based on your Magic), last for %d turns, and each have a ten turn cooldown.
 		Investing in this talent improves the range of all Spacetime Folding talents and the damage caused by your Warp Mines will improve with your Spellpower.
 		
-		Current Spacetime Folding Range: %d]], [[学会在半径 1 的范围内埋设时空地雷。时空地雷会根据所用地雷的类型，将触发它们的目标传送到你身边或推离你身边，并造成 %0.2f 物理和 %0.2f 时空（扭曲）伤害。
+		Current Spacetime Folding Range: %d]], [[学会在半径 1 的范围内埋设时空地雷。时空地雷会根据所用地雷的类型，将触发它们的目标传送到你身边或远离你的地方，并造成 %0.2f 物理和 %0.2f 时空（扭曲）伤害。
 		地雷是隐藏的陷阱（侦测强度 %d， 解除强度 %d， 基于你的魔力），持续 %d 回合，各有 10 回合冷却时间。
 		在该技能上投入点数会提升所有时空折叠系技能的范围，时空地雷的伤害也会随你的法术强度提升。
 		
@@ -22349,7 +22349,7 @@ t("Celerity", "迅捷", "talent name")
 t("When you move you gain %d%% movement speed for %d turns.  This effect stacks up to three times but can only occur once per turn.", "当你移动时，你获得 %d%% 移动速度，持续 %d 回合。  这个效果可以叠加三次，每回合只能触发一次。", "tformat")
 t("Time Dilation", "时间膨胀", "talent name")
 t([[When you use a non-instant chronomancy spell you gain %d%% attack, spell, and mind speed for %d turns.  This effect stacks up to three times but can only occur once per turn.
-		]], [[当你使用非瞬发时空系法术，你获得 %d%% 战斗、施法和精神速度，持续 %d 回合。这个效果可以叠加三次，每回合只能触发一次。
+		]], [[当你使用非瞬发时空系法术时，你获得 %d%% 攻击、施法和精神速度，持续 %d 回合。该效果最多叠加三次，但每回合只能触发一次。
 		]], "tformat")
 t("Haste", "加速", "talent name")
 t("Increases your global speed by %d%% for %d game turns.", "增加你的全局速度 %d%%， 持续 %d 游戏回合。", "tformat")
@@ -22807,7 +22807,7 @@ t("%s resists the disease!", "%s抵抗了疫病！", "logSeen")
 t([[Whenever you deal non-disease blight damage you apply a disease dealing %0.2f blight damage per turn for 6 turns and reducing one of its physical stats (strength, constitution, dexterity) by %d. The three diseases can stack.
 		Virulent Disease will always try to apply a disease the target does not currently have, and also one that will have the most debilitating effect for the target.
 		This disease will try to prioritize being applied to an enemy with a high disease count near the target.
-		The effect will increase with your Spellpower.]], [[每当你造成一个非疾病的枯萎伤害时，你将会对目标施加一项疾病，每回合造成 %0.2f 枯萎伤害，持续 6 回合，并使其一项物理属性（力量、体质或敏捷）降低 %d 点。三种疾病可以叠加。
+		The effect will increase with your Spellpower.]], [[每当你造成非疾病来源的枯萎伤害时，你将会对目标施加一项疾病，每回合造成 %0.2f 枯萎伤害，持续 6 回合，并使其一项物理属性（力量、体质或敏捷）降低 %d 点。三种疾病可以叠加。
 		剧毒瘟疫总是会试图施加一项目标当前尚未感染、且对目标负面效果最大的疾病。
 		该疾病会优先施加在目标附近疾病数量较多的敌人身上。
 		疾病效果随法术强度提升。]], "tformat")
@@ -24489,13 +24489,13 @@ t([[While this ability is active, you will continually call up to %d level %d sh
 		Shadows ignore %d%% of the damage dealt to them by their master.]], [[此技能激活期间，你会持续自动补充至多 %d 个等级为 %d 的阴影来协助战斗。每召唤一个阴影消耗 5 点仇恨值。阴影是脆弱的战士，它们能够：使用奥术重组治疗自己（等级 %d）， 使用闪电突袭攻击敌人（等级 %d）， 使用相位之门进行传送。
 		阴影无视主人对它们造成的 %d%% 伤害。]], "tformat")
 t("Shadow Warriors", "阴影战士", "talent name")
-t("Instill hate in your shadows, strengthening their attacks. They gain %d%% extra Accuracy and %d%% extra damage. The fury of their attacks gives them the ability to try to Dominate their foes, increasing all damage taken by that foe for 4 turns (level %d, %d%% chance at range 1). They also gain the ability to Fade when hit, avoiding all damage until their next turn (%d turn cooldown).", [[将仇恨注入你的阴影，强化它们的攻击。它们获得 %d%% 额外命中和 %d%% 额外伤害加成。它们疯狂的攻击让它们能够尝试支配对手，被支配目标受到的所有伤害提高，持续 4 回合（等级 %d，%d%% 几率 1 格范围）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。]], "tformat")
+t("Instill hate in your shadows, strengthening their attacks. They gain %d%% extra Accuracy and %d%% extra damage. The fury of their attacks gives them the ability to try to Dominate their foes, increasing all damage taken by that foe for 4 turns (level %d, %d%% chance at range 1). They also gain the ability to Fade when hit, avoiding all damage until their next turn (%d turn cooldown).", [[将仇恨注入你的阴影，强化它们的攻击。它们获得 %d%% 额外命中和 %d%% 额外伤害加成。它们疯狂的攻击让它们能够尝试支配对手，被支配目标受到的所有伤害提高，持续 4 回合（等级 %d， 在 1 格范围内有 %d%% 几率触发）。它们同时拥有消隐的能力：受到攻击时免疫所有伤害，直到下一回合开始 （%d 回合冷却时间）。]], "tformat")
 t("Shadow Mages", "阴影法师", "talent name")
 t([[Infuse magic into your shadows to give them fearsome spells. Your shadows receive a bonus of %d to their Spellpower.
 		Your shadows can strike adjacent foes with Lightning (level %d, %d%% chance at range 1).
 		At level 3 your shadows can sear their enemies from a distance with Flames (level %d, %d%% chance at range 2 to 6).
 		At level 5 when your shadows are struck down they will attempt to Reform, becoming whole again (50%% chance).]], [[灌输魔力给你的阴影使它们学会可怕的法术。你的阴影获得 %d 点法术强度加成。
-		你的阴影可以用暗影闪电攻击附近的目标（等级 %d，%d%% 几率 1 格范围）。
+		你的阴影可以用暗影闪电攻击附近的目标（等级 %d， 在 1 格范围内有 %d%% 几率触发）。
 		等级 3 时你的阴影可以远距离使用暗影之火灼烧你的敌人（等级 %d，%d%% 几率 2 到 6 格范围）。
 		等级 5 时你的阴影在被击倒时有 50%% 几率重组并重新加入战斗。]], "tformat")
 t("Focus Shadows", "聚集阴影", "talent name")
@@ -29646,7 +29646,7 @@ t([[Causes a violent earthquake that deals %0.2f physical damage in a radius of 
 		伤害受法术强度加成。]], "tformat")
 t("Crystalline Focus", "水晶力场", "talent name")
 t([[Concentrate on maintaining a Crystalline Focus, increasing all your physical damage by %0.1f%% and ignoring %d%% physical resistance of your targets.
-		Also raises your physical and magical saves by %d.]], [[你专注于维持水晶力场，增加你 %0.1f%% 所有物理伤害并忽略目标 %d%% 的物理伤害抗性。
+		Also raises your physical and magical saves by %d.]], [[你专注于维持水晶力场，使你造成的所有物理伤害增加 %0.1f%%， 并忽略目标 %d%% 的物理伤害抗性。
 		同时增加你 %d 点物理和法术豁免。]], "tformat")
 
 ------------------------------------------------
