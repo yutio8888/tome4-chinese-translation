@@ -1,0 +1,53 @@
+{
+ "confirmed": [
+  {
+   "id": "32c3f5762cae",
+   "edit": [
+    "激活消耗 %d 能量，总计 %d/%d。",
+    "激活消耗 %d 能量（当前 %d/%d）。"
+   ],
+   "evidence": "Object.lua:2214 usepower, power, max_power; lane A"
+  },
+  {
+   "id": "6af0762b624b",
+   "edit": [
+    "阵法持续",
+    "法阵持续"
+   ],
+   "evidence": "same circle earlier in the entry 法阵; lane A"
+  },
+  {
+   "id": "652dfa390e1b",
+   "edit": [
+    "伤害变化为 %d%%",
+    "伤害调整 %d%%"
+   ],
+   "evidence": "chants.lua:160-169,310 negative change value; lane B"
+  },
+  {
+   "id": "23e49f3d7bd1",
+   "edit": [
+    "（在黑暗之雾中增加你 +%d%% 移动速度）",
+    "（移入黑暗之雾所在的格子时，移动速度提高 %d%%）"
+   ],
+   "evidence": "darkness.lua:375-376, Combat.lua:2396-2399 speed applies when moving into creeping dark; lane B"
+  },
+  {
+   "id": "3f2219796b5c",
+   "edit": "restored trailing LF+TAB (LF 8→9)",
+   "evidence": "fears.lua:188-197 source ends with newline+indent; lane B"
+  }
+ ],
+ "advisory": [],
+ "rejected": [
+  {
+   "id": "c42295df24a6",
+   "note": "Entry carries args_order {2,1,3} (input.json and mod-tome.lua); radius/damage map correctly. Lane B misread args_order as null."
+  },
+  {
+   "id": "985aee2ac267",
+   "note": "Entry carries args_order {1,3,2,4}; %d receives radius and %0.1f receives damage. Lane B misread args_order as null."
+  }
+ ],
+ "notes": "Host audited placeholder order across sweep batches 1-2 (tools-free script /tmp/phorder.py): no unintended reorder."
+}

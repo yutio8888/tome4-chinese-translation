@@ -1000,7 +1000,7 @@ t([[It can be used to %s
 
 Activation costs %d power out of %d/%d.]], [[它可以用于%s
 
-激活消耗 %d 能量，总计 %d/%d。]], "tformat")
+激活消耗 %d 能量（当前 %d/%d）。]], "tformat")
 t("It can be used to %s.", "它可以用于%s。", "tformat")
 t("Power cost: ", "能量消耗：", "_t")
 t("%d out of %d/%d.", "%d（当前 %d/%d）。", "tformat")
@@ -21004,7 +21004,7 @@ t([[You have learned to sing the praises of the Sun, in the form of three defens
 			You may only have one Chant active at a time.]], [[你学会了三种防御赞歌，以此咏唱对太阳的赞颂：
 			坚韧赞歌：增加 %d 精神豁免， %d%% 最大生命值
 			堡垒赞歌：增加 %d 物理豁免， %d%% 物理抗性， %d 护甲，15%% 护甲强度
-			元素赞歌：增加 %d 法术豁免， %d%% 火焰/寒冷/闪电/酸性抗性，距离三格及以上的敌人对你造成的伤害变化为 %d%% （负值表示降低）。
+			元素赞歌：增加 %d 法术豁免， %d%% 火焰/寒冷/闪电/酸性抗性，距离三格及以上的敌人对你造成的伤害调整 %d%% （负值表示降低）。
 			你同时只能激活一种赞歌。]], "tformat")
 t("Chant Illuminate", "初现光芒", "talent name")
 t([[Your Chants now bathe you in a cloak of light, which increases your stamina and mana regenerations by %0.2f per turn and does %0.2f light damage to anyone who hits you in melee.
@@ -24102,7 +24102,7 @@ t([[Creeping dark slowly spreads from the target location and %d spots in a radi
 		伤害随精神强度提高。你对任何进入你的黑暗之雾的目标额外造成 +%d%% 伤害。]], "tformat")
 t("Dark Vision", "黑暗视觉", "talent name")
 t([[Your eyes penetrate the darkness to find anyone that may be hiding there. This allows you to see through creeping darkness out to a radius of %d. You can also find your way through the darkness with greater speed (+%d%% movement into creeping darkness).
-		You do +%d%% damage to anything that has entered your creeping dark.]], [[你的眼睛穿过黑暗，发现可能隐藏其中的敌人。你的视线可以穿过黑暗之雾看到半径 %d 格范围，同时你能以更快的步伐穿行于黑暗之中（在黑暗之雾中增加你 +%d%% 移动速度）。
+		You do +%d%% damage to anything that has entered your creeping dark.]], [[你的眼睛穿过黑暗，发现可能隐藏其中的敌人。你的视线可以穿过黑暗之雾看到半径 %d 格范围，同时你能更快地穿行其中（移入黑暗之雾所在的格子时，移动速度提高 %d%%）。
 		你对任何进入你的黑暗之雾的目标造成 +%d%% 伤害。]], "tformat")
 t("Dark Torrent", "黑暗迸发", "talent name")
 t([[Sends a torrent of searing darkness through your foes, doing %d darkness damage. There is a 25%% chance the rushing darkness will blind them for 3 turns and cause them to lose track of their target.
@@ -24174,7 +24174,8 @@ t([[Instill fear in your foes within %d radius of a target location dealing %0.2
 		#ORANGE#妄想症：#LAST# 目标有 %d%% 几率使用物理攻击附近的生物，不管它是敌对还是友方生物。如果攻击命中，被攻击者也会陷入妄想症。
 		#ORANGE#绝望：#LAST# 精神伤害抗性，精神豁免，护甲值和闪避各降低 %d。
 		#ORANGE#惊惧：#LAST# 每回合受到 %0.2f 精神和 %0.2f 暗影伤害，技能冷却时间增加 %d%%。
-		#ORANGE#恶灵缠身：#LAST# 目标每有一个负面精神效果，则每回合受到 %0.2f 精神和 %0.2f 暗影伤害。]], "tformat")
+		#ORANGE#恶灵缠身：#LAST# 目标每有一个负面精神效果，则每回合受到 %0.2f 精神和 %0.2f 暗影伤害。
+		]], "tformat")
 t("Heighten Fear", "恐惧加深", "talent name")
 t([[Heighten the fears of those near to you. Any foe you attempt to inflict a fear upon and who remains in a radius of %d and in sight of you for %d (non-consecutive) turns, will take %0.2f mind and %0.2f darkness damage and gain a new fear that lasts for %d turns.
 			This effect completely ignores fear resistance, but can be saved against.]], [[加深你周围敌人的恐惧。所有你试图施加恐惧的目标若停留在你视野内，并且和你距离不超过 %d， 累计（不必连续）达到 %d 回合时，就会受到 %0.2f 精神和 %0.2f 暗影伤害，并获得一个新的持续 %d 回合的恐惧效果。
@@ -26622,7 +26623,7 @@ t([[You are linked to your shadows for %d turns, diverting %d%% of all damage yo
 		效果随精神强度提高。]], "tformat")
 t("Circle of Blazing Light", "炽焰之阵", "talent name")
 t([[Creates a circle of radius %d at your feet; the circle lights up affected tiles, increases your positive energy by %d each turn and deals %0.2f light damage and %0.2f fire damage per turn to everyone else within its radius.  The circle lasts %d turns.
-		The damage will increase with your Spellpower.]], [[在你的脚下制造一个半径 %d 格的法阵，它会照亮范围区域，每回合增加 %d 正能量，并对范围内除你之外的所有生物每回合造成 %0.2f 光系伤害和 %0.2f 火焰伤害。阵法持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[在你的脚下制造一个半径 %d 格的法阵，它会照亮范围区域，每回合增加 %d 正能量，并对范围内除你之外的所有生物每回合造成 %0.2f 光系伤害和 %0.2f 火焰伤害。法阵持续 %d 回合。
 		伤害受法术强度加成。]], "tformat")
 t("Blur Sight", "模糊视觉", "talent name")
 t([[The caster's image blurs, granting a %d bonus to Defense.

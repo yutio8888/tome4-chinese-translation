@@ -1,0 +1,336 @@
+{
+  "batch": "0446",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "11ab2c44d0e1",
+      "verdict": "OK"
+    },
+    {
+      "id": "2f0fcf291cd1",
+      "verdict": "OK"
+    },
+    {
+      "id": "97a546a69ad9",
+      "verdict": "OK"
+    },
+    {
+      "id": "e43e48a8975c",
+      "verdict": "OK"
+    },
+    {
+      "id": "32c3f5762cae",
+      "verdict": "OK"
+    },
+    {
+      "id": "d58465140e8b",
+      "verdict": "OK"
+    },
+    {
+      "id": "0a7691c0856c",
+      "verdict": "OK"
+    },
+    {
+      "id": "b96b4c9d2b36",
+      "verdict": "OK"
+    },
+    {
+      "id": "9fab730af789",
+      "verdict": "OK"
+    },
+    {
+      "id": "7943824cb296",
+      "verdict": "OK"
+    },
+    {
+      "id": "56b8eda463e4",
+      "verdict": "OK"
+    },
+    {
+      "id": "652dfa390e1b",
+      "verdict": "ISSUE",
+      "observation": "固定核心源码 game/modules/tome/data/talents/celestial/chants.lua:160-169 中 getDamageChange 返回负的伤害变化量，按 (100 + 变化量)/100 乘算伤害；:310 将此负数直接传给最后一个占位符。译文“伤害变化为 %d%%”把变化量说成伤害变为的比例，例如显示“伤害变化为 -15%”，与实际伤害降低15%不符；括注仍未消除此歧义。",
+      "suggestion": "你学会了三种防御赞歌，以此咏唱对太阳的赞颂：\n\t\t\t坚韧赞歌：增加 %d 精神豁免， %d%% 最大生命值\n\t\t\t堡垒赞歌：增加 %d 物理豁免， %d%% 物理抗性， %d 护甲，15%% 护甲强度\n\t\t\t元素赞歌：增加 %d 法术豁免， %d%% 火焰/寒冷/闪电/酸性抗性，距离三格及以上的敌人对你造成的伤害调整 %d%%（负值表示降低）。\n\t\t\t你同时只能激活一种赞歌。"
+    },
+    {
+      "id": "514ffa48fbfd",
+      "verdict": "OK"
+    },
+    {
+      "id": "51334dc4f024",
+      "verdict": "OK"
+    },
+    {
+      "id": "14d938917349",
+      "verdict": "OK"
+    },
+    {
+      "id": "8b8a94b750cc",
+      "verdict": "OK"
+    },
+    {
+      "id": "667937d7bc2a",
+      "verdict": "OK"
+    },
+    {
+      "id": "1b98df83e680",
+      "verdict": "OK"
+    },
+    {
+      "id": "7780272c0c79",
+      "verdict": "OK"
+    },
+    {
+      "id": "571d967d8e4b",
+      "verdict": "OK"
+    },
+    {
+      "id": "fbaf601101a4",
+      "verdict": "OK"
+    },
+    {
+      "id": "41ab46e72805",
+      "verdict": "OK"
+    },
+    {
+      "id": "66fe786c0b95",
+      "verdict": "OK"
+    },
+    {
+      "id": "381525947a0a",
+      "verdict": "OK"
+    },
+    {
+      "id": "d6de950f8a3c",
+      "verdict": "OK"
+    },
+    {
+      "id": "3d58830ca8b7",
+      "verdict": "OK"
+    },
+    {
+      "id": "a77cc2690c5f",
+      "verdict": "OK"
+    },
+    {
+      "id": "9c76a8c80507",
+      "verdict": "OK"
+    },
+    {
+      "id": "880bec4a898c",
+      "verdict": "OK"
+    },
+    {
+      "id": "727885176db0",
+      "verdict": "OK"
+    },
+    {
+      "id": "b82904d03d14",
+      "verdict": "OK"
+    },
+    {
+      "id": "5404e9a83e0e",
+      "verdict": "OK"
+    },
+    {
+      "id": "7dabf45062cf",
+      "verdict": "OK"
+    },
+    {
+      "id": "e6a094575555",
+      "verdict": "OK"
+    },
+    {
+      "id": "6453eb246e29",
+      "verdict": "OK"
+    },
+    {
+      "id": "f18407c64d41",
+      "verdict": "OK"
+    },
+    {
+      "id": "8a55ee791351",
+      "verdict": "OK"
+    },
+    {
+      "id": "23e49f3d7bd1",
+      "verdict": "ISSUE",
+      "observation": "固定核心源码 game/modules/tome/data/talents/cursed/darkness.lua:375-376 描述向黑暗之雾内移动的速度加成；game/modules/tome/class/interface/Combat.lua:2396-2399 依据移动目的格是否有 creepingDark 给予加速。译文括号中“在黑暗之雾中增加你 +%d%% 移动速度”成分搭配错误（“你”后缺“的”），且应说明移入雾中格子时加速。",
+      "suggestion": "你的双眼能穿透黑暗，发现可能隐藏其中的生物。你可以透过黑暗之雾看清半径 %d 格内的区域，还能更快地穿行其中（移入黑暗之雾所在格子时，移动速度提高 %d%%）。\n\t\t你对任何进入你的黑暗之雾的目标造成 +%d%% 伤害。"
+    },
+    {
+      "id": "3f2219796b5c",
+      "verdict": "ISSUE",
+      "observation": "本批 source 与固定核心源码 game/modules/tome/data/talents/cursed/fears.lua:188-197 在最后一条 Haunted 说明后仍有一个换行及缩进，译文在最后一句结束，换行数量由9变成8，违反本批换行数量不变量。",
+      "suggestion": "将恐惧注入目标位置半径 %d 格范围内的敌人中，造成 %0.2f 精神和 %0.2f 暗影伤害，并随机造成 4 种可能的恐惧效果之一，持续 %d 回合。\n\t\t目标可以与你的精神强度对抗，以抵抗恐惧效果。\n\t\t恐惧效果受精神强度加成。\n\n\t\t可能的恐惧效果如下所示：\n\t\t#ORANGE#妄想症：#LAST# 目标有 %d%% 几率使用物理攻击附近的生物，不管它是敌对还是友方生物。如果攻击命中，被攻击者也会陷入妄想症。\n\t\t#ORANGE#绝望：#LAST# 精神伤害抗性，精神豁免，护甲值和闪避各降低 %d。\n\t\t#ORANGE#惊惧：#LAST# 每回合受到 %0.2f 精神和 %0.2f 暗影伤害，技能冷却时间增加 %d%%。\n\t\t#ORANGE#恶灵缠身：#LAST# 目标每有一个负面精神效果，则每回合受到 %0.2f 精神和 %0.2f 暗影伤害。\n\t\t"
+    },
+    {
+      "id": "10612c5800ca",
+      "verdict": "OK"
+    },
+    {
+      "id": "c42295df24a6",
+      "verdict": "ISSUE",
+      "observation": "固定核心源码 game/modules/tome/data/talents/cursed/punishments.lua:64-66 的参数依次为精神伤害、半径、伤害衰减百分比；本条 args_order 为 null。译文先写半径再写精神伤害，导致伤害数值被显示成半径，半径被显示成伤害。例如伤害100、半径3会显示“半径100格…造成3精神伤害”。",
+      "suggestion": "你对任何敢于靠近的敌人释放可怕的诅咒，造成 %d 精神伤害，影响半径 %d 格内的目标。受影响目标的结算顺序随机；从第二个目标起，每个目标受到的伤害都比前一个减少 %d%%，且每个目标都有 25%% 几率遭受思维封锁。\n\n伤害受精神强度加成。"
+    },
+    {
+      "id": "cc2002c4fb42",
+      "verdict": "OK"
+    },
+    {
+      "id": "8dd0eb830b69",
+      "verdict": "OK"
+    },
+    {
+      "id": "6bc1eb8aa309",
+      "verdict": "OK"
+    },
+    {
+      "id": "343e0bb015bf",
+      "verdict": "OK"
+    },
+    {
+      "id": "e8af619aa573",
+      "verdict": "OK"
+    },
+    {
+      "id": "985aee2ac267",
+      "verdict": "ISSUE",
+      "observation": "固定核心源码 game/modules/tome/data/talents/gifts/ooze.lua:165-169 的参数依次为持续时间、伤害、半径3、失衡回复量；本条 args_order 为 null。译文第二句改为先半径后伤害，且改了格式符顺序，令伤害值按整数显示为半径、半径3按小数显示为伤害。",
+      "suggestion": "你随机吸收一个紧靠你的浮肿软泥怪，获得 40%% 对全部伤害的抗性，持续 %d 个回合。\n\t\t同时你会释放一股反魔能量，造成 %0.1f 点法力燃烧伤害，影响半径 %d 格内的目标。\n\t\t如果有丝分裂技能开启，每回合你将减少 %0.1f 点失衡值。\n\t\t伤害、持续时间和失衡值减少量受精神强度加成。"
+    },
+    {
+      "id": "2ad1a2b1ae84",
+      "verdict": "OK"
+    },
+    {
+      "id": "022d4d09b415",
+      "verdict": "OK"
+    },
+    {
+      "id": "e115e830a979",
+      "verdict": "OK"
+    },
+    {
+      "id": "fc5a1eeee018",
+      "verdict": "OK"
+    },
+    {
+      "id": "b48e351b1e65",
+      "verdict": "OK"
+    },
+    {
+      "id": "5841373ee293",
+      "verdict": "OK"
+    },
+    {
+      "id": "2597027ea7bf",
+      "verdict": "OK"
+    },
+    {
+      "id": "6af0762b624b",
+      "verdict": "OK"
+    },
+    {
+      "id": "e8349709cae7",
+      "verdict": "OK"
+    },
+    {
+      "id": "930c617b4a21",
+      "verdict": "OK"
+    },
+    {
+      "id": "1eae0013c741",
+      "verdict": "OK"
+    },
+    {
+      "id": "3cadafbfbf8d",
+      "verdict": "OK"
+    },
+    {
+      "id": "2460430dfdf1",
+      "verdict": "OK"
+    },
+    {
+      "id": "8f6eb4ad59ee",
+      "verdict": "OK"
+    },
+    {
+      "id": "bb739f758e3c",
+      "verdict": "OK"
+    },
+    {
+      "id": "71354070fa2a",
+      "verdict": "OK"
+    },
+    {
+      "id": "0bc232737365",
+      "verdict": "OK"
+    },
+    {
+      "id": "f0d86f4ea4a3",
+      "verdict": "OK"
+    },
+    {
+      "id": "202303aec63c",
+      "verdict": "OK"
+    },
+    {
+      "id": "6e5c33a75c85",
+      "verdict": "OK"
+    },
+    {
+      "id": "fd75024a4da2",
+      "verdict": "OK"
+    },
+    {
+      "id": "ea647e382570",
+      "verdict": "OK"
+    },
+    {
+      "id": "aea7fc3d4ba5",
+      "verdict": "OK"
+    },
+    {
+      "id": "9da27e29c404",
+      "verdict": "OK"
+    },
+    {
+      "id": "e8ec03807b6c",
+      "verdict": "OK"
+    },
+    {
+      "id": "2f3b138ff66b",
+      "verdict": "OK"
+    },
+    {
+      "id": "570154157e6e",
+      "verdict": "OK"
+    },
+    {
+      "id": "6af8f70beb22",
+      "verdict": "OK"
+    },
+    {
+      "id": "4dce198806b6",
+      "verdict": "OK"
+    },
+    {
+      "id": "303a6a15b43a",
+      "verdict": "OK"
+    },
+    {
+      "id": "3cb09490bac7",
+      "verdict": "OK"
+    },
+    {
+      "id": "f9e9e4c6d70e",
+      "verdict": "OK"
+    },
+    {
+      "id": "fc8036fe2bb9",
+      "verdict": "OK"
+    }
+  ]
+}
