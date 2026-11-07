@@ -1,0 +1,609 @@
+[
+ {
+  "id": "cls05-c1-01",
+  "status": "already_fixed",
+  "files": [
+   "mod-tome.lua:32190"
+  ],
+  "old": "",
+  "new": "",
+  "note": "mod-tome.lua:32190 现译已是「告诉了你一个新的威胁」；库内没有残留「新的挑战」。"
+ },
+ {
+  "id": "cls05-c1-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:21007"
+  ],
+  "old": "距离三格及以上的敌人对你造成的伤害变化 %d%%。",
+  "new": "距离三格及以上的敌人对你造成的伤害变化为 %d%% （负值表示降低）。",
+  "note": "chants.lua:310 传入 t3.getDamageChange（负值）。改为「伤害变化为 %d%% （负值表示降低）」；全角括号前的空格是 lint 升级预览规则要求的。"
+ },
+ {
+  "id": "cls05-c1-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:20709"
+  ],
+  "old": "t(\"Serpentine Invaders\", \"蛇形的侵略者\", \"_t\")",
+  "new": "t(\"Serpentine Invaders\", \"蛇形入侵者\", \"_t\")",
+  "note": "任务标题改为「蛇形入侵者」（主代理指定）；全库只有这一处。"
+ },
+ {
+  "id": "cls05-c1-04",
+  "status": "advisory",
+  "files": [
+   "mod-tome.lua:30871"
+  ],
+  "old": "",
+  "new": "",
+  "note": "主代理裁决：Combat Veteran「战斗经验」需要术语裁决，本批不改。"
+ },
+ {
+  "id": "cls05-c2-01",
+  "status": "already_fixed",
+  "files": [
+   "mod-tome.lua:41968",
+   "mod-tome.lua:41969",
+   "mod-tome.lua:41970"
+  ],
+  "old": "",
+  "new": "",
+  "note": "第一批（58ef6b977）已把 \" class\"/\" generic\" 译为无前导空格的「职业」「通用」（mod-tome.lua:41969-41970），模板「%d 个%s技能」现在显示为「4 个职业技能」。"
+ },
+ {
+  "id": "cls05-c2-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:12943",
+   "mod-tome.lua:20996",
+   "mod-tome.lua:21019",
+   "mod-tome.lua:21477",
+   "mod-tome.lua:21477",
+   "mod-tome.lua:23510",
+   "mod-tome.lua:25844"
+  ],
+  "old": "光照半径",
+  "new": "光照范围",
+  "note": "库内多数是「光照范围」（10 处，含角色面板 910/41331 和效果 35176），「光照半径」只有 7 处（mod-tome 6 行，其中 21477 一行两处）。全部统一为「光照范围」。"
+ },
+ {
+  "id": "cls05-c3-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:32022",
+   "mod-tome.lua:32175"
+  ],
+  "old": "摆脱这个邪恶法师，努力在世界上找到自己的容身之处。",
+  "new": "除掉这个邪恶法师，努力在世界上找到自己的容身之处。",
+  "note": "Escape/Get rid of 的「摆脱」→「除掉」；同一句在食尸鬼和骷髅两个开局介绍里各有一处（32022、32175，英文原文相同），一并修改。"
+ },
+ {
+  "id": "cls05-c3-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:998"
+  ],
+  "old": "激活会将%s置入冷却状态%d回合。]]",
+  "new": "激活会将%s置入冷却状态 %d 回合。]]",
+  "note": "模板 998 补空格：「置入冷却状态 %d 回合」。非技能区段，lint 不作要求；\"Talent %s\"→「技能 %s」（995）未改，那个空格是模板拼接结果，不影响阅读。"
+ },
+ {
+  "id": "cls08-c1-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:25740"
+  ],
+  "old": "然而，它们会周期性的嘲讽敌人并用龟壳保护自己。",
+  "new": "然而，它们会周期性地嘲讽敌人，并用龟壳保护自己。",
+  "note": "「周期性的」→「周期性地」，并在「并用龟壳」前补逗号。"
+ },
+ {
+  "id": "cls08-c1-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:25636"
+  ],
+  "old": "三头蛇可以喷出毒系、酸系、闪电吐息。",
+  "new": "三头蛇能够喷吐毒素、酸液和闪电。",
+  "note": "改为「三头蛇能够喷吐毒素、酸液和闪电。」"
+ },
+ {
+  "id": "cls08-c1-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:25641"
+  ],
+  "old": "\"@Source@召唤了一只雾凇！\"",
+  "new": "\"@Source@召唤了一棵雾凇！\"",
+  "note": "召唤日志「一只雾凇」→「一棵雾凇」，与说明的量词一致；同一说明里的「3 格半径范围内」由半径语序统一一并改为「半径 3 格范围内」。"
+ },
+ {
+  "id": "cls08-c2-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:3328"
+  ],
+  "old": "\"矮人是一支隐秘的种族，生活于地下世界钢铁王座。\"",
+  "new": "\"矮人是一支隐秘的种族，来自他们的地下家园——钢铁王座。\"",
+  "note": "改为「来自他们的地下家园——钢铁王座」。"
+ },
+ {
+  "id": "cls08-c2-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:3335"
+  ],
+  "old": "\"他们天生掌握#GOLD#钢筋铁骨#WHITE#，允许他们在短时间内提高护甲、物理豁免和法术豁免。\"",
+  "new": "\"他们天生拥有#GOLD#钢筋铁骨#WHITE#，能在短时间内提高护甲、物理豁免和法术豁免。\"",
+  "note": "「掌握」→「拥有」，「允许他们在」→「能在」。"
+ },
+ {
+  "id": "cls08-c2-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:24699"
+  ],
+  "old": "范围内所有目标受到 %0.2f 寒冷伤害，并被冻结3回合。",
+  "new": "范围内所有目标受到 %0.2f 寒冷伤害，并被冻结 3 回合。",
+  "note": "「冻结3回合」→「冻结 3 回合」。同类检查：库内没有其他「冻结N回合」无空格写法。"
+ },
+ {
+  "id": "cls08-c2-04",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:25444"
+  ],
+  "old": "每当它移动时，半径2范围内的所有敌人会受到 %0.2f 闪电伤害，并被击退2格。",
+  "new": "每当它移动时，半径 2 格范围内的所有敌人会受到 %0.2f 闪电伤害，并被击退 2 格。",
+  "note": "「半径2范围」「击退2格」→「半径 2 格范围」「击退 2 格」。"
+ },
+ {
+  "id": "cls08-c2-05",
+  "status": "rejected",
+  "files": [
+   "mod-tome.lua:24692"
+  ],
+  "old": "",
+  "new": "",
+  "note": "按实现裁决：cold-drake.lua Ice Wall 中每堵冰墙召唤物以自身为中心 project({type=\"ball\", radius=self.radius, friendlyfire=false}, ..., ICE, dam)，也就是每堵墙对自己半径内的敌人造成伤害。现译「每格冰墙都会对半径 %d 内的敌人造成…」与实现一致，不改。"
+ },
+ {
+  "id": "cls08-c3-01",
+  "status": "rejected",
+  "files": [
+   "mod-tome.lua:25291",
+   "mod-tome.lua:28833"
+  ],
+  "old": "",
+  "new": "",
+  "note": "主代理裁决驳回：ignore_direct_crits 的实现是按比例削减暴击额外伤害（damage_types.lua:131-151，第一批 cls07b-03 已核实），现译贴合实现。"
+ },
+ {
+  "id": "cls08-c3-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:25276"
+  ],
+  "old": "同时你会释放一股反魔能量，在 %d 半径内造成 %0.1f 点法力燃烧伤害。",
+  "new": "同时你会释放一股反魔能量，在半径 %d 格内造成 %0.1f 点法力燃烧伤害。",
+  "note": "「在 %d 半径内」→「在半径 %d 格内」。全库语序统一见 cls08-c3-02+similar。"
+ },
+ {
+  "id": "cls08-c3-03",
+  "status": "deferred",
+  "files": [
+   "mod-tome.lua:821",
+   "mod-tome.lua:822",
+   "mod-tome.lua:149"
+  ],
+  "old": "",
+  "new": "",
+  "note": "插件代码问题。all 键使用面已确认：_t\"all\"（无标签，mod-tome.lua:822/36134/41740 同键）在 Object.lua:1515-1572 被 7 个属性行共用（抗性、伤害加成、抗性穿透等，格式都是 \" %s\"），另外还有 timed_effects/mental.lua:2181 的 eff.what 和 GameOptions.lua:655 的在线事件选项。把它改成「所有抗性」会让伤害、穿透行出错，选项里也会出现「所有抗性」，所以没有安全的纯译文改法，需要在代码侧按属性行追加中心词。"
+ },
+ {
+  "id": "cls10-c1-01",
+  "status": "rejected",
+  "files": [
+   "tome-ashes-urhrok.lua:1340"
+  ],
+  "old": "",
+  "new": "",
+  "note": "按实现裁决（DLC 来源未固定）：ashes-urhrok wrath.lua:37 tg={type=\"cone\",...} 未设 friendlyfire；而 engine Target.lua:679-683（624a67329fe2）getType 的默认值是 friendlyfire=true，ActorProject.lua:255 只有 friendlyfire 为假时才跳过友方，所以该锥形会对友方执行 attackTarget。「（友方也会被击中）」与实现一致，发现所称『引擎默认跳过友方』不成立。"
+ },
+ {
+  "id": "cls10-c1-02",
+  "status": "applied",
+  "files": [
+   "tome-ashes-urhrok.lua:1415"
+  ],
+  "old": "他所有正在冷却中的技能冷却时间延长 %d 回合，",
+  "new": "目标所有正在冷却中的技能冷却时间延长 %d 回合，",
+  "note": "「他所有…」→「目标所有…」。"
+ },
+ {
+  "id": "cls10-c2-01",
+  "status": "rejected",
+  "files": [
+   "tome-ashes-urhrok.lua:994"
+  ],
+  "old": "",
+  "new": "",
+  "note": "按实现裁决（DLC 来源未固定）：demonic-pact.lua:467 updateSeed 中 demon:heal(t:_getHeal(self))，getHeal（:605）= floor(combatTalentScale(t,10,30))，是固定点数治疗而不是百分比；英文 %d%% 与实现不符，现译「恢复 %d 点生命值」贴合实现，不改。"
+ },
+ {
+  "id": "cls10-c2-02",
+  "status": "deferred",
+  "files": [],
+  "old": "",
+  "new": "",
+  "note": "主代理裁决：装备人偶短名截断属于插件代码（同 r9-opus-09）。"
+ },
+ {
+  "id": "cls10-c2-03",
+  "status": "applied",
+  "files": [
+   "tome-ashes-urhrok.lua:1044"
+  ],
+  "old": "此外，每当一个恶魔降临，离开或死亡的时候，你将会受到 %d 点治疗。",
+  "new": "此外，每当你的恶魔降临、离开或死亡时，你都会恢复 %d 点生命值。",
+  "note": "改为「每当你的恶魔降临、离开或死亡时，你都会恢复 %d 点生命值」。同类「受到 %d 点治疗」另有 2 处（mod-tome 21082 第二生命、35623 暗影伤口），一并改为「恢复 %d 点生命值」。"
+ },
+ {
+  "id": "cls10-c2-03+similar",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:21082",
+   "mod-tome.lua:35623"
+  ],
+  "old": "然后受到 %d 点治疗。\", \"tformat\") ‖ 你每次近战击中目标都会受到 %d 点治疗。\"",
+  "new": "然后为你恢复 %d 点生命值。\", \"tformat\") ‖ 你每次近战击中目标都会恢复 %d 点生命值。\"",
+  "note": "同类「受到 %d 点治疗」→「恢复 %d 点生命值」：mod-tome.lua 21082（第二生命）、35623（暗影伤口效果）。"
+ },
+ {
+  "id": "cls10-c2-04",
+  "status": "applied",
+  "files": [
+   "tome-ashes-urhrok.lua:676"
+  ],
+  "old": "t(\"Ashes in the Wind\", \"风中灰\", \"_t\")",
+  "new": "t(\"Ashes in the Wind\", \"风中灰烬\", \"_t\")",
+  "note": "「风中灰」→「风中灰烬」。"
+ },
+ {
+  "id": "cls10-c2-05",
+  "status": "rejected",
+  "files": [
+   "tome-ashes-urhrok.lua:1225"
+  ],
+  "old": "",
+  "new": "",
+  "note": "按实现裁决（DLC 来源未固定）：timed_effects.lua:684 DEMONIC_CUT.callbackOnMeleeHit 每次近战命中都会 src:heal(eff.heal)，没有 turn_procs 限制，所以英文的「(this can only happen once per turn)」与实现不符。现译省略该限制、贴合实现，不改。"
+ },
+ {
+  "id": "cls10-c3-01",
+  "status": "applied",
+  "files": [
+   "tome-cults.lua:3245"
+  ],
+  "old": "当缠绕了敌人，普通攻击不会额外附加触手攻击，但每回合对缠绕敌人造成 %d%% 触手伤害。",
+  "new": "缠绕敌人期间，普通攻击不会额外附加触手攻击，但每回合会对被缠绕的敌人造成 %d%% 触手伤害。",
+  "note": "改为「缠绕敌人期间，…但每回合会对被缠绕的敌人造成 %d%% 触手伤害」。"
+ },
+ {
+  "id": "cls10-c3-02",
+  "status": "applied",
+  "files": [
+   "tome-cults.lua:3202"
+  ],
+  "old": "副手空闲时，当使用普通攻击，触手会自动攻击目标，",
+  "new": "副手空闲时，使用普通攻击会让触手自动攻击目标，",
+  "note": "「副手空闲时，当使用普通攻击，触手会自动攻击目标」→「副手空闲时，使用普通攻击会让触手自动攻击目标」，句子其余部分不变。"
+ },
+ {
+  "id": "cls10-c3-03",
+  "status": "applied",
+  "files": [
+   "tome-cults.lua:4628"
+  ],
+  "old": "一条正直接挖向克诺什库尔的巨型蠕虫",
+  "new": "一条正径直挖向克诺什库尔的巨型蠕虫",
+  "note": "「正直接」→「正径直」。"
+ },
+ {
+  "id": "cls12-c1-01",
+  "status": "rejected",
+  "files": [
+   "tome-orcs.lua:4961"
+  ],
+  "old": "",
+  "new": "",
+  "note": "按实现裁决（DLC 来源未固定）：engineering.lua:30 getFactor = combatScale(min(steam,50), 15, 0, 50, 50, 1)/50，幂为 1 时是线性映射 0→15、50→50，所以 1 点蒸汽时为 (15+35/50)/50 ≈ 31.4%。现译「约 31%」贴合实现；英文的 15% 实际对应 0 点蒸汽。"
+ },
+ {
+  "id": "cls12-c1-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:1003"
+  ],
+  "old": "激活消耗%d能量，总计%d/%d。]]",
+  "new": "激活消耗 %d 能量，总计 %d/%d。]]",
+  "note": "模板 1003「激活消耗 %d 能量，总计 %d/%d」补空格。"
+ },
+ {
+  "id": "cls12-c2-01",
+  "status": "rejected",
+  "files": [
+   "tome-orcs.lua:5246"
+  ],
+  "old": "",
+  "new": "",
+  "note": "按实现裁决（DLC 来源未固定）：magnetism.lua:46/50 只对 act.summoner==self and act.turret 的单位施加 STATIC_SHIELD，也就是只作用于炮台，不含机械蜘蛛等其他随从。现译「炮台」贴合实现。"
+ },
+ {
+  "id": "cls12-c2-02",
+  "status": "rejected",
+  "files": [
+   "tome-orcs.lua:5261"
+  ],
+  "old": "",
+  "new": "",
+  "note": "按实现裁决（DLC 来源未固定）：magnetism.lua Capacitor Discharge 投射 LIGHTNING_DAZE {dam,daze=100}，未传 daze_duration；damage_types.lua:1567（624a67329fe2）默认 dam.daze_duration or 3，实际眩晕 3 回合。现译「3 回合」贴合实现。"
+ },
+ {
+  "id": "cls12-c2-03",
+  "status": "rejected",
+  "files": [
+   "tome-orcs.lua:5260"
+  ],
+  "old": "",
+  "new": "",
+  "note": "按实现裁决（DLC 来源未固定）：magnetism.lua 中 targets={first}，再 for i=2,nb 追加，总目标数 = nb（含第一个目标）。现译「包括第一个目标在内最多 %d 个目标」贴合实现。"
+ },
+ {
+  "id": "cls12-c3-01",
+  "status": "rejected",
+  "files": [],
+  "old": "",
+  "new": "",
+  "note": "主代理裁决驳回：盾牌名逗号是已知插件代码问题（r8-opus-02）。"
+ },
+ {
+  "id": "cls12-c3-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:28886"
+  ],
+  "old": "\"你的傀儡嘲讽 %d 格半径范围的敌人，强制他们攻击傀儡。\"",
+  "new": "\"你的傀儡嘲讽半径 %d 格内的敌人，强制他们攻击傀儡。\"",
+  "note": "「嘲讽 %d 格半径范围的敌人」→「嘲讽半径 %d 格内的敌人」。"
+ },
+ {
+  "id": "cls12-c3-02+similar",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:23542",
+   "mod-tome.lua:24169"
+  ],
+  "old": "甚至能在光照范围外“看到” 半径 %d 格内的生物。 ‖ [[将恐惧注入目标 %d 半径范围内的敌人中，",
+  "new": "甚至能在光照范围外“看到”半径 %d 格内的生物。 ‖ [[将恐惧注入目标位置半径 %d 格范围内的敌人中，",
+  "note": "半径语序统一后的两处补修：23542 去掉「“看到”」后已不需要的空格；24169 恐惧灌输「目标 %d 半径范围内」→「目标位置半径 %d 格范围内」（英文 within %d radius of a target location）。"
+ },
+ {
+  "id": "cls12-c3-03",
+  "status": "rejected",
+  "files": [
+   "mod-tome.lua:28904"
+  ],
+  "old": "",
+  "new": "",
+  "note": "核实结果：mod-tome.lua:28904 位于 talents 区段且是 tformat，lint 升级预览规则（tools/i18nlib/lint.py placeholder_spacing_offsets）中「、」属于收尾标点，跟随前文，所以「点火焰、%0.2f」的 token 左侧含汉字，必须插 ASCII 空格。删掉这个空格会使 lint 报错，按 SPEC 规则 3 保留。"
+ },
+ {
+  "id": "cls09-c3-01",
+  "status": "rejected",
+  "files": [
+   "mod-tome.lua:23070"
+  ],
+  "old": "",
+  "new": "",
+  "note": "核实结果：vim.lua Dark Portal（624a67329fe2）中，被传送的生物用 util.findFreeGrid(self.x,self.y,20,...) 放到你附近的空格，你自己则 teleportRandom(x,y,0) 到施法目标点。现译「传送到你的位置附近／你被传送到目标地点」与实现一致；英文「to theirs」反而不精确。不改。"
+ },
+ {
+  "id": "cls09-c3-02",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:22688",
+   "mod-tome.lua:22689",
+   "mod-tome.lua:22689"
+  ],
+  "old": "[[使你周围半径 %d 内生物的不纯净的血液沸腾。 ‖ 使你恢复 %d 生命值，并被减速 %d%% 5 回合。\n\t\t伤害受你的法术强度影响。]] ‖ 并被减速 %d%%，持续 5 回合。",
+  "new": "[[使你周围半径 %d 格内所有生物的不洁之血沸腾。 ‖ 使你恢复 %d 生命值，并被减速 %d%%，持续 5 回合。\n\t\t伤害受法术强度加成。]] ‖ 并被减速 %d%%， 持续 5 回合。",
+  "note": "「半径 %d 内生物的不纯净的血液」→「半径 %d 格内所有生物的不洁之血」；「减速 %d%% 5 回合」→「减速 %d%%， 持续 5 回合」（逗号后的空格是 lint 要求的）；末句统一为「伤害受法术强度加成」。"
+ },
+ {
+  "id": "cls09-c3-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:22694"
+  ],
+  "old": "专注于你带来的腐蚀，提高你 %d%% 法术暴击率。\n\t\t每当你的法术打出暴击时，你进入嗜血状态 5 回合，增加你 %d%% 枯萎和酸性伤害。",
+  "new": "专注于你带来的腐蚀，使你的法术暴击率提高 %d%%。\n\t\t每当你的法术打出暴击时，你进入嗜血状态，持续 5 回合，使你的枯萎和酸性伤害提高 %d%%。",
+  "note": "「提高你 %d%% 法术暴击率」→「使你的法术暴击率提高 %d%%」；「你进入嗜血状态 5 回合，增加你 %d%% 枯萎和酸性伤害」→「你进入嗜血状态，持续 5 回合，使你的枯萎和酸性伤害提高 %d%%」。"
+ },
+ {
+  "id": "cls09-c3-04",
+  "status": "rejected",
+  "files": [
+   "mod-tome.lua:22795",
+   "mod-tome.lua:22834",
+   "mod-tome.lua:23077",
+   "tome-ashes-urhrok.lua:1390",
+   "tome-ashes-urhrok.lua:1395"
+  ],
+  "old": "",
+  "new": "",
+  "note": "主代理裁决驳回：被点名的「%d%%， 持续」「%d%%、 所有豁免」等都在 talents tformat 串里，数值占位符后面跟收尾标点再接汉字，lint 要求插空格。抽查结论相同，没有发现非 lint 要求的例子。"
+ },
+ {
+  "id": "cls09-c3-05",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:22676",
+   "mod-tome.lua:22653"
+  ],
+  "old": "",
+  "new": "",
+  "note": "鲜血喷射「对前方 %d 格半径锥形范围」→「对前方半径 %d 格锥形范围」，腐蚀蠕虫「在 4 格半径内」→「在半径 4 格内」；都在半径语序全库统一中完成（见 cls08-c3-02+similar）。"
+ },
+ {
+  "id": "cls11b-c2-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:803",
+   "tome-orcs.lua:8144"
+  ],
+  "old": "t(\"%+d #LAST#(%+d eff.)\", \"%+d#LAST#(%+d有效值)\", \"_t\") ‖ t(\"%+d #LAST#(%+d eff.)\", \"%+d#LAST#(%+d有效值)\", \"_t\")",
+  "new": "t(\"%+d #LAST#(%+d eff.)\", \"%+d #LAST#(%+d 有效值)\", \"_t\") ‖ t(\"%+d #LAST#(%+d eff.)\", \"%+d #LAST#(%+d 有效值)\", \"_t\")",
+  "note": "恢复源串空格：「%+d #LAST#(%+d 有效值)」；mod-tome.lua:803 和 tome-orcs.lua:8144 同键同步修改。保留半角括号，与英文一致。"
+ },
+ {
+  "id": "cls11b-c3-01",
+  "status": "deferred",
+  "files": [],
+  "old": "",
+  "new": "",
+  "note": "主代理裁决：引擎折行拆数字属于插件代码（同 cls07b-07）。"
+ },
+ {
+  "id": "cls11b-c3-02",
+  "status": "rejected",
+  "files": [],
+  "old": "",
+  "new": "",
+  "note": "主代理裁决驳回：tome-orcs.lua:4157「寒冷抗性， %d%%」的空格是升级预览 lint 规则要求的。"
+ },
+ {
+  "id": "cls11b-c3-03",
+  "status": "applied",
+  "files": [
+   "tome-orcs.lua:4163"
+  ],
+  "old": "每当你被一个负面的物理，魔法或精神状态击中时，",
+  "new": "每当你被物理、魔法或精神负面状态击中时，",
+  "note": "「每当你被一个负面的物理，魔法或精神状态击中时」→「每当你被物理、魔法或精神负面状态击中时」。后半句「触发恢复之力」意思正确，未改。"
+ },
+ {
+  "id": "cls06-c3-01",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:41248"
+  ],
+  "old": "按键盘(#00FF00#u#LAST#)键来保存角色资料，按(#00FF00#TAB#LAST#)键在各分类面板中切换。",
+  "new": "按键盘#00FF00#'u'#LAST#键来保存角色资料，按#00FF00#'TAB'#LAST#键在各分类面板中切换。",
+  "note": "恢复英文的单引号包裹，并去掉多余的半角括号：「按键盘#00FF00#'u'#LAST#键…，按#00FF00#'TAB'#LAST#键…」。吞首字符的具体原因未在源码中定位，需要实机复核引号是否显示。"
+ },
+ {
+  "id": "cls06-c3-02",
+  "status": "deferred",
+  "files": [],
+  "old": "",
+  "new": "",
+  "note": "主代理裁决：引擎折行拆数字属于插件代码（同 cls07b-07）。"
+ },
+ {
+  "id": "cls06-c3-03",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:22016"
+  ],
+  "old": "被击飞至墙上或其他单位的目标受到额外 25%% 伤害，并对被击中的单位造成 25%% 伤害。",
+  "new": "被击飞至墙上或其他单位的目标受到额外 25%% 伤害，并对其撞上的单位造成 25%% 伤害。",
+  "note": "按 gravity.lua Repulsion Blast 的击退回调（撞墙／撞人时结算伤害）改为「并对其撞上的单位造成 25%% 伤害」。"
+ },
+ {
+  "id": "cls06-c3-04",
+  "status": "rejected",
+  "files": [
+   "mod-tome.lua:26916"
+  ],
+  "old": "",
+  "new": "",
+  "note": "主代理裁决驳回；已核实 mod-tome.lua:26916 位于 talents 区段且是 tformat。在 lint 规则里，数字右侧的全角「（」既不是分隔符也不是收尾标点，「%d（数值…」会被算作同一 token 且含汉字，必须插空格，所以这个空格是 lint 要求的。"
+ },
+ {
+  "id": "cls06-c3-05",
+  "status": "deferred",
+  "files": [
+   "mod-tome.lua:821",
+   "mod-tome.lua:822"
+  ],
+  "old": "",
+  "new": "",
+  "note": "插件代码问题；all 键使用面和不可做纯译文修改的理由见 cls08-c3-03。"
+ },
+ {
+  "id": "cls08-c3-02+similar",
+  "status": "applied",
+  "files": [
+   "mod-tome.lua:777",
+   "mod-tome.lua:778",
+   "mod-tome.lua:12525",
+   "mod-tome.lua:21039",
+   "mod-tome.lua:21042",
+   "mod-tome.lua:21271",
+   "mod-tome.lua:21324",
+   "mod-tome.lua:21508",
+   "mod-tome.lua:21516",
+   "mod-tome.lua:21562",
+   "mod-tome.lua:21596",
+   "mod-tome.lua:22204",
+   "mod-tome.lua:22244",
+   "mod-tome.lua:22653",
+   "mod-tome.lua:22676",
+   "mod-tome.lua:22818",
+   "mod-tome.lua:22967",
+   "mod-tome.lua:23542",
+   "mod-tome.lua:23654",
+   "mod-tome.lua:23967",
+   "mod-tome.lua:24061",
+   "mod-tome.lua:24105",
+   "mod-tome.lua:24326",
+   "mod-tome.lua:24362",
+   "mod-tome.lua:24567",
+   "mod-tome.lua:24567",
+   "mod-tome.lua:24661",
+   "mod-tome.lua:24662",
+   "mod-tome.lua:24903",
+   "mod-tome.lua:25139",
+   "mod-tome.lua:25395",
+   "mod-tome.lua:25646",
+   "mod-tome.lua:26625",
+   "mod-tome.lua:27290",
+   "mod-tome.lua:27804",
+   "mod-tome.lua:28249",
+   "mod-tome.lua:28250",
+   "mod-tome.lua:28314",
+   "mod-tome.lua:28797",
+   "mod-tome.lua:29042",
+   "mod-tome.lua:29355",
+   "mod-tome.lua:29645",
+   "mod-tome.lua:29779",
+   "mod-tome.lua:29818",
+   "mod-tome.lua:30160",
+   "mod-tome.lua:30427",
+   "mod-tome.lua:30820",
+   "mod-tome.lua:31581",
+   "mod-tome.lua:31692",
+   "mod-tome.lua:31693",
+   "tome-orcs.lua:4316",
+   "tome-orcs.lua:4345",
+   "tome-orcs.lua:4427",
+   "tome-orcs.lua:4543",
+   "tome-orcs.lua:4547"
+  ],
+  "old": "（1格半径 ‖ （2格半径 ‖ 在1格半径 ‖ 个 %d 格半径 ‖ 个 %d 格半径 ‖ 围 1 格半径 ‖ 在 %d 格半径 ‖ 在 3 格半径 ‖ 慑 %d 格半径 ‖ 在 %d 格半径 ‖ 在 %d 格半径 ‖ 用 %d 格半径 ‖ 生 4 格半径 ‖ 在 4 格半径 ‖ 方 %d 格半径 ‖ 给 %d 格半径 ‖ （%d 格半径 ‖ ” %d 格半径 ‖ 引 %d 格半径 ‖ 围 %d 格半径 ‖ 向 %d 格半径 ‖ 到 %d 格半径 ‖ 于 %d 格半径 ‖ 对 %d 格半径 ‖ 到 %0.1f 格半径 ‖ 在 10 格半径 ‖ 围 %d 格半径 ‖ 围 %d 格半径 ‖ 使 %d 格半径 ‖ 围 3 格半径 ‖ 向 %d 格半径 ‖ 冻 3 格半径 ‖ 个 %d 格半径 ‖ 使 %d 格半径 ‖ 在 %d 格半径 ‖ 在 6 格半径 ‖ 围 1 格半径 ‖ 在 2 格半径 ‖ 片 %d 格半径 ‖ 在 %d 格半径 ‖ 亮 %d 格半径 ‖ （%d 格半径 ‖ 在 3 格半径 ‖ 波 %d 格半径 ‖ 向 %d 格半径 ‖ 对 %d 格半径 ‖ 围 %d 格半径 ‖ 对 1 格半径 ‖ 在 2 格半径 ‖ 围 3 格半径 ‖ 在 %d 格半径 ‖ 在 1 格半径 ‖ 围 3 格半径 ‖ 在 2 格半径 ‖ 在 2 格半径",
+  "new": "（半径 1 格 ‖ （半径 2 格 ‖ 在半径 1 格 ‖ 个半径 %d 格 ‖ 个半径 %d 格 ‖ 围半径 1 格 ‖ 在半径 %d 格 ‖ 在半径 3 格 ‖ 慑半径 %d 格 ‖ 在半径 %d 格 ‖ 在半径 %d 格 ‖ 用半径 %d 格 ‖ 生半径 4 格 ‖ 在半径 4 格 ‖ 方半径 %d 格 ‖ 给半径 %d 格 ‖ （半径 %d 格 ‖ ” 半径 %d 格 ‖ 引半径 %d 格 ‖ 围半径 %d 格 ‖ 向半径 %d 格 ‖ 到半径 %d 格 ‖ 于半径 %d 格 ‖ 对半径 %d 格 ‖ 到半径 %0.1f 格 ‖ 在半径 10 格 ‖ 围半径 %d 格 ‖ 围半径 %d 格 ‖ 使半径 %d 格 ‖ 围半径 3 格 ‖ 向半径 %d 格 ‖ 冻半径 3 格 ‖ 个半径 %d 格 ‖ 使半径 %d 格 ‖ 在半径 %d 格 ‖ 在半径 6 格 ‖ 围半径 1 格 ‖ 在半径 2 格 ‖ 片半径 %d 格 ‖ 在半径 %d 格 ‖ 亮半径 %d 格 ‖ （半径 %d 格 ‖ 在半径 3 格 ‖ 波半径 %d 格 ‖ 向半径 %d 格 ‖ 对半径 %d 格 ‖ 围半径 %d 格 ‖ 对半径 1 格 ‖ 在半径 2 格 ‖ 围半径 3 格 ‖ 在半径 %d 格 ‖ 在半径 1 格 ‖ 围半径 3 格 ‖ 在半径 2 格 ‖ 在半径 2 格",
+  "note": "「半径」语序全库统一（cls08-c3-02、cls09-c3-05、cls12-c3-02 同类）：把「N 格半径」「N格半径」改为「半径 N 格」，共 55 处（mod-tome 50、tome-orcs 5；cults/ashes 无此写法）。只改语序，不给已经是正常语序的「半径 %d 内／半径 %d 的…」（数百处）补「格」，因为那些不属于语序问题。cls09-c3-05 的两处（22676 鲜血喷射、22653 腐蚀蠕虫）包含在内。"
+ }
+]
