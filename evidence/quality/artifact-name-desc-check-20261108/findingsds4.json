@@ -1,0 +1,32 @@
+[
+ {
+  "id": 484,
+  "name_en": "Glowing Core",
+  "name_zh": "光亮之核",
+  "type": "proper_noun",
+  "issue": "描述把掉落此物的生物 Searing Horror 译作「灼热恐魔」，与库内同一生物的实体名及战斗喊话「灼光恐魔」不一致，使「残骸」所指的生物名称对不上。",
+  "evidence": "源码 cults/tome-cults/data/general/objects/world-artifacts.lua:905 desc = \"This is all that's left of the Searing Horror...\"，生物名见 cults/tome-cults/data/general/npcs/horror.lua:25 name = \"searing horror\"；库内 tome-cults.lua:579 t(\"searing horror\", \"灼光恐魔\", \"entity name\")、:581「#GOLD#灼光恐魔为它的盟友施加了反射护盾！」，而 :809 描述用「这是灼热恐魔仅剩的残骸」；官方 zh_hans.lua:582/810 均作「灼热恐魔」。",
+  "suggestion": "把描述改为「灼光恐魔」，或反向把实体名（tome-cults.lua:579、581）统一为「灼热恐魔」。",
+  "confidence": "high"
+ },
+ {
+  "id": 469,
+  "name_en": "Spinal Cage",
+  "name_zh": "脊笼",
+  "type": "power_or_unided",
+  "issue": "未鉴定名把 gross mass of spinal matter 译成「一堆脊柱碎片」，与同一原文在描述中的「一大团……脊柱物质」及物品名「脊笼」互相矛盾；源码未鉴定名与描述用的是完全相同的短语，英文本身并无碎片之意。",
+  "evidence": "源码 cults/tome-cults/data/general/objects/world-artifacts.lua:32 unided_name = _t\"gross mass of spinal matter\"，:33 desc = _t[[A gross mass of spinal matter hastily assembled into armour.]]；库内 tome-cults.lua:667 未鉴定名「一堆脊柱碎片」，:668 描述「一大团令人作呕的、被匆忙拼装成护甲的脊柱物质。」；官方 zh_hans 两处均作「一团脊髓物质」。",
+  "suggestion": "未鉴定名改为「一大团脊柱物质」。",
+  "confidence": "medium"
+ },
+ {
+  "id": 490,
+  "name_en": "Helm of Knowledge",
+  "name_zh": "知识头盔",
+  "type": "item_type",
+  "issue": "名称「知识头盔」、未鉴定名「灵能之冠」与描述「一顶大冠冕」三者对物品种类说法不一致；源码该物品 base 为 BASE_HELM（头盔），描述却称 crown（冠冕）。该矛盾虽然源于英文描述，但中文可像官方译本那样按实际类型统一，避免玩家以为这是冠冕类头饰。",
+  "evidence": "源码 cults/tome-cults/data/zones/ft-illusory-castle/objects.lua:59 base = \"BASE_HELM\"，:63 unided_name = _t\"psionic crown\"，:64 desc = _t[[A large crown, part metallic part glass that radiates with psionic powers.]]；库内 tome-cults.lua:4221 名称「知识头盔」、:4222「灵能之冠」、:4223「一顶大冠冕」；官方 zh_hans 同一描述作「一个大头盔」，与 BASE_HELM 一致。",
+  "suggestion": "描述改为「一顶大头盔，一半金属一半玻璃，放射出灵能力量。」以与 base 及名称一致；若保留「冠冕」，则名称/未鉴定名也应统一为冠类说法。",
+  "confidence": "medium"
+ }
+]

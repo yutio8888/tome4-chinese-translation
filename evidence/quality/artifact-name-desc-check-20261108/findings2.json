@@ -1,0 +1,22 @@
+[
+  {
+    "id": 178,
+    "name_en": "Skin of Many",
+    "name_zh": "众生之皮",
+    "type": "item_type",
+    "issue": "未鉴定名为“缝制的皮甲”，描述却称“这件袍子”，与源码的轻型皮甲类别不一致。这一矛盾已存在于英文（stitched skin armour / robe），并非中文张冠李戴；按实际物品类型可消除玩家看到的类别冲突。",
+    "evidence": "固定 commit 624a67329fe2，game/modules/tome/data/general/objects/world-artifacts.lua:1702 使用 BASE_LIGHT_ARMOR；:1706 未鉴定名 stitched skin armour；:1710 描述含 decorate the robe。game/modules/tome/data/general/objects/light-armors.lua:23 定义 type=\"armor\", subtype=\"light\"，:29 描述 A suit of armour made of leather.；译文 mod-tome.lua:12687–12688 分别为“缝制的皮甲”和“这件袍子”。",
+    "suggestion": "将描述中的“这件袍子”改为“这件皮甲”；英文自身用词不一致应在裁决时保留说明。",
+    "confidence": "medium"
+  },
+  {
+    "id": 216,
+    "name_en": "Hydra's Bite",
+    "name_zh": "三头龙之牙",
+    "type": "proper_noun",
+    "issue": "名称和描述均将 hydra 译为“三头龙”，而同库召唤技能与生物语境通行译作“三头蛇”（亦有“多头蛇”）。该神器引用的是 hydra 的毒素、酸液、闪电三种吐息力量，名称与描述中的种族意象应与相应生物保持一致。",
+    "evidence": "固定 commit 624a67329fe2，game/modules/tome/data/general/objects/world-artifacts.lua:3665 名称 Hydra's Bite，:3667 描述 strikes with the power of a hydra，:3679 配置 LIGHTNING_BREATH_HYDRA / ACID_BREATH / POISON_BREATH。game/modules/tome/data/talents/gifts/summon-distance.lua:569–572 为 type=\"hydra\", subtype=\"3head\", name=\"3-headed hydra\"。mod-tome.lua:12873 名称“三头龙之牙”、:12875 描述“三头龙”；对照 :25631 Hydra→“召唤：三头蛇”、:25632 3-headed hydra→“三头蛇”、:25637 三种相同吐息的“三头蛇”。",
+    "suggestion": "名称改为“三头蛇之牙”（或“三头蛇之噬”），描述中“三头龙”同步改为“三头蛇”。",
+    "confidence": "high"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 266,
+    "name_en": "Earthen Beads",
+    "name_zh": "大地串珠",
+    "type": "proper_noun",
+    "issue": "描述把英文大写专名 Wilders（游戏职业大类 Wilder）译成“荒野行者”。该说法在全库仅此一处，与术语表和库内通行译法“野性系”不一致，读者会把它当成某个具体人群/组织，而不是与自然相连的野性系职业者。",
+    "evidence": "terminology/classes.tsv:34 记录 Wilder→野性系（T.GAME.CLASS，职业类别名，status=existing）；mod-tome.lua:3156 t(\"Wilder\",\"野性系\",\"birth descriptor name\")、:3158 描述 Wilders 亦译“野性系”、:34633 “软泥使（野性系）”；物品描述 mod-tome.lua:13112 却作“远古时代，荒野行者曾佩戴它”（grep 全库“荒野行者”仅此 1 处）；固定源码 commit 624a67329fe2，game/modules/tome/data/general/objects/world-artifacts.lua:6022 原文 It was used by Wilders in ancient times。",
+    "suggestion": "描述改为“远古时代，野性系职业者曾佩戴它来加强与自然的联系”，与术语表 Wilder→野性系 对齐。",
+    "confidence": "medium"
+  },
+  {
+    "id": 317,
+    "name_en": "Rod of Spydric Poison",
+    "name_zh": "蜘蛛之毒杖",
+    "type": "item_type",
+    "issue": "同一物品的未鉴定名译作“滴着毒液的魔杖”，描述却把 rod 译成“法杖”，类型说法自相矛盾。源码中该物品是 BASE_ROD（type=charm、subtype=rod，魔杖类护符），而“法杖”对应 staff 武器。",
+    "evidence": "固定源码 commit 624a67329fe2：game/modules/tome/data/zones/ardhungol/objects.lua:40-45（base=\"BASE_ROD\"，unided_name=\"poison dripping wand\"，desc=\"This rod carved out of a giant spider fang ...\"）；game/modules/tome/data/general/objects/rods.lua:21-23 定义 BASE_ROD type=\"charm\", subtype=\"rod\"；译文 mod-tome.lua:37761-37763 分别为名称“蜘蛛之毒杖”、未鉴定“滴着毒液的魔杖”、描述“这根法杖由巨大蜘蛛的毒牙雕刻而成”；库内 mod-tome.lua:12050 rod→“魔杖”、:11605 staff→“法杖”。",
+    "suggestion": "描述改为“这根魔杖由巨大蜘蛛的毒牙雕刻而成，不断往下滴落毒液。”，与未鉴定名“魔杖”和源码 rod 类型一致。",
+    "confidence": "medium"
+  },
+  {
+    "id": 329,
+    "name_en": "Antimagic Wyrm Bile Extract",
+    "name_zh": "龙胆药剂（反魔）",
+    "type": "name_meaning",
+    "issue": "同一素材 wyrm bile 在本物品名和描述中译作“龙胆”，而另一件神器 Wyrm Bile 及其饮用日志均译“巨龙胆汁”。bile 是胆汁，中文“龙胆”易读作药材龙胆草或胆囊，名称/描述对物质的说法与库内通行译法不一致。",
+    "evidence": "译文 mod-tome.lua:38763 名称“龙胆药剂（反魔）”、:38765 描述“这种强大的药剂提取自一头龙的龙胆”；对照 mod-tome.lua:39552 t(\"Wyrm Bile\",\"巨龙胆汁\",\"entity name\")、:39557 日志“你喝下了巨龙胆汁，感觉身体发生了永久的变化！”；固定源码 commit 624a67329fe2：game/modules/tome/data/zones/infinite-dungeon/objects.lua:85-91（Antimagic Wyrm Bile Extract / phial filled with slimy liquid / This potent elixir extracted from a powerful wyrm ...）、game/modules/tome/data/zones/sandworm-lair/objects.lua:78 名称 Wyrm Bile。",
+    "suggestion": "统一为“巨龙胆汁”：名称改“反魔巨龙胆汁药剂”，描述改为“这种强大的药剂提取自一头巨龙的胆汁，可以给予你对抗魔法的力量。”",
+    "confidence": "medium"
+  },
+  {
+    "id": 338,
+    "name_en": "Sealed Scroll of Last Hope",
+    "name_zh": "最后希望的密封卷轴",
+    "type": "proper_noun",
+    "issue": "物品名中的地名 Last Hope 译作“最后希望”，与术语表及库内该城通行独立名称“最后的希望”不一致（同一批的 351 描述、传送门名都写作“最后的希望”）。",
+    "evidence": "terminology/places.tsv:26 记录 Last Hope→最后的希望（T.PN.PLACE，status=existing，scope=core）；物品名 mod-tome.lua:39301 “最后希望的密封卷轴”；对照 mod-tome.lua:40428 Last Hope→“最后的希望”、:39889 t(\"Portal to Last Hope\",\"通往最后的希望的传送门\")、:40394 “这是关于最后的希望与勇者图库纳国王的一段历史。”；固定源码 commit 624a67329fe2，game/modules/tome/data/zones/reknor/objects.lua:22-23 名称 Sealed Scroll of Last Hope。",
+    "suggestion": "改为“最后的希望的密封卷轴”（或“最后的希望城密封卷轴”），沿用术语表地名。",
+    "confidence": "high"
+  }
+]

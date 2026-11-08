@@ -1,0 +1,92 @@
+[
+  {
+    "id": 8,
+    "name_en": "Warmaster Gnarg's Murderblade",
+    "name_zh": "战争之王格纳哥的饮血剑",
+    "type": "proper_noun",
+    "issue": "Warmaster 被译成「战争之王」（国王式头衔），同一 NPC 与同一英文头衔在库内一律作「战争领主」；另外 Murderblade 译作「饮血剑」，既丢了 murder（杀戮）义，又与另一件神器 Blood-Edge 的中文名撞名。未鉴定名/描述（greatsword「大剑」）与名称中的「剑」不冲突，问题在头衔与刀名。",
+    "evidence": "mod-tome.lua:40946 t(\"Warmaster Gnarg\", \"战争领主格纳哥\"); mod-tome.lua:8535 t(\"ogre warmaster\", \"食人魔战争领主\"); mod-tome.lua:9222 Wintertide 描述 \"their warmaster\" → 「为他们的战争领主打造」; 源码 src/game/modules/tome/data/general/objects/boss-artifacts-far-east.lua:255-260 (BASE_GREATSWORD, name=\"Warmaster Gnarg's Murderblade\", unided=\"blood-etched greatsword\"); 撞名对比 mod-tome.lua:12298 t(\"Blood-Edge\", \"饮血剑\")",
+    "suggestion": "战争领主格纳哥的杀戮之刃（或「屠杀之刃」），并保留 Blood-Edge 的「饮血剑」独占该名",
+    "confidence": "high"
+  },
+  {
+    "id": 18,
+    "name_en": "Dragonskull Helm",
+    "name_zh": "龙骨之盔",
+    "type": "name_meaning",
+    "issue": "Dragonskull 是「龙骨/龙头骨」，译作「龙骨」等于说材质是龙的骨头（dragonbone），与描述「在这个灰白而残破的头骨中…」（这是龙的头骨做成的盔）自相矛盾；库里 dragonbone 一律作「龙骨」，此处正好撞车。",
+    "evidence": "mod-tome.lua:9244-9246（名称「龙骨之盔」/未鉴定「骨盔」/描述「…这块灰白而残破的头骨…」）; mod-tome.lua:9447 t(\"dragonbone\", \"龙骨\"); mod-tome.lua:12178 t(\"dragonbone\", \"龙骨\"); 源码 src/game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua:430-434 (BASE_HELM, desc=\"…in this bleached and cracked skull\")",
+    "suggestion": "龙颅之盔（未鉴定名「骨盔」可保留）",
+    "confidence": "high"
+  },
+  {
+    "id": 37,
+    "name_en": "Rod of Annulment",
+    "name_zh": "废除之杖",
+    "type": "item_type",
+    "issue": "未鉴定名与描述都把物品称作「法杖」（staff），而它是魔杖（rod，源码 base=BASE_ROD）；库内 rod 的通行译法是「魔杖」（不稳定的魔杖、发光的魔杖），「法杖」专用于 staff。描述里「这根法杖周围的魔力流失」同样把类型说成法杖。",
+    "evidence": "mod-tome.lua:9332 t(\"dark rod\", \"黑暗的法杖\"); mod-tome.lua:11639 t(\"unstable rod\", \"不稳定的魔杖\"); mod-tome.lua:12399 t(\"glowing rod\", \"发光的魔杖\"); 源码 src/game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua:1338-1342 (base=\"BASE_ROD\", unided=\"dark rod\", desc=\"…around this rod\")",
+    "suggestion": "未鉴定名改「黑暗的魔杖」，描述改「这根魔杖周围的魔力流失」",
+    "confidence": "medium"
+  },
+  {
+    "id": 89,
+    "name_en": "Unsetting Sun",
+    "name_zh": "永恒光辉",
+    "type": "name_meaning",
+    "issue": "「永恒光辉」只留下“光”，丢掉了 Unsetting Sun 的核心意象“不落的太阳”；描述通篇围绕落日最后一缕余晖、太阳堡垒（Sunwall）与希望象征，名称里没有“太阳”就与描述的立意脱节（未鉴定名也只是「金色盾牌」）。",
+    "evidence": "mod-tome.lua:12283-12285（名称「永恒光辉」/未鉴定「闪耀着金色光芒的盾牌」/描述「他用盾牌反射了落日的最后一缕余晖…成为太阳堡垒的定居点…」）; 源码 src/game/modules/tome/data/general/objects/world-artifacts-far-east.lua:77-84 (BASE_SHIELD, name=\"Unsetting Sun\", desc 同文)",
+    "suggestion": "不落之阳（或「不落的太阳」），保留“太阳”意象",
+    "confidence": "medium"
+  },
+  {
+    "id": 103,
+    "name_en": "Thaloren-Tree Longbow",
+    "name_zh": "精灵树长弓",
+    "type": "proper_noun",
+    "issue": "Thaloren 是特定精灵族群，库内通行译法为「自然精灵」（同一批次的 Rope Belt of the Thaloren 也译作「自然精灵的绳索腰带」），本条目描述同样写「自然精灵」，但名称只用泛指的「精灵」，名称与描述对同一专名的译法不一致，也丢失了 Thaloren 这一专名。",
+    "evidence": "mod-tome.lua:12355 名称「精灵树长弓」 vs mod-tome.lua:12357 描述「…自然精灵不得不抵御敌人和大火…」; mod-tome.lua:3470-3472 t(\"Thalore\",\"自然精灵\"); mod-tome.lua:10149 t(\"thaloren \",\"自然精灵的\"); mod-tome.lua:12425 t(\"Rope Belt of the Thaloren\",\"自然精灵的绳索腰带\")",
+    "suggestion": "自然精灵之树长弓（至少统一为「自然精灵树长弓」）",
+    "confidence": "medium"
+  },
+  {
+    "id": 109,
+    "name_en": "Eldoral Last Resort",
+    "name_zh": "艾德瑞尔的最后手段",
+    "type": "item_type",
+    "issue": "未鉴定名与描述把 sling 译成「投石器」，而它是投石索（sling，弓弩槽位武器，源码 base=BASE_SLING）；库内 sling 一律作「投石索」，「投石器」易被理解为攻城器械，物品类型说法不符。",
+    "evidence": "mod-tome.lua:12379 t(\"well-made sling\", \"精良的投石器\") 与同条目描述「投石器的把手上有一段铭文…」; mod-tome.lua:9361 t(\"hare-skin sling\", \"兔皮投石索\"); mod-tome.lua:3095-3096（「投石索」行文）; 源码 src/game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua:448-453 (base=\"BASE_SLING\", unided=\"well-made sling\")",
+    "suggestion": "未鉴定名与描述改用「投石索」：「精良的投石索」「投石索的把手上…」",
+    "confidence": "high"
+  },
+  {
+    "id": 111,
+    "name_en": "Nature's Vengeance",
+    "name_zh": "自然的复仇",
+    "type": "item_type",
+    "issue": "未鉴定名与描述把 mace 译成「权杖」，把单手钝器写成了权杖类（库内「权杖」对应 sceptre）；实际物品是单手钉锤/狼牙棒（源码 base=BASE_MACE，需求力量 42、单手近战），与名称「自然的复仇」所配的钝器类型不符。",
+    "evidence": "mod-tome.lua:12387 t(\"thick wooden mace\", \"木质粗权杖\") 与 12388 描述「这把加粗的权杖…」; mod-tome.lua:9091 / 11502 t(\"mace\", \"锤子\"); mod-tome.lua:11505 t(\"iron mace\", \"铁质狼牙棒\"); mod-tome.lua:12781 t(\"bone carved sceptre\", \"白骨雕刻的权杖\") 说明「权杖」= sceptre; 源码 src/game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua:528-533 (base=\"BASE_MACE\", unided=\"thick wooden mace\", desc=\"This thick-set mace…\")",
+    "suggestion": "未鉴定名改「粗重的木质钉锤」（或「木质狼牙棒」），描述改「这把粗重的钉锤…」",
+    "confidence": "high"
+  },
+  {
+    "id": 123,
+    "name_en": "Witch-Bane",
+    "name_zh": "巫师毁灭者",
+    "type": "proper_noun",
+    "issue": "Witch 在库内译「女巫」（巫师对应 wizard），名称写成「巫师毁灭者」把针对女巫的反魔法长剑说成针对巫师；同批次 Drake's Bane 又把 -Bane 处理为「屠龙」，同一构词法译法不一致。",
+    "evidence": "mod-tome.lua:12441 t(\"Witch-Bane\", \"巫师毁灭者\"); mod-tome.lua:12388（同一译者的 \"wizards and witches\" → 「众多法师和女巫」，witch=女巫、wizard=法师）; mod-tome.lua:12403 t(\"Drake's Bane\", \"屠龙\"); 源码 src/game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua（Witch-Bane 为 Marcus Dunn 的反魔法长剑，描述「A thin voratun blade…」）",
+    "suggestion": "破巫之剑（或「女巫克星」）",
+    "confidence": "low"
+  },
+  {
+    "id": 128,
+    "name_en": "Spellblaze Shard",
+    "name_zh": "魔爆碎片",
+    "type": "name_meaning",
+    "issue": "Spellblaze 是专有名词（魔法大爆炸），库内所有其他出处均译「魔法大爆炸」（含同批次的 Spellblaze Echoes「魔法大爆炸回响」），此处缩写为「魔爆」，名称与同一专名的通行译法不一致，玩家无法从名称认出与大爆炸的关联（描述也强调“异常的亮光”来自那场灾难）。",
+    "evidence": "mod-tome.lua:12469 t(\"Spellblaze Shard\", \"魔爆碎片\"); mod-tome.lua:12346 t(\"Spellblaze Echoes\", \"魔法大爆炸回响\"); mod-tome.lua:2700 t(\"Tales of the Spellblaze\", \"魔法大爆炸的故事\"); 全库 grep「魔爆」仅此一处; 源码 src/game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua:1161-1166 (base=\"BASE_KNIFE\", name=\"Spellblaze Shard\")",
+    "suggestion": "魔法大爆炸碎片（或「大爆炸碎片」）",
+    "confidence": "medium"
+  }
+]

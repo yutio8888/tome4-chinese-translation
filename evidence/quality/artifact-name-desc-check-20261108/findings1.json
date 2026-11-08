@@ -1,0 +1,32 @@
+[
+  {
+    "id": 15,
+    "name_en": "Wintertide",
+    "name_zh": "霜华",
+    "type": "proper_noun",
+    "issue": "描述中的制造者 Conclave 被译为“议会”，与库内同一古代人类组织的通行译名“孔克雷夫”不一致，掩盖了神器与该组织的联系。",
+    "evidence": "mod-tome.lua:9222-9223 原文 the Conclave created this weapon，对应“据说议会……打造了这件武器”；mod-tome.lua:3502 食人魔起源同一组织 Conclave 译为“孔克雷夫”；mod-tome.lua:12647 Vestments of the Conclave 译为“孔克雷夫法袍”；mod-tome.lua:12651 old Human Conclave 译为“人类孔克雷夫”。",
+    "suggestion": "将描述中的“议会”改为“孔克雷夫”。",
+    "confidence": "high"
+  },
+  {
+    "id": 37,
+    "name_en": "Rod of Annulment",
+    "name_zh": "废除之杖",
+    "type": "item_type",
+    "issue": "未鉴定名与描述都将 rod 译为“法杖”，但源码中该神器是 charm/rod（魔杖）而非法杖武器；与库内 staff/rod 的类型区分不符。",
+    "evidence": "固定源码 commit 624a67329fe2：game/modules/tome/data/general/objects/boss-artifacts-maj-eyal.lua:1338 使用 BASE_ROD，:1340 dark rod，:1342 this rod；game/modules/tome/data/general/objects/rods.lua:21-23 定义 BASE_ROD、type=\"charm\", subtype=\"rod\"。译文 mod-tome.lua:9332 dark rod 为“黑暗的法杖”，:9333 描述为“这根法杖”；同库 mod-tome.lua:12050-12051 rod 为“魔杖”，:11605 staff 为“法杖”。",
+    "suggestion": "未鉴定名改为“黑暗的魔杖”，描述中的“这根法杖”改为“这根魔杖”。",
+    "confidence": "high"
+  },
+  {
+    "id": 111,
+    "name_en": "Nature's Vengeance",
+    "name_zh": "自然的复仇",
+    "type": "item_type",
+    "issue": "未鉴定名和描述把作为近战钝器的 mace 译为“权杖”，使实际锤类武器被说成象征权力的杖；与源码类型和库内 mace 分类不符。",
+    "evidence": "固定源码 commit 624a67329fe2：game/modules/tome/data/general/objects/world-artifacts-maj-eyal.lua:526 base=\"BASE_MACE\"，:530 unided_name=\"thick wooden mace\"，:533 描述 This thick-set mace；译文 mod-tome.lua:12387 为“木质粗权杖”，:12388 为“这把加粗的权杖”；同库 mod-tome.lua:11502 mace 的 entity subtype 为“锤子”，:11505 iron mace 为“铁质狼牙棒”。",
+    "suggestion": "将未鉴定名改为“粗重的木棒”或“粗重的木锤”，描述对应改为“这把粗重的木棒／木锤”。",
+    "confidence": "medium"
+  }
+]
