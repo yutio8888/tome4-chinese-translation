@@ -9220,7 +9220,7 @@ t("Wintertide", "霜华", "entity name")
 t("glittering longsword", "闪耀的长剑", "_t")
 t([[The air seems to freeze around the blade of this sword, draining all heat from the area.
 It is said the Conclave created this weapon for their warmaster during the dark times of the first allure war.]], [[这把剑的剑锋周围空气似乎都冻结了，吸走了这片区域的所有热量。
-据说孔克雷夫在第一次诱惑战争的黑暗时期，为他们的战争领主打造了这件武器。]], "_t")
+据说孔克雷夫在第一次厄流战争的黑暗时期，为他们的战争领主打造了这件武器。]], "_t")
 t("No Winter Storm Active", "没有寒冰风暴", "_t")
 t("Winter Storm: ", "寒冰风暴： ", "_t")
 t("radius %d (%d turns remaining)", "半径 %d (剩余 %d 回合)", "tformat")
@@ -12872,7 +12872,7 @@ t("@Source@ taps the #SALMON#trapped soul#LAST# of %s, xmanifesting %s!", "@Sour
 t("%s's %s #SALMON#CONSUMES THE SOUL#LAST# of %s, gaining the power of %s!", "%s的%s #SALMON#吞噬了%s的灵魂#LAST#，获得了%s的能力！", "logSeen")
 t("Hydra's Bite", "三头蛇之噬", "entity name")
 t("triple headed flail", "有三个头的连枷", "_t")
-t("This three-headed stralite flail strikes with the power of a hydra. With each attack it lashes out, hitting everyone around you.", "这把三头的斯莱特连枷，蕴含着三头蛇的力量。它的攻击可以伤害到周围的所有敌人。", "_t")
+t("This three-headed stralite flail strikes with the power of a hydra. With each attack it lashes out, hitting everyone around you.", "这把三头的斯莱特连枷，蕴含着三头蛇的力量。每次命中时，它还会抽打你身边至多两个其他目标。", "_t")
 t("hit up to two adjacent enemies", "攻击你身边最多 2 个相邻敌人", "_t")
 t("#Source#'s three headed flail lashes at #Target#%s!", "#Source#使用三头连枷打击#Target#%s！", "logCombat")
 t(" and %s", "和 %s", "tformat")
