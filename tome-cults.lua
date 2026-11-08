@@ -664,7 +664,7 @@ t("It's a head... but is it yours?", "这是一个头…但是这是你的头吗
 section "tome-cults/data/general/objects/world-artifacts.lua"
 
 t("Spinal Cage", "脊笼", "entity name")
-t("gross mass of spinal matter", "一堆脊柱碎片", "_t")
+t("gross mass of spinal matter", "一大团脊柱物质", "_t")
 t("A gross mass of spinal matter hastily assembled into armour.", "一大团令人作呕的、被匆忙拼装成护甲的脊柱物质。", "_t")
 t("Infused Cerebrum", "被灌注的大脑", "entity name")
 t("a disgusting pile of brain-matter", "一团令人厌恶的大脑组织", "_t")
@@ -806,7 +806,7 @@ t("Sometimes reveals the hidden truths you'd rather not see.", "有时会揭示�
 t("#YELLOW#Light of Revelation shines on %s revealing its true nature as %s!", "#YELLOW#揭示之光照耀着%s，显露出它的真面目：%s！", "say")
 t("Glowing Core", "光亮之核", "entity name")
 t("burning core", "燃烧的核心", "_t")
-t("This is all that's left of the Searing Horror. Even after its death, the object in your hand glows just as brightly as it did before.", "这是灼热恐魔仅剩的残骸。即使它已经死去，你手中的物体依然如从前一样闪耀着光芒。", "_t")
+t("This is all that's left of the Searing Horror. Even after its death, the object in your hand glows just as brightly as it did before.", "这是灼光恐魔仅剩的残骸。即使它已经死去，你手中的物体依然如从前一样闪耀着光芒。", "_t")
 t("Shoes of Moving Slowly", "缓步之靴", "entity name")
 t("restful shoes", "放松的鞋子", "_t")
 t([[Fast does not always win.
