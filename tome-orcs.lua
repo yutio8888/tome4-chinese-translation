@@ -1116,7 +1116,7 @@ t("implant", "植入物", "_t")
 t("Steamtech implants can be grafted on the users skin..", "蒸汽科技的植入物可以移植到使用者皮肤上……", "_t")
 t("implant on your skin.", "植入到皮肤上", "_t")
 t("steam generator implant", "蒸汽发生器植入物", "entity name")
-t("medical injector implant", "医疗注射器植入物", "entity name")
+t("medical injector implant", "医疗注射器植入体", "entity name")
 
 ------------------------------------------------
 section "tome-orcs/data/general/objects/leather-hats.lua"
