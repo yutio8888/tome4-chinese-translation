@@ -1,4 +1,30 @@
-# 当前恢复入口（2026-11-03 轻量审核 A/B 双审全覆盖，队列空）
+# 当前恢复入口（2026-11-09 0.3.10 已发布，轻量审核队列空）
+
+**状态。** 第 0001–0461 批已全部提交并经 `tools/push_github.sh` 推送；`lite_review.py` 的 `pending_A` 为 0，没有进行中的批次或 child。
+插件 0.3.10 已于 2026-11-09 按用户指示发布（发布仓库 `4843901`，13,688 条＝核心 8,045＋引擎 182＋DLC 5,461，
+凭据 [`evidence/releases/addon-0.3.10.json`](evidence/releases/addon-0.3.10.json)）。
+
+**2026-11-07～11-09 完成：**
+
+1. 插件代码修复（用户 11-08 裁决：物品属性行 all 只在 getTextualDesc 期间显示「全部」；装备人偶只显示材质简称、分隔符改「、」）：
+   发布仓库 `4a86895` 新增补充词条 `data/chn_supplement.lua`（独有键，避免改动 "nil" 兜底表）与 11 个 superload 包装
+   （商店标题、按键分组、成就分类、立绘名牌、自动探索中断原因、裸字面量弹窗、Orcs 锁定职业描述、战役名、疯狂值双百分号、
+   盾牌 add_name、装备组切换、使用技能窗口三列、开局「切换至 player」日志、人偶分隔符）。实机验证证据
+   `evidence/quality/live-test-20261104/addon-fix-20261108/`。仍未做：引擎折行拆数字（I）、Steam: 前缀、Ashes 欢迎框种族列表。0.3.9 于 11-08 发布。
+2. 固定神器名称与描述核对（0449–0452，证据 `evidence/quality/artifact-name-desc-check-20261108/`）：描述／未鉴定名对齐、
+   Gemini 4 Argon 定名 18 件；用户指出第三组别扭后回退 9 个为官方译名（新规则：官方译名只在误译、撞名、专名冲突时改）。
+3. 公开版 0.3.9 反向检查（0453–0458，证据 `evidence/quality/reverse-check-20261109/`）：32 个 Opus 子代理先读中文再核英文，
+   99 条发现中 94 条修复（含 Embers 流血阈值「5 倍」→「5%」）；复审连带修 13 处；primal-forest lore 第三轮剩一条二级语感问题记 advisory。
+4. 术语裁决（用户 11-09，0459–0461）：Jinx＝厄运、implant＝植入物（术语表已更新，terminology 行数 923）。
+
+**现行裁决** 见 `docs/review-operations-guide.md` 第六节（本次新增：官方译名修改门槛、固定神器名、shot＝弹丸、Jinx、implant、Kar'Krul、Allure Wars）。
+
+**未决／advisory：** Combat Veteran「战斗经验」待术语裁决；泰鲁戈洛斯（官方）与 -格罗斯 族不一致、非之家（区域名）记 advisory；
+primal-forest lore 一处比较对象搭配（0458 advisory）。下文 11-03 入口的待决事项除已注明完成者外仍有效。
+
+---
+
+# 历史恢复入口（2026-11-03 轻量审核 A/B 双审全覆盖，队列空）
 
 **状态。** 用户 2026-11-01 授权把全量审核改为轻量流程（方案 B，见
 [轻量审核流程](docs/lite-review-workflow-20261101.md)）；旧审计证据冻结在 R296（`fab80aa3`），原样保留。
