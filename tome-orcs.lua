@@ -1116,7 +1116,7 @@ t("implant", "植入物", "_t")
 t("Steamtech implants can be grafted on the users skin..", "蒸汽科技的植入物可以移植到使用者皮肤上……", "_t")
 t("implant on your skin.", "植入到皮肤上", "_t")
 t("steam generator implant", "蒸汽发生器植入物", "entity name")
-t("medical injector implant", "医疗注射器植入体", "entity name")
+t("medical injector implant", "医疗注射器植入物", "entity name")
 
 ------------------------------------------------
 section "tome-orcs/data/general/objects/leather-hats.lua"
@@ -5778,7 +5778,7 @@ section "tome-orcs/data/talents/steam/steam.lua"
 t("Steam Pool", "蒸汽能量池", "talent name")
 t("Allows you to have a steam pool. Steam is used to use most steamtech equipments and powers.", "让你有一个蒸汽池。蒸汽用于大多数蒸汽技术装备和能力。", "_t")
 t("inscriptions", "刻印", "talent category")
-t("implants", "植入体", "talent type")
+t("implants", "植入物", "talent type")
 t("Steamtech directly embedded on the skin.", "直接嵌入皮肤的蒸汽技术。", "_t")
 t("steamtech", "蒸汽科技", "talent category")
 t("other", "其他", "talent type")
@@ -6778,27 +6778,27 @@ section "tome-orcs/data/tinkers/therapeutics.lua"
 t("Healing Salve", "治疗药剂", "_t")
 t([[A powerful healing salve.
 To be used with the medical injector implant.]], [[一个强大的治疗药剂。
-需通过医疗注射器植入体使用。]], "_t")
+需通过医疗注射器植入物使用。]], "_t")
 t("Pain Suppressor Salve", "痛苦压制药剂", "_t")
 t([[A powerful salve that steels your body for a while, letting you survive below 0 life while increasing resistances.
 To be used with the medical injector implant.]], [[一种能暂时强化你身体的强力药剂，它可以让你在 0 生命值以下时仍然存活，并提升你的伤害抗性。
-需通过医疗注射器植入体使用。]], "_t")
+需通过医疗注射器植入物使用。]], "_t")
 t("Frost Salve", "寒霜药剂", "_t")
 t([[A powerful salve that can clean physical detrimental effects from your body and grant a frost aura (cold, darkness and nature affinity).
 To be used with the medical injector implant.]], [[一个可以清除你身上的负面物理效果并获得一个寒霜光环（增加寒冷、暗影和自然伤害亲和）的强大药剂。
-需通过医疗注射器植入体使用。]], "_t")
+需通过医疗注射器植入物使用。]], "_t")
 t("Fiery Salve", "烈火药剂", "_t")
 t([[A powerful salve that can clean magical detrimental effects from your body and grant a fiery aura (fire, light and lightning affinity).
 To be used with the medical injector implant.]], [[一个可以清除你身上的负面魔法效果并获得一个烈火光环（火焰、光系、闪电伤害亲和）的强大药剂。
-需通过医疗注射器植入体使用。]], "_t")
+需通过医疗注射器植入物使用。]], "_t")
 t("Water Salve", "静水药剂", "_t")
 t([[A powerful salve that can clean mental detrimental effects from your body and grant a water aura (blight, mind and acid affinity).
 To be used with the medical injector implant.]], [[一个可以清除你身上的负面精神效果并获得一个静水光环（枯萎、精神、酸性伤害亲和）的强大药剂。
-需通过医疗注射器植入体使用。]], "_t")
+需通过医疗注射器植入物使用。]], "_t")
 t("Unstoppable Force Salve", "势不可挡药剂", "_t")
 t([[A powerful salve that makes you more resilient to physical, mental and magic effects and grants increased healing.
 To be used with the medical injector implant.]], [[一种强大的药剂，能增强你对物理、精神和魔法效果的抵抗能力，并增加你的治疗效果。
-需通过医疗注射器植入体使用。]], "_t")
+需通过医疗注射器植入物使用。]], "_t")
 t("frost salve", "寒霜药剂", "_t")
 t("fiery salve", "烈火药剂", "_t")
 t("water salve", "静水药剂", "_t")

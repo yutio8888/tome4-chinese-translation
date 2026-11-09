@@ -3756,14 +3756,14 @@ t("+Suspend", "+暂停", "_t")
 t("#Target# is returned to normal time.", "#Target#返回了正常时间。", "_t")
 t("-Suspend", "-暂停", "_t")
 t("The target is removed from the normal time stream, unable to act but unable to take any damage. Each turn, negative effects and cooldowns will decrease in duration.", "目标从常规时间流中移除，无法行动，免疫伤害。暂停结束时，非“其他”类且不会在无时间状态下自行衰减的负面效果，以及技能冷却时间会缩短。", "_t")
-t("Jinxed", "不幸", "_t")
+t("Jinxed", "厄运", "_t")
 t([[The target has %d reduced saves and defense, and %d%% reduced critical chance.
 This effect will fade in 2 turns if the source is not in line of sight.]], [[目标豁免和闪避降低 %d，暴击率降低 %d%%。
 若效果来源不在视野内，则该效果会在 2 回合后消失。]], "_t")
 t([[The target has %d reduced saves and defense, %d%% reduced critical chance, and %d%% chance to fail talent use.
 This effect will fade in 2 turns if the source is not in line of sight.]], [[目标豁免和闪避降低 %d，暴击率降低 %d%%，使用技能有 %d%% 几率失败。
 若效果来源不在视野内，则该效果会在 2 回合后消失。]], "_t")
-t("%d Jinx", "%d 不幸", "tformat")
+t("%d Jinx", "%d 厄运", "tformat")
 t("Fortune", "幸运", "_t")
 t("The target has %d increased saves and defense, and %d%% increased critical chance.", "目标的豁免和闪避提高 %d，暴击率提高 %d%%。", "_t")
 t("The target has %d increased saves and defense, %d%% increased critical chance, and %d%% chance to avoid all damage.", "目标豁免和闪避增加 %d，暴击率增加 %d%%，有 %d%% 几率闪避所有伤害。", "_t")
@@ -3772,7 +3772,7 @@ t("The target is being erased from reality. Each time a magical effect is applie
 t("#Target# is being erased from reality!", "#Target#被从现实中移除！", "_t")
 t("#Target# has survived the unraveling.", "#Target#从解构效果中存活。", "_t")
 t("Fatebreaker", "打破宿命", "_t")
-t("The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.", "目标将自身的命运和另一个人相连，当它死亡时，选择的目标将代替它死亡。此时，自身的幸运层数和所选目标身上的不幸层数会被消耗；若所选目标有不幸，则按其层数治疗，否则按自身的幸运层数治疗，每层恢复 %d 点生命。", "tformat")
+t("The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.", "目标将自身的命运和另一个人相连，当它死亡时，选择的目标将代替它死亡。此时，自身的幸运层数和所选目标身上的厄运层数会被消耗；若所选目标有厄运，则按其层数治疗，否则按自身的幸运层数治疗，每层恢复 %d 点生命。", "tformat")
 t("#Target# intertwines it's fate!", "#Target#的命运被联结！", "_t")
 t("#Target#'s fate is no longer linked to another.", "#Target#的命运不再被联结。", "_t")
 t("Redirecting all damage as temporal and darkness to %s.", "所有伤害转为时空和暗影类型，转移至 %s。", "tformat")
