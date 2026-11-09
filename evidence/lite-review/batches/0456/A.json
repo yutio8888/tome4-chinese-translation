@@ -1,0 +1,69 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "7e24bdd87ffd",
+   "verdict": "OK"
+  },
+  {
+   "id": "aed5251b0dee",
+   "verdict": "OK"
+  },
+  {
+   "id": "6331a920c3a8",
+   "verdict": "ISSUE",
+   "observation": "末句机制译错：'The itchiness effect is applied with your Steampower' 指施加效果时用蒸汽强度作命中强度（tome-orcs/data/talents/steam/other.lua:1118 setEffect(... apply_power=self:combatSteampower(), apply_save=\"combatMentalResist\")），失败几率 failChance 只随技能等级（:1110 combatTalentLimit），并不随蒸汽强度提高。译文「致痒强度受蒸汽强度加成」把命中判定说成强度加成，与机制不符。",
+   "suggestion": "释放一把痒痒粉。\n\t\t锥形半径 %d 格内的生物将瘙痒 %d 回合，使其使用技能时有 %d%% 几率失败。\n\t\t瘙痒效果的施加判定使用你的蒸汽强度。"
+  },
+  {
+   "id": "2b7037b40adc",
+   "verdict": "OK"
+  },
+  {
+   "id": "b97b4a2c5d35",
+   "verdict": "OK"
+  },
+  {
+   "id": "31dbb0b72305",
+   "verdict": "OK"
+  },
+  {
+   "id": "25e2238b4324",
+   "verdict": "OK"
+  },
+  {
+   "id": "011c69c5176d",
+   "verdict": "OK"
+  },
+  {
+   "id": "6de37d8a0152",
+   "verdict": "OK"
+  },
+  {
+   "id": "07544275a701",
+   "verdict": "ISSUE",
+   "observation": "同一能力内名称不一致：该效果来自 Pincer Strike（tome-orcs/data/talents/steam/mecharachnid.lua:861 起，effect 在 data/timed_effects/physical.lua:1298），库内 Pincer Strike、Rush、自动打击等描述均把 tailsaw 译为「尾部蒸汽链锯」（tome-orcs.lua:5334/5338/5341），此处作「尾部链锯」，与同一技能描述不一致。",
+   "suggestion": "目标被 %s 抓取，被定身，降低攻击、法术和精神速度 %d%%，并每回合受到一次自动的尾部蒸汽链锯打击，造成 %d%% 伤害。"
+  },
+  {
+   "id": "47f1a9c5141c",
+   "verdict": "OK"
+  },
+  {
+   "id": "077996b8156e",
+   "verdict": "OK"
+  },
+  {
+   "id": "0b1457dd6cae",
+   "verdict": "ISSUE",
+   "observation": "多处删掉或增添限定语，把推测说成肯定：(1)'it is possible that lesser uses of arcane magic do not have any inherent corrupting or harmful effect' 译成「少量使用奥术魔法，本身并不会对世界带来任何腐蚀和有害的影响」，删掉 it is possible；(2)'Maybe no Sun Paladin or Anorithil has yet sunk to the depths…' 译成「可以说，太阳骑士和星月术士，远远没有堕落到…」，maybe/yet 变成断言并增译「远远」；(3)'some may enrich the lives of those around them' 译成「他们中的许多人，都可以给…带来好处」，some may → 许多人都可以；(4)'Eliminating all use of magic is the only way' 增译「看起来是」；(5)'a lone megalomaniac destroying much of Eyal' 丢失 lone megalomaniac（单个狂人）这一主体；(6)'That said, this proves nothing about the most terrible potential of magic' 译成「同时，魔法仍然可能造成极其可怕的后果」，丢失 proves nothing 的论证关系。文本为 DLC 公开文本（section tome-orcs/superload/mod/dialogs/debug/DebugMain.lua，语境证据即原文）。",
+   "suggestion": "按原文改动以下句子：「……但是，从太阳骑士和星月术士的情况来看，少量使用奥术魔法，本身可能并不会带来任何腐蚀性或有害的影响。」；「消除所有魔法的使用，是避免这种状况重演的唯一方法……」；「话虽如此，这并不能证明魔法最可怕的潜能就不存在。或许还没有哪位太阳骑士或星月术士堕落到黄昏纪法师那样邪恶的深渊，也没有像那些引发魔法大爆炸的法师一样鲁莽到可悲，但这并不能说明他们的魔法不会被滥用。」；「……绝对不会引发一场失控的连锁反应，也不会让某个妄自尊大的狂人独自毁掉埃亚尔的大片土地。」；「并不是每个法师都是邪恶的，事实上，其中一些人还可能给身边人的生活带来好处！」"
+  },
+  {
+   "id": "4d8260ebdf43",
+   "verdict": "ISSUE",
+   "observation": "语序与标记空格问题：(1)「这是我的荣幸，能够终于主事」状语错位，'It is my pleasure to finally lead the proceedings' 应为「终于能够主持会议，这是我的荣幸」；(2)「这是[i]无关紧要[/i] 的」在 [/i] 后多一个空格把「无关紧要的」断开；(3)「齐腰高的小傻战士们」生硬（silly little waist-height warriors）；(4)结尾「演讲被另一个文件记载」生硬被动句，且 'gave a lengthy speech before officially resigning' 是辞职前演讲，译成「在…辞职时」。语境证据即原文（section tome-orcs/superload/mod/dialogs/debug/DebugMain.lua）。",
+   "suggestion": "局部改为：「你们好啊，我的同……哈，现在是[i]下级[/i]议员们！终于能由我主持会议，真是荣幸。今日的议程……」；「这是[i]无关紧要[/i]的。」；「告诉我那些在大陆上到处搜寻兽人反叛者、只有齐腰高的愚蠢小个子战士们在想什么。」；「[此时，卡西罗斯议员发表了一篇冗长的演讲，随后正式辞去议员职务。演讲内容另行记录在案。]」"
+  }
+ ]
+}

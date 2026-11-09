@@ -5521,7 +5521,7 @@ t([[Throw a handful of dust that is very itchy to touch.
 		Creatures in a cone of radius %d are itchy for %d turns, causing them to fail talents %d%% of the time.
 		The itchiness effect is applied with your Steampower.]], [[释放一把痒痒粉。
 		锥形半径 %d 格内的生物将瘙痒 %d 回合，使其使用技能时有 %d%% 几率失败。
-		致痒强度受蒸汽强度加成。]], "tformat")
+		瘙痒效果的命中判定受蒸汽强度加成。]], "tformat")
 t("Thunder Grenade", "雷鸣榴弹", "talent name")
 t("%s resists the explosion!", "%s抵抗了爆炸！", "logSeen")
 t([[Throw a grenade at your foes, dealing %0.2f physical damage in radius %d.
@@ -6559,7 +6559,7 @@ t("#Target# is scorched.", "#Target#被火焰灼烧。", "_t")
 t("#Target# is no longer scorched.", "#Target#不再被灼烧。", "_t")
 t("grapple", "抓取", "effect subtype")
 t("Pincer Strike", "钢爪钳制", "_t")
-t("The target is grappled by %s, pinning them, reducing attack, spell and mind speed by %d%% and subjecting them to an automatic tailsaw strike each turn for %d%% damage.", "目标被 %s 抓取，被定身，降低攻击、法术和精神速度 %d%%，并每回合受到一次自动的尾部链锯打击，造成 %d%% 伤害。", "tformat")
+t("The target is grappled by %s, pinning them, reducing attack, spell and mind speed by %d%% and subjecting them to an automatic tailsaw strike each turn for %d%% damage.", "目标被 %s 抓取，被定身，降低攻击、法术和精神速度 %d%%，并每回合受到一次自动的尾部蒸汽链锯打击，造成 %d%% 伤害。", "tformat")
 t("%s clamps its pincers down on #Target#!", "%s使用钢爪钳制#Target#！", "tformat")
 t("+Pincer Strike", "+钢爪钳制", "_t")
 t("#Target# is free from %s's pincers.", "#Target#脱离%s的钢爪。", "tformat")
@@ -8341,13 +8341,14 @@ At this point, it should go without saying that reckless use of magic is a dire 
 Fortunately, there is an alternative available!  With the proper respect, care, and concentration given to Nature, one can be rewarded with powers rivaling or besting the popular uses of magic.  On the civilian level, summoned fireflies can replace magical lighting, regeneration salves can replace healing spells, and accelerated crop growth makes for a far more nutritious diet than conjured foodstuffs.  For martial purposes, there's very little that can stand up to the powers of Nature.  An experienced disciple of Eyal can summon loyal beasts faster than any mage can blast them, crush spellswords of all types with draconic might, or dissolve a necromancer's army in a tide of corrosive ooze.  And if the disciple in question is familiar with the practices of the Ziguranth...  We do not condone their approach to defending nature, but their techniques speak for themselves when facing a hostile mage.  The best part about these abilities, though, is that they are self-limiting!  There is no potential for a runaway chain reaction, or a lone megalomaniac destroying much of Eyal.  The planet willingly gives us its power, and is conscious enough to take it away if we start abusing its gifts.  Even the most powerful of Wilders cannot abuse their power to the perverse degree that a necromancer can.
 
 Thus, we're putting our efforts into two areas.  The first is advocacy of Natural alternatives to magic, talking to spellcasters to determine what they use magic for and figuring out ways to use Nature's abilities to do the same task just as well (if not more so).  We've continued the Ziguranth efforts to make all-natural replacements for Ogric runes (we predict that life expectancy is now only reduced by 40% with our newest mixtures), developed fertilizing recipes that outperform arcane methods of producing food, created wells near desert settlements otherwise dependent on water magic, and developed so many other techniques and applications that make magic just as obsolete as it is hazardous.  The second is minimizing the harm done by the arcane, by educating spellcasters on the safe, responsible, and Nature-conscious use of magic.  Not every spellcaster is evil, and in fact, some may enrich the lives of those around them!  Runic magic is at least somewhat self-limiting, and we are working with the Living Fossils guild in hopes of developing a new type of magic, one inherently linked to and limited by Nature.  Their stone-wardens have maintained perfect harmony with Nature despite constant use of the arcane; if this is truly the way forward, then we shall welcome it with open arms.
-]], [[我们必须承认，现在世道变了。在不到一年的时间里，在东方重新发现的那些盟友的影响之下，联合王国已经开始从不情愿地容忍魔法，迅速转变为公开接受魔法的使用。此外，如果那些报导确认属实的话，尽管那里的人们持续使用魔法长达几千年，瓦·埃亚尔的生态系统仍然健康而完整。因此，我们绝不能对新知识一无所知，我们的观点和方法必须随着时代而改变。
+]], [[我们必须承认，现在世道变了。在不到一年的时间里，在东方重新发现的那些盟友的影响之下，联合王国已经从勉强容忍魔法，转变为公开接受魔法的使用。此外，如果那些报导确认属实的话，尽管那里的人们持续使用魔法长达几千年，瓦·埃亚尔的生态系统仍然健康而完整。因此，我们的观点和方法必须随着时代而改变；我们并非对新知识一无所知。
 
-说到这里，鲁莽地使用魔法是对……世间一切的可怕威胁，这一点本应不言自明。埃亚尔至今还没有从黄昏纪死灵魔法的猖獗使用中完全恢复过来，更不用说魔法大爆炸了。消除所有魔法的使用，看起来是避免这种状况重演的唯一方法……但是，从太阳骑士和星月术士的情况来看，少量使用奥术魔法，本身并不会对世界带来任何腐蚀和有害的影响。与我们长期以来的信念相反，他们成功地、安全而负责任地控制了魔法的使用。我们不会盲目到否认这是一个令人难以置信的保证。同时，魔法仍然可能造成极其可怕的后果。可以说，太阳骑士和星月术士，远远没有堕落到黄昏纪法师那样邪恶，也并不像那些引发魔法大爆炸的法师一样，鲁莽到可悲。但是这并不能证明，他们的魔法不会被滥用。
+说到这里，鲁莽地使用魔法是对……差不多世间一切的可怕威胁，这一点本应不言自明。埃亚尔至今还没有从黄昏纪死灵魔法的猖獗使用中完全恢复过来，更不用说魔法大爆炸了。消除所有魔法的使用，是避免这种状况重演的唯一方法……但是，从太阳骑士和星月术士的情况来看，少量使用奥术魔法，本身可能并不会带来任何腐蚀性或有害的影响。与我们长期以来的信念相反，他们成功地、安全而负责任地使用了魔法。我们并没有盲目到否认这一点，它确实令人大为安心。话虽如此，这对于魔法最可怕的潜在危害，却证明不了任何事情。或许还没有哪位太阳骑士或星月术士堕落到黄昏纪法师那样邪恶的深渊，也没有像那些引发魔法大爆炸的法师那样鲁莽得可悲，但这并不能说明他们的魔法不存在被滥用的可能。
 
-幸运的是，我们还有另一种选择！只要给予大自然足够的尊重，关心和专注，人们就可以获得和普遍应用的魔法匹敌，乃至更强的力量。在民用领域，召唤萤火虫可以替代魔法灯笼，治疗药剂可以替代治疗魔法，而加速谷物成熟的技术做出来的菜肴，可比法师制作的魔法食品对身体健康多了。在军用领域，很少有人能够抵挡自然强大的力量。那些埃亚尔忠实的学徒，可以比法师的火球速度更快地召唤忠诚的兽群，用巨龙的力量粉碎各路魔剑士，或是用一股腐蚀性的粘液，瞬间融解死灵法师的军团。另外，如果那些学徒还了解那些伊格兰斯曾经使用过的力量的话……我们不能容忍他们为了保卫自然做出的一系列举措，但他们的技术在面对敌对法师的时候，总是能够脱颖而出。有关这些自然能力，最重要的一点是，它们是会进行自我约束的！他们绝对不会像奥术魔法一样，引发一场失控的连锁反应，在妄自尊大的狂妄中给埃亚尔大部分的地方带来毁灭。这颗星球自愿给予了我们力量，当我们开始滥用它们的时候，它就会有意识地从我们身边收回。即使是最强大的野性系能力者，也不会像死灵法师一样，把他们的力量滥用到如此反常的程度。
+幸运的是，我们还有另一种选择！只要给予大自然足够的尊重，关心和专注，人们就可以获得和普遍应用的魔法匹敌，乃至更强的力量。在民用领域，召唤萤火虫可以替代魔法灯笼，治疗药剂可以替代治疗魔法，而加速谷物成熟的技术做出来的菜肴，可比法师制作的魔法食品对身体健康多了。在军用领域，很少有人能够抵挡自然强大的力量。经验丰富的埃亚尔学徒召唤忠诚野兽的速度，比任何法师消灭它们的速度都要快；他们能用巨龙的力量粉碎各路魔剑士，或是用一股腐蚀性的粘液，瞬间融解死灵法师的军团。另外，如果那些学徒还了解那些伊格兰斯曾经使用过的力量的话……我们并不赞同他们保卫自然的方式，但他们的技术在面对敌对法师时的效果有目共睹。有关这些自然能力，最重要的一点是，它们是会进行自我约束的！它们不可能引发失控的连锁反应，也不可能让某个妄自尊大的狂人独自毁掉埃亚尔的大片土地。这颗星球自愿给予了我们力量，而且它有足够的意识，一旦我们开始滥用它的馈赠，就会将力量收回。即使是最强大的野性系能力者，也无法像死灵法师那样，把力量滥用到如此反常的程度。
 
-因此，我们目前的事业有两个主要的目标。第一个目标是推广使用自然力量代替法术的方法。我们要和那些法师交谈，知道他们用魔法来做什么，然后想办法用自然的力量来达成同样的目标，乃至做的更好。我们继续伊格兰斯把食人魔的符文替换成纯天然产品的努力（现在，使用我们的新技术，预计只会减少40%的寿命），发展新的肥料技术，让它们远远超出使用奥术力量生产食物的方法，还有在沙漠地区创造水井，让那些地方不再只能依靠水魔法。我们创造了各种各样其他使用自然力量的技术与应用，让过去那些使用魔法的方法看上去既落后又危险。第二个目标是最大限度地减少奥术魔法造成的危害，我们会教育法师，如何安全地、负责任地、有保护自然的意识地去使用魔法。并不是每个法师都是邪恶的，他们中的许多人，都可以给他们身边人的生活带来好处！符文魔法就是某种意义上有自我限制能力的魔法，我们也在和那个活化石组织合作，希望能够开发出一种新的魔法，一种和自然联结，受自然约束的魔法。那些岩石守卫就是这样的例子，他们经常使用奥术力量，却仍然和自然之间保持着完美的和谐。如果这就是我们前进的道路，我们将张开双臂欢迎它。]], "_t")
+因此，我们目前的事业有两个主要的目标。第一个目标是推广使用自然力量代替法术的方法。我们要和那些法师交谈，知道他们用魔法来做什么，然后想办法用自然的力量来达成同样的目标，乃至做得更好。我们延续了伊格兰斯把食人魔符文替换成纯天然产品的努力（据我们预测，使用最新的配方后，预期寿命只会缩短40%），研发出了比奥术生产粮食更有效的施肥配方，在原本依赖水魔法的沙漠聚居地附近打了水井，还开发了许多其他技术与应用，让魔法变得既危险又过时。第二个目标是最大限度地减少奥术魔法造成的危害，我们会教育法师，如何安全地、负责任地、有保护自然的意识地去使用魔法。并不是每个法师都是邪恶的，事实上，其中一些人还可能让身边人的生活更加丰富！符文魔法至少在一定程度上能够自我限制，我们也在和活化石公会合作，希望能够开发出一种新的魔法，一种与自然有着内在联系、受自然约束的魔法。他们的岩石守卫虽然不断使用奥术力量，却始终和自然保持着完美的和谐；如果这真的是前进的道路，我们将张开双臂欢迎它。
+]], "_t")
 t([[The Steam Council has been called to order, with Chief Councilor Tantalos presiding.
 
 TANTALOS: "Greetings, my fellow- heh, now [i]lesser[/i] Councilors!  It is my pleasure to finally lead the proceedings.  The agenda for today..." Ruffles through papers. "Is irrelevant, for I have a solution to every malady mentioned therein.  The first order--"
@@ -8374,26 +8375,26 @@ TANTALOS: "Such undignified conduct!  All because you can't accept that the publ
 
 [At this time, Councilor Kasyros gave a lengthy speech before officially resigning from the Council.  It has been recorded in a separate document.] ]], [[在坦塔洛斯议长的主持下，蒸汽议会正式开会。
 
-坦塔洛斯：“你们好啊，我的同……哈，现在是[i]下级[/i]议员们！这是我的荣幸，能够终于主事。今日的议程……”翻动手中的文件。“无关紧要，因为我已经为所有要解决的问题有了一个对应的方案。首先————”
+坦塔洛斯：“你们好啊，我的同……哈，现在是[i]下级[/i]议员们！终于能由我主持会议，真是荣幸。今日的议程……”翻动手中的文件。“无关紧要，因为议程中提到的每个问题，我都有解决方案。首先————”
 
 卡西罗斯：“尊敬的议长，议程————”
 
-坦塔洛斯：“这是[i]无关紧要[/i] 的。托马克？你一直在占卜潜在的地热能源，你能告诉大家哪里最有潜力吗？”
+坦塔洛斯：“就是[i]无关紧要[/i]。托马克？你一直在占卜潜在的地热能源，你能告诉大家哪里最有潜力吗？”
 
-托马克：叹气。“不幸的是，就在克鲁克兽人的地盘底下。那确实是个有潜力的源头，提供能源的岩浆也不像我们地盘底下的那样已经枯竭，但是在那里挖掘会……好吧，我们都知道他们能多快的把建筑工具变成能威胁我们的武器。如果我们把能用来开采的最新式采矿工具带过去————”
+托马克：叹气。“不幸的是，就在克鲁克兽人的地盘底下。那确实是个有潜力的源头，为它提供能量的岩浆也不像我们地底下的那样已经枯竭，但是在那里挖掘会……好吧，我们都知道他们能多快地把建筑工具变成足以匹敌我们武器的兵器。如果我们把能用来开采的最新式采矿工具带过去————”
 
-坦塔洛斯：大笑。“采矿工具！你把我当成是怎样的傻瓜？帕拉奎，告诉我那些在大陆上到处搜寻兽人反叛者的齐腰高的小傻战士们在想什么。”举起手打断荣誉终身议员卡西罗斯。“我向你保证，这确实相关。”
+坦塔洛斯：大笑。“采矿工具！你把我当成是怎样的傻瓜？帕拉奎，告诉我那些只有齐腰高、在大陆上到处搜寻兽人反叛者的可笑小个子战士们在想什么。”举起手示意荣誉终身议员卡西罗斯安静。“我向你保证，这确实相关。”
 
-帕拉奎：“不满……以及隐藏的，长期发酵的怒火。有些人想消灭克鲁克兽人，也有人想监禁他们。两派都无力直接介入，不过确实可以提供某种支持。”
+帕拉奎：“不满……根源是深藏已久、不断发酵的怨恨。有些人想消灭克鲁克兽人，也有人想监禁他们。两派都无力直接介入，但肯定能提供某种形式的支持。”
 
-坦塔洛斯：“那么，在恰当的协商后，我们可以让那些有[i]无数[/i]兽人作战经验的小东西，来协助我们，让在克鲁克兽人境内的一切行动更易掌控。最少，我们可以取得那些已被长期证明能割断兽人喉咙的武器装备……自然，我们确实得想法子改成我们的尺寸。”
+坦塔洛斯：“那么，只要谈判得当，我们就能让这些与兽人作战经验[i]无穷无尽[/i]的小家伙来协助我们，让在克鲁克兽人境内的一切行动更易掌控。至少，我们能取得那些早已证明足以割断兽人喉咙的武器……当然，我们还得把它们改成适合我们身材的尺寸。”
 
 帕拉奎：“他们有个种族，护甲可以给我们用。穿起来有点紧，但是足够了。”
 
-坦塔洛斯：“那就更好了！还有……卡西罗斯，我想让[i]你[/i]告诉我人民最在意什么。我敢肯定，你身上的伤痕一定能提醒你，公民们的意志是什么，对吧？”
+坦塔洛斯：“那就更好了！还有……卡西罗斯，我想让[i]你[/i]告诉我人民最在意什么。我相信你身上的淤青足以提醒你公民们的意志是什么，对吧？”
 
 卡西罗斯：[这一发言因言辞过于粗鄙，经4比2投票决定从记录中删除。]
 
-坦塔洛斯：“真是不成体统的发言啊！这一切都只是因为你接受不了群众想要回他们的蒸汽。比起让那些肮脏的小绿人们待在身边，比起害怕弄脏自己的手，比起按[i]你[/i]的方式行事，他们更想要蒸汽。所以！兹认定我们能从中获益良多，认定我们拥有或能够取得执行此事的手段，也认定这正是选民之所愿。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”
+坦塔洛斯：“真是不成体统！这一切只因为你接受不了群众想要回他们的蒸汽。他们想要蒸汽，胜过想让那些肮脏的小绿皮留在身边，胜过对弄脏双手的恐惧，也胜过想按[i]你[/i]的方式行事。所以！兹认定我们能从中获益良多，认定我们拥有或能够取得执行此事的手段，也认定这正是选民之所愿。我看不需要进一步讨论了。纳沙尔，之后我想跟你讨论一个魔杖的事情。散会。”
 
-[同时，卡西罗斯议员也在从议会正式辞职时做了一个不短的演讲。演讲被另一个文件记载。] ]], "_t")
+[此时，卡西罗斯议员发表了一篇冗长的演说，随后正式辞去议员职务。演说内容另有文件记录。] ]], "_t")
