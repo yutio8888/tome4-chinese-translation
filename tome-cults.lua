@@ -236,7 +236,7 @@ User's biological signature indicates dangerous degeneration of genome due to un
 t("Genome?", "基因组？", "_t")
 t([[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#
 No signs of life detected. User appears to be still moving despite absence of living tissue. Sending information for further analysis.]], [[#YELLOW_GREEN##{bold}#这个机器哔哔了几下，又说了起来。#{normal}##LAST#
-没有检测到生命信号。目标看上去在活动，但没有活着的生物组织。正在发送信息以供进一步分析。]], "_t")
+没有检测到生命信号。用户看上去仍在活动，但没有活着的生物组织。正在发送信息以供进一步分析。]], "_t")
 t("Never seen an undead have you?", "你没见过不死生物吗？", "_t")
 t([[#YELLOW_GREEN##{bold}#The device beeps again and speaks.#{normal}##LAST#
 User's biological signature does not match any currently known species in database. Sending information for further analysis.]], [[#YELLOW_GREEN##{bold}#这个机器哔哔了几下，又说了起来。#{normal}##LAST#
@@ -1180,7 +1180,7 @@ Putting the chest in my pack, I began to make my way towards the road leading to
 
 我能感觉到他的语气变得沉重，他继续说：“然后他们来到埃尔瓦拉，想要对我们做同样的事情。也许你穿过埃尔瓦拉帷幕进来时，已经看到了他们的一些尸体。”他沉默了片刻，我也渐渐体会到了他这番话的分量。紧接着，他又用正常的语气继续说：“当然，让我无法派出特使的，并不只是人们一时的愤怒，还有人在煽动其他地方的人民采取行动。我不知道是谁，也不知道是什么组织在这么做，但是我听到了那些人类高喊着的口号，所以深感忧虑。”
 
-将军的视线和我交汇，他严肃的态度吸引了我。我迫不及待地问：“他们喊了什么？”他用和之前一样严肃的语气说：“他们高喊，‘永恒精灵要为魔法大爆炸付出代价！’”我有些不解地问：“他们对你发怒本就有理由，你为什么要害怕几句表达愤怒的话呢？”对此，我得到了坚定的回答，“因为只有少数人知道，我们把我们的宏伟计划称为‘魔法大爆炸’。对于其他种族的领袖，甚至是你的国王和王后，我们只提到，我们将利用夏·图尔废墟来完成一项伟大的魔法壮举。有人告诉那些人类平民，我们对此负有责任，但他们说漏了嘴。我看得出，有人正在针对我的族人进行某种秘密行动。”
+将军的视线和我交汇，他严肃的态度吸引了我。我迫不及待地问：“他们喊了什么？”他用和之前一样严肃的语气说：“他们高喊，‘永恒精灵要为魔法大爆炸付出代价！’”我有些不解地问：“他们对你发怒本就有理由，你为什么要害怕几句表达愤怒的话呢？”对此，我得到了坚定的回答，“因为只有少数人知道，我们把我们的宏伟计划称为‘魔法大爆炸’。对于其他种族的领袖，甚至是你的国王和王后，我们只提到，我们将利用夏·图尔废墟来完成一项伟大的魔法壮举。有人告诉那些人类平民是我们干的，可那人说漏了嘴，用了这个名字。我看得出，有人正在针对我的族人进行某种秘密行动。”
 
 我沉默了一会儿，最后才从座位上站起来。我做出了最后的决定，坚定地说：“那我就替你运输你的援助物资。你要我怎么办？”将军放松下来，马上回答我说：“想必你也清楚，永恒精灵并不常用纹身或其他任何自然疗法。不过，我们确实储存了不少原料，把它们送去援助其他地方，更能派上用场。我会采购一个特殊的箱子，可以用来储存所有能匀出来的原料，让你把它送到附近的纳格尔王国。现在，许多来自其他种族的难民涌入他们的首都，他们可能没有足够的原料来制造他们需要的所有纹身。”
 
@@ -1320,7 +1320,7 @@ A group of the Nargol Guards would eventual appear and they began to gather them
 
 当我凝视时，声音又响起了。“你们胡乱地把怒火指向不该受责难的人，我说，应当把怒火指向造成所有悲剧的根源。”我开始在人群中挤过去，想知道谁在说话，他们在说什么。声音继续说：“无论魔法存在于何处，它迟早都会失控，带来灾难。今早发生的火灾就是一个例子，一群难民闯进仓库，试图取回他们被没收的魔法物品。因为他们的狂妄，他们借助其中物品蕴含的奥术力量烧毁了这座建筑。”
 
-我朝中间走去，抬头看见一个半身人和一个人正对着人群。他们都戴着面具，隐藏了身份，但我认出了人类穿的深色斗篷。见那个人类举起手臂，我猜是他在说话，但我不能肯定，因为面具遮住了他们的面部表情。声音又响了起来：“这场大火夺去了许多在附近家中熟睡的居民的生命，又有更多人死于魔法。这件事唯一称得上好事的是，他们试图拿走的那些魔法物品，有许多在随后的大火中被焚毁，再也不会玷污这个世界。”
+我朝中间走去，抬头看见一个半身人和一个人正对着人群。他们都戴着面具，隐藏了身份，但我认出了人类穿的深色斗篷。见那个人类举起手臂，我猜是他在说话，但我不能肯定，因为面具遮住了他们的面部表情。声音又响了起来：“这场大火夺去了许多在附近家中熟睡的居民的生命——又是一批死于魔法的人。这件事唯一称得上好事的是，他们试图拿走的那些魔法物品，有许多在随后的大火中被焚毁，再也不会玷污这个世界。”
 
 那些话刺入我的脑海，随着那人继续说下去，我能感觉到他声音中的愤怒。我看到周围的人也被这些话及其中的情绪所左右。很多人开始高叫着：“魔法就是一切的罪魁祸首”和“消灭所有魔法”这样的话，声音又在继续，“当然，你们早已亲眼见识过那些灾难，何须我再多说。就像刚才那些导致仓库被烧毁的行为一样，是永恒精灵法师发动了魔法大爆炸，摧毁了土地，扭曲了天空。正如我一直在说的，无论魔法存在于何处，它迟早都会失控，带来灾难。”
 
@@ -1358,7 +1358,7 @@ I jostled around attempting to break free of the halfling’s hold, yet somehow 
 
 我重重地摔在帐篷后部。头晕目眩中，我开始起身，抬头想看是谁把我扔进来的，结果与一个蒙面人面对面；我猜他也参与了我刚才目睹的事件。蒙面人慢慢抬手摘下面具，露出人类信使的脸。他笑了起来，最后开口说：“想不到在这里遇见你。我们在客栈交谈时，我就看出了你有些与众不同。”我起身时，信使又笑了几声。想必是刚才那一下把我撞得有些发懵，我的视线一片模糊，帐篷里的东西也混作一团。我质问信使：“你想干什么？为什么把我扔进这里？”
 
-信使不再笑了，脸上露出平静的笑容：“当然是因为我想和你谈谈。你来到这里、来到纳格尔王国时，是来做什么的？”我听到这话僵住了，不知道自己的处境有多危险。信使反常地沉默着站在那里，目光仿佛在读取我脑中飞掠而过的念头。我吓得结结巴巴地说：“我——我来送、送一些医、医疗物资，给纳、纳格尔人用、用的。”信使猛地扇了我一巴掌，沉重的一击把我打得踉跄着跌向帐篷一侧。信使提高嗓门说：“没错。”随后转头朝我吼道：“是从永恒精灵那里来的！”
+信使止住笑声，脸上浮现出平静的微笑：“当然是因为我想和你谈谈。你来到这里、来到纳格尔王国时，是来做什么的？”我听到这话僵住了，不知道自己的处境有多危险。信使反常地沉默着站在那里，目光仿佛在读取我脑中飞掠而过的念头。我吓得结结巴巴地说：“我——我来送、送一些医、医疗物资，给纳、纳格尔人用、用的。”信使猛地扇了我一巴掌，沉重的一击把我打得踉跄着跌向帐篷一侧。信使提高嗓门说：“没错。”随后转头朝我吼道：“是从永恒精灵那里来的！”
 
 信使向前一步，狠狠踢中我的腹部，力道令我喘不过气并摔倒在地。紧接着，他又用脚后跟朝我脸上踢了一脚，鲜血涌了出来。信使弯腰揪住我的头发，把我拉近他的脸，唾沫和话语一起喷到我脸上：“自从你杀了那个艾德瑞尔半身人，我就高看你一眼。我以为你可能也是自然的盟友，但事实并非如此，对吧？你去到了那些永恒精灵那里，越过了他们用来躲避我们的那堵魔法烟墙。你本可以宣泄一小部分自然之怒，但你非但没有降下自然的怒火，反而背弃自然，与那些给我们带来魔法大爆炸的人站到了一边！”
 
@@ -1480,7 +1480,7 @@ Asking him what was wrong the dark blue glow went away from the ogres eyes and I
 
 “简单来说，他的视野符文能让他看到追捕我们的人的大致位置。实际情况更加复杂，但是他可以看清楚那些跟随我们的狂热者在哪里，他们与我们的位置有多接近，这对我们就足够了。”食人魔可以做到这一点令我印象深刻，我想知道符文还能让食人魔做些什么。我想，在我们相对安全的时候，也许我应该多向食人魔打听一下他们的符文。突然，我听到一声咒骂，转头看见那个食人魔双眼泛着深蓝色光芒，似乎正望向我们前方的什么东西。
 
-当我问他出了什么问题时，深蓝的光芒从食人魔的眼睛里消失了，我静静地听到他严肃地回答：“我们面前有一群人，他们当中肯定也有狂热者。”这时，其他食人魔的脸上都露出了彻底绝望的神情。我能听到身后的喊声。有人说：“我们现在该怎么办？”另一个人说：“我不想回去！”每时每刻都有另一个食人魔吐出怯懦的话语，直到整群人似乎都陷入了恐惧之中。这可悲的一幕持续了片刻，直到那个抓住我手臂的食人魔放开了我，对其他人喊道：“你们哭够了！”其他的食人魔迅速沉默了下来，抬起头来，好像在等待下一步的指示。]], "_t")
+当我问他出了什么问题时，深蓝的光芒从食人魔的眼睛里消失了，我只听他严肃地低声答道：“我们面前有一群人，他们当中肯定也有狂热者。”这时，其他食人魔的脸上都露出了彻底绝望的神情。我能听到身后的喊声。有人说：“我们现在该怎么办？”另一个人说：“我不想回去！”每时每刻都有另一个食人魔吐出怯懦的话语，直到整群人似乎都陷入了恐惧之中。这可悲的一幕持续了片刻，直到那个抓住我手臂的食人魔放开了我，对其他人喊道：“你们哭够了！”其他的食人魔迅速沉默了下来，抬起头来，好像在等待下一步的指示。]], "_t")
 t("Escapades of Fay Willows [Book 3, Chapter 3] - Battle Preparations", "菲·维莉欧斯的冒险 [第3卷，第3章] - 准备战斗", "_t")
 t([[[i]I had never seen a battle before in my life, let alone been a part of one. However I do not believe this is necessarily the case for the ogres. They say that they lived as nomadic peddlers but I wonder if perhaps that was just a cover story for themselves. Maybe they hired themselves out as mercenaries or other such adventures of combat? It is hard to know what lies within their past.[/i]
 
@@ -1830,7 +1830,7 @@ Eventually some veteran shaloren soldiers offered to spar with me too. From that
 
 It would also be within the military that I would get to learn a great deal about controlling my emotions. Enrolled in a program for those with unique abilities, I would slowly begin to learn more about the dark condition affecting my body and how I could use it to my advantage. I would learn about how I could effect my surroundings, both inanimate and living, and in some cases I would even be allowed to practice trying to use the dark thoughts inside me against others. I can't say I ever gained full control over the chaotic energies within me, but through concentration I would learn how to at least direct it away from others and prevent it from affecting people in my vicinity.
 
-When I look back at the many events the occurred after the Spellblaze, I wonder what life might have held for me had I not left to travel as I did. Much time has now passed since the time of my initial journey, but I consider whether now is the time that I will leave Elvala to explore distant lands and see what has become of everything in the world. I wonder how the rest of the people in Eyal are faring and whether the lands have shown any signs of healing, as well as wonder what has happened to my fellow thaloren back home. Whatever may lie in my future I know that I am ready to make my way through it. And when I do, my escapades will continue once more!]], [[[i]随着时间的推移，食人魔和永恒精灵慢慢适应了他们与世隔绝的生活。[/i]永恒精灵慢慢地从北方被遗弃的定居点秘密地集结起来，带上各自的物品，然后迅速着手制作永久性的工具，以确保隐藏埃尔瓦拉的帷幕能够维持下去。他们随后努力扩大帷幕，使其覆盖埃尔瓦拉周围的所有森林，将永恒精灵半岛与外界隔绝。在那之后，许多永恒精灵开始研究他们曾经释放出来的混乱能量，希望更多地了解它们造成的破坏，以及这些破坏会给埃亚尔留下什么影响。
+When I look back at the many events the occurred after the Spellblaze, I wonder what life might have held for me had I not left to travel as I did. Much time has now passed since the time of my initial journey, but I consider whether now is the time that I will leave Elvala to explore distant lands and see what has become of everything in the world. I wonder how the rest of the people in Eyal are faring and whether the lands have shown any signs of healing, as well as wonder what has happened to my fellow thaloren back home. Whatever may lie in my future I know that I am ready to make my way through it. And when I do, my escapades will continue once more!]], [[[i]随着时间的推移，食人魔和永恒精灵慢慢适应了他们与世隔绝的生活。[/i]永恒精灵慢慢地从北方被遗弃的定居点秘密地集结起来，带上各自的物品，然后迅速着手打造永久性的装置，以确保隐藏埃尔瓦拉的帷幕能够维持下去。他们随后努力扩大帷幕，使其覆盖埃尔瓦拉周围的所有森林，将永恒精灵半岛与外界隔绝。在那之后，许多永恒精灵开始研究他们曾经释放出来的混乱能量，希望更多地了解它们造成的破坏，以及这些破坏会给埃亚尔留下什么影响。
 
 [i]食人魔在半岛南部定居下来，为自己重建新的生活。[/i]他们帮助种植和收获食物来养活每一个人，并从事永恒精灵不适合从事的更辛苦的工作。许多人生下了孩子，大批年幼的食人魔让他们原本有限的人口得以增长。一些食人魔也从事与符文和纹身有关的职业，虽然我对符文的知识还相当有限，但我可以从他们的手艺中看出，他们的纹身知识和技能与我在家乡认识的许多自然精灵一样好。尽管食人魔也有过一些分歧，但他们还是设法与永恒精灵建立了良好的关系，我希望这种关系能长久持续下去。
 
@@ -2279,7 +2279,7 @@ His fate after the Godhunt is unknown. Some sources speculate that he still rema
 
 他在弑神之战之后的命运无从知晓。有些人猜测他至今仍然待在自己的藏书馆里，等待着一个有资格学习他全部馆藏知识的学生。]], "_t")
 t("Mightier than Gods: Azorol", "比诸神更加强大：阿茨萝尔", "_t")
-t("Azorol was the great marksman. She was an instructor in the use of weapons and seemed to favour an antiquated approach to their use. Many Sher'tul believed her to be foolish, for they could not see why she would use primitive projectile weapons when far more devastating weaponry had already been developed. She did not give up her ways, however harsh her critics were, for she believed there was value in preserving the old ways of war. Many tales tell of her unerring accuracy. No matter how small the target and how far the distance, her mighty spear throws would always land. \n\nFor her, the spear Thoral was made, a throwing weapon of unparalleled might. She seemed to care little for the reasons behind the Godhunt, for the spear alone was a great enough prize for her. With this new weapon, there were tales of Azorol striking targets in the darkness beyond our world while standing on the flat plains of Eyal. She proved to be one of the mightiest of the Godslayers, for there was nowhere on Eyal which was safe from Thoral and its user.\n\nJudging by surviving records, she was one of the Godslayers who was killed during the climax of the Godhunt. The fate of the spear Thoral is unknown.", [[阿茨萝尔是一位神射手。她指导如何使用兵器，并且看起来十分青睐使用古老的武器。许多夏·图尔人认为她这样是愚蠢的，因为他们无法理解她为何在一个有着更具毁灭性的杀器的时代，还要使用这些原始的投射武器。但不管批评多么苛刻，她都从不放弃自己的道路，因为她相信保留古老的作战方式自有其价值。许多故事都讲述了她百发百中的本领，不管目标多么渺小，又不管距离多么遥远，她掷出的重矛从不失手。
+t("Azorol was the great marksman. She was an instructor in the use of weapons and seemed to favour an antiquated approach to their use. Many Sher'tul believed her to be foolish, for they could not see why she would use primitive projectile weapons when far more devastating weaponry had already been developed. She did not give up her ways, however harsh her critics were, for she believed there was value in preserving the old ways of war. Many tales tell of her unerring accuracy. No matter how small the target and how far the distance, her mighty spear throws would always land. \n\nFor her, the spear Thoral was made, a throwing weapon of unparalleled might. She seemed to care little for the reasons behind the Godhunt, for the spear alone was a great enough prize for her. With this new weapon, there were tales of Azorol striking targets in the darkness beyond our world while standing on the flat plains of Eyal. She proved to be one of the mightiest of the Godslayers, for there was nowhere on Eyal which was safe from Thoral and its user.\n\nJudging by surviving records, she was one of the Godslayers who was killed during the climax of the Godhunt. The fate of the spear Thoral is unknown.", [[阿茨萝尔是一位神射手。她是一名兵器教官，并且看起来十分青睐古老的武器用法。许多夏·图尔人认为她这样是愚蠢的，因为他们无法理解她为何在一个有着更具毁灭性的杀器的时代，还要使用这些原始的投射武器。但不管批评多么苛刻，她都从不放弃自己的道路，因为她相信保留古老的作战方式自有其价值。许多故事都讲述了她百发百中的本领，不管目标多么渺小，又不管距离多么遥远，她掷出的重矛从不失手。
 
 长矛索拉尔为她而铸造，这是一把有着无上力量的投掷武器。她看起来丝毫不关心弑神之战背后的原因，因为这柄长矛对她而言已经是足够的奖赏了。传说中阿茨萝尔就是用这柄长矛，站在埃亚尔的旷野之上就能命中我们世界之外黑暗深空中的敌人。她被证明是弑神者中的最强者之一，因为只要她手中握着索拉尔，整个埃亚尔就没有任何藏身之处。
 
@@ -2471,7 +2471,7 @@ When we return to the Sanctuary triumphant, we shall be hailed as saviours and t
 当我们得胜回到避难所的时候，我们一定会被视为救世主。那些人将会知道，小看我们的力量是一种多么大的错误。]], "_t")
 t("arrrrrrghhhhhh", "啊啊啊啊啊啊啊", "_t")
 t("All of a sudden the floor starts to shake and opens up!", "突然间地动山摇，地面裂开了！", "_t")
-t("between a rock and a soft place", "在岩石和柔软的地方之间", "_t")
+t("between a rock and a soft place", "进退两难：岩石与软肉之间", "_t")
 t([[You ever gotten yourself into a mess that you didn't know how to get out of? Well, that's kind of where I'm at right now. This thing, whatever it is, just burst out of the ground and swallowed me whole. Normally a girl has to get offered on an altar to monsters to get eaten like this, but it looks like this one just took a fancy to me.
 
 I've seen a lot of things. Undead, horrors, sometimes a bear with psychic powers, but whatever this thing is, it's in a league of its own. It's like I'm inside a snake with the way it winds and how long it is. Sometimes these meaty bits of something come after me and have acid pouring out of them... I get the impression that it's trying to digest me. I've managed to make a little hideout in one of the folds of its belly, but I don't know how long these protective runes are going to last.
@@ -3217,7 +3217,7 @@ t("Spin around, extending your weapon and damaging all targets around you for %d
 
 		#YELLOW_GREEN#当触手处于缠绕状态：#WHITE#你的触手攻击改为以被缠绕目标为中心展开（武器攻击除外），并使范围内的敌人眩晕 5 回合。]], "tformat")
 t("Tendrils Eruption", "触手地狱", "talent name")
-t("%s resists the slimy tendril!", "%s抵挡了黏液触手！", "logSeen")
+t("%s resists the slimy tendril!", "%s抵挡了黏稠触须！", "logSeen")
 t([[You plant your tentacle hand in the ground where it splits up and extends to a target zone of radius %d.
 		The zone will erupt with many black tendrils to hit all foes caught inside dealing %d%% tentacle damage.
 		Any creature hit by the tentacle must save against spell or be numbed by the attack, reducing its damage by %d%% for 5 turns.
@@ -3532,7 +3532,7 @@ t([[Without the distraction of #{bold}#thoughts#{normal}# or #{bold}#self#{norma
 t("Corrupting Influence", "堕落影响", "talent name")
 t([[The parasite corruption seeps into your body, strengthening it.
 		Increases blight, darkness, temporal and acid resistances by %d%% but decreases nature and light resistances by %d%%.]], [[寄生体的堕落力量渗入你的身体，使之更加强健。
-		增加 %d%% 枯萎、黑暗、时空和酸性伤害抗性，同时减少 %d%% 自然和光系伤害抗性。]], "tformat")
+		增加 %d%% 枯萎、暗影、时空和酸性伤害抗性，同时减少 %d%% 自然和光系伤害抗性。]], "tformat")
 t("Horror Shell", "恐惧外壳", "talent name")
 t([[Creates a shell around you, absorbing %d damage. Lasts for 10 turns.
 		The total damage the shield can absorb increases with your Constitution.]], [[在你身边制造一层外壳，吸收 %d 伤害，持续 10 回合。
@@ -3622,7 +3622,7 @@ t("pain", "痛苦", "effect subtype")
 t("torture", "折磨", "effect subtype")
 t("tentacles", "触手", "effect subtype")
 t("leech", "吸血", "effect subtype")
-t("Inner Tentacles", "内部触手", "_t")
+t("Inner Tentacles", "内生触手", "_t")
 t("Life leech %d%% chance, %d%% power.", "%d%% 吸血几率，%d%% 强度。", "tformat")
 t("#Target# is empowered by the pain of its victim.", "#Target#被牺牲者的痛苦强化。", "_t")
 t("#Target# is less powerfull.", "#Target#的力量减弱了。", "_t")
@@ -3639,7 +3639,7 @@ t("Blood and gore cover the target, dealing %0.2f darkness damage and %0.2f blig
 t("#Target# is covered in gore.", "#Target#被血肉覆盖。", "_t")
 t("#Target# is no longer covered in gore.", "#Target#不再被血肉覆盖。", "_t")
 t("fear", "恐惧", "effect subtype")
-t("Glimpse of True Horror", "一瞥真惧", "_t")
+t("Glimpse of True Horror", "恐怖无边", "_t")
 t("Target briefly saw what True Horror means, deeply scaring it. %d%% chances to fail using a talent.", "目标被真正的恐惧吓倒，%d%% 几率使用技能失败。", "tformat")
 t("#Target# saw true horror.", "#Target#看到了真正的恐怖。", "_t")
 t("#Target# is less afraid.", "#Target#不再那么恐惧了。", "_t")
@@ -3701,7 +3701,7 @@ t("#Target# is doomed to madness!", "#Target#被预言逼疯！", "_t")
 t("+Prophecy of Madness", "+疯狂预言", "_t")
 t("#Target# is free from the prophecy.", "#Target#脱离预言的影响。", "_t")
 t("-Prophecy of Madness", "-疯狂预言", "_t")
-t("%s talent '%s%s' is energized by the revelation!", "启示使%s技能'%s%s'的冷却时间缩短了！", "logSeen")
+t("%s talent '%s%s' is energized by the revelation!", "天启使%s技能'%s%s'的冷却时间缩短了！", "logSeen")
 t("Prophecy of Ruin", "毁灭预言", "_t")
 t("The target is doomed to ruin.  On falling below 75%%, 50%% or 25%% life all enemies in radius %d will take %0.2f darkness damage", "目标被诅咒进入毁灭状态。当生命值降低至 75%%, 50%% 或 25%% 时，%d 格内敌人将受到 %0.2f 暗影伤害。", "tformat")
 t("#Target# is doomed to ruin!", "#Target#被预言毁灭！", "_t")
