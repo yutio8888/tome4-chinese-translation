@@ -1,0 +1,53 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "66f93c001031",
+   "verdict": "OK"
+  },
+  {
+   "id": "461ca479321f",
+   "verdict": "OK"
+  },
+  {
+   "id": "eed764c39c22",
+   "verdict": "ISSUE",
+   "observation": "与实现不符：tome-cults/data/timed_effects.lua:1717-1738 FATEBREAKER 的 callbackOnHit 在受到致命伤害（cb.value >= life - die_at）时触发，把该次伤害以 VOID（时空/暗影）伤害投射给链接目标并将自身受到的伤害归零，目标并非必然死亡（calamity.lua:151 info 亦写 attempting to force them to die）。译文“当它死亡时，选择的目标将代替它死亡”把触发条件写成已死亡、把结果写成必然死亡。治疗部分与实现一致。",
+   "suggestion": "目标将自身的命运和另一个人相连。受到致命伤害时，该伤害会转移给所选目标，试图让其代替自己死亡。此时，自身的幸运层数和所选目标身上的厄运层数会被消耗；若所选目标有厄运，则按其层数治疗，否则按自身的幸运层数治疗，每层恢复 %d 点生命。"
+  },
+  {
+   "id": "9b26492ec763",
+   "verdict": "OK"
+  },
+  {
+   "id": "b17f09ea6f34",
+   "verdict": "OK"
+  },
+  {
+   "id": "f0488603a7b3",
+   "verdict": "OK"
+  },
+  {
+   "id": "df4caa4b1ad3",
+   "verdict": "ISSUE",
+   "observation": "搭配不当/主语错位：“一个可以清除你身上的负面物理效果并获得一个寒霜光环的强大药剂”中“获得光环”的主语落在药剂上，实际是使用者获得光环（tome-orcs/data/timed_effects/physical.lua:163-173 FROST_SALVE 给使用者 damage_affinity）。",
+   "suggestion": "一种强大的药剂，可以清除你身上的负面物理效果，并使你获得寒霜光环（寒冷、暗影和自然伤害亲和）。\n需通过医疗注射器植入物使用。"
+  },
+  {
+   "id": "b207730b05f7",
+   "verdict": "ISSUE",
+   "observation": "同 df4caa4b1ad3：“药剂……并获得一个烈火光环”主语错位，获得光环的是使用者（tome-orcs/data/timed_effects/physical.lua:182 FIERY_SALVE）。",
+   "suggestion": "一种强大的药剂，可以清除你身上的负面魔法效果，并使你获得烈火光环（火焰、光系和闪电伤害亲和）。\n需通过医疗注射器植入物使用。"
+  },
+  {
+   "id": "49c1b9fd0d85",
+   "verdict": "ISSUE",
+   "observation": "同 df4caa4b1ad3：“药剂……并获得一个静水光环”主语错位，获得光环的是使用者（tome-orcs/data/tinkers/therapeutics.lua:87 WATER_SALVE 描述，效果见 data/timed_effects/physical.lua）。",
+   "suggestion": "一种强大的药剂，可以清除你身上的负面精神效果，并使你获得静水光环（枯萎、精神和酸性伤害亲和）。\n需通过医疗注射器植入物使用。"
+  },
+  {
+   "id": "16144a7d43be",
+   "verdict": "OK"
+  }
+ ]
+}

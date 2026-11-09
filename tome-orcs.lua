@@ -6785,15 +6785,15 @@ To be used with the medical injector implant.]], [[一种能暂时强化你身�
 需通过医疗注射器植入物使用。]], "_t")
 t("Frost Salve", "寒霜药剂", "_t")
 t([[A powerful salve that can clean physical detrimental effects from your body and grant a frost aura (cold, darkness and nature affinity).
-To be used with the medical injector implant.]], [[一个可以清除你身上的负面物理效果并获得一个寒霜光环（增加寒冷、暗影和自然伤害亲和）的强大药剂。
+To be used with the medical injector implant.]], [[一种强大的药剂，可以清除你身上的负面物理效果，并使你获得寒霜光环（增加寒冷、暗影和自然伤害亲和）。
 需通过医疗注射器植入物使用。]], "_t")
 t("Fiery Salve", "烈火药剂", "_t")
 t([[A powerful salve that can clean magical detrimental effects from your body and grant a fiery aura (fire, light and lightning affinity).
-To be used with the medical injector implant.]], [[一个可以清除你身上的负面魔法效果并获得一个烈火光环（火焰、光系、闪电伤害亲和）的强大药剂。
+To be used with the medical injector implant.]], [[一种强大的药剂，可以清除你身上的负面魔法效果，并使你获得烈火光环（增加火焰、光系和闪电伤害亲和）。
 需通过医疗注射器植入物使用。]], "_t")
 t("Water Salve", "静水药剂", "_t")
 t([[A powerful salve that can clean mental detrimental effects from your body and grant a water aura (blight, mind and acid affinity).
-To be used with the medical injector implant.]], [[一个可以清除你身上的负面精神效果并获得一个静水光环（枯萎、精神、酸性伤害亲和）的强大药剂。
+To be used with the medical injector implant.]], [[一种强大的药剂，可以清除你身上的负面精神效果，并使你获得静水光环（增加枯萎、精神和酸性伤害亲和）。
 需通过医疗注射器植入物使用。]], "_t")
 t("Unstoppable Force Salve", "势不可挡药剂", "_t")
 t([[A powerful salve that makes you more resilient to physical, mental and magic effects and grants increased healing.

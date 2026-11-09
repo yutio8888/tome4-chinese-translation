@@ -1,0 +1,53 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "66f93c001031",
+   "verdict": "OK"
+  },
+  {
+   "id": "461ca479321f",
+   "verdict": "OK"
+  },
+  {
+   "id": "eed764c39c22",
+   "verdict": "ISSUE",
+   "observation": "“当它死亡时，选择的目标将代替它死亡”把触发时机和结果说错：cults/tome-cults/data/timed_effects.lua:1716–1738 在即将承受致命一击时触发，把 cb.value 作为 VOID 伤害投向所选目标，再清零自身所受伤害，并没有直接杀死目标。核心固定提交 624a67329fe2ad440c5b344785a9c73fcf22ae63 的 game/modules/tome/data/damage_types.lua:2864–2869 将 VOID 分成时空和暗影伤害，因此所选目标不保证死亡。译文对幸运、厄运治疗覆盖关系的说明与 1721–1729 一致。DLC 为来源未固定的公开检出。",
+   "suggestion": "目标将自身的命运与另一个目标相连。当自身即将受到致命伤害时，会将这次伤害转移给所选目标，转化为时空和暗影伤害。此时，自身的幸运层数和所选目标身上的厄运层数会被消耗；若所选目标有厄运，则按其层数治疗，否则按自身的幸运层数治疗，每层恢复 %d 点生命。"
+  },
+  {
+   "id": "9b26492ec763",
+   "verdict": "OK"
+  },
+  {
+   "id": "b17f09ea6f34",
+   "verdict": "OK"
+  },
+  {
+   "id": "f0488603a7b3",
+   "verdict": "OK"
+  },
+  {
+   "id": "df4caa4b1ad3",
+   "verdict": "ISSUE",
+   "observation": "“一个可以清除……并获得一个寒霜光环……的强大药剂”中，并列谓语的主语都是药剂，误写成药剂获得光环，缺少使使用者获得光环的使役成分。orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua:100–103 明确对 who 清除物理负面效果并对 who 施加 EFF_FROST_SALVE；data/timed_effects/physical.lua:172–177 给使用者增加对应伤害亲和。DLC 为来源未固定的公开检出。",
+   "suggestion": "一种强力药剂，可以清除你身上的物理负面效果，并使你获得寒霜光环（增加寒冷、暗影和自然伤害亲和）。\n需通过医疗注射器植入物使用。"
+  },
+  {
+   "id": "b207730b05f7",
+   "verdict": "ISSUE",
+   "observation": "“一个可以清除……并获得一个烈火光环……的强大药剂”中，获得光环的语法主语成了药剂，缺少“使你”等使役成分。orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua:118–121 实际是清除 who 的魔法负面效果并给 who 施加 EFF_FIERY_SALVE；data/timed_effects/physical.lua:191–196 增加使用者的火焰、光系、闪电伤害亲和。DLC 为来源未固定的公开检出。",
+   "suggestion": "一种强力药剂，可以清除你身上的魔法负面效果，并使你获得烈火光环（增加火焰、光系和闪电伤害亲和）。\n需通过医疗注射器植入物使用。"
+  },
+  {
+   "id": "49c1b9fd0d85",
+   "verdict": "ISSUE",
+   "observation": "“一个可以清除……并获得一个静水光环……的强大药剂”中，获得光环的语法主语成了药剂，缺少使使用者获得光环的成分。orcs/tome-orcs/data/general/objects/tinkers/therapeutics.lua:136–139 实际是清除 who 的精神负面效果并给 who 施加 EFF_WATER_SALVE；data/timed_effects/physical.lua:215–220 增加使用者的枯萎、精神、酸性伤害亲和。DLC 为来源未固定的公开检出。",
+   "suggestion": "一种强力药剂，可以清除你身上的精神负面效果，并使你获得静水光环（增加枯萎、精神和酸性伤害亲和）。\n需通过医疗注射器植入物使用。"
+  },
+  {
+   "id": "16144a7d43be",
+   "verdict": "OK"
+  }
+ ]
+}
