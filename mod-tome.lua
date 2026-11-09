@@ -4176,7 +4176,7 @@ section "mod-tome/data/chats/angolwen-leader.lua"
 
 t([[#LIGHT_GREEN#*A tall woman stands before you. Her fair skin radiates incredible power through her white robe.*#WHITE#
 I am Linaniil of the Kar'Krul. Welcome to our city, @playerdescriptor.subclass@. What may I do for thee?]], [[#LIGHT_GREEN#*一名身材高大的女子伫立在你面前。她白皙的肌肤透过白袍散发着惊人的力量。*#WHITE#
-我是卡·克鲁尔的莱娜尼尔。欢迎来到我们的城市，@playerdescriptor.subclass@。我能为你做些什么？]], "_t")
+我是卡库罗尔的莱娜尼尔。欢迎来到我们的城市，@playerdescriptor.subclass@。我能为你做些什么？]], "_t")
 t("I require all the help I can get, not for my sake but for the town of Derth, to the northeast of here.", "我需要能得到的所有帮助，不是为了我自己，而是为了此地东北方的德斯镇。", "_t")
 t("I am ready! Send me to Urkis!", "我准备好了！送我去厄奇斯那里！", "_t")
 t("Urkis has been slain.", "厄奇斯已被诛杀。", "_t")
@@ -5554,7 +5554,7 @@ During the dark years of the Spellhunt, many thousands of years ago, Linaniil, t
 So she set a secret plan into action and built a secret place where magic would be kept alive.
 Her plan worked and the group built a town called Angolwen in the western mountains. #LIGHT_GREEN#*He marks it on your map, along with a portal to access it*#WHITE#
 Not many people are accepted there but I will arrange for you to be allowed inside.]], [[啊，太棒了！我终于可以回到安格利……呃……好吧，我想我可以告诉你；你帮了我，理应知道这些。
-几千年前，在魔法狩猎的黑暗年代，卡·克鲁尔的大法师莱娜尼尔担心魔法会随她那一代一同消失，日后凡人再需要时便无从寻觅。
+几千年前，在魔法狩猎的黑暗年代，卡库罗尔的大法师莱娜尼尔担心魔法会随她那一代一同消失，日后凡人再需要时便无从寻觅。
 于是她秘密实施了一项计划，建造了一处隐秘之地，让魔法得以传承。
 她的计划成功了，众人在西部群山中建起了一座名为安格利文的小镇。#LIGHT_GREEN#*他在你的地图上标出小镇及其入口传送门的位置。*#WHITE#
 能获准进入那里的人不多，但我会安排让你进去。]], "_t")
@@ -20275,7 +20275,7 @@ t("Through an incredible display of willpower you resisted for a few decisive se
 t("Though you succumbed to the fight, your mind was already gone, burnt to ashes by your mad patron sun. But the world was saved.", "虽然你在这场搏斗中倒下了，你的心智却早已被你那疯狂的太阳主上烧成灰烬。但世界得救了。", "_t")
 t("Your sacrifice worked. Your mental energies were imbued with farportal energies. The Way radiated from the High Peak toward the rest of Eyal like a mental tidal wave.", "你的牺牲起作用了，你的精神能量被远行传送门能量所灌注。维网从巅峰向埃亚尔各处辐射出一股精神冲击波。", "_t")
 t("Every sentient being in Eyal is now part of the Way. Peace and happiness are enforced for all.", "所有埃亚尔有知觉的生物都成为了维网的一部分，和平与幸福被强加于所有生物。", "_t")
-t("Only the mages of Angolwen were able to withstand the mental shock and thus are the only unsafe people left. But what can they do against the might of the Way?", "只有安格利文的法师能够抵制住这道精神冲击，从而成为了仅存的不安定分子，不过他们又能对强大的维网怎么样呢？", "_t")
+t("Only the mages of Angolwen were able to withstand the mental shock and thus are the only unsafe people left. But what can they do against the might of the Way?", "只有安格利文的法师能够抵御住这道精神冲击，从而成为了仅存的不安定分子，不过他们又能对强大的维网怎么样呢？", "_t")
 t("In the aftermath of the battle the Way tried to force you to act as a vessel to bring the Way to every sentient being.", "在战斗结束后，维网试图强迫你充当载体，将维网带给所有知觉生物。", "_t")
 t("You have prevented the portal to the Void from opening and thus stopped the Creator from bringing about the end of the world.", "你阻止了虚空传送门的开启，从而阻止了造物主毁灭世界。", "_t")
 t("In a selfless act, High Sun Paladin Aeryn sacrificed herself to close the portal to the Void and thus stopped the Creator from bringing about the end of the world.", "高阶太阳骑士艾琳无私地牺牲了自己，关闭通往虚空的传送门，从而阻止造物主毁灭世界。", "_t")
@@ -24942,8 +24942,7 @@ t([[Your fungus reaches into the primordial ages of the world, granting you anci
 		Each time you receive non-regeneration healing you gain %0.1f%% of a turn per 100 life healed.  This effect can't add energy past 2 stored turns and overhealing is not counted.
 		Also, regeneration effects on you will decrease your equilibrium by %0.1f each turn.
 		The turn gain increases with your Mindpower.]], [[你身上的真菌可追溯至世界的原初时代，赋予你远古本能。
-		每当你受到非回复类治疗时，每实际恢复 100 点生命，你获得相当于 %0.1f%% 个回合的行动能量。
-		溢出治疗不计入，且这一效果提供的能量最多可储存至 2 个回合。
+		每当你受到非回复类治疗时，每实际恢复 100 点生命，你获得相当于 %0.1f%% 个回合的行动能量。溢出治疗不计入，且这一效果提供的能量最多可储存至 2 个回合。
 		同时，你身上的回复效果会使失衡值每回合减少 %0.1f。
 		获得的回合数受精神强度加成。]], "tformat")
 t("Sudden Growth", "骤然生长", "talent name")
@@ -28104,7 +28103,7 @@ t([[You activate a special mode of your golem, boosting its regeneration rate by
 t("Runic Golem", "符文傀儡", "talent name")
 t([[Increases your golem's life, mana and stamina regeneration rates by %0.2f.
 		At level 1, 3 and 5, the golem also gains a new rune slot.
-		Even without this talent, Golems start with three rune slots.]], [[增加傀儡 %0.2f 生命、法力和体力值回复。
+		Even without this talent, Golems start with three rune slots.]], [[傀儡的生命、法力和体力值回复速率各提高 %0.2f。
 		在等级 1、3、5 时，傀儡会增加 1 个新的符文孔。
 		即使没有此天赋，傀儡默认也有 3 个符文孔。]], "tformat")
 
@@ -31397,8 +31396,7 @@ t("By infusing your shield with raw magic, your block can now block any damage t
 t("Ethereal Form", "虚幻形态", "talent name")
 t("Have an effective defense of at least 40", "有效闪避值至少达到 40", "_t")
 t([[You gain 25%% absolute damage resistance and 25%% all damage penetration.  Each time you are struck by a weapon these bonuses are reduced by 5%% but fully recovered after 8 turns.
-			Additionally, you gain 70%% of the highest of your Magic or Dexterity stat as defense (%d)]], [[你获得 25%% 绝对伤害抗性，25%% 全体伤害抗性穿透。
-			每当你被武器攻击的时候，这两项加成各减少 5%%，8 回合后完全恢复。
+			Additionally, you gain 70%% of the highest of your Magic or Dexterity stat as defense (%d)]], [[你获得 25%% 绝对伤害抗性，25%% 全体伤害抗性穿透。每当你被武器攻击的时候，这两项加成各减少 5%%，8 回合后完全恢复。
 			此外，你将获得相当于魔力与敏捷中较高一项的 70%% 的闪避值 (%d)]], "tformat")
 t("Aether Permeation", "以太渗透", "talent name")
 t("Have been exposed to the void of space", "曾去过无尽虚空", "_t")
@@ -34059,7 +34057,7 @@ All mages use mana to cast their spells.
 It slowly replenishes over time.
 ]], [[魔法狩猎之后魔法并没有从马基·埃亚尔消失。
 
-在黄昏纪，当魔法狩猎接近尾声时，卡·克鲁尔的强大法师莱娜尼尔为各种族仅存的少数法师建立了一个避风港。
+在黄昏纪，当魔法狩猎接近尾声时，卡库罗尔的强大法师莱娜尼尔为各种族仅存的少数法师建立了一个避风港。
 这个地方就是安格利文，魔法之城，在这里，两千多年来一直传授魔法，以保存并发扬它。
 
 现在，你已经知道了这个故事，你可以在创建人物时选择新的职业 #LIGHT_GREEN#元素法师#WHITE#。
@@ -41921,7 +41919,7 @@ Some races or items may increase them as well.]], [[技能树解锁点有以下�
 - 解锁新的刻印位（最多 5 个，你使用刻印时会自动消耗点数解锁）
 
 你会在人物等级达到 10、20 和 34 级时各获得 1 个点数。
-某些种族和物品可以获得额外的点数。]], "_t")
+某些种族和物品可以增加点数。]], "_t")
 t([[Prodigies are special talents that only the most powerful of characters can attain.
 All of them require at least 50 in a core stat and many also have more special demands. You can learn a new prodigy at level 25 and 42.]], [[觉醒技是角色足够强大时才能获得的特殊技能。
 所有觉醒技都要求某项核心属性达到 50 点，其中许多还有更特殊的额外要求。你可以在人物等级达到 25 级和 42 级时各获得一个觉醒技能点。]], "_t")
