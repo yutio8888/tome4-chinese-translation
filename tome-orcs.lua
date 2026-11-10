@@ -5743,7 +5743,7 @@ t("You require a steamsaw for this talent.", "你需要一把蒸汽链锯才能�
 t([[Hits the target on the arms with one rotating saw doing %d%% damage and trying to maim it for %d turns.
 		Maimed foes deal %d%% less damage.
 		The chance improves with your Physical power.
-		#{italic}#Cutting your foes has never been so simple!#{normal}#]], [[用链锯攻击目标手臂，造成 %d%% 武器伤害并尝试使目标断筋 %d 回合。
+		#{italic}#Cutting your foes has never been so simple!#{normal}#]], [[用一把旋转的链锯攻击目标手臂，造成 %d%% 武器伤害并尝试使目标断筋 %d 回合。
 		断筋状态的敌人造成的伤害减少 %d%%。
 		断筋几率受物理强度影响。
 		#{italic}#杀人如砍瓜切菜！#{normal}#]], "tformat")
