@@ -1318,7 +1318,7 @@ The horribleness of the act truly sickened me to my very being, but I was perhap
 
 A group of the Nargol Guards would eventual appear and they began to gather themselves to disperse the crowd and restore order. The crowd offered little resistance to the encroaching force of guards that rushed forward, and many fled into the dark alleys of buildings or through the tents of the refugees. As the guards took control of the area, their attention turned towards the simmering fire and the charred corpses. Cries of anguish came from individuals who I assumed to be loved ones and friends of those killed. At this point I could take no more of the events that were unfolding in front of me, and I turned to leave the area and the fiery carnage that had taken place. However as I passed by a tent a hand reached out of its opening, throwing me inside.]], [[[i]是对魔法的愤怒，驱使人们在魔法大爆炸后对法师施暴，还是其他原因？虽然我谈不上熟悉人类、半身人或矮人，但在通往纳格尔王国外的街道上，我将要目睹的恶行之残酷，远远超出了我对任何智慧生物的想象。[/i]
 
-当我凝视时，声音又响起了。“你们胡乱地把怒火指向不该受责难的人，我说，应当把怒火指向造成所有悲剧的根源。”我开始在人群中挤过去，想知道谁在说话，他们在说什么。声音继续说：“无论魔法存在于何处，它迟早都会失控，带来灾难。今早发生的火灾就是一个例子，一群难民闯进仓库，试图取回他们被没收的魔法物品。因为他们的狂妄，他们借助其中物品蕴含的奥术力量烧毁了这座建筑。”
+当我凝视时，声音又响起了。“你们胡乱地把怒火指向不该受责难的人。我要说，你们应当把怒火指向造成所有悲剧的根源。”我开始在人群中挤过去，想知道谁在说话，他们在说什么。声音继续说：“无论魔法存在于何处，它迟早都会失控，带来灾难。今早发生的火灾就是一个例子，一群难民闯进仓库，试图取回他们被没收的魔法物品。因为他们的狂妄，他们借助其中物品蕴含的奥术力量烧毁了这座建筑。”
 
 我朝中间走去，抬头看见一个半身人和一个人类正对着人群。他们都戴着面具，隐藏了身份，但我认出了人类穿的深色斗篷。见那个人类举起手臂，我猜是他在说话，但我不能肯定，因为面具遮住了他们的面部表情。声音又响了起来：“这场大火夺去了许多在附近家中熟睡的居民的生命——又是一批死于魔法的人。这件事唯一称得上好事的是，他们试图拿走的那些魔法物品，有许多在随后的大火中被焚毁，再也不会玷污这个世界。”
 
@@ -1468,7 +1468,7 @@ Asking him what was wrong the dark blue glow went away from the ogres eyes and I
 
 我立刻决定，如果能帮上忙，就要帮助这些疯子的受害者。我想起在埃尔瓦拉交给我的返回符文，抬起头问：“如果你们跟着我，我可以带你们去埃尔瓦拉。他们把自己与外界隔绝了，但我可以把你们带到永恒精灵的土地里，在那里，你们会安全的。”当我说这些话时，食人魔们立即抬头看着我，而他们脸上更多的是震惊和恼怒。“你竟然建议我们去找永恒精灵？他们不就是这一切——这场魔法大爆炸的罪魁祸首吗？如果不是因为他们把世界搞得天翻地覆，我们本来可以平静地过日子。”
 
-我保持冷静，决定试着劝说那些食人魔去埃尔瓦拉，回答说：“如果不去那里，你们还能去哪里生存呢？”对此，有几个人皱起了眉头，但有人想了想，问道：“他们真的会帮助我们吗，我们会安全吗？”我听了先前那个问题，停顿片刻才答道：“正是因为那些俘虏你们的狂热者的所作所为，永恒精灵才无法帮助外界。不过，我知道他们对自己所做的一切深感忏悔。我相信，如果你们去他们那里，他们一定会给你们提供庇护所。如果你们无处可去，那就让我带你们去他们那里寻求庇护吧。”当我说完的时候，我注意到一个食人魔正回头望向身后。一些食人魔注意到了这一点，也看向那个食人魔，然后问：“是他们吗？”
+我保持冷静，决定试着劝说那些食人魔去埃尔瓦拉，回答说：“如果不去那里，你们还能去哪里生存呢？”对此，有几个人皱起了眉头，但有人想了想，问道：“他们真的会帮助我们吗，我们会安全吗？”听到第一个问题，我停顿片刻才答道：“正是因为那些俘虏你们的狂热者的所作所为，永恒精灵才无法帮助外界。不过，我知道他们对自己所做的一切深感忏悔。我相信，如果你们去他们那里，他们一定会给你们提供庇护所。如果你们无处可去，那就让我带你们去他们那里寻求庇护吧。”当我说完的时候，我注意到一个食人魔正回头望向身后。一些食人魔注意到了这一点，也看向那个食人魔，然后问：“是他们吗？”
 
 我仔细地看着那食人魔，看到一种深蓝色的光芒遮住了他的眼睛，仿佛这让他可以窥视到什么东西。突然，那个食人魔大声说：“我们必须得跑了。”一瞬间，我看到面前所有食人魔的脸上都浮现出严峻的神情。其中一个似乎慌了神，不断低声咕哝着：“…我们该怎么办”。我有点困惑，问道：“怎么了？”一直在回头看的那个食人魔迅速转身走向我，用方才发光的双眼紧盯着我的脸，仿佛在寻找什么。最后，他用一种深沉而不祥的声音说：“你最好不要试图欺骗我们，自然精灵。现在，带我们去埃尔瓦拉。我们得走了。现在！”
 
