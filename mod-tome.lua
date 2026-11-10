@@ -8309,9 +8309,9 @@ t("Dozens - hundreds maybe? - of blood-gorged worms, of varying shapes and sizes
 t("Grgglck the Devouring Darkness", "格尔格勒克·黑暗吞噬者", "entity name")
 t([[A horror from the deepest pits of the earth. It looks like a huge pile of tentacles all trying to reach for you.
 You can discern a huge round mouth covered in razor-sharp teeth.]], "这是来自地底最深处的恐魔。它看上去像一大堆触手，每一条都想要抓住你。\n你能辨认出一张巨大的圆形嘴巴，里面布满了剃刀般锋利的牙齿。", "_t")
-t("Grgglck's Tentacle", "格尔格勒克的触须", "entity name")
-t("This is one of Grgglck's tentacles. It looks more vulnerable than the main body.", "这是格尔格勒克的一条触须。它看起来比主体更加脆弱。", "_t")
-t("#AQUAMARINE#With Grgglck's death its tentacle also falls lifeless on the ground!", "#AQUAMARINE#随着格尔格勒克的死去，它的那些触须也毫无生机地倒在了地上！", "logSeen")
+t("Grgglck's Tentacle", "格尔格勒克的触手", "entity name")
+t("This is one of Grgglck's tentacles. It looks more vulnerable than the main body.", "这是格尔格勒克的一条触手。它看起来比主体更加脆弱。", "_t")
+t("#AQUAMARINE#With Grgglck's death its tentacle also falls lifeless on the ground!", "#AQUAMARINE#随着格尔格勒克的死去，它的那些触手也毫无生机地倒在了地上！", "logSeen")
 t("#AQUAMARINE#As #Source# falls you notice that #Target# seems to shudder in pain!", "#AQUAMARINE#当#Source#倒下时，你发现#Target#似乎因为痛苦而颤抖！", "logCombat")
 t("Ak'Gishil", "阿克·吉希尔", "entity name")
 t("This Blade Horror has been infused with intense temporal magic, causing its power to increase dramatically. Rifts in space open around it constantly, summoning and banishing blades before vanishing as quickly as they appear.", "这只刀锋恐魔被强烈的时空魔法灌注，力量急剧提升。空间裂隙在它周围不断开启，召唤与放逐着刀刃，随后又像出现时一样迅速消失。", "_t")
@@ -26448,10 +26448,8 @@ t([[Superior cunning and training allows you to outthink and outwit your opponen
 		受敏捷影响，闪避按比例加成；受灵巧影响，精神豁免按比例加成。]], "tformat")
 t("Maim", "断筋", "talent name")
 t([[Grapples the target and inflicts %0.2f physical damage. If the target is already grappled, the target will be maimed as well, reducing damage by %d and global speed by 30%% for %d turns.
-		The grapple effects will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.]], [[抓取目标并造成 %0.2f 物理伤害。
-		如果目标已被抓取，则目标会被断筋，减少 %d 伤害和 30%% 全局速度持续 %d 回合。
-		抓取效果受你已有的抓取技能影响。
-		受物理强度影响，伤害按比例加成。]], "tformat")
+		The grapple effects will be based off your grapple talent, if you have it, and the damage will scale with your Physical Power.]], [[抓取目标并造成 %0.2f 物理伤害。如果目标已被抓取，目标还会被断筋：造成的伤害减少 %d ，全局速度降低 30%% ，持续 %d 回合。
+		抓取效果取决于你已有的抓取技能，伤害受物理强度加成。]], "tformat")
 t("Bloodrage", "血怒", "talent name")
 t("Each time one of your foes bites the dust, you feel a surge of power, increasing your strength by 2 (stacking up to a maximum of %d) for %d turns.", "每当你让一个敌人扑街，你会感到一股力量涌起，增加你 2 点力量，上限 %d， 持续 %d 回合。", "tformat")
 t("Martyrdom", "殉难", "talent name")
@@ -26525,7 +26523,7 @@ t([[Using a series of tricks and maneuvers, you switch places with your target.
 t("Cripple", "致残", "talent name")
 t([[You hit your target, doing %d%% damage. If your attack connects, the target is crippled for %d turns, losing %d%% melee, spellcasting and mind speed.
 		The chance to land the status improves with Accuracy, and the status power improves with Cunning.]], [[你打击你的目标，造成 %d%% 伤害。如果你击中了目标，目标会被致残 %d 回合，降低 %d%% 近战、施法和精神速度。
-		附加异常状态的几率受命中值提升，异常状态效果受灵巧值提升。]], "tformat")
+		附加异常状态的几率受命中值加成，异常状态效果受灵巧值加成。]], "tformat")
 t("Nimble Movements", "灵巧移动", "talent name")
 t("@Source@ dashes quickly!", "@Source@快速移动！", "_t")
 t("You can not do that currently.", "目前你不能这样做。", "logPlayer")
@@ -30237,7 +30235,7 @@ t([[You become better at using your armour to deflect blows and protect your vit
 t("Light Armour Training", "轻甲训练", "talent name")
 t([[You learn to maintain your agility and manage your combat posture while wearing robes or light armour.  When wearing armour no heavier than leather in your main body slot, you gain %d Defense, %d%% Armour hardiness, and %d%% reduced Fatigue.
 		In addition, when you step adjacent to a (visible) enemy, you use the juxtaposition to increase your total Defense by %d for 2 turns.
-		The Defense bonus scales with your Dexterity.]], [[你学会在身着轻甲和布甲时保持敏捷，获得 %d 闪避， %d%% 护甲强度，减少 %d%% 疲劳值。
+		The Defense bonus scales with your Dexterity.]], [[你学会在身着布甲或轻甲时保持敏捷、调整战斗姿态。当身体栏所穿护甲不重于皮甲时，你获得 %d 闪避， %d%% 护甲强度，减少 %d%% 疲劳值。
 		此外，每当你进入和（可见的）敌人相邻的位置时，你获得 %d 闪避，持续 2 回合。
 		闪避受敏捷加成。]], "tformat")
 t("Combat Accuracy", "强化命中", "talent name")
@@ -31391,7 +31389,7 @@ t([[You fire a shot straight at your enemy's vital areas, wounding them terribly
 section "mod-tome/data/talents/uber/mag.lua"
 
 t("Spectral Shield", "幽灵之盾", "talent name")
-t("Know the Block talent, have cast 100 spells, and have a block value over 200", "掌握格挡技能，曾释放过 100 个法术，且格挡值超过 200", "_t")
+t("Know the Block talent, have cast 100 spells, and have a block value over 200", "掌握格挡技能，曾释放过 100 个法术，且格挡值至少为 200", "_t")
 t("By infusing your shield with raw magic, your block can now block any damage type.", "向盾牌中灌注魔法力量，使格挡技能能够格挡任何类型的伤害。", "tformat")
 t("Ethereal Form", "虚幻形态", "talent name")
 t("Have an effective defense of at least 40", "有效闪避值至少达到 40", "_t")
