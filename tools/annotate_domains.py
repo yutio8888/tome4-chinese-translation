@@ -81,6 +81,7 @@ ITEM_SOURCES = {
     "medical injector", "steam generator", "shot", "Rod of Recall", "Recall Portal", "exploratory farportal",
     "Gloryhammer", "Ablative Armour", "Payload", "psychoportation beacon",
     "Frost Salve", "Blood-Runed Athame", "Athame", "athame",
+    "quiver",  # 装备栏位 Quiver，2026-11-10 用户裁决「箭袋」
     "Brilliant Auto-loading Orc Expeller",
     "voratun", "iron", "steel", "open door", "trap",
     "power",  # 物品词缀语境（of power 能量之）与 orcs entity subtype
