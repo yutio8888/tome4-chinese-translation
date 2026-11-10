@@ -149,7 +149,7 @@ t([[Choose game parts you want to translated.
 Unchecked parts will not be scanned, rearranged or released.
 Your configuration will be lost after closing the game.
 ]], [[选择你需要翻译的游戏组件。
-未选中的组件不会被扫描，重排或发布。
+未选中的组件不会被扫描、重排或发布。
 该选项退出游戏后会重置。
 ]], "_t")
 t("Checked", "已选择", "_t")
@@ -169,7 +169,7 @@ t("Translation Tool", "翻译工具", "_t")
 ------------------------------------------------
 section "tome-addon-dev/superload/mod/dialogs/debug/ExampleAddonMaker.lua"
 
-t("DEBUG -- Create Translation Addon", "DEBUG -- 创造翻译插件", "_t")
+t("DEBUG -- Create Translation Addon", "DEBUG -- 创建翻译插件", "_t")
 t("#LIGHT_GREEN#Locale Code:#LAST# ", "#LIGHT_GREEN#语言代码:#LAST# ", "_t")
 t("#LIGHT_GREEN#Language Name:#LAST# ", "#LIGHT_GREEN#语言名称:#LAST# ", "_t")
 t("Finish", "完成", "_t")
@@ -195,7 +195,7 @@ t("", "", "_t")
 section "tome-addon-dev/superload/mod/dialogs/debug/ReleaseTranslation.lua"
 
 t("Choose addon", "选择插件", "_t")
-t("Choose the addon you want to copy translation file to.", "选择你想要将翻译文件拷贝去的插件。", "_t")
+t("Choose the addon you want to copy translation file to.", "选择要将翻译文件拷贝到哪个插件。", "_t")
 t("Failure", "失败", "_t")
 t([[Fail when copying file to %s:
 %s]], [[未能拷贝文件到 %s:

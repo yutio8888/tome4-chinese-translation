@@ -469,14 +469,14 @@ t("Overwrite character?", "覆盖角色？", "_t")
 t("There is already a character with this name, do you want to overwrite it?", "已经存在同名角色，你要覆盖它吗？", "_t")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
-t("This game is not compatible with your version of T-Engine, you can still try it but it might break.", "这个游戏与你T-Engine的版本不兼容，你可以尝试运行，但是游戏可能崩溃。", "_t")
+t("This game is not compatible with your version of T-Engine, you can still try it but it might break.", "这个游戏与你的T-Engine版本不兼容，你可以尝试运行，但是游戏可能崩溃。", "_t")
 
 ------------------------------------------------
 section "mod-boot/dialogs/Profile.lua"
 
 t("Player Profile", "玩家账户", "_t")
 t("Logout", "登出", "_t")
-t("You are logged in", "你已经登入了。", "_t")
+t("You are logged in", "你已经登录了。", "_t")
 t("Do you want to log out?", "你要登出吗？", "_t")
 t("Log out", "登出", "_t")
 t("Cancel", "取消", "_t")

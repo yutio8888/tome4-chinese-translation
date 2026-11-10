@@ -5743,9 +5743,9 @@ t("You require a steamsaw for this talent.", "你需要一把蒸汽链锯才能�
 t([[Hits the target on the arms with one rotating saw doing %d%% damage and trying to maim it for %d turns.
 		Maimed foes deal %d%% less damage.
 		The chance improves with your Physical power.
-		#{italic}#Cutting your foes has never been so simple!#{normal}#]], [[用链锯攻击目标手臂，造成 %d%% 武器伤害并尝试致残目标 %d 回合。
-		致残状态的敌人造成的伤害减少 %d%%。
-		致残几率受物理强度影响。
+		#{italic}#Cutting your foes has never been so simple!#{normal}#]], [[用链锯攻击目标手臂，造成 %d%% 武器伤害并尝试使目标断筋 %d 回合。
+		断筋状态的敌人造成的伤害减少 %d%%。
+		断筋几率受物理强度影响。
 		#{italic}#杀人如砍瓜切菜！#{normal}#]], "tformat")
 t("Bloodstream", "涌血", "talent name")
 t([[You "gently" slam your saws into the wounds of a creature, dealing %d%% weapon damage and deepening the wounds.
@@ -6504,7 +6504,7 @@ t("+Moss", "+苔藓", "_t")
 t("-Moss", "-苔藓", "_t")
 t("Stimulus", "兴奋剂", "_t")
 t("Resisting pain, reducing all incoming damage by %0.2f. When the effect ends, take %d un-resistable damage.", "抵抗疼痛，受到的伤害减少 %0.2f。效果结束后受到 %d 点无法抵抗的伤害。", "tformat")
-t("maimed", "被致残", "effect subtype")
+t("maimed", "断筋", "effect subtype")
 t("To The Arms", "切臂", "_t")
 t("Damage reduced by %d%%.", "伤害减少 %d%%。", "tformat")
 t("#Target# is suffering and fails to concentrate on dealing damage.", "#Target#忍受痛苦，不能集中精力造成伤害。", "_t")

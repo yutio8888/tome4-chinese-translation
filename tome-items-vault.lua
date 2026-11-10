@@ -21,10 +21,10 @@ Only items from a validated game versions are uploadable.#WHITE#*
 #CRIMSON#Offline mode#WHITE#: The item's vault works even without a network connection but items will thus only be saved on your computer and can not be shared to an other one.
 The offline vault is only available when offline and contains 3 slots.]], [[*#LIGHT_GREEN#这个水晶球看起来像是一个访问某个超次元物品仓库的接口。
 你在其他宇宙中的所有角色都可以从这里访问它。
-只有经过验证的游戏版本中的物品才能上载。#WHITE#*
+只有经过验证的游戏版本中的物品才能上传。#WHITE#*
 
-#CRIMSON#离线模式#WHITE#: 即使没有网络连接，共享仓库也可以工作，但物品因此只能保存在您的计算机上，不能与其他电脑共享。
-离线物品仓库仅在离线时可用，有3个物品槽。]], "_t")
+#CRIMSON#离线模式#WHITE#: 即使没有网络连接，共享仓库也可以工作，但物品因此只能保存在你的计算机上，不能与其他电脑共享。
+离线共享仓库仅在离线时可用，有3个物品槽。]], "_t")
 t("[Place an item in the vault]", "[将物品放入共享仓库中]", "_t")
 t("Item's Vault", "共享仓库", "_t")
 t("You can not place an item in the vault from debug mode game.", "你不能在调试模式游戏下将物品放入共享仓库。", "_t")
@@ -46,14 +46,14 @@ Only items from a validated game versions are uploadable.#WHITE#*
 #GOLD#Donator's Feature#ANCIENT_WHITE#: Items are saved on the server, only donators have access to this feature and the number of items storable at once depends on your generosity.
 I, DarkGod, the maker of this game want to personaly thank all donators because you people are keeping this game going. Thanks and enjoy!]], [[*#LIGHT_GREEN#这个水晶球看起来像是一个访问某个超次元物品仓库的接口。
 你在其他宇宙中的所有角色都可以从这里访问它。
-只有经过验证的游戏版本中的物品才能上载。#WHITE#*
+只有经过验证的游戏版本中的物品才能上传。#WHITE#*
 
-#GOLD#捐赠者特权#ANCIENT_WHITE#: 物品保存在服务器上，只有捐赠者有权使用此功能，同时存储的物品数量取决于您的慷慨程度。
+#GOLD#捐赠者特权#ANCIENT_WHITE#: 物品保存在服务器上，只有捐赠者有权使用此功能，同时存储的物品数量取决于你的慷慨程度。
 我，DarkGod，这个游戏的制作人，想要亲自感谢所有的捐赠者，是你们让这个游戏继续下去。谢谢，祝你玩得愉快！]], "_t")
 t("\
 #CRIMSON#Note for Steam Players#ANCIENT_WHITE#: This feature requires you to have registered a profile & bound it to steam (automatic if you register ingame) because it needs to store things on the server.\
 Until you do so you will get an error.", "\
-#CRIMSON#对Steam玩家的提醒#ANCIENT_WHITE#: 因为这项功能需要你在服务器上存储数据，使用共享仓库需要你注册了游戏账户，并将其绑定到Steam（如果你在游戏内注册，这个过程将会自动完成）。\
+#CRIMSON#对Steam玩家的提醒#ANCIENT_WHITE#: 因为这项功能需要在服务器上存储数据，使用共享仓库前你需要注册游戏账户，并将其绑定到Steam（如果你在游戏内注册，这个过程将会自动完成）。\
 否则，你将会遇到一个错误。", "_t")
 t("[Place an item in the vault]", "[将物品放入共享仓库中]", "_t")
 t("Item's Vault", "共享仓库", "_t")
@@ -68,7 +68,7 @@ t("[Leave the orb alone]", "[离开水晶球]", "_t")
 ------------------------------------------------
 section "tome-items-vault/overload/data/maps/items-vault/fortress.lua"
 
-t("Psionic Metarial Retention", "灵能财产保存器", "_t")
+t("Psionic Metarial Retention", "灵能物资保管库", "_t")
 t("Temporal Locked Vault", "时空锁定的宝库", "_t")
 
 ------------------------------------------------
@@ -110,7 +110,7 @@ t("#LIGHT_RED#In %d minutes", "#LIGHT_RED#剩余约%d分钟", "tformat")
 t("Cooldown", "冷却时间", "_t")
 t("This item has been placed recently in the vault, you must wait a bit before removing it.", "该物品刚刚被放入共享仓库，你需要等待一段时间才能将其移除。", "_t")
 t("#LIGHT_BLUE#You transfer %s from the online item's vault.", "#LIGHT_BLUE#你从在线共享仓库中取回物品%s。", "log")
-t("#LIGHT_RED#Error while transfering from the online item's vault, please retry later.", "#LIGHT_RED#从在线共享仓库中获取物品失败，请稍候再试。", "log")
+t("#LIGHT_RED#Error while transfering from the online item's vault, please retry later.", "#LIGHT_RED#从在线共享仓库中获取物品失败，请稍后再试。", "log")
 
 ------------------------------------------------
 section "tome-items-vault/overload/mod/dialogs/ItemsVaultOffline.lua"
@@ -129,5 +129,5 @@ t("#LIGHT_RED#In %d minutes", "#LIGHT_RED#剩余约%d分钟", "tformat")
 t("Cooldown", "冷却时间", "_t")
 t("This item has been placed recently in the vault, you must wait a bit before removing it.", "该物品刚刚被放入共享仓库，你需要等待一段时间才能将其移除。", "_t")
 t("#LIGHT_BLUE#You transfer %s from the offline item's vault.", "#LIGHT_BLUE#你从离线共享仓库中取回物品%s。", "log")
-t("#LIGHT_RED#Error while transfering from the offline item's vault, please retry later.", "#LIGHT_RED#从离线共享仓库中获取物品失败，请稍候再试。", "log")
+t("#LIGHT_RED#Error while transfering from the offline item's vault, please retry later.", "#LIGHT_RED#从离线共享仓库中获取物品失败，请稍后再试。", "log")
 

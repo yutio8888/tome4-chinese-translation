@@ -42,7 +42,7 @@ The time is %02d:%02d.]], [[今天是马基·埃亚尔卓越纪%s年，%s第%s�
 当前时间 %02d:%02d。]], "nil", {3,2,1,4,5})
 t("Undead", "不死族", "nil")
 t("Ungrol of Last Hope", "最后的希望城的温格洛", "nil")
-t("Vargh Republic", "瓦尔弗娜迦共和国", "nil")
+t("Vargh Republic", "瓦尔弗共和国", "nil")
 t("Victim", "受害者", "nil")
 t("Water lair", "水下巢穴", "nil")
 t("Zigur", "伊格", "nil")
@@ -863,7 +863,7 @@ section "engine/engine/dialogs/SteamOptions.lua"
 t("Steam Options", "Steam 设置", "_t")
 t([[Enable Steam Cloud saves.
 Your saves will be put on steam cloud and always be available everywhere.
-Disable if you have bandwidth limitations.#WHITE#]], [[启动Steam云存档。
+Disable if you have bandwidth limitations.#WHITE#]], [[启用Steam云存档。
 你的存档会被保存在Steam 云中，可以各处使用。
 如果你的网络带宽有限，请禁用这一设置。#WHITE#]], "_t")
 t("#GOLD##{bold}#Cloud Saves#WHITE##{normal}#", "#GOLD##{bold}#云存档#WHITE##{normal}#", "_t")
@@ -1121,7 +1121,7 @@ t("The Online Store (and expansions) are only purchasable by players that bought
 t("Let's go! (Opens in your browser)", "去吧！（在浏览器中打开）", "_t")
 t("%0.2f %s", "%0.2f%s", "tformat")
 t("%d coins", "%d币", "tformat")
-t("#{bold}#TOTAL#{normal}#", "#{bold}#总量#{normal}#", "_t")
+t("#{bold}#TOTAL#{normal}#", "#{bold}#总计#{normal}#", "_t")
 t("  (%d items in cart, %s)", "  (购物车中有%d件物品，%s)", "tformat")
 t("Cart", "购物车", "_t")
 t("Cart is empty!", "购物车是空的！", "_t")
@@ -1882,14 +1882,14 @@ t("Overwrite character?", "覆盖角色？", "_t")
 t("There is already a character with this name, do you want to overwrite it?", "已经存在同名角色，你要覆盖它吗？", "_t")
 t("No", "否", "_t")
 t("Yes", "是", "_t")
-t("This game is not compatible with your version of T-Engine, you can still try it but it might break.", "这个游戏与你T-Engine的版本不兼容，你可以尝试运行，但是游戏可能崩溃。", "_t")
+t("This game is not compatible with your version of T-Engine, you can still try it but it might break.", "这个游戏与你的T-Engine版本不兼容，你可以尝试运行，但是游戏可能崩溃。", "_t")
 
 ------------------------------------------------
 section "engine/modules/boot/dialogs/Profile.lua"
 
 t("Player Profile", "玩家账户", "_t")
 t("Logout", "登出", "_t")
-t("You are logged in", "你已经登入了。", "_t")
+t("You are logged in", "你已经登录了。", "_t")
 t("Do you want to log out?", "你要登出吗？", "_t")
 t("Log out", "登出", "_t")
 t("Cancel", "取消", "_t")
