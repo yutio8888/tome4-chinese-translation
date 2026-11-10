@@ -307,6 +307,7 @@ confirmed；反之 contextual 的 ISSUE 也要宿主自己核验源码后才能�
 | shot（投石索弹药，2026-11-06） | 「弹丸」；蒸汽枪子弹仍为「子弹」 |
 | Jinx（Cults，2026-11-09） | 「厄运」（状态名、层数「%d 厄运」、厄运层数）；泛义 misfortune 仍可作「不幸」 |
 | implant（Embers，2026-11-09） | 「植入物」（含医疗注射器植入物、技能树 implants） |
+| maim（2026-11-10） | 「断筋」（Maim/Maimed 状态、技能名、相关描述）；cripple 仍为「致残」；技能树 two-handed maiming＝双手重创不变；DISARMED 说明里上游写的 maimed 实为缴械，按实现译「缴械」 |
 | Kar'Krul | 「卡库罗尔」（官方与库内多数） |
 | age of allure／Allure Wars | 「厄流纪」／「厄流战争」，不按普通词义译「诱惑」 |
 | 技能说明占位符补空格（2026-10-01） | 升级预览按 `tokenize(" ()[],")` 切分后逐段对比（tome `class/Actor.lua:6851`、engine `utils.lua:1969`），全角标点不算分隔。`*/talents/*` 段 `tformat` 译文中，数值占位符（`%d`、`%0.2f%%` 等；`%s` 除外）所在片段不得连带汉字：插一个 ASCII 空格，全角闭合标点随前文、正负号与全角开括号随数字，不在全角括号内侧加空格。由 strict lint `talent-placeholder-spacing` 强制；全库已清扫（`a2a2d6b7`，394 条，证据 `evidence/quality/maintenance-placeholder-spacing-20261001/`） |
