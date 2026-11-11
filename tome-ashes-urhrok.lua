@@ -246,7 +246,7 @@ t("A strange orb of demonic origins. It glows with a surreal red light.", "一�
 t("Jaw of Rogroth", "罗格洛斯的下颚", "entity name")
 t("tooth lined belt", "布满尖齿的腰带", "_t")
 t("Rogroth's mouth happened to be about the same size as your waist. Interesting.", "罗格洛斯的嘴巴恰好和你的腰差不多大。真有趣。", "_t")
-t("deal darkness damage equal to your 350%% of your spellpower to a target, and, if it kills the target, restores 15% of max hp and all resources (except paradox and equilibrium)", "对目标造成相当于你法术强度350%%的暗影伤害，若击杀目标，则按各自上限的15%恢复生命值和所有资源（紊乱值和失衡值除外）", "_t")
+t("deal darkness damage equal to your 350%% of your spellpower to a target, and, if it kills the target, restores 15% of max hp and all resources (except paradox and equilibrium)", "对目标造成相当于你法术强度 350% 的暗影伤害，若击杀目标，则按各自上限的 15% 恢复生命值和所有资源（紊乱值和失衡值除外）。", "_t")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -859,7 +859,7 @@ t([[Whenever you block an attack with your shield, you release a cloud of acidic
 		伤害受法术强度加成。]], "tformat")
 t("Corrosive Cone", "锥形酸液", "talent name")
 t([[When you deal a critical strike in melee, you send out a cone of acid, dealing %d damage to all enemies and melting walls you hit.
-		The damage will increase with your Spellpower.]], [[每次近战暴击时，将释放一股锥形酸液，造成 %d 伤害并融化墙壁。
+		The damage will increase with your Spellpower.]], [[每次近战暴击时，将释放一股锥形酸液，对范围内所有敌人造成 %d 点酸性伤害，并融化被击中的墙壁。
 		伤害受法术强度加成。]], "tformat")
 t("Armoured Leviathan", "铁甲利维坦", "talent name")
 t([[You enchant your shield to grant you power for %d turns.

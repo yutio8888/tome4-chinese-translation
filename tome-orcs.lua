@@ -5079,7 +5079,7 @@ t([[You fire a special, electrically charged shot with your steamgun(s) at a spo
 		When each shot reaches its target, it bursts into electrified shrapnel within radius %d, which shocks each target hit and deals %d%% weapon damage as lightning.
 		Shocked targets lose up to %d non-magical effects (for the first shot that hits).
 		This talent does not use ammo.]], [[你用蒸汽枪向射程内的一处位置进行一次特殊的带电射击。
-		每发子弹抵达目标位置时，都会爆裂成电化弹片，波及半径 %d 格，电击命中的每个目标，并造成 %d%% 武器伤害的闪电伤害。
+		每发子弹抵达目标位置时，都会爆裂成电化弹片，波及半径 %d 格，电击命中的每个目标，并对其造成 %d%% 武器伤害的闪电伤害。
 		被电击的目标失去至多 %d 个物理或精神增益效果（仅第一发命中时生效）。
 		本技能不消耗弹药。]], "tformat")
 
@@ -5674,9 +5674,9 @@ t([[Allows the use of Technomancy spells.
 		Grants a magical steam reserve that regenerates %d steam per 10 mana spent.
 		Grants Spellpower based on current steam level (currently %d; %d%% steam filled).
 		Outside of combat, you relax and let your steam reserve slowly wither away.
-		#{italic}#Metal Arcane Power!#{normal}#]], [[允许使用科技法术，
+		#{italic}#Metal Arcane Power!#{normal}#]], [[允许使用科技法术。
 		获得一个魔法蒸汽储备，施放消耗法力且不消耗蒸汽的主动法术时，每消耗10点法力值获得 %d 蒸汽。
-		根据当前蒸汽值获得法术强度（目前 %d； 蒸汽储量 %d%%）
+		根据当前蒸汽值获得法术强度（目前 %d； 蒸汽储量 %d%%）。
 		在战斗外，你放松了控制，蒸汽储备会逐渐消退。
 		#{italic}#金属奥术力量！#{normal}#]], "tformat")
 
@@ -5938,7 +5938,7 @@ t("Hunker Down", "炮台守卫", "talent name")
 t("guardian turret", "守卫炮台", "_t")
 t("An advanced turret equipped with dual steamguns.", "一个装备双蒸汽枪的高级炮台。", "_t")
 t([[Deploy a defensive emplacement around you, summoning 2 guardian turrets in adjacent tiles for %d turns. Guardian turrets redirect %d%% of all damage taken by other adjacent allies (other than fellow guardian turrets) to themselves, and each is armed with a powerful turret capable of firing piercing bullets.
-			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]], [[在身边部署防御阵地，召唤 2 个守卫炮台，持续 %d 回合。守卫炮台会将身边其他盟友所受全部伤害的 %d%% 转移到自己身上，并且它们装备有能发射贯穿子弹的强力炮塔。
+			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]], [[在身边部署防御阵地，在相邻格召唤 2 个守卫炮台，持续 %d 回合。守卫炮台会将身边其他盟友（不含其他守卫炮台）所受全部伤害的 %d%% 转移到自己身上，并且各自装备有能发射贯穿子弹的强力炮台。
 			守卫炮台获得 %0.2f 级蒸汽枪掌握，等级取决于你的炮台守卫技能等级。]], "tformat")
 t("Gauss Cannon", "电磁炮", "talent name")
 t("Fire your twin-linked gauss cannons, dealing 100%% steamgun damage as lightning in a piercing beam that bypasses all armor. This does not harm friendly targets.", "发射你的双联电磁炮，在一条贯穿直线上造成 100%% 闪电蒸汽枪伤害，无视护甲。这一效果不会伤害友好目标。", "tformat")
