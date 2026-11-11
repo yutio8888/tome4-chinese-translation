@@ -28959,7 +28959,7 @@ t("refitting", "重建傀儡", "_t")
 t("refitted", "重建傀儡用了", "_t")
 t("You have been interrupted!", "你被打断！", "logPlayer")
 t("You need to ready 2 alchemist gems in your quiver to heal your golem.", "你至少要在箭袋中装填2枚炼金宝石，才能够修理你的傀儡。", "logPlayer")
-t("You need to ready 15 alchemist gems in your quiver to heal your golem.", "你至少要在箭袋中装填15枚炼金宝石，才能够修理你的傀儡。", "logPlayer")
+t("You need to ready 15 alchemist gems in your quiver to heal your golem.", "你至少要在箭袋中装填15枚炼金宝石，才能够重建你的傀儡。", "logPlayer")
 t([[Take care of your golem:
 		- If it is destroyed, you will take some time to reconstruct it (this takes 15 alchemist gems and 20 turns).
 		- If it is alive but hurt, you will be able to repair it for %d (takes 2 alchemist gems). Spellpower, alchemist gem and Golem Power talent all influence the healing done.]], [[维护你的傀儡：
