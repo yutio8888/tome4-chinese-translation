@@ -4202,7 +4202,7 @@ section "mod-tome/data/chats/angolwen-staves-store.lua"
 t("Welcome @playername@ to my shop.", "@playername@，欢迎来到我的商店。", "_t")
 t("Let me see your wares.", "让我看看你的商品吧。", "_t")
 t("I am looking for staff training.", "我想寻求法杖战斗训练。", "_t")
-t("Sorry, I have to go!", "抱歉，我得走了！", "chat_angolwen-staves-store")
+t("Sorry, I have to go!", "抱歉，我要走了！", "chat_angolwen-staves-store")
 t("I can teach you staff combat (talent category Spell/Staff combat).  Learning the basics costs 100 gold, while more intensive tutelage to gain proficiency costs 500 gold.  Once you're proficient, I can teach you more refined techniques for an additional 750 gold.", "我可以传授你法杖格斗技巧（技能类别：法术/法杖格斗）。学习基础需要 100 金币，而要接受更深入的指导、达到熟练掌握，则需 500 金币。一旦你达到熟练，再额外支付 750 金币，我便能传授你更精湛的技巧。", "_t")
 t("Just give me the basics (reveals locked talent category) - 100 gold.", "只学习基础（揭示锁定的技能类别）- 100 金币。", "_t")
 t("The staff carver spends some time with you, teaching you the basics of staff combat.", "制杖师花了一些时间指导你，向你传授法杖格斗的基础技巧。", "logPlayer")
@@ -18546,7 +18546,7 @@ that drowned her at last.]], [[纳鲁精灵的挽歌
 section "mod-tome/data/lore/noxious-caldera.lua"
 
 t("dogroth caldera", "达格罗斯火山", "newLore category")
-t("tattered paper scrap", "破烂纸片", "_t")
+t("tattered paper scrap", "破烂的碎纸片", "_t")
 t([[What wending path brought me to this place? I know not. The mists have obscured all passage, all trail. I see but the enclosing dominance of the caldera ahead. The ashen cauldron of steam lures me, yet repels me. I feel there is a force here trying to sway my thoughts.
 
 Where are the rest of my party? Have my friends abandoned me?]], [[是哪条曲折的小路把我带到了这里？我不知道。浓雾遮断了所有道路，也抹去了所有踪迹；眼前只剩火山口合围而来的庞然威势。那口盛满灰白蒸汽的巨釜既引诱着我，又令我退缩。我感觉这里有某种力量正试图左右我的思想。
@@ -26558,7 +26558,7 @@ t([[You are light on your feet, handling your armour better. Each step you take 
 		At level 3 you are able to walk so lightly that you never trigger traps that require pressure.]], [[你的步伐很轻快，使你能更好的适应盔甲的重量。每移动一步你可以回复 %0.2f 体力，并且你的疲劳值永久减少 %0.1f%%。
 		在等级3时你的脚步非常轻快，以至于你不会触发压力式陷阱。]], "tformat")
 t("Strider", "凌波微步", "talent name")
-t("You literally dance around your foes, increasing your movement speed by %d%% and reducing the cooldown of Hack'n'Back, Rush, Disengage and Evasion by %d turns.", "你在敌人周围跳起华丽的舞蹈，增加 %d%% 移动速度并减少燕回斩、冲锋、逃脱和回避的冷却时间 %d 回合。", "tformat")
+t("You literally dance around your foes, increasing your movement speed by %d%% and reducing the cooldown of Hack'n'Back, Rush, Disengage and Evasion by %d turns.", "你在敌人周围跳起华丽的舞蹈，增加 %d%% 移动速度并减少燕回斩、冲锋、后跳和躲闪的冷却时间 %d 回合。", "tformat")
 t("Charm Mastery", "饰品掌握", "talent name")
 t("Your cunning manipulations allow you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns by %d%%.", "你灵活的头脑使你可以更有效地使用护符（魔杖、图腾和项圈），使其冷却时间减少 %d%%。", "tformat")
 t("Piercing Sight", "洞察视界", "talent name")
@@ -30558,7 +30558,7 @@ t([[Jump back up to %d grids from your target, springing over any creatures in y
 		你必须选择可见目标，必须以近乎直线的轨迹后跳。
 		落地后，你获得 3 回合 %d%% 移动速度加成，采取除移动外的行动会提前终止，并可以重新装填弹药（若有）。
 		疲劳值会降低额外移动速度和最大跳跃距离。]], "tformat")
-t("Evasion", "闪避", "talent name")
+t("Evasion", "躲闪", "talent name")
 t([[Your quick wit and reflexes allow you to anticipate attacks against you, granting you a %d%% chance to evade melee and ranged attacks and %d increased defense for %d turns.
 		The chance to evade and defense bonus increase with your Dexterity.]], [[你的战斗技巧和反射神经让你能迅速躲闪攻击，获得 %d%% 几率躲闪近战与远程攻击，闪避值增加 %d， 持续 %d 回合。
 		躲闪几率和闪避加成受敏捷加成。]], "tformat")
@@ -35676,7 +35676,7 @@ t("Golden Age of Necromancy", "死灵法术的黄金时代", "_t")
 t("flat", "固定伤害减免", "effect subtype")
 t("Chill of the Tomb", "极寒坟墓", "_t")
 t("Reduces all damage by %d.", "降低所有伤害 %d。", "tformat")
-t("Black Ice", "寒霜黑冰", "_t")
+t("Black Ice", "黑冰", "_t")
 t("Damage from necrotic minions increased by %d%%.", "来自死灵随从的伤害增加 %d%%。", "tformat")
 t("Corpselight", "阴燃鬼火", "_t")
 t("Sustains a corpselight of radius %d that deals %0.2f cold damage per turn.", "维持一个半径 %d 格的鬼火，每回合造成 %0.2f 寒冷伤害。", "tformat")
@@ -36322,7 +36322,7 @@ t("Charm:  Damage", "附魔：伤害", "_t")
 t("All damage increased by %d%%.", "所有伤害增加 %d%%。", "tformat")
 t("Charm:  Saves", "附魔：豁免", "_t")
 t("All saves increased by %d.", "所有豁免增加 %d。", "tformat")
-t("Charm:  Evasion", "附魔：闪避", "_t")
+t("Charm:  Evasion", "附魔：躲闪", "_t")
 t("%d%% chance to avoid weapon attacks", "%d%% 几率闪避武器攻击", "tformat")
 t("Charm:  Innervating", "附魔：激励", "_t")
 t("Fatigue reduced by %d%%.", "疲劳值减少 %d%%。", "tformat")
@@ -39043,7 +39043,7 @@ section "mod-tome/data/zones/maze/objects.lua"
 
 t("torn diary page", "破损的日记页", "entity name")
 t("A diary, left by an adventurer.", "一本冒险者留下的日记。", "_t")
-t("the perfect killing device", "完美的杀人装置", "entity name")
+t("the perfect killing device", "完美猎杀装置", "entity name")
 t("Some notes describing how to create poison gas traps, left by an unfortunate rogue.", "一些描述如何制造毒气陷阱的笔记，由一位不幸的盗贼留下。", "_t")
 
 ------------------------------------------------
