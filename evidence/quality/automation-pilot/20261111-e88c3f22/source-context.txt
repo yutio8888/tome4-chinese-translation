@@ -1,0 +1,1106 @@
+d9a141aa3a64 ['game/modules/tome/data/talents/gifts/summon-utility.lua:160', 'game/modules/tome/data/talents/gifts/summon-utility.lua:162', 'game/modules/tome/data/talents/uber/mag.lua:239']
+
+bd024fc77aa4 /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/spells/occult-technomancy.lua
+264: 		end)
+265: 		if not next(tgts) then return nil end
+266:
+267: 		local dam = self:spellCrit(t.getDamage(self, t))
+268: 		for target, _ in pairs(tgts) do
+269: 			target:setEffect(target.EFF_ETHEREAL_STEAM, t.getDur(self, t), {src=self, dam=dam})
+270: 		end
+271:
+272: 		game:playSoundNear(self, "talents/arcane")
+273: 		return true
+274: 	end,
+275: 	info = function(self, t)
+276: 		local damage = t.getDamage(self, t)
+277: 		local radius = self:getTalentRadius(t)
+278: 		return ([[You reach out through the aether to all creatures in sight that were slowed by Reality Breach or Congeal Time.
+279: 		For each target you create a link of arcane infused steam to it that lasts %d turns.
+280: 		Any time the target uses a talent one of your cooling down spells is reduced by 1 (prioritizing Technomancy spells).
+281: 		Each turn the link is up the target and any creature inside the link takes %0.2f occult damage.
+282: 		As long as at least one link is up, the cooldown of your Metaphasic Spin spell is set to 6 turns instead of 30.
+283: 		The damage will increase with your Spellpower.]]):tformat(t.getDur(self, t), damDesc(self, DamageType.OCCULT, damage))
+284: 	end,
+285: }
+286:
+287: newTalent{
+288: 	name = "Metaphasic Echoes", short_name = "METAPHASIC_PULSE",
+289: 	type = {"spell/occult-technomancy",4},
+290: 	require = technomancy_req_high4, is_technomancy = true, is_steam = true,
+
+c50a989b6955 game/modules/tome/data/timed_effects/mental.lua
+1716: 	activate = function(self, eff)
+1717: 		eff.tmpid = self:addTemporaryValue("combat_atk", eff.power)
+1718: 		eff.bid = self:addTemporaryValue("blind_fight", 1)
+1719: 		self:effectParticles(eff, {type="perfect_strike", args={radius=1}})
+1720: 	end,
+1721: 	deactivate = function(self, eff)
+1722: 		self:removeTemporaryValue("combat_atk", eff.tmpid)
+1723: 		self:removeTemporaryValue("blind_fight", eff.bid)
+1724: 	end,
+1725: }
+1726:
+1727: newEffect{
+1728: 	name = "DEADLY_STRIKES", image = "talents/deadly_strikes.png",
+1729: 	desc = _t"Deadly Strikes",
+1730: 	long_desc = function(self, eff) return ("The target's armour penetration is increased by %d."):tformat(eff.power) end,
+1731: 	type = "mental",
+1732: 	subtype = { focus=true },
+1733: 	status = "beneficial",
+1734: 	parameters = { power=10 },
+1735: 	on_gain = function(self, err) return _t"#Target# aims carefully." end,
+1736: 	on_lose = function(self, err) return _t"#Target# aims less carefully." end,
+1737: 	activate = function(self, eff)
+1738: 		eff.tmpid = self:addTemporaryValue("combat_apr", eff.power)
+1739: 	end,
+1740: 	deactivate = function(self, eff)
+1741: 		self:removeTemporaryValue("combat_apr", eff.tmpid)
+1742: 	end,
+
+99108f5f0ea6 game/modules/tome/data/chats/assassin-lord.lua
+77: newChat{ id="greed",
+78: 	text = _t[[I am afraid this is not your lucky day then. The merchant is ours... and so are you! GET THIS INTRUDER!!]],
+79: 	answers = {
+80: 		{_t"[attack]", action=do_attack},
+81: 		{_t"Wait! Maybe we could work out some kind of arrangement; you seem to be a practical man.", jump="offer"},
+82: 	}
+83: }
+84:
+85: newChat{ id="offer",
+86: 	text = _t[[Well, I need somebody to replace the men you killed. You look sturdy; maybe you could work for me.
+87: You will have to do some dirty work for me, though, and you will be bound to me.  Nevertheless, you may make quite a profit from this venture, if you are as good as you seem to be.
+88: And do not think of crossing me.  That would be... unwise.]],
+89: 	answers = {
+90: 		{_t"Well, I suppose it is better than dying.", action=evil},
+91: 		{_t"Money? I'm in!", action=evil},
+92: 		{_t"Just let me and the merchant get out of here and you may live!", action=do_attack},
+93: 	}
+94: }
+95:
+96: return "welcome"
+
+c75c66a3bcef game/modules/tome/data/talents/gifts/moss.lua
+54: 			5, nil,
+55: 			{type="moss"},
+56: 			nil, false, false
+57: 		)
+58: 		activate_moss(self, t.id)
+59: 		game:playSoundNear(self, "talents/slime")
+60: 		return true
+61: 	end,
+62: 	info = function(self, t)
+63: 		local damage = t.getDamage(self, t)
+64: 		local duration = t.getDuration(self, t)
+65: 		local slow = t.getSlow(self, t)
+66: 		local pin = t.getPin(self, t)
+67: 		local radius = self:getTalentRadius(t)
+68: 		return ([[Instantly grow a moss circle of radius %d at your feet.
+69: 		Each turn the moss deals %0.2f nature damage to each foe within its radius.
+70: 		This moss is very thick and sticky causing all foes passing through it have their movement speed reduced by %d%% and have a %d%% chance to be pinned to the ground for 4 turns.
+71: 		The moss lasts %d turns.
+72: 		Moss talents are instant but place all other moss talents on cooldown for 3 turns.
+73: 		The damage will increase with your Mindpower.]]):
+74: 		tformat(radius, damDesc(self, DamageType.NATURE, damage), slow, pin, duration)
+75: 	end,
+76: }
+77:
+78: newTalent{
+79: 	name = "Nourishing Moss",
+80: 	type = {"wild-gift/moss", 2},
+
+e19e191b0897 game/modules/tome/data/general/objects/egos/armor.lua
+97: 	keywords = {cleansing=true},
+98: 	level_range = {10, 50},
+99: 	rarity = 10,
+100: 	cost = 7,
+101: 	wielder = {
+102: 		resists={
+103: 			[DamageType.NATURE] = resolvers.mbonus_material(10, 10),
+104: 			[DamageType.BLIGHT] = resolvers.mbonus_material(10, 10),
+105: 		},
+106: 	},
+107: }
+108: -- Saving Throws
+109: newEntity{
+110: 	power_source = {technique=true},
+111: 	name = " of stability", suffix=true, instant_resolve=true,
+112: 	keywords = {stable=true},
+113: 	level_range = {10, 50},
+114: 	rarity = 7,
+115: 	cost = 6,
+116: 	wielder = {
+117: 		resists={[DamageType.PHYSICAL] = resolvers.mbonus_material(5, 5)},
+118: 		combat_physresist = resolvers.mbonus_material(15, 10),
+119: 	},
+120: }
+121: newEntity{
+122: 	power_source = {arcane=true},
+123: 	name = " of spell shielding", suffix=true, instant_resolve=true,
+
+996f4ba40df3 game/modules/tome/data/talents/cursed/strife.lua
+69: 				hit = self:attackTarget(target, nil, 1, true)
+70: 			else
+71: 				hit = self:attackTargetWith(target, weapon, nil, 1)
+72: 				if self:attackTargetWith(target, shield_combat, nil, 1) or hit then hit = true end
+73: 			end
+74: 		end
+75:
+76: 		return true
+77: 	end,
+78: 	info = function(self, t)
+79: 		local duration = t.getDuration(self, t)
+80: 		local armorChange = t.getArmorChange(self, t)
+81: 		local defenseChange = t.getDefenseChange(self, t)
+82: 		local resistPenetration = t.getResistPenetration(self, t)
+83: 		return ([[Turn your attention to a nearby foe, and dominate them with your overwhelming presence. If the target fails to save versus your Mindpower, it will be unable to move for %d turns and vulnerable to attacks. They will lose %d Armour, %d Defense and your attacks will gain %d%% resistance penetration. If the target is adjacent to you, your domination will include a melee attack.
+84: 		Effects will improve with your Willpower.
+85:
+86: 		This talent will also attack with your shield, if you have one equipped.]]):tformat(duration, -armorChange, -defenseChange, resistPenetration)
+87: 	end,
+88: }
+89:
+90: newTalent{
+91: 	name = "Preternatural Senses",
+92: 	type = {"cursed/strife", 2},
+93: 	mode = "passive",
+94: 	require = cursed_str_req2,
+95: 	points = 5,
+
+f359fd57a97a /workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/friend-of-the-worm.lua
+227: 		else
+228: 			-- Create the pet immediately when the talent is learned if we already exist
+229: 			t.invoke_wtw(self, t)
+230: 			t.update_wtw(self, t)
+231: 		end
+232: 	end,
+233: 	invoke_wtw = function(self, t)
+234: 		if self.demented_wtw then return end  -- Avoid any odd bugs causing regeneration of the pet
+235: 		if game.zone.wilderness then return end
+236:
+237: 		self.demented_wtw = game.zone:finishEntity(game.level, "actor", makeWtW(self))
+238: 		if game.party:hasMember(self) then
+239: 			game.party:addMember(self.demented_wtw, {
+240: 				control="full", type="wtw", title=_t"wtw", important=true,
+241: 				orders = {target=true, leash=true, anchor=true, talents=true, behavior=true, rename=function(self, name) return ("%s (servant of %s)"):tformat(name, self.summoner and self.summoner:getName() or "???") end},
+242: 			})
+243: 		end
+244: 		if not self.demented_wtw then return end
+245: 		self.demented_wtw.faction = self.faction
+246: 		self.demented_wtw.name = ("worm that walks (servant of %s)"):tformat(self:getName())
+247: 		self.demented_wtw.summoner = self
+248: 		self.demented_wtw.summoner_gain_exp = true
+249:
+250: 		-- Find space
+251: 		local x, y = util.findFreeGrid(self.x, self.y, 5, true, {[Map.ACTOR]=true})
+252: 		if not x then
+253: 			game.logPlayer(self, "Not enough space to invoke!")
+
+49c55bae12b6 game/modules/tome/class/GameState.lua
+3735: 			-- Fallback
+3736: 			who.unused_stats = who.unused_stats + 3
+3737: 			return "+3 Stat Points"
+3738: 		end},
+3739: 		{name = _t"+3 Stat Points", id="stat_pts", rarity=3, give=function(who) who.unused_stats = who.unused_stats + 3 end},
+3740: 		{name = _t"+1 Class Point", id="class_pt", rarity=5, give=function(who) who.unused_talents = who.unused_talents + 1 end},
+3741: 		{name = _t"+1 Generic Point", id="generic_pt", rarity=4, give=function(who) who.unused_generics = who.unused_generics + 1 end},
+3742: 		{name = _t"+1 Category Point", id="category_pt",
+3743: 			rarity=13.5*((self.id_challenge.rewarded["category_pt"] or 1)*30/math.max(30, who.level - self.id_challenge.level_entering_id)),
+3744: 			-- Note: rarity is adjusted to give ~ 1 category point every 30 character levels gained in the I.D.
+3745: 			-- a rarity of 30 with a challenge every level ~= 13.5 rarity with 45% challenge frequency (avg. first 50 I.D. levels, decreases with depth)
+3746: 			-- Rarity reduced if fewer than 1 category point has been awarded per 30 character levels
+3747: 			give=function(who) who.unused_talents_types = who.unused_talents_types + 1 end
+3748: 		},
+3749: 		{name = _t"+1 Prodigy Point", id="prodigy_pt",
+3750: 			rarity=60*((self.id_challenge.rewarded["prodigy_pt"] or 0)*5 + 1), -- make more than 1 bonus prodigy extremely rare
+3751: 			give=function(who) who.unused_prodigies = who.unused_prodigies + 1 end
+3752: 		},
+3753: 	}
+3754: 	self:triggerHook{"InfiniteDungeon:getRewards", rewards=rewards}
+3755:
+3756: 	if quest.forbid_rewards then
+3757: 		for _, f in ipairs(quest.forbid_rewards) do
+3758: 			for i, r in ipairs(rewards) do
+3759: 				if r.id == f then table.remove(rewards, i) break end
+3760: 			end
+3761: 		end
+
+0453ea0bd35c /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/turrets.lua
+847:
+848: 			m.combat_precomputed_steampower = self:combatSteampower()
+849: 			m.combat_precomputed_physpower = self:combatPhysicalpower()
+850: 			m.combat_precomputed_accuracy = self:combatAttack()
+851:
+852: 			game.zone:addEntity(game.level, m, "actor", x, y)
+853: 			m.max_level = self.level m:forceLevelup(self.level)
+854: 		end
+855:
+856: 		return true
+857: 	end,
+858: 	info = function(self, t)
+859: 		local dam = t.getPower(self,t)
+860: 		local dur = t.getDuration(self,t)
+861: 		return ([[Deploy a defensive emplacement around you, summoning 2 guardian turrets in adjacent tiles for %d turns. Guardian turrets redirect %d%% of all damage taken by other adjacent allies (other than fellow guardian turrets) to themselves, and each is armed with a powerful turret capable of firing piercing bullets.
+862: 			Guardian Turrets gain %0.2f ranks in Steamgun Mastery based on your Hunker Down talent level.]]):
+863: 		tformat(dur, dam, self:getTalentLevel(self.T_HUNKER_DOWN))
+864: 	end,
+865: }
+866:
+867: newTalent{
+868: 	name = "Gauss Cannon", short_name = "TURRET_GAUSS_CANNON",
+869: 	type = {"steamtech/other",1},
+870: 	no_energy = "fake",
+871: 	points = 5,
+872: 	range = steamgun_range,
+873: 	speed = "archery",
+
+6b67fc4deb50 game/modules/tome/data/timed_effects/physical.lua
+1862: 	deactivate = function(self, eff)
+1863: 		--self:removeParticles(eff.particle)
+1864: 		self:removeTemporaryValue("never_move", eff.tmpid)
+1865: 	end,
+1866: }
+1867:
+1868: newEffect{
+1869: 	name = "IMPLODING", image = "talents/implode.png",
+1870: 	desc = _t"Imploding (slow)",
+1871: 	long_desc = function(self, eff) return ("Slowed by 50%% and taking %d crushing damage per turn."):tformat( eff.power) end,
+1872: 	type = "physical",
+1873: 	subtype = { telekinesis=true, slow=true },
+1874: 	status = "detrimental",
+1875: 	parameters = {},
+1876: 	on_gain = function(self, err) return _t"#Target# is being crushed.", _t"+Imploding" end,
+1877: 	on_lose = function(self, err) return _t"#Target# shakes off the crushing forces.", _t"-Imploding" end,
+1878: 	activate = function(self, eff)
+1879: 		if core.shader.allow("distort") then eff.particle = self:addParticles(Particles.new("gravity_well2", 1, {radius=1})) end
+1880: 		eff.tmpid = self:addTemporaryValue("global_speed_add", -0.5)
+1881: 	end,
+1882: 	deactivate = function(self, eff)
+1883: 		if eff.particle then self:removeParticles(eff.particle) end
+1884: 		self:removeTemporaryValue("global_speed_add", eff.tmpid)
+1885: 	end,
+1886: 	on_timeout = function(self, eff)
+1887: 		DamageType:get(DamageType.PHYSICAL).projector(eff.src, self.x, self.y, DamageType.PHYSICAL, eff.power)
+1888: 	end,
+
+d8c75c7e858f game/modules/tome/data/lore/misc.lua
+39: 	category = "temple of creation",
+40: 	name = _t"tract of anarchy",
+41: 	lore = _t[[#{bold}#Tract of Anarchy#{normal}#
+42:
+43: For the years following the cataclysm, chaos reigned. Their culture, their way of life, it was as broken and fractured as the land itself. Nalorë civilisation was reduced to a few isolated and feeble settlements, scratching out meagre existences as land, mind and body was warped in both shape and spirit.
+44:
+45: Faced with the idea of their great race failing – another victim of the Spellblaze, a footnote in the annals of history – impassioned pleas were sent to their elven brothers: The Shalorën, the Thalorën. Aid was even requested from human and halfling, embroiled in their own petty squabbles as they were.
+46:
+47: The Nalorën received no answer.]],
+48: }
+49:
+50: newLore{
+51: 	id = "temple-creation-note-3",
+52: 	category = "temple of creation",
+53: 	name = _t"tract of acceptance",
+54: 	lore = _t[[#{bold}#Tract of Acceptance#{normal}#
+55:
+56: Betrayed by the Shalorën, wilful and destructive, and the Thalorën, aloof and suspicious, a long, seething silence fell over the remaining Nalorën people. It was during this period of grim introspection that salvation was suddenly and unexpectedly granted. The ancient Sher'Tul magicks, long pondered over by the land's mystics, would bear fruit at last.
+57:
+58: The same force that destroyed the Nalorën would save them. Through the Sher'Tul's magic, the Nalorën became able to breathe water as if it was air. Their bodies became adapted for existence under the waves, their legs becoming long, snake-like tails. Such drastic metamorphosis would naturally cause horror, you may expect. However, the Nalorën saw the possibilities their new forms provided: Their sunken lands were their own once again. Their homes would be rebuilt, their civilisation reborn. Nalorën no more, the denizens of the sunken kingdom would come to be known as 'nagas'...]],
+59: }
+60:
+61: newLore{
+62: 	id = "temple-creation-note-4",
+63: 	category = "temple of creation",
+64: 	name = _t"personal note (Slasul)",
+65: 	lore = _t[[At long last, the temple finally reveals its secrets to me, and my plans can be set in motion. Lithe in form, faultless in combat, unmatched in speed both above the waves and beneath... nature couldn't have hoped to create such a race as nagas. With the Temple of Creation now open to me however, we may become so much more. With my guidance, my careful shaping of the Sher'Tul's magicks, under my expert hand our great race shall soon reach its zenith. A new tract shall soon be written: The Tract of the Devourer.
+
+8418856e655f game/modules/tome/data/talents/techniques/superiority.lua
+24: 	require = techs_req_high1,
+25: 	points = 5,
+26: 	random_ego = "attack",
+27: 	cooldown = 40,
+28: 	stamina = 50,
+29: 	no_energy = true,
+30: 	tactical = { DEFEND = 2 },
+31: 	critResist = function(self, t) return self:combatTalentScale(t, 8, 20, 0.75) end,
+32: 	getResist = function(self, t) return self:combatTalentScale(t, 15, 35) end,
+33: 	action = function(self, t)
+34: 		self:setEffect(self.EFF_JUGGERNAUT, 20, {power=t.getResist(self, t), crits=t.critResist(self, t)})
+35: 		return true
+36: 	end,
+37: 	info = function(self, t)
+38: 		return ([[Concentrate on the battle, ignoring some of the damage you take.
+39: 		Improves physical damage reduction by %d%% and provides a %d%% chance to shrug off critical damage for 20 turns.]]):
+40: 		tformat(t.getResist(self,t), t.critResist(self, t))
+41: 	end,
+42: }
+43:
+44: newTalent{
+45: 	name = "Onslaught",
+46: 	type = {"technique/superiority", 2},
+47: 	require = techs_req_high2,
+48: 	points = 5,
+49: 	mode = "sustained",
+50: 	cooldown = 10,
+
+a702c5f2783b /workspace/tome4-dlcs/orcs/tome-orcs/data/quests/yeti-abduction.lua
+40: 		local o = mod.class.Object.new{
+41: 			power_source = {steam=true},
+42: 			type = "tinker", subtype = "steamtech",
+43: 			identified=true, no_unique_lore=true,
+44: 			name = _t"Yeti's Psychoportation Beacon", display = '*', color=colors.UMBER, unique=true, image = "object/artifact/yeti_beacon.png",
+45: 			desc = _t[[Call a trained yeti to your side.]],
+46: 			cost = 0, quest=true,
+47: 			encumber = 0,
+48: 			rarity = false,
+49: 			metallic = true,
+50: 			material_level = 4,
+51: 			special_desc = function(self) local q = game:getPlayer(true):hasQuest("orcs+yeti-abduction") return ("Yetis left to call: %d"):tformat(self.power) end,
+52: 			max_power = 8,
+53: 			power = 8,
+54: 			use_power = { power=1, name=_t"call a trained yeti for help", no_npc_use = true, use = function(self, who, inven, item)
+55: 				if who.level < 20 then game.log("The yetis are not ready yet.") return {id=true} end
+56: 				local m = game.zone:makeEntity(game.level, "actor", {name="yeti demolisher", base_list="mod.class.NPC:/data-orcs/general/npcs/yeti.lua"})
+57: 				local x, y = util.findFreeGrid(who.x, who.y, 5, true, {[engine.Map.ACTOR]=true})
+58: 				if m and x then
+59: 					m.faction = who.faction
+60: 					m.remove_from_party_on_death = true
+61: 					game.zone:addEntity(game.level, m, "actor", x, y)
+62: 					m:forceLevelup(who.level)
+63: 					m:learnTalent(m.T_ACHIEVEMENT_MIND_CONTROLLED_YETI, true)
+64: 					if game.party:hasMember(who) then
+65: 						game.party:addMember(m, {control="no", type="summon", title=_t"Yeti", orders = {target=true, leash=true, anchor=true, talents=true}})
+66: 					end
+
+db51b1e7e52a /workspace/tome4-dlcs/orcs/tome-orcs/data/lore/pocket-time.lua
+88: On the top floor, <?=Lore.pocket_time_winner.heshe?> was finally met with the sorcerers, Argoniel and Elandar, face-to-face.  They told <?=Lore.pocket_time_winner.himher?> of their plans with the staff, ones far more dangerous than mere global domination - no, they sought to bring back a threat that only the long-gone Sher'Tul could have dealt with.  A threat long forgotten, lost and tumbling between the stars: Gerlyk, a god driven mad from isolation.  They had to be stopped!
+89:
+90: The three of them clashed in a fight for the fate of Eyal.  Even with Argoniel's fearsome bone-armor whirling around her, even with Elandar's impressive spells flying through the air, even with the portals summoning foes of all sorts to join the battle...  in the end, the forces of good prevailed.  The sorcerers were defeated, and the portal was sealed, forever...  but at a terrible cost.  <?=Lore.pocket_time_winner.name?> had seen the farportal - the sorcerers had managed to charge it with too much energy, and the Staff alone was not enough to stop it.  <?=Lore.pocket_time_winner.HeShe?> selflessly made the ultimate sacrifice, using <?=Lore.pocket_time_winner.hisher?> life to destroy the portal.
+91:
+92: None on Eyal would ever know of <?=Lore.pocket_time_winner.hisher?> sacrifice, or that they were ever in danger...  but thanks to our champion, they could live happily ever after.
+93: <? end ?>
+94: <? if Lore.pocket_time_winner.is_yeek then ?>[i]...Well, let's just assume that's how it went, anyway.  The alternative would make it quite difficult to tell the next story.[/i]<? end ?>
+95: ]],
+96: }
+97:
+98: newLore{
+99: 	id = "pocket-time-3",
+100: 	category = "pocket of distorted time",
+101: 	name = _t"a telepathic message <The Eidolon>",
+102: 	template = true, lore = _t[[<? Lore.init_pocket_time_data() ?>Once upon a time, there was a spirit known as the Eidolon, older than anything on Eyal.  Some called it a savior, a bringer of order and justice; others, a dark god, spreading terror for its own amusement.  Such mortal classifications are hopelessly inadequate to describe the incomprehensibly far-sighted motivations of a being nearly as old as time itself...  but if you were to ask the Eidolon, it would call itself a storyteller.
+103:
+104: Whether the story exists only in its own head or is reflected across the Shandral system, none can say - but the Eidolon needed heroes for its story, as it always has.  Today, the hero it needed was a master of battle, the likes of which had not been seen since the age of Garkul the Devourer.  It considered a few different options, deeming many failures, some potentially adequate with a few mistakes forgiven, and only one to be finally chosen.  Its chosen protagonist met every challenge put before <?=Lore.pocket_time_winner.himher?>, sometimes with ease, often with difficulty, occasionally escaping through luck alone, but eventually stood atop the High Peak, having saved Eyal from the greatest threat it had ever faced<? if Lore.pocket_time_winner.sacrifice then ?> by sacrificing <?=Lore.pocket_time_winner.himher?>self to shut down the Sorcerers' farportal<? end ?>.
+105: <? if not Lore.pocket_time_winner.sacrifice then ?>
+106: And what then?  A master of battle has nothing to do once the battle is won.  <?=Lore.pocket_time_winner.HeShe?> could've sought out harder foes, but the only ones <?=Lore.pocket_time_winner.heshe?> would be likely to find would either be pointless to face, or outright harmful to the citizens of Eyal; they would add nothing to the story.  The Eidolon could have introduced a foe strong enough to finally destroy <?=Lore.pocket_time_winner.himher?>, but what kind of ending would that be?  Instead, the Eidolon decided to let its protagonist retire as <?=Lore.pocket_time_winner.heshe?> wished...  whether <?=Lore.pocket_time_winner.heshe?> chose to descend to inevitable doom in the Infinite Dungeon, to attempt to slay impossible foes like Atamathon and Linaniil, or to simply retire and live out the rest of <?=Lore.pocket_time_winner.hisher?> days in the reclaimed Sher'Tul fortress.  In any case, the story was over; there wasn't any room left for the rest of <?=Lore.pocket_time_winner.name?>'s life.<? end ?>
+107:
+108: Of course, a character like that can't simply be thrown away.  The story may be over, but it can be told again and again, and as such there would be as many Heroes of Maj'Eyal as there were people who'd listen to the story, each hearing it and imagining it slightly differently from the next.  Even the storyteller would dream up more situations for the Hero of Maj'Eyal, always wondering - what if I found an even match for this first warrior?  Don't I owe <?=Lore.pocket_time_winner.himher?> the reward of a fight <?=Lore.pocket_time_winner.heshe?> would be eager to participate in, and one that would give <?=Lore.pocket_time_winner.himher?> the challenge <?=Lore.pocket_time_winner.heshe?> craved so dearly?  Wouldn't such a duel be worth writing about?  And so, it kept <?=Lore.pocket_time_winner.name?> in mind, promising to remember <?=Lore.pocket_time_winner.himher?> whenever it found or created a threat worthy of <?=Lore.pocket_time_winner.himher?>.
+109:
+110: [b]<?=player.name?>[/b], you crave the thrill and tension of a close fight as much as <?=Lore.pocket_time_winner.heshe?> does.  I owe this opportunity to you in life, and the Scourge from the West in <?=Lore.pocket_time_winner.hisher?> legend; all I ask in return is that the two of you give me a battle that the people of Eyal will sing songs about.]],
+111: }
+
+fb2feeaeaa82 game/modules/tome/data/quests/starter-zones.lua
+16: --
+17: -- Nicolas Casalini "DarkGod"
+18: -- darkgod@te4.org
+19:
+20: use_ui = "quest-main"
+21:
+22: -- Quest for Maze, Sandworm & Old Forest
+23: name = _t"Into the darkness"
+24: desc = function(self, who)
+25: 	local desc = {}
+26: 	desc[#desc+1] = _t"It is time to explore some new places -- dark, forgotten and dangerous ones."
+27: 	desc[#desc+1] = _t"The Old Forest is just south-east of the town of Derth."
+28: 	desc[#desc+1] = _t"The Maze is west of Derth."
+29: 	desc[#desc+1] = _t"The Sandworm Lair is to the far west of Derth, near the sea."
+30: 	desc[#desc+1] = _t"The Daikara is on the eastern borders of the Thaloren forest."
+31: 	if self:isCompleted("old-forest") then
+32: 		if self:isCompleted("old-forest-crystal") then
+33: 			desc[#desc+1] = _t"#LIGHT_GREEN#* You have explored the Old Forest and vanquished Shardskin.#WHITE#"
+34: 		else
+35: 			desc[#desc+1] = _t"#LIGHT_GREEN#* You have explored the Old Forest and vanquished Wrathroot.#WHITE#"
+36: 		end
+37: 	else
+38: 		desc[#desc+1] = _t"#SLATE#* You must explore the Old Forest and find out what lurks there and what treasures are to be gained!#WHITE#"
+39: 	end
+40: 	if self:isCompleted("maze") then
+41: 		if self:isCompleted("maze-horror") then
+42: 			desc[#desc+1] = _t"#LIGHT_GREEN#* You have explored the Maze and vanquished the Horned Horror.#WHITE#"
+
+f765fd33f691 game/modules/tome/data/talents/spells/energy-alchemy.lua
+119: 			if actor:canBe("disarm") then
+120:  				actor:setEffect(actor.EFF_DISARMED, t.getDuration(self, t), {src=self, apply_power=self:combatSpellpower()})
+121:  			end
+122:  			if actor:canBe("knockback") then
+123:   				actor:knockback(self.x, self.y, 3)
+124:   				actor:crossTierEffect(actor.EFF_OFFBALANCE, self:combatSpellpower())
+125:   			end
+126: 		end, dam)
+127: 		game.level.map:particleEmitter(self.x, self.y, tg.radius, "gravity_breath", {radius=tg.radius, tx=x-self.x, ty=y-self.y, allow=core.shader.allow("distort")})
+128: 		game:playSoundNear(self, "talents/lightning")
+129: 		return true
+130: 	end,
+131: 	info = function(self, t)
+132: 		local radius = self:getTalentRadius(t)
+133: 		return ([[By crushing an alchemist gem you generate a thunderclap in a cone of radius %d dealing %0.2f physical damage and %0.2f lightning damage.
+134: 		All creatures caught inside are knocked back and disarmed for %d turns.
+135: 		The duration and damage will increase with your Spellpower.]]):tformat(radius, damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)), damDesc(self, DamageType.LIGHTNING, t.getDamage(self, t)), t.getDuration(self, t))
+136: 	end,
+137: }
+138:
+139: newTalent{
+140: 	name = "Living Lightning",
+141: 	type = {"spell/energy-alchemy",4},
+142: 	require = spells_req_high4,
+143: 	mode = "sustained",
+144: 	cooldown = 40,
+145: 	sustain_mana = 100,
+
+beb0f7a1ecbb game/modules/tome/dialogs/CharacterSheet.lua
+72: 					if self:updateEquipDollRefs(switch_set) then
+73: 						self.equip_set = switch_set
+74: 						game.logPlayer(self.actor, "#RED#Displaying %s set for %s (equipment NOT switched)", self.equip_set, self.actor:getName():capitalize())
+75: 					end
+76: 				end
+77: 				self:switchTo("equipment")
+78: 				self.c_equipment:generate() -- Force redraw
+79: 			end
+80: 		end
+81: 	}
+82: 	self.c_equipment.generate = function(tab)
+83: 		tab.title = ("[E]quipment: %s set"):tformat(self.equip_set)
+84: 		Tab.generate(tab)
+85: 	end
+86: 	self.b_talents_sorting = Button.new{text=("Sort: %s"):tformat(({_t"Groups", _t"Name", _t"Type"})[self.talent_sorting]), hide=true, width=100, fct=function()
+87: 		self.talent_sorting = self.talent_sorting + 1
+88: 		if self.talent_sorting > 3 then self.talent_sorting = 1 end
+89:
+90: 		--Save to config
+91: 		config.settings.tome.charsheet_talent_sorting = self.talent_sorting
+92: 		game:saveSettings("tome.charsheet_talent_sorting", ("tome.charsheet_talent_sorting = %d\n"):format(self.talent_sorting))
+93:
+94: 		self.b_talents_sorting.text = ("Sort:  %s"):tformat(({_t"Groups", _t"Name", _t"Type"})[self.talent_sorting])
+95: 		self.b_talents_sorting:generate()
+96: 		self:switchTo("talents") -- Force a redraw
+97: 	end}
+98: 	self.b_show_equipment = Button.new{text=_t"Manage [I]nventory", fct=function()
+
+1b70a3a81cf7 game/modules/tome/data/birth/races/dwarf.lua
+100: 		hairs = {
+101: 			{name=_t"Dark Hair 1", file="hair_01"},
+102: 			{name=_t"Dark Hair 2", file="hair_02"},
+103: 			{name=_t"Dark Hair 3", file="hair_03"},
+104: 			{name=_t"Dark Hair 4", file="hair_04", only_for={sex="Female"}},
+105: 			{name=_t"Dark Hair 5", file="hair_05", only_for={sex="Female"}},
+106: 			{name=_t"Dark Hair 6", file="hair_06", only_for={sex="Female"}},
+107: 			{name=_t"Dark Hair 7", file="hair_07", only_for={sex="Female"}},
+108: 			{name=_t"Dark Hair 8", file="hair_08", only_for={sex="Female"}},
+109: 			{name=_t"Dark Hair 9", file="hair_09", only_for={sex="Female"}},
+110: 			{name=_t"Dark Hair 10", file="hair_10", only_for={sex="Female"}},
+111: 			{name=_t"Blond Hair 1", file="hair_blond_01"},
+112: 			{name=_t"Blond Hair 2", file="hair_blond_02"},
+113: 			{name=_t"Blond Hair 3", file="hair_blond_03"},
+114: 			{name=_t"Blond Hair 4", file="hair_blond_04", only_for={sex="Female"}},
+115: 			{name=_t"Blond Hair 5", file="hair_blond_05", only_for={sex="Female"}},
+116: 			{name=_t"Blond Hair 6", file="hair_blond_06", only_for={sex="Female"}},
+117: 			{name=_t"Blond Hair 7", file="hair_blond_07", only_for={sex="Female"}},
+118: 			{name=_t"Blond Hair 8", file="hair_blond_08", only_for={sex="Female"}},
+119: 			{name=_t"Blond Hair 9", file="hair_blond_09", only_for={sex="Female"}},
+120: 			{name=_t"Blond Hair 10", file="hair_blond_10", only_for={sex="Female"}},
+121: 			{name=_t"Redhead Hair 1", file="hair_redhead_01", unlock="cosmetic_race_human_redhead"},
+122: 			{name=_t"Redhead Hair 2", file="hair_redhead_02", unlock="cosmetic_race_human_redhead"},
+123: 			{name=_t"Redhead Hair 3", file="hair_redhead_03", unlock="cosmetic_race_human_redhead"},
+124: 			{name=_t"Redhead Hair 4", file="hair_redhead_04", unlock="cosmetic_race_human_redhead", only_for={sex="Female"}},
+125: 			{name=_t"Redhead Hair 5", file="hair_redhead_05", unlock="cosmetic_race_human_redhead", only_for={sex="Female"}},
+126: 			{name=_t"Redhead Hair 6", file="hair_redhead_06", unlock="cosmetic_race_human_redhead", only_for={sex="Female"}},
+
+3e18525ae015 /workspace/tome4-dlcs/cults/tome-cults/data/lore/fay-willows.lua
+326: The halfling dropped to a less hostile stance and replied, "If you are referring to the people we named, then know that they were all defilers of nature. Potion brewers, runemasters, a blacksmith who specialized in magical artefact creation, and more than a dozen mages capable of casting spells. We have done great care in identifying various users who twist nature to their whims..." The halfling trailed off to take a breath before continuing with the final sentence. "As for how we killed them, a message needs to be sent, to be seared into the hearts and minds of the citizens of this city and elsewhere. Perhaps you may not have the stomach for it, if so I suggest you go back to your little forest thalore. This won't be the last display you will likely see."
+327:
+328: I don't know what made me more angry at that point, the seemingly callous nature of the halfling or the suggestion to simply go back home. What I did know was that I was livid. Seemingly the halfling noticed this and tried to reorient its posture. Attempting to redirect my anger, the halfling quickly opined, "Of course, you seem like you are made of sterner composition than most. Head to the south shoreline, then turn east. You'll find a path leading towards our base." Registering the words I took a moment to analyze them in my head, before asking, "And why should I do that?" Without missing a beat the halfling quickly replied back, "You wish to know why, do you not? Go talk to our instructors if you truly wish to know who we are."
+329:
+330: With this the halfling turned to leave the tent. The anger within me had not subsided much, but I made no further attempt to confront the halfling. Battered and bruised I sank down to the ground and rested a moment. Pulling one of the infusions I had recently purchased from the market, I began to treat my wounds. When I felt I was in better shape I got up again and left the tent. Looking up I noticed the evening sky, and decided that I would be staying one more night in the Nargol Kingdom. I made my way back to the inn where I slept in a bed until the next day. When I left I headed straight to the gates of the city to make my way out. There I pondered where my next destination would be, before finally heading south.]],
+331: }
+332:
+333: -----------------------------------------------------------------------
+334: -- Book 3
+335: -----------------------------------------------------------------------
+336: newLore{
+337: 	id = "fay-willows-book3-chapter1",
+338: 	category = "Forbidden Cults",
+339: 	name = _t"Escapades of Fay Willows [Book 3, Chapter 1] - Blackened Shoreline",
+340: 	lore = _t[[[i]Truly there was no place showing more damage in all of Eyal than its southern shoreline. Though I have not traveled to the eastern side of the continent, I can't imagine it potentially being destroyed to the extent that it has been here. These lands will never fully heal, but I do hope it will serve as a reminder the to Shaloren, to never brashly use magic in such a way again.[/i]
+341:
+342: Following the travel instructions that I had received from the halfling, I proceeded south. I did not know why I didn't just travel north back home, something about the anger burning within me fueled me to find the instructors of these masked fanatics. As I traveled south the sky would begin to turn a shade of colors from blue to purple and then a blackish red, and before long I couldn't even see the sun anymore. There was no sign that any of the lands around me escaped the destructive energies of the Spellblaze here. Eventually after a full day of travel, I set up camp near some burnt out trees. There was little to forage for in the destroyed wilderness, but I was able to find some edible berries and mushrooms to feed myself with and save on my provisions.
+343:
+344: The next day I continued on my journey. After a few hours I reached the southern shoreline, a grotesque sight to say the least. The waters bubbled as if being boiled and the ground was charred black. What trees or plants that still stood were completely burnt, dead and lifeless; as was the wildlife that had not escaped, their corpses left untouched by the bugs and worms. Looking up all I could see was dark clouds against a blackened sky. To the east I noticed small pools of lava escaping to the surface. Some of the lava formed small lakes or streams of red hot death which I cautiously had to avoid. Looking to the north I noticed the lands jaggedly shooting out unnaturally towards the sky.
+345:
+346: Moving closer towards the raised landscape I noticed that they rose as high as a mountain in the distance. Climbing a hill I saw how the unnatural rocks formed twisting chasms and pointy spikes that would almost certainly be suicide to traverse. Remembering back to the shaloren soldiers I had treated in Elvala, I quickly realized why they had moved northwards to come home. The center of the continent where the Midvale Plains had been located were now no more. Now the plains had been replaced by this deadly gauntlet of rock that would certainly kill anyone inside it, and likely anyone who had been living on the plains before the Spellblaze.
+347:
+348: Beginning to travel through the devastated landscape I had to be careful. As I made my way east the light of the sun was seemingly snuffed out by the smoke and debris of the area and the only way I could see my footing was from the glow of the nearby lava dotting the landscape. I don't know for how many days I would travel eastwards, but my progress though the lands was slow. Eventually I would see a river of lava flowing down to the open sea, and beyond that the burnt out remains of what I assumed was a forest. Seeing my way blocked, I looked north and noticed a clearing in the land and so I continued my way there to see if I could find safe passage.
+349:
+350: I carefully made my way up the terrain to a plateau and saw a small opening appear in the jutted mountains up ahead. While the land I crossed was hilly, I was able to find decent footing through the lethal landscape of deadly drops and pitfalls. Slowly I made my way through, finding a path leading downwards into what I hope would lead to the other side. Suddenly though in the distance I could see the figure of a group advancing fast towards me. Drawing closer to me, one of the figures in the group saw me, yelled out to the others, and they slowed to a cautious crawl. As they approached, I was a bit of a miss as to what race these beings were.
+351:
+352: They were tall, even taller than me, and I could see their bulging mass of muscles on their bodies from quite a distance away. Something also glistened on their skin, which as they grew closer I noticed to be glowing insignias similar to those I saw on runes in Elvala. Getting into earshot, one of the beings finally called out, "If you plan on taking us back, be prepared for a fight!" At that moment I realized that these were yet more victims of those masked fanatics. In a sign to show I wasn't hostile I put my belongings on the ground and stepped back from them. The action seemed to take the beings back a bit, and though still on edge they assumed a less aggressive stance.
+
+d9153ec5e63f game/modules/tome/data/timed_effects/magical.lua
+1188: 	cancel_on_level_change = true,
+1189: 	parameters = { },
+1190: 	activate = function(self, eff)
+1191: 		eff.leveid = game.zone.short_name.."-"..game.level.level
+1192: 	end,
+1193: 	deactivate = function(self, eff)
+1194: 		if self ~= game:getPlayer(true) then return end
+1195: 		local seen = false
+1196: 		-- Check for visible monsters, only see LOS actors, so telepathy wont prevent it
+1197: 		core.fov.calc_circle(self.x, self.y, game.level.map.w, game.level.map.h, 20, function(_, x, y) return game.level.map:opaque(x, y) end, function(_, x, y)
+1198: 			local actor = game.level.map(x, y, game.level.map.ACTOR)
+1199: 			if actor and actor ~= self then seen = true end
+1200: 		end, nil)
+1201: 		if seen then
+1202: 			game.log("There are creatures that could be watching you; you cannot take the risk of teleporting to Angolwen.")
+1203: 			return
+1204: 		end
+1205:
+1206: 		if self:canBe("worldport") and not self:attr("never_move") and eff.dur <= 0 then
+1207: 			game:onTickEnd(function()
+1208: 				if eff.leveid == game.zone.short_name.."-"..game.level.level and game.player.can_change_zone then
+1209: 					game.logPlayer(self, "You are yanked out of this place!")
+1210: 					game:changeLevel(1, "town-angolwen")
+1211: 				end
+1212: 			end)
+1213: 		else
+1214: 			game.logPlayer(self, "Space restabilizes around you.")
+
+e4b61a438d4b game/modules/tome/data/lore/age-allure.lua
+175: 				if not who or not who.player then return end
+176: 				self.on_move = nil
+177: 				require("engine.ui.Dialog"):simpleLongPopup(_t"Conclave Vault", _t[[Arriving at the location given by the coordinates, you see an enormous crack in the ground; peering down, the gleam of exposed metal catches your eye, and you recognize it as a massive door.  It would seem that the Cataclysm's tectonic upheaval has carved a path right to one of its entrances, bypassing the ruined tunnels entirely. You climb down, just outside the door.]], 400)
+178: 			end
+179: 			game.zone:addEntity(game.level, g, "terrain", spot.x, spot.y)
+180: 			print("[WORLDMAP] conclave vault at", spot.x, spot.y)
+181: 		end)
+182: 	end,
+183: }
+184:
+185: newLore{
+186: 	id = "conclave-vault-1",
+187: 	category = "age of allure",
+188: 	name = _t"healer Astelrid log 1",
+189: 	lore = _t[[Work in a hospital like this is more draining than I thought it'd be.  I thought I'd have no trouble with motivation, helping our wounded get back to health again, but seeing so many of them, and knowing there are some I cannot help...  it weighs heavily on my mind.  It would be difficult to go on, if I did not keep a few things in mind:
+190:
+191: One, that I am truly doing the best I can to minimize the world's suffering, both directly by healing, and indirectly by ensuring that the world will be united under the wise, thoughtful rule of the Conclave.  Ready access to regeneration infusions ensures that even the most dire of wounds can be healed in a matter of days, and the soldiers can return to the battlefield; furthermore, the Overseers have granted us access to their amnesia-inducing spells, allowing us to properly treat those who have been traumatized by the horrors of battle.  May the eyes of the Higher watch over this world for thousands of years to come.
+192:
+193: Two, that the "side project" the Overseers have assigned me to is working out very well.  Those wounded who have consented to our trial treatments, consisting of a unique combination of experimental variations on heroism infusions and shielding runes, have experienced slightly increased physical strength and endurance, with no sign of the effects wearing off.  There is one mild side effect which has given me cause to worry, though I dare not speak of my misgivings to anyone else; some of those treated have needed to be disciplined for getting too "enthusiastic" in battle.  The Overseers have assured me that this is actually having a net positive effect on morale, and thus I can wait to cure these aggressive tendencies until the war is over.  In the meantime, I am proud of my work, and although it's nothing so glorious as the creation of the Higher race, it will be a tremendous boon to our society in the long term.
+194:
+195: And three, that the war will soon be over, and with it we shall no longer have to bear the maiming of our proud soldiers and the impudence of the Nargol.  We have made impressive gains in territory in the last few days, thwarting numerous ambushes and keeping our momentum as we expand further into Nargol lands.  Granted, one cannot be sure of how much of what we're hearing has been "cleaned up" by the Overseers, but one recent statement from the Nargol leads me to believe it is the truth:
+196:
+197: "This is your last chance to back down.  A great tragedy will ensue if you continue to push further, and do not accept our previously-stated terms of peaceful resolution.  Do not force us to do this."
+198:
+199: After waging a war of trickery and deceit, those halflings think they can bluff us!  Once their military is broken, we can bring their citizens into our fold and enlighten them, and then the true healing can begin.]]
+200: }
+201:
+
+737dc6e7737a game/modules/tome/data/quests/shertul-fortress.lua
+27: 	end
+28: 	if self:isCompleted("weirdling") then
+29: 		desc[#desc+1] = _t"#LIGHT_GREEN#* The Weirdling Beast is dead, freeing the way into the fortress itself.#WHITE#"
+30: 	end
+31: 	if self:isCompleted("butler") then
+32: 		desc[#desc+1] = _t"#LIGHT_GREEN#* You have activated what seems to be a ... butler? with your rod of recall.#WHITE#"
+33: 	end
+34: 	if self:isCompleted("transmo-chest") then
+35: 		desc[#desc+1] = _t"#LIGHT_GREEN#* You have bound the transmogrification chest to the Fortress power system.#WHITE#"
+36: 	end
+37: 	if self:isCompleted("transmo-chest-extract-gems") then
+38: 		desc[#desc+1] = _t"#LIGHT_GREEN#* You have upgraded the transmogrification chest to automatically transmute metallic items into gems before transmogrifying them.#WHITE#"
+39: 	end
+40: 	if self:isCompleted("training") then
+41: 		desc[#desc+1] = _t"#LIGHT_GREEN#* You have unlocked the training room.#WHITE#"
+42: 	end
+43: 	if self:isCompleted("shimmer") then
+44: 		desc[#desc+1] = _t"#LIGHT_GREEN#* You have unlocked the hall of reflections.#WHITE#"
+45: 	end
+46: 	if self:isCompleted("recall") then
+47: 		if self:isCompleted("recall-done") then
+48: 			desc[#desc+1] = _t"#LIGHT_GREEN#* You have upgraded your rod of recall to transport you to the fortress.#WHITE#"
+49: 		else
+50: 			desc[#desc+1] = _t"#SLATE#* The fortress shadow has asked that you come back as soon as possible.#WHITE#"
+51: 		end
+52: 	end
+53: 	if self:isCompleted("farportal") then
+
+ed41d16a7107 game/modules/tome/data/zones/keepsake-meadow/objects.lua
+75: 		resists={[DamageType.MIND] = 30, [DamageType.PHYSICAL] = 8,},
+76: 		combat_mindpower = 15,
+77: 		max_life = 40
+78: 	},
+79: 	on_drop = function(self, who)
+80: 		if who.player then
+81: 			game.logPlayer(who, "You cannot bring yourself to drop the %s", self:getName())
+82: 			return true
+83: 		end
+84: 	end,
+85: }
+86:
+87: newEntity{
+88: 	define_as = "IRON_ACORN_EVIL",
+89: 	name = "Cold Iron Acorn",
+90: 	type = "misc", subtype="trinket",
+91: 	display = "*", color=colors.SLATE, image = "object/iron_acorn.png",
+92: 	quest=true,
+93: 	unique = true,
+94: 	identified = true,
+95: 	rarity = false,
+96: 	power_source = {psionic=true},
+97: 	cost = 1,
+98: 	material_level = 1,
+99: 	encumber = 0,
+100: 	not_in_stores = true,
+101: 	desc = _t[[A small acorn, crafted crudely out of iron. It once belonged to Bander, but now it is yours. The acorn serves as a reminder of who and what you are.]],
+
+705ab78caae5 game/modules/tome/data/lore/misc.lua
+402: 	name = _t"Loremaster Greynot's Analysis of the Races - Chapter 3 - Dwarves",
+403: 	lore = _t[[The dwarves are an exceptionally secretive and quiet race, reluctant to talk about themselves to outsiders unless hefty bribes are paid. Many times in their history they have cut off all contact with the other races for no known reason, shutting tight the great iron doors that cover the trade passages to their mines and their cavernous cities. However of late they have become more open with the outside world, and I have even had the pleasure of receiving the unique distinction of being allowed to enter their main city, the Iron Throne, and speaking with several of their guild leaders.
+404:
+405: Dwarves are around 5' tall, with generally brown or grey hair. They are usually stocky and muscular, and known to be very resistant to any physical suffering. Their females can be hard to distinguish from their males, but can usually be identified by the beads braided into their beards. All dwarves are highly proud of their beards, and take immaculate care of them. The greatest insult to a dwarf is to belittle his beard, and the greatest sign of suffering in a dwarf is for him to tear at his beard.
+406:
+407: Dwarves are known especially for their smithwork and artificing, which is unrivalled amongst all the other races. They also make cunning merchants, known to drive a hard bargain. Their society consists of a fairly strict caste system, with families belonging to guilds of miners, smelters, craftsmen, and so on, and deviance into work outside of one's guild of birth is almost unheard of. However there is no perceived inequality between guilds, with each having equal representation on their ruling Committee of Guilds. Who actually acts as figurehead is unknown to outsiders though, and no amount of bribing will encourage any dwarf to speak on the subject. When it is mentioned in passing their allusions to a leader are normally marked by an almost religious reverence.
+408:
+409: Their skill with metal is renowned above all else. Dwarven steel is considered the most durable material for use in construction, and dwarves are the finest workers with stralite and voratun, precious metals of immense value. They trade heavily in their crafts from their capital the Iron Throne, but allow no outsiders in - instead they send innumerable merchant caravans out to all the cities to ply their wares.
+410:
+411: As well as the many merchant dwarves one may meet there are also a great deal of young dwarves who venture beyond their halls of stone. These are generally of adventuring fare, and it is encouraged in dwarven society to experience something of the wider world in one's younger years. This is known to them as being "smithed upon the anvil of the world". In private though some senior dwarves admit that this activity is promoted to help with their "market research strategy".]]}
+412:
+413: newLore{
+414: 	id = "races-4",
+415: 	category = "races",
+416: 	name = _t"Loremaster Greynot's Analysis of the Races - Chapter 4 - Shaloren",
+417: 	lore = _t[[Though the elven races look very similar in appearance, they are extremely distinct in history, culture, mindset and many subtle physical traits, so I shall write of each of them separately. All elves are marked by their long, pointed ears and high cheek-bones, but other features can vary greatly. It should be noted that they call themselves as a whole "Elore", which means "siblings", yet the interactions between these brothers and sisters are oft strained.
+418:
+419: Shaloren (or Shalore - lit "siblings of grace") are on average 6'2", with bright hair and blue or purple eyes. They are usually slim and lightly built, more marked for their mental prowess than their physical strengths. They are however known to be extremely swift of movement and light of foot. But of particular note is their magical affinity, which is far stronger than any other race, and their intense powers of will.
+420:
+421: The Shaloren have a long history of magic-use which continues to this day. Though other races shun the dangers of magic to a large degree, the Shaloren embrace it, and it is still widely used throughout their society. However they are careful to hide this in their dealings with other races. The Shaloren were the ones that began the Spellblaze, though they would soon have it forgotten, and the memories of blame run deep amongst many. During the Spellhunt in the Age of Dusk they locked their city doors and shrouded the whole region in mist, only coming out in secrecy. It took many centuries before they were accepted again in wider society, and still they are treated with intense distrust.
+422:
+423: Their capital city is Elvala, in the south-west peninsula, and they have very few settlements outside of this. They have naturally long lives, and their mastery of the arcane arts has allowed them to extend their lives indefinitely. The eldest immortals make up their Council of Elders, which is headed by their King Aranion Gayaeil. Death is a particular fascination amongst the Shaloren, and early kings of their race were said to build great tombs for themselves whilst experimenting in flesh preservation and necromancy. The Shaloren of course deny this.
+424:
+425: They deal with other races seldom, preferring to keep a low profile, and most of their trade is done through halfling intermediaries. A few rune-crafters and enchanters sometimes travel to other major cities to do business, and some brash youths are known to explore further afield.]]}
+426:
+427: newLore{
+428: 	id = "races-5",
+
+dd856cdd1878 /workspace/tome4-dlcs/cults/tome-cults/data/zones/godfeaster/npcs.lua
+69:
+70: 		game:onLevelLoad("cults+godfeaster-1", function(zone, level)
+71: 			local g = zone.grid_list.GODFEASTER_PORTAL:clone()
+72: 			local oe = game.level.map(level.default_down.x, level.default_down.y, engine.Map.TERRAIN)
+73: 			if oe:attr("temporary") and oe.old_feat then
+74: 				oe.old_feat = g
+75: 			else
+76: 				level.map(level.default_down.x, level.default_down.y, level.map.TERRAIN, g)
+77: 			end
+78: 		end)
+79: 	end,
+80: }
+81:
+82: newEntity{ define_as = "MALYU",
+83: 	name = "Malyu",
+84: 	type = "humanoid", subtype = "shalore", female=true,
+85: 	display = "@", color=colors.LIGHT_BLUE,
+86: 	resolvers.nice_tile{tall=1},
+87: 	desc = _t[[This gritty adventurer saved you.]],
+88: 	autolevel = "warriormage",
+89: 	ai = "tactical", ai_state = { talent_in=1 },
+90: 	stats = { str=35, dex=35, mag=35, con=35 },
+91: 	never_anger = true,
+92: 	level_range = {25, nil},
+93:
+94: 	body = { INVEN = 10, MAINHAND=1, OFFHAND=1, BODY=1, QUIVER=1 },
+95: 	lite = 6,
+
+56e558caeb71 game/modules/tome/data/talents/techniques/strength-of-the-berserker.lua
+124: 	end,
+125: 	activate = function(self, t)
+126: 		local weapon = self:hasTwoHandedWeapon()
+127: 		if not weapon then return nil end
+128:
+129: 		local p = {}
+130: 		if t.hasFoes(self) then t.enable(self, t, p) end
+131: 		return p
+132: 	end,
+133: 	deactivate = function(self, t, p)
+134: 		t.disable(self, t, p)
+135: 		return true
+136: 	end,
+137: 	info = function(self, t)
+138: 		return ([[You enter an aggressive battle rage, increasing Accuracy by %d and Physical Power by %d and making you nearly unstoppable, granting %d%% stun and pinning resistance.
+139: 		Sustaining this rage takes its toll on your body, decreasing your life by 2%% each turn, but for every 1%% of life missing you gain 0.5%% critical hit chance.
+140: 		Even when sustained, this talent is only active when foes are in sight.
+141: 		The Accuracy bonus increases with your Dexterity, and the Physical Power bonus with your Strength.]]):
+142: 		tformat( t.getAtk(self, t), t.getDam(self, t), t.getImmune(self, t)*100)
+143: 	end,
+144: }
+145:
+146: newTalent{
+147: 	name = "Shattering Blow", image = "talents/sunder_armour.png",
+148: 	type = {"technique/strength-of-the-berserker", 3},
+149: 	require = techs_req3,
+150: 	points = 5,
+
+2624ae8cb92f game/modules/tome/class/Object.lua
+1249: 				if dt then
+1250: 					if dt.tdesc then
+1251: 						special = special + 1
+1252: 					else
+1253: 						desc:add(_t", ", dt.text_color or "#WHITE#", dt.name, {"color", "LAST"})
+1254: 					end
+1255: 				end
+1256: 			end
+1257: 			desc:add(true)
+1258: 			--special_on_hit count # for both melee and ranged
+1259: 			if special>0 or combat.special_on_hit or combat.special_on_crit or combat.special_on_kill or combat.burst_on_crit or combat.burst_on_hit or combat.talent_on_hit or combat.talent_on_crit then
+1260: 				desc:add(_t"#YELLOW#It can cause special effects when it strikes in combat.#LAST#", true)
+1261: 			end
+1262: 			if self.on_block then
+1263: 				desc:add(_t"#ORCHID#It can cause special effects when a melee attack is blocked.#LAST#", true)
+1264: 			end
+1265: 		end
+1266: 		if self.wielder then
+1267: 			if self.wielder.lite then
+1268: 				desc:add(("It %s ambient light (%+d radius)."):tformat(self.wielder.lite >= 0 and _t"provides" or _t"dims", self.wielder.lite), true)
+1269: 			end
+1270: 		end
+1271: 		if self.wielded then
+1272: 			if self.use_power or self.use_simple or self.use_talent then
+1273: 				desc:add(_t"#ORANGE#It has an activatable power.#LAST#", true)
+1274: 			end
+1275: 		end
+
+a10dc5273ca9 game/modules/tome/data/talents/techniques/techniques.lua
+23: newTalentType{ allow_random=true, type="technique/2hweapon-offense", name = _t("two-handed weapons", "talent type"), description = _t"Specialized two-handed techniques." }
+24: newTalentType{ allow_random=true, type="technique/2hweapon-cripple", name = _t("two-handed maiming", "talent type"), description = _t"Specialized two-handed techniques." }
+25: newTalentType{ allow_random=true, type="technique/shield-offense", name = _t("shield offense", "talent type"), speed = "shield", description = _t"Specialized weapon and shield techniques." }
+26: newTalentType{ allow_random=true, type="technique/shield-defense", name = _t("shield defense", "talent type"), speed = "shield", description = _t"Specialized weapon and shield techniques." }
+27: newTalentType{ allow_random=true, type="technique/dualweapon-training", name = _t("dual weapons", "talent type"), description = _t"Specialized dual wielding techniques." }
+28: newTalentType{ allow_random=true, type="technique/dualweapon-attack", name = _t("dual techniques", "talent type"), description = _t"Specialized dual wielding techniques." }
+29: newTalentType{ allow_random=true, type="technique/archery-base", name = _t("archery - base", "talent type"), description = _t"Ability to shoot." }
+30: newTalentType{ allow_random=true, type="technique/archery-bow", name = _t("archery - bows", "talent type"), description = _t"Specialized bow techniques." }
+31: newTalentType{ allow_random=true, type="technique/archery-sling", name = _t("archery - slings", "talent type"), description = _t"Specialized sling techniques." }
+32: newTalentType{ allow_random=true, type="technique/archery-training", name = _t("archery training", "talent type"), description = _t"Generic archery techniques." }
+33: newTalentType{ allow_random=true, type="technique/archery-utility", name = _t("archery prowess", "talent type"), description = _t"Specialized archery techniques to maim your targets." }
+34: newTalentType{ allow_random=true, type="technique/archery-excellence", name = _t("archery excellence", "talent type"), min_lev = 10, description = _t"Specialized archery techniques that result from honed training." }
+35: newTalentType{ allow_random=true, type="technique/superiority", name = _t("superiority", "talent type"), min_lev = 10, description = _t"Advanced combat techniques." }
+36: newTalentType{ allow_random=true, type="technique/battle-tactics", name = _t("battle tactics", "talent type"), min_lev = 10, description = _t"Advanced combat tactics." }
+37: newTalentType{ allow_random=true, type="technique/warcries", name = _t("warcries", "talent type"), no_silence = true, min_lev = 10, description = _t"Master the warcries to improve yourself and weaken others." }
+38: newTalentType{ allow_random=true, type="technique/bloodthirst", name = _t("bloodthirst", "talent type"), min_lev = 10, description = _t"Delight in the act of battle and the spilling of blood." }
+39: newTalentType{ allow_random=true, type="technique/field-control", name = _t("field control", "talent type"), generic = true, description = _t"Control the battlefield using various techniques." }
+40: newTalentType{ allow_random=true, type="technique/combat-techniques-active", name = _t("combat techniques", "talent type"), description = _t"Generic combat oriented techniques." }
+41: newTalentType{ allow_random=true, type="technique/combat-techniques-passive", name = _t("combat veteran", "talent type"), description = _t"Generic combat oriented techniques." }
+42: newTalentType{ allow_random=true, type="technique/combat-training", name = _t("combat training", "talent type"), generic = true, description = _t"Teaches to use various armours, weapons and improves health." }
+43: newTalentType{ allow_random=true, no_silence=true, is_spell=true, type="technique/magical-combat", name = _t("magical combat", "talent type"), description = _t"The blending together of magic and melee prowess." }
+44: newTalentType{ allow_random=true, type="technique/mobility", name = _t("mobility", "talent type"), generic = true, description = _t"Training and techniques to improve mobility and evade your enemies.  On the battlefield, positioning is paramount." }
+45: newTalentType{ allow_random=true, type="technique/thuggery", name = _t("thuggery", "talent type"), generic = true, description = _t"Whatever wins the day, wins the day." }
+46: newTalentType{ allow_random=true, type="technique/assassination", name = _t("assassination", "talent type"), min_lev=10, description = _t"Bring death from the shadows." }
+47: newTalentType{ allow_random=true, type="technique/throwing-knives", name = _t("throwing knives", "talent type"), description = _t"Master the art of throwing knives to fight from a distance." }
+48: newTalentType{ allow_random=true, type="technique/duelist", name = _t("duelist", "talent type"), description = _t"Use your dual weapons to parry and counter." }
+49: newTalentType{ allow_random=true, type="technique/marksmanship", name = _t("marksmanship", "talent type"), description = _t"Training in the use of bows and slings." }
+
+f206f8ec267b game/modules/tome/data/lore/misc.lua
+357: Chapter 3 - Dwarves
+358: Chapter 4 - Shaloren
+359: Chapter 5 - Thaloren
+360: Chapter 6 - Naloren (extinct)
+361: Chapter 7 - Ogres
+362: Chapter 8 - Orcs (extinct)
+363: Chapter 9 - Sher'Tul (extinct)
+364: Chapter 10 - Monstrous Races
+365: Chapter 11 - Dragons
+366: ]]}
+367:
+368: newLore{
+369: 	id = "races-1",
+370: 	category = "races",
+371: 	name = _t"Loremaster Greynot's Analysis of the Races - Chapter 1 - Humans",
+372: 	lore = _t[[I begin my writings with a study of the humans, currently the most populous of the races in Maj'Eyal. The greatest kingdom in number are by far the Cornacs, but mention should also be made of the Sholtar and Mardrop kingdoms, and the Higher bloodline. The biggest human population centre is around the citadel of Last Hope, though many other settlements exist across all corners of Maj'Eyal.
+373:
+374: Cornacs are normally around 5'9", with generally dark hair, brown eyes and ruddy features. Most Cornacs take up roles as tradesmen, farmers, or other manual labour jobs. It is a sad fact that the majority of bandit groups tend to be dominated by Cornacs. Cornac families tend to be large, and since the Age of Dusk their population has expanded rapidly, especially in the farming lands in the west and around Last Hope in the south.
+375:
+376: Sholtar are generally 5'11", with dark skin, hair and eyes. They originate from the south-east of Maj'Eyal, and are few in number since the Cataclysm tore much of their land into the sea. Their affinity with nature is renowned, and they are often found employed as healers, infusion crafters or wyrmic huntsmen.
+377:
+378: Mardrop humans are all but extinct, after the Spellhunt and the plagues during the Age of Dusk. They were known to be powerful spellcasters, and as such were prime targets by the spellhunters. However some trace of them can still be found, as their fiery hair and freckled skin oft can appear in those of distant descent. A few are rumoured to still possess citadels and towers in remote locations.
+379:
+380: Highers are on average 6'0", with fair hair and skin and blue or grey eyes. The majority of scholarly roles are taken up by Highers, and they tend to fill most of the noble classes. Some say this is due to discrimination and elitism, though these may simply be jealous sentiments. There are also rumours that the superior intellects of Highers are due to arcane experiments instigated by the ancient Conclave during the Age of Allure, but I have found no records to support this idea and must consider it to be baseless. The Higher bloodline is renowned as a mark of excellence, and mixing with lower bloods is strongly frowned upon.
+381:
+382: All human kingdoms were united by King Toknor the Brave in the Age of Pyre, and remain under the rule of his son King Tolak the Fair. A full discussion of the long human history would require a far more detailed document.]]}
+383:
+
+eb04f86fc310 game/modules/tome/data/chats/last-hope-melinda-father.lua
+81: 			return true
+82: 		end,},
+83: 		{_t"I am glad to see you well. Take care."},
+84: 	}
+85: }
+86:
+87: ------------------------------------------------------------------
+88: -- Flirting
+89: ------------------------------------------------------------------
+90: newChat{ id="scars",
+91: 	text = _t[[Yes it has mostly healed, though I still do have nightmares. I feel like something is still lurking.
+92: Ah well, the bad dreams are still better than the fate you saved me from!]],
+93: 	answers = {
+94: 		{_t"Should I come across a way to help you during my travels, I will try to help.", quick_reply=_t"Thank you, you are most welcome."},
+95: 		{_t"Most certainly, so what are your plans now?", jump="plans"},
+96: 	}
+97: }
+98: newChat{ id="rewelcome",
+99: 	text = _t[[Hi @playername@! I am feeling better now, even starting to grow restless...]],
+100: 	answers = {
+101: 		{_t"So what are your plans now?", jump="plans"},
+102: 		{_t"About that, I was thinking that maybe you'd like to go out with me sometime ...", jump="hiton", cond=function() return not ql.inlove and not ql.nolove end},
+103: 	}
+104: }
+105: newChat{ id="rewelcome-love",
+106: 	text = _t[[#LIGHT_GREEN#*Melinda appears at the door and kisses you*#WHITE#
+107: Hi my dear, I'm so happy to see you!]],
+
+898b5819b617 game/modules/tome/data/texts/tutorial/tactics2.lua
+6: -- the Free Software Foundation, either version 3 of the License, or
+7: -- (at your option) any later version.
+8: --
+9: -- This program is distributed in the hope that it will be useful,
+10: -- but WITHOUT ANY WARRANTY; without even the implied warranty of
+11: -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+12: -- GNU General Public License for more details.
+13: --
+14: -- You should have received a copy of the GNU General Public License
+15: -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+16: --
+17: -- Nicolas Casalini "DarkGod"
+18: -- darkgod@te4.org
+19:
+20: return _t[[A skeleton mage just fired a spell at you.
+21: While the fireworks look nice, you don't want to get hit too much.
+22: When under the fire of archers or spell casters always try to break line of sight with them, they will be forced to come to you (unless they are smart).
+23: #GOLD#Take cover: Never let them get a clean shot!#WHITE#
+24:
+25: Now take cover and wait for the skeleton.
+26: ]]
+
+74b25b20f86c game/modules/tome/data/talents/uber/cun.lua
+35: 				return
+36: 			end
+37: 		end
+38:
+39: 		self:setEffect(self.EFF_FAST_AS_LIGHTNING, 1, {})
+40: 		eff = self:hasEffect(self.EFF_FAST_AS_LIGHTNING)
+41:
+42: 		if not eff.dir then eff.dir = dir eff.nb = 0 end
+43:
+44: 		if eff.dir ~= dir then
+45: 			self:removeEffect(self.EFF_FAST_AS_LIGHTNING)
+46: 			self:setEffect(self.EFF_FAST_AS_LIGHTNING, 1, {})
+47: 			eff = self:hasEffect(self.EFF_FAST_AS_LIGHTNING)
+48: 			eff.dir = dir eff.nb = 0
+49: 			game.logSeen(self, "#LIGHT_BLUE#%s slows from critical velocity!", self:getName():capitalize())
+50: 		end
+51:
+52: 		eff.nb = eff.nb + 1
+53:
+54: 		if eff.nb >= 3 and not eff.blink then
+55: 			self:effectTemporaryValue(eff, "prob_travel", 5)
+56: 			game.logSeen(self, "#LIGHT_BLUE#%s reaches critical velocity!", self:getName():capitalize())
+57: 			local sx, sy = game.level.map:getTileToScreen(self.x, self.y, true)
+58: 			game.flyers:add(sx, sy, 30, rng.float(-3, -2), (rng.range(0,2)-1) * 0.5, "CRITICAL VELOCITY!", {0,128,255})
+59: 			eff.particle = self:addParticles(Particles.new("megaspeed", 1, {angle=util.dirToAngle((dir == 4 and 6) or (dir == 6 and 4 or dir))}))
+60: 			eff.blink = true
+61: 			game:playSoundNear(self, "talents/thunderstorm")
+
+e4391e900b2a game/modules/tome/data/general/objects/egos/gloves.lua
+536: 		},
+537: 		infravision = resolvers.mbonus_material(1, 1),
+538: 		combat = {
+539: 			burst_on_crit={
+540: 				-- still an AoE effect, but not a weak one with poor stat scaling that wastes the proc registry
+541: 				[DamageType.LIGHT] = resolvers.mbonus_material(40, 10),
+542: 				[DamageType.DARKNESS] = resolvers.mbonus_material(40, 10),
+543: 			},
+544: 		},
+545: 	},
+546: }
+547:
+548: newEntity{
+549: 	power_source = {arcane=true},
+550: 	name = " of spellstriking", suffix=true, instant_resolve=true,
+551: 	keywords = {spellstriking=true},
+552: 	level_range = {20, 50},
+553: 	greater_ego = 1,
+554: 	rarity = 35,
+555: 	cost = 70,
+556: 	wielder = {
+557: 		resists={
+558: 			[DamageType.ARCANE] = resolvers.mbonus_material(7, 3),
+559: 		},
+560: 		inc_damage= { [DamageType.ARCANE] = resolvers.mbonus_material(7, 3), },
+561: 		inc_stats = {
+562: 			[Stats.STAT_MAG] = resolvers.mbonus_material(7, 3),
+
+4bfa410eedf1 game/modules/tome/data/texts/tutorial/stats/stats3.lua
+7: -- (at your option) any later version.
+8: --
+9: -- This program is distributed in the hope that it will be useful,
+10: -- but WITHOUT ANY WARRANTY; without even the implied warranty of
+11: -- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+12: -- GNU General Public License for more details.
+13: --
+14: -- You should have received a copy of the GNU General Public License
+15: -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+16: --
+17: -- Nicolas Casalini "DarkGod"
+18: -- darkgod@te4.org
+19:
+20: return _t[[
+21: The final three important #GOLD#combat stats#WHITE# of your character are these:
+22:
+23: #LIGHT_GREEN#Physical power: #WHITE#Your ability to inflict damage and effects with weapons (including fists).
+24: #LIGHT_GREEN#Spellpower: #WHITE#Your ability to inflict damage and effects with spells.
+25: #LIGHT_GREEN#Mindpower: #WHITE#Your ability to inflict damage and effects with your mind.
+26:
+27: ]]
+
+c12aae1c7b6c /workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/timed_effects.lua
+495: 	activate = function(self, eff)
+496: 		self:effectTemporaryValue(eff, "resists_pen", {all=eff.power})
+497: 	end,
+498: }
+499:
+500: newEffect{
+501: 	name = "DEMON_SEED", image = "talents/demon_seed.png",
+502: 	desc = _t"Demon Seed",
+503: 	long_desc = function(self, eff) return ("Infected by a demon seed. When it dies the caster has a %d%% chance to get back the matured seed."):tformat(eff.chance) end,
+504: 	type = "magical",
+505: 	decrease = 0, no_stop_enter_worlmap = true, cancel_on_level_change = true,
+506: 	subtype = { corruption=true },
+507: 	status = "detrimental",
+508: 	parameters = { power=1, chance=10 },
+509: 	on_gain = function(self, err) return _t"#Target# is infected by a demon seed!", _t"+Demon Seed" end,
+510: 	on_lose = function(self, err) return _t"#Target# is free from the demon seed.", _t"-Demon Seed" end,
+511: 	activate = function(self, eff)
+512: 	end,
+513: 	deactivate = function(self, eff)
+514: 	end,
+515: 	callbackOnDeath = function(self, eff)
+516: 		if not rng.percent(eff.chance) then return end
+517: 		eff.src:callTalent(eff.src.T_DEMON_SEED, "createSeed", self, eff.force_first)
+518: 	end,
+519: }
+520:
+521: newEffect{
+
+a037b09c616b /workspace/tome4-dlcs/orcs/tome-orcs/data/lore/sunwall.lua
+13: --
+14: -- You should have received a copy of the GNU General Public License
+15: -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+16: --
+17: -- Nicolas Casalini "DarkGod"
+18: -- darkgod@te4.org
+19:
+20: --------------------------------------------------------------------------
+21: -- Sunwall Outpost
+22: --------------------------------------------------------------------------
+23:
+24: newLore{
+25: 	id = "sunwall-outpost-1",
+26: 	category = "sunwall",
+27: 	name = _t"a page from Commander Trelle's journal",
+28: 	lore = function()
+29: 		local male = false
+30: 		if world and world.majeyal_campaign_last_winner then male = not world.majeyal_campaign_last_winner.female end
+31: 		return ([[We've done it... we've finally done it. Well, granted, our %s did much of the work, but the result is the same: neither the East nor the West will ever need to fear Orcish rule again. The Prides have been crushed, the survivors have been contained, and our patrols are mopping up the few remaining bands of futile stragglers. Our long-lost allies from the West have come to support us with materials and manpower, and we can finally turn this entire continent into something beautiful. For the first time, Sunwall will not be the solitary bastion of civilization on Var'Eyal.
+32:
+33: And yet...
+34:
+35: There is one group that remains.  A tiny Orcish pride, really more of a small town, managed to evade our savior's wrath...  a single weed on the edges of our pristine garden, a troubling ember threatening to set the whole continent aflame.  King Tolak has noble aims in trying to set a better example than his vengeful father, but I doubt he'd risk redeeming the Orcs if he'd been through what we have.  The Allied Kingdoms don't know what it's like to live in fear of the Prides, knowing that at any moment they could overrun the Sunwall and take our heads as trophies.  They've got a farportal to hide behind, and don't have to think about their homes and families falling to the same horror that we've been struggling against for our entire lives.  If they did...  suffice to say, they wouldn't have bothered putting up a comfortable camp for the surviving Orcs until the continent was truly safe.
+36:
+37: By the Sun...  why would our High Paladin agree to this treaty?  After what we've all been through...
+38:
+39: The Orcish scouts are getting bolder.  They've been approaching closer before fleeing, and coming more frequently.  They haven't engaged us yet, but it's only a matter of time...  and all I'm allowed to do is sit and wait on this ugly little bridge, as the West watches from a continent away.  Staring at an open wound, waiting for it to become infected, because they'd rather make a pretty little bow out of the bandages.]]):tformat(male and _t"hero" or _t"heroine") end,
+
+550a772ec18b game/modules/tome/data/timed_effects/magical.lua
+1903: 	on_timeout = function(self, eff)
+1904: 		DamageType:get(DamageType.TEMPORAL).projector(eff.src or self, self.x, self.y, DamageType.TEMPORAL, eff.dam)
+1905: 	end,
+1906: 	activate = function(self, eff)
+1907: 		eff.particle = self:addParticles(Particles.new("destabilized", 1))
+1908: 	end,
+1909: 	deactivate = function(self, eff)
+1910: 		self:removeParticles(eff.particle)
+1911: 	end,
+1912: }
+1913:
+1914: newEffect{
+1915: 	name = "CELERITY", image = "talents/celerity.png",
+1916: 	desc = _t"Celerity",
+1917: 	long_desc = function(self, eff) return ("The target is moving is %d%% faster."):tformat(eff.speed * 100 * eff.charges) end,
+1918: 	type = "magical",
+1919: 	display_desc = function(self, eff) return ("%d Celerity"):tformat(eff.charges) end,
+1920: 	charges = function(self, eff) return eff.charges end,
+1921: 	subtype = { speed=true, temporal=true },
+1922: 	status = "beneficial",
+1923: 	parameters = {speed=0.1, charges=1, max_charges=3},
+1924: 	on_merge = function(self, old_eff, new_eff)
+1925: 		-- remove the old value
+1926: 		self:removeTemporaryValue("movement_speed", old_eff.tmpid)
+1927:
+1928: 		-- add a charge
+1929: 		old_eff.charges = math.min(old_eff.charges + 1, new_eff.max_charges)
+
+b2ebb1dbef71 game/modules/tome/data/general/npcs/xorn.lua
+47:
+48: 	resists = { [DamageType.PHYSICAL] = 20, [DamageType.FIRE] = 50, },
+49:
+50: 	no_breath = 1,
+51: 	confusion_immune = 1,
+52: 	poison_immune = 1,
+53: 	cut_immune = 1,
+54: 	stone_immune = 1,
+55: 	ingredient_on_death = "XORN_FRAGMENT",
+56: 	not_power_source = {arcane=true},
+57: }
+58:
+59: newEntity{ base = "BASE_NPC_XORN",
+60: 	name = "umber hulk", color=colors.LIGHT_UMBER,
+61: 	desc = _t[[This bizarre creature has glaring eyes and large mandibles capable of slicing through rock.]],
+62: 	level_range = {10, nil}, exp_worth = 1,
+63: 	rarity = 1,
+64: 	max_life = resolvers.rngavg(100,120),
+65: 	combat_armor = 12, combat_def = 0,
+66: 	move_project = {[DamageType.DIG]=1},
+67: 	resolvers.talents{ [Talents.T_MIND_DISRUPTION]={base=2, every=5, max=6}, },
+68: }
+69:
+70: newEntity{ base = "BASE_NPC_XORN",
+71: 	name = "xorn", color=colors.UMBER,
+72: 	desc = _t[[A huge creature of the element Earth. Able to merge with its element, it has four huge arms protruding from its enormous torso.]],
+73: 	level_range = {15, nil}, exp_worth = 1,
+
+d8c2fd8465c6 /workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/writhing-body.lua
+221: 		if not x or not y then return nil end
+222:
+223: 		-- Try to rot !
+224: 		self:project(tg, x, y, function(px, py)
+225: 			local target = game.level.map(px, py, engine.Map.ACTOR)
+226: 			if not target or (self:reactionToward(target) >= 0) then return end
+227: 			target:setEffect(self.EFF_EPIDEMIC, 6, {src=self, dam=self:spellCrit(self:combatTalentSpellDamage(t, 15, 70)), heal_factor=t.healloss(self,t), resist=t.disfact(self,t), apply_power=self:combatSpellpower()})
+228: 			game.level.map:particleEmitter(px, py, 1, "circle", {oversize=0.7, a=200, limit_life=8, appear=8, speed=-2, img="disease_circle", radius=0})
+229: 		end)
+230: 		game:playSoundNear(self, "talents/slime")
+231:
+232: 		return true
+233: 	end,
+234: 	info = function(self, t)
+235: 		return ([[Infects the target with a very contagious disease, doing %0.2f damage per turn for 6 turns.
+236: 		If any blight damage from non-diseases hits the target, the epidemic may activate and spread a random disease to nearby targets within a radius 2 ball.
+237: 		The chance to spread increases with the blight damage dealt and is 100%% if it is at least %d%% of the target's maximum life.
+238: 		Creatures suffering from that disease will also suffer healing reduction (%d%%) and diseases immunity reduction (%d%%).
+239: 		Epidemic is an extremely potent disease; as such, it fully ignores the target's diseases immunity.
+240: 		The damage will increase with your Spellpower, and the spread chance increases with the amount of blight damage dealt.]]):
+241: 		tformat(damDesc(self, DamageType.BLIGHT, self:combatTalentSpellDamage(t, 15, 70)), t.spreadFactor(self, t)*100 ,t.healloss(self,t), t.disfact(self,t))
+242: 	end,
+243: }

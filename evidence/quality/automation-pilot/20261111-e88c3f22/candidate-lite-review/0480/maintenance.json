@@ -1,0 +1,20 @@
+{
+  "kind": "maintenance",
+  "authorization": "2026-11-11 one-week quality pilot; fixed-source confirmed errors only",
+  "applied": [
+    {
+      "id": "c75c66a3bcef",
+      "edit": [
+        "在你的脚下，半径 %d 的范围内生长出苔藓。\n\t\t每回合苔藓对半径内的敌人会造成 %0.2f 点自然伤害。\n\t\t这种苔藓上沾满了奇怪的液体，有 %d%% 概率使经过的敌人混乱 2 个回合（混乱强度 %d%%）。\n\t\t苔藓持续 %d 个回合。\n\t\t苔藓系技能无需使用时间，但会让同系其他技能进入 3 回合的冷却。\n\t\t伤害受精神强度加成。",
+        "在你的脚下，半径 %d 的范围内生长出苔藓。\n\t\t每回合苔藓对半径内的敌人会造成 %0.2f 点自然伤害。\n\t\t这种苔藓上沾满了奇怪的液体，每回合有 %d%% 概率使范围内的敌人混乱 2 个回合（混乱强度 %d%%）。\n\t\t苔藓持续 %d 个回合。\n\t\t苔藓系技能无需使用时间，但会让同系其他技能进入 3 回合的冷却。\n\t\t伤害受精神强度加成。"
+      ],
+      "evidence": "Pinned 624a67329fe2: gifts/moss.lua:199-205 creates lasting map effect; engine/Map.lua:1258-1277 projects each tick at occupants; data/damage_types.lua:3011-3023 tests chance regardless of movement. upstream text differs."
+    }
+  ],
+  "not_applied": [
+    {
+      "id": "0453ea0bd35c",
+      "reason": "English guardian exclusion absent in actual public DLC callback; do not introduce inaccurate limitation. DLC unpinned."
+    }
+  ]
+}

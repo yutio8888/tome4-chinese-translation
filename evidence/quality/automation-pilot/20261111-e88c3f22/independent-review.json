@@ -1,0 +1,311 @@
+{
+ "selection": "evidence/quality/automation-pilot/20261111-e88c3f22/selection.json",
+ "base": "121ca1c6c4f9037497bab59b68852665c5c407b3",
+ "role": "REVIEWER",
+ "model": "claude-opus-5-5",
+ "core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "dlc_source": "/workspace/tome4-dlcs，来源未固定",
+ "scope_note": "结论针对 selection.json 中冻结的 target。审核期间工作树的 mod-tome.lua 出现未提交改动，c75c66a3bcef 的现行文本已与冻结 target 不同；未读取该 diff，也未以其作为依据。",
+ "counts": {
+  "total": 40,
+  "OK": 38,
+  "ISSUE": 2,
+  "UNKNOWN": 0
+ },
+ "results": [
+  {
+   "unit_id": "d9a141aa3a643e3b55415ad4628b7e7e19906c286ab7ae89efcc864e89d8dcd6",
+   "revision_key": "4f68975bfe9bc9c7e7e9ed5c116647c512323ceb9e9b88b146deb14546417d55",
+   "id": "d9a141aa3a64",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 summon-utility.lua:160,162 的 NPC name/subtype 为 turtle，普通名词译法成立。"
+  },
+  {
+   "unit_id": "bd024fc77aa432906640ad4399caa7e39bb43b5d6a1cc6d70e86343261edce72",
+   "revision_key": "2a9e728c72ea527b19f884528b2b7cb01613386cca364ebeeb1759aecb1414ff",
+   "id": "bd024fc77aa4",
+   "verdict": "OK",
+   "evidence": "DLC 公开检出，来源未固定：orcs occult-technomancy.lua:263,269,278-283 与 timed_effects/magical.lua:464-510 一致；Reality Breach 经第185行施加 EFF_CONGEAL_TIME；Spin 冷却见第29行。"
+  },
+  {
+   "unit_id": "c50a989b69558e6638a15576f09f7ae1833ca4a4d0545ac6490d6fb4915efbfb",
+   "revision_key": "914e8eb7cf786e282109f7726492bc15063207e1e914f6efa7ea83125e11084c",
+   "id": "c50a989b6955",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 timed_effects/mental.lua:1730,1738 为 combat_apr。"
+  },
+  {
+   "unit_id": "99108f5f0ea6ed569137bedfb16cb1910e13203c6b39b8e06f6ccc78bdfd0098",
+   "revision_key": "ed1123fab76414d6cc14bb76d7e77895ef8ee2a40d7fd5bd8a417f527a527bef",
+   "id": "99108f5f0ea6",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 chats/assassin-lord.lua:91，回应第85-87行的入伙提议，语气相符。"
+  },
+  {
+   "unit_id": "c75c66a3bcef6631f30480b41a7e93e750a2915854e75b32de95fbe009fde03c",
+   "revision_key": "790001d1552603becebbf6a6f7099c0a53de8f67b411e7495b15cf1b6bbdcce6",
+   "id": "c75c66a3bcef",
+   "verdict": "ISSUE",
+   "evidence": [
+    "game/modules/tome/data/talents/gifts/moss.lua:199,217 @624a67329fe2",
+    "game/modules/tome/data/damage_types.lua:3016-3019 @624a67329fe2",
+    "game/engines/default/engine/Map.lua:1258-1277 @624a67329fe2",
+    "game/modules/tome/class/Game.lua:1807 @624a67329fe2"
+   ],
+   "finding": "混乱的触发条件被写成“经过”。实现中苔藓是持续地图效果，每次结算对范围内每个格子上的敌人调用 HALLUCINOGENIC_MOSS，同一次调用内造成伤害并掷混乱概率，因此留在范围内不动的敌人每回合都会判定，并非只有经过的敌人。译文贴合英文 passing through，但英文与实现不符（upstream text differs）。",
+   "suggestion": "把该句按实现改写为对范围内敌人每回合判定，占位符顺序保持概率、强度。",
+   "category": "mechanics"
+  },
+  {
+   "unit_id": "e19e191b089712f8d22ae2a9310c302c33f1c74b5eb2c4a9763882118900fe70",
+   "revision_key": "546809ee9b779590f838ebc7361ad80747391c9b240f66492612fa69b62487d6",
+   "id": "e19e191b0897",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 egos/armor.lua:111 后缀名，拼接形式与同族一致。"
+  },
+  {
+   "unit_id": "996f4ba40df3858b0c6b54894fd3a1b032c15b4855409c7ea85addc2f21d76b9",
+   "revision_key": "e704028ba4f689a64aa004f858195f65ff999f937fac502b1c92476485e41508",
+   "id": "996f4ba40df3",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 cursed/strife.lua:38-47,83-86，四个占位符顺序和换行结构一致。"
+  },
+  {
+   "unit_id": "f359fd57a97acdfde5ce4ac63537a01d4325a5d0f5d7f1792b4a5828785493af",
+   "revision_key": "dbfe6ee1514cb8acfe82df4be2ef39093f61804232d94ab7413a4bd15b71f6e3",
+   "id": "f359fd57a97a",
+   "verdict": "OK",
+   "evidence": "DLC 公开检出，来源未固定：cults friend-of-the-worm.lua:241 参数为宠物名、主人名，译文顺序一致。"
+  },
+  {
+   "unit_id": "49c55bae12b680559b33b6f5b572866f8bba58657fee8b57c674180bf70801f8",
+   "revision_key": "2a00c8ed064514201cdec49ff96d5085d53a922d55246e7ef35ebfcdc5ce85c3",
+   "id": "49c55bae12b6",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 class/GameState.lua:3749 为 unused_prodigies；库内 Prodigy 系列作觉醒。"
+  },
+  {
+   "unit_id": "0453ea0bd35cfcd8d7ad976fcf0543aa116731d0927159dc9d20c84c37c771e7",
+   "revision_key": "6f7950f0e0e308aaee7aed4e6aa37a32216d83bc02313e75b070f88d4a0bbbbc",
+   "id": "0453ea0bd35c",
+   "verdict": "OK",
+   "evidence": "DLC 公开检出，来源未固定：orcs steam/turrets.lua:861-862。译文未写英文括号“同为守卫炮台者除外”，但第814-820行对 reactionToward>=0 的相邻目标不排除其他炮台，timed_effects/other.lua:303-306 只排除 src 自身，未写该限定符合实现（upstream text differs）。"
+  },
+  {
+   "unit_id": "6b67fc4deb50d31b7d5e8bfb3365d01182ec993bf03ab32f2a547bf96c9bc3bf",
+   "revision_key": "f8b95de7ac6ced5ff80a5243f1988f0193116ebee6f3d91b1f140e4f149027eb",
+   "id": "6b67fc4deb50",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 timed_effects/physical.lua:1876，Implode 库内译名为碎骨压制，+/- 标签同族一致。"
+  },
+  {
+   "unit_id": "d8c75c7e858feca031e8aa4185399fed180f7191510866032020614a95194c75",
+   "revision_key": "6230c1e86a0965405a382763d99d7d38d74a47a261dbf42a24c1d90be1dd74d9",
+   "id": "d8c75c7e858f",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 lore/misc.lua:53 附近；与毁灭之卷、无序之卷同族。"
+  },
+  {
+   "unit_id": "8418856e655f80280cfe7be11bcfa853a0fb2c1e29a5dac244e817ba5ee42f11",
+   "revision_key": "87fa03860a529e0a921175c408f3c3830f5f653f49af26773909cc934715de21",
+   "id": "8418856e655f",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 techniques/superiority.lua:30-38，physical.lua:2865-2866 效果一致，持续 20 回合。"
+  },
+  {
+   "unit_id": "a702c5f2783bc981d973aaee32507d8c0f74a247db9136dc42b1494c529d3611",
+   "revision_key": "5bc1afc745976a8be2a8f0735a126c0672b4ed048eed30b56a85782e37c860fc",
+   "id": "a702c5f2783b",
+   "verdict": "OK",
+   "evidence": "DLC 公开检出，来源未固定：orcs quests/yeti-abduction.lua:54 use_power 名，接入“它可以用于%s。”后通顺。"
+  },
+  {
+   "unit_id": "db51b1e7e52a9743c7188f27c8ddbf3e3852f4dd42c3aba3f74a3ebbeef921b4",
+   "revision_key": "5b7fd48c353cb3d6019dce8737825e8854431ee9c0b0ef6199bcd366eb97bf83",
+   "id": "db51b1e7e52a",
+   "verdict": "OK",
+   "evidence": "DLC 公开检出，来源未固定：orcs lore/pocket-time.lua:20-41,102。条件模板和换行完整；himher/HeShe 改用 heshe 是因 _t\"her\" 译“她的”，代入后宾语为他/她，语义正确；专名与库内一致。"
+  },
+  {
+   "unit_id": "fb2feeaeaa828e9726708ee274deae165ddfb51ce5dbdf28b30b2f1b4bfeb3ec",
+   "revision_key": "ab95919add290e02f03a284132c773f46e853c37b45e1c3e9971dfe468c16db0",
+   "id": "fb2feeaeaa82",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 quests/starter-zones.lua:30，方位和专名一致。"
+  },
+  {
+   "unit_id": "f765fd33f691032100a12558865d6046997e845bc3d3379e73c9c3e5c27c728f",
+   "revision_key": "9734059cbc64a8ebc05ecb5e221bfb8ccf74d3397b82d062a0ebe4e230f1329c",
+   "id": "f765fd33f691",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 spells/energy-alchemy.lua:91,106-127,133-135，参数顺序、击退和缴械一致。"
+  },
+  {
+   "unit_id": "beb0f7a1ecbb9a45fcfd1df9facae0c882cbcdd3f3e67fdd787626ccca419f43",
+   "revision_key": "af07e56c031db2fe5f8d82db140996a38032f48f40e1ce8965d766bcef69599a",
+   "id": "beb0f7a1ecbb",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 dialogs/CharacterSheet.lua:86，按钮标签。"
+  },
+  {
+   "unit_id": "1b70a3a81cf78f306b8b932bb440eb2f1e29f4523de362b0f366cb76cbecd368",
+   "revision_key": "fce5d1c7117996e6a55fb0c2358045a190ae9cb742f9f325308028a27eab5e48",
+   "id": "1b70a3a81cf7",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 birth/races/dwarf.lua:114，与同族发型标签格式一致。"
+  },
+  {
+   "unit_id": "3e18525ae015bf6c64ca3ffaf57383a9bb0f29bdc9663874b011174ecb6606f1",
+   "revision_key": "82d073b1cf92bb48efee28f42ec7b0e325376106b505009f40a6cd6c8c4dc3a3",
+   "id": "3e18525ae015",
+   "verdict": "OK",
+   "evidence": "DLC 公开检出，来源未固定：cults lore/fay-willows.lua:340，逐段对照无漏译误译，段落结构一致。"
+  },
+  {
+   "unit_id": "d9153ec5e63fbf285fe755c3e0cc74b47802ab657e4c5cd6ad11626edfd3ce03",
+   "revision_key": "4d0833fcb35f32517df84ec827c166c5b35649fc8d827863cf7ea839b981d7a3",
+   "id": "d9153ec5e63f",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 timed_effects/magical.lua:1196-1203，视线内有生物时中止传送，语义相符。"
+  },
+  {
+   "unit_id": "e4b61a438d4b099d8205b295030d0cea0dd26a750234945fc5c85e482ac3a377",
+   "revision_key": "e396172891f6cf0093b6b313c0881ea74d3e3716b9aba5b9048cc70524226f09",
+   "id": "e4b61a438d4b",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 lore/age-allure.lua:189，逐段对照一致。观察：regeneration infusions 作“再生纹身”，技能名为“纹身：回复”，属叙事用词，不提确定修改。"
+  },
+  {
+   "unit_id": "737dc6e7737a189af8fb2203413365d49aca5170b69c457a287dda7b3d92a018",
+   "revision_key": "0223cce8b6b253cbe98f246d7ea036e966485a684a770732112462ad3ab6e15b",
+   "id": "737dc6e7737a",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 quests/shertul-fortress.lua:41，标记完整。"
+  },
+  {
+   "unit_id": "ed41d16a7107da5b5641f19a1f809e5d9e053687711f8545f48fe774906369be",
+   "revision_key": "8f3cc07d92b97e5b64d2cd0966774c13f41797884a22c2fb0df6dc41b26e3bd9",
+   "id": "ed41d16a7107",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 zones/keepsake-meadow/objects.lua:89，与铁质橡果可区分。"
+  },
+  {
+   "unit_id": "705ab78caae50347c6699194315143a67afbca255014607191c451feadd23b0d",
+   "revision_key": "4e56f89c8737370d4816de711927448dcd59a2ab95de2c3d2e8ada87157c731f",
+   "id": "705ab78caae5",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 lore/misc.lua:416，与本系列 12 个标题格式一致。"
+  },
+  {
+   "unit_id": "dd856cdd18787ca6a8ab2ec683ea1edea8241d8891604c012367d5f4e065f34a",
+   "revision_key": "1b2d8cdea5fd1aae29acf7cf4619bbbced29d379ae5b656294af56b8c64f13f8",
+   "id": "dd856cdd1878",
+   "verdict": "OK",
+   "evidence": "DLC 公开检出，来源未固定：cults zones/godfeaster/npcs.lua:83，专名在库内一致。"
+  },
+  {
+   "unit_id": "56e558caeb715feefcc293aed9fab3fe3c96eb2e5663c648b775cd3c84a1ea00",
+   "revision_key": "9c7fbe237f89236fe599f85e9c90e40a72a512d199a619377215aba246032458",
+   "id": "56e558caeb71",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 strength-of-the-berserker.lua:81-92,102-111,138-141；physical.lua:2900 为 combat_physcrit，“物理暴击率”符合实现，max_life*0.02 符合 2%。"
+  },
+  {
+   "unit_id": "2624ae8cb92fa26d68534e9f9c612c52dd7751c2b8bfc63a634086b85d723fb8",
+   "revision_key": "2b5b7a3272c239f07f15365982cbb643c5d6734ef89a78f2dd21df02a94b8a8b",
+   "id": "2624ae8cb92f",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 class/Object.lua:1263，on_block 提示，标记完整。"
+  },
+  {
+   "unit_id": "a10dc5273ca9741fa011ffab8f02f83734a9e370b62ccd2a5204c262de2d966f",
+   "revision_key": "d661f5180c0439adc57c3dd7714997aa0544518b8872f4c520a7e6ea77f0956b",
+   "id": "a10dc5273ca9",
+   "verdict": "ISSUE",
+   "evidence": [
+    "game/modules/tome/data/talents/techniques/techniques.lua:37 @624a67329fe2",
+    "game/modules/tome/data/talents/techniques/warcries.lua:22,55,63,76,82,96,103,129 @624a67329fe2"
+   ],
+   "finding": "“Master the warcries”被译成“提升战吼效果”，读起来像该系技能强化已有战吼。实际该系四个技能本身就是主动的吼叫或恢复技能，没有任何一项提高其他战吼的效果。影响较低，官方 zh_hans 也是此译法，由宿主裁决。",
+   "suggestion": "表达为掌握、运用战吼来强化自身并削弱敌人。",
+   "category": "fidelity"
+  },
+  {
+   "unit_id": "f206f8ec267bab988478d171c490692ad0fec2ce492a60cab5e8510dad2a494f",
+   "revision_key": "9f44c508b9e17ae80ff95b5a57ecbb1167d3eda545460d070c0ed1dc0eea379e",
+   "id": "f206f8ec267b",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 lore/misc.lua:371，与本系列标题格式一致。"
+  },
+  {
+   "unit_id": "eb04f86fc3101358caffea312b9ab95a4a9ffb4b7c6e8319ed8242a5ac2d91ab",
+   "revision_key": "37bf200593757714d687db9cd29fc615d45ef610bfc6779ea00d72f0a828e954",
+   "id": "eb04f86fc310",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 chats/last-hope-melinda-father.lua:95，语境为赞同上句后转问打算。"
+  },
+  {
+   "unit_id": "898b5819b6173ac063bb9cd8cad0fadc2c2e766bcaecc1108825a0769ec329ce",
+   "revision_key": "c74bfa63b5a6c7cbc4b688314db574b81979d96e391e4ff7be9fc74e70da881a",
+   "id": "898b5819b617",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 texts/tutorial/tactics2.lua:20，标记与换行一致。"
+  },
+  {
+   "unit_id": "74b25b20f86cdca4b22c25d52a3eecf65ca85fbc08289ae6c70acd2d4720ee62",
+   "revision_key": "8aa6371630bb85376e58e8242ef07629a34421349ba5eeacabe14b4de51b1c2e",
+   "id": "74b25b20f86c",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 uber/cun.lua:49，%s 为角色名，与同族“达到了临界速度”配对。"
+  },
+  {
+   "unit_id": "e4391e900b2a160b68aaa466709f16311a8d0ac9d917250048282db514e87cfc",
+   "revision_key": "8270d9a21d2ce2269dce0c2a05bed69e44d950489605c90144aa2f3f5c71a69e",
+   "id": "e4391e900b2a",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 egos/gloves.lua:550-551，与后缀“魔法打击之”一致。"
+  },
+  {
+   "unit_id": "4bfa410eedf1a057cdc9b8a4038be77dbf76b1962acaa71848b52dcc87682351",
+   "revision_key": "1a411a28a789310ab42e66d7a2b85d9063e7896ecc92a62d22eb12e15e4a2528",
+   "id": "4bfa410eedf1",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 texts/tutorial/stats/stats3.lua:21，三项定义和换行一致。"
+  },
+  {
+   "unit_id": "c12aae1c7b6cc369f7ae457d0c72ae394c2cbca4672b6d97c6282b34edfe9cb5",
+   "revision_key": "2a7624de0cd07c23dde4e0ac3240c4ddc0cfafb78db0f05558f7073f4748c9ae",
+   "id": "c12aae1c7b6c",
+   "verdict": "OK",
+   "evidence": "DLC 公开检出，来源未固定：ashes timed_effects.lua:509。观察：效果名作“恶魔之种”，日志用物品通称“恶魔种子”，后者库内常见，不提确定修改。"
+  },
+  {
+   "unit_id": "a037b09c616b17282c2a32381f7e42a4a427426f6d68f6b3eba2332e2e027988",
+   "revision_key": "03292340707b421d5a148b77a9f14d19ee41b560372c32a0edd3e8f2fc75f4ab",
+   "id": "a037b09c616b",
+   "verdict": "OK",
+   "evidence": "DLC 公开检出，来源未固定：orcs lore/sunwall.lua:27,92，专名在库内一致。"
+  },
+  {
+   "unit_id": "550a772ec18b4985dfc75536325d1786f43061d89b16cc0f5b5f733290ec1bda",
+   "revision_key": "9d224f4cbcada0c8def95108c7d7d69dad067718cb0d3ad685c71ee5ad0f14b4",
+   "id": "550a772ec18b",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 timed_effects/magical.lua:1917，movement_speed，上游笔误不影响语义。"
+  },
+  {
+   "unit_id": "b2ebb1dbef71e84c352f860117ef20684a82d6b2ff892af6540a67c99fe477d8",
+   "revision_key": "89d3835139aa893401f3c7d821029d600d6fbdf6d4166136bc8688b484ec7cf6",
+   "id": "b2ebb1dbef71",
+   "verdict": "OK",
+   "evidence": "核心 @624a67329fe2 general/npcs/xorn.lua:61，描述一致。"
+  },
+  {
+   "unit_id": "d8c2fd8465c6fe58cc51917162b162dae2c7a31c057affbed8b5611338cff895",
+   "revision_key": "9a1c7c525bafe57e2cc247f4f34caeaaece650718dda7b3ada6e544540fc3b74",
+   "id": "d8c2fd8465c6",
+   "verdict": "OK",
+   "evidence": "DLC 公开检出，来源未固定：cults writhing-body.lua:235-240，tformat 参数顺序一致（字面量 100% 不是参数）；核心 timed_effects/magical.lua:2355-2375 的治疗与疾病免疫降低一致。"
+  }
+ ]
+}

@@ -25194,7 +25194,7 @@ t([[Instantly grow a moss circle of radius %d at your feet.
 		Moss talents are instant but place all other moss talents on cooldown for 3 turns.
 		The damage will increase with your Mindpower.]], [[在你的脚下，半径 %d 的范围内生长出苔藓。
 		每回合苔藓对半径内的敌人会造成 %0.2f 点自然伤害。
-		这种苔藓上沾满了奇怪的液体，有 %d%% 概率使经过的敌人混乱 2 个回合（混乱强度 %d%%）。
+		这种苔藓上沾满了奇怪的液体，每回合有 %d%% 概率使范围内的敌人混乱 2 个回合（混乱强度 %d%%）。
 		苔藓持续 %d 个回合。
 		苔藓系技能无需使用时间，但会让同系其他技能进入 3 回合的冷却。
 		伤害受精神强度加成。]], "tformat")

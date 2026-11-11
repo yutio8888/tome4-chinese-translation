@@ -1,0 +1,5 @@
+print(_VERSION, jit.version)
+print('c50a989b6955'); print(string.format([==[目标护甲穿透提高 %d。]==],12))
+print('550a772ec18b'); print(string.format([==[目标移动速度增加 %d%%。]==],12))
+print('74b25b20f86c'); print(string.format([==[#LIGHT_BLUE#%s脱离了临界速度，慢了下来！]==],"冒险者"))
+print('f359fd57a97a'); print(string.format([==[%s (%s的仆人)]==],"行走蠕虫","冒险者"))

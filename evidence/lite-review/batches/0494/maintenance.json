@@ -1,0 +1,22 @@
+{
+ "kind": "maintenance",
+ "date": "2026-11-11",
+ "authorization": "Maintainer 2026-11-11 (relayed): close out automation candidate 9bb157e39 by porting only the source-confirmed confounding-moss fix under the next mainline batch number; no merge or cherry-pick",
+ "applied": [
+  {
+   "id": "c75c66a3bcef",
+   "edit": [
+    "这种苔藓上沾满了奇怪的液体，有 %d%% 概率使经过的敌人混乱 2 个回合（混乱强度 %d%%）。",
+    "这种苔藓上沾满了奇怪的液体，每回合有 %d%% 概率使范围内的敌人混乱 2 个回合（混乱强度 %d%%）。"
+   ],
+   "evidence": "624a67329fe2 gifts/moss.lua:197-204 addEffect lasting map effect HALLUCINOGENIC_MOSS with chance; engine/Map.lua:1258-1277 processEffects projects each tick on every hostile actor in the grids; damage_types.lua:3011-3023 rng.percent(dam.chance) per projection, independent of movement"
+  }
+ ],
+ "candidate": {
+  "branch": "codex/automation-pilot",
+  "commit": "9bb157e39",
+  "evidence": "evidence/quality/automation-pilot/20261111-e88c3f22/ (40-entry mixed sample, host and independent review, blind lifecycle); candidate lite batches 0480/0481 archived under candidate-lite-review/ and superseded by this batch; mainline 0480/0481 are unrelated scan batches",
+  "gate_failure_cause": "candidate removed /opt/agents/bin from PATH without adding /opt/agents/pi/current/node_modules/.bin, so 04-quality-facts-unit-tests found no pi; mainline lite_close adds it (verified pi 1.5.1 resolves)"
+ },
+ "notes": "Not merged; candidate branch and worktree left in place per maintainer. Reviewed blind in 0495."
+}
