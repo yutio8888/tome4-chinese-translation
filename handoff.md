@@ -1,10 +1,12 @@
-# 当前恢复入口（2026-11-11 0.3.11 已发布，轻量审核队列空）
+# 当前恢复入口（2026-11-11 0.3.12 已发布，轻量审核队列空）
 
 **状态。** 第 0001–0461 批已全部提交并经 `tools/push_github.sh` 推送；`lite_review.py` 的 `pending_A` 为 0，没有进行中的批次或 child。
 插件 0.3.10 已于 2026-11-09 按用户指示发布（发布仓库 `4843901`，13,688 条＝核心 8,045＋引擎 182＋DLC 5,461，
 凭据 [`evidence/releases/addon-0.3.10.json`](evidence/releases/addon-0.3.10.json)）。
 
 **2026-11-11 死键扫描（只记录，暂不处理）：** 全库确认 22 条死键（21 条有在用副本，1 条上游已删），用户决定先不删，证据 `evidence/quality/dead-key-scan-20261111/`。修长文前先核对 section 与 1.7.6 源码字面量：`tome-orcs.lua` 挂在 DebugMain section 的两篇 lore 是死键，0456–0458 曾修错副本，第 0475 批已同步到在用副本。
+
+**0.3.12 已发布**（2026-11-11，发布仓库 `495aa44`，含 0480–0495 批、混乱苔藓修复与 6 处插件代码修复 `a262ee4`），凭据 `evidence/releases/addon-0.3.12.json`，就绪审查 `evidence/releases/candidate-0.3.12/ACCEPTANCE.md`。
 
 **0.3.11 已发布**（2026-11-11，发布仓库 `47f74c3`，含 0462–0479 批与 light 子类型插件代码 `4dd38b0`），凭据 `evidence/releases/addon-0.3.11.json`。
 
