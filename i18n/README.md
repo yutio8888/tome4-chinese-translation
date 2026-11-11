@@ -6,11 +6,11 @@
 按所属契约保存在受跟踪的 `evidence/`。本文件按命令查询，不是每次修改前的必读清单；检查选择见
 [工作流验证矩阵](../docs/agent-workflow.md#验证矩阵)。
 
-最新已推送 addon 版本：**0.3.10**（2026-11-09，发布仓库 tome4-chn-mod `4843901`，由本仓库
-`200f2f6b` 经 `tools/i18n publish --apply --bump` 构建：13,688 条＝核心 8,045＋引擎 182＋DLC 5,461，sha256 `ebddb0ad…`；
-插件代码与 0.3.9 相同（`4a86895` 的补充词条与 `superload/` 包装））。
-GitHub Release [`v0.3.10`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.10) 附带 `tome-chn-mod.teaa`（tag 指向 `4843901`，包 sha256 `67cc5064…`），已回下载核对完整哈希。
-发布凭据见 [`addon-0.3.10.json`](../evidence/releases/addon-0.3.10.json)。打包方式与游戏内置 `utils/te4_pack_module.sh`
+最新已推送 addon 版本：**0.3.11**（2026-11-11，发布仓库 tome4-chn-mod `47f74c3`，由本仓库
+`121ca1c6` 经 `tools/i18n publish --apply --bump` 构建：13,788 条＝核心 8,140＋引擎 187＋DLC 5,461，sha256 `4b155b30…`；
+插件代码在 0.3.10 基础上新增 `4dd38b0`：生物子类型 light 显示为「光」（插件专用键 `light##creature_subtype`））。
+GitHub Release [`v0.3.11`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.11) 附带 `tome-chn-mod.teaa`（tag 指向 `47f74c3`，包 sha256 `625b1f93…`），已回下载核对完整哈希。
+发布凭据见 [`addon-0.3.11.json`](../evidence/releases/addon-0.3.11.json)。打包方式与游戏内置 `utils/te4_pack_module.sh`
 一致：`git archive` 取干净树后在其中 `zip -r -0`，`init.lua` 位于根目录，文件名为 `for_module-short_name.teaa`（引擎只识别 `tome-` 前缀）。
 `publish --bump` 只递增补丁号，次版本号需手动改发布仓库 `init.lua`（该文件为 CRLF 行尾）。
 早期发布计划见 [`deprecated/docs/release-plan.md`](../deprecated/docs/release-plan.md)（已弃用）。manifest 中的 `repositories.addon.commit`
