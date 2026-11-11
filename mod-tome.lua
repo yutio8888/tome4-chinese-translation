@@ -26481,7 +26481,7 @@ t([[Use your telekinetic power to enhance your strength, allowing you to pick up
 		伤害受精神强度加成，投掷范围受精神强度和力量加成。]], "tformat")
 t("Reach", "意念扩展", "talent name")
 t("Reload", "装填弹药", "talent name")
-t("You must have a quiver or pouch equipped.", "你必须装备箭袋或弹药袋。", "logPlayer")
+t("You must have a quiver or pouch equipped.", "你必须在弹药栏装备箭矢或弹丸。", "logPlayer")
 t([[Quickly reload your ammo by %d (depends on masteries and object bonuses).
 		Doing so requires no turn but you are considered disarmed for 2 turns.
 
@@ -28640,7 +28640,7 @@ t([[While Lightning Infusion is active, your bombs energize your golem.
 		All talents on cooldown on your golem have %d%% chance to be reduced by %d.]], [[当闪电充能开启时，你的炸弹会给傀儡充能。
 		你的傀儡的所有冷却中技能有 %d%% 概率减少 %d 回合冷却时间。]], "tformat")
 t("Thunderclap", "闪电霹雳", "talent name")
-t("You need to ready alchemist gems in your quiver.", "你需要在箭袋中装填炼金宝石。", "logPlayer")
+t("You need to ready alchemist gems in your quiver.", "你需要在弹药栏装备炼金宝石。", "logPlayer")
 t([[By crushing an alchemist gem you generate a thunderclap in a cone of radius %d dealing %0.2f physical damage and %0.2f lightning damage.
 		All creatures caught inside are knocked back and disarmed for %d turns.
 		The duration and damage will increase with your Spellpower.]], [[粉碎一颗炼金宝石，制造一次闪电霹雳，在半径 %d 的锥形区域内造成 %0.2f 点物理伤害和 %0.2f 点闪电伤害。
@@ -28724,7 +28724,7 @@ t([[Surround yourself with Frostdusk, increasing all your darkness and cold dama
 section "mod-tome/data/talents/spells/explosives.lua"
 
 t("Throw Bomb", "炸弹投掷", "talent name")
-t("You need to ready alchemist gems in your quiver.", "你需要在箭袋中装填炼金宝石。", "logPlayer")
+t("You need to ready alchemist gems in your quiver.", "你需要在弹药栏装备炼金宝石。", "logPlayer")
 t([[Imbue an alchemist gem with an explosive charge of mana and throw it.
 		The gem will explode for %0.1f %s damage.
 		Each kind of gem will also provide a specific effect.
@@ -28741,7 +28741,7 @@ t([[Your alchemist bombs now affect a radius of %d around them.
 		Explosion damage may increase by %d%% (if the explosion is not contained) to %d%% if the area of effect is confined.]], [[炼金炸弹的爆炸半径现在为 %d 格。
 		爆炸伤害可提高 %d%% （爆炸未受限制时）至 %d%% （爆炸范围受限时）。]], "tformat")
 t("Shockwave Bomb", "冲击波炸弹", "talent name")
-t("You need to ready at least two alchemist gems in your quiver.", "你需要在箭袋中装填至少两枚炼金宝石。", "logPlayer")
+t("You need to ready at least two alchemist gems in your quiver.", "你需要在弹药栏装备至少两枚炼金宝石。", "logPlayer")
 t([[Crush together two alchemist gems, making them extremely unstable.
 		You then throw them to a target area, where they explode on impact, dealing %0.2f physical damage and knocking back any creatures in the blast radius.
 		Each kind of gem will also provide a specific effect.
@@ -28958,8 +28958,8 @@ t("Not enough space to refit!", "没有足够的空间改装！", "logPlayer")
 t("refitting", "重建傀儡", "_t")
 t("refitted", "重建傀儡用了", "_t")
 t("You have been interrupted!", "你被打断！", "logPlayer")
-t("You need to ready 2 alchemist gems in your quiver to heal your golem.", "你至少要在箭袋中装填2枚炼金宝石，才能够修理你的傀儡。", "logPlayer")
-t("You need to ready 15 alchemist gems in your quiver to heal your golem.", "你至少要在箭袋中装填15枚炼金宝石，才能够重建你的傀儡。", "logPlayer")
+t("You need to ready 2 alchemist gems in your quiver to heal your golem.", "你至少要在弹药栏装备2枚炼金宝石，才能够修理你的傀儡。", "logPlayer")
+t("You need to ready 15 alchemist gems in your quiver to heal your golem.", "你至少要在弹药栏装备15枚炼金宝石，才能够重建你的傀儡。", "logPlayer")
 t([[Take care of your golem:
 		- If it is destroyed, you will take some time to reconstruct it (this takes 15 alchemist gems and 20 turns).
 		- If it is alive but hurt, you will be able to repair it for %d (takes 2 alchemist gems). Spellpower, alchemist gem and Golem Power talent all influence the healing done.]], [[维护你的傀儡：
@@ -29603,7 +29603,7 @@ t([[Imbue %s with a gem (up to tier %d), granting it additional powers.
 t("body armour, a belt, or a head piece", "胸甲、腰带或头盔", "_t")
 t("a body armour", "胸甲", "_t")
 t("Gem Portal", "宝石传送", "talent name")
-t("You need to ready 5 alchemist gems in your quiver.", "你需要在箭袋中准备 5 枚炼金宝石。", "logPlayer")
+t("You need to ready 5 alchemist gems in your quiver.", "你需要在弹药栏装备 5 枚炼金宝石。", "logPlayer")
 t("Crush 5 alchemist gems into dust to mark impassable terrain next to you. You immediately enter it and appear on the other side of the obstacle, up to %d grids away.", [[将 5 枚炼金宝石碾碎为粉末，标记你身旁的一块不可通行地形。你立即进入其中，穿过至多 %d 格厚的障碍，并出现在另一侧。]], "tformat")
 t("Stone Touch", "石化之触", "talent name")
 t([[Touch your foe and turn it to stone for %d turns.
@@ -32530,7 +32530,7 @@ To equip your bow and arrows:
 There are trolls to the west. Go use your bow and arrows to kill them!
 ]], [[远程攻击主要包括射箭、用投石索投掷石块或者施法。
 你现在获得了一把弓，你得用双手持握它。
-箭矢数量无限，但需要不时通过等待、休息或走动来重新装填。你也可以在箭袋中装备特殊箭矢，以造成额外伤害或附加效果。
+箭矢数量无限，但需要不时通过等待、休息或走动来重新装填。你也可以在弹药栏中装备特殊箭矢，以造成额外伤害或附加效果。
 想要射箭，使用射击技能。目标界面会弹出，就像使用其他技能一样。
 
 装备你的弓和箭矢的方法：
@@ -43093,7 +43093,7 @@ t("On feet", "在脚上", "_t")
 t("Sandals or boots can be worn on your feet.", "你的脚上可以穿上鞋子。", "_t")
 t("Tool", "工具", "_t")
 t("This is your readied tool, always available immediately.", "这是你准备好的工具，可以随时使用。", "_t")
-t("Quiver", "箭袋", "_t")
+t("Quiver", "弹药栏", "_t")
 t("Your readied ammo.", "你准备好的弹药。", "_t")
 t("Socketed Gems", "镶嵌宝石", "_t")
 t("Gems worn in/on the body, providing their worn bonuses.", "装在身体内/外的宝石，提供宝石的装备属性。", "_t")
@@ -43103,7 +43103,7 @@ t("Second weapon set: In off hand", "第二套武器：在副手", "_t")
 t("Weapon Set 2: You can use shields or a second weapon in your off-hand, if you have the talents for it. Press 'x' to switch weapon sets.", "第二套武器：如果你有对应的技能，你可以副手使用盾牌或第二把武器。按 X 键切换武器套。", "_t")
 t("Second weapon set: psionic focus", "第二套武器：灵能聚焦物", "_t")
 t("Weapon Set 2: Object held in your telekinetic grasp. It can be a weapon or some other item to provide a benefit to your psionic powers. Press 'x' to switch weapon sets.", "第二套武器：使用你的念动力抓取的物品。你可以抓取武器，或者抓取其他物品来为你的心灵力量提供增益。按 X 键切换武器套。", "_t")
-t("Second weapon set: Quiver", "第二套武器：箭袋", "_t")
+t("Second weapon set: Quiver", "第二套武器：弹药栏", "_t")
 t("Weapon Set 2: Your readied ammo.", "第二套武器：你准备好的弹药。", "_t")
 t("Swift Hands", "无影手", "_t")
 t("List of items that can be instantly used by swift hands.", "无影手可即时使用的物品列表。", "_t")
