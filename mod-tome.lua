@@ -31435,10 +31435,8 @@ t("Temporal Form", "时空形态", "talent name")
 t("Have cast over 1000 spells and visited a zone outside of time", "曾释放过 1000 个以上的法术并且进入过时间之外的区域。", "_t")
 t([[You can wrap temporal threads around you, assuming the form of a telugoroth for 10 turns.
 		While in this form you gain pinning, bleeding, blindness and stun immunity, 30%% temporal resistance, your temporal damage bonus is set to your current highest damage bonus + 30%%, 50%% of the damage you deal becomes temporal, and you gain 20%% temporal resistance penetration.
-		You also are able to cast anomalies: Anomaly Rearrange, Anomaly Temporal Storm, Anomaly Flawed Design, Anomaly Gravity Pull and Anomaly Wormhole.]], [[你可以扭曲周围的时间线，转换成时空元素“泰鲁格罗斯”形态，持续 10 回合。
-		在这种形态中，你对定身、流血、致盲、震慑免疫，获得 30%% 时空抗性和 20%% 的时空抗性穿透。
-		你造成的伤害的 50%% 转化为时空伤害。
-		同时，你的时空伤害增益等于你所有类型的伤害增益中的最大值，此外，还增加 30%% 额外时空伤害增益。
+		You also are able to cast anomalies: Anomaly Rearrange, Anomaly Temporal Storm, Anomaly Flawed Design, Anomaly Gravity Pull and Anomaly Wormhole.]], [[你可以用时间丝线缠绕自身，转换成时空元素“泰鲁格罗斯”形态，持续 10 回合。
+		在这种形态中，你对定身、流血、致盲、震慑免疫，获得 30%% 时空抗性和 20%% 的时空抗性穿透，你的时空伤害增益变为你当前最高的伤害增益再加 30%%，且你造成的伤害的 50%% 转化为时空伤害。
 		你在时空形态下能释放以下异常：异常：重排，异常：时空风暴，异常：不完美设计，异常：重力牵引和异常：虫洞。]], "tformat")
 t("Blighted Summoning", "枯萎召唤", "talent name")
 t("Have summoned at least 100 creatures. More permanent summons may count as more than 1.", "曾召唤了 100 个以上的召唤生物。更为持久的召唤物可能会被计为多于 1 个。", "_t")

@@ -1,0 +1,47 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "4211bb6d2abe",
+   "verdict": "OK"
+  },
+  {
+   "id": "4eed3707b2c2",
+   "verdict": "OK"
+  },
+  {
+   "id": "cd008db8c0c7",
+   "verdict": "OK"
+  },
+  {
+   "id": "adc74f401c0c",
+   "verdict": "ISSUE",
+   "observation": "开头把 wrap temporal threads around you（将时间丝线缠绕在自身周围）译成“扭曲周围的时间线”，动作和对象都变了。game/modules/tome/data/talents/uber/mag.lua:165 为原句；game/modules/tome/data/timed_effects/magical.lua 的 TEMPORAL_FORM on_gain 写 threads time as a shell，同样是以时间为壳包裹自身，该效果也没有任何扭曲周围时间的行为。另外原文换行 2 个，译文 4 个，第二段被拆成三行，内容未丢失。其余机制（免疫、30% 抗性、20% 穿透、50% 转化、最高增益 +30%）与 magical.lua 的 activate 一致。",
+   "suggestion": "你可以将时间丝线缠绕于周身，转换成时空元素“泰鲁格罗斯”形态，持续 10 回合。\n\t\t在这种形态中，你对定身、流血、致盲、震慑免疫，获得 30%% 时空抗性和 20%% 的时空抗性穿透，你造成的伤害的 50%% 转化为时空伤害，同时，你的时空伤害增益等于你所有类型的伤害增益中的最大值，此外，还增加 30%% 额外时空伤害增益。\n\t\t你在时空形态下能释放以下异常：异常：重排，异常：时空风暴，异常：不完美设计，异常：重力牵引和异常：虫洞。"
+  },
+  {
+   "id": "a7b981123767",
+   "verdict": "OK"
+  },
+  {
+   "id": "b1be421ef159",
+   "verdict": "OK"
+  },
+  {
+   "id": "df1b16300d02",
+   "verdict": "ISSUE",
+   "observation": "同一批内同族同档位前缀不一致：greater telugoroth 译“强化泰鲁格罗斯”（4eed3707b2c2），greater hethugoroth 译“大型赫斯格罗斯”。两者在源码中是同一套元素生物分档命名（game/modules/tome/data/general/npcs/telugoroth.lua:116；tome-orcs/data/general/npcs/hethugoroth.lua:78，来源未固定），术语库注明 -goroth 族统一。这里按核心条目对齐；若宿主改选“大型”，则应改 4eed3707b2c2。修改时同步 08cc071efac2 中的“大型或终极”。",
+   "suggestion": "强化赫斯格罗斯"
+  },
+  {
+   "id": "f870c746c8f4",
+   "verdict": "ISSUE",
+   "observation": "同一批内同族同档位前缀不一致：ultimate telugoroth 译“究极泰鲁格罗斯”（cd008db8c0c7），ultimate hethugoroth 译“终极赫斯格罗斯”。源码为同一套分档命名（game/modules/tome/data/general/npcs/telugoroth.lua:133；tome-orcs/data/general/npcs/hethugoroth.lua:104，来源未固定）。这里按核心条目对齐；若宿主改选“终极”，则应改 cd008db8c0c7。修改时同步 08cc071efac2。",
+   "suggestion": "究极赫斯格罗斯"
+  },
+  {
+   "id": "08cc071efac2",
+   "verdict": "OK"
+  }
+ ]
+}

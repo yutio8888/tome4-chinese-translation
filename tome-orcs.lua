@@ -833,8 +833,8 @@ t("elemental", "元素", "entity type")
 t("vapour", "蒸汽", "entity subtype")
 t("hethugoroth", "赫斯格罗斯", "entity name")
 t("A swirling mass of hot vapour animated into a semblance of life.", "一个看似有生命的灼热蒸汽漩涡。", "_t")
-t("greater hethugoroth", "大型赫斯格罗斯", "entity name")
-t("ultimate hethugoroth", "终极赫斯格罗斯", "entity name")
+t("greater hethugoroth", "强化赫斯格罗斯", "entity name")
+t("ultimate hethugoroth", "究极赫斯格罗斯", "entity name")
 
 ------------------------------------------------
 section "tome-orcs/data/general/npcs/horror.lua"
@@ -3652,7 +3652,7 @@ t("Research. Tinker. Annihilate.", "研究。制造。歼灭。", "_t")
 t("Inside some of your foes you have found some intact pieces that give you new ideas.", "在你的一些敌人身上，你发现了一些完整的碎片，这给你带来了新的想法。", "_t")
 t("Keep on killing mechanical contraptions or steam-related foes...", "请继续杀死机械装置，或和蒸汽有关的敌人……", "_t")
 t("#LIGHT_GREEN#* You destroyed a mecharachnid equiped with a flamethrower. Both those things could prove very useful.#WHITE#", "#LIGHT_GREEN#* 你摧毁了一个装备火焰喷射器的机械蜘蛛。这两样东西将来都会很有用。#WHITE#", "_t")
-t("#LIGHT_GREEN#* You have studied the 'remains' of an greater or ultimate hethugoroth, providing new ideas for ways to annihilate with heat.#WHITE#", "#LIGHT_GREEN#* 你研究了一个大型或终极赫斯格罗斯的“遗骸”。这为你如何用热歼灭敌人提供了新的思路。#WHITE#", "_t")
+t("#LIGHT_GREEN#* You have studied the 'remains' of an greater or ultimate hethugoroth, providing new ideas for ways to annihilate with heat.#WHITE#", "#LIGHT_GREEN#* 你研究了一只强化或究极赫斯格罗斯的“遗骸”，想到了用高热歼灭敌人的新方法。#WHITE#", "_t")
 t("#LIGHT_GREEN#* The impressive Automated Defense System remains will prove very useful to create automated and self-deploying constructs.#WHITE#", "#LIGHT_GREEN#* 这种令人印象深刻的自动防御系统的残骸，对制造可以自动部署的自动化机械十分有用。#WHITE#", "_t")
 
 ------------------------------------------------
