@@ -101,7 +101,7 @@ CREATURE_SOURCES = {
     "yeti", "krog", "ritch", "mech", "shertul", "maggot", "organic", "mechanical",
     "#rng# the Invoker", "eldritch", "dread", "dreadmaster", "radiant horror",
     "hummerhorn", "luminous horror", "vampire lord", "carrion worm mass",
-    "Lone Wolf", "shivgoroth", "The Withering Thing", "The Dreaming One",
+    "Lone Wolf", "shivgoroth", "telugoroth", "hethugoroth", "The Withering Thing", "The Dreaming One",
     "bloated ooze", "DESTRUCTICUS",
     "corrupted", "steamtech", "multi-hued",
     "Fire Imp",  # 用户 2026-09-28 裁决「火焰小鬼」

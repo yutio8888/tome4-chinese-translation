@@ -8870,10 +8870,10 @@ t("%s resists the swap!", "%s抵抗了时空交换！", "logSeen")
 t("elemental", "元素", "entity type")
 t("temporal", "时空", "entity subtype")
 t("and lost outside time", "并使其迷失在时间之外", "_t")
-t("telugoroth", "泰鲁戈洛斯", "entity name")
+t("telugoroth", "泰鲁格罗斯", "entity name")
 t("A temporal elemental, rarely encountered except by those who travel through time itself.  Its blurred form constantly shifts before your eyes.", "一只时间元素，除了亲身穿越时间的人之外很少有人遇到。它模糊的形态在你眼前不断变幻。", "_t")
-t("greater telugoroth", "强化泰鲁戈洛斯", "entity name")
-t("ultimate telugoroth", "究极泰鲁戈洛斯", "entity name")
+t("greater telugoroth", "强化泰鲁格罗斯", "entity name")
+t("ultimate telugoroth", "究极泰鲁格罗斯", "entity name")
 t("teluvorta", "泰鲁沃塔", "entity name")
 t("Time and space collapse in upon this erratically-moving time elemental.", "时空在这只行动飘忽不定的时间元素周围不断塌陷。", "_t")
 t("greater teluvorta", "强化泰鲁沃塔", "entity name")
@@ -31435,7 +31435,7 @@ t("Temporal Form", "时空形态", "talent name")
 t("Have cast over 1000 spells and visited a zone outside of time", "曾释放过 1000 个以上的法术并且进入过时间之外的区域。", "_t")
 t([[You can wrap temporal threads around you, assuming the form of a telugoroth for 10 turns.
 		While in this form you gain pinning, bleeding, blindness and stun immunity, 30%% temporal resistance, your temporal damage bonus is set to your current highest damage bonus + 30%%, 50%% of the damage you deal becomes temporal, and you gain 20%% temporal resistance penetration.
-		You also are able to cast anomalies: Anomaly Rearrange, Anomaly Temporal Storm, Anomaly Flawed Design, Anomaly Gravity Pull and Anomaly Wormhole.]], [[你可以扭曲周围的时间线，转换成时空元素“泰鲁戈洛斯”形态，持续 10 回合。
+		You also are able to cast anomalies: Anomaly Rearrange, Anomaly Temporal Storm, Anomaly Flawed Design, Anomaly Gravity Pull and Anomaly Wormhole.]], [[你可以扭曲周围的时间线，转换成时空元素“泰鲁格罗斯”形态，持续 10 回合。
 		在这种形态中，你对定身、流血、致盲、震慑免疫，获得 30%% 时空抗性和 20%% 的时空抗性穿透。
 		你造成的伤害的 50%% 转化为时空伤害。
 		同时，你的时空伤害增益等于你所有类型的伤害增益中的最大值，此外，还增加 30%% 额外时空伤害增益。
@@ -35316,7 +35316,7 @@ t("+Weight of the Sun", "+太阳引力", "_t")
 t("#Target# can move freely once more.", "#Target#可以自由移动了。", "_t")
 t("-Weight of the Sun", "-太阳引力", "_t")
 t("Temporal Form", "时空形态", "_t")
-t("The target assumes the form of a telugoroth.", "目标呈现出泰鲁戈洛斯形态。", "tformat")
+t("The target assumes the form of a telugoroth.", "目标呈现出泰鲁格罗斯形态。", "tformat")
 t("#Target# threads time as a shell!", "#Target#将时间编织成外壳！", "_t")
 t("+Temporal Form", "+时空形态", "_t")
 t("#Target# is no longer embeded in time.", "#Target#不再嵌于时间之中。", "_t")
