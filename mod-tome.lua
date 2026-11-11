@@ -23012,7 +23012,7 @@ t("#RED#The powerful blow energizes %s reducing their cooldowns!#LAST#", "#RED#�
 t([[When you are dealt a blow that reduces your life by at least %d%%, you have a %d%% chance to reduce the remaining cooldown of all your talents by 1.
 		Temporary life from Sanguine Infusion will not count against the damage threshold.
 		The chance will increase with your Spellpower.]], [[当你受到的单次打击造成至少 %d%% 最大生命值的伤害时，每个冷却中的技能各有 %d%% 概率减少 1 回合冷却时间。
-		鲜血灌注带来的额外生命值，不会影响该技能的伤害阈值。
+		鲜血充能带来的额外生命值，不会影响该技能的伤害阈值。
 		概率受法术强度加成。]], "tformat")
 
 ------------------------------------------------
@@ -27669,7 +27669,7 @@ t("Augmented Shot", "强力射击", "talent name")
 t("Use telekinetic forces to greatly augment the durability and tension of your bow in order to fire an arrow with velocity unmatched by even the mightiest mundane archers. Increases armor penetration by %d, and deals %d%% damage.", "使用精神灵能以增强弓的耐久和张力，使射出的箭矢拥有连最强大的普通弓手都无法企及的飞行速度。增加 %d 点护甲穿透并造成 %d%% 伤害。", "tformat")
 t("Thought-quick Shot", "意念射击", "talent name")
 t("Ready and release an arrow with a flitting thought. This attack does not use a turn, and increases in talent level reduce its cooldown.", "用飞翔的思绪射出一支箭矢。此攻击不消耗回合数。随着技能等级提高，冷却时间缩短。", "tformat")
-t("Masterful Telekinetic Archery", "灵能射击掌握", "talent name")
+t("Masterful Telekinetic Archery", "念力射击掌握", "talent name")
 t("You cannot do that without a telekinetically-wielded bow.", "你没有灵能持握弓箭，无法这么做。", "logPlayer")
 t([[You temporarily set aside a part of you mind to direct your telekinetically-wielded bow. It will automatically attack the nearest target each turn for %d turns.
 			The telekinetically-wielded bow uses Willpower in place of Strength and Cunning in place of Dexterity to determine attack and damage.

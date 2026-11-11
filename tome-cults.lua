@@ -2382,9 +2382,9 @@ t([[No, no! Your minds aren't focused enough! I told you that you must have a cl
 t("Lessons of Inevitability - Epilogue", "有关必然性的课程——尾声", "_t")
 t([[Only one person escaped alive from the summoning of the Unspeakable Thing. She believed that, despite the failure of her fellow students and the horror of what she saw, The Teacher's wisdom still had value in the apocalyptic world created by the Spellblaze. After all, is it not better to know about the horrors out there than it is to be ignorant of their existence? She began to pass on the power of entropy onto others, and they too passed it on. The ones who learned this forbidden lore became known as the Cultists of Entropy.
 
-What became of The Teacher is unknown. Perhaps it didn't survive the encounter with the Unspeakable Thing, or perhaps it returned to its home somewhere far beyond Eyal.]], [[不可名状的恐怖降临之时，只有一个人幸存逃离。她相信，尽管同学们遭遇了失败，她也目睹了恐怖景象，但在魔法大爆炸造成的末日世界中，导师的智慧仍有价值。毕竟，了解外界的恐怖，不是比对它们的存在一无所知更好吗？她开始将熵的力量传授给其他人，他们又继续传授给更多人。那些掌握了这些禁忌知识的人，现在被称为熵教徒。
+What became of The Teacher is unknown. Perhaps it didn't survive the encounter with the Unspeakable Thing, or perhaps it returned to its home somewhere far beyond Eyal.]], [[不可名状之物降临之时，只有一个人幸存逃离。她相信，尽管同学们遭遇了失败，她也目睹了恐怖景象，但在魔法大爆炸造成的末日世界中，导师的智慧仍有价值。毕竟，了解外界的恐怖，不是比对它们的存在一无所知更好吗？她开始将熵的力量传授给其他人，他们又继续传授给更多人。那些掌握了这些禁忌知识的人，现在被称为熵教徒。
 
-没有人知道“导师”去了哪里。也许，他没能在不可名状的恐怖之下幸存；也许，他回到了远在埃亚尔之外某处的家园。]], "_t")
+没有人知道“导师”去了哪里。也许，他没能在与不可名状之物的遭遇中幸存；也许，他回到了远在埃亚尔之外某处的家园。]], "_t")
 t("races", "种族", "newLore category")
 t("Loremaster Greynot's Analysis of the Races - Chapter 12 - Krogs", "博学者格雷诺特关于人种的调查——第十二章——克罗格", "_t")
 t([[The krog are perhaps the youngest of the intelligent races of Maj'Eyal, only coming into existence recently. They claim that they were formerly ogres that have had their runes removed, somehow surviving having their runes replaced by a combination of natural infusions and drakes blood. The removal of their runes was orchestrated by the Ziguranth, who apparently decided action needed to be taken to prevent all ogres from being horribly and brutally killed as a result of the Spellhunt, leading to the creation of the krog. The official reasons given by the Ziguranth for this action was that the ogres were unfortunate victims of magic rather then perpetrators of it, and the Ziguranth were just looking to help to free them from the taint of the arcane.
@@ -3025,7 +3025,7 @@ t([[Your Nihil unravels the existence of the target, tearing them apart with ent
 		The Herald will have a bonus to all attributes equal to your Magic.  Many other stats will scale with level.
 		Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.]], [[你的空无会解构目标的存在，并以熵能将其撕裂。
 		在空无效果结束之前，如果目标身上被施加了 6 个负面魔法效果，将召唤出持续 %d 回合的破灭之兆。
-		之前已有的负面效果、法术冲击、被奥术之眼观察不会计入总数。刷新同一个效果会计入总数。
+		之前已有的负面效果、法术冲击、被奥术之眼发现不会计入总数。刷新同一个效果会计入总数。
 		破灭之兆的所有属性获得等同于你魔力属性的加成。其他属性根据本身等级提升。
 		破灭之兆会继承你的伤害加成、伤害穿透、暴击几率和暴击倍率加成。]], "tformat")
 t("Erase", "抹除", "talent name")
