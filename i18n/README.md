@@ -13,6 +13,19 @@ GitHub Release [`v0.3.12`](https://github.com/yutio8888/tome4-chn-mod/releases/t
 发布凭据见 [`addon-0.3.12.json`](../evidence/releases/addon-0.3.12.json)。打包方式与游戏内置 `utils/te4_pack_module.sh`
 一致：`git archive` 取干净树后在其中 `zip -r -0`，`init.lua` 位于根目录，文件名为 `for_module-short_name.teaa`（引擎只识别 `tome-` 前缀）。
 `publish --bump` 只递增补丁号，次版本号需手动改发布仓库 `init.lua`（该文件为 CRLF 行尾）。
+
+**发布前置与验收分工（2026-11-11 维护者指示起生效，替代此前的本地实机补验要求）**：
+- **发布前，本地只负责技术与完整性核对，然后公开发布。** 核对内容：
+  - 版本号；
+  - 来源提交与候选身份；
+  - 适用的构建与门禁/CI；
+  - `publish` 运行时校验（0 mismatched/missing）；
+  - `smoke_release.py`；
+  - 包的结构，以及与发布提交 `git archive` 结果的一致性；
+  - 上传后回下载核对哈希。
+- **本地自然游玩覆盖和玩家实机验收不是公开发布的前置条件。** 不为补齐旧的验收清单而开本地游戏或派发测试员。
+- **实机验收由测试玩家在发布后进行。** 发布说明要写明这一点，并列出尚未在游戏中实际确认的检查点，同时区分正常游玩与调试/控制台结果，不得声称已完整验收。反馈入口是发布仓库的 GitHub Issues；发布说明附简短反馈格式（版本、场景、复现步骤、截图/日志、触发方式）。不主动联系玩家。
+- 已有的本地实机记录照实保留在 `evidence/quality/`，作为参考，不作为发布门槛。
 早期发布计划见 [`deprecated/docs/release-plan.md`](../deprecated/docs/release-plan.md)（已弃用）。manifest 中的 `repositories.addon.commit`
 是工具链可复现输入 pin，不等同于发布仓库的最新 HEAD；不能只因发布版本前进就改写该 pin。
 
