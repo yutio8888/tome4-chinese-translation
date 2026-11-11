@@ -2683,7 +2683,7 @@ The decaying horror cannot move and will attack all hostile creatures in range o
 All its primary stats will be set to %d (based on your Magic stat), life rating increased by %d, and all talent levels set to %d.  Many other stats will scale with level.
 Your increased damage, damage penetration, critical strike chance, and critical strike multiplier stats will all be inherited.
 		]], [[你利用和恐魔的联系召唤一个持续 %d 回合的腐败的浮肿恐魔。
-腐败的恐魔不能移动，能攻击范围内的所有敌对生物。它拥有精神干扰和精神光束技能。
+腐败的恐魔不能移动，能攻击范围内的所有敌对生物。它拥有精神干扰和心灵灼烧技能。
 它的所有主属性将设为 %d （基于你的魔力属性），生命成长增加 %d， 所有技能等级设为 %d。 许多其他属性随等级成长。
 它将继承你的伤害加成、伤害抗性穿透、暴击几率和暴击伤害系数。
 		]], "tformat")
@@ -3215,7 +3215,7 @@ t("Spin around, extending your weapon and damaging all targets around you for %d
 		如果武器击中敌人，你获得 %d 疯狂值。
 		如果触手击中敌人，你获得 %d 疯狂值。
 
-		#YELLOW_GREEN#当触手处于缠绕状态：#WHITE#你的触手攻击改为以被缠绕目标为中心展开（武器攻击除外），并使范围内的敌人眩晕 5 回合。]], "tformat")
+		#YELLOW_GREEN#当触手处于缠绕状态：#WHITE#你的触手攻击改为以被缠绕目标为中心展开（武器攻击除外），且范围缩小为半径 1，但会使命中的敌人眩晕 5 回合。]], "tformat")
 t("Tendrils Eruption", "触手地狱", "talent name")
 t("%s resists the slimy tendril!", "%s抵挡了黏稠触须！", "logSeen")
 t([[You plant your tentacle hand in the ground where it splits up and extends to a target zone of radius %d.

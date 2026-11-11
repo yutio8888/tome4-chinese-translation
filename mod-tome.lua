@@ -1668,7 +1668,7 @@ Prodigies are special talents that only the most powerful of characters can acqu
 All of them require at least 50 in a core stat and many also have other, very specific and/or demanding requirements to learn.
 Players can learn new prodigies at levels 30 and 42.]], [[#GOLD#觉醒技#LAST#
 觉醒技是那些只有非常强的角色才能得到的特殊能力。
-每项觉醒技都需要对应核心属性50点，并且许多觉醒技还需要一些特殊的解锁条件才能学习。
+每项觉醒技都需要对应核心属性至少达到 50 点，并且许多觉醒技还需要一些特殊的解锁条件才能学习。
 玩家可以在 30 级和 42 级得到一个觉醒点。]], "_t")
 t([[#GOLD#Item Talents#LAST#
 Some objects bestow additional talents on the wearer or holder.
@@ -2671,7 +2671,7 @@ t("Huge Appetite", "大胃王", "achievement name")
 t("Ate 20 bosses.", "吃掉20个BOSS。", "_t")
 t("Headbanger", "铁头功大师", "achievement name")
 t("Headbanged 20 bosses to death.", "用头槌撞死了20个BOSS。", "_t")
-t("Are you out of your mind?!", "你犯2了吗？！", "achievement name")
+t("Are you out of your mind?!", "你疯了吗？！", "achievement name")
 t("Caught the attention of overpowered greater multi-hued wyrms in Vor Armoury. Perhaps fleeing is in order.", "在沃尔军械库引起了超强的七彩龙精英的注意。也许，离开是最好的主意。", "_t")
 t("I cleared the room of death and all I got was this lousy achievement!", "我清完“死亡之屋”后发现我只得到了这个无聊的成就！", "achievement name")
 t("Killed the seven overpowered wyrms in the \"Room of Death\" in Vor Armoury.", "在沃尔军械库的“死亡之屋”杀死7只超强的七彩龙精英。", "_t")
@@ -22061,7 +22061,7 @@ t("Warden's Focus", "守卫者专注", "talent name")
 t("You require a weapon to use this talent.", "你需要武器来施展这个技能。", "logPlayer")
 t("You must pick a focus target.", "你必须选择一个集中目标。", "logPlayer")
 t([[Attack the target with either your ranged or melee weapons for %d%% weapon damage.  For the next %d turns random targeting, such as from Blink Blade and Warden's Call, will focus on this target.
-		Attacks against this target gain %d%% critical chance and critical strike power while you take %d%% less damage from all enemies whose rank is lower then that of your focus target.]], [[使用你的远程或者近战武器对目标造成 %d%% 武器伤害。  在接下来的 %d 回合中，你的随机目标技能，比如闪烁灵刃和守卫召唤，都会锁定这个目标。
+		Attacks against this target gain %d%% critical chance and critical strike power while you take %d%% less damage from all enemies whose rank is lower then that of your focus target.]], [[使用你的远程或者近战武器对目标造成 %d%% 武器伤害。  在接下来的 %d 回合中，你的随机目标技能，比如闪烁灵刃和守卫呼唤，都会锁定这个目标。
 		对这个目标的攻击获得 %d%% 额外的暴击几率和暴击加成，同时其他分级低于目标的单位对你造成的伤害减少 %d%%。]], "tformat")
 
 ------------------------------------------------
@@ -23110,7 +23110,7 @@ t([[You veil yourself in shadows and let them control you.
 		If a target isn't found this effect ends.
 		The movement is not considered a teleport.
 		The resistance will increase with your Spellpower stat.]], [[你融入阴影，并被其支配。
-		使用该技能时以及接下来的 %d 个回合内，你将会自动闪烁到一个附近的敌人身边（离第一个击中的目标的位置在 %d 格之内），攻击并造成 %d%% 暗影武器伤害。
+		使用该技能时立即触发，且在接下来的 %d 个回合中每回合触发：你将会自动闪烁到一个附近的敌人身边（离第一个击中的目标的位置在 %d 格之内），攻击并造成 %d%% 暗影武器伤害。
 		融入阴影时，你免疫所有异常状态，并获得 %d%% 全体伤害抗性。
 		在此期间，除非被杀死，否则你不会被阻止，你也无法控制你的角色。
 		如果找不到目标，此效果结束。
@@ -28507,7 +28507,7 @@ t([[Summon a Dread of level %d that will annoyingly blink around, hexing your fo
 		]], [[召唤一个等级 %d 的噩灵。噩灵会四处传送，并对敌人释放邪术。
 		它会使用以下技能：
 		- 燃烧邪术等级 %d
-		- 移情邪术等级 %d
+		- 转移邪术等级 %d
 		- 宁神邪术等级 %d
 		- 模糊视觉等级 %d
 		- 相位之门等级 %d
@@ -31469,7 +31469,7 @@ t([[You infuse blighted energies into all of your summons, granting them Bone Sh
 		- 米诺陶：毁伤
 		- 岩石傀儡：酸性血液
 		- 喷火里奇：生命分流
-		- 九头蛇：鲜血喷射
+		- 三头蛇：鲜血喷射
 		- 雾凇：剧毒风暴
 		- 火龙：乌鲁洛克之焰
 		- 乌龟：元素狂乱
@@ -31614,7 +31614,7 @@ t("Slasul will be happy to know your faith in his cause. You should return to sp
 t([[You have sided with Slasul and helped him vanquish Ukllmswwik. You are now able to breathe underwater with ease.
 		You have also learned to use tridents and other exotic weapons easily (talent level %d of Exotic Weapon Mastery), and can Spit Poison (talent level %d) as nagas do. These are bonus talent levels that increase with your character level.
 		In addition, should Slasul still live, he may have a further reward for you as thanks...]], [[你站在萨拉苏尔一方并帮助他解决了乌克勒姆斯维奇。你现在可以轻松地在水下呼吸。
-		同时，你已学会轻松使用三叉戟和其他特殊武器（获得 %d 级特殊武器掌握），并且可以像娜迦一样喷吐毒素（等级 %d）。 这些是额外的技能等级，随人物等级增长。
+		同时，你已学会轻松使用三叉戟和其他特殊武器（获得 %d 级特殊武器掌握），并且可以像娜迦一样使用毒性喷吐（技能等级 %d）。 这些是额外的技能等级，随人物等级增长。
 		此外，若萨拉苏尔仍然存活，他或许还会送你一份谢礼…]], "tformat")
 t("Superpower", "超级力量", "talent name")
 t([[A strong body is key to a strong mind, and a strong mind can be powerful enough to make a strong body.
@@ -37056,8 +37056,8 @@ t("-Pinned", "-定身", "_t")
 t("pinned by a bone spike", "被骨刺定身", "_t")
 t("The target is pinned by a bone spike, unable to move.", "目标被骨刺定身，无法移动。", "_t")
 t("#Target# is pinned by a bone spike.", "#Target#被骨刺定身。", "_t")
-t("+Bone Grab", "+骨爪", "_t")
-t("-Bone Grab", "-骨爪", "_t")
+t("+Bone Grab", "+白骨之握", "_t")
+t("-Bone Grab", "-白骨之握", "_t")
 t("golem", "傀儡", "effect subtype")
 t("Mighty Blows", "猛力攻击", "_t")
 t("The target's combat damage is improved by %d.", "目标战斗伤害值提高 %d。", "tformat")
