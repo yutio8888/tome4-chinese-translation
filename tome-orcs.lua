@@ -8221,7 +8221,7 @@ t("", "", "_t")
 ------------------------------------------------
 section "tome-orcs/superload/mod/class/Actor.lua"
 
-t("#FFD700#St. power#FFFFFF#: ", "#FFD700#蒸汽强度#FFFFFF#: ", "_t")
+t("#FFD700#St. power#FFFFFF#: ", "#FFD700#蒸汽强度#FFFFFF#：", "_t")
 t("Kruk Invasion", "克鲁克入侵", "_t")
 t("You can not recall until you have placed the bomb at the tunnel's end!", "你只有在隧道尽头放置炸弹之后，才能启用回归之杖！", "_t")
 t("scroll", "卷轴", "_t")

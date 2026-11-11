@@ -70,7 +70,7 @@ t("injured seer", "受伤的先知", "nil")
 t("kinetic", "动能", "nil")
 t("living", "生命", "nil")
 t("lone alchemist", "落单的炼金术士", "nil")
-t("lost defiler", "迷路的堕落者", "nil")
+t("lost defiler", "迷路的堕落术士", "nil")
 t("lost sun paladin", "迷路的太阳骑士", "nil")
 t("lost warrior", "迷路的战士", "nil")
 t("magestaff", "元素法杖", "nil")
@@ -707,7 +707,7 @@ t("", "", "_t")
 ------------------------------------------------
 section "engine/engine/dialogs/KeyBinder.lua"
 
-t("Key bindings", "键位绑定", "_t")
+t("Key bindings", "按键绑定", "_t")
 t("      Press a key (escape to cancel, backspace to remove) for: %s", "      请按键（Esc 键取消，退格键删除）以绑定 %s 的键位", "tformat")
 t("Bind key", "绑定键位", "_t")
 t("Bind alternate key", "绑定替代键位", "_t")
