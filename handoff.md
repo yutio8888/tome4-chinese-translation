@@ -58,6 +58,16 @@ Exhaustion＝力竭、Parry＝招架、Summon＝召唤、Archmage＝元素法师
 用法见流程文档「驱动脚本」一节；须导出自己的 `PASEO_AGENT_ID` 与 `TOME_PASEO_WORKSPACE`。若译文再有改动，
 `lite_review.py status` 会把改过的单元列为待审，按普通批次 `prepare N` → `lite_dispatch.sh N` → 裁决 → `lite_close.sh` 处理。
 
+**实机测试减流流程（2026-11-11 维护者同意，后续实机测试一律执行）。**
+- 测试员 prompt 模板为本地 `~/tome-live/prompts/common.md`，主代理操作说明为 `~/tome-live/prompts/HOST.md`。两者都是本机运行环境文件，不入库。
+- 文本先核对：字符串和数值先用 Lua 和日志核对；截图只用于字体、截断、布局和最终关键帧，日志不能代替显示验收。
+- 只读裁切图：全屏原图留在本地，Read 只读目标区域的裁切图，裁切不得掩盖所测布局。
+- 合并命令：已知导航、等待、截图和裁切合并成一条命令；遇到未知界面先停下观察。
+- 独立会话：每个会话只做一个场景组，用 Paseo 新建，不 fork 主会话。
+- 试行预算：读图 30 张，其中全屏 5 张；工具调用约 120 次。工具调用数是代理计数，不等于 HTTP 请求数，由测试员自行计数，没有自动强制。达到上限即保存并停止，剩余范围由新会话接续。
+- 主代理优先读文本报告，只审必要的裁切关键帧。
+- 每轮报告写明：场景、读图数（总数/全屏）、会话与调用计数、停止原因。流量减少未经实测前不报节省比例。
+
 **2026-11-04 实机测试。** 官方 1.7.6＋汉化 0.3.7＋三 DLC 在 `~/tome-live`（Xvfb，见记忆 live-game-test-env）由三个测试员实测，67 条发现，处置见
 [`evidence/quality/live-test-20261104/`](evidence/quality/live-test-20261104/REPORT.md)；修复提交 `aa29cbd12`（含 publish 把 engine 差异条目写进插件、
 %-8.8s 放行、不休狂热、快枪手）。0.3.8 已于 2026-11-04 按用户指示发布（发布仓库 `f27c7dc`，13,439 条，凭据 `evidence/releases/addon-0.3.8.json`；含 null_translation.lua 删 21 条遮蔽项），
