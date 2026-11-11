@@ -1,0 +1,26 @@
+[
+ {
+  "n": 7,
+  "f": "mod-tome.lua",
+  "sec": "mod-tome/data/talents/uber/mag.lua",
+  "en": "60%% chance to ignore critical hits",
+  "zh": "60%% 暴击无视",
+  "type": "mistranslation",
+  "severity": "minor",
+  "issue": "巫妖获得的是 ignore_direct_crits=60，实现为按比例削减受到直接暴击的额外伤害（并非几率无视暴击）；「60%% 暴击无视」字面像是 60% 几率/比例完全无视暴击，与实现不符，且与库内同属性的 Juggernaut 效果描述「使受到的直接暴击的额外伤害降低 %d%%」不一致。按库内『原文与实现不符按实现写』惯例应改写。",
+  "evidence": "game/modules/tome/data/talents/uber/mag.lua:424 self:attr(\"ignore_direct_crits\", 60)；game/modules/tome/data/damage_types.lua:130-151 reduce=(crit_power-1)*ignore_direct_crits/100（@624a67329fe2）；库内 mod-tome.lua:37409 Juggernaut 译法",
+  "suggestion": "这是你学习死灵法术的最终目标——成为强大而不死的巫妖！\n\t\t当你学习这一技能后，在你下一次被杀死的时候，你体内强大的奥术力量会重建你的身体，让你成为你梦寐以求的巫妖。\n\t\t巫妖免疫毒素、疾病、恐惧、流血、震慑，不需要呼吸，并获得 20%% 寒冷和黑暗抗性。\n\t\t巫妖同时获得 +12 魔力，意志和灵巧，受到的直接暴击额外伤害降低 60%%，+4 生命成长（不追加前面等级的生命值），+35 法术和精神豁免，获得 7 法力值恢复。\n\n\t\t巫妖会获得新的种族技能树，包含以下技能：\n\t\t- 不死之躯：巫妖的身体极其难以摧毁，其生命值可以降到负数，且即使被杀死之后仍然可以复活。\n\t\t- 恐怖存在：你的恐怖存在足以粉碎大多数人的勇气，降低他们的豁免，伤害和移动速度。\n\t\t- 永恒毁灭：作为毁灭和绝望的使者，你现在不断地在你周围制造不死阴影。\n\t\t- 亡者领袖：你可以给所有不死族队友（包括你自己）注入非自然力量，增加它们的物理和法术强度。\n\t\t"
+ },
+ {
+  "n": 57,
+  "f": "tome-orcs.lua",
+  "sec": "tome-orcs/data/general/objects/world-artifacts.lua",
+  "en": "up to 250% at 1000 paradox",
+  "zh": "1000紊乱时为250%",
+  "type": "qualifier",
+  "severity": "minor",
+  "issue": "丢失 up to：实现中攻速加成在 1000 紊乱时封顶（util.bound 上限 0.6），超过 1000 不再增加；译文只说「1000紊乱时为250%」，未表达这是上限，易被理解为随紊乱值线性继续增长。",
+  "evidence": "tome-orcs/data/general/objects/world-artifacts.lua:2035,2078 physspeed = 1 - util.bound(0, 0.6*paradox/1000, 0.6)（DLC 来源未固定）",
+  "suggestion": "攻击速度随紊乱值增加，1000紊乱时达到上限250%。"
+ }
+]

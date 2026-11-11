@@ -1,0 +1,38 @@
+[
+ {
+  "n": 72,
+  "f": "mod-tome.lua",
+  "sec": "mod-tome/data/talents/cursed/shadows.lua",
+  "en": "appear next to a target up to %d spaces away",
+  "zh": "闪现至附近 %d 格的一个目标身边",
+  "type": "qualifier",
+  "severity": "minor",
+  "issue": "up to（最远）被弱化为「附近 %d 格的」，读起来像恰好 %d 格处的目标，丢失了射程上限的含义。",
+  "evidence": "game/modules/tome/data/talents/cursed/shadows.lua@624a67329fe2 Shadow Blink 类 info（target range=self:getTalentRange(t)，范围内任意目标）",
+  "suggestion": "你以难以置信的速度闪现至最远 %d 格内的一个目标身边并造成 %d%% 伤害。"
+ },
+ {
+  "n": 86,
+  "f": "mod-tome.lua",
+  "sec": "mod-tome/data/talents/misc/npcs.lua",
+  "en": "appear next to a target up to %d spaces away",
+  "zh": "闪现至附近 %d 格的一个目标身边",
+  "type": "qualifier",
+  "severity": "minor",
+  "issue": "与 #72 同句：up to（最远）被弱化为「附近 %d 格的」，丢失射程上限含义。",
+  "evidence": "game/modules/tome/data/talents/misc/npcs.lua@624a67329fe2 同文 info",
+  "suggestion": "你以难以置信的速度闪现至最远 %d 格内的一个目标身边并造成 %d%% 伤害。"
+ },
+ {
+  "n": 80,
+  "f": "mod-tome.lua",
+  "sec": "mod-tome/data/talents/gifts/mucus.lua",
+  "en": "You may have up to %d Mucus Oozes active at any time (based on your Cunning). / will attack any of your foes",
+  "zh": "同时场上可存在 %d 只粘液软泥怪。（基于你的灵巧值） / 会向任何附近的敌人释放史莱姆喷吐",
+  "type": "qualifier",
+  "severity": "minor",
+  "issue": "up to 上限丢失，「可存在 %d 只」读成定值；另外原文 any of your foes 被加成「任何附近的敌人」；首行把原文第一、二行合并，换行数比英文少一行。",
+  "evidence": "game/modules/tome/data/talents/gifts/mucus.lua@624a67329fe2 Living Mucus info",
+  "suggestion": "你的粘液有了自己的感知。\n\t\t每回合有 %d%% 几率，随机一个滴有你的粘液的格子会产生一只粘液软泥怪。\n\t\t粘液软泥怪会存在 %d 回合，会向你的任何敌人释放史莱姆喷吐。\n\t\t同时场上最多可存在 %d 只粘液软泥怪（基于你的灵巧值）。\n\t\t每当你造成一次精神暴击，你的所有粘液软泥怪的存在时间会延长 2 回合。\n\t\t生成概率受精神强度加成。"
+ }
+]

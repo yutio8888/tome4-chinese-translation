@@ -1726,7 +1726,7 @@ t([[Faced with the petty quandaries of 'conventional physics', some mad tinker m
 There were ...side effects.]], [[面对“传统物理学”的小小难题，某位疯狂的工匠一定给这片锯刃覆上了一层细薄的膨胀时间，以将速度提升到极致。
 
 不过……它产生了一些副作用。]], "_t")
-t("Attack speed increases with paradox, up to 250% at 1000 paradox.", "攻击速度随紊乱值增加，1000紊乱时为250%。", "_t")
+t("Attack speed increases with paradox, up to 250% at 1000 paradox.", "攻击速度随紊乱值增加，1000紊乱时达到上限250%。", "_t")
 t("increase paradox by a random amount", "随机增加紊乱值", "_t")
 t("increase paradox by a drastic amount with a chance to do an anomaly (%d%% chance). If anomaly triggers, halve paradox.", "大量增加紊乱值，并有一定几率触发异常(%d%% 几率)。如果触发了异常，紊乱值减半。", "tformat")
 t("Heartrend", "心脏切割", "entity name")

@@ -24472,7 +24472,7 @@ t("You fade from sight, making you invulnerable until the beginning of your next
 t("Phase Door", "相位之门", "talent name")
 t("Teleports you within a small range.", "在小范围内传送你自己。", "tformat")
 t("Blindside", "闪电突袭", "talent name")
-t("With blinding speed you suddenly appear next to a target up to %d spaces away and attack for %d%% damage.", "你以难以置信的速度闪现至附近 %d 格的一个目标身边并造成 %d%% 伤害。", "tformat")
+t("With blinding speed you suddenly appear next to a target up to %d spaces away and attack for %d%% damage.", "你以难以置信的速度闪现至最远 %d 格内的一个目标身边并造成 %d%% 伤害。", "tformat")
 t("Shadow Lightning", "暗影闪电", "talent name")
 t([[Strikes the target with a spark of lightning doing %0.2f to %0.2f damage (%0.2f average).
 		The damage will increase with the Magic stat]], [[用闪电打击目标造成 %0.2f 到 %0.2f 伤害 (平均 %0.2f 伤害)。
@@ -25232,9 +25232,10 @@ t([[Your mucus is brought to near sentience.
 		Mucus Oozes last %d turns and will attack any of your foes by spitting slime at them.
 		You may have up to %d Mucus Oozes active at any time (based on your Cunning).
 		Any time you deal a mental critical, the remaining time on all of your Mucus Oozes will increase by 2.
-		The spawn chance increases with your Mindpower.]], [[你的粘液有了自己的感知。每回合有 %d%% 几率，随机一个滴有你的粘液的格子会产生一只粘液软泥怪。
-		粘液软泥怪会存在 %d 回合，会向任何附近的敌人释放史莱姆喷吐。
-		同时场上可存在 %d 只粘液软泥怪。（基于你的灵巧值）
+		The spawn chance increases with your Mindpower.]], [[你的粘液有了自己的感知。
+		每回合有 %d%% 几率，随机一个滴有你的粘液的格子会产生一只粘液软泥怪。
+		粘液软泥怪会存在 %d 回合，会向你的任何敌人释放史莱姆喷吐。
+		同时场上最多可存在 %d 只粘液软泥怪（基于你的灵巧值）。
 		每当你造成一次精神暴击，你的所有粘液软泥怪的存在时间会延长 2 回合。
 		生成概率受精神强度加成。]], "tformat")
 t("Oozewalk", "粘液探戈", "talent name")
@@ -26421,7 +26422,7 @@ t("You fade from sight, making you invulnerable until the beginning of your next
 t("Phase Door", "相位之门", "talent name")
 t("Teleports you randomly within range 10.", "在 10 格范围内随机传送你。", "tformat")
 t("Blindside", "闪电突袭", "talent name")
-t("With blinding speed you suddenly appear next to a target up to %d spaces away and attack for %d%% damage.", "你以难以置信的速度闪现至附近 %d 格的一个目标身边并造成 %d%% 伤害。", "tformat")
+t("With blinding speed you suddenly appear next to a target up to %d spaces away and attack for %d%% damage.", "你以难以置信的速度闪现至最远 %d 格内的一个目标身边并造成 %d%% 伤害。", "tformat")
 t("Suspended", "停滞", "talent name")
 t("The target will not react until attacked.", "除非受到攻击，否则目标不会行动。", "tformat")
 t("Frost Grab", "冰霜飞爪", "talent name")
@@ -31529,7 +31530,7 @@ t([[This is your true goal and the purpose of all necromancy - to become a power
 		]], [[这是你学习死灵法术的最终目标——成为强大而不死的巫妖！
 		当你学习这一技能后，在你下一次被杀死的时候，你体内强大的奥术力量会重建你的身体，让你成为你梦寐以求的巫妖。
 		巫妖免疫毒素、疾病、恐惧、流血、震慑，不需要呼吸，并获得 20%% 寒冷和黑暗抗性。
-		巫妖同时获得 +12 魔力，意志和灵巧，60%% 暴击无视，+4 生命成长（不追加前面等级的生命值），+35 法术和精神豁免，获得 7 法力值恢复。
+		巫妖同时获得 +12 魔力，意志和灵巧，受到的直接暴击额外伤害降低 60%%，+4 生命成长（不追加前面等级的生命值），+35 法术和精神豁免，获得 7 法力值恢复。
 
 		巫妖会获得新的种族技能树，包含以下技能：
 		- 不死之躯：巫妖的身体极其难以摧毁，其生命值可以降到负数，且即使被杀死之后仍然可以复活。
