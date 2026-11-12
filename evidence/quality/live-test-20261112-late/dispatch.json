@@ -1,0 +1,149 @@
+{
+ "run": "late-20261112",
+ "date": "2026-11-12",
+ "purpose": "post-release quality check (not a release precondition)",
+ "baseline": {
+  "addon": "v0.3.12 public release",
+  "tome-chn-mod.teaa": "22706f106ce23075f937bc0d316bb8d9737253d3f5b24f52eac6e3805f2f3fff",
+  "tome-ashes-urhrok.teaa": "ba9c011a4c32a3ed4687d6a40d0e0b276fedc204c89ec51e10855151e4fb5289",
+  "tome-cults.teaa": "9c73c236031409c22aefa780df7a3065940b212ad2b0512cfe459b34609df234",
+  "tome-orcs.teaa": "c9adfa15c94aed31b0e6f3a0c119b6101da9e39313382616039955309abf04ed",
+  "game": "official t-engine4 1.7.6 (~/tome-live, shared, read-only)"
+ },
+ "agents": {
+  "o6a": {
+   "agent": "a4d0245a-e85c-4480-866a-902e250f60e3",
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; used here for testing)",
+   "session": "d7e2fcc6-c59e-4f53-8e59-869661f22e4f",
+   "display": 171,
+   "scene": "core endgame High Peak 巅峰",
+   "result": "budget stop (reads 19/20); UI: 2 monsters, 1 effect, 1 talent ok; console scan 157 talents/37 items ok; findings 0; archived"
+  },
+  "d6a": {
+   "agent": "d74e5c34-6c2a-46b4-bac9-18208adf8c90",
+   "provider": "pi",
+   "model": "opencode-go/deepseek-v4.1-flash",
+   "thinking": "high",
+   "profile": "Worker — DeepSeek V4.1 Flash",
+   "session": "01a1d063-050d-7335-97da-fc78f92cd526",
+   "display": 172,
+   "scene": "Far East Vor Pride 沃尔部落",
+   "result": "budget stop (reads 20, toolCalls 129); 1 monster tooltip ok; d6a-01 duplicate of known module-description advisory; level-up did not apply; archived"
+  },
+  "o6b": {
+   "agent": "a1b22b73-b1c9-4e0a-9a9b-1b12938c144c",
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5",
+   "session": "19d47cb2-3118-4261-ae7f-777929bbef3b",
+   "display": 173,
+   "scene": "Embers late Palace of Fumes 烟雾宫殿",
+   "result": "stopped: full-screen read budget exceeded before reaching map; archived"
+  },
+  "d6b": {
+   "agent": "2c897d0a-8456-4e65-9f8c-3e45298cf41f",
+   "provider": "pi",
+   "model": "opencode-go/deepseek-v4.1-flash",
+   "thinking": "high",
+   "profile": "Worker — DeepSeek V4.1 Flash",
+   "session": "01a1d063-113a-734a-86e0-2f318a530a0c",
+   "display": 174,
+   "scene": "Cults late The Godfeaster 噬神者",
+   "result": "budget stop (toolCalls 144); no UI evidence; console text of 6 monsters; findings d6b-01/02 unverified; used console changeLevel; archived"
+  },
+  "o6b2": {
+   "agent": "925c2a68-e23d-4f43-82de-daecdc98dd8e",
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "display": 175,
+   "scene": "continuation of o6b (Palace of Fumes), new character",
+   "result": "reached Palace of Fumes and saved; stopped on full-screen budget (4/3, downscaled full frames) before any checks; archived"
+  },
+  "o6b3": {
+   "agent": "3018ef35-be1a-4a4c-8124-9f3252bdff1b",
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "display": 176,
+   "result": "fault: copied o6b2 save lacked game.teag (zone cache only); host did not verify save before dispatch; archived"
+  },
+  "o6a2": {
+   "agent": "7f302673-eb50-49a0-9a99-5fa09a262523",
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "display": 177,
+   "scene": "High Peak continuation from o6a save: item generation+Ctrl compare, player talents, elite monsters",
+   "result": "budget stop (19/20, full 3/3); save unusable -> new char Allec; UI: 4 active talents, 1 item + Ctrl compare, 1 rare monster, 3 effect names ok; findings 0; archived"
+  },
+  "o6b4": {
+   "agent": "9626a21d-5621-48f5-90b7-2a4a2b50e71a",
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "display": 178,
+   "scene": "Palace of Fumes, fresh character with known coordinates, crop-only setup",
+   "result": "budget stop (19/20, full 3/3) + game exited after blind input; UI: 9 monsters, 5 talents ok; findings 0; valid save game.teag at Palace of Fumes; archived"
+  },
+  "d6a2": {
+   "agent": "7f440363-6cfb-4fe5-9aee-ff22e8abe6de",
+   "provider": "pi",
+   "model": "opencode-go/deepseek-v4.1-flash",
+   "thinking": "high",
+   "session": "01a1d07c-0e1b-70e1-b374-6d20c115b6de",
+   "display": 179,
+   "scene": "Vor Pride continuation: orc monsters + talent lists, 2 generated items Ctrl compare",
+   "result": "budget stop (reads 31, toolCalls 121); no monster/item/talent coverage; debug menu intermittent, console never opened, opening dialog blocks input; Vor Pride level 3 empty; findings 0; archived"
+  },
+  "o6b5": {
+   "agent": "d19e1921-38a0-4dec-abe7-36b2b898f2c6",
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "display": 180,
+   "scene": "Palace of Fumes items from o6b4 save (game.teag verified): Golden Gun, Jetpack, Medical Urgency Vest hover + Ctrl compare",
+   "result": "budget stop; UI: 7 Embers items (5 ok, 2 issues o6b5-01/02) incl Ctrl compare; archived"
+  },
+  "d6b2": {
+   "agent": "84ca222f-7bc6-4a9c-bf27-b8681ddc2ed9",
+   "provider": "pi",
+   "model": "opencode-go/deepseek-v4.1-flash",
+   "thinking": "high",
+   "session": "01a1d086-2c25-74d0-908c-0e4b6b83cb48",
+   "display": 181,
+   "scene": "Cults Scourged Pits 天灾之穴: monsters, 2 Cults items Ctrl compare",
+   "result": "budget stop; reached Scourged Pits lv50; 1 monster tooltip (天谴龙幼仔) ok; look/items/effects not reached; DLC-bundled zh_hans observation (advisory); host killed game+Xvfb; archived"
+  },
+  "xreview": {
+   "agent": "1bbf073d-2989-490b-9b29-0b59b52cc4cb",
+   "provider": "pi",
+   "model": "opencode-go/deepseek-v4.1-flash",
+   "thinking": "high",
+   "scene": "text-only cross-review of o6b5-01/02"
+  }
+ },
+ "budget": {
+  "reads": 20,
+  "full": 3,
+  "tool_calls": 100,
+  "img_bytes_close_MB": 15,
+  "img_bytes_stop_MB": 20,
+  "note": "self-counted by testers; host read-only stats via stats.py; not a hard limit"
+ }
+}
