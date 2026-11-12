@@ -1139,7 +1139,7 @@ t("power", "能量", "entity subtype")
 t("Automated Portable Extractor", "便携式自动材料提取仪", "entity name")
 t([[The APE is a multifunction tinker toolbox. It can store temporarily any amount of items and when requested melt them down using metallurgic and chemical processes.
 The metals are melted into lumps of ore to server for the creation of tinkers.
-Any remains are melted and turned into valuable materials.]], [[APE 是一个多功能工匠工具箱，可以临时存放任意数量的物品，并在需要时通过冶金和化学工艺将它们熔解。
+Any remains are melted and turned into valuable materials.]], [[提取仪是一个多功能工匠工具箱，可以临时存放任意数量的物品，并在需要时通过冶金和化学工艺将它们熔解。
 金属会被熔成矿块，用于制造配件。
 任何残余都会被熔解并转化为有价值的材料。]], "_t")
 t("melt all the items in the APE at once (also done automatically when you change level)", "立刻熔解提取仪内的所有物品（切换楼层时也会自动熔解）", "_t")
@@ -8230,7 +8230,7 @@ t("time-warped paper scrap", "被时间扭曲的纸片", "_t")
 t("It came a long way away!", "它远道而来！", "_t")
 t("#LIGHT_BLUE#Spacetime shudders for an instant as a note falls out from a different timeline!", "#LIGHT_BLUE#时空发生了一瞬间的震动，一张纸条从另一个时间线掉了出来！", "saySimple")
 t("You gain %0.2f gold from the melting of %s.", "你回收了%s，获得了%0.2f金币。", "log", {2,1})
-t("When you close the inventory window, all items in the APE will be melted.", "当你关闭物品栏的时候，所有APE里面的物品都会被分解。", "_t")
+t("When you close the inventory window, all items in the APE will be melted.", "当你关闭物品栏的时候，提取仪里面的所有物品都会被分解。", "_t")
 t("melt down", "融解", "_t")
 -- untranslated text
 --[==[
