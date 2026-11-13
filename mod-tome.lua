@@ -22585,9 +22585,8 @@ t([[For the next %d turns two alternate versions of you enter your timeline.  Wh
 		你和镜像不会互相伤害。]], "tformat")
 t("Braid Lifelines", "生命线编织", "talent name")
 t([[Your Rethread now braids the lifelines of all targets it hits for %d turns.  Braided targets take %d%% of all damage dealt to other braided targets.
-		The amount of damage shared will scale with your Spellpower.]], [[你的重编时间线技能将目标的生命线编织在一起 %d 回合。
-		受影响的生物将承受其他受影响生物所受伤害的 %d%%。
-		伤害受法术强度加成。]], "tformat")
+		The amount of damage shared will scale with your Spellpower.]], [[你的重编时间线技能会将所有命中目标的生命线编织在一起，持续 %d 回合。受影响的生物将承受其他受影响生物所受伤害的 %d%%。
+		共享伤害的比例受法术强度加成。]], "tformat")
 t("Cease to Exist", "存在抹杀", "talent name")
 t("The timeline is too fractured to do this now.", "时间线过于破碎，你现在无法这么做。", "logPlayer")
 t("#LIGHT_BLUE#%s never existed, this never happened!", "#LIGHT_BLUE#%s从未存在，这一切从未发生！", "logSeen")
@@ -27338,7 +27337,7 @@ section "mod-tome/data/talents/psionic/finer-energy-manipulations.lua"
 t("Realign", "身心调谐", "talent name")
 t("%s is cured!", "%s被治愈！", "logSeen")
 t([[Realign and readjust your body with the power of your mind, curing up to %d detrimental physical effects and healing you for %d life.
-		The life healed increases with your Mindpower.]], [[用你的精神力量校准并调整你的身体，移除最多 %d 负面物理状态并治愈 %d 生命。
+		The life healed increases with your Mindpower.]], [[用你的精神力量校准并调整你的身体，移除最多 %d 个负面物理状态，并恢复 %d 点生命值。
 		治疗量受精神强度加成。]], "tformat")
 t("Form and Function", "武器护甲改造", "talent name")
 t([[Manipulate forces on the molecular level to realign, rebalance, and synergize equipment you wear to your form and function.
