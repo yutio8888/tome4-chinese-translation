@@ -41969,7 +41969,7 @@ t("This talent was recently learnt; you can still unlearn it if you are out of c
 t("Current talent level: ", "当前技能等级：", "_t")
 t(" (%+0.1f bonus level)", " (%+0.1f 额外等级)", "tformat")
 t("<Press 'x' to swap to simple display>", "<按 X 键切换简单显示>", "_t")
-t("First talent level: ", "第一级技能等级：", "_t")
+t("First talent level: ", "初始技能等级：", "_t")
 t("Next talent level", "下一技能等级", "_t")
 t("<Press 'x' to swap to advanced display>", "<按 X 键切换进阶显示>", "_t")
 
