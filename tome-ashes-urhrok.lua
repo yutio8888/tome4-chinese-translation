@@ -1904,7 +1904,7 @@ Race features:#YELLOW#
 ------------------------------------------------
 section "tome-ashes-urhrok/overload/mod/class/DemonologistsDLC.lua"
 
-t("Shadow Power: ", "阴影强度： ", "_t")
+t("Shadow Power: ", "阴影强度：", "_t")
 
 ------------------------------------------------
 section "tome-ashes-urhrok/superload/mod/class/Actor.lua"

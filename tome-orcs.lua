@@ -2135,7 +2135,7 @@ t([["...thing on? Okay, good. This is Haze Commander Parmor of the Geothermal Ex
 
 #{italic}#(The door closes.)#{normal}#
 
-"...Yeah, Councillor Tantalos is getting his tea as soon as he can un-kick the hornet's nest that got us into this chaos.  Moving on...  departure was on time, projected journey to the Loyalist's last known position is underway, making a tunnel there from right under the palace.  All systems functioning, except for the tea-maker, and I can't give a slag about that.  End log."]], [[“……这玩意开着吗？好，好的。我是地热探测鼹鼠GEM的阴霾指挥官帕默，我们正在执行的任务是…”她叹了一口气。“‘寻找忠诚者，将我们安全地运送到他的避难所，并向他提出按他先前开出的条件达成协议。’如果不用官腔的话，就是‘在恐惧中逃跑，逃向唯一能够把我们从这片混乱中解救出来的家伙那里，别忘了把“眼”带走。’就我个人而言，我可不想把我们的命运交到某个生活在地底下的狂人手里，而且…”她含糊不清地抱怨着。“…这根本他妈的不是我的工作，我可不是某些政治家的仆人——”
+"...Yeah, Councillor Tantalos is getting his tea as soon as he can un-kick the hornet's nest that got us into this chaos.  Moving on...  departure was on time, projected journey to the Loyalist's last known position is underway, making a tunnel there from right under the palace.  All systems functioning, except for the tea-maker, and I can't give a slag about that.  End log."]], [[“……这玩意开着吗？好，好的。我是地热探测鼹鼠（G.E.M.）的阴霾指挥官帕默，我们正在执行的任务是…”她叹了一口气。“‘寻找忠诚者，将我们安全地运送到他的避难所，并向他提出按他先前开出的条件达成协议。’如果不用官腔的话，就是‘在恐惧中逃跑，逃向唯一能够把我们从这片混乱中解救出来的家伙那里，别忘了把“眼”带走。’就我个人而言，我可不想把我们的命运交到某个生活在地底下的狂人手里，而且…”她含糊不清地抱怨着。“…这根本他妈的不是我的工作，我可不是某些政治家的仆人——”
 
 #{italic}#（你听到了开门的声音，有另一个人的声音响起）#{normal}#
 
@@ -2185,7 +2185,7 @@ t([[#{italic}#(You hear loud, mechanical rumbling; in the distance, you hear sou
 
 "Mayday, mayday, we are bailing out!  Tantalos is gone, and we are NOT going back for him!  Scrap the tunnel to the Palace of Fumes, scrap the entire damn council, we're getting as far away from here as we can--"  Loud hissing.  "MOTHER OF--!"  Grunts, squishing, slashing.  "Flooring it all the way to the damn Sunwall, we're taking the first farportal off this continent whether those tinies like it or not!  Guess this technically counts as treason, mutiny, whatever, but if the Council's hearing this, BLOW IT OUT YOUR STEAM-HOLES, WE'D RATHER LIVE!  Altitude rising, surface approaching, this is H.C. Parmor signing off--"]], [[#{italic}#（你听到了巨大的机械轰鸣声。远处传来挣扎和殴打的声音、利刃划破血肉的声音、蒸汽枪的枪声，以及巨人和恐魔发出的痛苦怒吼。帕默的声音听起来惊慌失措。）#{normal}#
 
-“求救，求救，我们在撤离！坦塔洛斯完蛋了，我们绝对不会再回去救他的！通往烟雾宫殿的隧道不挖了，那整个该死的议会也不管了，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”闷哼声，挤压声，劈砍声。“给我全速冲向太阳堡垒，我们要通过第一座能离开这片大陆的远行传送门，不管那些小不点喜不喜欢！严格说来，这大概算叛国、哗变，随便你们怎么叫吧，可要是议会在听着，就把你们的屁话塞回自己的蒸汽孔里去，我们宁愿活命！海拔上升，准备接近地面，这里是 H.C. 帕默，播报完毕——”]], "_t")
+“求救，求救，我们在撤离！坦塔洛斯完蛋了，我们绝对不会再回去救他的！通往烟雾宫殿的隧道不挖了，那整个该死的议会也不管了，我们必须赶紧跑，越远越好——”巨大的嘶嘶声。“狗娘——！”闷哼声，挤压声，劈砍声。“给我全速冲向太阳堡垒，我们要通过第一座能离开这片大陆的远行传送门，不管那些小不点喜不喜欢！严格说来，这大概算叛国、哗变，随便你们怎么叫吧，可要是议会在听着，就把你们的屁话塞回自己的蒸汽孔里去，我们宁愿活命！海拔上升，准备接近地面，这里是阴霾指挥官帕默，播报完毕——”]], "_t")
 t("erratic scribblings", "潦草的字迹", "_t")
 t("why is it down there why is it ANYWHERE", "它为什么会在下面？它为什么会出现在任何地方？", "_t")
 t("If anyone finds this, tell the Jarsovi brothers their father lov", "如果有人能找到这张纸，请告诉贾索维兄弟，他们的父亲爱…", "_t")
@@ -2940,7 +2940,7 @@ TANTALOS: "As I thought.  Nashal, prepare the G.E.M. and a retinue of guards and
 
 [沉默。]
 
-坦塔洛斯：“这就对了。纳沙尔，准备好GEM，以及随行的守卫和机械师。我还有要做的事情。散会。”]], "tformat")
+坦塔洛斯：“这就对了。纳沙尔，准备好G.E.M.，以及随行的守卫和机械师。我还有要做的事情。散会。”]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/lore/pocket-time.lua"

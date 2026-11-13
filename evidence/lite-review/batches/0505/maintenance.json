@@ -1,0 +1,11 @@
+{
+ "kind": "maintenance",
+ "date": "2026-11-13",
+ "authorization": "Maintainer 2026-11-13: full-text search for frequently found translation problems; confirmed bounded fixes follow the standing workflow (lite batch + A/B blind review); naming decisions listed separately",
+ "applied": [
+  "Pattern 3 colon labels (same family as 0496): trailing half-width space after full-width colon removed from label+value concatenations: engine.lua Progress (ShowAchievements.lua:123), Currently playing / Validation (UserInfo.lua:35/42); mod-tome.lua Linked by (uiset/Classic.lua:422), Winter Storm (boss-artifacts-maj-eyal.lua:46), Current/First talent level (LevelupDialog.lua:1000/1030/1039/1046); tome-ashes-urhrok.lua Shadow Power (DemonologistsDLC.lua:57 compare_fields). Rule: docs/review-operations-guide.md 6.3 (colon labels keep no trailing space). Debug-only AdvanceActor/PlotTalent labels left as advisory.",
+  "Pattern 3 zone-wide effect texts: 3 of 23 区域效果： entries had a stray space after the colon (mod-tome.lua:36697/36705/36707); aligned with the other 20.",
+  "Pattern 4 abbreviation residue (APE family): tome-orcs.lua:2184 'H.C. Parmor' kept the English abbreviation although the title is translated 阴霾指挥官帕默 at :2130 -> 阴霾指挥官帕默; G.E.M. spelling: :2875 GEM -> G.E.M. (English G.E.M.), :2130 地热探测鼹鼠GEM -> 地热探测鼹鼠（G.E.M.）, matching the five G.E.M. zone/NPC/object entries (:7028/7038/7059-7061)."
+ ],
+ "notes": "Full-text pattern search over 29,554 release-required units at 6ef227f93; evidence evidence/quality/fulltext-patterns-20261113/. Lint-required placeholder spaces were classified and kept."
+}

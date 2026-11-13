@@ -740,7 +740,7 @@ t([[#GOLD#Achieved on:#LAST# %s
 #GOLD#成就获得者：#LAST# %s
 %s
 #GOLD#介绍：#LAST# %s]], "tformat")
-t("Progress: ", "进度： ", "_t")
+t("Progress: ", "进度：", "_t")
 t("-- Unknown --", "-- 未知 --", "_t")
 -- untranslated text
 --[==[
@@ -921,10 +921,10 @@ t("", "", "_t")
 section "engine/engine/dialogs/UserInfo.lua"
 
 t("User: %s", "用户：%s", "tformat")
-t("Currently playing: ", "正在玩： ", "_t")
+t("Currently playing: ", "正在玩：", "_t")
 t("unknown", "未知", "_t")
 t("Game: ", "游戏：", "_t")
-t("Validation: ", "认证状态： ", "_t")
+t("Validation: ", "认证状态：", "_t")
 t("Game has been validated by the server", "游戏被服务器认证", "_t")
 t("Game is not validated by the server", "游戏不被服务器认证", "_t")
 t("Go to online profile", "前往在线用户档案", "_t")
