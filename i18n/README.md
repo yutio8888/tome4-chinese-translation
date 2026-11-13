@@ -6,11 +6,11 @@
 按所属契约保存在受跟踪的 `evidence/`。本文件按命令查询，不是每次修改前的必读清单；检查选择见
 [工作流验证矩阵](../docs/agent-workflow.md#验证矩阵)。
 
-最新已推送 addon 版本：**0.3.12**（2026-11-11，发布仓库 tome4-chn-mod `495aa44`，由本仓库
-`581914a01` 经 `tools/i18n publish --apply --bump` 构建：13,802 条＝核心 8,152＋引擎 189＋DLC 5,461，sha256 `4e1819f9…`；
-插件代码在 0.3.11 基础上新增 `a262ee4`：[leave]、捕熊陷阱 pinned、otber、parasitic、Embers 压力作战服说明、物品增伤行 living（`living##item_property`）。
-GitHub Release [`v0.3.12`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.12) 附带 `tome-chn-mod.teaa`（tag 指向 `495aa44`，包 sha256 `22706f10…`），已回下载核对完整哈希。
-发布凭据见 [`addon-0.3.12.json`](../evidence/releases/addon-0.3.12.json)。打包方式与游戏内置 `utils/te4_pack_module.sh`
+最新已推送 addon 版本：**0.3.13**（2026-11-13，发布仓库 tome4-chn-mod `c05bb96`，由本仓库
+`65bb46dd7`（lite 批 0496–0510：后期实测修复、全文检索修复、11 组技能撞名改名）经 `tools/i18n publish --apply --bump` 构建：
+13,819 条＝核心 8,169＋引擎 189＋DLC 5,461，locale sha256 `9f813215…`；插件代码与 0.3.12 相同（`a262ee4`）。
+GitHub Release [`v0.3.13`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.13) 附带 `tome-chn-mod.teaa`（tag 指向 `c05bb96`，包 sha256 `ad013402…`，5,012,623 字节），已回下载核对完整哈希。
+发布凭据见 [`addon-0.3.13.json`](../evidence/releases/addon-0.3.13.json)；上一版 0.3.12 见 [`addon-0.3.12.json`](../evidence/releases/addon-0.3.12.json)。打包方式与游戏内置 `utils/te4_pack_module.sh`
 一致：`git archive` 取干净树后在其中 `zip -r -0`，`init.lua` 位于根目录，文件名为 `for_module-short_name.teaa`（引擎只识别 `tome-` 前缀）。
 `publish --bump` 只递增补丁号，次版本号需手动改发布仓库 `init.lua`（该文件为 CRLF 行尾）。
 

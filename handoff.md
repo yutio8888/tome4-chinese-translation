@@ -74,6 +74,18 @@
 - 证据：`evidence/quality/fulltext-patterns-20261113/rename-11-post-disposition.md`。
 - 剩余缺口：Cults 效果 Persistant Will 仍译「坚定意志」，与 Unbreakable Will 同名（效果与技能之间，未授权）。其余 12 组、ego、Clork、潜行侦测都不在本次范围。
 
+**2026-11-13 发布 0.3.13（维护者「请进行发布」）：**
+- 来源：`65bb46dd7`（0496–0510）。13,819 条＝核心 8,169＋引擎 189＋DLC 5,461，locale sha256 `9f813215…`。
+- 发布仓库：`c05bb96`（从 495aa44 快进，没有强推）。tag `v0.3.13`；公开正式 Release id 444417036，标记为 Latest。
+- 资产：`tome-chn-mod.teaa`，5,012,623 字节，sha256 `ad013402…`，31 个文件（stored）。
+- 技术核对：
+  - 对 HEAD 跑完整 ci-gates，ALL GATES PASSED；
+  - publish 运行时校验 19,144 键，全部为 0；
+  - smoke_release 通过；
+  - 回下载后与 git archive 逐字节一致。
+- 没有做本地游戏验收，由玩家在发布后验收。发布说明列出了检查点，并写明此前的测试是公开 0.3.12 上的 debug-ui。
+- 凭据：`evidence/releases/addon-0.3.13.json`，说明：`addon-0.3.13-release-notes.md`。
+
 **0.3.11 已发布**（2026-11-11，发布仓库 `47f74c3`，含 0462–0479 批与 light 子类型插件代码 `4dd38b0`），凭据 `evidence/releases/addon-0.3.11.json`。
 
 **2026-11-07～11-09 完成：**
