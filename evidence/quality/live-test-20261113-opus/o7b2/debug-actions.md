@@ -1,0 +1,9 @@
+- 00:34 boot.sh (start+load save)
+- 00:35 console: makeEntityByName SPINAL_CAGE/ROD_ENTROPY/FANGED_COLLAR, identify, addObject INVEN
+- 00:36 console retry ROD_ENTROPY
+- 00:36 console: triggerVirtual SHOW_INVENTORY
+- 00:37 console: triggerVirtual SHOW_INVENTORY (retry)
+- 00:37 console: P:showEquipInven direct
+- 00:40 Esc closed inventory; console: learnTalentType demented/madness, learnTalent INSANITY_POOL, DARK_WHISPERS x5, HIDEOUS_VISIONS x5 (console instead of debug-menu k: dbgopen.sh probes display 192 of another tester, not used)
+- 00:41 console: registerDialog(mod.dialogs.UseTalents.new(P))
+- 00:43 console: P.hotkey[1]/[2] = Dark Whispers / Hideous Visions

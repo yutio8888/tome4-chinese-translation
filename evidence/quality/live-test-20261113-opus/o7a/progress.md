@@ -1,0 +1,4 @@
+- 00:03 start o7a
+- 00:10 5 monster tooltips done (gma, soldier, rare pyro, wyrmic, high pyro). reads=7/20 full=2/3 calls≈28/100 img_bytes=1.14/15
+- 00:13 monster sheet+2 talents done; begin wrap-up at reads=15. reads=15/20 full=3/3 calls≈56/100 img_bytes=1.61/15
+- 00:13 done. reads=15/20 full=3/3 calls≈59/100 img_bytes=1.61/15

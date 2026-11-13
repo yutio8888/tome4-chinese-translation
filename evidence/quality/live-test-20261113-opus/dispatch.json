@@ -1,0 +1,132 @@
+{
+ "run": "opus-20261113",
+ "date": "2026-11-13",
+ "purpose": "post-release quality check (not a release precondition, not natural playthrough)",
+ "baseline": {
+  "addon": "v0.3.12 public release",
+  "tome-chn-mod.teaa": "22706f106ce23075f937bc0d316bb8d9737253d3f5b24f52eac6e3805f2f3fff",
+  "game": "official t-engine4 1.7.6 + ashes-urhrok/cults/orcs (shared, read-only; same hashes as run-20261112-late)"
+ },
+ "prep": "host built core char Astajed (halfling alchemist, lv50, demigod, all talents) on display 185 with cheat.cfg; debug-menu zone change only; saveGame per scene; each snapshot load-tested (desc + LOADCHK zone/level, Lua Error 0). Display 185 stopped.",
+ "budget": "reads 20 / full 3 / tool calls 100 / img 15MB wrap, 20MB stop; early wrap at 16 reads or 80 calls",
+ "agents": {
+  "o7a": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; used here for testing)",
+   "agent": "54380866-e2fa-4522-ae08-8a4a8c3dc3c8",
+   "session": "90628816-d1fc-4417-8bc2-e42ccbb38eb7",
+   "display": 191,
+   "scene": "Vor Pride 1 (prep save snap/vor, 82 actors incl. orc warrior/soldier/cryomancer/assassin/grand master assassin/wyrmic)",
+   "result": "budget (reads 15, full 3; session calls 61): 5 orc tooltips ok, GMA sheet + 2 talents; o7a-01 confirmed (Deadly Strikes vs Death Blow 致命打击); archived"
+  },
+  "o7b": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; used here for testing)",
+   "agent": "f9a10551-d9c8-450b-84ab-b01143d1e727",
+   "session": "90e72f04-244a-43c0-96bc-c1922ae24d23",
+   "display": 192,
+   "scene": "cults+scourged-pits 1 (snap/cults, 93 actors: scourge drake/wyrm, void horror, netherworm mass); Cults artifacts; insanity",
+   "result": "budget (reads 16, full 3; session calls 72): 3 monster sheets, 4 monster talents, insanity bar ok; Cults items generated but inventory did not open; archived"
+  },
+  "o7c": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; used here for testing)",
+   "agent": "8338d7ae-8717-44db-b0a5-151b573ee475",
+   "session": "4fdd91e7-ea71-454a-99a9-98bd39c7f9d0",
+   "display": 193,
+   "scene": "High Peak 1 (snap/hp, 32 actors); passives, weapon/armour Ctrl compare, ELANDAR via console placement",
+   "result": "budget stop: full-screen 4/3 (first-run connectivity welcome not in prompt -> host fault; thumbnails to find coords); reads 8, calls 27 (session file); passives 2 ok; archived"
+  },
+  "o7d": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; used here for testing)",
+   "agent": "c01602be-82ca-412d-938b-e3a96950cda6",
+   "session": "42a6a657-a2f8-4d0e-a25b-2c92f3b5e73a",
+   "display": 194,
+   "scene": "Palace of Fumes 1 (o6b4 save, loaded OK by o6b5); tinkers, tinker attach, COUNCIL2 via console placement",
+   "result": "budget (reads 16, full 3; session calls 62): 3 tinker tooltips ok, attach dialog ok, Tormak map tooltip ok; archived"
+  },
+  "o7c2": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; used here for testing)",
+   "agent": "7dde3804-8658-4aed-8696-5531a694e908",
+   "display": 195,
+   "scene": "High Peak 1 continuation (o7c home copy; boot.sh host-tested to 巅峰(1)); Danger Sense crop, weapon/armour Ctrl compare, ELANDAR",
+   "result": "budget (reads 16, full 3; session calls 81): Danger Sense (o7c2-01 confirmed), weapon+body armour Ctrl compare ok, Elandar tooltip + sheet + 1 talent ok; archived",
+   "session": "aea26910-8b7e-4e60-a586-1970c2c8b00d"
+  },
+  "o7a2": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; used here for testing)",
+   "agent": "28e3fb1e-c488-46a6-abb2-1c246eda89fb",
+   "session": "8555d640-cc63-4754-b708-aaecc3ae4f7c",
+   "display": 197,
+   "scene": "Vor Pride 1 continuation",
+   "result": "budget (reads 16, full 3; session calls 69): 3 items ok (dagger vs staff compare, belt, gem), icy orc wyrmic sheet + 2 talents ok; effect tooltip not reached (log only); archived"
+  },
+  "o7b2": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; used here for testing)",
+   "agent": "e49e9681-097d-4c3f-9f23-1d3567a88d58",
+   "session": "df3dae33-bda1-495a-9bac-037c8a42f6bd",
+   "display": 198,
+   "scene": "Scourged Pits 1 continuation",
+   "result": "budget (reads 16, full 3; session calls 71): Spinal Cage (+Ctrl), Fanged Collar (o7b2-01 confirmed), Rod of Entropy; madness Dark Whispers/Horrific Visions ok; archived"
+  },
+  "o7d2": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; used here for testing)",
+   "agent": "fd0a587f-e1a2-4d9a-a064-44fd7ad54a6d",
+   "session": "5cebe422-d640-4d02-9b0b-8488df669e09",
+   "display": 196,
+   "scene": "Palace of Fumes 1 continuation (host-tested setup.sh)",
+   "result": "budget full 3/3 (reads 7; session calls 21): tinker line on equipped armour + tinker slot tooltip ok; archived"
+  },
+  "o7d3": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; used here for testing)",
+   "agent": "b56a1866-e0d8-4370-a325-8b0b469ca129",
+   "session": "06e2f77c-4a4b-4c55-88a2-1c7b7ca0b12d",
+   "display": 199,
+   "scene": "Palace of Fumes 1 continuation",
+   "result": "done (reads 13, full 3; session calls 45): Tormak sheet + 2 talents, 3 steamtech talents in levelup ok; archived"
+  }
+ },
+ "lifecycle": "all 9 testers archived after harvest; testers kill -9 own games; host stopped Xvfb :185 (prep) and :191-:199; pre-existing :141-:144, :151 untouched"
+}

@@ -1,0 +1,3 @@
+#!/bin/bash
+# focus.sh: refocus game window and release ctrl (run before keys like i / l if they stop responding)
+X="/home/paseo/tome-live/bin/tl-x __N__ __D__"; W=$($X search --onlyvisible --name . 2>/dev/null | tail -1); [ -n "$W" ] && $X windowfocus $W; $X keyup ctrl; echo "focused $W"

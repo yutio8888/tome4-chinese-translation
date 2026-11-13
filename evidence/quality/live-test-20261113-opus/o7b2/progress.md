@@ -1,0 +1,5 @@
+- 00:36 boot ok zone 天灾之穴(1); items generated; reads=2/20 full=1/3 calls≈12/100 img_bytes=0.26/15
+- 00:39 inventory hovers spinal/collar, ctrl compare; reads=8/20 full=3/3 calls≈33/100 img_bytes=1.24/15
+- 00:42 items done; console typed directly (con.sh pixel check failed on black console); reads=11/20 full=3/3 calls≈57/100 img_bytes=1.63/15
+- 00:44 Dark Whispers ok; reads=15/20 full=3/3 calls≈66/100 img_bytes=2.1/15
+- 00:44 Hideous Visions ok; wrap-up at reads=16; reads=16/20 full=3/3 calls≈70/100 img_bytes=2.27/15

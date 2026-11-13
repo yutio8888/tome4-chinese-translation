@@ -1,0 +1,3 @@
+- 00:03 start: TL_GPU=1 tl-start o7c 193; load save Astajed
+- 00:05 console: list passive talents (print)
+- 00:07 kill -9 701678 (own t-engine)

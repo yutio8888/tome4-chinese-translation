@@ -1,0 +1,12 @@
+#!/bin/bash
+# boot.sh: start game, dismiss first-run connectivity welcome (clicks are harmless if absent), load the save, print crop path of zone name
+N=__N__; D=__D__; B=/home/paseo/tome-live/bin
+TL_GPU=1 $B/tl-start $N $D; timeout 30 tail -f /dev/null
+$B/tl-x $N $D mousemove 1028 620 click 1; timeout 2 tail -f /dev/null
+$B/tl-x $N $D mousemove 1148 666 click 1; timeout 3 tail -f /dev/null
+$B/tl-x $N $D mousemove 512 115 click 1; timeout 3 tail -f /dev/null
+$B/tl-x $N $D mousemove 212 130 click 1; timeout 2 tail -f /dev/null
+$B/tl-x $N $D mousemove 205 808 click 1; timeout 20 tail -f /dev/null
+$B/tl-x $N $D mousemove 1200 880
+f=$($B/tl-shot $N $D boot); c=${f%.png}-zone.png
+python3 -c "import sys;from PIL import Image;Image.open(sys.argv[1]).crop((1380,0,1600,22)).save(sys.argv[2])" "$f" "$c"; echo "ZONE_CROP $c"
