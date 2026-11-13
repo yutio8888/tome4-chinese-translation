@@ -1,0 +1,15 @@
+{
+ "confirmed": [
+  {
+   "id": "b3c1abe67f81",
+   "edit": [
+    "你获得一次机会重新抵抗未成功抵抗的负面效果，豁免为正常豁免 %+d。",
+    "对于可以豁免的负面效果，若豁免失败，你还有一次额外的抵抗机会（有效豁免值为正常豁免 %+d）。"
+   ],
+   "evidence": "B: survival.lua:135 'effects that can be resisted'; Actor.lua:7651-7655/7680-7688 only resistable effects reach the extra save (dropped qualifier). A: detect 'power' 侦察强度 -> 侦测强度 (library 15 vs 3) in lines 2 and 5. Lint-required spaces before （+%d and after ； kept."
+  }
+ ],
+ "advisory": [],
+ "rejected": [],
+ "notes": "b3c1abe67f81 Danger Sense: A and B both ISSUE. Confirmed: (1) B dropped qualifier 'effects that can be resisted' (survival.lua:135; Actor.lua:7651-7655/7680-7688 only resistable effects reach the extra save) -> line rewritten with 可以豁免的负面效果 and 有效豁免值; (2) A detect 'power' term: library uses 侦测强度 x15 vs 侦察强度 x3 (all in this family) -> Danger Sense x2 and Disarm Trap (mod-tome.lua:23571) aligned to 侦测强度. Not applied: A/B removal of the half-width space before （+%d and after ；- both required by lint talent-placeholder-spacing / placeholder spacing rules (0498 lint error offsets=[49] when removed). Host consistency edit outside the reviewed unit: Disarm Trap (mod-tome.lua:23571) （侦察强度 %d） -> （侦测强度 %d）, the last 侦察强度 in the library; it is re-reviewed in 0500 as a changed unit."
+}

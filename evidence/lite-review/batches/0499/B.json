@@ -1,0 +1,19 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "b3c1abe67f81",
+   "verdict": "ISSUE",
+   "observation": "漏掉额外豁免只适用于可豁免负面效果的限定。原文 survival.lua:135 明确为 effects that can be resisted；固定提交 game/modules/tome/class/Actor.lua:7651-7655 仅在有 apply_power 且有效果类型对应豁免或 apply_save 时进行豁免，7680-7688 才在该分支内触发 Danger Sense 的额外检查；survival.lua:119-124 执行第二次豁免。当前“重新抵抗未成功抵抗的负面效果”未交代必须可进行豁免，易误解为所有未挡住的负面效果均可重试。",
+   "suggestion": "你拥有了更高级的自我保护感知力，敏锐的直觉让你察觉到他人会忽略的危险。\n\t\t你感知陷阱的能力提升了（+%d 点侦察强度）。\n\t\t对你发动的暴击，其暴击加成伤害降低 %0.1f%%；攻击者因未被你看见而获得的伤害加成倍率减小 %d%%。\n\t\t对于可通过豁免抵抗的负面效果，若首次豁免失败，你还可额外进行一次豁免检定，有效豁免值为正常豁免值 %+d。\n\t\t侦察强度和额外豁免几率随灵巧提升。"
+  },
+  {
+   "id": "47637b49b4fc",
+   "verdict": "OK"
+  },
+  {
+   "id": "ee4d558473eb",
+   "verdict": "OK"
+  }
+ ]
+}

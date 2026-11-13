@@ -23557,10 +23557,10 @@ t([[You have an enhanced sense of self preservation, and your keen intuition all
 		Critical attacks against you have %0.1f%% reduced bonus damage, and damage bonuses attackers gain against you for being unseen are reduced by %d%%.
 		You also gain an additional chance (at your normal save %+d, effective) to resist detrimental status effects that can be resisted.
 		The detection and additional save chance improve with Cunning.]], [[你拥有了更高级的自我保护感知力，敏锐的直觉让你察觉到他人会忽略的危险。
-		你感知陷阱的能力提升了 （+%d 点侦察强度）。
+		你感知陷阱的能力提升了 （+%d 点侦测强度）。
 		对你发动的暴击，其暴击加成伤害降低 %0.1f%%； 攻击者因未被你看见而获得的伤害加成倍率减小 %d%%。
-		你获得一次机会重新抵抗未成功抵抗的负面效果，豁免为正常豁免 %+d。
-		侦察强度和额外豁免几率随灵巧提升。]], "tformat")
+		对于可以豁免的负面效果，若豁免失败，你还有一次额外的抵抗机会（有效豁免值为正常豁免 %+d）。
+		侦测强度和额外豁免几率随灵巧提升。]], "tformat")
 t("Disarm Trap", "解除陷阱", "talent name")
 t("#CADET_BLUE#Disarm A Trap: (direction keys to select where to disarm, shift+direction keys to move freely)", "#CADET_BLUE#解除陷阱：（方向键选择解除方向，Shift+方向键可以移动）", "log")
 t("#CADET_BLUE#You don't have the skill to disarm traps.", "#CADET_BLUE#你没有能解除陷阱的技能。", "logPlayer")
@@ -23568,7 +23568,7 @@ t("#CADET_BLUE#You cannot disarm traps in grids you cannot enter.", "#CADET_BLUE
 t("#CADET_BLUE#You don't see a trap there.", "#CADET_BLUE#你在这里并没有发现陷阱。", "logPlayer")
 t([[You search a nearby grid for a hidden trap (%d detection 'power') and disarm it if possible (%d disarm 'power', based on your skill with %s).
 		Disarming a trap requires at least a minimum skill level, and you must be able to enter the trap's grid to manipulate it, though you stay in your current location.  A failed attempt to disarm a trap may trigger it.
-		Your skill improves with your your Cunning.]], [[你搜索邻近的一个地格中隐藏的陷阱（侦察强度 %d）， 并在可能时将其解除（解除强度 %d， 取决于你的%s技能）。
+		Your skill improves with your your Cunning.]], [[你搜索邻近的一个地格中隐藏的陷阱（侦测强度 %d）， 并在可能时将其解除（解除强度 %d， 取决于你的%s技能）。
 		解除陷阱有最低技能等级需求，且你必须能够进入陷阱所在的地格才能操作，但实际仍留在当前位置。解除陷阱失败可能会触发陷阱。
 		解除能力随灵巧值提升。]], "tformat")
 
