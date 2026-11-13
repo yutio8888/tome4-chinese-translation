@@ -4564,7 +4564,7 @@ t([[You send a saw mounted on an automated steam propulsor to assault a foe, dea
 		The damage will increase with your Steampower.]], [[你用自动蒸汽弹射器向敌人发射一把链锯，每回合造成 %0.2f 物理伤害，并沉默敌人，持续 4 回合。
 		持续时间结束后，链锯爆炸，造成 %0.2f 的火焰伤害并飞回，将目标向你的位置拉扯至多 %d 格。
 		伤害受蒸汽强度加成。]], "tformat")
-t("Mow Down", "肢解", "talent name")
+t("Mow Down", "绞肉收割", "talent name")
 t([[When you kill a foe with a melee strike you quickly throw some of their remains in your steam engine, instantly regenerating %d steam.
 		When you deal a critical melee strike you also have a %d%% chance to cut a part of your foe and use it in your steam engine.
 		When either of those happens this strikes fear in all foes in radius 4 of the victim, brainlocking them for %d turns.
