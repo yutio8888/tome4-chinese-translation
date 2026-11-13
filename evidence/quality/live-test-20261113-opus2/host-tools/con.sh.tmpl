@@ -1,0 +1,13 @@
+#!/bin/bash
+# con.sh [-k] cmds...: refocus game window, ensure Lua console open (pixel (10,600)~76 or left border (2,300)/(2,600)~(101,99,81) & (300,8)<20), type cmds; -k keeps console open
+N=__N__; D=__D__; X="/home/paseo/tome-live/bin/tl-x $N $D"
+W=$($X search --onlyvisible --name . 2>/dev/null | tail -1); [ -n "$W" ] && $X windowfocus $W 2>/dev/null; $X keyup ctrl 2>/dev/null
+K=0; [ "$1" = -k ] && { K=1; shift; }
+chk(){ f=$(/home/paseo/tome-live/bin/tl-shot $N $D cchk); python3 -c "
+import sys;from PIL import Image
+a=Image.open(sys.argv[1]).convert('RGB');b=lambda q:all(abs(x-y)<10 for x,y in zip(a.getpixel(q),(101,99,81)));print(a.getpixel((300,8))[0]<20 and ((abs(a.getpixel((10,600))[0]-76)<8) or (b((2,300)) and b((2,600)))))" "$f"; rm -f "$f"; }
+ok=0; for i in 1 2 3 4 5; do [ "$(chk)" = True ] && { ok=1; break; }; $X key ctrl+l; timeout 2 tail -f /dev/null; done
+[ $ok = 1 ] || { echo "CONSOLE NOT OPEN"; exit 1; }
+for c in "$@"; do $X type "$c"; $X key Return; timeout 1 tail -f /dev/null; done
+[ $K = 0 ] && { $X key Escape; timeout 1 tail -f /dev/null; }
+$X keyup ctrl 2>/dev/null; true

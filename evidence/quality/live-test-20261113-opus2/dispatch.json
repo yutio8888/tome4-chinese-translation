@@ -1,0 +1,67 @@
+{
+ "run": "opus2-20261113",
+ "date": "2026-11-13",
+ "purpose": "post-release quality check (maintainer explicitly requested local agent testing; not a release precondition, not natural playthrough)",
+ "baseline": {
+  "addon": "v0.3.12 public release (shared install, read-only; no candidate package this round)",
+  "tome-chn-mod.teaa": "22706f106ce23075f937bc0d316bb8d9737253d3f5b24f52eac6e3805f2f3fff",
+  "game": "official 1.7.6 + ashes-urhrok/cults/orcs, same hashes as run-20261112-late"
+ },
+ "prep": "saves copied from previous round homes (game.teag present, unchanged sizes); boot.sh (welcome-dialog click-through + load) and setup.sh run by host from a clean boot on each display, S8 lines verified, Lua Error 0; host test games killed before dispatch",
+ "budget": "reads 20 / full 3 / tool calls 100 / img 15MB wrap, 20MB stop; early wrap at 16 reads or 80 calls",
+ "agents": {
+  "o8a": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; profile re-read 2026-11-13, unchanged)",
+   "agent": "1dbe1522-f424-47e2-bea2-c684d9f6260c",
+   "display": 201,
+   "scene": "High Peak 1 (o7c2 home save); ELANDAR+ARGONIEL placed by setup.sh; Elandar attack/defence pages + 2 more talents; Argoniel tooltip/sheet/talents",
+   "session": "d2eb9d23-4806-4b0c-aa46-0069dfade21a",
+   "result": "done (reads 13, full 1; session calls 36): Elandar general/attack/defence pages + 3 talents ok; Argoniel (library name 艾格尼尔; host prompt wrongly wrote 阿尔格尼尔) tooltip + sheet + 2 talents ok; findings 0; archived"
+  },
+  "o8b": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; profile re-read 2026-11-13, unchanged)",
+   "agent": "3265a66f-89f1-4922-a243-8f7cb9c06622",
+   "display": 202,
+   "scene": "Vor Pride 1 (o7a2 home save); VOR placed, ORB_ELEMENTS+CROWN_ELEMENTS moved to player, EFF_SLOW/EFF_DAZED applied (debug); effect icon tooltips, unique items + Ctrl, Vor sheet",
+   "session": "bd5b484b-e948-47f7-9440-b2d98228f414",
+   "result": "budget early-wrap (reads 17, full 2; session calls 53): effect tooltips slow/daze/zone aura ok (buff icons at right x~1520-1558,y~200); Orb of Command (Elemental) + Crown of the Elements + Ctrl ok; Vor tooltip + talents page + 1 talent ok; findings 0; archived"
+  },
+  "o8c": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; profile re-read 2026-11-13, unchanged)",
+   "agent": "e2f1b5d1-559c-48ec-8549-b9198ec7ffe9",
+   "display": 203,
+   "scene": "Scourged Pits 1 (o7b2 home save); madness tree + insanity pool + 4 talents lv3 via setup.sh; Sanity Warp, Cacophony, insanity-dependent text",
+   "session": "117069c0-a525-4063-9690-bed8171a07c9",
+   "result": "done (reads 10, full 1; session calls 41): Sanity Warp, Cacophony (insanity cost 10) levelup + hotbar tooltips ok; insanity bar at 60 ok; findings 0; archived"
+  },
+  "o8d": {
+   "provider": "claude",
+   "model": "claude-opus-5-5",
+   "modeId": "auto",
+   "thinking": "medium",
+   "fast_mode": false,
+   "profile": "Contextual Reviewer — Opus 5.5 (only Opus profile; profile re-read 2026-11-13, unchanged)",
+   "agent": "7ad49d41-3983-480e-8e53-36c3c4142997",
+   "display": 204,
+   "scene": "Palace of Fumes 1 (o7d3 home save); COUNCIL2 placed; CreateTinker dialog + crafted tinker; Tormak attack/defence pages + 2 more talents",
+   "session": "a2e80b1e-dedc-40e7-85df-1e6e4fa34edb",
+   "result": "budget full 3/3 (reads 16; session calls 44): CreateTinker dialog, missing-materials popup, crafted tier-5 tinker tooltip ok; o8d-01 status column truncation confirmed; Tormak attack/defence pages ok; 2 extra Tormak talents not reached; archived"
+  }
+ },
+ "lifecycle": "all 4 testers archived after harvest; testers kill -9 own games; host stopped Xvfb :201-:204 and killed its own boot/setup test games before dispatch; pre-existing :141-:144, :151 untouched"
+}
