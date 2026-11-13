@@ -57,6 +57,23 @@
   - 以上都没有自动改名。
 - 限制：正则没有命中，不代表没有同类语义错误；窄列只做了静态估算。
 
+**2026-11-13 11 组玩家技能撞名改名（维护者同意「先处理 11 组」）：** 名称由 Gemini 4 Argon 提议（agent `32059e0c`，已归档），主代理核实前提，并做了双向查重：所有首选在全库出现 0 次。
+- 改名：
+  - 保留「重组」给 Re-assemble；Realign→身心调谐，Reform→重聚成形，Rethread→重编时间线；
+  - Quake→震地猛击；
+  - Brutality→狂暴虐杀（保留「无情」给 Pitiless）；
+  - Eldritch Infusion→秘法灌注；
+  - Dual Arrows→双箭齐发（保留「双重射击」给 Double Shots）；
+  - Mow Down→绞肉收割；
+  - Resolve→抗逆决意（含自身效果）；
+  - Swift Shot→疾风投射（含自身效果）；
+  - Quickened→思维加速；
+  - Smokescreen→烟幕障眼（含 Mastery 与伤害类型）；
+  - Terrorize→恐吓震慑。
+- 提交：0508（`dce845204`）修改 27 条；0509（`a7b6dd88d`）盲审修 2 处原有措辞问题；0510（`a26c89eef`）盲审 ISSUE 0。
+- 证据：`evidence/quality/fulltext-patterns-20261113/rename-11-post-disposition.md`。
+- 剩余缺口：Cults 效果 Persistant Will 仍译「坚定意志」，与 Unbreakable Will 同名（效果与技能之间，未授权）。其余 12 组、ego、Clork、潜行侦测都不在本次范围。
+
 **0.3.11 已发布**（2026-11-11，发布仓库 `47f74c3`，含 0462–0479 批与 light 子类型插件代码 `4dd38b0`），凭据 `evidence/releases/addon-0.3.11.json`。
 
 **2026-11-07～11-09 完成：**
