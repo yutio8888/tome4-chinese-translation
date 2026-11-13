@@ -8210,7 +8210,7 @@ t("Requires items:", "需要物品：", "_t")
 t("Requires:", "需求：", "_t")
 t("Example Item:", "样品：", "_t")
 t("body", "躯体", "_t")
-t("create tier( %s )", "可制作材质等级(%s)", "tformat")
+t("create tier( %s )", "可制作 %s 级", "tformat")
 t("missing reqs", "条件不足", "_t")
 -- untranslated text
 --[==[
