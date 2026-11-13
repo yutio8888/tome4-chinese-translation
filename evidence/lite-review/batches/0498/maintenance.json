@@ -1,0 +1,10 @@
+{
+ "kind": "maintenance",
+ "date": "2026-11-13",
+ "authorization": "Maintainer 2026-11-13: Opus-only live test round; standing workflow fixes verified findings (lite batch + A/B blind review); pure-name collision adopts Gemini per user directive 2026-09-27",
+ "applied": [
+  "o7c2-01 Danger Sense description: make last line use the same term as line 2 (侦测点数 -> 侦察强度; 'additional save chance' -> 额外豁免几率) (mod-tome.lua:23563; the space before （+%d reported by the tester is kept: lint talent-placeholder-spacing requires it for the level-up preview token; source cunning/survival.lua Danger Sense info)",
+  "o7a-01 name collision: NPC talent Deadly Strikes (T_DEADLY_STRIKES, misc/npcs.lua) and its effect name shared 致命打击 with player Death Blow (2hweapon.lua, plus 3 Death Blow logs); Deadly Strikes renamed 致命破击 (mod-tome.lua:26507 talent name, :36053 effect name); Gemini 4 Argon first choice, two-way check: 致命破击 unused (破击 alone is the 'sunder' effect subtype)"
+ ],
+ "notes": "Found live by o7c2 (High Peak, talent tooltip) and o7a (Vor Pride, orc grand master assassin talent page), both debug-ui. Evidence evidence/quality/live-test-20261113-opus/. Death Blow keeps 致命打击."
+}

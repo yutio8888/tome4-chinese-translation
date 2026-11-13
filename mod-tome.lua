@@ -23560,7 +23560,7 @@ t([[You have an enhanced sense of self preservation, and your keen intuition all
 		你感知陷阱的能力提升了 （+%d 点侦察强度）。
 		对你发动的暴击，其暴击加成伤害降低 %0.1f%%； 攻击者因未被你看见而获得的伤害加成倍率减小 %d%%。
 		你获得一次机会重新抵抗未成功抵抗的负面效果，豁免为正常豁免 %+d。
-		侦测点数和豁免随灵巧提升。]], "tformat")
+		侦察强度和额外豁免几率随灵巧提升。]], "tformat")
 t("Disarm Trap", "解除陷阱", "talent name")
 t("#CADET_BLUE#Disarm A Trap: (direction keys to select where to disarm, shift+direction keys to move freely)", "#CADET_BLUE#解除陷阱：（方向键选择解除方向，Shift+方向键可以移动）", "log")
 t("#CADET_BLUE#You don't have the skill to disarm traps.", "#CADET_BLUE#你没有能解除陷阱的技能。", "logPlayer")
@@ -26504,7 +26504,7 @@ t("Willful Combat", "战斗意志", "talent name")
 t([[For %d turns, you put all your will into your blows, adding %d physical power to each strike.
 		The effect will improve with your Cunning and Willpower stats.]], [[在 %d 回合内，你将全部意志用来强化你的打击，在打击时额外获得 %d 物理强度。
 		效果受你的灵巧值和意志值加成。]], "tformat")
-t("Deadly Strikes", "致命打击", "talent name")
+t("Deadly Strikes", "致命破击", "talent name")
 t([[You hit your target, doing %d%% damage. If your attack hits, you gain %d armor penetration (APR) for %d turns.
 		The APR will increase with your Cunning.]], [[你打击目标，造成 %d%% 伤害。如果你击中了目标，你获得 %d 护甲穿透，持续 %d 回合。
 		护甲穿透受你的灵巧值加成。]], "tformat")
@@ -36050,7 +36050,7 @@ t("Perfect Accuracy", "完美命中", "_t")
 t("The target's accuracy is improved by %d.", "目标的命中提高 %d。", "tformat")
 t("#Target# aims carefully.", "#Target#仔细地瞄准。", "_t")
 t("#Target# aims less carefully.", "#Target#不再仔细瞄准。", "_t")
-t("Deadly Strikes", "致命打击", "_t")
+t("Deadly Strikes", "致命破击", "_t")
 t("The target's armour penetration is increased by %d.", "目标护甲穿透提高 %d。", "tformat")
 t("Frenzy", "狂热", "_t")
 t([[Increases global action speed by %d%% and physical crit by %d%%.
