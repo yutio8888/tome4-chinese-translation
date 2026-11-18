@@ -26258,7 +26258,7 @@ t([[Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire d
 		伤害受法术强度加成。]], "tformat")
 t("Ice Bolt", "寒冰飞矢", "talent name")
 t([[Hurl ice shard at the target dealing %0.2f ice damage.
-		The damage will increase with your Spellpower.]], [[释放寒冰飞矢，对目标造成 %0.2f 点冰冻伤害。
+		The damage will increase with your Spellpower.]], [[释放寒冰飞矢，对目标造成 %0.2f 点寒冰伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Blight Bolt", "枯萎箭", "talent name")
 t([[Projects a bolt of pure blight, doing %0.2f blight damage.
