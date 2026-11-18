@@ -3406,9 +3406,9 @@ t([[Smash your target with a splintering glass attack doing %d%% arcane weapon d
 		If this attack hits the target will have glass splinters for 6 turns.
 		Each turn the target will bleed for 8%% of the attack damage. The splinters are very painful and if the target moves it will instantly take %d%% of the attack damage.
 		At level 5 the target suffers so much it has 15%% chances to fail using talents.]], [[使用玻璃碎片攻击敌人，造成 %d%% 奥术武器伤害。
-		如果攻击命中，目标将被玻璃碎片扎 6 回合。
+		如果攻击命中，玻璃碎片将刺入目标体内，持续 6 回合。
 		每回合目标将受到 8%% 攻击伤害的流血伤害。
-		同时每当目标移动时，受到 %d%% 攻击伤害。
+		碎片令目标极为痛苦，每当目标移动时，会立即受到 %d%% 攻击伤害。
 		技能等级 5 后，目标有 15%% 几率使用技能失败。]], "tformat")
 t("Throw Pebble", "投掷鹅卵石", "talent name")
 t("something", "某物", "_t")

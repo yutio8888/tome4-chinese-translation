@@ -1,0 +1,886 @@
+{
+ "batch": "0519",
+ "core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "count": 52,
+ "lanes": [
+  "A",
+  "B"
+ ],
+ "sections": [
+  "engine/engine/dialogs/VideoOptions.lua",
+  "mod-tome/data/talents/chronomancy/flux.lua",
+  "mod-tome/data/talents/chronomancy/temporal-hounds.lua",
+  "mod-tome/data/talents/chronomancy/threaded-combat.lua",
+  "mod-tome/data/talents/chronomancy/timeline-threading.lua",
+  "mod-tome/data/talents/corruptions/reaving-combat.lua",
+  "mod-tome/data/talents/corruptions/shadowflame.lua",
+  "mod-tome/data/talents/corruptions/vile-life.lua",
+  "mod-tome/data/talents/cunning/ambush.lua",
+  "mod-tome/data/talents/cunning/scoundrel.lua",
+  "mod-tome/data/talents/cunning/shadow-magic.lua",
+  "mod-tome/data/talents/cursed/cursed-aura.lua",
+  "mod-tome/data/talents/cursed/cursed-form.lua",
+  "mod-tome/data/talents/cursed/endless-hunt.lua",
+  "mod-tome/data/talents/gifts/cold-drake.lua",
+  "mod-tome/data/talents/misc/horrors.lua",
+  "mod-tome/data/talents/misc/inscriptions.lua",
+  "mod-tome/data/talents/psionic/psychic-assault.lua",
+  "mod-tome/data/talents/psionic/thought-forms.lua",
+  "mod-tome/data/talents/spells/dreadmaster.lua",
+  "mod-tome/data/talents/spells/golem.lua",
+  "mod-tome/data/talents/spells/stone.lua",
+  "mod-tome/data/talents/spells/temporal.lua",
+  "mod-tome/data/talents/spells/wildfire.lua",
+  "mod-tome/data/talents/techniques/2h-assault.lua",
+  "mod-tome/data/talents/techniques/2hweapon.lua",
+  "mod-tome/data/talents/techniques/acrobatics.lua",
+  "mod-tome/data/talents/techniques/archery.lua",
+  "mod-tome/data/talents/techniques/bloodthirst.lua",
+  "mod-tome/data/talents/techniques/buckler-training.lua",
+  "mod-tome/data/talents/techniques/conditioning.lua",
+  "mod-tome/data/talents/techniques/dualweapon.lua",
+  "mod-tome/data/talents/techniques/finishing-moves.lua",
+  "mod-tome/data/talents/techniques/superiority.lua",
+  "mod-tome/data/talents/techniques/unarmed-training.lua",
+  "mod-tome/data/talents/techniques/weaponshield.lua",
+  "mod-tome/data/talents/uber/str.lua",
+  "tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua",
+  "tome-cults/data/talents/misc/misc.lua",
+  "tome-orcs/data/talents/spells/terrene-technomancy.lua"
+ ],
+ "entries": [
+  {
+   "id": "48d7bfd53cb6",
+   "unit_id": "48d7bfd53cb6ce7be0aed92fe59fde1612ee6368eefe79d67beac7539769b3fc",
+   "revision_key": "da732f767fbf72dd0c66b8bde420015fe45cf33f431b1e1d1b22fe07c5872629",
+   "translation_file": "engine.lua",
+   "translation_line": 966,
+   "section": "engine/engine/dialogs/VideoOptions.lua",
+   "source_tag": "_t",
+   "args_order": null,
+   "source": "Apply a global scaling to all fonts.\nApplies after restarting the game",
+   "target": "全局字体大小调整，重启游戏后生效",
+   "source_file": "game/engines/default/engine/engine/dialogs/VideoOptions.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": []
+  },
+  {
+   "id": "cb9b5b89fc9b",
+   "unit_id": "cb9b5b89fc9b858106357d2f3e11dfa546871043e5eb3fae348b1b6d7f3892fd",
+   "revision_key": "42cd119054aa68213c5a8fbc47348129af35df80f5aed5960de33c1db0a6eb26",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 21981,
+   "section": "mod-tome/data/talents/chronomancy/flux.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Deals %0.2f temporal damage over %d turns to all targets in a radius of %d.  Targets with Reality Smearing active will instead recover %d life over four turns.\n\t\tIf a target is reduced below 20%% life while Attenuate is active it may be instantly slain.\n\t\tThe damage will scale with your Spellpower.",
+   "target": "对范围内所有目标造成 %0.2f 点时空伤害，伤害分摊到 %d 回合内。技能半径为 %d 格。\n\t\t带有弥散现实效果的目标则改为在四回合内恢复 %d 点生命。\n\t\t衰减生效期间，若目标的生命值降至 20%% 以下，它可能会被立即杀死。\n\t\t伤害受法术强度加成。",
+   "source_file": "game/modules/tome/data/talents/chronomancy/flux.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    143
+   ]
+  },
+  {
+   "id": "2616082baa26",
+   "unit_id": "2616082baa26fdcedd7de90e13b2d0e20fb13caf56dfeb35ace754313c6fc90b",
+   "revision_key": "b02fbd0fc375608d81e7a44d552ce1e44c7fe0da9ab3639beab29ea3efce030b",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 22507,
+   "section": "mod-tome/data/talents/chronomancy/temporal-hounds.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Command your Temporal Hounds to teleport to the targeted location.  If you target an enemy your hounds will set that enemy as their target.\n\t\tWhen you learn this talent, your hounds gain %d defense and %d%% resist all after any teleport.\n\t\tAt talent level five, if you're not at your maximum number of hounds when you cast this spell a new one will be summoned.\n\t\tThe teleportation bonuses scale with your Spellpower.",
+   "target": "命令你的时空猎犬传送至指定位置。\n\t\t如果你指定敌人为目标，猎犬们将视其为目标攻击。\n\t\t当你学会该技能后，你的猎犬在传送后获得 %d 闪避和 %d%% 全体抗性。\n\t\t技能等级 5 时，若猎犬数小于最大召唤数目，使用该技能时将召唤一条新猎犬。\n\t\t传送加成受法术强度加成。",
+   "source_file": "game/modules/tome/data/talents/chronomancy/temporal-hounds.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    329
+   ]
+  },
+  {
+   "id": "b36780fa93d5",
+   "unit_id": "b36780fa93d57647b92dbfc70dab43171838bb30b3b4ab04f0eee962dd549476",
+   "revision_key": "20f2e74977010962e02255fa94b4e7476f5c521342e5957680089e87b9ef9f2e",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 22539,
+   "section": "mod-tome/data/talents/chronomancy/threaded-combat.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Attack with your bow or dual-weapons for %d%% damage.  If you shoot an arrow you'll teleport near the target location.  If you use your dual-weapons you'll teleport up to your bow's range away.\n\t\tAdditionally you now go Out of Phase for five turns after any teleport, gaining %d defense and %d%% resist all.\n\t\tThe Out of Phase bonuses will scale with your Magic stat.",
+   "target": "使用弓或双持武器攻击，造成 %d%% 武器伤害。\n\t\t如果使用弓箭，你会被传送到目标位置附近；如果使用双持武器，你会被随机传送到目标周围弓射程内的有效位置。\n\t\t此外，每次传送后你都会进入“脱离现实”状态 5 回合，获得 %d 闪避和 %d%% 全体抗性。\n\t\t“脱离现实”的加成随魔力属性提高。",
+   "source_file": "game/modules/tome/data/talents/chronomancy/threaded-combat.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    143
+   ]
+  },
+  {
+   "id": "6ecab12b63f3",
+   "unit_id": "6ecab12b63f34a4283d0b832ef2fed9ec96e6c12e65ac8348850f2aa41fc5364",
+   "revision_key": "9024eb8f503306facffb766a527f216b018dfdca6d338cc1622dc120c1a67105",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 22553,
+   "section": "mod-tome/data/talents/chronomancy/threaded-combat.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Attack with your bow or dual-weapons for %d%% damage.  If you use your bow you'll shoot all targets in a beam.  If you use your dual-weapons you'll attack all targets within a radius of one around you.",
+   "target": "使用弓箭或者双持武器攻击造成 %d%% 武器伤害。\n\t\t如果使用弓箭，你的箭将成为具有穿透性的射线。\n\t\t如果使用双持武器，则攻击你周围半径 1 的所有目标。",
+   "source_file": "game/modules/tome/data/talents/chronomancy/threaded-combat.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    260
+   ]
+  },
+  {
+   "id": "ddc9fbde9164",
+   "unit_id": "ddc9fbde91642a371090609f880d16fc3dc7a2bbdd990653f971c4f45890b087",
+   "revision_key": "163ef6bd6ef5b47e9bb7ed56c06df93b146c2d15a16e81d29c62de5a744da414",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 22580,
+   "section": "mod-tome/data/talents/chronomancy/timeline-threading.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "For the next %d turns two alternate versions of you enter your timeline.  While the effect is active all damage done by you or your copies is reduced by two thirds and all damage received is split between the three of you.\n\t\tTemporal Fugue does not normally cooldown while active.  You may take direct control of your clones, give them orders, and set their talent usage.\n\t\tDamage you deal to Fugue Clones or that they deal to you or each other is reduced to zero.",
+   "target": "接下来 %d 回合，你的 2 个镜像进入你的时间线。\n\t\t当技能生效时，所有你或者你的镜像造成的伤害会减少 2/3，所有你或者镜像受到的伤害会由你们三者均分。\n\t\t开启时该技能不会正常冷却。你能直接控制你的镜像，给他们指令，或者调整技能使用策略。\n\t\t你和镜像不会互相伤害。",
+   "source_file": "game/modules/tome/data/talents/chronomancy/timeline-threading.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    190
+   ]
+  },
+  {
+   "id": "ef82da5b8ece",
+   "unit_id": "ef82da5b8ececa3bbd9bf380b3636b637f930d9dfc512771b148c504d5e23d0a",
+   "revision_key": "c65dabd686fe1344426e367bdf18a79a109e71f2b9a80d45c5b5ee199da5e08e",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 22855,
+   "section": "mod-tome/data/talents/corruptions/reaving-combat.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Your blood turns into an acidic mixture. When you get hit, the attacker is splashed with acid.\n\t\tThis deals %0.2f acid damage each turn for 5 turns, and reduces the attacker's Accuracy by %d.\n\t\tAt level 3, it will also reduce Armour by %d for 5 turns.\n\t\tThe damage will increase with your Spellpower.",
+   "target": "你的血液变成酸性混合物。当你受伤害时，攻击者会受到酸性溅射。\n\t\t每回合溅射会造成 %0.2f 酸性伤害，持续 5 回合。\n\t\t同时减少攻击者 %d 点命中。\n\t\t在等级 3 时，酸性溅射会减少目标 %d 点护甲持续 5 回合。\n\t\t伤害受法术强度加成。",
+   "source_file": "game/modules/tome/data/talents/corruptions/reaving-combat.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    102
+   ]
+  },
+  {
+   "id": "f4fb264902d3",
+   "unit_id": "f4fb264902d327ee84c1d6667fbed75f3318622a59ebb90aa69c050bf7ce99b4",
+   "revision_key": "c05ee79c8ba3a9697e2636e498e7986d478961bc9209ec779e1c25776990512e",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 22958,
+   "section": "mod-tome/data/talents/corruptions/shadowflame.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Turn into a wraith, allowing you to walk through walls and removing the need to breath for %d turns.\n\t\tAlso increases your defense and armour by %d and %d, respectively.\n\t\tIf you are still in a wall when the effect ends you will randomly teleport.\n\t\t",
+   "target": "转化为鬼魂，允许你穿墙且不需要呼吸，持续 %d 回合。\n\t\t同时增加闪避 %d 和护甲值 %d。\n\t\t效果结束时若你处于墙内，你将被随机传送。",
+   "source_file": "game/modules/tome/data/talents/corruptions/shadowflame.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    37
+   ]
+  },
+  {
+   "id": "194da1ffe534",
+   "unit_id": "194da1ffe534979fdbbad2fb982511eeba39ab8d5046522a7f00fcdd902740c3",
+   "revision_key": "cd107a293cd7895fbf619664c6c79dd552fcf113a4e82986db7666b1389ee83d",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 23021,
+   "section": "mod-tome/data/talents/corruptions/vile-life.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Inflicting pain and death invigorates you.\n\t\tEach time you deal a critical strike you gain %d life (this effect can only happen once per turn).\n\t\tEach time you kill a creature you gain %d life (this effect can only happen once per turn).",
+   "target": "制造痛苦和死亡让你充满活力。\n\t\t每次暴击时回复 %d 生命。\n\t\t每次杀死生物时回复 %d 生命。\n\t\t每个效果每回合只能触发一次。",
+   "source_file": "game/modules/tome/data/talents/corruptions/vile-life.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    48
+   ]
+  },
+  {
+   "id": "1a8e7a024fa9",
+   "unit_id": "1a8e7a024fa984186cd201a1326eda5c0d09671036f456f101588cef0ff0823d",
+   "revision_key": "1745129fd2fb38b50ef0a9e67bc553208b6d6799ea528d6001bc0e6509f105e8",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 23091,
+   "section": "mod-tome/data/talents/cunning/ambush.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You reach out with the shadows silencing and disarming your target for %d turns.\n\t\tThe shadows will deal %d darkness damage to the target and pull it to you.\n\t\tThe chance to apply debuffs improves with your Accuracy and the damage with your Spellpower.",
+   "target": "你向目标伸出影之抓握，将其缴械并沉默 %d 回合。\n\t\t影子会对目标造成 %d 点暗影伤害，将它拉到你的身边。\n\t\t技能伤害受法术强度加成。\n\t\t异常状态命中率受命中影响。",
+   "source_file": "game/modules/tome/data/talents/cunning/ambush.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    104
+   ]
+  },
+  {
+   "id": "d4d367d7b69c",
+   "unit_id": "d4d367d7b69c3978e97ccc83bf8bab8a327df7ca512f807b71045a38216b1dbe",
+   "revision_key": "2d28e04e23d62a396264f88584416479a162002cd4fd260ee1194b74ffda8c80",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 23443,
+   "section": "mod-tome/data/talents/cunning/scoundrel.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Your melee and ranged attacks inflict distracting wounds that reduce the target’s critical strike multiplier by %d%% for 5 turns. \nIn addition, your attacks have a %d%% chance to inflict a painful wound that causes them to forget a random talent for %d turns.  The last effect cannot occur more than once per turn per target.\n\t\t",
+   "target": "你的近战和远程攻击制造的伤口会使敌人分心，使目标的暴击系数减少 %d%%， 持续 5 回合。\n\t\t此外，你的攻击还有 %d%% 的几率造成痛苦的创伤，使敌人随机遗忘一项技能，持续 %d 回合。这一效果对每个目标每回合最多触发一次。",
+   "source_file": "game/modules/tome/data/talents/cunning/scoundrel.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    107
+   ]
+  },
+  {
+   "id": "e5ae0e14779f",
+   "unit_id": "e5ae0e14779f424c24565954b0208c6b8786de89c4119606caad2b62bb00eb31",
+   "revision_key": "60c840f8b1835b5b92aa0b0971c209e4e54cb0ea8810d5124f7de75f6b24d53d",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 23449,
+   "section": "mod-tome/data/talents/cunning/scoundrel.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Your abilities in sowing confusion and chaos have reached their peak.  Whenever a foe attempts to apply a detrimental physical effect to you, they have a %d%% chance to fail. If there is an adjacent enemy to you, you misdirect your foe into applying it to them at %d%% duration.\nYou gain %d defense.\nThe chance to apply status effects increases with your Accuracy and the Defense with your Cunning.",
+   "target": "你制造混乱的技巧已趋于巅峰。\n\t\t敌人试图对你施加物理负面状态时，有 %d%% 几率失败。此外，如果相邻格有敌人，这一效果将会被转移到这个敌人身上，持续时间变为 %d%%。\n\t\t你获得 %d 闪避。\n\t\t施加负面状态几率受命中影响。\n\t\t闪避加成受灵巧影响。",
+   "source_file": "game/modules/tome/data/talents/cunning/scoundrel.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    153
+   ]
+  },
+  {
+   "id": "4153c6862451",
+   "unit_id": "4153c68624511ad6a040b113fc715b6466d462729c8d72319b68c4a7c01e29a2",
+   "revision_key": "000cc6abba55881c158aaedaab738b9262824c9a8fd6554debde8e0913833676",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 23477,
+   "section": "mod-tome/data/talents/cunning/shadow-magic.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You draw energy from the depths of the shadows.\n\t\tWhile sustained, you regenerate %0.2f mana per turn, and your physical and spell attack speed increases by %0.1f%%.",
+   "target": "你学会从暗影中汲取能量。\n\t\t当此技能激活时，每回合回复 %0.2f 法力值。\n\t\t同时，你的攻击速度和施法速度获得 %0.1f%% 的提升。",
+   "source_file": "game/modules/tome/data/talents/cunning/shadow-magic.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    103
+   ]
+  },
+  {
+   "id": "c92c742014ce",
+   "unit_id": "c92c742014ce1edc45aaf1598749587b01ab3676cc7b312140f7dc927ee352dc",
+   "revision_key": "3a247f4384b1c18c5be9f6941167a0318036ce337f5ec5ee2767f724521deee8",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 23961,
+   "section": "mod-tome/data/talents/cursed/cursed-aura.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Your curses bring you dark gifts. Unlocks bonus level %d effects on all of your curses, allowing you to gain that effect when the power level of your curse reaches that level. At talent level 5, the luck penalty of cursed effects is reduced to 1.\n\t\tTalent levels above 5 add bonus power levels to your curses, increasing their effects (currently %0.1f).",
+   "target": "你的诅咒带来黑暗的礼物。解锁所有诅咒第 %d 层效果，并允许你在诅咒达到该等级时获得此效果。\n\t\t技能等级 5 时，因诅咒带来的幸运惩罚降到 1。\n\t\t技能等级 5 以上时为诅咒增加额外能量等级，增强其效果（当前增加 %0.1f）。",
+   "source_file": "game/modules/tome/data/talents/cursed/cursed-aura.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    299
+   ]
+  },
+  {
+   "id": "2281c7eec346",
+   "unit_id": "2281c7eec3460c9a87aed48770b79b99920f354f9713d2eb4930d7ffebe71a74",
+   "revision_key": "bf4ea9c9e4cf67819d6d7820d87a3d180ad37f6164c25cd9202cb05250bc5536",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 23991,
+   "section": "mod-tome/data/talents/cursed/cursed-form.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Your body's strength is fed by your hatred. This causes most forms of healing to be between 50%% effective (at 0 Hate) to 100%% effective (at 100+ Hate). In addition, after each kill, you store the waning life force to invigorate yourself, restoring %d life (limited by the foe's maximum life, up to a maximum of %d at any time).  You can heal no more than %0.1f life per turn this way, and it is not affected by your hatred level or other effects.\n\t\tHealing from kills improves with your Willpower.",
+   "target": "你的力量来源于心底的憎恨，这使得大部分治疗效果减至原来的50%%（0仇恨）～100%%（100+仇恨）。\n\t\t另外，每次击杀敌人你将存储生命能量来治疗自己，回复 %d 点生命（受敌人最大生命值限制，任何时候不能超过 %d 点）。这个方式带来的每回合回复量不能超过 %0.1f 点生命，也不受仇恨等级或治疗加成等因素影响。\n\t\t通过杀死敌人获得的治疗量受意志加成。",
+   "source_file": "game/modules/tome/data/talents/cursed/cursed-form.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    73
+   ]
+  },
+  {
+   "id": "0043bdedb807",
+   "unit_id": "0043bdedb807ae7ff2dfd2afe5b3366f1d0a39617d0aa882aa4be3b4e967da19",
+   "revision_key": "9aa7505483241d6617adb4e148c5559cdddb0b88103e21359864eeded5a9b923",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 23998,
+   "section": "mod-tome/data/talents/cursed/cursed-form.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You have learned to hold onto your hate and use your suffering to fuel your body's rage. Every turn you take damage, the damage you inflict increases, until it reaches a maximum of +%d%% after 5 turns. Any turn in which you do not take damage will reduce the bonus.",
+   "target": "你学会控制憎恨，并用你的痛苦燃烧心底的愤怒。\n\t\t每个你受到伤害的回合，你造成的伤害都会提高，5 回合后达到最大值 +%d%%。\n\t\t每个你不承受伤害的回合会降低该增益效果。",
+   "source_file": "game/modules/tome/data/talents/cursed/cursed-form.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    107
+   ]
+  },
+  {
+   "id": "e7cbe2ceee29",
+   "unit_id": "e7cbe2ceee297db97caeb51f2b02ad830d0692ac9640c73c59162bcd1ba43aee",
+   "revision_key": "75a81f42415df6268b1fd7e4d45bca7542011b2130f0853e62741430c9ad12da",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 24002,
+   "section": "mod-tome/data/talents/cursed/cursed-form.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You rise to meet the pain that others would inflict on you. Every turn you take damage, your Strength and Willpower increase until they reach a maximum of +%d after 5 turns. Any turn in which you do not take damage will reduce the bonus. While in effect, your body also has a %d%% chance to overcome poisons and diseases each turn.",
+   "target": "你勇于面对其他人带给你的痛苦。每回合当你承受伤害时，你将会增加你的力量和意志，直至在 5 回合后增加至最大值 +%d。\n\t\t每个你不承受伤害的回合会降低该增益效果。\n\t\t当此效果激活时，每回合你有 %d%% 的概率抵抗毒素和疾病效果。",
+   "source_file": "game/modules/tome/data/talents/cursed/cursed-form.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    122
+   ]
+  },
+  {
+   "id": "2f008f4be212",
+   "unit_id": "2f008f4be2128e34fb59300acb31c2fe3ea7dbf824f1b51590445e9a36c6aae3",
+   "revision_key": "fe1c2917d88e37b313d9837f69c6a31dbbc2863f7475f6df04e8ebe217a49086",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 24122,
+   "section": "mod-tome/data/talents/cursed/endless-hunt.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "When you focus your attacks on a single foe and strike them in melee for two consecutive turns, your hatred of them overcomes you and you begin to stalk them with single-minded purpose. The effect will last for %d turns, or until your prey is dead. Stalking gives you bonuses against your foe that grow each turn you hit them, and diminish each turn you don't.\n\t\tBonus level 1: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit\n\t\tBonus level 2: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit\n\t\tBonus level 3: +%d Accuracy, +%d%% melee damage, +%0.2f hate/turn prey was hit\n\t\tThe accuracy bonus improves with your Willpower, and the melee damage bonus with your Strength.",
+   "target": "当你连续两回合以近战攻击命中同一个目标时，你会被对它的憎恨吞没，开始一心追踪它，效果持续 %d 回合或直到目标死亡。\n\t\t追踪的命中和近战伤害增益仅对该猎物生效。你每回合命中猎物都会使增益提升 1 层；未命中猎物的每回合，增益降低 1 层。\n\t\t1 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t2 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t3 层增益： +%d 命中， +%d%% 近战伤害，当目标被击中时，每回合增加 +%0.2f 仇恨值。\n\t\t命中受意志加成。\n\t\t近战伤害受力量值加成。",
+   "source_file": "game/modules/tome/data/talents/cursed/endless-hunt.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    84
+   ]
+  },
+  {
+   "id": "60cb153278b5",
+   "unit_id": "60cb153278b5a69690fbb8dbcf3b90968e35d60ef43cc873821278f2e62d744b",
+   "revision_key": "b0d0c5838076458287dc466dd6e6259b89202fdf18ab275c176a0d21e97b0135",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 24670,
+   "section": "mod-tome/data/talents/gifts/cold-drake.lua",
+   "source_tag": "tformat",
+   "args_order": [
+    2,
+    1
+   ],
+   "source": "You call upon the mighty claw of a cold drake and rake a wave of freezing cold in front of you, doing %d%% weapon damage as Ice damage in a cone of radius %d. Ice damage gives a chance of freezing the target.\n\t\tEvery level in Ice Claw additionally raises your Physical Save by 2.\n\t\tEach point in cold drake talents also increases your cold resistance by 1%%.\n\n\t\tThis talent will also attack with your shield, if you have one equipped.",
+   "target": "你召唤强大的冰龙之爪，在前方半径 %d 的锥形范围内造成 %d%% 寒冰武器伤害，并有一定几率冻结目标。\n\t\t同时，该技能每等级增加物理豁免 2 点。\n\t\t每一点冰龙系技能同时也能增加你的寒冷抗性 1%%。\n\t\t如果你装备了盾牌，这一技能也会用你的盾牌攻击。",
+   "source_file": "game/modules/tome/data/talents/gifts/cold-drake.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    71
+   ]
+  },
+  {
+   "id": "0b4f5a75a256",
+   "unit_id": "0b4f5a75a256e1ea4a5df5716f52ffd7f1e66bb8e055844ffd588f37b5d27f1a",
+   "revision_key": "45f63d13c4775180826d0da9d51199c698df73d253504deb4c871df0f7b3bea2",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 25889,
+   "section": "mod-tome/data/talents/misc/horrors.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Blast a wave of water all around you with a radius of %d, making all creatures Wet for 10 turns.\n\t\tThe damage will increase with your Spellpower.",
+   "target": "在你周围半径 %d 格内激起水浪，使所有生物进入湿润状态 10 回合。",
+   "source_file": "game/modules/tome/data/talents/misc/horrors.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    703
+   ]
+  },
+  {
+   "id": "758f996d25d3",
+   "unit_id": "758f996d25d30d10a94ba9df764aa2dc3ce031c224da1a3042bd1c2b068cef51",
+   "revision_key": "62d8d897e4cbfb8d60a674853dd757a09ae03ba1b66fd57161b70435498ca858",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 26030,
+   "section": "mod-tome/data/talents/misc/inscriptions.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Activate the taint to purge your body of physical afflictions for %d turns.\n\t\t\tEach turn the purge will attempt to cleanse 1 physical debuff from you, and if one is removed, increase its duration by 1.",
+   "target": "激活这个印记，清除你身上的物理负面效果，持续 %d 回合。\n\t\t\t每一回合，这个印记将会尝试从你的身上解除一个物理负面效果。\n\t\t\t如果它解除了一个负面效果，它的持续时间会增加 1 回合。",
+   "source_file": "game/modules/tome/data/talents/misc/inscriptions.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    1145
+   ]
+  },
+  {
+   "id": "7bd451426ee7",
+   "unit_id": "7bd451426ee72e198f936c8f269cedf70e0a3aef083634447b3a852ee2c7b864",
+   "revision_key": "8d1c6c0ad661f69e5c78883cad2682381f83608c4dd6457877eb9353abd8e4eb",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 27806,
+   "section": "mod-tome/data/talents/psionic/psychic-assault.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Cripples the target's mind, inflicting %0.2f mind damage and reducing its Mental Save by %d for 4 turns.  This attack always hits, and the mental save reduction stacks.\n\t\tAgainst brainlocked targets, the damage and Mental Save reduction will be doubled.\n\t\tThe damage and save reduction will scale with your Mindpower.",
+   "target": "摧毁目标的思维，造成 %0.2f 精神伤害并使目标的精神豁免降低 %d， 持续 4 回合。\n\t\t此技能必中且精神豁免削减效果可叠加。\n\t\t若目标处于思维封锁状态，则会产生双倍的伤害和豁免削减。\n\t\t受精神强度影响，伤害和豁免削减按比例加成。",
+   "source_file": "game/modules/tome/data/talents/psionic/psychic-assault.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    177
+   ]
+  },
+  {
+   "id": "1752024445cd",
+   "unit_id": "1752024445cd21c0447da18409bfec38475f92d5d415d7a5f2a639f9f85edc12",
+   "revision_key": "9f46be32c73ab1ffe05f3d3c9b4b4ecf0b123c9fdefa65182df04b1b6a22ce54",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 27981,
+   "section": "mod-tome/data/talents/psionic/thought-forms.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Take direct control of your active thought-form, improving its damage, attack speed, and maximum life by %d%%, but leaving your body a defenseless shell.\n\t\tAt talent level 1, any Feedback your Thought-Forms gain will be given to you as well. At level 3, your Thought-Forms gain a bonus to all saves equal to your Mental Save. At level 5, they gain a bonus to all damage equal to your bonus mind damage.\n\t\tThe secondary bonuses apply whether or not this talent is currently active.\n\t\tThe life, damage, and speed bonus will improve with your Mindpower.",
+   "target": "直接控制当前的精神体，增加其 %d%% 伤害、攻速以及最大生命值，但你的身体会变成毫无防御的空壳。\n\t\t技能等级 1 时，你的精神体所获得的任何反馈值也会传递给你。\n\t\t技能等级 3 时，你的精神体会获得所有豁免的增益效果，数值等同你精神豁免的大小。\n\t\t技能等级 5 时，它们会获得所有伤害加成，数值等同你的额外精神伤害。\n\t\t这些次级增益无论此技能是否激活均有效。\n\t\t上述生命、伤害与速度加成受精神强度加成。",
+   "source_file": "game/modules/tome/data/talents/psionic/thought-forms.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    600
+   ]
+  },
+  {
+   "id": "e6b0a732b850",
+   "unit_id": "e6b0a732b8502d5ed4dfa386a9cb08c2cda67d7dc1603c1e3a5f5b027181d162",
+   "revision_key": "bb5df94e66deb685dc189ca2a6b3427765d6135e909a6c2cebb89b91801504f5",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 27991,
+   "section": "mod-tome/data/talents/psionic/thought-forms.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You now gain %d%% mind speed while Thought-Form: Bowman is active, %d Mindpower while Thought-Form: Warrior is active, and %d%% resist all while Thought-Form: Defender is active. \n\t\tThese bonuses scale with your Mindpower.",
+   "target": "现在，当思维形态：弓箭手激活时，你提升 %d%% 精神速度；\n\t\t当思维形态：战士激活时，你提升 %d 精神强度；\n\t\t当思维形态：盾战士激活时，你提升 %d%% 全体伤害抗性。\n\t\t受精神强度影响，增益效果按比例加成。",
+   "source_file": "game/modules/tome/data/talents/psionic/thought-forms.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    621
+   ]
+  },
+  {
+   "id": "31b62cc8fc37",
+   "unit_id": "31b62cc8fc37da3444275dcc4ea8f4074ad6e349b49b44bd811bbe4c05780161",
+   "revision_key": "c3ee6f2341a651d633744b8f12b203acf7ef70927af9b7567f53723bff79f264",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 28526,
+   "section": "mod-tome/data/talents/spells/dreadmaster.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You now summon a Dreadmaster instead of a Dread.\n\t\tDreadmasters learn to cast silence, disperse magic and mind disruption, making them the ultimate annoyance tool.\n\t\tIt learns them at talent level %d.",
+   "target": "你改为召唤噩灵之王取代噩灵。\n\t\t噩灵之王可以释放技能等级 %d 的沉默、驱散和精神干扰，是扰乱敌人的强大力量。",
+   "source_file": "game/modules/tome/data/talents/spells/dreadmaster.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    257
+   ]
+  },
+  {
+   "id": "df15d72563b3",
+   "unit_id": "df15d72563b3b6d7042f838c558fbbc18f2d2627ab45c08a0d1b91cb6aac9a59",
+   "revision_key": "5385c21ff123ba4b3cc9ce69ab7d179d245edac29b4f3410ba7c402eec883b2e",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 28939,
+   "section": "mod-tome/data/talents/spells/golem.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Breathe poison on your foes, doing %d damage over a few turns.\n\t\tThe damage will increase with your Magic.",
+   "target": "对你的敌人喷吐毒雾，在几个回合内造成 %d 点伤害。伤害受魔力值加成。",
+   "source_file": "game/modules/tome/data/talents/spells/golem.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    508
+   ]
+  },
+  {
+   "id": "ef38c6f671e2",
+   "unit_id": "ef38c6f671e29544939ddb485dacd2a259d27aec2df2ba44269a11cbb81dbfaa",
+   "revision_key": "f342d8224933b84475526562328d2302371fdaefd4c4fdea83cf5adea5f0076a",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 29633,
+   "section": "mod-tome/data/talents/spells/stone.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You root yourself into the earth, and transform your flesh into stone.  While this spell is sustained, you may not move, and any forced movement will end the effect.\n\t\tYour stone form and your affinity with the earth while the spell is active has the following effects:\n\t\t* Reduces the cooldown of Earthen Missiles, Pulverizing Auger, Earthquake, and Mudslide by %d%%.\n\t\t* Grants %d%% Fire Resistance, %d%% Lightning Resistance, %d%% Acid Resistance, and %d%% Stun Resistance.\n\t\tResistances scale with your Spellpower.",
+   "target": "你将自己扎根于大地，并将肉体化为石头。\n\t\t在此法术维持期间，你无法移动，任何强制位移都会终止此效果。\n\t\t此法术激活时，你的石化形态和与大地的亲和力会产生以下效果：\n\t\t* 使岩石飞弹、粉碎钻击、地震和山崩地裂的冷却时间缩短 %d%%。\n\t\t* 获得 %d%% 火焰抗性、 %d%% 闪电抗性、 %d%% 酸性抗性和 %d%% 震慑抵抗。\n\t\t抗性随法术强度提升。",
+   "source_file": "game/modules/tome/data/talents/spells/stone.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    128
+   ]
+  },
+  {
+   "id": "be93b0e8b47d",
+   "unit_id": "be93b0e8b47d19fb3f06f97ddf2362795ea79028a71e90d3be69d6cd9faf0d7f",
+   "revision_key": "dc28f9b4fd8873247165fbbd4d2ae05a9172fe8597134755a9bcc05b7b888504",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 29690,
+   "section": "mod-tome/data/talents/spells/temporal.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Removes the target from the flow of time for %d turns. In this state, the target can neither act nor be harmed.\n\t\tTime does not pass at all for the target, no talents will cooldown, no resources will regen, and so forth.\n\t\tThe duration will increase with your Spellpower.",
+   "target": "将目标从时光的流动中移出，持续 %d 回合。\n\t\t在此状态下，目标不能动作也不能被伤害。\n\t\t对于目标来说，时间是静止的，技能无法冷却，也没有能量回复……\n\t\t持续时间受法术强度加成。",
+   "source_file": "game/modules/tome/data/talents/spells/temporal.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    112
+   ]
+  },
+  {
+   "id": "2a8e9c764280",
+   "unit_id": "2a8e9c764280bccbc2b1c1e8264781de76ccc07f379d94ccc38f7447f992baa3",
+   "revision_key": "05523fbaf6676704939c21c18f97221743a868995ba71dae161a3b0a242a09d3",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 29835,
+   "section": "mod-tome/data/talents/spells/wildfire.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Surround yourself with Wildfire, increasing all your fire damage by %0.1f%%, ignoring %d%% fire resistance of your targets and reducing self-inflicted fire damage by %d%%.",
+   "target": "使身上缠绕火焰，增加 %0.1f%% 所有火系伤害并无视目标 %d%% 火焰抗性。\n\t\t同时，减少 %d%% 对自己造成的火焰伤害。",
+   "source_file": "game/modules/tome/data/talents/spells/wildfire.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    177
+   ]
+  },
+  {
+   "id": "c1842b2d21f4",
+   "unit_id": "c1842b2d21f4dcbc17f90bb1a07f139c8daaa620acf37de1ba582cdd67e78b0a",
+   "revision_key": "a15176c9b54f0eb8b94a8abff0b411986cb9d2ce9f87939653531a9022c97479",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 29856,
+   "section": "mod-tome/data/talents/techniques/2h-assault.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Takes advantage of a wounded foe to perform a killing strike.  This attack is an automatic critical hit that does %0.1f%% extra weapon damage for each %% of life the target is below maximum.\n\t\t(A victim with 30%% remaining life (70%% damaged) would take %0.1f%% weapon damage.)\n\t\tIf an enemy dies from this attack then two of your talent cooldowns are reduced by 2 turns and Execution's cooldown is reset.",
+   "target": "试图斩杀目标。目标每损失 1%% 生命，你造成额外 %0.1f%% 武器伤害。\n\t\t（对于剩余 30%% 生命（即损失了 70%% 生命）的敌人造成 %0.1f%% 武器伤害）\n\t\t该攻击必定暴击。\n\t\t如果这一攻击杀死了敌人，你的两个技能的冷却时间减少两个回合，致命斩杀技能的冷却时间归零。",
+   "source_file": "game/modules/tome/data/talents/techniques/2h-assault.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    199
+   ]
+  },
+  {
+   "id": "ff1b2236621c",
+   "unit_id": "ff1b2236621cb45133f041209ee1e6968f9c0305de2a09b6f3e01e9d71a503ac",
+   "revision_key": "a2c44cd1d93af2fdcc663ff65165bb8cf1b081df959636047f403f6ab0726289",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 29872,
+   "section": "mod-tome/data/talents/techniques/2hweapon.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You enter an aggressive battle stance, increasing Accuracy by %d and Physical Power by %d, at the cost of -10 Defense and -10 Armour.\n\t\tWhile berserking, you are nearly unstoppable, granting you %d%% stun and pinning resistance.\n\t\tThe Accuracy bonus increases with your Dexterity, and the Physical Power bonus with your Strength.",
+   "target": "进入狂暴的战斗状态，以减少 10 点闪避和 10 点护甲的代价增加 %d 点命中和 %d 点物理强度。\n\t\t开启狂暴时你几乎无人能挡，增加 %d%% 震慑和定身抵抗。\n\t\t命中受敏捷值加成；\n\t\t物理强度受力量值加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/2hweapon.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    102
+   ]
+  },
+  {
+   "id": "164ebc011837",
+   "unit_id": "164ebc0118378d36e578f6d69997d141f66db0c0e008a215b2cef74d4ee733d9",
+   "revision_key": "71f5ffe2c68e514e07b7da36753532388f4ba61f6333c3d5700f9f92244fdcf2",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 29887,
+   "section": "mod-tome/data/talents/techniques/2hweapon.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Tries to perform a killing blow, doing %d%% weapon damage and dealing an automatic critical hit. If the target ends up with low enough life (<20%%), it might be instantly killed.\n\t\tAt level 4, it drains half your remaining stamina, and uses it to increase the blow damage by 100%% of it.\n\t\tThe chance to instantly kill will increase with your Physical Power.",
+   "target": "试图施展一次致命打击，造成 %d%% 武器伤害，本次攻击自动变成暴击。\n\t\t如果打击后目标生命值低于 20%%，则有可能被直接杀死。\n\t\t在等级 4 时，本次攻击会将攻击前剩余体力值的一半按 100%% 折算为临时物理强度加成，攻击后消耗当时剩余体力值的一半。\n\t\t目标即死的概率受物理强度加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/2hweapon.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    204
+   ]
+  },
+  {
+   "id": "7d85d506f74a",
+   "unit_id": "7d85d506f74a10c1b3878f0b3560a385fd78a81681a6dae92e69b1e9ce77ad4f",
+   "revision_key": "e855c109d7693d301e5b4f18b1f152fb31deb01b57dd92b49d09a88d4c58f7a5",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 29948,
+   "section": "mod-tome/data/talents/techniques/acrobatics.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You gain greater facility with your acrobatic moves, lowering the cooldowns of Vault, Tumble, and Trained Reactions by %d, and their stamina costs by %0.1f.\n\t\tAt Rank 3 you also gain 10%% global speed for 1 turn after Trained Reactions activates. At rank 5 this speed bonus improves to 20%% and lasts for 2 turns.",
+   "target": "你使用杂耍系技能更加得心应手，降低撑杆跳、翻筋斗和受训反应的冷却时间 %d 回合，降低技能的体力消耗 %0.1f。\n\t\t在等级 3 时，每当受训反应触发，你获得 10%% 的全局速度 1 回合。\n\t\t在等级 5 时，速度加成变为 20%%，持续 2 回合。",
+   "source_file": "game/modules/tome/data/talents/techniques/acrobatics.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    270
+   ]
+  },
+  {
+   "id": "c2edce139646",
+   "unit_id": "c2edce13964695cad17d958d82d89492529dd787a7acf687f394825055f95d3a",
+   "revision_key": "80baa00ca91304f9c9dd881b134ddd447a665147e1a9afb7da08e2bcbbedc2d5",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 29997,
+   "section": "mod-tome/data/talents/techniques/archery.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You fire a shot for %d%% damage that attempts to pin your target to the ground for %d turns, as well as giving your next Steady Shot or Shoot 100%% increased chance to critically hit and mark (regardless of whether the pin succeeds).\n\t\tThis shot has a 20%% chance to mark the target.\n\t\tThe chance to pin increases with your Accuracy.",
+   "target": "你朝目标发射定身攻击，造成 %d%% 伤害，并尝试将目标定身 %d 回合。\n\t\t无论定身是否成功，在效果持续期间，你下一次对该目标命中的稳固射击或射击，暴击率与标记几率均为 100%%（普通射击需已学会射击精通才会标记）。\n\t\t此次攻击有 20%% 几率标记目标。\n\t\t定身几率受命中加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/archery.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    266
+   ]
+  },
+  {
+   "id": "8b6b0848c835",
+   "unit_id": "8b6b0848c835d4b1bb6d5e60ba316ca8810700e38d096a5d4994f1d475be9edf",
+   "revision_key": "ac68ee788e9fd58d18d975615be5867f57d10284e6448233793f506394f3a91a",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 30120,
+   "section": "mod-tome/data/talents/techniques/bloodthirst.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Your mighty blows inspire utter terror on your foes. Any melee strike you do that deals more than %d%% of the target's total life puts them in a mortal terror, dazing them for 5 turns.\n\t\tYour critical strike chance also increase by %d%%.\n\t\tThe daze chance increase with your Physical Power.",
+   "target": "你强力的攻击引发敌人深深的恐惧。\n\t\t你的任何近身打击只要造成超过目标总生命值 %d%% 的伤害，就会使目标陷入极度恐惧，眩晕 5 回合。\n\t\t你的暴击率同时增加 %d%%。\n\t\t眩晕概率受物理强度加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/bloodthirst.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    47
+   ]
+  },
+  {
+   "id": "707786d4703f",
+   "unit_id": "707786d4703fbdb1c92fcd3ae666f9118dec80341828779aa02624551c568990",
+   "revision_key": "ca00b38b9b37da458f8e85918c5108f974191d818033727db46b0b3dde061bc5",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 30127,
+   "section": "mod-tome/data/talents/techniques/bloodthirst.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Delight in spilling the blood of your foes.  After scoring a critical hit, your maximum hit points will be increased by %d%%, your life regeneration by %0.2f per turn, and your stamina regeneration by %0.2f per turn for %d turns.\n\t\tThe life and stamina regeneration will stack up to five times, for a maximum of %0.2f and %0.2f each turn, respectively.",
+   "target": "沐浴着敌人的鲜血令你感到兴奋。\n\t\t在成功打出一次暴击后，你的最大生命值提高 %d%%， 每回合生命回复增加 %0.2f， 每回合体力回复增加 %0.2f， 持续 %d 回合。\n\t\t生命与体力回复最多可叠加 5 次，上限分别为每回合 %0.2f 和 %0.2f。",
+   "source_file": "game/modules/tome/data/talents/techniques/bloodthirst.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    72
+   ]
+  },
+  {
+   "id": "e285217a8285",
+   "unit_id": "e285217a82855e96a7300894482b88bfd758365fcebdd9d5ccfacf4ec31ce2d7",
+   "revision_key": "92de280298af031bf4b9577b77076f81d061ff2f9afd35a7ad0fbc09b340c198",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 30175,
+   "section": "mod-tome/data/talents/techniques/buckler-training.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Bash an enemy in melee range with your shield (twice for talent level 5 or more), doing %d%% damage and knocking them back %d squares. You may then follow with a deadly short-range sling attack, dealing %d%% damage. The shield bash will use Dexterity instead of Strength for the shield's bonus damage.",
+   "target": "用盾牌重击近战范围内的一名敌人（当技能等级在 5 级或更高时重击 2 次），造成 %d%% 伤害并击退 %d 格。随后还可用投石索发动一次致命的近距离攻击，造成 %d%% 伤害。\n\t\t盾牌攻击使用敏捷取代力量来计算盾牌伤害加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/buckler-training.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    167
+   ]
+  },
+  {
+   "id": "9d9a89c1d148",
+   "unit_id": "9d9a89c1d1480a4cad4aa9e053629f27b87e5e67a326e846cf8dc35b050d026f",
+   "revision_key": "7bf401594e43bce08025be1bdc74399f7425189755e91ce254d08101f428f009",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 30262,
+   "section": "mod-tome/data/talents/techniques/conditioning.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You've learned to recover quickly from effects that would disable you. Each turn, you have a %d%% chance to recover from a single stun effect.\n\t\tAt talent level 2 you may also recover from Blindness, at level 3 Confusion and Pins, and level 4 Disarms and Slows.\n\t\tEffects will be cleansed with the priority order Stun > Blind > Confusion > Pin > Disarm > Slow.\n\t\tOnly one effect may be recovered from each turn, and the chance to recover from an effect scales with your Constitution.",
+   "target": "你学会从负面状态中快速恢复。\n\t\t每回合你有 %d%% 几率从震慑效果中恢复。\n\t\t技能等级 2 时，也可以从致盲效果中恢复。\n\t\t技能等级 3 时，也可以从混乱和定身效果中恢复。\n\t\t技能等级 4 时，也可以从缴械和减速效果中恢复。\n\t\t解除负面状态的优先级是 震慑 > 致盲 > 混乱 > 定身 > 缴械 > 减速\n\t\t每回合你只能摆脱 1 种状态。\n\t\t受体质影响，恢复概率按比例加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/conditioning.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    91
+   ]
+  },
+  {
+   "id": "e59e415866c5",
+   "unit_id": "e59e415866c5f7c243be850123d369463862c6f0482165ecf63044ba2de5aac2",
+   "revision_key": "6267a4f407f762f3c00e24d39ab4a11020ccfdf38ce0c3124c40f737a8c5e2f8",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 30323,
+   "section": "mod-tome/data/talents/techniques/dualweapon.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Attack with your offhand weapon for %d%% damage. If the attack hits, the target is stunned for %d turns, and you hit it with your mainhand weapon doing %d%% damage.\n\t\tThe stun chance increases with your Accuracy.",
+   "target": "用副手武器造成 %d%% 伤害。\n\t\t如果攻击命中，目标将会被震慑 %d 回合并且你会使用主武器对目标造成 %d%% 伤害。\n\t\t震慑概率受命中加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/dualweapon.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    258
+   ]
+  },
+  {
+   "id": "5b11d66213e7",
+   "unit_id": "5b11d66213e739e617bf664f3ce038e3c4726e4014e7712f5ab17000e9d2dba2",
+   "revision_key": "5bc76e0fe4f8caeb3444ebb16879886114a4431bb8d24027f9eaecd43b4f87b0",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 30437,
+   "section": "mod-tome/data/talents/techniques/finishing-moves.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "A vicious finishing strike that deals %d%% damage increased by 20%% per combo point you have up to a max of %d%%. If the target ends up with low enough life (<20%%), it might be instantly killed.\n\t\tKilling a target with Haymaker will instantly restore %d%% to %d%% of your maximum stamina, depending on the amount of combo points you've accumulated.\n\t\tUsing this talent removes your combo points.",
+   "target": "一次强烈的终结追击，对目标造成 %d%% 伤害，每 1 点连击点额外造成 20%% 的伤害，至多 %d%%。\n\t\t如果目标生命低于 20%%，则可能会被立刻杀死。\n\t\t用此技能杀死目标会立刻回复你 %d%% 到 %d%% 最大体力值（由你的连击点数决定）。\n\t\t使用此技能会消耗当前所有连击点。",
+   "source_file": "game/modules/tome/data/talents/techniques/finishing-moves.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    262
+   ]
+  },
+  {
+   "id": "efd4c671bbfd",
+   "unit_id": "efd4c671bbfd1ec7f965b840e76fa6cee18ad8324109e08f63b90c8fd3f0aa22",
+   "revision_key": "ead35584e36926602ffd56f11510a29d32c216c3ec3d2d74ff591bfda2b0ae0d",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 30821,
+   "section": "mod-tome/data/talents/techniques/superiority.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Put all of your strength into your weapon blows, creating shockwaves that deal %d%% Physical weapon damage to all nearby targets.  Only one shockwave will be created per action, and the primary target does not take extra damage.\n\t\tEach shattering impact will drain 8 stamina.",
+   "target": "用尽全身的力量挥舞武器，产生冲击波，对附近所有目标造成 %d%% 物理武器伤害。\n\t\t每次行动只会产生一道冲击波，首要目标不会受到额外伤害。\n\t\t每次震荡攻击消耗 8 点体力。",
+   "source_file": "game/modules/tome/data/talents/techniques/superiority.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    130
+   ]
+  },
+  {
+   "id": "9e5a819154c4",
+   "unit_id": "9e5a819154c4fcce90337c13f4cb75edc246d044c2fa8f1e19908980e958cf5d",
+   "revision_key": "0e4632a48a2ef2c1aaa00a4d1cb5c5dcfb6ae7c57240711e66ec7f63b3dda901",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 31070,
+   "section": "mod-tome/data/talents/techniques/unarmed-training.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "When you're targeted by a projectile, your global speed is increased by %d%% for 1 turn.  Taking any action other than movement will break the effect.",
+   "target": "当你被抛射物锁定时，增加你 %d%% 全局速度 1 回合。\n\t\t除了移动外的任何动作均会打破此效果。",
+   "source_file": "game/modules/tome/data/talents/techniques/unarmed-training.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    111
+   ]
+  },
+  {
+   "id": "d7a4cc869735",
+   "unit_id": "d7a4cc869735ad8a07a31f5f2e70d65f74ef54b45963f77ab15846d136236159",
+   "revision_key": "a5163c1740a11c2ed5533a036a895e46be2ed9b4ab5d804e00767356ad87945b",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 31105,
+   "section": "mod-tome/data/talents/techniques/weaponshield.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Hits the target with two shield strikes, doing %d%% and %d%% shield damage. If it hits a second time, it stuns the target for %d turns.\n\t\tThe stun chance increases with your Accuracy and your Strength.",
+   "target": "连续使用 2 次盾牌攻击敌人并分别造成 %d%% 和 %d%% 盾牌伤害。\n\t\t如果第 2 击命中目标，则目标会被震慑 %d 回合。\n\t\t震慑几率受命中和力量加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/weaponshield.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    65
+   ]
+  },
+  {
+   "id": "e434c9d9e062",
+   "unit_id": "e434c9d9e0629d02c24cb6a8ab672fc3a0229a0f986a29da9f95564659647f1a",
+   "revision_key": "5a64e764e87ad67fa1bda8d636a27e190f508a975061ce008074be0e797886bc",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 31110,
+   "section": "mod-tome/data/talents/techniques/weaponshield.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Improves your ability to perform counterstrikes after blocks in the following ways:\n\t\tAllows counterstrikes after incomplete blocks.\n\t\tIncreases the number of counterstrikes you can perform on a target while they're vulnerable by %d.\n\t\tIncreases the crit chance of counterstrikes by %d%%. This increase scales with your Dexterity.",
+   "target": "通过以下方法提高你的反击能力：\n\t\t当你不完全格挡时，也可以进行反击。\n\t\t你对可反击目标的反击次数增加 %d 次。\n\t\t增加 %d%% 反击暴击率。\n\t\t受敏捷影响，此暴击率按比例加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/weaponshield.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    90
+   ]
+  },
+  {
+   "id": "99824e4f0aba",
+   "unit_id": "99824e4f0aba8126d59f875a143241c4ed81d7c9d36be6de173556554e3adf69",
+   "revision_key": "8f1f7430d7b312f5e67fcc575fbebaca8e167df6a80f5fd108d4eaf100faccf7",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 31120,
+   "section": "mod-tome/data/talents/techniques/weaponshield.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Hit your target with your shield 3 times for %d%% damage then quickly return to a blocking position.  The bonus block will not check or trigger Block cooldown.",
+   "target": "用盾牌拍击目标 3 次，造成 %d%% 盾牌伤害，然后迅速进入格挡状态。\n\t\t这次额外格挡既不检查也不触发格挡技能的冷却。",
+   "source_file": "game/modules/tome/data/talents/techniques/weaponshield.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    135
+   ]
+  },
+  {
+   "id": "dc5373ac7f11",
+   "unit_id": "dc5373ac7f11cdbf9ced44e01078a82e507d8fda30ec38568caebb0b785d91eb",
+   "revision_key": "c46ce4778ecafed383750f0aafb9c1acf21231fd518137b1ddc2c0c57acb9998",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 31137,
+   "section": "mod-tome/data/talents/techniques/weaponshield.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Smash your shield into the face of all adjacent foes dealing %d%% shield damage and knocking them back %d grids.\n\t\tIn addition, all creatures knocked back will also be dazed for %d turns.\n\t\tIf known, activating this talent will refresh your Rush cooldown if the attack hits.\n\t\tThe distance increases with your talent level, and the Daze duration with your Strength.",
+   "target": "用盾牌猛击周围所有敌人，造成 %d%% 盾牌伤害并击退 %d 格。\n\t\t此外所有怪物被击退时也会被眩晕 %d 回合。\n\t\t若已习得冲锋，发动该技能且攻击命中时会刷新冲锋的冷却。\n\t\t击退距离受技能等级加成。\n\t\t眩晕时间受力量加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/weaponshield.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    284
+   ]
+  },
+  {
+   "id": "5edbee74f4a2",
+   "unit_id": "5edbee74f4a2e04f9b360531822c679ab2f907504f10c94cf88f876dcee1391c",
+   "revision_key": "cdcefd33e759186035c56bcbae965a2333ad3ac2a74b296370063c4c1028ef6e",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 31149,
+   "section": "mod-tome/data/talents/techniques/weaponshield.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You brace yourself for the final stand, increasing Defense and Armor by %d, maximum and current life by %d, but making you unable to move.\n\t\tYour stand lets you concentrate on every blow, allowing you to avoid death from normally fatal wounds. You can only die when reaching -%d life.\n\t\tIf your life is below 0 when Last Stand ends it will be set to 1.\n\t\tThe increase in Defense and Armor is based on your Dexterity, and the increase in life is based on your Constitution and normal maximum life.",
+   "target": "在走投无路的局面下，你鼓舞自己，提高 %d 点闪避与护甲，提高 %d 点当前及最大生命值，但是这会使你无法移动。\n\t\t你的坚守让你集中精力于对手的每一次进攻，让你能承受原本致命的伤害。你只有在生命值下降到 -%d 时才会死亡。\n\t\t效果结束时如果你生命值在0以下，将被设置为1点。\n\t\t闪避和护甲受敏捷值加成。\n\t\t生命值增益受体质和最大生命值加成。",
+   "source_file": "game/modules/tome/data/talents/techniques/weaponshield.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    361
+   ]
+  },
+  {
+   "id": "b28e8a14cc50",
+   "unit_id": "b28e8a14cc50d0399d2c8e2a3151f81bd7bb89318e9ba00a7e1716a6bf2f7054",
+   "revision_key": "e76733a1a137a82daf6886fed51d36ba2a59f303f1ce2f14bde405102b1b1bf1",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 31607,
+   "section": "mod-tome/data/talents/uber/str.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Your strength is legendary; fatigue and physical exertion mean nothing to you.\n\t\tYour fatigue is permanently set to 0, carrying capacity increased by 500, and strength increased by 50 and you gain a size category.",
+   "target": "你是如此强壮，永不疲倦。\n\t\t疲劳值永久为 0 且负重上限增加 500 点。\n\t\t你增加 50 点力量并且体型 +1。",
+   "source_file": "game/modules/tome/data/talents/uber/str.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    217
+   ]
+  },
+  {
+   "id": "a0da408b318d",
+   "unit_id": "a0da408b318d3194fa1bc2fca1257e3ece77985453de70718fcf0b98cf989a39",
+   "revision_key": "0a62eb1362e2d610d1f6b93f97a58ce5b1bdd20a1860843bbab6e271939ae9da",
+   "translation_file": "tome-ashes-urhrok.lua",
+   "translation_line": 1196,
+   "section": "tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Tendrils of flame fire from your hands in a narrow cone. Any foes caught inside will be pulled in towards you and have its movement speed reduced by %d%% for 4 turns.\n\t\tEach tendril will leave a trail of fire in its path dealing %0.2f fire damage for 4 turns.\n\t\tThe damage increases with spellpower.",
+   "target": "火焰触须从你的手中伸出，在狭窄的锥形范围内伸展。\n\t\t被火焰触须抓住的敌人将被拉过来，同时移动速度减少 %d%%， 持续 4 回合。\n\t\t每个触须会留下火焰痕迹，每回合造成 %0.2f 火焰伤害，持续 4 回合。\n\t\t伤害受法术强度加成。",
+   "source_file": "/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    69
+   ]
+  },
+  {
+   "id": "43d6b2206b73",
+   "unit_id": "43d6b2206b73e6bb46355d755ebb889c4c8f1db75604599cce89d8849e3edd78",
+   "revision_key": "05ae9bfd5a996f1da6de84bb24d9feaa7505167c210a04873ed2339efc8284c7",
+   "translation_file": "tome-ashes-urhrok.lua",
+   "translation_line": 1203,
+   "section": "tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Imbue your weapon with fire for 5 turns. During this time all your melee hits will trigger a ball of fire of radius 1 dealing %0.2f fire damage.\n\t\tThis effect can only happen once per turn.\n\t\tThe damage increases with spellpower.",
+   "target": "向你的武器灌输火焰之力，持续 5 回合。\n\t\t每次近战攻击命中时会释放一个火球，在半径 1 的范围内造成 %0.2f 火焰伤害。\n\t\t这个效果每回合只能触发一次。\n\t\t伤害受法术强度加成。",
+   "source_file": "/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/infernal-combat.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    91
+   ]
+  },
+  {
+   "id": "a648bd3aff8a",
+   "unit_id": "a648bd3aff8a78fc7182131c3816a23aadc2c4a05cb9c9c011e862e98674a5e0",
+   "revision_key": "d1e92598855895d95c441d1ea09a290463a7b3fa263c3d41d4ef6e5b50f53c7e",
+   "translation_file": "tome-cults.lua",
+   "translation_line": 3405,
+   "section": "tome-cults/data/talents/misc/misc.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Smash your target with a splintering glass attack doing %d%% arcane weapon damage.\n\t\tIf this attack hits the target will have glass splinters for 6 turns.\n\t\tEach turn the target will bleed for 8%% of the attack damage. The splinters are very painful and if the target moves it will instantly take %d%% of the attack damage.\n\t\tAt level 5 the target suffers so much it has 15%% chances to fail using talents.",
+   "target": "使用玻璃碎片攻击敌人，造成 %d%% 奥术武器伤害。\n\t\t如果攻击命中，目标将被玻璃碎片扎 6 回合。\n\t\t每回合目标将受到 8%% 攻击伤害的流血伤害。\n\t\t同时每当目标移动时，受到 %d%% 攻击伤害。\n\t\t技能等级 5 后，目标有 15%% 几率使用技能失败。",
+   "source_file": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/misc/misc.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    301
+   ]
+  },
+  {
+   "id": "29ca9ca95dd8",
+   "unit_id": "29ca9ca95dd8060ebec19a1f5fc816598ed71e05aca8176067b83b3499e7d413",
+   "revision_key": "fc86592011b2c4276958a584f138dd3ef33ab6ee92a4db2cccfe6da1b33a4c0b",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 4486,
+   "section": "tome-orcs/data/talents/spells/terrene-technomancy.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You call back up to %d spiderbots to you to create protective barrier for %d turns.\n\t\tSpiderbots have %d life and they take damage in order, always fully absorbing the blow that destroyed them.\n\t\tIf Cryogenic Digs is active when a spiderbot is destroyed it jumps to the attacker and triggers the dig there.\n\t\tThe cooldown of this spell is affected by Body of Stone.\n\t\t",
+   "target": "你召回最多 %d 个蜘蛛机器人，在你的身边形成一个保护屏障，持续 %d 回合。\n\t\t蜘蛛机器人有 %d 点生命值，会依次承受伤害。如果被摧毁，他们会完全承受摧毁他们的那一击伤害。\n\t\t如果你激活了低温掘进，被摧毁的机器人会跳向攻击你的敌人，然后在那里向下掘进。\n\t\t这一技能的冷却时间受岩石身躯的影响。",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/spells/terrene-technomancy.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    348
+   ]
+  }
+ ]
+}

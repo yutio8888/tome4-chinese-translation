@@ -1,0 +1,51 @@
+{
+ "kind": "consumer-family-review",
+ "date": "2026-11-18",
+ "authorization": "Maintainer standing autonomous ToME4 translation polish; assistant 2026-11-18: bounded batch for the release-required newline-difference family only.",
+ "family": {
+  "baseline": "b46edd0f8148ddaf8a767a2b81524532a93fe922",
+  "population": "release-required current_units (29,554), 22 dead keys excluded (dead-key-scan-20261111 pairs + deleted engine log)",
+  "criterion": "source.count('\\n') != target.count('\\n') on the unit occurrence; identity = unit_id; one row per unit",
+  "count": 52,
+  "distribution": {
+   "tome": 47,
+   "ashes": 2,
+   "engine": 1,
+   "cults": 1,
+   "orcs": 1
+  },
+  "delta": {
+   "-1": 8,
+   "+1": 36,
+   "+2": 7,
+   "+4": 1
+  },
+  "script": "family.py",
+  "note": "The earlier /tmp/r3 snapshot at 19530c89f had 54; 0517 fixed 2, recomputation at b46edd0f8 gives exactly 52."
+ },
+ "lanes": {
+  "A": "claude/claude-opus-5-5 (thinking medium): 4 ISSUE, all semantic",
+  "B": "codex/gpt-6.1-sol (thinking medium): 52 ISSUE on the newline-count rule, plus 3 extra semantic observations"
+ },
+ "disposition": {
+  "fix": 9,
+  "keep": "43: translator-added paragraph breaks in multi-line talent/effect tooltips (40), or line merges that keep full meaning (#0 VideoOptions, #25 golem), #19 horrors dropped damage sentence follows implementation (no damage dealt).",
+  "pending": 0,
+  "fix_layout": [
+   "#7 shadowflame trailing newline",
+   "#10 scoundrel trailing newline",
+   "#18 Ice Claw blank line before shield sentence",
+   "#51 orcs Spiderbot barrier trailing newline"
+  ],
+  "fix_meaning": [
+   "#16 Grim Resolve removes poisons/diseases (not resists)",
+   "#20 Purging inscription: whose duration grows",
+   "#24 Dreadmaster mixed construction",
+   "#51 Cryogenic Digs triggers its zone, bots are 它们",
+   "#11 Misdirection transfer only after the fail roll",
+   "#50 Glass splinters duration wording, restores very painful/instantly"
+  ],
+  "refuted": "Lane B #18 swapped-args claim: entry has args_order {2,1} (input.json shows [2,1])."
+ },
+ "display": "Text/source evidence only; not seen in game. Trailing breaks are restored on the closing ]] line so no whitespace-only lines are added."
+}

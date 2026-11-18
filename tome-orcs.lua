@@ -4488,9 +4488,10 @@ t([[You call back up to %d spiderbots to you to create protective barrier for %d
 		If Cryogenic Digs is active when a spiderbot is destroyed it jumps to the attacker and triggers the dig there.
 		The cooldown of this spell is affected by Body of Stone.
 		]], [[你召回最多 %d 个蜘蛛机器人，在你的身边形成一个保护屏障，持续 %d 回合。
-		蜘蛛机器人有 %d 点生命值，会依次承受伤害。如果被摧毁，他们会完全承受摧毁他们的那一击伤害。
-		如果你激活了低温掘进，被摧毁的机器人会跳向攻击你的敌人，然后在那里向下掘进。
-		这一技能的冷却时间受岩石身躯的影响。]], "tformat")
+		蜘蛛机器人有 %d 点生命值，会依次承受伤害。被摧毁时，它们会完全承受摧毁它们的那一击伤害。
+		如果低温掘进处于激活状态，被摧毁的机器人会跳向攻击者，并在那里触发低温掘进。
+		这一技能的冷却时间受岩石身躯的影响。
+		]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/spells/undead-drake.lua"

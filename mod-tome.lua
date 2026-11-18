@@ -22960,7 +22960,8 @@ t([[Turn into a wraith, allowing you to walk through walls and removing the need
 		If you are still in a wall when the effect ends you will randomly teleport.
 		]], [[转化为鬼魂，允许你穿墙且不需要呼吸，持续 %d 回合。
 		同时增加闪避 %d 和护甲值 %d。
-		效果结束时若你处于墙内，你将被随机传送。]], "tformat")
+		效果结束时若你处于墙内，你将被随机传送。
+		]], "tformat")
 t("Darkfire", "黑暗之炎", "talent name")
 t([[Conjures up a bolt of shadowflame that moves toward the target and explodes into a flash of darkness and fire, doing %0.2f fire damage and %0.2f darkness damage in a radius of %d.
 		The damage will increase with your Spellpower.]], [[向目标发射一团黑暗之炎，产生爆炸并造成 %0.2f 火焰伤害和 %0.2f 暗影伤害 （半径 %d 格范围内）。
@@ -23443,13 +23444,14 @@ t("#CRIMSON#%s's %s is disrupted by %s wounds!#LAST#", "#CRIMSON#%s的%s受到�
 t([[Your melee and ranged attacks inflict distracting wounds that reduce the target’s critical strike multiplier by %d%% for 5 turns. 
 In addition, your attacks have a %d%% chance to inflict a painful wound that causes them to forget a random talent for %d turns.  The last effect cannot occur more than once per turn per target.
 		]], [[你的近战和远程攻击制造的伤口会使敌人分心，使目标的暴击系数减少 %d%%， 持续 5 回合。
-		此外，你的攻击还有 %d%% 的几率造成痛苦的创伤，使敌人随机遗忘一项技能，持续 %d 回合。这一效果对每个目标每回合最多触发一次。]], "tformat")
+		此外，你的攻击还有 %d%% 的几率造成痛苦的创伤，使敌人随机遗忘一项技能，持续 %d 回合。这一效果对每个目标每回合最多触发一次。
+		]], "tformat")
 t("Misdirection", "误导", "talent name")
 t("#ORANGE#%s redirects the effect '%s'!#LAST#", "#ORANGE#%s转移了'%s'效果！#LAST#", "logSeen")
 t([[Your abilities in sowing confusion and chaos have reached their peak.  Whenever a foe attempts to apply a detrimental physical effect to you, they have a %d%% chance to fail. If there is an adjacent enemy to you, you misdirect your foe into applying it to them at %d%% duration.
 You gain %d defense.
 The chance to apply status effects increases with your Accuracy and the Defense with your Cunning.]], [[你制造混乱的技巧已趋于巅峰。
-		敌人试图对你施加物理负面状态时，有 %d%% 几率失败。此外，如果相邻格有敌人，这一效果将会被转移到这个敌人身上，持续时间变为 %d%%。
+		敌人试图对你施加物理负面状态时，有 %d%% 几率失败。成功使其失败时，如果相邻格有敌人，这一效果将会被转移到这个敌人身上，持续时间变为 %d%%。
 		你获得 %d 闪避。
 		施加负面状态几率受命中影响。
 		闪避加成受灵巧影响。]], "tformat")
@@ -24001,7 +24003,7 @@ t("You have learned to hold onto your hate and use your suffering to fuel your b
 t("Grim Resolve", "冷酷决心", "talent name")
 t("You rise to meet the pain that others would inflict on you. Every turn you take damage, your Strength and Willpower increase until they reach a maximum of +%d after 5 turns. Any turn in which you do not take damage will reduce the bonus. While in effect, your body also has a %d%% chance to overcome poisons and diseases each turn.", [[你勇于面对其他人带给你的痛苦。每回合当你承受伤害时，你将会增加你的力量和意志，直至在 5 回合后增加至最大值 +%d。
 		每个你不承受伤害的回合会降低该增益效果。
-		当此效果激活时，每回合你有 %d%% 的概率抵抗毒素和疾病效果。]], "tformat")
+		当此效果激活时，每回合你有 %d%% 的几率清除身上的毒素和疾病效果。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/cursed/cursed.lua"
@@ -24674,6 +24676,7 @@ t([[You call upon the mighty claw of a cold drake and rake a wave of freezing co
 		This talent will also attack with your shield, if you have one equipped.]], [[你召唤强大的冰龙之爪，在前方半径 %d 的锥形范围内造成 %d%% 寒冰武器伤害，并有一定几率冻结目标。
 		同时，该技能每等级增加物理豁免 2 点。
 		每一点冰龙系技能同时也能增加你的寒冷抗性 1%%。
+
 		如果你装备了盾牌，这一技能也会用你的盾牌攻击。]], "tformat", {2,1})
 t("Icy Skin", "冰肤术", "talent name")
 t([[Your skin forms icy scales and your flesh toughens, increasing your Maximum Life by %d%% and your Armour by %d.
@@ -26029,8 +26032,8 @@ t("%d effects / %d heal", "%d 效果 / %d 回复量", "tformat")
 t("Taint: Purging", "污印：清除", "talent name")
 t([[Activate the taint to purge your body of physical afflictions for %d turns.
 			Each turn the purge will attempt to cleanse 1 physical debuff from you, and if one is removed, increase its duration by 1.]], [[激活这个印记，清除你身上的物理负面效果，持续 %d 回合。
-			每一回合，这个印记将会尝试从你的身上解除一个物理负面效果。
-			如果它解除了一个负面效果，它的持续时间会增加 1 回合。]], "tformat")
+			每一回合，净化效果将会尝试从你的身上解除一个物理负面效果。
+			如果成功解除了一个负面效果，净化效果的持续时间会增加 1 回合。]], "tformat")
 t("%d turns", "%d 回合", "tformat")
 t("Infusion: Sun", "纹身：太阳", "talent name")
 t([[Activate the infusion to brighten the area in a radius of %d and illuminate stealthy creatures, possibly revealing them (reduces stealth power by %d).%s
@@ -28525,7 +28528,7 @@ t("In an effort to make your dread more annoying you focus a shell of darkness a
 t("Dreadmaster", "噩灵之王", "talent name")
 t([[You now summon a Dreadmaster instead of a Dread.
 		Dreadmasters learn to cast silence, disperse magic and mind disruption, making them the ultimate annoyance tool.
-		It learns them at talent level %d.]], [[你改为召唤噩灵之王取代噩灵。
+		It learns them at talent level %d.]], [[你现在改为召唤噩灵之王，而不是噩灵。
 		噩灵之王可以释放技能等级 %d 的沉默、驱散和精神干扰，是扰乱敌人的强大力量。]], "tformat")
 
 ------------------------------------------------
