@@ -1,0 +1,61 @@
+{
+ "kind": "consumer-family-review",
+ "date": "2026-11-18",
+ "authorization": "Maintainer standing autonomous ToME4 translation polish; assistant 2026-11-18: one bounded talent condition-chain semantic batch (<=60).",
+ "baseline": {
+  "translation_head": "42dfd599d",
+  "core": "624a67329fe2",
+  "units_snapshot": "current_units at b46edd0f8 (targets of the 9 units changed in 0519 are excluded as recent)"
+ },
+ "candidates": {
+  "script": "cands.py",
+  "population": "release-required units in core talents/techniques|cunning|cursed, core timed_effects, and the three DLCs' talents/timed_effects; tag tformat/_t; length>=50",
+  "counts": {
+   "in_sections": 4565,
+   "dead_excluded": 1,
+   "recent_excluded(0480-0520 inputs)": 136,
+   "english_condition_cue": 723,
+   "effective(English cue AND matching code pattern in the same newTalent/newEffect block)": 343,
+   "by_component": {
+    "tome": 174,
+    "orcs": 82,
+    "ashes": 45,
+    "cults": 42
+   },
+   "by_category": {
+    "C1 roll-then-effect": 115,
+    "C2 clear vs prevent": 75,
+    "C3 whose duration": 25,
+    "C4 callback/position/object": 184
+   }
+  },
+  "note": "Heuristic pool: an English cue plus a code pattern in the same definition block; it is not an exhaustive list of all condition chains."
+ },
+ "sample": {
+  "seed": 2026111803,
+  "size": 60,
+  "quota": {
+   "tome": 28,
+   "orcs": 12,
+   "ashes": 10,
+   "cults": 10
+  },
+  "rules": "rarer categories first (C3,C2,C1,C4), sections touched by 0511-0520 last (none needed), max 3 per section",
+  "script": "sample.py",
+  "covered": 60,
+  "uncovered_in_pool": 283
+ },
+ "review_input": "context.json per entry: definition block lines, format-call arguments, args_order, conditional/callback code lines (context.py). Prompt supplement (batch only, public rule file unchanged): tag observations [语义]/[布局] vs [形式]; newline count alone is not a finding; respect args_order.",
+ "lanes": {
+  "A": "claude/claude-opus-5-5 (thinking medium): 1 ISSUE [语义]",
+  "B": "codex/gpt-6.1-sol (thinking medium): 2 ISSUE [语义]; no form-only reports this time"
+ },
+ "disposition": {
+  "fix": 2,
+  "keep": 57,
+  "pending": 1,
+  "pending_item": "ab7b4bdb63c5 Orcs Sawmaim(ing) bleed boost: upstream argument mismatch (shows getDamageInc, applies getDamage), only EFF_CUT; not fixable in translation",
+  "host_extra_check": "Tortured Sanity (70139e678d28) chance/save wording kept: single checkHit capped at chance."
+ },
+ "stone_spikes": "unchanged, keep/advisory (see batches/0517/maintenance.json)."
+}

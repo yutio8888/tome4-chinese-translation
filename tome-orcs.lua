@@ -6084,7 +6084,7 @@ section "tome-orcs/data/timed_effects/floor.lua"
 t("Warm", "温暖", "_t")
 t("The target is warm from the campfire. Increasing steam regeneration by 6/turn, stun immunity by 30% and stamina regeneration by 4/turn.", "目标被营火温暖。蒸汽回复每回合 +6，震慑免疫 +30%，体力回复每回合 +4。", "_t")
 t("Sun Radiance", "日光", "_t")
-t("The target is under the effect of the sun. Increasing lite and sight radius by 2, blindness immunity by 30%, stealth seeing by 20 and light resistance by 30%.", "目标处于阳光照耀下，照明与视野半径增加 2 格，目盲免疫提高 30%，看穿潜行能力提高 20 点，光系抗性提高 30%。", "_t")
+t("The target is under the effect of the sun. Increasing lite and sight radius by 2, blindness immunity by 30%, stealth seeing by 20 and light resistance by 30%.", "目标处于阳光照耀下，照明与视野半径增加 2 格，目盲免疫提高 30%，侦测潜行提高 20 点，光系抗性提高 30%。", "_t")
 t("Moon Radiance", "月光", "_t")
 t("The target is under the effect of the moons. Decreasing lite and sight radius by 1, increasing stun immunity by 30%, granting 10 stealth and darkness resistance by 30%.", "目标处于月光的效果下。照明与视野半径减少 1 格，震慑免疫提高 30%，潜行提高 10 点，暗影抗性提高 30%。", "_t")
 
