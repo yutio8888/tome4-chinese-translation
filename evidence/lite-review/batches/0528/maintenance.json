@@ -1,0 +1,30 @@
+{
+ "kind": "maintenance",
+ "date": "2026-11-18",
+ "authorization": "Maintainer standing autonomous ToME4 translation polish; assistant 2026-11-18 follow-up on 0525: Bloodstream text/argument contract must hold in both directions (B1 new add-on code + old locale; B2 wrapper exception fallback). Use a dedicated translation format key plus capability check for the new path; old function keeps its original contract. Add-on master untouched; no publish.",
+ "applied": [
+  "tome-orcs.lua Bloodstream (unit ab7b4bdb63c5, upstream English key unchanged): second line restored to the 0.3.13 text '\t\t所有流血伤口持续时间增加 %d 回合，伤害增加 %d%% （每项流血最多触发一次）。' (whole entry byte-identical to translation 65bb46dd7 / the 0.3.13 locale). Reason: upstream info and every fallback pass getDamageInc as the third argument, so the upstream key's Chinese must keep the upstream 'increase' contract. The accurate wording (hit, already bleeding before and still after, duration +%d, damage becomes %d%% of current, once per effect) moved to an add-on-only key translated in data/chn_supplement.lua, formatted with getDamage only when that key is translated."
+ ],
+ "supersedes": "0525/0526 wording of the upstream Bloodstream key (kept in those batches' frozen records; not rewritten). 0525 maintenance 'limit' (fallback shows getDamageInc inside new wording) and 'until_next_publish' (6303b33 + 0.3.13 locale shows getDamage inside '伤害增加') are the defects closed here.",
+ "addon": {
+  "branch": "code/dynamic-desc-fixes",
+  "commit": "35808855fdf066947ffb1103df0ee6402b855a3d",
+  "parent": "6303b33",
+  "master": "c05bb96 (v0.3.13) unchanged",
+  "files": [
+   "hooks/dynamic_desc_fixes.lua: BLOODSTREAM_ZH_KEY (addon-only English key ending '##chn-mod bloodstream actual multiplier'); M.hasTranslation(key, tag) = pcall(_t,key,tag) returns a string different from key; Bloodstream zh path runs only if is_zh() and hasTranslation(BLOODSTREAM_ZH_KEY,'tformat'), then BLOODSTREAM_ZH_KEY:tformat(weapon%, getDuration, getDamage, damDesc(PHYSICAL,getDamage)); else or on error the captured original info (upstream key, getDamageInc). Automated Repair path unchanged.",
+   "data/chn_supplement.lua: new section 'talents' with t(BLOODSTREAM_ZH_KEY, <accurate Chinese>, 'tformat') (CRLF kept)",
+   "tests/test_dynamic_desc_fixes.lua: pairing matrix"
+  ]
+ },
+ "fingerprints": {
+  "translation_base": "e6083af48",
+  "core": "624a67329fe2",
+  "dlc_files_local_sha256": {
+   "orcs/tome-orcs/data/talents/steam/sawmaiming.lua": "eb7b701da0502dfd685dff66912bd41839dca9fb9b0b7276c4507b186125f169"
+  },
+  "note": "local hashes only; DLC public checkout source unpinned (see 0523/source-provenance.json)"
+ },
+ "gates": "gates-full.json: full ci-gates PASS (lite_gates --full) before close; gates.json is the close-time run.",
+ "combination_check": "see 0529 (review batch) and the final callback: isolated worktree locale generation + smoke_release"
+}
