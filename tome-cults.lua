@@ -3851,7 +3851,7 @@ t("#Target# starts to bleed due to glass splinters.", "#Target#因为玻璃碎�
 t("#Target# stops bleeding.", "#Target#停止流血。", "_t")
 t("will", "意志", "effect subtype")
 t("domination", "支配", "effect subtype")
-t("Persistant Will", "坚定意志", "_t")
+t("Persistant Will", "偏执意念", "_t")
 t("Convinced that arcane users are filth to be destroyed.", "坚信奥术使用者都是必须消灭的污秽。", "tformat")
 t("#PURPLE##Target# is convinced arcane users must be destroyed.", "#PURPLE##Target#相信奥术使用者应该被消灭。", "_t")
 t("#Target# looks more kindly toward arcane users.", "#Target#不再痛恨奥术使用者。", "_t")

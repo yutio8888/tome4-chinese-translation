@@ -1348,7 +1348,7 @@ t("\"I never really liked that village anyway.\" - Charlta, Mad Inventor", "“�
 t("Boom.", "轰。", "_t")
 t("QUIVER", "弹药栏", "entity on slot")
 t("%s explosive shell", "%s爆炸弹", "tformat")
-t("%s flare shell", "%s闪光弹", "tformat")
+t("%s flare shell", "%s闪光炮弹", "tformat")
 t("%s incendiary shell", "%s燃烧弹", "tformat")
 t("%s solid shell", "%s固实弹", "tformat")
 t("%s impaler shell", "%s穿刺弹", "tformat")
@@ -4518,7 +4518,7 @@ t([[You breathe a wave of deathly miasma in a cone of radius %d. Any target caug
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/artillery.lua"
 
-t("Rocket Pod", "火箭发射器", "talent name")
+t("Rocket Pod", "火箭巢", "talent name")
 t([[You equip an automated, shoulder mounted rocket launcher. Each turn it will launch rockets at up to %d enemies in weapon range, dealing %d%% steamgun damage as fire.
 		The rockets will pass harmlessly through allies, but on-hit effects triggered by them only deal 50%% of their usual damage.]], [[你装备一具自动肩扛式火箭发射器。每回合，它会向武器射程内最多 %d 个敌人发射火箭，造成相当于蒸汽枪伤害 %d%% 的火焰伤害。
 		火箭会无害地穿过盟友，但它们触发的命中效果只造成通常伤害的 50%%。]], "tformat")
@@ -4533,14 +4533,14 @@ t("You require a steamgun for this talent.", "你需要一把蒸汽枪才能使�
 t([[Lock on to your target with your rocket pod for 5 turns.
 While locked on your regular rocket pod attacks are disabled. However, each turn you automatically fire a rocket barrage dealing %d%% increased damage at your target.
 Marked targets also lose %d defense and cannot benefit from concealment or evasion.
-The defense loss will increase with your Steampower.]], [[让你的火箭发射器锁定目标 5 回合。
+The defense loss will increase with your Steampower.]], [[让你的火箭巢锁定目标 5 回合。
 当你锁定目标的时候，自动火箭发射将会被暂停。然而，每回合你会朝目标发射火箭弹幕，造成额外 %d%% 的伤害。
 被标记的目标还会失去 %d 点闪避，且无法从隐蔽或躲闪中受益。
 闪避降低值随蒸汽强度提高。]], "tformat")
 t("Death From Above", "死亡天降", "talent name")
 t([[You use your rocket pods to launch yourself into the air for 3 turns, firing a radius 2 barrage of rockets that deal %d%% steamgun damage as fire in radius 2. 
 		While flying you gain %d%% movement speed, %d%% chance to evade melee and ranged attacks, and can reactivate this talent at will to repeat the rocket barrage.
-		Using any talent other than Rocket Barrage will end this effect immediately.]], [[你启动火箭发射器，将自己发射到天空中，持续 3 回合，同时发射范围为 2 的火箭弹幕，在半径 2 格内造成 %d%% 火焰蒸汽枪伤害。
+		Using any talent other than Rocket Barrage will end this effect immediately.]], [[你启动火箭巢，将自己发射到天空中，持续 3 回合，同时发射范围为 2 的火箭弹幕，在半径 2 格内造成 %d%% 火焰蒸汽枪伤害。
 		当处在飞行状态的时候，你获得 %d%% 移动速度， %d%% 几率躲闪近战和远程攻击，并且可以重新激活这个技能，再次发射火箭弹幕。
 		使用任何火箭弹幕之外的技能都会提前终止这一效果。]], "tformat")
 t("Rocket Barrage", "火箭弹幕", "talent name")
@@ -5045,7 +5045,7 @@ t([[Current exoskeleton life: %d/%d
 t("Hypervision Goggles", "强化视觉护目镜", "talent name")
 t([[Enhance your vision for %d turns, giving you vision of all targets in range %d, even through walls. While the goggles are active you also spot flaws in your opponent's defenses, increasing your resistance penetration by %d%%.
 In addition, the goggles passively increase your stealth, invisibility and trap detection by %d.]], [[强化你的视觉，持续 %d 回合。你将能看到半径 %d 格范围内的所有目标，该效果可以穿墙。当护目镜激活的时候，你也能注意到敌人防御上的弱点，增加你的抗性穿透 %d%%。
-此外，护目镜会被动增加你 %d 点潜行侦测、隐形侦测和陷阱侦测能力。]], "tformat")
+此外，护目镜会被动增加你 %d 点侦测潜行、侦测隐形和陷阱侦测强度。]], "tformat")
 t("AED", "电击除颤器", "talent name")
 t([[Prepare a defensive device that stores an electrical charge for 8 turns.
 If your life falls below 0 while the AED is active it will activate to shock you back into life, negating the triggering attack, restoring %d life and dealing %0.2f lightning damage in radius %d that dazes affected enemies for 3 turns.
@@ -5560,7 +5560,7 @@ t([[You fire a special explosive shot with your steamgun(s) at a spot within ran
 		This talent does not use ammo as it is the ammo.]], [[你用蒸汽枪向射程内某处射出特殊的爆炸弹。
 		每发子弹命中目标时，造成正常蒸汽枪伤害，并在半径 %d 格内爆炸，造成 %0.2f 物理伤害。
 		这个技能不消耗弹药，因为它本身就是弹药。]], "tformat")
-t("Flare Shell", "闪光弹", "talent name")
+t("Flare Shell", "闪光炮弹", "talent name")
 t([[You fire a special explosive shot with your steamgun(s) at a spot within range.
 		When each shot reaches its target, it does normal steamgun damage and explodes within radius %d, which lights up the area and blinds for %d turns.
 		This talent does not use ammo as it is the ammo.]], [[你用蒸汽枪向射程内的一处地点发射特殊爆炸弹。
@@ -6252,10 +6252,10 @@ t("Countdown", "倒计时", "_t")
 t("At the end of this effect, your missile will explode!", "导弹会在该效果到时间后爆炸！", "tformat")
 t("Locked On", "目标锁定", "_t")
 t("Automatically firing a missile barrage against a target for %d%% increased damage.", "自动朝目标发射火箭弹幕，伤害增加 %d%%。", "tformat")
-t("The target has been marked by a rocket pod, reducing defence by %d and negating all evasion effects.", "目标被火箭发射器锁定，降低闪避值 %d，且躲闪效果失效。", "tformat")
-t("#Target# has been marked by a rocket pod!", "#Target#被火箭发射器锁定！", "_t")
+t("The target has been marked by a rocket pod, reducing defence by %d and negating all evasion effects.", "目标被火箭巢锁定，降低闪避值 %d，且躲闪效果失效。", "tformat")
+t("#Target# has been marked by a rocket pod!", "#Target#被火箭巢锁定！", "_t")
 t("+Locked On", "+目标锁定", "_t")
-t("#Target# is no longer being marked by a rocket pod.", "#Target#不再被火箭发射器锁定。", "_t")
+t("#Target# is no longer being marked by a rocket pod.", "#Target#不再被火箭巢锁定。", "_t")
 t("-Locked On", "-目标锁定", "_t")
 t("miscellaneous", "杂项", "effect subtype")
 t("Mecharachnid out of sight", "视野外的机械蜘蛛", "_t")
@@ -6684,7 +6684,7 @@ t("diamond", "钻石", "_t")
 t("bloodstone", "血滴石", "_t")
 t("Explosive Shell", "爆炸弹", "_t")
 t("A special shot that explodes on impact.", "击中时可以造成猛烈爆炸的特殊弹头。", "_t")
-t("Flare Shell", "闪光弹", "_t")
+t("Flare Shell", "闪光炮弹", "_t")
 t("A special shot that releases intense light on impact.", "击中时可以发出强光的特殊弹头。", "_t")
 t("Solid Shell", "固实弹", "_t")
 t("A special shot that packs a punch.", "威力强劲的特殊弹药。", "_t")

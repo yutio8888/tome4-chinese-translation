@@ -21349,10 +21349,10 @@ t("Hymn of Detection", "侦测圣诗", "talent name")
 t([[Chant the glory of the Moons, granting you stealth detection (+%d power), and invisibility detection (+%d power).
 		You may also attack creatures you cannot see without penalty and your critical hits do %d%% more damage.
 		You may only have one Hymn active at once.
-		The stealth and invisibility detection will increase with your Spellpower.]], [[赞颂月之荣耀，使你的潜行侦测强度提高 %d， 隐形侦测强度提高 %d。
+		The stealth and invisibility detection will increase with your Spellpower.]], [[赞颂月之荣耀，使你的侦测潜行提高 %d， 侦测隐形提高 %d。
 		你还可以无惩罚地攻击看不见的生物，且暴击伤害提高 %d%%。
 		同时只能激活一种圣诗。
-		潜行与隐形侦测强度随法术强度提高。]], "tformat")
+		侦测潜行与侦测隐形随法术强度提高。]], "tformat")
 t("Hymn of Perseverance", "坚毅圣诗", "talent name")
 t([[Chant the glory of the Moons, granting you %d%% stun, blindness and confusion resistance.
 		You may only have one Hymn active at once.]], [[赞美月之荣耀，增加你 %d%% 震慑、致盲和混乱抵抗。
@@ -21383,7 +21383,7 @@ You may only have one Hymn active at a time.]], [[你学会了三种防御圣诗
 
 暗影圣诗：增加 %d%% 移动速度和 %d%% 施法速度。
 
-侦测圣诗：潜行侦测强度提高 %d， 隐形侦测强度提高 %d， 暴击伤害提高 %d%%。
+侦测圣诗：侦测潜行提高 %d， 侦测隐形提高 %d， 暴击伤害提高 %d%%。
 
 坚毅圣诗：增加 %d%% 震慑、混乱、致盲抗性。
 
@@ -22055,7 +22055,7 @@ t([[When a single hit deals more than %d%% of your maximum life another you appe
 t("Vigilance", "严阵以待", "talent name")
 t("#ORCHID#%s has recovered!#LAST#", "#ORCHID#%s恢复了！#LAST#", "logSeen")
 t([[Improves your capacity to see invisible foes by +%d and to see through stealth by +%d.  Additionally you have a %d%% chance to recover from a single negative status effect each turn.
-		Sense abilities will scale with your Magic stat.]], [[增强你的隐形侦测能力 +%d 以及潜行侦测能力 +%d。  此外，每回合你有 %d%% 的几率从一个负面状态中回复。
+		Sense abilities will scale with your Magic stat.]], [[使你的侦测隐形提高 %d， 侦测潜行提高 %d。  此外，每回合你有 %d%% 的几率从一个负面状态中回复。
 		受魔力属性影响，侦测能力按比例增加。]], "tformat")
 t("Warden's Focus", "守卫者专注", "talent name")
 t("You require a weapon to use this talent.", "你需要武器来施展这个技能。", "logPlayer")
@@ -22162,7 +22162,7 @@ t([[You've learned to boost your magic through your control over the spacetime c
 t("Moment of Prescience", "预知时刻", "talent name")
 t([[You pull your awareness fully into the moment, increasing your stealth detection, see invisibility, defense, and accuracy by %d for %d turns.
 		If you have Spin Fate active when you cast this spell, you'll gain a bonus to these values equal to 50%% of your spin.
-		This spell takes no time to cast.]], [[你将意识完全收束于当下，使潜行侦测、隐形侦测、闪避和命中提高 %d， 持续 %d 回合。
+		This spell takes no time to cast.]], [[你将意识完全收束于当下，使侦测潜行、侦测隐形、闪避和命中提高 %d， 持续 %d 回合。
 		若施放时命运之丝处于激活状态，上述数值还会获得相当于命运之丝单层加成值 50%% 的额外加成（与层数无关）。
 		施放此法术不消耗回合。]], "tformat")
 t("Gather the Threads", "聚拢时间线", "talent name")
@@ -23540,7 +23540,7 @@ t([[You notice the small things others do not notice, allowing you to "see" crea
 		Also, your attention to detail increases stealth detection and invisibility detection by %d, and you gain the ability to detect traps (+%d detect 'power').
 		The detection abilities improve with Cunning.]], [[你注意到他人注意不到的细节，甚至能在光照范围外“看到”半径 %d 格内的生物。
 		注意此能力不属于心灵感应，仍然受到视野的限制。
-		同时你的细致观察使你侦察潜行和隐身的能力增加 %d， 使你发现周围的陷阱的能力增加 %d。
+		同时你的细致观察使你的侦测潜行和侦测隐形增加 %d， 并使你获得侦测陷阱的能力（侦测强度 +%d）。
 		上述侦测能力均受灵巧加成。]], "tformat")
 t("Device Mastery", "装置掌握", "talent name")
 t([[Your cunning manipulations allow you to use charms (wands, totems and torques) more efficiently, reducing their cooldowns and the power cost of all usable items by %d%%.
@@ -24565,7 +24565,7 @@ t("Preternatural Senses", "第七感觉", "talent name")
 t([[Your preternatural senses aid you in your hunt for the next victim. You sense foes in a radius of %0.1f. You will always sense a stalked victim in a radius of 10.
 		Also increases stealth detection by %d and invisibility detection by %d.
 		Stealth and invisibility detection improves with your Willpower]], [[你的超自然感官能帮助你搜寻下一个猎物。你能感觉到半径 %0.1f 格范围内的敌人。在半径 10 格范围内你总能看见被追踪的目标。
-		同时增加你的侦测潜行等级 %d， 侦测隐形等级 %d。
+		同时使你的侦测潜行增加 %d， 侦测隐形增加 %d。
 		侦测强度受意志加成。]], "tformat")
 t("Blindside", "闪电突袭", "talent name")
 t("The blindside fizzles!", "闪电突袭失败了！", "logSeen")
@@ -25564,7 +25564,7 @@ t("Switches places with one of your summons. This disorients your foes, granting
 ------------------------------------------------
 section "mod-tome/data/talents/gifts/summon-distance.lua"
 
-t("Flamespit", "火焰喷射", "talent name")
+t("Flamespit", "火焰喷吐", "talent name")
 t("@Source@ spits flames!", "@Source@喷射火焰！", "_t")
 t([[Spits a bolt of fire, doing %0.2f fire damage.
 		The damage will increase with your Mindpower.]], [[吐出一道火焰弹造成 %0.2f 火焰伤害。
@@ -25669,7 +25669,7 @@ section "mod-tome/data/talents/gifts/summon-melee.lua"
 t("Jelly Spread", "果冻散布", "talent name")
 t("@source@ oozes over the ground!!", "@source@在地上散布粘液！！", "_t")
 t("Ooze over the floor, spreading caustic jelly in a radius of 1 lasting %d turns and dealing %d nature damage per turn to hostile creatures caught within.", "在 1 格范围内的地板上散布腐蚀性的粘液，持续 %d 回合，每回合对范围内所有敌对生物造成 %d 自然伤害。", "tformat")
-t("Mitotic Split", "有丝分裂", "talent name")
+t("Mitotic Split", "受创裂变", "talent name")
 t("%d%% chance to split upon taking a single hit dealing at least %d%% of your maximum life.", "有 %d%% 的几率在受到至少相当于最大生命值 %d%% 的单次伤害时分裂。", "tformat")
 t("War Hound", "召唤：战争猎犬", "talent name")
 t("@Source@ summons a War Hound!", "@Source@召唤了一只战争猎犬！", "_t")
@@ -26256,9 +26256,9 @@ t("Flame Bolt", "火焰箭", "talent name")
 t([[Conjures up a bolt of fire, setting the target ablaze and doing %0.2f fire damage over 3 turns.
 		The damage will increase with your Spellpower.]], [[召唤一枚火焰箭，点燃目标，并在 3 回合内造成 %0.2f 火焰伤害。
 		伤害受法术强度加成。]], "tformat")
-t("Ice Bolt", "寒冰箭", "talent name")
+t("Ice Bolt", "寒冰飞矢", "talent name")
 t([[Hurl ice shard at the target dealing %0.2f ice damage.
-		The damage will increase with your Spellpower.]], [[释放寒冰箭，对目标造成 %0.2f 点冰冻伤害。
+		The damage will increase with your Spellpower.]], [[释放寒冰飞矢，对目标造成 %0.2f 点冰冻伤害。
 		伤害受法术强度加成。]], "tformat")
 t("Blight Bolt", "枯萎箭", "talent name")
 t([[Projects a bolt of pure blight, doing %0.2f blight damage.
@@ -26274,7 +26274,7 @@ t("Void Blast", "虚空爆炸", "talent name")
 t([[Fires a blast of void energies that slowly travel to their target, dealing %0.2f arcane damage on impact.
 		The damage will increase with your Spellpower.]], [[发射一团缓慢飞向目标的虚空能量，命中时造成 %0.2f 奥术伤害。
 		伤害受法术强度加成。]], "tformat")
-t("Restoration", "自然治愈", "talent name")
+t("Restoration", "自然复原", "talent name")
 t("Call upon the forces of nature to cure your body of %d poisons and diseases.", "召唤自然的力量治愈你的身体，移除 %d 个毒素和疫病不良效果。", "tformat")
 t("Regeneration", "再生", "talent name")
 t([[Call upon the forces of nature to regenerate your body for %d life every turn for 10 turns.
@@ -26365,7 +26365,7 @@ t("raging volcano", "喷发中的火山", "_t")
 t([[Summons a small raging volcano for %d turns. Every turn, it will fire a molten boulder towards up to %d of your foes, dealing %0.2f fire and %0.2f physical damage.
 		The damage will scale with your Spellpower.]], [[召唤一座小型喷发火山，持续 %d 回合。每回合，它都会向至多 %d 个敌人发射一块熔岩巨石，造成 %0.2f 火焰伤害和 %0.2f 物理伤害。
 		伤害受法术强度加成。]], "tformat")
-t("Speed Sap", "减速", "talent name")
+t("Speed Sap", "速度汲取", "talent name")
 t([[Saps 30%% of the target's speed (increasing yours by the same amount) and inflicts %0.2f temporal damage for three turns.
 		]], [[降低目标 30%% 速度，增加你等量的速度，并在 3 回合内造成 %0.2f 时空伤害。
 		]], "tformat")
@@ -26385,7 +26385,7 @@ t("Strike", "打击", "talent name")
 t([[Conjures up a fist of stone, doing %0.2f physical damage and knocking the target back 3 grids.
 		The damage will increase with your Spellpower.]], [[制造一个石拳，造成 %0.2f 物理伤害并击退目标 3 格。
 		伤害受法术强度加成。]], "tformat")
-t("Corrosive Vapour", "腐蚀酸雾", "talent name")
+t("Corrosive Vapour", "腐蚀酸汽", "talent name")
 t([[Corrosive fumes rise from the ground doing %0.2f acid damage in a radius of 3 each turn for %d turns.
 		The damage will increase with your Spellpower.]], [[腐蚀性酸雾从地面升起，在半径 3 格内每回合造成 %0.2f 点酸性伤害，持续 %d 回合。
 		伤害受法术强度加成。]], "tformat")
@@ -26454,11 +26454,11 @@ t("Bloodrage", "血怒", "talent name")
 t("Each time one of your foes bites the dust, you feel a surge of power, increasing your strength by 2 (stacking up to a maximum of %d) for %d turns.", "每当你让一个敌人扑街，你会感到一股力量涌起，增加你 2 点力量，上限 %d， 持续 %d 回合。", "tformat")
 t("Martyrdom", "殉难", "talent name")
 t("Designate a target as a martyr for 10 turns. When the martyr deals damage, it also damages itself for %d%% of the damage dealt.", "将目标标记为殉难者，持续10回合。当殉难者造成伤害时，自身也会受到相当于该伤害 %d%% 的伤害。", "tformat")
-t("Overpower", "压制", "talent name")
+t("Overpower", "强力压倒", "talent name")
 t("You require a weapon and a shield to use this talent.", "你的盾牌或武器装备不符合这个技能的施展要求。", "logPlayer")
 t("You cannot use Overpower without a shield!", "必须装备一面盾牌施展该技能！", "logPlayer")
 t([[Hits the target with your weapon doing %d%% damage and two shield strikes doing %d%% damage each, trying to overpower your target.
-		If the last attack hits, the target is knocked back 4 grids. The chance for knockback increases with your Accuracy.]], [[用武器攻击目标，造成 %d%% 武器伤害，再用盾牌攻击两次，每次造成 %d%% 伤害，试图压制目标。
+		If the last attack hits, the target is knocked back 4 grids. The chance for knockback increases with your Accuracy.]], [[用武器攻击目标，造成 %d%% 武器伤害，再用盾牌攻击两次，每次造成 %d%% 伤害，试图压倒目标。
 		若最后一次攻击命中，目标会被击退 4 格。击退概率受命中加成。]], "tformat")
 t("Perfect Control", "完美控制", "talent name")
 t([[Encase your body in a sheath of thought-quick forces, allowing you to control your body's movements directly without the inefficiency of dealing with crude mechanisms like nerves and muscles.
@@ -26564,7 +26564,7 @@ t("Piercing Sight", "洞察视界", "talent name")
 t([[You look at your surroundings with more intensity than most people, allowing you to see stealthed or invisible creatures.
 		Increases stealth detection by %d and invisibility detection by %d.
 		The detection power increases with your Cunning.]], [[你比大多数人都更留心观察周围的动静，使你能发觉隐形和潜行的生物。
-		提升侦测潜行等级 %d 并提升侦测隐形等级 %d。
+		侦测潜行提高 %d， 侦测隐形提高 %d。
 		你的侦测强度受灵巧加成。]], "tformat")
 t("Precision", "弱点打击", "talent name")
 t("You cannot use Precision without dual wielding!", "你只有在双持状态下才能使用弱点打击！", "logPlayer")
@@ -27494,7 +27494,7 @@ t("Projection of %s", "%s的投影", "tformat")
 t("A ghostly figure.", "一个隐约的形象。", "_t")
 t([[Activate to project your mind from your body for %d turns.  In this state you're invisible (+%d power), can see invisible and stealthed creatures (+%d detection power), can move through walls, and do not need air to survive.
 		All damage you suffer is shared with your physical body, and while in this form you may only deal damage to 'ghosts' or through an active mind link (mind damage only in the second case.)
-		To return to your body, simply release control of the projection.]], [[激活此技能可以使你的灵魂出窍，持续 %d 回合。在此形态下，你处于隐形状态 （+%d 强度），可以看见隐形和潜行的生物 （+%d 侦测强度），能够穿过墙壁，且无需呼吸。
+		To return to your body, simply release control of the projection.]], [[激活此技能可以使你的灵魂出窍，持续 %d 回合。在此形态下，你处于隐形状态 （+%d 强度），可以看见隐形和潜行的生物 （侦测隐形与侦测潜行 +%d）， 能够穿过墙壁，且无需呼吸。
 		你受到的所有伤害都会与肉身共享；你只能伤害“鬼魂”，或通过已激活的精神通道造成精神伤害。
 		要回到你的身体里，只需放弃对灵魂投影的控制。]], "tformat")
 t("Mind Link", "精神通道", "talent name")
@@ -28479,7 +28479,7 @@ t("Keen Senses", "敏锐直觉", "talent name")
 t([[You focus your senses, getting information from moments in the future.
 		Improves your capacity to see invisible foes by +%d, to see through stealth by +%d, and to perform a critical spell cast by +%d%%.
 		The effects will improve with your Spellpower.]], [[你集中感官，从未来的片刻中获取信息。
-		侦测隐形等级提高 +%d， 侦测潜行等级提高 +%d， 法术暴击几率提高 +%d%%。
+		侦测隐形提高 +%d， 侦测潜行提高 +%d， 法术暴击几率提高 +%d%%。
 		此效果受法术强度加成。]], "tformat")
 t("Vision", "探测", "talent name")
 t("Form a map of your surroundings in your mind in a radius of %d", "通过意念探测周围地形，有效范围： %d 格。", "tformat")
@@ -30597,10 +30597,10 @@ The poison damage dealt, armor penetration and save reduction will increase with
 穿甲弹- 命中后，使目标的护甲和豁免减少 %d， 持续 3 回合，你的物理穿透增加 %d%%。
 同时只能装备一种弹药。
 毒素伤害受物理强度加成。]], "tformat")
-t("Incendiary Ammunition", "燃烧弹", "talent name")
+t("Incendiary Ammunition", "燃烧弹药", "talent name")
 t([[Load incendiary ammunition, causing attacks to deal an additional %d%% weapon damage as fire in a radius %d ball around your target. 
 		This cannot trigger more than once per turn.
-		The damage will scale with your Physical Power.]], [[装填燃烧弹，使你的攻击额外造成 %d%% 武器伤害的火焰伤害，作用于以目标为中心、半径 %d 的范围内。
+		The damage will scale with your Physical Power.]], [[装填燃烧弹药，使你的攻击额外造成 %d%% 武器伤害的火焰伤害，作用于以目标为中心、半径 %d 的范围内。
 		该技能每回合最多触发一次。
 		伤害受物理强度加成。]], "tformat")
 t("Venomous Ammunition", "剧毒弹", "talent name")
@@ -34904,7 +34904,7 @@ t("corruption", "堕落", "effect subtype")
 t("Sensing (Vim)", "感知（活力）", "_t")
 t("Improves senses, allowing the detection of unseen things.", "强化感知，可以察觉不可见的事物。", "_t")
 t("Sense Hidden", "感知隐藏生物", "_t")
-t("Improves/gives the ability to see invisible and stealthed creatures (power %d).", "提升或获得侦测隐形和潜行生物的能力（侦测强度 %d）。", "tformat")
+t("Improves/gives the ability to see invisible and stealthed creatures (power %d).", "提升或获得发现隐形和潜行生物的能力（侦测隐形与侦测潜行 %d）。", "tformat")
 t("#Target#'s eyes tingle.", "#Target#的眼睛感到刺痛。", "_t")
 t("#Target#'s eyes tingle no more.", "#Target#的眼睛不再刺痛。", "_t")
 t("bane", "灾祸", "effect subtype")
@@ -35081,7 +35081,7 @@ t("+Wasting", "+时间耗竭", "_t")
 t("#Target# stops wasting away.", "#Target#不再衰竭。", "_t")
 t("-Wasting", "-时间耗竭", "_t")
 t("Prescience", "预知", "_t")
-t("The target's awareness is fully in the present, increasing stealth detection, see invisibility, defense, and accuracy by %d.", "目标的意识完全立足于当下，潜行侦测、隐形侦测、闪避和命中提高 %d 点。", "tformat")
+t("The target's awareness is fully in the present, increasing stealth detection, see invisibility, defense, and accuracy by %d.", "目标的意识完全立足于当下，侦测潜行、侦测隐形、闪避和命中提高 %d 点。", "tformat")
 t("#Target# has found the present moment!", "#Target#对当前的感知力提高了！", "_t")
 t("+Prescience", "+预知", "_t")
 t("#Target#'s awareness returns to normal.", "#Target#的感知恢复了正常。", "_t")
@@ -36468,7 +36468,7 @@ t([[A shroud of darkness seems to fall across your path.
 #CRIMSON#Power 3+: %sShroud of Passing: Your form seems to fade as you move, reducing all damage taken by %d%% for 1 turn after movement.
 #CRIMSON#Power 4+: %sShroud of Death: The power of every kill seems to envelop you like a shroud, reducing all damage taken by %d%% for 3 turns.]], [[一道黑暗帷幕降临在你的面前。
 #CRIMSON# 惩罚：#WHITE# 虚弱帷幕：有较小几率被虚弱帷幕笼罩（使你造成的伤害降低 %d%%）持续 4 回合。
-#CRIMSON# 强度 1+：%s 暗夜行者：%+d 暗影抗性，%+d%% 最大暗影抗性，%+d 看破隐形强度
+#CRIMSON# 强度 1+：%s 暗夜行者：%+d 暗影抗性，%+d%% 最大暗影抗性，%+d 侦测隐形
 #CRIMSON# 强度 2+：%s%+d 幸运，%+d 体质
 #CRIMSON# 强度 3+：%s 消逝帷幕：你的身形在移动时消失，移动后 1 回合减少 %d%% 所受伤害。
 #CRIMSON# 强度 4+：%s 死亡帷幕：每一次杀死目标可以让你笼罩在帷幕中，减少 %d%% 所受伤害持续 3 回合。]], "tformat")
