@@ -1,0 +1,34 @@
+{
+ "batch": "0529",
+ "purpose": "Display wiring and argument contract for the Bloodstream description (facts only).",
+ "upstream": {
+  "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/sawmaiming.lua (public DLC checkout, unpinned)",
+  "definition_lines": "57-100",
+  "action_lines": "68-91",
+  "info_lines": "92-99",
+  "info_tformat_args": [
+   "self:combatTalentWeaponDamage(t, 0.3, 1.1) * 100",
+   "t.getDuration(self, t)",
+   "t.getDamageInc(self, t)",
+   "damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t))"
+  ],
+  "args_order": null
+ },
+ "addon": {
+  "repo": "/workspace/tome4-chn-mod",
+  "commit": "35808855fdf066947ffb1103df0ee6402b855a3d",
+  "read_with": "git -C /workspace/tome4-chn-mod show 3580885:<path>",
+  "files": {
+   "hooks/dynamic_desc_fixes.lua": "installBloodstream and hasTranslation; BLOODSTREAM_ZH_KEY literal",
+   "data/chn_supplement.lua": "section \"talents\": translation of BLOODSTREAM_ZH_KEY (tag tformat)",
+   "hooks/load.lua": "loads /data-chn-mod/chn_supplement.lua and calls dynamic_desc_fixes.install() in ToME:load"
+  },
+  "display_paths": [
+   "English (locale not zh_hans): original upstream info, upstream key with the arguments above.",
+   "Chinese, BLOODSTREAM_ZH_KEY translated in the current locale: BLOODSTREAM_ZH_KEY:tformat(weapon damage %, getDuration, getDamage, damDesc(PHYSICAL, getDamage)).",
+   "Chinese, BLOODSTREAM_ZH_KEY not translated, or any error in that path, or an add-on build without this hook: original upstream info, i.e. the upstream key's Chinese (the entry under review) with getDamageInc as the third argument."
+  ],
+  "dedicated_key_source": "You \"gently\" slam your saws into the wounds of a creature, dealing %d%% weapon damage and deepening the wounds.\n\t\tIf the attack hits, the target was already bleeding before the attack and is still bleeding after it, that bleeding effect's duration is increased by %d turns and its damage becomes %d%% of its current value (this may be done only once per bleeding effect).\n\t\tWhen this happens a gush of blood is projected in a narrow cone of radius 4, dealing %0.2f physical damage to all creatures.\n\t\tThe power and damage improves with your Steampower.\n\t\t#{italic}#The marvels of technology, now at the service of true butchery!#{normal}###chn-mod bloodstream actual multiplier",
+  "dedicated_key_target": "你“轻柔”地将链锯猛砸进目标的伤口，造成 %d%% 武器伤害并加深伤口。\n\t\t若攻击命中，且攻击前目标已在流血、命中后流血效果仍在，则该流血效果持续时间延长 %d 回合，伤害变为原来的 %d%% （每个流血效果只能强化一次）。\n\t\t效果触发时，血流将喷射而出，对半径 4 的窄锥形范围内所有生物造成 %0.2f 物理伤害。\n\t\t效果强度和伤害受蒸汽强度加成。\n\t\t#{italic}#科技的奇迹，如今为真正的屠戮效力！#{normal}#"
+ }
+}

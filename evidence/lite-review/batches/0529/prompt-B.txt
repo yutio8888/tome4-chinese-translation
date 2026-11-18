@@ -1,0 +1,4 @@
+轻量审核 B（0529）。逐条审 evidence/lite-review/batches/0529/input.json 中的译文，有源码或语境证据的问题报 ISSUE，否则 OK。
+读完 docs/lite-review-reviewer.md 的规则后开始。核心源码只用固定提交（git -C /workspace/t-engine4 show 624a67329fe2ad440c5b344785a9c73fcf22ae63:<path>），DLC 读 /workspace/tome4-dlcs 下公开检出。
+只读本批输入、本批 context.json、源码、terminology/ 和上述规则；不要读其他批次文件、账本、handoff、维护记录或 git 历史（盲审）。仓库只读；把结果 JSON 写到 /tmp/lite-review/0529-B.json。最终回复只写一行摘要，不要贴 JSON：`0529 B: N verdicts, ISSUE k: [id, ...]`。
+本批补充（只适用于本批，不改公共规则）：同目录 context.json 给出该技能说明的显示接线事实：上游 info 的格式化实参、插件的中文显示路径与回退路径，以及插件专用显示键（dedicated_key_source/dedicated_key_target，英文仅作内部键、不会显示）。插件文件只用 git -C /workspace/tome4-chn-mod show 3580885:<path> 只读查看。请分别核对：(1) input.json 中上游键译文与其实际代入实参是否一致；(2) 专用显示键的英文与中文是否与 action 实际行为及其实际代入实参一致、中文是否通顺。两项都写在 ab7b4bdb63c5 这一条 verdict 里（不要新增 id）；若问题只在专用显示键，observation 以 [插件键] 开头。JSON 格式不变。

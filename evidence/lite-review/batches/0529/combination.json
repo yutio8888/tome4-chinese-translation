@@ -1,0 +1,40 @@
+{
+ "kind": "combination_check",
+ "date": "2026-11-18",
+ "isolation": "git worktree of tome4-chn-mod at /tmp/chn-combo (detached, 3580885 tree) selected with the supported TOME_ADDON_ROOT override; tools/i18n publish --apply (no --bump, no --commit) wrote only /tmp/chn-combo/data/locales/zh_hans.lua. Add-on master c05bb96, shared install and public 0.3.13 package untouched; no tag/Release/version/teaa.",
+ "addon_commit": "35808855fdf066947ffb1103df0ee6402b855a3d",
+ "translation_commit": "79b4a8954a8ae5bb036378c16c3fbd7f0bcde36d",
+ "old_locale": {
+  "file": "c05bb96:data/locales/zh_hans.lua (v0.3.13)",
+  "sha256": "9f8132153604040e68d17de1398a598f7bdc5881075090131c6379bf4edd84fd",
+  "entries": 13819
+ },
+ "test_locale": {
+  "file": "/tmp/chn-combo/data/locales/zh_hans.lua (generated, not committed)",
+  "sha256": "1e210c6026b91275b30a56d7fb8004fb34ac01189a881a2944902d5fedb24783",
+  "entries": 13830,
+  "note": "publish dry run on committed 79b4a8954 reproduces the same sha256"
+ },
+ "smoke_release": {
+  "3580885 + old locale": "FAIL exit 1: DLC exact runtime overlay mismatched ashes 1 / cults 6 / orcs 13 (publish drift: DLC entries changed since the 0.3.13 source; orcs was 14 before 0528 restored the Bloodstream upstream key) -> combo-smoke-old-locale.txt",
+  "3580885 + generated locale": "PASS (SMOKE OK) -> combo-smoke-new-locale.txt"
+ },
+ "regressions": {
+  "tests/test_dynamic_desc_fixes.lua": "132 checks ALL OK with CHN_TEST_LOCALE = generated zh_hans.lua and with tome-orcs.lua source (CHN_TEST_OLD_LOCALE = 0.3.13 locale) -> combo-test-*.txt",
+  "tests/test_talent_description_diff.lua": "passed",
+  "luajit -bl": "hooks, tests, data/chn_supplement.lua, superload interface files OK",
+  "negative": "same test with the pre-0528 tome-orcs.lua (e6083af48) fails 'upstream key keeps the old increase contract'; 6303b33 test with the restored translation fails on the multiplier wording (expected, superseded)"
+ },
+ "matrix": {
+  "new code + new locale": "dedicated key Chinese with getDamage ('变为原来的 N%')",
+  "new code + old 0.3.13 locale": "dedicated key Chinese ships in data/chn_supplement.lua with the code -> getDamage multiplier wording; upstream key Chinese in the old locale is the 'increase' wording, used only on fallback with getDamageInc",
+  "new code, dedicated key untranslated": "original upstream info: '伤害增加 N%' with getDamageInc",
+  "old code (c05bb96, no hook) + new locale": "original upstream info with the restored upstream-key Chinese: '伤害增加 N%' with getDamageInc",
+  "injected error in the new path": "original upstream info ('伤害增加' + getDamageInc), actor unchanged, one log line",
+  "English": "byte-identical to upstream info",
+  "missing DLC": "install() no-op",
+  "state": "actor/eff deep-equal before and after every description call"
+ },
+ "limit": "Fallback paths show upstream's own figure (getDamageInc described as an increase), which does not match what action applies: that display path is not fixed, but no new wording/argument mismatch is introduced. Test values come from stub combat functions; nothing run in game.",
+ "code_review": "code-review-result.md: Codex gpt-6.1-sol (agent 5b4148f2, read-only, thinking medium, archived) VERDICT READY, 0 blocking, 1 advisory (unit test uses a simplified _t/tformat; reviewer additionally ran the pinned engine I18N.lua + real replaceFormat harness, code-review-check-i18n.lua.txt, which passed). Advisory recorded, not added to the add-on tests in this commit."
+}

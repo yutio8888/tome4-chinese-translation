@@ -1,0 +1,31 @@
+package.loaded["engine.class"] = true
+class = {make = function() end}
+config = {settings = {locale = "zh_hans"}}
+fs = {exists = function() return true end}
+util = {loadfilemods = function(path, env) local f; if path:find("tome4%-chinese%-translation") then local h=assert(io.open(path)); local src=h:read("*a"); h:close(); f=assert(loadstring('locale "zh_hans"\n'..src)) else f=assert(loadfile(path)) end; setfenv(f, env); return f end}
+local I = assert(loadfile("/tmp/r7/review/I18N-review.lua"))("reviewI18N") or package.loaded.reviewI18N
+I = package.loaded.reviewI18N
+I:setLocale("zh_hans")
+I:loadLocale("/workspace/tome4-chinese-translation/tome-orcs.lua")
+I:loadLocale("/workspace/tome4-chn-mod/data/chn_supplement.lua")
+local M = dofile("/workspace/tome4-chn-mod/hooks/dynamic_desc_fixes.lua")
+assert(M.hasTranslation(M.BLOODSTREAM_ZH_KEY, "tformat"))
+assert(_t(M.BLOODSTREAM_ZH_KEY) == _t(M.BLOODSTREAM_ZH_KEY, "tformat"))
+local name, translations, args, special = I:getLocalesData()
+for _, bucket in pairs(args) do assert(not bucket[M.BLOODSTREAM_ZH_KEY]) end
+for _, bucket in pairs(special) do assert(not bucket[M.BLOODSTREAM_ZH_KEY]) end
+assert(not M.BLOODSTREAM_ZH_KEY:find("\r", 1, true))
+assert(translations.tformat[M.BLOODSTREAM_ZH_KEY])
+local helper = dofile("/workspace/tome4-chn-mod/overload/engine/i18nhelper.lua")
+local orig = function(self,t) return M.BLOODSTREAM_FMT:tformat(60,2,90,75) end
+local def = {info = helper:replaceFormat(orig),getDamage=function() return 75 end,getDuration=function() return 2 end}
+local a = {combatTalentWeaponDamage=function() return .6 end}
+assert(M.installBloodstream(def,function(_,_,v) return v end,1))
+assert(def.info(a,def):find("变为原来的 75%%"))
+I:setLocale("en_US"); config.settings.locale="en_US"
+assert(def.info(a,def) == orig(a,def))
+I:setLocale("zh_hans"); config.settings.locale="zh_hans"
+translations.tformat[M.BLOODSTREAM_ZH_KEY]=nil; translations["nil"][M.BLOODSTREAM_ZH_KEY]=nil
+assert(not M.hasTranslation(M.BLOODSTREAM_ZH_KEY,"tformat"))
+assert(def.info(a,def):find("伤害增加 90%%"))
+print("REAL I18N + Bloodstream replaceFormat chain OK")
