@@ -1,0 +1,46 @@
+{
+ "kind": "sample-review",
+ "date": "2026-11-18",
+ "authorization": "Maintainer 2026-11-18 standing autonomous ToME4 translation polish; assistant 2026-11-18 next bounded batch: re-check Stone Spikes full sentence, then one <=60 sample (seed 2026111802).",
+ "sample": {
+  "seed": 2026111802,
+  "size": 60,
+  "quota": {
+   "tome": 28,
+   "engine": 4,
+   "ashes": 8,
+   "cults": 10,
+   "orcs": 10
+  },
+  "population": "release-required current_units at 19530c89f (29,554)",
+  "exclusions": "22 dead keys (dead-key-scan-20261111 pairs + deleted engine log); inputs of lite batches 0480-0516; every section touched by 0511-0516; max 2 per section; 0 overlap with 0514 sample",
+  "script": "sample.py",
+  "lanes": {
+   "A": "claude/claude-opus-5-5 (thinking medium)",
+   "B": "codex/gpt-6.1-sol (thinking medium)"
+  },
+  "note": "The 0514 sample script's dead-key filter was a no-op; checked afterwards that none of the 0514 sample's 60 units is a dead key."
+ },
+ "disposition": {
+  "fix": 2,
+  "keep": 58,
+  "pending": 0,
+  "detail": "A and B each 2 ISSUE, identical items; both newline invariants confirmed against source."
+ },
+ "stone_spikes_keep": {
+  "decision": "keep (advisory)",
+  "basis": "eldritch-stone.lua:78-91 @624a67329fe2: xs = optional Poisoned..Eldritch..Impaling fragments, then xs.._t' and ' into '将%s遭到割伤'. engine/I18N.lua loadLocale: section = function(s) end -- Not used ingame, so the eldritch-stone ' and ' entry (mod-tome.lua:28614) is one of 7 copies of a single global key; a local change would collide. No fragment-separator layout is correct for all 8 combinations with a fixed trailing joiner. Meaning and numbers are correct; only '），和遭到割伤' reads slightly awkward.",
+  "full_sentences": [
+   "none   范围内的生物将遭到割伤，并在 6 回合内受到 30.0 点物理伤害。",
+   "I      范围内的生物将受到 15.0 点物理伤害（同时缴械 3 回合），和遭到割伤，并在 6 回合内受到 30.0 点物理伤害。",
+   "E      范围内的生物将受到 12.0 点奥术伤害（同时沉默 3 回合），和遭到割伤，并在 6 回合内受到 30.0 点物理伤害。",
+   "E+I    范围内的生物将受到 12.0 点奥术伤害（同时沉默 3 回合），受到 15.0 点物理伤害（同时缴械 3 回合），和遭到割伤，并在 6 回合内受到 30.0 点物理伤害。",
+   "P      范围内的生物将中毒 6 回合受到合计 24.0 点自然伤害（同时减少 20% 治疗效果），和遭到割伤，并在 6 回合内受到 30.0 点物理伤害。",
+   "P+I    范围内的生物将中毒 6 回合受到合计 24.0 点自然伤害（同时减少 20% 治疗效果），受到 15.0 点物理伤害（同时缴械 3 回合），和遭到割伤，并在 6 回合内受到 30.0 点物理伤害。",
+   "P+E    范围内的生物将中毒 6 回合受到合计 24.0 点自然伤害（同时减少 20% 治疗效果），受到 12.0 点奥术伤害（同时沉默 3 回合），和遭到割伤，并在 6 回合内受到 30.0 点物理伤害。",
+   "P+E+I  范围内的生物将中毒 6 回合受到合计 24.0 点自然伤害（同时减少 20% 治疗效果），受到 12.0 点奥术伤害（同时沉默 3 回合），受到 15.0 点物理伤害（同时缴械 3 回合），和遭到割伤，并在 6 回合内受到 30.0 点物理伤害。"
+  ],
+  "minimal_plan_not_applied": "chn-mod superload/data/talents.lua already wraps T_BODY_OF_FIRE.info; a similar wrapper for T_STONE_SPIKES.info could, in zh locale only, replace '），和遭到割伤' with '），还会遭到割伤'. Add-on code in the release package; not done in this batch."
+ },
+ "source_provenance": "source-provenance.json (23 DLC files, all match installed 1.7.6 teaa members; component metadata identical to batches/0514; local hashes only)."
+}
