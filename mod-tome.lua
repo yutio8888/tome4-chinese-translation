@@ -23215,7 +23215,7 @@ This can be used without breaking stealth.
 使用该技能不解除潜行。
 #YELLOW#准备于：%s#LAST#]], "tformat")
 t("Dart Launcher Mastery", "毒镖强化", "talent name")
-t("Your darts ignore poison and sleep immunity and waking targets are slowed by %d%% for 4 turns.", "你的飞镖无视中毒免疫和睡眠免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
+t("Your darts ignore poison and sleep immunity and waking targets are slowed by %d%% for 4 turns.", "你的飞镖无视中毒免疫和睡眠免疫，且使目标醒来后减速 %d%%， 持续 4 回合。", "tformat")
 t("The sleeping poison of your Dart Launcher becomes potent enough to ignore immunity, and upon waking the target is slowed by %d%% for 4 turns.", "你的飞镖发射器的睡眠毒素强效到足以无视免疫，且使目标醒来后减速 %d%% 4 回合。", "tformat")
 t("Grappling Hook", "钩爪", "talent name")
 t("You are too close to your target to swing your hook effectively!", "你距离目标太近了，不方便使用钩爪！", "logPlayer")
@@ -28604,8 +28604,8 @@ section "mod-tome/data/talents/spells/eldritch-stone.lua"
 
 t("Stone Spikes", "岩石尖刺", "talent name")
 t("poisoned for %0.1f Nature damage over 6 turns (%d%% healing reduction)", "中毒 6 回合受到合计 %0.1f 点自然伤害（同时减少 %d%% 治疗效果）", "tformat")
-t(", blasted for %0.1f Arcane damage (and silenced for %d turns),", ", 受到 %0.1f 点奥术伤害（同时沉默 %d 回合）,", "tformat")
-t(" impaled for %0.1f Physical damage (and disarmed for %d turns),", " 受到 %0.1f 点物理伤害（同时缴械 %d 回合）,", "tformat")
+t(", blasted for %0.1f Arcane damage (and silenced for %d turns),", "，受到 %0.1f 点奥术伤害（同时沉默 %d 回合），", "tformat")
+t(" impaled for %0.1f Physical damage (and disarmed for %d turns),", "受到 %0.1f 点物理伤害（同时缴械 %d 回合），", "tformat")
 t([[Stony spikes erupt from the ground in a radius %d cone.
 		Creatures caught in the area will be %scut for %0.1f Physical damage dealt over 6 turns.
 		The damage increases with your Spellpower, and the chance to apply the detrimental effect(s) improves with Spellpower or Physical Power, whichever is greater.]], [[在半径 %d 的锥形范围内，从地下爆发岩石尖刺。
@@ -30135,8 +30135,7 @@ t([[You delight in the inflicting of wounds, providing %d physical power.
 t("Unstoppable", "势不可挡", "talent name")
 t([[You enter a battle frenzy for %d turns. During that time, you can not use items, healing has no effect, and your health cannot drop below 1.
 		At the end of the frenzy, you regain %d%% of your health per foe slain during the frenzy.
-		While Unstoppable is active, Berserker Rage critical bonus is disabled as you lose the thrill of the risk of death.]], [[你进入疯狂战斗状态 %d 回合。
-		在这段时间内你不能使用物品，并且治疗无效，此时你的生命值无法低于 1 点。
+		While Unstoppable is active, Berserker Rage critical bonus is disabled as you lose the thrill of the risk of death.]], [[你进入疯狂战斗状态 %d 回合。在这段时间内你不能使用物品，并且治疗无效，此时你的生命值无法低于 1 点。
 		状态期间你每杀死一个敌人，都会在状态结束时回复 %d%% 最大生命值。
 		势不可挡激活期间，由于你失去了死亡的威胁，狂战之怒不能提供暴击加成。]], "tformat")
 
@@ -36136,7 +36135,7 @@ t("+Resonance Shield", "+共鸣护盾", "_t")
 t("The psychic field around #target# crumbles.", "#target#周围的灵能领域破碎了。", "_t")
 t("-Resonance Shield", "-共鸣护盾", "_t")
 t("Mind Link", "精神通道", "_t")
-t("The target's mind has been invaded, increasing all mind damage it receives from %s by %d%%.", "目标遭到精神入侵，提升它受到 %s 的精神伤害 %d%%。", "tformat")
+t("The target's mind has been invaded, increasing all mind damage it receives from %s by %d%%.", "目标遭到精神入侵，受到来自 %s 的所有精神伤害提高 %d%%。", "tformat")
 t("#Target#'s mind has been invaded!", "#Target#精神被入侵！", "_t")
 t("+Mind Link", "+精神通道", "_t")
 t("#Target# is free from the mental invasion.", "#Target#摆脱了精神入侵。", "_t")

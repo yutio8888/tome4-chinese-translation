@@ -1033,7 +1033,7 @@ The default origin is (0,0).
 
 Note: This value will automatically revert after ten seconds if not confirmed by the user.#WHITE#]], [[设置游戏窗口的原点。
 这个点表示窗口左上角所在的位置。
-这一选项用于在使用无边框窗口或者多显示器的场合。
+此选项适用于使用多显示器或无边框窗口的场合。
 
 默认原点：(0,0)。
 

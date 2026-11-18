@@ -771,7 +771,7 @@ t("Perseverance", "毅力", "entity name")
 t("always sharp blade", "永远锋利的剑", "_t")
 t([[It is said that the preferred weapons of the krog is a mace in one hand and a sword in the other. One hand to spread the message of the Zigurath, the other to see that message through to the end.
 The sword symbolizes the krogs committment to their task of fighting against the forces of the arcane. With each slash the krog would endevor to continue, until at last their opponents would fall.]], [[人们说克罗格首选的武器是一手拿锤、一手拿剑。用一只手传播伊格兰斯的讯息，用另一只手将这一讯息贯彻到底。
-剑象征着克罗格坚守着他们对抗奥术力量的任务。每一次挥砍，克罗格都会竭力坚持下去，直到敌人终于倒下。]], "_t")
+剑象征着克罗格履行对抗奥术力量这一使命的决心。每一次挥砍，克罗格都会竭力坚持下去，直到敌人终于倒下。]], "_t")
 t("restore 7 stamina and equilibrium", "恢复7点体力值和失衡值。", "_t")
 t("#LIGHT_BLUE#As you wear the sword you feel it attuning to your Krog body, increasing in power!", "#LIGHT_BLUE#你感受到你的剑和克罗格的身躯共鸣，解放了强大的力量！", "logPlayer")
 t("It is said perseverance comes hand in hand with dedication.", "人们说毅力之剑与忠诚之锤配合。", "_t")
@@ -3132,8 +3132,7 @@ t([[You project tentacles in a cone of radius %d in front of you.
 		任何在范围内的敌人将会被触手缠绕并受到 %d%% 枯萎武器伤害，如果攻击命中，该生物还会被拉向你。]], "tformat")
 t("Decaying Grounds", "腐朽之地", "talent name")
 t([[You blight a zone as a decaying ground for %d turns. All creatures inside take %0.2f blight damage per turn and have all their cooldowns increased by %d%% for 3 turns.
-		The damage will scale with the highest of your spell or mind power.]], [[你使一个区域枯萎，化为腐朽之地，持续 %d 回合。
-		所有在其中的生物每回合受到 %0.2f 枯萎伤害，并且所有技能冷却时间增加 %d%%， 持续 3 回合。
+		The damage will scale with the highest of your spell or mind power.]], [[你使一个区域枯萎，化为腐朽之地，持续 %d 回合。所有在其中的生物每回合受到 %0.2f 枯萎伤害，并且所有技能冷却时间增加 %d%%， 持续 3 回合。
 		伤害受你的法术强度或者精神强度两者中更高一方影响。]], "tformat")
 t("Augment Despair", "扩大绝望", "talent name")
 t([[You target a single creature with all your hatred and insanity, augmenting its despair, increasing the duration of detrimental effects by %d turns and dealing %0.2f blight damage per detrimental effect (each effect deals 75%% of the previous one).

@@ -1,0 +1,33 @@
+{
+ "kind": "sample-review+maintenance",
+ "date": "2026-11-18",
+ "authorization": "Maintainer 2026-11-18: autonomous ToME4 translation polish, phase 2 stratified sample of <=60 release-required units with independent A/B review and fix/keep/pending disposition.",
+ "sample": {
+  "seed": 20261118,
+  "size": 60,
+  "quota": {
+   "tome": 30,
+   "engine": 6,
+   "ashes": 6,
+   "cults": 9,
+   "orcs": 9
+  },
+  "population": "release-required current_units at 8af04f810 (29,554)",
+  "exclusions": "22 dead keys; inputs of lite batches 0480-0513; priority sections conditions/damage/resources/talent bodies/effect feedback",
+  "script": "sample.py (copy of /tmp/ft2/sample.py)",
+  "lanes": {
+   "A": "claude/claude-opus-5-5 (thinking medium)",
+   "B": "codex/gpt-6.1-sol (thinking medium)"
+  }
+ },
+ "disposition": {
+  "fix": 7,
+  "keep": 53,
+  "pending": 0,
+  "detail": "A 1 ISSUE, B 6 ISSUE, no overlap; all 7 confirmed against source (decision.json)."
+ },
+ "applied": [
+  "Same-root sibling outside the sample: Stone Spikes Impaling fragment mod-tome.lua:28608 ' 受到 %0.1f 点物理伤害（同时缴械 %d 回合）,' -> '受到 %0.1f 点物理伤害（同时缴械 %d 回合），' (eldritch-stone.lua:85-86 @624a67329fe2: fragments concatenate into '%scut'; full-width commas matching the Eldritch fragment; leading space dropped because the English separator is the preceding fragment's trailing comma)."
+ ],
+ "source_provenance": "source-provenance.json (DLC files: no git; per-file sha256 and match against installed 1.7.6 teaa members; local hashes only)."
+}
