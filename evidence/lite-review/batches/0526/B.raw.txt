@@ -1,0 +1,11 @@
+{
+  "batch": "0526",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "ab7b4bdb63c5",
+      "verdict": "ISSUE",
+      "observation": "第三个占位符被译为流血伤害“变为原来的 %d%%”，但其显示值与实际乘数并不相同。公开 DLC 源码 /workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/sawmaiming.lua:64 的 getDamageInc 使用 combatTalentSteamDamage(t, 50, 250)，第98行将该值传给第三个占位符；实际第83行却将 cut.power 乘以 getDamage(t)/100，而第66行 getDamage 使用的区间是 50、230。因此不能把第三个显示数值直接称为实际伤害倍率。命中与流血存续条件、延长回合数及一次性限制则符合第75—83行。DLC 为来源未固定的公开检出。"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "ab7b4bdb63c5",
+   "verdict": "ISSUE",
+   "observation": "机制与数值对应正确（tome-orcs/data/talents/steam/sawmaiming.lua:74-82：仅当hit且was_cut且命中后cut仍在且未bloodstreamed时，dur+=getDuration、power*=getDamage/100；插件6303b33 hooks/dynamic_desc_fixes.lua 中文说明第三参数改显示getDamage，“变为原来的%d%%”与之相符）。但条件句语序有误：“且目标攻击前已在流血”中“目标攻击前”会被读成“目标发动攻击之前”，实际是“你这次攻击之前目标已在流血”（sawmaiming.lua:74 was_cut 在 attackTarget 前取得）。应把时间状语移到主语前。",
+   "suggestion": "你“轻柔”地将链锯猛砸进目标的伤口，造成 %d%% 武器伤害并加深伤口。\n\t\t若攻击命中，且攻击前目标已在流血、命中后流血效果仍在，则该流血效果持续时间延长 %d 回合，伤害变为原来的 %d%% （每个流血效果只能强化一次）。\n\t\t效果触发时，血流将喷射而出，对半径 4 的窄锥形范围内所有生物造成 %0.2f 物理伤害。\n\t\t效果强度和伤害受蒸汽强度加成。\n\t\t#{italic}#科技的奇迹，如今为真正的屠戮效力！#{normal}#"
+  }
+ ]
+}

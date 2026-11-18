@@ -5754,7 +5754,7 @@ t([[You "gently" slam your saws into the wounds of a creature, dealing %d%% weap
 		When this happens a gush of blood is projected in a narrow cone of radius 4, dealing %0.2f physical damage to all creatures.
 		The power and damage improves with your Steampower.
 		#{italic}#The marvels of technology, now at the service of true butchery!#{normal}#]], [[你“轻柔”地将链锯猛砸进目标的伤口，造成 %d%% 武器伤害并加深伤口。
-		若攻击命中，且目标攻击前已在流血、命中后流血效果仍在，则该流血效果持续时间延长 %d 回合，伤害变为原来的 %d%% （每个流血效果只能强化一次）。
+		若攻击命中，且攻击前目标已在流血、命中后流血效果仍在，则该流血效果持续时间延长 %d 回合，伤害变为原来的 %d%% （每个流血效果只能强化一次）。
 		效果触发时，血流将喷射而出，对半径 4 的窄锥形范围内所有生物造成 %0.2f 物理伤害。
 		效果强度和伤害受蒸汽强度加成。
 		#{italic}#科技的奇迹，如今为真正的屠戮效力！#{normal}#]], "tformat")
