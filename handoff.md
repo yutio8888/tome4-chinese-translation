@@ -1,11 +1,35 @@
-# 当前恢复入口（2026-11-18 0.3.13 已发布；自主翻译完善进行中）
+# 当前恢复入口（2026-11-18 交接：v0.3.13 已发布；自主翻译完善第一轮已收口）
 
-**2026-11-18 现状（最新，优先阅读）：** 公开插件为 **v0.3.13**（发布仓库 `c05bb96`，13,819 条，凭据 `evidence/releases/addon-0.3.13.json`），本轮不发布 0.3.14、不动 0.3.13、不打 tag、不替换共享安装、不开本地游戏或模型实测。
-- 维护者 2026-11-18 指示「请作为助手自主推进 dcss 和 tome4 翻译完善」：有证据的错译、缺译、语病、术语一致性和有界同名消歧可按 lite 流程自主实施、双审、门禁、过滤镜像推送；有实质新策略歧义的再交维护者。
-- 第一阶段（已知缺口）已收口：0511 `91f7f000a`（剩余 12 组撞名中 10 组改名、2 组有据保留；Cults Persistant Will→偏执意念；Clork 保留「克拉克」，官方 14/15，Gemini 音译「克洛克」仅作可选项；see_stealth/see_invisible 统一「侦测潜行/侦测隐形」，「侦测强度」只指陷阱侦测，combat.tsv 增 3 条，术语行数断言 928→931），0512 `c628c584b`（复审确认 Ice Bolt 寒冰伤害），0513 `009fa3f2b` 无问题。
-- 第二阶段：60 条 release-required 分层抽检（seed 20261118，核心30/引擎6/ashes6/cults9/orcs9，排除死键与 0480–0513 输入），批次 0514 A=claude-opus-5-5、B=codex gpt-6.1-sol；裁决与修复见 0514 之后的批次记录。
-- DLC 来源：本地检出 `/workspace/tome4-dlcs` 无 Git 元数据（历史「来源未固定」照实保留）；0511/0514 引用的 23 个 DLC 文件及三个 init.lua 与本机 1.7.6 安装包 teaa 成员逐字节一致，指纹见 `evidence/lite-review/batches/0514/source-provenance.json`（本地 hash，不等于官方来源已验证）。
-- 22 条死键与历史证据保留。各阶段经 `node /workspace/project-callback.cjs --source tome` 回传助手。
+**交接快照（2026-11-18，最新，优先阅读）**
+- 仓库状态：译文 `develop` 为 `51cfba972`（批次 0529），已通过 `tools/push_github.sh` 过滤镜像推送（GitHub develop `464e7c223e`），原始 `git status` 为空。没有进行中的批次、门禁或子代理；0529 的 A/B lane 与代码复审 agent 均已归档。
+- 公开插件：**v0.3.13**（发布仓库 master `c05bb96`，13,819 条，凭据 `evidence/releases/addon-0.3.13.json`）。0511–0529 的译文改进**尚未进入任何公开包**；没有发布 0.3.14、没有打 tag、没有替换共享安装、没有开本地游戏或模型实测。
+- 授权：维护者 2026-11-18「请作为助手自主推进 dcss 和 tome4 翻译完善」。有证据的错译、缺译、语病、术语一致性和有界同名消歧，可按 lite 流程自主实施、双审、门禁、过滤镜像推送；有实质新策略歧义的交维护者。发布仍须维护者当轮直接指示。各阶段经 `node /workspace/project-callback.cjs --source tome --message-file <文件>` 回传助手一次。
+
+**本轮已完成（均已提交推送）**
+- 0511–0513 已知缺口：剩余 12 组技能撞名 10 改 2 留；Cults Persistant Will→偏执意念；Clork 保留「克拉克」（官方 14/15，有据保留）；侦测潜行/侦测隐形统一，「侦测强度」只指陷阱（combat.tsv +3 行，测试行数断言 928→931）；Ice Bolt 寒冰伤害。
+- 0514–0516 抽检 60 条（seed 20261118）fix 7；DLC 来源附录 `batches/0514/source-provenance.json`（本地 teaa/文件指纹，不等于官方来源已验证）。
+- 0517–0518 抽检 60 条（seed 2026111802）fix 2；岩石尖刺末尾「），和遭到割伤」源自全局共享 " and " 键，记 advisory，不加插件 hook。
+- 0519–0520 换行差异族 52 条：fix 9 / keep 43（换行数量不同本身不是缺陷）。
+- 0521–0524 技能条件链：343 条启发式候选池已查 120、剩 223（seed 2026111803/04），fix 6。0523/maintenance.json 更正了 0521 的分类口径；两批发现率来自不同定向样本，不能推总体错误率或趋势。
+
+**插件动态数值显示修复（源码候选，未进 master、未发布）**
+- 发布仓库分支 `code/dynamic-desc-fixes`：`6303b33` → `3580885`（已推 origin，无强推）。发布仓库检出已切回 master，worktree 只剩主检出。
+- Bloodstream：中文路径使用插件专用键 `BLOODSTREAM_ZH_KEY`（英文以 `##chn-mod bloodstream actual multiplier` 结尾），中文在 `data/chn_supplement.lua` 的 talents 段，随代码一起发。只有该键在当前 locale 有译文时，才代入实际倍率 getDamage；否则或出错时返回原 info。上游键中文已在 0528 恢复为 0.3.13 原文「伤害增加 %d%%」，与 getDamageInc 一致。**以后不要再把上游键改成「变为原来的」。**
+- Automated Repair System：只读 `compute_vals[id]` 中的三个增量。
+- 证据：0525–0527（初版）、0528（上游键恢复）、0529（双审 OK、代码复审 READY、组合验证 `batches/0529/combination.json`）。测试 locale 13,830 条，sha256 `1e210c60…4783`；组合 smoke PASS。旧 0.3.13 locale 的 smoke 失败（ashes 1/cults 6/orcs 13）属发布漂移，已保留。测试 `tests/test_dynamic_desc_fixes.lua` 132 项（用法见记忆 addon-dynamic-desc-fix-branch）。
+- 限制：回退路径仍显示上游自身不准的数值（但不再错配措辞）；全部为测试桩数值，未在游戏中验证；代码复审 advisory 建议把真实 I18N harness 并入长期测试，尚未做。**下次发布前须先把该分支并入 master，再重生 locale。**
+
+**未决与可选的下一步（均未开始）**
+- 条件链候选池剩 223 条，可继续有界批次（排除近期已审与 22 条死键）。
+- advisory 未处理：共享「和」连接词（岩石尖刺）、ego 名称、熵之魔杖上游 6/10 回合不一致。
+- 技能撞名的其余跨类候选、潜行/隐形侦测术语进一步统一：没有授权。
+- 实机未覆盖项（托马克另 2 条技能、艾格尼尔攻防页、沃尔其余页面等）只作玩家检查点；现行流程不再开本地实测。
+- 22 条死键按原决定保留。
+
+**恢复注意**
+- 门禁/收口环境、lite 流程命令、Paseo lane 派发与手工收取见记忆（lite-close-does-not-record、never-parallel-close-with-its-prerequisites、opt-agents-bin-shadows-pi、pin-paseo-workspace-env）。
+- 每批先写 decision.json，再 `strict` → `record` → `lite_close`；需要追加 prompt/context 的批次，用 `lite_review.py prepare N --units` 后手工追加，再 `lite_dispatch.sh`。lite_close 的 NEXT 留空。
+- 主 agent ID `0d6455bf-59d3-43ef-a84e-372d6db02616`，workspace `wks_420314270844170b`。
 
 以下为此前（2026-11-11 至 11-13）记录，状态以上段为准：
 
