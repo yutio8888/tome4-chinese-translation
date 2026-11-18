@@ -1,0 +1,49 @@
+ok   Bloodstream format literal equals upstream
+ok   Automated repair format literal equals upstream
+ok   Bloodstream has a Chinese translation
+ok   Automated repair has a Chinese translation
+ok   repair: installed
+ok   repair: install is idempotent
+ok   repair: activate replaced fields with ids
+ok   repair: English output unchanged (still upstream)
+ok   repair: Chinese shows 37 / 23% / -410 (进入自动修复模式，无法行动，但生命恢复速率增加 37，全部抗性提升 23%，且生命值降至 -410 以下前不会死亡。)
+ok   repair: repeated read is stable
+ok   repair: eff and actor unchanged by description
+ok   repair: other temporary values do not change the figures
+ok   repair: normal removal restores totals
+ok   repair: description after removal falls back without error
+ok   repair: unrelated value 1 intact
+ok   repair: unrelated value 2 intact
+ok   repair: unrelated value 3 intact
+ok   repair: missing registry falls back
+ok   repair: malformed input yields nil
+ok   bloodstream: installed
+ok   bloodstream: install is idempotent
+ok   bloodstream L0.2/S0.5: English unchanged
+ok   bloodstream L0.2/S0.5: Chinese uses getDamage 53 (getDamageInc 54)
+ok   bloodstream L0.2/S0.5: shows '变为原来的 53%'
+ok   bloodstream: getDamageInc value not shown
+ok   bloodstream L1.0/S1.0: English unchanged
+ok   bloodstream L1.0/S1.0: Chinese uses getDamage 86 (getDamageInc 90)
+ok   bloodstream L1.0/S1.0: shows '变为原来的 86%'
+ok   bloodstream: getDamageInc value not shown
+ok   bloodstream L5.0/S1.0: English unchanged
+ok   bloodstream L5.0/S1.0: Chinese uses getDamage 230 (getDamageInc 250)
+ok   bloodstream L5.0/S1.0: shows '变为原来的 230%'
+ok   bloodstream: getDamageInc value not shown
+ok   bloodstream L3.0/S0.8: English unchanged
+ok   bloodstream L3.0/S0.8: Chinese uses getDamage 136 (getDamageInc 146)
+ok   bloodstream L3.0/S0.8: shows '变为原来的 136%'
+ok   bloodstream: getDamageInc value not shown
+ok   bloodstream: covered a multiplier below 100%
+ok   bloodstream: missing definition is a no-op
+ok   install: no DLC definitions is a no-op
+ok   chain: English equals the replaceFormat-wrapped upstream output
+ok   chain: Chinese shows 12 / 34% / -56 through the production chain
+[chn-mod] dynamic description fallback for EFF_AUTOMATED_REPAIR_SYSTEM: tests/test_dynamic_desc_fixes.lua:239: injected
+ok   chain: injected tformat error does not claim the fixed figures
+ok   chain: injected error leaves the actor unchanged
+ok   chain: removal empties the three registry slots
+ok   chain: removal restores life_regen, resists.all and die_at
+ALL OK
+talent description numeric diff tests passed
