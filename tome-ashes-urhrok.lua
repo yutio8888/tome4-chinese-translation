@@ -1028,7 +1028,7 @@ t([[Teleports you randomly within a small range of up to %d grids with %d precis
 		This spell requires an unsummoned, alive, demon seed equiped in a worn equipment to work.
 		The range will increase with your Spellpower.]], [[在最多 %d 格的小范围内随机传送，精度为 %d。
 		你会在原先的位置从种子中随机召唤一个恶魔，持续 %d 回合。
-		如果目标区域不在视线内，法术可能失效。
+		如果目标区域不在视线内，传送有一定几率失控，改为以你为中心在最大范围内随机传送。
 		此法术需要一颗附着在已穿戴装备上、尚未召唤且存活的恶魔种子才能生效。
 		范围随法术强度提高。]], "tformat")
 t("Doom Concordat", "末日契约", "talent name")

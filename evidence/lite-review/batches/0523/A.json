@@ -1,0 +1,251 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "9f47d417401c",
+   "verdict": "OK"
+  },
+  {
+   "id": "5226bc196a79",
+   "verdict": "OK"
+  },
+  {
+   "id": "839131ad3dd6",
+   "verdict": "OK"
+  },
+  {
+   "id": "0a209b23cfeb",
+   "verdict": "OK"
+  },
+  {
+   "id": "64bb4eeabadc",
+   "verdict": "OK"
+  },
+  {
+   "id": "6a464d3aea1f",
+   "verdict": "OK"
+  },
+  {
+   "id": "f1b6b8e7faac",
+   "verdict": "OK"
+  },
+  {
+   "id": "026a3f381ba0",
+   "verdict": "OK"
+  },
+  {
+   "id": "49947c743315",
+   "verdict": "OK"
+  },
+  {
+   "id": "55f7e6b2cecc",
+   "verdict": "OK"
+  },
+  {
+   "id": "2af5d6beb2c8",
+   "verdict": "OK"
+  },
+  {
+   "id": "44c22cd26a20",
+   "verdict": "OK"
+  },
+  {
+   "id": "0ab55a3dc3e9",
+   "verdict": "OK"
+  },
+  {
+   "id": "dae0cfb034a4",
+   "verdict": "ISSUE",
+   "observation": "[语义]② 上游英文“the spell will fizzle”与实现不符，译文“法术可能失效”忠实于英文但误导：ashes-urhrok data/talents/corruptions/demonic-pact.lua:867-871 在目标不在视线内时以 35%（另加地图 control_teleport_fizzle）几率把落点改为自身位置、半径改为完整传送距离 getRange，然后照常执行 teleportRandom（:875），即变为在最大范围内随机传送，并非失效；原位置无生物时仍会召唤恶魔（:878-883）。",
+   "suggestion": "在最多 %d 格的小范围内随机传送，精度为 %d。\n\t\t你会在原先的位置从种子中随机召唤一个恶魔，持续 %d 回合。\n\t\t如果目标区域不在视线内，传送有几率失控，改为在最大范围内随机传送。\n\t\t此法术需要一颗附着在已穿戴装备上、尚未召唤且存活的恶魔种子才能生效。\n\t\t范围随法术强度提高。"
+  },
+  {
+   "id": "303a6a15b43a",
+   "verdict": "OK"
+  },
+  {
+   "id": "31e34a7aa195",
+   "verdict": "OK"
+  },
+  {
+   "id": "16b3aedc71f8",
+   "verdict": "OK"
+  },
+  {
+   "id": "e0a72d16e3dc",
+   "verdict": "OK"
+  },
+  {
+   "id": "5b98f055ec41",
+   "verdict": "OK"
+  },
+  {
+   "id": "eef664f83050",
+   "verdict": "OK"
+  },
+  {
+   "id": "afba2a6bd7fa",
+   "verdict": "OK"
+  },
+  {
+   "id": "a9bd6e4335ac",
+   "verdict": "OK"
+  },
+  {
+   "id": "6a2312c7bf30",
+   "verdict": "OK"
+  },
+  {
+   "id": "85346cb0feb4",
+   "verdict": "OK"
+  },
+  {
+   "id": "d31ce70ec5d5",
+   "verdict": "OK"
+  },
+  {
+   "id": "a669686f7085",
+   "verdict": "OK"
+  },
+  {
+   "id": "084d9bafb8c1",
+   "verdict": "OK"
+  },
+  {
+   "id": "9e9d24eade98",
+   "verdict": "OK"
+  },
+  {
+   "id": "b5ec4d9aced5",
+   "verdict": "OK"
+  },
+  {
+   "id": "56b20b6510a1",
+   "verdict": "OK"
+  },
+  {
+   "id": "861d17e889bc",
+   "verdict": "OK"
+  },
+  {
+   "id": "a9977d2591a5",
+   "verdict": "OK"
+  },
+  {
+   "id": "3c0fe47f0533",
+   "verdict": "OK"
+  },
+  {
+   "id": "b52b4ff0d1e4",
+   "verdict": "OK"
+  },
+  {
+   "id": "c595013a677c",
+   "verdict": "OK"
+  },
+  {
+   "id": "c8d0bda13229",
+   "verdict": "OK"
+  },
+  {
+   "id": "f94fae6f1bc8",
+   "verdict": "OK"
+  },
+  {
+   "id": "e296afa51416",
+   "verdict": "OK"
+  },
+  {
+   "id": "9e69be96b964",
+   "verdict": "OK"
+  },
+  {
+   "id": "ae5c125ec201",
+   "verdict": "OK"
+  },
+  {
+   "id": "d85e9b002f64",
+   "verdict": "OK"
+  },
+  {
+   "id": "f581501fdd63",
+   "verdict": "ISSUE",
+   "observation": "[语义]① 译文把触发条件限定为“因持续时间结束、数量超限或机器人冲撞而被移除时”，漏掉实际存在的另一触发路径：orcs data/timed_effects/magical.lua:576-584（SPIDERBOTS_SHIELD 护盾中一只蜘蛛机器人被伤害击毁时，若 Cryogenic Digs 开启，则在攻击者位置调用 doDig）。terrene-technomancy.lua:52-56 removedBot 的 do_digs 路径只是其中一部分。英文“Each time a spiderbot expires”是笼统说法，译文的穷举反而错误排除了护盾机器人被摧毁的情形。",
+   "suggestion": "每当一只蜘蛛机器人消失（持续时间结束、数量超限、用于冲撞，或作为护盾被击毁）时，它会掘地，产生寒霜冰雾（造成 %0.2f 寒冷伤害，对浸湿目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），半径为 1，持续 %d 回合。\n\t\t这些特殊的寒霜冰雾和地震不会影响施法者。\n\t\t伤害随法术强度提高。"
+  },
+  {
+   "id": "9cbbc900cf54",
+   "verdict": "OK"
+  },
+  {
+   "id": "8e2973e8315b",
+   "verdict": "OK"
+  },
+  {
+   "id": "8af03d6e65d2",
+   "verdict": "OK"
+  },
+  {
+   "id": "93e92482cc40",
+   "verdict": "OK"
+  },
+  {
+   "id": "370166aae626",
+   "verdict": "OK"
+  },
+  {
+   "id": "68a52caee258",
+   "verdict": "OK"
+  },
+  {
+   "id": "ebb3a889960a",
+   "verdict": "OK"
+  },
+  {
+   "id": "3d2cb2c50c94",
+   "verdict": "OK"
+  },
+  {
+   "id": "70fedf02312e",
+   "verdict": "OK"
+  },
+  {
+   "id": "52b664c93fc6",
+   "verdict": "OK"
+  },
+  {
+   "id": "21b97c65fce9",
+   "verdict": "OK"
+  },
+  {
+   "id": "dd3f60ac2a49",
+   "verdict": "OK"
+  },
+  {
+   "id": "8f5edaa7fdb0",
+   "verdict": "OK"
+  },
+  {
+   "id": "c89a9f9cbe1d",
+   "verdict": "OK"
+  },
+  {
+   "id": "b0035aae1522",
+   "verdict": "OK"
+  },
+  {
+   "id": "aa7684009dc2",
+   "verdict": "OK"
+  },
+  {
+   "id": "e43ebdc0be8b",
+   "verdict": "OK"
+  },
+  {
+   "id": "cd0e5498a7c3",
+   "verdict": "ISSUE",
+   "observation": "[语义]③ 上游代码错误，译文无法修正：orcs data/timed_effects/other.lua:541 long_desc 用 eff.heal/eff.resist/eff.life 格式化，但 activate（:549-551）已把这三个字段覆盖为 addTemporaryValue 返回的临时值 ID，因此效果说明显示的是 ID 数字而非实际的生命恢复、抗性和死亡阈值。译文本身忠实，建议保持现译、记录为上游问题。",
+   "suggestion": "进入自动修复模式，无法行动，但生命恢复速率增加 %d，全部抗性提升 %d%%，且生命值降至 -%d 以下前不会死亡。"
+  }
+ ]
+}

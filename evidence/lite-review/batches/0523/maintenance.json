@@ -1,0 +1,67 @@
+{
+ "kind": "consumer-family-review",
+ "date": "2026-11-18",
+ "authorization": "Maintainer standing autonomous ToME4 translation polish; assistant 2026-11-18: second DLC-weighted condition-chain batch (<=60) from the existing 0521 pool, no new scan.",
+ "baseline": {
+  "translation_head": "1b18d5c6da9c",
+  "core": "624a67329fe2"
+ },
+ "pool": {
+  "source": "batches/0521 candidates (cands.py), 343 units",
+  "uncovered_after_0521": 283,
+  "available_now": 283,
+  "note": "no unit re-reviewed in 0480-0522 and none sharing a definition block with a 0521 pick"
+ },
+ "sample": {
+  "seed": 2026111804,
+  "quota": {
+   "orcs": 20,
+   "cults": 20,
+   "ashes": 12,
+   "tome_callback_C4": 8
+  },
+  "sampled": 60,
+  "short": {},
+  "rules": "one unit per definition block, max 3 per section",
+  "remaining_in_pool": 223,
+  "script": "sample.py"
+ },
+ "review_input": "context.json (definition block, format-call args, args_order, condition/callback lines). Batch prompt supplement distinguishes ① translation error ② upstream English inaccurate ③ upstream code/argument error ④ legitimate equivalent; [语义]/[布局]/[形式] tags kept.",
+ "lanes": {
+  "A": "claude/claude-opus-5-5 (thinking medium): 3 ISSUE",
+  "B": "codex/gpt-6.1-sol (thinking medium): 4 ISSUE",
+  "overlap": 2
+ },
+ "disposition": {
+  "fix": 4,
+  "keep": 55,
+  "pending": "cd0e5498a7c3 Orcs automated repairs: tooltip formats fields that activate() overwrote with temporary-value ids (③).",
+  "fix_by_type": {
+   "①": [
+    "f581501fdd63 Cryogenic Digs trigger list omitted shield destruction",
+    "026a3f381ba0 Parasitic Leeches feeding period is not a fixed interval"
+   ],
+   "②": [
+    "dae0cfb034a4 Demonic Pact phase door: out of LOS it goes random within full range, not fizzle",
+    "a9977d2591a5 Inner Tentacles only while digesting"
+   ]
+  }
+ },
+ "dispatch_note": "lite_dispatch status polling stopped updating after 01:54 although both lanes finished (inspect showed idle/finished); the host stopped its own dispatcher by PID and ran collect + archive_agent by hand; both lanes confirmed closed/archived 02:26 UTC.",
+ "correction_of_0521_summary": "The 0521 host callback grouped all three 0521 findings as 'English vs implementation mismatch'. Correct classification: Sun Radiance 侦测潜行 was a terminology-consistency fix (0511 decision); the tentacle zone was type ② (English inaccurate, translated per implementation); Bloodstream was type ③ (upstream argument mismatch). The 2/60 (0521) and 6/52 (0519) rates come from different targeted samples and do not support a library-wide error rate or a quality trend. Independent frozen inputs and raw lane outputs are not rewritten.",
+ "pending_followups": {
+  "orcs_bloodstream": {
+   "talent": "Bloodstream (tome-orcs data/talents/steam/sawmaiming.lua:57-100; translation tome-orcs.lua:5752, unit ab7b4bdb63c5)",
+   "display": "info tformat(... , t.getDamageInc(self,t), ...) third placeholder = combatTalentSteamDamage(t, 50, 250)",
+   "actual": "action: only if hit and the target already had EFF_CUT before the attack and still has it and not cut.bloodstreamed: cut.dur += getDuration; cut.power = cut.power * getDamage/100 with getDamage = combatTalentSteamDamage(t, 50, 230); cone projects getDamage physical damage. Only the single EFF_CUT effect (core timed_effects/physical.lua:124-140 merges cuts into one effect), not 'all bleeding wounds'.",
+   "consequence": "Shown % differs from the applied multiplier, and the multiplier is a factor (e.g. 150 = x1.5), not an increase by that percent.",
+   "minimal_fix_not_applied": "chn-mod superload/data/talents.lua (which already wraps T_BODY_OF_FIRE.info) could wrap the Bloodstream info to pass getDamage instead of getDamageInc and reword to '伤害变为原来的 %d%%'; add-on code, not done here.",
+   "status": "pending"
+  },
+  "orcs_automated_repairs": {
+   "effect": "tome-orcs data/timed_effects/other.lua:536-552",
+   "status": "pending, ③"
+  }
+ },
+ "stone_spikes": "unchanged keep/advisory"
+}

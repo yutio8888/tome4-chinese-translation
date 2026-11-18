@@ -3176,7 +3176,7 @@ t("Inner Tentacles", "内生触手", "talent name")
 t([[Your stomatch grows small tentacles inside which probe and torment your digested victim even more.
 		Whenever you deal a critical strike the tentacles probe harder, feeding your more energy from the pain of your victim making you able to feed on the pain your cause to others for 3 turns.
 		This effect gives you 20%% chances to leech of your attacks, healing you for %d%% of the damage done.]], [[你的胃里长出细小的触手，对消化中的目标造成更多折磨。
-		每次你暴击时，触手将进一步折磨目标，为你提供更多能量，持续 3 回合。
+		在你消化目标期间，每次你暴击时，触手将进一步折磨目标，为你提供更多能量，持续 3 回合。
 		该效果为你的攻击提供 20%% 几率吸血，将 %d%% 伤害转化为治疗。]], "tformat")
 t("Consume Whole", "完整消化", "talent name")
 t("You are not digesting a creature.", "你没有在消化生物。", "logPlayer")
