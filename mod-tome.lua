@@ -28603,8 +28603,8 @@ t([[Slam your shield on the ground creating a shockwave.
 section "mod-tome/data/talents/spells/eldritch-stone.lua"
 
 t("Stone Spikes", "岩石尖刺", "talent name")
-t("poisoned for %0.1f Nature damage over 6 turns (%d%% healing reduction)", "中毒 6 回合受到合计 %0.1f 点自然伤害（同时减少 %d%% 治疗效果）", "tformat")
-t(", blasted for %0.1f Arcane damage (and silenced for %d turns),", "，受到 %0.1f 点奥术伤害（同时沉默 %d 回合），", "tformat")
+t("poisoned for %0.1f Nature damage over 6 turns (%d%% healing reduction)", "中毒 6 回合受到合计 %0.1f 点自然伤害（同时减少 %d%% 治疗效果），", "tformat")
+t(", blasted for %0.1f Arcane damage (and silenced for %d turns),", "受到 %0.1f 点奥术伤害（同时沉默 %d 回合），", "tformat")
 t(" impaled for %0.1f Physical damage (and disarmed for %d turns),", "受到 %0.1f 点物理伤害（同时缴械 %d 回合），", "tformat")
 t([[Stony spikes erupt from the ground in a radius %d cone.
 		Creatures caught in the area will be %scut for %0.1f Physical damage dealt over 6 turns.
