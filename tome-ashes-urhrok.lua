@@ -1122,7 +1122,7 @@ t([[You infuse your shield with the energies of Urh'Rok, bringing about a magica
 		At level 3 if a damage dealt is at least twice as high you have %d%% chance to also remove a physical detrimental effect. This effect can only happen once per turn.
 		This spell disabled automatically on rest or run.
 		#{bold}#Activating the shield takes no time but de-activating it does.#{normal}#
-		The damage increases with spellpower.]], [[你的盾牌充满了乌鲁洛克的能量，带来一层魔法护盾：你每次受到伤害时，其中最先的若干点（上限基于你的盾牌格挡值）会在 3 回合内为你恢复等量的生命值，但不会减少当次伤害。此效果可以叠加。
+		The damage increases with spellpower.]], [[你将乌鲁洛克的能量注入盾牌，生成一层魔法护盾：每次受到伤害时，都会在 3 回合内为你恢复等量生命（单次上限基于盾牌格挡值）。此效果可以叠加。
 		治疗量等于 5 + %d%% 格挡值（当前 %d 点）。
 		技能等级达到 3 时，如果单次伤害超过治疗量上限的两倍，有 %d%% 几率额外移除一个物理负面效果。此效果每回合只能触发一次。
 		在休息和跑步时，该技能自动终止。
@@ -1285,7 +1285,7 @@ t([[Bringing about the darkest days of the Spellblaze you hasten the death of yo
 		When you deal damage to a creature in radius %d or less around you and it dips below 33%% life you automatically unleash the fury of the Spellblaze.
 		Affected foes will start taking %0.2f darkness damage each turn until it dies as long as it remains in radius %d of you.
 		The damage increases with spellpower.]], [[重现魔法大爆炸最黑暗的时刻，加速敌人的死亡。
-		魔法大爆炸之怒的作用半径为 %d： 当你对周围 4 格内的生物造成伤害后，若其生命值不高于 33%%，会自动向其释放此力量。
+		魔法大爆炸之怒可在半径 %d 内维持。当你对周围 4 格内的生物造成伤害，使其生命值不高于 33%% 时，会自动向其释放此力量。
 		受影响的敌人每回合受到 %0.2f 点暗影伤害；只要它仍在你周围半径 %d 内，伤害就会持续至其死亡。
 		伤害受法术强度加成。]], "tformat")
 t("Shattered Mind", "精神破碎", "talent name")

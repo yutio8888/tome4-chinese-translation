@@ -21118,8 +21118,8 @@ section "mod-tome/data/talents/celestial/dark-sun.lua"
 t("Collapse", "坍缩", "talent name")
 t([[Open a radius 1 rift in spacetime at the targeted location for %d turns, increasing in radius by 1 each turn to a maximum of %d.
 		All caught within the rift are pulled towards the center and take %0.2f gravity damage.
-The damage will increase with your Spellpower.]], [[在目标地点开启半径1的时空裂缝，持续 %d 回合。每回合半径增加1，最大 %d。
-		裂缝每回合对范围内的所有敌人造成 %0.2f 重力伤害，并将未通过物理豁免且未免疫击退的敌人朝中心牵引。
+The damage will increase with your Spellpower.]], [[在目标地点开启半径 1 的时空裂缝，持续 %d 回合。每回合半径增加 1，最大 %d。
+		裂缝内的所有敌人都会被拉向中心，并受到 %0.2f 重力伤害。
 伤害受法术强度加成。]], "tformat")
 t("Devourer Stance", "势吞干戈", "talent name")
 t([[Attune yourself to the endless hunger of distant dead suns.  For the next %d turns, your attacks will inflict an additional %0.2f gravity damage and attempt to pull enemies closer.  After three turns, you will recover half of all damage taken during this effect.
@@ -21198,7 +21198,7 @@ t("Dirge of Pestilence", "瘟疫挽歌", "talent name")
 t([[Sing a song of decay and defiance and sustain yourself through spite.
 							Each time you suffer a detrimental effect, you gain a shield with strength %d, that lasts as long as the effect would.  This will add to and extend an existing shield if possible.
 							This can only trigger once every %d turns]], [[唱响腐朽与抗争之歌，以怨恨支撑自身。
-							每次你受到非自身施加、且不属于“其他”类型的负面状态时，你获得强度为 %d 的护盾，持续时间与该状态相同。如果可能，此效果会叠加到已有护盾并延长其持续时间。
+							每次你受到负面状态时，你获得强度为 %d 的护盾，持续时间与该状态相同。如果可能，此效果会叠加到已有护盾并延长其持续时间。
 							这一效果每 %d 回合只能触发一次。]], "tformat")
 t("Dirge Acolyte", "挽歌入门", "talent name")
 t([[Even now, something compels you to sing.
@@ -21429,9 +21429,8 @@ t([[A magical zone of Sunlight appears around you, healing and shielding all wit
 		它同时会照亮此区域。
 		治疗量受法术强度加成。]], "tformat")
 t("Barrier", "护盾术", "talent name")
-t([[A protective shield forms around you that lasts for up to %d turns and negates %d damage.
- 		The total damage the barrier can absorb will increase with your Spellpower and can crit.]], [[一个持续 %d 回合的保护性圣盾围绕着你，可吸收 %d 点伤害。
-		伤害吸收完毕时圣盾会提前消失；其最大吸收量受法术强度加成，该技能可以暴击。]], "tformat")
+t("A protective shield forms around you that lasts for up to %d turns and negates %d damage.\n \t\tThe total damage the barrier can absorb will increase with your Spellpower and can crit.", [[一层保护性圣盾环绕着你，最多持续 %d 回合，可吸收 %d 点伤害。
+		圣盾的最大吸收量受法术强度加成，且该技能可以暴击。]], "tformat")
 t("Providence", "光之守护", "talent name")
 t("Places you under the protection of a ray of sunlight. For %d turns, the light removes a single negative effect from you every turn.", "你位于阳光的保护下，每回合移除 1 种负面状态，持续 %d 回合。", "tformat")
 
@@ -23212,7 +23211,7 @@ t("%s resists the sedation!", "%s抵抗了镇静！", "logSeen")
 t("Fire a poisoned dart dealing %0.2f physical damage that puts the target to sleep for 4 turns. 10 turn cooldown.", "发射毒镖，造成 %0.2f 物理伤害，沉睡 4 回合。10 回合冷却时间。", "tformat")
 t([[Fire a poisoned dart from a silent, concealed launcher on your person that deals %0.2f physical damage and puts the target (living only) to sleep for 4 turns, rendering them unable to act. Every %d points of damage the target takes brings it closer to waking by 1 turn.
 This can be used without breaking stealth.
-#YELLOW#Prepared with: %s#LAST#]], [[从身上隐蔽的无声发射器中射出毒镖，造成 %0.2f 物理伤害，并使目标沉睡 4 回合，期间无法行动（目标需不免疫沉睡与中毒；学会毒镖强化后可无视这两种免疫）。目标每受到 %d 点伤害，剩余沉睡时间便缩短 1 回合。
+#YELLOW#Prepared with: %s#LAST#]], [[从身上隐蔽的无声发射器中射出毒镖，造成 %0.2f 物理伤害，并使目标沉睡 4 回合，期间无法行动（受沉睡与中毒免疫影响）。目标每受到 %d 点伤害，剩余沉睡时间便缩短 1 回合。
 使用该技能不解除潜行。
 #YELLOW#准备于：%s#LAST#]], "tformat")
 t("Dart Launcher Mastery", "毒镖强化", "talent name")
@@ -28925,7 +28924,7 @@ t([[Turns the golem's skin into molten rock. The heat generated sets ablaze ever
 		The damage and resistance will increase with your Spellpower.]], [[使傀儡的皮肤化为熔岩。产生的高温会点燃半径 3 格内的一切，使其在 3 回合内受到 %0.2f 点火焰伤害；炽热皮肤持续 %d 回合。
 		灼烧可以叠加；目标处于范围内越久，受到的火焰伤害越高。
 		此外，傀儡获得 %d%% 火焰抗性。
-		主人存活时，炽热皮肤的伤害不会影响与主人友好的生物。
+		炽热皮肤的伤害不会影响友方生物。
 		伤害和抗性随你的法术强度提高。]], "tformat")
 t("Self-destruction", "自爆", "talent name")
 t([[The golem self-destructs, destroying itself and generating a blast of fire in a radius of %d, doing %0.2f fire damage.
@@ -29131,7 +29130,7 @@ t([[Call upon the battlefields of old, collecting bones, fusing them with souls,
 		]], [[从古战场中收集白骨，将灵魂附着在白骨上，将其转化为你的骷髅随从。
 		最多召唤 %d 个 %d 级的骷髅战士，且最多可同时掌控 %d 个骷髅。
 		技能等级 3 时，你将会改为召唤武装骷髅战士。
-		技能等级 5 时，每当你召唤 3 个骷髅战士，会额外免费召唤尚缺的骷髅法师或骷髅弓箭手（两者皆无时随机选择）；若两者都有，则额外召唤武装骷髅战士。如果因此超过骷髅数量上限，会移除一个普通骷髅，并返还其灵魂消耗。
+		技能等级 5 时，每召唤 3 个骷髅战士，还会免费额外召唤一个骷髅法师或骷髅弓箭手。如果因此超过骷髅数量上限，会移除一个普通骷髅，并返还其灵魂消耗。
 
 		#GREY##{italic}#骷髅的数量比食尸鬼更少，但一般来说更加强韧。#{normal}#
 		]], "tformat")
@@ -29891,7 +29890,7 @@ t([[Tries to perform a killing blow, doing %d%% weapon damage and dealing an aut
 		At level 4, it drains half your remaining stamina, and uses it to increase the blow damage by 100%% of it.
 		The chance to instantly kill will increase with your Physical Power.]], [[试图施展一次致命打击，造成 %d%% 武器伤害，本次攻击自动变成暴击。
 		如果打击后目标生命值低于 20%%，则有可能被直接杀死。
-		在等级 4 时，本次攻击会将攻击前剩余体力值的一半按 100%% 折算为临时物理强度加成，攻击后消耗当时剩余体力值的一半。
+		在等级 4 时，本次攻击会消耗你剩余体力值的一半，并按其 100%% 提高本次攻击的物理强度。
 		目标即死的概率受物理强度加成。]], "tformat")
 t("Stunning Blow", "震慑打击", "talent name")
 t("You cannot use Stunning Blow without a two-handed weapon!", "你需要装备一把双手武器来施展震慑打击！", "logPlayer")
@@ -29999,8 +29998,7 @@ If Steady Shot is not on cooldown, this talent will automatically replace your n
 t("Pin Down", "强力定身", "talent name")
 t([[You fire a shot for %d%% damage that attempts to pin your target to the ground for %d turns, as well as giving your next Steady Shot or Shoot 100%% increased chance to critically hit and mark (regardless of whether the pin succeeds).
 		This shot has a 20%% chance to mark the target.
-		The chance to pin increases with your Accuracy.]], [[你朝目标发射定身攻击，造成 %d%% 伤害，并尝试将目标定身 %d 回合。
-		无论定身是否成功，在效果持续期间，你下一次对该目标命中的稳固射击或射击，暴击率与标记几率均为 100%%（普通射击需已学会射击精通才会标记）。
+		The chance to pin increases with your Accuracy.]], [[你朝目标发射定身射击，造成 %d%% 伤害并尝试将目标定身 %d 回合；无论定身是否成功，你对该目标的下一发稳固射击或射击的暴击率与标记几率均为 100%%。
 		此次攻击有 20%% 几率标记目标。
 		定身几率受命中加成。]], "tformat")
 t("Fragmentation Shot", "爆裂射击", "talent name")
@@ -30184,7 +30182,7 @@ t("When you are hit by a projectile, physical or otherwise, you have a %d%% chan
 t("Counter Shot", "以牙还牙", "talent name")
 t("#ORCHID##Source# follows up with a countershot.#LAST#", "#ORCHID##Source#追加了一次反击射击。#LAST#", "logCombat")
 t([[Any time you block an attack with Buckler Expertise or Buckler Mastery you instantly counterattack with your sling for %d%% damage  This can only occur up to %d time(s) per turn.
-			]], [[每当你的格挡专精或格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合最多可发动 %d 次反击，外加 1 次。
+			]], [[每当你的格挡专精或格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合最多发动 %d 次。
 			]], "tformat")
 
 ------------------------------------------------
@@ -30461,7 +30459,7 @@ t("Crushing Hold", "碾压擒抱", "talent name")
 t([[Enhances your grapples with additional effects. All additional effects will apply to every grapple with no additional save or resist check.
 		#RED#Talent Level 1:  Reduces physical power by %d
 		Talent Level 3:  Silences
-		Talent Level 5:  Reduces global action speed by %d%%]], [[增强你的抓取，使其获得额外效果。所有额外效果都会应用于每次抓取，且无需额外的豁免或抵抗鉴定，但沉默效果仍受目标的沉默免疫影响。
+		Talent Level 5:  Reduces global action speed by %d%%]], [[增强你的抓取，使其获得额外效果。所有额外效果都会应用于每次抓取，且无需额外的豁免或抵抗鉴定。
 		#RED#技能等级 1：降低目标 %d 点物理强度
 		技能等级 3：沉默
 		技能等级 5：降低目标 %d%% 全局速度]], "tformat")
@@ -30477,7 +30475,7 @@ t("#RED#%s is shaken by the collision and loses a turn!#LAST#", "#RED#%s因碰�
 t([[In a mighty show of strength you whirl your grappled victim around and throw them into the air causing %d%% damage to them and enemies in radius %d on landing.  
 			If at least 1 other enemy is hit the thrown enemy will be shaken by the impact losing a full turn.
 			You can only throw enemies that could move normally.]], [[你使出全力将抓取的目标扔到空中，对他和着陆点周围半径 %d 的敌人造成 %d%% 伤害。
-		只要落点范围内有敌人（被投掷者本身也计入），被投掷的敌人就会因为冲击而失去一个回合。
+		落地时，只要落点范围内有敌人，被投掷的敌人就会因冲击而失去一个回合。
 		你只能投掷那些本可正常移动的敌人。]], "tformat", {2,1})
 
 ------------------------------------------------
@@ -31186,7 +31184,7 @@ t([[You know how to protect yourself with the deepest shadows. As long as you st
 		被动增加 %d 潜行强度。
 		护甲加值受体质加成。]], "tformat")
 t("Spine of the World", "世界之脊", "talent name")
-t("Your back is as hard as stone. Each time that you are affected by a physical effect, your body hardens, making you immune to all other physical effects for 5 turns.", "你的后背坚若磐石。当你受到物理负面状态（越层效果除外）影响时，你的身体会硬化，在 5 回合内对所有其他物理负面状态（越层效果除外）免疫。", "tformat")
+t("Your back is as hard as stone. Each time that you are affected by a physical effect, your body hardens, making you immune to all other physical effects for 5 turns.", "你的后背坚若磐石。当你受到物理负面状态影响时，你的身体会硬化，在 5 回合内对所有其他物理负面状态免疫。", "tformat")
 t("Fungal Blood", "真菌血液", "talent name")
 t("Be able to use infusions", "能使用纹身", "_t")
 t([[Fungal spores have colonized your blood, so that each time you use an infusion you store %d fungal power.
@@ -31859,7 +31857,7 @@ t([[Creates a shield of bones, absorbing %d damage. Lasts for %d turns.
 		The total damage the shield can absorb increases with your Dexterity.]], [[在你的周围制造一个能吸收 %d 点伤害的骨盾。持续 %d 回合。
 		护盾的最大吸收值受敏捷值加成。]], "tformat")
 t("Resilient Bones", "弹力骨骼", "talent name")
-t("Your undead bones are very resilient, reducing the duration of all detrimental effects on you by up to %d%%.", "你的骨头充满弹性，使你身上所有负面状态（「其他」类除外）的持续时间至多减少 %d%%。", "tformat")
+t("Your undead bones are very resilient, reducing the duration of all detrimental effects on you by up to %d%%.", "你的不死骨骼极具韧性，使你身上所有负面状态的持续时间至多减少 %d%%。", "tformat")
 t("Re-assemble", "重组", "talent name")
 t([[Reposition some of your bones, healing yourself for %d.
 		At level 5, you will gain the ability to completely re-assemble your body should it be destroyed (can only be used once).]], [[重新组合你的骨头，治疗你 %d 点生命值。
@@ -36356,7 +36354,7 @@ t("#Target# is returned to normal time.", "#Target#返回了正常时间。", "_
 t("-Out of Time", "-移出时间", "_t")
 t("shield", "护盾", "effect subtype")
 t("Time Shield", "时间盾", "_t")
-t("The target is surrounded by a time distortion, absorbing %d/%d damage and sending it forward in time. While active all newly applied status effects durations are reduced by %d%%.", "目标被一层扭曲时空的护盾所包围，吸收 %d/%d 伤害并将伤害向后推移。当激活时，所有新获得的负面状态（「其他」类除外）持续时间都会减少 %d%%。", "tformat")
+t("The target is surrounded by a time distortion, absorbing %d/%d damage and sending it forward in time. While active all newly applied status effects durations are reduced by %d%%.", "目标被一层扭曲时空的护盾所包围，吸收 %d/%d 伤害并将伤害向后推移。护盾生效期间，所有新获得的负面状态持续时间都会减少 %d%%。", "tformat")
 t("The very fabric of time alters around #target#.", "#target#周围的时间线开始变化。", "_t")
 t("+Time Shield", "+时间盾", "_t")
 t("The fabric of time around #target# stabilizes to normal.", "#target#周围的时间网恢复了稳定。", "_t")

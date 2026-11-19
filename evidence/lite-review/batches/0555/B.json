@@ -1,0 +1,257 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "0dc04246ac2a",
+   "verdict": "OK"
+  },
+  {
+   "id": "4637ef47ae01",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/celestial/dark-sun.lua:97（624a67329fe2）。原文描述牵引和伤害，逐项列出牵引的豁免与免疫条件打断了范围说明。",
+   "suggestion": "在目标地点开启半径1的时空裂缝，持续 %d 回合。每回合半径增加1，最大 %d。\n\t\t裂缝每回合对范围内的敌人造成 %0.2f 重力伤害，并尝试将其拉向中心。\n伤害受法术强度加成。"
+  },
+  {
+   "id": "d10c38ab4bab",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/celestial/dirge.lua:166（624a67329fe2）。负面状态的来源与内部类别筛选被逐项写进了触发描述。",
+   "suggestion": "唱响腐朽与抗争之歌，以怨恨支撑自身。\n\t\t\t\t\t\t\t每次你受到负面状态时，你获得强度为 %d 的护盾，持续时间与该状态相同。如果可能，此效果会叠加到已有护盾并延长其持续时间。\n\t\t\t\t\t\t\t这一效果每 %d 回合只能触发一次。"
+  },
+  {
+   "id": "a9284bd1184b",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/celestial/light.lua:114（624a67329fe2）。原文用 up to 说明最长时限，另加护盾耗尽的注解重复解释了吸收上限。",
+   "suggestion": "圣盾环绕着你，最多持续 %d 回合，可吸收 %d 点伤害。\n\t\t吸收量受法术强度加成，并可暴击。"
+  },
+  {
+   "id": "ee1e2617e575",
+   "verdict": "OK"
+  },
+  {
+   "id": "527f6e1004f5",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/cunning/artifice.lua:639（624a67329fe2）。强化技能的独立说明已写明无视免疫（674 行），此处括注重复交代两套判定。",
+   "suggestion": "从身上隐蔽的无声发射器中射出毒镖，造成 %0.2f 物理伤害，并使目标沉睡 4 回合，期间无法行动。目标每受到 %d 点伤害，剩余沉睡时间便缩短 1 回合。\n使用该技能不解除潜行。\n#YELLOW#准备于：%s#LAST#"
+  },
+  {
+   "id": "6b0eb341899a",
+   "verdict": "OK"
+  },
+  {
+   "id": "4f2e3d067010",
+   "verdict": "OK"
+  },
+  {
+   "id": "a0268e80f86f",
+   "verdict": "OK"
+  },
+  {
+   "id": "dea5612e2f57",
+   "verdict": "OK"
+  },
+  {
+   "id": "ef4d274fe789",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/spells/golem.lua:427（624a67329fe2）。英文说明直接给出友方豁免，额外的主人存活条件偏离常规使用语境。",
+   "suggestion": "使傀儡的皮肤化为熔岩。产生的高温会点燃半径 3 格内的一切，使其在 3 回合内受到 %0.2f 点火焰伤害；炽热皮肤持续 %d 回合。\n\t\t灼烧可以叠加；目标处于范围内越久，受到的火焰伤害越高。\n\t\t此外，傀儡获得 %d%% 火焰抗性。\n\t\t炽热皮肤不会伤害友方生物。\n\t\t伤害和抗性随你的法术强度提高。"
+  },
+  {
+   "id": "07fd443458c1",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/spells/master-of-bones.lua:246（624a67329fe2）。把三种队伍构成逐个展开，掩盖了每三名战士免费补员的重点。",
+   "suggestion": "从古战场中收集白骨，将灵魂附着在白骨上，将其转化为你的骷髅随从。\n\t\t最多召唤 %d 个 %d 级的骷髅战士，且最多可同时掌控 %d 个骷髅。\n\t\t技能等级 3 时，你将会改为召唤武装骷髅战士。\n\t\t技能等级 5 时，每当你召唤 3 个骷髅战士，会额外免费召唤一个骷髅，优先补齐法师和弓箭手，二者齐备后则召唤武装战士。如果因此超过骷髅数量上限，会移除一个普通骷髅，并返还其灵魂消耗。\n\n\t\t#GREY##{italic}#骷髅的数量比食尸鬼更少，但一般来说更加强韧。#{normal}#\n\t\t"
+  },
+  {
+   "id": "a449928d062a",
+   "verdict": "OK"
+  },
+  {
+   "id": "164ebc011837",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/techniques/2hweapon.lua:179（624a67329fe2）。攻击前后取值的分步说明过长，首句还比原文多一次换行。保留体力转为物理强度这一关键纠偏。",
+   "suggestion": "施展致命打击，造成 %d%% 武器伤害且必定暴击。若目标受击后生命值低于 20%%，有几率将其直接击杀。\n\t\t技能等级达到 4 时，消耗一半剩余体力，将这部分体力的 100%% 转为本次攻击的物理强度加成。\n\t\t即死几率受物理强度加成。"
+  },
+  {
+   "id": "c2edce139646",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/techniques/archery.lua:266（624a67329fe2）。首段多一次换行，且把普通射击的标记前提堆入括注。",
+   "suggestion": "射出一箭，造成 %d%% 伤害，并尝试将目标定身 %d 回合。无论定身是否成功，效果期间你的下一次稳固射击或普通射击命中该目标时，暴击与标记几率均为 100%%。普通射击需掌握射击精通才能标记。\n\t\t这一箭有 20%% 几率标记目标。\n\t\t定身几率受命中加成。"
+  },
+  {
+   "id": "5aee27a2e1b4",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/techniques/buckler-training.lua:234（624a67329fe2）。计数超过显示值才中止。“最多……次，外加 1 次”给出了两个看似矛盾的上限。",
+   "suggestion": "每当你的格挡专精或格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合的反击次数上限为 %d 加 1。\n\t\t\t"
+  },
+  {
+   "id": "be4741089b88",
+   "verdict": "OK"
+  },
+  {
+   "id": "e468dc9a6c6d",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/techniques/grappling.lua:144（624a67329fe2）。原文强调抓取不再额外检定，另附沉默免疫判定使同一句的两层限制难以区分。",
+   "suggestion": "增强你的抓取，使其获得额外效果。所有额外效果都会应用于每次抓取，且无需额外的豁免或抵抗鉴定。\n\t\t#RED#技能等级 1：降低目标 %d 点物理强度\n\t\t技能等级 3：沉默\n\t\t技能等级 5：降低目标 %d%% 全局速度"
+  },
+  {
+   "id": "0d5e38d340cf",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/techniques/grappling.lua:316（624a67329fe2）。遍历范围时会包括被扔出的敌人，没有必要用括号解释计数。",
+   "suggestion": "你使出全力将抓取的目标扔到空中，对他和着陆点周围半径 %d 的敌人造成 %d%% 伤害。\n\t\t落地时，只要范围内有敌人，被投掷者就会因冲击失去一个回合。\n\t\t你只能投掷那些本可正常移动的敌人。"
+  },
+  {
+   "id": "051f2e99c533",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/uber/const.lua:130（624a67329fe2）。两次插入原文未提及的内部效果分类，妨碍理解五回合免疫的核心效果。",
+   "suggestion": "你的后背坚若磐石。当你受到物理负面状态影响时，你的身体会硬化，在 5 回合内对所有其他物理负面状态免疫。"
+  },
+  {
+   "id": "f798905d3b34",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/undeads/skeleton.lua:71（624a67329fe2）。原文仅说明负面状态持续时间缩短，“其他”是实现分类。",
+   "suggestion": "你的骨头充满弹性，使你身上所有负面状态的持续时间至多减少 %d%%。"
+  },
+  {
+   "id": "fe029bfb0827",
+   "verdict": "OK"
+  },
+  {
+   "id": "570154157e6e",
+   "verdict": "OK"
+  },
+  {
+   "id": "8e88e1ed581d",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/timed_effects/other.lua:415（624a67329fe2）。状态说明夹入内部分类，且“当激活时”易读成仅激活瞬间生效。",
+   "suggestion": "目标被一层扭曲时空的护盾所包围，吸收 %d/%d 伤害并将伤害向后推移。护盾生效期间，新获得的负面状态持续时间缩短 %d%%。"
+  },
+  {
+   "id": "aabcd1bb7bf9",
+   "verdict": "OK"
+  },
+  {
+   "id": "8d4e718bfa64",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/doom-shield.lua:44（公开 DLC 检出，版本未固定）。“其中最先的若干点”生硬；下句已说明治疗上限。",
+   "suggestion": "你将乌鲁洛克的能量注入盾牌。每次受伤后，魔法护盾都会在 3 回合内为你恢复等量生命，治疗量有上限，可以叠加。\n\t\t治疗量等于 5 + %d%% 格挡值（当前 %d 点）。\n\t\t技能等级达到 3 时，如果单次伤害超过治疗量上限的两倍，有 %d%% 几率额外移除一个物理负面效果。此效果每回合只能触发一次。\n\t\t在休息和跑步时，该技能自动终止。\n\t\t#{bold}#开启护盾不消耗时间，关闭护盾消耗时间。#{normal}#\n\t\t治疗量不受法术强度影响。"
+  },
+  {
+   "id": "834c67d10e66",
+   "verdict": "OK"
+  },
+  {
+   "id": "31e34a7aa195",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/spellblaze.lua:92（公开 DLC 检出，版本未固定）。“作用半径”与紧随其后的 4 格容易被理解为彼此冲突的施加范围；第一个参数实际是维持范围。",
+   "suggestion": "重现魔法大爆炸最黑暗的时刻，加速敌人的死亡。\n\t\t魔法大爆炸之怒可在 %d 格内维持。当你伤及 4 格内的生物，使其剩余生命不高于 33%% 时，会自动对其施加此效果。\n\t\t受影响的敌人每回合受到 %0.2f 点暗影伤害；只要它仍在你周围半径 %d 内，伤害就会持续至其死亡。\n\t\t伤害受法术强度加成。"
+  },
+  {
+   "id": "62f3f334143b",
+   "verdict": "OK"
+  },
+  {
+   "id": "4e5d3ecd947c",
+   "verdict": "OK"
+  },
+  {
+   "id": "f9e9e4c6d70e",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/tentacles.lua:72（公开 DLC 检出，版本未固定）。“以你为中心、位于攻击方向左右相邻格”与主目标阵营括注拆散了攻击动作，末尾还比英文多一行。",
+   "suggestion": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲时，普通攻击时，触手会自动攻击目标和攻击方向两侧与你相邻的敌人。\n\t\t物理强度提高 %d， 触手武器伤害提高 %d%%。\n\t\t触手对敌人发动追加攻击时，获得 %d 疯狂值，每回合至多一次。\n\t\t附近有#{italic}#“文明人”#{normal}#时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s"
+  },
+  {
+   "id": "fa81c79f5cc4",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/timethief.lua:275（公开 DLC 检出，版本未固定）。把 no_npc_use 内部标记转述为“NPC 不会使用的技能”，不利于理解克隆体用途；召唤、繁殖限制可简述。",
+   "suggestion": "将目标敌人从正常时间流部分移除，持续 %d 回合，抑制其与现实世界交互的能力。移除期间敌人受到的伤害降为原来的 %d%%， 造成的伤害降低 %d%%。\n\t\t技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同，克隆体生命值降低 %d%%， 只造成 %d%% 伤害，保留本体的大部分能力，但无法召唤或繁殖。"
+  },
+  {
+   "id": "c23187962a04",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/timed_effects.lua:1022（公开 DLC 检出，版本未固定）。法术豁免对应内部进度增量的分支，逐项解释会遮住背叛的实际后果。",
+   "suggestion": "目标受背叛诅咒，每回合累积最多 %d%% 的背叛进度。进度积满时，它会攻击相邻生物，身边没有其他生物时则攻击自己。"
+  },
+  {
+   "id": "e296afa51416",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/timed_effects.lua:1481（公开 DLC 检出，版本未固定）。结束时结算有源码依据，但负面效果的类别和衰减标志属于内部筛选。",
+   "suggestion": "目标暂时脱离正常时间流，无法行动，也不会受到伤害。时间恢复时，其负面效果的剩余时间和技能冷却时间都会缩短。"
+  },
+  {
+   "id": "072123404065",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/timed_effects.lua:1946（公开 DLC 检出，版本未固定）。“存活且可被震慑”是常规检查；应突出首次与后续命中的概率差别。",
+   "suggestion": "每回合首次伤及敌人时可直接将其震慑，随后有 %d%% 几率震慑其他命中的敌人。每个目标每回合限一次。"
+  },
+  {
+   "id": "71a3116784d2",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/general/objects/tinkers/smith.lua:208（公开 DLC 检出，版本未固定）。英文用蒸汽强度描述伤害；回合内连续触发衰减值得保留，但直接转述计数器作除数读来费解。",
+   "suggestion": "近战命中时释放火焰冲击波，对目标前方半径 3 的锥形范围造成火焰和物理伤害。两种伤害初始均等于你的蒸汽强度，同一回合内反复触发时逐次降低。"
+  },
+  {
+   "id": "fce68891fed4",
+   "verdict": "OK"
+  },
+  {
+   "id": "dbd1dc2f1a98",
+   "verdict": "OK"
+  },
+  {
+   "id": "bbe1ec794e87",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/avoidance.lua:181（公开 DLC 检出，版本未固定）。“可见敌人全部消失”与括注“由有到无”重复说明同一触发时机。",
+   "suggestion": "你的披风内衬装有一套嵌入式回复系统，在最后一个敌人从视野中消失时启动。\n\t\t触发时，回复 %d 生命值。\n\t\t技能等级 3 时，同时会消除一个物理负面效果。\n\t\t该系统每 %d 回合最多触发一次。"
+  },
+  {
+   "id": "1c0d86271b6e",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/gunslinging.lua:115（公开 DLC 检出，版本未固定）。两个参数是射手名称和射手的物主代词；“射偏了”和“没有命中目标”在同一条日志重复报了一次落空。",
+   "suggestion": "%s开了枪，%s这一枪故意打偏了。"
+  },
+  {
+   "id": "b965d76c99f3",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/heavy-weapons.lua:74（公开 DLC 检出，版本未固定）。“造成……武器伤害的闪电伤害”句式杂糅，倍率和伤害类型应分开表达。",
+   "suggestion": "你可以装备下列 3 种重装武器之一，临时获得一种特殊攻击。重装武器远比蒸汽枪强大，但需要重装弹药才能开火。你最多可以储存 %d 发弹药；未装备重装武器时，每 3 回合恢复 1 发。\n\n\t\t#AQUAMARINE#火焰喷射器#LAST#：向敌人喷射液态火焰的燃烧装置。对前方锥形范围（半径等于蒸汽枪射程）内的目标在 3 回合内造成相当于 %d%% 蒸汽枪武器伤害的火焰伤害。火焰喷射器无视护甲、必定命中，并按蒸汽枪射击计算命中触发效果。\n\t\t#AQUAMARINE#电击棒#LAST#：近战使用的带电棍棒。对正面弧形范围内的敌人造成相当于 %d%% 武器伤害的闪电伤害，并使其造成的伤害降低 %d%%， 持续 3 回合。此攻击视为近战攻击，但会触发弹药的命中效果。若装备盾牌，所有电击棒攻击还会以相同伤害倍率发动一次盾牌攻击，造成闪电伤害。你可以从不超过蒸汽枪射程的距离发起冲锋，然后用电击棒攻击。\n\t\t#AQUAMARINE#爆矢枪#LAST#：发射高效化学灌注弹矢的多管蒸汽枪。连续射击两次，每次造成相当于 %d%% 蒸汽枪武器伤害的酸性伤害；每次命中产生 %d 点蒸汽。\n\n\t\t重装武器造成的伤害以当前装备的弹药为基础；在武器掌握技能和其他效果的判定中，它们均视为蒸汽枪。\n\t\t装备重装武器时无法使用普通蒸汽枪射击。\n"
+  },
+  {
+   "id": "2a457709cb93",
+   "verdict": "OK"
+  },
+  {
+   "id": "ff0bb3636bb8",
+   "verdict": "OK"
+  },
+  {
+   "id": "21b97c65fce9",
+   "verdict": "OK"
+  },
+  {
+   "id": "8e9f56c5f1f4",
+   "verdict": "OK"
+  },
+  {
+   "id": "cbb6f60c20da",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua:944（公开 DLC 检出，版本未固定）。实际由施放者持盾反击；现译“将使用原施放者的盾牌”的主语仍是受护目标。",
+   "suggestion": "静电力场使目标的所有抗性提高 %d%%。目标遇袭时，施放者会用盾牌反击，造成 %d%% 武器伤害，类型为闪电。对同一攻击者每回合最多反击一次。"
+  },
+  {
+   "id": "a4825021da52",
+   "verdict": "OK"
+  },
+  {
+   "id": "cdc7dd0da4d5",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/zones/kaltor-shop/objects.lua:45（公开 DLC 检出，版本未固定）。装备说明给出马达启动的伤害门槛，译文又逐项列出移位空格等判定；保留触发门槛和能闪避的次数即可。",
+   "suggestion": "当你受到来自他人的单次伤害达到最大生命值的 10% 时，作战服的马达会启动一回合，让你移位闪避下一次伤害。"
+  },
+  {
+   "id": "0823d72e2a2c",
+   "verdict": "ISSUE",
+   "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/zones/shertul-cave/objects.lua:44（公开 DLC 检出，版本未固定）。装备说明给出马达启动的伤害门槛，译文又逐项列出移位空格等判定；保留触发门槛和能闪避的次数即可。",
+   "suggestion": "当你受到来自他人的单次伤害达到最大生命值的 10% 时，作战服的马达会启动一回合，让你移位闪避下一次伤害。"
+  }
+ ]
+}

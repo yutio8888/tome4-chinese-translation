@@ -3198,9 +3198,9 @@ t([[Your left hand mutates into a disgusting mass of tentacles.
 
 		Your tentacle hand currently has these stats%s:
 		%s]], [[你的左手异变成为一坨恶心的触手。
-		副手空闲时，使用普通攻击会让触手自动攻击目标，以及以你为中心、位于攻击方向左右相邻格的敌人。
+		副手空闲时，使用普通攻击会让触手自动攻击目标及攻击方向两侧的相邻敌人。
 		物理强度提高 %d， 触手武器伤害提高 %d%%。
-		触手自动追加攻击时（主目标非友方），获得 %d 疯狂值，每回合至多一次。
+		触手攻击时获得 %d 疯狂值，每回合至多一次。
 		附近有#{italic}#“文明人”#{normal}#时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。
 
 		你的触手当前属性%s：
@@ -3269,7 +3269,7 @@ t("A warped image resembling the creature it appeared from, its features a flick
 t("Summon", "召唤", "_t")
 t([[The target enemy will be partially removed from the normal flow of time for %d turns, inhibiting their ability to interact with the world. All damage taken will be reduced by %d%%, while all damage dealt will be reduced by %d%%.
 While active, you form the frayed threads of their timeline into a temporal clone of them for the same duration, which assists you in combat. This clone is identical, but has %d%% reduced life and deals %d%% damage.]], [[将目标敌人从正常时间流部分移除，持续 %d 回合，抑制其与现实世界交互的能力。移除期间敌人受到的伤害降为原来的 %d%%， 造成的伤害降低 %d%%。
-		技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同，克隆体生命值降低 %d%%， 只造成 %d%% 伤害，且不具备召唤、繁殖及 NPC 不会使用的技能，其他能力与本体相同。]], "tformat")
+		技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同。克隆体与本体相同，但生命值降低 %d%%， 只造成 %d%% 伤害。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/void.lua"
@@ -3707,7 +3707,7 @@ t("#Target# is doomed to ruin!", "#Target#被预言毁灭！", "_t")
 t("+Prophecy of Ruin", "+毁灭预言", "_t")
 t("-Prophecy of Ruin", "-毁灭预言", "_t")
 t("Prophecy of Treason", "背叛预言", "_t")
-t("The target is doomed to treason. Each turn they have a %d%% chance to attack an adjacent creature.  If no creatures are adjacent they will attack themself.", "目标被诅咒进入背叛状态。每回合累积 %d%% 背叛进度（通过法术豁免时只累积一半），进度满时攻击一个相邻生物；若周围没有相邻生物，则会攻击自身。", "tformat")
+t("The target is doomed to treason. Each turn they have a %d%% chance to attack an adjacent creature.  If no creatures are adjacent they will attack themself.", "目标被诅咒进入背叛状态。每回合最多累积 %d%% 背叛进度，进度满时攻击一个相邻生物；若周围没有相邻生物，则会攻击自身。", "tformat")
 t("#Target# is doomed to treason!", "#Target#因预言背叛！", "_t")
 t("+Prophecy of Treason", "+背叛预言", "_t")
 t("-Prophecy of Treason", "-背叛预言", "_t")
@@ -3754,7 +3754,7 @@ t("#Target# is removed from time!", "#Target#被从时间中移除！", "_t")
 t("+Suspend", "+暂停", "_t")
 t("#Target# is returned to normal time.", "#Target#返回了正常时间。", "_t")
 t("-Suspend", "-暂停", "_t")
-t("The target is removed from the normal time stream, unable to act but unable to take any damage. Each turn, negative effects and cooldowns will decrease in duration.", "目标从常规时间流中移除，无法行动，免疫伤害。暂停结束时，非“其他”类且不会在无时间状态下自行衰减的负面效果，以及技能冷却时间会缩短。", "_t")
+t("The target is removed from the normal time stream, unable to act but unable to take any damage. Each turn, negative effects and cooldowns will decrease in duration.", "目标从常规时间流中移除，无法行动，免疫伤害。效果结束时，其负面效果和技能冷却时间会相应缩短。", "_t")
 t("Jinxed", "厄运", "_t")
 t([[The target has %d reduced saves and defense, and %d%% reduced critical chance.
 This effect will fade in 2 turns if the source is not in line of sight.]], [[目标豁免和闪避降低 %d，暴击率降低 %d%%。
@@ -3804,7 +3804,7 @@ t("Inside Forbidden Tome: \"Home, Horrific Home\" for %d turns.", "身处禁忌�
 t("Forbidden Tome Cooldown", "禁忌之书冷却", "_t")
 t("Unable to enter Forbidden Tomes.", "无法进入禁忌之书。", "_t")
 t("Wrath of the Wilds", "自然之怒", "_t")
-t("%d%% chance to stun any foes hit.", "每回合首次对存活且可被震慑的敌人造成伤害时触发震慑，后续有 %d%% 几率触发，每个目标每回合限一次。", "tformat")
+t("%d%% chance to stun any foes hit.", "每回合首次造成伤害时必定震慑目标，后续命中敌人有 %d%% 几率震慑（每个目标每回合限一次）。", "tformat")
 t("protection", "保护", "effect subtype")
 t("Warborn", "为战而生", "_t")
 t("Reduces all damage taken by %d%%.", "降低所有受到的伤害 %d%%。", "tformat")

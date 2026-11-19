@@ -1416,7 +1416,7 @@ t("hands", "手部", "entity subtype")
 t("Hands of Creation", "创造之手", "entity name")
 t("plated gauntlets", "覆甲护手", "_t")
 t("From your hands have been wrought incredible works. Your works have been forged in fire, and so have you.", "你的双手曾造就无数非凡作品。你的作品在烈火中锻造，你亦如此。", "_t")
-t("On landing any melee attack, release a fiery shockwave, dealing fire and physical damage each equal to your steampower in a cone from the target of radius 3.", "每次近战攻击命中时，都会释放一道火焰冲击波，以目标为起点对半径 3 的锥形范围造成火焰伤害和物理伤害，二者各等于你的蒸汽强度除以本回合已触发此效果的次数。", "_t")
+t("On landing any melee attack, release a fiery shockwave, dealing fire and physical damage each equal to your steampower in a cone from the target of radius 3.", "每次近战攻击命中时，都会释放一道火焰冲击波，以目标为起点对半径 3 的锥形范围造成火焰伤害和物理伤害，二者初始均等于你的蒸汽强度，同一回合内反复触发时逐次衰减。", "_t")
 t("%s spike attachment", "%s附着尖刺", "tformat")
 t("%s silver filigree", "%s银质花边", "tformat")
 t("BELT", "腰带", "entity on slot")
@@ -4630,7 +4630,7 @@ t("%s deactivates %s cloak's restoration systems.", "%s关闭了%s披风的恢�
 t([[Your cloak is lined with an automated health system that activate when no enemies are visible.
 		When it triggers, you will be healed for %d life.
 		At talent level 3, it will also remove one detrimental physical effect.
-		The system can only trigger once every %d turns.]], [[你的披风内衬装有一套嵌入式回复系统，在可见敌人全部消失时（由有到无）启动。
+		The system can only trigger once every %d turns.]], [[你的披风内衬装有一套嵌入式回复系统，在最后一个敌人从视野中消失时启动。
 		触发时，回复 %d 生命值。
 		技能等级 3 时，同时会消除一个物理负面效果。
 		该系统每 %d 回合最多触发一次。]], "tformat")
@@ -5099,7 +5099,7 @@ t([[You have learned to fire while moving.
 		扫射结束时，你可以立刻装填 %d 到 %d 发弹药（取决于你进行扫射的次数和弹药容量）。]], "tformat")
 t("Startling Shot", "惊吓射击", "talent name")
 t("Something", "某物", "_t")
-t("%s misses %s shot.", "%s故意射偏了，%s那一枪没有命中目标。", "logSeen")
+t("%s misses %s shot.", "%s射偏了%s一枪。", "logSeen")
 t([[You deliberately fire a missing shot at a target, startling it for 3 turns.
 		If the target fails a mental save it instinctively recoils two steps back.
 		The next shot that hits the startled creature will deal %d%% more damage.]], [[你故意朝目标射出偏离的子弹，令其惊讶 3 回合。
@@ -5136,7 +5136,7 @@ t([[You gain the ability to equip one of 3 heavy weapons listed below, temporari
 		]], [[你可以装备下列 3 种重装武器之一，临时获得一种特殊攻击。重装武器远比蒸汽枪强大，但需要重装弹药才能开火。你最多可以储存 %d 发弹药；未装备重装武器时，每 3 回合恢复 1 发。
 
 		#AQUAMARINE#火焰喷射器#LAST#：向敌人喷射液态火焰的燃烧装置。对前方锥形范围（半径等于蒸汽枪射程）内的目标在 3 回合内造成相当于 %d%% 蒸汽枪武器伤害的火焰伤害。火焰喷射器无视护甲、必定命中，并按蒸汽枪射击计算命中触发效果。
-		#AQUAMARINE#电击棒#LAST#：近战使用的带电棍棒。对正面弧形范围内的敌人造成 %d%% 武器伤害的闪电伤害，并使其造成的伤害降低 %d%%， 持续 3 回合。此攻击视为近战攻击，但会触发弹药的命中效果。若装备盾牌，所有电击棒攻击还会以相同伤害倍率发动一次盾牌攻击，造成闪电伤害。你可以从不超过蒸汽枪射程的距离发起冲锋，然后用电击棒攻击。
+		#AQUAMARINE#电击棒#LAST#：近战使用的带电棍棒。对正面弧形范围内的敌人造成相当于 %d%% 武器伤害的闪电伤害，并使其造成的伤害降低 %d%%， 持续 3 回合。此攻击视为近战攻击，但会触发弹药的命中效果。若装备盾牌，所有电击棒攻击还会以相同伤害倍率发动一次盾牌攻击，造成闪电伤害。你可以从不超过蒸汽枪射程的距离发起冲锋，然后用电击棒攻击。
 		#AQUAMARINE#爆矢枪#LAST#：发射高效化学灌注弹矢的多管蒸汽枪。连续射击两次，每次造成相当于 %d%% 蒸汽枪武器伤害的酸性伤害；每次命中产生 %d 点蒸汽。
 
 		重装武器造成的伤害以当前装备的弹药为基础；在武器掌握技能和其他效果的判定中，它们均视为蒸汽枪。
@@ -6517,7 +6517,7 @@ t("#Target# is covered in acid!", "#Target#被酸液覆盖！", "_t")
 t("#Target# is free from the acid.", "#Target#身上的酸液消失了。", "_t")
 t("lightning", "闪电", "effect subtype")
 t("Static Shield", "静电力场", "_t")
-t("The target is surrounded by a static shield, increasing all resistances by %d%% and causing attacks against them to trigger a shield attack for %d%% damage as lightning.", "目标被静电力场包围，增加全部抗性 %d%%；受到攻击时，将使用原施放者的盾牌造成 %d%% 伤害的闪电反击，且同一攻击者每回合最多触发一次。", "tformat")
+t("The target is surrounded by a static shield, increasing all resistances by %d%% and causing attacks against them to trigger a shield attack for %d%% damage as lightning.", "目标被静电力场包围，全部抗性提高 %d%%；目标受到攻击时，施放者会用盾牌反击，造成 %d%% 闪电武器伤害（同一攻击者每回合至多一次）。", "tformat")
 t("A static shield forms around #target#.", "静电力场环绕着#target#。", "_t")
 t("+Static Shield", "+静电力场", "_t")
 t("The static shield around #target# crumbles.", "#target#周围的静电力场破碎了。", "_t")
@@ -7156,7 +7156,7 @@ section "tome-orcs/data/zones/kaltor-shop/objects.lua"
 t("Pressure-enhanced Slashproof Combat Suit", "压力强化型防斩击作战服", "entity name")
 t("steam-enhanced leather coat", "蒸汽强化皮衣", "_t")
 t("A simple leather armour of excellent facture that has been craftily enhanced with hidden miniature steam engines to enhance reflexes and provide safety features.", "一件制作精良的简洁皮甲，巧妙嵌入了隐藏的微型蒸汽引擎，既能提升反应速度，又提供了多项安全功能。", "_t")
-t("When you take a hit of more than 10% of your total life the suit's motors activate for the next turn, displacing you before any blow could hit you.", "当你受到他人造成的、不低于总生命值 10% 的单次伤害后，作战服的马达会启动并持续一回合；期间每回合首次受到伤害时，若身边有空位，就会让你移位闪开该次伤害。", "_t")
+t("When you take a hit of more than 10% of your total life the suit's motors activate for the next turn, displacing you before any blow could hit you.", "当你受到超过总生命值 10% 的单次伤害后，作战服的马达会启动一回合，让你移位闪开期间受到的首次伤害。", "_t")
 t("Brilliant Auto-loading Orc Expeller", "精良的自动装填式兽人驱逐装置", "entity name")
 t("expensive gun", "昂贵的枪", "_t")
 t("A finely crafted gun, designed specifically to kill orcs. And giants somehow!", "一把精心打造的枪，专为杀死兽人而设计。不知怎的，对巨人也一样管用！", "_t")
@@ -7415,7 +7415,7 @@ section "tome-orcs/data/zones/shertul-cave/objects.lua"
 t("Pressure-enhanced Slashproof Combat Suit", "压力强化型防斩击作战服", "entity name")
 t("steam-enhanced leather coat", "蒸汽强化皮衣", "_t")
 t("A simple leather armour of excellent facture that has been craftily enhanced with hidden miniature steam engines to enhance reflexes and provide safety features.", "一件制作精良的简洁皮甲，巧妙嵌入了隐藏的微型蒸汽引擎，既能提升反应速度，又提供了多项安全功能。", "_t")
-t("When you take a hit of more than 10% of your total life the suit's motors activate fo the next turn, displacing you before any blow could hit you.", "当你受到他人造成的、不低于总生命值 10% 的单次伤害后，作战服的马达会启动并持续一回合；期间每回合首次受到伤害时，若身边有空位，就会让你移位闪开该次伤害。", "_t")
+t("When you take a hit of more than 10% of your total life the suit's motors activate fo the next turn, displacing you before any blow could hit you.", "当你受到超过总生命值 10% 的单次伤害后，作战服的马达会启动一回合，让你移位闪开期间受到的首次伤害。", "_t")
 t("Brilliant Auto-loading Orc Expeller", "精良的自动装填式兽人驱逐装置", "entity name")
 t("expensive gun", "昂贵的枪", "_t")
 t("A finely crafted gun, designed specifically to kill orcs. And giants somehow!", "一把精心打造的枪，专为杀死兽人而设计。不知怎的，对巨人也一样管用！", "_t")
