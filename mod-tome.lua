@@ -41541,7 +41541,7 @@ Disabling it will make the fog of war look 'blocky' but might gain a slight perf
 关闭它会让战争迷雾看起来呈方块状，但可能会略微提升性能。#WHITE#]], "_t")
 t("#GOLD##{bold}#Smooth fog of war#WHITE##{normal}#", "#GOLD##{bold}#平滑战争迷雾#WHITE##{normal}#", "_t")
 t([[Select the interface look. Metal is the default one. Simple is basic but takes less screen space.
-You must restart the game for the change to take effect.]], [[界面样式，默认为金属，设置为简单可以节省屏幕空间。
+You must restart the game for the change to take effect.]], [[选择界面样式。默认为“金属”。“简单”样式较为朴素，但占用的屏幕空间更少。
 改变设置后必须重启游戏才能看到效果。]], "_t")
 t("#GOLD##{bold}#Interface Style#WHITE##{normal}#", "#GOLD##{bold}#界面样式#WHITE##{normal}#", "_t")
 t("Dark", "黑暗", "_t")
@@ -41580,20 +41580,20 @@ t("Big", "大", "_t")
 t([[How many seconds before log and chat lines begin to fade away.
 If set to 0 the logs will never fade away.]], [[战斗和聊天日志开始消失之前的停留秒数。
 设置为0则不会消失。]], "_t")
-t("#GOLD##{bold}#Log fade time#WHITE##{normal}#", "#GOLD##{bold}#日志消失时间#WHITE##{normal}#", "_t")
-t("Fade time (in seconds)", "消失时间（秒数）", "_t")
+t("#GOLD##{bold}#Log fade time#WHITE##{normal}#", "#GOLD##{bold}#日志淡出延迟#WHITE##{normal}#", "_t")
+t("Fade time (in seconds)", "淡出延迟（秒）", "_t")
 t("From 0 to 20", "从 0 到 20", "_t")
 t([[How long will flying text messages be visible on screen.
-The range is 1 (very short) to 100 (10x slower) than the normal duration, which varies with each individual message.]], [[更改角色上方闪过提示的停留时间。
-1表示停留很短，100表示停留10倍时间，不同消息停留时间不同。]], "_t")
+The range is 1 (very short) to 100 (10x slower) than the normal duration, which varies with each individual message.]], [[设置悬浮提示在屏幕上的停留时间。
+范围为 1（极短）到 100（正常时长的 10 倍）；不同消息的正常停留时间各不相同。]], "_t")
 t("#GOLD##{bold}#Duration of flying text#WHITE##{normal}#", "#GOLD##{bold}#悬浮提示停留时间#WHITE##{normal}#", "_t")
 t("Relative duration", "相对时间", "_t")
 t("From 1 to 100", "从 1 到 100", "_t")
 t("Uses the icons for status effects instead of text.#WHITE#", "采用图标而非文字来表示状态效果。#WHITE#", "_t")
-t("#GOLD##{bold}#Icons status effects#WHITE##{normal}#", "#GOLD##{bold}#图标状态效果#WHITE##{normal}#", "_t")
+t("#GOLD##{bold}#Icons status effects#WHITE##{normal}#", "#GOLD##{bold}#用图标显示状态效果#WHITE##{normal}#", "_t")
 t("Uses the icons hotkeys toolbar or the textual one.#WHITE#", "采用图标快捷栏代替文字快捷栏。#WHITE#", "_t")
 t("#GOLD##{bold}#Icons hotkey toolbar#WHITE##{normal}#", "#GOLD##{bold}#图标快捷栏#WHITE##{normal}#", "_t")
-t("Number of rows to show in the icons hotkeys toolbar.#WHITE#", "调整快捷栏行数。#WHITE#", "_t")
+t("Number of rows to show in the icons hotkeys toolbar.#WHITE#", "设置图标快捷栏显示的行数。#WHITE#", "_t")
 t("#GOLD##{bold}#Icons hotkey toolbar rows#WHITE##{normal}#", "#GOLD##{bold}#图标快捷栏行数#WHITE##{normal}#", "_t")
 t("Number of icons rows", "图标栏行数", "_t")
 t("From 1 to 4", "从 1 到 4", "_t")
@@ -41800,17 +41800,17 @@ section "mod-tome/dialogs/GraphicMode.lua"
 
 t("Modern", "现代", "_t")
 t("ASCII", "字符界面", "_t")
-t("ASCII with background", "带背景特效的字符界面", "_t")
+t("ASCII with background", "带背景的字符界面", "_t")
 t("Custom Tileset", "自定义贴图", "_t")
-t("Change graphic mode", "切换图形模式", "_t")
+t("Change graphic mode", "切换图像模式", "_t")
 t([[You can configure the game to use a custom tileset.
 You must place all files of your tileset in a subfolder of the modules's data/gfx/ folder, just like the existing tilesets.
-Each tile must be correctly named according to the existing tilesets.]], [[你可以设置游戏的自定义贴图。
-你必须把贴图的所有文件放在模块 data/gfx/ 文件夹的子文件夹中，就像现有的贴图一样。
-所有材质的文件名必须和已存在的默认材质文件名相同。]], "_t")
+Each tile must be correctly named according to the existing tilesets.]], [[你可以让游戏使用自定义贴图。
+你必须参照现有贴图，将自定义贴图的所有文件放在模块 data/gfx/ 文件夹的子文件夹中。
+每个图块都必须按照现有贴图的命名规则正确命名。]], "_t")
 t("Folder: ", "文件夹：", "_t")
 t("Use moddable tiles (equipment showing on player)", "使用纸娃娃（在玩家身上显示装备）", "_t")
-t("Use advanced tiles (transitions, wide tiles, ...)", "使用高级贴图（渐变，大型贴图，……）", "_t")
+t("Use advanced tiles (transitions, wide tiles, ...)", "使用高级贴图（过渡图块、宽图块等）", "_t")
 t("Use custom tileset", "使用自定义贴图", "_t")
 t("Cancel", "取消", "_t")
 t("Tile size", "图块大小", "_t")

@@ -1,0 +1,85 @@
+{
+ "confirmed": [
+  {
+   "id": "066f7b86ad5c",
+   "edit": [
+    "界面样式，默认为金属，设置为简单可以节省屏幕空间。\n改变设置后必须重启游戏才能看到效果。",
+    "选择界面样式。默认为“金属”。“简单”样式较为朴素，但占用的屏幕空间更少。\n改变设置后必须重启游戏才能看到效果。"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 补齐首句谓语“选择”并还原“Simple is basic”. Lane(s) A (Opus 5.5) ISSUE."
+  },
+  {
+   "id": "66f3d614ebb9",
+   "edit": [
+    "#GOLD##{bold}#日志消失时间#WHITE##{normal}#",
+    "#GOLD##{bold}#日志淡出延迟#WHITE##{normal}#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 区分开始淡出前的等待时间与完全消失时间. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "9bf989424605",
+   "edit": [
+    "消失时间（秒数）",
+    "淡出延迟（秒）"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 与日志淡出延迟选项标签及秒数输入框对齐. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "cbaef89eca4e",
+   "edit": [
+    "更改角色上方闪过提示的停留时间。\n1表示停留很短，100表示停留10倍时间，不同消息停留时间不同。",
+    "设置悬浮提示在屏幕上的停留时间。\n范围为 1（极短）到 100（正常时长的 10 倍）；不同消息的正常停留时间各不相同。"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 取消“角色上方”的过度限定，并明确 100 对应每条消息正常时长的 10 倍. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "254198d486e2",
+   "edit": [
+    "#GOLD##{bold}#图标状态效果#WHITE##{normal}#",
+    "#GOLD##{bold}#用图标显示状态效果#WHITE##{normal}#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 避免“图标状态效果”误读为一类状态效果. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "f6b8e058ef65",
+   "edit": [
+    "调整快捷栏行数。#WHITE#",
+    "设置图标快捷栏显示的行数。#WHITE#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 补齐“图标快捷栏”适用范围（区别于文字快捷栏）. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "fe8f7325d48d",
+   "edit": [
+    "带背景特效的字符界面",
+    "带背景的字符界面"
+   ],
+   "evidence": "game/modules/tome/dialogs/GraphicMode.lua @ 624a67329fe2 (pinned core): 去除无中生有的“特效”，与邻条 ASCII = 字符界面保持一致. Lane(s) A (Opus 5.5), B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "968563fb6be4",
+   "edit": [
+    "切换图形模式",
+    "切换图像模式"
+   ],
+   "evidence": "game/modules/tome/dialogs/GraphicMode.lua @ 624a67329fe2 (pinned core): 与 GameOptions 中的“图像模式”菜单项保持术语统一. Lane(s) A (Opus 5.5), B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "c4e20e793027",
+   "edit": [
+    "你可以设置游戏的自定义贴图。\n你必须把贴图的所有文件放在模块 data/gfx/ 文件夹的子文件夹中，就像现有的贴图一样。\n所有材质的文件名必须和已存在的默认材质文件名相同。",
+    "你可以让游戏使用自定义贴图。\n你必须参照现有贴图，将自定义贴图的所有文件放在模块 data/gfx/ 文件夹的子文件夹中。\n每个图块都必须按照现有贴图的命名规则正确命名。"
+   ],
+   "evidence": "game/modules/tome/dialogs/GraphicMode.lua @ 624a67329fe2 (pinned core): 统一全段“贴图/图块”术语，去除第三句擅改的“材质”与增译“默认”. Lane(s) A (Opus 5.5), B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "d4ac340cb407",
+   "edit": [
+    "使用高级贴图（渐变，大型贴图，……）",
+    "使用高级贴图（过渡图块、宽图块等）"
+   ],
+   "evidence": "game/modules/tome/dialogs/GraphicMode.lua @ 624a67329fe2 (pinned core): 准确翻译 transitions（过渡图块）与 wide tiles（宽图块）. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  }
+ ],
+ "rejected": []
+}
