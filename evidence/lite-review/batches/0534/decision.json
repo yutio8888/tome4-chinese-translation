@@ -1,0 +1,44 @@
+{
+ "confirmed": [
+  {
+   "id": "945018252e78",
+   "edit": [
+    "目标被腐蚀蠕虫感染，减少 %d%% 酸性和枯萎抗性，效果结束后，蠕虫团将爆炸，在半径 4 范围内造成 %d 酸性伤害。效果期间所受伤害的 %d%% 会加到爆炸伤害上。",
+    "目标被腐蚀蠕虫感染，减少 %d%% 酸性和枯萎抗性，效果结束后，蠕虫将爆炸，在半径 4 范围内造成 %d 酸性伤害。效果期间所受伤害的 %d%% 会加到爆炸伤害上。"
+   ],
+   "evidence": "core timed_effects/magical.lua:1286-1310 @624a67329fe2: single corrosive worm effect (the worm); prior wording shifted from 腐蚀蠕虫 to 蠕虫团 in the same sentence. Type ①. Lane A."
+  },
+  {
+   "id": "5dff778b696e",
+   "edit": [
+    "目标脱离了现实相位，增加 %d 闪避，%d%% 全体伤害抗性并减少 %d%% 所有负面状态的持续时间。\n最高效果为 40%%。",
+    "目标脱离了现实相位，增加 %d 闪避，%d%% 全体伤害抗性并减少 %d%% 所有负面状态的持续时间。\n闪避上限为 40 点，全体伤害抗性与负面状态持续时间缩减上限为 40%%。"
+   ],
+   "evidence": "core timed_effects/magical.lua:2592-2598 @624a67329fe2: eff.defense, eff.resists, and eff.effect_reduction are each capped at 40; defense is flat combat_def (40), whereas resists and effect_reduction are 40%%. Type ②, translated per implementation. Lane B."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "ce3c71f09743",
+   "note": "Type ③ (upstream argument mismatch): core techniques/dualweapon.lua:193,204,208 @624a67329fe2 applies unarmed mult dam_mult+1.25 while info passes 100*dam_mult*1.25 as 2nd placeholder. Not fixable in translation. Lane B."
+  },
+  {
+   "id": "72964ba69752",
+   "note": "Type ③ (upstream code bug): core timed_effects/magical.lua:1488-1493 @624a67329fe2 STARLIGHT_FATIGUE puts rng.tableRemove inside the talent loop, potentially extending multiple cooldowns per act. Translation is faithful; not fixable in translation. Lane B."
+  },
+  {
+   "id": "1acb9c9f0a80",
+   "note": "Type ②/③ (edge-case dynamic branch): core timed_effects/magical.lua:3808,3835-3840 & chronomancy/flux.lua:128-130 @624a67329fe2 normally applies EFF_ATTENUATE_BEN if Reality Smearing is active; if toggled on mid-effect, EFF_ATTENUATE_DET heals eff.power*0.4 while long_desc passes eff.power only. Not fixable cleanly in static text. Lane B."
+  }
+ ],
+ "rejected": [
+  {
+   "id": "a35e81819f52",
+   "reason": "Cross-talent synergy with T_CONCEALMENT is explicitly documented in Concealment (mod-tome.lua:30748-30750: 爆头、齐射和精准射击视为目标已被标记), consistent with Volley (:30026). Not a defect in Called Shots."
+  },
+  {
+   "id": "4361834d7b71",
+   "reason": "Refuted (same precedent as 0252): core Combat.lua:1355-1358 @624a67329fe2 combatArmorHardiness checks hasEffect(EFF_BREACH) and applies multi = 0.5, so armor hardiness IS halved by Breach."
+  }
+ ]
+}
