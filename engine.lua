@@ -431,7 +431,7 @@ t("#LIGHT_BLUE#%s#WHITE# is one of the top five played races", "#LIGHT_BLUE#%s#W
 t("#LIGHT_BLUE#%s#WHITE# is one of the top five played classes", "#LIGHT_BLUE#%s#WHITE#是玩得最多的五大职业之一", "tformat")
 t("#CRIMSON#%s#WHITE# is one of the top ten killers", "#CRIMSON#%s#WHITE#是十大杀手之一", "tformat")
 t("#LIGHT_BLUE#%s#WHITE# is one of the top ten race/class combo", "#LIGHT_BLUE#%s#WHITE#是十大种族/职业组合之一", "tformat")
-t("There are currently %d people playing online", "现在有%d人正在在线游玩", "tformat")
+t("There are currently %d people playing online", "当前有%d人在线游玩", "tformat")
 t("The character's vault has registered a total of #RED#%d#WHITE# character's deaths", "官网角色库中记录了#RED#%d#WHITE#个角色的死亡", "tformat")
 t("The character's vault has registered a total of #LIGHT_BLUE#%d#WHITE# winners for the current version", "官网角色库中共有#LIGHT_BLUE#%d#WHITE#个赢得当前版本的游戏的角色", "tformat")
 t("The latest donator is #LIGHT_GREEN#%s#WHITE#. Many thanks to all donators, you are keeping this game alive!", "最近的捐赠者是#LIGHT_GREEN#%s#WHITE#。感谢所有捐赠者，是你们延续了这个游戏的生命！", "tformat")

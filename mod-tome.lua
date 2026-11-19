@@ -5203,8 +5203,8 @@ t("%s %s ring", "%s %s戒指", "tformat")
 t("weird", "奇怪的", "_t")
 t("%s creates: %s", "%s创造了：%s", "logPlayer")
 t("Imbue which amulet?", "镶嵌哪个项链？", "_t")
-t("Use which first gem?", "使用哪颗做第一个宝石？", "_t")
-t("Use which second gem?", "使用哪颗做第二个宝石？", "_t")
+t("Use which first gem?", "第一颗宝石选哪颗？", "_t")
+t("Use which second gem?", "第二颗宝石选哪颗？", "_t")
 t("Limmir needs more gold for the magical plating.", "利米尔需要更多金币用于魔法镀层。", "_t")
 t("You need to use %s gold for the plating, do you accept?", "你需要花费 %s 金币用于镀金，你确认接受吗？", "tformat")
 t("Limmir's Amulet of the Moon", "利米尔的月亮项链", "_t")
@@ -8278,7 +8278,7 @@ t("%s is blinded by the loss of all its eyes.", "%s失去了它所有的眼睛�
 t("luminous horror", "金色恐魔", "entity name")
 t("A lanky humanoid shape composed of yellow light.", "一个身材瘦长的人形，由金色的光芒组成。", "_t")
 t("radiant horror", "光芒恐魔", "entity name")
-t("A lanky four-armed humanoid shape composed of bright golden light.  It's so bright it's hard to look at, and you can feel heat radiating outward from it.", "一个身材瘦长的四臂人形，由金色的光芒组成，令人无法直视，甚至感受到高温从它身上不断的向外辐射。", "_t")
+t("A lanky four-armed humanoid shape composed of bright golden light.  It's so bright it's hard to look at, and you can feel heat radiating outward from it.", "一个身材瘦长的四臂人形，由明亮的金色光芒组成。它亮得令人难以直视，你还能感受到它身上散发出的热量。", "_t")
 t("devourer", "吞噬者", "entity name")
 t("A headless, round creature with stubby legs and arms.  Its body seems to be all teeth.", "一只无头怪物，它有着圆润的体型和又粗又短的四肢。它的牙齿似乎占据了整个身体。", "_t")
 t("blade horror", "刀锋恐魔", "entity name")
@@ -9376,7 +9376,7 @@ t("%s shrugs off some effects!", "%s摆脱了某些负面效果！", "logSeen")
 t("#LIGHT_RED#You feel uneasy carrying %s.", "#LIGHT_RED#携带%s让你感到不安。", "logPlayer")
 t("Psionic Fury", "灵能之怒", "entity name")
 t("vibrating mindstar", "震动的灵晶", "_t")
-t("This mindstar constantly shakes and vibrates, as if a powerful force is desperately trying to escape.", "这颗灵晶在不停的震动，仿佛其中有一股强大的力量试图从中逃脱。", "_t")
+t("This mindstar constantly shakes and vibrates, as if a powerful force is desperately trying to escape.", "这颗灵晶震颤不休，仿佛其中有一股强大的力量正拼命试图挣脱。", "_t")
 t("release a wave of psionic power, dealing %0.2f mind damage (based on Willpower) to all within radius %d", "释放灵能冲击波，造成%0.2f精神伤害（基于意志），伤害半径%d。", "tformat")
 t("%s's %s sends out a blast of psionic energy!", "%s的%s释放出灵能冲击波！", "logSeen")
 t("Storm Bringer's Gauntlets", "风暴使者臂铠", "entity name")
@@ -11656,10 +11656,10 @@ The byproduct of this effect is the creation of gold, which is useless to proces
 
 When you possess the chest all items you walk upon will automatically be put inside and transmogrified when you leave the level.
 Simply go to your inventory to move them out of the chest if you wish to keep them.
-Items in the chest will not encumber you.]], [[这只宝箱是某处古老的夏·图尔力量之地的延伸，任何扔在里面的物品会被自动传送到另一个地方，进行处理并摧毁，从里面提取能量。
+Items in the chest will not encumber you.]], [[这个宝箱是某处古老的夏·图尔力量之地的延伸。放入箱中的任何物品都会被自动传送到别处，在那里被分解摧毁以提取能量。
 这个过程的副产物是黄金，由于再加工它毫无意义，所以它会被送回给你。
 
-当你有这只箱子时，你走过的地面上的所有物品都会被自动收进箱中，并且当你离开该层时会自动转化。
+当你拥有这个箱子时，你走过的地面上的所有物品都会被自动收进箱中，并且当你离开该层时会自动转化。
 如果你想保留物品，只需要从宝箱里把它移到包裹中。
 在宝箱中的物品不会增加你的负重。]], "_t")
 t("transmogrify all the items in your chest at once (also done automatically when you change level)", "立即转化盒子中的所有物品（当你切换地图时也会自动转化）", "_t")
@@ -11673,10 +11673,10 @@ The byproduct of this effect is the creation of gold, which is useless to proces
 
 When you possess the chest all items you walk upon will automatically be put inside and transmogrified when you leave the level.
 To take an item out, simply go to your inventory to move them out of the chest.
-Items in the chest will not encumber you.]], [[这只宝箱是古老的夏·图尔力量之地的延伸，任何扔在里面的物品会被自动传送到另一个地方，进行处理并摧毁，从里面提取能量。
+Items in the chest will not encumber you.]], [[这个宝箱是古老的夏·图尔力量之地的延伸。放入箱中的任何物品都会被自动传送到别处，在那里被分解摧毁以提取能量。
 这个过程的副产物是黄金，由于再加工它毫无意义，所以它会被送回给你。
 
-当你有这只箱子时，你走过的地面上的所有物品都会被自动收进箱中，并且当你离开该层时会自动转化。
+当你拥有这个箱子时，你走过的地面上的所有物品都会被自动收进箱中，并且当你离开该层时会自动转化。
 要从宝箱中取出物品，只需打开物品栏，将其从宝箱移出。
 在宝箱中的物品不会增加你的负重。]], "_t")
 t("Bikini", "比基尼", "entity name")
@@ -17730,9 +17730,9 @@ Times passed and changed, and other creatures were found, and oft they were fell
 
 In all those centuries I still searched for the woman and found no trace. I know that the gods were all hunted down, and I remember the thorough searches of the Sher'Tul in their holy war. I grow old now, and some of those who first woke with me have passed away, and each passing night seem ever colder and lonelier. But still at times when I lie asleep I see her face or I hear her voice, and I know that one day, somehow, I will see her again.]], [[#{italic}#这个卷轴看起来十分古老，也许已有数千年历史，却保存得异常完好。#{normal}#
 
-我依稀记得自己第一次醒来，第一次呼吸，这个世界新鲜的空气使我充满了活力。我睁开双眼，只见一个光辉夺目的身影立在我上方。她高挑而纤瘦，一袭及地的银色秀发如丝般柔顺。她雪白的肌肤似乎散发着莹莹的光芒，双眸如晨星般闪耀。
+我依稀记得自己第一次醒来，第一次呼吸，这个世界新鲜的空气使我充满了活力。我睁开双眼，只见一个光辉夺目的身影立在我上方。她高挑而纤瘦，一头及地的银色秀发如丝般柔顺。她雪白的肌肤似乎散发着莹莹的光芒，双眸比群星更加明亮。
 
-我凝视着她，仿佛过了一个世纪，她也温情地望着我，我隐约看到她两眼流出了泪水。虽然这时的我还没有办法发出声音，但是我在想为何她看起来如此悲伤，随后我在脑海中感知到了她的回答，“你是这么的美丽，比世上任何东西都要美丽。但这世界却充满了痛苦和悲伤，我不忍想到我所创造的生命受到伤害。我将赐予你力量，让你能度过漫长岁月，赋予你声音来表达自身的所有欲望，但沉重的悲伤却将伴随你到永远，我为此哭泣……”
+我凝视着她，仿佛过了一个世纪，她也望着我，我看见泪水渐渐盈满她的双眼。虽然这时的我还没有办法发出声音，但是我在想为何她看起来如此悲伤，随后我在脑海中感知到了她的回答，“你是这么的美丽，比世上任何东西都要美丽。但这世界却充满了痛苦和悲伤，我不忍想到我所创造的生命受到伤害。我将赐予你力量，让你能度过漫长岁月，赋予你声音来表达自身的所有欲望，但沉重的悲伤却将伴随你到永远，我为此哭泣……”
 
 我感到力量涌入了四肢，声音从喉咙中涌出。我站起来环顾四周，惊叹于周围的世界与头顶的群星，欢喜地放声歌唱。那女人听到我的歌声，便露出笑容，止住了泪水，我便又唱了一会儿，想让她开心。但随后我说，“只有我一个人吗？” 她点了点头，说：“没有其它的人像你一样了。” 听到这句话，我感到很悲伤，而她似乎看穿了我心中的孤寂。女人犹豫了一会，说：“虽然这会让我痛苦，但我无法拒绝你的愿望。你现在将要沉睡，当你醒来时，身边会有和你一样的人，而你将走进这个破碎的世界，尝试修复它。”
 
@@ -18318,11 +18318,11 @@ t([[You wake suddenly from your unexpected slumber and attempt to quickly regain
 As you begin to come to grips with this strange environment, you realize with horror that you cannot move! Your body feels as if it is completely without weight and try as you may you cannot budge an inch. You experience a sense of Déjà Vu as you recall past nightmares of being paralyzed. That's when it strikes you: you never woke up at all, you're still asleep! This epiphany is only reinforced when you notice a strange phenomenon: mirror copies of yourself are being slowly projected from where you stand and are moving about of their own volition.
 They all seem to be focused on something in particular, but what? Just as soon as you set your mind to discerning what your dreamselves are focusing on, you feel it. With horror, you realize that you are not alone here. 
 Somehow, your foe has invaded your very subconcious and is attacking you in your dreams. Still unable to move, your lucid mind races on how to handle such an insane and horrible situation. On a whim you concentrate on one of your projections and you find that you can control it. 
-Free now to face this nightmare, you turn to find your foe. While you have a sense that having one of your dreamselves destroyed may not by itself be catastrophic, what would happen if several or many are cut down? Unwilling to find out, you resolve yourself to end this offensive intrustion into your mind.]], [[你从意料外的沉睡中骤然醒来，试图尽快辨明自己身在何处。然而，你对眼前离奇的场景毫无准备：没有陆地，没有天空，只有不断变化的形状和光线。迷幻的烟雾弥漫在空气中，异界般的色彩和阴影在你的余光中忽隐忽现。
+Free now to face this nightmare, you turn to find your foe. While you have a sense that having one of your dreamselves destroyed may not by itself be catastrophic, what would happen if several or many are cut down? Unwilling to find out, you resolve yourself to end this offensive intrustion into your mind.]], [[你从突如其来的沉睡中骤然醒来，试图尽快辨明自己身在何处。然而，你对眼前离奇的场景毫无准备：没有陆地，没有天空，只有模糊不成形的轮廓和明暗不一的光线。迷幻的烟雾弥漫在空气中，异界般的色彩和阴影在你的余光中忽隐忽现。
 当你开始适应这陌生的环境时，你惊恐地发觉你动不了了！你的身体似乎完全没有重量，任你如何挣扎也移动不了一寸。你想起过去那些无法动弹的噩梦，心中升起一种似曾相识的感觉。就在这时，你忽然意识到：自己根本没有醒来，仍处于沉睡之中！你注意到一个奇怪的现象，更加确信了这一点：你自己的镜像正从你站立的位置缓缓投射出来，并自行活动。
 他们似乎都在关注某个东西，但究竟是什么？你刚开始琢磨这些梦中自我在关注什么，就感觉到了它。你惊恐地意识到，这里不止你一个人。
 你的敌人侵入了你的潜意识，开始在梦境中攻击你。虽然依旧不能动，你清醒的头脑却在飞速思索该如何应对这疯狂而恐怖的处境。你一时心血来潮，把注意力集中在一个梦中投影上，你发现你能够控制它。
-终于能自由行动、面对这场噩梦了，你转身寻找敌人。你隐约觉得，单个梦中自我被摧毁或许还不至于酿成灾难，但如果有数个乃至许多个梦中自我相继被摧毁呢？你不愿知道那会发生什么，于是下定决心终结这场对你心灵的侵犯。]], "_t")
+如今终于能借助投影面对这场噩梦，你便操纵它转身寻找敌人。你隐约觉得，单个梦中自我被摧毁或许还不至于酿成灾难，但如果有数个乃至许多个梦中自我相继被摧毁呢？你不愿知道那会发生什么，于是下定决心终结这场对你心灵的侵犯。]], "_t")
 t("vault", "宝库", "newLore category")
 t("Mocking Note", "嘲弄字条", "_t")
 t([[Dear graverobber,
@@ -26788,8 +26788,8 @@ t([[As the only immortal race of Eyal, Shaloren have learnt over the long years 
 		当一次攻击造成至少 10%% 总生命值的伤害时，有 %d%% 概率进入隐形状态（强度 %d）， 持续 5 回合。]], "tformat")
 t("Timeless", "超越永恒", "talent name")
 t([[The world grows old as you stand through the ages. To you, time is different.
-		Reduces the time remaining on detrimental effects by %d, most cooling down talents by %d, and increases the time remaining on beneficial effects by %d (up to 2 times the current duration).]], [[世界在不断的变老，而你似乎永恒不变。对于你来说，时间是不同寻常的。
-		减少 %d 回合负面状态的持续时间，使大多数冷却中技能的冷却时间减少 %d 回合，并增加 %d 回合增益状态的持续时间（至多延长为剩余时间的两倍）。]], "tformat")
+		Reduces the time remaining on detrimental effects by %d, most cooling down talents by %d, and increases the time remaining on beneficial effects by %d (up to 2 times the current duration).]], [[世界在不断变老，而你似乎永恒不变。对于你来说，时间是不同寻常的。
+		使负面状态的剩余时间缩短 %d 回合，大多数冷却中技能的冷却时间缩短 %d 回合，并使增益状态的剩余时间延长 %d 回合（至多延长至当前剩余时间的两倍）。]], "tformat")
 t("thalore", "自然精灵", "talent type")
 t("Gift of the Woods", "森林的恩赐", "talent name")
 t([[Call upon nature to regenerate your body for %d life every turn and increase healing mod by %d%% for 8 turns.
@@ -27355,9 +27355,9 @@ t("Matter is Energy", "物能转化", "talent name")
 t("Use which gem?", "使用哪颗宝石？", "_t")
 t([[Matter is energy, as any good Mindslayer knows. Unfortunately, the various bonds and particles involved are just too numerous and complex to make the conversion feasible in most cases. The ordered, crystalline structure of a gem, however, make it possible to transform a small percentage of its matter into usable energy.
 		This talent consumes one gem and grants %d psi per turn for between 5 and 13 turns, depending on the quality of the gem used.
-		This process also creates a resonance field that provides the (imbued) effects of the gem to you while this effect lasts.]], [[任何优秀的心灵杀手都知道，物质就是能量。遗憾的是，大多数物质由于分子成分的复杂性无法转换。然而，宝石有序的晶体结构使得部分物质转化为能量成为可能。
-		这个技能消耗一个宝石，在 5~13 回合内，每回合获得 %d 灵能值，持续回合取决于所用的宝石品质。
-		在持续时间内还会产生一个共振领域，为你提供宝石的效果。]], "tformat")
+		This process also creates a resonance field that provides the (imbued) effects of the gem to you while this effect lasts.]], [[任何优秀的心灵杀手都知道，物质就是能量。遗憾的是，在大多数情况下，涉及的粒子与结合方式太过繁复，难以实现转换。然而，宝石有序的晶体结构使得将一小部分物质转化为可用能量成为可能。
+		这个技能消耗一颗宝石，在 5 至 13 回合内，每回合获得 %d 点灵能，持续时间取决于所用宝石的品质。
+		这一过程还会产生一个共振领域，在效果持续期间为你提供该宝石的镶嵌效果。]], "tformat")
 t("Resonant Focus", "共振聚焦", "talent name")
 t([[By carefully synchronizing your mind to the resonant frequencies of your psionic focus, you strengthen its effects.
 		For conventional weapons, this increases the percentage of your willpower and cunning that is used in place of strength and dexterity for all weapon attacks, from 60%% to %d%%.
@@ -32312,12 +32312,12 @@ This calls for urgency; should you find this Golbug or the portal, please invest
 
                #GOLD#-- Tolak, King of the Allied Kingdoms]], [[@playername@，这份报告极其重要。
 
-我们的长老从古老文献中查找你提到的那个法杖的线索。
+我们的长老从古老文献中查找你提到的那根法杖的线索。
 它的确是一件非常强大的物品，可以吸收地点和生物的力量。
-所以它绝对不能落入坏人的手中，很显然包括兽人。
-你不在的时候，我们的一个巡逻队遭遇了乌克鲁克带领的一群兽人，我们没法阻止他们，不过我们抓了他们中的一个。
+绝不能让它落入歹人之手，更绝不能落到兽人手里。
+你不在的时候，我们的一支巡逻队遭遇了乌克鲁克带领的一群兽人，我们没法阻止他们，不过我们抓了他们中的一个。
 他知道的不多，但他提到了远东大陆的“主人”。
-他提到了与高尔布格会面——貌似是瑞库纳的一位战争领主——以便将一个“包裹”送过传送门。
+他说要与高尔布格会面，把一个“包裹”送过传送门；高尔布格似乎是瑞库纳的一位战争领主。
 
 事情非常紧急；如果你找到这个高尔布格或那个传送门，请务必调查。
 
@@ -34088,7 +34088,7 @@ Talents:
 - #YELLOW#Frozen Ground: #WHITE#Unleash a nova of ice on the ground, stopping the movements of anything caught inside
 - #YELLOW#Shatter: #WHITE#Shatter all frozen creatures in your sight, dealing increased damage or even killing them
 - #YELLOW#Uttercold: #WHITE#Master the Uttercold and pierce even through cold immunities
-]], [[自始以来法师们进行着各种元素试验。
+]], [[自远古以来，法师们就一直在进行各种元素试验。
 大多数法师满足于使用水系魔法，有些人则进行深入的研究并创造出了冰系魔法。
 其核心是“绝对零度”，一种极寒，甚至能伤害通常免疫寒冷的生物。
 
@@ -34097,7 +34097,7 @@ Talents:
 技能：
 - #YELLOW# 冻结：#WHITE# 凝聚目标周围的水，对其造成伤害并使其冻结。
 - #YELLOW# 冻结大地：#WHITE# 在地上施放一个冰冻新星，使其中的生物无法移动。
-- #YELLOW# 寒冰破碎：#WHITE# 对你视线内的所有冰冻目标造成更高伤害，甚至直接将其杀死。
+- #YELLOW# 寒冰破碎：#WHITE# 击碎视线内的冰冻目标，造成寒冷伤害，甚至直接击杀弱小生物。
 - #YELLOW# 绝对零度：#WHITE# 掌握绝对零度，甚至能穿透寒冷免疫。
 ]], "_t")
 
@@ -34116,7 +34116,7 @@ Talents:
 - #YELLOW#Body of Stone: #WHITE#Turn into stone, reducing the cooldown of many stone/earth talents
 - #YELLOW#Earthquake: #WHITE#Create a localized earthquake, stunning all in the area
 - #YELLOW#Crystalline Focus: #WHITE#Master the Stone and pierce even through physical immunities
-]], [[自始以来法师们进行着各种元素试验。
+]], [[自远古以来，法师们就一直在进行各种元素试验。
 大多数法师满足于使用大地系魔法，有些人则进行深入的研究并创造出了石系魔法。
 其核心是“水晶力场”，它能制造出锋利到可以穿透物理免疫的攻击。
 
@@ -34125,7 +34125,7 @@ Talents:
 技能：
 - #YELLOW# 岩石飞弹：#WHITE# 分别向目标发射数枚岩石飞弹。
 - #YELLOW# 岩石身躯：#WHITE# 进入岩石形态，降低许多石系/大地系技能的冷却时间。
-- #YELLOW# 地震：#WHITE# 创造一个区域性地震，震慑区域内的所有生物。
+- #YELLOW# 地震：#WHITE# 引发局部地震，有可能震慑区域内的生物。
 - #YELLOW# 水晶力场：#WHITE# 掌握石系魔法，甚至能穿透物理免疫。
 ]], "_t")
 
@@ -34188,7 +34188,7 @@ Talents:
 - #YELLOW#Dancing Fires: #WHITE#Project your inner fire to all creatures in your line of sight, setting them ablaze
 - #YELLOW#Combust: #WHITE#Disrupt normal burning effects and make them combust at once
 - #YELLOW#Wildfire: #WHITE#Master the Wildfire and pierce even through fire immunities
-]], [[自始以来法师们进行着各种元素试验。
+]], [[自远古以来，法师们就一直在进行各种元素试验。
 大多数法师满足于使用火系魔法，有些人则进行深入的研究并创造出了焱系魔法。
 其核心是“野火燎原”，这种火焰炽热无比，甚至可以伤害通常免疫火焰的生物。
 
@@ -34196,8 +34196,8 @@ Talents:
 
 技能：
 - #YELLOW# 火焰新星：#WHITE# 对你的四周施放一个火焰新星，造成伤害并击退周围目标。
-- #YELLOW# 火焰之舞：#WHITE# 点燃你视线中的所有目标。
-- #YELLOW# 灼烧：#WHITE# 打断常规的燃烧效果，使其立即爆燃
+- #YELLOW# 无尽之焰：#WHITE# 部分火焰法术会在地面留下燃烧的火焰，灼烧其中的生物。
+- #YELLOW# 净化之焰：#WHITE# 点燃自身与受火焰影响的生物，并有概率移除其状态效果。
 - #YELLOW# 野火燎原：#WHITE# 你对焱系魔法的掌握使你可以对火焰免疫的生物造成伤害。
 ]], "_t")
 
@@ -34216,16 +34216,16 @@ Talents:
 - #YELLOW#Shock: #WHITE#Fire a fast bolt of lightning, dazing the target
 - #YELLOW#Hurricane: #WHITE#Call down a Hurricane on any creatures you daze, creating a lightning storm around each of them
 - #YELLOW#Tempest: #WHITE#Master the Tempest and pierce even through lightning immunities
-]], [[自始以来法师们进行着各种元素试验。
+]], [[自远古以来，法师们就一直在进行各种元素试验。
 大多数法师满足于使用大气系魔法，少数人则深入研究，创造出了风暴魔法。
 其核心是“无尽风暴”，其威力甚至足以伤害通常免疫闪电的生物。
 
 你掌握了风暴系魔法，现在你可以创建一个新的可以学习 #LIGHT_GREEN#风暴系技能#WHITE# 的元素法师角色。
 
 技能：
-- #YELLOW# 闪电新星：#WHITE# 对你的四周施放闪电新星，对周围生物造成闪电伤害并带有眩晕效果。
-- #YELLOW# 闪电之击：#WHITE# 发射一道快速的闪电箭，眩晕目标
-- #YELLOW# 飓风：#WHITE# 对被你眩晕的生物召唤飓风，在每个目标周围形成闪电风暴。
+- #YELLOW# 闪电新星：#WHITE# 对你的四周施放闪电新星，对周围生物造成闪电伤害并有概率使其眩晕。
+- #YELLOW# 闪电之击：#WHITE# 发射一道快速的闪电箭，眩晕目标。
+- #YELLOW# 飓风：#WHITE# 你的闪电法术使目标眩晕时，有概率在其周围形成闪电风暴。
 - #YELLOW# 无尽风暴：#WHITE# 掌握无尽风暴，甚至能穿透目标的闪电免疫。
 ]], "_t")
 
@@ -38151,7 +38151,7 @@ t("#CRIMSON#%s seems invulnerable, there must be an other way to kill it!", "#CR
 t("I have heard a dwarf whispering about some abomination in the deep bellow.", "我听到有个矮人正悄悄谈论深渊咆哮里的某种憎恶。", "_t")
 t("slimy crawler", "黏糊糊的爬虫", "entity name")
 t([[This disgusting... thing crawls on the floor toward you with great speed.
-It seems to come from the digestive system of the mouth.]], [[这只恶心的……东西在地板上迅速的向你爬来。
+It seems to come from the digestive system of the mouth.]], [[这只恶心的……东西在地板上迅速地向你爬来。
 它似乎是从“大嘴怪”的消化系统中出来的。]], "_t")
 t("#AQUAMARINE#With the Mouth's death its crawler also falls lifeless on the ground!", "#AQUAMARINE#当大嘴怪死去时，它的爬虫也毫无生机地倒在了地上！", "logSeen")
 t("#AQUAMARINE#As #Source# falls you notice that #Target# seems to shudder in pain!", "#AQUAMARINE#当#Source#倒下时，你发现#Target#似乎因为痛苦而颤抖！", "logCombat")
