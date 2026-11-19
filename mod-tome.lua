@@ -29888,8 +29888,7 @@ t("%s feels the pain of the death blow!", "%s感受到了致命打击的疼痛�
 t("%s resists the death blow!", "%s抵抗了致命打击！", "logSeen")
 t([[Tries to perform a killing blow, doing %d%% weapon damage and dealing an automatic critical hit. If the target ends up with low enough life (<20%%), it might be instantly killed.
 		At level 4, it drains half your remaining stamina, and uses it to increase the blow damage by 100%% of it.
-		The chance to instantly kill will increase with your Physical Power.]], [[试图施展一次致命打击，造成 %d%% 武器伤害，本次攻击自动变成暴击。
-		如果打击后目标生命值低于 20%%，则有可能被直接杀死。
+		The chance to instantly kill will increase with your Physical Power.]], [[试图施展一次致命打击，造成 %d%% 武器伤害，本次攻击自动变成暴击。如果打击后目标生命值低于 20%%，则有可能被直接杀死。
 		在等级 4 时，本次攻击会消耗你剩余体力值的一半，并按其 100%% 提高本次攻击的物理强度。
 		目标即死的概率受物理强度加成。]], "tformat")
 t("Stunning Blow", "震慑打击", "talent name")

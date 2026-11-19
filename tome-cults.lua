@@ -3804,7 +3804,7 @@ t("Inside Forbidden Tome: \"Home, Horrific Home\" for %d turns.", "身处禁忌�
 t("Forbidden Tome Cooldown", "禁忌之书冷却", "_t")
 t("Unable to enter Forbidden Tomes.", "无法进入禁忌之书。", "_t")
 t("Wrath of the Wilds", "自然之怒", "_t")
-t("%d%% chance to stun any foes hit.", "每回合首次造成伤害时必定震慑目标，后续命中敌人有 %d%% 几率震慑（每个目标每回合限一次）。", "tformat")
+t("%d%% chance to stun any foes hit.", "每回合首次造成伤害时必定尝试震慑目标，后续命中敌人有 %d%% 几率尝试震慑（每个目标每回合限一次）。", "tformat")
 t("protection", "保护", "effect subtype")
 t("Warborn", "为战而生", "_t")
 t("Reduces all damage taken by %d%%.", "降低所有受到的伤害 %d%%。", "tformat")

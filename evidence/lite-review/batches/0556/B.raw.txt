@@ -1,0 +1,146 @@
+{
+  "batch": "0556",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "4637ef47ae01",
+      "verdict": "ISSUE",
+      "observation": "mod-tome/data/talents/celestial/dark-sun.lua:86–97、126–132。data/damage_types.lua:4447–4464 中，引力场免疫此效果，拉拽还须通过物理强度对抗与击退判定。译文把拉拽说成必然。描述传入的是实际基础伤害的一半。",
+      "suggestion": "在目标地点开启半径 1 的时空裂缝，持续 %d 回合。每回合半径增加 1，最大 %d。\n\t\t裂缝每回合对范围内的敌人造成相当于 %0.2f 两倍的重力伤害，并尝试将其拉向中心。引力场可免疫此效果。\n伤害受法术强度加成。"
+    },
+    {
+      "id": "d10c38ab4bab",
+      "verdict": "ISSUE",
+      "observation": "mod-tome/data/talents/celestial/dirge.lua:164–177。只有来源并非自身且类型不为 other 的负面状态才触发。已有护盾的时长取较大值，不一定延长。",
+      "suggestion": "唱响腐朽与抗争之歌，以怨恨支撑自身。\n\t\t\t\t\t\t\t受到来自自身以外的负面状态时（其他类除外），你获得强度为 %d 的护盾，持续时间与该状态相同。若已有伤害护盾，护盾值叠加，持续时间取两者中较长者。\n\t\t\t\t\t\t\t这一效果每 %d 回合只能触发一次。"
+    },
+    {
+      "id": "a9284bd1184b",
+      "verdict": "OK"
+    },
+    {
+      "id": "527f6e1004f5",
+      "verdict": "ISSUE",
+      "observation": "mod-tome/data/talents/cunning/artifice.lua:635–640。掌握发射器专精即可跳过两项免疫检查。",
+      "suggestion": "从身上隐蔽的无声发射器中射出毒镖，造成 %0.2f 物理伤害，并使目标沉睡 4 回合，期间无法行动（通常受睡眠和中毒免疫影响，掌握该发射器的专精后可无视这两项免疫）。目标每受到 %d 点伤害，剩余沉睡时间便缩短 1 回合。\n使用该技能不解除潜行。\n#YELLOW#准备于：%s#LAST#"
+    },
+    {
+      "id": "ef4d274fe789",
+      "verdict": "OK"
+    },
+    {
+      "id": "07fd443458c1",
+      "verdict": "ISSUE",
+      "observation": "mod-tome/data/talents/spells/master-of-bones.lua:240–255。已有法师和弓箭手时额外召唤武装战士，还须有空位。",
+      "suggestion": "从古战场中收集白骨，将灵魂附着在白骨上，将其转化为你的骷髅随从。\n\t\t最多召唤 %d 个 %d 级的骷髅战士，且最多可同时掌控 %d 个骷髅。\n\t\t技能等级 3 时，你将会改为召唤武装骷髅战士。\n\t\t技能等级 5 时，每召唤 3 个骷髅战士，若有空位，还会免费召唤一个骷髅，优先补齐骷髅法师或弓箭手，若两者均已有则召唤武装骷髅战士。如果因此超过骷髅数量上限，会移除一个普通骷髅，并返还其灵魂消耗。\n\n\t\t#GREY##{italic}#骷髅的数量比食尸鬼更少，但一般来说更加强韧。#{normal}#\n\t\t"
+    },
+    {
+      "id": "164ebc011837",
+      "verdict": "ISSUE",
+      "observation": "mod-tome/data/talents/techniques/2hweapon.lua:204–206。原文有两处换行，译文把首段拆成两行，增加了一处。",
+      "suggestion": "试图施展一次致命打击，造成 %d%% 武器伤害，本次攻击自动变成暴击。如果打击后目标生命值低于 20%%，则有可能被直接杀死。\n\t\t在等级 4 时，本次攻击会消耗你剩余体力值的一半，并按其 100%% 提高本次攻击的物理强度。\n\t\t目标即死的概率受物理强度加成。"
+    },
+    {
+      "id": "c2edce139646",
+      "verdict": "ISSUE",
+      "observation": "mod-tome/data/talents/techniques/archery.lua:236–250。本次标记率以 20%% 为基础，还会受技能加成。",
+      "suggestion": "你朝目标发射定身射击，造成 %d%% 伤害并尝试将目标定身 %d 回合；无论定身是否成功，你对该目标的下一发稳固射击或射击的暴击率与标记几率均为 100%%。\n\t\t此次攻击标记目标的基础几率为 20%%。\n\t\t定身几率受命中加成。"
+    },
+    {
+      "id": "5aee27a2e1b4",
+      "verdict": "ISSUE",
+      "observation": "mod-tome/data/talents/techniques/buckler-training.lua:234–237、248–254。计数等于显示值时仍可再次反击，超过才停止。",
+      "suggestion": "每当你的格挡专精或格挡大师技能挡住攻击时，你立刻使用投石索发动一次伤害 %d%% 的反击。每回合最多发动的次数为 %d 加一次。\n\t\t\t"
+    },
+    {
+      "id": "0d5e38d340cf",
+      "verdict": "OK"
+    },
+    {
+      "id": "f798905d3b34",
+      "verdict": "OK"
+    },
+    {
+      "id": "8e88e1ed581d",
+      "verdict": "ISSUE",
+      "observation": "mod-tome/data/timed_effects/other.lua:415、441–444。两个数值分别是剩余吸收量和总容量；“吸收 80/100 伤害”未说清前者是余额。",
+      "suggestion": "目标被一层扭曲时空的护盾所包围，剩余护盾值为 %d/%d，可将吸收的伤害推迟到未来。护盾生效期间，所有新获得的负面状态持续时间都会减少 %d%%。"
+    },
+    {
+      "id": "8d4e718bfa64",
+      "verdict": "ISSUE",
+      "observation": "公开 DLC 检出，来源未固定。tome-ashes-urhrok/data/talents/corruptions/doom-shield.lua:36–41、51–58。公式算的是单次治疗上限，伤害不足时实际治疗量较低。",
+      "suggestion": "你将乌鲁洛克的能量注入盾牌，生成一层魔法护盾：每次受到伤害时，都会在 3 回合内为你恢复等量生命（单次上限基于盾牌格挡值）。此效果可以叠加。\n\t\t单次治疗量上限等于 5 + %d%% 格挡值（当前 %d 点）。\n\t\t技能等级达到 3 时，如果单次伤害超过治疗量上限的两倍，有 %d%% 几率额外移除一个物理负面效果。此效果每回合只能触发一次。\n\t\t在休息和跑步时，该技能自动终止。\n\t\t#{bold}#开启护盾不消耗时间，关闭护盾消耗时间。#{normal}#\n\t\t治疗量不受法术强度影响。"
+    },
+    {
+      "id": "31e34a7aa195",
+      "verdict": "OK"
+    },
+    {
+      "id": "f9e9e4c6d70e",
+      "verdict": "ISSUE",
+      "observation": "公开 DLC 检出，来源未固定。tome-cults/data/talents/demented/tentacles.lua:73–75。superload/mod/class/interface/Combat.lua:26、30–35 注册的是触手武器训练，追加攻击由持武器的 attackTargetWith 触发，不限普通攻击。第52–54行获取疯狂还要求主目标非友方。",
+      "suggestion": "你的左手异变成为一坨恶心的触手。\n\t\t副手空闲且可使用触手时，用其他武器发动近战攻击会让触手自动攻击目标及攻击方向两侧的相邻敌人。\n\t\t使用触手攻击时，物理强度提高 %d，武器伤害提高 %d%%。\n\t\t用触手追加攻击非友方目标时获得 %d 疯狂值，每回合至多一次。\n\t\t附近有#{italic}#“文明人”#{normal}#时会自动生成微弱的灵能力场，避免被他们发现你的恐魔形态。\n\n\t\t你的触手当前属性%s：\n\t\t%s"
+    },
+    {
+      "id": "fa81c79f5cc4",
+      "verdict": "ISSUE",
+      "observation": "公开 DLC 检出，来源未固定。tome-cults/data/talents/demented/timethief.lua:239–241。克隆体按百分比减少生命上限，当前生命只在高于新上限时下调。",
+      "suggestion": "将目标敌人从正常时间流部分移除，持续 %d 回合，抑制其与现实世界交互的能力。移除期间敌人受到的伤害降为原来的 %d%%， 造成的伤害降低 %d%%。\n\t\t技能启动时，你从受损的时间线中召唤敌人的时空克隆体协助你战斗，持续时间与敌人移除时间相同。克隆体与本体相同，但生命上限降低 %d%%， 只造成 %d%% 伤害。"
+    },
+    {
+      "id": "c23187962a04",
+      "verdict": "OK"
+    },
+    {
+      "id": "e296afa51416",
+      "verdict": "ISSUE",
+      "observation": "公开 DLC 检出，来源未固定。tome-cults/data/timed_effects.lua:1478–1486。结束时排除 other 类与可在时间停止时自然倒计时的状态。",
+      "suggestion": "目标从常规时间流中移除，无法行动，免疫伤害。效果结束时，其技能冷却时间及符合条件的负面效果持续时间会相应缩短（其他类和时间停止时仍会倒计时的效果除外）。"
+    },
+    {
+      "id": "072123404065",
+      "verdict": "ISSUE",
+      "observation": "公开 DLC 检出，来源未固定。tome-cults/data/timed_effects.lua:1945–1953。首次仅跳过概率判定，仍要求正伤害、目标存活、可被震慑，且施加状态时要检定强度。",
+      "suggestion": "每回合首次对可被震慑且仍存活的敌人造成伤害时，尝试将其震慑；之后每次造成伤害有 %d%% 几率尝试震慑。每个目标每回合最多尝试一次。"
+    },
+    {
+      "id": "71a3116784d2",
+      "verdict": "OK"
+    },
+    {
+      "id": "bbe1ec794e87",
+      "verdict": "ISSUE",
+      "observation": "公开 DLC 检出，来源未固定。tome-orcs/data/talents/steam/avoidance.lua:150–157、164–166。3级起治疗时可净化；满血时要到5级且存在可净化状态才能触发。",
+      "suggestion": "你的披风内衬装有一套嵌入式回复系统，在最后一个敌人从视野中消失时启动。\n\t\t触发时，回复 %d 生命值。\n\t\t技能等级达到 3 时，治疗还会移除一个物理负面效果。满血时，须达到技能等级 5 且有可移除的物理负面效果才会触发。\n\t\t该系统每 %d 回合最多触发一次。"
+    },
+    {
+      "id": "1c0d86271b6e",
+      "verdict": "ISSUE",
+      "observation": "公开 DLC 检出，来源未固定。tome-orcs/data/talents/steam/gunslinging.lua:114–115。第二个参数是射手的物主代词，代入后“射偏了他的一枪”语序错误。",
+      "suggestion": "%s开了枪，%s这一枪射偏了。"
+    },
+    {
+      "id": "b965d76c99f3",
+      "verdict": "OK"
+    },
+    {
+      "id": "cbb6f60c20da",
+      "verdict": "ISSUE",
+      "observation": "公开 DLC 检出，来源未固定。tome-orcs/data/timed_effects/physical.lua:927–943。反击要求施放者持盾，且攻击者是距施放者不超过10格的敌对角色。",
+      "suggestion": "目标被静电力场包围，全部抗性提高 %d%%；目标受到攻击时，若施放者持盾且攻击者是距施放者 10 格以内的敌人，施放者便会用盾牌反击，造成 %d%% 闪电武器伤害（同一攻击者每回合至多一次）。"
+    },
+    {
+      "id": "cdc7dd0da4d5",
+      "verdict": "ISSUE",
+      "observation": "公开 DLC 检出，来源未固定。tome-orcs/data/zones/kaltor-shop/objects.lua:44–46。条件仅排除自身来源和低于一成上限的伤害，恰好一成也触发。固定核心 game/modules/tome/class/Actor.lua:2430–2439 还要求相邻有空位才能躲避。",
+      "suggestion": "单次受到来自自身以外、达到生命上限 10% 的伤害时，作战服的马达会启动一回合。期间首次受到伤害时，若相邻有空位，你会移到空位并避开这次伤害。"
+    },
+    {
+      "id": "0823d72e2a2c",
+      "verdict": "ISSUE",
+      "observation": "公开 DLC 检出，来源未固定。tome-orcs/data/zones/shertul-cave/objects.lua:43–45。条件仅排除自身来源和低于一成上限的伤害，恰好一成也触发。固定核心 game/modules/tome/class/Actor.lua:2430–2439 还要求相邻有空位才能躲避。",
+      "suggestion": "单次受到来自自身以外、达到生命上限 10% 的伤害时，作战服的马达会启动一回合。期间首次受到伤害时，若相邻有空位，你会移到空位并避开这次伤害。"
+    }
+  ]
+}
