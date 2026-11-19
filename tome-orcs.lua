@@ -3959,7 +3959,7 @@ Light damage slows the target by %0.2f%% per point of damage dealt for %d turns,
 Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到所受光系和暗影伤害的回响，持续 %d 回合。
 
 每受到 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。
-暗影伤害会在目标脚下留下持续 4 回合的回响。在暮光回响生效期间，目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。]], "tformat")
+暗影伤害会在目标脚下留下持续 4 回合的回响；在暮光回响生效期间，目标在原地再次受到暗影伤害时，回响可续至 %d 回合。回响每回合造成该次暗影伤害的 %d%%， 续期时还会平摊先前剩余的伤害。]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/celestial/energies.lua"
@@ -4017,7 +4017,7 @@ Light damage slows the target by %0.2f%% per point of damage dealt for %d turns,
 Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到所受光系和暗影伤害的回响，持续 %d 回合。
 
 每受到 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。
-暗影伤害会在目标脚下留下持续 4 回合的回响。在暮光回响生效期间，目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。]], "tformat")
+暗影伤害会在目标脚下留下持续 4 回合的回响；在暮光回响生效期间，目标在原地再次受到暗影伤害时，回响可续至 %d 回合。回响每回合造成该次暗影伤害的 %d%%， 续期时还会平摊先前剩余的伤害。]], "tformat")
 t("Starscape", "星界领域", "talent name")
 t("This spell cannot be cast here.", "该技能不能在这里使用。", "logPlayer")
 t("Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.", "在周围半径 %d 的区域内召唤一片星界领域。 %d 回合内，这个区域存在于正常时间之外，且重力为零。除了零重力之外，抛射物和其他生物的移动速度降为平时的 1/3。法术和攻击在效果结束前无法离开该范围。", "tformat")
@@ -6108,7 +6108,7 @@ t("-Shield", "-护盾", "_t")
 t("dark", "黑暗", "effect subtype")
 t("light", "光系", "effect subtype")
 t("Twilit Echoes", "暮光回响", "_t")
-t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%， 减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。暗影伤害会在目标脚下留下持续 4 回合的回响。目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。", "tformat")
+t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%， 减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。暗影伤害会在目标脚下留下持续 4 回合的回响；目标在原地再次受到暗影伤害时，回响可续至 %d 回合。回响每回合造成该次暗影伤害的 %d%%， 续期时还会平摊先前剩余的伤害。", "tformat")
 t("slow", "减速", "effect subtype")
 t("Echoed Light", "光明回响", "_t")
 t("The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.", "目标受到的光系伤害产生回响，使其减速 %d%%。在暮光回响期间受到更多光系伤害将会增加减速效果，最大叠加到 %d%%。", "tformat")
@@ -6137,7 +6137,7 @@ t("You have %d charges.", "叠加次数：%d。", "tformat")
 t("steam", "蒸汽", "effect subtype")
 t("technomancy", "科技法术", "effect subtype")
 t("Ethereal Steam", "虚幻蒸汽", "_t")
-t("Deals %0.2f occult damage per turn and each time a talent is used, the caster regens one turn of a random cooldown.", "每回合造成 %0.2f 玄机伤害；目标每次使用技能时，施加者随机一个冷却中的科技法术（若无则为法术）冷却时间缩短 1 回合。", "tformat")
+t("Deals %0.2f occult damage per turn and each time a talent is used, the caster regens one turn of a random cooldown.", "每回合造成 %0.2f 玄机伤害；目标每次使用技能时，随机使施加者一个冷却中的科技法术（若无则改为其他法术）冷却时间缩短 1 回合。", "tformat")
 t("#Target# covered in arcane-infused steam!", "#Target#被奥术蒸汽覆盖！", "_t")
 t("#Target# is free from the steam.", "#Target#脱离蒸汽影响。", "_t")
 t("Ethereal Link", "虚幻连接", "_t")

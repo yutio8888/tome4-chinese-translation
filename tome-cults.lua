@@ -2795,7 +2795,7 @@ Level 1: Prophecy of Ruin. Deals %0.2f damage on falling below 75%%, 50%% or 25%
 Level 3: Prophecy of Treason. %d%% chance each turn to attack an ally or themselves.
 Level 5: Prophecy of Madness. Increases talent cooldowns by %d%%.]], [[对目标释放熵能力量，预言其无可避免的末日。随着技能等级提升，你能解锁更多预言。同一目标不能同时处于两种预言下。
 技能等级 1：毁灭预言。当生命值降至最大生命的 75%%、50%% 或 25%% 以下时，造成 %0.2f 伤害。
-技能等级 3：背叛预言。目标每回合累积 %d%% 背叛进度，进度满时攻击相邻的生物，若周围没有生物则攻击自身。
+技能等级 3：背叛预言。目标每回合最多累积 %d%% 背叛进度，进度满时攻击相邻的生物，若周围没有生物则攻击自身。
 技能等级 5：疯狂预言。增加 %d%% 技能冷却时间。]], "tformat")
 t("Prophecy of Madness", "疯狂预言", "talent name")
 t([[Utter a prophecy of the impending madness of your target, increasing the cooldown of all their talents by %d%% for 6 turns.
@@ -2812,7 +2812,7 @@ t([[Utter a prophecy of the impending demise of your target that lasts 6 turns.
 t("Prophecy of Treason", "背叛预言", "talent name")
 t("%s(%d treason)#LAST#", "%s(%d 背叛)#LAST#", "tformat")
 t([[Utter a prophecy of the impending treachery of your target. For the next 6 turns, they will have a %d%% each turn to waste their turn attempting to attack an adjacent creature for 10%% weapon damage, or even themself if no creature is present.
-		A target can only be affected by a single prophecy at a time.]], [[对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合累积 %d%% 背叛进度，进度满时会浪费该回合，攻击相邻的单位并造成 10%% 武器伤害；若没有相邻单位，则攻击自身。
+		A target can only be affected by a single prophecy at a time.]], [[对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合最多累积 %d%% 背叛进度，进度满时会浪费该回合，攻击相邻的单位并造成 10%% 武器伤害；若没有相邻单位，则攻击自身。
 		同一时间，每个目标只能受到一种预言影响。]], "tformat")
 t("Grand Oration", "隆重演说", "talent name")
 t("None", "无", "_t")

@@ -1,0 +1,571 @@
+{
+ "batch": "0545",
+ "core_commit": "624a67329fe2ad440c5b344785a9c73fcf22ae63",
+ "count": 33,
+ "lanes": [
+  "A",
+  "B"
+ ],
+ "sections": [
+  "mod-tome/data/talents/celestial/combat.lua",
+  "mod-tome/data/talents/celestial/dirge.lua",
+  "mod-tome/data/talents/chronomancy/bow-threading.lua",
+  "mod-tome/data/talents/chronomancy/gravity.lua",
+  "mod-tome/data/talents/chronomancy/other.lua",
+  "mod-tome/data/talents/cursed/self-hatred.lua",
+  "mod-tome/data/talents/gifts/dwarven-nature.lua",
+  "mod-tome/data/talents/psionic/mentalism.lua",
+  "mod-tome/data/talents/spells/stone.lua",
+  "mod-tome/data/talents/techniques/unarmed-discipline.lua",
+  "mod-tome/data/timed_effects/magical.lua",
+  "mod-tome/data/timed_effects/other.lua",
+  "mod-tome/data/timed_effects/physical.lua",
+  "tome-ashes-urhrok/data/talents/corruptions/fearfire.lua",
+  "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+  "tome-ashes-urhrok/data/talents/corruptions/oppression.lua",
+  "tome-cults/data/talents/demented/calamity.lua",
+  "tome-cults/data/talents/demented/doom.lua",
+  "tome-cults/data/talents/demented/tentacles.lua",
+  "tome-cults/data/talents/demented/timethief.lua",
+  "tome-cults/data/timed_effects.lua",
+  "tome-orcs/data/general/objects/world-artifacts.lua",
+  "tome-orcs/data/talents/celestial/crepescula.lua",
+  "tome-orcs/data/talents/celestial/void.lua",
+  "tome-orcs/data/talents/spells/terrene-technomancy.lua",
+  "tome-orcs/data/talents/steam/automated-butchery.lua",
+  "tome-orcs/data/talents/steam/mecharachnid.lua",
+  "tome-orcs/data/talents/steam/other.lua",
+  "tome-orcs/data/timed_effects/magical.lua",
+  "tome-orcs/data/timed_effects/physical.lua"
+ ],
+ "entries": [
+  {
+   "id": "0544ce0402bd",
+   "unit_id": "0544ce0402bd5aff2fcbe10ee96ee308924a9447add085e145d4e3bedcbaf8d6",
+   "revision_key": "60efee2d091897b79c1d5bca171658b43ebedf7f1202b83da73fcb735ef7f24f",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 21076,
+   "section": "mod-tome/data/talents/celestial/combat.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP as additional Fire damage (up to %d, Current:  %d).\n\t\tTargets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.\n\t\tThe bonus damage can only occur once per turn.",
+   "target": "你的近战攻击命中时，造成相当于你已损失生命值 %d%% 的额外火焰伤害（至多 %d 点，当前 %d 点）。\n\t\t同时令目标进入殉难状态，持续 4 回合：其造成的伤害有 %d%% 会反噬自身。\n\t\t额外伤害与殉难效果每回合最多触发一次。",
+   "source_file": "game/modules/tome/data/talents/celestial/combat.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    217
+   ]
+  },
+  {
+   "id": "0bcfc9bab7e3",
+   "unit_id": "0bcfc9bab7e340862b8b1b70b6bd32e621da9f2c0e95c5c0b73cbb8db8fc3e23",
+   "revision_key": "781454222c7156e6b17f179b09b9c64d00130a8f57b755738214c988002bb5df",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 21204,
+   "section": "mod-tome/data/talents/celestial/dirge.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Even now, something compels you to sing.\n\t\t\tDirge of Famine: Increases health regen by %d.\n\t\t\tDirge of Conquest: Gives you part of a turn on critical (10%%) or kill (%d%%).\n\t\t\tDirge of Pestilence: Shields you for %d when an enemy inflicts a detrimental effect on you (5 turn cooldown).\n\t\t\tYou may only have one Dirge active at a time.",
+   "target": "即便如今，仍有什么驱使着你歌唱。\n\t\t\t饥荒挽歌：增加生命回复 %d。\n\t\t\t征服挽歌：暴击时获得 10%% 回合的行动时间，杀死敌人时获得 %d%% 回合的行动时间（每回合各限一次）。\n\t\t\t瘟疫挽歌：敌人对你施加负面效果时，你获得 %d 点护盾（5 回合冷却）。\n\t\t\t你同时只能激活一种挽歌。",
+   "source_file": "game/modules/tome/data/talents/celestial/dirge.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    255
+   ]
+  },
+  {
+   "id": "b6c2a8844a30",
+   "unit_id": "b6c2a8844a306f7a17fe43cf71f9011c0ec9d6842c4a68c3c22467c3af009cea",
+   "revision_key": "ce2f0ec97ef346812ec9df1e1ef6f0d96893c7ea1c3ec3f0d958f5b683fb01b4",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 21814,
+   "section": "mod-tome/data/talents/chronomancy/bow-threading.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Fire an arrow for %d%% weapon damage. When the arrow reaches its destination or hits a target it will draw in all other targets in a radius of %d and inflict %0.2f physical damage.\n\t\tEach target moved beyond the first increases the damage %0.2f (up to %0.2f bonus damage).\n\t\tTargets take reduced damage the further they are from the epicenter (20%% less per tile).\n\t\tThe additional damage scales with your Spellpower.",
+   "target": "发射一支箭，造成 %d%% 武器伤害。当箭矢到达目的地或命中目标时，会牵引半径 %d 内的所有其他目标，并造成 %0.2f 物理伤害。\n\t\t从第二个被移动的目标起，每多移动一个目标，伤害增加 %0.2f （额外伤害上限为 %0.2f）。\n\t\t目标距中心点越远，受到的伤害越低（每远一格减少 20%% 伤害）。\n\t\t额外伤害受法术强度加成。",
+   "source_file": "game/modules/tome/data/talents/chronomancy/bow-threading.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    218
+   ]
+  },
+  {
+   "id": "f183fd1fbd98",
+   "unit_id": "f183fd1fbd98e024fda12d29c5b0cb71ac9c2d9bfc140b7fc91a4a66e6e21f72",
+   "revision_key": "c4026f7f14ef6c4633c57811d9081db40253ca7650d18ff3aff3b160de6e271d",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 22020,
+   "section": "mod-tome/data/talents/chronomancy/gravity.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Creates a gravity spike in a radius of %d that moves all targets towards the spell's center and inflicts %0.2f physical (gravity) damage.\n\t\tEach target moved beyond the first increases the damage by %0.2f (up to a maximum of %0.2f bonus damage).\n\t\tTargets take reduced damage the further they are from the epicenter (20%% less per tile).\n\t\tThe damage dealt will scale with your Spellpower.",
+   "target": "在半径 %d 范围内制造一个重力钉刺，将所有目标牵引至法术中心，造成 %0.2f 物理（重力）伤害。\n\t\t从第二个单位起，每牵引一个单位将会使伤害增加 %0.2f （最多增加 %0.2f 额外伤害）。\n\t\t离法术中心越远，目标受到的伤害越少（每远一格减少 20%% 伤害）。\n\t\t受法术强度影响，伤害按比例加成。",
+   "source_file": "game/modules/tome/data/talents/chronomancy/gravity.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    178
+   ]
+  },
+  {
+   "id": "ea6f51aede2a",
+   "unit_id": "ea6f51aede2a80c81e8bc9d84b99d1b92ae31a33ac350c6950213d7841f19016",
+   "revision_key": "b83725d7fca88b33ec7fd3c46bfb2d0bfdb7aea8be022e59d3a5c77201b95e8c",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 22163,
+   "section": "mod-tome/data/talents/chronomancy/other.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You pull your awareness fully into the moment, increasing your stealth detection, see invisibility, defense, and accuracy by %d for %d turns.\n\t\tIf you have Spin Fate active when you cast this spell, you'll gain a bonus to these values equal to 50%% of your spin.\n\t\tThis spell takes no time to cast.",
+   "target": "你将意识完全收束于当下，使侦测潜行、侦测隐形、闪避和命中提高 %d， 持续 %d 回合。\n\t\t若施放时命运之丝处于激活状态，上述数值还会提高，增幅相当于一层命运之丝加成的 50%%。\n\t\t施放此法术不消耗回合。",
+   "source_file": "game/modules/tome/data/talents/chronomancy/other.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    263
+   ]
+  },
+  {
+   "id": "a54458d592bd",
+   "unit_id": "a54458d592bd92d4f910f5400c30d291fc0329ae704860e9273985d6576c9ac4",
+   "revision_key": "c10db6e705c6e727b5c833c6fee56391f132647cf5182756ba8b09936cfbf917",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 24439,
+   "section": "mod-tome/data/talents/cursed/self-hatred.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Call upon your deepest reserves of strength to win no matter the cost. \nImmediately upon activation and every turn while this talent is active, your detrimental effects expire and your talents cool down as if an extra turn had passed. \nThis bonus cooldown occurs even if your talents would not normally cool down.\nThis talent deactivates automatically upon rest.\nThis strength comes at a cost: you lose %d%% of your maximum life every turn.  This can kill you.\n\n#{italic}#If you're lucky, this will take everything you've got.#{normal}#",
+   "target": "唤起你保留在最深处的力量，不惜一切代价取胜。\n开启时及维持期间的每回合，你的负面效果持续时间和技能冷却时间都会额外减少一回合。\n即使你的技能冷却时间本来不会降低，这一效果也可以降低其冷却时间。\n这一技能在休息时自动关闭。\n这一力量的代价是你每回合损失 %d%% 的最大生命。这一效果可以杀死你。\n\n#{italic}#如果你走运，代价就是你的一切。#{normal}#",
+   "source_file": "game/modules/tome/data/talents/cursed/self-hatred.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    145
+   ]
+  },
+  {
+   "id": "3ff4d37173a0",
+   "unit_id": "3ff4d37173a0550183164eea2364d1fb73a7ca3c7108cc54927438b5c6cde7ae",
+   "revision_key": "aac7dc0df58977480ceac2bd957422be1ccde5d697d07f20ee95c6e17ebcb2e8",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 24740,
+   "section": "mod-tome/data/talents/gifts/dwarven-nature.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Conjures %d missile-shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.\n\t\tAt talent level 5, you can conjure one additional missile.\n\t\tThe damage will increase with your Spellpower.",
+   "target": "释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，并在 5 回合内每回合额外造成 %0.2f 流血伤害。\n\t\t技能等级 5 时，你可以额外释放一个飞弹。\n\t\t伤害受法术强度加成。",
+   "source_file": "game/modules/tome/data/talents/gifts/dwarven-nature.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    64
+   ]
+  },
+  {
+   "id": "a7d0a74c2c23",
+   "unit_id": "a7d0a74c2c23c8309e3ffc1cfe2192e17af4f8ebb3e44f99eead8e71d78facd6",
+   "revision_key": "4e85e8e684ad83a68d0ba4570cbee718b11363252f0ac3dd95e02904af2e96f7",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 27494,
+   "section": "mod-tome/data/talents/psionic/mentalism.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Clears your mind of current mental effects, and blocks additional ones over 6 turns.  At most, %d mental effects will be affected.",
+   "target": "清除你当前的负面精神效果，并在接下来的 6 回合内阻挡新的负面精神效果，两者合计最多 %d 个。",
+   "source_file": "game/modules/tome/data/talents/psionic/mentalism.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    129
+   ]
+  },
+  {
+   "id": "3a80a9a05076",
+   "unit_id": "3a80a9a0507651885f9fc8d5e7ff1bba801f8d6d2f30fe308306305cfc12f23c",
+   "revision_key": "915ac3671ef5397a464ac343bf59107c9e788643ae9c0c4d68f7365ab89ae474",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 29630,
+   "section": "mod-tome/data/talents/spells/stone.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Conjures %d missile-shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.\n\t\tAt talent level 5, you can conjure one additional missile.\n\t\tThe damage will increase with your Spellpower.",
+   "target": "释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，并在 5 回合内每回合额外造成 %0.2f 流血伤害。\n\t\t技能等级 5 时，你可以额外释放一个飞弹。\n\t\t伤害受法术强度加成。",
+   "source_file": "game/modules/tome/data/talents/spells/stone.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    67
+   ]
+  },
+  {
+   "id": "0b015269feb7",
+   "unit_id": "0b015269feb7307cdb179d9b6918f7851bd5976cbc59ede621b48109dd4e04cd",
+   "revision_key": "be263a45ea43e7f342210172c2b251aac06d52585f499db4368251941693ca06",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 31040,
+   "section": "mod-tome/data/talents/techniques/unarmed-discipline.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "When gaining a combo point, you have a %d%% chance to gain an extra combo point. Additionally, every time you earn a combo point, you will regain %0.2f stamina, or %0.2f stamina if you would exceed 5 combo points.",
+   "target": "每当获得连击点时，你有 %d%% 几率额外获得 1 点。此外，每次获得连击点时，你会恢复 %0.2f 体力；若连击点将超过 5 点，则改为恢复 %0.2f 体力。触发额外连击点时，恢复量翻倍。",
+   "source_file": "game/modules/tome/data/talents/techniques/unarmed-discipline.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    121
+   ]
+  },
+  {
+   "id": "5dff778b696e",
+   "unit_id": "5dff778b696e115edfb457d6fcf3dc6cc2427016ac05ad1e891d8e04d79023e4",
+   "revision_key": "855baab5d34fa1e596e9cabb3807cf96b7beb65952f7f56495bdd7e16bef40d3",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 35265,
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "The target is out of phase with reality, increasing defense by %d, resist all by %d%%, and reducing the duration of detrimental timed effects by %d%%.\nThese effects cap at 40%%.",
+   "target": "目标脱离现实相位，闪避提高 %d 点，全体伤害抗性提高 %d%%， 负面状态的持续时间缩短 %d%%。\n闪避加成上限为 40 点，另两项加成上限均为 40%%。",
+   "source_file": "game/modules/tome/data/timed_effects/magical.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    2584
+   ]
+  },
+  {
+   "id": "9f18d41cb6b8",
+   "unit_id": "9f18d41cb6b89f03144bb63f3635dadfc124ca9e70e63e10911fd9c2519f9835",
+   "revision_key": "556aec99dac5c9ff3e1d958e18af0b914d0e3af6a05e35a7fc93fb4d53e41edb",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 35667,
+   "section": "mod-tome/data/timed_effects/magical.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "When a ghoul is hit or dies, it explodes, doing %0.2f frostdusk damage.",
+   "target": "食尸鬼受到伤害或死亡时会爆炸，造成 %0.2f 霜暮伤害（每回合至多引爆一只）。",
+   "source_file": "game/modules/tome/data/timed_effects/magical.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    4893
+   ]
+  },
+  {
+   "id": "725dee21625e",
+   "unit_id": "725dee21625e3f4043fd9863ceda1d03b21e9f0c2f8ca4d7e929aaa45c047cfa",
+   "revision_key": "6e94ebe46b7a27f1cb8c41edcf17ede052fafadaf51882bb2e224cb09b221f74",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 36421,
+   "section": "mod-tome/data/timed_effects/other.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character.",
+   "target": "你融入暗影并被其支配。笼罩在阴影中时，你免疫负面状态，并减少 %d%% 所受伤害；每回合你会闪现到 %d 格内的一个敌人身边，对其造成 %d%% 暗影武器伤害。此效果持续期间你无法控制角色，除非死亡，否则无法被打断。",
+   "source_file": "game/modules/tome/data/timed_effects/other.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    852
+   ]
+  },
+  {
+   "id": "d95e5931b04e",
+   "unit_id": "d95e5931b04ea1aa8a4bfe9373bdfe261c5ce6ec04cc8827ee115feda6402b7e",
+   "revision_key": "1ce1b7ea9c5269cb0cfff335b2ed971290e9a9a2931712bb361cd1aae629912a",
+   "translation_file": "mod-tome.lua",
+   "translation_line": 37338,
+   "section": "mod-tome/data/timed_effects/physical.lua",
+   "source_tag": "_t",
+   "args_order": null,
+   "source": "and is losing one physical effect turn.",
+   "target": "每回合失去一个物理增益效果或物理持续技能并",
+   "source_file": "game/modules/tome/data/timed_effects/physical.lua @ 624a67329fe2 (pinned core)",
+   "source_lines": [
+    2532
+   ]
+  },
+  {
+   "id": "7fd15897a5be",
+   "unit_id": "7fd15897a5be46f6b1ae6f7a0c9da3ef05f475f1ab77d547a8e58649c310111f",
+   "revision_key": "cf974fc6ea015a468bb7a0812af2a5eabf0e05ab609790b39c05aa7822357876",
+   "translation_file": "tome-ashes-urhrok.lua",
+   "translation_line": 1158,
+   "section": "tome-ashes-urhrok/data/talents/corruptions/fearfire.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Removes all detrimental effects but causes you to burn for %d%% of your max health per effect, over 7 turns.\n\t\tThis ignores all resists, defenses, and affinities.\n\t\tThis does not take a turn.",
+   "target": "移除所有负面状态，但每移除一个状态，会在 7 回合内灼烧自身，受到合计 %d%% 最大生命值的伤害。\n\t\t伤害无视一切抗性、防御效果和伤害亲和。\n\t\t此技能瞬发。",
+   "source_file": "/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/fearfire.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    121
+   ]
+  },
+  {
+   "id": "d6a83ab9c14e",
+   "unit_id": "d6a83ab9c14e7a886fd89a8d70725ffb373fac7218be704f5a1c9939b76b174c",
+   "revision_key": "bc4978cb51155f7022a5f3e5e13ee1e802986d17e9fdd1efdba5cfa3f45d305d",
+   "translation_file": "tome-ashes-urhrok.lua",
+   "translation_line": 1176,
+   "section": "tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Whenever you kill a burning enemy, you will instantly deal a melee attack against a random adjacant enemy at %d%% power. \n\t\tAdditionally, Incinerating Blows will always trigger on this attack (or your next attack), dealing %d%% of its normal damage to all enemies hit and stunning, ignoring the cooldown.\n\t\tThis can only trigger once every 5 turns.",
+   "target": "每次你击杀一个燃烧的敌对生物时，会立刻对一个随机相邻敌对生物进行一次攻击，造成 %d%% 武器伤害。\n\t\t另外，这次攻击（或你的下一次攻击）必定触发焚尽强击，对所有击中的敌对生物造成 %d%% 正常伤害并使其震慑，无视冷却时间。\n\t\t此效果每 5 回合只能触发一次。",
+   "source_file": "/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    56
+   ]
+  },
+  {
+   "id": "4a01abb4a933",
+   "unit_id": "4a01abb4a9333ad7a386c35d752571e6febb06503e7d8e8ad9ced6b1ab10f4b8",
+   "revision_key": "fcb609955e7ce4bc45932b1e634893a8a45cb29aa9d228128e4bc744ad4e348a",
+   "translation_file": "tome-ashes-urhrok.lua",
+   "translation_line": 1266,
+   "section": "tome-ashes-urhrok/data/talents/corruptions/oppression.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.",
+   "target": "你汲取 %d 格内敌对生物的恐惧（不会移除恐惧），每层恐惧为你恢复 %d 点生命，并获得 %0.1f%% 回合的行动时间，至多 %.1f 回合。",
+   "source_file": "/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/oppression.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    207
+   ]
+  },
+  {
+   "id": "361feaf750f1",
+   "unit_id": "361feaf750f1210c8129b951b6ca3f2ccef916ca66355f91511b2b5d3afef161",
+   "revision_key": "876a1c5bda743e035f9cacadd553f28fd4f4b32f63b236e65184160d050d41e5",
+   "translation_file": "tome-cults.lua",
+   "translation_line": 2633,
+   "section": "tome-cults/data/talents/demented/calamity.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Each time you apply Jinx to an enemy, you have a %d%% chance to siphon some of their luck for yourself for 5 turns. This stacks up to 10 times, increasing saves and defense by %0.2f and critical strike chance by %0.2f%%.\n\t\tIf you know Preordain, stacks beyond 6 also grant a %d%% chance for you to entirely avoid damage taken.",
+   "target": "每当你向敌人施加厄运诅咒，有 %d%% 几率吸取敌人的运气为你所用，持续 5 回合。这个效果最多叠加 10 层，每层使豁免和闪避提高 %0.2f， 暴击率提高 %0.2f%%。\n\t\t如果你同时学会了命中注定，从第 7 层起，每层幸运使你获得 %d%% 几率完全避免受到的伤害。",
+   "source_file": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/calamity.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    122
+   ]
+  },
+  {
+   "id": "43ac61d72388",
+   "unit_id": "43ac61d723880cfad13a301dd94bd4cd83010aac960fb67cf0a0dae22b4e2c4d",
+   "revision_key": "cd41d939473531f62afa3560446fa7c971d7cd629bc32ee5e492dce64ebd663d",
+   "translation_file": "tome-cults.lua",
+   "translation_line": 2793,
+   "section": "tome-cults/data/talents/demented/doom.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "By bringing the forces of entropy to bear on a target, you prophesize their inevitable doom. Each point in this talent unlocks additional prophecies. A target can only be affected by a single prophecy at a time.\nLevel 1: Prophecy of Ruin. Deals %0.2f damage on falling below 75%%, 50%% or 25%% of maximum life.\nLevel 3: Prophecy of Treason. %d%% chance each turn to attack an ally or themselves.\nLevel 5: Prophecy of Madness. Increases talent cooldowns by %d%%.",
+   "target": "对目标释放熵能力量，预言其无可避免的末日。随着技能等级提升，你能解锁更多预言。同一目标不能同时处于两种预言下。\n技能等级 1：毁灭预言。当生命值降至最大生命的 75%%、50%% 或 25%% 以下时，造成 %0.2f 伤害。\n技能等级 3：背叛预言。目标每回合累积 %d%% 背叛进度，进度满时攻击相邻的生物，若周围没有生物则攻击自身。\n技能等级 5：疯狂预言。增加 %d%% 技能冷却时间。",
+   "source_file": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/doom.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    58
+   ]
+  },
+  {
+   "id": "0fdf8ffcaa4d",
+   "unit_id": "0fdf8ffcaa4d2fae1322d169c413754559f68a0463dca385a8b593e3cdd31e49",
+   "revision_key": "1b8d6b0a1fd7bb740d810fc2b0ff3c27ae0acd2c4c9def831e039021fa7d76c4",
+   "translation_file": "tome-cults.lua",
+   "translation_line": 2814,
+   "section": "tome-cults/data/talents/demented/doom.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Utter a prophecy of the impending treachery of your target. For the next 6 turns, they will have a %d%% each turn to waste their turn attempting to attack an adjacent creature for 10%% weapon damage, or even themself if no creature is present.\n\t\tA target can only be affected by a single prophecy at a time.",
+   "target": "对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合累积 %d%% 背叛进度，进度满时会浪费该回合，攻击相邻的单位并造成 10%% 武器伤害；若没有相邻单位，则攻击自身。\n\t\t同一时间，每个目标只能受到一种预言影响。",
+   "source_file": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/doom.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    291
+   ]
+  },
+  {
+   "id": "7942cea70871",
+   "unit_id": "7942cea708718d6a4f0b9c9b9dfdcb6c4dd68b4182a833f4611863f6f921e4a2",
+   "revision_key": "67fd77e193004f4f304980d7f337c98b873d2cc3960cb952ef449b51e682e1ab",
+   "translation_file": "tome-cults.lua",
+   "translation_line": 3220,
+   "section": "tome-cults/data/talents/demented/tentacles.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You plant your tentacle hand in the ground where it splits up and extends to a target zone of radius %d.\n\t\tThe zone will erupt with many black tendrils to hit all foes caught inside dealing %d%% tentacle damage.\n\t\tAny creature hit by the tentacle must save against spell or be numbed by the attack, reducing its damage by %d%% for 5 turns.\n\n\t\tIf at least one enemy is hit you gain %d insanity.\n\n\t\t#YELLOW_GREEN#When constricting:#WHITE#The tendrils pummel your constricted target for %d%% tentacle damage and if adjacent you make an additional mainhand weapon attack.  Talent cooldown reduced to 10.",
+   "target": "你的触手钻入地下，蔓延至半径 %d 格的目标区域。\n\t\t该区域喷发出大量黑色触手，对区域内所有敌人造成 %d%% 触手伤害。\n\t\t区域内的敌人若未能通过法术豁免，就会陷入麻木，5 回合内伤害降低 %d%%。\n\n\t\t如果有敌人被触手击中，你获得 %d 疯狂值。\n\n\t\t#YELLOW_GREEN#当触手处于缠绕状态:#WHITE#触手对缠绕对象连续突击，造成 %d%% 触手伤害。如果你与被缠绕对象相邻，则进行一次额外的主手打击。技能冷却时间缩短为 10 回合。",
+   "source_file": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/tentacles.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    228
+   ]
+  },
+  {
+   "id": "a02ef5ca049d",
+   "unit_id": "a02ef5ca049da48228fba609490143ff411cb18ed5a58144a9d136749707286c",
+   "revision_key": "2a25f827e2d960a3eff3607967cff34522923b03844af0f774161f89655ba9cc",
+   "translation_file": "tome-cults.lua",
+   "translation_line": 3252,
+   "section": "tome-cults/data/talents/demented/timethief.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Distorting spacetime around yourself, you reduce the movement speed of all enemies in radius %d by 50%% for %d turns.\nYou use the siphoned speed to grant yourself incredible quickness for 1 turn, increasing movement speed by %d%%, increased by a further %d%% for each enemy slowed, to a maximum of 4.\nAny actions other than movement will cancel the effect.",
+   "target": "扭曲周围时空，使 %d 格内所有其他生物（包括友方）的移动速度降低 50%%， 持续 %d 回合。\n\t\t你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%， 每减速一个目标额外提高 %d%%， 最多计 4 个目标。\n\t\t移动外的任何行动将终止加速效果。",
+   "source_file": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/timethief.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    65
+   ]
+  },
+  {
+   "id": "eed764c39c22",
+   "unit_id": "eed764c39c2245743a162661ec2806475c194961b476e338dd4637ebfb5010d7",
+   "revision_key": "0b73d704680980b1161a2096110640b4a1879622ea827905e718923040670ab6",
+   "translation_file": "tome-cults.lua",
+   "translation_line": 3774,
+   "section": "tome-cults/data/timed_effects.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.",
+   "target": "目标将自身的命运与另一个生物相连。当它即将死亡时，所选目标会代它承受致命伤害，它则按幸运或厄运层数恢复生命，每层 %d 点。",
+   "source_file": "/workspace/tome4-dlcs/cults/tome-cults/data/timed_effects.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    1709
+   ]
+  },
+  {
+   "id": "711ec7cb348b",
+   "unit_id": "711ec7cb348b4131882b6eed6efe7f09b348dde024e114dc26bf17df19dc695e",
+   "revision_key": "aa5571d5d3b55bdc0fe67df28104cc10533365992c718b851c2d63f0b7455418",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 1721,
+   "section": "tome-orcs/data/general/objects/world-artifacts.lua",
+   "source_tag": "_t",
+   "args_order": null,
+   "source": "On Taking Damage: Blindside the attacker (range 6).",
+   "target": "受伤触发：对相距 2 至 5 格的攻击者施放闪电突袭。",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/general/objects/world-artifacts.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    1995
+   ]
+  },
+  {
+   "id": "c6f45e0ce7a1",
+   "unit_id": "c6f45e0ce7a14c1a6e87b5e1ba968169dcc31a399c5b1524d1fa1a823ef9381d",
+   "revision_key": "3a3ca1ee217d354bda228572c92d1d9d7f590e8f30f0445a9bc16e6e7657bda8",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 3956,
+   "section": "tome-orcs/data/talents/celestial/crepescula.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "The target feels the echoes of all your light and dark damage for %d turns. \n\nLight damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.\nDark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.",
+   "target": "目标会感受到所受光系和暗影伤害的回响，持续 %d 回合。\n\n每受到 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。\n暗影伤害会在目标脚下留下持续 4 回合的回响。在暮光回响生效期间，目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/celestial/crepescula.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    31
+   ]
+  },
+  {
+   "id": "508b32654c00",
+   "unit_id": "508b32654c009a897488acd6d6b0067ea99dabb2517bf5088b128fae5f0a53a3",
+   "revision_key": "1d8bb5e1a5f642f547c394c45c4504905cc71057e0cde2ef2f626608621d49fc",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 4014,
+   "section": "tome-orcs/data/talents/celestial/void.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "The target feels the echoes of all your light and dark damage for %d turns. \n\nLight damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.\nDark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.",
+   "target": "目标会感受到所受光系和暗影伤害的回响，持续 %d 回合。\n\n每受到 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。\n暗影伤害会在目标脚下留下持续 4 回合的回响。在暮光回响生效期间，目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/celestial/void.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    150
+   ]
+  },
+  {
+   "id": "f581501fdd63",
+   "unit_id": "f581501fdd63b457e53f1c5c8362fc2deca3125f44682a91334b3a9e56f0c46d",
+   "revision_key": "74ab4ccd88282bc5d0c51421b498f725d93e6fc77c3dc056123c7434ef9b7b63",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 4471,
+   "section": "tome-orcs/data/talents/spells/terrene-technomancy.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Each time a spiderbot expires it digs around, producing either a Glacial Vapour (%0.2f cold damage and doing 30%% more damage to wet targets) or Earthquake (%0.2f physical damage and 25%% chances to stun for 2 turns) of radius 1 that last for %d turns.\n\t\tThose special kinds of Glacial Vapour and Earthquake do not affect the caster.\n\t\tThe damage will increase with your Spellpower.",
+   "target": "每当蜘蛛机器人消失时，它会掘地，在周围产生寒霜冰雾（造成 %0.2f 寒冷伤害，对浸湿目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），半径为 1，持续 %d 回合。\n\t\t这些特殊的寒霜冰雾和地震不会影响施法者。\n\t\t伤害随法术强度提高。",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/spells/terrene-technomancy.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    250
+   ]
+  },
+  {
+   "id": "2049882820d8",
+   "unit_id": "2049882820d89fb874357983b444ab5017737b330fe9e0bccc7b3673c4e3bb50",
+   "revision_key": "7d80bed26b17dd44747a8b5a82f9f37f2126c631eddb0d504e2b48615a3a6f5f",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 4555,
+   "section": "tome-orcs/data/talents/steam/automated-butchery.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You attune your saws to a specific target for 5 turns.\n\t\tEach time you strike this target all damage done with steamsaws (including by other talents) is increased by +%d%%.\n\t\tIf you strike any other foe the bonus ends.\n\t\t#{italic}#Metal your foes to death!#{normal}#",
+   "target": "将链锯调校至一个指定目标，持续 5 回合。\n\t\t每次命中该目标时，链锯造成的所有伤害（包括其他技能）提高 %d%% （每回合至多叠加一次）。\n\t\t若你攻击其他敌人，加成效果结束。\n\t\t#{italic}#切碎他们！！#{normal}#",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/automated-butchery.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    48
+   ]
+  },
+  {
+   "id": "52b664c93fc6",
+   "unit_id": "52b664c93fc608e8548f02b453c4fc37f6930bbe10b8542c63359ebe41f5de56",
+   "revision_key": "62c3e24e73bc088ed7890263f68737c2edd9b018684ec2237878aca145946580",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 5335,
+   "section": "tome-orcs/data/talents/steam/mecharachnid.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "You rush to the target and strike with your tailsaw, dealing %d%% damage and taunting enemies within radius %d.\n\t\tYou now also use your Dexterity in place of Strength when equipping Steamsaws as well as when calculating weapon damage, and have your Steamsaw damage increased by %d%% and Physical Power by %d.",
+   "target": "你冲向敌人，用尾部蒸汽链锯进行攻击，造成 %d%% 伤害，并嘲讽该目标（不会波及周围 %d 格内的其他敌人）。\n\t\t装备蒸汽链锯的时候，你以敏捷代替力量来计算装备需求和武器伤害，并使你的蒸汽链锯伤害提高 %d%%， 物理强度提高 %d。",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/mecharachnid.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    775
+   ]
+  },
+  {
+   "id": "51d75fb9162b",
+   "unit_id": "51d75fb9162bcb6af7ea1e2d8c538f2737791fe38a1b03c8893b7e3e9988748a",
+   "revision_key": "8ed0e2c5ea32db062c0bbcc647b5418264b6c444fae430f9ccad5699fbd50381",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 5674,
+   "section": "tome-orcs/data/talents/steam/other.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Allows the use of Technomancy spells.\n\t\tGrants a magical steam reserve that regenerates %d steam per 10 mana spent.\n\t\tGrants Spellpower based on current steam level (currently %d; %d%% steam filled).\n\t\tOutside of combat, you relax and let your steam reserve slowly wither away.\n\t\t#{italic}#Metal Arcane Power!#{normal}#",
+   "target": "允许使用科技法术。\n\t\t获得一个魔法蒸汽储备，每消耗 10 点法力值恢复 %d 蒸汽。\n\t\t根据当前蒸汽值获得法术强度（目前 %d； 蒸汽储量 %d%%）。\n\t\t在战斗外，你放松了控制，蒸汽储备会逐渐消退。\n\t\t#{italic}#金属奥术力量！#{normal}#",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/other.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    1926
+   ]
+  },
+  {
+   "id": "7c9cc912b25c",
+   "unit_id": "7c9cc912b25c059daa94197026d751bb4ba59278e255c3e6e55c867f66619d19",
+   "revision_key": "e3bd0fcc28f6f01053e47915462f1b0e5ecf166fcc3fb633530011d537046465",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 6111,
+   "section": "tome-orcs/data/timed_effects/magical.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.",
+   "target": "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%， 减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。暗影伤害会在目标脚下留下持续 4 回合的回响。目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/magical.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    120
+   ]
+  },
+  {
+   "id": "9d5b88674f8d",
+   "unit_id": "9d5b88674f8d760ebebc75a45ea6ced45fb41c765a0d5fa712328cd98901dd6c",
+   "revision_key": "24b6ac979020baec2882911e141ec13f15eb00b1456e764f71e29fd0842d1a05",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 6140,
+   "section": "tome-orcs/data/timed_effects/magical.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Deals %0.2f occult damage per turn and each time a talent is used, the caster regens one turn of a random cooldown.",
+   "target": "每回合造成 %0.2f 玄机伤害；目标每次使用技能时，施加者随机一个冷却中的科技法术（若无则为法术）冷却时间缩短 1 回合。",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/magical.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    466
+   ]
+  },
+  {
+   "id": "f8d127bf6d99",
+   "unit_id": "f8d127bf6d99c2f17cd2a8403f82b7616d73d4a53fbc7eb2af165d46b964f185",
+   "revision_key": "bfb957b29b0f57d4929ef55c68cd483ee32c2e394e04b1544641892353447aaa",
+   "translation_file": "tome-orcs.lua",
+   "translation_line": 6484,
+   "section": "tome-orcs/data/timed_effects/physical.lua",
+   "source_tag": "tformat",
+   "args_order": null,
+   "source": "Continuously drain blood, dealing %0.2f physical damage per turn and healing the caster for half of it.",
+   "target": "持续汲取目标的鲜血，每回合造成 %0.2f 点物理伤害，并为施加者恢复相当于该伤害一半的生命（同时汲取多个目标时治疗比例递减）。",
+   "source_file": "/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua (unpinned public DLC checkout)",
+   "source_lines": [
+    729
+   ]
+  }
+ ]
+}

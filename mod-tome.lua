@@ -21077,7 +21077,7 @@ t([[Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP a
 		Targets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.
 		The bonus damage can only occur once per turn.]], [[你的近战攻击命中时，造成相当于你已损失生命值 %d%% 的额外火焰伤害（至多 %d 点，当前 %d 点）。
 		同时令目标进入殉难状态，持续 4 回合：其造成的伤害有 %d%% 会反噬自身。
-		额外伤害与殉难效果每回合最多触发一次。]], "tformat")
+		额外火焰伤害每回合最多触发一次。]], "tformat")
 t("Second Life", "第二生命", "talent name")
 t("Any attack that would drop you below 1 hit point instead triggers Second Life, deactivating the talent, setting your hit points to 1, then healing you for %d.", "任何使你生命值降到 1 点以下的攻击都会激活第二生命，自动中断此技能并将你的生命值恢复到 1 点，然后为你恢复 %d 点生命值。", "tformat")
 
@@ -24446,7 +24446,7 @@ This strength comes at a cost: you lose %d%% of your maximum life every turn.  T
 开启时及维持期间的每回合，你的负面效果持续时间和技能冷却时间都会额外减少一回合。
 即使你的技能冷却时间本来不会降低，这一效果也可以降低其冷却时间。
 这一技能在休息时自动关闭。
-这一力量的代价是你每回合损失 %d%% 的最大生命。这一效果可以杀死你。
+这一力量的代价是你每回合失去相当于最大生命值 %d%% 的生命。这一效果可以杀死你。
 
 #{italic}#如果你走运，代价就是你的一切。#{normal}#]], "tformat")
 t("Self-Judgement", "自我审判", "talent name")
