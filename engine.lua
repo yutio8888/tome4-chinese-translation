@@ -781,7 +781,7 @@ section "engine/engine/dialogs/ShowErrorStack.lua"
 
 t("Lua Error", "Lua脚本错误", "_t")
 t("If you already reported that error, you do not have to do it again (unless you feel the situation is different).", "如果你已经汇报过了这个错误，你不需要再次进行汇报（除非你认为这一情况和之前有所不同）。", "_t")
-t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你#LIGHT_GREEN#已经汇报过了#WHITE#这个错误，你不需要再次进行汇报（除非你认为这一情况和之前有所不同）。", "_t")
+t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你#LIGHT_GREEN#已经汇报过#WHITE#这个错误，你不需要再次进行汇报（除非你认为这一情况和之前有所不同）。", "_t")
 t("You have already got this error but #LIGHT_RED#never reported#WHITE# it, please do.", "你以前遇到过这个错误，但#LIGHT_RED#还没有汇报过#WHITE#，请汇报一下。", "_t")
 t("You have #LIGHT_RED#never seen#WHITE# that error, please report it.", "你之前#LIGHT_RED#从未遇到过#WHITE#这个错误，请汇报这个错误。", "_t")
 t([[#{bold}#Oh my! It seems there was an error!

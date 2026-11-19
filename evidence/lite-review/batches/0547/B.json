@@ -1,0 +1,77 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "a134b4a67377",
+   "verdict": "OK"
+  },
+  {
+   "id": "72b86e1fb6a1",
+   "verdict": "OK"
+  },
+  {
+   "id": "d22fa789071c",
+   "verdict": "ISSUE",
+   "observation": "game/engines/default/engine/dialogs/ShowErrorStack.lua:72 在重复报告提示中，宾语是“这个错误”。“已经汇报过了这个错误”把“过了”叠在宾语前，读起来拗口。",
+   "suggestion": "你#LIGHT_GREEN#已经报告过#WHITE#这个错误。除非你认为这次的情况有所不同，否则无需再次报告。"
+  },
+  {
+   "id": "dbe92125834f",
+   "verdict": "OK"
+  },
+  {
+   "id": "d5d830b53b8d",
+   "verdict": "OK"
+  },
+  {
+   "id": "74cdbe83fb8f",
+   "verdict": "OK"
+  },
+  {
+   "id": "8dced52768be",
+   "verdict": "OK"
+  },
+  {
+   "id": "005a56cc0d71",
+   "verdict": "OK"
+  },
+  {
+   "id": "0544ce0402bd",
+   "verdict": "ISSUE",
+   "observation": "game/modules/tome/data/talents/celestial/combat.lua:203–211 将殉难和火焰伤害放在同一个检查内。本回合触发额外火焰伤害后，再命中其他敌人也无法施加殉难。末句只限制火焰伤害，容易让玩家误判多次攻击的收益。",
+   "suggestion": "你的近战攻击命中时，造成相当于你已损失生命值 %d%% 的额外火焰伤害（至多 %d 点，当前 %d 点）。\n\t\t同时令目标进入殉难状态，持续 4 回合：其造成的伤害有 %d%% 会反噬自身。\n\t\t每回合首次触发额外火焰伤害后，本回合的后续攻击无法再触发上述效果。"
+  },
+  {
+   "id": "a54458d592bd",
+   "verdict": "OK"
+  },
+  {
+   "id": "43ac61d72388",
+   "verdict": "OK"
+  },
+  {
+   "id": "0fdf8ffcaa4d",
+   "verdict": "ISSUE",
+   "observation": "tome-cults/data/talents/demented/doom.lua:291 与 tome-cults/data/timed_effects.lua:1031–1049（未固定 DLC）描述目标用该回合尝试一次武器攻击。“对目标说出其即将背叛的预言”指代拗口，“攻击相邻的单位并造成”也把一次可以落空的攻击写成必定造成伤害。",
+   "suggestion": "预言目标即将背叛。在接下来的 6 回合内，目标每回合最多累积 %d%% 的背叛进度。进度满时，目标会用该回合以 10%% 武器伤害攻击一个相邻生物；若没有相邻生物，则攻击自身。\n\t\t同一时间，每个目标只能受到一种预言影响。"
+  },
+  {
+   "id": "c6f45e0ce7a1",
+   "verdict": "OK"
+  },
+  {
+   "id": "508b32654c00",
+   "verdict": "OK"
+  },
+  {
+   "id": "7c9cc912b25c",
+   "verdict": "OK"
+  },
+  {
+   "id": "9d5b88674f8d",
+   "verdict": "ISSUE",
+   "observation": "tome-orcs/data/timed_effects/magical.lua:473–479（未固定 DLC）中随机选择的是进入冷却的技能。“随机使施加者一个……冷却时间缩短”修饰关系含混，容易读成概率触发。",
+   "suggestion": "每回合造成 %0.2f 玄机伤害。目标每次使用技能时，施加者随机一个冷却中的科技法术的冷却时间缩短 1 回合；若没有符合条件的科技法术，则从其他冷却中的法术里随机选择一个。"
+  }
+ ]
+}

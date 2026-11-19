@@ -2812,7 +2812,7 @@ t([[Utter a prophecy of the impending demise of your target that lasts 6 turns.
 t("Prophecy of Treason", "背叛预言", "talent name")
 t("%s(%d treason)#LAST#", "%s(%d 背叛)#LAST#", "tformat")
 t([[Utter a prophecy of the impending treachery of your target. For the next 6 turns, they will have a %d%% each turn to waste their turn attempting to attack an adjacent creature for 10%% weapon damage, or even themself if no creature is present.
-		A target can only be affected by a single prophecy at a time.]], [[对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合最多累积 %d%% 背叛进度，进度满时会浪费该回合，攻击相邻的单位并造成 10%% 武器伤害；若没有相邻单位，则攻击自身。
+		A target can only be affected by a single prophecy at a time.]], [[预言目标即将背叛。在接下来的 6 回合内，目标每回合最多累积 %d%% 背叛进度，进度满时会浪费该回合，以 10%% 武器伤害攻击相邻的单位；若没有相邻单位，则攻击自身。
 		同一时间，每个目标只能受到一种预言影响。]], "tformat")
 t("Grand Oration", "隆重演说", "talent name")
 t("None", "无", "_t")
