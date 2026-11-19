@@ -1,0 +1,54 @@
+{
+ "confirmed": [
+  {
+   "id": "7dabf45062cf",
+   "edit": [
+    "进入潜行模式（潜行点数 %d， 基于灵巧），让你更难被侦测到。\n\t\t如果成功（每回合都重新检查），敌人将无法确切知道你的位置，甚至可能根本注意不到你。\n\t\t潜行将光照范围减小至 0，增加3点夜视能力，并且不能在装备重甲或板甲时使用。\n\t\t如果半径 %d %s 内有能看见你的敌人，你不能进入潜行。\n\t\t除非特别说明，任何非瞬间非移动行动均会打破潜行。\n\n\t\t不确定你位置的敌人仍会有根据地推测你的位置。\n\t\t潜行时，敌人无法彼此分享有关你所在位置的信息，并且会延迟向盟友通报你的存在。",
+    "进入潜行模式（潜行强度 %d， 基于灵巧），让你更难被侦测到。\n\t\t如果成功（每回合都重新检查），敌人将无法确切知道你的位置，甚至可能根本注意不到你。\n\t\t潜行将光照范围减小至 0，增加3点夜视能力，并且不能在装备重甲或板甲时使用。\n\t\t如果半径 %d %s 内有能看见你的敌人，你不能进入潜行。\n\t\t除非特别说明，任何非瞬间非移动行动均会打破潜行。\n\n\t\t不确定你位置的敌人仍会有根据地推测你的位置。\n\t\t潜行时，敌人无法彼此分享有关你所在位置的信息，并且会延迟向盟友通报你的存在。"
+   ],
+   "evidence": "core cunning/stealth.lua:61,145 @624a67329fe2: stealth power is consistently 潜行强度 across the codebase (15+ places & terminology/talents.tsv:347); 潜行点数 was the sole outlier. Type ①. Lane A."
+  },
+  {
+   "id": "90dd73118373",
+   "edit": [
+    "放置一个压力感应陷阱，目标经过时地面将坍塌，造成 %0.2f 物理伤害并将其埋在地下（暂时移出游戏）5 回合。\n如果目标抵抗被埋，那么他将被定身（无视 50%% 定身免疫）。",
+    "放置一个压力感应陷阱，目标经过时地面将坍塌，造成 %0.2f 物理伤害并将其埋在地下（暂时移出战斗）5 回合。\n如果目标抵抗被埋，那么他将被定身（无视 50%% 定身免疫）。"
+   ],
+   "evidence": "core cunning/traps.lua:1089-1166 @624a67329fe2: removing from combat temporarily removes the actor from the map for 5 turns; short_info (:1166) uses 目标被移出战斗. Type ①. Lane A."
+  },
+  {
+   "id": "03414bfbd387",
+   "edit": [
+    "放置一个引力陷阱。当敌人接近至 1 格内时，陷阱会触发并制造一个半径 5 格的重力异常。每回合，异常会对敌人造成 %0.2f 点时空伤害（基于你的魔力），同时将其拉向中心；拉动成功率取你的命中与法术强度中较高者，并随之提高。\n\t\t每个异常最多持续 %d 回合；实际持续时间不超过上一个异常消散至今经过的回合数，并受你的陷阱专精技能影响。\n\t\t该陷阱可触发多次，但每次触发后至少需要 2 回合重新充能。\n使用这个设计无需进行高级准备。",
+    "放置一个引力陷阱。当敌人接近至 1 格内时，陷阱会触发并制造一个半径 5 格的重力异常。每回合，异常会对敌人造成 %0.2f 点时空伤害（基于你的魔力），同时将其拉向中心；拉动成功率随你的命中或法术强度（取较高者）提高。\n\t\t每个异常最多持续 %d 回合；实际持续时间不超过上一个异常消散至今经过的回合数，并受你的陷阱专精技能影响。\n\t\t该陷阱可触发多次，但每次触发后至少需要 2 回合重新充能。\n使用这个设计无需进行高级准备。"
+   ],
+   "evidence": "core cunning/traps.lua:1729,1763 @624a67329fe2: checkHitOld(self.check_hit, physicalResist) where check_hit is max(accuracy, spellpower); prior wording conflated success rate with the stat value. Type ①. Lane A."
+  },
+  {
+   "id": "4ea35e1e4479",
+   "edit": [
+    "发射相对低能量的子弹，造成 %d%% 武器伤害。子弹命中时将产生 4 格锥形冲击波，震慑范围内所有生物 %d 回合。",
+    "发射相对低能量的子弹，造成 %d%% 武器伤害。子弹命中时将从命中点向外扩散出半径 4 格的锥形冲击波，震慑目标及范围内所有生物 %d 回合。"
+   ],
+   "evidence": "orcs steam/psytech-gunnery.lua:118-137 (public DLC checkout, unpinned; sha256 in source-provenance.json): cone starts at impact point (start_x=x, start_y=y) and stuns target and creatures inside. Prior Chinese omitted impact origin and target. Type ①. Lane B."
+  },
+  {
+   "id": "7988ae62e030",
+   "edit": [
+    "当你的生命值降到总生命值的 50%% 以下时，一个自动程序会将你的部分深层皮肤（或其他内部器官）转化成厚实的金属层，持续 6 回合。\n\t\t效果持续期间，你受到的所有伤害都会减少一个固定值，数值等于体质的 100%%。\n\t\t该效果最多每 %d 回合触发一次。",
+    "当你的生命值降到总生命值的 50%% 以下时，一个自动程序会将你的部分深层皮肤（或其他内部器官）转化成厚实的金属层，持续 5 回合。\n\t\t效果持续期间，你受到的所有伤害都会减少一个固定值，数值等于体质的 100%%。\n\t\t该效果最多每 %d 回合触发一次。"
+   ],
+   "evidence": "orcs uber/const.lua:28,33 (public DLC checkout, unpinned; sha256 in source-provenance.json): setEffect(EFF_SUBCUTANEOUS_METALLISATION, 5, ...) lasts 5 turns while English says 6 turns. Type ②, translated per implementation. Lanes A and B."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "65a321ee3daa",
+   "note": "Type ③ (upstream code bug): orcs steam/mecharachnid.lua:1021-1031 (public DLC checkout, unpinned) stores local mult = t.getDamage(self,t) then passes mult=dam (undefined nil) to archeryShoot, while info displays getDamage*100. Placeholder cannot be dropped in translation. Lane B."
+  },
+  {
+   "id": "cfa9c09510ef",
+   "note": "Type ③ (upstream argument mismatch): orcs steam/other.lua:689,729 (public DLC checkout, unpinned) action rolls rng.avg(1, steamCrit(getDam), 3) (lower bound 1) while info passes getDam/3 as first damage arg. Placeholder value not fixable in translation. Lane B."
+  }
+ ]
+}

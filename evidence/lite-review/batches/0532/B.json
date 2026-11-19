@@ -1,0 +1,237 @@
+{
+ "lane": "B",
+ "verdicts": [
+  {
+   "id": "ccf261e98ead",
+   "verdict": "OK"
+  },
+  {
+   "id": "2405f0e883b9",
+   "verdict": "OK"
+  },
+  {
+   "id": "45d9536a53f4",
+   "verdict": "OK"
+  },
+  {
+   "id": "39dfb55c8ef3",
+   "verdict": "OK"
+  },
+  {
+   "id": "a5eebdf1de6c",
+   "verdict": "OK"
+  },
+  {
+   "id": "0595fcc1a739",
+   "verdict": "OK"
+  },
+  {
+   "id": "2497b0d4ee40",
+   "verdict": "OK"
+  },
+  {
+   "id": "9c93e5b49cd2",
+   "verdict": "OK"
+  },
+  {
+   "id": "7dabf45062cf",
+   "verdict": "OK"
+  },
+  {
+   "id": "6453eb246e29",
+   "verdict": "OK"
+  },
+  {
+   "id": "318951f4b99c",
+   "verdict": "OK"
+  },
+  {
+   "id": "90dd73118373",
+   "verdict": "OK"
+  },
+  {
+   "id": "37c3674cd9e0",
+   "verdict": "OK"
+  },
+  {
+   "id": "d8b8f8c66112",
+   "verdict": "OK"
+  },
+  {
+   "id": "d6a776e36255",
+   "verdict": "OK"
+  },
+  {
+   "id": "b9bfbbaefd1e",
+   "verdict": "OK"
+  },
+  {
+   "id": "22101b557330",
+   "verdict": "OK"
+  },
+  {
+   "id": "03414bfbd387",
+   "verdict": "OK"
+  },
+  {
+   "id": "abc3ccee2fc2",
+   "verdict": "OK"
+  },
+  {
+   "id": "034c2e505360",
+   "verdict": "OK"
+  },
+  {
+   "id": "dad93b4a16ee",
+   "verdict": "OK"
+  },
+  {
+   "id": "2a0b4577045b",
+   "verdict": "OK"
+  },
+  {
+   "id": "166db8caf764",
+   "verdict": "OK"
+  },
+  {
+   "id": "b6f4c3a00f69",
+   "verdict": "OK"
+  },
+  {
+   "id": "f18407c64d41",
+   "verdict": "OK"
+  },
+  {
+   "id": "b5a078f06e4a",
+   "verdict": "OK"
+  },
+  {
+   "id": "5cee8c853fb7",
+   "verdict": "OK"
+  },
+  {
+   "id": "0a09e3e39eb3",
+   "verdict": "OK"
+  },
+  {
+   "id": "e4a16d72e652",
+   "verdict": "OK"
+  },
+  {
+   "id": "019a7ef518a6",
+   "verdict": "OK"
+  },
+  {
+   "id": "ac60d47bd9e2",
+   "verdict": "OK"
+  },
+  {
+   "id": "6a4f5c9299c0",
+   "verdict": "OK"
+  },
+  {
+   "id": "5fe0284df3cc",
+   "verdict": "OK"
+  },
+  {
+   "id": "a1f742e2cad0",
+   "verdict": "OK"
+  },
+  {
+   "id": "e2ee70de8cd9",
+   "verdict": "OK"
+  },
+  {
+   "id": "9a868032f0ba",
+   "verdict": "OK"
+  },
+  {
+   "id": "65a321ee3daa",
+   "verdict": "ISSUE",
+   "observation": "[语义]③ 上游代码实参与说明不一致。公开 DLC（来源未固定）tome-orcs/data/talents/steam/mecharachnid.lua:1021 把伤害倍率存为 local mult，1022 却向 archeryShoot 传 mult=dam；此 action 作用域没有定义 dam。1028-1031 的说明参数则取 getDamage*100。因此现译忠实于英文，但显示的倍率没有作为实际攻击倍率传入，不能只改译文解决。",
+   "suggestion": "需先修正上游 action 的 mult=dam 为 mult=mult，并核实实际伤害倍率；当前译文可保留。"
+  },
+  {
+   "id": "ea319411a49d",
+   "verdict": "OK"
+  },
+  {
+   "id": "6d9011879782",
+   "verdict": "OK"
+  },
+  {
+   "id": "cfa9c09510ef",
+   "verdict": "ISSUE",
+   "observation": "[语义]③ 上游动态数值与实际范围不一致。公开 DLC（来源未固定）tome-orcs/data/talents/steam/other.lua:689 实际使用 rng.avg(1, steamCrit(getDam), 3)，下界为 1；729 却以 getDam/3 作为第一个伤害占位符。译文继承英文显示的“%0.2f 至 %0.2f”，会把平均采样次数误当成最低伤害的除数。友军受伤的补充由683未设置 friendlyfire=false 支持，并非译文缺陷。",
+   "suggestion": "需先修正上游说明的下界实参；当前中文占位符本身无法消除此数值错误。"
+  },
+  {
+   "id": "0ed3245da377",
+   "verdict": "OK"
+  },
+  {
+   "id": "8416169ac413",
+   "verdict": "OK"
+  },
+  {
+   "id": "a682ddb261ef",
+   "verdict": "OK"
+  },
+  {
+   "id": "98eefafa92f0",
+   "verdict": "OK"
+  },
+  {
+   "id": "4ea35e1e4479",
+   "verdict": "ISSUE",
+   "observation": "[语义]① 漏掉冲击波从命中位置向外扩散的限定，远程技能的作用范围中心因而不明确。公开 DLC（来源未固定）tome-orcs/data/talents/steam/psytech-gunnery.lua:118-121 在 archery_onhit 中以命中坐标 x,y 设置 start_x/start_y；英文也明确 from the impact。现译只说“子弹命中时将产生4格锥形冲击波”，应补明起点。",
+   "suggestion": "发射威力较低的子弹，造成 %d%% 武器伤害。若命中，则从命中位置向外产生半径 4 格的锥形冲击波，震慑目标及波及的所有生物 %d 回合。"
+  },
+  {
+   "id": "3a4eca1ca8d7",
+   "verdict": "OK"
+  },
+  {
+   "id": "7988ae62e030",
+   "verdict": "ISSUE",
+   "observation": "[语义]② 上游英文持续时间与代码不符，现译忠实沿用英文的6回合。公开 DLC（来源未固定）tome-orcs/data/talents/uber/const.lua:27-28 跨过半血阈值时调用 setEffect(EFF_SUBCUTANEOUS_METALLISATION, 5, ...)，而33说明为6回合。应按实际施加的5回合核对并更正上游说明，不能归因为中文误译。",
+   "suggestion": "当你的生命值降到总生命值的 50%% 以下时，一个自动程序会将你的部分深层皮肤（或其他内部器官）转化成厚实的金属层，持续 5 回合。\n\t\t效果持续期间，你受到的所有伤害都会减少一个固定值，数值等于体质的 100%%。\n\t\t该效果最多每 %d 回合触发一次。"
+  },
+  {
+   "id": "f8340f5baef9",
+   "verdict": "OK"
+  },
+  {
+   "id": "28bbb50be211",
+   "verdict": "OK"
+  },
+  {
+   "id": "339a1a7b0a46",
+   "verdict": "OK"
+  },
+  {
+   "id": "9d5b88674f8d",
+   "verdict": "OK"
+  },
+  {
+   "id": "33e95d78d2b2",
+   "verdict": "OK"
+  },
+  {
+   "id": "93303260ba5b",
+   "verdict": "OK"
+  },
+  {
+   "id": "25e2238b4324",
+   "verdict": "OK"
+  },
+  {
+   "id": "99f0bba81022",
+   "verdict": "OK"
+  },
+  {
+   "id": "eb4103e55889",
+   "verdict": "OK"
+  }
+ ]
+}

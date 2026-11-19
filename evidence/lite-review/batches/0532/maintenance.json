@@ -1,0 +1,40 @@
+{
+ "kind": "consumer-family-review",
+ "date": "2026-11-19",
+ "authorization": "Maintainer 2026-11-19: clear the remaining 223 units of the 0521 condition-chain candidate pool before release (slice 2/4).",
+ "baseline": {
+  "translation_head": "081c4a001",
+  "core": "624a67329fe2"
+ },
+ "pool": {
+  "source": "batches/0521 candidates (cands.py), 343 units",
+  "remaining_before_0532": 167,
+  "slice": "2/4 (56 units: orcs 29, tome 27)",
+  "remaining_after_0532": 111
+ },
+ "lanes": {
+  "A": "claude/claude-opus-5-5 (thinking medium): 4 ISSUE",
+  "B": "codex/gpt-6.1-sol (thinking medium): 4 ISSUE",
+  "overlap": 1
+ },
+ "disposition": {
+  "fix": 5,
+  "advisory": 2,
+  "keep": 49,
+  "fix_by_type": {
+   "①": [
+    "7dabf45062cf Stealth: 潜行点数 -> 潜行强度",
+    "90dd73118373 Pitfall Trap: 暂时移出游戏 -> 暂时移出战斗",
+    "03414bfbd387 Gravitic Trap: fix tangled pull chance wording",
+    "4ea35e1e4479 Blunt Shot: restore impact origin and target"
+   ],
+   "②": [
+    "7988ae62e030 Subcutaneous Metallisation: 6 turns -> 5 turns per implementation"
+   ]
+  },
+  "advisory_upstream": [
+   "65a321ee3daa Mecharachnid charged missiles passes undefined dam instead of mult (③)",
+   "cfa9c09510ef Active defense armour arc info uses getDam/3 instead of rng.avg(1, ..., 3) lower bound 1 (③)"
+  ]
+ }
+}

@@ -5730,7 +5730,7 @@ t([[Using psionic energies you overheat your shot, making it deal %d%% damage.
 		If the shot hits a wet foe it will vaporize, removing the wet effect and dealing %0.2f fire damage in a radius 4.]], [[使用灵能加热子弹，造成 %d%% 武器伤害。
 		子弹命中处于浸湿状态的目标时将气化，除去浸湿状态，在半径 4 范围内造成 %0.2f 火焰伤害。]], "tformat")
 t("Blunt Shot", "钝击射击", "talent name")
-t("Fire a relatively low-powered shot at a foe doing %d%% weapon damage, if it hits a cone-shaped shockwave of radius 4 emanates from the impact, stunning it and all creatures caught inside for %d turns.", [[发射相对低能量的子弹，造成 %d%% 武器伤害。子弹命中时将产生 4 格锥形冲击波，震慑范围内所有生物 %d 回合。]], "tformat")
+t("Fire a relatively low-powered shot at a foe doing %d%% weapon damage, if it hits a cone-shaped shockwave of radius 4 emanates from the impact, stunning it and all creatures caught inside for %d turns.", [[发射相对低能量的子弹，造成 %d%% 武器伤害。子弹命中时将从命中点向外扩散出半径 4 格的锥形冲击波，震慑目标及范围内所有生物 %d 回合。]], "tformat")
 t("Vacuum Shot", "真空射击", "talent name")
 t([[Attach a psionic steam device to a shot doing %d%% weapon damage.
 		When it hits a foe the device activates, violently sucking all the air nearby, pulling in all creatures in radius %d.]], [[将灵能蒸汽装置安装在子弹上，造成 %d%% 武器伤害。
@@ -5950,7 +5950,7 @@ section "tome-orcs/data/talents/uber/const.lua"
 t("Subcutaneous Metallisation", "金属内皮", "talent name")
 t([[When your life dips below 50%% of your total life an automated process turns some of your lower skin layers (or other internal organs) into a thick metallic layer for 6 turns.
 		While the effect lasts all damage done to you is reduced by a flat amount equal to 100%% of your Constitution.
-		This effect can only trigger once every %d turns.]], [[当你的生命值降到总生命值的 50%% 以下时，一个自动程序会将你的部分深层皮肤（或其他内部器官）转化成厚实的金属层，持续 6 回合。
+		This effect can only trigger once every %d turns.]], [[当你的生命值降到总生命值的 50%% 以下时，一个自动程序会将你的部分深层皮肤（或其他内部器官）转化成厚实的金属层，持续 5 回合。
 		效果持续期间，你受到的所有伤害都会减少一个固定值，数值等于体质的 100%%。
 		该效果最多每 %d 回合触发一次。]], "tformat")
 
