@@ -41673,15 +41673,15 @@ Disabling it can gain some performance. It will not affect previously visited zo
 t("#GOLD##{bold}#Weather effects#WHITE##{normal}#", "#GOLD##{bold}#天气效果#WHITE##{normal}#", "_t")
 t("Enables or disables day/night light variations effects..#WHITE#", "开启/关闭昼夜光照变化效果#WHITE#", "_t")
 t("#GOLD##{bold}#Day/night light cycle#WHITE##{normal}#", "#GOLD##{bold}#昼夜光照周期#WHITE##{normal}#", "_t")
-t("Enables easy movement using the mouse by left-clicking on the map.#WHITE#", "开启鼠标左键点击地图快速移动。#WHITE#", "_t")
+t("Enables easy movement using the mouse by left-clicking on the map.#WHITE#", "启用后，左键点击地图即可便捷移动。#WHITE#", "_t")
 t("#GOLD##{bold}#Use mouse to move#WHITE##{normal}#", "#GOLD##{bold}#鼠标点击移动#WHITE##{normal}#", "_t")
 t([[Enables quick melee targeting.
 Talents that require a melee target will automatically target when pressing a direction key instead of requiring a confirmation.#WHITE#]], [[开启快捷近战目标选定。
-使用近战攻击技能时，可以用方向键指定目标，无需确认。#WHITE#]], "_t")
+使用需要近战目标的技能时，按方向键即可选定目标，无需确认。#WHITE#]], "_t")
 t("#GOLD##{bold}#Quick melee targeting#WHITE##{normal}#", "#GOLD##{bold}#快捷近战目标选定#WHITE##{normal}#", "_t")
 t([[Enables quick melee targeting auto attacking.
-Talents that require a melee target will automatically target and confirm if there is only one hostile creature around.#WHITE#]], [[开启快捷近战目标自动选定。
-使用近战攻击技能时，若只有一个临近敌对目标，则自动攻击这个目标。#WHITE#]], "_t")
+Talents that require a melee target will automatically target and confirm if there is only one hostile creature around.#WHITE#]], [[开启快捷近战目标自动攻击。
+使用需要近战目标的技能时，若附近只有一个敌对生物，则自动选定并确认该目标。#WHITE#]], "_t")
 t("#GOLD##{bold}#Quick melee targeting auto attack#WHITE##{normal}#", "#GOLD##{bold}#快捷近战目标自动攻击#WHITE##{normal}#", "_t")
 t("Enables mouse targeting. If disabled mouse movements will not change the target when casting a spell or using a talent.#WHITE#", "开启鼠标指定目标功能。如果关闭，技能指定目标时不受鼠标移动影响。#WHITE#", "_t")
 t("#GOLD##{bold}#Mouse targeting#WHITE##{normal}#", "#GOLD##{bold}#鼠标指定目标#WHITE##{normal}#", "_t")
@@ -41701,7 +41701,7 @@ Default target is always either one of:
 t("#GOLD##{bold}#Auto-accept target#WHITE##{normal}#", "#GOLD##{bold}#自动确认目标#WHITE##{normal}#", "_t")
 t("New games begin with some talent points auto-assigned.#WHITE#", "新游戏开始时部分技能点自动分配。#WHITE#", "_t")
 t("#GOLD##{bold}#Auto-assign talent points at birth#WHITE##{normal}#", "#GOLD##{bold}#出生自动分配技能点#WHITE##{normal}#", "_t")
-t("Always rest to full before auto-exploring.#WHITE#", "自动探索前休息至尽可能满状态。#WHITE#", "_t")
+t("Always rest to full before auto-exploring.#WHITE#", "每次自动探索前都先休息至完全恢复。#WHITE#", "_t")
 t("#GOLD##{bold}#Rest before auto-explore#WHITE##{normal}#", "#GOLD##{bold}#自动探索前休息#WHITE##{normal}#", "_t")
 t("When swapping an item with a tinker attached, swap the tinker to the newly worn item automatically.#WHITE#", "当切换一件装有配件的装备时，自动将配件转移到新穿戴的装备上。#WHITE#", "_t")
 t("#GOLD##{bold}#Swap tinkers#WHITE##{normal}#", "#GOLD##{bold}#配件自动转移#WHITE##{normal}#", "_t")
@@ -41710,17 +41710,17 @@ t("#GOLD##{bold}#Chat message filters#WHITE##{normal}#", "#GOLD##{bold}#聊天�
 t("select to configure", "选择进行设置", "_t")
 t("Deaths", "死亡", "_t")
 t("Object & Creatures links", "物品和生物链接", "_t")
-t("Configure the chat ignore filter.#WHITE#", "设置聊天消息屏蔽器。#WHITE#", "_t")
-t("#GOLD##{bold}#Chat ignore list#WHITE##{normal}#", "#GOLD##{bold}#聊天消息屏蔽列表#WHITE##{normal}#", "_t")
+t("Configure the chat ignore filter.#WHITE#", "管理聊天用户屏蔽列表。#WHITE#", "_t")
+t("#GOLD##{bold}#Chat ignore list#WHITE##{normal}#", "#GOLD##{bold}#聊天用户屏蔽列表#WHITE##{normal}#", "_t")
 t("Configure the chat channels to listen to.#WHITE#", "设置聊天消息接收频道。#WHITE#", "_t")
 t("#GOLD##{bold}#Chat channels#WHITE##{normal}#", "#GOLD##{bold}#聊天消息频道#WHITE##{normal}#", "_t")
 t([[Open links in external browser instead of the embedded one.
-This does not affect addons browse and installation which always stays ingame.]], [[点击超链接时用外部浏览器打开。
-不会影响插件的浏览和安装，这些必定会在游戏内浏览器中进行。]], "_t")
+This does not affect addons browse and installation which always stays ingame.]], [[点击链接时用外部浏览器而非内置浏览器打开。
+这不会影响插件的浏览和安装，它们始终在游戏内进行。]], "_t")
 t("#GOLD##{bold}#Open links in external browser#WHITE##{normal}#", "#GOLD##{bold}#外部浏览器打开超链接#WHITE##{normal}#", "_t")
 t([[Enable Discord's Rich Presence integration to show your current character on your currently playing profile on Discord (restart the game to apply).
-#ANTIQUE_WHITE#If you do not use Discord this option doesn't do anything in either state.]], [[开启Discord实时状态可以让你的朋友在Discord上看见你正在玩什么角色（重启游戏后生效）。
-#ANTIQUE_WHITE#如果你不使用Discord, 那么这个选项就是无效的。]], "_t")
+#ANTIQUE_WHITE#If you do not use Discord this option doesn't do anything in either state.]], [[开启 Discord 实时状态，在你的 Discord 游戏动态中显示当前角色（重启游戏后生效）。
+#ANTIQUE_WHITE#如果你不使用 Discord，开启或关闭此选项都不会有任何作用。]], "_t")
 t("#GOLD##{bold}#Discord's Rich Presence#WHITE##{normal}#", "#GOLD##{bold}#Discord实时状态#WHITE##{normal}#", "_t")
 t([[Keep a copy of your character sheets (not the whole savefile) on the online vault at te4.org.
 For each character you will be given a link to this online character sheet so that you can brag about your heroic deeds or sad deaths to your friends or the whole community.#WHITE#]], [[在te4.org上保存一份你的角色信息（不是整个存档）。
@@ -41759,18 +41759,18 @@ A full exit and restart of the game is neccessary to apply this setting.#{normal
 - 用户信息：不能登录或者注册。
 - 角色仓库：不能将任何角色上传到在线角色仓库来展示你的荣耀。
 - 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。
-- 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。
+- 游戏内聊天：你将无法连接聊天服务器与其他玩家交谈。
 - 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。
 - 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。
 - 版本检查：不再检查插件是否有新版本。
-- Discord：无法同步到Discord的实时状态。
+- Discord：无法同步到 Discord 的实时状态。
 - 游戏内新闻：主菜单将不再显示有关游戏更新的信息。
 
 注意这个设置只影响游戏本身。如果你使用游戏启动器，它的唯一目的就是确保游戏是最新的，因此它仍然会连接网络。
 如果你不想这样，直接运行游戏即可。启动器#{bold}#只#{normal}#是用来更新游戏的。
 
 #{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已，推荐你不要打开它，这会让你失去很多好用的功能和一些游戏体验。
-应用这个选项必须退出重新进入游戏。#{normal}#]], "_t")
+必须完全退出并重启游戏才能使此设置生效。#{normal}#]], "_t")
 t("#GOLD##{bold}#Disable all connectivity#WHITE##{normal}#", "#GOLD##{bold}#禁用全部网络连接#WHITE##{normal}#", "_t")
 t("yes", "是", "_t")
 t("no", "否", "_t")
@@ -41789,10 +41789,10 @@ This makes it save more often but the game will use less memory when deep in a d
 #LIGHT_RED#更改此选项不会影响已访问过的区域。
 *注意：并不会在每一层完整存档！*
 #LIGHT_RED#不建议关闭。#WHITE#]], "_t")
-t("#GOLD##{bold}#Zone save per level#WHITE##{normal}#", "#GOLD##{bold}#每层地图自动存档#WHITE##{normal}#", "_t")
-t("Disallow boot images that could be found 'offensive'.#WHITE#", "不允许可能令人不快的启动画面图片。#WHITE#", "_t")
+t("#GOLD##{bold}#Zone save per level#WHITE##{normal}#", "#GOLD##{bold}#按地图层保存区域数据#WHITE##{normal}#", "_t")
+t("Disallow boot images that could be found 'offensive'.#WHITE#", "禁用可能令人不快的启动画面。#WHITE#", "_t")
 t("#GOLD##{bold}#Censor boot#WHITE##{normal}#", "#GOLD##{bold}#启动画面审查#WHITE##{normal}#", "_t")
-t("Replace headwear images by cloak hoods if a cloak is worn#WHITE#", "当戴着斗篷时，用斗篷兜帽替换头部装备图像。#WHITE#", "_t")
+t("Replace headwear images by cloak hoods if a cloak is worn#WHITE#", "穿着斗篷时，用斗篷兜帽替换头部装备的图像。#WHITE#", "_t")
 t("#GOLD##{bold}#Show cloak hoods#WHITE##{normal}#", "#GOLD##{bold}#显示斗篷兜帽#WHITE##{normal}#", "_t")
 
 ------------------------------------------------

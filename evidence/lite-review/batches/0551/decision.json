@@ -1,0 +1,101 @@
+{
+ "confirmed": [
+  {
+   "id": "9dced70dc184",
+   "edit": [
+    "开启鼠标左键点击地图快速移动。#WHITE#",
+    "启用后，左键点击地图即可便捷移动。#WHITE#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 修正“快速移动”误示移速提升或快速旅行（原文 easy movement）. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "5636bf352cc7",
+   "edit": [
+    "开启快捷近战目标选定。\n使用近战攻击技能时，可以用方向键指定目标，无需确认。#WHITE#",
+    "开启快捷近战目标选定。\n使用需要近战目标的技能时，按方向键即可选定目标，无需确认。#WHITE#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 还原“Talents that require a melee target”（需要近战目标的技能），而非限定近战攻击类. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "660c80da4e71",
+   "edit": [
+    "开启快捷近战目标自动选定。\n使用近战攻击技能时，若只有一个临近敌对目标，则自动攻击这个目标。#WHITE#",
+    "开启快捷近战目标自动攻击。\n使用需要近战目标的技能时，若附近只有一个敌对生物，则自动选定并确认该目标。#WHITE#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 与标题“快捷近战目标自动攻击”对齐，修正“临近”为“附近”，准确还原自动选定并确认目标. Lane(s) A (Opus 5.5), B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "079aa7d055b7",
+   "edit": [
+    "自动探索前休息至尽可能满状态。#WHITE#",
+    "每次自动探索前都先休息至完全恢复。#WHITE#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 修正“休息至尽可能满状态”的生硬搭配. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "9874663448a9",
+   "edit": [
+    "设置聊天消息屏蔽器。#WHITE#",
+    "管理聊天用户屏蔽列表。#WHITE#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 修正“聊天消息屏蔽器”——该项打开 ChatIgnores 用户屏蔽名单，而非消息类型过滤. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "4c41e114d962",
+   "edit": [
+    "#GOLD##{bold}#聊天消息屏蔽列表#WHITE##{normal}#",
+    "#GOLD##{bold}#聊天用户屏蔽列表#WHITE##{normal}#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 与 ChatIgnores 实际功能对齐，将“消息”改为“用户”. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "b03e5be98bd3",
+   "edit": [
+    "点击超链接时用外部浏览器打开。\n不会影响插件的浏览和安装，这些必定会在游戏内浏览器中进行。",
+    "点击链接时用外部浏览器而非内置浏览器打开。\n这不会影响插件的浏览和安装，它们始终在游戏内进行。"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 修正末句过度限定“在游戏内浏览器中进行”，还原 stays ingame. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "6dca31ea0e2e",
+   "edit": [
+    "开启Discord实时状态可以让你的朋友在Discord上看见你正在玩什么角色（重启游戏后生效）。\n#ANTIQUE_WHITE#如果你不使用Discord, 那么这个选项就是无效的。",
+    "开启 Discord 实时状态，在你的 Discord 游戏动态中显示当前角色（重启游戏后生效）。\n#ANTIQUE_WHITE#如果你不使用 Discord，开启或关闭此选项都不会有任何作用。"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 修正中文句内半角逗号“Discord, ”，还原展示位置（你的 Discord 游戏动态）与“无论开关都无效”. Lane(s) A (Opus 5.5), B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "f36387c40dae",
+   "edit": [
+    "禁用所有网络连接。\n包括但不仅限于：\n- 用户信息：不能登录或者注册。\n- 角色仓库：不能将任何角色上传到在线角色仓库来展示你的荣耀。\n- 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。\n- 游戏内聊天：游戏内聊天需要连接服务器才能与其他玩家交谈，这将无法使用。\n- 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。\n- 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。\n- 版本检查：不再检查插件是否有新版本。\n- Discord：无法同步到Discord的实时状态。\n- 游戏内新闻：主菜单将不再显示有关游戏更新的信息。\n\n注意这个设置只影响游戏本身。如果你使用游戏启动器，它的唯一目的就是确保游戏是最新的，因此它仍然会连接网络。\n如果你不想这样，直接运行游戏即可。启动器#{bold}#只#{normal}#是用来更新游戏的。\n\n#{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已，推荐你不要打开它，这会让你失去很多好用的功能和一些游戏体验。\n应用这个选项必须退出重新进入游戏。#{normal}#",
+    "禁用所有网络连接。\n包括但不仅限于：\n- 用户信息：不能登录或者注册。\n- 角色仓库：不能将任何角色上传到在线角色仓库来展示你的荣耀。\n- 物品仓库：不能访问你的在线物品仓库（包括存入和取回）。\n- 游戏内聊天：你将无法连接聊天服务器与其他玩家交谈。\n- 购买者/捐赠者福利：基础游戏免费，公平发放捐赠者奖励的唯一途径是检查他们的在线档案，因此该功能将被禁用。\n- 插件便捷下载与安装：你将无法在游戏内看到可用插件列表，也无法一键安装，但仍可手动安装。\n- 版本检查：不再检查插件是否有新版本。\n- Discord：无法同步到 Discord 的实时状态。\n- 游戏内新闻：主菜单将不再显示有关游戏更新的信息。\n\n注意这个设置只影响游戏本身。如果你使用游戏启动器，它的唯一目的就是确保游戏是最新的，因此它仍然会连接网络。\n如果你不想这样，直接运行游戏即可。启动器#{bold}#只#{normal}#是用来更新游戏的。\n\n#{bold}##CRIMSON#这是一个极端的选项。如果不是迫不得已，推荐你不要打开它，这会让你失去很多好用的功能和一些游戏体验。\n必须完全退出并重启游戏才能使此设置生效。#{normal}#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 理顺游戏内聊天条目指代，并在末句明确“完全退出并重启游戏”. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "31922c6659a3",
+   "edit": [
+    "#GOLD##{bold}#每层地图自动存档#WHITE##{normal}#",
+    "#GOLD##{bold}#按地图层保存区域数据#WHITE##{normal}#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 修正“每层地图自动存档”误导玩家以为每层都会自动保存进度. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "185d84ad17e7",
+   "edit": [
+    "不允许可能令人不快的启动画面图片。#WHITE#",
+    "禁用可能令人不快的启动画面。#WHITE#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 消除“启动画面图片”成分重复. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "33bc786ddd7e",
+   "edit": [
+    "当戴着斗篷时，用斗篷兜帽替换头部装备图像。#WHITE#",
+    "穿着斗篷时，用斗篷兜帽替换头部装备的图像。#WHITE#"
+   ],
+   "evidence": "game/modules/tome/dialogs/GameOptions.lua @ 624a67329fe2 (pinned core): 修正“戴着斗篷”动宾搭配不当为“穿着斗篷”. Lane(s) B (GPT-6.2-Astra) ISSUE."
+  }
+ ],
+ "rejected": []
+}
