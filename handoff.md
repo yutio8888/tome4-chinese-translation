@@ -1,8 +1,25 @@
-# 当前恢复入口（2026-11-19 交接：v0.3.14 已发布；343 条条件链候选池与动态说明修复全部收口）
+# 当前恢复入口（2026-11-19 交接：0539–0554 精简纠偏与高频界面/语法专项全部收口；v0.3.14 仍为最新公开版）
 
 **交接快照（2026-11-19，最新，优先阅读）**
-- 仓库状态：译文 `develop` 最后一个内容批次是 0538（`93f7aadc1`），随后为本轮发布凭据与交接文档提交；均已通过 `tools/push_github.sh` 过滤镜像推送。译文仓库与发布仓库（`tome4-chn-mod` master `519fd5c`）工作树干净；`python3 -B tools/lite_review.py status` 显示 `release_required_units: 29554`、`reviewed_A: 29554`、`reviewed_B: 29554`、`pending_A: 0`、`pending_B_backfill: 0`。没有进行中的批次、门禁或子代理（0537–0538 的 A/B lane 均已归档）。
-- 公开插件：**v0.3.14**（2026-11-19 按维护者「刷新handoff并发布」指令发布，发布仓库 master `519fd5c`，从 `c05bb96` 快进，无强推；tag `v0.3.14` 指向 `519fd5c`；公开正式 Release id `451281509`，标记为 Latest）。
+- 仓库状态：译文 `develop` 最新内容批次是 0554（`d3a1e5bf8`，过滤镜像 `5fa6607c67`），随后为本交接文档提交；均已通过 `tools/push_github.sh` 过滤镜像推送。译文仓库工作树干净；`python3 -B tools/lite_review.py status` 显示 `release_required_units: 29554`、`reviewed_A: 29554`、`reviewed_B: 29554`、`pending_A: 0`、`pending_B_backfill: 0`。没有进行中的批次、门禁或子代理（0539–0554 的 A/B lane 均已归档）。
+- 发布仓库（`tome4-chn-mod` master `519fd5c`，tag `v0.3.14`）：保留 1 处已本地自测通过但**尚未提交/发布**的改动——`data/chn_supplement.lua:87`（Bloodstream 插件专用键 `BLOODSTREAM_ZH_KEY` 精简为「若命中已在流血的目标，其流血效果持续时间延长 %d 回合，伤害变为原来的 %d%% （每个流血效果只能强化一次）。」，CRLF 保留，上游键未动，`tests/test_dynamic_desc_fixes.lua` `ALL OK`），留待维护者明确指示发布下一版（v0.3.15）时一并处理。
+- 编辑原则（2026-11-19 维护者明确指示）：**「优先回归英文原意，只保留真正影响玩法决策的机制纠偏」**。不把 Lua 实现分支或公式细节膨胀写回技能说明。
+- **v0.3.14 之后新增完成工作（0539–0554，共 16 批，均已双审、门禁、提交并过滤镜像推送；尚未发布至插件）**
+  - **0539–0541 抽检质量修复**（`8315a5b2c` / `4d709dae6` / `21953c21d`）：`sample-quality-20261119` 修复 22 单元 + 4 处跨组件同步；0540 盲审润色 5 条、驳回 2 条；0541 盲审 0 改收口。
+  - **0544–0545 膨胀说明回退精简专项**（`df862b041` / `822257f81`）：按「优先回归英文原意」原则复核 45 条过度实现改写条目，确认精简 33 条（`mod-tome.lua` 14、`tome-ashes-urhrok.lua` 3、`tome-cults.lua` 6、`tome-orcs.lua` 10）；0545 盲审微调 8 条、驳回 9 条（拒绝回塞已精简的实现细节），尾项随 0547/0550 收口；另本地精简 `tome4-chn-mod/data/chn_supplement.lua` 中的 Bloodstream 译文。
+  - **Focus 1 游戏选项与引擎核心对话框全量清扫（0542–0543、0546–0551，全部 5 片共 265 单元）**：
+    - 1A（0542–0543，`799c870bd` / `085ef31de`）：`AudioOptions`/`DisplayResolution`/`SteamOptions`/`VideoOptions` 59 单元，修 12 条（`engine.lua`），0543 双栏 0 ISSUE；
+    - 1B（0546–0547，`24cc3edac` / `911d4c506`）：`engine/dialogs` 59 单元，修 8 条（`engine.lua`），0547 复审 0545+0546 共 16 条微调 3 条、驳回 1 条；
+    - 1C（0548，`1ae3223b2`）：`GraphicMode` + `GameOptions` 第 1 片 49 单元，修 10 条（`mod-tome.lua`）；
+    - 1D（0549，`3f28305e1`）：`GameOptions` 第 2 片 49 单元，修 13 条（`mod-tome.lua`）；
+    - 0550（`1614e0d1e`）：盲审 0547–0549 共 26 条，确认润色 2 条；
+    - 1E（0551，`74141e0cc`）：`GameOptions` 第 3 片 49 单元，修 12 条（`mod-tome.lua`），Focus 1 全部完成。
+  - **Focus 2A 高精度语法/量词/流畅度缺陷清扫（0552–0554，`9985c6260` / `39e203a3a` / `d3a1e5bf8`）**：
+    - 0552 审校 20 条高精度缺陷，确认修复 18 条（`engine.lua` 1、`mod-tome.lua` 16、`tome-ashes-urhrok.lua` 1，涵盖「正在在线」、宝石/戒指/法杖/宝箱/头发量词、「的/地」状语、4 处「自始以来」→「自远古以来」及焱系解锁技能名同步、永恒持续时间语序、恶魔契约重召/胸甲等）；
+    - 0553 盲审 0550–0552 共 32 条，确认润色 3 条（`mod-tome.lua`）、驳回 3 条；
+    - 0554 盲审 0553 的 3 条改动，确认 0 条、驳回 2 条单栏摇摆/扩写意见，全库清零收口。
+  - 技术验证：`d3a1e5bf8` 完整 `tools/ci-gates.sh` 17 项全部通过，`i18n lint --strict` 30,317 条译文 0 error / 0 warning。
+- 当前最新公开插件：**v0.3.14**（2026-11-19 按维护者「刷新handoff并发布」指令发布，发布仓库 master `519fd5c`，从 `c05bb96` 快进，无强推；tag `v0.3.14` 指向 `519fd5c`；公开正式 Release id `451281509`，标记为 Latest；未获当轮直接指示前不发布 v0.3.15）。
   - 来源：`93f7aadc1`（lite 批 0511–0538）＋发布仓库已并入 master 的代码分支 `code/dynamic-desc-fixes`（`3580885`）。
   - 规模与产物：13,831 条＝核心 8,181＋引擎 189＋DLC 5,461，locale sha256 `323b05ad…`；资产 `tome-chn-mod.teaa`，5,040,169 字节，sha256 `0d8f2457…`，33 个文件（ZIP_STORED，0 deflated）。
   - 技术核对：对 `93f7aadc1` 跑完整 `tools/ci-gates.sh`（17 项全部通过，`ALL GATES PASSED`，`PATH` 前置 `/opt/agents/pi/current/node_modules/.bin`）；`publish` dry-run 与 apply 运行时校验一致（19,144 键，0 missing/mismatched/redundant/unexpected）；`smoke_release.py` 通过（DLC 743/1569/3149 精确一致）；`tests/test_dynamic_desc_fixes.lua` 对新 locale 与源码均 132/132 `ALL OK`，`tests/test_talent_description_diff.lua` 与全量 `luajit -bl` 通过；上传后回下载 `tome-chn-mod.teaa` 与 `git archive 519fd5c` 逐字节一致且与 GitHub digest 一致。
