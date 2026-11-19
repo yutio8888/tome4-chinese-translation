@@ -605,7 +605,7 @@ t("Join/part messages", "加入/退出频道信息", "_t")
 t("First time achievements (recommended to keep them on)", "第一次取得成就（建议开启）", "_t")
 t("Important achievements (recommended to keep them on)", "重要成就（建议开启）", "_t")
 t("Other achievements", "其他成就", "_t")
-t("Select which types of chat events to see or not.", "选择你想要观看或屏蔽的聊天内容。", "_t")
+t("Select which types of chat events to see or not.", "选择要显示或屏蔽的聊天事件类型。", "_t")
 
 ------------------------------------------------
 section "engine/engine/dialogs/ChatIgnores.lua"
@@ -659,12 +659,12 @@ When activated you will have access to special commands:
 - CTRL+L: bring up a lua console that lets you explore and alter all the game objects, enter arbitrary lua commands, ...
 - CTRL+A: bring up a menu to easily do many tasks (create NPCs, teleport to zones, ...)
 - CTRL+left click: teleport to the clicked location
-]], [[启动开发者模式？
-开发者模式是一种特殊的游戏模式，用于调试游戏和创建游戏插件。
-启用开发者模式时，所有读取的存档都会成为#CRIMSON#作弊状态#LAST#。
-在开发者模式下，你可以使用以下几种特殊指令：
-- CTRL+L：启动Lua控制台，可以让你探索和修改游戏物件，并执行任意Lua脚本……
-- CTRL+A：启动调试菜单，可以让你方便地进行各种操作(创建NPC，传送到地图，等等…)
+]], [[启用开发者模式？
+开发者模式是一种特殊的游戏模式，用于调试游戏和创建插件。
+使用该模式会使所有载入的存档#CRIMSON#失去验证资格#LAST#。
+启用后，你可以使用以下特殊指令：
+- CTRL+L：打开 Lua 控制台，查看并修改所有游戏对象，执行任意 Lua 指令……
+- CTRL+A：打开调试菜单，方便执行各类操作（创建 NPC、传送到区域等）
 - CTRL+鼠标左键：传送到点击的位置。
 ]], "_t")
 t("No", "否", "_t")
@@ -781,19 +781,19 @@ section "engine/engine/dialogs/ShowErrorStack.lua"
 
 t("Lua Error", "Lua脚本错误", "_t")
 t("If you already reported that error, you do not have to do it again (unless you feel the situation is different).", "如果你已经汇报过了这个错误，你不需要再次进行汇报（除非你认为这一情况和之前有所不同）。", "_t")
-t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你 #LIGHT_GREEN#已经汇报过了#WHITE# 这个错误，你不需要再次进行汇报（除非你认为这一情况和之前有所不同）。", "_t")
+t("You #LIGHT_GREEN#already reported#WHITE# that error, you do not have to do it again (unless you feel the situation is different).", "你#LIGHT_GREEN#已经汇报过了#WHITE#这个错误，你不需要再次进行汇报（除非你认为这一情况和之前有所不同）。", "_t")
 t("You have already got this error but #LIGHT_RED#never reported#WHITE# it, please do.", "你以前遇到过这个错误，但#LIGHT_RED#还没有汇报过#WHITE#，请汇报一下。", "_t")
 t("You have #LIGHT_RED#never seen#WHITE# that error, please report it.", "你之前#LIGHT_RED#从未遇到过#WHITE#这个错误，请汇报这个错误。", "_t")
 t([[#{bold}#Oh my! It seems there was an error!
 The game might still work but this is suspect, please type in your current situation and click on "Send" to send an error report to the game creator.
 If you are not currently connected to the internet, please report this bug when you can on the forums at http://forums.te4.org/
 
-]], [[#{bold}#哦不！游戏出错了！
-这个游戏也许暂时还能继续运行，但是没法保证之后会出现什么问题。请你输入你目前的状况，点击“发送”按钮，向游戏的作者发送一份错误报告。
-如果你现在无法连接到互联网，请你在可以联网的时候在 http://forums.te4.org/ 论坛上汇报这个错误。
+]], [[#{bold}#哦不！游戏似乎出错了！
+游戏也许还能继续运行，但未必可靠。请你输入当前情况，点击“发送”，向游戏作者发送一份错误报告。
+如果你目前无法联网，请在可以联网时到 http://forums.te4.org/ 论坛上汇报这个错误。
 
 ]], "_t")
-t("What happened?: ", "发生了什么？：", "_t")
+t("What happened?: ", "发生了什么？", "_t")
 t("Send", "发送", "_t")
 t("Close", "关闭", "_t")
 t("Close All", "全部关闭", "_t")
@@ -904,8 +904,8 @@ section "engine/engine/dialogs/UseTalents.lua"
 t("Use Talents: ", "使用技能：", "tformat")
 t([[You can bind a talent to a hotkey be pressing the corresponding hotkey while selecting a talent.
 Check out the keybinding screen in the game menu to bind hotkeys to a key (default is 1-0 plus control or shift).
-]], [[你可以把技能绑定到一个快捷键。方法是选择一个技能，然后按下对应的快捷键。
-请查看游戏菜单中的快捷键绑定界面，将快捷键绑定到键盘按键(默认绑定位置是1-0+Ctrl/Shift键)。
+]], [[选中技能时，按下对应的快捷键即可将其绑定。
+请查看游戏菜单中的“按键绑定”界面，将快捷键绑定到键盘按键（默认使用数字键 1-0，也可配合 Ctrl 或 Shift 使用）。
 ]], "_t")
 t("Talent", "技能", "_t")
 t("Status", "状态", "_t")
@@ -925,8 +925,8 @@ t("Currently playing: ", "正在玩：", "_t")
 t("unknown", "未知", "_t")
 t("Game: ", "游戏：", "_t")
 t("Validation: ", "认证状态：", "_t")
-t("Game has been validated by the server", "游戏被服务器认证", "_t")
-t("Game is not validated by the server", "游戏不被服务器认证", "_t")
+t("Game has been validated by the server", "游戏已通过服务器认证", "_t")
+t("Game is not validated by the server", "游戏未通过服务器认证", "_t")
 t("Go to online profile", "前往在线用户档案", "_t")
 t("Go to online charsheet", "前往在线角色表", "_t")
 
