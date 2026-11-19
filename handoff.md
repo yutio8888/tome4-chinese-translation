@@ -1,35 +1,40 @@
-# 当前恢复入口（2026-11-18 交接：v0.3.13 已发布；自主翻译完善第一轮已收口）
+# 当前恢复入口（2026-11-19 交接：v0.3.14 已发布；343 条条件链候选池与动态说明修复全部收口）
 
-**交接快照（2026-11-18，最新，优先阅读）**
-- 仓库状态：译文 `develop` 最后一个内容批次是 0529（`51cfba972`），之后只有交接文档提交；均已通过 `tools/push_github.sh` 过滤镜像推送。2026-11-19 复核时，译文与发布仓库的原始 `git status` 都为空，发布仓库检出在 master `c05bb96`。没有进行中的批次、门禁或子代理；0529 的 A/B lane 与代码复审 agent 均已归档。
-- 公开插件：**v0.3.13**（发布仓库 master `c05bb96`，13,819 条，凭据 `evidence/releases/addon-0.3.13.json`）。0511–0529 的译文改进**尚未进入任何公开包**；没有发布 0.3.14、没有打 tag、没有替换共享安装、没有开本地游戏或模型实测。
+**交接快照（2026-11-19，最新，优先阅读）**
+- 仓库状态：译文 `develop` 最后一个内容批次是 0538（`93f7aadc1`），随后为本轮发布凭据与交接文档提交；均已通过 `tools/push_github.sh` 过滤镜像推送。译文仓库与发布仓库（`tome4-chn-mod` master `519fd5c`）工作树干净；`python3 -B tools/lite_review.py status` 显示 `release_required_units: 29554`、`reviewed_A: 29554`、`reviewed_B: 29554`、`pending_A: 0`、`pending_B_backfill: 0`。没有进行中的批次、门禁或子代理（0537–0538 的 A/B lane 均已归档）。
+- 公开插件：**v0.3.14**（2026-11-19 按维护者「刷新handoff并发布」指令发布，发布仓库 master `519fd5c`，从 `c05bb96` 快进，无强推；tag `v0.3.14` 指向 `519fd5c`；公开正式 Release id `451281509`，标记为 Latest）。
+  - 来源：`93f7aadc1`（lite 批 0511–0538）＋发布仓库已并入 master 的代码分支 `code/dynamic-desc-fixes`（`3580885`）。
+  - 规模与产物：13,831 条＝核心 8,181＋引擎 189＋DLC 5,461，locale sha256 `323b05ad…`；资产 `tome-chn-mod.teaa`，5,040,169 字节，sha256 `0d8f2457…`，33 个文件（ZIP_STORED，0 deflated）。
+  - 技术核对：对 `93f7aadc1` 跑完整 `tools/ci-gates.sh`（17 项全部通过，`ALL GATES PASSED`，`PATH` 前置 `/opt/agents/pi/current/node_modules/.bin`）；`publish` dry-run 与 apply 运行时校验一致（19,144 键，0 missing/mismatched/redundant/unexpected）；`smoke_release.py` 通过（DLC 743/1569/3149 精确一致）；`tests/test_dynamic_desc_fixes.lua` 对新 locale 与源码均 132/132 `ALL OK`，`tests/test_talent_description_diff.lua` 与全量 `luajit -bl` 通过；上传后回下载 `tome-chn-mod.teaa` 与 `git archive 519fd5c` 逐字节一致且与 GitHub digest 一致。
+  - 验收分工：按 2026-11-11 现行规则未做本地实机验收，由测试玩家在发布后通过发布仓库 Issues 反馈；发布说明已写明技术核对范围、新改动检查点与遗留未覆盖项。
+  - 凭据：`evidence/releases/addon-0.3.14.json`，说明：`evidence/releases/addon-0.3.14-release-notes.md`。`i18n/versions/tome-1.7.6.json` 中的 `repositories.addon.commit` pin 保持未动。
 - 授权：维护者 2026-11-18「请作为助手自主推进 dcss 和 tome4 翻译完善」。有证据的错译、缺译、语病、术语一致性和有界同名消歧，可按 lite 流程自主实施、双审、门禁、过滤镜像推送；有实质新策略歧义的交维护者。发布仍须维护者当轮直接指示。各阶段经 `node /workspace/project-callback.cjs --source tome --message-file <文件>` 回传助手一次。
 
-**本轮已完成（均已提交推送）**
-- 0511–0513 已知缺口：剩余 12 组技能撞名 10 改 2 留；Cults Persistant Will→偏执意念；Clork 保留「克拉克」（官方 14/15，有据保留）；侦测潜行/侦测隐形统一，「侦测强度」只指陷阱（combat.tsv +3 行，测试行数断言 928→931）；Ice Bolt 寒冰伤害。
+**v0.3.14 包含的本轮完成工作（0511–0538，均已提交、推送并随 0.3.14 发布）**
+- 0511–0513 已知缺口：剩余 12 组技能撞名 10 改 2 留；Cults Persistant Will→偏执意念；Clork 保留「克拉克」（官方 14/15，有据保留）；侦测潜行/侦测隐形统一，「侦测强度」只指陷阱（`terminology/combat.tsv` +3 行，测试行数断言 928→931）；Ice Bolt 寒冰伤害。
 - 0514–0516 抽检 60 条（seed 20261118）fix 7；DLC 来源附录 `batches/0514/source-provenance.json`（本地 teaa/文件指纹，不等于官方来源已验证）。
-- 0517–0518 抽检 60 条（seed 2026111802）fix 2；岩石尖刺末尾「），和遭到割伤」源自全局共享 " and " 键，记 advisory，不加插件 hook。
+- 0517–0518 抽检 60 条（seed 2026111802）fix 2；岩石尖刺末尾「），和遭到割伤」源自全局共享 `" and "` 键，记 advisory，不加插件 hook。
 - 0519–0520 换行差异族 52 条：fix 9 / keep 43（换行数量不同本身不是缺陷）。
-- 0521–0524 技能条件链：343 条启发式候选池已查 120、剩 223（seed 2026111803/04），fix 6。0523/maintenance.json 更正了 0521 的分类口径；两批发现率来自不同定向样本，不能推总体错误率或趋势。
-
-**插件动态数值显示修复（源码候选，未进 master、未发布）**
-- 发布仓库分支 `code/dynamic-desc-fixes`：`6303b33` → `3580885`（已推 origin，无强推）。发布仓库检出已切回 master，worktree 只剩主检出。
-- Bloodstream：中文路径使用插件专用键 `BLOODSTREAM_ZH_KEY`（英文以 `##chn-mod bloodstream actual multiplier` 结尾），中文在 `data/chn_supplement.lua` 的 talents 段，随代码一起发。只有该键在当前 locale 有译文时，才代入实际倍率 getDamage；否则或出错时返回原 info。上游键中文已在 0528 恢复为 0.3.13 原文「伤害增加 %d%%」，与 getDamageInc 一致。**以后不要再把上游键改成「变为原来的」。**
-- Automated Repair System：只读 `compute_vals[id]` 中的三个增量。
-- 证据：0525–0527（初版）、0528（上游键恢复）、0529（双审 OK、代码复审 READY、组合验证 `batches/0529/combination.json`）。测试 locale 13,830 条，sha256 `1e210c60…4783`；组合 smoke PASS。旧 0.3.13 locale 的 smoke 失败（ashes 1/cults 6/orcs 13）属发布漂移，已保留。测试 `tests/test_dynamic_desc_fixes.lua` 132 项（用法见记忆 addon-dynamic-desc-fix-branch）。
-- 限制：回退路径仍显示上游自身不准的数值（但不再错配措辞）；全部为测试桩数值，未在游戏中验证；代码复审 advisory 建议把真实 I18N harness 并入长期测试，尚未做。**下次发布前须先把该分支并入 master，再重生 locale。**
+- 0521–0524 与 0530–0538 技能条件链候选池全部清零（343/343）：
+  - 前两批 0521–0524（seed 2026111803/04）查 120 条、fix 6，并引出 Bloodstream 与 Automated Repair System 两项插件代码修复；
+  - 后四片 0530–0538 查完剩余 223 条（4 片 56/56/56/55 + 全部盲审复核，其中 0537 复审 0536 顺手理顺 `Curse of Corpses` Power 4+ 措辞，0538 A/B 均 ISSUE 0），共确认修改 13 个单元（14 处编辑）、记录 13 条上游 Type ③ advisory、驳回 3 条。
+- 0525–0529＋插件动态数值显示修复（已随 0.3.14 并入 `tome4-chn-mod` master `3580885` → `519fd5c` 并发布）：
+  - Bloodstream：中文路径使用插件专用键 `BLOODSTREAM_ZH_KEY`（中文在 `data/chn_supplement.lua` 的 talents 段），仅在该键有译文时代入实际倍率 `getDamage`；否则或异常回退原 info。上游键中文已在 0528 恢复为 0.3.13 原文「伤害增加 %d%%」，与 `getDamageInc` 一致。**以后不要再把上游键改成「变为原来的」。**
+  - Automated Repair System：只读 `compute_vals[id]` 中的三个增量。
+  - 限制：回退路径仍显示上游自身不准的数值（但不再错配措辞）；单元测试使用测试桩数值，未在实机运行；代码复审 advisory 建议把真实 I18N harness 并入长期测试，尚未做。
 
 **未决与可选的下一步（均未开始）**
-- 条件链候选池剩 223 条，可继续有界批次（排除近期已审与 22 条死键）。
-- advisory 未处理：共享「和」连接词（岩石尖刺）、ego 名称、熵之魔杖上游 6/10 回合不一致。
+- 玩家对 v0.3.14 的发布后验收反馈（尤其是 Bloodstream 与 Automated Repair System 两处新挂钩，以及 0511–0538 改动的实机显示）。
+- advisory 未处理：共享 `" and "` 连接词（岩石尖刺）、ego 名称、熵之魔杖上游 6/10 回合不一致、0530–0536 记录的 13 条上游 Type ③ 数值/逻辑不一致、将真实 I18N harness 并入插件长期测试。
 - 技能撞名的其余跨类候选、潜行/隐形侦测术语进一步统一：没有授权。
-- 实机未覆盖项（托马克另 2 条技能、艾格尼尔攻防页、沃尔其余页面等）只作玩家检查点；现行流程不再开本地实测。
+- 实机未覆盖项（托马克另 2 条技能、艾格尼尔攻防页、沃尔其余页面、半神效果图标、水晶球激活界面、其余配件配方说明）只作玩家检查点；现行流程不再开本地实测。
 - 22 条死键按原决定保留。
 
 **恢复注意**
-- 门禁/收口环境、lite 流程命令、Paseo lane 派发与手工收取见记忆（lite-close-does-not-record、never-parallel-close-with-its-prerequisites、opt-agents-bin-shadows-pi、pin-paseo-workspace-env）。
-- 每批先写 decision.json，再 `strict` → `record` → `lite_close`；需要追加 prompt/context 的批次，用 `lite_review.py prepare N --units` 后手工追加，再 `lite_dispatch.sh`。lite_close 的 NEXT 留空。
-- 主 agent ID `0d6455bf-59d3-43ef-a84e-372d6db02616`，workspace `wks_420314270844170b`。
+- 运行 `tools/ci-gates.sh`（特别是 `04-quality-facts-unit-tests`）时需前置 `PATH=/opt/agents/pi/current/node_modules/.bin:$PATH`，并设置 `TOME_LUAJIT=/usr/bin/luajit`、`TOME_LUAROCKS_ROOT=/opt/tome4-luarocks`。
+- 每批先写 `decision.json`，再 `strict` → `record` → `lite_close`；需要追加 prompt/context 的批次，用 `lite_review.py prepare N --units` 后手工追加，再 `lite_dispatch.sh`。`lite_close` 的 NEXT 留空。
+- 发布仓库后续若继续维护，`master` 已包含 `code/dynamic-desc-fixes`（`3580885`），可按需清理旧分支。
+- Workspace `wks_420314270844170b`。
 
 以下为此前（2026-11-11 至 11-13）记录，状态以上段为准：
 

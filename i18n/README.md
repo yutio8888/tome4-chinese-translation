@@ -6,11 +6,11 @@
 按所属契约保存在受跟踪的 `evidence/`。本文件按命令查询，不是每次修改前的必读清单；检查选择见
 [工作流验证矩阵](../docs/agent-workflow.md#验证矩阵)。
 
-最新已推送 addon 版本：**0.3.13**（2026-11-13，发布仓库 tome4-chn-mod `c05bb96`，由本仓库
-`65bb46dd7`（lite 批 0496–0510：后期实测修复、全文检索修复、11 组技能撞名改名）经 `tools/i18n publish --apply --bump` 构建：
-13,819 条＝核心 8,169＋引擎 189＋DLC 5,461，locale sha256 `9f813215…`；插件代码与 0.3.12 相同（`a262ee4`）。
-GitHub Release [`v0.3.13`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.13) 附带 `tome-chn-mod.teaa`（tag 指向 `c05bb96`，包 sha256 `ad013402…`，5,012,623 字节），已回下载核对完整哈希。
-发布凭据见 [`addon-0.3.13.json`](../evidence/releases/addon-0.3.13.json)；上一版 0.3.12 见 [`addon-0.3.12.json`](../evidence/releases/addon-0.3.12.json)。打包方式与游戏内置 `utils/te4_pack_module.sh`
+最新已推送 addon 版本：**0.3.14**（2026-11-19，发布仓库 tome4-chn-mod `519fd5c`，由本仓库
+`93f7aadc1`（lite 批 0511–0538：剩余 10 组技能与 Persistant Will 撞名改名、潜行/隐形/陷阱侦测术语统一、两轮分层抽检、换行差异族、343 条技能条件链候选池全部清零、Bloodstream 上游键契约恢复）合入插件代码 `code/dynamic-desc-fixes`（`3580885`：Bloodstream 专用补充键与 Automated Repair System 动态说明修正）后经 `tools/i18n publish --apply --bump` 构建：
+13,831 条＝核心 8,181＋引擎 189＋DLC 5,461，locale sha256 `323b05ad…`。
+GitHub Release [`v0.3.14`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.14) 附带 `tome-chn-mod.teaa`（tag 指向 `519fd5c`，包 sha256 `0d8f2457…`，5,040,169 字节），已回下载核对完整哈希。
+发布凭据见 [`addon-0.3.14.json`](../evidence/releases/addon-0.3.14.json)；上一版 0.3.13 见 [`addon-0.3.13.json`](../evidence/releases/addon-0.3.13.json)。打包方式与游戏内置 `utils/te4_pack_module.sh`
 一致：`git archive` 取干净树后在其中 `zip -r -0`，`init.lua` 位于根目录，文件名为 `for_module-short_name.teaa`（引擎只识别 `tome-` 前缀）。
 `publish --bump` 只递增补丁号，次版本号需手动改发布仓库 `init.lua`（该文件为 CRLF 行尾）。
 
