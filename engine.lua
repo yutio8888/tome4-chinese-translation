@@ -863,9 +863,9 @@ section "engine/engine/dialogs/SteamOptions.lua"
 t("Steam Options", "Steam 设置", "_t")
 t([[Enable Steam Cloud saves.
 Your saves will be put on steam cloud and always be available everywhere.
-Disable if you have bandwidth limitations.#WHITE#]], [[启用Steam云存档。
-你的存档会被保存在Steam 云中，可以各处使用。
-如果你的网络带宽有限，请禁用这一设置。#WHITE#]], "_t")
+Disable if you have bandwidth limitations.#WHITE#]], [[启用 Steam 云存档。
+你的存档将保存在 Steam 云端，随时随地皆可使用。
+如果你的网络带宽有限，请禁用此选项。#WHITE#]], "_t")
 t("#GOLD##{bold}#Cloud Saves#WHITE##{normal}#", "#GOLD##{bold}#云存档#WHITE##{normal}#", "_t")
 t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
@@ -941,30 +941,31 @@ t("#GOLD##{bold}#Screen Zoom#WHITE##{normal}#", "#GOLD##{bold}#屏幕缩放#WHIT
 t("Enter Zoom %", "输入缩放比例 %", "_t")
 t("From 50 to 400", "从 50 到 400", "_t")
 t([[Request this display refresh rate.
-Set it lower to reduce CPU load, higher to increase interface responsiveness.#WHITE#]], [[请求此显示刷新率。
-降低刷新率可以减轻 CPU 占用，提高刷新率可以提升界面响应速度。#WHITE#]], "_t")
+Set it lower to reduce CPU load, higher to increase interface responsiveness.#WHITE#]], [[设置游戏的目标帧率。
+降低帧率可以减轻 CPU 负载，提高帧率可以提升界面响应速度。#WHITE#]], "_t")
 t("#GOLD##{bold}#Requested FPS#WHITE##{normal}#", "#GOLD##{bold}#FPS设定#WHITE##{normal}#", "_t")
 t("Enter density", "输入数值", "_t")
 t("From 5 to 60", "从 5 到 60", "_t")
 t([[Controls the particle effects density.
 This option allows to change the density of the many particle effects in the game.
 If the game is slow when displaying spell effects try to lower this setting.#WHITE#]], [[设定粒子效果的密度。
-这一选项可以改变游戏内的粒子效果密度。
-如果你在施法时发现游戏运行变慢，请尝试降低这个设置。#WHITE#]], "_t")
+这一选项可以调整游戏内的各类粒子效果密度。
+如果在显示法术特效时游戏运行变慢，请尝试调低此设置。#WHITE#]], "_t")
 t("#GOLD##{bold}#Particle effects density#WHITE##{normal}#", "#GOLD##{bold}#粒子效果密度#WHITE##{normal}#", "_t")
 t("From 0 to 100", "从 0 到 100", "_t")
 t([[Activates antialiased texts.
 Texts will look nicer but it can be slower on some computers.
 
 #LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[启用文字抗锯齿。
-激活该效果会使文字看上去更美观，但在有些电脑运行速度会变慢。
+启用该效果会使文字看上去更美观，但游戏在部分电脑上运行速度可能会变慢。
 
-#LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#]], "_t")
+#LIGHT_RED#必须重启游戏才能使更改生效。#WHITE#]], "_t")
 t("#GOLD##{bold}#Antialiased texts#WHITE##{normal}#", "#GOLD##{bold}#文字抗锯齿#WHITE##{normal}#", "_t")
 t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 t([[Apply a global scaling to all fonts.
-Applies after restarting the game]], "全局字体大小调整，重启游戏后生效", "_t")
+Applies after restarting the game]], [[对所有字体应用全局缩放。
+重启游戏后生效。]], "_t")
 t("#GOLD##{bold}#Font Scale#WHITE##{normal}#", "#GOLD##{bold}#字体缩放#WHITE##{normal}#", "_t")
 t("Font Scale %", "字体缩放比率 %", "_t")
 t("From 50 to 300", "从 50 到 300", "_t")
@@ -1007,24 +1008,24 @@ t("#GOLD##{bold}#OpenGL Shaders: Distortions#WHITE##{normal}#", "#GOLD##{bold}#O
 t([[Activates volumetric shaders.
 This option allows for volumetricion effects (like deep starfields). Enabling it will severely reduce performance when shaders are displayed.
 
-#LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[开启体积着色器效果。
-这个选项可以激活体积效果（例如深邃星空）。显示这些着色器效果时，开启它会严重降低性能。
+#LIGHT_RED#You must restart the game for it to take effect.#WHITE#]], [[启用体积着色器。
+此选项可以开启体积效果（例如深邃星空）。启用后，在显示着色器效果时会严重降低性能。
 
-#LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#]], "_t")
-t("#GOLD##{bold}#OpenGL Shaders: Volumetric#WHITE##{normal}#", "#GOLD##{bold}#OpenGL 着色器：体积着色器#WHITE##{normal}#", "_t")
+#LIGHT_RED#必须重启游戏才能使更改生效。#WHITE#]], "_t")
+t("#GOLD##{bold}#OpenGL Shaders: Volumetric#WHITE##{normal}#", "#GOLD##{bold}#OpenGL 着色器：体积#WHITE##{normal}#", "_t")
 t([[Use the custom cursor.
 Disabling it will use your normal operating system cursor.#WHITE#]], [[使用自定义鼠标光标。
 关闭此选项将使用系统默认光标。#WHITE#]], "_t")
 t("#GOLD##{bold}#Mouse cursor#WHITE##{normal}#", "#GOLD##{bold}#鼠标光标#WHITE##{normal}#", "_t")
 t([[Gamma correction setting.
-Increase this to get a brighter display.#WHITE#]], [[亮度矫正设定。
-提高数值会使画面变亮。#WHITE#]], "_t")
-t("#GOLD##{bold}#Gamma correction#WHITE##{normal}#", "#GOLD##{bold}#亮度矫正#WHITE##{normal}#", "_t")
-t("Gamma correction", "亮度矫正", "_t")
+Increase this to get a brighter display.#WHITE#]], [[伽马校正设置。
+提高数值会使画面更亮。#WHITE#]], "_t")
+t("#GOLD##{bold}#Gamma correction#WHITE##{normal}#", "#GOLD##{bold}#伽马校正#WHITE##{normal}#", "_t")
+t("Gamma correction", "伽马校正", "_t")
 t([[Enable/disable usage of tilesets.
-In some rare cases on very slow machines with bad GPUs/drivers it can be detrimental.]], [[开启/关闭图块使用。
-在某些显卡或显卡驱动很差的极慢机器上，开启这个选项偶尔反而有害。]], "_t")
-t("#GOLD##{bold}#Use tilesets#WHITE##{normal}#", "#GOLD##{bold}#图块使用#WHITE##{normal}#", "_t")
+In some rare cases on very slow machines with bad GPUs/drivers it can be detrimental.]], [[启用或禁用图块集。
+在极少数情况下，对于显卡或驱动较差、运行极慢的电脑，启用此项反而会带来负面影响。]], "_t")
+t("#GOLD##{bold}#Use tilesets#WHITE##{normal}#", "#GOLD##{bold}#使用图块集#WHITE##{normal}#", "_t")
 t([[Request a specific origin point for the game window.
 This point corresponds to where the upper left corner of the window will be located.
 Useful when dealing with multiple monitors and borderless windows.

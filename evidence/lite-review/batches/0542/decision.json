@@ -1,0 +1,101 @@
+{
+ "confirmed": [
+  {
+   "id": "ae5ad8e7c3f0",
+   "edit": [
+    "启用Steam云存档。\n你的存档会被保存在Steam 云中，可以各处使用。\n如果你的网络带宽有限，请禁用这一设置。#WHITE#",
+    "启用 Steam 云存档。\n你的存档将保存在 Steam 云端，随时随地皆可使用。\n如果你的网络带宽有限，请禁用此选项。#WHITE#"
+   ],
+   "evidence": "engine/dialogs/SteamOptions.lua:77 (624a67329fe2): restore 'always be available everywhere' -> 随时随地皆可使用, fix Steam spacing and natural cloud wording. Lane B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "64fcf9e4dfaa",
+   "edit": [
+    "请求此显示刷新率。\n降低刷新率可以减轻 CPU 占用，提高刷新率可以提升界面响应速度。#WHITE#",
+    "设置游戏的目标帧率。\n降低帧率可以减轻 CPU 负载，提高帧率可以提升界面响应速度。#WHITE#"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:88-96 (624a67329fe2): slider calls core.game.setFPS under 'Requested FPS' (FPS设定); clarify target FPS instead of monitor refresh rate and fix 减轻 CPU 占用 -> 减轻 CPU 负载. Lane B ISSUE."
+  },
+  {
+   "id": "be997ada3aea",
+   "edit": [
+    "设定粒子效果的密度。\n这一选项可以改变游戏内的粒子效果密度。\n如果你在施法时发现游戏运行变慢，请尝试降低这个设置。#WHITE#",
+    "设定粒子效果的密度。\n这一选项可以调整游戏内的各类粒子效果密度。\n如果在显示法术特效时游戏运行变慢，请尝试调低此设置。#WHITE#"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:101 (624a67329fe2): 'when displaying spell effects' covers all displayed spell effects, not only player casting. Lane B ISSUE."
+  },
+  {
+   "id": "1bcda199fa7d",
+   "edit": [
+    "启用文字抗锯齿。\n激活该效果会使文字看上去更美观，但在有些电脑运行速度会变慢。\n\n#LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#",
+    "启用文字抗锯齿。\n启用该效果会使文字看上去更美观，但游戏在部分电脑上运行速度可能会变慢。\n\n#LIGHT_RED#必须重启游戏才能使更改生效。#WHITE#"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:112 (624a67329fe2): fix missing postposition 上 in 在有些电脑上, clarify game speed, and align restart notice with sibling options. Lanes A (Opus 5.5) and B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "48d7bfd53cb6",
+   "edit": [
+    "全局字体大小调整，重启游戏后生效",
+    "对所有字体应用全局缩放。\n重启游戏后生效。"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:122 (624a67329fe2): restore two-line structure and 'global scaling' -> 全局缩放. Lane B ISSUE."
+  },
+  {
+   "id": "623927174244",
+   "edit": [
+    "开启体积着色器效果。\n这个选项可以激活体积效果（例如深邃星空）。显示这些着色器效果时，开启它会严重降低性能。\n\n#LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#",
+    "启用体积着色器。\n此选项可以开启体积效果（例如深邃星空）。启用后，在显示着色器效果时会严重降低性能。\n\n#LIGHT_RED#必须重启游戏才能使更改生效。#WHITE#"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:170 (624a67329fe2): fix misplaced condition ('显示这些着色器效果时，开启它' -> '启用后，在显示着色器效果时') and align sibling restart wording. Lane B ISSUE."
+  },
+  {
+   "id": "349f97fb85dc",
+   "edit": [
+    "#GOLD##{bold}#OpenGL 着色器：体积着色器#WHITE##{normal}#",
+    "#GOLD##{bold}#OpenGL 着色器：体积#WHITE##{normal}#"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:153,162,171 (624a67329fe2): remove redundant 着色器 after colon to match sibling labels OpenGL 着色器：高级 / 扭曲. Lane A (Opus 5.5) ISSUE."
+  },
+  {
+   "id": "7ad496ce6a22",
+   "edit": [
+    "亮度矫正设定。\n提高数值会使画面变亮。#WHITE#",
+    "伽马校正设置。\n提高数值会使画面更亮。#WHITE#"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:189-197 (624a67329fe2): controls gamma_correction via setGamma; use standard graphics term 伽马校正 instead of 亮度矫正. Lane B ISSUE."
+  },
+  {
+   "id": "9aab19f44a59",
+   "edit": [
+    "#GOLD##{bold}#亮度矫正#WHITE##{normal}#",
+    "#GOLD##{bold}#伽马校正#WHITE##{normal}#"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:190 (624a67329fe2): sibling of 7ad496ce6a22; 亮度矫正 -> 伽马校正. Lane B ISSUE."
+  },
+  {
+   "id": "399980f0c73d",
+   "edit": [
+    "亮度矫正",
+    "伽马校正"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:193 (624a67329fe2): slider dialog title for gamma_correction; 亮度矫正 -> 伽马校正. Lane B ISSUE."
+  },
+  {
+   "id": "a46d2211d490",
+   "edit": [
+    "开启/关闭图块使用。\n在某些显卡或显卡驱动很差的极慢机器上，开启这个选项偶尔反而有害。",
+    "启用或禁用图块集。\n在极少数情况下，对于显卡或驱动较差、运行极慢的电脑，启用此项反而会带来负面影响。"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:202 (624a67329fe2): tilesets -> 图块集, smooth verb-object collocation and detrimental wording. Lane B ISSUE."
+  },
+  {
+   "id": "e69ba91e07ea",
+   "edit": [
+    "#GOLD##{bold}#图块使用#WHITE##{normal}#",
+    "#GOLD##{bold}#使用图块集#WHITE##{normal}#"
+   ],
+   "evidence": "engine/dialogs/VideoOptions.lua:203 (624a67329fe2): fix inverted verb-object label '图块使用' -> '使用图块集' for 'Use tilesets'. Lane B ISSUE."
+  }
+ ],
+ "rejected": []
+}
