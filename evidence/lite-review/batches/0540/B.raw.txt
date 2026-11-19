@@ -1,0 +1,112 @@
+{
+  "batch": "0540",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "b11b7c7cf892",
+      "verdict": "OK"
+    },
+    {
+      "id": "5312d4e09afe",
+      "verdict": "OK"
+    },
+    {
+      "id": "77bcdb53d89a",
+      "verdict": "OK"
+    },
+    {
+      "id": "5d80684dd3f3",
+      "verdict": "OK"
+    },
+    {
+      "id": "1f6bf38d8323",
+      "verdict": "OK"
+    },
+    {
+      "id": "4193db89ae63",
+      "verdict": "ISSUE",
+      "observation": "game/engines/default/modules/boot/dialogs/MainMenu.lua:155 的 like you never knew it 指以新的方式认识远东。“一个你从未认识过的远东大陆”变成此前完全不认识该大陆。",
+      "suggestion": "#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人孤身粉碎了格鲁希纳克、沃尔、加伯特和拉克·肖四大部落之后，已经过去了一年。联合王国通过远行传送门与远方失联已久的盟友太阳堡垒重新建立了联系，并帮助他们征服了瓦·埃亚尔大陆的大部分地区。四大部落仅存的族人如今已被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索远东大陆鲜为人知的一面吧！\n#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫、快枪手、灵能射手、歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，粉碎那些胆敢反抗部落的人吧！\n#LIGHT_UMBER#全新种族：#WHITE# 兽人、雪人、白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。\n#LIGHT_UMBER#配件系统：#WHITE# 合成强大的配件，用于强化你的物品。包括给你的靴子安装火箭、给你的手套安装抓取系统等等。\n#LIGHT_UMBER#药剂系统：#WHITE# 在配件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！\n\n"
+    },
+    {
+      "id": "6e5e75c580bd",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/chats/command-staff.lua:85 中 powers 是 tolerate 的主语。“那些……力量，对……一事，容忍是有限的”把动词和宾语拆散，后半句缺乏明确的施事。",
+      "suggestion": "明智地抉择吧。那些超出你理解的力量精心安排了自然秩序。你若一再干预，它们的忍耐也是有限度的。"
+    },
+    {
+      "id": "efd74d67238e",
+      "verdict": "OK"
+    },
+    {
+      "id": "822c7170a816",
+      "verdict": "OK"
+    },
+    {
+      "id": "fd06211d3741",
+      "verdict": "OK"
+    },
+    {
+      "id": "782e5a964374",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/general/objects/world-artifacts.lua:2886 写生命被吸向灵晶。“被吸引向它聚拢”混用了“被它吸引”和“向它聚拢”两种结构。",
+      "suggestion": "这枚灵晶不断地发出低鸣，周围的生命能量似乎都在向它聚拢。"
+    },
+    {
+      "id": "eaac0da8d13c",
+      "verdict": "OK"
+    },
+    {
+      "id": "8ae46718e7c0",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/gifts/mindstar-mastery.lua:91 只检查主手，20–25 行在未双持时仍返回基础倍率 1。“需要 2 枚灵晶”未限定为取得灵晶强度加成的条件，容易误读为施放条件。",
+      "suggestion": "你用心灵利刃触碰目标，将自然之力施于敌人。\n\t\t荆棘藤蔓会缠住目标，使其减速 %d%%，并每回合造成 %0.2f 点自然伤害，持续 10 回合。\n\t\t伤害随精神强度提高。双持灵晶时，灵晶强度还会提高伤害倍率（当前倍率 %2.f）。"
+    },
+    {
+      "id": "e8af619aa573",
+      "verdict": "OK"
+    },
+    {
+      "id": "38b505955dda",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/gifts/mindstar-mastery.lua:177–188 先将敌人损失的生命值限制在治疗上限内，再用同一个数值治疗并降低失衡值。“治疗量的 10%%”容易理解成按友方实际恢复的生命值计算。",
+      "suggestion": "你用主手心灵利刃攻击敌人造成 %d%% 武器伤害，再用副手心灵利刃触碰友方单位，将敌人所受的伤害能量传导过去为其治疗。\n\t\t基础治疗量最高为 %d。目标的失衡值同时降低，降幅为此次基础治疗量的 10%%。\n\t\t最大治疗值受精神强度和灵晶强度加成（需要 2 枚灵晶，加成比例 %2.f）。"
+    },
+    {
+      "id": "8decf93fb11c",
+      "verdict": "OK"
+    },
+    {
+      "id": "a57f6edf1249",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/zones/ruined-dungeon/zone.lua:116 是触碰顺序错误时的警报。“对你的触摸反应不佳”容易理解成水晶球反应不灵敏，而此处是触碰引发不妙的反应。",
+      "suggestion": "你一碰这颗水晶球，就听见一声尖啸。情况似乎不妙！"
+    },
+    {
+      "id": "1db78d1bb5d5",
+      "verdict": "OK"
+    },
+    {
+      "id": "703133050cd2",
+      "verdict": "OK"
+    },
+    {
+      "id": "1abf2ff6571b",
+      "verdict": "ISSUE",
+      "observation": "未固定的 cults/tome-cults/data/lore/kroshkkur.lua:181 中 as they emerged 描述奥斯雷目睹各族逐渐脱离野蛮的过程。“观察着刚刚脱离野蛮的年轻种族”把观察时间移到了这一过程之后。",
+      "suggestion": "“飘荡者”奥斯雷即使在夏·图尔人眼中，也是一位传说般的人物。他大部分时间都在埃亚尔地表飘荡，静静看着年轻的种族一步步走出野蛮。虽然大部分夏·图尔人都选择远离他们所认为的“低等”种族，奥斯雷却愿意与他们同行，甚至交谈。无论走向何处，他都随身携带一柄简朴的铁杖，这把武器虽然老旧，但他十分爱惜。\n\n他也受邀成为一名弑神者，因为他使用铁杖的本领早已成为传奇。他礼貌地拒绝了，但人们仍一次又一次地前来请求他相助。眼看自己游历过的土地在四周燃烧，他终于选择了去对抗埃亚尔的诸神。他被赐予伊斯拉尔，一柄在头端有着新月形利刃的独特长杖。\n\n与诸神交战时，他始终心无波澜。他挥杖将诸神击倒、剖开、斩杀；他杀戮时既无怜悯，也无恶意。当最后一名神死去之时，他又开始四处飘荡，随身带着伊斯拉尔和自己那柄老旧的铁杖。"
+    },
+    {
+      "id": "70aead4cfa1d",
+      "verdict": "OK"
+    },
+    {
+      "id": "711ec7cb348b",
+      "verdict": "OK"
+    },
+    {
+      "id": "f49505767d2b",
+      "verdict": "OK"
+    }
+  ]
+}

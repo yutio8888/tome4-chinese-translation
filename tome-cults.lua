@@ -2243,7 +2243,7 @@ t([[Oslrey the Wanderer was considered to be mythical even among the Sher'tul th
 
 He too was asked to become a Godslayer, for his prowess with his staff was the stuff of legends. He refused politely, but again and again, the requests for his assistance kept coming. After watching the land he wandered burn around him, he finally chose to take a stand against the Gods of Eyal. He was presented with Ythral, a uniquely made staff with a crescent blade on one end.
 
-When he fought against the Gods, he acted completely without passion. His staff hammered them down, sliced them open and slaughtered them. He killed without mercy and without malice. When the last of the gods were dead, he returned to his wanderings, carrying Ythral and his old iron staff with him.]], [[“飘荡者”奥斯雷即使在夏·图尔人眼中，也是一位传说般的人物。他大部分时间都在埃亚尔地表飘荡，静静观察着刚刚脱离野蛮的年轻种族。虽然大部分夏·图尔人都选择远离他们所认为的“低等”种族，奥斯雷却愿意与他们同行，甚至交谈。无论走向何处，他都随身携带一柄简朴的铁杖，这把武器虽然老旧，但他十分爱惜。
+When he fought against the Gods, he acted completely without passion. His staff hammered them down, sliced them open and slaughtered them. He killed without mercy and without malice. When the last of the gods were dead, he returned to his wanderings, carrying Ythral and his old iron staff with him.]], [[“飘荡者”奥斯雷即使在夏·图尔人眼中，也是一位传说般的人物。他大部分时间都在埃亚尔地表飘荡，静静观察着年轻种族逐渐走出蛮荒。虽然大部分夏·图尔人都选择远离他们所认为的“低等”种族，奥斯雷却愿意与他们同行，甚至交谈。无论走向何处，他都随身携带一柄简朴的铁杖，这把武器虽然老旧，但他十分爱惜。
 
 他也受邀成为一名弑神者，因为他使用铁杖的本领早已成为传奇。他礼貌地拒绝了，但人们仍一次又一次地前来请求他相助。眼看自己游历过的土地在四周燃烧，他终于选择了去对抗埃亚尔的诸神。他被赐予伊斯拉尔，一柄在头端有着新月形利刃的独特长杖。
 
