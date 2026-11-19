@@ -11656,7 +11656,7 @@ The byproduct of this effect is the creation of gold, which is useless to proces
 
 When you possess the chest all items you walk upon will automatically be put inside and transmogrified when you leave the level.
 Simply go to your inventory to move them out of the chest if you wish to keep them.
-Items in the chest will not encumber you.]], [[这个宝箱是某处古老的夏·图尔力量之地的延伸。放入箱中的任何物品都会被自动传送到别处，在那里被分解摧毁以提取能量。
+Items in the chest will not encumber you.]], [[这个宝箱是古老的夏·图尔力量之地的延伸。放入箱中的任何物品都会被自动传送到别处，在那里被分解摧毁以提取能量。
 这个过程的副产物是黄金，由于再加工它毫无意义，所以它会被送回给你。
 
 当你拥有这个箱子时，你走过的地面上的所有物品都会被自动收进箱中，并且当你离开该层时会自动转化。
@@ -34118,7 +34118,7 @@ Talents:
 - #YELLOW#Crystalline Focus: #WHITE#Master the Stone and pierce even through physical immunities
 ]], [[自远古以来，法师们就一直在进行各种元素试验。
 大多数法师满足于使用大地系魔法，有些人则进行深入的研究并创造出了石系魔法。
-其核心是“水晶力场”，它能制造出锋利到可以穿透物理免疫的攻击。
+其核心是“水晶力场”，它能让攻击变得锐利无比，甚至穿透物理免疫。
 
 你掌握了石系魔法，现在你可以创建新的元素法师和奥术之刃角色，让他们学习 #LIGHT_GREEN#石系技能#WHITE#。
 
@@ -34197,7 +34197,7 @@ Talents:
 技能：
 - #YELLOW# 火焰新星：#WHITE# 对你的四周施放一个火焰新星，造成伤害并击退周围目标。
 - #YELLOW# 无尽之焰：#WHITE# 部分火焰法术会在地面留下燃烧的火焰，灼烧其中的生物。
-- #YELLOW# 净化之焰：#WHITE# 点燃自身与受火焰影响的生物，并有概率移除其状态效果。
+- #YELLOW# 净化之焰：#WHITE# 站在燃烧地面上点燃自身，使受这些火焰伤害的生物有概率被移除状态效果。
 - #YELLOW# 野火燎原：#WHITE# 你对焱系魔法的掌握使你可以对火焰免疫的生物造成伤害。
 ]], "_t")
 
