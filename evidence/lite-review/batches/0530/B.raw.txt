@@ -1,0 +1,244 @@
+{
+  "batch": "0530",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "d91abcb0ded1",
+      "verdict": "ISSUE",
+      "observation": "[语义]③ 上游循环没有按显示上限限制飞弹数，译文忠实于英文。公开 DLC 来源未固定：tome-ashes-urhrok/data/talents/corruptions/demon-seeds.lua:45-50 初始化 nb 后，while 循环只移除候选目标，始终没有递减 nb；因此会向全部收集到的敌人发射，而非至多第 2 个占位符所示数量（58 行实参）。",
+      "suggestion": "保留现译；需要上游在每次发射后递减 nb，译文无法修复显示上限与实际发射数不符。"
+    },
+    {
+      "id": "f019413656dd",
+      "verdict": "OK"
+    },
+    {
+      "id": "a5fcc9df8d1e",
+      "verdict": "OK"
+    },
+    {
+      "id": "a0b2d51b5b0e",
+      "verdict": "OK"
+    },
+    {
+      "id": "370c3537ec00",
+      "verdict": "OK"
+    },
+    {
+      "id": "e8b126fbddb1",
+      "verdict": "OK"
+    },
+    {
+      "id": "d890d5bc84b5",
+      "verdict": "OK"
+    },
+    {
+      "id": "5acee3a29126",
+      "verdict": "OK"
+    },
+    {
+      "id": "3f60ad4658b1",
+      "verdict": "OK"
+    },
+    {
+      "id": "ad78431072ae",
+      "verdict": "OK"
+    },
+    {
+      "id": "76df435191e9",
+      "verdict": "OK"
+    },
+    {
+      "id": "a06d73fcc4d9",
+      "verdict": "OK"
+    },
+    {
+      "id": "2467eee1ae71",
+      "verdict": "OK"
+    },
+    {
+      "id": "d6a83ab9c14e",
+      "verdict": "ISSUE",
+      "observation": "[语义]② 上游英文的触发条件说明不完整，现译忠实于英文。公开 DLC 来源未固定：tome-ashes-urhrok/data/talents/corruptions/heart-of-fire.lua:31-40 在判断目标是否燃烧之前，32-33 行已检查并启动冷却；因此击杀未燃烧生物也会使技能进入 5 回合冷却，可能令随后击杀燃烧生物无法触发。",
+      "suggestion": "需要上游将启动冷却移到 is_burning 分支，或同步说明任意击杀都会启动冷却。"
+    },
+    {
+      "id": "32ba2daafe58",
+      "verdict": "OK"
+    },
+    {
+      "id": "26f24ff54c72",
+      "verdict": "OK"
+    },
+    {
+      "id": "a5382a8435c4",
+      "verdict": "OK"
+    },
+    {
+      "id": "ef3e8db93e92",
+      "verdict": "ISSUE",
+      "observation": "[语义]② 上游英文称 every time you attack，现译相应称“每次攻击时”，但实际仅近战命中后判定火焰爆发。公开 DLC 来源未固定：tome-ashes-urhrok/data/talents/corruptions/torture.lua:61-62 的 callbackOnMeleeAttack 在 not hitted 时直接返回，70-71 行才进行触发几率判定。",
+      "suggestion": "将“另外，每次攻击时有”改为“另外，每次近战攻击命中时有”，并同步修正上游说明。"
+    },
+    {
+      "id": "cdf5e6e6f815",
+      "verdict": "OK"
+    },
+    {
+      "id": "4b37e9da1285",
+      "verdict": "OK"
+    },
+    {
+      "id": "349f3afba865",
+      "verdict": "OK"
+    },
+    {
+      "id": "fbaab525ef71",
+      "verdict": "OK"
+    },
+    {
+      "id": "ca743d57e541",
+      "verdict": "OK"
+    },
+    {
+      "id": "d63abb76d78a",
+      "verdict": "OK"
+    },
+    {
+      "id": "8bcfceb6d650",
+      "verdict": "OK"
+    },
+    {
+      "id": "4e5d3ecd947c",
+      "verdict": "ISSUE",
+      "observation": "[语义]③ 熵之巨口持续时间的显示与作用值可能不同，属于上游实参/实现问题。公开 DLC 来源未固定：tome-cults/data/talents/demented/nether.lua:306、323 的第 6 个实参来自 Halo of Ruin 的技能等级；Spatial Distortion 实现虽用 sdur 判断是否召唤，但其召唤体 summon_time 使用该技能自身的 t.getSpatialDuration(self,t)，而非 sdur（178、195-199、271 行）。两技能等级不同时，说明显示的持续时间与实际持续时间不同。译文按实参忠实表达，不能修复数值来源。",
+      "suggestion": "保留现译；上游应让 summon_time 使用 sdur，或使显示实参明确取 Spatial Distortion 的实际持续时间。"
+    },
+    {
+      "id": "27acfba3a801",
+      "verdict": "OK"
+    },
+    {
+      "id": "b2c7a0e5986f",
+      "verdict": "OK"
+    },
+    {
+      "id": "c23187962a04",
+      "verdict": "OK"
+    },
+    {
+      "id": "1181163f8c58",
+      "verdict": "ISSUE",
+      "observation": "[语义]③ 上游回调存在变量引用错误，译文忠实于英文。公开 DLC 来源未固定：tome-cults/data/timed_effects.lua:1065-1070 的 callbackOnHit 参数是 cb，但 1066 行先读取 value.value（未在此定义），之后才计算 cb.value * eff.power / 100 并对来源 takeHit；正常无该全局变量时会报错，无法执行所述链接伤害。",
+      "suggestion": "保留现译；上游需将 value.value 更正为 cb.value。"
+    },
+    {
+      "id": "96a6fc573aec",
+      "verdict": "OK"
+    },
+    {
+      "id": "eed764c39c22",
+      "verdict": "OK"
+    },
+    {
+      "id": "ba9ceebffa00",
+      "verdict": "OK"
+    },
+    {
+      "id": "f91fbf3317d3",
+      "verdict": "OK"
+    },
+    {
+      "id": "46b7a1753596",
+      "verdict": "OK"
+    },
+    {
+      "id": "a57b427d6d93",
+      "verdict": "OK"
+    },
+    {
+      "id": "69778b48830d",
+      "verdict": "ISSUE",
+      "observation": "[语义]③ 上游显示的锥形伤害上限与公式不符，译文忠实于英文。公开 DLC 来源未固定：tome-orcs/data/talents/celestial/void.lua:73-80 的锥形伤害倍率为 1 + max(nb-1,0)/theoretical_nb，最多小于等于 2；但 101-104 行第 4 个显示实参却为 damage * 2.5。直击分支 60-61 行使用 2.5 正确，错误在锥形上限显示，无法仅靠译文修复。",
+      "suggestion": "保留现译；上游需统一锥形倍率公式与第 4 个显示实参。"
+    },
+    {
+      "id": "2fc5ed69f0f3",
+      "verdict": "ISSUE",
+      "observation": "[语义]② 上游英文整段说明石化，现译忠实于英文，但实现只施加震慑。公开 DLC 来源未固定：tome-orcs/data/talents/misc/npcs.lua:41-48 仅判断 canBe(\"stun\") 并 setEffect(EFF_STUNNED,...)，没有施加石化效果，也没有碎裂、禁止生命回复或增加抗性的逻辑。因此这些机制说明与实际调用不符。",
+      "suggestion": "需要上游决定恢复石化实现或将中英文说明同步改为震慑；当前不是中文独有的翻译错误。"
+    },
+    {
+      "id": "2a1d375f7cd1",
+      "verdict": "OK"
+    },
+    {
+      "id": "2f26ce108289",
+      "verdict": "OK"
+    },
+    {
+      "id": "8932495d5c09",
+      "verdict": "OK"
+    },
+    {
+      "id": "b8020c826f96",
+      "verdict": "OK"
+    },
+    {
+      "id": "ca7f8f568c0b",
+      "verdict": "OK"
+    },
+    {
+      "id": "a1e44354da8d",
+      "verdict": "OK"
+    },
+    {
+      "id": "ddb69318932e",
+      "verdict": "OK"
+    },
+    {
+      "id": "90006e0ccda8",
+      "verdict": "OK"
+    },
+    {
+      "id": "dbd1dc2f1a98",
+      "verdict": "OK"
+    },
+    {
+      "id": "6740020a8667",
+      "verdict": "OK"
+    },
+    {
+      "id": "d543c8fc0b05",
+      "verdict": "OK"
+    },
+    {
+      "id": "5e1f91bf1774",
+      "verdict": "OK"
+    },
+    {
+      "id": "74e77ba22bc3",
+      "verdict": "OK"
+    },
+    {
+      "id": "031d1556e662",
+      "verdict": "OK"
+    },
+    {
+      "id": "15ebbd16e594",
+      "verdict": "OK"
+    },
+    {
+      "id": "79d68b2db473",
+      "verdict": "OK"
+    },
+    {
+      "id": "05762c670563",
+      "verdict": "OK"
+    },
+    {
+      "id": "0dae2695dd6c",
+      "verdict": "OK"
+    }
+  ]
+}

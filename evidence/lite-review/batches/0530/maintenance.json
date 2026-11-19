@@ -1,0 +1,38 @@
+{
+ "kind": "consumer-family-review",
+ "date": "2026-11-19",
+ "authorization": "Maintainer 2026-11-19: clear the remaining 223 units of the 0521 condition-chain candidate pool before release (4 bounded slices: 56+56+56+55).",
+ "baseline": {
+  "translation_head": "63ed56bae",
+  "core": "624a67329fe2"
+ },
+ "pool": {
+  "source": "batches/0521 candidates (cands.py), 343 units",
+  "remaining_before_0530": 223,
+  "slice": "1/4 (56 units: cults 12, ashes-urhrok 23, orcs 21)",
+  "remaining_after_0530": 167
+ },
+ "lanes": {
+  "A": "claude/claude-opus-5-5 (thinking medium): 1 ISSUE",
+  "B": "codex/gpt-6.1-sol (thinking medium): 7 ISSUE",
+  "overlap": 1
+ },
+ "disposition": {
+  "fix": 2,
+  "advisory": 5,
+  "keep": 49,
+  "fix_by_type": {
+   "②": [
+    "d6a83ab9c14e Burning Sacrifice: non-burning kills also start 5-turn cooldown",
+    "ef3e8db93e92 Incinerating Blows: base burn and burst roll require melee hit"
+   ]
+  },
+  "advisory_upstream": [
+   "d91abcb0ded1 Flame Bolts loop never decrements nb (③)",
+   "4e5d3ecd947c Halo of Ruin Spatial Distortion duration uses own TL in info vs SD TL in action (③)",
+   "1181163f8c58 Mark of Treason callbackOnHit undefined value.value (③)",
+   "69778b48830d Cosmic Spear cone max arg damage*2.5 vs actual <=2x (③)",
+   "2fc5ed69f0f3 Petrifying Gaze applies stun, 0241 not_fixable precedent (②/③)"
+  ]
+ }
+}

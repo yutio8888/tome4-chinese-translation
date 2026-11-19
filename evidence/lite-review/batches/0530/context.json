@@ -1,0 +1,1102 @@
+{
+ "note": "Code facts extracted from the same source files as input.json (core @624a67329fe2; DLC public checkout, fingerprints in source-provenance.json if DLC present). No review history or expected verdicts.",
+ "entries": {
+  "d91abcb0ded1": {
+   "definition_lines": [
+    23,
+    62
+   ],
+   "string_line": 56,
+   "format_call": "58: tformat(self:getTalentLevel(t) * 5 + 20, 1+math.ceil(self:getTalentLevel(t) / 2), damDesc(self, DamageType.FIRE, damage))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "33: callbackOnMeleeAttack = function(self, t, _, hitted)",
+    "34: if not hitted or not rng.percent(self:getTalentLevel(t) * 5 + 20) then return end",
+    "38: local grids = self:project(tg, self.x, self.y, function(px, py)",
+    "40: if actor and self:reactionToward(actor) < 0 then",
+    "45: local nb = 1+math.ceil(self:getTalentLevel(t)/2)",
+    "58: tformat(self:getTalentLevel(t) * 5 + 20, 1+math.ceil(self:getTalentLevel(t) / 2), damDesc(self, DamageType.FIRE, damage))"
+   ]
+  },
+  "f019413656dd": {
+   "definition_lines": [
+    63,
+    139
+   ],
+   "string_line": 135,
+   "format_call": "136: tformat(t.getNb(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "76: if what[e.type] and e.status == \"detrimental\" then",
+    "96: if what[e.type] and e.status == \"detrimental\" and e.subtype[\"cross tier\"] then",
+    "98: elseif what[e.type] and e.status == \"detrimental\" then",
+    "106: if eff[1] == \"effect\" then",
+    "107: target:removeEffect(eff[2])",
+    "113: if #effs == 0 then break end",
+    "116: if eff[1] == \"effect\" then",
+    "117: target:removeEffect(eff[2])",
+    "121: if known then",
+    "125: if core.shader.active(4) then",
+    "135: return ([[Deals 20%% of your total life to cleanse your afflictions, removing up to %d physical, mental or magical detrimental effects.]]):"
+   ]
+  },
+  "a5fcc9df8d1e": {
+   "definition_lines": [
+    237,
+    306
+   ],
+   "string_line": 297,
+   "format_call": "303: tformat(t.getMaxCharges(self, t), t.getVim(self, t), damDesc(self, DamageType.BLIGHT, t.getDamage(self, t)), self:getTalentRange(t), t:_getShield(self))",
+   "args_order": [
+    1,
+    2,
+    4,
+    3,
+    5
+   ],
+   "code_conditions_and_callbacks": [
+    "249: getMaxCharges = function(self, t) return 4 + math.floor(self:getTalentLevel(t)) * 2 end,",
+    "252: if val <= 0 then return \"\" end",
+    "255: callbackOnMove = function(self, t, moved, force, ox, oy)",
+    "256: if not moved or force or (self.x == ox and self.y == oy) then return end",
+    "258: if not p then return end",
+    "267: if self:attr(\"save_cleanup\") then return true end",
+    "268: if not p.charges or p.charges < 1 then return true end",
+    "275: if not sel then self:talentDialogReturn(false) return end",
+    "280: if not kind then return nil end",
+    "282: if kind == \"attack\" then",
+    "285: if not x or not y then return nil end",
+    "286: self:project(tg, x, y, DamageType.BLIGHT, self:spellCrit(t.getDamage(self, t) * p.charges), {type=\"slime\"})",
+    "288: elseif kind == \"shield\" then",
+    "289: self:setEffect(self.EFF_DAMAGE_SHIELD, 4, {color={0.9, 0.5, 0.1}, power=self:spellCrit(t.getShield(self, t) * p.charges), reflect=50, })",
+    "290: elseif kind == \"vim\" then"
+   ]
+  },
+  "a0b2d51b5b0e": {
+   "definition_lines": [
+    350,
+    390
+   ],
+   "string_line": 382,
+   "format_call": "387: tformat(t.getStealth(self, t), t:_getChance(self))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "362: callbackOnMove = function(self, t, moved, force, ox, oy)",
+    "363: if not moved or force then return end",
+    "366: callbackOnEffectSave = function(self, t, hd)",
+    "367: if hd.saved then return end",
+    "368: if hd.e.type ~= \"magical\" and hd.e.type ~= \"physical\" then return end",
+    "369: if rng.percent(t:_getChance(self)) then hd.saved = true end",
+    "375: if self.updateMainShader then self:updateMainShader() end"
+   ]
+  },
+  "370c3537ec00": {
+   "definition_lines": [
+    391,
+    429
+   ],
+   "string_line": 424,
+   "format_call": "426: tformat(0.35 * t.getPercent(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "403: callbackOnMeleeHit = function(self, t, src, dam)",
+    "404: if not src.x then return end",
+    "406: if not block then return end",
+    "412: if not block then return end"
+   ]
+  },
+  "e8b126fbddb1": {
+   "definition_lines": [
+    591,
+    623
+   ],
+   "string_line": 617,
+   "format_call": "620: tformat(t.getChance(self, t), damDesc(self, DamageType.FIRE, t.getDamage(self, t)))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "607: if not x or not y then return nil end",
+    "608: self:project(tg, x, y, function(px, py)",
+    "610: if not target then return end",
+    "611: target:setEffect(target.EFF_DEMON_SEED_DOOMED_NATURE, 5, {apply_power=self:combatSpellpower(), chance=t.getChance(self, t), dam=t:_getDamage(self), src=self})"
+   ]
+  },
+  "d890d5bc84b5": {
+   "definition_lines": [
+    624,
+    659
+   ],
+   "string_line": 654,
+   "format_call": "656: tformat(damDesc(self, DamageType.ACID, t.getDamage(self,t)), t.getDuration(self,t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "634: callbackOnBlock = function(self, t)",
+    "635: if self.turn_procs.demon_acid_burst then return end",
+    "640: game.level.map:addEffect(self,",
+    "648: if not e.src:knowTalent(e.src.T_DEMON_SEED_ACID_BURST) then e.duration = 0 end"
+   ]
+  },
+  "5acee3a29126": {
+   "definition_lines": [
+    742,
+    785
+   ],
+   "string_line": 780,
+   "format_call": "782: tformat(t.getStack(self, t), t.getRes(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "753: callbackOnKill = function(self, t, target, death_note)",
+    "754: if not target.x or not self.x or not death_note or not death_note.damtype or death_note.damtype == DamageType.FIRE then return end",
+    "755: self:setEffect(self.EFF_BLACKICE, 20, {max_stacks=t.getStack(self, t)})",
+    "758: if not self:hasEffect(self.EFF_BLACKICE) then return false end",
+    "763: if not eff then return end",
+    "767: if not x or not y then return nil end",
+    "771: if not target then return end",
+    "774: if eff.stacks <= 0 then self:removeEffect(self.EFF_BLACKICE) end",
+    "776: target:setEffect(target.EFF_BLACKICE_DET, 7, {apply_power=self:combatSpellpower(), power=t.getRes(self, t)})"
+   ]
+  },
+  "3f60ad4658b1": {
+   "definition_lines": [
+    853,
+    872
+   ],
+   "string_line": 867,
+   "format_call": "869: tformat(self:getTalentLevelRaw(t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "858: callbackOnBlock = function(self, t, eff, dam, type, src)",
+    "859: if not src.setEffect then return end",
+    "860: if self.turn_procs.demon_seed_hexed_shield then return end",
+    "864: self:forceUseTalent(tid, {ignore_energy=true, ignore_ressources=true, force_level=self:getTalentLevelRaw(t), force_target=src, ignore_cd=true})",
+    "869: tformat(self:getTalentLevelRaw(t))"
+   ]
+  },
+  "ad78431072ae": {
+   "definition_lines": [
+    873,
+    892
+   ],
+   "string_line": 887,
+   "format_call": "889: tformat(t:_getChance(self), self:getTalentLevelRaw(t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "879: callbackOnMeleeAttack = function(self, t, target, hitted)",
+    "880: if not rng.percent(t:_getChance(self)) then return end",
+    "881: if self.turn_procs.demon_seed_cursed_arm then return end",
+    "884: self:forceUseTalent(tid, {ignore_energy=true, ignore_ressources=true, force_level=self:getTalentLevelRaw(t), force_target=target, ignore_cd=true})",
+    "889: tformat(t:_getChance(self), self:getTalentLevelRaw(t))"
+   ]
+  },
+  "76df435191e9": {
+   "definition_lines": [
+    979,
+    1017
+   ],
+   "string_line": 1011,
+   "format_call": "1014: ]]):tformat(self:getTalentRadius(t), damDesc(self, DamageType.FETID, t.getDamage(self, t)))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "993: callbackOnMeleeAttack = function(self, t, target, hitted)",
+    "994: if not hitted or not target.x then return end",
+    "995: if not rng.percent(10) then return end",
+    "997: self:project(tg, target.x, target.y, DamageType.FETID, self:spellCrit(t.getDamage(self, t)))",
+    "1004: if not x or not y then return nil end",
+    "1005: self:project(tg, x, y, DamageType.FETID, self:spellCrit(t.getDamage(self, t)))"
+   ]
+  },
+  "a06d73fcc4d9": {
+   "definition_lines": [
+    1218,
+    1246
+   ],
+   "string_line": 1239,
+   "format_call": "1243: tformat(t:_getChance(self), t:_getDur(self), t:_getDamage(self), t:_getDiseasePower(self))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1227: callbackOnTakeDamage = function(self, t, src, x, y, type, dam, state)",
+    "1228: if not rng.percent(t:_getChance(self)) then return end",
+    "1229: if self.turn_procs.demon_seed_diseased_body then return end",
+    "1231: if src.canBe and src:canBe(\"disease\") then",
+    "1235: src:setEffect(disease[1], t:_getDur(self), {src=self, dam=t:_getDamage(self), [disease[2]]=t.getDiseasePower(self, t), apply_power=self:combatSpellpower()})"
+   ]
+  },
+  "2467eee1ae71": {
+   "definition_lines": [
+    22,
+    45
+   ],
+   "string_line": 41,
+   "format_call": "42: Additionally, you gain %d%% chance to critically strike with your melee attacks.]]):tformat(t.getSlow(self, t), t.getAcc(self, t), t.getDuration(self, t), t.statBonus(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "35: callbackOnMeleeAttack = function(self, t, target, hitted, crit)",
+    "36: if not hitted or not crit then return end",
+    "37: target:setEffect(target.EFF_DISABLE, t.getDuration(self, t), {speed=t.getSlow(self, t)/100, atk=t.getAcc(self, t),apply_power=self:combatPhysicalpower()})"
+   ]
+  },
+  "d6a83ab9c14e": {
+   "definition_lines": [
+    22,
+    62
+   ],
+   "string_line": 56,
+   "format_call": "59: tformat(dam, mult)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "31: callbackOnKill = function(self, t, target)",
+    "32: if self:isTalentCoolingDown(t) then return end",
+    "37: if e.subtype.fire and p.power and e.status == \"detrimental\" then is_burning = true\tend",
+    "40: if is_burning then",
+    "41: self:setEffect(self.EFF_RAGING_FLAMES, 6, {power=t.getMult(self, t)})",
+    "46: if targ and targ ~= target and self:reactionToward(targ) < 0 then tgts[#tgts+1] = targ end",
+    "48: if #tgts > 0 then"
+   ]
+  },
+  "32ba2daafe58": {
+   "definition_lines": [
+    63,
+    100
+   ],
+   "string_line": 95,
+   "format_call": "97: tformat(self:getShieldDuration(t.getDur(self, t)), self:getShieldAmount(t.getBaseShield(self, t)), t.getRange(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "75: self:project(tg, self.x, self.y, function(px, py)",
+    "77: if not target then return end",
+    "81: if e.subtype.fire and p.power and e.status == \"detrimental\" then",
+    "87: target:removeEffect(d.id)",
+    "91: self:setEffect(self.EFF_FIRE_SHIELD, t.getDur(self, t), {power=shieldboost, radius = t.getRange(self, t), src=self})"
+   ]
+  },
+  "26f24ff54c72": {
+   "definition_lines": [
+    140,
+    187
+   ],
+   "string_line": 181,
+   "format_call": "185: :tformat(100 * self:combatTalentWeaponDamage(t, 1, 2, self:getTalentLevel(self.T_SHIELD_EXPERTISE)), t.getHeal(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "157: if not shield then return nil end",
+    "161: if not x or not y or not target then return nil end",
+    "162: if core.fov.distance(self.x, self.y, x, y) > 1 then return nil end",
+    "164: local speed, hit, dam = self:attackTargetWith(target, shield.special_combat, nil, self:combatTalentWeaponDamage(t, 1, 2, self:getTalentLevel(self.T_SHIELD_EXPERTISE)))",
+    "166: if hit and dam then",
+    "167: if target:canBe(\"cut\") then",
+    "168: target:setEffect(target.EFF_DEMONIC_CUT, 5, {apply_power=self:combatSpellpower(), src=self, heal=t.getHeal(self, t), dam=dam * 0.5 / 5})",
+    "172: if target.dead then",
+    "185: :tformat(100 * self:combatTalentWeaponDamage(t, 1, 2, self:getTalentLevel(self.T_SHIELD_EXPERTISE)), t.getHeal(self, t))"
+   ]
+  },
+  "a5382a8435c4": {
+   "definition_lines": [
+    133,
+    172
+   ],
+   "string_line": 166,
+   "format_call": "170: tformat(self:getTalentRadius(t), t.getDur(self, t), damDesc(self, DamageType.DARKNESS, t.getDamage(self, t)))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "145: callbackOnKill = function(self, t, target, death_note)",
+    "147: self:project(tg, self.x, self.y, function(px, py)",
+    "149: if not tgt then return end",
+    "150: if rng.percent(50) and tgt:canBe(\"confusion\") then",
+    "151: tgt:setEffect(tgt.EFF_BANE_CONFUSED, t.getDur(self, t), {apply_power=self:combatSpellpower(), src=self, power=50, dam=self:spellCrit(t.getDamage(self, t))})",
+    "152: elseif tgt:canBe(\"blind\") then",
+    "153: tgt:setEffect(tgt.EFF_BANE_BLINDED, t.getDur(self, t), {apply_power=self:combatSpellpower(), src=self, dam=self:spellCrit(t.getDamage(self, t))})"
+   ]
+  },
+  "ef3e8db93e92": {
+   "definition_lines": [
+    22,
+    106
+   ],
+   "string_line": 90,
+   "format_call": "95: tformat(",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "45: if self:attr(\"is_destroyer\") then",
+    "47: elseif self:attr(\"raging_flame_mult\") then",
+    "54: return 5 * self:getTalentLevelRaw(t)",
+    "61: callbackOnMeleeAttack = function(self, t, target, hitted)",
+    "62: if not hitted then return end",
+    "65: if self:attr(\"raging_flame_mult\") then",
+    "69: self:project(tg, target.x, target.y, DamageType.FIREBURN, dam)",
+    "71: if not rng.percent(procchance) then return end",
+    "73: if self:isTalentCoolingDown(t) and not self:attr(\"raging_flame_mult\") then",
+    "75: self:project(tg, target.x, target.y, DamageType.FIREBURN, {dur=t.getDur(self, t), dam=self:spellCrit(dam)})",
+    "80: self:project(tg, target.x, target.y, DamageType.FLAMESHOCK, {dur=t.getDur(self, t), dam=self:spellCrit(dam)})",
+    "83: if not self:attr(\"raging_flame_mult\") then"
+   ]
+  },
+  "cdf5e6e6f815": {
+   "definition_lines": [
+    194,
+    245
+   ],
+   "string_line": 242,
+   "format_call": "243: This can only trigger on any particular target once every 6 turns.]]):tformat(math.min(100, t.getChance(self,t)), t.getExtend(self,t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "213: callbackOnMeleeAttack = function(self, t, target, hitted)",
+    "215: if not tt then return end",
+    "216: if not rng.percent(t.getChance(self,t)) or not hitted or target:attr(\"suffering_immune\") then return end",
+    "221: if e.type ~= \"other\" then",
+    "222: if e.status == \"beneficial\" then",
+    "223: p.dur = p.dur - t.getExtend(self, t)",
+    "225: if p.dur <= 0 then todel[#todel+1] = eff_id end",
+    "226: elseif e.status == \"detrimental\" then",
+    "228: p.dur = p.dur + t.getExtend(self, t)",
+    "232: if affected then",
+    "236: target:removeEffect(table.remove(todel))",
+    "238: target:setEffect(target.EFF_SUFFERING_IMMUNE, 6, {})"
+   ]
+  },
+  "4b37e9da1285": {
+   "definition_lines": [
+    66,
+    89
+   ],
+   "string_line": 69,
+   "format_call": "69: long_desc = function(self, eff) return (\"The target's fire resistance is reduced by %d%%, and the target is highly vulnerable to the flames of the fearscape. When the effect ends, the target will take %d fire damage. This damage will increase by %d%% of all damage taken while under torment\"):tformat(eff.power, eff.finaldam, eff.rate*100) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "74: on_gain = function(self, err) return _t\"#Target# is surrounded by a vile flame!\", _t\"+Fiery Torment\" end,",
+    "75: on_lose = function(self, err) return _t\"The black flame around #Target# dies down\", _t\"-Fiery Torment\" end,",
+    "81: eff.src:project({type=\"hit\", x=self.x, y=self.y}, self.x, self.y, DamageType.FIRE, eff.finaldam, nil)",
+    "84: callbackOnHit = function(self, eff, cb)"
+   ]
+  },
+  "349f3afba865": {
+   "definition_lines": [
+    388,
+    469
+   ],
+   "string_line": 391,
+   "format_call": "391: long_desc = function(self, eff) return (\"The target is surrounded by a magical shield, absorbing %d/%d damage before it crumbles and dealing %d damage in a radius of %d when it does.\"):tformat(self.fiery_aegis_damage_shield_absorb, eff.power, eff.power, eff.radius) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "396: on_gain = function(self, err) return _t\"A shield forms around #target#.\", _t\"+Shield\" end,",
+    "397: on_lose = function(self, err) return _t\"The shield around #target# crumbles.\", _t\"-Shield\" end,",
+    "400: if core.shader.active(4) then",
+    "404: if eff.color then",
+    "412: if eff.particle and eff.particle._shader and eff.particle._shader.shad and src and src.x and src.y then",
+    "419: callbackOnHit = function(self, eff, cb, src)",
+    "423: if src and src.attr and src:attr(\"damage_shield_penetrate\") then",
+    "428: if adjusted_value <= self.fiery_aegis_damage_shield_absorb then",
+    "438: if not self.fiery_aegis_damage_shield_absorb or self.fiery_aegis_damage_shield_absorb <= 0 then",
+    "440: self:removeEffect(self.EFF_FIRE_SHIELD)",
+    "446: self:removeEffect(self.EFF_PSI_DAMAGE_SHIELD)",
+    "448: eff.dur = self:getShieldDuration(eff.dur)",
+    "452: if core.shader.active(4) then",
+    "461: if eff.refid then self:removeTemporaryValue(\"damage_shield_reflect\", eff.refid) end",
+    "465: self:project(tg, self.x, self.y, DamageType.FIREBURN, {dur=3, dam=self:spellCrit(eff.power)})"
+   ]
+  },
+  "fbaab525ef71": {
+   "definition_lines": [
+    500,
+    520
+   ],
+   "string_line": 503,
+   "format_call": "503: long_desc = function(self, eff) return (\"Infected by a demon seed. When it dies the caster has a %d%% chance to get back the matured seed.\"):tformat(eff.chance) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "509: on_gain = function(self, err) return _t\"#Target# is infected by a demon seed!\", _t\"+Demon Seed\" end,",
+    "510: on_lose = function(self, err) return _t\"#Target# is free from the demon seed.\", _t\"-Demon Seed\" end,",
+    "515: callbackOnDeath = function(self, eff)",
+    "516: if not rng.percent(eff.chance) then return end"
+   ]
+  },
+  "ca743d57e541": {
+   "definition_lines": [
+    904,
+    946
+   ],
+   "string_line": 907,
+   "format_call": "907: long_desc = function(self, eff) return (\"Victim is tormented with impending death.  When it dies, it will restore to the source (%s) up to %d times the normal amount of Vim.\"):tformat(eff.src and eff.src:getName():capitalize() or _t\"none\", eff.stacks) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "914: if eff.tmpids then self:tableTemporaryValuesRemove(eff.tmpids) end",
+    "916: if eff.max_reduce > 0 then",
+    "922: old_eff.dur = new_eff.dur",
+    "935: if eff.tmpids then self:tableTemporaryValuesRemove(eff.tmpids) end",
+    "938: on_timeout = function(self, eff) -- remove if the source is no longer available",
+    "939: if not (eff.src and game.level:hasEntity(eff.src)) then self:removeEffect(eff.effect_id) end",
+    "941: callbackOnDeath = function(self, eff)",
+    "942: if not eff.src then return end"
+   ]
+  },
+  "d63abb76d78a": {
+   "definition_lines": [
+    57,
+    93
+   ],
+   "string_line": 87,
+   "format_call": "90: tformat(t.getCutoff(self, t), t.getResist(self, t), t.getMax(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "67: if eff == \"damage\" then",
+    "68: self:setEffect(self.EFF_PUTRESCENT_PUSTULE, 5, {max_stacks=t.getMax(self, t), power=t.getResist(self, t)})",
+    "70: if not eff.is_shed_skin then return end",
+    "71: if not self.damage_shield_absorb then return end",
+    "73: if p >= t.getCutoff(self, t) / 100 then",
+    "74: self:setEffect(self.EFF_PUTRESCENT_PUSTULE, 6, {max_stacks=t.getMax(self, t), power=t.getResist(self, t)})",
+    "79: callbackOnTakeDamage = function(self, t, src, x, y, type, dam, state)",
+    "80: if dam > 0 and state and not self:attr(\"invulnerable\") and dam > self.max_life*0.15 then",
+    "81: if self:knowTalent(self.T_PUSTULENT_GROWTH) then"
+   ]
+  },
+  "8bcfceb6d650": {
+   "definition_lines": [
+    132,
+    161
+   ],
+   "string_line": 155,
+   "format_call": "159: tformat(t.getDam(self, t) * 100, t.getHeal(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "140: callbackOnTakeDamage = function(self, t, src, x, y, type, dam, state)",
+    "141: if not src.hasEffect or not src:hasEffect(src.EFF_DEFILED_BLOOD) then return end",
+    "145: game.level.map:addEffect(self,"
+   ]
+  },
+  "4e5d3ecd947c": {
+   "definition_lines": [
+    296,
+    326
+   ],
+   "string_line": 318,
+   "format_call": "323: tformat(t.getCrit(self,t), t.getSpikeDamage(self,t)*100, t.getPin(self, t), damDesc(self, DamageType.TEMPORAL, t.getRiftDamage(self,t)), t.getRiftRadius(self,t), t.getSpatialDuration(self,t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "308: callbackOnTalentPost = function(self, t, ab)",
+    "309: if ab.type[1]:find(\"^demented/\") and not ab.no_energy then",
+    "310: if self.turn_procs.halo_of_ruin then return end",
+    "311: if not self.in_combat then return end",
+    "313: self:setEffect(self.EFF_HALO_OF_RUIN, 10, {power=crit, charges=1, max_charges=5})"
+   ]
+  },
+  "27acfba3a801": {
+   "definition_lines": [
+    146,
+    179
+   ],
+   "string_line": 174,
+   "format_call": "176: tformat(damDesc(self, DamageType.DARKNESS, damage))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "163: if not x or not y then return nil end",
+    "165: self:project(tg, x, y, DamageType.DIG, 1)",
+    "166: self:project(tg, x, y, DamageType.DARKNESS, self:spellCrit(t.getDamage(self, t)), nil)"
+   ]
+  },
+  "b2c7a0e5986f": {
+   "definition_lines": [
+    300,
+    330
+   ],
+   "string_line": 325,
+   "format_call": "327: tformat(self:getTalentCooldown(t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "307: callbackOnTakeDamage = function(self, t, src, x, y, type, dam, state)",
+    "308: if self:isTalentCoolingDown(self.T_FUEL_PAIN) then return end",
+    "309: if dam < self.max_life * 0.2 then return end",
+    "313: if t and t.is_inscription then",
+    "317: if #list > 0 then",
+    "321: self:removeEffect(self.EFF_INFUSION_COOLDOWN)"
+   ]
+  },
+  "c23187962a04": {
+   "definition_lines": [
+    993,
+    1054
+   ],
+   "string_line": 996,
+   "format_call": "996: long_desc = function(self, eff) return (\"The target is doomed to treason. Each turn they have a %d%% chance to attack an adjacent creature.  If no creatures are adjacent they will attack themself.\"):tformat(eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1000: on_gain = function(self, err) return _t\"#Target# is doomed to treason!\", _t\"+Prophecy of Treason\" end,",
+    "1001: on_lose = function(self, err) return _t\"#Target# is free from the prophecy.\", _t\"-Prophecy of Treason\" end,",
+    "1004: if not eff.twofold then",
+    "1005: if self:hasEffect(self.EFF_PROPHECY_OF_MADNESS) then self:removeEffect(self.EFF_PROPHECY_OF_MADNESS) end",
+    "1006: if self:hasEffect(self.EFF_PROPHECY_OF_RUIN) then self:removeEffect(self.EFF_PROPHECY_OF_RUIN) end",
+    "1008: if core.shader.active() then",
+    "1015: callbackOnAct = function(self, eff)",
+    "1016: if not self:enoughEnergy() then return nil end",
+    "1019: if not eff.timer then",
+    "1022: if not self:checkHit(eff.src:combatSpellpower(), self:combatSpellResist(), 0, 95, 5) then",
+    "1028: if eff.timer > 100 then",
+    "1036: if (self.x ~= x or self.y ~= y) then",
+    "1038: if target and not target.dead then",
+    "1046: if not hit then"
+   ]
+  },
+  "1181163f8c58": {
+   "definition_lines": [
+    1055,
+    1094
+   ],
+   "string_line": 1058,
+   "format_call": "1058: long_desc = function(self, eff) return (\"When this target is damaged %d%% of the damage will also be done to the source of this effect.\"):tformat(eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1063: on_gain = function(self, err) return _t\"#Target# is linked through the prophecy.\", _t\"+Mark of Treason\" end,",
+    "1064: on_lose = function(self, err) return _t\"#Target# prophetic link disappears.\", _t\"-Mark of Treason\" end,",
+    "1065: callbackOnHit = function(self, eff, cb, src)",
+    "1066: if value.value <= 0 then return end",
+    "1067: if eff.source.dead then return end",
+    "1075: callbackOnMove = function(self, eff)",
+    "1077: if not eff.source.dead then",
+    "1081: callbackOnAct = function(self, eff)",
+    "1083: if not eff.source.dead then"
+   ]
+  },
+  "96a6fc573aec": {
+   "definition_lines": [
+    1395,
+    1444
+   ],
+   "string_line": 1398,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1404: on_gain = function(self, err) return _t\"#Target# is removed from time!\", _t\"+Suspend\" end,",
+    "1405: on_lose = function(self, err) return _t\"#Target# is returned to normal time.\", _t\"-Suspend\" end,",
+    "1410: eff.imid = self:addTemporaryValue(\"status_effect_immune\", 1)",
+    "1411: if core.shader.active(4) then",
+    "1424: self:removeTemporaryValue(\"status_effect_immune\", eff.imid)",
+    "1425: if eff.particle1 then self:removeParticles(eff.particle1) end",
+    "1426: if eff.particle2 then self:removeParticles(eff.particle2) end",
+    "1431: if not e.tick_on_timeless then",
+    "1432: if e.status == \"beneficial\" then",
+    "1433: p.dur = p.dur - eff.power",
+    "1434: if p.dur <= 0 then todel[#todel+1] = eff_id end",
+    "1439: self:removeEffect(table.remove(todel))"
+   ]
+  },
+  "eed764c39c22": {
+   "definition_lines": [
+    1706,
+    1756
+   ],
+   "string_line": 1709,
+   "format_call": "1709: long_desc = function(self, eff) return (\"The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.\"):tformat(eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1714: on_gain = function(self, err) return _t\"#Target# intertwines it's fate!\" end,",
+    "1715: on_lose = function(self, err) return _t\"#Target#'s fate is no longer linked to another.\" end,",
+    "1716: callbackOnHit = function(self, eff, cb, src)",
+    "1717: if cb.value >= (self.life - self.die_at) then",
+    "1719: if not target then return end",
+    "1721: if self:hasEffect(self.EFF_FORTUNE) then",
+    "1724: self:removeEffect(self.EFF_FORTUNE)",
+    "1726: if target:hasEffect(target.EFF_JINX) then",
+    "1729: target:removeEffect(target.EFF_JINX)",
+    "1731: if heal > 0 then",
+    "1737: self:removeEffect(self.EFF_FATEBREAKER)",
+    "1738: self:setEffect(self.EFF_FATEBREAKER_TEMP, 1, {src=self, target=eff.target})",
+    "1748: on_timeout = function(self, eff)",
+    "1750: if core.fov.distance(self.x, self.y, target.x, target.y) >= 20 or target.dead or not game.level:hasEntity(target) then return true end"
+   ]
+  },
+  "ba9ceebffa00": {
+   "definition_lines": [
+    1979,
+    2018
+   ],
+   "string_line": 1982,
+   "format_call": "1982: long_desc = function(self, eff) return (\"True power is revealed!\\n\\nAll debuffs removed and all talent cooldowns reset on application.\\n\\nEach turn a radius 2 explosion will occur in a random space dealing %0.2f darkness and temporal damage and destroying any diggable walls.\"):tformat(self:getStat(\"mag\") * 5 / 2) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1991: self:removeEffectsFilter(self, function(eff)",
+    "1992: if eff.status == \"detrimental\" and eff.type ~= \"other\" then return true end",
+    "1996: on_timeout = function(self, eff)",
+    "1998: if not tx then return end",
+    "2001: self:project({type=\"ball\", range=10, radius=3}, tx, ty, function(px, py) list[#list+1] = {x=px, y=py} end)",
+    "2002: if #list == 0 then return end",
+    "2005: if not spot or not spot.x then return end",
+    "2006: self:project({type=\"ball\", x=spot.x, y=spot.y, radius=2, selffire=false, friendlyfire=false}, spot.x, spot.y, DamageType.VOID, self:getStat(\"mag\") * 5)",
+    "2007: self:project({type=\"ball\", x=spot.x, y=spot.y, radius=2}, spot.x, spot.y, DamageType.DIG, 1)"
+   ]
+  },
+  "f91fbf3317d3": {
+   "definition_lines": [
+    2019,
+    2044
+   ],
+   "string_line": 2022,
+   "format_call": "2022: long_desc = function(self, eff) return (\"Your body can not function properly here, it is slowly wasting away. Each turn you take %0.2f void damage and any new debuff on you lasts %d%% longer. Each turn those penalties increase until the effect is removed.\"):tformat(eff.dam, eff.debuffdur) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2031: on_timeout = function(self, eff, e)",
+    "2038: callbackOnTemporaryEffect = function(self, eff, eff_id, e, p)",
+    "2039: if e.status ~= \"detrimental\" then return end",
+    "2040: if e.type == \"other\" then return end",
+    "2041: p.dur = p.dur + math.ceil(p.dur * eff.debuffdur / 100)"
+   ]
+  },
+  "46b7a1753596": {
+   "definition_lines": [
+    2064,
+    2077
+   ],
+   "string_line": 2067,
+   "format_call": "2067: long_desc = function(self, eff) return (\"Reduces all damage taken by %d%% and remove all detrimental effects on application.\"):tformat(eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2074: self:removeEffectsFilter(self, {status=\"detrimental\"}, 999)"
+   ]
+  },
+  "a57b427d6d93": {
+   "definition_lines": [
+    143,
+    201
+   ],
+   "string_line": 196,
+   "format_call": "197: tformat(delay, radius, damDesc(self, DamageType.LIGHT, damage))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "153: radius = function (self, t) return 2 end,--1 + math.floor(math.sqrt(1.25 * self:getTalentLevel(t) + 1)) end,",
+    "162: if not x or not y then return nil end",
+    "169: local map_eff = game.level.map:addEffect(self, x, y, duration, DamageType.NULL_TYPE,",
+    "174: if not update_shape_only and e.duration == 1 then",
+    "178: local grids = e.src:project(aoe, e.x, e.y, DamageType.LITE_LIGHT, e.dam.dam)"
+   ]
+  },
+  "69778b48830d": {
+   "definition_lines": [
+    22,
+    108
+   ],
+   "string_line": 103,
+   "format_call": "104: tformat(damage * 2.5, radius, damage, damage * 2.5)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "36: if (typ.pass_terrain or game.level.map:checkEntity(lx, ly, engine.Map.TERRAIN, \"pass_projectile\")) then",
+    "39: if not typ.friendlyblock and typ.source_actor and typ.source_actor.reactionToward then",
+    "41: if a and typ.source_actor:reactionToward(a) > 0 then",
+    "51: if not x or not y then return nil end",
+    "60: if game.level.map(rx, ry, engine.Map.ACTOR) then",
+    "66: local grids = self:project(tg, rx, ry, function() end)",
+    "73: local theoretical_grids = self:project(tg, rx, ry, function() end)",
+    "74: if theoretical_grids then for px, ys in pairs(theoretical_grids or {}) do for py, _ in pairs(ys) do theoretical_nb = theoretical_nb + 1 end end end",
+    "75: if grids then for px, ys in pairs(grids or {}) do for py, _ in pairs(ys) do nb = nb + 1 end end end",
+    "77: if theoretical_nb == 0 then dammult = 1",
+    "80: if grids then for px, ys in pairs(grids or {}) do for py, _ in pairs(ys) do DamageType:get(DamageType.DARKNESS).projector(self, px, py, DamageType.DARKNESS, tg.damage * dammult, nil, nil) end end end",
+    "93: if not proj then --i.e. the projectile finished"
+   ]
+  },
+  "2fc5ed69f0f3": {
+   "definition_lines": [
+    23,
+    64
+   ],
+   "string_line": 56,
+   "format_call": "61: tformat(duration)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "40: if not x or not y then return nil end",
+    "41: self:project(tg, x, y, function(tx, ty)",
+    "43: if not target then return end",
+    "45: if target:canBe(\"stun\") then",
+    "46: target:setEffect(target.EFF_STUNNED, t.getDuration(self, t), {apply_power=self:combatPhysicalpower()})"
+   ]
+  },
+  "2a1d375f7cd1": {
+   "definition_lines": [
+    77,
+    106
+   ],
+   "string_line": 102,
+   "format_call": "103: The daze chance increases with your Steampower.]]):tformat(100 * self:combatTalentWeaponDamage(t, 1, 1.8), t.getDur(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "87: getDur = function(self, t) return math.floor(2 + self:getTalentLevel(t)) end,",
+    "89: if target:canBe(\"stun\") then",
+    "90: game:onTickEnd(function() target:setEffect(target.EFF_DAZED, t.getDur(self, t), {apply_power=self:combatSteampower()}) end)",
+    "97: if not targets then return end"
+   ]
+  },
+  "2f26ce108289": {
+   "definition_lines": [
+    128,
+    151
+   ],
+   "string_line": 145,
+   "format_call": "148: :tformat(t.statBonus(self, t), self:getTalentLevelRaw(t) + (self.DM_Bonus or 0))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "135: getMaxDamage = function(self, t) return math.max(50, 100 - self:getTalentLevelRaw(t) * 10) end,",
+    "140: callbackOnMove = function(self, t, moved, force, ox, oy, x, y)",
+    "141: if not moved or force or (ox == self.x and oy == self.y) then return end",
+    "142: self:setEffect(self.EFF_DEATH_MOMENTUM, 2, {max_stacks=self:getTalentLevelRaw(t) + (self.DM_Bonus or 0)})",
+    "148: :tformat(t.statBonus(self, t), self:getTalentLevelRaw(t) + (self.DM_Bonus or 0))"
+   ]
+  },
+  "8932495d5c09": {
+   "definition_lines": [
+    20,
+    58
+   ],
+   "string_line": 51,
+   "format_call": "55: tformat(t.getMind(self, t), t.getSteam(self, t), t.getPsi(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "32: callbackOnTalentPost = function(self, t, ab, ret, silent)",
+    "33: if ab.is_mind then",
+    "34: game:onTickEnd(function() self:setEffect(self.EFF_GESTALT_STEAM, 1, {power=t.getSteam(self, t)}) end)",
+    "36: if ab.is_steam then",
+    "39: if (ab.is_steam or ab._trigger_improved_gestalt) and self:knowTalent(self.T_IMPROVED_GESTALT) and not self:isTalentCoolingDown(self.T_IMPROVED_GESTALT) then",
+    "40: self:setEffect(self.EFF_PSI_DAMAGE_SHIELD, 3, {shield_transparency=0.4, power=self:callTalent(self.T_IMPROVED_GESTALT, \"getShieldPower\")})"
+   ]
+  },
+  "b8020c826f96": {
+   "definition_lines": [
+    75,
+    121
+   ],
+   "string_line": 115,
+   "format_call": "118: This talent requires Gestalt to be active and either an active psionic damage shield or Improved Gestalt off cooldown.]]):tformat(t.getPower(self, t), t.getPsi(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "88: if not self:isTalentActive(self.T_GESTALT) or (not self:hasEffect(self.EFF_PSI_DAMAGE_SHIELD) and self:isTalentCoolingDown(self.T_IMPROVED_GESTALT)) then",
+    "89: if not silent then game.logPlayer(self, \"You must have either a psionic damage shield active or Improved Gestalt available to use this talent.\") end",
+    "95: if not self:isTalentActive(self.T_GESTALT) then return end",
+    "98: if not eff then",
+    "99: if not self:isTalentCoolingDown(self.T_IMPROVED_GESTALT) then -- trigger improved gestalt",
+    "100: self:callTalent(self.T_GESTALT, \"callbackOnTalentPost\", t, nil, true)",
+    "105: if eff then",
+    "106: eff.dur = eff.dur + 3"
+   ]
+  },
+  "ca7f8f568c0b": {
+   "definition_lines": [
+    22,
+    115
+   ],
+   "string_line": 107,
+   "format_call": "112: tformat(t.getMaxCharge(self, t), damDesc(self, DamageType.FIRE, damage))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "43: callbackOnRest = function(self, t) game:onTickEnd(function() local p = self:isTalentActive(t.id) if p then p.cancel = true self:forceUseTalent(t.id, {ignore_cooldown=true, ignore_energy=true}) end end",
+    "44: callbackOnRun = function(self, t) game:onTickEnd(function() local p = self:isTalentActive(t.id) if p then p.cancel = true self:forceUseTalent(t.id, {ignore_cooldown=true, ignore_energy=true}) end end)",
+    "45: callbackOnChangeLevel = function(self, t, what, zone, level) if what == \"leave\" then local p = self:isTalentActive(t.id) if p then p.cancel = true self:forceUseTalent(t.id, {ignore_cooldown=true, igno",
+    "46: callbackOnActBase = function(self, t)",
+    "52: if val <= 0 then return \"\" end",
+    "59: if not x or not y then return nil end",
+    "75: if self:attr(\"save_cleanup\") then return true end",
+    "77: if game.level.map(p.x, p.y, Map.ACTOR) then p.cancel = true end",
+    "78: if not self:hasLOS(p.x, p.y) then p.cancel = true end",
+    "80: if not p.cancel then",
+    "89: self:project(tg, ox, oy, function(px, py)",
+    "91: if not target then return end",
+    "93: target:setEffect(target.EFF_WET, 4, {apply_power=self:combatMindpower()})",
+    "100: if self:knowTalent(self.T_INHALE_VAPOURS) then self:callTalent(self.T_INHALE_VAPOURS, \"onVaporousStep\", p.charge) end"
+   ]
+  },
+  "a1e44354da8d": {
+   "definition_lines": [
+    196,
+    226
+   ],
+   "string_line": 221,
+   "format_call": "224: tformat()",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "203: callbackOnHit = function(self, t, cb, src, death_note)",
+    "204: if not game.level.map or not isOnPsionicFog(game.level.map, self.x, self.y) then return end",
+    "205: if self:isTalentCoolingDown(t) then return end",
+    "206: if self.turn_procs.phase_shift then return end",
+    "210: if nx then"
+   ]
+  },
+  "ddb69318932e": {
+   "definition_lines": [
+    114,
+    383
+   ],
+   "string_line": 372,
+   "format_call": "380: The damage will increase with your Spellpower.]]):tformat(t.getDur(self, t), self:getTalentRange(t), self:getTalentRange(t), damDesc(self, DamageType.GALVANIC, damage))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "126: callbackOnCloned = function(self, t)",
+    "128: if not p then return end",
+    "132: callbackOnChangeLevel = function(self, t, what)",
+    "133: if what ~= \"leave\" then return end",
+    "136: callbackOnActBase = function(self, t)",
+    "141: if not p then return end",
+    "146: if p.zone then",
+    "151: if not p.zone then return end",
+    "153: if p.rods[1].is_weapon_rod then selffire = false end",
+    "155: if not damfct then",
+    "161: if self:getTalentLevel(t) >= 3 and target then target:setEffect(target.EFF_SHOCKED, 1, {apply_power=self:combatSpellpower()}) end",
+    "162: if self:isTalentActive(self.T_HURRICANE) and target then",
+    "163: if rng.percent(15) then self:callTalent(self.T_HURRICANE, \"do_hurricane\", target) end",
+    "168: if p.zone.mode == \"triangle\" then",
+    "180: if p.zone.mode == \"triangle\" then",
+    "181: self:project({type=\"triangle\", tri_points={p.zone.r1, p.zone.r2, p.zone.r3}, tri_src=\"corners\", x=p.zone.center.x, y=p.zone.center.y, selffire=selffire}, p.zone.center.x, p.zone.center.y, damfct)",
+    "183: self:project({type=\"beam\", x=p.zone.r2.x+p.zone.center.x, y=p.zone.r2.y+p.zone.center.y, selffire=selffire, range=10}, p.zone.center.x, p.zone.center.y, damfct)",
+    "188: if p.zone then",
+    "189: if p.zone.mode == \"triangle\" and p.zone.r1.x == r1.x and p.zone.r1.y == r1.y and p.zone.r2.x == r2.x and p.zone.r2.y == r2.y and p.zone.r3.x == r3.x and p.zone.r3.y == r3.y then",
+    "190: if turns ~= 0 then t.doDamage(self, t, p) end",
+    "199: if not self:hasLOS(r2.x, r2.y, \"block_sight\", range, r1.x, r1.y) or",
+    "223: if turns ~= 0 then t.doDamage(self, t, p) end",
+    "226: if p.zone then",
+    "227: if p.zone.mode == \"line\" and p.zone.r1.x == r1.x and p.zone.r1.y == r1.y and p.zone.r2.x == r2.x and p.zone.r2.y == r2.y then",
+    "228: if turns ~= 0 then t.doDamage(self, t, p) end",
+    "237: if not self:hasLOS(r2.x, r2.y, \"block_sight\", range, r1.x, r1.y) then",
+    "256: if turns ~= 0 then t.doDamage(self, t, p) end",
+    "260: if not p then return end",
+    "264: rod.dur = rod.dur + turns",
+    "265: if rod.dur <= 0 or rod.is_weapon_rod then",
+    "272: if self:getTalentLevel(t) >= 5 then",
+    "274: if (weapon and weapon.metallic) or (weapon and weapon.tinker and weapon.tinker.metallic) then",
+    "275: if #p.rods < 3 then",
+    "278: if p.rods[1].is_weapon_rod then",
+    "290: if i ~= j and rod.x == rod2.x and rod.y == rod2.y then",
+    "291: if rod.is_weapon_rod then",
+    "293: elseif rod2.is_weapon_rod then",
+    "295: elseif rod.dur < rod2.dur then",
+    "303: if next(todel) then",
+    "312: if #p.rods == 3 then"
+   ]
+  },
+  "90006e0ccda8": {
+   "definition_lines": [
+    384,
+    438
+   ],
+   "string_line": 432,
+   "format_call": "435: The damage will increase with your Spellpower.]]):tformat(damDesc(self, DamageType.GALVANIC, damage), t.getDur(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "398: if not self:knowTalent(self.T_TINKER_ARCANE_DYNAMO) then if not silent then game.logPlayer(self, \"You need an arcane dynamo to cast this spell.\") end return false end",
+    "400: if not p or #p.rods == 0 or p.rods[#p.rods].is_weapon_rod then if not silent then game.logPlayer(self, \"You need Galvanic Arcing active and at least one rod to cast this spell.\") end return false end",
+    "405: if not p then return nil end",
+    "412: if target and target:canBe(\"stun\") then target:setEffect(target.EFF_STUNNED, t.getDur(self, t), {apply_power=self:combatSpellpower()}) end",
+    "413: if self:attr(\"burning_wake\") then",
+    "414: game.level.map:addEffect(self, px, py, 4, DamageType.INFERNO, self:attr(\"burning_wake\"), 0, 5, nil, {type=\"inferno\"}, nil, self:spellFriendlyFire())",
+    "418: if #p.rods == 1 then",
+    "419: self:project({type=\"ball\", radius=1, range=10}, p.rods[1].x, p.rods[1].y, damfct)",
+    "421: elseif #p.rods >= 2 then"
+   ]
+  },
+  "dbd1dc2f1a98": {
+   "definition_lines": [
+    20,
+    117
+   ],
+   "string_line": 106,
+   "format_call": "114: ]]):tformat(t.getSpellpower(self, t, 5), t.getSpellCrit(self, t, 5), t.getRegen(self, t, 5), t.getRetaliationDamage(self, t) * 100, t.getPercentInc(self, t) * 100)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "37: getPercentInc = function(self, t) return math.sqrt(self:getTalentLevel(t) / 5) / 1.5 end,",
+    "42: callbackOnMeleeHit = function(self, t, src, dam)",
+    "44: if not p then return end",
+    "46: if src.turn_procs.metatemporal_spinner_retaliate or not weapon or dam <= 0 then return end",
+    "53: on_pre_use = function(self, t, silent) if not self:knowTalent(self.T_TINKER_ARCANE_DYNAMO) then if not silent then game.logPlayer(self, \"You need an arcane dynamo to cast this spell.\") end return fals",
+    "59: if not ret then return nil end",
+    "70: if o.wielder and o.wielder.learn_talent and o.wielder.learn_talent.T_BLOCK then",
+    "75: if oldblock then",
+    "79: if core.shader.active() then",
+    "88: if p.particle1 then self:removeParticles(p.particle1) end",
+    "89: if p.particle2 then self:removeParticles(p.particle2) end",
+    "93: if o.wielder and o.wielder.learn_talent and o.wielder.learn_talent.T_BLOCK then",
+    "98: if oldblock then"
+   ]
+  },
+  "6740020a8667": {
+   "definition_lines": [
+    20,
+    79
+   ],
+   "string_line": 67,
+   "format_call": "70: The damage will increase with your Spellpower.]]):tformat(damage)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "33: callbackOnTalentPost = function(self, t, ab)",
+    "34: if ab.is_technomancy and ab.id ~= t.id then",
+    "41: if not self:knowTalent(self.T_TINKER_ARCANE_DYNAMO) then if not silent then game.logPlayer(self, \"You need an arcane dynamo to cast this spell.\") end return false end",
+    "42: if not self.can_use_electron_incantation then if not silent then game.logPlayer(self, \"You can only cast this spell after casting an other technomancy spell.\") end return false end",
+    "46: if not self.can_use_electron_incantation then return end",
+    "50: if s_ab.type[1] == \"spell/galvanic-technomancy\" then damtype = DamageType.GALVANIC",
+    "51: elseif s_ab.type[1] == \"spell/terrene-technomancy\" then damtype = DamageType.TERRENE",
+    "54: self:setEffect(self.EFF_ELECTRON_INCANTATION, 4, {power=4})",
+    "57: self:project(tg, self.x, self.y, damtype, self:spellCrit(t.getDamage(self, t)))",
+    "75: if self:knowTalent(self.T_TINKER_ARCANE_DYNAMO) then",
+    "77: data.image:learnTalent(self.T_TINKER_ARCANE_DYNAMO, true, self:getTalentLevelRaw(self.T_TINKER_ARCANE_DYNAMO))"
+   ]
+  },
+  "d543c8fc0b05": {
+   "definition_lines": [
+    20,
+    207
+   ],
+   "string_line": 195,
+   "format_call": "204: You have currently %d spiderbot(s) up.]]):tformat(t.getNbBots(self, t), damDesc(self, DamageType.TERRENE, damage), range, t.getMaxBots(self, t), t.getDur(self, t), self.micro_spiderbots_store and #self.micro_spiderbots_store.bots or 0)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "37: on_pre_use = function(self, t, silent) if not self:knowTalent(self.T_TINKER_ARCANE_DYNAMO) then if not silent then game.logPlayer(self, \"You need an arcane dynamo to cast this spell.\") end return fals",
+    "41: callbackOnCloned = function(self, t)",
+    "45: callbackOnChangeLevel = function(self, t, what)",
+    "46: if what ~= \"leave\" then return end",
+    "49: callbackOnActBase = function(self, t)",
+    "54: if do_digs and self:isTalentActive(self.T_CRYOGENIC_DIGS) then",
+    "60: if not p then return end",
+    "62: if tbot == bot then",
+    "70: if not p then return end",
+    "98: if not target or self:reactionToward(target) >= 0 or nb_bots > 1 then",
+    "103: if nb_bots == 1 then for target, _ in pairs(tgts) do",
+    "104: if target.uid == bot.last_uid_target then",
+    "111: if not tx then",
+    "116: if pdist < range then",
+    "121: if #possibles > 0 then",
+    "127: if tx then t.moveBot(self, t, bot, tx, ty) end",
+    "132: if target and self:reactionToward(target) < 0 then",
+    "140: if target.x and self:hasLOS(target.x, target.y) then",
+    "142: if rng.percent(25) and target:canBe(\"pin\") and not target:attr(\"fly\") and not target:attr(\"levitation\") then",
+    "143: target:setEffect(target.EFF_FROZEN_FEET, 5, {apply_power=self:combatSpellpower()})",
+    "151: if not p then return end",
+    "155: bot.dur = bot.dur + turns",
+    "156: if bot.dur <= 0 then",
+    "162: if turns ~= 0 then t.doDamage(self, t, p) end",
+    "166: if not p then return end",
+    "181: if not x or not y then return nil end"
+   ]
+  },
+  "5e1f91bf1774": {
+   "definition_lines": [
+    56,
+    96
+   ],
+   "string_line": 90,
+   "format_call": "93: tformat(damDesc(self, DamageType.PHYSICAL, t.getDamP(self, t)), damDesc(self, DamageType.FIRE, t.getDamF(self, t)), t.range(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "72: if not x or not y then return nil end",
+    "74: self:project(tg, x, y, function(px, py)",
+    "76: if not target then return end",
+    "82: if not target:canBe(\"silence\") then silence = false end",
+    "84: target:setEffect(target.EFF_EXPLOSIVE_WOUND, 4, {src=self, apply_power=self:combatSteampower(), power=dam, power_final=dam_final, silence=silence, range = t.range(self, t)})"
+   ]
+  },
+  "74e77ba22bc3": {
+   "definition_lines": [
+    54,
+    116
+   ],
+   "string_line": 109,
+   "format_call": "112: ]]):tformat(damDesc(self, DamageType.PHYSICAL, t.getDamage(self, t)))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "72: if not x or not y then return nil end",
+    "75: if not target then return nil end",
+    "90: src:project({type=\"ball\", radius=3, x=self.x, y=self.y}, self.x, self.y, function(px, py)",
+    "92: if (px ~= self.x or py ~= self.y) and tgt and src:reactionToward(tgt) < 0 then tgts[#tgts+1] = {tgt=tgt, dist=core.fov.distance(self.x, self.y, px, py)} end",
+    "94: if #tgts == 0 then return end"
+   ]
+  },
+  "031d1556e662": {
+   "definition_lines": [
+    117,
+    173
+   ],
+   "string_line": 168,
+   "format_call": "170: tformat(t.getResist(self, t))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "137: if not x or not y then return nil end",
+    "138: self:project(tg, x, y, function(px, py)",
+    "140: if not target or self:reactionToward(target) >= 0 then return end",
+    "141: if target:canBe(\"pin\") then",
+    "142: target:setEffect(target.EFF_NET_PROJECTOR, 5, {apply_power=self:combatSteampower(), power=t.getResist(self, t)})",
+    "148: if core.shader.active(4) then"
+   ]
+  },
+  "15ebbd16e594": {
+   "definition_lines": [
+    23,
+    108
+   ],
+   "string_line": 100,
+   "format_call": "105: :tformat(self:getTalentRadius(t), damDesc(self, DamageType.FIRE, t.getDamage(self, t)))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "37: if not tx or not ty then return nil end",
+    "39: if game.level.map:checkEntity(tx, ty, Map.TERRAIN, \"block_move\") then return end",
+    "41: if trap then return end",
+    "62: if self.temporary <= 0 then",
+    "64: self.summoner:project({type=\"ball\", radius=self.radius, friendlyfire=false, x=self.x, y=self.y}, self.x, self.y, function(px, py)",
+    "66: if not target then return end",
+    "68: if #target:effectsFilter({subtype={bleed=1}}, 1) > 0 then",
+    "75: if self.summoner:knowTalent(self.summoner.T_LINGERING_CLOUD) then",
+    "76: game.level.map:addEffect(self.summoner,",
+    "86: if game.level.map(self.x, self.y, engine.Map.TRAP) == self then game.level.map:remove(self.x, self.y, engine.Map.TRAP) end"
+   ]
+  },
+  "79d68b2db473": {
+   "definition_lines": [
+    20,
+    95
+   ],
+   "string_line": 87,
+   "format_call": "92: tformat(t.getSpeed(self, t), self:combatTalentWeaponDamage(t, 1, 2) * 100)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "34: if val <= 0 then return \"\" end",
+    "37: callbackOnMove = function(self, t, moved, force, ox, oy)",
+    "38: if not moved or force or (ox == self.x and oy == self.y) then return end",
+    "45: if lt and self:reactionToward(lt) < 0 and lt:canBe(\"knockback\") then",
+    "48: if rt and self:reactionToward(rt) < 0 and rt:canBe(\"knockback\") then",
+    "53: if p then",
+    "58: if t.id == bt.id then return end",
+    "68: if self:attr(\"save_cleanup\") then return true end",
+    "69: if self.turn_procs.resetting_talents then return true end",
+    "72: if self:knowTalent(self.T_BATTLEFIELD_VETERAN) then",
+    "75: if p.charges then",
+    "76: self:project({type=\"ball\", selffire=false, radius=1} , self.x, self.y, function(px, py, tg, self)",
+    "78: if target and self:reactionToward(target) < 0 then"
+   ]
+  },
+  "05762c670563": {
+   "definition_lines": [
+    22,
+    63
+   ],
+   "string_line": 54,
+   "format_call": "60: tformat(heal, chance / 5, chance, damDesc(self, DamageType.ACID, dam), rad)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "35: callbackOnTalentPost = function(self, t, ab, ret)",
+    "36: if ab.is_steam and ab.no_energy ~= true then",
+    "37: self:setEffect(self.EFF_MIASMA_ENGINE, 3, {src=self, fail=t.getChance(self,t), radius=3, heal=t.getHealing(self,t), dam=t.getDamage(self,t), stacks=1, max_stacks=t.getMax(self,t)})"
+   ]
+  },
+  "0dae2695dd6c": {
+   "definition_lines": [
+    106,
+    153
+   ],
+   "string_line": 146,
+   "format_call": "150: tformat(reduce, rad, mult, cd)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "112: on_unlearn = function(self, t) if self:hasEffect(self.EFF_REACTIVE_ARMOR) then self:removeEffect(self.EFF_REACTIVE_ARMOR) end end,",
+    "113: cooldown = function(self, t) return math.max(3, math.floor(10-self:getTalentLevel(t))) end,",
+    "117: callbackOnActBase = function(self, t)",
+    "119: if eff and eff.stacks == 3 then return end",
+    "120: if not self:isTalentCoolingDown(t) then",
+    "121: self:setEffect(self.EFF_REACTIVE_ARMOR, 1 ,{src=self, reduce=t.getReduction(self,t), dam=t.getMult(self,t)*self:callTalent(self.T_GRENADE_LAUNCHER,\"getDamage\")/100, rad=self:getTalentRadius(t), stacks",
+    "125: callbackOnBlock = function(self, t, eff, dam, type, src, blocked)",
+    "126: if self.turn_procs.reactive_armor_counterattack then return end",
+    "127: if not src then return end",
+    "128: if not src or src==self or src:attr(\"dead\") or self:reactionToward(src) >= 0 then return end",
+    "129: if src:getEntityKind(src) ~= \"actor\" then return end -- Don't try to hit traps and such",
+    "130: if not src.x or not src.y then return end",
+    "136: if targets then"
+   ]
+  }
+ }
+}
