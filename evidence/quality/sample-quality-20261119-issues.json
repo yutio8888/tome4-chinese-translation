@@ -1,0 +1,231 @@
+{
+  "kind": "sample-quality-findings",
+  "date": "2026-11-19",
+  "baseline_commit": "93f7aadc1648af2bd70ae97f6d5ba43f4f0435e2",
+  "release_version": "0.3.14",
+  "sample_seed": 20261119,
+  "sample_size": 120,
+  "sample_reviewers": [
+    "claude/claude-opus-5-5 (medium): acc=4.93, flu=4.88, ctx=4.96, le3=1, major=0, publishable=yes",
+    "codex/gpt-6.1-sol (medium): acc=4.86, flu=4.57, ctx=4.90, le3=9, major=0, publishable=yes_with_caveats"
+  ],
+  "repair_batch": "0539",
+  "repair_reviewers": [
+    "claude/claude-opus-5-5 (Lane A)",
+    "codex/gpt-6.2-astra (Lane B)"
+  ],
+  "issues": [
+    {
+      "unit_id": "e8af619aa573",
+      "sample_n": 57,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/gifts/mindstar-mastery.lua",
+      "category": "confirmed_minor",
+      "issue": "Mindstar measure word uses '2 只灵晶' (should use '枚' or '颗' consistently); unnecessary comma in '所有被树叶覆盖的同伴，获得'. Note: '完全免疫任何伤害' is verified accurate against physical.lua:LEAVES_COVER (cancel_damage_chance).",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "8ae46718e7c0",
+      "sample_n": null,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/gifts/mindstar-mastery.lua",
+      "category": "sibling_confirmed_minor",
+      "issue": "Same-root sibling of #57: Thorn Grab uses '需要 2 只灵晶'.",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "38b505955dda",
+      "sample_n": null,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/gifts/mindstar-mastery.lua",
+      "category": "sibling_confirmed_minor",
+      "issue": "Same-root sibling of #57: Nature's Equilibrium uses '需要 2 只灵晶'.",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "fd06211d3741",
+      "sample_n": null,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/general/objects/world-artifacts.lua",
+      "category": "sibling_confirmed_minor",
+      "issue": "Same-root sibling of #57: mindstar artifact description uses '这只灵晶' (and '不断的' -> '不断地').",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "782e5a964374",
+      "sample_n": null,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/general/objects/world-artifacts.lua",
+      "category": "sibling_confirmed_minor",
+      "issue": "Same-root sibling of #57: mindstar artifact description uses '这只灵晶'.",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "a57f6edf1249",
+      "sample_n": null,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/zones/ruined-dungeon/zone.lua",
+      "category": "sibling_confirmed_minor",
+      "issue": "Same-root inanimate '只' measure word scan: '这只水晶球' (orb should use '颗' or '个').",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "1db78d1bb5d5",
+      "sample_n": null,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/zones/ruined-dungeon/zone.lua",
+      "category": "sibling_confirmed_minor",
+      "issue": "Same-root inanimate '只' measure word scan: '这只水晶球' (orb should use '颗' or '个').",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "711ec7cb348b",
+      "sample_n": 69,
+      "file": "tome-orcs.lua",
+      "section": "tome-orcs/data/general/objects/world-artifacts.lua",
+      "category": "confirmed_minor",
+      "issue": "Grinder special_desc 'On Taking Damage: Blindside the attacker (range 6).' translated as '受伤触发：闪电突袭（范围 6）。', omitting 'the attacker' (verified force_target=src in world-artifacts.lua:2009-2016).",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "1f6bf38d8323",
+      "sample_n": 109,
+      "file": "engine.lua",
+      "section": "engine/modules/boot/dialogs/LoadGame.lua",
+      "category": "confirmed_minor",
+      "issue": "'Run with newer version' translated as '运行新版本'; LoadGame.lua:188-193 shows this button loads an older savefile with the current newer version (boot module; note addon does not override boot menu at startup, kept clean in source).",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "b11b7c7cf892",
+      "sample_n": 120,
+      "file": "engine.lua",
+      "section": "engine/engine/dialogs/VideoOptions.lua",
+      "category": "advisory_priority_polish",
+      "issue": "In-game VideoOptions framebuffers tooltip uses '视频效果', '画面碰到异常', and repetitive '关闭这个效果' / '看到效果'.",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "5312d4e09afe",
+      "sample_n": null,
+      "file": "engine.lua",
+      "section": "engine/engine/dialogs/VideoOptions.lua",
+      "category": "sibling_advisory_polish",
+      "issue": "Same-root sibling of #120: OpenGL Shaders tooltip uses '视频效果' and '关闭这个效果' / '看到效果'.",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "77bcdb53d89a",
+      "sample_n": null,
+      "file": "engine.lua",
+      "section": "engine/engine/dialogs/VideoOptions.lua",
+      "category": "sibling_advisory_polish",
+      "issue": "Same-root sibling of #120: Advanced Shaders tooltip uses '视频效果' and '看到效果'.",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "f49505767d2b",
+      "sample_n": 68,
+      "file": "tome-orcs.lua",
+      "section": "tome-orcs/data/tinkers/explosive.lua",
+      "category": "advisory_polish",
+      "issue": "Corrosive Shell 'A special shot that releases acid on impact.' translated as '击中时可以流出酸液的特殊弹头。' ('流出' is awkward compared to '释放').",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "efd74d67238e",
+      "sample_n": 33,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/general/npcs/crystal.lua",
+      "category": "advisory_polish",
+      "issue": "'A formation of shimmering crystal. Orbs of light circle around it.' translated awkwardly as '一个由闪光水晶构成的生物，它通体围绕着球状的光芒。'.",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "6e5e75c580bd",
+      "sample_n": 47,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/chats/command-staff.lua",
+      "category": "advisory_polish",
+      "issue": "Nested modifier '只能在一定程度内容忍对它们精心维系的自然秩序的干涉' reads stiffly in dialogue.",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "1abf2ff6571b",
+      "sample_n": 94,
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/lore/kroshkkur.lua",
+      "category": "advisory_polish",
+      "issue": "Oslrey lore 'acted completely without passion' translated as '毫无激情' (modern colloquial register) and 'his staff' narrowed to '伊斯拉尔'.",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "5d80684dd3f3",
+      "sample_n": 117,
+      "file": "engine.lua",
+      "section": "engine/modules/boot/data/general/npcs/troll.lua",
+      "category": "advisory_polish",
+      "issue": "Boot troll description '这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是疣的绿色拳头。' has translationese ('同时它').",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "703133050cd2",
+      "sample_n": 45,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/dialogs/GameOptions.lua",
+      "category": "minor_omission",
+      "issue": "Weather effects option omits 'in some zones' ('开启/关闭天气效果。').",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "70aead4cfa1d",
+      "sample_n": 88,
+      "file": "tome-cults.lua",
+      "section": "tome-cults/data/talents/misc/misc.lua",
+      "category": "minor_omission",
+      "issue": "'#Source# expertly hurls a pebble at #target#!' omits 'expertly'.",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "8decf93fb11c",
+      "sample_n": 52,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/spells/eldritch-stone.lua",
+      "category": "minor_omission",
+      "issue": "Impaling Stone Spikes omits 'instantly' ('强化你的岩石尖刺，造成 %0.1f 物理伤害……').",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "eaac0da8d13c",
+      "sample_n": 49,
+      "file": "mod-tome.lua",
+      "section": "mod-tome/data/talents/chronomancy/other.lua",
+      "category": "formatting_minor",
+      "issue": "Extra ASCII space before fullwidth '（' in '目标会混乱 （%d%% 强度） %d 回合。' (space after '）' before '%d' is lint-required).",
+      "status": "fixed_0539_pending_0540_rereview"
+    },
+    {
+      "unit_id": "4193db89ae63",
+      "sample_n": 118,
+      "file": "engine.lua",
+      "section": "engine/modules/boot/dialogs/MainMenu.lua",
+      "category": "formatting_minor",
+      "issue": "Embers expansion description uses fullwidth commas instead of enumeration commas (顿号) in class and race lists.",
+      "status": "fixed_0539_pending_0540_rereview"
+    }
+  ],
+  "not_edited_recorded": [
+    {
+      "unit_id": "0e27a62bf144",
+      "sample_n": 53,
+      "file": "mod-tome.lua",
+      "reason": "Spaces before %d after fullwidth commas ('， %d') are required by strict lint; not a defect."
+    },
+    {
+      "unit_id": "9fb7ade7f0ba",
+      "sample_n": 15,
+      "file": "mod-tome.lua",
+      "reason": "Achievement 'Exterminator' -> '屠夫' is an existing official zh_hans name with no collision; kept per official-name change threshold."
+    }
+  ]
+}

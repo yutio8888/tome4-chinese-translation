@@ -2245,9 +2245,9 @@ He too was asked to become a Godslayer, for his prowess with his staff was the s
 
 When he fought against the Gods, he acted completely without passion. His staff hammered them down, sliced them open and slaughtered them. He killed without mercy and without malice. When the last of the gods were dead, he returned to his wanderings, carrying Ythral and his old iron staff with him.]], [[“飘荡者”奥斯雷即使在夏·图尔人眼中，也是一位传说般的人物。他大部分时间都在埃亚尔地表飘荡，静静观察着刚刚脱离野蛮的年轻种族。虽然大部分夏·图尔人都选择远离他们所认为的“低等”种族，奥斯雷却愿意与他们同行，甚至交谈。无论走向何处，他都随身携带一柄简朴的铁杖，这把武器虽然老旧，但他十分爱惜。
 
-他也受邀成为一名弑神者，因为他使用铁杖的本领早已成为传奇。他礼貌地拒绝了，但请他相助的请求仍一次又一次地传来。在看到了他曾经走过的土地只剩下焦土之时，他终于选择了去对抗埃亚尔的诸神。他被赐予伊斯拉尔，一柄在头端有着新月形利刃的独特长杖。
+他也受邀成为一名弑神者，因为他使用铁杖的本领早已成为传奇。他礼貌地拒绝了，但人们仍一次又一次地前来请求他相助。眼看自己游历过的土地在四周燃烧，他终于选择了去对抗埃亚尔的诸神。他被赐予伊斯拉尔，一柄在头端有着新月形利刃的独特长杖。
 
-在与诸神的作战中他毫无激情，既无仁慈又无怨恨地用伊斯拉尔击倒它们、割开它们、杀死它们。当最后一名神死去之时，他又开始四处飘荡，随身带着伊斯拉尔和自己那柄老旧的铁杖。]], "_t")
+与诸神交战时，他始终心无波澜。他挥杖将诸神击倒、剖开、斩杀；他杀戮时既无怜悯，也无恶意。当最后一名神死去之时，他又开始四处飘荡，随身带着伊斯拉尔和自己那柄老旧的铁杖。]], "_t")
 t("Mightier than Gods: Murtas", "比诸神更加强大：穆尔塔斯", "_t")
 t([[Murtas the Unfathomable came from a famous line of Sher'tul warriors, dating back to the days of the race when they had barely risen out of barbarism. As such, she was a prominent military leader, having decades of experience and prestige behind her. Her expertise in battle tactics proved to be invaluable numerous times to the Sher'tul. She was often described as a calculating and inscrutable individual, someone who did not share her thoughts openly.
 
@@ -3412,7 +3412,7 @@ t([[Smash your target with a splintering glass attack doing %d%% arcane weapon d
 		技能等级 5 后，目标有 15%% 几率使用技能失败。]], "tformat")
 t("Throw Pebble", "投掷鹅卵石", "talent name")
 t("something", "某物", "_t")
-t("#Source# expertly hurls a pebble at #target#!", "#Source#朝#target#投掷鹅卵石！", "logCombat")
+t("#Source# expertly hurls a pebble at #target#!", "#Source#娴熟地朝#target#掷出一颗鹅卵石！", "logCombat")
 t([[Throw a pebble at your target, dealing %0.2f physical damage.
 		The damage will increase with your Strength.]], [[朝目标扔石头，造成 %0.2f 物理伤害。
 		伤害受力量加成。]], "tformat")

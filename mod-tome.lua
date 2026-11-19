@@ -4796,7 +4796,7 @@ t("What's the good of immortality if you can't even speak? No archmage worth his
 t("Of course. Which aspect?", "当然可以。哪种形态？", "_t")
 t("I highly recommend the mage aspect and the fire element. You're not going to find anything better for turning a piece of meat into a cloud of vapor.", "我强烈推荐法师形态和火焰元素。想要把一块生肉化成一团蒸汽，你绝找不到比这更好的手段了。", "_t")
 t("I live to serve-- though my use of the word 'live' is perhaps loose here.", "我活着就是为了侍奉您——虽然我在这里用“活”这个字眼可能不太严谨。", "_t")
-t("Choose wisely. Powers beyond your comprehension will tolerate only so much interference in their carefully-laid natural order.", "明智地抉择吧。那些超出你理解的力量，只能在一定程度内容忍对它们精心维系的自然秩序的干涉。", "_t")
+t("Choose wisely. Powers beyond your comprehension will tolerate only so much interference in their carefully-laid natural order.", "明智地抉择吧。那些超出你理解的力量，对干涉它们精心安排的自然秩序一事，容忍是有限的。", "_t")
 t("Back in my day, we didn't need to go changing our staves around willy-nilly. We picked an element and stuck with it, by the gods.", "在我们那个年代，谁会随随便便把法杖形态调来调去。我们选定一种元素就一直用到底，诸神在上。", "_t")
 t("Certainly. You should be impressed, by the way, that I can do such a thing. Most lesser practitioners of my art would have difficulties with this. What shall I change?", "当然可以。顺便说一句，我能做到这种事，你本该感到钦佩才对。大多数技艺不如我的人对此都会感到棘手。你想让我做何改动？", "_t")
 t("Fine, as long as it leads to blasting something soon. What do you want me to change?", "行吧，只要能赶紧去把什么东西轰成渣就行。你想让我改动什么？", "_t")
@@ -8112,7 +8112,7 @@ t("A formation of blue crystal. Its light shines like the ocean's waves.", "一�
 t("multi-hued crystal", "彩虹水晶体", "entity name")
 t("A formation of multi-hued crystal. It shines with all the colors of the rainbow.", "一个由各色水晶构成的生物，它通体散发着彩虹般的光芒。", "_t")
 t("shimmering crystal", "闪光水晶体", "entity name")
-t("A formation of shimmering crystal. Orbs of light circle around it.", "一个由闪光水晶构成的生物，它通体围绕着球状的光芒。", "_t")
+t("A formation of shimmering crystal. Orbs of light circle around it.", "一簇闪烁的水晶，周围环绕着几颗光球。", "_t")
 
 ------------------------------------------------
 section "mod-tome/data/general/npcs/elven-caster.lua"
@@ -8907,7 +8907,7 @@ section "mod-tome/data/general/npcs/troll.lua"
 t("giant", "巨人", "entity type")
 t("troll", "巨魔", "entity subtype")
 t("forest troll", "森林巨魔", "entity name")
-t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是疣的绿色拳头。", "_t")
+t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这个体型庞大的人形生物皮肤碧绿、面貌丑陋，正怒视着你，紧握满是疣的绿色双拳。", "_t")
 t("stone troll", "岩石巨魔", "entity name")
 t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "一只皮肤粗糙黝黑的巨魔。你注意到他粗壮的腰间系着一条矮人头骨串成的腰带，不禁打了个寒战。", "_t")
 t("cave troll", "洞穴巨魔", "entity name")
@@ -12784,7 +12784,7 @@ t("#LIGHT_BLUE#You feel the power of the sceptre flow over your undead form!", "
 t("It desires to be surrounded by undeath.", "它渴望被亡灵围绕。", "_t")
 t("Oozing Heart", "史莱姆之心", "entity name")
 t("slimy mindstar", "粘糊糊的灵晶", "_t")
-t("This mindstar oozes a thick, caustic liquid. Magic seems to die around it.", "这只灵晶在不断的向外渗出粘稠的腐蚀性液体。魔法似乎消逝在它周围。", "_t")
+t("This mindstar oozes a thick, caustic liquid. Magic seems to die around it.", "这枚灵晶不断地向外渗出黏稠的腐蚀性液体。它周围的魔法似乎都在消逝。", "_t")
 t("#DARK_GREEN#The Heart pulses with antimagic forces as you grasp it.", "#DARK_GREEN#当你握住它时，心脏辐射出反魔能量。", "logPlayer")
 t("Bloomsoul", "夏花之魂", "entity name")
 t("flower covered mindstar", "鲜花覆盖的灵晶", "_t")
@@ -12798,7 +12798,7 @@ t("A black iris cuts through the core of this mindstar, which shifts with myriad
 t("The breath attack has a chance to shift randomly between Fire, Ice, Lightning, Acid, and Sand each turn.", "喷吐攻击的属性每回合有几率在火、冰、闪电、酸和沙之间随机切换。", "_t")
 t("Great Caller", "伟大的召唤师", "entity name")
 t("humming mindstar", "嗡鸣的灵晶", "_t")
-t("This mindstar constantly emits a low tone. Life seems to be pulled towards it.", "这只灵晶不断地发出低鸣，你感觉到生命能量似乎在向它聚拢。", "_t")
+t("This mindstar constantly emits a low tone. Life seems to be pulled towards it.", "这枚灵晶不断地发出低鸣，生命能量似乎正被吸引向它聚拢。", "_t")
 t("Gives a 30% chance that your nature summons appear as wild summons.", "你的自然召唤有30%的几率升级为野性模式的召唤兽。", "_t")
 t("Corrupted Gaze", "堕落凝视", "entity name")
 t("dark visored helm", "黑色的遮面盔", "_t")
@@ -22222,7 +22222,7 @@ t("Swap", "时空交换", "talent name")
 t("The spell fizzles!", "法术失败了！", "logSeen")
 t("%s resists the swap!", "%s抵抗了时空交换！", "logSeen")
 t([[You manipulate the spacetime continuum in such a way that you switch places with another creature with in a range of %d.  The targeted creature will be confused (power %d%%) for %d turns.
-		The spell's hit chance will increase with your Spellpower.]], [[你操纵时空连续体，与 %d 格范围内的另一个生物交换位置。目标会混乱 （%d%% 强度） %d 回合。
+		The spell's hit chance will increase with your Spellpower.]], [[你操纵时空连续体，与 %d 格范围内的另一个生物交换位置。目标会陷入强度为 %d%% 的混乱状态，持续 %d 回合。
 		法术命中率受法术强度加成。]], "tformat")
 t("Temporal Wake", "时空尾迹", "talent name")
 t("You do not have line of sight.", "你没有视线。", "logSeen")
@@ -25131,9 +25131,9 @@ t("Thorn Grab", "荆棘之握", "talent name")
 t("You require a psiblade in your mainhand to use this talent.", "你需要主手的心灵利刃来使用该技能。", "logPlayer")
 t([[You touch the target with your psiblade, bringing the forces of nature to bear on your foe.
 		Thorny vines will grab the target, slowing it by %d%% and dealing %0.2f nature damage each turn for 10 turns.
-		Damage will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %2.f).]], [[你通过心灵利刃接触你的目标，将自然的怒火带给你的敌人。
-		荆棘藤蔓会抓取目标，使其减速 %d%%， 并且每回合造成 %0.2f 自然伤害，持续 10 回合。
-		伤害受精神强度和灵晶强度加成（需要 2 只灵晶，加成比例 %2.f）。]], "tformat")
+		Damage will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %2.f).]], [[你用心灵利刃触碰目标，将自然之力施于敌人。
+		荆棘藤蔓会缠住目标，使其减速 %d%%， 并每回合造成 %0.2f 点自然伤害，持续 10 回合。
+		伤害受精神强度和灵晶强度加成（需要 2 枚灵晶，加成比例 %2.f）。]], "tformat")
 t("Leaves Tide", "叶刃风暴", "talent name")
 t("You require two psiblades in your hands to use this talent.", "你需要双手的心灵利刃来使用该技能。", "logPlayer")
 t([[Smash your psiblades into the ground, creating a tide of crystallized leaves circling you in a radius of 3 for 7 turns.
@@ -25141,14 +25141,14 @@ t([[Smash your psiblades into the ground, creating a tide of crystallized leaves
 		All allies hit will be covered in leaves, granting them %d%% chance to completely avoid any damaging attack.
 		Damage and avoidance will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %0.2f).]], [[将你的心灵利刃砸入地面，在你周围半径 3 格范围内形成一圈盘旋的结晶树叶，持续 7 回合。
 		被树叶击中的敌人会开始流血，每回合受到 %0.2f 点伤害（可叠加）。
-		所有被树叶覆盖的同伴，获得 %d%% 概率完全免疫任何伤害。
-		伤害和免疫几率受精神强度和灵晶强度加成（需要 2 只灵晶，加成比例 %0.2f）。]], "tformat")
+		被树叶击中的同伴会被树叶覆盖，每次受到伤害时有 %d%% 概率完全免疫该次伤害。
+		伤害和免疫几率受精神强度和灵晶强度加成（需要 2 枚灵晶，加成比例 %0.2f）。]], "tformat")
 t("Nature's Equilibrium", "自然均衡", "talent name")
 t([[You hit a foe with your mainhand psiblade doing %d%% weapon damage, channeling all the damage done through your offhand psiblade with which you touch a friendly creature to heal it.
 		The maximum heal possible is %d. Equilibrium of the healed target will also decrease by 10%% of the heal power.
-		Max heal will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %2.f).]], [[你用主手心灵利刃攻击敌人造成 %d%% 武器伤害，用副手心灵利刃传导敌人所受的伤害能量来治疗友方单位。
+		Max heal will increase with your Mindpower and Mindstar power (requires two mindstars, multiplier %2.f).]], [[你用主手心灵利刃攻击敌人造成 %d%% 武器伤害，再用副手心灵利刃触碰友方单位，将敌人所受的伤害能量传导过去为其治疗。
 		治疗最大值为 %d。 被治疗目标的失衡值也会降低，降幅为治疗量的 10%%。
-		最大治疗值受精神强度和灵晶强度加成（需要 2 只灵晶，加成比例 %2.f）。]], "tformat")
+		最大治疗值受精神强度和灵晶强度加成（需要 2 枚灵晶，加成比例 %2.f）。]], "tformat")
 
 ------------------------------------------------
 section "mod-tome/data/talents/gifts/moss.lua"
@@ -28626,7 +28626,7 @@ t([[Imbues your stone spikes with arcane forces, dealing %0.1f Arcane damage and
 		伤害受法术强度加成；沉默的施加几率受法术强度和物理强度中较高者加成。]], "tformat")
 t("Impaling Spikes", "穿透尖刺", "talent name")
 t([[Your stone spikes grow in length, instantly dealing %0.1f Physical damage and disarming targets hit for %d turns.
-		The damage increases with Spellpower and the chance to disarm increases with either Spellpower or Physical Power, whichever is greater.]], [[强化你的岩石尖刺，造成 %0.1f 物理伤害，并缴械 %d 回合。
+		The damage increases with Spellpower and the chance to disarm increases with either Spellpower or Physical Power, whichever is greater.]], [[你的岩石尖刺变得更长，立即对被击中的目标造成 %0.1f 点物理伤害，并使其缴械 %d 回合。
 		伤害受法术强度加成；缴械的施加几率受法术强度和物理强度中较高者加成。]], "tformat")
 
 ------------------------------------------------
@@ -39472,9 +39472,9 @@ t("#rng# the Guardian", "守护者#rng#", "_t")
 t("Guardian", "守护者", "_t")
 t("You can hear a magical trigger firing off.", "你听到了魔力开关触动的声音。", "_t")
 t("Strange Orb", "奇特的水晶球", "_t")
-t("The orb seems to react badly to your touch; there is a high shriek!", "这只水晶球在你的触摸下反应很糟；你听到了一声尖叫！", "_t")
+t("The orb seems to react badly to your touch; there is a high shriek!", "这颗水晶球似乎对你的触摸反应不佳；你听到了一声尖锐的啸叫！", "_t")
 t("The orb burns to your touch and a loud shout screams out!", "这颗水晶球摸上去滚烫，一声响亮的呼喊冲天而起！", "_t")
-t("The orb reacts violently to your touch and the walls begin to rumble!", "这只水晶球在你的触摸下反应剧烈，墙壁开始颤抖！", "_t")
+t("The orb reacts violently to your touch and the walls begin to rumble!", "这颗水晶球对你的触摸反应剧烈，墙壁开始隆隆作响！", "_t")
 t("%s appears out of the thin air!", "%s从空气中出现了！", "logSeen")
 t("The orb glows brightly. There is a loud crack coming from the northern central chamber.", "水晶球闪耀着光芒。北部中央大厅传来一声巨响。", "_t")
 t("The orb glows brightly.", "水晶球闪耀着光芒。", "_t")
@@ -41668,8 +41668,8 @@ t("#GOLD##{bold}#Life Lost Warning#WHITE##{normal}#", "#GOLD##{bold}#生命损�
 t("Life lost percentage (out of max life)", "生命损失百分比（占最大生命值）", "_t")
 t("From 1 to 99 (100 to disable)", "从 1 到 99（100 为禁用）", "_t")
 t([[Enables or disables weather effects in some zones.
-Disabling it can gain some performance. It will not affect previously visited zones.#WHITE#]], [[开启/关闭天气效果。
-关闭它可能提升性能。不影响已经去过的区域。#WHITE#]], "_t")
+Disabling it can gain some performance. It will not affect previously visited zones.#WHITE#]], [[开启/关闭部分区域的天气效果。
+关闭它可以提升一些性能。不影响已经去过的区域。#WHITE#]], "_t")
 t("#GOLD##{bold}#Weather effects#WHITE##{normal}#", "#GOLD##{bold}#天气效果#WHITE##{normal}#", "_t")
 t("Enables or disables day/night light variations effects..#WHITE#", "开启/关闭昼夜光照变化效果#WHITE#", "_t")
 t("#GOLD##{bold}#Day/night light cycle#WHITE##{normal}#", "#GOLD##{bold}#昼夜光照周期#WHITE##{normal}#", "_t")

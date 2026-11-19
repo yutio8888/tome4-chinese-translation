@@ -189,7 +189,7 @@ section "mod-boot/data/general/npcs/troll.lua"
 t("giant", "巨人", "entity type")
 t("troll", "巨魔", "entity subtype")
 t("forest troll", "森林巨魔", "entity name")
-t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是疣的绿色拳头。", "_t")
+t("Green-skinned and ugly, this massive humanoid glares at you, clenching wart-covered green fists.", "这个体型庞大的人形生物皮肤碧绿、面貌丑陋，正怒视着你，紧握满是疣的绿色双拳。", "_t")
 t("stone troll", "岩石巨魔", "entity name")
 t("A giant troll with scabrous black skin. With a shudder, you notice the belt of dwarf skulls around his massive waist.", "一只皮肤粗糙黝黑的巨魔。你注意到他粗壮的腰间系着一条矮人头骨串成的腰带，不禁打了个寒战。", "_t")
 t("cave troll", "洞穴巨魔", "entity name")
@@ -335,7 +335,7 @@ t([[This savefile was created with game version %s. You can try loading it with 
 %s]], [[这个存档由游戏版本 %s 创建。如果你愿意，可以尝试用当前版本读取，但建议使用旧版本游玩，以确保兼容性。
 %s]], "tformat")
 t("Cancel", "取消", "_t")
-t("Run with newer version", "运行新版本", "_t")
+t("Run with newer version", "以较新版本加载", "_t")
 t("Developer Mode", "开发者模式", "_t")
 t("#LIGHT_RED#WARNING: #LAST#Loading a savefile while in developer mode will permanently invalidate it. Proceed?", "#LIGHT_RED#警告：#LAST#在开发者模式下读取一个存档将会不可逆地将其标记为作弊存档。确定吗？", "_t")
 t("Load anyway", "仍然读档", "_t")
@@ -394,12 +394,12 @@ t([[#{bold}##GOLD#Embers of Rage - Expansion#LAST##{normal}#
 #LIGHT_UMBER#A ton#WHITE# of artifacts, lore, zones, events... 
 
 ]], [[#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#
-#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克·肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
+#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人孤身粉碎了格鲁希纳克、沃尔、加伯特和拉克·肖四大部落之后，已经过去了一年。联合王国通过远行传送门与远方失联已久的盟友太阳堡垒重新建立了联系，并帮助他们征服了瓦·埃亚尔大陆的大部分地区。四大部落仅存的族人如今已被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#
 
 #{bold}#扩展包特性#{normal}#:
 #LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！
-#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，快枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，粉碎那些胆敢反抗部落的人吧！
-#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。
+#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫、快枪手、灵能射手、歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，粉碎那些胆敢反抗部落的人吧！
+#LIGHT_UMBER#全新种族：#WHITE# 兽人、雪人、白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。
 #LIGHT_UMBER#配件系统：#WHITE# 合成强大的配件，用于强化你的物品。包括给你的靴子安装火箭、给你的手套安装抓取系统等等。
 #LIGHT_UMBER#药剂系统：#WHITE# 在配件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。
 #LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！

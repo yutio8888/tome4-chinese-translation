@@ -1,0 +1,46 @@
+{
+ "kind": "sample-quality-fix",
+ "date": "2026-11-19",
+ "authorization": "Maintainer 2026-11-19: record issues found in the 2026-11-19 stratified quality sample (seed 20261119, v0.3.14) and dispatch Opus 5.5 + GPT-6.2-Astra to fix them.",
+ "source_report": "evidence/quality/sample-quality-20261119-issues.json",
+ "lanes": {
+  "A": "claude/claude-opus-5-5 (thinking medium): 22 verdicts, 11 ISSUE",
+  "B": "codex/gpt-6.2-astra (thinking medium): 22 verdicts, 22 ISSUE"
+ },
+ "disposition": {
+  "fix": 22,
+  "keep": 0,
+  "by_group": {
+   "confirmed_minor_and_siblings": [
+    "e8af619aa573 Leaves' Tide (mindstar measure word + hit + per-hit cancel_damage_chance)",
+    "8ae46718e7c0 Thorn Grab (mindstar measure word + forces of nature)",
+    "38b505955dda Nature's Equilibrium (mindstar measure word + offhand touch)",
+    "fd06211d3741 mindstar artifact (measure word + 不断地)",
+    "782e5a964374 mindstar artifact (measure word)",
+    "a57f6edf1249 ruined-dungeon orb (measure word + seems + high shriek)",
+    "1db78d1bb5d5 ruined-dungeon orb (measure word + rumble)",
+    "711ec7cb348b Orcs Grinder (missing the attacker + dist > 1 and dist < 6)",
+    "1f6bf38d8323 LoadGame Run with newer version -> 以较新版本加载"
+   ],
+   "advisory_polish_and_siblings": [
+    "b11b7c7cf892 VideoOptions framebuffers (图形效果/关闭此选项/使更改生效; keep 帧缓存 matching title)",
+    "5312d4e09afe VideoOptions OpenGL Shaders",
+    "77bcdb53d89a VideoOptions advanced shaders",
+    "f49505767d2b Orcs Corrosive Shell (会释放酸液)",
+    "efd74d67238e crystal npc (光球环绕)",
+    "6e5e75c580bd command-staff (容忍有限 + 精心安排)",
+    "1abf2ff6571b Cults Oslrey lore (燃烧 + 心无波澜 + 挥杖)",
+    "5d80684dd3f3 boot troll (怒视 + 去翻译腔)"
+   ],
+   "minor_omissions_and_formatting": [
+    "703133050cd2 GameOptions weather effects (部分区域 + 一些性能)",
+    "70aead4cfa1d Cults pebble throw (娴熟地 + 一颗)",
+    "8decf93fb11c Impaling Stone Spikes (变得更长 + 立即 + 对被击中的目标)",
+    "eaac0da8d13c chronomancy swap (去掉全角括号前空格与割裂)",
+    "4193db89ae63 MainMenu Embers expansion (大部分地区/远方/族人/顿号)"
+   ]
+  }
+ },
+ "notes": "All 22 units passed strict proposal validation and full strict lint (0 errors, 0 warnings); lint-required spaces after '%d%%，' (8ae46718e7c0) and '%d。' (38b505955dda) preserved. Follow-up blind re-review batch 0540 will verify all 22 edited units with Opus 5.5 and GPT-6.2-Astra.",
+ "cross_component_sync": "Synchronized 4 duplicate runtime keys across mod-boot.lua (MainMenu Embers, boot troll, LoadGame Run with newer version) and mod-tome.lua (troll) so 06-runtime-collision-scan reports 0 collisions."
+}

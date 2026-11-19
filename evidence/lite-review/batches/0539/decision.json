@@ -1,0 +1,181 @@
+{
+ "confirmed": [
+  {
+   "id": "b11b7c7cf892",
+   "edit": [
+    "激活帧缓存。\n这个选项可以激活一些特殊的视频效果。\n如果画面碰到异常请尝试关闭这个效果。\n\n#LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#",
+    "启用帧缓存。\n此选项允许启用部分特殊图形效果。\n如果出现奇怪的画面异常，请尝试关闭此选项。\n\n#LIGHT_RED#必须重启游戏才能使更改生效。#WHITE#"
+   ],
+   "evidence": "VideoOptions.lua:134 (624a67329fe2): 'disable it' refers to the option and 'take effect' refers to the setting change; keep 帧缓存 matching option title engine.lua:980, align graphical effects -> 图形效果. Lane B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "5312d4e09afe",
+   "edit": [
+    "启用 OpenGL 着色器。\n这个选项可以激活一些特殊的视频效果。\n如果出现奇怪的画面异常，请尝试关闭这个效果。\n\n#LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#",
+    "启用 OpenGL 着色器。\n此选项允许启用部分特殊图形效果。\n如果出现奇怪的画面异常，请尝试关闭此选项。\n\n#LIGHT_RED#必须重启游戏才能使更改生效。#WHITE#"
+   ],
+   "evidence": "VideoOptions.lua:143 (624a67329fe2): sibling of b11b7c7cf892; replace 视频效果/关闭这个效果/看到效果 with 图形效果/关闭此选项/使更改生效. Lane B ISSUE."
+  },
+  {
+   "id": "77bcdb53d89a",
+   "edit": [
+    "开启高级着色器效果。\n这个选项可以激活一些高级的视频效果（例如水面效果……）。关闭它可以提升运行速度。\n\n#LIGHT_RED#你必须重启游戏才能看到效果。#WHITE#",
+    "启用高级着色器。\n此选项允许启用高级图形效果（如水面效果等）。关闭它可以提升性能。\n\n#LIGHT_RED#必须重启游戏才能使更改生效。#WHITE#"
+   ],
+   "evidence": "VideoOptions.lua:152 (624a67329fe2): sibling of b11b7c7cf892; replace 视频效果/看到效果 with 图形效果/使更改生效. Lane B ISSUE."
+  },
+  {
+   "id": "5d80684dd3f3",
+   "edit": [
+    "这只绿皮丑陋的庞大人形生物正盯着你，同时它握紧了满是疣的绿色拳头。",
+    "这个体型庞大的人形生物皮肤碧绿、面貌丑陋，正怒视着你，紧握满是疣的绿色双拳。"
+   ],
+   "evidence": "boot/data/general/npcs/troll.lua:37 (624a67329fe2): fix translationese ('同时它握紧了'), restore 'glares' -> 怒视, smooth modifier order. Lane B ISSUE."
+  },
+  {
+   "id": "1f6bf38d8323",
+   "edit": [
+    "运行新版本",
+    "以较新版本加载"
+   ],
+   "evidence": "boot/dialogs/LoadGame.lua:188-193 (624a67329fe2): button runs self:playSave(true) to load an older save with the current newer game version; '运行新版本' was misleading. Lanes A (Opus 5.5) and B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "4193db89ae63",
+   "edit": [
+    "#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人，孤身一人粉碎了格鲁希纳克、沃尔、加伯特和拉克·肖四大部落之后，已经过了一年的时间。联合王国现在已经通过远行传送门，和他们失落已久的盟友太阳堡垒建立了联系，帮助他们征服了瓦·埃亚尔大陆的近乎全境。被战火蹂躏的兽人部落的少数残余，现在都被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！\n#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫，快枪手，灵能射手，歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，粉碎那些胆敢反抗部落的人吧！\n#LIGHT_UMBER#全新种族：#WHITE# 兽人，雪人，白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。\n#LIGHT_UMBER#配件系统：#WHITE# 合成强大的配件，用于强化你的物品。包括给你的靴子安装火箭、给你的手套安装抓取系统等等。\n#LIGHT_UMBER#药剂系统：#WHITE# 在配件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！\n\n",
+    "#{bold}##GOLD#余烬怒火 - 游戏扩展包#LAST##{normal}#\n#{italic}##ANTIQUE_WHITE#自从被兽人称为“西方天灾”的那个人孤身粉碎了格鲁希纳克、沃尔、加伯特和拉克·肖四大部落之后，已经过去了一年。联合王国通过远行传送门与远方失联已久的盟友太阳堡垒重新建立了联系，并帮助他们征服了瓦·埃亚尔大陆的大部分地区。四大部落仅存的族人如今已被联军关押在监狱里……但是，还有一个部落存活了下来。#{normal}##LAST#\n\n#{bold}#扩展包特性#{normal}#:\n#LIGHT_UMBER#全新战役：#WHITE# 故事发生在主游戏事件的一年之后，兽人部落的最终命运由你决定。去探索一个你从未认识过的远东大陆吧！\n#LIGHT_UMBER#全新职业：#WHITE# 链锯屠夫、快枪手、灵能射手、歼灭者和科技法师。掌握蒸汽的力量，驱动致命的装置，粉碎那些胆敢反抗部落的人吧！\n#LIGHT_UMBER#全新种族：#WHITE# 兽人、雪人、白蹄。了解兽人和他们那些出人意料的“盟友”，努力将你的部落从那个你们称为“西方天灾”的人所带来的灾难中拯救出来。\n#LIGHT_UMBER#配件系统：#WHITE# 合成强大的配件，用于强化你的物品。包括给你的靴子安装火箭、给你的手套安装抓取系统等等。\n#LIGHT_UMBER#药剂系统：#WHITE# 在配件系统中，合成强大的医疗药剂，用于注入你的皮肤，替代原有的纹身和符文系统。\n#LIGHT_UMBER#大量#WHITE# 全新神器、手札、地图和事件！\n\n"
+   ],
+   "evidence": "boot/dialogs/MainMenu.lua:152 (624a67329fe2): fix 'most of Var'Eyal' (近乎全境 -> 大部分地区), restore 'distant' (远方), clarify imprisoned survivors (族人), and use enumeration commas (顿号) in class/race lists while preserving sibling #WHITE# spacing. Lane B ISSUE."
+  },
+  {
+   "id": "6e5e75c580bd",
+   "edit": [
+    "明智地抉择吧。那些超出你理解的力量，只能在一定程度内容忍对它们精心维系的自然秩序的干涉。",
+    "明智地抉择吧。那些超出你理解的力量，对干涉它们精心安排的自然秩序一事，容忍是有限的。"
+   ],
+   "evidence": "chats/command-staff.lua:85 (624a67329fe2): unwind nested modifier '只能在一定程度内容忍对……的干涉' and align carefully-laid -> 精心安排. Lane B ISSUE."
+  },
+  {
+   "id": "efd74d67238e",
+   "edit": [
+    "一个由闪光水晶构成的生物，它通体围绕着球状的光芒。",
+    "一簇闪烁的水晶，周围环绕着几颗光球。"
+   ],
+   "evidence": "general/npcs/crystal.lua:170 (624a67329fe2): fix inverted subject/object in '它通体围绕着球状的光芒' -> orbs circle around the crystal. Lanes A and B ISSUE."
+  },
+  {
+   "id": "fd06211d3741",
+   "edit": [
+    "这只灵晶在不断的向外渗出粘稠的腐蚀性液体。魔法似乎消逝在它周围。",
+    "这枚灵晶不断地向外渗出黏稠的腐蚀性液体。它周围的魔法似乎都在消逝。"
+   ],
+   "evidence": "general/objects/world-artifacts.lua:2698 (624a67329fe2): fix mindstar measure word '这只灵晶' -> '这枚灵晶', fix adverbial particle '不断的' -> '不断地', smooth word order. Lanes A and B ISSUE."
+  },
+  {
+   "id": "782e5a964374",
+   "edit": [
+    "这只灵晶不断地发出低鸣，你感觉到生命能量似乎在向它聚拢。",
+    "这枚灵晶不断地发出低鸣，生命能量似乎正被吸引向它聚拢。"
+   ],
+   "evidence": "general/objects/world-artifacts.lua:2886 (624a67329fe2): fix mindstar measure word '这只灵晶' -> '这枚灵晶' and smooth second clause. Lane B ISSUE."
+  },
+  {
+   "id": "eaac0da8d13c",
+   "edit": [
+    "你操纵时空连续体，与 %d 格范围内的另一个生物交换位置。目标会混乱 （%d%% 强度） %d 回合。\n\t\t法术命中率受法术强度加成。",
+    "你操纵时空连续体，与 %d 格范围内的另一个生物交换位置。目标会陷入强度为 %d%% 的混乱状态，持续 %d 回合。\n\t\t法术命中率受法术强度加成。"
+   ],
+   "evidence": "talents/chronomancy/other.lua:718 (624a67329fe2): remove extra space before '（' and avoid splitting confusion state and duration with parenthetical. Lane B ISSUE."
+  },
+  {
+   "id": "8ae46718e7c0",
+   "edit": [
+    "你通过心灵利刃接触你的目标，将自然的怒火带给你的敌人。\n\t\t荆棘藤蔓会抓取目标，使其减速 %d%%， 并且每回合造成 %0.2f 自然伤害，持续 10 回合。\n\t\t伤害受精神强度和灵晶强度加成（需要 2 只灵晶，加成比例 %2.f）。",
+    "你用心灵利刃触碰目标，将自然之力施于敌人。\n\t\t荆棘藤蔓会缠住目标，使其减速 %d%%， 并每回合造成 %0.2f 点自然伤害，持续 10 回合。\n\t\t伤害受精神强度和灵晶强度加成（需要 2 枚灵晶，加成比例 %2.f）。"
+   ],
+   "evidence": "talents/gifts/mindstar-mastery.lua:101 (624a67329fe2): fix mindstar measure word '2 只灵晶' -> '2 枚灵晶', replace awkward '将自然的怒火带给' with '将自然之力施于'; keep lint-required space after '%d%%，'. Lane B ISSUE."
+  },
+  {
+   "id": "e8af619aa573",
+   "edit": [
+    "将你的心灵利刃砸入地面，在你周围半径 3 格范围内形成一圈盘旋的结晶树叶，持续 7 回合。\n\t\t被树叶击中的敌人会开始流血，每回合受到 %0.2f 点伤害（可叠加）。\n\t\t所有被树叶覆盖的同伴，获得 %d%% 概率完全免疫任何伤害。\n\t\t伤害和免疫几率受精神强度和灵晶强度加成（需要 2 只灵晶，加成比例 %0.2f）。",
+    "将你的心灵利刃砸入地面，在你周围半径 3 格范围内形成一圈盘旋的结晶树叶，持续 7 回合。\n\t\t被树叶击中的敌人会开始流血，每回合受到 %0.2f 点伤害（可叠加）。\n\t\t被树叶击中的同伴会被树叶覆盖，每次受到伤害时有 %d%% 概率完全免疫该次伤害。\n\t\t伤害和免疫几率受精神强度和灵晶强度加成（需要 2 枚灵晶，加成比例 %0.2f）。"
+   ],
+   "evidence": "talents/gifts/mindstar-mastery.lua:145 & timed_effects/physical.lua:2202-2217 (624a67329fe2): restore 'hit' (被树叶击中的同伴), remove subject/predicate comma split, clarify per-hit cancel_damage_chance (每次受到伤害时有 %d%% 概率完全免疫该次伤害), fix '2 只灵晶' -> '2 枚灵晶'. Lanes A and B ISSUE."
+  },
+  {
+   "id": "38b505955dda",
+   "edit": [
+    "你用主手心灵利刃攻击敌人造成 %d%% 武器伤害，用副手心灵利刃传导敌人所受的伤害能量来治疗友方单位。\n\t\t治疗最大值为 %d。 被治疗目标的失衡值也会降低，降幅为治疗量的 10%%。\n\t\t最大治疗值受精神强度和灵晶强度加成（需要 2 只灵晶，加成比例 %2.f）。",
+    "你用主手心灵利刃攻击敌人造成 %d%% 武器伤害，再用副手心灵利刃触碰友方单位，将敌人所受的伤害能量传导过去为其治疗。\n\t\t治疗最大值为 %d。 被治疗目标的失衡值也会降低，降幅为治疗量的 10%%。\n\t\t最大治疗值受精神强度和灵晶强度加成（需要 2 枚灵晶，加成比例 %2.f）。"
+   ],
+   "evidence": "talents/gifts/mindstar-mastery.lua:200 (624a67329fe2): restore offhand 'touch' (触碰友方单位, matching range-1 second_target), fix '2 只灵晶' -> '2 枚灵晶'; keep lint-required space after '%d。'. Lane B ISSUE."
+  },
+  {
+   "id": "8decf93fb11c",
+   "edit": [
+    "强化你的岩石尖刺，造成 %0.1f 物理伤害，并缴械 %d 回合。\n\t\t伤害受法术强度加成；缴械的施加几率受法术强度和物理强度中较高者加成。",
+    "你的岩石尖刺变得更长，立即对被击中的目标造成 %0.1f 点物理伤害，并使其缴械 %d 回合。\n\t\t伤害受法术强度加成；缴械的施加几率受法术强度和物理强度中较高者加成。"
+   ],
+   "evidence": "talents/spells/eldritch-stone.lua:138 (624a67329fe2): restore 'grow in length', 'instantly', and missing object 'targets hit' for disarm. Lanes A and B ISSUE."
+  },
+  {
+   "id": "a57f6edf1249",
+   "edit": [
+    "这只水晶球在你的触摸下反应很糟；你听到了一声尖叫！",
+    "这颗水晶球似乎对你的触摸反应不佳；你听到了一声尖锐的啸叫！"
+   ],
+   "evidence": "zones/ruined-dungeon/zone.lua:116 (624a67329fe2): fix orb measure word '这只水晶球' -> '这颗水晶球', restore 'seems' (似乎) and 'high' (尖锐的). Lanes A and B ISSUE."
+  },
+  {
+   "id": "1db78d1bb5d5",
+   "edit": [
+    "这只水晶球在你的触摸下反应剧烈，墙壁开始颤抖！",
+    "这颗水晶球对你的触摸反应剧烈，墙壁开始隆隆作响！"
+   ],
+   "evidence": "zones/ruined-dungeon/zone.lua:118 (624a67329fe2): fix orb measure word '这只水晶球' -> '这颗水晶球', restore acoustic 'rumble' -> 隆隆作响. Lanes A and B ISSUE."
+  },
+  {
+   "id": "703133050cd2",
+   "edit": [
+    "开启/关闭天气效果。\n关闭它可能提升性能。不影响已经去过的区域。#WHITE#",
+    "开启/关闭部分区域的天气效果。\n关闭它可以提升一些性能。不影响已经去过的区域。#WHITE#"
+   ],
+   "evidence": "dialogs/GameOptions.lua:507 (624a67329fe2): restore missing 'in some zones' (部分区域) and 'some performance' (一些性能). Lanes A and B ISSUE."
+  },
+  {
+   "id": "1abf2ff6571b",
+   "edit": [
+    "“飘荡者”奥斯雷即使在夏·图尔人眼中，也是一位传说般的人物。他大部分时间都在埃亚尔地表飘荡，静静观察着刚刚脱离野蛮的年轻种族。虽然大部分夏·图尔人都选择远离他们所认为的“低等”种族，奥斯雷却愿意与他们同行，甚至交谈。无论走向何处，他都随身携带一柄简朴的铁杖，这把武器虽然老旧，但他十分爱惜。\n\n他也受邀成为一名弑神者，因为他使用铁杖的本领早已成为传奇。他礼貌地拒绝了，但请他相助的请求仍一次又一次地传来。在看到了他曾经走过的土地只剩下焦土之时，他终于选择了去对抗埃亚尔的诸神。他被赐予伊斯拉尔，一柄在头端有着新月形利刃的独特长杖。\n\n在与诸神的作战中他毫无激情，既无仁慈又无怨恨地用伊斯拉尔击倒它们、割开它们、杀死它们。当最后一名神死去之时，他又开始四处飘荡，随身带着伊斯拉尔和自己那柄老旧的铁杖。",
+    "“飘荡者”奥斯雷即使在夏·图尔人眼中，也是一位传说般的人物。他大部分时间都在埃亚尔地表飘荡，静静观察着刚刚脱离野蛮的年轻种族。虽然大部分夏·图尔人都选择远离他们所认为的“低等”种族，奥斯雷却愿意与他们同行，甚至交谈。无论走向何处，他都随身携带一柄简朴的铁杖，这把武器虽然老旧，但他十分爱惜。\n\n他也受邀成为一名弑神者，因为他使用铁杖的本领早已成为传奇。他礼貌地拒绝了，但人们仍一次又一次地前来请求他相助。眼看自己游历过的土地在四周燃烧，他终于选择了去对抗埃亚尔的诸神。他被赐予伊斯拉尔，一柄在头端有着新月形利刃的独特长杖。\n\n与诸神交战时，他始终心无波澜。他挥杖将诸神击倒、剖开、斩杀；他杀戮时既无怜悯，也无恶意。当最后一名神死去之时，他又开始四处飘荡，随身带着伊斯拉尔和自己那柄老旧的铁杖。"
+   ],
+   "evidence": "tome-cults/data/lore/kroshkkur.lua:183 (public DLC checkout, unpinned): fix 'watching the land burn' (燃烧 vs 焦土), remove redundant '请他相助的请求', replace modern-sounding '毫无激情' with '心无波澜' and keep 'his staff' general (挥杖). Lane B ISSUE."
+  },
+  {
+   "id": "70aead4cfa1d",
+   "edit": [
+    "#Source#朝#target#投掷鹅卵石！",
+    "#Source#娴熟地朝#target#掷出一颗鹅卵石！"
+   ],
+   "evidence": "tome-cults/data/talents/misc/misc.lua:325 (public DLC checkout, unpinned): restore omitted adverb 'expertly' (娴熟地) and add measure word '一颗'. Lanes A and B ISSUE."
+  },
+  {
+   "id": "711ec7cb348b",
+   "edit": [
+    "受伤触发：闪电突袭（范围 6）。",
+    "受伤触发：对攻击者施放闪电突袭（距离大于 1 格且小于 6 格）。"
+   ],
+   "evidence": "tome-orcs/data/general/objects/world-artifacts.lua:1995,2009-2016 (public DLC checkout, unpinned): restore omitted target 'the attacker' (force_target=src) and align range wording with actual callback condition dist > 1 and dist < 6. Lanes A and B ISSUE."
+  },
+  {
+   "id": "f49505767d2b",
+   "edit": [
+    "击中时可以流出酸液的特殊弹头。",
+    "击中时会释放酸液的特殊弹头。"
+   ],
+   "evidence": "tome-orcs/data/tinkers/explosive.lua:283 (public DLC checkout, unpinned): fix awkward '可以流出酸液' -> '会释放酸液' for 'releases acid on impact'. Lanes A and B ISSUE."
+  }
+ ],
+ "rejected": []
+}

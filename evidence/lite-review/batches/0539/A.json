@@ -1,0 +1,115 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "b11b7c7cf892",
+   "verdict": "OK"
+  },
+  {
+   "id": "5312d4e09afe",
+   "verdict": "OK"
+  },
+  {
+   "id": "77bcdb53d89a",
+   "verdict": "OK"
+  },
+  {
+   "id": "5d80684dd3f3",
+   "verdict": "OK"
+  },
+  {
+   "id": "1f6bf38d8323",
+   "verdict": "ISSUE",
+   "observation": "LoadGame.lua:187-193：该按钮在存档版本与当前游戏版本不符时出现，作用是用当前（较新）版本加载这个存档（self:playSave(true)）。“运行新版本”易被理解为启动/下载另一个新版本程序，漏掉了“以……运行”的方式含义。",
+   "suggestion": "以新版本运行"
+  },
+  {
+   "id": "4193db89ae63",
+   "verdict": "OK"
+  },
+  {
+   "id": "6e5e75c580bd",
+   "verdict": "OK"
+  },
+  {
+   "id": "efd74d67238e",
+   "verdict": "ISSUE",
+   "observation": "crystal.lua:170：Orbs of light circle around it 指光球环绕它旋转；“它通体围绕着球状的光芒”搭配不当（“通体”与“围绕着”冲突，主语宾语关系颠倒），读来像翻译腔病句。",
+   "suggestion": "一个由闪光水晶构成的生物，周围环绕着几颗光球。"
+  },
+  {
+   "id": "fd06211d3741",
+   "verdict": "ISSUE",
+   "observation": "world-artifacts.lua:2698：状语应用“地”，“不断的向外渗出”用字错误；“魔法似乎消逝在它周围”语序生硬，原文意为魔法在它周围似乎会消亡。",
+   "suggestion": "这只灵晶不断地向外渗出粘稠的腐蚀性液体。它周围的魔法似乎都在消亡。"
+  },
+  {
+   "id": "782e5a964374",
+   "verdict": "OK"
+  },
+  {
+   "id": "eaac0da8d13c",
+   "verdict": "OK"
+  },
+  {
+   "id": "8ae46718e7c0",
+   "verdict": "OK"
+  },
+  {
+   "id": "e8af619aa573",
+   "verdict": "ISSUE",
+   "observation": "mindstar-mastery.lua:145-176：“所有被树叶覆盖的同伴，获得……”在主语与谓语之间用逗号断开，成分残缺；且漏译 hit（树叶击中同伴后才覆盖，damage_types.lua:3588-3590 对友方施加 LEAVES_COVER）。效果是 cancel_damage_chance（physical.lua:2204-2213），即每次受到伤害时有几率完全抵消，“完全免疫任何伤害”宜限定为“任何一次”。",
+   "suggestion": "将你的心灵利刃砸入地面，在你周围半径 3 格范围内形成一圈盘旋的结晶树叶，持续 7 回合。\n\t\t被树叶击中的敌人会开始流血，每回合受到 %0.2f 点伤害（可叠加）。\n\t\t被树叶击中的同伴会被树叶覆盖，有 %d%% 概率完全免疫任何一次伤害。\n\t\t伤害和免疫几率受精神强度和灵晶强度加成（需要 2 只灵晶，加成比例 %0.2f）。"
+  },
+  {
+   "id": "38b505955dda",
+   "verdict": "OK"
+  },
+  {
+   "id": "8decf93fb11c",
+   "verdict": "ISSUE",
+   "observation": "eldritch-stone.lua:138：原文 disarming targets hit，“并缴械 %d 回合”缺少宾语（缴械谁），成分残缺；同时漏译 instantly 和 grow in length（被动技能使尖刺变长），“强化你的岩石尖刺”丢失了具体变化。",
+   "suggestion": "你的岩石尖刺变得更长，立即对被击中的目标造成 %0.1f 物理伤害，并使其缴械 %d 回合。\n\t\t伤害受法术强度加成；缴械的施加几率受法术强度和物理强度中较高者加成。"
+  },
+  {
+   "id": "a57f6edf1249",
+   "verdict": "ISSUE",
+   "observation": "ruined-dungeon/zone.lua:116：量词搭配不当，球体用“颗”而非“只”；“反应很糟”是翻译腔；漏译 high（尖锐的）和 seems（似乎）。",
+   "suggestion": "这颗水晶球似乎对你的触摸反应不佳；你听到了一声尖锐的啸叫！"
+  },
+  {
+   "id": "1db78d1bb5d5",
+   "verdict": "ISSUE",
+   "observation": "ruined-dungeon/zone.lua:118：量词搭配不当，球体用“颗”而非“只”；“在你的触摸下反应剧烈”略生硬。",
+   "suggestion": "这颗水晶球在你的触摸下剧烈反应，墙壁开始隆隆震动！"
+  },
+  {
+   "id": "703133050cd2",
+   "verdict": "ISSUE",
+   "observation": "GameOptions.lua:507：漏译 in some zones，天气效果只出现在部分区域；“可能提升性能”对应 can gain some performance，可补“一些”。",
+   "suggestion": "开启/关闭部分区域的天气效果。\n关闭它可以提升一些性能。不影响已经去过的区域。#WHITE#"
+  },
+  {
+   "id": "1abf2ff6571b",
+   "verdict": "OK"
+  },
+  {
+   "id": "70aead4cfa1d",
+   "verdict": "ISSUE",
+   "observation": "tome-cults misc.lua:325（来源未固定）：漏译修饰词 expertly（娴熟地），且“投掷鹅卵石”缺少量词，读来生硬。",
+   "suggestion": "#Source#娴熟地朝#target#投掷了一颗鹅卵石！"
+  },
+  {
+   "id": "711ec7cb348b",
+   "verdict": "ISSUE",
+   "observation": "tome-orcs world-artifacts.lua:1995（来源未固定）：漏译对象 the attacker，闪电突袭的目标是攻击者，译文没写出来。",
+   "suggestion": "受伤触发：对攻击者施展闪电突袭（范围 6）。"
+  },
+  {
+   "id": "f49505767d2b",
+   "verdict": "ISSUE",
+   "observation": "tome-orcs tinkers/explosive.lua:283（来源未固定）：releases acid 译成“可以流出酸液”搭配不当（“流出”是不及物的，“可以”多余），应为击中时释放酸液。",
+   "suggestion": "击中时会释放酸液的特殊弹头。"
+  }
+ ]
+}
