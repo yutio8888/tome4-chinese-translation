@@ -2631,8 +2631,8 @@ t("Preordain", "命中注定", "talent name")
 t("You subtly alter the course of events to cause your foes further misfortune. Each stack of Jinx beyond 6 will cause enemies to also suffer a %d%% chance to fail talent usage.", "你微妙地影响因果，让你的敌人更加不幸。六层以上的每层厄运诅咒将使敌人获得 %d%% 技能失败率。", "tformat")
 t("Luckdrinker", "幸运汲取", "talent name")
 t([[Each time you apply Jinx to an enemy, you have a %d%% chance to siphon some of their luck for yourself for 5 turns. This stacks up to 10 times, increasing saves and defense by %0.2f and critical strike chance by %0.2f%%.
-		If you know Preordain, stacks beyond 6 also grant a %d%% chance for you to entirely avoid damage taken.]], [[每当你向敌人施加厄运诅咒，有 %d%% 几率吸取敌人的运气为你所用，持续 5 回合。这个效果最多叠加 10 层，每层增加 %0.2f 豁免和闪避， %0.2f%% 暴击率（仅有 1 层时，豁免和闪避反而会降低）。
-		如果你同时学会了命中注定，六层以上的每层幸运使你获得 %d%% 几率完全避免受到的伤害。]], "tformat")
+		If you know Preordain, stacks beyond 6 also grant a %d%% chance for you to entirely avoid damage taken.]], [[每当你向敌人施加厄运诅咒，有 %d%% 几率吸取敌人的运气为你所用，持续 5 回合。这个效果最多叠加 10 层，每层使豁免和闪避提高 %0.2f， 暴击率提高 %0.2f%%。
+		如果你同时学会了命中注定，从第 7 层起，每层幸运使你获得 %d%% 几率完全避免受到的伤害。]], "tformat")
 t("Fatebreaker", "打破宿命", "talent name")
 t([[You form a link between yourself and the chosen target for %d turns, tying your fates together. If during this time you receive fatal damage, you reflexively warp reality, ending the effect and attempting to force them to die in your place.
 		As long as your target remains alive this redirects all damage you take to it as temporal and darkness damage for 1 turn.
@@ -2793,9 +2793,9 @@ t("Prophecy", "预言", "talent name")
 t([[By bringing the forces of entropy to bear on a target, you prophesize their inevitable doom. Each point in this talent unlocks additional prophecies. A target can only be affected by a single prophecy at a time.
 Level 1: Prophecy of Ruin. Deals %0.2f damage on falling below 75%%, 50%% or 25%% of maximum life.
 Level 3: Prophecy of Treason. %d%% chance each turn to attack an ally or themselves.
-Level 5: Prophecy of Madness. Increases talent cooldowns by %d%%.]], [[对目标释放熵能力量，你预言了它无可避免的末日。随着技能等级提升，你能解锁更多预言。同一目标不能同时处于两种预言下。
+Level 5: Prophecy of Madness. Increases talent cooldowns by %d%%.]], [[对目标释放熵能力量，预言其无可避免的末日。随着技能等级提升，你能解锁更多预言。同一目标不能同时处于两种预言下。
 技能等级 1：毁灭预言。当生命值降至最大生命的 75%%、50%% 或 25%% 以下时，造成 %0.2f 伤害。
-技能等级 3：背叛预言。目标每回合累积 %d%% 背叛进度（通过法术豁免时只累积一半），进度满时攻击一名相邻的生物（无论敌友），没有相邻生物时攻击自身。
+技能等级 3：背叛预言。目标每回合累积 %d%% 背叛进度，进度满时攻击相邻的生物，若周围没有生物则攻击自身。
 技能等级 5：疯狂预言。增加 %d%% 技能冷却时间。]], "tformat")
 t("Prophecy of Madness", "疯狂预言", "talent name")
 t([[Utter a prophecy of the impending madness of your target, increasing the cooldown of all their talents by %d%% for 6 turns.
@@ -2812,8 +2812,8 @@ t([[Utter a prophecy of the impending demise of your target that lasts 6 turns.
 t("Prophecy of Treason", "背叛预言", "talent name")
 t("%s(%d treason)#LAST#", "%s(%d 背叛)#LAST#", "tformat")
 t([[Utter a prophecy of the impending treachery of your target. For the next 6 turns, they will have a %d%% each turn to waste their turn attempting to attack an adjacent creature for 10%% weapon damage, or even themself if no creature is present.
-		A target can only be affected by a single prophecy at a time.]], [[对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合累积 %d%% 背叛进度（初始进度随机；通过法术豁免时只累积一半），进度满时便浪费该回合，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。
-		一个目标只能同时被一个预言影响。]], "tformat")
+		A target can only be affected by a single prophecy at a time.]], [[对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合累积 %d%% 背叛进度，进度满时会浪费该回合，攻击相邻的单位并造成 10%% 武器伤害；若没有相邻单位，则攻击自身。
+		同一时间，每个目标只能受到一种预言影响。]], "tformat")
 t("Grand Oration", "隆重演说", "talent name")
 t("None", "无", "_t")
 t("You speak a chosen prophecy to the masses. When applying this prophecy, it will spread to all targets in radius %d.\n\t\tA prophecy can only be affected by one of Grand Oration, Twofold Curse or Revelation.\n\t\t\n\t\tCurrent prophecy: %s", [[你隆重地宣读某种预言，令其在目标周围 %d 格内传播。
@@ -3223,9 +3223,9 @@ t([[You plant your tentacle hand in the ground where it splits up and extends to
 
 		If at least one enemy is hit you gain %d insanity.
 
-		#YELLOW_GREEN#When constricting:#WHITE#The tendrils pummel your constricted target for %d%% tentacle damage and if adjacent you make an additional mainhand weapon attack.  Talent cooldown reduced to 10.]], [[你的触手钻入地下，分布到 %d 格范围的目标区域。
+		#YELLOW_GREEN#When constricting:#WHITE#The tendrils pummel your constricted target for %d%% tentacle damage and if adjacent you make an additional mainhand weapon attack.  Talent cooldown reduced to 10.]], [[你的触手钻入地下，蔓延至半径 %d 格的目标区域。
 		该区域喷发出大量黑色触手，对区域内所有敌人造成 %d%% 触手伤害。
-		区域内的所有敌人（无论是否被触手击中）都需要进行法术检定，检定失败将被麻木，5 回合内伤害降低 %d%%。
+		区域内的敌人若未能通过法术豁免，就会陷入麻木，5 回合内伤害降低 %d%%。
 
 		如果有敌人被触手击中，你获得 %d 疯狂值。
 
@@ -3251,7 +3251,7 @@ section "tome-cults/data/talents/demented/timethief.lua"
 t("Accelerate", "窃速", "talent name")
 t([[Distorting spacetime around yourself, you reduce the movement speed of all enemies in radius %d by 50%% for %d turns.
 You use the siphoned speed to grant yourself incredible quickness for 1 turn, increasing movement speed by %d%%, increased by a further %d%% for each enemy slowed, to a maximum of 4.
-Any actions other than movement will cancel the effect.]], [[扭曲周围时空，周围 %d 格内未免疫减速且未通过法术豁免的其他生物（包括友方）移动速度降低 50%%，持续 %d 回合。
+Any actions other than movement will cancel the effect.]], [[扭曲周围时空，使 %d 格内所有其他生物（包括友方）的移动速度降低 50%%， 持续 %d 回合。
 		你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%， 每减速一个目标额外提高 %d%%， 最多计 4 个目标。
 		移动外的任何行动将终止加速效果。]], "tformat")
 t("Switch", "偷换", "talent name")
@@ -3771,7 +3771,7 @@ t("The target is being erased from reality. Each time a magical effect is applie
 t("#Target# is being erased from reality!", "#Target#被从现实中移除！", "_t")
 t("#Target# has survived the unraveling.", "#Target#从解构效果中存活。", "_t")
 t("Fatebreaker", "打破宿命", "_t")
-t("The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.", "目标将自身的命运和另一个人相连。当它即将受到致命伤害时，这次伤害会以时空和暗影伤害的形式转移给所选目标，自身不受伤害。此时，自身的幸运层数和所选目标身上的厄运层数会被消耗；若所选目标有厄运，则按其层数治疗，否则按自身的幸运层数治疗，每层恢复 %d 点生命。", "tformat")
+t("The target has tied itself to the fate of another. If it dies, it's chosen target will die in it's place and it will be healed by %d for each stack of Fortune and Jinx.", "目标将自身的命运与另一个生物相连。当它即将死亡时，所选目标会代它承受致命伤害，它则按幸运或厄运层数恢复生命，每层 %d 点。", "tformat")
 t("#Target# intertwines it's fate!", "#Target#的命运被联结！", "_t")
 t("#Target#'s fate is no longer linked to another.", "#Target#的命运不再被联结。", "_t")
 t("Redirecting all damage as temporal and darkness to %s.", "所有伤害转为时空和暗影类型，转移至 %s。", "tformat")

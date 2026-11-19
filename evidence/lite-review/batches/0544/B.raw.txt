@@ -1,0 +1,242 @@
+{
+  "batch": "0544",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "0544ce0402bd",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/celestial/combat.lua:217（624a67329fe2）。末句重复解释同一回合的触发顺序，掩盖了两种效果的联系。",
+      "suggestion": "你的近战攻击命中时，造成相当于你已损失生命值 %d%% 的额外火焰伤害（至多 %d 点，当前 %d 点）。\n\t\t同时令目标进入殉难状态，持续 4 回合：其造成的伤害有 %d%% 会反噬自身。\n\t\t额外火焰伤害每回合只触发一次，此后该回合的攻击不再施加殉难。"
+    },
+    {
+      "id": "0bcfc9bab7e3",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/celestial/dirge.lua:255（624a67329fe2）。挽歌总览以敌人施加负面状态为触发场景。“非自身施加、且不属于……”把效果筛选写成了双重否定。",
+      "suggestion": "即便如今，仍有什么驱使着你歌唱。\n\t\t\t饥荒挽歌：增加生命回复 %d。\n\t\t\t征服挽歌：暴击或击杀敌人时，分别获得相当于一回合 10%% 或 %d%% 的行动时间，每回合各限一次。\n\t\t\t瘟疫挽歌：敌人对你施加负面效果时，你获得能吸收 %d 点伤害的护盾（5 回合冷却）。\n\t\t\t你同时只能激活一种挽歌。"
+    },
+    {
+      "id": "b6c2a8844a30",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/chronomancy/bow-threading.lua:218（624a67329fe2）。英文说明站位对伤害的影响。除法公式打断阅读，且未标出整个除数的范围。中心和相邻格的对比可直接表达实际衰减。",
+      "suggestion": "发射一支箭，造成 %d%% 武器伤害。当箭矢到达目的地或命中目标时，会牵引半径 %d 内的所有其他目标，并造成 %0.2f 物理伤害。\n\t\t从第二个被移动的目标起，每多移动一个目标，伤害增加 %0.2f （额外伤害上限为 %0.2f）。\n\t\t伤害随距离衰减，中心处的伤害比相邻一格高 20%%。\n\t\t额外伤害受法术强度加成。"
+    },
+    {
+      "id": "f183fd1fbd98",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/chronomancy/gravity.lua:178（624a67329fe2）。英文说明站位对伤害的影响。除法公式打断阅读，且未标出整个除数的范围。中心和相邻格的对比可直接表达实际衰减。",
+      "suggestion": "在半径 %d 范围内制造一个重力钉刺，将所有目标牵引至法术中心，造成 %0.2f 物理（重力）伤害。\n\t\t从第二个单位起，每牵引一个单位将会使伤害增加 %0.2f（最多增加 %0.2f 额外伤害）。\n\t\t伤害随距离衰减，中心处的伤害比相邻一格高 20%%。\n\t\t受法术强度影响，伤害按比例加成。"
+    },
+    {
+      "id": "ea6f51aede2a",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/chronomancy/other.lua:263（624a67329fe2）。“单层加成值”与“与层数无关”重复说明取值方式。",
+      "suggestion": "你将意识完全收束于当下，使侦测潜行、侦测隐形、闪避和命中提高 %d， 持续 %d 回合。\n\t\t若施放时命运之丝处于激活状态，上述数值还会提高，增幅相当于一层命运之丝加成的 50%%。\n\t\t施放此法术不消耗回合。"
+    },
+    {
+      "id": "03414bfbd387",
+      "verdict": "OK"
+    },
+    {
+      "id": "a54458d592bd",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/cursed/self-hatred.lua:145（624a67329fe2）。例外插在主语中间，“不具有固定冷却时间的技能的冷却时间”妨碍理解。",
+      "suggestion": "唤起你保留在最深处的力量，不惜一切代价取胜。\n开启时及维持期间的每回合，你的负面效果都提前一回合结束，技能也额外冷却一回合。\n即使技能冷却暂停，这次额外冷却仍会生效。\n这一技能在休息时自动关闭。\n这一力量的代价是你每回合损失 %d%% 的最大生命。这一效果可以杀死你。\n\n#{italic}#如果你走运，代价就是你的一切。#{normal}#"
+    },
+    {
+      "id": "3ff4d37173a0",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/gifts/dwarven-nature.lua:64（624a67329fe2）。原文按命中伤害和持续流血介绍飞弹，末尾跨分句回指流血基数，像伤害结算说明。",
+      "suggestion": "释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，另造成 %0.2f 物理伤害，并使目标流血 5 回合，每回合受到等量流血伤害。\n\t\t技能等级 5 时，你可以额外释放一个飞弹。\n\t\t伤害受法术强度加成。"
+    },
+    {
+      "id": "c905b1220b9d",
+      "verdict": "OK"
+    },
+    {
+      "id": "83de4f7ea83d",
+      "verdict": "OK"
+    },
+    {
+      "id": "39095a3d094b",
+      "verdict": "OK"
+    },
+    {
+      "id": "8cd16f353518",
+      "verdict": "OK"
+    },
+    {
+      "id": "a7d0a74c2c23",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/psionic/mentalism.lua:129（624a67329fe2）。“最多一共（净化和免疫）能影响”语序杂糅，且计数单位是效果个数。",
+      "suggestion": "清除自身的负面精神效果，并在接下来的 6 回合内阻挡新的负面精神效果。两者合计最多 %d 个。"
+    },
+    {
+      "id": "fdbeea5953de",
+      "verdict": "OK"
+    },
+    {
+      "id": "3a80a9a05076",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/spells/stone.lua:67（624a67329fe2）。原文按命中伤害和持续流血介绍飞弹，末尾跨分句回指流血基数，像伤害结算说明。",
+      "suggestion": "释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，另造成 %0.2f 物理伤害，并使目标流血 5 回合，每回合受到等量流血伤害。\n\t\t技能等级 5 时，你可以额外释放一个飞弹。\n\t\t伤害受法术强度加成。"
+    },
+    {
+      "id": "2fe50c477ccc",
+      "verdict": "OK"
+    },
+    {
+      "id": "0b015269feb7",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/talents/techniques/unarmed-discipline.lua:121（624a67329fe2）。两个恢复量分别对应常规和溢出。当前译文要求读者依次翻倍、再回看括号反推基础值。",
+      "suggestion": "获得连击点时，你有 %d%% 几率额外获得 1 点。获得连击点可恢复 %0.2f 体力，若连击点将超过 5 点，则恢复 %0.2f 体力。触发额外连击点时，恢复量翻倍。"
+    },
+    {
+      "id": "be9e91682936",
+      "verdict": "OK"
+    },
+    {
+      "id": "5dff778b696e",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/timed_effects/magical.lua:2584（624a67329fe2）。上限只约束本效果提供的临时加成，“闪避上限为 40 点”误指角色总闪避。",
+      "suggestion": "目标脱离现实相位，闪避提高 %d 点，全体伤害抗性提高 %d%%， 负面状态的持续时间缩短 %d%%。\n闪避最多提高 40 点，另两项加成最高均为 40%%。"
+    },
+    {
+      "id": "9f18d41cb6b8",
+      "verdict": "OK"
+    },
+    {
+      "id": "725dee21625e",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/timed_effects/other.lua:852（624a67329fe2）。“其他”类别与“符合条件的敌人”使状态说明像筛选规则。保留决定落点、提前结束和失控风险的信息。",
+      "suggestion": "你融入暗影并被其支配。笼罩在阴影中时，你免疫常规负面状态，并减少 %d%% 所受伤害；每回合你会闪现到首次攻击落点半径 %d 格内的一个敌人身边，对其造成 %d%% 暗影武器伤害。期间你无法控制角色，只有死亡能打断你。范围内没有敌人时，暗影便会消散。"
+    },
+    {
+      "id": "d95e5931b04e",
+      "verdict": "OK"
+    },
+    {
+      "id": "dae0cfb034a4",
+      "verdict": "OK"
+    },
+    {
+      "id": "7fd15897a5be",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/fearfire.lua:121（DLC 公开检出，来源未固定）。“移除除……以外”拗口，越层是源码类别，难以帮助玩家识别可解状态。",
+      "suggestion": "清除自身的常规负面状态。每清除一个，你就会在 7 回合内受到总计相当于最大生命值 %d%% 的灼烧伤害。\n\t\t伤害无视一切抗性、防御效果和伤害亲和。\n\t\t此技能瞬发。"
+    },
+    {
+      "id": "d6a83ab9c14e",
+      "verdict": "OK"
+    },
+    {
+      "id": "4a01abb4a933",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/talents/corruptions/oppression.lua:207（DLC 公开检出，来源未固定）。首句“依据……层数……每有一层”重复，吸取恐惧的主动动作丢失。",
+      "suggestion": "汲取 %d 格内敌人的恐惧，每层恐惧使你恢复 %d 生命，并获得相当于一回合 %0.1f%% 的额外行动时间，至多能获得 %.1f 个额外回合。敌人的恐惧层数保留。"
+    },
+    {
+      "id": "361feaf750f1",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/calamity.lua:122（DLC 公开检出，来源未固定）。“六层以上的每层”可能包含第六层，实际从第七层开始。首层反向加成与“每层增加”也需区分。",
+      "suggestion": "每当你向敌人施加厄运诅咒，有 %d%% 几率吸取敌人的运气为你所用，持续 5 回合。这个效果最多叠加 10 层，每层使豁免和闪避各提高 %0.2f 点，暴击率提高 %0.2f%%。 只有一层时，豁免和闪避的加成反为减益。\n\t\t如果你同时学会了命中注定，从第七层起，每层幸运使你获得 %d%% 几率完全避免受到的伤害。"
+    },
+    {
+      "id": "43ac61d72388",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/doom.lua:58（DLC 公开检出，来源未固定）。背叛预言的概览挤入豁免和目标选择分支。保留累积触发和无邻敌时自击。",
+      "suggestion": "你借助熵的力量，预言目标必将迎来的末日。随着技能等级提升，你能解锁更多预言。同一目标不能同时处于两种预言下。\n技能等级 1：毁灭预言。当生命值降至最大生命的 75%%、50%% 或 25%% 以下时，造成 %0.2f 伤害。\n技能等级 3：背叛预言。目标每回合累积 %d%% 背叛进度，进度满时攻击身边的生物，若周围无人则攻击自身。\n技能等级 5：疯狂预言。增加 %d%% 技能冷却时间。"
+    },
+    {
+      "id": "0fdf8ffcaa4d",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/doom.lua:291（DLC 公开检出，来源未固定）。初始化随机数属于实现细节；“一个目标只能同时被一个预言影响”语序生硬。",
+      "suggestion": "对目标说出其即将背叛的预言。在接下来的 6 回合内，目标每回合累积 %d%% 背叛进度（法术豁免成功时减半），进度满时便浪费该回合，尝试攻击邻近单位并造成 10%% 武器伤害；如果没有其他单位，则会攻击自身。\n\t\t同一时间，每个目标只能受到一种预言影响。"
+    },
+    {
+      "id": "7942cea70871",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/tentacles.lua:228（DLC 公开检出，来源未固定）。radius 是半径；“区域内的所有敌人”已涵盖未命中的敌人，无需再注释命中分支。",
+      "suggestion": "你的触手钻入地下，向目标区域蔓延，覆盖半径 %d 格。\n\t\t该区域喷发出大量黑色触手，对区域内所有敌人造成 %d%% 触手伤害。\n\t\t区域内的敌人若未能通过法术豁免，就会陷入麻木，5 回合内伤害降低 %d%%。\n\n\t\t如果有敌人被触手击中，你获得 %d 疯狂值。\n\n\t\t#YELLOW_GREEN#当触手处于缠绕状态:#WHITE#触手对缠绕对象连续突击，造成 %d%% 触手伤害。如果你与被缠绕对象相邻，则进行一次额外的主手打击。技能冷却时间缩短为 10 回合。"
+    },
+    {
+      "id": "a02ef5ca049d",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/talents/demented/timethief.lua:65（DLC 公开检出，来源未固定）。“未免疫减速且未通过法术豁免的其他生物”把两个检查都塞进主语，友军也受影响更值得突出。",
+      "suggestion": "扭曲时空，使周围 %d 格内的生物移动速度降低 50%%，持续 %d 回合。友军也会受到影响，法术豁免可抵抗减速。\n\t\t你使用偷取的速度强化自身，使自己获得一回合神速状态，移动速度提高 %d%%， 每减速一个目标额外提高 %d%%， 最多计 4 个目标。\n\t\t移动外的任何行动将终止加速效果。"
+    },
+    {
+      "id": "eed764c39c22",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/cults/tome-cults/data/timed_effects.lua:1709（DLC 公开检出，来源未固定）。致命伤害转移和治疗优先级确实影响决策，但多次重复“自身”和“所选目标”让读者难以辨明双方。",
+      "suggestion": "受此效果保护的生物将命运与另一生物相连。遭受致命一击时，它会将伤害转为时空和暗影伤害，转嫁给对方，并消耗自身的幸运和对方的厄运来治疗自己。每层恢复 %d 点生命，优先按厄运层数计算，没有厄运时按幸运计算。"
+    },
+    {
+      "id": "711ec7cb348b",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/general/objects/world-artifacts.lua:1995（DLC 公开检出，来源未固定）。触发条件 dist > 1 and dist < 6 可直接写成玩家使用的格数范围。",
+      "suggestion": "受伤时，对相距 2 至 5 格的攻击者施放闪电突袭。"
+    },
+    {
+      "id": "c6f45e0ce7a1",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/celestial/crepescula.lua:31（DLC 公开检出，来源未固定）。说明把剩余回合比较与伤害均摊写成逐步计算。可用“续至”表达刷新上限，并保留站位和伤害叠加信息。",
+      "suggestion": "目标会感受到所受光系和暗影伤害的回响，持续 %d 回合。\n\n每受到 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。\n暗影伤害会在目标脚下留下持续 4 回合的回响。目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。"
+    },
+    {
+      "id": "508b32654c00",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/celestial/void.lua:150（DLC 公开检出，来源未固定）。说明把剩余回合比较与伤害均摊写成逐步计算。可用“续至”表达刷新上限，并保留站位和伤害叠加信息。",
+      "suggestion": "目标会感受到所受光系和暗影伤害的回响，持续 %d 回合。\n\n每受到 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。\n暗影伤害会在目标脚下留下持续 4 回合的回响。目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。"
+    },
+    {
+      "id": "7aecd1c6efd1",
+      "verdict": "OK"
+    },
+    {
+      "id": "f581501fdd63",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/spells/terrene-technomancy.lua:250（DLC 公开检出，来源未固定）。原文介绍蜘蛛机器人消失时引发的地形效果，连续罗列移除途径把主句隔断。",
+      "suggestion": "蜘蛛机器人消失时会掘地，引发寒霜冰雾（造成 %0.2f 寒冷伤害，对浸湿目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），范围为半径 1 格，持续 %d 回合。护盾中的机器人被摧毁时，效果出现在攻击者脚下。\n\t\t这些特殊的寒霜冰雾和地震不会影响施法者。\n\t\t伤害随法术强度提高。"
+    },
+    {
+      "id": "2049882820d8",
+      "verdict": "OK"
+    },
+    {
+      "id": "05762c670563",
+      "verdict": "OK"
+    },
+    {
+      "id": "52b664c93fc6",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/talents/steam/mecharachnid.lua:775（DLC 公开检出，来源未固定）。原文的半径参数没有用于实际嘲讽投射；括号像调试备注，掩盖了真正的嘲讽对象。",
+      "suggestion": "你冲向敌人，用尾部蒸汽链锯进行攻击，造成 %d%% 伤害，并嘲讽该敌人。即使攻击落空，嘲讽也会生效，但不会波及周围 %d 格内的其他敌人。\n\t\t装备蒸汽链锯的时候，你以敏捷代替力量来计算装备需求和武器伤害，并使你的蒸汽链锯伤害提高 %d%%， 物理强度提高 %d。"
+    },
+    {
+      "id": "51d75fb9162b",
+      "verdict": "OK"
+    },
+    {
+      "id": "309fa192c28d",
+      "verdict": "OK"
+    },
+    {
+      "id": "7c9cc912b25c",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/magical.lua:120（DLC 公开检出，来源未固定）。说明把剩余回合比较与伤害均摊写成逐步计算。可用“续至”表达刷新上限，并保留站位和伤害叠加信息。",
+      "suggestion": "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%， 减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。暗影伤害会在目标脚下留下持续 4 回合的回响。目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。"
+    },
+    {
+      "id": "9d5b88674f8d",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/magical.lua:466（DLC 公开检出，来源未固定）。回调以 innate 排除固有技能，逐项举例没有穷举意义，反而把触发动作与收益隔开。",
+      "suggestion": "每回合造成 %0.2f 玄机伤害。目标每次使用非固有技能时，施加者随机一个科技法术的冷却时间缩短 1 回合；若无科技法术正在冷却，则改为随机一个法术。"
+    },
+    {
+      "id": "f8d127bf6d99",
+      "verdict": "ISSUE",
+      "observation": "/workspace/tome4-dlcs/orcs/tome-orcs/data/timed_effects/physical.lua:729（DLC 公开检出，来源未固定）。当前译文把断开链接的各个分支和当回合的提前返回都写进一句话。“治疗量……再减半”还会误指绝对治疗量，实际递减的是治疗比例。",
+      "suggestion": "持续汲血，每回合造成 %0.2f 点物理伤害，并为施加者恢复相当于伤害一半的生命。同一回合内，每多汲取一个目标，治疗比例就减半。距离过远时，汲血会中断。"
+    }
+  ]
+}

@@ -1718,7 +1718,7 @@ t("Summon", "召唤", "_t")
 t("Grinder", "绞肉机", "entity name")
 t("bloody steamsaw", "染血的蒸汽链锯", "_t")
 t("Originally a kitchen implement used by the giants to saw through tough, frozen carcasses. Something is especially sinister about this example though.", "这原本是巨人用来锯开坚硬冰冻兽尸的厨具，但这一把却透着格外邪恶的气息。", "_t")
-t("On Taking Damage: Blindside the attacker (range 6).", "受伤触发：对攻击者施放闪电突袭（距离大于 1 格且小于 6 格）。", "_t")
+t("On Taking Damage: Blindside the attacker (range 6).", "受伤触发：对相距 2 至 5 格的攻击者施放闪电突袭。", "_t")
 t("Overclocked Radius", "超频半径", "entity name")
 t("distorted steamsaw", "扭曲的蒸汽链锯", "_t")
 t([[Faced with the petty quandaries of 'conventional physics', some mad tinker must have coated this sawblade with a fine sheathe of dilated time to maximize its speed.
@@ -3956,10 +3956,10 @@ t("Twilit Echoes", "暮光回响", "talent name")
 t([[The target feels the echoes of all your light and dark damage for %d turns. 
 
 Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.
-Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到其所受的所有光系和暗影伤害的回响（不论伤害来源），持续 %d 回合。
+Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到所受光系和暗影伤害的回响，持续 %d 回合。
 
 每受到 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。
-暗影伤害会在目标所在格生成一个初始持续 4 回合的效果；在暮光回响生效期间，目标仍在该格并再次受到暗影伤害（包括此效果本身造成的伤害）时，若该效果剩余时间不足 %d 回合，就会刷新持续时间，并将剩余伤害与新一轮伤害合并均摊。新一轮伤害每回合按该次暗影伤害的 %d%% 计算。]], "tformat")
+暗影伤害会在目标脚下留下持续 4 回合的回响。在暮光回响生效期间，目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。]], "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/celestial/energies.lua"
@@ -4014,10 +4014,10 @@ t("Twilit Echoes", "暮光回响", "talent name")
 t([[The target feels the echoes of all your light and dark damage for %d turns. 
 
 Light damage slows the target by %0.2f%% per point of damage dealt for %d turns, up to a maximum of %d%% at %d damage.
-Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到其所受的所有光系和暗影伤害的回响（不论伤害来源），持续 %d 回合。
+Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source while Twilit Echoes is active, dealing its remaining damage over the new duration as well as the new damage.]], [[目标会感受到所受光系和暗影伤害的回响，持续 %d 回合。
 
 每受到 1 点光系伤害，目标便会减速 %0.2f%%， 持续 %d 回合；减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。
-暗影伤害会在目标所在格生成一个初始持续 4 回合的效果；在暮光回响生效期间，目标仍在该格并再次受到暗影伤害（包括此效果本身造成的伤害）时，若该效果剩余时间不足 %d 回合，就会刷新持续时间，并将剩余伤害与新一轮伤害合并均摊。新一轮伤害每回合按该次暗影伤害的 %d%% 计算。]], "tformat")
+暗影伤害会在目标脚下留下持续 4 回合的回响。在暮光回响生效期间，目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。]], "tformat")
 t("Starscape", "星界领域", "talent name")
 t("This spell cannot be cast here.", "该技能不能在这里使用。", "logPlayer")
 t("Summons the starscape in the surrounding area in a radius of %d. For %d turns, this area exists outside normal time, and in zero gravity. In addition to the effects of zero gravity, Movement of projectiles and other creatures is three times as slow. Spells and attacks cannot escape the radius until the effect ends.", "在周围半径 %d 的区域内召唤一片星界领域。 %d 回合内，这个区域存在于正常时间之外，且重力为零。除了零重力之外，抛射物和其他生物的移动速度降为平时的 1/3。法术和攻击在效果结束前无法离开该范围。", "tformat")
@@ -4470,7 +4470,7 @@ t([[You build %d micro spiderbot(s) from the earthly elements around you. Spider
 t("Cryogenic Digs", "低温掘进", "talent name")
 t([[Each time a spiderbot expires it digs around, producing either a Glacial Vapour (%0.2f cold damage and doing 30%% more damage to wet targets) or Earthquake (%0.2f physical damage and 25%% chances to stun for 2 turns) of radius 1 that last for %d turns.
 		Those special kinds of Glacial Vapour and Earthquake do not affect the caster.
-		The damage will increase with your Spellpower.]], [[每当蜘蛛机器人因持续时间结束、数量超限或机器人冲撞而被移除，或在蜘蛛机器人护盾中被摧毁时（此时在攻击者所在处），它会掘地，在周围产生寒霜冰雾（造成 %0.2f 寒冷伤害，对浸湿目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），半径为 1，持续 %d 回合。
+		The damage will increase with your Spellpower.]], [[每当蜘蛛机器人消失时，它会掘地，在周围产生寒霜冰雾（造成 %0.2f 寒冷伤害，对浸湿目标额外造成 30%% 伤害）或地震（造成 %0.2f 物理伤害，有 25%% 几率震慑 2 回合），半径为 1，持续 %d 回合。
 		这些特殊的寒霜冰雾和地震不会影响施法者。
 		伤害随法术强度提高。]], "tformat")
 t("Ramming Bot", "机器人冲撞", "talent name")
@@ -4556,8 +4556,8 @@ t([[You attune your saws to a specific target for 5 turns.
 		Each time you strike this target all damage done with steamsaws (including by other talents) is increased by +%d%%.
 		If you strike any other foe the bonus ends.
 		#{italic}#Metal your foes to death!#{normal}#]], [[将链锯调校至一个指定目标，持续 5 回合。
-		每次命中该目标时（每回合至多计一次），链锯造成的所有伤害（包括其他技能）提高 %d%%。
-		若你某回合首次命中的是其他敌人，加成效果结束。
+		每次命中该目标时，链锯造成的所有伤害（包括其他技能）提高 %d%% （每回合至多叠加一次）。
+		若你攻击其他敌人，加成效果结束。
 		#{italic}#切碎他们！！#{normal}#]], "tformat")
 t("Explosive Saw", "爆炸飞锯", "talent name")
 t([[You send a saw mounted on an automated steam propulsor to assault a foe, dealing %0.2f physical damage each turn for 4 turns and silencing it.
@@ -5333,7 +5333,7 @@ t("You require a tail-mounted steamsaw for this talent.", "你必须在尾部安
 t("Your mecharachnid cannot do that currently.", "你的机械蜘蛛目前不能这么做。", "logPlayer")
 t("#Source# provokes #Target# to attack it.", "#Source#强制#Target#攻击它。", "logCombat")
 t([[You rush to the target and strike with your tailsaw, dealing %d%% damage and taunting enemies within radius %d.
-		You now also use your Dexterity in place of Strength when equipping Steamsaws as well as when calculating weapon damage, and have your Steamsaw damage increased by %d%% and Physical Power by %d.]], [[你冲向敌人，用尾部蒸汽链锯进行攻击，造成 %d%% 伤害，并嘲讽该目标（标示的嘲讽半径为 %d 格，但实际只对所攻击的目标生效，无论是否命中）。
+		You now also use your Dexterity in place of Strength when equipping Steamsaws as well as when calculating weapon damage, and have your Steamsaw damage increased by %d%% and Physical Power by %d.]], [[你冲向敌人，用尾部蒸汽链锯进行攻击，造成 %d%% 伤害，并嘲讽该目标（不会波及周围 %d 格内的其他敌人）。
 		装备蒸汽链锯的时候，你以敏捷代替力量来计算装备需求和武器伤害，并使你的蒸汽链锯伤害提高 %d%%， 物理强度提高 %d。]], "tformat")
 t("Defensive Protocol", "防御协议", "talent name")
 t("Enhancements to your mecharachnid combat skill increases your melee and ranged evasion by %d%%, and causes you to automatically strike adjacent enemies with your tailsaw for %d%% damage each turn.", "强化机械蜘蛛的近身战斗能力，增加 %d%% 概率躲闪近战和远程攻击，你每回合会自动用尾部的蒸汽链锯打击相邻的敌人，造成 %d%% 伤害。", "tformat")
@@ -5676,7 +5676,7 @@ t([[Allows the use of Technomancy spells.
 		Grants Spellpower based on current steam level (currently %d; %d%% steam filled).
 		Outside of combat, you relax and let your steam reserve slowly wither away.
 		#{italic}#Metal Arcane Power!#{normal}#]], [[允许使用科技法术。
-		获得一个魔法蒸汽储备，施放消耗法力且不消耗蒸汽的主动法术时，每消耗10点法力值获得 %d 蒸汽。
+		获得一个魔法蒸汽储备，每消耗 10 点法力值恢复 %d 蒸汽。
 		根据当前蒸汽值获得法术强度（目前 %d； 蒸汽储量 %d%%）。
 		在战斗外，你放松了控制，蒸汽储备会逐渐消退。
 		#{italic}#金属奥术力量！#{normal}#]], "tformat")
@@ -6108,7 +6108,7 @@ t("-Shield", "-护盾", "_t")
 t("dark", "黑暗", "effect subtype")
 t("light", "光系", "effect subtype")
 t("Twilit Echoes", "暮光回响", "_t")
-t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%，减速上限为 %d%%，累计受到 %d 点伤害时达到上限。暗影伤害会在所在地格留下持续 4 回合的回响；若目标在同一地格再次受到暗影伤害，且该回响剩余时间不足 %d 回合，则将其持续时间刷新至该时长，并把剩余伤害与新增伤害合并均摊。回响每回合造成所受暗影伤害的 %d%%。", "tformat")
+t("The target feels the echoes of all light and dark damage it takes. Light damage slows the target by %0.2f%% per point of damage dealt, up to a maximum of %d%% at %d damage. Dark damage creates an effect at the tile for %d turns which deals %d%% of the damage dealt each turn. It will be refreshed as long as the target continues taking damage from it or another source.", "目标会感受到其所受光系与暗影伤害的回响。每受到 1 点光系伤害，目标便减速 %0.2f%%， 减速上限为 %d%%， 累计受到 %d 点伤害时达到上限。暗影伤害会在目标脚下留下持续 4 回合的回响。目标在原地再次受到暗影伤害时，回响可续至 %d 回合，每回合造成相当于此次伤害 %d%% 的暗影伤害，并平摊先前剩余的伤害。", "tformat")
 t("slow", "减速", "effect subtype")
 t("Echoed Light", "光明回响", "_t")
 t("The light damage the target has taken is echoed, slowing them by %d%%. Taking additional damage while Twilit Echoes is active will refresh and increase the slow up to a maximum of %d%%.", "目标受到的光系伤害产生回响，使其减速 %d%%。在暮光回响期间受到更多光系伤害将会增加减速效果，最大叠加到 %d%%。", "tformat")
@@ -6137,7 +6137,7 @@ t("You have %d charges.", "叠加次数：%d。", "tformat")
 t("steam", "蒸汽", "effect subtype")
 t("technomancy", "科技法术", "effect subtype")
 t("Ethereal Steam", "虚幻蒸汽", "_t")
-t("Deals %0.2f occult damage per turn and each time a talent is used, the caster regens one turn of a random cooldown.", "每回合造成 %0.2f 玄机伤害；目标每次使用技能（固有技能除外，如攻击、射击、装填及火焰喷射、暴风打击、弹矢爆射）时，施加者的一个随机冷却中科技法术（若没有则为法术）冷却时间减少 1 回合。", "tformat")
+t("Deals %0.2f occult damage per turn and each time a talent is used, the caster regens one turn of a random cooldown.", "每回合造成 %0.2f 玄机伤害；目标每次使用技能时，施加者随机一个冷却中的科技法术（若无则为法术）冷却时间缩短 1 回合。", "tformat")
 t("#Target# covered in arcane-infused steam!", "#Target#被奥术蒸汽覆盖！", "_t")
 t("#Target# is free from the steam.", "#Target#脱离蒸汽影响。", "_t")
 t("Ethereal Link", "虚幻连接", "_t")
@@ -6481,7 +6481,7 @@ t("blood", "血", "effect subtype")
 t("drain", "吸血", "effect subtype")
 t("heal", "治疗", "effect subtype")
 t("Bloodstar", "血液灵晶", "_t")
-t("Continuously drain blood, dealing %0.2f physical damage per turn and healing the caster for half of it.", "持续汲取目标的鲜血，每回合造成 %0.2f 点物理伤害；若施加者距离过远、死亡或不在场，链接立即断开且本回合不造成伤害；造成伤害后，施加者获得相当于该伤害一半的治疗，同回合每多一个目标，治疗量在前一目标基础上再减半。", "tformat")
+t("Continuously drain blood, dealing %0.2f physical damage per turn and healing the caster for half of it.", "持续汲取目标的鲜血，每回合造成 %0.2f 点物理伤害，并为施加者恢复相当于该伤害一半的生命（同时汲取多个目标时治疗比例递减）。", "tformat")
 t("#Target# is caught in the bloodstar.", "#Target#被血液灵晶抓住了。", "_t")
 t("#Target# is free from the bloodstar.", "#Target#从血液灵晶中解脱。", "_t")
 t("Heartrended", "心脏切割", "_t")

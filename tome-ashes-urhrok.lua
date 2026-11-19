@@ -1157,7 +1157,7 @@ t([[Open a gateway to the Fearscape, stepping through it to a nearby location. A
 t("Cauterize Spirit", "灵魂焚净", "talent name")
 t([[Removes all detrimental effects but causes you to burn for %d%% of your max health per effect, over 7 turns.
 		This ignores all resists, defenses, and affinities.
-		This does not take a turn.]], [[移除除“其他”类与越层效果以外的所有负面状态，但每移除一个状态，会在 7 回合内灼烧自身，受到合计 %d%% 最大生命值的伤害。
+		This does not take a turn.]], [[移除所有负面状态，但每移除一个状态，会在 7 回合内灼烧自身，受到合计 %d%% 最大生命值的伤害。
 		伤害无视一切抗性、防御效果和伤害亲和。
 		此技能瞬发。]], "tformat")
 t("Infernal Breath", "地狱吐息", "talent name")
@@ -1177,7 +1177,7 @@ t([[Whenever you kill a burning enemy, you will instantly deal a melee attack ag
 		Additionally, Incinerating Blows will always trigger on this attack (or your next attack), dealing %d%% of its normal damage to all enemies hit and stunning, ignoring the cooldown.
 		This can only trigger once every 5 turns.]], [[每次你击杀一个燃烧的敌对生物时，会立刻对一个随机相邻敌对生物进行一次攻击，造成 %d%% 武器伤害。
 		另外，这次攻击（或你的下一次攻击）必定触发焚尽强击，对所有击中的敌对生物造成 %d%% 正常伤害并使其震慑，无视冷却时间。
-		此效果每 5 回合才能触发一次（击杀未燃烧的敌对生物也会使其进入 5 回合冷却）。]], "tformat")
+		此效果每 5 回合只能触发一次。]], "tformat")
 t("Fiery Aegis", "火焰守护", "talent name")
 t([[Draw in the raging fires and envelop yourself in them. Remove all burns from enemies in a radius of 5 around you, and create a shield lasting %d turns with a power of %d, increased by 15%% for each burn removed.
 		When the shield ends, it releases a burst of fire in a radius of %d around you, burning all enemies for 3 turns, doing damage equal to the initial power of the shield.]], [[吸取燃烧中的烈焰，将自己包裹其中。除去半径 10 内的敌方生物身上的燃烧效果，同时制造一层持续 %d 回合、强度为 %d 的护盾，每移除一层燃烧效果，护盾强度增加 15%%。
@@ -1263,7 +1263,7 @@ t("Mass Hysteria", "恐惧之潮", "talent name")
 t("Amplifies the power of your fear on the target by %d%% per stack and sets its duration to %d.  The amplified fear spreads to all enemies in a radius of %d.", "增强目标的恐惧，目标身上每有一次恐惧叠加，效果增强 %d%%， 持续时间增大到 %d 回合。增强后的恐惧效果影响 %d 格内所有敌对生物。", "tformat")
 t("Fearfeast", "恐惧盛宴", "talent name")
 t("You gain %.1f turns!", "你获得了%.1f个回合！", "logPlayer")
-t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[依据 %d 格内敌对生物身上的恐惧层数（恐惧不会被移除），每有一层恐惧，恢复 %d 生命，并获得相当于一回合 %0.1f%% 的额外行动时间，至多能获得 %.1f 个额外回合。]], "tformat")
+t("You consume the fear of enemies in radius %d, healing for %d life and gaining %0.1f%% of a turn for each stack up to a max of %.1f turns.", [[你汲取 %d 格内敌对生物的恐惧（不会移除恐惧），每层恐惧为你恢复 %d 点生命，并获得 %0.1f%% 回合的行动时间，至多 %.1f 回合。]], "tformat")
 t("Hope Wanes", "绝望碾压", "talent name")
 t([[You crush the spirit of a target with at least %d fear stacks, consuming all stacks and making it unable to act for %d turns.
 		This talent ignores saves and immunities.]], [[击溃恐惧叠加至少 %d 层的目标的精神，消耗其全部恐惧层数，使目标 %d 回合无法行动。

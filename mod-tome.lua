@@ -21076,8 +21076,8 @@ t("Weapon of Wrath", "愤怒之刃", "talent name")
 t([[Your weapon attacks burn with righteous fury, dealing %d%% of your lost HP as additional Fire damage (up to %d, Current:  %d).
 		Targets struck are also afflicted with a Martyrdom effect that causes them to take %d%% of all damage they deal for 4 turns.
 		The bonus damage can only occur once per turn.]], [[你的近战攻击命中时，造成相当于你已损失生命值 %d%% 的额外火焰伤害（至多 %d 点，当前 %d 点）。
-		同时令目标进入殉难状态，持续 4 回合：其每次造成伤害，自身也会受到相当于该伤害 %d%% 的伤害。
-		额外伤害每回合最多触发一次；触发额外伤害后，本回合不再施加殉难效果。]], "tformat")
+		同时令目标进入殉难状态，持续 4 回合：其造成的伤害有 %d%% 会反噬自身。
+		额外伤害与殉难效果每回合最多触发一次。]], "tformat")
 t("Second Life", "第二生命", "talent name")
 t("Any attack that would drop you below 1 hit point instead triggers Second Life, deactivating the talent, setting your hit points to 1, then healing you for %d.", "任何使你生命值降到 1 点以下的攻击都会激活第二生命，自动中断此技能并将你的生命值恢复到 1 点，然后为你恢复 %d 点生命值。", "tformat")
 
@@ -21207,8 +21207,8 @@ t([[Even now, something compels you to sing.
 			Dirge of Pestilence: Shields you for %d when an enemy inflicts a detrimental effect on you (5 turn cooldown).
 			You may only have one Dirge active at a time.]], [[即便如今，仍有什么驱使着你歌唱。
 			饥荒挽歌：增加生命回复 %d。
-			征服挽歌：暴击时获得 10%% 回合的行动时间，杀死敌人时获得 %d%% 回合的行动时间；两种奖励各自每回合最多触发一次。
-			瘟疫挽歌：你受到非自身施加、且不属于“其他”类型的负面效果时获得 %d 的护盾（5 回合冷却）。
+			征服挽歌：暴击时获得 10%% 回合的行动时间，杀死敌人时获得 %d%% 回合的行动时间（每回合各限一次）。
+			瘟疫挽歌：敌人对你施加负面效果时，你获得 %d 点护盾（5 回合冷却）。
 			你同时只能激活一种挽歌。]], "tformat")
 t("Dirge Intoner", "挽歌吟诵者", "talent name")
 t([[Your dirges carry the pain within you, which threatens to swallow those who come too close.  Anyone who hits you in melee suffers %0.2f mind damage.
@@ -21816,7 +21816,7 @@ t([[Fire an arrow for %d%% weapon damage. When the arrow reaches its destination
 		Targets take reduced damage the further they are from the epicenter (20%% less per tile).
 		The additional damage scales with your Spellpower.]], [[发射一支箭，造成 %d%% 武器伤害。当箭矢到达目的地或命中目标时，会牵引半径 %d 内的所有其他目标，并造成 %0.2f 物理伤害。
 		从第二个被移动的目标起，每多移动一个目标，伤害增加 %0.2f （额外伤害上限为 %0.2f）。
-		目标距中心点越远，受到的伤害越低（伤害除以 1 + 距离格数 × 20%%）。
+		目标距中心点越远，受到的伤害越低（每远一格减少 20%% 伤害）。
 		额外伤害受法术强度加成。]], "tformat")
 t("Arrow Echoes", "灵矢回声", "talent name")
 t("You do not have line of sight.", "你没有视线。", "logSeen")
@@ -22021,8 +22021,8 @@ t([[Creates a gravity spike in a radius of %d that moves all targets towards the
 		Each target moved beyond the first increases the damage by %0.2f (up to a maximum of %0.2f bonus damage).
 		Targets take reduced damage the further they are from the epicenter (20%% less per tile).
 		The damage dealt will scale with your Spellpower.]], [[在半径 %d 范围内制造一个重力钉刺，将所有目标牵引至法术中心，造成 %0.2f 物理（重力）伤害。
-		从第二个单位起，每牵引一个单位将会使伤害增加 %0.2f (最多增加 %0.2f 额外伤害)。
-		离法术中心越远，目标受到的伤害越少（伤害除以 1 + 距离格数 × 20%%）。
+		从第二个单位起，每牵引一个单位将会使伤害增加 %0.2f （最多增加 %0.2f 额外伤害）。
+		离法术中心越远，目标受到的伤害越少（每远一格减少 20%% 伤害）。
 		受法术强度影响，伤害按比例加成。]], "tformat")
 t("Gravity Locus", "重力核心", "talent name")
 t([[Create a gravity field around you that converts %d%% all damage you deal into physical damage, slows incoming projectiles by %d%%, and protects you from all gravity damage and effects.
@@ -22163,7 +22163,7 @@ t("Moment of Prescience", "预知时刻", "talent name")
 t([[You pull your awareness fully into the moment, increasing your stealth detection, see invisibility, defense, and accuracy by %d for %d turns.
 		If you have Spin Fate active when you cast this spell, you'll gain a bonus to these values equal to 50%% of your spin.
 		This spell takes no time to cast.]], [[你将意识完全收束于当下，使侦测潜行、侦测隐形、闪避和命中提高 %d， 持续 %d 回合。
-		若施放时命运之丝处于激活状态，上述数值还会获得相当于命运之丝单层加成值 50%% 的额外加成（与层数无关）。
+		若施放时命运之丝处于激活状态，上述数值还会提高，增幅相当于一层命运之丝加成的 50%%。
 		施放此法术不消耗回合。]], "tformat")
 t("Gather the Threads", "聚拢时间线", "talent name")
 t([[You begin to gather energy from other timelines. Your Spellpower will increase by %0.2f on the first turn and %0.2f more each additional turn.
@@ -24443,7 +24443,7 @@ This talent deactivates automatically upon rest.
 This strength comes at a cost: you lose %d%% of your maximum life every turn.  This can kill you.
 
 #{italic}#If you're lucky, this will take everything you've got.#{normal}#]], [[唤起你保留在最深处的力量，不惜一切代价取胜。
-使用这一技能的瞬间，和之后这一技能持续开启的每一回合，你的负面效果（其他类效果除外）持续时间和不具有固定冷却时间的技能的冷却时间都会额外减少一回合。
+开启时及维持期间的每回合，你的负面效果持续时间和技能冷却时间都会额外减少一回合。
 即使你的技能冷却时间本来不会降低，这一效果也可以降低其冷却时间。
 这一技能在休息时自动关闭。
 这一力量的代价是你每回合损失 %d%% 的最大生命。这一效果可以杀死你。
@@ -24739,7 +24739,7 @@ section "mod-tome/data/talents/gifts/dwarven-nature.lua"
 t("Earthen Missiles", "岩石飞弹", "talent name")
 t([[Conjures %d missile-shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.
 		At talent level 5, you can conjure one additional missile.
-		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，并使可流血的目标每回合受到 %0.2f 流血伤害，持续 5 回合；命中时还会立即造成一次额外的物理伤害，其基础数值与上述每回合流血伤害相同。
+		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，并在 5 回合内每回合额外造成 %0.2f 流血伤害。
 		技能等级 5 时，你可以额外释放一个飞弹。
 		伤害受法术强度加成。]], "tformat")
 t("Elemental Split", "元素分裂", "talent name")
@@ -27491,7 +27491,7 @@ t([[Resonate with psionic, nature, and anti-magic powered objects you wear, incr
 		当前加成： %d]], "tformat")
 t("Mental Shielding", "精神屏障", "talent name")
 t("%s's mind is clear!", "%s的精神被净化了！", "logSeen")
-t("Clears your mind of current mental effects, and blocks additional ones over 6 turns.  At most, %d mental effects will be affected.", [[净化你当前的负面精神状态，并在接下来的 6 回合内免疫新增的负面精神状态。最多一共（净化和免疫）能影响 %d 种负面精神状态。]], "tformat")
+t("Clears your mind of current mental effects, and blocks additional ones over 6 turns.  At most, %d mental effects will be affected.", [[清除你当前的负面精神效果，并在接下来的 6 回合内阻挡新的负面精神效果，两者合计最多 %d 个。]], "tformat")
 t("Projection", "灵魂出窍", "talent name")
 t("Not enough space to invoke your spirit!", "没有足够的空间召唤你的投影！", "logPlayer")
 t("Projection of %s", "%s的投影", "tformat")
@@ -29629,7 +29629,7 @@ section "mod-tome/data/talents/spells/stone.lua"
 t("Earthen Missiles", "岩石飞弹", "talent name")
 t([[Conjures %d missile-shaped rocks that you target individually at any target or targets in range.  Each missile deals %0.2f physical damage, and an additional %0.2f bleeding damage every turn for 5 turns.
 		At talent level 5, you can conjure one additional missile.
-		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，并使可流血的目标每回合受到 %0.2f 流血伤害，持续 5 回合；命中时还会立即造成一次额外的物理伤害，其基础数值与上述每回合流血伤害相同。
+		The damage will increase with your Spellpower.]], [[释放出 %d 个岩石飞弹，你可以为每个飞弹独立指定射程内的任意目标。每个飞弹造成 %0.2f 物理伤害，并在 5 回合内每回合额外造成 %0.2f 流血伤害。
 		技能等级 5 时，你可以额外释放一个飞弹。
 		伤害受法术强度加成。]], "tformat")
 t("Body of Stone", "岩石身躯", "talent name")
@@ -31037,7 +31037,7 @@ t([[Unleash a flurry of disruptive kicks at your target's vulnerable areas. For 
 		技能等级 5 时，#YELLOW#精神#LAST#持续技能也会受影响。
 		使用该技能将除去全部连击点。]], "tformat")
 t("Relentless Strikes", "无情打击", "talent name")
-t("When gaining a combo point, you have a %d%% chance to gain an extra combo point. Additionally, every time you earn a combo point, you will regain %0.2f stamina, or %0.2f stamina if you would exceed 5 combo points.", "每当获得连击点时，你有 %d%% 几率额外获得 1 点。此外，每次获得连击点时，你会恢复 %0.2f 体力，触发本技能的额外连击点时恢复量翻倍；若此次获得会使连击点总数超过 5，则恢复量再翻倍（未触发额外连击点时为 %0.2f 体力）。", "tformat")
+t("When gaining a combo point, you have a %d%% chance to gain an extra combo point. Additionally, every time you earn a combo point, you will regain %0.2f stamina, or %0.2f stamina if you would exceed 5 combo points.", "每当获得连击点时，你有 %d%% 几率额外获得 1 点。此外，每次获得连击点时，你会恢复 %0.2f 体力；若连击点将超过 5 点，则改为恢复 %0.2f 体力。触发额外连击点时，恢复量翻倍。", "tformat")
 t("Open Palm Block", "空手格挡", "talent name")
 t("@Source@ prepares to block incoming attacks.", "@Source@准备格挡接下来的攻击。", "_t")
 t([[Toughen your body blocking up to %d damage per combo point (Max %d) across 2 turns.
@@ -35263,8 +35263,8 @@ t("#Target# is no longer surging arcane power.", "#Target#不再涌起奥术能�
 t("-Spellsurge", "-法术狂潮", "_t")
 t("Out of Phase", "脱离现实", "_t")
 t([[The target is out of phase with reality, increasing defense by %d, resist all by %d%%, and reducing the duration of detrimental timed effects by %d%%.
-These effects cap at 40%%.]], [[目标脱离了现实相位，增加 %d 闪避，%d%% 全体伤害抗性并减少 %d%% 所有负面状态的持续时间。
-闪避上限为 40 点，全体伤害抗性与负面状态持续时间缩减上限为 40%%。]], "tformat")
+These effects cap at 40%%.]], [[目标脱离现实相位，闪避提高 %d 点，全体伤害抗性提高 %d%%， 负面状态的持续时间缩短 %d%%。
+闪避加成上限为 40 点，另两项加成上限均为 40%%。]], "tformat")
 t("#Target# is out of phase.", "#Target#脱离了相位空间。", "_t")
 t("+Phased", "+相位", "_t")
 t("#Target# is no longer out of phase.", "#Target#回到了正常空间。", "_t")
@@ -35664,7 +35664,7 @@ t("Soul Leech", "灵魂吸取", "_t")
 t("Soul absorbed upon death.", "死后灵魂会被吸收。", "_t")
 t("ghoul", "食尸鬼", "effect subtype")
 t("Corpse Explosion", "夺命尸爆", "_t")
-t("When a ghoul is hit or dies, it explodes, doing %0.2f frostdusk damage.", "当食尸鬼受到伤害或死亡时，每回合只会引爆其中最早召唤的一只，造成 %0.2f 霜暮伤害。", "tformat")
+t("When a ghoul is hit or dies, it explodes, doing %0.2f frostdusk damage.", "食尸鬼受到伤害或死亡时会爆炸，造成 %0.2f 霜暮伤害（每回合至多引爆一只）。", "tformat")
 t("#GREY#%s explodes in a blast of gore!", "#GREY#%s爆炸成一团碎肉！", "logSeen")
 t("resistance", "抵抗", "effect subtype")
 t("cooldown", "冷却", "effect subtype")
@@ -36418,7 +36418,7 @@ t("#Target# has returned fully to the timeline.", "#Target#完全返回了时间
 t("-Fade From Time", "-淡出时间", "_t")
 t("darkness", "暗影", "effect subtype")
 t("Shadow Veil", "暗影面纱", "_t")
-t("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character.", "你融入暗影并被其支配。笼罩在阴影中时，你对所有负面状态（「其他」类除外）免疫，并减少 %d%% 所受伤害；每回合你会闪现到首次攻击落点半径 %d 格内的一个敌人身边，对其造成 %d%% 暗影武器伤害。此效果持续期间你无法控制角色，除非死亡，否则无法被打断；若找不到符合条件的敌人，效果会提前结束。", "tformat")
+t("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character.", "你融入暗影并被其支配。笼罩在阴影中时，你免疫负面状态，并减少 %d%% 所受伤害；每回合你会闪现到 %d 格内的一个敌人身边，对其造成 %d%% 暗影武器伤害。此效果持续期间你无法控制角色，除非死亡，否则无法被打断。", "tformat")
 t("#Target# is covered in a veil of shadows!", "#Target#笼罩在暗影之中！", "_t")
 t("+Assail", "+暗影笼罩", "_t")
 t("#Target# is no longer covered by shadows.", "#Target#不再被暗影笼罩。", "_t")
@@ -37335,7 +37335,7 @@ t("Has a %d%% chance to counter attack with a defensive throw when avoiding a me
 t("distortion", "扭曲", "effect subtype")
 t("Ravage", "疯狂扭曲", "_t")
 t("each turn.", "每回合", "_t")
-t("and is losing one physical effect turn.", "每回合失去一个物理增益效果或非法术、非精神类持续技能并", "_t")
+t("and is losing one physical effect turn.", "每回合失去一个物理增益效果或物理持续技能并", "_t")
 t("The target is being ravaged by distortion, taking %0.2f physical damage %s", "目标被疯狂扭曲，%s受到 %0.2f 物理伤害", "tformat", {2,1})
 t("+Ravage", "+疯狂扭曲", "_t")
 t("#Target# is no longer being ravaged.", "#Target#不再被疯狂扭曲。", "_t")
