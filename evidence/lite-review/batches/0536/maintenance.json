@@ -1,0 +1,41 @@
+{
+ "kind": "consumer-family-review",
+ "date": "2026-11-19",
+ "authorization": "Maintainer 2026-11-19: clear the remaining 223 units of the 0521 condition-chain candidate pool before release (slice 4/4, final slice).",
+ "baseline": {
+  "translation_head": "93dd48f49",
+  "core": "624a67329fe2"
+ },
+ "pool": {
+  "source": "batches/0521 candidates (cands.py), 343 units",
+  "remaining_before_0536": 55,
+  "slice": "4/4 (55 units: tome 55)",
+  "remaining_after_0536": 0
+ },
+ "lanes": {
+  "A": "claude/claude-opus-5-5 (thinking medium): 1 ISSUE",
+  "B": "codex/gpt-6.1-sol (thinking medium): 7 ISSUE",
+  "overlap": 0
+ },
+ "disposition": {
+  "fix": 4,
+  "advisory": 3,
+  "rejected": 1,
+  "keep": 48,
+  "fix_by_type": {
+   "①": [
+    "2557abd55317 Curse of Corpses: normalize spaced half-width commas ( , ) -> full-width ， to match sibling curses",
+    "205ff861c21c Curse of Madness: restore missing 造成的伤害 and align >= max_life threshold (①+②)"
+   ],
+   "②": [
+    "9f18d41cb6b8 Corpse Explosion: clarify 1 ghoul per turn, earliest summoned, triggered on damage or death",
+    "725dee21625e Shadow Veil: clarify fixed first-strike landing spot range center and early end when no valid foe"
+   ]
+  },
+  "advisory_upstream": [
+   "5c97c8460c40 Waking Nightmare long_desc passes eff.chance without sleep-adjusted branch (③)",
+   "bc84af7bae6c Inner Demons long_desc passes eff.chance without sleep-adjusted branch (③)",
+   "488d2e3e776d Stoning Poison long_desc always passes full eff.stone while early expiry applies math.floor(eff.stone*chance/100) (③)"
+  ]
+ }
+}

@@ -1,0 +1,1087 @@
+{
+ "note": "Code facts extracted from the same source files as input.json (core @624a67329fe2; DLC public checkout, fingerprints in source-provenance.json if DLC present). No review history or expected verdicts.",
+ "entries": {
+  "d82e0563c07f": {
+   "definition_lines": [
+    3805,
+    3843
+   ],
+   "string_line": 3813,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "3813: on_gain = function(self, err) return _t\"#Target# is being being removed from the timeline!\", _t\"+Attenuate\" end,",
+    "3814: on_lose = function(self, err) return _t\"#Target# survived the attenuation.\", _t\"-Attenuate\" end,",
+    "3817: local olddam = old_eff.power * old_eff.dur",
+    "3818: local newdam = new_eff.power * new_eff.dur",
+    "3819: local dur = math.ceil((old_eff.dur + new_eff.dur) / 2)",
+    "3820: old_eff.dur = dur",
+    "3824: callbackOnHit = function(self, eff, cb, src)",
+    "3825: if cb.value <= 0 then return cb.value end",
+    "3828: if not self.dead and not self:isTalentActive(self.T_REALITY_SMEARING) and self:canBe(\"instakill\") and self.life > 0 and self.life < self.max_life * 0.2 then",
+    "3835: on_timeout = function(self, eff)",
+    "3836: if self:isTalentActive(self.T_REALITY_SMEARING) then"
+   ]
+  },
+  "925468b4238f": {
+   "definition_lines": [
+    4287,
+    4340
+   ],
+   "string_line": 4291,
+   "format_call": "4292: tformat(eff.power, eff.max, eff.maxdam, math.min(eff.maxdam, self:getEquilibrium() - self:getMinEquilibrium()), eff.radius)",
+   "args_order": [
+    1,
+    2,
+    5,
+    3,
+    4
+   ],
+   "code_conditions_and_callbacks": [
+    "4298: on_gain = function(self, err) return _t\"#Target# is encased in a stone shield.\" end,",
+    "4299: on_lose = function(self, err)",
+    "4304: if core.shader.active(4) then",
+    "4310: if eff.particle and eff.particle._shader and eff.particle._shader.shad and src and src.x and src.y then",
+    "4319: eff.dur = self:getShieldDuration(eff.dur)",
+    "4321: if core.shader.active(4) then",
+    "4331: if equi > 0 then",
+    "4335: self:project({type=\"ball\", radius=eff.radius, friendlyfire=false}, self.x, self.y, DamageType.ARCANE, math.min(equi, eff.maxdam))"
+   ]
+  },
+  "3e415707fbc2": {
+   "definition_lines": [
+    4341,
+    4423
+   ],
+   "string_line": 4353,
+   "format_call": "4353: xs = (\", %d%% bleeding, poison, disease, and stun immunity\"):tformat(eff.immune*100)..xs",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "4346: if eff.arcaneDam and eff.arcanePen then",
+    "4349: if eff.natureDam and eff.naturePen then",
+    "4352: if eff.immune then",
+    "4361: on_gain = function(self, err) return _t\"#Target# is imbued by the power of the Stone.\", _t\"+Deeprock Form\" end,",
+    "4362: on_lose = function(self, err) return _t\"#Target# is abandoned by the Stone's power.\", _t\"-Deeprock Form\" end,",
+    "4364: if self:knowTalent(self.T_VOLCANIC_ROCK) then",
+    "4365: eff.volcano = self:getTalentLevelRaw(self.T_VOLCANIC_ROCK)",
+    "4375: if self:knowTalent(self.T_BOULDER_ROCK) then",
+    "4376: eff.boulder = self:getTalentLevelRaw(self.T_BOULDER_ROCK)",
+    "4385: if self:knowTalent(self.T_MOUNTAINHEWN) then",
+    "4387: if self:getTalentLevel(self.T_MOUNTAINHEWN) >= 5 then",
+    "4392: self:effectTemporaryValue(eff, \"cut_immune\", eff.immune)",
+    "4393: self:effectTemporaryValue(eff, \"poison_immune\", eff.immune)",
+    "4394: self:effectTemporaryValue(eff, \"disease_immune\", eff.immune)",
+    "4395: self:effectTemporaryValue(eff, \"stun_immune\", eff.immune)",
+    "4415: if eff.volcano then self:unlearnTalent(self.T_VOLCANO, eff.volcano * 2) end",
+    "4416: if eff.boulder then self:unlearnTalent(self.T_THROW_BOULDER,  eff.boulder * 2) end"
+   ]
+  },
+  "098ea8541c0e": {
+   "definition_lines": [
+    4459,
+    4488
+   ],
+   "string_line": 4462,
+   "format_call": "4462: long_desc = function(self, eff) return (\"The target is hexed, granting it %d%% chance each turn to be dazed for 3 turns.\"):tformat(eff.chance) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "4467: on_gain = function(self, err) return _t\"#Target# is hexed!\", _t\"+Pacification Hex\" end,",
+    "4468: on_lose = function(self, err) return _t\"#Target# is free from the hex.\", _t\"-Pacification Hex\" end,",
+    "4470: on_timeout = function(self, eff)",
+    "4471: if not self:hasEffect(self.EFF_DAZED) and rng.percent(eff.chance) and self:canBe(\"stun\") then",
+    "4472: self:setEffect(self.EFF_DAZED, 3, {})",
+    "4473: if not self:checkHit(eff.power, self:combatSpellResist(), 0, 95, 15) then eff.dur = 0 end",
+    "4477: if self:canBe(\"stun\") then",
+    "4478: self:setEffect(self.EFF_DAZED, 3, {})",
+    "4480: if core.shader.active() then",
+    "4485: if eff.particle then self:removeParticles(eff.particle) end"
+   ]
+  },
+  "9af560c7c88a": {
+   "definition_lines": [
+    4489,
+    4504
+   ],
+   "string_line": 4492,
+   "format_call": "4493: tformat(eff.dam, eff.power and (\"%d%%\"):tformat((eff.power-1)*100) or \"\")",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "4501: on_gain = function(self, err) return _t\"#Target# is hexed!\", _t\"+Burning Hex\" end,",
+    "4502: on_lose = function(self, err) return _t\"#Target# is free from the hex.\", _t\"-Burning Hex\" end,"
+   ]
+  },
+  "131ff141234e": {
+   "definition_lines": [
+    4679,
+    4727
+   ],
+   "string_line": 4682,
+   "format_call": "4722: e.desc = (\"Energy Alteration (%s)\"):tformat(name)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "4687: on_gain = function(self, err) return nil, true end,",
+    "4688: on_lose = function(self, err) return nil, true end,",
+    "4690: game:onTickEnd(function() self:removeEffect(self.EFF_LICH_FEAR) end)",
+    "4699: on_gain = function(self, err) return nil, true end,",
+    "4700: on_lose = function(self, err) return nil, true end,",
+    "4704: return math.floor(eff.dur + 1)",
+    "4710: on_timeout = function(self, eff)",
+    "4711: eff.dur = eff.dur - 1"
+   ]
+  },
+  "9f18d41cb6b8": {
+   "definition_lines": [
+    4890,
+    4934
+   ],
+   "string_line": 4893,
+   "format_call": "4893: long_desc = function(self, eff) return (\"When a ghoul is hit or dies, it explodes, doing %0.2f frostdusk damage.\"):tformat(eff.damage) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "4898: callbackPriorities={callbackOnSummonDeath = 100, callbackOnSummonHit = 100}, -- trigger after most others",
+    "4899: callbackOnSummonDeath = function(self, eff, minion, killer, death_note)",
+    "4903: callbackOnSummonHit = function(self, eff, cb, minion, src, death_note)",
+    "4904: if cb.value <= 0 then return end",
+    "4908: callbackOnActBase = function(self, eff)",
+    "4909: if #eff.turn_list == 0 then return end",
+    "4912: if m.x then",
+    "4913: if not m.dead then m:die(self) end",
+    "4917: m:project({type=\"ball\", radius=eff.radius, friendlyfire=false}, m.x, m.y, DamageType.FROSTDUSK, self:spellCrit(eff.damage))",
+    "4921: target:setEffect(disease[1], 6, {src=self, dam=eff.damage / 6, [disease[2]]=eff.disease, apply_power=self:combatSpellpower()})",
+    "4927: if not minion.ghoul_minion then return end"
+   ]
+  },
+  "9fef93cc8757": {
+   "definition_lines": [
+    5100,
+    5144
+   ],
+   "string_line": 5103,
+   "format_call": "5103: long_desc = function(self, eff) return (\"The target is infected by a plague, doing %0.2f darkness damage per turn with a %d%% chance to rip apart the soul.\"):tformat(eff.dam, eff.chance) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "5108: on_gain = function(self, err) return _t\"#Target# is afflicted by a dire plague!\" end,",
+    "5109: on_lose = function(self, err) return _t\"#Target# is free from the dire plague.\" end,",
+    "5111: new_eff.dur = math.max(old_eff.dur, new_eff.dur)",
+    "5114: on_timeout = function(self, eff)",
+    "5115: if self:attr(\"purify_disease\") then self:heal(eff.dam, eff.src)",
+    "5118: if rng.percent(eff.chance) then",
+    "5122: if eff.src:knowTalent(eff.src.T_THE_END_OF_ALL_HOPE) then",
+    "5128: if not eff.src.turn_procs.end_of_all_hope_trigger then",
+    "5132: if tareff then tareff.dur = tareff.dur + t_eah:_getDur(eff.src) end",
+    "5137: if eff.src:hasEffect(eff.src.EFF_CREPUSCULE) then eff.src:callTalent(eff.src.T_CREPUSCULE, \"trigger\", self) end"
+   ]
+  },
+  "ed07dca14747": {
+   "definition_lines": [
+    5339,
+    5357
+   ],
+   "string_line": 5342,
+   "format_call": "5342: long_desc = function(self, eff) return (\"The target is on fire, taking %0.2f fire damage per turn and %d%% chance per turn of removing a physical or magical effect from all targets affected by Inferno, Burning Wake or Cleansing Flames.\"):tformat(eff.power, eff.chance) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "5345: subtype = { fire=true, cleanse=true },",
+    "5348: on_gain = function(self, err) return _t\"#Target# bathes in cleansing flames!\", true end,",
+    "5349: on_lose = function(self, err) return _t\"#Target# stops burning.\", true end,",
+    "5353: on_timeout = function(self, eff)"
+   ]
+  },
+  "fba8b760c821": {
+   "definition_lines": [
+    5543,
+    5574
+   ],
+   "string_line": 5546,
+   "format_call": "5546: long_desc = function(self, eff) return (\"The target will gain a shield upon suffering a detrimental effect\"):tformat() end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "5551: callbackOnTemporaryEffectAdd = function(self, eff, eff_id, e_def, eff_incoming)",
+    "5552: if not self:hasEffect(self.EFF_NO_PESTILENCE) then",
+    "5553: if e_def.status == \"detrimental\" and e_def.type ~= \"other\" and eff_incoming.src ~= self then",
+    "5554: self:setEffect(self.EFF_NO_PESTILENCE, eff.cd, {src=self})",
+    "5555: if self:hasEffect(self.EFF_DAMAGE_SHIELD) then",
+    "5562: shield.dur = math.max(eff_incoming.dur, shield.dur)",
+    "5564: self:setEffect(self.EFF_DAMAGE_SHIELD, eff_incoming.dur, {color={0xff/255, 0x3b/255, 0x3f/255}, power=self:spellCrit(eff.shield)})"
+   ]
+  },
+  "63e14564826b": {
+   "definition_lines": [
+    506,
+    620
+   ],
+   "string_line": 510,
+   "format_call": "510: local message = (\"The target has been beckoned by %s and is heeding the call. There is a %d%% chance of moving towards the beckoner each turn.\"):tformat(eff.src:getName(), eff.chance)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "511: if eff.spellpowerChangeId and eff.mindpowerChangeId then",
+    "520: on_gain = function(self, err) return _t\"#Target# has been beckoned.\", _t\"+Beckoned\" end,",
+    "521: on_lose = function(self, err) return _t\"#Target# is no longer beckoned.\", _t\"-Beckoned\" end,",
+    "529: if eff.particle then self:removeParticles(eff.particle) end",
+    "531: if eff.spellpowerChangeId then",
+    "535: if eff.mindpowerChangeId then",
+    "540: on_timeout = function(self, eff)",
+    "543: if eff.src.dead then",
+    "544: self:removeEffect(self.EFF_BECKONED)",
+    "547: if not self:enoughEnergy() then return nil end",
+    "550: if not eff.timer then",
+    "553: if not self:checkHit(eff.src:combatMindpower(), self:combatMentalResist(), 0, 95, 5) then",
+    "560: if eff.timer > 100 then",
+    "564: if math.floor(distance) > 1 and distance <= eff.range then",
+    "568: if not eff.spellpowerChangeId then eff.spellpowerChangeId = self:addTemporaryValue(\"combat_spellpower\", eff.spellpowerChange) end",
+    "569: if not eff.mindpowerChangeId then eff.mindpowerChangeId = self:addTemporaryValue(\"combat_mindpower\", eff.mindpowerChange) end",
+    "573: if not self:attr(\"never_move\") then",
+    "576: if not self:hasLOS(source.x, source.y) then",
+    "579: if path then",
+    "584: if moveX and moveY then",
+    "592: if old_x ~= self.x or old_y ~= self.y then",
+    "599: if eff.spellpowerChangeId then",
+    "603: if eff.mindpowerChangeId then",
+    "612: if rng.percent(eff.resistChance) then",
+    "614: self:removeEffect(self.EFF_BECKONED)"
+   ]
+  },
+  "c31e96a1b839": {
+   "definition_lines": [
+    1038,
+    1098
+   ],
+   "string_line": 1041,
+   "format_call": "1041: long_desc = function(self, eff) return (\"Paranoia has gripped the target, causing a %d%% chance they will physically attack anyone nearby, friend or foe. Targets of the attack may become paranoid themselves.\"):tformat(eff.attackChance) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1046: on_gain = function(self, err) return _t\"#F53CBE##Target# becomes paranoid!\", _t\"+Paranoid\" end,",
+    "1047: on_lose = function(self, err) return _t\"#Target# is no longer paranoid\", _t\"-Paranoid\" end,",
+    "1050: if eff.src and eff.src.knowTalent and eff.src:knowTalent(eff.src.T_TYRANT) then",
+    "1051: eff.src:setEffect(eff.src.EFF_TYRANT, eff.tyrantDur, { tyrantPower = eff.tyrantPower, maxStacks = eff.maxStacks })",
+    "1059: if not self:enoughEnergy() then return nil end",
+    "1062: if not eff.timer then",
+    "1065: if not self:checkHit(eff.src:combatMindpower(), self:combatMentalResist(), 0, 95, 5) then",
+    "1071: if eff.timer > 100 then",
+    "1078: if (self.x ~= x or self.y ~= y) then",
+    "1080: if target then",
+    "1082: if self:attackTarget(target, nil, 1, false) and target ~= eff.src then",
+    "1083: if not target:canBe(\"fear\") then",
+    "1085: elseif not target:checkHit(eff.mindpower, target:combatMentalResist()) then",
+    "1088: target:setEffect(target.EFF_PARANOID, eff.duration, {src=eff.src, attackChance=eff.attackChance, mindpower=eff.mindpower, duration=eff.duration, tyrantDur = eff.tyrantDur, tyrantPower = eff.tyrantPowe"
+   ]
+  },
+  "e96e6aaa5aad": {
+   "definition_lines": [
+    1318,
+    1392
+   ],
+   "string_line": 1321,
+   "format_call": "1321: long_desc = function(self, eff) return (\"The target has been panicked by %s, causing them to have a %d%% chance of fleeing in terror instead of acting.\"):tformat(eff.src:getName(), eff.chance) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1326: on_gain = function(self, err) return _t\"#F53CBE##Target# becomes panicked!\", _t\"+Panicked\" end,",
+    "1327: on_lose = function(self, err) return _t\"#Target# is no longer panicked\", _t\"-Panicked\" end,",
+    "1338: if not self:enoughEnergy() then return nil end",
+    "1339: if eff.src.dead then return true end",
+    "1342: if not eff.timer then",
+    "1345: if not self:checkHit(eff.src:combatMindpower(), self:combatMentalResist(), 0, 95, 5) then",
+    "1351: if eff.timer > 100 then",
+    "1355: if distance <= eff.range then",
+    "1357: if not self:attr(\"never_move\") then",
+    "1367: if x ~= self.x or y ~= self.y then",
+    "1369: if distance > bestDistance",
+    "1380: if bestX then"
+   ]
+  },
+  "5c97c8460c40": {
+   "definition_lines": [
+    1602,
+    1636
+   ],
+   "string_line": 1605,
+   "format_call": "1605: long_desc = function(self, eff) return (\"The target is lost in a nightmare that deals %0.2f darkness damage each turn and has a %d%% chance to cause a random detrimental effect.\"):tformat(eff.dam, eff.chance) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1610: on_gain = function(self, err) return _t\"#F53CBE##Target# is lost in a nightmare.\", _t\"+Night Terrors\" end,",
+    "1611: on_lose = function(self, err) return _t\"#Target# is free from the nightmare.\", _t\"-Night Terrors\" end,",
+    "1612: on_timeout = function(self, eff)",
+    "1615: if self:attr(\"sleep\") then chance = 100-(100-chance)/2 end -- Half normal chance to avoid effect",
+    "1616: if rng.percent(chance) then",
+    "1619: if chance == 1 then",
+    "1620: if self:canBe(\"blind\") then",
+    "1621: self:setEffect(self.EFF_BLINDED, 3, {})",
+    "1623: elseif chance == 2 then",
+    "1624: if self:canBe(\"stun\") then",
+    "1625: self:setEffect(self.EFF_STUNNED, 3, {})",
+    "1627: elseif chance == 3 then",
+    "1628: if self:canBe(\"confusion\") then",
+    "1629: self:setEffect(self.EFF_CONFUSED, 3, {power=30})"
+   ]
+  },
+  "bc84af7bae6c": {
+   "definition_lines": [
+    1637,
+    1668
+   ],
+   "string_line": 1640,
+   "format_call": "1640: long_desc = function(self, eff) return (\"The target is plagued by inner demons and each turn there's a %d%% chance that one will appear.  If the caster is killed or the target resists setting his demons loose the effect will end early.\"):tformat(eff.chance) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1646: on_gain = function(self, err) return _t\"#F53CBE##Target# is plagued by inner demons!\", _t\"+Inner Demons\" end,",
+    "1647: on_lose = function(self, err) return _t\"#Target# is freed from the demons.\", _t\"-Inner Demons\" end,",
+    "1649: if core.shader.active() then",
+    "1653: on_timeout = function(self, eff)",
+    "1654: if eff.src.dead or not game.level:hasEntity(eff.src) then eff.dur = 0 return true end",
+    "1657: if self:attr(\"sleep\") then chance = 100-(100-chance)/2 end -- Half normal chance not to manifest",
+    "1658: if rng.percent(chance) then",
+    "1659: if self:attr(\"sleep\") or self:checkHit(eff.src:combatMindpower(), self:combatMentalResist(), 0, 95, 5) then",
+    "1661: self:removeEffectsFilter(self, {subtype={[\"sleep\"] = true}}, 3) -- Allow the player to actually react to one of the biggest threats in the game before 50 more spawn",
+    "1663: eff.dur = 0"
+   ]
+  },
+  "2657c6eb140c": {
+   "definition_lines": [
+    2302,
+    2355
+   ],
+   "string_line": 2305,
+   "format_call": "2305: long_desc = function(self, eff) return (\"The target is asleep and unable to perform most actions.  Every %d damage it takes will reduce the duration of the effect by one turn.\"):tformat(eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2310: on_gain = function(self, err) return _t\"#Target# has been put to sleep.\", _t\"+Sleep\" end,",
+    "2311: on_lose = function(self, err) return _t\"#Target# is no longer sleeping.\", _t\"-Sleep\" end,",
+    "2312: on_timeout = function(self, eff)",
+    "2314: if eff.src and eff.src.isTalentActive and eff.src:isTalentActive(eff.src.T_DREAM_PRISON) then",
+    "2316: if core.fov.distance(self.x, self.y, eff.src.x, eff.src.y) <= eff.src:getTalentRange(t) then",
+    "2320: if dream_prison then",
+    "2321: eff.dur = eff.dur + 1",
+    "2322: if not eff.particle then",
+    "2323: if core.shader.active(4) then",
+    "2329: elseif eff.contagious > 0 and eff.dur > 1 then",
+    "2333: if eff.particle and not dream_prison then",
+    "2337: if not self:attr(\"lucid_dreamer\") then",
+    "2338: self:setEffect(self.EFF_INSOMNIA, 1, {power=eff.insomnia})",
+    "2346: if not self:attr(\"sleep\") and not self.dead and game.level:hasEntity(self) and eff.waking > 0 then",
+    "2350: if eff.particle then"
+   ]
+  },
+  "1e3621491117": {
+   "definition_lines": [
+    2356,
+    2405
+   ],
+   "string_line": 2359,
+   "format_call": "2359: long_desc = function(self, eff) return (\"The target is in a deep sleep and unable to perform most actions.  Every %d damage it takes will reduce the duration of the effect by one turn.\"):tformat(eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2364: on_gain = function(self, err) return _t\"#Target# is in a deep sleep.\", _t\"+Slumber\" end,",
+    "2365: on_lose = function(self, err) return _t\"#Target# is no longer sleeping.\", _t\"-Slumber\" end,",
+    "2366: on_timeout = function(self, eff)",
+    "2368: if eff.src and eff.src.isTalentActive and eff.src:isTalentActive(eff.src.T_DREAM_PRISON) then",
+    "2370: if core.fov.distance(self.x, self.y, eff.src.x, eff.src.y) <= eff.src:getTalentRange(t) then",
+    "2374: if dream_prison then",
+    "2375: eff.dur = eff.dur + 1",
+    "2376: if not eff.particle then",
+    "2377: if core.shader.active(4) then",
+    "2383: elseif eff.particle and not dream_prison then",
+    "2387: if not self:attr(\"lucid_dreamer\") then",
+    "2388: self:setEffect(self.EFF_INSOMNIA, 1, {power=eff.insomnia})",
+    "2396: if not self:attr(\"sleep\") and not self.dead and game.level:hasEntity(self) and eff.waking > 0 then",
+    "2400: if eff.particle then"
+   ]
+  },
+  "fc17fdf6a7ba": {
+   "definition_lines": [
+    2406,
+    2464
+   ],
+   "string_line": 2409,
+   "format_call": "2409: long_desc = function(self, eff) return (\"The target is in a nightmarish sleep, suffering %0.2f darkness damage each turn and unable to to perform most actions.  Every %d damage it takes will reduce the duration of the effect by one turn.\"):tformat(eff.dam, eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2414: on_gain = function(self, err) return _t\"#F53CBE##Target# is lost in a nightmare.\", _t\"+Nightmare\" end,",
+    "2415: on_lose = function(self, err) return _t\"#Target# is free from the nightmare.\", _t\"-Nightmare\" end,",
+    "2416: on_timeout = function(self, eff)",
+    "2418: if eff.src and eff.src.isTalentActive and eff.src:isTalentActive(eff.src.T_DREAM_PRISON) then",
+    "2420: if core.fov.distance(self.x, self.y, eff.src.x, eff.src.y) <= eff.src:getTalentRange(t) then",
+    "2424: if dream_prison then",
+    "2425: eff.dur = eff.dur + 1",
+    "2426: if not eff.particle then",
+    "2427: if core.shader.active(4) then",
+    "2442: if eff.particle and not dream_prison then",
+    "2446: if not self:attr(\"lucid_dreamer\") then",
+    "2447: self:setEffect(self.EFF_INSOMNIA, 1, {power=eff.insomnia})",
+    "2455: if not self:attr(\"sleep\") and not self.dead and game.level:hasEntity(self) and eff.waking > 0 then",
+    "2459: if eff.particle then"
+   ]
+  },
+  "157e61dec671": {
+   "definition_lines": [
+    2651,
+    2667
+   ],
+   "string_line": 2654,
+   "format_call": "2654: long_desc = function(self, eff) return (\"The target is infected with a mind parasite. Each time it uses a talent it has a %d%% chance to have %d random talent(s) put on cooldown for %d turns.\"):tformat(eff.chance, eff.nb, eff.turns) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2658: on_gain = function(self, err) return _t\"#Target# is infected with a mind parasite.\", _t\"+Mind Parasite\" end,",
+    "2659: on_lose = function(self, err) return _t\"#Target# is free from the mind parasite.\", _t\"-Mind Parasite\" end,"
+   ]
+  },
+  "e01ef791bb99": {
+   "definition_lines": [
+    3081,
+    3110
+   ],
+   "string_line": 3084,
+   "format_call": "3085: tformat(eff.dam, eff.power*100)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "3093: callbackOnTalentPost = function(self, eff, ab)",
+    "3097: callbackOnTemporaryEffectAdd = function(self, eff, eff_id, e_def, new_eff)",
+    "3098: if e_def.subtype.bleed and e_def.type ~= \"other\" then",
+    "3103: on_gain = function(self, err) return _t\"#Target# is doomed!\", _t\"+Vampire Mark\" end,",
+    "3104: on_lose = function(self, err) return _t\"#Target# is free from their doom.\", _t\"-Vampire Mark\" end,"
+   ]
+  },
+  "6b0603602b13": {
+   "definition_lines": [
+    377,
+    411
+   ],
+   "string_line": 380,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "386: on_gain = function(self, err) return _t\"#Target# is removed from time!\", _t\"+Out of Time\" end,",
+    "387: on_lose = function(self, err) return _t\"#Target# is returned to normal time.\", _t\"-Out of Time\" end,",
+    "392: eff.imid = self:addTemporaryValue(\"status_effect_immune\", 1)",
+    "393: if core.shader.active(4) then",
+    "406: self:removeTemporaryValue(\"status_effect_immune\", eff.imid)",
+    "407: if eff.particle1 then self:removeParticles(eff.particle1) end",
+    "408: if eff.particle2 then self:removeParticles(eff.particle2) end"
+   ]
+  },
+  "8e88e1ed581d": {
+   "definition_lines": [
+    412,
+    468
+   ],
+   "string_line": 415,
+   "format_call": "415: long_desc = function(self, eff) return (\"The target is surrounded by a time distortion, absorbing %d/%d damage and sending it forward in time. While active all newly applied status effects durations are reduced by %d%%.\"):tformat(self.time_shield_absorb, eff.power, eff.time_reducer) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "420: on_gain = function(self, err) return _t\"The very fabric of time alters around #target#.\", _t\"+Time Shield\" end,",
+    "421: on_lose = function(self, err) return _t\"The fabric of time around #target# stabilizes to normal.\", _t\"-Time Shield\" end,",
+    "424: if core.shader.active(4) then",
+    "430: if eff.particle and eff.particle._shader and eff.particle._shader.shad and src and src.x and src.y then",
+    "439: eff.dur = self:getShieldDuration(eff.dur)",
+    "445: if core.shader.active(4) then",
+    "457: if eff.power - self.time_shield_absorb > 0 then",
+    "460: self:setEffect(self.EFF_TIME_DOT, eff.dot_dur, {power=val})"
+   ]
+  },
+  "725dee21625e": {
+   "definition_lines": [
+    849,
+    897
+   ],
+   "string_line": 852,
+   "format_call": "852: long_desc = function(self, eff) return (\"You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character.\"):tformat(eff",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "857: on_gain = function(self, err) return _t\"#Target# is covered in a veil of shadows!\", _t\"+Assail\" end,",
+    "858: on_lose = function(self, err) return _t\"#Target# is no longer covered by shadows.\", _t\"-Assail\" end,",
+    "860: eff.sefid = self:addTemporaryValue(\"negative_status_effect_immune\", 1)",
+    "864: on_timeout = function(self, eff)",
+    "874: if act and self:reactionToward(act) < 0 and not act.dead and eff.x and act:isNear(eff.x, eff.y, maxdist) then",
+    "876: if sx then acts[#acts+1] = {act, sx, sy} end",
+    "879: if #acts == 0 then",
+    "881: self:removeEffect(self.EFF_SHADOW_VEIL)",
+    "889: until self.energy.value < 0  -- keep blinking and attacking until out of energy (since on_timeout is only once per turn)",
+    "892: self:removeTemporaryValue(\"negative_status_effect_immune\", eff.sefid)"
+   ]
+  },
+  "2557abd55317": {
+   "definition_lines": [
+    923,
+    1085
+   ],
+   "string_line": 950,
+   "format_call": "955: #CRIMSON#Power 4+: %sReprieve from Death: Humanoids you slay have a %d%% chance to rise to fight beside you as ghouls for 6 turns.]]):tformat(",
+   "args_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    10,
+    12,
+    13
+   ],
+   "code_conditions_and_callbacks": [
+    "937: if eff.unlockLevel >= 5 or level <= 2 then return -1 end",
+    "938: if level <= 3 then return -2 else return -3 end",
+    "969: if bonusLevel < 1 then return end",
+    "973: if bonusLevel < 2 then return end",
+    "981: if bonusLevel < 3 then return end",
+    "988: if eff.resistsUndeadId then self:removeTemporaryValue(\"resists_actor_type\", eff.resistsUndeadId) eff.resistsUndeadId = nil end",
+    "989: if eff.incDamageUndeadId then self:removeTemporaryValue(\"inc_damage_actor_type\", eff.incDamageUndeadId) eff.incDamageUndeadId = nil end",
+    "990: if eff.incStatsId then self:removeTemporaryValue(\"inc_stats\", eff.incStatsId) eff.incStatsId = nil end",
+    "991: if eff.retchHealId then self:removeTemporaryValue(\"retch_heal\", eff.retchHealId) eff.retchHealId = nil end",
+    "994: callbackOnTakeDamage = function(self, eff, src, x, y, type, dam, state)",
+    "996: if math.min(eff.unlockLevel, eff.level) >= 3 then",
+    "999: if eff.retchCooldown == 0 and self.life > self.max_life * retchThreshold and self.life - dam <= self.max_life * retchThreshold then",
+    "1007: on_timeout = function(self, eff)",
+    "1008: if eff.retchCooldown and eff.retchCooldown > 0 then eff.retchCooldown = math.max(0, eff.retchCooldown - 1) end",
+    "1014: if math.min(eff.unlockLevel, eff.level) >= 3 then",
+    "1017: self:project(tg, target.x, target.y, DamageType.LITE, 1)",
+    "1039: blind_immune = 1,",
+    "1054: if math.min(eff.unlockLevel, eff.level) >= 4 and target.type == \"humanoid\" and rng.percent(def.getReprieveChance(eff.level)) then",
+    "1055: if not self:canBe(\"summon\") then return end",
+    "1059: if not x then return end",
+    "1069: if self.player then"
+   ]
+  },
+  "205ff861c21c": {
+   "definition_lines": [
+    1086,
+    1294
+   ],
+   "string_line": 1114,
+   "format_call": "1119: #CRIMSON#Power 4+: %sMania: Once per turn, when an attack does more than %0.1f%% of your life, the remaining cooldown of all your talents is reduced by 1.]]):tformat(",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1103: if eff.unlockLevel >= 5 or level <= 2 then return -1 end",
+    "1104: if level <= 3 then return -2 else return -3 end",
+    "1134: eff.confusionImmuneId = self:addTemporaryValue(\"confusion_immune\", def.getConfusionImmuneChange(eff, level) )",
+    "1137: if bonusLevel < 1 then return end",
+    "1141: if bonusLevel < 2 then return end",
+    "1151: if eff.mindResistId then self:removeTemporaryValue(\"resists\", eff.mindResistId) eff.mindResistId = nil end",
+    "1152: if eff.confusionImmuneId then self:removeTemporaryValue(\"confusion_immune\", eff.confusionImmuneId) eff.confusionImmuneId = nil end",
+    "1153: if eff.getCombatCriticalPowerChangeId then self:removeTemporaryValue(\"combat_critical_power\", eff.getCombatCriticalPowerChangeId) eff.getCombatCriticalPowerChangeId = nil end",
+    "1154: if eff.incStatsId then self:removeTemporaryValue(\"inc_stats\", eff.incStatsId) eff.incStatsId = nil end",
+    "1158: callbackOnTakeDamage = function(self, eff, src, x, y, type, dam, state)",
+    "1159: if math.min(eff.unlockLevel, eff.level) >= 4 then",
+    "1161: if dam > 0 and dam >= self.max_life * (def.getManiaDamagePercent(eff.level) / 100) and not self.turn_procs.CoMania then",
+    "1165: if cd and cd > 0 then",
+    "1173: if self.talents_cd[tid] <= 0 then",
+    "1175: if self.onTalentCooledDown then self:onTalentCooledDown(tid) end",
+    "1189: callbackOnCrit = function(self, eff, target)",
+    "1191: if math.min(eff.unlockLevel, eff.level) >= 3 then",
+    "1192: if rng.percent(def.getConspiratorChance(level)) then",
+    "1193: if not target then",
+    "1195: self:project({type=\"ball\", radius=10}, self.x, self.y, function(px, py)",
+    "1197: if not act or self:reactionToward(act) >= 0 then return end",
+    "1200: if #tgts > 0 then",
+    "1204: if target then",
+    "1208: if e.type == \"mental\" and e.status == \"detrimental\" and not target:hasEffect(target.eff_id) then",
+    "1212: if #list > 0 then",
+    "1218: if effectParam then",
+    "1221: target:setEffect(eff_id, p.dur, effectParam)",
+    "1234: if math.min(eff.unlockLevel, eff.level) >= 3 then",
+    "1235: if not src.turn_procs.CoConspirator and rng.percent(def.getConspiratorChance(level)) then",
+    "1239: if e.type == \"mental\" and e.status == \"detrimental\" and not target:hasEffect(target.eff_id) then",
+    "1243: if #list > 0 then",
+    "1249: if effectParam then",
+    "1252: target:setEffect(eff_id, p.dur, effectParam)",
+    "1264: if math.min(eff.unlockLevel, eff.level) >= 3 then",
+    "1269: if e.subtype.confusion and e.status == \"detrimental\" then",
+    "1275: if target:canBe(\"confusion\") then",
+    "1281: if effectParam then",
+    "1284: target:setEffect(eff_id, p.dur, effectParam)"
+   ]
+  },
+  "73bab31bb83c": {
+   "definition_lines": [
+    1780,
+    1879
+   ],
+   "string_line": 1796,
+   "format_call": "1796: desc = desc..(\" Strength and Willpower are increased by %d. Poisons and diseases have a %d%% chance of being neutralized each turn.\"):tformat(eff.statChange, eff.neutralizeChance)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1792: if (eff.incDamageChange or 0) > 0 then",
+    "1795: if (eff.statChange or 0) > 0 then",
+    "1801: -- first on_timeout is ignored because it is applied immediately",
+    "1809: if eff.incDamageId then",
+    "1813: if eff.incStatsId then",
+    "1824: if tSeethe then",
+    "1827: if tGrimResolve then",
+    "1832: if eff.incDamageId then",
+    "1836: if eff.incDamageChange > 0 then",
+    "1839: if eff.incStatsId then",
+    "1843: if eff.statChange > 0 then",
+    "1847: on_timeout = function(self, eff)",
+    "1848: if eff.firstHit then",
+    "1851: elseif eff.hit then",
+    "1852: if eff.increase < 5 then",
+    "1861: if eff.increase == 0 then",
+    "1862: self:removeEffect(self.EFF_CURSED_FORM, false, true)",
+    "1867: if (eff.statChange or 0)>0 and eff.neutralizeChance then -- Remove poisons/disease (w/Grim Resolve)",
+    "1871: if efdef.subtype and (efdef.subtype.poison or efdef.subtype.disease) and rng.percent(eff.neutralizeChance) then",
+    "1872: self:removeEffect(efid)"
+   ]
+  },
+  "e41da0c2b7f7": {
+   "definition_lines": [
+    2293,
+    2313
+   ],
+   "string_line": 2297,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2307: self:effectTemporaryValue(eff, \"confusion_immune\", -0.2)"
+   ]
+  },
+  "ef2abe394618": {
+   "definition_lines": [
+    2314,
+    2334
+   ],
+   "string_line": 2318,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2328: self:effectTemporaryValue(eff, \"stun_immune\", -0.2)"
+   ]
+  },
+  "9e15163bf839": {
+   "definition_lines": [
+    2335,
+    2355
+   ],
+   "string_line": 2339,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2349: self:effectTemporaryValue(eff, \"disarm_immune\", -0.2)"
+   ]
+  },
+  "a9ec659a24dc": {
+   "definition_lines": [
+    2356,
+    2376
+   ],
+   "string_line": 2360,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2370: self:effectTemporaryValue(eff, \"fear_immune\", -0.2)"
+   ]
+  },
+  "c570021f6ad7": {
+   "definition_lines": [
+    2377,
+    2397
+   ],
+   "string_line": 2381,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2391: self:effectTemporaryValue(eff, \"silence_immune\", -0.2)"
+   ]
+  },
+  "83bfcad981aa": {
+   "definition_lines": [
+    2398,
+    2418
+   ],
+   "string_line": 2402,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2412: self:effectTemporaryValue(eff, \"blind_immune\", -0.2)"
+   ]
+  },
+  "2f9c714322f1": {
+   "definition_lines": [
+    2419,
+    2439
+   ],
+   "string_line": 2423,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2433: self:effectTemporaryValue(eff, \"stone_immune\", -0.2)"
+   ]
+  },
+  "f68580f69d3f": {
+   "definition_lines": [
+    2440,
+    2460
+   ],
+   "string_line": 2444,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2454: self:effectTemporaryValue(eff, \"pin_immune\", -0.2)"
+   ]
+  },
+  "881435436d72": {
+   "definition_lines": [
+    2461,
+    2481
+   ],
+   "string_line": 2465,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2475: self:effectTemporaryValue(eff, \"knockback_immune\", -0.2)"
+   ]
+  },
+  "be377d767b5e": {
+   "definition_lines": [
+    2482,
+    2502
+   ],
+   "string_line": 2486,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2496: self:effectTemporaryValue(eff, \"disease_immune\", -0.2)"
+   ]
+  },
+  "1e762a05812d": {
+   "definition_lines": [
+    2503,
+    2523
+   ],
+   "string_line": 2507,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2517: self:effectTemporaryValue(eff, \"poison_immune\", -0.2)"
+   ]
+  },
+  "ee121c2184d5": {
+   "definition_lines": [
+    3656,
+    3683
+   ],
+   "string_line": 3659,
+   "format_call": "3659: long_desc = function(self, eff) return (\"GODMODE: Target is invulnerable to damage, immune to bad status effects, deals +10000%% damage (100%% penetration), does not need to breathe, and has full ESP.\"):tformat() end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "3668: self:effectTemporaryValue(eff, \"negative_status_effect_immune\", 1)"
+   ]
+  },
+  "a6859ec11166": {
+   "definition_lines": [
+    3975,
+    4006
+   ],
+   "string_line": 3978,
+   "format_call": null,
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "3983: callbackOnSummonKill = function(self, eff, minion, who, death_note)",
+    "3984: if who.rank >= 3.5 then",
+    "3986: self:removeEffect(self.EFF_LICH_HUNGER)",
+    "3990: callbackOnKill = function(self, eff, who, death_note)",
+    "3991: if who.rank >= 3.5 then",
+    "3993: self:removeEffect(self.EFF_LICH_HUNGER)",
+    "4001: if eff.success then return end"
+   ]
+  },
+  "3002e73c72ec": {
+   "definition_lines": [
+    182,
+    213
+   ],
+   "string_line": 185,
+   "format_call": "185: long_desc = function(self, eff) return (\"A flow of life spins around the target, regenerating %0.2f life per turn.\"):tformat(eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "190: on_gain = function(self, err) return _t\"#Target# starts regenerating health quickly.\", _t\"+Regen\" end,",
+    "191: on_lose = function(self, err) return _t\"#Target# stops regenerating health quickly.\", _t\"-Regen\" end,",
+    "195: if core.shader.active(4) then",
+    "201: on_timeout = function(self, eff)",
+    "202: if self:knowTalent(self.T_ANCESTRAL_LIFE) then"
+   ]
+  },
+  "78c8d08f7a20": {
+   "definition_lines": [
+    299,
+    327
+   ],
+   "string_line": 302,
+   "format_call": "302: long_desc = function(self, eff) return (\"The target is poisoned and sick, doing %0.2f nature damage per turn. Each time it tries to use a talent there is %d%% chance of failure.\"):tformat(eff.power, eff.fail) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "308: on_gain = function(self, err) return _t\"#Target# is poisoned!\", _t\"+Crippling Poison\" end,",
+    "309: on_lose = function(self, err) return _t\"#Target# is no longer poisoned.\", _t\"-Crippling Poison\" end,",
+    "311: on_timeout = function(self, eff)",
+    "312: if self:attr(\"purify_poison\") then self:heal(eff.power, eff.src)",
+    "318: old_eff.dur = math.max(old_eff.dur, new_eff.dur)"
+   ]
+  },
+  "488d2e3e776d": {
+   "definition_lines": [
+    356,
+    416
+   ],
+   "string_line": 361,
+   "format_call": "361: return (\"The target is taking %0.2f nature damage per turn from a potent earth-based poison.  In %d more turn(s), or when the poison has run its course (%d%% chance), the target will be turned to stone for %d turns.\"):tformat(eff.power, eff.time_to_stone - eff.turn_count, chance, eff.stone)",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "360: local chance = util.bound((eff.turn_count + eff.dur)*100/eff.time_to_stone, 0, 100)",
+    "367: on_gain = function(self, err) return _t\"#Target# is infused with stone poison!\", _t\"+Stoning Poison\" end,",
+    "368: on_lose = function(self, err) return _t\"#Target# is free of the stone poison!\", _t\"-Stoning Poison\" end,",
+    "369: on_timeout = function(self, eff) -- Damage each turn, stone after enough time",
+    "370: if self:attr(\"purify_poison\") then self:heal(eff.power, eff.src)",
+    "374: if eff.turn_count >= eff.time_to_stone and not self.dead then",
+    "384: if self:canBe(\"stun\") and self:canBe(\"instakill\") and self:canBe(\"stone\") and rng.percent(chance) then",
+    "385: self:removeEffect(eff.effect_id)",
+    "386: self:setEffect(self.EFF_STONED, math.floor(eff.stone*chance/100), {})",
+    "393: local new_fct = new_eff.dur/(new_eff.dur + old_eff.dur)",
+    "394: local dam = old_eff.power*old_eff.dur + new_eff.power*new_eff.dur",
+    "397: old_eff.dur = math.max(old_eff.dur, new_eff.dur)",
+    "398: old_eff.power = dam/old_eff.dur",
+    "406: if eff._from_toxic_death then -- reset turn counter if spread from Toxic Death",
+    "412: local chance = eff.dur <= 0 and eff.turn_count*100/eff.time_to_stone or 0",
+    "413: if chance > 0 then self:callEffect(eff.effect_id, \"doStone\", chance) end"
+   ]
+  },
+  "1e49f3e5995f": {
+   "definition_lines": [
+    733,
+    808
+   ],
+   "string_line": 736,
+   "format_call": "736: long_desc = function(self, eff) return (\"The target is encased in ice. All damage done to it will be split, 40%% absorbed by the ice and 60%% by the target. The target's defense is nullified while in the ice, and it may only attack the ice, but it is also immune to any new detrimental status effects (except Wet and Frozen Feet). The target cannot teleport or heal while frozen. %d HP on the icebloc",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "742: on_gain = function(self, err) return _t\"#Target# is encased in ice!\", _t\"+Frozen\" end,",
+    "743: on_lose = function(self, err) return _t\"#Target# is free from the ice.\", _t\"-Frozen\" end,",
+    "752: if not self.add_displays then",
+    "767: eff.sefid = self:addTemporaryValue(\"negative_status_effect_immune\", 1)",
+    "768: eff.seffid = self:addTemporaryValue(\"negative_status_effect_immune_frozen\", 1)",
+    "769: if self.player then return end",
+    "771: if target and not (target.dead or not game.level:hasEntity(target))  then",
+    "776: on_timeout = function(self, eff)",
+    "778: if self.player then return end",
+    "780: if target and (target.dead or not game.level:hasEntity(target)) then",
+    "791: self:removeTemporaryValue(\"negative_status_effect_immune\", eff.sefid)",
+    "792: if eff.seffid then self:removeTemporaryValue(\"negative_status_effect_immune_frozen\", eff.seffid) end",
+    "796: if eff.added_display then self.add_displays = nil end",
+    "799: if self.player then return end",
+    "801: if target and not (target.dead or not game.level:hasEntity(target)) then"
+   ]
+  },
+  "b51b6ed64180": {
+   "definition_lines": [
+    809,
+    828
+   ],
+   "string_line": 812,
+   "format_call": "812: long_desc = function(self, eff) return (\"The target calls upon its inner resources, improving all damage by %d%% and reducing all damage taken by %d%%.\"):tformat(eff.power, eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "817: on_gain = function(self, err) return _t\"#Target# radiates power.\" end,",
+    "818: on_lose = function(self, err) return _t\"#Target#'s aura of power vanishes.\" end,"
+   ]
+  },
+  "f7764df1af1a": {
+   "definition_lines": [
+    929,
+    950
+   ],
+   "string_line": 932,
+   "format_call": "932: long_desc = function(self, eff) return (\"The target is infused with the power of nature, reducing all blight damage taken by %d%%, increasing spell saves by %d, and granting immunity to diseases.\"):tformat(eff.power, eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "937: on_gain = function(self, err) return _t\"#Target# rejects blight!\", _t\"+Purge\" end,",
+    "938: on_lose = function(self, err) return _t\"#Target# is susceptible to blight again.\", _t\"-Purge\" end,",
+    "942: eff.disease = self:addTemporaryValue(\"disease_immune\", 1)",
+    "946: self:removeTemporaryValue(\"disease_immune\", eff.disease)"
+   ]
+  },
+  "f2f50829e661": {
+   "definition_lines": [
+    1194,
+    1233
+   ],
+   "string_line": 1197,
+   "format_call": "1198: :tformat(eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1203: on_gain = function(self, err) return _t\"#Target# is moving at extreme speed!\", _t\"+Wild Speed\" end,",
+    "1204: on_lose = function(self, err) return _t\"#Target# slows down.\", _t\"-Wild Speed\" end,",
+    "1212: eff.possible_end_turns = 10 * (eff.dur+1)",
+    "1219: if self.ai_state and eff.no_talents ~= 0 then eff.aiid = self:addTemporaryValue(\"ai_state\", {no_talents=eff.no_talents}) end -- Makes the AI not use talents while active",
+    "1220: eff.stun = self:addTemporaryValue(\"stun_immune\", 1)",
+    "1221: eff.daze = self:addTemporaryValue(\"daze_immune\", 1)",
+    "1222: eff.pin = self:addTemporaryValue(\"pin_immune\", 1)",
+    "1226: if eff.aiid then self:removeTemporaryValue(\"ai_state\", eff.aiid) end",
+    "1228: self:removeTemporaryValue(\"stun_immune\", eff.stun)",
+    "1229: self:removeTemporaryValue(\"daze_immune\", eff.daze)",
+    "1230: self:removeTemporaryValue(\"pin_immune\", eff.pin)"
+   ]
+  },
+  "adf5329bf36f": {
+   "definition_lines": [
+    1387,
+    1418
+   ],
+   "string_line": 1390,
+   "format_call": "1390: long_desc = function(self, eff) return (\"Each melee blow landed has a %d%% chance to trigger an additional melee blow (up to once per turn for each weapon).\"):tformat(eff.chance) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1395: callbackOnMeleeAttack = function(self, eff, target, hitted, crit, weapon, damtype, mult, dam, hd)",
+    "1398: if hitted and weapon and not (self.turn_procs._gwf_active or self.turn_procs._no_melee_recursion or target.dead) then",
+    "1401: if not gwf[weapon] and rng.percent(eff.chance) then",
+    "1403: print(\"[ATTACK]\", eff.effect_id, \"callbackOnMeleeAttack triggered with weapon\", weapon)"
+   ]
+  },
+  "12121d9e4d13": {
+   "definition_lines": [
+    1891,
+    1912
+   ],
+   "string_line": 1894,
+   "format_call": "1894: long_desc = function(self, eff) return (\"The target gains %d%% stun, daze and pinning immunity.\"):tformat(eff.power * 100) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "1899: on_gain = function(self, err) return _t\"#Target# is moving freely.\", _t\"+Free Action\" end,",
+    "1900: on_lose = function(self, err) return _t\"#Target# is moving less freely.\", _t\"-Free Action\" end,",
+    "1902: eff.stun = self:addTemporaryValue(\"stun_immune\", eff.power)",
+    "1903: eff.daze = self:addTemporaryValue(\"daze_immune\", eff.power)",
+    "1904: eff.pin = self:addTemporaryValue(\"pin_immune\", eff.power)",
+    "1907: self:removeTemporaryValue(\"stun_immune\", eff.stun)",
+    "1908: self:removeTemporaryValue(\"daze_immune\", eff.daze)",
+    "1909: self:removeTemporaryValue(\"pin_immune\", eff.pin)"
+   ]
+  },
+  "9d510598fa58": {
+   "definition_lines": [
+    2250,
+    2303
+   ],
+   "string_line": 2259,
+   "format_call": "2259: return (\"Parrying melee%s attacks: Has a %d%% chance to deflect up to %d damage from the next %0.1f attack(s).  Parried attacks cannot crit.\"):tformat(eff.parry_ranged and _t\" and ranged\" or \"\", math.floor(self:callEffect(self.EFF_PARRY, \"deflectchance\")), eff.dam, math.max(eff.deflects, 1))",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2255: if self:attr(\"encased_in_ice\") or self:attr(\"disarmed\") then return 0 end",
+    "2266: on_timeout = function(self, eff) -- always remove before refreshing each turn",
+    "2267: self:removeEffect(self.EFF_PARRY)",
+    "2272: if not eff then return 0 end",
+    "2276: if rng.percent(self:callEffect(eff.effect_id, \"deflectchance\", adj)) then",
+    "2278: if self:knowTalent(self.T_TEMPO) then",
+    "2284: if eff.deflects <= 0 then self:removeEffect(self.EFF_PARRY) end",
+    "2295: if self:attr(\"disarmed\") or not self:hasDualWeapon() then",
+    "2296: eff.dur = 0 self:removeEffect(self.EFF_PARRY) return",
+    "2298: if eff.dam <= 0 or eff.deflects <= 0 then eff.dur = 0 end"
+   ]
+  },
+  "0801e33ff2f7": {
+   "definition_lines": [
+    2835,
+    2852
+   ],
+   "string_line": 2838,
+   "format_call": "2838: long_desc = function(self, eff) return (\"The target is covered in slippery moss. Each time it tries to use a talent there is %d%% chance of failure.\"):tformat(eff.fail) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "2843: on_gain = function(self, err) return _t\"#Target# is covered in slippery moss!\", _t\"+Slippery Moss\" end,",
+    "2844: on_lose = function(self, err) return _t\"#Target# is free from the slippery moss.\", _t\"-Slippery Moss\" end,"
+   ]
+  },
+  "551c465323b7": {
+   "definition_lines": [
+    2945,
+    3002
+   ],
+   "string_line": 2996,
+   "format_call": "2997: :tformat(eff.move_speed_bonus * 100, eff.compass or \"unknown\")",
+   "args_order": [
+    2,
+    1
+   ],
+   "code_conditions_and_callbacks": [
+    "2959: on_lose = function(self, eff) return _t\"#Target# loses speed.\", _t\"-Directed Speed\" end,",
+    "2961: callbackOnMove = function(self, eff, moved, force, ox, oy)",
+    "2964: if ((self.x ~= eff.start_x or self.y ~= eff.start_y) and",
+    "2969: self:removeEffect(self.EFF_SKIRMISHER_DIRECTED_SPEED)",
+    "2990: if self.ai_state then"
+   ]
+  },
+  "ff5c92ab2892": {
+   "definition_lines": [
+    3228,
+    3270
+   ],
+   "string_line": 3232,
+   "format_call": "3232: local silence = eff.silence > 0 and eff.silenceid and (\"  It is silenced for the next %d turn(s), preventing it from casting spells and using some vocal talents.\"):tformat(eff.silence) or \"\"",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "3240: on_gain = function(self, eff) return (\"%s has garroted #Target#!\"):tformat(eff.src and eff.src:getName() or _t\"Something\"), _t\"+Garrote\" end,",
+    "3241: on_lose = function(self, eff) return (\"#Target# is free from %s's garrote.\"):tformat(eff.src and eff.src:getName() or _t\"something\"), _t\"-Garrote\" end,",
+    "3244: if eff.silence > 0 then eff.silenceid = self:addTemporaryValue(\"silence\", 1) end",
+    "3245: if core.shader.active() then",
+    "3250: on_timeout = function(self, eff)",
+    "3251: if eff.silence > 0 then",
+    "3253: if eff.silenceid and eff.silence <= 0 then self:removeTemporaryValue(\"silence\", eff.silenceid); eff.silenceid = nil end",
+    "3255: if not self.x or not eff.src or not eff.src.x or core.fov.distance(self.x, self.y, eff.src.x, eff.src.y) > 1 or eff.src.dead or not game.level:hasEntity(eff.src) then",
+    "3256: self:removeEffect(self.EFF_GARROTE)",
+    "3267: if eff.silenceid then self:removeTemporaryValue(\"silence\", eff.silenceid) end"
+   ]
+  },
+  "3891eaa603c8": {
+   "definition_lines": [
+    3399,
+    3431
+   ],
+   "string_line": 3402,
+   "format_call": "3402: long_desc = function(self, eff) return (\"The target is reeling in pain. Stun, pin, blindness, and confusion immunity are halved and physical save is reduced by %d.\"):tformat(eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "3407: on_gain = function(self, err) return nil, _t\"+Dirty Fighting\" end,",
+    "3408: on_lose = function(self, err) return nil, _t\"-Dirty Fighting\" end,",
+    "3410: old_eff.dur = new_eff.dur",
+    "3414: if self:attr(\"stun_immune\") then",
+    "3415: self:effectTemporaryValue(eff, \"stun_immune\", -self:attr(\"stun_immune\") / 2)",
+    "3417: if self:attr(\"confusion_immune\") then",
+    "3418: self:effectTemporaryValue(eff, \"confusion_immune\", -self:attr(\"confusion_immune\") / 2)",
+    "3420: if self:attr(\"blind_immune\") then",
+    "3421: self:effectTemporaryValue(eff, \"blind_immune\", -self:attr(\"blind_immune\") / 2)",
+    "3423: if self:attr(\"pin_immune\") then",
+    "3424: self:effectTemporaryValue(eff, \"pin_immune\", -self:attr(\"pin_immune\") / 2)"
+   ]
+  },
+  "6251427486b1": {
+   "definition_lines": [
+    3663,
+    3691
+   ],
+   "string_line": 3666,
+   "format_call": "3666: long_desc = function(self, eff) return (\"The target protects all those around it in radius %d by redirecting all damage against them to itself.\"):tformat(eff.rad) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "3671: on_gain = function(self, err) return (\"#Target# begins protecting %s friends with a stone shield.\"):tformat(string.his_her(self)), _t\"+Stone Link\" end,",
+    "3672: on_lose = function(self, err) return _t\"#Target# is no longer protecting anyone.\", _t\"-Stone Link\" end,",
+    "3674: if core.shader.active() then",
+    "3683: on_timeout = function(self, eff)",
+    "3684: self:project({type=\"ball\", radius=eff.rad, selffire=false}, self.x, self.y, function(px, py)",
+    "3686: if not target or self:reactionToward(target) < 0 then return end",
+    "3687: target:setEffect(target.EFF_STONE_LINK, 2, {src=self})"
+   ]
+  },
+  "c23077de6cb1": {
+   "definition_lines": [
+    4317,
+    4338
+   ],
+   "string_line": 4320,
+   "format_call": "4320: long_desc = function(self, eff) return (\"%d%% chance to fully evade any damaging actions or negative effects.\"):tformat(eff.power) end,",
+   "args_order": null,
+   "code_conditions_and_callbacks": [
+    "4331: callbackOnTemporaryEffect = function(self, eff, eff_id, e, p)",
+    "4332: if e.status ~= \"detrimental\" or e.type == \"other\" or not rng.percent(eff.power) then return end",
+    "4334: p.dur = 0"
+   ]
+  }
+ }
+}

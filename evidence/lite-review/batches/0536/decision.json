@@ -1,0 +1,56 @@
+{
+ "confirmed": [
+  {
+   "id": "2557abd55317",
+   "edit": [
+    "一个死亡的光环笼罩着你。\n#CRIMSON# 惩罚：#WHITE# 死亡恐惧：%+d%% 对亡灵的伤害抗性。\n#CRIMSON# 强度 1+：%s 死亡力量：%+d%% 对亡灵的伤害加成。\n#CRIMSON# 强度 2+：%s%+d 幸运 , %+d 力量 , %+d 魔力\n#CRIMSON# 强度 3+：%s 活死人之躯：腐秽呕吐能治疗你。每 %d 回合一次，当你生命值降至 %d%% 以下时，释放一次等级 %d 的腐秽呕吐。\n#CRIMSON# 强度 4+：%s 死缓：你杀死的人形生物有 %d%% 几率变成食尸鬼并替你作战持续 6 回合。",
+    "一个死亡的光环笼罩着你。\n#CRIMSON# 惩罚：#WHITE# 死亡恐惧：%+d%% 对亡灵的伤害抗性。\n#CRIMSON# 强度 1+：%s 死亡力量：%+d%% 对亡灵的伤害加成。\n#CRIMSON# 强度 2+：%s%+d 幸运，%+d 力量，%+d 魔力\n#CRIMSON# 强度 3+：%s 活死人之躯：腐秽呕吐能治疗你。每 %d 回合一次，当你生命值降至 %d%% 以下时，释放一次等级 %d 的腐秽呕吐。\n#CRIMSON# 强度 4+：%s 死缓：你杀死的人形生物有 %d%% 几率变成食尸鬼并替你作战持续 6 回合。"
+   ],
+   "evidence": "core timed_effects/other.lua:950-960 @624a67329fe2: Power 2+ stat list used spaced half-width commas ( , ) inconsistent with all four sibling curses in mod-tome.lua (full-width ，). Formatting fix. Lane A."
+  },
+  {
+   "id": "9f18d41cb6b8",
+   "edit": [
+    "当食尸鬼被击中或死亡，它会爆炸，造成 %0.2f 霜暮伤害。",
+    "当食尸鬼受到伤害或死亡时，每回合只会引爆其中最早召唤的一只，造成 %0.2f 霜暮伤害。"
+   ],
+   "evidence": "core timed_effects/magical.lua:4899-4929 @624a67329fe2: callbackOnSummonHit (cb.value>0) and callbackOnSummonDeath register ghoul minions in eff.turn_list; callbackOnActBase sorts by creation_turn ascending, explodes only turn_list[1], and clears turn_list (consistent with T_CORPSE_EXPLOSION talent description). Type ②, translated per implementation. Lane B."
+  },
+  {
+   "id": "725dee21625e",
+   "edit": [
+    "你融入暗影并被其支配。笼罩在阴影中时，你对所有负面状态（「其他」类除外）免疫，并减少 %d%% 所受伤害；每回合你会闪现到半径 %d 内的一个敌人身边，对其造成 %d%% 暗影武器伤害。此技能激活期间，除非死亡，否则你无法被打断，且你无法控制你的角色。",
+    "你融入暗影并被其支配。笼罩在阴影中时，你对所有负面状态（「其他」类除外）免疫，并减少 %d%% 所受伤害；每回合你会闪现到首次攻击落点半径 %d 格内的一个敌人身边，对其造成 %d%% 暗影武器伤害。此效果持续期间你无法控制角色，除非死亡，否则无法被打断；若找不到符合条件的敌人，效果会提前结束。"
+   ],
+   "evidence": "core timed_effects/other.lua:865,874,879-882 & talents/cunning/ambush.lua:181-184,192,195 @624a67329fe2: blink range is centered on fixed (eff.x, eff.y) set to the first strike landing spot, and #acts==0 ends EFF_SHADOW_VEIL early. Type ②, translated per implementation. Lane B."
+  },
+  {
+   "id": "205ff861c21c",
+   "edit": [
+    "你感到自己对现实的掌控正在松动。\n#CRIMSON# 惩罚：#WHITE# 扰乱心智：%+d%% 精神抗性，%+d%% 混乱免疫\n#CRIMSON# 强度 1+：%s 解除束缚：%+d%% 暴击伤害，%+d%% 副手武器伤害。\n#CRIMSON# 强度 2+：%s%+d 幸运，%+d 敏捷\n#CRIMSON# 强度 3+：%s 阴谋：你的疯狂是会传染的。每次你对敌人造成暴击伤害时，都有 %d%% 的几率将你当前的一种负面精神效果传播给对方。\n#CRIMSON# 强度 4+：%s 狂热：每回合一次，当一次攻击超过你生命的 %0.1f%% 时，你所有技能的剩余冷却时间减少 1。",
+    "你感到自己对现实的掌控正在松动。\n#CRIMSON# 惩罚：#WHITE# 扰乱心智：%+d%% 精神抗性，%+d%% 混乱免疫\n#CRIMSON# 强度 1+：%s 解除束缚：%+d%% 暴击伤害，%+d%% 副手武器伤害。\n#CRIMSON# 强度 2+：%s%+d 幸运，%+d 敏捷\n#CRIMSON# 强度 3+：%s 阴谋：你的疯狂是会传染的。每次你对敌人造成暴击伤害时，都有 %d%% 的几率将你当前的一种负面精神效果传播给对方。\n#CRIMSON# 强度 4+：%s 狂热：每回合一次，当一次攻击造成的伤害达到或超过你最大生命值的 %0.1f%% 时，你所有技能的剩余冷却时间减少 1。"
+   ],
+   "evidence": "core timed_effects/other.lua:1159-1161 @624a67329fe2: checks dam >= self.max_life * (def.getManiaDamagePercent(eff.level) / 100). Prior Chinese omitted 造成的伤害 (Type ①) and used 超过你生命 instead of 达到或超过你最大生命值 (Type ②). Lane B."
+  }
+ ],
+ "advisory": [
+  {
+   "id": "5c97c8460c40",
+   "note": "Type ③ (upstream dynamic argument mismatch): core timed_effects/mental.lua:1605,1614-1616 @624a67329fe2 long_desc always passes eff.chance while on_timeout uses 100-(100-chance)/2 when self:attr('sleep'). Sleep synergy is documented on T_WAKING_NIGHTMARE; placeholder value not fixable in static translation. Lane B."
+  },
+  {
+   "id": "bc84af7bae6c",
+   "note": "Type ③ (upstream dynamic argument mismatch): core timed_effects/mental.lua:1640,1656-1664 @624a67329fe2 long_desc always passes eff.chance while on_timeout uses 100-(100-chance)/2 and skips Mental Save when self:attr('sleep'). Sleep synergy is documented on T_INNER_DEMONS; placeholder value not fixable in static translation. Lane B."
+  },
+  {
+   "id": "488d2e3e776d",
+   "note": "Type ③ (upstream dynamic argument mismatch): core timed_effects/physical.lua:360-361,386,412-413 @624a67329fe2 long_desc always formats full eff.stone, whereas early natural expiry (deactivate) applies math.floor(eff.stone*chance/100) turns. Single %d placeholder cannot display branch-scaled duration. Lane B."
+  }
+ ],
+ "rejected": [
+  {
+   "id": "fc17fdf6a7ba",
+   "reason": "Cross-talent synergy with T_DREAM_PRISON is explicitly documented in Dream Prison (mod-tome.lua: 梦境牢笼 — 如梦魇的伤害和睡眠的传染效果，将在此效果持续过程中失效), following the same precedent as 0534 a35e81819f52 (Called Shots / Concealment). Not a defect in EFF_NIGHTMARE."
+  }
+ ]
+}

@@ -1,0 +1,240 @@
+{
+  "batch": "0536",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "d82e0563c07f",
+      "verdict": "OK"
+    },
+    {
+      "id": "925468b4238f",
+      "verdict": "OK"
+    },
+    {
+      "id": "3e415707fbc2",
+      "verdict": "OK"
+    },
+    {
+      "id": "098ea8541c0e",
+      "verdict": "OK"
+    },
+    {
+      "id": "9af560c7c88a",
+      "verdict": "OK"
+    },
+    {
+      "id": "131ff141234e",
+      "verdict": "OK"
+    },
+    {
+      "id": "9f18d41cb6b8",
+      "verdict": "ISSUE",
+      "observation": "[语义]② 上游英文及现译把每个食尸鬼被击中或死亡都说成会爆炸。固定提交 game/modules/tome/data/timed_effects/magical.lua:4908-4928 将事件登记进 turn_list，行动回调只选创建时间最早的一个引爆，随后清空整个列表（4910-4913、4924）；并非所有被击中或死亡的食尸鬼都会爆炸。",
+      "suggestion": "当食尸鬼受到伤害或死亡时，会被列为尸爆候选；每次行动时只引爆其中最早召唤的一只，造成 %0.2f 霜暮伤害。"
+    },
+    {
+      "id": "9fef93cc8757",
+      "verdict": "OK"
+    },
+    {
+      "id": "ed07dca14747",
+      "verdict": "OK"
+    },
+    {
+      "id": "fba8b760c821",
+      "verdict": "OK"
+    },
+    {
+      "id": "63e14564826b",
+      "verdict": "OK"
+    },
+    {
+      "id": "c31e96a1b839",
+      "verdict": "OK"
+    },
+    {
+      "id": "e96e6aaa5aad",
+      "verdict": "OK"
+    },
+    {
+      "id": "5c97c8460c40",
+      "verdict": "ISSUE",
+      "observation": "[语义]③ 动态概率显示未计入睡眠分支：固定提交 game/modules/tome/data/timed_effects/mental.lua:1605 始终显示 eff.chance，1614-1616 在目标睡眠时将实际概率改为 100-(100-chance)/2，例如显示20%时实际60%。译文忠实于英文，不能通过调整固定译文使占位符显示真实概率。",
+      "suggestion": "目标陷入噩梦之中，每回合受到 %0.2f 暗影伤害，并有 %d%% 概率受到一个随机不良效果。（需上游将概率实参改为包含睡眠加成的实际值。）"
+    },
+    {
+      "id": "bc84af7bae6c",
+      "verdict": "ISSUE",
+      "observation": "[语义]③ 固定提交 game/modules/tome/data/timed_effects/mental.lua:1640 显示 eff.chance，但1656-1659在目标睡眠时把实际召唤概率改为100-(100-chance)/2，并跳过精神豁免判定。当前显示的概率在此分支不是真实概率，译文本身不能修正动态实参。",
+      "suggestion": "目标被心魔困扰，每回合有 %d%% 概率出现一个恶魔。施法者死亡或目标成功抵抗心魔释放时，效果提前结束。（需上游修正睡眠时的概率实参。）"
+    },
+    {
+      "id": "2657c6eb140c",
+      "verdict": "OK"
+    },
+    {
+      "id": "1e3621491117",
+      "verdict": "OK"
+    },
+    {
+      "id": "fc17fdf6a7ba",
+      "verdict": "ISSUE",
+      "observation": "[语义]② 上游和译文均无条件声称每回合受到伤害。固定提交 game/modules/tome/data/timed_effects/mental.lua:2417-2438 在施法者维持梦境囚牢且目标处于范围内时走 dream_prison 分支，持续时间加1，不执行2438的暗影伤害；伤害仅在 else 分支执行。",
+      "suggestion": "目标陷入噩梦般的沉睡，无法执行大多数行动。通常每回合受到 %0.2f 暗影伤害；处于施法者维持的梦境囚牢范围内时，不受这部分伤害且睡眠持续时间每回合延长 1 回合。每受到 %d 点伤害，效果持续时间便减少 1 回合。"
+    },
+    {
+      "id": "157e61dec671",
+      "verdict": "OK"
+    },
+    {
+      "id": "e01ef791bb99",
+      "verdict": "OK"
+    },
+    {
+      "id": "6b0603602b13",
+      "verdict": "OK"
+    },
+    {
+      "id": "8e88e1ed581d",
+      "verdict": "OK"
+    },
+    {
+      "id": "725dee21625e",
+      "verdict": "ISSUE",
+      "observation": "[语义]② 上游说明遗漏范围中心，译文“半径内”也未说明该中心。固定提交 game/modules/tome/data/timed_effects/other.lua:865、874 用固定的 eff.x/eff.y 筛选敌人，并非以每次闪现后的当前位置为中心；game/modules/tome/data/talents/cunning/ambush.lua:181-184 将其设为首次攻击时的落点，192亦明确首个目标位置附近的范围。other.lua:879-882 找不到敌人还会提前结束，与“除非死亡”这一绝对表述不符。",
+      "suggestion": "你融入暗影并被其支配。笼罩在阴影中时，你对所有负面状态（「其他」类除外）免疫，并减少 %d%% 所受伤害；每回合你会闪现到首次攻击落点半径 %d 内的一个敌人身边，对其造成 %d%% 暗影武器伤害。期间你无法控制角色；找不到符合条件的敌人时效果提前结束。"
+    },
+    {
+      "id": "2557abd55317",
+      "verdict": "OK"
+    },
+    {
+      "id": "205ff861c21c",
+      "verdict": "ISSUE",
+      "observation": "[语义]① 强度4说明“当一次攻击超过你生命的…时”缺少“造成的伤害”，把攻击本身与生命值比较，影响阈值理解。固定提交 game/modules/tome/data/timed_effects/other.lua:1159-1162 比较的是 dam 与 self.max_life 的比例。② 同处代码使用 >=，英文 more than 与现译“超过”遗漏恰等于阈值时也触发。",
+      "suggestion": "你感到自己对现实的掌控正在松动。\n#CRIMSON# 惩罚：#WHITE# 扰乱心智：%+d%% 精神抗性，%+d%% 混乱免疫\n#CRIMSON# 强度 1+：%s 解除束缚：%+d%% 暴击伤害，%+d%% 副手武器伤害。\n#CRIMSON# 强度 2+：%s%+d 幸运，%+d 敏捷\n#CRIMSON# 强度 3+：%s 阴谋：你的疯狂是会传染的。每次你对敌人造成暴击伤害时，都有 %d%% 的几率将你当前的一种负面精神效果传播给对方。\n#CRIMSON# 强度 4+：%s 狂热：每回合一次，当一次攻击造成的伤害达到你最大生命值的 %0.1f%% 时，你所有技能的剩余冷却时间减少 1。"
+    },
+    {
+      "id": "73bab31bb83c",
+      "verdict": "OK"
+    },
+    {
+      "id": "e41da0c2b7f7",
+      "verdict": "OK"
+    },
+    {
+      "id": "ef2abe394618",
+      "verdict": "OK"
+    },
+    {
+      "id": "9e15163bf839",
+      "verdict": "OK"
+    },
+    {
+      "id": "a9ec659a24dc",
+      "verdict": "OK"
+    },
+    {
+      "id": "c570021f6ad7",
+      "verdict": "OK"
+    },
+    {
+      "id": "83bfcad981aa",
+      "verdict": "OK"
+    },
+    {
+      "id": "2f9c714322f1",
+      "verdict": "OK"
+    },
+    {
+      "id": "f68580f69d3f",
+      "verdict": "OK"
+    },
+    {
+      "id": "881435436d72",
+      "verdict": "OK"
+    },
+    {
+      "id": "be377d767b5e",
+      "verdict": "OK"
+    },
+    {
+      "id": "1e762a05812d",
+      "verdict": "OK"
+    },
+    {
+      "id": "ee121c2184d5",
+      "verdict": "OK"
+    },
+    {
+      "id": "a6859ec11166",
+      "verdict": "OK"
+    },
+    {
+      "id": "3002e73c72ec",
+      "verdict": "OK"
+    },
+    {
+      "id": "78c8d08f7a20",
+      "verdict": "OK"
+    },
+    {
+      "id": "488d2e3e776d",
+      "verdict": "ISSUE",
+      "observation": "[语义]③ 提前结束毒素时，显示的石化回合数不是实际持续时间。固定提交 game/modules/tome/data/timed_effects/physical.lua:361 固定传 eff.stone，412-413 将提前自然到期的实际概率传给 doStone，386实际施加 math.floor(eff.stone*chance/100) 回合。例如一半进度时不是显示的完整回合数。译文忠实于英文，但固定占位符无法同时正确表示两个分支的时长。",
+      "suggestion": "目标每回合受到来自强效土系毒素的 %0.2f 自然伤害。在 %d 回合后将尝试使目标石化 %d 回合；若毒素提前自然结束，则有 %d%% 概率尝试石化，持续时间按毒素已生效的进度缩短。（需上游拆分或重排实参；此建议占位符顺序为1、2、4、3。）"
+    },
+    {
+      "id": "1e49f3e5995f",
+      "verdict": "OK"
+    },
+    {
+      "id": "b51b6ed64180",
+      "verdict": "OK"
+    },
+    {
+      "id": "f7764df1af1a",
+      "verdict": "OK"
+    },
+    {
+      "id": "f2f50829e661",
+      "verdict": "OK"
+    },
+    {
+      "id": "adf5329bf36f",
+      "verdict": "OK"
+    },
+    {
+      "id": "12121d9e4d13",
+      "verdict": "OK"
+    },
+    {
+      "id": "9d510598fa58",
+      "verdict": "OK"
+    },
+    {
+      "id": "0801e33ff2f7",
+      "verdict": "OK"
+    },
+    {
+      "id": "551c465323b7",
+      "verdict": "OK"
+    },
+    {
+      "id": "ff5c92ab2892",
+      "verdict": "OK"
+    },
+    {
+      "id": "3891eaa603c8",
+      "verdict": "OK"
+    },
+    {
+      "id": "6251427486b1",
+      "verdict": "OK"
+    },
+    {
+      "id": "c23077de6cb1",
+      "verdict": "OK"
+    }
+  ]
+}

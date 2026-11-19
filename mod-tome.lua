@@ -35664,7 +35664,7 @@ t("Soul Leech", "灵魂吸取", "_t")
 t("Soul absorbed upon death.", "死后灵魂会被吸收。", "_t")
 t("ghoul", "食尸鬼", "effect subtype")
 t("Corpse Explosion", "夺命尸爆", "_t")
-t("When a ghoul is hit or dies, it explodes, doing %0.2f frostdusk damage.", "当食尸鬼被击中或死亡，它会爆炸，造成 %0.2f 霜暮伤害。", "tformat")
+t("When a ghoul is hit or dies, it explodes, doing %0.2f frostdusk damage.", "当食尸鬼受到伤害或死亡时，每回合只会引爆其中最早召唤的一只，造成 %0.2f 霜暮伤害。", "tformat")
 t("#GREY#%s explodes in a blast of gore!", "#GREY#%s爆炸成一团碎肉！", "logSeen")
 t("resistance", "抵抗", "effect subtype")
 t("cooldown", "冷却", "effect subtype")
@@ -36418,7 +36418,7 @@ t("#Target# has returned fully to the timeline.", "#Target#完全返回了时间
 t("-Fade From Time", "-淡出时间", "_t")
 t("darkness", "暗影", "effect subtype")
 t("Shadow Veil", "暗影面纱", "_t")
-t("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character.", "你融入暗影并被其支配。笼罩在阴影中时，你对所有负面状态（「其他」类除外）免疫，并减少 %d%% 所受伤害；每回合你会闪现到半径 %d 内的一个敌人身边，对其造成 %d%% 暗影武器伤害。此技能激活期间，除非死亡，否则你无法被打断，且你无法控制你的角色。", "tformat")
+t("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character.", "你融入暗影并被其支配。笼罩在阴影中时，你对所有负面状态（「其他」类除外）免疫，并减少 %d%% 所受伤害；每回合你会闪现到首次攻击落点半径 %d 格内的一个敌人身边，对其造成 %d%% 暗影武器伤害。此效果持续期间你无法控制角色，除非死亡，否则无法被打断；若找不到符合条件的敌人，效果会提前结束。", "tformat")
 t("#Target# is covered in a veil of shadows!", "#Target#笼罩在暗影之中！", "_t")
 t("+Assail", "+暗影笼罩", "_t")
 t("#Target# is no longer covered by shadows.", "#Target#不再被暗影笼罩。", "_t")
@@ -36439,7 +36439,7 @@ t([[An aura of death surrounds you.
 #CRIMSON#Power 4+: %sReprieve from Death: Humanoids you slay have a %d%% chance to rise to fight beside you as ghouls for 6 turns.]], [[一个死亡的光环笼罩着你。
 #CRIMSON# 惩罚：#WHITE# 死亡恐惧：%+d%% 对亡灵的伤害抗性。
 #CRIMSON# 强度 1+：%s 死亡力量：%+d%% 对亡灵的伤害加成。
-#CRIMSON# 强度 2+：%s%+d 幸运 , %+d 力量 , %+d 魔力
+#CRIMSON# 强度 2+：%s%+d 幸运，%+d 力量，%+d 魔力
 #CRIMSON# 强度 3+：%s 活死人之躯：腐秽呕吐能治疗你。每 %d 回合一次，当你生命值降至 %d%% 以下时，释放一次等级 %d 的腐秽呕吐。
 #CRIMSON# 强度 4+：%s 死缓：你杀死的人形生物有 %d%% 几率变成食尸鬼并替你作战持续 6 回合。]], "tformat", {1,2,3,4,5,6,7,8,9,11,10,12,13})
 t("walking corpse", "行尸", "_t")
@@ -36459,7 +36459,7 @@ t([[You feel your grip on reality slipping.
 #CRIMSON# 强度 1+：%s 解除束缚：%+d%% 暴击伤害，%+d%% 副手武器伤害。
 #CRIMSON# 强度 2+：%s%+d 幸运，%+d 敏捷
 #CRIMSON# 强度 3+：%s 阴谋：你的疯狂是会传染的。每次你对敌人造成暴击伤害时，都有 %d%% 的几率将你当前的一种负面精神效果传播给对方。
-#CRIMSON# 强度 4+：%s 狂热：每回合一次，当一次攻击超过你生命的 %0.1f%% 时，你所有技能的剩余冷却时间减少 1。]], "tformat")
+#CRIMSON# 强度 4+：%s 狂热：每回合一次，当一次攻击造成的伤害达到或超过你最大生命值的 %0.1f%% 时，你所有技能的剩余冷却时间减少 1。]], "tformat")
 t("#F53CBE#%s's mania hastens cooldowns.", "#F53CBE#%s的狂热降低了冷却时间。", "logSeen")
 t("#F53CBE##Source# spreads the madness to #Target#.", "#F53CBE##Source#的疯狂传播到#Target#。", "logCombat")
 t("Curse of Shrouds", "帷幕诅咒", "_t")
