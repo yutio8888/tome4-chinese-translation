@@ -41663,7 +41663,7 @@ t("Defines the distance from the screen edge at which scrolling will start. If s
 t("#GOLD##{bold}#Scroll distance#WHITE##{normal}#", "#GOLD##{bold}#滚动距离#WHITE##{normal}#", "_t")
 t("Scroll distance", "滚动距离", "_t")
 t("From 1 to 50", "从 1 到 50", "_t")
-t("If you lose more than this percentage of life in a turn, a warning will display and all key/mouse input will be ignored for 2 seconds to prevent mistakes.#WHITE#", "当你在一回合内损失超过最大生命值该百分比的生命时，将弹出警告并在 2 秒内忽略所有键盘与鼠标操作，以防误操作。#WHITE#", "_t")
+t("If you lose more than this percentage of life in a turn, a warning will display and all key/mouse input will be ignored for 2 seconds to prevent mistakes.#WHITE#", "如果你在一回合内损失的生命值占最大生命值的比例超过此设定值，游戏将弹出警告，并在 2 秒内忽略所有键盘和鼠标输入，以防误操作。#WHITE#", "_t")
 t("#GOLD##{bold}#Life Lost Warning#WHITE##{normal}#", "#GOLD##{bold}#生命损失百分比提醒#WHITE##{normal}#", "_t")
 t("Life lost percentage (out of max life)", "生命损失百分比（占最大生命值）", "_t")
 t("From 1 to 99 (100 to disable)", "从 1 到 99（100 为禁用）", "_t")
