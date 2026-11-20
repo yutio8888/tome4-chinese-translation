@@ -1277,7 +1277,7 @@ t([[You unleash the fury of the Spellblaze, constantly draining your vim.
 		While this spell is active at most two meteors will fall near your per turn, dealing %0.2f physical and %0.2f fire damage in radius 2.
 		This spell disabled automatically on rest or run.
 		The effects increase with spellpower.]], [[你释放魔法大爆炸的力量，持续消耗活力。
-		当技能开启时，每回合至多有 2 个陨石坠落在你身边，在半径 2 的范围内造成物理与火焰伤害，数值分别为 %0.2f 的一半与 %0.2f 的一半。
+		当技能开启时，每回合至多有 2 颗陨石坠落在你身边，在半径 2 的范围内造成伤害，两颗陨石合计造成 %0.2f 物理和 %0.2f 火焰伤害（每颗各半）。
 		这项法术在休息或跑步时自动关闭。
 		效果受法术强度加成。]], "tformat")
 t("Only Ashes Left", "唯余灰烬", "talent name")
