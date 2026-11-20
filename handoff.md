@@ -1,12 +1,12 @@
-# 当前恢复入口（2026-11-19 交接：0539–0557 精简纠偏与高频界面/语法专项全部收口；v0.3.14 仍为最新公开版）
+# 当前恢复入口（2026-11-20 交接：v0.3.15 已公开发布，0539–0558 精简纠偏与高频界面/语法专项全部随版上线）
 
-**交接快照（2026-11-19，最新，优先阅读）**
-- 仓库状态：译文 `develop` 最新内容批次是 0557（`0d2b95a93`，过滤镜像 `7bd73a1bb5`），随后为本交接文档提交；均已通过 `tools/push_github.sh` 过滤镜像推送。译文仓库工作树干净；`python3 -B tools/lite_review.py status` 显示 `release_required_units: 29554`、`reviewed_A: 29554`、`reviewed_B: 29554`、`pending_A: 0`、`pending_B_backfill: 0`。没有进行中的批次、门禁或子代理（0539–0557 的 A/B lane 均已归档）。
-- 发布仓库（`tome4-chn-mod` master `519fd5c`，tag `v0.3.14`）：保留 1 处已本地自测通过但**尚未提交/发布**的改动——`data/chn_supplement.lua:87`（Bloodstream 插件专用键 `BLOODSTREAM_ZH_KEY` 精简为「若命中已在流血的目标，其流血效果持续时间延长 %d 回合，伤害变为原来的 %d%% （每个流血效果只能强化一次）。」，CRLF 保留，上游键未动，`tests/test_dynamic_desc_fixes.lua` `ALL OK`），留待维护者明确指示发布下一版（v0.3.15）时一并处理。
+**交接快照（2026-11-20，最新，优先阅读）**
+- 仓库状态：译文 `develop` 最新内容批次是 0558（`f6e64afc0`，过滤镜像 `707df1b302`），随后为本发布凭据与交接文档提交；均已通过 `tools/push_github.sh` 过滤镜像推送。译文仓库工作树干净；`python3 -B tools/lite_review.py status` 显示 `release_required_units: 29554`、`reviewed_A: 29554`、`reviewed_B: 29554`、`pending_A: 0`、`pending_B_backfill: 0`。没有进行中的批次、门禁或子代理（0539–0558 的 A/B lane 均已归档）。
+- 发布仓库（`tome4-chn-mod` master `772d6f5`，tag `v0.3.15`）：工作树干净，与 `origin/master` 同步。包含 `data/chn_supplement.lua:87` Bloodstream 精简译文与 0539–0558 全量译文。
 - 编辑原则（2026-11-19 维护者明确指示）：**「优先回归英文原意，只保留真正影响玩法决策的机制纠偏」**。不把 Lua 实现分支或公式细节膨胀写回技能说明。
-- **v0.3.14 之后新增完成工作（0539–0557，共 19 批，均已双审、门禁、提交并过滤镜像推送；尚未发布至插件）**
+- **v0.3.15 已发布内容（0539–0558，共 20 批，均已双审、门禁、提交并随 0.3.15 公开上线）**
   - **0539–0541 抽检质量修复**（`8315a5b2c` / `4d709dae6` / `21953c21d`）：`sample-quality-20261119` 修复 22 单元 + 4 处跨组件同步；0540 盲审润色 5 条、驳回 2 条；0541 盲审 0 改收口。
-  - **0544–0545 膨胀说明回退精简专项（第 1 轮）**（`df862b041` / `822257f81`）：按「优先回归英文原意」原则复核 45 条过度实现改写条目，确认精简 33 条（`mod-tome.lua` 14、`tome-ashes-urhrok.lua` 3、`tome-cults.lua` 6、`tome-orcs.lua` 10）；0545 盲审微调 8 条、驳回 9 条（拒绝回塞已精简的实现细节），尾项随 0547/0550 收口；另本地精简 `tome4-chn-mod/data/chn_supplement.lua` 中的 Bloodstream 译文。
+  - **0544–0545 膨胀说明回退精简专项（第 1 轮）**（`df862b041` / `822257f81`）：按「优先回归英文原意」原则复核 45 条过度实现改写条目，确认精简 33 条（`mod-tome.lua` 14、`tome-ashes-urhrok.lua` 3、`tome-cults.lua` 6、`tome-orcs.lua` 10）；0545 盲审微调 8 条、驳回 9 条；另精简 `tome4-chn-mod/data/chn_supplement.lua:87` Bloodstream 译文。
   - **Focus 1 游戏选项与引擎核心对话框全量清扫（0542–0543、0546–0551，全部 5 片共 265 单元）**：
     - 1A（0542–0543，`799c870bd` / `085ef31de`）：`AudioOptions`/`DisplayResolution`/`SteamOptions`/`VideoOptions` 59 单元，修 12 条（`engine.lua`），0543 双栏 0 ISSUE；
     - 1B（0546–0547，`24cc3edac` / `911d4c506`）：`engine/dialogs` 59 单元，修 8 条（`engine.lua`），0547 复审 0545+0546 共 16 条微调 3 条、驳回 1 条；
@@ -15,20 +15,16 @@
     - 0550（`1614e0d1e`）：盲审 0547–0549 共 26 条，确认润色 2 条；
     - 1E（0551，`74141e0cc`）：`GameOptions` 第 3 片 49 单元，修 12 条（`mod-tome.lua`），Focus 1 全部完成。
   - **Focus 2A 高精度语法/量词/流畅度缺陷清扫（0552–0554，`9985c6260` / `39e203a3a` / `d3a1e5bf8`）**：
-    - 0552 审校 20 条高精度缺陷，确认修复 18 条（`engine.lua` 1、`mod-tome.lua` 16、`tome-ashes-urhrok.lua` 1，涵盖「正在在线」、宝石/戒指/法杖/宝箱/头发量词、「的/地」状语、4 处「自始以来」→「自远古以来」及焱系解锁技能名同步、永恒持续时间语序、恶魔契约重召/胸甲等）；
-    - 0553 盲审 0550–0552 共 32 条，确认润色 3 条（`mod-tome.lua`）、驳回 3 条；
-    - 0554 盲审 0553 的 3 条改动，确认 0 条、驳回 2 条单栏摇摆/扩写意见。
-  - **0555–0557 膨胀说明回退精简专项（第 2 轮，全量 30,265 条对照官方基线 `upstream/master` 彻底清零）**（`93d483e92` / `a95a18efb` / `0d2b95a93`）：
-    - 0555 复核全部 49 条残留候选（A 类明显代码细节膨胀 20 条 + B 类灰区机制纠偏 29 条），确认精简 28 条（`mod-tome.lua` 14、`tome-ashes-urhrok.lua` 2、`tome-cults.lua` 5、`tome-orcs.lua` 7）：彻底清除残留的「“其他”类除外」「越层效果除外」、Lua 分支链（白骨大师/压力作战服/时空克隆体/触手之手/背叛状态/毒镖/定身射击/暗日裂缝/炽热皮肤/抓取强化/圣盾/时间暂停等）及生硬计数公式（致命打击/盾击反击/火焰冲击波/恶魔护盾/魔法大爆炸之怒等），同时保留 21 条简洁且真正影响玩法决策的机制纠偏（双审均 OK）；
-    - 0556 盲审 26 条新修订（Opus 5.5 25/26 OK），采纳 3 处收口微调（致命打击段换行、狂野之怒「必定尝试震慑」、惊骇射击物主代词语序），驳回 15 处单路 B 源码回弹意见；
-    - 0557 盲审 0556 的 3 条改动（Opus 5.5 3/3 OK，驳回 1 处单路 B 早退分支细节），全库清零收口。
-  - 技术验证：`0d2b95a93` 完整 `tools/ci-gates.sh` 17 项全部通过（`ALL GATES PASSED`），`i18n lint --strict` 30,317 条译文 0 error / 0 warning。
-- 当前最新公开插件：**v0.3.14**（2026-11-19 按维护者「刷新handoff并发布」指令发布，发布仓库 master `519fd5c`，从 `c05bb96` 快进，无强推；tag `v0.3.14` 指向 `519fd5c`；公开正式 Release id `451281509`，标记为 Latest；未获当轮直接指示前不发布 v0.3.15）。
-  - 来源：`93f7aadc1`（lite 批 0511–0538）＋发布仓库已并入 master 的代码分支 `code/dynamic-desc-fixes`（`3580885`）。
-  - 规模与产物：13,831 条＝核心 8,181＋引擎 189＋DLC 5,461，locale sha256 `323b05ad…`；资产 `tome-chn-mod.teaa`，5,040,169 字节，sha256 `0d8f2457…`，33 个文件（ZIP_STORED，0 deflated）。
-  - 技术核对：对 `93f7aadc1` 跑完整 `tools/ci-gates.sh`（17 项全部通过，`ALL GATES PASSED`，`PATH` 前置 `/opt/agents/pi/current/node_modules/.bin`）；`publish` dry-run 与 apply 运行时校验一致（19,144 键，0 missing/mismatched/redundant/unexpected）；`smoke_release.py` 通过（DLC 743/1569/3149 精确一致）；`tests/test_dynamic_desc_fixes.lua` 对新 locale 与源码均 132/132 `ALL OK`，`tests/test_talent_description_diff.lua` 与全量 `luajit -bl` 通过；上传后回下载 `tome-chn-mod.teaa` 与 `git archive 519fd5c` 逐字节一致且与 GitHub digest 一致。
-  - 验收分工：按 2026-11-11 现行规则未做本地实机验收，由测试玩家在发布后通过发布仓库 Issues 反馈；发布说明已写明技术核对范围、新改动检查点与遗留未覆盖项。
-  - 凭据：`evidence/releases/addon-0.3.14.json`，说明：`evidence/releases/addon-0.3.14-release-notes.md`。`i18n/versions/tome-1.7.6.json` 中的 `repositories.addon.commit` pin 保持未动。
+    - 0552 审校 20 条高精度缺陷，确认修复 18 条（`engine.lua` 1、`mod-tome.lua` 16、`tome-ashes-urhrok.lua` 1）；0553 盲审润色 3 条；0554 盲审 0 改收口。
+  - **0555–0558 膨胀说明回退精简专项（第 2 轮清零）＋ 8 项实机 Debug 核实**（`93d483e92` / `a95a18efb` / `0d2b95a93` / `f6e64afc0`）：
+    - 0555 复核全部 49 条残留候选，确认精简 28 条、保留 21 条简洁且影响玩法决策的机制纠偏；0556 盲审微调 3 条；0557 盲审 0 改收口；
+    - 在 ToME4 1.7.6 调试控制台对 8 项代表性保留纠偏（陨星火雨、终点、暗影伤口、污印：感应、傀儡重击、虚空碎片、金枪、炮台超载）逐一实测确认与运行时完全一致；
+    - 0558（`f6e64afc0`）：按维护者确认将陨星火雨（`tome-ashes-urhrok.lua:1280`）改写为「两颗陨石合计造成 %0.2f 物理和 %0.2f 火焰伤害（每颗各半）」，双路盲审 A/B 均 1/1 OK。
+- 当前最新公开插件：**v0.3.15**（2026-11-20 按维护者「进入下一步」指令发布，发布仓库 master `772d6f5`，从 `519fd5c` 快进，无强推；tag `v0.3.15` 指向 `772d6f5`；公开正式 Release id `452269373`，标记为 Latest；未获当轮直接指示前不发布 v0.3.16）。
+  - 来源：`f6e64afc0`（lite 批 0539–0558）＋发布仓库 `data/chn_supplement.lua:87` Bloodstream 精简译文。
+  - 规模与产物：13,880 条＝核心 8,214＋引擎 205＋DLC 5,461，locale sha256 `4b6df1a8…`；资产 `tome-chn-mod.teaa`，5,044,246 字节，sha256 `5cdfc3f1…`，33 个文件（ZIP_STORED，0 deflated）。
+  - 技术核对：对 `f6e64afc0` 跑完整 `tools/ci-gates.sh`（17/17 `ALL GATES PASSED`，`PATH` 前置 `/opt/agents/pi/current/node_modules/.bin`）；`publish` dry-run 与 apply 运行时校验一致（19,144 键，0 missing/mismatched/redundant/unexpected）；`smoke_release.py` 通过（DLC 743/1569/3149 精确一致）；`tests/test_dynamic_desc_fixes.lua` 对新 locale 与源码均 `ALL OK`（含 0.3.14/0.3.15 矩阵），`tests/test_talent_description_diff.lua` 与全量 `luajit -bl` 通过；上传后回下载 `tome-chn-mod.teaa` 与 `git archive 772d6f5c` 逐字节一致且与 GitHub digest 一致。
+  - 凭据：`evidence/releases/addon-0.3.15.json`，说明：`evidence/releases/addon-0.3.15-release-notes.md`。`i18n/versions/tome-1.7.6.json` 中的 `repositories.addon.commit` pin 保持未动。
 - 授权：维护者 2026-11-18「请作为助手自主推进 dcss 和 tome4 翻译完善」。有证据的错译、缺译、语病、术语一致性和有界同名消歧，可按 lite 流程自主实施、双审、门禁、过滤镜像推送；有实质新策略歧义的交维护者。发布仍须维护者当轮直接指示。各阶段经 `node /workspace/project-callback.cjs --source tome --message-file <文件>` 回传助手一次。
 
 **v0.3.14 包含的本轮完成工作（0511–0538，均已提交、推送并随 0.3.14 发布）**
