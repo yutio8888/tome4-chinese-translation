@@ -1116,7 +1116,7 @@ The soldier led me to the center of the city where a grand building lay. After m
 
 过了一段时间，受伤的士兵开始减少，因为他们中的大多数人在痊愈后不需要休息。当伤员人数减少到可以应付的程度时，主治医师代表永恒精灵来感谢我的努力。我突然想起我来这里的全部原因，提醒对方我已履行了我这一方的约定。主治医师对此点了点头，并望向我身后；这时一名士兵正走近。主治医师回答说：“中尉会护送你去见将军。”我对此感到有些吃惊，但我猜想这位将军掌握着这些事件的答案。
 
-士兵把我带到市中心，那里有一座宏伟的建筑物。与几名全身穿戴着闪亮板甲的守卫交谈后，我们获准进入。我们沿着楼内的走廊走了几分钟，仿佛穿过了整座建筑，才来到尽头。最后，我来到了一个豪华的房间，墙壁上有着斯莱特和黄金做成的装饰，并展示了一些我认为是永恒精灵历史上重要人物的画像。在这里，中尉让我等着，然后走进附近的一个房间。]], "_t")
+士兵把我带到市中心，那里有一座宏伟的建筑物。与几名全身穿戴着闪亮板甲的守卫交谈后，我们获准进入。我们沿着楼内的走廊走了几分钟，仿佛穿过了整座建筑，才来到尽头。最后，我来到了一个豪华的房间，墙壁上有着蓝锆石和黄金做成的装饰，并展示了一些我认为是永恒精灵历史上重要人物的画像。在这里，中尉让我等着，然后走进附近的一个房间。]], "_t")
 t("Escapades of Fay Willows [Book 1, Chapter 5] - General Aranion Gawaeil", "菲·维莉欧斯的冒险 [第1卷，第5章] - 艾伦尼恩·加威尔将军", "_t")
 t([[[i]General Aranion Gaweil, leader of the Grand Council of Elvala. This was perhaps the first name I ever learned from someone outside my family. While Aranion never gave his name to me personally, the rest of the shaloren certainly banter it around enough to the point that I eventually remembered it. While perhaps there is little to acknowledge from one who readily gives their name, I can perhaps respect Aranion whose name I learned from those around him, and the idolization and fondness that they seemed to speak it with.[/i]
 
