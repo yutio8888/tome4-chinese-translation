@@ -1,0 +1,25 @@
+{
+ "kind": "audience-ego-taint-and-dwarven-resilience-alignment",
+ "batch": "0574",
+ "date": "2026-11-20",
+ "authorization": "Maintainer 2026-11-20: revert conjurer's/conjuration/astral conjurer (咒术师的/咒语之/星空咒术师), of perfection (完美之), stormwoven (织岚的), Dwarven Resilience (矮人坚韧), and unify taint inscriptions to 污印; then release addon v0.3.17.",
+ "terminology_updates": [
+  "terminology/talents.tsv: taints=污印 confirmed unchanged (931 rows preserved)"
+ ],
+ "changes_by_group": {
+  "egos_and_conjurer_reverted": [
+   "conjurer's -> 咒术师的 (mod-tome.lua entity name & keyword)",
+   "of conjuration -> 咒语之 (mod-tome.lua entity name)",
+   "astral conjurer -> 星空咒术师 (tome-orcs.lua entity name)",
+   "of perfection (#MASTERY#) -> 完美之 (#MASTERY#) (mod-tome.lua entity name)",
+   "stormwoven -> 织岚的 (mod-tome.lua entity name)"
+  ],
+  "taint_unified_to_wuyin": [
+   "Taint: Devourer description: 对目标激活此印记 -> 对目标激活此污印 (mod-tome.lua)",
+   "Taint: Purging description: 激活这个印记 -> 激活这个污印 (mod-tome.lua)"
+  ],
+  "timed_effect_reverted": [
+   "Dwarven Resilience -> 矮人坚韧 (mod-tome.lua timed_effects; Resilience of the Dwarves racial talent stays 钢筋铁骨 matching baseline)"
+  ]
+ }
+}
