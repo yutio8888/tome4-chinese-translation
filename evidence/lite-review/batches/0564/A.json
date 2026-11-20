@@ -1,0 +1,11 @@
+{
+ "lane": "A",
+ "verdicts": [
+  {
+   "id": "30c011d884dc",
+   "verdict": "ISSUE",
+   "observation": "源码 class/Actor.lua:2992-2997 与 class/interface/Combat.lua:1036-1040：Stoneshield 只是按所受伤害值的比例 incMana 回复法力（min(mm, value*m)），伤害本身不被吸收或减少。译文「将 %d%% 的伤害转化为法力」易被理解为这部分伤害被转换/抵消，与机制不符（英文 regenerate ... of the damage dealt as mana 是回复）。另原文 all of your melee attacks 的「所有」被省略，可一并补回。",
+   "suggestion": "每回合第一次承受伤害时，你回复相当于所受伤害 %d%% 的法力（至多 %0.2f 点），并以所受伤害的 %d%% 降低失衡值（至多降低 %0.2f 点）。\n\t\t增加 %d 点物理强度，增加 %d%% 盾牌伤害，并让你能够双持盾牌。\n\t\t同时，你的所有近战攻击都会附带一次盾牌攻击。"
+  }
+ ]
+}

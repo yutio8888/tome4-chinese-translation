@@ -772,7 +772,7 @@ t("always sharp blade", "永远锋利的剑", "_t")
 t([[It is said that the preferred weapons of the krog is a mace in one hand and a sword in the other. One hand to spread the message of the Zigurath, the other to see that message through to the end.
 The sword symbolizes the krogs committment to their task of fighting against the forces of the arcane. With each slash the krog would endevor to continue, until at last their opponents would fall.]], [[人们说克罗格首选的武器是一手拿锤、一手拿剑。用一只手传播伊格兰斯的讯息，用另一只手将这一讯息贯彻到底。
 剑象征着克罗格履行对抗奥术力量这一使命的决心。每一次挥砍，克罗格都会竭力坚持下去，直到敌人终于倒下。]], "_t")
-t("restore 7 stamina and equilibrium", "恢复7点体力值和失衡值。", "_t")
+t("restore 7 stamina and equilibrium", "恢复 7 点体力值并降低 7 点失衡值。", "_t")
 t("#LIGHT_BLUE#As you wear the sword you feel it attuning to your Krog body, increasing in power!", "#LIGHT_BLUE#你感受到你的剑和克罗格的身躯共鸣，解放了强大的力量！", "logPlayer")
 t("It is said perseverance comes hand in hand with dedication.", "人们说毅力之剑与忠诚之锤配合。", "_t")
 t("#AQUAMARINE#As the twin weapons of the Krogs are reunited you can feel bursting with power!", "#AQUAMARINE#克罗格的两把武器集齐了，你感觉到力量暴涨！", "logSeen")

@@ -870,13 +870,13 @@ t("Stamina each turn: ", "每回合体力回复：", "_t")
 t("Mana each turn: ", "每回合法力回复：", "_t")
 t("Hate each turn: ", "每回合仇恨值回复：", "_t")
 t("Psi each turn: ", "每回合灵能值回复：", "_t")
-t("Equilibrium each turn: ", "每回合失衡值回复：", "_t")
+t("Equilibrium each turn: ", "每回合失衡值：", "_t")
 t("Vim each turn: ", "每回合活力值回复：", "_t")
 t("P.Energy each turn: ", "每回合正能量值回复：", "_t")
 t("N.Energy each turn: ", "每回合负能量值回复：", "_t")
 t("Stamina when hit: ", "被击中回复体力：", "_t")
 t("Mana when hit: ", "被击中回复法力：", "_t")
-t("Equilibrium when hit: ", "被击中回复失衡值：", "_t")
+t("Equilibrium when hit: ", "被击中时降低失衡值：", "_t")
 t("Psi when hit: ", "被击中回复灵能值：", "_t")
 t("Hate when hit: ", "被击中回复仇恨值：", "_t")
 t("Vim when hit: ", "被击中回复活力值：", "_t")
@@ -24790,9 +24790,9 @@ section "mod-tome/data/talents/gifts/earthen-power.lua"
 t("Stoneshield", "岩石坚盾", "talent name")
 t([[The first time you take damage each turn, you regenerate %d%% of the damage dealt as mana (up to a maximum of %0.2f) and %d%% as equilibrium (up to %0.2f).
 		Increases Physical Power by %d, increases damage done with shields by %d%%, and allows you to dual-wield shields.
-		Also, all of your melee attacks will perform a shield bash in addition to their normal effects.]], [[每回合第一次承受伤害时，你将 %d%% 的伤害转化为法力 (至多 %0.2f 点)，%d%% 的伤害转化为失衡值 (至多回复 %0.2f)。
-		增加物理强度 %d， 增加盾牌伤害 %d%% , 并让你能够双持盾牌。
-		同时，你的近战攻击附带一次盾牌攻击。]], "tformat")
+		Also, all of your melee attacks will perform a shield bash in addition to their normal effects.]], [[每回合第一次承受伤害时，你会回复相当于所受伤害 %d%% 的法力（至多 %0.2f 点），并降低相当于所受伤害 %d%% 的失衡值（至多降低 %0.2f 点）。
+		增加 %d 点物理强度，增加 %d%% 盾牌伤害，并让你能够双持盾牌。
+		同时，你的所有近战攻击都会附带一次盾牌攻击。]], "tformat")
 t("Stone Fortress", "岩石壁垒", "talent name")
 t([[When you use your Resilience of the Dwarves racial power your skin becomes so tough that it even absorbs damage from non-physical attacks.
 		Non-physical damage is reduced by %d%% of your total armour value (ignoring hardiness).
@@ -24834,8 +24834,8 @@ t([[From the ground around you, you form living stone vines extending from your 
 		藤蔓抓住目标的几率和伤害随技能等级和意志提高。]], "tformat")
 t("Eldritch Vines", "奥术藤蔓", "talent name")
 t([[Each time one of your stone vines deals damage to a creature it will restore %0.1f equilibrium and %0.1f mana.
-		Your vines also become infused with eldritch energies, dealing an additional %0.1f arcane damage.]], [[每次藤蔓造成伤害时，你回复 %0.1f 点失衡值与 %0.1f 点法力值。
-		同时藤蔓会附加 %0.1f 奥术伤害。]], "tformat")
+		Your vines also become infused with eldritch energies, dealing an additional %0.1f arcane damage.]], [[每次你的岩石藤蔓对生物造成伤害时，你降低 %0.1f 点失衡值并回复 %0.1f 点法力值。
+		你的藤蔓还会灌注奥术能量，额外造成 %0.1f 点奥术伤害。]], "tformat")
 t("Rockwalk", "岩石漫步", "talent name")
 t([[Merge with one of your stone vines, traversing it to emerge near an entangled creature (maximum range %d).
 		Merging with the stone is beneficial for you, healing %0.2f life (increases with Willpower).
@@ -25040,7 +25040,7 @@ t([[A wave of natural energies flow around you in a radius of %d.  All creatures
 		On you, this effect causes each heal received to restore %d equilibrium and be %d%% effective.
 		On other creatures, all healing is intercepted and redirected to you at %d%% efficiency.
 		Only direct healing (not normal regeneration) is affected.]], [[一股自然能量在你周围半径 %d 范围内涌动，使范围内所有生物获得治疗转移效果，持续 %d 回合。
-		对你而言，每次受到治疗会恢复 %d 点失衡值，治疗效果为 %d%%。
+		对你而言，每次受到治疗会降低 %d 点失衡值，治疗效果为 %d%%。
 		对其他生物而言，所有治疗都会被截取，并以 %d%% 的效率转移给你。
 		只有直接治疗会受影响，普通生命回复不受影响。]], "tformat")
 
@@ -25214,8 +25214,8 @@ t([[For %d turns, you lay down mucus where you walk or stand.
 		粘液每回合自动放置，持续 %d 回合。
 		技能等级达到 4 级或以上时，粘液会从放置位置扩展到半径 1 的范围。
 		粘液会使所有经过的敌人中毒，每回合造成 %0.1f 自然伤害，持续 5 回合（可叠加）。
-		站在自己的粘液上时，你每回合回复 %0.1f 失衡值；每个处在你粘液中的其他友方单位，每回合都会为你和其自身各回复 1 点失衡值。
-		毒素伤害和失衡值回复受精神强度加成；在同一位置铺设更多粘液会强化其效果，并刷新持续时间。]], "tformat")
+		站在自己的粘液上时，你每回合降低 %0.1f 点失衡值；每个处在你粘液中的其他友方单位，每回合都会为你和其自身各降低 1 点失衡值。
+		毒素伤害和失衡值降低量受精神强度加成；在同一位置铺设更多粘液会强化其效果，并刷新持续时间。]], "tformat")
 t("Acid Splash", "酸液飞溅", "talent name")
 t([[Calling upon nature, you cause the ground to erupt in an radius %d acidic explosion, dealing %0.1f acid damage to all creatures and creating mucus in the area.
 		Any Mucus Oozes you have active will, if in line of sight, instantly spit slime (at reduced power) at one of the targets hit by the splash.
@@ -25256,7 +25256,7 @@ t("You try to split, but there is no free space close enough to summon!", "你�
 t("bloated ooze", "浮肿软泥怪", "_t")
 t("It's made from your own flesh and it's oozing.", "它由你自己的血肉构成，还在不断渗出粘液。", "_t")
 t([[In addition, you restore %0.1f Equilibrium per turn while this talent is active.
-		]], [[同时，当这个技能开启时，每回合回复 %0.1f 点失衡值。
+		]], [[同时，当这个技能开启时，每回合降低 %0.1f 点失衡值。
 		]], "tformat")
 t([[Your body is more like that of an ooze.
 		When you take damage, you may split and create a Bloated Ooze nearby within your line of sight.
@@ -25342,7 +25342,7 @@ t([[Attack the target for %d%% Nature weapon damage.
 		Big:  %d%%
 		Huge:  %d%%
 		Gargantuan:  %d%%]], [[对目标造成 %d%% 自然武器伤害。
-		如果这个攻击将目标的生命值降低到其最大生命值的一定比例以下（基于技能等级和两者体型大小）或杀死了它，你会尝试吞噬它：若成功则立刻将其杀死，并根据其等级恢复生命值和失衡值。
+		如果这个攻击将目标的生命值降低到其最大生命值的一定比例以下（基于技能等级和两者体型大小）或杀死了它，你会尝试吞噬它：若成功则立刻将其杀死，并根据其等级恢复生命值并降低失衡值。
 		对方会与你的物理强度进行豁免对抗，以防被吞噬。
 		同时，这个技能还能被动提升你的物理和精神暴击率 %d%%。
 		每点土龙系的天赋可以使你增加物理抗性 0.5%%。
@@ -32883,7 +32883,7 @@ Try to push your way into the next room!
 
 当你尝试对某人使用“击退攻击”时，会比较哪些 #GOLD#战斗属性#WHITE#？
 
-试着推开道路，进入下一个房间！
+试着推开挡路的敌人，进入下一个房间！
 ]], "_t")
 
 ------------------------------------------------
@@ -33157,9 +33157,9 @@ Why is one of the spiders unaffected?
 Go learn the Blink spell just to the south, then go back and try it on the spiders.
 ]], [[你能解释一下你施加的“失去平衡”持续效果为何持续时间不同吗？
 
-为什么有一个蜘蛛没受到影响？
+为什么有一只蜘蛛没受到影响？
 
-去正南方学习“闪现”法术，然后回来在这些蜘蛛身上试试。
+去正南方学习“闪烁”法术，然后回来在这些蜘蛛身上试试。
 ]], "_t")
 
 ------------------------------------------------
@@ -33222,15 +33222,15 @@ Mental effects cause the "Brainlocked" effect.
 
 The effects last one turn per tier difference in the attacker's and defender's #GOLD#combat stats#WHITE#. For example, casting Mana Gale with a #8d55ff#Tier 5#WHITE# #LIGHT_GREEN#Spellpower#WHITE# on a target with a #B4B4B4#Tier 1#WHITE# #LIGHT_GREEN#Physical save#WHITE# would result in applying a four-turn "Off-balance" effect.
 
-]], [[这些新效果是 #GOLD#越层效果#WHITE#。当一个技能需要比较处于不同层级的 #GOLD#战斗属性#WHITE# 时，就会触发这类效果。
+]], [[这些新效果是 #GOLD#越层效果#WHITE#。当技能比较双方的 #GOLD#战斗属性#WHITE#，且攻击方层级高于防御方时，就会触发这类效果。
 
-物理效果造成 "失去平衡" 效果。
+物理效果造成“失去平衡”效果。
 
-魔法效果造成 "法术冲击" 效果。
+魔法效果造成“法术冲击”效果。
 
-精神效果造成 "思维封锁" 效果。
+精神效果造成“思维封锁”效果。
 
-攻击者和防御者的 #GOLD#战斗属性#WHITE# 每相差一个层级，这些效果就持续 1 回合。例如，以 #8d55ff#层级 5#WHITE# #LIGHT_GREEN#法术强度#WHITE# 对一个 #B4B4B4#层级 1#WHITE# #LIGHT_GREEN#物理豁免#WHITE#的目标施放法力风暴，会施加持续 4 回合的“失去平衡”效果。
+攻击方的 #GOLD#战斗属性#WHITE# 每高出防御方一个层级，这些效果就持续 1 回合。例如，以 #8d55ff#层级 5#WHITE# #LIGHT_GREEN#法术强度#WHITE# 对一个 #B4B4B4#层级 1#WHITE# #LIGHT_GREEN#物理豁免#WHITE# 的目标施放法力风暴，会施加持续 4 回合的“失去平衡”效果。
 
 ]], "_t")
 
@@ -34782,7 +34782,7 @@ section "mod-tome/data/timed_effects/floor.lua"
 t("Icy Floor", "冰面", "floorEffect desc")
 t("The target is walking on an icy floor. Increasing movement speed by 20%, providing +20% cold damage piercing and -30% stun immunity.", "目标行走在冰面上。增加 20%移动速度，提供 20%的寒冷伤害穿透，同时减少 30%的震慑免疫。", "_t")
 t("Font of Life", "生命之泉", "floorEffect desc")
-t("The target is near a font of life, granting %+0.2f life regeneration, %+0.2f equilibrium regeneration, %+0.2f stamina regeneration and %+0.2f psi regeneration.  (Only living creatures benefit.)", "目标靠近生命之泉：生命回复 %+0.2f，失衡值回复 %+0.2f，体力回复 %+0.2f，灵能回复 %+0.2f。（只有活着的生物能获得此效果。）", "tformat")
+t("The target is near a font of life, granting %+0.2f life regeneration, %+0.2f equilibrium regeneration, %+0.2f stamina regeneration and %+0.2f psi regeneration.  (Only living creatures benefit.)", "目标靠近生命之泉：生命回复 %+0.2f，每回合失衡值 %+0.2f，体力回复 %+0.2f，灵能回复 %+0.2f。（只有活着的生物能获得此效果。）", "tformat")
 t("Spellblaze Scar", "魔法大爆炸伤痕", "floorEffect desc")
 t("The target is near a spellblaze scar, granting +25% spell critical chance, +10% fire and blight damage but critical spells will drain arcane forces.", "目标接近魔法大爆炸伤痕，获得 25%法术暴击率，增加 10%火焰和枯萎伤害，但是法术暴击会消耗魔法资源。", "_t")
 t("Blighted Soil", "荒芜之地", "floorEffect desc")
@@ -37413,10 +37413,10 @@ t("+Juggernaut", "+战场主宰", "_t")
 t("#Target#'s skin returns to normal.", "#Target#的皮肤恢复了正常状态。", "_t")
 t("-Juggernaut", "-战场主宰", "_t")
 t("Natural Replenishment", "自然充能", "_t")
-t("The target has been directly exposed to arcane energies and has responded by reasserting it's connection to nature, restoring %0.1f Equilibrium per turn.", "目标被奥术力量伤害，重新联系自然，每回合回复 %0.1f 失衡值。", "tformat")
+t("The target has been directly exposed to arcane energies and has responded by reasserting it's connection to nature, restoring %0.1f Equilibrium per turn.", "目标直接暴露于奥术能量之中，随即强化了与自然的联系，每回合降低 %0.1f 点失衡值。", "tformat")
 t("#Target# defiantly reasserts %s connection to nature!", "#Target#倔强地重新确立了%s那份与自然的联系！", "tformat")
 t("+Nature Replenishment", "+自然充能", "_t")
-t("#Target# stops restoring Equilibrium.", "#Target#不再回复失衡值。", "_t")
+t("#Target# stops restoring Equilibrium.", "#Target#的失衡值不再降低。", "_t")
 t("-Nature Replenishment", "-自然充能", "_t")
 t("Berserker Rage", "狂战之怒", "_t")
 t("Increases critical hit chance by %d%%.", "增加 %d%% 暴击率。", "tformat")
@@ -40796,7 +40796,7 @@ t("Combat Stats", "战斗属性", "entity name")
 t("Combat Stat Tooltips", "战斗属性提示", "entity name")
 t("Combat Stat Scale", "战斗属性尺度", "entity name")
 t("Combat Stat Calculations", "战斗属性计算", "entity name")
-t("Timed Effects", "临时效果", "entity name")
+t("Timed Effects", "持续效果", "entity name")
 t("Cross-Tier Effects", "越层效果", "entity name")
 t("Dungeon of Adventurer Enlightenment Completed", "冒险者启蒙地下城已完成", "entity name")
 
@@ -41164,7 +41164,7 @@ While this is a free game that I am doing for fun, if it can help feed my family
 You will need an online profile active and connected for the tile selector to enable. If you choose to donate now you will need to restart the game to be granted access.
 
 Donators will also gain access to the custom tiles for their characters.]], [[探索模式提供给角色无限的生命数。
-马基·埃亚尔的故事是一款非常耐玩的游戏，你会在错误中（因而也包括在死亡中）不断学习、不断进步。
+《马基·埃亚尔的传说》是一款非常耐玩的游戏，你会在错误中（因而也包括在死亡中）不断学习、不断进步。
 我明白，并非所有人都喜欢这种玩法。在收到多次请求后，我决定向捐赠者开放探索模式，让喜欢这款游戏的玩家可以按自己的意愿体验游戏的全部内容。
 不过要注意的是，无限的生命并不意味着难度的减少，只意味着你可以随意尝试，而不必重新开始。
 
@@ -41368,7 +41368,7 @@ t("Mindpower: #00ff00#%s", "精神强度：#00ff00#%s", "tformat")
 t("Mind speed : #00ff00#%s", "精神速度：#00ff00#%s", "tformat")
 t("#LIGHT_BLUE#Damage Modifiers:", "#LIGHT_BLUE#伤害修正：", "_t")
 t("Critical mult.: #00ff00#%s", "暴击倍率：#00ff00#%s", "tformat")
-t("All damage    : #00ff00#%s", "所有伤害    ：#00ff00#%s", "tformat")
+t("All damage    : #00ff00#%s", "所有伤害：#00ff00#%s", "tformat")
 t("vs ", "对", "_t")
 t([[#GOLD#Restance Penetration#LAST#
 Ability to reduce opponent resistances to your damage]], [[#GOLD#抗性穿透#LAST#
@@ -41449,7 +41449,7 @@ t([[#LIGHT_GREEN#During your game you#WHITE#:
 * %s]], "tformat")
 t("#LIGHT_RED#You have %d life(s) left.", "#LIGHT_RED#你还剩下%d条生命。", "tformat")
 t("#LIGHT_RED#You have no more lives left.", "#LIGHT_RED#你已经没有剩余的生命了。", "tformat")
-t("#LIGHT_RED#From the brink of death you seem to be yanked to another plane.", "#LIGHT_RED#在死亡的边缘你突然被带到了另外一个地方。", "log")
+t("#LIGHT_RED#From the brink of death you seem to be yanked to another plane.", "#LIGHT_RED#在死亡边缘，你仿佛被猛地拽到了另一个位面。", "log")
 t("Message Log", "消息日志", "_t")
 t("#LIGHT_BLUE#You resurrect! CHEATER!", "#LIGHT_BLUE#你复活了！作弊者！", "logPlayer")
 t("#LIGHT_RED#The Blood of Life rushes through your dead body. You come back to life!", "#LIGHT_RED#生命之血在你的尸体里流淌。你复活了！", "logPlayer")
@@ -41988,7 +41988,7 @@ t("Pickup item", "拾取物品", "_t")
 t("Move to", "移动到", "_t")
 t("Control", "控制", "_t")
 t("Give order", "下达指令", "_t")
-t("Target player", "指定玩家", "_t")
+t("Target player", "让其以玩家为目标", "_t")
 t("Lua inspect [Actor]", "在 Lua 中查看 [角色]", "_t")
 t("Lua inspect [Terrain]", "在 Lua 中查看 [地形]", "_t")
 t("Lua inspect [Trap]", "在 Lua 中查看 [陷阱]", "_t")
@@ -42016,7 +42016,7 @@ t("Set the target [current: %s]", "设置目标 [当前：%s]", "tformat")
 t("none", "没有", "_t")
 t("Set behavior [current: %s]", "设置行为 [当前：%s]", "tformat")
 t("default", "默认", "_t")
-t("Set the leash anchor [current: %s]", "设置拴绳锚点 [当前：%s]", "tformat")
+t("Set the leash anchor [current: %s]", "设置跟随目标 [当前：%s]", "tformat")
 t("Set the leash distance [current: %d]", "设置跟随距离 [当前：%d]", "tformat")
 t("Define tactical talents usage", "设定技能使用策略", "_t")
 t("Rename", "重命名", "_t")
@@ -42179,7 +42179,7 @@ t("Inventory", "物品栏", "_t")
 t("Category", "分类", "_t")
 t("Price", "价格", "_t")
 t("Store", "商店", "_t")
-t(" (pays up to %0.2f gold, Your Gold: %0.2f)", " (最多付款 %0.2f 金币，你的金币：%0.2f)", "tformat")
+t(" (pays up to %0.2f gold, Your Gold: %0.2f)", "（单件收购上限 %0.2f 金币，你的金币：%0.2f）", "tformat")
 -- untranslated text
 --[==[
 t("", "", "_t")
@@ -42251,7 +42251,7 @@ All of them require at least 50 in a core stat and many also have more special d
 所有觉醒技都要求某项核心属性达到 50 点，其中许多还有更特殊的额外要求。你可以在人物等级达到 25 级和 42 级时各获得一个觉醒技能点。]], "_t")
 t("\
 Evolutions are special prodigies specific to a class or race. Only one evolution can be choosen, if any are available at all.", "\
-进阶是特殊的觉醒技，只有特定职业种族才能学习。即使有多项进阶可能，每名角色最多只能选择一项进阶。", "_t")
+进阶是特定职业或种族专属的觉醒技。即使有多项进阶可选，每名角色也最多只能选择一项。", "_t")
 t("#{bold}##GOLD#Prodigies#{normal}#", "#{bold}##GOLD#觉醒技#{normal}#", "_t")
 t("#{bold}##LIGHT_STEEL_BLUE#Evolutions#{normal}#", "#{bold}##LIGHT_STEEL_BLUE#进阶#{normal}#", "_t")
 
