@@ -1,0 +1,64 @@
+{
+  "confirmed": [
+    {
+      "id": "8ec8ad2cc8af",
+      "edit": [
+        "加速 %d%%; 冷却 %d",
+        "移速 %d%%; 冷却 %d"
+      ],
+      "evidence": "inscriptions.lua:217 Infusion: Movement increases movement speed only; 移速 distinguishes it from Rune: Speed at identical width."
+    },
+    {
+      "id": "2e6fd7d22c90",
+      "edit": [
+        "死于 -%d; 持续 %d; 冷却 %d",
+        "底线 -%d; 持续 %d; 冷却 %d"
+      ],
+      "evidence": "inscriptions.lua:246 die_at threshold; 底线 avoids reading -%d as cause of death while keeping compact width."
+    },
+    {
+      "id": "b0bdd315f7b9",
+      "edit": [
+        "范围 %d; 持续 %d",
+        "半径 %d; 持续 %d"
+      ],
+      "evidence": "inscriptions.lua:289 getTalentRadius returns radius; 半径 is exact at identical width."
+    },
+    {
+      "id": "878737ae8b04",
+      "edit": [
+        "吸收反弹 %d; 持续 %d; 冷却 %d",
+        "吸收/反弹 %d; 持续 %d; 冷却 %d"
+      ],
+      "evidence": "inscriptions.lua:388 absorb and reflect; slash separates the two coordinated verbs clearly with +1 ASCII width."
+    },
+    {
+      "id": "4b5a750e48d4",
+      "edit": [
+        "回复 %d%%; 持续 %d; 瞬回 %d; 冷却 %d",
+        "回复率 +%d%%; 持续 %d; 瞬回 %d; 冷却 %d"
+      ],
+      "evidence": "A/B consensus: inscriptions.lua:522-540 regen %d%% boosts mana regeneration rate (matches same-file term 法力回复率), not flat mana."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "19bcd81d6cb2",
+      "reason": "Compact item-name short_info faithfully mirrors English 'reduction %d' (A lane OK); expanding debuff-duration object defeats maintainer instruction to keep inscription short_info concise."
+    },
+    {
+      "id": "b5adfa9345ed",
+      "reason": "Compact item-name short_info faithfully mirrors English 'removed from time %d turns' without subject (A lane OK)."
+    },
+    {
+      "id": "ed52054f9c54",
+      "reason": "Compact item-name short_info faithfully mirrors English '%d effects / %d heal' (A lane OK); full per-effect detail belongs in long info."
+    },
+    {
+      "id": "b24abc1a56d4",
+      "reason": "Infusion: Movement is now labeled 移速 %d%%, so Rune: Speed (加速符文) using 加速 %d%% is no longer ambiguous and stays concise (A lane OK)."
+    }
+  ],
+  "advisory": [],
+  "notes": "Batch 0569: compact inscription short_info per maintainer feedback. Accepted 5 clarity improvements (incl. A/B consensus on Manasurge), rejected 4 expansions that would re-bloat item-name parentheses."
+}

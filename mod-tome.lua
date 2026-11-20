@@ -25911,20 +25911,20 @@ Its effects scale with your %s stat.", "\
 效果随你的%s属性提升。", "tformat")
 t("Infusion: Regeneration", "纹身：回复", "talent name")
 t("Activate the infusion to heal yourself for %d life over %d turns.", "激活纹身治疗你自己 %d 生命值，持续 %d 回合。", "tformat")
-t("heal %d; %d cd", "治疗 %d； 冷却 %d", "tformat")
+t("heal %d; %d cd", "治疗 %d; 冷却 %d", "tformat")
 t("Infusion: Healing", "纹身：治疗", "talent name")
 t("Activate the infusion to instantly heal yourself for %d then cleanse 1 wound, poison, and disease effect.", "激活纹身立即治疗你 %d 生命值，然后去除一个创伤、毒素和疾病效果。", "tformat")
-t("heal %d; cd %d", "治疗 %d； 冷却 %d", "tformat")
+t("heal %d; cd %d", "治疗 %d; 冷却 %d", "tformat")
 t("Infusion: Wild", "纹身：野性", "talent name")
 t("%s is cured!", "%s被治愈！", "logSeen")
 t(" and ", "和", "_t")
 t([[Activate the infusion to cure yourself of one random %s effect and reduce all damage taken by %d%% for %d turns.
 Also removes cross-tier effects of the affected types for free.]], [[激活纹身，随机解除你身上的%s负面效果各一个，并减少受到的所有伤害 %d%%， 持续 %d 回合。
 同时除去对应类型的越层效果。]], "tformat")
-t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%； 解除%s负面效果； 持续 %d； 冷却 %d", "tformat")
+t("res %d%%; %s; dur %d; cd %d", "减伤 %d%%; 解%s; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Primal", "纹身：原初", "talent name")
 t("Activate the infusion to heal for %d%% of all damage taken (calculated before resistances) and reduce the duration of a random debuff by %d each turn for %d turns.", "激活这个纹身，使你受到伤害时恢复相当于该次伤害（抗性减免前计算） %d%% 的生命值，并每回合减少一个随机负面效果的持续时间 %d 回合。上述两项效果均持续 %d 回合。", "tformat")
-t("affinity %d%%; reduction %d; dur %d; cd %d", "伤害亲和 %d%%； 减少 %d； 持续 %d； 冷却 %d", "tformat")
+t("affinity %d%%; reduction %d; dur %d; cd %d", "亲和 %d%%; 减少 %d; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Movement", "纹身：移动", "talent name")
 t([[Activate the infusion to increase movement speed by %d%% for 1 game turn.
 		You gain 100%% stun, daze, and pin immunity during the effect.
@@ -25933,7 +25933,7 @@ t([[Activate the infusion to increase movement speed by %d%% for 1 game turn.
 		同时获得 100%% 眩晕、震慑和定身免疫。
 		除移动以外其他动作会取消这个效果。
 		注意：由于你的速度非常快，游戏回合会相对很慢。]], "tformat")
-t("speed %d%%; cd %d", "加速 %d%%； 冷却 %d", "tformat")
+t("speed %d%%; cd %d", "移速 %d%%; 冷却 %d", "tformat")
 t("Infusion: Heroism", "纹身：英勇", "talent name")
 t([[Activate the infusion to endure even the most grievous of wounds for %d turns.
 		While Heroism is active, you will only die when reaching -%d life.
@@ -25942,28 +25942,28 @@ t([[Activate the infusion to endure even the most grievous of wounds for %d turn
 		当英勇纹身激活时，只有生命值降低到 -%d 时，你才会死亡。
 		你每失去 1%% 生命值，持续时间和可承受的负生命值就会增加 1%%；生命值为 0 或更低时，增幅达到上限 100%%（目前可承受 %d 点负生命值，持续 %d 回合）。
 		效果结束时，如果你的生命值在 0 以下，会变为 1 点。]], "tformat")
-t("die at -%d; dur %d; cd %d", "死亡底线 -%d； 持续 %d； 冷却 %d", "tformat")
+t("die at -%d; dur %d; cd %d", "底线 -%d; 持续 %d; 冷却 %d", "tformat")
 t("Infusion: Wild Growth", "纹身：野性生长", "talent name")
 t([[Causes thick vines to spring from the ground and entangle all targets within %d squares for %d turns, pinning them in place for 5 turns and dealing %0.2f physical damage and %0.2f nature damage.
 		The vines also grow all around you, increasing your armour by %d and armour hardiness by %d.]], [[从土地中召唤坚硬的藤蔓，缠绕 %d 格范围内的所有敌人，并在你身边生长 %d 回合。被缠绕的敌人会被定身 5 回合，并受到 %0.2f 物理伤害和 %0.2f 自然伤害。
 		你身边的藤蔓会增加你 %d 护甲和 %d 护甲强度。]], "tformat")
-t("rad %d; dur %d;", "范围 %d； 持续 %d", "tformat")
+t("rad %d; dur %d;", "半径 %d; 持续 %d", "tformat")
 t("Rune: Teleportation", "符文：传送", "talent name")
 t("Activate the rune to teleport randomly in a range of %d with a minimum range of 15.", "激活这个符文随机传送 %d 格范围内位置，至少传送 15 格以外。", "tformat")
-t("range %d; cd %d", "范围 %d； 冷却 %d", "tformat")
+t("range %d; cd %d", "范围 %d; 冷却 %d", "tformat")
 t("Rune: Shielding", "符文：护盾", "talent name")
 t("Activate the rune to create a protective shield absorbing at most %d damage for %d turns.", "激活符文，产生一个防护护盾，最多吸收 %d 点伤害，持续 %d 回合。", "tformat")
-t("absorb %d; dur %d; cd %d", "吸收 %d； 持续 %d； 冷却 %d", "tformat")
+t("absorb %d; dur %d; cd %d", "吸收 %d; 持续 %d; 冷却 %d", "tformat")
 t("Rune: Reflection Shield", "符文：反射护盾", "talent name")
 t("Activate the rune to create a protective shield absorbing and reflecting at most %d damage for %d turns.", "激活这个符文产生一个防御护盾，吸收并反弹最多 %d 伤害值，持续 %d 回合。", "tformat")
-t("absorb and reflect %d; dur %d; cd %d", "吸收并反弹 %d； 持续 %d； 冷却 %d", "tformat")
+t("absorb and reflect %d; dur %d; cd %d", "吸收/反弹 %d; 持续 %d; 冷却 %d", "tformat")
 t("Rune: Biting Gale", "符文：冰风", "talent name")
 t([[Activate the rune to direct a cone of chilling stormwind doing %0.2f cold damage.
 			The storm will soak enemies hit reducing their resistance to stuns by 50%% then attempt to freeze them for %d turns.
 			These effects can be resisted but not saved against.]], [[激活这个符文，形成一股锥形寒风，造成 %0.2f 寒冷伤害。
 			寒风会浸湿被击中的敌人，使其震慑抗性降低 50%%，并试图冻结他们 %d 回合。
 			效果可以被抵抗，但不能被豁免。]], "tformat")
-t("damage %d; dur %d; cd %d", "伤害 %d； 持续 %d； 冷却 %d", "tformat")
+t("damage %d; dur %d; cd %d", "伤害 %d; 持续 %d; 冷却 %d", "tformat")
 t("Rune: Acid Wave", "符文：酸浪", "talent name")
 t([[Activate the rune to unleash a cone dealing %0.2f acid damage.
 			The corrosive acid will also disarm enemies struck for %d turns.
@@ -25976,7 +25976,7 @@ t("Your nonexistant mana regeneration rate is unaffected by the rune.", "你没�
 t([[Activate the rune to unleash a manasurge upon yourself, increasing mana regeneration by %d%% for %d turns (%d total) and instantly restoring %d mana.
 			Also when resting your mana will regenerate at 0.5 per turn.]], [[激活这个符文对你自己释放法力涌动，增加法力回复 %d%%， 持续 %d 回合（总计 %d）， 并立即回复 %d 点法力值。
 			同时，在你休息时法力值每回合回复 0.5。]], "tformat")
-t("regen %d%% over %d turns; mana %d; cd %d", "法力回复 %d%%； 持续 %d； 瞬回法力 %d； 冷却 %d", "tformat")
+t("regen %d%% over %d turns; mana %d; cd %d", "回复率 +%d%%; 持续 %d; 瞬回 %d; 冷却 %d", "tformat")
 t("Rune of the Rift", "符文：时空裂隙", "talent name")
 t("%s is immune!", "%s免疫了！", "logSeen")
 t("%s resists!", "%s抵抗了效果！", "logSeen")
@@ -25988,23 +25988,23 @@ t([[Inflicts %0.2f temporal damage.  If your target survives, it will be sent %d
 		Note that messing with the spacetime continuum may have unforeseen consequences.]], [[造成 %0.2f 时空伤害。如果你的目标存活，则它会被传送到 %d 回合后的未来。
 		它还会使你的紊乱值降低 25（如果你拥有紊乱值）。
 		注意，干扰时空连续体可能产生无法预料的后果。]], "tformat")
-t("%0.2f temporal damage, removed from time %d turns", "%0.2f 时空伤害，从时间中移除 %d 回合", "tformat")
+t("%0.2f temporal damage, removed from time %d turns", "%0.2f 时空伤害; 移出时间 %d 回合", "tformat")
 t("Rune: Blink", "符文：闪烁", "talent name")
 t("Activate the rune to teleport up to %d spaces within line of sight.  Afterwards you stay out of phase for %d turns. In this state all new negative status effects duration is reduced by %d%%, your defense is increased by %d and all your resistances by %d%%.", "激活符文，传送到视野内 %d 格内的指定位置。之后，你会脱离现实 %d 回合。在这种状态下，所有新的负面效果的持续时间减少 %d%%， 你的闪避增加 %d， 你的全体伤害抗性增加 %d%%。", "tformat")
-t("range %d; phase %d; cd %d", "范围 %d； 相位 %d； 冷却 %d", "tformat")
+t("range %d; phase %d; cd %d", "范围 %d; 相位 %d; 冷却 %d", "tformat")
 t("Rune: Ethereal", "符文：虚幻", "talent name")
 t([[Activate the rune to become ethereal for %d turns.
 		While ethereal all damage you deal is reduced by %d%%, you gain %d%% all resistance, you move %d%% faster, and you are invisible (power %d).]], [[启动符文，使你变得虚幻，持续 %d 回合。
 		在虚幻状态下，你造成的伤害减少 %d%%， 你获得 %d%% 全体伤害抗性，你的移动速度提升 %d%%， 你获得隐形 (强度 %d)。]], "tformat")
-t("power %d; resist %d%%; move %d%%; dur %d; cd %d", "强度 %d； 抗性 %d%%； 移动 %d%%； 持续 %d； 冷却 %d", "tformat")
+t("power %d; resist %d%%; move %d%%; dur %d; cd %d", "强度 %d; 抗性 %d%%; 移速 %d%%; 持续 %d; 冷却 %d", "tformat")
 t("Rune: Stormshield", "符文：风暴护盾", "talent name")
 t([[Activate the rune to summon a protective storm around you for %d turns.
 			While active the storm will completely block all damage over %d up to %d times.]], [[启动这个符文，在你的身边召唤一团保护性的风暴，持续 %d 回合。
 			当符文生效时，风暴可以完全抵挡不低于 %d 点的伤害，最多 %d 次。]], "tformat")
-t("threshold %d; blocks %d; dur %d; cd %d", "阈值 %d； 次数 %d； 持续 %d； 冷却 %d", "tformat")
+t("threshold %d; blocks %d; dur %d; cd %d", "阈值 %d; 次数 %d; 持续 %d; 冷却 %d", "tformat")
 t("Rune: Prismatic", "符文：棱彩", "talent name")
 t("Activate the rune to create a shield for %d turns blocking several instances of damage of the following types:%s", "激活符文展开一个护盾，在 %d 回合内，按次数抵挡以下类型的伤害：%s", "tformat")
-t("%d turns; %s", "持续 %d； %s", "tformat")
+t("%d turns; %s", "持续 %d; %s", "tformat")
 t("Rune: Mirror Image", "符文：镜像", "talent name")
 t("You cannot summon; you are suppressed!", "你不能召唤，你被压制了！", "logPlayer")
 t("Mirror Image", "镜像", "_t")
@@ -26022,12 +26022,12 @@ t([[Activate the rune to instantly dissipate the energy of your ailments, cleans
 		If there were only cross-tier effects to cleanse, no shield is created and the rune goes on a 75%% reduced cooldown.]], [[激活符文，立刻消散你身上负面状态的能量，清除所有越层效果，以及物理、精神和魔法负面效果各 1 个。
 		你会利用消散的能量获得一个护盾，持续 %d 回合，每清除一个负面效果（不计越层效果）可抵挡 %d 点伤害。
 		如果只清除了越层效果，不会产生护盾，且符文冷却时间减少 75%%。]], "tformat", {1,2})
-t("absorb %d; cd %d", "吸收 %d； 冷却 %d", "tformat")
+t("absorb %d; cd %d", "吸收 %d; 冷却 %d", "tformat")
 t("Rune: Dissipation", "符文：消散", "talent name")
 t("Activate the rune to remove 8 beneficial magical sustains from an enemy target or all magical debuffs from you.", "激活这个符文，从敌人身上移除 8 个正面魔法持续技能，或从你自己或其他非敌对目标身上移除所有魔法负面效果。", "tformat")
 t("Taint: Devourer", "污印：吞噬", "talent name")
 t("Activate the taint on a foe, removing up to %d magical or physical effects or sustains from it and healing you for %d for each effect.", "对目标激活此印记，至多移除其 %d 个魔法或物理效果或持续技能，每移除一个治疗你 %d 点生命值。", "tformat")
-t("%d effects / %d heal", "%d 效果 / %d 回复量", "tformat")
+t("%d effects / %d heal", "%d 效果 / %d 治疗", "tformat")
 t("Taint: Purging", "污印：清除", "talent name")
 t([[Activate the taint to purge your body of physical afflictions for %d turns.
 			Each turn the purge will attempt to cleanse 1 physical debuff from you, and if one is removed, increase its duration by 1.]], [[激活这个印记，清除你身上的物理负面效果，持续 %d 回合。
@@ -26045,7 +26045,7 @@ t("rad %d; power %d; turns %d%s", "范围 %d; 强度 %d; 持续 %d%s", "tformat"
 t("; dispels darkness", "; 驱散黑暗", "_t")
 t("Taint: Telepathy", "污印：感应", "talent name")
 t("Strip the protective barriers from your mind for %d turns, allowing in the thoughts all creatures within %d squares but reducing mind save by %d and increasing your mindpower by %d for 10 turns.", "使用时你会先受到相当于自身最大生命值五分之一的伤害，然后卸除你心灵上的防护屏障 %d 回合，感应 %d 格范围内所有生物的思维；精神豁免降低 %d， 精神强度提高 %d， 持续 10 回合。", "tformat")
-t("Range %d telepathy for %d turns", "范围 %d 格心灵感应持续 %d 回合。", "tformat")
+t("Range %d telepathy for %d turns", "感应 %d 格; 持续 %d", "tformat")
 t("Rune: Frozen Spear", "符文：冰枪", "talent name")
 t([[Activate the rune to fire a bolt of ice, doing %0.2f cold damage with a chance to freeze the target.
 		The deep cold also crystalizes your mind, removing one random detrimental mental effect from you.]], [[激活这个符文发射一束冰枪，造成 %0.2f 寒冷伤害并有一定几率冻结你的目标。
@@ -26058,7 +26058,7 @@ t([[Activate the rune to fire a beam of heat, doing %0.2f fire damage over 5 tur
 t("%d fire damage", "%d 火焰伤害", "tformat")
 t("Rune: Speed", "符文：加速", "talent name")
 t("Activate the rune to increase your global speed by %d%% for %d turns.", "激活这个符文提高全局速度 %d%% 持续 %d 回合。", "tformat")
-t("speed %d%% for %d turns", "提速 %d%% 持续 %d 回合", "tformat")
+t("speed %d%% for %d turns", "加速 %d%%; 持续 %d", "tformat")
 t("Rune: Vision", "符文：视野", "talent name")
 t([[Activate the rune to get a vision of the area surrounding you (%d radius) and to allow you to see invisible and stealthed creatures (power %d) for %d turns.
 		Your mind will become more receptive for %d turns, allowing you to sense any %s around.]], [[激活这个符文可以使你查看周围环境 （%d 有效范围），使你能看到隐身和潜行生物 （%d 强度），持续 %d 回合。
@@ -26082,14 +26082,14 @@ t("Infusion: Insidious Poison", "纹身：阴险毒素", "talent name")
 t([[Activate the infusion to spit a bolt of poison doing %0.2f nature damage per turn for 7 turns, and reducing the target's healing received by %d%%.
 		The sudden stream of natural forces also strips you of one random detrimental magical effect.]], [[激活这个纹身会发射一枚毒液弹，每回合造成 %0.2f 自然伤害，持续 7 回合，并降低目标受到的治疗效果 %d%%。
 		突然涌动的自然力量会除去你受到的一个随机负面魔法效果。]], "tformat")
-t("%d nature damage, %d%% healing reduction", "%d 自然伤害，受到的治疗降低 %d%%", "tformat")
+t("%d nature damage, %d%% healing reduction", "%d 自然伤害; 减疗 %d%%", "tformat")
 t("Rune: Invisibility", "符文：隐身", "talent name")
 t([[Activate the rune to become invisible (power %d) for %d turns.
 		As you become invisible you fade out of phase with reality, all your damage is reduced by 40%%.
 		]], [[激活这个符文使你变得隐形 （%d 隐形等级）持续 %d 回合。
 		隐形时你会脱离现实相位，你造成的所有伤害降低 40%%。
 		]], "tformat")
-t("power %d for %d turns", "强度 %d 持续 %d 回合", "tformat")
+t("power %d for %d turns", "强度 %d; 持续 %d", "tformat")
 -- untranslated text
 --[==[
 t(" ", " ", "tformat")

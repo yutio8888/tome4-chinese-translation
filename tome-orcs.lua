@@ -5236,7 +5236,7 @@ t("Implant: Medical Injector", "植入物：医疗注射器", "talent name")
 t("#LIGHT_BLUE#Medical injector selected to be used first by salves.", "#LIGHT_BLUE#已将医疗注射器设为药剂的首选注射器。", "saySimple")
 t("This medical injector will now be used first if available when using medical salves.", "使用医疗药剂时，如果可用，将优先使用此医疗注射器。", "logPlayer")
 t("Medical injector allows using therapeutics with %d%% efficiency and cooldown mod of %d%%.", "医疗注射器能以 %d%% 的效率使用药剂，冷却修正为 %d%%。", "tformat")
-t("efficiency %d%% / cooldown %d%%", "效率 %d%% / 冷却时间 %d%%", "tformat")
+t("efficiency %d%% / cooldown %d%%", "效率 %d%% / 冷却 %d%%", "tformat")
 
 ------------------------------------------------
 section "tome-orcs/data/talents/steam/magnetism.lua"
