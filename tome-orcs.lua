@@ -86,7 +86,7 @@ t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
 t("#LIGHT_BLUE# * +5 Strength, +0 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +5 力量，+0 敏捷，+1 体质", "_t")
 t("#LIGHT_BLUE# * +0 Magic, +0 Willpower, +3 Cunning", "#LIGHT_BLUE# * +0 魔力，+0 意志，+3 灵巧", "_t")
 t("#GOLD#Life per level:#LIGHT_BLUE# 2", "#GOLD#每等级生命加值：#LIGHT_BLUE# 2", "_t")
-t("Gunslinger", "快枪手", "birth descriptor name")
+t("Gunslinger", "枪手", "birth descriptor name")
 t("A tinker who dual-wields steamguns to great effect.", "擅长双持蒸汽枪作战、威力非凡的工匠。", "_t")
 t("Their most important stats are: Cunning and Dexterity", "他们最重要的属性是：灵巧和敏捷。", "_t")
 t("#LIGHT_BLUE# * +0 Strength, +4 Dexterity, +1 Constitution", "#LIGHT_BLUE# * +0 力量，+4 敏捷，+1 体质", "_t")
@@ -1647,7 +1647,7 @@ t("heavy lined cloak", "厚重的夹层披风", "_t")
 t("This cloak hides and protects a series of powerful steam compressors.", "这件披风隐藏并保护着一套强力蒸汽压缩机。", "_t")
 t("Eastern Wood Hat", "东方森林之帽", "entity name")
 t("worn leather hat", "破损的皮帽", "_t")
-t("This hat was made from materials from a forest whose name is long since lost, far in the east. It is said to have belonged to one of the first gunslingers.", "这顶皮帽的材料来自遥远东方的一片树林，那片树林的名字早已失传。据说它的主人曾是最早的快枪手之一。", "_t")
+t("This hat was made from materials from a forest whose name is long since lost, far in the east. It is said to have belonged to one of the first gunslingers.", "这顶皮帽的材料来自遥远东方的一片树林，那片树林的名字早已失传。据说它的主人曾是最早的枪手之一。", "_t")
 t("Steamcatcher", "蒸汽捕捉器", "entity name")
 t("pipe coated leather hat", "覆有管道的皮帽", "_t")
 t("There's an old saying that most of your body heat escapes through your head. It's not true of body heat, but strangely, is actually true of steam.", "传说人体热量大部分从头部散失。对于体热来说并不是这样，但奇怪的是，蒸汽是从头部散失的。", "_t")
@@ -2023,7 +2023,7 @@ WARNING: This product has been determined by the Council of Health Authority to 
 
 #{italic}#【一则免责声明印在海报底部边缘，字体小得让你怀疑巨人们是否看得清。】#{normal}#
 
-警告：经卫生理事局评议，此产品与以下症状有相关性：反转性眩晕、毛发可燃性增加、非蒸汽性出汗、夜间惊恐发作、肝脏烦躁症、头痛、尘肺病、脑锁、日间惊恐发作、有丝分裂、关于巨大被宰割物的幻觉、矿工肘、骨骼解放、肠胃声名狼藉、肾脆症、清单恐惧症、全局速度下降、随机传送症、矿工舌、鼻孔合并、某个古老又邪恶的诅咒、低蒸汽压、脂肪燃烧（字面意义）、眼部羽化、兽人体味、奥术干扰、重力丧失、血锁、渎职、直肠铺地毯、虚无主义、傍晚惊恐发作、膝盖生锈，以及气孔的轻微堵塞。]], "_t")
+警告：经卫生理事局评议，此产品与以下症状有相关性：反转性眩晕、毛发可燃性增加、非蒸汽性出汗、夜间惊恐发作、肝脏烦躁症、头痛、尘肺病、脑锁、日间惊恐发作、有丝分裂、关于巨大被宰割物的幻觉、矿工肘、骨骼解放、肠胃声名狼藉、肾脆症、清单恐惧症、整体速度下降、随机传送症、矿工舌、鼻孔合并、某个古老又邪恶的诅咒、低蒸汽压、脂肪燃烧（字面意义）、眼部羽化、兽人体味、奥术干扰、重力丧失、血锁、渎职、直肠铺地毯、虚无主义、傍晚惊恐发作、膝盖生锈，以及气孔的轻微堵塞。]], "_t")
 t("tattered poster", "破烂的海报", "_t")
 t([[CLOSING SALE
 for
@@ -4385,7 +4385,7 @@ t([[Spin your saw at incredible speeds for an instant, fully breaking reality in
 		At level 5 the beam is so strong that all creatures caught inside are knocked back 3 tiles.
 		The breach is so deep that the beam will always have the maximum possible length it can.
 		The damage will increase with your Spellpower.]], [[让你的链锯以难以置信的速度旋转，撕裂周围的现实，在你面前产生一条宽度为 3 的射线。
-		所有被射线击中的生物将会受到 %0.2f 玄机伤害，并且进入脱离现实的状态。它们的全局速度降低 %d%%， 发射的一切抛射物也会被减速 %d%%， 持续 4 回合。
+		所有被射线击中的生物将会受到 %0.2f 玄机伤害，并且进入脱离现实的状态。它们的整体速度降低 %d%%， 发射的一切抛射物也会被减速 %d%%， 持续 4 回合。
 		技能等级 3 时，射线范围内的所有抛射物也会被立刻摧毁。
 		技能等级 5 时，这一射线的力量是如此强大，所有被击中的生物都会被击退 3 格。
 		这道裂隙是如此之深，射线总会延伸至其可能达到的最大长度。
@@ -4896,7 +4896,7 @@ t([[You load a magazine of %d grenades into your launcher, causing your next %d 
 t("Incendiary Grenade", "燃烧榴弹", "talent name")
 t("Enhance your grenade with an incendiary agent that burns through armor, dealing fire damage over 3 turns and increasing damage taken while burning by %d%%.", "用高度易燃物质强化榴弹，烧蚀敌人护甲，3回合内造成火焰伤害，在目标燃烧时增加所受到的伤害 %d%%。", "tformat")
 t("Chemical Grenade", "化学榴弹", "talent name")
-t("Enhance your grenade with incapacitating chemicals that deal acid damage and reduce global speed by %d%% for 3 turns.", "用致残化学物质强化榴弹，造成酸性伤害，降低目标全局速度 %d%%， 持续 3 回合。", "tformat")
+t("Enhance your grenade with incapacitating chemicals that deal acid damage and reduce global speed by %d%% for 3 turns.", "用致残化学物质强化榴弹，造成酸性伤害，降低目标整体速度 %d%%， 持续 3 回合。", "tformat")
 t("Shock Grenade", "电击榴弹", "talent name")
 t("Enhance your grenade with an electrical charge, causing it to deal lightning damage and shock targets for %d turns, reducing stun and pin resistance by 50%%.", "为你的榴弹充上电荷，使其造成闪电伤害并震撼目标 %d 回合，令其震慑和定身抗性降低 50%%。", "tformat")
 
@@ -5298,7 +5298,7 @@ The mecharachnid has an inbuilt teleportation device that will recall it to you 
 你的机械蜘蛛获得 %d 级蒸汽枪掌握、强化命中和重甲训练技能。机械蜘蛛使用敏捷代替力量装备护甲。
 机械蜘蛛带有一个内置的传送装置，如果在战斗结束后它不在你的附近，会自动传送到你的身边。]], "tformat")
 t("Stormcoil Generator", "风暴线圈发电机", "talent name")
-t("You equip your mecharachnid with a stormcoil generator, a mechanical device that projects a powerful electrical field. On taking a hit greater than 15%% of its maximum life, the excess damage will be reduced by %d%% and converted into energy, giving your mecharachnid %d%% increased global speed for 2 turns.", "你给机械蜘蛛装备风暴线圈发电机，这一装置可以产生强大的电力场。当受到超过最大生命值 15%% 的伤害的时候，超过的伤害将会被降低 %d%%， 并被转化为能量，增加机械蜘蛛 %d%% 的全局速度，持续 2 回合。", "tformat")
+t("You equip your mecharachnid with a stormcoil generator, a mechanical device that projects a powerful electrical field. On taking a hit greater than 15%% of its maximum life, the excess damage will be reduced by %d%% and converted into energy, giving your mecharachnid %d%% increased global speed for 2 turns.", "你给机械蜘蛛装备风暴线圈发电机，这一装置可以产生强大的电力场。当受到超过最大生命值 15%% 的伤害的时候，超过的伤害将会被降低 %d%%， 并被转化为能量，增加机械蜘蛛 %d%% 的整体速度，持续 2 回合。", "tformat")
 t("Mecharachnid Chassis", "机械蜘蛛底盘", "talent name")
 t("Assault", "强袭", "_t")
 t("Armament", "武装", "_t")
@@ -5657,7 +5657,7 @@ t([[You fire a special toxic shot with your steamgun(s) at a target for 100%% we
 		The shot will release heavy metals into the target, inflicting %0.2f blight damage per turn and reducing their global speed by %d%% for %d turns.
 		This talent does not use ammo as it is the ammo.
 		Toxin strength scales with Steampower.]], [[你使用蒸汽枪发射特殊毒性弹药，以枯萎属性对目标造成 100%% 武器伤害。
-		弹药会向目标体内释放重金属，使其每回合受到 %0.2f 枯萎伤害，并使其全局速度降低 %d%%， 持续 %d 回合。
+		弹药会向目标体内释放重金属，使其每回合受到 %0.2f 枯萎伤害，并使其整体速度降低 %d%%， 持续 %d 回合。
 		这个技能不消耗弹药，因为它本身就是弹药。
 		毒素强度受蒸汽强度加成。]], "tformat")
 t("Moss Tread", "苔藓之踏", "talent name")
@@ -5762,7 +5762,7 @@ t("Spinal Break", "断脊", "talent name")
 t([[You try to sever the spine of your foe, reducing its global speed by %d%% for 4 turns and dealing %d%% weapon damage.
 		The power of the blow also removes up to %d physical effects.
 		If your talent level is at least 3 %d physical or magical sustains are also removed.
-		#{italic}#Break them, grind them, mow them down!#{normal}#]], [[你尝试撕裂敌人的脊柱，若命中，使其全局速度降低 %d%%， 持续 5 回合，并造成 %d%% 武器伤害。
+		#{italic}#Break them, grind them, mow them down!#{normal}#]], [[你尝试撕裂敌人的脊柱，若命中，使其整体速度降低 %d%%， 持续 5 回合，并造成 %d%% 武器伤害。
 		这一击的力量还会移除至多 %d 项物理增益效果。
 		若技能等级至少为 3，还会移除至多 %d 项非精神类持续技能。
 		#{italic}#切碎他们，折磨他们，收割他们！#{normal}#]], "tformat")
@@ -5806,7 +5806,7 @@ t("furnace", "熔炉", "talent type")
 t("Harness the power of fire.", "掌握火焰的力量。", "_t")
 t("gunner training", "枪支训练", "talent type")
 t("Use steam powered guns to rain bullets of death on your foes!  (Learning these talents allow you to fire two steamguns at once.)", "用蒸汽枪向你的敌人发射致命的子弹！（学习这些技能可以让你同时用两把蒸汽枪开火。）", "_t")
-t("gunslinging", "快枪手", "talent type")
+t("gunslinging", "枪手", "talent type")
 t("Use advanced marksmanship to confound and overwhelm your foes!  (Learning these talents allow you to fire two steamguns at once.)", "使用先进的射击技巧来迷惑和压倒你的敌人！（学习这些技能可以让你同时用两把蒸汽枪开火。）", "_t")
 t("bullets mastery", "子弹掌握", "talent type")
 t("Use various kinds of technology to temporarily enhance your bullets.  (Learning these talents allow you to fire two steamguns at once.)", "使用各种技术暂时强化你的子弹。（学习这些技能可以让你同时用两把蒸汽枪开火。）", "_t")
@@ -6215,7 +6215,7 @@ t("Your movement speed is increased by %d%%.", "移动速度增加 %d%%。", "tf
 t("Your casting speed is increased by %d%%.", "施法速度增加 %d%%。", "tformat")
 t("Your attack speed is increased by %d%%.", "攻击速度增加 %d%%。", "tformat")
 t("Your mind speed is increased by %d%%.", "精神速度增加 %d%%。", "tformat")
-t("Your global speed is increased by %d%%.", "全局速度增加 %d%%。", "tformat")
+t("Your global speed is increased by %d%%.", "整体速度增加 %d%%。", "tformat")
 t("spacetime", "时空", "effect subtype")
 t("Outside the Starscape", "星界之外", "_t")
 t("This unit is outside of the starscape and cannot be harmed from within it,", "该单位处于星界外，不能被星界内单位伤害。", "_t")
@@ -6493,7 +6493,7 @@ t("-Bleeds", "-流血", "_t")
 t("poison", "毒素", "effect subtype")
 t("blight", "枯萎", "effect subtype")
 t("Metal Poisoning", "金属中毒", "_t")
-t("The target is poisoned with heavy metals, taking %0.2f blight damage per turn and decreasing their global speed by %d%%.", "目标重金属中毒，每回合受到 %0.2f 枯萎伤害，全局速度下降 %d%%。", "tformat")
+t("The target is poisoned with heavy metals, taking %0.2f blight damage per turn and decreasing their global speed by %d%%.", "目标重金属中毒，每回合受到 %0.2f 枯萎伤害，整体速度下降 %d%%。", "tformat")
 t("#Target# is poisoned!", "#Target#中毒了！", "_t")
 t("+Metal Poisoning", "+金属中毒", "_t")
 t("#Target# is no longer poisoned.", "#Target#中毒效果消失。", "_t")

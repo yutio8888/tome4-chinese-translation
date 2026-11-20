@@ -1,15 +1,16 @@
-# 当前恢复入口（2026-11-20 交接：v0.3.16 已发布；v0.3.16 后完成 `0569–0570` 纹身/符文短描述精简，待下轮发布窗口）
+# 当前恢复入口（2026-11-20 交接：v0.3.16 已发布；v0.3.16 后完成 `0569–0570` 短描述精简与 `0571` 受众高频术语回调，待下轮发布窗口）
 
 **交接快照（2026-11-20，最新，优先阅读）**
-- 仓库状态：译文 `develop` 最新内容批次是 `0569–0570`（应维护者反馈精简全部 24 条过长/宽分隔符纹身、符文、污印与植入物 `short_info`，本提交），已通过 17/17 `tools/ci-gates.sh` 与 `tools/push_github.sh` 过滤镜像推送。译文仓库工作树干净；`python3 -B tools/lite_review.py status` 显示 `release_required_units: 29554`、`reviewed_A: 29554`、`reviewed_B: 29554`、`pending_A: 0`、`pending_B_backfill: 0`。没有进行中的批次、门禁或子代理（所有侦察、抽样及 `0559–0570` 评审子代理均已归档）。
-- 当前最新公开插件：**v0.3.16**（2026-11-20 发布，发布仓库 `tome4-chn-mod` master `2f369ec`，tag `v0.3.16`，Release id `452491483`，工作树干净；`0569–0570` 的 24 条 `short_info` 精简留在译文仓 `develop` 待命，**未获维护者当轮直接指示前不发布 `v0.3.17`**）。
+- 仓库状态：译文 `develop` 最新内容批次是 `0571`（2026-11-20 按维护者裁决执行受众高频术语回调与 7 条 `short_info` 术语润色），已通过 17/17 完整 `tools/ci-gates.sh` 与 `tools/push_github.sh` 过滤镜像推送。译文仓库工作树干净；`python3 -B tools/lite_review.py status` 显示 `release_required_units: 29554`、`reviewed_A: 29460`、`reviewed_B: 29460`、`pending_A: 94`（为 `0571` 机械/术语回调变动单元，可按需进入下一批盲审）、`pending_B_backfill: 0`。没有进行中的门禁或子代理。
+- 当前最新公开插件：**v0.3.16**（2026-11-20 发布，发布仓库 `tome4-chn-mod` master `2f369ec`，tag `v0.3.16`，Release id `452491483`，工作树干净；`0569–0571` 改动留在译文仓 `develop` 待命，**未获维护者当轮直接指示前不发布 `v0.3.17`**）。
   - 来源：`0a73abb35`（lite 批 `0559–0568`，Wave 1–3 三轮共 **101 个已精修单元**）。
   - 规模与产物：13,914 条＝核心 8,246＋引擎 207＋DLC 5,461（Ashes 743 / Cults 1,569 / Embers 3,149），locale sha256 `18a8ccd0…`；资产 `tome-chn-mod.teaa`，5,050,727 字节，sha256 `e3a2f659…`，33 个文件（`ZIP_STORED`，0 deflated）。
   - 技术核对：对 `0a73abb35` 跑完整 `tools/ci-gates.sh`（17/17 `ALL GATES PASSED`）；`publish` dry-run 与 apply 运行时校验一致（19,144 键，0 missing/mismatched/redundant/unexpected）；`smoke_release.py` 通过（13,914 条；DLC 743/1,569/3,149 精确一致；null_translation 443 条）；`tests/test_dynamic_desc_fixes.lua` 对新 locale 与源码对比 `v0.3.15` 均 `ALL OK`，`tests/test_talent_description_diff.lua` 与全量 32 个文件 `luajit -bl` 通过；上传后回下载 `tome-chn-mod.teaa` 与 `git archive 2f369ec9` 逐字节一致且与 GitHub digest 一致。
   - 凭据：`evidence/releases/addon-0.3.16.json`，说明：`evidence/releases/addon-0.3.16-release-notes.md`。`i18n/versions/tome-1.7.6.json` 中的 `repositories.addon.commit` pin 保持未动。
 - 编辑原则（2026-11-19 维护者明确指示）：**「优先回归英文原意，只保留真正影响玩法决策的机制纠偏」**。不把 Lua 实现分支或公式细节膨胀写回技能说明。
-- **v0.3.16 后新完成：纹身/符文/污印/植入物 `short_info` 紧凑精简（0569–0570，24 条精简，已双审、17/17 门禁、提交并推送）**
-  - 统一 `mod-tome/data/talents/misc/inscriptions.lua`（23 条）与 `tome-orcs/data/talents/steam/inscriptions.lua`（1 条）括号短描述分隔符为半角 `; `（消除 3 格宽全角 `； ` 与中英文混用），去除冗余修饰词与多余句号，全部保持纯中文且通过 `talent-placeholder-spacing`：野性纹身 `减伤 %d%%; 解%s; 持续 %d; 冷却 %d`（-13 格）、感应污印 `感应 %d 格; 持续 %d`（-13 格）、阴险毒素纹身 `%d 自然伤害; 减疗 %d%%`（-10 格）、法力涌动符文 `回复率 +%d%%; 持续 %d; 瞬回 %d; 冷却 %d`（-8 格）、原初纹身 `亲和 %d%%; 减少 %d; 持续 %d; 冷却 %d`（-7 格）、英勇纹身 `底线 -%d; 持续 %d; 冷却 %d`（-6 格）、移动纹身 `移速 %d%%; 冷却 %d`、野性生长 `半径 %d; 持续 %d`、反射护盾 `吸收/反弹 %d; 持续 %d; 冷却 %d`、虚幻符文 `移速 %d%%`、时空裂隙 `移出时间 %d 回合`、医疗注射器 `效率 %d%% / 冷却 %d%%` 等；`0570` A 路 5/5 OK 收口。
+- **v0.3.16 后新完成（`0569–0571`，待下轮发布窗口）**
+  - **0571 受众高频术语回调与短描述术语润色（维护批，17/17 完整门禁通过）**：先同步 `terminology/{combat,classes,items,talents}.tsv`，再更新全部 7 个译文 Lua 文件：`全局速度`→`整体速度`（73 处全清）、`Nightmare` 难度 `噩梦`→`梦魇`（9 处）、职业名恢复社区共识（`Possessor`→`支配者`、`Writhing One`→`苦痛者`、`Gunslinger`/`gunslinging`→`枪手`，**按维护者指示明确保持 `Corruptor`=`腐化者`**，`steam giant gunslinger`/`orc gunslinger` 保持`快枪手`防撞名）、`CharacterSheet` `状态效果抗性：`→`状态效果免疫：`、全库 8 处 `暴击倍率`→`暴击伤害`、`Rune: Manasurge` / `manasurge rune`→`符文：法力风暴`/`法力风暴符文`（保留 `Manaflow`=`法力涌动`）、7 条 `short_info` 润色回原生词汇（野性 `解除 %s`、英勇 `死亡底线 -%d`、移动 `加速 %d%%`、虚幻 `移动 %d%%`、阴险毒素 `治疗下降 %d%%`、法力风暴 `法力回复 +%d%%`、镜像修复残留全角 `； `）。`taint` 暂保持 `污印` 待确认。
+  - **0569–0570 纹身/符文/污印/植入物 `short_info` 紧凑精简（24 条精简，已双审、17/17 门禁）**：统一 `mod-tome/data/talents/misc/inscriptions.lua` 与 `tome-orcs/data/talents/steam/inscriptions.lua` 括号短描述分隔符为半角 `; `，去除冗余修饰词与多余句号。
 - **v0.3.16 包含的 Wave 3 两大并行专项（0566–0568，`0a73abb35`，过滤镜像 `df1c78a93`，共扫 1,291 单元 → 确认修复 19 条）**
   - **专项 1：全库状态悬停描述全扫（`timed_effects` 974 单元：核心 magical 227 / physical+floor 197 / mental+other 293 + 三大 DLC 257 → 拦截 `RAVAGE` 误报，修复 16 条）**：
     - 高严重度方向反转修复：`Blighted Soil`（荒芜之地，攻击受击目标染病而非目标被攻击染病）；

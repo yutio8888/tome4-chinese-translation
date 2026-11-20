@@ -11,9 +11,9 @@ t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑
 ------------------------------------------------
 section "tome-possessors/data/birth/psionic.lua"
 
-t("Possessor", "占据者", "birth descriptor name")
+t("Possessor", "支配者", "birth descriptor name")
 t("#CRIMSON#BEWARE: This class is very #{italic}#strange#{normal}# and may be confusing to play for beginners.#LAST#", "#CRIMSON#注意: 该职业机制相当 #{italic}#奇怪#{normal}#，可能不适合新手使用。#LAST#", "_t")
-t("Possessors are a rare breed of psionics. Some call them body snatchers. Some call them nightmarish.", "占据者是一类极其稀有的灵能力者。有些人称其为身体掠夺者，有些人视其为噩梦。", "_t")
+t("Possessors are a rare breed of psionics. Some call them body snatchers. Some call them nightmarish.", "支配者是一类极其稀有的灵能力者。有些人称其为身体掠夺者，有些人视其为噩梦。", "_t")
 t("They are adept at stealing their foes corpses for their own use. Discarding their own bodies for a while to use other's.", "他们擅长偷取敌人死亡后的身体，能暂时抛弃自己的躯体，使用其他身体。", "_t")
 t("Their most important stats are: Willpower and Cunning", "他们最重要的属性是：意志和灵巧。", "_t")
 t("#GOLD#Stat modifiers:", "#GOLD#属性修正：", "_t")
@@ -441,8 +441,8 @@ t("%s can not use %s because of Tortured Mind!", "由于精神拷打，%s无法�
 ------------------------------------------------
 section "tome-possessors/init.lua"
 
-t("Possessor Bonus Class", "占据者职业包", "init.lua long_name")
-t("Possessor class.", "占据者职业。", "init.lua description")
+t("Possessor Bonus Class", "支配者职业包", "init.lua long_name")
+t("Possessor class.", "支配者职业。", "init.lua description")
 
 ------------------------------------------------
 section "tome-possessors/overload/mod/dialogs/AssumeForm.lua"
@@ -486,7 +486,7 @@ t("Cannibalize penalty: %d%%", "吞噬惩罚: %d%%", "tformat")
 t("Resists: ", "抗性：", "_t")
 t("Hardiness/Armour: ", "护甲强度/护甲值：", "_t")
 t("Size: ", "体型：", "_t")
-t("Critical Mult: ", "暴击倍率：", "_t")
+t("Critical Mult: ", "暴击伤害：", "_t")
 t("Melee Retaliation: ", "近战反伤：", "_t")
 t("Passive Talents: ", "被动技能: ", "_t")
 t("Active Talents: ", "主动技能: ", "_t")

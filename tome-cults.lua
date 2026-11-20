@@ -32,8 +32,8 @@ section "tome-cults/data/birth/demented.lua"
 t("Demented", "疯狂系", "birth descriptor name")
 t("The thirst for knowledge is seen by most arcane users as as good thing.", "对知识的渴望被大多数奥术使用者视为一件好事。", "_t")
 t("But some take it too far, some delve into lost knowledge. They may gain huge power from it, but at what cost?", "但有些人走得太远，有些人深入钻研失落的知识。他们或许从中获得了强大的力量，但代价又是什么呢？", "_t")
-t("Writhing One", "蠕动者", "birth descriptor name")
-t("Writhing Ones know that what we call #{italic}#horrors#{normal}# hold the key to some ancient knowledge and power from the Age of Haze and they are ready to do anything to access it.", "蠕动者知道，我们所谓的#{italic}#恐魔#{normal}#掌握着混沌纪远古知识与力量的关键，他们愿意为获取这些而不择手段。", "_t")
+t("Writhing One", "苦痛者", "birth descriptor name")
+t("Writhing Ones know that what we call #{italic}#horrors#{normal}# hold the key to some ancient knowledge and power from the Age of Haze and they are ready to do anything to access it.", "苦痛者知道，我们所谓的#{italic}#恐魔#{normal}#掌握着混沌纪远古知识与力量的关键，他们愿意为获取这些而不择手段。", "_t")
 t("In their lust for power they somehow lost a part of themselves, turning more and more into the horrors they study.", "在极度渴求力量的同时，他们似乎失去了部分自我，和他们所研究的恐魔越来越相似。", "_t")
 t("Most of them forgo an entire arm to turn it into a deadly tentacle.", "他们中大部分人选择将一整只手臂化作致命触手。", "_t")
 t("Some are even known to never leave their sanctuary without their own worm that walks friend.", "某些人甚至拒绝在没有蠕虫合体的陪同下离开避难所。", "_t")
@@ -1110,9 +1110,9 @@ The soldier led me to the center of the city where a grand building lay. After m
 
 我转过身去看那个士兵在干什么，注意到他穿的焦黑盔甲上有几道巨大的裂口。有一瞬间，我有些手足无措，因为我的手都拿着符文，无法抓起任何纹身，但随后，我注意到一个奇怪的现象。令人惊讶的是，符片上的印记似乎闪动着变换了形状，随后不知怎么就与士兵的手融为一体。一种淡蓝色的光芒似乎笼罩了士兵的双眼，一股奇怪的能量似乎在他的身体里流动。接下来发生的事情真的让我措手不及，士兵开始喃喃自语，他深深的伤口开始自行愈合。
 
-我对于士兵身上发生的一切完全不知所措，这名士兵似乎正在我面前自我治愈。随着时间的流逝，淡蓝色的光芒从他的眼睛中消失，双眼恢复了正常的颜色，他的伤口不仅愈合了，而且完全没有受伤的迹象。这是我第一次目睹有人使用符文或治疗法术。我以前听说过法术的使用，但在那时，我甚至不知道符文的存在。我很快便得知，这些符片叫作法力涌动符文，能恢复人体内的法力通路。
+我对于士兵身上发生的一切完全不知所措，这名士兵似乎正在我面前自我治愈。随着时间的流逝，淡蓝色的光芒从他的眼睛中消失，双眼恢复了正常的颜色，他的伤口不仅愈合了，而且完全没有受伤的迹象。这是我第一次目睹有人使用符文或治疗法术。我以前听说过法术的使用，但在那时，我甚至不知道符文的存在。我很快便得知，这些符片叫作法力风暴符文，能恢复人体内的法力通路。
 
-直到现在，我对奥术魔法都不太了解，也不知道它是如何工作的，但据说魔法大爆炸中的某种变化从那时起永久改变了这个世界上魔法的运作方式，虽然通过训练仍然可以召唤魔法的力量，但这比以前困难得多。其他受伤的士兵也以同样的方式接受治疗，他们拿起法力涌动符文，让发光的印记嵌入手、胳膊、腿，或者任何他们想要的身体部位，然后开始施法，迅速治愈自己，有时也治愈其他士兵。
+直到现在，我对奥术魔法都不太了解，也不知道它是如何工作的，但据说魔法大爆炸中的某种变化从那时起永久改变了这个世界上魔法的运作方式，虽然通过训练仍然可以召唤魔法的力量，但这比以前困难得多。其他受伤的士兵也以同样的方式接受治疗，他们拿起法力风暴符文，让发光的印记嵌入手、胳膊、腿，或者任何他们想要的身体部位，然后开始施法，迅速治愈自己，有时也治愈其他士兵。
 
 过了一段时间，受伤的士兵开始减少，因为他们中的大多数人在痊愈后不需要休息。当伤员人数减少到可以应付的程度时，主治医师代表永恒精灵来感谢我的努力。我突然想起我来这里的全部原因，提醒对方我已履行了我这一方的约定。主治医师对此点了点头，并望向我身后；这时一名士兵正走近。主治医师回答说：“中尉会护送你去见将军。”我对此感到有些吃惊，但我猜想这位将军掌握着这些事件的答案。
 
@@ -3027,7 +3027,7 @@ t([[Your Nihil unravels the existence of the target, tearing them apart with ent
 		在空无效果结束之前，如果目标身上被施加了 6 个负面魔法效果，将召唤出持续 %d 回合的破灭之兆。
 		之前已有的负面效果、法术冲击、被奥术之眼发现不会计入总数。刷新同一个效果会计入总数。
 		破灭之兆的所有属性获得等同于你魔力属性的加成。其他属性根据本身等级提升。
-		破灭之兆会继承你的伤害加成、伤害穿透、暴击几率和暴击倍率加成。]], "tformat")
+		破灭之兆会继承你的伤害加成、伤害穿透、暴击几率和暴击伤害加成。]], "tformat")
 t("Erase", "抹除", "talent name")
 t([[Those affected by your Nihil find themselves increasingly removed from reality, reducing all damage they deal by %d%% and causing them to take %0.2f temporal damage each turn for each negative magical effect they have.
 		The damage will scale with your Spellpower.]], [[受到你空无影响的生物逐渐从现实中被抹除：每具有一个负面魔法效果，其造成的伤害降低 %d%%， 并每回合受到 %0.2f 时空伤害。
@@ -3067,7 +3067,7 @@ t([[You trigger a cascade of rapidly mutating cells in your body for %d turns.
 		Each time you take a step your monstrous form causes a small quake destroying and rearranging nearby terrain.]], [[你激发了一次持续 %d 回合的体细胞急速变异。
 		你的身体急速变大，获得 +2 体型，并使你能够穿墙行走。增加 %d%% 全体伤害和 %d%% 全体伤害抗性。
 		你的巨大体型使你在每次行走时都导致一场小型的地震，破坏并重组周围的地形。]], "tformat")
-t("Writhing One", "蠕动者", "talent name")
+t("Writhing One", "苦痛者", "talent name")
 t([[At last you unlock the true power of your mutated body!
 		You gain %d%% stun immunity, %d%% chances to ignore critical strikes and your darkness and blight damage are increased by %d%%.]], [[你终于解锁了这具变异身体的真正力量！
 		你获得 %d%% 震慑免疫， %d%% 几率无视受到的暴击，并且增加 %d%% 暗影及枯萎伤害。]], "tformat")
@@ -3106,7 +3106,7 @@ t([[Pouring more energy into your rifts, you have a %d%% chance for each one to 
 #PURPLE#Dimensional Gate:#LAST# Has a 50%% chance each turn to summon a voidling lasting %d turns; a fast melee attacker that can teleport.
 The stats of your Void Skitterers will scale with your Magic stat and level.]], [[向你的裂隙注入能量，每个裂隙在生成时都有 %d%% 概率成为更强大的类型。
 #PURPLE#彼世裂隙：#LAST# 向半径 10 内随机敌人发射光束，造成 %0.2f 暗影伤害。
-#PURPLE#时空漩涡：#LAST# 每回合对半径 4 内的敌人造成 %0.2f 时空伤害，并使其全局速度降低 30%%。
+#PURPLE#时空漩涡：#LAST# 每回合对半径 4 内的敌人造成 %0.2f 时空伤害，并使其整体速度降低 30%%。
 #PURPLE#维度之门：#LAST# 每回合有 50%% 概率召唤一个持续 %d 回合的虚空疾行者，它是能传送的高速近战攻击者。
 你的虚空疾行者属性随你的等级和魔力属性提升。]], "tformat")
 t("Dimensional Skitter", "维度迅击", "talent name")
@@ -3121,7 +3121,7 @@ t([[You draw power from the depths of the void causing your Reality Fracture to 
 #GREY#虚空裂隙：#LAST# 造成 %d%% 额外伤害，并且投射物在半径 1 范围内爆炸。
 #PURPLE#彼世裂隙：#LAST# 造成 %d%% 额外伤害，并且连锁至 3 个额外目标。
 #PURPLE#时空漩涡：#LAST# 造成 %d%% 额外伤害，效果半径增加 1，并且减速效果提高至 50%%。
-#PURPLE#维度之门：#LAST# 虚空疾行者将会变得狂暴，增加他们 %d%% 的全局速度。]], "tformat")
+#PURPLE#维度之门：#LAST# 虚空疾行者将会变得狂暴，增加他们 %d%% 的整体速度。]], "tformat")
 
 ------------------------------------------------
 section "tome-cults/data/talents/demented/scourge-drake.lua"
@@ -3582,7 +3582,7 @@ t("#Target# shrinks back.", "#Target#缩小了。", "_t")
 t("corruption", "堕落", "effect subtype")
 t("slow", "减速", "effect subtype")
 t("Decaying Guts", "腐烂内脏", "_t")
-t("Reduces global action speed by %d%%.", "全局速度下降 %d%%。", "tformat")
+t("Reduces global action speed by %d%%.", "整体速度下降 %d%%。", "tformat")
 t("#Target# is covered in decaying guts.", "#Target#被腐烂内脏覆盖。", "_t")
 t("#Target# is free from the decaying guts.", "#Target#摆脱了腐烂内脏。", "_t")
 t("miscellaneous", "杂项", "effect subtype")
@@ -3855,7 +3855,7 @@ t("Convinced that arcane users are filth to be destroyed.", "坚信奥术使用�
 t("#PURPLE##Target# is convinced arcane users must be destroyed.", "#PURPLE##Target#相信奥术使用者应该被消灭。", "_t")
 t("#Target# looks more kindly toward arcane users.", "#Target#不再痛恨奥术使用者。", "_t")
 t("Twisted Evolution: Speed", "扭曲进化：速度", "_t")
-t("The target is evolved increasing its global speed by %d%%.", "目标进化了，全局速度增加 %d%%。", "tformat")
+t("The target is evolved increasing its global speed by %d%%.", "目标进化了，整体速度增加 %d%%。", "tformat")
 t("#Target# is evolved and acting faster!", "#Target#进化了，速度更快了！", "_t")
 t("#Target# is no longer evolved to move faster.", "#Target#解除了进化，速度减慢了。", "_t")
 t("Twisted Evolution: Form", "扭曲进化：形体", "_t")
@@ -4972,7 +4972,7 @@ To begin your adventures as a half horror simply create a character with the cla
 Have fun lashing your tentacle at your foes!
 ]], [[感谢你购买#CRIMSON#禁忌邪教#WHITE#，马基·埃亚尔的传说第三个扩展包。
 
-要想以半恐魔的身份开始冒险，只需创建一个#LIGHT_GREEN#蠕动者#WHITE#（位于疯狂系）职业的角色。
+要想以半恐魔的身份开始冒险，只需创建一个#LIGHT_GREEN#苦痛者#WHITE#（位于疯狂系）职业的角色。
 
 尽情用触手抽打你的敌人吧！
 ]], "_t")

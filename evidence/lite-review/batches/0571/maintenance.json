@@ -1,0 +1,34 @@
+{
+ "kind": "audience-terminology-alignment",
+ "batch": "0571",
+ "date": "2026-11-20",
+ "authorization": "Maintainer 2026-11-20: approved reverting high-friction terminology changes back to established Chinese ToME4 community conventions (global speed -> 整体速度, Nightmare difficulty -> 梦魇, Possessor -> 支配者, Writhing One -> 苦痛者, Gunslinger class/gunslinging -> 枪手, Critical mult. -> 暴击伤害, Effect resistances -> 状态效果免疫, Rune: Manasurge -> 符文：法力风暴 / 法力风暴符文) and polishing 6 inscription short_info entries to remove unfamiliar abbreviations; explicitly instructed to keep Corruptor = 腐化者.",
+ "terminology_updates": [
+  "terminology/combat.tsv: Global speed / global speed / global action speed -> 整体速度 (6 rows updated)",
+  "terminology/classes.tsv: Possessor -> 支配者, Writhing One -> 苦痛者, Gunslinger -> 枪手 (Corruptor kept as 腐化者)",
+  "terminology/items.tsv: manasurge rune -> 法力风暴符文",
+  "terminology/talents.tsv: Rune: Manasurge -> 符文：法力风暴, Writhing One -> 苦痛者"
+ ],
+ "changes_by_group": {
+  "global_speed_to_zhengti_sudu": "73 occurrences across mod-tome.lua (61), tome-orcs.lua (8), tome-cults.lua (4); 0 residual 全局速度",
+  "nightmare_difficulty_to_mengyan": "9 occurrences across mod-tome.lua (WorldAchievements, descriptors, unlock-difficulty_insane); 0 residual 噩梦难度",
+  "class_names_community_consensus": {
+   "Possessor -> 支配者": "4 entries in tome-possessors.lua",
+   "Writhing One -> 苦痛者": "4 entries in tome-cults.lua + 2 synced MainMenu entries in engine.lua and mod-boot.lua",
+   "Gunslinger -> 枪手": "3 entries in tome-orcs.lua (birth descriptor, gunslinging talent type, Steamcatcher lore) + 2 synced MainMenu entries in engine.lua and mod-boot.lua"
+  },
+  "character_sheet_and_crit_damage": {
+   "Effect resistances -> 状态效果免疫：": "1 entry in mod-tome.lua CharacterSheet",
+   "Critical mult / 暴击倍率 -> 暴击伤害": "8 entries across mod-tome.lua (4), tome-ashes-urhrok.lua (2), tome-cults.lua (1), tome-possessors.lua (1, synced runtime key 'Critical Mult: ')"
+  },
+  "manasurge_to_falifengbao": "3 entries in mod-tome.lua (scrolls + inscriptions) + 2 occurrences in tome-cults.lua lore",
+  "inscription_short_info_polish": "7 entries in mod-tome.lua inscriptions.lua (Wild: 解除 %s, Heroism: 死亡底线 -%d, Movement: 加速 %d%%, Ethereal: 移动 %d%%, Insidious Poison: 治疗下降 %d%%, Manasurge: 法力回复 +%d%%, Mirror Image: stray full-width '； ' -> '; ')"
+ },
+ "intentionally_kept": {
+  "Corruptor = 腐化者": "Explicitly confirmed with players and maintainer (2026-11-20); consistent with Grand Corruptor = 大腐化者",
+  "taint = 污印": "Kept pending explicit maintainer preference (UI compactness vs. veteran familiarity)",
+  "Manaflow = 法力涌动": "Distinct NPC talent, not Rune: Manasurge",
+  "steam giant gunslinger / orc gunslinger / gunslinger ego = 快枪手": "Preserves baseline distinction from steam giant gunner = 蒸汽巨人枪手"
+ },
+ "pending_review_units": 94
+}
