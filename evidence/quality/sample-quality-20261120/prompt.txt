@@ -1,0 +1,52 @@
+# ToME4 汉化抽样质量评价（2026-11-20，v0.3.15，样本 120 条）
+
+你是独立的中文游戏本地化质量评审。请评价《马基埃亚尔的传说》(Tales of Maj'Eyal, ToME4) 简体中文汉化（v0.3.15）的一份分层随机抽样，判断它是否已达到「对外公开发布」的合理质量，并系统分析其翻译质量特征与主要短板。
+
+## 输入
+样本文件（只读）：`/workspace/tome4-chinese-translation/evidence/quality/sample-quality-20261120/sample.json`
+- 从 29,554 个发布单元（排除 22 条已知死键后 29,532 条）中按组件（主游戏 60／Orcs 20／Cults 15／Ashes 11／引擎 14）× 原文长度（短 ≤30 字符 42 条／中 31–200 字符 54 条／长 201–1500 字符 24 条）分层随机抽取 120 条，种子 `20261120`。
+- 每条有：`n`、`unit_id`、`file`、`length_bin`、`section`、`source_tag`、`source`（英文原文）、`target`（中文译文）、`source_location`、`source_context`（该串在游戏源码中的前后若干行，部分为空），若调整过占位符顺序则附 `args_order`（例如 `[2, 1]` 表示译文第 1 个占位符对应原文第 2 个参数，属合法重排）。
+- 可按需只读查阅游戏源码和 `terminology/` 以确认语境或术语：核心 `git -C /workspace/t-engine4 show 624a67329fe2:<路径>`；DLC 在 `/workspace/tome4-dlcs/`。
+- **盲审纪律**：不要读取 `handoff.md`、`evidence/quality/sample-quality-20261103/`、`evidence/quality/sample-quality-20261119/`、历史批次文件、账本或 git 历史。
+
+## 格式约定（不算错误）
+- `#GOLD#`、`#{bold}#`、`%s`、`%d`、`%%`、`@target@`、`@Target@`、`\n` 等标记／占位符须原样保留，位置可按中文语序调整（结合 `args_order` 核对）。
+- 这是长期项目的既定译名体系（如 Archmage＝元素法师、Parry＝招架、Exhaustion＝力竭、Summon＝召唤、See stealth/invisible＝侦测潜行/侦测隐形、trap detect power＝侦测强度），译名不同于个人偏好本身不算错，除非与原文含义明显不符、与 `terminology/` 冲突或在样本内自相矛盾。
+- 英文原文与游戏实际机制明显冲突、直接影响玩法决策时，项目允许按实际效果做简洁纠偏；普通实现分支细节则优先回归英文原意。若你发现译文与英文字面不同，请先查阅源码语境再判断。
+- 多行长描述中为提高中文可读性增减段落换行本身不是错误，除非破坏语义或拼接格式。
+
+## 评分维度（每条 1–5 分）
+- 准确 `acc`：意思、数值、条件、限定词（may/chance/each/only/while 等）是否忠实于原文及源码实际机制；有无漏译、误译、错译。
+- 流畅 `flu`：是否是自然的中文，有无翻译腔、语病、量词不当、生硬直译。
+- 语境 `ctx`：是否符合它在游戏里出现的位置（技能名、物品名、战斗日志、对话、界面标签、lore）和奇幻/蒸汽朋克游戏文风。
+5＝可直接发布；4＝小瑕疵不影响理解；3＝明显生硬或轻微偏差，建议修；2＝误导玩家或明显错误；1＝严重错误／不可用。
+
+## 纪律
+- 仓库只读：不修改任何仓库文件；只将最终 JSON 写入你被指定的 `/tmp/sample-quality-20261120/<name>.json` 路径。
+- 区分「已查证（看过源码语境或术语表）」和「推测」，不要编造源码内容。
+- 对任意维度 ≤3 分的条目，必须写入 `problems` 列表并给出具体问题和建议译文。
+
+## 输出格式
+写入指定路径的 JSON 必须合法且包含全部 120 条（`n` 为 1..120），结构如下：
+```json
+{
+  "reviewer": "<你的标识>",
+  "items": [
+    {"n": 1, "acc": 5, "flu": 5, "ctx": 5, "note": ""}
+  ],
+  "problems": [
+    {"n": 7, "severity": "major|minor", "dimension": "acc|flu|ctx", "issue": "...", "suggestion": "...", "verified_in_source": true}
+  ],
+  "summary": {
+    "mean": {"acc": 0.0, "flu": 0.0, "ctx": 0.0},
+    "share_items_le3": 0.0,
+    "major_error_rate": 0.0,
+    "strengths": ["..."],
+    "weaknesses": ["..."],
+    "publishable": "yes|yes_with_caveats|no",
+    "rationale": "200 字以内，说明是否达到对外公开的合理质量及理由"
+  }
+}
+```
+写完 JSON 文件并确认 `python3 -c 'import json; d=json.load(open(...)); assert len(d["items"])==120'` 通过后，最终回复只需简洁一行摘要（不要把完整 JSON 贴进回复）：
+`SAMPLE-20261120 <reviewer>: 120 items, mean acc=X.XX flu=X.XX ctx=X.XX, le3=K, major=M, publishable=...`

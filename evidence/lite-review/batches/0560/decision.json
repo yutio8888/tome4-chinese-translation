@@ -1,0 +1,61 @@
+{
+ "confirmed": [
+  {
+   "id": "6e67e80d08c9",
+   "edit": [
+    "释放一片半径 %d 的虚空能量爆发，最远可及 %d 格距离，造成 %0.2f 点时空和 %0.2f 点暗影伤害（基于魔力）。",
+    "释放半径 %d 的虚空能量冲击，最远射程 %d 格，造成 %0.2f 点时空和 %0.2f 点暗影伤害（基于魔力）。"
+   ],
+   "evidence": "game/modules/tome/data/general/objects/world-artifacts.lua @ 624a67329fe2 (pinned core):4764-4770: 优化“释放一片…爆发”动宾搭配并明确射程含义，同时保持参数顺序不变。Lane B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "f5ab9af9e43d",
+   "edit": [
+    "装备或镶嵌后，施放法术时发射激光。",
+    "装备或镶嵌后，施放法术时有几率发射激光。"
+   ],
+   "evidence": "game/modules/tome/data/general/objects/world-artifacts.lua @ 624a67329fe2 (pinned core):5125: talent_on_spell 为 chance=10 概率触发，补“有几率”避免误读为每次施法必触发。Lane B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "87277786ea00",
+   "edit": [
+    "翻转沙漏（沙子目前流向 %s）",
+    "翻转沙漏（沙子目前流向%s）"
+   ],
+   "evidence": "game/modules/tome/data/general/objects/world-artifacts.lua @ 624a67329fe2 (pinned core):5401: %s 填入中文状态名“稳定/熵”，去掉“流向”与 %s 之间多余空格。Lane B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "46a1fdd523bd",
+   "edit": [
+    "你的近战和远程攻击会让敌人难以集中精力进行复杂行动，在下一次尝试使用技能时获得可叠加的 3%% 失败几率（最高 %d%%）。\n\t\t如果任何效果导致目标该回合行动失败，对方会失手伤到自己，受到 %0.2f 点物理伤害。\n\t\t如果回合行动失败是由笨拙效果引起的，则会移除笨拙效果。\n\t\t伤害受灵巧加成。\n\t\t",
+    "你的近战和远程攻击会让敌人难以集中精力进行复杂行动，使其叠加 3%% 的下一次技能施放失败几率（最高 %d%%）。\n\t\t如果任何效果导致目标该回合行动失败，对方会失手伤到自己，受到 %0.2f 点物理伤害。\n\t\t如果回合行动失败是由笨拙效果引起的，则会移除笨拙效果。\n\t\t伤害受灵巧加成。\n\t\t"
+   ],
+   "evidence": "game/modules/tome/data/talents/cunning/scoundrel.lua @ 624a67329fe2 (pinned core):183-187: 攻击即叠加失败几率并在敌人下次使用技能时生效，修正“在下一次尝试使用技能时获得”的时机错位。Lane B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "e5b60119fbd6",
+   "edit": [
+    "消耗反馈值来恢复自身：恢复 %d 点生命值、%d 点体力、%d 点法力，降低 %d 点失衡值，并恢复 %d 点活力、各 %d 点正能量与负能量、%d 点灵能及 %d 点仇恨。\n\t\t治疗量和资源回复量受精神强度加成。",
+    "消耗反馈值来恢复自身：恢复 %d 点生命值、 %d 点体力、 %d 点法力，降低 %d 点失衡值，并恢复 %d 点活力、正能量与负能量各 %d 点、 %d 点灵能及 %d 点仇恨。\n\t\t治疗量和资源回复量受精神强度加成。"
+   ],
+   "evidence": "game/modules/tome/data/talents/psionic/feedback.lua @ 624a67329fe2 (pinned core):139-140: 将“各 %d 点正能量与负能量”调整为更易读的“正能量与负能量各 %d 点”。Lane B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "b03dd63517fc",
+   "edit": [
+    "每点“阴影强度”增加 1% 所有伤害加成。",
+    "每点“阴影强度”使所有伤害提高 1%。"
+   ],
+   "evidence": "/workspace/tome4-dlcs/ashes-urhrok/tome-ashes-urhrok/data/general/objects/world-artifacts.lua (unpinned public DLC checkout):813-815: 消除“增加…加成”重言与定语错位。Lane B (GPT-6.2-Astra) ISSUE."
+  },
+  {
+   "id": "d4a8dc505eca",
+   "edit": [
+    "#PURPLE#请确认你已连接到网络，并加入了《马基·埃亚尔的传说》主聊天频道。",
+    "#PURPLE#请确认你已连接至在线服务，并加入了《马基·埃亚尔的传说》主聊天频道。"
+   ],
+   "evidence": "/workspace/tome4-dlcs/cults/tome-cults/data/general/grids/fortress-multiverse.lua (unpinned public DLC checkout):40-42: 检查 profile.connected/auth 与聊天频道，“连接到网络”改为“连接至在线服务”更准确。Lane B (GPT-6.2-Astra) ISSUE."
+  }
+ ],
+ "rejected": []
+}

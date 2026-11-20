@@ -168,7 +168,7 @@ t("Exit menu", "退出菜单", "_t")
 ------------------------------------------------
 section "engine/data/keybinds/chat.lua"
 
-t("Talk to people", "与人交谈", "_t")
+t("Talk to people", "在聊天频道发言", "_t")
 t("Display chat log", "显示聊天记录", "_t")
 t("Cycle chat channels", "切换聊天频道", "_t")
 
@@ -286,7 +286,7 @@ t("Show inventory", "显示物品栏", "_t")
 t("Show equipment", "显示装备", "_t")
 t("Pickup items", "拾取物品", "_t")
 t("Drop items", "丢弃物品", "_t")
-t("Wield/wear items", "装备/穿戴 物品", "_t")
+t("Wield/wear items", "装备/穿戴物品", "_t")
 t("Takeoff items", "脱下物品", "_t")
 t("Use items", "使用物品", "_t")
 t("Quick switch weapons set", "快速切换武器", "_t")
@@ -1105,8 +1105,8 @@ t([[For every purchase of #{italic}##GREY#%s#LAST##{normal}# you gain a permanen
 #GOLD##{italic}#为什么不呢！#{normal}#]], "_t")
 t("#{italic}##UMBER#Voratun Coins available from your donations: #ROYAL_BLUE#%d#{normal}#", "#{italic}##UMBER#可用沃瑞钽硬币数：#ROYAL_BLUE#%d#{normal}#", "_t")
 t([[For every donations you've ever made you have earned voratun coins. These can be spent purchasing expansions or options on the online store. This is the amount you have left, if your purchase total is below this number you'll instantly get your purchase validated, if not you'll need to donate some more first.
-#GOLD##{italic}#Thanks for your support, every little bit helps the game survive for years on!#{normal}#]], [[你历次所做的每一笔捐赠，都为你赚取了沃瑞钽硬币，可以用于购买扩展DLC或者在线商店的商品。这是你当前可用的硬币，如果购买总额低于这个数值，购买会立即生效，否则你需要先追加捐赠。
-#GOLD##{italic}#感谢你的支持，每一分钱都让这游戏更加持久！#{normal}#]], "_t")
+#GOLD##{italic}#Thanks for your support, every little bit helps the game survive for years on!#{normal}#]], [[你的每一笔捐赠都会获得沃瑞钽硬币，可用于购买扩展包或在线商店中的商品。这里显示的是你剩余的硬币数量；如果购买总额低于此数值，购买会立即生效，否则你需要先追加捐赠。
+#GOLD##{italic}#感谢你的支持，每一分助力都能让这款游戏长久延续下去！#{normal}#]], "_t")
 t("%s #GOLD#Online Store#LAST#", "%s #GOLD#在线商店#LAST#", "tformat")
 t("#YELLOW#-- connecting to server... --", "#YELLOW#-- 正在连接到服务器… --", "_t")
 t("Purchase", "购买", "_t")

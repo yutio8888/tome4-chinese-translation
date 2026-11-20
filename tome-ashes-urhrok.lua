@@ -235,7 +235,7 @@ t("Grants physical power equal to your Shadow Power.", "每点“阴影强度”
 t("The Black Maul", "黑之锤", "entity name")
 t("massive black hammer", "巨大的黑色战锤", "_t")
 t("\"A fitting weapon for the Champion.\"", "“正配得上冠军的武器。”", "_t")
-t("Increases all damage by 1% for each point of your Shadow Power.", "每点“阴影强度”增加1%全体伤害加成。", "_t")
+t("Increases all damage by 1% for each point of your Shadow Power.", "每点“阴影强度”使所有伤害提高 1%。", "_t")
 t("The Black Wall", "黑之墙", "entity name")
 t("massive obsidian shield", "巨大的黑曜石盾牌", "_t")
 t("\"With this, no one will ever harm you again.\"", "披坚持盾，众莫能伤", "_t")
