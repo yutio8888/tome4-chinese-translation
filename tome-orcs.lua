@@ -6,7 +6,7 @@ t("Killed 1000 steam giants civilians.", "杀死 1000 名蒸汽巨人居民。",
 t("Mercy, mercy!", "慈悲为怀", "achievement name")
 t("Killed Talosis without any civilians deaths.", "杀死泰勒西斯但不杀死其他居民。", "_t")
 t("This will make a big Omelette!", "这能做个超大煎蛋卷！", "achievement name")
-t("Collected 40 ritch eggs in the Ritch Hive.", "在里奇巢穴中收集 40 枚里奇蛋。", "_t")
+t("Collected 40 ritch eggs in the Ritch Hive.", "在里奇虫巢中收集 40 枚里奇蛋。", "_t")
 t("An Other Brick in the Wall", "特立独行", "achievement name")
 t("Defeated Aeryn in the Gates of Morning without destroying the Observatory nor using ritches help.", "在晨曦之门打败艾琳，但不摧毁观星台，也不借助里奇的帮助。", "_t")
 t("No Steam, No Palace. No Palace, No Palace!", "若无蒸汽，则无宫殿。若无宫殿，亦无宫殿！", "achievement name")
@@ -2983,7 +2983,7 @@ Once upon a time, a great spirit put down its pen and closed its notebook, sighi
 
 从前————
 
-从前，有位名叫<?=Lore.pocket_time_winner.name?>的伟大英雄，是一名矮人岩石守卫。旅程刚开始，她就含糊不清地咒骂着世道不公，随后耸耸肩，继续前行。她与最亲近的同伴一道从瑞库纳逃离，用自然能力清除了深渊咆哮与迷宫里的堕落之力，从嗜杀的实验体 Z的魔掌中救出了一个叫做“夺心魔”的奇怪新生物，甚至连岱卡拉的巨人向她扔来的巨石也没能阻挡她。她势不可挡地向前推进，消灭了众多曾经伤害过许多人的威胁。她发现了失落的孔克雷夫宝库，让最后几个最初被造出来的食人魔安息，从克里尔·费扬邪教徒的魔掌中救出了一个姑娘，最终站在了恐惧王座的塔门前，技艺历经锤炼，满载旅程中找到的各种珍奇装备。她一边向上攀登，一边与一波波蹒跚的不死生物战斗，终于与领主正面交锋。这时，一个骷髅战士从后袭来。它用战锤使出一记震慑打击，恰好砸中了她唯一的野性纹身所在之处。她头昏眼花，脚步踉跄，试图激活纹身的力量；直到一阵可怕的寒流蔓延到四肢，将她封在冰中，她才清醒过来————
+从前，有位名叫<?=Lore.pocket_time_winner.name?>的伟大英雄，是一名矮人岩石守卫。旅程刚开始，她就含糊不清地咒骂着世道不公，随后耸耸肩，继续前行。她与最亲近的同伴一道从瑞库纳逃离，用自然能力清除了深渊咆哮与迷宫里的堕落之力，从嗜杀的代号“Z”的魔掌中救出了一个叫做“夺心魔”的奇怪新生物，甚至连岱卡拉的巨人向她扔来的巨石也没能阻挡她。她势不可挡地向前推进，消灭了众多曾经伤害过许多人的威胁。她发现了失落的孔克雷夫宝库，让最后几个最初被造出来的食人魔安息，从卡洛·斐济邪教徒的魔掌中救出了一个姑娘，最终站在了恐惧王座的塔门前，技艺历经锤炼，满载旅程中找到的各种珍奇装备。她一边向上攀登，一边与一波波蹒跚的不死生物战斗，终于与领主正面交锋。这时，一个骷髅战士从后袭来。它用战锤使出一记震慑打击，恰好砸中了她唯一的野性纹身所在之处。她头昏眼花，脚步踉跄，试图激活纹身的力量；直到一阵可怕的寒流蔓延到四肢，将她封在冰中，她才清醒过来————
 
 从前，有个自然精灵召唤师叫做<?=Lore.pocket_time_winner.name?>，在一条蛇旁开始了旅程，这条蛇对时间魔法的精通程度异乎寻常————
 
@@ -3807,7 +3807,7 @@ section "tome-orcs/data/quests/ritch-hive.lua"
 t("A Ritch Party", "里奇派对", "_t")
 t("Our ultimate goal on the mainland is to get rid of the Sunwall once and for all.", "我们在大陆上的最终目的是一劳永逸地铲除太阳堡垒。", "_t")
 t("To do that we will prepare a special surprise to help our final attack.", "为此，我们必须为最终的突袭做好准备，给他们一个“惊喜”。", "_t")
-t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠以北群山中的里奇巢穴，收集大量的里奇虫卵。大约 30 个可孵化的虫卵便已足够。", "_t")
+t("Go to the Ritch Hive in the mountains north of the Erúan desert and collect a big pile of ritch eggs.  About 30 viable eggs should be sufficient.", "前去艾露安沙漠以北群山中的里奇虫巢，收集大量的里奇虫卵。大约 30 个可孵化的虫卵便已足够。", "_t")
 t("When you have enough, find a tunnel leading north and use the special sand shredder gloves tinker to open a path under the Gates of Morning.", "当你有了足够的里奇虫卵，找到一条向北的隧道，使用特殊的掘沙者手套配件，在晨曦之门下方挖出一条通道。", "_t")
 t("Finally, place the eggs in a protected spot to hatch.  With luck, they will provide a distraction while you later assault the city.", "最后，将虫卵放在安全的地方让它们孵化。运气好的话，等你日后进攻城市时，它们能帮你分散敌人的注意力。", "_t")
 t("#LIGHT_GREEN#* You have collected enough eggs.#WHITE#", "#LIGHT_GREEN#* 你收集了足够多的虫卵#WHITE#", "_t")
@@ -7391,7 +7391,7 @@ t("Is that... an ovipositor?", "这是……产卵管？", "_t")
 ------------------------------------------------
 section "tome-orcs/data/zones/ritch-hive/zone.lua"
 
-t("Ritch Hive", "里奇巢穴", "_t")
+t("Ritch Hive", "里奇虫巢", "_t")
 t([[You arrive in a maze of shifty sand tunnels.
 But you have with you the power of technology! You have been given a #GOLD#Stralite Sand Shredder#LAST#. Use it to dig yourself a path should there be none to be found.
 #{italic}#Simply walk into a wall with the shredder equipped and the sand will crumble before you!#{normal}#
@@ -7681,7 +7681,7 @@ t("schematic: Hands of Creation", "配方：创造之手", "entity name")
 ------------------------------------------------
 section "tome-orcs/data/zones/ureslak-host/zone.lua"
 
-t("Ureslak's Host", "乌瑞斯拉克的驻地", "_t")
+t("Ureslak's Host", "乌瑞斯拉克沉睡处", "_t")
 
 ------------------------------------------------
 section "tome-orcs/data/zones/vaporous-emporium/grids.lua"
@@ -7730,13 +7730,13 @@ t("Entrance to the Sunwall Outpost", "太阳堡垒前哨站入口", "entity name
 t("Way into old ruins in the Erúan desert", "通向艾露安沙漠古老遗迹的路", "entity name")
 t("Entrance to the Dominion Port", "巨魔帝国港口入口", "entity name")
 t("Destroyed Dominion Port", "被摧毁的巨魔帝国港口", "entity name")
-t("Entrance to a Ritch Hive", "里奇巢穴入口", "entity name")
+t("Entrance to a Ritch Hive", "里奇虫巢入口", "entity name")
 t("Path to a peak leading to the Sunwall Observatory", "通往太阳堡垒观星台的路", "entity name")
 t("Entrance to the Pride's Internment Camp", "部落拘留营入口", "entity name")
 t("Gates of Morning (Town)", "晨曦之门（城镇）", "entity name")
 t("A massive hole in the Sunwall.", "太阳堡垒群山中的一个巨大洞口。", "_t")
 t("Strange mechanical mole", "奇怪的机械鼹鼠", "entity name")
-t("Path to a Ureslak's Host", "通往乌瑞斯拉克驻地的道路", "entity name")
+t("Path to a Ureslak's Host", "通往乌瑞斯拉克沉睡处的道路", "entity name")
 t("Entrance to the Steam Quarry", "蒸汽采石场入口", "entity name")
 t("Entrance to the Palace of Fumes", "烟雾宫殿入口", "entity name")
 t("Way into a primal forest", "通往原始森林的路", "entity name")

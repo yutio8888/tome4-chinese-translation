@@ -2666,7 +2666,7 @@ t("Killed Harkor'Zun.", "杀死哈卡祖。", "_t")
 t("Kill Bill!", "杀死比尔！", "achievement name")
 t("Killed Bill in the Trollmire without leveling beyond your starting level.", "用初始级别的人物杀死巨魔沼泽的比尔。", "_t")
 t("Atamathoned!", "阿塔玛森！", "achievement name")
-t("Killed the giant golem Atamathon after foolishly reactivating it.", "在愚蠢地启动巨型傀儡阿塔玛森后杀死它。", "_t")
+t("Killed the giant golem Atamathon after foolishly reactivating it.", "在愚蠢地启动傀儡之王阿塔玛森后杀死它。", "_t")
 t("Huge Appetite", "大胃王", "achievement name")
 t("Ate 20 bosses.", "吃掉20个BOSS。", "_t")
 t("Headbanger", "铁头功大师", "achievement name")
@@ -2798,7 +2798,7 @@ t("Sided with the assassin lord.", "与刺客领主同流合污。", "_t")
 t("Destroyer of the creation", "造物的毁灭者", "achievement name")
 t("Killed Slasul.", "杀死萨拉苏尔。", "_t")
 t("Treacherous Bastard", "阴险的背叛者", "achievement name")
-t("Killed Slasul even though you sided with him to learn the Legacy of the Naloren prodigy.", "杀死萨拉苏尔，尽管你曾为习得觉醒技“纳鲁精灵的遗产”而与他结盟。", "_t")
+t("Killed Slasul even though you sided with him to learn the Legacy of the Naloren prodigy.", "杀死萨拉苏尔，尽管你曾为习得觉醒技“纳鲁精灵的馈赠”而与他结盟。", "_t")
 t("Flooder", "倒戈", "achievement name")
 t("Defeated Ukllmswwik while doing his own quest.", "在做乌克勒姆斯维奇托付的任务时击败他。", "_t")
 t("Gem of the Moon", "月亮宝石", "achievement name")
@@ -2828,7 +2828,7 @@ t("Escaped from Reknor alive with your squadmate Norgan.", "你和同伴诺尔�
 t("Genocide", "种族灭绝", "achievement name")
 t("Killed the Orc Greatmother in the breeding pits, thus dealing a terrible blow to the orc race.", "在兽人育种棚中杀死巨型兽人母体，给兽人一族带来了沉重打击。", "_t")
 t("Savior of the damsels in distress", "落难少女拯救者", "achievement name")
-t("Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan.", "在克里尔·费扬地宫中把梅琳达从可怕的命运中拯救出来。", "_t")
+t("Saved Melinda from her terrible fate in the Crypt of Kryl-Feijan.", "在卡洛·斐济地窖中把梅琳达从可怕的命运中拯救出来。", "_t")
 t("Impossible Death", "不可能的死亡", "achievement name")
 t("Got killed by your future self.", "被未来的自己杀死。", "_t")
 t("Self-killer", "自杀者", "achievement name")
@@ -7105,7 +7105,7 @@ t("%s<terror chance>#LAST#", "%s<恐惧几率>#LAST#", "tformat")
 t("random poison", "随机毒素", "damage type")
 t("blinding powder", "致盲粉", "damage type")
 t("%s<blinding powder>#LAST#", "%s<致盲粉>#LAST#", "tformat")
-t("smokescreen", "烟幕障眼", "damage type")
+t("smokescreen", "烟雾弹", "damage type")
 t("%s<smoke>#LAST#", "%s<烟雾>#LAST#", "tformat")
 t("flare", "闪光弹", "damage type")
 t("%s resists the blinding flare!", "%s抵抗了致盲闪光！", "logSeen")
@@ -7194,7 +7194,7 @@ t("#LIGHT_RED#You carefully open the trap door and enter the underground tunnels
 t("#LIGHT_RED#As you enter you notice the trap door has no visible handle on the inside. You are stuck here!", "#LIGHT_RED#进入地道后，你发现活门内侧看不到任何把手，你被关在这里了！", "logPlayer")
 t("Enter the tunnels", "进入通道", "_t")
 t("Leave carefully", "悄悄离开", "_t")
-t("Sect of Kryl-Faijan", "克里尔·费扬教派", "entity name")
+t("Sect of Kryl-Faijan", "卡洛·斐济教派", "entity name")
 t([[You find an entrance to an old crypt. An aura of terrible evil emanates from this place. You feel threatened just standing there.
 You hear the muffled cries of a woman coming from inside.]], [[你发现了一个古老地宫的入口，里面笼罩着恐怖的邪恶气息，仅仅站在门口你就已经感受到了它的威胁。
 你听到里面隐约传来一个女人沉闷的哭喊声。]], "_t")
@@ -8896,7 +8896,7 @@ t("bandit lord", "强盗首领", "entity name")
 t("He is the leader of a gang of bandits. Watch out for his underlings.", "他是这伙强盗的首领，当心他的手下。", "_t")
 t("assassin", "刺客", "entity name")
 t("Before you looms a pair of eyes... a glint of steel... death.", "你面前浮现出一双眼睛……一道金属寒光……死亡。", "_t")
-t("shadowblade", "暗影之刃", "entity name")
+t("shadowblade", "影舞者", "entity name")
 t("Stealthy fighters trying to achieve victory with trickery. Be careful or they will steal your life!", "善用诡计取胜的潜行斗士。小心，他们会偷走你的生命！", "_t")
 t("rogue sapper", "盗贼工兵", "entity name")
 t("Stealthy tricksters that leave a wake of deadfalls and other hazards.  They really just make a mess of things.", "善于潜行的诡计高手，所过之处遍布落石陷阱和其他危险机关。他们真的只会把一切弄得一团糟。", "_t")
@@ -14193,7 +14193,7 @@ But we won't age sleeping in these ruins#{normal}#
 section "mod-tome/data/lore/age-pyre.lua"
 
 t("age of pyre", "烈火纪", "newLore category")
-t("Atamathon, the giant golem", "阿塔玛森·巨型傀儡", "_t")
+t("Atamathon, the giant golem", "阿塔玛森·傀儡之王", "_t")
 t([[This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer.
 Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. One of its eyes seems to be missing. At over 40 feet high it towers above you.
 Someone foolish has tried to reconstruct it, but it seems like it misses an eye to be completed.]], [[这尊巨型傀儡是由半身人在烈火战争期间为对抗兽人而建造的，但它被吞噬者加库尔击倒了。
@@ -15584,7 +15584,7 @@ Around her are several figures in dark robes.
 As they notice you one calls out 'Intruder! Protect the seed of Kryl-Feijan!']], [[你看见一名人类女子赤身裸体地昏倒在黑色祭坛上，扭曲的符印深深刻入她的肌肤。
 她身旁站着数名黑袍人。
 
-他们一发现你，其中一人便大喊：“入侵者！保护克里尔·费扬之种！”]], "_t")
+他们一发现你，其中一人便大喊：“入侵者！保护卡洛·斐济之种！”]], "_t")
 
 ------------------------------------------------
 section "mod-tome/data/lore/fun.lua"
@@ -18923,7 +18923,7 @@ When Garkul next returned from the east he heard from his spies of great operati
 
 就在此时，在矮人城市瑞库纳的深处，我们的斥候发现了一件令人惊叹之物——一座夏·图尔远行传送门。血法师们对此展开研究，一段时间后成功将其激活，并发现了一片全新的陆地。那是失落的远东，在大灾变之后与马基·埃亚尔隔绝分离。加库尔在此看到了巨大的契机，下令将数以千计的年轻战士与法师送往远东。他们在那里建立了训练营地，军队可以在返回西方参战之前在那里操练以精通战技。加库尔将这些营地命名为兽人部落，因为他说我族的力量将寄托于此，而这也将是我们最引以为傲之所在。
 
-然而，当加库尔忙于建立这些兽人部落之时，纳格尔国王正筹划着防御策略。他知道兽人大军很快就会攻打自己的王国，便动用了最顶尖谋士的力量，准备打造一支无法战胜的武装。他召集了全大陆最强大的炼金术士，一同谋划制造一件不可战胜的造物：巨型傀儡阿塔玛森。
+然而，当加库尔忙于建立这些兽人部落之时，纳格尔国王正筹划着防御策略。他知道兽人大军很快就会攻打自己的王国，便动用了最顶尖谋士的力量，准备打造一支无法战胜的武装。他召集了全大陆最强大的炼金术士，一同谋划制造一件不可战胜的造物：傀儡之王阿塔玛森。
 
 当加库尔下一次从远东返回时，他从间谍口中获悉了纳格尔王国正在紧锣密鼓展开的大动作，他知道自己必须正面迎击半身人。但他未曾料到，这将是他此生最后一战。]], "_t")
 t([[#{bold}#Chapter Five: Fall of the Mighty#{normal}#
@@ -18962,13 +18962,13 @@ Our forces never full recovered from the loss of our great leader. The wars cont
 
 他率军谨慎地向南方城市进发，一路上只发生过几场小规模冲突。逼近首都时，他看到半身人大军早已严阵以待，超过一万名士兵整编成军团以保卫他们的王国。加库尔麾下仅有五千人，但他清楚自己的战士要强大得多，凭借他的战术定能轻易取胜。尽管如此，他心中依然紧张不安，于是谨慎地指挥大军向前推进。
 
-兽人大军来到了一片耕地前，半身人大军正在对侧列阵以待。加库尔狐疑地打量着地面，但随着半身人投石手开始向他们射击，他知道自己必须采取行动——于是下达了进攻的命令。战士们如旋风般冲向敌人，法师紧随其后；然而当他们逼近敌人时，大地突然剧烈震颤。地面被撕裂开来，一只巨手伸了出来，接着是一颗硕大无朋的头颅，战士们被震得连连后退。只见一个前所未见的庞然巨怪缓缓从地底升起——那正是巨型傀儡阿塔玛森。半身人炼金术士多年来一直在暗中打造它，以大理石铸造身躯，以沃瑞钽制成关节，双眼各镶嵌着一千颗红宝石，并被赋予了无可匹敌的力量。谋士们精心设下了陷阱，用时机精确的小规模交火将加库尔的大军引诱至此，只为等待最合适的时机亮出这件令人生畏的终极兵器。
+兽人大军来到了一片耕地前，半身人大军正在对侧列阵以待。加库尔狐疑地打量着地面，但随着半身人投石手开始向他们射击，他知道自己必须采取行动——于是下达了进攻的命令。战士们如旋风般冲向敌人，法师紧随其后；然而当他们逼近敌人时，大地突然剧烈震颤。地面被撕裂开来，一只巨手伸了出来，接着是一颗硕大无朋的头颅，战士们被震得连连后退。只见一个前所未见的庞然巨怪缓缓从地底升起——那正是傀儡之王阿塔玛森。半身人炼金术士多年来一直在暗中打造它，以大理石铸造身躯，以沃瑞钽制成关节，双眼各镶嵌着一千颗红宝石，并被赋予了无可匹敌的力量。谋士们精心设下了陷阱，用时机精确的小规模交火将加库尔的大军引诱至此，只为等待最合适的时机亮出这件令人生畏的终极兵器。
 
 兽人士兵狂怒地扑向傀儡，用手中兵刃猛击其坚固的双足，却毫无成效。法师们向其胸膛倾泻冰火法术，却被尽数弹开、不伤分毫。随后半身人炼金术士挺身向前，通过傀儡引导能量，红宝石巨眼随之亮起，喷涌出一道烈焰光束席卷兽人大军。傀儡大步向前推进，每迈出一步便将数十名战士踩碎于足下，而眼中射出的烈焰光束则横扫法师阵列。紧接着炼金术士们也加入进来投掷炸弹，投石手一轮接一轮地齐射，一场惨烈的大屠杀就此爆发。
 
 加库尔看到自己的军队溃不成军，明白面对这件新兵器，全军正面交锋绝无胜算。他奔向狼骑兵，夺过其中最雄壮的坐骑——一只体长逾十英尺的凶猛座狼，翻身上鞍冲入战团。他驾驭着座狼径直冲向巨型傀儡，催动坐骑纵身跃向怪物高耸的胸膛。傀儡挥下一记巨拳将座狼砸得粉碎，加库尔却在最后一刻纵身跃出抓住了傀儡的头颅，拔出战斧倾尽全力狠狠劈入其中一只红宝石巨眼，将其彻底砸碎。
 
-随后傀儡伸出双臂一把攥住了加库尔的臂膀，他的战斧跌落到了下方的地面上。阿塔玛森用大理石巨手死死扣住这位伟大兽人的肢体，试图将它们生生撕扯下来。但加库尔咬紧牙关鼓起全身肌肉抗衡傀儡的巨力，一点点强行将傀儡的巨拳向前掰动，使自己得以贴近怪物的头颅。当贴近那大理石额头的一瞬，他猛地甩头向前撞去，钢盔撞击坚石的清脆巨响撕裂了空气。傀儡微微颤抖了一下，加库尔再度一记头槌砸下，钢盔也被震得从他头上飞落。他再一次猛力撞向前去，这次撞击在他的太阳穴上撕开了一道深深的创口，但傀儡厚重的大理石头颅也被撞出了凹坑。又是一记头槌，接着又是两记，傀儡的头骨开始崩裂，双腿在身下颓然垮塌。加库尔满头鲜血仰天狂吼，随后以最后一记致命的头槌猛撞过去。他的前额重重砸上厚重的大理石，在滔天巨力之下，傀儡的头颅彻底四分五裂。傀儡轰然倒塌，加库尔也一同坠地。巨型傀儡阿塔玛森就此被击溃，世间再未出现过同类。
+随后傀儡伸出双臂一把攥住了加库尔的臂膀，他的战斧跌落到了下方的地面上。阿塔玛森用大理石巨手死死扣住这位伟大兽人的肢体，试图将它们生生撕扯下来。但加库尔咬紧牙关鼓起全身肌肉抗衡傀儡的巨力，一点点强行将傀儡的巨拳向前掰动，使自己得以贴近怪物的头颅。当贴近那大理石额头的一瞬，他猛地甩头向前撞去，钢盔撞击坚石的清脆巨响撕裂了空气。傀儡微微颤抖了一下，加库尔再度一记头槌砸下，钢盔也被震得从他头上飞落。他再一次猛力撞向前去，这次撞击在他的太阳穴上撕开了一道深深的创口，但傀儡厚重的大理石头颅也被撞出了凹坑。又是一记头槌，接着又是两记，傀儡的头骨开始崩裂，双腿在身下颓然垮塌。加库尔满头鲜血仰天狂吼，随后以最后一记致命的头槌猛撞过去。他的前额重重砸上厚重的大理石，在滔天巨力之下，傀儡的头颅彻底四分五裂。傀儡轰然倒塌，加库尔也一同坠地。傀儡之王阿塔玛森就此被击溃，世间再未出现过同类。
 
 见此情景，半身人陷入了极大的恐慌，因为尽管兽人大军近乎全军覆没，他们最强大的兵器也已被摧毁。他们走向残骸，却见废墟之中有物耸动——吞噬者加库尔竟再次挺身站起。他头部重创、鲜血淋漓，双臂严重瘀伤，但他拾回了自己的战斧，咧开嘴冲着眼前的敌人露出了笑容。
 
@@ -20336,8 +20336,8 @@ t("#VIOLET#Berethh lies dead.", "#VIOLET#贝里斯死了。", "logPlayer")
 ------------------------------------------------
 section "mod-tome/data/quests/kryl-feijan-escape.lua"
 
-t("The Sect of Kryl-Feijan", "克里尔·费扬教派", "_t")
-t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地宫中发现了一个教派，他们崇拜一个名叫克里尔·费扬的恶魔。", "_t")
+t("The Sect of Kryl-Feijan", "卡洛·斐济教派", "_t")
+t("You discovered a sect worshipping a demon named Kryl-Feijan in a crypt.", "你在一个地宫中发现了一个教派，他们崇拜一个名叫卡洛·斐济的恶魔。", "_t")
 t("They were trying to bring it back into the world using a human sacrifice.", "他们试图用献祭活人来召唤恶魔到这个世界上。", "_t")
 t("You defeated the acolytes and saved the woman. She told you she is the daughter of a rich merchant of Last Hope.", "你打败了那些侍僧并救下了这个女人。她告诉你，她是最后的希望城中一位富商的女儿。", "_t")
 t("You failed to protect her when escorting her out of the crypt.", "你没能在护送她离开这个地宫时保护好她。", "_t")
@@ -20404,7 +20404,7 @@ t("#LIGHT_BLUE#The merchant thanks you for saving his life. He gives you 8 gold 
 section "mod-tome/data/quests/love-melinda.lua"
 
 t("Melinda, lucky girl", "幸运女孩梅琳达", "_t")
-t("After rescuing Melinda from Kryl-Feijan and the cultists you met her again in Last Hope.", "在你从克里尔·费扬和邪教徒手中解救了梅琳达之后，你在最后的希望又碰到了她。", "_t")
+t("After rescuing Melinda from Kryl-Feijan and the cultists you met her again in Last Hope.", "在你从卡洛·斐济和邪教徒手中解救了梅琳达之后，你在最后的希望又碰到了她。", "_t")
 t("Melinda was saved from the brink of death at the beach, by a strange wave of blight.", "在海滩上，一股奇异的枯萎能量将梅琳达从死亡边缘救了回来。", "_t")
 t("Melinda died to a Yaech raiding party at the beach.", "梅琳达在沙滩上死于夺魂魔袭击队之手。", "_t")
 t("The Fortress Shadow said she could be cured.", "堡垒之影说她有可能被治愈。", "_t")
@@ -21976,12 +21976,12 @@ t("#LIGHT_BLUE#(%d converted)#LAST#", "#LIGHT_BLUE#(%d 转化)#LAST#", "tformat"
 t([[While active 30%% of all damage you take is converted into %0.2f Paradox per point.
 		The Paradox is gained over three turns.]], [[当激活这个技能时，你受到的伤害有 30%% 会按每点伤害转化为 %0.2f 紊乱值。
 		这些紊乱值会在三个回合内逐步获得。]], "tformat")
-t("Attenuate", "衰减", "talent name")
+t("Attenuate", "湮灭洪流", "talent name")
 t([[Deals %0.2f temporal damage over %d turns to all targets in a radius of %d.  Targets with Reality Smearing active will instead recover %d life over four turns.
 		If a target is reduced below 20%% life while Attenuate is active it may be instantly slain.
 		The damage will scale with your Spellpower.]], [[对范围内所有目标造成 %0.2f 点时空伤害，伤害分摊到 %d 回合内。技能半径为 %d 格。
 		带有弥散现实效果的目标则改为在四回合内恢复 %d 点生命。
-		衰减生效期间，若目标的生命值降至 20%% 以下，它可能会被立即杀死。
+		湮灭洪流生效期间，若目标的生命值降至 20%% 以下，它可能会被立即杀死。
 		伤害受法术强度加成。]], "tformat")
 t("Twist Fate", "扭曲命运", "talent name")
 t("You must have a twisted anomaly to cast this spell.", "你必须有被捕获的异常来使用该法术。", "logPlayer")
@@ -22176,7 +22176,7 @@ t("Entropic Field", "熵能领域", "talent name")
 t([[You encase yourself in a field that slows incoming projectiles by %d%%, and increases your physical resistance by %d%%.
 		The effect will scale with your Spellpower.]], [[在自身周围制造一个力场，使飞来的抛射物速度降低 %d%% ，并使你的物理抗性增加 %d%%。
 		效果受法术强度加成。]], "tformat")
-t("Fade From Time", "淡出时间", "talent name")
+t("Fade From Time", "时光凋零", "talent name")
 t([[You partially remove yourself from the timeline for 10 turns.
 		This increases your resistance to all damage by %d%%, reduces the duration of all detrimental effects on you by %d%%, and reduces all damage you deal by 20%%.
 		The resistance bonus, effect reduction, and damage penalty will gradually lose power over the duration of the spell.
@@ -23196,15 +23196,15 @@ t([[Imbibe a potent mixture of energizing and restorative substances, restoring 
 t("Rogue's Brew Mastery", "佳酿强化", "talent name")
 t("Your Rogue's Brew fortifies you for 8 turns, preventing you from dying until you reach -%d life.", "你的盗贼佳酿会强化你 8 回合，使你在生命值降至 -%d 之前不会死亡。", "tformat")
 t("Adjust your Rogue's Brew formulation so that it fortifies you for 8 turns, preventing you from dying until you reach -%d life.", "调整盗贼佳酿的配方，使其强化你 8 回合；在此期间，你的生命值降至 -%d 之前不会死亡。", "tformat")
-t("Smokescreen", "烟幕障眼", "talent name")
+t("Smokescreen", "烟雾弹", "talent name")
 t("Throw a smokebomb creating a radius 2 cloud of smoke, lasting %d turns, that blocks sight and reduces enemies' vision by %d. 15 turn cooldown.", "投掷一枚烟雾弹，生成半径 2 的烟云，持续 %d 回合，阻挡视线并使敌人视野降低 %d。15 回合冷却。", "tformat")
 t([[Throw a vial of volatile liquid that explodes in a radius %d cloud of smoke lasting %d turns.  The smoke blocks line of sight, and enemies within will have their vision range reduced by %d.
 		Use of this talent will not break stealth, and creatures affected by the smokes can never prevent you from activating stealth, even if their proximity would normally forbid it.
 		#YELLOW#Prepared with: %s#LAST#]], [[扔出烟雾弹，产生半径 %d 的烟雾，持续 %d 回合。烟雾阻挡视野，所有烟雾中的敌人视野下降 %d。
 		使用该技能不解除潜行。被烟雾影响的生物不能阻止你潜行，即使它们与你的距离通常不允许你潜行。
 		#YELLOW#准备于：%s#LAST#]], "tformat")
-t("Smokescreen Mastery", "烟幕障眼精通", "talent name")
-t("Your Smokescreen is infused with chokedust. Enemies in the smoke take %0.2f nature damage and may be silenced.", "你的烟幕障眼中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有几率被沉默。", "tformat")
+t("Smokescreen Mastery", "烟雾弹精通", "talent name")
+t("Your Smokescreen is infused with chokedust. Enemies in the smoke take %0.2f nature damage and may be silenced.", "你的烟雾弹中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有几率被沉默。", "tformat")
 t("You infuse your smoke bomb with chokedust. Each turn, enemies in the smoke take %0.2f nature damage and are 50%% likely to be silenced.", "你的烟雾弹中加入了窒息粉尘。每回合烟雾中的敌人将受到 %0.2f 自然伤害并有 50%% 几率被沉默。", "tformat")
 t("Dart Launcher", "飞镖发射器", "talent name")
 t("%s resists the sedation!", "%s抵抗了镇静！", "logSeen")
@@ -23304,7 +23304,7 @@ t("survival", "生存", "talent type")
 t("The knowledge of the dangers of the world, and how to best avoid them.", "让你认识到世界中的各种危险，并学会如何有效避免它们。", "_t")
 t("tactical", "战术", "talent type")
 t("Tactical combat abilities.", "战斗中使用的策略技巧。", "_t")
-t("scoundrel", "无赖", "talent type")
+t("scoundrel", "街头格斗", "talent type")
 t("The use of ungentlemanly techniques.", "使用不讲风度的卑劣技巧。", "_t")
 t("artifice", "诡计", "talent type")
 t("Create and use cunning tools.", "制造并使用精巧工具。", "_t")
@@ -26820,7 +26820,7 @@ t("Resilience of the Dwarves", "钢筋铁骨", "talent name")
 t([[Call upon the legendary resilience of the Dwarven race to increase armour (+%d), armour hardiness (+%d%%), spell (+%d) and physical (+%d) saves for 8 turns.
 		The bonuses will increase with your Constitution.]], [[唤起矮人一族传说中的坚韧，使护甲值提高 +%d、 护甲强度提高 +%d%%、 法术豁免提高 +%d、 物理豁免提高 +%d， 持续 8 回合。
 		这些加成随体质提高。]], "tformat")
-t("Stoneskin", "坚石肌肤", "talent name")
+t("Stoneskin", "石化皮肤", "talent name")
 t([[Dwarf skin is a complex structure; it can automatically react to physical blows and harden itself.
 		When you are hit in melee, you have a 15%% chance to increase your armour total by %d for 5 turns and fully ignore the attack triggering it.
 		There is no cooldown to this effect; it can happen while already active.]], [[矮人皮肤是一种复杂的结构，它可以在受到打击后自动硬化。
@@ -27255,7 +27255,7 @@ t([[Craft a hammer from the dream forge and strike an adjacent foe, inflicting %
 		The base power, Accuracy, Armour penetration, and critical strike chance of the weapon will scale with your Mindpower.
 		
 		Current Dream Hammer Stats:
-		%s]], [[从梦之熔炉中锻造出一柄巨锤，砸向一名相邻的敌人，造成 %d%% 武器伤害。如果攻击命中，它会使梦境铁匠系的某个随机技能冷却完毕。
+		%s]], [[从梦之熔炉中锻造出一柄巨锤，砸向一名相邻的敌人，造成 %d%% 武器伤害。如果攻击命中，它会使梦境锻造系的某个随机技能冷却完毕。
 		技能等级 5 时，此技能会使 2 个随机技能冷却完毕。
 		受精神强度影响，武器的基础攻击力、命中、护甲穿透和暴击率按比例加成。
 
@@ -27765,7 +27765,7 @@ t("discharge", "脉冲", "talent type")
 t("Project feedback on the world around you.", "向周围世界投射反馈能量。", "_t")
 t("distortion", "扭曲", "talent type")
 t("Distort reality with your mental energy.", "使用你的精神力量扭曲现实。", "_t")
-t("Dream Smith", "梦境铁匠", "talent type")
+t("Dream Smith", "梦境锻造", "talent type")
 t("Call the dream-forge hammer to smite your foes.", "召唤梦之巨锤碾碎你的敌人。", "_t")
 t("nightmare", "梦魇", "talent type")
 t("Manifest your enemies nightmares.", "将敌人的噩梦具现化。", "_t")
@@ -27773,15 +27773,15 @@ t("Psychic Assault", "心灵突袭", "talent type")
 t("Directly attack your opponents minds.", "直接攻击敌人的心灵。", "_t")
 t("slumber", "沉睡", "talent type")
 t("Force enemies into a deep sleep.", "使敌人进入昏睡。", "_t")
-t("solipsism", "唯我论", "talent type")
+t("solipsism", "唯我主义", "talent type")
 t("Nothing exists outside the minds ability to perceive it.", "心灵感知不到的事物，皆不存在。", "_t")
-t("Thought-Forms", "思维形态", "talent type")
+t("Thought-Forms", "具象之弧", "talent type")
 t("Manifest your thoughts as psionic summons.", "使你的思维具象化为灵能召唤物。", "_t")
 t("Dream Forge", "梦境熔炉", "talent type")
 t("Master the dream forge to create powerful armor and effects.", "掌握梦之熔炉，创造强大的护甲和效果。", "_t")
 t("dreaming", "梦境", "talent type")
 t("Manipulate the sleep cycles of yourself and your enemies.", "操纵你自己和敌人的睡眠。", "_t")
-t("mentalism", "心灵术", "talent type")
+t("mentalism", "唯心主义", "talent type")
 t("Various mind based effects.", "许多精神系技能效果。", "_t")
 t("feedback", "反馈", "talent type")
 t("Store feedback as you get damaged and use it to protect and heal your body.", "受伤时储存反馈值，并用它保护和治疗你的身体。", "_t")
@@ -27943,43 +27943,43 @@ t([[You seek balance between fire and cold based on your current Psi level.
 section "mod-tome/data/talents/psionic/thought-forms.lua"
 
 t("thought-form", "精神体", "_t")
-t("Thought-Form: Bowman", "思维形态：弓箭手", "talent name")
+t("Thought-Form: Bowman", "具象之弧：弓箭手", "talent name")
 t("Not enough space to summon!", "没有足够的空间召唤！", "logPlayer")
 t("thought-forged bowman", "精神体弓箭手", "_t")
 t("A thought-forged bowman.  It appears ready for battle.", "一位精神体弓箭手。他时刻准备着战斗。", "_t")
 t([[Forge a bowman, clad in leather armor, from your thoughts.  The bowman learns Bow Mastery, Combat Accuracy, Steady Shot, Crippling Shot, and Rapid Shot as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
 		Activating this talent will put all other thought-forms on cooldown.
 		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位身穿皮甲的精神体弓箭手。当精神体弓箭手到达对应等级时可习得弓术专精、强化命中、稳固射击、致残射击和瞄准姿态，并且可增加 %d 点力量、 %d 点敏捷和 %d 体质。
-		激活此技能会使其他思维形态技能进入冷却。
+		激活此技能会使其他具象之弧技能进入冷却。
 		属性增益受精神强度加成。]], "tformat")
-t("Thought-Form: Warrior", "思维形态：战士", "talent name")
+t("Thought-Form: Warrior", "具象之弧：战士", "talent name")
 t("thought-forged warrior", "精神体战士", "_t")
 t("A thought-forged warrior wielding a massive battle-axe and clad in heavy armor.  It appears ready for battle.", "一位手持巨型战斧、身穿重甲的精神体战士。他时刻准备着战斗。", "_t")
 t([[Forge a warrior wielding a battle-axe from your thoughts.  The warrior learns Weapon Mastery, Combat Accuracy, Berserker, Death Dance, and Rush as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
 		Activating this talent will put all other thought-forms on cooldown.
 		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位手持战斧的精神体战士。当精神体战士到达对应等级时可习得武器掌握、强化命中、嗜血、死亡之舞和冲锋，并且可增加 %d 点力量、 %d 点敏捷和 %d 体质。
-		激活此技能会使其他思维形态技能进入冷却。
+		激活此技能会使其他具象之弧技能进入冷却。
 		属性增益受精神强度加成。]], "tformat")
-t("Thought-Form: Defender", "思维形态：盾战士", "talent name")
+t("Thought-Form: Defender", "具象之弧：盾战士", "talent name")
 t("thought-forged defender", "精神体盾战士", "_t")
 t("A thought-forged defender clad in massive armor.  It wields a sword and shield and appears ready for battle.", "一位身穿重甲的精神体盾战士。他手持剑盾，时刻准备着战斗。", "_t")
 t([[Forge a defender wielding a sword and shield from your thoughts.  The solider learns Armor Training, Weapon Mastery, Combat Accuracy, Shield Pummel, and Shield Wall as it levels up, and has +%d Strength, +%d Dexterity, and +%d Constitution.
 		Activating this talent will put all other thought-forms on cooldown.
 		The stat bonuses will improve with your Mindpower.]], [[你从脑海里召唤出一位手持剑盾的精神体盾战士。当精神体盾战士到达对应等级时可习得重甲训练、武器掌握、强化命中、盾牌连击和盾墙，并且可增加 %d 点力量、 %d 点敏捷和 %d 体质。
-		激活此技能会使其他思维形态技能进入冷却。
+		激活此技能会使其他具象之弧技能进入冷却。
 		属性增益受精神强度加成。]], "tformat")
-t("Thought-Forms", "思维形态", "talent name")
+t("Thought-Forms", "具象之弧", "talent name")
 t([[Forge a guardian from your thoughts alone.  Your guardian's primary stat will be improved by %d, its two secondary stats by %d, and it will have Magic, Cunning, and Willpower equal to your own.
 		At talent level one, you may forge a mighty bowman clad in leather armor; at level three a powerful warrior wielding a two-handed weapon; and at level five a strong defender using a sword and shield.
 		Thought forms can only be maintained up to a range of %d, and will rematerialize next to you if this range is exceeded.
 		Only one thought-form may be active at a time, and the stat bonuses will improve with your Mindpower.]], [[仅凭思维塑造一名守护者。守护者的主属性会增加 %d， 两项副属性各增加 %d， 并且其魔力、灵巧和意志将分别等同于你的相应属性。
 		技能等级 1 时，你可以塑造一名身着皮甲的威猛弓箭手；技能等级 3 时，塑造一名手持双手武器的强大战士；技能等级 5 时，塑造一名使用剑盾的强健盾战士。
-		思维形态只能维持在 %d 格范围内，超出此范围时会在你身边重新实体化。
-		同一时间只能有一种思维形态处于激活状态，属性加成会随你的精神强度提高。]], "tformat")
-t("Transcendent Thought-Forms", "卓越思维形态", "talent name")
+		具象之弧只能维持在 %d 格范围内，超出此范围时会在你身边重新实体化。
+		同一时间只能有一种具象之弧处于激活状态，属性加成会随你的精神强度提高。]], "tformat")
+t("Transcendent Thought-Forms", "具象之弧：卓越", "talent name")
 t("Your thought-forms now know Lucid Dreamer, Biofeedback, and Psychometry at talent level %d.", "你的精神体习得技能等级为 %d 的清晰梦境、生物反馈和共鸣之心。", "tformat")
 t("Over Mind", "思维支配", "talent name")
-t("You must have an active Thought-Form to use this talent!", "你必须维持一种思维形态才能使用该技能！", "logPlayer")
+t("You must have an active Thought-Form to use this talent!", "你必须维持一种具象之弧才能使用该技能！", "logPlayer")
 t([[Take direct control of your active thought-form, improving its damage, attack speed, and maximum life by %d%%, but leaving your body a defenseless shell.
 		At talent level 1, any Feedback your Thought-Forms gain will be given to you as well. At level 3, your Thought-Forms gain a bonus to all saves equal to your Mental Save. At level 5, they gain a bonus to all damage equal to your bonus mind damage.
 		The secondary bonuses apply whether or not this talent is currently active.
@@ -27989,11 +27989,11 @@ t([[Take direct control of your active thought-form, improving its damage, attac
 		技能等级 5 时，它们会获得所有伤害加成，数值等同你的额外精神伤害。
 		这些次级增益无论此技能是否激活均有效。
 		上述生命、伤害与速度加成受精神强度加成。]], "tformat")
-t("Thought-Form Unity", "思维形态共鸣", "talent name")
+t("Thought-Form Unity", "具象之弧：共鸣", "talent name")
 t([[You now gain %d%% mind speed while Thought-Form: Bowman is active, %d Mindpower while Thought-Form: Warrior is active, and %d%% resist all while Thought-Form: Defender is active. 
-		These bonuses scale with your Mindpower.]], [[现在，当思维形态：弓箭手激活时，你提升 %d%% 精神速度；
-		当思维形态：战士激活时，你提升 %d 精神强度；
-		当思维形态：盾战士激活时，你提升 %d%% 全体伤害抗性。
+		These bonuses scale with your Mindpower.]], [[现在，当具象之弧：弓箭手激活时，你提升 %d%% 精神速度；
+		当具象之弧：战士激活时，你提升 %d 精神强度；
+		当具象之弧：盾战士激活时，你提升 %d%% 全体伤害抗性。
 		受精神强度影响，增益效果按比例加成。]], "tformat")
 
 ------------------------------------------------
@@ -29170,10 +29170,10 @@ t([[Consume a soul to empower one of your skeleton, making it into a Lord of Sku
 		骷髅王额外获得 %d 点生命上限，并立即恢复全部生命。
 		同时只能存在一个骷髅王；对另一个骷髅施放此法术会移除当前骷髅王的效果。
 		技能等级足够高时，它还会获得新技能：
-		- 技能等级 2 时，战士学会“巨人飞跃”，一个强力的跳跃攻击，会在落地时造成伤害并使敌人眩晕，还会解除骷髅身上的震慑、眩晕和定身效果。
+		- 技能等级 2 时，战士学会“战争践踏”，一个强力的跳跃攻击，会在落地时造成伤害并使敌人眩晕，还会解除骷髅身上的震慑、眩晕和定身效果。
 		- 技能等级 3 时，弓箭手学会“要害射击”，一记毁灭性的攻击，能够震慑并致残敌人。
 		- 技能等级 5 时，法师学会“落星”，一个毁灭性法术，会在大范围内碾压并灼烧敌人多个回合，同时震慑他们。
-		- 技能等级 6 时，骨巨人学会“你将成为我的武器！”，一记威力巨大的攻击，会造成高额伤害、击退并震慑敌人。
+		- 技能等级 6 时，骨巨人学会“化作星星吧！！”，一记威力巨大的攻击，会造成高额伤害、击退并震慑敌人。
 		]], "tformat")
 
 ------------------------------------------------
@@ -29937,7 +29937,7 @@ t("You cannot tumble to that space.", "你不能翻筋斗到这个地点。", "l
 t([[Move to a spot within range, bounding around, over, or through any enemies in the way.
 		This maneuver can surprise your foes and improves your tactical position, improving your physical critical chance by %d%% for 1 turn.]], [[移动到范围内的指定位置，绕过、跃过或穿过沿途的任何敌人。
 		这一动作可能令敌人措手不及，并让你占据更有利的战术位置，使物理暴击率提高 %d%%， 持续 1 回合。]], "tformat")
-t("Trained Reactions", "受训反应", "talent name")
+t("Trained Reactions", "特种训练", "talent name")
 t([[While this talent is sustained, you anticipate deadly attacks against you.
 		Any time you would lose more than %d%% of your maximum life in a single hit, you instead duck out of the way and assume a defensive posture.
 		This reduces the triggering damage and all further damage in the same turn by %d%%.
@@ -29947,8 +29947,8 @@ t([[While this talent is sustained, you anticipate deadly attacks against you.
 		你需要 %0.1f 体力和相邻的无人空地来触发技能效果（尽管你不会因为躲避而移动）。]], "tformat")
 t("Superb Agility", "身轻如燕", "talent name")
 t([[You gain greater facility with your acrobatic moves, lowering the cooldowns of Vault, Tumble, and Trained Reactions by %d, and their stamina costs by %0.1f.
-		At Rank 3 you also gain 10%% global speed for 1 turn after Trained Reactions activates. At rank 5 this speed bonus improves to 20%% and lasts for 2 turns.]], [[你使用杂耍系技能更加得心应手，降低撑杆跳、翻筋斗和受训反应的冷却时间 %d 回合，降低技能的体力消耗 %0.1f。
-		在等级 3 时，每当受训反应触发，你获得 10%% 的整体速度 1 回合。
+		At Rank 3 you also gain 10%% global speed for 1 turn after Trained Reactions activates. At rank 5 this speed bonus improves to 20%% and lasts for 2 turns.]], [[你使用杂耍系技能更加得心应手，降低撑杆跳、翻筋斗和特种训练的冷却时间 %d 回合，降低技能的体力消耗 %0.1f。
+		在等级 3 时，每当特种训练触发，你获得 10%% 的整体速度 1 回合。
 		在等级 5 时，速度加成变为 20%%，持续 2 回合。]], "tformat")
 
 ------------------------------------------------
@@ -30567,7 +30567,7 @@ t("You must have an empty space to roll to.", "你必须有一个空的格子才
 t([[In an extreme feat of agility, you move to a spot you can see within range, bounding around, over, or through any enemies in the way.
 		This talent cannot be used while wearing heavy armor, and leaves you exhausted.  The exhaustion increases the cost of your activated Mobility talents by %d%% (stacking), but fades over %d turns.]], [[你迅速地移动至范围内可见的位置，跃过路径上所有敌人。
 		该技能在身着重甲时不能使用，使用后你会进入力竭状态，增加主动移动系技能消耗 %d%% （可以叠加），并在 %d 回合内逐渐消退。]], "tformat")
-t("Trained Reactions", "受训反应", "talent name")
+t("Trained Reactions", "特种训练", "talent name")
 t("#FIREBRICK##Target# reacts to %s from #Source#, mitigating the blow!#LAST#.", "#FIREBRICK##Target#对#Source#的%s迅速反应，降低了伤害！#LAST#", "logCombat")
 t("an attack", "一次攻击", "_t")
 t("damage", "伤害", "_t")
@@ -30705,13 +30705,13 @@ t("Sling Supremacy", "投石索精通", "talent name")
 t([[Increases weapon damage by %d%% and physical power by 30 when using slings.
 		Also, increases your reload rate by %d.]], [[使用投石索时提高 %d%% 武器伤害，获得 30 物理强度。
 		同时，每次装填额外恢复 %d 枚弹药。]], "tformat")
-t("Swift Shot", "疾风投射", "talent name")
+t("Swift Shot", "快速射击", "talent name")
 t("Double Archery (#LIGHT_GREEN#%d%%#LAST# of a turn)", "双倍射速(#LIGHT_GREEN#%d%%#LAST#回合)", "tformat")
 t([[Fire off a quick sling bullet for %d%% damage at double your normal attack speed, as well as increasing your attack speed by %d%% for 5 turns.
 		Each time you move, the cooldown of this talent is reduced by 1.]], [[以普通攻击两倍的速度发射一枚弹丸，造成 %d%% 伤害，并使你的攻击速度提高 %d%%， 持续 5 回合。
 		你每移动一次，本技能的冷却时间减少 1 回合。]], "tformat")
 t("Hurricane Shot", "飓风连射", "talent name")
-t("Take aim and unload up to %d shots for %d%% weapon damage each against random enemies inside a cone. Each enemy can only be hit once (twice for talent level 3 and higher). Using Swift Shot lowers the cooldown by 1.", "最多发射 %d 颗弹丸，随机攻击锥形范围内的敌人，每颗造成 %d%% 武器伤害。每个敌人只能被攻击 1 次（当技能等级在 3 级或更高时为 2 次）。使用疾风投射技能会降低冷却时间 1 回合。", "tformat")
+t("Take aim and unload up to %d shots for %d%% weapon damage each against random enemies inside a cone. Each enemy can only be hit once (twice for talent level 3 and higher). Using Swift Shot lowers the cooldown by 1.", "最多发射 %d 颗弹丸，随机攻击锥形范围内的敌人，每颗造成 %d%% 武器伤害。每个敌人只能被攻击 1 次（当技能等级在 3 级或更高时为 2 次）。使用快速射击技能会降低冷却时间 1 回合。", "tformat")
 t("Bombardment", "连环炮击", "talent name")
 t("Your Shoot talent now costs %d stamina but fires %d times for %d%% damage per shot.", "你的射击技能现在消耗 %d 体力，但会发射 %d 颗弹丸，每颗造成 %d%% 伤害。", "tformat")
 
@@ -31322,7 +31322,7 @@ t("Have sided with the Assassin Lord", "与刺客领主同流合污", "_t")
 t([[You have friends in low places and have learned some underhanded tricks.
 		Gain 0.2 Category Mastery to the Cunning/Stealth Category (or unlock it, if you have the tree and it is locked), and either gain +0.1 to the Cunning/Scoundrel category or learn and unlock the category at 0.9 if you lack it.
 		Additionally, all of your damage penalties from invisibility are permanently halved.]], [[你结交了狐朋狗友，学到了一些下三滥的技巧。
-		增加灵巧/潜行系 0.2 系数值（若已拥有该技能树但未解锁，则将其解锁），同时增加灵巧/无赖系 0.1 系数值（未习得则以 0.9 的技能系数解锁此技能树）。
+		增加灵巧/潜行系 0.2 系数值（若已拥有该技能树但未解锁，则将其解锁），同时增加灵巧/街头格斗系 0.1 系数值（未习得则以 0.9 的技能系数解锁此技能树）。
 		此外，你隐形时的伤害惩罚永久减半。]], "tformat")
 -- untranslated text
 --[==[
@@ -31335,7 +31335,7 @@ t([[- %s
 ------------------------------------------------
 section "mod-tome/data/talents/uber/dex.lua"
 
-t("Flexible Combat", "灵活格斗", "talent name")
+t("Flexible Combat", "自由格斗", "talent name")
 t("Each time that you make a melee attack you have a 50%% chance to execute an additional unarmed strike.", "每当你进行近战攻击时，有 50%% 几率追加一次额外的徒手攻击。", "tformat")
 t("Through The Crowd", "穿梭人群", "talent name")
 t("Have had at least 6 party members at the same time", "队伍里同时拥有至少6名成员", "_t")
@@ -31361,7 +31361,7 @@ t([[You like to keep your most precious tools always at hand. This talent lets y
 t("Windblade", "剑刃风暴", "talent name")
 t("Have dealt over 50000 damage with dual wielded weapons", "曾使用双持武器累计造成超过 50000 点伤害", "_t")
 t("You spin madly, generating a sharp gust of wind with your weapons that deals 320%% weapon damage to all targets within radius 4 and disarms them for 4 turns.", "你挥动武器疯狂旋转，产生剑刃风暴，对 4 格范围内所有目标造成 320%% 的武器伤害，并缴械它们 4 回合。", "tformat")
-t("Windtouched Speed", "疾风之速", "talent name")
+t("Windtouched Speed", "和风守护", "talent name")
 t("Know at least 10 talent levels of equilibrium-using talents", "掌握的使用失衡值的技能合计至少10级", "_t")
 t([[You are attuned with Nature, and she helps you in your fight against the arcane forces.
 		You gain 20%% permanent global speed, 10%% cooldowns reduction and do not trigger pressure traps.]], [[你和大自然产生共鸣，在与奥术势力的战斗中受到她的赐福。
@@ -31389,7 +31389,7 @@ t([[You fire a shot straight at your enemy's vital areas, wounding them terribly
 ------------------------------------------------
 section "mod-tome/data/talents/uber/mag.lua"
 
-t("Spectral Shield", "幽灵之盾", "talent name")
+t("Spectral Shield", "弧光之盾", "talent name")
 t("Know the Block talent, have cast 100 spells, and have a block value over 200", "掌握格挡技能，曾释放过 100 个法术，且格挡值至少为 200", "_t")
 t("By infusing your shield with raw magic, your block can now block any damage type.", "向盾牌中灌注魔法力量，使格挡技能能够格挡任何类型的伤害。", "tformat")
 t("Ethereal Form", "虚幻形态", "talent name")
@@ -31422,7 +31422,7 @@ t([[Your study of arcane forces has let you develop a new way of applying your a
 
 		你将习得以下技能：
 %s]], "tformat")
-t("Arcane Might", "奥术伟力", "talent name")
+t("Arcane Might", "奥术之握", "talent name")
 t([[You have learned to harness your latent arcane powers, channeling them through your weapon.
 		This has the following effects:
 		Equipped weapons are treated as having an additional 50%% Magic modifier;
@@ -31571,19 +31571,19 @@ t([[%s
 ------------------------------------------------
 section "mod-tome/data/talents/uber/str.lua"
 
-t("Giant Leap", "巨人飞跃", "talent name")
+t("Giant Leap", "战争践踏", "talent name")
 t("Have dealt over 50000 damage with any weapon or unarmed", "曾使用武器或徒手造成超过50000点伤害", "_t")
 t([[You accurately jump to the target and deal 200%% weapon damage to all foes within radius 1 on impact as well as dazing them for 3 turns.
 		When you jump you free yourself from any stun, daze and pinning effects.]], [[你跃向目标地点，对半径 1 格范围内的所有敌人造成 200%% 的武器伤害，并使它们眩晕 3 回合。
 		落地后，你解除自身眩晕、定身和震慑效果。]], "tformat")
-t("You Shall Be My Weapon!", "你将成为我的武器！", "talent name")
+t("You Shall Be My Weapon!", "化作星星吧！！", "talent name")
 t("Be of size category 'big' or larger. This is also required to use it.", "体型至少为较大（使用也要满足此条件）", "_t")
 t([[You deal a massive blow to your foe, smashing it for 350%% weapon damage, knocking it back 5 tiles, and knocking aside all foes in its path.
 		All targets affected are stunned for 3 turns.
 		For each size category over 'big' you gain an additional +80%% weapon damage.]], [[对敌人进行一次猛击，造成 350%% 的武器伤害并将目标击退 5 格，同时撞开路径上的所有敌人。
 		所有受影响的目标都会被震慑 3 回合。
 		体型每超过“较大”一级，便额外造成 80%% 武器伤害。]], "tformat")
-t("Massive Blow", "巨力重击", "talent name")
+t("Massive Blow", "巨人之锤", "talent name")
 t("Have dug at least 30 walls/trees/etc. and have dealt over 50000 damage with two-handed weapons", "曾挖掉至少 30 块石头/树木/等等，并且使用双手武器造成超过 50000 点伤害", "_t")
 t([[You deal a massive blow to your foe, smashing it for 150%% weapon damage and knocking it back 4 tiles (ignoring knockback resistance or physical save).
 		If the knockback makes it hit a wall, it will smash down the wall, deal an additional 350%% weapon damage and apply the Counterstrike effect.]], [[对敌人进行一次猛击，造成 150%% 的武器伤害并击退目标 4 格（无视击退免疫和物理豁免）；攻击命中时还会对目标附加被反击特效。
@@ -31608,9 +31608,9 @@ t([[Your strength is legendary; fatigue and physical exertion mean nothing to yo
 		Your fatigue is permanently set to 0, carrying capacity increased by 500, and strength increased by 50 and you gain a size category.]], [[你是如此强壮，永不疲倦。
 		疲劳值永久为 0 且负重上限增加 500 点。
 		你增加 50 点力量并且体型 +1。]], "tformat")
-t("Legacy of the Naloren", "纳鲁精灵的遗产", "talent name")
+t("Legacy of the Naloren", "纳鲁精灵的馈赠", "talent name")
 t("Have sided with Slasul and killed Ukllmswwik", "站在萨拉苏尔一方并且杀死乌克勒姆斯维奇", "_t")
-t("Legacy of the Naloren", "纳鲁精灵的遗产", "_t")
+t("Legacy of the Naloren", "纳鲁精灵的馈赠", "_t")
 t("Slasul will be happy to know your faith in his cause. You should return to speak to him.", "萨拉苏尔得知你对他的事业抱有信心，会很高兴。你应该去见他一面。", "_t")
 t([[You have sided with Slasul and helped him vanquish Ukllmswwik. You are now able to breathe underwater with ease.
 		You have also learned to use tridents and other exotic weapons easily (talent level %d of Exotic Weapon Mastery), and can Spit Poison (talent level %d) as nagas do. These are bonus talent levels that increase with your character level.
@@ -35469,12 +35469,12 @@ t("#Target# has regressed.", "#Target#退化了。", "_t")
 t("+Regression", "+退化", "_t")
 t("#Target# has returned to its natural state.", "#Target#恢复了原本的状态。", "_t")
 t("-Regression", "-退化", "_t")
-t("Attenuate", "衰减", "_t")
+t("Attenuate", "湮灭洪流", "_t")
 t("The target is being removed from the timeline and is taking %0.2f temporal damage per turn.", "目标被移出时间线，每回合受到 %0.2f 时空伤害。", "tformat")
 t("#Target# is being being removed from the timeline!", "#Target#被从时间线中除去！", "_t")
-t("+Attenuate", "+衰减", "_t")
-t("#Target# survived the attenuation.", "#Target#从衰减中存活了下来。", "_t")
-t("-Attenuate", "-衰减", "_t")
+t("+Attenuate", "+湮灭洪流", "_t")
+t("#Target# survived the attenuation.", "#Target#从湮灭洪流中存活了下来。", "_t")
+t("-Attenuate", "-湮灭洪流", "_t")
 t("%s has been removed from the timeline!", "%s被移出时间线！", "logSeen")
 t("The target is being grounded in the timeline and is healing %0.2f life per turn.", "目标正被锚定在时间线中，每回合恢复 %0.2f 点生命。", "tformat")
 t("#Target# is being being grounded in the timeline!", "#Target#被锚定在时间线中！", "_t")
@@ -36407,12 +36407,12 @@ t("Sever Lifeline", "生命离断", "_t")
 t("The target's lifeline is being cut. When the effect ends %d temporal damage will hit the target.", "目标的生命线被切断，效果结束时对目标造成 %d 时空伤害。", "tformat")
 t("#Target#'s lifeline is being severed!", "#Target#的生命线正被切断！", "_t")
 t("+Sever Lifeline", "+生命离断", "_t")
-t("Fade From Time", "淡出时间", "_t")
+t("Fade From Time", "时光凋零", "_t")
 t("The target is partially removed from the timeline, reducing all damage dealt by %d%%, all damage received by %d%%, and the duration of all detrimental effects by %d%%.", "目标被部分移出时间线，造成的伤害减少 %d%%，受到的伤害减少 %d%%，所有不良效果的持续时间缩短 %d%%。", "tformat")
 t("#Target# has partially removed itself from the timeline.", "#Target#部分从时间线中消失。", "_t")
-t("+Fade From Time", "+淡出时间", "_t")
+t("+Fade From Time", "+时光凋零", "_t")
 t("#Target# has returned fully to the timeline.", "#Target#完全返回了时间线内。", "_t")
-t("-Fade From Time", "-淡出时间", "_t")
+t("-Fade From Time", "-时光凋零", "_t")
 t("darkness", "暗影", "effect subtype")
 t("Shadow Veil", "暗影面纱", "_t")
 t("You veil yourself in shadows and let them control you. While in the veil you become immune to status effects, and gain %d%% all damage reduction. Each turn you blink to a nearby foe within range %d, hitting it for %d%% darkness weapon damage. While this goes on you cannot be stopped unless you are killed, and you cannot control your character.", "你融入暗影并被其支配。笼罩在阴影中时，你免疫负面状态，并减少 %d%% 所受伤害；每回合你会闪现到 %d 格内的一个敌人身边，对其造成 %d%% 暗影武器伤害。此效果持续期间你无法控制角色，除非死亡，否则无法被打断。", "tformat")
@@ -36979,7 +36979,7 @@ t("#Target# loses sight!", "#Target#失明了！", "_t")
 t("+Blind", "+致盲", "_t")
 t("#Target# recovers sight.", "#Target#恢复了视力。", "_t")
 t("-Blind", "-致盲", "_t")
-t("Stoneskin", "坚石肌肤", "_t")
+t("Stoneskin", "石化皮肤", "_t")
 t("The target's skin reacts to damage, granting %d armour.", "目标皮肤抵抗伤害，提升 %d 护甲值。", "tformat")
 t("Thorny Skin", "荆棘皮肤", "_t")
 t("The target's skin reacts to damage, granting %d armour and %d%% armour hardiness.", "目标的皮肤可以削弱伤害，提升 %d 护甲值和 %d%% 护甲强度。", "tformat")
@@ -37440,10 +37440,10 @@ t("Defensive Roll", "防御滚动", "_t")
 t("#Target# assumes an extreme defensive posture, avoiding some damage!", "#Target#进入了极端防守姿态，躲避部分伤害！", "_t")
 t("The target is in an extreme defensive posture, avoiding %d%% of all incoming damage.", "目标处于极端防守姿态，使所有受到的伤害减少 %d%%。", "tformat")
 t("cooldown", "冷却", "effect subtype")
-t("Trained Reactions Cooldown", "受训反应冷却", "_t")
+t("Trained Reactions Cooldown", "特种训练冷却", "_t")
 t("#LIGHT_BLUE##Target# may dodge again.", "#LIGHT_BLUE##Target#可以再次躲避了。", "_t")
-t("+Trained Reactions", "+受训反应", "_t")
-t("Trained Reactions may not trigger.", "受训反应暂时不能触发。", "_t")
+t("+Trained Reactions", "+特种训练", "_t")
+t("Trained Reactions may not trigger.", "特种训练暂时不能触发。", "_t")
 t("Superb Agility", "身轻如燕", "_t")
 t("#Target# has sped up!", "#Target#速度上升！", "_t")
 t("The target's reactions have quickened, giving +%d%% global speed.", "目标的反应速度变快了，整体速度提升 %d%%。", "tformat")
@@ -37613,7 +37613,7 @@ t("Chromatic Resistance", "多彩抵抗", "_t")
 t("%sresistance increased by %d%%.", "%s抗性增加 %d%%。", "tformat")
 t("#Target##OLIVE_DRAB# resonates with %s%s#LAST# damage!", "#Target##OLIVE_DRAB#和%s%s#LAST#伤害共鸣！", "tformat")
 t("#Target##OLIVE_DRAB# no longer resonates with %s%s#LAST# damage!", "#Target##OLIVE_DRAB# 不再和%s%s#LAST#伤害共鸣！", "tformat")
-t("Swift Shot", "疾风投射", "_t")
+t("Swift Shot", "快速射击", "_t")
 t("Crooked", "扭曲", "_t")
 t("The target becomes more and more primitive, reducing accuracy and powers by %d", "目标变得越来越原始，命中和强度减少%d", "tformat")
 t("Eldoral", "艾德瑞尔", "_t")
@@ -37821,7 +37821,7 @@ t("rogue", "盗贼", "entity name")
 t("Stealthy fighters trying to achieve victory with trickery. Be careful or they will steal your sight!", "善用诡计的潜行斗士。小心他们偷走你的视觉！", "_t")
 t("trickster", "欺诈者", "entity name")
 t("Stealthy ranged fighters trying to achieve victory with trickery. Be careful or they will shoot your heart!", "善用诡计的潜行远程斗士。小心他们射穿你的心脏！", "_t")
-t("shadowblade", "暗影之刃", "entity name")
+t("shadowblade", "影舞者", "entity name")
 t("Stealthy fighters trying to achieve victory with trickery. Be careful or they will steal your life!", "善用诡计取胜的潜行斗士。小心，他们会偷走你的生命！", "_t")
 t("fire wyrmic", "炎龙战士", "entity name")
 t("A fire wyrmic aspiring to win the tournament. He comes paired with an ice wyrmic.", "一位立志赢得比赛的炎龙战士。他常和一位冰龙战士一起。", "_t")
@@ -38060,14 +38060,14 @@ t("altar", "祭坛", "entity name")
 ------------------------------------------------
 section "mod-tome/data/zones/crypt-kryl-feijan/npcs.lua"
 
-t("Kryl-Feijan", "克里尔·费扬", "entity name")
+t("Kryl-Feijan", "卡洛·斐济", "entity name")
 t("This huge demon is covered in darkness. The ripped flesh of its \"mother\" still hangs from its sharp claws.", "这只巨大的恶魔被黑暗所包围。它的“母亲”的碎肉仍悬挂在它的利爪上。", "_t")
 t("and devoured as a demonic breakfast", "并将其当作恶魔早餐吞噬", "_t")
 t("Melinda", "梅琳达", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
 t("A female Human with twisted sigils scored into her naked flesh. Her wrists and ankles are sore and hurt by ropes and chains. You can discern great beauty beyond the stains of blood covering her skin.", "一位人类女子，赤裸的肌肤上刻满了扭曲的符文。她的手腕和脚踝被绳索与锁链勒得伤痕累累。透过皮肤上斑斑的血迹，你仍能看出她的绝美容颜。", "_t")
-t("Acolyte of the Sect of Kryl-Feijan", "克里尔·费扬的邪教徒", "entity name")
+t("Acolyte of the Sect of Kryl-Feijan", "卡洛·斐济的邪教徒", "entity name")
 t("elf", "精灵", "entity subtype")
 t("Black-robed Elves with a mad look in their eyes.", "穿着黑色长袍的精灵，他们的眼中满是疯狂。", "_t")
 t("Melinda", "梅琳达", "_t")
@@ -38085,7 +38085,7 @@ t("writhing mindstar", "翻腾的灵晶", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/crypt-kryl-feijan/zone.lua"
 
-t("Dark crypt", "黑暗地宫", "_t")
+t("Dark crypt", "黑暗地窖", "_t")
 t("Crypt", "地宫", "_t")
 t("You hear an eerie chanting echoing from a distance.", "你听到远方传来的念诵回响声。", "_t")
 t("The chanting grows louder. You hear a sudden high-pitched scream.", "念诵声增大了。你突然听到一声尖叫。", "_t")
@@ -38451,7 +38451,7 @@ t("Cancel", "取消", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/golem-graveyard/npcs.lua"
 
-t("Atamathon the Giant Golem", "巨型傀儡阿塔玛森", "entity name")
+t("Atamathon the Giant Golem", "傀儡之王阿塔玛森", "entity name")
 t("This giant golem was constructed by the Halflings during the Pyre Wars to fight the orcs, but was felled by Garkul the Devourer. Someone foolish has tried to reconstruct it, but has lost control of it, and now it rampages in search of its original creators, who are long dead. Its body is made of marble, its joints of solid voratun, and its eyes of purest ruby. At over 40 feet tall, it towers above you, and its crimson orbs seem to glow with rage.", "这只巨大的傀儡是半身人在烈火战争期间为对抗兽人而建造的，但被吞噬者加库尔击倒。某个愚蠢的家伙试图重建它，却已失去对它的控制，如今它横冲直撞，寻找早已死去的制造者们。它的躯体由大理石制成，关节由坚固的沃瑞钽制成，眼睛则由最纯净的红宝石构成。它足有四十多英尺高，像铁塔般耸立在你面前，猩红的眼眸似乎闪烁着怒火。", "_t")
 t("DESTROY!", "毁灭一切！", "_t")
 t("LIFE-ENDING SYSTEMS ACTIVATED!", "屠杀系统已启动！", "_t")
@@ -38469,7 +38469,7 @@ section "mod-tome/data/zones/golem-graveyard/objects.lua"
 t("red", "红色", "entity subtype")
 t("Atamathon's Ruby Eye", "阿塔玛森的红宝石眼睛", "entity name")
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
-It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed, it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[传奇巨型傀儡阿塔玛森的红宝石眼睛之一。
+It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed, it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[传奇傀儡之王阿塔玛森的红宝石眼睛之一。
 据说它是半身人在烈火纪为了对抗兽人所造的武器。虽然它被破坏了，但它仍杀死了兽人的首领吞噬者加库尔，给了对方沉重一击。]], "_t")
 
 ------------------------------------------------
@@ -38552,10 +38552,10 @@ t("Grushnak Pride", "格鲁希纳克部落", "_t")
 ------------------------------------------------
 section "mod-tome/data/zones/halfling-ruins/npcs.lua"
 
-t("Subject Z", "实验体 Z", "entity name")
+t("Subject Z", "代号“Z”", "entity name")
 t("humanoid", "人形生物", "entity type")
 t("human", "人类", "entity subtype")
-t("This seems to be the 'subject Z' the notes spoke about. He looks human, but this cannot be -- he would be about five thousand years old!", "这似乎就是笔记中提到的“实验体 Z”。他看起来像人类，但这不可能——他应该有大约五千岁了！", "_t")
+t("This seems to be the 'subject Z' the notes spoke about. He looks human, but this cannot be -- he would be about five thousand years old!", "这似乎就是笔记中提到的代号“Z”。他看起来像人类，但这不可能——他应该有大约五千岁了！", "_t")
 t("and bloodily smeared across the granite walls", "并将其血淋淋地涂抹在花岗岩墙壁上", "_t")
 t("Sacrifice for the Way!", "为维网而献身！", "_t")
 t("#LIGHT_RED#Intense fight", "#LIGHT_RED#激烈的战斗", "_t")
@@ -39555,7 +39555,7 @@ t("#00FF00#Your stats have changed! (Str %s, Dex %s, Mag %s, Wil %s, Cun %s, Con
 t("red", "红色", "entity subtype")
 t("Atamathon's Lost Ruby Eye", "阿塔玛森丢失的红宝石眼睛", "entity name")
 t([[One of the ruby eyes of the legendary giant golem Atamathon.
-It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[传奇巨型傀儡阿塔玛森的红宝石眼睛之一。
+It is said it was made by the halflings during the Age of Pyre as a weapon against the orcs. Even though it was destroyed it managed to deal a crippling blow by killing their leader, Garkul the Devourer.]], [[传奇傀儡之王阿塔玛森的红宝石眼睛之一。
 据说阿塔玛森是半身人在烈火纪为了对抗兽人所造的武器。这具傀儡虽然最终被毁，但还是成功杀死了兽人首领吞噬者加库尔，给兽人以重创。]], "_t")
 
 ------------------------------------------------
@@ -39989,7 +39989,7 @@ t("tract", "小短文", "entity name")
 t("A tract revealing the history of the Nagas.", "一篇讲述娜迦历史的小短文。", "_t")
 t("note", "笔记", "entity name")
 t("A note.", "一份笔记。", "_t")
-t("Legacy of the Naloren", "纳鲁精灵的遗产", "entity name")
+t("Legacy of the Naloren", "纳鲁精灵的馈赠", "entity name")
 t("ornate orichalcum trident", "华丽的奥利哈刚三叉戟", "_t")
 t([[This incredibly beautiful -- and powerful -- trident is made of the rare metal orichalcum. An amazing pearl is seated in head of the trident, as it spreads into three razor sharp prongs.
 It is imbued with the greatest strengths of all of the most powerful Naga warriors.
@@ -43011,7 +43011,7 @@ t("In the Age of Pyre the orcs learned the secrets of magic, and with their newf
 t("The orcs once terrorised the whole continent. In the Age of Ascendancy they were rendered extinct, but rumours abound of hidden groups biding their time to return.", "兽人曾经给整个大陆带来了一场浩劫。在卓越纪，他们已被彻底灭绝，但传言四起，仍有隐匿的团体在蛰伏，伺机卷土重来。", "init.lua load_tips")
 t("Intense willpower lets wyrmics take on the natural powers of dragons.", "高强度的意志使龙战士可以获得龙族的自然力量。", "init.lua load_tips")
 t("Alchemists can transmute gems to create fiery explosions, and are known to travel with a sturdy golem for extra protection.", "炼金术士可以转化宝石制造炽烈的爆炸，并且往往带着一尊坚固的傀儡随行以获得额外保护。", "init.lua load_tips")
-t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造巨型傀儡阿塔玛森的唯一目的，就是阻止兽人首领吞噬者加库尔。加库尔仅凭一己之力便摧毁了这尊傀儡，随后又屠戮了一支数千人的军队，最终这名如恶魔般的战士才被杀死。", "init.lua load_tips")
+t("In the Age of Pyre the giant golem Atamathon was built with the sole purpose of stopping the orcish leader Garkul the Devourer. The golem was single-handedly destroyed by the orc, who then slaughtered an army of thousands before the demonic fighter was finally slain.", "在烈火纪，人们建造傀儡之王阿塔玛森的唯一目的，就是阻止兽人首领吞噬者加库尔。加库尔仅凭一己之力便摧毁了这尊傀儡，随后又屠戮了一支数千人的军队，最终这名如恶魔般的战士才被杀死。", "init.lua load_tips")
 t("None know what the Sher'Tul looked like, or what caused them all to disappear thousands of years ago. Their rare ruins are a source of mystery and terror.", "无人知晓夏·图尔人的长相，也没有人知道为什么他们在几千年前突然消失了。至今我们仍能从他们仅存的废墟里感受到他们的神秘和恐怖。", "init.lua load_tips")
 t("In deep places dark things dwell beyond description or understanding. None know the source of these hideous horrors.", "地城深处潜藏着无法用语言描述或理解的黑暗事物，无人知道它们从何而来。", "init.lua load_tips")
 t("Who knows what dark thoughts drive people to necromancy? Its art is as old as magic itself, and its creations have plagued all the races since the earliest memories.", "天知道是怎样的堕落思想才能使一个人成为死灵法师。这门艺术就像魔法一样历史悠久，它的造物自最早的记忆以来就一直困扰着所有种族。", "init.lua load_tips")

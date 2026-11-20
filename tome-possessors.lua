@@ -4,7 +4,7 @@ section "tome-possessors/data/achievements/possessors.lua"
 t("Bill Kill!", "比尔杀死！", "achievement name")
 t("Kill your own Doomed Shade in the body of Bill.", "附身于比尔时，杀死你自己的末日使者之影。", "_t")
 t("Unneshasshhary Kryl'ty", "相爱相杀", "achievement name")
-t("Kill Kryl'Feijan with the body of Shasshhiy'Kaish, or vice-versa.", "使用克里尔·费扬的身体杀死莎西·凯希，或者使用莎西·凯希的身体杀死克里尔·费扬。", "_t")
+t("Kill Kryl'Feijan with the body of Shasshhiy'Kaish, or vice-versa.", "使用卡洛·斐济的身体杀死莎西·凯希，或者使用莎西·凯希的身体杀死卡洛·斐济。", "_t")
 t("Unneshasshhary Kryl'ty (Redux)", "相爱相杀（重复）", "achievement name")
 t("Kill High Paladin Aeryn with the body of Sun Paladin John.", "使用太阳骑士约翰的身体杀死高阶太阳骑士艾琳。", "_t")
 
@@ -143,7 +143,7 @@ t([[Your psionic powers have no limits. You are now able to assault a target and
 ------------------------------------------------
 section "tome-possessors/data/talents/psionic/possession.lua"
 
-t("Possession Talent %d", "附身技能 %d", "tformat")
+t("Possession Talent %d", "支配技能 %d", "tformat")
 t("You must assume a form to use that form's talents.", "你必须占据一个身体才能使用这个身体的技能。", "logPlayer")
 t([[When you assume a form, this talent will be replaced with one of the body's talents.
 			The only use for this talent is to pre-organize your hotkeys bar.]], [[附身时，该技能会被替换成身体的其中一个技能。
@@ -281,7 +281,7 @@ t([[You point your ghastly finger at a foe affected by Ghastly Wail and send a p
 section "tome-possessors/data/talents/psionic/psionic.lua"
 
 t("psionic", "灵能", "talent category")
-t("possession", "附身", "talent type")
+t("possession", "支配", "talent type")
 t("Learn to possess the bodies of your foes!", "学会附身敌人的身体！", "_t")
 t("body snatcher", "躯体夺取", "talent type")
 t("Manipulate your dead foes bodies for power and success!", "操纵敌人的尸体，获取力量与胜利！", "_t")
@@ -365,7 +365,7 @@ t([[As long as you have at least a stack of Sadist you can mentally lash out at 
 section "tome-possessors/data/timed_effects.lua"
 
 t("psionic", "灵能", "effect subtype")
-t("possession", "附身", "effect subtype")
+t("possession", "支配", "effect subtype")
 t("Ominous Form", "不祥躯体", "_t")
 t("You stole your current form and share damage and healing with it.", "你偷取了当前躯体，并和它共享伤害与治疗。", "_t")
 t("Assume Form", "附身", "_t")
@@ -373,14 +373,14 @@ t("You use the body of one of your fallen victims. You can not heal in this form
 t("#CRIMSON#While you assume a form you may not levelup. All exp gains are delayed and will be granted when you reintegrate your own body.", "#CRIMSON#当你附身一个身体的时候，你不能升级。所有获得的经验值都会被保存，在你回到自己的身体的时候获得。", "_t")
 t("#CRIMSON#Your body died! You quickly return to your normal one but the shock is terrible!", "#CRIMSON#你的身体死掉了！你快速回到了你原来的身体，但是这对你产生了极大的冲击！", "say")
 t("was killed by possession aftershock", "被附身的影响杀死", "_t")
-t("Kryl-Feijan", "克里尔·费扬", "_t")
+t("Kryl-Feijan", "卡洛·斐济", "_t")
 t("Your possessed body's eyelids briefly flutter, and a tear rolls down its cheek. You didn't tell it to do that.", "你控制的身躯眼睑微微颤动，眼泪顺着脸颊滚落。你没有让它这么做。", "_t")
 t("Shasshhiy'Kaish", "莎西·凯希", "_t")
 t("The flames surrounding Shasshhiy'Kaish slowly die as she falls to her knees.  \"Fiend...  and I thought #{italic}#I#{normal}# could cause suffering.  It's the one thing Eyalites always did best,\" she spits.  \"I heard what had happened to him, and my followers have given more than enough of their life to restore me after this.  All you've accomplished here - [cough] - is giving us a worthwhile new goal...  and target.  All will be repaid tenfold, Eyalite.\"  Her coughing grows weaker, until she abruptly bursts into flame; her ashes scatter into the wind.", "莎西·凯希跪倒在地，她周围的火焰慢慢熄灭。“你们才是真正的恶魔……我以为#{italic}#我#{normal}#是制造痛苦的大师。但现在看来，你们埃亚尔人才是最擅长带来折磨的人。”她啐了一口唾沫。“我听说了他所发生的事情，我的追随者给了我足够的生命，让我可以东山再起。你对我所做的一切——【咳嗽】——只是给了我一个新的目标……一个复仇的对象。你们所做的一切都将被十倍偿还，埃亚尔人。”她的咳嗽声越来越轻，直到最终迸发成一团火焰。她的灰烬散落在风中。", "_t")
 t("High Sun Paladin Aeryn", "高阶太阳骑士艾琳", "_t")
 t("Aeryn's bewildered and terrified cries grow quiet, but...  your ears don't ring or hurt as screams of horror and rage surround you, louder than should be deafening.  When they shift to accusations, an unfamiliar guilt dominates your thoughts; you are forced to abandon your body before it can compel you to punish yourself.", "艾琳困惑而惊恐的哭声渐渐平静下来，但是……当恐惧和愤怒的尖叫声围绕着你，比震耳欲聋还要响亮的时候，你的耳朵不会响也不会痛。当他们转向指责时，一种陌生的罪恶感支配着你的思想；在它迫使你惩罚自己之前，你被迫放弃你的身体。", "_t")
 t("stun", "震慑", "effect subtype")
-t("Possession Aftershock", "附身余震", "_t")
+t("Possession Aftershock", "支配余震", "_t")
 t("The target is reeling from the aftershock of a destroyed possessed body, reducing damage by 60%%, reducing movement speed by 50%%.", "目标正承受附身躯体被摧毁后的余震，伤害减少 60%%, 移动速度减少 50%%。", "tformat")
 t("#Target# is stunned!", "#Target#被震慑！", "_t")
 t("+Stunned", "+震慑", "_t")
