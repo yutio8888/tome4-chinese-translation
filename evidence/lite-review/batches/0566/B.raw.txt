@@ -1,0 +1,92 @@
+{
+  "batch": "0566",
+  "lane": "B",
+  "verdicts": [
+    {
+      "id": "11bc04a54aff",
+      "verdict": "OK"
+    },
+    {
+      "id": "f214de7aca82",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/damage_types.lua:652 检查造成伤害的技能是否带有 is_nature 标记。“自然命中”缺少施动主体，容易误解为自然属性伤害命中。",
+      "suggestion": "自然系技能命中时释放技能：%s（%d%% 几率，等级 %d）。"
+    },
+    {
+      "id": "2c7913136daa",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/damage_types.lua:663 检查技能的 is_mind 标记。“精神命中”未说明触发条件取决于技能类别。",
+      "suggestion": "精神系技能命中时释放技能：%s（%d%% 几率，等级 %d）。"
+    },
+    {
+      "id": "8e28ea053f73",
+      "verdict": "OK"
+    },
+    {
+      "id": "fdbb30038010",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/data/timed_effects/floor.lua:129 为不死生物设置 resists 的 all 项。“全体”指全体成员，此处修饰的应是伤害类型。",
+      "suggestion": "目标位于死灵瘴气中，受到的治疗效果降低 40%。不死生物的所有伤害抗性还会提高 15%。"
+    },
+    {
+      "id": "c0f6ae03cc0e",
+      "verdict": "OK"
+    },
+    {
+      "id": "5af87ab89691",
+      "verdict": "OK"
+    },
+    {
+      "id": "af6f5cfa358b",
+      "verdict": "OK"
+    },
+    {
+      "id": "9555390eb241",
+      "verdict": "OK"
+    },
+    {
+      "id": "ab6b3e4b01c1",
+      "verdict": "ISSUE",
+      "observation": "game/modules/tome/class/interface/Archery.lua:348–349 显示射击命中也会消耗反击并调用 onStrike 翻倍；只写近战会误导玩家判断哪次攻击触发。",
+      "suggestion": "目标容易受到致命反击。下次被近战攻击或射击命中时，目标将承受双倍伤害。"
+    },
+    {
+      "id": "f926dde9cef2",
+      "verdict": "OK"
+    },
+    {
+      "id": "d0d5dba3ae5f",
+      "verdict": "OK"
+    },
+    {
+      "id": "894a24a27cc8",
+      "verdict": "OK"
+    },
+    {
+      "id": "b916d3e6ea7a",
+      "verdict": "OK"
+    },
+    {
+      "id": "16b09d2ffee6",
+      "verdict": "ISSUE",
+      "observation": "未固定 DLC cults/tome-cults/data/timed_effects.lua:2310–2315 排除了休息及熵反转等情况，每回合伤害还要向下取整。译文无条件断言总伤害恰好等于所列比例。",
+      "suggestion": "目标受到的治疗会引发熵反噬，持续 8 回合。每回合伤害为该次治疗量的 %d%% 除以 8，向下取整。休息时或由熵反转产生的治疗不会触发此效果。"
+    },
+    {
+      "id": "daf163974111",
+      "verdict": "OK"
+    },
+    {
+      "id": "503938ba793b",
+      "verdict": "OK"
+    },
+    {
+      "id": "45b892c43bca",
+      "verdict": "OK"
+    },
+    {
+      "id": "5486a81bd13e",
+      "verdict": "OK"
+    }
+  ]
+}

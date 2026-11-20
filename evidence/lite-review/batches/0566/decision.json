@@ -1,0 +1,44 @@
+{
+  "confirmed": [
+    {
+      "id": "f214de7aca82",
+      "edit": [
+        "自然命中时释放技能：%s（%d%% 几率，等级 %d）。",
+        "自然系技能命中时释放技能：%s（%d%% 几率，等级 %d）。"
+      ],
+      "evidence": "damage_types.lua:652 checks is_nature talent flag, not nature damage type; specify 自然系技能."
+    },
+    {
+      "id": "2c7913136daa",
+      "edit": [
+        "精神命中时释放技能：%s（%d%% 几率，等级 %d）。",
+        "精神系技能命中时释放技能：%s（%d%% 几率，等级 %d）。"
+      ],
+      "evidence": "damage_types.lua:663 checks is_mind talent flag, not mind damage type; specify 精神系技能."
+    },
+    {
+      "id": "fdbb30038010",
+      "edit": [
+        "目标位于死灵瘴气中，受到的治疗效果降低 40%。不死生物还会获得 15% 全体伤害抗性。",
+        "目标位于死灵瘴气中，受到的治疗效果降低 40%。不死生物还会获得 15% 所有伤害抗性。"
+      ],
+      "evidence": "floor.lua:129 sets resists.all; use 所有伤害抗性 rather than 全体伤害抗性."
+    },
+    {
+      "id": "ab6b3e4b01c1",
+      "edit": [
+        "容易受到致命反击。下一次受到近战攻击时将承受双倍伤害。",
+        "容易受到致命反击。下一次受到近战攻击或射击命中时将承受双倍伤害。"
+      ],
+      "evidence": "Archery.lua:348-349 also triggers EFF_COUNTERSTRIKE onStrike for double damage (consistent with Block talent wording)."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "16b09d2ffee6",
+      "reason": "English timed effect tooltip is concise; injecting resting/Entropic Reverse exclusions and math.floor rounding is Lua implementation trivia not required for gameplay clarity."
+    }
+  ],
+  "advisory": [],
+  "notes": "Wave 3 batch 0566: accepted 4 genuine clarity/mechanic improvements from lane B (f214de7aca82, 2c7913136daa, fdbb30038010, ab6b3e4b01c1); rejected 1 Lua over-expansion (16b09d2ffee6)."
+}
