@@ -1,10 +1,14 @@
-# 当前恢复入口（2026-11-20 交接：v0.3.15 已发布；Wave 1–3 专项 `0559–0568` 全部完成，待下轮发布窗口）
+# 当前恢复入口（2026-11-20 交接：v0.3.16 已发布，包含 Wave 1–3 专项 `0559–0568` 全量精修）
 
 **交接快照（2026-11-20，最新，优先阅读）**
-- 仓库状态：译文 `develop` 最新内容批次是 `0566–0568`（Wave 3 两大专项，本提交），已通过 17/17 `tools/ci-gates.sh` 与 `tools/push_github.sh` 过滤镜像推送。译文仓库工作树干净；`python3 -B tools/lite_review.py status` 显示 `release_required_units: 29554`、`reviewed_A: 29554`、`reviewed_B: 29554`、`pending_A: 0`、`pending_B_backfill: 0`。没有进行中的批次、门禁或子代理（所有侦察、抽样及 `0559–0568` 评审子代理均已归档）。
-- 发布仓库（`tome4-chn-mod` master `772d6f5`，tag `v0.3.15`）：工作树干净，与 `origin/master` 同步。包含 `data/chn_supplement.lua:87` Bloodstream 精简译文与 `0539–0558` 全量译文。`0559–0568`（三轮共 **101 个已精修单元**：Wave 1 59 + Wave 2 23 + Wave 3 19）留在译文仓 `develop` 累积，**未获维护者当轮直接指示前不发布 `v0.3.16`**。
+- 仓库状态：译文 `develop` 最新内容批次是 `0566–0568`（Wave 3 两大专项，`0a73abb35`，过滤镜像 `df1c78a93`），本提交记录 `v0.3.16` 发布凭据与交接。译文仓库工作树干净；`python3 -B tools/lite_review.py status` 显示 `release_required_units: 29554`、`reviewed_A: 29554`、`reviewed_B: 29554`、`pending_A: 0`、`pending_B_backfill: 0`。没有进行中的批次、门禁或子代理（所有侦察、抽样及 `0559–0568` 评审子代理均已归档）。
+- 当前最新公开插件：**v0.3.16**（2026-11-20 按维护者「请发布插件」指令发布，发布仓库 `tome4-chn-mod` master `2f369ec`，从 `772d6f5` 快进，无强推；tag `v0.3.16` 指向 `2f369ec`；公开正式 Release id `452491483`，标记为 Latest；工作树干净，与 `origin/master` 同步；**未获维护者当轮直接指示前不发布 `v0.3.17`**）。
+  - 来源：`0a73abb35`（lite 批 `0559–0568`，Wave 1–3 三轮共 **101 个已精修单元**）。
+  - 规模与产物：13,914 条＝核心 8,246＋引擎 207＋DLC 5,461（Ashes 743 / Cults 1,569 / Embers 3,149），locale sha256 `18a8ccd0…`；资产 `tome-chn-mod.teaa`，5,050,727 字节，sha256 `e3a2f659…`，33 个文件（`ZIP_STORED`，0 deflated）。
+  - 技术核对：对 `0a73abb35` 跑完整 `tools/ci-gates.sh`（17/17 `ALL GATES PASSED`）；`publish` dry-run 与 apply 运行时校验一致（19,144 键，0 missing/mismatched/redundant/unexpected）；`smoke_release.py` 通过（13,914 条；DLC 743/1,569/3,149 精确一致；null_translation 443 条）；`tests/test_dynamic_desc_fixes.lua` 对新 locale 与源码对比 `v0.3.15` 均 `ALL OK`，`tests/test_talent_description_diff.lua` 与全量 32 个文件 `luajit -bl` 通过；上传后回下载 `tome-chn-mod.teaa` 与 `git archive 2f369ec9` 逐字节一致且与 GitHub digest 一致。
+  - 凭据：`evidence/releases/addon-0.3.16.json`，说明：`evidence/releases/addon-0.3.16-release-notes.md`。`i18n/versions/tome-1.7.6.json` 中的 `repositories.addon.commit` pin 保持未动。
 - 编辑原则（2026-11-19 维护者明确指示）：**「优先回归英文原意，只保留真正影响玩法决策的机制纠偏」**。不把 Lua 实现分支或公式细节膨胀写回技能说明。
-- **v0.3.15 后新完成的 Wave 3 两大并行专项（0566–0568，共扫 1,291 单元 → 确认修复 19 条，已双审、17/17 门禁、提交并推送）**
+- **v0.3.16 包含的 Wave 3 两大并行专项（0566–0568，`0a73abb35`，过滤镜像 `df1c78a93`，共扫 1,291 单元 → 确认修复 19 条）**
   - **专项 1：全库状态悬停描述全扫（`timed_effects` 974 单元：核心 magical 227 / physical+floor 197 / mental+other 293 + 三大 DLC 257 → 拦截 `RAVAGE` 误报，修复 16 条）**：
     - 高严重度方向反转修复：`Blighted Soil`（荒芜之地，攻击受击目标染病而非目标被攻击染病）；
     - 伤害/治疗方向与触发机制修复：`Necrotic Air`（不死生物同受治疗惩罚且改用「所有伤害抗性」）、`Poison`（受到的所有治疗效果降低）、`ADRENALINE_SURGE`（`combat_dam`→「物理强度」、体力不足时消耗生命）、`COUNTERSTRIKE`（`Archery.lua:348–349` 核实近战攻击与射击命中均可触发双倍伤害）、`HIDEOUS_VISIONS`（仅对该幻觉以外的目标减伤）、`ENTROPIC_FEEDBACK`（明确治疗后 8 回合承受总伤害，驳回 B 路过度展开 Lua 内部排除条件）、`DREM_FRENZY`（消除单/复数歧义，不注入 Lua 分支）、`NO_HOPE` 与 `TO_THE_ARMS`/`SPIKE_OF_DECREPITUDE` 共享键（双文件统一为「目标造成的伤害降低 %d%%」）；
@@ -12,11 +16,11 @@
   - **专项 2：`mod-tome/class/Object.lua` 装备与物品提示全扫（317 单元 → 修复 3 条）**：
     - 修复 `Talent on hit(spell/nature/mindpower)` 触发条件错位，结合 `damage_types.lua` `is_spell`/`is_nature`/`is_mind` 统一为「法术/自然系技能/精神系技能命中时释放技能：%s（%d%% 几率，等级 %d）。」，并在 `i18n/term-sense-exemptions.json` 登记 `mindpower`（技能类别非精神强度属性）术语豁免；
     - 闭环复审：`0566` A 路 0 ISSUE、B 路 5 条采纳 4 条驳回 1 条；`0567` 复审 4 条中 3/4 双路 OK、采纳 1 条句式润色（`ab6b3e4b01c1`）；`0568` A/B 双路 1/1 OK 收口。
-- **v0.3.15 后新完成的 Wave 2 三大并行专项（0562–0565，`ef5e38028`，过滤镜像 `b9c503d69`，共扫 1,118 单元 → 确认修复 23 条）**
+- **v0.3.16 包含的 Wave 2 三大并行专项（0562–0565，`ef5e38028`，过滤镜像 `b9c503d69`，共扫 1,118 单元 → 确认修复 23 条）**
   - **专项 A：全库逆向资源方向纠偏（102 单元全扫 → 修复 12 条）**：全库排查所有 `equilibrium`（失衡值）/ `paradox`（紊乱值）条目，对照固定核心与 DLC 源码核实正负号，修复 `Object.lua` 面板标签（「每回合失衡值：」/「被击中时降低失衡值：」）、大地之力/岩石藤蔓/自然和谐/粘液/软泥/土龙吞噬/生命之泉/自然回复效果与 Cults 神器共 12 处「回复/恢复失衡值」逆向方向误导；并在 `0564` 双路一致建议下将大地之力（`Stoneshield`）「将 %d%% 伤害转化为法力」修正为「回复相当于所受伤害 %d%% 的法力」（避免误解为抵消伤害）及通过 `talent-placeholder-spacing` 校验；
   - **专项 B：高频核心玩法对话框全扫（624 单元 → 拦截 2 条共享运行时键冲突，修复 7 条）**：全扫 `CharacterSheet`/`LevelupDialog`（264）与其余非调试核心游玩对话框（360）；拦截 `"Dismiss"`（跨 `Birther` 弹窗与 `PartyOrder` 遣散共享）与 `"Active"`（跨 `UseTalents` 与 `ShimmerRemoveSustains` 共享）两处共享运行时键；修复 `CharacterSheet`「所有伤害」多余对齐空格、`Birther`《马基·埃亚尔的传说》译名、`DeathDialog`「另一个位面」、`MapMenu`「让其以玩家为目标」、`PartyOrder`「设置跟随目标」、`ShowStore` 单件收购上限、`UberTalent`「特定职业或种族专属」；
   - **专项 C：新手教程与铭文系统全扫（392 单元 → 铭文 177/177 0 缺陷，教程修复 4 条）**：修复教程 `calc6`「推开挡路的敌人」、`tier2`「闪烁」技能名统一、`tier6` 越层效果方向明晰（「攻击方层级高于防御方」+ 统一弯引号）、`tutorial-combat-stats`「持续效果」术语统一；`0563`/`0565` 复审全部 A 路 OK 收口。
-- **v0.3.15 后新完成的 Wave 1 三大并行专项（0559–0561 + `sample-quality-20261120`，`8e35cd4f2`，过滤镜像 `bc0bd2300`）**
+- **v0.3.16 包含的 Wave 1 三大并行专项（0559–0561 + `sample-quality-20261120`，`8e35cd4f2`，过滤镜像 `bc0bd2300`）**
   - **专项 1：高频开局界面全量清扫（`0559`，732 单元全扫 → 确认修复 29 条）**：
     - 覆盖快捷键（`keybinds` 181 单元）、战役/难度/职业描述（`birth` 399 单元）及种族描述（`birth/races` 152 单元）；
     - 重点修复：`USERCHAT_TALK`「与人交谈」→「在聊天频道发言」、`自动确认目标` 术语统一、克罗格「注射纹身与龙血」→「注射自然药剂与龙血」、死灵法术/战士/狂战士/召唤师/德瑞姆/疯狂与绝望难度去黑话与漏译补全、白蹄天赋顿号与标点统一；`0559` 盲审 A 路 0 ISSUE、B 路 5 条润色全采纳并在 `0561` 复审通过。
@@ -44,7 +48,7 @@
     - 0555 复核全部 49 条残留候选，确认精简 28 条、保留 21 条简洁且影响玩法决策的机制纠偏；0556 盲审微调 3 条；0557 盲审 0 改收口；
     - 在 ToME4 1.7.6 调试控制台对 8 项代表性保留纠偏（陨星火雨、终点、暗影伤口、污印：感应、傀儡重击、虚空碎片、金枪、炮台超载）逐一实测确认与运行时完全一致；
     - 0558（`f6e64afc0`）：按维护者确认将陨星火雨（`tome-ashes-urhrok.lua:1280`）改写为「两颗陨石合计造成 %0.2f 物理和 %0.2f 火焰伤害（每颗各半）」，双路盲审 A/B 均 1/1 OK。
-- 当前最新公开插件：**v0.3.15**（2026-11-20 按维护者「进入下一步」指令发布，发布仓库 master `772d6f5`，从 `519fd5c` 快进，无强推；tag `v0.3.15` 指向 `772d6f5`；公开正式 Release id `452269373`，标记为 Latest；未获当轮直接指示前不发布 v0.3.16）。
+- 上一版本公开插件：**v0.3.15**（2026-11-20 发布，发布仓库 master `772d6f5`，tag `v0.3.15`，Release id `452269373`）。
   - 来源：`f6e64afc0`（lite 批 0539–0558）＋发布仓库 `data/chn_supplement.lua:87` Bloodstream 精简译文。
   - 规模与产物：13,880 条＝核心 8,214＋引擎 205＋DLC 5,461，locale sha256 `4b6df1a8…`；资产 `tome-chn-mod.teaa`，5,044,246 字节，sha256 `5cdfc3f1…`，33 个文件（ZIP_STORED，0 deflated）。
   - 技术核对：对 `f6e64afc0` 跑完整 `tools/ci-gates.sh`（17/17 `ALL GATES PASSED`，`PATH` 前置 `/opt/agents/pi/current/node_modules/.bin`）；`publish` dry-run 与 apply 运行时校验一致（19,144 键，0 missing/mismatched/redundant/unexpected）；`smoke_release.py` 通过（DLC 743/1569/3149 精确一致）；`tests/test_dynamic_desc_fixes.lua` 对新 locale 与源码均 `ALL OK`（含 0.3.14/0.3.15 矩阵），`tests/test_talent_description_diff.lua` 与全量 `luajit -bl` 通过；上传后回下载 `tome-chn-mod.teaa` 与 `git archive 772d6f5c` 逐字节一致且与 GitHub digest 一致。
