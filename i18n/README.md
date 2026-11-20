@@ -6,11 +6,11 @@
 按所属契约保存在受跟踪的 `evidence/`。本文件按命令查询，不是每次修改前的必读清单；检查选择见
 [工作流验证矩阵](../docs/agent-workflow.md#验证矩阵)。
 
-最新已推送 addon 版本：**0.3.14**（2026-11-19，发布仓库 tome4-chn-mod `519fd5c`，由本仓库
-`93f7aadc1`（lite 批 0511–0538：剩余 10 组技能与 Persistant Will 撞名改名、潜行/隐形/陷阱侦测术语统一、两轮分层抽检、换行差异族、343 条技能条件链候选池全部清零、Bloodstream 上游键契约恢复）合入插件代码 `code/dynamic-desc-fixes`（`3580885`：Bloodstream 专用补充键与 Automated Repair System 动态说明修正）后经 `tools/i18n publish --apply --bump` 构建：
-13,831 条＝核心 8,181＋引擎 189＋DLC 5,461，locale sha256 `323b05ad…`。
-GitHub Release [`v0.3.14`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.14) 附带 `tome-chn-mod.teaa`（tag 指向 `519fd5c`，包 sha256 `0d8f2457…`，5,040,169 字节），已回下载核对完整哈希。
-发布凭据见 [`addon-0.3.14.json`](../evidence/releases/addon-0.3.14.json)；上一版 0.3.13 见 [`addon-0.3.13.json`](../evidence/releases/addon-0.3.13.json)。打包方式与游戏内置 `utils/te4_pack_module.sh`
+最新已推送 addon 版本：**0.3.17**（2026-11-20，发布仓库 `tome4-chn-mod` `c1c17b91`，由本仓库
+`10c6cf260`（批次 `0569–0574`：铭文 `short_info` 紧凑精简、社区高频术语与职业名对齐、`stralite`=`蓝锆石` 与 `Dethzaw`/`Dethblyd` 错字风味、15 组经典神器与觉醒/地名/技能树/技能/Boss/词缀专名回调、`taint` 统一为 `污印`）经 `tools/i18n publish --apply --bump` 构建：
+13,821 条＝核心 8,153＋引擎 207＋DLC 5,461（Ashes 743 / Cults 1,569 / Embers 3,149），locale sha256 `a8cf3560…`。
+GitHub Release [`v0.3.17`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.17) 附带 `tome-chn-mod.teaa`（tag 指向 `c1c17b91`，包 sha256 `2899d7c1…`，5,044,600 字节，33 个文件 `ZIP_STORED`），已回下载核对完整哈希。
+发布凭据见 [`addon-0.3.17.json`](../evidence/releases/addon-0.3.17.json)；上一版 0.3.16 见 [`addon-0.3.16.json`](../evidence/releases/addon-0.3.16.json)（更早版本凭据同在 `evidence/releases/`）。当前 `develop` 上另有待发布批次 `0575`（`de3ff2869`），按维护者指示暂留未发。打包方式与游戏内置 `utils/te4_pack_module.sh`
 一致：`git archive` 取干净树后在其中 `zip -r -0`，`init.lua` 位于根目录，文件名为 `for_module-short_name.teaa`（引擎只识别 `tome-` 前缀）。
 `publish --bump` 只递增补丁号，次版本号需手动改发布仓库 `init.lua`（该文件为 CRLF 行尾）。
 

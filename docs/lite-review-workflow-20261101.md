@@ -55,7 +55,8 @@
 
 ## 宿主裁决的现行补充规则
 
-- **英文与实现不符**（用户 2026-11-02）：译文按源码实际效果改写，证据写源码行并注明 upstream text differs；
+- **英文与实现不符**（用户 2026-11-02；2026-11-19 补充精简原则）：优先回归英文原意，**只保留真正影响玩法决策的机制纠偏**，
+  不把 Lua 实现分支或公式细节膨胀写回技能说明。确需按源码实际效果纠偏时，证据写源码行并注明 upstream text differs；
   占位符必须保留，错误在传给占位符的数值本身时（如显示值与实际伤害不同）译文无法纠正，记 advisory。
 - **自拟名称**（物品、神器、技能、效果名等）：按常驻规则交 Gemini 4 Argon（`pi/opencode-go/gemini-4-argon`，
   thinking high，经 `mcpcall.py create_agent`；antigravity 通道曾 OOM，勿用）。连续批次中不逐条停下：
@@ -92,9 +93,15 @@
 ## 进度
 
 `python3 -B tools/lite_review.py status` 报告：当前单元总数、已审（A）、已审（B）、待审。
-最终分母、补充行分类与游戏验收仍在全部条目审完后单独进行。
+最新批次进展与发布对应关系统一维护在 [`handoff.md`](../handoff.md)。
 
-### 2026-11-03 状态
+### 2026-11-20 状态
+
+已推进至第 `0575` 批（账本 27,693 行，覆盖全库首轮双审、多轮专项清扫、两轮说明文精简及 `0571–0575` 社区术语/经典专名回调维护批）。
+`lite_review.py status` 当前为：`release_required_units=29,554`、`reviewed_A=29,292`、`reviewed_B=29,292`、`pending_A=262`（均为维护者直接授权的维护批 `0571–0575` 改动单元）、`pending_B_backfill=0`。
+插件已发布至 `v0.3.17`（覆盖至 `0574`），`0575` 暂留 `develop`。
+
+### 2026-11-03 状态（历史节点）
 
 当前 29,545 个 release-required 单元 A、B 全部覆盖（`status`：`pending_A` 0、`pending_B_backfill` 0），
 第 0001–0316 批，账本 22,533 行（ok 21,580、confirmed 854、advisory 70、rejected 29），维护批 7 个

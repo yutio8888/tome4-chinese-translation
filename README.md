@@ -11,17 +11,19 @@
 - 目标游戏版本：ToME4 1.7.6。
 - 官方 DLC：Ashes of Urh'Rok、Cults of Entropy、Embers of Rage 使用已冻结提取快照；
   源码仓库／commit 未固定，不能据快照认定源码版本为 1.7.4。
-- 规范译文：30,308 条；最近一次累计严格 lint、运行键扫描和核心 addon 构建均通过。
-- 发布 addon：`tome-chn-mod` 0.2.7，发布提交 `9cdbd30`；主 locale 共 8,949 条，
-  其中核心覆盖 3,488 条、DLC 覆盖 5,461 条（Nullpack 464 条由独立文件加载）。
+- 规范译文：**30,317 条**（11 个组件），版本化术语库 **931 条**（11 领域）；完整 17 项 CI 门禁
+  （`tools/ci-gates.sh`，含严格 lint、运行键冲突扫描、术语静态/动态审计与核心 addon 构建）全部通过。
+- 最新公开插件：`tome-chn-mod` **[`v0.3.17`](https://github.com/yutio8888/tome4-chn-mod/releases/tag/v0.3.17)**（2026-11-20，发布提交 `c1c17b91`，来源本仓库 `10c6cf260`）；
+  主 locale 共 **13,821 条**，其中核心覆盖 8,153 条、引擎覆盖 207 条、DLC 覆盖 5,461 条
+  （Ashes 743 / Cults 1,569 / Embers 3,149；Nullpack 443 条由独立文件加载）。
 - Facts 因果研究：正式结论为 `do-not-promote-facts-channel`，不授予 holdout
   准入；详见 [`docs/translation-quality-facts-study-report-v1.md`](deprecated/docs/translation-quality-facts-study-report-v1.md)。
-- 当前执行路线（2026-09-29）：正式 WP2-Lite 审核以每批 80 条持续推进，已完成并
-  finalize 至第 372 批，修复窗口闭合至 56；首轮审核队列已耗尽（29828 条中 29812 done、16 blocked），
-  应维护者要求暂停。维护者授权连续主持，逐批自动推进，修复项攒满 20 条后开合并修复窗口。
-  当前状态与待办见 [`handoff.md`](handoff.md)。
-  广泛的全库清扫作为独立的有界维护窗口执行，不混入正常批次。当前操作入口、每步命令与生效裁决表见
-  [`审核操作指南`](docs/review-operations-guide.md)；编排脚本用法见
+- 当前执行路线（2026-11-20）：采用 2026-11-01 起启用的[轻量审核流程](docs/lite-review-workflow-20261101.md)，
+  已完成 29,554 个 release-required 单元的全库双审、多轮专项清扫（开局 UI、装备提示、状态悬停、逆向资源、核心对话框、新手教程、铭文短描述）、
+  说明文精简以及社区高频术语与经典专名回调（累计推进至第 **`0575`** 批）。当前 `develop` 上有待发布维护批 `0575`（`de3ff2869`），
+  按维护者指示暂留 `develop` 尚未发布 `v0.3.18`。
+  当前详细状态、现行编辑红线与待办见 [`handoff.md`](handoff.md)；
+  历史 WP2-Lite 规则与生效裁决表见 [`审核操作指南`](docs/review-operations-guide.md)；编排脚本用法见
   [`tools/orchestration/README.md`](tools/orchestration/README.md)；历史阶段见
   [`项目路线图`](docs/project-roadmap.md)。已被取代的设计稿、阶段计划与一次性交接
   统一收在 [`deprecated/`](deprecated/README.md)，不作为任何操作依据。

@@ -1,15 +1,24 @@
-# 当前恢复入口（2026-11-20 交接：**develop 含待发布批次 `0575`**，当前公开最新插件仍为 **`v0.3.17`**）
+# 当前恢复入口（2026-11-20 交接：**`develop` 含待发布批次 `0575`**，当前公开最新插件仍为 **`v0.3.17`**）
 
 **交接快照（2026-11-20，最新，优先阅读）**
-- 仓库状态：译文 `develop` 最新内容批次是 **`0575`**（待发布，按维护者指示暂留 `develop` 尚未发布 `v0.3.18`），已通过 17/17 完整 `tools/ci-gates.sh` 并同步过滤镜像。两个仓库工作树干净，没有进行中的门禁或子代理。
+- 仓库状态：
+  - 译文仓库 `tome4-chinese-translation`（`develop`）最新内容批次为 **`0575`**（提交 `de3ff2869`，过滤镜像 `b20db50e86`，按维护者指示**暂留 `develop`，尚未发布 `v0.3.18`**），已通过 17/17 完整 `tools/ci-gates.sh`；工作树干净，无进行中的门禁或子代理。
+  - 发布仓库 `tome4-chn-mod`（`master`）停留在 **`v0.3.17`**（提交 `c1c17b91`，tag `v0.3.17`，GitHub Release id `452645190`）；工作树干净。
+- 当前库内实时指标（2026-11-20 核实）：
+  - 规范译文：**30,317 条**（11 组件；`tools/i18n lint --strict` 0 errors / 0 warnings）；术语库：**931 行**（11 领域，`terminology/*.tsv` 保持 931 行不变）。
+  - 相对固定官方 1.7.6 locale 改动量（`tools/i18n status`）：`tome` `same=10,990 / changed=8,017 / new=130 / official-only=7`；`engine` `same=726 / changed=223 / new=2`；`boot` `same=180 / changed=56 / new=7 / official-only=3`。
+  - 轻量审核队列（`tools/lite_review.py status`）：29,554 个 release-required 单元中 `reviewed_A=29,292 / reviewed_B=29,292 / pending_A=262 / pending_B_backfill=0`。该 262 条 `pending_A` 全部来自维护者直接授权的维护批 `0571–0575`（`engine.lua` 2、`mod-tome.lua` 209、`tome-ashes-urhrok.lua` 9、`tome-cults.lua` 9、`tome-orcs.lua` 33），此前至 `0570` 结束时为 29,554/29,554 全清零。
 - **`develop` 待发布内容（位于 `v0.3.17` 来源 `10c6cf260` 之上）**
-  - **0575 墓穴召唤与地窖地名/伴随文案统一（维护批，17/17 完整门禁通过）**：`mod-tome.lua` 共 12 处精确编辑（`terminology/*.tsv` 保持 931 条不变）：① 亡灵系技能 `Call of the Crypt` 回调为 `墓穴召唤`（原 `地宫召唤`）；② `Shadow Crypt` 回调为 `阴影地窖`、`Entrance to a dark crypt` 回调为 `阴影地窖入口`（2 处区名 + 1 处入口）；③ `Dark crypt`（`crypt-kryl-feijan`）伴随文案（区名 `Crypt`、遭遇提示/选项、`greater-crypt` 地形变化、卡洛·斐济逃脱任务日志、梅琳达对话共 8 处）由 `地宫` 统一为 `地窖`（`Forsaken Crypt` 保持 `废弃地宫`）。
+  - **0575 墓穴召唤与地窖地名/伴随文案统一（`de3ff2869`，过滤镜像 `b20db50e86`，维护批，17/17 完整门禁通过）**：`mod-tome.lua` 共 12 处精确编辑（`terminology/*.tsv` 保持 931 条不变）：① 亡灵系技能 `Call of the Crypt` 回调为 `墓穴召唤`（原 `地宫召唤`）；② `Shadow Crypt` 回调为 `阴影地窖`、`Entrance to a dark crypt` 回调为 `阴影地窖入口`（2 处区名 + 1 处入口）；③ `Dark crypt`（`crypt-kryl-feijan`）伴随文案（区名 `Crypt`、遭遇提示/选项、`greater-crypt` 地形变化、卡洛·斐济逃脱任务日志、梅琳达对话共 8 处）由 `地宫` 统一为 `地窖`（`Forsaken Crypt` 保持 `废弃地宫`）。
 - 当前最新公开插件：**v0.3.17**（2026-11-20 发布，发布仓库 `tome4-chn-mod` master `c1c17b91`，tag `v0.3.17`，Release id `452645190`，工作树干净）。
   - 来源：`10c6cf260`（批次 `0569–0574`，位于 `v0.3.16` 来源 `0a73abb35` 之上）。
-  - 规模与产物：13,821 条＝核心 8,153＋引擎 207＋DLC 5,461（Ashes 743 / Cults 1,569 / Embers 3,149），locale sha256 `a8cf3560…`；资产 `tome-chn-mod.teaa`，5,044,600 字节，sha256 `2899d7c1…`，33 个文件（`ZIP_STORED`，0 deflated）。
+  - 规模与产物：13,821 条＝核心 8,153＋引擎 207＋DLC 5,461（Ashes 743 / Cults 1,569 / Embers 3,149），locale sha256 `a8cf3560…`；资产 `tome-chn-mod.teaa`，5,044,600 字节，sha256 `2899d7c1…`，33 个文件（`ZIP_STORED`，0 deflated）；`data/null_translation.lua` 443 条独立加载。
   - 技术核对：对 `10c6cf260` 跑完整 `tools/ci-gates.sh`（17/17 `ALL GATES PASSED`）；`publish` dry-run 与 apply 运行时校验一致（19,144 键，0 missing/mismatched/redundant/unexpected）；`smoke_release.py` 通过（13,821 条；DLC 743/1,569/3,149 精确一致；null_translation 443 条）；`tests/test_dynamic_desc_fixes.lua` 对新 locale 与源码对比 `v0.3.16` 均 `ALL OK`，`tests/test_talent_description_diff.lua` 与全量 32 个文件 `luajit -bl` 通过；上传后回下载 `tome-chn-mod.teaa` 与 `git archive c1c17b91` 逐字节一致且与 GitHub digest 一致。
   - 凭据：`evidence/releases/addon-0.3.17.json`，说明：`evidence/releases/addon-0.3.17-release-notes.md`。`i18n/versions/tome-1.7.6.json` 中的 `repositories.addon.commit` pin 保持未动。
-- 编辑原则（2026-11-19 维护者明确指示）：**「优先回归英文原意，只保留真正影响玩法决策的机制纠偏」**。不把 Lua 实现分支或公式细节膨胀写回技能说明。
+- **现行编辑原则与社区共识红线（2026-11-19 / 11-20 维护者明确裁决，后续勿回退）**：
+  - **说明文原则**：**「优先回归英文原意，只保留真正影响玩法决策的机制纠偏」**。不把 Lua 实现分支或公式细节膨胀写回技能说明。
+  - **高频术语与职业名**：`global speed`=`整体速度`、`Nightmare`=`梦魇`、`Possessor`=`支配者`、`Writhing One`=`苦痛者`、`Gunslinger`/`gunslinging`=`枪手`（敌对 NPC 保持`快枪手`防撞名）、`Corruptor` 保持 `腐化者`、`Shadowblade` 统一 `影舞者`、`Status resistances:`=`状态效果免疫：`、`critical multiplier`=`暴击伤害`、`Rune: Manasurge`=`符文：法力风暴`（`Manaflow` 保持 `法力涌动`）、`taint` 铭文统一 `污印`、`stralite`=`蓝锆石`。
+  - **经典专名与词缀**：`Dethzaw`/`Dethblyd` 保留故意错字风味（`死忘链据`/`死忘太剑`）；15 组经典神器、8 个回调觉醒技（保留 `心灵暴政`/`法术反馈`）、`黑暗地窖`/`阴影地窖`/`里奇虫巢`/`乌瑞斯拉克沉睡处`、`Call of the Crypt`=`墓穴召唤`、6 个回调技能树（`支配`/`具象之弧`/`唯我主义`/`唯心主义`/`街头格斗`/`梦境锻造`）、6 个回调普通技能（`特种训练`/`石化皮肤`/`湮灭洪流`/`时光凋零`/`烟雾弹`/`快速射击`）、3 个回调 Boss（`傀儡之王阿塔玛森`/`卡洛·斐济`/`代号“Z”`）、`conjurer's`/`of conjuration`/`astral conjurer`/`of perfection`/`stormwoven`/`Dwarven Resilience`（`咒术师的`/`咒语之`/`星空咒术师`/`完美之`/`织岚的`/`矮人坚韧`）。
 - **v0.3.17 包含内容（`0569–0574`，已随 v0.3.17 公开上线）**
   - **0574 词缀/状态回调与污印统一（`10c6cf260`，维护批，17/17 完整门禁通过）**：回调 `conjurer's`/`conjurer`/`of conjuration`/`conjure`/`astral conjurer`（`咒术师的`/`咒术师`/`咒语之`/`咒语`/`星空咒术师`）、`of perfection`/`perfection`（`完美之`/`完美`）、`stormwoven`（`织岚的`）、`Dwarven Resilience`（`矮人坚韧`），并补齐 `Taint: Devourer` / `Taint: Purging` 描述将 `taint` 铭文 100% 统一为 `污印`。
   - **0573 觉醒技/地名/技能树/技能/Boss 经典专名回调（`b3c00b716`，维护批，17/17 完整门禁通过）**：先同步 `terminology/{places,society,talents}.tsv`（保持 931 条），再更新 4 个译文 Lua 文件（共 108 处精确编辑、0 残留）：① 觉醒技保留 `心灵暴政`/`法术反馈`，其余 8 个回调（`自由格斗`、`和风守护`、`弧光之盾`、`奥术之握`、`战争践踏`+骷髅王引用、`化作星星吧！！`+骷髅王引用、`巨人之锤`、`纳鲁精灵的馈赠`+成就/三叉戟）；② 地名回调 `黑暗地窖`、`里奇虫巢`、`乌瑞斯拉克沉睡处`（含入口/任务/成就）；③ 技能树回调 `支配`（支配者 DLC，保留 `Assume Form`/`Possess`=`附身`）、`具象之弧`（含全树技能与说明）、`唯我主义`、`唯心主义`、`街头格斗`（含游侠觉醒引用）、`梦境锻造`（含技能引用）；④ 普通技能回调 `特种训练`、`石化皮肤`、`湮灭洪流`、`时光凋零`、`烟雾弹`、`快速射击`（含同名状态、精通与技能交叉引用）；⑤ Boss 回调 `傀儡之王阿塔玛森`、`卡洛·斐济`（跨 4 文件 0 残留）、`代号“Z”`（实体/描述/奥克纪事同步；红帕兰日志保留实验体 A-Z），并将敌对 NPC `shadowblade`（2 处）与职业名统一为 `影舞者`。
@@ -21,7 +30,7 @@
   - **专项 1：全库状态悬停描述全扫（`timed_effects` 974 单元：核心 magical 227 / physical+floor 197 / mental+other 293 + 三大 DLC 257 → 拦截 `RAVAGE` 误报，修复 16 条）**：
     - 高严重度方向反转修复：`Blighted Soil`（荒芜之地，攻击受击目标染病而非目标被攻击染病）；
     - 伤害/治疗方向与触发机制修复：`Necrotic Air`（不死生物同受治疗惩罚且改用「所有伤害抗性」）、`Poison`（受到的所有治疗效果降低）、`ADRENALINE_SURGE`（`combat_dam`→「物理强度」、体力不足时消耗生命）、`COUNTERSTRIKE`（`Archery.lua:348–349` 核实近战攻击与射击命中均可触发双倍伤害）、`HIDEOUS_VISIONS`（仅对该幻觉以外的目标减伤）、`ENTROPIC_FEEDBACK`（明确治疗后 8 回合承受总伤害，驳回 B 路过度展开 Lua 内部排除条件）、`DREM_FRENZY`（消除单/复数歧义，不注入 Lua 分支）、`NO_HOPE` 与 `TO_THE_ARMS`/`SPIKE_OF_DECREPITUDE` 共享键（双文件统一为「目标造成的伤害降低 %d%%」）；
-    - 术语与量词修复：`WET`「震慑抗性」→「震慑免疫」、三处「整体速度」→「全局速度」、脓包补量词「%d 个脓包」；核心 `mental+other` 293/293 零缺陷。
+    - 术语与量词修复：`WET`「震慑抗性」→「震慑免疫」、三处「整体速度」→「全局速度」（注：0571 已按社区共识全库统一回「整体速度」）、脓包补量词「%d 个脓包」；核心 `mental+other` 293/293 零缺陷。
   - **专项 2：`mod-tome/class/Object.lua` 装备与物品提示全扫（317 单元 → 修复 3 条）**：
     - 修复 `Talent on hit(spell/nature/mindpower)` 触发条件错位，结合 `damage_types.lua` `is_spell`/`is_nature`/`is_mind` 统一为「法术/自然系技能/精神系技能命中时释放技能：%s（%d%% 几率，等级 %d）。」，并在 `i18n/term-sense-exemptions.json` 登记 `mindpower`（技能类别非精神强度属性）术语豁免；
     - 闭环复审：`0566` A 路 0 ISSUE、B 路 5 条采纳 4 条驳回 1 条；`0567` 复审 4 条中 3/4 双路 OK、采纳 1 条句式润色（`ab6b3e4b01c1`）；`0568` A/B 双路 1/1 OK 收口。
@@ -78,15 +87,17 @@
   - 限制：回退路径仍显示上游自身不准的数值（但不再错配措辞）；单元测试使用测试桩数值，未在实机运行；代码复审 advisory 建议把真实 I18N harness 并入长期测试，尚未做。
 
 **未决与可选的下一步（均未开始）**
-- 玩家对 v0.3.14 的发布后验收反馈（尤其是 Bloodstream 与 Automated Repair System 两处新挂钩，以及 0511–0538 改动的实机显示）。
-- advisory 未处理：共享 `" and "` 连接词（岩石尖刺）、ego 名称、熵之魔杖上游 6/10 回合不一致、0530–0536 记录的 13 条上游 Type ③ 数值/逻辑不一致、将真实 I18N harness 并入插件长期测试。
-- 技能撞名的其余跨类候选、潜行/隐形侦测术语进一步统一：没有授权。
-- 实机未覆盖项（托马克另 2 条技能、艾格尼尔攻防页、沃尔其余页面、半神效果图标、水晶球激活界面、其余配件配方说明）只作玩家检查点；现行流程不再开本地实测。
-- 22 条死键按原决定保留。
+- **待发布队列（需维护者指示发版）**：`develop` 当前领先 `v0.3.17` 来源 1 个内容批次 **`0575`**（`de3ff2869`：`墓穴召唤`、`阴影地窖`、`黑暗地窖` 伴随文案统一），按指示暂留 `develop`，等待后续一并发布 **`v0.3.18`**。
+- **维护批复审可选项**：`lite_review.py status` 当前显示 `pending_A=262`（对应维护批 `0571–0575` 经维护者直接授权修改后的 revision 变更），如需让轻量账本回到 `pending_A=0`，可按盲审规则对这 262 条补跑一轮轻量复审或保持现状。
+- **发布后玩家反馈**：持续关注玩家对 `v0.3.17`（含 `v0.3.14–v0.3.17` 的动态数值挂钩、说明精简、铭文短描述及社区术语回调）在 `tome4-chn-mod` GitHub Issues 的实机验收反馈。
+- **历史 advisory 未处理**：共享 `" and "` 连接词（岩石尖刺）、熵之魔杖上游 6/10 回合不一致、0530–0536 记录的 13 条上游 Type ③ 数值/逻辑不一致、将真实 I18N harness 并入插件长期测试。
+- **未授权项（勿自主扩大）**：技能撞名的其余跨类候选、潜行/隐形侦测术语进一步统一；22 条死键按原决定保留；实机未覆盖项只作玩家检查点，现行流程不再开本地实测。
 
 **恢复注意**
-- 运行 `tools/ci-gates.sh`（特别是 `04-quality-facts-unit-tests`）时需前置 `PATH=/opt/agents/pi/current/node_modules/.bin:$PATH`，并设置 `TOME_LUAJIT=/usr/bin/luajit`、`TOME_LUAROCKS_ROOT=/opt/tome4-luarocks`。
-- 每批先写 `decision.json`，再 `strict` → `record` → `lite_close`；需要追加 prompt/context 的批次，用 `lite_review.py prepare N --units` 后手工追加，再 `lite_dispatch.sh`。`lite_close` 的 NEXT 留空。
+- 运行 `tools/ci-gates.sh` 或 `tools/lite_gates.py <N> --full`（特别是 `04-quality-facts-unit-tests`）时需前置 `PATH=/opt/agents/pi/current/node_modules/.bin:$PATH`，并设置 `TOME_LUAJIT=/usr/bin/luajit`、`TOME_LUAROCKS_ROOT=/opt/tome4-luarocks`。
+- `terminology/*.tsv` 当前总行数由 `tests/i18n/test_toolchain_static_audit.py` 断言为 **931 行**；非必要不增删行数，修改译名时同步更新对应行即可。
+- `i18n/versions/tome-1.7.6.json` 中的 `repositories.addon.commit` pin 保持不动。
+- 每批先写 `decision.json`（或维护批写 `maintenance.json`），再 `strict` → `record` → `lite_close`（或 `lite_gates.py N --full` + `tools/push_github.sh`）；需要追加 prompt/context 的批次，用 `lite_review.py prepare N --units` 后手工追加，再 `lite_dispatch.sh`。`lite_close` 的 NEXT 留空。
 - 发布仓库后续若继续维护，`master` 已包含 `code/dynamic-desc-fixes`（`3580885`），可按需清理旧分支。
 - Workspace `wks_420314270844170b`。
 
